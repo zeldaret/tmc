@@ -1,10 +1,18 @@
 #include "object.h"
 #include "functions.h"
 
-extern void (*const gUnk_0811EE38[])(Entity*);
+void sub_08081AE0(Entity*);
+void sub_08081B84(Entity*);
+void sub_08081BAC(Entity*);
+void sub_08081BE0(Entity*);
+void sub_08081C30(Entity*);
+void sub_08081C98(Entity*);
 
 void Button(Entity* this) {
-    gUnk_0811EE38[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08081AE0, sub_08081B84, sub_08081BAC, sub_08081BE0, sub_08081C30, sub_08081C98,
+    };
+    actionFuncs[this->action](this);
 }
 
 extern u32 sub_08081E3C(Entity*);
@@ -172,11 +180,12 @@ u32 sub_08081E0C(Entity* this) {
     }
 }
 
-extern u16 gUnk_0811EE50[];
-
 u32 sub_08081E3C(Entity* this) {
-    u16* tmp1;
-    int tmp2;
+    static const u16 gUnk_0811EE50[] = {
+        0x77, 0x78, 0x79, 0x7a, 0, 0,
+    };
+    const u16* tmp1;
+    s32 tmp2;
     tmp2 = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     tmp1 = gUnk_0811EE50;
     do {

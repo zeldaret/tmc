@@ -51,10 +51,14 @@ u32 sub_08080278();
 void sub_08080C80(u32*);
 void sub_08080368();
 void sub_08080B60(u8*);
+bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
+bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
+void sub_080808D8(s32);
+void sub_080808E4(s32);
+void sub_08080904(s32);
+void sub_08080910(s32);
 
 extern u8 gMapDataTopSpecial[];
-
-extern const void (*const gUnk_0811E7C4[])(int);
 
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
@@ -100,7 +104,7 @@ void sub_0807FDE4(RoomControls* controls) {
 void sub_0807FDF8(RoomControls* controls) {
     u32 bVar1;
     Entity* pEVar2;
-    int iVar3;
+    s32 iVar3;
 
     gUpdateVisibleTiles = 2;
     controls->filler2[0]++;
@@ -214,12 +218,12 @@ void sub_0807FFE4(RoomControls* controls) {
 }
 
 void sub_08080040(RoomControls* controls) {
-    int iVar2;
-    int iVar3;
-    int uVar5;
-    int uVar6;
-    int iVar7;
-    int temp;
+    s32 iVar2;
+    s32 iVar3;
+    s32 uVar5;
+    s32 uVar6;
+    s32 iVar7;
+    s32 temp;
 
     controls->filler2[0] -= 6;
     controls->filler2[1] = (controls->filler2[0] << 1) / 3;
@@ -281,12 +285,12 @@ void sub_08080198(RoomControls* controls) {
 }
 
 void sub_080801BC(RoomControls* controls) {
-    int iVar2;
-    int iVar3;
-    int uVar5;
-    int uVar6;
-    int iVar7;
-    int temp;
+    s32 iVar2;
+    s32 iVar3;
+    s32 uVar5;
+    s32 uVar6;
+    s32 iVar7;
+    s32 temp;
 
     controls->filler2[0] += 6;
     controls->filler2[1] = (controls->filler2[0] << 1) / 3;
@@ -357,15 +361,118 @@ void ClearTilemaps(void) {
     MemClear(&gMapDataTopSpecial, 0x8000);
 }
 
-ASM_FUNC("asm/non_matching/scroll/sub_080806BC.inc", bool32 sub_080806BC(u32 a, u32 b, u32 c, u32 d))
+bool32 sub_080806BC(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
+    static bool32 (*const gUnk_0811E7AC[])(const Transition*, u32, u32, u32) = {
+        sub_08080794,
+        sub_08080808,
+        sub_08080794,
+        sub_08080808,
+    };
+    u32 uVar1;
+    s32 iVar2;
+    const Transition* puVar3;
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080734.inc", void sub_08080734())
+    puVar3 = (gArea.pCurrentRoomInfo->exits);
+    while (*(u16*)puVar3 != 0xffff) {
+        u32 uVar3 = *(u16*)puVar3;
+        if ((((1 << uVar3) & param_4) != 0) && (gUnk_0811E7AC[uVar3](puVar3, param_1, param_2, param_3))) {
+            DoExitTransition((const ScreenTransitionData*)puVar3);
+            return 1;
+        }
+        puVar3++;
+    }
+    return 0;
+}
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080794.inc", void sub_08080794())
+const Transition* sub_08080734(u32 param_1, u32 param_2) {
+    u32 warpType;
+    s32 iVar2;
+    u32 uVar4;
+    const Transition* puVar3;
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080808.inc", void sub_08080808())
+    puVar3 = (gArea.pCurrentRoomInfo->exits);
+    uVar4 = 10;
+    while (*(u16*)puVar3 != 0xffff) {
+        if ((((1 << *(u16*)puVar3) & uVar4) != 0) && (sub_08080808(puVar3, param_1, param_2, 0))) {
+            return puVar3;
+        }
+        puVar3++;
+    }
+    return NULL;
+}
+
+bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4) {
+    u32 bVar1;
+
+    switch (param_4) {
+        default:
+            return 0;
+        case 0:
+            if (gRoomControls.width >> 1 < param_2) {
+                bVar1 = 2;
+            } else {
+                bVar1 = 1;
+            }
+            break;
+        case 1:
+            if (gRoomControls.height >> 1 < param_3) {
+                bVar1 = 8;
+            } else {
+                bVar1 = 4;
+            }
+            break;
+        case 2:
+            if (gRoomControls.width >> 1 < param_2) {
+                bVar1 = 0x20;
+            } else {
+                bVar1 = 0x10;
+            }
+            break;
+        case 3:
+            if (gRoomControls.height >> 1 < param_3) {
+                bVar1 = 0x80;
+            } else {
+                bVar1 = 0x40;
+            }
+            break;
+    }
+
+    if ((transition->shape & bVar1) != 0) {
+        return 1;
+    }
+    return 0;
+}
+
+bool32 sub_08080808(const Transition* param_1, u32 param_2, u32 param_3, u32 param_4) {
+    static const u8 gUnk_0811E7BC[] = { 6, 6, 6, 14, 14, 6, 22, 6 };
+    const u8* ptr;
+    u32 temp;
+    u32 temp2;
+    u32 temp3;
+    u32 temp4;
+    ptr = &gUnk_0811E7BC[param_1->shape * 2];
+    temp = ptr[0];
+    temp2 = param_2 - param_1->startX;
+    if ((temp2 + temp <= ptr[0] * 2)) {
+        temp3 = ptr[1];
+        temp4 = param_3 - param_1->startY;
+        if (temp4 + temp3 <= ptr[1] * 2) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } else {
+        return FALSE;
+    }
+}
 
 void DoExitTransition(const ScreenTransitionData* data) {
+    static void (*const gUnk_0811E7C4[])(s32) = {
+        sub_080808D8,
+        sub_080808E4,
+        sub_08080904,
+        sub_08080910,
+    };
     PlayerRoomStatus* status;
     gRoomTransition.transitioningOut = 1;
     status = &gRoomTransition.player_status;
@@ -390,11 +497,11 @@ void DoExitTransition(const ScreenTransitionData* data) {
     gUnk_0811E7C4[data->type](data->field_0xa);
 }
 
-void sub_080808D8(void) {
+void sub_080808D8(s32 param_1) {
     gRoomTransition.type = TRANSITION_DEFAULT;
 }
 
-void sub_080808E4(void) {
+void sub_080808E4(s32 param_1) {
     if (CheckAreaOverworld(gRoomTransition.player_status.area_next)) {
         gRoomTransition.type = TRANSITION_DEFAULT;
     } else {
@@ -402,11 +509,11 @@ void sub_080808E4(void) {
     }
 }
 
-void sub_08080904(void) {
+void sub_08080904(s32 param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
-void sub_08080910(void) {
+void sub_08080910(s32 param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
@@ -469,8 +576,8 @@ void sub_08080974(u32 arg0, u32 arg1) {
 }
 
 void sub_080809D4(void) {
-    int x, y;
-    int var1, var0;
+    s32 x, y;
+    s32 var1, var0;
     RoomControls* roomControls = &gRoomControls;
     roomControls->scroll_flags &= ~4;
 

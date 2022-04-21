@@ -13,8 +13,6 @@ void sub_0806EABC(Entity* this);
 void sub_0806EABC(Entity* this, u32 param);
 #endif
 
-extern Font gUnk_081146B8;
-
 void Phonograph(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
@@ -87,7 +85,7 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
             this->field_0x6a.HWORD = this->field_0x68.HWORD;
             field_0x68 = (s16)this->field_0x68.HWORD * 4;
             ptr2++;
-            this->field_0x6c.HWORD = *(s16*)((((int)ptr2 + field_0x68)));
+            this->field_0x6c.HWORD = *(s16*)((((s32)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
             this->field_0x6a.HWORD = 0;
@@ -169,7 +167,7 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
             this->field_0x6a.HWORD = this->field_0x68.HWORD;
             field_0x68 = (s16)this->field_0x68.HWORD * 4;
             ptr2++;
-            this->field_0x6c.HWORD = *(s16*)((((int)ptr2 + field_0x68)));
+            this->field_0x6c.HWORD = *(s16*)((((s32)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
             this->field_0x6a.HWORD = 0;
@@ -186,6 +184,10 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 #endif
+
+const static Font gUnk_081146B8 = {
+    (u16*)0x2034fce, (void*)0x0600d000, (void*)0x2000d00, 0, 0xf080, 0xd0, 1, 1, 1, 1, 0, 0, 0, 1, 0
+};
 
 #ifdef EU
 void sub_0806EABC(Entity* this) {

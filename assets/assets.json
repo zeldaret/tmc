@@ -40794,26 +40794,6 @@
     "type": "sprite_frame"
   },
   {
-    "path": "itemBomb/gUnk_0811BDAC.bin",
-    "start": 1162668,
-    "size": 8
-  },
-  {
-    "path": "itemMoleMitts/gUnk_0811BE14.bin",
-    "start": 1162772,
-    "size": 2
-  },
-  {
-    "path": "itemMoleMitts/gUnk_0811BE16.bin",
-    "start": 1162774,
-    "size": 8
-  },
-  {
-    "path": "itemMoleMitts/gUnk_0811BE1E.bin",
-    "start": 1162782,
-    "size": 10
-  },
-  {
     "path": "data_0811BE38/gUnk_0811BE38.bin",
     "start": 1162808,
     "size": 8
@@ -41026,16 +41006,6 @@
     }
   },
   {
-    "path": "data_0811E750/gUnk_0811E7BC.bin",
-    "start": 1173436,
-    "size": 8
-  },
-  {
-    "path": "itemOnGround/gUnk_0811E84C.bin",
-    "start": 1173580,
-    "size": 944
-  },
-  {
     "path": "animations/gSpriteAnimations_DeathFx_1_0.bin",
     "start": 1174740,
     "size": 121,
@@ -41058,11 +41028,6 @@
     "start": 1174967,
     "size": 89,
     "type": "animation"
-  },
-  {
-    "path": "button/gUnk_0811EE50.bin",
-    "start": 1175120,
-    "size": 12
   },
   {
     "path": "animations/gSpriteAnimations_MinishEmoticon_2.bin",
@@ -42005,11 +41970,6 @@
     "start": 1181168,
     "size": 4,
     "type": "animation"
-  },
-  {
-    "path": "railtrack/gUnk_081205E0.bin",
-    "start": 1181152,
-    "size": 4
   },
   {
     "path": "lilypadLarge/gUnk_08120620.bin",

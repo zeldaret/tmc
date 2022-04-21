@@ -1,10 +1,15 @@
 #include "item.h"
 #include "functions.h"
 
-extern void (*const gUnk_0811BD78[])(ItemBehavior*, u32);
+void sub_08075D2C(ItemBehavior*, u32);
+void sub_08075D88(ItemBehavior*, u32);
 
 void ItemBoomerang(ItemBehavior* this, u32 idx) {
-    gUnk_0811BD78[this->stateID](this, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08075D2C,
+        sub_08075D88,
+    };
+    stateFuncs[this->stateID](this, idx);
 }
 
 void sub_08075D2C(ItemBehavior* this, u32 idx) {

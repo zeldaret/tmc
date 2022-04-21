@@ -4,10 +4,17 @@
 #include "sound.h"
 #include "functions.h"
 
-extern void (*const gUnk_0811BDE8[])(ItemBehavior* beh, u32);
+void sub_08076D04(ItemBehavior*, u32);
+void sub_08076D34(ItemBehavior*, u32);
+void sub_08076D94(ItemBehavior*, u32);
 
 void ItemShield(ItemBehavior* beh, u32 idx) {
-    gUnk_0811BDE8[beh->stateID](beh, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08076D04,
+        sub_08076D34,
+        sub_08076D94,
+    };
+    stateFuncs[beh->stateID](beh, idx);
 }
 
 void sub_08076D04(ItemBehavior* beh, u32 idx) {

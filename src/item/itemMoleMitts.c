@@ -5,21 +5,23 @@
 #include "effects.h"
 #include "object.h"
 
-extern void (*const gUnk_0811BE04[])(ItemBehavior*, u32);
-
 s32 sub_080774A0(void);
-
-extern u8 gUnk_0811BE14[];
 extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
-
 extern void UpdatePlayerMovement(void);
-
 extern bool32 sub_0807B5B0(Entity*);
-
-extern const s16 gUnk_0811BE16[];
+void sub_08077130(ItemBehavior*, u32);
+void sub_080771C8(ItemBehavior*, u32);
+void sub_080772A8(ItemBehavior*, u32);
+void sub_08077448(ItemBehavior*, u32);
 
 void ItemMoleMitts(ItemBehavior* this, u32 idx) {
-    gUnk_0811BE04[this->stateID](this, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08077130,
+        sub_080771C8,
+        sub_080772A8,
+        sub_08077448,
+    };
+    stateFuncs[this->stateID](this, idx);
 }
 
 void sub_08077130(ItemBehavior* this, u32 idx) {
@@ -53,6 +55,10 @@ void sub_08077130(ItemBehavior* this, u32 idx) {
 }
 
 void sub_080771C8(ItemBehavior* this, u32 idx) {
+    static const u8 gUnk_0811BE14[] = {
+        0x1,
+        0x12,
+    };
     Entity* object;
 
     UpdateItemAnim(this);
@@ -90,6 +96,12 @@ void sub_080771C8(ItemBehavior* this, u32 idx) {
 }
 
 void sub_080772A8(ItemBehavior* this, u32 idx) {
+    static const s16 gUnk_0811BE16[] = {
+        0,
+        0xc0,
+        0x100,
+        0x180,
+    };
     Entity* effect;
 
     if (((this->field_0x5[9] & 8) != 0) && sub_08077F10(this)) {
@@ -161,4 +173,23 @@ void sub_08077448(ItemBehavior* this, u32 idx) {
     }
 }
 
-ASM_FUNC("asm/non_matching/itemMoleMitts/sub_080774A0.inc", s32 sub_080774A0(void))
+s32 sub_080774A0(void) {
+    static const s8 gUnk_0811BE1E[] = { 0, -13, 13, 0, 0, 16, -13, 0, 0, 0 };
+    u32 iVar2;
+    u32 uVar3;
+
+    uVar3 = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
+                                 -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
+
+    iVar2 = sub_080B1B44(uVar3, gPlayerEntity.collisionLayer);
+
+    if (iVar2 > 0x16)
+        return 0;
+    if (iVar2 < 0xf)
+        return 0;
+    if (sub_080B1AE0(uVar3, gPlayerEntity.collisionLayer) != 0x56) {
+        return 1;
+    } else {
+        return 0x56;
+    }
+}
