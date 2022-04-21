@@ -5,27 +5,145 @@
 #include "item.h"
 
 extern u32 sub_080B1AC8(u32, u32, u32);
-extern void sub_0806ACC4(Entity*);
-extern void sub_0806AEA8(Entity*);
-extern void sub_0806AEE4(Entity*);
-extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
+void sub_0806ACC4(Entity*);
+void sub_0806ABFC(Entity*);
+void sub_0806AC3C(Entity*);
+void sub_0806AEA8(Entity*);
+void sub_0806AEE4(Entity*);
+void sub_0806AFE8(Entity*, ScriptExecutionContext*);
+void sub_0806B004(Entity*, ScriptExecutionContext*);
+void sub_0806B098(Entity*, ScriptExecutionContext*);
+void sub_0806B0E0(Entity*, ScriptExecutionContext*);
+void sub_0806B064(Entity*, ScriptExecutionContext*);
+void sub_0806B134(Entity*, ScriptExecutionContext*);
 
-extern u8 gUnk_081125F4[12];
-extern SpriteLoadData gUnk_08112674[];
-extern u32 gUnk_081126D4[4];
-extern u8 gUnk_081126E4[4];
-extern void (*gUnk_081126E8[])(Entity*);
-extern Dialog gUnk_081126F0[0x10];
-extern void (*gUnk_08112BF0[])(Entity*, ScriptExecutionContext*);
-extern u16 gUnk_08112C40[5];
-extern u16 gUnk_08112C4A[3];
-extern u16 gUnk_08112C50[6];
-extern u16 gUnk_08112C5C[2];
-extern u16 gUnk_08112C60[4];
+static const u8 gUnk_081125F4[][0x10][2] = {
+    {
+        { 0x24, 0x1a },
+        { 0x25, 0x1a },
+        { 0x26, 0x1a },
+        { 0x27, 0x9b },
+        { 0x28, 0x9b },
+        { 0x29, 0x9b },
+        { 0x2a, 0x9b },
+        { 0x2b, 0x98 },
+        { 0x1c, 0x98 },
+        { 0x1d, 0x98 },
+        { 0x1e, 0x99 },
+        { 0x1f, 0x99 },
+        { 0x20, 0x99 },
+        { 0x21, 0x99 },
+        { 0x22, 0x1a },
+        { 0x23, 0x1a },
+    },
+    {
+        { 0x24, 0x9a },
+        { 0x25, 0x9a },
+        { 0x26, 0x1b },
+        { 0x27, 0x1b },
+        { 0x28, 0x1b },
+        { 0x29, 0x1b },
+        { 0x2a, 0x1b },
+        { 0x2b, 0x98 },
+        { 0x1c, 0x98 },
+        { 0x1d, 0x98 },
+        { 0x1e, 0x98 },
+        { 0x1f, 0x99 },
+        { 0x20, 0x99 },
+        { 0x21, 0x99 },
+        { 0x22, 0x9a },
+        { 0x23, 0x9a },
+    },
+    {
+        { 0x24, 0x9a },
+        { 0x25, 0x9a },
+        { 0x26, 0x9b },
+        { 0x27, 0x9b },
+        { 0x28, 0x9b },
+        { 0x29, 0x9b },
+        { 0x2a, 0x18 },
+        { 0x2b, 0x18 },
+        { 0x1c, 0x18 },
+        { 0x1d, 0x18 },
+        { 0x1e, 0x18 },
+        { 0x1f, 0x99 },
+        { 0x20, 0x99 },
+        { 0x21, 0x99 },
+        { 0x22, 0x99 },
+        { 0x23, 0x9a },
+    },
+    {
+        { 0x24, 0x9a },
+        { 0x25, 0x9a },
+        { 0x26, 0x9a },
+        { 0x27, 0x9b },
+        { 0x28, 0x9b },
+        { 0x29, 0x9b },
+        { 0x2a, 0x98 },
+        { 0x2b, 0x98 },
+        { 0x1c, 0x98 },
+        { 0x1d, 0x98 },
+        { 0x1e, 0x19 },
+        { 0x1f, 0x19 },
+        { 0x20, 0x19 },
+        { 0x21, 0x19 },
+        { 0x22, 0x19 },
+        { 0x23, 0x9a },
+    },
+};
+static const SpriteLoadData gUnk_08112674[][4] = {
+    {
+        { 0xea, 0x1d, 0x4 },
+        { 0x20ea, 0x1d, 0x4 },
+        { 0x0, 0x0, 0x0 },
+        { 0x0, 0x0, 0x0 },
+    },
+    {
+        { 0xea, 0x1d, 0x4 },
+        { 0x20ea, 0x1d, 0x4 },
+        { 0x0, 0x0, 0x0 },
+        { 0x0, 0x0, 0x0 },
+    },
+    {
+        { 0xeb, 0x1d, 0x4 },
+        { 0x20eb, 0x1d, 0x4 },
+        { 0x0, 0x0, 0x0 },
+        { 0x0, 0x0, 0x0 },
+    },
+    {
+        { 0xec, 0x1d, 0x4 },
+        { 0x20ec, 0x1d, 0x4 },
+        { 0x0, 0x0, 0x0 },
+        { 0x0, 0x0, 0x0 },
+    },
+    {
+        { 0xed, 0x1d, 0x4 },
+        { 0x20ed, 0x1d, 0x4 },
+        { 0x0, 0x0, 0x0 },
+        { 0x0, 0x0, 0x0 },
+    },
+    {
+        { 0xee, 0x1d, 0x4 },
+        { 0x20ee, 0x1d, 0x4 },
+        { 0x0, 0x0, 0x0 },
+        { 0x0, 0x0, 0x0 },
+    },
+};
+static const u8 gUnk_081126D4[][4] = {
+    { 0x0, 0x8, 0x8, 0x10 },
+    { 0xf8, 0xfe, 0x10, 0x8 },
+    { 0x0, 0x8, 0x8, 0x10 },
+    { 0x8, 0xfe, 0x10, 0x8 },
+};
+static const u8 gUnk_081126E4[4] = { 14, 13, 11, 7 };
 
 void TownMinish(Entity* this) {
+    static void (*const scriptedActionFuncs[])(Entity*) = {
+        sub_0806ABFC,
+        sub_0806AC3C,
+    };
     if ((this->flags & ENT_SCRIPTED) == 0) {
-        gUnk_081126E8[this->action](this);
+        scriptedActionFuncs[this->action](this);
         sub_0806ED78(this);
     } else {
         sub_0806ACC4(this);
@@ -33,7 +151,7 @@ void TownMinish(Entity* this) {
 }
 
 void sub_0806ABFC(Entity* this) {
-    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->type * 4];
+    const SpriteLoadData* SpriteLoadData = gUnk_08112674[this->type];
     if (!LoadExtraSpriteData(this, SpriteLoadData)) {
         return;
     }
@@ -81,7 +199,7 @@ void sub_0806ACC4(Entity* this) {
     u8 delay;
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08112674[this->type * 4]) == 0)
+            if (LoadExtraSpriteData(this, gUnk_08112674[this->type]) == 0)
                 return;
 
             this->action = 1;
@@ -110,7 +228,7 @@ void sub_0806ACC4(Entity* this) {
                 }
                 if (this->type == 1) {
                     u8 idx = gPlayerEntity.animationState >> 1;
-                    sub_08078850(this, 1, gUnk_081126E4[idx], &gUnk_081126D4[idx]);
+                    sub_08078850(this, 1, gUnk_081126E4[idx], gUnk_081126D4[idx]);
                 }
             }
             break;
@@ -181,7 +299,7 @@ void sub_0806AED8(Entity* this) {
 
 void sub_0806AEE4(Entity* this) {
     int index;
-    u8* idx3;
+    const u8* idx3;
     u8 tmp1, tmp2;
 
     if (this->timer) {
@@ -195,7 +313,7 @@ void sub_0806AEE4(Entity* this) {
             index = state * 8;
         }
 
-        idx3 = gUnk_081125F4 + (this->animationState / 2) * 0x20 + (index >> 1) * 2;
+        idx3 = gUnk_081125F4[this->animationState / 2][index >> 1];
         tmp1 = idx3[0];
         tmp2 = idx3[1];
 
@@ -233,20 +351,188 @@ void sub_0806AFA0(Entity* this) {
     }
 }
 
-void sub_0806AFBC(Entity* this) {
+void sub_0806AFBC(Entity* this, ScriptExecutionContext* context) {
+    //! @bug sub_0806B004 uses context but ShowNPCDialogue doesn't pass it.
+    // In fact r1 contains sub_0806B004's address.
+    static const Dialog dialogs[][8] = { { { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B004 } } },
+                                         { { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B064 } } },
+                                         { { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b0a, 0x4b04 } } },
+                                         { { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b07, 0x4b01 } } },
+                                         { { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4b08, 0x4b02 } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4c0a, 0x4c05 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c05 } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } },
+                                           { 0x46, 0x4, 4, 1, { 0x4c0b, 0x4c06 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4c06 } } },
+                                         { { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } } },
+                                         { { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B098 } } },
+                                         { { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B0E0 } } },
+                                         { { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } },
+                                           { 0x0, 0x0, 5, 0, { .func = (EntityActionPtr)sub_0806B134 } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4e2f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e2f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e2f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e2f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e30 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e31 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e32 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4e33 } } },
+                                         { { 0x0, 0x0, 3, 1, { 0x4f15, 0x4f14 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4f15, 0x4f14 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4f15, 0x4f14 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f22 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f2e } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f3a } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f3a } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f3a } } },
+                                         { { 0x1, 0x0, 3, 1, { 0x4f17, 0x4f16 } },
+                                           { 0x1, 0x0, 3, 1, { 0x4f17, 0x4f16 } },
+                                           { 0x1, 0x0, 3, 1, { 0x4f17, 0x4f16 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f23 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f2f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f3b } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f3b } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4f3b } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4b0d } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0d } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0d } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0d } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b11 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b11 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b15 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b15 } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4b0e } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0e } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0e } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0e } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b12 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b12 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b16 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b16 } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4b0f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b0f } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b13 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b13 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b17 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b17 } } },
+                                         { { 0x0, 0x0, 1, 1, { 0x0, 0x4b10 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b10 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b10 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b10 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b14 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b14 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b18 } },
+                                           { 0x0, 0x0, 1, 1, { 0x0, 0x4b18 } } },
+                                         { { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } },
+                                           { 0x0, 0x0, 3, 1, { 0x4e26, 0x4e25 } } },
+                                         { { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } },
+                                           { 0x9c, 0x1, 2, 1, { 0x4e28, 0x4e27 } } } };
     int idx = gSave.global_progress - 2;
     if (idx < 0)
         idx = 0;
 
-    ShowNPCDialogue(this, gUnk_081126F0 + this->type2 * 8 + idx);
+    ShowNPCDialogue(this, &dialogs[this->type2][idx]);
 }
 
 void sub_0806AFE8(Entity* this, ScriptExecutionContext* context) {
+    static void (*const typeFuncs[])(Entity*, ScriptExecutionContext*) = {
+        sub_0806B004, sub_0806B064, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC,
+        sub_0806B098, sub_0806B098, sub_0806B0E0, sub_0806B134, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC,
+        sub_0806AFBC, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC, sub_0806AFBC,
+    };
     context->condition = 0;
-    gUnk_08112BF0[this->type2](this, context);
+    typeFuncs[this->type2](this, context);
 }
 
 void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[5] = { 0x4a11, 0x4a01, 0x4a03, 0x4a05, 0x4a13 };
     int idx = 0;
 
     if (CheckGlobalFlag(MIZUKAKI_START)) {
@@ -266,10 +552,15 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
             SetLocalFlag(MIZUKAKI_KOBITO);
         }
     }
-    MessageNoOverlap(gUnk_08112C40[idx], this);
+    MessageNoOverlap(messageIndices[idx], this);
 }
 
-void sub_0806B064(Entity* this) {
+void sub_0806B064(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[3] = {
+        0x4a09,
+        0x4a0b,
+        0x4a0c,
+    };
     int idx = 0;
 
     if (CheckGlobalFlag(MIZUKAKI_START)) {
@@ -278,10 +569,14 @@ void sub_0806B064(Entity* this) {
             idx = 2;
         }
     }
-    MessageNoOverlap(gUnk_08112C4A[idx], this);
+    MessageNoOverlap(messageIndices[idx], this);
 }
 
-void sub_0806B098(Entity* this) {
+void sub_0806B098(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[][3] = {
+        { 0x4b1f, 0x4b20, 0x4b21 },
+        { 0x4b22, 0x4b23, 0x4b24 },
+    };
     int idx = 2;
 
     if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
@@ -292,10 +587,11 @@ void sub_0806B098(Entity* this) {
             }
         }
     }
-    MessageNoOverlap(gUnk_08112C50[(this->type2 - 7) * 3 + idx], this);
+    MessageNoOverlap(messageIndices[this->type2 - 7][idx], this);
 }
 
-void sub_0806B0E0(Entity* this) {
+void sub_0806B0E0(Entity* this, ScriptExecutionContext* context) {
+    static const u16 gUnk_08112C5C[2] = { 0x4b25, 0x4b26 };
     int idx = 0;
 
     if (sub_080B1AC8(0x38, 0xb8, 1) == 0x57 && sub_080B1AC8(0x48, 0xb8, 1) == 0x57 &&
@@ -306,7 +602,8 @@ void sub_0806B0E0(Entity* this) {
     MessageNoOverlap(gUnk_08112C5C[idx], this);
 }
 
-void sub_0806B134(Entity* this) {
+void sub_0806B134(Entity* this, ScriptExecutionContext* context) {
+    static const u16 gUnk_08112C60[4] = { 0x4d0b, 0x4d0c, 0x4d0d, 0x4d0e };
     int idx;
 
     if (GetInventoryValue(ITEM_POWER_BRACELETS)) {
@@ -327,7 +624,7 @@ void sub_0806B134(Entity* this) {
 
 void TownMinish_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08112674[this->type * 4])) {
+        if (LoadExtraSpriteData(this, gUnk_08112674[this->type])) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
