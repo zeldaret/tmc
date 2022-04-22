@@ -94,18 +94,14 @@ void sub_080197A0(void) {
     MenuFadeIn(2, 0xb);
 }
 
-NONMATCH("asm/non_matching/beanstalkSubtask/SetBGDefaults.inc", void SetBGDefaults(void)) {
-    u16* ptr;
-    BgSettings* bg;
-
+void SetBGDefaults(void) {
     gMapBottom.bgControlPtr = (u16*)&gScreen.bg2;
-    gScreen.bg2.control = gUnk_080B77C0[0];
+    *gMapBottom.bgControlPtr = gUnk_080B77C0[0];
     gMapTop.bgControlPtr = (u16*)&gScreen.bg1;
-    gScreen.bg1.control = gUnk_080B77C0[1];
+    *gMapTop.bgControlPtr = gUnk_080B77C0[1];
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_080197D4.inc", void sub_080197D4(u32* param_1)) {
+void sub_080197D4(u32* param_1) {
     u32 uVar1;
     u8* src;
     void* dest;
@@ -127,11 +123,10 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_080197D4.inc", void sub_080197D4
             LoadPaletteGroup((u32) * (u16*)param_1);
             sub_080533CC();
         }
-        uVar1 = *param_1;
         param_1 += 3;
+        uVar1 = *(param_1 - 3);
     } while ((uVar1 & 0x80000000) != 0);
 }
-END_NONMATCH
 
 // Has ifdefs for other variants
 ASM_FUNC("asm/non_matching/beanstalkSubtask/UpdatePlayerCollision.inc", void UpdatePlayerCollision())
