@@ -16,14 +16,15 @@ typedef struct {
     u16 y;
 } GoronShopSpawnData;
 
-extern GoronShopSpawnData gUnk_08108D5C[3];
-
 /*
 Spawns the shop items for the kinstones for the goron merchant.
 */
 void Manager31_Main(Manager31* this) {
+    static const GoronShopSpawnData gUnk_08108D5C[3] = { { 0x6e, 0x3, 0x210, 0x210 },
+                                                         { 0x71, 0x2, 0x220, 0x210 },
+                                                         { 0x73, 0x3, 0x230, 0x210 } };
     s32 uVar2;
-    GoronShopSpawnData* spawnData;
+    const GoronShopSpawnData* spawnData;
     s32 count;
 
     if (this->manager.action == 0) {

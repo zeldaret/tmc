@@ -6,8 +6,6 @@
 #include "object.h"
 #include "game.h"
 
-extern void (*const gUnk_08108CCC[])(Manager*);
-
 typedef struct {
     Manager manager;
     u16 field_0x20;
@@ -23,11 +21,21 @@ typedef struct {
 
 void sub_0805BE94(Manager23*);
 void sub_0805BEC4(Manager23*);
+void sub_0805BC8C(Manager23*);
+void sub_0805BCD4(Manager23*);
+void sub_0805BD5C(Manager23*);
+void sub_0805BDB4(Manager23*);
 
 void sub_0805BE70(Manager23*, u32);
 
 void Manager23_Main(Manager* this) {
-    gUnk_08108CCC[this->unk_0a](this);
+    static void (*const gUnk_08108CCC[])(Manager23*) = {
+        sub_0805BC8C,
+        sub_0805BCD4,
+        sub_0805BD5C,
+        sub_0805BDB4,
+    };
+    gUnk_08108CCC[this->unk_0a]((Manager23*)this);
 }
 
 void sub_0805BC8C(Manager23* this) {

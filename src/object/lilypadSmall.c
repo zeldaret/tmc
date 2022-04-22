@@ -1,8 +1,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern u16 gUnk_08123318[];
-
 static void sub_08097B24(Entity* this);
 static bool32 CheckMovePlayer(Entity* this);
 
@@ -47,9 +45,12 @@ static bool32 CheckMovePlayer(Entity* this) {
 }
 
 static void sub_08097B24(Entity* this) {
+    static const u16 gUnk_08123318[] = {
+        0x100, 0x101, 0x102, 0x101, 0x100, 0xff, 0xfe, 0xff,
+    };
     u32 temp;
     u32 temp2;
-    u16* temp3;
+    const u16* temp3;
 
     if (--this->timer == 0) {
         this->timer = 90;

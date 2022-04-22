@@ -15,19 +15,31 @@ typedef struct {
     u16 field_0x3e;
 } Manager2E;
 
-extern void (*const gUnk_08108D3C[])(Manager2E*);
-extern void (*const gUnk_08108D44[])(Manager2E*);
-
 void sub_0805D2F4(Manager2E*);
-
-extern void (*const gUnk_08108D50[])(Manager2E*);
+void sub_0805D268(Manager2E*);
+void sub_0805D32C(Manager2E*);
+void sub_0805D280(Manager2E*);
+void sub_0805D2C0(Manager2E*);
+void sub_0805D2F4(Manager2E*);
+void sub_0805D384(Manager2E*);
+void sub_0805D36C(Manager2E*);
+void sub_0805D344(Manager2E*);
 
 void Manager2E_Main(Manager2E* this) {
+    static void (*const gUnk_08108D3C[])(Manager2E*) = {
+        sub_0805D268,
+        sub_0805D32C,
+    };
     gUnk_08108D3C[this->manager.unk_0a](this);
 }
 
 void sub_0805D268(Manager2E* this) {
-    gUnk_08108D44[this->manager.action](this);
+    static void (*const actionFuncs[])(Manager2E*) = {
+        sub_0805D280,
+        sub_0805D2C0,
+        sub_0805D2F4,
+    };
+    actionFuncs[this->manager.action](this);
 }
 
 void sub_0805D280(Manager2E* this) {
@@ -70,7 +82,12 @@ void sub_0805D2F4(Manager2E* this) {
 }
 
 void sub_0805D32C(Manager2E* this) {
-    gUnk_08108D50[this->manager.action](this);
+    static void (*const actionFuncs[])(Manager2E*) = {
+        sub_0805D344,
+        sub_0805D36C,
+        sub_0805D384,
+    };
+    actionFuncs[this->manager.action](this);
 }
 
 void sub_0805D344(Manager2E* this) {

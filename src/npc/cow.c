@@ -7,13 +7,21 @@
 
 void sub_0806920C(Entity* ent);
 void sub_0806924C(Entity* ent);
-
-extern void (*gUnk_08111914[])(Entity*);
-extern void (*gUnk_08111928[])(Entity*);
-extern Dialog gUnk_08111938[];
+void sub_08068FC0(Entity* ent);
+void sub_08069018(Entity* ent);
+void sub_08069068(Entity* ent);
+void sub_08069124(Entity* ent);
+void sub_080691E0(Entity* ent);
+void sub_08069148(Entity* ent);
+void sub_08069168(Entity* ent);
+void sub_08069188(Entity* ent);
+void sub_080691BC(Entity* ent);
 
 void Cow(Entity* ent) {
-    gUnk_08111914[ent->action](ent);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08068FC0, sub_08069018, sub_08069068, sub_08069124, sub_080691E0,
+    };
+    actionFuncs[ent->action](ent);
     sub_0806ED78(ent);
     sub_0806920C(ent);
 }
@@ -127,8 +135,14 @@ void sub_08069068(Entity* ent) {
 }
 
 void sub_08069124(Entity* ent) {
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_08069148,
+        sub_08069168,
+        sub_08069188,
+        sub_080691BC,
+    };
     UpdateAnimationSingleFrame(ent);
-    gUnk_08111928[ent->subAction](ent);
+    subActionFuncs[ent->subAction](ent);
     sub_0806924C(ent);
 }
 
@@ -152,7 +166,7 @@ void sub_08069188(Entity* ent) {
         return;
     ent->frame = 0;
 
-    if (((s8)--ent->subtimer) != 0)
+    if (--ent->subtimer != 0)
         return;
     ent->subAction = 3;
     InitAnimationForceUpdate(ent, ent->animationState + 16);
@@ -175,11 +189,15 @@ void sub_080691E0(Entity* ent) {
 
 // Show dialogue
 void Cow_ShowDialogue(Entity* ent) {
+    static const Dialog gUnk_08111938[] = { { 0x0, 0x0, 6, 1, { 0x2018, 0x3f34 } },
+                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f35 } },
+                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f36 } },
+                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f37 } },
+                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f38 } } };
     ShowNPCDialogue(ent, &gUnk_08111938[ent->type]);
 }
 
 void sub_0806920C(Entity* ent) {
-    // TODO: figure out what bitfield flag this is
     u32 var0 = gPlayerState.flags & PL_MINISH;
     u32 var1 = -var0 >> 0x1F;
 
@@ -198,7 +216,6 @@ void sub_0806920C(Entity* ent) {
 void sub_0806924C(Entity* ent) {
     s8 itype = ent->interactType;
     if (itype != 0) {
-        // TODO: figure out what bitfield flag this is
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             if (itype == 2) {
                 ent->action = 4;

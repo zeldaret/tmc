@@ -9,13 +9,19 @@
 #include "hitbox.h"
 
 extern u32 sub_08083734(Entity*, u32);
-extern void sub_080A080C(Entity*);
-extern void sub_080A0870(Entity*);
-
-extern void (*const gUnk_0812493C[])(Entity*);
+void sub_080A080C(Entity*);
+void sub_080A0870(Entity*);
+void sub_080A0684(Entity*);
+void sub_080A0718(Entity*);
+void sub_080A074C(Entity*);
+void sub_080A07BC(Entity*);
+void sub_080A07F0(Entity*);
 
 void MetalDoor(Entity* this) {
-    gUnk_0812493C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080A0684, sub_080A0718, sub_080A074C, sub_080A07BC, sub_080A07F0,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_080A0684(Entity* this) {

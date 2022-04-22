@@ -8,21 +8,33 @@
 #include "hitbox.h"
 #include "object.h"
 
-extern void (*const gUnk_081243B4[])(Entity*);
-extern void (*const gUnk_081243BC[])(Entity*);
-extern void (*const gUnk_081243C4[])(Entity*);
-
-static void sub_0809EB30(Entity* this);
-static void sub_0809EAD8(Entity* this);
-static void sub_0809EABC(Entity* this);
+static void sub_0809EB30(Entity*);
+static void sub_0809EAD8(Entity*);
+static void sub_0809EABC(Entity*);
+static void sub_0809EA1C(Entity*);
+static void sub_0809EB68(Entity*);
+static void sub_0809EA34(Entity*);
+static void sub_0809EA80(Entity*);
+static void nullsub_126(Entity*);
+static void sub_0809EC08(Entity*);
+static void sub_0809EBD8(Entity*);
+static void sub_0809EB80(Entity*);
 
 void LightableSwitch(Entity* this) {
-    gUnk_081243B4[this->type](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        sub_0809EA1C,
+        sub_0809EB68,
+    };
+    typeFuncs[this->type](this);
     sub_0809EB30(this);
 }
 
 void sub_0809EA1C(Entity* this) {
-    gUnk_081243BC[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809EA34,
+        sub_0809EA80,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0809EA34(Entity* this) {
@@ -93,7 +105,13 @@ static void sub_0809EB30(Entity* this) {
 }
 
 void sub_0809EB68(Entity* this) {
-    gUnk_081243C4[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809EB80,
+        sub_0809EBD8,
+        sub_0809EC08,
+        nullsub_126,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0809EB80(Entity* this) {

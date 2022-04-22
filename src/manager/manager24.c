@@ -5,21 +5,28 @@
 #include "game.h"
 #include "object.h"
 
-extern void (*const gUnk_08108CDC[])(Manager24*);
-
 u32 sub_0805BFC4(u32, u32);
 void sub_0805C02C(Manager24*);
 
 extern u32 sub_080B1AE0(u16, u8);
 
-extern void (*const gUnk_08108CE8[])(u32, u32);
-
-u32 sub_0805C608(void);
-
-extern u8 gUnk_08108CFC[];
+u32 getArchwayType(void);
+void sub_0805BF30(Manager24*);
+void sub_0805BF78(Manager24*);
+void sub_0805BFA4(Manager24*);
+void sub_0805C050(u32, u32);
+void sub_0805C178(u32, u32);
+void sub_0805C294(u32, u32);
+void sub_0805C3B4(u32, u32);
+void sub_0805C4E0(u32, u32);
 
 void Manager24_Main(Manager24* manager) {
-    gUnk_08108CDC[manager->manager.action](manager);
+    static void (*const actionFuncs[])(Manager24*) = {
+        sub_0805BF30,
+        sub_0805BF78,
+        sub_0805BFA4,
+    };
+    actionFuncs[manager->manager.action](manager);
 }
 
 void sub_0805BF30(Manager24* manager) {
@@ -77,6 +84,9 @@ u32 sub_0805BFC4(u32 pos, u32 layer) {
 }
 
 void sub_0805C02C(Manager24* this) {
+    static void (*const gUnk_08108CE8[])(u32, u32) = {
+        sub_0805C050, sub_0805C178, sub_0805C294, sub_0805C3B4, sub_0805C4E0,
+    };
     if (this->manager.unk_0a != 0xff) {
         gUnk_08108CE8[this->manager.unk_0a](this->tile, this->field_0x35);
     }
@@ -113,7 +123,7 @@ void sub_0805C050(u32 pos, u32 layer) {
         if (AreaIsDungeon() == 0) {
             return;
         }
-        object = CreateObject(ARCHWAY, sub_0805C608(), 6);
+        object = CreateObject(ARCHWAY, getArchwayType(), 6);
         if (object == NULL) {
             return;
         }
@@ -156,7 +166,7 @@ void sub_0805C178(u32 pos, u32 layer) {
         if (AreaIsDungeon() == 0) {
             return;
         }
-        object = CreateObject(ARCHWAY, sub_0805C608(), 7);
+        object = CreateObject(ARCHWAY, getArchwayType(), 7);
         if (object == NULL) {
             return;
         }
@@ -197,7 +207,7 @@ void sub_0805C294(u32 pos, u32 layer) {
         if (AreaIsDungeon() == 0) {
             return;
         }
-        object = CreateObject(ARCHWAY, sub_0805C608(), 8);
+        object = CreateObject(ARCHWAY, getArchwayType(), 8);
         if (object == NULL) {
             return;
         }
@@ -239,7 +249,7 @@ void sub_0805C3B4(u32 pos, u32 layer) {
             return;
         }
 
-        object = CreateObject(ARCHWAY, sub_0805C608(), 9);
+        object = CreateObject(ARCHWAY, getArchwayType(), 9);
         if (object == NULL) {
             return;
         }
@@ -281,7 +291,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
             return;
         }
 
-        object = CreateObject(ARCHWAY, sub_0805C608(), 6);
+        object = CreateObject(ARCHWAY, getArchwayType(), 6);
         if (object == NULL) {
             return;
         }
@@ -291,6 +301,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
     }
 }
 
-u32 sub_0805C608(void) {
-    return gUnk_08108CFC[gArea.dungeon_idx];
+u32 getArchwayType(void) {
+    static const u8 archwayTypes[] = { 0xd, 0xd, 0xd, 0x19, 0x1a, 0xd, 0x21, 0 };
+    return archwayTypes[gArea.dungeon_idx];
 }

@@ -6,8 +6,6 @@
 #include "effects.h"
 #include "functions.h"
 
-extern u8 gUnk_08125010;
-
 void Windcrest(Entity* this) {
     if (this->action == 0) {
         this->action++;
@@ -19,7 +17,8 @@ void Windcrest(Entity* this) {
 }
 
 void sub_080A2124(Entity* this) {
-    sub_08078850(this, 1, 0xe, &gUnk_08125010);
+    static const u8 gUnk_08125010[] = { 0, 0, 12, 12 };
+    sub_08078850(this, 1, 0xe, gUnk_08125010);
 }
 
 void Windcrest_Unlock(Entity* this) {

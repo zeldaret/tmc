@@ -2,12 +2,18 @@
 #include "functions.h"
 
 extern void SoundReqClipped(Entity*, u32);
-extern void sub_0809CDF0(Entity*);
-
-extern void (*const gUnk_08123E20[])(Entity*);
+void sub_0809CDF0(Entity*);
+void sub_0809CC74(Entity*);
+void sub_0809CD0C(Entity*);
+void sub_0809CDB4(Entity*);
 
 void BakerOven(Entity* this) {
-    gUnk_08123E20[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809CC74,
+        sub_0809CD0C,
+        sub_0809CDB4,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0809CC74(Entity* this) {

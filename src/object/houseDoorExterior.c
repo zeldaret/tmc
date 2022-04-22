@@ -26,13 +26,21 @@ typedef struct {
 static void sub_080868EC(Entity* entity, unk_80868EC* arg1);
 static bool32 sub_080867CC(u32);
 void sub_0808681C(Entity*);
+void sub_080866D8(Entity*);
+void sub_080867E4(Entity*);
+void sub_080868B0(Entity*);
 static u8 sub_08086954(Entity*);
 
-extern void (*const gUnk_081206B4[])(Entity*);
-extern Hitbox gUnk_081206AC; // TODO: should be const
+static const Hitbox gUnk_081206AC = { 0, -5, { 5, 3, 3, 5 }, 10, 4 };
 
 void HouseDoorExterior(Entity* this) {
-    gUnk_081206B4[this->type2](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        sub_080866D8,
+        sub_080867E4,
+        sub_0808681C,
+        sub_080868B0,
+    };
+    typeFuncs[this->type2](this);
 }
 
 void sub_080866D8(Entity* this) {
@@ -97,7 +105,7 @@ void sub_0808681C(Entity* this) {
             this->timer = 8;
             this->spriteSettings.draw = 1;
             this->frameIndex = 0;
-            this->hitbox = &gUnk_081206AC;
+            this->hitbox = (Hitbox*)&gUnk_081206AC;
             if (this->subAction == 1) {
                 this->action = 2;
                 this->frameIndex = 1;
@@ -126,7 +134,7 @@ void sub_080868B0(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.draw = 1;
-        this->hitbox = &gUnk_081206AC;
+        this->hitbox = (Hitbox*)&gUnk_081206AC;
         this->timer = 8;
     }
     ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);

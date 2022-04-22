@@ -138,7 +138,7 @@ typedef struct {
 } DiggingCaveEntrance;
 
 typedef struct {
-    DiggingCaveEntrance* unk_00;
+    const DiggingCaveEntrance* unk_00;
     u16 unk_04;
     u16 unk_06;
     u8 isDiggingCave;
@@ -148,7 +148,7 @@ typedef struct {
 } struct_03004030;
 extern struct_03004030 gUnk_03004030;
 
-extern DiggingCaveEntrance* diggingCaveEntrances[];
+extern const DiggingCaveEntrance* const diggingCaveEntrances[];
 
 typedef struct {
     Manager manager;

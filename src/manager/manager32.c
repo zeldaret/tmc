@@ -13,18 +13,27 @@ typedef struct {
     u32 field_0x28;
 } Manager32;
 
-extern void (*const gUnk_08108D7C[])(Manager32*);
 void sub_0805D9D8(Manager32*);
+void sub_0805D98C(Manager32*);
+void sub_0805D900(Manager32*);
+void sub_0805D860(Manager32*);
+void sub_0805D7DC(Manager32*);
 void sub_0805DA08(u32, u32, u32);
 
-extern u8 gUnk_08108D74[];
+static const u8 gUnk_08108D74[] = { 0x4f, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x0 };
 
 extern struct BgAffineDstData gUnk_02017AA0[];
 extern u8 gUnk_03003DE4[0xC];
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
 
 void Manager32_Main(Manager32* this) {
-    gUnk_08108D7C[this->manager.action](this);
+    static void (*const actionFuncs[])(Manager32*) = {
+        sub_0805D7DC,
+        sub_0805D860,
+        sub_0805D900,
+        sub_0805D98C,
+    };
+    actionFuncs[this->manager.action](this);
     this->field_0x24 = gRoomTransition.frameCount << 4;
     sub_0805D9D8(this);
     sub_0805DA08(this->field_0x20, this->field_0x28, this->field_0x24);

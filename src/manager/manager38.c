@@ -1,12 +1,17 @@
 #include "entity.h"
 #include "room.h"
 
-extern void (*const gUnk_08108DE0[])(Entity*);
-
 extern Entity* LoadRoomEntity(EntityData*);
 
+void sub_0805E0C0(Entity*);
+void sub_0805E0F4(Entity*);
+
 void Manager38_Main(Entity* this) {
-    gUnk_08108DE0[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0805E0C0,
+        sub_0805E0F4,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0805E0C0(Entity* this) {

@@ -5,10 +5,15 @@
 #include "player.h"
 #include "functions.h"
 
-extern void (*gUnk_08124C08[])(Entity*);
+void sub_080A0EB0(Entity*);
+void sub_080A0EF0(Entity*);
 
 void Well(Entity* ent) {
-    gUnk_08124C08[ent->action](ent);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080A0EB0,
+        sub_080A0EF0,
+    };
+    actionFuncs[ent->action](ent);
 }
 
 void sub_080A0EB0(Entity* ent) {

@@ -279,8 +279,8 @@ u32 CheckRegionOnScreen(u32 x0, u32 y0, u32 x1, u32 y1) {
 }
 
 // Iterate over array of AABBs and check if any fit on screen
-u16 CheckRegionsOnScreen(u16* arr) {
-    u16* i;
+u16 CheckRegionsOnScreen(const u16* arr) {
+    const u16* i;
     for (i = arr; *i != 0xff; i += 5) {
         if (CheckRegionOnScreen(i[1], i[2], i[3], i[4]))
             return *i;

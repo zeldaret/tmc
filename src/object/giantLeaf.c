@@ -2,9 +2,6 @@
 
 void sub_0808D618(Entity* ent);
 
-extern s16 gUnk_08121750[];
-extern s16 gUnk_0812176A[];
-
 void GiantLeaf(Entity* ent) {
     if (ent->action == 0) {
         ent->action = 1;
@@ -17,8 +14,14 @@ void GiantLeaf(Entity* ent) {
 }
 
 void sub_0808D618(Entity* ent) {
+    static const s16 gUnk_08121750[] = {
+        0x41, 0x40, 0x3f, 0x3e, 0x1, 0x0, -0x1, -0x2, -0x3e, -0x3f, -0x40, -0x41, -0x7e,
+    };
+    static const s16 gUnk_0812176A[] = {
+        0x3f, 0x40, 0x41, 0x42, -0x1, 0x0, 0x1, 0x2, -0x42, -0x41, -0x40, -0x3f, -0x82,
+    };
     u32 tilePos;
-    s16* arr;
+    const s16* arr;
     u32 i;
 
     arr = (ent->type != 0) ? gUnk_0812176A : gUnk_08121750;

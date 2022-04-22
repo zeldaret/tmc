@@ -2,11 +2,21 @@
 #include "entity.h"
 #include "sound.h"
 
-extern void (*const ThoughtBubble_Behaviors[])(Entity*);
+void ThoughtBubble_Init(Entity*);
+void ThoughtBubble_Update(Entity*);
 
-extern u16 ThoughtBubble_SFX[];
+static const u16 ThoughtBubble_SFX[] = {
+    SFX_METAL_CLINK,
+    SFX_F3,
+    SFX_NONE,
+    SFX_NONE,
+};
 
 void ThoughtBubble(Entity* this) {
+    static void (*const ThoughtBubble_Behaviors[])(Entity*) = {
+        ThoughtBubble_Init,
+        ThoughtBubble_Update,
+    };
     ThoughtBubble_Behaviors[this->action](this);
 }
 

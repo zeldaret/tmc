@@ -10,9 +10,11 @@ typedef struct {
 
 void sub_0805AEDC(Manager18*);
 void sub_0805AF3C(Manager18*);
-extern u16 gUnk_0810865C[];
 
 void Manager18_Main(Manager18* this) {
+    static const u16 gUnk_0810865C[] = {
+        0xf01, 0xe02, 0xe03, 0xe04, 0, 0,
+    };
     if (this == NULL) {
         if (gArea.onEnter != sub_0805AEDC) {
             sub_0805AEDC(NULL);

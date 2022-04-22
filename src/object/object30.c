@@ -21,7 +21,7 @@ typedef struct {
 } Object30Entity;
 
 extern u32 sub_0806F798(Entity*);
-extern const Hitbox gUnk_08121C58;
+extern const Hitbox3D gUnk_08121C58;
 
 void Object30_Init(Object30Entity*);
 void Object30_Action1(Object30Entity*);

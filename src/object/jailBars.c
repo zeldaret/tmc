@@ -6,13 +6,19 @@
 #include "functions.h"
 
 static void SetJailBarTiles(Entity*, u32);
-
-extern void (*const gUnk_08124950[])(Entity*);
-extern TileData gUnk_08124960[];
-extern TileData gUnk_0812497A[];
+void sub_080A08C4(Entity*);
+void sub_080A0910(Entity*);
+void sub_080A0938(Entity*);
+void nullsub_127(Entity*);
 
 void JailBars(Entity* this) {
-    gUnk_08124950[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080A08C4,
+        sub_080A0910,
+        sub_080A0938,
+        nullsub_127,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_080A08C4(Entity* this) {
@@ -49,11 +55,15 @@ void nullsub_127(Entity* this) {
 }
 
 static void SetJailBarTiles(Entity* this, u32 arg1) {
-    TileData* puVar1;
+    static const s16 gUnk_08124960[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4023, -0x1, 0x4023,
+                                         0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
+    static const s16 gUnk_0812497A[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4088, -0x1, 0x4087,
+                                         0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
+    const s16* puVar1;
 
     puVar1 = gUnk_08124960;
     if (arg1 == 1) {
         puVar1 = gUnk_0812497A;
     }
-    SetMultipleTiles(puVar1, COORD_TO_TILE(this), 1);
+    SetMultipleTiles((const TileData*)puVar1, COORD_TO_TILE(this), 1);
 }

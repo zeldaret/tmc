@@ -4,20 +4,36 @@
 static void sub_0808F2B0(Entity*);
 void sub_0808F14C(Entity*);
 void sub_0808F244(Entity*);
-
-extern void sub_0808F5EC(Entity*);
-
-extern void (*const gUnk_08121E5C[])(Entity*);
-extern void (*const gUnk_08121E88[])(Entity*);
-extern void (*const gUnk_08121E98[])(Entity*);
-extern const u16 gUnk_08121EA0[];
+void sub_0808F0B8(Entity*);
+void sub_0808F1E0(Entity*);
+void sub_0808F2C0(Entity*);
+void sub_0808F370(Entity*);
+void sub_0808F3DC(Entity*);
+void sub_0808F498(Entity*);
+void sub_0808F554(Entity*);
+void sub_0808F0D0(Entity*);
+void sub_0808F170(Entity*);
+void sub_0808F1A4(Entity*);
+void sub_0808F244(Entity*);
+void sub_0808F1F8(Entity*);
+void sub_0808F5EC(Entity*);
 
 void Object49(Entity* this) {
-    gUnk_08121E5C[this->type](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        sub_0808F0B8, sub_0808F1E0, sub_0808F2C0, sub_0808F370, sub_0808F0B8, sub_0808F3DC,
+        sub_0808F3DC, sub_0808F3DC, sub_0808F3DC, sub_0808F498, sub_0808F554,
+    };
+    typeFuncs[this->type](this);
 }
 
 void sub_0808F0B8(Entity* this) {
-    gUnk_08121E88[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808F0D0,
+        sub_0808F14C,
+        sub_0808F170,
+        sub_0808F1A4,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0808F0D0(Entity* this) {
@@ -80,7 +96,11 @@ void sub_0808F1A4(Entity* this) {
 }
 
 void sub_0808F1E0(Entity* this) {
-    gUnk_08121E98[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808F1F8,
+        sub_0808F244,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0808F1F8(Entity* this) {
@@ -143,6 +163,7 @@ void sub_0808F2C0(Entity* this) {
 }
 
 void sub_0808F370(Entity* this) {
+    static const u16 gUnk_08121EA0[] = { 0x1a4, 0x12c };
     if (this->action == 0) {
         if (this->parent->subAction == 1) {
             this->action = 1;

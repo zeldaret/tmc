@@ -3,32 +3,39 @@
 #include "entity.h"
 #include "npc.h"
 
-extern void sub_0806C7D4(Entity*);
+void sub_0806C798(Entity*);
+void sub_0806C7D4(Entity*);
+void sub_0806C834(Entity*);
+void sub_0806C85C(Entity*);
+void sub_0806CA4C(Entity*, ScriptExecutionContext*);
+void sub_0806CA3C(Entity*, ScriptExecutionContext*);
+void sub_0806CA2C(Entity*, ScriptExecutionContext*);
+void sub_0806CA1C(Entity*, ScriptExecutionContext*);
+void sub_0806C99C(Entity*, ScriptExecutionContext*);
+void sub_0806C9F8(Entity*, ScriptExecutionContext*);
+void sub_0806C9D0(Entity*, ScriptExecutionContext*);
+void sub_0806C99C(Entity*, ScriptExecutionContext*);
+void sub_0806C978(Entity*, ScriptExecutionContext*);
+void sub_0806C944(Entity*, ScriptExecutionContext*);
+void sub_0806C928(Entity*, ScriptExecutionContext*);
 
-extern void (*const gUnk_08113A7C[])(Entity*);
-extern void (*const gUnk_08113A8C[])(Entity*, ScriptExecutionContext*);
-
-extern SpriteLoadData gUnk_08113A1C[];
+static const SpriteLoadData gUnk_08113A1C[] = {
+    { 0x106, 0x51, 0x4 }, { 0x2107, 0x51, 0x4 }, { 0x0, 0x0, 0x0 },    { 0x0, 0x0, 0x0 },     { 0x2107, 0x52, 0x4 },
+    { 0x106, 0x52, 0x4 }, { 0x0, 0x0, 0x0 },     { 0x0, 0x0, 0x0 },    { 0x104, 0x53, 0x4 },  { 0x2107, 0x53, 0x4 },
+    { 0x0, 0x0, 0x0 },    { 0x0, 0x0, 0x0 },     { 0x105, 0x54, 0x4 }, { 0x2108, 0x54, 0x4 }, { 0x0, 0x0, 0x0 },
+    { 0x0, 0x0, 0x0 },    { 0x104, 0x55, 0x4 },  { 0xd04, 0x55, 0x4 }, { 0x2508, 0x55, 0x4 }, { 0x0, 0x0, 0x0 },
+    { 0x104, 0x56, 0x4 }, { 0x2107, 0x56, 0x4 }, { 0x0, 0x0, 0x0 },    { 0x0, 0x0, 0x0 }
+};
 extern u16 script_WindTribespeople6;
-extern Dialog gUnk_08113ABC[];
-extern u16 gUnk_08113B0C[];
-
-extern Dialog gUnk_08113B28;
-
-extern Dialog gUnk_08113B30;
-
-extern u16 gUnk_08113B12[];
-
-extern u16 gUnk_08113B22[];
-
-extern u16 gUnk_08113B1E[];
-
-extern u16 gUnk_08113B16[];
-
-extern u8 gUnk_08113B38[];
 
 void WindTribespeople(Entity* this) {
-    gUnk_08113A7C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0806C798,
+        sub_0806C7D4,
+        sub_0806C834,
+        sub_0806C85C,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0806C798(Entity* this) {
@@ -111,15 +118,31 @@ void WindTribespeople_Head(Entity* this) {
 }
 
 void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
+    static void (*const typeScriptFuncs[])(Entity*, ScriptExecutionContext*) = {
+        sub_0806C928, sub_0806C944, sub_0806C978, sub_0806C99C, sub_0806C9D0, sub_0806C928,
+        sub_0806C9F8, sub_0806C99C, sub_0806CA1C, sub_0806CA2C, sub_0806CA3C, sub_0806CA4C,
+    };
     context->condition = 0;
-    gUnk_08113A8C[this->type2](this, context);
+    typeScriptFuncs[this->type2](this, context);
 }
 
-void sub_0806C928(Entity* this) {
+void sub_0806C928(Entity* this, ScriptExecutionContext* context) {
+    static const Dialog gUnk_08113ABC[] = {
+        { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } }, { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } },
+        { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } }, { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } },
+        { 0x0, 0x0, 1, 1, { 0x0, 0x4e21 } },    { 0x0, 0x0, 1, 1, { 0x0, 0x4e22 } },
+        { 0x0, 0x0, 1, 1, { 0x0, 0x4e23 } },    { 0x0, 0x0, 1, 1, { 0x0, 0x4e23 } },
+        { 0x0, 0x0, 1, 1, { 0x0, 0x4e24 } },    { 0x0, 0x0, 1, 1, { 0x0, 0x4e24 } }
+    };
     ShowNPCDialogue(this, &gUnk_08113ABC[gSave.global_progress]);
 }
 
-void sub_0806C944(Entity* this) {
+void sub_0806C944(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2f02,
+        0x2f0e,
+        0x2f14,
+    };
     int iVar1;
     int iVar2;
 
@@ -133,65 +156,116 @@ void sub_0806C944(Entity* this) {
             iVar2 = 1;
         }
     }
-    MessageNoOverlap(gUnk_08113B0C[iVar2], this);
+    MessageNoOverlap(messageIndices[iVar2], this);
 }
 
-void sub_0806C978(Entity* this) {
+void sub_0806C978(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2f05,
+        0x2f11,
+    };
     u32 flagAsBool = 0;
-    if (CheckGlobalFlag(0x58)) {
+    if (CheckGlobalFlag(WARP_EVENT_END)) {
         flagAsBool = 1;
     }
-    MessageNoOverlap(gUnk_08113B12[flagAsBool], this);
+    MessageNoOverlap(messageIndices[flagAsBool], this);
 }
 
-void sub_0806C99C(Entity* this) {
+void sub_0806C99C(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2f03,
+        0x2f0a,
+        0x2f15,
+        0x2f0f,
+    };
     u32 flagAsBool = 0;
 
-    if (CheckGlobalFlag(0x58)) {
+    if (CheckGlobalFlag(WARP_EVENT_END)) {
         flagAsBool = 2;
     }
     if (CheckLocalFlag(99) != 0) {
         flagAsBool += 1;
     }
-    MessageNoOverlap(gUnk_08113B16[flagAsBool], this);
+    MessageNoOverlap(messageIndices[flagAsBool], this);
 }
 
-void sub_0806C9D0(Entity* this) {
+void sub_0806C9D0(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2f12,
+        0x2f13,
+    };
     u32 tmp = 0;
     if (CheckLocalFlag(100) == 0) {
         tmp = 1;
     }
-    MessageNoOverlap(gUnk_08113B1E[tmp], this);
+    MessageNoOverlap(messageIndices[tmp], this);
 }
 
-void sub_0806C9F8(Entity* this) {
+void sub_0806C9F8(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2f04,
+        0x2f10,
+        0x0,
+    };
     u32 flagAsBool = 0;
-    if (CheckGlobalFlag(0x58)) {
+    if (CheckGlobalFlag(WARP_EVENT_END)) {
         flagAsBool = 1;
     }
-    MessageNoOverlap(gUnk_08113B22[flagAsBool], this);
+    MessageNoOverlap(messageIndices[flagAsBool], this);
 }
 
-void sub_0806CA1C(Entity* this) {
+void sub_0806CA1C(Entity* this, ScriptExecutionContext* context) {
     MessageNoOverlap(0x251b, this);
 }
 
-void sub_0806CA2C(Entity* this) {
+void sub_0806CA2C(Entity* this, ScriptExecutionContext* context) {
     MessageNoOverlap(0x2527, this);
 }
 
-void sub_0806CA3C(Entity* this) {
+void sub_0806CA3C(Entity* this, ScriptExecutionContext* context) {
+    static const Dialog gUnk_08113B28 = {
+#if defined(DEMO_JP) || defined(EU) || defined(JP)
+        0xf5,
+        1,
+        2,
+        1,
+        { 0x2f19, 0x2f16 }
+#else
+        0xf8,
+        1,
+        2,
+        1,
+        { 0x2f19, 0x2f16 }
+#endif
+
+    };
     ShowNPCDialogue(this, &gUnk_08113B28);
 }
 
-void sub_0806CA4C(Entity* this) {
+void sub_0806CA4C(Entity* this, ScriptExecutionContext* context) {
+    static const Dialog gUnk_08113B30 = {
+#if defined(DEMO_JP) || defined(EU) || defined(JP)
+        0xf4,
+        0x1,
+        2,
+        1,
+        { 0x2f18, 0x2f17 }
+#else
+        0xf7,
+        0x1,
+        2,
+        1,
+        { 0x2f18, 0x2f17 }
+#endif
+    };
     ShowNPCDialogue(this, &gUnk_08113B30);
 }
 
 void sub_0806CA5C(Entity* this, ScriptExecutionContext* context) {
+    static const u8 gUnk_08113B38[] = { 30, 25, 20, 15, 10, 5, 0 };
     context->wait = gUnk_08113B38[context->unk_18++];
     if (this->type2 == 10) {
-        EnqueueSFX(0xe8);
+        EnqueueSFX(SFX_WIND2);
     }
     if (context->wait != 0) {
         gActiveScriptInfo.commandSize = 0;

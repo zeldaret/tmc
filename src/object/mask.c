@@ -1,9 +1,18 @@
 #include "object.h"
 #include "functions.h"
 
-extern void (*MaskActionFuncs[])(Entity*);
+void sub_080929A4(Entity*);
+void sub_08092A94(Entity*);
+void sub_08092B0C(Entity*);
+void Mask_Delete(Entity*);
 
 void Mask(Entity* this) {
+    static void (*const MaskActionFuncs[])(Entity*) = {
+        sub_080929A4,
+        sub_08092A94,
+        sub_08092B0C,
+        Mask_Delete,
+    };
     MaskActionFuncs[this->action](this);
 }
 

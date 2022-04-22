@@ -499,7 +499,7 @@ void sub_0801AE44(s32 param_1) {
     UpdateScrollVram();
 }
 
-void SetMultipleTiles(TileData* tileData, u32 basePosition, u32 layer) {
+void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer) {
     while (tileData->tile != -1) {
         SetTile((u16)tileData->tile, basePosition + tileData->position, layer);
         tileData++;

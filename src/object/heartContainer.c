@@ -17,7 +17,7 @@ static void (*const gHeartContainerActions[])(Entity*) = {
     sub_0808E764,
 };
 
-extern Hitbox gUnk_08121C58;
+const Hitbox3D gUnk_08121C58 = { 0, -3, { 5, 3, 3, 5 }, 6, 6, 12, {} };
 
 void HeartContainer(Entity* this) {
     gHeartContainerActions[this->action](this);
@@ -30,7 +30,7 @@ static void sub_0808E6A0(Entity* this) {
     this->action = 1;
     this->type = 0x62;
     this->spriteSettings.draw = 0;
-    this->hitbox = &gUnk_08121C58;
+    this->hitbox = (Hitbox*)&gUnk_08121C58;
     this->collisionLayer = 3;
     this->updatePriority = PRIO_NO_BLOCK;
 }

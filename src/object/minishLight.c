@@ -1,9 +1,14 @@
 #include "entity.h"
 
-extern void (*const gUnk_081247F8[])(Entity*);
+void sub_0809F840(Entity*);
+void sub_0809F868(Entity*);
 
 void MinishLight(Entity* this) {
-    gUnk_081247F8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809F840,
+        sub_0809F868,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0809F840(Entity* this) {
