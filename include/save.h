@@ -54,7 +54,8 @@ typedef struct {
     /*0x086*/ u8 filler86[0x2];
     /*0x088*/ PlayerRoomStatus saved_status; /**< Player room status. */
     /*0x0A8*/ Stats stats;                   /**< Player stats. */
-    /*0x0D0*/ u8 fillerD0[0x46];
+    /*0x0D0*/ u8 fillerD0[34];
+    u8 inventory[36];
     /*0x116*/ u8 didAllFusions;
     /*0x117*/ u8 unk117;
     /*0x118*/ u8 unk118[0x13];

@@ -92,6 +92,40 @@ extern const u16 gUnk_0811C110[];
 
 extern const u16 gUnk_08007CAC[];
 
+u32 sub_0807BEEC(u32 param_1, u32 param_2, u32 param_3);
+
+extern const u16 gUnk_0811C466[];
+bool32 sub_0807B434(u32 position, u32 layer);
+
+extern const u16 gUnk_0811C2AC[];
+
+void sub_0807B820(u32);
+void sub_0807B8A8(u32);
+void sub_0807B930(u32);
+bool32 sub_0807B464(u32 param_1, u32 param_2);
+void sub_0807B55C(u32, u32, u16*);
+void sub_0807B480(u32, u32);
+
+extern const s16 gUnk_0811C456[];
+
+bool32 sub_0807B600(u32);
+
+bool32 sub_0807B464(u32 tilePos, u32 param_2);
+
+extern const u16 gUnk_0811C2CC[];
+extern const u16 gUnk_0811C2EC[];
+
+bool32 sub_0807B464(u32 param_1, u32 param_2);
+
+extern void CreateRandomWaterTrace(Entity* parent, int range);
+void sub_08079520(Entity* this);
+
+bool32 sub_0807ADB8(Entity*);
+
+extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
+
+bool32 sub_08079F48(u32 param_1, u32 param_2);
+
 void sub_08077698(PlayerEntity* this) {
     ItemBehavior* puVar2;
     u32 idx;
@@ -139,41 +173,46 @@ bool32 sub_08077758(PlayerEntity* this) {
     return FALSE;
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_080777A0.inc", bool32 sub_080777A0(void)) {
+bool32 sub_080777A0(void) {
     if ((gPlayerState.field_0x92 & 0x80) != 0) {
         if ((gPlayerState.flags & PL_CLONING) != 0) {
             gPlayerState.chargeState.action = 1;
             DeleteClones();
+            return TRUE;
         } else {
-            if (gArea.portal_mode != 2) {
-                if (gArea.portal_mode == 3) {
+            switch (gArea.portal_mode) {
+                case 2:
+                    if (gArea.unk1A == 0) {
+                        gPlayerEntity.subAction += 1;
+                    }
+                    break;
+                case 3:
                     if ((gArea.unk1A == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
                         gPlayerEntity.subAction += 1;
                         gPlayerEntity.flags &= ~ENT_COLLIDE;
                         RequestPriorityDuration(&gPlayerEntity, 0xb4);
                         return TRUE;
                     }
-                } else if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
-                            (gPlayerState.floor_type != SURFACE_SWAMP)) &&
-                           ((((gPlayerState.field_0x90 & 0xf00) != 0 &&
-                              ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
-                             ((gPlayerState.jump_status == 0 && (gPlayerState.field_0x3[1] == 0)))))) {
-                    gPlayerState.queued_action = 0x18;
-                }
-                return FALSE;
-            }
-            if (gArea.unk1A == 0) {
-                gPlayerEntity.subAction += 1;
+                    return FALSE;
+                default:
+                    if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
+                         (gPlayerState.floor_type != 0x11)) &&
+                        ((((gPlayerState.field_0x90 & 0xf00) != 0 &&
+                           ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
+                          ((gPlayerState.jump_status == 0 && (gPlayerState.field_0x3[1] == 0)))))) {
+                        gPlayerState.queued_action = 0x18;
+                    }
+                    return FALSE;
             }
         }
+        return TRUE;
     } else {
         if ((gPlayerState.flags & PL_USE_PORTAL) == 0) {
             return FALSE;
         }
+        return TRUE;
     }
-    return TRUE;
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/playerUtils/sub_08077880.inc", void sub_08077880(u32 param_1, u32 param_2, u32 param_3)) {
     ItemBehavior* item;
@@ -197,9 +236,8 @@ NONMATCH("asm/non_matching/playerUtils/sub_08077880.inc", void sub_08077880(u32 
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/playerUtils/sub_080778CC.inc", bool32 sub_080778CC(void)) {
-    s32 iVar1;
-    ItemBehavior* pIVar2;
+bool32 sub_080778CC(void) {
+    ItemBehavior* item;
 
     if (!((((gPlayerState.flags & (PL_USE_PORTAL | PL_MINISH | PL_ROLLING)) == 0) &&
            (((gNewPlayerEntity.unk_79 != 0 || (gPlayerState.heldObject != 0)) ||
@@ -207,16 +245,15 @@ NONMATCH("asm/non_matching/playerUtils/sub_080778CC.inc", bool32 sub_080778CC(vo
           (((sub_080789A8() != 0 || ((gPlayerState.field_0x90 & 0xf03) == 0)))))) {
         return FALSE;
     }
-    pIVar2 = sub_0807794C(0x1b);
-    if (pIVar2 == NULL) {
-        return FALSE;
-    } else {
-        pIVar2->behaviorID = 0x1b;
-        pIVar2->field_0x5[4] = 2;
+    item = sub_0807794C(0x1b);
+    if (item != NULL) {
+        item->behaviorID = 0x1b;
+        item->field_0x5[4] = gUnk_0811BE48[0].unk0[0x145];
         return TRUE;
+    } else {
+        return FALSE;
     }
 }
-END_NONMATCH
 
 ItemBehavior* sub_0807794C(u32 param_1) {
     if (((((gPlayerState.queued_action == PLAYER_ROLL) && (param_1 != 0x1b)) ||
@@ -1423,7 +1460,37 @@ void sub_08079E58(s32 speed, u32 direction) {
     sub_0807A5B8(direction);
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079E90.inc", bool32 sub_08079E90(u32 a))
+bool32 sub_08079E90(u32 param_1) {
+    s16 tmp1;
+    s16 tmp2;
+
+    if (gPlayerEntity.direction & DirectionEast) {
+        if (gPlayerEntity.direction & DirectionSouth) {
+            tmp2 = -gPlayerEntity.hitbox->unk2[0];
+        } else {
+            tmp2 = gPlayerEntity.hitbox->unk2[0];
+        }
+        tmp1 = gPlayerEntity.hitbox->unk2[1];
+    } else {
+        tmp2 = gPlayerEntity.hitbox->unk2[2];
+        if (gPlayerEntity.direction != DirectionNorth) {
+            tmp1 = gPlayerEntity.hitbox->unk2[3];
+        } else {
+            tmp1 = -gPlayerEntity.hitbox->unk2[3];
+        }
+    }
+    if (!sub_08079F48(param_1, sub_080B1AF0(&gPlayerEntity, tmp2, tmp1))) {
+        if ((gPlayerEntity.direction & DirectionSouth) != 0) {
+            tmp1 = -tmp1;
+        } else {
+            tmp2 = -tmp2;
+        }
+        if (!sub_08079F48(param_1, sub_080B1AF0(&gPlayerEntity, tmp2, tmp1))) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
 
 bool32 sub_08079F48(u32 param_1, u32 param_2) {
     if (gUnk_0811C118[param_1 >> 2] == param_2) {
@@ -1468,7 +1535,38 @@ void sub_0807A050(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A094.inc", u32 sub_0807A094(u32 a))
+u32 sub_0807A094(u32 param_1) {
+    bool32 condition;
+    u32 result = 0x16;
+    if (gPlayerState.hurtBlinkSpeed != 0) {
+        result = 0x1b;
+        if (0x78 < gPlayerState.hurtBlinkSpeed) {
+            result = 0x1a;
+        }
+    } else {
+        if (gSave.stats.charm != 0) {
+            condition = TRUE;
+            if (((param_1 == 0) && (gSave.stats.charmTimer < 0xb4)) && ((gSave.stats.charmTimer & 8) != 0)) {
+                condition = FALSE;
+            }
+            if (condition) {
+                switch (gSave.stats.charm) {
+                    case 0x2f:
+                        result = 0x18;
+                        break;
+                    case 0x31:
+                        result = 0x17;
+                        break;
+                    case 0x30:
+                    default:
+                        result = 0x19;
+                        break;
+                }
+            }
+        }
+    }
+    return result;
+}
 
 void DeleteClones(void) {
     gPlayerClones[0] = NULL;
@@ -1549,7 +1647,33 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807A5B8.inc", void sub_0807A5B8(u32 
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A750.inc", void sub_0807A750())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A894.inc", u32 sub_0807A894(Entity* a))
+u32 sub_0807A894(Entity* this) {
+    s32 x;
+    s32 y;
+    switch (this->direction) {
+        case DirectionNorth:
+            y = -8;
+            x = 0;
+            break;
+        case DirectionSouth:
+            y = 5; // why??? ._.
+            x = 0;
+            break;
+        case DirectionEast:
+            y = 0;
+            x = 8;
+            break;
+        case DirectionWest:
+            y = 0;
+            x = -8;
+            break;
+        default:
+            y = 0;
+            x = 0;
+            break;
+    }
+    return GetRelativeCollisionTile(this, x, y);
+}
 
 void nullsub_505(void) {
 }
@@ -1599,17 +1723,160 @@ void sub_0807AABC(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807AAF8.inc", void sub_0807AAF8(Entity* a, u32 b))
+void sub_0807AAF8(Entity* this, u32 tilePos) {
+    u32 tmp;
+    u32 index;
+    if (this->z.HALF.HI == 0) {
+        tilePos |= this->collisionLayer << 0x1e;
+        for (index = 0; index < 0xf; index++) {
+            if (gPlayerState.path_memory[index] == tilePos) {
+                break;
+            }
+            tmp = gPlayerState.path_memory[index];
+            gPlayerState.path_memory[index] = tilePos;
+            tilePos = tmp;
+        }
+        gPlayerState.path_memory[index] = tilePos;
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807AB44.inc", void sub_0807AB44())
+void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
+    Entity* object;
+    const u16* ptr =
+        sub_0806FC50(GetTileType(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
+    if (ptr != NULL) {
+        if (ptr[3] == 0x76) {
+            object = CreateObject(OBJECT_2A, 1, 0);
+            if (object != NULL) {
+                PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
+                sub_08004168(object);
+                sub_0807B7D8(ptr[3], COORD_TO_TILE(object), object->collisionLayer);
+            }
+        } else {
+            object = CreateObject(OBJECT_2A, 2, 0);
+            if (object != NULL) {
+                PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
+                object->child = (Entity*)ptr;
+                SetTile(0x404f, COORD_TO_TILE(object), object->collisionLayer);
+            }
+        }
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807AC54.inc", u32 sub_0807AC54(Entity* a))
+bool32 sub_0807AC54(Entity* this) {
+    if (gPlayerState.field_0x11 == 0) {
+        return FALSE;
+    }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807ACCC.inc", void sub_0807ACCC(Entity* a))
+    switch (gPlayerState.floor_type) {
+        case SURFACE_LADDER:
+            this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
+            // fallthrough
+        case SURFACE_CLIMB_WALL:
+            this->action = 0x1d;
+            this->subAction = 0;
+            this->y.HALF.LO = 0;
+            gPlayerState.animation = 0x2cf;
+            return TRUE;
+        case SURFACE_AUTO_LADDER:
+            this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
+            // fallthrough
+        case SURFACE_2C:
+            this->action = 0x1d;
+            this->subAction = 1;
+            this->y.HALF.LO = 0;
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807ADB8.inc", void sub_0807ADB8())
+void sub_0807ACCC(Entity* this) {
+    s32 speed;
+    this->spritePriority.b1 = 0;
+    this->knockbackDuration = 0;
+    if (GetInventoryValue(ITEM_SWIM_BUTTERFLY) == 1) {
+        speed = 0x100;
+    } else {
+        speed = 0xc0;
+    }
+    if (speed > *(s16*)&this->speed) {
+        this->speed = speed;
+        this->direction = gPlayerState.field_0xd;
+        if ((gPlayerState.swim_state & 0xf) != 1) {
+            return;
+        }
+    } else {
+        this->speed -= 4;
+    }
+    if (gPlayerState.field_0x82[7] == 0) {
+        if (!sub_0807ADB8(this)) {
+            sub_0807AE20(this);
+        }
+    } else {
+        gPlayerState.field_0x82[7]--;
+        if (gPlayerState.field_0x82[7] != 0) {
+            sub_0807ADB8(this);
+        } else {
+            gPlayerState.swim_state &= 0x7f;
+            this->spritePriority.b0 = 4;
+            SoundReq(SFX_163);
+        }
+    }
+    if ((gPlayerState.swim_state & 0x80) != 0) {
+        this->collisionFlags |= 4;
+        this->spritePriority.b0 = 6;
+    } else {
+        this->collisionFlags &= 0xfb;
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807AE20.inc", void sub_0807AE20(Entity* e))
+bool32 sub_0807ADB8(Entity* this) {
+    u8 tmp;
+    if ((gPlayerState.field_0x92 & 0x10) != 0) {
+        gPlayerState.swim_state ^= 0x80;
+        tmp = (gPlayerState.swim_state & 0x80);
+        if (tmp != 0) {
+            gPlayerState.field_0x82[7] = 0x78;
+        } else {
+            this->spritePriority.b0 = 4;
+            gPlayerState.field_0x82[7] = tmp;
+        }
+        SoundReq(SFX_163);
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
+void sub_0807AE20(Entity* this) {
+    if ((((this->action != 0x17) || (gPlayerState.field_0xa == 0)) && (gRoomControls.reload_flags == 0)) &&
+        ((gPlayerState.field_0x92 & 8) != 0)) {
+        if (GetInventoryValue(ITEM_SWIM_BUTTERFLY) == 1) {
+            this->speed = 0x1c0;
+        } else {
+            this->speed = 0x180;
+        }
+        sub_08079520(this);
+        SoundReq(SFX_162);
+    }
+    if (sub_080793E4(0x10)) {
+        this->iframes = 0x14;
+        this->knockbackDuration = 4;
+        this->knockbackDirection = this->animationState << 2 ^ 0x10;
+        ModHealth(-2);
+        SoundReq(SFX_PLY_VO6);
+    }
+    if ((this->direction & 0x80) != 0) {
+        if ((gRoomTransition.frameCount & 0xf) == 0) {
+            CreateRandomWaterTrace(this, 4);
+        }
+    } else {
+        if ((gRoomTransition.frameCount & 7) == 0) {
+            CreateWaterTrace(this);
+        }
+    }
+}
 
 void UpdatePlayerSkills(void) {
     gPlayerState.skills = SKILL_NONE;
@@ -1860,15 +2127,121 @@ bool32 sub_0807B464(u32 param_1, u32 param_2) {
     return sub_080B1AE0(param_1, param_2) == 0x56;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807B480.inc", void sub_0807B480())
+void sub_0807B480(u32 tilePos, u32 param_2) {
+    u32 tmp1;
+    u16 tmp2;
+    u16 tmp3;
+    u16 tileType;
+    const u16* ptr;
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807B55C.inc", void sub_0807B55C())
+    if (sub_0807B464(tilePos, 2)) {
+        tmp1 = sub_0807B464(tilePos - 0x40, 2);
+        tmp1 |= sub_0807B464(tilePos + 1, 2) << 1;
+        tmp1 |= sub_0807B464(tilePos + 0x40, 2) << 2;
+        tmp1 |= sub_0807B464(tilePos - 1, 2) << 3;
+        tmp1 |= sub_0807B464(tilePos + 0x41, 1) << 1;
+        tmp1 |= sub_0807B464(tilePos + 0x3f, 1) << 3;
+        if (GetTileType(tilePos + 0x40, 2) != 0) {
+            tmp1 |= sub_0807B464(tilePos + 0x80, 1) << 2;
+        }
+        tmp2 = gUnk_0811C2CC[tmp1];
+        tileType = GetTileType(tilePos, 2);
+        ptr = gUnk_0811C2EC;
+        tmp3 = 0;
+        for (; *ptr != 0; ptr = ptr + 3) {
+            if (tileType == ptr[0]) {
+                tmp3 = ptr[1];
+                break;
+            }
+        }
+        tmp3 = tmp3 & ~(1 << (param_2));
+        for (ptr = gUnk_0811C2EC; *ptr != 0; ptr = ptr + 3) {
+            if ((tmp3 == ptr[1]) && (tmp1 == ptr[2])) {
+                tmp2 = ptr[0];
+                break;
+            }
+        }
+        SetTileType(tmp2, tilePos, 2);
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807B5B0.inc", void sub_0807B5B0())
+void sub_0807B55C(u32 param_1, u32 param_2, u16* param_3) {
+    u32 tmp;
+    if (sub_0807B464(param_1, param_2)) {
+        tmp = sub_0807B464(param_1 - 0x40, param_2);
+        tmp |= sub_0807B464(param_1 + 1, param_2) << 1;
+        tmp |= sub_0807B464(param_1 + 0x40, param_2) << 2;
+        tmp |= sub_0807B464(param_1 - 1, param_2) << 3;
+        SetTileType(param_3[tmp], param_1, param_2);
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807B600.inc", void sub_0807B600())
+bool32 sub_0807B5B0(Entity* this) {
+    return sub_0807B600(COORD_TO_TILE_OFFSET(this, -gUnk_0811C456[(this->animationState & 6)],
+                                             -gUnk_0811C456[(this->animationState & 6) + 1]));
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807B778.inc", void sub_0807B778(u32 a, u32 b))
+u32 sub_0807B600(u32 param_1) {
+    u32 tileType;
+    u32 tile;
+
+    tile = param_1 - 0x40;
+    if (sub_080B1AE0(param_1, 1) != 0x56) {
+        return FALSE;
+    } else {
+        tileType = GetTileType(param_1, 1);
+        if (tileType == 0x26a) {
+            sub_0807B820(param_1);
+        } else if (tileType == 0x267) {
+            sub_0807B820(param_1 + 0x40);
+        } else if (tileType == 0x27a) {
+            sub_0807B8A8(param_1);
+        } else if (tileType == 0x277) {
+            sub_0807B8A8(param_1 + 0x40);
+        } else if (tileType == 0x28a) {
+            sub_0807B930(param_1);
+        } else if (tileType == 0x287) {
+            sub_0807B930(param_1 + 0x40);
+        } else {
+            if (GetTileType(param_1, 2) != 0) {
+                SetTileType(0x2f2, param_1, 1);
+                if (sub_080B1B44(tile, 1) == 3) {
+                    SetTileType(0x2f4, tile, 1);
+                }
+                if (sub_080B1B44(param_1 + 0x40, 1) == 3) {
+                    SetTileType(0x2f4, param_1, 1);
+                }
+            } else {
+                SetTileType(0x2f4, param_1, 1);
+            }
+            if (sub_0807B464(tile, 2)) {
+                SetTileType(0, tile, 2);
+                if (GetTileType(tile, 1) == 0x2f2) {
+                    SetTileType(0x2f4, tile, 1);
+                }
+                sub_0807B55C(param_1 + 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(param_1 - 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tile, 1, (u16*)&gUnk_0811C2AC);
+            }
+            sub_0807B480(tile + 1, 3);
+            sub_0807B480(tile - 1, 1);
+            sub_0807B480(tile + 0x40, 0);
+            sub_0807B480(tile - 0x40, 2);
+        }
+        return TRUE;
+    }
+}
+
+void sub_0807B778(u32 position, u32 layer) {
+    u32 tmp;
+    if (sub_080B1AE0(position, layer) == 0xd) {
+        tmp = sub_0807B434(position - 0x40, layer);
+        tmp |= sub_0807B434(position + 1, layer) << 1;
+        tmp |= sub_0807B434(position + 0x40, layer) << 2;
+        tmp |= sub_0807B434(position - 1, layer) << 3;
+        SetTileType(gUnk_0811C466[tmp], position, layer);
+    }
+}
 
 void sub_0807B7D8(u32 param_1, u32 param_2, u32 param_3) {
     if (param_1 == 53) {
@@ -2048,7 +2421,39 @@ void sub_0807BC84(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BD14.inc", bool32 sub_0807BD14(Entity* a, u32 b))
+bool32 sub_0807BD14(Entity* this, u32 scrollDirection) {
+    u32 room = sub_0807BEEC(this->x.HALF.HI, this->y.HALF.HI, scrollDirection);
+    if (room != 0xff) {
+        gRoomControls.unk3 = 2;
+        gRoomControls.unk4 = 0;
+        gRoomControls.reload_flags = 1;
+        gRoomControls.room = room;
+        gRoomControls.scroll_direction = scrollDirection;
+        gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
+        if (gArea.unk_0c_0 != 0) {
+            switch (scrollDirection) {
+                case 0:
+                    gArea.pCurrentRoomInfo->map_y -= gArea.pCurrentRoomInfo->pixel_height;
+                    break;
+                case 1:
+                    gArea.pCurrentRoomInfo->map_x = gArea.pCurrentRoomInfo->map_x + gArea.pCurrentRoomInfo->pixel_width;
+                    break;
+                case 2:
+                    gArea.pCurrentRoomInfo->map_y =
+                        gArea.pCurrentRoomInfo->map_y + gArea.pCurrentRoomInfo->pixel_height;
+                    break;
+                case 3:
+                    gArea.pCurrentRoomInfo->map_x = gArea.pCurrentRoomInfo->map_x - gArea.pCurrentRoomInfo->pixel_width;
+                    break;
+            }
+        }
+        gPlayerEntity.updatePriority = 6;
+        SetInitializationPriority();
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
 
 u32 sub_0807BDB8(Entity* this, u32 param_2) {
     u32 result = 0xff;
