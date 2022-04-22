@@ -126,10 +126,16 @@ void sub_0806464C(Entity* this) {
 
 void sub_08064688(Entity* this) {
     static const Dialog gUnk_0810F894[] = {
-        { 7, 0, 3, 1, { 0x3426, 0x3425 } }, { 7, 0, 3, 1, { 0x3426, 0x3425 } }, { 7, 0, 3, 1, { 0x3426, 0x3425 } },
-        { 7, 0, 3, 1, { 0x3426, 0x3425 } }, { 7, 0, 3, 1, { 0x3521, 0x3520 } }, { 0, 0, 1, 1, { 0, 0x361f } },
-        { 0, 0, 1, 1, { 0, 0x3720 } },      { 0, 0, 1, 1, { 0, 0x3820 } },      { 0, 0, 1, 1, { 0, 0x3820 } },
-        { 0, 0, 1, 1, { 0, 0x3820 } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3521, 0x3520 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x361f } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3720 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3820 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3820 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3820 } },
     };
     ShowNPCDialogue(this, &gUnk_0810F894[gSave.global_progress]);
 }

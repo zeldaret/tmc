@@ -90,11 +90,11 @@ void sub_0806B41C(Entity* this) {
 
 void sub_0806B4F0(Entity* this) {
     static const Dialog gUnk_08112E2C[5] = {
-        { 0, 0, 5, 0, { .func = sub_0806B504 } },
-        { 0, 0, 1, 1, { 0, 0x2312 } },
-        { 0, 0, 1, 1, { 0, 0x2311 } },
-        { 0, 0, 1, 1, { 0, 0x2519 } },
-        { 0, 0, 5, 0, { .func = sub_0806B540 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806B504 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2312 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2311 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2519 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806B540 } },
     };
     ShowNPCDialogue(this, &gUnk_08112E2C[this->type2]);
 }

@@ -82,7 +82,7 @@ void sub_080672C8(Entity* this) {
 }
 
 void sub_08067304(Entity* this) {
-    static const Dialog dialog = { 0xb, 3, 4, 1, { 0x3642, 0x3641 } };
+    static const Dialog dialog = { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3642, 0x3641 } };
     ShowNPCDialogue(this, &dialog);
 }
 

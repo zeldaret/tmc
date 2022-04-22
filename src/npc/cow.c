@@ -189,11 +189,11 @@ void sub_080691E0(Entity* ent) {
 
 // Show dialogue
 void Cow_ShowDialogue(Entity* ent) {
-    static const Dialog gUnk_08111938[] = { { 0x0, 0x0, 6, 1, { 0x2018, 0x3f34 } },
-                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f35 } },
-                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f36 } },
-                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f37 } },
-                                            { 0x0, 0x0, 6, 1, { 0x2018, 0x3f38 } } };
+    static const Dialog gUnk_08111938[] = { { 0x0, 0x0, DIALOG_MINISH, 1, { 0x2018, 0x3f34 } },
+                                            { 0x0, 0x0, DIALOG_MINISH, 1, { 0x2018, 0x3f35 } },
+                                            { 0x0, 0x0, DIALOG_MINISH, 1, { 0x2018, 0x3f36 } },
+                                            { 0x0, 0x0, DIALOG_MINISH, 1, { 0x2018, 0x3f37 } },
+                                            { 0x0, 0x0, DIALOG_MINISH, 1, { 0x2018, 0x3f38 } } };
     ShowNPCDialogue(ent, &gUnk_08111938[ent->type]);
 }
 

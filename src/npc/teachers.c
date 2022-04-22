@@ -72,22 +72,22 @@ void Teachers_Head(Entity* this) {
 
 void sub_0806C70C(Entity* this) {
     static const Dialog gUnk_08113930[][8] = {
-        { { 0, 0, 1, 1, { 0, 0x3e01 } },
-          { 0, 0, 1, 1, { 0, 0x3e01 } },
-          { 0, 0, 1, 1, { 0, 0x3e01 } },
-          { 0, 0, 1, 1, { 0, 0x3e01 } },
-          { 0, 0, 1, 1, { 0, 0x3e01 } },
-          { 0, 0, 1, 1, { 0, 0x3e01 } },
-          { 0, 0, 1, 1, { 0, 0x3e09 } },
-          { 0, 0, 1, 1, { 0, 0x3e09 } } },
-        { { 0xa, 0, 3, 1, { 0x3435, 0x3434 } },
-          { 0xa, 0, 3, 1, { 0x3435, 0x3434 } },
-          { 0xa, 0, 3, 1, { 0x3528, 0x3527 } },
-          { 0xa, 0, 3, 1, { 0x3625, 0x3624 } },
-          { 0, 0, 3, 1, { 0x3e03, 0x3e02 } },
-          { 0, 0, 1, 1, { 0, 0x3e06 } },
-          { 0, 0, 1, 1, { 0, 0x3e0a } },
-          { 0, 0, 1, 1, { 0, 0x3e0a } } },
+        { { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e01 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e01 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e01 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e01 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e01 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e01 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e09 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e09 } } },
+        { { 0xa, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3435, 0x3434 } },
+          { 0xa, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3435, 0x3434 } },
+          { 0xa, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3528, 0x3527 } },
+          { 0xa, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3625, 0x3624 } },
+          { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3e03, 0x3e02 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e06 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e0a } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3e0a } } },
     };
     int offset;
 

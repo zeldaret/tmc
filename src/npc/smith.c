@@ -144,10 +144,14 @@ void sub_08066218(Entity* this) {
 
 void sub_0806622C(Entity* this) {
     static const Dialog dialogs[] = {
-        { 0x15, 2, 4, 1, { 0x3201, 0x100e } }, { 0x15, 2, 4, 1, { 0x3201, 0x100e } },
-        { 0x15, 2, 4, 1, { 0x3202, 0x100e } }, { 0x15, 2, 4, 1, { 0x3203, 0x100e } },
-        { 0x15, 2, 4, 1, { 0x3204, 0x100e } }, { 0x15, 2, 4, 1, { 0x3205, 0x100e } },
-        { 0x15, 2, 4, 1, { 0x3206, 0x100e } }, { 0x15, 2, 4, 1, { 0x3206, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3201, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3201, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3202, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3203, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3204, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3205, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3206, 0x100e } },
+        { TABIDACHI, DIALOG_GLOBAL_FLAG, DIALOG_CHECK_FLAG, 1, { 0x3206, 0x100e } },
     };
     u32 index;
 
