@@ -166,11 +166,12 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A370.inc", bool32 sub_0801A370(LayerStruct* layer, u32 position)) {
+bool32 sub_0801A370(LayerStruct* layer, u32 position) {
     LayerStruct* topLayer;
     u32 tileType;
     u32 pos;
     s32 offset;
+    s32 temp;
 
     if ((gPlayerEntity.animationState & 2) == 0) {
         return FALSE;
@@ -203,7 +204,7 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A370.inc", bool32 sub_0801A3
         case 0x74:
             return FALSE;
     }
-    switch (layer->collisionData[pos]) {
+    switch (temp = layer->collisionData[pos]) {
         case 0:
             return TRUE;
         case 5:
@@ -221,7 +222,6 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A370.inc", bool32 sub_0801A3
     }
     return FALSE;
 }
-END_NONMATCH
 
 bool32 sub_0801A458(LayerStruct* layer, u32 position, u32 collisionType) {
     u32 tileType;
