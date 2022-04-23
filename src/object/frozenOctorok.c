@@ -175,8 +175,7 @@ void FrozenOctorok_Action1SubAction4(FrozenOctorokEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Action1SubAction5.inc",
-         void FrozenOctorok_Action1SubAction5(FrozenOctorokEntity* this)) {
+void FrozenOctorok_Action1SubAction5(FrozenOctorokEntity* this) {
     Entity* child;
 
     if ((gRoomTransition.frameCount & 2) != 0) {
@@ -203,21 +202,20 @@ NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Action1SubAction5.inc",
         }
     } else {
         this->unk_79--;
-        switch ((gRoomTransition.frameCount & 3)) {
+        switch ((u32)(gRoomTransition.frameCount & 3)) {
             case 0:
             case 2:
-                (super->child)->spriteOffsetX = 0;
+                super->child->spriteOffsetX = 0;
                 break;
             case 1:
-                (super->child)->spriteOffsetX = 0xfc;
+                super->child->spriteOffsetX = 0xfc;
                 break;
             case 3:
-                (super->child)->spriteOffsetX = 4;
+                super->child->spriteOffsetX = 4;
                 break;
         }
     }
 }
-END_NONMATCH
 
 void FrozenOctorok_Action1SubAction6(FrozenOctorokEntity* this) {
     LinearMoveUpdate(super);
