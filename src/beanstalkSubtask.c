@@ -393,21 +393,20 @@ END_NONMATCH
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AB08.inc", void sub_0801AB08(u16* a, LayerStruct* layer))
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC68.inc", u32 sub_0801AC68(u32 position, u32 data)) {
+u32 sub_0801AC68(u32 position, u32 data) {
     u32 index;
     struct_0200B240* ptr;
     u32 end;
 
     ptr = gUnk_0200B240;
     end = gRoomVars.unk_0e;
-    for (index = 0; index < end; index++) {
-        if (position == ptr[index].position) {
-            return ptr[index].data << 2;
+    for (index = 0; index < end; ptr++, index++) {
+        if (position == ptr->position) {
+            return ptr->data << 2;
         }
     }
     return data << 2;
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98())
 
