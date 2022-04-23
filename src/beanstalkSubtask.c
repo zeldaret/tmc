@@ -363,10 +363,10 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A9F0.inc",
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AA58.inc",
-         bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3)) {
+bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
     LayerStruct* layer;
     Entity* object;
+    u32 temp;
 
     layer = GetLayerByIndex(this->collisionLayer);
     if (((layer->collisionData[param_2 + gUnk_080B4488[param_3 >> 3]] == 0) ||
@@ -375,12 +375,12 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AA58.inc",
         object = CreateObject(PUSHED_BLOCK, 0, 0);
         if (object != NULL) {
             object->direction = param_3;
-            object->x.HALF.HI = ((param_2 & 0x3f) * 0x10 + 8) + gRoomControls.origin_x;
+            object->x.HALF.HI = ((((param_2)&0x3f) << 4) + 8) + gRoomControls.origin_x;
             object->y.HALF.HI = (((param_2 & 0xfc0) >> 2) + 8) + gRoomControls.origin_y;
             object->collisionLayer = this->collisionLayer;
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = 5;
-            gPlayerState.flags |= PL_BUSY;
+            gPlayerState.flags |= 1;
             this->x.HALF.LO = 0;
             this->y.HALF.LO = 0;
             this->direction = param_3;
@@ -389,7 +389,6 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AA58.inc",
     }
     return FALSE;
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AB08.inc", void sub_0801AB08(u16* a, LayerStruct* layer))
 
