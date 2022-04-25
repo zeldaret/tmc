@@ -337,122 +337,128 @@ void sub_0806F188(Entity* ent) {
 }
 
 void ShowNPCDialogue(Entity* ent, const Dialog* dia) {
-    u32 uVar1;
+    u32 fromSelf;
     s32 temp;
     u32 uVar2;
     u32 uVar3;
+    u32 flagType;
     s32 uVar4;
-    int iVar5;
+    bool32 isFlagSet;
 
     temp = *(((u16*)dia) + 1);
-    uVar1 = (temp >> 4) & 1;
+    fromSelf = (temp >> 4) & 1;
     temp &= 0xf;
     switch (temp) {
-        case 2:
+        case DIALOG_SET_FLAG:
             uVar3 = (int)*(u32*)dia;
             temp = (s32)uVar3 >> 0xc & 0xf;
             uVar3 = uVar3 & 0xfff;
-            iVar5 = 0;
+            isFlagSet = FALSE;
             switch (temp) {
-                case 0:
-                    iVar5 = CheckRoomFlag(uVar3);
-                _SetRoomFlag:
+                case DIALOG_ROOM_FLAG:
+                    isFlagSet = CheckRoomFlag(uVar3);
                     SetRoomFlag(uVar3);
                     break;
-                case 1:
-                    iVar5 = CheckLocalFlag(uVar3);
-                _SetLocalFlag:
+                case DIALOG_LOCAL_FLAG:
+                    isFlagSet = CheckLocalFlag(uVar3);
                     SetLocalFlag(uVar3);
                     break;
-                case 2:
-                    iVar5 = CheckGlobalFlag(uVar3);
+                case DIALOG_GLOBAL_FLAG:
+                    isFlagSet = CheckGlobalFlag(uVar3);
                     SetGlobalFlag(uVar3);
                     break;
             }
-        _check:
-            if (iVar5 == 0) {
+            if (!isFlagSet) {
                 uVar2 = dia->data.indices.b;
             } else {
                 uVar2 = dia->data.indices.a;
             }
             break;
-        case 3:
+        case DIALOG_TOGGLE_FLAG:
             uVar3 = (int)*(u32*)dia;
             uVar4 = (s32)uVar3 >> 0xc & 0xf;
             uVar3 = uVar3 & 0xfff;
-            iVar5 = 0;
+            isFlagSet = 0;
             switch (uVar4) {
-                case 0:
-                    iVar5 = CheckRoomFlag(uVar3);
-                    if (iVar5 == 0) {
-                        goto _SetRoomFlag;
+                case DIALOG_ROOM_FLAG:
+                    isFlagSet = CheckRoomFlag(uVar3);
+                    if (!isFlagSet) {
+                        SetRoomFlag(uVar3);
                     } else {
                         ClearRoomFlag(uVar3);
                     }
                     break;
-                case 1:
-                    iVar5 = CheckLocalFlag(uVar3);
-                    if (iVar5 == 0) {
-                        goto _SetLocalFlag;
+                case DIALOG_LOCAL_FLAG:
+                    isFlagSet = CheckLocalFlag(uVar3);
+                    if (!isFlagSet) {
+                        SetLocalFlag(uVar3);
                     } else {
                         ClearLocalFlag(uVar3);
                     }
                     break;
-                case 2:
-                    iVar5 = CheckGlobalFlag(uVar3);
-                    if (iVar5 == 0) {
+                case DIALOG_GLOBAL_FLAG:
+                    isFlagSet = CheckGlobalFlag(uVar3);
+                    if (!isFlagSet) {
                         SetGlobalFlag(uVar3);
                     } else {
                         ClearGlobalFlag(uVar3);
                     }
                     break;
             }
-            goto _check;
-        case 4:
+            if (!isFlagSet) {
+                uVar2 = dia->data.indices.b;
+            } else {
+                uVar2 = dia->data.indices.a;
+            }
+            break;
+        case DIALOG_CHECK_FLAG:
             uVar3 = (int)*(u32*)dia;
             uVar4 = (s32)uVar3 >> 0xc & 0xf;
             uVar3 = uVar3 & 0xfff;
-            iVar5 = 0;
+            isFlagSet = FALSE;
             {
-                u32 local;
+                bool32 local;
                 switch (uVar4) {
-                    case 0:
-                        local = CheckRoomFlag(uVar3);
+                    case DIALOG_ROOM_FLAG:
+                        isFlagSet = CheckRoomFlag(uVar3);
                         break;
-                    case 1:
-                        local = CheckLocalFlag(uVar3);
+                    case DIALOG_LOCAL_FLAG:
+                        isFlagSet = CheckLocalFlag(uVar3);
                         break;
-                    case 2:
-                        local = CheckGlobalFlag(uVar3);
+                    case DIALOG_GLOBAL_FLAG:
+                        isFlagSet = CheckGlobalFlag(uVar3);
                         break;
-                    case 3:
-                        local = CheckKinstoneFused(uVar3);
+                    case DIALOG_KINSTONE:
+                        isFlagSet = CheckKinstoneFused(uVar3);
                         break;
-                    case 4:
+                    case DIALOG_INVENTORY:
                         local = GetInventoryValue(uVar3);
                         if (local != 0) {
                             local = 1;
                         }
+                        isFlagSet = local;
                         break;
-                    default:
-                        goto _check;
                 }
-                iVar5 = local;
             }
-            goto _check;
-        case 5:
+            if (!isFlagSet) {
+                uVar2 = dia->data.indices.b;
+            } else {
+                uVar2 = dia->data.indices.a;
+            }
+            break;
+        case DIALOG_CALL_FUNC:
             if (dia->data.func != 0) {
                 dia->data.func(ent);
                 return;
             }
         default:
-        case 0:
+        case DIALOG_NONE:
             uVar2 = 0;
             break;
-        case 1:
+        case DIALOG_NORMAL:
             uVar2 = dia->data.indices.b;
             break;
-        case 6:
+        case DIALOG_MINISH:
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 uVar2 = dia->data.indices.b;
             } else {
@@ -461,7 +467,7 @@ void ShowNPCDialogue(Entity* ent, const Dialog* dia) {
             break;
     }
 
-    if (uVar1 != 0) {
+    if (fromSelf) {
         MessageNoOverlap(uVar2, ent);
     } else {
         MessageFromTarget(uVar2);

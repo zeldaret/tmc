@@ -19,6 +19,38 @@
 
 #include "structures.h"
 
+typedef enum {
+    DIALOG_ROOM_FLAG,
+    DIALOG_LOCAL_FLAG,
+    DIALOG_GLOBAL_FLAG,
+    DIALOG_KINSTONE,
+    DIALOG_INVENTORY,
+} DialogFlagType;
+
+typedef enum {
+    DIALOG_NONE,
+    DIALOG_NORMAL,
+    DIALOG_SET_FLAG,
+    DIALOG_TOGGLE_FLAG,
+    DIALOG_CHECK_FLAG,
+    DIALOG_CALL_FUNC,
+    DIALOG_MINISH,
+} DialogType;
+
+typedef struct {
+    u32 flag : 12;
+    DialogFlagType flagType : 4;
+    DialogType type : 4;
+    u32 fromSelf : 1;
+    union {
+        struct {
+            u16 a;
+            u16 b;
+        } indices;
+        void (*func)(Entity* e);
+    } data;
+} Dialog;
+
 void sub_0806EC20(Entity* ent);
 void sub_0806EC38(void);
 u32 sub_0806ED78(Entity* ent);

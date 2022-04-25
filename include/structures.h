@@ -175,20 +175,6 @@ typedef struct {
 } struct_02034480;
 extern struct_02034480 gUnk_02034480;
 
-typedef struct {
-    u32 flag : 12;
-    u32 flagType : 4;
-    u32 type : 4;
-    u32 unk : 1;
-    union {
-        struct {
-            u16 a;
-            u16 b;
-        } indices;
-        void (*func)(Entity* e);
-    } data;
-} Dialog;
-
 extern u16 gBG0Buffer[0x400];
 extern u16 gBG1Buffer[0x400];
 extern u16 gBG2Buffer[0x400];

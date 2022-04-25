@@ -68,11 +68,16 @@ void sub_080670B4(Entity* this) {
 
 void sub_080670E4(Entity* this) {
     static const Dialog dialogs[] = {
-        { 0, 0, 3, 1, { 0x4101, 0x4100 } },   { 0, 0, 3, 1, { 0x4101, 0x4100 } },
-        { 0, 0, 3, 1, { 0x4101, 0x4100 } },   { 0, 0, 3, 1, { 0x4101, 0x4100 } },
-        { 0, 0, 3, 1, { 0x4101, 0x4100 } },   { 0xb, 3, 4, 1, { 0x4104, 0x4102 } },
-        { 0xb, 3, 4, 1, { 0x4104, 0x4103 } }, { 0xb, 3, 4, 1, { 0x4104, 0x4103 } },
-        { 0xb, 3, 4, 1, { 0x4104, 0x4105 } }, { 0xb, 3, 4, 1, { 0x4104, 0x4105 } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4101, 0x4100 } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4101, 0x4100 } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4101, 0x4100 } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4101, 0x4100 } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4101, 0x4100 } },
+        { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x4104, 0x4102 } },
+        { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x4104, 0x4103 } },
+        { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x4104, 0x4103 } },
+        { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x4104, 0x4105 } },
+        { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x4104, 0x4105 } },
     };
     ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }

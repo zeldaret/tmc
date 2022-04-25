@@ -50,11 +50,21 @@ void sub_0806CE5C(Entity* this) {
 
 void sub_0806CE80(Entity* this) {
     static const Dialog dialogs[] = {
-        { 0x89, 1, 2, 1, 0x4c0d, 0x4c01 }, { 0x89, 1, 2, 1, 0x4c0d, 0x4c01 }, { 0x89, 1, 2, 1, 0x4c0d, 0x4c01 },
-        { 0x89, 1, 2, 1, 0x4c0d, 0x4c01 }, { 0, 0, 1, 1, 0, 0x4c0e },         { 0, 0, 1, 1, 0, 0x4c0e },
-        { 0, 0, 1, 1, 0, 0x4c0f },         { 0, 0, 1, 1, 0, 0x4c10 },         { 0, 0, 1, 1, 0, 0x4c11 },
-        { 0, 0, 1, 1, 0, 0x4c12 },         { 0, 0, 1, 1, 0, 0x4c14 },         { 0, 0, 1, 1, 0, 0x4c02 },
-        { 0, 0, 1, 1, 0, 0x4c0c },         { 0, 0, 1, 1, 0, 0x4c03 },         { 0, 0, 1, 1, 0, 0x4c04 },
+        { 0x89, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, 0x4c0d, 0x4c01 },
+        { 0x89, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, 0x4c0d, 0x4c01 },
+        { 0x89, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, 0x4c0d, 0x4c01 },
+        { 0x89, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, 0x4c0d, 0x4c01 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c0e },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c0e },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c0f },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c10 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c11 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c12 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c14 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c02 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c0c },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c03 },
+        { 0, 0, DIALOG_NORMAL, 1, 0, 0x4c04 },
     };
     u32 v;
     u32 v2;

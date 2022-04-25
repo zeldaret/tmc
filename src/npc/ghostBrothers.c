@@ -239,22 +239,22 @@ void sub_08065F20(Entity* this) {
 
 void sub_08065F64(Entity* this) {
     static const Dialog dialogs[][8] = {
-        { { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } },
-          { 0, 0, 1, 1, { 0, 0x3f31 } } },
-        { { 4, 0, 3, 1, { 0x3417, 0x3416 } },
-          { 4, 0, 3, 1, { 0x3417, 0x3416 } },
-          { 4, 0, 3, 1, { 0x3513, 0x3512 } },
-          { 4, 0, 3, 1, { 0x3613, 0x3612 } },
-          { 4, 0, 3, 1, { 0x3713, 0x3712 } },
-          { 4, 0, 3, 1, { 0x3813, 0x3812 } },
-          { 4, 0, 3, 1, { 0x3912, 0x3911 } },
-          { 0, 0, 1, 1, { 0, 0x3A03 } } },
+        { { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f31 } } },
+        { { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3417, 0x3416 } },
+          { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3417, 0x3416 } },
+          { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3513, 0x3512 } },
+          { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3613, 0x3612 } },
+          { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3713, 0x3712 } },
+          { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3813, 0x3812 } },
+          { 4, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3912, 0x3911 } },
+          { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3A03 } } },
     };
     s32 tmp = gSave.global_progress - 2;
     if (tmp < 0) {

@@ -128,11 +128,16 @@ void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C928(Entity* this, ScriptExecutionContext* context) {
     static const Dialog gUnk_08113ABC[] = {
-        { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } }, { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } },
-        { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } }, { 0x0, 0x0, 3, 1, { 0x4e20, 0x4e1f } },
-        { 0x0, 0x0, 1, 1, { 0x0, 0x4e21 } },    { 0x0, 0x0, 1, 1, { 0x0, 0x4e22 } },
-        { 0x0, 0x0, 1, 1, { 0x0, 0x4e23 } },    { 0x0, 0x0, 1, 1, { 0x0, 0x4e23 } },
-        { 0x0, 0x0, 1, 1, { 0x0, 0x4e24 } },    { 0x0, 0x0, 1, 1, { 0x0, 0x4e24 } }
+        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
+        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
+        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
+        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e21 } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e22 } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e23 } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e23 } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e24 } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e24 } },
     };
     ShowNPCDialogue(this, &gUnk_08113ABC[gSave.global_progress]);
 }
@@ -223,40 +228,13 @@ void sub_0806CA2C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806CA3C(Entity* this, ScriptExecutionContext* context) {
-    static const Dialog gUnk_08113B28 = {
-#if defined(DEMO_JP) || defined(EU) || defined(JP)
-        0xf5,
-        1,
-        2,
-        1,
-        { 0x2f19, 0x2f16 }
-#else
-        0xf8,
-        1,
-        2,
-        1,
-        { 0x2f19, 0x2f16 }
-#endif
-
-    };
+    static const Dialog gUnk_08113B28 = { KUMOUE_GIRL_TALK, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { 0x2f19, 0x2f16 } };
     ShowNPCDialogue(this, &gUnk_08113B28);
 }
 
 void sub_0806CA4C(Entity* this, ScriptExecutionContext* context) {
     static const Dialog gUnk_08113B30 = {
-#if defined(DEMO_JP) || defined(EU) || defined(JP)
-        0xf4,
-        0x1,
-        2,
-        1,
-        { 0x2f18, 0x2f17 }
-#else
-        0xf7,
-        0x1,
-        2,
-        1,
-        { 0x2f18, 0x2f17 }
-#endif
+        KUMOUE_UNCLE_TALK, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { 0x2f18, 0x2f17 }
     };
     ShowNPCDialogue(this, &gUnk_08113B30);
 }

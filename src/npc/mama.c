@@ -78,10 +78,16 @@ void sub_0806C4A8(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C4DC(Entity* this) {
     static const Dialog dialogs[] = {
-        { 1, 0, 3, 1, { 0x4f03, 0x4f02 } }, { 1, 0, 3, 1, { 0x4f03, 0x4f02 } }, { 1, 0, 3, 1, { 0x4f03, 0x4f02 } },
-        { 1, 0, 3, 1, { 0x4f03, 0x4f02 } }, { 1, 0, 3, 1, { 0x4f0d, 0x4f0c } }, { 1, 0, 3, 1, { 0x4f1b, 0x4f1a } },
-        { 1, 0, 3, 1, { 0x4f27, 0x4f26 } }, { 1, 0, 3, 1, { 0x4f33, 0x4f32 } }, { 1, 0, 3, 1, { 0x4f3f, 0x4f3e } },
-        { 1, 0, 3, 1, { 0x4f49, 0x4f48 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f03, 0x4f02 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f03, 0x4f02 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f03, 0x4f02 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f03, 0x4f02 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f0d, 0x4f0c } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f1b, 0x4f1a } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f27, 0x4f26 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f33, 0x4f32 } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f3f, 0x4f3e } },
+        { 1, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f49, 0x4f48 } },
     };
     ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
