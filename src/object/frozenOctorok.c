@@ -92,7 +92,7 @@ void FrozenOctorok_Action1SubAction0(FrozenOctorokEntity* this) {
             }
         }
         if (this->unk_79-- == 0) {
-            MessageFromTarget(0xb43);
+            MessageFromTarget(TEXT_INDEX(TEXT_EZLO, 0x43));
             super->subAction = 1;
             this->unk_79 = 8;
         }
@@ -238,7 +238,7 @@ void FrozenOctorok_Action1SubAction6(FrozenOctorokEntity* this) {
 
 void FrozenOctorok_Action1SubAction7(FrozenOctorokEntity* this) {
     if ((gRoomControls.scroll_flags & 4) == 0) {
-        CreateEzloHint(0xb44, 0);
+        CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x44), 0);
         DeleteThisEntity();
     }
 }

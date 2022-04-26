@@ -169,10 +169,10 @@ void CuccoMinigame_Cleanup(ObjectB9Entity* this) {
 
 void sub_080A13B4(ObjectB9Entity* this, ScriptExecutionContext* context) {
     if (this->unk6a >= this->unk6c) {
-        MessageFromTarget(0x300c);
+        MessageFromTarget(TEXT_INDEX(TEXT_ANJU, 0xc));
         context->condition = 1;
     } else {
-        MessageFromTarget(0x3005);
+        MessageFromTarget(TEXT_INDEX(TEXT_ANJU, 0x5));
         context->condition = 0;
     }
 }
@@ -229,7 +229,7 @@ void sub_080A1460(ObjectB9Entity* this) {
         pcVar1++;
     }
     ModRupees(rupees);
-    MessageNoOverlap(0x3007, super);
+    MessageNoOverlap(TEXT_INDEX(TEXT_ANJU, 0x7), super);
     gMessage.rupees = (u16)rupees;
 }
 
@@ -329,9 +329,9 @@ void sub_080A1608(void) {
     u16 messageIndex;
     const u16* ptr;
 
-    messageIndex = 0x3002;
+    messageIndex = TEXT_INDEX(TEXT_ANJU, 0x2);
     if (CheckRoomFlag(1)) {
-        messageIndex = 0x3006;
+        messageIndex = TEXT_INDEX(TEXT_ANJU, 0x6);
     }
     MessageFromTarget(messageIndex);
     gMessage.textWindowPosX = 1;

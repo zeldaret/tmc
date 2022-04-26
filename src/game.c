@@ -1969,7 +1969,7 @@ void sub_08053A1C(void) {
     if (gMenu.transitionTimer == 0) {
         gMenu.overlayType++;
         gMenu.transitionTimer = 8;
-        MessageFromTarget(0xf07);
+        MessageFromTarget(TEXT_INDEX(TEXT_PICORI, 0x07));
         gMessage.textWindowPosX = 1;
         gMessage.textWindowPosY = 8;
         SetFade(FADE_INSTANT, 8);
@@ -2231,9 +2231,9 @@ void sub_08054288(s32 param_1) {
     MessageFromTarget(ptr[3]);
 }
 
-u32 sub_0805429C(s32 param_1) {
+u32 getItemMetaDataGetTextIndex(s32 itemIndex) {
     const ItemMetaData* ptr1 = gItemMetaData;
-    u16* ptr = (u16*)&((ptr1)[param_1]);
+    u16* ptr = (u16*)&((ptr1)[itemIndex]);
     return ptr[2];
 }
 

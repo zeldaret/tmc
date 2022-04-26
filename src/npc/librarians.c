@@ -25,43 +25,43 @@ void sub_0806BA34(Entity* this, ScriptExecutionContext* context) {
     u32 gotBook1;
     u32 gotBook2;
     u32 gotBook3;
-    u32 message = 0x4912;
+    u32 message = TEXT_INDEX(TEXT_LIBRARY, 0x12);
     context->condition = 0;
     if (CheckLocalFlag(0x73)) {
-        message = 0x4913;
+        message = TEXT_INDEX(TEXT_LIBRARY, 0x13);
     } else {
         gotBook1 = GetInventoryValue(ITEM_QST_BOOK1);
         gotBook2 = GetInventoryValue(ITEM_QST_BOOK2);
         gotBook3 = GetInventoryValue(ITEM_QST_BOOK3);
         if (gotBook1 == 1) {
-            message = 0x4906;
+            message = TEXT_INDEX(TEXT_LIBRARY, 0x6);
             context->condition = 1;
             SetLocalFlag(0x6b);
             SetLocalFlag(0x6a);
         } else if (gotBook2 == 1) {
-            message = 0x4907;
+            message = TEXT_INDEX(TEXT_LIBRARY, 0x7);
             context->condition = 1;
             SetLocalFlag(0x6b);
             SetLocalFlag(0x6a);
         } else if (gotBook3 == 1) {
-            message = 0x4908;
+            message = TEXT_INDEX(TEXT_LIBRARY, 0x8);
             context->condition = 1;
             SetLocalFlag(0x6b);
             SetLocalFlag(0x6a);
         } else {
             if (CheckLocalFlag(0x6a)) {
                 if (!CheckLocalFlag(0x6b)) {
-                    message = 0x4901;
+                    message = TEXT_INDEX(TEXT_LIBRARY, 0x1);
                     SetLocalFlag(0x6b);
                 } else {
                     if (gotBook1 == 0) {
-                        message = 0x4902;
+                        message = TEXT_INDEX(TEXT_LIBRARY, 0x2);
                         SetLocalFlag(0x6b);
                     } else if (gotBook2 == 0) {
-                        message = 0x4903;
+                        message = TEXT_INDEX(TEXT_LIBRARY, 0x3);
                         SetLocalFlag(0x6d);
                     } else if (gotBook3 == 0) {
-                        message = 0x4904;
+                        message = TEXT_INDEX(TEXT_LIBRARY, 0x4);
                         SetLocalFlag(0x70);
                     }
                 }
@@ -105,9 +105,9 @@ void sub_0806BB7C(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806BBB0(Entity* this) {
     static const u16 messageIndices[] = {
-        0x490f,
-        0x4910,
-        0x4912,
+        TEXT_INDEX(TEXT_LIBRARY, 0xf),
+        TEXT_INDEX(TEXT_LIBRARY, 0x10),
+        TEXT_INDEX(TEXT_LIBRARY, 0x12),
     };
     u32 tmp;
 

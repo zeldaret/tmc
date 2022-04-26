@@ -26,7 +26,9 @@ void sub_080933D8(Entity* this) {
 
 void sub_080933FC(Entity* this) {
     static const u16 messageIndices[] = {
-        0x301, 0x302, 0x303, 0x304, 0x305, 0x306, 0x307, 0x308,
+        TEXT_INDEX(TEXT_NEWSLETTER, 1), TEXT_INDEX(TEXT_NEWSLETTER, 2), TEXT_INDEX(TEXT_NEWSLETTER, 3),
+        TEXT_INDEX(TEXT_NEWSLETTER, 4), TEXT_INDEX(TEXT_NEWSLETTER, 5), TEXT_INDEX(TEXT_NEWSLETTER, 6),
+        TEXT_INDEX(TEXT_NEWSLETTER, 7), TEXT_INDEX(TEXT_NEWSLETTER, 8),
     };
     if (this->interactType != 0) {
         this->interactType = 0;

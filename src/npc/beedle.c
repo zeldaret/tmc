@@ -77,7 +77,7 @@ void sub_08063314(Entity* this) {
         InitializeAnimation(this, offset);
     }
     if (this->interactType != 0) {
-        MessageFromTarget(this->timer + 0xA01);
+        MessageFromTarget(this->timer + TEXT_INDEX(TEXT_EMPTY, 0x01));
         this->action++;
     }
     sub_0806ED78(this);

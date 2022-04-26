@@ -14,7 +14,7 @@ extern u32 (*gUnk_08114EFC[])(Entity*);
 extern u32 (*gUnk_08114F0C[])(Entity*, u8*);
 
 typedef struct {
-    u16 _0;
+    u16 textIndex;
     u16 _2;
     u16 _4;
 } NPCData;
@@ -307,7 +307,7 @@ void CollideFollowers(void) {
 void sub_0806F118(Entity* ent) {
     u32 idx = sub_08002632(ent);
     NPCData* data = gUnk_08001A7C[idx];
-    sub_0801DFB4(ent, data->_0, data->_2, data->_4);
+    sub_0801DFB4(ent, data->textIndex, data->_2, data->_4);
     gPlayerState.controlMode = CONTROL_DISABLED;
 }
 

@@ -55,14 +55,44 @@ void HurdyGurdyMan_Head(Entity* this) {
 }
 
 void sub_0806E418(Entity* this) {
-    static const Dialog dialogs[] = { { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f52, 0x4f51 } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f52, 0x4f51 } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f54, 0x4f53 } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f56, 0x4f55 } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f58, 0x4f57 } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f5a, 0x4f59 } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f5c, 0x4f5b } },
-                                      { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4f5e, 0x4f5d } } };
+    static const Dialog dialogs[] = {
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x52), TEXT_INDEX(TEXT_CAFE, 0x51) } },
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x52), TEXT_INDEX(TEXT_CAFE, 0x51) } },
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x54), TEXT_INDEX(TEXT_CAFE, 0x53) } },
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x56), TEXT_INDEX(TEXT_CAFE, 0x55) } },
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x58), TEXT_INDEX(TEXT_CAFE, 0x57) } },
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x5a), TEXT_INDEX(TEXT_CAFE, 0x59) } },
+        { 0x59,
+          DIALOG_LOCAL_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_CAFE, 0x5c), TEXT_INDEX(TEXT_CAFE, 0x5b) } },
+        { 0x59, DIALOG_LOCAL_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_CAFE, 0x5e), TEXT_INDEX(TEXT_CAFE, 0x5d) } }
+    };
     s32 tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;

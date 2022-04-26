@@ -60,7 +60,7 @@ void sub_08061C00(Entity* this) {
     sub_0806ED78(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        MessageFromTarget(this->type2 + 0xa01);
+        MessageFromTarget(this->type2 + TEXT_INDEX(TEXT_EMPTY, 0x01));
     }
 }
 

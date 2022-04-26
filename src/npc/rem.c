@@ -381,19 +381,22 @@ void sub_0806AA10(Entity* this) {
 void sub_0806AA18(Entity* this) {
     u32 index;
     if (this->field_0x6a.HWORD != 0) {
-        index = 0x4408;
+        index = TEXT_INDEX(TEXT_REM, 0x8);
     } else if ((gRoomTransition.frameCount & 1) == 0) {
-        index = 0x4407;
+        index = TEXT_INDEX(TEXT_REM, 0x7);
     } else {
-        index = 0x440d;
+        index = TEXT_INDEX(TEXT_REM, 0xd);
     }
     MessageNoOverlap(index, this);
 }
 
 void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
-    static const u16 gUnk_081122A8[] = { 0x441c, 0x441d, 0x441e, 0 };
-    static const u16 gUnk_081122B0[] = { 0x441f, 0x4420, 0x4421, 0 };
-    static const u16 gUnk_081122B8[] = { 0x4410, 0x4411, 0x4412, 0 };
+    static const u16 gUnk_081122A8[] = { TEXT_INDEX(TEXT_REM, 0x1c), TEXT_INDEX(TEXT_REM, 0x1d),
+                                         TEXT_INDEX(TEXT_REM, 0x1e), 0 };
+    static const u16 gUnk_081122B0[] = { TEXT_INDEX(TEXT_REM, 0x1f), TEXT_INDEX(TEXT_REM, 0x20),
+                                         TEXT_INDEX(TEXT_REM, 0x21), 0 };
+    static const u16 gUnk_081122B8[] = { TEXT_INDEX(TEXT_REM, 0x10), TEXT_INDEX(TEXT_REM, 0x11),
+                                         TEXT_INDEX(TEXT_REM, 0x12), 0 };
     s32 messageIndex;
     Entity* pEnt;
 
@@ -429,7 +432,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
                     pEnt->zVelocity = Q_16_16(1.5);
                     break;
             }
-            if (messageIndex == 0x441e) {
+            if (messageIndex == TEXT_INDEX(TEXT_REM, 0x1e)) {
                 SetLocalFlag(0x8f);
                 context->condition = 1;
             }

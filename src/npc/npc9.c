@@ -39,7 +39,7 @@ void sub_08062B14(Entity* this) {
 void sub_08062B48(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
-        MessageFromTarget(0xa01); // invalid
+        MessageFromTarget(TEXT_INDEX(TEXT_EMPTY, 0x01)); // invalid
         this->action++;
     }
 }

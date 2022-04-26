@@ -20,7 +20,7 @@ typedef struct {
     /*0x6a*/ u8 unk_6a;
 } FourElementsEntity;
 
-extern u32 sub_0805429C(u32);
+extern u32 getItemMetaDataGetTextIndex(u32);
 extern void sub_0807DF50(void);
 
 extern u16 script_PlayerGetElement[];
@@ -133,7 +133,7 @@ void FourElements_Action5(FourElementsEntity* this) {
     RequestPriorityDuration(NULL, 10);
     if (--this->unk_68 == 0) {
         super->action = 6;
-        index = sub_0805429C(super->type);
+        index = getItemMetaDataGetTextIndex(super->type);
         MessageNoOverlap(index, super);
     }
 }

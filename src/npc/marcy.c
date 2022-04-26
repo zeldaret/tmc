@@ -14,7 +14,16 @@ void Marcy(Entity* this) {
 }
 
 void sub_08062D18(Entity* this, ScriptExecutionContext* context) {
-    static const u16 msgIndices[] = { 0x4004, 0x400b, 0x4009, 0x400a, 0, 0, 0, 0, 0, 0 };
+    static const u16 msgIndices[] = { TEXT_INDEX(TEXT_POST, 0x4),
+                                      TEXT_INDEX(TEXT_POST, 0xb),
+                                      TEXT_INDEX(TEXT_POST, 0x9),
+                                      TEXT_INDEX(TEXT_POST, 0xa),
+                                      0,
+                                      0,
+                                      0,
+                                      0,
+                                      0,
+                                      0 };
     u8 tmp = 0;
     if ((GetInventoryValue(ITEM_SKILL_PERIL_BEAM) != 0) && (CheckLocalFlag(0x26) == 0)) {
         tmp = 7;

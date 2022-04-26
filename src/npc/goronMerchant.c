@@ -76,7 +76,7 @@ void sub_08069654(Entity* this) {
 }
 
 void sub_08069660(Entity* this) {
-    MessageNoOverlap(0x2c1c, this);
+    MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x1c), this);
     gMessage.rupees = (u16)GoronMerchant_GetSalePrice(this);
 }
 
@@ -139,11 +139,11 @@ void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* contex
             gRoomVars.shopItemType2 = 0;
             context->condition = 1;
         } else {
-            MessageNoOverlap(0x2c1f, this);
+            MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x1f), this);
             context->condition = 0;
         }
     } else {
-        MessageNoOverlap(0x2c1e, this);
+        MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x1e), this);
         context->condition = 0;
     }
     gActiveScriptInfo.flags |= 1;

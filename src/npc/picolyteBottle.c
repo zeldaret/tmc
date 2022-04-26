@@ -172,16 +172,16 @@ void sub_0806E140(PicolyteBottleEntity* this, ScriptExecutionContext* context) {
         if ((this->unk76) >= 1000) {
             this->unk76 = 999;
             context->condition = 0;
-            MessageFromTarget(0x421b);
+            MessageFromTarget(TEXT_INDEX(TEXT_BURLOV, 0x1b));
         } else {
-            MessageFromTarget(0x4218);
+            MessageFromTarget(TEXT_INDEX(TEXT_BURLOV, 0x18));
             gMessage.rupees = this->unk76;
         }
     } else {
         context->condition = 0;
         this->unk74 = 0;
         this->unk76 = 0;
-        MessageFromTarget(0x421c);
+        MessageFromTarget(TEXT_INDEX(TEXT_BURLOV, 0x1c));
     }
     gRoomTransition.field_0x6 = this->unk76;
     gActiveScriptInfo.flags |= 1;
@@ -200,10 +200,10 @@ void sub_0806E1FC(PicolyteBottleEntity* this) {
 
 void sub_0806E20C(void) {
     if (gRoomTransition.field_0x6 != 0) {
-        MessageFromTarget(0x421f);
+        MessageFromTarget(TEXT_INDEX(TEXT_BURLOV, 0x1f));
         gMessage.rupees = gRoomTransition.field_0x6;
     } else {
-        MessageFromTarget(0x4220);
+        MessageFromTarget(TEXT_INDEX(TEXT_BURLOV, 0x20));
     }
 }
 

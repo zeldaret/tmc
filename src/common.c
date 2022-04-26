@@ -422,9 +422,9 @@ u32 sub_0801DF90(u8* a1, u32 a2) {
     return 0;
 }
 
-void sub_0801DFB4(Entity* entity, u32 a2, u32 a3, u32 a4) {
+void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
     MemClear(&gFuseInfo, sizeof(gFuseInfo));
-    gFuseInfo._6 = a2;
+    gFuseInfo.textIndex = textIndex;
     gFuseInfo._8 = a3;
     gFuseInfo._a = a4;
     gFuseInfo.ent = entity;
@@ -442,7 +442,7 @@ u32 sub_0801E00C(void) {
 }
 
 void sub_0801E02C(void) {
-    sub_0801E0E0(gFuseInfo._6);
+    sub_0801E0E0(gFuseInfo.textIndex);
     gFuseInfo._0 = 3;
     gFuseInfo.action = 1;
 }
@@ -481,12 +481,12 @@ void sub_0801E0A0(void) {
     }
 }
 
-void sub_0801E0E0(u32 idx) {
-    if (idx != 0) {
+void sub_0801E0E0(u32 textIndex) {
+    if (textIndex != 0) {
         if (gFuseInfo.ent != NULL) {
-            MessageNoOverlap(idx, gFuseInfo.ent);
+            MessageNoOverlap(textIndex, gFuseInfo.ent);
         } else {
-            MessageFromTarget(idx);
+            MessageFromTarget(textIndex);
         }
     }
 }

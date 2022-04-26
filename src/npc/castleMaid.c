@@ -107,9 +107,9 @@ void CastleMaid_SetDialogFunc(CastleMaidEntity* this, ScriptExecutionContext* co
 
 void sub_0806464C(Entity* this) {
     static const u16 messageIndices[] = {
-        0x105f,
-        0x1060,
-        0x1061,
+        TEXT_INDEX(TEXT_PROLOGUE, 0X5f),
+        TEXT_INDEX(TEXT_PROLOGUE, 0X60),
+        TEXT_INDEX(TEXT_PROLOGUE, 0X61),
         0,
     };
     s32 tmp;
@@ -126,16 +126,16 @@ void sub_0806464C(Entity* this) {
 
 void sub_08064688(Entity* this) {
     static const Dialog gUnk_0810F894[] = {
-        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
-        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
-        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
-        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3426, 0x3425 } },
-        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3521, 0x3520 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x361f } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3720 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3820 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3820 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3820 } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x26), TEXT_INDEX(TEXT_TOWN, 0x25) } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x26), TEXT_INDEX(TEXT_TOWN, 0x25) } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x26), TEXT_INDEX(TEXT_TOWN, 0x25) } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x26), TEXT_INDEX(TEXT_TOWN, 0x25) } },
+        { 7, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN2, 0x21), TEXT_INDEX(TEXT_TOWN2, 0x20) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN3, 0x1f) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x20) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x20) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x20) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x20) } },
     };
     ShowNPCDialogue(this, &gUnk_0810F894[gSave.global_progress]);
 }

@@ -70,7 +70,7 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
         tmp = GetRandomByWeight(gUnk_0810C435);
         tmp2 = gUnk_0810C43D[tmp];
         InitItemGetSequence(ITEM_KINSTONE, tmp2, 1);
-        MessageNoOverlap(0x3c05, this);
+        MessageNoOverlap(TEXT_INDEX(TEXT_BAKERY, 0x5), this);
         context->condition = TRUE;
         return TRUE;
     }

@@ -851,7 +851,7 @@ void sub_08055D9C(void) {
 
 void sub_08055DC0(void) {
     if (gFadeControl.active == 0) {
-        MessageFromTarget(0xa01);
+        MessageFromTarget(TEXT_INDEX(TEXT_EMPTY, 0x01));
         gMenu.overlayType++;
         gMenu.transitionTimer = 0x78;
     }

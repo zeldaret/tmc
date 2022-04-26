@@ -298,7 +298,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             this->unk_7a = 0;
             this->unk_7b = 4;
             SetRoomFlag(3);
-            MessageFromTarget(0x431a);
+            MessageFromTarget(TEXT_INDEX(TEXT_CARLOV, 0x1a));
 #ifndef EU
             gMessage.textWindowPosX = 1;
             gMessage.textWindowPosY = 0xc;
@@ -406,7 +406,7 @@ void sub_080882A8(FigurineDeviceEntity* this) {
         206, 79, 3, 2, 0, 208, 0, 6, 0, 13, 0, 2, 0, 0, 0, 0, 128, 240, 208, 139, 2, 0, 1, 0,
     };
 #endif
-    static const u16 gUnk_08120AE4[] = { 0x4318, 0x4319 };
+    static const u16 gUnk_08120AE4[] = { TEXT_INDEX(TEXT_CARLOV, 0x18), TEXT_INDEX(TEXT_CARLOV, 0x19) };
     u8* ptr;
     sub_08050384();
     sub_08057044(this->unk_81, gUnk_020227E8, 0x202020);
@@ -447,26 +447,26 @@ void sub_08088478(void) {
     bool32 set0x10 = FALSE;
     if (!CheckRoomFlag(8)) {
         if (!CheckRoomFlag(7)) {
-            messageIndex = 0x4322;
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x22);
             set0x10 = TRUE;
         } else {
-            messageIndex = 0x4325;
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x25);
         }
     } else {
         switch (gSave.stats.filler[0]) {
             case 0x88:
                 gSave.stats.filler[1] = 0xff;
-                messageIndex = 0x4329;
+                messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x29);
                 break;
             case 0x82:
                 if (gSave.saw_staffroll) {
-                    messageIndex = 0x4327;
+                    messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x27);
                 } else {
-                    messageIndex = 0x4328;
+                    messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x28);
                 }
                 break;
             default:
-                messageIndex = 0x4327;
+                messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x27);
         }
     }
     MessageFromTarget(messageIndex);
@@ -484,13 +484,13 @@ void sub_08088504(void) {
     u32 index;
     switch (gSave.stats.filler[0]) {
         case 0x88:
-            index = 0x432f;
+            index = TEXT_INDEX(TEXT_CARLOV, 0x2f);
             break;
         case 0x82:
-            index = 0x4314;
+            index = TEXT_INDEX(TEXT_CARLOV, 0x14);
             break;
         default:
-            index = 0x4311;
+            index = TEXT_INDEX(TEXT_CARLOV, 0x11);
             break;
     }
     MessageFromTarget(index);
@@ -501,9 +501,9 @@ void sub_08088504(void) {
 void sub_08088544(void) {
     u32 index;
     if (gSave.stats.filler[0] != 0x82) {
-        index = 0x430e;
+        index = TEXT_INDEX(TEXT_CARLOV, 0xe);
     } else {
-        index = 0x4315;
+        index = TEXT_INDEX(TEXT_CARLOV, 0x15);
     }
     MessageFromTarget(index);
     gMessage.textWindowPosX = 1;
@@ -518,12 +518,12 @@ void sub_08088574(void) {
     if (CheckRoomFlag(9)) {
 #endif
         if (CheckLocalFlag(SHOP07_COMPLETE)) {
-            index = 0x4313;
+            index = TEXT_INDEX(TEXT_CARLOV, 0x13);
         } else {
-            index = 0x430c;
+            index = TEXT_INDEX(TEXT_CARLOV, 0x0c);
         }
     } else {
-        index = 0x430b;
+        index = TEXT_INDEX(TEXT_CARLOV, 0x0b);
     }
     MessageFromTarget(index);
     gMessage.textWindowPosX = 1;
@@ -534,7 +534,7 @@ void sub_080885B0(void) {
     if (!CheckRoomFlag(8)) {
         if (!CheckRoomFlag(7)) {
             ModRupees(5);
-            MessageFromTarget(0x4326);
+            MessageFromTarget(TEXT_INDEX(TEXT_CARLOV, 0x26));
             gMessage.textWindowPosX = 1;
             gMessage.textWindowPosY = 0xc;
         }

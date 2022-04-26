@@ -91,9 +91,9 @@ void sub_0806B41C(Entity* this) {
 void sub_0806B4F0(Entity* this) {
     static const Dialog gUnk_08112E2C[5] = {
         { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806B504 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2312 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2311 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2519 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_PERCY, 0x12) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_PERCY, 0x11) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0x19) } },
         { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806B540 } },
     };
     ShowNPCDialogue(this, &gUnk_08112E2C[this->type2]);
@@ -101,10 +101,10 @@ void sub_0806B4F0(Entity* this) {
 
 void sub_0806B504(Entity* this) {
     static const u16 messageIndices[4] = {
-        0x230c,
-        0x230d,
-        0x230e,
-        0x2310,
+        TEXT_INDEX(TEXT_PERCY, 0x0c),
+        TEXT_INDEX(TEXT_PERCY, 0x0d),
+        TEXT_INDEX(TEXT_PERCY, 0x0e),
+        TEXT_INDEX(TEXT_PERCY, 0x10),
     };
     int idx;
 
@@ -125,7 +125,7 @@ void sub_0806B540(Entity* this) {
     context = *(ScriptExecutionContext**)&this->cutsceneBeh;
     switch (context->unk_18) {
         case 0:
-            MessageNoOverlap(0x2312, this);
+            MessageNoOverlap(TEXT_INDEX(TEXT_PERCY, 0x12), this);
             if (CheckLocalFlag(0x3f) != 0) {
                 return;
             }
@@ -135,7 +135,7 @@ void sub_0806B540(Entity* this) {
         case 1:
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 context->unk_18 = 2;
-                MessageNoOverlap(0x2315, this);
+                MessageNoOverlap(TEXT_INDEX(TEXT_PERCY, 0x15), this);
             }
             break;
         case 2:

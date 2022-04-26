@@ -1484,7 +1484,7 @@ void sub_080A6CD8(void) {
         case START_BUTTON:
             gMenu.field_0x0 = 2;
             SetMenuType(2);
-            MessageFromTarget(0x704);
+            MessageFromTarget(TEXT_INDEX(TEXT_WINDCRESTS, 0x04));
             break;
         case B_BUTTON:
             gMenu.field_0x0 = 3;
