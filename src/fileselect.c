@@ -1098,22 +1098,27 @@ void HandleFileCopy(void) {
     sub_08050A64(gMapDataBottomSpecial.unk6);
 }
 
-// regalloc
-NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)) {
+void sub_08051738(void) {
     s32 temp;
     u32 i;
     s32 uVar3;
+    s32 val;
+    u32 temp2;
 
     gMapDataBottomSpecial.unk7 = 4;
     uVar3 = 0;
     for (i = 0; i < 3; i++) {
         if (gMapDataBottomSpecial.saveStatus[i] == 1) {
-            temp = gMapDataBottomSpecial.unk6 ^ i;
-            uVar3 = !!temp & 4;
+            temp = gMapDataBottomSpecial.unk6;
+            val = 4;
+            if ((temp ^ i) == 0) {
+                val = 0;
+            }
         } else {
             uVar3++;
+            val = uVar3;
         }
-        (&gGenericMenu.selectMtx)[i] = uVar3;
+        gGenericMenu.unk10.a[i] = val;
     }
     if (uVar3 == 0) {
         gMenu.transitionTimer = 0x3c;
@@ -1127,7 +1132,6 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
     gGenericMenu.unk10.a[3] = 4;
     gGenericMenu.unk14 = uVar3;
 }
-END_NONMATCH
 
 s32 sub_080517B4(s32 a1) {
     u32 i = gMapDataBottomSpecial.unk7;
