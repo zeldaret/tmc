@@ -58,12 +58,8 @@ void sub_080A22B0(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/objectBD/sub_080A22C4.inc", void sub_080A22C4(Entity* this)) {
-    u8 bVar1;
-    u8 uVar2;
-    s16 sVar3;
-    u32 uVar4;
-    u32 tmp1, tmp2, tmp3, tmp4;
+void sub_080A22C4(Entity* this) {
+    u32 tmp1, tmp2, tmp3;
 
     switch (this->action) {
         case 0:
@@ -71,13 +67,13 @@ NONMATCH("asm/non_matching/objectBD/sub_080A22C4.inc", void sub_080A22C4(Entity*
             this->timer = 8;
             this->subtimer = 0;
             this->subAction = this->frameIndex;
-            this->speed = (Random() & 3) * 0x10 + 0x1e;
+            this->speed = ((Random() & 3) << 4) + 0x1e;
             break;
         case 1:
             if (--this->speed != 0) {
                 return;
             }
-            this->speed = (Random() & 7) * 0x10 + 0x1e;
+            this->speed = ((Random() & 7) << 4) + 0x1e;
             this->action = 2;
             break;
         default:
@@ -96,7 +92,6 @@ NONMATCH("asm/non_matching/objectBD/sub_080A22C4.inc", void sub_080A22C4(Entity*
             break;
     }
 }
-END_NONMATCH
 
 void sub_080A2340(Entity* this) {
     const struct_08125014* ptr;
