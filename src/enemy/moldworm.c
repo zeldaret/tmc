@@ -31,7 +31,7 @@ extern void (*const gUnk_080CBC98[])(Entity*);
 extern void (*const gUnk_080CBCA8[])(Entity*);
 extern const s8 gUnk_080CBCB8[];
 
-NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) {
+void Moldworm(Entity* this) {
     u16 prevX = this->x.HALF.HI;
     u16 prevY = this->y.HALF.HI;
 
@@ -55,11 +55,11 @@ NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) 
     }
 
     if (this->parent->field_0x7c.BYTES.byte0 != this->parent->field_0x7c.BYTES.byte1 && this->child) {
-        ((u8*)&this->child->field_0x78)[(this->parent->field_0x7c.BYTES.byte0 - 1) & 0xf] =
-            (((this->x.HALF.HI - prevX + 8) & 0xf) << 4) | ((this->y.HALF.HI - prevY + 8U) & 0xf);
+        u32 temp = (this->parent->field_0x7c.BYTES.byte0 - 1) & 0xf;
+        u8* ptr = (u8*)&this->child->field_0x78 + temp;
+        *ptr = (((this->x.HALF.HI - prevX + 8) & 0xf) << 4) | ((this->y.HALF.HI - prevY + 8U) & 0xf);
     }
 }
-END_NONMATCH
 
 void Moldworm_OnTick(Entity* this) {
     gUnk_080CBC50[this->action](this);
@@ -469,8 +469,24 @@ void sub_08023990(Entity* this, u32 param_2, u32 param_3) {
     } while (ent = ent->child, ent != NULL);
 }
 
-/* TODO: fix struct */
-ASM_FUNC("asm/non_matching/moldworm/sub_080239F0.inc", void sub_080239F0(Entity* this))
+void sub_080239F0(Entity* this) {
+    *(u8*)&this->field_0x78 = 0x88;
+    *(u8*)((int)&this->field_0x78 + 1) = 0x88;
+    *(u8*)&this->field_0x7a = 0x88;
+    *(u8*)((int)&this->field_0x7a + 1) = 0x88;
+    *(u8*)&this->field_0x7c = 0x88;
+    *(u8*)((int)&this->field_0x7c + 1) = 0x88;
+    *(u8*)((int)&this->field_0x7c + 2) = 0x88;
+    *(u8*)((int)&this->field_0x7c + 3) = 0x88;
+    *(u8*)&this->field_0x80 = 0x88;
+    *(u8*)((int)&this->field_0x80 + 1) = 0x88;
+    *(u8*)&this->field_0x82 = 0x88;
+    *(u8*)((int)&this->field_0x82 + 1) = 0x88;
+    *(u8*)&this->cutsceneBeh = 0x88;
+    *(u8*)((int)&this->cutsceneBeh + 1) = 0x88;
+    *(u8*)&this->field_0x86 = 0x88;
+    *(u8*)((int)&this->field_0x86 + 1) = 0x88;
+}
 
 bool32 sub_08023A38(u32 unk) {
     if (unk == 0x1a || unk == 0x29) {
@@ -517,7 +533,27 @@ void sub_08023AB0(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/moldworm/sub_08023B38.inc", bool32 sub_08023B38(Entity* this))
+bool32 sub_08023B38(Entity* this) {
+    Entity* entity;
+    bool32 result;
+    s32 iVar2;
+    const s8* ptr;
+    u32 tmp1;
+    u32 tmp2;
+
+    entity = sub_08049DF4(1);
+    if (entity == NULL) {
+        return FALSE;
+    } else {
+        tmp1 = (this->x.HALF.HI + (gUnk_080CBCB8[this->animationState * 2 + 0]));
+        tmp2 = (this->y.HALF.HI + (gUnk_080CBCB8[this->animationState * 2 + 1]));
+        result = FALSE;
+        if ((entity->x.HALF.HI - tmp1 + 0x14U < 0x29) && (entity->y.HALF.HI - tmp2 + 0x14U < 0x29)) {
+            result = TRUE;
+        }
+        return result;
+    }
+}
 
 // clang-format off
 void (*const Moldworm_Functions[])(Entity*) = {
