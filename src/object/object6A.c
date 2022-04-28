@@ -448,7 +448,7 @@ void sub_08095088(Object6AEntity* this) {
                 super->interactType = 0;
                 super->action = 2;
                 sub_080788E0(super);
-                CreateEzloHint(0x1F1F, 0);
+                CreateEzloHint(TEXT_INDEX(TEXT_BELARI, 0x1F), 0);
             }
             break;
         case 2:

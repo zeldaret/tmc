@@ -81,7 +81,7 @@ void ObjectB_Action1(ObjectBEntity* this) {
             tmp = GetInventoryValue((u32)super->type);
             ptr = &gItemMetaData[super->type];
             if (tmp == 0) {
-                this->unk_68 = *(u16*)&ptr->unk4;
+                this->unk_68 = *(u16*)&ptr->textId;
             } else {
                 this->unk_68 = *(u16*)&ptr->unk6;
             }
@@ -114,7 +114,7 @@ void ObjectB_Action2(ObjectBEntity* this) {
                             break;
                         case 0x3f:
                             if (super->type2 > 1) {
-                                if (messageIndex == 0x577) {
+                                if (messageIndex == TEXT_INDEX(TEXT_ITEM_GET, 0x77)) {
                                     messageIndex--;
                                 } else {
                                     messageIndex++;

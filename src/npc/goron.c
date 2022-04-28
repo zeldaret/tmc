@@ -52,7 +52,7 @@ void sub_08069328(Entity* this) {
         this->action = 2;
         RequestPriority(this);
         InitAnimationForceUpdate(this, 8);
-        MessageFromTarget(this->timer + (0x90 << 5));
+        MessageFromTarget(this->timer + TEXT_INDEX(TEXT_MINISH2, 0x0));
     }
 }
 
@@ -124,12 +124,32 @@ void sub_080694B0(Entity* this) {
 
 void sub_080694D8(Entity* this) {
     static const Dialog gUnk_08111A94[] = {
-        { 0x2f, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3f13, 0x3f0e } },
-        { 0x2f, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3f14, 0x3f0f } },
-        { 0x2f, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3f15, 0x3f10 } },
-        { 0x2f, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3f16, 0x3f11 } },
-        { 0x2f, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3f17, 0x3f12 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x3f18 } },
+        { 0x2f,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TINGLE, 0x13), TEXT_INDEX(TEXT_TINGLE, 0x0e) } },
+        { 0x2f,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TINGLE, 0x14), TEXT_INDEX(TEXT_TINGLE, 0x0f) } },
+        { 0x2f,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TINGLE, 0x15), TEXT_INDEX(TEXT_TINGLE, 0x10) } },
+        { 0x2f,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TINGLE, 0x16), TEXT_INDEX(TEXT_TINGLE, 0x11) } },
+        { 0x2f,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TINGLE, 0x17), TEXT_INDEX(TEXT_TINGLE, 0x12) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TINGLE, 0x18) } },
     };
     ShowNPCDialogue(this, &gUnk_08111A94[this->type]);
 }

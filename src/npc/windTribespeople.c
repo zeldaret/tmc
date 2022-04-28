@@ -128,25 +128,41 @@ void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C928(Entity* this, ScriptExecutionContext* context) {
     static const Dialog gUnk_08113ABC[] = {
-        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
-        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
-        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
-        { 0x0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4e20, 0x4e1f } },
-        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e21 } },
-        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e22 } },
-        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e23 } },
-        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e23 } },
-        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e24 } },
-        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, 0x4e24 } },
+        { 0x0,
+          DIALOG_ROOM_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN8, 0x20), TEXT_INDEX(TEXT_TOWN8, 0x1f) } },
+        { 0x0,
+          DIALOG_ROOM_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN8, 0x20), TEXT_INDEX(TEXT_TOWN8, 0x1f) } },
+        { 0x0,
+          DIALOG_ROOM_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN8, 0x20), TEXT_INDEX(TEXT_TOWN8, 0x1f) } },
+        { 0x0,
+          DIALOG_ROOM_FLAG,
+          DIALOG_TOGGLE_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN8, 0x20), TEXT_INDEX(TEXT_TOWN8, 0x1f) } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, TEXT_INDEX(TEXT_TOWN8, 0x21) } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, TEXT_INDEX(TEXT_TOWN8, 0x22) } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, TEXT_INDEX(TEXT_TOWN8, 0x23) } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, TEXT_INDEX(TEXT_TOWN8, 0x23) } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, TEXT_INDEX(TEXT_TOWN8, 0x24) } },
+        { 0x0, 0x0, DIALOG_NORMAL, 1, { 0x0, TEXT_INDEX(TEXT_TOWN8, 0x24) } },
     };
     ShowNPCDialogue(this, &gUnk_08113ABC[gSave.global_progress]);
 }
 
 void sub_0806C944(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2f02,
-        0x2f0e,
-        0x2f14,
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x02),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x0e),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x14),
     };
     int iVar1;
     int iVar2;
@@ -166,8 +182,8 @@ void sub_0806C944(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C978(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2f05,
-        0x2f11,
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x05),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x11),
     };
     u32 flagAsBool = 0;
     if (CheckGlobalFlag(WARP_EVENT_END)) {
@@ -178,10 +194,10 @@ void sub_0806C978(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C99C(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2f03,
-        0x2f0a,
-        0x2f15,
-        0x2f0f,
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x03),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x0a),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x15),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x0f),
     };
     u32 flagAsBool = 0;
 
@@ -196,8 +212,8 @@ void sub_0806C99C(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C9D0(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2f12,
-        0x2f13,
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x12),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x13),
     };
     u32 tmp = 0;
     if (CheckLocalFlag(100) == 0) {
@@ -208,8 +224,8 @@ void sub_0806C9D0(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C9F8(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2f04,
-        0x2f10,
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x04),
+        TEXT_INDEX(TEXT_WIND_TRIBE, 0x10),
         0x0,
     };
     u32 flagAsBool = 0;
@@ -220,22 +236,28 @@ void sub_0806C9F8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806CA1C(Entity* this, ScriptExecutionContext* context) {
-    MessageNoOverlap(0x251b, this);
+    MessageNoOverlap(TEXT_INDEX(TEXT_FESTIVAL, 0x1b), this);
 }
 
 void sub_0806CA2C(Entity* this, ScriptExecutionContext* context) {
-    MessageNoOverlap(0x2527, this);
+    MessageNoOverlap(TEXT_INDEX(TEXT_FESTIVAL, 0x27), this);
 }
 
 void sub_0806CA3C(Entity* this, ScriptExecutionContext* context) {
-    static const Dialog gUnk_08113B28 = { KUMOUE_GIRL_TALK, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { 0x2f19, 0x2f16 } };
+    static const Dialog gUnk_08113B28 = { KUMOUE_GIRL_TALK,
+                                          DIALOG_LOCAL_FLAG,
+                                          DIALOG_SET_FLAG,
+                                          1,
+                                          { TEXT_INDEX(TEXT_WIND_TRIBE, 0x19), TEXT_INDEX(TEXT_WIND_TRIBE, 0x16) } };
     ShowNPCDialogue(this, &gUnk_08113B28);
 }
 
 void sub_0806CA4C(Entity* this, ScriptExecutionContext* context) {
-    static const Dialog gUnk_08113B30 = {
-        KUMOUE_UNCLE_TALK, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { 0x2f18, 0x2f17 }
-    };
+    static const Dialog gUnk_08113B30 = { KUMOUE_UNCLE_TALK,
+                                          DIALOG_LOCAL_FLAG,
+                                          DIALOG_SET_FLAG,
+                                          1,
+                                          { TEXT_INDEX(TEXT_WIND_TRIBE, 0x18), TEXT_INDEX(TEXT_WIND_TRIBE, 0x17) } };
     ShowNPCDialogue(this, &gUnk_08113B30);
 }
 

@@ -51,7 +51,7 @@ void sub_08062C24(Entity* ent) {
     GetNextFrame(ent);
     if ((ent->frame & 128) != 0) {
         InitializeAnimation(ent, 4);
-        MessageFromTarget(2561);
+        MessageFromTarget(TEXT_INDEX(TEXT_EMPTY, 0x01));
         ent->action++;
     }
 }
@@ -80,8 +80,8 @@ void sub_08062CA4(Entity* ent) {
 
 void sub_08062CBC(Entity* ent) {
     static const Dialog gUnk_0810C2E4[2] = {
-        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4001, 0x4000 } },
-        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x4003, 0x4002 } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_POST, 0x1), TEXT_INDEX(TEXT_POST, 0x0) } },
+        { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_POST, 0x3), TEXT_INDEX(TEXT_POST, 0x2) } },
     };
     u32 uVar1;
     if (CheckKinstoneFused(44)) {

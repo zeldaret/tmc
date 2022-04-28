@@ -69,7 +69,10 @@ void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
 
 void sub_080672C8(Entity* this) {
     static const u16 messageIndices[] = {
-        0x1b0d, 0x1b0e, 0x0, 0x1b18, 0x1b19, 0x0, 0x1b23, 0x1b23, 0x0, 0x1b26, 0x1b26, 0x0,
+        TEXT_INDEX(TEXT_CARPENTERS, 0xd),  TEXT_INDEX(TEXT_CARPENTERS, 0xe),  0x0,
+        TEXT_INDEX(TEXT_CARPENTERS, 0x18), TEXT_INDEX(TEXT_CARPENTERS, 0x19), 0x0,
+        TEXT_INDEX(TEXT_CARPENTERS, 0x23), TEXT_INDEX(TEXT_CARPENTERS, 0x23), 0x0,
+        TEXT_INDEX(TEXT_CARPENTERS, 0x26), TEXT_INDEX(TEXT_CARPENTERS, 0x26), 0x0,
     };
     u32 dialog = 0;
     u32 tmp;
@@ -82,7 +85,9 @@ void sub_080672C8(Entity* this) {
 }
 
 void sub_08067304(Entity* this) {
-    static const Dialog dialog = { 0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x3642, 0x3641 } };
+    static const Dialog dialog = {
+        0xb, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { TEXT_INDEX(TEXT_TOWN3, 0x42), TEXT_INDEX(TEXT_TOWN3, 0x41) }
+    };
     ShowNPCDialogue(this, &dialog);
 }
 

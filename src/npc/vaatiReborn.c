@@ -99,7 +99,7 @@ void VaatiRebornAction1(Entity* this) {
                     break;
                 }
                 CopyPosition(this, entity);
-                MessageFromTarget(0x1634);
+                MessageFromTarget(TEXT_INDEX(TEXT_VAATI2, 0x34));
                 this->subAction = this->subAction + 1;
                 DeleteThisEntity();
                 return;

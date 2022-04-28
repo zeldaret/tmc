@@ -210,8 +210,10 @@ void sub_080642B8(GuardWithSpearEntity* this) {
 
 void sub_080643D8(GuardWithSpearEntity* this) {
     static const u16 messageIndices[][4] = {
-        { 0x1062, 0x1328, 0x132b, 0x132b },
-        { 0x1062, 0x1328, 0x132c, 0x132c },
+        { TEXT_INDEX(TEXT_PROLOGUE, 0x62), TEXT_INDEX(TEXT_VAATI, 0x28), TEXT_INDEX(TEXT_VAATI, 0x2b),
+          TEXT_INDEX(TEXT_VAATI, 0x2b) },
+        { TEXT_INDEX(TEXT_PROLOGUE, 0x62), TEXT_INDEX(TEXT_VAATI, 0x28), TEXT_INDEX(TEXT_VAATI, 0x2c),
+          TEXT_INDEX(TEXT_VAATI, 0x2c) },
     };
 
     u32 iVar1;

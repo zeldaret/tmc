@@ -65,8 +65,16 @@ void sub_0806BCD4(Entity* this) {
 
 void sub_0806BCE8(Entity* this) {
     static const Dialog gUnk_08113158[] = {
-        { 0x29, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x1a07, 0x1a02 } },
-        { 0x29, DIALOG_KINSTONE, DIALOG_CHECK_FLAG, 1, { 0x1a11, 0x1a0d } },
+        { 0x29,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_FARMERS, 0X7), TEXT_INDEX(TEXT_FARMERS, 0x2) } },
+        { 0x29,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_FARMERS, 0X11), TEXT_INDEX(TEXT_FARMERS, 0xd) } },
     };
     ShowNPCDialogue(this, &gUnk_08113158[this->type]);
 }

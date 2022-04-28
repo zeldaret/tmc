@@ -75,7 +75,7 @@ void sub_080A7C8C(u32 pos, u32 layer) {
 }
 
 u32 sub_080A7CFC(u32 a1) {
-    u32 msg = 0x600;
+    u32 msg = TEXT_INDEX(TEXT_LOCATIONS, 0x0);
     bool32 hint = FALSE;
 
     TileEntity* t = GetCurrentRoomProperty(3);

@@ -234,10 +234,10 @@ void sub_080281A0(Entity* this) {
     this->subtimer = 0x19;
     if (sub_080281E0(ITEM_MIRROR_SHIELD)) {
         this->field_0x80.HALF.LO = ITEM_MIRROR_SHIELD;
-        MessageFromTarget(0x578);
+        MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x78));
     } else if (sub_080281E0(ITEM_SHIELD)) {
         this->field_0x80.HALF.LO = ITEM_SHIELD;
-        MessageFromTarget(0x578);
+        MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x78));
     } else {
         ModHealth(-1);
     }
@@ -269,7 +269,7 @@ void sub_08028224(u32 item) {
 #else
     InitItemGetSequence(item, 0, 1);
 #endif
-    MessageFromTarget(0x579);
+    MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x79));
 }
 
 void (*const LikeLike_Functions[])(Entity*) = {

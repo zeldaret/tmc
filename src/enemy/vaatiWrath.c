@@ -623,7 +623,7 @@ void sub_08041CD0(Entity* this) {
         } else {
             this->subAction = 2;
             this->timer = 0x3c;
-            MessageFromTarget(0x1651);
+            MessageFromTarget(TEXT_INDEX(TEXT_VAATI2, 0x51));
         }
     } else {
         UpdateAnimationSingleFrame(this);
@@ -1007,7 +1007,7 @@ void VaatiWrathType0PreAction(Entity* this) {
                     if (gPlayerState.item == NULL) {
                         if (gPlayerEntity.field_0x7a.HWORD == 0) {
                             if ((gPlayerEntity.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
-                                CreateEzloHint(0xb70, 0);
+                                CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x70), 0);
                                 gRoomTransition.field_0x38 |= 2;
                             }
                         }

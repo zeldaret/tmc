@@ -49,7 +49,9 @@ void sub_0806C028(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806C038(Entity* this) {
     static const u16 messageIndices[] = {
-        0x4d07, 0x4d08, 0x4d09, 0x4d0a, 0x4d0a, 0x4d05, 0x4d06, 0x4d0f,
+        TEXT_INDEX(TEXT_DR_LEFT, 0x7), TEXT_INDEX(TEXT_DR_LEFT, 0x8), TEXT_INDEX(TEXT_DR_LEFT, 0x9),
+        TEXT_INDEX(TEXT_DR_LEFT, 0xa), TEXT_INDEX(TEXT_DR_LEFT, 0xa), TEXT_INDEX(TEXT_DR_LEFT, 0x5),
+        TEXT_INDEX(TEXT_DR_LEFT, 0x6), TEXT_INDEX(TEXT_DR_LEFT, 0xf),
     };
     s32 index;
 

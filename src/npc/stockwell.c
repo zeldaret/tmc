@@ -73,7 +73,7 @@ void sub_080650CC(Entity* this) {
             this->action++;
             InitializeAnimation(this, 7);
             if (gRoomVars.shopItemType == 0) {
-                confirmMsgId = 0x2c01;
+                confirmMsgId = TEXT_INDEX(TEXT_STOCKWELL, 0x1);
             } else {
                 confirmMsgId = GetSaleItemConfirmMessageID(gRoomVars.shopItemType);
                 itemPrice = GetItemPrice(gRoomVars.shopItemType);
@@ -123,7 +123,7 @@ void sub_080651F8(Entity* this) {
 void sub_0806522C(Entity* this) {
     if (--this->timer == 0) {
         ++this->subAction;
-        MessageNoOverlap(0x2c16, this);
+        MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x16), this);
     }
 }
 
@@ -146,7 +146,7 @@ void sub_08065250(Entity* this) {
 void sub_0806528C(Entity* this) {
     if (--this->timer == 0) {
         ++this->subAction;
-        MessageNoOverlap(0x2c18, this);
+        MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x18), this);
     }
 }
 
@@ -165,7 +165,7 @@ void sub_080652E4(Entity* this) {
     } else {
         if (gPlayerEntity.action != PLAYER_ITEMGET) {
             this->subAction += 1;
-            MessageNoOverlap(0x2c19, this);
+            MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x19), this);
         }
     }
 }
@@ -204,20 +204,20 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
         case ITEM_ARROWS10:
         case ITEM_ARROWS30:
             if (gQuiverSizes[gSave.stats.quiverType] <= gSave.stats.arrowCount) {
-                messageIndex = 0x2c0e;
+                messageIndex = TEXT_INDEX(TEXT_STOCKWELL, 0xe);
                 goto showmsg;
             }
             break;
         case ITEM_SHIELD:
             if (GetInventoryValue(ITEM_SHIELD) || GetInventoryValue(ITEM_MIRROR_SHIELD)) {
-                messageIndex = 0x2c0b;
+                messageIndex = TEXT_INDEX(TEXT_STOCKWELL, 0xb);
                 goto showmsg;
             }
             break;
         case ITEM_BOMBS10:
         case ITEM_BOMBS30:
             if (gBombBagSizes[gSave.stats.bombBagType] <= gSave.stats.bombCount) {
-                messageIndex = 0x2c0e;
+                messageIndex = TEXT_INDEX(TEXT_STOCKWELL, 0xe);
                 goto showmsg;
             }
             break;
@@ -234,7 +234,7 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
 #endif
         case ITEM_SHELLS30:
             if (999 <= gSave.stats.shells) {
-                MessageNoOverlap(0x2c0e, this);
+                MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0xe), this);
                 bVar1 = 0;
             }
             break;
@@ -256,17 +256,17 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
             }
 
             if (gSave.unk5C >= 10) {
-                context->intVariable = 0x2c11;
+                context->intVariable = TEXT_INDEX(TEXT_STOCKWELL, 0x11);
             } else {
                 if (itemPrice >= 100) {
-                    context->intVariable = 0x2c10;
+                    context->intVariable = TEXT_INDEX(TEXT_STOCKWELL, 0x10);
                 } else {
-                    context->intVariable = 0x2c0f;
+                    context->intVariable = TEXT_INDEX(TEXT_STOCKWELL, 0xf);
                 }
             }
             return;
         }
-        messageIndex = 0x2c0d;
+        messageIndex = TEXT_INDEX(TEXT_STOCKWELL, 0xd);
     showmsg:
         MessageNoOverlap(messageIndex, this);
     }

@@ -53,7 +53,7 @@ void sub_08063584(Entity* this) {
     if (this->interactType != 0) {
         this->action = 2;
         InitAnimationForceUpdate(this, GetAnimationState(this) + 4);
-        MessageFromTarget(this->timer + 0xa01);
+        MessageFromTarget(this->timer + TEXT_INDEX(TEXT_EMPTY, 0x01));
     }
     sub_0806ED78(this);
 }
@@ -99,16 +99,16 @@ void sub_0806362C(Entity* this) {
 
 void sub_080636D8(Entity* this) {
     static const Dialog gUnk_0810CAAC[] = {
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2510 } },
-        { 0, 0, DIALOG_NORMAL, 1, { 0, 0x2510 } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3424, 0x3423 } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3424, 0x3423 } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x351f, 0x351e } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x361e, 0x361d } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x371f, 0x371e } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x381f, 0x381e } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3919, 0x3918 } },
-        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { 0x3919, 0x3918 } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0x10) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0x10) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x24), TEXT_INDEX(TEXT_TOWN, 0x23) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x24), TEXT_INDEX(TEXT_TOWN, 0x23) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN2, 0x1f), TEXT_INDEX(TEXT_TOWN2, 0x1e) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN3, 0x1e), TEXT_INDEX(TEXT_TOWN3, 0x1d) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN4, 0x1f), TEXT_INDEX(TEXT_TOWN4, 0x1e) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN5, 0x1f), TEXT_INDEX(TEXT_TOWN5, 0x1e) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN6, 0x19), TEXT_INDEX(TEXT_TOWN6, 0x18) } },
+        { 5, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN6, 0x19), TEXT_INDEX(TEXT_TOWN6, 0x18) } },
     };
 
     ShowNPCDialogue(this, &gUnk_0810CAAC[gSave.global_progress]);

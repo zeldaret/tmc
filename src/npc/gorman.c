@@ -86,18 +86,19 @@ void sub_08069838(Entity* this) {
 
 void sub_08069888(Entity* this) {
     s32 index;
-    if (CheckGlobalFlag(0x47) == 0) {
+    if (CheckGlobalFlag(GOMAN_RENTED_HOUSE) == 0) {
         index = 0;
-        SetGlobalFlag(0x47);
-    } else if (((CheckGlobalFlag(0x2b) == 0) && (CheckGlobalFlag(0x2c) == 0)) && (CheckGlobalFlag(0x2d) == 0)) {
+        SetGlobalFlag(GOMAN_RENTED_HOUSE);
+    } else if (((CheckGlobalFlag(RENTED_HOUSE_DIN) == 0) && (CheckGlobalFlag(RENTED_HOUSE_NAYRU) == 0)) &&
+               (CheckGlobalFlag(RENTED_HOUSE_FARORE) == 0)) {
         index = 1;
-    } else if (CheckGlobalFlag(0x18) == 0) {
+    } else if (CheckGlobalFlag(TATEKAKE_HOUSE) == 0) {
         index = 2;
-    } else if (CheckGlobalFlag(0x48) == 0) {
+    } else if (CheckGlobalFlag(GOMAN_NEW_HOUSE) == 0) {
         index = 3;
-        SetGlobalFlag(0x48);
-    } else if ((CheckGlobalFlag(0x2e) == 0) && (CheckGlobalFlag(0x2f) == 0)) {
-        index = CheckGlobalFlag(0x30) ? 5 : 4;
+        SetGlobalFlag(GOMAN_NEW_HOUSE);
+    } else if ((CheckGlobalFlag(NEW_HOUSE_DIN) == 0) && (CheckGlobalFlag(NEW_HOUSE_NAYRU) == 0)) {
+        index = CheckGlobalFlag(NEW_HOUSE_FARORE) ? 5 : 4;
     } else {
         index = 5;
     }

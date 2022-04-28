@@ -88,7 +88,7 @@ void sub_0805DF4C(Manager* this) {
         if (--this->unk_0e == 0) {
             this->action = 3;
             this->unk_0e = 0x1e;
-            MessageFromTarget(0x164f);
+            MessageFromTarget(TEXT_INDEX(TEXT_VAATI2, 0x4f));
         }
     }
 }

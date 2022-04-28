@@ -807,7 +807,7 @@ bool32 sub_080782C0(void) {
             *(u8*)(*(int*)(gUnk_03003DF0.unk_4 + 8) + 0x39) = 2;
             gPlayerState.queued_action = 7;
         } else {
-            CreateEzloHint(0xb65, 0);
+            CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0);
         }
         ForceSetPlayerState(0x13);
         return TRUE;

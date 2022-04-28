@@ -57,7 +57,7 @@ void sub_08065A34(Entity* this) {
 
 void sub_08065A50(Entity* this) {
     static const Dialog typeDialogs[] = {
-        { 0, 0, DIALOG_MINISH, 1, { 0x2017, 0x3f3c } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0X17), TEXT_INDEX(TEXT_TINGLE, 0x3c) } },
     };
     ShowNPCDialogue(this, &typeDialogs[this->type]);
 }

@@ -87,10 +87,10 @@ void sub_080668F0(Entity* this) {
 
 void sub_08066904(Entity* this) {
     static const u16 messageIndices[] = {
-        0x105a,
-        0x1327,
-        0x132a,
-        0x132f,
+        TEXT_INDEX(TEXT_PROLOGUE, 0x5a),
+        TEXT_INDEX(TEXT_VAATI, 0x27),
+        TEXT_INDEX(TEXT_VAATI, 0x2a),
+        TEXT_INDEX(TEXT_VAATI, 0x2f),
     };
     u32 index;
     if (CheckGlobalFlag(2) == 0) {

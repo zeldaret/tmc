@@ -12,7 +12,7 @@ typedef struct {
     u8 _3;
     u8 _4;
     u8 _5;
-    u16 _6;
+    u16 textIndex;
     u16 _8;
     u16 _a;
     Entity* ent;

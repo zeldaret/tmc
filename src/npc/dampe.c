@@ -50,9 +50,9 @@ void Dampe_Fusion(Entity* this) {
 
 void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2801,
-        0x2808,
-        0x2804,
+        TEXT_INDEX(TEXT_DAMPE, 0x1),
+        TEXT_INDEX(TEXT_DAMPE, 0x8),
+        TEXT_INDEX(TEXT_DAMPE, 0x4),
     };
     u32 msgIndex;
 
@@ -72,9 +72,9 @@ void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x2802,
-        0x2803,
-        0x2804,
+        TEXT_INDEX(TEXT_DAMPE, 0x2),
+        TEXT_INDEX(TEXT_DAMPE, 0x3),
+        TEXT_INDEX(TEXT_DAMPE, 0x4),
     };
     u32 hasGraveyardKey;
     u32 msgIndex;

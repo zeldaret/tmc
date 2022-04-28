@@ -34,10 +34,10 @@ void Librari(Entity* this) {
 
 void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
     static const u16 messageIndices[] = {
-        0x4a19,
-        0x4a1a,
-        0x4a22,
-        0x4a27,
+        TEXT_INDEX(TEXT_TOWN_MINISH1, 0X19),
+        TEXT_INDEX(TEXT_TOWN_MINISH1, 0X1a),
+        TEXT_INDEX(TEXT_TOWN_MINISH1, 0X22),
+        TEXT_INDEX(TEXT_TOWN_MINISH1, 0X27),
     };
     u32 index;
 
@@ -60,7 +60,8 @@ void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806B2B4(Entity* this) {
     static const u16 messageIndices[] = {
-        0xdad, 0xdae, 0xdaf, 0xdb0, 0xdb1,
+        TEXT_INDEX(TEXT_MINISH, 0xad), TEXT_INDEX(TEXT_MINISH, 0xae), TEXT_INDEX(TEXT_MINISH, 0xaf),
+        TEXT_INDEX(TEXT_MINISH, 0xb0), TEXT_INDEX(TEXT_MINISH, 0xb1),
     };
     u32 index;
 

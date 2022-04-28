@@ -82,7 +82,7 @@ void sub_08067E88(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
         this->action = 2;
-        MessageFromTarget(this->timer + 0x1200);
+        MessageFromTarget(this->timer + TEXT_INDEX(TEXT_MINISH2, 0x0));
     }
 }
 

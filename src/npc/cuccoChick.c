@@ -91,7 +91,7 @@ void sub_0806E838(Entity* this) {
 }
 
 void sub_0806E884(Entity* this) {
-    MessageNoOverlap(0xdb6, this);
+    MessageNoOverlap(TEXT_INDEX(TEXT_MINISH, 0Xb6), this);
 }
 
 void CuccoChick_Fusion(Entity* this) {
