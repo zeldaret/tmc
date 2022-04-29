@@ -617,6 +617,10 @@ ASM_FUNC("asm/non_matching/scroll/sub_08080B60.inc", void sub_08080B60(u8* param
 
 ASM_FUNC("asm/non_matching/scroll/sub_08080BC4.inc", void sub_08080BC4())
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080C80.inc", void sub_08080C80(u32* param_1))
+void sub_08080C80(u32* param_1) {
+    sub_080197D4(param_1);
+    sub_0807C8B0(gMapDataBottom, gRoomControls.width >> 4, gRoomControls.height >> 4);
+    sub_0807C8B0(gMapDataTop, gRoomControls.width >> 4, gRoomControls.height >> 4);
+}
 
 ASM_FUNC("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* a))
