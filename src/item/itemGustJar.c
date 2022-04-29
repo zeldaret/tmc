@@ -125,7 +125,7 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
 
                 return;
             }
-            break;
+            return;
         case 3:
             gPlayerState.field_0x1c = 4;
         case 4:
@@ -147,31 +147,29 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
             gPlayerEntity.direction = DirectionTurnAround(Direction8FromAnimationState(gPlayerEntity.animationState));
             gPlayerEntity.speed = 0x80;
             UpdatePlayerMovement();
-            break;
+            return;
         case 6:
             UpdateItemAnim(this);
             if ((this->field_0x5[9] & 0x80) == 0)
                 return;
-            goto case0;
             break;
         case 7:
             sub_08077DF4(this, 0x514);
             gPlayerState.field_0x1c = 3;
             gPlayerState.gustJarSpeed = 0;
-            break;
+            return;
         case 1:
         case 2:
         default:
             gPlayerState.field_0x1c = 3;
             sub_08077DF4(this, 0x514);
-            break;
+            return;
         case 0:
-        case0:
-            gPlayerState.field_0x1c = 0;
-            gPlayerEntity.field_0x70.WORD = 0;
-            DeletePlayerItem(this, idx);
             break;
     }
+    gPlayerState.field_0x1c = 0;
+    gPlayerEntity.field_0x70.WORD = 0;
+    DeletePlayerItem(this, idx);
 }
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* beh, u32) = {

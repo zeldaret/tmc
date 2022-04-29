@@ -313,7 +313,6 @@ void sub_080855E8(LilypadLargeEntity* this) {
                     this->unk_70 -= 0x80;
                 }
                 if ((super->collisions & 0xe0) == 0xe0) {
-                    // goto _080859D8;
                     u32 tmp2 = this->unk_70;
                     if ((s32)this->unk_70 < 0) {
                         tmp2 += 3;

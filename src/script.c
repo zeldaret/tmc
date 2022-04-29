@@ -1150,10 +1150,13 @@ void ScriptCommand_0807E9E4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp;
+    bool32 tmp;
     sub_0801E00C();
-    tmp = 1;
+    tmp = TRUE;
     switch (gFuseInfo._0) {
+        default:
+            tmp = FALSE;
+            break;
         case 2:
             gPlayerState.controlMode = CONTROL_DISABLED;
             gPauseMenuOptions.disabled = tmp;
@@ -1162,14 +1165,12 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
         case 1:
             context->condition = 0;
             break;
-        default:
-            goto lbl;
     }
+
     if (tmp) {
         PlayerResetStateFromFusion();
         gPlayerState.controlMode = CONTROL_1;
     } else {
-    lbl:
         gActiveScriptInfo.commandSize = 0;
     }
 }
