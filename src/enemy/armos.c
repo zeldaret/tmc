@@ -298,7 +298,52 @@ void sub_08030590(ArmosEntity* this) {
     sub_080307EC(this);
 }
 
-ASM_FUNC("asm/non_matching/armos/sub_080305BC.inc", bool32 sub_080305BC(ArmosEntity* this))
+bool32 sub_080305BC(ArmosEntity* this) {
+    u8 bVar4;
+
+    if ((super->x.HALF.HI & 0xf) == 8) {
+        bVar4 = 1;
+    } else {
+        bVar4 = 0;
+    }
+
+    if ((super->y.HALF.HI & 0xf) == 8) {
+        bVar4 |= 2;
+    }
+
+    if (bVar4 == 3) {
+        return TRUE;
+    }
+
+    if (DirectionIsHorizontal(super->direction)) {
+        if ((bVar4 & 1) == 0) {
+            if (ProcessMovement0(super)) {
+                return FALSE;
+            }
+            super->direction = DirectionTurnAround(super->direction);
+            return FALSE;
+        }
+        if ((super->y.HALF.HI & 0xf) >= 9) {
+            super->direction = DirectionSouth;
+        } else {
+            super->direction = DirectionNorth;
+        }
+        if (DirectionIsHorizontal(super->direction)) {
+            return FALSE;
+        }
+    }
+    if ((bVar4 & 2) == 0) {
+        if (ProcessMovement0(super)) {
+            return FALSE;
+        }
+        super->direction = DirectionTurnAround(super->direction);
+    } else if ((super->x.HALF.HI & 0xf) >= 9) {
+        super->direction = DirectionEast;
+    } else {
+        super->direction = DirectionWest;
+    }
+    return FALSE;
+}
 
 bool32 sub_08030650(ArmosEntity* this) {
     if (super->type == 0) {
