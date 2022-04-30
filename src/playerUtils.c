@@ -750,7 +750,77 @@ void ForceSetPlayerState(u32 framestate) {
     sub_08078B48();
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08078180.inc", void sub_08078180())
+void sub_08078180(void) {
+    u8 uVar1;
+    u8 uVar3;
+    struct_03003DF8* ptr;
+
+    if (gUnk_0200AF00.unk_2f != 0)
+        return;
+
+    uVar1 = 0;
+    if ((gPlayerState.jump_status == 0) &&
+        ((gPlayerState.flags & (PL_IN_HOLE | PL_FROZEN | PL_BURNING | PL_DISABLE_ITEMS | PL_DRUGGED)) == 0)) {
+        if ((u8)(gPlayerState.heldObject - 1) < 4) {
+            if (gUnk_0200AF00.unk_2e != 0) {
+                uVar1 = gUnk_0200AF00.unk_2e;
+            } else {
+                uVar1 = 3;
+            }
+        } else {
+            if (gUnk_0200AF00.unk_2d != 0) {
+                uVar1 = gUnk_0200AF00.unk_2d;
+            } else {
+                ptr = sub_080784E4();
+                if (ptr->entity->interactType == 0) {
+
+                    switch (ptr->unk_1) {
+                        case 1:
+                        case 7:
+                            uVar1 = 7;
+                            break;
+                        case 8:
+                            if (gRoomVars.shopItemType == ITEM_NONE) {
+                                uVar1 = 9;
+                            }
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                            uVar1 = 6;
+                            break;
+                        case 9:
+                            uVar1 = 5;
+                            break;
+                        case 10:
+                            uVar1 = 2;
+                            break;
+                    }
+                } else {
+                    if (sub_080789A8()) {
+                        if (((gPlayerState.framestate != 0x0e))) {
+
+                            if ((gCarriedEntity.unk_1 == 2) && ((gCarriedEntity.unk_8)->carryFlags == 1)) {
+                                uVar1 = 8;
+                            } else {
+                                uVar1 = 9;
+                            }
+                        } else {
+                            return;
+                        }
+                    } else {
+                        if ((gPlayerState.framestate == 1) && (gPlayerState.mobility == 0)) {
+                            uVar1 = 0xc;
+                        } else {
+                            uVar1 = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    gUnk_0200AF00.unk_2c = uVar1;
+}
 
 bool32 sub_080782C0(void) {
     u8 tmp;
