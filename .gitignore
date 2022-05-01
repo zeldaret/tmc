@@ -15,6 +15,7 @@ translations/*.bin
 
 # doxygen
 docs/doxygen/html/
+docs/doxygen/xml/
 
 # tools
 tools/agbcc
@@ -86,3 +87,4 @@ _Deparsed_XSubs.pm
 __pycache__
 Info.plist
 ctx.c
+!doxygen_config.py
