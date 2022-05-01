@@ -480,4 +480,4 @@ void SetZeldaFollowTarget(Entity*);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 
-#endif
+#endif // PLAYER_H

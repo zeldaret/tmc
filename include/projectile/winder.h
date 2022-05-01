@@ -1,5 +1,5 @@
-#ifndef PROJECTILE_WINDER_H
-#define PROJECTILE_WINDER_H
+#ifndef WINDER_H
+#define WINDER_H
 #include "enemy.h"
 
 #define WINDER_NUM_SEGMENTS 8
@@ -9,4 +9,4 @@ typedef struct {
     s16 positions[2 * WINDER_NUM_SEGMENTS];
 } WinderEntity;
 
-#endif
+#endif // WINDER_H

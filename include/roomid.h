@@ -1,5 +1,5 @@
-#ifndef TMC_ROOMID_H
-#define TMC_ROOMID_H
+#ifndef ROOMID_H
+#define ROOMID_H
 
 typedef enum {
     // AREA_MINISH_WOODS
@@ -990,4 +990,4 @@ typedef enum {
     ROOM_8F_0 = 0,
 } RoomID;
 
-#endif // TMC_ROOMID_H
+#endif // ROOMID_H

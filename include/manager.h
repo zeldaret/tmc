@@ -12,224 +12,143 @@ union SplitSHWord {
 } PACKED;
 
 typedef struct Manager {
-    /*0x00*/ struct Manager* prev;
-    /*0x00*/ struct Manager* next;
-    /*0x08*/ u8 type;
-    /*0x09*/ u8 subtype;
-    /*0x0a*/ u8 unk_0a;
-    /*0x0b*/ u8 unk_0b;
-    /*0x0c*/ u8 action;
-    /*0x0d*/ u8 unk_0d;
-    /*0x0e*/ u8 unk_0e;
-    /*0x0f*/ u8 unk_0f;
-    /*0x10*/ u8 unk_10;
-    /*0x11*/ u8 unk_11[3];
-    /*0x14*/ struct Manager* parent;
-    /*0x18*/ u8 unk_18[0x8];
-    // union SplitHWord y;
-    // u16 unk_22;
-    // u16 unk_24;
-    // u16 unk_26;
-    // u8 unk_28[0x0D];
-    // u8 unk_35;
-    // u16 unk_36;
-    // union SplitSHWord unk_38;
-    // union SplitSHWord unk_3a;
-    // u16 unk_3c;
-    // u16 unk_3e;
+    /*0x00*/ struct Manager* prev; /**< previous Manager */
+    /*0x00*/ struct Manager* next; /**< next Manager */
+    /*0x08*/ u8 kind;              /**< @see EntityKind */
+    /*0x09*/ u8 id;                /**< Manager id. @see Managers */
+    /*0x0a*/ u8 type;              /**< For use internally to allow different variations. */
+    /*0x0b*/ u8 type2;             /**< For use internally. */
+    /*0x0c*/ u8 action;            /**< Current action. Usually used to index a function table. */
+    /*0x0d*/ u8 subAction;         /**< Optional sub-action. */
+    /*0x0e*/ u8 timer;             /**< General purpose timer. */
+    /*0x0f*/ u8 subtimer;          /**< General purpose timer. */
+    /*0x10*/ u8 flags;             /**< @see EntityFlags */
+    /*0x11*/ u8 unused[3];         /**< Not used by any manager. */
+    /*0x14*/ Entity* parent;       /**< Parent Entity. */
+    /*0x18*/ Entity* child;        /**< Child Entity. */
+    /*0x1c*/ u8 unused2[0x4];      /**< Not used by any manager. */
 } Manager;
 
-typedef struct {
-    u16 posX;
-    u16 posY;
-    u8 width;
-    u8 height;
-    u8 unk_06;
-    union {
-        u8 all;
-        struct {
-            u8 layer : 2;
-            u8 unk1 : 2;
-            u8 unk2 : 1;
-            u8 unk3 : 3;
-        } PACKED b;
-    } PACKED unk_07;
-} Manager6WarpData;
+typedef enum {
+    MANAGER_NONE,
+    LIGHT_RAY_MANAGER,
+    VERTICAL_MINISH_PATH_BACKGROUND_MANAGER,
+    MINISH_PORTAL_MANAGER,
+    DIGGING_CAVE_ENTRANCE_MANAGER,
+    BRIDGE_MANAGER,
+    SPECIAL_WARP_MANAGER,
+    MINISH_VILLAGE_MANAGER,
+    HORIZONTAL_MINISH_PATH_BACKGROUND_MANAGER,
+    MINISH_RAFTERS_BACKGROUND_MANAGER,
+    EZLO_HINT_MANAGER,
+    FIGHT_MANAGER,
+    ROLLING_BARREL_MANAGER,
+    TILE_CHANGE_OBSERVE_MANAGER,
+    ENTITY_SPAWN_MANAGER,
+    MISC_MANAGER,
+    WEATHER_CHANGE_MANAGER,
+    FLAG_AND_OPERATOR_MANAGER,
+    HYRULE_TOWN_TILESET_MANAGER,
+    HOUSE_SIGN_MANAGER,
+    STEAM_OVERLAY_MANAGER,
+    TEMPLE_OF_DROPLETS_MANAGER,
+    DELAYED_ENTITY_LOAD_MANAGER,
+    FALLING_ITEM_MANAGER,
+    CLOUD_OVERLAY_MANAGER,
+    POW_BACKGROUND_MANAGER,
+    HOLE_MANAGER,
+    STATIC_BACKGROUND_MANAGER,
+    RAINFALL_MANAGER,
+    ANIMATED_BACKGROUND_MANAGER,
+    REGION_TRIGGER_MANAGER,
+    RAIL_INTERSECTION_MANAGER,
+    MOVEABLE_OBJECT_MANAGER,
+    MINISH_SIZED_ENTRANCE_MANAGER,
+    LIGHT_MANAGER,
+    LIGHT_LEVEL_SET_MANAGER,
+    BOMBABLE_WALL_MANAGER,
+    FLAME_MANAGER,
+    PUSHABLE_FURNITURE_MANAGER,
+    ARMOS_INTERIOR_MANAGER,
+    ENEMY_INTERACTION_MANAGER,
+    MANAGER_29,
+    DESTRUCTIBLE_TILE_OBSERVE_MANAGER,
+    ANGRY_STATUE_MANAGER,
+    CLOUD_STAIRCASE_TRANSITION_MANAGER,
+    WATERFALL_BOTTOM_MANAGER,
+    SECRET_MANAGER,
+    VAATI3_BACKGROUND_MANAGER,
+    TILE_PUZZLE_MANAGER,
+    GORON_MERCHANT_SHOP_MANAGER,
+    VAATI_APPARATE_MANAGER,
+    HYRULE_TOWN_BELL_MANAGER,
+    VAATI3_INSIDE_ARM_MANAGER,
+    CAMERA_TARGET_MANAGER,
+    REPEATED_SOUND_MANAGER,
+    VAATI3_START_MANAGER,
+    FLOATING_PLATFORM_MANAGER,
+    ENTER_ROOM_TEXTBOX_MANAGER
+} Managers;
 
-typedef struct {
-    Manager manager;
-    Manager6WarpData* warpList;
-} Manager6;
-
-typedef struct {
-    Manager manager;
-    u16 x;
-    u16 y;
-    u16 rx;
-    u16 ry;
-    u8 unk_28[13];
-    u8 msg_height;
-    u16 msg_idx;
-    u8 x_raw;
-    u8 y_raw;
-    u8 rx_raw;
-    u8 ry_raw;
-    u16 flag1;
-    u16 flag2;
-} ManagerA;
-
-typedef struct {
-    Manager manager;
-    u8 unk_20;
-    u8 unk_21[0x14];
-    u8 unk_35;
-    u8 unk_36[0x4];
-    u16 unk_3a;
-    u16 unk_3c;
-    u16 unk_3e;
-} ManagerB;
-
-typedef struct {
-    Manager manager;
-    Entity* enemies[8];
-} ManagerBHelper;
-
-typedef struct {
-    Manager manager;
-    u8 unk_20[0x18];
-    s16 unk_38;
-    s16 unk_3a;
-    u16 unk_3c;
-    u16 unk_3e;
-} ManagerE;
-
-typedef struct {
-    Manager manager;
-    u8 unk_20[0x18];
-    s16 unk_38;
-    s16 unk_3a;
-    u16 unk_3c;
-    u16 unk_3e;
-} ManagerF;
-
-typedef struct {
-    Manager manager;
-    u8 unk_20;
-    u8 unk_21;
-    u8 unk_22;
-    u8 unk_23;
-    u8 filler_0x24[0x1C];
-} Manager10;
-
-typedef struct Manager11 {
-    Manager manager;
-    u8 unk_20[0x1C];
-    u16 unk_3c;
-    u16 unk_3e;
-} Manager11;
-
-typedef struct {
-    u16 unk_00;
-    u8 source_room;
-    u8 unk_03;
-    u8 target_area;
-    u8 target_room;
-    u16 unk_06;
-} DiggingCaveEntrance;
-
-typedef struct {
-    const DiggingCaveEntrance* unk_00;
-    u16 unk_04;
-    u16 unk_06;
-    u8 isDiggingCave;
-    u8 unk_09;
-    u8 unk_0a;
-    u8 unk_0b;
-} struct_03004030;
-extern struct_03004030 gUnk_03004030;
-
-extern const DiggingCaveEntrance* const diggingCaveEntrances[];
-
-typedef struct {
-    Manager manager;
-    u8 field_0x20[0x15];
-    u8 field_0x35;
-    u8 field_0x36;
-    u8 field_0x37;
-    s16 x;
-    u16 y;
-    u16 tile;
-    u16 field_0x3e;
-} Manager24;
-
-typedef struct {
-    u8 unk_00;
-    u8 unk_01;
-    u8 unk_02;
-    u8 unk_03;
-    u16 unk_04;
-    u16 unk_06;
-} UnkManager26HelperStruct;
-
-extern void Manager1_Main();
-extern void Manager2_Main();
-extern void Manager3_Main();
-extern void Manager4_Main();
-extern void Manager5_Main();
-extern void Manager6_Main();
-extern void Manager7_Main();
-extern void Manager8_Main();
-extern void Manager9_Main();
-extern void ManagerA_Main();
-extern void ManagerB_Main();
-extern void ManagerC_Main();
-extern void ManagerD_Main();
-extern void ManagerE_Main();
-extern void sub_08058ECC(ManagerF*);
-extern void Manager10_Main(Manager10*);
-extern void Manager11_Main(Manager11*);
-extern void Manager12_Main();
-extern void Manager13_Main();
-extern void Manager14_Main();
-extern void Manager15_Main();
-extern void Manager16_Main();
-extern void Manager17_Main();
-extern void Manager18_Main();
-extern void Manager19_Main();
-extern void Manager1A_Main();
-extern void Manager1B_Main();
-extern void Manager1C_Main(Manager*);
-extern void Manager1D_Main();
-extern void Manager1E_Main();
-extern void Manager1F_Main();
-extern void Manager20_Main();
-extern void Manager21_Main();
-extern void Manager22_Main();
-extern void Manager23_Main();
-extern void Manager24_Main();
-extern void Manager25_Main();
-extern void Manager26_Main();
-extern void Manager27_Main();
-extern void Manager28_Main();
+extern void LightRayManager_Main();
+extern void VerticalMinishPathBackgroundManager_Main();
+extern void MinishPortalManager_Main();
+extern void DiggingCaveEntranceManager_Main();
+extern void BridgeManager_Main();
+extern void SpecialWarpManager_Main();
+extern void MinishVillageTilesetManager_Main();
+extern void HorizontalMinishPathBackgroundManager_Main();
+extern void MinishRaftersBackgroundManager_Main();
+extern void EzloHintManager_Main();
+extern void FightManager_Main();
+extern void RollingBarrelManager_Main();
+extern void TileChangeObserveManager_Main();
+extern void EntitySpawnManager_Main();
+extern void MiscManager_Main();
+extern void WeatherChangeManager_Main();
+extern void FlagAndOperatorManager_Main();
+extern void HyruleTownTilesetManager_Main();
+extern void HouseSignManager_Main();
+extern void SteamOverlayManager_Main();
+extern void TempleOfDropletsManager_Main();
+extern void DelayedEntityLoadManager_Main();
+extern void FallingItemManager_Main();
+extern void CloudOverlayManager_Main();
+extern void PowBackgroundManager_Main();
+extern void HoleManager_Main();
+extern void StaticBackgroundManager_Main();
+extern void RainfallManager_Main();
+extern void AnimatedBackgroundManager_Main();
+extern void RegionTriggerManager_Main();
+extern void RailIntersectionManager_Main();
+extern void MoveableObjectManager_Main();
+extern void MinishSizedEntranceManager_Main();
+extern void LightManager_Main();
+extern void LightLevelSetManager_Main();
+extern void BombableWallManager_Main();
+extern void FlameManager_Main();
+extern void PushableFurnitureManager_Main();
+extern void ArmosInteriorManager_Main();
+extern void EnemyInteractionManager_Main();
 extern void Manager29_Main();
-extern void Manager2A_Main(Manager*);
-extern void Manager2B_Main();
-extern void Manager2C_Main();
-extern void Manager2D_Main(Entity*);
-extern void Manager2E_Main();
-extern void Manager2F_Main();
-extern void Manager30_Main();
-extern void Manager31_Main();
-extern void Manager32_Main();
-extern void Manager33_Main();
-extern void Manager34_Main();
-extern void Manager35_Main();
-extern void Manager36_Main(Manager*);
-extern void Manager37_Main();
-extern void Manager38_Main(Entity*);
-extern void Manager39_Main();
+extern void DestructibleTileObserveManager_Main();
+extern void AngryStatueManager_Main();
+extern void CloudStaircaseTransitionManager_Main();
+extern void WaterfallBottomManager_Main();
+extern void SecretManager_Main();
+extern void Vaati3BackgroundManager_Main();
+extern void TilePuzzleManager_Main();
+extern void GoronMerchantShopManager_Main();
+extern void VaatiAppearingManager_Main();
+extern void HyruleTownBellManager_Main();
+extern void Vaati3InsideArmManager_Main();
+extern void CameraTargetManager_Main();
+extern void RepeatedSoundManager_Main();
+extern void Vaati3StartManager_Main();
+extern void FloatingPlatformManager_Main();
+extern void EnterRoomTextboxManager_Main();
 
-extern void (*const gManagerFunctions[58])();
+extern void (*const gMiscManagerunctions[58])();
 
 Manager* GetEmptyManager(void);
 
@@ -242,4 +161,4 @@ extern u32 sub_0805ACC0(Entity*);
 extern void sub_0801855C(void);
 extern void sub_080186C0(u32);
 
-#endif
+#endif // MANAGER_H

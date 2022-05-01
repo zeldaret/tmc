@@ -12,8 +12,9 @@
 #include "object.h"
 #include "screen.h"
 #include "structures.h"
+#include "manager/diggingCaveEntranceManager.h"
+#include "scroll.h"
 
-extern void UpdateIsDiggingCave(void);
 extern void sub_0807C898(void);
 extern void sub_0805BB74(s32);
 extern void LoadRoomGfx(void);
@@ -95,10 +96,10 @@ void sub_080197A0(void) {
 }
 
 void SetBGDefaults(void) {
-    gMapBottom.bgControlPtr = (u16*)&gScreen.bg2;
-    *gMapBottom.bgControlPtr = gUnk_080B77C0[0];
-    gMapTop.bgControlPtr = (u16*)&gScreen.bg1;
-    *gMapTop.bgControlPtr = gUnk_080B77C0[1];
+    gMapBottom.bgSettings = (BgSettings*)&gScreen.bg2;
+    gMapBottom.bgSettings->control = gUnk_080B77C0[0];
+    gMapTop.bgSettings = &gScreen.bg1;
+    gMapTop.bgSettings->control = gUnk_080B77C0[1];
 }
 
 void sub_080197D4(u32* param_1) {
@@ -417,7 +418,7 @@ void sub_0801AD6C(u16* param_1, u32 param_2) {
     s32 tmpX2;
     s32 tmpY2;
 
-    if (param_1[1] != 9) {
+    if (param_1[1] != MANAGER) {
         entity = GetEmptyEntity();
         if (entity != NULL) {
             entity->kind = (u8)param_1[1];
@@ -435,15 +436,16 @@ void sub_0801AD6C(u16* param_1, u32 param_2) {
     } else {
         manager = GetEmptyManager();
         if (manager != NULL) {
-            manager->type = (u8)param_1[1];
-            manager->subtype = (u8)param_1[2];
-            manager->unk_0a = (u8)param_1[3];
-            manager->unk_0b = (u8)param_1[4];
+            manager->kind = (u8)param_1[1];
+            manager->id = (u8)param_1[2];
+            manager->type = (u8)param_1[3];
+            manager->type2 = (u8)param_1[4];
+            // TODO are these fields common for all managers or does this usually create managers of certain types?
             tmpX2 = ((u16)param_2 & 0x3f) * 0x10 + 8;
-            *(u16*)(&manager[1].unk_0e + 10) = tmpX2 + gRoomControls.origin_x;
+            *(u16*)(&manager[1].timer + 10) = tmpX2 + gRoomControls.origin_x;
             tmpY2 = (s16)((param_2 & 0xfc0) >> 2) + 8;
-            *(u16*)(&manager[1].unk_0e + 12) = tmpY2 + gRoomControls.origin_y;
-            AppendEntityToList((Entity*)manager, gUnk_081091E4[manager->type]);
+            *(u16*)(&manager[1].timer + 12) = tmpY2 + gRoomControls.origin_y;
+            AppendEntityToList((Entity*)manager, gUnk_081091E4[manager->kind]);
         }
     }
 }
@@ -476,14 +478,14 @@ void sub_0801AE44(s32 param_1) {
     if (func != NULL) {
         func();
     }
-    if ((gUnk_03004030.isDiggingCave == 0) && (gArea.onEnter != NULL)) {
+    if ((gDiggingCaveEntranceTransition.isDiggingCave == 0) && (gArea.onEnter != NULL)) {
         gArea.onEnter(gArea.transitionManager);
     }
     if ((gRoomControls.scroll_flags & 1) == 0) {
-        if (gMapBottom.bgControlPtr != NULL) {
+        if (gMapBottom.bgSettings != NULL) {
             sub_0801AB08(gMapDataBottomSpecial, &gMapBottom);
         }
-        if (gMapTop.bgControlPtr != NULL) {
+        if (gMapTop.bgSettings != NULL) {
             sub_0801AB08(gMapDataTopSpecial, &gMapTop);
         }
     } else {

@@ -18,5 +18,5 @@ SCRIPT_START script_Npc4EFixedEverything
 	WaitUntilTextboxCloses
 	MessageFromTargetPos TEXT_VAATI2, 0x5e, 0x000e
 	WaitUntilTextboxCloses
-	CallWithArg CreateManager36, 0x00000001
+	CallWithArg CreateRepeatedSoundManager, 0x00000001
 	_0807F0C8 0xffff, 0x0000

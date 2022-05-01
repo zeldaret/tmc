@@ -1,5 +1,5 @@
-#ifndef POSITION_H
-#define POSITION_H
+#ifndef PHYSICS_H
+#define PHYSICS_H
 
 #include "global.h"
 #include "entity.h"
@@ -55,4 +55,5 @@ extern bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 
 extern const s16 gSineTable[64];
 extern const s16 gCosineTable[256];
-#endif
+
+#endif // PHYSICS_H

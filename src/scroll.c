@@ -1,3 +1,4 @@
+#include "scroll.h"
 #include "global.h"
 #include "entity.h"
 #include "structures.h"
@@ -8,6 +9,7 @@
 #include "common.h"
 #include "fileselect.h"
 #include "screen.h"
+#include "manager/diggingCaveEntranceManager.h"
 
 extern void sub_08080BC4(void);
 extern void sub_080197D4(const void*);
@@ -45,7 +47,6 @@ void sub_08080040(RoomControls*);
 void sub_08080108(RoomControls*);
 void sub_08080198(RoomControls*);
 void sub_080801BC(RoomControls*);
-void UpdateIsDiggingCave(void);
 u32 sub_080803D0();
 u32 sub_08080278();
 void sub_08080C80(u32*);
@@ -200,7 +201,7 @@ void sub_0807FF6C(RoomControls* controls) {
     gScreen.controls.window1VerticalDimensions = 0xf0;
     ResetPlayerItem();
     ResetPlayerAnimationAndAction();
-    if (gUnk_03004030.isDiggingCave) {
+    if (gDiggingCaveEntranceTransition.isDiggingCave) {
         gPlayerEntity.animationState = 4;
     } else {
         gPlayerEntity.animationState = 0;
@@ -212,7 +213,7 @@ void sub_0807FFE4(RoomControls* controls) {
     controls->unk4 = 2;
     controls->filler2[0] = sub_080803D0() + 6;
     gUnk_0200B640 = sub_08080278();
-    sub_080197D4(*gUnk_08109194[gUnk_03004030.unk_00->unk_03]);
+    sub_080197D4(*gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type]);
     sub_0807C8B0(gMapDataTop, controls->width >> 4, controls->height >> 4);
     sub_0801AB08(gMapDataTopSpecial, gMapDataTop - 4);
 }
@@ -253,7 +254,7 @@ void sub_08080040(RoomControls* controls) {
         controls->unk4 = 3;
         DeleteSleepingEntities();
         sub_0807C810();
-        sub_08080C80(*(gUnk_08109194[gUnk_03004030.unk_00->unk_03] + 1));
+        sub_08080C80(*(gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type] + 1));
     } else {
         gUpdateVisibleTiles = 4;
     }
@@ -344,18 +345,18 @@ void UpdateIsDiggingCave(void) {
         case AREA_VEIL_FALLS_DIG_CAVE:
         case AREA_CASTOR_WILDS_DIG_CAVE:
         case AREA_HYLIA_DIG_CAVES:
-            gUnk_03004030.isDiggingCave = 1;
+            gDiggingCaveEntranceTransition.isDiggingCave = 1;
             return;
     }
-    gUnk_03004030.isDiggingCave = 0;
+    gDiggingCaveEntranceTransition.isDiggingCave = 0;
 }
 
 void ClearTilemaps(void) {
     // Is gRoomControls 4 bytes bigger?
     MemClear(&gRoomControls, 0x38);
-    MemClear(&gUnk_03004030, sizeof(gUnk_03004030));
+    MemClear(&gDiggingCaveEntranceTransition, sizeof(gDiggingCaveEntranceTransition));
     gRoomControls.filler3 = 0xffff;
-    gUnk_03004030.unk_0a = 0xff;
+    gDiggingCaveEntranceTransition.previousArea = 0xff;
     gUnk_02034480.unk_00 = 0;
     MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
@@ -522,7 +523,7 @@ void sub_0808091C(const ScreenTransitionData* param_1, u32 param_2) {
     gRoomTransition.type = param_2;
 }
 
-void sub_08080930(void) {
+void sub_08080930(u32 unused) {
     gRoomControls.unk3 = 5;
     gRoomControls.unk4 = 0;
     gRoomControls.reload_flags = 2;

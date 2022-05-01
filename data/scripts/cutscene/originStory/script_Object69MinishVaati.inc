@@ -33,5 +33,5 @@ SCRIPT_START script_Object69MinishVaati
 	WaitUntilTextboxCloses
 	MessageFromTargetPos TEXT_VAATI, 0x10, 0x000c
 	WaitUntilTextboxCloses
-	CallWithArg CreateManager36, 0x00000001
+	CallWithArg CreateRepeatedSoundManager, 0x00000001
 	_0807F0C8 0xffff, 0x0000

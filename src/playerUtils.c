@@ -14,6 +14,9 @@
 #include "new_player.h"
 #include "item.h"
 #include "message.h"
+#include "screen.h"
+#include "screen.h"
+#include "manager/diggingCaveEntranceManager.h"
 
 static void sub_08077E54(ItemBehavior* beh);
 
@@ -126,6 +129,43 @@ bool32 sub_0807ADB8(Entity*);
 extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
 
 bool32 sub_08079F48(u32 param_1, u32 param_2);
+
+extern void sub_08080B60(LayerStruct*);
+extern void sub_0801AB08(u16*, LayerStruct*);
+
+extern u8 gUnk_02006F00[];
+extern u16 gUnk_080B77C0[];
+
+void sub_0807BFA8(void);
+void sub_080197D4(const void*);
+void sub_0807C8B0(u16*, u32, u32);
+void sub_0807C69C(u8*, u32, u32);
+void sub_0807C460(void);
+void sub_0807BBE4(void);
+void sub_0807BC84(void);
+void sub_0807C5F4(u16*, u16*);
+void sub_0807C5B0(void);
+
+// collisions for metatiles < 0x4000
+extern const u8 gUnk_080B3E80[];
+// collisions for tiles > 0x4000
+extern const u8 gUnk_080B79A7[];
+
+extern void sub_08080B60(LayerStruct*);
+extern void sub_0801AB08(u16*, LayerStruct*);
+
+extern u8 gUnk_02006F00[];
+extern u16 gUnk_080B77C0[];
+
+void sub_0807BFA8(void);
+void sub_080197D4(const void*);
+void sub_0807C8B0(u16*, u32, u32);
+void sub_0807C69C(u8*, u32, u32);
+void sub_0807C460(void);
+void sub_0807BBE4(void);
+void sub_0807BC84(void);
+void sub_0807C5F4(u16*, u16*);
+void sub_0807C5B0(void);
 
 void sub_08077698(PlayerEntity* this) {
     ItemBehavior* puVar2;
@@ -2466,7 +2506,43 @@ void sub_0807BB98(s32 basePosition, u32 layer, u32 width, u32 height) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BBE4.inc", void sub_0807BBE4())
+void sub_0807BBE4(void) {
+    u32 tile;
+    u8* topCollision;
+    u8* bottomCollision;
+    u32 index;
+    u16* topMap;
+    u16* bottomMap;
+    u16* bottomMetatiles;
+    u16* topMetatiles;
+
+    bottomMetatiles = gMapBottom.metatileTypes;
+    topMetatiles = gMapTop.metatileTypes;
+
+    bottomMap = gMapBottom.mapData;
+    topMap = gMapTop.mapData;
+    bottomCollision = gMapBottom.collisionData;
+    topCollision = gMapTop.collisionData;
+    index = 0;
+    for (index = 0; index < 0x40 * 0x40; index++) {
+        tile = *bottomMap;
+        bottomMap++;
+        if (tile < 0x4000) {
+            *bottomCollision = gUnk_080B3E80[bottomMetatiles[tile]];
+        } else {
+            *bottomCollision = gUnk_080B79A7[tile - 0x4000];
+        }
+        bottomCollision++;
+        tile = (u32)*topMap;
+        topMap++;
+        if (tile < 0x4000) {
+            *topCollision = gUnk_080B3E80[topMetatiles[tile]];
+        } else {
+            *topCollision = gUnk_080B79A7[tile - 0x4000];
+        }
+        topCollision++;
+    }
+}
 
 void sub_0807BC84(void) {
     s32 height;
@@ -2661,7 +2737,107 @@ void sub_0807BFA8(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807BFD0.inc", void sub_0807BFD0())
 
-ASM_FUNC("asm/non_matching/playerUtils/LoadRoomGfx.inc", void LoadRoomGfx())
+void LoadRoomGfx(void) {
+    RoomControls* roomControls;
+    bool32 tmp;
+
+    sub_0807BFA8();
+    roomControls = &gRoomControls;
+    roomControls->scroll_flags &= 0xfc;
+    MemClear(gMapTop.mapData, 0x2000);
+    MemClear(gMapTop.collisionData, 0x1000);
+    MemClear(&gMapDataBottomSpecial, 0x8000);
+    MemClear(&gMapDataTopSpecial, 0x8000);
+    sub_080197D4((gArea.pCurrentRoomInfo)->map);
+    if (gMapBottom.mapData[0] != 0xffff) {
+        sub_0807C8B0(gMapBottom.mapData, roomControls->width >> 4, roomControls->height >> 4);
+        sub_0807C8B0(gMapTop.mapData, roomControls->width >> 4, roomControls->height >> 4);
+        tmp = FALSE;
+    } else {
+        MemClear(gMapBottom.mapData, 0x2000);
+        tmp = TRUE;
+    }
+    if (gRoomTransition.field_0x2c[0] == 0) {
+        MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, 0x2000);
+        MemCopy(gMapTop.mapData, gMapTop.mapDataClone, 0x2000);
+    } else if (gRoomTransition.field_0x2c[0] == 2) {
+        MemCopy(gMapBottom.mapData, gMapBottom.unkData3, 0x1000);
+        MemCopy(gMapBottom.mapDataClone, gMapBottom.mapData, 0x1000);
+        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataClone, 0x1000);
+        MemCopy(gMapBottom.mapData + 0x800, gMapBottom.unkData3, 0x1000);
+        MemCopy(gMapBottom.mapDataClone + 0x800, gMapBottom.mapData + 0x800, 0x1000);
+        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataClone + 0x800, 0x1000);
+        MemCopy(gMapTop.mapData, gMapTop.unkData3, 0x1000);
+        MemCopy(gMapTop.mapDataClone, gMapTop.mapData, 0x1000);
+        MemCopy(gMapTop.unkData3, gMapTop.mapDataClone, 0x1000);
+        MemCopy(gMapTop.mapData + 0x800, gMapTop.unkData3, 0x1000);
+        MemCopy(gMapTop.mapDataClone + 0x800, gMapTop.mapData + 0x800, 0x1000);
+        MemCopy(gMapTop.unkData3, gMapTop.mapDataClone + 0x800, 0x1000);
+    }
+    if (!tmp) {
+        sub_0807BBE4();
+    } else {
+        sub_0807C69C(gMapBottom.collisionData, roomControls->width >> 4, roomControls->height >> 4);
+        sub_0807C69C(gMapTop.collisionData, roomControls->width >> 4, roomControls->height >> 4);
+        sub_0807C460();
+    }
+    sub_0807BC84();
+    sub_08080B60(&gMapBottom);
+    sub_08080B60(&gMapTop);
+    if (!tmp) {
+        sub_0801AB08((u16*)&gMapDataBottomSpecial, &gMapBottom);
+        sub_0801AB08((u16*)&gMapDataTopSpecial, &gMapTop);
+    } else {
+        MemCopy(&gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000], 0x4000); // TODO
+        sub_0807C5F4((u16*)&gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000]);
+        MemClear(&gMapDataBottomSpecial[0x2000], 0x4000);
+        MemCopy(&gMapDataTopSpecial, &gMapDataTopSpecial[0x2000], 0x4000);
+        sub_0807C5F4((u16*)&gMapDataTopSpecial, (u16*)&gMapDataTopSpecial[0x2000]);
+        MemClear(&gMapDataTopSpecial[0x2000], 0x4000);
+    }
+    if (tmp || roomControls->area == 0x71) {
+        roomControls->scroll_flags |= 1;
+    }
+
+    switch (roomControls->area) {
+        case 0x20:
+        case 0x2d:
+            if (gMapBottom.bgSettings != NULL) {
+                gMapBottom.bgSettings->control |= 0x80;
+            }
+            gScreen.lcd.displayControl &= 0xfdff;
+            break;
+        case 0x21:
+        case 0x22:
+        case 0x23:
+        case 0x24:
+        case 0x25:
+        case 0x27:
+        case 0x28:
+        case 0x30:
+        case 0x38:
+            if (gMapTop.bgSettings != NULL) {
+                gMapTop.bgSettings->control = gUnk_080B77C0[2];
+            }
+            sub_0807C5B0();
+            break;
+        default:
+            if (gMapBottom.bgSettings != NULL) {
+                gMapBottom.bgSettings->control = gUnk_080B77C0[0];
+            }
+            if (gMapTop.bgSettings != NULL) {
+                gMapTop.bgSettings->control = gUnk_080B77C0[1];
+            }
+
+            gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0x800) | DISPCNT_OBJ_ON | DISPCNT_BG2_ON |
+                                         DISPCNT_BG1_ON | DISPCNT_BG0_ON | DISPCNT_OBJ_1D_MAP;
+
+            if (gArea.lightType != 0) {
+                gScreen.lcd.displayControl |= DISPCNT_OBJWIN_ON | DISPCNT_WIN0_ON;
+            }
+            break;
+    }
+}
 
 void sub_0807C460(void) {
     u32 x;
@@ -2692,24 +2868,48 @@ void sub_0807C460(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C4F8.inc", void sub_0807C4F8())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C5B0.inc", void sub_0807C5B0())
+void sub_0807C5B0(void) {
+    u8 colTop;
+    u8 colBot;
+    u8* puVar2;
+    u8* collisionTop = gMapTop.collisionData;
+    u32 thousand = 0x1000;
+    u32 index = 0;
+    RoomControls* roomControls = &gRoomControls;
+    u8* collisionBottom = gMapBottom.collisionData;
+    while (index < thousand) {
+        colTop = collisionTop[index];
+        if (colTop != 0) {
+            if (colTop < 0x10) {
+                colBot = collisionBottom[index];
+                if (colBot < 0x10) {
+                    collisionBottom[index] = colTop | colBot;
+                }
+            } else {
+                collisionBottom[index] = collisionTop[index];
+            }
+        }
+        index++;
+    }
+    roomControls->scroll_flags |= 2;
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4(u16* a, u16* b))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C69C.inc", void sub_0807C69C())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807C69C.inc", void sub_0807C69C(u8* a, u32 b, u32 c))
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera())
 
 void sub_0807C810(void) {
-    struct_03004030* ptr;
+    DiggingCaveEntranceTransition* ptr;
     Entity* player;
     RoomControls* ctrls;
     sub_0807BFD0();
-    ptr = &gUnk_03004030;
+    ptr = &gDiggingCaveEntranceTransition;
     player = &gPlayerEntity;
     ctrls = &gRoomControls;
-    player->x.HALF.HI = ((ptr->unk_00)->unk_06 & 0x3f) * 0x10 + ctrls->origin_x + ptr->unk_04;
-    player->y.HALF.HI = (((ptr->unk_00)->unk_06 & 0xfc0) >> 2) + ctrls->origin_y + ptr->unk_06;
+    player->x.HALF.HI = ((ptr->entrance)->targetTilePosition & 0x3f) * 0x10 + ctrls->origin_x + ptr->offsetX;
+    player->y.HALF.HI = (((ptr->entrance)->targetTilePosition & 0xfc0) >> 2) + ctrls->origin_y + ptr->offsetY;
     sub_080809D4();
     gUpdateVisibleTiles = 0;
 }
@@ -2729,7 +2929,7 @@ void sub_0807C898(void) {
     gRoomTransition.field_0x2c[0] = 0;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0(u16* a, u32 b, u32 c))
 
 void LoadCompressedMapData(void* dest, u32 offset) {
     void* src;

@@ -4,6 +4,7 @@
 #include "area.h"
 #include "message.h"
 #include "npc.h"
+#include "manager/diggingCaveEntranceManager.h"
 
 extern u8 gUnk_081091F8[];
 extern u8 gUnk_081091EE[];
@@ -38,27 +39,27 @@ extern UpdateContext gUpdateContext;
 void sub_0805E248(void) {
     s32 v0;
 
-    v0 = gUnk_03004030.unk_00->unk_06;
+    v0 = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
     if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
-        SetTileType(636, v0 - 65, 1);
-        SetTileType(643, v0 - 65, 2);
-        SetTileType(637, v0 - 64, 1);
-        SetTileType(644, v0 - 64, 2);
-        SetTileType(638, v0 - 63, 1);
-        SetTileType(645, v0 - 63, 2);
-        SetTileType(639, v0 - 1, 1);
-        SetTileType(640, v0, 1);
-        SetTileType(642, v0 + 1, 1);
+        SetTileType(0x27c, v0 + TILE_POS(-1, -1), 1);
+        SetTileType(0x283, v0 + TILE_POS(-1, -1), 2);
+        SetTileType(0x27d, v0 + TILE_POS(0, -1), 1);
+        SetTileType(0x284, v0 + TILE_POS(0, -1), 2);
+        SetTileType(0x27e, v0 + TILE_POS(1, -1), 1);
+        SetTileType(0x285, v0 + TILE_POS(1, -1), 2);
+        SetTileType(0x27f, v0 + TILE_POS(-1, 0), 1);
+        SetTileType(0x280, v0 + TILE_POS(0, 0), 1);
+        SetTileType(0x282, v0 + TILE_POS(1, 0), 1);
     } else {
-        SetTileType(620, v0 - 65, 1);
-        SetTileType(627, v0 - 65, 2);
-        SetTileType(621, v0 - 64, 1);
-        SetTileType(628, v0 - 64, 2);
-        SetTileType(622, v0 - 63, 1);
-        SetTileType(629, v0 - 63, 2);
-        SetTileType(623, v0 - 1, 1);
-        SetTileType(624, v0, 1);
-        SetTileType(626, v0 + 1, 1);
+        SetTileType(0x26c, v0 + TILE_POS(-1, -1), 1);
+        SetTileType(0x273, v0 + TILE_POS(-1, -1), 2);
+        SetTileType(0x26d, v0 + TILE_POS(0, -1), 1);
+        SetTileType(0x274, v0 + TILE_POS(0, -1), 2);
+        SetTileType(0x26e, v0 + TILE_POS(1, -1), 1);
+        SetTileType(0x275, v0 + TILE_POS(1, -1), 2);
+        SetTileType(0x26f, v0 + TILE_POS(-1, 0), 1);
+        SetTileType(0x270, v0 + TILE_POS(0, 0), 1);
+        SetTileType(0x272, v0 + TILE_POS(1, 0), 1);
     }
     gUpdateVisibleTiles = 0;
 }

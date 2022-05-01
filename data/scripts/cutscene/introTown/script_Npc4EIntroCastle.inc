@@ -117,5 +117,5 @@ SCRIPT_START script_Npc4EIntroCastle
 	SetSyncFlag 0x08000000
 	SetSyncFlag 0x00800000
 	WaitForSyncFlagAndClear 0x01000000
-	CallWithArg CreateManager36, 0x00000002
+	CallWithArg CreateRepeatedSoundManager, 0x00000002
 	_0807F0C8 0xffff, 0x0000

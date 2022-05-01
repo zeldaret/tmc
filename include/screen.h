@@ -1,5 +1,5 @@
-#ifndef BG_H
-#define BG_H
+#ifndef SCREEN_H
+#define SCREEN_H
 
 #include "global.h"
 #include "fade.h"
@@ -80,4 +80,4 @@ extern OAMCommand gOamCmd;
 
 extern void sub_080ADA04(OAMCommand*, void*);
 
-#endif
+#endif // SCREEN_H

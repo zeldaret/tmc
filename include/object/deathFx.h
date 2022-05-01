@@ -1,5 +1,5 @@
-#ifndef TMC_DEATHFX_H
-#define TMC_DEATHFX_H
+#ifndef DEATHFX_H
+#define DEATHFX_H
 
 #ifndef NENT_DEPRECATED
 #error "deathFx.h requires new entities"
@@ -14,4 +14,4 @@ typedef struct {
     u8 item;
 } DeathFxObject;
 
-#endif // TMC_DEATHFX_H
+#endif // DEATHFX_H

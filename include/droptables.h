@@ -1,5 +1,5 @@
-#ifndef TMC_DROPTABLES_H
-#define TMC_DROPTABLES_H
+#ifndef DROPTABLES_H
+#define DROPTABLES_H
 
 #include "global.h"
 
@@ -37,4 +37,4 @@ enum {
 };
 extern const Droptable gDroptableModifiers[];
 
-#endif // TMC_DROPTABLES_H
+#endif // DROPTABLES_H

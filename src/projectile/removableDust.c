@@ -3,6 +3,7 @@
 #include "physics.h"
 #include "functions.h"
 #include "object.h"
+#include "room.h"
 
 extern u32 sub_080B1AE0(u16, u8);
 

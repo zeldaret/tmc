@@ -10,7 +10,7 @@ SCRIPT_START script_Npc4EFinalSwordRumble
 .endif
 	SetSyncFlag 0x00000008
 	Wait 0x0078
-	CallWithArg DeleteManager36, 0x00000001
+	CallWithArg DeleteRepeatedSoundManager, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	Wait 0x003c
 	_0807F0B4 0x0004

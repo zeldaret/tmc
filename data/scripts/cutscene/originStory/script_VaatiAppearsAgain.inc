@@ -7,7 +7,7 @@ SCRIPT_START script_VaatiAppearsAgain
 	Call SetPriorityPlayerEvent
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
-	Call sub_08066C94
+	Call Vaati_Apparate
 	Wait 0x00e9
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x001e

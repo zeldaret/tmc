@@ -372,4 +372,4 @@ void NPC58_Head(Entity*);
 
 extern void (*const gNPCFunctions[128][3])(Entity*);
 
-#endif
+#endif // NPC_H

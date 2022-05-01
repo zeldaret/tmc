@@ -25,7 +25,7 @@ SCRIPT_START script_Npc4EMonsters
 	SetFadeTime 0x0002
 	SetFade6
 	WaitForFadeFinish
-	CallWithArg DeleteManager36, 0x00000002
+	CallWithArg DeleteRepeatedSoundManager, 0x00000002
 	_0807F0C8 0x0000, 0x0000
 	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
@@ -52,5 +52,5 @@ SCRIPT_START script_Npc4EMonsters
 	WaitUntilTextboxCloses
 	MessageFromTargetPos TEXT_PROLOGUE, 0x46, 0x0000
 	WaitUntilTextboxCloses
-	CallWithArg CreateManager36, 0x00000002
+	CallWithArg CreateRepeatedSoundManager, 0x00000002
 	_0807F0C8 0xffff, 0x0000

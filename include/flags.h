@@ -1741,4 +1741,4 @@ typedef enum {
     END_12,
 } LocalFlags12;
 
-#endif
+#endif // FLAGS_H

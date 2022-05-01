@@ -1,16 +1,16 @@
-#include "global.h"
 #include "area.h"
-#include "room.h"
+#include "common.h"
 #include "flags.h"
 #include "functions.h"
-#include "common.h"
-#include "object.h"
 #include "game.h"
+#include "global.h"
+#include "manager/bombableWallManager.h"
+#include "object.h"
+#include "room.h"
 
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
-extern Entity* LoadRoomEntity(const EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
 
 extern void** gCurrentRoomProperties;
@@ -65,7 +65,7 @@ NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(const Ent
         if ((dat->flags & 0xF0) != 16) {
             v5->type2 = dat->type2;
             v5->timer = (dat->type2 & 0xFF00) >> 8;
-            if (kind == 9)
+            if (kind == MANAGER)
                 return v5;
             sub_0804AF0C(v5, dat);
             if (v5->next == NULL)
@@ -327,10 +327,10 @@ static void LoadSmallChestTile(TileEntity* tile) {
 }
 
 static void LoadBombableWallTile(TileEntity* tile) {
-    Manager24* mgr = (Manager24*)GetEmptyManager();
+    BombableWallManager* mgr = (BombableWallManager*)GetEmptyManager();
     if (mgr != NULL) {
-        mgr->manager.type = 9;
-        mgr->manager.subtype = 0x24;
+        mgr->base.kind = MANAGER;
+        mgr->base.id = BOMBABLE_WALL_MANAGER;
         mgr->x = tile->tilePos;
         mgr->y = *(u16*)&tile->_6;
         mgr->field_0x35 = tile->_2;
@@ -351,8 +351,8 @@ static void LoadDestructibleTile(TileEntity* tile) {
         gRoomVars.filler_0x1 = 1;
         mgr = GetEmptyManager();
         if (mgr != NULL) {
-            mgr->type = 9;
-            mgr->subtype = 0x2a;
+            mgr->kind = MANAGER;
+            mgr->id = DESTRUCTIBLE_TILE_OBSERVE_MANAGER;
             AppendEntityToList((Entity*)mgr, 6);
         }
     }

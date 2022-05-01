@@ -1,5 +1,5 @@
-#ifndef TMC_ITEMMETADATA_H
-#define TMC_ITEMMETADATA_H
+#ifndef ITEMMETADATA_H
+#define ITEMMETADATA_H
 
 #include "global.h"
 
@@ -38,4 +38,4 @@ typedef struct ItemMetaData {
 
 extern const ItemMetaData gItemMetaData[];
 
-#endif // TMC_ITEMMETADATA_H
+#endif // ITEMMETADATA_H

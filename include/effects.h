@@ -112,7 +112,7 @@ typedef enum {
     FX_69,
     FX_6A,
     FX_6B,
-    FX_6C,
+    FX_6C
 } Effect;
 
 #endif // EFFECTS_H

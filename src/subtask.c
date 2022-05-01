@@ -1,18 +1,19 @@
-#include "global.h"
-#include "menu.h"
+#include "asm.h"
+#include "common.h"
+#include "effects.h"
 #include "fade.h"
 #include "flags.h"
-#include "sound.h"
-#include "room.h"
 #include "functions.h"
-#include "effects.h"
-#include "asm.h"
-#include "save.h"
+#include "global.h"
 #include "kinstone.h"
-#include "screen.h"
-#include "common.h"
-#include "object.h"
+#include "manager/bombableWallManager.h"
+#include "menu.h"
 #include "message.h"
+#include "object.h"
+#include "room.h"
+#include "save.h"
+#include "screen.h"
+#include "sound.h"
 
 extern void (*const gUnk_080FEEB8[])(void);
 
@@ -212,10 +213,10 @@ void sub_08054E9C(void) {
 }
 
 void sub_08054EB8(Entity* this, ScriptExecutionContext* context) {
-    Manager24* manager = (Manager24*)GetEmptyManager();
+    BombableWallManager* manager = (BombableWallManager*)GetEmptyManager();
     if (manager != NULL) {
-        (manager->manager).type = 9;
-        (manager->manager).subtype = 0x24;
+        manager->base.kind = MANAGER;
+        manager->base.id = BOMBABLE_WALL_MANAGER;
         manager->x = this->x.HALF.HI - gRoomControls.origin_x;
         manager->y = (this->y.HALF.HI - gRoomControls.origin_y) - 0x10;
         manager->field_0x35 = 1;

@@ -5,9 +5,9 @@
 #include "functions.h"
 
 extern void sub_08095CB0(Entity*);
-extern void CreateManager36(Entity*);
-extern void DeleteManager36(Entity*);
-extern void sub_0805DA90(Entity*, u32);
+extern void CreateRepeatedSoundManager(Entity*);
+extern void DeleteRepeatedSoundManager(Entity*);
+extern void CreateVaatiApparateManager(Entity*, u32);
 
 void VaatiAction0(Entity*);
 void VaatiAction1(Entity*);
@@ -49,12 +49,12 @@ void VaatiAction1(Entity* this) {
             case 3:
                 tmp = (*(ScriptExecutionContext**)&this->cutsceneBeh);
                 tmp->intVariable = 4;
-                CreateManager36(this);
+                CreateRepeatedSoundManager(this);
                 break;
             case 4:
                 tmp = (*(ScriptExecutionContext**)&this->cutsceneBeh);
                 tmp->intVariable = 4;
-                DeleteManager36(this);
+                DeleteRepeatedSoundManager(this);
                 EnqueueSFX(SFX_21D);
                 break;
         }
@@ -118,12 +118,12 @@ void sub_08066B74(Entity* this, ScriptExecutionContext* context) {
     HandlePostScriptActions(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
 }
 
-void sub_08066C94(Entity* this) {
-    sub_0805DA90(this, 0);
+void Vaati_Apparate(Entity* this) {
+    CreateVaatiApparateManager(this, 0);
     SoundReq(SFX_APPARATE);
 }
 
-void sub_08066CA4(Entity* this) {
-    sub_0805DA90(this, 1);
+void Vaati_Evaporate(Entity* this) {
+    CreateVaatiApparateManager(this, 1);
     SoundReq(SFX_EVAPORATE);
 }

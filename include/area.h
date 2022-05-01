@@ -240,4 +240,4 @@ typedef enum {
     AREA_98,
 } AreaID;
 
-#endif
+#endif // AREA_H

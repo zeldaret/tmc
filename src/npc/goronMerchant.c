@@ -83,11 +83,11 @@ void sub_08069660(Entity* this) {
 void sub_08069684(void) {
     Manager* mgr;
 
-    if (FindEntityByID(MANAGER, 0x31, 8) == NULL) {
+    if (FindEntityByID(MANAGER, GORON_MERCHANT_SHOP_MANAGER, 8) == NULL) {
         mgr = GetEmptyManager();
         if (mgr != NULL) {
-            mgr->type = 9;
-            mgr->subtype = 0x31;
+            mgr->kind = MANAGER;
+            mgr->id = GORON_MERCHANT_SHOP_MANAGER;
             AppendEntityToList((Entity*)mgr, 8);
         }
     }

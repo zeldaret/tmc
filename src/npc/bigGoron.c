@@ -134,7 +134,7 @@ static void sub_0806D02C(Entity* this) {
 }
 
 void sub_0806D0B0(Entity* this) {
-    gMapTop.bgControlPtr = 0;
+    gMapTop.bgSettings = 0;
     LoadGfxGroup(0x30);
     sub_0806D110();
     MemClear(&gMapDataTopSpecial, 0x2000);

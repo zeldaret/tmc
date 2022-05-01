@@ -1,4 +1,3 @@
-
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
@@ -112,4 +111,5 @@ extern void sub_080A57F4(void);
 extern void sub_080A71C4(u32, u32, u32, u32);
 extern void sub_080ADD70(void);
 extern void sub_080AF284(void);
-#endif
+
+#endif // FUNCTIONS_H

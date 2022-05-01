@@ -32284,7 +32284,7 @@
     }
   },
   {
-    "path": "manager1A/gUnk_08108670_EU.bin",
+    "path": "holeManager/gUnk_08108670_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32294,7 +32294,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_08108670_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_08108670_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32305,7 +32305,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_0810867C_EU.bin",
+    "path": "holeManager/gUnk_0810867C_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32315,7 +32315,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_0810867C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_0810867C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32326,7 +32326,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_08108688_EU.bin",
+    "path": "holeManager/gUnk_08108688_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32336,7 +32336,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_08108688_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_08108688_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32347,7 +32347,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_08108694_EU.bin",
+    "path": "holeManager/gUnk_08108694_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32357,7 +32357,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_08108694_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_08108694_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32368,7 +32368,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086A0_EU.bin",
+    "path": "holeManager/gUnk_081086A0_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32378,7 +32378,7 @@
     "size": 9
   },
   {
-    "path": "manager1A/gUnk_081086A0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_081086A0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32389,12 +32389,12 @@
     "size": 9
   },
   {
-    "path": "manager1A/gUnk_081086A0_2.bin",
+    "path": "holeManager/gUnk_081086A0_2.bin",
     "start": 1083049,
     "size": 3
   },
   {
-    "path": "manager1A/gUnk_081086AC_EU.bin",
+    "path": "holeManager/gUnk_081086AC_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32404,7 +32404,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086AC_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_081086AC_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32415,7 +32415,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086B8_EU.bin",
+    "path": "holeManager/gUnk_081086B8_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32425,7 +32425,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086B8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_081086B8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32436,7 +32436,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086C4_EU.bin",
+    "path": "holeManager/gUnk_081086C4_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32446,7 +32446,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086C4_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_081086C4_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32457,7 +32457,7 @@
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_081086D0_EU.bin",
+    "path": "holeManager/gUnk_081086D0_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32467,7 +32467,7 @@
     "size": 1
   },
   {
-    "path": "manager1A/gUnk_081086D0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_081086D0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32478,7 +32478,7 @@
     "size": 1
   },
   {
-    "path": "manager1A/gUnk_081086D0_2_EU.bin",
+    "path": "holeManager/gUnk_081086D0_2_EU.bin",
     "variants": [
       "EU"
     ],
@@ -32488,7 +32488,7 @@
     "size": 11
   },
   {
-    "path": "manager1A/gUnk_081086D0_3_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "holeManager/gUnk_081086D0_3_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -32499,242 +32499,242 @@
     "size": 11
   },
   {
-    "path": "manager1A/gUnk_081086DC.bin",
+    "path": "holeManager/gUnk_081086DC.bin",
     "start": 1083100,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_081086E4.bin",
+    "path": "holeManager/gUnk_081086E4.bin",
     "start": 1083108,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_081086EC.bin",
+    "path": "holeManager/gUnk_081086EC.bin",
     "start": 1083116,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_081086F4.bin",
+    "path": "holeManager/gUnk_081086F4.bin",
     "start": 1083124,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_081086FC.bin",
+    "path": "holeManager/gUnk_081086FC.bin",
     "start": 1083132,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108704.bin",
+    "path": "holeManager/gUnk_08108704.bin",
     "start": 1083140,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_0810870C.bin",
+    "path": "holeManager/gUnk_0810870C.bin",
     "start": 1083148,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108714.bin",
+    "path": "holeManager/gUnk_08108714.bin",
     "start": 1083156,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_0810871C.bin",
+    "path": "holeManager/gUnk_0810871C.bin",
     "start": 1083164,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108724.bin",
+    "path": "holeManager/gUnk_08108724.bin",
     "start": 1083172,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_0810872C.bin",
+    "path": "holeManager/gUnk_0810872C.bin",
     "start": 1083180,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108734.bin",
+    "path": "holeManager/gUnk_08108734.bin",
     "start": 1083188,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_0810873C.bin",
+    "path": "holeManager/gUnk_0810873C.bin",
     "start": 1083196,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108744.bin",
+    "path": "holeManager/gUnk_08108744.bin",
     "start": 1083204,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_0810874C.bin",
+    "path": "holeManager/gUnk_0810874C.bin",
     "start": 1083212,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108754.bin",
+    "path": "holeManager/gUnk_08108754.bin",
     "start": 1083220,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_0810875C.bin",
+    "path": "holeManager/gUnk_0810875C.bin",
     "start": 1083228,
     "size": 8
   },
   {
-    "path": "manager1A/gUnk_08108764.bin",
+    "path": "holeManager/gUnk_08108764.bin",
     "start": 1083236,
     "size": 32
   },
   {
-    "path": "manager1A/gUnk_08108764_1.bin",
+    "path": "holeManager/gUnk_08108764_1.bin",
     "start": 1083272,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_2.bin",
+    "path": "holeManager/gUnk_08108764_2.bin",
     "start": 1083292,
     "size": 20
   },
   {
-    "path": "manager1A/gUnk_08108764_3.bin",
+    "path": "holeManager/gUnk_08108764_3.bin",
     "start": 1083316,
     "size": 12
   },
   {
-    "path": "manager1A/gUnk_08108764_4.bin",
+    "path": "holeManager/gUnk_08108764_4.bin",
     "start": 1083332,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_5.bin",
+    "path": "holeManager/gUnk_08108764_5.bin",
     "start": 1083352,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_6.bin",
+    "path": "holeManager/gUnk_08108764_6.bin",
     "start": 1083372,
     "size": 40
   },
   {
-    "path": "manager1A/gUnk_08108764_7.bin",
+    "path": "holeManager/gUnk_08108764_7.bin",
     "start": 1083416,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_8.bin",
+    "path": "holeManager/gUnk_08108764_8.bin",
     "start": 1083436,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_9.bin",
+    "path": "holeManager/gUnk_08108764_9.bin",
     "start": 1083456,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_10.bin",
+    "path": "holeManager/gUnk_08108764_10.bin",
     "start": 1083476,
     "size": 32
   },
   {
-    "path": "manager1A/gUnk_08108764_11.bin",
+    "path": "holeManager/gUnk_08108764_11.bin",
     "start": 1083512,
     "size": 440
   },
   {
-    "path": "manager1A/gUnk_08108764_12.bin",
+    "path": "holeManager/gUnk_08108764_12.bin",
     "start": 1083956,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_13.bin",
+    "path": "holeManager/gUnk_08108764_13.bin",
     "start": 1083976,
     "size": 36
   },
   {
-    "path": "manager1A/gUnk_08108764_14.bin",
+    "path": "holeManager/gUnk_08108764_14.bin",
     "start": 1084016,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_15.bin",
+    "path": "holeManager/gUnk_08108764_15.bin",
     "start": 1084036,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_16.bin",
+    "path": "holeManager/gUnk_08108764_16.bin",
     "start": 1084056,
     "size": 36
   },
   {
-    "path": "manager1A/gUnk_08108764_17.bin",
+    "path": "holeManager/gUnk_08108764_17.bin",
     "start": 1084096,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_18.bin",
+    "path": "holeManager/gUnk_08108764_18.bin",
     "start": 1084116,
     "size": 36
   },
   {
-    "path": "manager1A/gUnk_08108764_19.bin",
+    "path": "holeManager/gUnk_08108764_19.bin",
     "start": 1084156,
     "size": 36
   },
   {
-    "path": "manager1A/gUnk_08108764_20.bin",
+    "path": "holeManager/gUnk_08108764_20.bin",
     "start": 1084196,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_21.bin",
+    "path": "holeManager/gUnk_08108764_21.bin",
     "start": 1084216,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_22.bin",
+    "path": "holeManager/gUnk_08108764_22.bin",
     "start": 1084236,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_23.bin",
+    "path": "holeManager/gUnk_08108764_23.bin",
     "start": 1084256,
     "size": 32
   },
   {
-    "path": "manager1A/gUnk_08108764_24.bin",
+    "path": "holeManager/gUnk_08108764_24.bin",
     "start": 1084292,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_25.bin",
+    "path": "holeManager/gUnk_08108764_25.bin",
     "start": 1084312,
     "size": 16
   },
   {
-    "path": "manager1A/gUnk_08108764_26.bin",
+    "path": "holeManager/gUnk_08108764_26.bin",
     "start": 1084332,
     "size": 124
   },
   {
-    "path": "manager39/gUnk_08108DE8.bin",
+    "path": "enterRoomTextboxManager/gUnk_08108DE8.bin",
     "start": 1084904,
     "size": 64
   },
   {
-    "path": "manager39/gUnk_08108E30.bin",
+    "path": "enterRoomTextboxManager/gUnk_08108E30.bin",
     "start": 1084976,
     "size": 24
   },
   {
-    "path": "manager39/gUnk_08108E48.bin",
+    "path": "enterRoomTextboxManager/gUnk_08108E48.bin",
     "start": 1085000,
     "size": 24
   },
   {
-    "path": "manager39/gUnk_08108E60.bin",
+    "path": "enterRoomTextboxManager/gUnk_08108E60.bin",
     "start": 1085024,
     "size": 12
   },

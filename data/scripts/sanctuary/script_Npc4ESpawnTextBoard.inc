@@ -8,7 +8,7 @@ SCRIPT_START script_Npc4ESpawnTextBoard
 	Wait 0x003c
 	SetSyncFlag 0x00000004
 	Wait 0x0078
-	CallWithArg DeleteManager36, 0x00000001
+	CallWithArg DeleteRepeatedSoundManager, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	StartPlayerScript script_PlayerTextBoardAppears
 	WaitForSyncFlagAndClear 0x00000002

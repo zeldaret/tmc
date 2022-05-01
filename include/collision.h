@@ -1,4 +1,3 @@
-
 #ifndef COLLISION_H
 #define COLLISION_H
 
@@ -32,4 +31,4 @@ bool32 IsCollidingPlayer(Entity*);
 void CalculateEntityTileCollisions(Entity*, u32, u32);
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 
-#endif
+#endif // COLLISION_H

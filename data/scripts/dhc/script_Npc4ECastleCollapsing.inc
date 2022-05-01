@@ -12,7 +12,7 @@ SCRIPT_START script_Npc4ECastleCollapsing
 	SetFadeTime 0x0004
 	_0807E80C 0x00000000
 	WaitForFadeFinish
-	CallWithArg DeleteManager36, 0x00000001
+	CallWithArg DeleteRepeatedSoundManager, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	SetLocalFlag 0x0079
 	CallWithArg sub_0806DA1C, 0x00000002

@@ -151,4 +151,4 @@ typedef enum {
     ITEM_ENEMY_BEETLE
 } Item;
 
-#endif
+#endif // ITEM_H
