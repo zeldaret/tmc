@@ -24,6 +24,7 @@ extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern void sub_08003FDE(Entity*, u32, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
+void sub_080790E4(Entity* this);
 
 typedef struct {
     u8 unk0[4];
@@ -1233,7 +1234,31 @@ bool32 sub_08078F74(Entity* this) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08078FB0.inc", void sub_08078FB0(Entity* a))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079064.inc", void sub_08079064())
+void sub_08079064(Entity* this) {
+    u32 i;
+    u32 bVar4;
+    u32 animation;
+
+    if ((gPlayerState.flags & (PL_IN_HOLE | PL_MINISH)) == 0) {
+        bVar4 = 0;
+        for (i = 0; i < 4; i++) {
+            if (gUnk_03000B80[i].field_0xf > bVar4) {
+                bVar4 = gUnk_03000B80[i].field_0xf;
+                animation = gUnk_03000B80[i].field_0x10;
+            }
+        }
+
+        if (gPlayerState.field_0xe < bVar4) {
+            gPlayerState.animation = animation;
+        } else if ((gPlayerState.swim_state & 0x80) != 0) {
+            gPlayerState.animation = 0x2be;
+        } else {
+            if (gPlayerState.animation == 0x608 || gPlayerState.animation == 0x104 || gPlayerState.animation == 0x404) {
+                sub_080790E4(this);
+            }
+        }
+    }
+}
 
 void sub_080790E4(Entity* this) {
     if (gPlayerState.keepFacing != 0) {
