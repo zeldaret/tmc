@@ -337,4 +337,24 @@ void sub_080A7A54(PlayerItemSwordEntity* this) {
 
 ASM_FUNC("asm/non_matching/playerItemSword/sub_080A7A84.inc", void sub_080A7A84(PlayerItemSwordEntity* this))
 
-ASM_FUNC("asm/non_matching/playerItemSword/sub_080A7B98.inc", void sub_080A7B98(PlayerItemSwordEntity* this))
+void sub_080A7B98(PlayerItemSwordEntity* this) {
+    u32 i, j;
+    u32 uVar2;
+    s32 xOffset;
+    s32 yOffset;
+    if ((gPlayerState.skills & 8) != 0) {
+        uVar2 = 1;
+    } else {
+        uVar2 = 0;
+    }
+    yOffset = -0x10;
+
+    for (i = 0; i < 3; i++) {
+        xOffset = -0x10;
+        for (j = 0; j < 3; j++) {
+            sub_08008796(super, uVar2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset);
+            xOffset += 0x10;
+        }
+        yOffset += 0x10;
+    }
+}
