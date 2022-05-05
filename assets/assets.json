@@ -20796,11 +20796,6 @@
     "size": 302
   },
   {
-    "path": "playerItemCellOverwriteSet/gUnk_080B7B6C.bin",
-    "start": 752492,
-    "size": 8
-  },
-  {
     "path": "data_080B7B74/gCollisionMtx.bin",
     "start": 752500,
     "size": 1210

@@ -903,7 +903,7 @@ SECTIONS {
         src/playerItem/playerItemDashSword.o(.rodata);
         src/playerItem/playerItemBottle.o(.rodata);
         data/data_080B7910.o(.rodata);
-        data/const/playerItem/playerItemCellOverwriteSet.o(.rodata);
+        src/playerItem/playerItemCellOverwriteSet.o(.rodata);
         data/data_080B7B74.o(.rodata);
         src/sineTable.o(.rodata);
         data/data_080C93E0.o(.rodata);
