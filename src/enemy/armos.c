@@ -240,21 +240,15 @@ void sub_08030474(ArmosEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/armos/sub_080304BC.inc", void sub_080304BC(ArmosEntity* this)) {
-    u32 tmp;
-
+void sub_080304BC(ArmosEntity* this) {
     sub_080309A8(this);
-    tmp = super->frame & ANIM_DONE;
-    if (tmp != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         sub_08030580(this);
-    } else {
-        if (super->frame == 1) {
-            super->frame = tmp;
-            EnqueueSFX(SFX_12A);
-        }
+    } else if (super->frame == 1) {
+        super->frame = 0;
+        EnqueueSFX(SFX_12A);
     }
 }
-END_NONMATCH
 
 void sub_080304F4(ArmosEntity* this) {
     LinearMoveUpdate(super);
