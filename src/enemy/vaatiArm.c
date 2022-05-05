@@ -167,8 +167,10 @@ const u8 gUnk_080D13E0[] = { 0xc, 0xe, 0x10 };
 const u8 gUnk_080D13E3[] = { 8, 9, 10, 4, 4, 5 };
 const s8 gUnk_080D13E9[] = { -8, 8 };
 const ScreenTransitionData gUnk_080D13EC = { 1, { 0, 0, 0, 0 }, 0x98, 0xb8, 0, 0x8a, 0, 1, 0, 0, 0 };
-const u16 gUnk_080D1400[] = { 0x8000, 0x7000, 0x6000, 0x5000, 0x4000, 0x8000, -0x7000 };
-const u16 gUnk_080D140E[] = { -0x6000, -0x5000, -0x4000 };
+const u16 gUnk_080D1400[][5] = {
+    { 0x8000, 0x7000, 0x6000, 0x5000, 0x4000 },
+    { 0x8000, -0x7000, -0x6000, -0x5000, -0x4000 },
+};
 const u8 gUnk_080D1414[] = { 0, 0xc, 0xe, 0x10, 0x1c };
 const u8 gUnk_080D1419[] = { 0, 0xa, 0xa, 0xa, 0x1c };
 
@@ -1423,26 +1425,25 @@ static void sub_08043EB8(Entity* this) {
     }
 }
 
-static NONMATCH("asm/non_matching/vaati/sub_08044000.inc", void sub_08044000(Entity* this)) {
+void sub_08044000(Entity* this) {
     Entity* entity;
     u32 i;
     VaatiArm_HeapStruct1* ptr;
     const u16* ptr2;
 
-    ptr2 = &gUnk_080D1400[this->type2 * 5];
-    for (i = 0; i < 5; ptr2++, i++) {
+    ptr2 = gUnk_080D1400[this->type2];
+    for (i = 0; i < 5; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-        entity->flags = entity->flags | ENT_COLLIDE;
+        entity->flags = entity->flags | 0x80;
         entity->spritePriority.b0 = 4;
         ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
-        ptr->unk00.HWORD = *ptr2;
+        ptr->unk00.HWORD = ptr2[i];
         ptr->unk04.HWORD = 0x4000;
         ptr->unk0c = gUnk_080D1414[i];
     }
     InitAnimationForceUpdate(this, 7);
     CopyPosition(((VaatiArm_HeapStruct*)this->myHeap)->parent, ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]);
 }
-END_NONMATCH
 
 static void sub_08044078(Entity* this) {
     if (this->action == 0) {
