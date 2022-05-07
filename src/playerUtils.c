@@ -215,27 +215,27 @@ bool32 sub_080777A0(void) {
     }
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_08077880.inc", void sub_08077880(u32 param_1, u32 param_2, u32 param_3)) {
+void sub_08077880(Item itemId, u32 param_2, u32 param_3) {
     ItemBehavior* item;
     u16* puVar2;
 
-    if (param_1 - 1 < 0x1f) {
-        if (gUnk_0811BE48[param_1].unk0[0] != 0) {
+    if (itemId - 1 < 0x1f) {
+        struct_0811BE48* ptr = &gUnk_0811BE48[itemId];
+        puVar2 = &gPlayerState.field_0x90;
+        if (ptr->unk0[0] != 0) {
             puVar2 = &gPlayerState.field_0x92;
-        } else {
-            puVar2 = &gPlayerState.field_0x90;
         }
+
         if (((*puVar2 & param_2) != 0) || (param_3 != 0)) {
-            item = sub_0807794C(param_1);
+            item = sub_0807794C(itemId);
             if (item != NULL) {
-                item->field_0x5[4] = gUnk_0811BE48[param_1].unk0[1];
-                item->behaviorID = (u8)param_1;
-                item->field_0x2[1] = (u8)param_2;
+                item->field_0x5[4] = gUnk_0811BE48[itemId].unk0[1];
+                item->behaviorID = itemId;
+                item->field_0x2[1] = param_2;
             }
         }
     }
 }
-END_NONMATCH
 
 bool32 sub_080778CC(void) {
     ItemBehavior* item;
@@ -246,9 +246,9 @@ bool32 sub_080778CC(void) {
           (((sub_080789A8() != 0 || ((gPlayerState.field_0x90 & 0xf03) == 0)))))) {
         return FALSE;
     }
-    item = sub_0807794C(0x1b);
+    item = sub_0807794C(ITEM_TRAP);
     if (item != NULL) {
-        item->behaviorID = 0x1b;
+        item->behaviorID = ITEM_TRAP;
         item->field_0x5[4] = gUnk_0811BE48[0].unk0[0x145];
         return TRUE;
     } else {
@@ -256,16 +256,16 @@ bool32 sub_080778CC(void) {
     }
 }
 
-ItemBehavior* sub_0807794C(u32 param_1) {
-    if (((((gPlayerState.queued_action == PLAYER_ROLL) && (param_1 != 0x1b)) ||
-          (((gPlayerState.flags & (PL_ROLLING | PL_CLONING)) != 0 && (6 < param_1)))) ||
-         ((((gPlayerState.jump_status != 0 || (gPlayerEntity.z.WORD != 0)) && (6 < param_1)) ||
-           (((gPlayerState.flags & PL_MINISH) != 0 && (gUnk_0811BE48[param_1].unk6[2] == 0)))))) ||
-        ((gPlayerState.floor_type == SURFACE_SWAMP && ((gPlayerState.field_0x37 != 0 && (1 < param_1 - 0x14)))))) {
+ItemBehavior* sub_0807794C(Item itemId) {
+    if (((((gPlayerState.queued_action == PLAYER_ROLL) && (itemId != ITEM_TRAP)) ||
+          (((gPlayerState.flags & (PL_ROLLING | PL_CLONING)) != 0 && (ITEM_FOURSWORD < itemId)))) ||
+         ((((gPlayerState.jump_status != 0 || (gPlayerEntity.z.WORD != 0)) && (ITEM_FOURSWORD < itemId)) ||
+           (((gPlayerState.flags & PL_MINISH) != 0 && (gUnk_0811BE48[itemId].unk6[2] == 0)))))) ||
+        ((gPlayerState.floor_type == SURFACE_SWAMP && ((gPlayerState.field_0x37 != 0 && (1 < itemId - 0x14)))))) {
         return NULL;
     } else {
-        u32 tmp = gUnk_0811BE48[param_1].unk0[2];
-        return gUnk_0811BFC8[tmp](param_1);
+        u32 tmp = gUnk_0811BE48[itemId].unk0[2];
+        return gUnk_0811BFC8[tmp](itemId);
     }
 }
 
