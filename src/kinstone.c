@@ -4,6 +4,25 @@
 #include "common.h"
 #include "flags.h"
 
+void sub_08018AB4(int param_1) {
+    u32 i;
+    int iVar2;
+    u32 j;
+    int iVar6;
+
+    iVar2 = 0x1e8;
+    iVar6 = 500;
+
+    for (i = 0; i < 3; i++) {
+        j = 0;
+        for (; j < 4; j++) {
+            SetTileType(iVar2++, param_1 + j, 1);
+            SetTileType(iVar6++, param_1 - 0x40 + j, 2);
+        }
+        param_1 += 0x40;
+    }
+}
+
 void sub_08018B10(int param_1) {
     int iVar1;
     u32 index;
