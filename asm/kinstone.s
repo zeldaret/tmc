@@ -804,37 +804,3 @@ _08018ADA:
 	mov r8, r3
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
-
-	thumb_func_start sub_08018B10
-sub_08018B10: @ 0x08018B10
-	push {r4, r5, r6, r7, lr}
-	mov r7, r8
-	push {r7}
-	adds r6, r0, #0
-	movs r0, #0xf8
-	lsls r0, r0, #1
-	mov r8, r0
-	movs r7, #0xfe
-	lsls r7, r7, #1
-	movs r5, #0
-	adds r4, r6, #0
-	subs r4, #0x40
-_08018B28:
-	mov r0, r8
-	movs r1, #1
-	add r8, r1
-	adds r1, r6, r5
-	movs r2, #1
-	bl SetTileType
-	adds r0, r7, #0
-	adds r7, #1
-	adds r1, r4, #0
-	movs r2, #2
-	bl SetTileType
-	adds r4, #1
-	adds r5, #1
-	cmp r5, #3
-	bls _08018B28
-	pop {r3}
-	mov r8, r3
-	pop {r4, r5, r6, r7, pc}
