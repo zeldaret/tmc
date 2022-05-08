@@ -4,6 +4,29 @@
 #include "common.h"
 #include "flags.h"
 
+void sub_080189EC(int param_1) {
+    u32 i;
+    int iVar1;
+    int tilePosition;
+    struct_080FE320* ptr;
+
+    ptr = &gUnk_080FE320[param_1];
+
+    tilePosition = (ptr->x >> 4) & 0x3f;
+    tilePosition |= ((ptr->y >> 4) & 0x3f) << 6;
+    tilePosition -= 0x42;
+
+    for (i = 0; i < 4; i++) {
+        SetTileType(i + 0x1df, tilePosition + i, 2);
+    }
+
+    tilePosition += 0x40;
+    for (i = 0; i < 4; i++) {
+        SetTileType(i + 0x1e3, tilePosition + i, 2);
+        SetTileType(i + 0x1db, tilePosition + i, 1);
+    }
+}
+
 void sub_08018A58(int param_1) {
     u32 i;
     int iVar2;
