@@ -1,5 +1,29 @@
 #include "global.h"
 #include "room.h"
+#include "subtask.h"
+#include "common.h"
+#include "flags.h"
+
+void sub_08018BB4(int param_1) {
+    u32 layer;
+    TileEntity tile;
+    struct_080FE320* ptr;
+    u32 position;
+
+    MemCopy(gUnk_080FEAC8 + param_1, &tile, sizeof(TileEntity));
+    ptr = &gUnk_080FE320[param_1];
+    tile.tilePos = (ptr->x >> 4 & 0x3f) | (((ptr->y) >> 4 & 0x3f) << 6);
+    sub_0804B3C4(&tile);
+    if (CheckLocalFlag(tile.localFlag) == 0) {
+        position = tile.tilePos;
+        if ((tile._6 & 1) == 0) {
+            layer = 1;
+        } else {
+            layer = 2;
+        }
+        SetTileType(0x73, position, layer);
+    }
+}
 
 void CreateMinishEntrance(u32 tilePos) {
     u32 x, y;

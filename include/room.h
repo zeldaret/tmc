@@ -190,14 +190,16 @@ typedef struct {
 
 typedef struct {
     u8 type;
-    u8 _1;
+    u8 localFlag;
     u8 _2;
     u8 _3;
-    u16 _4;
+    u16 tilePos;
     u8 _6;
     u8 _7;
 } TileEntity;
 extern TileEntity gSmallChests[8];
+
+extern TileEntity gUnk_080FEAC8[];
 
 typedef enum {
     NONE,
@@ -230,7 +232,7 @@ void LoadRoomEntityList(EntityData* listPtr);
 
 bool32 LoadFixedGFX(Entity*, u32);
 void UnloadGFXSlots(Entity*);
-void sub_0804B3C4(void*);
+void sub_0804B3C4(TileEntity*);
 void sub_0804B0B0(u32 arg0, u32 arg1);
 
 void DoExitTransition(const ScreenTransitionData* data);

@@ -294,9 +294,9 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
 bool32 sub_08097348(u32 tilePosition) {
     u32 index;
     TileEntity* tileEntity = gSmallChests;
-    for (index = 0; index < 8; index++, tileEntity++) {
-        if (tileEntity->_4 == tilePosition) {
-            return CheckLocalFlag(tileEntity->_1);
+    for (index = 0; index < ARRAY_COUNT(gSmallChests); index++, tileEntity++) {
+        if (tileEntity->tilePos == tilePosition) {
+            return CheckLocalFlag(tileEntity->localFlag);
         }
     }
     return FALSE;

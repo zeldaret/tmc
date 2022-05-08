@@ -4681,10 +4681,7 @@ u32 sub_unk3_SimonsSimulation_Main(void) {
 extern u8* gUnk_080F0D58[4];
 extern Entity* gUnk_080F0CB8[15];
 extern u8* gUnk_080F0E08[];
-extern struct {
-    u32 unk_00;
-    u32 unk_04;
-} gUnk_080F0E1C[];
+extern TileEntity gUnk_080F0E1C[];
 
 void sub_StateChange_SimonsSimulation_Main(void) {
     u32 r;

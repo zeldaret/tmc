@@ -56,14 +56,14 @@ void sub_080A7C8C(u32 pos, u32 layer) {
     u32 found = 0;
     u32 i;
     for (i = 0; i < 8; ++i, ++t) {
-        if (*(u16*)&t->_4 == pos) {
+        if (*(u16*)&t->tilePos == pos) {
             found = 1;
             break;
         }
     }
     if ((layer >> 1) == ((u32)(t->_6 << 31) >> 31)) {
         if (found) {
-            SetLocalFlag(t->_1);
+            SetLocalFlag(t->localFlag);
             CreateItemEntity(t->_2, t->_3, 0);
         } else {
             CreateItemEntity(0x60, 0, 0);
@@ -81,7 +81,7 @@ u32 sub_080A7CFC(u32 a1) {
     TileEntity* t = GetCurrentRoomProperty(3);
     if (t != 0) {
         do {
-            if (t->_4 == a1) {
+            if (t->tilePos == a1) {
                 switch (t->type) {
                     case SIGN:
                         hint = FALSE;
@@ -95,7 +95,7 @@ u32 sub_080A7CFC(u32 a1) {
                 break;
             }
             t++;
-        } while (t->_4 != 0);
+        } while (t->tilePos != 0);
     }
     InitTileMessage(msg, hint);
 }
