@@ -4,6 +4,31 @@
 #include "common.h"
 #include "flags.h"
 
+void sub_08018B50(int param_1) {
+    u32 i;
+    int iVar2;
+    u32 j;
+    int tilePosition;
+    struct_080FE320* ptr;
+
+    ptr = &gUnk_080FE320[param_1];
+    if ((ptr->entity_idx & 0x80) == 0) {
+        iVar2 = 0x200;
+    } else {
+        iVar2 = 0x219;
+    }
+
+    tilePosition = (ptr->x >> 4) & 0x3f;
+    tilePosition |= ((ptr->y >> 4) & 0x3f) << 6;
+    tilePosition -= 0x82;
+
+    for (i = 0; i < 5; tilePosition += 0x40, i++) {
+        for (j = 0; j < 5; j++) {
+            SetTileType(iVar2++, tilePosition + j, 1);
+        }
+    }
+}
+
 void sub_08018BB4(int param_1) {
     u32 layer;
     TileEntity tile;
