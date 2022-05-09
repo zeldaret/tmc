@@ -258,19 +258,3 @@ sub_080186C0: @ 0x080186C0
 	bx lr
 	.align 2, 0
 _080186D0: .4byte gArea
-
-	thumb_func_start sub_080186D4
-sub_080186D4: @ 0x080186D4
-	push {lr}
-	ldr r0, _080186E8 @ =gArea
-	adds r0, #0x28
-	ldrb r0, [r0]
-	cmp r0, #0xff
-	bne _080186E4
-	bl sub_0801855C
-_080186E4:
-	pop {pc}
-	.align 2, 0
-_080186E8: .4byte gArea
-
-

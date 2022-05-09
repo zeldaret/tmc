@@ -5,6 +5,8 @@
 #include "flags.h"
 #include "player.h"
 #include "kinstone.h"
+#include "area.h"
+#include "manager.h"
 
 extern EntityData gUnk_080FEC28[];
 extern EntityData gUnk_080FEBE8[];
@@ -25,6 +27,12 @@ void sub_08018B50(int);
 void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
+
+void sub_080186D4(void) {
+    if (gArea.inventoryGfxIdx == 0xff) {
+        sub_0801855C();
+    }
+}
 
 void sub_080186EC(u32 param_1) {
     struct_080C9CBC* psVar1;
