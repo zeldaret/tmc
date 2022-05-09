@@ -133,29 +133,3 @@ _080185F0:
 	bl CheckKinstoneFused
 _080185F6:
 	pop {pc}
-
-	thumb_func_start sub_080185F8
-sub_080185F8: @ 0x080185F8
-	push {r4, r5, lr}
-	ldr r5, _08018624 @ =gUnk_02033AB8
-	ldrb r0, [r5, #3]
-	lsls r0, r0, #2
-	ldr r1, _08018628 @ =gUnk_080B3D20
-	adds r4, r0, r1
-	adds r0, r4, #0
-	bl sub_080185B4
-	cmp r0, #0
-	beq _08018620
-	ldrb r0, [r4, #2]
-	strb r0, [r5]
-	ldrb r0, [r4, #3]
-	strb r0, [r5, #1]
-	ldrb r0, [r5, #3]
-	adds r0, #1
-	strb r0, [r5, #3]
-	bl sub_08018500
-_08018620:
-	pop {r4, r5, pc}
-	.align 2, 0
-_08018624: .4byte gUnk_02033AB8
-_08018628: .4byte gUnk_080B3D20

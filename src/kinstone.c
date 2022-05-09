@@ -9,6 +9,14 @@
 #include "manager.h"
 #include "asm.h"
 
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+} struct_gUnk_080B3D20;
+
+extern struct_gUnk_080B3D20 gUnk_080B3D20[];
 extern EntityData gUnk_080FEC28[];
 extern EntityData gUnk_080FEBE8[];
 extern EntityData gUnk_080FECC8[];
@@ -29,6 +37,20 @@ void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
 void sub_08018690(int param_1, u16* param_2);
+void sub_08018500();
+bool32 sub_080185B4(const struct_gUnk_080B3D20*);
+
+void sub_080185F8(void) {
+    struct_area_28* ptr2 = &gArea.unk28;
+    struct_gUnk_080B3D20* ptr = &gUnk_080B3D20[ptr2->unk2b];
+
+    if (sub_080185B4(ptr)) {
+        ptr2->inventoryGfxIdx = ptr->unk2;
+        ptr2->unk29 = ptr->unk3;
+        ptr2->unk2b++;
+        sub_08018500();
+    }
+}
 
 void GenerateAreaHint(void) {
     u16 uVar1;
