@@ -808,7 +808,7 @@ void sub_0809584C(Object6AEntity* this) {
     u32 tmp, idx;
 
     idx = super->health;
-    if ((idx & 0x7F) != 0 && !ReadBit((u32*)gArea.filler5, idx - 1))
+    if ((idx & 0x7F) != 0 && !ReadBit((u32*)gArea.filler6, idx - 1))
         DeleteThisEntity();
     if (super->timer != 0 && CheckKinstoneFused(super->type2))
         DeleteThisEntity();

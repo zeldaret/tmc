@@ -246,15 +246,3 @@ _0801869E:
 _080186BC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-
-	thumb_func_start sub_080186C0
-sub_080186C0: @ 0x080186C0
-	ldr r3, _080186D0 @ =gArea
-	adds r2, r3, #0
-	adds r2, #0x28
-	movs r1, #0xff
-	strb r1, [r2]
-	strh r0, [r3, #0x2c]
-	bx lr
-	.align 2, 0
-_080186D0: .4byte gArea

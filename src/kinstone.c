@@ -28,6 +28,11 @@ void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
 
+void sub_080186C0(u32 param_1) {
+    gArea.inventoryGfxIdx = 0xff;
+    gArea.unk2C = param_1;
+}
+
 void sub_080186D4(void) {
     if (gArea.inventoryGfxIdx == 0xff) {
         sub_0801855C();

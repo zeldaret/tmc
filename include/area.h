@@ -44,13 +44,15 @@ typedef struct {
     u8 unk1A;
     u8 filler2[13];
     u8 inventoryGfxIdx;
-    u8 filler4[0x13];
+    u8 filler4[0x3];
+    u16 unk2C;
+    u8 filler5[0xe];
     RoomResInfo roomResInfos[MAX_ROOMS];
     RoomResInfo currentRoomInfo;
     RoomResInfo* pCurrentRoomInfo;
     u32 bgm;
     u32 queued_bgm;
-    u8 filler5[0x20];
+    u8 filler6[0x20];
     void* transitionManager;
     void (*onEnter)();
     void (*onExit)();
