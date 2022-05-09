@@ -2682,22 +2682,22 @@ void sub_08054968(void) {
 
 void sub_08054974(s32 param_1, s32 param_2) {
     struct_080FE320* ptr = &gUnk_080FE320[param_1];
-    SetCurrentRoomPropertyList(ptr->_2, ptr->_3);
-    gRoomControls.area = ptr->_2;
-    gRoomControls.room = ptr->_3;
+    SetCurrentRoomPropertyList(ptr->area, ptr->room);
+    gRoomControls.area = ptr->area;
+    gRoomControls.room = ptr->room;
     LoadGfxGroups();
     gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
     if (param_2 != 0) {
-        LoadAuxiliaryRoom(ptr->_2, ptr->_3);
+        LoadAuxiliaryRoom(ptr->area, ptr->room);
     } else {
-        sub_08052FF4(ptr->_2, ptr->_3);
+        sub_08052FF4(ptr->area, ptr->room);
         InitializeCamera();
         gUpdateVisibleTiles = 1;
     }
     gScreen.lcd.displayControl &= 0x1fff;
     gRoomControls.scroll_x = gRoomControls.origin_x + ptr->_4;
     gRoomControls.scroll_y = gRoomControls.origin_y + ptr->_6;
-    if (ptr->_2 == 2) {
+    if (ptr->area == AREA_HYRULE_TOWN) {
         TryLoadPrologueHyruleTown();
     }
     sub_08018710(gUI.field_0x3);

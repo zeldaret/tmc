@@ -20,8 +20,8 @@ extern Input gInput; /**< Input instance. */
 typedef struct {
     u8 evt_type;
     u8 entity_idx;
-    u8 _2;
-    u8 _3;
+    u8 area;
+    u8 room;
     u16 _4;
     u16 _6;
     u16 x;

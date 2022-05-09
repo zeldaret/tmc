@@ -22,6 +22,15 @@ void sub_08018BB4(int);
 void sub_08018A58(int);
 void sub_08018B50(int);
 void sub_080189EC(int);
+void sub_0801876C(int, int);
+
+void sub_08018738(u32 param_1, int param_2) {
+    struct_080FE320* ptr = &gUnk_080FE320[param_2];
+
+    if (ptr->area == gRoomControls.area && ptr->room == gRoomControls.room) {
+        sub_0801876C(param_2, CheckKinstoneFused(param_1));
+    }
+}
 
 void sub_0801876C(int param_1, int param_2) {
     Entity* roomEnt;

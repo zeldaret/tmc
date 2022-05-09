@@ -317,29 +317,3 @@ _0801872A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08018734: .4byte gUnk_080C9CBC
-
-	thumb_func_start sub_08018738
-sub_08018738: @ 0x08018738
-	push {r4, lr}
-	adds r2, r0, #0
-	adds r4, r1, #0
-	lsls r0, r4, #2
-	adds r0, r0, r4
-	lsls r0, r0, #2
-	ldr r1, _08018764 @ =gUnk_080FE320
-	adds r0, r0, r1
-	ldr r1, _08018768 @ =gRoomControls
-	ldrh r0, [r0, #2]
-	ldrh r1, [r1, #4]
-	cmp r0, r1
-	bne _08018760
-	adds r0, r2, #0
-	bl CheckKinstoneFused
-	adds r1, r0, #0
-	adds r0, r4, #0
-	bl sub_0801876C
-_08018760:
-	pop {r4, pc}
-	.align 2, 0
-_08018764: .4byte gUnk_080FE320
-_08018768: .4byte gRoomControls
