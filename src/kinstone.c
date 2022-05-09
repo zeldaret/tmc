@@ -26,12 +26,23 @@ void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
 
+void sub_080186EC(u32 param_1) {
+    struct_080C9CBC* psVar1;
+    u32 i;
+
+    for (i = 0, psVar1 = gUnk_080C9CBC; i <= 100; psVar1++, i++) {
+        if (psVar1->unk3 == 8) {
+            sub_08018738(i, psVar1->evt_type);
+        }
+    }
+}
+
 void sub_08018710(u32 param_1) {
     struct_080C9CBC* psVar1;
     u32 i;
 
-    for (i = 0, psVar1 = gUnk_080C9CBC; i < 0x65; psVar1++, i++) {
-        if ((psVar1->unk3 == 8) && (param_1 != psVar1->evt_type)) {
+    for (i = 0, psVar1 = gUnk_080C9CBC; i <= 100; psVar1++, i++) {
+        if (psVar1->unk3 == 8 && param_1 != psVar1->evt_type) {
             sub_08018738(i, psVar1->evt_type);
         }
     }
