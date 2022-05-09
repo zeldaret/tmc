@@ -294,26 +294,3 @@ _08018700:
 	.align 2, 0
 _0801870C: .4byte gUnk_080C9CBC
 
-	thumb_func_start sub_08018710
-sub_08018710: @ 0x08018710
-	push {r4, r5, r6, lr}
-	adds r6, r0, #0
-	movs r5, #0
-	ldr r4, _08018734 @ =gUnk_080C9CBC
-_08018718:
-	ldrb r0, [r4, #3]
-	cmp r0, #8
-	bne _0801872A
-	ldrb r1, [r4, #4]
-	cmp r6, r1
-	beq _0801872A
-	adds r0, r5, #0
-	bl sub_08018738
-_0801872A:
-	adds r4, #8
-	adds r5, #1
-	cmp r5, #0x64
-	bls _08018718
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-_08018734: .4byte gUnk_080C9CBC
