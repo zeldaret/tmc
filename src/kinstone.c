@@ -28,6 +28,36 @@ void sub_08018B50(int);
 void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
+void sub_08018690(int param_1, u16* param_2);
+
+void GenerateAreaHint(void) {
+    u16 uVar1;
+    struct_area_28* ptr;
+
+    gPlayerState.queued_action = 0x16;
+#if defined(EU) || defined(JP)
+    // TODO what fields of the room transition are switched in these variants?
+    gRoomTransition.field_0x2c[7] = 0;
+#else
+    gRoomTransition.hint_height = 0;
+#endif
+    ptr = &gArea.unk28;
+    if (ptr->inventoryGfxIdx == 0xff) {
+        gRoomTransition.hint_idx = ptr->unk2C[0];
+    } else {
+        gRoomTransition.hint_idx = ptr->unk2C[ptr->unk2a];
+        ptr->unk2a++;
+        if (ptr->unk2a > 7) {
+            ptr->unk2a = 0;
+            sub_08018690(8, ptr->unk2C);
+            if (ptr->unk2C[0] == gRoomTransition.hint_idx) {
+                uVar1 = ptr->unk2C[0];
+                ptr->unk2C[0] = ptr->unk3E;
+                ptr->unk3E = uVar1;
+            }
+        }
+    }
+}
 
 void sub_08018690(int param_1, u16* param_2) {
     u32 uVar1;
@@ -54,12 +84,12 @@ void sub_08018690(int param_1, u16* param_2) {
 }
 
 void sub_080186C0(u32 param_1) {
-    gArea.inventoryGfxIdx = 0xff;
-    gArea.unk2C = param_1;
+    gArea.unk28.inventoryGfxIdx = 0xff;
+    gArea.unk28.unk2C[0] = param_1;
 }
 
 void sub_080186D4(void) {
-    if (gArea.inventoryGfxIdx == 0xff) {
+    if (gArea.unk28.inventoryGfxIdx == 0xff) {
         sub_0801855C();
     }
 }

@@ -147,7 +147,7 @@ static void sub_08058514(ManagerA* this) {
 }
 
 static void sub_080585B0(ManagerA* this) {
-    if (gArea.inventoryGfxIdx != 0xFF) {
+    if (gArea.unk28.inventoryGfxIdx != 0xFF) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->flag1)) {

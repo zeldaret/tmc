@@ -374,7 +374,7 @@ static void GameMain_ChangeRoom(void) {
     SetPlayerControl(0);
     gPauseMenuOptions.disabled = 0;
 #if defined(USA) || defined(DEMO_USA)
-    if (gArea.inventoryGfxIdx != 0xff) {
+    if (gArea.unk28.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
     CreateManagerF();
@@ -384,13 +384,13 @@ static void GameMain_ChangeRoom(void) {
     sub_0801855C();
 #elif defined(JP)
     CheckAreaDiscovery();
-    if (gArea.inventoryGfxIdx != 0xff) {
+    if (gArea.unk28.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
     if (gRoomTransition.field_0x2c[4])
         CheckAreaDiscovery();
-    if (gArea.inventoryGfxIdx != 0xff) {
+    if (gArea.unk28.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
     CreateManagerF();
