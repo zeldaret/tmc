@@ -3,6 +3,148 @@
 #include "subtask.h"
 #include "common.h"
 #include "flags.h"
+#include "player.h"
+
+extern EntityData gUnk_080FEC28[];
+extern EntityData gUnk_080FEBE8[];
+extern EntityData gUnk_080FECC8[];
+extern EntityData gUnk_080FEE78[];
+extern EntityData gUnk_080FED58[];
+extern const EntityData gUnk_080FED18[];
+extern const EntityData gUnk_080FEE38[];
+extern const EntityData gUnk_080FEE18[];
+extern const EntityData gUnk_080FEE48[];
+extern const EntityData gUnk_080FEE58[];
+extern const void* gUnk_080FED98[];
+
+void sub_08018AB4(int);
+void sub_08018BB4(int);
+void sub_08018A58(int);
+void sub_08018B50(int);
+void sub_080189EC(int);
+
+void sub_0801876C(int param_1, int param_2) {
+    Entity* roomEnt;
+    Entity* ent;
+    u32 uVar3;
+    u32 tmp;
+    u8* puVar4;
+    u32 uVar5;
+    struct_080FE320* ptr;
+
+    ptr = &gUnk_080FE320[param_1];
+    switch (ptr->evt_type) {
+        case 6:
+            if (param_2 == 0) {
+                sub_08018AB4((ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6);
+            }
+            break;
+        case 0:
+            break;
+        case 2:
+            if (param_2 != 0) {
+                sub_08018BB4(param_1);
+            }
+            break;
+        case 1:
+            if (param_2 == 0) {
+                return;
+            }
+            if (CheckGlobalFlag(ptr->flag)) {
+                return;
+            }
+            LoadRoomEntity(gUnk_080FEC28 + ptr->entity_idx);
+            break;
+        case 3:
+            if (param_2 == 0) {
+                return;
+            }
+            if (GetInventoryValue(ptr->flag)) {
+                return;
+            }
+            LoadRoomEntity(gUnk_080FEBE8 + ptr->entity_idx);
+            break;
+        case 4:
+            if (param_2 == 0) {
+                sub_08018A58(param_1);
+            }
+            break;
+        case 5:
+            if (param_2 != 0) {
+                sub_08018B50(param_1);
+            }
+            break;
+
+        case 7:
+            if (param_2 != 0) {
+                return;
+            }
+            if (ptr->entity_idx != 0x80) {
+                LoadRoomEntity(gUnk_080FECC8 + ptr->entity_idx);
+            } else {
+                sub_080189EC(param_1);
+            }
+            break;
+        case 0x19:
+            roomEnt = LoadRoomEntity(&gUnk_080FED18[ptr->entity_idx]);
+            if (roomEnt != 0) {
+                roomEnt->type = param_2 ? 2 : 0;
+            }
+            break;
+        case 8:
+            if (param_2 == 0) {
+                return;
+            }
+            SetTileType(0x168, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
+            break;
+        case 0xb:
+            if (param_2 != 0) {
+                LoadRoomEntity(&gUnk_080FED58[ptr->entity_idx]);
+                gRoomVars.field_0x8c[ptr->entity_idx] = (void*)gUnk_080FED98[ptr->entity_idx];
+            }
+            break;
+        case 9:
+            if (param_2 == 0) {
+                return;
+            }
+            ent = LoadRoomEntity(&gUnk_080FEE78[ptr->entity_idx]);
+            if (ent != 0) {
+                *(u16*)&ent->collisionLayer = ptr->x + gRoomControls.origin_x;
+                *(u16*)&ent->gustJarState = ptr->y + gRoomControls.origin_y;
+            }
+            if (ptr->entity_idx == 0) {
+                SetTileType(0x8d, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
+            } else {
+                uVar5 = (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6;
+                SetTileType(0x8c, uVar5 - 1, 1);
+                uVar3 = 0x8e;
+                SetTileType(uVar3, uVar5, 1);
+            }
+            break;
+        case 0x18:
+            if (param_2 != 0) {
+                LoadRoomEntityList(gUnk_080FEE18);
+            }
+            break;
+        case 0xf:
+            if (param_2 != 0) {
+                LoadRoomEntity(gUnk_080FEE58);
+            } else {
+                LoadRoomEntity(gUnk_080FEE48);
+            }
+            break;
+        case 0x11:
+            if (param_2 != 0) {
+                SetLocalFlagByBank(FLAG_BANK_1, SOUGEN_05_BOMB_00);
+                LoadRoomEntityList(gUnk_080FEE38);
+            }
+            break;
+        case 0x1a:
+        case 0x1b:
+        case 0x1c:
+            break;
+    }
+}
 
 void sub_080189EC(int param_1) {
     u32 i;

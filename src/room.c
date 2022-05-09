@@ -10,7 +10,7 @@
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
-extern Entity* LoadRoomEntity(EntityData*);
+extern Entity* LoadRoomEntity(const EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
 
 extern void** gCurrentRoomProperties;
@@ -22,8 +22,8 @@ extern void sub_0804B16C(void);
 extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
-void RegisterRoomEntity(Entity*, EntityData*);
-void sub_0804AF0C(Entity*, EntityData*);
+void RegisterRoomEntity(Entity*, const EntityData*);
+void sub_0804AF0C(Entity*, const EntityData*);
 void sub_0804AFB0(void** properties);
 
 void sub_08054524(void);
@@ -39,7 +39,7 @@ static void LoadDestructibleTile(TileEntity*);
 static void LoadGrassDropTile(TileEntity*);
 static void LoadLocationTile(TileEntity*);
 
-void LoadRoomEntityList(EntityData* listPtr) {
+void LoadRoomEntityList(const EntityData* listPtr) {
     if (listPtr != NULL) {
         while (listPtr->kind != 0xFF) {
             LoadRoomEntity(listPtr++);
@@ -47,7 +47,7 @@ void LoadRoomEntityList(EntityData* listPtr) {
     }
 }
 
-NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityData* dat)) {
+NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(const EntityData* dat)) {
     int kind;
     Entity* v4;
     Entity* v5;
@@ -86,7 +86,7 @@ NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityDat
 }
 END_NONMATCH
 
-void RegisterRoomEntity(Entity* ent, EntityData* dat) {
+void RegisterRoomEntity(Entity* ent, const EntityData* dat) {
     u32 list;
     u32 kind;
     void* offset;
@@ -108,7 +108,7 @@ void RegisterRoomEntity(Entity* ent, EntityData* dat) {
     MemCopy(dat, offset, sizeof(EntityData));
 }
 
-void sub_0804AF0C(Entity* ent, EntityData* dat) {
+void sub_0804AF0C(Entity* ent, const EntityData* dat) {
     switch (dat->flags & 0xf0) {
         case 0x0:
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;

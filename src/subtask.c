@@ -69,7 +69,6 @@ extern const EntityData gUnk_080FF264[];
 
 extern void (*const gUnk_080FF28C[])(void);
 
-extern Entity* LoadRoomEntity(EntityData*);
 extern void sub_08054A14(u32);
 
 extern const EntityData gUnk_080FEE48[];

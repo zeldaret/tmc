@@ -5,7 +5,6 @@
 #include "object.h"
 
 extern u32 sub_080B1AE0(u16, u8);
-extern Entity* LoadRoomEntity(EntityData*);
 
 extern void (*const RemovableDust_Functions[])(Entity*);
 extern const u16 gUnk_08129FD0[];
