@@ -220,29 +220,3 @@ _0801868C:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08018690
-sub_08018690: @ 0x08018690
-	push {r4, r5, r6, lr}
-	adds r6, r1, #0
-	subs r4, r0, #1
-	cmp r4, #0
-	beq _080186BC
-	lsls r0, r4, #1
-	adds r5, r0, r6
-_0801869E:
-	bl Random
-	adds r1, r4, #1
-	bl __modsi3
-	ldrh r2, [r5]
-	lsls r0, r0, #1
-	adds r0, r0, r6
-	ldrh r1, [r0]
-	strh r1, [r5]
-	strh r2, [r0]
-	subs r5, #2
-	subs r4, #1
-	cmp r4, #0
-	bne _0801869E
-_080186BC:
-	pop {r4, r5, r6, pc}
-	.align 2, 0

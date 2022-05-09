@@ -7,6 +7,7 @@
 #include "kinstone.h"
 #include "area.h"
 #include "manager.h"
+#include "asm.h"
 
 extern EntityData gUnk_080FEC28[];
 extern EntityData gUnk_080FEBE8[];
@@ -27,6 +28,30 @@ void sub_08018B50(int);
 void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
+
+void sub_08018690(int param_1, u16* param_2) {
+    u32 uVar1;
+    s32 uVar4;
+    s32 uVar2;
+    s32 iVar3;
+    u16* puVar4;
+    u16* puVar5;
+
+    uVar4 = param_1 - 1;
+    if (uVar4 != 0) {
+        puVar5 = (u16*)(uVar4 * 2 + (int)param_2);
+        do {
+            uVar2 = Random();
+            iVar3 = uVar2 % (uVar4 + 1);
+            uVar1 = *puVar5;
+            puVar4 = (u16*)(iVar3 * 2 + (int)param_2);
+            *puVar5 = *puVar4;
+            *puVar4 = uVar1;
+            puVar5--;
+            uVar4--;
+        } while (uVar4 != 0);
+    }
+}
 
 void sub_080186C0(u32 param_1) {
     gArea.inventoryGfxIdx = 0xff;
