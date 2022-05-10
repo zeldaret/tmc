@@ -38,6 +38,29 @@ void sub_0801876C(int, int);
 void sub_08018738(u32, int);
 void sub_08018690(int param_1, u16* param_2);
 void sub_08018500();
+bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1);
+
+void sub_0801855C(void) {
+    u32 bVar3;
+    struct_area_28* ptr;
+    // TODO: Figure out what is up with the pointer assignment
+    struct_gUnk_080B3D20* pcVar2 = (struct_gUnk_080B3D20*)&gArea.unk28;
+
+    MemClear(pcVar2, 0x14);
+    ptr = (struct_area_28*)pcVar2;
+    for (pcVar2 = gUnk_080B3D20, bVar3 = 0; pcVar2->unk0 != 0xff; pcVar2++) {
+        if (sub_080185B4(pcVar2)) {
+            bVar3 = ptr->unk2b;
+        }
+        ptr->unk2b++;
+    }
+    ptr->unk2b = bVar3;
+    pcVar2 = &gUnk_080B3D20[ptr->unk2b];
+    ptr->inventoryGfxIdx = pcVar2->unk2;
+    ptr->unk29 = pcVar2->unk3;
+    ptr->unk2b = bVar3 + 1;
+    sub_08018500();
+}
 
 bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1) {
     if (param_1->unk0 == 0xff)
