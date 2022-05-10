@@ -38,7 +38,20 @@ void sub_0801876C(int, int);
 void sub_08018738(u32, int);
 void sub_08018690(int param_1, u16* param_2);
 void sub_08018500();
-bool32 sub_080185B4(const struct_gUnk_080B3D20*);
+
+bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1) {
+    if (param_1->unk0 == 0xff)
+        return 0;
+
+    if (param_1->unk0 == 0xfe) {
+        return GetInventoryValue(param_1->unk1) != 0;
+    }
+
+    if (param_1->unk0 == 0xfd) {
+        return CheckKinstoneFused(param_1->unk1);
+    }
+    return CheckLocalFlagByBank(gLocalFlagBanks[param_1->unk0], param_1->unk1);
+}
 
 void sub_080185F8(void) {
     struct_area_28* ptr2 = &gArea.unk28;

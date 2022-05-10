@@ -97,39 +97,3 @@ _0801858C:
 	.align 2, 0
 _080185B0: .4byte gUnk_080B3D20
 
-	thumb_func_start sub_080185B4
-sub_080185B4: @ 0x080185B4
-	push {lr}
-	adds r2, r0, #0
-	ldrb r0, [r2]
-	cmp r0, #0xff
-	bne _080185C2
-	movs r0, #0
-	b _080185F6
-_080185C2:
-	cmp r0, #0xfe
-	bne _080185D4
-	ldrb r0, [r2, #1]
-	bl GetInventoryValue
-	cmp r0, #0
-	beq _080185F6
-	movs r0, #1
-	b _080185F6
-_080185D4:
-	cmp r0, #0xfd
-	beq _080185F0
-	ldr r1, _080185EC @ =gLocalFlagBanks
-	ldrb r0, [r2]
-	lsls r0, r0, #1
-	adds r0, r0, r1
-	ldrh r0, [r0]
-	ldrb r1, [r2, #1]
-	bl CheckLocalFlagByBank
-	b _080185F6
-	.align 2, 0
-_080185EC: .4byte gLocalFlagBanks
-_080185F0:
-	ldrb r0, [r2, #1]
-	bl CheckKinstoneFused
-_080185F6:
-	pop {pc}
