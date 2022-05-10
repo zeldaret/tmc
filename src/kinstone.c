@@ -28,6 +28,7 @@ extern const EntityData gUnk_080FEE18[];
 extern const EntityData gUnk_080FEE48[];
 extern const EntityData gUnk_080FEE58[];
 extern const void* gUnk_080FED98[];
+extern const u16 gUnk_080B3D14[];
 
 void sub_08018AB4(int);
 void sub_08018BB4(int);
@@ -39,6 +40,32 @@ void sub_08018738(u32, int);
 void sub_08018690(int param_1, u16* param_2);
 void sub_08018500();
 bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1);
+
+void sub_08018500(void) {
+    s32 sVar1;
+    u32 i;
+    u16* puVar3;
+    u16* puVar4;
+    struct_area_28* ptr = &gArea.unk28;
+
+    puVar3 = ptr->unk2C;
+    sVar1 = gUnk_080B3D14[ptr->inventoryGfxIdx] + ptr->unk29 * 3;
+
+    for (i = 0; i < 3; i++) {
+        *puVar3 = sVar1;
+        sVar1++;
+        puVar3++;
+    }
+
+    sVar1 = ptr->inventoryGfxIdx * 5 + 0xc81;
+    for (i = 0, puVar4 = &ptr->unk2C[3]; i < 5; i++) {
+        *puVar3 = sVar1;
+        sVar1++;
+        puVar3++;
+    }
+    sub_08018690(5, puVar4);
+    ptr->unk2a = 0;
+}
 
 void sub_0801855C(void) {
     u32 bVar3;
