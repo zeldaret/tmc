@@ -1178,9 +1178,9 @@ void sub_08095F38(Object6AEntity* this) {
 
 void sub_08096028(Object6AEntity* this) {
     u32 type2 = 6;
-    if (!CheckLocalFlagByBank(768, 123))
+    if (!CheckLocalFlagByBank(FLAG_BANK_3, 123))
         type2 = 4;
-    if (!CheckLocalFlagByBank(768, 122))
+    if (!CheckLocalFlagByBank(FLAG_BANK_3, 122))
         type2 = 3;
     CreateObject(OBJECT_6A, 0x1F, type2);
 }

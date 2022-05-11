@@ -407,7 +407,7 @@ void sub_080594DC(ManagerF* this) {
         case 1:
             if (!GetInventoryValue(ITEM_FOURSWORD))
                 return;
-            if (CheckLocalFlagByBank(0x8c0, 0x85))
+            if (CheckLocalFlagByBank(FLAG_BANK_10, 0x85))
                 return;
             this->manager.action = 2;
             sub_080186C0(0xB0F);

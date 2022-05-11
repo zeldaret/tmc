@@ -272,7 +272,7 @@ void sub_08054FAC(void) {
     gUpdateVisibleTiles = 1;
     SetFade(FADE_INSTANT, 0x10);
     gMenu.field_0xa = 0;
-    if (CheckLocalFlagByBank(0x400, 0x77) && (ptr[2] == 0x2f)) {
+    if (CheckLocalFlagByBank(FLAG_BANK_4, 0x77) && (ptr[2] == 0x2f)) {
         gMenu.field_0xa = 1;
     }
 }

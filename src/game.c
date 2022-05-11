@@ -2105,10 +2105,10 @@ void sub_08053CC8(void) {
 void sub_08053D34(void) {
     if (gMenu.field_0xa != 0) {
         gMenu.field_0xa = 0;
-        if (CheckLocalFlagByBank(0x680, 0x3d)) {
+        if (CheckLocalFlagByBank(FLAG_BANK_7, 0x3d)) {
             SetTileType(0x74, 0xc4, 1);
         }
-        if (CheckLocalFlagByBank(0x680, 0x3e)) {
+        if (CheckLocalFlagByBank(FLAG_BANK_7, 0x3e)) {
             SetTileType(0x74, 0xcc, 1);
         }
     }

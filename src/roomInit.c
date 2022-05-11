@@ -1785,7 +1785,7 @@ extern EntityData gUnk_080DC4C0;
 void sub_StateChange_MinishVillage_Main(void) {
     if (!GetInventoryValue(ITEM_JABBERNUT)) {
         LoadRoomEntityList(&gUnk_080DC390);
-        if (!CheckLocalFlagByBank(0x200, 0x80)) {
+        if (!CheckLocalFlagByBank(FLAG_BANK_2, 0x80)) {
             LoadRoomEntityList(&gUnk_080DC3F0);
         }
     } else {
@@ -5410,7 +5410,7 @@ extern EntityData gUnk_080F5788;
 
 void sub_StateChange_HouseInteriors3_StockwellShop(void) {
     LoadRoomEntityList(&gUnk_080F5758);
-    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(0x200, 0x8f)) {
+    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(FLAG_BANK_2, 0x8f)) {
         LoadRoomEntityList(&gUnk_080F57E8);
     }
     if (!CheckLocalFlag(0x55)) {
@@ -5495,11 +5495,7 @@ u32 sub_unk3_HouseInteriors3_FigurineHouse(void) {
 extern EntityData gUnk_080F5E68;
 
 void sub_StateChange_HouseInteriors3_FigurineHouse(void) {
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (!CheckLocalFlagByBank(0x100, 0xce)) {
-#else
-    if (!CheckLocalFlagByBank(0x100, 0xd1)) {
-#endif
+    if (!CheckLocalFlagByBank(FLAG_BANK_1, SHOP05_OPEN)) {
         LoadRoomEntityList(&gUnk_080F5E68);
     }
 }
@@ -5538,11 +5534,7 @@ void sub_StateChange_HouseInteriors3_Borlov(void) {
 }
 
 u32 sub_unk3_WindTribeTower_Entrance(void) {
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByBank(0x100, 0xd9)) {
-#else
-    if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByBank(0x100, 0xdc)) {
-#endif
+    if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByBank(FLAG_BANK_1, KUMOUE_00_CAP_0)) {
         SetGlobalFlag(WARP_EVENT_END);
     }
     return 1;
@@ -5551,11 +5543,7 @@ u32 sub_unk3_WindTribeTower_Entrance(void) {
 extern EntityData gUnk_080F61BC;
 
 void sub_StateChange_WindTribeTower_Entrance(void) {
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (CheckLocalFlagByBank(0x100, 0xd9)) {
-#else
-    if (CheckLocalFlagByBank(0x100, 0xdc)) {
-#endif
+    if (CheckLocalFlagByBank(FLAG_BANK_1, KUMOUE_00_CAP_0)) {
         SetLocalFlag(0x90);
     }
     if (CheckKinstoneFused(0xf)) {
@@ -5615,7 +5603,7 @@ extern EntityData gUnk_080F66AC;
 
 void sub_StateChange_WindTribeTowerRoof_Main(void) {
     sub_0805B4D0(5);
-    if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByBank(0x100, 5)) {
+    if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByBank(FLAG_BANK_1, 5)) {
         LoadRoomEntityList(&gUnk_080F66AC);
     }
     SetWorldMapPos(8, 0, 0x1e8, 0x158);
@@ -5800,7 +5788,7 @@ extern EntityData gUnk_080F78A0;
 void sub_StateChange_HyruleField_LonLonRanch(void) {
 
     Manager18_Main(0);
-    if (CheckLocalFlagByBank(0x200, 0x8f)) {
+    if (CheckLocalFlagByBank(FLAG_BANK_2, 0x8f)) {
         if (!CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080F77C0);
         }
@@ -6067,7 +6055,7 @@ extern EntityData gUnk_080F8430;
 
 void sub_StateChange_HyruleField_WesternWoodsCenter(void) {
     Manager18_Main(NULL);
-    if (CheckKinstoneFused(0x21) && !CheckLocalFlagByBank(0x200, 0x42)) {
+    if (CheckKinstoneFused(0x21) && !CheckLocalFlagByBank(FLAG_BANK_2, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);
     }
 }
