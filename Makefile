@@ -263,7 +263,7 @@ $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
 	$(PREPROC) $(BUILD_NAME) $< -- $(PREPROC_INC_PATHS) | $(AS) $(ASFLAGS) -o $@
 
 $(ASM_ENUM_INCLUDE_DIR)/%.inc: include/%.h
-	$(ENUM_PROCESSOR) $< $(CC) "-D__attribute__(x)=" "-E" "-nostdinc" "-Itools/agbcc" "-Itools/agbcc/include" "-iquote include" > $@
+	$(ENUM_PROCESSOR) $< $(CC) "-D__attribute__(x)=" "-D$(GAME_VERSION)" "-E" "-nostdinc" "-Itools/agbcc" "-Itools/agbcc/include" "-iquote include" > $@
 
 ifeq ($(NODEP),1)
 $(DATA_ASM_BUILDDIR)/%.o: data_dep :=
