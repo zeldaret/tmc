@@ -22,6 +22,7 @@ tools/binutils
 
 # scripts
 *.py
+!tools/extract_include_enum.py
 *.pl
 
 # graphics

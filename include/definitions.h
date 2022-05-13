@@ -1,6 +1,9 @@
 #ifndef SPRITEDATA_H
 #define SPRITEDATA_H
 
+#include "gba/types.h"
+#include "entity.h"
+
 // Definition for enemies and projectiles
 typedef struct EnemyDefinition {
     u16 gfx;

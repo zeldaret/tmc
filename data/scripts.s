@@ -3,6 +3,9 @@
 
 	.include "asm/macros/scripts.inc"
 
+	.include "flags.inc"
+	.include "message.inc"
+
 	.syntax unified
 	.text
 

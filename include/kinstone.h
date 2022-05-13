@@ -2,6 +2,7 @@
 #define KINSTONE_H
 
 #include "global.h"
+#include "entity.h"
 
 extern void sub_08018C58(u32);
 
