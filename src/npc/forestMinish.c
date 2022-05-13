@@ -201,7 +201,7 @@ void sub_080602BC(Entity* this) {
     MessageNoOverlap(gUnk_0810A362[index], this);
 }
 
-void sub_0806030C(Entity* this, ScriptExecutionContext* context) {
+void script_ModBombs(Entity* this, ScriptExecutionContext* context) {
     ModBombs(context->intVariable);
 }
 

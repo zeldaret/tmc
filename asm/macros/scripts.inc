@@ -479,9 +479,14 @@
 	.2byte 0x0459
 .endm
 
-.macro MessageFromTarget s:req
+.macro MessageFromTarget a:req, b
 	.2byte 0x085a
-	.2byte \s
+	.ifnb \b
+	.byte \b
+	.byte \a
+	.else
+	.2byte \a
+	.endif
 .endm
 
 .macro MessageNoOverlap a:req, b
@@ -494,10 +499,16 @@
 	.endif
 .endm
 
-.macro MessageFromTargetPos a:req, b:req
+.macro MessageFromTargetPos a:req, b:req, c
 	.2byte 0x0c5c
+	.ifnb \c
+	.byte \b
+	.byte \a
+	.2byte \c
+	.else
 	.2byte \a
 	.2byte \b
+	.endif
 .endm
 
 .macro MessageFromTargetPos_1 s:req
@@ -514,9 +525,14 @@
 	.2byte 0x045e
 .endm
 
-.macro EzloMessage s:req
+.macro EzloMessage a:req, b
 	.2byte 0x085f
-	.2byte \s
+	.ifnb \b
+	.byte \b
+	.byte \a
+	.else
+	.2byte \a
+	.endif
 .endm
 
 .macro _0807EB38 
@@ -716,7 +732,7 @@
 	.2byte \b
 .endm
 
-.macro _0807F088 s:req
+.macro InitItemGetSequence s:req
 	.2byte 0x0886
 	.2byte \s
 .endm

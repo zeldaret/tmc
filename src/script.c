@@ -147,7 +147,7 @@ void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* contex
 void ScriptCommand_GiveKinstone(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetInventoryValue(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_InitItemGetSequence(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context);
@@ -595,7 +595,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_GiveKinstone,
         ScriptCommand_GetInventoryValue,
         ScriptCommand_SetInventoryValue,
-        ScriptCommand_0807F088,
+        ScriptCommand_InitItemGetSequence,
         ScriptCommand_CameraTargetEntity,
         ScriptCommand_CameraTargetPlayer,
         ScriptCommand_0807F0B4,
@@ -1505,7 +1505,7 @@ void ScriptCommand_SetInventoryValue(Entity* entity, ScriptExecutionContext* con
     SetInventoryValue(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 
-void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_InitItemGetSequence(Entity* entity, ScriptExecutionContext* context) {
     InitItemGetSequence(context->scriptInstructionPointer[1], 0, 3);
 }
 

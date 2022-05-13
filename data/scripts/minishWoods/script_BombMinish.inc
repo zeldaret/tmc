@@ -6,7 +6,7 @@ SCRIPT_START script_BombMinish
 	DoPostScriptAction 0x000a
 	CheckKinstoneFused 0x001c
 	JumpIf script_08009FD2
-	CheckInventory1 0x0007
+	CheckInventory1 ITEM_BOMBS
 	JumpIf script_08009F84
 	EndBlock
 script_08009F36:
@@ -22,10 +22,10 @@ script_08009F36:
 	StartPlayerScript script_PlayerAtBombMinish
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0806014C
-	MessageFromTargetPos 0x1f01, 0x0000
+	MessageFromTargetPos TEXT_BELARI, 0x01, 0x0000
 	WaitUntilTextboxCloses
 	Wait 0x001e
-	GivePlayerItem 0x0065
+	GivePlayerItem ITEM_BOMBBAG
 	WaitPlayerGetItem
 	DoPostScriptAction 0x000a
 	Call sub_0807DF50
@@ -42,14 +42,14 @@ script_08009F86:
 	SetPlayerIdle
 	Call sub_080602BC
 	WaitUntilTextboxCloses
-	CallWithArg CheckMessageEqual, 0x00001f03
+	CallWithArg CheckMessageEqual, (TEXT_BELARI << 8) | 0x3
 	JumpIf script_08009FB6
 	EnablePlayerControl
 	Jump script_08009F86
 script_08009FB6:
 	Wait 0x0008
 	PlaySound SFX_103
-	CallWithArg sub_0806030C, 0x00000063
+	CallWithArg script_ModBombs, 0x00000063
 	Wait 0x0008
 	EnablePlayerControl
 	Jump script_08009F86
@@ -65,7 +65,7 @@ script_08009FDC:
 	JumpIfNot script_08009FDC
 	EndBlock 
 	SetPlayerIdle 
-	MessageNoOverlap 0x1f0e
+	MessageNoOverlap TEXT_BELARI, 0x0e
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_0800A002
@@ -73,12 +73,12 @@ script_08009FDC:
 	Jump script_08009FDC
 script_0800A002:
 	Wait 0x0008
-	GivePlayerItem 0x0008
+	GivePlayerItem ITEM_REMOTE_BOMBS
 	Call sub_08060318
 	WaitPlayerGetItem
 	Wait 0x0008
 	FaceAwayFromPlayer 
-	MessageFromTarget 0x1f13
+	MessageFromTarget TEXT_BELARI, 0x13
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x00b0
 	EnablePlayerControl
@@ -90,16 +90,16 @@ script_0800A024:
 	JumpIfNot script_0800A024
 	EndBlock
 	SetPlayerIdle
-	CheckInventory1 0x0008
+	CheckInventory1 ITEM_REMOTE_BOMBS
 	JumpIf script_0800A052
-	MessageNoOverlap 0x1f14
+	MessageNoOverlap TEXT_BELARI, 0x14
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_0800A002
 	EnablePlayerControl
 	Jump script_0800A024
 script_0800A052:
-	MessageNoOverlap 0x1f11
+	MessageNoOverlap TEXT_BELARI, 0x11
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_0800A064
@@ -107,12 +107,12 @@ script_0800A052:
 	Jump script_0800A024
 script_0800A064:
 	Wait 0x0008
-	GivePlayerItem 0x0007
+	GivePlayerItem ITEM_BOMBS
 	Call sub_08060318
 	WaitPlayerGetItem
 	Wait 0x0008
 	FaceAwayFromPlayer 
-	MessageFromTarget 0x1f10
+	MessageFromTarget TEXT_BELARI, 0x10
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_0800A024

@@ -39,7 +39,7 @@ script_08013006:
 	Call sub_0807DF28
 	EndBlock
 	PlaySound SFX_TASK_COMPLETE
-	_0807F088 0x0038
+	InitItemGetSequence 0x0038
 	WaitPlayerGetItem
 	Wait 0x001e
 	_0807E8E4_0

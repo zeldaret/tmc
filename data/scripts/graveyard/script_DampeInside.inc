@@ -9,7 +9,7 @@ SCRIPT_START script_DampeInside
 	WaitUntilTextboxCloses
 	JumpIfNot script_08009622
 	PlaySound SFX_ITEM_GET
-	_0807F088 0x003c
+	InitItemGetSequence 0x003c
 	MessageFromTarget 0x053c
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses

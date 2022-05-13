@@ -5,6 +5,8 @@
 
 	.include "flags.inc"
 	.include "message.inc"
+	.include "item.inc"
+	.include "player.inc"
 	.include "sound.inc"
 
 	.syntax unified

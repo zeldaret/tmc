@@ -72,7 +72,7 @@ SCRIPT_START script_08016482
 	GivePlayerItem 0x0001
 	GetInventoryValue 0x0001
 	SetInventoryValue 0x0001, 0x0002
-	_0807F088 0x0001
+	InitItemGetSequence 0x0001
 	CameraTargetEntity
 	CameraTargetPlayer
 	_0807F0B4 0x0007

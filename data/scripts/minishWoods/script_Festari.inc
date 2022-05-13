@@ -23,12 +23,12 @@ script_0800C674:
 	WaitForSyncFlagAndClear 0x00000001
 	DoPostScriptAction 0x000a
 script_0800C684:
-	CheckInventory1 0x0040
+	CheckInventory1 ITEM_EARTH_ELEMENT
 	JumpIf script_0800C730
-	CheckInventory1 0x005b
+	CheckInventory1 ITEM_JABBERNUT
 	JumpIf script_0800C6B6
 	DoPostScriptAction 0x0002
-	MessageFromTarget 0x1f16
+	MessageFromTarget TEXT_BELARI, 0x16
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -40,7 +40,7 @@ script_0800C6B6:
 	CheckLocalFlag 0x0081
 	JumpIf script_0800C6DC
 	DoPostScriptAction 0x0002
-	MessageFromTarget 0x1f1b
+	MessageFromTarget TEXT_BELARI, 0x1b
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -51,7 +51,7 @@ script_0800C6DC:
 	CheckLocalFlag 0x0082
 	JumpIf script_0800C712
 	DoPostScriptAction 0x0002
-	MessageFromTarget 0x1f17
+	MessageFromTarget TEXT_BELARI, 0x17
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -64,7 +64,7 @@ script_0800C6DC:
 	SetLocalFlag 0x0082
 script_0800C712:
 	DoPostScriptAction 0x0002
-	MessageFromTarget 0x1f18
+	MessageFromTarget TEXT_BELARI, 0x18
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -75,7 +75,7 @@ script_0800C730:
 	CheckLocalFlag 0x0083
 	JumpIf script_0800C756
 	DoPostScriptAction 0x0002
-	MessageFromTarget 0x1f19
+	MessageFromTarget TEXT_BELARI, 0x19
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -84,7 +84,7 @@ script_0800C730:
 	Jump script_0800C652
 script_0800C756:
 	DoPostScriptAction 0x0002
-	MessageFromTarget 0x1f1a
+	MessageFromTarget TEXT_BELARI, 0x1a
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
