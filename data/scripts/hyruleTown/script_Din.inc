@@ -5,7 +5,7 @@ SCRIPT_START script_Din
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a
-	CheckGlobalFlag 0x0047
+	CheckGlobalFlag GOMAN_RENTED_HOUSE
 	JumpIf script_08011CC2
 	EndBlock
 script_08011C9A:
@@ -26,9 +26,9 @@ script_08011C9A:
 script_08011CC2:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag 0x002c
+	CheckGlobalFlag RENTED_HOUSE_NAYRU
 	JumpIf script_08011C9A
-	CheckGlobalFlag 0x002d
+	CheckGlobalFlag RENTED_HOUSE_FARORE
 	JumpIf script_08011C9A
 	CheckEntityInteractType
 	JumpIfNot script_08011CC2
@@ -36,7 +36,7 @@ script_08011CC2:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	MessageNoOverlap 0x3105
+	MessageNoOverlap2 TEXT_GORMAN_ORACLES, 0x5
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_08011D0E
@@ -51,9 +51,9 @@ script_08011D00:
 	FacePlayer
 	DoPostScriptAction 0x0000
 script_08011D0E:
-	MessageNoOverlap 0x3108
+	MessageNoOverlap2 TEXT_GORMAN_ORACLES, 0x8
 	WaitUntilTextboxCloses
-	SetGlobalFlag 0x002b
+	SetGlobalFlag RENTED_HOUSE_DIN
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001

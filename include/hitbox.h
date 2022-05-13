@@ -1,5 +1,8 @@
 #ifndef HITBOX_H
 #define HITBOX_H
+
+#include "entity.h"
+
 extern const Hitbox gHitbox_0;
 extern const Hitbox gHitbox_1;
 extern const Hitbox gHitbox_2;

@@ -489,6 +489,12 @@
 	.2byte \s
 .endm
 
+.macro MessageNoOverlap2 a:req, b:req
+	.2byte 0x085b
+	.byte \b
+	.byte \a
+.endm
+
 .macro MessageFromTargetPos a:req, b:req
 	.2byte 0x0c5c
 	.2byte \a
