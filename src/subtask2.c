@@ -765,7 +765,7 @@ void sub_080A5D1C(void) {
 
 bool32 sub_080A5F24(void) {
     bool32 result = TRUE;
-    if ((gArea.dungeon_idx == 6) && CheckLocalFlagByBank(0x8c0, 0x7b)) {
+    if ((gArea.dungeon_idx == 6) && CheckLocalFlagByBank(FLAG_BANK_10, 0x7b)) {
         result = 0;
     }
     return result;

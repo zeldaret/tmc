@@ -10,7 +10,7 @@
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
-extern Entity* LoadRoomEntity(EntityData*);
+extern Entity* LoadRoomEntity(const EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
 
 extern void** gCurrentRoomProperties;
@@ -22,8 +22,8 @@ extern void sub_0804B16C(void);
 extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
-void RegisterRoomEntity(Entity*, EntityData*);
-void sub_0804AF0C(Entity*, EntityData*);
+void RegisterRoomEntity(Entity*, const EntityData*);
+void sub_0804AF0C(Entity*, const EntityData*);
 void sub_0804AFB0(void** properties);
 
 void sub_08054524(void);
@@ -39,7 +39,7 @@ static void LoadDestructibleTile(TileEntity*);
 static void LoadGrassDropTile(TileEntity*);
 static void LoadLocationTile(TileEntity*);
 
-void LoadRoomEntityList(EntityData* listPtr) {
+void LoadRoomEntityList(const EntityData* listPtr) {
     if (listPtr != NULL) {
         while (listPtr->kind != 0xFF) {
             LoadRoomEntity(listPtr++);
@@ -47,7 +47,7 @@ void LoadRoomEntityList(EntityData* listPtr) {
     }
 }
 
-NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityData* dat)) {
+NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(const EntityData* dat)) {
     int kind;
     Entity* v4;
     Entity* v5;
@@ -86,7 +86,7 @@ NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityDat
 }
 END_NONMATCH
 
-void RegisterRoomEntity(Entity* ent, EntityData* dat) {
+void RegisterRoomEntity(Entity* ent, const EntityData* dat) {
     u32 list;
     u32 kind;
     void* offset;
@@ -108,7 +108,7 @@ void RegisterRoomEntity(Entity* ent, EntityData* dat) {
     MemCopy(dat, offset, sizeof(EntityData));
 }
 
-void sub_0804AF0C(Entity* ent, EntityData* dat) {
+void sub_0804AF0C(Entity* ent, const EntityData* dat) {
     switch (dat->flags & 0xf0) {
         case 0x0:
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
@@ -251,8 +251,8 @@ void* GetCurrentRoomProperty(u32 idx) {
 void sub_0804B16C(void) {
     TileEntity* tile = gSmallChests;
     do {
-        if (tile->_4 != 0 && CheckLocalFlag(tile->_1)) {
-            SetTileType(0x74, tile->_4, tile->_6 & 1 ? 2 : 1);
+        if (tile->tilePos != 0 && CheckLocalFlag(tile->localFlag)) {
+            SetTileType(0x74, tile->tilePos, tile->_6 & 1 ? 2 : 1);
         }
     } while (++tile < gSmallChests + 8);
 }
@@ -297,28 +297,28 @@ void LoadRoomTileEntities(TileEntity* list) {
 }
 
 static void LoadGrassDropTile(TileEntity* tile) {
-    MemCopy(&gAreaDroptables[tile->_1], &gRoomVars.currentAreaDroptable, 0x20);
+    MemCopy(&gAreaDroptables[tile->localFlag], &gRoomVars.currentAreaDroptable, 0x20);
 }
 
 static void LoadLocationTile(TileEntity* tile) {
-    gArea.locationIndex = tile->_1;
+    gArea.locationIndex = tile->localFlag;
     sub_08054524();
 }
 
 static void LoadRoomVisitTile(TileEntity* tile) {
-    SetLocalFlag(tile->_1);
+    SetLocalFlag(tile->localFlag);
 }
 
 static void LoadSmallChestTile(TileEntity* tile) {
     TileEntity* t = gSmallChests;
     u32 i = 0;
     for (i = 0; i < 8; ++i, ++t) {
-        if (!t->_4) {
+        if (!t->tilePos) {
             MemCopy(tile, t, sizeof(TileEntity));
-            if ((t->_6 & 1) && (gRoomControls.scroll_flags & 2) && !CheckLocalFlag(t->_1)) {
-                Entity* e = CreateObject(OBJECT_52, t->_1, 0);
+            if ((t->_6 & 1) && (gRoomControls.scroll_flags & 2) && !CheckLocalFlag(t->localFlag)) {
+                Entity* e = CreateObject(OBJECT_52, t->localFlag, 0);
                 if (e != NULL) {
-                    sub_0806F704(e, t->_4);
+                    sub_0806F704(e, t->tilePos);
                 }
             }
             return;
@@ -331,10 +331,10 @@ static void LoadBombableWallTile(TileEntity* tile) {
     if (mgr != NULL) {
         mgr->manager.type = 9;
         mgr->manager.subtype = 0x24;
-        mgr->x = tile->_4;
+        mgr->x = tile->tilePos;
         mgr->y = *(u16*)&tile->_6;
         mgr->field_0x35 = tile->_2;
-        mgr->field_0x3e = tile->_1;
+        mgr->field_0x3e = tile->localFlag;
         AppendEntityToList((Entity*)mgr, 6);
     }
 }
@@ -345,7 +345,7 @@ static void LoadDarknessTile(TileEntity* tile) {
 
 static void LoadDestructibleTile(TileEntity* tile) {
     if (CheckLocalFlag(*(u16*)&tile->_2)) {
-        SetTileType(*(u16*)&tile->_6, tile->_4, tile->_1);
+        SetTileType(*(u16*)&tile->_6, tile->tilePos, tile->localFlag);
     } else if (!gRoomVars.filler_0x1) {
         Manager* mgr;
         gRoomVars.filler_0x1 = 1;
@@ -369,6 +369,6 @@ void sub_0804B388(u32 a1, u32 a2) {
     sub_080526F8(-1);
 }
 
-void sub_0804B3C4(void* arg0) {
-    LoadSmallChestTile(arg0);
+void sub_0804B3C4(TileEntity* tile) {
+    LoadSmallChestTile(tile);
 }

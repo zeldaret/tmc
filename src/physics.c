@@ -26,7 +26,7 @@ static bool32 sub_0807007C(struct_gUnk_020000C0*, u32);
 
 void sub_0806F364(void) {
     gArea.filler[2] ^= 0x80;
-    MemClear(&gArea.filler5[(gArea.filler[2] + 7) / 8], 16);
+    MemClear(&gArea.filler6[(gArea.filler[2] + 7) / 8], 16);
 }
 
 void sub_0806F38C(void) {

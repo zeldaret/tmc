@@ -19,7 +19,7 @@ const u8 gUnk_08108D20[] = { 0x6F, 0x70, 0x71, 0x72, 0x71, 0x70 };
 void Manager27_Main(Entity* this) {
 
     gUnk_08108D10[this->action](this);
-    if (CheckLocalFlagByBank(0x300, this->type + 0x67)) {
+    if (CheckLocalFlagByBank(FLAG_BANK_3, this->type + 0x67)) {
         gRoomTransition.armos_data.field_0xac |= (1 << this->type);
     } else {
         gRoomTransition.armos_data.field_0xac &= ~(1 << this->type);
@@ -76,5 +76,5 @@ void sub_0805C908(Entity* this) {
 }
 
 u32 sub_0805C920(Entity* this) {
-    return CheckLocalFlagByBank(0x300, this->type + 0x67);
+    return CheckLocalFlagByBank(FLAG_BANK_3, this->type + 0x67);
 }

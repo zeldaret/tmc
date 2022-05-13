@@ -1,8 +1,6 @@
 #include "entity.h"
 #include "room.h"
 
-extern Entity* LoadRoomEntity(EntityData*);
-
 void sub_0805E0C0(Entity*);
 void sub_0805E0F4(Entity*);
 

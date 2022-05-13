@@ -160,5 +160,3 @@ void sub_0808C8B8(Object3AEntity* this) {
         DeleteThisEntity();
     }
 }
-
-const u16 gUnk_08121648[] = { 264, 252, 256, 256, 248, 260, 240, 264, 248, 260, 256, 256, 264, 252, 272, 248 };
