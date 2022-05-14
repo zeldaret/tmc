@@ -808,7 +808,7 @@ void sub_0809584C(Object6AEntity* this) {
     u32 tmp, idx;
 
     idx = super->health;
-    if ((idx & 0x7F) != 0 && !ReadBit((u32*)gArea.filler5, idx - 1))
+    if ((idx & 0x7F) != 0 && !ReadBit((u32*)gArea.filler6, idx - 1))
         DeleteThisEntity();
     if (super->timer != 0 && CheckKinstoneFused(super->type2))
         DeleteThisEntity();
@@ -1178,9 +1178,9 @@ void sub_08095F38(Object6AEntity* this) {
 
 void sub_08096028(Object6AEntity* this) {
     u32 type2 = 6;
-    if (!CheckLocalFlagByBank(768, 123))
+    if (!CheckLocalFlagByBank(FLAG_BANK_3, 123))
         type2 = 4;
-    if (!CheckLocalFlagByBank(768, 122))
+    if (!CheckLocalFlagByBank(FLAG_BANK_3, 122))
         type2 = 3;
     CreateObject(OBJECT_6A, 0x1F, type2);
 }

@@ -107,8 +107,6 @@ SECTIONS {
         . = 0x00033280; gActiveScriptInfo = .;
         . = 0x00033290; gUnk_02033290 = .;
         . = 0x00033A90; gArea = .;
-        . = 0x00033AB8; gUnk_02033AB8 = .;
-        . = 0x00033ACC; gUnk_02033ACC = .;
         . = 0x000342F8; gUnk_020342F8 = .;
         . = 0x00034330; gUnk_02034330 = .;
         . = 0x00034350; gRoomVars = .;
@@ -305,7 +303,6 @@ SECTIONS {
         src/npc.o(.text);
         src/collision.o(.text);
         /* C source compiled without interworking */
-        asm/kinstone.o(.text);
         src/kinstone.o(.text);
         src/playerItem/playerItemGustBig.o(.text);
         src/playerItem/playerItemBow.o(.text);
@@ -680,9 +677,6 @@ SECTIONS {
         src/object/bossDoor.o(.text);
         src/object/object3A.o(.text);
         src/object/macroMushroomStalks.o(.text);
-        src/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
-        src/object/object76.o(.text);
-        asm/object/code_0808C964.o(.text);
         src/object/macroPlayer.o(.text);
         src/object/object3D.o(.text);
         src/object/object3E.o(.text);
@@ -1408,8 +1402,6 @@ SECTIONS {
         data/animations/object/bossDoor.o(.rodata);
         src/object/object3A.o(.rodata);
         src/object/macroMushroomStalks.o(.rodata);
-        src/object/object75.o(.rodata);
-        src/object/object76.o(.rodata);
         src/object/macroPlayer.o(.rodata);
         src/object/object3D.o(.rodata);
         src/object/object3E.o(.rodata);

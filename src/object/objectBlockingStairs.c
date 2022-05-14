@@ -283,8 +283,8 @@ typedef struct {
 } struct_gUnk_08122898;
 
 const struct_gUnk_08122898 gUnk_08122898[] = {
-    { 0x200, 0xa1, 0xa2 },
-    { 0x8c0, 0x6f, 0x70 },
+    { FLAG_BANK_2, 0xa1, 0xa2 },
+    { FLAG_BANK_10, 0x6f, 0x70 },
 };
 
 u32 sub_080932D8(u32 param_1) {

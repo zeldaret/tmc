@@ -23,7 +23,7 @@ void Whirlwind(Entity* this) {
         Whirlwind_Action2,
     };
     u32 tmp = this->health;
-    if (((tmp & 0x7f) != 0) && (ReadBit(gArea.filler5, tmp - 1) == 0)) {
+    if (((tmp & 0x7f) != 0) && (ReadBit(gArea.filler6, tmp - 1) == 0)) {
         DeleteThisEntity();
     }
     Whirlwind_Actions[this->action](this);

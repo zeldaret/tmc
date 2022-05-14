@@ -21,6 +21,15 @@ typedef struct {
 static_assert(sizeof(RoomResInfo) == 0x20);
 
 typedef struct {
+    u8 inventoryGfxIdx;
+    u8 unk29;
+    u8 unk2a;
+    u8 unk2b;
+    u16 unk2C[7];
+    u16 unk3E;
+} struct_area_28;
+
+typedef struct {
     u8 areaMetadata;
     u8 locationIndex;
     u8 unk;
@@ -43,14 +52,13 @@ typedef struct {
     bool8 portal_in_use;
     u8 unk1A;
     u8 filler2[13];
-    u8 inventoryGfxIdx;
-    u8 filler4[0x13];
+    struct_area_28 unk28;
     RoomResInfo roomResInfos[MAX_ROOMS];
     RoomResInfo currentRoomInfo;
     RoomResInfo* pCurrentRoomInfo;
     u32 bgm;
     u32 queued_bgm;
-    u8 filler5[0x20];
+    u8 filler6[0x20];
     void* transitionManager;
     void (*onEnter)();
     void (*onExit)();

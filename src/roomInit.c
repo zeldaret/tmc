@@ -4633,10 +4633,7 @@ u32 sub_unk3_SimonsSimulation_Main(void) {
 extern u8* gUnk_080F0D58[4];
 extern Entity* gUnk_080F0CB8[15];
 extern u8* gUnk_080F0E08[];
-extern struct {
-    u32 unk_00;
-    u32 unk_04;
-} gUnk_080F0E1C[];
+extern TileEntity gUnk_080F0E1C[];
 
 void sub_StateChange_SimonsSimulation_Main(void) {
     u32 r;
@@ -5356,7 +5353,7 @@ extern EntityData gUnk_080F5788;
 
 void sub_StateChange_HouseInteriors3_StockwellShop(void) {
     LoadRoomEntityList(&gUnk_080F5758);
-    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(0x200, 0x8f)) {
+    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(FLAG_BANK_2, 0x8f)) {
         LoadRoomEntityList(&gUnk_080F57E8);
     }
     if (!CheckLocalFlag(0x55)) {
@@ -5549,7 +5546,7 @@ extern EntityData gUnk_080F66AC;
 
 void sub_StateChange_WindTribeTowerRoof_Main(void) {
     sub_0805B4D0(5);
-    if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByBank(0x100, 5)) {
+    if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByBank(FLAG_BANK_1, 5)) {
         LoadRoomEntityList(&gUnk_080F66AC);
     }
     SetWorldMapPos(8, 0, 0x1e8, 0x158);

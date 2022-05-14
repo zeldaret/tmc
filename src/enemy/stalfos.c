@@ -324,28 +324,23 @@ void sub_0803981C(StalfosEntity* this) {
     EnqueueSFX(SFX_12B);
 }
 
-NONMATCH("asm/non_matching/stalfos/sub_08039858.inc", void sub_08039858(StalfosEntity* this)) {
+void sub_08039858(StalfosEntity* this) {
     s32 iVar1;
     u32 uVar2;
-    u32 uVar3;
-    u32 tmp;
 
     iVar1 = sub_080398C0(this);
-    uVar2 = (u32)super->animationState;
-    tmp = uVar2 * 8;
-    if (((iVar1 + 4U) & 0x18) == tmp) {
+    uVar2 = (u32)super->animationState * 8;
+    if (((iVar1 + 4U) & 0x18) == uVar2) {
         if (this->unk_7b != 3) {
             return;
         }
         this->unk_7b = 0;
-        uVar3 = Random();
-        iVar1 += ((uVar3 & 2) - 1) * 8;
+        iVar1 += ((Random() & 2) - 1) * 8;
     }
-    uVar2 = ((iVar1 + uVar2 * -8) & 0x1f) >> 4 ^ 1;
+    uVar2 = ((iVar1 - uVar2) & 0x1f) >> 4 ^ 1;
     InitAnimationForceUpdate(super, gUnk_080CF8F8[(u32)super->animationState * 2 + uVar2]);
     super->animationState = ((uVar2 * 2 + super->animationState) - 1) & 3;
 }
-END_NONMATCH
 
 u32 sub_080398C0(StalfosEntity* this) {
     u32 rand = Random();

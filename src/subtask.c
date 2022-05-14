@@ -69,7 +69,6 @@ extern const EntityData gUnk_080FF264[];
 
 extern void (*const gUnk_080FF28C[])(void);
 
-extern Entity* LoadRoomEntity(EntityData*);
 extern void sub_08054A14(u32);
 
 extern const EntityData gUnk_080FEE48[];
@@ -89,13 +88,6 @@ extern const EntityData gUnk_080FF308[];
 extern void (*const gUnk_080FF330[])(void);
 
 void sub_08055994(void);
-
-typedef struct {
-    u8 unk_0[6];
-    u8 unk_6;
-    u8 unk_7;
-} struct_080FEAC8;
-extern struct_080FEAC8 gUnk_080FEAC8[];
 
 extern void (*const gUnk_080FF35C[])(void);
 
@@ -676,8 +668,8 @@ void sub_08055978(void) {
 
 void sub_08055994(void) {
     u32 layer;
-    struct_080FEAC8* ptr = &gUnk_080FEAC8[gMenu.field_0x4];
-    if ((ptr->unk_6 & 1) != 0) {
+    TileEntity* ptr = &gUnk_080FEAC8[gMenu.field_0x4];
+    if ((ptr->_6 & 1) != 0) {
         layer = 2;
     } else {
         layer = 1;

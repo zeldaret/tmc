@@ -1775,25 +1775,26 @@ bool32 MoveNorth(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     }
 }
 
-ASM_FUNC("asm/non_matching/movement/MoveNorthEast.inc",
-         bool32 MoveNorthEast(Entity* this, s32 radius, s32 angle, u32 collisionType))
-/*NONMATCH("asm/non_matching/movement/MoveNorthEast.inc",
-         bool32 MoveNorthEast(Entity* this, s32 radius, s32 angle, u32 collisionType)) {
+bool32 MoveNorthEast(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
     s32 moveB = 0;
-    if (((this->collisions & COL_NORTH_ANY) == COL_NONE) || ((this->collisions & COL_EAST_ANY) == COL_NONE)) {
-        if ((this->collisions & (COL_NORTH_ANY | COL_EAST_ANY)) == COL_NONE) {
-            moveA = radius * gSineTable[angle + 0x40];
+    s32 northCollision = (this->collisions & COL_NORTH_ANY);
+    u32 northCollision2 = northCollision;
+    s32 eastCollision = (this->collisions & COL_EAST_ANY);
+    u32 eastCollision2 = eastCollision;
+    if ((northCollision == COL_NONE) || (eastCollision == COL_NONE)) {
+        if ((northCollision | eastCollision) == COL_NONE) {
+            moveA = gSineTable[angle + 0x40] * radius;
             this->y.WORD -= moveA;
-            moveB = radius * gSineTable[angle];
+            moveB = gSineTable[angle] * radius;
             this->x.WORD += moveB;
         } else {
-            if ((this->collisions & COL_NORTH_ANY) == COL_NORTH_WEST) {
+            if (northCollision2 == COL_NORTH_WEST) {
                 moveA = radius * 0x100;
                 this->x.WORD += moveA;
                 CalculateEntityTileCollisions(this, DirectionNorthEast, collisionType);
             } else {
-                if ((this->collisions & COL_EAST_ANY) == COL_EAST_NORTH) {
+                if (eastCollision2 == COL_EAST_NORTH) {
                     moveA = radius * 0x100;
                     this->y.WORD -= moveA;
                     CalculateEntityTileCollisions(this, DirectionNorthEast, collisionType);
@@ -1809,13 +1810,14 @@ ASM_FUNC("asm/non_matching/movement/MoveNorthEast.inc",
             }
         }
     }
-    if (((moveA >= -0x3333) && (moveA < 0x3333)) && ((moveB >= -0x3333) && (moveB < 0x3333))) {
-        return FALSE;
-    } else {
+    if (((moveA < -0x3333) || (moveA >= 0x3333))) {
         return TRUE;
+    } else if ((moveB < -0x3333) || (moveB >= 0x3333)) {
+        return TRUE;
+    } else {
+        return FALSE;
     }
 }
-END_NONMATCH*/
 
 bool32 MoveEast(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
@@ -1855,24 +1857,25 @@ bool32 MoveEast(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     }
 }
 
-ASM_FUNC("asm/non_matching/movement/MoveSouthEast.inc",
-         bool32 MoveSouthEast(Entity* this, s32 radius, s32 angle, u32 collisionType))
-/*NONMATCH("asm/non_matching/movement/MoveSouthEast.inc",
-         bool32 MoveSouthEast(Entity* this, s32 radius, s32 angle, u32 collisionType)) {
+bool32 MoveSouthEast(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
     s32 moveB = 0;
-    if (((this->collisions & COL_SOUTH_ANY) == COL_NONE) || ((this->collisions & COL_EAST_ANY) == COL_NONE)) {
-        if ((this->collisions & (COL_SOUTH_ANY | COL_EAST_ANY)) == COL_NONE) {
+    s32 anySouth = this->collisions & COL_SOUTH_ANY;
+    s32 anySouth2 = anySouth;
+    s32 anyEast = this->collisions & COL_EAST_ANY;
+    s32 anyEast2 = anyEast;
+    if ((anySouth == COL_NONE) || (anyEast == COL_NONE)) {
+        if ((anySouth | anyEast) == COL_NONE) {
             moveA = gSineTable[angle + 0x40] * radius;
             this->y.WORD -= moveA;
             moveB = gSineTable[angle] * radius;
             this->x.WORD += moveB;
         } else {
-            if ((this->collisions & COL_SOUTH_ANY) == COL_SOUTH_WEST) {
+            if (anySouth2 == COL_SOUTH_WEST) {
                 moveA = radius * 0x100;
                 this->x.WORD += moveA;
                 CalculateEntityTileCollisions(this, DirectionSouthEast, collisionType);
-            } else if ((this->collisions & COL_EAST_ANY) == COL_EAST_SOUTH) {
+            } else if (anyEast2 == COL_EAST_SOUTH) {
                 moveA = radius * 0x100;
                 this->y.WORD += moveA;
                 CalculateEntityTileCollisions(this, DirectionSouthEast, collisionType);
@@ -1887,13 +1890,16 @@ ASM_FUNC("asm/non_matching/movement/MoveSouthEast.inc",
             }
         }
     }
-    if (((moveA >= -0x3333) && (moveA < 0x3333)) && ((moveB >= -0x3333) && (moveB < 0x3333))) {
-        return FALSE;
-    } else {
+    if (moveA < -0x3333 || moveA >= 0x3333) {
         return TRUE;
     }
+
+    if (moveB < -0x3333 || moveB >= 0x3333) {
+        return TRUE;
+    }
+
+    return FALSE;
 }
-END_NONMATCH*/
 
 bool32 MoveSouth(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
@@ -1934,47 +1940,49 @@ bool32 MoveSouth(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     }
 }
 
-ASM_FUNC("asm/non_matching/movement/MoveSouthWest.inc",
-         bool32 MoveSouthWest(Entity* this, s32 radius, s32 angle, u32 collisionType))
-/*NONMATCH("asm/non_matching/movement/MoveSouthWest.inc",
-         bool32 MoveSouthWest(Entity* this, s32 radius, s32 angle, u32 collisionType)) {
+bool32 MoveSouthWest(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
     s32 moveB = 0;
-    if (((this->collisions & COL_SOUTH_ANY) == COL_NONE) || ((this->collisions & COL_WEST_ANY) == COL_NONE)) {
-        if ((this->collisions & (COL_SOUTH_ANY | COL_WEST_ANY)) == COL_NONE) {
-            moveB = gSineTable[angle + 0x40] * radius;
-            this->y.WORD -= moveB;
-            moveA = gSineTable[angle] * radius;
-            this->x.WORD += moveA;
+    s32 anySouth = this->collisions & COL_SOUTH_ANY;
+    s32 anySouth2 = anySouth;
+    s32 anyWest = this->collisions & COL_WEST_ANY;
+    s32 anyWest2 = anyWest;
+    if ((anySouth == COL_NONE) || (anyWest == COL_NONE)) {
+        if ((anySouth | anyWest) == COL_NONE) {
+            moveA = gSineTable[angle + 0x40] * radius;
+            this->y.WORD -= moveA;
+            moveB = gSineTable[angle] * radius;
+            this->x.WORD += moveB;
         } else {
-            if ((this->collisions & COL_SOUTH_ANY) == COL_SOUTH_EAST) {
-                moveB = radius * 0x100;
-                this->x.WORD -= moveB;
+            if (anySouth2 == COL_SOUTH_EAST) {
+                moveA = radius * 0x100;
+                this->x.WORD -= moveA;
                 CalculateEntityTileCollisions(this, DirectionSouthWest, collisionType);
-            } else {
-                if ((this->collisions & COL_WEST_ANY) == COL_WEST_SOUTH) {
-                    moveB = radius * 0x100;
-                    this->y.WORD += moveB;
-                    CalculateEntityTileCollisions(this, DirectionSouthWest, collisionType);
-                }
+            } else if (anyWest2 == COL_WEST_SOUTH) {
+                moveA = radius * 0x100;
+                this->y.WORD += moveA;
+                CalculateEntityTileCollisions(this, DirectionSouthWest, collisionType);
             }
             if ((this->collisions & COL_SOUTH_ANY) == COL_NONE) {
-                moveA = gSineTable[angle + 0x40] * radius;
-                this->y.WORD -= moveA;
+                moveB = gSineTable[angle + 0x40] * radius;
+                this->y.WORD -= moveB;
             }
             if ((this->collisions & COL_WEST_ANY) == COL_NONE) {
-                moveA = gSineTable[angle] * radius;
-                this->x.WORD += moveA;
+                moveB = gSineTable[angle] * radius;
+                this->x.WORD += moveB;
             }
         }
     }
-    if (((moveA >= -0x3333) && (moveA < 0x3333)) && ((moveB >= -0x3333) && (moveB < 0x3333))) {
-        return FALSE;
-    } else {
+    if (moveA < -0x3333 || moveA >= 0x3333) {
         return TRUE;
     }
+
+    if (moveB < -0x3333 || moveB >= 0x3333) {
+        return TRUE;
+    }
+
+    return FALSE;
 }
-END_NONMATCH*/
 
 bool32 MoveWest(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
@@ -2018,14 +2026,13 @@ bool32 MoveWest(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     }
 }
 
-ASM_FUNC("asm/non_matching/movement/MoveNorthWest.inc",
-         bool32 MoveNorthWest(Entity* this, s32 radius, s32 angle, u32 collisionType))
-/*NONMATCH("asm/non_matching/movement/MoveNorthWest.inc",
-         bool32 MoveNorthWest(Entity* this, s32 radius, s32 angle, u32 collisionType)) {
+bool32 MoveNorthWest(Entity* this, s32 radius, s32 angle, u32 collisionType) {
     s32 moveA = 0;
     s32 moveB = 0;
     u32 colNorthAny = (this->collisions & COL_NORTH_ANY);
+    u32 colNorthAny2 = colNorthAny;
     u32 colWestAny = (this->collisions & COL_WEST_ANY);
+    u32 colWestAny2 = colWestAny;
     if ((colNorthAny == COL_NONE) || (colWestAny == COL_NONE)) {
         if ((colNorthAny | colWestAny) == COL_NONE) {
             moveA = gSineTable[angle + 0x40] * radius;
@@ -2033,12 +2040,12 @@ ASM_FUNC("asm/non_matching/movement/MoveNorthWest.inc",
             moveB = gSineTable[angle] * radius;
             this->x.WORD += moveB;
         } else {
-            if (colNorthAny == COL_NORTH_EAST) {
+            if (colNorthAny2 == COL_NORTH_EAST) {
                 moveA = radius * 0x100;
                 this->x.WORD -= moveA;
                 CalculateEntityTileCollisions(this, DirectionNorthWest, collisionType);
             } else {
-                if (colWestAny == COL_WEST_NORTH) {
+                if (colWestAny2 == COL_WEST_NORTH) {
                     moveA = radius * 0x100;
                     this->y.WORD -= moveA;
                     CalculateEntityTileCollisions(this, DirectionNorthWest, collisionType);
@@ -2054,13 +2061,16 @@ ASM_FUNC("asm/non_matching/movement/MoveNorthWest.inc",
             }
         }
     }
-    if (((moveA >= -0x3333) && (moveA < 0x3333)) && ((moveB >= -0x3333) && (moveB < 0x3333))) {
-        return FALSE;
-    } else {
+    if (moveA < -0x3333 || moveA >= 0x3333) {
         return TRUE;
     }
+
+    if (moveB < -0x3333 || moveB >= 0x3333) {
+        return TRUE;
+    }
+
+    return FALSE;
 }
-END_NONMATCH*/
 
 bool32 ProcessMovement0(Entity* this) {
     bool32 result;

@@ -289,7 +289,7 @@ void Object37();
 void JarPortal();
 void BossDoor();
 void Object3A();
-void MacroMushromStalks();
+void MacroMushroomStalks();
 void MacroPlayer();
 void Object3D();
 void Object3E();
