@@ -15,25 +15,25 @@ script_0800F09A:
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x0000001e
 	WaitForSyncFlagAndClear 0x00000040
-	MessageFromTargetPos 0x1201, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x01, 0x000c
 	WaitUntilTextboxCloses
 	WaitForSyncFlagAndClear 0x000003c0
 	_0807E8E4_0 
-	MessageFromTargetPos 0x1202, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x02, 0x000c
 	WaitUntilTextboxCloses
 	GivePlayerItem 0x0067
 	WaitPlayerGetItem
 	_0807E8E4_0
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000040
-	MessageFromTargetPos 0x1203, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x03, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	Call sub_0807DF50
 	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000040
 script_0800F11A:
-	CheckKinstoneFused 0x0032
+	CheckKinstoneFused KINSTONE_32
 	JumpIfNot script_0800F11A
 	SetPlayerIdle
 	Call sub_0807DF28

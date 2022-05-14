@@ -11,7 +11,7 @@ script_08010132:
 	JumpIfNot script_08010132
 	SetPlayerIdle 
 	FacePlayer 
-	MessageFromTarget 0x4f22
+	MessageFromTarget TEXT_CAFE, 0x22
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_08010132

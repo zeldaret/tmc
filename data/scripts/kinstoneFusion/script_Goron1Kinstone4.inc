@@ -10,7 +10,7 @@ SCRIPT_START script_Goron1Kinstone4
 	SetAnimation 0x0000
 	SetAnimationState 0x0002
 	Wait 0x003c
-	MessageNoOverlap 0x0e10
+	MessageNoOverlap TEXT_KINSTONE, 0x10
 	WaitUntilTextboxCloses
 	SetAnimation 0x0008
 	Wait 0x003c

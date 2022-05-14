@@ -1,7 +1,7 @@
 @ Waterfalls OBJECT_3E during kinstone cutscene?
 SCRIPT_START script_Object3ELeftStoneOpening
 	BeginBlock
-	CheckKinstoneFused 0x0009
+	CheckKinstoneFused KINSTONE_9
 	JumpIf script_Object3ELeftStone
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000001

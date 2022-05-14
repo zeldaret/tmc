@@ -1,18 +1,6 @@
 @ Intro Hyrule Town NPC4E
 SCRIPT_START script_Npc4EIntroTown
-.ifdef JP
-	CheckLocalFlag 0x00ca
-.else
-.ifdef EU
-	CheckLocalFlag 0x00ca
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x00ca @ TODO deduplicate
-.else
-	CheckLocalFlag 0x00cd
-.endif
-.endif
-.endif
+	CheckLocalFlag MACHI_01_DEMO
 	JumpIf script_0800FA4C
 	SetPlayerIdle
 	Call sub_0807DF28
@@ -34,7 +22,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForSyncFlagAndClear 0x00000001
 	WaitForSyncFlagAndClear 0x00000004
 	@ First message from Zelda
-	MessageFromTargetPos 0x2501, 0x0000
+	MessageFromTargetPos TEXT_FESTIVAL, 0x01, 0x0000
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
@@ -51,7 +39,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	MessageFromTargetPos 0x2503, 0x000e
+	MessageFromTargetPos TEXT_FESTIVAL, 0x03, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
@@ -64,7 +52,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	MessageFromTargetPos 0x2504, 0x000e
+	MessageFromTargetPos TEXT_FESTIVAL, 0x04, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
@@ -77,7 +65,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	MessageFromTargetPos 0x2505, 0x000e
+	MessageFromTargetPos TEXT_FESTIVAL, 0x05, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
@@ -93,7 +81,7 @@ SCRIPT_START script_Npc4EIntroTown
 	_0807E8E4_0
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	MessageFromTargetPos 0x1021, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x21, 0x000e
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerIntro5
 	SetEntityPositionRelative 0x00f0, 0x0258
@@ -102,44 +90,44 @@ SCRIPT_START script_Npc4EIntroTown
 	Wait 0x001e
 	Call sub_08063C2C
 	WaitForSyncFlagAndClear 0x00000001
-	MessageFromTargetPos 0x1022, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x22, 0x000e
 	WaitUntilTextboxCloses
 	_0807E8E4_0 
 	Call sub_08063C14
 	Call sub_08094CDC
 	Wait 0x001e
-	MessageFromTargetPos 0x1023, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x23, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
 	Call sub_08094DD8
 	Wait 0x001e
-	MessageFromTargetPos 0x1024, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x24, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
 	Call sub_08094D34
 	Wait 0x001e
-	MessageFromTargetPos 0x1025, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x25, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C5C
-	MessageFromTargetPos 0x1026, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x26, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	_0807E8E4_1
 	Call sub_08063C2C
-	MessageFromTargetPos 0x1027, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x27, 0x0000
 	WaitUntilTextboxCloses
 	Call sub_08063C74
 	Wait 0x003c
 	Call sub_08063C14
 	_0807E8E4_0 
-	MessageFromTargetPos 0x1028, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x28, 0x000e
 	WaitUntilTextboxCloses
 	_0807E8E4_1 
-	MessageFromTargetPos 0x1029, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x29, 0x0000
 	WaitUntilTextboxCloses
 	_0807E8E4_0 
-	MessageFromTargetPos 0x102a, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x2a, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
 	Call sub_08094D70
@@ -154,21 +142,21 @@ SCRIPT_START script_Npc4EIntroTown
 	_0807E8E4_1
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	MessageFromTargetPos 0x102b, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x2b, 0x0000
 	WaitUntilTextboxCloses
 	@ Give the shield to the player
-	GivePlayerItem 0x000d
+	GivePlayerItem ITEM_SHIELD
 	WaitPlayerGetItem
 	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
-	CallWithArg EquipItem, 0x0000000d
+	CallWithArg EquipItem, ITEM_SHIELD
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
 	CallWithArg SetInputMacro, gUnk_080049D6
 	Wait 0x00b7
 	SetIntVariable 0x00000000
 	Call sub_0807F5B0
-	MessageFromTargetPos 0x102c, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x2c, 0x0000
 	WaitUntilTextboxCloses
 	@ Give control back to the player
 	CallWithArg SetInputMacro, 0x00000000
@@ -178,19 +166,7 @@ SCRIPT_START script_Npc4EIntroTown
 	Wait 0x000a
 	SetSyncFlag 0x00000002
 	Call sub_08063C44
-.ifdef JP
-	SetLocalFlag 0x00ca
-.else
-.ifdef EU
-	SetLocalFlag 0x00ca
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x00ca @ TODO deduplicate
-.else
-	SetLocalFlag 0x00cd
-.endif
-.endif
-.endif
+	SetLocalFlag MACHI_01_DEMO
 	Call sub_0807DF50
 	EnablePlayerControl
 script_0800FA4C:

@@ -12,7 +12,7 @@ script_0800BC62:
 	Wait 0x001e
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x0e08
+	MessageNoOverlap TEXT_KINSTONE, 0x08
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x000f
 	SetAnimation 0x0008
@@ -26,7 +26,7 @@ script_0800BC62:
 	Wait 0x003c
 	DoPostScriptAction 0x000c
 	Wait 0x003c
-	MessageNoOverlap 0x0e09
+	MessageNoOverlap TEXT_KINSTONE, 0x09
 	WaitUntilTextboxCloses
 	Call SetCollisionLayer1
 	CallWithArg sub_0807F4F8, 0x0000035c

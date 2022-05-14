@@ -39,7 +39,7 @@ script_0800E3C8:
 	JumpIfNot script_0800E3C8
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x240c
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	GivePlayerItem 0x0053
@@ -55,7 +55,7 @@ script_0800E3EE:
 	JumpIfNot script_0800E3EE
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x240d
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x0d
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

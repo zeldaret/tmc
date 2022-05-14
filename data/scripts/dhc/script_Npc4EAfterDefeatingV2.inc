@@ -12,7 +12,7 @@ script_0800DB7C:
 	SetEntityPositionRelative 0x0078, 0x0078
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
-	EzloMessage 0x1648
+	EzloMessage TEXT_VAATI2, 0x48
 	WaitUntilTextboxCloses
 	Call sub_0804D7EC
 	SetSyncFlag 0x00000001
@@ -35,9 +35,9 @@ script_0800DBCA:
 	SetSyncFlag 0x00000001
 	StartPlayerScript script_PlayerAfterDefeatingV2
 	WaitForSyncFlagAndClear 0x00000006
-	MessageFromTargetPos 0x1643, 0x0002
+	MessageFromTargetPos TEXT_VAATI2, 0x43, 0x0002
 	WaitUntilTextboxCloses
-	EzloMessage 0x1645
+	EzloMessage TEXT_VAATI2, 0x45
 	WaitUntilTextboxCloses
 	Call CreatePlayerExclamationMark
 	SetSyncFlag 0x00000001

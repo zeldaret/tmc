@@ -53,7 +53,7 @@ void sub_08019698(void) {
     Entity* object;
     const u16* ptr;
     ptr = &gUnk_080B4410[gUI.field_0x3 * 7];
-    SetLocalFlagByBank(0x100, ptr[2]);
+    SetLocalFlagByBank(FLAG_BANK_1, ptr[2]);
     LoadAuxiliaryRoom(ptr[0], ptr[1]);
     gRoomControls.scroll_x += ptr[3];
     gRoomControls.scroll_y += ptr[4];

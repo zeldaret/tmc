@@ -17,7 +17,7 @@ script_0800B4D4:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	MessageFromTarget 0x200b
+	MessageFromTarget TEXT_LON_LON, 0x0b
 	EndBlock 
 	EnablePlayerControl 
 	SetAnimationState 0x0004
@@ -29,7 +29,7 @@ script_0800B4F0:
 	_0807EDD4 0x0134, 0x0288
 	SetAnimationState 0x0004
 	WaitForSyncFlagAndClear 0x00000008
-	MessageFromTarget 0x2016
+	MessageFromTarget TEXT_LON_LON, 0x16
 	WaitUntilTextboxCloses
 	_0807EDD4 0x0158, 0x0288
 	DoPostScriptAction 0x0000
@@ -39,7 +39,7 @@ script_0800B4F0:
 	DoPostScriptAction 0x0008
 	Wait 0x001e
 	SetSyncFlag 0x00000010
-	SetGlobalFlag 0x001d
+	SetGlobalFlag INLOCK
 	Call PlayerSetNormalAndCollide
 	EnablePlayerControl
 	Call sub_0807FBCC

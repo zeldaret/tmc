@@ -7,7 +7,7 @@ script_08013B1E:
 	BeginBlock
 	CallWithArg sub_0807F6B4, 0x000001c8
 	JumpIfNot script_08013B1E
-	CheckInventory1 0x0006
+	CheckInventory1 ITEM_FOURSWORD
 	JumpIfNot script_08013B1E
 	CheckLocalFlag 0x0078
 	JumpIf script_08013B1E
@@ -15,7 +15,7 @@ script_08013B1E:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call sub_0807DF28
-	EzloMessage 0x1507
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x07
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerSanctuary
 	WaitForSyncFlagAndClear 0x00000001

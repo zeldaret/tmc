@@ -13,24 +13,12 @@ script_0800F6A0:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000004
-.ifdef JP
-	CheckLocalFlag 0x00ca
-.else
-.ifdef EU
-	CheckLocalFlag 0x00ca
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x00ca @ TODO deduplicate
-.else
-	CheckLocalFlag 0x00cd
-.endif
-.endif
-.endif
+	CheckLocalFlag MACHI_01_DEMO
 	JumpIf script_0800F6C4
-	MessageNoOverlap 0x2512
+	MessageNoOverlap TEXT_FESTIVAL, 0x12
 	Jump script_0800F6C8
 script_0800F6C4:
-	MessageNoOverlap 0x251f
+	MessageNoOverlap TEXT_FESTIVAL, 0x1f
 script_0800F6C8:
 	WaitUntilTextboxCloses
 	Wait 0x000f

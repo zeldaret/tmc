@@ -25,7 +25,7 @@ script_0800F478:
 	EndBlock 
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x1238
+	MessageNoOverlap TEXT_MINISH2, 0x38
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 script_0800F490:

@@ -8,7 +8,7 @@ SCRIPT_START script_EzloCapExplainingOriginStory
 	Call sub_0806D944
 	WaitForSyncFlagAndClear 0x00000008
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x1314, 0x000c
+	MessageFromTargetPos TEXT_VAATI, 0x14, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
 	Call sub_0806D8A0

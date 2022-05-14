@@ -33,7 +33,7 @@ SCRIPT_START script_VaatiTakeover
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0014
 	Wait 0x001e
-	MessageNoOverlap 0x131b
+	MessageNoOverlap TEXT_VAATI, 0x1b
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010

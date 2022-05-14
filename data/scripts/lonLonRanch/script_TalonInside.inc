@@ -22,13 +22,13 @@ script_08014E64:
 	JumpIfNot script_08014EB8
 	CallWithArg sub_0807F800, 0x00000022
 	WaitPlayerGetItem 
-	MessageNoOverlap 0x0a04
+	MessageNoOverlap TEXT_EMPTY, 0x04
 	Jump script_08014EBC
 script_08014EB0:
-	MessageNoOverlap 0x0a03
+	MessageNoOverlap TEXT_EMPTY, 0x03
 	Jump script_08014EBC
 script_08014EB8:
-	MessageNoOverlap 0x0a02
+	MessageNoOverlap TEXT_EMPTY, 0x02
 script_08014EBC:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50

@@ -4,7 +4,7 @@ SCRIPT_START script_Npc4ECastleCollapsing
 	PlayBgm BGM_CASTLE_COLLAPSE
 	StartPlayerScript script_PlayerStonesFall
 	WaitForSyncFlagAndClear 0x00000006
-	EzloMessage 0x1646
+	EzloMessage TEXT_VAATI2, 0x46
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
 	StartPlayerScript script_PlayerCastleCollapsing

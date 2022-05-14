@@ -30,13 +30,13 @@ script_0800E4B6:
 	EndBlock
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	MessageFromTarget 0x160c
+	MessageFromTarget TEXT_VAATI2, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x001e
-	MessageFromTarget 0x160d
+	MessageFromTarget TEXT_VAATI2, 0x0d
 	WaitUntilTextboxCloses
 	Wait 0x001e
-	EzloMessage 0x160e
+	EzloMessage TEXT_VAATI2, 0x0e
 	Wait 0x003c
 	WaitUntilTextboxCloses
 	BeginBlock

@@ -10,7 +10,7 @@ SCRIPT_START script_DampeInside
 	JumpIfNot script_08009622
 	PlaySound SFX_ITEM_GET
 	InitItemGetSequence 0x003c
-	MessageFromTarget 0x053c
+	MessageFromTarget TEXT_ITEM_GET, 0x3c
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
 	SetInventoryValue 0x003c, 0x0001

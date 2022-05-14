@@ -12,7 +12,7 @@ script_0800E44C:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	MessageNoOverlap 0x2405
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x05
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_0800E44C

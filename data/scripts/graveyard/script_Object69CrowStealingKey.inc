@@ -17,11 +17,11 @@ SCRIPT_START script_Object69CrowStealingKey
 	WaitForSyncFlagAndClear 0x00000010
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000040
-	SetInventoryValue 0x003c, 0x0000
-	SetGlobalFlag 0x0020
+	SetInventoryValue ITEM_QST_GRAVEYARD_KEY, 0x0000
+	SetGlobalFlag HAKA_KEY_LOST
 	_0807E8E4_3
 	Wait 0x001e
-	EzloMessage 0x2809
+	EzloMessage TEXT_DAMPE, 0x09
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	EnablePlayerControl

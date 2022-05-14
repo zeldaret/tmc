@@ -13,7 +13,7 @@ script_08010686:
 	FacePlayer
 	HasRoomItemForSale
 	Call GetConditionSet
-	MessageFromTargetTable 0x3c08, 0x3c09
+	MessageFromTargetTable TEXT_BAKERY << 8 | 0x08, TEXT_BAKERY << 8 | 0x09
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	SetAnimationState 0x0004

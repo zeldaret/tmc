@@ -28,21 +28,21 @@ script_08010804:
 	SetPlayerIdle
 	Call sub_0807DF28
 	FacePlayer
-	CheckGlobalFlag 0x0042
+	CheckGlobalFlag GORON_KAKERA_L
 	JumpIfNot script_08010858
-	CheckGlobalFlag 0x0043
+	CheckGlobalFlag GORON_KAKERA_M
 	JumpIfNot script_08010858
-	CheckGlobalFlag 0x0044
+	CheckGlobalFlag GORON_KAKERA_R
 	JumpIfNot script_08010858
-	CheckGlobalFlag 0x0041
+	CheckGlobalFlag GORON_KAKERA_LV5
 	JumpIfNot script_08010850
-	MessageNoOverlap 0x3f39
+	MessageNoOverlap TEXT_TINGLE, 0x39
 	Jump script_080108BA
 script_08010850:
-	MessageNoOverlap 0x2c1b
+	MessageNoOverlap TEXT_STOCKWELL, 0x1b
 	Jump script_080108BA
 script_08010858:
-	MessageNoOverlap 0x2c1a
+	MessageNoOverlap TEXT_STOCKWELL, 0x1a
 	Jump script_080108BA
 script_08010860:
 	EndBlock
@@ -58,13 +58,13 @@ script_08010860:
 	WaitPlayerGetItem
 	WaitUntilTextboxCloses
 	FaceAwayFromPlayer
-	CheckGlobalFlag 0x0042
+	CheckGlobalFlag GORON_KAKERA_L
 	JumpIfNot script_080108AA
-	CheckGlobalFlag 0x0043
+	CheckGlobalFlag GORON_KAKERA_M
 	JumpIfNot script_080108AA
-	CheckGlobalFlag 0x0044
+	CheckGlobalFlag GORON_KAKERA_R
 	JumpIfNot script_080108AA
-	MessageNoOverlap 0x2c21
+	MessageNoOverlap TEXT_STOCKWELL, 0x21
 	Jump script_080108B2
 script_080108AA:
 .ifdef USA
@@ -74,7 +74,7 @@ script_080108AA:
 	SetLocalFlag 0x00fa
 .endif
 .endif
-	MessageNoOverlap 0x2c20
+	MessageNoOverlap TEXT_STOCKWELL, 0x20
 script_080108B2:
 	WaitUntilTextboxCloses
 	Call sub_0807F83C

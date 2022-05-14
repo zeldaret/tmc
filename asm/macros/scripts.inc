@@ -511,9 +511,14 @@
 	.endif
 .endm
 
-.macro MessageFromTargetPos_1 s:req
+.macro MessageFromTargetPos_1 a:req, b
 	.2byte 0x085c
-	.2byte \s
+	.ifnb \b
+	.byte \b
+	.byte \a
+	.else
+	.2byte \a
+	.endif
 .endm
 
 .macro MessageFromTargetTable labels:vararg

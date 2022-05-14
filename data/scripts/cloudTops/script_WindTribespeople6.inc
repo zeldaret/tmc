@@ -8,7 +8,7 @@ SCRIPT_START script_WindTribespeople6
 	DoPostScriptAction 0x0004
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
-	MessageNoOverlap 0x2f0a
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x0a
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 script_08014AAC:
@@ -16,7 +16,7 @@ script_08014AAC:
 	JumpIfNot script_08014AAC
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x2f0a
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x0a
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_08014AAC

@@ -8,14 +8,14 @@ SCRIPT_START script_EzloCap
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0022
 	Call sub_0807F3C8
-	MessageFromTargetPos 0x1102, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x02, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0021
 	Call sub_0807F3C8
-	MessageFromTargetPos 0x1103, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x03, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	SetSyncFlag 0x00000008
@@ -26,29 +26,29 @@ SCRIPT_START script_EzloCap
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0011
 	SetAnimation 0x001c
-	MessageFromTargetPos 0x1105, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x05, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0022
 	Call sub_0807F3C8
-	MessageFromTargetPos 0x1106, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x06, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x001c
 	Call sub_0806D96C
-	MessageFromTargetPos 0x1107, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x07, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0021
 	Call sub_0807F3C8
-	MessageFromTargetPos 0x1108, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x08, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x001c
 	Call sub_0806D96C
-	MessageFromTargetPos 0x1109, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x09, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	DoPostScriptAction 0x000a
@@ -65,7 +65,7 @@ script_080127F2:
 	SetPlayerIdle
 	Call sub_0806D944
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x1114, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x14, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0020
 	EnablePlayerControl
@@ -83,13 +83,13 @@ script_08012824:
 	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0806D944
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x110a, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x0a, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x001f
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x110b, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x0b, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x001f
 	SetSyncFlag 0x00000008
@@ -97,19 +97,19 @@ script_08012824:
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x110c, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x0c, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x001f
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x110d, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x0d, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x001f
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x110e, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x0e, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
 	SetEntitySpeed 0x0080
@@ -132,7 +132,7 @@ script_08012920:
 	SetPlayerIdle
 	SetAnimation 0x0010
 	EndBlock 
-	MessageFromTargetPos 0x1115, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x15, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
 	EnablePlayerControl
@@ -145,7 +145,7 @@ script_0801293A:
 	FaceAwayFromPlayer
 	Call sub_0806D944
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x110f, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x0f, 0x000c
 	SetAnimation 0x0018
 	SetEntitySpeed 0x0080
 	Call sub_0806D908
@@ -168,7 +168,7 @@ script_080129A0:
 	SetPlayerIdle
 	SetAnimation 0x0010
 	EndBlock 
-	MessageFromTargetPos 0x1115, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x15, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
 	EnablePlayerControl
@@ -181,7 +181,7 @@ script_080129BA:
 	FaceAwayFromPlayer
 	Call sub_0806D944
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x1110, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x10, 0x000c
 	SetAnimation 0x0018
 	SetEntitySpeed 0x0080
 	Call sub_0806D908
@@ -205,7 +205,7 @@ script_08012A24:
 	SetPlayerIdle
 	SetAnimation 0x0010
 	EndBlock 
-	MessageFromTargetPos 0x1115, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x15, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
 	EnablePlayerControl
@@ -220,7 +220,7 @@ script_08012A3E:
 	FaceAwayFromPlayer
 	Call sub_0806D944
 	SetAnimation 0x0010
-	MessageFromTargetPos 0x1111, 0x000c
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x11, 0x000c
 	SetAnimation 0x0018
 	SetEntitySpeed 0x0080
 	Call sub_0806D8A0
@@ -236,7 +236,7 @@ script_08012A74:
 	PlayBgm BGM_EZLO_THEME
 	BeginBlock
 	_0807E8E4_2
-	EzloMessage 0x1112
+	EzloMessage TEXT_FINDING_EZLO, 0x12
 	EndBlock
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008

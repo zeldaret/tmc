@@ -18,18 +18,18 @@ script_0800D962:
 	DoPostScriptAction 0x0007
 	PlaySound SFX_ELEMENT_FLOAT
 	SetEntityVelocity 0xffff8000
-	MessageNoOverlap 0x1701
+	MessageNoOverlap TEXT_GUSTAF2, 0x01
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
-	MessageNoOverlap 0x1702
+	MessageNoOverlap TEXT_GUSTAF2, 0x02
 	WaitUntilTextboxCloses
 	SetEntityVelocity 0x00010000
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	GiveKinstone 0x006d
 	WaitPlayerGetItem
-	EzloMessage 0x1703
+	EzloMessage TEXT_GUSTAF2, 0x03
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	SetLocalFlag 0x0032

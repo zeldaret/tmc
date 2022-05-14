@@ -29,7 +29,7 @@ script_0800E176:
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
 	Wait 0x000a
-	MessageNoOverlap 0x2401
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x01
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0094
 script_0800E1D0:
@@ -43,7 +43,7 @@ script_0800E1E0:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	MessageNoOverlap 0x2401
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x01
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_0800E1E0

@@ -7,7 +7,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPicture
 	WaitForSyncFlagAndClear 0x00000002
-	EzloMessage 0x1601
+	EzloMessage TEXT_VAATI2, 0x01
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerMoveToPicture
 	WaitForSyncFlagAndClear 0x00000002
@@ -25,7 +25,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	SetPlayerIdle
 	Call sub_0807DF28
 	WaitForFadeFinish
-	MessageFromTargetPos 0x1602, 0x000c
+	MessageFromTargetPos TEXT_VAATI2, 0x02, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000010
@@ -39,7 +39,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	StartPlayerScript script_PlayerFaintAgain
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000042
-	MessageFromTargetPos 0x1603, 0x000c
+	MessageFromTargetPos TEXT_VAATI2, 0x03, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000040
@@ -52,7 +52,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	Wait 0x003c
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
-	MessageFromTargetPos 0x1604, 0x0007
+	MessageFromTargetPos TEXT_VAATI2, 0x04, 0x0007
 	WaitUntilTextboxCloses
 	SetFadeMask 0xffffffff
 	SetFadeTime 0x0004
@@ -60,11 +60,11 @@ SCRIPT_START script_Object3EPictureBackRoom
 	WaitForFadeFinish
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
-	EzloMessage 0x1605
+	EzloMessage TEXT_VAATI2, 0x05
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0078
 	PlayBgm BGM_CASTLE_COLLAPSE
-	SetGlobalFlag 0x005d
+	SetGlobalFlag SEIIKI_BGM
 	Call sub_0807DF50
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

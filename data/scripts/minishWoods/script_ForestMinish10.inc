@@ -23,7 +23,7 @@ script_0800CDA6:
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x3d
 	Jump script_0800CF40
 script_0800CDC4:
-	CheckGlobalFlag 0x003b
+	CheckGlobalFlag DRUG_1
 	JumpIf script_0800CE46
 	CheckGlobalFlag DRUG_COUNT
 	JumpIfNot script_0800CDEC
@@ -31,7 +31,7 @@ script_0800CDC4:
 	JumpIfNot script_0800CF2A
 	SetGlobalFlag DRUG_1
 	ClearGlobalFlag DRUG_COUNT
-	MessageNoOverlap 0x2141
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x41
 	Jump script_0800CF40
 script_0800CDEC:
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x3e

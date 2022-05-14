@@ -30,21 +30,9 @@ script_08015BF0:
 	_0807E800 0x00000000
 	WaitForFadeFinish
 	PlayBGM
-	EzloMessage 0x131f
+	EzloMessage TEXT_VAATI, 0x1f
 	WaitUntilTextboxCloses
-.ifdef JP
-	SetLocalFlag 0x009b
-.else
-.ifdef EU
-	SetLocalFlag 0x009b
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x009b @ TODO deduplicate
-.else
-	SetLocalFlag 0x009c
-.endif
-.endif
-.endif
+	SetLocalFlag SOUGEN_08_TORITSUKI
 	Call sub_0807FBCC
 	Call sub_0807DF50
 	EnablePlayerControl

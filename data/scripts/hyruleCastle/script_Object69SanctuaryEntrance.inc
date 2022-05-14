@@ -7,21 +7,9 @@ SCRIPT_START script_Object69SanctuaryEntrance
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtSanctuaryEntrance
 	WaitForSyncFlagAndClear 0x00000001
-	EzloMessage 0x132d
+	EzloMessage TEXT_VAATI, 0x2d
 	WaitUntilTextboxCloses
-.ifdef JP
-	SetLocalFlag 0x0015
-.else
-.ifdef EU
-	SetLocalFlag 0x0015
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x0015 @ TODO deduplicate
-.else
-	SetLocalFlag 0x0014
-.endif
-.endif
-.endif
+	SetLocalFlag NAKANIWA_00_EZERO
 	Call sub_0807DF50
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

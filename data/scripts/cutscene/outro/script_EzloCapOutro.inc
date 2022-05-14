@@ -11,7 +11,7 @@ SCRIPT_START script_EzloCapOutro
 	EndBlock
 	SetAnimation 0x0023
 	WaitForSyncFlagAndClear 0x00000010
-	CallWithArg SetPlayerFlag, 0x00000008
+	CallWithArg SetPlayerFlag, PL_NO_CAP
 	DoPostScriptAction 0x0007
 	PlaySound SFX_SPARKLES
 	ClearSyncFlag 0x00000800

@@ -3,7 +3,7 @@ SCRIPT_START script_WindTribespeople2
 	BeginBlock
 	Call sub_0806C870
 	DoPostScriptAction 0x000a
-	CheckGlobalFlag 0x0058
+	CheckGlobalFlag WARP_EVENT_END
 	JumpIfNot script_080149C6
 	EndBlock
 script_080149AA:

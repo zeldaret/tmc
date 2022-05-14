@@ -25,11 +25,11 @@ script_08012FD2:
 	CallWithArg sub_0807F93C, 0x0000f2f4
 	Call sub_0806AA10
 	EndBlock
-	CheckInventory1 0x0038
+	CheckInventory1 ITEM_QST_MUSHROOM
 	JumpIf script_08013006
 script_08012FFA:
 	TriggerInteract
-	MessageNoOverlap 0x4403
+	MessageNoOverlap TEXT_REM, 0x03
 	WaitUntilTextboxCloses
 	Jump script_08012FFA
 script_08013006:
@@ -48,24 +48,24 @@ script_08013006:
 	Wait 0x003c
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x4404
+	MessageNoOverlap TEXT_REM, 0x04
 	WaitUntilTextboxCloses
 	Wait 0x001e
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x440e
+	MessageNoOverlap TEXT_REM, 0x0e
 	WaitUntilTextboxCloses
 	Wait 0x001e
 	Call sub_0806A9E8
 	SetAnimation 0x000f
 	Wait 0x00f0
-	MessageNoOverlap 0x4405
+	MessageNoOverlap TEXT_REM, 0x05
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000200
 	GivePlayerItem 0x0015
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
-	MessageNoOverlap 0x4406
+	MessageNoOverlap TEXT_REM, 0x06
 	WaitUntilTextboxCloses
 	SetAction 0x0001
 	Call sub_0807DF50
@@ -73,13 +73,13 @@ script_08013006:
 script_0801308A:
 	Call sub_0806A96C
 	JumpIfNot script_0801308A
-	MessageNoOverlap 0x4407
+	MessageNoOverlap TEXT_REM, 0x07
 	WaitUntilTextboxCloses
 	SetAction 0x0001
 script_0801309E:
 	Call sub_0806A96C
 	JumpIfNot script_0801309E
-	MessageNoOverlap 0x440d
+	MessageNoOverlap TEXT_REM, 0x0d
 	WaitUntilTextboxCloses
 	SetAction 0x0001
 	Jump script_0801308A

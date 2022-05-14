@@ -7,6 +7,7 @@
 #include "object.h"
 #include "npc.h"
 #include "hitbox.h"
+#include "kinstone.h"
 
 typedef struct {
     Entity base;
@@ -215,7 +216,7 @@ void sub_0806E23C(void) {
 
 void sub_0806E250(PicolyteBottleEntity* this, ScriptExecutionContext* context) {
     context->condition = 0;
-    if (CheckKinstoneFused(0x31) != 0) {
+    if (CheckKinstoneFused(KINSTONE_31) != 0) {
         context->condition = 1;
     }
     gActiveScriptInfo.flags |= 1;

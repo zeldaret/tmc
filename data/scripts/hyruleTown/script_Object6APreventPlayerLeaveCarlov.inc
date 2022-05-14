@@ -8,7 +8,7 @@ script_0801454C:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0801454C
 	SetPlayerIdle
-	EzloMessage 0x4217
+	EzloMessage TEXT_BURLOV, 0x17
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerWhenLeavingCarlovAlreadyPaid
 	Wait 0x0010

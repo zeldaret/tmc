@@ -8,7 +8,7 @@ SCRIPT_START script_SmithAtAssembly
 	WaitForSyncFlagAndClear 0x00000001
 	FacePlayer
 	DoPostScriptAction 0x0001
-	MessageFromTargetPos 0x105b, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x5b, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
@@ -20,7 +20,7 @@ SCRIPT_START script_SmithAtAssembly
 	DoPostScriptAction 0x0005
 	Wait 0x003c
 	DoPostScriptAction 0x0001
-	MessageFromTargetPos 0x1051, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x51, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
@@ -30,7 +30,7 @@ SCRIPT_START script_SmithAtAssembly
 	FacePlayer
 	FaceAwayFromPlayer
 	DoPostScriptAction 0x0001
-	MessageFromTargetPos 0x1055, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x55, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
@@ -44,7 +44,7 @@ SCRIPT_START script_SmithAtAssembly
 	FacePlayer
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0001
-	MessageFromTargetPos 0x1059, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x59, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002

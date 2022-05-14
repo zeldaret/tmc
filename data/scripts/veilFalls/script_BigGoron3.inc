@@ -11,9 +11,9 @@ script_0800934E:
 	Call sub_0806D638
 	_0807F0B4 0x0001
 	CameraTargetEntity
-	CheckGlobalFlag 0x0055
+	CheckGlobalFlag GAMECLEAR
 	JumpIf script_BigGoronTalk
-	MessageNoOverlap 0x1d01
+	MessageNoOverlap TEXT_GORONS, 0x01
 	WaitUntilTextboxCloses
 script_08009376:
 	WaitUntilTextboxCloses

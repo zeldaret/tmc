@@ -93,7 +93,7 @@ void sub_08066904(Entity* this) {
         TEXT_INDEX(TEXT_VAATI, 0x2f),
     };
     u32 index;
-    if (CheckGlobalFlag(2) == 0) {
+    if (CheckGlobalFlag(LV1_CLEAR) == 0) {
         index = 0;
     } else if (GetInventoryValue(ITEM_GREEN_SWORD) == 0) {
         index = 1;

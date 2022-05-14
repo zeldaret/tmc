@@ -27,7 +27,7 @@ script_0800C7C0:
 	JumpIf script_0800C80A
 	MessageFromTarget TEXT_FINDING_EZLO, 0x30
 	WaitUntilTextboxCloses
-	EzloMessage 0x1131
+	EzloMessage TEXT_FINDING_EZLO, 0x31
 	WaitUntilTextboxCloses
 	FaceAwayFromPlayer 
 	MessageFromTarget TEXT_FINDING_EZLO, 0x32

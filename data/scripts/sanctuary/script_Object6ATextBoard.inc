@@ -3,13 +3,13 @@ SCRIPT_START script_Object6ATextBoard
 	BeginBlock
 	CheckLocalFlag 0x007a
 	JumpIf script_08013C2A
-	CheckInventory1 0x0003
+	CheckInventory1 ITEM_RED_SWORD
 	JumpIf script_08013C2A
-	CheckInventory1 0x0002
+	CheckInventory1 ITEM_GREEN_SWORD
 	JumpIfNot script_08013C98
-	CheckInventory1 0x0040
+	CheckInventory1 ITEM_EARTH_ELEMENT
 	JumpIfNot script_08013C98
-	CheckInventory1 0x0041
+	CheckInventory1 ITEM_FIRE_ELEMENT
 	JumpIfNot script_08013C98
 	EndBlock
 	DoPostScriptAction 0x0008
@@ -42,10 +42,10 @@ script_08013C58:
 	FacePlayer
 	CheckLocalFlag 0x007d
 	JumpIf script_08013C82
-	EzloMessage 0x1501
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x01
 	Jump script_08013C86
 script_08013C82:
-	EzloMessage 0x1506
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x06
 script_08013C86:
 	WaitUntilTextboxCloses
 	Wait 0x000f

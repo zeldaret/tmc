@@ -29,7 +29,7 @@ SCRIPT_START script_Npc4EMonsters
 	_0807F0C8 0x0000, 0x0000
 	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
-	CallWithArg EquipItem, 0x0000000d
+	CallWithArg EquipItem, ITEM_SHIELD
 	CallWithArg SetInputMacro, gUnk_080049F6
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x01f8, 0x0068
@@ -48,9 +48,9 @@ SCRIPT_START script_Npc4EMonsters
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000020
 	WaitForSyncFlagAndClear 0x00000200
-	MessageFromTargetPos 0x1045, 0x000c
+	MessageFromTargetPos TEXT_PROLOGUE, 0x45, 0x000c
 	WaitUntilTextboxCloses
-	MessageFromTargetPos 0x1046, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x46, 0x0000
 	WaitUntilTextboxCloses
 	CallWithArg CreateManager36, 0x00000002
 	_0807F0C8 0xffff, 0x0000

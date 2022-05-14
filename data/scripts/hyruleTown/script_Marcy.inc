@@ -20,12 +20,12 @@ script_08010746:
 	JumpIfNot script_08010786
 	HasRupees 0x00c8
 	JumpIf script_08010778
-	MessageNoOverlap 0x4008
+	MessageNoOverlap TEXT_POST, 0x08
 	Jump script_08010786
 script_08010778:
 	ModRupees 0xff38
 	Call sub_08062E14
-	MessageNoOverlap 0x4007
+	MessageNoOverlap TEXT_POST, 0x07
 script_08010786:
 	EndBlock
 	WaitUntilTextboxCloses

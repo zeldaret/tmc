@@ -12,7 +12,7 @@ script_080092BA:
 	JumpIfNot script_080092BA
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x105e
+	MessageNoOverlap TEXT_PROLOGUE, 0x5e
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

@@ -16,24 +16,24 @@ script_08010502:
 	CheckRoomFlag 0x000e
 	JumpIf script_0801052E
 	SetRoomFlag 0x000e
-	MessageNoOverlap 0x2b10
+	MessageNoOverlap TEXT_PICOLYTE, 0x10
 	WaitUntilTextboxCloses
 script_0801052E:
 	Call sub_080634E4
 	JumpTable script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
 script_08010544:
-	MessageNoOverlap 0x2b0d
+	MessageNoOverlap TEXT_PICOLYTE, 0x0d
 	Jump script_080105E0
 script_0801054C:
-	CheckGlobalFlag 0x003d
+	CheckGlobalFlag DRUG_3
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010558:
-	CheckGlobalFlag 0x003c
+	CheckGlobalFlag DRUG_2
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010564:
-	CheckGlobalFlag 0x003b
+	CheckGlobalFlag DRUG_1
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010570:
@@ -44,28 +44,28 @@ script_08010570:
 	JumpIfNot script_080105E0
 	CallWithArg sub_0807F7C4, 0x00000000
 	JumpIfNot script_080105C4
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_080105CC
 	Call sub_08063504
 	JumpIf script_080105D4
-	MessageNoOverlap 0x2b07
+	MessageNoOverlap TEXT_PICOLYTE, 0x07
 	WaitUntilTextboxCloses
 	CallWithArg sub_0807F800, 0x00000000
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
-	MessageNoOverlap 0x2b0c
+	MessageNoOverlap TEXT_PICOLYTE, 0x0c
 	Jump script_080105E0
 script_080105C4:
-	MessageNoOverlap 0x2b09
+	MessageNoOverlap TEXT_PICOLYTE, 0x09
 	Jump script_080105E0
 script_080105CC:
-	MessageNoOverlap 0x2b0a
+	MessageNoOverlap TEXT_PICOLYTE, 0x0a
 	Jump script_080105E0
 script_080105D4:
-	MessageNoOverlap 0x2b0b
+	MessageNoOverlap TEXT_PICOLYTE, 0x0b
 	Jump script_080105E0
 script_080105DC:
-	MessageNoOverlap 0x2b0e
+	MessageNoOverlap TEXT_PICOLYTE, 0x0e
 script_080105E0:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
@@ -83,7 +83,7 @@ script_08010602:
 	JumpIfNot script_08010602
 	SetPlayerIdle 
 	FacePlayer 
-	MessageFromTarget 0x0a01
+	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	SetAnimationState 0x0004

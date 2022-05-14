@@ -13,8 +13,8 @@ script_08014462:
 	SetAnimation 0x0008
 	Wait 0x0020
 	SetAnimation 0x0002
-	MessageFromTarget 0x4202
-	MessageFromTarget 0x4203
+	MessageFromTarget TEXT_BURLOV, 0x02
+	MessageFromTarget TEXT_BURLOV, 0x03
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_080144F0
@@ -23,12 +23,12 @@ script_08014462:
 	DoPostScriptAction 0x0000
 	HasRupees 0x000a
 	JumpIf script_080144A2
-	MessageFromTarget 0x4204
+	MessageFromTarget TEXT_BURLOV, 0x04
 	Jump script_080144FC
 script_080144A2:
 	Call sub_0806E250
 	JumpIfNot script_080144B8
-	MessageFromTarget 0x420b
+	MessageFromTarget TEXT_BURLOV, 0x0b
 	_0807EB38 
 	JumpTable script_080144B8, script_080144C0
 script_080144B8:
@@ -45,7 +45,7 @@ script_080144C0:
 .endif
 script_080144C8:
 	ModRupees 0xfff6
-	MessageFromTarget 0x420c
+	MessageFromTarget TEXT_BURLOV, 0x0c
 	PlaySound SFX_BUTTON_PRESS
 	Wait 0x0018
 	SetRoomFlag 0x0000

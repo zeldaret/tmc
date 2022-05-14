@@ -30,12 +30,12 @@ SCRIPT_START script_08016482
 	_0807E9E4 0x0000
 	_0807EA88 0x0001
 	WaitUntilTextboxCloses
-	MessageFromTarget 0x0601
+	MessageFromTarget TEXT_LOCATIONS, 0x01
 	MessageNoOverlap 0x0601
-	MessageFromTargetPos_1 0x0601
-	MessageFromTargetTable 0x0601, 0x0602, 0x0603
+	MessageFromTargetPos_1 TEXT_LOCATIONS, 0x01
+	MessageFromTargetTable TEXT_LOCATIONS << 8 | 0x01, TEXT_LOCATIONS << 8 | 0x02, TEXT_LOCATIONS << 8 | 0x03
 	MessageNoOverlapVar 
-	EzloMessage 0x0602
+	EzloMessage TEXT_LOCATIONS, 0x02
 	_0807EB38
 	SetAnimationState 0x0000
 	_0807EB4C 0x0000, 0x0000

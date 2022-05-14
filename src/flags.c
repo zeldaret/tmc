@@ -88,7 +88,7 @@ void SetFlag(u32 flag) {
 }
 
 void SetGlobalFlag(u32 flag) {
-    SetLocalFlagByBank(0, flag);
+    SetLocalFlagByBank(FLAG_BANK_0, flag);
 }
 
 void SetRoomFlag(u32 flag) {
@@ -123,7 +123,7 @@ void ClearFlag(u32 flag) {
 }
 
 void ClearGlobalFlag(u32 flag) {
-    ClearLocalFlagByBank(0, flag);
+    ClearLocalFlagByBank(FLAG_BANK_0, flag);
 }
 
 void ClearRoomFlag(u32 flag) {

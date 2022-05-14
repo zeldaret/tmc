@@ -9,9 +9,9 @@ SCRIPT_START script_MoblinLadyDisguised
 script_08012284:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag 0x001e
+	CheckGlobalFlag DASHBOOTS
 	JumpIfNot script_08012298
-	CheckInventory1 0x0015
+	CheckInventory1 ITEM_PEGASUS_BOOTS
 	JumpIf script_080122BA
 script_08012298:
 	CheckEntityInteractType
@@ -20,10 +20,10 @@ script_08012298:
 	FacePlayer
 	SetPlayerIdle
 	Call sub_08061FD8
-	MessageFromTarget 0x2302
+	MessageFromTarget TEXT_PERCY, 0x02
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
-	SetGlobalFlag 0x001e
+	SetGlobalFlag DASHBOOTS
 	Jump script_08012284
 script_080122BA:
 	EndBlock
@@ -39,7 +39,7 @@ script_080122CE:
 	FacePlayer
 	SetPlayerIdle
 	Call sub_08061FD8
-	MessageFromTarget 0x2303
+	MessageFromTarget TEXT_PERCY, 0x03
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_080122BA

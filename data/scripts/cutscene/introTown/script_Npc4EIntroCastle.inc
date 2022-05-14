@@ -5,16 +5,16 @@ SCRIPT_START script_Npc4EIntroCastle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntroCastle
 	WaitForSyncFlagAndClear 0x00000400
-	SetInventoryValue 0x0034, 0x0002
-	MessageFromTargetPos 0x1036, 0x000c
+	SetInventoryValue ITEM_QST_SWORD, 0x0002
+	MessageFromTargetPos TEXT_PROLOGUE, 0x36, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
-	MessageFromTargetPos 0x1037, 0x0002
+	MessageFromTargetPos TEXT_PROLOGUE, 0x37, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
-	MessageFromTargetPos 0x1038, 0x000c
+	MessageFromTargetPos TEXT_PROLOGUE, 0x38, 0x000c
 	WaitUntilTextboxCloses
 	StopBgm
 	SetFadeTime 0x0004
@@ -51,7 +51,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	_0807E8E4_1
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
-	MessageFromTargetPos 0x1039, 0x000c
+	MessageFromTargetPos TEXT_PROLOGUE, 0x39, 0x000c
 	WaitUntilTextboxCloses
 	PlayBgm BGM_CASTLE_TOURNAMENT
 	_0807E8E4_2
@@ -64,7 +64,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	Wait 0x012c
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
-	MessageFromTargetPos 0x103a, 0x000c
+	MessageFromTargetPos TEXT_PROLOGUE, 0x3a, 0x000c
 	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x01c0
 	_0807F0B4 0x0004
@@ -82,7 +82,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	PlaySound SFX_9B
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000200
-	MessageFromTargetPos 0x1043, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x43, 0x0000
 	WaitUntilTextboxCloses
 	PlayBgm BGM_VAATI_THEME
 	SetSyncFlag 0x00000100
@@ -98,7 +98,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	WaitForSyncFlagAndClear 0x00005000
 	SetSyncFlag 0x00028000
 	WaitForSyncFlagAndClear 0x00050000
-	MessageFromTargetPos 0x1044, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x44, 0x0000
 	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x0098
 	StopBgm

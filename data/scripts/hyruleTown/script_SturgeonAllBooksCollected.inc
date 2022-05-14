@@ -9,7 +9,7 @@ SCRIPT_START script_SturgeonAllBooksCollected
 	PlaySound SFX_STAIRS
 	EndBlock
 	WaitForSyncFlag 0x00000002
-	MessageNoOverlap 0x490d
+	MessageNoOverlap TEXT_LIBRARY, 0x0d
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0007
 	Call sub_08064D08

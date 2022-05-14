@@ -1,7 +1,7 @@
 @ Hyrule Town Guard north
 SCRIPT_START script_GuardNorth
 	BeginBlock
-	CheckInventory1 0x0012
+	CheckInventory1 ITEM_PACCI_CANE
 	JumpIf script_0800FF0E
 	SetAnimationState 0x0006
 	_0807E9D4

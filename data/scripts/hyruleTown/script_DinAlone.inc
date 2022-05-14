@@ -12,7 +12,7 @@ script_080121DE:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	MessageNoOverlap 0x4527
+	MessageNoOverlap TEXT_HAPPY_HEARTH, 0x27
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	SetAnimationState 0x0004

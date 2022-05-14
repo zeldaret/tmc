@@ -8,7 +8,7 @@ script_0800BA46:
 	JumpIfNot script_0800BA46
 	SetPlayerIdle
 	Call sub_0807DF28
-	MessageFromTarget 0x3301
+	MessageFromTarget TEXT_PHONOGRAPH, 0x01
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0800BA6C

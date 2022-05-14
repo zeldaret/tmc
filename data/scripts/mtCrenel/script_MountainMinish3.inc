@@ -5,7 +5,7 @@ SCRIPT_START script_MountainMinish3
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800D282:
-	CheckInventory1 0x0041
+	CheckInventory1 ITEM_FIRE_ELEMENT
 	JumpIf script_0800D292
 	CheckLocalFlag 0x007e
 	JumpIf script_0800D2EA

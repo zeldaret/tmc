@@ -17,12 +17,12 @@ script_0800B6D4:
 	WaitForSyncFlagAndClear 0x00000004
 	CheckLocalFlag 0x009f
 	JumpIf script_0800B7A2
-	MessageNoOverlap 0x057b
+	MessageNoOverlap TEXT_ITEM_GET, 0x7b
 	WaitUntilTextboxCloses
-	CallWithArg CheckMessageEqual, 0x0000057d
+	CallWithArg CheckMessageEqual, TEXT_ITEM_GET << 8 | 0x7d
 	JumpIf script_0800B6A6
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x009f
-	GivePlayerItem 0x0064
+	GivePlayerItem ITEM_WALLET
 	Jump script_0800B698
 	.2byte 0x0000

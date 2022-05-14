@@ -29,7 +29,7 @@ script_08008E12:
 	WaitForSyncFlagAndClear 0x00000100
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
-	MessageFromTargetPos 0x1053, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x53, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100
@@ -45,7 +45,7 @@ script_08008E12:
 	WaitForSyncFlagAndClear 0x00000020
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	GivePlayerItem 0x0035
+	GivePlayerItem ITEM_QST_BROKEN_SWORD
 	WaitPlayerGetItem
 	StartPlayerScript script_PlayerGetSword
 	WaitForSyncFlagAndClear 0x00000020
@@ -59,7 +59,7 @@ script_08008E12:
 	_0807E8E4_1
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	GivePlayerItem 0x0047
+	GivePlayerItem ITEM_MAP
 	WaitPlayerGetItem
 	SetIntVariable 0x00000003
 	Call LoadMenu
@@ -68,7 +68,7 @@ script_08008E12:
 	WaitForSyncFlagAndClear 0x00000100
 	_0807F0B4 0x0004
 	CameraTargetPlayer
-	SetGlobalFlag 0x0015
+	SetGlobalFlag TABIDACHI
 	Call sub_0806DCC0
 	Call sub_0807DF50
 	EnablePlayerControl

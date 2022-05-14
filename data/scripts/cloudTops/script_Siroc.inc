@@ -15,10 +15,10 @@ script_08014AD2:
 	CheckLocalFlag 0x0064
 	JumpIf script_08014AFE
 	SetLocalFlag 0x0064
-	MessageNoOverlap 0x2f0b
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x0b
 	Jump script_08014B02
 script_08014AFE:
-	MessageNoOverlap 0x2f0c
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x0c
 script_08014B02:
 	WaitUntilTextboxCloses
 	Wait 0x000f

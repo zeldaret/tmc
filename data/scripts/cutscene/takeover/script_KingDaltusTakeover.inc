@@ -7,19 +7,19 @@ SCRIPT_START script_KingDaltusTakeover
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x1319
+	MessageNoOverlap TEXT_VAATI, 0x19
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
-	MessageNoOverlap 0x131a
+	MessageNoOverlap TEXT_VAATI, 0x1a
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
-	MessageNoOverlap 0x131d
+	MessageNoOverlap TEXT_VAATI, 0x1d
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
-	MessageNoOverlap 0x131e
+	MessageNoOverlap TEXT_VAATI, 0x1e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	WaitForSyncFlag 0x00000400

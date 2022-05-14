@@ -24,7 +24,7 @@ script_0800BFA8:
 	SetAnimation 0x0000
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x0e12
+	MessageNoOverlap TEXT_KINSTONE, 0x12
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	Call sub_08054F64

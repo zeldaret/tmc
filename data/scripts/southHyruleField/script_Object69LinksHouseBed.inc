@@ -8,7 +8,7 @@ script_08009DF0:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Wait 0x0008
-	EzloMessage 0x3207
+	EzloMessage TEXT_SMITH, 0x07
 	CheckTextboxResult
 	JumpIfNot script_08009E4E
 	Call sub_0807DF28
@@ -19,7 +19,7 @@ script_08009DF0:
 	Wait 0x001e
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
-	EzloMessage 0x3209
+	EzloMessage TEXT_SMITH, 0x09
 	Wait 0x000f
 	WaitUntilTextboxCloses
 	EnablePlayerControl

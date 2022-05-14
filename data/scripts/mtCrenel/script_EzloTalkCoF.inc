@@ -2,9 +2,9 @@
 SCRIPT_START script_EzloTalkCoF
 	SetPlayerIdle
 	Call sub_0807DF28
-	EzloMessage 0x1c02
+	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x02
 	WaitUntilTextboxCloses
-	SetLocalFlagByBank 0x0100, 0x0002
+	SetLocalFlagByBank FLAG_BANK_1, 0x0002
 	Call sub_0807DF50
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

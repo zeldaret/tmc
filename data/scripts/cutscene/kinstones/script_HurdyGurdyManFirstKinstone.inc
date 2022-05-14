@@ -33,7 +33,7 @@ script_0800F1E6:
 	SetAnimation 0x0008
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageFromTargetPos 0x1206, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x06, 0x000c
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtHurdyGurdyManFirstKinstone1
 	WaitForSyncFlagAndClear 0x00000400
@@ -49,7 +49,7 @@ script_0800F22A:
 	SetAnimation 0x0008
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageFromTargetPos 0x1206, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x06, 0x000c
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtHurdyGurdyManFirstKinstone2
 	WaitForSyncFlagAndClear 0x00000400
@@ -65,7 +65,7 @@ script_0800F26A:
 	SetAnimation 0x0008
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageFromTargetPos 0x1206, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x06, 0x000c
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtHurdyGurdyManFirstKinstone3
 	WaitForSyncFlagAndClear 0x00000400
@@ -81,7 +81,7 @@ script_0800F2AA:
 	SetAnimation 0x0008
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageFromTargetPos 0x1206, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x06, 0x000c
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtHurdyGurdyManFirstKinstone4
 	WaitForSyncFlagAndClear 0x00000400
@@ -90,7 +90,7 @@ script_0800F2AA:
 script_0800F2EA:
 	EndBlock
 	BeginBlock
-	CheckKinstoneFused 0x0032
+	CheckKinstoneFused KINSTONE_32
 	JumpIf script_0800F314
 	CheckEntityInteractType
 	JumpIfNot script_0800F2EA
@@ -98,7 +98,7 @@ script_0800F2EA:
 	SetPlayerIdle
 	FacePlayer
 	SetAnimation 0x0008
-	MessageFromTargetPos 0x1208, 0x000c
+	MessageFromTargetPos TEXT_MINISH2, 0x08, 0x000c
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_0800F1E6

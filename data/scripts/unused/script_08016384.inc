@@ -14,24 +14,12 @@ SCRIPT_START script_08016384
 	CallWithArg script_08016384, 0x12345678
 	LoadRoomEntityList script_08016384
 	CheckSyncFlagAndClear 0x00000001
-	CheckInventory1 0x0001
-	CheckInventory2 0x0001
+	CheckInventory1 ITEM_SMITH_SWORD
+	CheckInventory2 ITEM_SMITH_SWORD
 	HasRoomItemForSale
 	CheckLocalFlag 0x0067
-.ifdef JP
-	CheckLocalFlagByBank 0x0100, 0x0069
-.else
-.ifdef EU
-	CheckLocalFlagByBank 0x0100, 0x0069
-.else
-.ifdef DEMO_JP
-	CheckLocalFlagByBank 0x0100, 0x0069 @ TODO deduplicate
-.else
-	CheckLocalFlagByBank 0x0100, 0x006b
-.endif
-.endif
-.endif
-	CheckGlobalFlag 0x0013
+	CheckLocalFlagByBank FLAG_BANK_1, SOUGEN_01_00
+	CheckGlobalFlag START
 	CheckRoomFlag 0x0000
 	CheckPlayerInRegion 0x0000, 0x0000, 0x0000
 	CheckPlayerInRegion2 0x0000
@@ -39,7 +27,7 @@ SCRIPT_START script_08016384
 	FacePlayerAndCheckDist
 	HasRupees 0x00c8
 	CheckTextboxResult
-	CheckKinstoneFused 0x0001
+	CheckKinstoneFused KINSTONE_1
 	BuyItem 0x006c, 0x0000
 	CheckBottleContaining 0x0020
 	VariableBitSet 0x00000000
@@ -53,10 +41,10 @@ SCRIPT_START script_08016384
 	SetSyncFlag 0x00000001
 	ClearSyncFlag 0x00000002
 	SetLocalFlag 0x0067
-	SetLocalFlagByBank 0x0100, 0x0001
+	SetLocalFlagByBank FLAG_BANK_1, 0x0001
 	ClearLocalFlag 0x0067
-	SetGlobalFlag 0x0013
-	ClearGlobalFlag 0x0013
+	SetGlobalFlag START
+	ClearGlobalFlag START
 	SetRoomFlag 0x0000
 	ClearRoomFlag 0x0000
 	Wait 0x001e

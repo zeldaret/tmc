@@ -15,7 +15,7 @@ script_0800B734:
 	WaitForSyncFlagAndClear 0x00000004
 	CheckLocalFlag 0x00a0
 	JumpIf script_0800B7A2
-	MessageNoOverlap 0x0580
+	MessageNoOverlap TEXT_ITEM_GET, 0x80
 	WaitUntilTextboxCloses
 	CallWithArg CheckMessageEqual, 0x00000582
 	JumpIf script_0800B794
@@ -28,7 +28,7 @@ script_0800B794:
 	GivePlayerItem 0x0065
 	Jump script_0800B698
 script_0800B7A2:
-	MessageNoOverlap 0x0590
+	MessageNoOverlap TEXT_ITEM_GET, 0x90
 	WaitUntilTextboxCloses
 	SetFadeTime 0x0010
 	SetFade7
@@ -36,7 +36,7 @@ script_0800B7A2:
 	ModHealth 0x00a0
 	SetFade6 
 	WaitForFadeFinish 
-	MessageNoOverlap 0x057f
+	MessageNoOverlap TEXT_ITEM_GET, 0x7f
 	WaitUntilTextboxCloses
 	Jump script_0800B6A6
 	.2byte 0x0000

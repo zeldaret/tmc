@@ -13,7 +13,7 @@ SCRIPT_START script_Object69DarknutFight
 	SetRoomFlag 0x0000
 	Wait 0x0010
 	PlayBgm BGM_FIGHT_THEME
-	EzloMessage 0x2701
+	EzloMessage TEXT_TREASURE_GUARDIAN, 0x01
 	EnablePlayerControl
 	Call sub_0807DF50
 SCRIPT_END

@@ -6,7 +6,7 @@ SCRIPT_START script_ForestMinish14
 script_0801662E:
 	TriggerInteract
 	SetPlayerIdle
-	EzloMessage 0x0603
+	EzloMessage TEXT_LOCATIONS, 0x03
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

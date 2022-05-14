@@ -11,7 +11,7 @@ script_0800E832:
 	SetPlayerIdle
 	SetAnimationState 0x0004
 	BeginBlock 
-	MessageFromTarget 0x4501
+	MessageFromTarget TEXT_HAPPY_HEARTH, 0x01
 	CallWithArg sub_0807F854, 0x00010032
 	CallWithArg sub_0807F854, 0x000200c8
 	CallWithArg sub_0807F854, 0x00030190
@@ -21,7 +21,7 @@ script_0800E832:
 	JumpTable script_0800E910, script_RentSmallRoom, script_RentRegularRoom, script_0800E872
 script_0800E872: @ Rent large room
 	BeginBlock 
-	MessageFromTarget 0x4505
+	MessageFromTarget TEXT_HAPPY_HEARTH, 0x05
 	CallWithArg sub_0807F854, 0x00010190
 	EndBlock
 	WaitUntilTextboxCloses
@@ -29,7 +29,7 @@ script_0800E872: @ Rent large room
 	JumpIfNot script_EmmaNotEnoughRupees
 	ModRupees 0xfe70
 	SetLocalFlag 0x0091
-	MessageFromTarget 0x4508
+	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses
 	Call sub_0806C578
 SCRIPT_END

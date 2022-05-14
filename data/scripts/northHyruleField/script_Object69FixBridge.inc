@@ -1,19 +1,7 @@
 @ Outside Caste OBJECT_69 Fix bridge
 SCRIPT_START script_Object69FixBridge
 	BeginBlock
-.ifdef JP
-	SetLocalFlag 0x008c
-.else
-.ifdef EU
-	SetLocalFlag 0x008c
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x008c @ TODO deduplicate
-.else
-	SetLocalFlag 0x008e
-.endif
-.endif
-.endif
+	SetLocalFlag SOUGEN_06_SLIDE
 	SetPlayerIdle
 	MoveEntityToPlayer
 	CameraTargetEntity

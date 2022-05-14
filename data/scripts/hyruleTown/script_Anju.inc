@@ -12,7 +12,7 @@ script_0801015A:
 	FacePlayer
 	CheckRoomFlag 0x0001
 	JumpIf script_0801019E
-	MessageFromTargetPos 0x3001, 0x0000
+	MessageFromTargetPos TEXT_ANJU, 0x01, 0x0000
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_080101A6
@@ -38,7 +38,7 @@ script_080101AC:
 	Call sub_080A1270
 	SetPlayerIdle
 	Call sub_0807DF28
-	MessageFromTargetPos 0x3004, 0x0007
+	MessageFromTargetPos TEXT_ANJU, 0x04, 0x0007
 	WaitUntilTextboxCloses
 	StopBgm
 	SetFadeTime 0x0004

@@ -13,7 +13,7 @@ SCRIPT_START script_Npc4EOutro
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000080
-	MessageFromTargetPos 0x1659, 0x0000
+	MessageFromTargetPos TEXT_VAATI2, 0x59, 0x0000
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	SetSyncFlag 0x00000010
@@ -28,10 +28,10 @@ SCRIPT_START script_Npc4EOutro
 	SetSyncFlag 0x00000004
 	Call CreatePlayerExclamationMark
 	WaitForSyncFlagAndClear 0x00000080
-	MessageFromTargetPos 0x165a, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x5a, 0x000e
 	WaitUntilTextboxCloses
 	Wait 0x003c
-	MessageFromTargetPos 0x165b, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x5b, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000040
@@ -46,10 +46,10 @@ SCRIPT_START script_Npc4EOutro
 	WaitForSyncFlagAndClear 0x00000100
 	SetSyncFlag 0x00000006
 	WaitForSyncFlagAndClear 0x000000c0
-	MessageFromTargetPos 0x165c, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x5c, 0x000e
 	WaitUntilTextboxCloses
 	StopBgm
-	MessageFromTargetPos 0x165d, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x5d, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000006
 	WaitForSyncFlagAndClear 0x000000c0

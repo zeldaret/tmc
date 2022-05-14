@@ -10,7 +10,7 @@ script_0800B5FA:
 	JumpIfNot script_0800B5FA
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x2009
+	MessageNoOverlap TEXT_LON_LON, 0x09
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	SetAnimationState 0x0004

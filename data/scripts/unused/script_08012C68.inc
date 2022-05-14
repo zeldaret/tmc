@@ -11,9 +11,9 @@ script_08012C7E:
 	JumpIfNot script_08012C7E
 	SetPlayerIdle 
 	_0807E8E4_0 
-	MessageFromTarget 0x111d
+	MessageFromTarget TEXT_FINDING_EZLO, 0x1d
 	WaitUntilTextboxCloses
-	SetGlobalFlag 0x0022
+	SetGlobalFlag ENTRANCE_OK
 	EnablePlayerControl
 	Jump script_08012C7E
 

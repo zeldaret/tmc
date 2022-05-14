@@ -20,7 +20,7 @@ SCRIPT_START script_TalonGotKey
 	InitItemGetSequence 0x0037
 	WaitPlayerGetItem 
 	FaceAwayFromPlayer 
-	MessageFromTarget 0x200c
+	MessageFromTarget TEXT_LON_LON, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x0014
 	_0807EDD4 0x0158, 0x0290

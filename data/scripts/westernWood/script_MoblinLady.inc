@@ -10,7 +10,7 @@ script_08012338:
 	JumpIfNot script_08012338
 	FacePlayer 
 	SetPlayerIdle 
-	MessageFromTarget 0x2304
+	MessageFromTarget TEXT_PERCY, 0x04
 	WaitUntilTextboxCloses
 	CheckLocalFlag 0x0042
 	JumpIf script_0801235A

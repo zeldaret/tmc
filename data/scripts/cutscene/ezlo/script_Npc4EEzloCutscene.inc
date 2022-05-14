@@ -11,7 +11,7 @@ script_0801248A:
 	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtFirstLookAtEzlo
-	MessageFromTargetPos 0x1101, 0x0007
+	MessageFromTargetPos TEXT_FINDING_EZLO, 0x01, 0x0007
 	WaitUntilTextboxCloses
 	CameraTargetPlayer 
 	SetFadeTime 0x0004
@@ -127,8 +127,8 @@ script_08012566:
 	Wait 0x003c
 	PlayBGM
 	Call sub_08054570
-	SetGlobalFlag 0x0014
-	CallWithArg ResetPlayerFlag, 0x00000008
+	SetGlobalFlag EZERO_1ST
+	CallWithArg ResetPlayerFlag, PL_NO_CAP
 	Call sub_0807DF50
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

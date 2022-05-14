@@ -250,7 +250,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
     u8* ptr;
     u8* ptr2;
 
-    if (CheckGlobalFlag(3)) {
+    if (CheckGlobalFlag(LV2_CLEAR)) {
         gScreen.lcd.displayControl &= 0xFDFF;
         sub_0807AABC(&gPlayerEntity);
         DeleteThisEntity();

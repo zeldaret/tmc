@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerGetSword
 	PlaySound SFX_ITEM_GET
 	CallWithArg SetPlayerAnimation2, 0x0000045f
 	Call WaitForPlayerAnim
-	MessageFromTargetPos 0x0501, 0x000e
+	MessageFromTargetPos TEXT_ITEM_GET, 0x01, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000020
 	Call SetPlayerActionNormal

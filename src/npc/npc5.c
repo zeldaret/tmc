@@ -78,7 +78,7 @@ extern u16* gUnk_0810B660[8];
 
 void CreateZeldaFollower(void) {
     Entity* npc;
-    if (CheckGlobalFlag(0x1c) != 0) {
+    if (CheckGlobalFlag(ZELDA_CHASE) != 0) {
         npc = CreateNPC(ZELDA_FOLLOWER, 0, 0);
         if (npc != NULL) {
             CopyPosition(&gPlayerEntity, npc);

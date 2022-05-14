@@ -9,7 +9,7 @@ SCRIPT_START script_PlayerAtTakeover
 	DoPostScriptAction 0x0000
 	CallWithArg SetPlayerAnimation2, 0x000003c5
 	Call WaitForPlayerAnim
-	MessageFromTargetPos 0x1318, 0x000c
+	MessageFromTargetPos TEXT_VAATI, 0x18, 0x000c
 	WaitUntilTextboxCloses
 	CallWithArg SetPlayerAnimation2, 0x000003c9
 	Call WaitForPlayerAnim

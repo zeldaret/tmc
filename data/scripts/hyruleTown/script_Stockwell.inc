@@ -30,7 +30,7 @@ script_080142C4:
 	Wait 0x000a
 	SetAnimation 0x0002
 	Wait 0x001e
-	MessageNoOverlap 0x2c12
+	MessageNoOverlap TEXT_STOCKWELL, 0x12
 	WaitUntilTextboxCloses
 	Wait 0x0014
 	SetAnimation 0x0004
@@ -54,7 +54,7 @@ script_08014330:
 	Wait 0x001e
 	SetAnimation 0x0001
 	Wait 0x001e
-	MessageNoOverlap 0x2c13
+	MessageNoOverlap TEXT_STOCKWELL, 0x13
 	WaitUntilTextboxCloses
 	Wait 0x0014
 	SetAnimation 0x0004

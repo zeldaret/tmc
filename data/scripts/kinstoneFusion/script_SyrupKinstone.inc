@@ -7,7 +7,7 @@ script_0800BB04:
 	JumpIfNot script_0800BB04
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x0e02
+	MessageNoOverlap TEXT_KINSTONE, 0x02
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	DoPostScriptAction 0x000f

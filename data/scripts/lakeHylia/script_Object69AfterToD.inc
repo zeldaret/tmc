@@ -9,9 +9,9 @@ script_0800AFB2:
 	JumpIfNot script_0800AFB2
 	EndBlock
 	Call sub_0807DF28
-	EzloMessage 0x1c04
+	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x04
 	WaitUntilTextboxCloses
-	SetLocalFlagByBank 0x0100, 0x0004
+	SetLocalFlagByBank FLAG_BANK_1, 0x0004
 	Call sub_0807DF50
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

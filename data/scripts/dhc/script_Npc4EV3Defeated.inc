@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4EV3Defeated
 	EndBlock
 script_0800A0FE:
-	CheckGlobalFlag 0x0051
+	CheckGlobalFlag ENDING
 	JumpIfNot script_0800A0FE
 	BeginBlock
 	SetPlayerIdle

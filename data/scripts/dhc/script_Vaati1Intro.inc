@@ -20,7 +20,7 @@ SCRIPT_START script_Vaati1Intro
 	Call sub_08066C94
 	Wait 0x00e9
 	DoPostScriptAction 0x0007
-	MessageFromTargetPos 0x162f, 0x0002
+	MessageFromTargetPos TEXT_VAATI2, 0x2f, 0x0002
 	WaitUntilTextboxCloses
 	PlayBgm BGM_VAATI_REBORN
 	DoPostScriptAction 0x0019

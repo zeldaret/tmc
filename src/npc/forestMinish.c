@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "playeritem.h"
 #include "item.h"
+#include "kinstone.h"
 
 extern SpriteLoadData gUnk_0810A348;
 extern u8* gUnk_08109D18[];
@@ -134,7 +135,7 @@ void sub_080601D4(Entity* this) {
 
     if (CheckGlobalFlag(LV3_CLEAR) == 0) {
         uVar2 = 2;
-    } else if (CheckKinstoneFused(0x17)) {
+    } else if (CheckKinstoneFused(KINSTONE_17)) {
         uVar2 = 1;
     } else {
         uVar2 = 0;

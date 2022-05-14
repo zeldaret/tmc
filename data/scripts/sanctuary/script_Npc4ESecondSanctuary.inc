@@ -70,7 +70,7 @@ script_0801373C:
 	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_ITEM_GET
-	MessageFromTargetPos 0x0504, 0x000c
+	MessageFromTargetPos TEXT_ITEM_GET, 0x04, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000
 	SetLocalFlag 0x007b
