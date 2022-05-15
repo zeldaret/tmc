@@ -59,7 +59,7 @@ script_080138D0:
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpFinalSword
 	SetSyncFlag 0x00000080
-	SetInventoryValue 0x0006, 0x0001
+	SetInventoryValue ITEM_FOURSWORD, 0x0001
 	Call UpdatePlayerSkills
 	Call NPC4E_SaveEquippedItems
 	Call NPC4E_RestoreEquippedItems

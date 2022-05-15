@@ -39,7 +39,7 @@ script_08013006:
 	Call sub_0807DF28
 	EndBlock
 	PlaySound SFX_TASK_COMPLETE
-	InitItemGetSequence 0x0038
+	InitItemGetSequence ITEM_QST_MUSHROOM
 	WaitPlayerGetItem
 	Wait 0x001e
 	_0807E8E4_0

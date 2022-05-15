@@ -18,7 +18,7 @@ script_08014E64:
 	JumpIfNot script_08014EBC
 	CallWithArg sub_0807F7C4, 0x00000022
 	JumpIfNot script_08014EB0
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_08014EB8
 	CallWithArg sub_0807F800, 0x00000022
 	WaitPlayerGetItem 

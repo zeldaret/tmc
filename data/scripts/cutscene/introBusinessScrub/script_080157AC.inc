@@ -46,7 +46,7 @@ script_08015880:
 	JumpIfNot script_08015880
 script_08015888:
 	WaitUntilTextboxCloses
-	ComparePlayerAction 0x001c
+	ComparePlayerAction PLAYER_SLEEP
 	JumpIf script_08015888
 	SetPlayerIdle
 	Call sub_0807DF28

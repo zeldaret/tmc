@@ -25,18 +25,18 @@ SCRIPT_START script_08016384
 	CheckPlayerInRegion2 0x0000
 	CheckEntityInteractType
 	FacePlayerAndCheckDist
-	HasRupees 0x00c8
+	HasRupees 200
 	CheckTextboxResult
 	CheckKinstoneFused KINSTONE_1
-	BuyItem 0x006c, 0x0000
-	CheckBottleContaining 0x0020
+	BuyItem ITEM_BOMBS10, 0x0000
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	VariableBitSet 0x00000000
 	VariableOnlyBitSet 0x00000000
 	VariableEqual 0x00000000
-	CheckPlayerFlags 0x00000080
+	CheckPlayerFlags PL_MINISH
 	CheckPlayerMinish
 	EntityHasHeight
-	ComparePlayerAction 0x0001
+	ComparePlayerAction PLAYER_NORMAL
 	ComparePlayerAnimationState 0x0004
 	SetSyncFlag 0x00000001
 	ClearSyncFlag 0x00000002

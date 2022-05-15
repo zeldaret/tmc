@@ -9,11 +9,11 @@ SCRIPT_START script_DampeInside
 	WaitUntilTextboxCloses
 	JumpIfNot script_08009622
 	PlaySound SFX_ITEM_GET
-	InitItemGetSequence 0x003c
+	InitItemGetSequence ITEM_QST_GRAVEYARD_KEY
 	MessageFromTarget TEXT_ITEM_GET, 0x3c
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
-	SetInventoryValue 0x003c, 0x0001
+	SetInventoryValue ITEM_QST_GRAVEYARD_KEY, 0x0001
 script_08009622:
 	EnablePlayerControl
 	DoPostScriptAction 0x0000

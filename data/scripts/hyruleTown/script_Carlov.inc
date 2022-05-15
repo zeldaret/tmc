@@ -21,7 +21,7 @@ script_08014462:
 	DoPostScriptAction 0x0001
 	Wait 0x008c
 	DoPostScriptAction 0x0000
-	HasRupees 0x000a
+	HasRupees 10
 	JumpIf script_080144A2
 	MessageFromTarget TEXT_BURLOV, 0x04
 	Jump script_080144FC

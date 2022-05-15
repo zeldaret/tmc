@@ -18,7 +18,7 @@ script_08010746:
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_08010786
-	HasRupees 0x00c8
+	HasRupees 200
 	JumpIf script_08010778
 	MessageNoOverlap TEXT_POST, 0x08
 	Jump script_08010786

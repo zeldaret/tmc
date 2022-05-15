@@ -24,7 +24,7 @@ script_080106E0:
 	CheckTextboxResult
 	JumpIfNot script_08010726
 	WaitUntilTextboxCloses
-	BuyItem 0x0000, 0x0000
+	BuyItem ITEM_NONE, 0x0000
 	JumpIf script_0801070C
 	MessageNoOverlap TEXT_BAKERY, 0x04
 	Jump script_08010726

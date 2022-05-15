@@ -84,7 +84,7 @@ script_0800D0A8:
 	PlaySound SFX_TASK_COMPLETE
 	Call sub_08068964
 script_0800D108:
-	ComparePlayerAction 0x0008
+	ComparePlayerAction PLAYER_ITEMGET
 	JumpIf script_0800D108
 	PlaySound SFX_F8
 	SetSyncFlag 0x00000010

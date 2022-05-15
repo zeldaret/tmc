@@ -11,7 +11,7 @@ script_0801619A:
 	MessageFromTargetTable TEXT_SYRUP << 8 | 0x05, TEXT_SYRUP << 8 | 0x04, TEXT_SYRUP << 8 | 0x04, TEXT_SYRUP << 8 | 0x04
 	CheckTextboxResult 
 	JumpIfNot script_080161E2
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIf script_080161C6
 	MessageFromTarget TEXT_SYRUP, 0x0c
 	Jump script_080161E2

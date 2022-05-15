@@ -21,9 +21,9 @@ script_08014F4A:
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_08014FA6
-	HasRupees 0x0064
+	HasRupees 100
 	JumpIfNot script_08014F9A
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_08014FA2
 	ModRupees -100
 	GivePlayerItem ITEM_BOTTLE_MILK

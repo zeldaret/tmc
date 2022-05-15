@@ -10,7 +10,7 @@ script_08013FA4:
 	BeginBlock
 	CheckInventory1 ITEM_RED_SWORD
 	JumpIfNot script_08013FA4
-	CheckPlayerFlags 0x00400000
+	CheckPlayerFlags PL_CLONING
 	JumpIfNot script_08013FA4
 	EndBlock
 	Call WaitForPlayerNormalOrTalkEzlo

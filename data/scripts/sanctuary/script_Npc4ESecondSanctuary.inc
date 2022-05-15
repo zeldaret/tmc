@@ -55,7 +55,7 @@ script_0801373C:
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpSword
 	SetSyncFlag 0x00000080
-	SetInventoryValue 0x0004, 0x0001
+	SetInventoryValue ITEM_BLUE_SWORD, 0x0001
 	Call NPC4E_SaveEquippedItems
 	Call NPC4E_RestoreEquippedItems
 	Call WaitForPlayerAnim

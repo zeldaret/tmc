@@ -28,7 +28,7 @@ script_080160E0:
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_08016132
-	BuyItem 0x0000, 0x0000
+	BuyItem ITEM_NONE, 0x0000
 	JumpIf script_0801610C
 	MessageFromTarget TEXT_SYRUP, 0x0b
 	WaitUntilTextboxCloses

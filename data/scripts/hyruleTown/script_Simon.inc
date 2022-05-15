@@ -33,7 +33,7 @@ script_08011B9A:
 	SetAnimationState 0x0004
 	Jump script_08011B84
 script_08011BA4:
-	HasRupees 0x000a
+	HasRupees 10
 	JumpIf script_08011BBC
 	DoPostScriptAction 0x0004
 	Wait 0x003c

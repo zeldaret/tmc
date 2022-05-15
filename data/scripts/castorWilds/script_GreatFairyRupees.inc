@@ -3,7 +3,7 @@ SCRIPT_START script_GreatFairyRupees
 	BeginBlock
 	EndBlock
 script_0800B6CC:
-	HasRupees 0x0001
+	HasRupees 1
 	JumpIfNot script_0800B6CC
 script_0800B6D4:
 	CheckPlayerInRegion 0x0078, 0x00b8, 0x1060

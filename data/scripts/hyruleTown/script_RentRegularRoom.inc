@@ -5,7 +5,7 @@ SCRIPT_START script_RentRegularRoom
 	CallWithArg sub_0807F854, 0x000100c8
 	EndBlock
 	WaitUntilTextboxCloses
-	HasRupees 0x00c8
+	HasRupees 200
 	JumpIfNot script_EmmaNotEnoughRupees
 	ModRupees -200
 	SetLocalFlag 0x0091

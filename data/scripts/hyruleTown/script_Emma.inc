@@ -25,7 +25,7 @@ script_0800E872: @ Rent large room
 	CallWithArg sub_0807F854, 0x00010190
 	EndBlock
 	WaitUntilTextboxCloses
-	HasRupees 0x0190
+	HasRupees 400
 	JumpIfNot script_EmmaNotEnoughRupees
 	ModRupees -400
 	SetLocalFlag 0x0091

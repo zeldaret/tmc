@@ -12,14 +12,14 @@ script_0801203A:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	CheckLocalFlag 0x0094
+	CheckLocalFlag MHOUSE_DIN_TALK
 	JumpIf script_0801205E
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x22
 	WaitUntilTextboxCloses
-	SetLocalFlag 0x0094
+	SetLocalFlag MHOUSE_DIN_TALK
 	Jump script_0801209E
 script_0801205E:
-	CheckBottleContaining 0x0031
+	CheckBottleContaining BOTTLE_CHARM_DIN
 	JumpIfNot script_08012070
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x23
 	WaitUntilTextboxCloses
@@ -29,7 +29,7 @@ script_08012070:
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0801209E
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_0801209A
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x25
 	WaitUntilTextboxCloses

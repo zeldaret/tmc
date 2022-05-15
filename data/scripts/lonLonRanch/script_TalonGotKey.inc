@@ -17,7 +17,7 @@ SCRIPT_START script_TalonGotKey
 	FacePlayer
 	Wait 0x003c
 	PlaySound SFX_TASK_COMPLETE
-	InitItemGetSequence 0x0037
+	InitItemGetSequence ITEM_QST_LONLON_KEY
 	WaitPlayerGetItem 
 	FaceAwayFromPlayer 
 	MessageFromTarget TEXT_LON_LON, 0x0c
