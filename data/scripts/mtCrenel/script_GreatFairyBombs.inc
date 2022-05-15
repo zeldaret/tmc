@@ -25,7 +25,7 @@ script_0800B734:
 script_0800B794:
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x00a0
-	GivePlayerItem 0x0065
+	GivePlayerItem ITEM_BOMBBAG
 	Jump script_0800B698
 script_0800B7A2:
 	MessageNoOverlap TEXT_ITEM_GET, 0x90

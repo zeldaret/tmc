@@ -40,7 +40,7 @@ script_08011BA4:
 	MessageNoOverlap TEXT_SIMON, 0x05
 	Jump script_08011B9A
 script_08011BBC:
-	ModRupees 0xfff6
+	ModRupees -10
 	Wait 0x001e
 	MessageNoOverlap TEXT_SIMON, 0x06
 	WaitUntilTextboxCloses

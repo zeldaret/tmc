@@ -27,7 +27,7 @@ script_0800E872: @ Rent large room
 	WaitUntilTextboxCloses
 	HasRupees 0x0190
 	JumpIfNot script_EmmaNotEnoughRupees
-	ModRupees 0xfe70
+	ModRupees -400
 	SetLocalFlag 0x0091
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses

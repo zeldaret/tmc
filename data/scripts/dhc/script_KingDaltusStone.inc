@@ -42,7 +42,7 @@ script_0800E3C8:
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	GivePlayerItem 0x0053
+	GivePlayerItem ITEM_SMALL_KEY
 	WaitPlayerGetItem
 	SetLocalFlag 0x0071
 	EnablePlayerControl

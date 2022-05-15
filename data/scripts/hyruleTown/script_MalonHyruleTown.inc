@@ -25,8 +25,8 @@ script_08014F4A:
 	JumpIfNot script_08014F9A
 	CheckBottleContaining 0x0020
 	JumpIfNot script_08014FA2
-	ModRupees 0xff9c
-	GivePlayerItem 0x0022
+	ModRupees -100
+	GivePlayerItem ITEM_BOTTLE_MILK
 	WaitPlayerGetItem 
 	MessageNoOverlap TEXT_MILK, 0x11
 	Jump script_08014FA6

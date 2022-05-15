@@ -32,7 +32,7 @@ script_0800B684:
 script_0800B68E:
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x009e
-	GivePlayerItem 0x0066
+	GivePlayerItem ITEM_LARGE_QUIVER
 script_0800B698:
 	WaitPlayerGetItem
 	FaceAwayFromPlayer

@@ -7,7 +7,7 @@ SCRIPT_START script_RentSmallRoom
 	WaitUntilTextboxCloses
 	HasRupees 0x0032
 	JumpIfNot script_EmmaNotEnoughRupees
-	ModRupees 0xffce
+	ModRupees -50
 	SetLocalFlag 0x0091
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x08
 	WaitUntilTextboxCloses

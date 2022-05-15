@@ -23,7 +23,7 @@ script_08010746:
 	MessageNoOverlap TEXT_POST, 0x08
 	Jump script_08010786
 script_08010778:
-	ModRupees 0xff38
+	ModRupees -200
 	Call sub_08062E14
 	MessageNoOverlap TEXT_POST, 0x07
 script_08010786:

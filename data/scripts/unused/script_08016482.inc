@@ -63,16 +63,16 @@ SCRIPT_START script_08016482
 	DoPostScriptAction2 0x0001
 	PlaySound SFX_METAL_CLINK
 	PlayBgm BGM_MINISH_WOODS
-	SoundReq 0x00000074
+	SoundReq SFX_METAL_CLINK
 	StopBgm
-	ModRupees 0xff38
+	ModRupees -200
 	ModHealth 0x0010
 	IncreaseMaxHealth
 	GiveKinstone 0x0001
-	GivePlayerItem 0x0001
-	GetInventoryValue 0x0001
-	SetInventoryValue 0x0001, 0x0002
-	InitItemGetSequence 0x0001
+	GivePlayerItem ITEM_SMITH_SWORD
+	GetInventoryValue ITEM_SMITH_SWORD
+	SetInventoryValue ITEM_SMITH_SWORD, 0x0002
+	InitItemGetSequence ITEM_SMITH_SWORD
 	CameraTargetEntity
 	CameraTargetPlayer
 	_0807F0B4 0x0007

@@ -22,7 +22,7 @@ script_080143FA:
 	Wait 0x000a
 	SetIntVariable 0x00000000
 	Call sub_08065528
-	GivePlayerItem 0x0036
+	GivePlayerItem ITEM_QST_DOGFOOD
 	WaitPlayerGetItem 
 	MessageNoOverlap TEXT_STOCKWELL, 0x19
 	WaitUntilTextboxCloses

@@ -33,7 +33,7 @@ script_080120FC:
 	JumpIfNot script_08012126
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x19
 	WaitUntilTextboxCloses
-	GivePlayerItem 0x002f
+	GivePlayerItem BOTTLE_CHARM_NAYRU
 	WaitPlayerGetItem
 .ifdef USA
 	Call sub_0807FC24

@@ -14,7 +14,7 @@ script_0801690A:
 	Call sub_08064F28
 	WaitUntilTextboxCloses
 	JumpIfNot script_08016926
-	GivePlayerItem 0x003d
+	GivePlayerItem ITEM_QST_TINGLE_TROPHY
 	WaitPlayerGetItem
 script_08016926:
 	EnablePlayerControl

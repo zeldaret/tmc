@@ -17,7 +17,7 @@ script_08012440:
 	CheckLocalFlag 0x00b3
 	JumpIf script_08012474
 	SetLocalFlag 0x00b3
-	GivePlayerItem 0x0062
+	GivePlayerItem ITEM_HEART_CONTAINER
 	WaitPlayerGetItem
 .ifdef USA
 	SetLocalFlag 0x00d0

@@ -21,7 +21,7 @@ script_0800F09A:
 	_0807E8E4_0 
 	MessageFromTargetPos TEXT_MINISH2, 0x02, 0x000c
 	WaitUntilTextboxCloses
-	GivePlayerItem 0x0067
+	GivePlayerItem ITEM_KINSTONE_BAG
 	WaitPlayerGetItem
 	_0807E8E4_0
 	SetSyncFlag 0x00000002

@@ -9,7 +9,7 @@ script_0800EF50:
 	Call sub_080869A4
 	JumpIfNot script_0800EF50
 	SetPlayerIdle
-	CheckLocalFlagByBank 0x0200, 0x006d
+	CheckLocalFlagByBank FLAG_BANK_2, 0x006d
 	JumpIf script_0800EF82
 	MessageFromTarget TEXT_DR_LEFT, 0x01
 	WaitUntilTextboxCloses

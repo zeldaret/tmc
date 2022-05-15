@@ -44,7 +44,7 @@ script_080144C0:
 .endif
 .endif
 script_080144C8:
-	ModRupees 0xfff6
+	ModRupees -10
 	MessageFromTarget TEXT_BURLOV, 0x0c
 	PlaySound SFX_BUTTON_PRESS
 	Wait 0x0018

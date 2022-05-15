@@ -62,7 +62,7 @@ script_08013006:
 	MessageNoOverlap TEXT_REM, 0x05
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000200
-	GivePlayerItem 0x0015
+	GivePlayerItem ITEM_PEGASUS_BOOTS
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
 	MessageNoOverlap TEXT_REM, 0x06
