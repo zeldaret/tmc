@@ -24,33 +24,33 @@ script_080160E0:
 	EndBlock
 	HasRoomItemForSale
 	JumpIfNot script_0801611A
-	MessageFromTarget 0x2d07
+	MessageFromTarget TEXT_SYRUP, 0x07
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_08016132
-	BuyItem 0x0000, 0x0000
+	BuyItem ITEM_NONE, 0x0000
 	JumpIf script_0801610C
-	MessageFromTarget 0x2d0b
+	MessageFromTarget TEXT_SYRUP, 0x0b
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801610C:
 	WaitPlayerGetItem
 .ifndef EU
 	FaceAwayFromPlayer 
-	MessageFromTarget 0x2d0d
+	MessageFromTarget TEXT_SYRUP, 0x0d
 .else
-	MessageFromTarget 0x2d08
+	MessageFromTarget TEXT_SYRUP, 0x08
 .endif
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801611A:
-	CheckKinstoneFused 0x0014
+	CheckKinstoneFused KINSTONE_14
 	JumpIfNot script_0801612C
-	MessageFromTarget 0x2d09
+	MessageFromTarget TEXT_SYRUP, 0x09
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801612C:
-	MessageFromTarget 0x2d01
+	MessageFromTarget TEXT_SYRUP, 0x01
 	WaitUntilTextboxCloses
 script_08016132:
 	EnablePlayerControl

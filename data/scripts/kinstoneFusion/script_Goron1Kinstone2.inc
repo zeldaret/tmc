@@ -9,7 +9,7 @@ SCRIPT_START script_Goron1Kinstone2
 	Wait 0x00f0
 	SetAnimation 0x0000
 	Wait 0x003c
-	MessageNoOverlap 0x0e0a
+	MessageNoOverlap TEXT_KINSTONE, 0x0a
 	WaitUntilTextboxCloses
 	SetAnimation 0x0008
 	Wait 0x003c
@@ -22,7 +22,7 @@ script_0800BD1C:
 	SetAnimation 0x0000
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x0e0c
+	MessageNoOverlap TEXT_KINSTONE, 0x0c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004

@@ -6,24 +6,12 @@ SCRIPT_START script_BigGoronMirrorShield
 	Wait 0x003c
 	Call sub_0806D70C
 	Wait 0x003c
-.ifdef JP
-	ClearLocalFlag 0x00ac
-.else
-.ifdef EU
-	ClearLocalFlag 0x00ac
-.else
-.ifdef DEMO_JP
-	ClearLocalFlag 0x00ac @ TODO deduplicate
-.else
-	ClearLocalFlag 0x00ae
-.endif
-.endif
-.endif
+	ClearLocalFlag DAIGORON_EXCHG
 	Call sub_0806D620
 	Wait 0x003c
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
-	MessageNoOverlap 0x1d0c
+	MessageNoOverlap TEXT_GORONS, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	Jump script_08009376

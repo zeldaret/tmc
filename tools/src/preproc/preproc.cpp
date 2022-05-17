@@ -19,7 +19,9 @@
 // THE SOFTWARE.
 
 #include <string>
+#include <cstring>
 #include <stack>
+#include <vector>
 #include "preproc.h"
 #include "asm_file.h"
 #include "c_file.h"
@@ -27,6 +29,7 @@
 
 Charmap* g_charmap;
 std::string g_buildName;
+std::vector<std::string> g_incPaths;
 
 void PrintAsmBytes(unsigned char* s, int length) {
     if (length > 0) {
@@ -117,13 +120,20 @@ char* GetFileExtension(char* filename) {
 }
 
 int main(int argc, char** argv) {
-    if (argc != 4 && argc != 3) {
-        std::fprintf(stderr, "Usage: %s BUILD_NAME SRC_FILE CHARMAP_FILE", argv[0]);
+    if (argc < 3) {
+        std::fprintf(stderr, "Usage: %s BUILD_NAME SRC_FILE [CHARMAP_FILE] -- [ASM INC PATH] ...", argv[0]);
         return 1;
     }
 
+    int pathStart = 0;
+    while (pathStart < argc && strcmp(argv[pathStart], "--") != 0) pathStart++;
+    
+    for (int i = pathStart + 1; i < argc; i++) {
+        g_incPaths.push_back(argv[i]);
+    }
+
     g_buildName = std::string(argv[1]);
-    g_charmap = new Charmap(argc == 4 ? argv[3] : "");
+    g_charmap = new Charmap(argc > 3 && pathStart > 3 ? argv[3] : "");
 
     char* extension = GetFileExtension(argv[2]);
 

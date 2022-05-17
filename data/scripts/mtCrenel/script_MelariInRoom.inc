@@ -17,7 +17,7 @@ script_0800D31E:
 	FacePlayer
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	MessageFromTarget 0x1219
+	MessageFromTarget TEXT_MINISH2, 0x19
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

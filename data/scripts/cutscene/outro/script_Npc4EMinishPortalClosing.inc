@@ -14,15 +14,15 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	Wait 0x003c
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	MessageFromTargetPos 0x165f, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x5f, 0x000e
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtEzlo
 	WaitForSyncFlagAndClear 0x00000001
-	MessageFromTargetPos 0x1660, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x60, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	MessageFromTargetPos 0x1661, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x61, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	SetSyncFlag 0x00000002
@@ -33,9 +33,9 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	StartPlayerScript script_PlayerGetGreenCap
 	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x003c
-	MessageFromTargetPos 0x1662, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x62, 0x000e
 	WaitUntilTextboxCloses
-	MessageFromTargetPos 0x1663, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x63, 0x000e
 	WaitUntilTextboxCloses
 	OffsetEntityPosition 0x0000, 0xffe0
 	Call WaitForCameraTouchRoomBorder
@@ -46,7 +46,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	StartPlayerScript script_PlayerSayGoodbye
 	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x003c
-	MessageFromTargetPos 0x1665, 0x000e
+	MessageFromTargetPos TEXT_VAATI2, 0x65, 0x000e
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004

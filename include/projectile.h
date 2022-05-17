@@ -1,6 +1,8 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 
+#include "entity.h"
+
 Entity* CreateProjectile(u32);
 bool32 IsProjectileOffScreen(Entity*);
 

@@ -57,15 +57,18 @@ DATA_ASM_SUBDIR = data
 SONG_SUBDIR = sound/songs
 MID_SUBDIR = sound/songs/midi
 ASSET_SUBDIR = assets
+ENUM_INCLUDE_SUBDIR = enum_include
 
 C_BUILDDIR = $(OBJ_DIR)/$(C_SUBDIR)
 ASM_BUILDDIR = $(OBJ_DIR)/$(ASM_SUBDIR)
+ASM_ENUM_INCLUDE_DIR = $(ASM_BUILDDIR)/$(ENUM_INCLUDE_SUBDIR)
 DATA_ASM_BUILDDIR = $(OBJ_DIR)/$(DATA_ASM_SUBDIR)
 SONG_BUILDDIR = $(OBJ_DIR)/$(SONG_SUBDIR)
 MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASSET_BUILDDIR = $(OBJ_DIR)/$(ASSET_SUBDIR)
+PREPROC_INC_PATHS = $(ASSET_BUILDDIR) $(ASM_ENUM_INCLUDE_DIR)
 
-ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1 -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR)
+ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1 -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR) -I $(ASM_ENUM_INCLUDE_DIR)
 
 CC1             := tools/agbcc/bin/agbcc
 override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar -g3
@@ -90,6 +93,7 @@ SCANINC := tools/bin/scaninc
 PREPROC := tools/bin/preproc
 FIX := tools/bin/gbafix
 ASSET_PROCESSOR := tools/bin/asset_processor
+ENUM_PROCESSOR := tools/extract_include_enum.py
 
 ASSET_CONFIGS = assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
 TRANSLATIONS = translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
@@ -142,10 +146,13 @@ SONG_OBJS := $(patsubst $(SONG_SUBDIR)/%.s,$(SONG_BUILDDIR)/%.o,$(SONG_SRCS))
 MID_SRCS := $(wildcard $(MID_SUBDIR)/*.mid)
 MID_OBJS := $(patsubst $(MID_SUBDIR)/%.mid,$(MID_BUILDDIR)/%.o,$(MID_SRCS))
 
+ENUM_ASM_SRCS := $(wildcard include/*.h)
+ENUM_ASM_HEADERS := $(patsubst include/%.h,$(ASM_ENUM_INCLUDE_DIR)/%.inc,$(ENUM_ASM_SRCS))
+
 OBJS := $(C_OBJS) $(ASM_OBJS) $(DATA_ASM_OBJS) $(SONG_OBJS) $(MID_OBJS)
 OBJS_REL := $(patsubst $(OBJ_DIR)/%,%,$(OBJS))
 
-SUBDIRS  := $(sort $(dir $(OBJS)))
+SUBDIRS  := $(sort $(dir $(OBJS) $(ENUM_ASM_HEADERS)))
 
 $(shell mkdir -p $(SUBDIRS))
 
@@ -253,16 +260,19 @@ $(ASM_BUILDDIR)/%.o: asm_dep = $(shell $(SCANINC) -I . $(ASM_SUBDIR)/$*.s)
 endif
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
-	$(PREPROC) $(BUILD_NAME) $< | $(AS) $(ASFLAGS) -o $@
+	$(PREPROC) $(BUILD_NAME) $< -- $(PREPROC_INC_PATHS) | $(AS) $(ASFLAGS) -o $@
+
+$(ASM_ENUM_INCLUDE_DIR)/%.inc: include/%.h
+	$(ENUM_PROCESSOR) $< $(CC) "-D__attribute__(x)=" "-D$(GAME_VERSION)" "-E" "-nostdinc" "-Itools/agbcc" "-Itools/agbcc/include" "-iquote include" > $@
 
 ifeq ($(NODEP),1)
 $(DATA_ASM_BUILDDIR)/%.o: data_dep :=
 else
-$(DATA_ASM_BUILDDIR)/%.o: data_dep = $(shell $(SCANINC) -I . -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR) $(DATA_ASM_SUBDIR)/$*.s)
+$(DATA_ASM_BUILDDIR)/%.o: data_dep = $(shell $(SCANINC) -I . -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR) -I $(ASM_ENUM_INCLUDE_DIR) $(DATA_ASM_SUBDIR)/$*.s)
 endif
 
-$(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
-	$(PREPROC) $(BUILD_NAME) $< charmap.txt | $(CPP) -I include -nostdinc -undef -Wno-unicode - | $(AS) $(ASFLAGS) -o $@
+$(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep) $(ENUM_ASM_HEADERS)
+	$(PREPROC) $(BUILD_NAME) $< charmap.txt -- $(PREPROC_INC_PATHS) | $(CPP) -I include -nostdinc -undef -Wno-unicode - | $(AS) $(ASFLAGS) -o $@
 
 $(SONG_BUILDDIR)/%.o: $(SONG_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -I sound -o $@ $<

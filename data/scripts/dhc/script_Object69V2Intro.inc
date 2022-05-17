@@ -5,7 +5,7 @@ SCRIPT_START script_Object69V2Intro
 	SetPlayerIdle
 	EndBlock
 	StopBgm
-	MessageFromTargetPos 0x1632, 0x0002
+	MessageFromTargetPos TEXT_VAATI2, 0x32, 0x0002
 	WaitUntilTextboxCloses
 	SetRoomFlag 0x0003
 script_0800DFFE:
@@ -21,7 +21,7 @@ script_0800E012:
 	SetPlayerIdle
 	Call sub_0807DF28
 	SetLocalFlag 0x007b
-	MessageFromTargetPos 0x1639, 0x000c
+	MessageFromTargetPos TEXT_VAATI2, 0x39, 0x000c
 	WaitUntilTextboxCloses
 	Wait 0x0096
 	PlaySound SFX_EVAPORATE

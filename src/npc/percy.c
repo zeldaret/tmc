@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "npc.h"
 #include "functions.h"
+#include "kinstone.h"
 
 static const SpriteLoadData gUnk_08112E1C[] = {
     { 0x30f6, 0x47, 0x4 },
@@ -109,7 +110,7 @@ void sub_0806B504(Entity* this) {
     int idx;
 
     idx = 1;
-    if (CheckKinstoneFused(0x21)) {
+    if (CheckKinstoneFused(KINSTONE_21)) {
         idx = 3;
     } else if (!CheckLocalFlag(URO_POEMN_TALK)) {
         idx = 0;

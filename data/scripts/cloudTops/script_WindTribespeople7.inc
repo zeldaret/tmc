@@ -1,7 +1,7 @@
 @ Cloud Tops Windtribespeople
 SCRIPT_START script_WindTribespeople7
 	BeginBlock
-	CheckGlobalFlag 0x0024
+	CheckGlobalFlag KUMOTATSUMAKI
 	JumpIf script_08014CD4
 	Call sub_0806C870
 	DoPostScriptAction 0x000a
@@ -10,7 +10,7 @@ SCRIPT_START script_WindTribespeople7
 script_08014CAE:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag 0x0024
+	CheckGlobalFlag KUMOTATSUMAKI
 	JumpIf script_08014CD4
 	FacePlayerAndCheckDist
 	JumpIfNot script_08014CAE

@@ -17,7 +17,7 @@ script_080145F8:
 	Wait 0x0018
 	_0807E8E4_3
 	SetAnimationState 0x0002
-	MessageFromTargetPos 0x432b, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x2b, 0x000c
 	WaitUntilTextboxCloses
 	Wait 0x0018
 	EnablePlayerControl

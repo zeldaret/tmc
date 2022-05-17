@@ -7,7 +7,7 @@ SCRIPT_START script_DampeOuside
 script_08009638:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag 0x0020
+	CheckGlobalFlag HAKA_KEY_LOST
 	JumpIfNot script_08009638
 	EndBlock
 script_08009646:
@@ -28,7 +28,7 @@ script_08009660:
 	JumpIfNot script_0800968E
 	PlaySound SFX_111
 	PlaySound SFX_SECRET
-	SetInventoryValue 0x003c, 0x0002
+	SetInventoryValue ITEM_QST_GRAVEYARD_KEY, 0x0002
 	Call sub_0806BEFC
 script_0800968E:
 	EnablePlayerControl

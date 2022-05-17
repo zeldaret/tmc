@@ -23,7 +23,7 @@ SCRIPT_START script_Npc4EFinalSwordRumble
 	MoveEntityToPlayer
 	CameraTargetEntity
 	Wait 0x003c
-	EzloMessage 0x1502
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x02
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer

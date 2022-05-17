@@ -15,7 +15,7 @@ script_08014FCC:
 	CameraTargetEntity
 	StartPlayerScript script_PlayerAtVaatisAppearance
 	WaitForSyncFlagAndClear 0x00000001
-	MessageFromTargetPos 0x1301, 0x0002
+	MessageFromTargetPos TEXT_VAATI, 0x01, 0x0002
 	WaitUntilTextboxCloses
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
@@ -24,17 +24,17 @@ script_08014FCC:
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	PlayBgm BGM_VAATI_THEME
-	EzloMessage 0x1302
+	EzloMessage TEXT_VAATI, 0x02
 	WaitUntilTextboxCloses
-	MessageFromTargetPos 0x1303, 0x0002
+	MessageFromTargetPos TEXT_VAATI, 0x03, 0x0002
 	WaitUntilTextboxCloses
-	EzloMessage 0x1304
+	EzloMessage TEXT_VAATI, 0x04
 	WaitUntilTextboxCloses
-	MessageFromTargetPos 0x1305, 0x0002
+	MessageFromTargetPos TEXT_VAATI, 0x05, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	EzloMessage 0x1306
+	EzloMessage TEXT_VAATI, 0x06
 	WaitUntilTextboxCloses
 	StopBgm
 	StartPlayerScript script_PlayerTryToFollowVaati
@@ -107,20 +107,8 @@ script_08015104:
 	PlaySound SFX_SECRET
 	_0807F0B4 0x0004
 	CameraTargetPlayer
-.ifdef JP
-	SetLocalFlag 0x008a
-.else
-.ifdef EU
-	SetLocalFlag 0x008a
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x008a @ TODO deduplicate
-.else
-	SetLocalFlag 0x008c
-.endif
-.endif
-.endif
-	EzloMessage 0x130c
+	SetLocalFlag SOUGEN_06_SAIKAI
+	EzloMessage TEXT_VAATI, 0x0c
 	WaitUntilTextboxCloses
 	@ Ezlo cutscene starts
 	CameraTargetPlayer
@@ -130,7 +118,7 @@ script_08015104:
 	Call sub_08053B3C
 	BeginBlock
 	SetPlayerIdle
-	CallWithArg SetPlayerFlag, 0x00000008
+	CallWithArg SetPlayerFlag, PL_NO_CAP
 	MoveEntityToPlayer
 	_0807F0B4 0x0004
 	CameraTargetEntity
@@ -148,7 +136,7 @@ script_08015104:
 	WaitForSyncFlagAndClear 0x00000010
 	BeginBlock
 	_0807E8E4_2
-	EzloMessage 0x1315
+	EzloMessage TEXT_VAATI, 0x15
 	EndBlock
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004

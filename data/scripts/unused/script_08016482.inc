@@ -30,12 +30,12 @@ SCRIPT_START script_08016482
 	_0807E9E4 0x0000
 	_0807EA88 0x0001
 	WaitUntilTextboxCloses
-	MessageFromTarget 0x0601
+	MessageFromTarget TEXT_LOCATIONS, 0x01
 	MessageNoOverlap 0x0601
-	MessageFromTargetPos_1 0x0601
-	MessageFromTargetTable 0x0601, 0x0602, 0x0603
+	MessageFromTargetPos_1 TEXT_LOCATIONS, 0x01
+	MessageFromTargetTable TEXT_LOCATIONS << 8 | 0x01, TEXT_LOCATIONS << 8 | 0x02, TEXT_LOCATIONS << 8 | 0x03
 	MessageNoOverlapVar 
-	EzloMessage 0x0602
+	EzloMessage TEXT_LOCATIONS, 0x02
 	_0807EB38
 	SetAnimationState 0x0000
 	_0807EB4C 0x0000, 0x0000
@@ -63,16 +63,16 @@ SCRIPT_START script_08016482
 	DoPostScriptAction2 0x0001
 	PlaySound SFX_METAL_CLINK
 	PlayBgm BGM_MINISH_WOODS
-	SoundReq 0x00000074
+	SoundReq SFX_METAL_CLINK
 	StopBgm
-	ModRupees 0xff38
+	ModRupees -200
 	ModHealth 0x0010
 	IncreaseMaxHealth
 	GiveKinstone 0x0001
-	GivePlayerItem 0x0001
-	GetInventoryValue 0x0001
-	SetInventoryValue 0x0001, 0x0002
-	_0807F088 0x0001
+	GivePlayerItem ITEM_SMITH_SWORD
+	GetInventoryValue ITEM_SMITH_SWORD
+	SetInventoryValue ITEM_SMITH_SWORD, 0x0002
+	InitItemGetSequence ITEM_SMITH_SWORD
 	CameraTargetEntity
 	CameraTargetPlayer
 	_0807F0B4 0x0007

@@ -16,7 +16,7 @@ script_08014B48:
 	EndBlock 
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x2f01
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl
@@ -57,14 +57,14 @@ script_08014BF2:
 	CheckLocalFlag 0x0065
 	JumpIf script_08014C1C
 	SetLocalFlag 0x0065
-	MessageNoOverlap 0x2f07
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x07
 	WaitUntilTextboxCloses
-	SetIntVariable 0x00000064
-	GivePlayerItem 0x003f
+	SetIntVariable 100
+	GivePlayerItem ITEM_SHELLS
 	WaitPlayerGetItem
 	Jump script_08014C22
 script_08014C1C:
-	MessageNoOverlap 0x2f08
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x08
 	WaitUntilTextboxCloses
 script_08014C22:
 	Wait 0x000f

@@ -59,7 +59,7 @@ script_080138D0:
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpFinalSword
 	SetSyncFlag 0x00000080
-	SetInventoryValue 0x0006, 0x0001
+	SetInventoryValue ITEM_FOURSWORD, 0x0001
 	Call UpdatePlayerSkills
 	Call NPC4E_SaveEquippedItems
 	Call NPC4E_RestoreEquippedItems
@@ -75,7 +75,7 @@ script_080138D0:
 	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_ITEM_GET
-	MessageFromTargetPos 0x0505, 0x000c
+	MessageFromTargetPos TEXT_ITEM_GET, 0x05, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000
 .ifndef EU

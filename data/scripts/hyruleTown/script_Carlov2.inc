@@ -21,7 +21,7 @@ script_0801463A:
 	CheckRoomFlag 0x0009
 	JumpIfNot script_0801463A
 	SetPlayerIdle
-	EzloMessage 0x431f
+	EzloMessage TEXT_CARLOV, 0x1f
 	WaitUntilTextboxCloses
 script_0801469A:
 	StartPlayerScript script_PlayerAtCarlov
@@ -35,7 +35,7 @@ script_080146E2:
 	SetAnimation 0x0008
 	Wait 0x0020
 	SetAnimation 0x0002
-	CheckGlobalFlag 0x0059
+	CheckGlobalFlag FIGURE_ALLCOMP
 	JumpIf script_0801472E_2
 	CheckRoomFlag 0x0009
 	JumpIf script_080146F4
@@ -51,7 +51,7 @@ script_080146E2:
 	SetRoomFlag 0x000a
 	Jump script_0801473C
 script_0801472E_2:
-	MessageFromTargetPos 0x432f, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x2f, 0x000c
 	Jump script_080147CE
 .else
 	CheckRoomFlag 0x0004
@@ -62,7 +62,7 @@ script_0801472E_2:
 	JumpIf script_080146A0
 	SetPlayerIdle 
 	FaceAwayFromPlayer 
-	MessageFromTargetPos 0x432b, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x2b, 0x000c
 	Jump script_080147CE
 script_08014672:
 .ifdef DEMO_JP
@@ -76,7 +76,7 @@ script_08014672:
 .endif
 	JumpIfNot script_0801463A
 	SetPlayerIdle
-	EzloMessage 0x431f
+	EzloMessage TEXT_CARLOV, 0x1f
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtCarlov
 	Wait 0x0010
@@ -91,9 +91,9 @@ script_080146A0:
 	FaceAwayFromPlayer
 	Wait 0x0010
 	SetAnimation 0x0002
-	CheckGlobalFlag 0x0059
+	CheckGlobalFlag FIGURE_ALLCOMP
 	JumpIfNot script_080146C6
-	MessageFromTargetPos 0x432f, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x2f, 0x000c
 	Jump script_080147CE
 script_080146C6:
 	CheckRoomFlag 0x0004
@@ -110,7 +110,7 @@ script_080146C6:
 .endif
 
 script_080146F4:
-	MessageFromTargetPos 0x431e, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x1e, 0x000c
 	Jump script_080147CE
 script_080146FE:
 .ifdef EU
@@ -123,11 +123,11 @@ script_080146FE:
 script_0801474A:
 	SetRoomFlag 0x000a
 .endif
-	MessageFromTargetPos 0x4305, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x05, 0x000c
 	WaitUntilTextboxCloses
 	HasShells 0x0001
 	JumpIfNot script_080147C4
-	MessageFromTargetPos 0x4306, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x06, 0x000c
 	Jump script_0801473C
 script_08014720:
 .ifdef EU
@@ -163,7 +163,7 @@ script_08014754:
 .else
 	SetRoomFlag 0x0004
 .endif
-	MessageFromTargetPos 0x431e, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x1e, 0x000c
 	Jump script_080147CE
 script_08014770:
 .ifdef EU
@@ -201,7 +201,7 @@ script_080147C4:
 .else
 	SetRoomFlag 0x0009
 .endif
-	MessageFromTargetPos 0x4307, 0x000c
+	MessageFromTargetPos TEXT_CARLOV, 0x07, 0x000c
 script_080147CE:
 	WaitUntilTextboxCloses
 .ifdef EU

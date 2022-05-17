@@ -14,7 +14,7 @@ SCRIPT_START script_ZeldaTalkToSmith
 	FacePlayer
 	FaceAwayFromPlayer
 	DoPostScriptAction 0x0001
-	MessageFromTargetPos 0x100a, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x0a, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
@@ -23,7 +23,7 @@ SCRIPT_START script_ZeldaTalkToSmith
 	DoPostScriptAction 0x0001
 	FaceAwayFromPlayer
 	SetAnimationState 0x0002
-	MessageFromTargetPos 0x100d, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x0d, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	@ Leave room
@@ -32,7 +32,7 @@ SCRIPT_START script_ZeldaTalkToSmith
 	Call sub_080536A8
 	Wait 0x001e
 	BeginBlock
-	SetGlobalFlag 0x0013
+	SetGlobalFlag START
 	Call sub_0807DF50
 	Call ResetPlayerAnimationAndAction
 	EnablePlayerControl

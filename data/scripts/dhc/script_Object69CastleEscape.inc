@@ -6,7 +6,7 @@ SCRIPT_START script_Object69CastleEscape
 	StartPlayerScript script_PlayerCastleEscape
 	WaitForSyncFlagAndClear 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	EzloMessage 0x1647
+	EzloMessage TEXT_VAATI2, 0x47
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x007a
 	Call sub_0807DF50

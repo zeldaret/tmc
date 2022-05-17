@@ -3,6 +3,13 @@
 
 	.include "asm/macros/scripts.inc"
 
+	.include "flags.inc"
+	.include "message.inc"
+	.include "item.inc"
+	.include "player.inc"
+	.include "sound.inc"
+	.include "kinstone.inc"
+
 	.syntax unified
 	.text
 

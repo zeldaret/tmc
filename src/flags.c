@@ -33,7 +33,7 @@ u32 CheckFlags(u32 flags) {
 }
 
 u32 CheckGlobalFlag(u32 flag) {
-    return CheckLocalFlagByBank(0, flag);
+    return CheckLocalFlagByBank(FLAG_BANK_0, flag);
 }
 
 u32 CheckRoomFlag(u32 flag) {
@@ -49,7 +49,7 @@ u32 CheckLocalFlags(u32 flag, u32 length) {
 }
 
 u32 CheckGlobalFlags(u32 flag, u32 length) {
-    return CheckLocalFlagsByBank(0, flag, length);
+    return CheckLocalFlagsByBank(FLAG_BANK_0, flag, length);
 }
 
 u32 CheckRoomFlags(u32 flag, u32 length) {
@@ -88,7 +88,7 @@ void SetFlag(u32 flag) {
 }
 
 void SetGlobalFlag(u32 flag) {
-    SetLocalFlagByBank(0, flag);
+    SetLocalFlagByBank(FLAG_BANK_0, flag);
 }
 
 void SetRoomFlag(u32 flag) {
@@ -123,7 +123,7 @@ void ClearFlag(u32 flag) {
 }
 
 void ClearGlobalFlag(u32 flag) {
-    ClearLocalFlagByBank(0, flag);
+    ClearLocalFlagByBank(FLAG_BANK_0, flag);
 }
 
 void ClearRoomFlag(u32 flag) {

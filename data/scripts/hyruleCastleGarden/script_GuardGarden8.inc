@@ -2,7 +2,7 @@
 SCRIPT_START script_GuardGarden8
 	SetPlayerIdle
 	Call sub_0807DF28
-	MessageFromTargetPos 0x1320, 0x000c
+	MessageFromTargetPos TEXT_VAATI, 0x20, 0x000c
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Call sub_0807DF50

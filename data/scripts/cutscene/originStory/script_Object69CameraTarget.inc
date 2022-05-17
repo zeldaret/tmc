@@ -6,7 +6,7 @@ SCRIPT_START script_Object69CameraTarget
 	CallWithArg sub_0807FB28, 0x00000003
 	SetSyncFlag 0x00048000
 	WaitForSyncFlagAndClear 0x00090000
-	MessageFromTargetPos 0x1311, 0x0002
+	MessageFromTargetPos TEXT_VAATI, 0x11, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00008000
 	WaitForSyncFlagAndClear 0x00010000
@@ -14,7 +14,7 @@ SCRIPT_START script_Object69CameraTarget
 	WaitForSyncFlagAndClear 0x00010000
 	CallWithArg DeleteManager36, 0x00000001
 	_0807F0C8 0x0000, 0x0000
-	MessageFromTargetPos 0x1312, 0x000c
+	MessageFromTargetPos TEXT_VAATI, 0x12, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000800
 	WaitForSyncFlagAndClear 0x00001000

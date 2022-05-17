@@ -28,7 +28,7 @@ script_0800E0DE:
 	FaceAwayFromPlayer
 	FacePlayer
 	Wait 0x000a
-	MessageNoOverlap 0x2402
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x02
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0093
 script_0800E12E:
@@ -40,7 +40,7 @@ script_0800E138:
 	JumpIfNot script_0800E138
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x2402
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x02
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

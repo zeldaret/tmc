@@ -33,7 +33,7 @@ script_080157DA:
 	WaitForSyncFlagAndClear 0x00000010
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	MessageFromTargetPos 0x1066, 0x0002
+	MessageFromTargetPos TEXT_PROLOGUE, 0x66, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
@@ -46,7 +46,7 @@ script_08015880:
 	JumpIfNot script_08015880
 script_08015888:
 	WaitUntilTextboxCloses
-	ComparePlayerAction 0x001c
+	ComparePlayerAction PLAYER_SLEEP
 	JumpIf script_08015888
 	SetPlayerIdle
 	Call sub_0807DF28
@@ -55,28 +55,16 @@ script_08015888:
 	CameraTargetEntity
 	StartPlayerScript script_PlayerIntroBusinessScrub3
 	WaitForSyncFlagAndClear 0x00000010
-	MessageFromTargetPos 0x106a, 0x000c
+	MessageFromTargetPos TEXT_PROLOGUE, 0x6a, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	Wait 0x0078
 	_0807E8E4_2 
-	MessageFromTargetPos 0x1068, 0x0002
+	MessageFromTargetPos TEXT_PROLOGUE, 0x68, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-.ifdef JP
-	SetLocalFlag 0x0089
-.else
-.ifdef EU
-	SetLocalFlag 0x0089
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x0089 @ TODO deduplicate
-.else
-	SetLocalFlag 0x008b
-.endif
-.endif
-.endif
+	SetLocalFlag SOUGEN_06_AKINDO
 	Call sub_08066FB8
 	Call sub_0807DF50
 	EnablePlayerControl

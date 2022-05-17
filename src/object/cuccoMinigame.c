@@ -194,8 +194,8 @@ void sub_080A13E8(ObjectB9Entity* this) {
             }
             break;
         case 0x63:
-            if (!CheckGlobalFlag(0x4f)) {
-                SetGlobalFlag(0x4f);
+            if (!CheckGlobalFlag(ANJU_HEART)) {
+                SetGlobalFlag(ANJU_HEART);
                 break;
             }
             bVar2 = 1;
@@ -243,46 +243,46 @@ void sub_080A14A8(void) {
     }
 
     if (iVar1 & 1) {
-        SetGlobalFlag(0x4b);
+        SetGlobalFlag(ANJU_LV_BIT0);
     } else {
-        ClearGlobalFlag(0x4b);
+        ClearGlobalFlag(ANJU_LV_BIT0);
     }
 
     if (iVar1 & 2) {
-        SetGlobalFlag(0x4c);
+        SetGlobalFlag(ANJU_LV_BIT1);
     } else {
-        ClearGlobalFlag(0x4c);
+        ClearGlobalFlag(ANJU_LV_BIT1);
     }
 
     if (iVar1 & 4) {
-        SetGlobalFlag(0x4d);
+        SetGlobalFlag(ANJU_LV_BIT2);
     } else {
-        ClearGlobalFlag(0x4d);
+        ClearGlobalFlag(ANJU_LV_BIT2);
     }
 
     if (iVar1 & 8) {
-        SetGlobalFlag(0x4e);
+        SetGlobalFlag(ANJU_LV_BIT3);
     } else {
-        ClearGlobalFlag(0x4e);
+        ClearGlobalFlag(ANJU_LV_BIT3);
     }
 }
 
 u32 sub_080A1514(void) {
     u32 rv = 0;
 
-    if (CheckGlobalFlag(0x4b)) {
+    if (CheckGlobalFlag(ANJU_LV_BIT0)) {
         rv = 1;
     }
 
-    if (CheckGlobalFlag(0x4c)) {
+    if (CheckGlobalFlag(ANJU_LV_BIT1)) {
         rv |= 2;
     }
 
-    if (CheckGlobalFlag(0x4d)) {
+    if (CheckGlobalFlag(ANJU_LV_BIT2)) {
         rv |= 4;
     }
 
-    if (CheckGlobalFlag(0x4e)) {
+    if (CheckGlobalFlag(ANJU_LV_BIT3)) {
         rv |= 8;
     }
     return rv;

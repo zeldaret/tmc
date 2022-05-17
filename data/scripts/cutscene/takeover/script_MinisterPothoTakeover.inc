@@ -5,7 +5,7 @@ SCRIPT_START script_MinisterPothoTakeover
 	DoPostScriptAction 0x0000
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000001
-	MessageNoOverlap 0x131c
+	MessageNoOverlap TEXT_VAATI, 0x1c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlag 0x00000200

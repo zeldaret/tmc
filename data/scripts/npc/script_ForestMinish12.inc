@@ -6,5 +6,5 @@ SCRIPT_START script_ForestMinish12
 script_080165FE:
 	FacePlayerAndCheckDist
 	JumpIfNot script_080165FE
-	MessageFromTarget 0x0601
+	MessageFromTarget TEXT_LOCATIONS, 0x01
 	Jump script_080165FE

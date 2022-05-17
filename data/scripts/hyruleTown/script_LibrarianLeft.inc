@@ -11,7 +11,7 @@ script_08008BA2:
 	SetPlayerIdle
 	SetAnimation 0x0004
 	Call WaitForAnimDone
-	MessageFromTarget 0x4912
+	MessageFromTarget TEXT_LIBRARY, 0x12
 	WaitUntilTextboxCloses
 	SetAnimation 0x0008
 	EnablePlayerControl

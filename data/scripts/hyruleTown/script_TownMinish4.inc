@@ -20,13 +20,13 @@ script_0800EDB6:
 	JumpIf script_0800EE3E
 	Wait 0x000a
 	SetSyncFlag 0x00000001
-	MessageFromTarget 0x4c07
+	MessageFromTarget TEXT_HAGEN, 0x07
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000010
-	MessageFromTarget 0x4c08
+	MessageFromTarget TEXT_HAGEN, 0x08
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000020
-	MessageFromTarget 0x4c09
+	MessageFromTarget TEXT_HAGEN, 0x09
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000503
 	Call LoadMenu
@@ -45,7 +45,7 @@ script_0800EE12:
 	WaitForSyncFlagAndClear 0x00000008
 	Jump script_0800ED98
 script_0800EE3E:
-	MessageFromTarget 0x4c16
+	MessageFromTarget TEXT_HAGEN, 0x16
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	EnablePlayerControl

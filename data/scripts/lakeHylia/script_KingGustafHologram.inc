@@ -17,7 +17,7 @@ script_08012368:
 	EndBlock
 	WaitForFadeFinish
 	PlayBgm BGM_ELEMENTAL_SANCTUARY
-	EzloMessage 0x1401
+	EzloMessage TEXT_GUSTAF, 0x01
 	WaitUntilTextboxCloses
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
@@ -28,7 +28,7 @@ script_08012368:
 	_0807E8E4_0
 	StartPlayerScript script_PlayerAfterToD
 	WaitForSyncFlagAndClear 0x00000001
-	MessageNoOverlap 0x1402
+	MessageNoOverlap TEXT_GUSTAF, 0x02
 	WaitUntilTextboxCloses
 	StopBgm
 	SetEntityVelocity 0x00010000
@@ -41,7 +41,7 @@ script_08012368:
 	EndBlock
 	WaitForFadeFinish
 	PlayBGM
-	EzloMessage 0x1403
+	EzloMessage TEXT_GUSTAF, 0x03
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000203
 	Call LoadMenu

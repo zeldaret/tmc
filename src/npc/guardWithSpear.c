@@ -219,7 +219,7 @@ void sub_080643D8(GuardWithSpearEntity* this) {
     u32 iVar1;
     int iVar2;
 
-    if (CheckGlobalFlag(2) == 0) {
+    if (CheckGlobalFlag(LV1_CLEAR) == 0) {
         iVar2 = 0;
     } else {
         if (GetInventoryValue(ITEM_GREEN_SWORD) == 0) {

@@ -52,7 +52,7 @@ script_080134F8:
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpSword
 	SetSyncFlag 0x00000080
-	SetInventoryValue 0x0003, 0x0001
+	SetInventoryValue ITEM_RED_SWORD, 0x0001
 	Call NPC4E_SaveEquippedItems
 	Call NPC4E_RestoreEquippedItems
 	Call WaitForPlayerAnim
@@ -67,7 +67,7 @@ script_080134F8:
 	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_ITEM_GET
-	MessageFromTargetPos 0x0503, 0x000c
+	MessageFromTargetPos TEXT_ITEM_GET, 0x03, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000
 	CallWithArg CreateManager36, 0x00000001

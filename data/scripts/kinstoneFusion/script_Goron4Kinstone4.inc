@@ -11,7 +11,7 @@ SCRIPT_START script_Goron4Kinstone4
 	DoPostScriptAction 0x0007
 	CallWithArg sub_0807F4F8, 0x000001b8
 	Wait 0x001e
-	MessageNoOverlap 0x0e11
+	MessageNoOverlap TEXT_KINSTONE, 0x11
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x0000001c
 	WaitForSyncFlagAndClear 0x00000002

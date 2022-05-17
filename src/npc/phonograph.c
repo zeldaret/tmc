@@ -62,7 +62,7 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
         }
 
         val2 = 0x1c;
-        if (CheckGlobalFlag(0x55)) {
+        if (CheckGlobalFlag(GAMECLEAR)) {
             val2 = 0x34;
         }
 
@@ -116,7 +116,7 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
     }
 
     val2 = 0x1c;
-    if (CheckGlobalFlag(0x55)) {
+    if (CheckGlobalFlag(GAMECLEAR)) {
         val2 = 0x34;
     }
     val = (s16)this->field_0x68.HWORD;

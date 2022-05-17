@@ -20,13 +20,13 @@ script_08014C56:
 	CheckLocalFlag 0x0066
 	JumpIf script_08014C7C
 	SetLocalFlag 0x0066
-	MessageNoOverlap 0x2f0d
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x0d
 	WaitUntilTextboxCloses
-	GivePlayerItem 0x000a
+	GivePlayerItem ITEM_LIGHT_ARROW
 	WaitPlayerGetItem
 	Jump script_08014C82
 script_08014C7C:
-	MessageNoOverlap 0x2f09
+	MessageNoOverlap TEXT_WIND_TRIBE, 0x09
 	WaitUntilTextboxCloses
 script_08014C82:
 	Wait 0x000f

@@ -17,11 +17,11 @@ script_0800DA64:
 	Call WaitForCameraTouchRoomBorder
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	MessageFromTargetPos 0x162d, 0x0002
+	MessageFromTargetPos TEXT_VAATI2, 0x2d, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
 	Wait 0x001e
-	MessageFromTargetPos 0x162e, 0x0002
+	MessageFromTargetPos TEXT_VAATI2, 0x2e, 0x0002
 	WaitUntilTextboxCloses
 	_0807E8E4_0 
 	CallWithArg SetPlayerPos, 0x00780138

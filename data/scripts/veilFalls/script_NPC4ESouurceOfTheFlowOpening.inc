@@ -4,7 +4,7 @@ SCRIPT_START script_NPC4ESouurceOfTheFlowOpening
 	WaitForSyncFlagAndClear 0x0000000c
 	_0807F0C8 0x0000, 0x0000
 	PlaySound SFX_SECRET
-	EzloMessage 0x0b1f
+	EzloMessage TEXT_EZLO, 0x1f
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	EnablePlayerControl

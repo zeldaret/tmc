@@ -5,11 +5,11 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	WaitForSyncFlagAndClear 0x00000200
 	StartPlayerScript script_PlayerProtectingZelda
 	WaitForSyncFlagAndClear 0x00000400
-	MessageFromTargetPos 0x1047, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x47, 0x0000
 	WaitUntilTextboxCloses
 	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
-	CallWithArg EquipItem, 0x0000000d
+	CallWithArg EquipItem, ITEM_SHIELD
 	CallWithArg SetInputMacro, gUnk_080049F6
 	Wait 0x001e
 	SetSyncFlag 0x00000100
@@ -29,11 +29,11 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	WaitForSyncFlagAndClear 0x00000020
 	StopBgm
 	Wait 0x003c
-	MessageFromTargetPos 0x104a, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x4a, 0x0000
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000200
-	MessageFromTargetPos 0x1049, 0x0000
+	MessageFromTargetPos TEXT_PROLOGUE, 0x49, 0x0000
 	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x0098
 	Wait 0x0078

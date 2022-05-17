@@ -10,7 +10,7 @@ script_0800E41A:
 	JumpIfNot script_0800E41A
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x2406
+	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x06
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

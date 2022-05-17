@@ -1,7 +1,7 @@
 @ Minish Village ForestMinish at the back of the pico flowers
 SCRIPT_START script_ForestMinish10
 	BeginBlock
-	CheckInventory1 0x005b
+	CheckInventory1 ITEM_JABBERNUT
 	JumpIfNot script_0800C5FE
 	Call sub_08060090
 	DoPostScriptAction 0x000a
@@ -20,103 +20,103 @@ script_0800CDA6:
 	CheckLocalFlag 0x009d
 	JumpIf script_0800CDC4
 	SetLocalFlag 0x009d
-	MessageNoOverlap 0x213d
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x3d
 	Jump script_0800CF40
 script_0800CDC4:
-	CheckGlobalFlag 0x003b
+	CheckGlobalFlag DRUG_1
 	JumpIf script_0800CE46
-	CheckGlobalFlag 0x0054
+	CheckGlobalFlag DRUG_COUNT
 	JumpIfNot script_0800CDEC
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800CF2A
-	SetGlobalFlag 0x003b
-	ClearGlobalFlag 0x0054
-	MessageNoOverlap 0x2141
+	SetGlobalFlag DRUG_1
+	ClearGlobalFlag DRUG_COUNT
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x41
 	Jump script_0800CF40
 script_0800CDEC:
-	MessageNoOverlap 0x213e
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x3e
 	WaitUntilTextboxCloses
-	CheckBottleContaining 0x0023
+	CheckBottleContaining ITEM_BOTTLE_HALF_MILK
 	JumpIfNot script_0800CE14
-	MessageNoOverlap 0x214b
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x4b
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
-	_0807F088 0x0023
+	InitItemGetSequence ITEM_BOTTLE_HALF_MILK
 	WaitPlayerGetItem
 	Jump script_0800CE32
 script_0800CE14:
-	CheckBottleContaining 0x0022
+	CheckBottleContaining ITEM_BOTTLE_MILK
 	JumpIfNot script_0800CF40
-	MessageNoOverlap 0x214b
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x4b
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
-	_0807F088 0x0022
+	InitItemGetSequence ITEM_BOTTLE_MILK
 	WaitPlayerGetItem
 script_0800CE32:
 	FaceAwayFromPlayer
-	SetGlobalFlag 0x0054
+	SetGlobalFlag DRUG_COUNT
 	Call sub_08060340
-	MessageNoOverlap 0x213f
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x3f
 	Jump script_0800CF02
 script_0800CE46:
-	CheckGlobalFlag 0x003c
+	CheckGlobalFlag DRUG_2
 	JumpIf script_0800CEA6
-	CheckGlobalFlag 0x0054
+	CheckGlobalFlag DRUG_COUNT
 	JumpIfNot script_0800CE6E
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800CF2A
-	SetGlobalFlag 0x003c
-	ClearGlobalFlag 0x0054
-	MessageNoOverlap 0x2145
+	SetGlobalFlag DRUG_2
+	ClearGlobalFlag DRUG_COUNT
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x45
 	Jump script_0800CF40
 script_0800CE6E:
-	MessageNoOverlap 0x2142
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x42
 	WaitUntilTextboxCloses
-	CheckBottleContaining 0x0027
+	CheckBottleContaining ITEM_BOTTLE_MINERAL_WATER
 	JumpIfNot script_0800CF40
-	MessageNoOverlap 0x214c
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x4c
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
-	_0807F088 0x0027
+	InitItemGetSequence ITEM_BOTTLE_MINERAL_WATER
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
-	SetGlobalFlag 0x0054
+	SetGlobalFlag DRUG_COUNT
 	Call sub_08060340
-	MessageNoOverlap 0x2143
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x43
 	Jump script_0800CF02
 script_0800CEA6:
-	CheckGlobalFlag 0x003d
+	CheckGlobalFlag DRUG_3
 	JumpIf script_0800CF3C
-	CheckGlobalFlag 0x0054
+	CheckGlobalFlag DRUG_COUNT
 	JumpIfNot script_0800CECE
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800CF2A
-	SetGlobalFlag 0x003d
-	ClearGlobalFlag 0x0054
-	MessageNoOverlap 0x2149
+	SetGlobalFlag DRUG_3
+	ClearGlobalFlag DRUG_COUNT
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x49
 	Jump script_0800CF40
 script_0800CECE:
-	MessageNoOverlap 0x2146
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x46
 	WaitUntilTextboxCloses
-	CheckBottleContaining 0x0024
+	CheckBottleContaining ITEM_BOTTLE_RED_POTION
 	JumpIfNot script_0800CF40
-	MessageNoOverlap 0x214d
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x4d
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
-	_0807F088 0x0024
+	InitItemGetSequence ITEM_BOTTLE_RED_POTION
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
-	SetGlobalFlag 0x0054
+	SetGlobalFlag DRUG_COUNT
 	Call sub_08060340
-	MessageNoOverlap 0x2147
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x47
 script_0800CF02:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
@@ -133,13 +133,13 @@ script_0800CF20:
 	SetPlayerIdle
 	Call sub_0807DF28
 script_0800CF2A:
-	MessageNoOverlap 0x2140
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x40
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	EnablePlayerControl
 	Jump script_0800CF0C
 script_0800CF3C:
-	MessageNoOverlap 0x214a
+	MessageNoOverlap TEXT_FOREST_MINISH, 0x4a
 script_0800CF40:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50

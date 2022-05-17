@@ -6,14 +6,14 @@ SCRIPT_START script_LibrarianLeftWithQuest
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000
 .ifdef EU
-	SetGlobalFlag 0x0061
+	SetGlobalFlag MIZUKAKI_NECHAN
 .endif
 	EndBlock
 script_08008BD2:
 	TriggerInteract
 	SetPlayerIdle
 .ifndef EU
-	SetGlobalFlag 0x0061
+	SetGlobalFlag MIZUKAKI_NECHAN
 .endif
 	SetAnimation 0x0004
 	Call WaitForAnimDone
@@ -26,7 +26,7 @@ script_08008BD2:
 	CallWithArg sub_0806BB1C, 0x00000001
 	Call sub_0806BB7C
 	JumpIfNot script_08008C5C
-	MessageNoOverlap 0x490c
+	MessageNoOverlap TEXT_LIBRARY, 0x0c
 	WaitUntilTextboxCloses
 	LoadRoomEntityList gUnk_080D6784
 	WaitForSyncFlag 0x00000001
@@ -35,7 +35,7 @@ script_08008BD2:
 	PlaySound SFX_SECRET
 	SetAnimation 0x0004
 	Call WaitForAnimDone
-	MessageNoOverlap 0x4913
+	MessageNoOverlap TEXT_LIBRARY, 0x13
 	WaitUntilTextboxCloses
 	SetAnimation 0x0008
 	Call WaitForAnimDone

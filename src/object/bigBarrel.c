@@ -46,7 +46,7 @@ void sub_08088A68(BigBarrelEntity* this) {
         super->action = 1;
         super->spriteSettings.draw = 3;
         super->updatePriority = 3;
-        if (CheckGlobalFlag(0x17)) {
+        if (CheckGlobalFlag(LV1TARU_OPEN)) {
             super->frameIndex = gSave.unk7 + 1;
         } else {
             super->frameIndex = gSave.unk7;

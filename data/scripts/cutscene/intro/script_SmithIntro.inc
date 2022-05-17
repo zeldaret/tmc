@@ -17,7 +17,7 @@ SCRIPT_START script_SmithIntro
 	Wait 0x001e
 	SetAnimation 0x000b
 	Wait 0x001e
-	MessageFromTarget 0x1002
+	MessageFromTarget TEXT_PROLOGUE, 0x02
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
@@ -27,7 +27,7 @@ SCRIPT_START script_SmithIntro
 	_0807EDD4 0x00b8, 0x005c
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0001
-	MessageFromTarget 0x1004
+	MessageFromTarget TEXT_PROLOGUE, 0x04
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	Wait 0x001e

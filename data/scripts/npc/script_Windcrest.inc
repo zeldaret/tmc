@@ -11,35 +11,35 @@ script_0800B024:
 	JumpIfNot script_0800B024
 	SetPlayerIdle
 	Call sub_0807DF28
-	CheckGlobalFlag 0x0052
+	CheckGlobalFlag WARP_1ST
 	JumpIf script_0800B082
-	CheckGlobalFlag 0x0053
+	CheckGlobalFlag WARP_MONUMENT
 	JumpIf script_0800B064
-	MessageNoOverlap 0x3f32
+	MessageNoOverlap TEXT_TINGLE, 0x32
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
-	EzloMessage 0x0b5c
+	EzloMessage TEXT_EZLO, 0x5c
 	WaitUntilTextboxCloses
-	SetGlobalFlag 0x0053
+	SetGlobalFlag WARP_MONUMENT
 	Jump script_0800B09C
 script_0800B064:
-	MessageNoOverlap 0x3f32
+	MessageNoOverlap TEXT_TINGLE, 0x32
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
-	EzloMessage 0x0b5d
+	EzloMessage TEXT_EZLO, 0x5d
 	WaitUntilTextboxCloses
 	Jump script_0800B09C
 script_0800B082:
-	MessageNoOverlap 0x3f32
+	MessageNoOverlap TEXT_TINGLE, 0x32
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
-	EzloMessage 0x0b5e
+	EzloMessage TEXT_EZLO, 0x5e
 	WaitUntilTextboxCloses
 script_0800B09C:
 	Call sub_0807DF50

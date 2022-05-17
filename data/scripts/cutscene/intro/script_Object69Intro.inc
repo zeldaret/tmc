@@ -9,7 +9,7 @@ SCRIPT_START script_Object69Intro
 	Wait 0x0078
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000001
-	SetGlobalFlag 0x001c
+	SetGlobalFlag ZELDA_CHASE
 	Call sub_0807DF50
 	EnablePlayerControl
 	Call PlayerSetNormalAndCollide

@@ -14,30 +14,30 @@ script_0800B618:
 	WaitForSyncFlagAndClear 0x00000004
 	CheckLocalFlag 0x009e
 	JumpIf script_0800B7A2
-	MessageNoOverlap 0x0583
+	MessageNoOverlap TEXT_ITEM_GET, 0x83
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_0800B684
 	Wait 0x000f
-	MessageNoOverlap 0x0584
+	MessageNoOverlap TEXT_ITEM_GET, 0x84
 	CallWithArg CheckMessageEqual, 0x0000058b
 	JumpIf script_0800B68E
 	CallWithArg sub_08087424, 0x00000000
 	Wait 0x00b4
 	Jump script_0800B6A6
 script_0800B684:
-	MessageNoOverlap 0x057d
+	MessageNoOverlap TEXT_ITEM_GET, 0x7d
 	WaitUntilTextboxCloses
 	Jump script_0800B6A6
 script_0800B68E:
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x009e
-	GivePlayerItem 0x0066
+	GivePlayerItem ITEM_LARGE_QUIVER
 script_0800B698:
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
 	Wait 0x001e
-	MessageNoOverlap 0x057f
+	MessageNoOverlap TEXT_ITEM_GET, 0x7f
 	WaitUntilTextboxCloses
 script_0800B6A6:
 	SetFadeTime 0x0004

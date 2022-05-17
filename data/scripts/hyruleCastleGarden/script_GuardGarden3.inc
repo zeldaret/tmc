@@ -13,12 +13,12 @@ script_0801197C:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	CheckGlobalFlag 0x0015
+	CheckGlobalFlag TABIDACHI
 	JumpIf script_080119A0
-	MessageFromTarget 0x103d
+	MessageFromTarget TEXT_PROLOGUE, 0x3d
 	Jump script_080119A4
 script_080119A0:
-	MessageFromTarget 0x103f
+	MessageFromTarget TEXT_PROLOGUE, 0x3f
 script_080119A4:
 	WaitUntilTextboxCloses
 	Wait 0x000f

@@ -17,9 +17,9 @@ script_0800D88E:
 	WaitForSyncFlagAndClear 0x00000001
 script_0800D8B0:
 	_0807E8E4_0 
-	MessageNoOverlap 0x1324
+	MessageNoOverlap TEXT_VAATI, 0x24
 	WaitUntilTextboxCloses
-	CheckInventory1 0x0017
+	CheckInventory1 ITEM_OCARINA
 	JumpIf script_0800D8D6
 	CheckLocalFlag 0x0045
 	JumpIf script_0800D8D6

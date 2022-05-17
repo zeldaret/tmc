@@ -8,7 +8,7 @@ SCRIPT_START script_PlayerIntro
 	WaitForFadeFinish
 	Wait 0x001e
 	@ Wake up message
-	MessageFromTarget 0x1005
+	MessageFromTarget TEXT_PROLOGUE, 0x05
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	Call sub_0807529C

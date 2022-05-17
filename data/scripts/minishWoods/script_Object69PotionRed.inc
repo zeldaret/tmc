@@ -7,27 +7,27 @@ script_0801619A:
 	CheckEntityInteractType
 	JumpIfNot script_0801619A
 	SetPlayerIdle
-	GetInventoryValue 0x0024
-	MessageFromTargetTable 0x2d05, 0x2d04, 0x2d04, 0x2d04
+	GetInventoryValue ITEM_BOTTLE_RED_POTION
+	MessageFromTargetTable TEXT_SYRUP << 8 | 0x05, TEXT_SYRUP << 8 | 0x04, TEXT_SYRUP << 8 | 0x04, TEXT_SYRUP << 8 | 0x04
 	CheckTextboxResult 
 	JumpIfNot script_080161E2
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIf script_080161C6
-	MessageFromTarget 0x2d0c
+	MessageFromTarget TEXT_SYRUP, 0x0c
 	Jump script_080161E2
 script_080161C6:
-	BuyItem 0x0024, 0x0000
+	BuyItem ITEM_BOTTLE_RED_POTION, 0x0000
 	JumpIf script_080161D8
-	MessageFromTarget 0x2d0b
+	MessageFromTarget TEXT_SYRUP, 0x0b
 	Jump script_080161E2
 script_080161D8:
 .ifndef EU
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
 	FaceAwayFromPlayer 
-	MessageNoOverlap 0x2d06
+	MessageNoOverlap TEXT_SYRUP, 0x06
 .else
-	MessageFromTarget 0x2d06
+	MessageFromTarget TEXT_SYRUP, 0x06
 .endif
 script_080161E2:
 	EnablePlayerControl

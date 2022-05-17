@@ -17,7 +17,7 @@ script_08013CA6:
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
-	EzloMessage 0x1504
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x04
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0079
 	Call sub_0807DF50

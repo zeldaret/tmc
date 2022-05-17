@@ -9,9 +9,9 @@ SCRIPT_START script_Nayru2
 script_08011F22:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag 0x002e
+	CheckGlobalFlag NEW_HOUSE_DIN
 	JumpIf script_08011D46
-	CheckGlobalFlag 0x0030
+	CheckGlobalFlag NEW_HOUSE_FARORE
 	JumpIf script_08011D46
 	CheckEntityInteractType
 	JumpIfNot script_08011F22
@@ -19,13 +19,13 @@ script_08011F22:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	CheckGlobalFlag 0x0048
+	CheckGlobalFlag GOMAN_NEW_HOUSE
 	JumpIf script_08011F58
-	MessageNoOverlap 0x4522
+	MessageNoOverlap TEXT_HAPPY_HEARTH, 0x22
 	WaitUntilTextboxCloses
 	Jump script_08011F64
 script_08011F58:
-	MessageNoOverlap 0x310f
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x0f
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_08011F80
@@ -41,9 +41,9 @@ script_08011F72:
 	FacePlayer
 	DoPostScriptAction 0x0000
 script_08011F80:
-	MessageNoOverlap 0x3112
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x12
 	WaitUntilTextboxCloses
-	SetGlobalFlag 0x002f
+	SetGlobalFlag NEW_HOUSE_NAYRU
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001

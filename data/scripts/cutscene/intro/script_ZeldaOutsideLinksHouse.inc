@@ -12,7 +12,7 @@ SCRIPT_START script_ZeldaOutsideLinksHouse
 	WaitForSyncFlagAndClear 0x00000001
 	Call sub_08066E08
 	SetPlayerIdle 
-	MessageFromTargetPos 0x1010, 0x000c
+	MessageFromTargetPos TEXT_PROLOGUE, 0x10, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 script_08014D1E:
@@ -25,7 +25,7 @@ script_08014D1E:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call sub_0807DF28
-	MessageNoOverlap 0x1012
+	MessageNoOverlap TEXT_PROLOGUE, 0x12
 	WaitUntilTextboxCloses
 	WalkNorth 0x0040
 	SetAnimationState 0x0004
@@ -39,7 +39,7 @@ script_08014D60:
 	JumpIf script_08014D60
 	SetPlayerIdle
 	Call sub_0807DF28
-	MessageNoOverlap 0x1013
+	MessageNoOverlap TEXT_PROLOGUE, 0x13
 	WaitUntilTextboxCloses
 	WalkNorth 0x0040
 	SetAnimationState 0x0004
@@ -54,22 +54,10 @@ script_08014D96:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call sub_0807DF28
-	MessageNoOverlap 0x1014
+	MessageNoOverlap TEXT_PROLOGUE, 0x14
 	WaitUntilTextboxCloses
 	WalkNorth 0x0018
-.ifdef JP
-	SetLocalFlag 0x006b
-.else
-.ifdef EU
-	SetLocalFlag 0x006b
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x006b @ TODO deduplicate
-.else
-	SetLocalFlag 0x006d
-.endif
-.endif
-.endif
+	SetLocalFlag SOUGEN_01_ZELDA
 	Call sub_0807DF50
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

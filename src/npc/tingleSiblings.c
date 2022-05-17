@@ -3,6 +3,7 @@
 #include "npc.h"
 #include "functions.h"
 #include "item.h"
+#include "kinstone.h"
 
 extern void sub_08064DE4(Entity*);
 extern void sub_08064D78(Entity*);
@@ -86,12 +87,12 @@ void sub_08064EA4(Entity* this) {
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     switch (this->type) {
         case 0:
-            if ((CheckKinstoneFused(0x59) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {
+            if ((CheckKinstoneFused(KINSTONE_59) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {
                 this->field_0x68.HALF.LO = 0;
             }
             break;
         case 3:
-            if ((CheckKinstoneFused(0x5a) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {
+            if ((CheckKinstoneFused(KINSTONE_5A) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {
                 this->field_0x68.HALF.LO = 0;
             }
             break;
@@ -145,12 +146,12 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
         }
         iVar4 = 0xffffffff;
     } else {
-        if (CheckGlobalFlag(0x3a) == 0) {
+        if (CheckGlobalFlag(KAKERA_COMPLETE) == 0) {
             iVar4 = 100 - gSave.unk117;
             if (iVar4 < 1) {
                 uVar5 = 8;
                 iVar4 = 0;
-                SetGlobalFlag(0x3a);
+                SetGlobalFlag(KAKERA_COMPLETE);
                 context->condition = 1;
             } else {
                 uVar5 = 7;

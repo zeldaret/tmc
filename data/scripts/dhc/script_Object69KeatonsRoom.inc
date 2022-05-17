@@ -13,7 +13,7 @@ script_0800E510:
 	Wait 0x003c
 	PlaySound SFX_105
 	Wait 0x001e
-	EzloMessage 0x1617
+	EzloMessage TEXT_VAATI2, 0x17
 	SetLocalFlag 0x007d
 script_0800E53C:
 	EnablePlayerControl

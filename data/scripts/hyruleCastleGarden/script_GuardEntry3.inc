@@ -14,7 +14,7 @@ script_08011A7C:
 	CallWithArg sub_0807F3D8, 0x00000000
 	CallWithArg sub_080644B4, 0x00000006
 	JumpIf script_08011AFA
-	MessageFromTarget 0x1320
+	MessageFromTarget TEXT_VAATI, 0x20
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_08011A7C
@@ -31,7 +31,7 @@ script_08011AC4:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	MessageFromTarget 0x1322
+	MessageFromTarget TEXT_VAATI, 0x22
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_08011AC4

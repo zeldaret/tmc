@@ -4,7 +4,7 @@ SCRIPT_START script_EzloTalkOcarina
 	SetPlayerIdle
 	Call WaitForPlayerNormalOrTalkEzlo
 	Call sub_0807DF28
-	EzloMessage 0x0b5f
+	EzloMessage TEXT_EZLO, 0x5f
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	EnablePlayerControl

@@ -8,16 +8,16 @@ SCRIPT_START script_08013F94
 script_08013FA4:
 	EndBlock
 	BeginBlock
-	CheckInventory1 0x0003
+	CheckInventory1 ITEM_RED_SWORD
 	JumpIfNot script_08013FA4
-	CheckPlayerFlags 0x00400000
+	CheckPlayerFlags PL_CLONING
 	JumpIfNot script_08013FA4
 	EndBlock
 	Call WaitForPlayerNormalOrTalkEzlo
 	DisablePlayerControl
 	Call sub_0807DF38
 	Wait 0x0078
-	EzloMessage 0x1505
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x05
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x007d
 	Call sub_0807DF50

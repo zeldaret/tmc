@@ -22,7 +22,7 @@ script_0800E708:
 	Jump script_0800E6F4
 script_0800E722:
 	WaitUntilTextboxCloses
-	GivePlayerItem 0x0057
+	GivePlayerItem ITEM_RUPEE50
 	WaitPlayerGetItem
 	WaitUntilTextboxCloses
 	EnablePlayerControl

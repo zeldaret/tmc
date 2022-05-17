@@ -2,19 +2,7 @@
 SCRIPT_START script_PhonographDoor
 	BeginBlock
 	EndBlock
-.ifdef JP
-	CheckLocalFlag 0x00ce
-.else
-.ifdef EU
-	CheckLocalFlag 0x00ce
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x00ce @ TODO deduplicate
-.else
-	CheckLocalFlag 0x00d1
-.endif
-.endif
-.endif
+	CheckLocalFlag SHOP05_OPEN
 	JumpIf script_080109EA
 	CheckPlayerInRegion2 0x0808
 	JumpIfNot script_PhonographDoor
@@ -26,7 +14,7 @@ SCRIPT_START script_PhonographDoor
 	WaitForSyncFlagAndClear 0x00000001
 	CheckRoomFlag 0x0001
 	JumpIf script_080109DE
-	EzloMessage 0x0b64
+	EzloMessage TEXT_EZLO, 0x64
 	WaitUntilTextboxCloses
 script_080109DE:
 	Call sub_0807DF50

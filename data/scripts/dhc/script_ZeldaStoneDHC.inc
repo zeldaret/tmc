@@ -10,7 +10,7 @@ SCRIPT_START script_ZeldaStoneDHC
 	Wait 0x003c
 	PlaySound SFX_9B
 	Wait 0x001e
-	MessageNoOverlap 0x1625
+	MessageNoOverlap TEXT_VAATI2, 0x25
 	WaitUntilTextboxCloses
 	Wait 0x003c
 	Call sub_08053C84

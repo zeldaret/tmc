@@ -12,20 +12,20 @@ SCRIPT_START script_KingDaltusAtAssembly
 	SetAnimationState 0x0004
 	WalkSouth 0x0008
 	SetAnimation 0x0004
-	MessageFromTargetPos 0x1050, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x50, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	SetAnimation 0x0004
-	MessageFromTargetPos 0x1052, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x52, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	SetAnimationState 0x0006
 	SetAnimation 0x0005
-	MessageFromTargetPos 0x1054, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x54, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
@@ -34,25 +34,25 @@ SCRIPT_START script_KingDaltusAtAssembly
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	SetAnimation 0x0004
-	MessageFromTargetPos 0x1056, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x56, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	SetAnimation 0x0004
-	MessageFromTargetPos 0x1057, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x57, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	SetAnimation 0x0004
-	MessageFromTargetPos 0x1058, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x58, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
 	SetAnimation 0x0004
-	MessageFromTargetPos 0x105c, 0x000e
+	MessageFromTargetPos TEXT_PROLOGUE, 0x5c, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100

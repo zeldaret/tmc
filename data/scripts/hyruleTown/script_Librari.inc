@@ -19,11 +19,11 @@ script_0800E974:
 	StartPlayerScript script_PlayerStepOnTrap
 	WaitForSyncFlagAndClear 0x00000001
 	DoPostScriptAction 0x000a
-	MessageFromTarget 0x4a24
+	MessageFromTarget TEXT_TOWN_MINISH1, 0x24
 	WaitUntilTextboxCloses
 	SetAnimation 0x000a
 	Wait 0x0014
-	MessageFromTarget 0x4a25
+	MessageFromTarget TEXT_TOWN_MINISH1, 0x25
 	WaitUntilTextboxCloses
 	SetAnimation 0x0000
 	StartPlayerScript script_PlayerActivatedTrapCard
@@ -31,7 +31,7 @@ script_0800E974:
 	SetLocalFlag 0x0074
 	PlaySound SFX_SECRET
 	Wait 0x00f0
-	MessageFromTarget 0x4a26
+	MessageFromTarget TEXT_TOWN_MINISH1, 0x26
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0075
 script_0800E9E4:

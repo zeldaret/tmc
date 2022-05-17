@@ -17,7 +17,7 @@ script_0800BA8E:
 	Wait 0x001e
 	_0807EDD4 0x02f0, 0x0350
 	Wait 0x001e
-	MessageNoOverlap 0x0e00
+	MessageNoOverlap TEXT_KINSTONE, 0x00
 	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968

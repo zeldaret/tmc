@@ -13,7 +13,7 @@ script_0800F604:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
-	MessageNoOverlap 0x2511
+	MessageNoOverlap TEXT_FESTIVAL, 0x11
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

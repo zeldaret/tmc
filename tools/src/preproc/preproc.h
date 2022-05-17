@@ -49,5 +49,6 @@ const unsigned long kMaxCharmapSequenceLength = 16;
 
 extern Charmap* g_charmap;
 extern std::string g_buildName;
+extern std::vector<std::string> g_incPaths;
 
 #endif // PREPROC_H

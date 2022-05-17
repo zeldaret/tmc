@@ -9,7 +9,7 @@ SCRIPT_START script_PlayerGetGreenCap
 	Wait 0x005a
 	SetSyncFlag 0x00000008
 	BeginBlock
-	CallWithArg ResetPlayerFlag, 0x00000008
+	CallWithArg ResetPlayerFlag, PL_NO_CAP
 	CallWithArg SetPlayerAnimation2, 0x000008e4
 	EndBlock
 	Call WaitForPlayerAnim

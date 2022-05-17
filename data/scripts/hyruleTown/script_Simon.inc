@@ -6,17 +6,17 @@ SCRIPT_START script_Simon
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
-	CheckGlobalFlag 0x0050
+	CheckGlobalFlag MAROYA_WAKEUP
 	JumpIfNot script_08011B84
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	FaceAwayFromPlayer 
-	MessageNoOverlap 0x3d07
+	MessageNoOverlap TEXT_SIMON, 0x07
 	WaitUntilTextboxCloses
 	SetAnimationState 0x0004
-	ClearGlobalFlag 0x0050
+	ClearGlobalFlag MAROYA_WAKEUP
 	Call sub_0807DF50
 	EnablePlayerControl
 script_08011B84:
@@ -24,7 +24,7 @@ script_08011B84:
 	JumpIfNot script_08011B84
 	SetPlayerIdle 
 	FacePlayer 
-	MessageNoOverlap 0x3d01
+	MessageNoOverlap TEXT_SIMON, 0x01
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_08011BA4
@@ -33,16 +33,16 @@ script_08011B9A:
 	SetAnimationState 0x0004
 	Jump script_08011B84
 script_08011BA4:
-	HasRupees 0x000a
+	HasRupees 10
 	JumpIf script_08011BBC
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	MessageNoOverlap 0x3d05
+	MessageNoOverlap TEXT_SIMON, 0x05
 	Jump script_08011B9A
 script_08011BBC:
-	ModRupees 0xfff6
+	ModRupees -10
 	Wait 0x001e
-	MessageNoOverlap 0x3d06
+	MessageNoOverlap TEXT_SIMON, 0x06
 	WaitUntilTextboxCloses
 	CallWithArg sub_0806C2A0, 0x00000000
 	WaitForFadeFinish

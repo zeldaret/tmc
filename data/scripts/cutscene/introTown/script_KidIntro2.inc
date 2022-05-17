@@ -7,19 +7,7 @@ SCRIPT_START script_KidIntro2
 	Call sub_08062788
 	EndBlock
 script_0800F6F4:
-.ifdef JP
-	CheckLocalFlag 0x00ca
-.else
-.ifdef EU
-	CheckLocalFlag 0x00ca
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x00ca @ TODO deduplicate
-.else
-	CheckLocalFlag 0x00cd
-.endif
-.endif
-.endif
+	CheckLocalFlag MACHI_01_DEMO
 	JumpIf script_0800F718
 	CheckEntityInteractType
 	JumpIfNot script_0800F6F4

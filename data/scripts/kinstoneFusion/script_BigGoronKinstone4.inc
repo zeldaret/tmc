@@ -7,7 +7,7 @@ SCRIPT_START script_BigGoronKinstone4
 	_0807EEF4 0xfff8, 0x0000
 	_0807F0C8 0x0000, 0x0000
 	Wait 0x001e
-	MessageNoOverlap 0x1d00
+	MessageNoOverlap TEXT_GORONS, 0x00
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000006
 	WaitForSyncFlagAndClear 0x00000001

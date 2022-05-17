@@ -2,19 +2,7 @@
 SCRIPT_START script_Object69
 	BeginBlock
 	SetSyncFlag 0x00000000
-.ifdef JP
-	CheckLocalFlag 0x001e
-.else
-.ifdef EU
-	CheckLocalFlag 0x001e
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x001e @ TODO deduplicate
-.else
-	CheckLocalFlag 0x001d
-.endif
-.endif
-.endif
+	CheckLocalFlag HIKYOU_00_SEKIZOU
 	JumpIf script_0800B252
 	SetEntitySpeed 0x00c0
 	EndBlock
@@ -31,19 +19,7 @@ script_0800B216:
 	CameraTargetPlayer
 	Wait 0x0008
 	EnablePlayerControl
-.ifdef JP
-	CheckLocalFlag 0x001e
-.else
-.ifdef EU
-	CheckLocalFlag 0x001e
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x001e @ TODO deduplicate
-.else
-	CheckLocalFlag 0x001d
-.endif
-.endif
-.endif
+	CheckLocalFlag HIKYOU_00_SEKIZOU
 	JumpIfNot script_0800B216
 script_0800B252:
 SCRIPT_END

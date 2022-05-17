@@ -12,28 +12,28 @@ script_08012152:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	CheckLocalFlag 0x0096
+	CheckLocalFlag MHOUSE_FARORE_TALK
 	JumpIf script_08012176
-	MessageNoOverlap 0x311c
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x1c
 	WaitUntilTextboxCloses
-	SetLocalFlag 0x0096
+	SetLocalFlag MHOUSE_FARORE_TALK
 	Jump script_080121B6
 script_08012176:
-	CheckBottleContaining 0x0030
+	CheckBottleContaining BOTTLE_CHARM_FARORE
 	JumpIfNot script_08012188
-	MessageNoOverlap 0x311d
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x1d
 	WaitUntilTextboxCloses
 	Jump script_080121B6
 script_08012188:
-	MessageNoOverlap 0x311e
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x1e
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIfNot script_080121B6
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_080121B2
-	MessageNoOverlap 0x311f
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x1f
 	WaitUntilTextboxCloses
-	GivePlayerItem 0x0030
+	GivePlayerItem BOTTLE_CHARM_FARORE
 	WaitPlayerGetItem
 .ifdef USA
 	Call sub_0807FC24
@@ -48,7 +48,7 @@ script_08012188:
 .endif
 	Jump script_080121B6
 script_080121B2:
-	MessageNoOverlap 0x3121
+	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x21
 script_080121B6:
 	WaitUntilTextboxCloses
 	EnablePlayerControl

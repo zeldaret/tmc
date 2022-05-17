@@ -18,7 +18,7 @@ script_0800D80C:
 	SetEntityVelocity 0x00040000
 	PlaySound SFX_F5
 script_0800D82A:
-	CallWithArg DoGravity, 0xffffe000
+	CallWithArg DoGravity, -0x2000
 	Call CheckEntityOnScreen
 	JumpIf script_0800D82A
 	SetSyncFlag 0x00000004

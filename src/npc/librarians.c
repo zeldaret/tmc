@@ -112,7 +112,7 @@ void sub_0806BBB0(Entity* this) {
     u32 tmp;
 
     if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
-        if (CheckGlobalFlag(0x29)) {
+        if (CheckGlobalFlag(MIZUKAKI_START)) {
             tmp = 1;
         } else {
             tmp = 0;

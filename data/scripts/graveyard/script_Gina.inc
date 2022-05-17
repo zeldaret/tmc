@@ -12,7 +12,7 @@ script_0800B934:
 	JumpIfNot script_0800B934
 	SetPlayerIdle 
 	FacePlayer 
-	MessageFromTarget 0x3f19
+	MessageFromTarget TEXT_TINGLE, 0x19
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x005f
 	EnablePlayerControl
@@ -22,7 +22,7 @@ script_0800B94E:
 	JumpIfNot script_0800B94E
 	SetPlayerIdle 
 	FacePlayer 
-	MessageFromTarget 0x3f1a
+	MessageFromTarget TEXT_TINGLE, 0x1a
 	WaitUntilTextboxCloses
 	EnablePlayerControl 
 	Jump script_0800B94E

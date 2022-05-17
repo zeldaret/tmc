@@ -13,7 +13,7 @@ script_0800C928:
 	StartPlayerScript script_PlayerAtVillageIntro
 	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x003c
-	EzloMessage 0x1125
+	EzloMessage TEXT_FINDING_EZLO, 0x25
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000800
 	_0807E8E4_3
@@ -40,7 +40,7 @@ script_0800C928:
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000400
 	_0807E8E4_0 
-	MessageFromTarget 0x1126
+	MessageFromTarget TEXT_FINDING_EZLO, 0x26
 	Call CreatePlayerQuestionMark
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000200
@@ -56,12 +56,12 @@ script_0800C928:
 	SetSyncFlag 0x00008000
 	WaitForSyncFlagAndClear 0x00010000
 	_0807E8E4_3 
-	MessageFromTarget 0x1127
+	MessageFromTarget TEXT_FINDING_EZLO, 0x27
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00002000
 	WaitForSyncFlagAndClear 0x00004000
 	_0807E8E4_1 
-	MessageFromTarget 0x1128
+	MessageFromTarget TEXT_FINDING_EZLO, 0x28
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000200
 	SetSyncFlag 0x00000800
@@ -74,7 +74,7 @@ script_0800C928:
 	WaitForSyncFlagAndClear 0x00010000
 	WaitForSyncFlagAndClear 0x00040000
 	_0807E8E4_0
-	EzloMessage 0x1129
+	EzloMessage TEXT_FINDING_EZLO, 0x29
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x008d
 	Call sub_0807DF50

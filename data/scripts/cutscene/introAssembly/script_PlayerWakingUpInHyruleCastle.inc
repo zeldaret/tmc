@@ -3,19 +3,7 @@ SCRIPT_START script_PlayerWakingUpInHyruleCastle
 	BeginBlock
 	Call sub_0807DF28
 	SetPlayerIdle
-.ifdef JP
-	SetLocalFlag 0x009e
-.else
-.ifdef EU
-	SetLocalFlag 0x009e
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x009e @ TODO deduplicate
-.else
-	SetLocalFlag 0x009f
-.endif
-.endif
-.endif
+	SetLocalFlag CASTLE_04_MEZAME
 	EndBlock
 	Wait 0x003c
 	SetFadeTime 0x0004

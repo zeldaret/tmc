@@ -1,32 +1,20 @@
 @ Castor Wilds Statue rock
 SCRIPT_START script_CastorWildsStatueRock
 	BeginBlock
-.ifdef JP
-	CheckLocalFlag 0x001e
-.else
-.ifdef EU
-	CheckLocalFlag 0x001e
-.else
-.ifdef DEMO_JP
-	CheckLocalFlag 0x001e @ TODO deduplicate
-.else
-	CheckLocalFlag 0x001d
-.endif
-.endif
-.endif
+	CheckLocalFlag HIKYOU_00_SEKIZOU
 	JumpIf script_0800B39C
 	DoPostScriptAction 0x0001
 	SetEntitySpeed 0x0040
 	SetEntityDirection 0x0010
-	CheckKinstoneFused 0x0006
+	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_LEFT
 	JumpIfNot script_0800B32C
 	Call sub_080676D8
 script_0800B32C:
-	CheckKinstoneFused 0x0007
+	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_MIDDLE
 	JumpIfNot script_0800B33A
 	Call sub_080676D8
 script_0800B33A:
-	CheckKinstoneFused 0x0008
+	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_RIGHT
 	JumpIfNot script_0800B348
 	Call sub_080676D8
 script_0800B348:
@@ -42,26 +30,14 @@ script_0800B350:
 	Wait 0x0014
 	BeginBlock
 	SetSyncFlag 0x00000001
-	CheckKinstoneFused 0x0006
+	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_LEFT
 	JumpIfNot script_0800B350
-	CheckKinstoneFused 0x0007
+	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_MIDDLE
 	JumpIfNot script_0800B350
-	CheckKinstoneFused 0x0008
+	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_RIGHT
 	JumpIfNot script_0800B350
 	EndBlock
-.ifdef JP
-	SetLocalFlag 0x001e
-.else
-.ifdef EU
-	SetLocalFlag 0x001e
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x001e @ TODO deduplicate
-.else
-	SetLocalFlag 0x001d
-.endif
-.endif
-.endif
+	SetLocalFlag HIKYOU_00_SEKIZOU
 	PlaySound SFX_SECRET
 script_0800B39C:
 	DoPostScriptAction 0x0006

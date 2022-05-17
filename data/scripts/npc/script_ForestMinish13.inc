@@ -6,7 +6,7 @@ SCRIPT_START script_ForestMinish13
 script_08016612:
 	TriggerInteract 
 	SetPlayerIdle 
-	MessageFromTarget 0x0602
+	MessageFromTarget TEXT_LOCATIONS, 0x02
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

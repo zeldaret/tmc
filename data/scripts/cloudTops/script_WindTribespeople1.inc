@@ -3,7 +3,7 @@ SCRIPT_START script_WindTribespeople1
 	BeginBlock
 	Call sub_0806C870
 	DoPostScriptAction 0x000a
-	CheckGlobalFlag 0x0058
+	CheckGlobalFlag WARP_EVENT_END
 	JumpIf script_08014976
 	SetAnimationState 0x0004
 	SetEntityPositionRelative 0x0078, 0x0128

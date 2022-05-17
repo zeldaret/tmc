@@ -8,7 +8,7 @@ SCRIPT_START script_0800B828
 script_0800B836:
 	TriggerInteract 
 	SetPlayerIdle 
-	MessageFromTarget 0x0a01
+	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl
@@ -45,7 +45,7 @@ script_0800B89E:
 	JumpIfNot script_0800B89E
 	SetPlayerIdle 
 	FacePlayer 
-	MessageFromTarget 0x0a01
+	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

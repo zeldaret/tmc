@@ -15,26 +15,26 @@ script_08014F4A:
 	FacePlayer
 	DoPostScriptAction 0x0000
 	BeginBlock 
-	MessageNoOverlap 0x3b0b
+	MessageNoOverlap TEXT_MILK, 0x0b
 	CallWithArg sub_0807F854, 0x00010064
 	EndBlock
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_08014FA6
-	HasRupees 0x0064
+	HasRupees 100
 	JumpIfNot script_08014F9A
-	CheckBottleContaining 0x0020
+	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_08014FA2
-	ModRupees 0xff9c
-	GivePlayerItem 0x0022
+	ModRupees -100
+	GivePlayerItem ITEM_BOTTLE_MILK
 	WaitPlayerGetItem 
-	MessageNoOverlap 0x3b11
+	MessageNoOverlap TEXT_MILK, 0x11
 	Jump script_08014FA6
 script_08014F9A:
-	MessageNoOverlap 0x3b0e
+	MessageNoOverlap TEXT_MILK, 0x0e
 	Jump script_08014FA6
 script_08014FA2:
-	MessageNoOverlap 0x3b0f
+	MessageNoOverlap TEXT_MILK, 0x0f
 script_08014FA6:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50

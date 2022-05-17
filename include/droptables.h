@@ -1,6 +1,8 @@
 #ifndef TMC_DROPTABLES_H
 #define TMC_DROPTABLES_H
 
+#include "global.h"
+
 typedef union {
     struct {
         s16 none;

@@ -14,11 +14,11 @@ script_0801690A:
 	Call sub_08064F28
 	WaitUntilTextboxCloses
 	JumpIfNot script_08016926
-	GivePlayerItem 0x003d
+	GivePlayerItem ITEM_QST_TINGLE_TROPHY
 	WaitPlayerGetItem
 script_08016926:
 	EnablePlayerControl
-	SetGlobalFlag 0x005c
+	SetGlobalFlag TINGLE_TALK1ST
 	Jump script_0801690A
 	BeginBlock
 	_0807E9D4
@@ -29,7 +29,7 @@ script_0801693E:
 	TriggerInteract
 	SetPlayerIdle
 	Wait 0x0018
-	MessageFromTarget 0x0a01
+	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl
@@ -45,7 +45,7 @@ script_0801696A:
 	TriggerInteract
 	SetPlayerIdle
 	Wait 0x0018
-	MessageFromTarget 0x0a01
+	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl

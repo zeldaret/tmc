@@ -9,7 +9,7 @@ SCRIPT_START script_SimonsDoor
 	WaitForSyncFlagAndClear 0x00000001
 	CheckRoomFlag 0x0001
 	JumpIf script_08010994
-	EzloMessage 0x0b63
+	EzloMessage TEXT_EZLO, 0x63
 	WaitUntilTextboxCloses
 script_08010994:
 	Call sub_0807DF50

@@ -12,7 +12,7 @@ SCRIPT_START script_Npc4ESpawnTextBoard
 	_0807F0C8 0x0000, 0x0000
 	StartPlayerScript script_PlayerTextBoardAppears
 	WaitForSyncFlagAndClear 0x00000002
-	EzloMessage 0x1501
+	EzloMessage TEXT_PANEL_TUTORIAL, 0x01
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer

@@ -10,13 +10,13 @@ SCRIPT_START script_ZeldaIntro
 	DoPostScriptAction 0x0007
 	_0807EDD4 0x0068, 0x0060
 	Wait 0x000f
-	MessageFromTarget 0x1001
+	MessageFromTarget TEXT_PROLOGUE, 0x01
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0001
-	MessageFromTarget 0x1003
+	MessageFromTarget TEXT_PROLOGUE, 0x03
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008

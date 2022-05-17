@@ -13,7 +13,7 @@ script_0800E550:
 	Wait 0x003c
 	PlaySound SFX_105
 	Wait 0x001e
-	EzloMessage 0x1622
+	EzloMessage TEXT_VAATI2, 0x22
 	Call StartDarkNutTimer
 	SetLocalFlag 0x007e
 script_0800E582:

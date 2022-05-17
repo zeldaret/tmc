@@ -1,7 +1,7 @@
 @ Minish Woods OBJECT_69 ?
 @ Ezlo Trigger to explain how portals work
 SCRIPT_START script_08012C98
-	CheckGlobalFlag 0x0014
+	CheckGlobalFlag EZERO_1ST
 	JumpIfNot script_08012C98
 script_08012CA0:
 	EndBlock
@@ -13,21 +13,9 @@ script_08012CA0:
 	EndBlock
 	SetPlayerIdle
 	Call sub_0807DF28
-	EzloMessage 0x2202
+	EzloMessage TEXT_EZLO_PORTAL, 0x02
 	WaitUntilTextboxCloses
-.ifdef JP
-	SetLocalFlag 0x003a
-.else
-.ifdef EU
-	SetLocalFlag 0x003a
-.else
-.ifdef DEMO_JP
-	SetLocalFlag 0x003a @ TODO deduplicate
-.else
-	SetLocalFlag 0x003b
-.endif
-.endif
-.endif
+	SetLocalFlag MORI_00_KOBITO
 	Call sub_0807DF50
 	EnablePlayerControl
 script_08012CD2:
