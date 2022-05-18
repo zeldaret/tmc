@@ -280,36 +280,36 @@ bool32 sub_0801A4F8(void) {
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", void sub_0801A570())
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A8D0.inc", u32 sub_0801A8D0(Entity* this, u32 param_2)) {
+u32 sub_0801A8D0(Entity* this, u32 param_2) {
     u16* mapData;
     u32 tile;
     u32 position;
 
-    if (this != NULL) {
-        mapData = GetLayerByIndex(this->collisionLayer)->mapData;
-        if (param_2 == 0) {
-            position = COORD_TO_TILE_OFFSET(this, 0, 8);
-            tile = mapData[position];
-            if (tile == 0x4055) {
-                return position - 1;
-            }
-            if (tile == 0x4056) {
-                return position;
-            }
-        } else {
-            position = COORD_TO_TILE_OFFSET(this, 8, 0);
-            tile = mapData[position];
-            if (tile == 0x4057) {
-                return position - 0x40;
-            }
-            if (tile == 0x4058) {
-                return position;
-            }
+    if (this == NULL)
+        return 0xffff;
+
+    mapData = GetLayerByIndex(this->collisionLayer)->mapData;
+    if (param_2 == 0) {
+        position = COORD_TO_TILE_OFFSET(this, 0, 8);
+        tile = mapData[position];
+        if (tile == 0x4055) {
+            return position - 1;
+        }
+        if (tile == 0x4056) {
+            return position;
+        }
+    } else {
+        position = COORD_TO_TILE_OFFSET(this, 8, 0);
+        tile = mapData[position];
+        if (tile == 0x4057) {
+            return position - 0x40;
+        }
+        if (tile == 0x4058) {
+            return position;
         }
     }
     return 0xffff;
 }
-END_NONMATCH
 
 bool32 sub_0801A980(void) {
     u16 tileType;
