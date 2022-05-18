@@ -310,7 +310,31 @@ void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
 
 ASM_FUNC("asm/non_matching/common/zMalloc.inc", void* zMalloc(u32 size));
 
-ASM_FUNC("asm/non_matching/common/zFree.inc", void zFree(void* ptr));
+void zFree(void* ptr) {
+    u32 uVar1;
+    u32 i;
+    u16* puVar3;
+    s32 uVar5;
+    u16* ptr2;
+
+    uVar1 = (int)ptr - (int)gzHeap;
+    if (uVar1 < 0x1000) {
+        puVar3 = (u16*)gzHeap;
+        uVar5 = *puVar3++;
+
+        for (i = 0; i < uVar5; puVar3 += 2, i++) {
+            if (*puVar3 == uVar1) {
+                ptr2 = &((u16*)(gzHeap - 2))[uVar5 * 2];
+                *puVar3 = *ptr2;
+                *ptr2++ = 0;
+                *(puVar3 + 1) = *ptr2;
+                *ptr2 = 0;
+                *(u16*)(gzHeap) = uVar5 - 1;
+                break;
+            }
+        }
+    }
+}
 
 void zMallocInit(void) {
     MemClear(gzHeap, sizeof(gzHeap));
