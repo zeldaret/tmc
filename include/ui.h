@@ -12,4 +12,4 @@ extern void InitUI(bool32);
 extern void RefreshUI(void);
 extern void RecoverUI(u32 bottomPt, u32 topPt);
 
-#endif
+#endif // UI_H

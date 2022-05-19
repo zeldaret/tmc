@@ -5,7 +5,7 @@
 #include "player.h"
 #include "physics.h"
 
-extern void sub_0805B390(u32);
+extern void CreateHoleManager(u32);
 
 void ObjectAB_Init(Entity*);
 void ObjectAB_Action1(Entity*);
@@ -45,7 +45,7 @@ void ObjectAB_Action2(Entity* this) {
         sub_080A0190(this);
         RequestPriorityDuration(this, 0x1e);
         if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10)) {
-            sub_0805B390(0x37);
+            CreateHoleManager(0x37);
         }
     }
 }

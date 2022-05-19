@@ -1,5 +1,6 @@
-#ifndef TMC_TRANSITIONS_H
-#define TMC_TRANSITIONS_H
+#ifndef TRANSITIONS_H
+#define TRANSITIONS_H
+
 #include "global.h"
 #include "roomid.h"
 
@@ -51,4 +52,4 @@ extern const Transition gUnk_08135190[];
 extern const Transition gUnk_0813A76C[];
 extern const Transition* const* const gExitLists[];
 
-#endif // TMC_TRANSITIONS_H
+#endif // TRANSITIONS_H

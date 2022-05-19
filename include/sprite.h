@@ -35,4 +35,4 @@ typedef struct {
     u8 unk;
 } SpriteLoadData;
 
-#endif
+#endif // SPRITE_H

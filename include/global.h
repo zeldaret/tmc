@@ -1,12 +1,14 @@
-#ifndef GUARD_GLOBAL_H
-#define GUARD_GLOBAL_H
+#ifndef GLOBAL_H
+#define GLOBAL_H
 
 /**
  * @defgroup Tasks Tasks
  * @defgroup Subtasks Subtasks
  */
 
-/** @defgroup Entities Entities */
+/**
+ * @defgroup Entities Entities
+ */
 ///@{
 /**
  * @defgroup Player Player
@@ -16,6 +18,7 @@
  * @defgroup NPCs NPCs
  * @defgroup Items Items
  * @defgroup Managers Managers
+ * @brief Entities with a smaller footprint of 0x40 bytes
  */
 ///@}
 
@@ -122,4 +125,4 @@ union SplitHWord {
 /* forward decls */
 struct Entity_;
 
-#endif // GUARD_GLOBAL_H
+#endif // GLOBAL_H

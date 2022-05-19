@@ -2516,7 +2516,7 @@ extern EntityData gUnk_additional_a_CaveOfFlamesBoss_Main;
 void sub_StateChange_CaveOfFlamesBoss_Main(void) {
 
     if (CheckGlobalFlag(LV2_CLEAR)) {
-        gMapTop.bgControlPtr = 0;
+        gMapTop.bgSettings = 0;
         gScreen.lcd.displayControl &= ~DISPCNT_BG1_ON;
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_additional_a_CaveOfFlamesBoss_Main);
@@ -3161,7 +3161,7 @@ extern EntityData gUnk_080E72C4;
 extern EntityData gUnk_additional_8_PalaceOfWinds_GyorgTornado;
 
 void sub_StateChange_PalaceOfWinds_GyorgTornado(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
     if (CheckGlobalFlag(LV5_CLEAR)) {
         LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_GyorgTornado);
     }
@@ -3183,7 +3183,7 @@ u32 sub_unk3_PalaceOfWinds_BossKey(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BossKey(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
@@ -3191,7 +3191,7 @@ u32 sub_unk3_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_GyorgBossDoor(void) {
@@ -3199,7 +3199,7 @@ u32 sub_unk3_PalaceOfWinds_GyorgBossDoor(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_GyorgBossDoor(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
@@ -3207,7 +3207,7 @@ u32 sub_unk3_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
@@ -3215,7 +3215,7 @@ u32 sub_unk3_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_FourButtonStalfos(void) {
@@ -3223,7 +3223,7 @@ u32 sub_unk3_PalaceOfWinds_FourButtonStalfos(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_FourButtonStalfos(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_FanAndKeyToBossKey(void) {
@@ -3231,7 +3231,7 @@ u32 sub_unk3_PalaceOfWinds_FanAndKeyToBossKey(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_FanAndKeyToBossKey(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BallAndChainSoldiers(void) {
@@ -3239,7 +3239,7 @@ u32 sub_unk3_PalaceOfWinds_BallAndChainSoldiers(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BallAndChainSoldiers(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BombarossaPath(void) {
@@ -3247,7 +3247,7 @@ u32 sub_unk3_PalaceOfWinds_BombarossaPath(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BombarossaPath(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_HoleToDarknut(void) {
@@ -3255,7 +3255,7 @@ u32 sub_unk3_PalaceOfWinds_HoleToDarknut(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_HoleToDarknut(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_ToBombarossaPath(void) {
@@ -3263,7 +3263,7 @@ u32 sub_unk3_PalaceOfWinds_ToBombarossaPath(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_ToBombarossaPath(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_DarknutMiniboss(void) {
@@ -3271,7 +3271,7 @@ u32 sub_unk3_PalaceOfWinds_DarknutMiniboss(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_DarknutMiniboss(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BombWallInside(void) {
@@ -3279,7 +3279,7 @@ u32 sub_unk3_PalaceOfWinds_BombWallInside(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BombWallInside(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BombWallOutside(void) {
@@ -3287,7 +3287,7 @@ u32 sub_unk3_PalaceOfWinds_BombWallOutside(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BombWallOutside(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_CloudJumps(void) {
@@ -3295,7 +3295,7 @@ u32 sub_unk3_PalaceOfWinds_CloudJumps(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_CloudJumps(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BlockMazeToBossDoor(void) {
@@ -3303,7 +3303,7 @@ u32 sub_unk3_PalaceOfWinds_BlockMazeToBossDoor(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BlockMazeToBossDoor(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_CrackedFloorLakitu(void) {
@@ -3311,7 +3311,7 @@ u32 sub_unk3_PalaceOfWinds_CrackedFloorLakitu(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_CrackedFloorLakitu(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_HeartPieceBridge(void) {
@@ -3319,7 +3319,7 @@ u32 sub_unk3_PalaceOfWinds_HeartPieceBridge(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_HeartPieceBridge(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_FanBridge(void) {
@@ -3327,7 +3327,7 @@ u32 sub_unk3_PalaceOfWinds_FanBridge(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_FanBridge(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_ToFanBridge(void) {
@@ -3335,7 +3335,7 @@ u32 sub_unk3_PalaceOfWinds_ToFanBridge(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_ToFanBridge(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_RedWarpHall(void) {
@@ -3350,7 +3350,7 @@ u32 sub_unk3_PalaceOfWinds_PlatformCloneRide(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_PlatformCloneRide(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_PitCornerAfterKey(void) {
@@ -3358,7 +3358,7 @@ u32 sub_unk3_PalaceOfWinds_PitCornerAfterKey(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_PitCornerAfterKey(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_CrowRide(void) {
@@ -3366,7 +3366,7 @@ u32 sub_unk3_PalaceOfWinds_CrowRide(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_CrowRide(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_GratePlatformRide(void) {
@@ -3374,7 +3374,7 @@ u32 sub_unk3_PalaceOfWinds_GratePlatformRide(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_GratePlatformRide(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_PotPush(void) {
@@ -3382,7 +3382,7 @@ u32 sub_unk3_PalaceOfWinds_PotPush(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_PotPush(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_FloormasterLever(void) {
@@ -3432,7 +3432,7 @@ u32 sub_unk3_PalaceOfWinds_GratesTo3F(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_GratesTo3F(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_SpinyFight(void) {
@@ -3440,7 +3440,7 @@ u32 sub_unk3_PalaceOfWinds_SpinyFight(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_SpinyFight(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_PeahatSwitch(void) {
@@ -3448,7 +3448,7 @@ u32 sub_unk3_PalaceOfWinds_PeahatSwitch(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_PeahatSwitch(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_WhirlwindBombarossa(void) {
@@ -3456,7 +3456,7 @@ u32 sub_unk3_PalaceOfWinds_WhirlwindBombarossa(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_WhirlwindBombarossa(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_DoorToStalfosFirebar(void) {
@@ -3506,7 +3506,7 @@ u32 sub_unk3_PalaceOfWinds_SpikeBarSmallKey(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_SpikeBarSmallKey(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_RocCape(void) {
@@ -3516,7 +3516,7 @@ u32 sub_unk3_PalaceOfWinds_RocCape(void) {
 extern EntityData gUnk_080EA09C;
 
 void sub_StateChange_PalaceOfWinds_RocCape(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
     if (!CheckLocalFlag(0x70)) {
         LoadRoomEntityList(&gUnk_080EA09C);
     }
@@ -3527,7 +3527,7 @@ u32 sub_unk3_PalaceOfWinds_FireBarGrates(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_FireBarGrates(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_PlatformRideBombarossas(void) {
@@ -3535,7 +3535,7 @@ u32 sub_unk3_PalaceOfWinds_PlatformRideBombarossas(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_PlatformRideBombarossas(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BridgeAfterDarknut(void) {
@@ -3543,7 +3543,7 @@ u32 sub_unk3_PalaceOfWinds_BridgeAfterDarknut(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BridgeAfterDarknut(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
@@ -3551,7 +3551,7 @@ u32 sub_unk3_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_EntranceRoom(void) {
@@ -3559,7 +3559,7 @@ u32 sub_unk3_PalaceOfWinds_EntranceRoom(void) {
 }
 
 void sub_StateChange_PalaceOfWinds_EntranceRoom(void) {
-    Manager19_Main(NULL);
+    PowBackgroundManager_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_DarkCompassHall(void) {
@@ -3590,7 +3590,7 @@ u32 sub_unk3_Vaati3_Main(void) {
 }
 
 void sub_StateChange_Vaati3_Main(void) {
-    Manager2F_Main(NULL);
+    Vaati3BackgroundManager_Main(NULL);
 
     if ((gRoomTransition.field_0x38 & 1) && gRoomTransition.field_0x39) {
         if (gRoomTransition.field_0x3c == 1) {
@@ -5630,7 +5630,7 @@ u32 sub_unk3_HyruleField_WesternWoodSouth(void) {
 }
 
 void sub_StateChange_HyruleField_WesternWoodSouth(void) {
-    Manager18_Main(0);
+    CloudOverlayManager_Main(0);
 }
 
 u32 sub_unk3_HyruleField_SouthHyruleField(void) {
@@ -5646,7 +5646,7 @@ extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
 void sub_StateChange_HyruleField_SouthHyruleField(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
     if (!CheckLocalFlag(SOUGEN_01_ZELDA)) {
         LoadRoomEntityList(&gUnk_080F70A8);
         ClearGlobalFlag(ZELDA_CHASE);
@@ -5673,7 +5673,7 @@ u32 sub_unk3_HyruleField_EasternHillsSouth(void) {
 }
 
 void sub_StateChange_HyruleField_EasternHillsSouth(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
 }
 
 u32 sub_unk3_HyruleField_EasternHillsCenter(void) {
@@ -5681,7 +5681,7 @@ u32 sub_unk3_HyruleField_EasternHillsCenter(void) {
 }
 
 void sub_StateChange_HyruleField_EasternHillsCenter(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
 }
 
 extern u32 gUnk_080F7680;
@@ -5697,7 +5697,7 @@ extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
 void sub_StateChange_HyruleField_EasternHillsNorth(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
     if (gSave.global_progress > 3) {
         LoadRoomEntityList(&gUnk_080F7500);
     }
@@ -5722,7 +5722,7 @@ extern EntityData gUnk_080F78A0;
 
 void sub_StateChange_HyruleField_LonLonRanch(void) {
 
-    Manager18_Main(0);
+    CloudOverlayManager_Main(0);
     if (CheckLocalFlagByBank(FLAG_BANK_2, 0x8f)) {
         if (!CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080F77C0);
@@ -5767,7 +5767,7 @@ u32 sub_unk3_HyruleField_OutsideCastle(void) {
 }
 
 void sub_0804F4E4(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
     sub_0804F578();
 }
 
@@ -5947,7 +5947,7 @@ u32 sub_unk3_HyruleField_TrilbyHighlands(void) {
 extern EntityData gUnk_080F806C;
 
 void sub_StateChange_HyruleField_TrilbyHighlands(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F806C);
     }
@@ -5960,7 +5960,7 @@ u32 sub_unk3_HyruleField_WesternWoodsNorth(void) {
 extern EntityData gUnk_080F82E0;
 
 void sub_StateChange_HyruleField_WesternWoodsNorth(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(SOUGEN_08_TORITSUKI)) {
         LoadRoomEntityList(&gUnk_080F82E0);
     }
@@ -5973,7 +5973,7 @@ u32 sub_unk3_HyruleField_WesternWoodsCenter(void) {
 extern EntityData gUnk_080F8430;
 
 void sub_StateChange_HyruleField_WesternWoodsCenter(void) {
-    Manager18_Main(NULL);
+    CloudOverlayManager_Main(NULL);
     if (CheckKinstoneFused(KINSTONE_21) && !CheckLocalFlagByBank(FLAG_BANK_2, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);
     }

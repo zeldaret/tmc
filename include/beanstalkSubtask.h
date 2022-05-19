@@ -1,5 +1,5 @@
-#ifndef BEANSTALK_SUBTASK_H
-#define BEANSTALK_SUBTASK_H
+#ifndef BEANSTALKSUBTASK_H
+#define BEANSTALKSUBTASK_H
 
 #include "global.h"
 
@@ -33,4 +33,4 @@ typedef struct {
 #define MAX_BG_ANIMATIONS 8
 extern BgAnimation gBgAnimations[MAX_BG_ANIMATIONS];
 
-#endif // BEANSTALK_SUBTASK_H
+#endif // BEANSTALKSUBTASK_H

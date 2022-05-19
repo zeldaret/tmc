@@ -1244,7 +1244,7 @@ void sub_080A67C4(u32 param_1) {
 
     LoadGfxGroup(iVar4);
     ptr = &gUnk_08128E94[param_1];
-    puVar2 = &gUnk_02017AA0[gUnk_03003DE4 * 0x500];
+    puVar2 = &gUnk_02017AA0[gUnk_03003DE4[0] * 0x500];
 
     for (i = 0; i <= 7; puVar2++, i++) {
         *puVar2 = 0x1e0a;
@@ -1258,7 +1258,7 @@ void sub_080A67C4(u32 param_1) {
         *puVar2 = 0x1e0a;
     }
 
-    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4 * 0x500], REG_ADDR_BG3CNT, 0xa2600001);
+    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], REG_ADDR_BG3CNT, 0xa2600001);
     gMenu.field_0xa = ptr->unk2 >> 1;
     MemClear(&gMapDataBottomSpecial, 0x400);
 }
@@ -1791,8 +1791,8 @@ void Subtask_FadeIn(void) {
         gUI.unk_d = gRoomTransition.field_0x2c[2];
         gUI.controlMode = gPlayerState.controlMode;
         gUI.currentRoomProperties = gCurrentRoomProperties;
-        gUI.mapBottomBgControlPtr = gMapBottom.bgControlPtr;
-        gUI.mapTopBgControlPtr = gMapTop.bgControlPtr;
+        gUI.mapBottomBgSettings = gMapBottom.bgSettings;
+        gUI.mapTopBgSettings = gMapTop.bgSettings;
         gUI.nextToLoad = 1;
     }
 }
@@ -1821,8 +1821,8 @@ void Subtask_FadeOut(void) {
         sub_0805E974();
         gCurrentRoomProperties = gUI.currentRoomProperties;
         gPlayerState.controlMode = gUI.controlMode;
-        gMapBottom.bgControlPtr = gUI.mapBottomBgControlPtr;
-        gMapTop.bgControlPtr = gUI.mapTopBgControlPtr;
+        gMapBottom.bgSettings = gUI.mapBottomBgSettings;
+        gMapTop.bgSettings = gUI.mapTopBgSettings;
         MemCopy(&gUI.activeScriptInfo, &gActiveScriptInfo, sizeof(ActiveScriptInfo));
         MemCopy(gUI.unk_2a8, gUnk_03000420, sizeof(gUI.unk_2a8));
         MemCopy(gUI.palettes, gPaletteList, sizeof(gUI.palettes));

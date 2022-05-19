@@ -102,9 +102,9 @@ void VaatiEyesMacroFunction0Type0Action0(Entity* this) {
     Entity* enemy;
 
     if ((gEntCount < 0x47) && (manager = GetEmptyManager(), manager != NULL)) {
-        manager->type = 9;
-        manager->subtype = 0x34;
-        manager->parent = (Manager*)this;
+        manager->kind = MANAGER;
+        manager->id = VAATI3_INSIDE_ARM_MANAGER;
+        manager->parent = (Entity*)this;
         AppendEntityToList((Entity*)manager, 8);
         enemy = CreateEnemy(VAATI_EYES_MACRO, 2);
         enemy->parent = this;

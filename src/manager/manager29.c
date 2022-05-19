@@ -1,31 +1,20 @@
-
-#include "manager.h"
-#include "flags.h"
+/**
+ * @file manager29.c
+ * @ingroup Managers
+ *
+ * @brief Unused? Not yet encountered.
+ */
+#include "manager/manager29.h"
 #include "asm.h"
+#include "flags.h"
 #include "functions.h"
-
-typedef struct {
-    Manager manager;
-    u8 unk_20[0x8];
-    u16* unk_28;
-    u16* unk_2c;
-    u8 filler[0x4];
-    u8 unk_34;
-    u8 unk_35;
-    u8 unk_36;
-    u8 unk_37;
-    s16 unk_38;
-    u16 unk_3a;
-    u16 unk_3c;
-    u16 unk_3e;
-} Manager29;
 
 bool32 sub_0805CF80(Manager29* this);
 void sub_0805CBD0(Manager29* this);
 void sub_0805CC3C(Manager29* this);
 
 void Manager29_Main(Manager29* this) {
-    if (this->manager.action == 0) {
+    if (super->action == 0) {
         sub_0805CBD0(this);
         if (CheckFlags(this->unk_3e)) {
             sub_0805CC3C(this);
@@ -40,7 +29,7 @@ void Manager29_Main(Manager29* this) {
 void sub_0805CBD0(Manager29* this) {
     LayerStruct* layer;
 
-    this->manager.action = 1;
+    super->action = 1;
     this->unk_38 = (this->unk_38 >> 4 & 0x3fU) | (((this->unk_3a << 0x10) >> 0x14 & 0x3fU) << 6);
     this->unk_3a = (this->unk_3c >> 4 & 0x3f) | (((this->unk_36 + this->unk_37 * 0x100) >> 4 & 0x3fU) << 6);
     this->unk_3c = GetTileType(this->unk_38, this->unk_34);
@@ -63,7 +52,7 @@ void sub_0805CC3C(Manager29* this) {
         uVar4 = 0x322;
     }
 
-    switch (this->manager.unk_0a) {
+    switch (super->type) {
         default:
             sub_0807B7D8(uVar4, iVar3, this->unk_34);
             sub_0807B7D8(0x365, iVar2, this->unk_34);

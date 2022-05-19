@@ -137,4 +137,5 @@ extern const Hitbox gUnk_080FD580;
 extern const Hitbox gUnk_080FD588;
 
 extern const Hitbox gPlayerHitbox;
-#endif
+
+#endif // HITBOX_H

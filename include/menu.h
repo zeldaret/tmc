@@ -125,4 +125,4 @@ extern Menu gMenu;
 #define gFigurineMenu (*(FigurineMenu*)&gMenu)
 #define gPauseMenu (*(PauseMenu*)&gMenu)
 
-#endif
+#endif // MENU_H

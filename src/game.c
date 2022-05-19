@@ -34,6 +34,7 @@
 #include "roomid.h"
 #include "ui.h"
 #include "kinstone.h"
+#include "manager/diggingCaveEntranceManager.h"
 
 // Game task
 
@@ -97,7 +98,7 @@ extern void sub_0806FD8C(void);
 extern void sub_080300C4(void);
 extern u32 sub_0805BC04(void);
 extern void DeleteSleepingEntities(void);
-extern u32 UpdateLightLevel(void);
+extern bool32 UpdateLightLevel(void);
 extern void sub_080185F8(void);
 extern void UpdateDoorTransition(void);
 extern bool32 CheckInitPortal(void);
@@ -132,7 +133,7 @@ static void sub_08052010(void);
 static void ResetTmpFlags(void);
 static void InitializeEntities(void);
 static void CheckAreaDiscovery(void);
-static void CreateManagerF(void);
+static void CreateMiscManager(void);
 static void UpdateWindcrests(void);
 static void UpdateFakeScroll(void);
 static void UpdatePlayerMapCoords(void);
@@ -377,7 +378,7 @@ static void GameMain_ChangeRoom(void) {
     if (gArea.unk28.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
-    CreateManagerF();
+    CreateMiscManager();
     CheckAreaDiscovery();
 #elif defined(EU)
     CheckAreaDiscovery();
@@ -393,7 +394,7 @@ static void GameMain_ChangeRoom(void) {
     if (gArea.unk28.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
-    CreateManagerF();
+    CreateMiscManager();
 #endif
     if (!gRoomVars.field_0x0) {
         RequestPriorityDuration(NULL, 1);
@@ -496,7 +497,7 @@ static void InitializeEntities(void) {
     sub_0804AF90();
     CallRoomProp6();
     InitializePlayer();
-    gUnk_03004030.unk_00 = NULL;
+    gDiggingCaveEntranceTransition.entrance = NULL;
     InitializeCamera();
     gUpdateVisibleTiles = 1;
     LoadRoomBgm();
@@ -1317,7 +1318,7 @@ void DisplayEzloMessage(void) {
 }
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-static void CreateManagerF(void) {
+static void CreateMiscManager(void) {
     Entity* e = NULL;
 
     if (gRoomTransition.player_status.field_0x24[13])
@@ -1330,7 +1331,7 @@ static void CreateManagerF(void) {
     if (e == NULL)
         return;
     e->kind = MANAGER;
-    e->id = 15;
+    e->id = MISC_MANAGER;
     e->type = 15;
     AppendEntityToList(e, 0);
 }
@@ -1585,7 +1586,7 @@ static void CheckAreaDiscovery(void) {
         Entity* e = (Entity*)GetEmptyManager();
         if (e != NULL) {
             e->kind = MANAGER;
-            e->id = 0x39;
+            e->id = ENTER_ROOM_TEXTBOX_MANAGER;
             AppendEntityToList(e, 8);
             if (!gRoomVars.field_0x0 && !ReadBit(gSave.areaVisitFlags, gArea.locationIndex)) {
                 e->type2 = 1;
@@ -1871,8 +1872,8 @@ void sub_08053758(void) {
     gMenu.field_0xa = 0x1e;
     *((u8*)&gMenu + 0x10) = 0; // TODO
     gUI.field_0x6 = 1;
-    gMapBottom.bgControlPtr = NULL;
-    gMapTop.bgControlPtr = NULL;
+    gMapBottom.bgSettings = NULL;
+    gMapTop.bgSettings = NULL;
     gRoomControls.camera_target = NULL;
     gRoomControls.scroll_y = 0;
     gRoomControls.scroll_x = 0;

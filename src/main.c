@@ -233,12 +233,12 @@ void sub_08056208(void) {
     gScreen._6d = 0;
 }
 
-void sub_0805622C(void* a1, u32 a2, u32 a3) {
+void sub_0805622C(struct BgAffineDstData* a1, u32 a2, u32 a3) {
     gScreen._70 = a1;
     gScreen._74 = a2;
     gScreen._78 = a3;
     gScreen._6c = 1;
-    gUnk_03003DE4 ^= 1;
+    gUnk_03003DE4[0] ^= 1;
 }
 
 void sub_08056250(void) {
@@ -278,8 +278,10 @@ u32 CheckRegionOnScreen(u32 x0, u32 y0, u32 x1, u32 y1) {
     return result;
 }
 
-// Iterate over array of AABBs and check if any fit on screen
-u16 CheckRegionsOnScreen(const u16* arr) {
+/**
+ * Iterate over array of AABBs and check if any fit on screen
+ */
+u32 CheckRegionsOnScreen(const u16* arr) {
     const u16* i;
     for (i = arr; *i != 0xff; i += 5) {
         if (CheckRegionOnScreen(i[1], i[2], i[3], i[4]))

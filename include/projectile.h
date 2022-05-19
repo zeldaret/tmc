@@ -84,4 +84,4 @@ typedef enum {
     /*24*/ V3_TENNIS_BALL_PROJECTILE,
 } Projectile;
 
-#endif
+#endif // PROJECTILE_H

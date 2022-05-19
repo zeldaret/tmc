@@ -23,4 +23,4 @@ typedef struct {
 
 #define gNewPlayerEntity (*(PlayerEntity*)&gPlayerEntity)
 
-#endif
+#endif // NEW_PLAYER_H

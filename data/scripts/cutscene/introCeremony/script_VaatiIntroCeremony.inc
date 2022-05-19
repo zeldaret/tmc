@@ -77,7 +77,7 @@ SCRIPT_START script_VaatiIntroCeremony
 	Wait 0x001e
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
-	Call sub_08066CA4
+	Call Vaati_Evaporate
 	DoPostScriptAction 0x0008
 	Wait 0x0078
 	SetSyncFlag 0x00000200

@@ -2,9 +2,10 @@
 #define MAP_H
 
 #include "global.h"
+#include "screen.h"
 
 typedef struct {
-    /*0x0000*/ u16* bgControlPtr;        // Points to the BgSettings.control field for the bg belonging to this layer?
+    /*0x0000*/ BgSettings* bgSettings;
     /*0x0004*/ u16 mapData[0x1000];      // tilemap data? <-- gMapDataTop / gMapDataBottom
     /*0x2004*/ u8 collisionData[0x1000]; // more tilemap data? <-- gUnk_0200D654 / gUnk_02027EB4
     /*0x3004*/ u16 mapDataClone[0x1000]; // more tilemap data? <-- gUnk_0200E654 / gUnk_02028EB4

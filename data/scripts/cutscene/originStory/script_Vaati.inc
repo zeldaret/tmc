@@ -39,7 +39,7 @@ SCRIPT_START script_Vaati
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00001000
 	WaitForSyncFlagAndClear 0x00000800
-	Call sub_08066CA4
+	Call Vaati_Evaporate
 	DoPostScriptAction 0x0008
 	Wait 0x0078
 	SetSyncFlag 0x00001000

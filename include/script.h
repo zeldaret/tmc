@@ -49,4 +49,5 @@ void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, 
 void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context);
 void HandleEntity0x82Actions(Entity* entity);
 void sub_0807DD94(Entity*, void (*function)(Entity*, ScriptExecutionContext*));
-#endif
+
+#endif // SCRIPT_H

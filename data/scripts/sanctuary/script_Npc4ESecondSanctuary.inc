@@ -36,7 +36,7 @@ script_0801373C:
 	CallWithArg sub_08095D8C, script_Objet6ASwordCharge7
 	EndBlock
 	Wait 0x003c
-	CallWithArg CreateManager36, 0x00000000
+	CallWithArg CreateRepeatedSoundManager, 0x00000000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00002000
 	PlaySound SFX_1D2
@@ -48,7 +48,7 @@ script_0801373C:
 	WaitForSyncFlagAndClear 0x00008000
 	Wait 0x0078
 	SetSyncFlag 0x00000060
-	CallWithArg DeleteManager36, 0x00000000
+	CallWithArg DeleteRepeatedSoundManager, 0x00000000
 	Wait 0x0078
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100

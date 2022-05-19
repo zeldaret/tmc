@@ -5,6 +5,7 @@
 #include "structures.h"
 #include "room.h"
 #include "script.h"
+#include "screen.h"
 
 /** File signature */
 #define SIGNATURE 'MCZ3'
@@ -86,8 +87,8 @@ typedef struct {
     /*0x00E*/ u8 unk_e;
     /*0x00F*/ u8 unk_f;
     /*0x010*/ void** currentRoomProperties;
-    /*0x014*/ u16* mapBottomBgControlPtr;
-    /*0x018*/ u16* mapTopBgControlPtr;
+    /*0x014*/ BgSettings* mapBottomBgSettings;
+    /*0x018*/ BgSettings* mapTopBgSettings;
     /*0x01C*/ RoomControls roomControls;
     /*0x054*/ GfxSlotList gfxSlotList;
     /*0x268*/ Palette palettes[0x10];
@@ -126,7 +127,7 @@ void DoSoftReset(void);
  */
 void SetSleepMode(void);
 
-extern void sub_0805622C(void* a1, u32 a2, u32 a3);
+extern void sub_0805622C(struct BgAffineDstData* a1, u32 a2, u32 a3);
 extern void sub_08056208(void);
 extern void ResetPalettes(void);
 extern void VBlankIntrWait();
@@ -151,7 +152,9 @@ extern void DemoTask(void);
 #endif
 /// @}
 
-extern u8 gUnk_03003DE4;
+extern u8 gUnk_03003DE4[0xC];
 extern u16 gPaletteBuffer[];
 
-#endif
+extern u32 CheckRegionsOnScreen(const u16* arr);
+
+#endif // MAIN_H

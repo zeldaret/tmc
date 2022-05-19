@@ -1,5 +1,5 @@
-#ifndef SPRITEDATA_H
-#define SPRITEDATA_H
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 
 #include "gba/types.h"
 #include "entity.h"
@@ -436,7 +436,7 @@ typedef enum {
     SPRITE_FILESCREENOBJECTS,
     SPRITE_OBJECTA2,
     SPRITE_OBJECT6A_10,
-    SPRITE_VAATI_1,
-
+    SPRITE_VAATI_1
 } Sprites;
-#endif
+
+#endif // DEFINITIONS_H

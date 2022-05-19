@@ -3,7 +3,7 @@
 	mov r7, sb
 	mov r6, r8
 	push {r6, r7}
-	ldr r0, _080795A8 @ =gUnk_03004030
+	ldr r0, _080795A8 @ =gDiggingCaveEntranceTransition
 	ldrb r0, [r0, #8]
 	cmp r0, #0
 	beq _08079562
@@ -47,7 +47,7 @@ _080795A0:
 	strb r0, [r5, #0xf]
 	b _080796FE
 	.align 2, 0
-_080795A8: .4byte gUnk_03004030
+_080795A8: .4byte gDiggingCaveEntranceTransition
 _080795AC: .4byte gPlayerState
 _080795B0: .4byte gPlayerEntity
 _080795B4:

@@ -7,7 +7,7 @@ void sub_08099E10(Entity*);
 void sub_08099E58(Entity*);
 void sub_08099E8C(Entity*);
 void nullsub_534(Entity*);
-extern void sub_0805B390(u32);
+extern void CreateHoleManager(u32);
 
 void Object86(Entity* this) {
     static void (*const actionFuncs[])(Entity*) = {
@@ -63,7 +63,7 @@ void sub_08099E8C(Entity* this) {
             RequestPriorityDuration(this, 0x1e);
         }
         if (CheckLocalFlag(0x75)) {
-            sub_0805B390(0x7);
+            CreateHoleManager(0x7);
         }
     }
 }

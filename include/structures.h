@@ -324,4 +324,4 @@ typedef struct {
     s16 position;
 } TileData;
 
-#endif
+#endif // STRUCTURES_H

@@ -59,7 +59,6 @@ typedef struct {
     u8 filler[0xA00];
 } struct_02017AA0;
 extern struct_02017AA0 gUnk_02017AA0[];
-extern u8 gUnk_03003DE4;
 
 extern const PaletteGroup* gPaletteGroups[];
 extern const u8 gGlobalGfxAndPalettes[];
@@ -509,9 +508,9 @@ void sub_0801E154(u32 a1) {
 }
 
 void sub_0801E160(u32 a1, u32 a2, u32 a3) {
-    MemClear(&gUnk_02017AA0[gUnk_03003DE4], sizeof(gUnk_02017AA0[gUnk_03003DE4]));
+    MemClear(&gUnk_02017AA0[gUnk_03003DE4[0]], sizeof(gUnk_02017AA0[gUnk_03003DE4[0]]));
     sub_0801E290(a1, a2, a3);
-    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4], 0x4000040, 0xA2600001);
+    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0]], 0x4000040, 0xA2600001);
 }
 
 void sub_0801E1B8(u32 a1, u32 a2) {
@@ -523,10 +522,10 @@ void sub_0801E1B8(u32 a1, u32 a2) {
 }
 
 void sub_0801E1EC(u32 a1, u32 a2, u32 a3) {
-    MemClear(&gUnk_02017AA0[gUnk_03003DE4], sizeof(gUnk_02017AA0[gUnk_03003DE4]));
+    MemClear(&gUnk_02017AA0[gUnk_03003DE4[0]], sizeof(gUnk_02017AA0[gUnk_03003DE4[0]]));
     sub_0801E24C(a3, 0);
     sub_0801E290(a1, a2, a3);
-    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4], 0x4000040, 0xA2600001);
+    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0]], 0x4000040, 0xA2600001);
 }
 
 ASM_FUNC("asm/non_matching/common/sub_0801E24C.inc", void sub_0801E24C(u32 a1, u32 a2));

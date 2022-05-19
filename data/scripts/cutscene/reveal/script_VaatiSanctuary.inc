@@ -8,7 +8,7 @@ SCRIPT_START script_VaatiSanctuary
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000020
 	SetEntityPositionRelative 0x0098, 0x0048
-	Call sub_08066C94
+	Call Vaati_Apparate
 	Wait 0x00e9
 	DoPostScriptAction 0x0007
 	SetSyncFlag 0x00000040
@@ -26,7 +26,7 @@ SCRIPT_START script_VaatiSanctuary
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000020
-	Call sub_08066CA4
+	Call Vaati_Evaporate
 	DoPostScriptAction 0x0008
 	Wait 0x0078
 	SetSyncFlag 0x00000040

@@ -238,4 +238,4 @@ void sub_0804B0B0(u32 arg0, u32 arg1);
 
 void DoExitTransition(const ScreenTransitionData* data);
 
-#endif
+#endif // ROOM_H

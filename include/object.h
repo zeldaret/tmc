@@ -427,4 +427,4 @@ void ObjectC1();
 
 extern void (*const gObjectFunctions[194])(Entity*);
 
-#endif
+#endif // OBJECT_H

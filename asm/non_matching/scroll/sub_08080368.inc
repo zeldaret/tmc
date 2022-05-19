@@ -1,6 +1,6 @@
 	.syntax unified
 	push {r4, r5, r6, r7, lr}
-	ldr r0, _08080384 @ =gUnk_03004030
+	ldr r0, _08080384 @ =gDiggingCaveEntranceTransition
 	ldr r1, _08080388 @ =gRoomControls
 	ldrb r0, [r0, #0xa]
 	ldrb r1, [r1, #4]
@@ -13,7 +13,7 @@
 	strh r0, [r1]
 	b _080803BE
 	.align 2, 0
-_08080384: .4byte gUnk_03004030
+_08080384: .4byte gDiggingCaveEntranceTransition
 _08080388: .4byte gRoomControls
 _0808038C: .4byte gUnk_02034480
 _08080390:

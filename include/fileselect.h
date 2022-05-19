@@ -72,4 +72,4 @@ extern u32 gUsedPalettes;
 extern u8 gTextGfxBuffer[];
 extern u8 gUnk_02022030;
 
-#endif
+#endif // FILESELECT_H

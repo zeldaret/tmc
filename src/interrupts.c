@@ -186,11 +186,11 @@ void WaitForNextFrame(void) {
 
     if (gUpdateVisibleTiles) {
         gUpdateVisibleTiles = 0;
-        if (gMapBottom.bgControlPtr != NULL)
+        if (gMapBottom.bgSettings != NULL)
             // sizeof(BGBuffer) = 0x800, what are we omitting?
-            DmaCopy32(3, &gBG1Buffer, VRAM + (*gMapBottom.bgControlPtr & 0x1f00) * 8, 0x5C0);
-        if (gMapTop.bgControlPtr != NULL)
-            DmaCopy32(3, &gBG2Buffer, VRAM + (*gMapTop.bgControlPtr & 0x1f00) * 8, 0x5C0);
+            DmaCopy32(3, &gBG1Buffer, VRAM + (gMapBottom.bgSettings->control & 0x1f00) * 8, 0x5C0);
+        if (gMapTop.bgSettings != NULL)
+            DmaCopy32(3, &gBG2Buffer, VRAM + (gMapTop.bgSettings->control & 0x1f00) * 8, 0x5C0);
     }
     FadeVBlank();
 }

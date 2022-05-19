@@ -9,7 +9,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	OffsetEntityPosition 0x0000, 0xffe0
 	Call WaitForCameraTouchRoomBorder
 	Wait 0x003c
-	CallWithArg DeleteManager36, 0x00000001
+	CallWithArg DeleteRepeatedSoundManager, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	Wait 0x003c
 	SetSyncFlag 0x00000002

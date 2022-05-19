@@ -17,7 +17,7 @@ SCRIPT_START script_Vaati1Intro
 	_0807F0B4 0x0001
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
-	Call sub_08066C94
+	Call Vaati_Apparate
 	Wait 0x00e9
 	DoPostScriptAction 0x0007
 	MessageFromTargetPos TEXT_VAATI2, 0x2f, 0x0002

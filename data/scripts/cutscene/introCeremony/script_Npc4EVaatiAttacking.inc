@@ -23,7 +23,7 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	Wait 0x000f
 	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
-	CallWithArg DeleteManager36, 0x00000002
+	CallWithArg DeleteRepeatedSoundManager, 0x00000002
 	_0807F0C8 0x0000, 0x0000
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
