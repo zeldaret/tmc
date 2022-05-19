@@ -289,4 +289,39 @@ u32 sub_0801D458(u32 a1) {
     return 0;
 }
 
-ASM_FUNC("asm/non_matching/color/sub_0801D48C.inc", void sub_0801D48C(u32 a1, u32 a2));
+void sub_0801D48C(u32 a1, u32 a2) {
+    Palette* pPVar1;
+    Palette* pPVar2;
+    s32 iVar2;
+    u16* iVar3;
+    u16* iVar4;
+    Palette* pPVar5;
+    u32 tmp;
+    u16* ptr;
+    Palette* ptr2;
+
+    pPVar2 = gPaletteList;
+    pPVar1 = pPVar2 + a1;
+    iVar2 = (*(u8*)pPVar1) >> 4;
+    if (--iVar2 != -1) {
+        ptr = gPaletteBuffer;
+        iVar4 = ptr + 0x100 + a2 * 0x10;
+        pPVar5 = gPaletteList + a2;
+        iVar3 = ptr + 0x100 + a1 * 0x10;
+        do {
+            *pPVar5 = *pPVar1;
+            pPVar1->_0_0 = 0;
+            pPVar1->_0_4 = 0;
+            pPVar1->_1 = 0;
+            pPVar1->_2 = 0;
+            MemCopy(iVar3, iVar4, 0x20);
+            iVar3 += 0x10;
+            pPVar1++;
+            iVar4 += 0x10;
+            iVar2--;
+            pPVar5++;
+        } while (iVar2 != -1);
+    }
+
+    gUsedPalettes |= 0xffff0000;
+}
