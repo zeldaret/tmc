@@ -79,8 +79,7 @@ void sub_08057118(LightRayManager* this) {
     RegisterTransitionManager(this, sub_080570B8, sub_080570F8);
 }
 
-// regalloc
-NONMATCH("asm/non_matching/lightRayManager/sub_08057174.inc", void sub_08057174(LightRayManager* this)) {
+void sub_08057174(LightRayManager* this) {
     LightRayManagerProp* prop = GetCurrentRoomProperty(super->type);
     s32 temp;
     s32 x;
@@ -88,23 +87,14 @@ NONMATCH("asm/non_matching/lightRayManager/sub_08057174.inc", void sub_08057174(
 
     if (prop->unk0 == 0xff)
         return;
-    temp = gPlayerEntity.x.HALF.HI;
-    if (temp < 0) {
-        temp += 0xf;
-    }
 
-    x = temp >> 4;
-    temp = gPlayerEntity.y.HALF.HI;
-    if (temp < 0) {
-        temp += 0xf;
-    }
-
-    y = temp >> 4;
+    x = gPlayerEntity.x.HALF.HI / 16;
+    y = gPlayerEntity.y.HALF.HI / 16;
 
     for (; prop->unk0 != 0xff; prop++) {
         if (prop->unk0 != this->unk_21) {
-            u32 x2 = (gRoomControls.origin_x >> 4) + prop->unk1;
-            u32 y2 = (gRoomControls.origin_y >> 4) + prop->unk2;
+            u32 x2 = (gRoomControls.origin_x / 16) + prop->unk1;
+            u32 y2 = (gRoomControls.origin_y / 16) + prop->unk2;
 
             if (y - y2 < prop->unk4 && x - x2 < prop->unk3) {
                 switch (prop->unk0) {
@@ -158,7 +148,6 @@ NONMATCH("asm/non_matching/lightRayManager/sub_08057174.inc", void sub_08057174(
         }
     }
 }
-END_NONMATCH
 
 void sub_0805728C(LightRayManager* this) {
     if (--super->subtimer == 0) {
