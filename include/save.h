@@ -66,7 +66,8 @@ typedef struct {
     /*0x24E*/ u8 unk24E[14];
     /*0x25C*/ u8 flags[0x200]; /**< Flags. */
     /*0x45C*/ u8 unk45C[0x10];
-    /*0x46C*/ u8 unk46C[0x20];
+    /*0x46C*/ u8 unk46C[0x10];
+    /*0x46C*/ u8 unk47C[0x10];
     /*0x48C*/ u32 timers[7];
     /*0x4A8*/ u32 demo_timer; /**< Demo timer. */
     /*0x4AC*/ u8 filler4ac[0x8];

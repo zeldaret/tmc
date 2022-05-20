@@ -365,7 +365,7 @@ u32 IsItemEquipped(u32);
 /** @see Item */
 u32 GetInventoryValue(u32);
 /** @see Item */
-void SetInventoryValue(u32, u32);
+u32 SetInventoryValue(u32, u32);
 s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);
 void ModBombs(s32 delta);
