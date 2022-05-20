@@ -38,7 +38,6 @@ typedef struct {
 extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
 extern const ScreenTransitionData gUnk_0813AD88[];
-extern u8 gUnk_02002B32[];
 
 bool32 sub_08077758(PlayerEntity*);
 bool32 sub_080777A0();
@@ -3000,27 +2999,36 @@ u32 FinalizeSave(void) {
 }
 
 u32 GetInventoryValue(u32 item) {
-    u32 tmp = item / 4;
-    return gUnk_02002B32[tmp] >> ((item & 3) << 1) & 3;
+    u8* address = &gSave.inventory[item / 4];
+    return *address >> ((item & 3) << 1) & 3;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/SetInventoryValue.inc", void SetInventoryValue(u32 a, u32 b))
+u32 SetInventoryValue(u32 item, u32 value) {
+    u32 masked_value, value_update, old_value, offset;
+    u8* address;
 
-NONMATCH("asm/non_matching/playerUtils/sub_0807CAC8.inc", void sub_0807CAC8(u32 param_1)) {
-    gSave.unk46C[gArea.dungeon_idx + 0x10] |= (1 << param_1);
+    address = &gSave.inventory[item / 4];
+    offset = (item % 4) * 2;
+    value_update = value << offset;
+    old_value = *address;
+    masked_value = old_value & (3 << offset);
+    *address = (old_value ^ masked_value) | value_update;
+    return masked_value >> offset;
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/playerUtils/sub_0807CAEC.inc", u32 sub_0807CAEC(u32 param_1)) {
-    return gSave.unk46C[gArea.dungeon_idx + 0x10] >> param_1 & 1;
+void sub_0807CAC8(u32 param_1) {
+    gSave.unk47C[gArea.dungeon_idx] |= (1 << param_1);
 }
-END_NONMATCH
+
+u32 sub_0807CAEC(u32 param_1) {
+    return gSave.unk47C[gArea.dungeon_idx] >> param_1 & 1;
+}
 
 u32 CheckLocalFlagByBank(u32 bank, u32 flag) {
     return ReadBit(gSave.flags, bank + flag);
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_0807CB24.inc", bool32 sub_0807CB24(s32 param_1, u32 param_2)) {
+bool32 sub_0807CB24(s32 param_1, u32 param_2) {
     bool32 result = TRUE;
     switch (param_1) {
         case 0:
@@ -3043,27 +3051,14 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807CB24.inc", bool32 sub_0807CB24(s3
             result = CheckLocalFlagByBank(gLocalFlagBanks[param_1], param_2);
             break;
         case 0xf:
-            if (GetInventoryValue(param_2) == 0) {
-                result = FALSE;
-            } else {
-                result = TRUE;
-            }
+            result = GetInventoryValue(param_2) != 0;
             break;
         case 0x10:
-            if (GetInventoryValue(param_2) == 1) {
-                result = TRUE;
-            } else {
-                result = FALSE;
-            }
+            result = GetInventoryValue(param_2) == 1;
             break;
         case 0x11:
-            if (GetInventoryValue(param_2) == 2) {
-                result = TRUE;
-            } else {
-                result = FALSE;
-            }
+            result = GetInventoryValue(param_2) == 2;
             break;
     }
     return result;
 }
-END_NONMATCH

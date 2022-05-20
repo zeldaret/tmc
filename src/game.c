@@ -180,10 +180,6 @@ extern u8 gUnk_0200AF14;
 extern u8 gUnk_080FE1C6[];
 extern void (*const gUnk_080FE2AC[])(void);
 
-/** @see Item */
-void ForceEquipItem(u32, u32);
-extern void SetInventoryValue(u32, u32);
-
 extern u8 gUnk_080FE1DD[];
 
 extern void (*const gUnk_080FE2A0[])(void);
