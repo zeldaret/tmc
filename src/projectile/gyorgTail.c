@@ -218,14 +218,17 @@ void sub_080AC760(Entity* param_1) {
     }
 }
 
-NONMATCH("asm/non_matching/gyorgTail/sub_080AC7C4.inc", void sub_080AC7C4(Entity* this)) {
-    // TODO regalloc
+void sub_080AC7C4(Entity* this) {
     Entity* entity1;
     Entity* entity2;
     Entity* entity3;
-    s32 iVar1;
-    s32 iVar2;
-    s32 iVar3;
+    s32 tmp;
+    s32 tmp2;
+    s32 tmp3;
+    s32 tmp4;
+    s32 tmp5;
+    s32 tmp6;
+    s32 r6;
 
     entity1 = this->child;
     entity2 = entity1->child;
@@ -235,14 +238,22 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC7C4.inc", void sub_080AC7C4(Entity
     } else {
         entity3 = this->parent;
     }
-    PositionRelative(entity3, entity2, (entity2->field_0x78.HALF.HI << 8) * gSineTable[entity2->direction],
-                     -((entity2->field_0x78.HALF.HI << 8) * gSineTable[entity2->direction + 0x40]));
-    PositionRelative(entity2, entity1, (entity1->field_0x78.HALF.HI << 8) * gSineTable[entity1->direction],
-                     -((entity1->field_0x78.HALF.HI << 8) * gSineTable[entity1->direction + 0x40]));
-    PositionRelative(entity1, this, (this->field_0x78.HALF.HI << 8) * gSineTable[this->direction],
-                     -((this->field_0x78.HALF.HI << 8) * gSineTable[this->direction + 0x40]));
+    tmp = entity2->field_0x78.HALF.HI << 8;
+    tmp2 = gSineTable[entity2->direction];
+    r6 = tmp2 * tmp;
+    tmp2 = gSineTable[entity2->direction + 0x40] * tmp;
+    PositionRelative(entity3, entity2, r6, -tmp2);
+    tmp3 = entity1->field_0x78.HALF.HI << 8;
+    tmp4 = gSineTable[entity1->direction];
+    r6 = tmp4 * tmp3;
+    tmp4 = gSineTable[entity1->direction + 0x40] * tmp3;
+    PositionRelative(entity2, entity1, r6, -tmp4);
+    tmp5 = this->field_0x78.HALF.HI << 8;
+    tmp6 = gSineTable[this->direction];
+    r6 = tmp6 * tmp5;
+    tmp6 = gSineTable[this->direction + 0x40] * tmp5;
+    PositionRelative(entity1, this, r6, -tmp6);
 }
-END_NONMATCH
 
 void sub_080AC884(Entity* this) {
     if (this->parent->field_0x70.HALF_U.HI != 0) {
