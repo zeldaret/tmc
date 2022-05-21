@@ -6,8 +6,6 @@
 #include "projectile.h"
 #include "hitbox.h"
 
-extern const u8 gUnk_0812A9C0[];
-
 bool32 sub_080AC5E4(Entity*);
 void sub_080AC388(Entity*);
 void sub_080AC6F0(Entity*);
@@ -234,7 +232,57 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
 }
 END_NONMATCH
 
-ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC6F0.inc", void sub_080AC6F0(Entity* this))
+void sub_080AC6F0(Entity* this) {
+    static const u8 gUnk_0812A9C0[] = { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+                                        0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11 };
+
+    u32 uVar1;
+    s32 iVar2;
+    s32 iVar3;
+    u32 uVar4;
+    u32 tmp;
+
+    uVar4 = this->direction & 0x1f;
+    uVar1 = this->direction >> 5;
+    iVar3 = uVar1 * 3;
+    tmp = gUnk_0812A9C0[this->animationState] - uVar1 * 3;
+    if (tmp <= 3) {
+        switch (tmp) {
+            default:
+                if (uVar4 > 0x19) {
+                    return;
+                }
+                break;
+            case 0:
+                if (uVar4 < 7) {
+                    return;
+                }
+                break;
+            case 1:
+                if (uVar4 - 5 < 0xd) {
+                    return;
+                }
+                break;
+            case 2:
+                if (uVar4 - 0xf < 0xd) {
+                    return;
+                }
+                break;
+        }
+    }
+    iVar2 = iVar3 + 3;
+    if (uVar4 < 0x1b) {
+        iVar2 = iVar3 + 2;
+        if (uVar4 < 0x11) {
+            iVar2 = iVar3;
+            if (5 < uVar4) {
+                iVar2 = iVar3 + 1;
+            }
+        }
+    }
+    this->animationState = iVar2 % 0x18;
+    this->frameIndex = gUnk_0812A9C0[iVar2 % 0x18];
+}
 
 void sub_080AC760(Entity* param_1) {
     s32 tmp;
@@ -311,5 +359,3 @@ void sub_080AC884(Entity* this) {
         this->subtimer = 0x56;
     }
 }
-
-const u8 gUnk_0812A9C0[] = { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
