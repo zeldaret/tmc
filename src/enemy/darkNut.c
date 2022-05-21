@@ -392,7 +392,17 @@ void sub_0802124C(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/darkNut/sub_08021274.inc", u32 sub_08021274(u32 a, u32 b))
+u32 sub_08021274(u32 animationState, u32 dir) {
+    if (((dir & 7) - 3 < 3) && (((dir & 0x18) >> 3 == animationState || (((dir + 8) & 0x18) >> 3 == animationState)))) {
+        return 0xff;
+    }
+
+    dir = DirectionToAnimationState(DirectionRoundUp(dir));
+    if (animationState == dir) {
+        return 0xff;
+    }
+    return dir;
+}
 
 void sub_080212B0(Entity* this) {
     u8 tmp;
