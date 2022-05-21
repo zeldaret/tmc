@@ -6,13 +6,6 @@
 #include "projectile.h"
 #include "hitbox.h"
 
-extern u8 gEntCount;
-
-extern void (*const gUnk_0812A994[])(Entity*);
-extern void (*const GyorgTail_Actions[])(Entity*);
-extern const s16 gUnk_0812A9B4[];
-extern const u8 gUnk_0812A9B8[];
-extern const u8 gUnk_0812A9BA[];
 extern const u8 gUnk_0812A9C0[];
 
 bool32 sub_080AC5E4(Entity*);
@@ -20,8 +13,17 @@ void sub_080AC388(Entity*);
 void sub_080AC6F0(Entity*);
 void sub_080AC760(Entity*);
 void sub_080AC7C4(Entity*);
+void sub_080AC328(Entity*);
+void sub_080AC510(Entity*);
+void sub_080AC560(Entity*);
+void sub_080AC884(Entity*);
+void sub_080AC480(Entity*);
+void GyorgTail_Init(Entity*);
 
 void GyorgTail(Entity* this) {
+    static void (*const gUnk_0812A994[])(Entity*) = {
+        sub_080AC328, sub_080AC510, sub_080AC510, sub_080AC510, sub_080AC560,
+    };
     Entity* parent;
 
     if (this->parent->next == NULL) {
@@ -47,10 +49,16 @@ void GyorgTail(Entity* this) {
 }
 
 void sub_080AC328(Entity* this) {
+    static void (*const GyorgTail_Actions[])(Entity*) = {
+        GyorgTail_Init,
+        sub_080AC388,
+        sub_080AC480,
+    };
     GyorgTail_Actions[this->action](this);
 }
 
 void GyorgTail_Init(Entity* this) {
+    static const s16 gUnk_0812A9B4[] = { -64, 64 };
     if (sub_080AC5E4(this) != 0) {
         this->action = 1;
         this->frameIndex = 0xc;
@@ -61,7 +69,46 @@ void GyorgTail_Init(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC388.inc", void sub_080AC388(Entity* this))
+void sub_080AC388(Entity* this) {
+    static const u8 gUnk_0812A9B8[] = { 24, 20 };
+    Entity* pEVar2;
+    int iVar3;
+    u32 uVar5;
+
+    uVar5 = gUnk_0812A9B8[this->type];
+    pEVar2 = this->parent;
+    iVar3 = (pEVar2->animationState ^ 0x80) - (this->field_0x7c.HALF_U.LO >> 8);
+    if ((short)this->field_0x7a.HWORD < 0) {
+        if (((iVar3 - uVar5) & 0xff) <= 0x7f) {
+            s32 tmp = -(short)this->field_0x7a.HWORD;
+            this->field_0x7a.HWORD = tmp;
+            this->field_0x7c.HALF_U.LO = (short)((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8);
+            sub_080AC884(this);
+        } else {
+            this->field_0x7c.HALF_U.LO = this->field_0x7c.HALF_U.LO + this->field_0x7a.HWORD;
+            if (((iVar3 + uVar5) & 0xff) >= 0x81) {
+                this->field_0x7c.HALF_U.LO = ((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8) | 0x80;
+            }
+        }
+    } else {
+        if (((iVar3 + uVar5) & 0xff) >= 0x81) {
+            s32 tmp = -(short)this->field_0x7a.HWORD;
+            this->field_0x7a.HWORD = tmp;
+            this->field_0x7c.HALF_U.LO = (short)((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8);
+            sub_080AC884(this);
+        } else {
+            this->field_0x7c.HALF_U.LO = this->field_0x7c.HALF_U.LO + this->field_0x7a.HWORD;
+            if (0x7e >= ((iVar3 - uVar5) & 0xff) - 1) {
+                this->field_0x7c.HALF_U.LO = ((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8) | 0x80;
+            }
+        }
+    }
+
+    this->direction = this->field_0x7c.HALF_U.LO >> 8;
+    sub_080AC6F0(this);
+    sub_080AC760(this);
+    sub_080AC7C4(this);
+}
 
 void sub_080AC480(Entity* this) {
     if (this->timer != 0) {
@@ -88,6 +135,7 @@ void sub_080AC480(Entity* this) {
 }
 
 void sub_080AC510(Entity* this) {
+    static const u8 gUnk_0812A9BA[] = { 24, 25, 25, 24, 24, 24 };
     if (this->action == 0) {
         this->action = 1;
         this->frameIndex = gUnk_0812A9BA[this->type * 3 + this->type2 - 1];
@@ -264,15 +312,4 @@ void sub_080AC884(Entity* this) {
     }
 }
 
-void (*const gUnk_0812A994[])(Entity*) = {
-    sub_080AC328, sub_080AC510, sub_080AC510, sub_080AC510, sub_080AC560,
-};
-void (*const GyorgTail_Actions[])(Entity*) = {
-    GyorgTail_Init,
-    sub_080AC388,
-    sub_080AC480,
-};
-const s16 gUnk_0812A9B4[] = { -64, 64 };
-const u8 gUnk_0812A9B8[] = { 24, 20 };
-const u8 gUnk_0812A9BA[] = { 24, 25, 25, 24, 24, 24 };
 const u8 gUnk_0812A9C0[] = { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
