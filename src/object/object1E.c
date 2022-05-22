@@ -25,7 +25,7 @@ void Object1E(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/object1E/sub_08087528.inc", void sub_08087528(Entity* this)) {
+void sub_08087528(Entity* this) {
     u32 palette;
 
     this->action = 1;
@@ -47,13 +47,13 @@ NONMATCH("asm/non_matching/object1E/sub_08087528.inc", void sub_08087528(Entity*
         }
         ChangeObjPalette(this, palette);
         switch (this->animationState) {
-            case 1:
-                this->spriteSettings.flipX = 1;
+            case 3:
                 if (this->type == 0x40) {
                     this->y.HALF.HI += 4;
                 }
                 break;
-            case 3:
+            case 1:
+                this->spriteSettings.flipX = 1;
                 if (this->type == 0x40) {
                     this->y.HALF.HI += 4;
                 }
@@ -68,7 +68,6 @@ NONMATCH("asm/non_matching/object1E/sub_08087528.inc", void sub_08087528(Entity*
     SetDefaultPriority(this, 3);
     InitializeAnimation(this, this->type2 * 4 + this->animationState);
 }
-END_NONMATCH
 
 void sub_080875F4(Entity* this) {
     GetNextFrame(this);
