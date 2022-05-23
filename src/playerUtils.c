@@ -1812,20 +1812,20 @@ u32 sub_0807A894(Entity* this) {
 void nullsub_505(void) {
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_0807A8D8.inc", void sub_0807A8D8(Entity* this)) {
+void sub_0807A8D8(Entity* this) {
     u32 tmp;
 
     if ((gPlayerState.flags & PL_MINISH) == 0) {
-        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, 0, 1), gPlayerEntity.collisionLayer) & 0x20;
-        if (tmp != 0) {
+        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, 0, 1), gPlayerEntity.collisionLayer);
+        if ((tmp & 0x20) != 0) {
             sub_0807AAF8(this, COORD_TO_TILE_OFFSET(this, 0, 1));
         }
-        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, -2, 0), gPlayerEntity.collisionLayer) & 0x20;
-        if (tmp != 0) {
+        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, -2, 0), gPlayerEntity.collisionLayer);
+        if ((tmp & 0x20) != 0) {
             sub_0807AAF8(this, COORD_TO_TILE_OFFSET(this, -2, 0));
         }
-        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, 2, 0), gPlayerEntity.collisionLayer) & 0x20;
-        if (tmp != 0) {
+        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, 2, 0), gPlayerEntity.collisionLayer);
+        if ((tmp & 0x20) != 0) {
             sub_0807AAF8(this, COORD_TO_TILE_OFFSET(this, 2, 0));
         }
     }
@@ -1841,7 +1841,6 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807A8D8.inc", void sub_0807A8D8(Enti
         }
     }
 }
-END_NONMATCH
 
 void sub_0807AA80(Entity* this) {
     if (((gPlayerState.flags & PL_HIDDEN) == 0) && (this->collisionLayer = 2, this->z.HALF.HI == 0)) {
