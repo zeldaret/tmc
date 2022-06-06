@@ -150,7 +150,6 @@ extern const u8 gUnk_080B3E80[];
 // collisions for tiles > 0x4000
 extern const u8 gUnk_080B79A7[];
 
-extern void sub_08080B60(LayerStruct*);
 extern void sub_0801AB08(u16*, LayerStruct*);
 
 extern u8 gUnk_02006F00[];
@@ -165,6 +164,12 @@ void sub_0807BBE4(void);
 void sub_0807BC84(void);
 void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
+
+extern u8 gUnk_080082DC[];
+extern u32 sub_08004202(Entity*, u8*, u32);
+
+extern s8* gUnk_0811C0B0[];
+extern u8 gUnk_0811C01C[];
 
 void sub_08077698(PlayerEntity* this) {
     ItemBehavior* puVar2;
@@ -1207,7 +1212,28 @@ void UpdateCarriedObject(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08078CD0.inc", void sub_08078CD0())
+void sub_08078CD0(PlayerEntity* this) {
+    Entity* entity;
+    u32 tmp;
+    s8* ptr;
+
+    entity = this->unk_70;
+    entity->z.HALF.HI = super->z.HALF.HI - 1;
+    entity->spriteOrientation.flipY = super->spriteOrientation.flipY;
+    entity->collisionLayer = super->collisionLayer;
+    tmp = gUnk_0811C01C[gPlayerState.item->frameIndex];
+    ptr = (gUnk_0811C0B0[(((entity->gustJarFlags & 0x30) / 16))] + (tmp * 2));
+    if (super->spriteSettings.flipX) {
+        entity->x.HALF.HI = -ptr[0] + super->x.HALF_U.HI;
+    } else {
+        entity->x.HALF.HI = super->x.HALF_U.HI + ptr[0];
+    }
+    entity->y.HALF.HI = super->y.HALF.HI + ptr[1];
+    sub_0806FEBC(super, 0, entity);
+    if (entity->parent != NULL) {
+        CopyPosition(entity, entity->parent);
+    }
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08078D60.inc", void sub_08078D60())
 
@@ -1655,7 +1681,36 @@ u32 sub_08079FC4(u32 param_1) {
     return sub_08079FD4(&gPlayerEntity, param_1);
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079FD4.inc", u32 sub_08079FD4(Entity* a, u32 b))
+u32 sub_08079FD4(Entity* this, u32 param_2) {
+    u32 tilePosition;
+    u8* collisionData;
+    u32 collision;
+    u32 index;
+    u8 auStack20[4];
+
+    tilePosition = COORD_TO_TILE(this) * 2;
+    collisionData = gMapBottom.collisionData;
+    if (param_2 == 2) {
+        collisionData = gMapTop.collisionData;
+    }
+    index = 0;
+    while (TRUE) {
+        do {
+            index++;
+            tilePosition = sub_08004202(this, auStack20, tilePosition);
+            collision = collisionData[tilePosition / 2];
+            if (collision < 0xf) {
+                return index;
+            }
+        } while (collision < 0x10);
+        if (collision == 0x1d)
+            break;
+        if (((collision != 0x23) && (collision != 0x27)) && (gUnk_080082DC[collision - 0x10] == 0)) {
+            return index;
+        }
+    }
+    return index;
+}
 
 void sub_0807A050(void) {
     u32 palette;

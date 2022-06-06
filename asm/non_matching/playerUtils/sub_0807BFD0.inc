@@ -5,7 +5,7 @@
 	bl ClearBgAnimations
 	bl sub_0807BFA8
 	ldr r7, _0807C0B8 @ =0x0000FFFF
-	ldr r6, _0807C0BC @ =gMetatileTypesBottom
+	ldr r6, _0807C0BC @ =gMapBottom+0x5004
 	movs r0, #0x80
 	lsls r0, r0, #5
 	mov r8, r0
@@ -15,7 +15,7 @@
 	bl MemFill16
 	movs r5, #0
 	strh r5, [r6]
-	ldr r4, _0807C0C0 @ =gMetatileTypesTop
+	ldr r4, _0807C0C0 @ =gMapTop+0x5004
 	adds r0, r7, #0
 	adds r1, r4, #0
 	mov r2, r8
@@ -84,7 +84,7 @@ _0807C078:
 	ble _0807C066
 	movs r2, #0x80
 	lsls r2, r2, #5
-	ldr r5, _0807C0C0 @ =gMetatileTypesTop
+	ldr r5, _0807C0C0 @ =gMapTop+0x5004
 	adds r6, r5, r2
 	ldr r4, _0807C0B8 @ =0x0000FFFF
 	adds r0, r4, #0
@@ -112,8 +112,8 @@ _0807C0A8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0807C0B8: .4byte 0x0000FFFF
-_0807C0BC: .4byte gMetatileTypesBottom
-_0807C0C0: .4byte gMetatileTypesTop
+_0807C0BC: .4byte gMapBottom+0x5004
+_0807C0C0: .4byte gMapTop+0x5004
 _0807C0C4: .4byte gRoomControls
 _0807C0C8: .4byte gArea
 _0807C0CC: .4byte 0x0000085C

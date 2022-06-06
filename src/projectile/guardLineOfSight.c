@@ -7,7 +7,6 @@
 #include "collision.h"
 
 extern u32 sub_080644C8(Entity*);
-extern u8 gUnk_02027EB4[];
 
 extern const u8 gUnk_081299C8[];
 
@@ -63,7 +62,7 @@ void GuardLineOfSight(Entity* this) {
             DeleteThisEntity();
         }
         LinearMoveUpdate(this);
-        if (IsTileCollision(gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2)) {
+        if (IsTileCollision(gMapBottom.collisionData, this->x.HALF.HI, this->y.HALF.HI, 2)) {
             DeleteThisEntity();
         }
     }

@@ -28,8 +28,6 @@ typedef struct {
 } ArmosEntity;
 
 extern Entity* gUnk_020000B0;
-extern u8 gUnk_02027EB4[];
-extern u8 gUnk_0200D654[];
 
 extern void (*const gUnk_080CE124[])(ArmosEntity*);
 extern void (*const gUnk_080CE13C[])(ArmosEntity*);
@@ -380,7 +378,7 @@ void sub_080306C4(ArmosEntity* this) {
             if (!var) {
                 super->direction = (4 + uVar3 + ((Random() & 2) - 1) * 8) & 0x18;
             }
-            if (IsTileCollision(super->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4,
+            if (IsTileCollision(super->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData,
                                 super->x.HALF.HI + gUnk_080CE164[super->direction >> 2],
                                 super->y.HALF.HI + gUnk_080CE164[(super->direction >> 2) + 1], 0)) {
                 super->direction = ((u8)(((uVar3 & 4) ^ 4) << 1)) | (uVar3 & 0x10);

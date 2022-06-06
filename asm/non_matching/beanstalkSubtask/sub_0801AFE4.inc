@@ -4,7 +4,7 @@
 	mov r6, sb
 	mov r5, r8
 	push {r5, r6, r7}
-	ldr r3, _0801B018 @ =gUnk_02027EB4
+	ldr r3, _0801B018 @ =gMapBottom+0x2004
 	ldr r0, _0801B01C @ =gRoomControls
 	ldrh r1, [r0, #0x1e]
 	lsrs r1, r1, #4
@@ -27,7 +27,7 @@ _0801B00E:
 	adds r5, r2, #1
 	b _0801B026
 	.align 2, 0
-_0801B018: .4byte gUnk_02027EB4
+_0801B018: .4byte gMapBottom+0x2004
 _0801B01C: .4byte gRoomControls
 _0801B020: .4byte gUnk_080B44D0
 _0801B024:

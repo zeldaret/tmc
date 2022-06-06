@@ -4,15 +4,12 @@
  *
  * @brief Sensor Blade Trap enemy
  */
-
-#include "enemy.h"
-#include "physics.h"
 #include "collision.h"
+#include "enemy.h"
+#include "map.h"
+#include "physics.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
-
-extern u8 gUnk_02027EB4[];
-extern u8 gUnk_0200D654[];
 
 void sub_0802BB10(Entity*);
 bool32 sub_0802BB2C(Entity*, u32);
@@ -99,7 +96,7 @@ void sub_0802BB10(Entity* this) {
 }
 
 bool32 sub_0802BB2C(Entity* this, u32 param_2) {
-    u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = this->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
     const s8* ptr = &gUnk_080CD3DC[param_2 >> 2];
     return IsTileCollision(layer, this->x.HALF.HI + ptr[0], this->y.HALF.HI + ptr[1], 0);
 }

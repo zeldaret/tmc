@@ -13,8 +13,8 @@
 
 extern void sub_08080BC4(void);
 extern void sub_080197D4(const void*);
-extern void sub_0807C8B0(u8*, u32, u32);
-extern void sub_0801AB08(u8*, u8*);
+extern void sub_0807C8B0(u16*, u32, u32);
+extern void sub_0801AB08(u8*, LayerStruct*);
 extern void sub_0807C810();
 extern void DeleteSleepingEntities(void);
 extern void sub_0807BBE4();
@@ -24,10 +24,8 @@ extern void sub_0805E248();
 extern u8 gUpdateVisibleTiles;
 extern u16 gUnk_0200B640;
 extern u32** gUnk_08109194[];
-extern u8 gMapDataTop[];
-extern u8 gMapDataBottom[];
 extern u8 gUnk_02022830[];
-extern u8 gUnk_020246B0[];
+extern u16 gUnk_020246B0[];
 
 void sub_0807FC64(RoomControls*);
 void sub_0807FC7C(RoomControls*);
@@ -51,7 +49,7 @@ u32 sub_080803D0();
 u32 sub_08080278();
 void sub_08080C80(u32*);
 void sub_08080368();
-void sub_08080B60(u8*);
+void sub_08080B60(LayerStruct*);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 void sub_080808D8(s32);
@@ -60,6 +58,8 @@ void sub_08080904(s32);
 void sub_08080910(s32);
 
 extern u8 gMapDataTopSpecial[];
+
+extern const s8 gUnk_080169A4[];
 
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
@@ -214,8 +214,8 @@ void sub_0807FFE4(RoomControls* controls) {
     controls->filler2[0] = sub_080803D0() + 6;
     gUnk_0200B640 = sub_08080278();
     sub_080197D4(*gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type]);
-    sub_0807C8B0(gMapDataTop, controls->width >> 4, controls->height >> 4);
-    sub_0801AB08(gMapDataTopSpecial, gMapDataTop - 4);
+    sub_0807C8B0(gMapTop.mapData, controls->width >> 4, controls->height >> 4);
+    sub_0801AB08(gMapDataTopSpecial, &gMapTop);
 }
 
 void sub_08080040(RoomControls* controls) {
@@ -262,18 +262,18 @@ void sub_08080040(RoomControls* controls) {
 
 void sub_08080108(RoomControls* controls) {
     controls->unk4 = 4;
-    MemCopy(gMapDataBottom, gMapDataBottom + 0x3000, 0x2000);
-    MemCopy(gMapDataTop, gMapDataTop + 0x3000, 0x2000);
+    MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
+    MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapTop.mapData));
     sub_08080368();
     gUnk_02034480.unk_00 = gUnk_0200B640;
     MemCopy(gUnk_02022830, gUnk_020246B0, 0x1800);
-    sub_08080B60(gMapDataBottom - 4);
-    sub_08080B60(gMapDataTop - 4);
+    sub_08080B60(&gMapBottom);
+    sub_08080B60(&gMapTop);
     sub_0807BBE4();
     sub_0807BC84();
     sub_0805E248();
-    sub_0801AB08((u8*)&gMapDataBottomSpecial, gMapDataBottom - 4);
-    sub_0801AB08(gMapDataTopSpecial, gMapDataTop - 4);
+    sub_0801AB08((u8*)&gMapDataBottomSpecial, &gMapBottom);
+    sub_0801AB08(gMapDataTopSpecial, &gMapTop);
 }
 
 void sub_08080198(RoomControls* controls) {
@@ -332,7 +332,26 @@ void sub_080801BC(RoomControls* controls) {
 
 ASM_FUNC("asm/non_matching/scroll/sub_08080278.inc", u32 sub_08080278())
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080368.inc", void sub_08080368())
+void sub_08080368(void) {
+    u32 tmp;
+    u32 index;
+    u16* ptr;
+
+    if ((gDiggingCaveEntranceTransition.previousArea != gRoomControls.area) &&
+        (gDiggingCaveEntranceTransition.previousArea != 0xff)) {
+        gUnk_02034480.unk_00 = 0;
+    } else {
+        ptr = gUnk_020246B0;
+        tmp = gUnk_02034480.unk_00 << 1;
+        index = 0;
+        while (index < tmp) {
+            sub_0807B9B8(ptr[1], ptr[0] & 0xfff, (ptr[0] >> 0xe));
+            ptr += 2;
+            index += 2;
+        }
+        gUpdateVisibleTiles = 0;
+    }
+}
 
 ASM_FUNC("asm/non_matching/scroll/sub_080803D0.inc", u32 sub_080803D0())
 
@@ -614,14 +633,46 @@ void sub_080809D4(void) {
 
 ASM_FUNC("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTransition())
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080B60.inc", void sub_08080B60(u8* param_1))
+ASM_FUNC("asm/non_matching/scroll/sub_08080B60.inc", void sub_08080B60(LayerStruct* param_1))
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080BC4.inc", void sub_08080BC4())
+void sub_08080BC4(void) {
+    const s8* ptr;
+    s32 tmpX;
+    s32 tmpY;
+
+    tmpX = (gRoomControls.scroll_x - gRoomControls.origin_x) & 0xf;
+    tmpY = ((gRoomControls.scroll_y - gRoomControls.origin_y) & 0xf) + 8;
+    if (gRoomControls.shake_duration != 0) {
+        gRoomControls.shake_duration--;
+        ptr = &gUnk_080169A4[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
+        if (gMapBottom.bgSettings != NULL) {
+            gMapBottom.bgSettings->xOffset = ptr[0] + tmpX;
+            gMapBottom.bgSettings->yOffset = ptr[1] + tmpY;
+        }
+        if (gMapTop.bgSettings != NULL) {
+            gMapTop.bgSettings->xOffset = ptr[0] + tmpX;
+            gMapTop.bgSettings->yOffset = ptr[1] + tmpY;
+        }
+        gRoomControls.aff_x = ptr[0];
+        gRoomControls.aff_y = ptr[1];
+    } else {
+        if (gMapBottom.bgSettings != NULL) {
+            gMapBottom.bgSettings->xOffset = tmpX;
+            gMapBottom.bgSettings->yOffset = tmpY;
+        }
+        if (gMapTop.bgSettings != NULL) {
+            gMapTop.bgSettings->xOffset = tmpX;
+            gMapTop.bgSettings->yOffset = tmpY;
+        }
+        gRoomControls.aff_x = 0;
+        gRoomControls.aff_y = 0;
+    }
+}
 
 void sub_08080C80(u32* param_1) {
     sub_080197D4(param_1);
-    sub_0807C8B0(gMapDataBottom, gRoomControls.width >> 4, gRoomControls.height >> 4);
-    sub_0807C8B0(gMapDataTop, gRoomControls.width >> 4, gRoomControls.height >> 4);
+    sub_0807C8B0(gMapBottom.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
+    sub_0807C8B0(gMapTop.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
 }
 
 ASM_FUNC("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* a))

@@ -37,8 +37,6 @@ void Fan_Action2(FanEntity* this);
 void Fan_Action3(FanEntity* this);
 bool32 sub_0809EF78(FanEntity*, Entity*);
 
-extern const u8 gUnk_02027EB4[];
-
 void Fan(Entity* this) {
     static void (*const actionFuncs[])(FanEntity*) = {
         Fan_Init,
@@ -172,19 +170,19 @@ void sub_0809EFB0(FanEntity* this) {
     s32 sVar4;
     int iVar6;
     int iVar7;
-    const u8* ptr;
+    const u8* collisionData;
 
     cVar1 = tileTypeOffsets[super->type * 2];
     cVar2 = tileTypeOffsets[super->type * 2 + 1];
     iVar7 = super->x.HALF.HI;
     iVar6 = super->y.HALF.HI;
-    ptr = gUnk_02027EB4;
+    collisionData = gMapBottom.collisionData;
     sVar4 = 0;
     do {
         sVar4++;
         iVar7 = iVar7 + cVar1;
         iVar6 = iVar6 + cVar2;
-    } while (!IsTileCollision(ptr, iVar7, iVar6, 9));
+    } while (!IsTileCollision(collisionData, iVar7, iVar6, 9));
     sVar4 = (sVar4 - 1) << 4;
 
     switch (super->type) {
@@ -237,13 +235,13 @@ void sub_0809F08C(FanEntity* this) {
 void sub_0809F0E4(FanEntity* this) {
     static const s8 typeOffsets[] = { 0, 12, -12, 0, 0, -12, 12, 0 };
     Entity* pEVar1;
-    const s8* ptr;
+    const s8* collisionData;
 
     EnqueueSFX(SFX_183);
     pEVar1 = CreateObject(OBJECT_B2, super->type ^ 2, 0);
     if (pEVar1 != NULL) {
         pEVar1->parent = super;
-        ptr = typeOffsets + super->type * 2;
-        PositionRelative(super, pEVar1, ptr[0] << 0x10, ptr[1] << 0x10);
+        collisionData = typeOffsets + super->type * 2;
+        PositionRelative(super, pEVar1, collisionData[0] << 0x10, collisionData[1] << 0x10);
     }
 }

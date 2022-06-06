@@ -62,7 +62,7 @@ _080175A4:
 	ands r0, r1
 	cmp r0, #0
 	beq _080175CC
-	ldr r2, _080175E0 @ =gUnk_02031EC0
+	ldr r2, _080175E0 @ =gNPCData
 	lsls r0, r1, #4
 	subs r0, #0x10
 	adds r2, r0, r2
@@ -85,6 +85,6 @@ _080175D2:
 	.align 2, 0
 _080175D8: .4byte gUnk_020342F8
 _080175DC: .4byte gNPCFunctions
-_080175E0: .4byte gUnk_02031EC0
+_080175E0: .4byte gNPCData
 _080175E4: .4byte gRoomControls
     .syntax divided

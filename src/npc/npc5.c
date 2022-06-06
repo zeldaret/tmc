@@ -48,9 +48,6 @@ void sub_08061B18(Entity*);
 
 u32 PointInsideRadius(s32, s32, s32);
 
-extern u8 gUnk_0200D654[];
-extern u8 gUnk_02027EB4[];
-
 u32 sub_080611D4(Entity*);
 extern u32 sub_08079FD4(Entity*, u32);
 extern void sub_08016AD2(Entity*);
@@ -376,9 +373,9 @@ bool32 sub_08060FD0(Entity* this, u32 a, u32 b) {
     sVar2 = gSineTable[(iVar3 + 0x40)] * 6;
 
     if (this->collisionLayer != 2) {
-        puVar8 = gUnk_02027EB4;
+        puVar8 = gMapBottom.collisionData;
     } else {
-        puVar8 = gUnk_0200D654;
+        puVar8 = gMapTop.collisionData;
     }
 
     while (1) {
@@ -685,7 +682,7 @@ void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
 
 bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A74(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
@@ -702,7 +699,7 @@ bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_080616A8(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A1C(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
@@ -719,7 +716,7 @@ bool32 sub_080616A8(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061720(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_080619F0(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
@@ -736,7 +733,7 @@ bool32 sub_08061720(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061798(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A48(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
@@ -753,7 +750,7 @@ bool32 sub_08061798(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061810(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A74(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
@@ -770,7 +767,7 @@ bool32 sub_08061810(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061888(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A1C(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
@@ -787,7 +784,7 @@ bool32 sub_08061888(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061900(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_080619F0(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
@@ -804,7 +801,7 @@ bool32 sub_08061900(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061978(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A48(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
