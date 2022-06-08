@@ -12,6 +12,7 @@
 #include "hitbox.h"
 #include "common.h"
 #include "flags.h"
+#include "collision.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -27,8 +28,8 @@ typedef struct {
 } ArmosEntity;
 
 extern Entity* gUnk_020000B0;
-extern Entity gUnk_02027EB4;
-extern Entity gUnk_0200D654;
+extern u8 gUnk_02027EB4[];
+extern u8 gUnk_0200D654[];
 
 extern void (*const gUnk_080CE124[])(ArmosEntity*);
 extern void (*const gUnk_080CE13C[])(ArmosEntity*);
@@ -361,7 +362,40 @@ bool32 sub_08030650(ArmosEntity* this) {
     return FALSE;
 }
 
-ASM_FUNC("asm/non_matching/armos/sub_080306C4.inc", void sub_080306C4(ArmosEntity* this))
+void sub_080306C4(ArmosEntity* this) {
+    u32 uVar3;
+    u32 var;
+    u32 tmp;
+
+    if (sub_08049FDC(super, 1) && this->unk_7a != 0) {
+
+        super->timer = 0x18;
+        uVar3 = sub_0800132C(super, gUnk_020000B0);
+        if (uVar3 != 0xff) {
+            var = 0;
+            if ((((Random() & 7) != 0) || (super->animationState == 0xff)) && ((this->unk_82 & 3) != 3)) {
+                super->direction = (uVar3 + 4) & 0x18;
+                var = 1;
+            }
+            if (!var) {
+                super->direction = (4 + uVar3 + ((Random() & 2) - 1) * 8) & 0x18;
+            }
+            if (IsTileCollision(super->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4,
+                                super->x.HALF.HI + gUnk_080CE164[super->direction >> 2],
+                                super->y.HALF.HI + gUnk_080CE164[(super->direction >> 2) + 1], 0)) {
+                super->direction = ((u8)(((uVar3 & 4) ^ 4) << 1)) | (uVar3 & 0x10);
+                var = 0;
+            }
+            sub_080307D4(this);
+            tmp = this->unk_82 << 1 | var;
+            this->unk_82 = tmp;
+        }
+    } else {
+        super->action = 4;
+        super->timer = 0x78;
+        super->speed = 0xa0;
+    }
+}
 
 void sub_080307D4(ArmosEntity* this) {
     u8 tmp = super->direction >> 3;

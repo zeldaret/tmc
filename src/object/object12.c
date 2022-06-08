@@ -51,8 +51,9 @@ void Object12_Init(Object12Entity* this) {
 void Object12_Action1(Object12Entity* this) {
 }
 
-NONMATCH("asm/non_matching/object12/Object12_Action2.inc", void Object12_Action2(Object12Entity* this)) {
+void Object12_Action2(Object12Entity* this) {
     u32 tmp;
+    u32 tmp2;
     if (--super->timer == 0) {
         super->action = 3;
         super->timer = 0x1e;
@@ -60,13 +61,16 @@ NONMATCH("asm/non_matching/object12/Object12_Action2.inc", void Object12_Action2
         gScreen.lcd.displayControl |= 0x2000;
         gScreen.controls.windowInsideControl = 0x1f;
         gScreen.controls.windowOutsideControl = 0xf;
-        tmp = super->x.HALF.HI - gRoomControls.scroll_x;
-        gScreen.controls.window0HorizontalDimensions = (((tmp - 0x18) & 0xff) << 8) | ((tmp + 0x18) & 0xff);
-        tmp = super->y.HALF.HI - gRoomControls.scroll_y;
-        gScreen.controls.window0VerticalDimensions = (((tmp - 0x18) & 0xff) << 8) | ((tmp + 0x18) & 0xff);
+        tmp2 = super->x.HALF.HI;
+        tmp = gRoomControls.scroll_x;
+        tmp2 = tmp2 - tmp;
+        gScreen.controls.window0HorizontalDimensions = (((tmp2 - 0x18) & 0xff) << 8) | ((tmp2 + 0x18) & 0xff);
+        tmp2 = super->y.HALF.HI;
+        tmp = gRoomControls.scroll_y;
+        tmp2 = tmp2 - tmp;
+        gScreen.controls.window0VerticalDimensions = (((tmp2 - 0x18) & 0xff) << 8) | ((tmp2 + 0x18) & 0xff);
     }
 }
-END_NONMATCH
 
 void Object12_Action3(Object12Entity* this) {
     if (--super->timer == 0) {

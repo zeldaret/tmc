@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "item.h"
 #include "functions.h"
+#include "playeritem.h"
 
 void sub_08076C98(ItemBehavior*, u32);
 void sub_08076CBC(ItemBehavior*, u32);
@@ -26,7 +27,7 @@ void sub_08076CBC(ItemBehavior* beh, u32 idx) {
         DeletePlayerItem(beh, idx);
     } else {
         if ((beh->field_0x5[9] & 0x40) != 0) {
-            CreatePlayerItemWithParent(beh, 0x12);
+            CreatePlayerItemWithParent(beh, PLAYER_ITEM_12);
         }
         UpdateItemAnim(beh);
     }

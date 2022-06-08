@@ -280,36 +280,36 @@ bool32 sub_0801A4F8(void) {
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", void sub_0801A570())
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A8D0.inc", u32 sub_0801A8D0(Entity* this, u32 param_2)) {
+u32 sub_0801A8D0(Entity* this, u32 param_2) {
     u16* mapData;
     u32 tile;
     u32 position;
 
-    if (this != NULL) {
-        mapData = GetLayerByIndex(this->collisionLayer)->mapData;
-        if (param_2 == 0) {
-            position = COORD_TO_TILE_OFFSET(this, 0, 8);
-            tile = mapData[position];
-            if (tile == 0x4055) {
-                return position - 1;
-            }
-            if (tile == 0x4056) {
-                return position;
-            }
-        } else {
-            position = COORD_TO_TILE_OFFSET(this, 8, 0);
-            tile = mapData[position];
-            if (tile == 0x4057) {
-                return position - 0x40;
-            }
-            if (tile == 0x4058) {
-                return position;
-            }
+    if (this == NULL)
+        return 0xffff;
+
+    mapData = GetLayerByIndex(this->collisionLayer)->mapData;
+    if (param_2 == 0) {
+        position = COORD_TO_TILE_OFFSET(this, 0, 8);
+        tile = mapData[position];
+        if (tile == 0x4055) {
+            return position - 1;
+        }
+        if (tile == 0x4056) {
+            return position;
+        }
+    } else {
+        position = COORD_TO_TILE_OFFSET(this, 8, 0);
+        tile = mapData[position];
+        if (tile == 0x4057) {
+            return position - 0x40;
+        }
+        if (tile == 0x4058) {
+            return position;
         }
     }
     return 0xffff;
 }
-END_NONMATCH
 
 bool32 sub_0801A980(void) {
     u16 tileType;
@@ -323,46 +323,42 @@ bool32 sub_0801A980(void) {
     return FALSE;
 }
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A9F0.inc",
-         bool32 sub_0801A9F0(u32 param_1, u32 param_2, u32 param_3)) {
-
+bool32 sub_0801A9F0(u32 param_1, u32 param_2, u32 param_3) {
+    bool32 cond = FALSE;
     switch (param_2) {
+        case 0x360:
+            cond = TRUE;
+            break;
         case 0x361:
             if (param_1 == 0) {
-                goto result;
-            } else {
-                return FALSE;
-            }
-            break;
-        case 0x362:
-            if (param_1 == 0x10) {
-                goto result;
-            } else {
-                return FALSE;
-            }
-            break;
-        case 0x363:
-            if (param_1 == 0x18) {
-                goto result;
-            } else {
-                return FALSE;
+                cond = TRUE;
             }
             break;
         case 0x364:
             if (param_1 == 8) {
-                goto result;
-            } else {
-                return FALSE;
+                cond = TRUE;
             }
             break;
-        case 0x360:
-        result:
-            return sub_0801AA58(&gPlayerEntity, param_3, param_1);
+        case 0x362:
+            if (param_1 == 0x10) {
+                cond = TRUE;
+            }
+            break;
+        case 0x363:
+            if (param_1 == 0x18) {
+                cond = TRUE;
+            }
+            break;
         default:
-            return FALSE;
+            break;
     }
+
+    if (cond) {
+        return sub_0801AA58(&gPlayerEntity, param_3, param_1);
+    }
+
+    return FALSE;
 }
-END_NONMATCH
 
 bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
     LayerStruct* layer;

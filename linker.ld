@@ -32,15 +32,12 @@ SECTIONS {
         . = 0x00002AC0; gUnk_02002AC0 = .;
         . = 0x00002B0E; gUnk_02002B0E = .;
         . = 0x00002B54; gUnk_02002B54 = .;
-        . = 0x00002B58; gUnk_02002B58 = .;
         . = 0x00002B6B; gUnk_02002B6B = .;
         . = 0x00002C01; gUnk_02002C01 = .;
         . = 0x00002C81; gUnk_02002C81 = .;
-        . = 0x00002C8E; gUnk_02002C8E = .;
         . = 0x00002F00; gMapDataTopSpecial = .;
         . = 0x00006F00; gUnk_02006F00 = .;
         . = 0x0000AF00; gUnk_0200AF00 = .;
-        . = 0x0000AF13; gUnk_0200AF13 = .;
         . = 0x0000AF34; gUnk_0200AF34 = .;
         . = 0x0000B240; gUnk_0200B240 = .;
         . = 0x0000B640; gUnk_0200B640 = .;
@@ -127,7 +124,6 @@ SECTIONS {
         . = 0x000354B0; gUnk_020354B0 = .;
         . = 0x000354B4; gManagerCount = .;
         . = 0x000354C0; gUnk_020354C0 = .;
-        . = 0x0003553E; gUnk_0203553E = .;
         . = 0x00035540; gzHeap = .;
         . = 0x00035542; gUnk_02035542 = .;
         . = 0x00036540; gUnk_02036540 = .;
@@ -154,10 +150,8 @@ SECTIONS {
 
     iwram (NOLOAD) : ALIGN(4) {
         . = 0x00000000; gOAMControls = .;
-        . = 0x00000020; gUnk_03000020 = .;
         . = 0x00000420; gUnk_03000420 = .;
         . = 0x00000B80; gUnk_03000B80 = .;
-        . = 0x00000BD4; gUnk_03000BD4 = .;
         . = 0x00000BF0; gRoomControls = .;
         . = 0x00000C24; gUnk_03000C24 = .;
         . = 0x00000C30; gUnk_03000C30 = .;

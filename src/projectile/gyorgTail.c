@@ -6,22 +6,22 @@
 #include "projectile.h"
 #include "hitbox.h"
 
-extern u8 gEntCount;
-
-extern void (*const gUnk_0812A994[])(Entity*);
-extern void (*const GyorgTail_Actions[])(Entity*);
-extern const s16 gUnk_0812A9B4[];
-extern const u8 gUnk_0812A9B8[];
-extern const u8 gUnk_0812A9BA[];
-extern const u8 gUnk_0812A9C0[];
-
 bool32 sub_080AC5E4(Entity*);
 void sub_080AC388(Entity*);
 void sub_080AC6F0(Entity*);
 void sub_080AC760(Entity*);
 void sub_080AC7C4(Entity*);
+void sub_080AC328(Entity*);
+void sub_080AC510(Entity*);
+void sub_080AC560(Entity*);
+void sub_080AC884(Entity*);
+void sub_080AC480(Entity*);
+void GyorgTail_Init(Entity*);
 
 void GyorgTail(Entity* this) {
+    static void (*const gUnk_0812A994[])(Entity*) = {
+        sub_080AC328, sub_080AC510, sub_080AC510, sub_080AC510, sub_080AC560,
+    };
     Entity* parent;
 
     if (this->parent->next == NULL) {
@@ -47,10 +47,16 @@ void GyorgTail(Entity* this) {
 }
 
 void sub_080AC328(Entity* this) {
+    static void (*const GyorgTail_Actions[])(Entity*) = {
+        GyorgTail_Init,
+        sub_080AC388,
+        sub_080AC480,
+    };
     GyorgTail_Actions[this->action](this);
 }
 
 void GyorgTail_Init(Entity* this) {
+    static const s16 gUnk_0812A9B4[] = { -64, 64 };
     if (sub_080AC5E4(this) != 0) {
         this->action = 1;
         this->frameIndex = 0xc;
@@ -61,7 +67,46 @@ void GyorgTail_Init(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC388.inc", void sub_080AC388(Entity* this))
+void sub_080AC388(Entity* this) {
+    static const u8 gUnk_0812A9B8[] = { 24, 20 };
+    Entity* pEVar2;
+    int iVar3;
+    u32 uVar5;
+
+    uVar5 = gUnk_0812A9B8[this->type];
+    pEVar2 = this->parent;
+    iVar3 = (pEVar2->animationState ^ 0x80) - (this->field_0x7c.HALF_U.LO >> 8);
+    if ((short)this->field_0x7a.HWORD < 0) {
+        if (((iVar3 - uVar5) & 0xff) <= 0x7f) {
+            s32 tmp = -(short)this->field_0x7a.HWORD;
+            this->field_0x7a.HWORD = tmp;
+            this->field_0x7c.HALF_U.LO = (short)((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8);
+            sub_080AC884(this);
+        } else {
+            this->field_0x7c.HALF_U.LO = this->field_0x7c.HALF_U.LO + this->field_0x7a.HWORD;
+            if (((iVar3 + uVar5) & 0xff) >= 0x81) {
+                this->field_0x7c.HALF_U.LO = ((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8) | 0x80;
+            }
+        }
+    } else {
+        if (((iVar3 + uVar5) & 0xff) >= 0x81) {
+            s32 tmp = -(short)this->field_0x7a.HWORD;
+            this->field_0x7a.HWORD = tmp;
+            this->field_0x7c.HALF_U.LO = (short)((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8);
+            sub_080AC884(this);
+        } else {
+            this->field_0x7c.HALF_U.LO = this->field_0x7c.HALF_U.LO + this->field_0x7a.HWORD;
+            if (0x7e >= ((iVar3 - uVar5) & 0xff) - 1) {
+                this->field_0x7c.HALF_U.LO = ((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8) | 0x80;
+            }
+        }
+    }
+
+    this->direction = this->field_0x7c.HALF_U.LO >> 8;
+    sub_080AC6F0(this);
+    sub_080AC760(this);
+    sub_080AC7C4(this);
+}
 
 void sub_080AC480(Entity* this) {
     if (this->timer != 0) {
@@ -88,6 +133,7 @@ void sub_080AC480(Entity* this) {
 }
 
 void sub_080AC510(Entity* this) {
+    static const u8 gUnk_0812A9BA[] = { 24, 25, 25, 24, 24, 24 };
     if (this->action == 0) {
         this->action = 1;
         this->frameIndex = gUnk_0812A9BA[this->type * 3 + this->type2 - 1];
@@ -186,7 +232,57 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
 }
 END_NONMATCH
 
-ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC6F0.inc", void sub_080AC6F0(Entity* this))
+void sub_080AC6F0(Entity* this) {
+    static const u8 gUnk_0812A9C0[] = { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+                                        0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11 };
+
+    u32 uVar1;
+    s32 iVar2;
+    s32 iVar3;
+    u32 uVar4;
+    u32 tmp;
+
+    uVar4 = this->direction & 0x1f;
+    uVar1 = this->direction >> 5;
+    iVar3 = uVar1 * 3;
+    tmp = gUnk_0812A9C0[this->animationState] - uVar1 * 3;
+    if (tmp <= 3) {
+        switch (tmp) {
+            default:
+                if (uVar4 > 0x19) {
+                    return;
+                }
+                break;
+            case 0:
+                if (uVar4 < 7) {
+                    return;
+                }
+                break;
+            case 1:
+                if (uVar4 - 5 < 0xd) {
+                    return;
+                }
+                break;
+            case 2:
+                if (uVar4 - 0xf < 0xd) {
+                    return;
+                }
+                break;
+        }
+    }
+    iVar2 = iVar3 + 3;
+    if (uVar4 < 0x1b) {
+        iVar2 = iVar3 + 2;
+        if (uVar4 < 0x11) {
+            iVar2 = iVar3;
+            if (5 < uVar4) {
+                iVar2 = iVar3 + 1;
+            }
+        }
+    }
+    this->animationState = iVar2 % 0x18;
+    this->frameIndex = gUnk_0812A9C0[iVar2 % 0x18];
+}
 
 void sub_080AC760(Entity* param_1) {
     s32 tmp;
@@ -218,14 +314,17 @@ void sub_080AC760(Entity* param_1) {
     }
 }
 
-NONMATCH("asm/non_matching/gyorgTail/sub_080AC7C4.inc", void sub_080AC7C4(Entity* this)) {
-    // TODO regalloc
+void sub_080AC7C4(Entity* this) {
     Entity* entity1;
     Entity* entity2;
     Entity* entity3;
-    s32 iVar1;
-    s32 iVar2;
-    s32 iVar3;
+    s32 tmp;
+    s32 tmp2;
+    s32 tmp3;
+    s32 tmp4;
+    s32 tmp5;
+    s32 tmp6;
+    s32 r6;
 
     entity1 = this->child;
     entity2 = entity1->child;
@@ -235,14 +334,22 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC7C4.inc", void sub_080AC7C4(Entity
     } else {
         entity3 = this->parent;
     }
-    PositionRelative(entity3, entity2, (entity2->field_0x78.HALF.HI << 8) * gSineTable[entity2->direction],
-                     -((entity2->field_0x78.HALF.HI << 8) * gSineTable[entity2->direction + 0x40]));
-    PositionRelative(entity2, entity1, (entity1->field_0x78.HALF.HI << 8) * gSineTable[entity1->direction],
-                     -((entity1->field_0x78.HALF.HI << 8) * gSineTable[entity1->direction + 0x40]));
-    PositionRelative(entity1, this, (this->field_0x78.HALF.HI << 8) * gSineTable[this->direction],
-                     -((this->field_0x78.HALF.HI << 8) * gSineTable[this->direction + 0x40]));
+    tmp = entity2->field_0x78.HALF.HI << 8;
+    tmp2 = gSineTable[entity2->direction];
+    r6 = tmp2 * tmp;
+    tmp2 = gSineTable[entity2->direction + 0x40] * tmp;
+    PositionRelative(entity3, entity2, r6, -tmp2);
+    tmp3 = entity1->field_0x78.HALF.HI << 8;
+    tmp4 = gSineTable[entity1->direction];
+    r6 = tmp4 * tmp3;
+    tmp4 = gSineTable[entity1->direction + 0x40] * tmp3;
+    PositionRelative(entity2, entity1, r6, -tmp4);
+    tmp5 = this->field_0x78.HALF.HI << 8;
+    tmp6 = gSineTable[this->direction];
+    r6 = tmp6 * tmp5;
+    tmp6 = gSineTable[this->direction + 0x40] * tmp5;
+    PositionRelative(entity1, this, r6, -tmp6);
 }
-END_NONMATCH
 
 void sub_080AC884(Entity* this) {
     if (this->parent->field_0x70.HALF_U.HI != 0) {
@@ -252,16 +359,3 @@ void sub_080AC884(Entity* this) {
         this->subtimer = 0x56;
     }
 }
-
-void (*const gUnk_0812A994[])(Entity*) = {
-    sub_080AC328, sub_080AC510, sub_080AC510, sub_080AC510, sub_080AC560,
-};
-void (*const GyorgTail_Actions[])(Entity*) = {
-    GyorgTail_Init,
-    sub_080AC388,
-    sub_080AC480,
-};
-const s16 gUnk_0812A9B4[] = { -64, 64 };
-const u8 gUnk_0812A9B8[] = { 24, 20 };
-const u8 gUnk_0812A9BA[] = { 24, 25, 25, 24, 24, 24 };
-const u8 gUnk_0812A9C0[] = { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };

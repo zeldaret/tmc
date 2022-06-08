@@ -22,6 +22,7 @@
 #include "game.h"
 #include "screen.h"
 #include "main.h"
+#include "playeritem.h"
 
 #define GRAVITY_RATE Q_8_8(32)
 #define SLOPE_SPEED_MODIFIER 0x50
@@ -1657,7 +1658,7 @@ static void PlayerEmptyBottleInit(Entity* this) {
     Entity* ent;
 
     ResetPlayerItem();
-    ent = CreatePlayerItemWithParent((ItemBehavior*)this, 0xe);
+    ent = CreatePlayerItemWithParent((ItemBehavior*)this, PLAYER_ITEM_BOTTLE);
     if (ent != NULL) {
         ent->field_0x68.HALF.LO = gPlayerState.field_0x38;
         this->subAction++;

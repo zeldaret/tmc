@@ -175,7 +175,6 @@ typedef struct {
 } CutsceneData;
 static const CutsceneData sCutsceneData[];
 
-extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
 extern u8 gUnk_080FE1C6[];
 extern void (*const gUnk_080FE2AC[])(void);

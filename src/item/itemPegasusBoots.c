@@ -5,6 +5,7 @@
 #include "effects.h"
 #include "game.h"
 #include "save.h"
+#include "playeritem.h"
 
 void sub_08076964(ItemBehavior*, u32);
 void sub_080768F8(ItemBehavior*, u32);
@@ -105,7 +106,7 @@ void sub_08076964(ItemBehavior* this, u32 idx) {
                 (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
                 gPlayerState.field_0xab = 3;
                 sub_08077DF4(this, 0x298);
-                bombEntity = CreatePlayerItemWithParent(this, 0xc);
+                bombEntity = CreatePlayerItemWithParent(this, PLAYER_ITEM_C);
                 if (bombEntity != NULL) {
                     if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != 0) {
                         uVar3 = gSave.stats.itemButtons[SLOT_A];
