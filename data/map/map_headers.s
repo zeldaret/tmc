@@ -241,7 +241,7 @@ gAreaRoomMap_Beanstalks_4:: @ 081037B8
 	map_bottom offset_gAreaRoomMap_Beanstalks_4_0, 0x12C, 0, 1
 
 gAreaRoomMap_Beanstalks_5:: @ 081037C4
-	.4byte 0x80000000, gMapDataBottom, 0x80002000
+	.4byte 0x80000000, gMapBottom+0x0004, 0x80002000
 	map_top_special offset_gAreaRoomMap_Beanstalks_5_1, 0x800, 1, 1
 
 gAreaRoomMaps_Beanstalks:: @ 081037DC

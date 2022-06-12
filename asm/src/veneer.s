@@ -99,10 +99,10 @@ _0800019A:
 	bl DeleteLoadedTileEntity
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080001C0: .4byte gUnk_0202BEB4
-_080001C4: .4byte gUnk_0202BEB4
-_080001C8: .4byte gUnk_02011654
-_080001CC: .4byte gUnk_0202BEB4
+_080001C0: .4byte gMapBottom+0x6004
+_080001C4: .4byte gMapBottom+0x6004
+_080001C8: .4byte gMapTop+0x6004
+_080001CC: .4byte gMapBottom+0x6004
 
 	thumb_func_start sub_080001D0
 sub_080001D0: @ 0x080001D0
@@ -138,34 +138,34 @@ _0800021C: .4byte gUnk_080B3E80
 _08000220: .4byte gUnk_08000278
 _08000224: .4byte gUnk_08000228
 gUnk_08000228::
-	.4byte gMapDataBottom
+	.4byte gMapBottom+0x0004
 gUnk_0800022C::
-	.4byte gMetatileTypesBottom
-	.4byte gMapDataBottom
-	.4byte gMetatileTypesBottom
-	.4byte gMapDataTop
-	.4byte gMetatileTypesTop
-	.4byte gMapDataBottom
-	.4byte gMetatileTypesBottom
+	.4byte gMapBottom+0x5004
+	.4byte gMapBottom+0x0004
+	.4byte gMapBottom+0x5004
+	.4byte gMapTop+0x0004
+	.4byte gMapTop+0x5004
+	.4byte gMapBottom+0x0004
+	.4byte gMapBottom+0x5004
 gUnk_08000248::
-	.4byte gUnk_02027EB4
-	.4byte gUnk_02027EB4
-	.4byte gUnk_0200D654
-	.4byte gUnk_02027EB4
+	.4byte gMapBottom+0x2004
+	.4byte gMapBottom+0x2004
+	.4byte gMapTop+0x2004
+	.4byte gMapBottom+0x2004
 gUnk_08000258::
-	.4byte gUnk_02028EB4
-	.4byte gMetatileTypesBottom
-	.4byte gUnk_02028EB4
-	.4byte gMetatileTypesBottom
-	.4byte gUnk_0200E654
-	.4byte gMetatileTypesTop
-	.4byte gUnk_02028EB4
-	.4byte gMetatileTypesBottom
+	.4byte gMapBottom+0x3004
+	.4byte gMapBottom+0x5004
+	.4byte gMapBottom+0x3004
+	.4byte gMapBottom+0x5004
+	.4byte gMapTop+0x3004
+	.4byte gMapTop+0x5004
+	.4byte gMapBottom+0x3004
+	.4byte gMapBottom+0x5004
 gUnk_08000278::
-	.4byte gUnk_02030EB4
-	.4byte gUnk_02030EB4
-	.4byte gUnk_02016654
-	.4byte gUnk_02030EB4
+	.4byte gMapBottom+0xb004
+	.4byte gMapBottom+0xb004
+	.4byte gMapTop+0xb004
+	.4byte gMapBottom+0xb004
 
 @ call 0x80B19CC
 @ ========

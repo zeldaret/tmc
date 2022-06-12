@@ -27,27 +27,27 @@
 	.endm
 
 	.macro metatiles_bottom src_offset, size, compressed, terminator=0
-	map_data \src_offset, gMetatilesBottom, \size, \compressed, \terminator
+	map_data \src_offset, gMapBottom+0x7004, \size, \compressed, \terminator
 	.endm
 
 	.macro metatiles_top src_offset, size, compressed, terminator=0
-	map_data \src_offset, gMetatilesTop, \size, \compressed, \terminator
+	map_data \src_offset, gMapTop+0x7004, \size, \compressed, \terminator
 	.endm
 
 	.macro metatile_types_bottom src_offset, size, compressed, terminator=0
-	map_data \src_offset, gMetatileTypesBottom, \size, \compressed, \terminator
+	map_data \src_offset, gMapBottom+0x5004, \size, \compressed, \terminator
 	.endm
 
 	.macro metatile_types_top src_offset, size, compressed, terminator=0
-	map_data \src_offset, gMetatileTypesTop, \size, \compressed, \terminator
+	map_data \src_offset, gMapTop+0x5004, \size, \compressed, \terminator
 	.endm
 
 	.macro map_bottom src_offset, size, compressed, terminator=0
-	map_data \src_offset, gMapDataBottom, \size, \compressed, \terminator
+	map_data \src_offset, gMapBottom+0x0004, \size, \compressed, \terminator
 	.endm
 
 	.macro map_top src_offset, size, compressed, terminator=0
-	map_data \src_offset, gMapDataTop, \size, \compressed, \terminator
+	map_data \src_offset, gMapTop+0x0004, \size, \compressed, \terminator
 	.endm
 
 	.macro map_top_special src_offset, size, compressed, terminator=0
@@ -55,7 +55,7 @@
 	.endm
 
 	.macro collision_bottom src_offset, size, compressed, terminator=0
-	map_data \src_offset, gUnk_02027EB4, \size, \compressed, \terminator
+	map_data \src_offset, gMapBottom+0x2004, \size, \compressed, \terminator
 	.endm
 
 	.macro map_bottom_special src_offset, size, compressed, terminator=0

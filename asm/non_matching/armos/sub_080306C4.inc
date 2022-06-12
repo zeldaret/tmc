@@ -66,11 +66,11 @@ _08030746:
 	adds r0, r4, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	ldr r1, _080307B4 @ =gUnk_02027EB4
+	ldr r1, _080307B4 @ =gMapBottom+0x2004
 	mov ip, r1
 	cmp r0, #2
 	bne _08030758
-	ldr r7, _080307B8 @ =gUnk_0200D654
+	ldr r7, _080307B8 @ =gMapTop+0x2004
 	mov ip, r7
 _08030758:
 	movs r0, #0x2e
@@ -118,8 +118,8 @@ _0803079E:
 	b _080307CC
 	.align 2, 0
 _080307B0: .4byte gUnk_020000B0
-_080307B4: .4byte gUnk_02027EB4
-_080307B8: .4byte gUnk_0200D654
+_080307B4: .4byte gMapBottom+0x2004
+_080307B8: .4byte gMapTop+0x2004
 _080307BC: .4byte gUnk_080CE164
 _080307C0:
 	movs r0, #4

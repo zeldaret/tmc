@@ -3,22 +3,19 @@
 #include "functions.h"
 #include "collision.h"
 
-extern u8 gUnk_02027EB4[];
-extern u8 gUnk_0200D654[];
-
 void ObjectB2(Entity* this) {
-    u8* layer;
+    u8* collisionData;
 
     if (this->action == 0) {
         this->action = 1;
         this->timer = 0x10;
         this->direction = this->type << 3;
         if (this->collisionLayer == 2) {
-            layer = gUnk_0200D654;
+            collisionData = gMapTop.collisionData;
         } else {
-            layer = gUnk_02027EB4;
+            collisionData = gMapBottom.collisionData;
         }
-        this->child = (Entity*)layer;
+        this->child = (Entity*)collisionData;
         InitializeAnimation(this, this->type);
     }
     this->speed = this->parent->speed;

@@ -242,6 +242,16 @@ extern void sub_0806F38C(void);
 
 extern void sub_08018710(u32);
 
+typedef struct {
+    Font* font;
+    u16 width;
+    u16 height;
+    u16 transitionTimer;
+    u16 fadeSpeed;
+} struct_080FCCB4;
+
+extern struct_080FCCB4 gUnk_080FCCB4[];
+
 void GameTask(void) {
     static GameState* const sStates[] = {
         GameTask_Transition,
@@ -1888,7 +1898,28 @@ void sub_08053758(void) {
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
-ASM_FUNC("asm/non_matching/game/sub_08053800.inc", void sub_08053800())
+void sub_08053800(void) {
+    u32 index;
+    struct_080FCCB4* ptr;
+    if (gFadeControl.active == 0) {
+        index = gGenericMenu.unk10.a[0];
+        ptr = &gUnk_080FCCB4[index];
+        gGenericMenu.base.transitionTimer = ptr->transitionTimer;
+        gGenericMenu.base.field_0xa = 0x1e;
+        gGenericMenu.unk10.a[0]++;
+        gGenericMenu.base.overlayType++;
+        gGenericMenu.base.storyPanelIndex = 0;
+        LoadPaletteGroup(index + 0x8a);
+        LoadGfxGroup(index + 0x3a);
+        MemClear(&gBG1Buffer, 0x800);
+        sub_0805F46C(index + 0xf01, ptr->font);
+        gScreen.bg1.updated = 1;
+        gScreen.controls.alphaBlend = 0x10;
+        gScreen.controls.window0HorizontalDimensions = ptr->width;
+        gScreen.controls.window0VerticalDimensions = ptr->height;
+        SetFade(FADE_INSTANT, ptr->fadeSpeed);
+    }
+}
 
 void sub_08053894(void) {
     u32 tmp;

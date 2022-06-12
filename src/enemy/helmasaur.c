@@ -12,9 +12,6 @@
 
 extern u32 sub_0804A024(Entity*, u32, u32);
 
-extern u8 gUnk_0200D654[];
-extern u8 gUnk_02027EB4[];
-
 void sub_0802C18C(Entity*);
 void sub_0802C218(Entity*);
 void sub_0802C1C0(Entity*);
@@ -317,7 +314,7 @@ bool32 sub_0802C06C(Entity* this) {
     u32 xdiff = gUnk_080CD45C[(this->direction >> 2) + 0];
     u32 ydiff = gUnk_080CD45C[(this->direction >> 2) + 1];
 
-    u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
+    u8* layer = this->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
 
     u32 i;
     for (i = 0; i < 8; i++) {
@@ -340,7 +337,7 @@ bool32 sub_0802C0E8(Entity* this) {
         s32 x = this->x.HALF.HI + this->hitbox->offset_x + ptr[0] * 6;
         s32 y = this->y.HALF.HI + this->hitbox->offset_y + ptr[1] * 6;
 
-        u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
+        u8* layer = this->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
         u32 ret = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
             if (IsTileCollision(layer, x, y, 0)) {

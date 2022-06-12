@@ -26,7 +26,7 @@ _0805AB68:
 	adds r0, r6, #0
 	movs r1, #6
 	bl SetDefaultPriority
-	ldr r2, _0805ABF4 @ =gUnk_02031EC0
+	ldr r2, _0805ABF4 @ =gNPCData
 	ldrb r0, [r6, #0xb]
 	mov r3, r8
 	ldrb r1, [r3]
@@ -62,7 +62,7 @@ _0805ABBE:
 	mov r1, ip
 	strb r2, [r1]
 _0805ABC8:
-	ldr r4, _0805ABF4 @ =gUnk_02031EC0
+	ldr r4, _0805ABF4 @ =gNPCData
 	ldrb r2, [r6, #0xb]
 	mov r3, r8
 	ldrb r1, [r3]
@@ -84,7 +84,7 @@ _0805ABC8:
 	b _0805ACAA
 	.align 2, 0
 _0805ABF0: .4byte gArea
-_0805ABF4: .4byte gUnk_02031EC0
+_0805ABF4: .4byte gNPCData
 _0805ABF8: .4byte gSave
 _0805ABFC: .4byte gUnk_020342F8
 _0805AC00:

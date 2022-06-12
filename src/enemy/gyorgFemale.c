@@ -30,7 +30,6 @@ void sub_080467DC(GyorgFemaleEntity*);
 extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_080B3E80[];
 extern u8 gUnk_080B37A0[];
-extern u16 gMetatileTypesTop[];
 
 extern const u8 gUnk_080D1A94[];
 extern const u8 gUnk_080D1AAC[];
@@ -249,17 +248,17 @@ NONMATCH("asm/non_matching/gyorg_female/sub_08046518.inc", void sub_08046518(voi
     u8* r6;
     u32 i;
     u16* sl;
-    sl = &gMetatileTypesTop[0xFFFFBCB0];
-    stack1 = &gMetatileTypesTop[0xFFFFECB0];
-    stack2 = (u8*)&gMetatileTypesTop[0x00006658];
-    r6 = (u8*)&gMetatileTypesTop[0xFFFFD658];
+    sl = &gMapTop.metatileTypes[0xFFFFBCB0];
+    stack1 = &gMapTop.metatileTypes[0xFFFFECB0];
+    stack2 = (u8*)&gMapTop.metatileTypes[0x00006658];
+    r6 = (u8*)&gMapTop.metatileTypes[0xFFFFD658];
     for (i = 0; i < 0x10; i++) {
         sl += 0x40;
         stack1 += 0x40;
         for (r5 = 0; r5 < 0x10; r5++) {
             stack1[r5] = sl[r5];
-            stack2[r5] = gUnk_080B37A0[gMetatileTypesTop[sl[r5]]];
-            r6[r5] = gUnk_080B3E80[gMetatileTypesTop[sl[r5]]];
+            stack2[r5] = gUnk_080B37A0[gMapTop.metatileTypes[sl[r5]]];
+            r6[r5] = gUnk_080B3E80[gMapTop.metatileTypes[sl[r5]]];
         }
         stack2 = stack2 + 0x40;
         r6 = r6 + 0x40;

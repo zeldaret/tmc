@@ -26,13 +26,13 @@ _080802A2:
 	ldr r0, [sp]
 	cmp r8, r0
 	bhs _08080328
-	ldr r4, _0808034C @ =gMapDataTop
+	ldr r4, _0808034C @ =gMapTop+0x0004
 	add r4, sb
-	ldr r7, _08080350 @ =gUnk_0200E654
+	ldr r7, _08080350 @ =gMapTop+0x3004
 	add r7, sb
-	ldr r3, _08080354 @ =gMapDataBottom
+	ldr r3, _08080354 @ =gMapBottom+0x0004
 	add r3, sb
-	ldr r6, _08080358 @ =gUnk_02028EB4
+	ldr r6, _08080358 @ =gMapBottom+0x3004
 	add r6, sb
 _080802BC:
 	mov r2, sl
@@ -110,10 +110,10 @@ _08080336:
 	.align 2, 0
 _08080344: .4byte gUnk_02022830
 _08080348: .4byte gRoomControls
-_0808034C: .4byte gMapDataTop
-_08080350: .4byte gUnk_0200E654
-_08080354: .4byte gMapDataBottom
-_08080358: .4byte gUnk_02028EB4
+_0808034C: .4byte gMapTop+0x0004
+_08080350: .4byte gMapTop+0x3004
+_08080354: .4byte gMapBottom+0x0004
+_08080358: .4byte gMapBottom+0x3004
 _0808035C: .4byte 0x00003FFF
 _08080360: .4byte 0x000005FF
 _08080364: .4byte 0x000007FF

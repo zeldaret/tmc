@@ -281,14 +281,14 @@ bool32 TileCollisionFunction9(s32 x, s32 y) {
     return gUnk_081339F8[y & 0xf] >> (x & 0xf) & 1;
 }
 
-bool32 IsTileCollision(const u8* layer, s32 x, s32 y, u32 collisionType) {
+bool32 IsTileCollision(const u8* collisionData, s32 x, s32 y, u32 collisionType) {
     static bool32 (*const tileCollisionFunctions[])(s32, s32) = {
         TileCollisionFunction0, TileCollisionFunction1, TileCollisionFunction2, TileCollisionFunction3,
         TileCollisionFunction4, TileCollisionFunction5, TileCollisionFunction6, TileCollisionFunction7,
         TileCollisionFunction8, TileCollisionFunction9,
     };
 
-    u32 tileType = layer[TILE(x, y)];
+    u32 tileType = collisionData[TILE(x, y)];
     if (tileType == 0) {
         if (collisionType == 4) {
             return TRUE;
@@ -311,7 +311,7 @@ bool32 IsTileCollision(const u8* layer, s32 x, s32 y, u32 collisionType) {
             }
             // Calculation for 0xff in previous lookup.
             if ((y & 8) == 0) {
-                tileType = layer[TILE(x, y)];
+                tileType = collisionData[TILE(x, y)];
                 tileType >>= 2;
             }
             if ((x & 8) == 0) {
