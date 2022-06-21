@@ -235,7 +235,7 @@ bool32 sub_080777A0(void) {
                     if ((gArea.unk1A == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
                         gPlayerEntity.subAction += 1;
                         gPlayerEntity.flags &= ~ENT_COLLIDE;
-                        RequestPriorityDuration(&gPlayerEntity, 0xb4);
+                        RequestPriorityDuration(&gPlayerEntity, 180);
                         return TRUE;
                     }
                     return FALSE;

@@ -36,7 +36,7 @@ void Object8E(Object8EEntity* this) {
 
 void Object8E_Type0(Object8EEntity* this) {
     u32 tmp;
-    RequestPriorityDuration(super, 0x1e);
+    RequestPriorityDuration(super, 30);
     switch (super->action) {
         case 0:
             super->action = 1;
@@ -110,7 +110,7 @@ void sub_0809B97C(Object8EEntity* this, u32 param_2) {
 void Object8E_Type1(Object8EEntity* this) {
     u32 tmp;
 
-    RequestPriorityDuration(super, 0x1e);
+    RequestPriorityDuration(super, 30);
     switch (super->action) {
         case 0:
             super->action = 1;
@@ -231,7 +231,7 @@ void Object8E_Type2(Object8EEntity* this) {
 void Object8E_Type3(Object8EEntity* this) {
     u32 tmp;
 
-    RequestPriorityDuration(super, 0x1e);
+    RequestPriorityDuration(super, 30);
     switch (super->action) {
         case 0:
             super->action = 1;
@@ -287,7 +287,7 @@ void Object8E_Type3(Object8EEntity* this) {
 
 void Object8E_Type4(Object8EEntity* this) {
     u32 tmp;
-    RequestPriorityDuration(super, 0x1e);
+    RequestPriorityDuration(super, 30);
     switch (super->action) {
         case 0:
             super->action = 1;

@@ -56,7 +56,7 @@ void sub_0808B474(Entity* this) {
     gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
     gPlayerEntity.animationState = 4;
     EnqueueSFX(SFX_112);
-    RequestPriorityDuration(this, this->subtimer + 0x10);
+    RequestPriorityDuration(this, this->subtimer + 16);
 }
 
 void sub_0808B530(Entity* this) {
@@ -91,7 +91,7 @@ void sub_0808B590(Entity* this) {
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
-        RequestPriorityDuration(this, this->subtimer + 0x10);
+        RequestPriorityDuration(this, this->subtimer + 16);
         SoundReq(SFX_113);
     } else {
         this->timer = 0;

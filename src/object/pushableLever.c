@@ -55,7 +55,7 @@ void PushableLever_Idle(PushableLeverEntity* this) {
         super->spriteOffsetY = 0;
         SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
         EnqueueSFX(SFX_16A);
-        RequestPriorityDuration(super, 0x1e);
+        RequestPriorityDuration(super, 30);
         if (PlayerCanBeMoved()) {
             gPlayerState.pushedObject = 0x90;
             gPlayerState.queued_action = 5;

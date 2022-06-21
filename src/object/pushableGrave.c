@@ -103,7 +103,7 @@ void PushableGrave_Action2(PushableGraveEntity* this) {
             super->action = 3;
             super->timer = 96;
             super->subtimer = 20;
-            RequestPriorityDuration(super, 0x60);
+            RequestPriorityDuration(super, 96);
             SoundReq(SFX_10F);
         }
     }

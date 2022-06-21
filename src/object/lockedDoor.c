@@ -235,7 +235,7 @@ void sub_08083658(Entity* this) {
     tmp = &gUnk_0811F680[this->field_0x7c.BYTES.byte2];
     this->x.HALF.HI += tmp->x;
     this->y.HALF.HI += tmp->y;
-    RequestPriorityDuration(this, 0x3c);
+    RequestPriorityDuration(this, 60);
     SoundReq(SFX_10B);
 }
 

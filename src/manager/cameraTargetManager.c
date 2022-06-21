@@ -51,7 +51,7 @@ void CameraTargetManager_Action1(CameraTargetManager* this) {
             object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
             super->child = object;
             gRoomControls.camera_target = object;
-            RequestPriorityDuration(object, 0x1e);
+            RequestPriorityDuration(object, 30);
         }
     }
 }

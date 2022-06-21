@@ -53,7 +53,7 @@ void sub_08081BAC(Entity* this) {
     if (sub_08081CB0(this)) {
         this->subAction = 0;
         this->timer = 10;
-        RequestPriorityDuration(this, 0xA);
+        RequestPriorityDuration(this, 10);
         sub_08081FF8(this);
         if (this->type == 1) {
             this->action = 3;

@@ -105,7 +105,7 @@ void ChestSpawner_Type2Action1(ChestSpawnerEntity* this) {
         super->subtimer = 30;
         super->spriteSettings.draw = 1;
         super->spriteRendering.alphaBlend = 1;
-        RequestPriorityDuration(super, 0x1e);
+        RequestPriorityDuration(super, 30);
         sub_0805BC4C();
     }
 }
@@ -113,7 +113,7 @@ void ChestSpawner_Type2Action1(ChestSpawnerEntity* this) {
 void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
     u32 tmp;
 
-    SetPriorityTimer(0x1e);
+    SetPriorityTimer(30);
     switch (super->subAction) {
         case 0:
             if (EntityInRectRadius(super, &gPlayerEntity, 0x10, 8)) {
@@ -154,7 +154,7 @@ void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
         super->action = 4;
         super->subtimer = 30;
         sub_080788E0(super);
-        RequestPriorityDuration(super, 0x3c);
+        RequestPriorityDuration(super, 60);
         SoundReq(SFX_CHEST_OPEN);
     }
 }

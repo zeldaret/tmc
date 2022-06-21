@@ -89,7 +89,7 @@ void MacroBook_Action2(MacroBookEntity* this) {
         super->action = 3;
         super->timer = 0;
         InitAnimationForceUpdate(super, 3);
-        RequestPriorityDuration(super, 0x78);
+        RequestPriorityDuration(super, 120);
     }
 }
 
