@@ -186,7 +186,7 @@ void MandiblesProjectile_Action4(Entity* this) {
                 entity->speed = 0;
                 entity->field_0x82.HALF.LO = 1;
                 entity->timer = 0;
-                entity->subtimer = 0x78;
+                entity->subtimer = 120;
                 entity->field_0x80.HWORD = 0x20;
                 sub_080AA3E0(entity, 1);
             }

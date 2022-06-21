@@ -58,7 +58,7 @@ void GleerokProjectile_Init(Entity* this) {
                 iVar2 = 0x400;
             }
             this->zVelocity = this->z.WORD / (iVar2 << 8) << 0xd;
-            this->subtimer = 0x1e;
+            this->subtimer = 30;
             break;
         case 2:
             this->zVelocity = (this->z.WORD / 0x18000) << 0xc;
@@ -92,7 +92,7 @@ void GleerokProjectile_Action1(Entity* this) {
         GetNextFrame(this);
         LinearMoveUpdate(this);
         if ((this->type != 2) && (this->subtimer-- == 0)) {
-            this->subtimer = 0x1e;
+            this->subtimer = 30;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
         }
         if (GravityUpdate(this, 0) == 0) {

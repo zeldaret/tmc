@@ -102,7 +102,7 @@ void ChestSpawner_Type2Action1(ChestSpawnerEntity* this) {
         gPauseMenuOptions.disabled = 1;
         super->action = 2;
         super->subAction = 0;
-        super->subtimer = 0x1e;
+        super->subtimer = 30;
         super->spriteSettings.draw = 1;
         super->spriteRendering.alphaBlend = 1;
         RequestPriorityDuration(super, 0x1e);
@@ -152,7 +152,7 @@ void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
     sub_0800445C(super);
     if (super->interactType != 0) {
         super->action = 4;
-        super->subtimer = 0x1e;
+        super->subtimer = 30;
         sub_080788E0(super);
         RequestPriorityDuration(super, 0x3c);
         SoundReq(SFX_CHEST_OPEN);

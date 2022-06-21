@@ -39,7 +39,7 @@ void Object42(Object42Entity* this) {
 void sub_0808DDB4(Object42Entity* this) {
     super->action = 1;
     if (super->type != 0) {
-        super->timer = 0x78;
+        super->timer = 120;
         this->unk_6c = 0xf0;
         InitializeAnimation(super, 0);
         sub_0808DDE8(this);

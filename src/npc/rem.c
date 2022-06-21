@@ -98,7 +98,7 @@ void sub_0806A458(Entity* this) {
             if (((this->frame & ANIM_DONE) != 0)) {
                 this->action = 1;
                 this->subAction = 0;
-                this->timer = 0x3c;
+                this->timer = 60;
                 InitializeAnimation(this, 2);
             }
             break;

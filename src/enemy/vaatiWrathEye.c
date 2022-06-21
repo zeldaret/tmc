@@ -92,7 +92,7 @@ void VaatiWrathEyeAction3(Entity* this) {
         this->z.HALF.HI = this->parent->z.HALF.HI;
         if ((this->x.HALF.HI == x) && (this->y.HALF.HI == y)) {
             this->action = 4;
-            this->timer = 0x3c;
+            this->timer = 60;
         }
     }
 }
@@ -118,7 +118,7 @@ void VaatiWrathEyeAction5(Entity* this) {
         if (this->parent->health >= 0x15) {
             this->timer = 120;
         } else {
-            this->timer = 0x3c;
+            this->timer = 60;
         }
         this->child = NULL;
         InitializeAnimation(this, 5);
@@ -160,7 +160,7 @@ void VaatiWrathEyeAction7(Entity* this) {
     GetNextFrame(this);
     if (this->subtimer != 0) {
         this->action = 8;
-        this->timer = 0x3c;
+        this->timer = 60;
         COLLISION_OFF(this);
         this->spriteSettings.draw = 0;
         CreateFx(this, FX_REFLECT2, 0x40);
@@ -177,7 +177,7 @@ void VaatiWrathEyeAction7(Entity* this) {
 
 void VaatiWrathEyeAction8(Entity* this) {
     if (this->parent->action == 0xb) {
-        this->timer = 0x3c;
+        this->timer = 60;
     } else {
         if (--this->timer == 0) {
             this->action = 9;

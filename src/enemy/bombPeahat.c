@@ -566,7 +566,7 @@ void sub_0802B048(Entity* this) {
     if (action != 4 && this->field_0x80.HALF.LO) {
         if (this->timer != 0) {
             if (--this->timer == 0) {
-                this->subtimer = 0x50;
+                this->subtimer = 80;
                 this->field_0x82.HWORD = 0;
                 this->spriteRendering.b0 = 3;
                 SetAffineInfo(this, 0x100, 0x100, 0);
@@ -605,7 +605,7 @@ void sub_0802B048(Entity* this) {
 void sub_0802B1A0(Entity* this) {
     this->action = 1;
     this->timer = 0;
-    this->subtimer = 0x4f;
+    this->subtimer = 79;
     this->field_0x80.HALF.HI = 1;
     InitializeAnimation(this, 0);
 }

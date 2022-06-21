@@ -56,7 +56,7 @@ void Object12_Action2(Object12Entity* this) {
     u32 tmp2;
     if (--super->timer == 0) {
         super->action = 3;
-        super->timer = 0x1e;
+        super->timer = 30;
         super->spriteOffsetY = 4;
         gScreen.lcd.displayControl |= 0x2000;
         gScreen.controls.windowInsideControl = 0x1f;

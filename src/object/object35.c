@@ -99,7 +99,7 @@ void Object35_Type1Init(Object35Entity* this) {
     this->unk_74 = GetTileIndex(this->unk_76, super->collisionLayer);
     if (super->timer == 0) {
         super->action = 1;
-        super->subtimer = 0x78;
+        super->subtimer = 120;
         SetTile(0x4022, this->unk_76, super->collisionLayer);
     } else {
         super->action = 3;

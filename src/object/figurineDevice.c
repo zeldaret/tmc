@@ -112,7 +112,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
             InitializeAnimation(super, 1);
             break;
         case 3:
-            super->timer = 0x1e;
+            super->timer = 30;
             super->subtimer = 0;
             this->unk_81 = 1;
             this->unk_7a = 0;
@@ -254,7 +254,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             if ((gInput.newKeys & 1) != 0) {
                 SoundReq(SFX_TEXTBOX_SELECT);
                 this->unk_7a = 2;
-                super->timer = 0x3c;
+                super->timer = 60;
                 sub_08050384();
                 return;
             }

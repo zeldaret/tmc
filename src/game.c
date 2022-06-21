@@ -830,7 +830,7 @@ static void GameOver_TextMove(void) {
 static void GameOver_Update(void) {
     switch (gMenu.menuType) {
         case 0x0:
-            gMenu.transitionTimer = 0x1e;
+            gMenu.transitionTimer = 30;
             gMenu.field_0x3 = 0;
             SetMenuType(1);
             SetPopupState(1, 0);
@@ -1792,7 +1792,7 @@ void CutsceneMain_Init(void) {
 
 void sub_080535AC(void) {
     gMenu.overlayType = 1;
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
     gUI.field_0x6 = 1;
     gUpdateVisibleTiles = 1;
     gScreen.lcd.displayControl &= 0xfeff;
@@ -1873,7 +1873,7 @@ void sub_0805373C(void) {
 
 void sub_08053758(void) {
     gMenu.overlayType = 1;
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
     gMenu.field_0xa = 0x1e;
     *((u8*)&gMenu + 0x10) = 0; // TODO
     gUI.field_0x6 = 1;
@@ -1987,7 +1987,7 @@ void sub_080539F4(void) {
     if (gFadeControl.active == 0) {
         DispReset(1);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x3c;
+        gMenu.transitionTimer = 60;
     }
 }
 
@@ -2082,7 +2082,7 @@ void sub_08053C04(void) {
 
 void sub_08053C20(void) {
     gMenu.overlayType = 1;
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
     gUpdateVisibleTiles = 1;
     sub_08051FF0();
     sub_0805B4D0(4);
@@ -2140,7 +2140,7 @@ void sub_08053D34(void) {
         }
     }
     if (gFadeControl.active == 0) {
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
         gMenu.overlayType++;
     }
 }
@@ -2164,7 +2164,7 @@ void sub_08053DB4(void) {
         LoadRoomEntityList(*(EntityData**)ptr);
         LoadRoomEntityList((EntityData*)GetRoomProperty(ptr[4], ptr[5], 1));
         LoadRoomEntityList((EntityData*)GetRoomProperty(ptr[4], ptr[5], 2));
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
         gMenu.overlayType++;
         SetFadeInverted(0x10);
     }
@@ -2184,7 +2184,7 @@ void sub_08053E74(void) {
     const EntityData** ptr = gUnk_080FCFB8;
     gMenu.field_0xc = (u8*)ptr;
     LoadRoomEntityList((EntityData*)ptr[0]);
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
     gMenu.field_0xa = 0x3c;
     gMenu.overlayType++;
     gScreen.lcd.displayControl &= 0xfeff;
@@ -2221,7 +2221,7 @@ void sub_08053F20(void) {
         gRoomControls.scroll_x = (s8)ptr[10] + gRoomControls.scroll_x;
         gRoomControls.scroll_y = (s8)ptr[0xb] + gRoomControls.scroll_y;
         LoadRoomEntityList(*(EntityData**)ptr);
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
         gMenu.field_0xa = 0x3c;
         gMenu.overlayType++;
         SetFadeInverted(8);

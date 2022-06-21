@@ -161,7 +161,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
         }
         if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) && (!tmp2) &&
             sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) != 0) {
-            super->timer = 0x1e;
+            super->timer = 30;
             super->action++;
             if (super->hurtType == 0x0e) {
                 sub_08019468(this);

@@ -367,7 +367,7 @@ void sub_080306C4(ArmosEntity* this) {
 
     if (sub_08049FDC(super, 1) && this->unk_7a != 0) {
 
-        super->timer = 0x18;
+        super->timer = 24;
         uVar3 = sub_0800132C(super, gUnk_020000B0);
         if (uVar3 != 0xff) {
             var = 0;
@@ -390,7 +390,7 @@ void sub_080306C4(ArmosEntity* this) {
         }
     } else {
         super->action = 4;
-        super->timer = 0x78;
+        super->timer = 120;
         super->speed = 0xa0;
     }
 }

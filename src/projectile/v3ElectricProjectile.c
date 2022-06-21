@@ -51,7 +51,7 @@ void sub_080ABFEC(Entity* this) {
         default: {
             this->action = 2;
             this->timer = 0;
-            this->subtimer = 0xff;
+            this->subtimer = 255;
             this->speed = projectileSpeeds[this->type2];
             this->damage = 0x88;
             sound = SFX_193;

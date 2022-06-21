@@ -303,7 +303,7 @@ bool32 sub_08039758(StalfosEntity* this) {
         } else {
             if (EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x48)) {
                 super->action = 8;
-                super->timer = 0x3c;
+                super->timer = 60;
                 super->direction = GetFacingDirection(super, gUnk_020000B0);
                 InitAnimationForceUpdate(super, super->animationState + 0xc);
                 return TRUE;

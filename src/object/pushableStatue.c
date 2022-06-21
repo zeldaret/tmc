@@ -226,7 +226,7 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
         super->y.HALF.HI += gUnk_08120CBC[(super->direction >> 2) + 1];
         sub_08089454(this);
         super->action = 4;
-        super->timer = 0x3c;
+        super->timer = 60;
     }
     sub_0800445C(super);
     return FALSE;

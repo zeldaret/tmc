@@ -32,7 +32,7 @@ void LightLevelSetManager_Main(Manager* this) {
 void LightLevelSetManager_Type0(LightLevelSetManager* this) {
     if (super->action == 0) {
         super->action = 1;
-        super->subtimer = 0x1e;
+        super->subtimer = 30;
         if (CheckFlags(this->field_0x3e) != 0) {
             sub_0805BE94(this);
         }
@@ -47,7 +47,7 @@ void LightLevelSetManager_Type1(LightLevelSetManager* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->subtimer = 0x1e;
+            super->subtimer = 30;
             if (CheckFlags(this->field_0x3e) != 0) {
                 sub_0805BE70(this, 0x75);
                 super->action = 2;
@@ -55,14 +55,14 @@ void LightLevelSetManager_Type1(LightLevelSetManager* this) {
             break;
         case 1:
             if (CheckFlags(this->field_0x3e) != 0 && --super->subtimer == 0) {
-                super->subtimer = 0x1e;
+                super->subtimer = 30;
                 sub_0805BEC4(this);
                 sub_0805BE70(this, 0x76);
             }
             break;
         case 2:
             if (CheckFlags(this->field_0x3e) == 0 && --super->subtimer == 0) {
-                super->subtimer = 0x1e;
+                super->subtimer = 30;
                 sub_0805BE70(this, 0x75);
             }
             break;

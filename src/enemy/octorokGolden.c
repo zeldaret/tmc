@@ -91,7 +91,7 @@ static void sub_08037D54(Entity* this) {
     } else if (this->frame & ANIM_DONE) {
         if (--this->timer == 0) {
             this->action = 1;
-            this->subtimer = 0x3c;
+            this->subtimer = 60;
             this->animationState |= 0xff;
             sub_08037E14(this);
         } else {

@@ -49,7 +49,7 @@ void OctorokBossObject_Init(Entity* this) {
         case 0:
             this->field_0x78.HALF.HI = 0x96;
             this->timer = 0;
-            this->subtimer = 0x1e;
+            this->subtimer = 30;
         case 1:
             InitializeAnimation(this, 0);
             EnqueueSFX(SFX_124);

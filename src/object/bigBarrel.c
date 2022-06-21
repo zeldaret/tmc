@@ -221,7 +221,7 @@ void sub_08088DB4(BigBarrelEntity* this) {
             if (--super->timer) {
                 return;
             }
-            super->timer = 0x1e;
+            super->timer = 30;
             super->frameIndex++;
             super->action++;
             break;
@@ -301,7 +301,7 @@ void sub_08088F20(BigBarrelEntity* this) {
                 return;
             }
             super->action = 4;
-            super->timer = 0x78;
+            super->timer = 120;
             break;
         default:
             if (--super->timer == 0x5a) {

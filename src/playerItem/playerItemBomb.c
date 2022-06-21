@@ -81,7 +81,7 @@ void sub_0801B250(PlayerItemBombEntity* this) {
     super->spritePriority.b1 = 3;
     super->flags &= 0x7f;
     if (super->type == 0xff) {
-        super->timer = 0x3c;
+        super->timer = 60;
     } else if (super->type == 0xfe) {
         super->timer = 0x0f;
         super->type = 0xff;
@@ -141,7 +141,7 @@ void sub_0801B368(PlayerItemBombEntity* this) {
     super->action -= 1;
     super->subAction = 0;
     if (0x3c < super->timer) {
-        super->timer = 0x3c;
+        super->timer = 60;
     }
 }
 

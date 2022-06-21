@@ -94,7 +94,7 @@ void VaatiAppearingManager_Action1(VaatiAppearingManager* this) {
         case 3:
             if (--this->field_0x20 == 0) {
                 super->subAction = 4;
-                super->timer = 0x3c;
+                super->timer = 60;
             }
             break;
         default:

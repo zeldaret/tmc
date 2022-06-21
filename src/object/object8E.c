@@ -40,7 +40,7 @@ void Object8E_Type0(Object8EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->timer = 0x3c;
+            super->timer = 60;
             super->subtimer = 0;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 1;
@@ -67,7 +67,7 @@ void Object8E_Type0(Object8EEntity* this) {
                     }
                 } else {
                     super->action = 2;
-                    super->timer = 0x3c;
+                    super->timer = 60;
                     gScreen.lcd.displayControl &= 0xdfff;
                     gRoomControls.camera_target = &gPlayerEntity;
                     SoundReq(SFX_134);
@@ -114,7 +114,7 @@ void Object8E_Type1(Object8EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->timer = 0x3c;
+            super->timer = 60;
             super->subtimer = 0x20;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 1;
@@ -141,7 +141,7 @@ void Object8E_Type1(Object8EEntity* this) {
                     }
                 } else {
                     super->action = 2;
-                    super->timer = 0x3c;
+                    super->timer = 60;
                     gRoomControls.camera_target = &gPlayerEntity;
                     SoundReq(SFX_134);
                 }
@@ -165,7 +165,7 @@ void Object8E_Type2(Object8EEntity* this) {
     switch (super->action) {
         case 0:
             super->action++;
-            super->timer = 0x3c;
+            super->timer = 60;
             super->subtimer = 0;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 1;
@@ -194,7 +194,7 @@ void Object8E_Type2(Object8EEntity* this) {
                         }
                     } else {
                         super->action = 2;
-                        super->timer = 0x1e;
+                        super->timer = 30;
                         gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0xdfff) | 0x4800;
                         super->x.HALF.HI += 0x68;
                         super->y.HALF.HI += 0x28;
@@ -205,7 +205,7 @@ void Object8E_Type2(Object8EEntity* this) {
             break;
         case 2:
             if (sub_0809BE78(this) && (--super->timer == 0)) {
-                super->timer = 0x78;
+                super->timer = 120;
                 super->action = 3;
                 SetLocalFlag(0x35);
                 SoundReq(SFX_SECRET);
@@ -235,7 +235,7 @@ void Object8E_Type3(Object8EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->timer = 0x3c;
+            super->timer = 60;
             super->subtimer = 0;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 1;
@@ -268,7 +268,7 @@ void Object8E_Type3(Object8EEntity* this) {
                         }
                     } else {
                         super->action = 2;
-                        super->timer = 0x78;
+                        super->timer = 120;
                         gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0xdfff) | 0x4800;
                         SetLocalFlag(0x37);
                         SoundReq(SFX_134);
@@ -291,7 +291,7 @@ void Object8E_Type4(Object8EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->timer = 0x3c;
+            super->timer = 60;
             super->subtimer = 0x80;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 1;
@@ -312,7 +312,7 @@ void Object8E_Type4(Object8EEntity* this) {
                     }
                 } else {
                     super->action = 2;
-                    super->timer = 0x3c;
+                    super->timer = 60;
                     gRoomControls.camera_target = &gPlayerEntity;
                     SoundReq(SFX_134);
                 }

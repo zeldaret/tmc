@@ -463,7 +463,7 @@ void sub_080A1FF0(GyorgBossObjectEntity* this) {
         if (EntityWithinDistance(&gPlayerEntity, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210,
                                  0x100)) {
             if (super->timer == 0) {
-                super->timer = 0x78;
+                super->timer = 120;
             } else {
                 if (super->timer == 0x23) {
                     InitScreenShake(30, 0);

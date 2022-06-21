@@ -142,7 +142,7 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
             }
             if (super->timer == 6) {
                 super->subAction = 3;
-                super->timer = 0x3c;
+                super->timer = 60;
                 super->parent->type2 = 1;
                 InitAnimationForceUpdate(super, 0x1c);
             } else {

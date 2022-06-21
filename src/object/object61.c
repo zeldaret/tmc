@@ -95,7 +95,7 @@ void Object61_Action1Type0(Object61Entity* this) {
                     this->unk_6e = 0x100;
                 }
                 if (this->unk_6e == 0x100) {
-                    super->subtimer = 0xff;
+                    super->subtimer = 255;
                 }
             } else {
                 sub_080936C8(this);

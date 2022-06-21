@@ -45,7 +45,7 @@ void Rope_OnTick(Entity* this) {
 
 void Rope_OnCollision(Entity* this) {
     if (this->action == 3) {
-        this->subtimer = 0x1e;
+        this->subtimer = 30;
         this->field_0x78.HALF.LO = 0x3c;
         sub_08031600(this);
     }

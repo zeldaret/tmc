@@ -91,7 +91,7 @@ void sub_08085308(Entity* this) {
                 break;
             case 3:
                 if (CheckFlags(this->field_0x86.HWORD) == *(u16*)&this->field_0x7a) {
-                    this->subtimer = 0xff;
+                    this->subtimer = 255;
                 } else {
                     this->subtimer = 1;
                 }

@@ -147,7 +147,7 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
         SoundReq(SFX_SECRET);
     }
     super->action = 4;
-    super->timer = 0x3c;
+    super->timer = 60;
     super->flags &= 0x7f;
 }
 

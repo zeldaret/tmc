@@ -84,7 +84,7 @@ void GyorgFemale_Setup(GyorgFemaleEntity* this) {
     super->collisionLayer = 2;
     this->eyesVulnerable = 0;
     this->unk_79 = 0;
-    this->childrenSpawnTimer = 0x3C;
+    this->childrenSpawnTimer = 60;
     MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_0804660C(this, 0);
@@ -116,13 +116,13 @@ void GyorgFemale_Action1(GyorgFemaleEntity* this) {
         this->eyeTimer = 0;
         this->eyesHitFrame = 0;
         this->eyesHit = 0;
-        this->childrenSpawnTimer = 0x3c;
+        this->childrenSpawnTimer = 60;
         this->unk_80 = 0;
         return;
     }
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x40) {
         super->action = 3;
-        this->childrenSpawnTimer = 0x3c;
+        this->childrenSpawnTimer = 60;
         super->timer = 0;
         this->eyeTimer = 0;
         this->eyesHitFrame = 0;
@@ -165,7 +165,7 @@ void GyorgFemale_Action2(GyorgFemaleEntity* this) {
     }
     if ((((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) == 0) {
         super->action = 1;
-        this->childrenSpawnTimer = 0x3c;
+        this->childrenSpawnTimer = 60;
 #ifndef EU
         this->eyesVulnerable = 0;
 #endif
@@ -203,7 +203,7 @@ void GyorgFemale_Action3(GyorgFemaleEntity* this) {
 #ifdef EU
         this->eyesVulnerable = 0;
 #endif
-        this->childrenSpawnTimer = 0x3c;
+        this->childrenSpawnTimer = 60;
 #ifndef EU
         this->eyesVulnerable = 0;
 #endif

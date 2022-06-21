@@ -87,7 +87,7 @@ void sub_08028314(Entity* this) {
 
     if (this->timer) {
         this->animationState = this->type2 << 1;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->speed = 0x80;
         this->direction = this->animationState << 2;
         sub_080287E0(this);

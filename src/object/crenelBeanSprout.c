@@ -301,7 +301,7 @@ void CrenelBeanSprout_Action6SubAction1(CrenelBeanSproutEntity* this) {
         if (super->type2 == super->subtimer) {
             gPlayerState.keepFacing &= 0x7f;
             super->subAction++;
-            super->timer = 0x3c;
+            super->timer = 60;
         } else {
             super->timer = 0x0f;
         }

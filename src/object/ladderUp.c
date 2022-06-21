@@ -43,7 +43,7 @@ void LadderUp(Entity* this) {
                 SoundReq(SFX_10B);
                 this->action = 2;
 #ifndef EU
-                this->timer = 0x3c;
+                this->timer = 60;
 #endif
             }
             break;

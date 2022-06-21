@@ -103,7 +103,7 @@ void sub_08065C0C(Entity* this) {
 
 void sub_08065CCC(Entity* this) {
     this->action = 3;
-    this->timer = 0x1e;
+    this->timer = 30;
     this->spriteRendering.alphaBlend = 1;
     *(const u16**)&this->field_0x6c = gUnk_0811022E;
     gScreen.controls.layerFXControl = 0x3f40;
@@ -117,7 +117,7 @@ void sub_08065D00(Entity* this) {
 
 void sub_08065D18(Entity* this) {
     this->action = 1;
-    this->timer = 0x1e;
+    this->timer = 30;
     this->subtimer = 0;
     this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
@@ -150,7 +150,7 @@ void sub_08065DB8(Entity* this) {
         case 0: {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->subAction++;
-                this->timer = 0x3c;
+                this->timer = 60;
                 InitAnimationForceUpdate(this, 4);
             }
             break;
@@ -176,7 +176,7 @@ void sub_08065DB8(Entity* this) {
         case 4: {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->subAction++;
-                this->timer = 0x1e;
+                this->timer = 30;
                 *(const u16**)&this->field_0x6c = gUnk_0811022E;
             }
             break;

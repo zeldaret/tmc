@@ -1306,7 +1306,7 @@ void sub_0803B978(Entity* this) {
         case 1:
             this->subAction = 2;
             this->timer = 2;
-            this->subtimer = 0x1e;
+            this->subtimer = 30;
             this->field_0x74.HALF.LO = 0;
             SoundReq(SFX_1A9);
         case 2:

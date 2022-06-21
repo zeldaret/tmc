@@ -1201,7 +1201,7 @@ static void PortalShrinkUpdate(Entity* this) {
             }
             if (*(u32*)&this->cutsceneBeh >= 0x340) {
                 this->timer = 8;
-                this->subtimer = 0x1e;
+                this->subtimer = 30;
                 this->subAction = 6;
             } else {
                 *(u32*)&this->cutsceneBeh += uVar5 * 2;

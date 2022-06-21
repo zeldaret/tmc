@@ -95,7 +95,7 @@ void sub_08097CB4(Object74Entity* this) {
     super->action = 3;
     super->spriteSettings.draw = 1;
     super->spriteRendering.alphaBlend = 1;
-    super->timer = 0x1e;
+    super->timer = 30;
     super->subtimer = 0;
     gScreen.controls.layerFXControl = 0xf40;
     gScreen.controls.alphaBlend = 0x1000;

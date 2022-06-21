@@ -46,7 +46,7 @@ void sub_0802B33C(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->direction = this->type2;
-    this->subtimer = 0x78;
+    this->subtimer = 120;
     InitializeAnimation(this, 0);
 }
 
@@ -58,13 +58,13 @@ void sub_0802B35C(Entity* this) {
     is_head = this->type == 0;
     if (this->collisions == COL_NONE) {
         if (--this->subtimer == 0) {
-            this->subtimer = 0x78;
+            this->subtimer = 120;
 
             this->direction += is_head ? 0x08 : 0x18;
             this->direction = DirectionRound(this->direction);
         }
     } else {
-        this->subtimer = 0x78;
+        this->subtimer = 120;
         switch (DirectionRound(this->direction)) {
             case DirectionNorth:
                 if ((this->collisions & COL_NORTH_ANY) != COL_NONE) {

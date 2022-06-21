@@ -313,7 +313,7 @@ void KinstoneMenu_Type5_Overlay0(void) {
     SoundReq(SFX_TASK_COMPLETE);
     MessageAtHeight(TEXT_INDEX(TEXT_WINDCRESTS, 0x2), 0xe);
     gMenu.overlayType = 1;
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
 }
 
 void KinstoneMenu_Type5_Overlay1(void) {

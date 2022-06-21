@@ -225,7 +225,7 @@ void sub_0803C400(BowMoblinEntity* this) {
                 break;
             case 24:
                 super->timer = 0;
-                super->subtimer = 0x20;
+                super->subtimer = 32;
                 break;
         }
 

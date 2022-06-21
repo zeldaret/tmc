@@ -80,7 +80,7 @@ void Gleerok_OnDeath(GleerokEntity* this) {
             if (super->type2 == 0) {
                 super->type2 = 1;
                 super->timer = 0;
-                super->subtimer = 0x3c;
+                super->subtimer = 60;
                 this->unk_74 = 0x10;
                 this->unk_75 = 0;
                 gScreen.controls.alphaBlend = this->unk_74;

@@ -62,7 +62,7 @@ void PlayerItemBottle_Init(Entity* this) {
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
             this->timer = 0xd5;
-            this->subtimer = 0x3c;
+            this->subtimer = 60;
             break;
         case BOTTLE_CHARM_NAYRU:
         case BOTTLE_CHARM_FARORE:

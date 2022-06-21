@@ -76,19 +76,19 @@ void WindTribeTeleporter_Action1(WindTribeTeleporterEntity* this) {
 void WindTribeTeleporter_Action2(WindTribeTeleporterEntity* this) {
     switch (super->subAction) {
         case 0:
-            super->timer = 0x1e;
+            super->timer = 30;
             super->subAction++;
             break;
         case 1:
             if (--super->timer == 0) {
                 super->subAction++;
-                super->timer = 0x1e;
+                super->timer = 30;
             }
             break;
         case 2:
             if (--super->timer == 0) {
                 super->subAction++;
-                super->timer = 0x1e;
+                super->timer = 30;
                 SoundReq(SFX_113);
             } else {
                 if ((gRoomTransition.frameCount & 7) == 0) {
@@ -99,7 +99,7 @@ void WindTribeTeleporter_Action2(WindTribeTeleporterEntity* this) {
         case 3:
             if (--super->timer == 0) {
                 super->subAction++;
-                super->timer = 0x1e;
+                super->timer = 30;
             } else {
                 if ((gRoomTransition.frameCount & 3) == 0) {
                     gPlayerEntity.animationState = (gPlayerEntity.animationState + 2) & 6;
@@ -132,7 +132,7 @@ void WindTribeTeleporter_Action3(WindTribeTeleporterEntity* this) {
     switch (super->subAction) {
         case 0:
             super->subAction = 1;
-            super->timer = 0x1e;
+            super->timer = 30;
             SoundReq(SFX_114);
             break;
         case 1:
@@ -142,13 +142,13 @@ void WindTribeTeleporter_Action3(WindTribeTeleporterEntity* this) {
                 }
             } else {
                 super->subAction++;
-                super->timer = 0x1e;
+                super->timer = 30;
             }
             break;
         case 2:
             if (--super->timer == 0) {
                 super->subAction++;
-                super->timer = 0x1e;
+                super->timer = 30;
             } else {
                 if ((gRoomTransition.frameCount & 3) == 0) {
                     gPlayerEntity.animationState = (gPlayerEntity.animationState + 2) & 6;

@@ -246,7 +246,7 @@ void sub_080296D8(Entity* this) {
     gPlayerEntity.spriteOffsetY = 0;
     gPlayerEntity.speed = 0x140;
     this->action = 5;
-    this->subtimer = 0x3c;
+    this->subtimer = 60;
     this->flags2 |= 3;
     if ((s8)this->iframes == 0) {
         this->iframes = 0xf4;

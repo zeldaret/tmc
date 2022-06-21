@@ -71,8 +71,8 @@ void Object3D_Action1(Object3DEntity* this) {
         super->spriteOrientation.flipY = 0;
         super->spriteRendering.b3 = 0;
         super->spritePriority.b0 = 0;
-        super->timer = 0x1e;
-        super->subtimer = 0xff;
+        super->timer = 30;
+        super->subtimer = 255;
         super->spriteRendering.b0 = 3;
         SetAffineInfo(super, 0x100, 0x100, 0);
         gArea.field_0x10 = 1;

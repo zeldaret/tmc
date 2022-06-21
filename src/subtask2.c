@@ -474,7 +474,7 @@ void sub_080A59C8(void) {
     }
 
     if (bVar3) {
-        gMenu.transitionTimer = 0xff;
+        gMenu.transitionTimer = 255;
         if (uVar2 == 0) {
             CreateDialogBox(8, 0);
             SetMenuType(2);
@@ -494,7 +494,7 @@ void sub_080A5A54(void) {
     switch (HandleSave(0)) {
         case SAVE_ERROR:
             CreateDialogBox(9, 0);
-            gMenu.transitionTimer = 0x3c;
+            gMenu.transitionTimer = 60;
             // fallthrough
         case SAVE_OK:
             SetMenuType(3);
@@ -510,7 +510,7 @@ void sub_080A5A90(void) {
     switch (gMenu.transitionTimer) {
         case 0:
             if ((gInput.newKeys & (START_BUTTON | B_BUTTON | A_BUTTON)) != 0) {
-                gMenu.transitionTimer = 0xff;
+                gMenu.transitionTimer = 255;
             }
             break;
         case 0xff:
@@ -580,7 +580,7 @@ void sub_080A5B34(void) {
     if (bVar1) {
         if (uVar3 == 0) {
             SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x20);
-            gMenu.transitionTimer = 0x3c;
+            gMenu.transitionTimer = 60;
             SetMenuType(2);
         } else {
             SoundReq(SFX_MENU_CANCEL);
@@ -1084,7 +1084,7 @@ void sub_080A6534(void) {
     gSave.field_0x20 |= val;
     gGenericMenu.unk10.h[1] = val & gGenericMenu.unk10.h[0];
     gGenericMenu.unk10.h[0] = 0;
-    gMenu.transitionTimer = 0x3c;
+    gMenu.transitionTimer = 60;
     SetMenuType(1);
     SetFade(FADE_INSTANT, 8);
 }
@@ -1415,7 +1415,7 @@ void sub_080A6B04(void) {
             gMenu.field_0xa = uVar6;
         }
     }
-    gMenu.transitionTimer = 0x1e;
+    gMenu.transitionTimer = 30;
     SetMenuType(1);
     SetFade(FADE_INSTANT, 8);
 }

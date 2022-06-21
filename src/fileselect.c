@@ -632,7 +632,7 @@ void sub_08050C54(void) {
             if (column_idx == 0) {
                 SoundReq(SONG_VOL_FADE_OUT);
             }
-            gMenu.transitionTimer = 0xf;
+            gMenu.transitionTimer = 15;
             SetMenuType(1);
             SoundReq(SFX_TEXTBOX_SELECT);
             break;
@@ -753,7 +753,7 @@ void sub_08050EB8(void) {
     gMapDataBottomSpecial.unk4 = save->msg_speed;
     gMapDataBottomSpecial.unk5 = save->brightness;
     gMenu.column_idx = 0;
-    gMenu.transitionTimer = 0xff;
+    gMenu.transitionTimer = 255;
     SetMenuType(1);
 }
 
@@ -836,7 +836,7 @@ END_NONMATCH
 void sub_08050FFC(void) {
     switch (HandleSave(0)) {
         case SAVE_ERROR:
-            gMenu.transitionTimer = 0x1e;
+            gMenu.transitionTimer = 30;
             sub_0805194C(gMapDataBottomSpecial.unk6);
             CreateDialogBox(9, 0);
         case SAVE_OK:
@@ -908,7 +908,7 @@ void sub_080513C0(void) {
         case -1:
             sub_0805194C(gMapDataBottomSpecial.unk6);
             CreateDialogBox(6, 0);
-            gMenu.transitionTimer = 0x1e;
+            gMenu.transitionTimer = 30;
             gMenu.overlayType = 2;
             break;
     }
@@ -1121,7 +1121,7 @@ void sub_08051738(void) {
         gGenericMenu.unk10.a[i] = val;
     }
     if (uVar3 == 0) {
-        gMenu.transitionTimer = 0x3c;
+        gMenu.transitionTimer = 60;
         CreateDialogBox(1, 0);
         SetMenuType(3);
     } else {
@@ -1197,7 +1197,7 @@ void sub_08051874(void) {
         case -1:
             sub_0805194C(gMapDataBottomSpecial.unk7);
             CreateDialogBox(3, 0);
-            gMenu.transitionTimer = 0x1e;
+            gMenu.transitionTimer = 30;
             SetMenuType(3);
             break;
     }

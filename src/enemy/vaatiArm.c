@@ -338,7 +338,7 @@ static void sub_080428AC(Entity* this) {
         pVVar3->unk00.HWORD += pVVar3->unk08;
     } else {
         this->subAction = 2;
-        this->timer = 0x1e;
+        this->timer = 30;
     }
     sub_08043BF0(this);
 }
@@ -383,7 +383,7 @@ static void sub_08042970(Entity* this) {
         pVVar3->unk00.HWORD += pVVar3->unk08;
     } else {
         this->subAction = 5;
-        this->timer = 0x3c;
+        this->timer = 60;
         uVar2 = 0;
         do {
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->hitType = 0x39;
@@ -451,7 +451,7 @@ static void sub_08042A88(Entity* this) {
         pVVar4->unk04.HWORD = 0;
         pVVar4->unk08 = gUnk_080D12CA[this->type2];
         this->subAction = 2;
-        this->timer = 0x1e;
+        this->timer = 30;
     }
 }
 
@@ -506,7 +506,7 @@ static void sub_08042B20(Entity* this) {
         if (--this->timer == 0) {
             this->action = 5;
             this->subAction = 0;
-            this->timer = 0x1e;
+            this->timer = 30;
             this->hitType = 0x39;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x39;
         }
@@ -529,7 +529,7 @@ static void sub_08042C34(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
 
     if (--this->timer == 0) {
-        this->timer = 0x3c;
+        this->timer = 60;
         this->subtimer = 3;
         this->subAction = 1;
         random = Random() & 6;
@@ -615,7 +615,7 @@ static void sub_08042D6C(Entity* this) {
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk08 = gUnk_080D1300[this->type2];
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk0a = 0xc0;
         this->subAction = 3;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->hitType = 0x39;
         this->field_0x7c.BYTES.byte3 = 0x2d;
         InitAnimationForceUpdate(this, 0);
@@ -719,10 +719,10 @@ static void sub_08042FD8(Entity* this) {
             if (this->frame & ANIM_DONE) {
                 if (--this->subtimer == 0) {
                     this->subAction = 8;
-                    this->timer = 0x3c;
+                    this->timer = 60;
                 } else {
                     this->subAction = 3;
-                    this->timer = 0x3c;
+                    this->timer = 60;
                     InitAnimationForceUpdate(this, 0);
                 }
             }
@@ -767,10 +767,10 @@ static void sub_080430D0(Entity* this) {
         if (ptr[0].unk04.HALF.HI < 0x18) {
             if (--this->subtimer == 0) {
                 this->subAction = 8;
-                this->timer = 0x3c;
+                this->timer = 60;
             } else {
                 this->subAction = 3;
-                this->timer = 0x3c;
+                this->timer = 60;
                 ptr[0].unk0a = -0xc0;
                 InitAnimationForceUpdate(this, 0);
             }
@@ -813,7 +813,7 @@ static void sub_08043130(Entity* this) {
             }
             if (this->spriteSettings.draw == 0) {
                 this->subAction = 9;
-                this->timer = 0x3c;
+                this->timer = 60;
                 sub_0804AA1C(this);
             }
         }
@@ -1007,7 +1007,7 @@ static void sub_08043580(Entity* this) {
     }
     if ((this->spriteSettings.draw & 3) == 0) {
         this->subAction = 5;
-        this->timer = 0x3c;
+        this->timer = 60;
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
         entity->collisionFlags = entity->collisionFlags | 0x10;
         entity->hitType = 0x39;
@@ -1050,7 +1050,7 @@ static void sub_08043698(Entity* this) {
     u32 i;
 
     this->subAction = 1;
-    this->timer = 0x3c;
+    this->timer = 60;
     for (i = 0; i < 5; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
         entity->flags = entity->flags & ~ENT_COLLIDE;

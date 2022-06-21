@@ -113,7 +113,7 @@ void sub_080651D8(Entity* this) {
 void sub_080651F8(Entity* this) {
     if ((this->frame & 0x20) == 0) {
         this->subAction = 1;
-        this->timer = 0x3c;
+        this->timer = 60;
         InitializeAnimation(this, 1);
         CreateSpeechBubbleExclamationMark(this, 8, 0xffffffe8);
         SetPlayerControl(1);
@@ -131,7 +131,7 @@ void sub_08065250(Entity* this) {
     switch (sub_08056338()) {
         case 0:
             this->subAction += 1;
-            this->timer = 0x1e;
+            this->timer = 30;
             this->subtimer = 0;
             CreateSpeechBubbleExclamationMark(this, 8, 0xffffffe8);
             break;

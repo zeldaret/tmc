@@ -132,7 +132,7 @@ void sub_08028A74(Entity* this) {
                 if (sub_08028FDC(this)) {
                     sub_080290E0(this, 1);
                 }
-                this->subtimer = 0x10;
+                this->subtimer = 16;
             }
             break;
         case 2:

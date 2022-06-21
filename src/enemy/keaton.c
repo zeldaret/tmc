@@ -104,7 +104,7 @@ void sub_080324FC(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
         if (this->timer == 0) {
-            this->subtimer = 0x1E;
+            this->subtimer = 30;
             this->animationState = this->direction / 8;
             InitAnimationForceUpdate(this, this->animationState + 4);
         } else {

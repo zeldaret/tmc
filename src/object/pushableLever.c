@@ -81,7 +81,7 @@ void PushableLever_Pushing(PushableLeverEntity* this) {
 
 void PushableLever_SetIdle(PushableLeverEntity* this) {
     super->action = IDLE;
-    this->timer = 0x3c;
+    this->timer = 60;
     PushableLever_SetTiles(this);
 }
 
@@ -109,7 +109,7 @@ bool32 PushableLever_ShouldStartPushing(PushableLeverEntity* this) {
         PushableLever_CalculateSpriteOffsets(this);
         SetTile(PushableLever_Tiles[super->type2], this->tilePosition, super->collisionLayer);
     } else {
-        this->timer = 0x3c;
+        this->timer = 60;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = 0;
     }
