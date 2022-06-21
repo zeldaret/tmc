@@ -26,7 +26,7 @@ void PicoBloom_Init(Entity* this) {
         nextAction = 2;
     }
     this->action = nextAction;
-    this->timer = (Random() & 0x7f) + 0x7f;
+    this->timer = (Random() & 0x7f) + 127;
     this->collisionLayer = 1;
     UpdateSpriteForCollisionLayer(this);
     InitializeAnimation(this, typeAnimationStates[this->type] + this->type2);

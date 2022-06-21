@@ -319,7 +319,7 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
         obj->spriteVramOffset = super->spriteVramOffset;
         obj->palette.b.b0 = super->palette.b.b0;
         obj->animIndex = 2;
-        obj->timer = 0x80;
+        obj->timer = 128;
         obj->type = 1;
         obj->spriteRendering.b3 = 2;
         obj->spritePriority.b0 = 6;

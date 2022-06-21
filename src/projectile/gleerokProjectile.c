@@ -99,7 +99,7 @@ void GleerokProjectile_Action1(Entity* this) {
             this->action = 2;
             sub_080A90D8(this);
             if (this->type == 2) {
-                this->timer = 0xf;
+                this->timer = 15;
                 InitializeAnimation(this, 0x54);
             } else {
                 InitializeAnimation(this, 0x52);

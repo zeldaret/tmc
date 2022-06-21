@@ -356,6 +356,6 @@ void sub_080AC884(Entity* this) {
         this->parent->field_0x70.HALF_U.HI = 0;
         this->action = 2;
         this->timer = 60;
-        this->subtimer = 0x56;
+        this->subtimer = 86;
     }
 }

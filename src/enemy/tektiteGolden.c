@@ -50,7 +50,7 @@ void TektiteGolden_OnCollision(Entity* this) {
     if (this->contactFlags == 0x94) {
         this->action = 1;
         this->subAction = 0;
-        this->timer = 0x14;
+        this->timer = 20;
         this->subtimer = 0;
         this->field_0x80.HALF.LO = 0;
         if (this->z.HALF.HI != 0) {
@@ -92,7 +92,7 @@ void sub_08037FA0(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->subAction = 0;
-    this->timer = (Random() & 0x1f) + 0x20;
+    this->timer = (Random() & 0x1f) + 32;
     this->subtimer = 0;
     this->field_0x80.HALF.LO = 0;
     InitializeAnimation(this, 0);
@@ -129,7 +129,7 @@ void sub_08038048(Entity* this) {
     if (sub_080044EC(this, 0x3000) == 1) {
         this->action = 3;
         this->subAction = 0;
-        this->timer = 0x14;
+        this->timer = 20;
         InitializeAnimation(this, 3);
         return;
     } else if (this->collisions != COL_NONE) {
@@ -139,7 +139,7 @@ void sub_08038048(Entity* this) {
     }
 
     if (--this->timer == 0) {
-        this->timer = rand + 0x10;
+        this->timer = rand + 16;
         sub_08038168(this);
     }
 
@@ -169,7 +169,7 @@ void sub_08038110(Entity* this) {
         } else {
             this->action = 1;
             this->field_0x80.HALF.LO = 0;
-            this->timer = 0xc0;
+            this->timer = 192;
             InitializeAnimation(this, 0);
         }
     }

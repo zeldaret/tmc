@@ -33,7 +33,7 @@ void RainfallManager_Action1(RainfallManager* this) {
 
     if (--super->timer == 0) {
         Entity* waterDrop;
-        super->timer = 0xf;
+        super->timer = 15;
         waterDrop = CreateEnemy(WATER_DROP, 0);
         if (waterDrop != NULL) {
             waterDrop->x.HALF.HI = gRoomControls.scroll_x + 0x78 + gUnk_08108C6C[Random() & 7];

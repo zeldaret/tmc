@@ -32,7 +32,7 @@ void VaatiRebornAction0(Entity* this) {
     switch (this->type) {
         case 0:
             this->y.HALF.HI -= 0xa0;
-            this->timer = 0xa0;
+            this->timer = 160;
             this->subtimer = 32;
             this->spriteOffsetY = 0x20;
             for (i = 0; i < 4; i++) {

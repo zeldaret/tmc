@@ -44,7 +44,7 @@ void ArrowProjectile_Init(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     COLLISION_OFF(this);
-    this->timer = 0x6a;
+    this->timer = 106;
     this->subtimer = 0;
     this->zVelocity = Q_16_16(10.0 / 256.0);
     sub_080A94C0(this, this->type);

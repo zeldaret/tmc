@@ -148,7 +148,7 @@ void sub_0802D170(GleerokEntity* this) {
     } else {
         super->action = 3;
         this->unk_80 = 0;
-        ((Entity*)this->unk_84)->parent->timer = 0x18;
+        ((Entity*)this->unk_84)->parent->timer = 24;
         this->unk_84->filler[0x19] = 0;
     }
 }
@@ -161,7 +161,7 @@ void sub_0802D218(GleerokEntity* this) {
     super->timer = 0;
     super->subtimer = 0;
     this->unk_7c.HALF_U.LO = 0xb4;
-    ((Entity*)(this->unk_84))->parent->timer = 0xc;
+    ((Entity*)(this->unk_84))->parent->timer = 12;
     CreateObjectWithParent(super, 0x67, 0x2, this->unk_7c.HALF_U.LO);
 }
 

@@ -60,7 +60,7 @@ void Object35_Type0Init(Object35Entity* this) {
     super->collisionLayer = 2;
     UpdateSpriteForCollisionLayer(super);
     super->spritePriority.b0 = 1;
-    super->timer = -0x4c;
+    super->timer = -76;
     InitializeAnimation(super, super->type2);
 }
 
@@ -68,10 +68,10 @@ void Object35_Type0Action1(Object35Entity* this) {
     s8 tmp;
     GetNextFrame(super);
     if (--super->timer == 0) {
-        super->timer = -0x4c;
+        super->timer = -76;
         super->type2++;
         tmp = 3;
-        super->type2 = super->type2 % tmp;
+        super->type2 %= tmp;
         InitializeAnimation(super, super->type2);
     }
 }

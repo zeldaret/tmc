@@ -231,7 +231,7 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
 END_NONMATCH
 
 void sub_080281A0(Entity* this) {
-    this->subtimer = 0x19;
+    this->subtimer = 25;
     if (sub_080281E0(ITEM_MIRROR_SHIELD)) {
         this->field_0x80.HALF.LO = ITEM_MIRROR_SHIELD;
         MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x78));

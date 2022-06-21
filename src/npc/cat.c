@@ -229,7 +229,7 @@ void sub_08067A0C(Entity* this) {
     if (this->frame & ANIM_DONE) {
         if (sub_08067D20(this) != 0) {
             sub_08067B80(this, 5);
-            this->timer = this->timer + 0x14;
+            this->timer += 20;
         } else {
             sub_08067C24(this);
         }
@@ -303,7 +303,7 @@ void sub_08067B70(Entity* this) {
 
 void sub_08067B80(Entity* this, u32 param) {
     this->action = 5;
-    this->timer = 0x14;
+    this->timer = 20;
     this->field_0x74.HALF.LO = (Random() & 0x7f) + 0x1e;
     InitAnimationForceUpdate(this, param);
     sub_08067DDC(this);

@@ -63,7 +63,7 @@ void GyorgBossObject_SetupStart(GyorgBossObjectEntity* this) {
         return;
     super->action = 1;
     super->myHeap = heap;
-    this->timer = 0x258;
+    this->timer = 600;
     this->unk_6c = 0;
     heap->boss = this;
     tmp = CreateEnemy(GYORG_FEMALE, 0);
@@ -120,7 +120,7 @@ void GyorgBossObject_FemalePhase1(GyorgBossObjectEntity* this) {
     if (((GyorgHeap*)super->myHeap)->female->base.health == 0) {
         // start male phase 1
         super->action = 3;
-        super->timer = 0x23;
+        super->timer = 35;
         this->unk_6c = 1;
         this->unk_78 = 0x400;
         this->unk_7b = 1;
@@ -156,7 +156,7 @@ void GyorgBossObject_FemalePhase2(GyorgBossObjectEntity* this) {
         // start male phase 2
         ((GyorgHeap*)super->myHeap)->male1->base.health = 12;
         super->action = 5;
-        super->timer = 0x23;
+        super->timer = 35;
         this->unk_6c = 2;
         this->unk_78 = 0x400;
         this->unk_7b = 1;
@@ -191,7 +191,7 @@ void GyorgBossObject_FemalePhase3(GyorgBossObjectEntity* this) {
         // start male phase 3
         ((GyorgHeap*)super->myHeap)->male2->base.health = 12;
         super->action = 7;
-        super->timer = 0x23;
+        super->timer = 35;
         this->unk_6c = 0x104;
         this->unk_78 = 0x400;
         SoundReq(SFX_BOSS_DIE);
@@ -228,8 +228,8 @@ void GyorgBossObject_FemalePhase4(GyorgBossObjectEntity* this) {
         if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
             super->action = 9;
             super->timer = 0;
-            super->subtimer = 0xF0;
-            this->timer = 0x1a4;
+            super->subtimer = 240;
+            this->timer = 420;
             super->direction = 0;
             super->speed = 0x60;
             gPlayerState.flags &= ~PL_FLAGS20000;

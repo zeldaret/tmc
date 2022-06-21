@@ -50,7 +50,7 @@ void sub_0809E86C(Entity* this) {
     }
     if (sub_0809E9A0() == 0x54) {
         this->action = 2;
-        this->timer = 0xf;
+        this->timer = 15;
         SetPlayerControl(1);
     }
 }

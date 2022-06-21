@@ -21,10 +21,10 @@ void sub_0808A40C(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->timer = 0x28;
+        this->timer = 40;
     }
     if (--this->timer == 0) {
-        this->timer = 0x40 - (Random() & 0x1f);
+        this->timer = 64 - (Random() & 0x1F);
         ent = CreateObject(SMOKE, 1, 0);
         if (ent != NULL) {
             CopyPosition(this, ent);

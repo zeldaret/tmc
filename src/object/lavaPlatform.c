@@ -140,7 +140,7 @@ void LavaPlatform_Type1Action2(LavaPlatformEntity* this) {
         if (LavaPlatform_IsPlayerOnPlatform(this)) {
             super->action = 3;
             super->flags &= ~ENT_COLLIDE;
-            super->timer = 0x14;
+            super->timer = 20;
             gPlayerState.field_0x3f = 0xfd;
         }
     }

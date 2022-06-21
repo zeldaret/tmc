@@ -49,7 +49,7 @@ void BombableWallManager_Init(BombableWallManager* this) {
 void BombableWallManager_Action1(BombableWallManager* this) {
     if (sub_080B1AE0(this->tile, this->field_0x35) != 0x2e) {
         super->action = 2;
-        super->timer = 0x5a;
+        super->timer = 90;
         sub_0805C02C(this);
         SetLocalFlag(this->field_0x3e);
     }

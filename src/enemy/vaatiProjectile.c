@@ -156,7 +156,7 @@ void VaatiProjectileFunction0Action3(Entity* this) {
     if (this->child->frame & ANIM_DONE) {
         if (--this->z.HALF.HI <= -0x18) {
             this->action = 4;
-            this->timer = (Random() & 0xf) + 0xf;
+            this->timer = (Random() & 0xf) + 15;
             InitializeAnimation(this->child, 1);
         }
         GetNextFrame(this);
@@ -180,7 +180,7 @@ void VaatiProjectileFunction0Action5(Entity* this) {
             return;
         }
         this->action = 6;
-        this->timer = 0x14;
+        this->timer = 20;
     }
 }
 

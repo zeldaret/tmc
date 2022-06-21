@@ -120,7 +120,7 @@ void BossDoor_Action4(BossDoorEntity* this) {
 
     if (sub_08083734(super, this->unk_76)) {
         super->action = 5;
-        super->timer = 0xc;
+        super->timer = 12;
         super->spriteSettings.draw = 1;
         super->direction = *(u8*)&this->unk_76 << 3 ^ 0x10;
         ptr = &gUnk_081214F4[this->unk_76 * 2];
@@ -166,7 +166,7 @@ void sub_0808C4BC(BossDoorEntity* this) {
     static const s8 gUnk_0812150C[] = { 0, -2, 2, 0, 0, 2, -2, 0 };
     const s8* ptr;
     super->action = 3;
-    super->timer = 0xc;
+    super->timer = 12;
     super->direction = this->unk_76 * 8;
     ptr = &gUnk_0812150C[this->unk_76 * 2];
     super->x.HALF.HI += ptr[0];

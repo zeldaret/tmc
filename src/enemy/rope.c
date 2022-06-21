@@ -114,7 +114,7 @@ void sub_08031480(Entity* this) {
     } else {
         if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
             this->action = 2;
-            this->subtimer = 0xf;
+            this->subtimer = 15;
             this->spriteSettings.draw = 1;
             UpdateSpriteForCollisionLayer(this);
             EnqueueSFX(SFX_WATER_SPLASH);

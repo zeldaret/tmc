@@ -173,7 +173,7 @@ void sub_08028488(Entity* this) {
             case 2:
                 this->action = 2;
                 this->speed = 0;
-                this->timer = (Random() & 7) * 3 + 0x40;
+                this->timer = (Random() & 7) * 3 + 64;
                 break;
             case 4:
                 this->direction = (this->direction + 0x10) & 0x18;
@@ -256,13 +256,13 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
                 uVar1 = gUnk_080CC7C0[Random() & 0xf];
             } else {
                 uVar1 = gUnk_080CC7C0[Random() & 7];
-                this->timer = this->timer + 0x10;
+                this->timer = this->timer + 16;
                 this->field_0x82.HALF.HI--;
             }
             this->direction = iVar3 + uVar1 + (4U & 0x18);
         }
     } else {
-        this->timer = 0xc;
+        this->timer = 12;
         this->speed = 0;
     }
 

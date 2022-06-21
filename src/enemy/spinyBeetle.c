@@ -51,7 +51,7 @@ void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
 
         if ((super->contactFlags & 0x3f) == 0x14 && super->action != 5) {
             super->action = 3;
-            super->timer = 0x5a;
+            super->timer = 90;
             super->subtimer = 16;
             super->spritePriority.b1 = 1;
             super->direction = DirectionRoundUp(sub_08049F84(super, 1));
@@ -294,7 +294,7 @@ void sub_08033C94(SpinyBeetleEntity* this) {
 
             if (--super->timer)
                 return;
-            super->timer = (Random() & 0x1f) + 0x20;
+            super->timer = (Random() & 0x1f) + 32;
             super->direction = sub_08049F84(super, 1) + 0x14;
             switch (Random() & 3) {
                 case 1:

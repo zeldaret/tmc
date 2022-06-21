@@ -43,7 +43,7 @@ void sub_080A0684(Entity* this) {
 void sub_080A0718(Entity* this) {
     if (sub_08083734(this, 2) != 0) {
         this->action = 2;
-        this->timer = 0xc;
+        this->timer = 12;
         this->spriteSettings.draw = TRUE;
         this->direction = 0;
         this->y.HALF.HI += 0x24;
@@ -79,7 +79,7 @@ void sub_080A074C(Entity* this) {
 void sub_080A07BC(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 4;
-        this->timer = 0xc;
+        this->timer = 12;
         this->direction = 0x10;
         this->y.HALF.HI += 2;
         sub_080A0870(this);

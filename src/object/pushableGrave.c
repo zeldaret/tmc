@@ -101,8 +101,8 @@ void PushableGrave_Action2(PushableGraveEntity* this) {
     } else {
         if (--super->subtimer == 0) {
             super->action = 3;
-            super->timer = 0x60;
-            super->subtimer = 0x14;
+            super->timer = 96;
+            super->subtimer = 20;
             RequestPriorityDuration(super, 0x60);
             SoundReq(SFX_10F);
         }
@@ -177,7 +177,7 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
         if (CheckFlags(this->pushedFlag) != 0) {
             super->action = 2;
             super->subAction = 0;
-            super->timer = 0xf0;
+            super->timer = 240;
             super->subtimer = 60;
             super->direction = 0;
             super->speed = 0x40;

@@ -28,7 +28,7 @@ void PlayerItemGustJar(Entity* this) {
 
 void PlayerItemGustJar_Init(Entity* this) {
     this->action = 1;
-    this->subtimer = 0xf;
+    this->subtimer = 15;
     this->hitbox = &gUnk_08132B28;
     this->hitbox->unk2[2] = 3;
     this->hitbox->unk2[1] = 3;

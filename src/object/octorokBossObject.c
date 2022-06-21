@@ -177,7 +177,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             }
             if ((u32)this->timer == GET_HELPER(this)->tailCount - 1) {
                 this->action = 2;
-                this->timer = 0xf0;
+                this->timer = 240;
                 this->direction = gUnk_0812384C[(this->type2 & 0xf) * 2] + ((u8)Random() & 0xf);
                 this->speed = gUnk_0812384C[(this->type2 & 0xf) * 2 + 1] + ((u16)Random() & 0x1ff);
                 if (this->type != 0) {

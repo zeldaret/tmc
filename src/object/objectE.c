@@ -13,7 +13,7 @@
 void ObjectE(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->timer = 0x14;
+        this->timer = 20;
         sub_08004168(this);
     } else {
         if (this->timer-- == 0) {

@@ -88,7 +88,7 @@ void sub_080452FC(Entity* this) {
         this->action = 3;
         this->timer = 1;
         if (0 < this->speed)
-            this->timer = FixedDiv(0x1000, this->speed) >> 0x8;
+            this->timer = FixedDiv(0x1000, this->speed) >> 8;
 
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             cVar2 = sub_08049EE4(this);

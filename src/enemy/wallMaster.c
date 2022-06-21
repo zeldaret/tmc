@@ -74,7 +74,7 @@ void sub_0802A534(Entity* this) {
         Entity* ent = sub_08049DF4(1);
         if (ent != NULL) {
             this->action = 2;
-            this->timer = 0x5a;
+            this->timer = 90;
             COLLISION_ON(this);
             this->spriteSettings.draw = 3;
             this->x.HALF.HI = ent->x.HALF.HI;

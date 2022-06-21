@@ -117,7 +117,7 @@ void VaatiAppearingManager_Action2(VaatiAppearingManager* this) {
         case 1:
             if (--super->timer == 0) {
                 super->subAction = 2;
-                super->timer = 0x14;
+                super->timer = 20;
             }
             break;
         case 2:

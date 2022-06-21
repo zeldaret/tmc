@@ -771,7 +771,7 @@ bool32 sub_08078108(ChargeState* state) {
 }
 
 bool32 sub_08078124(ChargeState* state) {
-    state->chargeTimer -= 0x10;
+    state->chargeTimer -= 16;
     if (state->chargeTimer < 0) {
         state->chargeTimer = 0;
         state->action = 2;

@@ -176,7 +176,8 @@ void Stalfos_Init(StalfosEntity* this) {
 void Stalfos_Action1(StalfosEntity* this) {
     if (GravityUpdate(super, Q_8_8(24.0)) == 0 && sub_08039758(this) == 0 && --this->unk_78 == 0) {
         super->action = 2;
-        super->timer = 10;        sub_08039858(this);
+        super->timer = 10;
+        sub_08039858(this);
     }
 }
 
@@ -214,20 +215,20 @@ void Stalfos_Action5(StalfosEntity* this) {
     GravityUpdate(super, Q_8_8(24.0));
     if (super->zVelocity < 0) {
         super->action = 6;
-        super->timer = 0x0f;
+        super->timer = 15;
     }
 }
 
 void Stalfos_Action6(StalfosEntity* this) {
-    u16 tmp;
-
     if (super->timer != 0) {
         super->timer--;
     } else {
-        tmp = super->z.HALF.HI += 4;
+        u16 tmp = super->z.HALF.HI += 4;
+
         if (-1 < (tmp * 0x10000)) {
             super->action = 7;
-            super->timer = 10;            super->z.HALF.HI = 0;
+            super->timer = 10;
+            super->z.HALF.HI = 0;
             this->unk_7a = 0x78;
             this->unk_7c = 0x3c;
             sub_080399C4(this);

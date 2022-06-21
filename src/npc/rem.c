@@ -166,11 +166,11 @@ void sub_0806A5E8(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x10);
-        this->timer = (Random() & 0x3f) + 0x3c;
+        this->timer = (Random() & 0x3f) + 60;
     }
     this->timer -= 1;
     if (this->timer == 0) {
-        this->timer = (Random() & 0x3f) + 0x78;
+        this->timer = (Random() & 0x3f) + 120;
         SoundReq(SFX_REM_SLEEP);
     }
     GetNextFrame(this);

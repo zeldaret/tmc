@@ -73,7 +73,7 @@ void V1FireProjectile_Action1(Entity* this) {
     LinearMoveUpdate(this);
     if (GravityUpdate(this, 0) == 0) {
         this->action = 2;
-        this->timer = 0xf;
+        this->timer = 15;
         InitializeAnimation(this, 0x54);
         sub_080AB4A4(this);
     } else {

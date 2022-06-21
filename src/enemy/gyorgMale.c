@@ -410,7 +410,7 @@ void sub_08046EF4(GyorgMaleEntity* this) {
     super->speed = gUnk_080D1B74[(super->timer >> 3) & 0xF];
     if (--super->subtimer == 0) {
         Entity* tmp;
-        super->subtimer = (Random() & 0x38) + 0x78;
+        super->subtimer = (Random() & 0x38) + 120;
         tmp = CreateProjectile(GYORG_MALE_ENERGY_PROJECTILE);
         if (tmp) {
             tmp->collisionLayer = 2;

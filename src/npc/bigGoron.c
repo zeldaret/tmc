@@ -190,7 +190,7 @@ void sub_0806D1D0(Entity* this) {
         case 0:
         default:
             if (--this->timer == 0) {
-                this->timer = (Random() & 0x7f) + 0x30;
+                this->timer = (Random() & 0x7f) + 48;
                 this->subtimer = 8;
                 this->frameIndex = 1;
             }

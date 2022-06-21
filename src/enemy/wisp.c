@@ -73,7 +73,7 @@ void Wisp_OnCollision(Entity* this) {
             ent = CreateFx(this, FX_DEATH, 0);
             if (ent != NULL) {
                 this->child = ent;
-                this->timer = 0xe;
+                this->timer = 14;
                 CopyPosition(this, ent);
             }
             DeleteThisEntity();

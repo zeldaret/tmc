@@ -292,7 +292,7 @@ void Object8E_Type4(Object8EEntity* this) {
         case 0:
             super->action = 1;
             super->timer = 60;
-            super->subtimer = 0x80;
+            super->subtimer = 128;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 1;
             if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {

@@ -46,7 +46,7 @@ void Bird_Type0_Init(Entity* this) {
 
     this->action++;
     this->spriteSettings.draw = TRUE;
-    this->timer = 0x31;
+    this->timer = 49;
     this->subtimer = 1;
     this->zVelocity = Q_16_16(-1.5);
     this->z.WORD = Q_16_16(-56.75);

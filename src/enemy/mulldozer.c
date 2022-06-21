@@ -270,7 +270,7 @@ void sub_080330C0(MulldozerEntity* this) {
     super->action = 2;
     this->unk_80 = 0;
     if (super->type == 0) {
-        super->timer = (Random() & 0x38) + 0x18;
+        super->timer = (Random() & 0x38) + 24;
     } else {
         super->timer = 6;
     }

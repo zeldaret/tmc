@@ -531,7 +531,7 @@ void sub_08055634(void) {
         obj->y.HALF.HI = gRoomControls.origin_y + *(s16*)(ptr + 10);
     }
     gMenu.overlayType++;
-    gMenu.transitionTimer = 0x186;
+    gMenu.transitionTimer = 390;
 }
 
 void sub_08055674(void) {

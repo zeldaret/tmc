@@ -87,7 +87,7 @@ void sub_0808BC3C(Object36Entity* this) {
         if (super->timer == 0) {
             SetGlobalFlag(LV1TARU_OPEN);
             super->action = 2;
-            super->subtimer = 0x80;
+            super->subtimer = 128;
             super->spriteOffsetY = 0;
         } else {
             if ((super->timer & 1) != 0) {

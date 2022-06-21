@@ -31,7 +31,7 @@ void sub_080ABFEC(Entity* this) {
         case 0: {
             this->action = 1;
             this->timer = 0;
-            this->subtimer = 0x7;
+            this->subtimer = 7;
             this->cutsceneBeh.HALF.HI = 0x18;
             this->damage = 0x88;
             CopyPositionAndSpriteOffset(this->parent, this);

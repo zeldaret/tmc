@@ -475,7 +475,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
             if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
                 this->subAction = 1;
-                this->timer = 0xf0;
+                this->timer = 240;
                 this->health = 8;
                 this->hitType = 0x38;
                 InitScreenShake(20, 0);
@@ -685,7 +685,7 @@ void sub_08041E20(Entity* this) {
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
     if (gFadeControl.active == 0) {
         this->subAction = 5;
-        this->timer = 0x5a;
+        this->timer = 90;
     }
 }
 

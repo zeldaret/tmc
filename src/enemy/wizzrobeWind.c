@@ -65,8 +65,8 @@ void WizzrobeWind_Init(WizzrobeEntity* this) {
         super->action = 1;
         this->timer2 = 0xff;
         this->timer1 = 0x28;
-        super->timer = 0x28;
-        super->subtimer = 0x60;
+        super->timer = 40;
+        super->subtimer = 96;
         sub_0802F888(this);
     }
     projectile = CreateProjectileWithParent(super, WIND_PROJECTILE, 0);
@@ -98,7 +98,7 @@ void WizzrobeWind_Action1(WizzrobeEntity* this) {
             if (--super->timer == 0) {
                 super->action = 2;
                 this->timer2 = 0;
-                super->timer = 0x28;
+                super->timer = 40;
                 tmp = super->direction >> 3;
                 parent = super->parent;
                 parent->timer = 1;
@@ -116,7 +116,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
             switch (--super->timer) {
                 case 0:
                     this->timer2++;
-                    super->timer = 0x38;
+                    super->timer = 56;
                     super->subtimer = 0;
                     super->parent->spriteSettings.draw = 0;
                     break;
@@ -134,7 +134,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
             if (--super->timer == 0) {
                 this->timer2++;
                 this->timer1 = 0x28;
-                super->timer = 0x28;
+                super->timer = 40;
                 super->subtimer = 0;
                 super->flags &= 0x7f;
                 EnqueueSFX(SFX_156);
@@ -145,7 +145,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
         case 2:
             if (--super->timer == 0) {
                 this->timer2++;
-                super->timer = (Random() & 0x3f) + 0x20;
+                super->timer = (Random() & 0x3f) + 32;
                 super->spriteSettings.draw = 0;
             }
             break;
@@ -154,7 +154,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                 super->action = 1;
                 this->timer2 = 0;
                 this->timer1 = 0x28;
-                super->timer = 0x28;
+                super->timer = 40;
                 EnqueueSFX(SFX_156);
                 sub_0802F8E4(this);
                 InitializeAnimation(super, super->direction >> 3);
@@ -181,7 +181,7 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
                     return;
                 }
                 this->timer2++;
-                super->timer = 0x28;
+                super->timer = 40;
                 parent->timer = 1;
                 parent->spriteSettings.draw = 1;
                 InitializeAnimation(super, super->animationState >> 1 | 4);
@@ -189,7 +189,7 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
             case 2:
                 if (--super->timer == 0) {
                     this->timer2++;
-                    super->timer = (Random() & 0x1f) + 0x30;
+                    super->timer = (Random() & 0x1f) + 48;
                     parent->spriteSettings.draw = 0;
                     InitializeAnimation(super, super->animationState >> 1);
                 } else if (super->timer == 8) {

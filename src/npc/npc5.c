@@ -553,7 +553,7 @@ void sub_08061358(Entity* this) {
                 return;
             }
             this->subAction = 1;
-            this->timer = 0xf;
+            this->timer = 15;
             sub_08060E70(this, 0);
             break;
         case 1:
@@ -565,7 +565,7 @@ void sub_08061358(Entity* this) {
             bVar4 = uVar2;
             if ((uVar2 & 1) == 0) {
                 this->subAction = 3;
-                this->timer = (bVar4 & 0x18) + 0x1e;
+                this->timer = (bVar4 & 0x18) + 30;
                 sub_08060E70(this, 4);
                 return;
             }
@@ -580,7 +580,7 @@ void sub_08061358(Entity* this) {
             this->animationState = ((this->frame & 0x18) >> 2);
             if ((Random() & 1)) {
                 this->subAction = 3;
-                this->timer = (bVar4 & 0x18) + 0x1e;
+                this->timer = (bVar4 & 0x18) + 30;
                 sub_08060E70(this, 4);
                 return;
             }

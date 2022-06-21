@@ -65,7 +65,7 @@ void sub_08018CBC(Entity* this) {
     if (pEVar3 != NULL) {
         this->action = 1;
         COLLISION_OFF(this);
-        this->timer = 0x56;
+        this->timer = 86;
         this->hurtType = 0x1c;
         this->damage = 6;
         this->hitbox = (Hitbox*)&gUnk_080B3E18;

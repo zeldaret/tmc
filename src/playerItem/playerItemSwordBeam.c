@@ -70,7 +70,7 @@ void sub_08019580(Entity* this) {
     if (--*(int*)&this->field_0x6c != -1) {
         GetNextFrame(this);
         LinearMoveUpdate(this);
-        this->timer += 0x01;
+        this->timer += 1;
         if (this->type2 == 0) {
             sub_0800451C(this);
         }

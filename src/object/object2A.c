@@ -22,10 +22,10 @@ void Object2A_Init(Entity* this) {
     switch (this->type) {
         case 1:
             this->y.HALF.HI -= 8;
-            this->timer = 0x28;
+            this->timer = 40;
             break;
         case 2:
-            this->timer = 0xf;
+            this->timer = 15;
             sub_08004168(this);
             break;
         case 3:

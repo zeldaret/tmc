@@ -19,7 +19,7 @@ void HyruleTownBellManager_Main(HyruleTownBellManager* this) {
     if (super->action == 0) {
         if (x < 0x20 && y < 0x20 && gPlayerEntity.z.HALF.HI < -0x18 && gPlayerState.framestate == PL_STATE_CAPE) {
             super->action++;
-            super->timer = 0x5a;
+            super->timer = 90;
             SoundReq(SFX_10A);
         }
     } else {

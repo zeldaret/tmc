@@ -48,13 +48,13 @@ void Object43_Init(Object43Entity* this) {
     super->updatePriority = 6;
     InitializeAnimation(super, 7);
     if (super->type2 != 0) {
-        super->timer = 0x28;
+        super->timer = 40;
     } else {
         super->spriteSettings.draw = 1;
-        if ((gPlayerState.skills & SKILL_FAST_SPIN) != 0) {
-            super->timer = 0x28;
+        if (gPlayerState.skills & SKILL_FAST_SPIN) {
+            super->timer = 40;
         } else {
-            super->timer = 0x50;
+            super->timer = 80;
         }
 
         Object43_Action1(this);

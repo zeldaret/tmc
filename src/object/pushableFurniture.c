@@ -79,7 +79,7 @@ void PushableFurniture_Action1(PushableFurnitureEntity* this) {
                 case 0:
                     if (sub_0808FECC(this)) {
                         super->subAction = 1;
-                        super->timer = 0xc;
+                        super->timer = 12;
                     }
                     break;
                 case 1:
@@ -189,10 +189,10 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
         if (this->unk_80 == 0) {
             super->timer = 4;
         } else {
-            super->timer = 0x18;
+            super->timer = 24;
         }
         if ((gPlayerState.flags & PL_MINISH) == 0) {
-            super->timer += 0x10;
+            super->timer += 16;
         }
         sub_0808FF50(this);
         return TRUE;

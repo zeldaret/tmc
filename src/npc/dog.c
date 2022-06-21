@@ -95,7 +95,7 @@ void sub_08069C40(Entity* this) {
         this->timer -= 1;
         if (this->timer == 0) {
             this->action = 2;
-            this->timer = (Random() & 0x1f) + 0x1e;
+            this->timer = (Random() & 0x1f) + 30;
             this->direction = gUnk_08111DA8[Random() & 7];
             sub_08069F6C(this);
         }
@@ -166,7 +166,7 @@ void sub_08069D54(Entity* this) {
     } else {
         this->action = 3;
     }
-    this->timer = (Random() & 0x1f) + 0x1e;
+    this->timer = (Random() & 0x1f) + 30;
 }
 
 void sub_08069DF8(Entity* this) {
@@ -185,7 +185,7 @@ void sub_08069DF8(Entity* this) {
             this->action = 3;
         }
     }
-    this->timer = (Random() & 0x1f) + 0x1e;
+    this->timer = (Random() & 0x1f) + 30;
 }
 
 void sub_08069E44(Entity* this) {

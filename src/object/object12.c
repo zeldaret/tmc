@@ -41,7 +41,7 @@ void Object12_Init(Object12Entity* this) {
         sub_080850FC(this);
     } else {
         super->action = 2;
-        super->timer = 0xf0;
+        super->timer = 240;
         super->speed = 0x80;
         super->direction = 0x18;
     }
@@ -75,7 +75,7 @@ void Object12_Action2(Object12Entity* this) {
 void Object12_Action3(Object12Entity* this) {
     if (--super->timer == 0) {
         super->action = 4;
-        super->timer = 0x60;
+        super->timer = 96;
     }
 }
 

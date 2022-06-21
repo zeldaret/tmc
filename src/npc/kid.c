@@ -53,7 +53,7 @@ void sub_08062130(Entity* this) {
         this->subtimer = 0;
         this->timer = (this->timer + 1) & 7;
         if (this->type == 6) {
-            this->timer = this->timer + 0x10;
+            this->timer = this->timer + 16;
         }
         InitAnimationForceUpdate(this, this->timer);
     } else {
@@ -213,7 +213,7 @@ void sub_08062698(Entity* this) {
 }
 
 void sub_080626AC(Entity* this) {
-    this->timer = (Random() & 0x1f) + 0x40;
+    this->timer = (Random() & 0x1f) + 64;
 }
 
 void sub_080626C0(Entity* this, ScriptExecutionContext* context) {

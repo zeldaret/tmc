@@ -88,7 +88,7 @@ void sub_080ABC90(Entity* this) {
 
 void sub_080ABCC4(Entity* this) {
     this->action = 1;
-    this->timer = (Random() & 0x3f) + 0x30;
+    this->timer = (Random() & 0x3f) + 48;
     this->subtimer = 0;
     this->direction = Random() & 0x1f;
     this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
@@ -159,7 +159,7 @@ void sub_080ABE88(Entity* this) {
 
 void sub_080ABEA8(Entity* this) {
     this->action = 1;
-    this->timer = 0x60;
+    this->timer = 96;
     this->spritePriority.b0 = 2;
     this->gustJarFlags = 1;
     if (this->type2 == 0) {

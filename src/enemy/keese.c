@@ -152,7 +152,7 @@ void Keese_StartFly(KeeseEntity* this) {
     };
 
     super->action = KEESE_ACTION_FLY;
-    this->flyTimer = gKeeseFlyDurations[Random() & 0xf];
+    this->flyTimer = gKeeseFlyDurations[Random() & 0xF];
     this->sleepTimer = 60;
     InitializeAnimation(super, KeeseAnimation_Fly);
 }

@@ -133,7 +133,7 @@ void sub_080385CC(CloudPiranhaEntity* this) {
     sub_080387F0(this);
     if (sub_0803872C(this, 0x60)) {
         super->action = 3;
-        super->subtimer = 0xc;
+        super->subtimer = 12;
         super->speed = 0x80;
         super->animationState = sub_0806FCAC(super, super->child);
         super->direction = super->animationState << 2;
@@ -182,7 +182,7 @@ void CloudPiranha_Action4(CloudPiranhaEntity* this) {
         super->action = 1;
         super->hitType = 0x72;
         super->timer = 1;
-        super->subtimer = 0x80;
+        super->subtimer = 128;
         super->speed = 0x80;
         super->spritePriority.b1 = 2;
         EnqueueSFX(SFX_124);

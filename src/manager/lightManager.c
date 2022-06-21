@@ -62,7 +62,7 @@ void LightManager_Main(LightManager* this) {
                 sub_0801E154(uVar3);
                 this->unk20 = 0;
             } else if ((gRoomTransition.frameCount & 3) == 0) {
-                super->subtimer += 0x10;
+                super->subtimer += 16;
                 sVar1 = gSineTable[super->subtimer];
                 this->unk20 = sVar1 >> 7;
                 sub_0801E154(uVar3 + this->unk20);

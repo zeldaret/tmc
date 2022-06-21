@@ -652,7 +652,7 @@ void OctorokBoss_Action1_ChargeAttack(OctorokBossEntity* this) {
             super->knockbackDuration = 0x20;
             super->knockbackSpeed = 0x200;
             super->knockbackDirection = super->direction ^ 0x10;
-            this->heap->fallingStonesTimer += 0x3c;
+            this->heap->fallingStonesTimer += 60;
             OctorokBoss_SetAttackTimer(this);
             InitScreenShake(60, 0);
             SoundReq(SFX_158);
@@ -936,7 +936,7 @@ void OctorokBoss_Burning_SubAction1(OctorokBossEntity* this) {
         super->knockbackDuration = 0x18;
         super->knockbackSpeed = 0x200;
         super->knockbackDirection = super->direction ^ 0x10;
-        this->heap->fallingStonesTimer += 0x1e;
+        this->heap->fallingStonesTimer += 30;
         InitScreenShake(30, 0);
         SoundReq(SFX_158);
         SoundReq(SFX_14C);

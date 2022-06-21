@@ -170,7 +170,7 @@ void sub_0802BDE0(Entity* this) {
         this->field_0x78.HALF.HI = 0xff;
     } else {
         this->action = 1;
-        this->timer = (Random() & 0xf) + 0xf;
+        this->timer = (Random() & 0xf) + 15;
         this->field_0x78.HALF.HI = this->direction;
     }
 }
