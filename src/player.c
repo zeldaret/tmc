@@ -3081,7 +3081,7 @@ void sub_08073B8C(Entity* this) {
         }
         gPlayerState.jump_status++;
         this->timer = 15;
-        InitScreenShake(0x10, 0);
+        InitScreenShake(16, 0);
         SoundReq(SFX_14C);
     }
 }

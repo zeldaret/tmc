@@ -221,7 +221,7 @@ void CrenelBeanSprout_Action2SubAction2(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action2SubAction3(CrenelBeanSproutEntity* this) {
-    InitScreenShake(0x10, 0);
+    InitScreenShake(16, 0);
     super->action = 1;
     super->subAction = 0;
 }

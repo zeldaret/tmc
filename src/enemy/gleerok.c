@@ -403,7 +403,7 @@ void sub_0802D6F0(GleerokEntity* this) {
     if (--this->unk_7c.WORD == -1) {
         super->subAction = 2;
         this->unk_7c.WORD = 0x5a;
-        InitScreenShake(0x96, 0);
+        InitScreenShake(150, 0);
     }
 }
 
@@ -1018,7 +1018,7 @@ void sub_0802E1D0(GleerokEntity* this) {
                     if (i == 5) {
                         if (!(this->unk_79 & 0x80)) {
                             this->unk_7c.HALF_U.LO = 0xF0;
-                            InitScreenShake(0xF0, 0);
+                            InitScreenShake(240, 0);
                         } else {
                             for (this->unk_7c.HALF_U.LO = 0; this->unk_7c.HALF_U.LO < 4; this->unk_7c.HALF_U.LO++) {
                                 CreateObjectWithParent(super, OBJECT_67, 1, this->unk_7c.HALF_U.LO);
@@ -1028,7 +1028,7 @@ void sub_0802E1D0(GleerokEntity* this) {
                             this->unk_7c.HALF_U.LO = 0xB;
                             gScreen.controls.alphaBlend = this->unk_74 | (this->unk_75 << 8);
                             gScreen.controls.layerFXControl = 0x240;
-                            InitScreenShake(0x1e, 0);
+                            InitScreenShake(30, 0);
                         }
                         super->type2 = 5;
                     }

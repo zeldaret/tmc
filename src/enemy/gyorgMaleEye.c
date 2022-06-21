@@ -53,7 +53,7 @@ void GyorgMaleEye_OnCollision(GyorgMaleEyeEntity* this) {
         } else {
             entity->health = 0;
             SoundReq(SFX_BOSS_DIE);
-            InitScreenShake(0x28, 0);
+            InitScreenShake(40, 0);
         }
         if (super->iframes > 0) {
             entity->iframes = super->iframes;

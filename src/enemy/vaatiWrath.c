@@ -478,7 +478,7 @@ void VaatiWrathType0ActionB(Entity* this) {
                 this->timer = 0xf0;
                 this->health = 8;
                 this->hitType = 0x38;
-                InitScreenShake(0x14, 0);
+                InitScreenShake(20, 0);
                 InitAnimationForceUpdate(this, 6);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x16);
             }

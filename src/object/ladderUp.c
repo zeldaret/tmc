@@ -39,7 +39,7 @@ void LadderUp(Entity* this) {
                 if (fxEnt) {
                     fxEnt->y.HALF.HI += 8;
                 }
-                InitScreenShake(0x1e, 0);
+                InitScreenShake(30, 0);
                 SoundReq(SFX_10B);
                 this->action = 2;
 #ifndef EU

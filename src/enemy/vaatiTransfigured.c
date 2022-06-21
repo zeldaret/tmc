@@ -272,7 +272,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             this->timer = 0xc0;
             COLLISION_ON(this);
             SoundReq(SFX_14C);
-            InitScreenShake(0x14, 4);
+            InitScreenShake(20, 4);
             break;
         case 1:
             if (--this->timer == 0) {
@@ -327,7 +327,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
                 SoundReq(SFX_14C);
-                InitScreenShake(0x1e, 4);
+                InitScreenShake(30, 4);
             } else {
                 if (this->subtimer != 0) {
                     if (--this->subtimer == 0) {
@@ -405,7 +405,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->subtimer = 1;
             }
             SoundReq(SFX_14C);
-            InitScreenShake(0x1e, 4);
+            InitScreenShake(30, 4);
             break;
         case 2:
             if (--this->timer == 0) {
@@ -1075,7 +1075,7 @@ void sub_080409B0(Entity* this) {
         }
     } else {
         if (((this->contactFlags & 0x80) != 0) && (0 < this->iframes)) {
-            InitScreenShake(0xc, 1);
+            InitScreenShake(12, 1);
             SoundReq(SFX_BOSS_HIT);
         }
         if ((this->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {

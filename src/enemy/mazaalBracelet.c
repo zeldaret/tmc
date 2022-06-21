@@ -860,7 +860,7 @@ void sub_0803AFE0(Entity* this) {
         this->timer = 240;
         *(u8*)&this->cutsceneBeh = 3;
         this->z.HALF.HI = 0;
-        InitScreenShake(0xa0, 0);
+        InitScreenShake(160, 0);
         SoundReq(SFX_158);
     }
 }
