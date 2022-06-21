@@ -82,7 +82,7 @@ void WizzrobeIce_Action1(WizzrobeEntity* this) {
             if (--super->timer == 0) {
                 super->action = 2;
                 this->timer2 = 0;
-                super->timer = 0x20;
+                super->timer = 32;
                 tmp = super->direction >> 3;
                 child = super->child;
                 child->timer = 1;

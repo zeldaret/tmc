@@ -26,7 +26,7 @@ void sub_080A8064(Entity* this) {
 
 void RockProjectile_Init(Entity* this) {
     this->action = 1;
-    this->timer = 0x30;
+    this->timer = 48;
     this->zVelocity = Q_16_16(0.625);
     InitializeAnimation(this, 0);
 }

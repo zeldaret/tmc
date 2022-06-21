@@ -70,7 +70,7 @@ void ArrowProjectile_Action2(Entity* this) {
     if (this->collisions != COL_NONE) {
         this->action = 3;
         COLLISION_OFF(this);
-        this->timer = 0x20;
+        this->timer = 32;
         InitializeAnimation(this, this->animIndex + 2);
         EnqueueSFX(SFX_18A);
         LinearMoveUpdate(this);

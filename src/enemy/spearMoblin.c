@@ -316,7 +316,7 @@ void sub_08028784(Entity* this) {
 
 void sub_080287B4(Entity* this) {
     this->action = 3;
-    this->timer = 0x20;
+    this->timer = 32;
     this->subtimer = 0;
     this->field_0x80.HALF.LO = 0;
     this->field_0x7a.HALF.HI = 0;

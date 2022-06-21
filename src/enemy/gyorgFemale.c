@@ -132,7 +132,7 @@ void GyorgFemale_Action1(GyorgFemaleEntity* this) {
     }
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x100) {
         if (--this->childrenSpawnTimer == 0) {
-            this->childrenSpawnTimer = 0x168;
+            this->childrenSpawnTimer = 360;
             GyorgFemale_SpawnChildren(this, TRUE);
         }
     }
@@ -160,7 +160,7 @@ void GyorgFemale_Action2(GyorgFemaleEntity* this) {
         }
     }
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x80 && --this->childrenSpawnTimer == 0) {
-        this->childrenSpawnTimer = 0x168;
+        this->childrenSpawnTimer = 360;
         GyorgFemale_SpawnChildren(this, 0);
     }
     if ((((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) == 0) {
@@ -176,7 +176,7 @@ void GyorgFemale_Action2(GyorgFemaleEntity* this) {
 void GyorgFemale_Action3(GyorgFemaleEntity* this) {
     sub_080465C8();
     if (--this->childrenSpawnTimer == 0) {
-        this->childrenSpawnTimer = 0x168;
+        this->childrenSpawnTimer = 360;
         GyorgFemale_SpawnChildren(this, 1);
     }
     GyorgFemale_ProcessEyeHit(this);

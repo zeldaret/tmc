@@ -42,7 +42,7 @@ void Crow_OnCollision(CrowEntity* this) {
     if (super->contactFlags & 0x80) {
         if ((super->contactFlags & 0x3f) == 0) {
             COLLISION_OFF(super);
-            super->subtimer = 0x10;
+            super->subtimer = 16;
             if (DirectionIsHorizontal(DirectionRoundUp(super->direction)) == 0) {
                 if (DirectionIsVertical(super->direction)) {
                     super->direction += 2;

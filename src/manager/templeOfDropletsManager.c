@@ -406,7 +406,7 @@ void sub_0805A89C(TempleOfDropletsManager* this) {
     super->action = 1;
     super->flags |= ENT_PERSIST;
     super->timer = 8;
-    super->subtimer = 0x10;
+    super->subtimer = 16;
     this->unk_21 = 0;
     this->unk_22 = 0;
     this->unk_20 = gRoomControls.room;
@@ -498,7 +498,7 @@ void sub_0805AA58(TempleOfDropletsManager* this) {
         LoadPalettes(gUnk_085A97A0[this->unk_21].unk_00, 5, 1);
     }
     if (--super->subtimer == 0) {
-        super->subtimer = 0x10;
+        super->subtimer = 16;
         this->unk_22 += 1;
         this->unk_22 &= 0xF;
         gScreen.controls.alphaBlend = gUnk_081085B8[this->unk_22];

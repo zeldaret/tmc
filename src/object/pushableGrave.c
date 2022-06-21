@@ -152,7 +152,7 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
         if (super->type2 != 0) {
             if ((CheckFlags(this->pushedFlag) != 0) || GetTileType(this->unk_68, super->collisionLayer) == 0x403f) {
                 super->action = 3;
-                super->timer = 0x40;
+                super->timer = 64;
                 super->subtimer = 0;
                 super->direction = 0;
                 super->speed = 0x40;

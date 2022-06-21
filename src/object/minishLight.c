@@ -14,7 +14,7 @@ void MinishLight(Entity* this) {
 void sub_0809F840(Entity* this) {
     this->action = 1;
     this->frameIndex = 0;
-    this->timer = 0x20;
+    this->timer = 32;
     this->subtimer = 0;
 
     if (this->type2 != 0) {

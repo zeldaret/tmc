@@ -167,7 +167,7 @@ void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
             if (super->timer == 0x18) {
                 super->action = 6;
                 super->timer = 8;
-                super->subtimer = 0x10;
+                super->subtimer = 16;
             } else {
                 super->action = 5;
                 sub_08084074(super->type2);

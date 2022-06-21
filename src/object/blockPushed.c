@@ -38,7 +38,7 @@ void sub_08082EB4(BlockPushedEntity* this) {
         super->spriteSettings.draw = 1;
     }
     super->action = 1;
-    super->timer = 0x20;
+    super->timer = 32;
     super->speed = 0x80;
     super->spritePriority.b0 = 6;
     pos = COORD_TO_TILE(super);

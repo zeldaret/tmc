@@ -229,7 +229,7 @@ void sub_0809153C(PullableLeverEntity* this) {
         SetFlag(this->pulledFlag);
     } else {
         if (--super->subtimer == 0) {
-            super->subtimer = 0x10;
+            super->subtimer = 16;
             EnqueueSFX(SFX_10F);
         }
     }

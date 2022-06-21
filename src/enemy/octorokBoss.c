@@ -228,7 +228,7 @@ void OctorokBoss_Hit_SubAction2(OctorokBossEntity* this) {
         this->heap->tailObjects[0]->currentAttack++;
     } else {
         super->subAction = 3;
-        this->timer = 0x96;
+        this->timer = 150;
         gRoomControls.camera_target = &gPlayerEntity;
     }
 }
@@ -380,7 +380,7 @@ void OctorokBoss_Intro_SubAction3(OctorokBossEntity* this) {
 void OctorokBoss_Intro_SubAction4(OctorokBossEntity* this) {
     if (this->timer-- == 0) {
         super->subAction = 5;
-        this->timer = 0x2d;
+        this->timer = 45;;
         // Make the player look towards the exit
         gPlayerEntity.animationState = 0;
     } else {
@@ -692,7 +692,7 @@ void OctorokBoss_Action1_Attack_Type2_0(OctorokBossEntity* this) {
         this->angularSpeed.HWORD = 0x100;
         super->type2 = 1;
         if (IS_FROZEN(this) == FALSE) {
-            this->timer = 0x16;
+            this->timer = 22;
         } else {
             this->timer = 0;
         }
@@ -715,7 +715,7 @@ void OctorokBoss_Action1_Attack_Type2_1(OctorokBossEntity* this) {
                 this->heap->targetAngle = this->angle.HALF.HI;
             } else {
                 super->type2 = 2;
-                this->timer = 0x2d;
+                this->timer = 45;;
             }
             SoundReq(SFX_155);
         }
@@ -813,7 +813,7 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
             if (this->unk_80 == 1) {
                 this->unk_80 = 2;
                 super->type2 = 2;
-                this->timer = 0x2d;
+                this->timer = 45;;
                 this->angularSpeed.HWORD = 0x100;
                 this->heap->field_0x2 = 0;
                 return;

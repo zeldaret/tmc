@@ -71,21 +71,21 @@ void sub_0808CA10(Entity* this) {
     switch (this->type) {
         case 1:
             if (gUnk_02018EB0.unk_18 != 0) {
-                this->timer = 0x20;
+                this->timer = 32;
                 gUnk_02018EB0.unk_18 = 0;
                 SoundReq(SFX_12E);
             }
             break;
         case 2:
             if (gUnk_02018EB0.unk_19 != 0) {
-                this->timer = 0x20;
+                this->timer = 32;
                 gUnk_02018EB0.unk_19 = 0;
                 SoundReq(SFX_12E);
             }
             break;
         case 3:
             if (gUnk_02018EB0.unk_1a != 0) {
-                this->timer = 0x20;
+                this->timer = 32;
                 gUnk_02018EB0.unk_1a = 0;
                 SoundReq(SFX_12E);
             }

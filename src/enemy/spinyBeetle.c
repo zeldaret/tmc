@@ -52,7 +52,7 @@ void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
         if ((super->contactFlags & 0x3f) == 0x14 && super->action != 5) {
             super->action = 3;
             super->timer = 0x5a;
-            super->subtimer = 0x10;
+            super->subtimer = 16;
             super->spritePriority.b1 = 1;
             super->direction = DirectionRoundUp(sub_08049F84(super, 1));
             sub_08033D78(this);
@@ -176,7 +176,7 @@ void sub_08033A7C(SpinyBeetleEntity* this) {
 
     super->action = 3;
     super->timer = 120;
-    super->subtimer = 0x20;
+    super->subtimer = 32;
     super->spritePriority.b1 = 1;
     InitializeAnimation(super, 3);
 }
@@ -361,7 +361,7 @@ void sub_08033E1C(SpinyBeetleEntity* this) {
     super->y.WORD = (super->y.WORD & 0xfff00000) | 0xC0000;
     super->hitType = 0x19;
     super->spritePriority.b1 = 1;
-    super->timer = 0x30;
+    super->timer = 48;
     super->subtimer = 0;
     super->speed = 0x100;
     super->child = NULL;

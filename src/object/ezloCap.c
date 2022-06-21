@@ -73,8 +73,7 @@ void EzloCap_Type0Init(EzloCapEntity* this) {
         SoundReq(SFX_F3);
     } else {
         super->timer = 0;
-        super->subtimer = 0xa;
-        super->y.HALF.HI -= 0xe;
+        super->subtimer = 10;        super->y.HALF.HI -= 0xe;
         InitAnimationForceUpdate(super, 0x14);
     }
 }
@@ -129,8 +128,7 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
     if (super->subAction == 0) {
         if (super->subtimer-- == 0) {
             super->timer++;
-            super->subtimer = 0xa;
-            tmp = super->timer - 1;
+            super->subtimer = 10;            tmp = super->timer - 1;
             obj = CreateObjectWithParent(super, OBJECT_79, tmp, 0);
             super->child = obj;
             if (obj != NULL) {

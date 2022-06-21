@@ -50,7 +50,7 @@ void sub_08061C00(Entity* this) {
         uVar1 = this->animationState + 4;
     } else {
         if (this->subtimer == 0) {
-            this->subtimer = 0x10;
+            this->subtimer = 16;
         } else {
             this->subtimer--;
             uVar1 = this->animIndex & 3;

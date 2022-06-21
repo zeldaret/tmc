@@ -148,7 +148,7 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                     if (this->field_0x74.HALF.HI != 0) {
                         this->action = 2;
                         this->field_0x74.HALF.LO = 0;
-                        this->timer = 0x10;
+                        this->timer = 16;
                         this->direction = 0xff;
                     } else {
                         if ((this->field_0x86.HALF.LO != 0) || (this->field_0x80.HALF.LO != 0)) {
@@ -189,12 +189,12 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                 case 3:
                     this->action = 5;
                     this->field_0x74.HALF.LO = 0;
-                    this->subtimer = 0x20;
+                    this->subtimer = 32;
                     this->direction = 0xff;
                     break;
                 case 2:
                     this->field_0x74.HALF.LO = 0;
-                    this->timer = 0x20;
+                    this->timer = 32;
                     if ((this->field_0x86.HALF.LO != 0) || (this->field_0x80.HALF.LO != 0)) {
                         this->direction = ((Random() & 0x80) >> 3) | 8;
                     } else {
@@ -229,7 +229,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
         case 0:
             if (--this->timer == 0) {
                 this->field_0x74.HALF.LO++;
-                this->timer = 0x20;
+                this->timer = 32;
                 InitAnimationForceUpdate(this, 3);
                 SoundReq(SFX_19B);
             }
@@ -238,7 +238,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
             if ((this->frame & ANIM_DONE) != 0) {
                 this->field_0x74.HALF.LO = 2;
                 this->spriteSettings.draw = 0;
-                this->timer = 0x10;
+                this->timer = 16;
             }
             break;
         case 2:
@@ -254,7 +254,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
                     this->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y + 0x10;
                 }
                 this->spriteSettings.draw = 1;
-                this->timer = 0x20;
+                this->timer = 32;
                 InitAnimationForceUpdate(this, 4);
                 SoundReq(SFX_F5);
             }
@@ -271,7 +271,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
                     this->timer = 1;
                 } else {
                     this->field_0x74.HALF.LO = 0;
-                    this->timer = 0x10;
+                    this->timer = 16;
                 }
                 InitAnimationForceUpdate(this, 0);
             }
@@ -398,7 +398,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
                 } else {
                     this->field_0x74.HALF.LO++;
                     this->field_0x86.HALF.HI = 0;
-                    this->subtimer = 0x30;
+                    this->subtimer = 48;
                     InitAnimationForceUpdate(this, 0);
                 }
             }

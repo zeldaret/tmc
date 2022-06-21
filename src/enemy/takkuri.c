@@ -137,7 +137,7 @@ void sub_0803BD08(TakkuriEntity* this) {
             if (gUnk_020000B0->y.HALF.HI > super->y.HALF.HI + 8) {
                 super->action = 2;
                 this->unk_0x84 = 0;
-                super->timer = 0x10;
+                super->timer = 16;
                 this->unk_0x81 = 2;
                 sub_0803BF2C(this);
             }

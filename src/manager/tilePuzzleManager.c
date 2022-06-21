@@ -45,7 +45,7 @@ void TilePuzzleManager_Main(TilePuzzleManager* this) {
                         if (--super->timer == 0) {
                             super->action = SUCCEEDED;
                             // set up delay for setting the flag/playing the success sfx
-                            super->timer = 0x40;
+                            super->timer = 64;
                         }
                         break;
                 }

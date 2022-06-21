@@ -114,7 +114,7 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
             super->action = 3;
             super->direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             super->speed = 0x80;
-            super->timer = 0x40;
+            super->timer = 64;
             RequestPriorityDuration(super, 0x50);
             EnqueueSFX(SFX_10F);
             sub_08093248(this);
@@ -162,7 +162,7 @@ void ObjectBlockingStairs_Action2(ObjectBlockingStairsEntity* this) {
                 gPlayerEntity.x.HALF.LO = 0;
                 gPlayerEntity.y.HALF.LO = 0;
                 super->direction = (gPlayerEntity.animationState ^ 4) << 2;
-                super->timer = 0x40;
+                super->timer = 64;
                 EnqueueSFX(SFX_10F);
                 sub_08093248(this);
             }

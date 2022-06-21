@@ -158,7 +158,7 @@ void sub_08065DB8(Entity* this) {
         case 1: {
             if (--this->timer == 0) {
                 this->subAction++;
-                this->timer = 0xb4;
+                this->timer = 180;
                 gUnk_02018EB0.unk_1++;
                 InitAnimationForceUpdate(this, 2);
             }

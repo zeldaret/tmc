@@ -234,7 +234,7 @@ void sub_08032F90(MulldozerEntity* this) {
 
 void sub_08033000(MulldozerEntity* this) {
     if (--super->subtimer == 0) {
-        super->subtimer = 0x10;
+        super->subtimer = 16;
         if ((this->unk_82 & 0x80) != 0) {
             super->direction = (super->direction + 0x18) & 0x1c;
             this->unk_82 &= 0x7f;

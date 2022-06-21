@@ -82,7 +82,7 @@ void V3ElectricProjectile_Action1(Entity* this) {
             SoundReq(SFX_193);
         } else {
             this->action = 3;
-            this->timer = 0x10;
+            this->timer = 16;
         }
         this->z.HALF.HI -= 0x28;
     }
@@ -146,7 +146,7 @@ void sub_080AC200(Entity* this) {
     if (--this->timer)
         return;
 
-    this->timer = 0x10;
+    this->timer = 16;
     proj = CreateProjectile(V3_ELECTRIC_PROJECTILE);
 
     if (proj) {

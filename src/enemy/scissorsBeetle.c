@@ -112,18 +112,18 @@ void sub_08038A70(ScissorsBeetleEntity* this) {
         super->action = 3;
         this->unk_82 = 4;
         super->speed = 0x80;
-        super->subtimer = 0x20;
+        super->subtimer = 32;
         child->action = 3;
         ((ScissorsBeetleEntity*)child)->unk_82 = 2;
         child->animationState = 0xff;
         sub_08038C84(this, 0);
         sub_08038C2C((ScissorsBeetleEntity*)child);
-        child->subtimer = 0x20;
+        child->subtimer = 32;
         child->parent = NULL;
         child->child = super;
     } else if (--super->subtimer == 0) {
         u32 dir;
-        super->subtimer = 0x10;
+        super->subtimer = 16;
         super->direction = sub_08049F84(super, 0);
         dir = (super->direction + 4) & 0x1c;
         child->animationState = dir >> 2;

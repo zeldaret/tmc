@@ -90,7 +90,7 @@ void CloudPiranha_Init(CloudPiranhaEntity* this) {
     super->animationState = super->direction >> 2;
     super->flags |= ENT_COLLIDE;
     super->timer = 0;
-    super->subtimer = 0x20;
+    super->subtimer = 32;
     this->unk_82 = 0;
     this->unk_80 = Random() & 1;
     this->unk_81 = 0;
@@ -103,7 +103,7 @@ void CloudPiranha_Action1(CloudPiranhaEntity* this) {
     sub_080387F0(this);
     if (--super->subtimer == 0) {
         super->timer = 0;
-        super->subtimer = 0x20;
+        super->subtimer = 32;
         if (sub_08049FA0(super)) {
             u32 tmp = super->animationState;
             if (this->unk_80 != 0) {
@@ -120,7 +120,7 @@ void CloudPiranha_Action1(CloudPiranhaEntity* this) {
         InitializeAnimation(super, (u32)super->animationState);
     } else if ((super->timer == 0) && sub_0803872C(this, 0x80)) {
         super->action = 2;
-        super->subtimer = 0x10;
+        super->subtimer = 16;
         super->speed = 0x40;
         super->animationState = sub_0806FCAC(super, super->child);
         super->direction = super->animationState << 2;
@@ -140,7 +140,7 @@ void sub_080385CC(CloudPiranhaEntity* this) {
         InitializeAnimation(super, super->animationState);
     } else {
         if (--super->subtimer == 0) {
-            super->subtimer = 0x10;
+            super->subtimer = 16;
             if (super->child != NULL) {
                 super->animationState = sub_0806FCAC(super, super->child);
             } else {
@@ -160,7 +160,7 @@ void CloudPiranha_Action3(CloudPiranhaEntity* this) {
         sub_08038754(this);
     } else {
         if (--super->subtimer == 0) {
-            super->subtimer = 0xa;
+            super->subtimer = 10;
             if (this->unk_81 == 0) {
                 tmp = super->speed += 0x40;
                 if (0x2000000 < (tmp * 0x10000)) {

@@ -8,7 +8,7 @@ void ObjectB2(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->timer = 0x10;
+        this->timer = 16;
         this->direction = this->type << 3;
         if (this->collisionLayer == 2) {
             collisionData = gMapTop.collisionData;

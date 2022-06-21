@@ -135,7 +135,7 @@ void sub_080317F8(Entity* this) {
     this->hitbox = (Hitbox*)&gUnk_080CE560;
     sub_080317E0(this);
     this->timer = 0;
-    this->subtimer = 0x20;
+    this->subtimer = 32;
 }
 
 void sub_08031840(Entity* this) {

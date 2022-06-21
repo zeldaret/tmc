@@ -174,7 +174,7 @@ void Beanstalk_Action1Type0SubAction0(BeanstalkEntity* this) {
             super->timer++;
         } else {
             InitAnimationForceUpdate(super, 1);
-            super->timer = 0x10;
+            super->timer = 16;
             super->subAction++;
         }
     }
@@ -182,7 +182,7 @@ void Beanstalk_Action1Type0SubAction0(BeanstalkEntity* this) {
 
 void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
     if (super->timer-- == 0) {
-        super->timer = 0x10;
+        super->timer = 16;
         SoundReq(SFX_198);
     }
     UpdateAnimationSingleFrame(super);
@@ -206,7 +206,7 @@ void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
 
 void Beanstalk_Action1Type0SubAction2(BeanstalkEntity* this) {
     if (super->timer-- == 0) {
-        super->timer = 0x10;
+        super->timer = 16;
         SoundReq(SFX_198);
     }
 }

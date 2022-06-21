@@ -199,7 +199,7 @@ void sub_08054E1C(void) {
 void sub_08054E5C(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0xb4;
+        gMenu.transitionTimer = 180;
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         sub_080553E0(gMenu.field_0x4);
         sub_0801876C(gMenu.field_0x4, 1);
@@ -492,7 +492,7 @@ void sub_08055548(void) {
         sub_0801876C(gMenu.field_0x4, 1);
         sub_080553E0(gMenu.field_0x4);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0xb4;
+        gMenu.transitionTimer = 180;
     }
 }
 

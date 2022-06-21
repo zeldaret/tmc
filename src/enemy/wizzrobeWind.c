@@ -90,7 +90,7 @@ void WizzrobeWind_Action1(WizzrobeEntity* this) {
         case 0:
             if (--super->timer == 0) {
                 this->timer2++;
-                super->timer = 0x10;
+                super->timer = 16;
                 super->flags |= 0x80;
             }
             break;
@@ -174,7 +174,7 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
         switch (this->timer2) {
             case 0:
                 this->timer2 = 1;
-                super->timer = 0x40;
+                super->timer = 64;
                 break;
             case 1:
                 if (--super->timer != 0) {

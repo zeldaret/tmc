@@ -159,7 +159,7 @@ void sub_080240B8(Entity* this) {
     this->field_0x86.HALF.LO = 0;
     this->field_0x86.HALF.HI = 0;
     this->timer = 0;
-    this->subtimer = 0x20;
+    this->subtimer = 32;
     this->collisionFlags |= 0x10;
     this->gustJarFlags = 2;
     this->direction = direction;
@@ -763,7 +763,7 @@ void sub_08024D00(Entity* this) {
                         this->direction += this->field_0x80.HALF.HI ? 1 : 0x1f;
                         this->direction &= 0x1f;
 
-                        this->subtimer = 0x10;
+                        this->subtimer = 16;
                         sub_080249DC(this);
                     }
                 }

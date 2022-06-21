@@ -160,7 +160,7 @@ void Object35_Type2(Object35Entity* this) {
 
 void Object35_Type2Init(Object35Entity* this) {
     super->action = 1;
-    super->timer = 0x10;
+    super->timer = 16;
     super->z.HALF.HI -= 0x10;
     if (super->type2 == 0) {
         super->frameIndex = 2;

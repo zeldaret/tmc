@@ -304,7 +304,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             this->child->field_0x74.HALF.LO = 0x10;
             if (this->timer) {
                 this->field_0x80.HALF.LO = 3;
-                this->timer = 0x40;
+                this->timer = 64;
             } else {
                 this->field_0x80.HALF.LO = 4;
                 this->timer = 0x50;
@@ -315,13 +315,13 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 if (--this->timer == 0) {
                     COLLISION_OFF(this);
                     this->zVelocity = Q_16_16(3.5);
-                    this->subtimer = 0x10;
+                    this->subtimer = 16;
                 }
                 break;
             }
             if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
                 this->field_0x80.HALF.LO = 5;
-                this->timer = 0x10;
+                this->timer = 16;
                 COLLISION_ON(this);
                 this->health = 0xff;
                 this->field_0x86.HALF.LO = 0;
@@ -343,7 +343,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
         case 4:
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO = 5;
-                this->timer = 0x10;
+                this->timer = 16;
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
@@ -445,7 +445,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
         case 0:
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->timer = 0x40;
+                this->timer = 64;
                 if (1 < this->animationState) {
                     this->timer = 0x80;
                     this->subtimer = 1;
@@ -462,7 +462,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
                         CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                     }
                     if (this->timer < 6) {
-                        this->timer = 0x40;
+                        this->timer = 64;
                         this->subtimer = 0;
                     }
                 } else {
@@ -689,7 +689,7 @@ void VaatiTransfiguredType2Action1(Entity* this) {
                 case 0x11:
                     if (--this->subtimer == 0) {
                         this->field_0x74.HALF.LO = 1;
-                        this->subtimer = 0x30;
+                        this->subtimer = 48;
                         InitAnimationForceUpdate(this, 8);
                     }
             }

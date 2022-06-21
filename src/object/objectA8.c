@@ -147,7 +147,7 @@ void ObjectA8_Action3(ObjectA8Entity* this) {
     if (--super->subtimer == 0) {
         u32 rand = Random();
         super->flags |= ENT_COLLIDE;
-        super->subtimer = 0x20;
+        super->subtimer = 32;
         super->speed = gUnk_0812484C[rand >> 8 & 1];
         if (sub_0809FE9C(this)) {
             super->direction = rand & 0x1f;

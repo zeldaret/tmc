@@ -30,7 +30,7 @@ static void sub_080669DC(Entity* this) {
         sVar1 = 2;
     } else {
         if (this->subtimer == 0) {
-            this->subtimer = 0x10;
+            this->subtimer = 16;
         } else {
             this->subtimer = this->subtimer - 1;
             sVar1 = this->animIndex;

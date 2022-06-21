@@ -112,7 +112,7 @@ void sub_08037Fe0(Entity* this) {
             InitializeAnimation(this, 2);
         }
     } else if (this->frame & ANIM_DONE) {
-        this->subtimer = 0x40;
+        this->subtimer = 64;
         InitializeAnimation(this, 1);
     }
 }

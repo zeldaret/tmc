@@ -645,7 +645,7 @@ void sub_08041D14(Entity* this) {
                 pEVar1 = CreateObject(OBJECT_B6, 1, 0);
                 pEVar1->parent = this;
                 this->subAction = 3;
-                this->timer = 0x96;
+                this->timer = 150;
                 this->subtimer = 0;
                 this->spriteSettings.draw = 0;
                 SoundReq(SFX_1C4);

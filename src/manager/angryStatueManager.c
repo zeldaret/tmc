@@ -52,7 +52,7 @@ void AngryStatueManager_Init(AngryStatueManager* this) {
 
 void AngryStatueManager_Action1(AngryStatueManager* this) {
     if (--super->subtimer == 0) {
-        super->subtimer = 0xb4;
+        super->subtimer = 180;
     }
     if (this->field_0x36 == 0xf) {
         super->action = 2;

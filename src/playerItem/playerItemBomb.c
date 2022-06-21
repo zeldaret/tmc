@@ -86,7 +86,7 @@ void sub_0801B250(PlayerItemBombEntity* this) {
         super->timer = 0x0f;
         super->type = 0xff;
     } else {
-        super->timer = 0x96;
+        super->timer = 150;
     }
     super->hitbox = (Hitbox*)&gUnk_080B77F4;
     super->carryFlags = 0;

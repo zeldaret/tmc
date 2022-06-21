@@ -57,7 +57,7 @@ void sub_0806a370(Entity* this) {
 
 void sub_0806A3D8(Entity* this) {
     this->action = 1;
-    this->timer = 0xb4;
+    this->timer = 180;
     SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
     *(ScriptExecutionContext**)&this->cutsceneBeh = StartCutscene(this, &script_Rem);
@@ -126,7 +126,7 @@ void sub_0806A4CC(Entity* this) {
                     }
                     break;
                 default:
-                    this->timer = 0xb4;
+                    this->timer = 180;
                     break;
             }
     }

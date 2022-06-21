@@ -156,7 +156,7 @@ void sub_0802B8B0(Entity* this) {
     switch (sub_080044EC(this, 0x1800)) {
         case 0:
             this->action = 7;
-            this->timer = 0x96;
+            this->timer = 150;
             /* fallthrough */
         case 1:
             EnqueueSFX(SFX_12B);

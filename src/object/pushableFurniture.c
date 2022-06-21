@@ -215,19 +215,19 @@ void sub_0808FD44(PushableFurnitureEntity* this, u32 param_2) {
         }
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             super->speed = 0x40;
-            super->timer = 0x20;
+            super->timer = 32;
         } else {
             super->speed = 0x80;
-            super->timer = 0x10;
+            super->timer = 16;
         }
     } else {
         tmp = this->unk_7c;
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             super->speed = 0x40;
-            super->timer = 0x40;
+            super->timer = 64;
         } else {
             super->speed = 0x80;
-            super->timer = 0x20;
+            super->timer = 32;
         }
     }
     EnqueueSFX(SFX_10F);

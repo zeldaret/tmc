@@ -92,7 +92,7 @@ void KeyStealingTakkuri_Type0_Action2(KeyStealingTakkuriEntity* this) {
     sub_0809E1F0(this);
     if ((s32)sub_080041DC(super, child->x.HALF.HI, child->y.HALF.HI) * 0x10 < super->speed) {
         super->action++;
-        super->timer = 0x10;
+        super->timer = 16;
         super->subtimer = 1;
         InitAnimationForceUpdate(super, 2);
     }
@@ -276,8 +276,7 @@ void KeyStealingTakkuri_Type3_Init(KeyStealingTakkuriEntity* this) {
 
     super->action++;
     super->collisionLayer = 2;
-    super->timer = 0xa;
-    super->subtimer = 0;
+    super->timer = 10;    super->subtimer = 0;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
     super->direction = gUnk_0812412D[super->type2];
@@ -330,8 +329,7 @@ void KeyStealingTakkuri_Type3_Action1(KeyStealingTakkuriEntity* this) {
             }
             break;
         default:
-            super->timer = 0xa;
-            break;
+            super->timer = 10;            break;
     }
     UpdateAnimationSingleFrame(super);
 }

@@ -295,7 +295,7 @@ void sub_08025514(Entity* this) {
         this->field_0x80.HALF.HI = 120;
     } else if (3 < this->timer) {
         this->action = 10;
-        this->timer = 0x20;
+        this->timer = 32;
     }
 }
 
