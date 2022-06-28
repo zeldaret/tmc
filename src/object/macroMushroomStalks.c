@@ -51,7 +51,6 @@ void sub_0808C964(Entity* this) {
     this->spriteSettings.draw = 1;
     this->spriteOrientation.flipY = 2;
     this->spriteRendering.b3 = 2;
-    ;
     this->spritePriority.b0 = this->type2;
     if (this->id != OBJECT_75 && (u8)(this->type - 1) < 3) {
         this->spriteRendering.b0 = 3;

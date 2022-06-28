@@ -46,7 +46,7 @@ void sub_08098D6C(Entity* this) {
 
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
-        this->timer = 45;;
+        this->timer = 45;
         ent = CreateFx(this, FX_BIG_EXPLOSION2, 0);
         if (ent != NULL) {
             ent->y.HALF.HI += 8;

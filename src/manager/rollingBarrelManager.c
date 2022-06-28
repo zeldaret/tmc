@@ -78,7 +78,7 @@ void sub_080588F8(RollingBarrelManager* this) {
                 case 0xa0:
                 case 0xf0:
                     this->unk_28 = this->unk_24.HALF.HI;
-                    super->subtimer = 45;;
+                    super->subtimer = 45;
                     SoundReq(SFX_BARREL_ROLL_STOP);
             }
         }

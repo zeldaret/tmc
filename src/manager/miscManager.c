@@ -246,7 +246,7 @@ void MiscManager_Type5(MiscManager* this) {
         case 1:
             if (CheckFlags(this->unk_3e)) {
                 RequestPriorityDuration((Entity*)this, 75);
-                super->timer = 45;;
+                super->timer = 45;
                 super->action++;
             }
     }

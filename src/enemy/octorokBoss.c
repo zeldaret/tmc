@@ -380,7 +380,7 @@ void OctorokBoss_Intro_SubAction3(OctorokBossEntity* this) {
 void OctorokBoss_Intro_SubAction4(OctorokBossEntity* this) {
     if (this->timer-- == 0) {
         super->subAction = 5;
-        this->timer = 45;;
+        this->timer = 45;
         // Make the player look towards the exit
         gPlayerEntity.animationState = 0;
     } else {
@@ -715,7 +715,7 @@ void OctorokBoss_Action1_Attack_Type2_1(OctorokBossEntity* this) {
                 this->heap->targetAngle = this->angle.HALF.HI;
             } else {
                 super->type2 = 2;
-                this->timer = 45;;
+                this->timer = 45;
             }
             SoundReq(SFX_155);
         }
@@ -813,7 +813,7 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
             if (this->unk_80 == 1) {
                 this->unk_80 = 2;
                 super->type2 = 2;
-                this->timer = 45;;
+                this->timer = 45;
                 this->angularSpeed.HWORD = 0x100;
                 this->heap->field_0x2 = 0;
                 return;

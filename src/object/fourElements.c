@@ -93,7 +93,7 @@ void FourElements_Action2(FourElementsEntity* this) {
         DeleteEntity(super->child);
         super->spriteSettings.draw = 0;
         super->action = 3;
-        super->timer = 45;;
+        super->timer = 45;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0;
         InitItemGetSequence(super->type, 0, 1);

@@ -24,7 +24,7 @@ void ThoughtBubble_Init(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     if (this->timer == 0) {
-        this->timer = 45;;
+        this->timer = 45;
     }
     this->spriteOrientation.flipY = 1;
     InitializeAnimation(this, this->type2);

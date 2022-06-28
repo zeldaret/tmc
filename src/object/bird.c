@@ -295,7 +295,6 @@ void Bird_Type9(Entity* this) {
         this->spritePriority.b0 = 0;
         this->spriteRendering.b3 = 0;
         this->spriteOrientation.flipY = 1;
-        ;
         SetDefaultPriority(this, 6);
         this->x.HALF.HI = gRoomControls.scroll_x;
         this->y.HALF.HI = gPlayerEntity.y.HALF.HI;

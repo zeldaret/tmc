@@ -153,8 +153,7 @@ void sub_080325C4(Entity* this) {
 }
 
 u32 sub_080325E8(Entity* this) {
-    if ((sub_08049FA0(this) && sub_08049FDC(this, 1)) &&
-        (EntityInRectRadius(this, gUnk_020000B0, 0x68, 0x40) != 0)) {
+    if ((sub_08049FA0(this) && sub_08049FDC(this, 1)) && (EntityInRectRadius(this, gUnk_020000B0, 0x68, 0x40) != 0)) {
         if (((GetFacingDirection(this, gUnk_020000B0) - (DirectionRound(this->frame)) + 2) & 0x1F) < 5) {
             this->action = 3;
             this->timer = 12;
