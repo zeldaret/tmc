@@ -155,7 +155,7 @@ void MiscManager_Type1(MiscManager* this) {
             if (CheckFlags(this->unk_3e)) {
                 super->action = 2;
                 super->timer = 120;
-                RequestPriorityDuration((Entity*)this, 0xF0);
+                RequestPriorityDuration((Entity*)this, 240);
                 sub_08059064(this);
             }
             break;
@@ -245,8 +245,8 @@ void MiscManager_Type5(MiscManager* this) {
             break;
         case 1:
             if (CheckFlags(this->unk_3e)) {
-                RequestPriorityDuration((Entity*)this, 0x4b);
-                super->timer = 0x2d;
+                RequestPriorityDuration((Entity*)this, 75);
+                super->timer = 45;
                 super->action++;
             }
     }

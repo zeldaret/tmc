@@ -58,7 +58,7 @@ void BusinessScrub_OnCollision(Entity* this) {
     if (this->hitType == 1 && (this->contactFlags & 0x7f) == 0x42) {
         this->action = 3;
         this->subAction = 0;
-        this->timer = 0x28;
+        this->timer = 40;
         COLLISION_OFF(this);
         sub_080290E0(this, 4);
         pEVar1 = CreateFx(this, FX_BUSH, 0);
@@ -82,7 +82,7 @@ void sub_08028994(Entity* this) {
     sub_08028E9C(this);
     if ((*(u8*)this->field_0x7c.WORD & 1) || CheckFlags(this->field_0x86.HWORD)) {
         this->action = 4;
-        this->timer = 0x78;
+        this->timer = 120;
         this->spritePriority.b1 = 1;
         sub_0802925C(this);
         sub_080290E0(this, 0);
@@ -96,7 +96,7 @@ void sub_08028994(Entity* this) {
 }
 
 void sub_08028A48(Entity* this) {
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
     } else if (sub_08028F98(this, 0)) {
         sub_08029078(this);
@@ -114,8 +114,8 @@ void sub_08028A74(Entity* this) {
             unk = 1;
             if (this->frame & ANIM_DONE) {
                 this->subAction = 1;
-                this->timer = 0x3c;
-                this->subtimer = 0x10;
+                this->timer = 60;
+                this->subtimer = 16;
                 sub_08028FDC(this);
                 sub_080290E0(this, 1);
             }
@@ -124,7 +124,7 @@ void sub_08028A74(Entity* this) {
             unk = 1;
             if (--this->timer == 0) {
                 this->subAction = 2;
-                this->timer = 0x20;
+                this->timer = 32;
                 this->subtimer = 0;
                 sub_08028FDC(this);
                 sub_080290E0(this, 2);
@@ -132,7 +132,7 @@ void sub_08028A74(Entity* this) {
                 if (sub_08028FDC(this)) {
                     sub_080290E0(this, 1);
                 }
-                this->subtimer = 0x10;
+                this->subtimer = 16;
             }
             break;
         case 2:
@@ -152,7 +152,7 @@ void sub_08028A74(Entity* this) {
             unk = 2;
             if (this->frame & ANIM_DONE) {
                 this->subAction = 4;
-                this->timer = 0x50;
+                this->timer = 80;
                 sub_080290E0(this, 1);
             }
             break;
@@ -161,13 +161,13 @@ void sub_08028A74(Entity* this) {
             if (--this->timer == 0) {
                 if (sub_08028F98(this, 0)) {
                     this->subAction = 1;
-                    this->timer = 0x3c;
-                    this->subtimer = 0x10;
+                    this->timer = 60;
+                    this->subtimer = 16;
                     sub_08028FDC(this);
                 } else {
                     sub_08028FFC(this);
                     this->subAction = 0;
-                    this->timer = 0x50;
+                    this->timer = 80;
                     this->subtimer = 0;
                 }
                 return;
@@ -178,7 +178,7 @@ void sub_08028A74(Entity* this) {
     if (!sub_08028F98(this, unk)) {
         sub_08028FFC(this);
         this->subAction = 0;
-        this->timer = 0x50;
+        this->timer = 80;
         this->subtimer = 0;
     }
 }
@@ -203,7 +203,7 @@ void sub_08028BC4(Entity* this) {
             if (this->frame & ANIM_DONE) {
                 this->action = 4;
                 this->subAction = 0;
-                this->timer = 0x1e;
+                this->timer = 30;
                 this->subtimer = 5;
                 sub_080290E0(this, 0);
                 iVar1 = Create0x68FX(this, FX_STARS);
@@ -227,7 +227,7 @@ void sub_08028F0C(Entity*);
 
 void sub_08028C84(Entity* this) {
     if (--this->timer == 0) {
-        this->timer = 0x30;
+        this->timer = 48;
         if (this->subtimer) {
             if (--this->subtimer == 0) {
                 sub_0804AA1C(this);
@@ -292,7 +292,7 @@ void sub_08028CE8(Entity* this) {
 
     sub_0800445C(this);
     this->action = 4;
-    this->timer = 0x30;
+    this->timer = 48;
     sub_080290E0(this, 0);
 }
 
@@ -370,7 +370,7 @@ void sub_08028F0C(Entity* this) {
         this->direction = (GetAnimationState(this) << 3);
         sub_080290E0(this, 3);
         this->field_0x80.HALF.LO = 1;
-        this->timer = 0x20;
+        this->timer = 32;
         this->subtimer = 0;
         if (sub_08029198(offer)) {
             dialog = offer->field_0x6;
@@ -452,12 +452,13 @@ void sub_080290E0(Entity* this, u32 param_2) {
 
 void sub_080290FC(Entity* this) {
     if (this->timer != 0) {
-        if (--this->timer < 0x10 && (this->timer & 1) == 0) {
-            s32 sVar3 = (this->direction & 0x10) ? -1 : 1;
-            if ((this->direction & 8)) {
-                this->x.HALF.HI += (this->timer & 8) ? -sVar3 : sVar3;
+        this->timer--;
+        if ((this->timer < 16) && ((this->timer & 1) == 0)) {
+            s32 sVar3 = ((this->direction & 0x10) != 0) ? -1 : 1;
+            if ((this->direction & 8) != 0) {
+                this->x.HALF.HI += ((this->timer & 8) != 0) ? -sVar3 : sVar3;
             } else {
-                this->y.HALF.HI += (this->timer & 8) ? sVar3 : -sVar3;
+                this->y.HALF.HI += ((this->timer & 8) != 0) ? sVar3 : -sVar3;
             }
         }
     }

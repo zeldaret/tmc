@@ -35,7 +35,7 @@ void MacroBook(Entity* this) {
 
 void MacroBook_Init(MacroBookEntity* this) {
     super->action = 1;
-    super->timer = 0x80;
+    super->timer = 128;
     super->subtimer = 0;
     super->spriteRendering.b0 = 3;
     this->unk80 = 0x80;
@@ -89,7 +89,7 @@ void MacroBook_Action2(MacroBookEntity* this) {
         super->action = 3;
         super->timer = 0;
         InitAnimationForceUpdate(super, 3);
-        RequestPriorityDuration(super, 0x78);
+        RequestPriorityDuration(super, 120);
     }
 }
 

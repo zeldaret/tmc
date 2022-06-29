@@ -111,7 +111,7 @@ void sub_08040B9C(Enemy50Entity* this) {
             super->flags |= 0x80;
             super->health = 0xff;
             super->action = 0xa;
-            super->timer = 0x3c;
+            super->timer = 60;
         }
         this->unk_7a = super->health;
     }
@@ -210,7 +210,7 @@ void Enemy50_Init(Enemy50Entity* this) {
 void Enemy50_Action1(Enemy50Entity* this) {
     if (sub_080411E8(this)) {
         super->action = 2;
-        super->timer = 0x0f;
+        super->timer = 15;
     }
 }
 
@@ -276,7 +276,7 @@ void Enemy50_Action6(Enemy50Entity* this) {
             ProcessMovement1(super);
         } else {
             super->action = 7;
-            super->timer = 0x1e;
+            super->timer = 30;
         }
     }
 }

@@ -189,7 +189,7 @@ void MacroPlayer_Type0_Action4(MacroPlayerEntity* this) {
 void MacroPlayer_Type0_Action5(MacroPlayerEntity* this) {
     if (--super->timer == 0) {
         super->action++;
-        super->timer = 0x10;
+        super->timer = 16;
     }
 }
 

@@ -42,7 +42,7 @@ void Crow_OnCollision(CrowEntity* this) {
     if (super->contactFlags & 0x80) {
         if ((super->contactFlags & 0x3f) == 0) {
             COLLISION_OFF(super);
-            super->subtimer = 0x10;
+            super->subtimer = 16;
             if (DirectionIsHorizontal(DirectionRoundUp(super->direction)) == 0) {
                 if (DirectionIsVertical(super->direction)) {
                     super->direction += 2;
@@ -125,7 +125,7 @@ void sub_0803298C(CrowEntity* this) {
 
     super->action = 2;
     this->unk_84 = 0;
-    super->timer = 0x10;
+    super->timer = 16;
     this->unk_81 = 2;
     sub_08032AF4(this);
 }
@@ -168,7 +168,7 @@ void sub_08032A48(CrowEntity* this) {
 
 void sub_08032AB0(CrowEntity* this) {
     u32 dir;
-    if (--super->timer)
+    if (--super->timer != 0)
         return;
 
     this->unk_80 = super->direction;
@@ -200,13 +200,13 @@ void sub_08032B38(CrowEntity* this) {
     u32 temp;
     switch (this->unk_84) {
         case 0:
-            if (super->timer & 1) {
+            if ((super->timer & 1) != 0) {
                 super->z.HALF.HI--;
             }
 
             if (--super->timer == 0) {
                 this->unk_84 = 1;
-                super->timer = 0x18;
+                super->timer = 24;
                 COLLISION_ON(super);
                 this->unk_81 = 2;
                 sub_08032AF4(this);

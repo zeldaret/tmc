@@ -77,8 +77,7 @@ void GyorgChild_OnGrabbed_Action3(GyorgChildEntity* this) {
 
 void GyorgChild_Action0(GyorgChildEntity* this) {
     static const s8 gUnk_080D1EA0[] = {
-        0x50, 0x1,  0x40, 0x1,  0x30, 0x1,  0x20, 0x1,  0x10, 0x1,  0,
-        0,    0x10, -0x1, 0x20, -0x1, 0x30, -0x1, 0x40, -0x1, 0x50, -0x1,
+        80, 1, 64, 1, 48, 1, 32, 1, 16, 1, 0, 0, 16, -1, 32, -1, 48, -1, 64, -1, 80, -1,
     };
     super->gustJarFlags = 1;
     super->spriteOrientation.flipY = 3;

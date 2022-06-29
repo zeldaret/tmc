@@ -202,7 +202,7 @@ void sub_08034F70(Entity* this) {
 void sub_08034FA0(Entity* this) {
     if (0 < this->iframes) {
         this->child->iframes = this->iframes;
-        InitScreenShake(0xc, 1);
+        InitScreenShake(12, 1);
     }
     switch (this->type2) {
         case 0:

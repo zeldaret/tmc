@@ -45,7 +45,7 @@ void Rope_OnTick(Entity* this) {
 
 void Rope_OnCollision(Entity* this) {
     if (this->action == 3) {
-        this->subtimer = 0x1e;
+        this->subtimer = 30;
         this->field_0x78.HALF.LO = 0x3c;
         sub_08031600(this);
     }
@@ -114,7 +114,7 @@ void sub_08031480(Entity* this) {
     } else {
         if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
             this->action = 2;
-            this->subtimer = 0xf;
+            this->subtimer = 15;
             this->spriteSettings.draw = 1;
             UpdateSpriteForCollisionLayer(this);
             EnqueueSFX(SFX_WATER_SPLASH);
@@ -137,7 +137,7 @@ void sub_080314FC(Entity* this) {
                     u = sub_0804A044(this, gUnk_020000B0, 0xc);
                     if (u != 0xff) {
                         this->action = 3;
-                        this->timer = 0x1e;
+                        this->timer = 30;
                         this->field_0x7a.HWORD = this->speed = 0x1a0;
                         this->direction = u;
                         this->animationState = this->direction >> 3;
@@ -156,7 +156,7 @@ void sub_080314FC(Entity* this) {
                 }
             }
         }
-        if (!(--this->timer)) {
+        if (--this->timer == 0) {
             sub_08031600(this);
         }
         sub_0803163C(this);
@@ -164,7 +164,7 @@ void sub_080314FC(Entity* this) {
 }
 
 void sub_080315BC(Entity* this) {
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
         UpdateAnimationVariableFrames(this, 2);
     } else {
@@ -182,7 +182,7 @@ void sub_080315BC(Entity* this) {
 void sub_08031600(Entity* this) {
     u32 r;
     this->action = 2;
-    this->timer = (Random() & 0x30) + 0x3c;
+    this->timer = (Random() & 0x30) + 60;
     this->speed = 0x80;
     this->field_0x7a.HWORD = 0x80;
     r = Random() & 0x18;

@@ -46,7 +46,7 @@ void GuardLineOfSight(Entity* this) {
     } else {
         if (this->action == 0) {
             this->action = 1;
-            this->timer = 0x12;
+            this->timer = 18;
             this->spriteSettings.draw = 0;
             this->speed = 0x800;
             this->hitbox = (Hitbox*)&gUnk_080FD1E4;

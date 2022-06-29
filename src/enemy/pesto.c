@@ -159,7 +159,7 @@ void sub_080240B8(Entity* this) {
     this->field_0x86.HALF.LO = 0;
     this->field_0x86.HALF.HI = 0;
     this->timer = 0;
-    this->subtimer = 0x20;
+    this->subtimer = 32;
     this->collisionFlags |= 0x10;
     this->gustJarFlags = 2;
     this->direction = direction;
@@ -236,7 +236,7 @@ void sub_080242A0(Entity* this) {
         if (sub_08049F1C(this, gUnk_020000B0, 0x20) && sub_08049FDC(this, 3)) {
             this->action = 4;
             this->field_0x80.HALF.LO = 0;
-            this->timer = 0x10;
+            this->timer = 16;
             this->speed = 0;
         }
     }
@@ -258,7 +258,7 @@ void sub_0802433C(Entity* this) {
                 this->action = 5;
                 this->field_0x80.HALF.LO = 0;
                 this->speed = 0x140;
-                this->timer = 0xc0;
+                this->timer = 192;
                 this->subtimer = 8;
             } else {
                 if (--this->subtimer == 0)
@@ -275,16 +275,16 @@ void sub_080243B8(Entity* this) {
             if (sub_08024C48(this, TRUE)) {
                 if (this->child == NULL || this->child->next == NULL) {
                     this->field_0x80.HALF.LO = 2;
-                    this->timer = 0x20;
+                    this->timer = 32;
                     this->speed = 0x80;
                     this->field_0x82.HALF.HI = 0x80;
                 } else if (sub_08049F1C(this, gUnk_020000B0, 0xe)) {
                     this->field_0x80.HALF.LO++;
-                    this->timer = 0x1e;
+                    this->timer = 30;
                     this->speed = 0x100;
                     this->field_0x82.HALF.HI = 0x80;
                     this->child->action = 2;
-                } else if (--this->timer) {
+                } else if (--this->timer != 0) {
                     if (--this->subtimer == 0) {
                         sub_08024A14(this, 2, (this->timer >> 6) + 1);
                     }
@@ -298,7 +298,7 @@ void sub_080243B8(Entity* this) {
         case 1:
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO++;
-                this->timer = 0x20;
+                this->timer = 32;
                 this->speed = 0x80;
             }
             break;
@@ -315,15 +315,15 @@ void sub_080243B8(Entity* this) {
                             this->timer = 4;
                             break;
                         case 1:
-                            this->timer = 0x14;
+                            this->timer = 20;
                             break;
                         default:
-                            this->timer = 0x30;
+                            this->timer = 48;
                             break;
                     }
                     sub_08024A14(this, 2, 8);
                 } else {
-                    this->timer = 0x40;
+                    this->timer = 64;
                     sub_08024A14(this, 0, 8);
                 }
             }
@@ -342,7 +342,7 @@ void sub_080244E8(Entity* this) {
                     this->subtimer = 0;
                     this->speed = 0;
                 } else {
-                    this->timer = 0x30;
+                    this->timer = 48;
                     this->subtimer = 4;
                 }
                 break;
@@ -386,7 +386,7 @@ void sub_080244E8(Entity* this) {
                         tmp = this->field_0x82.HALF.HI & 0x80;
                         if (tmp == 0) {
                             this->field_0x80.HALF.LO++;
-                            this->timer = 0xc;
+                            this->timer = 12;
                             this->direction = 0x10;
                             this->speed = tmp;
                             this->cutsceneBeh.HALF.LO = 0;
@@ -405,8 +405,8 @@ void sub_080244E8(Entity* this) {
                         if (EntityInRectRadius(this, this->child, 6, 6)) {
                             Entity* ent;
 
-                            this->field_0x80.HALF.LO += 1;
-                            this->timer = 0xc;
+                            this->field_0x80.HALF.LO++;
+                            this->timer = 12;
                             this->field_0x82.HALF.HI &= ~0x80;
                             CopyPosition(this->child, this);
                             this->z.HALF.HI -= 0xe;
@@ -427,7 +427,7 @@ void sub_080244E8(Entity* this) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;
-                            this->timer = 0xc;
+                            this->timer = 12;
                             this->field_0x82.HALF.HI &= ~0x80;
                             ent = this->child;
                             SetTile((u16)ent->field_0x70.HALF.LO, COORD_TO_TILE(ent), ent->collisionLayer);
@@ -481,7 +481,7 @@ void sub_080244E8(Entity* this) {
                         break;
                     case 1 ... 2:
                         this->field_0x80.HALF.LO += 1;
-                        this->timer = 0xc0;
+                        this->timer = 192;
                         this->subtimer = 8;
                         this->speed = 0x80;
                         sub_080249DC(this);
@@ -498,11 +498,11 @@ void sub_080244E8(Entity* this) {
                     this->field_0x82.HALF.HI = 0xc0;
                     this->field_0x80.HALF.LO = 0;
                     this->speed = 0x40;
-                    this->timer = 0x40;
+                    this->timer = 64;
                     this->subtimer = 8;
                     sub_08024A14(this, 0, 8);
                 } else {
-                    this->timer = 0x40;
+                    this->timer = 64;
                     this->subtimer = 8;
                 }
             } else if (--this->subtimer == 0) {
@@ -709,7 +709,7 @@ void sub_08024C7C(Entity* this) {
 void sub_08024C94(Entity* this) {
     this->action = 2;
     this->field_0x80.HALF.LO = 0;
-    this->timer = 0x40;
+    this->timer = 64;
     this->subtimer = 0;
     this->speed = 0xc0;
     this->field_0x82.HALF.HI = 0x80;
@@ -745,7 +745,7 @@ void sub_08024D00(Entity* this) {
             case 0:
                 if (--this->timer == 0) {
                     this->field_0x80.HALF.LO++;
-                    this->timer = (Random() & 0xf) + 0x20;
+                    this->timer = (Random() & 0xf) + 32;
 
                     this->direction += this->field_0x80.HALF.HI ? 4 : 0x1c;
                     this->direction &= 0x1f;
@@ -757,13 +757,13 @@ void sub_08024D00(Entity* this) {
             case 1:
                 if (--this->timer == 0) {
                     this->field_0x80.HALF.LO = 0;
-                    this->timer = (Random() & 0x1f) + 0x20;
+                    this->timer = (Random() & 0x1f) + 32;
                 } else {
                     if (--this->subtimer == 0) {
                         this->direction += this->field_0x80.HALF.HI ? 1 : 0x1f;
                         this->direction &= 0x1f;
 
-                        this->subtimer = 0x10;
+                        this->subtimer = 16;
                         sub_080249DC(this);
                     }
                 }
@@ -800,7 +800,7 @@ void sub_08024E4C(Entity* this) {
             sub_08024F50(this);
             this->field_0x80.HALF.LO = 0;
             this->speed = 0x40;
-            this->timer = 0x40;
+            this->timer = 64;
             this->subtimer = 8;
             sub_08024A14(this, 0, 8);
         } else {

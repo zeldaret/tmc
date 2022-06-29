@@ -134,7 +134,7 @@ void VaatiWrathType0Action0(Entity* this) {
             this->subAction = 1;
         } else {
             this->action = 2;
-            this->timer = 0x3c;
+            this->timer = 60;
         }
         this->x.HALF.HI = gRoomTransition.hurtType;
         this->y.HALF.HI = gRoomTransition.field_0x42;
@@ -185,7 +185,7 @@ void VaatiWrathType0Action1(Entity* this) {
                     return;
                 }
                 this->subAction = 3;
-                this->timer = 0x3c;
+                this->timer = 60;
             }
             break;
         case 3:
@@ -215,7 +215,7 @@ void VaatiWrathType0Action1(Entity* this) {
         case 5:
             sub_08042004(this);
             this->subAction = 6;
-            this->timer = 0x1e;
+            this->timer = 30;
             gRoomTransition.field_0x38 |= 1;
             gRoomControls.camera_target = &gPlayerEntity;
             gPlayerState.controlMode = CONTROL_1;
@@ -226,7 +226,7 @@ void VaatiWrathType0Action1(Entity* this) {
                 return;
             }
             this->action = 2;
-            this->timer = 0x3c;
+            this->timer = 60;
             break;
     }
 }
@@ -333,13 +333,13 @@ void VaatiWrathType0Action5(Entity* this) {
                         ((VaatiWrathHeapStruct*)this->myHeap)->object5b = object;
                         gRoomControls.camera_target = object;
                         this->action = 6;
-                        this->timer = 0x1e;
+                        this->timer = 30;
                         ((VaatiWrathHeapStruct*)this->myHeap)->type1->subAction = 1;
                         InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type1, 0xe);
                     }
                 } else {
                     this->action = 2;
-                    this->timer = 0x3c;
+                    this->timer = 60;
                 }
             }
         }
@@ -403,7 +403,7 @@ void VaatiWrathType0Action8(Entity* this) {
     }
     if (--this->timer == 0) {
         this->action = 9;
-        this->timer = 0x3c;
+        this->timer = 60;
     } else {
         if (this->timer < 0x1e) {
             this->speed -= 0xc;
@@ -431,7 +431,7 @@ void VaatiWrathType0Action9(Entity* this) {
                 ((VaatiWrathHeapStruct*)this->myHeap)->eyes[3]->timer = 1;
             } else {
                 this->action = 7;
-                this->timer = 0x1e;
+                this->timer = 30;
                 this->field_0x78.HALF.HI = 0;
             }
         }
@@ -475,10 +475,10 @@ void VaatiWrathType0ActionB(Entity* this) {
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
             if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
                 this->subAction = 1;
-                this->timer = 0xf0;
+                this->timer = 240;
                 this->health = 8;
                 this->hitType = 0x38;
-                InitScreenShake(0x14, 0);
+                InitScreenShake(20, 0);
                 InitAnimationForceUpdate(this, 6);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x16);
             }
@@ -488,7 +488,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
             if (--this->timer == 0) {
                 this->subAction = 2;
-                this->timer = 0x3c;
+                this->timer = 60;
                 this->hitType = 0x39;
                 this->health = 0xff;
             }
@@ -622,7 +622,7 @@ void sub_08041CD0(Entity* this) {
             this->timer--;
         } else {
             this->subAction = 2;
-            this->timer = 0x3c;
+            this->timer = 60;
             MessageFromTarget(TEXT_INDEX(TEXT_VAATI2, 0x51));
         }
     } else {
@@ -645,7 +645,7 @@ void sub_08041D14(Entity* this) {
                 pEVar1 = CreateObject(OBJECT_B6, 1, 0);
                 pEVar1->parent = this;
                 this->subAction = 3;
-                this->timer = 0x96;
+                this->timer = 150;
                 this->subtimer = 0;
                 this->spriteSettings.draw = 0;
                 SoundReq(SFX_1C4);
@@ -685,7 +685,7 @@ void sub_08041E20(Entity* this) {
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
     if (gFadeControl.active == 0) {
         this->subAction = 5;
-        this->timer = 0x5a;
+        this->timer = 90;
     }
 }
 

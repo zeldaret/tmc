@@ -200,7 +200,7 @@ void sub_080AAF74(Entity* this) {
         this->field_0x80.HALF.LO += (Random() & 1) + 1;
     }
     if (++this->timer == 0x3c) {
-        this->timer = 0x1e;
+        this->timer = 30;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
         SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);

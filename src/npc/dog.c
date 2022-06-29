@@ -58,7 +58,7 @@ void sub_08069B44(Entity* this) {
         this->field_0x70.HALF.LO = uVar2 - 8;
         this->field_0x70.HALF.HI = uVar2 + 8;
         this->speed = 0x100;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->animationState = 2;
         this->field_0x6a.HALF.LO = 0xff;
         this->field_0x74.HALF.LO = sub_0801E99C(this);
@@ -90,12 +90,12 @@ void sub_08069C40(Entity* this) {
             this->animationState = GetAnimationState(this);
             sub_08069D00(this);
         }
-        this->timer = 0x1e;
+        this->timer = 30;
     } else {
         this->timer -= 1;
         if (this->timer == 0) {
             this->action = 2;
-            this->timer = (Random() & 0x1f) + 0x1e;
+            this->timer = (Random() & 0x1f) + 30;
             this->direction = gUnk_08111DA8[Random() & 7];
             sub_08069F6C(this);
         }
@@ -166,7 +166,7 @@ void sub_08069D54(Entity* this) {
     } else {
         this->action = 3;
     }
-    this->timer = (Random() & 0x1f) + 0x1e;
+    this->timer = (Random() & 0x1f) + 30;
 }
 
 void sub_08069DF8(Entity* this) {
@@ -185,7 +185,7 @@ void sub_08069DF8(Entity* this) {
             this->action = 3;
         }
     }
-    this->timer = (Random() & 0x1f) + 0x1e;
+    this->timer = (Random() & 0x1f) + 30;
 }
 
 void sub_08069E44(Entity* this) {

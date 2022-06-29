@@ -137,7 +137,7 @@ void sub_0803BD08(TakkuriEntity* this) {
             if (gUnk_020000B0->y.HALF.HI > super->y.HALF.HI + 8) {
                 super->action = 2;
                 this->unk_0x84 = 0;
-                super->timer = 0x10;
+                super->timer = 16;
                 this->unk_0x81 = 2;
                 sub_0803BF2C(this);
             }
@@ -183,7 +183,7 @@ void sub_0803BDD8(TakkuriEntity* this) {
         COLLISION_ON(super);
         super->action = 2;
         this->unk_0x84 = 1;
-        super->timer = 0x18;
+        super->timer = 24;
         this->unk_0x82 = 0x12c;
         super->speed = 0x12c + 0x94;
         this->unk_0x81 = 4;
@@ -199,7 +199,7 @@ void sub_0803BE7C(TakkuriEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = 1;
     COLLISION_OFF(super);
-    super->timer = 0x8;
+    super->timer = 8;
     super->subtimer = 1;
     super->direction = sub_08049F84(super, 1);
     this->unk_0x80 = 0;
@@ -246,7 +246,7 @@ void sub_0803BF70(TakkuriEntity* this) {
             }
             if (--super->timer == 0) {
                 this->unk_0x84 = 1;
-                super->timer = 0x18;
+                super->timer = 24;
                 COLLISION_ON(super);
                 this->unk_0x81 = 2;
                 sub_0803BF2C(this);

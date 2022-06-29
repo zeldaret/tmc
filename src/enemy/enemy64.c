@@ -85,7 +85,7 @@ void Enemy64_Init(Enemy64Entity* this) {
         super->child = tail;
         super->action = 1;
         super->subAction = 0;
-        super->timer = 0x3c;
+        super->timer = 60;
         super->direction = 0xc0;
         super->animationState = 0xc0;
         super->speed = 0x300;
@@ -193,7 +193,7 @@ void Enemy64_Action2_SubAction2(Enemy64Entity* this) {
                                       gRoomControls.origin_y + 0x80),
          ((((uVar3 + 2) & 0x1c) - (super->direction >> 3)) & 0xf) == 8)) {
         super->subAction = 4;
-        super->timer = 0x3c;
+        super->timer = 60;
         super->subtimer = 7;
     }
     sub_08049944(this);
@@ -210,7 +210,7 @@ void Enemy64_Action2_SubAction3(Enemy64Entity* this) {
     if (super->timer == 0) {
         if ((uVar2 >> 0x18 & 0x1f) == 0) {
             super->subAction = 4;
-            super->timer = 0x5a;
+            super->timer = 90;
         }
     } else {
         if (sub_08049A8C(this)) {
@@ -234,9 +234,9 @@ void Enemy64_Action2_SubAction4(Enemy64Entity* this) {
             super->speed += 0x40;
         } else {
             super->subAction = 3;
-            super->timer = 0xa;
+            super->timer = 10;
         }
-    } else if (super->timer == 0x50) {
+    } else if (super->timer == 80) {
         Entity* enemy = CreateEnemy(GYORG_MALE_EYE, Random() & 3);
         if (enemy != NULL) {
             enemy->parent = super;
@@ -277,7 +277,7 @@ void Enemy64_Action3_SubAction0(Enemy64Entity* this) {
 void Enemy64_Action3_SubAction1(Enemy64Entity* this) {
     if (EntityWithinDistance(super, gRoomControls.origin_x + 0xa8, gRoomControls.origin_y + 0x80, 0x28)) {
         super->subAction = 2;
-        super->timer = 0x2d;
+        super->timer = 45;
         this->unk_74 = gUnk_080D29B8[Random() & 7] << 0x18 >> 0x18;
         this->unk_76 = super->direction << 8;
     }
@@ -290,7 +290,7 @@ void Enemy64_Action3_SubAction2(Enemy64Entity* this) {
     sub_08049998(this, ((0x100 - super->direction) & 0xff) << 8);
     if (--super->timer == 0) {
         super->subAction = 3;
-        super->timer = 0x1e;
+        super->timer = 30;
     }
 }
 
@@ -312,7 +312,7 @@ void Enemy64_Action4_SubAction0(Enemy64Entity* this) {
     if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
         SetPlayerControl(CONTROL_2);
         super->subAction = 2;
-        super->timer = 0x1e;
+        super->timer = 30;
     } else {
         super->subAction = 1;
     }
@@ -331,7 +331,7 @@ void Enemy64_Action4_SubAction1(Enemy64Entity* this) {
 void Enemy64_Action4_SubAction2(Enemy64Entity* this) {
     if (--super->timer == 0) {
         super->subAction = 3;
-        super->timer = 0xb4;
+        super->timer = 180;
         super->speed = 0x100;
         super->direction -= 0x40;
     }
@@ -341,7 +341,7 @@ void Enemy64_Action4_SubAction2(Enemy64Entity* this) {
 void Enemy64_Action4_SubAction3(Enemy64Entity* this) {
     sub_08049AB0(this);
     if (--super->timer == 0) {
-        super->timer = 0x1e;
+        super->timer = 30;
         super->subAction = 4;
         super->speed = 0x400;
         super->direction = super->animationState;
@@ -389,7 +389,7 @@ void Enemy64_Action4_SubAction5(Enemy64Entity* this) {
 void Enemy64_Action4_SubAction6(Enemy64Entity* this) {
     if (gFadeControl.active == 0) {
         super->subAction = 7;
-        super->timer = 0xa0;
+        super->timer = 160;
         SoundReq(SFX_SECRET);
         SetFlag(0x7c);
         SetPlayerControl(CONTROL_1);
@@ -399,19 +399,19 @@ void Enemy64_Action4_SubAction6(Enemy64Entity* this) {
 void Enemy64_Action4_SubAction7(Enemy64Entity* this) {
     if (--super->timer == 0) {
         DeleteThisEntity();
-    } else if (super->timer == 0x10) {
+    } else if (super->timer == 16) {
         sub_0807B7D8(0x36, 0xca, 1);
         SetTile(0x4081, 0xca, 2);
         SoundReq(SFX_HEART_GET);
-    } else if (super->timer == 0x18) {
+    } else if (super->timer == 24) {
         sub_0807B7D8(0x36, 0x8a, 1);
         SetTile(0x4081, 0x8a, 2);
         SoundReq(SFX_HEART_GET);
-    } else if (super->timer == 0x20) {
+    } else if (super->timer == 32) {
         sub_0807B7D8(0x36, 0x4a, 1);
         SetTile(0x4081, 0x4a, 2);
         SoundReq(SFX_HEART_GET);
-    } else if (super->timer == 0x28) {
+    } else if (super->timer == 40) {
         sub_0807B7D8(0x36, 10, 1);
         SetTile(0x4081, 10, 2);
         SoundReq(SFX_HEART_GET);
@@ -461,7 +461,7 @@ void sub_080499F0(Enemy64Entity* this) {
 }
 
 bool32 sub_08049A8C(Enemy64Entity* this) {
-    if (--super->timer == 0 && (Random() & 0xf) != 0) {
+    if ((--super->timer == 0) && ((Random() & 0xf) != 0)) {
         return TRUE;
     } else {
         return FALSE;

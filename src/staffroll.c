@@ -65,7 +65,7 @@ void StaffrollTask_State0(void) {
     SetGlobalFlag(GAMECLEAR);
     gMain.state = 1;
     gStaffrollMenu.base.menuType = 0;
-    gStaffrollMenu.base.transitionTimer = 0xb4;
+    gStaffrollMenu.base.transitionTimer = 180;
     gStaffrollMenu.unk_16 = 5;
     gStaffrollMenu.unk_17 = 4;
     gStaffrollMenu.bgmMusicStarted = 0;
@@ -241,7 +241,7 @@ void StaffrollTask_State2(void) {
     switch (gStaffrollMenu.base.overlayType) {
         case 0:
             gStaffrollMenu.base.overlayType = 1;
-            gStaffrollMenu.base.transitionTimer = 0x1e;
+            gStaffrollMenu.base.transitionTimer = 30;
             gStaffrollMenu.base.field_0x3 = 0;
             DispReset(1);
             InitSoundPlayingInfo();
@@ -278,7 +278,7 @@ void StaffrollTask_State2(void) {
                                 tmp = 2;
                             }
                             gStaffrollMenu.base.overlayType = tmp;
-                            gStaffrollMenu.base.transitionTimer = 0x3c;
+                            gStaffrollMenu.base.transitionTimer = 60;
                             SoundReq(SFX_TEXTBOX_SELECT);
                             break;
                     }
@@ -298,7 +298,7 @@ void StaffrollTask_State2(void) {
                     gStaffrollMenu.base.overlayType = 4;
                     break;
                 case SAVE_ERROR:
-                    gStaffrollMenu.base.transitionTimer = 0x3c;
+                    gStaffrollMenu.base.transitionTimer = 60;
                     CreateDialogBox(9, 0);
                     gStaffrollMenu.base.overlayType = 3;
                     break;

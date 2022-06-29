@@ -25,7 +25,7 @@ void Cucco_Init(Entity* this) {
 void sub_0806E4EC(Entity* this) {
     if (this->subAction == 0) {
         this->subAction += 1;
-        this->timer = (Random() & 0x1f) + 0x3c;
+        this->timer = (Random() & 0x1f) + 60;
         InitAnimationForceUpdate(this, 0);
     }
     if (--this->timer == 0) {

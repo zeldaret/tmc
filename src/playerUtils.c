@@ -235,7 +235,7 @@ bool32 sub_080777A0(void) {
                     if ((gArea.unk1A == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
                         gPlayerEntity.subAction += 1;
                         gPlayerEntity.flags &= ~ENT_COLLIDE;
-                        RequestPriorityDuration(&gPlayerEntity, 0xb4);
+                        RequestPriorityDuration(&gPlayerEntity, 180);
                         return TRUE;
                     }
                     return FALSE;
@@ -771,7 +771,7 @@ bool32 sub_08078108(ChargeState* state) {
 }
 
 bool32 sub_08078124(ChargeState* state) {
-    state->chargeTimer -= 0x10;
+    state->chargeTimer -= 16;
     if (state->chargeTimer < 0) {
         state->chargeTimer = 0;
         state->action = 2;
@@ -2201,7 +2201,7 @@ void sub_0807B1A8(PlayerEntity* this) {
 
 void sub_0807B1DC(PlayerEntity* this) {
     this->unk_6e++;
-    super->timer = 0x1e;
+    super->timer = 30;
 }
 
 void sub_0807B1EC(PlayerEntity* this) {
@@ -2220,7 +2220,7 @@ void sub_0807B21C(PlayerEntity* this) {
         GravityUpdate(super, Q_8_8(8.0));
     }
     if (super->zVelocity < -Q_16_16(0.5)) {
-        super->timer = 0x78;
+        super->timer = 120;
         super->subtimer = 0;
         this->unk_6e++;
         this->unk_68 = super->z.WORD;
@@ -2236,7 +2236,7 @@ void sub_0807B264(PlayerEntity* this) {
     tmp <<= 0x10;
     super->z.WORD = this->unk_68 + tmp;
     if (--super->timer == 0) {
-        super->timer = 0x50;
+        super->timer = 80;
         super->zVelocity = Q_16_16(0.5);
         this->unk_6e++;
 #ifndef EU

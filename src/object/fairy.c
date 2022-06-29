@@ -154,7 +154,7 @@ void Fairy_Action2(FairyEntity* this) {
     if (--super->subtimer == 0) {
         u32 rand = Random();
         super->flags |= ENT_COLLIDE;
-        super->subtimer = 0x20;
+        super->subtimer = 32;
         super->speed = (u16)gUnk_081217A4[rand >> 8 & 1];
         if (sub_0808DAA0(this)) {
             super->direction = rand & 0x1f;
@@ -240,7 +240,7 @@ void sub_0808DAD0(FairyEntity* this) {
         DeleteThisEntity();
     }
     super->action = 4;
-    super->timer = 0x80;
+    super->timer = 128;
     super->subtimer = 6;
     super->flags &= ~ENT_COLLIDE;
     super->spriteSettings.draw = 1;

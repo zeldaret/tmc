@@ -56,7 +56,7 @@ void BigPushableLever_Idle(BigPushableLeverEntity* this) {
         SetTile(this->tileIndexUpper, this->tilePositionUpper, super->collisionLayer);
         SetTile(this->tileIndexLower, this->tilePositionLower, super->collisionLayer);
         EnqueueSFX(SFX_132);
-        RequestPriorityDuration(super, 0x1e);
+        RequestPriorityDuration(super, 30);
         if (PlayerCanBeMoved()) {
             gPlayerState.pushedObject = 0x98;
             gPlayerState.queued_action = 5;
@@ -82,7 +82,7 @@ void BigPushableLever_Pushing(BigPushableLeverEntity* this) {
 
 void BigPushableLever_SetIdle(BigPushableLeverEntity* this) {
     super->action = IDLE;
-    this->timer = 0x3c;
+    this->timer = 60;
     BigPushableLever_SetTiles(this);
 }
 
@@ -116,7 +116,7 @@ bool32 BigPushableLever_ShouldStartPushing(BigPushableLeverEntity* this) {
         BigPushableLever_CalculateSpriteOffsets(this);
         SetTile(gUnk_081236E8[super->type2], this->tilePositionLower, super->collisionLayer);
     } else {
-        this->timer = 0x3c;
+        this->timer = 60;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = 0;
     }

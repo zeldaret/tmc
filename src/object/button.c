@@ -52,8 +52,8 @@ void sub_08081FF8(Entity*);
 void sub_08081BAC(Entity* this) {
     if (sub_08081CB0(this)) {
         this->subAction = 0;
-        this->timer = 0xA;
-        RequestPriorityDuration(this, 0xA);
+        this->timer = 10;
+        RequestPriorityDuration(this, 10);
         sub_08081FF8(this);
         if (this->type == 1) {
             this->action = 3;
@@ -74,9 +74,9 @@ void sub_08081BE0(Entity* this) {
         this->action = 4;
         this->subtimer = 1;
         if ((gPlayerState.heldObject == 2) || (!(gPlayerState.field_0x35 & 0x80))) {
-            this->timer = 0x18;
+            this->timer = 24;
         } else {
-            this->timer = 0x8;
+            this->timer = 8;
         }
     } else {
         sub_08081E6C(this);

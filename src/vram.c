@@ -153,7 +153,7 @@ bool32 LoadFixedGFX(Entity* entity, u32 gfxIndex) {
             CleanUpGFXSlots();
             index = FindFreeGFXSlots(count);
             if (index == 0) {
-                return 0;
+                return FALSE;
             }
         }
         ReserveGFXSlots(index, gfxIndex, count);

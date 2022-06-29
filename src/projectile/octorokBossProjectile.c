@@ -58,7 +58,7 @@ void OctorokBossProjectile_Init(Entity* this) {
                 this->direction = this->direction - (Random() & 7);
             }
             this->speed = 0x200;
-            this->timer = 0x30;
+            this->timer = 48;
             LinearMoveAngle(this, 0x5000, this->direction);
             InitializeAnimation(this, 5);
             break;

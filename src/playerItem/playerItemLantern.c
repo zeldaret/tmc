@@ -18,8 +18,8 @@ void PlayerItemLantern(Entity* this) {
 
 void sub_08054A60(Entity* this) {
     this->flags |= (ENT_PERSIST | ENT_COLLIDE);
-    this->action = 0x01;
-    this->timer = 0x04;
+    this->action = 1;
+    this->timer = 4;
     this->frameIndex = -1;
     // TODO regalloc and mov 6 too early
     this->updatePriority = 6;

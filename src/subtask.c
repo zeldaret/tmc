@@ -127,7 +127,7 @@ void sub_08054C88(void) {
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -154,7 +154,7 @@ void sub_08054D3C(void) {
         sub_0801876C(gMenu.field_0x4, 1);
         sub_080553E0(gMenu.field_0x4);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -199,7 +199,7 @@ void sub_08054E1C(void) {
 void sub_08054E5C(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0xb4;
+        gMenu.transitionTimer = 180;
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         sub_080553E0(gMenu.field_0x4);
         sub_0801876C(gMenu.field_0x4, 1);
@@ -354,7 +354,7 @@ void sub_08055184(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gMenu.storyPanelIndex = 0;
-    gMenu.transitionTimer = 0x3c;
+    gMenu.transitionTimer = 60;
     gMenu.field_0xa = 0;
     gUpdateVisibleTiles = 1;
     SetFade(FADE_INSTANT, 0x10);
@@ -380,7 +380,7 @@ void sub_0805524C(void) {
         } else {
             gScreen.lcd.displayControl &= 0xf7ff;
             gScreen.controls.alphaBlend = 0x1000;
-            gMenu.transitionTimer = 0x78;
+            gMenu.transitionTimer = 120;
             gMenu.overlayType++;
 #ifndef EU
             SoundReq(SFX_SECRET_BIG);
@@ -420,7 +420,7 @@ void sub_08055380(void) {
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -465,7 +465,7 @@ void sub_08055498(void) {
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -492,7 +492,7 @@ void sub_08055548(void) {
         sub_0801876C(gMenu.field_0x4, 1);
         sub_080553E0(gMenu.field_0x4);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0xb4;
+        gMenu.transitionTimer = 180;
     }
 }
 
@@ -531,7 +531,7 @@ void sub_08055634(void) {
         obj->y.HALF.HI = gRoomControls.origin_y + *(s16*)(ptr + 10);
     }
     gMenu.overlayType++;
-    gMenu.transitionTimer = 0x186;
+    gMenu.transitionTimer = 390;
 }
 
 void sub_08055674(void) {
@@ -579,7 +579,7 @@ void sub_08055710(void) {
 void sub_0805576C(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -657,7 +657,7 @@ void sub_08055948(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
         sub_08055994();
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -709,7 +709,7 @@ void sub_08055A6C(void) {
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -737,7 +737,7 @@ void sub_08055AEC(void) {
 
 void sub_08055B38(void) {
     if (gFadeControl.active == 0) {
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -794,7 +794,7 @@ void sub_08055C34(void) {
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -822,7 +822,7 @@ void sub_08055D2C(void) {
         sub_0801876C(gMenu.field_0x4, 1);
         sub_080553E0(gMenu.field_0x4);
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 
@@ -846,7 +846,7 @@ void sub_08055DC0(void) {
     if (gFadeControl.active == 0) {
         MessageFromTarget(TEXT_INDEX(TEXT_EMPTY, 0x01));
         gMenu.overlayType++;
-        gMenu.transitionTimer = 0x78;
+        gMenu.transitionTimer = 120;
     }
 }
 

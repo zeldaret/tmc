@@ -38,8 +38,8 @@ void sub_0805E140(EnterRoomTextboxManager* this) {
     super->flags |= ENT_PERSIST;
     super->action = 1;
     this->unk_20 = gRoomControls.room;
-    super->timer = 0x78;
-    super->subtimer = 0x3c;
+    super->timer = 120;
+    super->subtimer = 60;
     SetDefaultPriority((Entity*)this, PRIO_HIGHEST);
     sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], AreaIsDungeon());
 }

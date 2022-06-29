@@ -221,7 +221,7 @@ void CrenelBeanSprout_Action2SubAction2(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action2SubAction3(CrenelBeanSproutEntity* this) {
-    InitScreenShake(0x10, 0);
+    InitScreenShake(16, 0);
     super->action = 1;
     super->subAction = 0;
 }
@@ -247,7 +247,7 @@ void CrenelBeanSprout_Action4(CrenelBeanSproutEntity* this) {
             CreateDust(super);
         }
     } else {
-        super->timer = 0xc0;
+        super->timer = 192;
     }
 }
 
@@ -274,12 +274,10 @@ void CrenelBeanSprout_Action6(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action6SubAction0(CrenelBeanSproutEntity* this) {
-    static const u8 gUnk_081231AC[] = {
-        2,
-        3,
-    };
+    static const u8 gUnk_081231AC[] = { 2, 3 };
+
     SetLocalFlag(super->type2);
-    super->timer = 0x0f;
+    super->timer = 15;
     super->subtimer = gUnk_081231AC[super->type >> 1];
     super->type2 = 0;
     super->spriteSettings.draw = 0;
@@ -301,9 +299,9 @@ void CrenelBeanSprout_Action6SubAction1(CrenelBeanSproutEntity* this) {
         if (super->type2 == super->subtimer) {
             gPlayerState.keepFacing &= 0x7f;
             super->subAction++;
-            super->timer = 0x3c;
+            super->timer = 60;
         } else {
-            super->timer = 0x0f;
+            super->timer = 15;
         }
     }
 }

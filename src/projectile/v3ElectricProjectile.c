@@ -31,7 +31,7 @@ void sub_080ABFEC(Entity* this) {
         case 0: {
             this->action = 1;
             this->timer = 0;
-            this->subtimer = 0x7;
+            this->subtimer = 7;
             this->cutsceneBeh.HALF.HI = 0x18;
             this->damage = 0x88;
             CopyPositionAndSpriteOffset(this->parent, this);
@@ -51,7 +51,7 @@ void sub_080ABFEC(Entity* this) {
         default: {
             this->action = 2;
             this->timer = 0;
-            this->subtimer = 0xff;
+            this->subtimer = 255;
             this->speed = projectileSpeeds[this->type2];
             this->damage = 0x88;
             sound = SFX_193;
@@ -82,7 +82,7 @@ void V3ElectricProjectile_Action1(Entity* this) {
             SoundReq(SFX_193);
         } else {
             this->action = 3;
-            this->timer = 0x10;
+            this->timer = 16;
         }
         this->z.HALF.HI -= 0x28;
     }
@@ -146,7 +146,7 @@ void sub_080AC200(Entity* this) {
     if (--this->timer)
         return;
 
-    this->timer = 0x10;
+    this->timer = 16;
     proj = CreateProjectile(V3_ELECTRIC_PROJECTILE);
 
     if (proj) {

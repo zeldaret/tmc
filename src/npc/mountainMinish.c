@@ -70,7 +70,7 @@ void sub_08067E88(Entity* this) {
         tmp = 2;
     } else {
         if (this->subtimer == 0) {
-            this->subtimer = 0x10;
+            this->subtimer = 16;
         } else {
             this->subtimer = this->subtimer - 1;
             tmp = this->animIndex;

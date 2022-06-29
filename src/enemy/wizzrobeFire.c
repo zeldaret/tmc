@@ -40,8 +40,8 @@ void WizzrobeFire_Init(WizzrobeEntity* this) {
     super->action = 1;
     this->timer2 = 0xff;
     this->timer1 = 0x28;
-    super->timer = 0x28;
-    super->subtimer = 0x60;
+    super->timer = 40;
+    super->subtimer = 96;
     sub_0802F888(this);
     projectile = CreateProjectileWithParent(super, FIRE_PROJECTILE, 0);
     if (projectile != NULL) {
@@ -64,8 +64,8 @@ void WizzrobeFire_Action1(WizzrobeEntity* this) {
             break;
         case 0:
             if (--super->timer == 0) {
-                this->timer2 += 1;
-                super->timer = 0x0e;
+                this->timer2++;
+                super->timer = 14;
                 super->flags |= 0x80;
             }
             break;
@@ -73,7 +73,7 @@ void WizzrobeFire_Action1(WizzrobeEntity* this) {
             if (--super->timer == 0) {
                 super->action = 2;
                 this->timer2 = 0;
-                super->timer = 0x20;
+                super->timer = 32;
                 tmp = super->direction >> 3;
                 child = super->child;
                 child->timer = 1;
@@ -92,8 +92,8 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
         case 0:
             switch (--super->timer) {
                 case 0:
-                    this->timer2 += 1;
-                    super->timer = 0x38;
+                    this->timer2++;
+                    super->timer = 56;
                     super->subtimer = 0;
                     super->child->spriteSettings.draw = 0;
                     break;
@@ -111,7 +111,7 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
             if (--super->timer == 0) {
                 this->timer2++;
                 this->timer1 = 0x28;
-                super->timer = 0x28;
+                super->timer = 40;
                 super->subtimer = 0;
                 super->flags &= 0x7f;
                 SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
@@ -123,7 +123,7 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
         case 2:
             if (--super->timer == 0) {
                 this->timer2++;
-                super->timer = (Random() & 0x3f) + 0x1c;
+                super->timer = (Random() & 0x3f) + 28;
                 super->spriteSettings.draw = 0;
             }
             break;
@@ -132,7 +132,7 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
                 super->action = 1;
                 this->timer2 = 0;
                 this->timer1 = 0x28;
-                super->timer = 0x28;
+                super->timer = 40;
                 EnqueueSFX(SFX_156);
                 sub_0802F8E4(this);
                 InitializeAnimation(super, super->direction >> 3);

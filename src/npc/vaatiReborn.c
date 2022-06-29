@@ -32,8 +32,8 @@ void VaatiRebornAction0(Entity* this) {
     switch (this->type) {
         case 0:
             this->y.HALF.HI -= 0xa0;
-            this->timer = 0xa0;
-            this->subtimer = 0x20;
+            this->timer = 160;
+            this->subtimer = 32;
             this->spriteOffsetY = 0x20;
             for (i = 0; i < 4; i++) {
                 entity = CreateNPC(VAATI_REBORN, 2, i);
@@ -60,7 +60,7 @@ void VaatiRebornAction0(Entity* this) {
             break;
         case 3:
             this->timer = 1;
-            this->subtimer = 0x20;
+            this->subtimer = 32;
             entity = CreateNPC(VAATI_REBORN, 4, 0);
             if (entity != NULL) {
                 CopyPosition(this, entity);
@@ -105,7 +105,7 @@ void VaatiRebornAction1(Entity* this) {
                 return;
             }
             if (this->subtimer-- == 1) {
-                this->subtimer = 0x20;
+                this->subtimer = 32;
                 SoundReq(SFX_1A9);
             }
             UpdateAnimationSingleFrame(this);
@@ -161,7 +161,7 @@ void VaatiRebornAction1(Entity* this) {
             }
 
             if (--this->subtimer == 0) {
-                this->subtimer = 0x20;
+                this->subtimer = 32;
                 SoundReq(SFX_1A9);
             }
             UpdateAnimationSingleFrame(this);

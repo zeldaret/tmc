@@ -112,7 +112,7 @@ void ObjectB4_Type2(Entity* this) {
         this->spritePriority.b0 = 0;
         this->spriteOrientation.flipY = 1;
         this->frameIndex = 11;
-        this->timer = (Random() & 0x3f) + 0x40;
+        this->timer = (Random() & 0x3f) + 64;
         this->subtimer = 0;
     }
 
@@ -120,7 +120,7 @@ void ObjectB4_Type2(Entity* this) {
         this->timer = 4;
         this->frameIndex = gUnk_08124B30[this->subtimer++] + 2;
         if (gUnk_08124B30[this->subtimer] == 0xff) {
-            this->timer = (Random() & 0x3f) + 0x40;
+            this->timer = (Random() & 0x3f) + 64;
             this->subtimer = 0;
         }
     }

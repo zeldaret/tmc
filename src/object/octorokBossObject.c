@@ -49,7 +49,7 @@ void OctorokBossObject_Init(Entity* this) {
         case 0:
             this->field_0x78.HALF.HI = 0x96;
             this->timer = 0;
-            this->subtimer = 0x1e;
+            this->subtimer = 30;
         case 1:
             InitializeAnimation(this, 0);
             EnqueueSFX(SFX_124);
@@ -177,7 +177,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             }
             if ((u32)this->timer == GET_HELPER(this)->tailCount - 1) {
                 this->action = 2;
-                this->timer = 0xf0;
+                this->timer = 240;
                 this->direction = gUnk_0812384C[(this->type2 & 0xf) * 2] + ((u8)Random() & 0xf);
                 this->speed = gUnk_0812384C[(this->type2 & 0xf) * 2 + 1] + ((u16)Random() & 0x1ff);
                 if (this->type != 0) {

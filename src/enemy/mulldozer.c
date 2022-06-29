@@ -63,11 +63,11 @@ void sub_08032CAC(MulldozerEntity* this) {
             case 2:
             case 3:
                 super->action = 6;
-                super->timer = (super->type != 0) ? 0x5a : 200;
+                super->timer = (super->type != 0) ? 90 : 200;
                 super->subtimer = 2;
                 this->unk_80 = 3;
                 super->direction = super->knockbackDirection;
-                super->direction += ((Random() & 0x40) != 0) ? 4 : 0x1c;
+                super->direction += ((Random() & 0x40) != 0) ? 4 : 0x1C;
                 super->direction &= 0x1f;
                 super->speed = 0;
                 break;
@@ -211,7 +211,7 @@ void sub_08032F64(MulldozerEntity* this) {
 
 void sub_08032F90(MulldozerEntity* this) {
     if (super->type == 0) {
-        if (super->timer == 0x10) {
+        if (super->timer == 16) {
             this->unk_80 = 2;
         }
         if (--super->subtimer == 0) {
@@ -234,7 +234,7 @@ void sub_08032F90(MulldozerEntity* this) {
 
 void sub_08033000(MulldozerEntity* this) {
     if (--super->subtimer == 0) {
-        super->subtimer = 0x10;
+        super->subtimer = 16;
         if ((this->unk_82 & 0x80) != 0) {
             super->direction = (super->direction + 0x18) & 0x1c;
             this->unk_82 &= 0x7f;
@@ -270,7 +270,7 @@ void sub_080330C0(MulldozerEntity* this) {
     super->action = 2;
     this->unk_80 = 0;
     if (super->type == 0) {
-        super->timer = (Random() & 0x38) + 0x18;
+        super->timer = (Random() & 0x38) + 24;
     } else {
         super->timer = 6;
     }
@@ -284,14 +284,14 @@ void sub_08033100(MulldozerEntity* this) {
     super->action = 3;
     if (super->type == 0) {
         this->unk_80 = 1;
-        super->timer = 0x30;
+        super->timer = 48;
         super->subtimer = 8;
         super->speed = 0;
         super->direction = (sub_08049F84(super, 1) + 2) & 0x1c;
     } else {
         this->unk_80 = 2;
         sub_080331B4(this);
-        super->timer += 0x10;
+        super->timer += 16;
         super->subtimer = 4;
         super->speed = 0x160;
     }
@@ -307,9 +307,9 @@ void sub_08033174(MulldozerEntity* this) {
     this->unk_82 = 0;
     this->unk_83 = 0;
     if (super->type == 0) {
-        super->timer = (Random() & 0x18) + 0x18;
+        super->timer = (Random() & 0x18) + 24;
     } else {
-        super->timer = 0xc;
+        super->timer = 12;
     }
     super->speed = 0xa0;
     sub_08032F24(this);
@@ -317,15 +317,16 @@ void sub_08033174(MulldozerEntity* this) {
 
 void sub_080331B4(MulldozerEntity* this) {
     u32 rand = Random() & 0xf0;
-    u8 timer = 0x1e;
+    u8 timer = 30;
+
     if ((rand & 0x80) != 0) {
-        timer = 0x3c;
+        timer = 60;
     } else {
         if ((rand & 0x40) != 0) {
-            timer = 0x2d;
+            timer = 45;
         }
         if ((rand & 0x20) != 0) {
-            timer = 0x4b;
+            timer = 75;
         }
     }
     super->timer = timer;

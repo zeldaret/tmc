@@ -40,7 +40,7 @@ void BridgeManager_Init(BridgeManager* this) {
     this->unk_2c = gUnk_08108034[tmp];
     this->unk_2e = gUnk_08108034[tmp + 1];
     this->unk_32 = ((super->type2 >> 2) & 0xF) + 1;
-    super->timer = 0x1C;
+    super->timer = 28;
     super->subtimer = 0;
     super->action = (super->type2 & 0x80) ? 2 : 1;
     if (super->action != 2 || !CheckFlags(this->flags))

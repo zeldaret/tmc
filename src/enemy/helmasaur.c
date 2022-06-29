@@ -170,7 +170,7 @@ void sub_0802BDE0(Entity* this) {
         this->field_0x78.HALF.HI = 0xff;
     } else {
         this->action = 1;
-        this->timer = (Random() & 0xf) + 0xf;
+        this->timer = (Random() & 0xf) + 15;
         this->field_0x78.HALF.HI = this->direction;
     }
 }
@@ -179,7 +179,7 @@ void sub_0802BE18(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
     if (--this->timer == 0) {
         this->action = 4;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->speed = 0x300;
     } else {
         sub_0802C18C(this);
@@ -224,8 +224,8 @@ void sub_0802BEBC(Entity* this) {
 }
 
 void sub_0802BEEC(Entity* this) {
-    if (this->timer) {
-        if ((--this->timer & 0x1f) == 0) {
+    if (this->timer != 0) {
+        if ((--this->timer & 0x1F) == 0) {
             this->animationState ^= 2;
             this->direction = this->animationState << 3;
             InitializeAnimation(this, this->animationState + 4);

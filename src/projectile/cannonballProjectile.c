@@ -78,7 +78,7 @@ bool32 sub_080AB634(Entity* this) {
         if (entities[i] != NULL && (IsColliding(this, entities[i]) != 0)) {
             if (entities[i]->action < 3) {
                 entities[i]->action = 3;
-                entities[i]->timer = 0x1e;
+                entities[i]->timer = 30;
                 entities[i]->spriteSettings.draw = 0;
                 CreateFx(entities[i], FX_WHITE_ROCK, 0);
             }

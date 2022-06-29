@@ -42,7 +42,7 @@ void CameraTargetManager_Action1(CameraTargetManager* this) {
         super->action = 2;
         super->timer = this->field_0x35;
         if (super->timer == 0) {
-            super->timer = 0x1e;
+            super->timer = 30;
         }
         super->parent = gRoomControls.camera_target;
         object = CreateObject(OBJECT_69, 0, 0);
@@ -51,7 +51,7 @@ void CameraTargetManager_Action1(CameraTargetManager* this) {
             object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
             super->child = object;
             gRoomControls.camera_target = object;
-            RequestPriorityDuration(object, 0x1e);
+            RequestPriorityDuration(object, 30);
         }
     }
 }

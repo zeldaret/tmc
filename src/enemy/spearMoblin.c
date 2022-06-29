@@ -87,7 +87,7 @@ void sub_08028314(Entity* this) {
 
     if (this->timer) {
         this->animationState = this->type2 << 1;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->speed = 0x80;
         this->direction = this->animationState << 2;
         sub_080287E0(this);
@@ -173,7 +173,7 @@ void sub_08028488(Entity* this) {
             case 2:
                 this->action = 2;
                 this->speed = 0;
-                this->timer = (Random() & 7) * 3 + 0x40;
+                this->timer = (Random() & 7) * 3 + 64;
                 break;
             case 4:
                 this->direction = (this->direction + 0x10) & 0x18;
@@ -256,13 +256,13 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
                 uVar1 = gUnk_080CC7C0[Random() & 0xf];
             } else {
                 uVar1 = gUnk_080CC7C0[Random() & 7];
-                this->timer = this->timer + 0x10;
+                this->timer = this->timer + 16;
                 this->field_0x82.HALF.HI--;
             }
             this->direction = iVar3 + uVar1 + (4U & 0x18);
         }
     } else {
-        this->timer = 0xc;
+        this->timer = 12;
         this->speed = 0;
     }
 
@@ -316,7 +316,7 @@ void sub_08028784(Entity* this) {
 
 void sub_080287B4(Entity* this) {
     this->action = 3;
-    this->timer = 0x20;
+    this->timer = 32;
     this->subtimer = 0;
     this->field_0x80.HALF.LO = 0;
     this->field_0x7a.HALF.HI = 0;

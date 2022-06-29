@@ -10,7 +10,7 @@ void LilypadSmall(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->timer = 0x5a;
+        this->timer = 90;
         rand = Random();
         this->subtimer = rand;
         this->frameIndex = (rand >> 0x10) & 3;

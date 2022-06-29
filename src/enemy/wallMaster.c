@@ -74,7 +74,7 @@ void sub_0802A534(Entity* this) {
         Entity* ent = sub_08049DF4(1);
         if (ent != NULL) {
             this->action = 2;
-            this->timer = 0x5a;
+            this->timer = 90;
             COLLISION_ON(this);
             this->spriteSettings.draw = 3;
             this->x.HALF.HI = ent->x.HALF.HI;
@@ -115,7 +115,7 @@ void sub_0802A610(Entity* this) {
     flags = this->frame & ANIM_DONE;
     if (flags) {
         this->action = 4;
-        this->timer = 0x1e;
+        this->timer = 30;
     } else if (this->frame & 1) {
         this->frame = flags;
         this->hitType = 0x75;
@@ -157,7 +157,7 @@ void sub_0802A69C(Entity* this) {
     flags = this->frame & ANIM_DONE;
     if (flags) {
         this->action = 6;
-        this->timer = 0x1e;
+        this->timer = 30;
     } else if (this->frame & 0x1) {
         this->frame = flags;
         this->spriteOffsetY = 3;

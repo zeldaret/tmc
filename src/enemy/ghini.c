@@ -172,18 +172,16 @@ void Ghini_Action1(GhiniEntity* this) {
 void Ghini_Action2(GhiniEntity* this) {
     if (sub_0803F5A8(this) == 0) {
         sub_0803F50C(this);
-    } else {
-        if (--super->timer == 0) {
-            super->action = 3;
-            super->timer = 0x1e;
-            if (sub_08049DF4(1) != NULL) {
-                super->direction = GetFacingDirection(super, gUnk_020000B0);
-            } else {
-                super->direction = Random() & 0x1f;
-            }
-            super->animationState = super->direction >> 4;
-            InitializeAnimation(super, super->animationState + 1);
+    } else if (--super->timer == 0) {
+        super->action = 3;
+        super->timer = 30;
+        if (sub_08049DF4(1) != NULL) {
+            super->direction = GetFacingDirection(super, gUnk_020000B0);
+        } else {
+            super->direction = Random() & 0x1f;
         }
+        super->animationState = super->direction >> 4;
+        InitializeAnimation(super, super->animationState + 1);
     }
 }
 
@@ -223,20 +221,18 @@ void Ghini_Action6(GhiniEntity* this) {
 
     if (sub_0803F5A8(this) == 0) {
         sub_0803F51C(this);
-    } else {
-        if (sub_08049DF4(1) != NULL) {
-            tmp = super->timer + 1;
-            super->timer = tmp;
-            if ((tmp & gUnk_080D0970[tmp * 0x1000000 >> 0x1e]) == 0) {
-                sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
-            }
-            sub_0803F66C(this);
-            ProcessMovement1(super);
-            GetNextFrame(super);
-        } else {
-            super->action = 7;
-            super->timer = 0x1e;
+    } else if (sub_08049DF4(1) != NULL) {
+        tmp = super->timer + 1;
+        super->timer = tmp;
+        if ((tmp & gUnk_080D0970[tmp * 0x1000000 >> 0x1e]) == 0) {
+            sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
         }
+        sub_0803F66C(this);
+        ProcessMovement1(super);
+        GetNextFrame(super);
+    } else {
+        super->action = 7;
+        super->timer = 30;
     }
 }
 
@@ -331,13 +327,11 @@ bool32 sub_0803F5A8(GhiniEntity* this) {
 bool32 sub_0803F5D4(GhiniEntity* this) {
     if (this->unk_7c != 0) {
         this->unk_7c--;
-    } else {
-        if ((sub_08049FDC(super, 1)) &&
-            ((sub_0806FD54(super) ||
-              ((0xf < (s16)gArea.lightLevel && (EntityInRectRadius(super, gUnk_020000B0, 0x70, 0x48))))))) {
-            sub_0803F630(this);
-            return TRUE;
-        }
+    } else if ((sub_08049FDC(super, 1)) &&
+               ((sub_0806FD54(super) ||
+                 ((0xf < (s16)gArea.lightLevel && (EntityInRectRadius(super, gUnk_020000B0, 0x70, 0x48))))))) {
+        sub_0803F630(this);
+        return TRUE;
     }
     return FALSE;
 }

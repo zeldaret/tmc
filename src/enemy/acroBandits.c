@@ -165,9 +165,10 @@ void AcroBandit_Type0Action0(Entity* this) {
 
 void AcroBandit_Type0Action1(Entity* this) {
     u32 rand;
-    s32 x, y;
+    s32 x;
+    s32 y;
 
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
     } else {
         if (sub_08049FDC(this, 1)) {
@@ -302,12 +303,12 @@ void AcroBandit_Type0Action6(Entity* this) {
 }
 
 void AcroBandit_Type0Action7(Entity* this) {
-    if ((this->timer & 0xf) == 0) {
-        if (this->timer == 0x50) {
+    if ((this->timer & 0xF) == 0) {
+        if (this->timer == 80) {
             DeleteEntity(this);
         } else {
             this->action = 1;
-            this->timer = 0xb4;
+            this->timer = 180;
         }
     }
 }
@@ -315,7 +316,7 @@ void AcroBandit_Type0Action7(Entity* this) {
 void AcroBandit_Type0Action8(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->timer = 0xb4;
+        this->timer = 180;
         this->spriteSettings.draw = 0;
     } else {
         GetNextFrame(this);

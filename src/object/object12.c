@@ -41,7 +41,7 @@ void Object12_Init(Object12Entity* this) {
         sub_080850FC(this);
     } else {
         super->action = 2;
-        super->timer = 0xf0;
+        super->timer = 240;
         super->speed = 0x80;
         super->direction = 0x18;
     }
@@ -56,7 +56,7 @@ void Object12_Action2(Object12Entity* this) {
     u32 tmp2;
     if (--super->timer == 0) {
         super->action = 3;
-        super->timer = 0x1e;
+        super->timer = 30;
         super->spriteOffsetY = 4;
         gScreen.lcd.displayControl |= 0x2000;
         gScreen.controls.windowInsideControl = 0x1f;
@@ -75,7 +75,7 @@ void Object12_Action2(Object12Entity* this) {
 void Object12_Action3(Object12Entity* this) {
     if (--super->timer == 0) {
         super->action = 4;
-        super->timer = 0x60;
+        super->timer = 96;
     }
 }
 

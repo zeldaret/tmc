@@ -34,13 +34,13 @@ void Object4B(Object4BEntity* this) {
 
 void Object4B_Init(Object4BEntity* this) {
     super->action = 1;
-    super->timer = 0x3c;
+    super->timer = 60;
     InitializeAnimation(super, 0);
 }
 
 void Object4B_Action1(Object4BEntity* this) {
     if (--super->timer == 0) {
-        super->timer = 0x78;
+        super->timer = 120;
         super->action++;
         super->spriteSettings.draw = 1;
     }
@@ -82,7 +82,7 @@ void Object4B_Action4(Object4BEntity* this) {
         super->y.HALF.HI = gRoomControls.origin_y + 0x230;
         if ((super->frame & ANIM_DONE) != 0) {
             super->action++;
-            super->timer = 0x78;
+            super->timer = 120;
             InitializeAnimation(super, 2);
         }
     } else if ((super->frame & ANIM_DONE) != 0) {
@@ -104,7 +104,7 @@ void Object4B_Action6(Object4BEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action++;
-        super->timer = 0x3c;
+        super->timer = 60;
         InitializeAnimation(super, 1);
     }
 }

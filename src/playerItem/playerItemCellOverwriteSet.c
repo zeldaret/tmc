@@ -36,7 +36,7 @@ void PlayerItemCellOverwriteSet(Entity* this) {
             }
             if ((gInput.heldKeys & (DPAD_LEFT | DPAD_RIGHT)) != 0) {
                 if (++this->subtimer > 0x1e) {
-                    this->subtimer = 0x1e;
+                    this->subtimer = 30;
                     if ((gInput.heldKeys & DPAD_RIGHT) != 0) {
                         this->field_0x6c.HWORD--;
                     }

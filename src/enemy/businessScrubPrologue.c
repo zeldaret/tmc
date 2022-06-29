@@ -44,7 +44,7 @@ void BusinessScrubPrologue_OnCollision(BusinessScrubPrologueEntity* this) {
         if ((super->contactFlags & 0x7f) == 0x42) {
             super->action = 4;
             super->subAction = 0;
-            super->timer = 0x28;
+            super->timer = 40;
             super->flags &= ~ENT_COLLIDE;
             sub_08046030(this, 4);
             ent = CreateFx(super, FX_BUSH, 0);
@@ -69,7 +69,7 @@ void sub_08045C3C(BusinessScrubPrologueEntity* this) {
     super->animationState = 0;
     super->direction = 0x10;
     super->action = 5;
-    super->timer = 0x78;
+    super->timer = 120;
     super->spritePriority.b1 = 1;
     super->spriteSettings.draw = 1;
     sub_08046030(this, 0);
@@ -80,7 +80,7 @@ void sub_08045C3C(BusinessScrubPrologueEntity* this) {
 
 void sub_08045CA4(BusinessScrubPrologueEntity* this) {
     super->spriteSettings.draw = 0;
-    if (super->timer) {
+    if (super->timer != 0) {
         super->timer--;
     } else if (sub_08045F54(this, 0)) {
         sub_08045FF0(this);
@@ -102,8 +102,8 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             r6 = 1;
             if (super->frame & ANIM_DONE) {
                 super->subAction = 1;
-                super->timer = 0x3c;
-                super->subtimer = 0x10;
+                super->timer = 60;
+                super->subtimer = 16;
                 sub_08045F98(this);
                 sub_08046030(this, 1);
             }
@@ -112,7 +112,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             r6 = 1;
             if (--super->timer == 0) {
                 super->subAction = 2;
-                super->timer = 0x20;
+                super->timer = 32;
                 super->subtimer = 0;
                 sub_08045F98(this);
                 sub_08046030(this, 2);
@@ -135,7 +135,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             r6 = 2;
             if (super->frame & ANIM_DONE) {
                 super->subAction = 4;
-                super->timer = 0x50;
+                super->timer = 80;
                 sub_08046030(this, 1);
             }
             break;
@@ -144,12 +144,12 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             if (--super->timer == 0) {
                 if (sub_08045F54(this, 0)) {
                     super->subAction = 1;
-                    super->timer = 0x3c;
-                    super->subtimer = 0x10;
+                    super->timer = 60;
+                    super->subtimer = 16;
                     sub_08045F98(this);
                 } else {
                     sub_08045FA0(this);
-                    super->timer = 0x50;
+                    super->timer = 80;
                     super->subtimer = 0;
                 }
             }
@@ -210,7 +210,7 @@ void sub_08045ED4(BusinessScrubPrologueEntity* this) {
 void sub_08045EDC(BusinessScrubPrologueEntity* this) {
     if (super->subAction == 0) {
         super->subAction++;
-        super->timer = 0x20;
+        super->timer = 32;
         super->subtimer = 0;
         sub_08045F98(this);
         sub_08046030(this, 2);
@@ -283,8 +283,8 @@ void sub_08046030(BusinessScrubPrologueEntity* this, u32 arg2) {
 }
 
 void sub_0804604C(BusinessScrubPrologueEntity* this) {
-    if (super->timer) {
-        if (--super->timer <= 0xf) {
+    if (super->timer != 0) {
+        if (--super->timer <= 15) {
             super->spriteOffsetY = gUnk_080D1A3E[super->timer];
         }
     }

@@ -35,7 +35,7 @@ void SpinyChuchu_OnCollision(Entity* this) {
                 case 2:
                 case 3:
                     this->action = 2;
-                    this->subtimer = 0x3c;
+                    this->subtimer = 60;
                     this->hitType = 0x5c;
                     this->hitbox = (Hitbox*)&gHitbox_23;
                     InitializeAnimation(this, 0);
@@ -106,7 +106,7 @@ void sub_080225EC(Entity* this) {
         InitializeAnimation(this, 0);
     } else {
         this->action = 1;
-        this->subtimer = 0x3c;
+        this->subtimer = 60;
         this->spriteSettings.draw = 3;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;

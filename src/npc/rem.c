@@ -57,7 +57,7 @@ void sub_0806a370(Entity* this) {
 
 void sub_0806A3D8(Entity* this) {
     this->action = 1;
-    this->timer = 0xb4;
+    this->timer = 180;
     SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
     *(ScriptExecutionContext**)&this->cutsceneBeh = StartCutscene(this, &script_Rem);
@@ -98,7 +98,7 @@ void sub_0806A458(Entity* this) {
             if (((this->frame & ANIM_DONE) != 0)) {
                 this->action = 1;
                 this->subAction = 0;
-                this->timer = 0x3c;
+                this->timer = 60;
                 InitializeAnimation(this, 2);
             }
             break;
@@ -126,7 +126,7 @@ void sub_0806A4CC(Entity* this) {
                     }
                     break;
                 default:
-                    this->timer = 0xb4;
+                    this->timer = 180;
                     break;
             }
     }
@@ -166,11 +166,11 @@ void sub_0806A5E8(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x10);
-        this->timer = (Random() & 0x3f) + 0x3c;
+        this->timer = (Random() & 0x3f) + 60;
     }
     this->timer -= 1;
     if (this->timer == 0) {
-        this->timer = (Random() & 0x3f) + 0x78;
+        this->timer = (Random() & 0x3f) + 120;
         SoundReq(SFX_REM_SLEEP);
     }
     GetNextFrame(this);

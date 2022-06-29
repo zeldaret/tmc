@@ -87,7 +87,7 @@ void sub_08031704(Entity* this) {
 void sub_08031714(Entity* this) {
     sub_080317B4(this);
     if (--this->subtimer == 0) {
-        this->subtimer = (Random() & 0xf) + 0x10;
+        this->subtimer = (Random() & 0xf) + 16;
         if (sub_08049FA0(this) == 0 && (this->subtimer & 1) != 0) {
             this->direction = sub_08049EE4(this);
         } else {
@@ -135,7 +135,7 @@ void sub_080317F8(Entity* this) {
     this->hitbox = (Hitbox*)&gUnk_080CE560;
     sub_080317E0(this);
     this->timer = 0;
-    this->subtimer = 0x20;
+    this->subtimer = 32;
 }
 
 void sub_08031840(Entity* this) {

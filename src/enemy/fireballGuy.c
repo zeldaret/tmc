@@ -121,7 +121,7 @@ void sub_08045524(Entity* this) {
         this->timer = Random() & 3;
         this->direction = DirectionRound(tmp);
     } else {
-        if (this->timer) {
+        if (this->timer != 0) {
             this->timer--;
             return;
         }

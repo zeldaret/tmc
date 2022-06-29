@@ -38,7 +38,7 @@ void sub_0808BB30(Object36Entity* this) {
     } else {
         super->action = 1;
         super->flags |= ENT_COLLIDE;
-        super->timer = 0x78;
+        super->timer = 120;
         super->subtimer = 0;
         super->spriteRendering.b3 = 3;
         super->spritePriority.b0 = 4;
@@ -87,7 +87,7 @@ void sub_0808BC3C(Object36Entity* this) {
         if (super->timer == 0) {
             SetGlobalFlag(LV1TARU_OPEN);
             super->action = 2;
-            super->subtimer = 0x80;
+            super->subtimer = 128;
             super->spriteOffsetY = 0;
         } else {
             if ((super->timer & 1) != 0) {
@@ -100,7 +100,7 @@ void sub_0808BC3C(Object36Entity* this) {
             }
         }
     } else {
-        super->timer = 0x78;
+        super->timer = 120;
         super->spriteSettings.draw = 0;
         if (super->subtimer != 0) {
             super->subtimer = 0;
@@ -130,7 +130,7 @@ void sub_0808BD14(Object36Entity* this) {
     } else {
         if ((super->flags & ENT_COLLIDE) != 0) {
             super->flags &= ~ENT_COLLIDE;
-            super->timer = 0x1e;
+            super->timer = 30;
         } else {
             super->spriteSettings.draw ^= 1;
             if (--super->timer == 0) {

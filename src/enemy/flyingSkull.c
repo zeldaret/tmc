@@ -136,7 +136,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
             if (EntityWithinDistance(super, ent->x.HALF.HI, ent->y.HALF.HI, 0x30)) {
                 if (super->type == 1) {
                     super->action = 3;
-                    super->timer = 0x1e;
+                    super->timer = 30;
                 } else {
                     ent = CreateEnemy(STALFOS, super->type - 2);
                     if (ent != NULL) {

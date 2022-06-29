@@ -355,7 +355,7 @@ void sub_080AC884(Entity* this) {
     if (this->parent->field_0x70.HALF_U.HI != 0) {
         this->parent->field_0x70.HALF_U.HI = 0;
         this->action = 2;
-        this->timer = 0x3c;
-        this->subtimer = 0x56;
+        this->timer = 60;
+        this->subtimer = 86;
     }
 }

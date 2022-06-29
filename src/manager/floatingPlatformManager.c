@@ -32,7 +32,7 @@ void FloatingPlatformManager_Init(FloatingPlatformManager* this) {
     while (*(u8*)entityData != 0xff) {
         entity = LoadRoomEntity(entityData++);
         entity->parent = (Entity*)this;
-        entity->timer = 0xff;
+        entity->timer = 255;
     }
 }
 

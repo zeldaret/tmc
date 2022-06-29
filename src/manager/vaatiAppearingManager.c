@@ -83,7 +83,7 @@ void VaatiAppearingManager_Action1(VaatiAppearingManager* this) {
         case 1:
             if (--this->field_0x20 == 0x10) {
                 super->subAction = 2;
-                super->timer = 0x2d;
+                super->timer = 45;
             }
             break;
         case 2:
@@ -94,7 +94,7 @@ void VaatiAppearingManager_Action1(VaatiAppearingManager* this) {
         case 3:
             if (--this->field_0x20 == 0) {
                 super->subAction = 4;
-                super->timer = 0x3c;
+                super->timer = 60;
             }
             break;
         default:
@@ -110,14 +110,14 @@ void VaatiAppearingManager_Action2(VaatiAppearingManager* this) {
     switch (super->subAction) {
         case 0:
             super->subAction = 1;
-            super->timer = 0x2d;
+            super->timer = 45;
             this->field_0x20 = 1;
             gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
             break;
         case 1:
             if (--super->timer == 0) {
                 super->subAction = 2;
-                super->timer = 0x14;
+                super->timer = 20;
             }
             break;
         case 2:

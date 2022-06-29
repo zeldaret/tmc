@@ -92,7 +92,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                 switch (sub_08099618(tileType)) {
                     case 1:
                         super->action = 2;
-                        super->timer = 0x16;
+                        super->timer = 22;
                         super->direction = ((tileType - 0x5b) & 3) << 3;
                         super->speed = 0x20;
                         sub_080994B8(this);
@@ -147,7 +147,7 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
         SoundReq(SFX_SECRET);
     }
     super->action = 4;
-    super->timer = 0x3c;
+    super->timer = 60;
     super->flags &= 0x7f;
 }
 

@@ -93,7 +93,7 @@ void FourElements_Action2(FourElementsEntity* this) {
         DeleteEntity(super->child);
         super->spriteSettings.draw = 0;
         super->action = 3;
-        super->timer = 0x2d;
+        super->timer = 45;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0;
         InitItemGetSequence(super->type, 0, 1);
@@ -113,7 +113,7 @@ void FourElements_Action3(FourElementsEntity* this) {
             SetDefaultPriority(&gPlayerEntity, 0);
         }
     } else {
-        RequestPriorityDuration(NULL, 0x3c);
+        RequestPriorityDuration(NULL, 60);
         if (sub_0808C67C()) {
             super->action = 4;
         }
@@ -121,7 +121,7 @@ void FourElements_Action3(FourElementsEntity* this) {
 }
 
 void FourElements_Action4(FourElementsEntity* this) {
-    RequestPriorityDuration(NULL, 0x3c);
+    RequestPriorityDuration(NULL, 60);
     if (gFadeControl.active == 0) {
         super->action = 5;
         this->unk_68 = 0x1a4;
@@ -141,7 +141,7 @@ void FourElements_Action5(FourElementsEntity* this) {
 void FourElements_Action6(FourElementsEntity* this) {
     RequestPriorityDuration(NULL, 10);
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        SetPriorityTimer(0x5a);
+        SetPriorityTimer(90);
         gPlayerState.controlMode = 1;
         sub_0807DF50();
         SetRoomFlag(0);

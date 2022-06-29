@@ -94,16 +94,16 @@ void PushableGrave_Action2(PushableGraveEntity* this) {
     if (super->subAction == 0) {
         if (--super->subtimer == 0) {
             super->subAction = 1;
-            super->subtimer = 0x78;
+            super->subtimer = 120;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 2;
         }
     } else {
         if (--super->subtimer == 0) {
             super->action = 3;
-            super->timer = 0x60;
-            super->subtimer = 0x14;
-            RequestPriorityDuration(super, 0x60);
+            super->timer = 96;
+            super->subtimer = 20;
+            RequestPriorityDuration(super, 96);
             SoundReq(SFX_10F);
         }
     }
@@ -152,7 +152,7 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
         if (super->type2 != 0) {
             if ((CheckFlags(this->pushedFlag) != 0) || GetTileType(this->unk_68, super->collisionLayer) == 0x403f) {
                 super->action = 3;
-                super->timer = 0x40;
+                super->timer = 64;
                 super->subtimer = 0;
                 super->direction = 0;
                 super->speed = 0x40;
@@ -177,8 +177,8 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
         if (CheckFlags(this->pushedFlag) != 0) {
             super->action = 2;
             super->subAction = 0;
-            super->timer = 0xf0;
-            super->subtimer = 0x3c;
+            super->timer = 240;
+            super->subtimer = 60;
             super->direction = 0;
             super->speed = 0x40;
             RestorePrevTileEntity(this->unk_68, super->collisionLayer);

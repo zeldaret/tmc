@@ -53,11 +53,9 @@ void ArmosInteriorManager_Action1(ArmosInteriorManager* this) {
 
 void ArmosInteriorManager_Action2(ArmosInteriorManager* this) {
     static const u8 gUnk_08108D20[] = { 0x6F, 0x70, 0x71, 0x72, 0x71, 0x70 };
-    u8 bVar1;
-    int iVar2;
 
     if (--super->timer == 0) {
-        super->timer = 0x14;
+        super->timer = 20;
 
         if (++super->subtimer > 5) {
             super->subtimer = 0;

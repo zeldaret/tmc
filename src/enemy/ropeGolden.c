@@ -81,17 +81,17 @@ void sub_0803827C(Entity* this) {
         }
     }
     UpdateAnimationVariableFrames(this, 0x2);
-    if (ProcessMovement0(this) == 0) {
+    if (!ProcessMovement0(this)) {
         sub_080383AC(this);
     } else {
-        if (!(--this->timer)) {
+        if (--this->timer == 0) {
             sub_080383AC(this);
         }
     }
 }
 
 void sub_080382EC(Entity* this) {
-    if (!(--this->timer)) {
+    if (--this->timer == 0) {
         this->action = 3;
     }
 }
@@ -101,7 +101,7 @@ ASM_FUNC("asm/non_matching/ropeGolden/sub_08038304.inc", void sub_08038304(Entit
 void sub_080383AC(Entity* this) {
     u32 v;
     this->action = 1;
-    this->timer = 0x8;
+    this->timer = 8;
     this->speed = 0x100;
     this->direction = DirectionRoundUp(GetFacingDirection(this, &gPlayerEntity));
     v = this->direction >> 3;
@@ -114,7 +114,7 @@ void sub_080383AC(Entity* this) {
 void sub_080383E4(Entity* this) {
     u32 v;
     this->action = 2;
-    this->timer = 0x8;
+    this->timer = 8;
     this->speed = 0x280;
     v = DirectionRoundUp(GetFacingDirection(this, &gPlayerEntity));
     this->direction = v;

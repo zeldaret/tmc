@@ -61,7 +61,7 @@ void KeyStealingTakkuri_Type0_Init(KeyStealingTakkuriEntity* this) {
     Entity* entity;
     super->action++;
     super->collisionLayer = 1;
-    super->timer = 0x1e;
+    super->timer = 30;
     super->subtimer = 0;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
@@ -92,7 +92,7 @@ void KeyStealingTakkuri_Type0_Action2(KeyStealingTakkuriEntity* this) {
     sub_0809E1F0(this);
     if ((s32)sub_080041DC(super, child->x.HALF.HI, child->y.HALF.HI) * 0x10 < super->speed) {
         super->action++;
-        super->timer = 0x10;
+        super->timer = 16;
         super->subtimer = 1;
         InitAnimationForceUpdate(super, 2);
     }
@@ -189,7 +189,7 @@ void KeyStealingTakkuri_Type2_Init(KeyStealingTakkuriEntity* this) {
 
     super->action++;
     super->collisionLayer = 2;
-    super->timer = 0x1e;
+    super->timer = 30;
     super->subtimer = 1;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
@@ -236,7 +236,7 @@ void KeyStealingTakkuri_Type2_Action3(KeyStealingTakkuriEntity* this) {
     this->unk_6e += 8;
     if (--this->unk_6c == 0) {
         super->action++;
-        super->timer = 0x1e;
+        super->timer = 30;
         super->spriteSettings.flipX = 0;
     } else {
         sub_0809E238(this);
@@ -276,7 +276,7 @@ void KeyStealingTakkuri_Type3_Init(KeyStealingTakkuriEntity* this) {
 
     super->action++;
     super->collisionLayer = 2;
-    super->timer = 0xa;
+    super->timer = 10;
     super->subtimer = 0;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
@@ -306,7 +306,7 @@ void KeyStealingTakkuri_Type3_Action1(KeyStealingTakkuriEntity* this) {
     switch (sub_0809E2C4(this, super->type2)) {
         case 1:
             super->action += 2;
-            super->timer = 0xff;
+            super->timer = 255;
             InitAnimationForceUpdate(super, super->animIndex + 2);
             SoundReq(SFX_123);
             child = super->child;
@@ -330,7 +330,7 @@ void KeyStealingTakkuri_Type3_Action1(KeyStealingTakkuriEntity* this) {
             }
             break;
         default:
-            super->timer = 0xa;
+            super->timer = 10;
             break;
     }
     UpdateAnimationSingleFrame(super);

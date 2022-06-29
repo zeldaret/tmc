@@ -40,7 +40,7 @@ void TileChangeObserveManager_Init(TileChangeObserveManager* this) {
 void TileChangeObserveManager_Action1(TileChangeObserveManager* this) {
     if (this->initialTile != this->observedTile[0]) {
         super->action++;
-        super->timer = 0xf;
+        super->timer = 15;
     }
 }
 

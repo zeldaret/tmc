@@ -154,7 +154,7 @@ void sub_080919AC(MinecartEntity* this) {
 
             if (super->subtimer-- == 0) {
                 SoundReq(SFX_PLY_VO7);
-                super->subtimer = 0x3c;
+                super->subtimer = 60;
             }
 
             uVar3 = GetRelativeCollisionTile(super, gUnk_081223C8[super->animationState * 2],

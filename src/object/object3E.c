@@ -41,7 +41,7 @@ void Object3E_Type0(Object3EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->timer = 0x40 - (Random() & 0x1f);
+            super->timer = 64 - (Random() & 0x1F);
             super->frameIndex = 0;
             super->animationState = 0;
             super->spriteRendering.b3 = 3;
@@ -61,7 +61,7 @@ void Object3E_Type0(Object3EEntity* this) {
                 if (--super->subtimer == 0) {
                     super->frameIndex = 0;
                     super->action = 1;
-                    super->timer = 0x40 - (Random() & 0x1f);
+                    super->timer = 64 - (Random() & 0x1F);
                 } else {
                     super->timer = 8;
                     tmp2 = super->animationState;

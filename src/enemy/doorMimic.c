@@ -60,11 +60,11 @@ void sub_0802209C(Entity* this) {
     if (this->timer == 0) {
         if (CheckPlayerProximity(this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x10, 0x10)) {
             this->action = 2;
-            this->timer = 0x12;
+            this->timer = 18;
             InitializeAnimation(this, this->type2 + 4);
         }
     } else {
-        this->timer = this->timer - 1;
+        this->timer--;
     }
 }
 
@@ -80,7 +80,7 @@ void sub_080220F0(Entity* this) {
         u32 i;
 
         this->action = 4;
-        this->timer = 0x78;
+        this->timer = 120;
         this->damage = 0;
         off = gUnk_080CB76C[this->type2];
         for (i = 0; i < 6; i++, off++) {
@@ -109,7 +109,7 @@ void sub_08022198(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->timer = 0x5a;
+        this->timer = 90;
     }
 }
 

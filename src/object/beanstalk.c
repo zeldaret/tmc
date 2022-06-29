@@ -174,7 +174,7 @@ void Beanstalk_Action1Type0SubAction0(BeanstalkEntity* this) {
             super->timer++;
         } else {
             InitAnimationForceUpdate(super, 1);
-            super->timer = 0x10;
+            super->timer = 16;
             super->subAction++;
         }
     }
@@ -182,7 +182,7 @@ void Beanstalk_Action1Type0SubAction0(BeanstalkEntity* this) {
 
 void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
     if (super->timer-- == 0) {
-        super->timer = 0x10;
+        super->timer = 16;
         SoundReq(SFX_198);
     }
     UpdateAnimationSingleFrame(super);
@@ -206,7 +206,7 @@ void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
 
 void Beanstalk_Action1Type0SubAction2(BeanstalkEntity* this) {
     if (super->timer-- == 0) {
-        super->timer = 0x10;
+        super->timer = 16;
         SoundReq(SFX_198);
     }
 }
@@ -319,7 +319,7 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
         obj->spriteVramOffset = super->spriteVramOffset;
         obj->palette.b.b0 = super->palette.b.b0;
         obj->animIndex = 2;
-        obj->timer = 0x80;
+        obj->timer = 128;
         obj->type = 1;
         obj->spriteRendering.b3 = 2;
         obj->spritePriority.b0 = 6;

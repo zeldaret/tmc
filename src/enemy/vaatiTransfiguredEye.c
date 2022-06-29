@@ -188,7 +188,7 @@ void VaatiTransfiguredEyeFunction0Action4(Entity* this) {
     sub_08045A28(this);
     if (this->subtimer == 0) {
         if ((this->frame & ANIM_DONE) != 0) {
-            this->subtimer = 0x20;
+            this->subtimer = 32;
         }
     } else {
         parent = this->parent;

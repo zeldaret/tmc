@@ -145,7 +145,7 @@ void Bobomb_OnDeath(Entity* this) {
 
 void sub_0802C8D8(Entity* this) {
     this->action = 1;
-    this->timer = 0x3c;
+    this->timer = 60;
     this->subtimer = 0;
     this->direction = (Random() & 0x18) | 4;
     this->carryFlags = 0;
@@ -271,7 +271,7 @@ void sub_0802CB68(Entity* this) {
         this->speed = 0x200;
         InitializeAnimation(this, (this->direction >> 4) | 2);
     } else {
-        this->timer = 0x3c;
+        this->timer = 60;
         this->speed = 0x80;
         InitializeAnimation(this, this->direction >> 4);
     }

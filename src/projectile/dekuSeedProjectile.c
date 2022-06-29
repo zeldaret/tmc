@@ -36,7 +36,7 @@ void sub_080A8470(Entity* this) {
 
 void DekuSeedProjectile_Init(Entity* this) {
     this->action = 1;
-    this->timer = 0x30;
+    this->timer = 48;
     this->subtimer = 0;
     this->z.HALF.HI -= 4;
     if (CheckGlobalFlag(TABIDACHI) == 0) {

@@ -112,7 +112,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
             InitializeAnimation(super, 1);
             break;
         case 3:
-            super->timer = 0x1e;
+            super->timer = 30;
             super->subtimer = 0;
             this->unk_81 = 1;
             this->unk_7a = 0;
@@ -199,7 +199,7 @@ void FigurineDevice_Action3(FigurineDeviceEntity* this) {
         case 0:
             if ((super->frame & ANIM_DONE) != 0) {
                 this->unk_7a = 1;
-                super->timer = 0x28;
+                super->timer = 40;
                 ChangeObjPalette(super, gUnk_08120AA8[super->type2]);
                 InitializeAnimation(super, 2);
                 SoundReq(SFX_110);
@@ -254,7 +254,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             if ((gInput.newKeys & 1) != 0) {
                 SoundReq(SFX_TEXTBOX_SELECT);
                 this->unk_7a = 2;
-                super->timer = 0x3c;
+                super->timer = 60;
                 sub_08050384();
                 return;
             }
@@ -323,7 +323,7 @@ ASM_FUNC("asm/non_matching/figurineDevice/sub_08087F94.inc", void sub_08087F94(F
 
 void sub_08088034(FigurineDeviceEntity* this) {
     if (super->timer == 0) {
-        super->timer = 0x14;
+        super->timer = 20;
         SoundReq(SFX_MENU_ERROR);
     }
 }

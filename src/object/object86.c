@@ -60,7 +60,7 @@ void sub_08099E8C(Entity* this) {
     if (EntityInRectRadius(this, &gPlayerEntity, 0xc, 0xc)) {
         if (this->subAction == 0) {
             sub_08099ECC(this);
-            RequestPriorityDuration(this, 0x1e);
+            RequestPriorityDuration(this, 30);
         }
         if (CheckLocalFlag(0x75)) {
             CreateHoleManager(0x7);

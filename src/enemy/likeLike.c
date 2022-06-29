@@ -40,9 +40,9 @@ void LikeLike_OnCollision(Entity* this) {
             sub_0802810C(this);
         } else if (this->contactFlags & 0x80) {
             u8 tmp = this->contactFlags & ~0x80;
-            if (!tmp) {
+            if (tmp == 0) {
                 this->action = 7;
-                this->timer = 0x5f;
+                this->timer = 95;
                 this->subtimer = tmp;
                 this->flags2 &= 0xfc;
                 this->field_0x82.HALF.HI = gPlayerEntity.spritePriority.b1;
@@ -51,7 +51,7 @@ void LikeLike_OnCollision(Entity* this) {
     }
 
     if (this->health == 0) {
-        this->timer = 0x20;
+        this->timer = 32;
     }
 
     if (this->confusedTime) {
@@ -221,7 +221,7 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
     gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = 0;
     this->action = 4;
-    this->timer = 0x50;
+    this->timer = 80;
     this->subtimer = 0;
     this->flags2 |= 2;
     if (this->iframes == 0) {
@@ -231,7 +231,7 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
 END_NONMATCH
 
 void sub_080281A0(Entity* this) {
-    this->subtimer = 0x19;
+    this->subtimer = 25;
     if (sub_080281E0(ITEM_MIRROR_SHIELD)) {
         this->field_0x80.HALF.LO = ITEM_MIRROR_SHIELD;
         MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x78));

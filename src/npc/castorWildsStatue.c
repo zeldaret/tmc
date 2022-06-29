@@ -109,7 +109,7 @@ void sub_08067534(Entity* this) {
         }
     }
     EnqueueSFX(SFX_14C);
-    InitScreenShake(0x28, 4);
+    InitScreenShake(40, 4);
 }
 
 void sub_0806757C(Entity* this) {

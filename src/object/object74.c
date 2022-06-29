@@ -52,7 +52,7 @@ void sub_08097BDC(Object74Entity* this) {
     if (CheckFlags(this->unk_86)) {
         SetPlayerControl(CONTROL_1);
         gPauseMenuOptions.disabled = 1;
-        RequestPriorityDuration(super, 0x1e);
+        RequestPriorityDuration(super, 30);
         if (sub_08097CB0(this) == FALSE) {
             sub_08097CB4(this);
         }
@@ -67,7 +67,7 @@ void sub_08097C1C(Object74Entity* this) {
 
 void sub_08097C20(Object74Entity* this) {
     u32 tmp;
-    SetPriorityTimer(0x1e);
+    SetPriorityTimer(30);
     sub_0800445C(super);
     CreateMagicSparkles(super->x.HALF.HI, super->y.HALF.HI, super->collisionLayer);
     if (--super->timer == 0) {
@@ -95,7 +95,7 @@ void sub_08097CB4(Object74Entity* this) {
     super->action = 3;
     super->spriteSettings.draw = 1;
     super->spriteRendering.alphaBlend = 1;
-    super->timer = 0x1e;
+    super->timer = 30;
     super->subtimer = 0;
     gScreen.controls.layerFXControl = 0xf40;
     gScreen.controls.alphaBlend = 0x1000;

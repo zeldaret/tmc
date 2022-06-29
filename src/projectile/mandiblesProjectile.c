@@ -53,7 +53,7 @@ void sub_080A9EBC(Entity* this) {
                     this->field_0x82.HALF.LO = 2;
                     this->animationState = 0xff;
                     sub_080AA270(this);
-                    this->subtimer = 0x20;
+                    this->subtimer = 32;
                 }
                 break;
             default:
@@ -134,7 +134,7 @@ void MandiblesProjectile_Action3(Entity* this) {
             if ((this->frame & ANIM_DONE) != 0) {
                 this->action = 4;
                 this->field_0x82.HALF.LO = 3;
-                this->subtimer = 0x40;
+                this->subtimer = 64;
                 uVar1 = entity->animationState;
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
@@ -186,7 +186,7 @@ void MandiblesProjectile_Action4(Entity* this) {
                 entity->speed = 0;
                 entity->field_0x82.HALF.LO = 1;
                 entity->timer = 0;
-                entity->subtimer = 0x78;
+                entity->subtimer = 120;
                 entity->field_0x80.HWORD = 0x20;
                 sub_080AA3E0(entity, 1);
             }
@@ -280,7 +280,7 @@ void sub_080AA320(Entity* this) {
     this->field_0x82.HALF.LO = 1;
     this->subtimer = 0;
     parent->action = 2;
-    parent->subtimer = 0x30;
+    parent->subtimer = 48;
     parent->field_0x80.HWORD = 0x50;
     parent->speed = 0;
     parent->direction = sub_08049F84(parent, 0);

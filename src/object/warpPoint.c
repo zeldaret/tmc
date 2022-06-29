@@ -51,12 +51,12 @@ void sub_0808B474(Entity* this) {
     if (!sub_0808B7C8(this))
         return;
     this->action = 4;
-    this->subtimer = 0x60;
+    this->subtimer = 96;
     gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
     gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
     gPlayerEntity.animationState = 4;
     EnqueueSFX(SFX_112);
-    RequestPriorityDuration(this, this->subtimer + 0x10);
+    RequestPriorityDuration(this, this->subtimer + 16);
 }
 
 void sub_0808B530(Entity* this) {
@@ -85,13 +85,13 @@ void sub_0808B590(Entity* this) {
         if (this->timer)
             return;
         this->action = 5;
-        this->subtimer = 0x60;
+        this->subtimer = 96;
         PutAwayItems();
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
-        RequestPriorityDuration(this, this->subtimer + 0x10);
+        RequestPriorityDuration(this, this->subtimer + 16);
         SoundReq(SFX_113);
     } else {
         this->timer = 0;

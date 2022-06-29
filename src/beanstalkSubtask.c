@@ -578,7 +578,6 @@ void LoadBgAnimations(u16* param_1) {
     while (param_1[0] != 0xffff) {
         animation->currentFrame = gUnk_080B7278[param_1[0]];
         animation->timer = GetBgAnimationTimer(&animation->currentFrame->unk_4);
-        ;
         animation++;
         param_1++;
     }

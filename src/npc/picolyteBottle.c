@@ -77,7 +77,7 @@ void PicolyteBottle_Action1(PicolyteBottleEntity* this) {
         }
         this->ent1->timer++;
         this->ent2->timer++;
-        super->timer = 0xff;
+        super->timer = 255;
         SetRoomFlag(0);
     }
 }
@@ -117,7 +117,7 @@ void sub_0806E014(PicolyteBottleEntity* this) {
 
     uVar1 = (Random() & 0x70) >> 4;
     super->type2 = 0xff;
-    super->timer = 0xff;
+    super->timer = 255;
     if (CheckLocalFlag(0x93) == 0) {
         super->damage = 0;
         iVar2 = uVar1 * 2;
@@ -126,7 +126,7 @@ void sub_0806E014(PicolyteBottleEntity* this) {
         PositionRelative(super, this->ent1, 0x480000, 0x480000);
         this->ent2->subtimer = ptr[1];
         PositionRelative(super, this->ent2, 0x680000, 0x480000);
-        this->ent3->subtimer = 0xff;
+        this->ent3->subtimer = 255;
         CopyPosition(super, this->ent3);
     } else {
         super->damage = 1;

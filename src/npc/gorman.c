@@ -53,7 +53,7 @@ void sub_080697EC(Entity* this) {
     tmp = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (tmp >= 0) {
         if (this->subtimer == 0) {
-            this->subtimer = 0x10;
+            this->subtimer = 16;
             if (this->animIndex != tmp) {
                 InitializeAnimation(this, tmp);
             }

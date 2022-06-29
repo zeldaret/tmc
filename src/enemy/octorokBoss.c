@@ -141,13 +141,13 @@ void OctorokBoss_Hit_SubAction0(OctorokBossEntity* this) {
     } else {
         if (IS_FROZEN(this) == FALSE) {
             super->type2 = 0;
-            this->timer = 0x3c;
+            this->timer = 60;
         } else {
             if (this->heap->tailCount > 3) {
                 this->heap->tailCount--;
             }
             this->heap->tailObjects[0]->currentAttack = 0;
-            this->timer = 0x78;
+            this->timer = 120;
         }
         super->subAction = 1;
     }
@@ -228,7 +228,7 @@ void OctorokBoss_Hit_SubAction2(OctorokBossEntity* this) {
         this->heap->tailObjects[0]->currentAttack++;
     } else {
         super->subAction = 3;
-        this->timer = 0x96;
+        this->timer = 150;
         gRoomControls.camera_target = &gPlayerEntity;
     }
 }
@@ -258,7 +258,7 @@ void OctorokBoss_Hit_SubAction4(OctorokBossEntity* this) {
 
 void OctorokBoss_Hit_SubAction5(OctorokBossEntity* this) {
     super->subAction = 6;
-    this->timer = 0x78;
+    this->timer = 120;
     this->unk_80 = 0;
     this->angularSpeed.HALF.LO = 0;
 }
@@ -343,7 +343,7 @@ void OctorokBoss_Intro_SubAction0(OctorokBossEntity* this) {
 void OctorokBoss_Intro_SubAction1(OctorokBossEntity* this) {
     // Rotate Octorok to player
     if (this->angle.HALF.HI == 0x80) {
-        this->timer = 0x3c;
+        this->timer = 60;
         super->subAction = 2;
         this->heap->unk_0 = 0;
         // Octorok scream
@@ -358,7 +358,7 @@ void OctorokBoss_Intro_SubAction2(OctorokBossEntity* this) {
     // Wait for scream end
     if (this->timer-- == 0) {
         super->subAction = 3;
-        this->timer = 0x3c;
+        this->timer = 60;
         gPlayerEntity.spriteSettings.draw |= 1;
         gRoomControls.camera_target = &gPlayerEntity;
         gRoomControls.unk5 = 1;
@@ -372,7 +372,7 @@ void OctorokBoss_Intro_SubAction3(OctorokBossEntity* this) {
         gPlayerEntity.direction = 0x10;
         gPlayerEntity.animationState = 4;
         sub_08078AC0(0x1e, 0, 0);
-        this->timer = 0x3c;
+        this->timer = 60;
         super->subAction = 4;
     }
 }
@@ -380,7 +380,7 @@ void OctorokBoss_Intro_SubAction3(OctorokBossEntity* this) {
 void OctorokBoss_Intro_SubAction4(OctorokBossEntity* this) {
     if (this->timer-- == 0) {
         super->subAction = 5;
-        this->timer = 0x2d;
+        this->timer = 45;
         // Make the player look towards the exit
         gPlayerEntity.animationState = 0;
     } else {
@@ -652,9 +652,9 @@ void OctorokBoss_Action1_ChargeAttack(OctorokBossEntity* this) {
             super->knockbackDuration = 0x20;
             super->knockbackSpeed = 0x200;
             super->knockbackDirection = super->direction ^ 0x10;
-            this->heap->fallingStonesTimer += 0x3c;
+            this->heap->fallingStonesTimer += 60;
             OctorokBoss_SetAttackTimer(this);
-            InitScreenShake(0x3c, 0);
+            InitScreenShake(60, 0);
             SoundReq(SFX_158);
             SoundReq(SFX_14C);
         }
@@ -692,7 +692,7 @@ void OctorokBoss_Action1_Attack_Type2_0(OctorokBossEntity* this) {
         this->angularSpeed.HWORD = 0x100;
         super->type2 = 1;
         if (IS_FROZEN(this) == FALSE) {
-            this->timer = 0x16;
+            this->timer = 22;
         } else {
             this->timer = 0;
         }
@@ -708,14 +708,14 @@ void OctorokBoss_Action1_Attack_Type2_1(OctorokBossEntity* this) {
             if (this->currentAttack == ATTACK_VACUUM) {
                 super->type2 = 3;
                 if (IS_FROZEN(this)) {
-                    this->timer = 0x3c;
+                    this->timer = 60;
                 } else {
-                    this->timer = 0x78;
+                    this->timer = 120;
                 }
                 this->heap->targetAngle = this->angle.HALF.HI;
             } else {
                 super->type2 = 2;
-                this->timer = 0x2d;
+                this->timer = 45;
             }
             SoundReq(SFX_155);
         }
@@ -731,7 +731,7 @@ void OctorokBoss_Action1_Attack_Type2_2(OctorokBossEntity* this) {
         super->type2 = 3;
         this->unk_74 = this->unk_76;
         if (this->currentAttack != ATTACK_SMOKE) {
-            this->timer = 0x3c;
+            this->timer = 60;
         } else {
             this->timer = 0;
             CreateObjectWithParent(super, OCTOROK_BOSS_OBJECT, 4, 0);
@@ -813,7 +813,7 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
             if (this->unk_80 == 1) {
                 this->unk_80 = 2;
                 super->type2 = 2;
-                this->timer = 0x2d;
+                this->timer = 45;
                 this->angularSpeed.HWORD = 0x100;
                 this->heap->field_0x2 = 0;
                 return;
@@ -864,7 +864,7 @@ void OctorokBoss_ExecuteAttackSmoke(OctorokBossEntity* this) {
     if (this->timer == 0xff) {
         super->type2 = 0;
         OctorokBoss_SetAttackTimer(this);
-        this->timer = 0x78;
+        this->timer = 120;
     } else {
         this->timer++;
         ChangeLightLevel(-1);
@@ -915,7 +915,7 @@ void OctorokBoss_Burning_SubAction0(OctorokBossEntity* this) {
     super->speed = 0x200;
     super->collisions = COL_NONE;
     super->direction = (u8)(-this->angle.HALF.HI ^ 0x80U) >> 3;
-    this->timer = 0x78;
+    this->timer = 120;
     this->angularSpeed.HWORD = 0x180;
     this->heap->unk_0 = 4;
     sub_080368D8(this);
@@ -936,8 +936,8 @@ void OctorokBoss_Burning_SubAction1(OctorokBossEntity* this) {
         super->knockbackDuration = 0x18;
         super->knockbackSpeed = 0x200;
         super->knockbackDirection = super->direction ^ 0x10;
-        this->heap->fallingStonesTimer += 0x1e;
-        InitScreenShake(0x1e, 0);
+        this->heap->fallingStonesTimer += 30;
+        InitScreenShake(30, 0);
         SoundReq(SFX_158);
         SoundReq(SFX_14C);
     }
@@ -1162,7 +1162,7 @@ void OctorokBoss_StartRegularAttack(OctorokBossEntity* this) {
         if (((Random() & 3) == 0) || ((s16)gRoomVars.lightLevel != 0x100)) {
             super->subAction = ACTION1_SUBACTION2;
             super->speed = 0x200;
-            this->timer = 0x3c;
+            this->timer = 60;
             super->collisions = COL_NONE;
             this->heap->unk_0 = 4;
             SoundReq(SFX_159);
@@ -1217,7 +1217,7 @@ void sub_08036F60(OctorokBossEntity* this) {
             super->timer = 1;
         } else {
             if (this->unk_76 > 0xa4) {
-                super->timer = 0xff;
+                super->timer = 255;
             }
         }
     }

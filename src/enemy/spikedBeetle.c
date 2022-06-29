@@ -86,13 +86,13 @@ void sub_0802B744(Entity* this) {
     GetNextFrame(this);
     if (sub_08049FDC(this, 1) && (direction = sub_0804A024(this, 1, 0xc), direction != 0xff)) {
         this->action = 3;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->direction = DirectionRound(direction);
         InitializeAnimation(this, 8);
     } else {
         if (--this->timer == 0) {
             this->action = 2;
-            this->timer = 0x1e;
+            this->timer = 30;
         } else {
             if (!ProcessMovement0(this)) {
                 this->timer = 1;
@@ -121,7 +121,7 @@ void sub_0802B7FC(Entity* this) {
     GetNextFrame(this);
     if (--this->timer == 0) {
         this->action = 4;
-        this->timer = 0x78;
+        this->timer = 120;
         this->speed = 0x1c0;
     }
 }
@@ -145,7 +145,7 @@ void sub_0802B820(Entity* this) {
 void sub_0802B880(Entity* this) {
     if (--this->timer == 0) {
         this->action = 2;
-        this->timer = 0x3c;
+        this->timer = 60;
         this->animationState = DirectionToAnimationState(this->direction);
         InitializeAnimation(this, this->animationState);
     }
@@ -156,7 +156,7 @@ void sub_0802B8B0(Entity* this) {
     switch (sub_080044EC(this, 0x1800)) {
         case 0:
             this->action = 7;
-            this->timer = 0x96;
+            this->timer = 150;
             /* fallthrough */
         case 1:
             EnqueueSFX(SFX_12B);
@@ -204,7 +204,7 @@ void sub_0802B960(Entity* this) {
 
 void sub_0802B9B4(Entity* this) {
     this->action = 5;
-    this->timer = 0x3c;
+    this->timer = 60;
     this->animationState = (this->direction >> 3) & 3;
     InitializeAnimation(this, this->animationState + 4);
 }

@@ -103,7 +103,7 @@ void Object30_Action2(Object30Entity* this) {
 
 void sub_0808A968(Object30Entity* this) {
     super->action = 2;
-    super->timer = 0x1e;
+    super->timer = 30;
     super->spriteSettings.draw = 1;
     super->zVelocity = Q_16_16(2.5);
     super->spritePriority.b1 = 3;

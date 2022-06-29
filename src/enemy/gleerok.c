@@ -80,15 +80,15 @@ void Gleerok_OnDeath(GleerokEntity* this) {
             if (super->type2 == 0) {
                 super->type2 = 1;
                 super->timer = 0;
-                super->subtimer = 0x3c;
+                super->subtimer = 60;
                 this->unk_74 = 0x10;
                 this->unk_75 = 0;
                 gScreen.controls.alphaBlend = this->unk_74;
                 gScreen.controls.layerFXControl = 0x1442;
                 SoundReq(SFX_EVAPORATE);
             } else {
-                ++super->timer;
-                if ((super->timer & 0xf) == 0) {
+                super->timer++;
+                if ((super->timer & 0xF) == 0) {
                     this->unk_75++;
                     this->unk_74--;
                     gScreen.controls.alphaBlend = this->unk_74 | (this->unk_75 << 8);
@@ -148,7 +148,7 @@ void sub_0802D170(GleerokEntity* this) {
     } else {
         super->action = 3;
         this->unk_80 = 0;
-        ((Entity*)this->unk_84)->parent->timer = 0x18;
+        ((Entity*)this->unk_84)->parent->timer = 24;
         this->unk_84->filler[0x19] = 0;
     }
 }
@@ -161,7 +161,7 @@ void sub_0802D218(GleerokEntity* this) {
     super->timer = 0;
     super->subtimer = 0;
     this->unk_7c.HALF_U.LO = 0xb4;
-    ((Entity*)(this->unk_84))->parent->timer = 0xc;
+    ((Entity*)(this->unk_84))->parent->timer = 12;
     CreateObjectWithParent(super, 0x67, 0x2, this->unk_7c.HALF_U.LO);
 }
 
@@ -403,7 +403,7 @@ void sub_0802D6F0(GleerokEntity* this) {
     if (--this->unk_7c.WORD == -1) {
         super->subAction = 2;
         this->unk_7c.WORD = 0x5a;
-        InitScreenShake(0x96, 0);
+        InitScreenShake(150, 0);
     }
 }
 
@@ -434,7 +434,7 @@ void sub_0802D714(GleerokEntity* this) {
         ((GleerokEntity*)(super->child))->unk_84 = heap;
     }
 
-    heap->ent2->timer = 0x18;
+    heap->ent2->timer = 24;
 }
 
 void sub_0802D77C(GleerokEntity* this) {
@@ -449,7 +449,7 @@ void sub_0802D77C(GleerokEntity* this) {
     super->subtimer = 0;
     super->timer = 0;
     super->subAction = 4;
-    this->unk_84->ent2->timer = 0xc;
+    this->unk_84->ent2->timer = 12;
 }
 
 void sub_0802D7B4(GleerokEntity* this) {
@@ -459,7 +459,7 @@ void sub_0802D7B4(GleerokEntity* this) {
             super->timer = 0;
             super->action = 1;
             super->subAction = 0;
-            this->unk_84->ent2->timer = 0x18;
+            this->unk_84->ent2->timer = 24;
             gRoomControls.camera_target = &gPlayerEntity;
 #ifndef EU
             gPlayerState.controlMode = CONTROL_1;
@@ -730,10 +730,10 @@ void sub_0802DC1C(GleerokEntity* this) {
 }
 
 void sub_0802DCE0(GleerokEntity* this) {
-    if (this->unk_84->ent2->timer != 0xc) {
+    if (this->unk_84->ent2->timer != 12) {
         super->direction = GetFacingDirection(super, &gPlayerEntity);
         if (this->unk_84->filler[0x15] == super->direction) {
-            this->unk_84->ent2->timer = 0xc;
+            this->unk_84->ent2->timer = 12;
             this->unk_82 = 4;
             super->subtimer = 0;
         } else {
@@ -870,7 +870,7 @@ void sub_0802DDD8(GleerokEntity* this) {
                         super->timer &= 0xfe;
                     }
 
-                    this->unk_84->ent2->timer = 0xc;
+                    this->unk_84->ent2->timer = 12;
                 } else {
                     super->subAction = 0;
                     this->unk_84->ent2->timer = 0;
@@ -903,7 +903,7 @@ void sub_0802DFC0(GleerokEntity* this) {
             if (this->unk_7b) {
                 COLLISION_ON(super);
                 super->type2 = 1;
-                this->unk_84->ent2->timer = 0x18;
+                this->unk_84->ent2->timer = 24;
                 SoundReq(SFX_BOSS_HIT);
             }
         }
@@ -1018,7 +1018,7 @@ void sub_0802E1D0(GleerokEntity* this) {
                     if (i == 5) {
                         if (!(this->unk_79 & 0x80)) {
                             this->unk_7c.HALF_U.LO = 0xF0;
-                            InitScreenShake(0xF0, 0);
+                            InitScreenShake(240, 0);
                         } else {
                             for (this->unk_7c.HALF_U.LO = 0; this->unk_7c.HALF_U.LO < 4; this->unk_7c.HALF_U.LO++) {
                                 CreateObjectWithParent(super, OBJECT_67, 1, this->unk_7c.HALF_U.LO);
@@ -1028,7 +1028,7 @@ void sub_0802E1D0(GleerokEntity* this) {
                             this->unk_7c.HALF_U.LO = 0xB;
                             gScreen.controls.alphaBlend = this->unk_74 | (this->unk_75 << 8);
                             gScreen.controls.layerFXControl = 0x240;
-                            InitScreenShake(0x1e, 0);
+                            InitScreenShake(30, 0);
                         }
                         super->type2 = 5;
                     }
@@ -1100,7 +1100,7 @@ void sub_0802E300(GleerokEntity* this) {
             ((GleerokEntity*)super->child)->unk_84 = heap;
         }
 
-        heap->ent2->timer = 0x18;
+        heap->ent2->timer = 24;
     } else {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
             CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0x3);
@@ -1202,7 +1202,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
         heap->entities[index]->y.WORD -= result << 8;
     }
 
-    if (heap->ent2->timer == 0x18) {
+    if (heap->ent2->timer == 24) {
         r7 = (heap->filler[0x15] >> 3) << 2;
         if (heap->filler[0x2d] > 0xc) {
             r7 += 3;

@@ -126,11 +126,11 @@ void sub_0802A9A8(Entity* this) {
     if (this->subtimer) {
         this->subtimer--;
     } else {
-        if (this->timer) {
+        if (this->timer != 0) {
             if (--this->timer == 0) {
                 this->action = 2;
                 this->subAction = 0;
-                this->timer = 0x40;
+                this->timer = 64;
                 sub_0802ACDC(this, 8);
             }
         } else {
@@ -147,7 +147,7 @@ void sub_0802A9A8(Entity* this) {
                 this->direction = 0x18;
             }
             this->y.HALF.HI = gRoomControls.scroll_y + 0x40;
-            this->timer = 0x80;
+            this->timer = 128;
             sub_0802ADDC(this);
         }
         sub_0802AC40(this);
@@ -160,7 +160,7 @@ void sub_0802AA40(Entity* this) {
         sub_0802ACDC(this, 8);
         this->field_0x7a.HALF.HI++;
     }
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
     } else {
         Entity* ent = this->child;
@@ -178,7 +178,7 @@ void sub_0802AA40(Entity* this) {
                     this->speed = 0x180;
                     this->field_0x7a.HALF.HI = 0;
                     ent->field_0x80.HALF.LO = 1;
-                    ent->timer = 0x96;
+                    ent->timer = 150;
                 }
             }
         }
@@ -215,7 +215,7 @@ void sub_0802AAC0(Entity* this) {
 #endif
     } else {
         this->action = 4;
-        this->timer = 0xc0;
+        this->timer = 192;
         this->subtimer = 4;
         this->field_0x80.HALF.LO ^= 1;
 #ifndef EU
@@ -236,8 +236,8 @@ void sub_0802AB40(Entity* this) {
             this->speed = 0;
             InitializeAnimation(this, this->type + 1);
         } else {
-            this->timer = 0xc0;
-            this->subtimer = 0x4;
+            this->timer = 192;
+            this->subtimer = 4;
             this->field_0x80.HALF.LO ^= 1;
         }
     } else if (--this->subtimer == 0) {
@@ -289,7 +289,7 @@ void sub_0802AC08(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->subAction = 0;
-        this->timer = 0x40;
+        this->timer = 64;
         this->speed = 0xc0;
         sub_0802ACDC(this, 8);
         sub_0802ADDC(this);
@@ -373,7 +373,7 @@ void sub_0802AD54(Entity* this) {
     if (this->field_0x80.HALF.HI) {
         if (this->child == NULL || this->child->next == NULL) {
             this->action = 4;
-            this->timer = 0xc0;
+            this->timer = 192;
             this->subtimer = 4;
             this->field_0x80.HALF.LO ^= 1;
         }
@@ -399,7 +399,7 @@ void sub_0802ADDC(Entity* this) {
 
 void sub_0802AE24(Entity* this) {
     this->action = 1;
-    this->timer = 0xf0;
+    this->timer = 240;
     this->zVelocity = Q_16_16(0.5);
     this->hitbox = (Hitbox*)&gUnk_080CD174;
     this->collisionFlags = 3;
@@ -564,9 +564,9 @@ void sub_0802B048(Entity* this) {
 
     action = this->action;
     if (action != 4 && this->field_0x80.HALF.LO) {
-        if (this->timer) {
+        if (this->timer != 0) {
             if (--this->timer == 0) {
-                this->subtimer = 0x50;
+                this->subtimer = 80;
                 this->field_0x82.HWORD = 0;
                 this->spriteRendering.b0 = 3;
                 SetAffineInfo(this, 0x100, 0x100, 0);
@@ -580,7 +580,7 @@ void sub_0802B048(Entity* this) {
                     sub_0805EC60(this);
                     this->action = 4;
                     this->hitbox = (Hitbox*)&gUnk_080CD17C;
-                    this->timer = 0xf;
+                    this->timer = 15;
                     this->spriteSettings.draw = 0;
                     COLLISION_ON(this);
                     this->field_0x7a.HALF.HI = 0;
@@ -605,7 +605,7 @@ void sub_0802B048(Entity* this) {
 void sub_0802B1A0(Entity* this) {
     this->action = 1;
     this->timer = 0;
-    this->subtimer = 0x4f;
+    this->subtimer = 79;
     this->field_0x80.HALF.HI = 1;
     InitializeAnimation(this, 0);
 }
@@ -614,7 +614,7 @@ void sub_0802B1A0(Entity* this) {
 void sub_0802B1BC(Entity* this) {
     Entity* ent;
 
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
     }
 
@@ -643,7 +643,7 @@ void sub_0802B1BC(Entity* this) {
 void sub_0802B1BC(Entity* this) {
     Entity* ent;
 
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
     }
 

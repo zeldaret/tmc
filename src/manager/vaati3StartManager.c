@@ -69,7 +69,7 @@ void Vaati3StartManager_Type0_Action1(Vaati3StartManager* this) {
     if (distX * distX + distY * distY < 0x901) {
         super->action = 2;
         super->subAction = 0;
-        super->timer = 0x78;
+        super->timer = 120;
         SetPlayerControl(2);
         sub_08078B48();
         object = CreateObject(OBJECT_64, 0, 0);
@@ -94,7 +94,7 @@ void Vaati3StartManager_Type0_Action2(Vaati3StartManager* this) {
     } else {
         if (--super->timer == 0) {
             super->action = 3;
-            super->timer = 0x1e;
+            super->timer = 30;
             MessageFromTarget(TEXT_INDEX(TEXT_VAATI2, 0x4f));
         }
     }

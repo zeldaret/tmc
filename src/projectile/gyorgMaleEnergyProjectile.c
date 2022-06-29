@@ -44,7 +44,7 @@ void sub_080AC8DC(Entity* this) {
 
 void GyorgMaleEnergyProjectile_Init(Entity* this) {
     this->action = 1;
-    this->timer = 0x3c;
+    this->timer = 60;
     this->collisionLayer = 2;
     UpdateSpriteForCollisionLayer(this);
     InitializeAnimation(this, 0);

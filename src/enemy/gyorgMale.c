@@ -392,7 +392,7 @@ void sub_08046E68(GyorgMaleEntity* this) {
         sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
     } else {
         super->subAction = 4;
-        super->timer = 0x3F;
+        super->timer = 63;
         super->subtimer = 1;
         super->direction = (gUnk_080D1B70[Random() & 1] + tmp) & 0xC0;
         sub_08047D88(this);
@@ -404,13 +404,13 @@ const u16 gUnk_080D1B74[0x10] = { 0x20,  0x40, 0x60, 0x80, 0xA0, 0xC0, 0xE0, 0x1
 
 void sub_08046EF4(GyorgMaleEntity* this) {
     if (--super->timer == 0) {
-        super->timer = 0x7F;
+        super->timer = 127;
         super->direction ^= 0x80;
     }
     super->speed = gUnk_080D1B74[(super->timer >> 3) & 0xF];
     if (--super->subtimer == 0) {
         Entity* tmp;
-        super->subtimer = (Random() & 0x38) + 0x78;
+        super->subtimer = (Random() & 0x38) + 120;
         tmp = CreateProjectile(GYORG_MALE_ENERGY_PROJECTILE);
         if (tmp) {
             tmp->collisionLayer = 2;
@@ -926,7 +926,7 @@ void sub_08047B84(GyorgMaleEntity* this) {
 
 void sub_08047BA4(GyorgMaleEntity* this) {
     super->subAction = 1;
-    super->timer = 0x78;
+    super->timer = 120;
     super->subtimer = 0;
     if (gRoomControls.origin_x + 0x200 < super->x.HALF.HI) {
         this->unk_76 = 0x78;
@@ -968,17 +968,17 @@ void sub_08047BF0(GyorgMaleEntity* this) {
         }
     } else {
         super->timer--;
-        if (super->timer == 0x5A) {
+        if (super->timer == 90) {
             tmp = super->child;
             tmp->spriteSettings.draw = 0;
             CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
         } else {
-            if (super->timer == 0x3C) {
+            if (super->timer == 60) {
                 tmp = super->child->child;
                 tmp->spriteSettings.draw = 0;
                 CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
             } else {
-                if (super->timer == 0x1E) {
+                if (super->timer == 30) {
                     tmp = super->child->child->child;
                     tmp->spriteSettings.draw = 0;
                     CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);

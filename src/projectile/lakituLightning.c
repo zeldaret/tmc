@@ -25,7 +25,7 @@ void sub_080A9DD8(Entity* this) {
 
 void LakituLightning_Init(Entity* this) {
     this->action = 1;
-    this->timer = 0xb4;
+    this->timer = 180;
     this->health = 1;
     InitializeAnimation(this, 0);
 }

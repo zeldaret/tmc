@@ -174,7 +174,7 @@ void sub_0801F0C8(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 3;
-        this->timer = (Random() & 3) + 0xc;
+        this->timer = (Random() & 3) + 12;
         this->subtimer = Random();
         this->direction = sub_08049F84(this, 1);
         COLLISION_ON(this);
@@ -198,7 +198,7 @@ void sub_0801F12C(Entity* this) {
                 this->action = 4;
                 Chuchu_JumpAtPlayer(this);
             } else if (PlayerInRange(this, 1, 0x48)) {
-                this->timer = (Random() & 3) + 0xc;
+                this->timer = (Random() & 3) + 12;
             } else {
                 sub_0801F328(this);
             }
@@ -253,7 +253,7 @@ void sub_0801F270(Entity* this) {
     if (sub_0801FBD0(this))
         return;
 
-    if (--this->timer)
+    if (--this->timer != 0)
         return;
 
     if (this->field_0x80.HALF.HI == 0) {
@@ -298,7 +298,7 @@ void sub_0801F340(Entity* this) {
 
 void sub_0801F360(Entity* this) {
     this->action = 7;
-    this->timer = (Random() & 0x38) + 0xb4;
+    this->timer = (Random() & 0x38) + 180;
     this->subtimer = Random();
     this->direction = sub_08049F84(this, 1);
     this->spritePriority.b1 = 2;

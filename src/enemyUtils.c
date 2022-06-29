@@ -130,7 +130,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
             sub_08049CF4(&(parent->base));
             gSave.unk50 += 1;
             parent->base.gustJarState |= 2;
-            parent->base.timer = 0xff;
+            parent->base.timer = 255;
             SetDefaultPriority(&(parent->base), 3);
             deathFx2 = (DeathFxObject*)CreateObject(DEATH_FX, parent->base.id, 0);
             if (deathFx2 != NULL) {

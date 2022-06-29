@@ -45,14 +45,14 @@ void AngryStatueManager_Init(AngryStatueManager* this) {
             objectData += 3;
         }
         super->action = 1;
-        super->subtimer = 0x3c;
+        super->subtimer = 60;
         this->field_0x36 = 0;
     }
 }
 
 void AngryStatueManager_Action1(AngryStatueManager* this) {
     if (--super->subtimer == 0) {
-        super->subtimer = 0xb4;
+        super->subtimer = 180;
     }
     if (this->field_0x36 == 0xf) {
         super->action = 2;

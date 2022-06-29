@@ -48,7 +48,7 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
                 super->timer -= 1;
             }
             if (super->timer == 0) {
-                super->subtimer = 0x50;
+                super->subtimer = 80;
                 this->unk_68 = 0;
                 super->spriteRendering.b0 = 3;
                 SetAffineInfo(super, 0x100, 0x100, 0);
@@ -61,7 +61,7 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
                     }
                     super->action = 0x03;
                     super->spritePriority.b1 = 2;
-                    super->timer = 0x0f;
+                    super->timer = 15;
                     super->spriteSettings.draw = 0;
                     sub_0805EC60(super);
                     FreeCarryEntity(super);
@@ -81,12 +81,12 @@ void sub_0801B250(PlayerItemBombEntity* this) {
     super->spritePriority.b1 = 3;
     super->flags &= 0x7f;
     if (super->type == 0xff) {
-        super->timer = 0x3c;
+        super->timer = 60;
     } else if (super->type == 0xfe) {
-        super->timer = 0x0f;
+        super->timer = 15;
         super->type = 0xff;
     } else {
-        super->timer = 0x96;
+        super->timer = 150;
     }
     super->hitbox = (Hitbox*)&gUnk_080B77F4;
     super->carryFlags = 0;
@@ -141,7 +141,7 @@ void sub_0801B368(PlayerItemBombEntity* this) {
     super->action -= 1;
     super->subAction = 0;
     if (0x3c < super->timer) {
-        super->timer = 0x3c;
+        super->timer = 60;
     }
 }
 

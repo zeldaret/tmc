@@ -69,7 +69,7 @@ void Puffstool_OnCollide(Entity* this) {
                 ChangeObjPalette(this, 0x7c);
             }
             this->action = 7;
-            this->timer = 0x3c;
+            this->timer = 60;
             if (0 < this->zVelocity) {
                 this->zVelocity = 0;
             }
@@ -196,7 +196,7 @@ void sub_080252E0(Entity* this) {
 
     if (this->x.HALF.HI == (u16)this->field_0x7c.HALF.LO && this->y.HALF.HI == (u16)this->field_0x7c.HALF.HI) {
         this->action = 3;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->subtimer = 0;
         this->zVelocity = Q_16_16(1.5);
         InitializeAnimation(this, 1);
@@ -227,7 +227,7 @@ void sub_080253D4(Entity* this) {
             InitializeAnimation(this, 3);
         } else {
             this->action = 6;
-            this->timer = 0x1e;
+            this->timer = 30;
             InitializeAnimation(this, 3);
             sub_08025A54(this);
             sub_08025AE8(this);
@@ -295,7 +295,7 @@ void sub_08025514(Entity* this) {
         this->field_0x80.HALF.HI = 120;
     } else if (3 < this->timer) {
         this->action = 10;
-        this->timer = 0x20;
+        this->timer = 32;
     }
 }
 
@@ -378,7 +378,7 @@ void sub_0802563C(Entity* this) {
 void sub_080256B4(Entity* this) {
     this->action = 1;
     this->timer = (Random() & 3) + 4;
-    this->subtimer = 0x1e;
+    this->subtimer = 30;
     this->direction = (this->direction + 7 + ((s32)Random() % 7) * 4) & 0x1c;
     this->field_0x78.HWORD = gUnk_080CC000[Random() & 0xf];
     this->field_0x7a.HALF.LO = ((s32)Random() % 0x18) << 1;

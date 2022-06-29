@@ -64,7 +64,7 @@ void RupeeLike_OnCollision(Entity* this) {
                 InitializeAnimation(this->child, 4);
             }
             this->action = 4;
-            this->timer = 0x3c;
+            this->timer = 60;
             this->subtimer = 0;
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
@@ -246,7 +246,7 @@ void sub_080296D8(Entity* this) {
     gPlayerEntity.spriteOffsetY = 0;
     gPlayerEntity.speed = 0x140;
     this->action = 5;
-    this->subtimer = 0x3c;
+    this->subtimer = 60;
     this->flags2 |= 3;
     if ((s8)this->iframes == 0) {
         this->iframes = 0xf4;
@@ -274,7 +274,7 @@ void sub_08029770(Entity* this) {
 void sub_080297F0(Entity* this) {
     u32 temp;
     this->action = 1;
-    this->timer = 0x78;
+    this->timer = 120;
     COLLISION_ON(this);
     this->spriteSettings.draw = TRUE;
     this->hitType = 0x8e;

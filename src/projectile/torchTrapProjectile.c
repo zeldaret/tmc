@@ -20,7 +20,7 @@ void sub_080AAB1C(Entity* this) {
 
 void TorchTrapProjectile_Init(Entity* this) {
     this->action = 1;
-    this->timer = 0x1e;
+    this->timer = 30;
     InitializeAnimation(this, 0);
 }
 

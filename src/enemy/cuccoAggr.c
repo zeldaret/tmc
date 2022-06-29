@@ -103,7 +103,7 @@ void sub_08038DC0(CuccoAggrEntity* this) {
 
 void sub_08038DD8(CuccoAggrEntity* this) {
     super->subAction = 1;
-    super->timer = 0x10;
+    super->timer = 16;
     super->subtimer = gUnk_080CF7BC[super->type];
     COLLISION_OFF(super);
     super->spritePriority.b1 = 0;
@@ -126,7 +126,7 @@ void sub_08038E18(CuccoAggrEntity* this) {
     }
 
     if (--super->timer == 0) {
-        super->timer = 0x10;
+        super->timer = 16;
         super->spriteSettings.flipX ^= (Random() & 1);
         CuccoAggr_CreateFx(this);
     }

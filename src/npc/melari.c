@@ -39,7 +39,7 @@ void sub_08068730(Entity* this) {
     animIndex = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (-1 < animIndex) {
         if (this->subtimer == 0) {
-            this->subtimer = 0x10;
+            this->subtimer = 16;
             if (this->animIndex != animIndex) {
                 InitializeAnimation(this, animIndex);
             }
@@ -129,7 +129,7 @@ void sub_08068910(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
     } else {
-        this->timer = 0x10;
+        this->timer = 16;
         if ((this->frame & 0x20) != 0) {
             iVar1 = GetFacingDirectionInRectRadius(this, 0x30, 0x30);
             if (iVar1 < 0) {

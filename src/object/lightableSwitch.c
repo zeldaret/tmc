@@ -135,7 +135,7 @@ void sub_0809EB80(Entity* this) {
 void sub_0809EBD8(Entity* this) {
     if ((this->contactFlags & 0x80) != 0) {
         this->action = 2;
-        this->timer = 0x10;
+        this->timer = 16;
         this->frameIndex = 2;
         SetFlag(this->field_0x86.HWORD);
         EnqueueSFX(SFX_110);

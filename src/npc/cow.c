@@ -91,7 +91,7 @@ void sub_08069068(Entity* ent) {
         ent->animationState = anim;
         ent->direction = anim <<= 3;
 
-        ent->subtimer = (Random() & 0x3F) + 0x3C;
+        ent->subtimer = (Random() & 0x3F) + 60;
         InitAnimationForceUpdate(ent, ent->animationState + 4);
     }
 

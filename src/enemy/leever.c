@@ -115,7 +115,7 @@ void Leever_DigDown(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->timer = 0xf0;
+        this->timer = 240;
         this->spriteSettings.draw = FALSE;
     }
 }

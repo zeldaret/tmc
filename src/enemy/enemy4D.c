@@ -184,7 +184,7 @@ void Enemy4D_Action5(Enemy4DEntity* this) {
     if ((tmp * 0x1000000) < 1) {
         this->unk_7e = 0;
         super->action = 6;
-        super->timer = 0x0f;
+        super->timer = 15;
         InitAnimationForceUpdate(super, super->animationState + 0x20);
     }
 }
@@ -218,7 +218,7 @@ void Enemy4D_Action7(Enemy4DEntity* this) {
             this->unk_7e += 5;
         } else {
             super->action = 8;
-            super->timer = 0x1e;
+            super->timer = 30;
             InitScreenShake(8, 0);
         }
     }
@@ -235,7 +235,7 @@ void Enemy4D_Action9(Enemy4DEntity* this) {
     tmp = this->unk_7e = this->unk_7e - 2;
     if (tmp < 0xb) {
         super->action = 0xa;
-        super->timer = 0x3c;
+        super->timer = 60;
         super->direction = super->animationState << 3;
         this->unk_7c = 0;
         this->unk_7f = 0xfe;

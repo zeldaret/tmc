@@ -30,7 +30,7 @@ void sub_0802B530(Entity* this) {
 }
 
 void sub_0802B540(Entity* this) {
-    if (this->timer) {
+    if (this->timer != 0) {
         this->timer--;
     } else {
         u32 direction = sub_0804A024(this, 1, 0xc);

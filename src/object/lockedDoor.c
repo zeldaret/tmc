@@ -214,7 +214,7 @@ void sub_080835F8(Entity* this) {
     if (this->interactType == 0 && !CheckFlags(this->field_0x86.HWORD))
         return;
     this->action = 1;
-    this->timer = 0x14;
+    this->timer = 20;
     sub_08083658(this);
     SetFlag(this->field_0x86.HWORD);
     sub_080526F8(-1);
@@ -230,12 +230,12 @@ void sub_08083638(Entity* this) {
 void sub_08083658(Entity* this) {
     const struct_0811F680* tmp;
     this->action = 1;
-    this->timer = 0x14;
+    this->timer = 20;
     this->direction = this->field_0x7c.BYTES.byte2 << 3;
     tmp = &gUnk_0811F680[this->field_0x7c.BYTES.byte2];
     this->x.HALF.HI += tmp->x;
     this->y.HALF.HI += tmp->y;
-    RequestPriorityDuration(this, 0x3c);
+    RequestPriorityDuration(this, 60);
     SoundReq(SFX_10B);
 }
 

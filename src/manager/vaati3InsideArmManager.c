@@ -47,11 +47,11 @@ void sub_0805DBF0(Vaati3InsideArmManager* this) {
         sub_0805DC70();
     } else {
         if (this->field_0x20 == 0x78) {
-            InitScreenShake(0x78, 2);
+            InitScreenShake(120, 2);
         } else if (this->field_0x20 == 0xd2) {
-            InitScreenShake(0x5a, 1);
+            InitScreenShake(90, 1);
         } else if (this->field_0x20 == 0x12c) {
-            InitScreenShake(0x5a, 0);
+            InitScreenShake(90, 0);
         }
 
         if (this->field_0x20 < 0x78) {

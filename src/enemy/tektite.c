@@ -59,7 +59,7 @@ void Tektite_OnCollision(Entity* this) {
                 this->action = 1;
                 this->subAction = 0;
                 if (this->type != 0) {
-                    this->timer = 0xc0;
+                    this->timer = 192;
                 } else {
                     this->timer = gUnk_080CDEF8[Random() & 3];
                 }
@@ -98,7 +98,7 @@ void sub_0802F210(Entity* this) {
     this->action = 1;
     this->subAction = 0;
     this->timer = gUnk_080CDEF8[Random() & 3];
-    this->timer = (Random() & 0x1f) + this->timer;
+    this->timer += (Random() & 0x1f);
     this->subtimer = 0;
     *(u8*)&this->field_0x7c = 0;
 
@@ -120,14 +120,14 @@ void sub_0802F284(Entity* this) {
     } else if (this->subtimer != 0) {
         if (this->frame & ANIM_DONE) {
             this->action = 2;
-            this->timer = 0x10;
+            this->timer = 16;
             this->subtimer = this->type;
             this->zVelocity = this->field_0x82.HWORD << 4;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);
         }
     } else if (this->frame & ANIM_DONE) {
-        this->subtimer = 0x40;
+        this->subtimer = 64;
         InitializeAnimation(this, 1);
     }
 }
@@ -149,7 +149,7 @@ void sub_0802F300(Entity* this) {
         }
 
         if (rand == 0) {
-            this->timer = 0xc0;
+            this->timer = 192;
         } else {
             this->timer = gUnk_080CDEF8[rand & 3] + rand;
         }
@@ -163,7 +163,7 @@ void sub_0802F300(Entity* this) {
     }
 
     if (--this->timer == 0) {
-        this->timer = 0x10;
+        this->timer = 16;
         if (this->subtimer != 0) {
             this->subtimer--;
             sub_0802F45C(this);
@@ -191,7 +191,7 @@ void sub_0802F3F4(Entity* this) {
     if (this->frame & ANIM_DONE) {
         if ((*(u8*)&this->field_0x7c.HALF.LO < 2) && ((this->type % 2) != 0)) {
             this->action = 2;
-            this->timer = 0x10;
+            this->timer = 16;
             this->subtimer = this->type;
             this->zVelocity = this->field_0x82.HWORD << 4;
             (*(u8*)&this->field_0x7c.HALF.LO)++;

@@ -61,7 +61,7 @@ void sub_08063D44(Entity* this) {
         case 0 ... 3:
             ent = CreateProjectile(GUARD_LINE_OF_SIGHT);
             ent->parent = this;
-            ent->subtimer = 0x3c;
+            ent->subtimer = 60;
             break;
         case 4 ... 5:
             sub_08078778(this);
@@ -75,7 +75,7 @@ void sub_08063D44(Entity* this) {
 void sub_08063DC8(Entity* this) {
     if (this->type == 0xff) {
         this->action = 2;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->animationState = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
         InitAnimationForceUpdate(this, this->animationState + 4);
     } else {

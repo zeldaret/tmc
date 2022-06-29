@@ -45,8 +45,8 @@ void PlayerItemBottle_Init(Entity* this) {
             this->hurtType = 0x1f;
             this->type = 1;
             this->type2 = ITEM_BOTTLE_EMPTY;
-            this->timer = 0x52;
-            this->subtimer = 0x1b;
+            this->timer = 82;
+            this->subtimer = 27;
             sub_0801766C(this);
             SoundReq(SFX_1DC);
             break;
@@ -61,14 +61,14 @@ void PlayerItemBottle_Init(Entity* this) {
         case ITEM_BOTTLE_PICOLYTE_GREEN:
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
-            this->timer = 0xd5;
-            this->subtimer = 0x3c;
+            this->timer = 213;
+            this->subtimer = 60;
             break;
         case BOTTLE_CHARM_NAYRU:
         case BOTTLE_CHARM_FARORE:
         case BOTTLE_CHARM_DIN:
         default:
-            this->timer = 0x37;
+            this->timer = 55;
             this->subtimer = 0;
     }
     this->action = 1;

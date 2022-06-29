@@ -50,7 +50,7 @@ void sub_0809E86C(Entity* this) {
     }
     if (sub_0809E9A0() == 0x54) {
         this->action = 2;
-        this->timer = 0xf;
+        this->timer = 15;
         SetPlayerControl(1);
     }
 }
@@ -58,7 +58,7 @@ void sub_0809E86C(Entity* this) {
 void sub_0809E8BC(Entity* this) {
     if (--this->timer == 0) {
         this->action = 3;
-        this->timer = 0x3c;
+        this->timer = 60;
         this->spriteSettings.draw = 0;
         sub_0809E96C(this);
         sub_0809E918(this);

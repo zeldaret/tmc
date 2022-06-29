@@ -221,7 +221,7 @@ void sub_08088DB4(BigBarrelEntity* this) {
             if (--super->timer) {
                 return;
             }
-            super->timer = 0x1e;
+            super->timer = 30;
             super->frameIndex++;
             super->action++;
             break;
@@ -278,7 +278,7 @@ void sub_08088F20(BigBarrelEntity* this) {
             }
             super->action = 2;
             super->timer = 30;
-            RequestPriorityDuration(super, 0x10e);
+            RequestPriorityDuration(super, 270);
             pEVar3 = CreateObject(OBJECT_2A, 1, 0);
             if (pEVar3 != NULL) {
                 pEVar3->updatePriority = 3;
@@ -301,7 +301,7 @@ void sub_08088F20(BigBarrelEntity* this) {
                 return;
             }
             super->action = 4;
-            super->timer = 0x78;
+            super->timer = 120;
             break;
         default:
             if (--super->timer == 0x5a) {
@@ -315,7 +315,7 @@ void sub_08088F20(BigBarrelEntity* this) {
             if (super->timer == 0) {
                 gRoomVars.animFlags &= ~0x10;
                 if (CheckLocalFlags(0x15, 2)) {
-                    RequestPriorityDuration(super, 0x3c);
+                    RequestPriorityDuration(super, 60);
                     SoundReq(SFX_SECRET);
                 }
                 DeleteEntity(super);

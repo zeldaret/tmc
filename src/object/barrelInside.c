@@ -9,7 +9,7 @@ void BarrelInside(Entity* this) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->frameIndex = this->type;
-        this->timer = 0x10;
+        this->timer = 16;
         this->subtimer = 1;
         ptr = gUnk_08120C80 + this->type * 3;
         this->spriteRendering.b3 = *ptr;
@@ -19,7 +19,7 @@ void BarrelInside(Entity* this) {
 
     if (this->type == 4) {
         if (--this->timer == 0) {
-            this->timer = 0x10;
+            this->timer = 16;
             this->frameIndex = gUnk_08120C92[this->subtimer++];
             if (this->subtimer == 3) {
                 this->subtimer = 0;

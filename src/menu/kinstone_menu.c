@@ -255,7 +255,7 @@ void KinstoneMenu_Type3_Overlay1(void) {
         SetMenuType(4);
     } else {
         gMenu.overlayType = 2;
-        gMenu.transitionTimer = 0x14;
+        gMenu.transitionTimer = 20;
         gScreen.lcd.displayControl |= 0x2000;
         gScreen.controls.window0HorizontalDimensions = 0x6887;
         gScreen.controls.window0VerticalDimensions = 0x405f;
@@ -313,7 +313,7 @@ void KinstoneMenu_Type5_Overlay0(void) {
     SoundReq(SFX_TASK_COMPLETE);
     MessageAtHeight(TEXT_INDEX(TEXT_WINDCRESTS, 0x2), 0xe);
     gMenu.overlayType = 1;
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
 }
 
 void KinstoneMenu_Type5_Overlay1(void) {
@@ -331,7 +331,7 @@ void KinstoneMenu_Type5_Overlay2(void) {
     } else {
         gMenu.column_idx = 6;
         gMenu.overlayType = 3;
-        gMenu.transitionTimer = 0x4f;
+        gMenu.transitionTimer = 79;
         CreateObject(OBJECT_B3, 1, 0);
         SoundReq(SFX_1CA);
     }

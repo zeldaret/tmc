@@ -60,7 +60,7 @@ void Object35_Type0Init(Object35Entity* this) {
     super->collisionLayer = 2;
     UpdateSpriteForCollisionLayer(super);
     super->spritePriority.b0 = 1;
-    super->timer = -0x4c;
+    super->timer = -76;
     InitializeAnimation(super, super->type2);
 }
 
@@ -68,10 +68,10 @@ void Object35_Type0Action1(Object35Entity* this) {
     s8 tmp;
     GetNextFrame(super);
     if (--super->timer == 0) {
-        super->timer = -0x4c;
+        super->timer = -76;
         super->type2++;
         tmp = 3;
-        super->type2 = super->type2 % tmp;
+        super->type2 %= tmp;
         InitializeAnimation(super, super->type2);
     }
 }
@@ -99,7 +99,7 @@ void Object35_Type1Init(Object35Entity* this) {
     this->unk_74 = GetTileIndex(this->unk_76, super->collisionLayer);
     if (super->timer == 0) {
         super->action = 1;
-        super->subtimer = 0x78;
+        super->subtimer = 120;
         SetTile(0x4022, this->unk_76, super->collisionLayer);
     } else {
         super->action = 3;
@@ -160,7 +160,7 @@ void Object35_Type2(Object35Entity* this) {
 
 void Object35_Type2Init(Object35Entity* this) {
     super->action = 1;
-    super->timer = 0x10;
+    super->timer = 16;
     super->z.HALF.HI -= 0x10;
     if (super->type2 == 0) {
         super->frameIndex = 2;

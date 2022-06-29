@@ -188,7 +188,7 @@ void VaatiTransfiguredType0Action1(Entity* this) {
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
                 this->speed = 0x180;
-                this->timer = 0x14;
+                this->timer = 20;
             }
             break;
         case 1:
@@ -203,7 +203,7 @@ void VaatiTransfiguredType0Action1(Entity* this) {
                 this->field_0x80.HALF.LO += 1;
                 this->speed = 0;
                 if (this->animationState < 2) {
-                    this->timer = (Random() & 0x7f) + 0x40;
+                    this->timer = (Random() & 0x7f) + 64;
                 } else {
                     this->timer = 8;
                 }
@@ -269,10 +269,10 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (uVar4 != 1)
                 break;
             this->field_0x80.HALF.LO = 1;
-            this->timer = 0xc0;
+            this->timer = 192;
             COLLISION_ON(this);
             SoundReq(SFX_14C);
-            InitScreenShake(0x14, 4);
+            InitScreenShake(20, 4);
             break;
         case 1:
             if (--this->timer == 0) {
@@ -293,7 +293,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->animationState++;
                 if (this->animationState > 2) {
                     this->action = 7;
-                    this->timer = 0xe0;
+                    this->timer = 224;
                     DeleteClones();
                     SoundReq(SFX_BOSS_HIT);
                     return;
@@ -304,10 +304,10 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             this->child->field_0x74.HALF.LO = 0x10;
             if (this->timer) {
                 this->field_0x80.HALF.LO = 3;
-                this->timer = 0x40;
+                this->timer = 64;
             } else {
                 this->field_0x80.HALF.LO = 4;
-                this->timer = 0x50;
+                this->timer = 80;
             }
             break;
         case 3:
@@ -315,19 +315,19 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 if (--this->timer == 0) {
                     COLLISION_OFF(this);
                     this->zVelocity = Q_16_16(3.5);
-                    this->subtimer = 0x10;
+                    this->subtimer = 16;
                 }
                 break;
             }
             if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
                 this->field_0x80.HALF.LO = 5;
-                this->timer = 0x10;
+                this->timer = 16;
                 COLLISION_ON(this);
                 this->health = 0xff;
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
                 SoundReq(SFX_14C);
-                InitScreenShake(0x1e, 4);
+                InitScreenShake(30, 4);
             } else {
                 if (this->subtimer != 0) {
                     if (--this->subtimer == 0) {
@@ -343,7 +343,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
         case 4:
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO = 5;
-                this->timer = 0x10;
+                this->timer = 16;
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
@@ -378,7 +378,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
                 this->field_0x74.HALF.LO = 0;
-                this->timer = 0x80;
+                this->timer = 128;
                 this->subtimer = 0;
                 this->zVelocity = Q_16_16(2.25);
                 SoundReq(SFX_12B);
@@ -405,7 +405,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->subtimer = 1;
             }
             SoundReq(SFX_14C);
-            InitScreenShake(0x1e, 4);
+            InitScreenShake(30, 4);
             break;
         case 2:
             if (--this->timer == 0) {
@@ -416,7 +416,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                     CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                 }
                 if (((this->subtimer != 0) && (1 < this->animationState)) && (this->timer < 6)) {
-                    this->timer = 0x80;
+                    this->timer = 128;
                     this->subtimer = 0;
                 }
             }
@@ -445,9 +445,9 @@ void VaatiTransfiguredType0Action5(Entity* this) {
         case 0:
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->timer = 0x40;
+                this->timer = 64;
                 if (1 < this->animationState) {
-                    this->timer = 0x80;
+                    this->timer = 128;
                     this->subtimer = 1;
                 }
             }
@@ -462,7 +462,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
                         CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                     }
                     if (this->timer < 6) {
-                        this->timer = 0x40;
+                        this->timer = 64;
                         this->subtimer = 0;
                     }
                 } else {
@@ -498,7 +498,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
         case 0:
             if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->timer = 0x80;
+                this->timer = 128;
                 if (1 < this->animationState) {
                     this->subtimer = 1;
                 }
@@ -514,7 +514,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
                         CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                     }
                     if (this->timer < 6) {
-                        this->timer = 0x80;
+                        this->timer = 128;
                         this->subtimer = 0;
                     }
                 } else {
@@ -634,7 +634,7 @@ void VaatiTransfiguredType2Action0(Entity* this) {
             sub_08040648(this, 2, 2);
             this->action = 1;
             this->timer = 0;
-            this->subtimer = (Random() & 0x7f) + 0x17;
+            this->subtimer = (Random() & 0x7f) + 23;
             this->field_0x74.HALF.LO = 0;
             InitAnimationForceUpdate(this, 0);
         }
@@ -667,7 +667,7 @@ void VaatiTransfiguredType2Action1(Entity* this) {
             switch (this->field_0x74.HALF.LO) {
                 case 0:
                     if (--this->subtimer == 0) {
-                        this->subtimer = (Random() & 0x7f) + 0x27;
+                        this->subtimer = (Random() & 0x7f) + 39;
                         if ((this->subtimer & 1) != 0) {
                             this->field_0x74.HALF.LO = 1;
                             InitAnimationForceUpdate(this, 8);
@@ -677,19 +677,19 @@ void VaatiTransfiguredType2Action1(Entity* this) {
                 case 1:
                     if ((this->frame & ANIM_DONE) != 0) {
                         this->field_0x74.HALF.LO = 0;
-                        this->subtimer = (Random() & 0x7f) + 0x17;
+                        this->subtimer = (Random() & 0x7f) + 23;
                         InitAnimationForceUpdate(this, 0);
                     }
                     break;
                 case 0x10:
                     InitAnimationForceUpdate(this, 7);
                     this->field_0x74.HALF.LO = 0x11;
-                    this->subtimer = 0x50;
+                    this->subtimer = 80;
                     break;
                 case 0x11:
                     if (--this->subtimer == 0) {
                         this->field_0x74.HALF.LO = 1;
-                        this->subtimer = 0x30;
+                        this->subtimer = 48;
                         InitAnimationForceUpdate(this, 8);
                     }
             }
@@ -1075,7 +1075,7 @@ void sub_080409B0(Entity* this) {
         }
     } else {
         if (((this->contactFlags & 0x80) != 0) && (0 < this->iframes)) {
-            InitScreenShake(0xc, 1);
+            InitScreenShake(12, 1);
             SoundReq(SFX_BOSS_HIT);
         }
         if ((this->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {

@@ -75,7 +75,7 @@ void sub_08068A4C(Entity* this) {
         uVar1 = 2;
     } else {
         if (this->subtimer == 0) {
-            this->subtimer = 0x10;
+            this->subtimer = 16;
         } else {
             this->subtimer--;
             uVar1 = (u32)this->animIndex;

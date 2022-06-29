@@ -182,7 +182,7 @@ void sub_0806D1D0(Entity* this) {
         this->spritePriority.b0 = 7;
         this->spriteSettings.draw = 3;
         this->frameIndex = 0;
-        this->timer = 0x1e;
+        this->timer = 30;
         SetDefaultPriority(this, PRIO_MESSAGE);
     }
 
@@ -190,7 +190,7 @@ void sub_0806D1D0(Entity* this) {
         case 0:
         default:
             if (--this->timer == 0) {
-                this->timer = (Random() & 0x7f) + 0x30;
+                this->timer = (Random() & 0x7f) + 48;
                 this->subtimer = 8;
                 this->frameIndex = 1;
             }

@@ -46,7 +46,7 @@ void Bird_Type0_Init(Entity* this) {
 
     this->action++;
     this->spriteSettings.draw = TRUE;
-    this->timer = 0x31;
+    this->timer = 49;
     this->subtimer = 1;
     this->zVelocity = Q_16_16(-1.5);
     this->z.WORD = Q_16_16(-56.75);
@@ -295,7 +295,6 @@ void Bird_Type9(Entity* this) {
         this->spritePriority.b0 = 0;
         this->spriteRendering.b3 = 0;
         this->spriteOrientation.flipY = 1;
-        ;
         SetDefaultPriority(this, 6);
         this->x.HALF.HI = gRoomControls.scroll_x;
         this->y.HALF.HI = gPlayerEntity.y.HALF.HI;

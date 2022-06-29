@@ -43,7 +43,7 @@ void ObjectAB_Action1(Entity* this) {
 void ObjectAB_Action2(Entity* this) {
     if (CheckRoomFlag(1)) {
         sub_080A0190(this);
-        RequestPriorityDuration(this, 0x1e);
+        RequestPriorityDuration(this, 30);
         if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10)) {
             CreateHoleManager(0x37);
         }
