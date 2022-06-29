@@ -64,18 +64,19 @@ void sub_080ADD70(void) {
     }
 }
 
-NONMATCH("asm/non_matching/vram/sub_080ADDD8.inc", void sub_080ADDD8(u32 index, u32 paletteIndex)) {
+void sub_080ADDD8(u32 index, u32 paletteIndex) {
     GfxSlot* slot = &gGFXSlots.slots[index];
+    u32 temp;
     slot->palettePointer = gGlobalGfxAndPalettes + (paletteIndex & 0xfffffc);
     if ((paletteIndex & 1) != 0) {
-        slot->paletteIndex = 0xffff;
+        temp = 0xffff;
     } else {
-        // TODO some cast here?
-        slot->paletteIndex = ((paletteIndex)&0x7f00) >> 4;
+        // @ TODO probably a bitfield
+        temp = ((paletteIndex)&0x7f000000) >> 0x14;
     }
+    slot->paletteIndex = temp;
     slot->vramStatus = GFX_VRAM_3;
 }
-END_NONMATCH
 
 void sub_080ADE24(void) {
     u32 index;
