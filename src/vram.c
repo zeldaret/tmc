@@ -167,13 +167,13 @@ bool32 LoadFixedGFX(Entity* entity, u32 gfxIndex) {
 }
 
 // If slotIndex != 0 the gfx loaded starting from that slot, else in the first fitting free one.
-NONMATCH("asm/non_matching/vram/LoadSwapGFX.inc", u32 LoadSwapGFX(Entity* entity, u32 count, u32 slotIndex)) {
+bool32 LoadSwapGFX(Entity* entity, u32 count, u32 slotIndex) {
     u32 status;
     if ((slotIndex == 0) && (slotIndex = FindFreeGFXSlots(count), slotIndex == 0)) {
 #ifndef EU
         CleanUpGFXSlots();
-#endif
         slotIndex = FindFreeGFXSlots(count);
+#endif
         if (slotIndex == 0) {
             goto _080AE058;
         }
@@ -185,12 +185,8 @@ NONMATCH("asm/non_matching/vram/LoadSwapGFX.inc", u32 LoadSwapGFX(Entity* entity
     }
     sub_080AE0C8(slotIndex, entity, status);
 _080AE058:
-    if (slotIndex != 0) {
-        slotIndex = 1;
-    }
-    return slotIndex;
+    return slotIndex != 0;
 }
-END_NONMATCH
 
 void UnloadGFXSlots(Entity* param_1) {
     u32 slotIndex;
