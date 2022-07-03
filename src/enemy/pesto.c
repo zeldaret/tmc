@@ -697,7 +697,30 @@ bool32 sub_08024B38(Entity* this) {
     return iVar4;
 }
 
-ASM_FUNC("asm/non_matching/pesto/sub_08024C48.inc", bool32 sub_08024C48(Entity* this, bool32 unk))
+bool32 sub_08024C48(Entity* this, bool32 unk) {
+    bool32 rv = TRUE;
+    u32 val;
+
+    if (unk) {
+        if (sub_08049DF4(3)) {
+            rv = TRUE;
+        } else {
+            rv = FALSE;
+        }
+    } else {
+        if (this->child == NULL) {
+            this->child = NULL;
+            rv = FALSE;
+        } else if (this->child->next == NULL) {
+            this->child = NULL;
+            rv = FALSE;
+        } else if (this->child->z.HALF.HI < 0) {
+            this->child = NULL;
+            rv = FALSE;
+        }
+    }
+    return rv;
+}
 
 void sub_08024C7C(Entity* this) {
     this->action = 1;
