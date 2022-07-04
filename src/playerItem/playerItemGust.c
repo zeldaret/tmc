@@ -41,6 +41,7 @@ extern const s8* const sOffsets[];
 extern const s8 gUnk_0812AABC[];
 extern const Hitbox* const sHitboxes[];
 extern const u8 gUnk_0812AAE8[];
+extern const s8 gUnk_08126EE4[];
 
 // specifically, the little gusts that come out while the item is active
 // type 0: stays close to jar?
@@ -149,7 +150,71 @@ static void sub_080ACC78(GustEntity* this) {
     }
 }
 
-/*static*/ ASM_FUNC("asm/non_matching/playerItem10/sub_080ACDB0.inc", bool32 sub_080ACDB0(GustEntity* this))
+bool32 sub_080ACDB0(GustEntity* this) {
+    s32 sVar2;
+    s32 sVar3;
+    Entity* pEVar4;
+    u32 uVar6;
+    u32 uVar7;
+    u32 tmp;
+
+    if (super->type == 0) {
+        super->x.HALF.HI = gPlayerEntity.x.HALF.HI + gUnk_08126EE4[super->animationState];
+        super->y.HALF.HI = gPlayerEntity.y.HALF.HI + gUnk_08126EE4[super->animationState + 1];
+    } else {
+        if ((super->animationState & 2) != 0) {
+            super->y.HALF.HI = super->parent->y.HALF.HI - 3;
+            tmp = super->animationState & 4;
+            pEVar4 = super->parent;
+            if ((tmp) != 0) {
+                sVar3 = pEVar4->x.HALF.HI;
+                sVar2 = super->x.HALF.HI;
+                uVar7 = -(u16)gUnk_0812AAE8[super->type];
+            } else {
+                sVar2 = pEVar4->x.HALF.HI;
+                sVar3 = super->x.HALF.HI;
+                uVar7 = (u16)gUnk_0812AAE8[super->type];
+            }
+            this->unk78 = (s32)sVar3 - (s32)sVar2;
+            uVar6 = gUnk_0812AAE8[super->type];
+            if (uVar6 <= this->unk78) {
+                super->x.HALF.HI = pEVar4->x.HALF.HI + uVar7;
+            } else {
+                super->speed = (uVar6 - this->unk78) * 0x100;
+                if (0x200 < (s32)((uVar6 - this->unk78) * 0x1000000) >> 0x10) {
+                    super->speed = 0x200;
+                }
+                ProcessMovement1(super);
+            }
+        } else {
+            super->x.HALF.HI = super->parent->x.HALF.HI;
+            tmp = super->animationState & 4;
+            pEVar4 = super->parent;
+            if ((super->animationState & 4) != 0) {
+                sVar2 = pEVar4->y.HALF.HI;
+                sVar3 = super->y.HALF.HI;
+                uVar7 = gUnk_0812AAE8[super->type];
+            } else {
+                sVar3 = pEVar4->y.HALF.HI;
+                sVar2 = super->y.HALF.HI;
+                uVar7 = -gUnk_0812AAE8[super->type];
+            }
+            this->unk78 = sVar3 - sVar2;
+            uVar6 = gUnk_0812AAE8[super->type];
+            if (uVar6 > this->unk78) {
+                super->speed = (uVar6 - this->unk78) * 0x100;
+                if (0x200 < (s32)((uVar6 - this->unk78) * 0x1000000) >> 0x10) {
+                    super->speed = 0x200;
+                }
+                ProcessMovement1(super);
+            } else {
+                super->y.HALF.HI = pEVar4->y.HALF.HI + uVar7;
+            }
+        }
+    }
+    super->collisionLayer = gPlayerEntity.collisionLayer;
+    return 0;
+}
 
 static void sub_080ACECC(GustEntity* this) {
     Entity* entity;
