@@ -1830,7 +1830,23 @@ bool32 sub_0807A2B8(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", u32 sub_0807A2F8(u32 a1))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A500.inc", u32 sub_0807A500())
+u32 sub_0807A500(void) {
+    switch (gPlayerEntity.animationState >> 1) {
+        case 0:
+            return TILE(gPlayerEntity.x.HALF.HI,
+                        gPlayerEntity.y.HALF.HI - gPlayerEntity.hitbox->unk2[3] + gPlayerEntity.hitbox->offset_y);
+        case 2:
+            return TILE(gPlayerEntity.x.HALF.HI,
+                        gPlayerEntity.y.HALF.HI + gPlayerEntity.hitbox->unk2[3] + gPlayerEntity.hitbox->offset_y);
+        case 1:
+            return COORD_TO_TILE_OFFSET(&gPlayerEntity, -gPlayerEntity.hitbox->unk2[0],
+                                        -gPlayerEntity.hitbox->offset_y);
+        case 3:
+            return COORD_TO_TILE_OFFSET(&gPlayerEntity, gPlayerEntity.hitbox->unk2[0], -gPlayerEntity.hitbox->offset_y);
+        default:
+            return 0;
+    }
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A5B8.inc", void sub_0807A5B8(u32 a))
 
