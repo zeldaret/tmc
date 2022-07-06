@@ -12,6 +12,7 @@ static const u16 goronSounds[] = {
 };
 
 extern u8 gMapDataTopSpecial[];
+extern u8 gUnk_02006F00[];
 
 void sub_0806D520(Entity*, u32);
 void sub_0806D41C(Entity*);
@@ -169,7 +170,27 @@ void sub_0806D138(unk_0806D138param_1* param_1, unk_0806D138param_2* param_2) {
     }
 }
 
-ASM_FUNC("asm/non_matching/bigGoron/sub_0806D164.inc", void sub_0806D164(Entity* this))
+void sub_0806D164(Entity* this) {
+    u8* puVar1;
+    u8* puVar2;
+    u8* ptr;
+    u32 xOffset;
+    s32 index;
+
+    xOffset = ((s32)gRoomControls.scroll_x - this->x.HALF.HI) + 0xa0;
+    gScreen.bg1.xOffset = (u16)xOffset & 0xf;
+    gScreen.bg1.yOffset = (gRoomControls.scroll_y - this->y.HALF.HI) + 0xb0;
+    ptr = gUnk_02006F00;
+    puVar1 = &ptr[0];
+    puVar2 = &ptr[-0x4000];
+
+    for (index = 0x20, ptr = &puVar1[(xOffset >> 4) * 4]; index != 0; index--) {
+        DmaSet(3, ptr, puVar2, 0x80000020);
+        ptr += 0x100;
+        puVar2 += 0x40;
+    }
+    gScreen.bg1.updated = 1;
+}
 
 void sub_0806D1D0(Entity* this) {
     if (this->action == 0) {
