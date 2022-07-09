@@ -27,7 +27,7 @@ typedef struct {
     u8 unk_85;
 } LilypadLargeEntity;
 
-extern u8 gUnk_08126EE4[];
+extern s8 gUnk_08126EE4[];
 
 void sub_080855E8(LilypadLargeEntity*);
 void sub_08085CDC(LilypadLargeEntity*);
@@ -166,8 +166,8 @@ void sub_080855E8(LilypadLargeEntity* this) {
             SoundReq(SFX_WATER_WALK);
         }
         if ((super->contactFlags & 0x7f) == 0x13) {
-            sVar10 = gPlayerEntity.x.HALF.HI + (s8)gUnk_08126EE4[gPlayerEntity.animationState & 0xe];
-            uVar4 = gPlayerEntity.y.HALF.HI + (s8)gUnk_08126EE4[gPlayerEntity.animationState | 1];
+            sVar10 = gPlayerEntity.x.HALF.HI + gUnk_08126EE4[gPlayerEntity.animationState & 0xe];
+            uVar4 = gPlayerEntity.y.HALF.HI + gUnk_08126EE4[gPlayerEntity.animationState | 1];
             super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, sVar10, uVar4);
 
             switch (gPlayerState.gustJarSpeed) {
