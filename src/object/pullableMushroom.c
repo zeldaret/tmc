@@ -21,7 +21,7 @@ typedef struct {
     /*0x7c*/ u32 unk_7c;
 } PullableMushroomEntity;
 
-extern const u8 gUnk_08126EE4[];
+extern const s8 gUnk_08126EE4[];
 
 void PullableMushroom_Init(PullableMushroomEntity*);
 void PullableMushroom_Action1(PullableMushroomEntity*);
