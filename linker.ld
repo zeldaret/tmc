@@ -279,6 +279,7 @@ SECTIONS {
         src/playerItem.o(.text);
         src/object.o(.text);
         src/manager.o(.text);
+        src/npcFunctions.o(.text);
         src/npc.o(.text);
         src/collision.o(.text);
         /* C source compiled without interworking */
@@ -863,6 +864,7 @@ SECTIONS {
         src/playerItem.o(.rodata);
         src/object.o(.rodata);
         src/manager.o(.rodata);
+        src/npcFunctions.o(.rodata);
         src/npc.o(.rodata);
         src/collision.o(.rodata);
         data/data_080B3740.o(.rodata);

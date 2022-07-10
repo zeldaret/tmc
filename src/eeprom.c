@@ -107,15 +107,16 @@ u16 EEPROMWrite1(u16 address, const u16* data) {
 }
 
 // reading from EEPROM like a status register
-#define REG_EEPROM (*(u16*)0xd000000)
-// this is the furthest I could get
-// 0x080B16AC
-NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3)) {
+#define REG_EEPROM (*(vu16*)0xd000000)
+
+u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3) {
     u16 buffer[0x52]; // this is one too large?
-    vu16 stack_a4;
+    vu16 timeout_flag;
     vu16 prev_vcount;      // stack + a6
-    vu16 current_vcount;   // stack + a6
+    vu16 current_vcount;   // stack + a8
     vu32 passed_scanlines; // stack + ac
+    u16 ret;
+    vu16* temp2;
 
     u32 r2;
 
@@ -125,64 +126,65 @@ NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 a
     if (address >= gEEPROMConfig->size)
         return EEPROM_OUT_OF_RANGE;
 
-    ptr = buffer + gEEPROMConfig->address_width + 0x42;
-    *ptr = 0;
-    ptr--;
+    ptr = (u16*)(0x42 + (uintptr_t)&buffer + (uintptr_t)(gEEPROMConfig->address_width * 2) + 0x42);
+    *ptr-- = 0;
     // copy data into buffer
-    for (i = 0; i <= 3; i++) {
-        r2 = *data;
-        data++;
-        for (j = 0; j <= 0xf; j++) {
+    for (i = 0; i < 4; i++) {
+        r2 = *data++;
+        for (j = 0; j < 16; j++) {
             *ptr = r2;
             ptr--;
             r2 = r2 >> 1;
         }
     }
+
     // copy address to buffer
     for (i = 0; i < gEEPROMConfig->address_width; i++) {
         *ptr = address;
         ptr--;
         address = address >> 1;
     }
-    *ptr = 0;
-    ptr--;
-    *ptr = 1;
+    *ptr-- = 0;
+    *ptr-- = 1;
     DMA3Transfer(buffer, (u16*)0xd000000, gEEPROMConfig->address_width + 0x43);
-    stack_a4 = 0;
+    ret = 0;
+    timeout_flag = 0;
     prev_vcount = REG_VCOUNT;
     passed_scanlines = 0;
-    if (stack_a4 == 0) {
-        if ((REG_EEPROM & 1) != 0)
-            goto bad;
-    }
-    // before here its only regalloc, but after I cant get it to work
-    do {
-        do {
-            do {
-                current_vcount = REG_VCOUNT;
-                if (current_vcount != prev_vcount) {
-                    if (current_vcount >= prev_vcount) {
-                        passed_scanlines += current_vcount - prev_vcount;
-                    } else {
-                        passed_scanlines += (current_vcount + 0xe4) - prev_vcount;
-                    }
-                    if (passed_scanlines > 0x88) {
-                        if (stack_a4 != 0)
-                            return 0;
-                        if ((REG_EEPROM & 1) != 0)
-                            return 0;
-                        return 0xc001;
-                    }
-                    prev_vcount = current_vcount;
+
+    while (1) {
+        if (!timeout_flag) {
+            if (REG_EEPROM & 1) {
+                timeout_flag++;
+                if (!unk_3)
+                    break;
+            }
+        }
+
+        current_vcount = REG_VCOUNT;
+        if (current_vcount != prev_vcount) {
+            if (current_vcount > prev_vcount) {
+                passed_scanlines += (current_vcount - prev_vcount);
+            } else {
+                passed_scanlines += (current_vcount - (prev_vcount - 0xE4));
+            }
+
+            if (passed_scanlines > 0x88) {
+                if (timeout_flag)
+                    break;
+                if ((REG_EEPROM & 1)) {
+                    break;
                 }
-            } while (stack_a4 != 0);
-        } while ((REG_EEPROM & 1) != 0);
-    bad:
-        stack_a4++;
-    } while (unk_3 != 0);
-    return 0;
+
+                ret = 0xc001;
+                break;
+            }
+            prev_vcount = current_vcount;
+        }
+    }
+
+    return ret;
 }
-END_NONMATCH
 
 u16 EEPROMCompare(u16 address, const u16* data) {
     u16 ret;

@@ -47,44 +47,52 @@ void LoadRoomEntityList(const EntityData* listPtr) {
     }
 }
 
-NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(const EntityData* dat)) {
+Entity* LoadRoomEntity(const EntityData* dat) {
     int kind;
-    Entity* v4;
-    Entity* v5;
+    Entity* entity;
+
+// r4/r5 regalloc
+#ifndef NON_MATCHING
+    asm("" ::: "r5");
+#endif
 
     kind = dat->kind & 0xF;
     if ((dat->flags & 0xF0) == 0x50 && DeepFindEntityByID(kind, dat->id))
         return NULL;
-    v4 = GetEmptyEntityByKind(kind);
-    v5 = v4;
-    if (v4 != NULL) {
-        v4->kind = kind;
-        v4->id = dat->id;
-        v4->type = dat->type;
-        RegisterRoomEntity(v4, dat);
+    entity = GetEmptyEntityByKind(kind);
+    if (entity != NULL) {
+        entity->kind = kind;
+        entity->id = dat->id;
+        entity->type = dat->type;
+        RegisterRoomEntity(entity, dat);
         if ((dat->flags & 0xF0) != 16) {
-            v5->type2 = dat->type2;
-            v5->timer = (dat->type2 & 0xFF00) >> 8;
-            if (kind == MANAGER)
-                return v5;
-            sub_0804AF0C(v5, dat);
-            if (v5->next == NULL)
-                return v5;
-            if ((dat->kind & 0x10) == 0) {
-                if ((dat->kind & 0x20) != 0) {
-                    v5->collisionLayer = 2;
-                    return v5;
-                }
-                if ((gRoomControls.scroll_flags & 2) == 0) {
-                    ResolveCollisionLayer(v5);
+            u8 kind2;
+            entity->type2 = *(u8*)&dat->type2;
+            entity->timer = (dat->type2 & 0xFF00) >> 8;
+            if (kind == 9)
+                return entity;
+            sub_0804AF0C(entity, dat);
+            if (!entity->next)
+                return entity;
+            kind2 = dat->kind & 0xF0;
+            if ((kind2 & 0x10) == 0) {
+                if ((kind2 & 0x20) != 0) {
+                    entity->collisionLayer = 2;
+                    return entity;
                 }
             }
-            v5->collisionLayer = 1;
+
+            if ((kind2 & 0x10) || (gRoomControls.scroll_flags & 2)) {
+                entity->collisionLayer = 1;
+                return entity;
+            }
+
+            ResolveCollisionLayer(entity);
+            return entity;
         }
     }
-    return v5;
+    return entity;
 }
-END_NONMATCH
 
 void RegisterRoomEntity(Entity* ent, const EntityData* dat) {
     u32 list;
