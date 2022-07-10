@@ -78,26 +78,16 @@ void sub_08063874(Entity* this) {
     this->animationState = this->timer;
 }
 
-#if defined(EU) || defined(DEMO_JP) || defined(JP)
-#define SUB_0806387C_FLAG 0xd7
-#define SUB_0806387C_FLAG2 0xce
-#define SUB_0806390C_FLAG 0xd6
-#else
-#define SUB_0806387C_FLAG 0xda
-#define SUB_0806387C_FLAG2 0xd1
-#define SUB_0806390C_FLAG 0xd9
-#endif
-
 void sub_0806387C(Entity* this) {
     s32 r4 = 3;
     s32 r5;
     s32 val, val2;
     u16* ptr;
-    if (CheckLocalFlag(SUB_0806387C_FLAG) == 0) {
+    if (CheckLocalFlag(MACHI_MES_50) == 0) {
         r4 = 0;
-        SetLocalFlag(SUB_0806387C_FLAG);
+        SetLocalFlag(MACHI_MES_50);
     } else {
-        if (CheckLocalFlag(SUB_0806387C_FLAG2) == 0) {
+        if (CheckLocalFlag(SHOP05_OPEN) == 0) {
             r5 = 0;
             for (r4 = 1; r4 <= 0x82; r4++) {
                 if (ReadBit(gUnk_02002B0E, r4)) {
@@ -108,7 +98,7 @@ void sub_0806387C(Entity* this) {
             r4 = 1;
             if (r5 > 0x81) {
                 r4 = 2;
-                SetLocalFlag(SUB_0806387C_FLAG2);
+                SetLocalFlag(SHOP05_OPEN);
                 RestorePrevTileEntity(0xa17, 1);
                 RestorePrevTileEntity(0xa57, 1);
             }
@@ -125,9 +115,9 @@ void sub_0806387C(Entity* this) {
 
 void sub_0806390C(Entity* this) {
     u32 r5 = 1;
-    if (CheckLocalFlag(SUB_0806390C_FLAG) == 0) {
+    if (CheckLocalFlag(MACHI_MES_60) == 0) {
         r5 = 0;
-        SetLocalFlag(SUB_0806390C_FLAG);
+        SetLocalFlag(MACHI_MES_60);
         (*(u32**)&this->cutsceneBeh)[0x5] = 1;
     }
 
