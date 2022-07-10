@@ -757,81 +757,78 @@ void sub_08050EB8(void) {
     SetMenuType(1);
 }
 
-NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)) {
+void sub_08050EF4(void) {
     u8* p_option;
     u32 option;
     char column_idx;
-    int mode;
+    u8 mode;
 
-    if (gMapDataBottomSpecial.isTransitioning)
-        return;
+    if (gMapDataBottomSpecial.isTransitioning == 0) {
+        SaveFile* currentFile = &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6];
+        column_idx = gMenu.column_idx;
 
-    p_option = &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].brightness;
-    if (gMenu.column_idx == 0) {
-        p_option = &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].msg_speed;
-    }
+        if (column_idx == 0) {
+            p_option = &currentFile->msg_speed;
+        } else {
+            p_option = &currentFile->brightness;
+        }
 
-    mode = 0;
-    option = *p_option;
-    column_idx = gMenu.column_idx;
-    switch (gInput.newKeys) {
-        case DPAD_RIGHT:
-            if (*p_option < 2) {
-                option = *p_option + 1;
-            }
-            break;
-        case DPAD_LEFT:
-            if (*p_option != 0) {
-                option = *p_option - 1;
-            }
-            break;
-        case DPAD_UP:
-            column_idx = 0;
-            break;
-        case DPAD_DOWN:
-            column_idx = 1;
-            break;
-        case A_BUTTON:
-        case START_BUTTON:
-            mode = 2;
-            if (*(u16*)&gMapDataBottomSpecial.unk4 !=
-                *(u16*)&gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].msg_speed)
+        option = *p_option;
+        mode = 0;
+        switch (gInput.newKeys) {
+            case DPAD_UP:
+                column_idx = 0;
+                break;
+            case DPAD_DOWN:
+                column_idx = 1;
+                break;
+            case DPAD_LEFT:
+                if (option != 0) {
+                    option--;
+                }
+                break;
+            case DPAD_RIGHT:
+                if (option < 2) {
+                    option++;
+                }
+                break;
+
+            case A_BUTTON:
+            case START_BUTTON:
+                if (gMapDataBottomSpecial.unk4 != currentFile->msg_speed ||
+                    gMapDataBottomSpecial.unk5 != currentFile->brightness) {
+                    mode = 2;
+                    break;
+                }
+            case B_BUTTON:
                 mode = 3;
-            break;
-        case B_BUTTON:
-            mode = 2;
-            break;
-    }
+                break;
+        }
 
-    switch (mode) {
-        case 3:
-            gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].msg_speed = gMapDataBottomSpecial.unk4;
-            gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].brightness = gMapDataBottomSpecial.unk5;
-            SoundReq(SFX_MENU_CANCEL);
-            SetMenuType(mode);
-            SetActiveSave(gMapDataBottomSpecial.unk6);
-            break;
-        case 2:
-            CreateDialogBox(8, 0);
-            SoundReq(SFX_TEXTBOX_SELECT);
-        default:
-        case 1:
-            SetMenuType(mode);
-            SetActiveSave(gMapDataBottomSpecial.unk6);
-            break;
-        case 0:
-            if (gMenu.column_idx != column_idx) {
-                gMenu.column_idx = column_idx;
-                SoundReq(SFX_TEXTBOX_CHOICE);
-            } else if (option != *p_option) {
-                *p_option = option;
-                LoadOptionsFromSave(gMapDataBottomSpecial.unk6);
-                SoundReq(SFX_TEXTBOX_CHOICE);
+        if (mode != 0) {
+            switch (mode) {
+                case 2:
+                    CreateDialogBox(8, 0);
+                    SoundReq(SFX_TEXTBOX_SELECT);
+                    break;
+                case 3:
+                    currentFile->msg_speed = gMapDataBottomSpecial.unk4;
+                    currentFile->brightness = gMapDataBottomSpecial.unk5;
+                    SoundReq(SFX_MENU_CANCEL);
+                    break;
             }
-            break;
+            SetMenuType(mode);
+            SetActiveSave(gMapDataBottomSpecial.unk6);
+        } else if (gMenu.column_idx != column_idx) {
+            gMenu.column_idx = column_idx;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        } else if (option != *p_option) {
+            *p_option = option;
+            LoadOptionsFromSave(gMapDataBottomSpecial.unk6);
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
     }
 }
-END_NONMATCH
 
 void sub_08050FFC(void) {
     switch (HandleSave(0)) {

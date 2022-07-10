@@ -10,15 +10,13 @@ extern void ram_DrawEntities(void);
 extern void ram_sub_080ADA04(OAMCommand*, void*);
 extern void ram_DrawDirect(OAMCommand*, u32, u32);
 
-// regalloc
-NONMATCH("asm/non_matching/vram/sub_080AD8F0.inc", void* sub_080AD8F0(u32 sprite, u32 frame)) {
+void* sub_080AD8F0(u32 sprite, u32 frame) {
+    u32* temp = &gFrameObjLists[0];
     u32 x = gFrameObjLists[sprite];
-    u8* y = (u8*)&gFrameObjLists[frame];
-    u32 tmp = *(u32*)&y[x];
+    temp = (u32*)((uintptr_t)(((u32*)((uintptr_t)temp + x))[frame]) + (uintptr_t)temp);
 
-    return (u8*)gFrameObjLists + tmp;
+    return temp;
 }
-END_NONMATCH
 
 void FlushSprites(void) {
     gOAMControls.updated = 0;

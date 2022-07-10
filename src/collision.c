@@ -154,28 +154,24 @@ u32 sub_080176E4(Entity* this) {
     }
 }
 
-// Several issues:
-// 1. b2 mask value is set before the loop even begins
-// 2. data is allocated mid function
-// 3. regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity* this)) {
-    LinkedList2* i;
-    LinkedList2* end;
-    for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
-        if (i->node == this) {
+void sub_08017744(Entity* this) {
+    LinkedList2* ll = gUnk_03003C70;
+    LinkedList2* end = &gUnk_03003C70[16];
+
+    do {
+        if (this == ll->node) {
             if (this->spritePriority.b2 != 0) {
                 this->spritePriority.b2 = 0;
-                i->node = NULL;
-                ((LinkedList2*)i->last)->first = i->first;
-                ((LinkedList2*)i->first)->last = i->last;
-                if (i != gUnk_02018EA0)
-                    return;
-                gUnk_02018EA0 = i->first;
+                ll->node = NULL;
+                ((LinkedList2*)ll->last)->first = ll->first;
+                ((LinkedList2*)ll->first)->last = ll->last;
+                if (ll == gUnk_02018EA0)
+                    gUnk_02018EA0 = ll->first;
+                break;
             }
         }
-    }
+    } while (end > ++ll);
 }
-END_NONMATCH
 
 bool32 IsColliding(Entity* this, Entity* that) {
     u32 this_d;
