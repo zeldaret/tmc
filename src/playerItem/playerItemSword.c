@@ -4,6 +4,7 @@
 #include "sound.h"
 #include "asm.h"
 #include "effects.h"
+#include "object.h"
 
 typedef struct {
     Entity base;
@@ -92,9 +93,10 @@ void sub_080A758C(PlayerItemSwordEntity* this) {
     SoundReq(SFX_10E);
 }
 
-static const s8 gUnk_08129072[] = { 0x0,  0xd,   0xf,   -0x3,  0x0, -0x16, -0x10, 0xd,  0x10,  0xd,
-                                    0x10, -0x13, -0x10, -0x13, 0x0, -0x3,  0x10,  -0x3, -0x10, -0x3,
-                                    -0xc, 0x7,   0xc,   0x7,   0xc, -0xf,  -0xc,  -0xf };
+static const s8 gUnk_08129072[][2] = { { 0x0, 0xd },   { 0xf, -0x3 },   { 0x0, -0x16 },   { -0x10, 0xd },
+                                       { 0x10, 0xd },  { 0x10, -0x13 }, { -0x10, -0x13 }, { 0x0, -0x3 },
+                                       { 0x10, -0x3 }, { -0x10, -0x3 }, { -0xc, 0x7 },    { 0xc, 0x7 },
+                                       { 0xc, -0xf },  { -0xc, -0xf } };
 
 static const s8 gUnk_0812908E[] = { -0x2, -0xf, 0xb, -0x3, 0x2, 0x7, -0xb, -0x3 };
 
@@ -335,7 +337,47 @@ void sub_080A7A54(PlayerItemSwordEntity* this) {
     super->hitbox->height = tmp[3];
 }
 
-ASM_FUNC("asm/non_matching/playerItemSword/sub_080A7A84.inc", void sub_080A7A84(PlayerItemSwordEntity* this))
+NONMATCH("asm/non_matching/playerItemSword/sub_080A7A84.inc", void sub_080A7A84(PlayerItemSwordEntity* this)) {
+    s32 iVar1;
+    Entity* effect;
+    s32 uVar3;
+    s32 uVar4;
+    const s8* ptr;
+    const s8* ptr2;
+    u32 tmp;
+
+    if ((gPlayerEntity.frame & 0xf) != 0) {
+        uVar3 = gUnk_08129072[((gPlayerEntity.frame & 0xf) - 1)][0];
+        uVar4 = gUnk_08129072[((gPlayerEntity.frame & 0xf) - 1)][1];
+        if (((gPlayerState.sword_state & 0xc0) == 0) &&
+            ((s32)((u32) * (u8*)&gPlayerEntity.spriteSettings * 0x2000000) < 0)) {
+            uVar3 = -uVar3;
+        }
+        if (super->type != 0) {
+            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + uVar4);
+        } else {
+            if ((((super->z.WORD == 0) && (sub_08008796(super, ((u32) - (gPlayerState.skills & 8)) >> 0x1f,
+                                                        super->x.HALF.HI + uVar3, super->y.HALF.HI + uVar4) == NULL)) &&
+                 (gPlayerState.sword_state != 0)) &&
+                ((gPlayerState.sword_state & 0xc0) == 0)) {
+                if (GetRelativeCollisionTile(super, uVar3, uVar4) == 0x2e) {
+                    SoundReqClipped(&gPlayerEntity, SFX_ITEM_GLOVES_KNOCKBACK);
+                } else {
+                    SoundReqClipped(&gPlayerEntity, SFX_METAL_CLINK);
+                }
+                effect = CreateObject(SPECIAL_FX, 0x1a, 0);
+                if (effect != NULL) {
+                    ptr2 = gUnk_0812908E;
+                    effect->x.HALF.HI = super->x.HALF.HI + ptr2[super->animationState];
+                    tmp = super->animationState + 1;
+                    effect->y.HALF.HI = super->y.HALF.HI + (ptr2)[tmp];
+                    effect->z = super->z;
+                }
+            }
+        }
+    }
+}
+END_NONMATCH
 
 void sub_080A7B98(PlayerItemSwordEntity* this) {
     u32 i, j;
