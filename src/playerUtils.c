@@ -1610,7 +1610,34 @@ void sub_08079BD8(Entity* this) {
     this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079C30.inc", bool32 sub_08079C30(Entity* a))
+NONMATCH("asm/non_matching/playerUtils/sub_08079C30.inc", bool32 sub_08079C30(Entity* this)) {
+    if ((gPlayerState.field_0x14 == 0) && ((gPlayerState.flags & PL_FLAGS2) == 0)) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
+            return TRUE;
+        }
+        switch (gPlayerState.floor_type_last) {
+            case 0xd:
+            case 0x0e:
+            case 0x0f:
+            case 0x10:
+            case 0x14:
+            case 0x17:
+            case 0x2a:
+                return TRUE;
+        }
+
+        if (gPlayerState.floor_type == sub_08007DD6(GetRelativeCollisionTile(this, 0, -1), (u16*)gUnk_08007CAC)) {
+            if (gPlayerState.floor_type == sub_08007DD6(GetRelativeCollisionTile(this, 2, 0), (u16*)gUnk_08007CAC)) {
+                if (gPlayerState.floor_type ==
+                    sub_08007DD6(GetRelativeCollisionTile(this, -2, 0), (u16*)gUnk_08007CAC)) {
+                    return TRUE;
+                }
+            }
+        }
+    }
+    return FALSE;
+}
+END_NONMATCH
 
 bool32 sub_08079D48(void) {
     if (!sub_08079C30(&gPlayerEntity)) {
