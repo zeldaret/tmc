@@ -218,9 +218,9 @@ void sub_0802810C(Entity* this) {
 #endif
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= 0xffffffef;
-    gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.zVelocity = 0x18000;
+    gPlayerState.flags &= ~PL_CAPTURED;
+    gPlayerEntity.flags |= ENT_COLLIDE;
+    gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = -60;
     tmp = 0;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
@@ -228,7 +228,7 @@ void sub_0802810C(Entity* this) {
     gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = tmp;
     this->action = 4;
-    this->timer = 0x50;
+    this->timer = 80;
     this->subtimer = tmp;
     this->flags2 |= 2;
     if (this->iframes == 0) {
