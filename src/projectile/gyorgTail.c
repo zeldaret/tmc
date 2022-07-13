@@ -179,23 +179,24 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
 
     if (this->type == 0) {
         if (0x43 < gEntCount) {
-            return 0;
+            return FALSE;
         }
         this->field_0x78.HALF.HI = 0x11;
-        entity = CreateProjectile(GYORG_TAIL);
+        entity = CreateProjectile(0x22);
         entity->type = this->type;
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x12;
         this->child = entity;
-        entity2 = CreateProjectile(GYORG_TAIL);
+        entity2 = CreateProjectile(0x22);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
         entity2->field_0x78.HALF.HI = 0x14;
         uVar3 = entity2->field_0x78.HALF.HI;
+        entity2->field_0x78.HALF.HI = uVar3;
         entity->child = entity2;
-        entity3 = CreateProjectile(GYORG_TAIL);
+        entity3 = CreateProjectile(0x22);
         entity3->type = this->type;
         entity3->type2 = 3;
         entity3->parent = this->parent;
@@ -204,17 +205,18 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
         entity2->child = entity3;
     } else {
         if (0x44 < gEntCount) {
-            return 0;
+            return FALSE;
         }
         this->field_0x78.HALF.HI = 0xf;
-        entity = CreateProjectile(GYORG_TAIL);
+        entity = CreateProjectile(0x22);
         entity->type = this->type;
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x10;
         uVar3 = entity->field_0x78.HALF.HI;
+        entity->field_0x78.HALF.HI = uVar3;
         this->child = entity;
-        entity2 = CreateProjectile(GYORG_TAIL);
+        entity2 = CreateProjectile(0x22);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
@@ -222,13 +224,13 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
         entity2->field_0x78.HALF.HI = 0x20;
         entity->child = entity2;
     }
-    entity4 = CreateProjectile(GYORG_TAIL);
-    entity4->type = this->type;
-    entity4->type2 = 4;
-    entity4->parent = this->parent;
-    entity4->child = this;
-    entity4->field_0x78.HALF.HI = uVar3;
-    return 1;
+    entity = CreateProjectile(0x22);
+    entity->type = this->type;
+    entity->type2 = 4;
+    entity->parent = this->parent;
+    entity->child = this;
+    entity->field_0x78.HALF.HI = uVar3;
+    return TRUE;
 }
 END_NONMATCH
 

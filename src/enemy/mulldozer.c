@@ -436,7 +436,30 @@ void sub_08033320(MulldozerEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/mulldozer/sub_08033364.inc", bool32 sub_08033364(MulldozerEntity* this))
+NONMATCH("asm/non_matching/mulldozer/sub_08033364.inc", bool32 sub_08033364(MulldozerEntity* this)) {
+    Entity* entity;
+    u32 radius;
+    u32 tmp;
+
+    entity = (Entity*)sub_08049DF4(1);
+    if (entity != NULL) {
+        if (super->type != 0) {
+            radius = 0x48;
+        } else {
+            radius = 0x38;
+        }
+        if (EntityInRectRadius(super, entity, radius, radius) != 0) {
+            if (super->type != 0) {
+                return TRUE;
+            }
+            if (((GetFacingDirection(super, gUnk_020000B0) + 2) & 0x1c) >> 2 == super->animationState) {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+END_NONMATCH
 
 void (*const Mulldozer_Functions[])(MulldozerEntity*) = {
     Mulldozer_OnInit,

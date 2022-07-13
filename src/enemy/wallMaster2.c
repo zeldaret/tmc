@@ -165,7 +165,23 @@ void sub_0802CF64(Entity* this) {
     sub_0802CF8C(this);
 }
 
-ASM_FUNC("asm/non_matching/wallMaster2/sub_0802CF8C.inc", void sub_0802CF8C(Entity* this))
+NONMATCH("asm/non_matching/wallMaster2/sub_0802CF8C.inc", void sub_0802CF8C(Entity* this)) {
+    int iVar1;
+    u32 uVar2;
+    const u16* ptr;
+    u16* ptr2;
+
+    uVar2 = (this->direction + 2) & 0x1c;
+    if ((uVar2 - this->animationState * 4 + 6 > 0xc) ||
+        ((((this->direction + 1) & 7) > 2 && (uVar2 >> 2 != this->animationState)))) {
+        this->animationState = (uVar2 >> 2);
+        iVar1 = (uVar2 >> 3) * 2;
+        ptr = &gUnk_080CD730[iVar1];
+        this->field_0x74.HWORD = ptr[0];
+        this->field_0x76.HWORD = ptr[1];
+    }
+}
+END_NONMATCH
 
 void sub_0802CFD8(Entity* this) {
     u32 unk = gUnk_080CD740[(this->field_0x7a.HALF.LO++ >> 3) & 7];

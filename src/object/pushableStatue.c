@@ -251,7 +251,36 @@ u32 sub_0808968C(u32 param_1) {
     return 0;
 }
 
-ASM_FUNC("asm/non_matching/pushableStatue/sub_080896B0.inc", bool32 sub_080896B0(void))
+NONMATCH("asm/non_matching/pushableStatue/sub_080896B0.inc", bool32 sub_080896B0(void)) {
+    s16 uVar1;
+    s16 iVar2;
+    u8* puVar3;
+    LayerStruct* puVar5;
+    u32 uVar4;
+    const s16* ptr;
+    u32 tmp1;
+    u32 tmp2;
+    u32 val;
+
+    if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.frame & 1) != 0)) {
+        ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
+        uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
+        uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]) - uVar1;
+        val = sub_080B1AE0(uVar4, gPlayerEntity.collisionLayer);
+        if ((1 < val - 0x26) && (val != 0x29)) {
+            puVar5 = GetLayerByIndex((u32)gPlayerEntity.collisionLayer);
+            iVar2 = (s32)(uVar4 * 0x10000) >> 0x10;
+            puVar3 = puVar5->collisionData;
+            tmp1 = puVar3[iVar2];
+            tmp2 = puVar3[(iVar2 - uVar1)];
+            if ((tmp1 == 0) && (tmp2 == 0)) {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+END_NONMATCH
 
 void (*const PushableStatue_Actions[])(PushableStatueEntity*) = {
     PushableStatue_Init, PushableStatue_Action1, PushableStatue_Action2, PushableStatue_Action3, PushableStatue_Action4,

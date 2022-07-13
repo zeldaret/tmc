@@ -27,7 +27,9 @@ extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern void sub_08003FDE(Entity*, u32, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
+extern void sub_08080BC4(void);
 void sub_080790E4(Entity* this);
+void sub_08079064(Entity*);
 
 typedef struct {
     u8 unk0[4];
@@ -1297,7 +1299,53 @@ bool32 sub_08078F74(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08078FB0.inc", void sub_08078FB0(Entity* a))
+NONMATCH("asm/non_matching/playerUtils/sub_08078FB0.inc", void sub_08078FB0(Entity* this)) {
+    u32 bVar2;
+    u32 animation;
+
+    if ((gPlayerState.pushedObject & 0x80) == 0) {
+        gPlayerState.field_0x35 = 0xff;
+    }
+    sub_08079064(this);
+    if ((gPlayerState.flags & 8) != 0) {
+        bVar2 = 0x58;
+    } else {
+        if ((gPlayerState.flags & 0x80) != 0) {
+            bVar2 = 0x18;
+        } else {
+            if (gPlayerState.animation >> 8 == 7) {
+                bVar2 = 0x34;
+            } else {
+                bVar2 = 0xb8;
+            }
+        }
+    }
+
+    if (bVar2 > gPlayerState.animation) {
+        u32 temp = this->animationState;
+        bVar2 = temp;
+        if (bVar2 >= 5) {
+            this->spriteSettings.flipX = 1;
+        } else {
+            this->spriteSettings.flipX = 0;
+        }
+
+        if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
+            bVar2 = gPlayerState.animation + this->animationState;
+        } else {
+            bVar2 = (((u8)bVar2) >> 1) + gPlayerState.animation;
+        }
+    } else {
+        bVar2 = gPlayerState.animation;
+    }
+
+    if (bVar2 != (((u16)this->spriteIndex << 8) | this->animIndex)) {
+        this->spriteIndex = bVar2 >> 8;
+        bVar2 &= 0xff;
+        InitAnimationForceUpdate(this, bVar2);
+    }
+}
+END_NONMATCH
 
 void sub_08079064(Entity* this) {
     u32 i;
@@ -2963,11 +3011,155 @@ void sub_0807C5B0(void) {
     roomControls->scroll_flags |= 2;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4(u16* a, u16* b))
+NONMATCH("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4(u16* param_1, u16* param_2)) {
+    s32 iVar1;
+    u16* puVar2;
+    u16* puVar3;
+    u32 uVar4;
+    u32 index;
+    u32 innerIndex;
+
+    /*
+        for (index = 0; index < 0x20; index++) {
+            for (innerIndex = 0; innerIndex < 0x20; innerIndex++) {
+                param_1[index*0x81+innerIndex] = param_2[innerIndex];
+            }
+        }
+
+    */
+    puVar2 = param_1;
+    iVar1 = 0x20;
+    do {
+        uVar4 = 0;
+        iVar1--;
+        do {
+            *puVar2 = *param_2;
+            param_2++;
+            puVar2++;
+            uVar4++;
+        } while (uVar4 < 0x20);
+        puVar2 += 0x60;
+    } while (iVar1 != 0);
+
+    if (0xff < gRoomControls.width) {
+        puVar2 = param_1 + 0x20;
+        iVar1 = 0x20;
+        do {
+            uVar4 = 0;
+            iVar1--;
+            do {
+                *puVar2 = *param_2;
+                param_2++;
+                puVar2++;
+                uVar4++;
+            } while (uVar4 < 0x20);
+            puVar2 += 0x60;
+        } while (iVar1 != 0);
+    }
+    if (0xff < gRoomControls.height) {
+        puVar2 = param_1 + 0x1000;
+        iVar1 = 0x20;
+        do {
+            uVar4 = 0;
+            iVar1--;
+            do {
+                *puVar2 = *param_2;
+                param_2++;
+                puVar2++;
+                uVar4++;
+            } while (uVar4 < 0x20);
+            puVar2 += 0x60;
+        } while (iVar1 != 0);
+    }
+    if ((0xff < gRoomControls.width) && (0xff < gRoomControls.height)) {
+        param_1 += 0x1020;
+        puVar2 = param_1;
+        iVar1 = 0x20;
+        do {
+            uVar4 = 0;
+            iVar1--;
+            do {
+                *puVar2 = *param_2;
+                param_2++;
+                puVar2++;
+                uVar4++;
+            } while (uVar4 < 0x20);
+            puVar2 += 0x60;
+        } while (iVar1 != 0);
+    }
+}
+END_NONMATCH
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C69C.inc", void sub_0807C69C(u8* a, u32 b, u32 c))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera())
+NONMATCH("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera()) {
+    s32 targetX;
+    s32 targetY;
+    Entity* target;
+    RoomControls* roomControls;
+    u32 tmp1;
+    u32 tmp2;
+    u32 tmp3;
+    u32 tmp4;
+
+    sub_0807BFD0();
+    LoadRoomGfx();
+    roomControls = &gRoomControls;
+    target = gRoomControls.camera_target;
+    if (target != NULL) {
+        if ((target->x.HALF_U.HI * 0x10000) < 0) {
+            tmp3 = (target->x.HALF.HI & 0x7fff);
+            tmp3 -= gRoomControls.origin_x;
+            target->x.HALF.HI = tmp3;
+        }
+        targetX = target->x.HALF.HI;
+        if ((target->y.HALF_U.HI * 0x10000) < 0) {
+            tmp4 = (target->y.HALF.HI & 0x7fff);
+            tmp4 -= gRoomControls.origin_y;
+            target->y.HALF.HI = tmp4;
+        }
+        targetY = target->y.HALF.HI;
+    } else {
+        targetX = 0;
+        targetY = 0;
+    }
+
+    if (targetX < 0x78) {
+        roomControls->scroll_x = 0;
+    } else {
+        if (targetX >= (roomControls->width - 0x78)) {
+            tmp1 = roomControls->width - 0x78;
+        } else {
+            tmp1 = targetX;
+        }
+        roomControls->scroll_x = tmp1 - 0x78;
+    }
+    roomControls->scroll_x = roomControls->origin_x + roomControls->scroll_x;
+
+    if (targetY < 0x50) {
+        roomControls->scroll_y = 0;
+    } else {
+        if (targetY >= (roomControls->height - 0x50)) {
+            tmp2 = roomControls->height - 0x50;
+        } else {
+            tmp2 = targetY;
+        }
+        roomControls->scroll_y = tmp2 - 0x50;
+    }
+    roomControls->scroll_y = roomControls->scroll_y + roomControls->origin_y;
+
+    if (roomControls->camera_target != NULL) {
+        roomControls->camera_target->x.HALF.HI += roomControls->origin_x;
+        roomControls->camera_target->y.HALF.HI += roomControls->origin_y;
+        if ((gRoomControls.scroll_flags & 2) != 0) {
+            roomControls->camera_target->collisionLayer = 1;
+            UpdateSpriteForCollisionLayer(roomControls->camera_target);
+        }
+    }
+    roomControls->scroll_flags &= 0xfb;
+    sub_08080BC4();
+}
+END_NONMATCH
 
 void sub_0807C810(void) {
     DiggingCaveEntranceTransition* ptr;

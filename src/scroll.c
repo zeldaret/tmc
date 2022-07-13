@@ -10,6 +10,9 @@
 #include "fileselect.h"
 #include "screen.h"
 #include "manager/diggingCaveEntranceManager.h"
+#include "kinstone.h"
+#include "effects.h"
+#include "object.h"
 
 extern void sub_08080BC4(void);
 extern void sub_080197D4(const void*);
@@ -78,7 +81,100 @@ void sub_0807FC64(RoomControls* controls) {
     UpdateIsDiggingCave();
 }
 
-ASM_FUNC("asm/non_matching/scroll/sub_0807FC7C.inc", void sub_0807FC7C(RoomControls* controls))
+NONMATCH("asm/non_matching/scroll/sub_0807FC7C.inc", void sub_0807FC7C(RoomControls* controls)) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+    int iVar4;
+    u32 uVar5;
+    u32 temp;
+    u32 temp2;
+    u32 uVar6;
+
+    if (controls->camera_target != NULL) {
+        iVar4 = (int)controls->scroll_x;
+        temp = controls->camera_target->x.HALF.HI - 0x78;
+        uVar3 = iVar4 - temp;
+        if (uVar3 != 0) {
+            uVar1 = (u16)controls->scroll_x;
+            uVar5 = uVar1 & 7;
+            uVar6 = uVar1;
+            if ((int)uVar3 >= 1) {
+                uVar2 = controls->origin_x;
+                if ((int)uVar2 < iVar4) {
+                    if ((int)controls->unk5 <= (int)uVar3) {
+                        uVar3 = controls->unk5;
+                        controls->scroll_flags = controls->scroll_flags | 4;
+                    }
+                    controls->scroll_x = uVar6 - uVar3;
+                    if ((int)((uVar5)-uVar3) < 1) {
+                        gUpdateVisibleTiles = 1;
+                    }
+                    if ((int)uVar2 >= (int)controls->scroll_x) {
+                        controls->scroll_x = (s16)uVar2;
+                    }
+                }
+            } else {
+                uVar2 = (controls->origin_x + controls->width) - 0xf0;
+                if (iVar4 < (int)uVar2) {
+                    if ((int)-controls->unk5 >= (int)uVar3) {
+                        uVar3 = -controls->unk5;
+                        controls->scroll_flags |= 4;
+                    }
+                    controls->scroll_x = uVar1 - (short)uVar3;
+                    if (7 < (int)((uVar5)-uVar3)) {
+                        gUpdateVisibleTiles = 1;
+                    }
+                    if ((int)controls->scroll_x >= (int)uVar2) {
+                        controls->scroll_x = (s16)uVar2;
+                    }
+                }
+            }
+        }
+
+        iVar4 = (int)controls->scroll_y;
+        temp = controls->camera_target->y.HALF.HI - 0x50;
+        uVar3 = iVar4 - (temp);
+        if (uVar3 != 0) {
+            uVar1 = (u16)controls->scroll_y;
+            uVar5 = uVar1 & 7;
+            uVar6 = uVar1;
+            if ((int)uVar3 >= 1) {
+                uVar2 = temp2 = (u16)controls->origin_y;
+                if ((int)uVar2 < iVar4) {
+                    if ((int)controls->unk5 <= (int)uVar3) {
+                        uVar3 = controls->unk5;
+                        controls->scroll_flags |= 4;
+                    }
+                    controls->scroll_y = uVar6 - uVar3;
+                    if ((int)((uVar5)-uVar3) < 1) {
+                        gUpdateVisibleTiles = 1;
+                    }
+                    if ((int)uVar2 >= (int)controls->scroll_y) {
+                        controls->scroll_y = (s16)uVar2;
+                    }
+                }
+            } else {
+                uVar2 = (controls->origin_y + controls->height) - 0xa0;
+                if (iVar4 < (int)uVar2) {
+                    if ((int)-controls->unk5 >= (int)uVar3) {
+                        uVar3 = -controls->unk5;
+                        controls->scroll_flags = controls->scroll_flags | 4;
+                    }
+                    controls->scroll_y = uVar1 - (short)uVar3;
+                    if (7 < (int)((uVar1 & 7) - uVar3)) {
+                        gUpdateVisibleTiles = 1;
+                    }
+                    if ((int)controls->scroll_y >= (int)uVar2) {
+                        controls->scroll_y = (s16)uVar2;
+                    }
+                }
+            }
+        }
+    }
+    sub_08080BC4();
+}
+END_NONMATCH
 
 void sub_0807FDB0(RoomControls* controls) {
     static void (*const gUnk_0811E780[])(RoomControls*) = {
@@ -631,7 +727,44 @@ void sub_080809D4(void) {
     gUpdateVisibleTiles = 1;
 }
 
-ASM_FUNC("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTransition())
+NONMATCH("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTransition()) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+    u32 uVar4;
+    Entity* target;
+
+    if (gRoomControls.camera_target != &gPlayerEntity) {
+        return;
+    }
+    if (gPlayerState.jump_status != 0) {
+        return;
+    }
+    switch (gRoomControls.camera_target->action) {
+        case 0x0f:
+            if (gRoomControls.area == 0x48) {
+                return;
+            }
+        case 1:
+        case 9:
+        case 0x18:
+        case 0x1d:
+            uVar4 = gRoomControls.camera_target->y.HALF.HI - gRoomControls.origin_y;
+            uVar3 = gRoomControls.camera_target->x.HALF.HI - gRoomControls.origin_x;
+            uVar1 =
+                sub_080B1AE0(COORD_TO_TILE(gRoomControls.camera_target), gRoomControls.camera_target->collisionLayer);
+            gRoomTransition.stairs_idx = sub_080B1A48(uVar3, uVar4, gRoomControls.camera_target->collisionLayer);
+            switch (uVar1) {
+                case 0x3f:
+                case 0xf1:
+                case 0x28:
+                case 0x29:
+                    sub_080806BC(uVar3, uVar4, 0xff, 10);
+                    break;
+            }
+    }
+}
+END_NONMATCH
 
 ASM_FUNC("asm/non_matching/scroll/sub_08080B60.inc", void sub_08080B60(LayerStruct* param_1))
 
@@ -675,4 +808,48 @@ void sub_08080C80(u32* param_1) {
     sub_0807C8B0(gMapTop.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
 }
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* a))
+NONMATCH("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* this)) {
+    Entity* effect;
+    u32 tmp;
+    u32 tmp2;
+
+    if (this->type != this->animIndex) {
+        InitAnimationForceUpdate(this, this->type);
+        if (this->type == 0x5c) {
+            struct_080C9CBC* ptr = &gUnk_080C9CBC[this->type2];
+            this->palette.raw = ((ptr->unk0 & 0xf) << 4) | ptr->unk0;
+        }
+
+    } else {
+
+        UpdateAnimationSingleFrame(this);
+        if (this->spriteSettings.draw != 0) {
+            switch (this->type) {
+                case 0x60:
+                    if (this->field_0x6a.HALF.LO != 0) {
+                        this->field_0x6a.HALF.LO--;
+                    } else {
+                        this->field_0x6a.HALF.LO = (Random() & 0x1f) + 10;
+                        effect = CreateFx(this, FX_SPARKLE, 0);
+                        if (effect != NULL) {
+                            effect->spriteOffsetX = this->spriteOffsetX;
+                            effect->spriteOffsetY = this->spriteOffsetY;
+                            SortEntityAbove(this, effect);
+                        }
+                    }
+                    break;
+                case 0x40:
+                case 0x41:
+                case 0x42:
+                case 0x43:
+                case 0x5c:
+                case 0x62:
+                    if ((gRoomTransition.frameCount & 0xf) == 0) {
+                        CreateSparkle(this);
+                    }
+                    break;
+            }
+        }
+    }
+}
+END_NONMATCH

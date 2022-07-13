@@ -106,7 +106,42 @@ void sub_08066474(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(Entity* this, Entity* entity))
+NONMATCH("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(Entity* this, Entity* entity)) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+    u32 uVar4;
+
+    if ((this->type2 & 0x10) != 0) {
+        this->field_0x86.HWORD = this->x.HALF.HI;
+        uVar2 = this->field_0x7c.HALF_U.HI;
+        uVar3 = uVar2 + this->field_0x82.HWORD;
+        uVar4 = uVar2 - this->field_0x82.HWORD;
+        if (((entity->x.HALF.HI < (int)uVar3) && (entity->x.HALF.HI > (int)uVar4))) {
+            uVar2 = entity->x.HALF.HI;
+        } else {
+            if (entity->x.HALF.HI >= (int)uVar3) {
+                uVar2 = uVar3;
+            } else {
+                uVar2 = uVar4;
+            }
+        }
+
+        if (this->field_0x86.HWORD == uVar2) {
+            if (this->cutsceneBeh.HWORD == 1) {
+                this->cutsceneBeh.HWORD = 0;
+                InitializeAnimation(this, 2);
+            }
+        } else {
+            this->x.HALF.HI = (short)uVar2;
+            if (this->cutsceneBeh.HWORD == 0) {
+                this->cutsceneBeh.HWORD = 1;
+                InitializeAnimation(this, 6);
+            }
+        }
+    }
+}
+END_NONMATCH
 
 bool32 sub_0806650C(Entity* this) {
     u32 dir = 0;

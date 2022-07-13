@@ -188,7 +188,11 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", /*static*/ void sub_080560B8(void)
         }
     }
 
-    b = (gUnk_02000010.signature ^ SIGNATURE) != 0;
+    if (gUnk_02000010.signature ^ SIGNATURE) {
+        b = TRUE;
+    } else {
+        b = FALSE;
+    }
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
         b = TRUE;

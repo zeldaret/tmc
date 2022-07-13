@@ -30,5 +30,6 @@ bool32 IsColliding(Entity*, Entity*);
 bool32 IsCollidingPlayer(Entity*);
 void CalculateEntityTileCollisions(Entity*, u32, u32);
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
+u32 sub_080176E4(Entity*);
 
 #endif // COLLISION_H
