@@ -149,9 +149,47 @@ void sub_08022DE8(Entity* this) {
 // this definition is only here, so clang-tidy does not mess gUnk_080CBBBC up.
 extern void sub_08022E40(Entity* this);
 
-ASM_FUNC("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* this))
+NONMATCH("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* this)) {
+    u32 bVar1;
+    u32 bVar2;
+    u32 tmp;
+    u32 tmp2;
+    u8* ptr;
 
-ASM_FUNC("asm/non_matching/moldorm/sub_08022EAC.inc", void sub_08022EAC(Entity* this))
+    this->field_0x74.HWORD = this->x.HALF.HI;
+    this->field_0x76.HWORD = this->y.HALF.HI;
+    tmp2 = (this->parent->field_0x78.HALF.HI + 1) & 7;
+    bVar1 = ((u8*)&this->field_0x7c)[tmp2];
+    tmp = (bVar1 & 0xf) - 8;
+    bVar1 >>= 4;
+    this->x.HALF.HI = ((short)((tmp * 0x100)) >> 8) + this->x.HALF.HI;
+    bVar1 -= 8;
+    this->y.HALF.HI = bVar1 + this->y.HALF.HI;
+    bVar2 = (u8)(*(u32*)&this->cutsceneBeh >> (((this->parent->field_0x78.HALF.HI + 1) & 7) << 2)) & 7;
+    this->animationState = bVar2;
+    if (this->type == 3) {
+        this->frameIndex = bVar2 + 10;
+    } else {
+        sub_08022EAC(this);
+    }
+}
+END_NONMATCH
+
+NONMATCH("asm/non_matching/moldorm/sub_08022EAC.inc", void sub_08022EAC(Entity* this)) {
+    int iVar1;
+    u32 tmp;
+    u32 tmp2;
+    if (this->child != NULL) {
+        tmp2 = ((this->parent->field_0x78.HALF.HI) & 7);
+        ((u8*)&this->child->field_0x7c)[tmp2] = ((this->x.HALF_U.HI - this->field_0x74.HALF.LO + 8) & (0xf)) +
+                                                ((this->y.HALF_U.HI - this->field_0x76.HALF.LO + 8) /*& 0xf*/) * 0x10;
+        iVar1 = ((this->parent->field_0x78.HALF.HI) & 7) << 2;
+        tmp = (this->animationState & 7) << iVar1;
+        tmp |= ~(0xf << iVar1) & (*(u32*)&this->child->cutsceneBeh);
+        *(u32*)&this->child->cutsceneBeh = tmp;
+    }
+}
+END_NONMATCH
 
 void sub_08022F14(Entity* this) {
     if (sub_08049FA0(this) == 0) {

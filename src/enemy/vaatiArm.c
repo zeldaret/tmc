@@ -865,7 +865,7 @@ static ASM_FUNC("asm/non_matching/vaati/sub_080432A8.inc", void sub_080432A8(Ent
     Entity* entity;
     VaatiArm_HeapStruct1* s;
     u32 i;
-    u8* ptr;
+    VaatiArm_HeapStruct1* ptr;
 
     if (this->timer != 0) {
         if (--this->timer != 0) {
@@ -886,10 +886,10 @@ static ASM_FUNC("asm/non_matching/vaati/sub_080432A8.inc", void sub_080432A8(Ent
     }
     sub_08043B9C(this);
     for (i = 0; i < 5; i++) {
-        ptr = ((u8*)((VaatiArm_HeapStruct*)this->myHeap)->s1) + 0x10 * i;
-        if (gUnk_080D1414[i] > ptr[0xc]) {
-            ptr[0xc]++;
-            if (gUnk_080D1414[i] != ptr[0xc]) {
+        ptr = &(((VaatiArm_HeapStruct*)this->myHeap)->s1)[i];
+        if (gUnk_080D1414[i] > ptr->unk0c) {
+            ptr->unk0c++;
+            if (gUnk_080D1414[i] != ptr->unk0c) {
                 return;
             }
             SoundReq(SFX_15E);

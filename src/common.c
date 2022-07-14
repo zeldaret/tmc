@@ -562,7 +562,26 @@ ASM_FUNC("asm/non_matching/common/sub_0801E49C.inc", void sub_0801E49C(u32 a1, u
 
 ASM_FUNC("asm/non_matching/common/sub_0801E64C.inc", void sub_0801E64C(u32 a1, u32 a2, u32 a3, u32 a4, u32 a5));
 
-ASM_FUNC("asm/non_matching/common/sub_0801E6C8.inc", void sub_0801E6C8(u32 a1));
+void sub_0801E6C8(u32 param_1) {
+    u32 tmp;
+    u32 index;
+    if (param_1 - 1 < 100) {
+        for (index = 0; index < 0x80; index++) {
+            if (param_1 == gSave.unk1C1[index]) {
+                gSave.unk1C1[index] = 0xf1;
+            }
+        }
+        tmp = sub_08002632(gFuseInfo.ent);
+        if ((tmp - 1 < 0x7f) && (gSave.unk1C1[tmp] == 0xf1)) {
+            gSave.unk1C1[tmp] = 0xf2;
+        }
+        for (index = 0; index < 0x20; index++) {
+            if (param_1 == gUnk_03003DF0.array[index].unk_3) {
+                gUnk_03003DF0.array[index].unk_3 = 0xf1;
+            }
+        }
+    }
+}
 
 void sub_0801E738(u32 param_1) {
     s32 index;

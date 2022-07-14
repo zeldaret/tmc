@@ -75,8 +75,8 @@ void Stalfos_OnTick(StalfosEntity* this) {
 
 NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosEntity* this)) {
     if (super->hitType == 0x44) {
-        if ((super->contactFlags & 0x7f) < 7) {
-            if ((super->contactFlags & 0x7f) > 3) {
+        switch (super->contactFlags & 0x7f) {
+            case 4 ... 6:
                 if (super->iframes < 1) {
                     super->action = 4;
                     super->direction = super->knockbackDirection;
@@ -84,7 +84,7 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
                     super->speed = 0x120;
                     sub_0803981C(this);
                 }
-            }
+                break;
         }
     }
     if (super->contactFlags == 0x9d) {
@@ -441,7 +441,32 @@ void sub_08039AD4(StalfosEntity* this) {
     }
     sub_08039A48(this);
 }
-ASM_FUNC("asm/non_matching/stalfos/sub_08039B28.inc", u32 sub_08039B28(StalfosEntity* this))
+
+u32 sub_08039B28(StalfosEntity* this) {
+    u32 tileType;
+    u32 pos;
+    const u16* ptr;
+    const s8* ptr2;
+
+    if (super->child == NULL) {
+        ptr2 = &gUnk_080CF930[super->animationState * 2];
+        pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
+
+        tileType = GetTileType(pos, (u32)super->collisionLayer);
+        ptr = gUnk_080CF938;
+        do {
+            if (ptr[0] != tileType) {
+                ptr += 2;
+            } else {
+                goto found;
+            }
+        } while (ptr[0] != 0);
+    }
+    return 0xffff;
+found:
+    super->type2 = ptr[1];
+    return pos;
+}
 
 void (*const Stalfos_Functions[])(StalfosEntity*) = {
     Stalfos_OnTick,

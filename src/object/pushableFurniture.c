@@ -58,7 +58,88 @@ void PushableFurniture(PushableFurnitureEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/pushableFurniture/sub_0808F990.inc", void sub_0808F990(PushableFurnitureEntity* this))
+NONMATCH("asm/non_matching/pushableFurniture/sub_0808F990.inc", void sub_0808F990(PushableFurnitureEntity* this)) {
+    s32 uVar1;
+    bool32 bVar2;
+    u32 uVar3;
+    u32 sVar4;
+    u16 uVar5;
+    SpritePriority* pSVar6;
+    Entity* pEVar7;
+
+    super->action = 1;
+    super->speed = 0x80;
+    super->subtimer = super->timer;
+    super->timer = 0;
+    super->updatePriority = 3;
+    this->unk_81 = 0;
+    this->unk_83 = 0;
+    super->spriteRendering.b3 = 2;
+    if (super->type == 1) {
+        super->spritePriority.b0 = 4;
+        this->unk_80 = 0;
+    } else {
+        this->unk_80 = 1;
+        super->spritePriority.b0 = 5;
+        if ((super->type == 2) || (super->type == 4)) {
+            super->y.HALF.HI += 2;
+            super->spriteOffsetY = -2;
+            super->subAction = 0;
+            super->frameIndex = 0;
+        }
+    }
+    switch (super->subtimer) {
+
+        default:
+            bVar2 = FALSE;
+            if (*(u16*)&super->type == 0x101) {
+                uVar1 = (s8)super->subtimer;
+                sVar4 = super->y.HALF_U.HI;
+            } else {
+                uVar1 = (s8)super->subtimer;
+                sVar4 = super->x.HALF_U.HI;
+            }
+            this->unk_7e = sVar4 + (u32)uVar1;
+            if (super->parent == NULL) {
+                uVar3 = CheckFlags((u32)this->unk_86);
+            } else {
+                if ((this->unk_82 & 0x80) != 0) {
+                    if (super->parent->action == 2) {
+                        bVar2++;
+                    }
+                    break;
+                }
+                uVar3 = CheckLocalFlag((u32)this->unk_82);
+            }
+            if (uVar3 != 0) {
+                bVar2++;
+            }
+            break;
+        case 0:
+            bVar2 = FALSE;
+            break;
+        case 0x80:
+            bVar2 = TRUE;
+            if (*(u16*)&super->type == 0x101) {
+                uVar5 = super->y.HALF.HI;
+            } else {
+                uVar5 = super->x.HALF.HI;
+            }
+            this->unk_7e = uVar5;
+            break;
+    }
+
+    if (bVar2) {
+        this->unk_81 = 1;
+        if (*(u16*)&super->type == 0x101) {
+            super->y.HALF.HI = this->unk_7e;
+        } else {
+            super->x.HALF.HI = this->unk_7e;
+        }
+    }
+    sub_0808FF50(this);
+}
+END_NONMATCH
 
 void PushableFurniture_Action1(PushableFurnitureEntity* this) {
     if (this->unk_81 == 0) {

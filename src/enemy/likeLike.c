@@ -209,26 +209,32 @@ void sub_0802805C(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity* this)) {
+void sub_0802810C(Entity* this) {
+// This matches but ugly
+#ifndef NON_MATCHING
+    register u32 tmp asm("r3");
+#else
+    u32 tmp;
+#endif
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= PL_CAPTURED;
+    gPlayerState.flags &= ~PL_CAPTURED;
     gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = -60;
+    tmp = 0;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x82.HALF.HI;
     gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
-    gPlayerEntity.spriteOffsetY = 0;
+    gPlayerEntity.spriteOffsetY = tmp;
     this->action = 4;
     this->timer = 80;
-    this->subtimer = 0;
+    this->subtimer = tmp;
     this->flags2 |= 2;
     if (this->iframes == 0) {
         this->iframes = -18;
     }
 }
-END_NONMATCH
 
 void sub_080281A0(Entity* this) {
     this->subtimer = 25;

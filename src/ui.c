@@ -442,7 +442,27 @@ void DrawKeys(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/ui/CreateUIElement.inc", void CreateUIElement(u32 type, u32 type2))
+NONMATCH("asm/non_matching/ui/CreateUIElement.inc", void CreateUIElement(u32 type, u32 type2)) {
+    u8 bVar1;
+    u32 index;
+    UIElement* element;
+    UIElementDefinition* definition;
+
+    for (index = 0; index < MAX_UI_ELEMENTS; index++) {
+        element = &gUnk_0200AF00.elements[index];
+        if (element->used == 0) {
+            definition = &gUIElementDefinitions[type];
+            element->type = (u8)type;
+            element->type2 = type2;
+            element->frameIndex = 0xff;
+            element->used = 1;
+            element->unk_1a = definition->unk_4;
+            element->buttonElementId = definition->buttonElementId;
+            return;
+        }
+    }
+}
+END_NONMATCH
 
 void sub_0801CAB8(UIElement* element, Frame* frame) {
     element->framePtr = frame;

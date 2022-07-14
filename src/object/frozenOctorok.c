@@ -54,7 +54,95 @@ const u8 gUnk_08123DDC[] = {
     9, 4, 0, 0, 1, 5, 0, 0, 1, 4, 0, 0, 1, 3, 0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 10, 4, 0, 0,
 };
 
-ASM_FUNC("asm/non_matching/frozenOctorok/FrozenOctorok_Init.inc", void FrozenOctorok_Init(FrozenOctorokEntity* this))
+NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Init.inc", void FrozenOctorok_Init(FrozenOctorokEntity* this)) {
+    OctorokBossHeap* heap;
+    Entity*** pppEVar2;
+    FrozenOctorokEntity* pEVar3;
+    FrozenOctorokEntity* obj1;
+    FrozenOctorokEntity* obj2;
+    u32 uVar3;
+    u32 type;
+
+    super->action = 1;
+    switch (super->type) {
+        case 0:
+            SetDefaultPriority(super, 6);
+            this->unk_7e = 0;
+        case 6:
+            super->timer = 1;
+            super->direction = 0x10;
+            this->unk_79 = 0xf0;
+            super->x.HALF.HI = gRoomControls.origin_x + 0x108;
+            super->y.HALF.HI = gRoomControls.origin_y + 0x168;
+            super->spriteRendering.b0 = 3;
+            this->unk_76 = 0xa0;
+            this->unk_74 = 0xa0;
+            this->unk_7b = -0x80;
+            if (super->type == 0) {
+                super->spriteOffsetX = 0x29;
+                super->spriteOffsetY = -0x20;
+                heap = (OctorokBossHeap*)zMalloc(sizeof(OctorokBossHeap));
+                this->heap = heap;
+                if (heap == NULL) {
+                    DeleteThisEntity();
+                    return;
+                }
+                super->myHeap = heap;
+                this->heap->tailCount = 5;
+
+                for (uVar3 = 0; uVar3 < 4; uVar3++) {
+                    super->child = CreateObjectWithParent(super, FROZEN_OCTOROK, uVar3 + 1, 0);
+                    if (super->child != NULL) {
+                        ((FrozenOctorokEntity*)super->child)->heap = this->heap;
+                        this->heap->legObjects[uVar3] = (OctorokBossEntity*)super->child;
+                    }
+                }
+                obj1 = (FrozenOctorokEntity*)CreateObjectWithParent(super, FROZEN_OCTOROK, 5, 0);
+                super->child = (Entity*)obj1;
+                if (obj1 != NULL) {
+                    obj1->heap = this->heap;
+                }
+                obj2 = (FrozenOctorokEntity*)CreateObjectWithParent(super, FROZEN_OCTOROK, 6, 0);
+                super->parent = (Entity*)obj2;
+                if (obj2 != NULL) {
+                    obj2->heap = this->heap;
+                }
+            } else {
+                super->spriteOffsetX = 0xd7;
+                super->spriteOffsetY = -0x20;
+            }
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            super->timer = 0x10;
+            this->unk_79 = 0;
+            if ((super->type & 2) == 0) {
+                super->subtimer = 2;
+            } else {
+                super->subtimer = 0xfe;
+            }
+            this->unk_74 = 0x100;
+            if ((super->type & 1) == 0) {
+                this->unk_76 = 0xff00;
+            } else {
+                this->unk_76 = 0x100;
+            }
+            break;
+        case 5:
+            this->unk_76 = 0x100;
+            this->unk_74 = 0x100;
+            this->unk_79 = 0x1c;
+            this->heap->mouthObject = (OctorokBossEntity*)this;
+            break;
+        case 7:
+            return;
+    }
+    InitializeAnimation(super, gUnk_08123DDC[super->type * 4]);
+    FrozenOctorok_Action1(this);
+}
+END_NONMATCH
 
 void (*const FrozenOctorok_Action1SubActions[])(FrozenOctorokEntity*) = {
     FrozenOctorok_Action1SubAction0, FrozenOctorok_Action1SubAction1, FrozenOctorok_Action1SubAction2,

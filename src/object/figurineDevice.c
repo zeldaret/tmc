@@ -376,8 +376,77 @@ void sub_080880D8(FigurineDeviceEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/figurineDevice/sub_08088160.inc",
-         bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2))
+NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
+         bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2)) {
+    u8 bVar1;
+    bool32 condition;
+    u32 uVar3;
+    bool32 result;
+    const struct_080FC3E4* ptr;
+    u32 tmp;
+
+    ptr = &gUnk_080FC3E4[param_2];
+    result = FALSE;
+    if (this->unk_7c >= ptr->unk_6) {
+        result = TRUE;
+    } else {
+        switch (ptr->unk_6) {
+            case 0x8:
+            case 0x40:
+                if (CheckLocalFlagByBank(ptr->unk_0, ptr->unk_4)) {
+                    result = TRUE;
+                }
+                return result;
+                break;
+            case 0x10:
+                if (CheckKinstoneFused(gUnk_080FC3E4[param_2].unk_4)) {
+                    result = TRUE;
+                }
+                return result;
+                break;
+            default:
+                return result;
+            case 0x20:
+                switch (gUnk_080FC3E4[param_2].unk_4) {
+                    case 0:
+                        if (CheckKinstoneFused(0x20) || CheckKinstoneFused(0x10) || CheckKinstoneFused(0x19)) {
+                            result = TRUE;
+                        }
+                        break;
+                    case 1:
+                        if ((u8)this->unk_7c >= 5 && CheckKinstoneFused(0x28)) {
+                            result = TRUE;
+                        }
+
+                        break;
+                    case 2:
+                        if (CheckKinstoneFused(0x54) || CheckKinstoneFused(0x56) || CheckKinstoneFused(0x3d)) {
+                            result = TRUE;
+                        }
+                        break;
+                    case 3:
+                        if (CheckKinstoneFused(0x3b) || CheckKinstoneFused(0x4a) || CheckKinstoneFused(0xd)) {
+                            result = TRUE;
+                        }
+                        break;
+                    case 4:
+                        if (CheckKinstoneFused(0x49) || CheckKinstoneFused(0x55) || CheckKinstoneFused(0x3c)) {
+                            result = TRUE;
+                        }
+                        break;
+                    case 5:
+                        if (this->unk_7c >= 2 && CheckGlobalFlag(MACHI_MACHIHOKORI)) {
+                            result = TRUE;
+                        }
+                    default:
+                        return result;
+                }
+                break;
+        }
+    }
+    return result;
+}
+END_NONMATCH
 
 void sub_0808826C(FigurineDeviceEntity* this) {
     s32 tmp = 0x64;

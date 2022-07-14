@@ -69,7 +69,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
         u32 tmp = gRoomControls.origin_y;
         if (&gPlayerEntity == NULL)
             return;
-        if (tmp - gPlayerEntity.y.HALF.HI <= 0x38) {
+        if (gPlayerEntity.y.HALF.HI - tmp <= 0x38) {
             return;
         }
         this->field_0x7c.HALF.LO = 1;

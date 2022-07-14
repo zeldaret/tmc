@@ -1118,14 +1118,14 @@ NONMATCH("asm/non_matching/object6A/sub_08095EAC.inc",
             b = 0xF;
             vel = 0x40000;
             speed = gUnk_08122B0E[Random() & 7];
-            super->type2 = -1;
+            e->type2 = -1;
         }
 
         x = a - (Random() & b);
         y = a - (Random() & b);
-        PositionRelative(super, e, Q_16_16(x), Q_16_16(y));
-        super->zVelocity = vel;
-        super->speed = speed;
+        PositionRelative(super, e, x << 16, y << 16);
+        e->zVelocity = vel;
+        e->speed = speed;
     }
 }
 END_NONMATCH

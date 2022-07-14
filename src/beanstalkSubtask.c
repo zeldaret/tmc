@@ -39,6 +39,7 @@ extern const u16* gUnk_080B4550[];
 extern const u16 gUnk_080B77C0[];
 extern BgAnimationFrame* gUnk_080B7278[];
 
+void sub_0801AD6C(u16*, u32);
 bool32 sub_0801A4F8(void);
 bool32 sub_0801AA58(Entity*, u32, u32);
 void sub_0801AB08(u16*, LayerStruct*);
@@ -138,10 +139,17 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
     u32 uVar2;
     bool32 bVar3;
     u32 pos;
+    s16 temp;
+    s16 temp2;
+    u16 temp3;
+    u16 temp4;
+    u32 temp5;
 
     uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
     if ((((gPlayerState.field_0x35 | gPlayerState.field_0xd) & 0x80) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
-        switch ((s32)sub_080B1B54(GetTileType(position + uVar1, gPlayerEntity.collisionLayer))) {
+        position = (u16)(position + uVar1);
+        temp4 = sub_080B1B54(GetTileType(position, gPlayerEntity.collisionLayer));
+        switch (temp4) {
             case 0x52:
                 break;
             case 0x26:
@@ -152,13 +160,12 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
             case 0x74:
                 return FALSE;
             default:
-                if ((layer->collisionData[(position + uVar1)] != 0x28) &&
-                    (!IsTileCollision(
-                        layer->collisionData,
-                        (s32)((((position + uVar1) & 0x3f) * 0x10 + (u32)gRoomControls.origin_x) * 0x10000) >> 0x10,
-                        (s32)((((position + uVar1) >> 6) * 0x10 + (u32)gRoomControls.origin_y) * 0x10000) >> 0x10,
-                        collisionType))) {
-                    return TRUE;
+                if ((layer->collisionData[(position)] != 0x28)) {
+                    temp = (((position & 0x3f) * 0x10 + (u32)gRoomControls.origin_x));
+                    temp2 = (((position >> 6) * 0x10 + (u32)gRoomControls.origin_y));
+                    if ((!IsTileCollision(layer->collisionData, temp, temp2, collisionType))) {
+                        return TRUE;
+                    }
                 }
                 break;
         }
@@ -404,7 +411,50 @@ u32 sub_0801AC68(u32 position, u32 data) {
     return data << 2;
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98())
+extern const u16 gUnk_080B44C0[];
+extern const u16 gUnk_080B44C2[];
+extern const u32 gUnk_080B44B8[];
+
+NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98()) {
+    u32 height;
+    u32 indexX;
+    u32 width;
+    u32 indexY;
+    const u16* puVar7;
+    u32 position;
+    const u32* ptr;
+    u32 tmp;
+
+    width = gRoomControls.width >> 4;
+    height = gRoomControls.height >> 4;
+    position = 0;
+
+    for (indexY = 0; indexY < height; indexY++) {
+        for (indexX = 0; indexX < width; indexX++, position++) {
+            for (puVar7 = gUnk_080B44C0; puVar7[0] != 0xffff; puVar7 += 6) {
+                if (puVar7[0] == GetTileType(position, 1)) {
+                    ptr = gUnk_080B44B8 + puVar7[5];
+                    if (ptr[0] != 0) {
+                        sub_0801AD6C((u16*)puVar7, position);
+                        break;
+                    }
+                }
+            }
+            for (puVar7 = gUnk_080B44C2; puVar7[0] != 0xffff; puVar7 += 6) {
+                if (puVar7[0] == GetTileType(position, 2)) {
+                    ptr = gUnk_080B44B8 + puVar7[5];
+                    if (ptr[0] != 0) {
+                        sub_0801AD6C((u16*)puVar7, position);
+                        break;
+                    }
+                }
+            }
+        }
+        tmp = (position + 0x40);
+        position = tmp - width;
+    }
+}
+END_NONMATCH
 
 void sub_0801AD6C(u16* param_1, u32 param_2) {
     Entity* entity;

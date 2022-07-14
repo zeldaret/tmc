@@ -152,7 +152,31 @@ u32 FindFreeObjPalette(u32 a1) {
     return 0xffffffff;
 }
 
-ASM_FUNC("asm/non_matching/color/SetEntityObjPalette.inc", void SetEntityObjPalette(Entity* entity, u32 palette));
+NONMATCH("asm/non_matching/color/SetEntityObjPalette.inc", void SetEntityObjPalette(Entity* entity, u32 palette)) {
+    u32 uVar1;
+    Palette* pPVar1;
+
+    if (palette < 0) {
+        palette = 0;
+    }
+    if (0x7e < (u8)(entity->spriteAnimation[2] - 1)) {
+        entity->spriteAnimation[1] = palette;
+    }
+    entity->palette.b.b0 = palette;
+    entity->palette.b.b4 = palette;
+    pPVar1 = &gPaletteList[palette];
+    if ((s8)pPVar1->_0_0 != 4) {
+        pPVar1->_1++;
+        uVar1 = pPVar1->_0_4;
+        pPVar1->_0_0 = 3;
+        while (uVar1 = uVar1 - 1, uVar1 != 0) {
+            pPVar1 = pPVar1 + 1;
+            pPVar1->_0_4 = uVar1;
+            pPVar1->_0_0 = 2;
+        }
+    }
+}
+END_NONMATCH
 
 void UnloadOBJPalette(Entity* entity) {
     u8* p = &entity->spriteAnimation[1];

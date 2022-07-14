@@ -248,21 +248,28 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
         this->timer = gUnk_080CC7BC[Random() & 3];
         this->speed = 0x80;
         if (sub_08049FA0(this) != 0) {
-            this->direction = gUnk_080CC7D0[Random() & 7] + 0x18 + (this->direction & 0x18);
+            u32 rand = Random();
+            u32 tmp;
+            tmp = gUnk_080CC7D0[rand & 7] + 0x18;
+            tmp += this->direction;
+            tmp &= 0x18;
+            this->direction = tmp;
         } else {
             u32 iVar3 = sub_08049EE4(this);
-            u32 uVar1;
+            s8 uVar1;
             if (this->field_0x82.HALF.HI == 0) {
-                uVar1 = gUnk_080CC7C0[Random() & 0xf];
+                u32 rand = Random();
+                iVar3 += gUnk_080CC7C0[rand & 0xf];
             } else {
-                uVar1 = gUnk_080CC7C0[Random() & 7];
-                this->timer = this->timer + 16;
+                u32 rand = Random();
+                iVar3 += gUnk_080CC7C0[rand & 7];
+                this->timer = this->timer + 0x10;
                 this->field_0x82.HALF.HI--;
             }
-            this->direction = iVar3 + uVar1 + (4U & 0x18);
+            this->direction = (iVar3 + 4U) & 0x18;
         }
     } else {
-        this->timer = 12;
+        this->timer = 0xc;
         this->speed = 0;
     }
 
