@@ -3,7 +3,7 @@
 #include "functions.h"
 
 extern void ResetPlayerVelocity(void);
-extern void CreateBird(void);
+extern void CreateBird(Entity*);
 void OcarinaUse(ItemBehavior*, u32);
 void OcarinaUpdate(ItemBehavior*, u32);
 
@@ -37,7 +37,7 @@ void OcarinaUse(ItemBehavior* this, u32 idx) {
     }
 }
 
-NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBehavior* this, u32 idx)) {
+void OcarinaUpdate(ItemBehavior* this, u32 idx) {
     // TODO regalloc
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
@@ -45,9 +45,8 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
         gPlayerState.flags &= ~PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = 0;
         gPauseMenuOptions.disabled = 0;
-        CreateBird();
+        CreateBird(&gPlayerEntity);
         ResetPlayerEventPriority();
         DeletePlayerItem(this, idx);
     }
 }
-END_NONMATCH

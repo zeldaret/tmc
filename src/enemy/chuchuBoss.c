@@ -18,7 +18,9 @@ typedef struct {
     u8 unk_04;
     s8 unk_05;
     u8 unk_06;
-    u8 unk_07[7];
+    u8 unk_07;
+    u32 unk_08;
+    u16 unk_0c;
     u16 unk_0e;
 } Helper;
 
@@ -448,5 +450,74 @@ void sub_08026090(ChuchuBossEntity* this) {
             gRoomControls.camera_target = &gPlayerEntity;
             DeleteThisEntity();
         }
+    }
+}
+
+void sub_08026110(ChuchuBossEntity* this) {
+    s32 uVar2;
+    int iVar4;
+    s32 uVar3;
+    Hitbox* pHVar8;
+
+    gUnk_080CC1DC[super->subAction](this);
+    if ((this->unk_84->unk_08 == 0) && ((u8)this->unk_84->unk_05 != 0)) {
+        if (super->subAction == 8) {
+            this->unk_84->unk_05 -= 0x40;
+        } else {
+            this->unk_84->unk_05 -= 0x20;
+        }
+        if (this->unk_84->unk_05 < 0) {
+            this->unk_84->unk_05 = 0;
+        }
+    }
+
+    if (this->unk_80[0] != 0) {
+        if (super->timer == 0) {
+            this->unk_74.WORD -= this->unk_80[0] * 0x1000;
+            this->unk_78.WORD -= this->unk_80[0] * 0x1000;
+            uVar3 = this->unk_74.HALF_U.HI;
+            uVar2 = this->unk_80[2] + (u8)this->unk_84->unk_05;
+            if (uVar3 <= uVar2) {
+                this->unk_74.HALF.HI = uVar2;
+            }
+            uVar3 = this->unk_78.HALF_U.HI;
+            uVar2 = this->unk_80[2];
+            uVar2 += (u8)this->unk_84->unk_05;
+            if (uVar3 <= uVar2) {
+                this->unk_78.HALF.HI = uVar2;
+            }
+            uVar3 = this->unk_74.HALF_U.HI;
+            uVar2 = this->unk_80[2];
+            uVar2 += (u8)this->unk_84->unk_05;
+            if ((uVar3 <= uVar2) && (this->unk_78.HALF_U.HI <= uVar2)) {
+                super->timer ^= 1;
+            }
+        } else {
+            this->unk_74.WORD += this->unk_80[0] * 0x1000;
+            this->unk_78.WORD += this->unk_80[0] * 0x1000;
+            uVar3 = this->unk_74.HALF_U.HI;
+            uVar2 = this->unk_80[1] + (u8)this->unk_84->unk_05;
+            if (uVar3 >= uVar2) {
+                this->unk_74.HALF.HI = uVar2;
+            }
+            uVar3 = this->unk_78.HALF_U.HI;
+            uVar2 = this->unk_80[1];
+            uVar2 += (u8)this->unk_84->unk_05;
+            if (uVar3 >= uVar2) {
+                this->unk_78.HALF.HI = uVar2;
+            }
+            uVar3 = this->unk_74.HALF_U.HI;
+            uVar2 = this->unk_80[1];
+            uVar2 += (u8)this->unk_84->unk_05;
+            if ((uVar3 >= uVar2) && (this->unk_78.HALF_U.HI >= uVar2)) {
+
+                super->timer ^= 1;
+            }
+        }
+    }
+    super->hitbox->width = (u8)((u32)((0x10000 / this->unk_74.HALF_U.HI) * 7) >> 7);
+    super->hitbox->height = (u8)((u32)((0x10000 / this->unk_78.HALF_U.HI) * 3) >> 7);
+    if (super->z.HALF.HI == 0) {
+        sub_0800445C(super);
     }
 }
