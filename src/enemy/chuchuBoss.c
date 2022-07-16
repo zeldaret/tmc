@@ -741,3 +741,16 @@ void sub_08026750(ChuchuBossEntity* this) {
     sub_08027AA4(this);
     gUnk_080CC258[this->unk_84->unk_03](this);
 }
+
+void sub_08026774(ChuchuBossEntity* this) {
+    if ((((ChuchuBossEntity*)super->child)->unk_80[3] | ((ChuchuBossEntity*)super->parent)->unk_80[3] |
+         this->unk_68->unk_80[3]) == 0) {
+        if (this->unk_7d-- != 0) {
+            return;
+        }
+        sub_08027B98(this, 0x80, 0x80, 0x40, 0);
+        this->unk_84->unk_03 = 1;
+        InitAnimationForceUpdate(super->child, 1);
+    }
+    sub_080277F8(this);
+}
