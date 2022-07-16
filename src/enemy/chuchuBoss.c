@@ -43,8 +43,7 @@ typedef struct _ChuchuBossEntity {
     u16 unk_7e;
     u8 unk_80;
     u8 unk_81;
-    u8 unk_82;
-    u8 unk_83;
+    union SplitHWord unk_82;
     Helper* unk_84;
 } ChuchuBossEntity;
 
@@ -479,18 +478,18 @@ void sub_08026110(ChuchuBossEntity* this) {
             this->unk_74.WORD -= this->unk_80 * 0x1000;
             this->unk_78.WORD -= this->unk_80 * 0x1000;
             uVar3 = this->unk_74.HALF_U.HI;
-            uVar2 = this->unk_82 + (u8)this->unk_84->unk_05;
+            uVar2 = this->unk_82.HALF.LO + (u8)this->unk_84->unk_05;
             if (uVar3 <= uVar2) {
                 this->unk_74.HALF.HI = uVar2;
             }
             uVar3 = this->unk_78.HALF_U.HI;
-            uVar2 = this->unk_82;
+            uVar2 = this->unk_82.HALF.LO;
             uVar2 += (u8)this->unk_84->unk_05;
             if (uVar3 <= uVar2) {
                 this->unk_78.HALF.HI = uVar2;
             }
             uVar3 = this->unk_74.HALF_U.HI;
-            uVar2 = this->unk_82;
+            uVar2 = this->unk_82.HALF.LO;
             uVar2 += (u8)this->unk_84->unk_05;
             if ((uVar3 <= uVar2) && (this->unk_78.HALF_U.HI <= uVar2)) {
                 super->timer ^= 1;
@@ -534,7 +533,7 @@ void sub_0802626C(ChuchuBossEntity* this) {
 }
 
 void sub_080262A8(ChuchuBossEntity* this) {
-    this->unk_82 = 0x90;
+    this->unk_82.HALF.LO = 0x90;
     this->unk_81 = 0xb0;
     this->unk_80 = 8;
     super->timer = 1;
@@ -746,8 +745,8 @@ void sub_08026750(ChuchuBossEntity* this) {
 }
 
 void sub_08026774(ChuchuBossEntity* this) {
-    if ((((ChuchuBossEntity*)super->child)->unk_83 | ((ChuchuBossEntity*)super->parent)->unk_83 |
-         this->unk_68->unk_83) == 0) {
+    if ((((ChuchuBossEntity*)super->child)->unk_82.HALF.HI | ((ChuchuBossEntity*)super->parent)->unk_82.HALF.HI |
+         this->unk_68->unk_82.HALF.HI) == 0) {
         if (this->unk_7d-- != 0) {
             return;
         }
@@ -831,4 +830,28 @@ void sub_08026914(ChuchuBossEntity* this) {
 
 void sub_0802694C(ChuchuBossEntity* this) {
     gUnk_080CC26C[this->unk_84->unk_03](this);
+}
+
+void sub_08026968(ChuchuBossEntity* this) {
+    s32 sVar5;
+    ChuchuBossEntity* pEVar6;
+    ChuchuBossEntity* pEVar7;
+    ChuchuBossEntity* pEVar8;
+
+    if (this->unk_7d-- == 0) {
+        this->unk_84->unk_03++;
+    } else {
+        pEVar7 = (ChuchuBossEntity*)super->child;
+        pEVar8 = this->unk_68;
+        pEVar6 = (ChuchuBossEntity*)super->parent;
+        if ((super->direction & 0x10) != 0) {
+            sVar5 = 0x100;
+        } else {
+            sVar5 = -0x100;
+        }
+        pEVar8->unk_82.HWORD += sVar5;
+        pEVar6->unk_82.HWORD += sVar5;
+        pEVar7->unk_82.HWORD += sVar5;
+    }
+    sub_08027870(super);
 }
