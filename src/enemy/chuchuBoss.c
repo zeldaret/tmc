@@ -549,3 +549,11 @@ void sub_080262A8(ChuchuBossEntity* this) {
         SetTile(0x4022, 0x2c8, 1);
     }
 }
+
+void sub_08026328(ChuchuBossEntity* this) {
+    if (gPlayerEntity.action != 23) {
+        this->unk_7d = 0x78;
+        this->unk_84->unk_03++;
+        sub_08078AC0(10, 0, 0);
+    }
+}
