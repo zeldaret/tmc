@@ -619,3 +619,11 @@ void sub_0802647C(ChuchuBossEntity* this) {
         this->unk_84->unk_03++;
     }
 }
+
+void sub_080264AC(ChuchuBossEntity* this) {
+    sub_080277B8(this, 0xd0, 8);
+    if (this->unk_84->unk_03 != 6) {
+        InitAnimationForceUpdate(super->child, 4);
+        sub_08027D20(this);
+    }
+}
