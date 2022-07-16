@@ -828,3 +828,7 @@ void sub_08026914(ChuchuBossEntity* this) {
     }
     sub_080277F8(this);
 }
+
+void sub_0802694C(ChuchuBossEntity* this) {
+    gUnk_080CC26C[this->unk_84->unk_03](this);
+}
