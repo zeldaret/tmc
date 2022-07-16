@@ -819,3 +819,12 @@ void sub_080268EC(ChuchuBossEntity* this) {
         sub_08027D20(this);
     }
 }
+
+void sub_08026914(ChuchuBossEntity* this) {
+    if (sub_080279E8(this)) {
+        sub_08027B98(this, 0x90, 0xb0, 4, 0xff);
+        sub_08027548(this, 0);
+        InitAnimationForceUpdate(super->child, 0);
+    }
+    sub_080277F8(this);
+}
