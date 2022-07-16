@@ -521,3 +521,11 @@ void sub_08026110(ChuchuBossEntity* this) {
         sub_0800445C(super);
     }
 }
+
+void sub_0802626C(ChuchuBossEntity* this) {
+    gPauseMenuOptions.disabled = 1;
+    gUnk_080CC20C[this->unk_84->unk_03](this);
+    if (gPlayerEntity.action != 23 && gPlayerEntity.action != 15) {
+        sub_08078B48();
+    }
+}
