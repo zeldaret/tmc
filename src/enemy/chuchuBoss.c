@@ -116,7 +116,7 @@ void sub_080277F8();
 void sub_08027870();
 void sub_08027984();
 void sub_080279AC();
-void sub_080279E8();
+bool32 sub_080279E8(ChuchuBossEntity*);
 void sub_08027A60();
 void sub_08027AA4();
 void sub_08027B98();
@@ -626,4 +626,14 @@ void sub_080264AC(ChuchuBossEntity* this) {
         InitAnimationForceUpdate(super->child, 4);
         sub_08027D20(this);
     }
+}
+
+void sub_080264D4(ChuchuBossEntity* this) {
+    if (sub_080279E8(this)) {
+        this->unk_84->unk_03++;
+        this->unk_7d = 0x3c;
+        sub_080276F4(this, 5, 0);
+        SoundReq(BGM_BOSS_THEME);
+    }
+    sub_080277F8(this);
 }
