@@ -655,3 +655,35 @@ void sub_0802653C(ChuchuBossEntity* this) {
         gPauseMenuOptions.disabled = 0;
     }
 }
+
+void sub_08026580(ChuchuBossEntity* this) {
+    u32 cVar2;
+
+    sub_08027AA4(this);
+    if (this->unk_84->unk_01 == 64) {
+        sub_08027BBC(this);
+    } else {
+        if (this->unk_7d-- == 0) {
+            super->speed = 0;
+            super->subAction = 2;
+            this->unk_7c[0] = 0x3c;
+            super->direction = GetFacingDirection(super, &gPlayerEntity);
+            if (this->unk_84->unk_04 == 2) {
+                this->unk_80[0] = 0x48;
+                this->unk_80[1] += 16;
+            } else {
+                this->unk_80[0] = 16;
+            }
+            if ((this->unk_84->unk_01 & 0xa0) != 0) {
+                this->unk_7d = 0;
+                this->unk_7c[0] = 0;
+            } else {
+                this->unk_7d = cVar2 = gUnk_080CC24F[Random() & 7] + 1;
+                if (this->unk_84->unk_04 == 2) {
+                    this->unk_7d = cVar2 * 2;
+                }
+            }
+        }
+        sub_08027870(super);
+    }
+}
