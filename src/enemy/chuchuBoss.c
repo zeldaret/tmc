@@ -645,3 +645,13 @@ void sub_0802650C(ChuchuBossEntity* this) {
     }
     sub_08027870(super);
 }
+
+void sub_0802653C(ChuchuBossEntity* this) {
+    if (gRoomControls.reload_flags == 0) {
+        gRoomControls.unk5 = 4;
+        sub_08027B98(this, 0x90, 0xb0, 4, 0xff);
+        sub_08027548(this, 0);
+        InitAnimationForceUpdate(super->child, 0);
+        gPauseMenuOptions.disabled = 0;
+    }
+}
