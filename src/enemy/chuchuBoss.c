@@ -579,3 +579,18 @@ void sub_08026358(ChuchuBossEntity* this) {
         }
     }
 }
+
+void sub_080263B4(ChuchuBossEntity* this) {
+    u32 bVar2;
+    u32 bVar3;
+
+    if (this->unk_7d-- == 0) {
+        bVar3 = this->unk_7d = gUnk_080CC234[this->unk_7c[0]++];
+        if ((bVar3 & 0xff) == 0xff) {
+            this->unk_7c[0] = 0x78;
+            this->unk_84->unk_03++;
+        } else {
+            CreateObjectWithParent(super, OBJECT_49, super->type2, 0);
+        }
+    }
+}
