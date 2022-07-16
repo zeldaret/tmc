@@ -762,3 +762,30 @@ void sub_080267D0(ChuchuBossEntity* this) {
         InitAnimationForceUpdate(super->child, 2);
     }
 }
+
+void sub_08026808(ChuchuBossEntity* this) {
+    u32 uVar1;
+    ChuchuBossEntity* pEVar4;
+    ChuchuBossEntity* pEVar5;
+    ChuchuBossEntity* pEVar6;
+
+    pEVar4 = (ChuchuBossEntity*)super->child;
+    pEVar6 = this->unk_68;
+    pEVar5 = (ChuchuBossEntity*)super->parent;
+
+    if (pEVar4->unk_74.HALF_U.HI < 0xc0) {
+        pEVar4->unk_74.HALF_U.HI += 4;
+    }
+    if (pEVar4->unk_78.HALF_U.HI > 0xb0) {
+        pEVar4->unk_78.HALF_U.HI -= 8;
+    } else {
+        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->subAction = 4;
+        pEVar4->unk_78.HALF_U.HI = 0xa0;
+        pEVar5->unk_78.HALF_U.HI = 0xa0;
+        pEVar6->unk_78.HALF_U.HI = 0xa0;
+        sub_080276F4(this, 1, 0);
+        SoundReq(SFX_1A2);
+    }
+    sub_080277F8(this);
+}
