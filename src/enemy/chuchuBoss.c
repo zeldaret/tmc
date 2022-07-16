@@ -611,3 +611,11 @@ void sub_08026414(ChuchuBossEntity* this) {
         SoundReq(SFX_1A2);
     }
 }
+
+void sub_0802647C(ChuchuBossEntity* this) {
+    if (GravityUpdate(super, 0x4000) == 0) {
+        InitScreenShake(0x10, 0);
+        SoundReq(SFX_1A1);
+        this->unk_84->unk_03++;
+    }
+}
