@@ -637,3 +637,11 @@ void sub_080264D4(ChuchuBossEntity* this) {
     }
     sub_080277F8(this);
 }
+
+void sub_0802650C(ChuchuBossEntity* this) {
+    if (((ChuchuBossEntity*)super->child)->unk_80[1] == 0) {
+        this->unk_84->unk_03++;
+        gRoomControls.camera_target = &gPlayerEntity;
+    }
+    sub_08027870(super);
+}
