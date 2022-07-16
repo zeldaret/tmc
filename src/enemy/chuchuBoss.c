@@ -594,3 +594,20 @@ void sub_080263B4(ChuchuBossEntity* this) {
         }
     }
 }
+
+void sub_08026414(ChuchuBossEntity* this) {
+    Entity* parent;
+    Entity* child;
+
+    if (this->unk_7c[0]-- == 0) {
+        super->z.HALF.HI = 0xff40;
+        child = super->child;
+        parent = super->parent;
+        this->unk_68->base.spriteSettings.draw = 1;
+        parent->spriteSettings.draw = 1;
+        child->spriteSettings.draw = 1;
+        super->spriteSettings.draw = 1;
+        this->unk_84->unk_03++;
+        SoundReq(SFX_1A2);
+    }
+}
