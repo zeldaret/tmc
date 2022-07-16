@@ -806,3 +806,8 @@ void sub_0802686C(ChuchuBossEntity* this) {
         SoundReq(SFX_1A1);
     }
 }
+
+void sub_080268C8(ChuchuBossEntity* this) {
+    sub_08027AA4(this);
+    gUnk_080CC264[this->unk_84->unk_03](this);
+}
