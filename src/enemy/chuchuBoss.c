@@ -557,3 +557,25 @@ void sub_08026328(ChuchuBossEntity* this) {
         sub_08078AC0(10, 0, 0);
     }
 }
+
+void sub_08026358(ChuchuBossEntity* this) {
+    u32 bVar1;
+
+    if (gPlayerEntity.action != 15) {
+        bVar1 = --this->unk_7d;
+        if (bVar1 == 0) {
+            this->unk_7c[0] = 0;
+            this->unk_7d = 0x1e;
+            this->unk_84->unk_03++;
+            gPlayerEntity.animationState = 0;
+            gRoomControls.camera_target = super;
+            gRoomControls.unk5 = 1;
+        } else if (bVar1 < 0x61) {
+            if (bVar1 < 0x5c) {
+                gPlayerEntity.animationState = 4;
+            } else {
+                gPlayerEntity.animationState = 2;
+            }
+        }
+    }
+}
