@@ -789,3 +789,17 @@ void sub_08026808(ChuchuBossEntity* this) {
     }
     sub_080277F8(this);
 }
+
+void sub_0802686C(ChuchuBossEntity* this) {
+    if (GravityUpdate(super, 0x4000) != 0) {
+        ProcessMovement0(super);
+    } else {
+        InitScreenShake(0x10, 0);
+        super->subAction = 5;
+        this->unk_84->unk_03 = 0;
+        sub_08027B98(this, 0x80, 0x80, 0x80, 0);
+        sub_08027870(super);
+        InitAnimationForceUpdate(super->child, 3);
+        SoundReq(SFX_1A1);
+    }
+}
