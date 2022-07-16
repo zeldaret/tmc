@@ -118,7 +118,7 @@ void sub_08027984();
 void sub_080279AC();
 bool32 sub_080279E8(ChuchuBossEntity*);
 void sub_08027A60();
-void sub_08027AA4();
+bool32 sub_08027AA4(ChuchuBossEntity*);
 void sub_08027B98();
 void sub_08027BBC();
 void sub_08027C54();
@@ -686,4 +686,53 @@ void sub_08026580(ChuchuBossEntity* this) {
         }
         sub_08027870(super);
     }
+}
+
+void sub_08026634(ChuchuBossEntity* this) {
+    if (sub_08027AA4(this)) {
+        return;
+    }
+    if (this->unk_7d == 0) {
+        if (this->unk_7c[0]-- != 0) {
+            return;
+        }
+        if ((this->unk_84->unk_01 & 0x40) == 0) {
+            if ((this->unk_84->unk_01 & 0x80) != 0) {
+                this->unk_84->unk_00[0]--;
+                if (this->unk_84->unk_00[0] == 0) {
+                    this->unk_84->unk_01 = 1;
+                }
+            } else {
+                this->unk_84->unk_01 = 1;
+                if (this->unk_84->unk_04 == 2 && ((Random() & 3) != 0)) {
+                    this->unk_84->unk_00[0] = 4;
+                    this->unk_84->unk_01 = 0x81;
+                }
+            }
+        }
+        super->subAction = 3;
+        this->unk_84->unk_03 = 0;
+        sub_08027B98(this, 0x90, 0x90, 0xc, 0);
+        super->zVelocity = Q_16_16(7);
+        super->speed = 0x180;
+    } else {
+        if ((gRoomTransition.frameCount & 0x7f) == 0) {
+            super->direction = GetFacingDirection(super, &gPlayerEntity);
+        }
+        if (this->unk_84->unk_04 == 2) {
+            super->speed = 0x100;
+        } else {
+            super->speed = 0xc0;
+        }
+        if (super->timer != 0) {
+            if ((gRoomTransition.frameCount & 7) == 0) {
+                SoundReq(SFX_19E);
+            }
+            ProcessMovement0(super);
+        }
+        if (this->unk_74.HALF_U.HI == this->unk_80[1]) {
+            this->unk_7d--;
+        }
+    }
+    sub_08027870(super);
 }
