@@ -529,3 +529,23 @@ void sub_0802626C(ChuchuBossEntity* this) {
         sub_08078B48();
     }
 }
+
+void sub_080262A8(ChuchuBossEntity* this) {
+    this->unk_80[2] = 0x90;
+    this->unk_80[1] = 0xb0;
+    this->unk_80[0] = 8;
+    super->timer = 1;
+    sub_080276F4(super, 6, 1);
+    if (super->type2 == 0) {
+        gPlayerState.animation = 0x104;
+        this->unk_84->unk_03 = 1;
+    } else {
+        this->unk_7c[0] = 0;
+        this->unk_7d = 0x1e;
+        this->unk_84->unk_03 = 3;
+        gPlayerEntity.animationState = 0;
+        gRoomControls.camera_target = super;
+        gRoomControls.unk5 = 1;
+        SetTile(0x4022, 0x2c8, 1);
+    }
+}
