@@ -811,3 +811,11 @@ void sub_080268C8(ChuchuBossEntity* this) {
     sub_08027AA4(this);
     gUnk_080CC264[this->unk_84->unk_03](this);
 }
+
+void sub_080268EC(ChuchuBossEntity* this) {
+    sub_080277B8(this, 0xd0, 8);
+    if (this->unk_84->unk_03 != 0) {
+        InitAnimationForceUpdate(super->child, 4);
+        sub_08027D20(this);
+    }
+}
