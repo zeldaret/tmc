@@ -754,3 +754,11 @@ void sub_08026774(ChuchuBossEntity* this) {
     }
     sub_080277F8(this);
 }
+
+void sub_080267D0(ChuchuBossEntity* this) {
+    sub_080277B8(this, 0xf0, 8);
+    if (this->unk_84->unk_03 != 1) {
+        sub_08027B98(this, 0xe0, 0xc0, 0x20, 0xff);
+        InitAnimationForceUpdate(super->child, 2);
+    }
+}
