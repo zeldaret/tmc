@@ -11,9 +11,9 @@
 #include "functions.h"
 
 typedef struct {
-    u8 unk_00[1];
+    u8 unk_00;
     u8 unk_01;
-    u8 unk_02[1];
+    u8 unk_02;
     u8 unk_03;
     u8 unk_04;
     s8 unk_05;
@@ -29,7 +29,7 @@ static_assert(sizeof(Helper) == 0x10);
 typedef struct _ChuchuBossEntity {
     Entity base;
     struct _ChuchuBossEntity* unk_68;
-    u8 unk_6c[1];
+    u8 unk_6c;
     struct {
         u8 unk0 : 1;
         u8 unk1 : 1;
@@ -38,10 +38,13 @@ typedef struct _ChuchuBossEntity {
     u8 unk_70[0x4];
     union SplitWord unk_74;
     union SplitWord unk_78;
-    u8 unk_7c[1];
+    u8 unk_7c;
     u8 unk_7d;
     u16 unk_7e;
-    u8 unk_80[4];
+    u8 unk_80;
+    u8 unk_81;
+    u8 unk_82;
+    u8 unk_83;
     Helper* unk_84;
 } ChuchuBossEntity;
 
@@ -471,43 +474,43 @@ void sub_08026110(ChuchuBossEntity* this) {
         }
     }
 
-    if (this->unk_80[0] != 0) {
+    if (this->unk_80 != 0) {
         if (super->timer == 0) {
-            this->unk_74.WORD -= this->unk_80[0] * 0x1000;
-            this->unk_78.WORD -= this->unk_80[0] * 0x1000;
+            this->unk_74.WORD -= this->unk_80 * 0x1000;
+            this->unk_78.WORD -= this->unk_80 * 0x1000;
             uVar3 = this->unk_74.HALF_U.HI;
-            uVar2 = this->unk_80[2] + (u8)this->unk_84->unk_05;
+            uVar2 = this->unk_82 + (u8)this->unk_84->unk_05;
             if (uVar3 <= uVar2) {
                 this->unk_74.HALF.HI = uVar2;
             }
             uVar3 = this->unk_78.HALF_U.HI;
-            uVar2 = this->unk_80[2];
+            uVar2 = this->unk_82;
             uVar2 += (u8)this->unk_84->unk_05;
             if (uVar3 <= uVar2) {
                 this->unk_78.HALF.HI = uVar2;
             }
             uVar3 = this->unk_74.HALF_U.HI;
-            uVar2 = this->unk_80[2];
+            uVar2 = this->unk_82;
             uVar2 += (u8)this->unk_84->unk_05;
             if ((uVar3 <= uVar2) && (this->unk_78.HALF_U.HI <= uVar2)) {
                 super->timer ^= 1;
             }
         } else {
-            this->unk_74.WORD += this->unk_80[0] * 0x1000;
-            this->unk_78.WORD += this->unk_80[0] * 0x1000;
+            this->unk_74.WORD += this->unk_80 * 0x1000;
+            this->unk_78.WORD += this->unk_80 * 0x1000;
             uVar3 = this->unk_74.HALF_U.HI;
-            uVar2 = this->unk_80[1] + (u8)this->unk_84->unk_05;
+            uVar2 = this->unk_81 + (u8)this->unk_84->unk_05;
             if (uVar3 >= uVar2) {
                 this->unk_74.HALF.HI = uVar2;
             }
             uVar3 = this->unk_78.HALF_U.HI;
-            uVar2 = this->unk_80[1];
+            uVar2 = this->unk_81;
             uVar2 += (u8)this->unk_84->unk_05;
             if (uVar3 >= uVar2) {
                 this->unk_78.HALF.HI = uVar2;
             }
             uVar3 = this->unk_74.HALF_U.HI;
-            uVar2 = this->unk_80[1];
+            uVar2 = this->unk_81;
             uVar2 += (u8)this->unk_84->unk_05;
             if ((uVar3 >= uVar2) && (this->unk_78.HALF_U.HI >= uVar2)) {
 
@@ -531,16 +534,16 @@ void sub_0802626C(ChuchuBossEntity* this) {
 }
 
 void sub_080262A8(ChuchuBossEntity* this) {
-    this->unk_80[2] = 0x90;
-    this->unk_80[1] = 0xb0;
-    this->unk_80[0] = 8;
+    this->unk_82 = 0x90;
+    this->unk_81 = 0xb0;
+    this->unk_80 = 8;
     super->timer = 1;
     sub_080276F4(super, 6, 1);
     if (super->type2 == 0) {
         gPlayerState.animation = 0x104;
         this->unk_84->unk_03 = 1;
     } else {
-        this->unk_7c[0] = 0;
+        this->unk_7c = 0;
         this->unk_7d = 0x1e;
         this->unk_84->unk_03 = 3;
         gPlayerEntity.animationState = 0;
@@ -564,7 +567,7 @@ void sub_08026358(ChuchuBossEntity* this) {
     if (gPlayerEntity.action != 15) {
         bVar1 = --this->unk_7d;
         if (bVar1 == 0) {
-            this->unk_7c[0] = 0;
+            this->unk_7c = 0;
             this->unk_7d = 0x1e;
             this->unk_84->unk_03++;
             gPlayerEntity.animationState = 0;
@@ -585,9 +588,9 @@ void sub_080263B4(ChuchuBossEntity* this) {
     u32 bVar3;
 
     if (this->unk_7d-- == 0) {
-        bVar3 = this->unk_7d = gUnk_080CC234[this->unk_7c[0]++];
+        bVar3 = this->unk_7d = gUnk_080CC234[this->unk_7c++];
         if ((bVar3 & 0xff) == 0xff) {
-            this->unk_7c[0] = 0x78;
+            this->unk_7c = 0x78;
             this->unk_84->unk_03++;
         } else {
             CreateObjectWithParent(super, OBJECT_49, super->type2, 0);
@@ -599,7 +602,7 @@ void sub_08026414(ChuchuBossEntity* this) {
     Entity* parent;
     Entity* child;
 
-    if (this->unk_7c[0]-- == 0) {
+    if (this->unk_7c-- == 0) {
         super->z.HALF.HI = 0xff40;
         child = super->child;
         parent = super->parent;
@@ -639,7 +642,7 @@ void sub_080264D4(ChuchuBossEntity* this) {
 }
 
 void sub_0802650C(ChuchuBossEntity* this) {
-    if (((ChuchuBossEntity*)super->child)->unk_80[1] == 0) {
+    if (((ChuchuBossEntity*)super->child)->unk_81 == 0) {
         this->unk_84->unk_03++;
         gRoomControls.camera_target = &gPlayerEntity;
     }
@@ -666,17 +669,17 @@ void sub_08026580(ChuchuBossEntity* this) {
         if (this->unk_7d-- == 0) {
             super->speed = 0;
             super->subAction = 2;
-            this->unk_7c[0] = 0x3c;
+            this->unk_7c = 0x3c;
             super->direction = GetFacingDirection(super, &gPlayerEntity);
             if (this->unk_84->unk_04 == 2) {
-                this->unk_80[0] = 0x48;
-                this->unk_80[1] += 16;
+                this->unk_80 = 0x48;
+                this->unk_81 += 16;
             } else {
-                this->unk_80[0] = 16;
+                this->unk_80 = 16;
             }
             if ((this->unk_84->unk_01 & 0xa0) != 0) {
                 this->unk_7d = 0;
-                this->unk_7c[0] = 0;
+                this->unk_7c = 0;
             } else {
                 this->unk_7d = cVar2 = gUnk_080CC24F[Random() & 7] + 1;
                 if (this->unk_84->unk_04 == 2) {
@@ -693,19 +696,19 @@ void sub_08026634(ChuchuBossEntity* this) {
         return;
     }
     if (this->unk_7d == 0) {
-        if (this->unk_7c[0]-- != 0) {
+        if (this->unk_7c-- != 0) {
             return;
         }
         if ((this->unk_84->unk_01 & 0x40) == 0) {
             if ((this->unk_84->unk_01 & 0x80) != 0) {
-                this->unk_84->unk_00[0]--;
-                if (this->unk_84->unk_00[0] == 0) {
+                this->unk_84->unk_00--;
+                if (this->unk_84->unk_00 == 0) {
                     this->unk_84->unk_01 = 1;
                 }
             } else {
                 this->unk_84->unk_01 = 1;
                 if (this->unk_84->unk_04 == 2 && ((Random() & 3) != 0)) {
-                    this->unk_84->unk_00[0] = 4;
+                    this->unk_84->unk_00 = 4;
                     this->unk_84->unk_01 = 0x81;
                 }
             }
@@ -730,7 +733,7 @@ void sub_08026634(ChuchuBossEntity* this) {
             }
             ProcessMovement0(super);
         }
-        if (this->unk_74.HALF_U.HI == this->unk_80[1]) {
+        if (this->unk_74.HALF_U.HI == this->unk_81) {
             this->unk_7d--;
         }
     }
@@ -743,8 +746,8 @@ void sub_08026750(ChuchuBossEntity* this) {
 }
 
 void sub_08026774(ChuchuBossEntity* this) {
-    if ((((ChuchuBossEntity*)super->child)->unk_80[3] | ((ChuchuBossEntity*)super->parent)->unk_80[3] |
-         this->unk_68->unk_80[3]) == 0) {
+    if ((((ChuchuBossEntity*)super->child)->unk_83 | ((ChuchuBossEntity*)super->parent)->unk_83 |
+         this->unk_68->unk_83) == 0) {
         if (this->unk_7d-- != 0) {
             return;
         }
