@@ -855,3 +855,109 @@ void sub_08026968(ChuchuBossEntity* this) {
     }
     sub_08027870(super);
 }
+
+void sub_080269CC(ChuchuBossEntity* this) {
+    s32 sVar1;
+    ChuchuBossEntity* pEVar2;
+    u32 uVar3;
+    GenericEntity* entity;
+    ChuchuBossEntity* pEVar4;
+    ChuchuBossEntity* pEVar5;
+    ChuchuBossEntity* pEVar6;
+    ChuchuBossEntity* pEVar7;
+    u8 temp;
+    s32 temp2;
+    u32 cVar8 = 0;
+
+    pEVar7 = (ChuchuBossEntity*)super->child;
+    pEVar2 = this->unk_68;
+    pEVar4 = (ChuchuBossEntity*)super->parent;
+    if ((super->direction & 0x10) != 0) {
+        sVar1 = -0x300;
+    } else {
+        sVar1 = 0x300;
+    }
+
+    temp2 = pEVar2->unk_82.HALF.HI + 0x20;
+    if ((u8)temp2 <= 0x3f) {
+        pEVar2->unk_82.HWORD += sVar1;
+    } else {
+        cVar8 = 1;
+    }
+    temp2 = pEVar4->unk_82.HALF.HI + 0x44;
+    if ((u8)temp2 < 0x88) {
+        pEVar4->unk_82.HWORD += sVar1;
+    } else {
+        cVar8++;
+    }
+    temp2 = pEVar7->unk_82.HALF.HI + 0x40;
+    if ((u32)(temp2 - 0x20) > 0x40) {
+        if ((super->direction & 0x10) != 0) {
+            if (pEVar7->base.animIndex != 6) {
+                InitAnimationForceUpdate(&pEVar7->base, 6);
+            }
+        } else {
+            if (pEVar7->base.animIndex != 5) {
+                InitAnimationForceUpdate(&pEVar7->base, 5);
+            }
+        }
+    }
+
+    if ((temp2 << 0x18) >= 0) {
+        pEVar7->unk_82.HWORD += sVar1;
+    } else {
+        cVar8++;
+    }
+
+    if (cVar8 == 3) {
+        COLLISION_OFF(super);
+        COLLISION_ON(&pEVar7->base);
+        pEVar7->unk_74.HALF.HI += 3;
+        InitScreenShake(0x20, 0);
+        SoundReq(SFX_10B);
+        entity = (GenericEntity*)CreateObjectWithParent(super, OBJECT_15, 0, 0);
+        if (entity != NULL) {
+            entity->base.spriteIndex = 0xc9;
+#ifdef EU
+            entity->base.spriteVramOffset = super->spriteVramOffset;
+            entity->base.palette.b.b0 = super->palette.b.b0;
+#endif
+            entity->base.animIndex = 1;
+            entity->base.y.HALF.HI += 0x10;
+            entity->base.spritePriority.b0 = 0;
+            entity->base.spriteRendering.b3 = pEVar7->base.spriteRendering.b3;
+            entity->base.spriteOrientation.flipY = pEVar7->base.spriteOrientation.flipY;
+            if ((super->direction & 0x10) != 0) {
+                entity->base.x.HALF.HI -= 0x38;
+            } else {
+                entity->base.x.HALF.HI += 0x38;
+            }
+#ifndef EU
+            LoadFixedGFX(&entity->base, 0x3e);
+            if (super->type2 == 0) {
+                LoadObjPalette(&entity->base, 0x2b);
+            } else {
+                LoadObjPalette(&entity->base, 0x2c);
+            }
+#endif
+        }
+        pEVar6 = (ChuchuBossEntity*)super->parent;
+        pEVar5 = (ChuchuBossEntity*)super->child;
+        *(u8*)&this->unk_68->unk_84 = 1;
+        *(u8*)&pEVar5->unk_84 = 1;
+        *(u8*)&pEVar6->unk_84 = 1;
+        pEVar4->unk_78.HALF.HI = 0x98;
+        pEVar2->unk_78.HALF.HI = 0x98;
+        pEVar7->unk_78.HALF.HI = 0x98;
+        this->unk_7c = gUnk_080CC278[Random() & 3];
+        this->unk_84->unk_03++;
+        entity = (GenericEntity*)CreateObjectWithParent(&pEVar7->base, OBJECT_49, 10, 0);
+        if (entity != NULL) {
+            *(u32*)&entity->cutsceneBeh = this->unk_7c;
+        }
+    } else if (pEVar7->unk_74.HALF_U.HI < 0xf0) {
+        pEVar7->unk_74.WORD += 0x40000;
+        pEVar7->unk_78.WORD -= 0x8000;
+    }
+    sub_08027870(super);
+}
