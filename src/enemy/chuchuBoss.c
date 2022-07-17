@@ -260,11 +260,14 @@ void ChuchuBoss_OnKnockback(ChuchuBossEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/chuchuBoss/ChuchuBoss_OnDeath.inc", void ChuchuBoss_OnDeath(ChuchuBossEntity* this)) {
+void ChuchuBoss_OnDeath(ChuchuBossEntity* this) {
+    Entity* child;
+    Entity* parent;
+
     sub_08078B48();
     if (super->type == 0) {
-        if (super->subAction != 0xC) {
-            super->subAction = 0xC;
+        if (super->subAction != 12) {
+            super->subAction = 12;
             this->unk_84->unk_03 = 0;
             InitAnimationForceUpdate(super->child, 9);
         } else {
@@ -279,19 +282,24 @@ NONMATCH("asm/non_matching/chuchuBoss/ChuchuBoss_OnDeath.inc", void ChuchuBoss_O
                         ((GenericEntity*)super->child)->field_0x6c.HALF.HI |= 2;
                         this->unk_68->unk_6d.unk1 = 1;
                         ((GenericEntity*)super->parent)->field_0x6c.HALF.HI |= 2;
-                        super->child->health = 0;
+                        parent = super->child;
+                        child = super->parent;
                         this->unk_68->base.health = 0;
-                        super->parent->health = 0;
+                        child->health = 0;
+                        parent->health = 0;
                         gPauseMenuOptions.disabled = 0;
                         SoundReq(SFX_BOSS_DIE);
                         GenericDeath(super);
                     } else {
+                        bool32 b = this->unk_7d <= 0x50;
                         u32 tmp = 0x3F;
                         if (this->unk_7d <= 0x50) {
-                            tmp = 0xF;
                             if (this->unk_7d > 0x1E) {
                                 tmp = 0x1F;
+                            } else {
+                                tmp = 0xF;
                             }
+                        } else {
                         }
                         sub_08027C7C(this, tmp);
                     }
@@ -308,7 +316,6 @@ NONMATCH("asm/non_matching/chuchuBoss/ChuchuBoss_OnDeath.inc", void ChuchuBoss_O
         }
     }
 }
-END_NONMATCH
 
 void ChuchuBoss_OnTick(ChuchuBossEntity* this) {
     gUnk_080CC1B0[super->action](this);
