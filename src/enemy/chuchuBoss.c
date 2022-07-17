@@ -123,7 +123,7 @@ void sub_08027A60();
 bool32 sub_08027AA4(ChuchuBossEntity*);
 void sub_08027B98();
 void sub_08027BBC();
-void sub_08027C54();
+bool32 sub_08027C54();
 void sub_08027C7C(ChuchuBossEntity*, u32);
 void sub_08027C9C();
 void sub_08027D20();
@@ -1069,4 +1069,50 @@ void sub_08026C40(ChuchuBossEntity* this) {
         sub_08027B98(this, 0x90, 0xb0, 0x10, 0);
     }
     sub_08027870(super);
+}
+
+void sub_08026E1C(ChuchuBossEntity* this) {
+    u32 uVar2;
+    Entity* pEVar5;
+    Entity* pEVar6;
+
+    if (this->unk_7c == 0) {
+        if (10 < super->child->subtimer + super->parent->subtimer + this->unk_68->base.subtimer) {
+            COLLISION_ON(super);
+            if (sub_08027C54(this)) {
+                this->unk_84->unk_04++;
+                ;
+                super->child->health = 0xff;
+            }
+            if (this->unk_84->unk_04 == 3) {
+                super->health = 0;
+                COLLISION_OFF(super);
+                pEVar6 = super->child;
+                pEVar5 = super->parent;
+                this->unk_68->base.flags = super->flags;
+                uVar2 = super->flags;
+                pEVar5->flags = uVar2;
+                pEVar6->flags = uVar2;
+                super->iframes = -0x3c;
+                return;
+            }
+            this->unk_84->unk_00 = 4;
+            this->unk_84->unk_01 = 0x81;
+            COLLISION_ON(super);
+            super->hitType = 0x7d;
+            super->subAction = 11;
+            this->unk_84->unk_03 = 0;
+            InitAnimationForceUpdate(super->child, 0);
+            sub_08027B98(this, 0x80, 0x80, 0x80, 0);
+            this->unk_84->unk_01 = 0x21;
+        }
+    } else {
+        this->unk_7c--;
+        this->unk_84->unk_08 = 0;
+        this->unk_84->unk_06 = 0;
+    }
+    if ((sub_08027C54(this)) && this->unk_84->unk_04 == 2) {
+        sub_08027C7C(this, 0x3f);
+        sub_08078B48();
+    }
 }
