@@ -1059,16 +1059,9 @@ void CgbModVol(CgbChannel* chan) {
 
     if (!CgbPan(chan)) {
         chan->pan = 0xFF;
-        chan->envelopeGoal = (u32)(chan->rightVolume + chan->leftVolume) >> 4;
+        chan->envelopeGoal = (u32)(chan->rightVolume + chan->leftVolume) / 16;
     } else {
-        // Force chan->rightVolume and chan->leftVolume to be read from memory again,
-        // even though there is no reason to do so.
-        // The command line option "-fno-gcse" achieves the same result as this.
-#ifndef NON_MATCHING
-        asm("" : : : "memory");
-#endif
-
-        chan->envelopeGoal = (u32)(chan->rightVolume + chan->leftVolume) >> 4;
+        chan->envelopeGoal = (u32)(chan->rightVolume + chan->leftVolume) / 16;
         if (chan->envelopeGoal > 15)
             chan->envelopeGoal = 15;
     }
@@ -1077,7 +1070,7 @@ void CgbModVol(CgbChannel* chan) {
     chan->pan &= chan->panMask;
 }
 
-NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
+void CgbSound(void) {
     s32 ch;
     CgbChannel* channels;
     s32 envelopeStepTimeAndDir;
@@ -1088,6 +1081,8 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
     vu8* nrx2ptr;
     vu8* nrx3ptr;
     vu8* nrx4ptr;
+    vu8* sp1C;
+    u8 sp00;
 
     // Most comparision operations that cast to s8 perform 'and' by 0xFF.
     int mask = 0xff;
@@ -1097,7 +1092,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
     else
         soundInfo->c15 = 14;
 
-    for (ch = 1, channels = soundInfo->cgbChannels; ch <= 4; ch++, channels++) {
+    for (ch = 1, channels = soundInfo->cgbChannels, sp1C = &sp00; ch <= 4; ch++, channels++) {
         if (!(channels->statusFlags & SOUND_CHANNEL_SF_ON))
             continue;
 
@@ -1109,6 +1104,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
                 nrx2ptr = (vu8*)(REG_ADDR_NR12);
                 nrx3ptr = (vu8*)(REG_ADDR_NR13);
                 nrx4ptr = (vu8*)(REG_ADDR_NR14);
+                *sp1C = 0;
                 break;
             case 2:
                 nrx0ptr = (vu8*)(REG_ADDR_NR10 + 1);
@@ -1116,6 +1112,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
                 nrx2ptr = (vu8*)(REG_ADDR_NR22);
                 nrx3ptr = (vu8*)(REG_ADDR_NR23);
                 nrx4ptr = (vu8*)(REG_ADDR_NR24);
+                *sp1C = 1;
                 break;
             case 3:
                 nrx0ptr = (vu8*)(REG_ADDR_NR30);
@@ -1123,6 +1120,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
                 nrx2ptr = (vu8*)(REG_ADDR_NR32);
                 nrx3ptr = (vu8*)(REG_ADDR_NR33);
                 nrx4ptr = (vu8*)(REG_ADDR_NR34);
+                *sp1C = 2;
                 break;
             default:
                 nrx0ptr = (vu8*)(REG_ADDR_NR30 + 1);
@@ -1130,6 +1128,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
                 nrx2ptr = (vu8*)(REG_ADDR_NR42);
                 nrx3ptr = (vu8*)(REG_ADDR_NR43);
                 nrx4ptr = (vu8*)(REG_ADDR_NR44);
+                *sp1C = 3;
                 break;
         }
 
@@ -1187,7 +1186,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
             } else {
                 goto oscillator_off;
             }
-        } else if (channels->statusFlags & SOUND_CHANNEL_SF_IEC) {
+        } else if (channels->statusFlags & SOUND_CHANNEL_SF_IEC || !((REG_NR52 >> *sp1C) & 1)) {
             channels->echoLength--;
             if ((s8)(channels->echoLength & mask) <= 0) {
             oscillator_off:
@@ -1291,7 +1290,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
         if (channels->modify & CGB_CHANNEL_MO_PIT) {
             if (ch < 4 && (channels->type & TONEDATA_TYPE_FIX)) {
                 int dac_pwm_rate = REG_SOUNDBIAS_H;
-
+                asm("" ::: "r0");
                 if (dac_pwm_rate < 0x40) // if PWM rate = 32768 Hz
                     channels->frequency = (channels->frequency + 2) & 0x7fc;
                 else if (dac_pwm_rate < 0x80) // if PWM rate = 65536 Hz
@@ -1302,7 +1301,7 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
                 *nrx3ptr = channels->frequency;
             else
                 *nrx3ptr = (*nrx3ptr & 0x08) | channels->frequency;
-            channels->n4 = (channels->n4 & 0xC0) + (*((u8*)(&channels->frequency) + 1));
+            channels->n4 = (channels->n4 & 0xC0) + ((channels->frequency & 0x3F00) >> 8);
             *nrx4ptr = (s8)(channels->n4 & mask);
         }
 
@@ -1329,7 +1328,6 @@ NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
         channels->modify = 0;
     }
 }
-END_NONMATCH
 
 void m4aMPlayTempoControl(MusicPlayerInfo* mplayInfo, u16 tempo) {
     if (mplayInfo->ident == ID_NUMBER) {
