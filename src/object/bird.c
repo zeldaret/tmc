@@ -365,7 +365,7 @@ void Bird_Type10(Entity* this) {
     }
 }
 
-void CreateBird(void) {
+void CreateBird(Entity* this) {
     Entity* birdEnt;
 
 #ifndef EU

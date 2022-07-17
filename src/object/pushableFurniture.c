@@ -425,8 +425,96 @@ void sub_08090254(PushableFurnitureEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/pushableFurniture/sub_0809028C.inc",
-         void sub_0809028C(PushableFurnitureEntity* this, u32 param_2))
+void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
+    u32 uVar2;
+    u32 pos;
+
+    this->unk_83 &= 0x30;
+    pos = this->unk_70 - 0x80;
+    uVar2 = this->unk_72 - 0x80;
+    if (param_2 == 1) {
+        if ((this->unk_83 & 0x20) != 0) {
+            sub_08090480(0, uVar2 + 1);
+        } else {
+            switch (GetTileType(uVar2, 2)) {
+                case 0x301:
+                    this->unk_83 |= 8;
+                    break;
+                case 0x308:
+                    this->unk_83 |= 2;
+                    break;
+            }
+        }
+        if ((this->unk_83 & 0x2a) != 0) {
+            sub_08090480(0, pos);
+            sub_08090480(0, uVar2);
+        }
+        if ((this->unk_83 & 0x10) != 0) {
+            switch (GetTileType(pos - 1, 1)) {
+                case 0x300:
+                    break;
+                default:
+                    sub_08090480(0, pos - 1);
+                    sub_08090480(2, pos - 2);
+                    break;
+            }
+            return;
+        }
+        switch (GetTileType(pos - 1, 2)) {
+            case 0x300:
+                this->unk_83 |= 4;
+                break;
+            case 0x308:
+                this->unk_83 |= 1;
+                break;
+        }
+
+        if (((this->unk_83 & 0x15) != 0) && ((this->unk_83 & 0x2a) == 0)) {
+            sub_08090480(0, pos);
+            sub_08090480(1, uVar2);
+        }
+    } else {
+        if ((this->unk_83 & 0x10) != 0) {
+            sub_08090480(0, pos - 1);
+        } else {
+            switch (GetTileType(pos, 2)) {
+                case 0x302:
+                    this->unk_83 |= 4;
+                    break;
+                case 0x306:
+                    this->unk_83 |= 1;
+                    break;
+            }
+        }
+        if ((this->unk_83 & 0x15) != 0) {
+            sub_08090480(0, pos);
+            sub_08090480(0, uVar2);
+        }
+        if ((this->unk_83 & 0x20) != 0) {
+            switch (GetTileType(uVar2 + 1, 1)) {
+                case 0x300:
+                    break;
+                default:
+                    sub_08090480(0, uVar2 + 1);
+                    sub_08090480(1, uVar2 + 2);
+                    break;
+            }
+            return;
+        }
+        switch (GetTileType(uVar2 + 1, 2)) {
+            case 0x300:
+                this->unk_83 |= 8;
+                break;
+            case 0x306:
+                this->unk_83 |= 2;
+                break;
+        }
+        if ((this->unk_83 & 0x2a) != 0 && (this->unk_83 & 0x15) == 0) {
+            sub_08090480(2, pos);
+            sub_08090480(0, uVar2);
+        }
+    }
+}
 
 void sub_08090480(u32 param_1, u32 param_2) {
     SetTile(gUnk_08121EF0[param_1], param_2, 1);
