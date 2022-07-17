@@ -979,3 +979,94 @@ void sub_08026BE8(ChuchuBossEntity* this) {
     }
     sub_08027870(super);
 }
+
+void sub_08026C40(ChuchuBossEntity* this) {
+    u8 bVar2;
+    int iVar5;
+    ChuchuBossEntity* pEVar6;
+    ChuchuBossEntity* pEVar7;
+    ChuchuBossEntity* pEVar8;
+
+    pEVar6 = (ChuchuBossEntity*)super->child;
+    pEVar8 = this->unk_68;
+    pEVar7 = (ChuchuBossEntity*)super->parent;
+    if (this->unk_7d != 0) {
+        if (--this->unk_7d != 0) {
+            if ((this->unk_7d & 8) != 0) {
+                pEVar6->unk_74.WORD += 0x20000;
+                pEVar6->unk_78.WORD += 0x10000;
+                return;
+            }
+            pEVar6->unk_74.WORD -= 0x20000;
+            pEVar6->unk_78.WORD -= 0x10000;
+            return;
+        }
+        if ((super->direction & 0x10) != 0) {
+            if (pEVar6->base.animIndex != 8) {
+                InitAnimationForceUpdate(&pEVar6->base, 8);
+            }
+        } else {
+            if (pEVar6->base.animIndex != 7) {
+                InitAnimationForceUpdate(&pEVar6->base, 7);
+            }
+        }
+    }
+    if (this->unk_7c == 0) {
+        if ((super->direction & 0x10) != 0) {
+            iVar5 = 0x300;
+        } else {
+            iVar5 = -0x300;
+        }
+    } else {
+        if ((super->direction & 0x10) != 0) {
+            iVar5 = 0x480;
+        } else {
+            iVar5 = -0x480;
+        }
+    }
+    bVar2 = pEVar8->unk_82.HALF.HI + 6;
+    if (bVar2 >= 0xd) {
+        pEVar8->unk_82.HWORD += iVar5 * 2;
+        pEVar7->unk_82.HWORD += iVar5;
+        pEVar6->unk_82.HWORD += iVar5;
+    } else {
+        pEVar8->unk_82.HWORD = 0;
+        bVar2 = pEVar7->unk_82.HALF.HI + 6U;
+        if (bVar2 >= 0xd) {
+            pEVar7->unk_82.HWORD += iVar5 * 2;
+            pEVar6->unk_82.HWORD += iVar5;
+        } else {
+            pEVar7->unk_82.HWORD = 0;
+            bVar2 = pEVar6->unk_82.HALF.HI + 6U;
+            if (bVar2 >= 0xd) {
+                pEVar6->unk_82.HWORD += iVar5 * 2;
+            } else {
+                pEVar6->unk_82.HWORD = 0;
+            }
+        }
+    }
+    if (pEVar6->unk_74.HALF_U.HI >= 0xa1) {
+        pEVar6->unk_74.WORD -= 0x40000;
+    } else {
+        pEVar6->unk_74.HALF_U.HI = 0xa0;
+    }
+
+    if (pEVar6->unk_78.HALF_U.HI < 0xa0) {
+        pEVar6->unk_78.WORD += 0x8000;
+    } else {
+        sub_080276F4(this, 3, 0);
+        pEVar6->unk_7d = 0;
+        if ((super->direction & 0x10) != 0) {
+            *(u8*)((int)pEVar7 + 0x85) = 1;
+            *(u8*)((int)pEVar8 + 0x85) = 1;
+            *(u8*)((int)pEVar6 + 0x85) = 1;
+        }
+        super->subAction = 8;
+        this->unk_7c = 4;
+        pEVar7->base.subtimer = 0;
+        pEVar8->base.subtimer = 0;
+        pEVar6->base.subtimer = 0;
+        sub_08027B98(this, 0x90, 0xb0, 0x10, 0);
+    }
+    sub_08027870(super);
+}
