@@ -1116,3 +1116,23 @@ void sub_08026E1C(ChuchuBossEntity* this) {
         sub_08078B48();
     }
 }
+
+void sub_08026F1C(ChuchuBossEntity* this) {
+    if ((this->unk_7c & 0x80) != 0) {
+        if (sub_080279E8(this) != 0) {
+            this->unk_84->unk_03 = 0;
+            this->unk_7c &= 0xf;
+            sub_08027B98(this, 0x80, 0x80, 0x80, 0);
+            if (this->unk_7c == 2) {
+                sub_08027548(this, 0);
+            }
+        }
+        sub_080277F8(this);
+    } else {
+        sub_080277B8(this, 0xf0, 0x10);
+        if (this->unk_84->unk_03 != 0) {
+            this->unk_7c = (this->unk_7c + 1U) | 0x80;
+            sub_08027B98(this, 0xc0, 0xc0, 0x20, 1);
+        }
+    }
+}
