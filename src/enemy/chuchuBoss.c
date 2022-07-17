@@ -20,7 +20,8 @@ typedef struct {
     u8 unk_06;
     u8 unk_07;
     u32 unk_08;
-    u16 unk_0c;
+    u8 unk_0c;
+    u8 unk_0d;
     u16 unk_0e;
 } Helper;
 
@@ -1167,6 +1168,87 @@ void sub_08026FA4(ChuchuBossEntity* this) {
             if (super->child->animIndex != 7) {
                 InitAnimationForceUpdate(super->child, 7);
             }
+        }
+    }
+    sub_08027870(super);
+}
+
+void sub_08027064(ChuchuBossEntity* this) {
+    u32 uVar2;
+    ChuchuBossEntity* pEVar5;
+    ChuchuBossEntity* pEVar7;
+    ChuchuBossEntity* pEVar10;
+
+    pEVar10 = (ChuchuBossEntity*)super->child;
+    pEVar5 = this->unk_68;
+    pEVar7 = (ChuchuBossEntity*)super->parent;
+    super->speed = 0x60;
+    if (pEVar10->base.animIndex != 10 && ((gRoomTransition.frameCount & 0xf) == 0)) {
+        SoundReq(SFX_PLY_JUMP);
+    }
+    if (this->unk_84->unk_03 != 0) {
+        if (super->y.HALF.HI != gPlayerEntity.y.HALF.HI) {
+            if ((gRoomTransition.frameCount & 0xf) == 0) {
+                if (super->y.HALF.HI > gPlayerEntity.y.HALF.HI) {
+                    this->unk_84->unk_0c = 0;
+                } else {
+                    this->unk_84->unk_0c = 0x10;
+                }
+            }
+            super->direction = this->unk_84->unk_0c;
+            ProcessMovement0(super);
+        }
+    }
+    if (*(char*)((int)pEVar10 + 0x85) == 1) {
+        if ((s8)pEVar10->unk_82.HALF.HI < 1) {
+            super->direction = 24;
+        } else {
+            super->direction = 8;
+        }
+    } else {
+        if ((s8)pEVar10->unk_82.HALF.HI <= -1) {
+            super->direction = 24;
+        } else {
+            super->direction = 8;
+        }
+    }
+    if (this->unk_84->unk_03 == 0) {
+        if (super->x.HALF.HI == this->unk_84->unk_0e) {
+            *(char*)((int)pEVar7 + 0x84) = 1;
+            *(char*)((int)pEVar5 + 0x84) = 1;
+            *(char*)((int)pEVar10 + 0x84) = 1;
+            this->unk_7c = 0x1e;
+            this->unk_84->unk_03++;
+        } else {
+            ProcessMovement0(super);
+        }
+    } else if (pEVar10->unk_7d != 0 && pEVar5->unk_7d != 0 && pEVar7->unk_7d != 0) {
+        if (this->unk_7c-- == 0) {
+            *(char*)((int)pEVar7 + 0x84) = 1;
+            *(char*)((int)pEVar5 + 0x84) = 1;
+            *(char*)((int)pEVar10 + 0x84) = 1;
+            uVar2 = 0;
+            if (this->unk_84->unk_03 > 1) {
+                if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+                    uVar2 = 24;
+                } else {
+                    uVar2 = 8;
+                }
+            }
+            if (this->unk_84->unk_03 == 5 || super->direction == uVar2) {
+                super->subAction = 6;
+                sub_080276F4(this, 7, 1);
+                this->unk_84->unk_03 = 0;
+                this->unk_7d = 0xf;
+            } else {
+                this->unk_84->unk_03++;
+            }
+        }
+    } else {
+        if (this->unk_84->unk_03 != 4) {
+            this->unk_7c = 0x1e;
+        } else {
+            this->unk_7c = 0x3c;
         }
     }
     sub_08027870(super);
