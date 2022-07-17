@@ -961,3 +961,21 @@ void sub_080269CC(ChuchuBossEntity* this) {
     }
     sub_08027870(super);
 }
+
+void sub_08026BE8(ChuchuBossEntity* this) {
+    Entity* child;
+
+    child = super->child;
+    child->flags2 &= ~1;
+    if (this->unk_7c == 0) {
+        super->subAction = 7;
+        this->unk_84->unk_03 = 0;
+        this->unk_7d = 0x2d;
+        child->flags &= ~0x80;
+        child->flags2 |= 1;
+        SoundReq(SFX_155);
+    } else {
+        this->unk_7c--;
+    }
+    sub_08027870(super);
+}
