@@ -457,9 +457,7 @@ void sub_08026090(ChuchuBossEntity* this) {
 
 void sub_08026110(ChuchuBossEntity* this) {
     s32 uVar2;
-    int iVar4;
     s32 uVar3;
-    Hitbox* pHVar8;
 
     gUnk_080CC1DC[super->subAction](this);
     if ((this->unk_84->unk_08 == 0) && ((u8)this->unk_84->unk_05 != 0)) {
@@ -583,7 +581,6 @@ void sub_08026358(ChuchuBossEntity* this) {
 }
 
 void sub_080263B4(ChuchuBossEntity* this) {
-    u32 bVar2;
     u32 bVar3;
 
     if (this->unk_7d-- == 0) {
@@ -844,7 +841,7 @@ void sub_08026968(ChuchuBossEntity* this) {
         pEVar7 = (ChuchuBossEntity*)super->child;
         pEVar8 = this->unk_68;
         pEVar6 = (ChuchuBossEntity*)super->parent;
-        if ((super->direction & 0x10) != 0) {
+        if (DirectionIsVertical(super->direction)) {
             sVar5 = 0x100;
         } else {
             sVar5 = -0x100;
@@ -872,7 +869,7 @@ void sub_080269CC(ChuchuBossEntity* this) {
     pEVar7 = (ChuchuBossEntity*)super->child;
     pEVar2 = this->unk_68;
     pEVar4 = (ChuchuBossEntity*)super->parent;
-    if ((super->direction & 0x10) != 0) {
+    if (DirectionIsVertical(super->direction)) {
         sVar1 = -0x300;
     } else {
         sVar1 = 0x300;
@@ -892,7 +889,7 @@ void sub_080269CC(ChuchuBossEntity* this) {
     }
     temp2 = pEVar7->unk_82.HALF.HI + 0x40;
     if ((u32)(temp2 - 0x20) > 0x40) {
-        if ((super->direction & 0x10) != 0) {
+        if (DirectionIsVertical(super->direction)) {
             if (pEVar7->base.animIndex != 6) {
                 InitAnimationForceUpdate(&pEVar7->base, 6);
             }
@@ -927,7 +924,7 @@ void sub_080269CC(ChuchuBossEntity* this) {
             entity->base.spritePriority.b0 = 0;
             entity->base.spriteRendering.b3 = pEVar7->base.spriteRendering.b3;
             entity->base.spriteOrientation.flipY = pEVar7->base.spriteOrientation.flipY;
-            if ((super->direction & 0x10) != 0) {
+            if (DirectionIsVertical(super->direction)) {
                 entity->base.x.HALF.HI -= 0x38;
             } else {
                 entity->base.x.HALF.HI += 0x38;
@@ -1001,7 +998,7 @@ void sub_08026C40(ChuchuBossEntity* this) {
             pEVar6->unk_78.WORD -= 0x10000;
             return;
         }
-        if ((super->direction & 0x10) != 0) {
+        if (DirectionIsVertical(super->direction)) {
             if (pEVar6->base.animIndex != 8) {
                 InitAnimationForceUpdate(&pEVar6->base, 8);
             }
@@ -1012,13 +1009,13 @@ void sub_08026C40(ChuchuBossEntity* this) {
         }
     }
     if (this->unk_7c == 0) {
-        if ((super->direction & 0x10) != 0) {
+        if (DirectionIsVertical(super->direction)) {
             iVar5 = 0x300;
         } else {
             iVar5 = -0x300;
         }
     } else {
-        if ((super->direction & 0x10) != 0) {
+        if (DirectionIsVertical(super->direction)) {
             iVar5 = 0x480;
         } else {
             iVar5 = -0x480;
@@ -1056,7 +1053,7 @@ void sub_08026C40(ChuchuBossEntity* this) {
     } else {
         sub_080276F4(this, 3, 0);
         pEVar6->unk_7d = 0;
-        if ((super->direction & 0x10) != 0) {
+        if (DirectionIsVertical(super->direction)) {
             *(u8*)((int)pEVar7 + 0x85) = 1;
             *(u8*)((int)pEVar8 + 0x85) = 1;
             *(u8*)((int)pEVar6 + 0x85) = 1;
@@ -1135,4 +1132,42 @@ void sub_08026F1C(ChuchuBossEntity* this) {
             sub_08027B98(this, 0xc0, 0xc0, 0x20, 1);
         }
     }
+}
+
+void sub_08026FA4(ChuchuBossEntity* this) {
+    u32 uVar1;
+    ChuchuBossEntity* pEVar3;
+    ChuchuBossEntity* pEVar4;
+
+    sub_08078B48();
+    COLLISION_OFF(super);
+    pEVar4 = (ChuchuBossEntity*)super->child;
+    pEVar3 = (ChuchuBossEntity*)super->parent;
+    this->unk_68->base.flags = super->flags;
+    uVar1 = super->flags;
+    pEVar3->base.flags = uVar1;
+    pEVar4->base.flags = uVar1;
+    if (this->unk_7c != 0) {
+        this->unk_7c = 1;
+    }
+    if (((ChuchuBossEntity*)super->child)->unk_78.HALF_U.HI < 0x98) {
+        ((ChuchuBossEntity*)super->child)->unk_78.WORD += (0x10000 << this->unk_7c);
+        ((ChuchuBossEntity*)super->child)->unk_74.WORD -= (0x20000 << this->unk_7c);
+    } else {
+        super->subAction = 7;
+        COLLISION_OFF(super->child);
+        this->unk_84->unk_03 = 0;
+        this->unk_7d = 0x2d;
+        SoundReq(SFX_155);
+        if (DirectionIsVertical(super->direction)) {
+            if (super->child->animIndex != 8) {
+                InitAnimationForceUpdate(super->child, 8);
+            }
+        } else {
+            if (super->child->animIndex != 7) {
+                InitAnimationForceUpdate(super->child, 7);
+            }
+        }
+    }
+    sub_08027870(super);
 }
