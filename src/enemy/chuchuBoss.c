@@ -1260,3 +1260,49 @@ void sub_08027064(ChuchuBossEntity* this) {
     }
     sub_08027870(super);
 }
+
+void sub_0802720C(ChuchuBossEntity* this) {
+    super->subAction = super->parent->subAction;
+    switch (super->subAction) {
+        case 1:
+        case 2:
+        case 12:
+            this->unk_78.HALF.HI = 0xa0;
+            this->unk_74.HALF.HI = 0xa0;
+            sub_0802757C(this);
+            break;
+        case 3:
+        case 5:
+            if (this->unk_82.HALF.HI == 0)
+                break;
+            this->unk_7d = 0;
+            sub_0802757C(this);
+            break;
+        default:
+            break;
+        case 8:
+            if (super->subtimer < 4) {
+                sub_0802757C(this);
+                if (this->unk_82.HALF.HI == 0) {
+                    super->subtimer++;
+                }
+            }
+            break;
+        case 10:
+            if (this->unk_7d == 0) {
+                case 4:
+                    sub_0802757C(this);
+                    break;
+            } else {
+                if (*(char*)&this->unk_84 != 0) {
+                    this->unk_7d = 0;
+                    *(char*)&this->unk_84 = 0;
+                }
+                break;
+            }
+        case 0:
+            sub_0802757C(this);
+            break;
+    }
+    super->z.WORD = super->parent->z.WORD;
+}
