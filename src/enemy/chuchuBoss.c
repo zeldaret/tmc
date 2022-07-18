@@ -127,7 +127,7 @@ void sub_08027BBC();
 bool32 sub_08027C54();
 void sub_08027C7C(ChuchuBossEntity*, u32);
 void sub_08027C9C();
-void sub_08027D20();
+Entity* sub_08027D20();
 
 // clang-format off
 void (*const ChuchuBoss_Functions[])(ChuchuBossEntity*) = {
@@ -1305,4 +1305,103 @@ void sub_0802720C(ChuchuBossEntity* this) {
             break;
     }
     super->z.WORD = super->parent->z.WORD;
+}
+
+void sub_080272D4(ChuchuBossEntity* this) {
+    Entity* pEVar3;
+    u8 temp;
+
+    switch (super->parent->subAction) {
+        case 1:
+        case 2:
+        case 12:
+            this->unk_78.HALF.HI = 0xa0;
+            this->unk_74.HALF.HI = 0xa0;
+            sub_0802757C(this);
+            break;
+        case 3:
+        case 5:
+            if (this->unk_82.HALF.HI == 0)
+                break;
+        case 4:
+            sub_0802757C(this);
+            break;
+        case 8:
+            if (super->subtimer < 3) {
+                sub_0802757C(this);
+                if (this->unk_82.HALF.HI == 0) {
+                    super->subtimer++;
+                }
+            }
+            break;
+        case 6:
+            super->hitbox->width = (u32)((0x10000 / this->unk_78.HALF_U.HI) * 9) >> 7;
+            super->hitbox->height = (u32)((0x10000 / this->unk_74.HALF_U.HI) * 5) >> 6;
+            if (*(char*)&this->unk_84 == 0)
+                break;
+            if ((super->contactFlags & 0x80) != 0) {
+                if (super->iframes != 0) {
+                    ((ChuchuBossEntity*)super->child)->unk_68->base.iframes = super->iframes;
+                    super->child->parent->iframes = super->iframes;
+                    super->child->iframes = super->iframes;
+                    pEVar3 = sub_08027D20(super->child);
+                    if (pEVar3 != NULL) {
+                        pEVar3->x.HALF.HI = super->x.HALF.HI + 1;
+                        pEVar3->spriteOffsetY = super->spriteOffsetY + 0x20;
+                        pEVar3->spriteOffsetX = super->spriteOffsetX;
+                    }
+                    if (sub_08027C54(super->child) == 0 || ((ChuchuBossEntity*)super->child)->unk_84->unk_04 != 2) {
+                        SoundReq(SFX_BOSS_HIT);
+                    } else {
+                        sub_08078B48();
+                        gRoomControls.camera_target = super->child;
+                        gPauseMenuOptions.disabled = 1;
+                        gRoomControls.camera_target->subAction = 9;
+                        SoundReq(SFX_BOSS_DIE);
+                    }
+                }
+            }
+            sub_08027A60(this);
+            sub_0800445C(super);
+            break;
+
+        case 9:
+            super->hitbox->width = (u32)((0x10000 / this->unk_78.HALF_U.HI) * 9) >> 7;
+            super->hitbox->height = (u32)((0x10000 / this->unk_74.HALF_U.HI) * 5) >> 6;
+            sub_0800445C(super);
+            break;
+        case 10:
+            if (this->unk_7d == 0) {
+                sub_0802757C(this);
+            } else if (*(char*)&this->unk_84 != 0) {
+                this->unk_7d = 0;
+                *(char*)&this->unk_84 = 0;
+            }
+            temp = this->unk_82.HALF.HI + (this->unk_81 / 2);
+            if ((temp) > (u32)this->unk_81) {
+                if ((s8)this->unk_82.HALF.HI > 0) {
+                    if (super->animIndex != 12) {
+                        InitAnimationForceUpdate(super, 12);
+                    }
+                } else if (super->animIndex != 11) {
+                    InitAnimationForceUpdate(super, 11);
+                }
+            } else if (super->animIndex != 10) {
+                InitAnimationForceUpdate(super, 10);
+            }
+            break;
+        case 0:
+            if (((ChuchuBossEntity*)super->child)->unk_84->unk_03 == 8) {
+                sub_0802757C(this);
+                if (this->unk_7d == 1) {
+                    if (this->unk_81 != 0) {
+                        this->unk_81 -= 4;
+                    }
+                }
+            }
+            break;
+    }
+    super->z.WORD = super->parent->z.WORD;
+    super->contactFlags = 0;
+    UpdateAnimationSingleFrame(super);
 }
