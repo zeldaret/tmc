@@ -1405,3 +1405,10 @@ void sub_080272D4(ChuchuBossEntity* this) {
     super->contactFlags = 0;
     UpdateAnimationSingleFrame(super);
 }
+
+void sub_08027548(ChuchuBossEntity* this, u32 param_2) {
+    super->subAction = 1;
+    sub_08027B98(this, 0x90, 0xb0, 8, 0xff);
+    this->unk_7d = 0;
+    sub_080276F4(this, 0, param_2);
+}
