@@ -1533,3 +1533,36 @@ void sub_080277B8(ChuchuBossEntity* this, u32 param_2, s32 param_3) {
     }
     sub_080277F8(this);
 }
+
+void sub_080277F8(ChuchuBossEntity* this) {
+    u32 uVar1;
+    ChuchuBossEntity* pEVar3;
+    ChuchuBossEntity* pEVar4;
+    ChuchuBossEntity* pEVar5;
+
+    pEVar3 = (ChuchuBossEntity*)super->child;
+    pEVar5 = this->unk_68;
+    pEVar4 = (ChuchuBossEntity*)super->parent;
+    uVar1 = super->x.HALF_U.HI;
+    pEVar5->base.x.HALF.HI = uVar1;
+    pEVar5->base.timer = 14;
+    pEVar5->base.y.HALF.HI = super->y.HALF.HI - 14;
+    pEVar4->base.x.HALF.HI = uVar1;
+    pEVar4->base.timer = 18 - ((pEVar3->unk_78.HALF_U.HI - 0xa0) >> 4);
+    pEVar4->base.y.HALF.HI = pEVar5->base.y.HALF.HI - pEVar4->base.timer;
+    pEVar3->base.x.HALF.HI = uVar1;
+    if (pEVar3->unk_78.HALF_U.HI >= 0xa1) {
+        pEVar3->base.timer = 14 - ((pEVar3->unk_78.HALF_U.HI - 0xa0) >> 2);
+        if ((pEVar3->base.timer & 0x80) != 0) {
+            pEVar3->base.timer = 0;
+        }
+    } else {
+        pEVar3->base.timer = 14;
+    }
+    pEVar3->base.y.HALF.HI = pEVar4->base.y.HALF.HI - pEVar3->base.timer;
+    pEVar4->unk_74.WORD = pEVar3->unk_74.WORD;
+    pEVar4->unk_78.WORD = pEVar3->unk_78.WORD;
+    pEVar5->unk_74.WORD = pEVar3->unk_74.WORD;
+    pEVar5->unk_78.WORD = pEVar3->unk_78.WORD;
+    sub_08027984(this);
+}
