@@ -1518,3 +1518,18 @@ void sub_080276F4(ChuchuBossEntity* this, u32 param_2, u32 param_3) {
         pEVar6->unk_7d = (pEVar2->unk_81 << 7) / (*(u16*)((int)pEVar2 + 0x86)) + 1;
     }
 }
+
+void sub_080277B8(ChuchuBossEntity* this, u32 param_2, s32 param_3) {
+    ChuchuBossEntity* pEVar1;
+
+    pEVar1 = (ChuchuBossEntity*)super->child;
+    if (param_2 > pEVar1->unk_78.HALF_U.HI) {
+        pEVar1->unk_78.HALF.HI += param_3;
+        pEVar1->unk_74.WORD -= Q_16_16(1.5);
+    } else {
+        pEVar1->unk_78.HALF.HI = param_2;
+        pEVar1->unk_7c = 8;
+        this->unk_84->unk_03++;
+    }
+    sub_080277F8(this);
+}
