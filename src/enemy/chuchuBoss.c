@@ -41,7 +41,7 @@ typedef struct _ChuchuBossEntity {
     union SplitWord unk_78;
     u8 unk_7c;
     u8 unk_7d;
-    u16 unk_7e;
+    union SplitHWord unk_7e;
     u8 unk_80;
     u8 unk_81;
     union SplitHWord unk_82;
@@ -330,7 +330,7 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
         super->spritePriority.b0 = gUnk_080CC1B8[super->type & 3].unk_01;
         this->unk_74.HALF.HI = 0xa0;
         this->unk_78.HALF.HI = 0xa0;
-        this->unk_7e = 0;
+        this->unk_7e.HWORD = 0;
         super->spriteRendering.b0 = 3;
         if ((super->type & 3) == 1) {
             InitAnimationForceUpdate(super, 0);
@@ -435,7 +435,7 @@ END_NONMATCH
 
 void sub_08026060(ChuchuBossEntity* this) {
     gUnk_080CC1C8[super->type](this);
-    SetAffineInfo(super, this->unk_74.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7e);
+    SetAffineInfo(super, this->unk_74.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7e.HWORD);
 }
 
 void sub_08026090(ChuchuBossEntity* this) {
@@ -1411,4 +1411,56 @@ void sub_08027548(ChuchuBossEntity* this, u32 param_2) {
     sub_08027B98(this, 0x90, 0xb0, 8, 0xff);
     this->unk_7d = 0;
     sub_080276F4(this, 0, param_2);
+}
+
+void sub_0802757C(ChuchuBossEntity* this) {
+    u32 cVar2;
+
+    if (this->unk_7d != 0) {
+        if (super->type != 1) {
+            if (((ChuchuBossEntity*)super->child)->unk_7d != 0) {
+                this->unk_7d = 0;
+            }
+        } else {
+            this->unk_7d--;
+        }
+    } else {
+        if (*(u8*)((int)this + 0x85) == 1) {
+            this->unk_82.HWORD += *(u16*)((int)this + 0x86);
+            if ((s8)this->unk_82.HALF.HI >= (s8)this->unk_81) {
+                *(u8*)((int)this + 0x85) = 0;
+                if (super->type == 1) {
+                    this->unk_7d =
+                        (((ChuchuBossEntity*)super->parent)->unk_81 << 8) / *(u16*)((int)super->parent + 0x86) + 1;
+                } else {
+                    this->unk_7d = 1;
+                }
+                this->unk_82.HWORD = this->unk_81 << 8;
+            }
+        } else {
+            this->unk_82.HWORD -= *(u16*)((int)this + 0x86);
+            if ((s8)this->unk_82.HALF.HI <= -this->unk_81) {
+                cVar2 = 1;
+                *(u8*)((int)this + 0x85) = cVar2;
+                if (super->type == 1) {
+                    this->unk_7d =
+                        (((ChuchuBossEntity*)super->parent)->unk_81 << 8) / *(u16*)((int)super->parent + 0x86) + 1;
+                } else {
+                    this->unk_7d = 1;
+                }
+                this->unk_82.HWORD = (-this->unk_81) << 8;
+            }
+        }
+    }
+    super->y.WORD = super->parent->y.WORD + super->parent->spriteOffsetY * 0x10000;
+    super->x.WORD = super->parent->x.WORD + (s8)super->parent->spriteOffsetX * 0x10000;
+    LinearMoveAngle(super, super->timer << 8, this->unk_82.HALF.HI);
+    if (super->type != 1) {
+        super->child->y.WORD = super->y.WORD;
+        super->child->x.WORD = super->x.WORD;
+        LinearMoveAngle(super->child, super->child->timer << 8, ((ChuchuBossEntity*)super->child)->unk_82.HALF.HI);
+        sub_080279AC(this->unk_68, super->child, super->child->type);
+    }
+    sub_080279AC(this->unk_68, this, super->type);
+    this->unk_7e.HALF.HI = -this->unk_82.HALF.HI;
 }
