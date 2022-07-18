@@ -122,7 +122,7 @@ void sub_0802757C();
 void sub_080276F4();
 void sub_080277B8();
 void sub_080277F8();
-void sub_08027870();
+void sub_08027870(ChuchuBossEntity*);
 void sub_08027984();
 void sub_080279AC();
 bool32 sub_080279E8(ChuchuBossEntity*);
@@ -262,7 +262,7 @@ void ChuchuBoss(Entity* this) {
 void ChuchuBoss_OnKnockback(ChuchuBossEntity* this) {
     GenericKnockback(super);
     if (super->type == 0) {
-        sub_08027870(super);
+        sub_08027870(this);
     }
 }
 
@@ -314,7 +314,7 @@ void ChuchuBoss_OnDeath(ChuchuBossEntity* this) {
                     break;
             }
         }
-        sub_08027870(super);
+        sub_08027870(this);
     } else {
         if (this->unk_6d.unk1) {
             this->unk_6d.unk1 = 1;
@@ -656,7 +656,7 @@ void sub_0802650C(ChuchuBossEntity* this) {
         this->unk_84->unk_03++;
         gRoomControls.camera_target = &gPlayerEntity;
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_0802653C(ChuchuBossEntity* this) {
@@ -697,7 +697,7 @@ void sub_08026580(ChuchuBossEntity* this) {
                 }
             }
         }
-        sub_08027870(super);
+        sub_08027870(this);
     }
 }
 
@@ -747,7 +747,7 @@ void sub_08026634(ChuchuBossEntity* this) {
             this->unk_7d--;
         }
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_08026750(ChuchuBossEntity* this) {
@@ -811,7 +811,7 @@ void sub_0802686C(ChuchuBossEntity* this) {
         super->subAction = 5;
         this->unk_84->unk_03 = 0;
         sub_08027B98(this, 0x80, 0x80, 0x80, 0);
-        sub_08027870(super);
+        sub_08027870(this);
         InitAnimationForceUpdate(super->child, 3);
         SoundReq(SFX_1A1);
     }
@@ -864,7 +864,7 @@ void sub_08026968(ChuchuBossEntity* this) {
         pEVar6->unk_82.HWORD += sVar5;
         pEVar7->unk_82.HWORD += sVar5;
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_080269CC(ChuchuBossEntity* this) {
@@ -970,7 +970,7 @@ void sub_080269CC(ChuchuBossEntity* this) {
         pEVar7->unk_74.WORD += 0x40000;
         pEVar7->unk_78.WORD -= 0x8000;
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_08026BE8(ChuchuBossEntity* this) {
@@ -988,7 +988,7 @@ void sub_08026BE8(ChuchuBossEntity* this) {
     } else {
         this->unk_7c--;
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_08026C40(ChuchuBossEntity* this) {
@@ -1079,7 +1079,7 @@ void sub_08026C40(ChuchuBossEntity* this) {
         pEVar6->base.subtimer = 0;
         sub_08027B98(this, 0x90, 0xb0, 0x10, 0);
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_08026E1C(ChuchuBossEntity* this) {
@@ -1183,7 +1183,7 @@ void sub_08026FA4(ChuchuBossEntity* this) {
             }
         }
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_08027064(ChuchuBossEntity* this) {
@@ -1264,7 +1264,7 @@ void sub_08027064(ChuchuBossEntity* this) {
             this->unk_7c = 0x3c;
         }
     }
-    sub_08027870(super);
+    sub_08027870(this);
 }
 
 void sub_0802720C(ChuchuBossEntity* this) {
@@ -1564,5 +1564,60 @@ void sub_080277F8(ChuchuBossEntity* this) {
     pEVar4->unk_78.WORD = pEVar3->unk_78.WORD;
     pEVar5->unk_74.WORD = pEVar3->unk_74.WORD;
     pEVar5->unk_78.WORD = pEVar3->unk_78.WORD;
+    sub_08027984(this);
+}
+
+void sub_08027870(ChuchuBossEntity* this) {
+    u32 cVar1;
+    u32 uVar2;
+    u32 uVar3;
+    ChuchuBossEntity* pEVar5;
+    ChuchuBossEntity* pEVar7;
+    ChuchuBossEntity* pEVar6;
+
+    pEVar5 = (ChuchuBossEntity*)super->child;
+    pEVar7 = this->unk_68;
+    pEVar6 = (ChuchuBossEntity*)super->parent;
+    pEVar6->unk_74.WORD = pEVar5->unk_74.WORD;
+    pEVar6->unk_78.WORD = pEVar5->unk_78.WORD;
+    pEVar7->unk_74.WORD = pEVar5->unk_74.WORD;
+    pEVar7->unk_78.WORD = pEVar5->unk_78.WORD;
+    pEVar5->unk_7e.HALF.HI = -pEVar5->unk_82.HALF.HI;
+    pEVar7->unk_7e.HALF.HI = -pEVar7->unk_82.HALF.HI;
+    pEVar6->unk_7e.HALF.HI = -pEVar6->unk_82.HALF.HI;
+    if (pEVar7->unk_78.HALF_U.HI >= 0xa1) {
+        uVar2 = 14;
+    } else {
+        uVar2 = ((0xa0 - pEVar7->unk_78.HALF_U.HI) >> 3) + 14;
+    }
+    pEVar7->base.timer = uVar2;
+    if (pEVar6->unk_78.HALF_U.HI >= 0xa1) {
+        pEVar6->base.timer = 18 - ((pEVar5->unk_78.HALF_U.HI - 0xa0) >> 4);
+    } else {
+        pEVar6->base.timer = ((0xa0 - pEVar6->unk_78.HALF_U.HI) >> 2) + 18;
+    }
+    if (pEVar5->unk_78.HALF_U.HI >= 0xa1) {
+        uVar3 = 0xe - ((pEVar5->unk_78.HALF_U.HI - 0xa0) >> 2);
+        pEVar5->base.timer = uVar3;
+        if ((uVar3 & 0x80) != 0) {
+            pEVar5->base.timer = 0;
+        }
+    } else {
+        if (pEVar5->unk_78.HALF_U.HI < 0x80) {
+            cVar1 = ((0xa0 - pEVar5->unk_78.HALF_U.HI) >> 2);
+        } else {
+            cVar1 = ((0xa0 - pEVar5->unk_78.HALF_U.HI) >> 1);
+        }
+        pEVar5->base.timer = cVar1 + 14;
+    }
+    pEVar7->base.x.WORD = super->x.WORD;
+    pEVar7->base.y.WORD = super->y.WORD;
+    LinearMoveAngle(&pEVar7->base, pEVar7->base.timer << 8, pEVar7->unk_82.HALF.HI);
+    pEVar6->base.x.WORD = pEVar7->base.x.WORD;
+    pEVar6->base.y.WORD = pEVar7->base.y.WORD;
+    LinearMoveAngle(&pEVar6->base, pEVar6->base.timer << 8, pEVar6->unk_82.HALF.HI);
+    pEVar5->base.x.WORD = pEVar6->base.x.WORD;
+    pEVar5->base.y.WORD = pEVar6->base.y.WORD;
+    LinearMoveAngle(&pEVar5->base, pEVar5->base.timer << 8, pEVar5->unk_82.HALF.HI);
     sub_08027984(this);
 }
