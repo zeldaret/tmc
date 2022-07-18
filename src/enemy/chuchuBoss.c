@@ -63,9 +63,15 @@ extern void (*const gUnk_080CC258[])(ChuchuBossEntity*);
 extern void (*const gUnk_080CC264[])(ChuchuBossEntity*);
 extern void (*const gUnk_080CC26C[])(ChuchuBossEntity*);
 extern const u8 gUnk_080CC278[];
-extern const u16 gUnk_080CC27C[];
-extern const u16 gUnk_080CC29C[];
-extern const u16 gUnk_080CC2BC[];
+
+typedef struct {
+    u16 unk0;
+    u8 unk2;
+} ChuchuStruct;
+
+extern const ChuchuStruct gUnk_080CC27C[];
+extern const ChuchuStruct gUnk_080CC29C[];
+extern const ChuchuStruct gUnk_080CC2BC[];
 extern const s8 gUnk_080CC2DC[];
 extern Hitbox gUnk_080FD238;
 
@@ -222,25 +228,25 @@ const u8 gUnk_080CC278[] = {
     150, 180, 210, 250,
 };
 
-const u16 gUnk_080CC27C[] = {
-     0x80,  0x8, 0x100,  0x6,
-     0x80, 0x18, 0x100,  0x8,
-    0x180,  0x6, 0x100, 0x10,
-      0x0,  0x0,  0xA0, 0x18,
+const ChuchuStruct gUnk_080CC27C[] = {
+     {0x80,  0x8}, {0x100,  0x6},
+     {0x80, 0x18}, {0x100,  0x8},
+    {0x180,  0x6}, {0x100, 0x10},
+      {0x0,  0x0},  {0xA0, 0x18},
 };
 
-const u16 gUnk_080CC29C[] = {
-     0x80, 0x8, 0x100,  0x4,
-     0x80, 0xC,  0x80,  0x6,
-    0x200, 0x6, 0x100,  0xC,
-      0x0, 0x0,  0xA0, 0x14,
+const ChuchuStruct gUnk_080CC29C[] = {
+     {0x80, 0x8}, {0x100,  0x4},
+     {0x80, 0xC}, { 0x80,  0x6},
+    {0x200, 0x6}, {0x100,  0xC},
+      {0x0, 0x0},  {0xA0, 0x14},
 };
 
-const u16 gUnk_080CC2BC[] = {
-     0x80, 0x8, 0x100,  0x0,
-     0x60, 0x2,  0x80,  0x2,
-    0x200, 0x6, 0x100,  0x8,
-      0x0, 0x0,  0xA0, 0x10,
+const ChuchuStruct gUnk_080CC2BC[] = {
+     {0x80, 0x8}, {0x100,  0x0},
+     {0x60, 0x2}, { 0x80,  0x2},
+    {0x200, 0x6}, {0x100,  0x8},
+      {0x0, 0x0},  {0xA0, 0x10},
 };
 
 
@@ -1463,4 +1469,52 @@ void sub_0802757C(ChuchuBossEntity* this) {
     }
     sub_080279AC(this->unk_68, this, super->type);
     this->unk_7e.HALF.HI = -this->unk_82.HALF.HI;
+}
+
+void sub_080276F4(ChuchuBossEntity* this, u32 param_2, u32 param_3) {
+    u32 tempzero;
+    ChuchuBossEntity* pEVar2;
+    ChuchuBossEntity* pEVar5;
+    ChuchuBossEntity* pEVar6;
+    int iVar3;
+    int iVar4;
+    int iVar5;
+    const ChuchuStruct* ptr;
+    const ChuchuStruct* ptr2;
+    const ChuchuStruct* ptr3;
+
+    pEVar6 = (ChuchuBossEntity*)super->child;
+    pEVar5 = this->unk_68;
+    pEVar2 = (ChuchuBossEntity*)super->parent;
+    *(u8*)((int)pEVar2 + 0x84) = tempzero = 0;
+    *(u8*)((int)pEVar5 + 0x84) = 0;
+    *(u8*)((int)pEVar6 + 0x84) = 0;
+    pEVar2->unk_7e.HWORD = tempzero;
+    pEVar5->unk_7e.HWORD = 0;
+    pEVar6->unk_7e.HWORD = 0;
+    pEVar2->unk_7d = 0;
+    pEVar5->unk_7d = 0;
+    ptr = gUnk_080CC27C;
+    ptr += param_2;
+    iVar3 = ptr->unk0;
+    *(u16*)((int)pEVar6 + 0x86) = iVar3;
+    pEVar6->unk_81 = ptr->unk2;
+    ptr2 = gUnk_080CC2BC;
+    ptr2 += param_2;
+    iVar4 = ptr2->unk0;
+    *(u16*)((int)pEVar5 + 0x86) = iVar4;
+    pEVar5->unk_81 = ptr2->unk2;
+    ptr3 = (ChuchuStruct*)gUnk_080CC29C;
+    iVar5 = ptr3[param_2].unk0;
+    *(u16*)((int)pEVar2 + 0x86) = iVar5;
+    pEVar2->unk_81 = ptr3[param_2].unk2;
+    if (param_3 == 0) {
+        *(u8*)((int)pEVar2 + 0x85) = 0;
+        *(u8*)((int)pEVar5 + 0x85) = 0;
+        *(u8*)((int)pEVar6 + 0x85) = 0;
+        pEVar2->unk_82.HWORD = 0;
+        pEVar5->unk_82.HWORD = 0;
+        pEVar6->unk_82.HWORD = 0;
+        pEVar6->unk_7d = (pEVar2->unk_81 << 7) / (*(u16*)((int)pEVar2 + 0x86)) + 1;
+    }
 }
