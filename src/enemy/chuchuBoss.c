@@ -1755,3 +1755,40 @@ void sub_08027B98(ChuchuBossEntity* this, u32 unk1, u32 unk2, u32 unk3, u32 unk4
         super->timer = 1;
     }
 }
+
+void sub_08027BBC(ChuchuBossEntity* this) {
+    ChuchuBossEntity* pEVar3;
+    ChuchuBossEntity* pEVar5;
+    ChuchuBossEntity* pEVar6;
+    ChuchuBossEntity* pEVar7;
+
+    super->subAction = 10;
+    this->unk_84->unk_01 = 0;
+    sub_080276F4(this, 7, 1);
+    ((ChuchuBossEntity*)super->child)->unk_7d = 0;
+    super->speed = 0;
+    this->unk_84->unk_03 = 0;
+    if (super->x.HALF.HI > this->unk_84->unk_0e) {
+        super->direction = 0x18;
+        pEVar5 = (ChuchuBossEntity*)super->child;
+        pEVar3 = (ChuchuBossEntity*)super->parent;
+        *(u8*)((int)this->unk_68 + 0x85) = 0;
+        *(u8*)((int)pEVar3 + 0x85) = 0;
+        *(u8*)((int)pEVar5 + 0x85) = 0;
+    } else {
+        super->direction = 8;
+        pEVar6 = (ChuchuBossEntity*)super->child;
+        pEVar7 = (ChuchuBossEntity*)super->parent;
+        *(u8*)((int)this->unk_68 + 0x85) = 1;
+        *(u8*)((int)pEVar7 + 0x85) = 1;
+        *(u8*)((int)pEVar6 + 0x85) = 1;
+    }
+    super->animationState = super->direction >> 2;
+    if (super->y.HALF.HI != gPlayerEntity.y.HALF.HI) {
+        if (super->y.HALF.HI > gPlayerEntity.y.HALF.HI) {
+            this->unk_84->unk_0c = 0;
+        } else {
+            this->unk_84->unk_0c = 0x10;
+        }
+    }
+}
