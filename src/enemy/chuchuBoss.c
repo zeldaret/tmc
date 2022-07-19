@@ -133,7 +133,7 @@ void sub_08027BBC();
 bool32 sub_08027C54();
 void sub_08027C7C(ChuchuBossEntity*, u32);
 void sub_08027C9C();
-Entity* sub_08027D20();
+Entity* sub_08027D20(ChuchuBossEntity*);
 
 // clang-format off
 void (*const ChuchuBoss_Functions[])(ChuchuBossEntity*) = {
@@ -1350,7 +1350,7 @@ void sub_080272D4(ChuchuBossEntity* this) {
                     ((ChuchuBossEntity*)super->child)->unk_68->base.iframes = super->iframes;
                     super->child->parent->iframes = super->iframes;
                     super->child->iframes = super->iframes;
-                    pEVar3 = sub_08027D20(super->child);
+                    pEVar3 = sub_08027D20((ChuchuBossEntity*)super->child);
                     if (pEVar3 != NULL) {
                         pEVar3->x.HALF.HI = super->x.HALF.HI + 1;
                         pEVar3->spriteOffsetY = super->spriteOffsetY + 0x20;
@@ -1820,4 +1820,26 @@ void sub_08027C9C(ChuchuBossEntity* this, u32 param_2) {
             fxEnt->spritePriority.b0 = 0;
         }
     }
+}
+
+Entity* sub_08027D20(ChuchuBossEntity* this) {
+    Entity* r4 = CreateObjectWithParent(super, OBJECT_15, 0, 0);
+    if (r4 != NULL) {
+        r4->spriteIndex = 0xc9;
+#ifdef EU
+        r4->spriteVramOffset = super->spriteVramOffset;
+        r4->palette.b.b0 = super->palette.b.b0;
+#endif
+        r4->y.HALF.HI += 1;
+        r4->spriteOffsetY = 8;
+#ifndef EU
+        LoadFixedGFX(r4, 0x3e);
+        if (super->type2 == 0) {
+            LoadObjPalette(r4, 0x2b);
+        } else {
+            LoadObjPalette(r4, 0x2c);
+        }
+#endif
+    }
+    return r4;
 }
