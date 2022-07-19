@@ -1690,3 +1690,57 @@ void sub_08027A60(ChuchuBossEntity* this) {
         this->unk_7c = (this->unk_7c & 0x80) ^ 0x80;
     }
 }
+
+bool32 sub_08027AA4(ChuchuBossEntity* this) {
+    u32 uVar3;
+    s32 iVar4;
+    Helper* pHelper;
+
+    if ((super->contactFlags & 0x80) == 0) {
+        return FALSE;
+    }
+    switch (super->contactFlags & 0x7f) {
+        case 19:
+            SoundReq(SFX_WATER_SPLASH);
+            CreateObjectWithParent(super, OBJECT_49, 9, super->type2);
+            SoundReq(SFX_155);
+            pHelper = this->unk_84;
+            super->iframes = 3;
+            pHelper->unk_06++;
+            iVar4 = pHelper->unk_06;
+            uVar3 = (iVar4 / 3);
+            if (((u8)uVar3 << 3) != (u8)pHelper->unk_05) {
+                pHelper->unk_05 = (uVar3 << 3);
+            }
+            pHelper->unk_08 = 0xb4;
+            if (-1 < pHelper->unk_05) {
+                break;
+            }
+            pHelper->unk_01 = 0x40;
+            super->hitType = 0;
+            if (super->subAction == 2) {
+                sub_08027BBC(this);
+            }
+            sub_08027D20(this);
+            SoundReq(SFX_BOSS_HIT);
+            return TRUE;
+        case 27:
+            super->iframes = -30;
+            switch (super->contactedEntity->type + 1) {
+                case 3:
+                    super->knockbackDuration = 26;
+                    super->knockbackSpeed = Q_8_8(1.75);
+                    break;
+                case 2:
+                    super->knockbackDuration = 20;
+                    super->knockbackSpeed = Q_8_8(1.5);
+                    break;
+                case 1:
+                    super->knockbackDuration = 16;
+                    super->knockbackSpeed = Q_8_8(1);
+                    break;
+            }
+            return TRUE;
+    }
+    return FALSE;
+}
