@@ -1674,3 +1674,19 @@ bool32 sub_080279E8(ChuchuBossEntity* this) {
     }
     return FALSE;
 }
+
+void sub_08027A60(ChuchuBossEntity* this) {
+    int iVar1;
+    int iVar2;
+    u32 bVar3;
+
+    if ((this->unk_7c & 0x80) != 0) {
+        this->unk_74.WORD += Q_16_16(0.25);
+    } else {
+        this->unk_74.WORD -= Q_16_16(0.25);
+    }
+    this->unk_7c++;
+    if ((this->unk_7c & 0x7f) == 0x28) {
+        this->unk_7c = (this->unk_7c & 0x80) ^ 0x80;
+    }
+}
