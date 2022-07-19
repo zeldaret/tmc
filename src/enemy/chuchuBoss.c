@@ -1744,3 +1744,14 @@ bool32 sub_08027AA4(ChuchuBossEntity* this) {
     }
     return FALSE;
 }
+
+void sub_08027B98(ChuchuBossEntity* this, u32 unk1, u32 unk2, u32 unk3, u32 unk4) {
+    this->unk_82.HALF.LO = unk1;
+    this->unk_81 = unk2;
+    this->unk_80 = unk3;
+    if (unk4 != 0xff) {
+        super->timer = unk4;
+    } else {
+        super->timer = 1;
+    }
+}
