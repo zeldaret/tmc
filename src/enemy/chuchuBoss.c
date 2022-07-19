@@ -1634,3 +1634,15 @@ void sub_08027984(ChuchuBossEntity* this) {
     sub_080279AC(this, pEVar1, pEVar1->base.type);
     sub_080279AC(this, pEVar2, pEVar2->base.type);
 }
+
+void sub_080279AC(ChuchuBossEntity* this, Entity* param_2, s32 param_3) {
+    s32 temp;
+
+    temp = 4 - param_3;
+    param_2->spriteOffsetX = param_2->x.HALF_U.HI - super->x.HALF_U.HI;
+    param_2->spriteOffsetY = param_2->y.HALF.HI - (super->y.HALF.HI + temp);
+    param_2->x.HALF.HI = super->x.HALF_U.HI;
+    param_2->y.HALF.HI = super->y.HALF.HI + temp;
+    param_2->hitbox->offset_x = param_2->spriteOffsetX;
+    param_2->hitbox->offset_y = param_2->spriteOffsetY;
+}
