@@ -1646,3 +1646,31 @@ void sub_080279AC(ChuchuBossEntity* this, Entity* param_2, s32 param_3) {
     param_2->hitbox->offset_x = param_2->spriteOffsetX;
     param_2->hitbox->offset_y = param_2->spriteOffsetY;
 }
+
+bool32 sub_080279E8(ChuchuBossEntity* this) {
+    u32 sVar1;
+    u32 sVar2;
+    ChuchuBossEntity* pEVar4;
+
+    pEVar4 = (ChuchuBossEntity*)super->child;
+    if (this->unk_81 == 0x80) {
+        if (this->unk_74.HALF_U.HI - (u8)this->unk_84->unk_05 == 0x80) {
+            sub_08027B98(this, this->unk_82.HALF.LO, 0xa0, 0x20, 1);
+        }
+    } else {
+        if (pEVar4->unk_74.HALF_U.HI >= 0xa1) {
+            pEVar4->unk_74.HALF_U.HI = pEVar4->unk_74.HALF_U.HI - 4;
+        } else {
+            pEVar4->unk_74.HALF_U.HI = 0xa0;
+        }
+        if (pEVar4->unk_78.HALF_U.HI >= 0xa1) {
+            pEVar4->unk_78.HALF_U.HI = pEVar4->unk_78.HALF_U.HI - 4;
+        } else {
+            pEVar4->unk_78.HALF_U.HI = 0xa0;
+        }
+        if ((pEVar4->unk_74.HALF_U.HI == 0xa0) && (pEVar4->unk_78.HALF_U.HI == 0xa0)) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
