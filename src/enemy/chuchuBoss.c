@@ -1792,3 +1792,11 @@ void sub_08027BBC(ChuchuBossEntity* this) {
         }
     }
 }
+
+bool32 sub_08027C54(ChuchuBossEntity* this) {
+    if ((u8)gUnk_080CC2DC[this->unk_84->unk_04] > super->child->health) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
