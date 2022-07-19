@@ -1806,3 +1806,18 @@ void sub_08027C7C(ChuchuBossEntity* this, u32 param_2) {
     sub_08027C9C(this->unk_68, param_2);
     sub_08027C9C(super->parent, param_2);
 }
+
+void sub_08027C9C(ChuchuBossEntity* this, u32 param_2) {
+    Entity* fxEnt;
+
+    if ((Random() & param_2) == 0) {
+        fxEnt = CreateFx(super, FX_GIANT_EXPLOSION3, 0);
+        if (fxEnt != NULL) {
+            fxEnt->x.HALF.HI = ((s8)super->spriteOffsetX - super->hitbox->width) + fxEnt->x.HALF.HI;
+            fxEnt->x.HALF.HI += ((s32)Random()) % (super->hitbox->width << 1);
+            fxEnt->y.HALF.HI += ((short)super->spriteOffsetY - super->hitbox->height);
+            fxEnt->y.HALF.HI += ((s32)Random()) % (super->hitbox->height << 1);
+            fxEnt->spritePriority.b0 = 0;
+        }
+    }
+}
