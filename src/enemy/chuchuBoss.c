@@ -1800,3 +1800,9 @@ bool32 sub_08027C54(ChuchuBossEntity* this) {
         return FALSE;
     }
 }
+
+void sub_08027C7C(ChuchuBossEntity* this, u32 param_2) {
+    sub_08027C9C(super->child, param_2);
+    sub_08027C9C(this->unk_68, param_2);
+    sub_08027C9C(super->parent, param_2);
+}

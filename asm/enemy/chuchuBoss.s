@@ -18,22 +18,6 @@
 
 
 
-	thumb_func_start sub_08027C7C
-sub_08027C7C: @ 0x08027C7C
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	ldr r0, [r4, #0x54]
-	bl sub_08027C9C
-	ldr r0, [r4, #0x68]
-	adds r1, r5, #0
-	bl sub_08027C9C
-	ldr r0, [r4, #0x50]
-	adds r1, r5, #0
-	bl sub_08027C9C
-	pop {r4, r5, pc}
-	.align 2, 0
-
 	thumb_func_start sub_08027C9C
 sub_08027C9C: @ 0x08027C9C
 	push {r4, r5, lr}
