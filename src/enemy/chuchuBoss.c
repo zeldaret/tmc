@@ -1621,3 +1621,16 @@ void sub_08027870(ChuchuBossEntity* this) {
     LinearMoveAngle(&pEVar5->base, pEVar5->base.timer << 8, pEVar5->unk_82.HALF.HI);
     sub_08027984(this);
 }
+
+void sub_08027984(ChuchuBossEntity* this) {
+    ChuchuBossEntity* child;
+    ChuchuBossEntity* pEVar1;
+    ChuchuBossEntity* pEVar2;
+
+    child = (ChuchuBossEntity*)super->child;
+    pEVar1 = this->unk_68;
+    pEVar2 = (ChuchuBossEntity*)super->parent;
+    sub_080279AC(this, child, child->base.type);
+    sub_080279AC(this, pEVar1, pEVar1->base.type);
+    sub_080279AC(this, pEVar2, pEVar2->base.type);
+}
