@@ -1185,7 +1185,7 @@ void ClearPlayerState(void) {
     gPlayerState.field_0xe = 0;
     gPlayerState.field_0x11 = 0;
     gPlayerState.floor_type = SURFACE_NORMAL;
-    gPlayerState.floor_type_last = 0;
+    gPlayerState.floor_type_last = SURFACE_NORMAL;
     gPlayerState.field_0x14 = 0;
     gPlayerState.sword_state = 0;
     gPlayerState.dash_state = 0;
@@ -1610,34 +1610,34 @@ void sub_08079BD8(Entity* this) {
     this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_08079C30.inc", bool32 sub_08079C30(Entity* this)) {
-    if ((gPlayerState.field_0x14 == 0) && ((gPlayerState.flags & PL_FLAGS2) == 0)) {
+bool32 sub_08079C30(Entity* param_1) {
+    if (gPlayerState.field_0x14 == 0 && (gPlayerState.flags & PL_FLAGS2) == 0) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             return TRUE;
         }
         switch (gPlayerState.floor_type_last) {
-            case 0xd:
-            case 0x0e:
-            case 0x0f:
-            case 0x10:
-            case 0x14:
-            case 0x17:
-            case 0x2a:
+            case SURFACE_D:
+            case SURFACE_E:
+            case SURFACE_F:
+            case SURFACE_10:
+            case SURFACE_14:
+            case SURFACE_ICE:
+            case SURFACE_AUTO_LADDER:
                 return TRUE;
         }
 
-        if (gPlayerState.floor_type == sub_08007DD6(GetRelativeCollisionTile(this, 0, -1), (u16*)gUnk_08007CAC)) {
-            if (gPlayerState.floor_type == sub_08007DD6(GetRelativeCollisionTile(this, 2, 0), (u16*)gUnk_08007CAC)) {
-                if (gPlayerState.floor_type ==
-                    sub_08007DD6(GetRelativeCollisionTile(this, -2, 0), (u16*)gUnk_08007CAC)) {
-                    return TRUE;
-                }
-            }
+        if (gPlayerState.floor_type != sub_08007DD6(GetRelativeCollisionTile(param_1, 0, -1), (u16*)gUnk_08007CAC))
+            return FALSE;
+
+        if (gPlayerState.floor_type != sub_08007DD6(GetRelativeCollisionTile(param_1, 2, 0), (u16*)gUnk_08007CAC))
+            return FALSE;
+
+        if (gPlayerState.floor_type == sub_08007DD6(GetRelativeCollisionTile(param_1, -2, 0), (u16*)gUnk_08007CAC)) {
+            return TRUE;
         }
     }
     return FALSE;
 }
-END_NONMATCH
 
 bool32 sub_08079D48(void) {
     if (!sub_08079C30(&gPlayerEntity)) {
