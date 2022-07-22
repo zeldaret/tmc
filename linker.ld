@@ -317,7 +317,6 @@ SECTIONS {
         src/enemy/pesto.o(.text);
         src/enemy/puffstool.o(.text);
         src/enemy/chuchuBoss.o(.text);
-        asm/enemy/chuchuBoss.o(.text);
         src/enemy/likeLike.o(.text);
         src/enemy/spearMoblin.o(.text);
         src/enemy/businessScrub.o(.text);

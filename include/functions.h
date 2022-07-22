@@ -78,7 +78,6 @@ extern u32 sub_0801766C(Entity*);
 extern void sub_0801AFE4(void);
 extern void UpdateUIElements(void);
 extern void sub_0801E104(void);
-extern void sub_08027870(Entity*);
 extern void sub_08030118(u32);
 extern void sub_0803C0AC(Entity*);
 extern void sub_08049CF4(Entity*);
