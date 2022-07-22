@@ -9,7 +9,7 @@ void sub_08069FE8(Entity*);
 u32 sub_08069EF0(Entity*);
 
 extern u8 gUnk_08111DA8[];
-u32 sub_08069F90(Entity*);
+bool32 sub_08069F90(Entity*);
 void sub_08069F6C(Entity*);
 void sub_08069D00(Entity*);
 void sub_08069CB8(Entity*);
@@ -24,9 +24,9 @@ extern u8 gUnk_08111E30[];
 
 void sub_0806A080(Entity*);
 
-extern Dialog gUnk_08111E34[];
+extern Dialog gUnk_08111E34[][10];
 
-extern u16 gUnk_08111F74[];
+extern u16 gUnk_08111F74[][5];
 
 extern u16 gUnk_08111FD8[];
 
@@ -71,11 +71,7 @@ void sub_08069B44(Entity* this) {
             (GetInventoryValue(ITEM_QST_DOGFOOD) != 2)) {
             this->action = 4;
         }
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-        if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
-#else
-        if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
-#endif
+        if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
             SetTile(0x4072, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
         }
     }
@@ -83,7 +79,7 @@ void sub_08069B44(Entity* this) {
 
 void sub_08069C40(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (sub_08069F90(this) != 0) {
+    if (sub_08069F90(this)) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             sub_08069CB8(this);
         } else {
@@ -135,7 +131,7 @@ void sub_08069D00(Entity* this) {
 
 void sub_08069D54(Entity* this) {
     u16 collisions;
-    if (sub_08069F90(this) == 0) {
+    if (!sub_08069F90(this)) {
         this->timer -= 1;
         if (this->timer != 0) {
             UpdateAnimationSingleFrame(this);
@@ -161,7 +157,7 @@ void sub_08069D54(Entity* this) {
             return;
         }
     }
-    if (sub_08069F90(this) != 0) {
+    if (sub_08069F90(this)) {
         this->action = 1;
     } else {
         this->action = 3;
@@ -171,7 +167,7 @@ void sub_08069D54(Entity* this) {
 
 void sub_08069DF8(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (sub_08069F90(this) != 0) {
+    if (sub_08069F90(this)) {
         this->action = 1;
     } else {
         this->timer -= 1;
@@ -211,8 +207,8 @@ void sub_08069E50(Entity* this) {
         this->action = 7;
         InitAnimationForceUpdate(this, 0x29);
         sub_080788E0(this);
-        EnqueueSFX(0xd1);
-        EnqueueSFX(0xcd);
+        EnqueueSFX(SFX_VO_DOG);
+        EnqueueSFX(SFX_TASK_COMPLETE);
     }
 }
 
@@ -249,9 +245,9 @@ u32 sub_08069EF0(Entity* this) {
 
 void Dog_Head(Entity* this) {
     u32 frame;
-    frame = this->frame & 0xffffff7f;
+    frame = this->frame & ~ANIM_DONE;
     if (frame != 0) {
-        frame = frame + this->field_0x68.HWORD;
+        frame += this->field_0x68.HWORD;
     }
     SetExtraSpriteFrame(this, 0, frame - 1);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
@@ -266,9 +262,9 @@ void sub_08069F6C(Entity* this) {
     }
 }
 
-u32 sub_08069F90(Entity* this) {
+bool32 sub_08069F90(Entity* this) {
     if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
-        return 1;
+        return TRUE;
     } else {
         return EntityInRectRadius(this, &gPlayerEntity, 0x14, 0x14);
     }
@@ -313,7 +309,7 @@ void sub_0806A028(Entity* this) {
 }
 
 void sub_0806A080(Entity* this) {
-    ShowNPCDialogue(this, (Dialog*)&gUnk_08111E34 + this->type2 * 10 + gSave.global_progress);
+    ShowNPCDialogue(this, &(gUnk_08111E34[this->type2][gSave.global_progress]));
 }
 
 void sub_0806A0A4(Entity* this) {
@@ -336,7 +332,7 @@ void sub_0806A0A4(Entity* this) {
             }
         }
     }
-    MessageNoOverlap(gUnk_08111F74[(u32)gSave.global_progress * 5 + dialog], this);
+    MessageNoOverlap(gUnk_08111F74[gSave.global_progress][dialog], this);
 }
 
 void sub_0806A144(Entity* this) {

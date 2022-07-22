@@ -20,7 +20,7 @@ void sub_08093ED0(Object64Entity*);
 void sub_08093EF0(Object64Entity*);
 
 typedef struct {
-    u16 unk_0;
+    u16 sfx;
     u8 unk_2;
     u8 unk_3;
 } struct_08122950;
@@ -40,7 +40,7 @@ void Object64(Object64Entity* this) {
 }
 
 void sub_08093E3C(Object64Entity* this) {
-    const u16* ptr;
+    const struct_08122950* ptr;
     super->action = 1;
     super->flags &= 0x7f;
     super->spriteSettings.draw = 1;
@@ -48,9 +48,9 @@ void sub_08093E3C(Object64Entity* this) {
         ResolveCollisionLayer(super);
     }
     InitializeAnimation(super, super->type);
-    ptr = &gUnk_08122950[super->type].unk_0;
-    if ((ptr[0] != 0) && ((super->type2 & 0x40) == 0)) {
-        EnqueueSFX(ptr[0]);
+    ptr = &gUnk_08122950[super->type];
+    if ((ptr->sfx != SFX_NONE) && ((super->type2 & 0x40) == 0)) {
+        EnqueueSFX(ptr->sfx);
     }
     if ((super->type2 & 0x20) != 0) {
         super->spriteRendering.b3 = 1;
