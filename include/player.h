@@ -154,7 +154,7 @@ enum PlayerItemId {
     PL_ITEM_CELL_OVERWRITE_SET2,
 };
 
-enum SurfaceType {
+typedef enum {
     SURFACE_NORMAL,
     SURFACE_PIT,
     SURFACE_2,
@@ -200,7 +200,7 @@ enum SurfaceType {
     SURFACE_AUTO_LADDER,
     SURFACE_CLIMB_WALL,
     SURFACE_2C,
-};
+} SurfaceType;
 
 typedef enum {
     SKILL_NONE = 0,
@@ -255,7 +255,8 @@ typedef struct {
     /*0x1d*/ u8 gustJarSpeed;
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[3];
-    /*0x22*/ u16 field_0x22[2];
+    /*0x22*/ u16 tilePosition;
+    /*0x24*/ u16 tileType;
     /*0x26*/ u8 swim_state;
     /*0x27*/ u8 field_0x27[5];
     /*0x2c*/ Entity* item;
@@ -376,7 +377,7 @@ void sub_08077728(u32);
 void PutAwayItems(void);
 void sub_08079E58(s32 speed, u32 direction);
 void RespawnPlayer(void);
-u32 GetSurfaceCalcType(Entity*, s32, s32);
+SurfaceType GetSurfaceCalcType(Entity*, s32, s32);
 void UpdatePlayerMovement(void);
 void EnablePlayerDraw(Entity*);
 void sub_080797EC(void);

@@ -3705,7 +3705,7 @@ void SurfaceAction_20(Entity* this) {
         if (e != NULL) {
             e->timer = 1;
             UpdateSpriteForCollisionLayer(e);
-            CloneTile(57, gPlayerState.field_0x22[0], this->collisionLayer);
+            CloneTile(57, gPlayerState.tilePosition, this->collisionLayer);
         }
     }
     SurfaceAction_Water(this);
