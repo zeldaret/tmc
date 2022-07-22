@@ -65,7 +65,12 @@ void sub_08065A50(Entity* this) {
 void sub_08065A64(Entity* this) {
     u32 uVar2;
 
-    uVar2 = -(gPlayerState.flags & PL_MINISH) >> 0x1f;
+    if ((gPlayerState.flags & PL_MINISH) != 0) {
+        uVar2 = TRUE;
+    } else {
+        uVar2 = FALSE;
+    }
+
     if (uVar2 != this->field_0x68.HALF.HI) {
         if (uVar2 == 0) {
             sub_08078778(this);

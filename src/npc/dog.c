@@ -278,7 +278,13 @@ void sub_08069FBC(Entity* this) {
 }
 
 void sub_08069FE8(Entity* this) {
-    u32 tmp = -((s32) - (gPlayerState.flags & PL_MINISH) >> 0x1f);
+    u32 tmp;
+    if ((gPlayerState.flags & PL_MINISH) != 0) {
+        tmp = TRUE;
+    } else {
+        tmp = FALSE;
+    }
+
     if (tmp != this->field_0x6a.HALF.LO) {
         if (tmp == 0) {
             sub_08078778(this);

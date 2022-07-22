@@ -31,7 +31,7 @@ void sub_0803C624(BowMoblinEntity*);
 void sub_0803C6DC(BowMoblinEntity*);
 void sub_0803C714(BowMoblinEntity*);
 void sub_0803C634(BowMoblinEntity*);
-u32 sub_0803C6F8(BowMoblinEntity*);
+bool32 sub_0803C6F8(BowMoblinEntity*);
 bool32 sub_0803C568(BowMoblinEntity*);
 void sub_0803C664(BowMoblinEntity*);
 
@@ -111,7 +111,7 @@ void sub_0803C234(BowMoblinEntity* this) {
             sub_0803C4B0(this);
         }
 
-    } else if (sub_0803C6F8(this) != 0) {
+    } else if (sub_0803C6F8(this)) {
         sub_0800417E(super, super->collisions);
         super->animationState = ((super->direction + 4) & 0x18) >> 2;
         this->unk_0x83++;
@@ -369,10 +369,8 @@ void sub_0803C6DC(BowMoblinEntity* this) {
     GetNextFrame(super);
 }
 
-u32 sub_0803C6F8(BowMoblinEntity* this) {
-    u32 tmp = (super->collisions & gUnk_080CFFBC[(super->animationState ^ 1) / 2]);
-    u32 tmp2 = -tmp;
-    return (tmp2 | tmp) >> 0x1f;
+bool32 sub_0803C6F8(BowMoblinEntity* this) {
+    return (super->collisions & gUnk_080CFFBC[(super->animationState ^ 1) / 2]) != 0;
 }
 
 void sub_0803C714(BowMoblinEntity* this) {

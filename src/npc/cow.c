@@ -200,8 +200,12 @@ void Cow_ShowDialogue(Entity* ent) {
 }
 
 void sub_0806920C(Entity* ent) {
-    u32 var0 = gPlayerState.flags & PL_MINISH;
-    u32 var1 = -var0 >> 0x1F;
+    u32 var1;
+    if ((gPlayerState.flags & PL_MINISH) != 0) {
+        var1 = TRUE;
+    } else {
+        var1 = FALSE;
+    }
 
     if (var1 != ent->field_0x6c.HALF.HI) {
         if (var1 == 0) {

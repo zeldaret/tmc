@@ -307,7 +307,14 @@ void sub_080842D8(ChestSpawnerEntity* this) {
         gUnk_0811F880,
         gUnk_0811F88A,
     };
-    s32 index = -(-(super->x.HALF.HI & 8) >> 0x1f);
+    s32 index;
+
+    if ((super->x.HALF.HI & 8) != 0) {
+        index = 1;
+    } else {
+        index = 0;
+    }
+
     if ((super->y.HALF.HI & 8) != 0) {
         index += 2;
     }

@@ -67,7 +67,12 @@ void InitPlayerMacro(u32 param_1) {
 ASM_FUNC("asm/non_matching/code_0805EC04/UpdatePlayerInput.inc", void UpdatePlayerInput())
 
 u32 ConvInputToState(u32 keys) {
-    u32 result = (s32) - (keys & 0x200) >> 0x1f & 0x1000;
+    u32 result;
+    if (keys & L_BUTTON) {
+        result = 0x1000;
+    } else {
+        result = 0;
+    }
     if (keys & R_BUTTON) {
         result |= 0x20;
         result |= 0x8000;
