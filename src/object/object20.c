@@ -59,13 +59,12 @@ void sub_08087888(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/object20/sub_080878CC.inc", void sub_080878CC(Entity* this)) {
+void sub_080878CC(Entity* this) {
     s32 x;
     s32 y;
     s32 itX;
     s32 itY;
     u32 layer;
-    u32 tileType;
     u32 pos;
 
     x = this->x.HALF.HI;
@@ -74,13 +73,15 @@ NONMATCH("asm/non_matching/object20/sub_080878CC.inc", void sub_080878CC(Entity*
     for (itX = -0x10; itX < 0x11; itX += 0x10) {
         for (itY = -0x10; itY < 0x11; itY += 0x10) {
             pos = TILE((u32)x + itX, (u32)y + itY);
-            if (sub_080B1AE0(pos, layer) == 0x2e) {
-                tileType = GetTileType(pos, layer);
-                if (tileType == 0x368 || tileType == 0x367
-                    /*(tileType < 0x369) && (0x366 < tileType)*/) {
-                    sub_08008796(this, 3, x + itX, y + itY);
-                } else {
-                    SetTile(0x4022, pos, layer);
+            if (sub_080B1AE0(pos, (u8)layer) == 0x2e) {
+                switch (GetTileType(pos, layer)) {
+                    case 0x368:
+                    case 0x367:
+                        sub_08008796(this, 3, x + itX, y + itY);
+                        break;
+                    default:
+                        SetTile(0x4022, pos, layer);
+                        break;
                 }
             } else {
                 sub_08008796(this, 3, x + itX, y + itY);
@@ -88,4 +89,3 @@ NONMATCH("asm/non_matching/object20/sub_080878CC.inc", void sub_080878CC(Entity*
         }
     }
 }
-END_NONMATCH
