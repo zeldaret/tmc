@@ -1,28 +1,34 @@
+/**
+ * @file minishEmoticon.c
+ * @ingroup Objects
+ *
+ * @brief Minish Emoticon object
+ */
 #include "entity.h"
 #include "functions.h"
 
-void sub_08082058(Entity*);
-void sub_08082098(Entity*);
+void MinishEmoticon_Init(Entity*);
+void MinishEmoticon_Action1(Entity*);
 
 void MinishEmoticon(Entity* this) {
-    static EntityAction* const actionFuncs[] = {
-        sub_08082058,
-        sub_08082098,
+    static EntityAction* const MinishEmoticon_Actions[] = {
+        MinishEmoticon_Init,
+        MinishEmoticon_Action1,
     };
 
-    actionFuncs[this->action](this);
+    MinishEmoticon_Actions[this->action](this);
 }
 
-void sub_08082058(Entity* this) {
+void MinishEmoticon_Init(Entity* this) {
     this->updatePriority = 6;
     this->flags |= ENT_PERSIST;
     this->spriteSettings.draw = 1;
     this->action = 1;
     LoadSwapGFX(this, 1, 3);
-    sub_08082098(this);
+    MinishEmoticon_Action1(this);
 }
 
-void sub_08082098(Entity* this) {
+void MinishEmoticon_Action1(Entity* this) {
     u32 animIndex;
     u32 origAnimIndex;
     u32 animationState;

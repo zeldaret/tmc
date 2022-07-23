@@ -1,4 +1,4 @@
-@ Outro OBJECT_6A Ezlo and Zelda magic
+@ Outro CUTSCENE_MISC_OBJECT Ezlo and Zelda magic
 SCRIPT_START script_EzloZeldaMagic
 	BeginBlock
 	DoPostScriptAction 0x0007

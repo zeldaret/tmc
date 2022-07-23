@@ -1,12 +1,13 @@
-#include "entity.h"
-#include "functions.h"
-#include "save.h"
 #include "common.h"
-#include "sound.h"
+#include "entity.h"
 #include "flags.h"
+#include "functions.h"
+#include "item.h"
 #include "message.h"
 #include "object.h"
 #include "player.h"
+#include "save.h"
+#include "sound.h"
 
 static Entity* GiveItemWithCutscene(u32, u32, u32);
 static void InitTileMessage(u32, u32);
@@ -31,8 +32,8 @@ void InitItemGetSequence(u32 type, u32 type2, u32 delay) {
 
 static Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
     Entity* e;
-    if (type == 63 && gSave.stats.hasAllFigurines) {
-        type = 87;
+    if (type == ITEM_SHELLS && gSave.stats.hasAllFigurines) {
+        type = ITEM_RUPEE50;
         type2 = 0;
     }
     e = CreateItemGetEntity();
@@ -40,7 +41,7 @@ static Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
         e->type = type;
         e->type2 = type2;
         e->timer = delay;
-        e->id = OBJECT_B;
+        e->id = LINK_HOLDING_ITEM;
         e->kind = OBJECT;
         AppendEntityToList(e, 6);
     }
@@ -51,7 +52,7 @@ void ClearSmallChests(void) {
     MemClear(gSmallChests, sizeof(gSmallChests));
 }
 
-void sub_080A7C8C(u32 pos, u32 layer) {
+void OpenSmallChest(u32 pos, u32 layer) {
     TileEntity* t = gSmallChests;
     u32 found = 0;
     u32 i;

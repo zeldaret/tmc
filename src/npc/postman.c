@@ -150,7 +150,7 @@ void sub_08060528(Entity* this) {
             sub_080788E0(this);
             EnqueueSFX(SFX_PLY_JUMP);
         } else {
-            this->field_0x6a.HWORD -= 1;
+            this->field_0x6a.HWORD--;
         }
     }
     GravityUpdate(this, Q_8_8(24.0));
@@ -272,7 +272,7 @@ END_NONMATCH
 
 void Postman_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {

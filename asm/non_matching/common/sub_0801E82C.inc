@@ -4,7 +4,7 @@
 	mov r6, sb
 	mov r5, r8
 	push {r5, r6, r7}
-	ldr r1, _0801E8AC @ =gUnk_02002B54
+	ldr r1, _0801E8AC @ =gSave+0x114
 	movs r5, #0
 	adds r2, r1, #4
 _0801E83C:
@@ -65,5 +65,5 @@ _0801E890:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0801E8AC: .4byte gUnk_02002B54
+_0801E8AC: .4byte gSave+0x114
     .syntax divided

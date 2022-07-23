@@ -2682,7 +2682,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 droptable.s.arrows += 3;
             }
             if (gSave.stats.rupees <= 10) {
-                droptable.s.rupee5 += 1;
+                droptable.s.rupee5++;
             }
             ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
             r0 = gSave.stats.hasAllFigurines;

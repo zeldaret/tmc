@@ -7,7 +7,7 @@ void KingGustaf(Entity* this) {
     s32 speed;
 
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteRendering.alphaBlend = 1;
         this->collisionLayer = 2;
         SetDefaultPriority(this, PRIO_MESSAGE);

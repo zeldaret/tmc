@@ -27,7 +27,7 @@ script_08012176:
 script_08012188:
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x1e
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_080121B6
 	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_080121B2

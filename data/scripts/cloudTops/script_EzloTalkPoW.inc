@@ -1,11 +1,11 @@
 @ Ezlo talk after getting wind element
 SCRIPT_START script_EzloTalkPoW
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x05
 	WaitUntilTextboxCloses
 	SetLocalFlagByBank FLAG_BANK_1, 0x0005
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

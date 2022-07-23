@@ -13,7 +13,7 @@
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
 void sub_0807DE80(Entity*);
-void sub_0807DF38(void);
+void DisablePauseMenu(void);
 void ScriptCommandNop(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_BeginBlock(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EndBlock(Entity* entity, ScriptExecutionContext* context);
@@ -440,18 +440,18 @@ void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y)
     entity->animationState = (entity->animationState & 0x80) | sDirectionTable[(u8)direction >> 4];
 }
 
-void sub_0807DF28(void) {
-    sub_0807DF38();
+void DisablePauseMenuAndPutAwayItems(void) {
+    DisablePauseMenu();
     PlayerDropHeldObject();
     PutAwayItems();
 }
 
-void sub_0807DF38(void) {
+void DisablePauseMenu(void) {
     gUnk_0200AF00.unk_1 = 0xff;
     gPauseMenuOptions.disabled = 0xff;
 }
 
-void sub_0807DF50(void) {
+void EnablePauseMenu(void) {
     gPauseMenuOptions.disabled = 0;
     gUnk_0200AF00.unk_1 = 0;
     RecoverUI(0, 0);
@@ -1634,12 +1634,12 @@ void EquipItem(Entity* entity, ScriptExecutionContext* context) {
     ForceEquipItem(item, slot);
 }
 
-void SetInputMacro(Entity* entity, ScriptExecutionContext* context) {
-    InitPlayerMacro((void*)context->intVariable);
+void SetPlayerMacro(Entity* entity, ScriptExecutionContext* context) {
+    InitPlayerMacro((PlayerMacroEntry*)context->intVariable);
 }
 
-void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
-    if (gPlayerState.field_0x9c == 0) {
+void WaitForPlayerMacro(Entity* entity, ScriptExecutionContext* context) {
+    if (gPlayerState.playerInput.playerMacro == NULL) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1714,7 +1714,7 @@ void LoadMenu(Entity* entity, ScriptExecutionContext* context) {
     MenuFadeIn(context->intVariable & 0xff, (u8)(context->intVariable >> 8));
 }
 
-void sub_0807F434(Entity* entity, ScriptExecutionContext* context) {
+void CheckInteractType(Entity* entity, ScriptExecutionContext* context) {
     switch (entity->interactType) {
         case 1:
             entity->interactType = 0;
@@ -1810,7 +1810,7 @@ void WaitForCameraTouchRoomBorder(Entity* entity, ScriptExecutionContext* contex
             bottom = gRoomControls.origin_y + gRoomControls.height - DISPLAY_HEIGHT;
 
         if (left == gRoomControls.scroll_x && bottom == gRoomControls.scroll_y)
-            gActiveScriptInfo.flags |= 1u;
+            gActiveScriptInfo.flags |= 1;
         else
             gActiveScriptInfo.commandSize = 0;
     }
@@ -2056,7 +2056,7 @@ void WaitForPlayerNormalOrTalkEzlo(Entity* entity, ScriptExecutionContext* conte
             gActiveScriptInfo.commandSize = 0;
             break;
         default:
-            gActiveScriptInfo.flags |= 1u;
+            gActiveScriptInfo.flags |= 1;
             break;
     }
 }

@@ -511,7 +511,7 @@ void PauseMenu_ItemMenu_Draw(void) {
         entry = &gItemMenuTable[slot];
         gOamCmd.x = entry->x;
         gOamCmd.y = entry->y;
-        tmp = entry->type + ((gMain.ticks.HWORD & 0x10) != 0 ? 3 : 4);
+        tmp = entry->type + ((gMain.ticks & 0x10) != 0 ? 3 : 4);
         DrawDirect(sub_080A5384_draw_constant0, tmp);
     }
     {

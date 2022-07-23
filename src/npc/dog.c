@@ -88,7 +88,7 @@ void sub_08069C40(Entity* this) {
         }
         this->timer = 30;
     } else {
-        this->timer -= 1;
+        this->timer--;
         if (this->timer == 0) {
             this->action = 2;
             this->timer = (Random() & 0x1f) + 30;
@@ -132,7 +132,7 @@ void sub_08069D00(Entity* this) {
 void sub_08069D54(Entity* this) {
     u16 collisions;
     if (!sub_08069F90(this)) {
-        this->timer -= 1;
+        this->timer--;
         if (this->timer != 0) {
             UpdateAnimationSingleFrame(this);
             ProcessMovement0(this);
@@ -170,7 +170,7 @@ void sub_08069DF8(Entity* this) {
     if (sub_08069F90(this)) {
         this->action = 1;
     } else {
-        this->timer -= 1;
+        this->timer--;
         if (this->timer != 0) {
             sub_08069D00(this);
             return;
@@ -359,7 +359,7 @@ void sub_0806A144(Entity* this) {
 void Dog_Fusion(Entity* this) {
     if (this->action == 0) {
         if (sub_08069EF0(this) != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             SetDefaultPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 0x23);

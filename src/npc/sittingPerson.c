@@ -6,9 +6,7 @@ extern void (*SittingPersion_Actions[])(Entity*);
 extern Dialog gUnk_0810CC08[];
 
 extern SpriteLoadData gUnk_0810CB78[];
-extern u8 gUnk_02002B0E[];
 extern u16 gUnk_0810CC04[];
-extern u8 gUnk_02002B0E[];
 extern u16 gUnk_0810CBE4[][4];
 extern u8 gUnk_0810CBC0[];
 extern u8 gUnk_0810CD88[][4];
@@ -90,7 +88,7 @@ void sub_0806387C(Entity* this) {
         if (CheckLocalFlag(SHOP05_OPEN) == 0) {
             r5 = 0;
             for (r4 = 1; r4 <= 0x82; r4++) {
-                if (ReadBit(gUnk_02002B0E, r4)) {
+                if (ReadBit(&gSave.stats.filler4[4], r4)) {
                     r5++;
                 }
             }
@@ -151,7 +149,7 @@ void sub_080639D0(Entity* this) {
 void SittingPerson_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810CB78[this->type * 3]) != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             this->spriteSettings.flipX = 0;
             this->y.HALF.HI -= 4;

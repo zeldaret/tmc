@@ -1,8 +1,14 @@
+/**
+ * @file furniture.c
+ * @ingroup Objects
+ *
+ * @brief Furniture object
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "room.h"
 #include "functions.h"
 #include "object.h"
+#include "room.h"
 
 extern void sub_080001D0(u32, u32, u32);
 
@@ -500,7 +506,7 @@ static void sub_08090E4C(FurnitureEntity* this) {
 }
 
 void sub_08090E64(FurnitureEntity* this) {
-    Entity* e = CreateObject(OBJECT_2A, 0, 0);
+    Entity* e = CreateObject(FLAME, 0, 0);
     if (e != NULL) {
         PositionRelative(super, e, Q_16_16((s16)((u16)-2 + super->type2)), 0);
         e->z.HALF.HI -= 16;

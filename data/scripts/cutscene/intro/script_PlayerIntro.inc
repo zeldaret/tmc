@@ -1,7 +1,7 @@
 @ Intro Player
 SCRIPT_START script_PlayerIntro
 	BeginBlock
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
 	SetLocalFlag 0x0046
 	EndBlock
@@ -19,6 +19,6 @@ SCRIPT_START script_PlayerIntro
 	@ Give control to the player?
 	Call sub_08053250
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
 SCRIPT_END

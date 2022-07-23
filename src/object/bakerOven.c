@@ -1,22 +1,28 @@
-#include "object.h"
+/**
+ * @file bakerOven.c
+ * @ingroup Objects
+ *
+ * @brief Baker Oven object
+ */
 #include "functions.h"
+#include "object.h"
 
 extern void SoundReqClipped(Entity*, u32);
 void sub_0809CDF0(Entity*);
-void sub_0809CC74(Entity*);
-void sub_0809CD0C(Entity*);
-void sub_0809CDB4(Entity*);
+void BakerOven_Init(Entity*);
+void BakerOven_Action1(Entity*);
+void BakerOven_Action2(Entity*);
 
 void BakerOven(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809CC74,
-        sub_0809CD0C,
-        sub_0809CDB4,
+    static void (*const BakerOven_Actions[])(Entity*) = {
+        BakerOven_Init,
+        BakerOven_Action1,
+        BakerOven_Action2,
     };
-    actionFuncs[this->action](this);
+    BakerOven_Actions[this->action](this);
 }
 
-void sub_0809CC74(Entity* this) {
+void BakerOven_Init(Entity* this) {
     u32 i;
     Entity* ent;
 
@@ -46,7 +52,7 @@ void sub_0809CC74(Entity* this) {
     }
 }
 
-void sub_0809CD0C(Entity* this) {
+void BakerOven_Action1(Entity* this) {
     u8* frames;
 
     if (this->type) {
@@ -76,7 +82,7 @@ void sub_0809CD0C(Entity* this) {
     }
 }
 
-void sub_0809CDB4(Entity* this) {
+void BakerOven_Action2(Entity* this) {
     /* Reset cloud position and start animation. */
     if (--this->timer == 0) {
         this->action = 1;

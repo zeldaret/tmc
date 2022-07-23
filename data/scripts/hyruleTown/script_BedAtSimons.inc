@@ -1,4 +1,4 @@
-@ OBJECT_5B Bed at Simons
+@ BED_COVER Bed at Simons
 @ also at Inn
 @ also at Links house later
 SCRIPT_START script_BedAtSimons

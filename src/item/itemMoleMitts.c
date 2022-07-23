@@ -138,7 +138,7 @@ void sub_080772A8(ItemBehavior* this, u32 idx) {
             gPlayerEntity.frameDuration = 1;
             if (sub_0807B5B0(&gPlayerEntity)) {
                 SoundReq(SFX_108);
-                CreateObjectWithParent(&gPlayerEntity, OBJECT_1E, this->field_0x5[9], 0);
+                CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->field_0x5[9], 0);
             } else {
                 sub_08077DF4(this, 0x51c);
                 effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);

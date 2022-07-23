@@ -16,7 +16,7 @@ script_08011A7C:
 	JumpIf script_08011AFA
 	MessageFromTarget TEXT_VAATI, 0x20
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08011A7C
 	.2byte 0x0000
 	BeginBlock
@@ -33,6 +33,6 @@ script_08011AC4:
 	CallWithArg sub_0807F3D8, 0x00000000
 	MessageFromTarget TEXT_VAATI, 0x22
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08011AC4
 

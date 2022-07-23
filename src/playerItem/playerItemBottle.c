@@ -168,13 +168,13 @@ void PlayerItemBottle_UseOther(Entity* this) {
         }
         switch (this->field_0x6e.HALF.HI) {
             case ITEM_BOTTLE_WATER:
-                CreateObjectWithParent(this, OBJECT_68, 0, 0);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 0, 0);
                 break;
             case ITEM_BOTTLE_MINERAL_WATER:
-                CreateObjectWithParent(this, OBJECT_68, 1, 1);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 1, 1);
                 break;
             case ITEM_BOTTLE_FAIRY:
-                CreateObjectWithParent(this, OBJECT_68, 2, 2);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 2, 2);
                 ModHealth(0x20);
                 break;
             case BOTTLE_CHARM_NAYRU:
@@ -188,20 +188,20 @@ void PlayerItemBottle_UseOther(Entity* this) {
     if (gPlayerEntity.frame == 2) {
         switch (this->field_0x6e.HALF.HI) {
             case ITEM_BOTTLE_WATER:
-                CreateObjectWithParent(this, OBJECT_68, 0, 0);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 0, 0);
                 break;
             case ITEM_BOTTLE_MINERAL_WATER:
-                CreateObjectWithParent(this, OBJECT_68, 1, 1);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 1, 1);
                 break;
         }
     }
     if (gPlayerEntity.frame == 3) {
         switch (this->field_0x6e.HALF.HI) {
             case ITEM_BOTTLE_WATER:
-                CreateObjectWithParent(this, OBJECT_68, 0, 0);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 0, 0);
                 break;
             case ITEM_BOTTLE_MINERAL_WATER:
-                CreateObjectWithParent(this, OBJECT_68, 1, 0);
+                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 1, 0);
                 break;
         }
     }

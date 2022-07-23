@@ -1,15 +1,21 @@
-#include "object.h"
-#include "menu.h"
-#include "structures.h"
+/**
+ * @file objectA2.c
+ * @ingroup Objects
+ *
+ * @brief Object A2 object
+ */
 #include "functions.h"
+#include "menu.h"
+#include "object.h"
+#include "structures.h"
 
-void sub_0809F318(Entity*);
-void sub_0809F374(Entity*);
-void sub_0809F3E8(Entity*);
-void sub_0809F408(Entity*);
+void ObjectA2_Init(Entity*);
+void ObjectA2_Action1(Entity*);
+void ObjectA2_Action2(Entity*);
+void ObjectA2_Action3(Entity*);
 void sub_0809F448(Entity*);
 
-void (*const gUnk_081246F4[])(Entity*) = { sub_0809F318, sub_0809F374, sub_0809F3E8, sub_0809F408 };
+void (*const ObjectA2_Actions[])(Entity*) = { ObjectA2_Init, ObjectA2_Action1, ObjectA2_Action2, ObjectA2_Action3 };
 
 const u8 gUnk_08124704[] = { 0, 1, 2, 4 };
 
@@ -21,13 +27,13 @@ typedef struct {
 const struct_08124708 gUnk_08124708[5] = { { 0, 0x2F }, { 1, 0x20 }, { 1, 0x16 }, { 2, 0x10 }, { 3, 0x01 } };
 
 void ObjectA2(Entity* this) {
-    gUnk_081246F4[this->action](this);
+    ObjectA2_Actions[this->action](this);
     GetNextFrame(this);
 }
 
 #define fp(n) ((n) << 8)
 
-void sub_0809F318(Entity* this) {
+void ObjectA2_Init(Entity* this) {
     InitializeAnimation(this, 0);
     if (Random() & 0x10) {
         this->spriteSettings.flipX = 1;
@@ -41,7 +47,7 @@ void sub_0809F318(Entity* this) {
     SetDefaultPriority(this, PRIO_HIGHEST);
 }
 
-void sub_0809F374(Entity* this) {
+void ObjectA2_Action1(Entity* this) {
     LinearMoveUpdate(this);
 #ifndef EU
     if (gSaveHeader->language < 2) {
@@ -73,14 +79,14 @@ void sub_0809F374(Entity* this) {
 #endif
 }
 
-void sub_0809F3E8(Entity* this) {
+void ObjectA2_Action2(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 3;
         InitializeAnimation(this, 2);
     }
 }
 
-void sub_0809F408(Entity* this) {
+void ObjectA2_Action3(Entity* this) {
     switch (this->frame) {
         case 9:
             this->frame = 0;

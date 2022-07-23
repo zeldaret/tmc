@@ -7,12 +7,12 @@ SCRIPT_START script_CarlovWon
 	DoPostScriptAction 0x000a
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_0806E20C
 	WaitUntilTextboxCloses
 	Call sub_0806E23C
 	ClearLocalFlag 0x0093
 	ClearLocalFlag 0x0092
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Jump script_080144FC
 	.2byte 0x0000

@@ -6,9 +6,9 @@ script_0800D850:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800D850
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Wait 0x003c
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

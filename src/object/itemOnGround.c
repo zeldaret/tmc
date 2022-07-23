@@ -1,14 +1,20 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file itemOnGround.c
+ * @ingroup Objects
+ *
+ * @brief Item On Ground object
+ */
+#include "collision.h"
 #include "entity.h"
 #include "flags.h"
-#include "player.h"
-#include "object.h"
+#include "functions.h"
+#include "global.h"
+#include "hitbox.h"
 #include "item.h"
 #include "itemMetaData.h"
-#include "functions.h"
-#include "hitbox.h"
-#include "collision.h"
+#include "object.h"
+#include "player.h"
+#include "sound.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);
@@ -19,11 +25,11 @@ void sub_0808153C(Entity*);
 void sub_08081598(Entity*);
 void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
-void sub_08080F20(Entity*);
-void sub_080811EC(Entity*);
-void sub_0808122C(Entity*);
-void sub_08081328(Entity*);
-void sub_0808136C(Entity*);
+void ItemOnGround_Init(Entity*);
+void ItemOnGround_Action1(Entity*);
+void ItemOnGround_Action2(Entity*);
+void ItemOnGround_Action3(Entity*);
+void ItemOnGround_Action4(Entity*);
 void sub_080810A8(Entity*);
 void sub_080810FC(Entity*);
 void sub_08081150(Entity*);
@@ -53,8 +59,8 @@ typedef struct {
 } Unk_0811E84C;
 
 void ItemOnGround(Entity* this) {
-    static void (*const gUnk_0811E7D4[])(Entity*) = {
-        sub_08080F20, sub_080811EC, sub_0808122C, sub_08081328, sub_0808136C,
+    static void (*const ItemOnGround_Actions[])(Entity*) = {
+        ItemOnGround_Init, ItemOnGround_Action1, ItemOnGround_Action2, ItemOnGround_Action3, ItemOnGround_Action4,
     };
     if (this->contactFlags & 0x80) {
         switch (this->contactFlags & 0x7F) {
@@ -84,7 +90,7 @@ void ItemOnGround(Entity* this) {
     if (sub_0806F520(this)) {
         sub_080813BC(this);
     } else {
-        gUnk_0811E7D4[this->action](this);
+        ItemOnGround_Actions[this->action](this);
     }
 
     if (this->type == 0x5C) {
@@ -94,7 +100,7 @@ void ItemOnGround(Entity* this) {
     sub_08080CB4(this);
 }
 
-void sub_08080F20(Entity* this) {
+void ItemOnGround_Init(Entity* this) {
     static void (*const gUnk_0811E7E8[])(Entity*) = {
         sub_080810A8, sub_080810FC, sub_08081150, sub_08081134, sub_08081188, sub_080810A8,
         sub_080810A8, sub_080811AC, sub_080811C8, sub_080811D8, sub_080810A8,
@@ -223,7 +229,7 @@ void sub_080811D8(Entity* this) {
     SoundReq(SFX_215);
 }
 
-void sub_080811EC(Entity* this) {
+void ItemOnGround_Action1(Entity* this) {
     if (this->field_0x68.HALF.HI != 6) {
         ProcessMovement2(this);
     } else {
@@ -238,7 +244,7 @@ void sub_080811EC(Entity* this) {
     }
 }
 
-void sub_0808122C(Entity* this) {
+void ItemOnGround_Action2(Entity* this) {
     static void (*const gUnk_0811E814[])(Entity*) = {
         sub_08081248, sub_08081248, sub_0808126C, sub_0808127C, nullsub_113,  sub_080812A0,
         sub_08081248, sub_080812A8, sub_080812E8, nullsub_510,  sub_08081248,
@@ -300,7 +306,7 @@ void sub_080812E8(Entity* this) {
 void nullsub_510(Entity* this) {
 }
 
-void sub_08081328(Entity* this) {
+void ItemOnGround_Action3(Entity* this) {
     Entity* other = this->child;
     if (!(other->kind == PLAYER_ITEM && other->id == 3)) {
         sub_08081404(this, 0);
@@ -314,7 +320,7 @@ void sub_08081328(Entity* this) {
     }
 }
 
-void sub_0808136C(Entity* this) {
+void ItemOnGround_Action4(Entity* this) {
     if (--this->timer) {
         Entity* other = this->child;
         this->x.WORD = other->x.WORD;

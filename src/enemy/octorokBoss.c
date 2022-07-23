@@ -1058,7 +1058,7 @@ void OctorokBoss_SetAttackTimer(OctorokBossEntity* this) {
         this->unk_80 = 0;
         attackPatterns = OctorokBoss_Phase4AttackPatterns[this->phase4AttackPattern];
         this->currentAttack = attackPatterns[this->nextAttackIndex];
-        this->nextAttackIndex += 1;
+        this->nextAttackIndex++;
         if (this->currentAttack != END_OF_ATTACK_PATTERN) {
             return;
         }

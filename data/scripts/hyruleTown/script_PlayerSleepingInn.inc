@@ -1,7 +1,7 @@
 @ Player sleeping at Inn
 SCRIPT_START script_PlayerSleepingInn
 	BeginBlock
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
 	ModHealth 0x00a0
 	EndBlock
@@ -14,7 +14,7 @@ script_08010A78:
 	JumpIfNot script_08010A78
 	DoPostScriptAction 0x0014
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
 SCRIPT_END
 	.2byte 0x0000

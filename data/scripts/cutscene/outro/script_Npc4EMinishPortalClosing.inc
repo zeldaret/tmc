@@ -64,7 +64,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	SetSyncFlag 0x80000000
 	SetFade4
 	WaitForFadeFinish
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -33,7 +33,7 @@ SCRIPT_START script_MinishEzloGoodbye
 	Call WaitForAnimDone
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
-	CallWithArg sub_080960C4, script_Object6AEzloFinalMagic
+	CallWithArg sub_080960C4, script_CutsceneMiscObjectEzloFinalMagic
 	SetAnimation 0x0012
 	Call WaitForAnimDone
 	Wait 0x001e

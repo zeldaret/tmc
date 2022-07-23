@@ -185,7 +185,7 @@ void sub_0806D164(Entity* this) {
     puVar2 = &ptr[-0x4000];
 
     for (index = 0x20, ptr = &puVar1[(xOffset >> 4) * 4]; index != 0; index--) {
-        DmaSet(3, ptr, puVar2, 0x80000020);
+        DmaCopy16(3, ptr, puVar2, 0x20 * 2);
         ptr += 0x100;
         puVar2 += 0x40;
     }
@@ -341,11 +341,11 @@ void sub_0806D41C(Entity* this) {
     if ((gRoomTransition.frameCount & 1) == 0) {
         if (CheckPlayerProximity(this->x.HALF.HI - 0x20, this->y.HALF.HI, 0x40, 0x40) != 0) {
             if (this->spriteOffsetY > -8) {
-                this->spriteOffsetY -= 1;
+                this->spriteOffsetY--;
             }
         } else {
             if (this->spriteOffsetY < 0) {
-                this->spriteOffsetY += 1;
+                this->spriteOffsetY++;
             }
         }
     }

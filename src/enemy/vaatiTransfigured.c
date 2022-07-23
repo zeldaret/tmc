@@ -186,21 +186,21 @@ void VaatiTransfiguredType0Action1(Entity* this) {
             break;
         case 0:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->speed = 0x180;
                 this->timer = 20;
             }
             break;
         case 1:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->speed = 0xc0;
                 this->timer = 12;
             }
             break;
         case 2:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->speed = 0;
                 if (this->animationState < 2) {
                     this->timer = (Random() & 0x7f) + 64;
@@ -240,7 +240,7 @@ void VaatiTransfiguredType0Action1(Entity* this) {
 
     if (--this->field_0x82.HALF.LO == 0) {
         this->field_0x82.HALF.LO = 4;
-        object = CreateObject(OBJECT_9B, 0, ((this->direction + 0x12) & 0x1c) >> 2);
+        object = CreateObject(VAATI2_PARTICLE, 0, ((this->direction + 0x12) & 0x1c) >> 2);
         if (object != NULL) {
             object->parent = this;
             object->x.HALF.HI += (Random() & 0xf) - 7;
@@ -347,7 +347,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
-                if (((this->timer & 1) != 0) && (pEVar3 = CreateObject(OBJECT_9B, 1, 0xff), pEVar3 != NULL)) {
+                if (((this->timer & 1) != 0) && (pEVar3 = CreateObject(VAATI2_PARTICLE, 1, 0xff), pEVar3 != NULL)) {
                     pEVar3->parent = this;
                     CopyPosition(this, pEVar3);
                     pEVar3->x.HALF.HI += (Random() & 0xf) - 7;
@@ -376,7 +376,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->field_0x74.HALF.LO = 0;
                 this->timer = 128;
                 this->subtimer = 0;
@@ -387,7 +387,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
         case 1:
             if (GravityUpdate(this, Q_8_8(40)) != 0)
                 break;
-            this->field_0x80.HALF.LO += 1;
+            this->field_0x80.HALF.LO++;
             switch (this->cutsceneBeh.HALF.LO) {
                 case 1:
                 case 3:
@@ -409,7 +409,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             break;
         case 2:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->timer = gUnk_080D0ABF[((u32)this->animationState << 1 | 1)];
             } else {
                 if ((this->timer & 7) == 0) {
@@ -444,7 +444,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->timer = 64;
                 if (1 < this->animationState) {
                     this->timer = 128;
@@ -454,7 +454,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
             break;
         case 1:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->timer = gUnk_080D0ABF[(this->animationState << 1 | 1)];
             } else {
                 if (this->subtimer) {
@@ -497,7 +497,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->timer = 128;
                 if (1 < this->animationState) {
                     this->subtimer = 1;
@@ -506,7 +506,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
             break;
         case 1:
             if (--this->timer == 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 this->timer = gUnk_080D0ABF[(this->animationState << 1) | 1];
             } else {
                 if (this->subtimer) {
@@ -746,7 +746,7 @@ void VaatiTransfiguredType4Action1(Entity* this) {
         }
     } else {
         if (this->field_0x80.HALF.LO == 0) {
-            this->field_0x80.HALF.LO += 1;
+            this->field_0x80.HALF.LO++;
             this->spriteSettings.draw = 1;
         }
         if (--this->timer == 0) {
@@ -781,7 +781,7 @@ void VaatiTransfiguredType5Action1(Entity* this) {
             if (this->parent->action != 6) {
                 return;
             }
-            this->field_0x80.HALF.LO += 1;
+            this->field_0x80.HALF.LO++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 1);
             break;
@@ -815,7 +815,7 @@ void VaatiTransfiguredType5Action2(Entity* this) {
     if (this->field_0x80.HALF.LO == 0) {
         if (this->parent->parent->action != 6) {
             if ((this->frame & ANIM_DONE) != 0) {
-                this->field_0x80.HALF.LO += 1;
+                this->field_0x80.HALF.LO++;
                 InitializeAnimation(this, 3);
             }
         }
@@ -904,7 +904,7 @@ void sub_08040770(Entity* this) {
     if (EntityWithinDistance(this, tmp5, tmp6, 0x1c)) {
         if (this->animationState != 2) {
             if (tmp & 8) {
-                tmp2 += 1;
+                tmp2++;
             } else {
                 tmp2 += 3;
             }
@@ -936,7 +936,7 @@ void sub_08040770(Entity* this) {
         } else {
             if (this->field_0x86.HALF.HI & 0x7f) {
                 if (this->field_0x86.HALF.HI & 0x80) {
-                    tmp2 += 1;
+                    tmp2++;
                 } else {
                     tmp2 += 3;
                 }
@@ -952,7 +952,7 @@ void sub_08040770(Entity* this) {
                 }
                 this->field_0x86.HALF.HI = tmp3;
                 if (tmp3 & 0x80) {
-                    tmp2 += 1;
+                    tmp2++;
                 } else {
                     tmp2 += 3;
                 }

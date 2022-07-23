@@ -31,7 +31,7 @@ void DarkNutSwordSlash(Entity* this) {
     CopyPositionAndSpriteOffset(this->parent, this);
     DarkNutSwordSlash_OnTick(this);
     if (this->type == 3) {
-        this->y.HALF.HI += 1;
+        this->y.HALF.HI++;
         UpdateAnimationSingleFrame(this);
     }
 }

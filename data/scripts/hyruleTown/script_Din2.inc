@@ -27,7 +27,7 @@ script_08011E96:
 script_08011ECC:
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x11
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_08011EF4
 script_08011ED8:
 	EnablePlayerControl

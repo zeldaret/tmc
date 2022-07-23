@@ -1,20 +1,26 @@
+/**
+ * @file stoneTablet.c
+ * @ingroup Objects
+ *
+ * @brief Stone Tablet object
+ */
 #include "entity.h"
-#include "room.h"
 #include "functions.h"
+#include "room.h"
 
-void sub_080979CC(Entity*);
-void nullsub_529(Entity*);
+void StoneTablet_Init(Entity*);
+void StoneTablet_Action1(Entity*);
 
 void StoneTablet(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080979CC,
-        nullsub_529,
+    static void (*const StoneTablet_Actions[])(Entity*) = {
+        StoneTablet_Init,
+        StoneTablet_Action1,
     };
 
-    actionFuncs[this->action](this);
+    StoneTablet_Actions[this->action](this);
 }
 
-void sub_080979CC(Entity* this) {
+void StoneTablet_Init(Entity* this) {
     // TODO recreate as TileData[]
     static const u16 gUnk_081232EC[] = { 0x4022, 0xfffe, 0x4022, 0xffff, 0x4022, 0x0, 0x4022, 0x1, 0xffff };
     static const u16 gUnk_081232FE[] = { 0x4065, 0xffbf, 0x4022, 0xffc0, 0x4066, 0xffc1, 0x4029,
@@ -30,5 +36,5 @@ void sub_080979CC(Entity* this) {
     }
 }
 
-void nullsub_529(Entity* this) {
+void StoneTablet_Action1(Entity* this) {
 }

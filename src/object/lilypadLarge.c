@@ -1,11 +1,10 @@
+#define NENT_DEPRECATED
 /**
  * @file lilypadLarge.c
  * @ingroup Objects
  *
  * @brief Large Lilypad object
  */
-
-#define NENT_DEPRECATED
 #include "global.h"
 #include "area.h"
 #include "functions.h"
@@ -381,7 +380,7 @@ void sub_08085A98(LilypadLargeEntity* this) {
             super->z.HALF.HI = 0xffc0;
             this->unk_82 = 0xf;
         }
-        CreateObjectWithParent(super, OBJECT_2B, 0, 0);
+        CreateObjectWithParent(super, LILYPAD_LARGE_FALLING, 0, 0);
         SoundReq(SFX_12D);
     }
 }

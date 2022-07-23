@@ -1,9 +1,15 @@
-#include "entity.h"
+/**
+ * @file angryStatue.c
+ * @ingroup Objects
+ *
+ * @brief Angry Statue object
+ */
 #include "asm.h"
+#include "entity.h"
+#include "physics.h"
+#include "projectile.h"
 #include "room.h"
 #include "sound.h"
-#include "projectile.h"
-#include "physics.h"
 
 extern Hitbox gUnk_080FD178;
 

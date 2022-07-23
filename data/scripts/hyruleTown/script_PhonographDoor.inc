@@ -9,7 +9,7 @@ SCRIPT_START script_PhonographDoor
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerCannotEnter
 	WaitForSyncFlagAndClear 0x00000001
 	CheckRoomFlag 0x0001
@@ -17,7 +17,7 @@ SCRIPT_START script_PhonographDoor
 	EzloMessage TEXT_EZLO, 0x64
 	WaitUntilTextboxCloses
 script_080109DE:
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_PhonographDoor
 script_080109EA:

@@ -1,17 +1,23 @@
+/**
+ * @file minishLight.c
+ * @ingroup Objects
+ *
+ * @brief Minish Light object
+ */
 #include "entity.h"
 
-void sub_0809F840(Entity*);
-void sub_0809F868(Entity*);
+void MinishLight_Init(Entity*);
+void MinishLight_Action1(Entity*);
 
 void MinishLight(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809F840,
-        sub_0809F868,
+    static void (*const MinishLight_Actions[])(Entity*) = {
+        MinishLight_Init,
+        MinishLight_Action1,
     };
-    actionFuncs[this->action](this);
+    MinishLight_Actions[this->action](this);
 }
 
-void sub_0809F840(Entity* this) {
+void MinishLight_Init(Entity* this) {
     this->action = 1;
     this->frameIndex = 0;
     this->timer = 32;
@@ -24,7 +30,7 @@ void sub_0809F840(Entity* this) {
     UpdateSpriteForCollisionLayer(this);
 }
 
-void sub_0809F868(Entity* this) {
+void MinishLight_Action1(Entity* this) {
     if (--this->timer == 0) {
         if (this->subtimer == 0) {
             if (++this->frameIndex == 3) {

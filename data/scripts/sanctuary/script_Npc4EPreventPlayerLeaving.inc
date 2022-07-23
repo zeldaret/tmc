@@ -14,12 +14,12 @@ script_08013B1E:
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_PANEL_TUTORIAL, 0x07
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerSanctuary
 	WaitForSyncFlagAndClear 0x00000001
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_08013B1E
 	.2byte 0x0000

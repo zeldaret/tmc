@@ -7,7 +7,7 @@ script_0800DB7C:
 	JumpIf script_0800DB7C
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x0078, 0x0078
 	CameraTargetEntity
@@ -17,14 +17,14 @@ script_0800DB7C:
 	Call sub_0804D7EC
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_0800DBCA:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800DBCA
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_0804D810
 	Call CreatePlayerExclamationMark
 	Wait 0x003c

@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -27,7 +27,7 @@ typedef struct {
     /*0x86*/ u16 pushedFlag;
 } PushableGraveEntity;
 
-extern void (*const gUnk_081232AC[])(PushableGraveEntity*);
+extern void (*const PushableGrave_Actions[])(PushableGraveEntity*);
 extern const u8 gUnk_081232C0[];
 extern const u16 PushableGrave_Tiles[];
 
@@ -36,7 +36,7 @@ void sub_080977F4(PushableGraveEntity*);
 bool32 sub_0809785C(PushableGraveEntity*);
 
 void PushableGrave(PushableGraveEntity* this) {
-    gUnk_081232AC[super->action](this);
+    PushableGrave_Actions[super->action](this);
 }
 
 void PushableGrave_Init(PushableGraveEntity* this) {
@@ -197,7 +197,7 @@ bool32 sub_0809798C(PushableGraveEntity* this) {
     return result;
 }
 
-void (*const gUnk_081232AC[])(PushableGraveEntity*) = {
+void (*const PushableGrave_Actions[])(PushableGraveEntity*) = {
     PushableGrave_Init, PushableGrave_Action1, PushableGrave_Action2, PushableGrave_Action3, PushableGrave_Action4,
 };
 

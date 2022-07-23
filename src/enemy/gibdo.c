@@ -377,7 +377,7 @@ void sub_08037B10(GibdoEntity* this) {
 void Gibdo_CreateObjects(GibdoEntity* this) {
     Entity* object;
 
-    object = CreateObject(OBJECT_2A, 3, 0);
+    object = CreateObject(FLAME, 3, 0);
     if (object != NULL) {
         object->type2 = super->timer;
         object->spritePriority.b0 = 3;
@@ -387,7 +387,7 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
     }
     this->field_0x80 = object;
 
-    object = CreateObject(OBJECT_2A, 3, 0);
+    object = CreateObject(FLAME, 3, 0);
     if (object != NULL) {
         object->type2 = super->timer;
         object->spritePriority.b0 = 3;
@@ -397,7 +397,7 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
     }
     this->field_0x84 = object;
 
-    object = CreateObject(OBJECT_2A, 3, 0);
+    object = CreateObject(FLAME, 3, 0);
     if (object != NULL) {
         object->type2 = super->timer;
         object->spritePriority.b0 = 3;

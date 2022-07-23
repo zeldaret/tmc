@@ -5,7 +5,7 @@ SCRIPT_START script_Npc4EKinstoneFused
 	CameraTargetPlayer
 	Call sub_0807FBCC
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 script_0800D6AE:
 	DoPostScriptAction 0x0006
 SCRIPT_END

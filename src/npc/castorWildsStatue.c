@@ -170,7 +170,7 @@ void sub_080675D4(Entity* this) {
 static const Hitbox gUnk_08110E94 = { 0, 3, { 5, 3, 3, 5 }, 12, 20 };
 
 void sub_080676D8(Entity* this) {
-    this->subAction += 1;
+    this->subAction++;
 }
 
 void sub_080676E0(Entity* this, ScriptExecutionContext* context) {
@@ -208,7 +208,7 @@ void sub_080676E0(Entity* this, ScriptExecutionContext* context) {
 
 void CastorWildsStatue_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 0x18;
         InitializeAnimation(this, 1);

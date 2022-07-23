@@ -37,8 +37,8 @@ script_0800E3BE:
 script_0800E3C8:
 	CheckEntityInteractType
 	JumpIfNot script_0800E3C8
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x000f
@@ -53,8 +53,8 @@ script_0800E3E8:
 script_0800E3EE:
 	CheckEntityInteractType
 	JumpIfNot script_0800E3EE
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x0d
 	WaitUntilTextboxCloses
 	Wait 0x000f

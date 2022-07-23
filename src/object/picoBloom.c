@@ -1,6 +1,12 @@
+/**
+ * @file picoBloom.c
+ * @ingroup Objects
+ *
+ * @brief Pico Bloom object
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
 #include "asm.h"
+#include "entity.h"
 #include "sound.h"
 
 void PicoBloom_Init(Entity*);
@@ -8,13 +14,13 @@ void PicoBloom_Action1(Entity*);
 void PicoBloom_Action2(Entity*);
 
 void PicoBloom(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const PicoBloom_Actions[])(Entity*) = {
         PicoBloom_Init,
         PicoBloom_Action1,
         PicoBloom_Action2,
     };
 
-    actionFuncs[this->action](this);
+    PicoBloom_Actions[this->action](this);
 }
 
 void PicoBloom_Init(Entity* this) {

@@ -10,7 +10,7 @@ script_08010502:
 	CheckEntityInteractType
 	JumpIfNot script_08010502
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
 	CheckRoomFlag 0x000e
@@ -68,7 +68,7 @@ script_080105DC:
 	MessageNoOverlap TEXT_PICOLYTE, 0x0e
 script_080105E0:
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_08010502
 	.2byte 0x0000
@@ -81,10 +81,10 @@ script_080105E0:
 script_08010602:
 	CheckEntityInteractType
 	JumpIfNot script_08010602
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	SetAnimationState 0x0004
 	Jump script_08010602

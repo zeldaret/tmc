@@ -1,5 +1,11 @@
-#include "global.h"
+/**
+ * @file thoughtBubble.c
+ * @ingroup Objects
+ *
+ * @brief Thought Bubble object
+ */
 #include "entity.h"
+#include "global.h"
 #include "sound.h"
 
 void ThoughtBubble_Init(Entity*);

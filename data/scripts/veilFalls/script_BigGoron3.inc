@@ -7,7 +7,7 @@ script_0800934E:
 	CheckEntityInteractType
 	JumpIfNot script_0800934E
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_0806D638
 	_0807F0B4 0x0001
 	CameraTargetEntity
@@ -23,6 +23,6 @@ script_08009376:
 	Wait 0x002d
 	_0807F0B4 0x0004
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Jump script_0800934E
 SCRIPT_END

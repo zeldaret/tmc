@@ -41,7 +41,7 @@ void AngryStatueManager_Init(AngryStatueManager* this) {
             object->parent = (Entity*)this;
             ResolveCollisionLayer(object);
             this->field_0x20[counter] = object;
-            counter += 1;
+            counter++;
             objectData += 3;
         }
         super->action = 1;

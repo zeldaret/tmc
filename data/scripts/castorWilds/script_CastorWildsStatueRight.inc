@@ -12,7 +12,7 @@ script_0800B2C8:
 	SetPlayerIdle
 	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_RIGHT
 	JumpIf script_0800B2E2
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800B2C8
 script_0800B2E2:

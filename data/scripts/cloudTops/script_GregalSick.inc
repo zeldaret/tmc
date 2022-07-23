@@ -13,9 +13,9 @@ script_08014B48:
 	JumpIf script_08014B70
 	CheckEntityInteractType
 	JumpIfNot script_08014B48
-	EndBlock 
-	SetPlayerIdle 
-	FacePlayer 
+	EndBlock
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_WIND_TRIBE, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
@@ -24,7 +24,7 @@ script_08014B48:
 script_08014B70:
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetSyncFlag 0x00000001
 	DoPostScriptAction 0x0004
 	WaitForSyncFlagAndClear 0x00000002
@@ -45,7 +45,7 @@ script_08014B70:
 	PlaySound SFX_SECRET
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_08014BE8:
 	SetAnimation 0x0010

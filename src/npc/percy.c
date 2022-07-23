@@ -130,7 +130,7 @@ void sub_0806B540(Entity* this) {
             if (CheckLocalFlag(0x3f) != 0) {
                 return;
             }
-            context->unk_18 += 1;
+            context->unk_18++;
             SetLocalFlag(0x3f);
             break;
         case 1:
@@ -169,7 +169,7 @@ void sub_0806B60C(Entity* this) {
 void Percy_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, gUnk_08112E1C) != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 2);
         }

@@ -1,8 +1,14 @@
+/**
+ * @file greatFairy.c
+ * @ingroup Objects
+ *
+ * @brief Great Fairy object
+ */
+#include "functions.h"
 #include "object.h"
 #include "save.h"
-#include "script.h"
-#include "functions.h"
 #include "screen.h"
+#include "script.h"
 
 void GreatFairy_InitializeAnimation(Entity*);
 Entity* GreatFairy_CreateForm(Entity*, u32, u32);
@@ -525,7 +531,7 @@ void sub_08087424(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
 
     ResetPlayerAnimationAndAction();
-    ent = CreateObject(OBJECT_64, 0, 0);
+    ent = CreateObject(THUNDERBOLD, 0, 0);
     if (ent != NULL) {
         ent->parent = &gPlayerEntity;
         CopyPosition(&gPlayerEntity, ent);

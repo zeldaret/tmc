@@ -12,7 +12,7 @@ script_08016204:
 	CheckEntityInteractType
 	JumpIfNot script_08016204
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FacePlayer
 	Call sub_08068CA0
 	JumpIf script_0801633E
@@ -44,14 +44,14 @@ script_08016262:
 	Call sub_08068F14
 	Call sub_08068BB4
 	CallWithArg EquipItem, 0x00010001
-	Call sub_08068B84
-	Call sub_0807F2A8
+	Call BladeBrothers_StartPlayerDemonstration
+	Call WaitForPlayerMacro
 	Call sub_08068BD0
 	Wait 0x001e
 	Call sub_08068E18
 	WaitUntilTextboxCloses
 	Call sub_08068EB4
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_080162CC:
 	EndBlock
@@ -72,7 +72,7 @@ script_080162F6:
 	EndBlock
 	DisablePlayerControl
 	Call WaitForPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
 	StopBgm
 	PlaySound SFX_TASK_COMPLETE
@@ -82,7 +82,7 @@ script_080162F6:
 script_0801631C:
 	Call sub_08068E30
 	WaitUntilTextboxCloses
-	Call sub_08068C6C
+	Call BladeBrothers_GetScroll
 	WaitPlayerGetItem
 	WaitUntilTextboxCloses
 	Jump script_08016346
@@ -94,7 +94,7 @@ script_0801633E:
 	Call sub_08068E48
 	WaitUntilTextboxCloses
 script_08016346:
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

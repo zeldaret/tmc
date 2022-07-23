@@ -1,27 +1,33 @@
-#include "entity.h"
-#include "room.h"
-#include "player.h"
+/**
+ * @file ladderUp.c
+ * @ingroup Objects
+ *
+ * @brief Ladder Up object
+ */
 #include "asm.h"
-#include "sound.h"
-#include "functions.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "player.h"
+#include "room.h"
+#include "sound.h"
 
 void LadderUp(Entity* this) {
     Entity* fxEnt;
-    u32 uVar4;
+    u32 action;
 
     switch (this->action) {
         case 0:
             if (this->timer) {
-                uVar4 = 1;
+                action = 1;
             } else {
 #ifndef EU
-                uVar4 = 3;
+                action = 3;
 #else
-                uVar4 = 2;
+                action = 2;
 #endif
             }
-            this->action = uVar4;
+            this->action = action;
             this->spriteOffsetY += 8;
             InitializeAnimation(this, 10);
             if (this->action == 1) {
@@ -74,5 +80,6 @@ void LadderUp(Entity* this) {
                     }
                 }
             }
+            break;
     }
 }

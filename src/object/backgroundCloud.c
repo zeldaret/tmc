@@ -1,19 +1,25 @@
+/**
+ * @file backgroundCloud.c
+ * @ingroup Objects
+ *
+ * @brief BackgroundCloud object
+ */
 #include "object.h"
 
-void sub_0808F658(Entity*);
-void sub_0808F6E0(Entity*);
-void sub_0808F70C(Entity*);
+void BackgroundCloud_Init(Entity*);
+void BackgroundCloud_Action1(Entity*);
+void BackgroundCloud_Action2(Entity*);
 
 void BackgroundCloud(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0808F658,
-        sub_0808F6E0,
-        sub_0808F70C,
+    static void (*const BackgroundCloud_Actions[])(Entity*) = {
+        BackgroundCloud_Init,
+        BackgroundCloud_Action1,
+        BackgroundCloud_Action2,
     };
-    actionFuncs[this->action](this);
+    BackgroundCloud_Actions[this->action](this);
 }
 
-void sub_0808F658(Entity* this) {
+void BackgroundCloud_Init(Entity* this) {
     static const u8 gUnk_08121EB0[] = { 0x30, 0x28, 0x20 };
     this->action = 1;
     this->spriteSettings.draw = 1;
@@ -31,14 +37,14 @@ void sub_0808F658(Entity* this) {
     this->subAction = 0;
 }
 
-void sub_0808F6E0(Entity* this) {
+void BackgroundCloud_Action1(Entity* this) {
     LinearMoveUpdate(this);
 
     if ((s16)this->x.HALF.HI < (s16)this->field_0x78.HWORD || (s16)this->x.HALF.HI > (s16)this->field_0x7a.HWORD)
         this->action = 2;
 }
 
-void sub_0808F70C(Entity* this) {
+void BackgroundCloud_Action2(Entity* this) {
     static const u8 gUnk_08121EB3[] = { 0x8, 0x28, 0x48, 0x98, 0 };
     if (this->subAction == 0) {
         this->subAction = 1;

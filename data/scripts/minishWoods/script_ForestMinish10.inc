@@ -16,7 +16,7 @@ script_0800CD92:
 script_0800CDA6:
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	CheckLocalFlag 0x009d
 	JumpIf script_0800CDC4
 	SetLocalFlag 0x009d
@@ -40,7 +40,7 @@ script_0800CDEC:
 	JumpIfNot script_0800CE14
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x4b
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	InitItemGetSequence ITEM_BOTTLE_HALF_MILK
@@ -51,7 +51,7 @@ script_0800CE14:
 	JumpIfNot script_0800CF40
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x4b
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	InitItemGetSequence ITEM_BOTTLE_MILK
@@ -80,7 +80,7 @@ script_0800CE6E:
 	JumpIfNot script_0800CF40
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x4c
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	InitItemGetSequence ITEM_BOTTLE_MINERAL_WATER
@@ -108,7 +108,7 @@ script_0800CECE:
 	JumpIfNot script_0800CF40
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x4d
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	InitItemGetSequence ITEM_BOTTLE_RED_POTION
@@ -119,7 +119,7 @@ script_0800CECE:
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x47
 script_0800CF02:
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_0800CF0C:
 	EndBlock
@@ -131,18 +131,18 @@ script_0800CF0C:
 script_0800CF20:
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 script_0800CF2A:
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x40
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800CF0C
 script_0800CF3C:
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x4a
 script_0800CF40:
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800CD92
 	.2byte 0x0000

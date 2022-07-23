@@ -6,7 +6,7 @@ SCRIPT_START script_NPC4ESouurceOfTheFlowOpening
 	PlaySound SFX_SECRET
 	EzloMessage TEXT_EZLO, 0x1f
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_08016028:
 	DoPostScriptAction 0x0006

@@ -4,7 +4,7 @@ SCRIPT_START script_RemFallingAsleep
 	CheckLocalFlag 0x0060
 	JumpIf script_08012FD2
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtRem
 	SetLocalFlag 0x0060
 	ClearLocalFlag 0x0061
@@ -13,7 +13,7 @@ SCRIPT_START script_RemFallingAsleep
 	SetAction 0x0004
 	Call sub_0806A958
 	CallWithArg sub_0807F93C, 0x0000f2f4
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetLocalFlag 0x0062
 	Jump script_08012FFA
@@ -36,7 +36,7 @@ script_08013006:
 	TriggerInteract
 	BeginBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EndBlock
 	PlaySound SFX_TASK_COMPLETE
 	InitItemGetSequence ITEM_QST_MUSHROOM
@@ -68,7 +68,7 @@ script_08013006:
 	MessageNoOverlap TEXT_REM, 0x06
 	WaitUntilTextboxCloses
 	SetAction 0x0001
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_0801308A:
 	Call sub_0806A96C

@@ -8,8 +8,8 @@ SCRIPT_START script_MoblinLady
 script_08012338:
 	CheckEntityInteractType
 	JumpIfNot script_08012338
-	FacePlayer 
-	SetPlayerIdle 
+	FacePlayer
+	SetPlayerIdle
 	MessageFromTarget TEXT_PERCY, 0x04
 	WaitUntilTextboxCloses
 	CheckLocalFlag 0x0042

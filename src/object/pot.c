@@ -1,22 +1,28 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file pot.c
+ * @ingroup Objects
+ *
+ * @brief Pot object
+ */
 #include "entity.h"
 #include "flags.h"
+#include "functions.h"
+#include "global.h"
+#include "hitbox.h"
+#include "object.h"
 #include "player.h"
 #include "room.h"
-#include "object.h"
-#include "functions.h"
-#include "hitbox.h"
+#include "sound.h"
 
-void sub_08082824(Entity*);
+void Pot_Action5(Entity*);
 static void sub_08082850(Entity*, Entity*);
 void sub_08082608(Entity*);
-void sub_0808222C(Entity*);
-void sub_08082310(Entity*);
-void sub_080824F8(Entity*);
-void sub_080826E4(Entity*);
-void sub_08082614(Entity*);
-void sub_08082824(Entity*);
+void Pot_Init(Entity*);
+void Pot_Action1(Entity*);
+void Pot_Action2(Entity*);
+void Pot_Action3(Entity*);
+void Pot_Action4(Entity*);
+void Pot_Action5(Entity*);
 void sub_08082510(Entity*);
 void nullsub_511(Entity*);
 void sub_08082588(Entity*);
@@ -35,14 +41,14 @@ extern void RegisterCarryEntity(Entity*);
 extern void sub_08016A6C(Entity*);
 
 void Pot(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0808222C, sub_08082310, sub_080824F8, sub_080826E4, sub_08082614, sub_08082824,
+    static void (*const Pot_Actions[])(Entity*) = {
+        Pot_Init, Pot_Action1, Pot_Action2, Pot_Action3, Pot_Action4, Pot_Action5,
     };
-    actionFuncs[this->action](this);
+    Pot_Actions[this->action](this);
     this->contactFlags = 0;
 }
 
-void sub_0808222C(Entity* this) {
+void Pot_Init(Entity* this) {
     if (this->type2 == 1 && CheckFlags(this->field_0x86.HWORD)) {
         DeleteThisEntity();
     }
@@ -71,7 +77,7 @@ void sub_0808222C(Entity* this) {
     InitializeAnimation(this, 5);
 }
 
-void sub_08082310(Entity* this) {
+void Pot_Action1(Entity* this) {
     u32 tileType;
     u32 var0 = this->contactFlags & 0x7F;
     switch (var0) {
@@ -87,7 +93,7 @@ void sub_08082310(Entity* this) {
             this->spriteSettings.shadow = 1;
             this->spritePriority.b1 = 3;
             COLLISION_OFF(this);
-            sub_08082824(this);
+            Pot_Action5(this);
             break;
         default:
             tileType = GetTileTypeByEntity(this);
@@ -128,7 +134,7 @@ void sub_08082310(Entity* this) {
     }
 }
 
-void sub_080824F8(Entity* this) {
+void Pot_Action2(Entity* this) {
     static void (*const subActionFuncs[])(Entity*) = {
         sub_08082510, nullsub_511, sub_08082588, sub_0808259C, sub_080825E8, sub_080825F0, sub_08082608,
     };
@@ -187,7 +193,7 @@ void sub_08082608(Entity* this) {
     this->subAction = 0;
 }
 
-void sub_08082614(Entity* this) {
+void Pot_Action4(Entity* this) {
     u32 tileType;
 
     sub_0800445C(this);
@@ -220,7 +226,7 @@ void sub_08082614(Entity* this) {
     }
 }
 
-void sub_080826E4(Entity* this) {
+void Pot_Action3(Entity* this) {
     static void (*const subActionFuncs[])(Entity*) = {
         sub_080826FC, sub_0808270C, sub_08082778, sub_080827F8, nullsub_512, sub_08082818,
     };
@@ -271,7 +277,7 @@ void sub_08082818(Entity* this) {
     sub_08082850(this, NULL);
 }
 
-void sub_08082824(Entity* this) {
+void Pot_Action5(Entity* this) {
     if (this->zVelocity < 0) {
         this->spriteSettings.flipY = 1;
     }

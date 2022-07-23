@@ -28,7 +28,7 @@ void MazaalEnergyBeam_Action1(Entity* this) {
         InitializeAnimation(this, 1);
     } else {
         if (this->z.HALF.HI != 0) {
-            this->z.HALF.HI += 1;
+            this->z.HALF.HI++;
         }
 
         tmp = &gSineTable[this->direction];

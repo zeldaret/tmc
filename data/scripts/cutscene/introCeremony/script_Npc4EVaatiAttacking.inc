@@ -10,11 +10,11 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
 	CallWithArg EquipItem, ITEM_SHIELD
-	CallWithArg SetInputMacro, gUnk_080049F6
+	CallWithArg SetPlayerMacro, gUnk_080049F6
 	Wait 0x001e
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000200
-	CallWithArg SetInputMacro, 0x00000000
+	CallWithArg SetPlayerMacro, 0x00000000
 	Call NPC4E_RestoreEquippedItems
 	Wait 0x003c
 	SetSyncFlag 0x08000000

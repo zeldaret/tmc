@@ -60,8 +60,8 @@ script_0801472E_2:
 	JumpIfNot script_0801463A
 	CheckLocalFlag 0x005e
 	JumpIf script_080146A0
-	SetPlayerIdle 
-	FaceAwayFromPlayer 
+	SetPlayerIdle
+	FaceAwayFromPlayer
 	MessageFromTargetPos TEXT_CARLOV, 0x2b, 0x000c
 	Jump script_080147CE
 script_08014672:

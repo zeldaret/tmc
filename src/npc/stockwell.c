@@ -130,7 +130,7 @@ void sub_0806522C(Entity* this) {
 void sub_08065250(Entity* this) {
     switch (sub_08056338()) {
         case 0:
-            this->subAction += 1;
+            this->subAction++;
             this->timer = 30;
             this->subtimer = 0;
             CreateSpeechBubbleExclamationMark(this, 8, 0xffffffe8);
@@ -152,7 +152,7 @@ void sub_0806528C(Entity* this) {
 
 void sub_080652B0(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->subAction += 1;
+        this->subAction++;
         this->timer = 10;
         gRoomVars.animFlags = this->subtimer;
         CreateItemEntity(ITEM_QST_DOGFOOD, 0, 0);
@@ -161,10 +161,10 @@ void sub_080652B0(Entity* this) {
 
 void sub_080652E4(Entity* this) {
     if (this->timer != 0) {
-        this->timer -= 1;
+        this->timer--;
     } else {
         if (gPlayerEntity.action != PLAYER_ITEMGET) {
-            this->subAction += 1;
+            this->subAction++;
             MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x19), this);
         }
     }
@@ -172,7 +172,7 @@ void sub_080652E4(Entity* this) {
 
 void sub_08065314(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->subAction += 1;
+        this->subAction++;
         MenuFadeIn(3, 3);
     }
 }
@@ -252,7 +252,7 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
                 SetLocalFlag(localFlag);
             }
             if (gSave.unk5C <= -2) {
-                gSave.unk5C += 1;
+                gSave.unk5C++;
             }
 
             if (gSave.unk5C >= 10) {

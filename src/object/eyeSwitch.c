@@ -1,7 +1,13 @@
+/**
+ * @file eyeSwitch.c
+ * @ingroup Objects
+ *
+ * @brief EyeSwitch object
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "hitbox.h"
 #include "flags.h"
+#include "hitbox.h"
 #include "sound.h"
 
 typedef struct {

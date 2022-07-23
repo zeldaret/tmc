@@ -100,7 +100,7 @@ gSprite_081FF1B4:: @ 081FF1B4
 	.incbin "sprites/gSprite_081FF1B4/npc_GORON.4bpp"
 	.incbin "sprites/gSprite_081FF1B4/npc_CASTOR_WILDS_STATUE.4bpp"
 	.incbin "sprites/gSprite_081FF1B4/npc_NPC_UNK_4F.4bpp"
-	.incbin "sprites/gSprite_081FF1B4/object_OBJECT_6A.4bpp"
+	.incbin "sprites/gSprite_081FF1B4/object_CUTSCENE_MISC_OBJECT.4bpp"
 	.incbin "sprites/gSprite_081FF1B4/unk_19.4bpp"
 
 gSprite_082474D4:: @ 082474D4

@@ -30,7 +30,7 @@ void WizzrobeIce_OnCollision(WizzrobeEntity* this) {
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeIce_Functions);
     if (super->contactFlags == 0x87) {
-        Entity* obj = CreateObject(OBJECT_2A, 3, 0);
+        Entity* obj = CreateObject(FLAME, 3, 0);
         if (obj != NULL) {
             obj->spritePriority.b0 = 3;
             obj->spriteOffsetY = -4;
@@ -99,7 +99,7 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
         case 0:
             switch (--super->timer) {
                 case 0:
-                    this->timer2 += 1;
+                    this->timer2++;
                     super->timer = 56;
                     super->subtimer = 0;
                     super->child->spriteSettings.draw = 0;

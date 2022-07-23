@@ -24,7 +24,7 @@ void HyruleTownBellManager_Main(HyruleTownBellManager* this) {
         }
     } else {
         if (--super->timer == 0) {
-            Entity* object = CreateObject(OBJECT_96, 1, 0);
+            Entity* object = CreateObject(GRAVEYARD_KEY, 1, 0);
             if (object != NULL) {
                 object->x.HALF.HI = roomControls->origin_x + 0x1f8;
                 object->y.HALF.HI = roomControls->origin_y + 0x140;

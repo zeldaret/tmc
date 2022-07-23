@@ -6,7 +6,7 @@ script_08013CA6:
 	JumpIfNot script_08013CA6
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	_0807F0B4 0x0001
@@ -20,7 +20,7 @@ script_08013CA6:
 	EzloMessage TEXT_PANEL_TUTORIAL, 0x04
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0079
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

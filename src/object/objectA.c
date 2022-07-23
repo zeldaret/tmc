@@ -1,11 +1,17 @@
-#include "global.h"
+/**
+ * @file objectA.c
+ * @ingroup Objects
+ *
+ * @brief ObjectA object
+ */
 #include "entity.h"
-#include "room.h"
 #include "flags.h"
-#include "object.h"
 #include "functions.h"
 #include "game.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
+#include "room.h"
 
 extern u8 gUpdateVisibleTiles;
 

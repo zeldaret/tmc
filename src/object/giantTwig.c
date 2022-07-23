@@ -6,9 +6,9 @@
  */
 
 #define NENT_DEPRECATED
+#include "functions.h"
 #include "global.h"
 #include "object.h"
-#include "functions.h"
 
 typedef struct {
     /*0x00*/ Entity base;

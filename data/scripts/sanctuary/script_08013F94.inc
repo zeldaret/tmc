@@ -15,12 +15,12 @@ script_08013FA4:
 	EndBlock
 	Call WaitForPlayerNormalOrTalkEzlo
 	DisablePlayerControl
-	Call sub_0807DF38
+	Call DisablePauseMenu
 	Wait 0x0078
 	EzloMessage TEXT_PANEL_TUTORIAL, 0x05
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x007d
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_08013FE0:
 	DoPostScriptAction 0x0006

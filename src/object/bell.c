@@ -1,17 +1,23 @@
+/**
+ * @file bell.c
+ * @ingroup Objects
+ *
+ * @brief Bell object
+ */
 #include "object.h"
 
-void sub_08097D90(Entity*);
-void sub_08097DCC(Entity*);
+void Bell_Init(Entity*);
+void Bell_Action1(Entity*);
 
 void Bell(Entity* ent) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08097D90,
-        sub_08097DCC,
+    static void (*const Bell_Actions[])(Entity*) = {
+        Bell_Init,
+        Bell_Action1,
     };
-    actionFuncs[ent->action](ent);
+    Bell_Actions[ent->action](ent);
 }
 
-void sub_08097D90(Entity* ent) {
+void Bell_Init(Entity* ent) {
     ent->action = 1;
     ent->spriteSettings.draw = 1;
     ent->collisionLayer = 1;
@@ -20,6 +26,6 @@ void sub_08097D90(Entity* ent) {
     InitAnimationForceUpdate(ent, 0);
 }
 
-void sub_08097DCC(Entity* ent) {
+void Bell_Action1(Entity* ent) {
     UpdateAnimationSingleFrame(ent);
 }

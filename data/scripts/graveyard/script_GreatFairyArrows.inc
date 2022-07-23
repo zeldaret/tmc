@@ -1,4 +1,4 @@
-@ Graveyard Great Fairy OBJECT_69
+@ Graveyard Great Fairy CUTSCENE_ORCHESTRATOR
 SCRIPT_START script_GreatFairyArrows
 	BeginBlock
 	EndBlock
@@ -16,7 +16,7 @@ script_0800B618:
 	JumpIf script_0800B7A2
 	MessageNoOverlap TEXT_ITEM_GET, 0x83
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_0800B684
 	Wait 0x000f
 	MessageNoOverlap TEXT_ITEM_GET, 0x84
@@ -48,6 +48,6 @@ script_0800B6A6:
 	WaitForFadeFinish
 	CameraTargetPlayer
 	Wait 0x001e
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 SCRIPT_END

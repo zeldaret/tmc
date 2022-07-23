@@ -58,7 +58,7 @@ void sub_080697EC(Entity* this) {
                 InitializeAnimation(this, tmp);
             }
         } else {
-            this->subtimer -= 1;
+            this->subtimer--;
         }
     }
     if (this->interactType != 0) {
@@ -72,7 +72,7 @@ void sub_08069838(Entity* this) {
         if (LoadExtraSpriteData(this, &gUnk_08111C3C) == 0) {
             return;
         }
-        this->action += 1;
+        this->action++;
         this->field_0x68.HALF.LO = 0;
         this->field_0x68.HALF.HI = 0;
         sub_0807DD64(this);

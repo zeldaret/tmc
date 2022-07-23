@@ -191,7 +191,7 @@ void TempleOfDropletsManager_Type2_Action4(TempleOfDropletsManager* this) {
 
 void sub_0805A4CC(TempleOfDropletsManager* this, u32 unk_0) {
     Entity* tmp;
-    tmp = CreateObject(OBJECT_8E, unk_0, 0);
+    tmp = CreateObject(LIGHT_RAY, unk_0, 0);
     if (tmp) {
         tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
         tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y - 0x30;
@@ -493,13 +493,13 @@ extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
 void sub_0805AA58(TempleOfDropletsManager* this) {
     if (--super->timer == 0) {
         super->timer = 8;
-        this->unk_21 += 1;
+        this->unk_21++;
         this->unk_21 &= 3;
         LoadPalettes(gUnk_085A97A0[this->unk_21].unk_00, 5, 1);
     }
     if (--super->subtimer == 0) {
         super->subtimer = 16;
-        this->unk_22 += 1;
+        this->unk_22++;
         this->unk_22 &= 0xF;
         gScreen.controls.alphaBlend = gUnk_081085B8[this->unk_22];
     }

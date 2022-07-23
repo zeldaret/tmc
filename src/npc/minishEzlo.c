@@ -25,7 +25,7 @@ void MinishEzlo(Entity* this) {
         if (LoadExtraSpriteData(this, gUnk_0810C48C) == 0) {
             return;
         }
-        this->action += 1;
+        this->action++;
         this->animationState = this->timer * 2;
         SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD50(this);

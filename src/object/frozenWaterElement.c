@@ -4,11 +4,10 @@
  *
  * @brief Frozen Water Element object
  */
-
 #define NENT_DEPRECATED
+#include "functions.h"
 #include "global.h"
 #include "object.h"
-#include "functions.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -21,20 +20,20 @@ typedef struct {
 
 void sub_0809C0A8(FrozenWaterElementEntity*);
 void sub_0809C23C(FrozenWaterElementEntity*);
-void sub_0809BECC(FrozenWaterElementEntity*);
-void sub_0809BF1C(FrozenWaterElementEntity*);
-void sub_0809BF74(FrozenWaterElementEntity*);
+void FrozenWaterElement_Init(FrozenWaterElementEntity*);
+void FrozenWaterElement_Action1(FrozenWaterElementEntity*);
+void FrozenWaterElement_Action2(FrozenWaterElementEntity*);
 
 void FrozenWaterElement(FrozenWaterElementEntity* this) {
-    static void (*const gUnk_08123DB4[])(FrozenWaterElementEntity*) = {
-        sub_0809BECC,
-        sub_0809BF1C,
-        sub_0809BF74,
+    static void (*const FrozenWaterElement_Actions[])(FrozenWaterElementEntity*) = {
+        FrozenWaterElement_Init,
+        FrozenWaterElement_Action1,
+        FrozenWaterElement_Action2,
     };
-    gUnk_08123DB4[super->action](this);
+    FrozenWaterElement_Actions[super->action](this);
 }
 
-void sub_0809BECC(FrozenWaterElementEntity* this) {
+void FrozenWaterElement_Init(FrozenWaterElementEntity* this) {
     Entity* obj;
     if (CheckFlags(0x9b)) {
         DeleteThisEntity();
@@ -51,10 +50,10 @@ void sub_0809BECC(FrozenWaterElementEntity* this) {
     }
 }
 
-void sub_0809BF1C(FrozenWaterElementEntity* this) {
+void FrozenWaterElement_Action1(FrozenWaterElementEntity* this) {
     SetAffineInfo(super, 0xcc, 0xcc, 0);
     if (CheckFlags(OUGONTEKI_G)) {
-        Entity* obj = CreateObject(OBJECT_90, 0, 0);
+        Entity* obj = CreateObject(WATER_ELEMENT, 0, 0);
         if (obj != NULL) {
             gRoomControls.camera_target = obj;
             (super->child)->child = obj;
@@ -66,7 +65,7 @@ void sub_0809BF1C(FrozenWaterElementEntity* this) {
     }
 }
 
-void sub_0809BF74(FrozenWaterElementEntity* this) {
+void FrozenWaterElement_Action2(FrozenWaterElementEntity* this) {
     static const u8 gUnk_08123DC0[] = {
         3, 7, 15, 31, 63, 63, 63, 63, 63, 63, 63, 0,
     };

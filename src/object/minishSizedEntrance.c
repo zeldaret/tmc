@@ -1,19 +1,25 @@
-#include "object.h"
-#include "game.h"
+/**
+ * @file minishSizedEntrance.c
+ * @ingroup Objects
+ *
+ * @brief MinishSizedEntrance object
+ */
 #include "functions.h"
+#include "game.h"
+#include "object.h"
 
-void sub_08090F00(Entity*);
-void sub_08090EC0(Entity*);
+void MinishSizedEntrance_Action1(Entity*);
+void MinishSizedEntrance_Init(Entity*);
 
 void MinishSizedEntrance(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08090EC0,
-        sub_08090F00,
+    static void (*const MinishSizedEntrance_Actions[])(Entity*) = {
+        MinishSizedEntrance_Init,
+        MinishSizedEntrance_Action1,
     };
-    actionFuncs[this->action](this);
+    MinishSizedEntrance_Actions[this->action](this);
 }
 
-void sub_08090EC0(Entity* this) {
+void MinishSizedEntrance_Init(Entity* this) {
     this->action = 1;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
@@ -25,7 +31,7 @@ void sub_08090EC0(Entity* this) {
     }
 }
 
-void sub_08090F00(Entity* this) {
+void MinishSizedEntrance_Action1(Entity* this) {
     static const u16 gUnk_0812225C[] = {
         0x400,
         0x100,
@@ -40,7 +46,7 @@ void sub_08090F00(Entity* this) {
         }
     }
     if ((gPlayerState.flags & PL_MINISH) && EntityInRectRadius(this, &gPlayerEntity, 4, 4) &&
-        (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.field_0x90) & gUnk_0812225C[this->type2])) {
+        (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.playerInput.field_0x90) & gUnk_0812225C[this->type2])) {
         DoExitTransition(GetCurrentRoomProperty(this->timer));
     }
 }

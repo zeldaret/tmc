@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -181,7 +181,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
-        if ((gPlayerState.field_0x92 & 0xc0) == 0) {
+        if ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
             return;
         }
         if (gUnk_0200AF00.unk_2f != 3) {

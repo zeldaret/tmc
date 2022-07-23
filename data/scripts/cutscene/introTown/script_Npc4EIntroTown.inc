@@ -3,7 +3,7 @@ SCRIPT_START script_Npc4EIntroTown
 	CheckLocalFlag MACHI_01_DEMO
 	JumpIf script_0800FA4C
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x00c8, 0x0148
 	Call sub_0807F844
 	SetFadeTime 0x0002
@@ -29,12 +29,12 @@ SCRIPT_START script_Npc4EIntroTown
 	@ Zelda ran off. Give control to the player
 	_0807F0B4 0x0004
 	CameraTargetPlayer
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000004
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerIntro2
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000002
@@ -43,11 +43,11 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000004
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerIntro3
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000002
@@ -56,11 +56,11 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000004
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerIntro4
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000002
@@ -69,12 +69,12 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	@ Wait for Link at Pina
 	WaitForSyncFlagAndClear 0x00000004
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_08063C5C
 	PlaySound SFX_CUCCO_MINIGAME_BELL
 	Wait 0x001e
@@ -92,7 +92,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForSyncFlagAndClear 0x00000001
 	MessageFromTargetPos TEXT_PROLOGUE, 0x22, 0x000e
 	WaitUntilTextboxCloses
-	_0807E8E4_0 
+	_0807E8E4_0
 	Call sub_08063C14
 	Call sub_08094CDC
 	Wait 0x001e
@@ -120,13 +120,13 @@ SCRIPT_START script_Npc4EIntroTown
 	Call sub_08063C74
 	Wait 0x003c
 	Call sub_08063C14
-	_0807E8E4_0 
+	_0807E8E4_0
 	MessageFromTargetPos TEXT_PROLOGUE, 0x28, 0x000e
 	WaitUntilTextboxCloses
-	_0807E8E4_1 
+	_0807E8E4_1
 	MessageFromTargetPos TEXT_PROLOGUE, 0x29, 0x0000
 	WaitUntilTextboxCloses
-	_0807E8E4_0 
+	_0807E8E4_0
 	MessageFromTargetPos TEXT_PROLOGUE, 0x2a, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
@@ -152,14 +152,14 @@ SCRIPT_START script_Npc4EIntroTown
 	CallWithArg EquipItem, ITEM_SHIELD
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
-	CallWithArg SetInputMacro, gUnk_080049D6
+	CallWithArg SetPlayerMacro, gUnk_080049D6
 	Wait 0x00b7
 	SetIntVariable 0x00000000
 	Call sub_0807F5B0
 	MessageFromTargetPos TEXT_PROLOGUE, 0x2c, 0x0000
 	WaitUntilTextboxCloses
 	@ Give control back to the player
-	CallWithArg SetInputMacro, 0x00000000
+	CallWithArg SetPlayerMacro, 0x00000000
 	Call NPC4E_RestoreEquippedItems
 	_0807F0B4 0x0004
 	CameraTargetPlayer
@@ -167,7 +167,7 @@ SCRIPT_START script_Npc4EIntroTown
 	SetSyncFlag 0x00000002
 	Call sub_08063C44
 	SetLocalFlag MACHI_01_DEMO
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_0800FA4C:
 	DoPostScriptAction 0x0006

@@ -18,8 +18,8 @@ script_0800B4D4:
 	FacePlayer
 	DoPostScriptAction 0x0000
 	MessageFromTarget TEXT_LON_LON, 0x0b
-	EndBlock 
-	EnablePlayerControl 
+	EndBlock
+	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_0800B4BC

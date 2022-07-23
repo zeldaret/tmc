@@ -1,4 +1,10 @@
 #define NENT_DEPRECATED
+/**
+ * @file floatingPlatform.c
+ * @ingroup Objects
+ *
+ * @brief Floating Platform object
+ */
 #include "entity.h"
 #include "functions.h"
 #include "object.h"

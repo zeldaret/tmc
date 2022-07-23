@@ -1,22 +1,28 @@
-#include "object.h"
+/**
+ * @file mask.c
+ * @ingroup Objects
+ *
+ * @brief Mask object
+ */
 #include "functions.h"
+#include "object.h"
 
-void sub_080929A4(Entity*);
-void sub_08092A94(Entity*);
-void sub_08092B0C(Entity*);
+void Mask_Init(Entity*);
+void Mask_Action1(Entity*);
+void Mask_Action2(Entity*);
 void Mask_Delete(Entity*);
 
 void Mask(Entity* this) {
-    static void (*const MaskActionFuncs[])(Entity*) = {
-        sub_080929A4,
-        sub_08092A94,
-        sub_08092B0C,
+    static void (*const Mask_Actions[])(Entity*) = {
+        Mask_Init,
+        Mask_Action1,
+        Mask_Action2,
         Mask_Delete,
     };
-    MaskActionFuncs[this->action](this);
+    Mask_Actions[this->action](this);
 }
 
-void sub_080929A4(Entity* this) {
+void Mask_Init(Entity* this) {
     if (this->type2 & 0xC0) {
         if (CheckFlags(this->field_0x86.HWORD)) {
             s32 field_0x0a;
@@ -61,7 +67,7 @@ void sub_080929A4(Entity* this) {
 }
 
 // Probably related to knocking it down
-void sub_08092A94(Entity* this) {
+void Mask_Action1(Entity* this) {
     // Check for the first frame of bonking animation
     if (gPlayerEntity.action != PLAYER_BOUNCE) {
         return;
@@ -95,7 +101,7 @@ void sub_08092A94(Entity* this) {
 }
 
 // Probably falling down
-void sub_08092B0C(Entity* this) {
+void Mask_Action2(Entity* this) {
     if (this->timer == 1) {
         this->action = 3;
 

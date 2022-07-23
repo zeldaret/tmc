@@ -1,8 +1,14 @@
+/**
+ * @file object37.c
+ * @ingroup Objects
+ *
+ * @brief Object37 object
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
-#include "save.h"
 #include "item.h"
+#include "save.h"
 
 typedef struct {
     Entity base;
@@ -18,12 +24,12 @@ void Object37_Init(Object37Entity*);
 void Object37_Action1(Object37Entity*);
 
 void Object37(Entity* this) {
-    static void (*const actionFuncs[])(Object37Entity*) = {
+    static void (*const Object37_Actions[])(Object37Entity*) = {
         Object37_Init,
         Object37_Action1,
     };
 
-    actionFuncs[this->action]((Object37Entity*)this);
+    Object37_Actions[this->action]((Object37Entity*)this);
 }
 
 void Object37_Init(Object37Entity* this) {

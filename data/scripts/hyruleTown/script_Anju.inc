@@ -14,7 +14,7 @@ script_0801015A:
 	JumpIf script_0801019E
 	MessageFromTargetPos TEXT_ANJU, 0x01, 0x0000
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_080101A6
 	Call sub_080A1608
 	WaitUntilTextboxCloses
@@ -37,7 +37,7 @@ script_080101AC:
 	EndBlock
 	Call sub_080A1270
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	MessageFromTargetPos TEXT_ANJU, 0x04, 0x0007
 	WaitUntilTextboxCloses
 	StopBgm
@@ -69,7 +69,7 @@ script_080101AC:
 	WaitUntilTextboxCloses
 	Call sub_080A14A8
 script_08010240:
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	CallWithArg sub_0807F5B0, 0x00000000
 	ClearRoomFlag 0x0001

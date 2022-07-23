@@ -20,7 +20,7 @@ script_08012F48:
 script_08012F50:
 	Call sub_0806A96C
 	JumpIfNot script_08012F50
-	SetPlayerIdle 
+	SetPlayerIdle
 	MessageNoOverlap TEXT_REM, 0x01
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0061

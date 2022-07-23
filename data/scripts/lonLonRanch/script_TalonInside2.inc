@@ -9,10 +9,10 @@ SCRIPT_START script_TalonInside2
 script_08014EE0:
 	CheckEntityInteractType
 	JumpIfNot script_08014EE0
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_LON_LON, 0x0d
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08014EE0
 	.2byte 0x0000

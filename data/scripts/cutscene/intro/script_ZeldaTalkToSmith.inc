@@ -33,7 +33,7 @@ SCRIPT_START script_ZeldaTalkToSmith
 	Wait 0x001e
 	BeginBlock
 	SetGlobalFlag START
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
 	EnablePlayerControl
 	EndBlock

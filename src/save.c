@@ -83,23 +83,33 @@ static const SaveFileStatus sSaveDescInit = { 0xffff, 0xffff, 'TINI' };
 static const SaveFileStatus sSaveDescDeleted = { 0xffff, 0xffff, 'FleD' };
 
 const char sDummyData[8] = "DAMEDAME";
-const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x1030, 0x80, 0x1080 },
-                                                             { 0x500, 0x40, 0x1040, 0x580, 0x1580 },
-                                                             { 0x500, 0x50, 0x1050, 0xa80, 0x1a80 },
-                                                             { 0x10, 0x20, 0x1020, 0x70, 0x1070 },
-                                                             { 0x20, 0, 0, 0, 0x1000 },
-                                                             { 0x20, 0x60, 0x1060, 0xf80, 0x1f80 },
-                                                             { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 } };
+const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { //
+    // Save 0
+    { 0x500, 0x30, 0x1030, 0x80, 0x1080 },
+    // Save 1
+    { 0x500, 0x40, 0x1040, 0x580, 0x1580 },
+    // Save 2
+    { 0x500, 0x50, 0x1050, 0xa80, 0x1a80 },
+    // 3: Save Header
+    { 0x10, 0x20, 0x1020, 0x70, 0x1070 },
+    // 4: Signature (sSignatureLong)
+    { 0x20, 0, 0, 0, 0x1000 },
+    // 5: ? sub_0807CF3C, sub_0807CF1C, InitSaveData
+    { 0x20, 0x60, 0x1060, 0xf80, 0x1f80 },
+    // 6: ? unused?
+    { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 }
+};
 #endif
+
 void sub_0807CD9C(void) {
     UpdateGlobalProgress();
 }
 
-SaveResult HandleSave(u32 arg0) {
-    return sSaveHandlers[gMenu.storyPanelIndex](arg0);
+SaveResult HandleSave(u32 action) {
+    return sSaveHandlers[gMenu.storyPanelIndex](action);
 }
 
-SaveResult HandleSaveInit(u32 arg0) {
+SaveResult HandleSaveInit(u32 action) {
     gSoundPlayingInfo.volumeMasterTarget -= 8;
     if (gSoundPlayingInfo.volumeMaster <= 0) {
         gMenu.field_0xa = 8;
@@ -108,12 +118,12 @@ SaveResult HandleSaveInit(u32 arg0) {
     return SAVE_BUSY;
 }
 
-SaveResult HandleSaveInProgress(u32 arg0) {
+SaveResult HandleSaveInProgress(u32 action) {
     u32 temp;
 
     if (gMenu.field_0xa == 0) {
         InitDMA();
-        switch (arg0) {
+        switch (action) {
             case 0:
                 temp = WriteSaveFile(gSaveHeader->saveFileId, &gSave);
                 break;
@@ -122,19 +132,19 @@ SaveResult HandleSaveInProgress(u32 arg0) {
                 temp = 1;
                 break;
             case 2:
-                temp = Write_02000000(gSaveHeader);
+                temp = WriteSaveHeader(gSaveHeader);
                 break;
         }
         gMenu.field_0xa = temp;
         gMenu.storyPanelIndex = SAVE_DONE;
-        sub_08056208();
+        InitVBlankDMA();
     } else {
         gMenu.field_0xa--;
     }
     return SAVE_BUSY;
 }
 
-SaveResult HandleSaveDone(u32 arg0) {
+SaveResult HandleSaveDone(u32 action) {
     SaveResult result;
 
     result = SAVE_BUSY;
@@ -164,7 +174,7 @@ u32 InitSaveData(void) {
     eepromAddresses = GetSaveFileEEPROMAddresses(4);
     error = 0;
     if (DataCompare(eepromAddresses->address1, sSignatureLong, eepromAddresses->size) == 0) {
-        error += 1;
+        error++;
     }
     if (DataCompare(eepromAddresses->address2, sSignatureLong, eepromAddresses->size) == 0) {
         error += 2;
@@ -192,11 +202,11 @@ u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
 #endif
 }
 
-u32 Write_02000000(SaveHeader* arg0) {
+u32 WriteSaveHeader(SaveHeader* saveHeader) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
-    return DataDoubleWriteWithStatus(3, arg0);
+    return DataDoubleWriteWithStatus(3, saveHeader);
 #endif
 }
 
@@ -216,11 +226,11 @@ s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
 #endif
 }
 
-u32 Read_02000000(SaveHeader* arg0) {
+u32 ReadSaveHeader(SaveHeader* saveHeader) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
     return 0;
 #else
-    return DataDoubleReadWithStatus(3, arg0);
+    return DataDoubleReadWithStatus(3, saveHeader);
 #endif
 }
 
@@ -253,7 +263,7 @@ void SetFileStatusInit(u32 index) {
     WriteSaveFileStatus(eepromAddresses->checksum1, fileStatus);
 }
 
-u32 DataDoubleWriteWithStatus(u32 arg0, const void* data) {
+u32 DataDoubleWriteWithStatus(u32 index, const void* data) {
     SaveFileStatus fileStatus;
 
     u32 ret;
@@ -261,7 +271,7 @@ u32 DataDoubleWriteWithStatus(u32 arg0, const void* data) {
     bool32 write1success, write2success;
     u16 checksum;
 
-    eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
+    eepromAddresses = GetSaveFileEEPROMAddresses(index);
 
     fileStatus.status = 'MCZ3';
     checksum = CalculateChecksum((u16*)&fileStatus.status, 4);
@@ -284,7 +294,7 @@ u32 DataDoubleWriteWithStatus(u32 arg0, const void* data) {
     return ret;
 }
 
-u32 DataDoubleReadWithStatus(u32 param_1, void* data) {
+u32 DataDoubleReadWithStatus(u32 index, void* data) {
     vu32 set_0;
     SaveFileStatus fileStatus;
 
@@ -294,7 +304,7 @@ u32 DataDoubleReadWithStatus(u32 param_1, void* data) {
     u32 ret;
     u32 temp;
 
-    eepromAddresses = GetSaveFileEEPROMAddresses(param_1);
+    eepromAddresses = GetSaveFileEEPROMAddresses(index);
     read1status = ReadSaveFileStatus(eepromAddresses->checksum1, &fileStatus);
     if (read1status == 2) {
         if ((DataRead(eepromAddresses->address1, data, eepromAddresses->size) == 0) ||
@@ -406,8 +416,8 @@ u16 CalculateChecksum(u16* data, u32 size) {
     return checksum;
 }
 
-const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32 unk_1) {
-    return &gSaveFileEEPROMAddresses[unk_1];
+const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32 index) {
+    return &gSaveFileEEPROMAddresses[index];
 }
 
 /**

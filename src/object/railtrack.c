@@ -1,32 +1,38 @@
-#include "global.h"
+/**
+ * @file railtrack.c
+ * @ingroup Objects
+ *
+ * @brief Railtrack object
+ */
 #include "asm.h"
-#include "sound.h"
 #include "entity.h"
-#include "room.h"
 #include "flags.h"
 #include "functions.h"
+#include "global.h"
+#include "room.h"
+#include "sound.h"
 
 void sub_08085394(Entity*);
 void sub_0808543C(Entity*);
-void sub_080851AC(Entity*);
-void sub_08085264(Entity*);
-void sub_080852B4(Entity*);
-void sub_08085308(Entity*);
+void Railtrack_Init(Entity*);
+void Railtrack_Action1(Entity*);
+void Railtrack_Action2(Entity*);
+void Railtrack_Action3(Entity*);
 u32 sub_080854A8(Entity*);
 
 extern s8 gUnk_080B4488[][2];
 
 void Railtrack(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080851AC,
-        sub_08085264,
-        sub_080852B4,
-        sub_08085308,
+    static void (*const Railtrack_Actions[])(Entity*) = {
+        Railtrack_Init,
+        Railtrack_Action1,
+        Railtrack_Action2,
+        Railtrack_Action3,
     };
-    actionFuncs[this->action](this);
+    Railtrack_Actions[this->action](this);
 }
 
-void sub_080851AC(Entity* this) {
+void Railtrack_Init(Entity* this) {
     u32 uVar1;
 
     this->action = 1;
@@ -51,7 +57,7 @@ void sub_080851AC(Entity* this) {
     sub_08085394(this);
 }
 
-void sub_08085264(Entity* this) {
+void Railtrack_Action1(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->subtimer = 8;
@@ -65,7 +71,7 @@ void sub_08085264(Entity* this) {
     }
 }
 
-void sub_080852B4(Entity* this) {
+void Railtrack_Action2(Entity* this) {
     if (--this->subtimer == 0) {
         this->action = 3;
         this->subtimer = this->timer;
@@ -77,7 +83,7 @@ void sub_080852B4(Entity* this) {
     }
 }
 
-void sub_08085308(Entity* this) {
+void Railtrack_Action3(Entity* this) {
     if (sub_080854A8(this) == 0) {
         switch (this->type) {
             case 0:

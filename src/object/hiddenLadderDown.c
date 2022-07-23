@@ -1,23 +1,29 @@
-#include "global.h"
+/**
+ * @file hiddenLadderDown.c
+ * @ingroup Objects
+ *
+ * @brief Hidden Ladder Down object
+ */
 #include "asm.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
+#include "functions.h"
+#include "global.h"
 
-void sub_08091F14(Entity*);
-void sub_08092000(Entity*);
+void HiddenLadderDown_Init(Entity*);
+void HiddenLadderDown_Action1(Entity*);
 
 void HiddenLadderDown(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08091F14,
-        sub_08092000,
+    static void (*const HiddenLadderDown_Actions[])(Entity*) = {
+        HiddenLadderDown_Init,
+        HiddenLadderDown_Action1,
     };
     if (this->action < 2) {
-        actionFuncs[this->action](this);
+        HiddenLadderDown_Actions[this->action](this);
     }
 }
 
-void sub_08091F14(Entity* this) {
+void HiddenLadderDown_Init(Entity* this) {
     u16* puVar3;
 
     this->action = 1;
@@ -40,7 +46,7 @@ void sub_08091F14(Entity* this) {
     }
 }
 
-void sub_08092000(Entity* this) {
+void HiddenLadderDown_Action1(Entity* this) {
     if (GetTileType(*(u16*)&this->field_0x70.HALF.LO, this->collisionLayer) == 0x1a6) {
         this->action = 2;
         this->spriteSettings.draw = TRUE;

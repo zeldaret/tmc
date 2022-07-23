@@ -7,7 +7,7 @@ SCRIPT_START script_GoronPunching
 	Call sub_080694B0
 	EndBlock
 script_0800B9CA:
-	Call sub_0807F434
+	Call CheckInteractType
 	JumpTable script_0800B9CA, script_0800B9D8, script_0800B9F4
 script_0800B9D8:
 	SetPlayerIdle
@@ -29,7 +29,7 @@ script_0800B9F4:
 	JumpIf script_0800BA24
 	WaitUntilTextboxCloses
 	Call sub_080694EC
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800B9CA
 script_0800BA24:
@@ -37,6 +37,6 @@ script_0800BA24:
 	_0807E9DC
 	_0807E9D4
 	Call sub_080694EC
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800B9CA

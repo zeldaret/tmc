@@ -27,6 +27,6 @@ script_08014938:
 	WaitForSyncFlagAndClear 0x00000008
 	Call sub_0806E1FC
 	Wait 0x001e
-	Call sub_0807DF50
+	Call EnablePauseMenu
 SCRIPT_END
 	.2byte 0x0000

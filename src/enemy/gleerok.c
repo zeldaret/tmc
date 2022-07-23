@@ -537,7 +537,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             super->timer = 0;
 
             do {
-                CreateObjectWithParent(super, OBJECT_67, 0, super->timer);
+                CreateObjectWithParent(super, GLEEROK_PARTICLE, 0, super->timer);
             } while (++super->timer < 8);
 
             SoundReq(SFX_150);
@@ -1021,7 +1021,7 @@ void sub_0802E1D0(GleerokEntity* this) {
                             InitScreenShake(240, 0);
                         } else {
                             for (this->unk_7c.HALF_U.LO = 0; this->unk_7c.HALF_U.LO < 4; this->unk_7c.HALF_U.LO++) {
-                                CreateObjectWithParent(super, OBJECT_67, 1, this->unk_7c.HALF_U.LO);
+                                CreateObjectWithParent(super, GLEEROK_PARTICLE, 1, this->unk_7c.HALF_U.LO);
                             }
                             this->unk_74 = 0;
                             this->unk_75 = 0x10;

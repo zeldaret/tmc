@@ -1,7 +1,13 @@
+/**
+ * @file macroDecoration.c
+ * @ingroup Objects
+ *
+ * @brief Macro Decoration object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "entity.h"
 #include "room.h"
-#include "asm.h"
 
 typedef struct {
     Entity base;
@@ -9,22 +15,22 @@ typedef struct {
     s16 y2;
 } MacroDecorationEntity;
 
-void sub_08097DEC(MacroDecorationEntity*);
-void sub_08097EA4(MacroDecorationEntity*);
+void MacroDecoration_Init(MacroDecorationEntity*);
+void MacroDecoration_Action1(MacroDecorationEntity*);
 void sub_08097EB8(MacroDecorationEntity*);
 void sub_08097F34(MacroDecorationEntity*);
 void sub_08097F10(MacroDecorationEntity*);
 s32 sub_08097F60(MacroDecorationEntity*, s32);
 
 void MacroDecoration(Entity* this) {
-    static void (*const actionFuncs[])(MacroDecorationEntity*) = {
-        sub_08097DEC,
-        sub_08097EA4,
+    static void (*const MacroDecoration_Actions[])(MacroDecorationEntity*) = {
+        MacroDecoration_Init,
+        MacroDecoration_Action1,
     };
-    actionFuncs[this->action]((MacroDecorationEntity*)this);
+    MacroDecoration_Actions[this->action]((MacroDecorationEntity*)this);
 }
 
-void sub_08097DEC(MacroDecorationEntity* this) {
+void MacroDecoration_Init(MacroDecorationEntity* this) {
     u32 bVar1;
     u32 uVar2;
 
@@ -68,7 +74,7 @@ void sub_08097DEC(MacroDecorationEntity* this) {
     sub_08097F34(this);
 }
 
-void sub_08097EA4(MacroDecorationEntity* this) {
+void MacroDecoration_Action1(MacroDecorationEntity* this) {
     if (super->type) {
         sub_08097F10(this);
     }

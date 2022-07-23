@@ -175,7 +175,7 @@ void sub_08067904(Entity* this) {
         return;
     }
 
-    this->field_0x70.HALF.HI -= 1;
+    this->field_0x70.HALF.HI--;
     if (this->field_0x70.HALF.HI == 0) {
         sub_08067B70(this);
         return;
@@ -405,7 +405,7 @@ u32 sub_08067D20(Entity* this) {
     Entity* entity;
     int iVar4;
     if (this->field_0x74.HALF.HI != 0) {
-        this->field_0x74.HALF.HI -= 1;
+        this->field_0x74.HALF.HI--;
     } else {
         entity = sub_08049DF4(2);
         if (entity != NULL) {
@@ -425,7 +425,7 @@ u32 sub_08067D74(Entity* this) {
 
     if (this->type != 5) {
         if (this->timer != 0) {
-            this->timer -= 1;
+            this->timer--;
         }
         entity = sub_08049DF4(2);
         if (entity != NULL) {
@@ -454,7 +454,7 @@ void sub_08067DDC(Entity* this) {
 
 void Cat_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 5);
     } else {

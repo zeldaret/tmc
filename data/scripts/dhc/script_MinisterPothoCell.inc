@@ -8,8 +8,8 @@ SCRIPT_START script_MinisterPothoCell
 script_0800E41A:
 	CheckEntityInteractType
 	JumpIfNot script_0800E41A
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x06
 	WaitUntilTextboxCloses
 	Wait 0x000f

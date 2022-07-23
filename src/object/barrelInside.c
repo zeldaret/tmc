@@ -1,3 +1,9 @@
+/**
+ * @file barrelInside.c
+ * @ingroup Objects
+ *
+ * @brief Barrel Inside object
+ */
 #include "entity.h"
 
 const u8 gUnk_08120C80[];

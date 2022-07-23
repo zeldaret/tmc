@@ -23,9 +23,9 @@ script_080093DA:
 	JumpIf script_080093EE
 	SetIntVariable 0x00001d04
 script_080093EE:
-	MessageNoOverlapVar 
+	MessageNoOverlapVar
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_08009376
 	Wait 0x001e
 	MessageNoOverlap TEXT_GORONS, 0x08
@@ -39,7 +39,7 @@ script_080093EE:
 	SetLocalFlag DAIGORON_EXCHG
 	SetLocalFlag DAIGORON_SHIELD
 	Call sub_0806D5D4
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageNoOverlap TEXT_GORONS, 0x09
 	WaitUntilTextboxCloses
 	Wait 0x000a

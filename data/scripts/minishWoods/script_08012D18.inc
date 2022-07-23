@@ -1,4 +1,4 @@
-@ Minish Woods OBJECT_69 2?
+@ Minish Woods CUTSCENE_ORCHESTRATOR 2?
 SCRIPT_START script_08012D18
 	EndBlock
 	BeginBlock
@@ -11,12 +11,12 @@ SCRIPT_START script_08012D18
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_FINDING_EZLO, 0x1a
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerCannotEnter
 	WaitForSyncFlagAndClear 0x00000001
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_08012D18
 script_08012D68:

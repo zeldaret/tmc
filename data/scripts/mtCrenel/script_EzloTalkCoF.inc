@@ -1,11 +1,11 @@
 @ Mountain Ezlo text after beating CoF
 SCRIPT_START script_EzloTalkCoF
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_ELEMENTS_DONE, 0x02
 	WaitUntilTextboxCloses
 	SetLocalFlagByBank FLAG_BANK_1, 0x0002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

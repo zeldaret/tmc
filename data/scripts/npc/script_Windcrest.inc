@@ -10,7 +10,7 @@ script_0800B024:
 	CheckEntityInteractType
 	JumpIfNot script_0800B024
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	CheckGlobalFlag WARP_1ST
 	JumpIf script_0800B082
 	CheckGlobalFlag WARP_MONUMENT
@@ -42,7 +42,7 @@ script_0800B082:
 	EzloMessage TEXT_EZLO, 0x5e
 	WaitUntilTextboxCloses
 script_0800B09C:
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -1628,7 +1628,7 @@ static void sub_08071E04(Entity* this) {
     if (sub_0807953C())
         this->timer -= 2;
     else
-        this->timer -= 1;
+        this->timer--;
 
     if ((s8)this->timer < 1)
         SetPlayerActionNormal();
@@ -1884,7 +1884,7 @@ static void PlayerLavaInit(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         this->subAction = 1;
         this->zVelocity = Q_16_16(2.5);
-        ent = CreateObject(OBJECT_42, 0x80, 0);
+        ent = CreateObject(LINK_FIRE, 0x80, 0);
         if (ent != NULL) {
             ent->child = this;
         }
@@ -2712,7 +2712,7 @@ static void sub_08073468(Entity* this) {
     this->direction = Direction8FromAnimationState(this->animationState);
     if ((gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.flags |= PL_PARACHUTE;
-        CreateObjectWithParent(this, OBJECT_61, 0, 0);
+        CreateObjectWithParent(this, EZLO_CAP_FLYING, 0, 0);
     }
     ResetPlayerItem();
     if (this->zVelocity > 0 || gPlayerState.field_0x38 == 1)
@@ -2749,7 +2749,7 @@ static void sub_08073504(Entity* this) {
 static void sub_08073584(Entity* this) {
     u32 state, dir, idx;
 
-    if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
+    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
@@ -3375,7 +3375,7 @@ void SurfaceAction_6(Entity* this) {
 
 void SurfaceAction_7(Entity* this) {
     if (!sub_080741C4() && (gPlayerState.flags & PL_MINISH) == 0 && gPlayerState.field_0x11 == 15) {
-        CreateObjectWithParent(this, OBJECT_E, 0, 0);
+        CreateObjectWithParent(this, CRACKING_GROUND, 0, 0);
     }
 }
 
@@ -3519,7 +3519,7 @@ void SurfaceAction_ShallowWater(Entity* this) {
                 this->spritePriority.b0 = 4;
                 gPlayerState.swim_state = 0;
             }
-            if ((gPlayerState.field_0x92 & 0xF00) || gPlayerState.field_0x11 == 1)
+            if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) || gPlayerState.field_0x11 == 1)
                 SoundReq(SFX_WATER_WALK);
         }
     }
@@ -3562,7 +3562,7 @@ void SurfaceAction_Swamp(Entity* this) {
                 CreateObjectWithParent(this, OBJECT_70, 0, 0);
                 CreateFx(this, FX_GREEN_SPLASH, 0);
                 SoundReq(SFX_161);
-            } else if ((gPlayerState.field_0x92 & 0xf00) != 0) {
+            } else if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) != 0) {
                 SoundReq(SFX_161);
             } else if ((gRoomTransition.frameCount & 0xf) == 0) {
                 SoundReq(SFX_161);
@@ -3717,11 +3717,11 @@ void SurfaceAction_22(Entity* this) {
 void SurfaceAction_Dust(Entity* this) {
     if (!sub_080741C4()) {
         gPlayerState.speed_modifier -= 128;
-        if (gPlayerState.field_0x11 == 1 || (gPlayerState.field_0x92 & 0xF00) != 0) {
+        if (gPlayerState.field_0x11 == 1 || (gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) != 0) {
             if (gPlayerState.floor_type == SURFACE_DUST)
-                CreateObjectWithParent(this, OBJECT_21, 1, 0);
+                CreateObjectWithParent(this, DIRT_PARTICLE, 1, 0);
             else
-                CreateObjectWithParent(this, OBJECT_21, 1, 1);
+                CreateObjectWithParent(this, DIRT_PARTICLE, 1, 1);
         }
     }
 }
@@ -4081,7 +4081,7 @@ void sub_080751E8(u32 a1, u32 a2, void* script) {
         gPlayerState.field_0x39 = 1;
         script = &script_BedAtSimons;
     }
-    e = CreateObject(OBJECT_5B, !gPlayerState.field_0x39 ? 2 : 0, 0);
+    e = CreateObject(BED_COVER, !gPlayerState.field_0x39 ? 2 : 0, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         StartCutscene(e, script);

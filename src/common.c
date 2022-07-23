@@ -291,7 +291,6 @@ void LoadGfxGroup(u32 group) {
     }
 }
 
-// regalloc
 void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
     u32 v6;
     u32 i;
@@ -303,7 +302,8 @@ void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
 
     size &= (short)~0x8000;
     do {
-        DmaSet(3, src, dest, word | 0x80000000) src += word * 2;
+        DmaCopy16(3, src, dest, word * 2);
+        src += word * 2;
         dest += v6 * 2;
     } while (--size);
 }
@@ -344,8 +344,8 @@ void DispReset(bool32 refresh) {
     gMain.interruptFlag = 1;
     gUnk_03003DE0 = 0;
     gFadeControl.active = 0;
-    gScreen._6d = 0;
-    gScreen._6c = 0;
+    gScreen.vBlankDMA.readyBackup = FALSE;
+    gScreen.vBlankDMA.ready = FALSE;
     DmaStop(0);
     REG_DISPCNT = 0;
     ClearOAM();
@@ -516,7 +516,7 @@ void sub_0801E0E0(u32 textIndex) {
 
 void sub_0801E104(void) {
     gScreen.lcd.displayControl &= ~0x6000;
-    gScreen._6c = 0;
+    gScreen.vBlankDMA.ready = FALSE;
 }
 
 void sub_0801E120(void) {
@@ -534,7 +534,9 @@ void sub_0801E154(u32 a1) {
 void sub_0801E160(u32 a1, u32 a2, u32 a3) {
     MemClear(&gUnk_02017AA0[gUnk_03003DE4[0]], sizeof(gUnk_02017AA0[gUnk_03003DE4[0]]));
     sub_0801E290(a1, a2, a3);
-    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0]], 0x4000040, 0xA2600001);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0]], (u16*)REG_ADDR_WIN0H,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
 }
 
 void sub_0801E1B8(u32 a1, u32 a2) {
@@ -549,7 +551,9 @@ void sub_0801E1EC(u32 a1, u32 a2, u32 a3) {
     MemClear(&gUnk_02017AA0[gUnk_03003DE4[0]], sizeof(gUnk_02017AA0[gUnk_03003DE4[0]]));
     sub_0801E24C(a3, 0);
     sub_0801E290(a1, a2, a3);
-    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0]], 0x4000040, 0xA2600001);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0]], (u16*)REG_ADDR_WIN0H,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
 }
 
 ASM_FUNC("asm/non_matching/common/sub_0801E24C.inc", void sub_0801E24C(u32 a1, u32 a2));

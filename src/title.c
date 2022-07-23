@@ -369,7 +369,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
 #else
                 gIntroState.timer = 90;
 #endif
-                pEVar2 = CreateObject(OBJECT_B4, 0, 0);
+                pEVar2 = CreateObject(JAPANESE_SUBTITLE, 0, 0);
                 if (pEVar2 != NULL) {
                     pEVar2->x.HALF.HI = 0;
                     pEVar2->y.HALF.HI = DISPLAY_HEIGHT / 2 - 8;
@@ -415,7 +415,7 @@ static void HandleTitlescreenAnimationIntro(void) {
                 gIntroState.timer = 300;
 #endif
                 gIntroState.subState++;
-                CreateObject(OBJECT_BD, 0, 0);
+                CreateObject(TITLE_SCREEN_OBJECT, 0, 0);
                 SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 16);
                 SoundReq(SFX_F8);
             }

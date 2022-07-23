@@ -59,7 +59,7 @@ void sub_08054AC8(Entity* this) {
     if (IsItemEquipped(ITEM_LANTERN_ON) < 2) {
         if (((this->frameIndex != 0xff) && (gPlayerEntity.spriteSettings.draw != 0)) && (this->timer-- == 0)) {
             this->timer = 4;
-            object = CreateObject(OBJECT_45, 0, 0x10);
+            object = CreateObject(LAMP_PARTICLE, 0, 0x10);
             if (object != NULL) {
                 PositionRelative(this, object, 0, Q_16_16(2.0));
                 object->spritePriority.b0 = this->spritePriority.b0;

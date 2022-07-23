@@ -1,3 +1,9 @@
+/**
+ * @file floatingBlock.c
+ * @ingroup Objects
+ *
+ * @brief Floating Block object
+ */
 #include "object.h"
 
 void FloatingBlock(Entity* this) {

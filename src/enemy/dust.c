@@ -277,7 +277,7 @@ void sub_08044498(DustEntity* this) {
     u32 xdiff, ydiff;
 
     uVar4 = COORD_TO_TILE(&gPlayerEntity);
-    tmp = (gPlayerState.field_0x92 & 0xf00);
+    tmp = (gPlayerState.playerInput.field_0x92 & 0xf00);
     if (tmp != this->unk_75 || uVar4 != this->unk_76) {
         this->unk_75 = tmp;
         this->unk_76 = uVar4;
@@ -320,7 +320,7 @@ void sub_08044550(DustEntity* this) {
 void sub_080445C0(DustEntity* this) {
     Entity* pEVar1;
 
-    pEVar1 = CreateObject(OBJECT_21, 1, 1);
+    pEVar1 = CreateObject(DIRT_PARTICLE, 1, 1);
     if (pEVar1 != NULL) {
         CopyPosition(super, pEVar1);
     }

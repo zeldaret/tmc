@@ -14,5 +14,5 @@ script_08011A44:
 	CallWithArg sub_0807F3D8, 0x00000000
 	MessageFromTarget TEXT_VAATI, 0x20
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08011A44

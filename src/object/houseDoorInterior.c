@@ -1,9 +1,15 @@
+/**
+ * @file houseDoorInterior.c
+ * @ingroup Objects
+ *
+ * @brief House Door Interior object
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
-#include "sound.h"
 #include "functions.h"
 #include "npc.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;
@@ -86,7 +92,7 @@ void HouseDoorInterior_Action1(HouseDoorInteriorEntity* this) {
     if (sub_0800445C(super) && this->unk7d == 0) {
         ptr = gUnk_081227CC + super->type2;
         if (GetAnimationStateInRectRadius(super, ptr->x, ptr->y) >= 0 &&
-            ptr->animationState == gPlayerEntity.animationState && gPlayerState.field_0x90 & ptr->unk2) {
+            ptr->animationState == gPlayerEntity.animationState && gPlayerState.playerInput.field_0x90 & ptr->unk2) {
             --super->timer;
         }
     } else {

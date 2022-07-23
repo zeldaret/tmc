@@ -1,10 +1,16 @@
-#include "global.h"
+/**
+ * @file deathFx.c
+ * @ingroup Objects
+ *
+ * @brief Death Fx object
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "sound.h"
-#include "functions.h"
-#include "object/deathFx.h"
 #include "enemy.h"
+#include "entity.h"
+#include "functions.h"
+#include "global.h"
+#include "object/deathFx.h"
+#include "sound.h"
 
 void sub_08081790(DeathFxObject* this);
 void DeathFx_Delete(DeathFxObject* this);

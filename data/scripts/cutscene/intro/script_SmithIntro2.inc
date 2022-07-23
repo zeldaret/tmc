@@ -12,7 +12,7 @@ SCRIPT_START script_SmithIntro2
 	Wait 0x000a
 	SetPlayerIdle
 	StartPlayerScript script_PlayerMoveToSmith
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	WaitForSyncFlagAndClear 0x00000008
 	_0807EDD4 0x0080, 0x005c
 	SetAnimationState 0x0006
@@ -20,7 +20,7 @@ SCRIPT_START script_SmithIntro2
 	Wait 0x000f
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos TEXT_PROLOGUE, 0x09, 0x0000
-	_0807E8E4_1 
+	_0807E8E4_1
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
@@ -57,10 +57,10 @@ script_08009C4C:
 script_08009C50:
 	CheckEntityInteractType
 	JumpIfNot script_08009C50
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_PROLOGUE, 0x0e
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08009C50
 SCRIPT_END
 	.2byte 0x0000

@@ -1,6 +1,12 @@
+/**
+ * @file octorokBossObject.c
+ * @ingroup Objects
+ *
+ * @brief Octorok Boss Object object
+ */
 #include "functions.h"
-#include "object.h"
 #include "game.h"
+#include "object.h"
 
 extern void (*const OctorokBossObject_Actions[])(Entity*);
 extern const u16 gUnk_0812384C[];
@@ -242,7 +248,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 SetAffineInfo(this, (u32)this->field_0x76.HWORD, (u32)(u16)this->field_0x74.HWORD,
                               (u32)(u16)this->field_0x7a.HWORD);
             } else {
-                *(int*)&this->field_0x78 -= 1;
+                (*(int*)&this->field_0x78)--;
             }
             CopyPosition(this->parent, this);
             LinearMoveAngle(this, (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],

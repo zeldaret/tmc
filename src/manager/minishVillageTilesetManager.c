@@ -185,7 +185,7 @@ void sub_08057E7C(u32 unk1) {
     LoadPaletteGroup(gUnk_081081E4[unk1]);
     tmp2 = &gUnk_081080A4[unk1 << 4];
     for (tmp = 0; tmp < 8; tmp++, tmp2 += 2) {
-        DmaSet(3, &gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x84000400);
+        DmaCopy32(3, &gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x400 * 4);
     }
     gRoomVars.unk_10[0] = unk1;
 }

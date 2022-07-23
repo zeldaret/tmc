@@ -235,7 +235,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
 
         if (this->tileIndex != 0x4022) {
-            stop += 1;
+            stop++;
         } else {
             switch (DirectionRound(super->direction) >> 2) {
                 case 0:

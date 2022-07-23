@@ -1,8 +1,14 @@
+/**
+ * @file pressurePlate.c
+ * @ingroup Objects
+ *
+ * @brief Pressure Plate object
+ */
 #define NENT_DEPRECATED
-#include "object.h"
+#include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
-#include "collision.h"
+#include "object.h"
 
 typedef struct {
     Entity base;
@@ -18,9 +24,9 @@ typedef struct {
 
 typedef void(PressurePlateAction)(PressurePlateEntity*);
 
-PressurePlateAction sub_08088840;
-PressurePlateAction sub_0808886C;
-PressurePlateAction sub_080888F4;
+PressurePlateAction PressurePlate_Init;
+PressurePlateAction PressurePlate_Action1;
+PressurePlateAction PressurePlate_Action2;
 
 static u32 sub_08088938(PressurePlateEntity*);
 static u32 get_standing_count(PressurePlateEntity*);
@@ -28,10 +34,10 @@ static u32 get_standing_count(PressurePlateEntity*);
 static const u8 sSpriteOffsets[];
 
 void PressurePlate(PressurePlateEntity* this) {
-    static PressurePlateAction* const sActions[] = {
-        sub_08088840,
-        sub_0808886C,
-        sub_080888F4,
+    static PressurePlateAction* const PressurePlate_Actions[] = {
+        PressurePlate_Init,
+        PressurePlate_Action1,
+        PressurePlate_Action2,
     };
 
     if (super->subtimer) {
@@ -41,10 +47,10 @@ void PressurePlate(PressurePlateEntity* this) {
         }
     }
 
-    sActions[super->action](this);
+    PressurePlate_Actions[super->action](this);
 }
 
-void sub_08088840(PressurePlateEntity* this) {
+void PressurePlate_Init(PressurePlateEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = 1;
     super->spritePriority.b0 = 7;
@@ -52,7 +58,7 @@ void sub_08088840(PressurePlateEntity* this) {
     this->dir = super->animationState;
 }
 
-void sub_0808886C(PressurePlateEntity* this) {
+void PressurePlate_Action1(PressurePlateEntity* this) {
     u8 weight;
 
     weight = sub_08088938(this) + get_standing_count(this);
@@ -80,7 +86,7 @@ void sub_0808886C(PressurePlateEntity* this) {
     }
 }
 
-void sub_080888F4(PressurePlateEntity* this) {
+void PressurePlate_Action2(PressurePlateEntity* this) {
     u8 weight;
 
     if (this->canToggle) {

@@ -17,7 +17,7 @@ script_08009F36:
 	JumpIfNot script_08009F36
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	DoPostScriptAction 0x000b
 	StartPlayerScript script_PlayerAtBombMinish
 	WaitForSyncFlagAndClear 0x00000002
@@ -28,7 +28,7 @@ script_08009F36:
 	GivePlayerItem ITEM_BOMBBAG
 	WaitPlayerGetItem
 	DoPostScriptAction 0x000a
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_08009F84:
 	EndBlock
@@ -63,11 +63,11 @@ script_08009FDC:
 	Call sub_08060158
 	CheckEntityInteractType
 	JumpIfNot script_08009FDC
-	EndBlock 
-	SetPlayerIdle 
+	EndBlock
+	SetPlayerIdle
 	MessageNoOverlap TEXT_BELARI, 0x0e
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_0800A002
 	EnablePlayerControl
 	Jump script_08009FDC
@@ -77,7 +77,7 @@ script_0800A002:
 	Call sub_08060318
 	WaitPlayerGetItem
 	Wait 0x0008
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageFromTarget TEXT_BELARI, 0x13
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x00b0
@@ -94,14 +94,14 @@ script_0800A024:
 	JumpIf script_0800A052
 	MessageNoOverlap TEXT_BELARI, 0x14
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_0800A002
 	EnablePlayerControl
 	Jump script_0800A024
 script_0800A052:
 	MessageNoOverlap TEXT_BELARI, 0x11
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_0800A064
 	EnablePlayerControl
 	Jump script_0800A024
@@ -111,9 +111,9 @@ script_0800A064:
 	Call sub_08060318
 	WaitPlayerGetItem
 	Wait 0x0008
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageFromTarget TEXT_BELARI, 0x10
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800A024
 	.2byte 0x0000

@@ -6,11 +6,11 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
 #include "game.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -169,7 +169,7 @@ void sub_0808ACEC(PullableMushroomEntity* this) {
 
 void sub_0808ADA0(PullableMushroomEntity* this) {
     if ((sub_0808B1F0(this, super->child) < 8) || (super->child == NULL)) {
-        super->subAction += 1;
+        super->subAction++;
         super->timer = 2;
         super->flags |= ENT_COLLIDE;
         super->animationState ^= 2;
@@ -222,7 +222,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
     u32 uVar1;
     if (super->timer != 0) {
         uVar1 = sub_0808B1F0(this, super->child);
-        if ((gPlayerState.field_0x90 & gUnk_081211E4[super->animationState]) != 0) {
+        if ((gPlayerState.playerInput.field_0x90 & gUnk_081211E4[super->animationState]) != 0) {
             GetNextFrame(super);
             if (uVar1 < 0x40) {
                 sub_080044AE(&gPlayerEntity, 0x40, super->direction);

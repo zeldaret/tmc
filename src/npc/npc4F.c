@@ -2,7 +2,7 @@
 
 void NPC4F(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         InitAnimationForceUpdate(this, this->type);
     }
     UpdateAnimationSingleFrame(this);

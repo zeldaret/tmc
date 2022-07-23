@@ -229,7 +229,7 @@ void sub_08065F20(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
         MessageFromTarget(0);
-        this->animIndex += 1;
+        this->animIndex++;
         if (gSpriteAnimations_GhostBrothers[this->animIndex] == 0) {
             this->animIndex = 0;
         }
@@ -285,7 +285,7 @@ void sub_08065F64(Entity* this) {
 
 void GhostBrothers_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {

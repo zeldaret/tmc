@@ -534,7 +534,7 @@ u32 sub_08061230(Entity* this) {
     }
     this->contactFlags = this->contactFlags & 0x7f;
     if (this->iframes != 0) {
-        this->iframes += 1;
+        this->iframes++;
     }
     return 0;
 }
@@ -557,7 +557,7 @@ void sub_08061358(Entity* this) {
             sub_08060E70(this, 0);
             break;
         case 1:
-            this->timer -= 1;
+            this->timer--;
             if (this->timer != 0) {
                 return;
             }

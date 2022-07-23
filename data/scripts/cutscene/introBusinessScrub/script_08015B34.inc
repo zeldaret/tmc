@@ -1,4 +1,4 @@
-@ Intro Outside Castle OBJECT_69 2?
+@ Intro Outside Castle CUTSCENE_ORCHESTRATOR 2?
 SCRIPT_START script_08015B34
 	EndBlock
 	BeginBlock
@@ -10,12 +10,12 @@ SCRIPT_START script_08015B34
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	MessageFromTargetPos TEXT_FESTIVAL, 0x06, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtIntroBusinessScrub4
 	WaitForSyncFlagAndClear 0x00000004
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_08015B34
 script_08015B7E:

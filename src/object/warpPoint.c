@@ -1,37 +1,43 @@
-#include "global.h"
-#include "object.h"
-#include "game.h"
+/**
+ * @file warpPoint.c
+ * @ingroup Objects
+ *
+ * @brief Warp Point object
+ */
 #include "functions.h"
+#include "game.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
 
 extern void sub_0807CAC8(u32);
 extern u32 sub_0807CAEC(u32);
 
-void sub_0808B474(Entity*);
-void sub_0808B530(Entity*);
-void sub_0808B564(Entity*);
-void sub_0808B590(Entity*);
-void sub_0808B5E8(Entity*);
-void sub_0808B684(Entity*);
+void WarpPoint_Init(Entity*);
+void WarpPoint_Action1(Entity*);
+void WarpPoint_Action2(Entity*);
+void WarpPoint_Action3(Entity*);
+void WarpPoint_Action4(Entity*);
+void WarpPoint_Action5(Entity*);
 void sub_0808B73C(Entity*);
 u32 sub_0808B7C8(Entity*);
 void sub_0808B830(Entity*);
 
-void (*const gUnk_08121368[])(Entity*) = {
-    sub_0808B474, sub_0808B530, sub_0808B564, sub_0808B590, sub_0808B5E8, sub_0808B684,
+void (*const WarpPoint_Actions[])(Entity*) = {
+    WarpPoint_Init, WarpPoint_Action1, WarpPoint_Action2, WarpPoint_Action3, WarpPoint_Action4, WarpPoint_Action5,
 };
 
 const u8 gUnk_08121380[3] = { 1, 0, 2 };
 
 void WarpPoint(Entity* this) {
     if (!this->field_0x70.BYTES.byte0) {
-        gUnk_08121368[this->action](this);
+        WarpPoint_Actions[this->action](this);
     } else {
         sub_0808B73C(this);
     }
 }
 
-void sub_0808B474(Entity* this) {
+void WarpPoint_Init(Entity* this) {
     u32 tmp;
     this->action = 1;
     this->subtimer = 0;
@@ -59,7 +65,7 @@ void sub_0808B474(Entity* this) {
     RequestPriorityDuration(this, this->subtimer + 16);
 }
 
-void sub_0808B530(Entity* this) {
+void WarpPoint_Action1(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
         if (AreaIsDungeon()) {
@@ -71,7 +77,7 @@ void sub_0808B530(Entity* this) {
     }
 }
 
-void sub_0808B564(Entity* this) {
+void WarpPoint_Action2(Entity* this) {
     if (!--this->subtimer) {
         this->action = 3;
     } else {
@@ -79,7 +85,7 @@ void sub_0808B564(Entity* this) {
     }
 }
 
-void sub_0808B590(Entity* this) {
+void WarpPoint_Action3(Entity* this) {
     GetNextFrame(this);
     if (sub_0808B7C8(this)) {
         if (this->timer)
@@ -98,7 +104,7 @@ void sub_0808B590(Entity* this) {
     }
 }
 
-void sub_0808B5E8(Entity* this) {
+void WarpPoint_Action4(Entity* this) {
     u32 tmp;
     if (!--this->subtimer) {
         this->action = 3;
@@ -140,7 +146,7 @@ void sub_0808B5E8(Entity* this) {
     }
 }
 
-void sub_0808B684(Entity* this) {
+void WarpPoint_Action5(Entity* this) {
     u32 tmp;
     if (!--this->subtimer) {
         gRoomTransition.transitioningOut = 1;

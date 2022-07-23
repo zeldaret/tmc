@@ -6,9 +6,9 @@
  */
 
 #define NENT_DEPRECATED
+#include "functions.h"
 #include "global.h"
 #include "object.h"
-#include "functions.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -311,7 +311,7 @@ void KeyStealingTakkuri_Type3_Action1(KeyStealingTakkuriEntity* this) {
             SoundReq(SFX_123);
             child = super->child;
             if (child != NULL) {
-                Entity* obj = CreateObject(OBJECT_96, super->type2 + 2, 0);
+                Entity* obj = CreateObject(GRAVEYARD_KEY, super->type2 + 2, 0);
                 if (obj != NULL) {
                     CopyPosition(child, obj);
                 }

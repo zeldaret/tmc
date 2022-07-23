@@ -14,7 +14,7 @@ void Cucco(Entity* this) {
 }
 
 void Cucco_Init(Entity* this) {
-    this->action += 1;
+    this->action++;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_080787A8(this, this->field_0x68.HALF.LO);
     SetDefaultPriority(this, PRIO_MESSAGE);
@@ -24,7 +24,7 @@ void Cucco_Init(Entity* this) {
 
 void sub_0806E4EC(Entity* this) {
     if (this->subAction == 0) {
-        this->subAction += 1;
+        this->subAction++;
         this->timer = (Random() & 0x1f) + 60;
         InitAnimationForceUpdate(this, 0);
     }
@@ -122,7 +122,7 @@ void Cucco_ShowMessage(Entity* this) {
 
 void Cucco_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 1);
     } else {

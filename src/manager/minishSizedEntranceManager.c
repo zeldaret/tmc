@@ -47,7 +47,7 @@ void MinishSizedEntranceManager_Main(MinishSizedEntranceManager* this) {
         } else {
             this->field_0x20 &= ~(1 << count);
         }
-        spawnData += 1;
+        spawnData++;
     }
 }
 

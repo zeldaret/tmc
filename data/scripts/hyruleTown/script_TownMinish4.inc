@@ -15,7 +15,7 @@ script_0800ED98:
 script_0800EDB6:
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	CheckLocalFlag 0x00ae
 	JumpIf script_0800EE3E
 	Wait 0x000a
@@ -31,7 +31,7 @@ script_0800EDB6:
 	SetIntVariable 0x00000503
 	Call LoadMenu
 	SetSyncFlag 0x00000040
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetLocalFlag 0x00ae
 	Jump script_0800ED98
@@ -47,6 +47,6 @@ script_0800EE12:
 script_0800EE3E:
 	MessageFromTarget TEXT_HAGEN, 0x16
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800ED98

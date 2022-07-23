@@ -58,7 +58,7 @@ void Pesto_OnCollision(Entity* this) {
                         this->z.HALF.HI = -0x10;
                         this->field_0x82.HALF.LO = 0;
                         this->field_0x78.HWORD = -0x10;
-                        this->field_0x80.HALF.LO += 1;
+                        this->field_0x80.HALF.LO++;
                         /* fallthrough */
                     case 2:
                         this->field_0x82.HALF.HI &= ~0x80;
@@ -337,8 +337,8 @@ void sub_080244E8(Entity* this) {
         case 0:
             if (--this->timer == 0) {
                 if (sub_080B1B44(COORD_TO_TILE(this), 1) == 0) {
-                    this->field_0x80.HALF.LO += 1;
-                    this->field_0x82.HALF.LO += 1;
+                    this->field_0x80.HALF.LO++;
+                    this->field_0x82.HALF.LO++;
                     this->subtimer = 0;
                     this->speed = 0;
                 } else {
@@ -426,7 +426,7 @@ void sub_080244E8(Entity* this) {
                         if (EntityInRectRadius(this, this->child, 6, 6)) {
                             Entity* ent;
 
-                            this->field_0x80.HALF.LO += 1;
+                            this->field_0x80.HALF.LO++;
                             this->timer = 12;
                             this->field_0x82.HALF.HI &= ~0x80;
                             ent = this->child;
@@ -480,7 +480,7 @@ void sub_080244E8(Entity* this) {
                         }
                         break;
                     case 1 ... 2:
-                        this->field_0x80.HALF.LO += 1;
+                        this->field_0x80.HALF.LO++;
                         this->timer = 192;
                         this->subtimer = 8;
                         this->speed = 0x80;

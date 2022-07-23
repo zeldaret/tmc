@@ -22,7 +22,7 @@ script_08012298:
 	Call sub_08061FD8
 	MessageFromTarget TEXT_PERCY, 0x02
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	SetGlobalFlag DASHBOOTS
 	Jump script_08012284
 script_080122BA:
@@ -41,7 +41,7 @@ script_080122CE:
 	Call sub_08061FD8
 	MessageFromTarget TEXT_PERCY, 0x03
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_080122BA
 script_080122EC:
 	EndBlock

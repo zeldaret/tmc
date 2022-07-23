@@ -1,3 +1,9 @@
+/**
+ * @file objectA7.c
+ * @ingroup Objects
+ *
+ * @brief Object A7 object
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
 

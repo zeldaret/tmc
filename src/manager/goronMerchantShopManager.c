@@ -72,8 +72,8 @@ void GoronMerchantShopManager_Main(GoronMerchantShopManager* this) {
                     this->itemActive[count] = 1;
                 }
             }
-            count += 1;
-            spawnData += 1;
+            count++;
+            spawnData++;
         }
     }
     for (count = 0; count < 3; ++count) {

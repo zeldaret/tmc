@@ -1,17 +1,30 @@
-#include "object.h"
+/**
+ * @file rupee.c
+ * @ingroup Objects
+ *
+ * @brief Rupee object
+ */
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
 
 void sub_08086A6C(Entity*);
-
-void (*const gUnk_081206C4[])(Entity*);
+void Rupee_Init(Entity*);
+void Rupee_Action_1(Entity*);
+void Rupee_Action_2(Entity*);
 
 // Main
 void Rupee(Entity* ent) {
-    gUnk_081206C4[ent->action](ent);
+    static void (*const Rupee_Actions[])(Entity*) = {
+        Rupee_Init,
+        Rupee_Action_1,
+        Rupee_Action_2,
+    };
+
+    Rupee_Actions[ent->action](ent);
 }
 
-void sub_080869DC(Entity* ent) {
+void Rupee_Init(Entity* ent) {
     Entity* itemEntity;
 
     ent->action = 1;
@@ -28,7 +41,7 @@ void sub_080869DC(Entity* ent) {
     }
 }
 
-void sub_08086A28(Entity* ent) {
+void Rupee_Action_1(Entity* ent) {
     if (ent->child->next == NULL) {
         ent->action = 2;
     } else {
@@ -41,7 +54,7 @@ void sub_08086A28(Entity* ent) {
     }
 }
 
-void sub_08086A5C(Entity* ent) {
+void Rupee_Action_2(Entity* ent) {
     ent->child->parent = NULL;
     DeleteThisEntity();
 }
@@ -54,9 +67,3 @@ void sub_08086A6C(Entity* ent) {
     ent->direction = DirectionNormalize(uVar1 >> 16);
     ent->speed = uVar1 & 480;
 }
-
-void (*const gUnk_081206C4[])(Entity*) = {
-    sub_080869DC,
-    sub_08086A28,
-    sub_08086A5C,
-};

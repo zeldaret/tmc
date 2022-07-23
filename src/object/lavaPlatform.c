@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -32,8 +32,8 @@ typedef struct {
     /*0x0e*/ u8 unk_e[2];
 } LavaPlatformEntry;
 
-void sub_08092278(LavaPlatformEntity*);
-void sub_08092344(LavaPlatformEntity*);
+void LavaPlatform_Type0(LavaPlatformEntity*);
+void LavaPlatform_Type1(LavaPlatformEntity*);
 void LavaPlatform_SpawnPlatforms(LavaPlatformEntity*);
 void sub_080926E4(LavaPlatformEntity*);
 void sub_0809264C(LavaPlatformEntity*);
@@ -53,13 +53,13 @@ void LavaPlatform_Type1Action7(LavaPlatformEntity*);
 
 void LavaPlatform(LavaPlatformEntity* this) {
     if (super->type == 0) {
-        sub_08092278(this);
+        LavaPlatform_Type0(this);
     } else {
-        sub_08092344(this);
+        LavaPlatform_Type1(this);
     }
 }
 
-void sub_08092278(LavaPlatformEntity* this) {
+void LavaPlatform_Type0(LavaPlatformEntity* this) {
     static void (*const LavaPlatform_Type0Actions[])(LavaPlatformEntity*) = {
         LavaPlatform_Type0Init,
         LavaPlatform_Type0Action1,
@@ -100,7 +100,7 @@ void LavaPlatform_Type0Action2(LavaPlatformEntity* this) {
     }
 }
 
-void sub_08092344(LavaPlatformEntity* this) {
+void LavaPlatform_Type1(LavaPlatformEntity* this) {
     static void (*const LavaPlatform_Type1Actions[])(LavaPlatformEntity*) = {
         LavaPlatform_Type1Init,    LavaPlatform_Type1Action1, LavaPlatform_Type1Action2, LavaPlatform_Type1Action3,
         LavaPlatform_Type1Action4, LavaPlatform_Type1Action5, LavaPlatform_Type1Action6, LavaPlatform_Type1Action7,

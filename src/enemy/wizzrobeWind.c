@@ -37,7 +37,7 @@ void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeWind_Functions);
     if (super->contactFlags == 0x87) {
-        Entity* obj = CreateObject(OBJECT_2A, 3, 0);
+        Entity* obj = CreateObject(FLAME, 3, 0);
         if (obj != NULL) {
             obj->spritePriority.b0 = 3;
             obj->spriteOffsetY = -4;

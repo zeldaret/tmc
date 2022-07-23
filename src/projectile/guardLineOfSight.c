@@ -28,7 +28,7 @@ void GuardLineOfSight(Entity* this) {
         }
         CopyPosition(this->parent, this);
         if (this->subtimer != 0) {
-            this->subtimer -= 1;
+            this->subtimer--;
         } else {
             if (sub_080644C8(this) != 0) {
                 if (((this->timer++) & 3) == 0) {

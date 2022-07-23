@@ -96,7 +96,7 @@ static void sub_080ACC78(GustEntity* this) {
         }
         o = sub_08008782(super, 0xe, child_offsets[this->offset_iter], child_offsets[this->offset_iter + 1]);
         if (o != NULL) {
-            child = CreateObject(OBJECT_11, o->type, o->type2);
+            child = CreateObject(BUSH, o->type, o->type2);
             if (child != NULL) {
                 child->timer = o->timer;
                 child->x.HALF.HI = child_offsets[this->offset_iter] + super->x.HALF.HI;
@@ -118,7 +118,7 @@ static void sub_080ACC78(GustEntity* this) {
     } else {
         this->timer = gUnk_0812AABC[super->type];
     }
-    child = CreateObject(OBJECT_17, 0, 0);
+    child = CreateObject(GUST_JAR_PARTICLE, 0, 0);
     if (child == NULL) {
         return;
     }

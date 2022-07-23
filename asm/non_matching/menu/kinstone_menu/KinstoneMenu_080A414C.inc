@@ -22,7 +22,7 @@
 	rsbs r0, r0, #0
 	adds r4, r0, #0
 	subs r4, #0x45
-	ldr r2, _080A4220 @ =gUnk_02002B6B
+	ldr r2, _080A4220 @ =gSave+0x12b
 	mov sb, r2
 _080A4180:
 	adds r2, r4, #0
@@ -106,7 +106,7 @@ _080A4210: .4byte gOamCmd
 _080A4214: .4byte gMenu
 _080A4218: .4byte 0x00000B21
 _080A421C: .4byte gSineTable
-_080A4220: .4byte gUnk_02002B6B
+_080A4220: .4byte gSave+0x12b
 _080A4224: .4byte 0x0000FFFF
 _080A4228: .4byte gSave
 	.syntax divided

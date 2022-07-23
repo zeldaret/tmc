@@ -1,12 +1,18 @@
+/**
+ * @file fan.c
+ * @ingroup Objects
+ *
+ * @brief Fan object
+ */
 #define NENT_DEPRECATED
-#include "global.h"
+#include "collision.h"
 #include "entity.h"
 #include "flags.h"
-#include "player.h"
 #include "functions.h"
-#include "sound.h"
+#include "global.h"
 #include "object.h"
-#include "collision.h"
+#include "player.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;
@@ -38,13 +44,13 @@ void Fan_Action3(FanEntity* this);
 bool32 sub_0809EF78(FanEntity*, Entity*);
 
 void Fan(Entity* this) {
-    static void (*const actionFuncs[])(FanEntity*) = {
+    static void (*const Fan_Actions[])(FanEntity*) = {
         Fan_Init,
         Fan_Action1,
         Fan_Action2,
         Fan_Action3,
     };
-    actionFuncs[this->action]((FanEntity*)this);
+    Fan_Actions[this->action]((FanEntity*)this);
 }
 
 void Fan_Init(FanEntity* this) {
@@ -238,7 +244,7 @@ void sub_0809F0E4(FanEntity* this) {
     const s8* collisionData;
 
     EnqueueSFX(SFX_183);
-    pEVar1 = CreateObject(OBJECT_B2, super->type ^ 2, 0);
+    pEVar1 = CreateObject(FAN_WIND, super->type ^ 2, 0);
     if (pEVar1 != NULL) {
         pEVar1->parent = super;
         collisionData = typeOffsets + super->type * 2;

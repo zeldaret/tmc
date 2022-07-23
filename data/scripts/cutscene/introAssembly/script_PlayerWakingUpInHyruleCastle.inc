@@ -1,7 +1,7 @@
 @ Intro Hyrule Castle Player Sleeping
 SCRIPT_START script_PlayerWakingUpInHyruleCastle
 	BeginBlock
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
 	SetLocalFlag CASTLE_04_MEZAME
 	EndBlock
@@ -16,6 +16,6 @@ script_08009EA4:
 	Wait 0x000a
 	Call sub_08053250
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Call ResetPlayerAnimationAndAction
 SCRIPT_END

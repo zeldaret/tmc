@@ -121,7 +121,7 @@ void sub_080636F4(Entity* this) {
 
 void Brocco_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 4;
         InitAnimationForceUpdate(this, 2);

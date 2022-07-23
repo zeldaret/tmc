@@ -1,13 +1,19 @@
+/**
+ * @file cloud.c
+ * @ingroup Objects
+ *
+ * @brief Cloud object
+ */
+#include "functions.h"
 #include "object.h"
 #include "structures.h"
-#include "functions.h"
 
 void sub_0809F814(u32 r0);
 
 void sub_0809F7BC(Entity*);
 void sub_0809F7F4(Entity*);
-void sub_0809F4DC(Entity*);
-void sub_0809F700(Entity*);
+void Cloud_Type0(Entity*);
+void Cloud_Type1(Entity*);
 void sub_0809F514(Entity*);
 void sub_0809F548(Entity*);
 void sub_0809F5B0(Entity*);
@@ -20,14 +26,14 @@ void sub_0809F5DC(Entity*);
 extern void* gUnk_080DD750;
 
 void Cloud(Entity* this) {
-    static void (*const typeFuncs[])(Entity*) = {
-        sub_0809F4DC,
-        sub_0809F700,
+    static void (*const Cloud_Types[])(Entity*) = {
+        Cloud_Type0,
+        Cloud_Type1,
     };
-    typeFuncs[this->type](this);
+    Cloud_Types[this->type](this);
 }
 
-void sub_0809F4DC(Entity* this) {
+void Cloud_Type0(Entity* this) {
     static void (*const gUnk_081247A0[])(Entity*) = {
         sub_0809F514,
         sub_0809F548,
@@ -136,7 +142,7 @@ void sub_0809F6CC(Entity* this) {
     }
 }
 
-void sub_0809F700(Entity* this) {
+void Cloud_Type1(Entity* this) {
     static const s8 gUnk_081247C0[] = {
         -1, 1, 2, -2, 0, 1, 0, -1,
     };

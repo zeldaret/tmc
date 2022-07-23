@@ -6,9 +6,9 @@
  */
 
 #define NENT_DEPRECATED
+#include "functions.h"
 #include "global.h"
 #include "object.h"
-#include "functions.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -144,7 +144,7 @@ void ObjectOnSpinyBeetle_Action2Subaction0(ObjectOnSpinyBeetleEntity* this) {
     super->flags2 = gPlayerEntity.flags2;
     super->spriteOffsetY = 0;
     (super->parent)->child = NULL;
-    super->subAction += 1;
+    super->subAction++;
 }
 
 void ObjectOnSpinyBeetle_Action2Subaction1(ObjectOnSpinyBeetleEntity* this) {
@@ -270,7 +270,7 @@ void sub_08098918(ObjectOnSpinyBeetleEntity* this) {
         tmp = parent->flags & 0x80;
         if ((parent->flags & ENT_COLLIDE) != 0) {
             if (super->subtimer == 0) {
-                super->subtimer += 1;
+                super->subtimer++;
                 super->spritePriority.b0 = 3;
                 SortEntityBelow(super, super->parent);
             }

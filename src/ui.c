@@ -140,7 +140,7 @@ void sub_0801C25C(void) {
             u8 temp = element->unk_0_2;
             if (temp == 1) {
                 element->unk_0_2 = 2;
-                DmaSet(3, element->firstTile, element->unk_1a * 0x20 + 0x6010000, element->numTiles << 3 | 0x84000000);
+                DmaCopy32(3, element->firstTile, element->unk_1a * 0x20 + 0x6010000, (element->numTiles << 3) * 4);
             }
         }
     }
@@ -167,8 +167,8 @@ void sub_0801C2F0(u32 param_1, u32 param_2) {
         uVar1 = 9;
     }
 
-    DmaSet(3, (gUnk_085C4620 + uVar1 * 8), param_1, 0x84000008);
-    DmaSet(3, (gUnk_085C4620 + (rem + 10) * 8), param_1 + 0x20, 0x84000008);
+    DmaCopy32(3, (gUnk_085C4620 + uVar1 * 8), param_1, 0x8 * 4);
+    DmaCopy32(3, (gUnk_085C4620 + (rem + 10) * 8), param_1 + 0x20, 0x8 * 4);
 }
 
 void DrawUI(void) {
@@ -336,16 +336,16 @@ void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
         case 3:
             digit = Div(count, 100);
             count = r1;
-            DmaSet(3, puVar4 + digit * 0x40, iVar2, 0x84000010);
+            DmaCopy32(3, puVar4 + digit * 0x40, iVar2, 0x10 * 4);
             iVar2 = iVar3 + 0x600c040;
         case 2:
             digit = Div(count, 10);
             count = r1;
-            DmaSet(3, puVar4 + digit * 0x40, iVar2, 0x84000010);
+            DmaCopy32(3, puVar4 + digit * 0x40, iVar2, 0x10 * 4);
             iVar2 += 0x40;
     }
 
-    DmaSet(3, puVar4 + count * 0x40, iVar2, 0x84000010);
+    DmaCopy32(3, puVar4 + count * 0x40, iVar2, 0x10 * 4);
 }
 
 void sub_0801C66C(void) {

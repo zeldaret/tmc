@@ -364,10 +364,10 @@ void sub_080A57F4(void) {
     gOamCmd.x = puVar10->unk6;
     gOamCmd.y = puVar10->unk7;
     frameIndex = puVar10->unk4 + 9;
-    if ((gMain.ticks.HWORD & 0x10) == 0) {
+    if ((gMain.ticks & 0x10) == 0) {
         frameIndex += 2;
     } else {
-        frameIndex += 1;
+        frameIndex++;
     }
     DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
 
@@ -609,7 +609,7 @@ void sub_080A5BF0(void) {
 
     gUnk_08128D30[gMenu.menuType]();
     sub_080A5D1C();
-    temp = gMain.ticks.HWORD;
+    temp = gMain.ticks;
     if ((temp & 7) == 0) {
         uVar1 = *gUnk_02017830;
         MemCopy(gUnk_02017830 + 1, gUnk_02017830, 0xe);
@@ -687,10 +687,10 @@ void sub_080A5D1C(void) {
     gOamCmd._8 = 0;
     gOamCmd.x = 0x34;
     gOamCmd.y = bVar1 + gMenu.field_0x3 * 0xc;
-    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks.HWORD & 0x10) == 0 ? 0x75 : 0x74);
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks & 0x10) == 0 ? 0x75 : 0x74);
     gOamCmd.x = 0x20;
     gOamCmd.y = bVar1 + uVar4 * 0xc;
-    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks.HWORD & 0x20) != 0 ? 0x78 : 0x79);
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks & 0x20) != 0 ? 0x78 : 0x79);
     gOamCmd.y = 0x7e;
     gOamCmd._8 = 0x4380;
     if (HasDungeonSmallKey()) {
@@ -712,7 +712,7 @@ void sub_080A5D1C(void) {
             gOamCmd._8 = 0;
             gOamCmd.x = 0x46;
             gOamCmd.y = bVar1 + (pbVar9[1] - pbVar9[2]) * 0xc;
-            if ((gMain.ticks.HWORD & 0x20) != 0) {
+            if ((gMain.ticks & 0x20) != 0) {
                 uVar6 = 0x7a;
             } else {
                 uVar6 = 0x7b;
@@ -790,7 +790,7 @@ void sub_080A5F48(u32 param_1, u32 param_2) {
     temp1 = param_2 * 0x20 + 0x6010000;
     temp3 = gSpriteAnimations_322[param_1]->index;
     temp2 = &gMoreSpritePtrs[1][temp3 * 2];
-    DmaSet(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], temp1, 0x84000040);
+    DmaCopy32(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], temp1, 0x40 * 4);
     ammoCount = -1;
 
     switch (param_1) {
@@ -810,8 +810,8 @@ void sub_080A5F48(u32 param_1, u32 param_2) {
         if ((int)tensDigit >= 10) {
             tensDigit = 9;
         }
-        DmaSet(3, gUnk_085C4620 + tensDigit * 0x8, temp1, 0x84000008);
-        DmaSet(3, gUnk_085C4620 + (param_1 + 10) * 0x8, temp1 + 0x20, 0x84000008);
+        DmaCopy32(3, gUnk_085C4620 + tensDigit * 0x8, temp1, 0x8 * 4);
+        DmaCopy32(3, gUnk_085C4620 + (param_1 + 10) * 0x8, temp1 + 0x20, 0x8 * 4);
     }
 }
 
@@ -905,7 +905,7 @@ void sub_080A617C(void) {
     gOamCmd._8 = 0xc00;
     gOamCmd.y = 0x2f;
     gOamCmd.x = gMenu.field_0x3 * 0x1b + 0x1a;
-    if ((gMain.ticks.HWORD & 0x20) != 0) {
+    if ((gMain.ticks & 0x20) != 0) {
         frameIndex = 8;
     } else {
         frameIndex = 9;
@@ -1258,7 +1258,9 @@ void sub_080A67C4(u32 param_1) {
         *puVar2 = 0x1e0a;
     }
 
-    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], REG_ADDR_BG3CNT, 0xa2600001);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], (u16*)REG_ADDR_BG3CNT,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
     gMenu.field_0xa = ptr->unk2 >> 1;
     MemClear(&gMapDataBottomSpecial, 0x400);
 }

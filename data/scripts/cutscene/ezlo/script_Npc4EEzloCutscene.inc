@@ -9,11 +9,11 @@ script_0801248A:
 	StopBgm
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtFirstLookAtEzlo
 	MessageFromTargetPos TEXT_FINDING_EZLO, 0x01, 0x0007
 	WaitUntilTextboxCloses
-	CameraTargetPlayer 
+	CameraTargetPlayer
 	SetFadeTime 0x0004
 	_0807E80C 0x00000000
 	WaitForFadeFinish
@@ -48,7 +48,7 @@ script_0801248A:
 	SetFadeTime 0x0004
 	_0807E800 0x00000000
 	WaitForFadeFinish
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	PlayBGM
 script_08012566:
@@ -56,7 +56,7 @@ script_08012566:
 	JumpIfNot script_08012566
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_0806DC7C
 	StopBgm
 	StartPlayerScript script_PlayerEzloBeingBullied
@@ -82,14 +82,14 @@ script_08012566:
 	WaitForSyncFlagAndClear 0x00000008
 	StopBgm
 	PlayBgm BGM_FIGHT_THEME2
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetSyncFlag 0x00000050
 	LoadRoomEntityList gUnk_080F51D0
 	WaitForSyncFlagAndClear 0x00000008
 	SetPlayerIdle
 	Call WaitForPlayerNormalOrTalkEzlo
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	PlaySound SFX_SECRET
 	StopBgm
 	SetSyncFlag 0x00000004
@@ -115,7 +115,7 @@ script_08012566:
 	Call sub_0806DCA0
 	_0807F0B4 0x0004
 	CameraTargetPlayer
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
@@ -129,7 +129,7 @@ script_08012566:
 	Call sub_08054570
 	SetGlobalFlag EZERO_1ST
 	CallWithArg ResetPlayerFlag, PL_NO_CAP
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

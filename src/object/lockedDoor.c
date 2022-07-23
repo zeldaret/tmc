@@ -1,23 +1,29 @@
-#include "global.h"
+/**
+ * @file lookedDoor.c
+ * @ingroup Objects
+ *
+ * @brief Looked Door object
+ */
 #include "asm.h"
+#include "common.h"
+#include "effects.h"
 #include "entity.h"
 #include "flags.h"
-#include "sound.h"
 #include "functions.h"
-#include "effects.h"
 #include "game.h"
-#include "common.h"
+#include "global.h"
 #include "hitbox.h"
+#include "sound.h"
 
-void sub_08083338(Entity*);
-void sub_080834B4(Entity*);
-void sub_080834EC(Entity*);
-void sub_08083518(Entity*);
-void sub_08083540(Entity*);
-void nullsub_513(Entity*);
-void sub_08083598(Entity*);
-void sub_080835C8(Entity*);
-void sub_080835F8(Entity*);
+void LockedDoor_Init(Entity*);
+void LockedDoor_Action1(Entity*);
+void LockedDoor_Action2(Entity*);
+void LockedDoor_Action3(Entity*);
+void LockedDoor_Action4(Entity*);
+void LockedDoor_Action5(Entity*);
+void LockedDoor_Action6(Entity*);
+void LockedDoor_Action7(Entity*);
+void LockedDoor_Action8(Entity*);
 
 void sub_08083638(Entity*);
 void sub_08083658(Entity*);
@@ -27,13 +33,13 @@ u32 sub_08083734(Entity*, u32);
 u32 sub_080837B0(Entity*);
 void sub_08083814(Entity*, u32);
 
-void (*const gUnk_0811F65C[])(Entity*) = {
-    sub_08083338, sub_080834B4, sub_080834EC, sub_08083518, sub_08083540,
-    nullsub_513,  sub_08083598, sub_080835C8, sub_080835F8,
+void (*const LockedDoor_Actions[])(Entity*) = {
+    LockedDoor_Init,    LockedDoor_Action1, LockedDoor_Action2, LockedDoor_Action3, LockedDoor_Action4,
+    LockedDoor_Action5, LockedDoor_Action6, LockedDoor_Action7, LockedDoor_Action8,
 };
 
 void LockedDoor(Entity* this) {
-    gUnk_0811F65C[this->action](this);
+    LockedDoor_Actions[this->action](this);
 }
 
 typedef struct PACKED {
@@ -82,7 +88,7 @@ const u8 gUnk_0811F740[] = {
     0xD7,
 };
 
-void sub_08083338(Entity* this) {
+void LockedDoor_Init(Entity* this) {
     if (this->cutsceneBeh.HWORD != 0xFFFF && CheckFlags(this->cutsceneBeh.HWORD)) {
         DeleteThisEntity();
     }
@@ -140,7 +146,7 @@ void sub_08083338(Entity* this) {
     }
 }
 
-void sub_080834B4(Entity* this) {
+void LockedDoor_Action1(Entity* this) {
     if (--this->timer == 0) {
         this->action = 2;
         this->timer = 7;
@@ -149,7 +155,7 @@ void sub_080834B4(Entity* this) {
     }
 }
 
-void sub_080834EC(Entity* this) {
+void LockedDoor_Action2(Entity* this) {
     LinearMoveUpdate(this);
     if (--this->timer == 0) {
         if (this->type & 0x80) {
@@ -160,14 +166,14 @@ void sub_080834EC(Entity* this) {
     }
 }
 
-void sub_08083518(Entity* this) {
+void LockedDoor_Action3(Entity* this) {
     if (sub_08083734(this, this->field_0x7c.BYTES.byte2)) {
         this->action = 4;
         sub_080836DC(this, this->field_0x7c.BYTES.byte2, this->field_0x76.HWORD);
     }
 }
 
-void sub_08083540(Entity* this) {
+void LockedDoor_Action4(Entity* this) {
     LinearMoveUpdate(this);
     if (!--this->timer) {
         if (this->type & 0x10) {
@@ -185,10 +191,10 @@ void sub_08083540(Entity* this) {
     }
 }
 
-void nullsub_513(Entity* this) {
+void LockedDoor_Action5(Entity* this) {
 }
 
-void sub_08083598(Entity* this) {
+void LockedDoor_Action6(Entity* this) {
     if (this->type2 == 0) {
         if (!CheckFlags(this->field_0x86.HWORD))
             return;
@@ -199,7 +205,7 @@ void sub_08083598(Entity* this) {
     sub_08083658(this);
 }
 
-void sub_080835C8(Entity* this) {
+void LockedDoor_Action7(Entity* this) {
     if (this->type2 == 0) {
         if (CheckFlags(this->field_0x86.HWORD))
             return;
@@ -210,7 +216,7 @@ void sub_080835C8(Entity* this) {
     this->action = 3;
 }
 
-void sub_080835F8(Entity* this) {
+void LockedDoor_Action8(Entity* this) {
     if (this->interactType == 0 && !CheckFlags(this->field_0x86.HWORD))
         return;
     this->action = 1;

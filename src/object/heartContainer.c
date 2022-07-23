@@ -1,29 +1,35 @@
-#include "sound.h"
+/**
+ * @file heartContainer.c
+ * @ingroup Objects
+ *
+ * @brief HeartContainer object
+ */
+#include "collision.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
 #include "item.h"
-#include "collision.h"
+#include "sound.h"
 
-static void sub_0808E6A0(Entity*);
-static void sub_0808E6E4(Entity*);
-static void sub_0808E714(Entity*);
-static void sub_0808E764(Entity*);
+static void HeartContainer_Init(Entity*);
+static void HeartContainer_Action1(Entity*);
+static void HeartContainer_Action2(Entity*);
+static void HeartContainer_Action3(Entity*);
 
-static void (*const gHeartContainerActions[])(Entity*) = {
-    sub_0808E6A0,
-    sub_0808E6E4,
-    sub_0808E714,
-    sub_0808E764,
+static void (*const HeartContainer_Actions[])(Entity*) = {
+    HeartContainer_Init,
+    HeartContainer_Action1,
+    HeartContainer_Action2,
+    HeartContainer_Action3,
 };
 
 const Hitbox3D gUnk_08121C58 = { 0, -3, { 5, 3, 3, 5 }, 6, 6, 12, {} };
 
 void HeartContainer(Entity* this) {
-    gHeartContainerActions[this->action](this);
+    HeartContainer_Actions[this->action](this);
 }
 
-static void sub_0808E6A0(Entity* this) {
+static void HeartContainer_Init(Entity* this) {
     if (CheckFlags(this->cutsceneBeh.HWORD)) {
         DeleteThisEntity();
     }
@@ -35,16 +41,16 @@ static void sub_0808E6A0(Entity* this) {
     this->updatePriority = PRIO_NO_BLOCK;
 }
 
-static void sub_0808E6E4(Entity* this) {
+static void HeartContainer_Action1(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->spriteSettings.draw = 1;
         this->spriteRendering.b0 = 3;
-        sub_0808E714(this);
+        HeartContainer_Action2(this);
     }
 }
 
-static void sub_0808E714(Entity* this) {
+static void HeartContainer_Action2(Entity* this) {
     int var0 = 0x400 - this->subtimer * 8;
     if (var0 > 0x100) {
         this->subtimer++;
@@ -58,7 +64,7 @@ static void sub_0808E714(Entity* this) {
     sub_08080CB4(this);
 }
 
-static void sub_0808E764(Entity* this) {
+static void HeartContainer_Action3(Entity* this) {
     sub_08080CB4(this);
     if (!(gPlayerState.flags & PL_MINISH) && IsCollidingPlayer(this)) {
         SetFlag(this->cutsceneBeh.HWORD);

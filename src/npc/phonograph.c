@@ -15,7 +15,7 @@ void sub_0806EABC(Entity* this, u32 param);
 
 void Phonograph(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         this->field_0x68.HWORD = 1;
         this->field_0x6a.HWORD = 0xffff;

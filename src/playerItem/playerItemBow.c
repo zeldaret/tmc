@@ -115,7 +115,7 @@ void sub_08018FE4(PlayerItemBowEntity* this) {
         sub_08079BD8(super);
         if (this->unk_68 == 0xa) {
             this->unk_78 = 0x3c;
-            object = CreateObject(OBJECT_43, super->type, 1);
+            object = CreateObject(SWORD_PARTICLE, super->type, 1);
             if (object != NULL) {
                 CopyPosition(super, object);
             }

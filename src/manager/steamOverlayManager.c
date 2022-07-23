@@ -137,7 +137,7 @@ void SteamOverlayManager_Action3(SteamOverlayManager* this) {
         gScreen.controls.alphaBlend = gUnk_08108588[super->timer--];
         if (super->timer == 0xFF) {
             gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
-            sub_08056250();
+            DisableVBlankDMA();
             DeleteThisEntity();
         }
     }
@@ -165,7 +165,9 @@ void sub_0805A114(u32 unk0, u32 unk1) {
         }
         *p++ = gScreen.bg3.xOffset + ((gSineTable[(unk1 + tmp) & 0xFF] * unk0) >> 8);
     }
-    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], 0x0400001C, 0xA2600001);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], (u16*)REG_ADDR_BG3HOFS,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
 }
 
 void sub_0805A1D8(SteamOverlayManager* this) {
@@ -175,7 +177,7 @@ void sub_0805A1D8(SteamOverlayManager* this) {
     gScreen.bg3.yOffset = gRoomControls.bg3OffsetY.HALF.HI;
     if (gScreen.lcd.displayControl & DISPCNT_BG3_ON) {
         sub_0805A114(6, this->unk_20 >> 1);
-        if (this->unk_22 == 0 && (gMain.ticks.HWORD & 0x1F) == 0) {
+        if (this->unk_22 == 0 && (gMain.ticks & 0x1F) == 0) {
             this->unk_24++;
             this->unk_24 &= 3;
             gScreen.controls.alphaBlend = gUnk_0810859A[this->unk_24];
@@ -189,5 +191,5 @@ void nullsub_495(void* this) {
 void sub_0805A25C(void* this) {
     gScreen.controls.layerFXControl = 0;
     gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
-    sub_08056250();
+    DisableVBlankDMA();
 }

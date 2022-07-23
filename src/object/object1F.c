@@ -1,9 +1,15 @@
+/**
+ * @file object1F.c
+ * @ingroup Objects
+ *
+ * @brief Object1F object
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "player.h"
-#include "functions.h"
 #include "asm.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "player.h"
 
 typedef struct {
     Entity base;
@@ -16,13 +22,13 @@ void Object1F_Action1(Object1FEntity*);
 void Object1F_Action2(Object1FEntity*);
 
 void Object1F(Entity* this) {
-    static void (*const actionFuncs[])(Object1FEntity*) = {
+    static void (*const Object1F_Actions[])(Object1FEntity*) = {
         Object1F_Init,
         Object1F_Action1,
         Object1F_Action2,
     };
 
-    actionFuncs[this->action]((Object1FEntity*)this);
+    Object1F_Actions[this->action]((Object1FEntity*)this);
 }
 
 typedef struct {

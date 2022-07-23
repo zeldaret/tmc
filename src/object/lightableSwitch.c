@@ -1,43 +1,49 @@
-#include "global.h"
+/**
+ * @file lightableSwitch.c
+ * @ingroup Objects
+ *
+ * @brief Lightable Switch object
+ */
 #include "asm.h"
-#include "sound.h"
 #include "entity.h"
-#include "room.h"
 #include "flags.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
 #include "object.h"
+#include "room.h"
+#include "sound.h"
 
 static void sub_0809EB30(Entity*);
 static void sub_0809EAD8(Entity*);
 static void sub_0809EABC(Entity*);
-static void sub_0809EA1C(Entity*);
-static void sub_0809EB68(Entity*);
-static void sub_0809EA34(Entity*);
-static void sub_0809EA80(Entity*);
-static void nullsub_126(Entity*);
-static void sub_0809EC08(Entity*);
-static void sub_0809EBD8(Entity*);
-static void sub_0809EB80(Entity*);
+static void LightableSwitch_Type0(Entity*);
+static void LightableSwitch_Type1(Entity*);
+static void LightableSwitch_Type0_Init(Entity*);
+static void LightableSwitch_Type0_Action1(Entity*);
+static void LightableSwitch_Type1_Action3(Entity*);
+static void LightableSwitch_Type1_Action2(Entity*);
+static void LightableSwitch_Type1_Action1(Entity*);
+static void LightableSwitch_Type1_Init(Entity*);
 
 void LightableSwitch(Entity* this) {
-    static void (*const typeFuncs[])(Entity*) = {
-        sub_0809EA1C,
-        sub_0809EB68,
+    static void (*const LightableSwitch_Types[])(Entity*) = {
+        LightableSwitch_Type0,
+        LightableSwitch_Type1,
     };
-    typeFuncs[this->type](this);
+    LightableSwitch_Types[this->type](this);
     sub_0809EB30(this);
 }
 
-void sub_0809EA1C(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809EA34,
-        sub_0809EA80,
+void LightableSwitch_Type0(Entity* this) {
+    static void (*const LightableSwitch_Type0_Actions[])(Entity*) = {
+        LightableSwitch_Type0_Init,
+        LightableSwitch_Type0_Action1,
     };
-    actionFuncs[this->action](this);
+    LightableSwitch_Type0_Actions[this->action](this);
 }
 
-void sub_0809EA34(Entity* this) {
+void LightableSwitch_Type0_Init(Entity* this) {
     this->action = 1;
     COLLISION_ON(this);
     this->frameIndex = 0;
@@ -51,7 +57,7 @@ void sub_0809EA34(Entity* this) {
     sub_0809EABC(this);
 }
 
-void sub_0809EA80(Entity* this) {
+void LightableSwitch_Type0_Action1(Entity* this) {
 
     if ((this->contactFlags & 0x80) != 0) {
         if (CheckFlags(this->field_0x86.HWORD) != 0) {
@@ -104,17 +110,17 @@ static void sub_0809EB30(Entity* this) {
     }
 }
 
-void sub_0809EB68(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809EB80,
-        sub_0809EBD8,
-        sub_0809EC08,
-        nullsub_126,
+void LightableSwitch_Type1(Entity* this) {
+    static void (*const LightableSwitch_Type1_Actions[])(Entity*) = {
+        LightableSwitch_Type1_Init,
+        LightableSwitch_Type1_Action1,
+        LightableSwitch_Type1_Action2,
+        LightableSwitch_Type1_Action3,
     };
-    actionFuncs[this->action](this);
+    LightableSwitch_Type1_Actions[this->action](this);
 }
 
-void sub_0809EB80(Entity* this) {
+void LightableSwitch_Type1_Init(Entity* this) {
 
     this->action = 1;
     COLLISION_ON(this);
@@ -132,7 +138,7 @@ void sub_0809EB80(Entity* this) {
     }
 }
 
-void sub_0809EBD8(Entity* this) {
+void LightableSwitch_Type1_Action1(Entity* this) {
     if ((this->contactFlags & 0x80) != 0) {
         this->action = 2;
         this->timer = 16;
@@ -142,7 +148,7 @@ void sub_0809EBD8(Entity* this) {
     }
 }
 
-void sub_0809EC08(Entity* this) {
+void LightableSwitch_Type1_Action2(Entity* this) {
 
     if (CheckFlags(this->cutsceneBeh.HWORD) != 0) {
         this->action = 3;
@@ -157,5 +163,5 @@ void sub_0809EC08(Entity* this) {
     }
 }
 
-void nullsub_126(Entity* this) {
+void LightableSwitch_Type1_Action3(Entity* this) {
 }

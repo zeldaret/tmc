@@ -132,7 +132,7 @@ void sub_080AB26C(Entity* this) {
     if (--this->timer == 0) {
         DeleteThisEntity();
     } else {
-        this->frameIndex += 1;
+        this->frameIndex++;
     }
 }
 

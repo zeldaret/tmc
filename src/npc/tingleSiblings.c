@@ -189,7 +189,7 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
 void TingleSiblings_Fusion(Entity* this) {
     u32 tmp;
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         tmp = 6;
         if (this->type == 0) {

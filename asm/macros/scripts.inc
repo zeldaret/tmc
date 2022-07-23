@@ -37,11 +37,11 @@
 	.2byte 0x0400
 .endm
 
-.macro BeginBlock 
+.macro BeginBlock
 	.2byte 0x0401
 .endm
 
-.macro EndBlock 
+.macro EndBlock
 	.2byte 0x0402
 .endm
 
@@ -130,7 +130,7 @@
 	.2byte \s
 .endm
 
-.macro HasRoomItemForSale 
+.macro HasRoomItemForSale
 	.2byte 0x0411
 .endm
 
@@ -167,11 +167,11 @@
 	.2byte \dimension
 .endm
 
-.macro CheckEntityInteractType 
+.macro CheckEntityInteractType
 	.2byte 0x0418
 .endm
 
-.macro FacePlayerAndCheckDist 
+.macro FacePlayerAndCheckDist
 	.2byte 0x0419
 .endm
 
@@ -185,7 +185,7 @@
 	.2byte \s
 .endm
 
-.macro CheckTextboxResult 
+.macro CheckTextboxResult
 	.2byte 0x041c
 .endm
 
@@ -229,11 +229,11 @@
 	.4byte \w
 .endm
 
-.macro CheckPlayerMinish 
+.macro CheckPlayerMinish
 	.2byte 0x0424
 .endm
 
-.macro EntityHasHeight 
+.macro EntityHasHeight
 	.2byte 0x0425
 .endm
 
@@ -312,15 +312,15 @@
 	.2byte 0x0434
 .endm
 
-.macro WaitForPlayerEnterRoom 
+.macro WaitForPlayerEnterRoom
 	.2byte 0x0435
 .endm
 
-.macro WaitFor_1 
+.macro WaitFor_1
 	.2byte 0x0436
 .endm
 
-.macro WaitForFadeFinish 
+.macro WaitForFadeFinish
 	.2byte 0x0437
 .endm
 
@@ -334,7 +334,7 @@
 	.4byte \w
 .endm
 
-.macro FadeInvert 
+.macro FadeInvert
 	.2byte 0x043a
 .endm
 
@@ -343,19 +343,19 @@
 	.2byte \s
 .endm
 
-.macro SetFade4 
+.macro SetFade4
 	.2byte 0x043c
 .endm
 
-.macro SetFade5 
+.macro SetFade5
 	.2byte 0x043d
 .endm
 
-.macro SetFade6 
+.macro SetFade6
 	.2byte 0x043e
 .endm
 
-.macro SetFade7 
+.macro SetFade7
 	.2byte 0x043f
 .endm
 
@@ -378,15 +378,15 @@
 	.2byte 0x0442
 .endm
 
-.macro SetPlayerIdle 
+.macro SetPlayerIdle
 	.2byte 0x0443
 .endm
 
-.macro EnablePlayerControl 
+.macro EnablePlayerControl
 	.2byte 0x0444
 .endm
 
-.macro DisablePlayerControl 
+.macro DisablePlayerControl
 	.2byte 0x0445
 .endm
 
@@ -405,19 +405,19 @@
 	.2byte \s
 .endm
 
-.macro _0807E8E4_0 
+.macro _0807E8E4_0
 	.2byte 0x0449
 .endm
 
-.macro _0807E8E4_1 
+.macro _0807E8E4_1
 	.2byte 0x044a
 .endm
 
-.macro _0807E8E4_2 
+.macro _0807E8E4_2
 	.2byte 0x044b
 .endm
 
-.macro _0807E8E4_3 
+.macro _0807E8E4_3
 	.2byte 0x044c
 .endm
 
@@ -431,7 +431,7 @@
 	.4byte \value
 .endm
 
-.macro SetVariableToFrame 
+.macro SetVariableToFrame
 	.2byte 0x044f
 .endm
 
@@ -440,7 +440,7 @@
 	.2byte \s
 .endm
 
-.macro TriggerInteract 
+.macro TriggerInteract
 	.2byte 0x0451
 .endm
 
@@ -449,11 +449,11 @@
 	.2byte \s
 .endm
 
-.macro _0807E9D4 
+.macro _0807E9D4
 	.2byte 0x0453
 .endm
 
-.macro _0807E9DC 
+.macro _0807E9DC
 	.2byte 0x0454
 .endm
 
@@ -462,11 +462,11 @@
 	.2byte \s
 .endm
 
-.macro _0807E9F0 
+.macro _0807E9F0
 	.2byte 0x0456
 .endm
 
-.macro _0807EA4C 
+.macro _0807EA4C
 	.2byte 0x0457
 .endm
 
@@ -475,7 +475,7 @@
 	.2byte \s
 .endm
 
-.macro WaitUntilTextboxCloses 
+.macro WaitUntilTextboxCloses
 	.2byte 0x0459
 .endm
 
@@ -526,7 +526,7 @@
     RecursiveArgs .2byte \labels
 .endm
 
-.macro MessageNoOverlapVar 
+.macro MessageNoOverlapVar
 	.2byte 0x045e
 .endm
 
@@ -540,7 +540,7 @@
 	.endif
 .endm
 
-.macro _0807EB38 
+.macro _0807EB38
 	.2byte 0x0460
 .endm
 
@@ -555,11 +555,11 @@
 	.2byte \b
 .endm
 
-.macro FacePlayer 
+.macro FacePlayer
 	.2byte 0x0463
 .endm
 
-.macro FaceAwayFromPlayer 
+.macro FaceAwayFromPlayer
 	.2byte 0x0464
 .endm
 
@@ -595,7 +595,7 @@
 	.2byte \y
 .endm
 
-.macro MoveEntityToPlayer 
+.macro MoveEntityToPlayer
 	.2byte 0x046b
 .endm
 
@@ -647,11 +647,11 @@
 	.2byte \b
 .endm
 
-.macro _0807EE30 
+.macro _0807EE30
 	.2byte 0x0475
 .endm
 
-.macro _0807EEB4 
+.macro _0807EEB4
 	.2byte 0x0476
 .endm
 
@@ -742,11 +742,11 @@
 	.2byte \s
 .endm
 
-.macro CameraTargetEntity 
+.macro CameraTargetEntity
 	.2byte 0x0487
 .endm
 
-.macro CameraTargetPlayer 
+.macro CameraTargetPlayer
 	.2byte 0x0488
 .endm
 

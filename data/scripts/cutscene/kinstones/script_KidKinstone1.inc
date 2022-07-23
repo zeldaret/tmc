@@ -23,12 +23,12 @@ script_0800F3EA:
 	BeginBlock
 	CheckEntityInteractType
 	JumpIfNot script_0800F402
-	EndBlock 
-	SetPlayerIdle 
-	FacePlayer 
+	EndBlock
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_MINISH2, 0x37
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 script_0800F402:
 	CheckSyncFlagAndClear 0x00000004
 	JumpIfNot script_0800F3EA

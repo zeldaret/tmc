@@ -26,7 +26,7 @@ script_08010804:
 	JumpIfNot script_08010804
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FacePlayer
 	CheckGlobalFlag GORON_KAKERA_L
 	JumpIfNot script_08010858
@@ -47,7 +47,7 @@ script_08010858:
 script_08010860:
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF38
+	Call DisablePauseMenu
 	FacePlayer
 	Call sub_08069660
 	WaitUntilTextboxCloses
@@ -80,7 +80,7 @@ script_080108B2:
 	Call sub_0807F83C
 script_080108BA:
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

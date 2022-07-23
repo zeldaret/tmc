@@ -64,13 +64,18 @@ void sub_08061C00(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/townsperson/Townsperson_Head.inc", void Townsperson_Head(Entity* this)) {
-    SetExtraSpriteFrame(this, 0, *(gUnk_0810B78C + (this->animIndex & 3)) + gUnk_0810B680[this->type].frame1);
-    SetExtraSpriteFrame(this, 1, this->frameIndex + gUnk_0810B680[this->type].frame2);
+void Townsperson_Head(Entity* this) {
+    u32 tmp = this->animIndex & 3;
+    u32 tmp2 = gUnk_0810B78C[tmp];
+    u32 tmp3;
+    tmp3 = tmp2 + (tmp3 = gUnk_0810B680[this->type].frame1);
+    SetExtraSpriteFrame(this, 0, tmp3);
+    tmp3 = this->frameIndex;
+    tmp3 += gUnk_0810B680[this->type].frame2;
+    SetExtraSpriteFrame(this, 1, tmp3);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
 }
-END_NONMATCH
 
 void sub_08061CB4(Entity* this, u32 arg1) {
     if (this->animIndex != arg1) {

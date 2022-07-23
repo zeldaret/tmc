@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -206,7 +206,7 @@ void sub_0808C5D0(BossDoorEntity* this) {
 }
 
 void sub_0808C650(Entity* this, u32 param_2) {
-    Entity* obj = CreateObject(OBJECT_3A, 0, param_2);
+    Entity* obj = CreateObject(WHITE_TRIANGLE_EFFECT, 0, param_2);
     if (obj != NULL) {
         obj->parent = this;
         gUnk_02036BB8 = FALSE;

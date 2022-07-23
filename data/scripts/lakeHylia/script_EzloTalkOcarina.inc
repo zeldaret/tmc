@@ -3,10 +3,10 @@ SCRIPT_START script_EzloTalkOcarina
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormalOrTalkEzlo
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO, 0x5f
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

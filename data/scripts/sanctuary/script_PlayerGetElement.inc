@@ -3,7 +3,7 @@ SCRIPT_START script_PlayerGetElement
 	BeginBlock
 	SetEntitySpeed 0x0140
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EndBlock
 	Wait 0x0078
 	PlayBgm BGM_ELEMENT_THEME

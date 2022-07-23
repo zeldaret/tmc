@@ -1,7 +1,13 @@
+/**
+ * @file fireballChain.c
+ * @ingroup Objects
+ *
+ * @brief Fireball Chain object
+ */
 #define NENT_DEPRECATED
-#include "global.h"
 #include "entity.h"
 #include "functions.h"
+#include "global.h"
 #include "projectile.h"
 #include "projectile/winder.h"
 

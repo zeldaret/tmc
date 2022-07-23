@@ -100,7 +100,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                     this->direction ^= 0x80;
                     this->speed = 0x400;
                 } else {
-                    this->parent->health -= 1;
+                    this->parent->health--;
                     this->parent->iframes = 0x1e;
                     if (this->parent->field_0x7c.BYTES.byte0 != 0) {
                         this->parent->knockbackDuration = 0x18;

@@ -1,5 +1,5 @@
-#ifndef GUARD_GBA_MACRO_H
-#define GUARD_GBA_MACRO_H
+#ifndef MACRO_H
+#define MACRO_H
 
 #define CPU_FILL(value, dest, size, bit)                                                                       \
     {                                                                                                          \
@@ -184,4 +184,4 @@
         REG_IME = imeTemp; \
     }
 
-#endif // GUARD_GBA_MACRO_H
+#endif // MACRO_H

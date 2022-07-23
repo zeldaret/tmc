@@ -54,17 +54,26 @@ typedef struct {
 } BgControls;
 
 typedef struct {
+    bool8 ready;
+    bool8 readyBackup;
+    u16 unused;
+    u16* src;
+    u16* dest;
+    u32 size;
+} VBlankDMA;
+
+typedef struct {
     /*0x00*/ LcdControls lcd;
     /*0x08*/ BgSettings bg0;
     /*0x14*/ BgSettings bg1;
     /*0x20*/ BgAffSettings bg2;
     /*0x2c*/ BgAffSettings bg3;
     /*0x38*/ BgControls controls;
-    /*0x6c*/ u8 _6c;
-    /*0x6d*/ u8 _6d;
-    /*0x70*/ void* _70;
-    /*0x74*/ u32 _74;
-    /*0x78*/ u32 _78;
+    /*0x6c*/ VBlankDMA vBlankDMA;
+    // /*0x6d*/ u8 _6d;
+    // /*0x70*/ void* _70;
+    // /*0x74*/ u32 _74;
+    // /*0x78*/ u32 _78;
 } Screen;
 
 typedef struct {

@@ -1,3 +1,9 @@
+/**
+ * @file windTribeFlag.c
+ * @ingroup Objects
+ *
+ * @brief Wind Tribe Flag object
+ */
 #include "object.h"
 
 void WindTribeFlag(Entity* this) {

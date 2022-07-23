@@ -181,7 +181,7 @@ void VaatiEyesMacroFunction0Type2(Entity* this) {
         }
     }
     this->y.HALF.HI++;
-    this->spriteOffsetY -= 1;
+    this->spriteOffsetY--;
 }
 
 void VaatiEyesMacroFunction0Type3(Entity* this) {

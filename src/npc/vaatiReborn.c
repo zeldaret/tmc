@@ -126,7 +126,7 @@ void VaatiRebornAction1(Entity* this) {
             switch (this->subAction) {
                 case 0:
                     if (--this->timer == 0) {
-                        this->subAction += 1;
+                        this->subAction++;
                     }
                     break;
                 case 1:

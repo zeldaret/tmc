@@ -21,12 +21,12 @@ gUnk_080FCBC4:: @ 080FCBC4
 	.incbin "data_080FC8A4/gUnk_080FCBC4_2.bin"
 	.4byte script_HouseDoorIntro
 	.incbin "data_080FC8A4/gUnk_080FCBC4_3.bin"
-	.4byte script_Object69Intro2
+	.4byte script_CutsceneOrchestratorIntro2
 	.incbin "data_080FC8A4/gUnk_080FCBC4_4.bin"
 
 gUnk_080FCC14:: @ 080FCC14
 	.incbin "data_080FC8A4/gUnk_080FCC14.bin"
-	.4byte script_Object69Intro
+	.4byte script_CutsceneOrchestratorIntro
 	.incbin "data_080FC8A4/gUnk_080FCC14_1.bin"
 	.4byte script_SmithIntro
 	.incbin "data_080FC8A4/gUnk_080FCC14_2.bin"
@@ -100,11 +100,11 @@ gUnk_080FCD40:: @ 080FCD40
 
 gUnk_080FCD84:: @ 080FCD84
 	.incbin "data_080FC8A4/gUnk_080FCD84.bin"
-	.4byte script_Object69MinishVaati
+	.4byte script_CutsceneOrchestratorMinishVaati
 	.incbin "data_080FC8A4/gUnk_080FCD84_1.bin"
 	.4byte script_MinishEzlo
 	.incbin "data_080FC8A4/gUnk_080FCD84_2.bin"
-	.4byte script_Object6AMinishCap
+	.4byte script_CutsceneMiscObjectMinishCap
 	.incbin "data_080FC8A4/gUnk_080FCD84_3.bin"
 	.4byte script_Vaati
 	.incbin "data_080FC8A4/gUnk_080FCD84_4.bin"
@@ -116,7 +116,7 @@ gUnk_080FCDD4:: @ 080FCDD4
 
 gUnk_080FCDE0:: @ 080FCDE0
 	.incbin "data_080FC8A4/gUnk_080FCDE0.bin"
-	.4byte script_Object69TakeoverCutscene
+	.4byte script_CutsceneOrchestratorTakeoverCutscene
 	.incbin "data_080FC8A4/gUnk_080FCDE0_1.bin"
 	.4byte script_KingDaltusTakeover
 	.incbin "data_080FC8A4/gUnk_080FCDE0_2.bin"

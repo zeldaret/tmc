@@ -1,48 +1,54 @@
+/**
+ * @file board.c
+ * @ingroup Objects
+ *
+ * @brief Board object
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "room.h"
 #include "asm.h"
-#include "player.h"
+#include "entity.h"
 #include "functions.h"
+#include "player.h"
+#include "room.h"
 
 typedef struct {
     Entity base;
     u8 filler[0x10];
-    u16 unk78;
-    u16 unk7a;
+    u16 x;
+    u16 y;
     u16 unk7c;
     u16 unk7e;
     u16 tile;
-    u8 unk82;
-    u8 unk83;
+    u8 width;
+    u8 height;
 } BoardEntity;
 
 void Board_Init(BoardEntity*);
-void sub_08098BE0(BoardEntity*);
+void Board_Action1(BoardEntity*);
 void sub_08098BE8(BoardEntity*);
 bool32 sub_08098C30(BoardEntity*, Entity*);
 void sub_0807AAF8(Entity*, u32);
 
 void Board(Entity* this) {
-    static void (*const actionFuncs[])(BoardEntity*) = {
+    static void (*const Board_Actions[])(BoardEntity*) = {
         Board_Init,
-        sub_08098BE0,
+        Board_Action1,
     };
 
-    actionFuncs[this->action]((BoardEntity*)this);
+    Board_Actions[this->action]((BoardEntity*)this);
 }
 
 void Board_Init(BoardEntity* this) {
-    static const u8 gUnk_0812366C[] = { 0x10, 0x1e, 0xc, 0x6, 0x10, 0x6, 0x0, 0x0 };
-    const u8* pbVar2 = &gUnk_0812366C[super->type * 2];
+    static const u8 Board_Sizes[] = { 0x10, 0x1e, 0xc, 0x6, 0x10, 0x6, 0x0, 0x0 };
+    const u8* size = &Board_Sizes[super->type * 2];
 
     super->action = 1;
     super->spriteSettings.draw = 1;
     super->frameIndex = super->type;
-    this->unk82 = pbVar2[0];
-    this->unk83 = pbVar2[1];
-    this->unk78 = super->x.HALF.HI - (this->unk82 >> 1);
-    this->unk7a = super->y.HALF.HI - (this->unk83 >> 1);
+    this->width = size[0];
+    this->height = size[1];
+    this->x = super->x.HALF.HI - (this->width >> 1);
+    this->y = super->y.HALF.HI - (this->height >> 1);
     this->tile = COORD_TO_TILE(super);
     super->collisionLayer = 1;
     UpdateSpriteForCollisionLayer(super);
@@ -53,7 +59,7 @@ void Board_Init(BoardEntity* this) {
     sub_08098BE8(this);
 }
 
-void sub_08098BE0(BoardEntity* this) {
+void Board_Action1(BoardEntity* this) {
     sub_08098BE8(this);
 }
 
@@ -66,12 +72,12 @@ void sub_08098BE8(BoardEntity* this) {
 }
 
 bool32 sub_08098C30(BoardEntity* this, Entity* ent) {
-    u32 uVar1 = 0;
-    u32 diffx = ent->x.HALF.HI - this->unk78;
-    u32 diffy = ent->y.HALF.HI - this->unk7a;
+    u32 result = FALSE;
+    u32 diffX = ent->x.HALF.HI - this->x;
+    u32 diffY = ent->y.HALF.HI - this->y;
 
-    if (diffx <= this->unk82 && diffy <= this->unk83) {
-        uVar1 = 1;
+    if (diffX <= this->width && diffY <= this->height) {
+        result = TRUE;
     }
-    return uVar1;
+    return result;
 }

@@ -100,20 +100,20 @@ gSpriteFrames_32:: @ 08118558
 gSpriteFrames_33:: @ 08118720
 	.include "sprites/gSpriteFrames_33.s"
 
-gSpriteFrames_Object6A_0:: @ 08118768
-	.include "sprites/gSpriteFrames_Object6A_0.s"
+gSpriteFrames_CutsceneMiscObject_0:: @ 08118768
+	.include "sprites/gSpriteFrames_CutsceneMiscObject_0.s"
 
-gSpriteFrames_Object6A_1:: @ 08118780
-	.include "sprites/gSpriteFrames_Object6A_1.s"
+gSpriteFrames_CutsceneMiscObject_1:: @ 08118780
+	.include "sprites/gSpriteFrames_CutsceneMiscObject_1.s"
 
-gSpriteFrames_Object6A_2:: @ 08118788
-	.include "sprites/gSpriteFrames_Object6A_2.s"
+gSpriteFrames_CutsceneMiscObject_2:: @ 08118788
+	.include "sprites/gSpriteFrames_CutsceneMiscObject_2.s"
 
 gSpriteFrames_MinishEzlo:: @ 08118794
 	.include "sprites/gSpriteFrames_MinishEzlo.s"
 
-gSpriteFrames_Object6A_3:: @ 081188C0
-	.include "sprites/gSpriteFrames_Object6A_3.s"
+gSpriteFrames_CutsceneMiscObject_3:: @ 081188C0
+	.include "sprites/gSpriteFrames_CutsceneMiscObject_3.s"
 
 gSpriteFrames_Din:: @ 08118948
 	.include "sprites/gSpriteFrames_Din.s"
@@ -286,8 +286,8 @@ gSpriteFrames_CastorWildsStatue:: @ 0811A280
 gSpriteFrames_Npc4F:: @ 0811A28C
 	.include "sprites/gSpriteFrames_Npc4F.s"
 
-gSpriteFrames_Object6A_4:: @ 0811A2A8
-	.include "sprites/gSpriteFrames_Object6A_4.s"
+gSpriteFrames_CutsceneMiscObject_4:: @ 0811A2A8
+	.include "sprites/gSpriteFrames_CutsceneMiscObject_4.s"
 
 gSpriteFrames_97:: @ 0811A2D0
 	.include "sprites/gSpriteFrames_97.s"
@@ -403,8 +403,8 @@ gSpriteFrames_GentariCurtains:: @ 0811B3B4
 gSpriteFrames_SpiderWeb:: @ 0811B3C8
 	.include "sprites/gSpriteFrames_SpiderWeb.s"
 
-gSpriteFrames_Object79:: @ 0811B408
-	.include "sprites/gSpriteFrames_Object79.s"
+gSpriteFrames_ShrinkingHieroglyphs:: @ 0811B408
+	.include "sprites/gSpriteFrames_ShrinkingHieroglyphs.s"
 
 gSpriteFrames_OctorokBoss_0:: @ 0811B540
 	.include "sprites/gSpriteFrames_OctorokBoss_0.s"

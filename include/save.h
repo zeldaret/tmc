@@ -90,14 +90,14 @@ u32 InitSaveData(void);
  *
  * @return Success.
  */
-u32 Read_02000000(SaveHeader*);
+u32 ReadSaveHeader(SaveHeader*);
 
 /**
  * Write save header.
  *
  * @return Success.
  */
-u32 Write_02000000(SaveHeader*);
+u32 WriteSaveHeader(SaveHeader*);
 
 /**
  * Read save file.

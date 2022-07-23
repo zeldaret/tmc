@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4EMtCrenel
 	BeginBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x0128, 0x0058
 	Call sub_0807F844
 	EndBlock

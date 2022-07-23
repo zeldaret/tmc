@@ -94,7 +94,7 @@ typedef enum {
     CONTROL_DISABLED,
 } PlayerControlMode;
 
-enum PlayerFlags {
+typedef enum {
     PL_BUSY = 0x1,
     PL_FLAGS2 = 0x2,
     PL_DROWNING = 0x4,
@@ -124,7 +124,7 @@ enum PlayerFlags {
     PL_SWORD_THRUST = 0x8000000,
     PL_USE_OCARINA = 0x10000000,
     PL_CLIMBING = 0x20000000,
-};
+} PlayerFlags;
 
 enum PlayerItemId {
     PL_ITEM_NONE,
@@ -228,6 +228,39 @@ typedef struct {
 } ChargeState;
 
 typedef struct {
+    u16 flags;
+    u16 keys;
+} PlayerMacroEntry;
+
+typedef enum {
+    PLAYER_INPUT_1 = 0x1,   // A
+    PLAYER_INPUT_2 = 0x2,   // B
+    PLAYER_INPUT_8 = 0x8,   // A sub_080782C0, sub_0807953C, sub_0807AE20, sub_08076518. ItemForSale_Action2
+    PLAYER_INPUT_10 = 0x10, // B sub_0807953C, sub_0807ADB8, sub_08076518, ItemForSale_Action2
+    PLAYER_INPUT_20 = 0x20, // R sub_0807953C
+    PLAYER_INPUT_40 = 0x40, // A CrenelBeanSprout_Action1
+    PLAYER_INPUT_80 = 0x80, // R sub_08073584, sub_080777A0, sub_080782C0, CrenelBeanSprout_Action1, ItemForSale_Action2
+    PLAYER_INPUT_RIGHT = 0x100,
+    PLAYER_INPUT_LEFT = 0x200,
+    PLAYER_INPUT_UP = 0x400,
+    PLAYER_INPUT_DOWN = 0x800,
+    PLAYER_INPUT_ANY_DIRECTION = 0xf00,
+    PLAYER_INPUT_1000 = 0x1000, // where is it set? sub_080782C0
+    PLAYER_INPUT_8000 = 0x8000, // R, sub_080778CC, sub_08076518
+
+    // TODO What is the result of u32 result = (s32) - (keys & 0x200) >> 0x1f & 0x1000;?
+} PlayerInputState;
+
+typedef struct {
+    /*0x90*/ u16 field_0x90;
+    /*0x92*/ u16 field_0x92;
+    /*0x94*/ u32 field_0x94;
+    /*0x98*/ u16 playerMacroWaiting;
+    /*0x9a*/ u16 playerMacroHeldKeys;
+    /*0x9c*/ PlayerMacroEntry* playerMacro;
+} PlayerInput;
+
+typedef struct {
     /*0x00*/ u8 field_0x0[2];
     /*0x02*/ u8 jump_status;
     /*0x03*/ u8 field_0x3[2];
@@ -279,12 +312,7 @@ typedef struct {
     /*0x8b*/ u8 controlMode;
     /*0x8c*/ u16 vel_x;
     /*0x8e*/ u16 vel_y;
-    /*0x90*/ u16 field_0x90;
-    /*0x92*/ u16 field_0x92;
-    /*0x94*/ u32 field_0x94;
-    /*0x98*/ u16 field_0x98;
-    /*0x9a*/ u16 field_0x9a;
-    /*0x9c*/ u32 field_0x9c;
+    /*0x90*/ PlayerInput playerInput;
     /*0xa0*/ ChargeState chargeState;
     /*0xa8*/ u8 framestate;
     /*0xa9*/ u8 framestate_last;
@@ -316,7 +344,7 @@ typedef struct {
     /*0x1c*/ u16 charmTimer;
     /*0x1e*/ u16 picolyteTimer;
     /*0x20*/ u16 effectTimer;
-    /*0x22*/ u8 filler4[4];
+    /*0x22*/ u8 filler4[6];
 } Stats;
 
 #define SLOT_A 0

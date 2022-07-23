@@ -65,7 +65,7 @@ typedef struct {
     u8 pauseCount;    /**< Number of pauses to make. */
     u8 pauseInterval; /**< Number of frames to play between each pause. */
     u8 pad;
-    union SplitHWord ticks; /**< Current time. */
+    u16 ticks; /**< Current time. */
 } Main;
 
 /**
@@ -127,15 +127,17 @@ void DoSoftReset(void);
  */
 void SetSleepMode(void);
 
-extern void sub_0805622C(struct BgAffineDstData* a1, u32 a2, u32 a3);
-extern void sub_08056208(void);
+/**
+ * Sets a DMA to be performed at next VBlank.
+ */
+extern void SetVBlankDMA(u16* src, u16* dest, u32 size);
+extern void InitVBlankDMA(void);
 extern void ResetPalettes(void);
 extern void VBlankIntrWait();
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void EnableVBlankIntr(void);
-extern void sub_08056250(void);
-extern void sub_08056208(void);
+extern void DisableVBlankDMA(void);
 
 /** @name Task entrypoints */
 ///@{

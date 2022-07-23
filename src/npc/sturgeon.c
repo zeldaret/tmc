@@ -153,7 +153,7 @@ void sub_08064D10(Entity* this) {
 void Sturgeon_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }

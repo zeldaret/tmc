@@ -4,7 +4,6 @@
  *
  * @brief Pushable Statue object
  */
-
 #define NENT_DEPRECATED
 #include "global.h"
 #include "object.h"
@@ -251,12 +250,11 @@ u32 sub_0808968C(u32 param_1) {
     return 0;
 }
 
-NONMATCH("asm/non_matching/pushableStatue/sub_080896B0.inc", bool32 sub_080896B0(void)) {
+bool32 sub_080896B0(void) {
     s16 uVar1;
     s16 iVar2;
-    u8* puVar3;
-    LayerStruct* puVar5;
-    u32 uVar4;
+    LayerStruct* layer;
+    s32 uVar4;
     const s16* ptr;
     u32 tmp1;
     u32 tmp2;
@@ -267,12 +265,11 @@ NONMATCH("asm/non_matching/pushableStatue/sub_080896B0.inc", bool32 sub_080896B0
         uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]) - uVar1;
         val = sub_080B1AE0(uVar4, gPlayerEntity.collisionLayer);
-        if ((1 < val - 0x26) && (val != 0x29)) {
-            puVar5 = GetLayerByIndex((u32)gPlayerEntity.collisionLayer);
-            iVar2 = (s32)(uVar4 * 0x10000) >> 0x10;
-            puVar3 = puVar5->collisionData;
-            tmp1 = puVar3[iVar2];
-            tmp2 = puVar3[(iVar2 - uVar1)];
+        if ((val - 0x26 > 1) && (val != 0x29)) {
+            layer = GetLayerByIndex(gPlayerEntity.collisionLayer);
+            iVar2 = (uVar4 * 0x10000) >> 0x10;
+            tmp1 = layer->collisionData[iVar2];
+            tmp2 = layer->collisionData[(iVar2 - uVar1)];
             if ((tmp1 == 0) && (tmp2 == 0)) {
                 return TRUE;
             }
@@ -280,7 +277,6 @@ NONMATCH("asm/non_matching/pushableStatue/sub_080896B0.inc", bool32 sub_080896B0
     }
     return FALSE;
 }
-END_NONMATCH
 
 void (*const PushableStatue_Actions[])(PushableStatueEntity*) = {
     PushableStatue_Init, PushableStatue_Action1, PushableStatue_Action2, PushableStatue_Action3, PushableStatue_Action4,

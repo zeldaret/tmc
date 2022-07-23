@@ -1,3 +1,9 @@
+/**
+ * @file smoke.c
+ * @ingroup Objects
+ *
+ * @brief Smoke object
+ */
 #include "object.h"
 
 void sub_0808A40C(Entity*);

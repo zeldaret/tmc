@@ -131,7 +131,7 @@ script_08012904:
 script_08012920:
 	SetPlayerIdle
 	SetAnimation 0x0010
-	EndBlock 
+	EndBlock
 	MessageFromTargetPos TEXT_FINDING_EZLO, 0x15, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
@@ -141,7 +141,7 @@ script_0801293A:
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FaceAwayFromPlayer
 	Call sub_0806D944
 	SetAnimation 0x0010
@@ -151,7 +151,7 @@ script_0801293A:
 	Call sub_0806D908
 	WalkForward 0x0050
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
@@ -167,7 +167,7 @@ script_08012984:
 script_080129A0:
 	SetPlayerIdle
 	SetAnimation 0x0010
-	EndBlock 
+	EndBlock
 	MessageFromTargetPos TEXT_FINDING_EZLO, 0x15, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
@@ -177,7 +177,7 @@ script_080129BA:
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FaceAwayFromPlayer
 	Call sub_0806D944
 	SetAnimation 0x0010
@@ -188,7 +188,7 @@ script_080129BA:
 	WalkForward 0x0050
 	SetAnimation 0x0018
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
@@ -204,7 +204,7 @@ script_08012A08:
 script_08012A24:
 	SetPlayerIdle
 	SetAnimation 0x0010
-	EndBlock 
+	EndBlock
 	MessageFromTargetPos TEXT_FINDING_EZLO, 0x15, 0x000c
 	WaitUntilTextboxCloses
 	SetAnimation 0x0018
@@ -214,7 +214,7 @@ script_08012A3E:
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StopBgm
 	DoPostScriptAction 0x000b
 	FaceAwayFromPlayer

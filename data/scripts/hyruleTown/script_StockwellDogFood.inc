@@ -2,14 +2,14 @@
 SCRIPT_START script_StockwellDogFood
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_080654FC
 	SetAnimation 0x0001
 	Call sub_080654EC
 	Wait 0x003c
 	MessageNoOverlap TEXT_STOCKWELL, 0x16
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_080143FA
 	SetIntVariable 0x00000002
 	Call sub_08065528
@@ -30,13 +30,13 @@ script_080143FA:
 	Call LoadMenu
 .ifndef EU
 	Wait 0x001e
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageNoOverlap TEXT_STOCKWELL, 0x22
 	WaitUntilTextboxCloses
 .endif
 script_0801443E:
 	SetAnimation 0x0004
 	SetAction 0x0001
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 SCRIPT_END

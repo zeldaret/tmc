@@ -324,7 +324,7 @@ static void LoadSmallChestTile(TileEntity* tile) {
         if (!t->tilePos) {
             MemCopy(tile, t, sizeof(TileEntity));
             if ((t->_6 & 1) && (gRoomControls.scroll_flags & 2) && !CheckLocalFlag(t->localFlag)) {
-                Entity* e = CreateObject(OBJECT_52, t->localFlag, 0);
+                Entity* e = CreateObject(SPECIAL_CHEST, t->localFlag, 0);
                 if (e != NULL) {
                     sub_0806F704(e, t->tilePos);
                 }

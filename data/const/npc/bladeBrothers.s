@@ -18,7 +18,7 @@ gUnk_081115D0:: @ 081115D0
 gUnk_081115DC:: @ 081115DC
 	.incbin "bladeBrothers/gUnk_081115DC.bin"
 
-gUnk_081115EC:: @ 081115EC
+BladeBrothers_PlayerMacros:: @ 081115EC
 	.4byte gUnk_08004A0C
 	.4byte gUnk_08004A16
 	.4byte gUnk_08004A24
@@ -28,10 +28,10 @@ gUnk_081115EC:: @ 081115EC
 	.4byte gUnk_08004A8C
 	.4byte gUnk_08004AA6
 	.4byte 00000000
-	.incbin "bladeBrothers/gUnk_081115EC.bin"
+	.incbin "bladeBrothers/BladeBrothers_PlayerMacros.bin"
 
-gUnk_08111618:: @ 08111618
-	.incbin "bladeBrothers/gUnk_08111618.bin"
+BladeBrothers_EquippedItem:: @ 08111618
+	.incbin "bladeBrothers/BladeBrothers_EquippedItem.bin"
 
 gUnk_08111623:: @ 08111623
 	.incbin "bladeBrothers/gUnk_08111623.bin"

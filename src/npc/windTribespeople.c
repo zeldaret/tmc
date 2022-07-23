@@ -205,7 +205,7 @@ void sub_0806C99C(Entity* this, ScriptExecutionContext* context) {
         flagAsBool = 2;
     }
     if (CheckLocalFlag(99) != 0) {
-        flagAsBool += 1;
+        flagAsBool++;
     }
     MessageNoOverlap(messageIndices[flagAsBool], this);
 }
@@ -275,7 +275,7 @@ void sub_0806CA5C(Entity* this, ScriptExecutionContext* context) {
 void WindTribespeople_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08113A1C[this->type * 4]) != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }

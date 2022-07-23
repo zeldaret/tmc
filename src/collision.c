@@ -297,7 +297,7 @@ void sub_080179EC(Entity* a1, Entity* a2) {
 Entity* sub_08017A90(Entity* a1, Entity* parent) {
     Entity* e;
 
-    e = (Entity*)CreateObject(OBJECT_99, 0, 0);
+    e = (Entity*)CreateObject(HIT_SWITCH, 0, 0);
     if (e != NULL) {
         e->animationState = (a1->direction >> 3) & 3;
         e->spriteOffsetX = a1->x.HALF.HI - parent->x.HALF.HI;
@@ -384,7 +384,7 @@ s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 
 s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | PL_IN_MINECART)) == 0) {
-        Entity* e = CreateObject(OBJECT_42, 1, 0);
+        Entity* e = CreateObject(LINK_FIRE, 1, 0);
         if (e != NULL) {
             e->child = org;
             gPlayerState.flags |= PL_BURNING;

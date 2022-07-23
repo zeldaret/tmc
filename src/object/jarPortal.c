@@ -1,27 +1,33 @@
-#include "object.h"
+/**
+ * @file jarPortal.c
+ * @ingroup Objects
+ *
+ * @brief Jar Portal object
+ */
 #include "area.h"
 #include "functions.h"
+#include "object.h"
 
 extern u32 PortalReadyForMinish(void);
 
 u32 sub_0808C128(Entity*);
 void sub_0808C13C(Entity*);
-void sub_0808BE9C(Entity*);
-void sub_0808BF14(Entity*);
-void sub_0808BF58(Entity*);
-void sub_0808BFD8(Entity*);
-void sub_0808C0AC(Entity*);
+void JarPortal_Init(Entity*);
+void JarPortal_Action1(Entity*);
+void JarPortal_Action2(Entity*);
+void JarPortal_Action3(Entity*);
+void JarPortal_Action4(Entity*);
 void sub_0808C148(Entity*, u32);
 void sub_0808C01C(Entity*, u32);
 
 void JarPortal(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0808BE9C, sub_0808BF14, sub_0808BF58, sub_0808BFD8, sub_0808C0AC,
+    static void (*const JarPortal_Actions[])(Entity*) = {
+        JarPortal_Init, JarPortal_Action1, JarPortal_Action2, JarPortal_Action3, JarPortal_Action4,
     };
-    actionFuncs[this->action](this);
+    JarPortal_Actions[this->action](this);
 }
 
-void sub_0808BE9C(Entity* this) {
+void JarPortal_Init(Entity* this) {
     COLLISION_ON(this);
     this->hitType = 1;
     this->collisionFlags = 0x47;
@@ -47,7 +53,7 @@ void sub_0808BE9C(Entity* this) {
     }
 }
 
-void sub_0808BF14(Entity* this) {
+void JarPortal_Action1(Entity* this) {
     if (sub_0808C128(this)) {
         this->action++;
         sub_0808C13C(this);
@@ -61,7 +67,7 @@ void sub_0808BF14(Entity* this) {
     sub_0808C01C(this, 0);
 }
 
-void sub_0808BF58(Entity* this) {
+void JarPortal_Action2(Entity* this) {
     GravityUpdate(this, Q_8_8(32.0));
     switch (this->subAction) {
         case 0:
@@ -89,7 +95,7 @@ void sub_0808BF58(Entity* this) {
     }
 }
 
-void sub_0808BFD8(Entity* this) {
+void JarPortal_Action3(Entity* this) {
     if (sub_0808C128(this)) {
         ++this->action;
         sub_0808C13C(this);
@@ -129,7 +135,7 @@ void sub_0808C01C(Entity* this, u32 r1) {
     }
 }
 
-void sub_0808C0AC(Entity* this) {
+void JarPortal_Action4(Entity* this) {
     GravityUpdate(this, Q_8_8(32.0));
     switch (this->subAction) {
         case 0:

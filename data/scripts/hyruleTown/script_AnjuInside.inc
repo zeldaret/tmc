@@ -9,9 +9,9 @@ SCRIPT_START script_AnjuInside
 script_08010132:
 	CheckEntityInteractType
 	JumpIfNot script_08010132
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageFromTarget TEXT_CAFE, 0x22
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08010132

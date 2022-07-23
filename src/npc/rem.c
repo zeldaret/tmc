@@ -84,7 +84,7 @@ void sub_0806A458(Entity* this) {
     switch (this->subAction) {
         case 0:
             if (--this->timer == 0) {
-                this->subAction += 1;
+                this->subAction++;
             }
             break;
         case 1:
@@ -168,7 +168,7 @@ void sub_0806A5E8(Entity* this) {
         InitializeAnimation(this, 0x10);
         this->timer = (Random() & 0x3f) + 60;
     }
-    this->timer -= 1;
+    this->timer--;
     if (this->timer == 0) {
         this->timer = (Random() & 0x3f) + 120;
         SoundReq(SFX_REM_SLEEP);

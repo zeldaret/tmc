@@ -144,7 +144,7 @@ void sub_0805BE94(LightLevelSetManager* this) {
 }
 
 void sub_0805BEC4(LightLevelSetManager* this) {
-    Entity* object = CreateObject(OBJECT_2A, 1, 0);
+    Entity* object = CreateObject(FLAME, 1, 0);
     if (object != NULL) {
         *(s8*)(&object->flags + 1) = ((*(s8*)(&object->flags + 1)) & (-0x10)) | 3;
         object->x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;

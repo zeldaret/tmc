@@ -42,7 +42,7 @@ void Bombarossa_OnCollision(BombarossaEntity* this) {
     Entity* ent;
     switch (super->contactFlags & 0x7f) {
         default:
-            ent = CreateObject(OBJECT_20, 0, 0);
+            ent = CreateObject(SMOKE_PARTICLE, 0, 0);
             if (ent != NULL) {
                 CopyPosition(super, ent);
             }

@@ -240,13 +240,13 @@ gUnk_080FF36C:: @ 080FF36C
 
 gUnk_080FF378:: @ 080FF378
 	.incbin "data_080FEEB8/gUnk_080FF378.bin"
-	.4byte script_ObjectB3KinstoneSpark
+	.4byte script_KinstoneSparkKinstoneSpark
 	.incbin "data_080FEEB8/gUnk_080FF378_1.bin"
-	.4byte script_ObjectB3KinstoneSparkFromBottom
+	.4byte script_KinstoneSparkKinstoneSparkFromBottom
 	.incbin "data_080FEEB8/gUnk_080FF378_2.bin"
-	.4byte script_ObjectB3KinstoneSparkGoronMerchang
+	.4byte script_KinstoneSparkKinstoneSparkGoronMerchang
 	.incbin "data_080FEEB8/gUnk_080FF378_3.bin"
-	.4byte script_ObjectB3KinstoneSparkGoron
+	.4byte script_KinstoneSparkKinstoneSparkGoron
 	.incbin "data_080FEEB8/gUnk_080FF378_4.bin"
 
 gUnk_080FF3C8:: @ 080FF3C8
