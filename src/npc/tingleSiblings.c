@@ -141,7 +141,11 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
             iVar3 = GetInventoryValue(ITEM_MAGIC_BOOMERANG);
             uVar5 = 2;
             if (iVar3 == 0) {
-                uVar5 = (-bVar2 | bVar2) >> 0x1f;
+                if (bVar2) {
+                    uVar5 = 1;
+                } else {
+                    uVar5 = 0;
+                }
             }
         }
         iVar4 = 0xffffffff;

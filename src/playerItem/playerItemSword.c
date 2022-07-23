@@ -356,8 +356,8 @@ NONMATCH("asm/non_matching/playerItemSword/sub_080A7A84.inc", void sub_080A7A84(
         if (super->type != 0) {
             sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + uVar4);
         } else {
-            if ((((super->z.WORD == 0) && (sub_08008796(super, ((u32) - (gPlayerState.skills & 8)) >> 0x1f,
-                                                        super->x.HALF.HI + uVar3, super->y.HALF.HI + uVar4) == NULL)) &&
+            if ((((super->z.WORD == 0) && (sub_08008796(super, (gPlayerState.skills & 8) != 0, super->x.HALF.HI + uVar3,
+                                                        super->y.HALF.HI + uVar4) == NULL)) &&
                  (gPlayerState.sword_state != 0)) &&
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
                 if (GetRelativeCollisionTile(super, uVar3, uVar4) == 0x2e) {

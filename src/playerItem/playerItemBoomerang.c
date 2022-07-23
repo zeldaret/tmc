@@ -149,7 +149,11 @@ void sub_0801B680(Entity* this) {
     if (sub_0801B864(this)) {
         uvar1 = this->field_0x68.HALF.LO;
         uvar1 ^= 0xc;
-        uVar6 = ((u32)(-uvar1 | uvar1)) >> 0x1f;
+        if (uvar1) {
+            uVar6 = TRUE;
+        } else {
+            uVar6 = FALSE;
+        }
     }
 
     if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {

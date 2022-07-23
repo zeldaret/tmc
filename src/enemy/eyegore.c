@@ -370,7 +370,7 @@ void sub_08031024(EyegoreEntity* this) {
                                                     gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI);
         } else {
             this->unk_79 = 1;
-            this->unk_78 = (boolresult >> 0x1f);
+            this->unk_78 = boolresult != 0;
             super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_74, this->unk_76);
         }
     } else {

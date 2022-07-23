@@ -201,8 +201,11 @@ u32 GetCharacter(Token* token) {
                     case 0x14:
                     case 0x15:
                         code = 0xb;
-                        // This is a comparison to 0 but couldn't make it do the bit trick
-                        uVar6 = (-(uVar6 ^ 0x14) | (uVar6 ^ 0x14)) >> 0x1f;
+                        if ((uVar6 ^ 0x14) != 0) {
+                            uVar6 = 1;
+                        } else {
+                            uVar6 = 0;
+                        }
                 }
                 token->param = (u16)uVar6;
                 break;

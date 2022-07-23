@@ -148,7 +148,7 @@ void sub_08060528(Entity* this) {
             this->zVelocity = Q_16_16(2.0);
             this->field_0x6c.HALF.HI = 1;
             sub_080788E0(this);
-            EnqueueSFX(0x7c);
+            EnqueueSFX(SFX_PLY_JUMP);
         } else {
             this->field_0x6a.HWORD -= 1;
         }

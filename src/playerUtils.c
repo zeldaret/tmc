@@ -56,7 +56,7 @@ void* sub_08077C54(ItemBehavior*);
 u32 sub_08079FD4(Entity*, u32);
 void LoadRoomGfx(void);
 u32 sub_0807A094(u32);
-u32 GetSurfaceCalcType(Entity*, s32, s32);
+SurfaceType GetSurfaceCalcType(Entity*, s32, s32);
 void sub_0807AAF8(Entity*, u32);
 
 extern struct_0811BE48 gUnk_0811BE48[];
@@ -243,7 +243,7 @@ bool32 sub_080777A0(void) {
                     return FALSE;
                 default:
                     if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
-                         (gPlayerState.floor_type != 0x11)) &&
+                         (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.field_0x90 & 0xf00) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
                           ((gPlayerState.jump_status == 0 && (gPlayerState.field_0x3[1] == 0)))))) {
@@ -1192,8 +1192,8 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x1f[0] = 0;
     gPlayerState.field_0x1f[1] = 0;
     gPlayerState.field_0x1f[2] = 0;
-    gPlayerState.field_0x22[0] = 0;
-    gPlayerState.field_0x22[1] = 0;
+    gPlayerState.tilePosition = 0;
+    gPlayerState.tileType = 0;
     gPlayerState.swim_state = 0;
     gPlayerState.item = NULL;
     gPlayerState.speed_modifier = 0;
@@ -1863,15 +1863,15 @@ void UpdateFloorType(void) {
     gUnk_0811C120[gPlayerState.floor_type](&gPlayerEntity);
 }
 
-u32 GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
+SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
     u32 position = TILE(param_1->x.HALF.HI + (u32)x, param_1->y.HALF.HI + y);
     u32 tileType = GetTileTypeByPos(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.collisionLayer);
-    if (tileType != gPlayerState.field_0x22[1]) {
+    if (tileType != gPlayerState.tileType) {
         gPlayerState.field_0x37 = 0;
     }
-    if ((tileType != gPlayerState.field_0x22[1]) || (position != gPlayerState.field_0x22[0])) {
-        gPlayerState.field_0x22[0] = position;
-        gPlayerState.field_0x22[1] = tileType;
+    if ((tileType != gPlayerState.tileType) || (position != gPlayerState.tilePosition)) {
+        gPlayerState.tilePosition = position;
+        gPlayerState.tileType = tileType;
         gPlayerState.field_0x11 = 0;
     }
 
