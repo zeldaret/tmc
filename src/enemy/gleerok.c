@@ -1256,8 +1256,21 @@ END_NONMATCH
 
 ASM_FUNC("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleerok_HeapStruct* param_1));
 
-ASM_FUNC("asm/non_matching/gleerok/sub_0802E7CC.inc",
-         bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4));
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+} sub_0802E7CC_HeapStruct;
+
+NONMATCH("asm/non_matching/gleerok/sub_0802E7CC.inc",
+         bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4)) {
+    u8* ptr;
+
+    param_1->entities[(u8)param_2]->animationState = ((sub_0802E7CC_HeapStruct*)param_1->filler)[(u8)param_2].unk1;
+    return param_1->entities[(u8)param_2]->animationState;
+}
+END_NONMATCH
 
 ASM_FUNC("asm/non_matching/gleerok/sub_0802E7E4.inc", void sub_0802E7E4(Gleerok_HeapStruct* this));
 
