@@ -223,28 +223,21 @@ void sub_0802D258(GleerokEntity* this) {
     sub_0802E768(this->unk_84);
 }
 
-NONMATCH("asm/non_matching/gleerok/sub_0802D33C.inc", void sub_0802D33C(GleerokEntity* this)) {
-    u8* unk_84 = (u8*)this->unk_84;
-    u8* ptr = unk_84;
-    u8* ptr2;
-    u32 i = 0;
-    ptr += 0x3c;
-    ptr2 = ptr;
+void sub_0802D33C(GleerokEntity* this) {
+    Gleerok_HeapStruct* unk_84 = this->unk_84;
+    u32 i;
 
-    do {
-        DeleteEntity(*(Entity**)ptr);
-        ptr += 4;
-    } while (i < 4);
+    for (i = 0; i < 4; i++) {
+        DeleteEntity(unk_84->entities[i]);
+    }
 
-    ptr2 += (i << 2);
-    *(u32*)((*(u8**)ptr2) + 0x45) = 0;
-    *((*(u8**)ptr2) + 0x6d) |= 1;
-    ((Entity*)(*(u8**)(unk_84 + 0x50)))->health = 0;
-    ((Entity*)(*(u8**)(unk_84 + 0x50)))->type2 = 0;
-    ((Entity*)(*(u8**)(unk_84 + 0x50)))->spriteSettings.draw &= ~1;
+    unk_84->entities[i]->health = 0;
+    ((GenericEntity*)unk_84->entities[i])->field_0x6c.HALF.HI |= 1;
+    unk_84->ent2->health = 0;
+    unk_84->ent2->type2 = 0;
+    unk_84->ent2->spriteSettings.draw &= ~1;
     DeleteThisEntity();
 }
-END_NONMATCH
 
 void Gleerok_OnTick(GleerokEntity* this) {
     gUnk_080CD7B8[super->action](this);
