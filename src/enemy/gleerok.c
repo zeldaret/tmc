@@ -283,10 +283,9 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
             uvar1 = 0;
 
             do {
-                ent = CreateEnemy(GLEEROK, 1);
-                super->child = ent;
-                if (ent != NULL) {
-                    ent->type2 = uvar1 + 1;
+                super->child = CreateEnemy(GLEEROK, 1);
+                if (super->child != NULL) {
+                    super->child->type2 = uvar1 + 1;
                     super->child->collisionLayer = super->collisionLayer;
                     super->child->x.HALF.HI = super->x.HALF.HI;
                     super->child->y.HALF.HI = super->y.HALF.HI + ((uvar1 + 1) * 12);
@@ -310,7 +309,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
                 super->child->parent = super;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
                 heap->ent2 = super->child;
-                heap->filler[3].unk1 = 0x10;
+                heap->filler[5].unk1 = 0x10;
                 heap->filler[11].unk1 = 0;
                 heap->filler[13].unk1 = 0;
             }
@@ -324,9 +323,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
                 COLLISION_ON(super);
                 super->flags2 |= 0x80;
             }
-            ptr = gUnk_080CD7C4;
-            ptr += super->type2;
-            super->spritePriority.b0 = ptr->unk1;
+            super->spritePriority.b0 = gUnk_080CD7C4[super->type2].unk1;
             super->subtimer = 0;
             InitializeAnimation(super, 0x24);
             break;
