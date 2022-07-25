@@ -7,7 +7,9 @@
 #include "object.h"
 
 typedef struct {
-    /*0x00*/ u8 filler[0x30];
+    /*0x00*/ u8 filler[0x2c];
+    /*0x2c*/ union SplitHWord unk_2c;
+    /*0x2e*/ u16 filler_2e;
     /*0x30*/ u8 unk_30[6];
     /*0x36*/ u8 filler_36[0x2];
     /*0x38*/ Entity* ent;
@@ -1251,3 +1253,39 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
     }
 }
 END_NONMATCH
+
+ASM_FUNC("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleerok_HeapStruct* param_1));
+
+ASM_FUNC("asm/non_matching/gleerok/sub_0802E7CC.inc",
+         bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4));
+
+ASM_FUNC("asm/non_matching/gleerok/sub_0802E7E4.inc", void sub_0802E7E4(Gleerok_HeapStruct* this));
+
+void sub_0802E9B0(GleerokEntity* this) {
+    u32 uVar1;
+    s32 iVar2;
+    s32 uVar4;
+    Gleerok_HeapStruct* heap;
+
+    iVar2 = sub_080041DC(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI) >> 4;
+    if (iVar2 < 0x60) {
+        iVar2 = 10;
+    } else {
+        uVar4 = iVar2 - 0x60;
+        if (uVar4 < 0) {
+            uVar4 = iVar2 - 0x5d;
+        }
+        iVar2 = 10 - (uVar4 >> 2);
+        if (iVar2 < 4) {
+            iVar2 = 4;
+        }
+    }
+    heap = this->unk_84;
+    if (iVar2 != heap->unk_2c.HALF.HI) {
+        if (iVar2 > heap->unk_2c.HALF.HI) {
+            heap->unk_2c.HWORD = (heap->unk_2c.HWORD + 0x20) & 0x1fff;
+        } else {
+            heap->unk_2c.HWORD = (heap->unk_2c.HWORD - 0x20) & 0x1fff;
+        }
+    }
+}
