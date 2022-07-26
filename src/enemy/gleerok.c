@@ -69,7 +69,7 @@ extern void sub_0802E430(GleerokEntity* this);
 extern void sub_0802EBC4(GleerokEntity* this);
 extern void sub_0802E9B0(GleerokEntity* this);
 
-extern bool32 sub_0802EB08(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3);
+extern bool32 sub_0802EB08(Gleerok_HeapStruct* param_1, u32 param_2, s32 param_3);
 extern bool32 sub_0802EA18(u32 param_1, u32 param_2, u32 param_3);
 extern void sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern void sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
@@ -1444,5 +1444,47 @@ NONMATCH("asm/non_matching/gleerok/sub_0802EA88.inc", bool32 sub_0802EA88(Gleero
         this->filler[uVar5 + 1].unk0.HALF.HI = bVar4;
     }
     return uVar6;
+}
+END_NONMATCH
+
+NONMATCH("asm/non_matching/gleerok/sub_0802EB08.inc",
+         bool32 sub_0802EB08(Gleerok_HeapStruct* param_1, u32 param_2, s32 param_3)) {
+    s32 uVar2;
+    u32 bVar4;
+    u32 uVar5;
+    u32 uVar6;
+    u32 uVar7;
+
+    uVar7 = FALSE;
+
+    for (uVar6 = 0; uVar6 < 5; uVar6++) {
+        if (param_1->filler2[uVar6].unk0.HALF.HI != param_1->filler2[uVar6 + 1].unk0.HALF.HI) {
+            uVar7 = TRUE;
+            if (0x10 <
+                (s32)((param_1->filler2[uVar6 + 1].unk0.HALF.HI - param_1->filler2[uVar6].unk0.HALF.HI) & 0x1fU)) {
+                uVar5 = 3;
+            } else {
+                uVar5 = 2;
+            }
+            sub_0802EA68(param_1, uVar6 + 1, param_2, uVar5);
+            break;
+        }
+    }
+
+    for (uVar6 = 0; uVar6 <= 4; uVar6++) {
+        bVar4 = param_1->filler2[uVar6 + 1].unk0.HALF.HI;
+        uVar2 = (bVar4 - param_1->filler2[uVar6].unk0.HALF.HI) & 0x1f;
+        if (uVar2 >= 0x11) {
+            if ((-param_3 & 0x1f) > uVar2) {
+                bVar4 = (bVar4 + 1) & 0x1f;
+            }
+        } else {
+            if (param_3 < (int)uVar2) {
+                bVar4 = (bVar4 - 1) & 0x1f;
+            }
+        }
+        param_1->filler2[uVar6 + 1].unk0.HALF.HI = bVar4;
+    }
+    return uVar7;
 }
 END_NONMATCH
