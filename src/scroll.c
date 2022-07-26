@@ -29,6 +29,8 @@ extern u16 gUnk_0200B640;
 extern u32** gUnk_08109194[];
 extern u8 gUnk_02022830[];
 extern u16 gUnk_020246B0[];
+extern u8 gUnk_080B37A0[];
+extern u8 gUnk_080B7910[];
 
 void sub_0807FC64(RoomControls*);
 void sub_0807FC7C(RoomControls*);
@@ -766,7 +768,21 @@ NONMATCH("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTran
 }
 END_NONMATCH
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080B60.inc", void sub_08080B60(LayerStruct* param_1))
+void sub_08080B60(LayerStruct* layer) {
+    u32 index;
+    u16* metatileTypes = layer->metatileTypes;
+    u8* ptr = gUnk_080B37A0;
+    u8* ptr3 = layer->unkData3;
+    u16* mapData = layer->mapData;
+    for (index = 0; index < 0x1000; index++) {
+        u16 val = mapData[index];
+        if (val < 0x4000) {
+            layer->unkData3[index] = ptr[metatileTypes[val]];
+        } else {
+            layer->unkData3[index] = gUnk_080B7910[val - 0x4000];
+        }
+    }
+}
 
 void sub_08080BC4(void) {
     const s8* ptr;
