@@ -703,21 +703,20 @@ bool32 sub_08077FEC(u32 action) {
     return gPlayerChargeActions[state->action](state);
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_08078008.inc", bool32 sub_08078008(ChargeState* state)) {
-    u32 swordType;
-    if (ItemIsSword(gSave.stats.itemButtons[0]) == 0) {
-        if (ItemIsSword(gSave.stats.itemButtons[1]) != 0) {
-            swordType = gSave.stats.itemButtons[1];
-        } else {
-            swordType = 0;
-        }
-    } else {
+bool32 sub_08078008(ChargeState* state) {
+    Item swordType;
+    if (ItemIsSword(gSave.stats.itemButtons[0]) != ITEM_NONE) {
         swordType = gSave.stats.itemButtons[0];
+    } else if (ItemIsSword(gSave.stats.itemButtons[1]) != ITEM_NONE) {
+        swordType = gSave.stats.itemButtons[1];
+    } else {
+        swordType = ITEM_NONE;
     }
-    if (swordType == 1 || swordType == 2) {
-        swordType = 0;
+
+    if (swordType == ITEM_SMITH_SWORD || swordType == ITEM_GREEN_SWORD) {
+        swordType = ITEM_NONE;
     }
-    if ((swordType != 0) && ((gPlayerState.sword_state & 0x20) != 0)) {
+    if (swordType != ITEM_NONE && ((gPlayerState.sword_state & 0x20) != 0)) {
         if (++state->preChargeTimer > 20) {
             state->preChargeTimer = 10;
             state->action = 3;
@@ -728,7 +727,6 @@ NONMATCH("asm/non_matching/playerUtils/sub_08078008.inc", bool32 sub_08078008(Ch
     }
     return FALSE;
 }
-END_NONMATCH
 
 bool32 sub_08078070(ChargeState* state) {
     if ((gPlayerState.sword_state & 0x20) != 0) {
