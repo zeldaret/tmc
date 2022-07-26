@@ -1302,7 +1302,50 @@ u32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 para
     return param_1->entities[(u8)param_2]->animationState;
 }
 
-ASM_FUNC("asm/non_matching/gleerok/sub_0802E7E4.inc", void sub_0802E7E4(Gleerok_HeapStruct* this));
+void sub_0802E7E4(Gleerok_HeapStruct* this) {
+    u32 i;
+    u32 bVar6;
+
+    if ((this->ent2->frame & 0x40) != 0) {
+        bVar6 = 0;
+        for (i = 0; i < 6; i++) {
+            this->entities[i]->spritePriority.b0 = bVar6++;
+            if (this->unk_30[i] == 0) {
+                this->entities[i]->spriteSettings.draw &= ~1;
+            } else {
+                this->entities[i]->spriteSettings.draw = 1;
+            }
+        }
+        for (i = 0; i < 5; i++) {
+            if ((u8)(this->filler[i].unk0.HALF.HI - 8) < 0x11) {
+                bVar6 = this->entities[i]->spritePriority.b0;
+                this->entities[i]->spritePriority.b0 = this->entities[i + 1]->spritePriority.b0;
+                this->entities[i + 1]->spritePriority.b0 = bVar6;
+            }
+        }
+        this->ent->spritePriority.b0 = 0;
+    } else {
+        bVar6 = 5;
+
+        for (i = 0; i < 6; i++) {
+            this->entities[i]->spritePriority.b0 = bVar6--;
+            if (this->unk_30[i] == 0) {
+                this->entities[i]->spriteSettings.draw &= ~1;
+            } else {
+                this->entities[i]->spriteSettings.draw = 1;
+            }
+        }
+
+        for (i = 0; i < 5; i++) {
+            if (0x10 < (u8)(this->filler[i].unk0.HALF.HI - 8)) {
+                bVar6 = this->entities[i]->spritePriority.b0;
+                this->entities[i]->spritePriority.b0 = this->entities[i + 1]->spritePriority.b0;
+                this->entities[i + 1]->spritePriority.b0 = bVar6;
+            }
+        }
+        this->ent->spritePriority.b0 = 6;
+    }
+}
 
 void sub_0802E9B0(GleerokEntity* this) {
     u32 uVar1;
