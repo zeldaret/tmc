@@ -86,6 +86,9 @@ static const u16 gUnk_080FC8DE[] = {
 static void sub_08050848(void);
 static void sub_0805086C(void);
 static void sub_08050940(void);
+void sub_08051358(void);
+void sub_08051574(u32);
+void sub_08051480(u32);
 static void (*const sFileSelectDefaultHandlers[])(void) = {
     sub_08050848,
     sub_0805086C,
@@ -98,6 +101,9 @@ extern void (*const gUnk_080FC960[])(void);
 extern void (*const gUnk_080FC9B0[])(void);
 extern void (*const gUnk_080FC9BC[])(void);
 extern void (*const gUnk_080FC9C8[])(void);
+extern u8 gUnk_080FC970[];
+extern u8 gUnk_080FC980[];
+extern u8 gUnk_080FC9A0[];
 
 static void sub_08050624(u32);
 static void sub_0805066C(void);
@@ -871,9 +877,178 @@ void sub_08051090(void) {
     SetMenuType(1);
 }
 
-NONMATCH("asm/non_matching/fileScreen/sub_080610B8.inc", void sub_080610B8(void)) {
+void sub_080610B8(void) {
+    u8 uVar7;
+    s32 uVar6;
+    s32 tmp4;
+    u8* puVar3;
+    u8* puVar4;
+    u8* puVar5;
+    s32 iVar4;
+    u8 bVar2;
+    u32 tmp1;
+    u32 tmp3;
+    u8 tmp2;
+    u8 cVar1;
+    s32 uVar8;
+    s32 uVar5;
+
+    if (gMapDataBottomSpecial.isTransitioning != 0) {
+        return;
+    }
+    uVar7 = 0;
+    switch (gInput.newKeys) {
+        default:
+            uVar6 = 0;
+            tmp4 = 0;
+            switch (gInput.unk4) {
+                case 0x40:
+                    tmp4 = -1;
+                    break;
+                case 0x80:
+                    tmp4 = 1;
+                    break;
+                case 0x20:
+                    uVar6 = -1;
+                    break;
+                case 0x10:
+                    uVar6 = 1;
+                    break;
+            }
+            gGenericMenu.unk10.a[1] = (gGenericMenu.unk10.a[1] + tmp4 + 6) % 6;
+            if ((tmp4 | uVar6) != 0) {
+                SoundReq(SFX_TEXTBOX_NEXT);
+            }
+            if (uVar6 != 0) {
+                if (gGenericMenu.unk10.a[1] != 5) {
+                    gGenericMenu.unk10.a[0] = (gGenericMenu.unk10.a[0] + uVar6 + 0xd) % 0xd;
+                    puVar4 = gUnk_080FC980;
+                    if (gSaveHeader->language != 0) {
+                        puVar4 += 0x10;
+                    }
+                    gGenericMenu.unk10.a[2] = puVar4[gGenericMenu.unk10.a[0]];
+                } else {
+                    if (gSaveHeader->language == 0) {
+                        iVar4 = 5;
+                    } else {
+                        iVar4 = 4;
+                    }
+                    gGenericMenu.unk10.a[2] = (gGenericMenu.unk10.a[2] + uVar6 + iVar4) % iVar4;
+                    if (gSaveHeader->language != 0) {
+                        puVar5 = gUnk_080FC9A0 + 8;
+                    } else {
+                        puVar5 = gUnk_080FC9A0;
+                    }
+                    gGenericMenu.unk10.a[0] = puVar5[gGenericMenu.unk10.a[2]];
+                }
+            }
+            break;
+        case B_BUTTON:
+            if (gGenericMenu.unk10.a[3] != 0) {
+                uVar7 = 5;
+            } else {
+                sub_08051358();
+            }
+            break;
+        case START_BUTTON:
+            if (gSaveHeader->language == 0) {
+                iVar4 = 4;
+            } else {
+                iVar4 = 3;
+            }
+            if ((gGenericMenu.unk10.a[1] == 5) && (iVar4 == gGenericMenu.unk10.a[2])) {
+                uVar7 = 8;
+            } else {
+                sub_08051358();
+            }
+            break;
+        case A_BUTTON:
+            if (gGenericMenu.unk10.a[1] == 5) {
+                puVar3 = gUnk_080FC970;
+                tmp1 = gGenericMenu.unk10.a[2];
+                if (gSaveHeader->language != 0) {
+                    tmp1 += 8;
+                }
+                uVar7 = puVar3[tmp1];
+
+            } else {
+                uVar7 = 6;
+            }
+            break;
+        case L_BUTTON:
+            if (gSaveHeader->language == 0) {
+                uVar7 = 4;
+            } else {
+                uVar7 = 1;
+            }
+            break;
+        case R_BUTTON:
+            if (gSaveHeader->language == 0) {
+                uVar7 = 7;
+            } else {
+                uVar7 = 2;
+            }
+            break;
+    }
+    tmp3 = gMenu.column_idx;
+    switch (uVar7) {
+        case 1:
+            tmp3 = 0;
+            break;
+        case 2:
+            tmp3 = 1;
+            break;
+        case 3:
+            tmp3 = 2;
+            break;
+        case 4:
+            tmp3++;
+            break;
+        case 5:
+            if (gGenericMenu.unk10.a[3] != 0) {
+                gGenericMenu.unk10.a[3]--;
+                gSave.name[gGenericMenu.unk10.a[3]] = 0;
+                gSave.name[gGenericMenu.unk10.a[3] + 1] = 0;
+                sub_08051574(0x6c);
+            }
+            break;
+        case 7:
+            sub_08051480(0);
+            break;
+        case 6:
+            tmp2 = ((gBG3Buffer[gGenericMenu.unk10.a[0] * 2 + 0xc3 + gGenericMenu.unk10.a[1] * 0x40]) >> 1);
+            sub_08051480(tmp2);
+            break;
+        case 8:
+            uVar8 = 5;
+            do {
+                cVar1 = gSave.name[uVar8];
+                if ((cVar1 != 0) && (cVar1 != 0x20)) {
+                    break;
+                }
+                gSave.name[uVar8] = 0;
+                uVar8--;
+            } while (0 <= uVar8);
+            if (gSave.name[0] != 0) {
+                uVar7 = 2;
+            } else {
+                uVar7 = 3;
+            }
+            sub_08051574(0x6a);
+            SetMenuType(uVar7);
+    }
+    if (gSaveHeader->language == 0) {
+        iVar4 = 3;
+    } else {
+        iVar4 = 2;
+    }
+    tmp3 = (s32)(tmp3 + iVar4) % (iVar4);
+    if (gMenu.column_idx != tmp3) {
+        gMenu.column_idx = tmp3;
+        sub_08051458();
+        SoundReq(SFX_TEXTBOX_SWAP);
+    }
 }
-END_NONMATCH
 
 void sub_08051358(void) {
     gGenericMenu.unk10.a[2] = gSaveHeader->language == 0 ? 4 : 3;
@@ -934,7 +1109,6 @@ void sub_08051458(void) {
 }
 
 u32 sub_080514BC(u32);
-void sub_08051574(u32);
 
 void sub_08051480(u32 c) {
     CharResult result;
