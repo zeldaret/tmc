@@ -70,7 +70,7 @@ extern void sub_0802EBC4(GleerokEntity* this);
 extern void sub_0802E9B0(GleerokEntity* this);
 
 extern bool32 sub_0802EB08(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3);
-extern bool32 sub_0802EA18(u16 param_1, u16 param_2, u32 param_3);
+extern bool32 sub_0802EA18(u32 param_1, u32 param_2, u32 param_3);
 extern bool32 sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
@@ -1286,4 +1286,20 @@ void sub_0802E9B0(GleerokEntity* this) {
             heap->unk_2c.HWORD = (heap->unk_2c.HWORD - 0x20) & 0x1fff;
         }
     }
+}
+
+bool32 sub_0802EA18(u32 arg0, u32 arg1, u32 arg2) {
+    u32 r1;
+
+    r1 = arg1 + 0x1000;
+    r1 -= arg0;
+    r1 &= 0x1FFF;
+    arg2 <<= 8;
+
+    if (r1 >= 0x1000 - arg2) {
+        if (r1 <= 0x1000 + arg2) {
+            return FALSE;
+        }
+    }
+    return TRUE;
 }
