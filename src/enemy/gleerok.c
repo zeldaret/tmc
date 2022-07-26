@@ -57,13 +57,15 @@ extern u8 gUnk_080CD884[];
 extern u8 gUnk_080CD7F8[];
 extern u8 gUnk_080CD840[];
 extern u8 gUnk_080CD844[];
+extern u8 gUnk_080CD850[];
+extern u8 gUnk_080CD854[];
 
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 
 extern void sub_0802E518(GleerokEntity* this);
 extern void sub_0802E7E4(Gleerok_HeapStruct* this);
 extern void sub_0802E1D0(GleerokEntity* this);
-extern u32 sub_0802EB9C(GleerokEntity* this);
+extern void sub_0802EB9C(GleerokEntity* this);
 extern void sub_0802D86C(GleerokEntity* this);
 extern void sub_0802E430(GleerokEntity* this);
 extern void sub_0802EBC4(GleerokEntity* this);
@@ -1488,3 +1490,8 @@ NONMATCH("asm/non_matching/gleerok/sub_0802EB08.inc",
     return uVar7;
 }
 END_NONMATCH
+
+void sub_0802EB9C(GleerokEntity* this) {
+    this->unk_74 = gUnk_080CD854[GetRandomByWeight(gUnk_080CD850)];
+    this->unk_75++;
+}
