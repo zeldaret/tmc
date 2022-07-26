@@ -1405,3 +1405,44 @@ void sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 par
     }
     param_1->filler2[param_2].unk0.HWORD = (param_1->filler2[param_2].unk0.HWORD + param_3) & 0x1fff;
 }
+
+NONMATCH("asm/non_matching/gleerok/sub_0802EA88.inc", bool32 sub_0802EA88(Gleerok_HeapStruct* this)) {
+    u32 cVar1;
+    s32 bVar2;
+    u32 uVar3;
+    u32 bVar4;
+    u32 uVar5;
+    u32 uVar6;
+
+    uVar6 = FALSE;
+
+    for (uVar5 = 0; uVar5 < 5; uVar5++) {
+        if (this->filler[uVar5].unk0.HALF.HI != this->filler[uVar5 + 1].unk0.HALF.HI) {
+            uVar6 = TRUE;
+            if ((s32)((this->filler[uVar5 + 1].unk0.HALF.HI - this->filler[uVar5].unk0.HALF.HI) & 0x1fU) > 0x10) {
+                uVar3 = 0;
+            } else {
+                uVar3 = 1;
+            }
+            sub_0802EA48(this, uVar5 + 1, 0x20, uVar3);
+            break;
+        }
+    }
+
+    for (uVar5 = 0; uVar5 <= 4; uVar5++) {
+        bVar4 = this->filler[uVar5 + 1].unk0.HALF.HI;
+        bVar2 = (bVar4 - this->filler[uVar5].unk0.HALF.HI) & 0x1f;
+        if (bVar2 >= 0x11) {
+            if (bVar2 < 0x1f) {
+                bVar4 = (bVar4 + 1) & 0x1f;
+            }
+        } else {
+            if (1 < bVar2) {
+                bVar4 = (bVar4 - 1) & 0x1f;
+            }
+        }
+        this->filler[uVar5 + 1].unk0.HALF.HI = bVar4;
+    }
+    return uVar6;
+}
+END_NONMATCH
