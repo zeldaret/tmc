@@ -71,7 +71,7 @@ extern void sub_0802E9B0(GleerokEntity* this);
 
 extern bool32 sub_0802EB08(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3);
 extern bool32 sub_0802EA18(u32 param_1, u32 param_2, u32 param_3);
-extern bool32 sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
+extern void sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802EA88(Gleerok_HeapStruct* param_1);
@@ -1390,4 +1390,11 @@ bool32 sub_0802EA18(u32 arg0, u32 arg1, u32 arg2) {
         }
     }
     return TRUE;
+}
+
+void sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4) {
+    if (param_4 == 1) {
+        param_3 = -param_3;
+    }
+    param_1->filler[param_2].unk0.HWORD = (param_1->filler[param_2].unk0.HWORD + param_3) & 0x1fff;
 }
