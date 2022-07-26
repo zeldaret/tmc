@@ -59,6 +59,8 @@ extern u8 gUnk_080CD840[];
 extern u8 gUnk_080CD844[];
 extern u8 gUnk_080CD850[];
 extern u8 gUnk_080CD854[];
+extern const u8* gUnk_080CD86C[];
+extern const u8* gUnk_080CD878[];
 
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 
@@ -1259,7 +1261,6 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
 END_NONMATCH
 
 NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleerok_HeapStruct* param_1)) {
-    u32 cVar1;
     s32 bVar2;
     s32 bVar2a;
     u32 bVar3;
@@ -1409,7 +1410,6 @@ void sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 par
 }
 
 NONMATCH("asm/non_matching/gleerok/sub_0802EA88.inc", bool32 sub_0802EA88(Gleerok_HeapStruct* this)) {
-    u32 cVar1;
     s32 bVar2;
     u32 uVar3;
     u32 bVar4;
@@ -1494,4 +1494,38 @@ END_NONMATCH
 void sub_0802EB9C(GleerokEntity* this) {
     this->unk_74 = gUnk_080CD854[GetRandomByWeight(gUnk_080CD850)];
     this->unk_75++;
+}
+
+void sub_0802EBC4(GleerokEntity* this) {
+    u32 bVar3;
+    s32 iVar4;
+
+    if (this->unk_74 == 0) {
+        iVar4 = GetRandomByWeight(gUnk_080CD86C[this->unk_79]);
+        if (gUnk_080CD878[this->unk_79][iVar4] < this->unk_75) {
+            this->unk_75 = 0;
+            if (this->unk_79 == 0) {
+                this->unk_76 = 0;
+                this->unk_77 = 3;
+            } else {
+                bVar3 = Random() & 1;
+                if (bVar3 != this->unk_76) {
+                    this->unk_76 = bVar3;
+                    this->unk_77 = 1;
+                } else {
+                    if (++this->unk_77 > 2) {
+                        bVar3 ^= 1;
+                        this->unk_77 = 1;
+                    }
+                    this->unk_76 = bVar3;
+                }
+            }
+            this->base.subAction = 3;
+            this->base.type2 = 0;
+        } else {
+            this->base.subAction = 2;
+        }
+    } else {
+        this->unk_74--;
+    }
 }
