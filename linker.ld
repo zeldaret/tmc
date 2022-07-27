@@ -328,7 +328,6 @@ SECTIONS {
         src/enemy/bobomb.o(.text);
         src/enemy/wallMaster2.o(.text);
         src/enemy/gleerok.o(.text);
-        asm/enemy/gleerok.o(.text);
         src/enemy/vaatiEyesMacro.o(.text);
         src/enemy/tektite.o(.text);
         src/enemy/wizzrobeWind.o(.text);
