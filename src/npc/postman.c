@@ -9,7 +9,7 @@ extern void sub_080604DC(Entity*);
 extern void sub_080606D8(Entity*);
 extern void sub_080606C0(Entity*);
 
-extern const s8 gUnk_0810AA70[];
+extern const s8 gUnk_0810AA70[][4][4];
 
 typedef struct {
     s16 x;
@@ -253,22 +253,25 @@ NONMATCH("asm/non_matching/postman/sub_0806076C.inc",
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/postman/sub_080608E4.inc",
-         void sub_080608E4(Entity* this, ScriptExecutionContext* context)) {
+void sub_080608E4(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     if (this->z.WORD >= 0) {
         if ((this->collisionLayer != 1 || gPlayerEntity.collisionLayer != 2) &&
             (this->collisionLayer != 2 || gPlayerEntity.collisionLayer != 1)) {
-            const s8* ptr = &gUnk_0810AA70[context->intVariable * 16 + (this->animationState >> 1) * 4];
-            if (ptr[0] + gPlayerEntity.x.HALF.HI + ptr[2] - this->x.HALF.HI < ptr[2] * 2 &&
-                ptr[1] + gPlayerEntity.y.HALF.HI + ptr[3] - this->y.HALF.HI < ptr[3] * 2) {
+            const s8* ptr = gUnk_0810AA70[context->intVariable][this->animationState >> 1];
+            u32 x = this->x.HALF.HI + ptr[0];
+            u32 y = this->y.HALF.HI + ptr[1];
+            x = gPlayerEntity.x.HALF.HI - x;
+            y = gPlayerEntity.y.HALF.HI - y;
+            x += ptr[2];
+            y += ptr[3];
+            if (ptr[2] * 2 > x && ptr[3] * 2 > y) {
                 context->condition = 1;
                 this->field_0x6a.HWORD += 2;
             }
         }
     }
 }
-END_NONMATCH
 
 void Postman_Fusion(Entity* this) {
     if (this->action == 0) {
