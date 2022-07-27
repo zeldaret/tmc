@@ -175,7 +175,7 @@ void sub_0802D218(GleerokEntity* this) {
     super->subtimer = 0;
     this->unk_7c.HALF_U.LO = 0xb4;
     ((Entity*)(this->unk_84))->parent->timer = 12;
-    CreateObjectWithParent(super, OBJECT_67, 0x2, this->unk_7c.HALF_U.LO);
+    CreateObjectWithParent(super, GLEEROK_PARTICLE, 0x2, this->unk_7c.HALF_U.LO);
 }
 
 void sub_0802D258(GleerokEntity* this) {
