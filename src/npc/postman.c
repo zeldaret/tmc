@@ -194,25 +194,32 @@ void sub_0806075C(Entity* this) {
     this->field_0x68.HALF.HI = 0xff;
 }
 
-NONMATCH("asm/non_matching/postman/sub_0806076C.inc",
-         void sub_0806076C(Entity* this, ScriptExecutionContext* context)) {
-    s8* p;
-    u32 tmp, size;
-    int i;
+void sub_0806076C(Entity* this, ScriptExecutionContext* context) {
+    s32 cVar2;
+    int iVar4;
+    u32 uVar6;
+    s32 uVar9;
+    int local_24;
+    Coords16* ptr;
+    s8* pbVar10;
 
     if (this->z.WORD < 0) {
         gActiveScriptInfo.commandSize = 0;
         return;
     }
-
     this->field_0x68.HALF.HI++;
     this->collisionLayer = 1;
     sub_080606C0(this);
-    p = &gUnk_0810A918[this->field_0x68.HALF.LO][this->field_0x68.HALF.HI];
+    pbVar10 = gUnk_0810A918[(s8)this->field_0x68.HALF.LO];
+    pbVar10 += (s8)this->field_0x68.HALF.HI;
     do {
-        switch (p[0] + 5) {
+        switch ((s8)(pbVar10[0] + 5)) {
             case 5:
-                this->field_0x68.HALF.LO = p[(s32)Random() % p[1] + 2];
+                pbVar10++;
+                uVar9 = pbVar10[0];
+                pbVar10++;
+                iVar4 = (s32)Random() % uVar9;
+                this->field_0x68.HALF.LO = pbVar10[iVar4];
                 this->field_0x68.HALF.HI = 0;
                 return;
             case 4:
@@ -225,33 +232,33 @@ NONMATCH("asm/non_matching/postman/sub_0806076C.inc",
                 this->collisionLayer = 2;
                 break;
             case 1:
-                context->wait = 30;
+                context->wait = 0x1e;
                 this->spriteSettings.draw = 0;
                 break;
             case 0:
-                size = p[1];
-                tmp = Random() % size;
-                for (i = 0; i < size; ++i) {
-                    this->field_0x68.HALF.HI = p[i + 2];
-                    this->x.HALF.HI =
-                        gUnk_0810A66C[gUnk_0810A918[this->field_0x68.HALF.LO][0]].x + gRoomControls.origin_x;
-                    this->y.HALF.HI =
-                        gUnk_0810A66C[gUnk_0810A918[this->field_0x68.HALF.LO][0]].y + gRoomControls.origin_y;
-                    if (!CheckOnScreen(this)) {
+                pbVar10++;
+                uVar9 = *pbVar10++;
+                local_24 = ((s32)Random()) % uVar9;
+
+                for (uVar6 = 0; uVar6 < uVar9; uVar6++) {
+                    this->field_0x68.HALF.LO = pbVar10[local_24];
+                    cVar2 = gUnk_0810A918[(s8)this->field_0x68.HALF.LO][0];
+                    ptr = &gUnk_0810A66C[cVar2];
+                    this->x.HALF_U.HI = gRoomControls.origin_x + ptr->x;
+                    this->y.HALF_U.HI = gRoomControls.origin_y + ptr->y;
+                    if (CheckOnScreen(this) == 0)
                         break;
-                    }
-                    tmp = (tmp + 1) % size;
+                    local_24 = (s32)(local_24 + 1) % uVar9;
                 }
-                this->field_0x68.HALF.LO = 0;
+                this->field_0x68.HALF.HI = 0;
                 return;
             default:
                 return;
         }
-        this->field_0x68.HALF.LO++;
-        p++;
-    } while (1);
+        this->field_0x68.HALF.HI++;
+        pbVar10++;
+    } while (TRUE);
 }
-END_NONMATCH
 
 void sub_080608E4(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
