@@ -30,7 +30,7 @@ script_0800CFFA:
 	JumpIfNot script_0800CFFA
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	CheckInventory1 ITEM_GREEN_SWORD
 	JumpIfNot script_0800D032
 	FacePlayer
@@ -112,6 +112,6 @@ script_0800D17C:
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	Jump script_0800CFFA
 	.2byte 0x0000

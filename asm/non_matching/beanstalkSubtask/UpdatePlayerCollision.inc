@@ -702,7 +702,7 @@ _08019D76:
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r7, #0
-	bl sub_080A7C8C
+	bl OpenSmallChest
 	movs r0, #2
 	b _0801A2A6
 	.align 2, 0

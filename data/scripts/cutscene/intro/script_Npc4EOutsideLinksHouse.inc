@@ -5,7 +5,7 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	Call sub_0807F844
 	Call SetPriorityMessage
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EndBlock
 	SetFadeTime 0x0010
 	SetFade6
@@ -14,7 +14,7 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	WaitForSyncFlagAndClear 0x00000002
 	_0807F0B4 0x0004
 	CameraTargetPlayer
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

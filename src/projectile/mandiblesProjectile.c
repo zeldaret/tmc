@@ -82,7 +82,7 @@ void MandiblesProjectile_Init(Entity* this) {
 
 void MandiblesProjectile_Action1(Entity* this) {
     if (this->field_0x80.HWORD != 0) {
-        this->field_0x80.HWORD -= 1;
+        this->field_0x80.HWORD--;
     } else {
         if (--this->subtimer == 0) {
             sub_080AA270(this);
@@ -128,7 +128,7 @@ void MandiblesProjectile_Action3(Entity* this) {
     }
     if (entity->confusedTime == 0) {
         if (this->subtimer != 0) {
-            this->subtimer -= 1;
+            this->subtimer--;
         } else {
             UpdateAnimationSingleFrame(this);
             if ((this->frame & ANIM_DONE) != 0) {
@@ -164,7 +164,7 @@ void MandiblesProjectile_Action4(Entity* this) {
             this->child = NULL;
         }
         if (this->subtimer != 0) {
-            this->subtimer -= 1;
+            this->subtimer--;
         } else {
             if (sub_080AA374(this) != 0) {
                 if (entity->health == 0) {

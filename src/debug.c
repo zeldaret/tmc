@@ -48,10 +48,10 @@ void sub_0805FA98(void) {
 
     switch (gInput.newKeys) {
         case DPAD_UP:
-            gGenericMenu.unk10.a[1] -= 1;
+            gGenericMenu.unk10.a[1]--;
             break;
         case DPAD_DOWN:
-            gGenericMenu.unk10.a[1] += 1;
+            gGenericMenu.unk10.a[1]++;
             break;
         case L_BUTTON:
             gGenericMenu.unk10.a[0] ^= 1;

@@ -1,3 +1,9 @@
+/**
+ * @file giantLeaf.c
+ * @ingroup Objects
+ *
+ * @brief Giant Leaf object
+ */
 #include "object.h"
 
 void sub_0808D618(Entity* ent);

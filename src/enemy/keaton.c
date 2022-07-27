@@ -12,12 +12,12 @@ extern Entity* gUnk_020000B0;
 void Keaton_OnTick(Entity*);
 void Keaton_OnCollision(Entity*);
 void Keaton_OnGrabbed(Entity*);
-void sub_08032468(Entity*);
-void sub_0803248C(Entity*);
-void sub_080324CC(Entity*);
-void sub_080324FC(Entity*);
-void sub_08032574(Entity*);
-void sub_080325C4(Entity*);
+void Keaton_Init(Entity*);
+void Keaton_Action1(Entity*);
+void Keaton_Action2(Entity*);
+void Keaton_Action3(Entity*);
+void Keaton_Action4(Entity*);
+void Keaton_Action5(Entity*);
 
 static void (*const Keaton_Functions[])(Entity*) = {
     Keaton_OnTick, Keaton_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Keaton_OnGrabbed,
@@ -41,10 +41,10 @@ void Keaton(Entity* this) {
 }
 
 void Keaton_OnTick(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08032468, sub_0803248C, sub_080324CC, sub_080324FC, sub_08032574, sub_080325C4,
+    static void (*const Keaton_Actions[])(Entity*) = {
+        Keaton_Init, Keaton_Action1, Keaton_Action2, Keaton_Action3, Keaton_Action4, Keaton_Action5,
     };
-    actionFuncs[this->action](this);
+    Keaton_Actions[this->action](this);
 }
 
 void Keaton_OnCollision(Entity* this) {
@@ -69,7 +69,7 @@ void Keaton_OnCollision(Entity* this) {
 void Keaton_OnGrabbed(Entity* this) {
 }
 
-void sub_08032468(Entity* this) {
+void Keaton_Init(Entity* this) {
     sub_0804A720(this);
     this->animationState = 0;
     InitAnimationForceUpdate(this, 0);
@@ -77,7 +77,7 @@ void sub_08032468(Entity* this) {
     sub_08032740(this);
 }
 
-void sub_0803248C(Entity* this) {
+void Keaton_Action1(Entity* this) {
     if (!sub_080325E8(this) && !sub_0803271C(this)) {
         this->timer--;
         if (this->timer == 0) {
@@ -90,7 +90,7 @@ void sub_0803248C(Entity* this) {
     }
 }
 
-void sub_080324CC(Entity* this) {
+void Keaton_Action2(Entity* this) {
     if (!sub_080325E8(this)) {
         UpdateAnimationSingleFrame(this);
         if (this->frame & ANIM_DONE) {
@@ -100,7 +100,7 @@ void sub_080324CC(Entity* this) {
     }
 }
 
-void sub_080324FC(Entity* this) {
+void Keaton_Action3(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
         if (this->timer == 0) {
@@ -128,7 +128,7 @@ void sub_080324FC(Entity* this) {
     }
 }
 
-void sub_08032574(Entity* this) {
+void Keaton_Action4(Entity* this) {
     if (this->child && (this->child->contactFlags & 0x80)) {
         sub_0803275C(this);
         return;
@@ -145,7 +145,7 @@ void sub_08032574(Entity* this) {
     }
 }
 
-void sub_080325C4(Entity* this) {
+void Keaton_Action5(Entity* this) {
     this->timer--;
     if ((this->timer == 0) && !sub_080325E8(this)) {
         sub_08032784(this);

@@ -14,7 +14,7 @@ script_080121DE:
 	DoPostScriptAction 0x0000
 	MessageNoOverlap TEXT_HAPPY_HEARTH, 0x27
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_080121DE

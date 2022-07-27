@@ -10,8 +10,8 @@ SCRIPT_START script_Gina
 script_0800B934:
 	CheckEntityInteractType
 	JumpIfNot script_0800B934
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageFromTarget TEXT_TINGLE, 0x19
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x005f
@@ -20,9 +20,9 @@ script_0800B934:
 script_0800B94E:
 	CheckEntityInteractType
 	JumpIfNot script_0800B94E
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageFromTarget TEXT_TINGLE, 0x1a
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800B94E

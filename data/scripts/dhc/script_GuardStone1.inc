@@ -45,5 +45,5 @@ script_0800E1E0:
 	CallWithArg sub_0807F3D8, 0x00000000
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x01
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800E1E0

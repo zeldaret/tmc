@@ -6,26 +6,26 @@
  */
 
 #define NENT_DEPRECATED
+#include "functions.h"
 #include "global.h"
 #include "object.h"
-#include "functions.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u32 unk_68;
 } BlockPushedEntity;
 
-extern void (*const gUnk_0811F624[])(BlockPushedEntity*);
+extern void (*const BlockPushed_Actions[])(BlockPushedEntity*);
 extern const Hitbox* const gUnk_0811F64C[];
 
 void sub_080832D8(u32, BlockPushedEntity*);
 void sub_080830B8(BlockPushedEntity*);
 
 void BlockPushed(BlockPushedEntity* this) {
-    gUnk_0811F624[super->action](this);
+    BlockPushed_Actions[super->action](this);
 }
 
-void sub_08082EB4(BlockPushedEntity* this) {
+void BlockPushed_Init(BlockPushedEntity* this) {
     u16 tmp;
     u32 pos;
 
@@ -90,7 +90,7 @@ void sub_08082EB4(BlockPushedEntity* this) {
     EnqueueSFX(SFX_10F);
 }
 
-void sub_08083094(BlockPushedEntity* this) {
+void BlockPushed_Action1(BlockPushedEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
     if (--super->timer == 0) {
@@ -164,9 +164,9 @@ void sub_080832D8(u32 param_1, BlockPushedEntity* this) {
     }
 }
 
-void (*const gUnk_0811F624[])(BlockPushedEntity*) = {
-    sub_08082EB4,
-    sub_08083094,
+void (*const BlockPushed_Actions[])(BlockPushedEntity*) = {
+    BlockPushed_Init,
+    BlockPushed_Action1,
 };
 const Hitbox gUnk_0811F62C = { 0, 0, { 0, 0, 0, 0 }, 5, 4 };
 const Hitbox gUnk_0811F634 = { 0, 0, { 0, 0, 0, 0 }, 13, 12 };

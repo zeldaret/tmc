@@ -1,8 +1,14 @@
+/**
+ * @file cabinFurniture.c
+ * @ingroup Objects
+ *
+ * @brief Cabin Furniture object
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "room.h"
-#include "flags.h"
 #include "asm.h"
+#include "entity.h"
+#include "flags.h"
+#include "room.h"
 
 typedef struct {
     Entity base;
@@ -11,17 +17,17 @@ typedef struct {
 } CabinFurnitureEntity;
 
 void CabinFurniture_Init(CabinFurnitureEntity* this);
-void nullsub_535(CabinFurnitureEntity* this);
-void nullsub_2a(CabinFurnitureEntity* this);
+void CabinFurniture_Action1(CabinFurnitureEntity* this);
+void CabinFurniture_Action2(CabinFurnitureEntity* this);
 void nullsub_2(CabinFurnitureEntity* this);
 
 void CabinFurniture(Entity* this) {
-    static void (*const actionFuncs[])(CabinFurnitureEntity*) = {
+    static void (*const CabinFurniture_Actions[])(CabinFurnitureEntity*) = {
         CabinFurniture_Init,
-        nullsub_535,
-        nullsub_2a,
+        CabinFurniture_Action1,
+        CabinFurniture_Action2,
     };
-    actionFuncs[this->action]((CabinFurnitureEntity*)this);
+    CabinFurniture_Actions[this->action]((CabinFurnitureEntity*)this);
 }
 
 void CabinFurniture_Init(CabinFurnitureEntity* this) {
@@ -74,10 +80,10 @@ void CabinFurniture_Init(CabinFurnitureEntity* this) {
     }
 }
 
-void nullsub_535(CabinFurnitureEntity* this) {
+void CabinFurniture_Action1(CabinFurnitureEntity* this) {
 }
 
-void nullsub_2a(CabinFurnitureEntity* this) {
+void CabinFurniture_Action2(CabinFurnitureEntity* this) {
     nullsub_2(this);
 }
 

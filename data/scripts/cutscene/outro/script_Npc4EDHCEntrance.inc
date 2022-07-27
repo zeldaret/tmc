@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4EDHCEntrance
 	BeginBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x0198, 0x01c8
 	Call sub_0807F844
 	EndBlock

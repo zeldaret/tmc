@@ -53,7 +53,7 @@ bool32 EnemyInit(GenericEntity* this) {
         if ((this->field_0x6c.HALF.HI & 0x20) != 0) {
             u32 uVar4 = gUnk_080D3E74[super->id >> 3] >> ((super->id & 7) << 1) & 3;
             if (uVar4 != 0) {
-                Entity* object = CreateObject(OBJECT_A9, uVar4 - 1, 0);
+                Entity* object = CreateObject(MULLDOZER_SPAWN_POINT, uVar4 - 1, 0);
                 if (object != NULL) {
                     object->timer = super->flags;
                     object->subtimer = super->spriteSettings.draw;
@@ -128,7 +128,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
         int tmp = parent->base.gustJarState & 2;
         if (tmp == 0) {
             sub_08049CF4(&(parent->base));
-            gSave.unk50 += 1;
+            gSave.unk50++;
             parent->base.gustJarState |= 2;
             parent->base.timer = 255;
             SetDefaultPriority(&(parent->base), 3);

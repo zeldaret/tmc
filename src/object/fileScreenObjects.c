@@ -1,8 +1,14 @@
-#include "object.h"
-#include "main.h"
-#include "menu.h"
+/**
+ * @file fileScreenObjects.c
+ * @ingroup Objects
+ *
+ * @brief File Screen Objects object
+ */
 #include "fileselect.h"
 #include "functions.h"
+#include "main.h"
+#include "menu.h"
+#include "object.h"
 
 extern int sub_0807A094(int);
 extern u32 sub_080041EC(int, int);

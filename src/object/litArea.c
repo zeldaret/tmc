@@ -1,8 +1,14 @@
+/**
+ * @file litArea.c
+ * @ingroup Objects
+ *
+ * @brief Lit Area object
+ */
 #include "entity.h"
-#include "room.h"
-#include "screen.h"
 #include "flags.h"
 #include "functions.h"
+#include "room.h"
+#include "screen.h"
 
 void LitArea(Entity* this) {
     if (this->action == 0) {

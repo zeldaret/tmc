@@ -7,7 +7,7 @@ SCRIPT_START script_Vaati1Intro
 	EndBlock
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StopBgm
 	_0807E8E4_2
 	Wait 0x005a
@@ -33,7 +33,7 @@ SCRIPT_START script_Vaati1Intro
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
 	SetLocalFlag 0x0078
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

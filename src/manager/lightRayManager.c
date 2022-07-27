@@ -13,9 +13,9 @@
 #include "main.h"
 #include "screen.h"
 
-extern void sub_08056250(void);
+extern void DisableVBlankDMA(void);
 
-void (*const gUnk_08107C5C[])(LightRayManager*);
+void (*const LightRayManager_Actions[])(LightRayManager*);
 void (*const gUnk_08107C48[])(LightRayManager*);
 const u16 gUnk_08107C1C[];
 const u16 gUnk_08107C30[];
@@ -35,22 +35,22 @@ typedef struct {
 #define ZS(this) ((u8*)&this->speed)
 
 void LightRayManager_Main(LightRayManager* this) {
-    u8 bVar1;
+    u8 gfxGroup;
     u8* pbVar2;
 
-    gUnk_08107C5C[super->action](this);
+    LightRayManager_Actions[super->action](this);
     gUnk_08107C48[this->unk_21](this);
-    bVar1 = gLightRayManagerGfxGroups[this->unk_21];
-    if ((bVar1 != 0) && (this->unk_20 != bVar1)) {
-        this->unk_20 = bVar1;
-        LoadGfxGroup(bVar1);
+    gfxGroup = gLightRayManagerGfxGroups[this->unk_21];
+    if ((gfxGroup != 0) && (this->gfxGroup != gfxGroup)) {
+        this->gfxGroup = gfxGroup;
+        LoadGfxGroup(gfxGroup);
     }
 }
 
-static void sub_080570B8(LightRayManager* this) {
+static void LightRayManager_EnterRoom(LightRayManager* this) {
     u8* pbVar1;
 
-    LoadGfxGroup(this->unk_20);
+    LoadGfxGroup(this->gfxGroup);
     this->unk_34 = NULL;
     pbVar1 = &this->unk_21;
     if (*pbVar1 == 3) {
@@ -60,15 +60,15 @@ static void sub_080570B8(LightRayManager* this) {
     }
 }
 
-static void sub_080570F8(void) {
+static void LightRayManager_ExitRoom(void) {
     gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
     gScreen.controls.layerFXControl = 0;
-    sub_08056250();
+    DisableVBlankDMA();
 }
 
-void sub_08057118(LightRayManager* this) {
+void LightRayManager_Init(LightRayManager* this) {
     super->timer = 0;
-    this->unk_20 = 0;
+    this->gfxGroup = 0;
     this->unk_21 = 0;
     this->unk_22 = 0;
     super->action = 1;
@@ -76,10 +76,10 @@ void sub_08057118(LightRayManager* this) {
     gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.controls.layerFXControl = 0x3648;
     gScreen.controls.alphaBlend = 0x1000;
-    RegisterTransitionManager(this, sub_080570B8, sub_080570F8);
+    RegisterTransitionManager(this, LightRayManager_EnterRoom, LightRayManager_ExitRoom);
 }
 
-void sub_08057174(LightRayManager* this) {
+void LightRayManager_Action1(LightRayManager* this) {
     LightRayManagerProp* prop = GetCurrentRoomProperty(super->type);
     s32 temp;
     s32 x;
@@ -114,7 +114,7 @@ void sub_08057174(LightRayManager* this) {
                         if (this->unk_21 == 0) {
                             super->action = 2;
                             super->timer = 0;
-                            this->unk_20 = 0;
+                            this->gfxGroup = 0;
                         }
                         break;
                     case 6:
@@ -149,7 +149,7 @@ void sub_08057174(LightRayManager* this) {
     }
 }
 
-void sub_0805728C(LightRayManager* this) {
+void LightRayManager_Action2(LightRayManager* this) {
     if (--super->subtimer == 0) {
         super->subtimer = 8;
         gScreen.controls.alphaBlend = gUnk_08107C1C[super->timer++];
@@ -161,7 +161,7 @@ void sub_0805728C(LightRayManager* this) {
     }
 }
 
-void sub_080572D4(LightRayManager* this) {
+void LightRayManager_Action3(LightRayManager* this) {
     if (--super->subtimer == 0) {
         super->subtimer = 8;
         gScreen.controls.alphaBlend = gUnk_08107C1C[super->timer--];
@@ -170,7 +170,7 @@ void sub_080572D4(LightRayManager* this) {
             super->action = 1;
             this->unk_22 = 0;
             this->unk_21 = 0;
-            gScreen._6c = 0;
+            gScreen.vBlankDMA.ready = FALSE;
         }
     }
 }
@@ -183,7 +183,9 @@ void sub_0805732C(u32 param_1, u32 param_2) {
         *ptr = gSineTable[(param_2 + index) & 0xff] * param_1 / 0x100 + gScreen.bg3.xOffset;
     }
 
-    sub_0805622C((struct BgAffineDstData*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], REG_ADDR_BG3HOFS, 0xa2600001UL);
+    SetVBlankDMA(&gUnk_02017AA0[gUnk_03003DE4[0] * 0x500], (u16*)REG_ADDR_BG3HOFS,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
 }
 
 void nullsub_494() {
@@ -253,9 +255,9 @@ void (*const gUnk_08107C48[])(LightRayManager*) = {
     nullsub_494, nullsub_494, sub_080573AC, nullsub_494, sub_08057450,
 };
 
-void (*const gUnk_08107C5C[])(LightRayManager*) = {
-    sub_08057118,
-    sub_08057174,
-    sub_0805728C,
-    sub_080572D4,
+void (*const LightRayManager_Actions[])(LightRayManager*) = {
+    LightRayManager_Init,
+    LightRayManager_Action1,
+    LightRayManager_Action2,
+    LightRayManager_Action3,
 };

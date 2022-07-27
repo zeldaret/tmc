@@ -91,12 +91,12 @@ void sub_08076488(ItemBehavior* this, u32 idx) {
                 bVar1 = ~(8 >> idx);
                 gPlayerState.keepFacing = bVar1 & gPlayerState.keepFacing;
                 gPlayerState.field_0xa = bVar1 & gPlayerState.field_0xa;
-                this->stateID += 1;
+                this->stateID++;
                 this->field_0xf = 0;
             }
         }
     } else {
-        this->field_0x5[2] -= 1;
+        this->field_0x5[2]--;
     }
     gPlayerState.framestate = PL_STATE_HOLD;
 }
@@ -108,7 +108,8 @@ void sub_08076518(ItemBehavior* this, u32 index) {
             if (gPlayerEntity.knockbackDuration != 0) {
                 PlayerCancelHoldItem(this, index);
             } else {
-                if ((gPlayerState.field_0x92 & 0x8018) != 0) {
+                if ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_8000 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) !=
+                    0) {
                     sub_0806F948(&gPlayerEntity);
                     gPlayerState.heldObject = 5;
                     this->field_0x18->subAction = 2;

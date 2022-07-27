@@ -1,10 +1,16 @@
+/**
+ * @file bollard.c
+ * @ingroup Objects
+ *
+ * @brief Bollard object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "entity.h"
 #include "flags.h"
-#include "asm.h"
-#include "sound.h"
-#include "room.h"
 #include "functions.h"
+#include "room.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;
@@ -17,24 +23,24 @@ typedef struct {
     u16 flags;
 } BollardEntity;
 
-void sub_0808B2AC(BollardEntity*);
-void sub_0808B2CC(BollardEntity*);
-void sub_0808B324(BollardEntity*);
-void sub_0808B344(BollardEntity*);
-void sub_0808B38C(BollardEntity*);
+void Bollard_Init(BollardEntity*);
+void Bollard_Action1(BollardEntity*);
+void Bollard_Action2(BollardEntity*);
+void Bollard_Action3(BollardEntity*);
+void Bollard_Action4(BollardEntity*);
 void sub_0808B41C(BollardEntity*);
 void sub_0808B3AC(BollardEntity*);
 void sub_0808B42C(BollardEntity*);
 
 void Bollard(Entity* this) {
-    static void (*const actionFuncs[])(BollardEntity*) = {
-        sub_0808B2AC, sub_0808B2CC, sub_0808B324, sub_0808B344, sub_0808B38C,
+    static void (*const Bollard_Actions[])(BollardEntity*) = {
+        Bollard_Init, Bollard_Action1, Bollard_Action2, Bollard_Action3, Bollard_Action4,
     };
 
-    actionFuncs[this->action]((BollardEntity*)this);
+    Bollard_Actions[this->action]((BollardEntity*)this);
 }
 
-void sub_0808B2AC(BollardEntity* this) {
+void Bollard_Init(BollardEntity* this) {
     if (super->type2 == 0) {
         sub_0808B41C(this);
         sub_0808B3AC(this);
@@ -43,7 +49,7 @@ void sub_0808B2AC(BollardEntity* this) {
     }
 }
 
-void sub_0808B2CC(BollardEntity* this) {
+void Bollard_Action1(BollardEntity* this) {
     if (super->type2 == 0) {
         if (CheckFlags(this->flags) == 0) {
             return;
@@ -57,14 +63,14 @@ void sub_0808B2CC(BollardEntity* this) {
     EnqueueSFX(SFX_1A5);
 }
 
-void sub_0808B324(BollardEntity* this) {
+void Bollard_Action2(BollardEntity* this) {
     GetNextFrame(super);
     if (super->frame & ANIM_DONE) {
         sub_0808B42C(this);
     }
 }
 
-void sub_0808B344(BollardEntity* this) {
+void Bollard_Action3(BollardEntity* this) {
     if (super->type2 == 0) {
         if (CheckFlags(this->flags) != 0) {
             return;
@@ -78,7 +84,7 @@ void sub_0808B344(BollardEntity* this) {
     EnqueueSFX(SFX_1A5);
 }
 
-void sub_0808B38C(BollardEntity* this) {
+void Bollard_Action4(BollardEntity* this) {
     GetNextFrame(super);
     if (super->frame & ANIM_DONE) {
         sub_0808B41C(this);

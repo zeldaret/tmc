@@ -1,3 +1,9 @@
+/**
+ * @file minishSizedArchway.c
+ * @ingroup Objects
+ *
+ * @brief Minish Sized Archway object
+ */
 #include "entity.h"
 #include "game.h"
 

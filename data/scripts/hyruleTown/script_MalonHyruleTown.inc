@@ -11,10 +11,10 @@ script_08014F4A:
 	CheckEntityInteractType
 	JumpIfNot script_08014F4A
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FacePlayer
 	DoPostScriptAction 0x0000
-	BeginBlock 
+	BeginBlock
 	MessageNoOverlap TEXT_MILK, 0x0b
 	CallWithArg sub_0807F854, 0x00010064
 	EndBlock
@@ -37,7 +37,7 @@ script_08014FA2:
 	MessageNoOverlap TEXT_MILK, 0x0f
 script_08014FA6:
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	SetAnimation 0x000e

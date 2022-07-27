@@ -1,18 +1,24 @@
+/**
+ * @file object53.c
+ * @ingroup Objects
+ *
+ * @brief Object53 object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
-#include "asm.h"
 
-void sub_08091120(Entity*);
-void sub_08091198(Entity*);
+void Object53_Init(Entity*);
+void Object53_Action1(Entity*);
 
 void Object53(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08091120,
-        sub_08091198,
+    static void (*const Object53_Actions[])(Entity*) = {
+        Object53_Init,
+        Object53_Action1,
     };
 
-    actionFuncs[this->action]((Entity*)this);
+    Object53_Actions[this->action]((Entity*)this);
 }
 
 typedef struct {
@@ -22,7 +28,7 @@ typedef struct {
     u8 spriteIndex;
 } gUnk_08122288_struct;
 
-void sub_08091120(Entity* this) {
+void Object53_Init(Entity* this) {
     static const gUnk_08122288_struct gUnk_08122288[] = { { 0x0, 0x2, 0xe8, 0xa7 },
                                                           { 0x0, 0x5, 0xe0, 0xa7 },
                                                           { 0x0, 0x5, 0xf2, 0xa7 } };
@@ -39,7 +45,7 @@ void sub_08091120(Entity* this) {
     sub_08004168(this);
 }
 
-void sub_08091198(Entity* this) {
+void Object53_Action1(Entity* this) {
     if (this->zVelocity < 0) {
         this->spriteSettings.flipY = 1;
     }

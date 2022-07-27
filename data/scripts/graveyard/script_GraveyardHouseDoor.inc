@@ -11,7 +11,7 @@ script_080096AC:
 	JumpIfNot script_080096AC
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtGraveyardHouseDoor
 	WaitForSyncFlagAndClear 0x00000001
 	PlaySound SFX_111
@@ -23,7 +23,7 @@ script_080096AC:
 script_080096EC:
 	CheckGlobalFlag HAKA_KEY_LOST
 	JumpIfNot script_080096EC
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_080096FC:
 	Call sub_0808692C

@@ -1,23 +1,29 @@
+/**
+ * @file button.c
+ * @ingroup Objects
+ *
+ * @brief Button object
+ */
 #include "object.h"
 #include "functions.h"
 
-void sub_08081AE0(Entity*);
-void sub_08081B84(Entity*);
-void sub_08081BAC(Entity*);
-void sub_08081BE0(Entity*);
-void sub_08081C30(Entity*);
-void sub_08081C98(Entity*);
+void Button_Init(Entity*);
+void Button_Action1(Entity*);
+void Button_Action2(Entity*);
+void Button_Action3(Entity*);
+void Button_Action4(Entity*);
+void Button_Action5(Entity*);
 
 void Button(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08081AE0, sub_08081B84, sub_08081BAC, sub_08081BE0, sub_08081C30, sub_08081C98,
+    static void (*const Button_Actions[])(Entity*) = {
+        Button_Init, Button_Action1, Button_Action2, Button_Action3, Button_Action4, Button_Action5,
     };
-    actionFuncs[this->action](this);
+    Button_Actions[this->action](this);
 }
 
 extern u32 sub_08081E3C(Entity*);
 
-void sub_08081AE0(Entity* this) {
+void Button_Init(Entity* this) {
     COLLISION_OFF(this);
     this->updatePriority = PRIO_NO_BLOCK;
     this->y.HALF.HI++;
@@ -39,7 +45,7 @@ void sub_08081AE0(Entity* this) {
     }
 }
 
-void sub_08081B84(Entity* this) {
+void Button_Action1(Entity* this) {
     if (sub_08081E3C(this)) {
         this->action = 2;
         this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
@@ -49,7 +55,7 @@ void sub_08081B84(Entity* this) {
 u32 sub_08081CB0(Entity*);
 void sub_08081FF8(Entity*);
 
-void sub_08081BAC(Entity* this) {
+void Button_Action2(Entity* this) {
     if (sub_08081CB0(this)) {
         this->subAction = 0;
         this->timer = 10;
@@ -67,7 +73,7 @@ u32 sub_08081F7C(Entity*, u32);
 u32 sub_08081D28(Entity*);
 void sub_08081E6C(Entity*);
 
-void sub_08081BE0(Entity* this) {
+void Button_Action3(Entity* this) {
     if (!sub_08081F7C(this, 0x78))
         return;
     if (!sub_08081D28(this)) {
@@ -83,7 +89,7 @@ void sub_08081BE0(Entity* this) {
     }
 }
 
-void sub_08081C30(Entity* this) {
+void Button_Action4(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
         if (this->subtimer != 0) {
@@ -102,7 +108,7 @@ void sub_08081C30(Entity* this) {
     }
 }
 
-void sub_08081C98(Entity* this) {
+void Button_Action5(Entity* this) {
     if (sub_08081F7C(this, 0x7a)) {
         sub_08081E6C(this);
     }

@@ -16,7 +16,7 @@ SCRIPT_START script_Npc4ECastleCollapsing
 	_0807F0C8 0x0000, 0x0000
 	SetLocalFlag 0x0079
 	CallWithArg sub_0806DA1C, 0x00000002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

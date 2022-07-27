@@ -138,7 +138,7 @@ void sub_08033F3C(Entity* this) {
         InitializeAnimation(this, 0);
         pEVar1 = CreateEnemy(MAZAAL_HEAD, 1);
         pEVar1->parent = this;
-        pEVar2 = CreateObject(OBJECT_7E, 0, 0);
+        pEVar2 = CreateObject(MAZAAL_OBJECT, 0, 0);
         pEVar2->parent = this;
         if (gRoomTransition.field_0x39 == 0) {
             this->action = 0xd;

@@ -29,7 +29,7 @@ SCRIPT_START script_Npc4EFinalSwordRumble
 	CameraTargetPlayer
 	SetLocalFlag 0x007c
 	Call sub_08053250
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -1,12 +1,18 @@
+/**
+ * @file bigBarrel.c
+ * @ingroup Objects
+ *
+ * @brief Big Barrel object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
+#include "common.h"
 #include "entity.h"
 #include "flags.h"
-#include "save.h"
-#include "room.h"
-#include "asm.h"
-#include "sound.h"
-#include "common.h"
 #include "object.h"
+#include "room.h"
+#include "save.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;
@@ -248,7 +254,7 @@ void sub_08088E74(BigBarrelEntity* this) {
         DeleteEntity(super);
     } else {
         if ((gRoomTransition.frameCount & 7U) == 0) {
-            ent = CreateObjectWithParent(super, OBJECT_2A, 0, 0x1e);
+            ent = CreateObjectWithParent(super, FLAME, 0, 0x1e);
             if (ent != NULL) {
                 ent->updatePriority = 3;
                 ent->spriteRendering.b3 = 0;
@@ -279,7 +285,7 @@ void sub_08088F20(BigBarrelEntity* this) {
             super->action = 2;
             super->timer = 30;
             RequestPriorityDuration(super, 270);
-            pEVar3 = CreateObject(OBJECT_2A, 1, 0);
+            pEVar3 = CreateObject(FLAME, 1, 0);
             if (pEVar3 != NULL) {
                 pEVar3->updatePriority = 3;
                 pEVar3->x.HALF.HI = super->x.HALF.HI;

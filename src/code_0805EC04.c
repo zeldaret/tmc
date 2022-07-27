@@ -58,10 +58,10 @@ void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
     temp[2] = param_4;
 }
 
-void InitPlayerMacro(u32 param_1) {
-    gPlayerState.field_0x9c = param_1;
-    gPlayerState.field_0x98 = 0;
-    gPlayerState.field_0x9a = 0;
+void InitPlayerMacro(PlayerMacroEntry* playerMacro) {
+    gPlayerState.playerInput.playerMacro = playerMacro;
+    gPlayerState.playerInput.playerMacroWaiting = 0;
+    gPlayerState.playerInput.playerMacroHeldKeys = 0;
 }
 
 ASM_FUNC("asm/non_matching/code_0805EC04/UpdatePlayerInput.inc", void UpdatePlayerInput())
@@ -74,29 +74,29 @@ u32 ConvInputToState(u32 keys) {
         result = 0;
     }
     if (keys & R_BUTTON) {
-        result |= 0x20;
-        result |= 0x8000;
-        result |= 0x80;
+        result |= PLAYER_INPUT_20;
+        result |= PLAYER_INPUT_8000;
+        result |= PLAYER_INPUT_80;
     }
     if (keys & A_BUTTON) {
-        result |= 0x8;
-        result |= 0x41;
+        result |= PLAYER_INPUT_8;
+        result |= PLAYER_INPUT_40 | PLAYER_INPUT_1;
     }
     if (keys & B_BUTTON) {
-        result |= 0x10;
-        result |= 0x2;
+        result |= PLAYER_INPUT_10;
+        result |= PLAYER_INPUT_2;
     }
     if (keys & DPAD_RIGHT) {
-        result |= 0x100;
+        result |= PLAYER_INPUT_RIGHT;
     }
     if (keys & DPAD_LEFT) {
-        result |= 0x200;
+        result |= PLAYER_INPUT_LEFT;
     }
     if (keys & DPAD_UP) {
-        result |= 0x400;
+        result |= PLAYER_INPUT_UP;
     }
     if (keys & DPAD_DOWN) {
-        result |= 0x800;
+        result |= PLAYER_INPUT_DOWN;
     }
     return result;
 }

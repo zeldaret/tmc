@@ -26,7 +26,7 @@ script_080160E0:
 	JumpIfNot script_0801611A
 	MessageFromTarget TEXT_SYRUP, 0x07
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_08016132
 	BuyItem ITEM_NONE, 0x0000
 	JumpIf script_0801610C
@@ -36,7 +36,7 @@ script_080160E0:
 script_0801610C:
 	WaitPlayerGetItem
 .ifndef EU
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageFromTarget TEXT_SYRUP, 0x0d
 .else
 	MessageFromTarget TEXT_SYRUP, 0x08

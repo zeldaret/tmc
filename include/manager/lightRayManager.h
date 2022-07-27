@@ -5,7 +5,7 @@
 
 typedef struct {
     Manager base;
-    u8 unk_20;
+    u8 gfxGroup;
     u8 unk_21;
     u8 unk_22;
     u8 unk_23;

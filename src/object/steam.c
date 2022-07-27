@@ -1,9 +1,15 @@
+/**
+ * @file steam.c
+ * @ingroup Objects
+ *
+ * @brief Steam object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "entity.h"
-#include "screen.h"
 #include "player.h"
 #include "room.h"
-#include "asm.h"
+#include "screen.h"
 
 const u8 gUnk_08123484[];
 

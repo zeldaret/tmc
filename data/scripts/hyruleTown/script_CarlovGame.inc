@@ -6,12 +6,12 @@ SCRIPT_START script_CarlovGame
 	DoPostScriptAction 0x000a
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF38
+	Call DisablePauseMenu
 	Wait 0x0010
 	CheckLocalFlag 0x0093
 	JumpIf script_080148B6
 	MessageFromTargetPos 0x4215, 0x000c
-	EnablePlayerControl 
+	EnablePlayerControl
 script_0801482E:
 	CheckSyncFlagAndClear 0x00000001
 	JumpIf script_08014862
@@ -24,7 +24,7 @@ script_0801482E:
 	Wait 0x0020
 	SetAnimation 0x0002
 	MessageFromTargetPos 0x4215, 0x000c
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0801482E
 script_08014862:
 	SetAnimation 0x0008
@@ -51,7 +51,7 @@ script_0801488E:
 	SetAnimation 0x0002
 script_080148B6:
 	MessageFromTargetPos 0x4216, 0x000c
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0801488E
 script_080148C2:
 	SetAnimation 0x0008

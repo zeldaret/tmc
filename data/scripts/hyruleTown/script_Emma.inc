@@ -10,7 +10,7 @@ script_0800E832:
 	JumpIfNot script_0800E832
 	SetPlayerIdle
 	SetAnimationState 0x0004
-	BeginBlock 
+	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x01
 	CallWithArg sub_0807F854, 0x00010032
 	CallWithArg sub_0807F854, 0x000200c8
@@ -20,7 +20,7 @@ script_0800E832:
 	_0807EB38
 	JumpTable script_0800E910, script_RentSmallRoom, script_RentRegularRoom, script_0800E872
 script_0800E872: @ Rent large room
-	BeginBlock 
+	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x05
 	CallWithArg sub_0807F854, 0x00010190
 	EndBlock

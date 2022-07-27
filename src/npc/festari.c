@@ -110,7 +110,7 @@ void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
 
 void Festari_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 8);

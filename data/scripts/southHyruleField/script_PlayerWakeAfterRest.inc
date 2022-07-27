@@ -1,7 +1,7 @@
 @ Player waking up after rest
 SCRIPT_START script_PlayerWakeAfterRest
 	BeginBlock
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
 	SetFadeTime 0x0002

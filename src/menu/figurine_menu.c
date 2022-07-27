@@ -17,7 +17,6 @@ extern const struct {
     u8 filler[7];
     u8 unk7;
 } gUnk_080FC3E4[];
-extern u32 gUnk_02002B0E;
 
 void sub_080A4DA8(u32);
 void sub_080A4B44(void);
@@ -146,10 +145,10 @@ void FigurineMenu0_Type2(void) {
     Sound sound;
 
     if (gMenu.field_0x0 != 0) {
-        gFigurineMenu.unk20 += 1;
+        gFigurineMenu.unk20++;
         switch (gFigurineMenu.unk20) {
             case 0x40:
-                gFigurineMenu.duplicate = WriteBit(&gUnk_02002B0E, gFigurineMenu.figure_idx);
+                gFigurineMenu.duplicate = WriteBit(&gSave.stats.filler4[4], gFigurineMenu.figure_idx);
                 gMenu.column_idx = 1;
             default:
                 bVar1 = gFigurineMenu.unk20 >> 2;
@@ -329,7 +328,7 @@ void FigurineMenu_080A4978(void) {
             r0 += 0x20;
             gOamCmd.y = r0;
             DrawDirect(sub_080A4978_draw_constant, 1);
-            r0 = gMain.ticks.HWORD & 0x10;
+            r0 = gMain.ticks & 0x10;
             r4 = (r0) ? 4 : 2;
             gOamCmd.x = 0xe8;
             gOamCmd.y = 0x1a;
@@ -339,7 +338,7 @@ void FigurineMenu_080A4978(void) {
             DrawDirect(sub_080A4978_draw_constant, r4 + 1);
         }
     }
-    if (gMain.ticks.HWORD & 0x10) {
+    if (gMain.ticks & 0x10) {
         if (gMenu.column_idx & 0x10) {
             if (gFigurineMenu.unk1e) {
                 gOamCmd.y = 0x10;
@@ -589,7 +588,7 @@ void sub_080A4DA8(u32 param_1) {
 void sub_080A4DB8(u32 param_1) {
     const struct_08128AD8* ptr;
 
-    sub_08056250();
+    DisableVBlankDMA();
     MemClear(&gBG0Buffer, 0x800);
     MemClear(&gBG1Buffer, 0x800);
     MemClear(&gBG2Buffer, 0x800);

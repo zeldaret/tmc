@@ -15,12 +15,12 @@ script_0800D636:
 	_0807E9F0
 	Call sub_0806DAAC
 	JumpIf script_0800D650
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800D636
 script_0800D650:
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call sub_0807FBC4
 	Call sub_0807FBA0
 	SetEntitySpeed 0x0700

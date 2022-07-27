@@ -87,14 +87,14 @@ void sub_0805B048(HoleManager* this) {
     }
     if (!tmp->unk_10)
         return;
-    obj = CreateObject(OBJECT_28, tmp->unk_10->unk_00, tmp->unk_10->unk_01);
+    obj = CreateObject(PARALLAX_ROOM_VIEW, tmp->unk_10->unk_00, tmp->unk_10->unk_01);
     if (obj) {
         obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.origin_x;
         obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.origin_y;
     }
     if (super->type != 0xa || CheckLocalFlag(0x4B))
         return;
-    obj = CreateObject(OBJECT_28, 3, 3);
+    obj = CreateObject(PARALLAX_ROOM_VIEW, 3, 3);
     if (obj) {
         obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.origin_x;
         obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.origin_y;

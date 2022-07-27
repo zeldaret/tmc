@@ -15,8 +15,8 @@ typedef struct {
     s8 unk_04;
 } gUnk_0810C89C_struct;
 
-extern void script_Object3ELeftStoneOpening;  // Cutscene data type?
-extern void script_Object3ERightStoneOpening; // Cutscene data type?
+extern void script_MinishVillageObjectLeftStoneOpening;  // Cutscene data type?
+extern void script_MinishVillageObjectRightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;
 const u8 gUnk_0811415C[];
@@ -137,15 +137,15 @@ void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
 void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
     this->hitbox = (Hitbox*)&gUnk_08114154;
-    ent = CreateObject(OBJECT_3E, 4, 0);
+    ent = CreateObject(MINISH_VILLAGE_OBJECT, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, Q_16_16(-8.0), 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ELeftStoneOpening);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_MinishVillageObjectLeftStoneOpening);
     }
-    ent = CreateObject(OBJECT_3E, 5, 0);
+    ent = CreateObject(MINISH_VILLAGE_OBJECT, 5, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, Q_16_16(8.0), 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ERightStoneOpening);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_MinishVillageObjectRightStoneOpening);
     }
 }
 
@@ -209,7 +209,7 @@ void sub_0806DCC0(void) {
 
 void NPC4E_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         switch (this->type) {
             case 1:
             case 2:

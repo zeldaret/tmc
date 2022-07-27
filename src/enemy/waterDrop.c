@@ -33,7 +33,7 @@ void sub_0802A250(Entity* this) {
     InitializeAnimation(this, 0);
     UpdateSpriteForCollisionLayer(this);
 
-    ent = CreateObject(OBJECT_66, 0, 0);
+    ent = CreateObject(WATER_DROP_OBJECT, 0, 0);
     if (ent != NULL) {
         ent->parent = this;
     }

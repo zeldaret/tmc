@@ -18,7 +18,7 @@ void Pita(Entity* this) {
 #endif
     };
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         SetDefaultPriority(this, PRIO_MESSAGE);
         SortEntityAbove(this, this);
         this->hitbox = (Hitbox*)&gUnk_0810C428;

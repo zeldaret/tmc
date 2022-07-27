@@ -393,12 +393,12 @@ struct Bytes* delta_compress(struct Bytes* pcm) {
 
     int extra = pcm->length % 64;
     if (extra) {
-        delta->length += 1;
-        extra -= 1;
+        delta->length++;
+        extra--;
     }
     if (extra) {
-        delta->length += 1;
-        extra -= 1;
+        delta->length++;
+        extra--;
     }
     if (extra) {
         delta->length += (extra + 1) / 2;
@@ -525,7 +525,7 @@ void pcm2aif(const char* pcm_filename, const char* aif_filename, uint32_t base_n
 
     LOAD_U32_LE(aif_data->loop_offset, pcm->data + 8);
     LOAD_U32_LE(aif_data->num_samples, pcm->data + 12);
-    aif_data->num_samples += 1;
+    aif_data->num_samples++;
 
     if (compressed) {
         struct Bytes* delta = pcm;

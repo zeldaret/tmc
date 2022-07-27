@@ -45,7 +45,7 @@ void CameraTargetManager_Action1(CameraTargetManager* this) {
             super->timer = 30;
         }
         super->parent = gRoomControls.camera_target;
-        object = CreateObject(OBJECT_69, 0, 0);
+        object = CreateObject(CUTSCENE_ORCHESTRATOR, 0, 0);
         if (object != NULL) {
             object->x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;
             object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;

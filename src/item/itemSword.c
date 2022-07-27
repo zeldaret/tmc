@@ -148,7 +148,7 @@ void sub_08075580(ItemBehavior* this, u32 idx) {
             this->field_0x5[2] = 0x50;
         }
         sub_08077DF4(this, 0x168);
-        CreateObject(OBJECT_43, 0, 0);
+        CreateObject(SWORD_PARTICLE, 0, 0);
         return;
     }
     sub_080759B8(this, idx);

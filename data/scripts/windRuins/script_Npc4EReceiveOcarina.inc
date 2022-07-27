@@ -8,7 +8,7 @@ SCRIPT_START script_Npc4EReceiveOcarina
 script_0800D8F4:
 	CheckInventory1 ITEM_OCARINA
 	JumpIfNot script_0800D8F4
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
 	WaitPlayerGetItem
 	EzloMessage TEXT_VAATI, 0x25
@@ -17,7 +17,7 @@ script_0800D8F4:
 	SetIntVariable 0x00000000
 	Call sub_0806DA1C
 	EnablePlayerControl
-	Call sub_0807DF50
+	Call EnablePauseMenu
 script_0800D924:
 	DoPostScriptAction 0x0006
 SCRIPT_END

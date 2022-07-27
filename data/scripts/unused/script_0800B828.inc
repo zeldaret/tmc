@@ -6,8 +6,8 @@ SCRIPT_START script_0800B828
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800B836:
-	TriggerInteract 
-	SetPlayerIdle 
+	TriggerInteract
+	SetPlayerIdle
 	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f
@@ -43,8 +43,8 @@ script_0800B87E:
 script_0800B89E:
 	CheckEntityInteractType
 	JumpIfNot script_0800B89E
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageFromTarget TEXT_EMPTY, 0x01
 	WaitUntilTextboxCloses
 	Wait 0x000f

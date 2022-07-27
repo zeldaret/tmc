@@ -12,7 +12,7 @@ script_0800C650:
 script_0800C652:
 	TriggerInteract
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	CheckLocalFlag 0x0082
 	JumpIf script_0800C684
 	CheckPlayerInRegion 0x00e8, 0x0028, 0x1810
@@ -33,7 +33,7 @@ script_0800C684:
 	DoPostScriptAction 0x0015
 	Wait 0x000a
 	SetLocalFlag 0x0080
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C652
 script_0800C6B6:
@@ -44,7 +44,7 @@ script_0800C6B6:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C652
 script_0800C6DC:
@@ -68,7 +68,7 @@ script_0800C712:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C652
 script_0800C730:
@@ -79,7 +79,7 @@ script_0800C730:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C652
 script_0800C756:
@@ -88,6 +88,6 @@ script_0800C756:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C652

@@ -17,9 +17,9 @@ void sub_08045178(Entity*, Entity*, int, int);
 void FireballGuy_OnTick(Entity*);
 void FireballGuy_OnCollision(Entity*);
 void FireballGuy_OnGrabbed(Entity*);
-void sub_080453E8(Entity*);
-void sub_08045430(Entity*);
-void sub_08045454(Entity*);
+void FireballGuy_Init(Entity*);
+void FireballGuy_Action1(Entity*);
+void FireballGuy_Action2(Entity*);
 
 static void (*const FireballGuy_Functions[])(Entity*) = {
     FireballGuy_OnTick, FireballGuy_OnCollision, GenericKnockback, GenericDeath, GenericConfused, FireballGuy_OnGrabbed,
@@ -30,12 +30,12 @@ void FireballGuy(Entity* this) {
 }
 
 void FireballGuy_OnTick(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080453E8,
-        sub_08045430,
-        sub_08045454,
+    static void (*const FireballGuy_Actions[])(Entity*) = {
+        FireballGuy_Init,
+        FireballGuy_Action1,
+        FireballGuy_Action2,
     };
-    actionFuncs[this->action](this);
+    FireballGuy_Actions[this->action](this);
 }
 
 void FireballGuy_OnCollision(Entity* this) {
@@ -49,7 +49,7 @@ void FireballGuy_OnCollision(Entity* this) {
 void FireballGuy_OnGrabbed(Entity* this) {
 }
 
-void sub_080453E8(Entity* this) {
+void FireballGuy_Init(Entity* this) {
     this->action = 1;
     this->timer = 0;
     this->spriteSettings.draw = 1;
@@ -61,7 +61,7 @@ void sub_080453E8(Entity* this) {
     sub_08045524(this);
 }
 
-void sub_08045430(Entity* this) {
+void FireballGuy_Action1(Entity* this) {
     ProcessMovement2(this);
     GetNextFrame(this);
     if (GravityUpdate(this, Q_8_8(24.0)) == 0)
@@ -69,7 +69,7 @@ void sub_08045430(Entity* this) {
 }
 
 /* Split FireballGuy into new ones */
-void sub_08045454(Entity* this) {
+void FireballGuy_Action2(Entity* this) {
     // Entity count per form
     static const u8 typeEntityCount[4] = { 2, 3, 4, 5 };
     static const PosOffset gUnk_080D1810[4] = { { 6, 0 }, { -6, 0 }, { 0, 6 }, { 0, -6 } };

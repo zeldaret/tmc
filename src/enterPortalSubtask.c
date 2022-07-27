@@ -49,7 +49,7 @@ void sub_0804AAD4(void) {
     MemClear(&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk_14 = NULL;
     EraseAllEntities();
-    CreateObject(OBJECT_3D, gArea.portal_type, 0);
+    CreateObject(MINISH_PORTAL_CLOSEUP, gArea.portal_type, 0);
     gArea.filler[8]++;
 }
 

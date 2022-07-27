@@ -57,7 +57,7 @@ void sub_080582A0(u32 unk, u32* unk2, u16* unk3) {
     int i = 0x20;
     unk2 += unk >> 4;
     for (; i != 0; i--) {
-        DmaSet(3, unk2, unk3, 0x80000020);
+        DmaCopy16(3, unk2, unk3, 0x20 * 2);
         unk2 += 0x40;
         unk3 += 0x20;
     }
@@ -75,7 +75,7 @@ void sub_080582D0(void) {
 void sub_080582F8(u8* unk, u8* unk2) {
     u32 i;
     for (i = 0; i < 0x20; i++, unk += 0x40, unk2 += 0x100) {
-        DmaSet(3, unk, unk2, 0x80000020);
+        DmaCopy16(3, unk, unk2, 0x20 * 2);
     }
 }
 

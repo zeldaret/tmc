@@ -111,7 +111,7 @@ void HurdyGurdyMan_Fusion(Entity* this) {
     if (this->action == 0) {
         uVar1 = LoadExtraSpriteData(this, gUnk_081144F0);
         if (uVar1 != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             SetDefaultPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 10);

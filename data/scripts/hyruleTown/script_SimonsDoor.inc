@@ -4,7 +4,7 @@ SCRIPT_START script_SimonsDoor
 	JumpIfNot script_SimonsDoor
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerCannotEnter
 	WaitForSyncFlagAndClear 0x00000001
 	CheckRoomFlag 0x0001
@@ -12,7 +12,7 @@ SCRIPT_START script_SimonsDoor
 	EzloMessage TEXT_EZLO, 0x63
 	WaitUntilTextboxCloses
 script_08010994:
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_SimonsDoor
 

@@ -1,18 +1,25 @@
-#include "sound.h"
-#include "functions.h"
+/**
+ * @file main.c
+ *
+ * @brief Contains the main game loop.
+ */
 #include "main.h"
-#include "screen.h"
+
 #include "common.h"
-#include "save.h"
-#include "message.h"
-#include "interrupts.h"
+#include "functions.h"
 #include "game.h"
+#include "interrupts.h"
+#include "message.h"
+#include "save.h"
+#include "screen.h"
+#include "sound.h"
 
 extern u32 gRand;
 
 static void InitOverlays(void);
 static bool32 SoftResetKeysPressed(void);
 /*static*/ u32 CheckHeaderValid(void);
+/*static*/ void InitSaveHeader(void);
 
 void (*const sTaskHandlers[])(void) = {
     [TASK_TITLE] = TitleTask,
@@ -26,16 +33,15 @@ void (*const sTaskHandlers[])(void) = {
     [TASK_STAFFROLL] = StaffrollTask, [TASK_DEBUG] = DebugTask,
 };
 
-/*static*/ void sub_080560B8(void);
-
 void AgbMain(void) {
+    // Initialization
     InitOverlays();
     InitSound();
     InitDMA();
     InitSaveData();
-    sub_080560B8();
-    sub_08056208();
-    gUnk_02000010.field_0x4 = 193;
+    InitSaveHeader();
+    InitVBlankDMA();
+    gUnk_02000010.field_0x4 = 0xc1;
     InitFade();
     DmaCopy32(3, BG_PLTT, gPaletteBuffer, BG_PLTT_SIZE);
     SetBrightness(1);
@@ -44,7 +50,9 @@ void AgbMain(void) {
     gRand = 0x1234567;
     MemClear(&gMain, sizeof(gMain));
     SetTask(TASK_TITLE);
-    while (1) {
+
+    // Game Loop
+    while (TRUE) {
         ReadKeyInput();
         if (SoftResetKeysPressed()) {
             DoSoftReset();
@@ -71,7 +79,7 @@ void AgbMain(void) {
                     }
                 }
 
-                gMain.ticks.HWORD++;
+                gMain.ticks++;
                 sTaskHandlers[gMain.task]();
                 MessageMain();
                 FadeMain();
@@ -144,18 +152,7 @@ void DoSoftReset(void) {
     SoftReset(RESET_ALL & ~(RESET_EWRAM | RESET_SIO_REGS));
 }
 
-typedef struct {
-    int signature;
-    u8 saveFileId;
-    u8 msg_speed;
-    u8 brightness;
-    u8 language;
-    u8 name[6];
-    u8 invalid;
-    u8 initialized;
-} Defaults;
-
-const Defaults sDefaultSettings = {
+const SaveHeader sDefaultSettings = {
     .signature = SIGNATURE,
     .saveFileId = 0,
     .msg_speed = 1,
@@ -171,19 +168,19 @@ const Defaults sDefaultSettings = {
 };
 
 // single misplaced ldr
-NONMATCH("asm/non_matching/sub_080560B8.inc", /*static*/ void sub_080560B8(void)) {
+NONMATCH("asm/non_matching/InitSaveHeader.inc", /*static*/ void InitSaveHeader(void)) {
     u32 b;
 
     if (!CheckHeaderValid()) {
-        switch ((s32)Read_02000000(gSaveHeader)) {
+        switch ((s32)ReadSaveHeader(gSaveHeader)) {
             case 1:
                 if (CheckHeaderValid())
                     break;
             case 0:
             case -1:
             default:
-                MemCopy(&sDefaultSettings, gSaveHeader, sizeof *gSaveHeader);
-                Write_02000000(gSaveHeader);
+                MemCopy(&sDefaultSettings, gSaveHeader, sizeof(SaveHeader));
+                WriteSaveHeader(gSaveHeader);
                 break;
         }
     }
@@ -220,8 +217,8 @@ END_NONMATCH
 
 void InitDMA(void) {
     SoundReq(SONG_VSYNC_OFF);
-    gScreen._6d = gScreen._6c;
-    gScreen._6c = 0;
+    gScreen.vBlankDMA.readyBackup = gScreen.vBlankDMA.ready;
+    gScreen.vBlankDMA.ready = FALSE;
 
     DmaStop(0);
 
@@ -231,27 +228,27 @@ void InitDMA(void) {
     DmaWait(3);
 }
 
-void sub_08056208(void) {
+void InitVBlankDMA(void) {
     SoundReq(SONG_VSYNC_ON);
-    gScreen._6c = gScreen._6d;
-    gScreen._6d = 0;
+    gScreen.vBlankDMA.ready = gScreen.vBlankDMA.readyBackup;
+    gScreen.vBlankDMA.readyBackup = FALSE;
 }
 
-void sub_0805622C(struct BgAffineDstData* a1, u32 a2, u32 a3) {
-    gScreen._70 = a1;
-    gScreen._74 = a2;
-    gScreen._78 = a3;
-    gScreen._6c = 1;
+void SetVBlankDMA(u16* src, u16* dest, u32 size) {
+    gScreen.vBlankDMA.src = src;
+    gScreen.vBlankDMA.dest = dest;
+    gScreen.vBlankDMA.size = size;
+    gScreen.vBlankDMA.ready = TRUE;
     gUnk_03003DE4[0] ^= 1;
 }
 
-void sub_08056250(void) {
-    gScreen._6c = 0;
+void DisableVBlankDMA(void) {
+    gScreen.vBlankDMA.ready = FALSE;
 }
 
 void SetSleepMode(void) {
     u32 restore;
-    Main* m;
+    Main* main;
 
     REG_DISPCNT = DISPCNT_FORCED_BLANK;
     REG_KEYCNT = KEY_AND_INTR | L_BUTTON | R_BUTTON | SELECT_BUTTON;
@@ -263,9 +260,9 @@ void SetSleepMode(void) {
     REG_IME = 0;
     REG_IE = restore;
     REG_IME = 1;
-    m = &gMain;
-    *(vu8*)&m->sleepStatus; // force a read
-    m->sleepStatus = 0;
+    main = &gMain;
+    *(vu8*)&main->sleepStatus; // force a read
+    main->sleepStatus = 0;
 }
 
 // Convert AABB to screen coordinates and check if it's within the viewport

@@ -38,8 +38,8 @@ script_0800E12E:
 script_0800E138:
 	CheckEntityInteractType
 	JumpIfNot script_0800E138
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x02
 	WaitUntilTextboxCloses
 	Wait 0x000f

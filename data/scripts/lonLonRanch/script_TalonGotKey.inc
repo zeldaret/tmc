@@ -19,7 +19,7 @@ SCRIPT_START script_TalonGotKey
 	PlaySound SFX_TASK_COMPLETE
 	InitItemGetSequence ITEM_QST_LONLON_KEY
 	WaitPlayerGetItem 
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageFromTarget TEXT_LON_LON, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x0014

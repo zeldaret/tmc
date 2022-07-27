@@ -6,7 +6,7 @@ script_0800A0FE:
 	JumpIfNot script_0800A0FE
 	BeginBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StopBgm
 .ifndef EU
 	Call sub_0807FBFC
@@ -15,7 +15,7 @@ script_0800A0FE:
 	Call sub_0807F844
 	_0807E8E4_3
 	CallWithArg SetPlayerPos, 0x00d00060
-	CallWithArg sub_08094AE8, script_Object6AV3DefeatedMinishCap
+	CallWithArg sub_08094AE8, script_CutsceneMiscObjectV3DefeatedMinishCap
 	PlaySound SFX_APPARATE
 	SetFadeTime 0x0002
 	SetFade6

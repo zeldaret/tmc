@@ -14,7 +14,7 @@ script_08015FE4:
 	SetPlayerIdle
 	CheckKinstoneFused KINSTONE_9
 	JumpIf script_08015FFE
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_08015FE4
 script_08015FFE:

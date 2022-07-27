@@ -15,8 +15,8 @@ extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
 
 extern u16 gUnk_081115DC[];
-extern u8 gUnk_08111618[];
-extern u32* gUnk_081115EC[];
+extern u8 BladeBrothers_EquippedItem[];
+extern PlayerMacroEntry* BladeBrothers_PlayerMacros[];
 extern u8 gUnk_08111623[];
 extern u8 gUnk_0811162B[];
 extern u16 gUnk_08111664[];
@@ -98,7 +98,7 @@ void sub_08068AA4(Entity* this) {
         this->type2++;
         this->type2 &= 7;
         if (this->type2 == 0) {
-            this->type2 += 1;
+            this->type2++;
         }
         ChangeObjPalette(this, gUnk_081115DC[this->type2]);
     }
@@ -139,14 +139,14 @@ void sub_08068B70(Entity* this) {
     }
 }
 
-void sub_08068B84(Entity* this) {
+void BladeBrothers_StartPlayerDemonstration(Entity* this, ScriptExecutionContext* context) {
     u8 p;
 
-    if (gUnk_08111618) {}
-    if (p = this->timer, gUnk_08111618[p]) {
-        ForceEquipItem(gUnk_08111618[this->timer], 0);
+    if (BladeBrothers_EquippedItem) {}
+    if (p = this->timer, BladeBrothers_EquippedItem[p]) {
+        ForceEquipItem(BladeBrothers_EquippedItem[this->timer], 0);
     }
-    InitPlayerMacro(gUnk_081115EC[this->timer]);
+    InitPlayerMacro(BladeBrothers_PlayerMacros[this->timer]);
 }
 
 void sub_08068BB4(Entity* this) {
@@ -190,7 +190,7 @@ void sub_08068C28(Entity* this) {
     }
 }
 
-void sub_08068C6C(Entity* this) {
+void BladeBrothers_GetScroll(Entity* this) {
     InitItemGetSequence(gUnk_0811162B[this->timer] & 0xffffff7f, 0, 0);
 }
 
@@ -380,7 +380,7 @@ void sub_08068F3C(Entity* this) {
 
 void BladeBrothers_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 0;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 4);

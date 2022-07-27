@@ -34,13 +34,13 @@ void SmallIceBlock_Action3(SmallIceBlockEntity*);
 bool32 sub_0809953C(SmallIceBlockEntity*);
 void sub_0809969C(SmallIceBlockEntity*);
 
-extern void (*const gUnk_08123734[])(SmallIceBlockEntity*);
+extern void (*const SmallIceBlock_Actions[])(SmallIceBlockEntity*);
 extern const u16 gUnk_08123748[];
 extern const u16 gUnk_08123750[];
 
 void SmallIceBlock(SmallIceBlockEntity* this) {
     if (super->type < 3) {
-        gUnk_08123734[super->action](this);
+        SmallIceBlock_Actions[super->action](this);
     } else {
         sub_080996AC(this);
     }
@@ -311,14 +311,14 @@ void sub_080996AC(SmallIceBlockEntity* this) {
         }
         GetNextFrame(super);
         CopyPositionAndSpriteOffset(super->parent, super);
-        super->y.HALF.HI += 1;
+        super->y.HALF.HI++;
         super->spriteOffsetY -= 0x11;
     } else {
         super->spriteSettings.draw = 0;
     }
 }
 
-void (*const gUnk_08123734[])(SmallIceBlockEntity*) = {
+void (*const SmallIceBlock_Actions[])(SmallIceBlockEntity*) = {
     SmallIceBlock_Init, SmallIceBlock_Action1, SmallIceBlock_Action2, SmallIceBlock_Action3, SmallIceBlock_Action4,
 };
 const u16 gUnk_08123748[] = {

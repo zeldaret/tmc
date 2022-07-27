@@ -129,7 +129,7 @@ void sub_08058F44(u32 unk0, u32 unk1, u32 unk2) {
 
 void sub_08058F84(u32 unk0, u32 unk1) {
     Entity* tmp;
-    tmp = CreateObject(OBJECT_21, 0, 0);
+    tmp = CreateObject(DIRT_PARTICLE, 0, 0);
     if (!tmp)
         return;
     tmp->x.HALF.HI = gRoomControls.origin_x + unk0;
@@ -363,12 +363,12 @@ void MiscManager_TypeB(MiscManager* this) {
     }
 }
 
-u32 sub_080593CC(MiscManager* this) {
+bool32 sub_080593CC(MiscManager* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.field_0x90 & 0xF00) == 0x400) {
+        (gPlayerState.playerInput.field_0x90 & PLAYER_INPUT_ANY_DIRECTION) == PLAYER_INPUT_UP) {
         return EntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
-    return 0;
+    return FALSE;
 }
 
 void MiscManager_TypeC(MiscManager* this) {

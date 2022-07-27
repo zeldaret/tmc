@@ -12,7 +12,7 @@ SCRIPT_START script_StockwellBuy
 	WaitUntilTextboxCloses
 	FaceAwayFromPlayer
 	Wait 0x001e
-	MessageNoOverlapVar 
+	MessageNoOverlapVar
 script_080143AC:
 	WaitUntilTextboxCloses
 	Wait 0x001e

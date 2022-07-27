@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4EHyruleCastleThrone
 	BeginBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetEntityPositionRelative 0x0088, 0x0070
 	Call sub_0807F844
 	PlaySound SFX_APPARATE

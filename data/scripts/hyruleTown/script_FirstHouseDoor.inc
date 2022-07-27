@@ -10,7 +10,7 @@ script_0801091C:
 	JumpIfNot script_0801091C
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	CheckRoomFlag 0x0001
 	JumpIf script_08010942
 	EzloMessage TEXT_EZLO, 0x62
@@ -18,7 +18,7 @@ script_0801091C:
 script_08010942:
 	StartPlayerScript script_PlayerAtInnDoor
 	WaitForSyncFlagAndClear 0x00000001
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0801091C
 	Call sub_0808692C

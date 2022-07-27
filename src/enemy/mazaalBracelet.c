@@ -182,7 +182,7 @@ void sub_0803A274(Entity* this) {
             pEVar1 = CreateEnemy(MAZAAL_BRACELET, 2);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
-            pEVar1 = CreateObject(OBJECT_7E, 1, 0);
+            pEVar1 = CreateObject(MAZAAL_OBJECT, 1, 0);
             pEVar1->parent = this;
             pEVar1->child = this->child;
             PositionRelative(this->parent, this, Q_16_16(16.0), Q_16_16(32.0));
@@ -193,7 +193,7 @@ void sub_0803A274(Entity* this) {
             pEVar1 = CreateEnemy(MAZAAL_BRACELET, 3);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
-            pEVar1 = CreateObject(OBJECT_7E, 2, 0);
+            pEVar1 = CreateObject(MAZAAL_OBJECT, 2, 0);
             pEVar1->parent = this;
             pEVar1->child = this->child;
             this->spriteSettings.flipX = 1;

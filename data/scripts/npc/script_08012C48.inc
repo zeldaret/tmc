@@ -1,4 +1,4 @@
-@ OBJECT_6A in sub_08095954 ?
+@ CUTSCENE_MISC_OBJECT in sub_08095954 ?
 SCRIPT_START script_08012C48
 	BeginBlock
 	DoPostScriptAction 0x0007

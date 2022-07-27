@@ -1,7 +1,13 @@
+/**
+ * @file mineralWaterSource.c
+ * @ingroup Objects
+ *
+ * @brief Mineral Water Source object
+ */
 #include "object.h"
 
 void MineralWaterSource_Init(Entity*);
-void sub_080973DC(Entity*);
+void MineralWaterSource_Action1(Entity*);
 
 typedef struct {
     u8 type2;
@@ -13,7 +19,7 @@ typedef struct {
 void MineralWaterSource(Entity* this) {
     static void (*const MineralWaterSourceActionFuncs[])(Entity*) = {
         MineralWaterSource_Init,
-        sub_080973DC,
+        MineralWaterSource_Action1,
     };
     MineralWaterSourceActionFuncs[this->action](this);
 }
@@ -45,6 +51,6 @@ void MineralWaterSource_Init(Entity* this) {
     this->action = 1;
 }
 
-void sub_080973DC(Entity* this) {
+void MineralWaterSource_Action1(Entity* this) {
     this->contactFlags = 0;
 }

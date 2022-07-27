@@ -1,9 +1,15 @@
+/**
+ * @file waterfallOpening.c
+ * @ingroup Objects
+ *
+ * @brief Waterfall Opening object
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "menu.h"
-#include "room.h"
 #include "flags.h"
 #include "functions.h"
+#include "menu.h"
+#include "room.h"
 #include "sound.h"
 
 typedef struct {

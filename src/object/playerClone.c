@@ -1,12 +1,18 @@
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "collision.h"
-#include "room.h"
+/**
+ * @file playerClone.c
+ * @ingroup Objects
+ *
+ * @brief Player Clone object
+ */
 #include "asm.h"
-#include "sound.h"
-#include "player.h"
-#include "functions.h"
+#include "collision.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "player.h"
+#include "room.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;

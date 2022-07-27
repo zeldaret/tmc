@@ -1,4 +1,4 @@
-@ Mountain Great Fairy OBJECT_69
+@ Mountain Great Fairy CUTSCENE_ORCHESTRATOR
 SCRIPT_START script_GreatFairyBombs
 	BeginBlock
 	EndBlock
@@ -34,8 +34,8 @@ script_0800B7A2:
 	SetFade7
 	WaitForFadeFinish
 	ModHealth 0x00a0
-	SetFade6 
-	WaitForFadeFinish 
+	SetFade6
+	WaitForFadeFinish
 	MessageNoOverlap TEXT_ITEM_GET, 0x7f
 	WaitUntilTextboxCloses
 	Jump script_0800B6A6

@@ -1,4 +1,4 @@
-@ Minish Woods OBJECT_69 ?
+@ Minish Woods CUTSCENE_ORCHESTRATOR ?
 @ Ezlo Trigger to explain how portals work
 SCRIPT_START script_08012C98
 	CheckGlobalFlag EZERO_1ST
@@ -12,11 +12,11 @@ script_08012CA0:
 	JumpIf script_08012CD2
 	EndBlock
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EzloMessage TEXT_EZLO_PORTAL, 0x02
 	WaitUntilTextboxCloses
 	SetLocalFlag MORI_00_KOBITO
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_08012CD2:
 	DoPostScriptAction 0x0006

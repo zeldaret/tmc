@@ -156,7 +156,7 @@ void sub_08076A88(ItemBehavior* this, u32 idx) {
             return;
         }
         ptr = gUnk_0811BE38;
-        if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.field_0x90) == 0) {
+        if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.field_0x90) == 0) {
             this->field_0x5[6] = (this->field_0x5[5] & 0xe) * 4;
             if ((gPlayerState.field_0xd != 0xff) && (gPlayerState.field_0xd != this->field_0x5[6])) {
                 if (((gPlayerState.field_0xd - this->field_0x5[6]) & 0x1f) < 0x10) {

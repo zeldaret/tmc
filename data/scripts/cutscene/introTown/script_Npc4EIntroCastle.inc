@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4EIntroCastle
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerIntroCastle
 	WaitForSyncFlagAndClear 0x00000400
 	SetInventoryValue ITEM_QST_SWORD, 0x0002

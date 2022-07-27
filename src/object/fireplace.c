@@ -1,20 +1,26 @@
-#include "object.h"
+/**
+ * @file fireplace.c
+ * @ingroup Objects
+ *
+ * @brief Fireplace object
+ */
 #include "functions.h"
+#include "object.h"
 
-void sub_0809B7A0(Entity* this);
+void Fireplace_Action1(Entity* this);
 void sub_0809B7DC(Entity* this);
 void sub_0809B7C0(Entity* this);
-void sub_0809B708(Entity* this);
+void Fireplace_Init(Entity* this);
 
 void Fireplace(Entity* e) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809B708,
-        sub_0809B7A0,
+    static void (*const Fireplace_Actions[])(Entity*) = {
+        Fireplace_Init,
+        Fireplace_Action1,
     };
-    actionFuncs[e->action](e);
+    Fireplace_Actions[e->action](e);
 }
 
-void sub_0809B708(Entity* this) {
+void Fireplace_Init(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     this->speed = 0x80;
@@ -25,10 +31,10 @@ void sub_0809B708(Entity* this) {
         sub_0807B7D8(0x30b, TILE(this->x.HALF.HI, this->y.HALF.HI), 2);
         SetTile(0x4061, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
     }
-    sub_0809B7A0(this);
+    Fireplace_Action1(this);
 }
 
-void sub_0809B7A0(Entity* this) {
+void Fireplace_Action1(Entity* this) {
     sub_0809B7C0(this);
     if (this->timer) {
         SetFlag(this->field_0x86.HWORD);

@@ -10,7 +10,7 @@ script_08014E64:
 	CheckEntityInteractType
 	JumpIfNot script_08014E64
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FacePlayer
 	CallWithArg sub_0807F78C, 0x00000022
 	WaitUntilTextboxCloses
@@ -31,7 +31,7 @@ script_08014EB8:
 	MessageNoOverlap TEXT_EMPTY, 0x02
 script_08014EBC:
 	WaitUntilTextboxCloses
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_08014E64
 	.2byte 0x0000

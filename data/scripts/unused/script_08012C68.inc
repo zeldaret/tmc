@@ -9,8 +9,8 @@ SCRIPT_START script_08012C68
 script_08012C7E:
 	CheckEntityInteractType
 	JumpIfNot script_08012C7E
-	SetPlayerIdle 
-	_0807E8E4_0 
+	SetPlayerIdle
+	_0807E8E4_0
 	MessageFromTarget TEXT_FINDING_EZLO, 0x1d
 	WaitUntilTextboxCloses
 	SetGlobalFlag ENTRANCE_OK

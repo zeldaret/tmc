@@ -57,7 +57,7 @@ script_08015A32:
 	JumpIf script_08015A54
 	CheckEntityInteractType
 	JumpIfNot script_08015A32
-	EndBlock 
+	EndBlock
 	MessageFromTargetPos TEXT_PROLOGUE, 0x67, 0x0002
 	WaitUntilTextboxCloses
 	Jump script_08015A32

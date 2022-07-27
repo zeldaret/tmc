@@ -44,7 +44,7 @@ _08087D0C:
 	bl sub_08088160
 	cmp r0, #0
 	beq _08087D2C
-	ldr r0, _08087D28 @ =gUnk_02002B0E
+	ldr r0, _08087D28 @ =gSave+0xce
 	adds r1, r4, #0
 	bl ReadBit
 	cmp r0, #0
@@ -52,7 +52,7 @@ _08087D0C:
 	movs r5, #1
 	b _08087D2E
 	.align 2, 0
-_08087D28: .4byte gUnk_02002B0E
+_08087D28: .4byte gSave+0xce
 _08087D2C:
 	adds r4, #1
 _08087D2E:
@@ -76,7 +76,7 @@ _08087D46:
 	bl sub_08088160
 	cmp r0, #0
 	beq _08087D68
-	ldr r0, _08087D64 @ =gUnk_02002B0E
+	ldr r0, _08087D64 @ =gSave+0xce
 	adds r1, r4, #0
 	bl ReadBit
 	cmp r0, #0
@@ -84,7 +84,7 @@ _08087D46:
 	movs r5, #0
 	b _08087D6A
 	.align 2, 0
-_08087D64: .4byte gUnk_02002B0E
+_08087D64: .4byte gSave+0xce
 _08087D68:
 	adds r4, #1
 _08087D6A:
@@ -172,7 +172,7 @@ _0808837C:
 	bl sub_08088160
 	cmp r0, #0
 	beq _0808839C
-	ldr r0, _08088398 @ =gUnk_02002B0E
+	ldr r0, _08088398 @ =gSave+0xce
 	adds r1, r4, #0
 	bl ReadBit
 	cmp r0, #0
@@ -180,7 +180,7 @@ _0808837C:
 	movs r5, #1
 	b _0808839E
 	.align 2, 0
-_08088398: .4byte gUnk_02002B0E
+_08088398: .4byte gSave+0xce
 _0808839C:
 	adds r4, #1
 _0808839E:
@@ -204,7 +204,7 @@ _080883B6:
 	bl sub_08088160
 	cmp r0, #0
 	beq _080883D8
-	ldr r0, _080883D4 @ =gUnk_02002B0E
+	ldr r0, _080883D4 @ =gSave+0xce
 	adds r1, r4, #0
 	bl ReadBit
 	cmp r0, #0
@@ -212,7 +212,7 @@ _080883B6:
 	movs r5, #0
 	b _080883DA
 	.align 2, 0
-_080883D4: .4byte gUnk_02002B0E
+_080883D4: .4byte gSave+0xce
 _080883D8:
 	adds r4, #1
 _080883DA:

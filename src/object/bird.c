@@ -1,10 +1,16 @@
-#include "save.h"
-#include "object.h"
+/**
+ * @file bird.c
+ * @ingroup Objects
+ *
+ * @brief Bird object
+ */
+#include "collision.h"
 #include "functions.h"
+#include "game.h"
 #include "item.h"
 #include "message.h"
-#include "game.h"
-#include "collision.h"
+#include "object.h"
+#include "save.h"
 
 extern u16 script_EzloTalkOcarina[];
 
@@ -33,12 +39,12 @@ void Bird(Entity* this) {
 }
 
 void Bird_Type0(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const Bird_Type0_Actions[])(Entity*) = {
         Bird_Type0_Init,
         Bird_Type0_Action1,
     };
 
-    actionFuncs[this->action](this);
+    Bird_Type0_Actions[this->action](this);
 }
 
 void Bird_Type0_Init(Entity* this) {
@@ -80,11 +86,11 @@ void Bird_Type0_Action1(Entity* this) {
 }
 
 void Bird_Type1(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const Bird_Type1_Actions[])(Entity*) = {
         Bird_Type1_Init,
         Bird_Type1_Action1,
     };
-    actionFuncs[this->action](this);
+    Bird_Type1_Actions[this->action](this);
 }
 
 void Bird_Type1_Init(Entity* this) {
@@ -95,11 +101,11 @@ void Bird_Type1_Init(Entity* this) {
 }
 
 void Bird_Type1_Action1(Entity* this) {
-    static void (*const subActionFuncs[])(Entity*) = {
+    static void (*const Bird_Type1_Action1_Subactions[])(Entity*) = {
         Bird_Type1_Action1_Subaction0,
         Bird_Type1_Action1_Subaction1,
     };
-    subActionFuncs[this->subAction](this);
+    Bird_Type1_Action1_Subactions[this->subAction](this);
 }
 
 void Bird_Type1_Action1_Subaction0(Entity* this) {
@@ -134,11 +140,11 @@ void Bird_Type1_Action1_Subaction1(Entity* this) {
 }
 
 void Bird_Type2(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const Bird_Type2_Actions[])(Entity*) = {
         Bird_Type2_Init,
         Bird_Type2_Action1,
     };
-    actionFuncs[this->action](this);
+    Bird_Type2_Actions[this->action](this);
 }
 
 void Bird_Type2_Init(Entity* this) {
@@ -325,7 +331,7 @@ void Bird_Type9(Entity* this) {
             ResetPlayerEventPriority();
             gPauseMenuOptions.disabled = 0;
             if (!CheckGlobalFlag(WARP_1ST)) {
-                pEVar1 = CreateObject(OBJECT_69, 0, 0);
+                pEVar1 = CreateObject(CUTSCENE_ORCHESTRATOR, 0, 0);
                 if (pEVar1 != NULL) {
                     *(ScriptExecutionContext**)&pEVar1->cutsceneBeh = StartCutscene(pEVar1, script_EzloTalkOcarina);
                     SetGlobalFlag(WARP_1ST);

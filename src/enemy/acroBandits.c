@@ -147,12 +147,12 @@ void AcroBandit_OnGrabbed(Entity* this) {
 }
 
 void AcroBandit_Type0(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const AcroBandit_Type0_Actions[])(Entity*) = {
         AcroBandit_Type0Action0, AcroBandit_Type0Action1, AcroBandit_Type0Action2,
         AcroBandit_Type0Action3, AcroBandit_Type0Action4, AcroBandit_Type0Action5,
         AcroBandit_Type0Action6, AcroBandit_Type0Action7, AcroBandit_Type0Action8,
     };
-    actionFuncs[this->action](this);
+    AcroBandit_Type0_Actions[this->action](this);
 }
 
 void AcroBandit_Type0Action0(Entity* this) {
@@ -350,12 +350,12 @@ static void sub_08031E48(Entity* this, Entity* child) {
 }
 
 void AcroBandit_Type1(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const AcroBandit_Type1_Actions[])(Entity*) = {
         AcroBandit_Type1Init,    AcroBandit_Type1Action1, AcroBandit_Type1Action2, AcroBandit_Type1Action3,
         AcroBandit_Type1Action4, AcroBandit_Type1Action5, AcroBandit_Type1Action6, AcroBandit_Type1Action7,
         AcroBandit_Type1Action8, AcroBandit_Type1Action9,
     };
-    actionFuncs[this->action](this);
+    AcroBandit_Type1_Actions[this->action](this);
 }
 
 void AcroBandit_Type1Init(Entity* this) {

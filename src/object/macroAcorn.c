@@ -1,20 +1,26 @@
+/**
+ * @file macroAcorn.c
+ * @ingroup Objects
+ *
+ * @brief Macro Acorn object
+ */
 #include "entity.h"
-#include "physics.h"
 #include "object.h"
+#include "physics.h"
 
-void sub_0809E518(Entity*);
-void nullsub_125(Entity*);
+void MacroAcorn_Init(Entity*);
+void MacroAcorn_Action1(Entity*);
 void sub_0809E5F0(Entity*);
 
 void MacroAcorn(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809E518,
-        nullsub_125,
+    static void (*const MacroAcorn_Actions[])(Entity*) = {
+        MacroAcorn_Init,
+        MacroAcorn_Action1,
     };
-    actionFuncs[this->action](this);
+    MacroAcorn_Actions[this->action](this);
 }
 
-void sub_0809E518(Entity* this) {
+void MacroAcorn_Init(Entity* this) {
     u32 bVar2;
     Entity* pEVar3;
 
@@ -54,7 +60,7 @@ void sub_0809E518(Entity* this) {
     }
 }
 
-void nullsub_125(Entity* this) {
+void MacroAcorn_Action1(Entity* this) {
 }
 
 void sub_0809E5F0(Entity* this) {

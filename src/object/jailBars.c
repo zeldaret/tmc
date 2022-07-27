@@ -1,27 +1,33 @@
-#include "global.h"
+/**
+ * @file jailBars.c
+ * @ingroup Objects
+ *
+ * @brief Jail Bars object
+ */
 #include "entity.h"
 #include "flags.h"
+#include "functions.h"
+#include "global.h"
 #include "room.h"
 #include "sound.h"
-#include "functions.h"
 
 static void SetJailBarTiles(Entity*, u32);
-void sub_080A08C4(Entity*);
-void sub_080A0910(Entity*);
-void sub_080A0938(Entity*);
-void nullsub_127(Entity*);
+void JailBars_Init(Entity*);
+void JailBars_Action1(Entity*);
+void JailBars_Action2(Entity*);
+void JailBars_Action3(Entity*);
 
 void JailBars(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080A08C4,
-        sub_080A0910,
-        sub_080A0938,
-        nullsub_127,
+    static void (*const JailBars_Actions[])(Entity*) = {
+        JailBars_Init,
+        JailBars_Action1,
+        JailBars_Action2,
+        JailBars_Action3,
     };
-    actionFuncs[this->action](this);
+    JailBars_Actions[this->action](this);
 }
 
-void sub_080A08C4(Entity* this) {
+void JailBars_Init(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) == 0) {
         this->action = 1;
         SetJailBarTiles(this, 0);
@@ -35,7 +41,7 @@ void sub_080A08C4(Entity* this) {
     UpdateSpriteForCollisionLayer(this);
 }
 
-void sub_080A0910(Entity* this) {
+void JailBars_Action1(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         SetJailBarTiles(this, 1);
@@ -43,7 +49,7 @@ void sub_080A0910(Entity* this) {
     }
 }
 
-void sub_080A0938(Entity* this) {
+void JailBars_Action2(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 3;
@@ -51,7 +57,7 @@ void sub_080A0938(Entity* this) {
     }
 }
 
-void nullsub_127(Entity* this) {
+void JailBars_Action3(Entity* this) {
 }
 
 static void SetJailBarTiles(Entity* this, u32 arg1) {

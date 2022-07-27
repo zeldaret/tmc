@@ -8,10 +8,10 @@ SCRIPT_START script_StoneZelda
 script_08009300:
 	CheckEntityInteractType
 	JumpIfNot script_08009300
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_PROLOGUE, 0x71
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_08009300
 	.2byte 0x0000

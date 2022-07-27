@@ -6,13 +6,13 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
-#include "functions.h"
-#include "hitbox.h"
-#include "screen.h"
-#include "message.h"
 #include "collision.h"
+#include "functions.h"
+#include "global.h"
+#include "hitbox.h"
+#include "message.h"
+#include "object.h"
+#include "screen.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -21,7 +21,7 @@ typedef struct {
 } FourElementsEntity;
 
 extern u32 getItemMetaDataGetTextIndex(u32);
-extern void sub_0807DF50(void);
+extern void EnablePauseMenu(void);
 
 extern u16 script_PlayerGetElement[];
 
@@ -45,7 +45,7 @@ void FourElements(FourElementsEntity* this) {
 }
 
 void FourElements_Init(FourElementsEntity* this) {
-    Entity* objectAD;
+    Entity* elementsBackground;
     super->action = 1;
     super->spriteSettings.draw = 1;
     super->spritePriority.b1 = 2;
@@ -67,10 +67,10 @@ void FourElements_Init(FourElementsEntity* this) {
     gScreen.controls.layerFXControl = 0x640;
     gScreen.controls.alphaBlend = 0x1000;
     sub_0805BC4C();
-    objectAD = CreateObjectWithParent(super, OBJECT_AD, super->type - 0x40, 0);
-    if (objectAD != NULL) {
-        objectAD->parent = super;
-        super->child = objectAD;
+    elementsBackground = CreateObjectWithParent(super, ELEMENTS_BACKGROUND, super->type - 0x40, 0);
+    if (elementsBackground != NULL) {
+        elementsBackground->parent = super;
+        super->child = elementsBackground;
     }
 }
 
@@ -143,7 +143,7 @@ void FourElements_Action6(FourElementsEntity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         SetPriorityTimer(90);
         gPlayerState.controlMode = 1;
-        sub_0807DF50();
+        EnablePauseMenu();
         SetRoomFlag(0);
         DeleteThisEntity();
     }

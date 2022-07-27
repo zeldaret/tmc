@@ -73,10 +73,10 @@ script_0800E312:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	EndBlock 
+	EndBlock
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x04
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800E2AE
 script_0800E32E:
 	CheckEntityInteractType
@@ -86,6 +86,6 @@ script_0800E32E:
 	CallWithArg sub_0807F3D8, 0x00000000
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x03
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800E32E
 	.2byte 0x0000

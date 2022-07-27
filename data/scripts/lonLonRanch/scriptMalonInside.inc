@@ -14,7 +14,7 @@ script_08014F0C:
 	DoPostScriptAction 0x0000
 	MessageNoOverlap TEXT_LON_LON, 0x0e
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	SetAnimationState 0x0004
 	SetAnimation 0x000a
 	Jump script_08014F0C

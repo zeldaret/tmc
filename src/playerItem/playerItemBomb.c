@@ -45,7 +45,7 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
     if (uVar1 != 0x03) {
         if (super->timer != 0) {
             if (*(u8*)&this->unk_68 == 7) {
-                super->timer -= 1;
+                super->timer--;
             }
             if (super->timer == 0) {
                 super->subtimer = 80;
@@ -105,16 +105,16 @@ void sub_0801B2CC(PlayerItemBombEntity* this) {
     }
     switch (IsItemEquipped(ITEM_REMOTE_BOMBS)) {
         case 0:
-            unaff_r5 = 1;
+            unaff_r5 = PLAYER_INPUT_1;
             break;
         case 1:
-            unaff_r5 = 2;
+            unaff_r5 = PLAYER_INPUT_2;
             break;
         case 2:
             unaff_r5 = 0;
             break;
     }
-    if ((unaff_r5 & gPlayerState.field_0x92) != 0) {
+    if ((gPlayerState.playerInput.field_0x92 & unaff_r5) != 0) {
         super->timer = 0;
         super->subtimer = 1;
     }
@@ -125,7 +125,7 @@ void sub_0801B318(PlayerItemBombEntity* this) {
 }
 
 void sub_0801B330(PlayerItemBombEntity* this) {
-    super->subAction += 1;
+    super->subAction++;
     sub_08079BD8(super);
 }
 
@@ -138,7 +138,7 @@ void sub_0801B354(PlayerItemBombEntity* this) {
 }
 
 void sub_0801B368(PlayerItemBombEntity* this) {
-    super->action -= 1;
+    super->action--;
     super->subAction = 0;
     if (0x3c < super->timer) {
         super->timer = 60;

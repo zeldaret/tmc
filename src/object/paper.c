@@ -6,9 +6,9 @@
  */
 
 #define NENT_DEPRECATED
+#include "functions.h"
 #include "global.h"
 #include "object.h"
-#include "functions.h"
 
 void Paper_Init(Entity*);
 void Paper_Action1(Entity*);

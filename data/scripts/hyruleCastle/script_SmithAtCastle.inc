@@ -10,8 +10,8 @@ script_080092B2:
 script_080092BA:
 	CheckEntityInteractType
 	JumpIfNot script_080092BA
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_PROLOGUE, 0x5e
 	WaitUntilTextboxCloses
 	Wait 0x000f

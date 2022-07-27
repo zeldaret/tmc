@@ -30,7 +30,7 @@ SCRIPT_START script_Vaati
 	WaitForSyncFlagAndClear 0x00000800
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0014
-	CallWithArg sub_0809545C, script_Object6ADarkMagic
+	CallWithArg sub_0809545C, script_CutsceneMiscObjectDarkMagic
 	PlaySound SFX_1C4
 	Wait 0x0078
 	DoPostScriptAction 0x0016

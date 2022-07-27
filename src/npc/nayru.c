@@ -39,7 +39,7 @@ void sub_08064928(Entity* this) {
 
 void Nayru_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 6);
     } else {

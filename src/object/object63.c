@@ -1,25 +1,31 @@
+/**
+ * @file object63.c
+ * @ingroup Objects
+ *
+ * @brief Object63 object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
-#include "asm.h"
 #include "object.h"
 
-void sub_08093D88(Entity*);
-void sub_08093DE0(Entity*);
+void Object63_Init(Entity*);
+void Object63_Action1(Entity*);
 void Object63_Delete(Entity*);
 void sub_08093E10(Entity*, Entity*);
 
 void Object63(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08093D88,
-        sub_08093DE0,
+    static void (*const Object63_Actions[])(Entity*) = {
+        Object63_Init,
+        Object63_Action1,
         Object63_Delete,
     };
 
-    actionFuncs[this->action]((Entity*)this);
+    Object63_Actions[this->action]((Entity*)this);
 }
 
-void sub_08093D88(Entity* this) {
+void Object63_Init(Entity* this) {
     Entity* objEnt;
 
     this->action = 1;
@@ -43,7 +49,7 @@ void sub_08093D88(Entity* this) {
     }
 }
 
-void sub_08093DE0(Entity* this) {
+void Object63_Action1(Entity* this) {
     if (--this->timer == 0) {
         this->action = 2;
     }

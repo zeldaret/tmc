@@ -92,7 +92,7 @@ void PicolyteBottle_Action2(PicolyteBottleEntity* this) {
     } else {
         if (super->timer != 0) {
             super->timer = 0;
-            obj = CreateObject(OBJECT_35, 2, super->subtimer);
+            obj = CreateObject(CARLOV_OBJECT, 2, super->subtimer);
             if (obj != NULL) {
                 obj->parent = super;
                 super->child = obj;

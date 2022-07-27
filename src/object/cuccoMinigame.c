@@ -1,11 +1,18 @@
+
+/**
+ * @file cuccoMinigame.c
+ * @ingroup Objects
+ *
+ * @brief Cucco Minigame object
+ */
 #define NENT_DEPRECATED
+#include "enemy.h"
 #include "entity.h"
-#include "script.h"
-#include "npc.h"
 #include "fileselect.h"
 #include "functions.h"
+#include "npc.h"
 #include "object.h"
-#include "enemy.h"
+#include "script.h"
 
 typedef struct {
     Entity base;
@@ -14,9 +21,9 @@ typedef struct {
     s16 unk6c;
     u16 unk6e;
     u8 unk70[0x18];
-} ObjectB9Entity;
+} CuccoMinigameEntity;
 
-typedef Entity* ObjectB9Heap[10];
+typedef Entity* CuccoMinigameHeap[10];
 
 u32 sub_080A1514();
 
@@ -24,7 +31,7 @@ const u16 gUnk_08124C20[] = {
     25, 0x2, 25, 0x3, 30, 0x4, 45, 0x5, 50, 0x5, 45, 0x5, 50, 0x6, 60, 0x7, 55, 0x2, 55, 0x3,
 };
 
-static const u16 pObjectB9_MinigameCuccoDefs[][30] = {
+static const u16 pCuccoMinigame_MinigameCuccoDefs[][30] = {
     { 0x0001, 0x02E9, 0x0318, 0x0001, 0x0280, 0x0380, 0x0002, 0x0277, 0x0314, 0x0001,
       0x0332, 0x0248, 0x0001, 0x0257, 0x028C, 0x0001, 0x0199, 0x031B, 0x0001, 0x0321,
       0x01B4, 0x0002, 0x02DF, 0x01D8, 0x0001, 0x03AD, 0x02DE, 0x0001, 0x0216, 0x01CC },
@@ -67,7 +74,7 @@ static const u16 CuccoMinigame_Sounds[] = { SFX_VO_CUCCO5, SFX_VO_CUCCO_CALL };
 
 static const u8 CuccoMinigameRupees[] = { 0, 10, 50, 0 };
 
-void ObjectB9(ObjectB9Entity* this) {
+void CuccoMinigame(CuccoMinigameEntity* this) {
     int index;
     u32 val;
     u8* puVar2;
@@ -90,7 +97,7 @@ void ObjectB9(ObjectB9Entity* this) {
     sub_0807DD94(super, 0);
 }
 
-NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(ObjectB9Entity* this)) {
+NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(CuccoMinigameEntity* this)) {
     s32 iVar1;
     int iVar2;
     s32 iVar4;
@@ -151,7 +158,7 @@ NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(ObjectB
 }
 END_NONMATCH
 
-void CuccoMinigame_Cleanup(ObjectB9Entity* this) {
+void CuccoMinigame_Cleanup(CuccoMinigameEntity* this) {
     Entity** puVar1;
     s8* pcVar2;
     int index;
@@ -167,7 +174,7 @@ void CuccoMinigame_Cleanup(ObjectB9Entity* this) {
     }
 }
 
-void sub_080A13B4(ObjectB9Entity* this, ScriptExecutionContext* context) {
+void sub_080A13B4(CuccoMinigameEntity* this, ScriptExecutionContext* context) {
     if (this->unk6a >= this->unk6c) {
         MessageFromTarget(TEXT_INDEX(TEXT_ANJU, 0xc));
         context->condition = 1;
@@ -177,7 +184,7 @@ void sub_080A13B4(ObjectB9Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-void sub_080A13E8(ObjectB9Entity* this) {
+void sub_080A13E8(CuccoMinigameEntity* this) {
     bool32 bVar2;
     const u8* ptr = &gUnk_08124EA0[sub_080A1514() * 4];
 
@@ -209,7 +216,7 @@ void sub_080A13E8(ObjectB9Entity* this) {
     }
 }
 
-void sub_080A1460(ObjectB9Entity* this) {
+void sub_080A1460(CuccoMinigameEntity* this) {
     s8* pcVar1;
     int iVar2;
     s32 rupees;
@@ -298,13 +305,13 @@ void CuccoMinigame_Init(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     pEnt = CreateObject(CUCCO_MINIGAME, 0, 0);
     if (pEnt != NULL) {
-        pEnt->myHeap = (u32*)zMalloc(sizeof(ObjectB9Heap));
+        pEnt->myHeap = (u32*)zMalloc(sizeof(CuccoMinigameHeap));
         if (pEnt->myHeap == NULL) {
             DeleteEntityAny(pEnt);
         } else {
             *(ScriptExecutionContext**)&((GenericEntity*)pEnt)->cutsceneBeh =
                 (ScriptExecutionContext*)StartCutscene(pEnt, (u16*)context->intVariable);
-            pCuccoMinigameDef = pObjectB9_MinigameCuccoDefs[sub_080A1514()];
+            pCuccoMinigameDef = pCuccoMinigame_MinigameCuccoDefs[sub_080A1514()];
             ppEVar5 = (Entity**)pEnt->myHeap;
             room = &gRoomControls;
             for (index = 9; index >= 0; index--, pCuccoMinigameDef += 3) {

@@ -221,7 +221,7 @@ bool32 sub_08077758(PlayerEntity* this) {
 }
 
 bool32 sub_080777A0(void) {
-    if ((gPlayerState.field_0x92 & 0x80) != 0) {
+    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_80) != 0) {
         if ((gPlayerState.flags & PL_CLONING) != 0) {
             gPlayerState.chargeState.action = 1;
             DeleteClones();
@@ -230,12 +230,12 @@ bool32 sub_080777A0(void) {
             switch (gArea.portal_mode) {
                 case 2:
                     if (gArea.unk1A == 0) {
-                        gPlayerEntity.subAction += 1;
+                        gPlayerEntity.subAction++;
                     }
                     break;
                 case 3:
                     if ((gArea.unk1A == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
-                        gPlayerEntity.subAction += 1;
+                        gPlayerEntity.subAction++;
                         gPlayerEntity.flags &= ~ENT_COLLIDE;
                         RequestPriorityDuration(&gPlayerEntity, 180);
                         return TRUE;
@@ -244,7 +244,7 @@ bool32 sub_080777A0(void) {
                 default:
                     if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
-                        ((((gPlayerState.field_0x90 & 0xf00) != 0 &&
+                        ((((gPlayerState.playerInput.field_0x90 & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
                           ((gPlayerState.jump_status == 0 && (gPlayerState.field_0x3[1] == 0)))))) {
                         gPlayerState.queued_action = 0x18;
@@ -267,9 +267,9 @@ void sub_08077880(Item itemId, u32 param_2, u32 param_3) {
 
     if (itemId - 1 < 0x1f) {
         struct_0811BE48* ptr = &gUnk_0811BE48[itemId];
-        puVar2 = &gPlayerState.field_0x90;
+        puVar2 = &gPlayerState.playerInput.field_0x90;
         if (ptr->unk0[0] != 0) {
-            puVar2 = &gPlayerState.field_0x92;
+            puVar2 = &gPlayerState.playerInput.field_0x92;
         }
 
         if (((*puVar2 & param_2) != 0) || (param_3 != 0)) {
@@ -288,8 +288,9 @@ bool32 sub_080778CC(void) {
 
     if (!((((gPlayerState.flags & (PL_USE_PORTAL | PL_MINISH | PL_ROLLING)) == 0) &&
            (((gNewPlayerEntity.unk_79 != 0 || (gPlayerState.heldObject != 0)) ||
-             ((gPlayerState.field_0x92 & 0x8000) != 0)))) &&
-          (((sub_080789A8() != 0 || ((gPlayerState.field_0x90 & 0xf03) == 0)))))) {
+             ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_8000) != 0)))) &&
+          (((sub_080789A8() != 0 || ((gPlayerState.playerInput.field_0x90 &
+                                      (PLAYER_INPUT_ANY_DIRECTION | PLAYER_INPUT_1 | PLAYER_INPUT_2)) == 0)))))) {
         return FALSE;
     }
     item = sub_0807794C(ITEM_TRAP);
@@ -373,8 +374,8 @@ ItemBehavior* sub_08077AC8(void) {
         if (pIVar1->field_0x5[4] != 0) {
             return NULL;
         }
-        pIVar1 += 1;
-        index += 1;
+        pIVar1++;
+        index++;
     }
     return gUnk_03000B80 + 3;
 }
@@ -638,11 +639,11 @@ bool32 sub_08077EC8(ItemBehavior* beh) {
 }
 
 bool32 sub_08077EFC(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90);
+    return sub_08077F24(arg0, (u16)gPlayerState.playerInput.field_0x90);
 }
 
 bool32 sub_08077F10(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.field_0x92);
+    return sub_08077F24(arg0, (u16)gPlayerState.playerInput.field_0x92);
 }
 
 bool32 sub_08077F24(ItemBehavior* beh, u32 arg1) {
@@ -688,7 +689,7 @@ void sub_08077F84(void) {
         if (tile == 0x343 || tile == 0x344 || tile == 0x345 || tile == 0x346) {
             sub_0807AA80(&gPlayerEntity);
             gPlayerState.jump_status |= 8;
-            obj = CreateObject(OBJECT_44, 0, 0);
+            obj = CreateObject(ROTATING_TRAPDOOR, 0, 0);
             if (obj != NULL) {
                 obj->x = gPlayerEntity.x;
                 obj->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0xc;
@@ -764,7 +765,7 @@ bool32 sub_080780E0(ChargeState* state) {
 }
 
 bool32 sub_08078108(ChargeState* state) {
-    state->chargeTimer -= 1;
+    state->chargeTimer--;
     if (state->chargeTimer < 0) {
         state->chargeTimer = 0;
         state->action = 2;
@@ -782,7 +783,7 @@ bool32 sub_08078124(ChargeState* state) {
 }
 
 bool32 sub_08078140(ChargeState* info) {
-    info->preChargeTimer -= 1;
+    info->preChargeTimer--;
     if (info->preChargeTimer < 0) {
         info->preChargeTimer = 0;
         info->action = 0;
@@ -917,7 +918,7 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.field_0x92 & 0x1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
+    if (((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
         sub_0801E738(0);
         if (gSave.unk12B[0] != 0) {
             gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4[3];
@@ -929,7 +930,7 @@ bool32 sub_080782C0(void) {
         ForceSetPlayerState(0x13);
         return TRUE;
     }
-    if ((gPlayerState.field_0x92 & 0x88) == 0) {
+    if ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
         return FALSE;
     }
     switch (gUnk_03003DF0.unk_4[1]) {
@@ -1053,9 +1054,9 @@ s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
         gUnk_03003DF0.array[index].unk_3 = param_3;
     }
     if (param_3 != 0) {
-        Entity* entity = FindEntityByID(OBJECT, OBJECT_9, 6);
+        Entity* entity = FindEntityByID(OBJECT, CAMERA_TARGET, 6);
         if (entity == NULL) {
-            CreateObject(OBJECT_9, 0, 0);
+            CreateObject(CAMERA_TARGET, 0, 0);
         }
     }
     return index;
@@ -1484,7 +1485,7 @@ bool32 sub_080793E4(u32 param_1) {
     } else {
         tmp = gUnk_0811C0F8[gPlayerEntity.direction >> 2];
     }
-    if (sub_08079778() && ((gPlayerState.field_0x90 & tmp) != 0)) {
+    if (sub_08079778() && ((gPlayerState.playerInput.field_0x90 & tmp) != 0)) {
         if (param_1 != 0) {
             if (!sub_080B1BA4(sub_0807A500(), gPlayerEntity.collisionLayer, param_1)) {
                 return FALSE;
@@ -1508,8 +1509,8 @@ void sub_08079520(Entity* this) {
 }
 
 u32 sub_0807953C(void) {
-    u32 tmp = 0xf38;
-    return gPlayerState.field_0x92 & tmp;
+    u32 tmp = PLAYER_INPUT_ANY_DIRECTION | PLAYER_INPUT_20 | PLAYER_INPUT_10 | PLAYER_INPUT_8;
+    return gPlayerState.playerInput.field_0x92 & tmp;
 }
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08079550.inc", u32 sub_08079550(void))
@@ -1563,7 +1564,118 @@ u32 sub_080797C4(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080797EC.inc", void sub_080797EC())
 
-ASM_FUNC("asm/non_matching/playerUtils/ResolvePlayerAnimation.inc", void ResolvePlayerAnimation())
+void ResolvePlayerAnimation(void) {
+    u32 index;
+    u32 tmp;
+    u32 anim;
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+        if (gPlayerState.heldObject != 0) {
+            anim = 0x92c;
+        } else {
+            if ((gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) != 0) {
+                return;
+            }
+            if ((gPlayerState.flags & PL_FLAGS2000000) != 0) {
+                anim = 0x810;
+            } else if (gPlayerState.field_0x3[0] != 0) {
+                anim = 0x414;
+            } else if (gPlayerState.field_0x1f[2] != 0) {
+                anim = 0x280;
+            } else if (gPlayerState.swim_state != 0) {
+                anim = 0x28c;
+            } else {
+                if ((gPlayerState.sword_state & 0x48) != 0) {
+                    return;
+                }
+                if (gPlayerState.sword_state == 0) {
+                    if (gPlayerState.field_0x3[1] != 0) {
+                        return;
+                    }
+                    if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
+                        switch (gArea.portal_type) {
+                            case 5:
+                                anim = 0x400;
+                                break;
+                            case 4:
+                                anim = 0x100;
+                                break;
+                            default:
+                                anim = 0x2c2;
+                                break;
+                        }
+                    } else {
+                        anim = 0x400;
+                    }
+                } else {
+                    anim = 0x168;
+                }
+            }
+        }
+    } else {
+        if (gPlayerState.heldObject != 0) {
+            anim = 0x350;
+        } else {
+            if ((gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) != 0) {
+                return;
+            }
+            if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
+                anim = 0x8b0;
+            } else if ((gPlayerState.flags & PL_FLAGS2000000) != 0) {
+                anim = 0x810;
+            } else if (gPlayerState.dash_state != 0) {
+                anim = 0x298;
+            } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
+                anim = 0x70c;
+            } else if (gPlayerState.field_0x3[0] != 0) {
+                anim = 0x164;
+            } else if (gPlayerState.field_0x1f[2] != 0) {
+                anim = 0x280;
+            } else if (gPlayerState.swim_state != 0) {
+                anim = 0x28c;
+            } else {
+                if ((gPlayerState.sword_state & 0x48) != 0) {
+                    return;
+                }
+                if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
+                    anim = (gArea.portal_type == 4) ? 0x530 : 0x2c2;
+                } else {
+                    if (gPlayerState.sword_state != 0) {
+                        anim = 0x168;
+                    } else {
+                        if (gPlayerState.field_0x3[1] != 0) {
+                            return;
+                        }
+                        if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
+                            if (gUnk_03000B80[3].field_0xf != 0) {
+                                return;
+                            }
+                            anim = 0x604;
+                        } else {
+                            anim = 0x100;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    gPlayerState.animation = anim;
+    if (gPlayerState.heldObject == 0) {
+        tmp = 0;
+        for (index = 0; index < 4; index++) {
+            if (gUnk_03000B80[index].field_0xf > tmp) {
+                tmp = gUnk_03000B80[index].field_0xf;
+            }
+        }
+        if (gPlayerState.field_0xe < tmp) {
+            return;
+        }
+        if ((u8)anim == gPlayerState.field_0x0[0]) {
+            UpdateAnimationSingleFrame(&gPlayerEntity);
+        }
+    }
+    gPlayerState.field_0x0[0] = anim;
+}
 
 bool32 sub_08079B24(void) {
     if ((gPlayerEntity.action != PLAYER_MINISHDIE) && (gPlayerEntity.health == 0)) {
@@ -1897,7 +2009,7 @@ bool32 sub_0807A2B8(void) {
         return TRUE;
     } else {
         if (((gPlayerState.jump_status & 200) == 0) && (gPlayerEntity.collisionLayer != 1)) {
-            CreateObjectWithParent(&gPlayerEntity, OBJECT_44, 0, 0);
+            CreateObjectWithParent(&gPlayerEntity, ROTATING_TRAPDOOR, 0, 0);
         }
         return FALSE;
     }
@@ -2025,14 +2137,14 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
         sub_0806FC50(GetTileType(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
     if (ptr != NULL) {
         if (ptr[3] == 0x76) {
-            object = CreateObject(OBJECT_2A, 1, 0);
+            object = CreateObject(FLAME, 1, 0);
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
                 sub_08004168(object);
                 sub_0807B7D8(ptr[3], COORD_TO_TILE(object), object->collisionLayer);
             }
         } else {
-            object = CreateObject(OBJECT_2A, 2, 0);
+            object = CreateObject(FLAME, 2, 0);
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
                 object->child = (Entity*)ptr;
@@ -2112,7 +2224,7 @@ void sub_0807ACCC(Entity* this) {
 
 bool32 sub_0807ADB8(Entity* this) {
     u8 tmp;
-    if ((gPlayerState.field_0x92 & 0x10) != 0) {
+    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_10) != 0) {
         gPlayerState.swim_state ^= 0x80;
         tmp = (gPlayerState.swim_state & 0x80);
         if (tmp != 0) {
@@ -2130,7 +2242,7 @@ bool32 sub_0807ADB8(Entity* this) {
 
 void sub_0807AE20(Entity* this) {
     if ((((this->action != 0x17) || (gPlayerState.field_0xa == 0)) && (gRoomControls.reload_flags == 0)) &&
-        ((gPlayerState.field_0x92 & 8) != 0)) {
+        ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_8) != 0)) {
         if (GetInventoryValue(ITEM_SWIM_BUTTERFLY) == 1) {
             this->speed = 0x1c0;
         } else {
@@ -2346,7 +2458,7 @@ void sub_0807B2B8(PlayerEntity* this) {
 
 void sub_0807B2F8(PlayerEntity* this) {
     if (this->unk_6e == 0) {
-        this->unk_6e += 1;
+        this->unk_6e++;
         sub_0809D738(super);
     }
 }

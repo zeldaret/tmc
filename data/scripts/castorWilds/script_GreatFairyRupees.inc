@@ -1,4 +1,4 @@
-@ Lake Hylia Great Fairy OBJECT_69
+@ Lake Hylia Great Fairy CUTSCENE_ORCHESTRATOR
 SCRIPT_START script_GreatFairyRupees
 	BeginBlock
 	EndBlock

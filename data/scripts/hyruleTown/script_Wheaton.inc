@@ -15,7 +15,7 @@ script_08010686:
 	Call GetConditionSet
 	MessageFromTargetTable TEXT_BAKERY << 8 | 0x08, TEXT_BAKERY << 8 | 0x09
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	SetAnimationState 0x0004
 	Jump script_08010686
 	.2byte 0x0000

@@ -170,23 +170,23 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_9
+	.4byte gSpriteAnimations_CutsceneMiscObject_9
 	.4byte gSpriteFrames_33
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_0
-	.4byte gSpriteFrames_Object6A_0
+	.4byte gSpriteAnimations_CutsceneMiscObject_0
+	.4byte gSpriteFrames_CutsceneMiscObject_0
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_1
-	.4byte gSpriteFrames_Object6A_1
+	.4byte gSpriteAnimations_CutsceneMiscObject_1
+	.4byte gSpriteFrames_CutsceneMiscObject_1
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_2
-	.4byte gSpriteFrames_Object6A_2
+	.4byte gSpriteAnimations_CutsceneMiscObject_2
+	.4byte gSpriteFrames_CutsceneMiscObject_2
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
@@ -195,8 +195,8 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_3
-	.4byte gSpriteFrames_Object6A_3
+	.4byte gSpriteAnimations_CutsceneMiscObject_3
+	.4byte gSpriteFrames_CutsceneMiscObject_3
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
@@ -485,8 +485,8 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_081FF1B4
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_4
-	.4byte gSpriteFrames_Object6A_4
+	.4byte gSpriteAnimations_CutsceneMiscObject_4
+	.4byte gSpriteFrames_CutsceneMiscObject_4
 	.4byte gSprite_081FF1B4
 	.4byte 00000000
 
@@ -685,8 +685,8 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_082D4894
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object79
-	.4byte gSpriteFrames_Object79
+	.4byte gSpriteAnimations_ShrinkingHieroglyphs
+	.4byte gSpriteFrames_ShrinkingHieroglyphs
 	.4byte gSprite_082D4894
 	.4byte 00000000
 
@@ -825,7 +825,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object64
+	.4byte gSpriteAnimations_Thunderbold
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -865,12 +865,12 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectD
+	.4byte gSpriteAnimations_UnusedSkull
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object2A
+	.4byte gSpriteAnimations_Flame
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -880,7 +880,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object43
+	.4byte gSpriteAnimations_SwordParticle
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -920,7 +920,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object1E
+	.4byte gSpriteAnimations_MoleMittsParticle
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -980,7 +980,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectB3
+	.4byte gSpriteAnimations_KinstoneSpark
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1015,7 +1015,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object9
+	.4byte gSpriteAnimations_CameraTarget
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1025,7 +1025,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object45
+	.4byte gSpriteAnimations_LampParticle
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1285,7 +1285,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object35
+	.4byte gSpriteAnimations_CarlovObject
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1305,7 +1305,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object86
+	.4byte gSpriteAnimations_Trapdoor
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1345,7 +1345,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_5
+	.4byte gSpriteAnimations_CutsceneMiscObject_5
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1370,7 +1370,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object98
+	.4byte gSpriteAnimations_GuruguruBar
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1395,7 +1395,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object44
+	.4byte gSpriteAnimations_RotatingTrapdoor
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1415,7 +1415,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectAF
+	.4byte gSpriteAnimations_Vaati3Arm
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1440,13 +1440,13 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectB4
+	.4byte gSpriteAnimations_JapaneseSubtitle
 .ifndef EU
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectB4
+	.4byte gSpriteAnimations_JapaneseSubtitle
 .endif
 	.4byte 00000000
 	.4byte 00000000
@@ -1487,7 +1487,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object9B
+	.4byte gSpriteAnimations_Vaati2Particle
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1507,7 +1507,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectA6
+	.4byte gSpriteAnimations_SanctuaryStoneTablet
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1522,7 +1522,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_6
+	.4byte gSpriteAnimations_CutsceneMiscObject_6
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1532,7 +1532,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectAB
+	.4byte gSpriteAnimations_Vaati1Portal
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1547,7 +1547,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_7
+	.4byte gSpriteAnimations_CutsceneMiscObject_7
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1557,7 +1557,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectB2
+	.4byte gSpriteAnimations_FanWind
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1592,7 +1592,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_8
+	.4byte gSpriteAnimations_CutsceneMiscObject_8
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1643,7 +1643,7 @@ gMoreSpritePtrs:: @ 08003DD4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_10
+	.4byte gSpriteAnimations_CutsceneMiscObject_10
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

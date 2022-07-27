@@ -1,20 +1,20 @@
-@ Intro Outside Castle OBJECT_69 1?
+@ Intro Outside Castle CUTSCENE_ORCHESTRATOR 1?
 SCRIPT_START script_080157AC
 	CheckPlayerInRegion 0x01f8, 0x0310, 0x2020
 	JumpIfNot script_080157AC
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_080157DA:
 	CheckPlayerInRegion 0x0250, 0x0230, 0x3040
 	JumpIfNot script_080157DA
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	SetSyncFlag 0x00000001
@@ -37,7 +37,7 @@ script_080157DA:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Call sub_08066F94
 	SetSyncFlag 0x00000008
@@ -49,7 +49,7 @@ script_08015888:
 	ComparePlayerAction PLAYER_SLEEP
 	JumpIf script_08015888
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	_0807F0B4 0x0002
 	SetEntityPositionRelative 0x0248, 0x0208
 	CameraTargetEntity
@@ -59,14 +59,14 @@ script_08015888:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
 	Wait 0x0078
-	_0807E8E4_2 
+	_0807E8E4_2
 	MessageFromTargetPos TEXT_PROLOGUE, 0x68, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	SetLocalFlag SOUGEN_06_AKINDO
 	Call sub_08066FB8
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	_0807F0B4 0x0004
 	CameraTargetPlayer

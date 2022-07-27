@@ -9,6 +9,7 @@
 #include "common.h"
 #include "functions.h"
 #include "game.h"
+#include "main.h"
 #include "room.h"
 #include "screen.h"
 
@@ -22,8 +23,6 @@ void sub_0805DA08(u32, u32, u32);
 static const u8 gUnk_08108D74[] = { 0x4f, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x0 };
 
 extern struct BgAffineDstData gUnk_02017AA0[];
-extern u8 gUnk_03003DE4[0xC];
-extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
 
 void VaatiAppearingManager_Main(VaatiAppearingManager* this) {
     static void (*const VaatiAppearingManager_Actions[])(VaatiAppearingManager*) = {
@@ -121,7 +120,7 @@ void VaatiAppearingManager_Action2(VaatiAppearingManager* this) {
             }
             break;
         case 2:
-            this->field_0x20 += 1;
+            this->field_0x20++;
             if (--super->timer != 0) {
                 return;
             }
@@ -140,16 +139,16 @@ void VaatiAppearingManager_Action2(VaatiAppearingManager* this) {
 
 void VaatiAppearingManager_Action3(VaatiAppearingManager* this) {
     if ((gInput.heldKeys & 0x40) != 0) {
-        this->field_0x20 -= 1;
+        this->field_0x20--;
     }
     if ((gInput.heldKeys & 0x80) != 0) {
-        this->field_0x20 += 1;
+        this->field_0x20++;
     }
     if ((gInput.heldKeys & 0x20) != 0) {
-        this->field_0x28 -= 1;
+        this->field_0x28--;
     }
     if ((gInput.heldKeys & 0x10) != 0) {
-        this->field_0x28 += 1;
+        this->field_0x28++;
     }
 }
 
@@ -168,7 +167,9 @@ void sub_0805DA08(u32 x, u32 y, u32 param_3) {
         affineDstData->pa = ((gSineTable[(param_3 + i + y) & 0xff] * x) >> 8) + gScreen.bg3.xOffset;
         affineDstData = (struct BgAffineDstData*)&affineDstData->pb;
     }
-    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4[0] * 0xa0], REG_ADDR_BG3HOFS, 0xa2600001);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0xa0], (u16*)REG_ADDR_BG3HOFS,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
 }
 
 void CreateVaatiApparateManager(VaatiAppearingManager* this, u32 type) {

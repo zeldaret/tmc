@@ -174,7 +174,7 @@ _0801E45E:
 	adds r0, r0, r1
 	ldr r1, _0801E494 @ =0x04000040
 	ldr r2, _0801E498 @ =0xA2600001
-	bl sub_0805622C
+	bl SetVBlankDMA
 	add sp, #0x20
 	pop {r3, r4, r5}
 	mov r8, r3

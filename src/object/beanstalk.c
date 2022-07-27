@@ -4,7 +4,6 @@
  *
  * @brief Beanstalk object
  */
-
 #define NENT_DEPRECATED
 #include "global.h"
 #include "object.h"
@@ -312,7 +311,7 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
     this->unk_70 = COORD_TO_TILE(super);
     SetTile(0x4017, this->unk_70, 1);
     super->subAction = 1;
-    obj = CreateObjectWithParent(super, OBJECT_15, 0, 0);
+    obj = CreateObjectWithParent(super, CHUCHU_BOSS_PARTICLE, 0, 0);
     if (obj != NULL) {
         obj->y.HALF.HI = super->y.HALF.HI + 0x38;
         obj->spriteIndex = super->spriteIndex;

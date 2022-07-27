@@ -52,7 +52,7 @@ void sub_08066688(Entity* this) {
         if (this->subtimer == 0) {
             this->subtimer = 16;
         } else {
-            this->subtimer -= 1;
+            this->subtimer--;
             tmp = this->animIndex;
         }
     }
@@ -112,7 +112,7 @@ void sub_0806673C(Entity* this) {
 
 void KingDaltus_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 6);
     } else {

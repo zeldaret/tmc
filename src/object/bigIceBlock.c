@@ -6,11 +6,11 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
 #include "item.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -84,7 +84,7 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
             return;
         }
     } else {
-        super->timer += 1;
+        super->timer++;
     }
     tmp = gUnk_081237B0[super->timer >> 5];
     SetAffineInfo(super, 0x100, tmp, 0);

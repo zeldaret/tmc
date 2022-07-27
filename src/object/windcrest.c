@@ -1,10 +1,16 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file windcrest.c
+ * @ingroup Objects
+ *
+ * @brief Windcrest object
+ */
+#include "effects.h"
 #include "entity.h"
+#include "functions.h"
+#include "global.h"
 #include "save.h"
 #include "script.h"
-#include "effects.h"
-#include "functions.h"
+#include "sound.h"
 
 void Windcrest(Entity* this) {
     if (this->action == 0) {

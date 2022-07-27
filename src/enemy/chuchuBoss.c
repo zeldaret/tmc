@@ -405,12 +405,12 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
                     if (tmp) {
                         tmp->child = super;
                     }
-                    tmp = CreateObjectWithParent(super, OBJECT_49, 1, 0);
+                    tmp = CreateObjectWithParent(super, CHUCHU_BOSS_START_PARTICLE, 1, 0);
                     if (tmp) {
                         tmp->child = super->child;
                     }
                     if (super->type != 0) {
-                        tmp = CreateObjectWithParent(super, OBJECT_49, 3, 0);
+                        tmp = CreateObjectWithParent(super, CHUCHU_BOSS_START_PARTICLE, 3, 0);
                         if (tmp) {
                             tmp->child = super->child;
                         }
@@ -603,7 +603,7 @@ void sub_080263B4(ChuchuBossEntity* this) {
             this->unk_7c = 0x78;
             this->unk_84->unk_03++;
         } else {
-            CreateObjectWithParent(super, OBJECT_49, super->type2, 0);
+            CreateObjectWithParent(super, CHUCHU_BOSS_START_PARTICLE, super->type2, 0);
         }
     }
 }
@@ -926,7 +926,7 @@ void sub_080269CC(ChuchuBossEntity* this) {
         pEVar7->unk_74.HALF.HI += 3;
         InitScreenShake(0x20, 0);
         SoundReq(SFX_10B);
-        entity = (GenericEntity*)CreateObjectWithParent(super, OBJECT_15, 0, 0);
+        entity = (GenericEntity*)CreateObjectWithParent(super, CHUCHU_BOSS_PARTICLE, 0, 0);
         if (entity != NULL) {
             entity->base.spriteIndex = 0xc9;
 #ifdef EU
@@ -962,7 +962,7 @@ void sub_080269CC(ChuchuBossEntity* this) {
         pEVar7->unk_78.HALF.HI = 0x98;
         this->unk_7c = gUnk_080CC278[Random() & 3];
         this->unk_84->unk_03++;
-        entity = (GenericEntity*)CreateObjectWithParent(&pEVar7->base, OBJECT_49, 10, 0);
+        entity = (GenericEntity*)CreateObjectWithParent(&pEVar7->base, CHUCHU_BOSS_START_PARTICLE, 10, 0);
         if (entity != NULL) {
             *(u32*)&entity->cutsceneBeh = this->unk_7c;
         }
@@ -1702,7 +1702,7 @@ bool32 sub_08027AA4(ChuchuBossEntity* this) {
     switch (super->contactFlags & 0x7f) {
         case 19:
             SoundReq(SFX_WATER_SPLASH);
-            CreateObjectWithParent(super, OBJECT_49, 9, super->type2);
+            CreateObjectWithParent(super, CHUCHU_BOSS_START_PARTICLE, 9, super->type2);
             SoundReq(SFX_155);
             pHelper = this->unk_84;
             super->iframes = 3;
@@ -1823,7 +1823,7 @@ void sub_08027C9C(ChuchuBossEntity* this, u32 param_2) {
 }
 
 Entity* sub_08027D20(ChuchuBossEntity* this) {
-    Entity* r4 = CreateObjectWithParent(super, OBJECT_15, 0, 0);
+    Entity* r4 = CreateObjectWithParent(super, CHUCHU_BOSS_PARTICLE, 0, 0);
     if (r4 != NULL) {
         r4->spriteIndex = 0xc9;
 #ifdef EU

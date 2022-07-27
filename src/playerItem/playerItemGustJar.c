@@ -118,7 +118,7 @@ void PlayerItemGustJar_Action2(Entity* this) {
 void PlayerItemGustJar_Action3(Entity* this) {
     switch (gPlayerState.field_0x1c & 0xf) {
         case 6:
-            this->action += 1;
+            this->action++;
             InitAnimationForceUpdate(this, (gPlayerEntity.animationState >> 1) + 4);
             break;
         case 1:

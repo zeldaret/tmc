@@ -22,15 +22,10 @@ void ram_IntrMain(void);
 static void sub_080171F0(void);
 static void HandlePlayerLife(Entity* this);
 
-struct {
-    u8 ready;
-    u16* src;
-    u16* dest;
-    u32 size;
-} extern gUnk_02022730;
+extern VBlankDMA gVBlankDMA;
 
 void sub_08016CA8(BgSettings* bg);
-void sub_08016BF8(void);
+void PerformVBlankDMA(void);
 void DispCtrlSet(void);
 
 void DummyIntr(void) {
@@ -49,10 +44,10 @@ void VBlankIntr(void) {
     m4aSoundVSync();
     if (gMain.interruptFlag == 0) {
         DispCtrlSet();
-        DmaCopy32(0, &gScreen._6c, &gUnk_02022730, 16);
+        DmaCopy32(0, &gScreen.vBlankDMA, &gVBlankDMA, sizeof(VBlankDMA));
         gMain.interruptFlag = 1;
     }
-    sub_08016BF8();
+    PerformVBlankDMA();
     INTR_CHECK |= 1;
 }
 
@@ -61,13 +56,14 @@ void HBlankIntr(void) {
     m4aSoundMain();
 }
 
-void sub_08016BF8(void) {
-    if (gUnk_02022730.ready) {
-        const u16* src = gUnk_02022730.src;
-        u16* dest = gUnk_02022730.dest;
-        s32 size, i = size = gUnk_02022730.size;
+void PerformVBlankDMA(void) {
+    if (gVBlankDMA.ready) {
+        const u16* src = gVBlankDMA.src;
+        u16* dest = gVBlankDMA.dest;
+        s32 size, i = size = gVBlankDMA.size;
         DmaSet(0, src, dest, size);
 
+        // TODO Why is it copied again?
         i = size & 0x3fff;
         if (i == 0) {
             i = 0x4000;

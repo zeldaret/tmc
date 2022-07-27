@@ -37393,12 +37393,12 @@
     "size": 16
   },
   {
-    "path": "bladeBrothers/gUnk_081115EC.bin",
+    "path": "bladeBrothers/BladeBrothers_PlayerMacros.bin",
     "start": 1119760,
     "size": 8
   },
   {
-    "path": "bladeBrothers/gUnk_08111618.bin",
+    "path": "bladeBrothers/BladeBrothers_EquippedItem.bin",
     "start": 1119768,
     "size": 11
   },
@@ -39471,19 +39471,19 @@
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6A_0.bin",
+    "path": "sprites/gSpriteFrames_CutsceneMiscObject_0.bin",
     "start": 1148776,
     "size": 24,
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6A_1.bin",
+    "path": "sprites/gSpriteFrames_CutsceneMiscObject_1.bin",
     "start": 1148800,
     "size": 8,
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6A_2.bin",
+    "path": "sprites/gSpriteFrames_CutsceneMiscObject_2.bin",
     "start": 1148808,
     "size": 12,
     "type": "sprite_frame"
@@ -39495,7 +39495,7 @@
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6A_3.bin",
+    "path": "sprites/gSpriteFrames_CutsceneMiscObject_3.bin",
     "start": 1149120,
     "size": 136,
     "type": "sprite_frame"
@@ -39843,7 +39843,7 @@
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6A_4.bin",
+    "path": "sprites/gSpriteFrames_CutsceneMiscObject_4.bin",
     "start": 1155752,
     "size": 40,
     "type": "sprite_frame"
@@ -40077,7 +40077,7 @@
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object79.bin",
+    "path": "sprites/gSpriteFrames_ShrinkingHieroglyphs.bin",
     "start": 1160200,
     "size": 312,
     "type": "sprite_frame"
@@ -40781,13 +40781,13 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object9_0.bin",
+    "path": "animations/gSpriteAnimations_CameraTarget_0.bin",
     "start": 1177440,
     "size": 53,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object9_1.bin",
+    "path": "animations/gSpriteAnimations_CameraTarget_1.bin",
     "start": 1177493,
     "size": 55,
     "type": "animation"
@@ -40823,13 +40823,13 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectD_0.bin",
+    "path": "animations/gSpriteAnimations_UnusedSkull_0.bin",
     "start": 1177880,
     "size": 45,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectD_1.bin",
+    "path": "animations/gSpriteAnimations_UnusedSkull_1.bin",
     "start": 1177925,
     "size": 15,
     "type": "animation"
@@ -41390,37 +41390,37 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object1E_2.bin",
+    "path": "animations/gSpriteAnimations_MoleMittsParticle_2.bin",
     "start": 1181896,
     "size": 52,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object1E_1.bin",
+    "path": "animations/gSpriteAnimations_MoleMittsParticle_1.bin",
     "start": 1181948,
     "size": 52,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object1E_0.bin",
+    "path": "animations/gSpriteAnimations_MoleMittsParticle_0.bin",
     "start": 1182000,
     "size": 52,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object1E_6.bin",
+    "path": "animations/gSpriteAnimations_MoleMittsParticle_6.bin",
     "start": 1182052,
     "size": 44,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object1E_5.bin",
+    "path": "animations/gSpriteAnimations_MoleMittsParticle_5.bin",
     "start": 1182096,
     "size": 44,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object1E_4.bin",
+    "path": "animations/gSpriteAnimations_MoleMittsParticle_4.bin",
     "start": 1182140,
     "size": 44,
     "type": "animation"
@@ -41522,7 +41522,7 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object2A_0.bin",
+    "path": "animations/gSpriteAnimations_Flame_0.bin",
     "start": 1183192,
     "size": 20,
     "type": "animation"
@@ -41768,19 +41768,19 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object35_0.bin",
+    "path": "animations/gSpriteAnimations_CarlovObject_0.bin",
     "start": 1184764,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object35_1.bin",
+    "path": "animations/gSpriteAnimations_CarlovObject_1.bin",
     "start": 1184781,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object35_2.bin",
+    "path": "animations/gSpriteAnimations_CarlovObject_2.bin",
     "start": 1184798,
     "size": 18,
     "type": "animation"
@@ -41858,97 +41858,97 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_0.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_0.bin",
     "start": 1185760,
     "size": 132,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_1.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_1.bin",
     "start": 1185892,
     "size": 132,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_2.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_2.bin",
     "start": 1186024,
     "size": 132,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_3.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_3.bin",
     "start": 1186156,
     "size": 132,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_4.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_4.bin",
     "start": 1186288,
     "size": 61,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_5.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_5.bin",
     "start": 1186349,
     "size": 61,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_6.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_6.bin",
     "start": 1186410,
     "size": 61,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_7.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_7.bin",
     "start": 1186471,
     "size": 61,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_8.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_8.bin",
     "start": 1186532,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_9.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_9.bin",
     "start": 1186548,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_10.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_10.bin",
     "start": 1186564,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_11.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_11.bin",
     "start": 1186580,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object43_12.bin",
+    "path": "animations/gSpriteAnimations_SwordParticle_12.bin",
     "start": 1186596,
     "size": 36,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object44_0.bin",
+    "path": "animations/gSpriteAnimations_RotatingTrapdoor_0.bin",
     "start": 1186708,
     "size": 60,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object45_0.bin",
+    "path": "animations/gSpriteAnimations_LampParticle_0.bin",
     "start": 1186784,
     "size": 24,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object45_1.bin",
+    "path": "animations/gSpriteAnimations_LampParticle_1.bin",
     "start": 1186808,
     "size": 60,
     "type": "animation"
@@ -42358,468 +42358,468 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object64_0.bin",
+    "path": "animations/gSpriteAnimations_Thunderbold_0.bin",
     "start": 1190252,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object64_1.bin",
+    "path": "animations/gSpriteAnimations_Thunderbold_1.bin",
     "start": 1190268,
     "size": 12,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object64_2.bin",
+    "path": "animations/gSpriteAnimations_Thunderbold_2.bin",
     "start": 1190280,
     "size": 28,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_10_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_10_0.bin",
     "start": 1190732,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_10_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_10_1.bin",
     "start": 1190741,
     "size": 15,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_2.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_2.bin",
     "start": 1190768,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_3.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_3.bin",
     "start": 1190773,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_4.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_4.bin",
     "start": 1190778,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_5.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_5.bin",
     "start": 1190783,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_6.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_6.bin",
     "start": 1190788,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_7.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_7.bin",
     "start": 1190793,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_8.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_8.bin",
     "start": 1190798,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_9.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_9.bin",
     "start": 1190803,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_0.bin",
     "start": 1190808,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_5_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_5_1.bin",
     "start": 1190833,
     "size": 23,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_9_0.bin",
     "start": 1190900,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_2.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_9_2.bin",
     "start": 1190909,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_3.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_9_3.bin",
     "start": 1190918,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_9_1.bin",
     "start": 1190923,
     "size": 105,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_4.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_9_4.bin",
     "start": 1191028,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_5.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_9_5.bin",
     "start": 1191049,
     "size": 7,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_2_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_2_0.bin",
     "start": 1191084,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_2_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_2_1.bin",
     "start": 1191093,
     "size": 7,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_0_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_0_0.bin",
     "start": 1191112,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_0_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_0_1.bin",
     "start": 1191121,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_0_2.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_0_2.bin",
     "start": 1191126,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_0_3.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_0_3.bin",
     "start": 1191131,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_1_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_1_0.bin",
     "start": 1191160,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_1_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_1_1.bin",
     "start": 1191165,
     "size": 7,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_0.bin",
     "start": 1191184,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_1.bin",
     "start": 1191193,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_2.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_2.bin",
     "start": 1191202,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_3.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_3.bin",
     "start": 1191211,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_4.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_4.bin",
     "start": 1191220,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_5.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_5.bin",
     "start": 1191253,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_6.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_6.bin",
     "start": 1191286,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_7.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_7.bin",
     "start": 1191319,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_8.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_8.bin",
     "start": 1191352,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_9.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_9.bin",
     "start": 1191365,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_10.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_10.bin",
     "start": 1191378,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_11.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_11.bin",
     "start": 1191391,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_12.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_12.bin",
     "start": 1191404,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_13.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_13.bin",
     "start": 1191429,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_14.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_14.bin",
     "start": 1191454,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_15.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_15.bin",
     "start": 1191479,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_16.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_16.bin",
     "start": 1191504,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_17.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_17.bin",
     "start": 1191525,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_18.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_18.bin",
     "start": 1191546,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_19.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_19.bin",
     "start": 1191567,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_20.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_20.bin",
     "start": 1191588,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_6_21.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_6_21.bin",
     "start": 1191597,
     "size": 35,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_0.bin",
     "start": 1191724,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_1.bin",
     "start": 1191729,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_2.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_2.bin",
     "start": 1191762,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_3.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_3.bin",
     "start": 1191767,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_4.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_4.bin",
     "start": 1191800,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_5.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_5.bin",
     "start": 1191805,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_6.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_6.bin",
     "start": 1191838,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_7.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_7.bin",
     "start": 1191843,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_8.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_8.bin",
     "start": 1191876,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_9.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_9.bin",
     "start": 1191881,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_10.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_10.bin",
     "start": 1191886,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_11.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_11.bin",
     "start": 1191891,
     "size": 89,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_12.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_12.bin",
     "start": 1191980,
     "size": 45,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_3_13.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_3_13.bin",
     "start": 1192025,
     "size": 51,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_4_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_4_0.bin",
     "start": 1192136,
     "size": 84,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_4.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_4.bin",
     "start": 1192224,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_7_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_7_0.bin",
     "start": 1192228,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_7_2.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_7_2.bin",
     "start": 1192233,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_7_1.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_7_1.bin",
     "start": 1192238,
     "size": 18,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_8_0.bin",
+    "path": "animations/gSpriteAnimations_CutsceneMiscObject_8_0.bin",
     "start": 1192272,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "object6A/gUnk_08122AE0.bin",
+    "path": "cutsceneMiscObject/gUnk_08122AE0.bin",
     "start": 1190624,
     "size": 8
   },
   {
-    "path": "object6A/gUnk_08122AE8.bin",
+    "path": "cutsceneMiscObject/gUnk_08122AE8.bin",
     "start": 1190632,
     "size": 16
   },
   {
-    "path": "object6A/gUnk_08122AF8.bin",
+    "path": "cutsceneMiscObject/gUnk_08122AF8.bin",
     "start": 1190648,
     "size": 8
   },
   {
-    "path": "object6A/gUnk_08122B00.bin",
+    "path": "cutsceneMiscObject/gUnk_08122B00.bin",
     "start": 1190656,
     "size": 14
   },
   {
-    "path": "object6A/gUnk_08122B0E.bin",
+    "path": "cutsceneMiscObject/gUnk_08122B0E.bin",
     "start": 1190670,
     "size": 16
   },
   {
-    "path": "object6A/gUnk_08122B1E.bin",
+    "path": "cutsceneMiscObject/gUnk_08122B1E.bin",
     "start": 1190686,
     "size": 16
   },
   {
-    "path": "object6A/gUnk_08122B2E.bin",
+    "path": "cutsceneMiscObject/gUnk_08122B2E.bin",
     "start": 1190702,
     "size": 14
   },
   {
-    "path": "object6A/gUnk_08122B3C.bin",
+    "path": "cutsceneMiscObject/gUnk_08122B3C.bin",
     "start": 1190716,
     "size": 16
   },
@@ -42878,19 +42878,19 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object79_0.bin",
+    "path": "animations/gSpriteAnimations_ShrinkingHieroglyphs_0.bin",
     "start": 1192994,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object79_1.bin",
+    "path": "animations/gSpriteAnimations_ShrinkingHieroglyphs_1.bin",
     "start": 1193019,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object79_2.bin",
+    "path": "animations/gSpriteAnimations_ShrinkingHieroglyphs_2.bin",
     "start": 1193036,
     "size": 40,
     "type": "animation"
@@ -43033,13 +43033,13 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object86_0.bin",
+    "path": "animations/gSpriteAnimations_Trapdoor_0.bin",
     "start": 1193996,
     "size": 20,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object86_1.bin",
+    "path": "animations/gSpriteAnimations_Trapdoor_1.bin",
     "start": 1194016,
     "size": 20,
     "type": "animation"
@@ -43135,37 +43135,37 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object98_0.bin",
+    "path": "animations/gSpriteAnimations_GuruguruBar_0.bin",
     "start": 1196436,
     "size": 72,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object98_1.bin",
+    "path": "animations/gSpriteAnimations_GuruguruBar_1.bin",
     "start": 1196508,
     "size": 72,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object98_2.bin",
+    "path": "animations/gSpriteAnimations_GuruguruBar_2.bin",
     "start": 1196580,
     "size": 72,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object98_3.bin",
+    "path": "animations/gSpriteAnimations_GuruguruBar_3.bin",
     "start": 1196652,
     "size": 72,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object9B_0.bin",
+    "path": "animations/gSpriteAnimations_Vaati2Particle_0.bin",
     "start": 1196776,
     "size": 56,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object9B_1.bin",
+    "path": "animations/gSpriteAnimations_Vaati2Particle_1.bin",
     "start": 1196832,
     "size": 40,
     "type": "animation"
@@ -43273,37 +43273,37 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA6_0.bin",
+    "path": "animations/gSpriteAnimations_SanctuaryStoneTablet_0.bin",
     "start": 1198088,
     "size": 20,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectAB_0.bin",
+    "path": "animations/gSpriteAnimations_Vaati1Portal_0.bin",
     "start": 1198200,
     "size": 24,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectAF_0.bin",
+    "path": "animations/gSpriteAnimations_Vaati3Arm_0.bin",
     "start": 1198288,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectAF_1.bin",
+    "path": "animations/gSpriteAnimations_Vaati3Arm_1.bin",
     "start": 1198305,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectAF_2.bin",
+    "path": "animations/gSpriteAnimations_Vaati3Arm_2.bin",
     "start": 1198322,
     "size": 28,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectAF_3.bin",
+    "path": "animations/gSpriteAnimations_Vaati3Arm_3.bin",
     "start": 1198350,
     "size": 26,
     "type": "animation"
@@ -43321,73 +43321,73 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB2_0.bin",
+    "path": "animations/gSpriteAnimations_FanWind_0.bin",
     "start": 1198520,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB2_1.bin",
+    "path": "animations/gSpriteAnimations_FanWind_1.bin",
     "start": 1198537,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB2_2.bin",
+    "path": "animations/gSpriteAnimations_FanWind_2.bin",
     "start": 1198554,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB2_3.bin",
+    "path": "animations/gSpriteAnimations_FanWind_3.bin",
     "start": 1198571,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB3_0.bin",
+    "path": "animations/gSpriteAnimations_KinstoneSpark_0.bin",
     "start": 1198636,
     "size": 81,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB3_1.bin",
+    "path": "animations/gSpriteAnimations_KinstoneSpark_1.bin",
     "start": 1198717,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB3_2.bin",
+    "path": "animations/gSpriteAnimations_KinstoneSpark_2.bin",
     "start": 1198722,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB3_3.bin",
+    "path": "animations/gSpriteAnimations_KinstoneSpark_3.bin",
     "start": 1198727,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB3_4.bin",
+    "path": "animations/gSpriteAnimations_KinstoneSpark_4.bin",
     "start": 1198732,
     "size": 33,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB3_5.bin",
+    "path": "animations/gSpriteAnimations_KinstoneSpark_5.bin",
     "start": 1198765,
     "size": 75,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB4_0.bin",
+    "path": "animations/gSpriteAnimations_JapaneseSubtitle_0.bin",
     "start": 1198904,
     "size": 113,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB4_1.bin",
+    "path": "animations/gSpriteAnimations_JapaneseSubtitle_1.bin",
     "variants": [
       "EU"
     ],
@@ -43398,7 +43398,7 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectB4_1.bin",
+    "path": "animations/gSpriteAnimations_JapaneseSubtitle_1.bin",
     "variants": [
       "USA",
       "JP",
@@ -45619,7 +45619,7 @@
     "type": "gfx"
   },
   {
-    "path": "sprites/gSprite_081FF1B4/object_OBJECT_6A.4bpp",
+    "path": "sprites/gSprite_081FF1B4/object_CUTSCENE_MISC_OBJECT.4bpp",
     "start": 2381364,
     "size": 7008,
     "type": "gfx"

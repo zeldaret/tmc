@@ -34,7 +34,7 @@ SCRIPT_START script_08016482
 	MessageNoOverlap 0x0601
 	MessageFromTargetPos_1 TEXT_LOCATIONS, 0x01
 	MessageFromTargetTable TEXT_LOCATIONS << 8 | 0x01, TEXT_LOCATIONS << 8 | 0x02, TEXT_LOCATIONS << 8 | 0x03
-	MessageNoOverlapVar 
+	MessageNoOverlapVar
 	EzloMessage TEXT_LOCATIONS, 0x02
 	_0807EB38
 	SetAnimationState 0x0000

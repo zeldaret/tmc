@@ -6,7 +6,7 @@ SCRIPT_START script_KingGustafHologram
 script_08012368:
 	CheckLocalFlag 0x0004
 	JumpIfNot script_08012368
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetPlayerIdle
 	StopBgm
 	BeginBlock
@@ -45,7 +45,7 @@ script_08012368:
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000203
 	Call LoadMenu
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -1,35 +1,41 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file treeHidingPortal.c
+ * @ingroup Objects
+ *
+ * @brief Tree Hiding Portal object
+ */
+#include "effects.h"
 #include "entity.h"
 #include "flags.h"
+#include "functions.h"
+#include "global.h"
+#include "object.h"
 #include "player.h"
 #include "room.h"
-#include "functions.h"
-#include "effects.h"
-#include "object.h"
+#include "sound.h"
 
 extern const s16 gUnk_080B4468[];
 
-void sub_0809E83C(Entity* this);
-void sub_0809E86C(Entity* this);
-void sub_0809E8BC(Entity* this);
-void sub_0809E8EC(Entity* this);
+void TreeHidingPortal_Init(Entity* this);
+void TreeHidingPortal_Action1(Entity* this);
+void TreeHidingPortal_Action2(Entity* this);
+void TreeHidingPortal_Action3(Entity* this);
 
 static void sub_0809E96C(Entity* this);
 static u32 sub_0809E9A0(void);
 static void sub_0809E918(Entity* this);
 
 void TreeHidingPortal(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0809E83C,
-        sub_0809E86C,
-        sub_0809E8BC,
-        sub_0809E8EC,
+    static void (*const TreeHidingPortal_Actions[])(Entity*) = {
+        TreeHidingPortal_Init,
+        TreeHidingPortal_Action1,
+        TreeHidingPortal_Action2,
+        TreeHidingPortal_Action3,
     };
-    actionFuncs[this->action](this);
+    TreeHidingPortal_Actions[this->action](this);
 }
 
-void sub_0809E83C(Entity* this) {
+void TreeHidingPortal_Init(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0809E96C(this);
         DeleteThisEntity();
@@ -39,7 +45,7 @@ void sub_0809E83C(Entity* this) {
     UpdateSpriteForCollisionLayer(this);
 }
 
-void sub_0809E86C(Entity* this) {
+void TreeHidingPortal_Action1(Entity* this) {
 
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
@@ -55,7 +61,7 @@ void sub_0809E86C(Entity* this) {
     }
 }
 
-void sub_0809E8BC(Entity* this) {
+void TreeHidingPortal_Action2(Entity* this) {
     if (--this->timer == 0) {
         this->action = 3;
         this->timer = 60;
@@ -65,7 +71,7 @@ void sub_0809E8BC(Entity* this) {
     }
 }
 
-void sub_0809E8EC(Entity* this) {
+void TreeHidingPortal_Action3(Entity* this) {
     if (--this->timer == 0) {
         SetFlag(this->field_0x86.HWORD);
         SetPlayerControl(0);

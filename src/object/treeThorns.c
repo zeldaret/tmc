@@ -1,9 +1,15 @@
-#include "global.h"
+/**
+ * @file threeThorns.c
+ * @ingroup Objects
+ *
+ * @brief Three Thorns object
+ */
 #include "entity.h"
+#include "global.h"
+#include "hitbox.h"
+#include "object.h"
 #include "physics.h"
 #include "room.h"
-#include "object.h"
-#include "hitbox.h"
 
 void TreeThorns(Entity* this) {
     Entity* ent;

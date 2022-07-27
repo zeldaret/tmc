@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "message.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -131,7 +131,7 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
             super->timer++;
             super->subtimer = 10;
             tmp = super->timer - 1;
-            obj = CreateObjectWithParent(super, OBJECT_79, tmp, 0);
+            obj = CreateObjectWithParent(super, SHRINKING_HIEROGLYPHS, tmp, 0);
             super->child = obj;
             if (obj != NULL) {
                 if (tmp == 0) {

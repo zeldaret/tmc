@@ -1,26 +1,32 @@
-#include "entity.h"
+/**
+ * @file ambientClouds.c
+ * @ingroup Objects
+ *
+ * @brief Ambient Clouds object
+ */
 #include "asm.h"
-#include "object.h"
-#include "functions.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "object.h"
 
-void sub_08089874(Entity* this);
-void sub_08089944(Entity* this);
-void sub_08089A7C(Entity* this);
-void sub_08089AE0(Entity* this);
+void AmbientClouds_Init(Entity* this);
+void AmbientClouds_Action1(Entity* this);
+void AmbientClouds_Action2(Entity* this);
+void AmbientClouds_Action3(Entity* this);
 
 void AmbientClouds(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08089874,
-        sub_08089944,
-        sub_08089A7C,
-        sub_08089AE0,
+    static void (*const AmbientClouds_Actions[])(Entity*) = {
+        AmbientClouds_Init,
+        AmbientClouds_Action1,
+        AmbientClouds_Action2,
+        AmbientClouds_Action3,
     };
-    actionFuncs[this->action](this);
+    AmbientClouds_Actions[this->action](this);
     UpdateAnimationVariableFrames(this, (Random() & 1) + 1);
 }
 
-void sub_08089874(Entity* this) {
+void AmbientClouds_Init(Entity* this) {
     Entity* pEVar2;
 
 #ifndef EU
@@ -32,7 +38,7 @@ void sub_08089874(Entity* this) {
                 this->action = 3;
                 this->spriteRendering.b3 = 3;
                 InitializeAnimation(this, 0);
-                sub_08089AE0(this);
+                AmbientClouds_Action3(this);
                 return;
             } else {
                 this->parent = NULL;
@@ -70,7 +76,7 @@ void sub_08089874(Entity* this) {
 #endif
 }
 
-void sub_08089944(Entity* this) {
+void AmbientClouds_Action1(Entity* this) {
     int iVar1;
     Entity* pEVar2;
 
@@ -123,7 +129,7 @@ void sub_08089944(Entity* this) {
     }
 }
 
-void sub_08089A7C(Entity* this) {
+void AmbientClouds_Action2(Entity* this) {
     this->y.HALF.HI += this->type2 * -0x24;
     if (EntityInRectRadius(this, &gPlayerEntity, 0xf, 0xf)) {
         gPlayerState.field_0x14 = 1;
@@ -137,7 +143,7 @@ void sub_08089A7C(Entity* this) {
     this->y.HALF.HI += this->type2 * 0x24;
 }
 
-void sub_08089AE0(Entity* this) {
+void AmbientClouds_Action3(Entity* this) {
     if (EntityInRectRadius(this, &gPlayerEntity, 0xf, 0xf)) {
         gPlayerState.field_0x14 = 1;
     }

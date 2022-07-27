@@ -60,7 +60,7 @@ void TreeItem(Entity* this) {
             }
             break;
         case 0 ...(FAIRY_INDEX - 1):
-            itemEntity = CreateObject(OBJECT_96, 0x7, gTreeItemDrops[this->field_0x68.HALF.LO]);
+            itemEntity = CreateObject(GRAVEYARD_KEY, 0x7, gTreeItemDrops[this->field_0x68.HALF.LO]);
             if (itemEntity) {
                 CopyPosition(this, itemEntity);
                 itemEntity->y.HALF.HI += 16;

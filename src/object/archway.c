@@ -1,3 +1,9 @@
+/**
+ * @file archway.c
+ * @ingroup Objects
+ *
+ * @brief Archway object
+ */
 #include "entity.h"
 #include "game.h"
 

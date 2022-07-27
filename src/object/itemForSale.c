@@ -6,13 +6,13 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
-#include "new_player.h"
-#include "message.h"
 #include "kinstone.h"
+#include "message.h"
+#include "new_player.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -119,8 +119,9 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
     } else {
         ptr = sub_080784E4();
         if (((*(int*)(ptr + 8) == 0) ||
-             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.unk_2f = 7, (gPlayerState.field_0x92 & 0x88) == 0)))) &&
-            ((gPlayerState.field_0x92 & 0x98) != 0)) {
+             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.unk_2f = 7, (gPlayerState.playerInput.field_0x92 &
+                                                                   (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
+            ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
             sub_080819B4(this);
         }
     }

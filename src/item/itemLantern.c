@@ -41,7 +41,7 @@ void sub_08075A0C(ItemBehavior* this, u32 idx) {
         this->behaviorID = 0x10;
         ForceEquipItem(ITEM_LANTERN_ON, itemSlot);
         tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
-        object = CreateObjectWithParent(&gPlayerEntity, OBJECT_45, 1, 0);
+        object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
         if (object != NULL) {
             object->spriteVramOffset = gPlayerEntity.spriteVramOffset;
             object->x.HALF.HI = tmp[0] + object->x.HALF.HI;
@@ -60,7 +60,7 @@ void sub_08075ADC(ItemBehavior* this, u32 idx) {
         (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 ||
         sub_08079D48() == 0) {
         this->field_0xf = 0;
-        this->stateID += 1;
+        this->stateID++;
         gPlayerState.flags |= PL_USE_LANTERN;
         bVar1 = 8 >> idx;
         gPlayerState.field_0x3[1] = gPlayerState.field_0x3[1] & ~((bVar1 << 4) | bVar1);
@@ -95,9 +95,9 @@ void sub_08075B54(ItemBehavior* this, u32 idx) {
                     (sub_080B1BA4(TILE(gPlayerEntity.x.HALF.HI + tmp[0], gPlayerEntity.y.HALF.HI + tmp[1]),
                                   gPlayerEntity.collisionLayer, 0x40) != 0)) {
                     this->field_0xf = 0xf;
-                    this->stateID += 1;
+                    this->stateID++;
                     gPlayerEntity.field_0x7a.HWORD = 2;
-                    object = CreateObjectWithParent(&gPlayerEntity, OBJECT_45, 1, 0);
+                    object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
                     if (object != NULL) {
                         object->spriteVramOffset = gPlayerEntity.spriteVramOffset;
                         object->x.HALF.HI = tmp[0] + object->x.HALF.HI;
@@ -123,10 +123,10 @@ void sub_08075C9C(ItemBehavior* this, u32 idx) {
     }
     if ((this->field_0x5[9] & 0x80) != 0) {
         this->field_0xf = 0;
-        this->stateID -= 1;
+        this->stateID--;
         gPlayerState.field_0xa = (~(8 >> idx)) & gPlayerState.field_0xa;
         gPlayerState.keepFacing = (~(8 >> idx)) & gPlayerState.keepFacing;
     } else {
-        gPlayerEntity.field_0x7a.HWORD += 1;
+        gPlayerEntity.field_0x7a.HWORD++;
     }
 }

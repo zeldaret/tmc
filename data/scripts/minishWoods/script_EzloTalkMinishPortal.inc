@@ -9,12 +9,12 @@ SCRIPT_START script_EzloTalkMinishPortal
 	ComparePlayerAction PLAYER_USEPORTAL
 	JumpIf script_EzloTalkMinishPortal
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	EndBlock
 	EzloMessage TEXT_EZLO_PORTAL, 0x03
 	WaitUntilTextboxCloses
 	SetLocalFlag MORI_ENTRANCE_1ST
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

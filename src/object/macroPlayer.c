@@ -1,9 +1,15 @@
+/**
+ * @file macroPlayer.c
+ * @ingroup Objects
+ *
+ * @brief Macro Player object
+ */
 #define NENT_DEPRECATED
+#include "area.h"
 #include "entity.h"
-#include "physics.h"
 #include "functions.h"
 #include "object.h"
-#include "area.h"
+#include "physics.h"
 
 typedef struct {
     Entity base;
@@ -199,7 +205,7 @@ void MacroPlayer_Type0_Action6(MacroPlayerEntity* this) {
 
     if (--super->timer == 0) {
         uVar2 = gArea.portal_exit_dir;
-        super->action += 1;
+        super->action++;
         super->action += uVar2;
         super->animationState = gUnk_081216B4[uVar2 * 2];
         super->direction = gUnk_081216B4[uVar2 * 2 + 1];

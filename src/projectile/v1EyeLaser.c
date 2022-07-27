@@ -107,7 +107,7 @@ void sub_080AB844(Entity* this, s32 param_1, s32 param_2) {
 void sub_080AB888(Entity* this) {
     s32 index;
 
-    this->subtimer -= 1;
+    this->subtimer--;
     index = 0;
 
     switch (this->timer) {

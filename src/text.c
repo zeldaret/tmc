@@ -479,7 +479,7 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
                 uVar8 = (uVar8 + 0xf) & ~0xf;
                 puVar9 -= (uVar8 >> 4) + 1;
             } else {
-                font.dest += 1;
+                font.dest++;
             }
             uVar8 = uVar8 >> 3;
             param_1 = font.gfx_src;

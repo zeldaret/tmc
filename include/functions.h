@@ -94,7 +94,7 @@ extern void sub_08059278(void);
 extern void sub_0805B4D0(u32);
 extern void sub_0805BC4C(void);
 extern void sub_0805EC60(Entity*);
-extern void InitPlayerMacro(u32*);
+extern void InitPlayerMacro(PlayerMacroEntry*);
 extern u32* sub_0805F25C(u32);
 extern void sub_0805F8E4(u32 r0, WStruct* r1);
 extern void sub_08060158(Entity*);

@@ -617,13 +617,13 @@ void sub_080473F0(GyorgMaleEntity* this) {
             if (tmp2 < -1) {
                 super->direction -= 2;
             } else {
-                super->direction -= 1;
+                super->direction--;
             }
         } else {
             if (tmp2 > 1) {
                 super->direction += 2;
             } else {
-                super->direction += 1;
+                super->direction++;
             }
         }
     }
@@ -1105,9 +1105,9 @@ u32 sub_08047F68(GyorgMaleEntity* this) {
         approx += 2;
     }
     if (distSquared < gUnk_080D1C04[approx]) {
-        approx -= 1;
+        approx--;
     } else {
-        approx += 1;
+        approx++;
     }
     if (distSquared < gUnk_080D1C04[approx]) {
         s32 tmp = gUnk_080D1C04[approx - 1];

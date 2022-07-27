@@ -193,7 +193,7 @@ void sub_0801B680(Entity* this) {
 void sub_0801B7A8(Entity* this) {
     sub_0801B804(this);
     if (this->timer != 0) {
-        this->timer -= 1;
+        this->timer--;
     } else {
         sub_0801B864(this);
         if (this->speed < 0x280) {
@@ -224,7 +224,7 @@ void sub_0801B804(Entity* this) {
             break;
     }
 
-    if ((uVar1 & gPlayerState.field_0x90) == 0) {
+    if ((uVar1 & gPlayerState.playerInput.field_0x90) == 0) {
         this->field_0x80.HALF.LO = 1;
         gPlayerState.field_0xa &= 0x7f;
         gPlayerState.keepFacing &= 0x7f;

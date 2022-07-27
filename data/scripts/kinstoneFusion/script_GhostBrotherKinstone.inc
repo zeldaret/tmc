@@ -12,7 +12,7 @@ script_0800BC18:
 	Wait 0x003c
 	MessageNoOverlap TEXT_KINSTONE, 0x07
 	WaitUntilTextboxCloses
-	BeginBlock 
+	BeginBlock
 	SetAnimationState 0x0000
 	SetAnimation 0x0004
 	EndBlock

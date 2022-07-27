@@ -13,10 +13,9 @@ typedef struct {
     u8 language;
     u8 name[6];
     u8 invalid;
-    u8 _f;
+    u8 initialized;
 } SaveHeader;
 #define gSaveHeader ((SaveHeader*)(0x2000000))
-// extern SaveHeader gSaveHeader;
 
 typedef struct {
     u8 unk_00;

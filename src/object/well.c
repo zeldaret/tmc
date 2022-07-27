@@ -1,38 +1,44 @@
-#include "global.h"
+/**
+ * @file well.c
+ * @ingroup Objects
+ *
+ * @brief Well object
+ */
 #include "asm.h"
 #include "entity.h"
-#include "room.h"
-#include "player.h"
 #include "functions.h"
+#include "global.h"
+#include "player.h"
+#include "room.h"
 
-void sub_080A0EB0(Entity*);
-void sub_080A0EF0(Entity*);
+void Well_Init(Entity*);
+void Well_Action1(Entity*);
 
-void Well(Entity* ent) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080A0EB0,
-        sub_080A0EF0,
+void Well(Entity* this) {
+    static void (*const Well_Actions[])(Entity*) = {
+        Well_Init,
+        Well_Action1,
     };
-    actionFuncs[ent->action](ent);
+    Well_Actions[this->action](this);
 }
 
-void sub_080A0EB0(Entity* ent) {
+void Well_Init(Entity* this) {
     u32 tilePos;
 
-    ent->action = 1;
-    tilePos = COORD_TO_TILE(ent);
-    ent->field_0x80.HWORD = tilePos;
-    SetTile(16509, ent->field_0x80.HWORD, 1);
+    this->action = 1;
+    tilePos = COORD_TO_TILE(this);
+    this->field_0x80.HWORD = tilePos;
+    SetTile(16509, this->field_0x80.HWORD, 1);
 }
 
-void sub_080A0EF0(Entity* ent) {
+void Well_Action1(Entity* this) {
     s32 tileIndex;
 
-    tileIndex = GetTileType(ent->field_0x80.HWORD, 1);
+    tileIndex = GetTileType(this->field_0x80.HWORD, 1);
     if (tileIndex != 0x407D) {
         sub_08078B48();
-        gPlayerEntity.x.WORD = ent->x.WORD;
-        gPlayerEntity.y.HALF.HI = ent->y.HALF.HI + 4;
+        gPlayerEntity.x.WORD = this->x.WORD;
+        gPlayerEntity.y.HALF.HI = this->y.HALF.HI + 4;
         DeleteThisEntity();
     }
 }

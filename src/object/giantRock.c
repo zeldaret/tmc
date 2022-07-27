@@ -1,3 +1,9 @@
+/**
+ * @file giantRock.c
+ * @ingroup Objects
+ *
+ * @brief Giant Rock object
+ */
 #include "entity.h"
 
 void GiantRock(Entity* this) {

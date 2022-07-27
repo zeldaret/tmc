@@ -1,21 +1,27 @@
-#include "object.h"
-#include "functions.h"
-#include "message.h"
-#include "item.h"
-#include "npc.h"
+/**
+ * @file book.c
+ * @ingroup Objects
+ *
+ * @brief Book object
+ */
 #include "collision.h"
+#include "functions.h"
+#include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "object.h"
 
-extern void (*const BookActionFuncs[])(Entity*);
+extern void (*const Book_Actions[])(Entity*);
 extern s8 const gUnk_08123D94[];
 
 u32 sub_0809B688(Entity*);
 void sub_0809B6B0(Entity*, Entity*);
 
 void Book(Entity* this) {
-    BookActionFuncs[this->action](this);
+    Book_Actions[this->action](this);
 }
 
-void sub_0809B3C4(Entity* this) {
+void Book_Init(Entity* this) {
     u32 obtained = GetInventoryValue(this->type + ITEM_QST_BOOK1);
     if (this->type2 != 3) {
         if (obtained != 0) {
@@ -74,7 +80,7 @@ void sub_0809B3C4(Entity* this) {
     }
 }
 
-void sub_0809B4A8(Entity* this) {
+void Book_Action1(Entity* this) {
     sub_0800445C(this);
 
     if (this->field_0x80.HALF.LO != 0) {
@@ -105,7 +111,7 @@ void sub_0809B4A8(Entity* this) {
     }
 }
 
-void sub_0809B524(Entity* this) {
+void Book_Action2(Entity* this) {
     if (--this->timer == 0) {
         if (--this->subtimer == 0) {
             this->action = 3;
@@ -121,7 +127,7 @@ void sub_0809B524(Entity* this) {
     LinearMoveUpdate(this);
 }
 
-void sub_0809B56C(Entity* this) {
+void Book_Action3(Entity* this) {
     Entity* fx;
 
     if (sub_080044EC(this, 0x2800) != 1) {
@@ -139,7 +145,7 @@ void sub_0809B56C(Entity* this) {
     }
 }
 
-void sub_0809B5B4(Entity* this) {
+void Book_Action4(Entity* this) {
     if (gPlayerState.flags & PL_MINISH) {
         sub_0800445C(this);
     } else if (IsCollidingPlayer(this)) {
@@ -148,7 +154,7 @@ void sub_0809B5B4(Entity* this) {
     }
 }
 
-void sub_0809B5EC(Entity* this) {
+void Book_Action5(Entity* this) {
     if (this->spriteSettings.draw == 1) {
         switch (this->subAction) {
             case 0: {
@@ -223,8 +229,8 @@ void sub_0809B6B0(Entity* parent, Entity* this) {
     this->spritePriority.b0 = 3 - this->type;
 }
 
-void (*const BookActionFuncs[])(Entity*) = {
-    sub_0809B3C4, sub_0809B4A8, sub_0809B524, sub_0809B56C, sub_0809B5B4, sub_0809B5EC,
+void (*const Book_Actions[])(Entity*) = {
+    Book_Init, Book_Action1, Book_Action2, Book_Action3, Book_Action4, Book_Action5,
 };
 
 const s8 gUnk_08123D94[] = { -22, -20, -20, -20 };

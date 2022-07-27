@@ -27,7 +27,7 @@ void TorchTrapProjectile_Init(Entity* this) {
 void TorchTrapProjectile_Action1(Entity* this) {
     GetNextFrame(this);
     if (this->timer != 0) {
-        this->timer -= 1;
+        this->timer--;
     } else {
         if (ProcessMovement3(this) == 0) {
             LinearMoveUpdate(this);

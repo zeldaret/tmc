@@ -1,11 +1,17 @@
+/**
+ * @file objectBlockingStairs.c
+ * @ingroup Objects
+ *
+ * @brief Object Blocking Stairs object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
+#include "effects.h"
 #include "entity.h"
 #include "flags.h"
-#include "sound.h"
 #include "functions.h"
-#include "asm.h"
 #include "object.h"
-#include "effects.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;

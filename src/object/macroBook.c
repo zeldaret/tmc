@@ -1,8 +1,14 @@
+/**
+ * @file macroBook.c
+ * @ingroup Objects
+ *
+ * @brief Macro Book object
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "functions.h"
-#include "flags.h"
 #include "asm.h"
+#include "entity.h"
+#include "flags.h"
+#include "functions.h"
 #include "npc.h"
 
 typedef struct {

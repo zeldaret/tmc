@@ -1,22 +1,28 @@
-#include "global.h"
+/**
+ * @file swordsmanNewsletter.c
+ * @ingroup Objects
+ *
+ * @brief Swordsman Newsletter object
+ */
 #include "entity.h"
+#include "global.h"
 #include "message.h"
 
 extern void sub_080787B4(Entity*);
-void sub_080933D8(Entity*);
-void sub_080933FC(Entity*);
+void SwordsmanNewsletter_Init(Entity*);
+void SwordsmanNewsletter_Action1(Entity*);
 
 static const Hitbox gUnk_081228A8 = { 0, 0, {}, 6, 8 };
 
 void SwordsmanNewsletter(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080933D8,
-        sub_080933FC,
+    static void (*const SwordsmanNewsletter_Actions[])(Entity*) = {
+        SwordsmanNewsletter_Init,
+        SwordsmanNewsletter_Action1,
     };
-    actionFuncs[this->action](this);
+    SwordsmanNewsletter_Actions[this->action](this);
 }
 
-void sub_080933D8(Entity* this) {
+void SwordsmanNewsletter_Init(Entity* this) {
     this->action = 1;
     this->frameIndex = this->type;
     UpdateSpriteForCollisionLayer(this);
@@ -24,7 +30,7 @@ void sub_080933D8(Entity* this) {
     sub_080787B4(this);
 }
 
-void sub_080933FC(Entity* this) {
+void SwordsmanNewsletter_Action1(Entity* this) {
     static const u16 messageIndices[] = {
         TEXT_INDEX(TEXT_NEWSLETTER, 1), TEXT_INDEX(TEXT_NEWSLETTER, 2), TEXT_INDEX(TEXT_NEWSLETTER, 3),
         TEXT_INDEX(TEXT_NEWSLETTER, 4), TEXT_INDEX(TEXT_NEWSLETTER, 5), TEXT_INDEX(TEXT_NEWSLETTER, 6),

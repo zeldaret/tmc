@@ -1,7 +1,13 @@
+/**
+ * @file giantRock2.c
+ * @ingroup Objects
+ *
+ * @brief Giant Rock 2 object
+ */
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "entity.h"
 #include "room.h"
-#include "asm.h"
 
 typedef struct {
     Entity base;

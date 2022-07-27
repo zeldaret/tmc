@@ -50,7 +50,7 @@ void sub_080AA6C0(Entity* this) {
         this->timer = 90;
         COLLISION_OFF(this);
         InitAnimationForceUpdate(this, this->type + 0x10);
-        object = CreateObject(OBJECT_2A, 3, 0);
+        object = CreateObject(FLAME, 3, 0);
         if (object != NULL) {
             object->type2 = 0x5a;
             object->spritePriority.b0 = 3;
@@ -58,7 +58,7 @@ void sub_080AA6C0(Entity* this) {
             object->spriteOffsetY = typeSpritOffsets[this->type * 4 + 1];
             object->parent = this;
         }
-        object = CreateObject(OBJECT_2A, 3, 0);
+        object = CreateObject(FLAME, 3, 0);
         if (object != NULL) {
             object->type2 = 0x5a;
             object->spritePriority.b0 = 3;
@@ -204,14 +204,14 @@ void sub_080AA9E0(Entity* this) {
         case 0:
         case 3: {
             if (diff > 4) {
-                ptr += 1;
+                ptr++;
             }
             break;
         }
         case 1:
         case 2: {
             if (diff < -4) {
-                ptr += 1;
+                ptr++;
             }
             break;
         }

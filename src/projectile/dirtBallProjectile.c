@@ -85,7 +85,7 @@ void DirtBallProjectile_Action1(Entity* this) {
             CopyPosition(this, this->child);
             if ((0xf < (u8)(this->timer++ + 1)) && (entity = this->child, entity->timer == 0)) {
                 if ((this->timer & 2) != 0) {
-                    entity->subtimer += 1;
+                    entity->subtimer++;
                 }
                 if ((this->child->subtimer < 0x20) && ((this->child->subtimer & 3) == 3)) {
                     parent->field_0x82.HALF.HI = 0xc0;

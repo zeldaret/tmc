@@ -4,13 +4,12 @@
  *
  * @brief Frozen Octorok object
  */
-
 #define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
 #include "message.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;

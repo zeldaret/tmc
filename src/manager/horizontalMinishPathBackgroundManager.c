@@ -62,13 +62,13 @@ void sub_08057F20(HorizontalMinishPathBackgroundManager* this) {
     }
 }
 
-void sub_08058004(u32 unk1, void* unk2, void* unk3) {
+void sub_08058004(u32 unk1, void* src, void* dest) {
     u32 tmp = 0x20;
-    unk2 += (unk1 >> 4) << 2;
+    src += (unk1 >> 4) << 2;
     for (tmp; tmp != 0; tmp--) {
-        DmaSet(3, unk2, unk3, 0x80000020);
-        unk2 += 0x100;
-        unk3 += 0x40;
+        DmaCopy16(3, src, dest, 0x20 * 2);
+        src += 0x100;
+        dest += 0x40;
     }
 }
 
@@ -94,7 +94,7 @@ void sub_08058034(void) {
 void sub_08058084(u16* unk1, u16* unk2) {
     u32 tmp;
     for (tmp = 0; tmp < 0x20; tmp++, unk1 += 0x20, unk2 += 0x80) {
-        DmaSet(3, unk1, unk2, 0x80000020);
+        DmaCopy16(3, unk1, unk2, 0x20 * 2);
     }
 }
 

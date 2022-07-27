@@ -5,17 +5,17 @@
  * @brief File select task
  */
 
-#include "fileselect.h"
-#include "main.h"
 #include "common.h"
-#include "screen.h"
+#include "fileselect.h"
+#include "functions.h"
+#include "game.h"
+#include "item.h"
+#include "main.h"
 #include "menu.h"
 #include "message.h"
 #include "object.h"
-#include "functions.h"
+#include "screen.h"
 #include "subtask.h"
-#include "item.h"
-#include "game.h"
 #include "ui.h"
 
 // copy, erase, start
@@ -99,7 +99,7 @@ extern void (*const gUnk_080FC9B0[])(void);
 extern void (*const gUnk_080FC9BC[])(void);
 extern void (*const gUnk_080FC9C8[])(void);
 
-static void sub_08050624(u32);
+static void ResetEmptyOrDeletedSaveFile(u32);
 static void sub_0805066C(void);
 static void HideButtonR(void);
 static void ShowButtonR(void);
@@ -216,10 +216,10 @@ static void HandleFileScreenEnter(void) {
     gUI.lastState = 8;
     SetFileSelectState(STATE_NONE);
     InitDMA();
-    sub_08050624(0);
-    sub_08050624(1);
-    sub_08050624(2);
-    sub_08056208();
+    ResetEmptyOrDeletedSaveFile(0);
+    ResetEmptyOrDeletedSaveFile(1);
+    ResetEmptyOrDeletedSaveFile(2);
+    InitVBlankDMA();
     sub_080503A8(0x5);
     LoadPaletteGroup(0x9);
     for (i = 0; i < 26; i++) {
@@ -247,18 +247,18 @@ static void HandleFileScreenExit(void) {
     }
 }
 
-static void sub_08050624(u32 idx) {
-    SaveFile* saveFile = &gMapDataBottomSpecial.saves[idx];
-    int status = ReadSaveFile(idx, saveFile);
+static void ResetEmptyOrDeletedSaveFile(u32 index) {
+    SaveFile* saveFile = &gMapDataBottomSpecial.saves[index];
+    int status = ReadSaveFile(index, saveFile);
     switch (status) {
         case SAVE_DELETED:
-            SetFileStatusDeleted(idx);
+            SetFileStatusDeleted(index);
             // fallthrough
         case SAVE_EMPTY:
-            sub_0805194C(idx);
+            ResetSaveFile(index);
             break;
     }
-    gMapDataBottomSpecial.saveStatus[idx] = status;
+    gMapDataBottomSpecial.saveStatus[index] = status;
 }
 
 static void sub_0805066C(void) {
@@ -378,14 +378,14 @@ void sub_08050888(void) {
     if (!gFadeControl.active) {
         switch (gMapDataBottomSpecial.saveStatus[gMapDataBottomSpecial.unk7]) {
             case SAVE_EMPTY:
-                sub_0805194C(gMapDataBottomSpecial.unk7);
+                ResetSaveFile(gMapDataBottomSpecial.unk7);
                 gChooseFileState.subState = 2;
                 break;
             case SAVE_VALID:
                 gChooseFileState.subState = 2;
                 break;
             default:
-                sub_0805194C(gMapDataBottomSpecial.unk7);
+                ResetSaveFile(gMapDataBottomSpecial.unk7);
                 CreateDialogBox(0, gMapDataBottomSpecial.unk7 + 1);
                 gChooseFileState.timer = 30;
                 gChooseFileState.subState = 1;
@@ -834,7 +834,7 @@ void sub_08050FFC(void) {
     switch (HandleSave(0)) {
         case SAVE_ERROR:
             gMenu.transitionTimer = 30;
-            sub_0805194C(gMapDataBottomSpecial.unk6);
+            ResetSaveFile(gMapDataBottomSpecial.unk6);
             CreateDialogBox(9, 0);
         case SAVE_OK:
             SetMenuType(3);
@@ -903,7 +903,7 @@ void sub_080513C0(void) {
         case 0:
             break;
         case -1:
-            sub_0805194C(gMapDataBottomSpecial.unk6);
+            ResetSaveFile(gMapDataBottomSpecial.unk6);
             CreateDialogBox(6, 0);
             gMenu.transitionTimer = 30;
             gMenu.overlayType = 2;
@@ -1083,7 +1083,7 @@ void sub_080515D4(void) {
 
 void sub_080516E0(void) {
     if (HandleSave(1)) {
-        sub_0805194C(gMapDataBottomSpecial.unk6);
+        ResetSaveFile(gMapDataBottomSpecial.unk6);
         sub_08050AFC(gMapDataBottomSpecial.unk6);
         gMenu.transitionTimer = 2;
         SetFileSelectState(0);
@@ -1192,7 +1192,7 @@ void sub_08051874(void) {
             SetFileSelectState(0);
             break;
         case -1:
-            sub_0805194C(gMapDataBottomSpecial.unk7);
+            ResetSaveFile(gMapDataBottomSpecial.unk7);
             CreateDialogBox(3, 0);
             gMenu.transitionTimer = 30;
             SetMenuType(3);
@@ -1223,12 +1223,12 @@ void HandleFileStart(void) {
     }
 }
 
-void sub_0805194C(u32 save_idx) {
+void ResetSaveFile(u32 save_idx) {
     SaveFile* save;
 
     gMapDataBottomSpecial.saveStatus[save_idx] = 0;
     save = &gMapDataBottomSpecial.saves[save_idx];
-    MemClear(save, sizeof(*save));
+    MemClear(save, sizeof(SaveFile));
     save->msg_speed = 1;
     save->brightness = 1;
     save->stats.health = 24;

@@ -43,7 +43,6 @@ typedef struct {
 extern const u32 gUnk_080CA06C[];
 extern const u8 gGlobalGfxAndPalettes[];
 extern u8 gTextGfxBuffer[];
-extern u8 gUnk_02002AC0[];
 
 u32 sub_080A44E0(WStruct*, u8*, u32);
 u32 sub_080A4418(u32, u32);
@@ -180,11 +179,11 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_Type1.inc", void Kins
     switch (gInput.unk4) {
         case 0x20:
         case 0x40:
-            tmp3 -= 1;
+            tmp3--;
             break;
         case 0x10:
         case 0x80:
-            tmp3 += 1;
+            tmp3++;
             break;
         case 1:
             if (gMenu.column_idx == 2) {
@@ -301,13 +300,11 @@ void KinstoneMenu_Type5(void) {
     kinstoneMenu_Type5_Overlays[gMenu.overlayType]();
 }
 
-extern u8 gUnk_02002C81[];
-
 void KinstoneMenu_Type5_Overlay0(void) {
     gMenu.column_idx = 5;
-    WriteBit((u32*)gUnk_02002C81, gFuseInfo._3);
-    if (99 < ++gUnk_02002C81[-298]) {
-        gUnk_02002C81[-299] = 1;
+    WriteBit(gSave.unk241, gFuseInfo._3);
+    if (++gSave.unk117 > 99) {
+        gSave.didAllFusions = 1;
     }
     KinstoneMenu_080A4468();
     SoundReq(SFX_TASK_COMPLETE);
@@ -324,7 +321,7 @@ void KinstoneMenu_Type5_Overlay1(void) {
 }
 
 void KinstoneMenu_Type5_Overlay2(void) {
-    gMenu.transitionTimer -= 1;
+    gMenu.transitionTimer--;
     if (gMenu.transitionTimer != 0) {
         gKinstoneMenu.unk18 += gKinstoneMenu.unk1a;
         gKinstoneMenu.unk1a += 0x20;
@@ -332,7 +329,7 @@ void KinstoneMenu_Type5_Overlay2(void) {
         gMenu.column_idx = 6;
         gMenu.overlayType = 3;
         gMenu.transitionTimer = 79;
-        CreateObject(OBJECT_B3, 1, 0);
+        CreateObject(KINSTONE_SPARK, 1, 0);
         SoundReq(SFX_1CA);
     }
 }
@@ -359,7 +356,7 @@ void KinstoneMenu_080A4054(void) {
     KinstoneMenu_080A4080();
     for (uVar2 = 0; uVar2 < 0x10; uVar2++) {
         if (gMapDataBottomSpecial[uVar2].unk_01 != 0) {
-            gMapDataBottomSpecial[uVar2].unk_01 -= 1;
+            gMapDataBottomSpecial[uVar2].unk_01--;
         }
     }
 }
@@ -398,7 +395,7 @@ void KinstoneMenu_080A4080(void) {
     gOamCmd.x = 0xb8;
     gOamCmd._8 = 0x4a0;
     DrawDirect(t, 1);
-    uVar1 = gMain.ticks.HWORD >> 2 & 0xe;
+    uVar1 = gMain.ticks >> 2 & 0xe;
     temp = &gUnk_08128110[uVar1];
     gOamCmd.x = 10 - temp[0];
     gOamCmd._8 = 0x4e0;
@@ -439,7 +436,7 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
                 switch (gMenu.column_idx) {
                     case 3:
                     case 4:
-                        uVar3 -= 1;
+                        uVar3--;
                         break;
                     default:
                         break;
@@ -609,7 +606,7 @@ u32 KinstoneMenu_080A4494(void) {
         psVar1->charColor = 0;
         psVar1->bgColor = 5;
         psVar1->unk1 = 0;
-        sub_080A44E0(psVar1, gUnk_02002AC0, 0x80);
+        sub_080A44E0(psVar1, gSave.name, 0x80);
 #if NON_MATCHING
         ret = sub_080A44E0(psVar1, sub_08002632(gFuseInfo.ent) >> 0x20, 0xa0);
 #else

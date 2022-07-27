@@ -1,6 +1,6 @@
 @ Hyrule Town Inn Emma after renting regular room
 SCRIPT_START script_RentRegularRoom
-	BeginBlock 
+	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x04
 	CallWithArg sub_0807F854, 0x000100c8
 	EndBlock

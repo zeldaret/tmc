@@ -1,21 +1,27 @@
+/**
+ * @file object1D.c
+ * @ingroup Objects
+ *
+ * @brief Object1D object
+ */
 #include "entity.h"
 
-void sub_080874F8(Entity*);
-void nullsub_117(Entity*);
+void Object1D_Init(Entity*);
+void Object1D_Action1(Entity*);
 
 void Object1D(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080874F8,
-        nullsub_117,
+    static void (*const Object1D_Actions[])(Entity*) = {
+        Object1D_Init,
+        Object1D_Action1,
     };
-    actionFuncs[this->action](this);
+    Object1D_Actions[this->action](this);
 }
 
-void sub_080874F8(Entity* this) {
+void Object1D_Init(Entity* this) {
     DeleteThisEntity();
 }
 
-void nullsub_117(Entity* this) {
+void Object1D_Action1(Entity* this) {
 }
 
 static const s16 unused1[] = {

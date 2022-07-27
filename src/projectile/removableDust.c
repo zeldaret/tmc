@@ -49,7 +49,7 @@ void sub_080AA464(Entity* this) {
     if (this->type == 0) {
         sub_080AA544(this);
     }
-    entity = CreateObject(OBJECT_21, 3, 0);
+    entity = CreateObject(DIRT_PARTICLE, 3, 0);
     if (entity != NULL) {
         CopyPosition(this, entity);
     }
@@ -68,7 +68,7 @@ void sub_080AA494(Entity* this) {
         if (*(iterator++) == tileType) {
             break;
         }
-        index += 1;
+        index++;
     }
     if (CheckFlags((u16)this->speed) != 0) {
         if (index == 4) {
@@ -103,9 +103,9 @@ void sub_080AA544(Entity* this) {
         do {
             iVar2 = sub_080B1AE0((param - tmp[uVar3]) & 0xffff, this->collisionLayer);
             if (iVar2 == 0x3e) {
-                iVar4 += 1;
+                iVar4++;
             }
-            uVar3 += 1;
+            uVar3++;
         } while (uVar3 < 9);
 
         if (iVar4 == 8) {
@@ -113,8 +113,8 @@ void sub_080AA544(Entity* this) {
             puVar5 = gUnk_08129FD0;
             do {
                 sub_0807B7D8((u32)*puVar5, param - tmp[uVar3], this->collisionLayer);
-                puVar5 += 1;
-                uVar3 += 1;
+                puVar5++;
+                uVar3++;
             } while (uVar3 < 9);
             sub_080AA654(this, param);
             SetFlag((u16)this->speed);

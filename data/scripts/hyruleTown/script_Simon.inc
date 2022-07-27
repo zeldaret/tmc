@@ -12,21 +12,21 @@ SCRIPT_START script_Simon
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageNoOverlap TEXT_SIMON, 0x07
 	WaitUntilTextboxCloses
 	SetAnimationState 0x0004
 	ClearGlobalFlag MAROYA_WAKEUP
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_08011B84:
 	CheckEntityInteractType
 	JumpIfNot script_08011B84
-	SetPlayerIdle 
-	FacePlayer 
+	SetPlayerIdle
+	FacePlayer
 	MessageNoOverlap TEXT_SIMON, 0x01
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_08011BA4
 script_08011B9A:
 	EnablePlayerControl

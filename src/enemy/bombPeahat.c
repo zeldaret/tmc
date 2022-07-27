@@ -588,7 +588,7 @@ void sub_0802B048(Entity* this) {
                     if (this->parent->next != NULL) {
                         this->parent->field_0x80.HALF.HI = 0;
                     }
-                    ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
+                    ent = CreateObjectWithParent(this, SMOKE_PARTICLE, 0, 0);
                     if (ent != NULL) {
                         this->collisionLayer = 1;
                     } else {

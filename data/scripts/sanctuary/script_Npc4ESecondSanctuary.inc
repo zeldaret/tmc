@@ -11,37 +11,37 @@ script_0801373C:
 	CheckEntityInteractType
 	JumpIfNot script_0801373C
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtPedestal
 	WaitForSyncFlagAndClear 0x00000001
-	CallWithArg sub_08095A1C, script_Object6ASword2
+	CallWithArg sub_08095A1C, script_CutsceneMiscObjectSword2
 	PlaySound SFX_ELEMENT_PLACE
 	Wait 0x005a
 	BeginBlock
 	PlaySound SFX_ELEMENT_FLOAT
-	CallWithArg sub_08095D54, script_Object6AWaterElementFloating
+	CallWithArg sub_08095D54, script_CutsceneMiscObjectWaterElementFloating
 	EndBlock
 	WaitForSyncFlagAndClear 0x20000000
 	BeginBlock
 	PlaySound SFX_ELEMENT_CHARGE
-	CallWithArg sub_08095D8C, script_Object6ASwordChange1
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge2
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge3
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordChange1
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge2
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge3
 	EndBlock
 	Wait 0x001e
 	BeginBlock
 	PlaySound SFX_1D0
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge5
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge6
-	CallWithArg sub_08095D8C, script_Objet6ASwordCharge7
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge5
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge6
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge7
 	EndBlock
 	Wait 0x003c
 	CallWithArg CreateRepeatedSoundManager, 0x00000000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00002000
 	PlaySound SFX_1D2
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge9
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge10
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge9
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge10
 	SetSyncFlag 0x00000400
 	WaitForSyncFlagAndClear 0x00004000
 	SetSyncFlag 0x00000800
@@ -75,7 +75,7 @@ script_0801373C:
 	SetSyncFlag 0x00040000
 	SetLocalFlag 0x007b
 	Call sub_08053250
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

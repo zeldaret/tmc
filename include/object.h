@@ -43,41 +43,41 @@ typedef enum {
     EZLO_CAP,
     PUSHED_BLOCK,
     LOCKED_DOOR,
-    OBJECT_9,
+    CAMERA_TARGET,
     OBJECT_A,
-    OBJECT_B,
+    LINK_HOLDING_ITEM,
     CHEST_SPAWNER,
-    OBJECT_D,
-    OBJECT_E,
+    UNUSED_SKULL,
+    CRACKING_GROUND,
     SPECIAL_FX,
     PLAYER_CLONE,
-    OBJECT_11,
-    OBJECT_12,
+    BUSH,
+    LIGHT_DOOR,
     RAILTRACK,
     LILYPAD_LARGE,
-    OBJECT_15,
+    CHUCHU_BOSS_PARTICLE,
     FLOATING_PLATFORM,
-    OBJECT_17,
+    GUST_JAR_PARTICLE,
     EVIL_SPIRIT,
     HOUSE_DOOR_EXT,
     RUPEE_OBJECT,
     GREAT_FAIRY,
-    OBJECT_1C,
+    HOUSE_SIGN,
     OBJECT_1D,
-    OBJECT_1E,
+    MOLE_MITTS_PARTICLE,
     OBJECT_1F,
-    OBJECT_20,
-    OBJECT_21,
+    SMOKE_PARTICLE,
+    DIRT_PARTICLE,
     FIGURINE_DEVICE,
     EYE_SWITCH,
     PRESSURE_PLATE,
     BIG_BARREL,
     BARREL_INSIDE,
     PUSHABLE_STATUE,
-    OBJECT_28,
+    PARALLAX_ROOM_VIEW,
     AMBIENT_CLOUDS,
-    OBJECT_2A,
-    OBJECT_2B,
+    FLAME,
+    LILYPAD_LARGE_FALLING,
     BEANSTALK,
     SMOKE,
     PUSHABLE_ROCK,
@@ -87,36 +87,36 @@ typedef enum {
     PULLABLE_MUSHROOM,
     BOLLARD,
     WARP_POINT,
-    OBJECT_35,
-    OBJECT_36,
+    CARLOV_OBJECT,
+    BARREL_SPIDERWEB,
     OBJECT_37,
     JAR_PORTAL,
     BOSS_DOOR,
-    OBJECT_3A,
+    WHITE_TRIANGLE_EFFECT,
     PORTAL_MUSHROOM_STALKS,
     PORTAL_FALLING_PLAYER,
-    OBJECT_3D,
-    OBJECT_3E,
+    MINISH_PORTAL_CLOSEUP,
+    MINISH_VILLAGE_OBJECT,
     GIANT_LEAF,
     FAIRY,
     LADDER_UP,
-    OBJECT_42,
-    OBJECT_43,
-    OBJECT_44,
-    OBJECT_45,
+    LINK_FIRE,
+    SWORD_PARTICLE,
+    ROTATING_TRAPDOOR,
+    LAMP_PARTICLE,
     GIANT_BOOK_LADDER,
     HEART_CONTAINER,
     FILE_SCREEN_OBJECTS,
-    OBJECT_49,
+    CHUCHU_BOSS_START_PARTICLE,
     BACKGROUND_CLOUD,
-    OBJECT_4B,
+    CHUCHU_BOSS_CUTSCENE,
     PUSHABLE_FURNITURE,
     FURNITURE,
     MINISH_SIZED_ENTRANCE,
     ARCHWAY,
     GIANT_ROCK,
     GIANT_ROCK2,
-    OBJECT_52,
+    SPECIAL_CHEST,
     OBJECT_53,
     PULLABLE_LEVER,
     MINECART,
@@ -125,22 +125,22 @@ typedef enum {
     GENTARI_CURTAIN,
     LAVA_PLATFORM,
     PAPER,
-    OBJECT_5B,
+    BED_COVER,
     MASK,
     HOUSE_DOOR_INT,
     WHIRLWIND,
     OBJECT_BLOCKING_STAIRS,
     SWORDSMAN_NEWSLETTER,
-    OBJECT_61,
+    EZLO_CAP_FLYING,
     GIANT_TWIG,
     OBJECT_63,
-    OBJECT_64,
+    THUNDERBOLD,
     LADDER_HOLE,
-    OBJECT_66,
-    OBJECT_67,
-    OBJECT_68,
-    OBJECT_69,
-    OBJECT_6A,
+    WATER_DROP_OBJECT,
+    GLEEROK_PARTICLE,
+    LINK_EMPTYING_BOTTLE,
+    CUTSCENE_ORCHESTRATOR,
+    CUTSCENE_MISC_OBJECT,
     CRENEL_BEAN_SPROUT,
     MINECART_DOOR,
     OBJECT_ON_PILLAR,
@@ -150,25 +150,25 @@ typedef enum {
     PUSHABLE_GRAVE,
     STONE_TABLET,
     LILYPAD_SMALL,
-    OBJECT_74,
-    OBJECT_75,
-    OBJECT_76,
+    MINISH_PORTAL_STONE,
+    MACRO_CRYSTAL,
+    MACRO_LEAF,
     BELL,
     HUGE_DECORATION,
-    OBJECT_79,
+    SHRINKING_HIEROGLYPHS,
     STEAM,
     PUSHABLE_LEVER,
     HUGE_SHOES,
     OBJECT_ON_BEETLE,
-    OBJECT_7E,
+    MAZAAL_OBJECT,
     PICO_BLOOM,
     BOARD,
-    OBJECT_81,
+    BENCH,
     BIG_VORTEX,
     BIG_PUSHABLE_LEVER,
     SMALL_ICE_BLOCK,
     BIG_ICE_BLOCK,
-    OBJECT_86,
+    TRAPDOOR,
     OCTOROK_BOSS_OBJECT,
     HUGE_BOOK,
     MAZAAL_BOSS_OBJECT,
@@ -176,20 +176,20 @@ typedef enum {
     DOUBLE_BOOKSHELF,
     BOOK,
     FIREPLACE,
-    OBJECT_8E,
+    LIGHT_RAY,
     FROZEN_WATER_ELEMENT,
-    OBJECT_90,
+    WATER_ELEMENT,
     FROZEN_OCTOROK,
     BAKER_OVEN,
     LAMP,
     WIND_TRIBE_FLAG,
     BIRD,
-    OBJECT_96,
+    GRAVEYARD_KEY,
     KEY_STEALING_TAKKURI,
-    OBJECT_98,
-    OBJECT_99,
+    GURUGURU_BAR,
+    HIT_SWITCH,
     HUGE_ACORN,
-    OBJECT_9B,
+    VAATI2_PARTICLE,
     TREE_HIDING_PORTAL,
     LIGHTABLE_SWITCH,
     TREE_THORNS,
@@ -200,30 +200,30 @@ typedef enum {
     CLOUD,
     MINISH_LIGHT,
     FIREBALL_CHAIN,
-    OBJECT_A6,
+    SANCTUARY_STONE_TABLET,
     OBJECT_A7,
     OBJECT_A8,
-    OBJECT_A9,
+    MULLDOZER_SPAWN_POINT,
     WATERFALL_OPENING,
-    OBJECT_AB,
+    VAATI1_PORTAL,
     FOUR_ELEMENTS,
-    OBJECT_AD,
+    ELEMENTS_BACKGROUND,
     FLOATING_BLOCK,
-    OBJECT_AF,
+    VAATI3_ARM,
     METAL_DOOR,
     JAIL_BARS,
-    OBJECT_B2,
-    OBJECT_B3,
-    OBJECT_B4,
-    OBJECT_B5,
-    OBJECT_B6,
+    FAN_WIND,
+    KINSTONE_SPARK,
+    JAPANESE_SUBTITLE,
+    VAATI3_PLAYER_OBJECT,
+    VAATI3_DEATH,
     WELL,
     WIND_TRIBE_TELEPORTER,
     CUCCO_MINIGAME,
     GYORG_BOSS_OBJECT,
     WINDCREST,
     LIT_AREA,
-    OBJECT_BD,
+    TITLE_SCREEN_OBJECT,
     PINWHEEL,
     OBJECT_BF,
     ENEMY_ITEM,
@@ -239,41 +239,41 @@ void Pot();
 void EzloCap();
 void BlockPushed();
 void LockedDoor();
-void Object9();
+void CameraTarget();
 void ObjectA();
-void ObjectB();
+void LinkHoldingItem();
 void ChestSpawner();
-void ObjectD();
-void ObjectE();
+void UnusedSkull();
+void CrackingGround();
 void SpecialFx();
 void PlayerClone();
-void Object11();
-void Object12();
+void Bush();
+void LightDoor();
 void Railtrack();
 void LilypadLarge();
-void Object15();
+void ChuchuBossParticle();
 void FloatingPlatform();
-void Object17();
+void GustJarParticle();
 void EvilSpirit();
 void HouseDoorExterior();
 void Rupee();
 void GreatFairy();
-void Object1C();
+void HouseSign();
 void Object1D();
-void Object1E();
+void MoleMittsParticle();
 void Object1F();
-void Object20();
-void Object21();
+void SmokeParticle();
+void DirtParticle();
 void FigurineDevice();
 void EyeSwitch();
 void PressurePlate();
 void BigBarrel();
 void BarrelInside();
 void PushableStatue();
-void Object28();
+void ParallaxRoomView();
 void AmbientClouds();
-void Object2A();
-void Object2B();
+void Flame();
+void LilypadLargeFalling();
 void Beanstalk();
 void Smoke();
 void PushableRock();
@@ -283,36 +283,36 @@ void FrozenFlower();
 void PullableMushroom();
 void Bollard();
 void WarpPoint();
-void Object35();
-void Object36();
+void CarlovObject();
+void BarrelSpiderweb();
 void Object37();
 void JarPortal();
 void BossDoor();
-void Object3A();
-void MacroMushroomStalks();
+void WhiteTriangleEffect();
+void MacroMushroomStalk();
 void MacroPlayer();
-void Object3D();
-void Object3E();
+void MinishPortalCloseup();
+void MinishVillageObject();
 void GiantLeaf();
 void Fairy();
 void LadderUp();
-void Object42();
-void Object43();
-void Object44();
-void Object45();
+void LinkFire();
+void SwordParticle();
+void RotatingTrapdoor();
+void LampParticle();
 void GiantBookLadder();
 void HeartContainer();
 void FileScreenObjects();
-void Object49();
+void ChuchuBossStartParticle();
 void BackgroundCloud();
-void Object4B();
+void ChuchuBossCutscene();
 void PushableFurniture();
 void Furniture();
 void MinishSizedEntrance();
 void Archway();
 void GiantRock();
 void GiantRock2();
-void Object52();
+void SpecialChest();
 void Object53();
 void PullableLever();
 void Minecart();
@@ -321,22 +321,22 @@ void HiddenLadderDown();
 void GentariCurtain();
 void LavaPlatform();
 void Paper();
-void Object5B();
+void BedCover();
 void Mask();
 void HouseDoorInterior();
 void Whirlwind();
 void ObjectBlockingStairs();
 void SwordsmanNewsletter();
-void Object61();
+void EzloCapFlying();
 void GiantTwig();
 void Object63();
-void Object64();
+void Thunderbold();
 void LadderHoleInBookshelf();
-void Object66();
-void Object67();
-void Object68();
-void Object69();
-void Object6A();
+void WaterDropObject();
+void GleerokParticle();
+void LinkEmptyingBottle();
+void CutsceneOrchestrator();
+void CutsceneMiscObject();
 void CrenelBeanSprout();
 void MinecartDoor();
 void ObjectOnPillar();
@@ -346,25 +346,25 @@ void Object70();
 void PushableGrave();
 void StoneTablet();
 void LilypadSmall();
-void Object74();
-void Object75();
-void Object76();
+void MinishPortalStone();
+void MacroCrystal();
+void MacroLeaf();
 void Bell();
 void MacroDecoration();
-void Object79();
+void ShrinkingHieroglyphs();
 void Steam();
 void PushableLever();
-void MacroShoes();
+void MacroShoe();
 void ObjectOnSpinyBeetle();
-void Object7E();
+void MazaalObject();
 void PicoBloom();
 void Board();
-void Object81();
+void Bench();
 void BigVortex();
 void BigPushableLever();
 void SmallIceBlock();
 void BigIceBlock();
-void Object86();
+void Trapdoor();
 void OctorokBossObject();
 void MacroBook();
 void MazaalBossObject();
@@ -372,20 +372,20 @@ void CabinFurniture();
 void DoubleBookshelf();
 void Book();
 void Fireplace();
-void Object8E();
+void LightRay();
 void FrozenWaterElement();
-void Object90();
+void WaterElement();
 void FrozenOctorok();
 void BakerOven();
 void Lamp();
 void WindTribeFlag();
 void Bird();
-void Object96();
+void GraveyardKey();
 void KeyStealingTakkuri();
-void Object98();
-void Object99();
+void GuruguruBar();
+void HitSwitch();
 void MacroAcorn();
-void Object9B();
+void Vaati2Particle();
 void TreeHidingPortal();
 void LightableSwitch();
 void TreeThorns();
@@ -396,34 +396,34 @@ void ObjectA2();
 void Cloud();
 void MinishLight();
 void FireballChain();
-void ObjectA6();
+void SanctuaryStoneTablet();
 void ObjectA7();
 void ObjectA8();
-void ObjectA9();
+void MulldozerSpawnPoint();
 void WaterfallOpening();
-void ObjectAB();
+void Vaati1Portal();
 void FourElements();
-void ObjectAD();
+void ElementsBackground();
 void FloatingBlock();
-void ObjectAF();
+void Vaati3Arm();
 void MetalDoor();
 void JailBars();
-void ObjectB2();
-void ObjectB3();
-void ObjectB4();
-void ObjectB5();
-void ObjectB6();
+void FanWind();
+void KinstoneSpark();
+void JapaneseSubtitle();
+void Vaati3PlayerObject();
+void Vaati3Death();
 void Well();
 void WindTribeTeleporter();
-void ObjectB9();
+void CuccoMinigame();
 void GyorgBossObject();
 void Windcrest();
 void LitArea();
-void ObjectBD();
+void TitleScreenObject();
 void Pinwheel();
 void ObjectBF();
 void EnemyItem();
-void ObjectC1();
+void LinkAnimation();
 
 extern void (*const gObjectFunctions[194])(Entity*);
 

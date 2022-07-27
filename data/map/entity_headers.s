@@ -2104,7 +2104,7 @@ gUnk_additional_9_HouseInteriors1_Library1F:: @ 080D6734
 	entity_list_end
 
 gUnk_080D6784:: @ 080D6784
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69AllBooksCollected
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorAllBooksCollected
 	npc_raw subtype=0x1a, x=0x68, y=0x18, paramA=0x1, script=script_SturgeonAllBooksCollected
 	entity_list_end
 
@@ -3572,13 +3572,13 @@ gUnk_080D9048:: @ 080D9048
 
 gUnk_080D9098:: @ 080D9098
 	npc_raw subtype=0x40, x=0xd8, y=0x188, paramA=0x1, script=script_DampeOuside
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69GetKeyBack
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorGetKeyBack
 	entity_list_end
 
 gUnk_080D90C8:: @ 080D90C8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69CrowStealingKey
-	object_raw subtype=0x97, x=0x1f0, y=0x1a0, unknown=0x4f, paramA=0x4, paramC=script_Object97FirstCrow
-	object_raw subtype=0x97, x=0x1f0, y=0x1b0, unknown=0x4f, paramA=0x4, paramC=script_Object97SecondCrow
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorCrowStealingKey
+	object_raw subtype=0x97, x=0x1f0, y=0x1a0, unknown=0x4f, paramA=0x4, paramC=script_CameraTarget7FirstCrow
+	object_raw subtype=0x97, x=0x1f0, y=0x1b0, unknown=0x4f, paramA=0x4, paramC=script_CameraTarget7SecondCrow
 	entity_list_end
 
 gUnk_080D9108:: @ 080D9108
@@ -3908,7 +3908,7 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 .ifdef EU_JP
 	manager subtype=0x20, x=0x218, y=0x328, paramB=0x12182e00, paramC=0x161318
 	manager subtype=0x20, x=0x2b8, y=0x398, paramB=0x12a82e00, paramC=0x171398
-	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_Object69
+	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_CutsceneOrchestrator
 	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_CastorWildsStatueRock
 	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_CastorWildsStatueLeft
 	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_CastorWildsStatueMiddle
@@ -3930,7 +3930,7 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 .else
 	manager subtype=0x20, x=0x218, y=0x328, paramB=0x12182e00, paramC=0x151318
 	manager subtype=0x20, x=0x2b8, y=0x398, paramB=0x12a82e00, paramC=0x161398
-	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_Object69
+	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_CutsceneOrchestrator
 	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_CastorWildsStatueRock
 	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_CastorWildsStatueLeft
 	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_CastorWildsStatueMiddle
@@ -4196,7 +4196,7 @@ Entities_CastorDarknut_Main_0:: @ 080DA210
 	entity_list_end
 
 gUnk_080DA230:: @ 080DA230
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69DarknutFight
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorDarknutFight
 	object_raw subtype=0xc, x=0x88, y=0x68, paramA=0x1, paramC=0x390000
 	entity_list_end
 
@@ -5264,7 +5264,7 @@ gUnk_080DBB70:: @ 080DBB70
 	entity_list_end
 
 gUnk_080DBB90:: @ 080DBB90
-	object_raw subtype=0x69, unknown=0x48, paramC=script_Object69Rem
+	object_raw subtype=0x69, unknown=0x48, paramC=script_CutsceneOrchestratorRem
 	entity_list_end
 
 Enemies_TownMinishHoles_RemShoeShop:: @ 080DBBB0
@@ -5587,7 +5587,7 @@ gUnk_080DC470:: @ 080DC470
 	entity_list_end
 
 gUnk_080DC4C0:: @ 080DC4C0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69VillageIntro
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorVillageIntro
 	npc_raw subtype=0x3, x=0x208, y=0x2f0, unknown=0xf, collision=1, paramB=0x227, script=0x0
 	npc_raw subtype=0x3, x=0x198, y=0x330, unknown=0xf, collision=1, paramB=0x128, script=0x0
 	npc_raw subtype=0x3, x=0x278, y=0x330, unknown=0xf, collision=1, paramB=0x329, script=0x0
@@ -6204,8 +6204,8 @@ gUnk_additional_8_MelarisMine_Main:: @ 080DD214
 	npc_raw subtype=0x2d, x=0x1ba, y=0x138, paramA=0x6, paramB=0x5, script=script_MountainMinish3
 	npc_raw subtype=0x2d, x=0x1ba, y=0x148, paramA=0x6, paramB=0x6, script=script_MountainMinish3
 	npc_raw subtype=0x2f, x=0x190, y=0x140, script=script_Melari
-	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x8, paramC=script_Object6ABrokenSword
-	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x9, paramC=script_Object6ARepairedSword
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x8, paramC=script_CutsceneMiscObjectBrokenSword
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x9, paramC=script_CutsceneMiscObjectRepairedSword
 	entity_list_end
 
 gUnk_additional_9_MelarisMine_Main:: @ 080DD274
@@ -6375,7 +6375,7 @@ gUnk_080DD730:: @ 080DD730
 	entity_list_end
 
 gUnk_080DD750:: @ 080DD750
-	object_raw subtype=0x69, x=0x1e8, y=0x1b8, unknown=0x4f, paramC=script_Object69GreatWhirlwindRevealed
+	object_raw subtype=0x69, x=0x1e8, y=0x1b8, unknown=0x4f, paramC=script_CutsceneOrchestratorGreatWhirlwindRevealed
 	npc_raw subtype=0x49, x=0x268, y=0x1d8, paramA=0x1, paramB=0x60b, script=script_WindTribespeopleGreatWhirlwindRevealed2
 	npc_raw subtype=0x49, x=0x1a8, y=0x1f8, paramA=0x3, paramB=0x40a, script=script_WindTribespeopleGreatWhirlwindRevealed1
 	entity_list_end
@@ -6447,11 +6447,11 @@ gUnk_additional_8_CloudTops_Bottom:: @ 080DD8F0
 	delayed_entity_raw subtype=0x5e, x=0x398, y=0x1a8, layer=1, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind2, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1a0, layer=2, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1c8, y=0x1e0, layer=2, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1b8, y=0x1a0, layer=2, paramB=0x2, conditions=0xffff
@@ -6472,11 +6472,11 @@ gUnk_additional_8_CloudTops_Bottom:: @ 080DD8F0
 	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind2, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x1e8, y=0x398, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind2, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_CutsceneMiscObjectMysteriousCloud, paramD=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1a0, layer=2, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1c8, y=0x1e0, layer=2, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1b8, y=0x1a0, layer=2, paramB=0x2, conditions=0xffff
@@ -11024,7 +11024,7 @@ Entities_RoyalCrypt_KingGustaf_0:: @ 080E67AC
 
 gUnk_080E693C:: @ 080E693C
 	npc_raw subtype=0x42, x=0x118, y=0x48, script=script_KingGustav
-	object_raw subtype=0x6a, x=0x118, y=0x28, unknown=0x4f, paramA=0x12, paramB=0x9, paramC=script_Object6AKingsGravestone
+	object_raw subtype=0x6a, x=0x118, y=0x28, unknown=0x4f, paramA=0x12, paramB=0x9, paramC=script_CutsceneMiscObjectKingsGravestone
 	entity_list_end
 
 Enemies_RoyalCrypt_KingGustaf:: @ 080E696C
@@ -13079,7 +13079,7 @@ Room_PalaceOfWindsBoss_Main:: @ 080EAA58
 	.4byte sub_StateChange_PalaceOfWindsBoss_Main
 
 Entities_Vaati2_Main_0:: @ 080EAA78
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69V2Intro
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorV2Intro
 	npc_raw subtype=0x3b, x=0xb0, y=0x88, unknown=0xf, script=0x0
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0c, flag=0x7b
 	entity_list_end
@@ -13131,7 +13131,7 @@ Room_Vaati3_Main:: @ 080EABA8
 	.4byte sub_StateChange_Vaati3_Main
 
 Entities_DarkHyruleCastleBridge_Main_0:: @ 080EABC8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69BallAndChainSoldierRoom
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorBallAndChainSoldierRoom
 	object_raw subtype=0x39, x=0x88, y=0x118, paramA=0x6, paramC=0xffff
 	entity_list_end
 
@@ -13211,7 +13211,7 @@ Entities_DarkHyruleCastleOutside_ZeldaStatuePlatform_1:: @ 080EAD48
 	entity_list_end
 
 gUnk_080EAD68:: @ 080EAD68
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69VaatiWithZelda
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorVaatiWithZelda
 	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_ZeldaStoneInDHC
 	npc_raw subtype=0x27, x=0x78, y=0x96, paramA=0x1, script=script_VaatiWithZelda
 	object_raw subtype=0xab, x=0x78, y=0x138
@@ -13260,7 +13260,7 @@ gUnk_080EAEC0:: @ 080EAEC0
 	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_MinishEzloOutro
 	npc_raw subtype=0x28, x=0x58, y=0x88, script=script_ZeldaOutro
 	npc_raw subtype=0x4d, x=0x88, y=0x88, script=script_EzloCapOutro
-	object_raw subtype=0x6a, x=0x88, y=0xa8, unknown=0x4f, paramA=0x1, paramC=script_Object6AMinishCapOutro
+	object_raw subtype=0x6a, x=0x88, y=0xa8, unknown=0x4f, paramA=0x1, paramC=script_CutsceneMiscObjectMinishCapOutro
 	entity_list_end
 
 gUnk_080EAF20:: @ 080EAF20
@@ -13503,7 +13503,7 @@ Entities_DarkHyruleCastle_1FEntrance_0:: @ 080EB594
 	entity_list_end
 
 gUnk_080EB5D4:: @ 080EB5D4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69CastleEscape
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorCastleEscape
 	npc_raw subtype=0x28, x=0xd8, y=0x178, script=script_ZeldaCastleEscape
 	entity_list_end
 
@@ -13627,7 +13627,7 @@ Room_DarkHyruleCastle_3FBottomRightTower:: @ 080EB864
 	.4byte sub_StateChange_Dojos_ToSplitblade0
 
 Entities_DarkHyruleCastle_3FKeatonHallToVaati_0:: @ 080EB884
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69KeatonsRoom
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorKeatonsRoom
 	object_raw subtype=0x3, x=0x78, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x98, y=0x48, paramA=0x1, paramC=0x80010001
 	object_raw subtype=0x3, x=0xb8, y=0x48, paramA=0x1, paramC=0x80020001
@@ -13667,7 +13667,7 @@ Entities_DarkHyruleCastle_3FTripleDarknut_0:: @ 080EB9E4
 	entity_list_end
 
 gUnk_080EB9F4:: @ 080EB9F4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69DarkNutsRoom
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorDarkNutsRoom
 	manager subtype=0x1e, x=0x30, y=0xa0, paramB=0x2000f0, paramC=0x80000000
 	manager subtype=0x35, x=0xa8, y=0x58, paramB=0x3c1e00, paramC=0x80008001
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80028001
@@ -13683,13 +13683,13 @@ gUnk_080EB9F4:: @ 080EB9F4
 
 gUnk_080EBAA4:: @ 080EBAA4
 	npc_raw subtype=0x27, x=0xa8, y=0x58, paramA=0x1, script=script_Vaati1Intro
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69V1Defeated
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorV1Defeated
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0xffff
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
 	entity_list_end
 
 gUnk_080EBAF4:: @ 080EBAF4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69V2Defeated
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorV2Defeated
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x80000000
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0x80000000
 	entity_list_end
@@ -13845,7 +13845,7 @@ gUnk_additional_8_DarkHyruleCastle_2FBlueWarp:: @ 080EBFD8
 	enemy_raw subtype=0x5, x=0x88, y=0x38, unknown=0x2f, paramA=0x3, paramB=0xe160000, paramC=0x300030
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x86ffff
 	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x86ffff
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69DHC
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorDHC
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0a, flag=0x86
 	entity_list_end
 
@@ -15434,7 +15434,7 @@ Entities_HyruleTown_1_0:: @ 080EEBCC
 	manager subtype=0x16, paramA=0x9
 	npc_raw subtype=0x4e, script=script_Npc4EIntroTown
 	npc_raw subtype=0x28, x=0xc8, y=0x3c8, script=script_ZeldaIntroTown
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69IntroTown
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorIntroTown
 	object_raw subtype=0x95, x=0x144, y=0x4c, collision=2, paramA=0x4
 	object_raw subtype=0x95, x=0x178, y=0xa8, collision=2, paramA=0x7
 	object_raw subtype=0xbb, x=0x148, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_Windcrest
@@ -16331,14 +16331,14 @@ gUnk_080F06E0:: @ 080F06E0
 	entity_list_end
 
 gUnk_080F0770:: @ 080F0770
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x1001, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x2002, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x3003, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x4004, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x5005, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x6006, paramC=script_Object6AMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x7007, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x1001, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x2002, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x3003, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x4004, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x5005, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x6006, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x7007, paramC=script_CutsceneMiscObjectMonsterFromChest
 	entity_list_end
 
 gUnk_080F0800:: @ 080F0800
@@ -16465,7 +16465,7 @@ Room_CastleGarden_Main:: @ 080F0AE8
 	.4byte gUnk_additional_f_CastleGarden_Main
 
 Entities_SimonsSimulation_Main_0:: @ 080F0B28
-	object_raw subtype=0x69, x=0x98, y=0x88, unknown=0x4f, paramC=script_Object69SimonsSimulation
+	object_raw subtype=0x69, x=0x98, y=0x88, unknown=0x4f, paramC=script_CutsceneOrchestratorSimonsSimulation
 	entity_list_end
 
 gUnk_080F0B48:: @ 080F0B48
@@ -17378,7 +17378,7 @@ Entities_HouseInteriors2_LinksHouseBedroom_0:: @ 080F3198
 	entity_list_end
 
 gUnk_080F31D8:: @ 080F31D8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69LinksHouseBed
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorLinksHouseBed
 	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseBedroom_1:: @ 080F31F8
@@ -17691,7 +17691,7 @@ gUnk_080F3C44:: @ 080F3C44
 	entity_list_end
 
 gUnk_080F3C64:: @ 080F3C64
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69AfterToD
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorAfterToD
 	npc_raw subtype=0x42, x=0x128, y=0x180, script=script_KingGustafHologram
 	entity_list_end
 
@@ -18256,8 +18256,8 @@ gUnk_080F4D50:: @ 080F4D50
 
 gUnk_080F4D70:: @080F4D70
 	npc_raw subtype=0x4d, x=0x388, y=0x168, script=script_EzloCap
-	object_raw subtype=0x6a, x=0x358, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_Object6ALeftBullyingOctorok
-	object_raw subtype=0x6a, x=0x3b8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_Object6ARightBullyingOctorok
+	object_raw subtype=0x6a, x=0x358, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectLeftBullyingOctorok
+	object_raw subtype=0x6a, x=0x3b8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectRightBullyingOctorok
 	entity_list_end
 
 gUnk_080F4DB0:: @ 080F4DB0
@@ -18288,10 +18288,10 @@ Entities_MinishWoods_Main_1:: @ 080F4E30
 
 gUnk_080F4EB0:: @ 080F4EB0
 	npc_raw subtype=0x4e, script=script_Npc4EMinishWoods
-	object_raw subtype=0x6a, x=0x398, y=0x148, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok1
-	object_raw subtype=0x6a, x=0x378, y=0x158, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok2
-	object_raw subtype=0x6a, x=0x3a8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok3
-	object_raw subtype=0x6a, x=0x388, y=0x188, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok4
+	object_raw subtype=0x6a, x=0x398, y=0x148, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok1
+	object_raw subtype=0x6a, x=0x378, y=0x158, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok2
+	object_raw subtype=0x6a, x=0x3a8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok3
+	object_raw subtype=0x6a, x=0x388, y=0x188, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok4
 	entity_list_end
 
 gUnk_080F4F10:: @ 080F4F10
@@ -18434,7 +18434,7 @@ Entities_SanctuaryEntrance_Main_0:: @ 080F52F8
 	entity_list_end
 
 gUnk_080F5308:: @ 080F5308
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69SanctuaryEntrance
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorSanctuaryEntrance
 	entity_list_end
 
 gUnk_080F5328:: @ 080F5328
@@ -18491,7 +18491,7 @@ Room_Sanctuary_Hall:: @ 080F5428
 	.4byte sub_StateChange_Sanctuary_Hall
 
 Entities_Sanctuary_Main_0:: @ 080F5448
-	object_raw subtype=0x6a, x=0xe8, y=0x90, unknown=0x4f, paramA=0x17, paramC=script_Object6ATextBoard
+	object_raw subtype=0x6a, x=0xe8, y=0x90, unknown=0x4f, paramA=0x17, paramC=script_CutsceneMiscObjectTextBoard
 	npc_raw subtype=0x4e, script=script_08013F94
 	npc_raw subtype=0x4e, script=script_NPC4EPreventPlayerLeave
 	npc_raw subtype=0x4e, script=script_Npc4EPreventPlayerLeaving
@@ -18513,8 +18513,8 @@ gUnk_080F5508:: @ 080F5508
 	entity_list_end
 
 gUnk_080F5528:: @ 080F5528
-	object_raw subtype=0x6a, x=0xb0, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_Object6AEarthElement
-	object_raw subtype=0x6a, x=0x120, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_Object6AFireElement
+	object_raw subtype=0x6a, x=0xb0, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectEarthElement
+	object_raw subtype=0x6a, x=0x120, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectFireElement
 	entity_list_end
 
 gUnk_080F5558:: @ 080F5558
@@ -18522,7 +18522,7 @@ gUnk_080F5558:: @ 080F5558
 	entity_list_end
 
 gUnk_080F5578:: @ 080F5578
-	object_raw subtype=0x6a, x=0x120, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_Object6AWaterElement
+	object_raw subtype=0x6a, x=0x120, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectWaterElement
 	entity_list_end
 
 gUnk_080F5598:: @ 080F5598
@@ -18530,7 +18530,7 @@ gUnk_080F5598:: @ 080F5598
 	entity_list_end
 
 gUnk_080F55B8:: @ 080F55B8
-	object_raw subtype=0x6a, x=0xb0, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_Object6AWindElement
+	object_raw subtype=0x6a, x=0xb0, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectWindElement
 	entity_list_end
 
 gUnk_080F55D8:: @ 080F55D8
@@ -18561,7 +18561,7 @@ Entities_Sanctuary_StainedGlass_0:: @ 080F5630
 	entity_list_end
 
 gUnk_080F5660:: @ 080F5660
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object3EPictureBackRoom
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_MinishVillageObjectPictureBackRoom
 	entity_list_end
 
 gUnk_080F5680:: @ 080F5680
@@ -18884,7 +18884,7 @@ Room_HouseInteriors3_FigurineHouse:: @ 080F5EF8
 	.4byte sub_StateChange_HouseInteriors3_FigurineHouse
 
 Entities_HouseInteriors3_BorlovEntrance_0:: @ 080F5F18
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object6APreventPlayerLeaveCarlov
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneMiscObjectPreventPlayerLeaveCarlov
 	entity_list_end
 
 gUnk_additional_8_HouseInteriors3_BorlovEntrance:: @ 080F5F38
@@ -18926,8 +18926,8 @@ Room_HouseInteriors3_BorlovEntrance:: @ 080F5FF0
 
 Entities_HouseInteriors3_Carlov_0:: @ 080F601C
 	npc_raw subtype=0x3f, x=0x78, y=0x39, script=script_Carlov2
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object6ACarlov
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object6ACarlov2
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneMiscObjectCarlov
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneMiscObjectCarlov2
 	object_raw subtype=0x54, x=0xa8, y=0x3e, paramA=0x1, paramB=0x80000, paramC=0x80000000
 	entity_list_end
 
@@ -19978,7 +19978,7 @@ Entities_HyruleField_OutsideCastle_1:: @ 080F7C00
 	entity_list_end
 
 gUnk_080F7C80:: @ 080F7C80
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69VaatiAppears
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorVaatiAppears
 	npc_raw subtype=0x27, x=0x1f8, y=0x108, paramA=0x1, script=script_VaatiAppearsAgain
 	entity_list_end
 
@@ -20012,7 +20012,7 @@ gUnk_080F7DC0:: @ 080F7DC0
 	entity_list_end
 
 gUnk_additional_d_HyruleField_OutsideCastle:: @ 080F7DE0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69FixBridge
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorFixBridge
 	manager subtype=0x5, x=0x9, y=0x25, paramB=0x89, paramC=0x80650001
 	manager subtype=0x5, x=0x9, y=0x26, paramB=0x89, paramC=0x80650001
 	entity_list_end
@@ -20202,7 +20202,7 @@ Entities_HyruleField_WesternWoodsNorth_0:: @ 080F8210
 .endif
 
 gUnk_080F82E0:: @ 080F82E0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69Takeover
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorTakeover
 	entity_list_end
 
 Entities_HyruleField_WesternWoodsNorth_1:: @ 080F8300
@@ -21278,11 +21278,11 @@ gUnk_080F9BF8:: @ 080F9BF8
 .endif
 
 gUnk_080F9C38:: @ 080F9C38
-	object_raw subtype=0x6a, x=0x108, y=0x88, unknown=0x4f, paramA=0x29, paramC=script_Object6AVeilFallsTop
+	object_raw subtype=0x6a, x=0x108, y=0x88, unknown=0x4f, paramA=0x29, paramC=script_CutsceneMiscObjectVeilFallsTop
 	entity_list_end
 
 gUnk_080F9C58:: @ 080F9C58
-	object_raw subtype=0x6a, x=0x118, y=0x88, unknown=0x4f, paramA=0x2a, paramC=script_Object6AMirrorShield
+	object_raw subtype=0x6a, x=0x118, y=0x88, unknown=0x4f, paramA=0x2a, paramC=script_CutsceneMiscObjectMirrorShield
 	entity_list_end
 
 Entities_VeilFallsTop_Main_1:: @ 080F9C78
@@ -21417,7 +21417,7 @@ Room_47_4:: @ 080F9F08
 
 Entities_TreeInteriors_WitchHut_0:: @ 080F9F28
 	npc_raw subtype=0x36, x=0x78, y=0x30, script=script_Syrup
-	object_raw subtype=0x69, x=0x58, y=0x48, unknown=0x4f, paramC=script_Object69PotionBlue
+	object_raw subtype=0x69, x=0x58, y=0x48, unknown=0x4f, paramC=script_CutsceneOrchestratorPotionBlue
 	entity_list_end
 
 Entities_TreeInteriors_WitchHut_1:: @ 080F9F58
@@ -21431,7 +21431,7 @@ gUnk_080F9F88:: @ 080F9F88
 
 gUnk_080F9FA8:: @ 080F9FA8
 	object_raw subtype=0x4d, x=0x98, y=0x48, collision=1, paramA=0x8
-	object_raw subtype=0x69, x=0x98, y=0x48, unknown=0x4f, paramC=script_Object69PotionRed
+	object_raw subtype=0x69, x=0x98, y=0x48, unknown=0x4f, paramC=script_CutsceneOrchestratorPotionRed
 	entity_list_end
 
 Enemies_TreeInteriors_WitchHut:: @ 080F9FD8
@@ -22134,10 +22134,10 @@ gUnk_080FACB8:: @ 080FACB8
 
 gUnk_080FAD48:: @ 080FAD48
 	npc_raw subtype=0x4e, script=script_Npc4EMtCrenel
-	object_raw subtype=0x6a, x=0xf8, y=0x38, unknown=0x4f, paramA=0x20, paramC=script_Object6ATektite1
-	object_raw subtype=0x6a, x=0x168, y=0x48, unknown=0x4f, paramA=0x20, paramC=script_Object6ATektite2
-	object_raw subtype=0x6a, x=0x138, y=0x68, unknown=0x4f, paramA=0x21, paramC=script_Object6ATektite3
-	object_raw subtype=0x6a, x=0xe8, y=0x88, unknown=0x4f, paramA=0x21, paramC=script_Object6ATektite4
+	object_raw subtype=0x6a, x=0xf8, y=0x38, unknown=0x4f, paramA=0x20, paramC=script_CutsceneMiscObjectTektite1
+	object_raw subtype=0x6a, x=0x168, y=0x48, unknown=0x4f, paramA=0x20, paramC=script_CutsceneMiscObjectTektite2
+	object_raw subtype=0x6a, x=0x138, y=0x68, unknown=0x4f, paramA=0x21, paramC=script_CutsceneMiscObjectTektite3
+	object_raw subtype=0x6a, x=0xe8, y=0x88, unknown=0x4f, paramA=0x21, paramC=script_CutsceneMiscObjectTektite4
 	entity_list_end
 
 Enemies_MtCrenel_MountainTop:: @ 080FADA8

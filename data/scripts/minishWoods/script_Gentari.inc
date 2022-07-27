@@ -7,7 +7,7 @@ SCRIPT_START script_Gentari
 script_0800C780:
 	TriggerInteract
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtGentari
 	WaitForSyncFlagAndClear 0x00000001
 	CheckInventory1 ITEM_EARTH_ELEMENT
@@ -18,7 +18,7 @@ script_0800C780:
 	MessageFromTarget TEXT_FOREST_MINISH, 0x22
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C780
 script_0800C7C0:
@@ -29,7 +29,7 @@ script_0800C7C0:
 	WaitUntilTextboxCloses
 	EzloMessage TEXT_FINDING_EZLO, 0x31
 	WaitUntilTextboxCloses
-	FaceAwayFromPlayer 
+	FaceAwayFromPlayer
 	MessageFromTarget TEXT_FINDING_EZLO, 0x32
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000103
@@ -39,7 +39,7 @@ script_0800C7C0:
 	Wait 0x000a
 	DoPostScriptAction 0x0000
 	SetLocalFlag 0x0081
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C780
 script_0800C80A:
@@ -47,7 +47,7 @@ script_0800C80A:
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	SetAnimation 0x0000
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C780
 script_0800C824:
@@ -64,8 +64,8 @@ script_0800C824:
 	Wait 0x003c
 	PlaySound SFX_SECRET
 	Wait 0x003c
-	FacePlayer 
-	FaceAwayFromPlayer 
+	FacePlayer
+	FaceAwayFromPlayer
 	MessageFromTarget TEXT_FINDING_EZLO, 0x36
 	WaitUntilTextboxCloses
 	EzloMessage TEXT_FINDING_EZLO, 0x37
@@ -73,12 +73,12 @@ script_0800C824:
 	Wait 0x000a
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_0800C87C:
 	TriggerInteract
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	FacePlayer
 	SetIntVariable 0x00000008
 	Call sub_0807F3D8
@@ -86,7 +86,7 @@ script_0800C87C:
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	DoPostScriptAction 0x0000
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C87C
 script_0800C8AE:
@@ -94,6 +94,6 @@ script_0800C8AE:
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	DoPostScriptAction 0x0000
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800C780

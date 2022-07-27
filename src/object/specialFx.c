@@ -1,8 +1,14 @@
 #define NENT_DEPRECATED
-#include "global.h"
+/**
+ * @file specialFx.c
+ * @ingroup Objects
+ *
+ * @brief Special FX object
+ */
 #include "entity.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
+#include "object.h"
 
 typedef struct {
     Entity base;

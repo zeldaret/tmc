@@ -196,7 +196,7 @@ _0801E60A:
 	adds r0, r0, r1
 	ldr r1, _0801E644 @ =0x04000040
 	ldr r2, _0801E648 @ =0xA2600001
-	bl sub_0805622C
+	bl SetVBlankDMA
 	add sp, #8
 	pop {r3, r4, r5}
 	mov r8, r3

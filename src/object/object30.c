@@ -6,11 +6,11 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
-#include "functions.h"
-#include "item.h"
 #include "collision.h"
+#include "functions.h"
+#include "global.h"
+#include "item.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;

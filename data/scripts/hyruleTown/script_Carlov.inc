@@ -16,7 +16,7 @@ script_08014462:
 	MessageFromTarget TEXT_BURLOV, 0x02
 	MessageFromTarget TEXT_BURLOV, 0x03
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIfNot script_080144F0
 	DoPostScriptAction 0x0001
 	Wait 0x008c
@@ -29,7 +29,7 @@ script_080144A2:
 	Call sub_0806E250
 	JumpIfNot script_080144B8
 	MessageFromTarget TEXT_BURLOV, 0x0b
-	_0807EB38 
+	_0807EB38
 	JumpTable script_080144B8, script_080144C0
 script_080144B8:
 	ClearLocalFlag 0x0093
@@ -51,7 +51,7 @@ script_080144C8:
 	SetRoomFlag 0x0000
 	SetLocalFlag 0x0092
 	_0807EEF4 0x0000, 0xffa0
-	Call sub_0807DF38
+	Call DisablePauseMenu
 	Jump script_080144FC
 script_080144F0:
 	SetAnimation 0x0009

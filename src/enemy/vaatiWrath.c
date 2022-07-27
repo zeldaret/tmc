@@ -327,7 +327,7 @@ void VaatiWrathType0Action5(Entity* this) {
         if (this->field_0x78.HALF.HI == 0) {
             if (this->subAction == 2) {
                 if ((gRoomTransition.field_0x39 & 3) == 0) {
-                    object = CreateObject(OBJECT_B5, 0, 0);
+                    object = CreateObject(VAATI3_PLAYER_OBJECT, 0, 0);
                     if (object != NULL) {
                         object->parent = this;
                         ((VaatiWrathHeapStruct*)this->myHeap)->object5b = object;
@@ -639,10 +639,10 @@ void sub_08041D14(Entity* this) {
             this->timer--;
         } else {
             if (gEntCount < 0x46) {
-                pEVar1 = CreateObject(OBJECT_B6, 0, 0);
+                pEVar1 = CreateObject(VAATI3_DEATH, 0, 0);
                 pEVar1->parent = this;
                 this->child = pEVar1;
-                pEVar1 = CreateObject(OBJECT_B6, 1, 0);
+                pEVar1 = CreateObject(VAATI3_DEATH, 1, 0);
                 pEVar1->parent = this;
                 this->subAction = 3;
                 this->timer = 150;
@@ -680,7 +680,7 @@ void sub_08041D84(Entity* this) {
 }
 
 void sub_08041E20(Entity* this) {
-    this->subtimer += 1;
+    this->subtimer++;
     sub_08041E78(this);
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
     if (gFadeControl.active == 0) {
@@ -1052,7 +1052,7 @@ void VaatiWrathType2(Entity* this) {
         InitializeAnimation(this, 0x12);
     }
     sub_0806FA90(((VaatiWrathHeapStruct*)this->myHeap)->type0, this, 0, -1);
-    this->spriteOffsetY += 1;
+    this->spriteOffsetY++;
     if (this->animIndex == 0x12) {
         uVar1 = GetFacingDirection(this, &gPlayerEntity);
         this->x.HALF.HI = gUnk_080D0EB0[uVar1] + this->x.HALF.HI;
@@ -1069,6 +1069,6 @@ void VaatiWrathType3(Entity* this) {
         InitializeAnimation(this, 0x1c);
     }
     sub_0806FA90(((VaatiWrathHeapStruct*)this->myHeap)->type0, this, 0, -1);
-    this->spriteOffsetY += 1;
+    this->spriteOffsetY++;
     GetNextFrame(this);
 }

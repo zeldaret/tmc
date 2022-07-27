@@ -29,7 +29,7 @@ SCRIPT_START script_ZeldaOutro
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	PlaySound SFX_SPARKLES
-	CallWithArg sub_080960C4, script_Object6AZeldaMagic
+	CallWithArg sub_080960C4, script_CutsceneMiscObjectZeldaMagic
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000004
 	PlaySound SFX_143

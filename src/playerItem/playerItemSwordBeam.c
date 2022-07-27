@@ -50,11 +50,11 @@ void sub_08019498(Entity* this) {
             break;
         case 2:
             this->spriteSettings.flipX = 1;
-            this->x.HALF.HI += 1;
+            this->x.HALF.HI++;
             this->y.HALF.HI += -4;
             break;
         case 6:
-            this->x.HALF.HI -= 1;
+            this->x.HALF.HI--;
             this->y.HALF.HI += -4;
             break;
     }
@@ -100,7 +100,7 @@ void sub_08019644(Entity* this) {
     *(int*)&this->field_0x74 = iVar1;
     if (iVar1 == 0) {
         *(int*)&this->field_0x74 = 2;
-        this->field_0x70.WORD += 1;
+        this->field_0x70.WORD++;
         if (gUnk_080B4400[this->field_0x70.WORD] == 0xff) {
             this->field_0x70.WORD = iVar1;
         }

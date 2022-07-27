@@ -65,7 +65,7 @@ void VaatiTransfiguredEye_OnCollision(Entity* this) {
 
                 if (this->field_0x80.HALF.HI == 0) {
                     this->action = 3;
-                    this->field_0x80.HALF.HI += 1;
+                    this->field_0x80.HALF.HI++;
                     InitializeAnimation(this, (this->type << 3) | (this->timer + 2));
                     InitializeAnimation(this->parent, (this->parent->type << 3) | (this->timer + 2));
                 }
@@ -80,7 +80,7 @@ void VaatiTransfiguredEye_OnCollision(Entity* this) {
                     if (this->timer != 0 && (pEVar4->field_0x80.HALF.HI != 0)) {
                         pEVar4->field_0x76.HALF.LO |= (1 << this->type2);
                         if (this->cutsceneBeh.HALF.HI == 0) {
-                            this->cutsceneBeh.HALF.HI += 1;
+                            this->cutsceneBeh.HALF.HI++;
                             InitializeAnimation(this, this->type << 3 | 6);
                             InitializeAnimation(this->parent, this->parent->type << 3 | 6);
                         }

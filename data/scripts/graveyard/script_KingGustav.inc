@@ -9,7 +9,7 @@ script_0800D962:
 	JumpIfNot script_0800D962
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtKingGustav
 	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x003c
@@ -36,7 +36,7 @@ script_0800D962:
 	PlaySound SFX_113
 	SetIntVariable 0x00000001
 	Call sub_0806DA1C
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

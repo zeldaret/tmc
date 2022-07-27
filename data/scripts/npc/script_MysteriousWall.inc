@@ -12,12 +12,12 @@ script_0800B98A:
 	_0807EA4C
 	_0807E9F0
 	JumpIf script_0800B99E
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_0800B98A
 script_0800B99E:
 	Call sub_0806F188
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 script_0800B9AC:
 	DoPostScriptAction 0x0006

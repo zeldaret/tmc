@@ -486,12 +486,12 @@ static void sub_08042B20(Entity* this) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
             if ((-0xa <= entity->z.HALF.HI) && ((entity->spriteSettings.draw) == 1)) {
                 if (i == 0) {
-                    object = CreateObject(OBJECT_AF, 0, 0);
+                    object = CreateObject(VAATI3_ARM, 0, 0);
                     if (object != NULL) {
                         object->parent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
                     }
                     *(Entity**)&((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->field_0x68 = object;
-                    object = CreateObject(OBJECT_AF, 2, 0);
+                    object = CreateObject(VAATI3_ARM, 2, 0);
                     if (object != NULL) {
                         CopyPosition(((VaatiArm_HeapStruct*)this->myHeap)->entities[4], object);
                     }
@@ -582,7 +582,7 @@ static void sub_08042D24(Entity* this) {
         this->subAction = 2;
         this->hitType = 0x3d;
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
-        entity = CreateObject(OBJECT_AF, 1, 0);
+        entity = CreateObject(VAATI3_ARM, 1, 0);
         if (entity != NULL) {
             entity->parent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         }
@@ -602,7 +602,7 @@ static void sub_08042D6C(Entity* this) {
             if (i != 2) {
                 entity->flags = entity->flags | ENT_COLLIDE;
             }
-            if ((entity->spriteSettings.draw == 0u) && (object = CreateObject(OBJECT_AF, 2, 0), object != NULL)) {
+            if ((entity->spriteSettings.draw == 0u) && (object = CreateObject(VAATI3_ARM, 2, 0), object != NULL)) {
                 CopyPosition(entity, object);
                 SoundReq(SFX_166);
             }
@@ -796,7 +796,7 @@ static void sub_08043130(Entity* this) {
             for (i = 1; i < 4; i++) {
                 ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
                 if (ptr->unk04.HALF.HI != 0) {
-                    ptr->unk04.HALF.HI -= 1;
+                    ptr->unk04.HALF.HI--;
                 }
             }
         } else {
@@ -1276,9 +1276,9 @@ static void sub_08043C40(Entity* this, VaatiArm_HeapStruct1* heapStruct) {
         iVar3 = (u8*)(int)((VaatiArm_HeapStruct*)this->myHeap) + offset;
         if (puVar6[i] != iVar3[0xc]) {
             if (puVar6[i] < iVar3[0xc]) {
-                iVar3[0xc] -= 1;
+                iVar3[0xc]--;
             } else {
-                iVar3[0xc] += 1;
+                iVar3[0xc]++;
             }
         }
     }
@@ -1412,7 +1412,7 @@ static void sub_08043EB8(Entity* this) {
     pEVar4->collisionFlags = pEVar4->collisionFlags & 0xef;
     pEVar4->hitType = 0x3a;
     pEVar4->hitbox = (Hitbox*)&gUnk_080FD450;
-    pEVar4 = CreateObject(OBJECT_AF, 0, 0);
+    pEVar4 = CreateObject(VAATI3_ARM, 0, 0);
     if (pEVar4 != NULL) {
         pEVar4->parent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
     }

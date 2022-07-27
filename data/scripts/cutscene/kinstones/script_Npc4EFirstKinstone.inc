@@ -9,7 +9,7 @@ script_0800F09A:
 	JumpIfNot script_0800F09A
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	LoadRoomEntityList gUnk_080EE8AC
 	StartPlayerScript script_PlayerAtFirstKinstone
 	WaitForSyncFlagAndClear 0x00000001
@@ -18,7 +18,7 @@ script_0800F09A:
 	MessageFromTargetPos TEXT_MINISH2, 0x01, 0x000c
 	WaitUntilTextboxCloses
 	WaitForSyncFlagAndClear 0x000003c0
-	_0807E8E4_0 
+	_0807E8E4_0
 	MessageFromTargetPos TEXT_MINISH2, 0x02, 0x000c
 	WaitUntilTextboxCloses
 	GivePlayerItem ITEM_KINSTONE_BAG
@@ -29,19 +29,19 @@ script_0800F09A:
 	MessageFromTargetPos TEXT_MINISH2, 0x03, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000040
 script_0800F11A:
 	CheckKinstoneFused KINSTONE_32
 	JumpIfNot script_0800F11A
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	SetSyncFlag 0x0000001e
 	Wait 0x003c
 	_0807E8E4_1
 	WaitForSyncFlagAndClear 0x000003c0
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

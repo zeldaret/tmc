@@ -1,7 +1,13 @@
+/**
+ * @file minecart.c
+ * @ingroup Objects
+ *
+ * @brief Minecart object
+ */
 #define NENT_DEPRECATED
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
 
 typedef struct {
     Entity base;
@@ -12,26 +18,27 @@ typedef struct {
 extern void sub_08017744(Entity*);
 
 u32 sub_08091DDC(MinecartEntity*);
-void sub_080916EC(MinecartEntity*);
-void sub_080917DC(MinecartEntity*);
-void sub_080918A4(MinecartEntity*);
-void sub_080919AC(MinecartEntity*);
-void sub_08091C0C(MinecartEntity*);
-void sub_08091C98(MinecartEntity*);
-void sub_08091CC8(MinecartEntity*);
-void sub_08091D90(MinecartEntity*);
+void Minecart_Init(MinecartEntity*);
+void Minecart_Action1(MinecartEntity*);
+void Minecart_Action2(MinecartEntity*);
+void Minecart_Action3(MinecartEntity*);
+void Minecart_Action4(MinecartEntity*);
+void Minecart_Action5(MinecartEntity*);
+void Minecart_Action6(MinecartEntity*);
+void Minecart_Action7(MinecartEntity*);
 
 extern const u16* const gUnk_081223D8[];
 
 void Minecart(Entity* this) {
-    static void (*const actionFuncs[])(MinecartEntity*) = {
-        sub_080916EC, sub_080917DC, sub_080918A4, sub_080919AC, sub_08091C0C, sub_08091C98, sub_08091CC8, sub_08091D90,
+    static void (*const Minecart_Actions[])(MinecartEntity*) = {
+        Minecart_Init,    Minecart_Action1, Minecart_Action2, Minecart_Action3,
+        Minecart_Action4, Minecart_Action5, Minecart_Action6, Minecart_Action7,
     };
-    actionFuncs[this->action]((MinecartEntity*)this);
+    Minecart_Actions[this->action]((MinecartEntity*)this);
     this->contactFlags = 0;
 }
 
-void sub_080916EC(MinecartEntity* this) {
+void Minecart_Init(MinecartEntity* this) {
     struct_030010EC* unk = &gRoomTransition.minecart_data[super->timer];
 
     this->minecartData = unk;
@@ -56,7 +63,7 @@ void sub_080916EC(MinecartEntity* this) {
     SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
 }
 
-void sub_080917DC(MinecartEntity* this) {
+void Minecart_Action1(MinecartEntity* this) {
     if ((super->contactFlags & 0x7f) == 0x1d) {
         super->zVelocity = Q_16_16(2.625);
         super->action = 7;
@@ -91,7 +98,7 @@ void sub_080917DC(MinecartEntity* this) {
     }
 }
 
-void sub_080918A4(MinecartEntity* this) {
+void Minecart_Action2(MinecartEntity* this) {
     if (EntityInRectRadius(super, &gPlayerEntity, 2, 2) != 0) {
         gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
@@ -121,7 +128,7 @@ void sub_080918A4(MinecartEntity* this) {
     }
 }
 
-void sub_080919AC(MinecartEntity* this) {
+void Minecart_Action3(MinecartEntity* this) {
     static const s8 gUnk_081223C8[] = { 0, -7, 7, 0, 0, 7, -7, 0 };
 
     u32 iVar2;
@@ -194,7 +201,7 @@ void sub_080919AC(MinecartEntity* this) {
                     case 0x6e:
                     case 0x6f:
                         if (uVar3 == GetTileUnderEntity(super)) {
-                            sub_08091C0C(this);
+                            Minecart_Action4(this);
                             gPlayerEntity.animationState = super->animationState << 1;
                             return;
                         }
@@ -212,7 +219,7 @@ void sub_080919AC(MinecartEntity* this) {
     }
 }
 
-void sub_08091C0C(MinecartEntity* this) {
+void Minecart_Action4(MinecartEntity* this) {
     sub_08004168(super);
     CopyPosition(super, &gPlayerEntity);
     switch (GetTileUnderEntity(super)) {
@@ -261,7 +268,7 @@ void sub_08091C0C(MinecartEntity* this) {
     gPlayerEntity.animationState = super->animationState << 1;
 }
 
-void sub_08091C98(MinecartEntity* this) {
+void Minecart_Action5(MinecartEntity* this) {
     LinearMoveUpdate(super);
     CopyPosition(super, &gPlayerEntity);
     if (gRoomControls.reload_flags == 0) {
@@ -271,7 +278,7 @@ void sub_08091C98(MinecartEntity* this) {
     }
 }
 
-void sub_08091CC8(MinecartEntity* this) {
+void Minecart_Action6(MinecartEntity* this) {
     struct_030010EC* minecartData;
 
     if (gPlayerState.jump_status == 0) {
@@ -291,7 +298,7 @@ void sub_08091CC8(MinecartEntity* this) {
     }
 }
 
-void sub_08091D90(MinecartEntity* this) {
+void Minecart_Action7(MinecartEntity* this) {
     if (super->zVelocity < 0) {
         UpdateAnimationSingleFrame(super);
     }

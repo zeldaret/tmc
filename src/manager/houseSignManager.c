@@ -4,7 +4,7 @@
  *
  * @brief Keeps track in its bitfield of whether 0x10 x 0x10 rects at certain positions are on the screen.
  *
- * Spawns OBJECT_1C objects that check this and unsets the value in the bitfield.
+ * Spawns HOUSE_SIGN objects that check this and unsets the value in the bitfield.
  * Creates the signs on the houses in hyrule town.
  */
 #include "manager/houseSignManager.h"
@@ -57,7 +57,7 @@ void HouseSignManager_Main(HouseSignManager* this) {
         u32 bitfieldFlag = 1 << type2;
         if ((((this->bitfield & bitfieldFlag) == 0) &&
              (CheckRectOnScreen(spawnData->x, spawnData->y, 0x10, 0x10) != 0))) {
-            Entity* object = CreateObject(OBJECT_1C, spawnData->type, type2);
+            Entity* object = CreateObject(HOUSE_SIGN, spawnData->type, type2);
             if (object != NULL) {
                 object->frameIndex = spawnData->frameIndex;
                 object->x.HALF.HI = gRoomControls.origin_x + spawnData->x;

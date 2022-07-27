@@ -14,7 +14,7 @@ script_0800E484:
 	CallWithArg sub_0807F3D8, 0x00000000
 	MessageNoOverlap TEXT_BREAK_VAATI_CURSE, 0x07
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800E484
 
 

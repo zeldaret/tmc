@@ -1,5 +1,11 @@
-#include "object.h"
+/**
+ * @file lilypadSmall.c
+ * @ingroup Objects
+ *
+ * @brief Lilypad Small object
+ */
 #include "functions.h"
+#include "object.h"
 
 static void sub_08097B24(Entity* this);
 static bool32 CheckMovePlayer(Entity* this);

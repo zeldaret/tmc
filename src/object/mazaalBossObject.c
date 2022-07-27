@@ -1,17 +1,23 @@
+/**
+ * @file mazaalBossObject.c
+ * @ingroup Objects
+ *
+ * @brief Mazaal Boss object
+ */
 #define NENT_DEPRECATED
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
+#include "global.h"
 #include "item.h"
+#include "new_player.h"
 #include "object.h"
 #include "player.h"
-#include "new_player.h"
 #include "room.h"
 #include "screen.h"
 #include "sound.h"
 
-extern u16 script_Object89Mazaal[];
+extern u16 script_MazaalBossObjectMazaal[];
 
 typedef struct {
     /* 0x00 */ Entity base;
@@ -86,7 +92,7 @@ void MazaalBossObject_Action0(MazaalBossObjectEntity* this) {
         super->spritePriority.b0 = 7;
         super->spriteOffsetY = 0x20;
 
-        this->cutsceneBeh = StartCutscene(super, script_Object89Mazaal);
+        this->cutsceneBeh = StartCutscene(super, script_MazaalBossObjectMazaal);
     }
 }
 

@@ -4,7 +4,7 @@ SCRIPT_START script_InnDoor
 	JumpIfNot script_InnDoor
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtInnDoor
 	WaitForSyncFlagAndClear 0x00000001
 	CheckRoomFlag 0x0001
@@ -12,6 +12,6 @@ SCRIPT_START script_InnDoor
 	EzloMessage TEXT_EZLO, 0x63
 	WaitUntilTextboxCloses
 script_08010900:
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_InnDoor

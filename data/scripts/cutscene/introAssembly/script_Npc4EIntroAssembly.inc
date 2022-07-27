@@ -8,7 +8,7 @@ script_08008E12:
 	JumpIfNot script_08008E12
 	SetPlayerIdle
 	Call WaitForPlayerNormal
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	_0807F0B4 0x0001
 	CameraTargetEntity
 	WaitForPlayerEnterRoom
@@ -70,7 +70,7 @@ script_08008E12:
 	CameraTargetPlayer
 	SetGlobalFlag TABIDACHI
 	Call sub_0806DCC0
-	Call sub_0807DF50
+	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

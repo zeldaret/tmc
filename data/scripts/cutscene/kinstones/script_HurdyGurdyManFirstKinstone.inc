@@ -100,7 +100,7 @@ script_0800F2EA:
 	SetAnimation 0x0008
 	MessageFromTargetPos TEXT_MINISH2, 0x08, 0x000c
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	Jump script_0800F1E6
 script_0800F314:
 	EndBlock

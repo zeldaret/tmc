@@ -1,12 +1,18 @@
+/**
+ * @file gyorgBossObject.c
+ * @ingroup Objects
+ *
+ * @brief Gyorg Boss object
+ */
 #define NENT_DEPRECATED
-#include "global.h"
-#include "entity.h"
-#include "object.h"
 #include "area.h"
+#include "enemy/gyorg.h"
+#include "entity.h"
+#include "functions.h"
+#include "global.h"
+#include "object.h"
 #include "room.h"
 #include "screen.h"
-#include "functions.h"
-#include "enemy/gyorg.h"
 
 extern const ScreenTransitionData gUnk_0813ABD0;
 
@@ -39,13 +45,13 @@ void GyorgBossObject_FemalePhase4(GyorgBossObjectEntity* this);
 void GyorgBossObject_FightEnd(GyorgBossObjectEntity* this);
 
 void GyorgBossObject(Entity* this) {
-    static void (*const gUnk_08124ED0[])(GyorgBossObjectEntity*) = {
+    static void (*const GyorgBossObject_Actions[])(GyorgBossObjectEntity*) = {
         GyorgBossObject_SetupStart,   GyorgBossObject_Setup,        GyorgBossObject_FemalePhase1,
         GyorgBossObject_MalePhase1,   GyorgBossObject_FemalePhase2, GyorgBossObject_MalePhase2,
         GyorgBossObject_FemalePhase3, GyorgBossObject_MalePhase3,   GyorgBossObject_FemalePhase4,
         GyorgBossObject_FightEnd,
     };
-    gUnk_08124ED0[this->action]((GyorgBossObjectEntity*)this);
+    GyorgBossObject_Actions[this->action]((GyorgBossObjectEntity*)this);
     sub_080A1DCC((GyorgBossObjectEntity*)this);
     sub_080A1C9C((GyorgBossObjectEntity*)this);
 }

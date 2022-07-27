@@ -1,29 +1,35 @@
-#include "global.h"
+/**
+ * @file bigVortex.c
+ * @ingroup Objects
+ *
+ * @brief Big Vortex object
+ */
 #include "entity.h"
 #include "flags.h"
-#include "object.h"
 #include "functions.h"
+#include "global.h"
+#include "object.h"
 
 void sub_08098E3C(Entity*);
 void sub_08098E88(Entity*);
-void sub_08098D1C(Entity*);
-void sub_08098D6C(Entity*);
-void sub_08098D9C(Entity*);
-void sub_08098DC4(Entity*);
-void sub_08098E34(Entity*);
+void BigVortex_Init(Entity*);
+void BigVortex_Action1(Entity*);
+void BigVortex_Action2(Entity*);
+void BigVortex_Action3(Entity*);
+void BigVortex_Action4(Entity*);
 
 void BigVortex(Entity* this) {
-    static void (*const gUnk_0812367C[])(Entity*) = {
-        sub_08098D1C, sub_08098D6C, sub_08098D9C, sub_08098DC4, sub_08098E34,
+    static void (*const BigVortex_Actions[])(Entity*) = {
+        BigVortex_Init, BigVortex_Action1, BigVortex_Action2, BigVortex_Action3, BigVortex_Action4,
     };
     if (this->type == 0) {
-        gUnk_0812367C[this->action](this);
+        BigVortex_Actions[this->action](this);
     } else {
         sub_08098E3C(this);
     }
 }
 
-void sub_08098D1C(Entity* this) {
+void BigVortex_Init(Entity* this) {
     u32 temp;
     this->action = 1;
     this->z.HALF.HI = -0x10;
@@ -41,7 +47,7 @@ void sub_08098D1C(Entity* this) {
     InitAnimationForceUpdate(this, 0);
 }
 
-void sub_08098D6C(Entity* this) {
+void BigVortex_Action1(Entity* this) {
     Entity* ent;
 
     if (CheckFlags(this->field_0x86.HWORD)) {
@@ -54,7 +60,7 @@ void sub_08098D6C(Entity* this) {
     }
 }
 
-void sub_08098D9C(Entity* this) {
+void BigVortex_Action2(Entity* this) {
     if (--this->timer == 0) {
         this->action = 3;
         this->spriteSettings.draw = TRUE;
@@ -62,7 +68,7 @@ void sub_08098D9C(Entity* this) {
     }
 }
 
-void sub_08098DC4(Entity* this) {
+void BigVortex_Action3(Entity* this) {
 
     if (sub_0800419C(this, &gPlayerEntity, 8, 8) != 0) {
         CopyPosition(this, &gPlayerEntity);
@@ -82,7 +88,7 @@ void sub_08098DC4(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08098E34(Entity* this) {
+void BigVortex_Action4(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 

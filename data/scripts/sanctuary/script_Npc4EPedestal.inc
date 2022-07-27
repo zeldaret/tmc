@@ -11,36 +11,36 @@ script_080134F8:
 	CheckEntityInteractType
 	JumpIfNot script_080134F8
 	SetPlayerIdle
-	Call sub_0807DF28
+	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtPedestal
 	WaitForSyncFlagAndClear 0x00000001
-	CallWithArg sub_08095A1C, script_Object6ASwordInPedestal
+	CallWithArg sub_08095A1C, script_CutsceneMiscObjectSwordInPedestal
 	PlaySound SFX_ELEMENT_PLACE
 	Wait 0x005a
 	BeginBlock
 	PlaySound SFX_ELEMENT_FLOAT
-	CallWithArg sub_08095D54, script_Object6AEarthElementFloating
-	CallWithArg sub_08095D54, script_Object6AFireElementFloating
+	CallWithArg sub_08095D54, script_CutsceneMiscObjectEarthElementFloating
+	CallWithArg sub_08095D54, script_CutsceneMiscObjectFireElementFloating
 	EndBlock
 	WaitForSyncFlagAndClear 0x18000000
 	BeginBlock
 	PlaySound SFX_ELEMENT_CHARGE
-	CallWithArg sub_08095D8C, script_Object6ASwordChange1
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge2
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordChange1
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge2
 	EndBlock
 	Wait 0x001e
 	BeginBlock
 	PlaySound SFX_1D0
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge5
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge6
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge5
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge6
 	EndBlock
 	Wait 0x003c
 	CallWithArg CreateRepeatedSoundManager, 0x00000000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00002000
 	PlaySound SFX_1D2
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge9
-	CallWithArg sub_08095D8C, script_Object6ASwordCharge10
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge9
+	CallWithArg sub_08095D8C, script_CutsceneMiscObjectSwordCharge10
 	SetSyncFlag 0x00000400
 	WaitForSyncFlagAndClear 0x00004000
 	Wait 0x0078

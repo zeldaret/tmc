@@ -36,7 +36,7 @@ void Gina(Entity* this) {
 
 void Gina_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {

@@ -1,30 +1,36 @@
-#include "global.h"
+/**
+ * @file metalDoor.c
+ * @ingroup Objects
+ *
+ * @brief Metal Door object
+ */
 #include "asm.h"
-#include "entity.h"
-#include "room.h"
-#include "flags.h"
-#include "sound.h"
-#include "functions.h"
 #include "effects.h"
+#include "entity.h"
+#include "flags.h"
+#include "functions.h"
+#include "global.h"
 #include "hitbox.h"
+#include "room.h"
+#include "sound.h"
 
 extern u32 sub_08083734(Entity*, u32);
 void sub_080A080C(Entity*);
 void sub_080A0870(Entity*);
-void sub_080A0684(Entity*);
-void sub_080A0718(Entity*);
-void sub_080A074C(Entity*);
-void sub_080A07BC(Entity*);
-void sub_080A07F0(Entity*);
+void MetalDoor_Init(Entity*);
+void MetalDoor_Action1(Entity*);
+void MetalDoor_Action2(Entity*);
+void MetalDoor_Action3(Entity*);
+void MetalDoor_Action4(Entity*);
 
 void MetalDoor(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_080A0684, sub_080A0718, sub_080A074C, sub_080A07BC, sub_080A07F0,
+    static void (*const MetalDoor_Actions[])(Entity*) = {
+        MetalDoor_Init, MetalDoor_Action1, MetalDoor_Action2, MetalDoor_Action3, MetalDoor_Action4,
     };
-    actionFuncs[this->action](this);
+    MetalDoor_Actions[this->action](this);
 }
 
-void sub_080A0684(Entity* this) {
+void MetalDoor_Init(Entity* this) {
     if ((this->cutsceneBeh.HWORD != 0xffff) && CheckFlags(this->cutsceneBeh.HWORD)) {
         DeleteThisEntity();
     }
@@ -40,7 +46,7 @@ void sub_080A0684(Entity* this) {
     this->field_0x74.HWORD = COORD_TO_TILE(this);
 }
 
-void sub_080A0718(Entity* this) {
+void MetalDoor_Action1(Entity* this) {
     if (sub_08083734(this, 2) != 0) {
         this->action = 2;
         this->timer = 12;
@@ -51,7 +57,7 @@ void sub_080A0718(Entity* this) {
     }
 }
 
-void sub_080A074C(Entity* this) {
+void MetalDoor_Action2(Entity* this) {
     u8 bVar1;
     Entity* ent;
 
@@ -76,7 +82,7 @@ void sub_080A074C(Entity* this) {
     }
 }
 
-void sub_080A07BC(Entity* this) {
+void MetalDoor_Action3(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 4;
         this->timer = 12;
@@ -87,7 +93,7 @@ void sub_080A07BC(Entity* this) {
     }
 }
 
-void sub_080A07F0(Entity* this) {
+void MetalDoor_Action4(Entity* this) {
 
     LinearMoveUpdate(this);
 

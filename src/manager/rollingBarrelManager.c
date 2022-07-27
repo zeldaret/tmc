@@ -44,7 +44,9 @@ void RollingBarrelManager_Main(RollingBarrelManager* this) {
     u32 tmp;
     RollingBarrelManager_Actions[super->action](this);
     sub_08058BC8(this);
-    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4[0] * 0xA0], 0x04000020, 0xA2600008);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0] * 0xA0], (u16*)REG_ADDR_BG2PA,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x8);
 }
 void RollingBarrelManager_Init(RollingBarrelManager* this) {
     super->action = 1;

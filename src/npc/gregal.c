@@ -27,7 +27,7 @@ void sub_0806CAF4(Entity* this) {
     Entity* npc;
 
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         SetDefaultPriority(this, PRIO_MESSAGE);
         npc = CreateNPC(GREGAL, 1, 0);
         if (npc != NULL) {
@@ -52,7 +52,7 @@ void sub_0806CAF4(Entity* this) {
 
 void sub_0806CB80(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->animationState = 2;
         this->frameIndex = 0;
         SetDefaultPriority(this, PRIO_MESSAGE);
@@ -64,7 +64,7 @@ void sub_0806CB80(Entity* this) {
 
 void sub_0806CBB4(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->animationState = 2;
         SetDefaultPriority(this, PRIO_MESSAGE);
         InitializeAnimation(this, 0x11);
@@ -161,7 +161,7 @@ void sub_0806CD58(Entity* this) {
 
 void Gregal_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 6);

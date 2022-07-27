@@ -229,7 +229,7 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
     s32 uVar4;
 
     if (context->unk_18 == 0) {
-        context->unk_18 += 1;
+        context->unk_18++;
         context->unk_19 = 10;
         context->postScriptActions |= 2;
         sVar1 = *(s16*)&context->intVariable;
@@ -332,7 +332,7 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
     s32 iVar4;
 
     if (context->unk_18 == 0) {
-        context->unk_18 += 1;
+        context->unk_18++;
         context->unk_12 = (Random() & 0x3f) + 0x20;
         uVar3 = Random() & 0x18;
         switch (this->direction) {

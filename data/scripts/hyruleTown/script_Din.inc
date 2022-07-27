@@ -19,7 +19,7 @@ script_08011C9A:
 	DoPostScriptAction 0x0000
 	MessageNoOverlap TEXT_HAPPY_HEARTH, 0x15
 	WaitUntilTextboxCloses
-	EnablePlayerControl 
+	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011C9A
@@ -38,7 +38,7 @@ script_08011CC2:
 	DoPostScriptAction 0x0000
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x5
 	WaitUntilTextboxCloses
-	CheckTextboxResult 
+	CheckTextboxResult
 	JumpIf script_08011D0E
 	EnablePlayerControl
 	SetAnimationState 0x0004
