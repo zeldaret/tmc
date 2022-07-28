@@ -1603,92 +1603,98 @@ bool32 IsTileCollision(const u8* collisionData, s32 x, s32 y, u32 collisionType)
     return FALSE;
 }
 
-ASM_FUNC("asm/non_matching/movement/CalculateEntityTileCollisions.inc",
-         void CalculateEntityTileCollisions(Entity* this, u32 direction, u32 collisionType))
-/*NONMATCH("asm/non_matching/movement/CalculateEntityTileCollisions.inc",
-         void CalculateEntityTileCollisions(Entity* this, u32 direction, u32 collisionType)) {
+void CalculateEntityTileCollisions(Entity* this, u32 direction, u32 collisionType) {
     u8* layer;
-
     u32 colResult;
-
+    Hitbox* hb;
     s32 xMin;
-    s32 xVar1;
-    s32 xVar2;
-
     s32 yMin;
-    s32 yVar1;
-    s32 yVar2;
-
-    bool32 col1;
-    bool32 col2;
-    bool32 col3;
-    bool32 col4;
-    bool32 col5;
-    bool32 col6;
-
+    s32 temp;
     u32 hitboxUnkX;
     u32 hitboxUnkY;
 
     layer = GetLayerByIndex(this->collisionLayer)->collisionData;
-    xMin = this->x.HALF.HI + this->hitbox->offset_x;
-    yMin = this->y.HALF.HI + this->hitbox->offset_y;
-    hitboxUnkX = this->hitbox->unk2[0];
-    hitboxUnkY = this->hitbox->unk2[1];
+    hb = this->hitbox;
+    xMin = this->x.HALF.HI + hb->offset_x;
+    yMin = this->y.HALF.HI + hb->offset_y;
+    hitboxUnkX = hb->unk2[0];
+    hitboxUnkY = hb->unk2[1];
     if ((direction & 0xf) != 0) {
         if (0xf >= direction) {
-            col1 = IsTileCollision(layer, xMin + hitboxUnkX, yMin, collisionType);
-            col2 = IsTileCollision(layer, xMin + hitboxUnkX, yMin + hitboxUnkY, collisionType);
-            col3 = IsTileCollision(layer, xMin + hitboxUnkX, yMin - hitboxUnkY, collisionType);
-            colResult = ((col1 << 1 | col2) << 1 | col3) << 6;
+            temp = xMin + hitboxUnkX;
+            colResult = IsTileCollision(layer, temp, yMin, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, temp, yMin + hitboxUnkY, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, temp, yMin - hitboxUnkY, collisionType);
+            colResult <<= 6;
         } else {
-            col1 = IsTileCollision(layer, xMin - hitboxUnkX, yMin, collisionType);
-            col2 = IsTileCollision(layer, xMin - hitboxUnkX, yMin + hitboxUnkY, collisionType);
-            colResult = col1 << 1 | col2;
-            col3 = IsTileCollision(layer, xMin - hitboxUnkX, yMin - hitboxUnkY, collisionType);
-            colResult = (colResult << 1 | col3) << 2;
+            temp = xMin - hitboxUnkX;
+            colResult = IsTileCollision(layer, temp, yMin, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, temp, yMin + hitboxUnkY, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, temp, yMin - hitboxUnkY, collisionType);
+            colResult <<= 2;
         }
     } else {
-        col1 = IsTileCollision(layer, xMin + hitboxUnkX, yMin, collisionType);
-        col2 = IsTileCollision(layer, xMin + hitboxUnkX, yMin + hitboxUnkY, collisionType);
-        col3 = IsTileCollision(layer, xMin + hitboxUnkX, yMin - hitboxUnkY, collisionType);
-        col4 = IsTileCollision(layer, xMin - hitboxUnkX, yMin, collisionType);
-        col5 = IsTileCollision(layer, xMin - hitboxUnkX, yMin + hitboxUnkY, collisionType);
-        colResult = (((col1 << 1 | col2) << 1 | col3) << 2 | col4) << 1 | col5;
-        col6 = IsTileCollision(layer, xMin - hitboxUnkX, yMin - hitboxUnkY, collisionType);
-        colResult = (colResult << 1 | col6) << 2;
+        temp = xMin + hitboxUnkX;
+        colResult = IsTileCollision(layer, temp, yMin, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, temp, yMin + hitboxUnkY, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, temp, yMin - hitboxUnkY, collisionType);
+        colResult <<= 2;
+        temp = xMin - hitboxUnkX;
+        colResult |= IsTileCollision(layer, temp, yMin, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, temp, yMin + hitboxUnkY, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, temp, yMin - hitboxUnkY, collisionType);
+        colResult <<= 2;
     }
 
-    hitboxUnkX = this->hitbox->unk2[2];
-    hitboxUnkY = this->hitbox->unk2[3];
+    hitboxUnkX = hb->unk2[2];
+    hitboxUnkY = hb->unk2[3];
 
-    if (((direction - 8) & 0xf) == 0) {
-        col1 = IsTileCollision(layer, xMin, yMin + hitboxUnkY, collisionType);
-        col2 = IsTileCollision(layer, xMin + hitboxUnkX, yMin + hitboxUnkY, collisionType);
-        col3 = IsTileCollision(layer, xMin - hitboxUnkX, yMin + hitboxUnkY, collisionType);
-        yMin -= hitboxUnkY;
-        col4 = IsTileCollision(layer, xMin, yMin, collisionType);
-        col5 = IsTileCollision(layer, xMin + hitboxUnkX, yMin, collisionType);
-        colResult = ((((colResult | col1) << 1 | col2) << 1 | col3) << 2 | col4) << 1 | col5;
-        col6 = IsTileCollision(layer, xMin - hitboxUnkX, yMin, collisionType);
-        this->collisions = ((colResult << 1 | col6) << 1);
-    } else {
-        if (direction - 8 < 0x10) {
-            yMin += hitboxUnkY;
-            col1 = IsTileCollision(layer, xMin, yMin, collisionType);
-            col2 = IsTileCollision(layer, xMin + hitboxUnkX, yMin, collisionType);
-            col3 = IsTileCollision(layer, xMin - hitboxUnkX, yMin, collisionType);
-            this->collisions = ((((colResult | col1) << 1 | col2) << 1 | col3) << 5);
+    direction -= 8;
+    if (((direction)&0xf) != 0) {
+        if (direction < 0x10) {
+            temp = yMin + hitboxUnkY;
+            colResult |= IsTileCollision(layer, xMin, temp, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, xMin + hitboxUnkX, temp, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, xMin - hitboxUnkX, temp, collisionType);
+            colResult <<= 5;
         } else {
-            yMin -= hitboxUnkY;
-            col1 = IsTileCollision(layer, xMin, yMin, collisionType);
-            col2 = IsTileCollision(layer, xMin + hitboxUnkX, yMin, collisionType);
-            col6 = (colResult << 4 | col1) << 1 | col2;
-            colResult = IsTileCollision(layer, xMin - hitboxUnkX, yMin, collisionType);
-            this->collisions = ((col6 << 1 | colResult) << 1);
+            temp = yMin - hitboxUnkY;
+            colResult <<= 4;
+            colResult |= IsTileCollision(layer, xMin, temp, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, xMin + hitboxUnkX, temp, collisionType);
+            colResult <<= 1;
+            colResult |= IsTileCollision(layer, xMin - hitboxUnkX, temp, collisionType);
+            colResult <<= 1;
         }
+    } else {
+        temp = yMin + hitboxUnkY;
+        colResult |= IsTileCollision(layer, xMin, temp, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, xMin + hitboxUnkX, temp, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, xMin - hitboxUnkX, temp, collisionType);
+        colResult <<= 2;
+        temp = yMin - hitboxUnkY;
+        colResult |= IsTileCollision(layer, xMin, temp, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, xMin + hitboxUnkX, temp, collisionType);
+        colResult <<= 1;
+        colResult |= IsTileCollision(layer, xMin - hitboxUnkX, temp, collisionType);
+        colResult <<= 1;
     }
+    this->collisions = colResult;
 }
-END_NONMATCH*/
 
 bool32 ProcessMovementInternal(Entity* this, s32 radius, s32 direction, u32 collisionType) {
     static bool32 (*const gDirectionalMovementFunctions[])(Entity*, s32, s32, u32) = {
