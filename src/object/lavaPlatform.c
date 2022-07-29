@@ -141,7 +141,7 @@ void LavaPlatform_Type1Action2(LavaPlatformEntity* this) {
             super->action = 3;
             super->flags &= ~ENT_COLLIDE;
             super->timer = 20;
-            gPlayerState.field_0x3f = 0xfd;
+            gPlayerState.spriteOffsetY = -3;
         }
     }
 }
@@ -149,7 +149,7 @@ void LavaPlatform_Type1Action2(LavaPlatformEntity* this) {
 /** Player is standing on the platform. */
 void LavaPlatform_Type1Action3(LavaPlatformEntity* this) {
     if (LavaPlatform_IsPlayerOnPlatform(this)) {
-        gPlayerState.field_0x3f = 0xfd;
+        gPlayerState.spriteOffsetY = -3;
     }
     if (--super->timer == 0) {
         super->action = 4;
@@ -219,7 +219,7 @@ void LavaPlatform_Type1Action6(LavaPlatformEntity* this) {
         if ((super->frame & ANIM_DONE) != 0) {
             sub_0809264C(this);
             if (tmp) {
-                gPlayerState.field_0x3f = 0xfd;
+                gPlayerState.spriteOffsetY = -3;
             }
         }
     }

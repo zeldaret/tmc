@@ -53,7 +53,7 @@ void PlayerItemCellOverwriteSet(Entity* this) {
                      TILE(player->x.HALF.HI + gUnk_080B7B6C[player->animationState & 0xe],
                           player->y.HALF.HI + gUnk_080B7B6C[(player->animationState & 0xe) + 1]),
                      this->collisionLayer);
-        gPlayerState.mobility &= 0x7f;
+        gPlayerState.mobility &= ~0x80;
         DeleteThisEntity();
     }
     if ((gInput.heldKeys & B_BUTTON) != 0) {

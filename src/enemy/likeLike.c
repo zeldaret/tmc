@@ -5,211 +5,219 @@
  * @brief Like Like enemy
  */
 
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "message.h"
 #include "save.h"
 #include "object.h"
 #include "item.h"
 
+typedef struct {
+    Entity base;
+    u8 filler[0x18];
+    u8 stolenItem;
+    u8 filler2;
+    u8 field_0x82;
+    u8 prevSpritePriority;
+} LikeLikeEntity;
+
 extern bool32 ItemIsShield(u32);
 
-void sub_0802810C(Entity*);
-void sub_080281A0(Entity*);
-bool32 sub_080281E0(u32);
-void sub_08028224(u32);
+void LikeLike_ReleasePlayer(LikeLikeEntity*);
+void sub_080281A0(LikeLikeEntity*);
+bool32 LikeLike_StealItem(u32);
+void LikeLike_ReturnStolenItem(u32);
 
 extern void (*const LikeLike_Functions[])(Entity*);
-extern void (*const gUnk_080CC714[])(Entity*);
+extern void (*const gUnk_080CC714[])(LikeLikeEntity*);
 
 void LikeLike(Entity* this) {
     EnemyFunctionHandler(this, LikeLike_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void LikeLike_OnTick(Entity* this) {
-    gUnk_080CC714[this->action](this);
+void LikeLike_OnTick(LikeLikeEntity* this) {
+    gUnk_080CC714[super->action](this);
 }
 
-void LikeLike_OnCollision(Entity* this) {
-    if (this->hitType == 1) {
-        this->action = 3;
-        COLLISION_OFF(this);
-        this->hitType = 0x8c;
+void LikeLike_OnCollision(LikeLikeEntity* this) {
+    if (super->hitType == 1) {
+        super->action = 3;
+        COLLISION_OFF(super);
+        super->hitType = 0x8c;
     } else {
-        if (this->action == 7) {
-            sub_0802810C(this);
-        } else if (this->contactFlags & 0x80) {
-            u8 tmp = this->contactFlags & ~0x80;
+        if (super->action == 7) {
+            LikeLike_ReleasePlayer(this);
+        } else if (super->contactFlags & 0x80) {
+            u8 tmp = super->contactFlags & ~0x80;
             if (tmp == 0) {
-                this->action = 7;
-                this->timer = 95;
-                this->subtimer = tmp;
-                this->flags2 &= 0xfc;
-                this->field_0x82.HALF.HI = gPlayerEntity.spritePriority.b1;
+                super->action = 7;
+                super->timer = 95;
+                super->subtimer = tmp;
+                super->flags2 &= 0xfc;
+                this->prevSpritePriority = gPlayerEntity.spritePriority.b1;
             }
         }
     }
 
-    if (this->health == 0) {
-        this->timer = 32;
+    if (super->health == 0) {
+        super->timer = 32;
     }
 
-    if (this->confusedTime) {
-        Create0x68FX(this, FX_STARS);
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    EnemyFunctionHandlerAfterCollision(this, LikeLike_Functions);
+    EnemyFunctionHandlerAfterCollision(super, LikeLike_Functions);
 }
 
-void LikeLike_OnDeath(Entity* this) {
-    if (this->timer == 2 && this->field_0x80.HALF.LO != 0xff) {
-        SetDefaultPriority(this, PRIO_NO_BLOCK);
-        sub_08028224(this->field_0x80.HALF.LO);
+void LikeLike_OnDeath(LikeLikeEntity* this) {
+    if (super->timer == 2 && this->stolenItem != 0xff) {
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        LikeLike_ReturnStolenItem(this->stolenItem);
     }
-    GenericDeath(this);
+    GenericDeath(super);
 }
 
-void LikeLike_OnGrabbed(Entity* this) {
-    /* ... */
+void LikeLike_OnGrabbed(LikeLikeEntity* this) {
 }
 
-void sub_08027E70(Entity* this) {
-    sub_0804A720(this);
+void LikeLike_Init(LikeLikeEntity* this) {
+    sub_0804A720(super);
 
-    switch (this->type) {
+    switch (super->type) {
         case 0:
-            this->action = 3;
-            this->spriteSettings.draw = 0;
-            COLLISION_OFF(this);
-            this->timer = 0;
+            super->action = 3;
+            super->spriteSettings.draw = 0;
+            COLLISION_OFF(super);
+            super->timer = 0;
             break;
         case 1:
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->timer = 8;
-            InitializeAnimation(this, 1);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            super->timer = 8;
+            InitializeAnimation(super, 1);
             break;
         case 2:
-            this->action = 1;
-            this->spriteSettings.draw = 0;
-            this->timer = 0;
-            this->hitType = 1;
-            InitializeAnimation(this, 0);
+            super->action = 1;
+            super->spriteSettings.draw = 0;
+            super->timer = 0;
+            super->hitType = 1;
+            InitializeAnimation(super, 0);
             break;
     }
 
-    this->direction = 0;
-    this->field_0x82.HALF.LO = 0;
-    this->animationState = 0;
-    this->field_0x82.HALF.HI = 0;
-    this->field_0x80.HALF.LO = 0xff;
+    super->direction = 0;
+    this->field_0x82 = 0;
+    super->animationState = 0;
+    this->prevSpritePriority = 0;
+    this->stolenItem = 0xff;
 }
 
-void sub_08027EFC(Entity* this) {
-    if (this->hitType == 1)
+void sub_08027EFC(LikeLikeEntity* this) {
+    if (super->hitType == 1)
         return;
 
-    if (sub_08049FDC(this, 1)) {
-        if (!sub_08049FA0(this) && (Random() & 0x30)) {
-            this->direction = sub_08049EE4(this);
+    if (sub_08049FDC(super, 1)) {
+        if (!sub_08049FA0(super) && (Random() & 0x30)) {
+            super->direction = sub_08049EE4(super);
         } else {
-            this->direction = this->field_0x82.HALF.LO;
+            super->direction = this->field_0x82;
         }
 
-        if (--this->timer == 0) {
-            this->direction = sub_08049F84(this, 1);
-            this->field_0x82.HALF.LO = this->direction;
-            this->timer = 8;
+        if (--super->timer == 0) {
+            super->direction = sub_08049F84(super, 1);
+            this->field_0x82 = super->direction;
+            super->timer = 8;
         }
-        ProcessMovement0(this);
-        GetNextFrame(this);
+        ProcessMovement0(super);
+        GetNextFrame(super);
     } else {
-        this->action = 6;
-        COLLISION_OFF(this);
-        InitializeAnimation(this, 2);
+        super->action = 6;
+        COLLISION_OFF(super);
+        InitializeAnimation(super, 2);
     }
 }
 
-void nullsub_12(Entity* this) {
-    /* ... */
+void nullsub_12(LikeLikeEntity* this) {
 }
 
-void sub_08027F84(Entity* this) {
-    if (sub_08049FDC(this, 1)) {
-        this->action = 5;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 0);
-        CreateDust(this);
+void sub_08027F84(LikeLikeEntity* this) {
+    if (sub_08049FDC(super, 1)) {
+        super->action = 5;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 0);
+        CreateDust(super);
     }
 }
 
-void sub_08027FB4(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 1;
-        this->timer = 1;
-        this->flags2 |= 1;
+void sub_08027FB4(LikeLikeEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 1;
+        super->timer = 1;
+        super->flags2 |= 1;
     }
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void sub_08027FE0(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & 1) {
-        this->action = 1;
-        COLLISION_ON(this);
-        this->direction = sub_08049F84(this, 1);
-        this->timer = 8;
-        this->spritePriority.b1 = 1;
-        InitializeAnimation(this, 1);
-    }
-}
-
-void sub_0802802C(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & 1) {
-        this->action = 3;
-        this->spriteSettings.draw = 0;
-        this->direction = 0;
-        this->timer = 0;
-        CreateDust(this);
+void sub_08027FE0(LikeLikeEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & 1) {
+        super->action = 1;
+        COLLISION_ON(super);
+        super->direction = sub_08049F84(super, 1);
+        super->timer = 8;
+        super->spritePriority.b1 = 1;
+        InitializeAnimation(super, 1);
     }
 }
 
-void sub_0802805C(Entity* this) {
+void sub_0802802C(LikeLikeEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & 1) {
+        super->action = 3;
+        super->spriteSettings.draw = 0;
+        super->direction = 0;
+        super->timer = 0;
+        CreateDust(super);
+    }
+}
+
+void sub_0802805C(LikeLikeEntity* this) {
     u8* tmp;
 
-    UpdateAnimationVariableFrames(this, 2);
+    UpdateAnimationVariableFrames(super, 2);
 
     if (sub_0807953C()) {
         u32 tmp2 = Random();
-        u32 tmp3 = this->subtimer + 1;
+        u32 tmp3 = super->subtimer + 1;
         tmp3 += (tmp2 & 1);
-        this->subtimer = tmp3;
+        super->subtimer = tmp3;
     }
 
-    if (this->subtimer >= 0x19 || gSave.stats.health == 0) {
-        sub_0802810C(this);
+    if (super->subtimer >= 0x19 || gSave.stats.health == 0) {
+        LikeLike_ReleasePlayer(this);
     } else {
         ResetPlayerItem();
         gPlayerState.mobility |= 0x80;
-        PositionRelative(this, &gPlayerEntity, 0, Q_16_16(1.0));
+        PositionRelative(super, &gPlayerEntity, 0, Q_16_16(1.0));
 
-        tmp = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
+        tmp = GetSpriteSubEntryOffsetDataPointer((u16)super->spriteIndex, super->frameIndex);
         gPlayerEntity.spriteOffsetX = tmp[0];
         gPlayerEntity.spriteOffsetY = tmp[1];
         gPlayerEntity.spritePriority.b1 = 0;
 
-        if (--this->timer == 0) {
+        if (--super->timer == 0) {
             sub_080281A0(this);
         }
 
-        if ((this->timer & 3) == 0) {
+        if ((super->timer & 3) == 0) {
             EnqueueSFX(SFX_PLACE_OBJ);
         }
     }
 }
 
-void sub_0802810C(Entity* this) {
+void LikeLike_ReleasePlayer(LikeLikeEntity* this) {
 // This matches but ugly
 #ifndef NON_MATCHING
     register u32 tmp asm("r3");
@@ -223,34 +231,33 @@ void sub_0802810C(Entity* this) {
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = -60;
     tmp = 0;
-    gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-    gPlayerEntity.spritePriority.b1 = this->field_0x82.HALF.HI;
+    gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+    gPlayerEntity.spritePriority.b1 = this->prevSpritePriority;
     gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = tmp;
-    this->action = 4;
-    this->timer = 80;
-    this->subtimer = tmp;
-    this->flags2 |= 2;
-    if (this->iframes == 0) {
-        this->iframes = -18;
+    super->action = 4;
+    super->timer = 80;
+    super->subtimer = tmp;
+    super->flags2 |= 2;
+    if (super->iframes == 0) {
+        super->iframes = -18;
     }
 }
 
-void sub_080281A0(Entity* this) {
-    this->subtimer = 25;
-    if (sub_080281E0(ITEM_MIRROR_SHIELD)) {
-        this->field_0x80.HALF.LO = ITEM_MIRROR_SHIELD;
+void sub_080281A0(LikeLikeEntity* this) {
+    super->subtimer = 25;
+    if (LikeLike_StealItem(ITEM_MIRROR_SHIELD)) {
+        this->stolenItem = ITEM_MIRROR_SHIELD;
         MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x78));
-    } else if (sub_080281E0(ITEM_SHIELD)) {
-        this->field_0x80.HALF.LO = ITEM_SHIELD;
+    } else if (LikeLike_StealItem(ITEM_SHIELD)) {
+        this->stolenItem = ITEM_SHIELD;
         MessageFromTarget(TEXT_INDEX(TEXT_ITEM_GET, 0x78));
     } else {
         ModHealth(-1);
     }
 }
 
-/** Can steal item */
-bool32 sub_080281E0(u32 item) {
+bool32 LikeLike_StealItem(u32 item) {
     bool32 ret = FALSE;
     if (GetInventoryValue(item) == 1) {
         if (ItemIsShield(gSave.stats.itemButtons[SLOT_A])) {
@@ -268,8 +275,7 @@ bool32 sub_080281E0(u32 item) {
     return ret;
 }
 
-/** Return stolen item */
-void sub_08028224(u32 item) {
+void LikeLike_ReturnStolenItem(u32 item) {
 #ifdef EU
     CreateItemEntity(item, 0, 1);
 #else
@@ -279,9 +285,14 @@ void sub_08028224(u32 item) {
 }
 
 void (*const LikeLike_Functions[])(Entity*) = {
-    LikeLike_OnTick, LikeLike_OnCollision, GenericKnockback, LikeLike_OnDeath, GenericConfused, LikeLike_OnGrabbed,
+    (EntityActionPtr)LikeLike_OnTick,
+    (EntityActionPtr)LikeLike_OnCollision,
+    GenericKnockback,
+    (EntityActionPtr)LikeLike_OnDeath,
+    GenericConfused,
+    (EntityActionPtr)LikeLike_OnGrabbed,
 };
 
-void (*const gUnk_080CC714[])(Entity*) = {
-    sub_08027E70, sub_08027EFC, nullsub_12, sub_08027F84, sub_08027FB4, sub_08027FE0, sub_0802802C, sub_0802805C,
+void (*const gUnk_080CC714[])(LikeLikeEntity*) = {
+    LikeLike_Init, sub_08027EFC, nullsub_12, sub_08027F84, sub_08027FB4, sub_08027FE0, sub_0802802C, sub_0802805C,
 };

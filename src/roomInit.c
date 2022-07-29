@@ -3644,7 +3644,7 @@ void sub_StateChange_DarkHyruleCastleOutside_ZeldaStatuePlatform(void) {
         LoadRoomEntityList(&gUnk_080EADB8);
         SetTileType(0x4072, 0x145, 1);
         SetTileType(0x4072, 0x149, 1);
-        gArea.queued_bgm = 0;
+        gArea.queued_bgm = SFX_NONE;
     }
 }
 
@@ -3689,7 +3689,7 @@ void sub_StateChange_DarkHyruleCastleOutside_Garden(void) {
         if (!CheckLocalFlag(0x7f)) {
             LoadRoomEntityList(&gUnk_080EAEC0);
             SetLocalFlag(0x7f);
-            gArea.queued_bgm = 0x11;
+            gArea.queued_bgm = BGM_BEAT_VAATI;
         } else {
             LoadRoomEntityList(&gUnk_080EAF20);
             gArea.queued_bgm = gArea.bgm;
@@ -5785,9 +5785,9 @@ void sub_StateChange_HyruleField_OutsideCastle(void) {
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
 #ifdef EU
-        gArea.queued_bgm = 0x10;
+        gArea.queued_bgm = BGM_FESTIVAL_APPROACH;
 #else
-        gArea.queued_bgm = 0x13;
+        gArea.queued_bgm = BGM_BEANSTALK;
 #endif
     }
 }

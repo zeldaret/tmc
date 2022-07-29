@@ -61,7 +61,7 @@ void Whirlwind_Action1(Entity* this) {
     }
     if (this->spriteSettings.draw != 0) {
         GetNextFrame(this);
-        if ((((((gPlayerState.flags & PL_MINISH) == 0)) && (gPlayerState.field_0x3c[0] == 0)) &&
+        if ((((((gPlayerState.flags & PL_MINISH) == 0)) && (gPlayerState.field_0x3c == 0)) &&
              ((gPlayerEntity.action == 4 || ((gPlayerEntity.flags & ENT_COLLIDE) != 0)))) &&
             ((gPlayerEntity.action != 6 && (sub_0800419C(this, &gPlayerEntity, 0xc, 0xc) != 0)))) {
             if (((gPlayerState.flags & PL_PARACHUTE) == 0) && (gPlayerEntity.action != 4)) {

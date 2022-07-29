@@ -29,7 +29,7 @@ void sub_08077130(ItemBehavior* this, u32 idx) {
 
     if (gPlayerState.jump_status == 0) {
         sub_08077D38(this, idx);
-        gPlayerState.field_0x3c[1] = 1;
+        gPlayerState.moleMittsState = 1;
         this->field_0x5[4] |= 0x80;
         iVar1 = sub_080774A0();
         if (iVar1 != 0) {
@@ -50,7 +50,7 @@ void sub_08077130(ItemBehavior* this, u32 idx) {
         }
     } else {
         DeletePlayerItem(this, idx);
-        gPlayerState.field_0x3c[1] = 0;
+        gPlayerState.moleMittsState = 0;
     }
 }
 
@@ -64,7 +64,7 @@ void sub_080771C8(ItemBehavior* this, u32 idx) {
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
         DeletePlayerItem(this, idx);
-        gPlayerState.field_0x3c[1] = 0;
+        gPlayerState.moleMittsState = 0;
     } else {
         if (((this->field_0x5[9] & 0x20) != 0) && (this->field_0x5[3] == 0xff)) {
             CreateObjectWithParent(&gPlayerEntity, 0x1e, this->field_0x5[9], 1);
@@ -132,7 +132,7 @@ void sub_080772A8(ItemBehavior* this, u32 idx) {
             }
         }
         DeletePlayerItem(this, idx);
-        gPlayerState.field_0x3c[1] = 0;
+        gPlayerState.moleMittsState = 0;
     } else {
         if ((this->field_0x5[9] & 0x60) != 0) {
             gPlayerEntity.frameDuration = 1;
@@ -168,7 +168,7 @@ void sub_08077448(ItemBehavior* this, u32 idx) {
     }
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
-        gPlayerState.field_0x3c[1] = 0;
+        gPlayerState.moleMittsState = 0;
         DeletePlayerItem(this, idx);
     }
 }

@@ -67,7 +67,7 @@ void OpenSmallChest(u32 pos, u32 layer) {
             SetLocalFlag(t->localFlag);
             CreateItemEntity(t->_2, t->_3, 0);
         } else {
-            CreateItemEntity(0x60, 0, 0);
+            CreateItemEntity(ITEM_FAIRY, 0, 0);
         }
         sub_0807B7D8(0x74, pos, layer);
         RequestPriorityDuration(NULL, 120);

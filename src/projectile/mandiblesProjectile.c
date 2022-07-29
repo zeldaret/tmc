@@ -98,7 +98,7 @@ void MandiblesProjectile_Action1(Entity* this) {
 void MandiblesProjectile_Action2(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if ((this->frame & 0x40) != 0) {
-        this->frame &= 0xbf;
+        this->frame &= ~0x40;
         EnqueueSFX(SFX_15D);
     }
     this->field_0x78.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);

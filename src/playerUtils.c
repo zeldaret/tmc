@@ -405,7 +405,7 @@ void ResetPlayerItem() {
         index++;
     } while (index <= 2);
 
-    gPlayerState.field_0x3c[1] = 0;
+    gPlayerState.moleMittsState = 0;
     gPlayerState.field_0x1c = 0;
     gPlayerState.field_0x1f[2] = 0;
     gPlayerState.field_0x0[1] = 0;
@@ -1201,8 +1201,8 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x38 = 0;
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x3a = 0;
-    gPlayerState.field_0x3f = 0;
-    gPlayerState.field_0x3c[0] = 0;
+    gPlayerState.spriteOffsetY = 0;
+    gPlayerState.field_0x3c = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, 0x40);
     MemClear(&gUnk_03003DF0, 0x188);
 }
@@ -1515,7 +1515,7 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_08079550.inc", u32 sub_08079550(void)
 
 void sub_08079708(Entity* this) {
     gPlayerState.framestate = 0x12;
-    gPlayerState.field_0x3c[0] = 0xff;
+    gPlayerState.field_0x3c = 0xff;
     this->flags &= ~ENT_COLLIDE;
     this->action = 0xa;
     this->subAction = 0;
@@ -1570,7 +1570,7 @@ void ResolvePlayerAnimation(void) {
         if (gPlayerState.heldObject != 0) {
             anim = 0x92c;
         } else {
-            if ((gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) != 0) {
+            if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
             if ((gPlayerState.flags & PL_FLAGS2000000) != 0) {
@@ -1613,7 +1613,7 @@ void ResolvePlayerAnimation(void) {
         if (gPlayerState.heldObject != 0) {
             anim = 0x350;
         } else {
-            if ((gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) != 0) {
+            if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
             if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
@@ -1854,7 +1854,7 @@ bool32 PlayerCanBeMoved(void) {
     if ((gPlayerState.flags &
          (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN | PL_FALLING | PL_DISABLE_ITEMS |
           PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
-        gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == PLAYER_FALL ||
+        gPlayerState.field_0x3c != 0 || gPlayerEntity.action == PLAYER_FALL ||
         gPlayerEntity.action == PLAYER_08071DB8) {
         return FALSE;
     } else {

@@ -418,12 +418,12 @@ void sub_08094FA8(CutsceneMiscObjectEntity* this) {
                 super->action = 4;
 #ifndef EU
                 if (!CheckGlobalFlag(BIN_DOGFOOD)) {
-                    CreateItemEntity(0x1c, 0, 0);
+                    CreateItemEntity(ITEM_BOTTLE1, 0, 0);
                     SetGlobalFlag(BIN_DOGFOOD);
                     super->timer = 60;
                 }
 #else
-                CreateItemEntity(0x1c, 0, 0);
+                CreateItemEntity(ITEM_BOTTLE1, 0, 0);
 #endif
             }
             break;
@@ -459,7 +459,7 @@ void sub_08095088(CutsceneMiscObjectEntity* this) {
             break;
         case 2:
             if ((gMessage.doTextBox & 0x7F) == 0) {
-                CreateItemEntity(0x5b, 0, 0);
+                CreateItemEntity(ITEM_JABBERNUT, 0, 0);
                 DeleteThisEntity();
             }
             break;
