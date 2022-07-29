@@ -175,21 +175,20 @@ NONMATCH("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* 
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/moldorm/sub_08022EAC.inc", void sub_08022EAC(Entity* this)) {
+void sub_08022EAC(Entity* this) {
     int iVar1;
     u32 tmp;
     u32 tmp2;
     if (this->child != NULL) {
         tmp2 = ((this->parent->field_0x78.HALF.HI) & 7);
-        ((u8*)&this->child->field_0x7c)[tmp2] = ((this->x.HALF_U.HI - this->field_0x74.HALF.LO + 8) & (0xf)) +
-                                                ((this->y.HALF_U.HI - this->field_0x76.HALF.LO + 8) /*& 0xf*/) * 0x10;
+        ((u8*)&this->child->field_0x7c)[tmp2] = ((this->x.HALF_U.HI - this->field_0x74.HALF.LO + 8) & 0xf) +
+                                                ((u32)((this->y.HALF_U.HI - this->field_0x76.HALF.LO + 8) & 0xf) << 4);
         iVar1 = ((this->parent->field_0x78.HALF.HI) & 7) << 2;
         tmp = (this->animationState & 7) << iVar1;
         tmp |= ~(0xf << iVar1) & (*(u32*)&this->child->cutsceneBeh);
         *(u32*)&this->child->cutsceneBeh = tmp;
     }
 }
-END_NONMATCH
 
 void sub_08022F14(Entity* this) {
     if (sub_08049FA0(this) == 0) {
