@@ -59,6 +59,7 @@ u32 sub_0807A094(u32);
 SurfaceType GetSurfaceCalcType(Entity*, s32, s32);
 void sub_0807AAF8(Entity*, u32);
 
+extern u32 gUnk_02022830[];
 extern struct_0811BE48 gUnk_0811BE48[];
 extern void (*const gUnk_0811C27C[])(Entity*);
 extern void (*const gUnk_0811C284[])(PlayerEntity*);
@@ -3120,7 +3121,34 @@ void sub_0807C460(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C4F8.inc", void sub_0807C4F8())
+void sub_0807C4F8(void) {
+    u32* puVar1;
+    u32* ptr;
+
+    if (gRoomControls.area != 0x71) {
+        MemClear(gMapDataBottomSpecial, 0x8000);
+        MemClear(&gMapDataTopSpecial, 0x8000);
+        ptr = gUnk_02022830;
+        puVar1 = (u32*)(gArea.pCurrentRoomInfo)->map;
+        puVar1 -= 3;
+        do {
+            puVar1 += 3;
+            if (((u16*)puVar1[1] == gMapDataBottomSpecial) || ((u16*)puVar1[1] == (u16*)&gMapDataTopSpecial)) {
+                ptr[0] = puVar1[0] & 0x7fffffff;
+                ptr[1] = puVar1[1];
+                ptr[2] = puVar1[2];
+                sub_080197D4(ptr);
+            }
+        } while ((s32)*puVar1 < 0);
+        MemCopy(gMapDataBottomSpecial, gMapDataBottomSpecial + 0x2000, 0x4000);
+        sub_0807C5F4(gMapDataBottomSpecial, gMapDataBottomSpecial + 0x2000);
+
+        MemClear(gMapDataBottomSpecial + 0x2000, 0x4000);
+        MemCopy(gMapDataTopSpecial, gMapDataTopSpecial + 0x2000, 0x4000);
+        sub_0807C5F4(gMapDataTopSpecial, gMapDataTopSpecial + 0x2000);
+        MemClear(gMapDataTopSpecial + 0x2000, 0x4000);
+    }
+}
 
 void sub_0807C5B0(void) {
     u8 colTop;
