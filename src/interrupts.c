@@ -333,8 +333,8 @@ static void sub_080171F0(void) {
     gPlayerState.speed_modifier = 0;
     gPlayerState.field_0xaa = 0;
     MemClear(&gCarriedEntity, 0x8c);
-    gPlayerEntity.spriteOffsetY = gPlayerState.field_0x3f;
-    gPlayerState.field_0x3f = 0;
+    gPlayerEntity.spriteOffsetY = gPlayerState.spriteOffsetY;
+    gPlayerState.spriteOffsetY = 0;
     sub_0807B0C8();
 
     if (gPlayerState.flags & PL_CLONING)

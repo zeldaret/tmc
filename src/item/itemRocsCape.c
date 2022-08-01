@@ -35,7 +35,7 @@ void ItemRocsCape(ItemBehavior* this, u32 arg1) {
             }
         } else {
             if (((u8)(gPlayerState.sword_state | gPlayerState.field_0xa | gPlayerState.field_0x3[1] |
-                      gPlayerState.heldObject | gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) == 0) &&
+                      gPlayerState.heldObject | gPlayerState.field_0x1c | gPlayerState.moleMittsState) == 0) &&
                 ((((gPlayerState.floor_type != SURFACE_DOOR && gPlayerState.floor_type != SURFACE_DOOR_13 &&
                     gPlayerState.floor_type != SURFACE_PIT) ||
                    (gPlayerEntity.z.WORD != 0)) ||

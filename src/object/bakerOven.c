@@ -58,12 +58,12 @@ void BakerOven_Action1(Entity* this) {
     if (this->type) {
         GetNextFrame(this);
         frames = &this->frame;
-        if (*frames & 1) {
-            *frames &= 0xfe;
+        if (this->frame & 1) {
+            this->frame &= ~1;
             this->y.HALF.HI++;
         }
 
-        if ((*frames & 0x80) && this->frameDuration == 1) {
+        if ((*frames & ANIM_DONE) && this->frameDuration == 1) {
             this->action = 2;
             this->spriteSettings.draw = 0;
         }

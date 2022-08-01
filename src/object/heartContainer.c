@@ -68,7 +68,7 @@ static void HeartContainer_Action3(Entity* this) {
     sub_08080CB4(this);
     if (!(gPlayerState.flags & PL_MINISH) && IsCollidingPlayer(this)) {
         SetFlag(this->cutsceneBeh.HWORD);
-        CreateItemEntity(0x62, 0, 0);
+        CreateItemEntity(ITEM_HEART_CONTAINER, 0, 0);
         DeleteThisEntity();
     }
 }

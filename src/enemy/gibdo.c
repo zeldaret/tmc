@@ -167,8 +167,8 @@ void sub_08037690(GibdoEntity* this) {
 void sub_080376D0(GibdoEntity* this) {
     if (!sub_080379EC(this)) {
         ResetPlayerItem();
-        gPlayerState.mobility = gPlayerState.mobility | 0x80;
-        gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
+        gPlayerState.mobility |= 0x80;
+        gPlayerState.field_0xa |= 0x80;
         CopyPositionAndSpriteOffset(&gPlayerEntity, super);
         UpdateAnimationSingleFrame(super);
         if ((super->frame & 1) != 0) {

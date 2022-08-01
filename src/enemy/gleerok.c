@@ -126,7 +126,7 @@ void Gleerok_OnDeath(GleerokEntity* this) {
             gPlayerState.field_0x14 = 1;
 
             if (sub_0806FC80(super, &gPlayerEntity, super->frame & 0x3f)) {
-                gPlayerState.field_0x3f = 0xfa;
+                gPlayerState.spriteOffsetY = -6;
             }
 
             gUnk_080CD75C[super->action](this);
@@ -523,7 +523,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                 return;
 
             gPlayerState.field_0x14 = 1;
-            gPlayerState.field_0x3f = 0xfc;
+            gPlayerState.spriteOffsetY = -4;
 
             break;
         case 4:
@@ -956,7 +956,7 @@ void sub_0802E0B8(GleerokEntity* this) {
     if (val) {
         if (sub_0806FC80(super, &gPlayerEntity, val)) {
             gPlayerState.field_0x14 = 1;
-            gPlayerState.field_0x3f = 0xfa;
+            gPlayerState.spriteOffsetY = -6;
         }
     }
 
@@ -1006,7 +1006,7 @@ void sub_0802E1D0(GleerokEntity* this) {
     if (super->frame & 0x3f) {
         if (sub_0806FC80(super, &gPlayerEntity, super->frame & 0x3f)) {
             gPlayerState.field_0x14 = 1;
-            gPlayerState.field_0x3f = 0xfa;
+            gPlayerState.spriteOffsetY = -6;
         }
     }
     if (super->frame & 0x40) {

@@ -1561,7 +1561,7 @@ static void sub_08071D04(Entity* this) {
     if (deltaHealth != 0) {
         ModHealth(deltaHealth);
         this->subAction = 3;
-        gPlayerState.field_0x3c[0] = 0;
+        gPlayerState.field_0x3c = 0;
         this->direction = 0xff;
         this->speed = 0;
         this->zVelocity = Q_16_16(1.5);
@@ -2749,7 +2749,7 @@ static void sub_08073504(Entity* this) {
 static void sub_08073584(Entity* this) {
     u32 state, dir, idx;
 
-    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
+    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_80) || this->iframes > 0 || gPlayerState.field_0x3c ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
@@ -3570,7 +3570,7 @@ void SurfaceAction_Swamp(Entity* this) {
             gPlayerState.speed_modifier -= 0xf0;
             gPlayerState.framestate = 0x1b;
             if (gPlayerState.field_0x37 < 0xf0) {
-                gPlayerState.field_0x3f = gPlayerState.field_0x3f + 4 + (gPlayerState.field_0x37 >> 5);
+                gPlayerState.spriteOffsetY = gPlayerState.spriteOffsetY + 4 + (gPlayerState.field_0x37 >> 5);
                 return;
             }
         }
@@ -3585,7 +3585,7 @@ void SurfaceAction_Swamp(Entity* this) {
 void SurfaceAction_Water(Entity* this) {
     if (!sub_080741C4()) {
         if (gPlayerState.field_0x14 == 0) {
-            gPlayerState.field_0x3f += 2;
+            gPlayerState.spriteOffsetY += 2;
         } else {
             gPlayerState.swim_state = 0;
             this->spritePriority.b0 = 4;
@@ -3625,7 +3625,7 @@ static void sub_08074808(Entity* this) {
 }
 
 void SurfaceAction_Button(Entity* this) {
-    gPlayerState.field_0x3f -= 2;
+    gPlayerState.spriteOffsetY -= 2;
 }
 
 void sub_080748D4(void) {

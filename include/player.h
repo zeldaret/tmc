@@ -302,10 +302,11 @@ typedef struct {
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 field_0x3b;
-    /*0x3c*/ u8 field_0x3c[2];
+    /*0x3c*/ u8 field_0x3c;
+    /*0x3d*/ u8 moleMittsState;
     /*0x3e*/ u8 swordDamage : 2;
     /*    */ u8 filler14 : 6;
-    /*0x3f*/ u8 field_0x3f;
+    /*0x3f*/ s8 spriteOffsetY;
     /*0x40*/ u32 path_memory[16];
     /*0x80*/ u16 speed_modifier;
     /*0x82*/ u8 field_0x82[9];

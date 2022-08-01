@@ -22,32 +22,23 @@ script_080145F8:
 	Wait 0x0018
 	EnablePlayerControl
 	Jump script_080145F8
+.endif
 script_08014632:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08014632
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 script_08014642:
+.ifdef EU
 	CheckRoomFlag 0x0009
+.else
+	CheckRoomFlag 0x0004
+.endif
 	JumpIf script_08014642
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
 	Call EnablePauseMenu
 	EnablePlayerControl
 	Jump script_080145F8
-.else
-	CheckRoomFlag 0x0000
-	JumpIfNot script_080145F8
-	SetPlayerIdle
-	Call DisablePauseMenuAndPutAwayItems
-script_08014608:
-	CheckRoomFlag 0x0004
-	JumpIf script_08014608
-	SetSyncFlag 0x00000004
-	WaitForSyncFlagAndClear 0x00000008
-	Call EnablePauseMenu
-	EnablePlayerControl
-	Jump script_080145F8
-.endif
 	.align 2, 0
 

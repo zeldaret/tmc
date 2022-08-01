@@ -69,7 +69,7 @@ void Object1F_Action1(Object1FEntity* this) {
 
     if (this->unk6c) {
         this->unk6c--;
-        uVar1 = gPlayerState.field_0x3c[1];
+        uVar1 = gPlayerState.moleMittsState;
     } else {
         ProcessMovement2(super);
         uVar1 = GravityUpdate(super, Q_8_8(40.0));
