@@ -10,7 +10,6 @@
 #include "item.h"
 #include "ui.h"
 
-void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
 void sub_0807DE80(Entity*);
 void DisablePauseMenu(void);

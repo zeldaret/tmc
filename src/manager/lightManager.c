@@ -14,10 +14,10 @@
 #include "player.h"
 #include "room.h"
 #include "screen.h"
+#include "asm.h"
 
 extern void sub_0801E120(void);
 extern void sub_0801E154(u32);
-extern u32 CheckRectOnScreen(s32, s32, u32, u32);
 extern void sub_0801E160(u32, u32, u32);
 
 bool32 sub_0805BA78();

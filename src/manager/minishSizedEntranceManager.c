@@ -9,8 +9,7 @@
 #include "functions.h"
 #include "object.h"
 #include "room.h"
-
-extern bool32 CheckRectOnScreen(u16, u16, u32, u32);
+#include "asm.h"
 
 typedef struct {
     u16 x;
