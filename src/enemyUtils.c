@@ -14,6 +14,7 @@ extern EnemyDefinition gEnemyDefinitions[];
 const EnemyDefinition* GetEnemyDefinition(Entity* entity);
 bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition);
 extern const u16 gUnk_080D3E74[];
+extern const u8 gUnk_080D3D94[];
 
 const EnemyDefinition* GetEnemyDefinition(Entity* entity) {
     const EnemyDefinition* definition = &gEnemyDefinitions[entity->id];
@@ -93,7 +94,52 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
     return TRUE;
 }
 
-ASM_FUNC("asm/non_matching/enemyUtils/sub_0804A720.inc", void sub_0804A720(Entity* this))
+void sub_0804A720(GenericEntity* this) {
+    int iVar2;
+    const u8* pbVar3;
+    GenericEntityData* ptr;
+
+    if ((this->field_0x6c.HALF.HI & 4) != 0) {
+        return;
+    }
+
+    pbVar3 = &gUnk_080D3D94[super->id * 2];
+    ptr = (GenericEntityData*)&this->field_0x68;
+    if (ptr->field_0x7c.BYTES.byte2 == 0) {
+        this->field_0x6e.HALF.LO = pbVar3[0];
+    } else {
+        this->field_0x6e.HALF.LO = ptr->field_0x7c.BYTES.byte2;
+    }
+
+    if (ptr->field_0x7c.BYTES.byte3 == 0) {
+        this->field_0x6e.HALF.HI = pbVar3[1];
+    } else {
+        this->field_0x6e.HALF.HI = ptr->field_0x7c.BYTES.byte3;
+    }
+
+    if (ptr->cutsceneBeh.HWORD != 0) {
+        this->field_0x70.HALF.LO = ptr->cutsceneBeh.HWORD + gRoomControls.origin_x;
+    } else {
+        iVar2 = this->field_0x6e.HALF.LO * 4;
+        if (super->x.HALF.HI >= iVar2) {
+            this->field_0x70.HALF.LO = super->x.HALF_U.HI - 4 * this->field_0x6e.HALF.LO;
+        } else {
+            this->field_0x70.HALF.LO = 0;
+        }
+    }
+
+    if (ptr->field_0x86.HWORD != 0) {
+        this->field_0x70.HALF.HI = ptr->field_0x86.HWORD + gRoomControls.origin_y;
+    } else {
+        iVar2 = this->field_0x6e.HALF.HI * 4;
+        if (super->y.HALF.HI >= iVar2) {
+            this->field_0x70.HALF.HI = super->y.HALF.HI - iVar2;
+        } else {
+            this->field_0x70.HALF.HI = 0;
+        }
+    }
+    this->field_0x6c.HALF.HI |= 4;
+}
 
 void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem);
 void GenericDeath(Entity* this) {
