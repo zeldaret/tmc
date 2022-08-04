@@ -16,7 +16,7 @@ void SetGFXSlotStatus(GfxSlot*, u32);
 u32 FindNextOccupiedGFXSlot(u32);
 u32 FindFirstFreeGFXSlot(void);
 void sub_080AE218(u32, u32);
-void sub_080AE324(u32, u32);
+void MoveGFXSlots(u32, u32);
 
 void ResetPalettes(void) {
     GfxSlot* slots;
@@ -296,7 +296,7 @@ void CleanUpGFXSlots(void) {
             firstFreeIndex = FindFirstFreeGFXSlot();
             if (firstFreeIndex <= occupiedIndex) {
                 sub_080AE218(occupiedIndex, firstFreeIndex);
-                sub_080AE324(occupiedIndex, firstFreeIndex);
+                MoveGFXSlots(occupiedIndex, firstFreeIndex);
                 occupiedIndex = firstFreeIndex;
             }
         }
@@ -306,8 +306,19 @@ void CleanUpGFXSlots(void) {
 // Swap gfx
 ASM_FUNC("asm/non_matching/vram/sub_080AE218.inc", void sub_080AE218(u32 a, u32 b))
 
-// Swap palettes
-ASM_FUNC("asm/non_matching/vram/sub_080AE324.inc", void sub_080AE324(u32 a, u32 b))
+void MoveGFXSlots(u32 srcIndex, u32 targetIndex) {
+    s32 index;
+    u32 count;
+
+    count = gGFXSlots.slots[srcIndex].slotCount;
+    for (count = count - 1; count != -1; count--) {
+        gGFXSlots.slots[targetIndex] = gGFXSlots.slots[srcIndex];
+        MemClear(&gGFXSlots.slots[srcIndex], sizeof(GfxSlot));
+        srcIndex++;
+        targetIndex++;
+    }
+    gGFXSlots.unk_3 = 1;
+}
 
 u32 FindNextOccupiedGFXSlot(u32 index) {
     for (; index < MAX_GFX_SLOTS - 1; index++) {
