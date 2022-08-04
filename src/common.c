@@ -24,6 +24,7 @@ extern u8 gUnk_03003DE0;
 extern u8 gzHeap[0x1000];
 extern u32 gUnk_0201AEE0[0x800];
 extern u8 gUnk_080CA11C[];
+extern s16 gUnk_02018EE0[];
 
 extern void (*gUnk_080C9CAC[])(void);
 
@@ -31,7 +32,7 @@ static void StoreKeyInput(Input* input, u32 keyInput);
 void ClearOAM(void);
 void ResetScreenRegs(void);
 void sub_0801E0E0(u32);
-void sub_0801E24C(u32, u32);
+void sub_0801E24C(s32, s32);
 void sub_0801E290(u32, u32, u32);
 s32 sub_0801E8B0(u32);
 
@@ -556,7 +557,24 @@ void sub_0801E1EC(u32 a1, u32 a2, u32 a3) {
                      0x1);
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801E24C.inc", void sub_0801E24C(u32 a1, u32 a2));
+void sub_0801E24C(s32 param_1, s32 param_2) {
+    s32 r1;
+    s32 r2, i;
+    u16* p5;
+    p5 = &gUnk_02018EE0[param_2];
+    i = 0;
+    r2 = param_1;
+    r1 = 3 - (r2 * 2);
+    while (i <= r2) {
+        p5[i] = r2;
+        p5[r2] = i;
+        if (r1 < 0) {
+            r1 += 6 + i++ * 4;
+        } else {
+            r1 += 10 + (i++ - (r2--)) * 4;
+        }
+    }
+}
 
 ASM_FUNC("asm/non_matching/common/sub_0801E290.inc", void sub_0801E290(u32 a1, u32 a2, u32 a3));
 
