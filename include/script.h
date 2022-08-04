@@ -29,6 +29,8 @@ typedef struct {
 } ActiveScriptInfo;
 extern ActiveScriptInfo gActiveScriptInfo;
 
+ScriptExecutionContext* CreateScriptExecutionContext(void);
+void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void ExecuteScript(Entity* entity, ScriptExecutionContext* context);
 
 extern u32 GetNextScriptCommandHalfword(u16*);

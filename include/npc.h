@@ -51,6 +51,19 @@ typedef struct {
     } data;
 } Dialog;
 
+typedef struct {
+    /*0x00*/ u8 id;
+    /*0x01*/ u8 type;
+    /*0x02*/ u8 type2;
+    /*0x03*/ u8 collisionLayer;
+    /*0x04*/ u16 x;
+    /*0x06*/ u16 y;
+    /*0x08*/ u16* script;
+    /*0x0c*/ u16 timer;
+    /*0x0e*/ u16 progressBitfield; /**< For which gSave.global_process this NPC should appear. */
+} NPCStruct;
+extern NPCStruct gNPCData[50];
+
 void sub_0806EC20(Entity* ent);
 void sub_0806EC38(void);
 u32 sub_0806ED78(Entity* ent);

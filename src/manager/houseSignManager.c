@@ -11,6 +11,7 @@
 #include "area.h"
 #include "object.h"
 #include "room.h"
+#include "asm.h"
 
 typedef struct {
     u16 x;
@@ -20,8 +21,6 @@ typedef struct {
     u8 collisionLayer;
     u8 _padding;
 } SpawnData;
-
-extern u32 CheckRectOnScreen(u16, u16, u32, u32);
 
 void HouseSignManager_Main(HouseSignManager* this) {
     static const SpawnData gUnk_081084C8[] = {

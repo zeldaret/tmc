@@ -5,8 +5,7 @@
  * @brief HouseSign object
  */
 #include "entity.h"
-
-extern u32 CheckRectOnScreen(s16, s16, u32, u32);
+#include "asm.h"
 
 /*
 This object is created by HouseSignManager.
@@ -17,7 +16,7 @@ void HouseSign(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
     }
-    if (CheckRectOnScreen(this->field_0x80.HWORD, this->field_0x82.HWORD, 0x10, 0x10) == 0) {
+    if (CheckRectOnScreen((s16)this->field_0x80.HWORD, (s16)this->field_0x82.HWORD, 0x10, 0x10) == 0) {
         this->parent->zVelocity &= ~(1 << this->type2);
         DeleteThisEntity();
     }

@@ -46,5 +46,6 @@ extern u32 sub_0800445C(struct Entity_*);
 extern u32 sub_080B1AF0(struct Entity_*, s32, s32);
 extern u32 GetRelativeCollisionTile(struct Entity_*, u32, u32);
 extern bool32 sub_080B1B54(u32);
+extern u32 CheckRectOnScreen(s32, s32, u32, u32);
 
 #endif // ASM_H

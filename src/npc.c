@@ -4,13 +4,6 @@
 #include "npc.h"
 
 extern u32 gUnk_020342F8;
-typedef struct {
-    u16 unk0;
-    u16 unk1;
-    u16 x;
-    u16 y;
-} NPCStruct;
-extern NPCStruct gNPCData[100];
 
 extern void InitNPC(Entity*);
 
@@ -29,7 +22,7 @@ void NPCUpdate(Entity* this) {
 
         if (this->health % 0x80) {
             NPCStruct* npc = gNPCData;
-            npc += (this->health * 2 - 2);
+            npc += (this->health - 1);
             npc->x = this->x.HALF.HI - gRoomControls.origin_x;
             npc->y = this->y.HALF.HI - gRoomControls.origin_y;
         }
