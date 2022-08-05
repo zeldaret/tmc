@@ -101,7 +101,55 @@ void sub_080ADE24(void) {
 }
 
 // Transfer gfx slot data to vram?
-ASM_FUNC("asm/non_matching/vram/sub_080ADE74.inc", void sub_080ADE74(u32 index))
+void sub_080ADE74(u32 index) {
+    void* dest;
+    GfxSlot* slot;
+    struct_gUnk_020000C0_1* ptr1;
+    s32 palIndex;
+    s32 loopIndex;
+    s32 tmp1;
+
+    slot = gGFXSlots.slots + index;
+    if (slot->vramStatus != 0) {
+        slot->vramStatus = 1;
+        if (((slot->paletteIndex != 0xffff) && (slot->unk_3 != 0))) {
+            ptr1 = (struct_gUnk_020000C0_1*)(gUnk_020000C0 + slot->unk_3);
+            for (loopIndex = 4; loopIndex > 0; loopIndex--) {
+                if (ptr1->unk_00.unk2 != 0 && (gGFXSlots.unk_3 != 0 || ptr1->unk_00.unk3 != 0)) {
+                    ptr1->unk_00.unk3 = 0;
+                    palIndex = ptr1->unk_08.BYTES.byte1 << 5;
+                    if (palIndex != 0) {
+                        dest = (void*)(*(u16*)((s32)&ptr1->unk_08 + 2) * 0x20 + OBJ_VRAM0);
+                        DmaCopy32(3, ptr1->unk_0C, dest, palIndex);
+                    }
+                }
+                ptr1++;
+            }
+        } else {
+            dest = (void*)(index * 0x200 + OBJ_VRAM0 + 0x2800);
+            switch (slot->paletteIndex) {
+                default:
+                    DmaCopy32(3, slot->palettePointer, dest, (u32)slot->paletteIndex << 5);
+                    palIndex = slot->paletteIndex;
+                    palIndex -= 0x10;
+                    break;
+                case 0:
+                    slot->vramStatus = 0;
+                    return;
+                case 0xffff:
+                    if (slot->unk_3 == 0) {
+                        LZ77UnCompVram(slot->palettePointer, dest);
+                    }
+                    return;
+            }
+            while (palIndex > 0) {
+                slot++;
+                slot[0].paletteIndex = 0;
+                palIndex -= 0x10;
+            }
+        }
+    }
+}
 
 bool32 LoadFixedGFX(Entity* entity, u32 gfxIndex) {
 #ifdef EU

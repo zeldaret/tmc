@@ -58,14 +58,8 @@ void PushableFurniture(PushableFurnitureEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/pushableFurniture/sub_0808F990.inc", void sub_0808F990(PushableFurnitureEntity* this)) {
-    s32 uVar1;
-    bool32 bVar2;
-    u32 uVar3;
-    u32 sVar4;
-    u16 uVar5;
-    SpritePriority* pSVar6;
-    Entity* pEVar7;
+void sub_0808F990(PushableFurnitureEntity* this) {
+    bool32 condition;
 
     super->action = 1;
     super->speed = 0x80;
@@ -88,58 +82,54 @@ NONMATCH("asm/non_matching/pushableFurniture/sub_0808F990.inc", void sub_0808F99
             super->frameIndex = 0;
         }
     }
-    switch (super->subtimer) {
 
-        default:
-            bVar2 = FALSE;
-            if (*(u16*)&super->type == 0x101) {
-                uVar1 = (s8)super->subtimer;
-                sVar4 = super->y.HALF_U.HI;
-            } else {
-                uVar1 = (s8)super->subtimer;
-                sVar4 = super->x.HALF_U.HI;
-            }
-            this->unk_7e = sVar4 + (u32)uVar1;
-            if (super->parent == NULL) {
-                uVar3 = CheckFlags((u32)this->unk_86);
-            } else {
-                if ((this->unk_82 & 0x80) != 0) {
-                    if (super->parent->action == 2) {
-                        bVar2++;
-                    }
-                    break;
+    if (super->subtimer != 0) {
+        condition = FALSE;
+        switch (super->subtimer) {
+            default:
+                if (super->type == 1 && super->type2 == 1) {
+                    this->unk_7e = (s8)super->subtimer + super->y.HALF_U.HI;
+                } else {
+                    this->unk_7e = (s8)super->subtimer + super->x.HALF_U.HI;
                 }
-                uVar3 = CheckLocalFlag((u32)this->unk_82);
-            }
-            if (uVar3 != 0) {
-                bVar2++;
-            }
-            break;
-        case 0:
-            bVar2 = FALSE;
-            break;
-        case 0x80:
-            bVar2 = TRUE;
-            if (*(u16*)&super->type == 0x101) {
-                uVar5 = super->y.HALF.HI;
-            } else {
-                uVar5 = super->x.HALF.HI;
-            }
-            this->unk_7e = uVar5;
-            break;
-    }
+                if (super->parent == NULL) {
+                    if (CheckFlags(this->unk_86)) {
+                        condition++;
+                    }
+                } else {
+                    if ((this->unk_82 & 0x80) != 0) {
+                        if (super->parent->action == 2) {
+                            condition++;
+                        }
+                        break;
+                    }
+                    if (CheckLocalFlag((u32)this->unk_82)) {
+                        condition++;
+                    }
+                }
 
-    if (bVar2) {
-        this->unk_81 = 1;
-        if (*(u16*)&super->type == 0x101) {
-            super->y.HALF.HI = this->unk_7e;
-        } else {
-            super->x.HALF.HI = this->unk_7e;
+                break;
+            case 0x80:
+                condition = TRUE;
+                if (super->type == 1 && super->type2 == 1) {
+                    this->unk_7e = super->y.HALF.HI;
+                } else {
+                    this->unk_7e = super->x.HALF.HI;
+                }
+                break;
+        }
+
+        if (condition) {
+            this->unk_81 = 1;
+            if (super->type == 1 && super->type2 == 1) {
+                super->y.HALF.HI = this->unk_7e;
+            } else {
+                super->x.HALF.HI = this->unk_7e;
+            }
         }
     }
     sub_0808FF50(this);
 }
-END_NONMATCH
 
 void PushableFurniture_Action1(PushableFurnitureEntity* this) {
     if (this->unk_81 == 0) {

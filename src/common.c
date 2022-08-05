@@ -1,23 +1,25 @@
-#include "global.h"
+#include "area.h"
 #include "asm.h"
 #include "common.h"
-#include "structures.h"
-#include "screen.h"
-#include "main.h"
-#include "area.h"
-#include "room.h"
-#include "fileselect.h"
-#include "game.h"
 #include "flags.h"
-#include "kinstone.h"
 #include "functions.h"
+#include "game.h"
+#include "global.h"
+#include "kinstone.h"
+#include "main.h"
 #include "message.h"
+#include "room.h"
+#include "save.h"
+#include "screen.h"
+#include "sound.h"
+#include "structures.h"
 
 typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3;
+    u8 area;
+    u8 room;
+    u8 unk_2;
+    u8 unk_3;
+    u32 mapDataOffset;
 } DungeonLayout;
 
 extern u8 gUnk_03003DE0;
@@ -70,6 +72,18 @@ extern const GfxItem* gGfxGroups[];
 extern const u32 gUnk_080C9460[];
 
 void sub_0801E82C(void);
+
+extern void* GetRoomProperty(u32, u32, u32);
+
+extern u8 gMapData;
+extern const DungeonLayout** gUnk_080C9C50[];
+extern u8 gMapDataBottomSpecial[];
+
+u32 sub_0801DF10(const DungeonLayout* lyt);
+bool32 sub_0801DF90(TileEntity* tileEntity, u32 bank);
+u32 sub_0801DF60(u32 a1, u8* p);
+u32 sub_0801DF78(u32 a1, u32 a2);
+void sub_0801DF28(u32 x, u32 y, s32 color);
 
 u32 DecToHex(u32 value) {
     u32 result;
@@ -386,7 +400,7 @@ u32 sub_0801DB94(void) {
     return gRoomTransition.player_status.dungeon_map_y >> 11;
 }
 
-ASM_FUNC("asm/non_matching/common/DrawDungeonMap.inc", void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size));
+ASM_FUNC("asm/non_matching/common/DrawDungeonMap.inc", void DrawDungeonMap(u32 floor, void* data, u32 size));
 
 void sub_0801DD58(u32 area, u32 room) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
@@ -398,15 +412,81 @@ void LoadDungeonMap(void) {
     LoadResourceAsync(gUnk_0201AEE0, 0x6006000, sizeof(gUnk_0201AEE0));
 }
 
-ASM_FUNC("asm/non_matching/common/DrawDungeonFeatures.inc", void DrawDungeonFeatures(u32 room, void* data, u32 size));
+void DrawDungeonFeatures(u32 floor, void* data, u32 size) {
+    u32 bankOffset;
+    u32 width;
+    u32 height;
+    u32 x;
+    u32 y;
+    u16 mapX;
+    u16 mapY;
+    u32 tmp;
+    u32 tmp2;
+    u32 color;
+    u32 features;
+    TileEntity* tileEntity;
+    RoomHeader* roomHeader;
+    const DungeonLayout* layout;
+    const DungeonLayout* nextLayout;
+    u8* ptr;
+    u32 tmp3;
+    u32 tmp4;
 
-u32 sub_0801DF10(DungeonLayout* lyt) {
+    if (!AreaHasMap()) {
+        return;
+    }
+    layout = gUnk_080C9C50[gArea.dungeon_idx][floor];
+    MemClear(gMapDataBottomSpecial, 0x8000);
+    while (layout->area != 0) {
+        tileEntity = (TileEntity*)GetRoomProperty(layout->area, layout->room, 3);
+        bankOffset = sub_0801DF10(layout);
+        features = 0;
+        if (layout->area == gUI.roomControls.area && layout->room == gUI.roomControls.room) {
+            features = 8;
+        } else {
+            if (HasDungeonSmallKey()) {
+                features = 2;
+            }
+            if (sub_0801DF90(tileEntity, bankOffset)) {
+                features = 3;
+            }
+        }
+        if ((layout->unk_2 & 1) != 0) {
+            features = 0;
+        }
+        nextLayout = layout + 1;
+        if (features != 0) {
+            DmaCopy32(3, &gMapData + layout->mapDataOffset, &gMapDataBottomSpecial, 0x400);
+
+            roomHeader = gAreaRoomHeaders[layout->area] + layout->room;
+            mapX = roomHeader->map_x / 0x10;
+            tmp3 = roomHeader->map_y;
+            tmp4 = 0x7ff;
+            mapY = (tmp3 & tmp4) / 0x10;
+            width = roomHeader->pixel_width / 0x10;
+            height = roomHeader->pixel_height / 0x10;
+            tmp = (width + 3) / 4;
+
+            for (y = 0; y < height; y++) {
+                ptr = gMapDataBottomSpecial + y * tmp;
+                for (x = 0; x < width; x++) {
+                    tmp2 = mapX + x;
+                    color = sub_0801DF78(sub_0801DF60(x, ptr), features);
+                    sub_0801DF28(tmp2, mapY + y, color);
+                }
+            }
+        }
+        layout = nextLayout;
+    }
+}
+
+u32 sub_0801DF10(const DungeonLayout* lyt) {
     u32 offset;
 
-    if (lyt->_3 == 1)
+    if (lyt->unk_3 == 1)
         offset = 0x300;
     else
-        offset = GetFlagBankOffset(lyt->_0);
+        offset = GetFlagBankOffset(lyt->area);
     return offset;
 }
 
@@ -435,15 +515,15 @@ u32 sub_0801DF78(u32 a1, u32 a2) {
     }
 }
 
-u32 sub_0801DF90(u8* a1, u32 a2) {
-    if (a1 == NULL)
-        return 0;
+bool32 sub_0801DF90(TileEntity* tileEntity, u32 bank) {
+    if (tileEntity == NULL)
+        return FALSE;
 
-    for (; *a1 != 0; a1 += 8) {
-        if (*a1 == 1)
-            return CheckLocalFlagByBank(a2, a1[1]);
+    for (; tileEntity->type != 0; tileEntity++) {
+        if (tileEntity->type == 1)
+            return CheckLocalFlagByBank(bank, tileEntity->localFlag);
     }
-    return 0;
+    return FALSE;
 }
 
 void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {

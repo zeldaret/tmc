@@ -1977,7 +1977,7 @@ static void sub_080724DC(Entity* this) {
     this->knockbackDuration = 0;
     DeleteClones();
     if (GetTileUnderEntity(this) != 0x29) {
-        if ((gPlayerState.field_0x82[7] == 0) && (gPlayerState.swim_state != 0)) {
+        if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
             sub_0807AE20(this);
         }
         if (gRoomControls.reload_flags == 0) {
@@ -2019,7 +2019,7 @@ static void sub_0807258C(Entity* this) {
             PlayerWaitForScroll(this);
         }
     }
-    if ((gPlayerState.field_0x82[7] == 0) && (gPlayerState.swim_state != 0)) {
+    if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
         sub_0807AE20(this);
     }
 }
@@ -3606,7 +3606,7 @@ static void sub_08074808(Entity* this) {
             else
                 gPlayerState.swim_state = 8;
             this->speed = 0;
-            gPlayerState.field_0x82[7] = 0;
+            gPlayerState.remainingDiveTime = 0;
             if ((gPlayerState.flags & PL_MINISH) == 0)
                 CreateFx(this, FX_WATER_SPLASH, 0);
             SoundReq(SFX_1A5);

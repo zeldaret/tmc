@@ -1163,7 +1163,7 @@ void sub_08078B48(void) {
             break;
     }
     gPlayerEntity.iframes = -2;
-    gPlayerState.field_0x82[8] = 2;
+    gPlayerState.field_0x8a = 2;
 }
 
 void ClearPlayerState(void) {
@@ -1299,53 +1299,49 @@ bool32 sub_08078F74(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_08078FB0.inc", void sub_08078FB0(Entity* this)) {
-    u32 bVar2;
-    u32 animation;
+void sub_08078FB0(Entity* this) {
+    u32 animIndex;
 
     if ((gPlayerState.pushedObject & 0x80) == 0) {
         gPlayerState.field_0x35 = 0xff;
     }
     sub_08079064(this);
     if ((gPlayerState.flags & 8) != 0) {
-        bVar2 = 0x58;
+        animIndex = 0x58;
     } else {
         if ((gPlayerState.flags & 0x80) != 0) {
-            bVar2 = 0x18;
+            animIndex = 0x18;
         } else {
             if (gPlayerState.animation >> 8 == 7) {
-                bVar2 = 0x34;
+                animIndex = 0x34;
             } else {
-                bVar2 = 0xb8;
+                animIndex = 0xb8;
             }
         }
     }
 
-    if (bVar2 > gPlayerState.animation) {
-        u32 temp = this->animationState;
-        bVar2 = temp;
-        if (bVar2 >= 5) {
+    if (animIndex > (u8)gPlayerState.animation) {
+        if (this->animationState >= 5) {
             this->spriteSettings.flipX = 1;
         } else {
             this->spriteSettings.flipX = 0;
         }
 
         if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
-            bVar2 = gPlayerState.animation + this->animationState;
+            animIndex = gPlayerState.animation + this->animationState;
         } else {
-            bVar2 = (((u8)bVar2) >> 1) + gPlayerState.animation;
+            animIndex = (this->animationState >> 1) + gPlayerState.animation;
         }
     } else {
-        bVar2 = gPlayerState.animation;
+        animIndex = gPlayerState.animation;
     }
 
-    if (bVar2 != (((u16)this->spriteIndex << 8) | this->animIndex)) {
-        this->spriteIndex = bVar2 >> 8;
-        bVar2 &= 0xff;
-        InitAnimationForceUpdate(this, bVar2);
+    if (animIndex != (((u16)this->spriteIndex << 8) | this->animIndex)) {
+        this->spriteIndex = animIndex >> 8;
+        animIndex &= 0xff;
+        InitAnimationForceUpdate(this, animIndex);
     }
 }
-END_NONMATCH
 
 void sub_08079064(Entity* this) {
     u32 i;
@@ -1496,7 +1492,47 @@ bool32 sub_080793E4(u32 param_1) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/RespawnPlayer.inc", void RespawnPlayer())
+void RespawnPlayer(void) {
+    u32* ptr1;
+    u32 index;
+    Entity* player = &gPlayerEntity;
+
+    player->action = PLAYER_080728AC;
+    player->z.WORD = 0;
+    player->zVelocity = 0;
+    player->knockbackDuration = 0;
+    ResetPlayerPosition();
+    if ((gPlayerState.flags & 0x20000) == 0) {
+        if ((gPlayerState.flags & 0x10000) != 0) {
+            player->x.HALF.HI = gPlayerState.lilypad->x.HALF.HI;
+            player->y.HALF.HI = gPlayerState.lilypad->y.HALF.HI;
+        } else {
+            goto code_1;
+        code_0:
+            gPlayerEntity.collisionLayer = *ptr1 >> 0x1e;
+            gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + (*ptr1 & 0x3f) * 16 + 8;
+            gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + (*ptr1 & 0xfc0) / 4 + 8;
+            COLLISION_ON(&gPlayerEntity);
+            goto code_3;
+        code_1:
+            index = 0;
+            if (gPlayerState.path_memory[0] != 0xffffffff) {
+                ptr1 = gPlayerState.path_memory;
+                while (sub_080B1B44((u16)*ptr1, *ptr1 >> 0x1e) == 0xf) {
+                    ptr1++;
+                    index++;
+                    if ((index > 0xf) || (*ptr1 == -1)) {
+                        goto code_3;
+                        break;
+                    }
+                }
+                goto code_0;
+            }
+        }
+    }
+code_3:
+    UpdateSpriteForCollisionLayer(&gPlayerEntity);
+}
 
 void sub_08079520(Entity* this) {
     s32 tmp = gPlayerState.field_0xd;
@@ -1904,8 +1940,8 @@ void sub_0807A050(void) {
         gPlayerState.hurtBlinkSpeed--;
     }
     palette = sub_0807A094(0);
-    if (palette != gPlayerState.field_0x82[1]) {
-        gPlayerState.field_0x82[1] = palette;
+    if (palette != gPlayerState.playerPalette) {
+        gPlayerState.playerPalette = palette;
         ChangeObjPalette(&gPlayerEntity, palette);
     }
 }
@@ -2199,13 +2235,13 @@ void sub_0807ACCC(Entity* this) {
     } else {
         this->speed -= 4;
     }
-    if (gPlayerState.field_0x82[7] == 0) {
+    if (gPlayerState.remainingDiveTime == 0) {
         if (!sub_0807ADB8(this)) {
             sub_0807AE20(this);
         }
     } else {
-        gPlayerState.field_0x82[7]--;
-        if (gPlayerState.field_0x82[7] != 0) {
+        gPlayerState.remainingDiveTime--;
+        if (gPlayerState.remainingDiveTime != 0) {
             sub_0807ADB8(this);
         } else {
             gPlayerState.swim_state &= 0x7f;
@@ -2227,10 +2263,10 @@ bool32 sub_0807ADB8(Entity* this) {
         gPlayerState.swim_state ^= 0x80;
         tmp = (gPlayerState.swim_state & 0x80);
         if (tmp != 0) {
-            gPlayerState.field_0x82[7] = 0x78;
+            gPlayerState.remainingDiveTime = 0x78;
         } else {
             this->spritePriority.b0 = 4;
-            gPlayerState.field_0x82[7] = tmp;
+            gPlayerState.remainingDiveTime = tmp;
         }
         SoundReq(SFX_163);
         return TRUE;
@@ -3291,15 +3327,13 @@ void sub_0807C69C(u8* data, u32 width, u32 height) {
     }
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera()) {
+void InitializeCamera() {
     s32 targetX;
     s32 targetY;
     Entity* target;
     RoomControls* roomControls;
     u32 tmp1;
     u32 tmp2;
-    u32 tmp3;
-    u32 tmp4;
 
     sub_0807BFD0();
     LoadRoomGfx();
@@ -3307,15 +3341,15 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera(
     target = gRoomControls.camera_target;
     if (target != NULL) {
         if ((target->x.HALF_U.HI * 0x10000) < 0) {
-            tmp3 = (target->x.HALF.HI & 0x7fff);
-            tmp3 -= gRoomControls.origin_x;
-            target->x.HALF.HI = tmp3;
+            tmp1 = (target->x.HALF.HI & 0x7fff);
+            tmp1 -= gRoomControls.origin_x;
+            target->x.HALF.HI = tmp1;
         }
         targetX = target->x.HALF.HI;
         if ((target->y.HALF_U.HI * 0x10000) < 0) {
-            tmp4 = (target->y.HALF.HI & 0x7fff);
-            tmp4 -= gRoomControls.origin_y;
-            target->y.HALF.HI = tmp4;
+            tmp2 = (target->y.HALF.HI & 0x7fff);
+            tmp2 -= gRoomControls.origin_y;
+            target->y.HALF.HI = tmp2;
         }
         targetY = target->y.HALF.HI;
     } else {
@@ -3326,26 +3360,24 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera(
     if (targetX < 0x78) {
         roomControls->scroll_x = 0;
     } else {
-        if (targetX >= (roomControls->width - 0x78)) {
-            tmp1 = roomControls->width - 0x78;
+        if ((roomControls->width - 0x78) < targetX) {
+            roomControls->scroll_x = roomControls->width - 0x78 - 0x78;
         } else {
-            tmp1 = targetX;
+            roomControls->scroll_x = targetX - 0x78;
         }
-        roomControls->scroll_x = tmp1 - 0x78;
     }
-    roomControls->scroll_x = roomControls->origin_x + roomControls->scroll_x;
+    roomControls->scroll_x += roomControls->origin_x;
 
     if (targetY < 0x50) {
         roomControls->scroll_y = 0;
     } else {
-        if (targetY >= (roomControls->height - 0x50)) {
-            tmp2 = roomControls->height - 0x50;
+        if ((roomControls->height - 0x50) < targetY) {
+            roomControls->scroll_y = roomControls->height - 0x50 - 0x50;
         } else {
-            tmp2 = targetY;
+            roomControls->scroll_y = targetY - 0x50;
         }
-        roomControls->scroll_y = tmp2 - 0x50;
     }
-    roomControls->scroll_y = roomControls->scroll_y + roomControls->origin_y;
+    roomControls->scroll_y += roomControls->origin_y;
 
     if (roomControls->camera_target != NULL) {
         roomControls->camera_target->x.HALF.HI += roomControls->origin_x;
@@ -3358,7 +3390,6 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera(
     roomControls->scroll_flags &= 0xfb;
     sub_08080BC4();
 }
-END_NONMATCH
 
 void sub_0807C810(void) {
     DiggingCaveEntranceTransition* ptr;

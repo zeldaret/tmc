@@ -35,7 +35,7 @@ Entity* sub_080A276C(Entity* parent, u32 type, u32 type2) {
         e->field_0x6e.HALF.LO = gPlayerState.field_0x27[0];
         e->field_0x6e.HALF.HI = gPlayerState.mobility;
         e->field_0x70.WORD = gPlayerState.flags;
-        e->field_0x74.HALF.LO = gPlayerState.field_0x82[8];
+        e->field_0x74.HALF.LO = gPlayerState.field_0x8a;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 0;
     }
