@@ -113,7 +113,7 @@ void LinkAnimation_Action8(LinkAnimationEntity* this) {
                 gPlayerState.field_0x27[0] = this->unk_6e;
                 gPlayerState.mobility = this->unk_6f;
                 gPlayerState.flags = this->unk_70;
-                gPlayerState.field_0x82[8] = this->unk_74;
+                gPlayerState.field_0x8a = this->unk_74;
             }
             break;
     }

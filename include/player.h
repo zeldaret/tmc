@@ -309,7 +309,12 @@ typedef struct {
     /*0x3f*/ s8 spriteOffsetY;
     /*0x40*/ u32 path_memory[16];
     /*0x80*/ u16 speed_modifier;
-    /*0x82*/ u8 field_0x82[9];
+    /*0x82*/ u8 field_0x82;
+    /*0x83*/ u8 playerPalette;
+    /*0x84*/ Entity* lilypad; /**< Last lilypad the player was standing on? */
+    /*0x88*/ u8 field_0x88;
+    /*0x89*/ u8 remainingDiveTime; /**< Frames that the player can continue to dive. */
+    /*0x8a*/ u8 field_0x8a;
     /*0x8b*/ u8 controlMode;
     /*0x8c*/ u16 vel_x;
     /*0x8e*/ u16 vel_y;

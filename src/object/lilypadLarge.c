@@ -123,7 +123,7 @@ void sub_080855E8(LilypadLargeEntity* this) {
                 gPlayerEntity.collisionFlags &= 0xfb;
                 gPlayerState.swim_state = 0;
             }
-            *(u32*)&gPlayerState.field_0x82[2] = (u32)this; // TODO
+            gPlayerState.lilypad = super;
             if (super->collisionLayer == 1) {
                 ResetCollisionLayer(&gPlayerEntity);
             } else {

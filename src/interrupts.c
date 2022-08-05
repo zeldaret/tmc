@@ -246,8 +246,8 @@ static void HandlePlayerLife(Entity* this) {
 
     gPlayerState.framestate_last = gPlayerState.framestate;
     gPlayerState.framestate = PL_STATE_IDLE;
-    if (gPlayerState.field_0x82[0x8] != 0) {
-        gPlayerState.field_0x82[0x8]--;
+    if (gPlayerState.field_0x8a != 0) {
+        gPlayerState.field_0x8a--;
         return;
     }
 
