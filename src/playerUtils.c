@@ -3255,7 +3255,41 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4(u16*
 }
 END_NONMATCH
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C69C.inc", void sub_0807C69C(u8* a, u32 b, u32 c))
+void sub_0807C69C(u8* data, u32 width, u32 height) {
+    u8* ptr1;
+    u8* ptr2;
+    u32 index;
+    u32 innerIndex;
+    u32 tmp1;
+
+    ptr2 = data + width * height - 1;
+    ptr1 = data + (height - 1) * 0x40 - 1 + width;
+
+    for (index = 0; index < height; index++) {
+        for (innerIndex = 0; innerIndex < width; innerIndex++) {
+            ptr1[-innerIndex] = ptr2[-innerIndex];
+        }
+        ptr1 -= 0x40;
+        ptr2 -= width;
+    }
+
+    tmp1 = 0x40 - width;
+
+    for (index = 0; index < 0x40; index++) {
+        ptr1 = data + width + (index * 0x40);
+        for (innerIndex = 0; innerIndex < tmp1; innerIndex++) {
+            ptr1[innerIndex] = 0;
+        }
+    }
+
+    tmp1 = 0x40 - height;
+    ptr1 = data + height * 0x40;
+
+    for (index = 0; index < tmp1; index++) {
+        MemClear(ptr1, 0x40);
+        ptr1 += 0x40;
+    }
+}
 
 NONMATCH("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera()) {
     s32 targetX;
