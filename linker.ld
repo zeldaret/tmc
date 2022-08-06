@@ -1268,6 +1268,7 @@ SECTIONS {
         src/npc/phonograph.o(.rodata);
         src/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
+        src/npcUtils.o(.rodata);
         data/data_081146D0.o(.rodata);
         src/physics.o(.rodata);
         src/playerHitbox.o(.rodata);

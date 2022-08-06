@@ -34,6 +34,7 @@ extern const Hitbox gHitbox_27;
 extern const Hitbox gHitbox_28;
 extern const Hitbox gHitbox_29;
 extern const Hitbox gHitbox_30;
+extern const Hitbox gHitbox_31;
 extern const Hitbox gHitbox_32;
 extern const Hitbox gUnk_080FD190;
 extern const Hitbox gUnk_080FD1A8;
