@@ -28,9 +28,9 @@ extern void (*const Ghini_Actions[])(GhiniEntity*);
 extern void (*const Ghini_SubActions[])(GhiniEntity*);
 extern const u8 gUnk_080D0970[];
 extern const u8 gUnk_080D0974[];
-extern const u8 gUnk_080D0978[];
+extern const s8 gUnk_080D0978[];
 extern const u8 gUnk_080D0980[];
-extern const u8 gUnk_080D0984[];
+extern const s8 gUnk_080D0984[];
 
 void sub_0803F694(GhiniEntity*);
 void sub_0803F630(GhiniEntity*);
@@ -102,7 +102,7 @@ void Ghini_OnConfused(GhiniEntity* this) {
     }
     GenericConfused(super);
     if (super->z.HALF.HI == 0) {
-        super->z.HALF.HI = 0xffff;
+        super->z.HALF.HI = -1;
     }
     if (super->confusedTime == 0) {
         InitializeAnimation(super, (super->animationState ^ 1) + 1);
@@ -361,11 +361,11 @@ void sub_0803F66C(GhiniEntity* this) {
 }
 
 void sub_0803F694(GhiniEntity* this) {
-    super->z.HALF.HI = gUnk_080D0984[(((u32)this->unk_7b++ << 0x18) >> 0x1b) & 3] << 0x18 >> 0x18;
+    super->z.HALF.HI = gUnk_080D0984[(this->unk_7b++ >> 3) & 3];
 }
 
 void sub_0803F6C0(GhiniEntity* this) {
-    super->frame &= 0xfe;
+    super->frame &= ~1;
     gPlayerEntity.iframes = 0xc;
     ModHealth(-4);
     SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
@@ -373,9 +373,9 @@ void sub_0803F6C0(GhiniEntity* this) {
 
 void sub_0803F6EC(GhiniEntity* this) {
     if (gPlayerEntity.health != 0) {
-        gPlayerEntity.flags |= 0x80;
-        gPlayerEntity.zVelocity = 0x18000;
-        gPlayerEntity.z.HALF.HI = 0xfffe;
+        gPlayerEntity.flags |= ENT_COLLIDE;
+        gPlayerEntity.zVelocity = Q_16_16(1.5);
+        gPlayerEntity.z.HALF.HI = -2;
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
         gPlayerEntity.iframes = -0x3c;
         gPlayerState.jump_status = 0x41;
@@ -416,8 +416,8 @@ const u8 gUnk_080D0974[] = {
     160,
     128,
 };
-const u8 gUnk_080D0978[] = {
-    0, 254, 0, 2, 0, 252, 0, 4,
+const s8 gUnk_080D0978[] = {
+    0, -2, 0, 2, 0, -4, 0, 4,
 };
 const u8 gUnk_080D0980[] = {
     15,
@@ -425,9 +425,9 @@ const u8 gUnk_080D0980[] = {
     34,
     45,
 };
-const u8 gUnk_080D0984[] = {
-    255,
-    254,
-    253,
-    254,
+const s8 gUnk_080D0984[] = {
+    -1,
+    -2,
+    -3,
+    -2,
 };

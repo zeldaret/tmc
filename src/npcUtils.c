@@ -58,12 +58,7 @@ static const NPCDefinition* GetNPCDefinition(Entity* this) {
 
 void NPCInit(Entity* this) {
     static const Hitbox* const gNPCHitboxes[] = {
-	    NULL,
-	    &gHitbox_2,
-	    &gHitbox_30,
-	    &gHitbox_2,
-	    &gHitbox_3,
-	    &gHitbox_31,
+        NULL, &gHitbox_2, &gHitbox_30, &gHitbox_2, &gHitbox_3, &gHitbox_31,
     };
     u32 tmp;
     u32 tmp2;
@@ -92,7 +87,7 @@ void NPCInit(Entity* this) {
             this->spriteSettings.shadow = definition->data.sprite.shadow;
             this->spritePriority.b1 = definition->data.sprite.spritePriority;
             this->spriteSettings.draw = definition->data.sprite.draw;
-            this->hitbox = (Hitbox*) gNPCHitboxes[definition->bitfield.hitbox];
+            this->hitbox = (Hitbox*)gNPCHitboxes[definition->bitfield.hitbox];
             this->flags |= ENT_DID_INIT;
             tmp2 = 0xff;
             this->animIndex = tmp2;
@@ -153,10 +148,10 @@ void sub_0806EE04(Entity* ent, void* a2, u32 a3) {
 
 u32 sub_0806EE20(Entity* ent) {
     static u32 (*const gUnk_08114EFC[])(Entity*) = {
-	    sub_0806EF88,
-	    sub_0806EE70,
-	    sub_0806EED0,
-	    sub_0806EEF4,
+        sub_0806EF88,
+        sub_0806EE70,
+        sub_0806EED0,
+        sub_0806EEF4,
     };
     u32 v3;
 
@@ -227,15 +222,8 @@ static u32 sub_0806EF74(Entity* ent, u32 a2) {
 
 u32 sub_0806EF88(Entity* ent) {
     static u32 (*const gUnk_08114F0C[])(Entity*, u16*) = {
-	    sub_0806EFAC,
-	    sub_0806EFBC,
-	    sub_0806EFCC,
-	    sub_0806EFDC,
-	    sub_0806F014,
-	    sub_0806F02C,
-	    sub_0806F048,
-	    sub_0806F050,
-	    sub_0806F064,
+        sub_0806EFAC, sub_0806EFBC, sub_0806EFCC, sub_0806EFDC, sub_0806F014,
+        sub_0806F02C, sub_0806F048, sub_0806F050, sub_0806F064,
     };
     u8* v1 = (u8*)&((u16*)ent->child)[ent->hitType];
     return gUnk_08114F0C[*v1](ent, (u16*)v1);

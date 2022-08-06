@@ -22,9 +22,10 @@ void StoneTablet(Entity* this) {
 
 void StoneTablet_Init(Entity* this) {
     // TODO recreate as TileData[]
-    static const u16 gUnk_081232EC[] = { 0x4022, 0xfffe, 0x4022, 0xffff, 0x4022, 0x0, 0x4022, 0x1, 0xffff };
-    static const u16 gUnk_081232FE[] = { 0x4065, 0xffbf, 0x4022, 0xffc0, 0x4066, 0xffc1, 0x4029,
-                                         0xffff, 0x4026, 0x0,    0x402a, 0x1,    0xffff };
+    static const u16 gUnk_081232EC[] = { 0x4022, -2, 0x4022, -1, 0x4022, 0, 0x4022, 1, 0xffff };
+    static const u16 gUnk_081232FE[] = {
+        0x4065, -65, 0x4022, -64, 0x4066, -63, 0x4029, -1, 0x4026, 0, 0x402a, 1, 0xffff
+    };
     this->action = 1;
     this->spriteSettings.draw = 1;
     if (this->type == 3) {

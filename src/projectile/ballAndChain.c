@@ -34,7 +34,7 @@ void sub_080AB074(Entity* this) {
         this->frameIndex = 0;
         this->spritePriority.b0 = 3;
     }
-    sub_0806FA90(this->parent, this, 0, 0xfffffff6 + -(s8)parent->field_0x7c.BYTES.byte3);
+    sub_0806FA90(this->parent, this, 0, -10 + -(s8)parent->field_0x7c.BYTES.byte3);
 
     this->x.WORD += gSineTable[parent->field_0x7c.BYTES.byte0] * (parent->field_0x7c.BYTES.byte2 << 8);
     this->y.WORD -= gSineTable[parent->field_0x7c.BYTES.byte0 + 0x40] * (parent->field_0x7c.BYTES.byte2 << 8);

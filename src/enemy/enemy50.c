@@ -143,7 +143,7 @@ void sub_08040D30(Enemy50Entity* this) {
     }
     GenericConfused(super);
     if (super->z.HALF.HI == 0) {
-        super->z.HALF.HI = 0xffff;
+        super->z.HALF.HI = -1;
     }
     if (super->confusedTime == 0) {
         InitializeAnimation(super, (super->animationState ^ 1) + 1);

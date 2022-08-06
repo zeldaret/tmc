@@ -323,11 +323,11 @@ void sub_08094660(GleerokParticleEntity* this) {
         sub_08094708(this, iVar3, iVar4);
         iVar3 = super->x.HALF.HI + spriteOffsetX + 0x30;
         iVar4 = super->y.HALF.HI + spriteOffsetX + 0x30;
-        this->unk78 = 0xfffffff0;
+        this->unk78 = -16;
         this->unk7c = 0;
         sub_08094708(this, iVar3, iVar4);
         this->unk78 = 0;
-        this->unk7c = 0xfffffff0;
+        this->unk7c = -16;
         sub_08094708(this, iVar3, iVar4);
     }
 }

@@ -347,7 +347,7 @@ void sub_08085A44(LilypadLargeEntity* this) {
     if (GetRelativeCollisionTile(super, 0x10, 0x18) != 0x11) {
         super->direction = 0x18;
     } else {
-        if (GetRelativeCollisionTile(super, 0xfffffff0, 0x18) != 0x11) {
+        if (GetRelativeCollisionTile(super, -0x10, 0x18) != 0x11) {
             super->direction = 8;
         } else {
             super->direction = 0x10;

@@ -72,7 +72,7 @@ void sub_0806BA34(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BB1C(Entity* this, ScriptExecutionContext* context) {
-    s32 item = 0xffffffff;
+    s32 item = -1;
     if (GetInventoryValue(ITEM_QST_BOOK1) == 1) {
         item = ITEM_QST_BOOK1;
     } else if (GetInventoryValue(ITEM_QST_BOOK2) == 1) {

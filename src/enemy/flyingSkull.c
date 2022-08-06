@@ -82,7 +82,7 @@ void sub_08039CE0(FlyingSkullEntity* this) {
     if (super->timer == 0) {
         sub_0803A100(this);
         super->timer = 1;
-        super->z.HALF.HI = 0xffff;
+        super->z.HALF.HI = -1;
         super->spriteOffsetX = 0;
         SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     }

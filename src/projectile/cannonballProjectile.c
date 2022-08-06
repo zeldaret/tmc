@@ -34,7 +34,7 @@ void sub_080AB544(Entity* this) {
 void CannonballProjectile_Init(Entity* this) {
     this->action = 1;
     this->direction = this->type << 3;
-    this->z.HALF.HI = 0xfffc;
+    this->z.HALF.HI = -4;
     InitializeAnimation(this, this->type);
 }
 

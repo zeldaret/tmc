@@ -49,8 +49,8 @@ void NPC58_Head(Entity* this) {
     SetExtraSpriteFrame(this, 1, (s16)this->field_0x6a.HWORD);
     SetExtraSpriteFrame(this, 2, (s16)this->field_0x6c.HWORD);
     SetExtraSpriteFrame(this, 3, 10);
-    sub_0806FFBC(this, 0, 0xfffffff4, 0);
-    sub_0806FFBC(this, 1, 0xfffffffc, 0);
+    sub_0806FFBC(this, 0, -12, 0);
+    sub_0806FFBC(this, 1, -4, 0);
     sub_0806FFBC(this, 2, 0xc, 0);
     sub_0807000C(this);
 }

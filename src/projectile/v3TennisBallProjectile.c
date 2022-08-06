@@ -47,7 +47,7 @@ void sub_080ACA68(Entity* this) {
 void V3TennisBallProjectile_Init(Entity* this) {
     this->action = 1;
     this->direction = 0x10;
-    this->z.HALF.HI = 0xfffc;
+    this->z.HALF.HI = -4;
     this->child = NULL;
     InitializeAnimation(this, 7);
     SoundReq(SFX_199);

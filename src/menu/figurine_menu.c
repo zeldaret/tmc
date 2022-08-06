@@ -594,7 +594,7 @@ void sub_080A4DB8(u32 param_1) {
     MemClear(&gBG2Buffer, 0x800);
     MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
     MemClear(&gFigurineMenu, sizeof(gFigurineMenu));
-    gFigurineMenu.unk2e = 0xffff;
+    gFigurineMenu.unk2e = -1;
     gMenu.field_0x3 = gPauseMenuOptions.unk2[param_1];
     ptr = &gUnk_08128AD8[gUnk_08128A38[param_1].unk0];
     gScreen.lcd.displayControl = ptr->unk2 | 0x1940;

@@ -201,7 +201,7 @@ void sub_080840A8(s32 param_1, s32 param_2) {
         obj->zVelocity = gUnk_0811F840[Random() & 3];
         obj->x.HALF.HI = gUnk_0811F850[Random() & 3] + param_1;
         obj->y.HALF.HI = param_2 + 1;
-        obj->z.HALF.HI = 0xfff8;
+        obj->z.HALF.HI = -8;
         ResolveCollisionLayer(obj);
         obj = CreateFx(obj, FX_DASH, 0);
         if (obj != NULL) {
