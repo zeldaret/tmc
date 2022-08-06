@@ -72,7 +72,7 @@ void MinishEmoticon_Action1(Entity* this) {
                         animIndex = origAnimIndex + 0x19;
                     }
                 } else {
-                    if ((gPlayerState.framestate == 1) || (gPlayerState.framestate == 25)) {
+                    if (gPlayerState.framestate == PL_STATE_WALK || gPlayerState.framestate == PL_STATE_PUSH) {
                         animIndex = origAnimIndex + 4;
                         if (this->animIndex != animIndex) {
                             this->z.WORD = 0;

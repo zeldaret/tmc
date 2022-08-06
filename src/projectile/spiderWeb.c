@@ -78,7 +78,7 @@ void sub_080AA78C(Entity* this) {
     if (this->subAction == 0) {
         animationState = (gPlayerEntity.animationState >> 1);
         if (animationState != this->type) {
-            this->gustJarState &= 0xfb;
+            this->gustJarState &= ~4;
             if (AnimationStateFlip90(animationState) != this->type) {
                 return;
             }

@@ -90,7 +90,7 @@ void sub_0801B584(Entity* this) {
 
     sub_0801B804(this);
     if ((gPlayerState.field_0x3[1] == 0) || (gPlayerState.mobility != 0) || gPlayerState.item != this ||
-        (gPlayerState.item == this && gPlayerEntity.action != 1)) {
+        (gPlayerState.item == this && gPlayerEntity.action != PLAYER_NORMAL)) {
         if (gPlayerState.item == this) {
             gPlayerState.item = NULL;
         }

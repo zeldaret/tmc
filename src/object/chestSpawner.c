@@ -123,7 +123,7 @@ void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
             super->subAction = 1;
             break;
         case 1:
-            if ((super->type == 5) || (gPlayerEntity.action == 1)) {
+            if ((super->type == 5) || (gPlayerEntity.action == PLAYER_NORMAL)) {
                 super->subAction = 2;
                 super->timer = 8;
                 super->subtimer = 0;

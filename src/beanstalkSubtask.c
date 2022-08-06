@@ -383,7 +383,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
             object->y.HALF.HI = (((param_2 & 0xfc0) >> 2) + 8) + gRoomControls.origin_y;
             object->collisionLayer = this->collisionLayer;
             gPlayerState.pushedObject = 0xa0;
-            gPlayerState.queued_action = 5;
+            gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= 1;
             this->x.HALF.LO = 0;
             this->y.HALF.LO = 0;

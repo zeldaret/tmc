@@ -67,8 +67,9 @@ enum PlayerFrameState {
     PL_STATE_CLIMB,
     PL_STATE_PUSH,
     PL_STATE_PULL,
-    PL_STATE_1B,
+    PL_STATE_SINKING,
     PL_STATE_STAIRS,
+    PL_STATE_1D,
 };
 
 enum PlayerSpawnType {
@@ -275,7 +276,7 @@ typedef struct {
     /*0x0e*/ u8 field_0xe;
     /*0x0f*/ u8 hurtBlinkSpeed;
     /*0x10*/ u8 field_0x10;
-    /*0x11*/ u8 field_0x11;
+    /*0x11*/ u8 surfacePositionSameTimer;
     /*0x12*/ u8 floor_type;
     /*0x13*/ u8 floor_type_last;
     /*0x14*/ u8 field_0x14;
@@ -297,7 +298,7 @@ typedef struct {
     /*0x34*/ u8 field_0x34;
     /*0x35*/ u8 field_0x35;
     /*0x36*/ u8 field_0x36;
-    /*0x37*/ u8 field_0x37;
+    /*0x37*/ u8 surfaceTimer;
     /*0x38*/ u8 field_0x38;
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u8 field_0x3a;
@@ -356,10 +357,20 @@ typedef struct {
     /*0x1*/ u8 behaviorID;
     /*0x2*/ u8 field_0x2[2];
     /*0x4*/ u8 stateID;
-    /*0x5*/ u8 field_0x5[10];
+    /*0x5*/ u8 field_0x5;
+    /*0x6*/ u8 field_0x6;
+    /*0x7*/ u8 timer;
+    /*0x8*/ u8 subtimer;
+    /*0x9*/ u8 field_0x9;
+    /*0xa*/ u8 playerAnimationState;
+    /*0xb*/ u8 direction;
+    /*0xc*/ u8 playerAnimIndex;
+    /*0xd*/ u8 playerFrameDuration;
+    /*0xe*/ u8 playerFrame;
     /*0xf*/ u8 field_0xf;
     /*0x10*/ u16 field_0x10;
-    /*0x12*/ u8 field_0x12[6];
+    /*0xf*/ u8 playerFrameIndex;
+    /*0x12*/ u8 field_0x12[5];
     /*0x18*/ Entity* field_0x18;
 } ItemBehavior;
 

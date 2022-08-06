@@ -43,7 +43,7 @@ script_08013006:
 	WaitPlayerGetItem
 	Wait 0x001e
 	_0807E8E4_0
-	Call sub_0806AB9C
+	Call DeleteNpcRem
 	SetAnimation 0x000b
 	Wait 0x003c
 	DoPostScriptAction 0x0004

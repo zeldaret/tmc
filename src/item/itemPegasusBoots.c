@@ -29,12 +29,11 @@ void ItemPegasusBoots(ItemBehavior* this, u32 idx) {
         gPlayerState.field_0xe = 0;
         DeletePlayerItem(this, idx);
     } else {
-        bVar1 = this->field_0x5[2] - 1;
-        this->field_0x5[2] = bVar1;
-        if ((bVar1 & 7) == 0) {
+        --this->timer;
+        if ((this->timer & 7) == 0) {
             SoundReq(SFX_PLY_LAND);
         }
-        if (((gPlayerState.flags & PL_MINISH) == 0) && ((this->field_0x5[2] & 7) == 0)) {
+        if (((gPlayerState.flags & PL_MINISH) == 0) && ((this->timer & 7) == 0)) {
             if (gPlayerState.floor_type == SURFACE_SWAMP) {
                 if (gPlayerEntity.spriteOffsetY == 0) {
                     CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
@@ -70,7 +69,7 @@ void sub_080768F8(ItemBehavior* this, u32 idx) {
         gPlayerState.dash_state = 1;
         gPlayerState.field_0x1f[2] = bVar1;
         if ((gPlayerState.flags & PL_MINISH) == 0) {
-            this->field_0x5[2] = 0x10;
+            this->timer = 0x10;
         } else {
             gPlayerState.animation = 0xc14;
         }
@@ -144,7 +143,7 @@ void sub_08076A88(ItemBehavior* this, u32 idx) {
         }
         uVar2 = gUnk_0800275C[(gPlayerEntity.animationState & 0xe) * 4];
         if (uVar2 == (gPlayerEntity.collisions & uVar2)) {
-            if (this->field_0x5[3] != 0) {
+            if (this->subtimer != 0) {
                 gPlayerEntity.action = PLAYER_BOUNCE;
                 gPlayerEntity.subAction = 0;
                 COLLISION_OFF(&gPlayerEntity);
@@ -152,20 +151,20 @@ void sub_08076A88(ItemBehavior* this, u32 idx) {
                 gPlayerState.field_0xd = 0xff;
                 return;
             }
-            this->field_0x5[3] = 1;
+            this->subtimer = 1;
             return;
         }
         ptr = gUnk_0811BE38;
         if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.field_0x90) == 0) {
-            this->field_0x5[6] = (this->field_0x5[5] & 0xe) * 4;
-            if ((gPlayerState.field_0xd != 0xff) && (gPlayerState.field_0xd != this->field_0x5[6])) {
-                if (((gPlayerState.field_0xd - this->field_0x5[6]) & 0x1f) < 0x10) {
-                    this->field_0x5[6] = this->field_0x5[6] + 2;
+            this->direction = (this->playerAnimationState & 0xe) * 4;
+            if ((gPlayerState.field_0xd != 0xff) && (gPlayerState.field_0xd != this->direction)) {
+                if (((gPlayerState.field_0xd - this->direction) & 0x1f) < 0x10) {
+                    this->direction = this->direction + 2;
                 }
-                this->field_0x5[6]--;
-                this->field_0x5[6] &= 0x1f;
+                this->direction--;
+                this->direction &= 0x1f;
             }
-            gPlayerState.field_0xd = this->field_0x5[6];
+            gPlayerState.field_0xd = this->direction;
             UpdateItemAnim(this);
             return;
         }

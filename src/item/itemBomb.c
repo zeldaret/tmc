@@ -64,7 +64,7 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
         sub_08077DF4(this, 0x338);
     }
     gPlayerState.heldObject = 3;
-    gPlayerState.framestate = 4;
+    gPlayerState.framestate = PL_STATE_HOLD;
     this->stateID = 2;
     this->field_0xf = 0xf;
     if ((gPlayerEntity.field_0x78.HALF.HI & 0x80)) {
@@ -92,12 +92,12 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
         param_2->parent = (Entity*)this;
         this->field_0x18 = param_2;
         param_2->type2 = this->field_0x2[1];
-        param_2->timer = this->field_0x5[2];
-        param_2->subtimer = this->field_0x5[3];
+        param_2->timer = this->timer;
+        param_2->subtimer = this->subtimer;
         if ((this->field_0x18->carryFlags & 0xf0) == 0x10) {
-            this->field_0x5[2] = 8;
+            this->timer = 8;
         } else {
-            this->field_0x5[2] = 0;
+            this->timer = 0;
         }
         SoundReq(SFX_PLY_LIFT);
     }

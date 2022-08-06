@@ -109,7 +109,7 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
         super->flags2 &= 0xfb;
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, 0x1c);
+        Create0x68FX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Stalfos_Functions);
 }

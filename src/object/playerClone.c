@@ -105,8 +105,8 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
         super->subtimer--;
     }
 
-    if (gPlayerState.chargeState.action == 5 && gPlayerClones[super->type] != NULL && gPlayerState.framestate != 19 &&
-        super->health != 0) {
+    if (gPlayerState.chargeState.action == 5 && gPlayerClones[super->type] != NULL &&
+        gPlayerState.framestate != PL_STATE_TALKEZLO && super->health != 0) {
         if (gPlayerEntity.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {

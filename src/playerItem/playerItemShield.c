@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "sound.h"
 #include "collision.h"
+#include "playeritem.h"
 
 extern void (*const gUnk_081271D4[])(Entity*);
 extern u8 gUnk_081271DC[];
@@ -66,7 +67,7 @@ NONMATCH("asm/non_matching/playerItemShield/sub_080A2E00.inc", void sub_080A2E00
             if ((this->contactFlags & 0x80) != 0) {
                 if ((((this->contactFlags & 0x7f) == 0x42) && (*(char*)&this->field_0x68 == 0xe)) &&
                     ((uVar4 & 0x40) == 0)) {
-                    pEVar1 = CreatePlayerItem(0x15, 0, 0, *(char*)&this->field_0x68);
+                    pEVar1 = CreatePlayerItem(PLAYER_ITEM_15, 0, 0, *(char*)&this->field_0x68);
                     this->child = pEVar1;
                     if (pEVar1 != NULL) {
                         pEVar1->subtimer = 1;

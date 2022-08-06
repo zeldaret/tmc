@@ -38,11 +38,11 @@ script_08010564:
 	Jump script_08010570
 script_08010570:
 	Call sub_080634EC
-	CallWithArg sub_0807F78C, 0x00000000
+	CallWithArg ScriptCommand_SaleItemConfirmMessage, 0x00000000
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_080105E0
-	CallWithArg sub_0807F7C4, 0x00000000
+	CallWithArg ScriptCommand_CheckShopItemPrice, 0x00000000
 	JumpIfNot script_080105C4
 	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_080105CC
@@ -50,7 +50,7 @@ script_08010570:
 	JumpIf script_080105D4
 	MessageNoOverlap TEXT_PICOLYTE, 0x07
 	WaitUntilTextboxCloses
-	CallWithArg sub_0807F800, 0x00000000
+	CallWithArg ScriptCommand_BuyShopItem, 0x00000000
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
 	MessageNoOverlap TEXT_PICOLYTE, 0x0c

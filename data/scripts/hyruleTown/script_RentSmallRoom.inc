@@ -2,7 +2,7 @@
 SCRIPT_START script_RentSmallRoom
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x03
-	CallWithArg sub_0807F854, 0x00010032
+	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 50
 	EndBlock
 	WaitUntilTextboxCloses
 	HasRupees 50

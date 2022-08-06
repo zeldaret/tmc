@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "asm.h"
 #include "item.h"
+#include "object.h"
 
 typedef struct {
     Entity base;
@@ -65,7 +66,7 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
                     super->spriteSettings.draw = 0;
                     sub_0805EC60(super);
                     FreeCarryEntity(super);
-                    CreateObjectWithParent(super, 0x20, 0, 0);
+                    CreateObjectWithParent(super, SMOKE_PARTICLE, 0, 0);
                     sub_0801B418(super);
                 } else {
                     sub_0801B3A4(this);

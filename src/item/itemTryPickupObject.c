@@ -37,7 +37,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 idx) {
                 this->field_0x18 = carried;
                 carried->action = 2;
                 carried->subAction = 5;
-                gPlayerState.framestate = 5;
+                gPlayerState.framestate = PL_STATE_THROW;
                 sub_080762C4(this, carried, 2, idx);
                 gUnk_0200AF00.unk_2e = 8;
                 SoundReq(SFX_102);
@@ -48,7 +48,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 idx) {
                 break;
             case 0:
                 this->stateID = 5;
-                this->field_0x5[2] = 0x0f;
+                this->timer = 0x0f;
                 this->field_0xf = 6;
                 gPlayerState.field_0xa = (8 >> idx) | gPlayerState.field_0xa;
                 gPlayerState.keepFacing = (8 >> idx) | gPlayerState.keepFacing;
@@ -79,13 +79,13 @@ void sub_08076488(ItemBehavior* this, u32 idx) {
     u32 bVar1;
     s32 iVar2;
 
-    if (this->field_0x5[2] == 0) {
+    if (this->timer == 0) {
         if (PlayerTryDropObject(this, idx) != 0) {
             if ((((this->field_0x18->carryFlags) & 0xf0) == 0x10) && ((gRoomTransition.frameCount & 1U) != 0)) {
                 return;
             }
             UpdateItemAnim(this);
-            if ((this->field_0x5[9] & 0x80) != 0) {
+            if ((this->playerFrame & 0x80) != 0) {
                 gPlayerEntity.flags |= ENT_COLLIDE;
                 gPlayerState.heldObject = 4;
                 bVar1 = ~(8 >> idx);
@@ -96,14 +96,14 @@ void sub_08076488(ItemBehavior* this, u32 idx) {
             }
         }
     } else {
-        this->field_0x5[2]--;
+        this->timer--;
     }
     gPlayerState.framestate = PL_STATE_HOLD;
 }
 
 void sub_08076518(ItemBehavior* this, u32 index) {
     if (PlayerTryDropObject(this, index)) {
-        gPlayerState.framestate = 4;
+        gPlayerState.framestate = PL_STATE_HOLD;
         if ((gPlayerState.jump_status & 0x80) == 0 && gPlayerState.field_0x1f[0] == 0) {
             if (gPlayerEntity.knockbackDuration != 0) {
                 PlayerCancelHoldItem(this, index);
@@ -132,7 +132,7 @@ void sub_08076518(ItemBehavior* this, u32 index) {
 
 void sub_080765E0(ItemBehavior* this, u32 idx) {
     if (PlayerTryDropObject(this, idx) != 0) {
-        if ((this->field_0x5[9] & 0x80) != 0) {
+        if ((this->playerFrame & 0x80) != 0) {
             PlayerCancelHoldItem(this, idx);
         } else {
             UpdateItemAnim(this);
@@ -142,7 +142,7 @@ void sub_080765E0(ItemBehavior* this, u32 idx) {
 
 void sub_0807660C(ItemBehavior* this, u32 idx) {
     UpdateItemAnim(this);
-    if ((this->field_0x5[2]-- == 0) || (gPlayerState.field_0x0[1] == 0)) {
+    if ((this->timer-- == 0) || (gPlayerState.field_0x0[1] == 0)) {
         gPlayerState.field_0x0[1] = 0;
         DeletePlayerItem(this, idx);
     }

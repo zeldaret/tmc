@@ -59,7 +59,7 @@ void Vaati1Portal_Action2(Entity* this) {
 void sub_080A0190(Entity* this) {
     this->subAction = 1;
     CopyPosition(this, &gPlayerEntity);
-    gPlayerState.queued_action = 3;
+    gPlayerState.queued_action = PLAYER_FALL;
     gPlayerState.field_0x38 = 0;
     gPlayerState.flags |= PL_PIT_IS_EXIT;
 }

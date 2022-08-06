@@ -162,7 +162,7 @@ void ObjectBlockingStairs_Action2(ObjectBlockingStairsEntity* this) {
     } else {
         if (gPlayerState.heldObject == 0x12) {
             if ((gPlayerEntity.frame & 2) != 0 && ++super->subtimer > 8) {
-                gPlayerState.queued_action = 16;
+                gPlayerState.queued_action = PLAYER_PULL;
                 gPlayerState.field_0x38 = 0x40;
                 gPlayerState.flags |= PL_BUSY;
                 gPlayerEntity.x.HALF.LO = 0;

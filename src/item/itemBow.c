@@ -18,7 +18,7 @@ void ItemBow(ItemBehavior* this, u32 idx) {
 
 void sub_08075DF4(ItemBehavior* this, u32 idx) {
     if ((gPlayerState.field_0x3[1] & 8) == 0) {
-        this->field_0x5[4] |= 0x80;
+        this->field_0x9 |= 0x80;
         sub_0806F948(&gPlayerEntity);
         sub_08077BB8(this);
         sub_08077D38(this, idx);
@@ -35,9 +35,9 @@ void sub_08075E40(ItemBehavior* this, u32 idx) {
         bVar1 = gPlayerState.field_0x3[1] & 0x80;
         if (bVar1 == 0) {
             UpdateItemAnim(this);
-            if ((this->field_0x5[9] & 0x80) != 0) {
+            if ((this->playerFrame & 0x80) != 0) {
                 this->stateID = 2;
-                this->field_0x5[4] &= 0x7f;
+                this->field_0x9 &= ~0x80;
                 if (gSave.stats.arrowCount != 0) {
                     this->field_0xf = bVar1;
                     gPlayerState.field_0xa &= ~(8 >> idx);
@@ -65,7 +65,7 @@ void sub_08075EC0(ItemBehavior* this, u32 idx) {
         gPlayerState.field_0xa = (8 >> idx) | gPlayerState.field_0xa;
         sub_08077DF4(this, 0x27c);
         this->field_0xf = 0xf;
-        this->field_0x5[4] |= 0xf;
+        this->field_0x9 |= 0xf;
         this->stateID = 3;
     }
 }
@@ -73,7 +73,7 @@ void sub_08075EC0(ItemBehavior* this, u32 idx) {
 void sub_08075F38(ItemBehavior* this, u32 idx) {
     if (((gPlayerState.field_0x3[1] & 0x80) == 0) && (gPlayerState.field_0x1f[2] != 0)) {
         UpdateItemAnim(this);
-        if ((this->field_0x5[9] & 1) != 0) {
+        if ((this->playerFrame & 1) != 0) {
             this->stateID = 4;
         }
     } else {
@@ -89,7 +89,7 @@ void sub_08075F84(ItemBehavior* this, u32 idx) {
         } else {
             UpdateItemAnim(this);
         }
-        if ((this->field_0x5[9] & 0x80) == 0) {
+        if ((this->playerFrame & 0x80) == 0) {
             return;
         }
     }

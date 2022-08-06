@@ -119,7 +119,7 @@ void GenerateAreaHint(void) {
     u16 uVar1;
     struct_area_28* ptr;
 
-    gPlayerState.queued_action = 0x16;
+    gPlayerState.queued_action = PLAYER_TALKEZLO;
 #if defined(EU) || defined(JP)
     // TODO what fields of the room transition are switched in these variants?
     gRoomTransition.field_0x2c[7] = 0;

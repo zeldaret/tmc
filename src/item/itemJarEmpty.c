@@ -22,10 +22,10 @@ void sub_08077534(ItemBehavior* this, u32 idx) {
     sub_08077D38(this, idx);
     sub_0806F948(&gPlayerEntity);
     sub_08077BB8(this);
-    this->field_0x5[4] |= 0xf;
+    this->field_0x9 |= 0xf;
     tmp = this->behaviorID;
-    this->field_0x5[2] = gSave.filler86[tmp + 0x14];
-    switch (this->field_0x5[2]) {
+    this->timer = gSave.filler86[tmp + 0x14];
+    switch (this->timer) {
         case 0x20:
             sub_08077DF4(this, 0x614);
             return;
@@ -57,7 +57,7 @@ void sub_08077534(ItemBehavior* this, u32 idx) {
 }
 
 void sub_08077618(ItemBehavior* this, u32 idx) {
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         sub_08077DF4(this, 0x618);
         this->stateID += 1;
     } else {
@@ -67,7 +67,7 @@ void sub_08077618(ItemBehavior* this, u32 idx) {
 
 void sub_08077640(ItemBehavior* this, u32 idx) {
     UpdateItemAnim(this);
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
         DeletePlayerItem(this, idx);
     }
@@ -75,7 +75,7 @@ void sub_08077640(ItemBehavior* this, u32 idx) {
 
 void sub_0807766C(ItemBehavior* this, u32 idx) {
     UpdateItemAnim(this);
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
         DeletePlayerItem(this, idx);
     }

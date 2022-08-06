@@ -173,7 +173,7 @@ void sub_0809D91C(Entity* this) {
 bool32 sub_0809D93C(Entity* this, const struct_gUnk_08123FB0* param_2) {
     u32 uVar1;
 
-    if (gPlayerEntity.action == 6 && ((param_2->unk0c >> gPlayerEntity.animationState & 1) != 0)) {
+    if (gPlayerEntity.action == PLAYER_BOUNCE && ((param_2->unk0c >> gPlayerEntity.animationState & 1) != 0)) {
         uVar1 = (gPlayerEntity.x.HALF.HI - this->x.HALF.HI) + param_2->unk08 + param_2->unk0a;
         if (param_2->unk0a * 2 <= (u16)uVar1) {
             return 0;

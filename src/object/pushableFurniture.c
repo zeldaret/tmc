@@ -352,9 +352,9 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
 bool32 sub_0808FECC(PushableFurnitureEntity* this) {
     bool32 result = TRUE;
 
-    if (!((gPlayerState.flags & PL_MINISH) == 0 && (gPlayerEntity.action == 6) && (gPlayerEntity.animationState == 0) &&
-          (gPlayerEntity.y.HALF.HI - super->y.HALF.HI < 0x14) && (super->x.HALF.HI + 0xc > gPlayerEntity.x.HALF.HI) &&
-          (super->x.HALF.HI - 12 < gPlayerEntity.x.HALF.HI))) {
+    if (!((gPlayerState.flags & PL_MINISH) == 0 && (gPlayerEntity.action == PLAYER_BOUNCE) &&
+          (gPlayerEntity.animationState == 0) && (gPlayerEntity.y.HALF.HI - super->y.HALF.HI < 0x14) &&
+          (super->x.HALF.HI + 0xc > gPlayerEntity.x.HALF.HI) && (super->x.HALF.HI - 12 < gPlayerEntity.x.HALF.HI))) {
         result = FALSE;
     }
     return result;

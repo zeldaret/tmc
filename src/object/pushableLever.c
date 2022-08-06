@@ -58,7 +58,7 @@ void PushableLever_Idle(PushableLeverEntity* this) {
         RequestPriorityDuration(super, 30);
         if (PlayerCanBeMoved()) {
             gPlayerState.pushedObject = 0x90;
-            gPlayerState.queued_action = 5;
+            gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
             gPlayerEntity.x.HALF.LO = 0;
             gPlayerEntity.y.HALF.LO = 0;

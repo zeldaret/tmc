@@ -130,7 +130,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         }
     }
     if (sub_080896B0()) {
-        gPlayerState.queued_action = 0x10;
+        gPlayerState.queued_action = PLAYER_PULL;
         gPlayerState.field_0x38 = 0x20;
         gPlayerState.flags |= 1;
         gPlayerEntity.x.HALF.LO = 0;

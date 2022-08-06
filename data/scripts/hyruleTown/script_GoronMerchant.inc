@@ -77,7 +77,7 @@ script_080108AA:
 	MessageNoOverlap TEXT_STOCKWELL, 0x20
 script_080108B2:
 	WaitUntilTextboxCloses
-	Call sub_0807F83C
+	Call ScriptCommand_PlayerDropHeldObject
 script_080108BA:
 	WaitUntilTextboxCloses
 	Call EnablePauseMenu

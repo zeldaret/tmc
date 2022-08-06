@@ -421,12 +421,12 @@ void GyorgBossObject_SpawnChildren(u32 unk0, bool32 fromBlue, u32 animationState
                     tmp->attackOffsetY = -p->offsetY;
                     break;
                 case 1:
-                    tmp->attackOffsetX = p->offsetY + 0xF0;
+                    tmp->attackOffsetX = p->offsetY + DISPLAY_WIDTH;
                     tmp->attackOffsetY = p->offsetX;
                     break;
                 case 2:
                     tmp->attackOffsetX = p->offsetX;
-                    tmp->attackOffsetY = p->offsetY + 0xA0;
+                    tmp->attackOffsetY = p->offsetY + DISPLAY_HEIGHT;
                     break;
                 case 3:
                     tmp->attackOffsetX = -p->offsetY;

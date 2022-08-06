@@ -19,7 +19,7 @@ script_080106BE:
 	Jump script_08010726
 script_080106E0:
 	Call RemoveAllBakedGoods
-	CallWithArg sub_0807F78C, 0x00000000
+	CallWithArg ScriptCommand_SaleItemConfirmMessage, 0x00000000
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_08010726

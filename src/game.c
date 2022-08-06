@@ -1294,19 +1294,19 @@ bool32 CanDispEzloMessage(void) {
 
     if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED ||
         gPauseMenuOptions.disabled || gUnk_0200AF00.unk_1)
-        return 0;
+        return FALSE;
 
     if ((gPlayerState.flags & (PL_NO_CAP | PL_CAPTURED | PL_DISABLE_ITEMS)) || (gPlayerState.framestate_last > tmp) ||
         gPlayerState.item || gPlayerEntity.field_0x7a.HWORD)
-        return 0;
+        return FALSE;
 
     if ((gPlayerEntity.z.HALF.HI & 0x8000) && !gPlayerState.field_0xa)
-        return 0;
+        return FALSE;
 
     GenerateAreaHint();
     ForceSetPlayerState(PL_STATE_TALKEZLO);
     SetPlayerEventPriority();
-    return 1;
+    return TRUE;
 }
 
 void DisplayEzloMessage(void) {

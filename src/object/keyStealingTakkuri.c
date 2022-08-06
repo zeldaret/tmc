@@ -518,7 +518,7 @@ u32 sub_0809E2C4(KeyStealingTakkuriEntity* this, u32 param_2) {
             uVar1 = roomY - tmp->unk_2 + tmp->unk_5;
             uVar2 = tmp->unk_5 * 2;
             if (uVar2 > (u16)uVar1) {
-                if (tmp->unk_6 == gPlayerEntity.animationState && gPlayerEntity.action == 6) {
+                if (tmp->unk_6 == gPlayerEntity.animationState && gPlayerEntity.action == PLAYER_BOUNCE) {
                     return 1;
                 }
                 return 2;

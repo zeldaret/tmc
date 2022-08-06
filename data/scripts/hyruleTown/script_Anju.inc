@@ -46,7 +46,7 @@ script_080101AC:
 	WaitForFadeFinish
 	CallWithArg SetPlayerPos, 0x03400378
 	Call SetPlayerActionNormal
-	Call sub_0807FB74
+	Call DisablePlayerSwimState
 	_0807E8E4_1
 	Call SetPlayerCollisionLayer1
 	Call CuccoMinigame_Cleanup

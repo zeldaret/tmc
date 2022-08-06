@@ -92,7 +92,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 super->interactType = 0;
                 super->action = 3;
                 gRoomVars.animFlags = 1;
-                gPlayerState.queued_action = 7;
+                gPlayerState.queued_action = PLAYER_08070E9C;
             }
         } else {
             if (super->interactType != 0) {

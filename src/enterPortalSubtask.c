@@ -185,7 +185,7 @@ void sub_0804AD6C(RoomControls* controls) {
     gRoomTransition.player_status.start_pos_y =
         (area->portal_y + gUnk_080D4140[area->portal_exit_dir * 2 + 1]) - controls->origin_y;
     gRoomTransition.player_status.start_anim = area->portal_exit_dir << 1;
-    gRoomTransition.player_status.spawn_type = 1;
+    gRoomTransition.player_status.spawn_type = PL_SPAWN_MINISH;
     gRoomTransition.player_status.area_next = controls->area;
     gRoomTransition.player_status.room_next = controls->room;
     gRoomTransition.player_status.layer = 0;

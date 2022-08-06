@@ -9,6 +9,7 @@
 #include "room.h"
 #include "functions.h"
 #include "color.h"
+#include "playeritem.h"
 
 const u8 gSpriteSortAboveTable[];
 const u8 gSpriteSortBelowTable[];
@@ -82,7 +83,7 @@ bool32 sub_0806F3E4(Entity* ent) {
             ent->subAction = 3;
             gNewPlayerEntity.unk_70 = ent;
             gPlayerState.field_0x1c = 7;
-            item = CreatePlayerItem(0x11, 0, 0, 0);
+            item = CreatePlayerItem(PLAYER_ITEM_11, 0, 0, 0);
             if (item != NULL) {
                 item->child = ent;
                 ent->parent = item;

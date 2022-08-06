@@ -129,7 +129,7 @@ void ObjectOnPillar_SubAction0(ObjectOnPillarEntity* this) {
     }
     sub_08097008(this);
     if (sub_080896B0()) {
-        gPlayerState.queued_action = 0x10;
+        gPlayerState.queued_action = PLAYER_PULL;
         gPlayerState.field_0x38 = 0x20;
         gPlayerState.flags |= PL_BUSY;
         gPlayerEntity.x.HALF.LO = 0;

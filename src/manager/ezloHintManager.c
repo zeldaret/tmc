@@ -103,7 +103,7 @@ static u32 PlayerStateValid(EzloHintManager* this) {
         case PL_STATE_DROWN:
         case PL_STATE_HOLE:
         case PL_STATE_CLIMB:
-        case PL_STATE_1B:
+        case PL_STATE_SINKING:
         case PL_STATE_STAIRS:
             return 0;
         case PL_STATE_6:

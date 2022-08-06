@@ -288,7 +288,7 @@ bool32 CheckInitPauseMenu(void) {
         return FALSE;
     }
 
-    framestate = gPlayerState.framestate == 0 ? gPlayerState.framestate_last : gPlayerState.framestate;
+    framestate = gPlayerState.framestate == PL_STATE_IDLE ? gPlayerState.framestate_last : gPlayerState.framestate;
     switch (framestate) {
         case PL_STATE_DIE:
         case PL_STATE_TALKEZLO:
@@ -692,7 +692,7 @@ static void PlayerBounceUpdate(Entity* this) {
     COLLISION_ON(this);
 
     if ((gPlayerState.field_0x14 == 0) && PlayerCheckNEastTile()) {
-        gPlayerState.field_0x11 = 7;
+        gPlayerState.surfacePositionSameTimer = 7;
         ResolvePlayerAnimation();
         SetPlayerActionNormal();
         return;
@@ -845,7 +845,7 @@ static void PlayerJumpInit(Entity* this) {
     gPlayerState.flags |= PL_BUSY;
     gPlayerState.flags &= ~(PL_BURNING | PL_FROZEN);
 
-    gPlayerState.queued_action = 0;
+    gPlayerState.queued_action = PLAYER_INIT;
 
     if ((gPlayerState.heldObject | gPlayerState.sword_state) == 0) {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
@@ -1499,7 +1499,7 @@ static void PlayerMinishDieInit(Entity* this) {
         return;
     }
 
-    gPlayerState.queued_action = 0;
+    gPlayerState.queued_action = PLAYER_INIT;
     if (gPlayerState.flags & PL_MINISH) {
         if (gPlayerState.floor_type == SURFACE_MINISH_DOOR_FRONT ||
             gPlayerState.floor_type == SURFACE_MINISH_DOOR_BACK || gPlayerState.floor_type == SURFACE_A) {
@@ -1611,7 +1611,7 @@ static void sub_08071E04(Entity* this) {
     if ((this->z.WORD != 0) && (gPlayerState.field_0x14 == 0)) {
         UpdateFloorType();
         if (gPlayerState.floor_type == SURFACE_PIT) {
-            gPlayerState.field_0x11 = 7;
+            gPlayerState.surfacePositionSameTimer = 7;
             gPlayerState.flags |= PL_FALLING;
             SetPlayerActionNormal();
             return;
@@ -2288,7 +2288,7 @@ static void sub_08072C48(Entity* this) {
     sub_08008790(this, 7);
     if (gPlayerState.field_0x14) {
         if (PlayerCheckNEastTile()) {
-            gPlayerState.field_0x11 = 7;
+            gPlayerState.surfacePositionSameTimer = 7;
             if (!(gPlayerState.flags & PL_MINISH)) {
                 SetPlayerActionNormal();
             }
@@ -2305,7 +2305,7 @@ static void sub_08072C9C(Entity* this) {
         sub_08072D54,
         sub_08072F14,
     };
-    gPlayerState.framestate = 0x11;
+    gPlayerState.framestate = PL_STATE_11;
     gUnk_0811BBAC[this->subAction](this);
 }
 
@@ -2410,7 +2410,7 @@ static void sub_08072D54(Entity* this) {
         sub_08008790(this, 7);
         if (gPlayerState.field_0x14 != 0) {
             if (PlayerCheckNEastTile()) {
-                gPlayerState.field_0x11 = 7;
+                gPlayerState.surfacePositionSameTimer = 7;
                 if (!(gPlayerState.flags & PL_MINISH)) {
                     SetPlayerActionNormal();
                 }
@@ -3034,7 +3034,7 @@ static void sub_08073AD4(Entity* this) {
         sub_0807A2B8();
         gPlayerState.jump_status = 0;
         UpdateFloorType();
-        if (gPlayerState.queued_action != 0 || gPlayerState.swim_state != 0) {
+        if (gPlayerState.queued_action != PLAYER_INIT || gPlayerState.swim_state != 0) {
             return;
         }
         if (gPlayerState.field_0x3[1])
@@ -3319,8 +3319,8 @@ void sub_080740D8(Entity* this) {
 
 u32 sub_080741C4(void) {
     if ((gPlayerState.jump_status && (gPlayerState.jump_status & 7) != 3) || gPlayerEntity.z.WORD != 0) {
-        gPlayerState.field_0x11 = 0;
-        gPlayerState.field_0x37 = 0;
+        gPlayerState.surfacePositionSameTimer = 0;
+        gPlayerState.surfaceTimer = 0;
         return 1;
     }
     return 0;
@@ -3374,7 +3374,7 @@ void SurfaceAction_6(Entity* this) {
 }
 
 void SurfaceAction_7(Entity* this) {
-    if (!sub_080741C4() && (gPlayerState.flags & PL_MINISH) == 0 && gPlayerState.field_0x11 == 15) {
+    if (!sub_080741C4() && (gPlayerState.flags & PL_MINISH) == 0 && gPlayerState.surfacePositionSameTimer == 15) {
         CreateObjectWithParent(this, CRACKING_GROUND, 0, 0);
     }
 }
@@ -3519,7 +3519,8 @@ void SurfaceAction_ShallowWater(Entity* this) {
                 this->spritePriority.b0 = 4;
                 gPlayerState.swim_state = 0;
             }
-            if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) || gPlayerState.field_0x11 == 1)
+            if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) ||
+                gPlayerState.surfacePositionSameTimer == 1)
                 SoundReq(SFX_WATER_WALK);
         }
     }
@@ -3536,29 +3537,29 @@ void SurfaceAction_SlopeGndWater(Entity* this) {
 
 void SurfaceAction_Swamp(Entity* this) {
     if (sub_080741C4()) {
-        gPlayerState.field_0x11 = 0;
-        gPlayerState.field_0x37 = 0;
+        gPlayerState.surfacePositionSameTimer = 0;
+        gPlayerState.surfaceTimer = 0;
         return;
     }
 
     if (this->health) {
         if (sub_08079C30(this) == 0) {
-            gPlayerState.field_0x11 = 0;
-            gPlayerState.field_0x37 = 0;
+            gPlayerState.surfacePositionSameTimer = 0;
+            gPlayerState.surfaceTimer = 0;
             return;
         }
-        if ((gPlayerState.flags & 0x80) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             if (gPlayerState.dash_state) {
                 if ((gPlayerState.dash_state & 0x40) != 0) {
-                    gPlayerState.field_0x11 = 0;
-                    gPlayerState.field_0x37 = 0;
+                    gPlayerState.surfacePositionSameTimer = 0;
+                    gPlayerState.surfaceTimer = 0;
                     return;
                 }
             } else {
                 PutAwayItems();
             }
 
-            if (gPlayerState.field_0x37 == 1) {
+            if (gPlayerState.surfaceTimer == 1) {
                 CreateObjectWithParent(this, OBJECT_70, 0, 0);
                 CreateFx(this, FX_GREEN_SPLASH, 0);
                 SoundReq(SFX_161);
@@ -3568,9 +3569,9 @@ void SurfaceAction_Swamp(Entity* this) {
                 SoundReq(SFX_161);
             }
             gPlayerState.speed_modifier -= 0xf0;
-            gPlayerState.framestate = 0x1b;
-            if (gPlayerState.field_0x37 < 0xf0) {
-                gPlayerState.spriteOffsetY = gPlayerState.spriteOffsetY + 4 + (gPlayerState.field_0x37 >> 5);
+            gPlayerState.framestate = PL_STATE_SINKING;
+            if (gPlayerState.surfaceTimer < 0xf0) {
+                gPlayerState.spriteOffsetY = gPlayerState.spriteOffsetY + 4 + (gPlayerState.surfaceTimer >> 5);
                 return;
             }
         }
@@ -3717,7 +3718,8 @@ void SurfaceAction_22(Entity* this) {
 void SurfaceAction_Dust(Entity* this) {
     if (!sub_080741C4()) {
         gPlayerState.speed_modifier -= 128;
-        if (gPlayerState.field_0x11 == 1 || (gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) != 0) {
+        if (gPlayerState.surfacePositionSameTimer == 1 ||
+            (gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_ANY_DIRECTION) != 0) {
             if (gPlayerState.floor_type == SURFACE_DUST)
                 CreateObjectWithParent(this, DIRT_PARTICLE, 1, 0);
             else
