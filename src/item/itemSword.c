@@ -28,7 +28,7 @@ void ItemSword(ItemBehavior* this, u32 idx) {
 void sub_08075338(ItemBehavior* this, u32 idx) {
     u32 temp, temp2;
     if (gPlayerState.flags & PL_MINISH) {
-        this->field_0x5[4] |= 0x80;
+        this->field_0x9 |= 0x80;
         sub_08077D38(this, idx);
         gPlayerState.animation = 0xc00;
         SoundReq(SFX_PLY_VO1);
@@ -74,9 +74,9 @@ void sub_08075338(ItemBehavior* this, u32 idx) {
         gPlayerState.field_0xa |= temp;
         gPlayerState.keepFacing |= temp;
         this->stateID = 8;
-        this->field_0x5[2] = 0x14;
+        this->timer = 0x14;
         this->field_0xf = 6;
-        this->field_0x5[4] |= 0x80;
+        this->field_0x9 |= 0x80;
         gPlayerState.field_0xab = 2;
         gPlayerState.flags |= PL_SWORD_THRUST;
         sub_08077DF4(this, 0x130);
@@ -107,8 +107,8 @@ void sub_080754B8(ItemBehavior* this, u32 idx) {
         sub_08075694(this, idx);
     } else if (gPlayerState.field_0x3[1] != 0) {
         UpdateItemAnim(this);
-        if (this->field_0x5[9] != 0) {
-            this->field_0x5[4] = this->field_0x5[4] & 0x7f;
+        if (this->playerFrame != 0) {
+            this->field_0x9 &= ~0x80;
         }
 
         if (gPlayerEntity.frameSpriteSettings & 1) {
@@ -123,7 +123,7 @@ void sub_080754B8(ItemBehavior* this, u32 idx) {
             }
         }
 
-        if ((this->field_0x5[9] & 0x80) != 0) {
+        if ((this->playerFrame & 0x80) != 0) {
             if (((gPlayerState.flags & 0x80) != 0) || ((gPlayerState.skills & SKILL_SPIN_ATTACK) == 0)) {
                 sub_080759B8(this, idx);
             } else {
@@ -143,9 +143,9 @@ void sub_08075580(ItemBehavior* this, u32 idx) {
         this->field_0xf = 0;
         this->stateID = 2;
         if ((gPlayerState.skills & SKILL_FAST_SPIN) != 0) {
-            this->field_0x5[2] = 0x28; // TODO spin speed?
+            this->timer = 0x28; // TODO spin speed?
         } else {
-            this->field_0x5[2] = 0x50;
+            this->timer = 0x50;
         }
         sub_08077DF4(this, 0x168);
         CreateObject(SWORD_PARTICLE, 0, 0);
@@ -158,9 +158,9 @@ void sub_080755F0(ItemBehavior* this, u32 idx) {
     if (sub_08077EFC(this) != 0) {
         if (sub_08077EC8(this) == 0) {
             if ((gPlayerState.sword_state | gPlayerState.field_0x3[1]) != 0) {
-                if (--this->field_0x5[2] == 0) {
+                if (--this->timer == 0) {
                     this->stateID = 3;
-                    this->field_0x5[4] |= 0x80;
+                    this->field_0x9 |= 0x80;
                     gPlayerState.sword_state = gPlayerState.sword_state | 0x20;
                 }
             } else {
@@ -183,7 +183,7 @@ void sub_0807564C(ItemBehavior* this, u32 idx) {
 }
 
 void sub_08075694(ItemBehavior* this, u32 idx) {
-    this->field_0x5[2] = 1;
+    this->timer = 1;
     if (gPlayerState.flags & PL_SWORD_THRUST) {
         gPlayerState.flags &= ~PL_SWORD_THRUST;
         gPlayerState.flags &= ~PL_ROLLING;
@@ -213,22 +213,22 @@ void sub_08075738(ItemBehavior* this, u32 idx) {
     } else {
         UpdateItemAnim(this);
         if (sub_08077F10(this)) {
-            this->field_0x5[2] = 2;
+            this->timer = 2;
         }
 
         if ((gPlayerState.sword_state & 0x10) != 0) {
             if ((gPlayerState.field_0xd & 0x80) == 0) {
-                this->field_0x5[6] = gPlayerState.field_0xd;
+                this->direction = gPlayerState.field_0xd;
             }
-            gPlayerEntity.direction = this->field_0x5[6];
+            gPlayerEntity.direction = this->direction;
             gPlayerEntity.speed = 0x180;
-            if ((this->field_0x5[9] & 0x80) != 0) {
+            if ((this->playerFrame & 0x80) != 0) {
                 bVar6 = 10;
                 if ((gPlayerState.skills & SKILL_LONG_SPIN) != 0) {
                     bVar6 = 0xf;
                 }
 
-                if ((bVar6 <= ++this->field_0x5[3]) || (--this->field_0x5[2] == 0)) {
+                if ((bVar6 <= ++this->subtimer) || (--this->timer == 0)) {
                     sub_080759B8(this, idx);
                 }
             }
@@ -242,17 +242,17 @@ void sub_08075738(ItemBehavior* this, u32 idx) {
             }
 
             if ((((gPlayerEntity.frameSpriteSettings & 2) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
-                (((gPlayerState.skills & SKILL_GREAT_SPIN) != 0 && (--this->field_0x5[2] != 0)))) {
+                (((gPlayerState.skills & SKILL_GREAT_SPIN) != 0 && (--this->timer != 0)))) {
                 gPlayerState.sword_state |= 0x10;
                 gPlayerState.field_0xab = 6;
-                this->field_0x5[6] = gPlayerEntity.animationState << 2;
-                this->field_0x5[2] = 1;
-                this->field_0x5[3] = 1;
+                this->direction = gPlayerEntity.animationState << 2;
+                this->timer = 1;
+                this->subtimer = 1;
                 gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> idx);
                 sub_08077DF4(this, 0x128);
             }
 
-            if ((this->field_0x5[9] & 0x80) != 0) {
+            if ((this->playerFrame & 0x80) != 0) {
                 sub_080759B8(this, idx);
             }
         }
@@ -270,7 +270,7 @@ void sub_080758B0(ItemBehavior* this, u32 idx) {
         sub_080759B8(this, idx);
     } else {
         UpdateItemAnim(this);
-        if ((this->field_0x5[9] & 0x80) != 0) {
+        if ((this->playerFrame & 0x80) != 0) {
             this->field_0xf = 0;
             if ((gPlayerState.sword_state & 0x20) != 0) {
                 this->stateID = 3;
@@ -293,8 +293,8 @@ void sub_08075900(ItemBehavior* this, u32 idx) {
             sub_0807564C(this, idx);
 
         } else {
-            if (this->field_0x5[2] != 0) {
-                if (--this->field_0x5[2] == 0) {
+            if (this->timer != 0) {
+                if (--this->timer == 0) {
                     sub_08077DF4(this, 0x134);
                 }
                 gPlayerEntity.direction = (gPlayerEntity.animationState >> 1) << 3;
@@ -304,7 +304,7 @@ void sub_08075900(ItemBehavior* this, u32 idx) {
                     CreateFx(&gPlayerEntity, FX_DASH, 0x40);
                 }
             } else {
-                if ((this->field_0x5[9] & 0x80) != 0) {
+                if ((this->playerFrame & 0x80) != 0) {
                     gPlayerState.flags &= ~PL_ROLLING;
                     sub_080759B8(this, idx);
                 }

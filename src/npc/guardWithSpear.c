@@ -278,11 +278,11 @@ void sub_080644B4(Entity* this, ScriptExecutionContext* context) {
 u32 sub_080644C8(GuardWithSpearEntity* this) {
     if (super->x.HALF.HI - gRoomControls.scroll_x + 8 < 0)
         return 0;
-    if (super->x.HALF.HI - gRoomControls.scroll_x - 8 > 0xf0)
+    if (super->x.HALF.HI - gRoomControls.scroll_x - 8 > DISPLAY_WIDTH)
         return 0;
     if (super->y.HALF.HI - gRoomControls.scroll_y < 0)
         return 0;
-    if (super->y.HALF.HI - gRoomControls.scroll_y - 0x18 > 0xa0)
+    if (super->y.HALF.HI - gRoomControls.scroll_y - 0x18 > DISPLAY_HEIGHT)
         return 0;
     return 1;
 }

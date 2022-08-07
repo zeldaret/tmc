@@ -1845,7 +1845,7 @@ void ResetPlayerFlag(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.flags &= ~context->intVariable;
 }
 
-void sub_0807F708(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_ShowNPCDialogue(Entity* entity, ScriptExecutionContext* context) {
     ShowNPCDialogue(entity, (Dialog*)context->intVariable);
 }
 
@@ -1872,7 +1872,7 @@ void GetConditionSet(Entity* entity, ScriptExecutionContext* context) {
         context->intVariable = 0;
 }
 
-void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SaleItemConfirmMessage(Entity* entity, ScriptExecutionContext* context) {
     u32 item = context->intVariable;
     u32 msg;
     u32 price;
@@ -1886,7 +1886,7 @@ void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
     gMessage.rupees = (u16)price;
 }
 
-void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_CheckShopItemPrice(Entity* entity, ScriptExecutionContext* context) {
     u32 item = context->intVariable;
 
     if (context->intVariable == 0)
@@ -1896,7 +1896,7 @@ void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void sub_0807F800(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_BuyShopItem(Entity* entity, ScriptExecutionContext* context) {
     u32 item = context->intVariable;
     u32 price;
 
@@ -1910,7 +1910,7 @@ void sub_0807F800(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void sub_0807F83C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_PlayerDropHeldObject(Entity* entity, ScriptExecutionContext* context) {
     PlayerDropHeldObject();
 }
 
@@ -1919,24 +1919,24 @@ void sub_0807F844(Entity* entity, ScriptExecutionContext* context) {
     sub_080809D4();
 }
 
-void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetMessageValue(Entity* entity, ScriptExecutionContext* context) {
     u32 value;
     u32 idx;
 
     idx = (context->intVariable >> 0x10) & 3;
     value = context->intVariable & 0xffff;
     switch (idx) {
-        case 0:
-        case 1:
+        case SMV_DEFAULT:
+        case SMV_RUPEES:
             gMessage.rupees = value;
             break;
-        case 2:
+        case SMV_FIELD_0X14:
             gMessage.field_0x14 = value;
             break;
-        case 3:
+        case SMV_FIELD_0X18:
             gMessage.field_0x18 = value;
             break;
-        case 4:
+        case SMV_FIELD_0X1C:
             gMessage.field_0x1c = value;
             break;
     }
@@ -1955,7 +1955,7 @@ void DoGravity(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F8E8(Entity* entity, ScriptExecutionContext* context) {
-    Entity* c = CreateObjectWithParent(entity, 0xA6, 0, 0);
+    Entity* c = CreateObjectWithParent(entity, SANCTUARY_STONE_TABLET, 0, 0);
     if (c != NULL) {
         c->parent = entity;
         c->field_0x86.HWORD = (context->intVariable & 0x3ff) | 0x8000;
@@ -1982,8 +1982,8 @@ void sub_0807F93C(Entity* entity, ScriptExecutionContext* context) {
     CreateSpeechBubbleSleep(entity, (context->intVariable >> 8) & 0xff, context->intVariable & 0xff);
 }
 
-void sub_0807F950(Entity* entity, ScriptExecutionContext* context) {
-    Entity* c = FindEntity(6, 0x56, 6, 0, 2);
+void DeleteThoughtBubble(Entity* entity, ScriptExecutionContext* context) {
+    Entity* c = FindEntity(OBJECT, THOUGHT_BUBBLE, 6, 0, 2);
     if (c != NULL)
         DeleteEntity(c);
 }
@@ -2021,7 +2021,7 @@ void WaitForPlayerNormal(Entity* entity, ScriptExecutionContext* context) {
         case PL_STATE_DROWN:
         case PL_STATE_HOLE:
         case PL_STATE_CLIMB:
-        case PL_STATE_1B:
+        case PL_STATE_SINKING:
         case PL_STATE_STAIRS:
             gActiveScriptInfo.commandSize = 0;
             break;
@@ -2050,7 +2050,7 @@ void WaitForPlayerNormalOrTalkEzlo(Entity* entity, ScriptExecutionContext* conte
         case PL_STATE_DROWN:
         case PL_STATE_HOLE:
         case PL_STATE_CLIMB:
-        case PL_STATE_1B:
+        case PL_STATE_SINKING:
         case PL_STATE_STAIRS:
             gActiveScriptInfo.commandSize = 0;
             break;
@@ -2088,11 +2088,11 @@ void sub_0807FB28(Entity* entity, ScriptExecutionContext* context) {
         gActiveScriptInfo.commandSize = 0;
 }
 
-void sub_0807FB64(Entity* entity, ScriptExecutionContext* context) {
+void SetPlayerIFrames(Entity* entity, ScriptExecutionContext* context) {
     gPlayerEntity.iframes = context->intVariable;
 }
 
-void sub_0807FB74(Entity* entity, ScriptExecutionContext* context) {
+void DisablePlayerSwimState(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.swim_state = 0;
     gPlayerEntity.collisionFlags &= ~4;
 }

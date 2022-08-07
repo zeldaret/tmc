@@ -109,7 +109,7 @@ void sub_08088BE0(BigBarrelEntity* this) {
     Entity* ent;
 
     if (CheckLocalFlag(0x15) == 0) {
-        sub_08088C78(this, 2, 0, 0xffffff88);
+        sub_08088C78(this, 2, 0, -120);
         ent = sub_08088C78(this, 4, 0x15, 0);
         if (ent != NULL) {
             ent->x.HALF.HI = gRoomControls.origin_x + 0x48;
@@ -118,15 +118,15 @@ void sub_08088BE0(BigBarrelEntity* this) {
     }
 
     if (CheckLocalFlag(0x16) == 0) {
-        sub_08088C78(this, 2, 1, 0x78);
+        sub_08088C78(this, 2, 1, 120);
         ent = sub_08088C78(this, 4, 0x16, 0);
         if (ent != NULL) {
             ent->x.HALF.HI = gRoomControls.origin_x + 0x188;
             ent->y.HALF.HI = gRoomControls.origin_y + 200;
         }
     }
-    sub_08088C78(this, 1, 0, 0xffffff88);
-    sub_08088C78(this, 1, 1, 0x78);
+    sub_08088C78(this, 1, 0, -120);
+    sub_08088C78(this, 1, 1, 120);
 }
 
 Entity* sub_08088C78(BigBarrelEntity* this, u32 type, u32 type2, u32 xOffset) {

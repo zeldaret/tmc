@@ -12,9 +12,9 @@ script_0800E832:
 	SetAnimationState 0x0004
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x01
-	CallWithArg sub_0807F854, 0x00010032
-	CallWithArg sub_0807F854, 0x000200c8
-	CallWithArg sub_0807F854, 0x00030190
+	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 50
+	CallWithArg ScriptCommand_SetMessageValue, (SMV_FIELD_0X14 << 16) | 200
+	CallWithArg ScriptCommand_SetMessageValue, (SMV_FIELD_0X18 << 16) | 400
 	EndBlock
 	WaitUntilTextboxCloses
 	_0807EB38
@@ -22,7 +22,7 @@ script_0800E832:
 script_0800E872: @ Rent large room
 	BeginBlock
 	MessageFromTarget TEXT_HAPPY_HEARTH, 0x05
-	CallWithArg sub_0807F854, 0x00010190
+	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 400
 	EndBlock
 	WaitUntilTextboxCloses
 	HasRupees 400

@@ -18,7 +18,7 @@ void Phonograph(Entity* this) {
         this->action++;
         this->spriteSettings.draw = 1;
         this->field_0x68.HWORD = 1;
-        this->field_0x6a.HWORD = 0xffff;
+        this->field_0x6a.HWORD = -1;
         sub_0807DD64(this);
         this->frameIndex = 0;
     }

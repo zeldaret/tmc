@@ -949,9 +949,9 @@ void sub_08047BF0(GyorgMaleEntity* this) {
             tmp = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
             if (tmp) {
                 u32 rand = Random();
-                tmp->x.HALF.HI += (rand & 0x1E) + 0xFFF1;
+                tmp->x.HALF.HI += (rand & 0x1E) - 15;
                 rand >>= 8;
-                tmp->y.HALF.HI += (rand & 0x1E) + 0xFFF1;
+                tmp->y.HALF.HI += (rand & 0x1E) - 15;
                 tmp->spritePriority.b0 = 3;
                 tmp->collisionLayer = 1;
                 UpdateSpriteForCollisionLayer(tmp);

@@ -148,7 +148,7 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
                 }
             }
         }
-        iVar4 = 0xffffffff;
+        iVar4 = -1;
     } else {
         if (CheckGlobalFlag(KAKERA_COMPLETE) == 0) {
             iVar4 = 100 - gSave.unk117;

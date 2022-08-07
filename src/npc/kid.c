@@ -18,7 +18,10 @@ typedef struct {
     u16 unk_4; /* u16 */
     u8 unk_6;
     u8 unk_7;
-} KidHeap;
+} KidHeapItem;
+
+#define KID_HEAP_COUNT 0x14
+typedef KidHeapItem KidHeap[KID_HEAP_COUNT];
 
 extern u16 gUnk_0810BDE8[][2];
 
@@ -142,7 +145,7 @@ void sub_080621AC(Entity* this) {
 ASM_FUNC("asm/non_matching/kid/sub_080622F4.inc", void sub_080622F4(Entity* this))
 
 void sub_08062500(Entity* this) {
-    this->myHeap = zMalloc(0xa0);
+    this->myHeap = zMalloc(sizeof(KidHeap));
     if (this->myHeap != NULL) {
         this->field_0x68.HALF.LO = 1;
         sub_080788E0(this);
@@ -160,7 +163,7 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
     s16 sVar5;
     s16 sVar6;
     u8 bVar7;
-    KidHeap* heapObj;
+    KidHeapItem* heapObj;
     s32 loopVar;
     s32 iVar10;
     s32 iVar11;
@@ -170,13 +173,13 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
     sVar2 = gPlayerEntity.y.HALF.HI;
     sVar1 = gPlayerEntity.x.HALF.HI;
     r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
-    sVar5 = FixedDiv(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, 0x14);
-    sVar6 = FixedDiv(r0, 0x14);
-    heapObj = (KidHeap*)this->myHeap;
+    sVar5 = FixedDiv(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, KID_HEAP_COUNT);
+    sVar6 = FixedDiv(r0, KID_HEAP_COUNT);
+    heapObj = (KidHeapItem*)this->myHeap;
     iVar10 = 0;
     iVar11 = 0;
-    loopVar = 0x13;
-    while (loopVar > -1) {
+
+    for (loopVar = KID_HEAP_COUNT - 1; loopVar > -1; loopVar--) {
         heapObj->unk_0 = sVar1 - (s16)((u32)iVar11 >> 8);
         heapObj->unk_2 = sVar2 - (s16)((u32)iVar10 >> 8);
         heapObj->unk_4 = uVar3;
@@ -187,8 +190,7 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
         heapObj = heapObj + 1;
         iVar10 = iVar10 + sVar6;
         iVar11 = iVar11 + sVar5;
-        loopVar = loopVar - 1;
-    };
+    }
 }
 END_NONMATCH
 

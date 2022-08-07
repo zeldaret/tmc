@@ -378,7 +378,7 @@ void KeyStealingTakkuri_Type4_Init(KeyStealingTakkuriEntity* this) {
     super->action++;
     super->collisionLayer = 1;
     super->spriteRendering.b3 = 1;
-    super->z.HALF.HI = 0xfff0;
+    super->z.HALF.HI = -16;
     sub_0807DD64(super);
     InitAnimationForceUpdate(super, 1);
 }
@@ -396,7 +396,7 @@ void sub_0809E0A0(KeyStealingTakkuriEntity* this) {
         super->child = obj;
         super->subtimer = 0;
         CopyPosition(&gPlayerEntity, obj);
-        obj->z.HALF.HI = 0xfff8;
+        obj->z.HALF.HI = -8;
     }
 }
 
@@ -518,7 +518,7 @@ u32 sub_0809E2C4(KeyStealingTakkuriEntity* this, u32 param_2) {
             uVar1 = roomY - tmp->unk_2 + tmp->unk_5;
             uVar2 = tmp->unk_5 * 2;
             if (uVar2 > (u16)uVar1) {
-                if (tmp->unk_6 == gPlayerEntity.animationState && gPlayerEntity.action == 6) {
+                if (tmp->unk_6 == gPlayerEntity.animationState && gPlayerEntity.action == PLAYER_BOUNCE) {
                     return 1;
                 }
                 return 2;

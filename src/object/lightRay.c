@@ -94,14 +94,14 @@ void sub_0809B97C(LightRayEntity* this, u32 param_2) {
     if (tmp1 < 0) {
         tmp1 = 0;
     }
-    if (0xf0 < tmp1) {
-        tmp1 = 0xf0;
+    if (DISPLAY_WIDTH < tmp1) {
+        tmp1 = DISPLAY_WIDTH;
     }
     if (tmp2 < 0) {
         tmp2 = 0;
     }
-    if (0xf0 < tmp2) {
-        tmp2 = 0xf0;
+    if (DISPLAY_WIDTH < tmp2) {
+        tmp2 = DISPLAY_WIDTH;
     }
     gScreen.controls.window0HorizontalDimensions = (tmp1 << 8) | tmp2;
 }
@@ -124,8 +124,8 @@ void LightRay_Type1(LightRayEntity* this) {
             }
             gPlayerEntity.animationState = tmp;
             gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0xbfff) | 0x2000;
-            gScreen.controls.window0HorizontalDimensions = 0xf0;
-            gScreen.controls.window0VerticalDimensions = 0xa0;
+            gScreen.controls.window0HorizontalDimensions = DISPLAY_WIDTH;
+            gScreen.controls.window0VerticalDimensions = DISPLAY_HEIGHT;
             break;
         case 1:
             if (super->timer != 0) {

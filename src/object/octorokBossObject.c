@@ -79,7 +79,7 @@ void OctorokBossObject_Init(Entity* this) {
                 }
             }
 
-            this->speed = 0xf0 - (Random() & 0x3f);
+            this->speed = DISPLAY_WIDTH - (Random() & 0x3f);
             LinearMoveAngle(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
             LinearMoveAngle(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
             InitializeAnimation(this, 5);

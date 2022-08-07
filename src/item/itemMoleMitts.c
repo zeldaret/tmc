@@ -30,10 +30,10 @@ void sub_08077130(ItemBehavior* this, u32 idx) {
     if (gPlayerState.jump_status == 0) {
         sub_08077D38(this, idx);
         gPlayerState.moleMittsState = 1;
-        this->field_0x5[4] |= 0x80;
+        this->field_0x9 |= 0x80;
         iVar1 = sub_080774A0();
         if (iVar1 != 0) {
-            if (this->field_0x5[2] == 0) {
+            if (this->timer == 0) {
                 sub_08077DF4(this, 0x50c);
                 this->stateID = 2;
                 if (iVar1 == 0x56) {
@@ -62,31 +62,31 @@ void sub_080771C8(ItemBehavior* this, u32 idx) {
     Entity* object;
 
     UpdateItemAnim(this);
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         DeletePlayerItem(this, idx);
         gPlayerState.moleMittsState = 0;
     } else {
-        if (((this->field_0x5[9] & 0x20) != 0) && (this->field_0x5[3] == 0xff)) {
-            CreateObjectWithParent(&gPlayerEntity, 0x1e, this->field_0x5[9], 1);
+        if (((this->playerFrame & 0x20) != 0) && (this->subtimer == 0xff)) {
+            CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->playerFrame, 1);
         }
-        if ((this->field_0x5[9] & 0x10) != 0) {
+        if ((this->playerFrame & 0x10) != 0) {
             if (sub_0800875A(&gPlayerEntity, 0xd, this) == 0) {
                 sub_08077DF4(this, 0x520);
                 this->stateID = 3;
                 SoundReq(SFX_107);
             } else {
-                if (this->field_0x5[3] != 0xff) {
-                    object = CreateObjectWithParent(&gPlayerEntity, 0x1f, 0, this->field_0x2[1]);
+                if (this->subtimer != 0xff) {
+                    object = CreateObjectWithParent(&gPlayerEntity, OBJECT_1F, 0, this->field_0x2[1]);
                     if (object != NULL) {
-                        object->timer = this->field_0x5[2];
-                        object->subtimer = this->field_0x5[3];
+                        object->timer = this->timer;
+                        object->subtimer = this->subtimer;
                         object->animationState = gPlayerEntity.animationState & 6;
                         gPlayerEntity.frame = 0;
-                        gPlayerEntity.frameDuration = gUnk_0811BE14[this->field_0x5[3]];
+                        gPlayerEntity.frameDuration = gUnk_0811BE14[this->subtimer];
                     }
                 } else {
-                    if ((this->field_0x2[1] == 0x0f) && (this->field_0x5[2] == 0x17)) {
-                        this->field_0x5[3] = 0;
+                    if ((this->field_0x2[1] == 0x0f) && (this->timer == 0x17)) {
+                        this->subtimer = 0;
                     }
                 }
                 SoundReq(SFX_108);
@@ -104,56 +104,56 @@ void sub_080772A8(ItemBehavior* this, u32 idx) {
     };
     Entity* effect;
 
-    if (((this->field_0x5[9] & 8) != 0) && sub_08077F10(this)) {
-        this->field_0x5[2] = 1;
+    if (((this->playerFrame & 8) != 0) && sub_08077F10(this)) {
+        this->timer = 1;
     }
     if (GetInventoryValue(ITEM_DIG_BUTTERFLY) == 1) {
-        if ((this->field_0x5[9] & 7) != 3) {
+        if ((this->playerFrame & 7) != 3) {
             sub_08077E3C(this, 2);
-            gPlayerEntity.speed = gUnk_0811BE16[this->field_0x5[9] & 7] << 1;
+            gPlayerEntity.speed = gUnk_0811BE16[this->playerFrame & 7] << 1;
         } else {
             UpdateItemAnim(this);
-            gPlayerEntity.speed = gUnk_0811BE16[this->field_0x5[9] & 7];
+            gPlayerEntity.speed = gUnk_0811BE16[this->playerFrame & 7];
         }
     } else {
         UpdateItemAnim(this);
-        gPlayerEntity.speed = gUnk_0811BE16[this->field_0x5[9] & 7];
+        gPlayerEntity.speed = gUnk_0811BE16[this->playerFrame & 7];
     }
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     if (gPlayerEntity.speed != 0) {
         UpdatePlayerMovement();
     }
-    if ((this->field_0x5[9] & 0x10) != 0) {
-        if (this->field_0x5[2] != 0) {
+    if ((this->playerFrame & 0x10) != 0) {
+        if (this->timer != 0) {
             gPlayerEntity.frameDuration = 1;
             if (sub_080774A0()) {
-                this->field_0x5[2] = 0;
+                this->timer = 0;
                 return;
             }
         }
         DeletePlayerItem(this, idx);
         gPlayerState.moleMittsState = 0;
     } else {
-        if ((this->field_0x5[9] & 0x60) != 0) {
+        if ((this->playerFrame & 0x60) != 0) {
             gPlayerEntity.frameDuration = 1;
             if (sub_0807B5B0(&gPlayerEntity)) {
                 SoundReq(SFX_108);
-                CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->field_0x5[9], 0);
+                CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->playerFrame, 0);
             } else {
                 sub_08077DF4(this, 0x51c);
                 effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
                 if (effect != NULL) {
-                    effect->animationState = this->field_0x5[5];
+                    effect->animationState = this->playerAnimationState;
                     effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
                 }
                 effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
                 if (effect != NULL) {
-                    effect->animationState = this->field_0x5[5];
+                    effect->animationState = this->playerAnimationState;
                     effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
                     effect->subtimer = 1;
                 }
                 this->stateID = 3;
-                this->field_0x5[0] = 1;
+                this->field_0x5 = 1;
                 SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
             }
         }
@@ -163,11 +163,11 @@ void sub_080772A8(ItemBehavior* this, u32 idx) {
 void sub_08077448(ItemBehavior* this, u32 idx) {
     gPlayerEntity.direction = gPlayerEntity.animationState << 2 ^ 0x10;
     gPlayerEntity.speed = 0x100;
-    if (((this->field_0x5[9] & 1) != 0) && (this->field_0x5[0] != 0)) {
+    if (((this->playerFrame & 1) != 0) && (this->field_0x5 != 0)) {
         UpdatePlayerMovement();
     }
     UpdateItemAnim(this);
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         gPlayerState.moleMittsState = 0;
         DeletePlayerItem(this, idx);
     }

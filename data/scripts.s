@@ -9,6 +9,7 @@
 	.include "player.inc"
 	.include "sound.inc"
 	.include "kinstone.inc"
+	.include "script.inc"
 
 	.syntax unified
 	.text

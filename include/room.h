@@ -183,7 +183,7 @@ typedef struct {
     u8 area;
     u8 room;
     u8 playerLayer;
-    u8 field_0xe;
+    u8 spawn_type;
     u8 playerState;
     u16 transitionSFX;
 } ScreenTransitionData;

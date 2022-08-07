@@ -146,7 +146,7 @@ void sub_080441E0(DustEntity* this) {
         super->frameIndex = 1;
         super->spritePriority.b0 = 7;
         this->unk_75 = 0;
-        this->unk_76 = 0xffff;
+        this->unk_76 = -1;
     } else {
         super->frameIndex = 0;
         super->speed = 0;

@@ -20,7 +20,7 @@ void OcarinaUse(ItemBehavior* this, u32 idx) {
     if (gPlayerState.queued_action == PLAYER_ROLL) {
         DeletePlayerItem(this, idx);
     } else {
-        this->field_0x5[4] |= 0xf;
+        this->field_0x9 |= 0xf;
         gPlayerEntity.animationState = 0x04;
         gPlayerEntity.spriteSettings.flipX = 0;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
@@ -40,7 +40,7 @@ void OcarinaUse(ItemBehavior* this, u32 idx) {
 void OcarinaUpdate(ItemBehavior* this, u32 idx) {
     // TODO regalloc
     UpdateItemAnim(this);
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerState.flags &= ~PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = 0;

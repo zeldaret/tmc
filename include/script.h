@@ -3,6 +3,14 @@
 
 #include "entity.h"
 
+enum SetMessageValueIndex {
+    SMV_DEFAULT,
+    SMV_RUPEES,
+    SMV_FIELD_0X14,
+    SMV_FIELD_0X18,
+    SMV_FIELD_0X1C,
+};
+
 typedef struct ScriptExecutionContext {
     /*0x00*/ u16* scriptInstructionPointer;
     /*0x04*/ u32 intVariable;

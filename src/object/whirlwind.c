@@ -62,9 +62,9 @@ void Whirlwind_Action1(Entity* this) {
     if (this->spriteSettings.draw != 0) {
         GetNextFrame(this);
         if ((((((gPlayerState.flags & PL_MINISH) == 0)) && (gPlayerState.field_0x3c == 0)) &&
-             ((gPlayerEntity.action == 4 || ((gPlayerEntity.flags & ENT_COLLIDE) != 0)))) &&
-            ((gPlayerEntity.action != 6 && (sub_0800419C(this, &gPlayerEntity, 0xc, 0xc) != 0)))) {
-            if (((gPlayerState.flags & PL_PARACHUTE) == 0) && (gPlayerEntity.action != 4)) {
+             ((gPlayerEntity.action == PLAYER_JUMP || ((gPlayerEntity.flags & ENT_COLLIDE) != 0)))) &&
+            ((gPlayerEntity.action != PLAYER_BOUNCE && (sub_0800419C(this, &gPlayerEntity, 0xc, 0xc) != 0)))) {
+            if (((gPlayerState.flags & PL_PARACHUTE) == 0) && (gPlayerEntity.action != PLAYER_JUMP)) {
                 if ((this->type2 != 1) && (-0x10 < gPlayerEntity.z.HALF.HI)) {
                     return;
                 }
@@ -76,7 +76,7 @@ void Whirlwind_Action1(Entity* this) {
             sub_08004542(&gPlayerEntity);
             gPlayerEntity.collisionLayer = 1;
             gPlayerEntity.flags |= ENT_COLLIDE;
-            gPlayerState.queued_action = 0x1f;
+            gPlayerState.queued_action = PLAYER_PARACHUTE;
             gPlayerState.field_0x38 = this->type2;
             gPlayerState.field_0x39 = 0xff;
             this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;

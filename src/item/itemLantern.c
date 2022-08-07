@@ -34,7 +34,7 @@ void sub_08075A0C(ItemBehavior* this, u32 idx) {
         ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
         DeletePlayerItem(this, idx);
     } else {
-        this->field_0x5[4] |= 0x80;
+        this->field_0x9 |= 0x80;
         sub_08077D38(this, idx);
         sub_08077BD4(this);
         sub_0806F948(&gPlayerEntity);
@@ -57,7 +57,7 @@ void sub_08075ADC(ItemBehavior* this, u32 idx) {
 #ifndef EU
         gPlayerState.item != NULL ||
 #endif
-        (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 ||
+        (this->playerFrame & 1) == 0 || (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 ||
         sub_08079D48() == 0) {
         this->field_0xf = 0;
         this->stateID++;
@@ -117,11 +117,11 @@ void sub_08075C9C(ItemBehavior* this, u32 idx) {
     s8* tmp;
 
     UpdateItemAnim(this);
-    if ((this->field_0x5[9] & 0x10) != 0) {
+    if ((this->playerFrame & 0x10) != 0) {
         tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
         sub_0807AB44(&gPlayerEntity, tmp[0], tmp[1]);
     }
-    if ((this->field_0x5[9] & 0x80) != 0) {
+    if ((this->playerFrame & 0x80) != 0) {
         this->field_0xf = 0;
         this->stateID--;
         gPlayerState.field_0xa = (~(8 >> idx)) & gPlayerState.field_0xa;

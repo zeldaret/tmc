@@ -355,7 +355,7 @@ void sub_080244E8(Entity* this) {
         case 1:
             if (++this->z.HALF.HI >= -0x10) {
                 this->field_0x82.HALF.LO = 0;
-                this->field_0x78.HWORD = 0xfff0;
+                this->field_0x78.HWORD = -16;
                 if (sub_08024AD8(this)) {
                     this->field_0x80.HALF.LO++;
                 } else {

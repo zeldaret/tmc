@@ -403,7 +403,7 @@ s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 
 s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_FROZEN | PL_IN_MINECART)) == 0 &&
-        gPlayerState.queued_action == 0) {
+        gPlayerState.queued_action == PLAYER_INIT) {
         if (org->action == 1 || org->action == 24) {
             tgt->damage = 4;
             org->health = sub_08017874(org, tgt);

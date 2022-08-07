@@ -274,7 +274,7 @@ void sub_08039140(CuccoAggrEntity* this) {
     super->action = 6;
     super->timer = Random();
     super->direction = GetFacingDirection(super, &gPlayerEntity);
-    super->z.HALF.HI = 0xfffc;
+    super->z.HALF.HI = -4;
     this->unk_78 = 0xb4;
     sub_080390F8(this);
     InitializeAnimation(super, 4);

@@ -84,7 +84,7 @@ static void sub_08037D54(Entity* this) {
                 ptr = gUnk_080CF490 + (this->direction >> 2);
                 proj->x.HALF.HI += *ptr;
                 proj->y.HALF.HI += *(ptr + 1);
-                proj->z.HALF.HI = 0xfffd;
+                proj->z.HALF.HI = -3;
                 EnqueueSFX(SFX_124);
             }
         }

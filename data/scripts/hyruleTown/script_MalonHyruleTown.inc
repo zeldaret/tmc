@@ -16,7 +16,7 @@ script_08014F4A:
 	DoPostScriptAction 0x0000
 	BeginBlock
 	MessageNoOverlap TEXT_MILK, 0x0b
-	CallWithArg sub_0807F854, 0x00010064
+	CallWithArg ScriptCommand_SetMessageValue, (SMV_RUPEES << 16) | 100
 	EndBlock
 	WaitUntilTextboxCloses
 	CheckTextboxResult

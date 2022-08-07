@@ -123,7 +123,7 @@ void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
             super->subAction = 1;
             break;
         case 1:
-            if ((super->type == 5) || (gPlayerEntity.action == 1)) {
+            if ((super->type == 5) || (gPlayerEntity.action == PLAYER_NORMAL)) {
                 super->subAction = 2;
                 super->timer = 8;
                 super->subtimer = 0;
@@ -201,7 +201,7 @@ void sub_080840A8(s32 param_1, s32 param_2) {
         obj->zVelocity = gUnk_0811F840[Random() & 3];
         obj->x.HALF.HI = gUnk_0811F850[Random() & 3] + param_1;
         obj->y.HALF.HI = param_2 + 1;
-        obj->z.HALF.HI = 0xfff8;
+        obj->z.HALF.HI = -8;
         ResolveCollisionLayer(obj);
         obj = CreateFx(obj, FX_DASH, 0);
         if (obj != NULL) {

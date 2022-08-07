@@ -539,7 +539,7 @@ void sub_08026110(ChuchuBossEntity* this) {
 void sub_0802626C(ChuchuBossEntity* this) {
     gPauseMenuOptions.disabled = 1;
     gUnk_080CC20C[this->unk_84->unk_03](this);
-    if (gPlayerEntity.action != 23 && gPlayerEntity.action != 15) {
+    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION && gPlayerEntity.action != PLAYER_ROOM_EXIT) {
         sub_08078B48();
     }
 }
@@ -565,7 +565,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
 }
 
 void sub_08026328(ChuchuBossEntity* this) {
-    if (gPlayerEntity.action != 23) {
+    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {
         this->unk_7d = 0x78;
         this->unk_84->unk_03++;
         sub_08078AC0(10, 0, 0);
@@ -575,7 +575,7 @@ void sub_08026328(ChuchuBossEntity* this) {
 void sub_08026358(ChuchuBossEntity* this) {
     u32 bVar1;
 
-    if (gPlayerEntity.action != 15) {
+    if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
         bVar1 = --this->unk_7d;
         if (bVar1 == 0) {
             this->unk_7c = 0;

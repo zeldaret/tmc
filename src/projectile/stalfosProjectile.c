@@ -46,7 +46,7 @@ void sub_080A9A64(Entity* this) {
 
 void StalfosProjectile_SubAction0(Entity* this) {
     this->subAction = 2;
-    this->z.HALF.HI = 0xfffe;
+    this->z.HALF.HI = -2;
 }
 
 void StalfosProjectile_SubAction1(Entity* this) {

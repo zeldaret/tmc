@@ -1002,8 +1002,9 @@ void VaatiWrathType0PreAction(Entity* this) {
             gSave.timers[3]--;
         } else {
             temp = gPlayerState.framestate_last;
-            if (temp < 2) {
-                if (temp >= 0) {
+            switch (temp) {
+                case PL_STATE_IDLE:
+                case PL_STATE_WALK:
                     if (gPlayerState.item == NULL) {
                         if (gPlayerEntity.field_0x7a.HWORD == 0) {
                             if ((gPlayerEntity.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
@@ -1012,7 +1013,7 @@ void VaatiWrathType0PreAction(Entity* this) {
                             }
                         }
                     }
-                }
+                    break;
             }
         }
     }

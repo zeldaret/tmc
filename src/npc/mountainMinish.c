@@ -160,17 +160,17 @@ void sub_08067EF0(Entity* this) {
         }
     }
     if ((this->frameSpriteSettings & 2) != 0) {
-        this->frameSpriteSettings &= 0xfd;
+        this->frameSpriteSettings &= ~2;
         fxEnt = CreateFx(this, FX_ROCK, 0);
         if (fxEnt != NULL) {
-            PositionRelative(this, fxEnt, 0, 0xffe80000);
+            PositionRelative(this, fxEnt, 0, Q_16_16(-24));
         }
     }
     if ((this->frameSpriteSettings & 4) != 0) {
         this->frameSpriteSettings &= 0xfb;
         fxEnt = CreateFx(this, FX_STARS2, 0x20);
         if (fxEnt != NULL) {
-            PositionRelative(this, fxEnt, 0xffec0000, 0xfff60000);
+            PositionRelative(this, fxEnt, Q_16_16(-20), Q_16_16(-10));
         }
     }
     if ((this->frameSpriteSettings & 8) != 0) {

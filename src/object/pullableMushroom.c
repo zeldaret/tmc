@@ -234,8 +234,8 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
             super->subtimer = 1;
 
         } else {
-            if (((super->subtimer != 0) && (gPlayerEntity.action == 1)) && (gPlayerState.swim_state == 0)) {
-                gPlayerState.queued_action = 0x1b;
+            if (((super->subtimer != 0) && (gPlayerEntity.action == PLAYER_NORMAL)) && (gPlayerState.swim_state == 0)) {
+                gPlayerState.queued_action = PLAYER_08072C9C;
                 gPlayerState.field_0x38 = uVar1;
                 gPlayerState.field_0x39 = super->direction ^ 0x10;
                 gPlayerState.field_0x3a = sub_0808B1F0(this, &gPlayerEntity);
@@ -315,9 +315,9 @@ void sub_0808B0BC(PullableMushroomEntity* this) {
             ent.base.x.HALF.HI = ptr[0] + gPlayerEntity.x.HALF.HI;
             ent.base.y.HALF.HI = ptr[1] + gPlayerEntity.y.HALF.HI;
             if (sub_0800419C(&ent.base, super, 7, 7)) {
-                if ((gPlayerEntity.action != 1) || (gPlayerState.swim_state != 0))
+                if ((gPlayerEntity.action != PLAYER_NORMAL) || (gPlayerState.swim_state != 0))
                     return;
-                gPlayerState.queued_action = 0x1b;
+                gPlayerState.queued_action = PLAYER_08072C9C;
                 gPlayerState.field_0x38 = uVar2;
                 gPlayerState.field_0x39 = super->direction ^ 0x10;
                 gPlayerState.field_0x3a = sub_0808B1F0((PullableMushroomEntity*)super->parent, &gPlayerEntity);

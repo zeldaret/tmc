@@ -23,7 +23,7 @@ void LitArea(Entity* this) {
         this->flags |= ENT_PERSIST;
         this->subtimer = gRoomControls.room;
         this->timer = 2;
-        this->field_0x68.HWORD = 0xfffe;
+        this->field_0x68.HWORD = -2;
         this->field_0x6a.HWORD = 0x80;
         SetAffineInfo(this, 0x80, 0x80, 0);
     } else {
@@ -34,7 +34,7 @@ void LitArea(Entity* this) {
                 this->field_0x68.HWORD = 1;
             }
             if (0x88 < this->field_0x6a.HWORD) {
-                this->field_0x68.HWORD = 0xffff;
+                this->field_0x68.HWORD = -1;
             }
             SetAffineInfo(this, this->field_0x6a.HWORD, this->field_0x6a.HWORD, 0);
         }

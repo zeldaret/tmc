@@ -225,7 +225,7 @@ void Bird_Type8(Entity* this) {
                 PlayerCanBeMoved() && (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe))) {
                 s32 z = gPlayerEntity.z.HALF.HI - this->z.HALF.HI - 8;
                 if ((u16)z < 0x20 && gPlayerEntity.health != 0) {
-                    pEVar5 = CreateObject(0x95, 10, 0);
+                    pEVar5 = CreateObject(BIRD, 10, 0);
                     if (pEVar5 != NULL) {
                         this->child = pEVar5;
                         this->action = 2;

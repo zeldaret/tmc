@@ -98,7 +98,7 @@ void sub_08040B9C(Enemy50Entity* this) {
     if (super->confusedTime != 0) {
         super->animationState = super->knockbackDirection >> 4;
         InitializeAnimation(super, super->animationState + 7);
-        Create0x68FX(super, 0x1c);
+        Create0x68FX(super, FX_STARS);
     }
     if (super->health != this->unk_7a) {
         if (super->type == 0) {
@@ -143,7 +143,7 @@ void sub_08040D30(Enemy50Entity* this) {
     }
     GenericConfused(super);
     if (super->z.HALF.HI == 0) {
-        super->z.HALF.HI = 0xffff;
+        super->z.HALF.HI = -1;
     }
     if (super->confusedTime == 0) {
         InitializeAnimation(super, (super->animationState ^ 1) + 1);

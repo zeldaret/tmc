@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "asm.h"
 #include "object.h"
+#include "playeritem.h"
 
 enum {
     GUST_INIT,
@@ -220,7 +221,7 @@ static void sub_080ACECC(GustEntity* this) {
     Entity* entity;
 
     if (super->type < 3 && super->child == NULL && (s32)this->unk78 >= 0 && gUnk_0812AAE8[super->type] <= this->unk78) {
-        entity = CreatePlayerItem(0x10, super->type + 1, 0, 0);
+        entity = CreatePlayerItem(PLAYER_ITEM_10, super->type + 1, 0, 0);
         if (entity != NULL) {
             entity->parent = super;
             super->child = entity;

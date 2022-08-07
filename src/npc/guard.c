@@ -170,7 +170,7 @@ void Guard_Head(Entity* this) {
     if (this->id == 0x15) {
         if ((this->frameIndex & 0x40) != 0) {
             pbVar5 = pbVar5 + 0x21;
-            pbVar3 = 0xffffffff;
+            pbVar3 = -1;
             uVar4 = 0;
         } else {
             pbVar3 = (uVar2 + 0x19);

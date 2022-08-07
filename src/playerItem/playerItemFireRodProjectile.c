@@ -5,6 +5,7 @@
 #include "physics.h"
 #include "functions.h"
 #include "effects.h"
+#include "playeritem.h"
 
 typedef struct {
     Entity base;
@@ -76,7 +77,7 @@ void sub_080A310C(FireRodProjectileEntity* this) {
             if (sub_08008790(super, 0xc)) {
                 DeleteThisEntity();
             }
-            super->child = CreatePlayerItem(0x15, 1, 0, this->unk68);
+            super->child = CreatePlayerItem(PLAYER_ITEM_15, 1, 0, this->unk68);
             if (super->child != NULL) {
                 super->child->parent = super;
             }

@@ -157,7 +157,7 @@ NONMATCH("asm/non_matching/scroll/sub_0807FC7C.inc", void sub_0807FC7C(RoomContr
                     }
                 }
             } else {
-                uVar2 = (controls->origin_y + controls->height) - 0xa0;
+                uVar2 = (controls->origin_y + controls->height) - DISPLAY_HEIGHT;
                 if (iVar4 < (int)uVar2) {
                     if ((int)-controls->unk5 >= (int)uVar3) {
                         uVar3 = -controls->unk5;
@@ -333,8 +333,8 @@ void sub_08080040(RoomControls* controls) {
             uVar6 = 0;
         }
         iVar7 = iVar2 + controls->filler2[0] - 8;
-        if (0xf0 < iVar7) {
-            iVar7 = 0xf0;
+        if (DISPLAY_WIDTH < iVar7) {
+            iVar7 = DISPLAY_WIDTH;
         }
         temp = controls->camera_target->y.HALF.HI - controls->scroll_y;
         uVar5 = (temp - controls->filler2[1]) + 8;
@@ -342,8 +342,8 @@ void sub_08080040(RoomControls* controls) {
             uVar5 = 0;
         }
         iVar3 = temp + controls->filler2[1] - 8;
-        if (0xa0 < iVar3) {
-            iVar3 = 0xa0;
+        if (DISPLAY_HEIGHT < iVar3) {
+            iVar3 = DISPLAY_HEIGHT;
         }
         gScreen.controls.window1HorizontalDimensions = ((uVar6 & 0xff) << 8) | (iVar7 & 0xff);
         gScreen.controls.window1VerticalDimensions = ((uVar5 & 0xff) << 8) | (iVar3 & 0xff);
@@ -400,8 +400,8 @@ void sub_080801BC(RoomControls* controls) {
             uVar6 = 0;
         }
         iVar7 = iVar2 + controls->filler2[0];
-        if (0xf0 < iVar7) {
-            iVar7 = 0xf0;
+        if (DISPLAY_WIDTH < iVar7) {
+            iVar7 = DISPLAY_WIDTH;
         }
         temp = controls->camera_target->y.HALF.HI - controls->scroll_y;
         uVar5 = (temp - controls->filler2[1]);
@@ -409,8 +409,8 @@ void sub_080801BC(RoomControls* controls) {
             uVar5 = 0;
         }
         iVar3 = temp + controls->filler2[1];
-        if (0xa0 < iVar3) {
-            iVar3 = 0xa0;
+        if (DISPLAY_HEIGHT < iVar3) {
+            iVar3 = DISPLAY_HEIGHT;
         }
         gScreen.controls.window1HorizontalDimensions = ((uVar6 & 0xff) << 8) | (iVar7 & 0xff);
         gScreen.controls.window1VerticalDimensions = ((uVar5 & 0xff) << 8) | (iVar3 & 0xff);
@@ -607,7 +607,7 @@ void DoExitTransition(const ScreenTransitionData* data) {
     status->area_next = data->area;
     status->room_next = data->room;
     status->layer = data->playerLayer;
-    status->spawn_type = data->field_0xe;
+    status->spawn_type = data->spawn_type;
     status->start_anim = data->playerState;
     if (data->transitionSFX != SFX_NONE) {
         SoundReq(data->transitionSFX);

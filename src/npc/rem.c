@@ -6,7 +6,7 @@ extern void sub_0806A8C8(Entity*);
 
 extern void script_Rem;
 
-extern void sub_0807F950(Entity* this, ScriptExecutionContext* context);
+extern void DeleteThoughtBubble(Entity* this, ScriptExecutionContext* context);
 
 void sub_0806A9B0(Entity*, ScriptExecutionContext*);
 void sub_0806A914(Entity* this);
@@ -463,10 +463,10 @@ void sub_0806AB74(Entity* this) {
     }
 }
 
-void sub_0806AB9C(Entity* this, ScriptExecutionContext* context) {
+void DeleteNpcRem(Entity* this, ScriptExecutionContext* context) {
     Entity* entity = FindEntity(NPC, REM, NPC, 1, 0);
     if (entity != NULL) {
         DeleteEntity(entity);
     }
-    sub_0807F950(this, context);
+    DeleteThoughtBubble(this, context);
 }
