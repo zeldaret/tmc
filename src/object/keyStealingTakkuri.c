@@ -284,7 +284,7 @@ void KeyStealingTakkuri_Type3_Init(KeyStealingTakkuriEntity* this) {
     ptr = &gUnk_08124132[super->type2 * 2];
     super->x.HALF.HI = gRoomControls.origin_x + ptr[0];
     super->y.HALF.HI = gRoomControls.origin_y + ptr[1] + 0x40;
-    super->z.HALF.HI = 0xffc0;
+    super->z.HALF.HI = -64;
     UpdateSpriteForCollisionLayer(super);
     InitAnimationForceUpdate(super, gUnk_08124128[super->type2]);
     obj = CreateObject(KEY_STEALING_TAKKURI, 1, 0);

@@ -130,12 +130,12 @@ void GleerokParticle_Init(GleerokParticleEntity* this) {
                     this->unk7c = 0xce;
                     this->unk74 = 0;
                     if ((ptr->unk4 & 0x40) != 0) {
-                        this->unk80.HALF.HI = 0xff00;
+                        this->unk80.HALF.HI = -0x100;
                     } else {
                         this->unk80.HALF.HI = 0x100;
                     }
                     if ((ptr->unk4 & 0x80) != 0) {
-                        this->unk84.HALF.HI = 0xff00;
+                        this->unk84.HALF.HI = -0x100;
                     } else {
                         this->unk84.HALF.HI = 0x100;
                     }

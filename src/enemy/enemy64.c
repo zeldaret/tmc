@@ -29,13 +29,6 @@ typedef struct {
 
 extern void sub_08047EA4(Entity*, u32); // gyorgMale
 
-extern void (*const Enemy64_Actions[])(Enemy64Entity*);
-extern void (*const Enemy64_Action1_SubActions[])(Enemy64Entity*);
-extern void (*const Enemy64_Action2_SubActions[])(Enemy64Entity*);
-extern void (*const Enemy64_Action3_SubActions[])(Enemy64Entity*);
-extern const u8 gUnk_080D29B8[];
-extern void (*const Enemy64_Action4_SubActions[])(Enemy64Entity*);
-
 void sub_080499F0(Enemy64Entity*);
 void sub_08049998(Enemy64Entity*, u32);
 void Enemy64_Action2_SubAction1(Enemy64Entity*);
@@ -43,8 +36,36 @@ void sub_08049944(Enemy64Entity*);
 bool32 sub_08049A8C(Enemy64Entity*);
 void sub_08049AB0(Enemy64Entity*);
 void sub_08049B20(Enemy64Entity*);
+void Enemy64_Init(Enemy64Entity* this);
+void Enemy64_Action1(Enemy64Entity* this);
+void Enemy64_Action2(Enemy64Entity* this);
+void Enemy64_Action3(Enemy64Entity* this);
+void Enemy64_Action4(Enemy64Entity* this);
+void Enemy64_Action1_SubAction0(Enemy64Entity* this);
+void Enemy64_Action1_SubAction1(Enemy64Entity* this);
+void Enemy64_Action2_SubAction0(Enemy64Entity* this);
+void Enemy64_Action2_SubAction1(Enemy64Entity* this);
+void Enemy64_Action2_SubAction2(Enemy64Entity* this);
+void Enemy64_Action2_SubAction3(Enemy64Entity* this);
+void Enemy64_Action2_SubAction4(Enemy64Entity* this);
+void Enemy64_Action2_SubAction5(Enemy64Entity* this);
+void Enemy64_Action3_SubAction0(Enemy64Entity* this);
+void Enemy64_Action3_SubAction1(Enemy64Entity* this);
+void Enemy64_Action3_SubAction2(Enemy64Entity* this);
+void Enemy64_Action3_SubAction3(Enemy64Entity* this);
+void Enemy64_Action4_SubAction0(Enemy64Entity* this);
+void Enemy64_Action4_SubAction1(Enemy64Entity* this);
+void Enemy64_Action4_SubAction2(Enemy64Entity* this);
+void Enemy64_Action4_SubAction3(Enemy64Entity* this);
+void Enemy64_Action4_SubAction4(Enemy64Entity* this);
+void Enemy64_Action4_SubAction5(Enemy64Entity* this);
+void Enemy64_Action4_SubAction6(Enemy64Entity* this);
+void Enemy64_Action4_SubAction7(Enemy64Entity* this);
 
 void Enemy64(Enemy64Entity* this) {
+    static void (*const Enemy64_Actions[])(Enemy64Entity*) = {
+        Enemy64_Init, Enemy64_Action1, Enemy64_Action2, Enemy64_Action3, Enemy64_Action4,
+    };
     if (super->action != 0) {
         super->spriteSettings.draw = this->unk_7d;
     }
@@ -102,6 +123,10 @@ void Enemy64_Init(Enemy64Entity* this) {
 }
 
 void Enemy64_Action1(Enemy64Entity* this) {
+    static void (*const Enemy64_Action1_SubActions[])(Enemy64Entity*) = {
+        Enemy64_Action1_SubAction0,
+        Enemy64_Action1_SubAction1,
+    };
     Enemy64_Action1_SubActions[super->subAction](this);
     UpdateAnimationSingleFrame(super);
 }
@@ -133,6 +158,10 @@ void Enemy64_Action1_SubAction1(Enemy64Entity* this) {
 }
 
 void Enemy64_Action2(Enemy64Entity* this) {
+    static void (*const Enemy64_Action2_SubActions[])(Enemy64Entity*) = {
+        Enemy64_Action2_SubAction0, Enemy64_Action2_SubAction1, Enemy64_Action2_SubAction2,
+        Enemy64_Action2_SubAction3, Enemy64_Action2_SubAction4, Enemy64_Action2_SubAction5,
+    };
     Enemy64_Action2_SubActions[super->subAction](this);
     UpdateAnimationSingleFrame(super);
 }
@@ -253,6 +282,12 @@ void Enemy64_Action2_SubAction5(Enemy64Entity* this) {
 }
 
 void Enemy64_Action3(Enemy64Entity* this) {
+    static void (*const Enemy64_Action3_SubActions[])(Enemy64Entity*) = {
+        Enemy64_Action3_SubAction0,
+        Enemy64_Action3_SubAction1,
+        Enemy64_Action3_SubAction2,
+        Enemy64_Action3_SubAction3,
+    };
     Enemy64_Action3_SubActions[super->subAction](this);
     UpdateAnimationSingleFrame(super);
 }
@@ -275,10 +310,13 @@ void Enemy64_Action3_SubAction0(Enemy64Entity* this) {
 }
 
 void Enemy64_Action3_SubAction1(Enemy64Entity* this) {
+    static const s8 gUnk_080D29B8[] = {
+        144, 112, 56, 200, 0, 0, 0, 0,
+    };
     if (EntityWithinDistance(super, gRoomControls.origin_x + 0xa8, gRoomControls.origin_y + 0x80, 0x28)) {
         super->subAction = 2;
         super->timer = 45;
-        this->unk_74 = gUnk_080D29B8[Random() & 7] << 0x18 >> 0x18;
+        this->unk_74 = gUnk_080D29B8[Random() & 7];
         this->unk_76 = super->direction << 8;
     }
     sub_08049998(this, ((0x100 - super->direction) & 0xff) << 8);
@@ -303,6 +341,10 @@ void Enemy64_Action3_SubAction3(Enemy64Entity* this) {
 }
 
 void Enemy64_Action4(Enemy64Entity* this) {
+    static void (*const Enemy64_Action4_SubActions[])(Enemy64Entity*) = {
+        Enemy64_Action4_SubAction0, Enemy64_Action4_SubAction1, Enemy64_Action4_SubAction2, Enemy64_Action4_SubAction3,
+        Enemy64_Action4_SubAction4, Enemy64_Action4_SubAction5, Enemy64_Action4_SubAction6, Enemy64_Action4_SubAction7,
+    };
     Enemy64_Action4_SubActions[super->subAction](this);
     UpdateAnimationSingleFrame(super);
 }
@@ -497,28 +539,3 @@ void sub_08049B20(Enemy64Entity* this) {
         gPlayerEntity.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.y.HALF.HI;
     }
 }
-
-void (*const Enemy64_Actions[])(Enemy64Entity*) = {
-    Enemy64_Init, Enemy64_Action1, Enemy64_Action2, Enemy64_Action3, Enemy64_Action4,
-};
-void (*const Enemy64_Action1_SubActions[])(Enemy64Entity*) = {
-    Enemy64_Action1_SubAction0,
-    Enemy64_Action1_SubAction1,
-};
-void (*const Enemy64_Action2_SubActions[])(Enemy64Entity*) = {
-    Enemy64_Action2_SubAction0, Enemy64_Action2_SubAction1, Enemy64_Action2_SubAction2,
-    Enemy64_Action2_SubAction3, Enemy64_Action2_SubAction4, Enemy64_Action2_SubAction5,
-};
-void (*const Enemy64_Action3_SubActions[])(Enemy64Entity*) = {
-    Enemy64_Action3_SubAction0,
-    Enemy64_Action3_SubAction1,
-    Enemy64_Action3_SubAction2,
-    Enemy64_Action3_SubAction3,
-};
-const u8 gUnk_080D29B8[] = {
-    144, 112, 56, 200, 0, 0, 0, 0,
-};
-void (*const Enemy64_Action4_SubActions[])(Enemy64Entity*) = {
-    Enemy64_Action4_SubAction0, Enemy64_Action4_SubAction1, Enemy64_Action4_SubAction2, Enemy64_Action4_SubAction3,
-    Enemy64_Action4_SubAction4, Enemy64_Action4_SubAction5, Enemy64_Action4_SubAction6, Enemy64_Action4_SubAction7,
-};

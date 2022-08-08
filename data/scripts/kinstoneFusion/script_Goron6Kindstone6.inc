@@ -32,6 +32,6 @@ SCRIPT_START script_Goron6Kindstone6
 	Wait 0x003c
 	SetSyncFlag 0x0000007c
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, 0xffe0
+	_0807EEF4 0x0000, -32
 	Call sub_08054968
 SCRIPT_END

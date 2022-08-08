@@ -127,7 +127,7 @@ void LavaPlatform_Type1Action1(LavaPlatformEntity* this) {
             super->animationState ^= 1;
             InitializeAnimation(super, (u32)super->animationState);
         }
-        if (--super->spriteOffsetY * 0x1000000 >> 0x18 == -3) {
+        if (--super->spriteOffsetY == -3) {
             sub_0809264C(this);
         }
     }

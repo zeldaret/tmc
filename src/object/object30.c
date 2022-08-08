@@ -67,10 +67,9 @@ void Object30_Action1(Object30Entity* this) {
 }
 
 void Object30_Action2(Object30Entity* this) {
-    static const u8 gUnk_08121194[] = {
-        249, 248, 247, 246, 245, 246, 247, 248,
+    static const s8 gUnk_08121194[] = {
+        -7, -8, -9, -10, -11, -10, -9, -8,
     };
-    u8 tmp;
     switch (super->type) {
         case 0:
             if (this->gravity != 0) {
@@ -90,8 +89,7 @@ void Object30_Action2(Object30Entity* this) {
             }
             // fallthrough
         case 1:
-            tmp = gUnk_08121194[(super->subtimer++ >> 3) & 7];
-            super->z.HALF.HI = tmp << 0x18 >> 0x18;
+            super->z.HALF.HI = gUnk_08121194[(super->subtimer++ >> 3) & 7];
             if (!IsCollidingPlayer(super)) {
                 return;
             }

@@ -272,7 +272,7 @@ void OctorokBoss_Hit_SubAction6(OctorokBossEntity* this) {
     if ((this->unk_80 & 0x80) != 0) {
         this->unk_80 -= (Random() & 3);
         if ((this->unk_80 & 0x80) == 0) {
-            this->unk_80 = ((this->unk_80 & 0x80) << 0x18) >> 0x18;
+            this->unk_80 = 0;
         }
     } else {
         this->unk_80 += (Random() & 3);

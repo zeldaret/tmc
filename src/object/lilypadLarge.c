@@ -372,12 +372,12 @@ void sub_08085A98(LilypadLargeEntity* this) {
         super->subAction = 2;
         if (gArea.locationIndex == 0x1b) {
             super->y.HALF.HI += 0xd0;
-            super->z.HALF.HI = 0xff30;
+            super->z.HALF.HI = -0xd0;
             this->unk_82 = 0x46;
             SetLocalFlag(0x73);
         } else {
             super->y.HALF.HI += 0x40;
-            super->z.HALF.HI = 0xffc0;
+            super->z.HALF.HI = -0x40;
             this->unk_82 = 0xf;
         }
         CreateObjectWithParent(super, LILYPAD_LARGE_FALLING, 0, 0);

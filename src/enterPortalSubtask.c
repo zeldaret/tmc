@@ -29,20 +29,20 @@ bool32 sub_0804ACA8(void);
 bool32 CheckInitPortal(void) {
     if (gArea.portal_in_use) {
         gMain.substate = GAMEMAIN_MINISHPORTAL;
-        gArea.filler[8] = 0;
-        gArea.filler[9] = 0;
-        *(u16*)&gArea.filler[10] = 0;
+        gArea.filler3[0] = 0;
+        gArea.filler3[1] = 0;
+        gArea.field_0x10 = 0;
         SetInitializationPriority();
-        return 1;
+        return TRUE;
     } else {
-        gArea.filler[18] = gArea.portal_in_use;
-        *(vu8*)&gArea.portal_in_use = gArea.portal_in_use;
-        return 0;
+        gArea.portal_mode = 0;
+        gArea.portal_in_use = FALSE;
+        return FALSE;
     }
 }
 
 void GameMain_MinishPortal(void) {
-    gUnk_080D4120[gArea.filler[8]]();
+    gUnk_080D4120[gArea.filler3[0]]();
 }
 
 void sub_0804AAD4(void) {
@@ -50,7 +50,7 @@ void sub_0804AAD4(void) {
     gUnk_02018EB0.unk_14 = NULL;
     EraseAllEntities();
     CreateObject(MINISH_PORTAL_CLOSEUP, gArea.portal_type, 0);
-    gArea.filler[8]++;
+    gArea.filler3[0]++;
 }
 
 void sub_0804AB04(void) {
@@ -66,14 +66,14 @@ void sub_0804AB24(void) {
     if (!gFadeControl.active) {
         gScreen.lcd.displayControl = 0;
         sub_0801E104();
-        gArea.filler[8] = 0;
+        gArea.filler3[0] = 0;
         MenuFadeIn(6, 0);
         gFadeControl.active = 0;
     }
 }
 
 void Subtask_PortalCutscene(void) {
-    gUnk_080D412C[gArea.filler[8]]();
+    gUnk_080D412C[gArea.filler3[0]]();
 }
 void sub_0804AB70(void) {
     const u8* ptr;

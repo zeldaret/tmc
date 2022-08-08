@@ -423,7 +423,7 @@ void sub_0806D5D4(void) {
     InitBiggoronTimer();
     itemSlot = IsItemEquipped(ITEM_SHIELD);
     if (itemSlot != 2) {
-        gSave.stats.itemButtons[itemSlot] = 0;
+        gSave.stats.itemButtons[itemSlot] = ITEM_NONE;
     }
     SetInventoryValue(ITEM_SHIELD, 0);
 }

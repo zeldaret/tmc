@@ -35,7 +35,8 @@ typedef struct {
     u8 unk;
     u8 dungeon_idx; /* same index as global flags for dungeons */
     u16 localFlagOffset;
-    u8 filler[4];
+    u8 flag_bank;
+    u8 filler[3];
     u16 lightLevel;
     u8 lightType;
     u8 unk_0c_0 : 1;
@@ -50,7 +51,7 @@ typedef struct {
     u8 portal_mode;
     // u8 filler3[7];
     bool8 portal_in_use;
-    u8 unk1A;
+    u8 portal_timer;
     u8 filler2[13];
     struct_area_28 unk28;
     RoomResInfo roomResInfos[MAX_ROOMS];

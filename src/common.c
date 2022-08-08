@@ -33,7 +33,7 @@ extern void (*gUnk_080C9CAC[])(void);
 static void StoreKeyInput(Input* input, u32 keyInput);
 void ClearOAM(void);
 void ResetScreenRegs(void);
-void sub_0801E0E0(u32);
+void MessageFromFusionTarget(u32);
 void sub_0801E24C(s32, s32);
 void sub_0801E290(u32, u32, u32);
 s32 sub_0801E8B0(u32);
@@ -366,7 +366,7 @@ void DispReset(bool32 refresh) {
     ClearOAM();
     ResetScreenRegs();
     MemClear((void*)0x600C000, 0x20);
-    MemClear(gBG0Buffer, 0x800);
+    MemClear(gBG0Buffer, sizeof(gBG0Buffer));
     gScreen.bg0.updated = refresh;
 }
 
@@ -534,7 +534,7 @@ void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
     gFuseInfo.ent = entity;
     gFuseInfo._3 = gUnk_03003DF0.unk_2;
     if (entity != NULL) {
-        gFuseInfo._4 = entity->updatePriority;
+        gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
     }
     gFuseInfo._0 = 0;
@@ -546,7 +546,7 @@ u32 sub_0801E00C(void) {
 }
 
 void sub_0801E02C(void) {
-    sub_0801E0E0(gFuseInfo.textIndex);
+    MessageFromFusionTarget(gFuseInfo.textIndex);
     gFuseInfo._0 = 3;
     gFuseInfo.action = 1;
 }
@@ -572,20 +572,20 @@ void sub_0801E074(void) {
         default:
             return;
     }
-    sub_0801E0E0(tmp);
+    MessageFromFusionTarget(tmp);
     gFuseInfo.action = 3;
 }
 
 void sub_0801E0A0(void) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         if (gFuseInfo.ent != NULL) {
-            gFuseInfo.ent->updatePriority = gFuseInfo._4;
+            gFuseInfo.ent->updatePriority = gFuseInfo.prevUpdatePriority;
         }
         gFuseInfo._0 = gFuseInfo._0 == 6 ? 2 : 1;
     }
 }
 
-void sub_0801E0E0(u32 textIndex) {
+void MessageFromFusionTarget(u32 textIndex) {
     if (textIndex != 0) {
         if (gFuseInfo.ent != NULL) {
             MessageNoOverlap(textIndex, gFuseInfo.ent);

@@ -148,7 +148,7 @@ void PauseMenu_Variant2(void) {
             sub_080A4E90(6);
         } else {
             sub_080A4E90(3);
-            MemClear(&gBG0Buffer, 0x800);
+            MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
             gScreen.bg0.updated = 1;
         }
     }
@@ -527,14 +527,14 @@ void PauseMenu_ItemMenu_Draw(void) {
         gOamCmd._8 = 0x800;
         DrawDirect(sub_080A5384_draw_constant0, 0x22);
     }
-    i = GetMenuSlotForItem(gSave.stats.itemButtons[0]);
+    i = GetMenuSlotForItem(gSave.stats.itemButtons[SLOT_A]);
     if (i < MENU_SLOT_COUNT) {
         entry = &gItemMenuTable[i];
         gOamCmd.x = entry->x;
         gOamCmd.y = entry->y;
         DrawDirect(sub_080A5384_draw_constant0, 3);
     }
-    i = GetMenuSlotForItem(gSave.stats.itemButtons[1]);
+    i = GetMenuSlotForItem(gSave.stats.itemButtons[SLOT_B]);
     if (i < MENU_SLOT_COUNT) {
         entry = &gItemMenuTable[i];
         gOamCmd.x = entry->x;

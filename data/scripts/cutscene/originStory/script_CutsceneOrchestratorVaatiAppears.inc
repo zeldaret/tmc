@@ -2,7 +2,7 @@
 SCRIPT_START script_CutsceneOrchestratorVaatiAppears
 	BeginBlock
 	SetEntityPositionRelative 0x01f8, 0x00e0
-	Call sub_08054564
+	Call DisableRandomDrops
 	EndBlock
 script_08014FCC:
 	CheckPlayerInRegion 0x01f8, 0x00a0, 0x2040
@@ -141,7 +141,7 @@ script_08015104:
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer
-	Call sub_08054570
+	Call EnableRandomDrops
 	PlayBGM
 	Call EnablePauseMenu
 	EnablePlayerControl

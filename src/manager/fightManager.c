@@ -65,8 +65,8 @@ void FightManager_WaitForFlag(FightManager* this) {
     if (CheckFlags(this->fightStartFlag)) {
         FightManager_LoadFight(this);
         if (!this->unk_35) {
-            tmp = gRoomVars.field_0x9 ? gRoomVars.field_0x9 : 0x33;
-            this->unk_20 = gArea.bgm;
+            tmp = gRoomVars.fight_bgm ? gRoomVars.fight_bgm : BGM_FIGHT_THEME2;
+            this->prevBgm = gArea.bgm;
             gArea.bgm = tmp;
             SoundReq(tmp);
         }
@@ -84,7 +84,7 @@ void FightManager_WaitForDone(FightManager* this) {
     // restore music (if it was set, which apparently is only possible if there's a flag the fight waited for)
     if (this->fightStartFlag) {
         if (!this->unk_35) {
-            gArea.bgm = this->unk_20;
+            gArea.bgm = this->prevBgm;
             SoundReq(gArea.bgm);
             sub_0801855C();
         }
@@ -138,7 +138,7 @@ FightManagerHelper* FightManager_CreateHelper(FightManager* this) {
         extra->base.type = 1;
         extra->base.parent = (Entity*)this;
         super->timer++;
-        MemClear(&extra->enemies, 0x20);
+        MemClear(&extra->enemies, sizeof(extra->enemies));
         AppendEntityToList((Entity*)extra, 8);
     }
     return extra;

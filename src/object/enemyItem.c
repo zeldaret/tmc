@@ -43,7 +43,7 @@ void EnemyItem(EnemyItemEntity* this) {
         if (super->child == NULL) {
             sub_080A2534(this);
         }
-        sub_08054564();
+        DisableRandomDrops();
     }
     entity = super->child;
     if (entity != NULL) {

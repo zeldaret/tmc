@@ -107,7 +107,7 @@ void StaffrollTask_State1MenuType1(void) {
         const u8* ptr = &gUnk_08127CEC[gStaffrollMenu.unk_10 * 2];
         LoadPaletteGroup(ptr[0]);
         LoadGfxGroup(ptr[1]);
-        MemClear(&gBG1Buffer, 0x800);
+        MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
         gScreen.bg1.updated = 1;
         gScreen.bg2.xOffset = gStaffrollMenu.unk_12;
         gScreen.controls.alphaBlend = 0x1000;
@@ -124,7 +124,7 @@ void StaffrollTask_State1MenuType2(void) {
     u8 tmp;
     switch (gStaffrollMenu.base.overlayType) {
         case 0:
-            MemClear(&gBG1Buffer, 0x800);
+            MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
             sub_0805F46C(gStaffrollMenu.unk_10, (Font*)gUnk_081272E0[gStaffrollMenu.unk_19]);
             gScreen.bg1.updated = 1;
             gStaffrollMenu.base.overlayType++;
@@ -191,9 +191,9 @@ void StaffrollTask_State1MenuType5(void) {
 
 void StaffrollTask_State1MenuType6(void) {
     if (gFadeControl.active == 0) {
-        MemClear(&gBG1Buffer, 0x800);
+        MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
         gScreen.bg1.updated = 1;
-        MemClear(&gBG2Buffer, 0x800);
+        MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
         gScreen.bg2.updated = 1;
         gScreen.controls.alphaBlend = 0x1000;
         gMenu.menuType = 0;

@@ -7,6 +7,6 @@ SCRIPT_START script_08012B7C
 	DoPostScriptAction 0x0001
 	WalkEast 0x0008
 	SetSyncFlag 0x00000002
-	CallWithArg SetPlayerIFrames, 0xffffffe2
+	CallWithArg SetPlayerIFrames, -30
 	Call SetPlayerActionNormal
 SCRIPT_END

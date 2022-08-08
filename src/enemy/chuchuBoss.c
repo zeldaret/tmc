@@ -613,7 +613,7 @@ void sub_08026414(ChuchuBossEntity* this) {
     Entity* child;
 
     if (this->unk_7c-- == 0) {
-        super->z.HALF.HI = 0xff40;
+        super->z.HALF.HI = -192;
         child = super->child;
         parent = super->parent;
         this->unk_68->base.spriteSettings.draw = 1;

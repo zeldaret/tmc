@@ -11,7 +11,7 @@ typedef struct {
     u8 action;
     u8 _2;
     u8 _3;
-    u8 _4;
+    u8 prevUpdatePriority;
     u8 _5;
     u16 textIndex;
     u16 _8;

@@ -73,7 +73,7 @@ void sub_0801855C(void) {
     // TODO: Figure out what is up with the pointer assignment
     struct_gUnk_080B3D20* pcVar2 = (struct_gUnk_080B3D20*)&gArea.unk28;
 
-    MemClear(pcVar2, 0x14);
+    MemClear(pcVar2, sizeof(struct_area_28));
     ptr = (struct_area_28*)pcVar2;
     for (pcVar2 = gUnk_080B3D20, bVar3 = 0; pcVar2->unk0 != 0xff; pcVar2++) {
         if (sub_080185B4(pcVar2)) {

@@ -30,15 +30,15 @@ void InitItemGetSequence(u32 type, u32 type2, u32 delay) {
     }
 }
 
-static Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
+static Entity* GiveItemWithCutscene(u32 item, u32 type2, u32 delay) {
     Entity* e;
-    if (type == ITEM_SHELLS && gSave.stats.hasAllFigurines) {
-        type = ITEM_RUPEE50;
+    if (item == ITEM_SHELLS && gSave.stats.hasAllFigurines) {
+        item = ITEM_RUPEE50;
         type2 = 0;
     }
     e = CreateItemGetEntity();
     if (e != NULL) {
-        e->type = type;
+        e->type = item;
         e->type2 = type2;
         e->timer = delay;
         e->id = LINK_HOLDING_ITEM;

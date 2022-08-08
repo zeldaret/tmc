@@ -59,14 +59,14 @@ extern RoomControls gRoomControls;
 typedef struct {
     /* 0x00 */ u8 field_0x0;
     /* 0x01 */ u8 filler_0x1;
-    /* 0x02 */ u8 field_0x2;
+    /* 0x02 */ bool8 randomDropsDisabled;
     /* 0x03 */ u8 field_0x3;
     /* 0x04 */ u8 field_0x4;
     /* 0x05 */ u8 filler1[1];
     /* 0x06 */ u8 shopItemType;
     /* 0x07 */ u8 shopItemType2;
     /* 0x08 */ u8 field_0x8;
-    /* 0x09 */ u8 field_0x9;
+    /* 0x09 */ u8 fight_bgm;
     /* 0x0a */ u8 unk2;
     /* 0x0b */ u8 filler2;
     /* 0x0c */ s16 lightLevel;
@@ -162,7 +162,7 @@ typedef struct {
     /* 0x3c */ u8 field_0x3c;
     /* 0x3d */ u8 field_0x3d;
     /* 0x3e */ u16 field_0x3e;
-    /* 0x40 */ u16 hurtType;
+    /* 0x40 */ u16 field_0x40;
     /* 0x42 */ u16 field_0x42;
     /* 0x44 */ u16 field_0x44;
     /* 0x46 */ u16 field_0x46;

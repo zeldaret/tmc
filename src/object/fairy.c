@@ -214,7 +214,7 @@ void Fairy_Action4(FairyEntity* this) {
     }
     if (--super->subtimer == 0) {
         super->subtimer = 6;
-        if (((--super->spriteOffsetY) * 0x1000000) >> 0x18 < -0x16) {
+        if (--super->spriteOffsetY < -0x16) {
             sub_08081404(super, 1);
         }
     }

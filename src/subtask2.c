@@ -1803,7 +1803,7 @@ void Subtask_Init(void) {
     if (gFadeControl.active == 0) {
         DeleteAllEntities();
         MemClear(&gMenu, sizeof(FigurineMenu));
-        MemClear(&gRoomControls, 0x38);
+        MemClear(&gRoomControls, sizeof(gRoomControls));
         MemClear(gOAMControls.unk, 0x100);
         MemClear(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
         gActiveScriptInfo.fadeSpeed = 8;

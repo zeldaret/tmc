@@ -23,7 +23,7 @@ extern union SplitWord gUnk_08133368[];
 void ResetPaletteTable(u32 a1) {
     u32 i;
 
-    MemClear(gPaletteList, 0x40);
+    MemClear(gPaletteList, sizeof(gPaletteList));
     for (i = 0; i < 6; ++i) {
         sub_0801CFD0(i);
     }
@@ -52,7 +52,7 @@ void sub_0801D000(u32 a1) {
         CleanUpObjPalettes();
         sub_0801CFD0(0xf);
     } else {
-        if ((gUnk_02001A3C._0_0) == 4) {
+        if (gUnk_02001A3C._0_0 == 4) {
             gUnk_02001A3C._0_0 = 0;
             gUnk_02001A3C._0_4 = 0;
             gUnk_02001A3C._1 = 0;
@@ -106,7 +106,7 @@ s32 FindPalette(u32 a1) {
     if (a1 <= 5)
         return a1;
 
-    for (index = 6, palette = gPaletteList; index < 0x10; index++) {
+    for (index = 6, palette = gPaletteList; index < ARRAY_COUNT(gPaletteList); index++) {
         if (a1 == palette[index]._2) {
             return index;
         }
@@ -120,7 +120,7 @@ u32 FindFreeObjPalette(u32 a1) {
     u32 uVar2;
     u32 tmp;
 
-    for (uVar1 = 0, uVar2 = 6; uVar2 < 0x10; uVar2++) {
+    for (uVar1 = 0, uVar2 = 6; uVar2 < ARRAY_COUNT(gPaletteList); uVar2++) {
         switch ((gPaletteList[uVar2]._0_0)) {
             case 0:
                 uVar1 = uVar1 + 1;
@@ -134,7 +134,7 @@ u32 FindFreeObjPalette(u32 a1) {
         }
     }
 
-    for (uVar1 = 0, uVar2 = 6; uVar2 < 0x10; uVar2++) {
+    for (uVar1 = 0, uVar2 = 6; uVar2 < ARRAY_COUNT(gPaletteList); uVar2++) {
         switch (gPaletteList[uVar2]._0_0) {
             case 0:
             case 1:
@@ -250,9 +250,9 @@ void CleanUpObjPalettes(void) {
     u32 index2;
     Entity* pEVar9;
     int iVar10;
-    u8 local_24[0x10];
+    u8 local_24[ARRAY_COUNT(gPaletteList)];
 
-    for (index1 = 0; index1 < 0x10; index1++) {
+    for (index1 = 0; index1 < ARRAY_COUNT(gPaletteList); index1++) {
         local_24[index1] = index1;
         switch (gPaletteList[index1]._0_0) {
             case 0:

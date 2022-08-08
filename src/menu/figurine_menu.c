@@ -101,8 +101,8 @@ void FigurineMenu_080A4608(void) {
     sub_080A4DA8(3);
     SetColor(0, gPaletteBuffer[0xfb]);
     SetColor(0x15c, gPaletteBuffer[0xd3]);
-    MemClear(&gBG0Buffer, 0x800);
-    MemClear(&gBG3Buffer, 0x1000);
+    MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
+    MemClear(&gBG3Buffer, sizeof(gBG3Buffer));
     gScreen.controls.window0HorizontalDimensions = DISPLAY_WIDTH;
     gScreen.controls.window0VerticalDimensions = 0x7898;
     gScreen.controls.windowInsideControl = 0x1f;
@@ -534,8 +534,8 @@ u32 sub_080A4CBC(u32 param_1) {
 
     if (gFigurineMenu.unk1a != param_1) {
         gFigurineMenu.unk1a = param_1;
-        MemClear(&gBG1Buffer, 0x800);
-        MemCopy(&gBG1Buffer, (void*)0x600e000, 0x800);
+        MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
+        MemCopy(&gBG1Buffer, (void*)0x600e000, sizeof(gBG1Buffer));
         iVar1 = sub_080A4948(param_1);
         if (iVar1 != 0) {
             sub_0805F46C(param_1 + 0x900, &gUnk_08128190);
@@ -589,9 +589,9 @@ void sub_080A4DB8(u32 param_1) {
     const struct_08128AD8* ptr;
 
     DisableVBlankDMA();
-    MemClear(&gBG0Buffer, 0x800);
-    MemClear(&gBG1Buffer, 0x800);
-    MemClear(&gBG2Buffer, 0x800);
+    MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
+    MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
+    MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
     MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
     MemClear(&gFigurineMenu, sizeof(gFigurineMenu));
     gFigurineMenu.unk2e = -1;

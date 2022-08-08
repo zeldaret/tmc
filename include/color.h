@@ -9,7 +9,7 @@ typedef struct {
     u8 _1;
     u16 _2;
 } Palette;
-extern Palette gPaletteList[];
+extern Palette gPaletteList[0x10];
 
 typedef struct {
     struct {

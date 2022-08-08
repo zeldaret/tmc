@@ -70,15 +70,15 @@ void sub_08059608(WeatherChangeManager* this) {
         return;
     }
     if (sub_0805986C()) {
-        if (gArea.queued_bgm != 0x1E) {
-            gArea.queued_bgm = 0x1E;
+        if (gArea.queued_bgm != BGM_CRENEL_STORM) {
+            gArea.queued_bgm = BGM_CRENEL_STORM;
             this->unk_23 = 0x78;
             SoundReq(SONG_FADE_OUT_BGM);
         }
         return;
     }
-    if (gArea.queued_bgm != 0x37) {
-        gArea.queued_bgm = 0x37;
+    if (gArea.queued_bgm != BGM_MT_CRENEL) {
+        gArea.queued_bgm = BGM_MT_CRENEL;
         this->unk_23 = 0x78;
         SoundReq(SONG_FADE_OUT_BGM);
     }
@@ -214,6 +214,6 @@ void sub_08059960(const u16* unk1, const u16* unk2, u16* unk3, u8 unk4) {
 void sub_08059994(void) {
     if (sub_0805986C()) {
         LoadPaletteGroup(0x5B);
-        gArea.queued_bgm = 0x1E;
+        gArea.queued_bgm = BGM_CRENEL_STORM;
     }
 }

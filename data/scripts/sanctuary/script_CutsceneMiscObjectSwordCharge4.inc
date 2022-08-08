@@ -4,7 +4,7 @@ SCRIPT_START script_CutsceneMiscObjectSwordCharge4
 	DoPostScriptAction 0x0007
 	SetAnimation 0x0003
 	Call sub_0807F738
-	OffsetEntityPosition 0x0000, 0xfff0
+	OffsetEntityPosition 0, -16
 	EndBlock
 	WaitForSyncFlag 0x00000040
 	DoPostScriptAction 0x0006

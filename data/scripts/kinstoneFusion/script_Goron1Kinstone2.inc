@@ -34,5 +34,5 @@ script_0800BD1C:
 	SetAnimationState 0x0002
 	WaitForSyncFlagAndClear 0x00000004
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, 0xffe0
+	_0807EEF4 0x0000, -32
 SCRIPT_END

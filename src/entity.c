@@ -220,7 +220,7 @@ void UpdateManagers(void) {
 
 void EraseAllEntities(void) {
     DeleteAllEntities();
-    MemClear(&gPriorityHandler, 12);
+    MemClear(&gPriorityHandler, sizeof(PriorityHandler));
     MemClear(&gPlayerEntity, 10880);
     MemClear(&gUnk_02033290, 2048);
     sub_0805E98C();

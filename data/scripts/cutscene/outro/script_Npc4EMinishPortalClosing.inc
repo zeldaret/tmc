@@ -37,7 +37,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	WaitUntilTextboxCloses
 	MessageFromTargetPos TEXT_VAATI2, 0x63, 0x000e
 	WaitUntilTextboxCloses
-	OffsetEntityPosition 0x0000, 0xffe0
+	OffsetEntityPosition 0x0000, -32
 	Call WaitForCameraTouchRoomBorder
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
