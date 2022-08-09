@@ -222,7 +222,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
     u32 uVar1;
     if (super->timer != 0) {
         uVar1 = sub_0808B1F0(this, super->child);
-        if ((gPlayerState.playerInput.field_0x90 & gUnk_081211E4[super->animationState]) != 0) {
+        if ((gPlayerState.playerInput.heldInput & gUnk_081211E4[super->animationState]) != 0) {
             GetNextFrame(super);
             if (uVar1 < 0x40) {
                 sub_080044AE(&gPlayerEntity, 0x40, super->direction);
@@ -247,7 +247,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
         this->unk_7c = 1;
         super->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
         super->direction = (super->animationState << 3);
-        super->flags &= 0x7f;
+        super->flags &= ~0x80;
         super->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
         InitializeAnimation(super, super->animationState + 5);
         if (sub_0808B21C(this, 0)) {
@@ -291,7 +291,7 @@ void sub_0808B05C(PullableMushroomEntity* this) {
         super->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
         super->direction = super->animationState << 3;
         super->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
-        super->flags &= 0x7f;
+        super->flags &= ~0x80;
         InitializeAnimation(super, super->animationState + 5);
         if (sub_0808B21C(this, 1)) {
             sub_0808B168((PullableMushroomEntity*)super->child, 1);

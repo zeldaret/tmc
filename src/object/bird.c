@@ -238,7 +238,7 @@ void Bird_Type8(Entity* this) {
                         PutAwayItems();
                         gPlayerState.swim_state = 0;
                         gPlayerState.jump_status = 0;
-                        gPlayerEntity.flags &= 0x7f;
+                        gPlayerEntity.flags &= ~0x80;
                         gPlayerEntity.spriteSettings.draw = 0;
                         gPriorityHandler.sys_priority = 6;
                         gPauseMenuOptions.disabled = 1;

@@ -113,13 +113,13 @@ typedef struct {
     u8 animationState;
     u8 field_0x6;
     u8 field_0x7;
-} struct_030010EC;
+} MinecartData;
 
 typedef struct {
     u16 data[32];
     u16 field_0xac;
     u16 field_0xae;
-} struct_0300110C;
+} ArmosData;
 
 // Status of the player's positioning within the scene.
 typedef struct {
@@ -168,8 +168,8 @@ typedef struct {
     /* 0x46 */ u16 field_0x46;
     /* 0x48 */ u16 field_0x48;
     /* 0x4a */ u16 field_0x4a;
-    /* 0x4c */ struct_030010EC minecart_data[4];
-    /* 0x6c */ struct_0300110C armos_data;
+    /* 0x4c */ MinecartData minecart_data[4];
+    /* 0x6c */ ArmosData armos_data;
 } RoomTransition;
 static_assert(sizeof(RoomTransition) == 0xB0);
 extern RoomTransition gRoomTransition;

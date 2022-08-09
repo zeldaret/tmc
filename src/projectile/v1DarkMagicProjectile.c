@@ -35,7 +35,7 @@ void sub_080AAC44(Entity* this) {
                 } else {
                     SortEntityAbove(this->parent, this);
                 }
-                ResetPlayerItem();
+                ResetActiveItems();
                 gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
             }
@@ -215,7 +215,7 @@ void sub_080AAF74(Entity* this) {
         gPlayerState.mobility = 0;
         this->health = 0;
     } else {
-        ResetPlayerItem();
+        ResetActiveItems();
         gPlayerState.mobility |= 0x80;
         gPlayerState.field_0xa |= 0x80;
         CopyPosition(&gPlayerEntity, this);

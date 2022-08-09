@@ -120,7 +120,7 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
                 this->timer1 = 0x28;
                 super->timer = 40;
                 super->subtimer = 0;
-                super->flags &= 0x7f;
+                super->flags &= ~0x80;
                 SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 EnqueueSFX(SFX_156);
                 InitializeAnimation(super, super->direction >> 3);

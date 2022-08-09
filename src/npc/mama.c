@@ -100,7 +100,7 @@ void sub_0806C4F8(Entity* this) {
 void Mama_Fusion(Entity* this) {
     if (this->action == 0) {
         if (sub_0806C454(this) != 0) {
-            this->action += 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             this->y.HALF.HI -= 4;
             InitializeAnimation(this, 2);

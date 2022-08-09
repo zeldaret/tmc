@@ -53,7 +53,7 @@ void SmokeParticle_Action1(Entity* this) {
         if (this->frame < 5) {
             this->hitbox = (Hitbox*)gUnk_08120A54[this->frame];
         } else {
-            this->flags &= 0x7f;
+            this->flags &= ~0x80;
         }
     }
 }

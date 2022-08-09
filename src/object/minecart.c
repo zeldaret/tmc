@@ -12,7 +12,7 @@
 typedef struct {
     Entity base;
     u8 filler[0x1C];
-    struct_030010EC* minecartData;
+    MinecartData* minecartData;
 } MinecartEntity;
 
 extern void sub_08017744(Entity*);
@@ -39,7 +39,7 @@ void Minecart(Entity* this) {
 }
 
 void Minecart_Init(MinecartEntity* this) {
-    struct_030010EC* unk = &gRoomTransition.minecart_data[super->timer];
+    MinecartData* unk = &gRoomTransition.minecart_data[super->timer];
 
     this->minecartData = unk;
     if ((gRoomControls.room != unk->room) || (gPlayerState.flags & PL_IN_MINECART) != 0) {
@@ -88,7 +88,7 @@ void Minecart_Action1(MinecartEntity* this) {
                 gPlayerEntity.zVelocity = Q_16_16(2.0);
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= ~PL_MINISH;
-                ResetPlayerItem();
+                ResetActiveItems();
                 DeleteClones();
                 SoundReq(SFX_PLY_JUMP);
             }
@@ -279,7 +279,7 @@ void Minecart_Action5(MinecartEntity* this) {
 }
 
 void Minecart_Action6(MinecartEntity* this) {
-    struct_030010EC* minecartData;
+    MinecartData* minecartData;
 
     if (gPlayerState.jump_status == 0) {
         super->action = 1;

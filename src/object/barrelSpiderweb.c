@@ -71,7 +71,7 @@ void sub_0808BBE0(BarrelSpiderwebEntity* this) {
         ptr = &gUnk_0812144C[diff * 2];
         SetAffineInfo(super, ptr[0], ptr[1], 0);
     } else {
-        super->contactFlags &= 0x7f;
+        super->contactFlags &= ~0x80;
     }
 }
 

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "functions.h"
 #include "player.h"
+#include "playeritem.h"
 
 typedef void(PlayerItemFunc)(Entity*);
 
@@ -38,31 +39,31 @@ extern const PlayerItemDefinition gPlayerItemDefinitions[];
 extern const PlayerItemDefinition* gAdditionalPlayerItemDefinitions[3];
 
 PlayerItemFunc* const gPlayerItemFunctions[] = {
-    DeleteEntity,
-    PlayerItemSword,
-    PlayerItemBomb,
-    PlayerItemBoomerang,
-    PlayerItemBow,
-    PlayerItemShield,
-    PlayerItemLantern,
-    PlayerItemNulled,
-    PlayerItemGustJar,
-    PlayerItemPacciCane,
-    DeleteEntity,
-    DeleteEntity,
-    PlayerItemDashSword,
-    PlayerItemCellOverwriteSet,
-    PlayerItemBottle,
-    PlayerItemSwordBeam,
-    PlayerItemGust,
-    PlayerItemGustBig,
-    PlayerItemPacciCaneProjectile,
-    PlayerItemHeldObject,
-    PlayerItemSpiralBeam,
-    PlayerItemFireRodProjectile,
-    PlayerItemSwordBeam,
-    PlayerItemNulled2,
-    PlayerItemCellOverwriteSet,
+    [PLAYER_ITEM_NONE] = DeleteEntity,
+    [PLAYER_ITEM_SWORD] = PlayerItemSword,
+    [PLAYER_ITEM_BOMB] = PlayerItemBomb,
+    [PLAYER_ITEM_BOOMERANG] = PlayerItemBoomerang,
+    [PLAYER_ITEM_BOW] = PlayerItemBow,
+    [PLAYER_ITEM_SHIELD] = PlayerItemShield,
+    [PLAYER_ITEM_LANTERN] = PlayerItemLantern,
+    [PLAYER_ITEM_NULLED] = PlayerItemNulled,
+    [PLAYER_ITEM_GUST_JAR] = PlayerItemGustJar,
+    [PLAYER_ITEM_PACCI_CANE] = PlayerItemPacciCane,
+    [PLAYER_ITEM_NONE2] = DeleteEntity,
+    [PLAYER_ITEM_NONE3] = DeleteEntity,
+    [PLAYER_ITEM_DASH_SWORD] = PlayerItemDashSword,
+    [PLAYER_ITEM_CELL_OVERWRITE_SET] = PlayerItemCellOverwriteSet,
+    [PLAYER_ITEM_BOTTLE] = PlayerItemBottle,
+    [PLAYER_ITEM_SWORD_BEAM1] = PlayerItemSwordBeam,
+    [PLAYER_ITEM_GUST] = PlayerItemGust,
+    [PLAYER_ITEM_GUST_BIG] = PlayerItemGustBig,
+    [PLAYER_ITEM_PACCI_CANE_PROJECTILE] = PlayerItemPacciCaneProjectile,
+    [PLAYER_ITEM_HELD_OBJECT] = PlayerItemHeldObject,
+    [PLAYER_ITEM_SPIRAL_BEAM] = PlayerItemSpiralBeam,
+    [PLAYER_ITEM_FIRE_ROD_PROJECTILE] = PlayerItemFireRodProjectile,
+    [PLAYER_ITEM_SWORD_BEAM2] = PlayerItemSwordBeam,
+    [PLAYER_ITEM_NULLED2] = PlayerItemNulled2,
+    [PLAYER_ITEM_CELL_OVERWRITE_SET2] = PlayerItemCellOverwriteSet,
 };
 
 void ItemInit(Entity*);

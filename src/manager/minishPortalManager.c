@@ -83,7 +83,7 @@ void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
 }
 
 bool32 PortalReadyForMinish(void) {
-    if ((gPlayerState.flags & PL_MINISH) && !gPlayerState.field_0xaa && (gArea.portal_type != 0x6) &&
+    if ((gPlayerState.flags & PL_MINISH) && gPlayerState.attachedBeetleCount == 0 && (gArea.portal_type != 0x6) &&
         (gPlayerState.heldObject == 0)) {
         switch (gPlayerState.framestate) {
             case PL_STATE_IDLE:

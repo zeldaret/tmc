@@ -12,13 +12,13 @@
 static Entity* GiveItemWithCutscene(u32, u32, u32);
 static void InitTileMessage(u32, u32);
 
-Entity* sub_080A276C(Entity*, u32, u32);
+Entity* CreateLinkAnimation(Entity*, u32, u32);
 void SetPlayerItemGetState(Entity*, u32, u32);
 
 void CreateItemEntity(u32 type, u32 type2, u32 delay) {
     Entity* e = GiveItemWithCutscene(type, type2, delay);
     if (e != NULL) {
-        e->parent = sub_080A276C(e, e->type, 0);
+        e->parent = CreateLinkAnimation(e, e->type, 0);
     }
 }
 

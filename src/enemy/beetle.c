@@ -252,7 +252,7 @@ void sub_08021B64(Entity* this) {
         } else {
             gPlayerState.mobility |= 0x80;
             gPlayerState.speed_modifier -= 0x50;
-            gPlayerState.field_0xaa++;
+            gPlayerState.attachedBeetleCount++;
             CopyPositionAndSpriteOffset(&gPlayerEntity, this);
             this->x.HALF.HI += gUnk_080CB5E4[(this->subtimer++ & 0xe) >> 1];
             this->z.HALF.HI--;

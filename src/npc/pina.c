@@ -29,7 +29,7 @@ void sub_08063A80(Entity* this) {
 }
 
 void sub_08063A98(Entity* this) {
-    this->action += 1;
+    this->action++;
     this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 4);
     sub_08078778(this);
@@ -157,7 +157,7 @@ void sub_08063CAC(Entity* this) {
 
 void Pina_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 4;
         InitAnimationForceUpdate(this, 2);

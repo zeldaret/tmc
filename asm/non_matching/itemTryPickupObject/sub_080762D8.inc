@@ -122,7 +122,7 @@ _080763C8:
 	cmp r1, r0
 	beq _080763D4
 	adds r0, r5, #0
-	bl sub_08077DF4
+	bl SetItemAnim
 _080763D4:
 	ldrb r0, [r4, #5]
 	movs r1, #0x10
@@ -208,7 +208,7 @@ _08076472:
 	lsls r1, r1, #4
 _08076476:
 	adds r0, r5, #0
-	bl sub_08077DF4
+	bl SetItemAnim
 	b _08076486
 _0807647E:
 	adds r0, r5, #0

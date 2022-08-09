@@ -249,12 +249,12 @@ typedef void (*const* EntityActionArray)(Entity*);
  */
 void DrawEntity(Entity* entity);
 
-void InitializeAnimation(Entity*, u32);
-void InitAnimationForceUpdate(Entity*, u32);
-void UpdateAnimationSingleFrame(Entity*);
-void UpdateSpriteForCollisionLayer(Entity*);
-void GetNextFrame(Entity*);
-u32 LoadExtraSpriteData(Entity*, const SpriteLoadData*);
+void InitializeAnimation(Entity* entity, u32 animIndex);
+void InitAnimationForceUpdate(Entity* entity, u32 animIndex);
+void UpdateAnimationSingleFrame(Entity* entity);
+void UpdateSpriteForCollisionLayer(Entity* entity);
+void GetNextFrame(Entity* entity);
+u32 LoadExtraSpriteData(Entity* entity, const SpriteLoadData* spriteData);
 void SetExtraSpriteFrame(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);

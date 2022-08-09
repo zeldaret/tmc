@@ -437,7 +437,7 @@ _080B1E74:
 	ldrb r0, [r3]
 	cmp r0, #0xff
 	ldrheq r1, [r3, #2]
-	ldr r0, _080B2018 @ =gUnk_080B3744
+	ldr r0, _080B2018 @ =gCollisionHandlers
 	ldr r7, [r0, r1, lsl #2]
 	mov r0, r4
 	mov r1, r5
@@ -548,7 +548,7 @@ _080B2008: .4byte ram_sub_080B1FE4
 _080B200C: .4byte gCollidableList
 _080B2010: .4byte gCollidableCount
 _080B2014: .4byte gCollisionMtx
-_080B2018: .4byte gUnk_080B3744
+_080B2018: .4byte gCollisionHandlers
 
 	arm_func_start IntrMain
 IntrMain:

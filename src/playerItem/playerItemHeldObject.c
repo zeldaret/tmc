@@ -34,7 +34,7 @@ void sub_080ACF2C(PlayerItemHeldObjectEntity*);
 void sub_080ACFCC(PlayerItemHeldObjectEntity*);
 void sub_080AD040(PlayerItemHeldObjectEntity*);
 void sub_080AD274(PlayerItemHeldObjectEntity*);
-u32 sub_0806F8DC(Entity*);
+bool32 sub_0806F8DC(Entity*);
 
 void PlayerItemHeldObject(Entity* this) {
     static void (*const subActionFuncs[])(PlayerItemHeldObjectEntity*) = {
@@ -91,7 +91,7 @@ void sub_080ACFCC(PlayerItemHeldObjectEntity* this) {
             if ((gPlayerState.heldObject == 0) || ((gNewPlayerEntity.unk_79 & 0x7f) != 0)) {
                 sub_080AD27C(this);
                 super->subAction++;
-                super->flags &= 0x7f;
+                super->flags &= ~0x80;
                 super->direction = 0xff;
                 super->zVelocity = 0;
             }
@@ -216,7 +216,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             return;
         }
         sub_080AD27C(this);
-        super->flags &= 0x7f;
+        super->flags &= ~0x80;
         super->direction = 0xff;
         super->zVelocity = tmp & 1;
         return;

@@ -1,5 +1,5 @@
-#ifndef ENEMY_OCTOROK_BOSS_H
-#define ENEMY_OCTOROK_BOSS_H
+#ifndef OCTOROKBOSS_H
+#define OCTOROKBOSS_H
 
 #include "enemy.h"
 
@@ -74,4 +74,4 @@ enum OctorokBossAction1SubAction {
     ACTION1_ATTACK,           // Attack
 };
 
-#endif
+#endif // OCTOROKBOSS_H

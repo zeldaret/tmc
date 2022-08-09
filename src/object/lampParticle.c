@@ -28,7 +28,7 @@ void LampParticle_Init(Entity* this) {
 }
 
 void LampParticle_Action1(Entity* this) {
-    if (1 < IsItemEquipped(ITEM_LANTERN_ON)) {
+    if (IsItemEquipped(ITEM_LANTERN_ON) >= EQUIP_SLOT_NONE) {
         DeleteThisEntity();
     }
     GetNextFrame(this);

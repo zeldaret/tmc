@@ -17,7 +17,7 @@ void NPC58(Entity* this) {
         if (LoadExtraSpriteData(this, gUnk_081146D0) == 0) {
             return;
         }
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 2;
         this->spriteRendering.b3 = 0;
         this->spritePriority.b0 = 0;

@@ -195,7 +195,7 @@ void (*const gObjectFunctions[])(Entity*) = {
     [PINWHEEL] = Pinwheel,
     [OBJECT_BF] = ObjectBF,
     [ENEMY_ITEM] = EnemyItem,
-    [OBJECT_C1] = LinkAnimation,
+    [LINK_ANIMATION] = LinkAnimation,
 };
 
 void ObjectInit(Entity*);

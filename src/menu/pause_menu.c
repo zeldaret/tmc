@@ -75,7 +75,7 @@ void PauseMenu_Variant0(void) {
                        (u16)gRoomTransition.player_status.overworld_map_y);
     gPauseMenuOptions.unk2[4] = ptr->_4;
     gPauseMenuOptions.unk2[5] = sub_0801DB94();
-    if (IsItemEquipped(ITEM_LANTERN_ON) != 2) {
+    if (IsItemEquipped(ITEM_LANTERN_ON) != EQUIP_SLOT_NONE) {
         r1 = 0x10;
     } else {
         r1 = 0xf;
@@ -399,8 +399,8 @@ void PauseMenu_ItemMenu_Update(void) {
                 }
             case B_BUTTON:
                 if (gPauseMenu.items[menuSlot] != 0) {
-                    u32 t = !!(gInput.newKeys ^ 1);
-                    ForceEquipItem(gPauseMenu.items[menuSlot], t);
+                    u32 slot = !!(gInput.newKeys ^ 1);
+                    ForceEquipItem(gPauseMenu.items[menuSlot], slot);
                     SoundReq(SFX_TEXTBOX_SELECT);
                 }
                 break;

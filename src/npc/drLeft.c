@@ -7,7 +7,7 @@ void sub_0806BFD8(Entity* this);
 void DrLeft(Entity* this) {
     if (this->type == 0) {
         if (this->action == 0) {
-            this->action += 1;
+            this->action++;
             SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
         }
@@ -17,7 +17,7 @@ void DrLeft(Entity* this) {
         sub_0806BFD8(this);
     } else {
         if (this->action == 0) {
-            this->action += 1;
+            this->action++;
             this->frameIndex = 0;
             SortEntityBelow(this, this);
         }

@@ -75,7 +75,6 @@ SECTIONS {
         . = 0x00024050; gRoomMemory = .;
         . = 0x00024090; gUnk_02024090 = .;
         . = 0x00024490; gGFXSlots = .;
-        . = 0x00024494; gUnk_02024494 = .;
         . = 0x000246B0; gUnk_020246B0 = .;
         . = 0x00025EB0; gMapBottom = .;
         . = 0x00031EC0; gNPCData = .;
@@ -131,7 +130,7 @@ SECTIONS {
     iwram (NOLOAD) : ALIGN(4) {
         . = 0x00000000; gOAMControls = .;
         . = 0x00000420; gUnk_03000420 = .;
-        . = 0x00000B80; gUnk_03000B80 = .;
+        . = 0x00000B80; gActiveItems = .;
         . = 0x00000BF0; gRoomControls = .;
         . = 0x00000C24; gUnk_03000C24 = .;
         . = 0x00000C30; gUnk_03000C30 = .;
@@ -236,7 +235,7 @@ SECTIONS {
 #endif
         . = 0x00007F00; usr_stack_begin = .;
         . = 0x00007FA0; irq_stack_begin = .;
-        . = 0x00007FFA; gUnk_03007FFA = .;
+        . = 0x00007FFA; soft_reset_flag = .;
         . = 0x00008000;
     } >iwram
 
@@ -1290,6 +1289,8 @@ SECTIONS {
         src/item/itemGustJar.o(.rodata);
         src/item/itemMoleMitts.o(.rodata);
         src/item/itemJarEmpty.o(.rodata);
+        data/item.o(.rodata);
+        src/itemDefinitions.o(.rodata);
         data/data_0811BE38.o(.rodata);
         data/map/room_headers.o(.rodata);
         src/flags.o(.rodata);

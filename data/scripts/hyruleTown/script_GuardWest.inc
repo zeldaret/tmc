@@ -4,7 +4,7 @@ SCRIPT_START script_GuardWest
 	SetAnimationState 0x0002
 	_0807E9D4
 	CallWithArg sub_0807F3D8, 0x00000008
-	Call sub_080644A4
+	Call GuardWithSpear_ResetLastSwordMove
 .ifndef EU
 	ClearLocalFlag MACHI_02_HEISHI_TALK
 .endif
@@ -19,10 +19,10 @@ script_0800FF92:
 	Call sub_08064198
 	CheckLocalFlag MACHI_02_HEISHI_TALK
 	JumpIfNot script_0800FFCC
-	Call sub_08064488
+	Call GuardWithSpear_ResetLastSwordMoveIfNotInSwordState
 	CheckPlayerInRegion2 0x4040
 	JumpIfNot script_0800FFCC
-	Call sub_08064470
+	Call GuardWithSpear_CheckSwordMoveSpin
 	JumpIf script_08010014
 script_0800FFCC:
 	CheckEntityInteractType
@@ -65,7 +65,7 @@ script_08010014:
 	CallWithArg sub_0807F3D8, 0x00000008
 	SetLocalFlag MACHI_02_HEISHI
 script_08010060:
-	Call sub_080644A4
+	Call GuardWithSpear_ResetLastSwordMove
 	CallWithArg sub_0807F5B0, 0x0000000a
 	EnablePlayerControl
 	Jump script_0800FF92

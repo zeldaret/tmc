@@ -77,7 +77,7 @@ void sub_080A310C(FireRodProjectileEntity* this) {
             if (sub_08008790(super, 0xc)) {
                 DeleteThisEntity();
             }
-            super->child = CreatePlayerItem(PLAYER_ITEM_15, 1, 0, this->unk68);
+            super->child = CreatePlayerItem(PLAYER_ITEM_FIRE_ROD_PROJECTILE, 1, 0, this->unk68);
             if (super->child != NULL) {
                 super->child->parent = super;
             }

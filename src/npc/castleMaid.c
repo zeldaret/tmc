@@ -69,7 +69,7 @@ void sub_08064570(CastleMaidEntity* this) {
             if (LoadExtraSpriteData(super, data) == 0) {
                 return;
             }
-            super->action += 1;
+            super->action++;
             super->timer = 0;
             tmp2 = sub_0805ACC0(super);
             if (tmp2 == 0) {
@@ -84,7 +84,7 @@ void sub_08064570(CastleMaidEntity* this) {
         case 1:
             sub_0807DD94(super, NULL);
             if (super->interactType != 0) {
-                super->action += 1;
+                super->action++;
                 super->interactType = 0;
                 InitializeAnimation(super, sub_0806F5A4(GetFacingDirection(super, &gPlayerEntity)));
                 if (this->dialogFunc != NULL) {

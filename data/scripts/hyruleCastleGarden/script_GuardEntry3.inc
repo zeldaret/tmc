@@ -12,7 +12,8 @@ script_08011A7C:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	CallWithArg sub_080644B4, 0x00000006
+	@ Check if player has performed great spin.
+	CallWithArg CheckLastSwordMove, 0x00000006
 	JumpIf script_08011AFA
 	MessageFromTarget TEXT_VAATI, 0x20
 	WaitUntilTextboxCloses

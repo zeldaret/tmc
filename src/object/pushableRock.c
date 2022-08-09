@@ -32,7 +32,7 @@ void PushableRock(PushableRockEntity* this) {
 
 void PushableRock_Init(PushableRockEntity* this) {
     super->spriteSettings.draw = 1;
-    super->action += 1;
+    super->action++;
     super->spriteRendering.b3 = 2;
     super->spritePriority.b0 = 4;
     super->spritePriority.b1 = 3;

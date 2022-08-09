@@ -3818,7 +3818,7 @@
     "size": 36
   },
   {
-    "path": "sounds/sfx163.bin",
+    "path": "sounds/sfxToggleDiving.bin",
     "start": 14564384,
     "type": "midi",
     "options": {

@@ -69,11 +69,11 @@ void sub_080300E8(void) {
     }
 }
 
-void sub_08030118(u32 param_1) {
-    if (((s32)(u32)gRoomTransition.armos_data.field_0xac >> (param_1)&1) != 0) {
-        SetLocalFlagByBank(FLAG_BANK_3, param_1 + 0x67);
+void sub_08030118(u32 armosId) {
+    if (((gRoomTransition.armos_data.field_0xac >> armosId) & 1) != 0) {
+        SetLocalFlagByBank(FLAG_BANK_3, armosId + 0x67);
     } else {
-        ClearLocalFlagByBank(FLAG_BANK_3, param_1 + 0x67);
+        ClearLocalFlagByBank(FLAG_BANK_3, armosId + 0x67);
     }
 }
 

@@ -227,7 +227,7 @@ typedef enum {
     PINWHEEL,
     OBJECT_BF,
     ENEMY_ITEM,
-    OBJECT_C1,
+    LINK_ANIMATION,
 } Object;
 
 void ItemOnGround();

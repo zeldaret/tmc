@@ -70,11 +70,11 @@ void sub_08019580(Entity* this) {
     if (--*(int*)&this->field_0x6c != -1) {
         GetNextFrame(this);
         LinearMoveUpdate(this);
-        this->timer += 1;
+        this->timer++;
         if (this->type2 == 0) {
             sub_0800451C(this);
         }
-        if ((sub_080B1BA4(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.collisionLayer, 0x80) == 0) &&
+        if ((sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) &&
             (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) != 0)) {
             CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();

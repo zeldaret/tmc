@@ -37,7 +37,7 @@ script_08016262:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0001
 	Call WaitForAnimDone
-	Call sub_08068E90
+	Call BladeBrothers_LearnSkill
 	Call sub_08068C8C
 	JumpIf script_0801631C
 	Call sub_08068F00
@@ -50,13 +50,13 @@ script_08016262:
 	Wait 0x001e
 	Call sub_08068E18
 	WaitUntilTextboxCloses
-	Call sub_08068EB4
+	Call BladeBrothers_ResetLastSwordMove
 	Call EnablePauseMenu
 	EnablePlayerControl
 script_080162CC:
 	EndBlock
 	BeginBlock
-	Call sub_08068EC4
+	Call BladeBrothers_CheckLastSwordMove
 	JumpIf script_080162F6
 	CheckEntityInteractType
 	JumpIf script_080162E4

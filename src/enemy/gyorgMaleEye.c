@@ -90,7 +90,7 @@ void GyorgMaleEye_Action2(GyorgMaleEyeEntity* this) {
     sub_08048F50(this);
     if (--super->timer == 0) {
         super->action = 3;
-        super->flags &= 0x7f;
+        super->flags &= ~0x80;
         InitializeAnimation(super, super->animIndex + 4);
     }
 }

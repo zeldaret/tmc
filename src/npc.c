@@ -20,7 +20,8 @@ void NPCUpdate(Entity* this) {
         if (gNPCFunctions[this->id][1] != NULL)
             gNPCFunctions[this->id][1](this);
 
-        if (this->health % 0x80) {
+        if (this->health % 0x80) { // If this NPC was created by DelayedEntityLoadManager_Main, we need to update the
+                                   // location in gNPCData.
             NPCStruct* npc = gNPCData;
             npc += (this->health - 1);
             npc->x = this->x.HALF.HI - gRoomControls.origin_x;

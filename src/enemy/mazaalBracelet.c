@@ -557,7 +557,7 @@ void sub_0803A978(Entity* this) {
         this->action = 0x12;
         this->timer = 3;
         COLLISION_OFF(this);
-        *(u8*)(*(int*)&this->field_0x74 + 0x10) &= 0x7f;
+        *(u8*)(*(int*)&this->field_0x74 + 0x10) &= ~0x80;
         InitializeAnimation(this, 8);
         InitAnimationForceUpdate(this->child, 3);
     }
@@ -1244,7 +1244,7 @@ void sub_0803B804(Entity* this) {
 }
 
 void sub_0803B824(Entity* this) {
-    ResetPlayerItem();
+    ResetActiveItems();
     gPlayerState.mobility |= 0x80;
     sub_0806FA90(this, &gPlayerEntity, gUnk_080CFD1D[this->type], 1);
     gPlayerEntity.spriteOffsetY = -6;

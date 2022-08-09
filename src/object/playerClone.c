@@ -169,7 +169,7 @@ void sub_08084B1C(PlayerCloneEntity* this) {
     super->collisionFlags = gPlayerEntity.collisionFlags;
     super->hurtType = gPlayerEntity.hurtType;
     CopyPosition(super, super->child);
-    if (gPlayerState.field_0x3[1] != 0) {
+    if (gPlayerState.attack_status != 0) {
         super->child->damage = gPlayerState.item->damage;
         super->child->frameIndex = gPlayerState.item->frameIndex;
         super->child->spriteSettings.flipX = gPlayerState.item->spriteSettings.flipX;

@@ -4,27 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_0811BE38:: @ 0811BE38
-	.incbin "data_0811BE38/gUnk_0811BE38.bin"
-
-gUnk_0811BE40:: @ 0811BE40
-	.incbin "data_0811BE38/gUnk_0811BE40.bin"
-
-gUnk_0811BE48:: @ 0811BE48
-.ifdef EU
-    @ TODO only small differences
-	.incbin "data_0811BE38/gUnk_0811BE48_EU.bin"
-.else
-	.incbin "data_0811BE38/gUnk_0811BE48_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_0811BFC8:: @ 0811BFC8
-	.4byte sub_080779E8
-	.4byte sub_080779EC
-	.4byte sub_08077A18
-	.4byte sub_08077A48
-	.4byte sub_08077A98
-	.4byte sub_08077AC8
+gCreateItemsFuncs:: @ 0811BFC8
+	.4byte CreateItemNone
+	.4byte CreateItem1
+	.4byte CreateItem2
+	.4byte CreateItem3
+	.4byte CreateItem4
+	.4byte CreateItem5
 
 gUnk_0811BFE0:: @ 0811BFE0
 	.incbin "data_0811BE38/gUnk_0811BFE0.bin"

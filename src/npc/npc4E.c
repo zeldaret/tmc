@@ -180,8 +180,8 @@ void NPC4E_SaveEquippedItems(Entity* this) {
 }
 
 void NPC4E_RestoreEquippedItems(Entity* this) {
-    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.LO), 0);
-    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), 1);
+    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.LO), EQUIP_SLOT_A);
+    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), EQUIP_SLOT_B);
 }
 
 void sub_0806DC7C(void) {

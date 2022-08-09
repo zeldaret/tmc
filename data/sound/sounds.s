@@ -319,7 +319,7 @@
     .include "sounds/sfx160.s"
     .include "sounds/sfx161.s"
     .include "sounds/sfx162.s"
-    .include "sounds/sfx163.s"
+    .include "sounds/sfxToggleDiving.s"
     .include "sounds/sfx164.s"
     .include "sounds/sfx165.s"
     .include "sounds/sfx166.s"

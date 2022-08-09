@@ -97,7 +97,7 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
     }
     super->action = 3;
     super->timer = 60;
-    super->flags &= 0x7f;
+    super->flags &= ~0x80;
 }
 
 void sub_08099880(BigIceBlockEntity* this) {

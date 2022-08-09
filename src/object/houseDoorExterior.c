@@ -179,7 +179,7 @@ void sub_0808692C(Entity* this) {
 static u8 sub_08086954(Entity* this) {
     if (sub_0800445C(this)) {
         if (GetAnimationStateInRectRadius(this, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
-            (u16)gPlayerState.playerInput.field_0x90 == PLAYER_INPUT_UP && gPlayerState.jump_status == 0) {
+            (u16)gPlayerState.playerInput.heldInput == PLAYER_INPUT_UP && gPlayerState.jump_status == 0) {
             this->timer--;
         }
     } else {

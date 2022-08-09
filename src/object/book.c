@@ -213,7 +213,7 @@ void Book_Action5(Entity* this) {
 u32 sub_0809B688(Entity* this) {
     u32 ret = EntityInRectRadius(this, &gPlayerEntity, 6, 12);
 
-    if (ret == 1 && gPlayerState.field_0xd != 16) {
+    if (ret == 1 && gPlayerState.direction != 16) {
         ret = 0;
     }
 

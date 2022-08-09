@@ -136,7 +136,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                 this->timer1 = 0x28;
                 super->timer = 40;
                 super->subtimer = 0;
-                super->flags &= 0x7f;
+                super->flags &= ~0x80;
                 EnqueueSFX(SFX_156);
                 SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 InitializeAnimation(super, super->direction >> 3);
@@ -264,7 +264,7 @@ void sub_0802F9C8(WizzrobeEntity* this) {
             if (super->type2 != 0) {
                 ProcessMovement0(super);
                 if (super->collisions != COL_NONE) {
-                    super->flags &= 0x7f;
+                    super->flags &= ~0x80;
                     this->timer1 = 0x28;
                 }
             }

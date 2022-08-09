@@ -121,7 +121,7 @@ void Pot_Action1(Entity* this) {
                         if (GetTileUnderEntity(this) == 13) {
                             CreateFx(this, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
-                            gPlayerState.field_0xab = 4;
+                            gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
                             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         }
                         sub_08082850(this, NULL);

@@ -1,26 +1,24 @@
 #define NENT_DEPRECATED
-#include "global.h"
 #include "area.h"
 #include "asm.h"
 #include "common.h"
 #include "entity.h"
 #include "functions.h"
 #include "game.h"
+#include "global.h"
+#include "item.h"
 #include "kinstone.h"
+#include "manager/diggingCaveEntranceManager.h"
+#include "message.h"
+#include "new_player.h"
 #include "object.h"
 #include "player.h"
 #include "room.h"
 #include "save.h"
-#include "new_player.h"
-#include "item.h"
-#include "message.h"
 #include "screen.h"
-#include "screen.h"
-#include "manager/diggingCaveEntranceManager.h"
 
 static void sub_08077E54(ItemBehavior* beh);
 
-extern void sub_080752E8(ItemBehavior* behavior, u32 arg1); // item.c
 extern void sub_0800857C(Entity*);
 extern void SetDefaultPriorityForKind(Entity*);
 extern void sub_0809D738(Entity*);
@@ -31,36 +29,28 @@ extern void sub_08080BC4(void);
 void sub_080790E4(Entity* this);
 void sub_08079064(Entity*);
 
-typedef struct {
-    u8 unk0[4];
-    u16 unk4;
-    u8 unk6[6];
-} struct_0811BE48;
-
 extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
 extern const ScreenTransitionData gUnk_0813AD88[];
 
-bool32 sub_08077758(PlayerEntity*);
-bool32 sub_080777A0();
-void sub_08077880(u32, u32, u32);
-bool32 sub_080778CC();
-ItemBehavior* sub_0807794C(u32);
+bool32 IsAbleToUseItem(PlayerEntity*);
+bool32 IsPreventedFromUsingItem();
+void CreateItemIfInputMatches(Item itemId, PlayerInputState input, bool32 forceCreate);
+bool32 IsTryingToPickupObject(void);
+ItemBehavior* CreateItem(u32);
 u32 sub_080789A8(void);
-ItemBehavior* sub_080779EC(u32);
-void DeletePlayerItem(ItemBehavior*, u32);
+ItemBehavior* CreateItem1(u32);
+void DeleteItemBehavior(ItemBehavior*, u32);
 bool32 sub_08079E90(u32);
 void PlayerMinishSetNormalAndCollide(void);
 void sub_08078D60(void);
-void* sub_08077C54(ItemBehavior*);
+void* CreateItemGetPlayerItemWithParent(ItemBehavior*);
 u32 sub_08079FD4(Entity*, u32);
 void LoadRoomGfx(void);
-u32 sub_0807A094(u32);
 SurfaceType GetSurfaceCalcType(Entity*, s32, s32);
 void sub_0807AAF8(Entity*, u32);
 
-extern u32 gUnk_02022830[];
-extern struct_0811BE48 gUnk_0811BE48[];
+extern ItemDefinition gItemDefinitions[];
 extern void (*const gUnk_0811C27C[])(Entity*);
 extern void (*const gUnk_0811C284[])(PlayerEntity*);
 extern void (*const gUnk_0811C298[])(PlayerEntity*);
@@ -69,7 +59,7 @@ extern u8 gUnk_0811C000[];
 extern const u8 gUnk_0811C118[];
 extern void (*const gUnk_0811C120[])(Entity*);
 extern u16 gUnk_0811C268[];
-extern ItemBehavior* (*const gUnk_0811BFC8[])(u32);
+extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
 extern void DeleteLoadedTileEntity(u32, u32);
 
@@ -90,7 +80,7 @@ struct_03003DF8* sub_080784E4(void);
 extern const u16 gUnk_0811C0F8[];
 
 u32 sub_08079778(void);
-u32 sub_0807A500(void);
+u32 GetPlayerTilePos(void);
 
 extern const u16 gUnk_0811C108[];
 
@@ -126,7 +116,7 @@ bool32 sub_0807B464(u32 param_1, u32 param_2);
 extern void CreateRandomWaterTrace(Entity* parent, int range);
 void sub_08079520(Entity* this);
 
-bool32 sub_0807ADB8(Entity*);
+bool32 ToggleDiving(Entity*);
 
 extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
 
@@ -174,40 +164,36 @@ extern u32 sub_08004202(Entity*, u8*, u32);
 extern s8* gUnk_0811C0B0[];
 extern u8 gUnk_0811C01C[];
 
-void sub_08077698(PlayerEntity* this) {
-    ItemBehavior* puVar2;
-    u32 idx;
+extern u32 gUnk_02022830[];
 
-    gPlayerState.field_0x3[0] &= 0xfe;
-    gPlayerState.field_0x3[1] &= 0xf;
-    if ((((((gPlayerState.field_0x7 | gPlayerState.jump_status) & 0x80) == 0) &&
-          ((gPlayerState.jump_status & 0x40) == 0)) &&
-         (gPlayerState.swim_state == 0)) &&
-        ((sub_08077758(this) && (sub_080777A0() == 0)))) {
-        sub_08077880(gSave.stats.itemButtons[SLOT_A], 1, 0);
-        sub_08077880(gSave.stats.itemButtons[SLOT_B], 2, 0);
-        sub_080778CC();
+void UpdateActiveItems(PlayerEntity* this) {
+    u32 index;
+
+    gPlayerState.shield_status &= 0xfe;
+    gPlayerState.attack_status &= 0xf;
+    if (((gPlayerState.field_0x7 | gPlayerState.jump_status) & 0x80) == 0 && (gPlayerState.jump_status & 0x40) == 0 &&
+        gPlayerState.swim_state == 0 && IsAbleToUseItem(this) && !IsPreventedFromUsingItem()) {
+        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_A], PLAYER_INPUT_1, FALSE);
+        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_B], PLAYER_INPUT_2, FALSE);
+        IsTryingToPickupObject();
     }
-    idx = 0;
-    puVar2 = gUnk_03000B80;
-    do {
-        if (puVar2->field_0x9 != 0) {
-            sub_080752E8(puVar2, idx);
+
+    for (index = 0; index < MAX_ACTIVE_ITEMS; index++) {
+        if (gActiveItems[index].priority != 0) {
+            ExecuteItemFunction(&gActiveItems[index], index);
         }
-        puVar2++;
-        idx++;
-    } while (idx < 4);
-}
-
-void sub_08077728(u32 param_1) {
-    if (param_1 == 0) {
-        sub_08077880(gSave.stats.itemButtons[SLOT_A], 1, 1);
-    } else {
-        sub_08077880(gSave.stats.itemButtons[SLOT_B], 2, 1);
     }
 }
 
-bool32 sub_08077758(PlayerEntity* this) {
+void CreateItemEquippedAtSlot(EquipSlot equipSlot) {
+    if (equipSlot == EQUIP_SLOT_A) {
+        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_A], PLAYER_INPUT_1, TRUE);
+    } else {
+        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_B], PLAYER_INPUT_2, TRUE);
+    }
+}
+
+bool32 IsAbleToUseItem(PlayerEntity* this) {
     if ((gPlayerState.flags & PL_DRUGGED) == 0) {
         if ((gPlayerState.flags & (PL_CAPTURED | PL_HIDDEN | PL_DISABLE_ITEMS | PL_BURNING | PL_FROZEN)) == 0) {
             if ((((gPlayerState.dash_state | gPlayerState.mobility) | this->unk_7a) == 0) &&
@@ -221,8 +207,8 @@ bool32 sub_08077758(PlayerEntity* this) {
     return FALSE;
 }
 
-bool32 sub_080777A0(void) {
-    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_80) != 0) {
+bool32 IsPreventedFromUsingItem(void) {
+    if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_80) != 0) {
         if ((gPlayerState.flags & PL_CLONING) != 0) {
             gPlayerState.chargeState.action = 1;
             DeleteClones();
@@ -245,9 +231,9 @@ bool32 sub_080777A0(void) {
                 default:
                     if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
-                        ((((gPlayerState.playerInput.field_0x90 & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
+                        ((((gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
-                          ((gPlayerState.jump_status == 0 && (gPlayerState.field_0x3[1] == 0)))))) {
+                          ((gPlayerState.jump_status == 0 && (gPlayerState.attack_status == 0)))))) {
                         gPlayerState.queued_action = PLAYER_ROLL;
                     }
                     return FALSE;
@@ -262,158 +248,150 @@ bool32 sub_080777A0(void) {
     }
 }
 
-void sub_08077880(Item itemId, u32 param_2, u32 param_3) {
-    ItemBehavior* item;
-    u16* puVar2;
-
+void CreateItemIfInputMatches(Item itemId, PlayerInputState input, bool32 forceCreate) {
     if (itemId - 1 < 0x1f) {
-        struct_0811BE48* ptr = &gUnk_0811BE48[itemId];
-        puVar2 = &gPlayerState.playerInput.field_0x90;
-        if (ptr->unk0[0] != 0) {
-            puVar2 = &gPlayerState.playerInput.field_0x92;
+        ItemDefinition* ptr = &gItemDefinitions[itemId];
+        u16* inputPtr = &gPlayerState.playerInput.heldInput;
+        if (ptr->isOnlyActiveFirstFrame) {
+            inputPtr = &gPlayerState.playerInput.newInput;
         }
 
-        if (((*puVar2 & param_2) != 0) || (param_3 != 0)) {
-            item = sub_0807794C(itemId);
+        if ((*inputPtr & input) || forceCreate) {
+            ItemBehavior* item = CreateItem(itemId);
             if (item != NULL) {
-                item->field_0x9 = gUnk_0811BE48[itemId].unk0[1];
-                item->behaviorID = itemId;
-                item->field_0x2[1] = param_2;
+                item->priority = gItemDefinitions[itemId].priority;
+                item->behaviorId = itemId;
+                item->field_0x2[1] = input;
             }
         }
     }
 }
 
-bool32 sub_080778CC(void) {
+bool32 IsTryingToPickupObject(void) {
     ItemBehavior* item;
 
     if (!((((gPlayerState.flags & (PL_USE_PORTAL | PL_MINISH | PL_ROLLING)) == 0) &&
            (((gNewPlayerEntity.unk_79 != 0 || (gPlayerState.heldObject != 0)) ||
-             ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_8000) != 0)))) &&
-          (((sub_080789A8() != 0 || ((gPlayerState.playerInput.field_0x90 &
+             ((gPlayerState.playerInput.newInput & PLAYER_INPUT_8000) != 0)))) &&
+          (((sub_080789A8() != 0 || ((gPlayerState.playerInput.heldInput &
                                       (PLAYER_INPUT_ANY_DIRECTION | PLAYER_INPUT_1 | PLAYER_INPUT_2)) == 0)))))) {
         return FALSE;
     }
-    item = sub_0807794C(ITEM_TRAP);
+    item = CreateItem(ITEM_TRY_PICKUP_OBJECT);
     if (item != NULL) {
-        item->behaviorID = ITEM_TRAP;
-        item->field_0x9 = gUnk_0811BE48[0].unk0[0x145];
+        item->behaviorId = ITEM_TRY_PICKUP_OBJECT;
+        item->priority = gItemDefinitions[ITEM_TRY_PICKUP_OBJECT].priority;
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-ItemBehavior* sub_0807794C(Item itemId) {
-    if (((((gPlayerState.queued_action == PLAYER_ROLL) && (itemId != ITEM_TRAP)) ||
+ItemBehavior* CreateItem(Item itemId) {
+    if (((((gPlayerState.queued_action == PLAYER_ROLL) && (itemId != ITEM_TRY_PICKUP_OBJECT)) ||
           (((gPlayerState.flags & (PL_ROLLING | PL_CLONING)) != 0 && (ITEM_FOURSWORD < itemId)))) ||
          ((((gPlayerState.jump_status != 0 || (gPlayerEntity.z.WORD != 0)) && (ITEM_FOURSWORD < itemId)) ||
-           (((gPlayerState.flags & PL_MINISH) != 0 && (gUnk_0811BE48[itemId].unk6[2] == 0)))))) ||
+           (((gPlayerState.flags & PL_MINISH) && !gItemDefinitions[itemId].isUseableAsMinish))))) ||
         ((gPlayerState.floor_type == SURFACE_SWAMP && ((gPlayerState.surfaceTimer != 0 && (1 < itemId - 0x14)))))) {
         return NULL;
     } else {
-        u32 tmp = gUnk_0811BE48[itemId].unk0[2];
-        return gUnk_0811BFC8[tmp](itemId);
+        u32 createFunc = gItemDefinitions[itemId].createFunc;
+        return gCreateItemsFuncs[createFunc](itemId);
     }
 }
 
-u32 sub_080779E8(void) {
-    return 0;
+ItemBehavior* CreateItemNone(Item itemId) {
+    return NULL;
 }
 
-ItemBehavior* sub_080779EC(u32 param_1) {
-    if (gUnk_03000B80[1].field_0x9 == 0) {
-        return gUnk_03000B80 + 1;
-    } else if (gUnk_03000B80[2].field_0x9 == 0) {
-        return gUnk_03000B80 + 2;
+ItemBehavior* CreateItem1(Item itemId) {
+    if (gActiveItems[ACTIVE_ITEM_1].priority == 0) {
+        return &gActiveItems[ACTIVE_ITEM_1];
+    } else if (gActiveItems[ACTIVE_ITEM_2].priority == 0) {
+        return &gActiveItems[ACTIVE_ITEM_2];
     } else {
         return NULL;
     }
 }
 
-ItemBehavior* sub_08077A18(u32 param_1) {
-    ItemBehavior* pIVar1;
-
-    if (((gPlayerState.heldObject == 0) && (param_1 != gUnk_03000B80[1].behaviorID)) &&
-        (param_1 != gUnk_03000B80[2].behaviorID)) {
-        return sub_080779EC(param_1);
+ItemBehavior* CreateItem2(Item itemId) {
+    if (((gPlayerState.heldObject == 0) && (itemId != gActiveItems[ACTIVE_ITEM_1].behaviorId)) &&
+        (itemId != gActiveItems[ACTIVE_ITEM_2].behaviorId)) {
+        return CreateItem1(itemId);
     } else {
         return NULL;
     }
 }
 
-ItemBehavior* sub_08077A48(s32 param_1) {
+ItemBehavior* CreateItem3(Item itemId) {
     if (gPlayerState.heldObject == 0) {
-        u32 tmp = gPlayerState.jump_status & 0x20;
-        if ((((gPlayerState.jump_status & 0x20) == 0)) &&
-            (gUnk_0811BE48[param_1].unk0[1] >= gUnk_03000B80[0].field_0x9)) {
-            DeletePlayerItem(gUnk_03000B80, 0);
-            gPlayerState.field_0x0[1] = tmp;
-            gPlayerState.field_0x1c = tmp;
-            gPlayerState.sword_state = tmp;
-            return gUnk_03000B80;
+        if ((gPlayerState.jump_status & 0x20) == 0 &&
+            gItemDefinitions[itemId].priority >= gActiveItems[ACTIVE_ITEM_0].priority) {
+            DeleteItemBehavior(&gActiveItems[ACTIVE_ITEM_0], 0);
+            gPlayerState.grab_status = 0;
+            gPlayerState.field_0x1c = 0;
+            gPlayerState.sword_state = 0;
+            return &gActiveItems[ACTIVE_ITEM_0];
         }
     }
     return NULL;
 }
 
-ItemBehavior* sub_08077A98(void) {
-    if (!(((gSave.stats.bombCount == 0) || (gPlayerState.heldObject != 0)) || (gUnk_03000B80[0].field_0x9 != 0))) {
-        return gUnk_03000B80;
+ItemBehavior* CreateItem4(Item itemId) {
+    if (gSave.stats.bombCount != 0 && gPlayerState.heldObject == 0 && gActiveItems[ACTIVE_ITEM_0].priority == 0) {
+        return &gActiveItems[ACTIVE_ITEM_0];
     } else {
         return NULL;
     }
 }
 
-ItemBehavior* sub_08077AC8(void) {
-    ItemBehavior* pIVar1;
+ItemBehavior* CreateItem5(Item itemId) {
+    ItemBehavior* activeItem;
     u32 index;
 
     index = 0;
-    pIVar1 = gUnk_03000B80;
+    activeItem = gActiveItems;
     while (index < 4) {
-        if (pIVar1->field_0x9 != 0) {
+        // Lantern can only be active if no other item is active.
+        if (activeItem->priority != 0) {
             return NULL;
         }
-        pIVar1++;
+        activeItem++;
         index++;
     }
-    return gUnk_03000B80 + 3;
+    return &gActiveItems[ACTIVE_ITEM_LANTERN];
 }
 
 void ResetLantern(void) {
-    u32 slot;
+    EquipSlot slot;
 
-    DeletePlayerItem(gUnk_03000B80 + 3, 3);
+    DeleteItemBehavior(&gActiveItems[ACTIVE_ITEM_LANTERN], ACTIVE_ITEM_LANTERN);
     gPlayerState.flags &= ~PL_USE_LANTERN;
     slot = IsItemEquipped(ITEM_LANTERN_ON);
-    if (slot != 2) {
+    if (slot != EQUIP_SLOT_NONE) {
         ForceEquipItem(ITEM_LANTERN_OFF, slot);
     }
 }
 
 void PutAwayItems(void) {
-    ResetPlayerItem();
+    ResetActiveItems();
     ResetLantern();
 }
 
-void ResetPlayerItem() {
-    u32 index = 0;
-    ItemBehavior* ptr = gUnk_03000B80;
-    do {
-        DeletePlayerItem(ptr, index);
-        ptr++;
-        index++;
-    } while (index <= 2);
+void ResetActiveItems() {
+    u32 index;
+    for (index = 0; index < MAX_ACTIVE_ITEMS - 1; index++) {
+        DeleteItemBehavior(&gActiveItems[index], index);
+    }
 
     gPlayerState.moleMittsState = 0;
     gPlayerState.field_0x1c = 0;
     gPlayerState.field_0x1f[2] = 0;
-    gPlayerState.field_0x0[1] = 0;
-    gPlayerState.field_0xe = 0;
+    gPlayerState.grab_status = 0;
+    gPlayerState.itemAnimPriority = 0;
     gPlayerState.dash_state = 0;
     gPlayerState.sword_state = 0;
-    gPlayerState.field_0x3[0] = 0;
+    gPlayerState.shield_status = 0;
     gPlayerState.heldObject = 0;
     gPlayerState.flags &= ~(PL_ROLLING | PL_SWORD_THRUST);
 
@@ -434,121 +412,111 @@ void ResetPlayerItem() {
 
 void sub_08077B98(ItemBehavior* unk) {
     if ((gPlayerState.item == NULL) || (gPlayerState.item->id != 1)) {
-        gPlayerState.item = sub_08077C54(unk);
+        gPlayerState.item = CreateItemGetPlayerItemWithParent(unk);
     }
 }
 
 void sub_08077BB8(ItemBehavior* beh) {
-    Entity* temp = sub_08077C54(beh);
+    Entity* temp = CreateItemGetPlayerItemWithParent(beh);
     if (temp != NULL) {
         temp->flags = ENT_PERSIST;
     }
     gPlayerState.item = temp;
 }
 
-Entity* sub_08077BD4(ItemBehavior* beh) {
-    if (sub_08077C94(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]) != 0) {
+Entity* CreatePlayerItemForItemIfNotExists(ItemBehavior* this) {
+    if (FindPlayerItemForItem(this, gItemDefinitions[this->behaviorId].playerItemId) != 0) {
         return NULL;
     } else {
-        return CreatePlayerItemWithParent(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]);
+        return CreatePlayerItemWithParent(this, gItemDefinitions[this->behaviorId].playerItemId);
     }
 }
 
-Entity* sub_08077C0C(ItemBehavior* beh, u32 arg1) {
-    u8 bVar1;
-    Entity* pEVar3;
-
-    bVar1 = gUnk_0811BE48[arg1].unk0[3];
-
-    if (sub_08077C94(beh, bVar1) != 0) {
+Entity* CreatePlayerItemIfNotExists(ItemBehavior* this, u32 index) {
+    u8 id = gItemDefinitions[index].playerItemId;
+    if (FindPlayerItemForItem(this, id) != 0) {
         return NULL;
     } else {
-        return CreatePlayerItemWithParent(beh, bVar1);
+        return CreatePlayerItemWithParent(this, id);
     }
 }
 
-Entity* CreatePlayerItemWithParent(ItemBehavior* beh, u32 subtype) {
-    Entity* pEVar1;
-
-    pEVar1 = CreatePlayerItem(subtype, 0, 0, beh->behaviorID);
-    if (pEVar1 != NULL) {
-        *(ItemBehavior**)&pEVar1->parent = beh;
+Entity* CreatePlayerItemWithParent(ItemBehavior* this, u32 id) {
+    Entity* playerItem = CreatePlayerItem(id, 0, 0, this->behaviorId);
+    if (playerItem != NULL) {
+        playerItem->parent = (Entity*)this;
     }
-    return pEVar1;
+    return playerItem;
 }
 
-void* sub_08077C54(ItemBehavior* unk) {
-    GenericEntity* item;
-
-    item = (GenericEntity*)CreateItemGetEntity();
-    if (item != NULL) {
-        item->base.id = gUnk_0811BE48[unk->behaviorID].unk0[3];
-        item->base.kind = PLAYER_ITEM;
-        item->base.flags = 0xa0;
-        item->base.parent = (Entity*)unk;
-        item->field_0x68.HALF.LO = unk->behaviorID;
-        AppendEntityToList(&item->base, 2);
+void* CreateItemGetPlayerItemWithParent(ItemBehavior* this) {
+    GenericEntity* playerItem = (GenericEntity*)CreateItemGetEntity();
+    if (playerItem != NULL) {
+        playerItem->base.id = gItemDefinitions[this->behaviorId].playerItemId;
+        playerItem->base.kind = PLAYER_ITEM;
+        playerItem->base.flags = 0xa0;
+        playerItem->base.parent = (Entity*)this;
+        playerItem->field_0x68.HALF.LO = this->behaviorId;
+        AppendEntityToList(&playerItem->base, 2);
     }
-    return item;
+    return playerItem;
 }
 
-Entity* sub_08077C94(ItemBehavior* arg0, u32 arg1) {
-    Entity* iVar1;
-
-    iVar1 = FindEntityByID(PLAYER_ITEM, gUnk_0811BE48[arg1].unk0[3], 2);
-    if (iVar1 == NULL) {
+Entity* FindPlayerItemForItem(ItemBehavior* this, u32 index) {
+    Entity* entity = FindEntityByID(PLAYER_ITEM, gItemDefinitions[index].playerItemId, 2);
+    if (entity == NULL) {
         return NULL;
     }
-    return iVar1;
+    return entity;
 }
 
-Entity* CreatePlayerItem(u32 subtype, u32 form, u32 parameter, u32 unk) {
+Entity* CreatePlayerItem(u32 id, u32 type, u32 type2, u32 unk) {
     GenericEntity* ent;
 
     ent = (GenericEntity*)GetEmptyEntity();
     if (ent != NULL) {
         ent->base.flags = ENT_COLLIDE;
         ent->base.kind = PLAYER_ITEM;
-        ent->base.id = subtype;
-        ent->base.type = form;
-        ent->base.type2 = parameter;
+        ent->base.id = id;
+        ent->base.type = type;
+        ent->base.type2 = type2;
         ent->field_0x68.HALF.LO = unk;
         AppendEntityToList(&ent->base, 2);
     }
     return &ent->base;
 }
 
-Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
+Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
     GenericEntity* ent;
 
     ent = (GenericEntity*)CreateItemGetEntity();
     if (ent != NULL) {
         ent->base.flags = ENT_COLLIDE;
         ent->base.kind = PLAYER_ITEM;
-        ent->base.id = subtype;
-        ent->base.type = form;
-        ent->base.type2 = parameter;
+        ent->base.id = id;
+        ent->base.type = type;
+        ent->base.type2 = type2;
         ent->field_0x68.HALF.LO = unk;
         AppendEntityToList(&ent->base, 2);
     }
     return &ent->base;
 }
 
-void sub_08077D38(ItemBehavior* beh, u32 idx) {
+void sub_08077D38(ItemBehavior* this, u32 index) {
     u32 r6;
-    struct_0811BE48* ptr;
+    ItemDefinition* ptr;
 
-    gPlayerState.field_0xa |= 8 >> idx;
-    gPlayerState.keepFacing |= 8 >> idx;
-    beh->playerAnimationState = gPlayerEntity.animationState;
-    if (beh->stateID == 0) {
-        beh->stateID++;
+    gPlayerState.field_0xa |= 8 >> index;
+    gPlayerState.keepFacing |= 8 >> index;
+    this->playerAnimationState = gPlayerEntity.animationState;
+    if (this->stateID == 0) {
+        this->stateID++;
     }
 
-    ptr = &gUnk_0811BE48[beh->behaviorID];
-    if (ptr->unk4) {
+    ptr = &gItemDefinitions[this->behaviorId];
+    if (ptr->frameIndex) {
         if ((gPlayerState.flags & PL_NO_CAP)) {
-            switch (beh->behaviorID) {
+            switch (this->behaviorId) {
                 case 0x1b:
                     r6 = 0x948;
                     break;
@@ -559,15 +527,15 @@ void sub_08077D38(ItemBehavior* beh, u32 idx) {
                     r6 = 0x40c;
                     break;
             }
-            sub_08077DF4(beh, r6);
+            SetItemAnim(this, r6);
         } else {
-            sub_08077DF4(beh, ptr->unk4);
+            SetItemAnim(this, ptr->frameIndex);
         }
     }
 
-    beh->field_0xf = ptr->unk6[0];
-    if (ptr->unk6[1]) {
-        gPlayerState.field_0x3[1] |= (8 >> idx) | ((8 >> idx) << 4);
+    this->animPriority = ptr->animPriority;
+    if (ptr->isChangingAttackStatus) {
+        gPlayerState.attack_status |= (8 >> index) | ((8 >> index) << 4);
     }
 }
 
@@ -580,37 +548,37 @@ typedef struct {
     u8 unk[16];
 } Unk_struct_in_08077EC8;
 
-void sub_08077DF4(ItemBehavior* beh, u32 animation) {
-    beh->field_0x10 = animation;
-    if ((animation & 0xff) > 0xb8) {
-        animation += beh->playerAnimationState >> 1;
+void SetItemAnim(ItemBehavior* this, u32 animIndex) {
+    this->animIndex = animIndex;
+    if ((animIndex & 0xff) > 0xb8) {
+        animIndex += this->playerAnimationState >> 1;
     }
-    gPlayerEntity.spriteIndex = (short)(animation >> 8);
-    InitAnimationForceUpdate(&gPlayerEntity, (u8)animation);
-    sub_08077E54(beh);
+    gPlayerEntity.spriteIndex = (s16)(animIndex >> 8);
+    InitAnimationForceUpdate(&gPlayerEntity, (u8)animIndex);
+    sub_08077E54(this);
 }
 
-void UpdateItemAnim(ItemBehavior* beh) {
+void UpdateItemAnim(ItemBehavior* this) {
     UpdateAnimationSingleFrame(&gPlayerEntity);
-    sub_08077E54(beh);
+    sub_08077E54(this);
 }
 
-void sub_08077E3C(ItemBehavior* ent, u32 idx) {
-    sub_080042BA(&gPlayerEntity, idx);
-    sub_08077E54(ent);
+void sub_08077E3C(ItemBehavior* this, u32 index) {
+    sub_080042BA(&gPlayerEntity, index);
+    sub_08077E54(this);
 }
 
-static void sub_08077E54(ItemBehavior* beh) {
-    beh->playerAnimIndex = gPlayerEntity.animIndex;
-    beh->playerFrameIndex = gPlayerEntity.frameIndex;
-    beh->playerFrameDuration = gPlayerEntity.frameDuration;
-    beh->playerFrame = gPlayerEntity.frame;
+static void sub_08077E54(ItemBehavior* this) {
+    this->playerAnimIndex = gPlayerEntity.animIndex;
+    this->playerFrameIndex = gPlayerEntity.frameIndex;
+    this->playerFrameDuration = gPlayerEntity.frameDuration;
+    this->playerFrame = gPlayerEntity.frame;
 }
 
-void DeletePlayerItem(ItemBehavior* arg0, u32 idx) {
+void DeleteItemBehavior(ItemBehavior* this, u32 index) {
     u32 not ;
 
-    if (idx == 0) {
+    if (index == 0) {
         if (gPlayerState.item != NULL) {
             ((Unk_bitfield*)gPlayerState.item)[0x11].b0 = 6;
             gPlayerState.item = NULL;
@@ -619,68 +587,70 @@ void DeletePlayerItem(ItemBehavior* arg0, u32 idx) {
         }
     }
 
-    not = (8 >> idx);
-    gPlayerState.field_0x3[1] &= ~((u8)((8 >> idx) << 4) | not );
+    not = (8 >> index);
+    gPlayerState.attack_status &= ~((u8)((8 >> index) << 4) | not );
     not = ~not ;
     gPlayerState.field_0xa &= not ;
     gPlayerState.keepFacing &= not ;
-    MemClear(arg0, sizeof(ItemBehavior));
+    MemClear(this, sizeof(ItemBehavior));
 }
 
-bool32 sub_08077EC8(ItemBehavior* beh) {
+bool32 sub_08077EC8(ItemBehavior* this) {
     if ((gPlayerState.sword_state & 8) != 0) {
-        sub_08077DF4(beh, 0x170);
-        beh->timer = 0x28;
-        beh->stateID = 7;
-        beh->field_0xf = 6;
+        SetItemAnim(this, 0x170);
+        this->timer = 0x28;
+        this->stateID = 7;
+        this->animPriority = 6;
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-bool32 sub_08077EFC(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.playerInput.field_0x90);
+bool32 IsItemActive(ItemBehavior* this) {
+    return IsItemActiveByInput(this, gPlayerState.playerInput.heldInput);
 }
 
-bool32 sub_08077F10(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.playerInput.field_0x92);
+bool32 IsItemActivatedThisFrame(ItemBehavior* this) {
+    return IsItemActiveByInput(this, gPlayerState.playerInput.newInput);
 }
 
-bool32 sub_08077F24(ItemBehavior* beh, u32 arg1) {
+bool32 IsItemActiveByInput(ItemBehavior* this, PlayerInputState input) {
     u32 val;
     Stats* stats = &gSave.stats;
-    u32 id = beh->behaviorID;
+    u32 id = this->behaviorId;
     if (stats->itemButtons[SLOT_A] == id) {
-        val = 1;
+        val = PLAYER_INPUT_1;
     } else if (stats->itemButtons[SLOT_B] == id) {
-        val = 2;
+        val = PLAYER_INPUT_2;
     } else {
         val = 0;
     }
 
-    return (val & arg1) ? 1 : 0;
+    return (val & input) ? TRUE : FALSE;
 }
 
-void PlayerCancelHoldItem(ItemBehavior* beh, u32 arg1) {
+void PlayerCancelHoldItem(ItemBehavior* this, u32 index) {
     PlayerDropHeldObject();
-    DeletePlayerItem(beh, arg1);
+    DeleteItemBehavior(this, index);
 }
 
 /**
  * Check if player state believes the held item is valid?
  * If it's not delete the item?
  */
-bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk) {
+bool32 PlayerTryDropObject(ItemBehavior* this, u32 index) {
     u32 temp;
     if (gPlayerState.heldObject == 0) {
-        PlayerCancelHoldItem(arg0, unk);
+        PlayerCancelHoldItem(this, index);
         temp = FALSE;
     } else {
         temp = TRUE;
     }
     return temp;
 }
+
+// TODO move above into a itemUtils.c ?
 
 void sub_08077F84(void) {
     Entity* obj;
@@ -917,7 +887,7 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
+    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
         sub_0801E738(0);
         if (gSave.unk12B[0] != 0) {
             gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4[3];
@@ -929,7 +899,7 @@ bool32 sub_080782C0(void) {
         ForceSetPlayerState(PL_STATE_TALKEZLO);
         return TRUE;
     }
-    if ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
+    if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
         return FALSE;
     }
     switch (gUnk_03003DF0.unk_4[1]) {
@@ -1167,11 +1137,11 @@ void sub_08078B48(void) {
 }
 
 void ClearPlayerState(void) {
-    gPlayerState.field_0x0[0] = 0;
-    gPlayerState.field_0x0[1] = 0;
+    gPlayerState.prevAnim = 0;
+    gPlayerState.grab_status = 0;
     gPlayerState.jump_status = 0;
-    gPlayerState.field_0x3[0] = 0;
-    gPlayerState.field_0x3[1] = 0;
+    gPlayerState.shield_status = 0;
+    gPlayerState.attack_status = 0;
     gPlayerState.heldObject = 0;
     gPlayerState.pushedObject = 0;
     gPlayerState.field_0x7 = 0;
@@ -1181,8 +1151,8 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x35 = 0;
     gPlayerState.field_0x36 = 0;
     gPlayerState.queued_action = PLAYER_INIT;
-    gPlayerState.field_0xd = 0;
-    gPlayerState.field_0xe = 0;
+    gPlayerState.direction = 0;
+    gPlayerState.itemAnimPriority = 0;
     gPlayerState.surfacePositionSameTimer = 0;
     gPlayerState.floor_type = SURFACE_NORMAL;
     gPlayerState.floor_type_last = SURFACE_NORMAL;
@@ -1273,7 +1243,7 @@ bool32 CheckQueuedAction(void) {
 
 // this doesnt seem to have any real function where its used
 void CheckPlayerVelocity(void) {
-    u32 angle = gPlayerState.field_0xd;
+    u32 angle = gPlayerState.direction;
     if ((angle & 0x80) != 0) {
         ResetPlayerVelocity();
     } else {
@@ -1345,20 +1315,20 @@ void sub_08078FB0(Entity* this) {
 
 void sub_08079064(Entity* this) {
     u32 i;
-    u32 bVar4;
-    u32 animation;
+    u32 maxAnimPriority;
+    u32 animIndex;
 
     if ((gPlayerState.flags & (PL_IN_HOLE | PL_MINISH)) == 0) {
-        bVar4 = 0;
+        maxAnimPriority = 0;
         for (i = 0; i < 4; i++) {
-            if (gUnk_03000B80[i].field_0xf > bVar4) {
-                bVar4 = gUnk_03000B80[i].field_0xf;
-                animation = gUnk_03000B80[i].field_0x10;
+            if (gActiveItems[i].animPriority > maxAnimPriority) {
+                maxAnimPriority = gActiveItems[i].animPriority;
+                animIndex = gActiveItems[i].animIndex;
             }
         }
 
-        if (gPlayerState.field_0xe < bVar4) {
-            gPlayerState.animation = animation;
+        if (gPlayerState.itemAnimPriority < maxAnimPriority) {
+            gPlayerState.animation = animIndex;
         } else if ((gPlayerState.swim_state & 0x80) != 0) {
             gPlayerState.animation = 0x2be;
         } else {
@@ -1408,7 +1378,7 @@ void sub_080790E4(Entity* this) {
 
 void PlayerDropHeldObject(void) {
     gPlayerState.heldObject = 0;
-    gPlayerState.field_0x0[1] = 0;
+    gPlayerState.grab_status = 0;
     gNewPlayerEntity.unk_74 = NULL;
 }
 
@@ -1480,9 +1450,9 @@ bool32 sub_080793E4(u32 param_1) {
     } else {
         tmp = gUnk_0811C0F8[gPlayerEntity.direction >> 2];
     }
-    if (sub_08079778() && ((gPlayerState.playerInput.field_0x90 & tmp) != 0)) {
+    if (sub_08079778() && ((gPlayerState.playerInput.heldInput & tmp) != 0)) {
         if (param_1 != 0) {
-            if (!sub_080B1BA4(sub_0807A500(), gPlayerEntity.collisionLayer, param_1)) {
+            if (!sub_080B1BA4(GetPlayerTilePos(), gPlayerEntity.collisionLayer, param_1)) {
                 return FALSE;
             }
         }
@@ -1535,9 +1505,9 @@ code_3:
 }
 
 void sub_08079520(Entity* this) {
-    s32 tmp = gPlayerState.field_0xd;
+    s32 tmp = gPlayerState.direction;
     if (tmp < 0x80) {
-        this->direction = gPlayerState.field_0xd;
+        this->direction = gPlayerState.direction;
     } else {
         this->direction = (this->animationState >> 1) << 3;
     }
@@ -1545,7 +1515,7 @@ void sub_08079520(Entity* this) {
 
 u32 sub_0807953C(void) {
     u32 tmp = PLAYER_INPUT_ANY_DIRECTION | PLAYER_INPUT_20 | PLAYER_INPUT_10 | PLAYER_INPUT_8;
-    return gPlayerState.playerInput.field_0x92 & tmp;
+    return gPlayerState.playerInput.newInput & tmp;
 }
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08079550.inc", u32 sub_08079550(void))
@@ -1601,7 +1571,7 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_080797EC.inc", void sub_080797EC())
 
 void ResolvePlayerAnimation(void) {
     u32 index;
-    u32 tmp;
+    u32 maxAnimPriority;
     u32 anim;
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         if (gPlayerState.heldObject != 0) {
@@ -1612,7 +1582,7 @@ void ResolvePlayerAnimation(void) {
             }
             if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
                 anim = 0x810;
-            } else if (gPlayerState.field_0x3[0] != 0) {
+            } else if (gPlayerState.shield_status != 0) {
                 anim = 0x414;
             } else if (gPlayerState.field_0x1f[2] != 0) {
                 anim = 0x280;
@@ -1623,7 +1593,7 @@ void ResolvePlayerAnimation(void) {
                     return;
                 }
                 if (gPlayerState.sword_state == 0) {
-                    if (gPlayerState.field_0x3[1] != 0) {
+                    if (gPlayerState.attack_status != 0) {
                         return;
                     }
                     if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
@@ -1661,7 +1631,7 @@ void ResolvePlayerAnimation(void) {
                 anim = 0x298;
             } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
                 anim = 0x70c;
-            } else if (gPlayerState.field_0x3[0] != 0) {
+            } else if (gPlayerState.shield_status != 0) {
                 anim = 0x164;
             } else if (gPlayerState.field_0x1f[2] != 0) {
                 anim = 0x280;
@@ -1677,11 +1647,11 @@ void ResolvePlayerAnimation(void) {
                     if (gPlayerState.sword_state != 0) {
                         anim = 0x168;
                     } else {
-                        if (gPlayerState.field_0x3[1] != 0) {
+                        if (gPlayerState.attack_status != 0) {
                             return;
                         }
-                        if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
-                            if (gUnk_03000B80[3].field_0xf != 0) {
+                        if (gPlayerState.flags & PL_USE_LANTERN) {
+                            if (gActiveItems[ACTIVE_ITEM_LANTERN].animPriority != 0) {
                                 return;
                             }
                             anim = 0x604;
@@ -1696,20 +1666,20 @@ void ResolvePlayerAnimation(void) {
 
     gPlayerState.animation = anim;
     if (gPlayerState.heldObject == 0) {
-        tmp = 0;
+        maxAnimPriority = 0;
         for (index = 0; index < 4; index++) {
-            if (gUnk_03000B80[index].field_0xf > tmp) {
-                tmp = gUnk_03000B80[index].field_0xf;
+            if (gActiveItems[index].animPriority > maxAnimPriority) {
+                maxAnimPriority = gActiveItems[index].animPriority;
             }
         }
-        if (gPlayerState.field_0xe < tmp) {
+        if (gPlayerState.itemAnimPriority < maxAnimPriority) {
             return;
         }
-        if ((u8)anim == gPlayerState.field_0x0[0]) {
+        if ((u8)anim == gPlayerState.prevAnim) {
             UpdateAnimationSingleFrame(&gPlayerEntity);
         }
     }
-    gPlayerState.field_0x0[0] = anim;
+    gPlayerState.prevAnim = anim;
 }
 
 bool32 sub_08079B24(void) {
@@ -1728,7 +1698,7 @@ bool32 sub_08079B24(void) {
                         if ((gPlayerState.jump_status & 0x41) == 0) {
                             gPlayerState.jump_status = 0x41;
                             gPlayerEntity.direction = 0xff;
-                            gPlayerState.field_0xd = 0xff;
+                            gPlayerState.direction = 0xff;
                             return TRUE;
                         } else {
                             return TRUE;
@@ -1934,49 +1904,49 @@ u32 sub_08079FD4(Entity* this, u32 param_2) {
     return index;
 }
 
-void sub_0807A050(void) {
+void UpdatePlayerPalette(void) {
     u32 palette;
     if ((gPlayerState.hurtBlinkSpeed != 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
         gPlayerState.hurtBlinkSpeed--;
     }
-    palette = sub_0807A094(0);
+    palette = GetPlayerPalette(FALSE);
     if (palette != gPlayerState.playerPalette) {
         gPlayerState.playerPalette = palette;
         ChangeObjPalette(&gPlayerEntity, palette);
     }
 }
 
-u32 sub_0807A094(u32 param_1) {
+u32 GetPlayerPalette(bool32 affectedBy) {
     bool32 condition;
-    u32 result = 0x16;
+    u32 palette = 0x16;
     if (gPlayerState.hurtBlinkSpeed != 0) {
-        result = 0x1b;
-        if (0x78 < gPlayerState.hurtBlinkSpeed) {
-            result = 0x1a;
+        palette = 0x1b;
+        if (gPlayerState.hurtBlinkSpeed > 0x78) {
+            palette = 0x1a;
         }
     } else {
         if (gSave.stats.charm != 0) {
             condition = TRUE;
-            if (((param_1 == 0) && (gSave.stats.charmTimer < 0xb4)) && ((gSave.stats.charmTimer & 8) != 0)) {
+            if (!affectedBy && (gSave.stats.charmTimer < 0xb4) && ((gSave.stats.charmTimer & 8) != 0)) {
                 condition = FALSE;
             }
             if (condition) {
                 switch (gSave.stats.charm) {
-                    case 0x2f:
-                        result = 0x18;
+                    case BOTTLE_CHARM_NAYRU:
+                        palette = 0x18;
                         break;
-                    case 0x31:
-                        result = 0x17;
+                    case BOTTLE_CHARM_DIN:
+                        palette = 0x17;
                         break;
-                    case 0x30:
+                    case BOTTLE_CHARM_FARORE:
                     default:
-                        result = 0x19;
+                        palette = 0x19;
                         break;
                 }
             }
         }
     }
-    return result;
+    return palette;
 }
 
 void DeleteClones(void) {
@@ -2052,7 +2022,7 @@ bool32 sub_0807A2B8(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", u32 sub_0807A2F8(u32 a1))
 
-u32 sub_0807A500(void) {
+u32 GetPlayerTilePos(void) {
     switch (gPlayerEntity.animationState >> 1) {
         case 0:
             return TILE(gPlayerEntity.x.HALF.HI,
@@ -2074,7 +2044,7 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807A5B8.inc", void sub_0807A5B8(u32 
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A750.inc", void sub_0807A750())
 
-u32 sub_0807A894(Entity* this) {
+u32 GetCollisionTileInFront(Entity* this) {
     s32 x;
     s32 y;
     switch (this->direction) {
@@ -2217,7 +2187,7 @@ bool32 sub_0807AC54(Entity* this) {
     }
 }
 
-void sub_0807ACCC(Entity* this) {
+void PlayerSwimming(Entity* this) {
     s32 speed;
     this->spritePriority.b1 = 0;
     this->knockbackDuration = 0;
@@ -2226,9 +2196,9 @@ void sub_0807ACCC(Entity* this) {
     } else {
         speed = 0xc0;
     }
-    if (speed > *(s16*)&this->speed) {
+    if (speed > this->speed) {
         this->speed = speed;
-        this->direction = gPlayerState.field_0xd;
+        this->direction = gPlayerState.direction;
         if ((gPlayerState.swim_state & 0xf) != 1) {
             return;
         }
@@ -2236,17 +2206,18 @@ void sub_0807ACCC(Entity* this) {
         this->speed -= 4;
     }
     if (gPlayerState.remainingDiveTime == 0) {
-        if (!sub_0807ADB8(this)) {
-            sub_0807AE20(this);
+        if (!ToggleDiving(this)) {
+            PlayerUpdateSwimming(this);
         }
     } else {
         gPlayerState.remainingDiveTime--;
         if (gPlayerState.remainingDiveTime != 0) {
-            sub_0807ADB8(this);
+            ToggleDiving(this);
         } else {
-            gPlayerState.swim_state &= 0x7f;
+            // End diving.
+            gPlayerState.swim_state &= ~0x80;
             this->spritePriority.b0 = 4;
-            SoundReq(SFX_163);
+            SoundReq(SFX_TOGGLE_DIVING);
         }
     }
     if ((gPlayerState.swim_state & 0x80) != 0) {
@@ -2257,27 +2228,25 @@ void sub_0807ACCC(Entity* this) {
     }
 }
 
-bool32 sub_0807ADB8(Entity* this) {
-    u8 tmp;
-    if ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_10) != 0) {
+bool32 ToggleDiving(Entity* this) {
+    if (gPlayerState.playerInput.newInput & PLAYER_INPUT_10) {
         gPlayerState.swim_state ^= 0x80;
-        tmp = (gPlayerState.swim_state & 0x80);
-        if (tmp != 0) {
+        if (gPlayerState.swim_state & 0x80) {
             gPlayerState.remainingDiveTime = 0x78;
         } else {
             this->spritePriority.b0 = 4;
-            gPlayerState.remainingDiveTime = tmp;
+            gPlayerState.remainingDiveTime = 0;
         }
-        SoundReq(SFX_163);
+        SoundReq(SFX_TOGGLE_DIVING);
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-void sub_0807AE20(Entity* this) {
+void PlayerUpdateSwimming(Entity* this) {
     if ((((this->action != 0x17) || (gPlayerState.field_0xa == 0)) && (gRoomControls.reload_flags == 0)) &&
-        ((gPlayerState.playerInput.field_0x92 & PLAYER_INPUT_8) != 0)) {
+        ((gPlayerState.playerInput.newInput & PLAYER_INPUT_8) != 0)) {
         if (GetInventoryValue(ITEM_SWIM_BUTTERFLY) == 1) {
             this->speed = 0x1c0;
         } else {
@@ -2344,7 +2313,7 @@ void UpdatePlayerSkills(void) {
     }
 }
 
-void sub_0807AFE8(void) {
+void PlayerShrinkByRay(void) {
     Entity* effect;
     PutAwayItems();
     effect = CreateFx(&gPlayerEntity, FX_BIG_EXPLOSION2, 0);
@@ -2355,11 +2324,11 @@ void sub_0807AFE8(void) {
 }
 
 /** Returns which kind of sword projectile is created. */
-u32 sub_0807B014(void) {
-    if (((gPlayerState.skills & SKILL_SWORD_BEAM) != 0) && gSave.stats.health == gSave.stats.maxHealth) {
+u32 GetSwordBeam(void) {
+    if ((gPlayerState.skills & SKILL_SWORD_BEAM) && gSave.stats.health == gSave.stats.maxHealth) {
         return 0xf;
     } else {
-        if ((gPlayerState.skills & SKILL_PERIL_BEAM) != SKILL_NONE && gSave.stats.health <= 8) {
+        if ((gPlayerState.skills & SKILL_PERIL_BEAM) && gSave.stats.health <= 8) {
             return 0x16;
         } else {
             return 0;
@@ -2368,7 +2337,7 @@ u32 sub_0807B014(void) {
 }
 
 void sub_0807B068(Entity* entity) {
-    if ((gPlayerState.dash_state | gPlayerState.field_0x3[1]) == 0) {
+    if ((gPlayerState.dash_state | gPlayerState.attack_status) == 0) {
         if (gPlayerState.swim_state != 0) {
             if ((gPlayerState.swim_state & 0x80) != 0) {
                 gPlayerState.animation = 0xc1c;
@@ -2376,7 +2345,7 @@ void sub_0807B068(Entity* entity) {
                 gPlayerState.animation = 0xc0c;
             }
         } else {
-            if ((gPlayerState.field_0xd & 0x80) != 0) {
+            if ((gPlayerState.direction & 0x80) != 0) {
                 if (gPlayerState.animation != 0xc18) {
                     gPlayerState.animation = 0xc18;
                 }

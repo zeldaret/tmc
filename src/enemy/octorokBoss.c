@@ -1226,7 +1226,7 @@ void sub_08036F60(OctorokBossEntity* this) {
 void OctorokBoss_StepSound(OctorokBossEntity* this, u32 frameMask) {
     if ((gRoomTransition.frameCount & frameMask) == 0) {
         if (IS_FROZEN(this) == FALSE) {
-            SoundReq(SFX_163);
+            SoundReq(SFX_TOGGLE_DIVING);
         } else {
             SoundReq(SFX_ICE_BLOCK_SLIDE);
         }

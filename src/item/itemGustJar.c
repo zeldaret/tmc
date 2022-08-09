@@ -4,41 +4,41 @@
 #include "functions.h"
 #include "playeritem.h"
 
-void (*const ItemGustJar_StateFunctions[])(ItemBehavior* beh, u32);
+void (*const ItemGustJar_StateFunctions[])(ItemBehavior* this, u32);
 
-void ItemGustJar(ItemBehavior* this, u32 idx) {
+void ItemGustJar(ItemBehavior* this, u32 index) {
     gPlayerState.framestate = PL_STATE_GUSTJAR;
-    ItemGustJar_StateFunctions[this->stateID](this, idx);
+    ItemGustJar_StateFunctions[this->stateID](this, index);
 }
 
-void sub_08076DF4(ItemBehavior* this, u32 idx) {
-    if (sub_0807A894(&gPlayerEntity) != 0x29 && gPlayerState.floor_type != SURFACE_DOOR &&
+void sub_08076DF4(ItemBehavior* this, u32 index) {
+    if (GetCollisionTileInFront(&gPlayerEntity) != 0x29 && gPlayerState.floor_type != SURFACE_DOOR &&
         gPlayerState.floor_type != SURFACE_DOOR_13 && gPlayerState.jump_status == 0) {
-        sub_08077D38(this, idx);
+        sub_08077D38(this, index);
         this->timer = 0;
         this->playerAnimationState = gPlayerEntity.animationState;
-        this->field_0x9 |= 0x80;
-        this->field_0x9++;
+        this->priority |= 0x80;
+        this->priority++;
         gPlayerState.gustJarSpeed = 1;
         *(u32*)&gPlayerEntity.field_0x74 = 0;
         gPlayerState.field_0x1c = 1;
         sub_08077BB8(this);
     } else {
-        DeletePlayerItem(this, idx);
+        DeleteItemBehavior(this, index);
     }
 }
 
-void sub_08076E60(ItemBehavior* this, u32 idx) {
+void sub_08076E60(ItemBehavior* this, u32 index) {
     Entity* playerItem;
 
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        DeletePlayerItem(this, idx);
+        DeleteItemBehavior(this, index);
     }
     if ((this->playerFrame & 0x80) != 0) {
         this->stateID = 2;
-        sub_08077DF4(this, 0x504);
-        gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> idx);
-        playerItem = CreatePlayerItem(PLAYER_ITEM_10, 0, 0, 0);
+        SetItemAnim(this, 0x504);
+        gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> index);
+        playerItem = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
         if (playerItem != NULL) {
             playerItem->parent = &gPlayerEntity;
         }
@@ -47,14 +47,14 @@ void sub_08076E60(ItemBehavior* this, u32 idx) {
     }
 }
 
-void sub_08076EC8(ItemBehavior* this, u32 idx) {
+void sub_08076EC8(ItemBehavior* this, u32 index) {
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        DeletePlayerItem(this, idx);
+        DeleteItemBehavior(this, index);
         return;
     }
 
-    if (sub_08077EFC(this)) {
-        u32 val;
+    if (IsItemActive(this)) {
+        u32 animIndex;
         if (this->timer > 0xef) {
             gPlayerState.gustJarSpeed = 3;
         } else if (++this->timer > 0x77) {
@@ -64,17 +64,17 @@ void sub_08076EC8(ItemBehavior* this, u32 idx) {
         }
 
         if (gPlayerEntity.subAction == 0x1b) {
-            val = 0x524;
+            animIndex = 0x524;
         } else {
-            if (gPlayerState.field_0xd & 0x80) {
-                val = 0x504;
+            if (gPlayerState.direction & 0x80) {
+                animIndex = 0x504;
             } else {
-                val = 0x518;
+                animIndex = 0x518;
             }
         }
 
-        if (val != *(u16*)&this->field_0x10) {
-            sub_08077DF4(this, val);
+        if (animIndex != this->animIndex) {
+            SetItemAnim(this, animIndex);
         } else {
             UpdateItemAnim(this);
         }
@@ -82,10 +82,10 @@ void sub_08076EC8(ItemBehavior* this, u32 idx) {
     }
 
     this->stateID++;
-    gPlayerState.field_0xa |= 8 >> idx;
+    gPlayerState.field_0xa |= 8 >> index;
 }
 
-void sub_08076F64(ItemBehavior* this, u32 idx) {
+void sub_08076F64(ItemBehavior* this, u32 index) {
     Entity* item;
     Entity* player;
     switch (gPlayerState.field_0x1c & 0xf) {
@@ -98,21 +98,21 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
                     player = &gPlayerEntity;
                     *(u32*)&player->field_0x74 = 0;
                     gPlayerState.field_0x1c = 1;
-                    gPlayerState.field_0xa &= ~(8 >> idx);
+                    gPlayerState.field_0xa &= ~(8 >> index);
                     this->stateID = 2;
-                    sub_08077DF4(this, 0x504);
-                    item = CreatePlayerItem(PLAYER_ITEM_10, 0, 0, 0);
+                    SetItemAnim(this, 0x504);
+                    item = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
                     if (item) {
                         item->parent = player;
                     }
                     return;
                 } else {
                     gPlayerState.field_0x1c = 6;
-                    sub_08077DF4(this, 0x510);
+                    SetItemAnim(this, 0x510);
                     return;
                 }
             } else {
-                if (sub_08077EFC(this)) {
+                if (IsItemActive(this)) {
                     this->subtimer = 1;
                 }
 
@@ -130,7 +130,7 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
         case 3:
             gPlayerState.field_0x1c = 4;
         case 4:
-            if (sub_08077EFC(this)) {
+            if (IsItemActive(this)) {
                 this->subtimer = 1;
             }
 
@@ -139,7 +139,7 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
                 gPlayerState.field_0x1c = 5;
                 gPlayerEntity.field_0x70.WORD = 0;
                 if (gPlayerState.gustJarSpeed) {
-                    CreatePlayerItem(PLAYER_ITEM_11, 0, 0, 0);
+                    CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
                 }
             }
 
@@ -155,7 +155,7 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
                 return;
             break;
         case 7:
-            sub_08077DF4(this, 0x514);
+            SetItemAnim(this, 0x514);
             gPlayerState.field_0x1c = 3;
             gPlayerState.gustJarSpeed = 0;
             return;
@@ -163,17 +163,17 @@ void sub_08076F64(ItemBehavior* this, u32 idx) {
         case 2:
         default:
             gPlayerState.field_0x1c = 3;
-            sub_08077DF4(this, 0x514);
+            SetItemAnim(this, 0x514);
             return;
         case 0:
             break;
     }
     gPlayerState.field_0x1c = 0;
     gPlayerEntity.field_0x70.WORD = 0;
-    DeletePlayerItem(this, idx);
+    DeleteItemBehavior(this, index);
 }
 
-void (*const ItemGustJar_StateFunctions[])(ItemBehavior* beh, u32) = {
+void (*const ItemGustJar_StateFunctions[])(ItemBehavior*, u32) = {
     sub_08076DF4,
     sub_08076E60,
     sub_08076EC8,

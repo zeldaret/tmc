@@ -39,7 +39,7 @@ void MiniFireballGuy_OnCollision(Entity* this) {
 
 void MiniFireballGuy_OnDeath(Entity* this) {
     if ((this != this->parent) && (this->parent != NULL)) {
-        this->field_0x6c.HALF.LO &= 0x7f;
+        this->field_0x6c.HALF.LO &= ~0x80;
         this->parent->child = this->child;
         this->child->parent = this->parent;
     }

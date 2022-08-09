@@ -127,7 +127,7 @@ _080798CE:
 	bl sub_080793E4
 	cmp r0, #0
 	beq _0807991E
-	bl sub_0807A500
+	bl GetPlayerTilePos
 	ldr r1, _080798F8 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]

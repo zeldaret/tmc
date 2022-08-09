@@ -55,19 +55,19 @@ NONMATCH("asm/non_matching/playerItemShield/sub_080A2E00.inc", void sub_080A2E00
         this->iframes = 0;
     }
 
-    uVar4 = gPlayerState.field_0x3[0];
+    uVar4 = gPlayerState.shield_status;
     if ((uVar4 != 0) && (this == gPlayerState.item)) {
         if ((uVar4 & 0x80) != 0) {
             this->hitbox = gUnk_08127240[this->animationState >> 1];
             this->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
             this->flags = this->flags | 0x80;
-            gPlayerState.field_0x3[0] = uVar4 & 0x7f;
+            gPlayerState.shield_status = uVar4 & 0x7f;
             sub_080176E4(this);
         } else {
             if ((this->contactFlags & 0x80) != 0) {
                 if ((((this->contactFlags & 0x7f) == 0x42) && (*(char*)&this->field_0x68 == 0xe)) &&
                     ((uVar4 & 0x40) == 0)) {
-                    pEVar1 = CreatePlayerItem(PLAYER_ITEM_15, 0, 0, *(char*)&this->field_0x68);
+                    pEVar1 = CreatePlayerItem(PLAYER_ITEM_FIRE_ROD_PROJECTILE, 0, 0, *(char*)&this->field_0x68);
                     this->child = pEVar1;
                     if (pEVar1 != NULL) {
                         pEVar1->subtimer = 1;
@@ -77,7 +77,7 @@ NONMATCH("asm/non_matching/playerItemShield/sub_080A2E00.inc", void sub_080A2E00
                     *(u32*)&this->field_0x78 = gUnk_08127220[1];
                     *(u32*)&this->field_0x74 = uVar4 & 0x40;
                     *(u8**)&this->field_0x7c = gUnk_08127220;
-                    gPlayerState.field_0x3[0] = gPlayerState.field_0x3[0] | 0x40;
+                    gPlayerState.shield_status |= 0x40;
                 }
                 if (*(int*)&this->field_0x6c == 0) {
                     SoundReq(0x118);
@@ -86,7 +86,7 @@ NONMATCH("asm/non_matching/playerItemShield/sub_080A2E00.inc", void sub_080A2E00
             }
         }
     } else {
-        gPlayerState.field_0x3[0] = 0;
+        gPlayerState.shield_status = 0;
         if (gPlayerState.item == this) {
             gPlayerState.item = NULL;
         }
@@ -109,16 +109,16 @@ NONMATCH("asm/non_matching/playerItemShield/sub_080A2E00.inc", void sub_080A2E00
                 iVar5 = (*(int*)&this->field_0x74) * 4;
                 iVar2 = *(u8**)&this->field_0x7c;
                 if (iVar2[iVar5] == 0xff) {
-                    if ((gPlayerState.field_0x3[0] & 0x40) != 0) {
+                    if ((gPlayerState.shield_status & 0x40) != 0) {
                         *(u8**)&this->field_0x7c = gUnk_081271DC;
-                        gPlayerState.field_0x3[0] = gPlayerState.field_0x3[0] & 0xbf;
+                        gPlayerState.shield_status = gPlayerState.shield_status & 0xbf;
                     }
                     *(u32*)&this->field_0x74 = 0;
                     iVar2 = *(u8**)&this->field_0x7c;
                 }
                 pbVar3 = &iVar2[*(int*)&this->field_0x74 * 4];
                 *(u32*)&this->field_0x78 = pbVar3[1];
-                if ((gPlayerState.field_0x3[0] & 0x40) != 0) {
+                if ((gPlayerState.shield_status & 0x40) != 0) {
                     u32 temp = (gPlayerEntity.frame & 0x7f) + 8;
                     sub_080042D0(this, temp + *pbVar3, (u16)this->spriteIndex);
                 } else {

@@ -148,21 +148,21 @@ typedef enum {
 } GfxSlotVramStatus;
 
 typedef struct {
-    u8 status : 4;
-    u8 vramStatus : 4; // Whether the gfx was uploaded to the vram?
-    u8 slotCount;
-    u8 referenceCount; /**< How many entities use this gfx slot */
-    u8 unk_3;
-    u16 gfxIndex;
-    u16 paletteIndex;
-    const void* palettePointer;
+    /*0x00*/ u8 status : 4;
+    /*0x00*/ u8 vramStatus : 4; // Whether the gfx was uploaded to the vram?
+    /*0x01*/ u8 slotCount;
+    /*0x02*/ u8 referenceCount; /**< How many entities use this gfx slot */
+    /*0x03*/ u8 unk_3;
+    /*0x04*/ u16 gfxIndex;
+    /*0x06*/ u16 paletteIndex;
+    /*0x08*/ const void* palettePointer;
 } GfxSlot;
 typedef struct {
-    u8 unk0;
-    u8 unk_1;
-    u8 unk_2;
-    u8 unk_3;
-    GfxSlot slots[MAX_GFX_SLOTS];
+    /*0x00*/ u8 unk0;
+    /*0x01*/ u8 unk_1;
+    /*0x02*/ u8 unk_2;
+    /*0x03*/ u8 unk_3;
+    /*0x04*/ GfxSlot slots[MAX_GFX_SLOTS];
 } GfxSlotList;
 extern GfxSlotList gGFXSlots;
 
@@ -179,8 +179,16 @@ extern u16 gBG1Buffer[0x400];
 extern u16 gBG2Buffer[0x400];
 extern u16 gBG3Buffer[0x800];
 
-extern ItemBehavior gUnk_03000B80[4];
-static_assert(sizeof(gUnk_03000B80) == 0x70);
+typedef enum { ACTIVE_ITEM_0, ACTIVE_ITEM_1, ACTIVE_ITEM_2, ACTIVE_ITEM_LANTERN, MAX_ACTIVE_ITEMS } ActiveItemIndex;
+/**
+ * Currently active items.
+ * 0: Active items?
+ * 1: Boots, Cape
+ * 2: would be used by CreateItem1 if gActiveItems[1] was already filled
+ * 3: Lamp
+ */
+extern ItemBehavior gActiveItems[MAX_ACTIVE_ITEMS];
+static_assert(sizeof(gActiveItems) == 0x70);
 
 typedef struct {
     u8 sys_priority; // system requested priority
@@ -322,5 +330,19 @@ typedef struct {
     s16 tile;
     s16 position;
 } TileData;
+
+typedef struct {
+    /*0x00*/ bool8 isOnlyActiveFirstFrame; /**< Is the behavior for this item only created on the first frame */
+    /*0x01*/ u8 priority;
+    /*0x02*/ u8 createFunc;
+    /*0x03*/ u8 playerItemId; /**< Id for the corresponsing PlayerItem. */
+    /*0x04*/ u16 frameIndex;
+    /*0x06*/ u8 animPriority;
+    /*0x07*/ bool8 isChangingAttackStatus;
+    /*0x08*/ bool8 isUseableAsMinish;
+    /*0x09*/ u8 pad[3];
+} ItemDefinition;
+
+static_assert(sizeof(ItemDefinition) == 0xc);
 
 #endif // STRUCTURES_H
