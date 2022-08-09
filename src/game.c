@@ -674,14 +674,14 @@ static void sub_08052010(void) {
     InitSoundPlayingInfo();
     MessageInitialize();
     DispReset(1);
-    MemClear(gBG1Buffer, 0x800);
-    MemClear(gBG2Buffer, 0x800);
+    MemClear(gBG1Buffer, sizeof(gBG1Buffer));
+    MemClear(gBG2Buffer, sizeof(gBG2Buffer));
     sub_080A4D34();
     LoadPaletteGroup(0xA);
     SetColor(0, 0);
     LoadGfxGroup(4);
     MemClear((void*)0x06000000, 0x20);
-    MemClear(&gMenu, 0x30);
+    MemClear(&gGenericMenu, sizeof(gGenericMenu));
     gScreen.lcd.displayControl |= DISPCNT_OBJ_ON;
     gScreen.bg1.control = BGCNT_PRIORITY(1) | BGCNT_SCREENBASE(28) | BGCNT_CHARBASE(0);
     gScreen.bg2.control = BGCNT_PRIORITY(1) | BGCNT_SCREENBASE(29) | BGCNT_CHARBASE(1);
@@ -923,7 +923,7 @@ void SetPopupState(u32 type, u32 choice_idx) {
         .draw_border = 0,
         .border_type = 0,
         .fill_type = 6,
-        ._15 = 4,
+        .charColor = 4,
         ._16 = 1,
         .stylized = 0,
     };
@@ -1348,9 +1348,9 @@ static void CreateMiscManager(void) {
 
 static void sub_08052C3C(void) {
     if (gArea.portal_mode == 0)
-        gArea.unk1A = gArea.portal_mode;
-    if (gArea.unk1A) {
-        gArea.unk1A--;
+        gArea.portal_timer = 0;
+    if (gArea.portal_timer) {
+        gArea.portal_timer--;
         gArea.portal_mode = 0;
     }
 }
@@ -1388,8 +1388,8 @@ void InitRoom(void) {
     gArea.locationIndex = a_hdr->location;
     gArea.dungeon_idx = a_hdr->location - 23;
     gArea.localFlagOffset = gLocalFlagBanks[a_hdr->flag_bank];
-    gArea.filler[0] = a_hdr->flag_bank;
-    gArea.unk1A = 180;
+    gArea.flag_bank = a_hdr->flag_bank;
+    gArea.portal_timer = 180;
     gArea.lightLevel = 256;
     InitRoomTransition();
     InitAllRoomResInfo();
@@ -2483,9 +2483,9 @@ void PutItemOnSlot(u32 itemID) {
     }
     if (itemID2 - 1 < 0x1f) {
         itemSlot = 2;
-        if (gSave.stats.itemButtons[SLOT_A] == 0) {
+        if (gSave.stats.itemButtons[SLOT_A] == ITEM_NONE) {
             itemSlot = 0;
-        } else if (gSave.stats.itemButtons[SLOT_B] == 0) {
+        } else if (gSave.stats.itemButtons[SLOT_B] == ITEM_NONE) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
@@ -2527,13 +2527,10 @@ void ForceEquipItem(u32 itemID, u32 itemSlot) {
 u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     if (bottleIndex > 3) {
         bottleIndex = 0;
-        if (gSave.stats.bottles[0] != 0x20) {
-            do {
-                bottleIndex++;
-                if (bottleIndex > 3) {
-                    return bottleIndex;
-                }
-            } while (gSave.stats.bottles[bottleIndex] != 0x20);
+        for (bottleIndex = 0; gSave.stats.bottles[bottleIndex] != ITEM_BOTTLE_EMPTY;) {
+            if (++bottleIndex > 3) {
+                return bottleIndex;
+            }
         }
         if (bottleIndex > 3) {
             return bottleIndex;
@@ -2558,23 +2555,23 @@ bool32 ItemIsSword(u32 item) {
 
 bool32 ItemIsShield(u32 id) {
     switch (id) {
-        case 13:
-        case 14:
-            return 1;
+        case ITEM_SHIELD:
+        case ITEM_MIRROR_SHIELD:
+            return TRUE;
         default:
-            return 0;
+            return FALSE;
     }
 }
 
 bool32 ItemIsBottle(u32 id) {
     switch (id) {
-        case 28:
-        case 29:
-        case 30:
-        case 31:
-            return 1;
+        case ITEM_BOTTLE1:
+        case ITEM_BOTTLE2:
+        case ITEM_BOTTLE3:
+        case ITEM_BOTTLE4:
+            return TRUE;
         default:
-            return 0;
+            return FALSE;
     }
 }
 
@@ -2604,15 +2601,15 @@ void sub_08054524(void) {
     }
 
     bVar1 = gUnk_080FE1C6[bVar1];
-    MemCopy(&gAreaDroptables[bVar1], &gRoomVars.currentAreaDroptable, 0x20);
+    MemCopy(&gAreaDroptables[bVar1], &gRoomVars.currentAreaDroptable, sizeof(Droptable));
 }
 
-void sub_08054564(void) {
-    gRoomVars.field_0x2 = 1;
+void DisableRandomDrops(void) {
+    gRoomVars.randomDropsDisabled = TRUE;
 }
 
-void sub_08054570(void) {
-    gRoomVars.field_0x2 = 0;
+void EnableRandomDrops(void) {
+    gRoomVars.randomDropsDisabled = FALSE;
 }
 
 extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
@@ -2630,7 +2627,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     const Droptable *ptr2, *ptr3, *ptr4;
     Droptable droptable;
     r3 = arg1;
-    if (gRoomVars.field_0x2 != 1) {
+    if (gRoomVars.randomDropsDisabled != TRUE) {
         ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
         ptr4 = NULL;
         switch (r3) {

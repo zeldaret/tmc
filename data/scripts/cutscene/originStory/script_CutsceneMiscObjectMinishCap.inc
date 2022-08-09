@@ -11,7 +11,7 @@ SCRIPT_START script_CutsceneMiscObjectMinishCap
 	_0807EDD4 0x0078, 0x0068
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
-	_0807EF3C 0xff80, 0x0000
+	_0807EF3C -128, 0x0000
 	CallWithArg DeleteRepeatedSoundManager, 0x00000003
 	Wait 0x003c
 	SetSyncFlag 0x00000100

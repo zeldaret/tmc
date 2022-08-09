@@ -136,7 +136,7 @@ void VaatiWrathType0Action0(Entity* this) {
             this->action = 2;
             this->timer = 60;
         }
-        this->x.HALF.HI = gRoomTransition.hurtType;
+        this->x.HALF.HI = gRoomTransition.field_0x40;
         this->y.HALF.HI = gRoomTransition.field_0x42;
         sub_08042004(this);
     } else {
@@ -147,7 +147,7 @@ void VaatiWrathType0Action0(Entity* this) {
         this->subAction = bVar1;
         this->timer = 120;
         this->spritePriority.b1 = 0;
-        this->z.HALF.HI = 0xffb0;
+        this->z.HALF.HI = -80;
         gRoomControls.camera_target = this;
         sub_080809D4();
     }

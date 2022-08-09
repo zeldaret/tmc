@@ -184,8 +184,8 @@ void sub_08077698(PlayerEntity* this) {
           ((gPlayerState.jump_status & 0x40) == 0)) &&
          (gPlayerState.swim_state == 0)) &&
         ((sub_08077758(this) && (sub_080777A0() == 0)))) {
-        sub_08077880(gSave.stats.itemButtons[0], 1, 0);
-        sub_08077880(gSave.stats.itemButtons[1], 2, 0);
+        sub_08077880(gSave.stats.itemButtons[SLOT_A], 1, 0);
+        sub_08077880(gSave.stats.itemButtons[SLOT_B], 2, 0);
         sub_080778CC();
     }
     idx = 0;
@@ -201,9 +201,9 @@ void sub_08077698(PlayerEntity* this) {
 
 void sub_08077728(u32 param_1) {
     if (param_1 == 0) {
-        sub_08077880(gSave.stats.itemButtons[0], 1, 1);
+        sub_08077880(gSave.stats.itemButtons[SLOT_A], 1, 1);
     } else {
-        sub_08077880(gSave.stats.itemButtons[1], 2, 1);
+        sub_08077880(gSave.stats.itemButtons[SLOT_B], 2, 1);
     }
 }
 
@@ -230,12 +230,12 @@ bool32 sub_080777A0(void) {
         } else {
             switch (gArea.portal_mode) {
                 case 2:
-                    if (gArea.unk1A == 0) {
+                    if (gArea.portal_timer == 0) {
                         gPlayerEntity.subAction++;
                     }
                     break;
                 case 3:
-                    if ((gArea.unk1A == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
+                    if ((gArea.portal_timer == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
                         gPlayerEntity.subAction++;
                         gPlayerEntity.flags &= ~ENT_COLLIDE;
                         RequestPriorityDuration(&gPlayerEntity, 180);
@@ -624,7 +624,7 @@ void DeletePlayerItem(ItemBehavior* arg0, u32 idx) {
     not = ~not ;
     gPlayerState.field_0xa &= not ;
     gPlayerState.keepFacing &= not ;
-    MemClear(arg0, 0x1c);
+    MemClear(arg0, sizeof(ItemBehavior));
 }
 
 bool32 sub_08077EC8(ItemBehavior* beh) {
@@ -707,10 +707,10 @@ bool32 sub_08077FEC(u32 action) {
 
 bool32 sub_08078008(ChargeState* state) {
     Item swordType;
-    if (ItemIsSword(gSave.stats.itemButtons[0]) != ITEM_NONE) {
-        swordType = gSave.stats.itemButtons[0];
-    } else if (ItemIsSword(gSave.stats.itemButtons[1]) != ITEM_NONE) {
-        swordType = gSave.stats.itemButtons[1];
+    if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != ITEM_NONE) {
+        swordType = gSave.stats.itemButtons[SLOT_A];
+    } else if (ItemIsSword(gSave.stats.itemButtons[SLOT_B]) != ITEM_NONE) {
+        swordType = gSave.stats.itemButtons[SLOT_B];
     } else {
         swordType = ITEM_NONE;
     }
@@ -961,7 +961,7 @@ bool32 sub_080782C0(void) {
 }
 
 void sub_080784C8(void) {
-    MemClear(&gUnk_03003DF0, 0x188);
+    MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
     gUnk_03003DF0.unk_4 = (u8*)gUnk_0811C000;
 }
 
@@ -1205,7 +1205,7 @@ void ClearPlayerState(void) {
     gPlayerState.spriteOffsetY = 0;
     gPlayerState.field_0x3c = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, 0x40);
-    MemClear(&gUnk_03003DF0, 0x188);
+    MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
 }
 
 void UpdateCarriedObject(void) {
@@ -1610,7 +1610,7 @@ void ResolvePlayerAnimation(void) {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
-            if ((gPlayerState.flags & PL_FLAGS2000000) != 0) {
+            if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
                 anim = 0x810;
             } else if (gPlayerState.field_0x3[0] != 0) {
                 anim = 0x414;
@@ -1655,7 +1655,7 @@ void ResolvePlayerAnimation(void) {
             }
             if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
                 anim = 0x8b0;
-            } else if ((gPlayerState.flags & PL_FLAGS2000000) != 0) {
+            } else if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
                 anim = 0x810;
             } else if (gPlayerState.dash_state != 0) {
                 anim = 0x298;
@@ -1888,9 +1888,9 @@ bool32 sub_08079F48(u32 param_1, u32 param_2) {
 }
 
 bool32 PlayerCanBeMoved(void) {
-    if ((gPlayerState.flags &
-         (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN | PL_FALLING | PL_DISABLE_ITEMS |
-          PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
+    if ((gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN |
+                               PL_FALLING | PL_DISABLE_ITEMS | PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED |
+                               PL_IN_HOLE | PL_CONVEYOR_PUSHED | PL_CLIMBING)) != 0 ||
         gPlayerState.field_0x3c != 0 || gPlayerEntity.action == PLAYER_FALL ||
         gPlayerEntity.action == PLAYER_08071DB8) {
         return FALSE;
@@ -1991,10 +1991,10 @@ void DeleteClones(void) {
 }
 
 bool32 HasSwordEquipped(void) {
-    if (ItemIsSword((u32)gSave.stats.itemButtons[0]) != 0) {
+    if (ItemIsSword((u32)gSave.stats.itemButtons[SLOT_A]) != 0) {
         return TRUE;
     } else {
-        return ItemIsSword((u32)gSave.stats.itemButtons[1]);
+        return ItemIsSword((u32)gSave.stats.itemButtons[SLOT_B]);
     }
 }
 
@@ -3035,8 +3035,8 @@ void LoadRoomGfx(void) {
     sub_0807BFA8();
     roomControls = &gRoomControls;
     roomControls->scroll_flags &= 0xfc;
-    MemClear(gMapTop.mapData, 0x2000);
-    MemClear(gMapTop.collisionData, 0x1000);
+    MemClear(gMapTop.mapData, sizeof(gMapTop.mapData));
+    MemClear(gMapTop.collisionData, sizeof(gMapTop.collisionData));
     MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_080197D4((gArea.pCurrentRoomInfo)->map);
@@ -3045,12 +3045,12 @@ void LoadRoomGfx(void) {
         sub_0807C8B0(gMapTop.mapData, roomControls->width >> 4, roomControls->height >> 4);
         tmp = FALSE;
     } else {
-        MemClear(gMapBottom.mapData, 0x2000);
+        MemClear(gMapBottom.mapData, sizeof(gMapBottom.mapData));
         tmp = TRUE;
     }
     if (gRoomTransition.field_0x2c[0] == 0) {
-        MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, 0x2000);
-        MemCopy(gMapTop.mapData, gMapTop.mapDataClone, 0x2000);
+        MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
+        MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapBottom.mapData));
     } else if (gRoomTransition.field_0x2c[0] == 2) {
         MemCopy(gMapBottom.mapData, gMapBottom.unkData3, 0x1000);
         MemCopy(gMapBottom.mapDataClone, gMapBottom.mapData, 0x1000);

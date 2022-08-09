@@ -140,7 +140,7 @@ void Vaati3StartManager_Type1_Init(Vaati3StartManager* this) {
         super->child = enemy;
         super->action = 1;
         SetPlayerControl(3);
-        gArea.queued_bgm = 0x80010000;
+        gArea.queued_bgm = SONG_STOP_ALL;
         SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 4);
         SoundReq(SFX_APPARATE);
     }

@@ -1362,7 +1362,7 @@ static void sub_08043DB0(Entity* this) {
             gRoomTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);
             gRoomTransition.field_0x3c = this->type2;
             pEVar2 = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
-            gRoomTransition.hurtType = pEVar2->x.HALF.HI;
+            gRoomTransition.field_0x40 = pEVar2->x.HALF.HI;
             gRoomTransition.field_0x42 = pEVar2->y.HALF.HI;
             pEVar4 = ((VaatiArm_HeapStruct*)pEVar2->myHeap)->parent;
             if (pEVar4 != NULL) {

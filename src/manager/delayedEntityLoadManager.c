@@ -36,7 +36,7 @@ void DelayedEntityLoadManager_Main(DelayedEntityLoadManager* this) {
     }
     if (super->action == 0) {
         super->action++;
-        this->unk_20 = gArea.filler[2];
+        this->unk_20 = gArea.filler[1];
         SetDefaultPriority((Entity*)this, 6);
         npcPtr = gNPCData;
         npcPtr += (super->type2 + this->unk_20);

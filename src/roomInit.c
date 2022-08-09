@@ -1050,7 +1050,7 @@ void sub_StateChange_RoyalValley_Main(void) {
         SetTileType(0x17d, 0x5cf, 1);
     }
 
-    sub_08054570();
+    EnableRandomDrops();
     sub_08059278();
     SetTile(0x4072, 0xa47, 1);
     SetTile(0x4072, 0xc47, 1);
@@ -3131,7 +3131,7 @@ u32 sub_unk3_RoyalCrypt_MushroomPit(void) {
 }
 
 void sub_StateChange_RoyalCrypt_MushroomPit(void) {
-    sub_08054570();
+    EnableRandomDrops();
 }
 
 u32 sub_unk3_RoyalCrypt_Entrance(void) {
@@ -3143,7 +3143,7 @@ extern EntityData gUnk_080E71AC;
 
 void sub_StateChange_RoyalCrypt_Entrance(void) {
     SetTileType(0x312, 0x108, 1);
-    sub_08054570();
+    EnableRandomDrops();
     if (!CheckLocalFlag(0xc4)) {
         LoadRoomEntityList(&gUnk_080E718C);
     }
@@ -4351,7 +4351,7 @@ extern EntityData gUnk_080EEA9C;
 extern EntityData gUnk_080EEBAC;
 
 void sub_StateChange_HyruleTown_0(void) {
-    sub_08054570();
+    EnableRandomDrops();
     TryLoadPrologueHyruleTown();
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
     SetTileType(0x176, 0x66b, 1);
@@ -4967,7 +4967,7 @@ u32 sub_unk3_HouseInteriors4_Swiftblade(void) {
 }
 
 void sub_StateChange_HouseInteriors4_Swiftblade(void) {
-    sub_08054564();
+    DisableRandomDrops();
 }
 
 u32 sub_unk3_HouseInteriors4_RanchHouseWest(void) {

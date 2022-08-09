@@ -456,7 +456,7 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
         pWVar4->unk04 = font.stylized;
         pWVar4->unk4 = font.width;
         pWVar4->unk8 = font.buffer_loc;
-        pWVar4->charColor = font._15;
+        pWVar4->charColor = font.charColor;
         pWVar4->bgColor = font.fill_type;
         if (font.draw_border) {
             sub_0805F918(font.border_type, font.fill_type, font.gfx_dest);

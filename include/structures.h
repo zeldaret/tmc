@@ -298,7 +298,7 @@ typedef struct {
     u8 draw_border : 1;
     u8 border_type : 4;
     u8 fill_type;
-    u8 _15;
+    u8 charColor;
     u8 _16;
     u8 stylized;
 } Font;

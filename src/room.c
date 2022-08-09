@@ -298,7 +298,7 @@ void LoadRoomTileEntities(TileEntity* list) {
                 LoadLocationTile(t);
                 break;
             case TILE_ENTITY_D:
-                gRoomVars.field_0x9 = t->_3;
+                gRoomVars.fight_bgm = t->_3;
                 break;
         }
     }

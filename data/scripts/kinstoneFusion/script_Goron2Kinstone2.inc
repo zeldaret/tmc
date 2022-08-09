@@ -31,6 +31,6 @@ SCRIPT_START script_Goron2Kinstone2
 	SetAnimationState 0x0006
 	SetSyncFlag 0x00000004
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, 0xffe0
+	_0807EEF4 0x0000, -32
 	Call sub_08054968
 SCRIPT_END

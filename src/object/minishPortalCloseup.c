@@ -85,7 +85,7 @@ void sub_0808D030(void) {
     s32 index;
 
     ptr = gOAMControls.oam;
-    index = 0x80;
+    index = ARRAY_COUNT(gOAMControls.oam);
     MemClear(&gOAMControls, 0xb74);
     while (index != 0) {
         // TODO split up into bitfield writes?

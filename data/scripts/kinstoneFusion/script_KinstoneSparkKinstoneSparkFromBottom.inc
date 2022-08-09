@@ -7,9 +7,9 @@ SCRIPT_START script_KinstoneSparkKinstoneSparkFromBottom
 	Wait 0x000a
 	DoPostScriptAction 0x0007
 	PlaySound SFX_136
-	_0807EEF4 0x0000, 0xff90
+	_0807EEF4 0x0000, -112
 	Wait 0x001e
-	_0807EEF4 0x0000, 0xffb0
+	_0807EEF4 0x0000, -80
 	Wait 0x003c
 	SetRoomFlag 0x00ff
 	SetAnimation 0x0005

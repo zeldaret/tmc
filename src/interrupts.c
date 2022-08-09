@@ -232,7 +232,7 @@ static void HandlePlayerLife(Entity* this) {
     if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
 
-    gPlayerState.flags &= ~(PL_FALLING | PL_FLAGS2000000);
+    gPlayerState.flags &= ~(PL_FALLING | PL_CONVEYOR_PUSHED);
     if (gPlayerState.flags & PL_BURNING)
         ResetPlayerItem();
     if ((gPlayerState.flags & PL_CLONING) && gPlayerState.chargeState.action == 0)
@@ -332,7 +332,7 @@ static void sub_080171F0(void) {
     gPlayerState.mobility = 0;
     gPlayerState.speed_modifier = 0;
     gPlayerState.field_0xaa = 0;
-    MemClear(&gCarriedEntity, 0x8c);
+    MemClear(&gCarriedEntity, sizeof(gCarriedEntity));
     gPlayerEntity.spriteOffsetY = gPlayerState.spriteOffsetY;
     gPlayerState.spriteOffsetY = 0;
     sub_0807B0C8();

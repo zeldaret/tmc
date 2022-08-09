@@ -6,6 +6,7 @@
 #include "npc.h"
 #include "game.h"
 #include "functions.h"
+#include "item.h"
 
 typedef struct {
     s8 unk_00;
@@ -24,7 +25,14 @@ void sub_0806336C(Entity* this);
 void sub_08063390(Entity* this);
 
 static const u8 gUnk_0810C88C[] = {
-    0, 0x2d, 0x2c, 0x29, 0x2a, 0x2b, 0x2e, 0,
+    ITEM_NONE,
+    ITEM_BOTTLE_PICOLYTE_BLUE,
+    ITEM_BOTTLE_PICOLYTE_GREEN,
+    ITEM_BOTTLE_PICOLYTE_RED,
+    ITEM_BOTTLE_PICOLYTE_ORANGE,
+    ITEM_BOTTLE_PICOLYTE_YELLOW,
+    ITEM_BOTTLE_PICOLYTE_WHITE,
+    ITEM_NONE,
 };
 static const Hitbox gUnk_0810C894 = { 0, 0, { 0, 0, 0, 0 }, 16, 6 };
 static const gUnk_0810C89C_struct gUnk_0810C89C[] = {

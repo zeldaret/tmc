@@ -10,7 +10,7 @@ SCRIPT_START script_CutsceneMiscObjectV3DefeatedMinishCap
 	CallWithArg sub_080960C4, script_CutsceneMiscObjectV3DefeatedMinishCap2
 	EndBlock
 	PlaySound SFX_SPARKLES
-	_0807EF3C 0xff80, 0x0000
+	_0807EF3C -128, 0x0000
 	PlaySound SFX_143
 	SetAnimation 0x0004
 	SetSyncFlag 0x00000002

@@ -28,7 +28,7 @@ void HyruleTownBellManager_Main(HyruleTownBellManager* this) {
             if (object != NULL) {
                 object->x.HALF.HI = roomControls->origin_x + 0x1f8;
                 object->y.HALF.HI = roomControls->origin_y + 0x140;
-                object->z.HALF.HI = 0xffe8;
+                object->z.HALF.HI = -24;
             }
             DeleteThisEntity();
         }

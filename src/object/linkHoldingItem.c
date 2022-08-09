@@ -62,10 +62,10 @@ void LinkHoldingItem_Action1(LinkHoldingItemEntity* this) {
         case 1:
             this->unk_68 = GiveItem(super->type, super->type2);
             switch (super->type) {
-                case 0x40:
-                case 0x41:
-                case 0x42:
-                case 0x43:
+                case ITEM_EARTH_ELEMENT:
+                case ITEM_FIRE_ELEMENT:
+                case ITEM_WATER_ELEMENT:
+                case ITEM_WIND_ELEMENT:
                     break;
                 default:
                     SoundReq(SFX_ITEM_GET);
@@ -78,7 +78,7 @@ void LinkHoldingItem_Action1(LinkHoldingItemEntity* this) {
             SoundReq(SFX_ITEM_GET);
             break;
         case 5:
-            tmp = GetInventoryValue((u32)super->type);
+            tmp = GetInventoryValue(super->type);
             ptr = &gItemMetaData[super->type];
             if (tmp == 0) {
                 this->unk_68 = *(u16*)&ptr->textId;
@@ -109,10 +109,10 @@ void LinkHoldingItem_Action2(LinkHoldingItemEntity* this) {
                 messageIndex = this->unk_68;
                 if (messageIndex != 0) {
                     switch (super->type) {
-                        case 0x63:
+                        case ITEM_HEART_PIECE:
                             messageIndex += gSave.stats.heartPieces;
                             break;
-                        case 0x3f:
+                        case ITEM_SHELLS:
                             if (super->type2 > 1) {
                                 if (messageIndex == TEXT_INDEX(TEXT_ITEM_GET, 0x77)) {
                                     messageIndex--;
@@ -138,11 +138,11 @@ void LinkHoldingItem_Action3(LinkHoldingItemEntity* this) {
         case 0:
         case 1:
         case 2:
-            if (super->type != 0x62) {
-                if (super->type != 0x63) {
+            if (super->type != ITEM_HEART_CONTAINER) {
+                if (super->type != ITEM_HEART_PIECE) {
                     break;
                 }
-                ModHealth(0xa0);
+                ModHealth(160);
                 gSave.stats.heartPieces++;
                 if (gSave.stats.heartPieces < 4) {
                     break;
@@ -150,15 +150,15 @@ void LinkHoldingItem_Action3(LinkHoldingItemEntity* this) {
                 gSave.stats.heartPieces = 0;
             }
             gSave.stats.maxHealth += 8;
-            if (gSave.stats.maxHealth > 0xa0) {
-                gSave.stats.maxHealth = 0xa0;
+            if (gSave.stats.maxHealth > 160) {
+                gSave.stats.maxHealth = 160;
             }
-            ModHealth(0xa0);
+            ModHealth(160);
             break;
         case 3:
             tmp = GetBottleContaining(super->type);
             if (tmp != 0) {
-                gSave.stats.itemButtons[tmp + 1] = 0x20;
+                gSave.stats.itemButtons[tmp + 1] = ITEM_BOTTLE_EMPTY;
             } else {
                 SetInventoryValue(super->type, ITEM_GREEN_SWORD);
             }

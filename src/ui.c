@@ -198,7 +198,7 @@ void InitUI(bool32 keepHealthAndRupees) {
     gUnk_0200AF00.maxHealth = gSave.stats.maxHealth >> 1;
     LoadPaletteGroup(0xc);
     LoadGfxGroup(0x10);
-    MemClear(&gBG0Buffer, 0x800);
+    MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     gScreen.bg0.tilemap = &gBG0Buffer;
     gScreen.bg0.control = 0x1f0c;
     gScreen.lcd.displayControl |= 0x100;

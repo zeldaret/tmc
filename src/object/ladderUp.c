@@ -31,7 +31,7 @@ void LadderUp(Entity* this) {
             this->spriteOffsetY += 8;
             InitializeAnimation(this, 10);
             if (this->action == 1) {
-                this->z.HALF.HI = 0xff80;
+                this->z.HALF.HI = -0x80;
             }
             if (this->type2) {
                 return;

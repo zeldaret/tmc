@@ -1,7 +1,7 @@
 @ Minish Woods Ezlo Cutscene NPC4E
 SCRIPT_START script_Npc4EEzloCutscene
 	BeginBlock
-	Call sub_08054564
+	Call DisableRandomDrops
 	EndBlock
 script_0801248A:
 	CheckPlayerInRegion 0x0208, 0x02c8, 0x4020
@@ -126,7 +126,7 @@ script_08012566:
 	StopBgm
 	Wait 0x003c
 	PlayBGM
-	Call sub_08054570
+	Call EnableRandomDrops
 	SetGlobalFlag EZERO_1ST
 	CallWithArg ResetPlayerFlag, PL_NO_CAP
 	Call EnablePauseMenu

@@ -50,7 +50,7 @@ script_080144C8:
 	Wait 0x0018
 	SetRoomFlag 0x0000
 	SetLocalFlag 0x0092
-	_0807EEF4 0x0000, 0xffa0
+	_0807EEF4 0x0000, -96
 	Call DisablePauseMenu
 	Jump script_080144FC
 script_080144F0:

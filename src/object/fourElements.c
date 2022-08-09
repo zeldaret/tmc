@@ -51,7 +51,7 @@ void FourElements_Init(FourElementsEntity* this) {
     super->spritePriority.b1 = 2;
     super->spriteRendering.b3 = 1;
     super->hitbox = (Hitbox*)&gHitbox_6;
-    super->z.HALF.HI = 0xff40;
+    super->z.HALF.HI = -192;
     this->unk_6a = 0x40;
     switch (super->type) {
         case 0x41:
@@ -157,10 +157,10 @@ void sub_080A0424(FourElementsEntity* this) {
 }
 
 void sub_080A0444(FourElementsEntity* this) {
-    static const u8 gUnk_081248B4[] = {
-        249, 248, 247, 246, 245, 246, 247, 248,
+    static const s8 gUnk_081248B4[] = {
+        -7, -8, -9, -10, -11, -10, -9, -8,
     };
-    super->z.HALF.HI = gUnk_081248B4[(super->subtimer++ >> 3) & 7] << 0x18 >> 0x18;
+    super->z.HALF.HI = gUnk_081248B4[(super->subtimer++ >> 3) & 7];
 }
 
 void sub_080A0464(FourElementsEntity* this, ScriptExecutionContext* context) {

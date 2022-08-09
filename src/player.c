@@ -522,7 +522,7 @@ static void PlayerNormal(Entity* this) {
             gPlayerState.framestate = PL_STATE_SWIM;
             sub_0807ACCC(this);
         } else {
-            if ((gPlayerState.flags & PL_FLAGS2000000) == 0)
+            if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) == 0)
                 this->spritePriority.b1 = 1;
             if (gPlayerState.dash_state & 0x40) {
                 sub_08008AA0(this);
@@ -1257,7 +1257,7 @@ static void sub_080717F8(Entity* this) {
     this->animationState = gArea.portal_exit_dir << 1;
     this->x.HALF.HI = gArea.portal_x + sOffsets[gArea.portal_exit_dir * 2];
     this->y.HALF.HI = gArea.portal_y + sOffsets[gArea.portal_exit_dir * 2 + 1];
-    gArea.unk1A = 0xb4;
+    gArea.portal_timer = 180;
     gPauseMenuOptions.disabled = 0;
     this->action = PLAYER_MINISH;
     this->subAction = 0;
@@ -1551,7 +1551,7 @@ static void sub_08071D04(Entity* this) {
         return;
 
     deltaHealth = 0;
-    idx = GetBottleContaining(0x28);
+    idx = GetBottleContaining(ITEM_BOTTLE_FAIRY);
     if (idx != 0) {
         gSave.stats.bottles[idx - 1] = 0x20;
         CreateObject(FAIRY, 0x60, 2);
@@ -3783,7 +3783,7 @@ static void conveyer_push(Entity* this) {
     ResetPlayerItem();
     this->spritePriority.b1 = 0;
     this->speed = WALK_SPEED;
-    gPlayerState.flags |= PL_FLAGS2000000;
+    gPlayerState.flags |= PL_CONVEYOR_PUSHED;
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
     gPlayerState.field_0x27[0]++;

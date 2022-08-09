@@ -113,7 +113,7 @@ void MacroPlayer_Type0_Init(MacroPlayerEntity* this) {
     super->spriteOrientation.flipY = 2;
     this->unk68.HWORD = 0x114;
     super->animIndex = 0xff;
-    super->z.HALF.HI = 0xff50;
+    super->z.HALF.HI = -0xb0;
     this->unk6a = 4;
     super->spriteRendering.b0 = 3;
     SetAffineInfo(super, 4, 4, 0);

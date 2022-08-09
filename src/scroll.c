@@ -469,8 +469,7 @@ void UpdateIsDiggingCave(void) {
 }
 
 void ClearTilemaps(void) {
-    // Is gRoomControls 4 bytes bigger?
-    MemClear(&gRoomControls, 0x38);
+    MemClear(&gRoomControls, sizeof(gRoomControls));
     MemClear(&gDiggingCaveEntranceTransition, sizeof(gDiggingCaveEntranceTransition));
     gRoomControls.filler3 = 0xffff;
     gDiggingCaveEntranceTransition.previousArea = 0xff;

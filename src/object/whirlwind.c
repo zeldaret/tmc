@@ -46,7 +46,7 @@ void Whirlwind_Init(Entity* this) {
         ChangeObjPalette(this, 0x161);
         InitializeAnimation(this, 1);
     } else {
-        this->z.HALF.HI = 0xffe8;
+        this->z.HALF.HI = -24;
         InitializeAnimation(this, 1);
     }
     if ((this->flags & ENT_SCRIPTED) != 0) {

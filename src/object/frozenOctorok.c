@@ -344,7 +344,7 @@ void sub_0809CB70(FrozenOctorokEntity* this, s32 angle, s32 radius) {
 NONMATCH("asm/non_matching/frozenOctorok/sub_0809CBE4.inc", void sub_0809CBE4(FrozenOctorokEntity* this)) {
     this->unk_79 += super->subtimer;
     if ((s8)super->subtimer < 0) {
-        if (super->timer < -(this->unk_79 << 0x18 >> 0x18)) {
+        if (super->timer < -this->unk_79) {
             super->subtimer = -super->subtimer;
             SoundReq(SFX_19E);
         }

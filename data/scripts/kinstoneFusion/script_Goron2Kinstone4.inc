@@ -36,5 +36,5 @@ script_0800BFA8:
 	Wait 0x003c
 	Call sub_08054F64
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, 0xffe0
+	_0807EEF4 0x0000, -32
 SCRIPT_END

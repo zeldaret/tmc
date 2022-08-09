@@ -102,7 +102,7 @@ void GyorgBossObject_SetupStart(GyorgBossObjectEntity* this) {
     this->unk_76 = 0xc0;
     this->unk_78 = 0xc0;
     gRoomTransition.field_0x39 = 1;
-    gPlayerState.flags |= PL_FLAGS20000;
+    gPlayerState.flags |= PL_GYORG_FIGHT;
     gPlayerState.startPosX = gRoomControls.origin_x + 0x200;
     gPlayerState.startPosY = gRoomControls.origin_y + 0x210;
 #ifndef EU
@@ -238,7 +238,7 @@ void GyorgBossObject_FemalePhase4(GyorgBossObjectEntity* this) {
             this->timer = 420;
             super->direction = 0;
             super->speed = 0x60;
-            gPlayerState.flags &= ~PL_FLAGS20000;
+            gPlayerState.flags &= ~PL_GYORG_FIGHT;
             CopyPosition(&gPlayerEntity, super);
             gRoomControls.camera_target = super;
             SetPlayerControl(2);
