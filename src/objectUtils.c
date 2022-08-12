@@ -214,28 +214,20 @@ Entity* CreateLargeWaterTrace(Entity* parent) {
     return ent;
 }
 
-NONMATCH("asm/non_matching/objectUtils/sub_080A2AF4.inc", void sub_080A2AF4(Entity* parent, s32 param_2, s32 param_3)) {
+void sub_080A2AF4(Entity* parent, s32 param_2, s32 param_3) {
     Entity* entity;
-    s32 rand;
     s32 radius;
-    u32 angle;
-    s32 tmp;
+    s32 angle;
 
     entity = CreateLargeWaterTrace(parent);
     if (entity != NULL) {
-        rand = Random();
-        radius = (rand % (param_3 - param_2 + 1)) + param_2;
-        angle = rand >> 0x10 & 0xff;
-        radius *= 0x100;
-        tmp = FixedMul(gSineTable[angle], radius);
-        tmp = FixedDiv(tmp, 0x100);
-        entity->x.WORD += ((tmp << 0x10) >> 8);
-        tmp = FixedMul(gSineTable[angle + 0x40], radius);
-        tmp = FixedDiv(tmp, 0x100);
-        entity->y.WORD -= ((tmp << 0x10) >> 8);
+        angle = Random();
+        radius = (angle % (param_3 - param_2 + 1)) + param_2;
+        angle = angle >> 0x10 & 0xff;
+        entity->x.WORD += FixedDiv(FixedMul(gSineTable[angle], radius << 8), 0x100) << 8;
+        entity->y.WORD -= FixedDiv(FixedMul(gSineTable[angle + 0x40], radius << 8), 0x100) << 8;
     }
 }
-END_NONMATCH
 
 void CreateSparkle(Entity* entity) {
     Entity* sparkle;
