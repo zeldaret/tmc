@@ -1,16 +1,25 @@
-#include "global.h"
 #include "asm.h"
+#include "collision.h"
+#include "common.h"
+#include "enemy.h"
 #include "entity.h"
+#include "functions.h"
+#include "game.h"
+#include "global.h"
+#include "item.h"
+#include "object.h"
 #include "player.h"
 #include "save.h"
-#include "common.h"
-#include "functions.h"
-#include "enemy.h"
-#include "object.h"
-#include "game.h"
 
 extern u8 gCollidableCount;
 extern u8 gUnk_080B3740[];
+
+typedef enum {
+    COL_FLAG_1 = 1,
+    COL_FLAG_2 = 2,
+    COL_FLAG_4 = 4,
+    COL_FLAG_8 = 8,
+} ColSettingsFlags;
 
 typedef struct {
     /*0x00*/ u8 orgKnockbackSpeed;
@@ -23,8 +32,8 @@ typedef struct {
     /*0x07*/ u8 tgtKnockbackDuration;
     /*0x08*/ u8 orgDamage;
     /*0x09*/ u8 tgtConfusedTime;
-    /*0x0a*/ u8 _a;
-    /*0x0b*/ u8 _b;
+    /*0x0a*/ u8 flags; /**< @see ColSettingsFlags */
+    /*0x0b*/ u8 pad;
 } ColSettings;
 
 extern ColSettings gCollisionMtx[173 * 34];
@@ -32,10 +41,8 @@ extern ColSettings gCollisionMtx[173 * 34];
 extern void ram_CollideAll(void);
 u32 sub_08081420(Entity*);
 extern void SoundReqClipped(Entity*, u32);
-s32 sub_08018308(Entity*, Entity*, u32, ColSettings*);
 void sub_08079D84(void);
 void sub_080180BC(Entity*, Entity*);
-void sub_0807AFE8(void);
 
 typedef struct {
     void* last;
@@ -208,51 +215,49 @@ bool32 IsCollidingPlayer(Entity* this) {
     return FALSE;
 }
 
-s32 sub_08017874(Entity* a, Entity* b) {
-    s32 newDmg;
-    s32 v5;
-    s32 v6;
+s32 CalculateDamage(Entity* org, Entity* tgt) {
+    s32 damage;
+    s32 health;
 
-    asm("" ::: "r1");
-    if (a->kind == PLAYER) {
-        newDmg = b->damage;
+    if (org->kind == PLAYER) {
+        damage = tgt->damage;
         switch (gSave.stats.charm) {
-            case 47:
-                newDmg /= 4;
+            case BOTTLE_CHARM_NAYRU:
+                damage /= 4;
                 break;
-            case 48:
-                newDmg /= 2;
+            case BOTTLE_CHARM_FARORE:
+                damage /= 2;
                 break;
         }
-        if (newDmg <= 0)
-            newDmg = 1;
-        v5 = ModHealth(-newDmg);
-        SoundReqClipped(a, SFX_PLY_VO6);
+        if (damage <= 0)
+            damage = 1;
+        health = ModHealth(-damage);
+        SoundReqClipped(org, SFX_PLY_VO6);
     } else {
-        v6 = b->damage;
-        if (b->kind == PLAYER_ITEM) {
+        damage = tgt->damage;
+        if (tgt->kind == PLAYER_ITEM) {
             switch (gSave.stats.charm) {
-                case 48:
-                    v6 = 3 * v6 / 2;
+                case BOTTLE_CHARM_FARORE:
+                    damage = 3 * damage / 2;
                     break;
-                case 49:
-                    v6 *= 2;
+                case BOTTLE_CHARM_DIN:
+                    damage *= 2;
                     break;
             }
         }
-        v5 = a->health - v6;
-        if (a->kind == ENEMY) {
-            if ((a->field_0x6c.HALF.HI & 1) != 0)
-                SoundReqClipped(a, SFX_BOSS_HIT);
+        health = org->health - damage;
+        if (org->kind == ENEMY) {
+            if ((org->field_0x6c.HALF.HI & 1) != 0)
+                SoundReqClipped(org, SFX_BOSS_HIT);
             else
-                SoundReqClipped(a, SFX_HIT);
+                SoundReqClipped(org, SFX_HIT);
         }
     }
-    if (v5 <= 0) {
-        COLLISION_OFF(a);
+    if (health <= 0) {
+        COLLISION_OFF(org);
         return 0;
     }
-    return v5;
+    return health;
 }
 
 void sub_08017940(Entity* org, Entity* tgt) {
@@ -308,51 +313,71 @@ Entity* sub_08017A90(Entity* a1, Entity* parent) {
     return NULL;
 }
 
-typedef s32 (*CollisionHandler)(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08018250(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08018288(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08017E88(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+typedef CollisionResult (*CollisionHandler)(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08018250(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult CollisionMazaalShrinkRay(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
+CollisionResult sub_08017E88(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 
-const CollisionHandler gUnk_080B3744[] = {
-    sub_08018308, CollisionNoOp, CollisionNoOp, CollisionGroundItem, sub_08017B58, sub_08017EB0,
-    sub_08017F3C, sub_08017F40,  sub_0801802C,  sub_08017DD4,        sub_080180E8, sub_08017BBC,
-    sub_08017C40, sub_08017D6C,  sub_08017D28,  sub_08018168,        sub_08018228, sub_08018250,
-    sub_08018288, sub_080182A8,  sub_08017B1C,  sub_08017CBC,        sub_08017E88,
+const CollisionHandler gCollisionHandlers[] = {
+    CollisionDefault,
+    CollisionNoOp,
+    CollisionNoOp,
+    CollisionGroundItem,
+    sub_08017B58,
+    sub_08017EB0,
+    sub_08017F3C,
+    sub_08017F40,
+    sub_0801802C,
+    sub_08017DD4,
+    sub_080180E8,
+    sub_08017BBC,
+    sub_08017C40,
+    sub_08017D6C,
+    sub_08017D28,
+    sub_08018168,
+    sub_08018228,
+    sub_08018250,
+    CollisionMazaalShrinkRay,
+    sub_080182A8,
+    sub_08017B1C,
+    sub_08017CBC,
+    sub_08017E88,
 };
 
-s32 CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    return 0;
+CollisionResult CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+    return RESULT_NO_COLLISION;
 }
 
 // origin: player or sword
 // target: item
-s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     COLLISION_OFF(tgt);
     tgt->contactFlags = org->hurtType | 0x80;
     if ((tgt->type == 0x5F || tgt->type == 0x60) && sub_08081420(tgt))
         tgt->health = 0;
-    return 2;
+    return RESULT_COLLISION_WITHOUT_SET;
 }
 
-s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((gPlayerState.dash_state & 0x60) != 0) {
         COLLISION_OFF(tgt);
     } else {
@@ -360,10 +385,10 @@ s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         org->iframes = -20;
         org->knockbackSpeed = 640;
     }
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((tgt->gustJarState & 4) != 0) {
         if (tgt->gustJarTolerance) {
             tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarSpeed;
@@ -379,10 +404,10 @@ s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | PL_IN_MINECART)) == 0) {
         Entity* e = CreateObject(LINK_FIRE, 1, 0);
         if (e != NULL) {
@@ -392,21 +417,21 @@ s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         }
     }
     tgt->damage = 4;
-    org->health = sub_08017874(org, tgt);
+    org->health = CalculateDamage(org, tgt);
     org->knockbackDuration = 12;
     org->iframes = 30;
     org->knockbackSpeed = 384;
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_FROZEN | PL_IN_MINECART)) == 0 &&
         gPlayerState.queued_action == PLAYER_INIT) {
         if (org->action == 1 || org->action == 24) {
             tgt->damage = 4;
-            org->health = sub_08017874(org, tgt);
+            org->health = CalculateDamage(org, tgt);
             gPlayerState.flags = PL_FROZEN;
             gPlayerState.queued_action = PLAYER_FROZEN;
         }
@@ -416,10 +441,10 @@ s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     org->knockbackSpeed = 640;
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     direction = DirectionNormalize(DirectionTurnAround(direction) - 0xc);
     if (DirectionNormalize(-direction + tgt->direction) < 0x19) {
         org->iframes = -12;
@@ -433,10 +458,10 @@ s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         if (org->iframes == 0)
             org->iframes = -1;
     }
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     gPlayerState.mobility = 1;
     org->field_0x7a.HWORD = 600;
     org->knockbackDuration = 12;
@@ -444,10 +469,10 @@ s32 sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     org->knockbackSpeed = 640;
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 x;
     u32 y;
     ColSettings* p;
@@ -463,16 +488,16 @@ s32 sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         y = 0xae4;
     }
     p = &gCollisionMtx[x + y];
-    return sub_08018308(org, tgt, direction, p);
+    return CollisionDefault(org, tgt, direction, p);
 }
 
-int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     org->contactFlags = 0;
     if (tgt->damage & 0x80)
         tgt->damage &= ~0x80;
     else
         tgt->damage = 4;
-    gPlayerEntity.health = sub_08017874(&gPlayerEntity, tgt);
+    gPlayerEntity.health = CalculateDamage(&gPlayerEntity, tgt);
     tgt->iframes = -12;
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         sub_08079D84();
@@ -486,25 +511,25 @@ int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017E88(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017E88(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     org->knockbackDuration = 2;
     org->knockbackSpeed = 640;
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->damage == 0)
-        return 0;
+        return RESULT_NO_COLLISION;
     if (org == &gPlayerEntity) {
-        u32 temp = tgt->damage;
+        u32 prevDamage = tgt->damage;
         tgt->damage = 8;
-        gPlayerEntity.health = sub_08017874(&gPlayerEntity, tgt);
-        tgt->damage = temp;
+        gPlayerEntity.health = CalculateDamage(&gPlayerEntity, tgt);
+        tgt->damage = prevDamage;
         gPlayerEntity.knockbackDuration = 12;
         gPlayerEntity.iframes = 16;
         gPlayerEntity.knockbackSpeed = 384;
@@ -516,14 +541,14 @@ s32 sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    return 1;
+CollisionResult sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+    return RESULT_COLLISION;
 }
 
-s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
         if (org == &gPlayerEntity) {
             if (PlayerCanBeMoved() &&
@@ -548,8 +573,8 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 org->spriteOrientation.flipY = tgt->spriteOrientation.flipY;
                 org->iframes = -1;
                 tgt->iframes = -8;
-                ResetPlayerItem();
-                return 1;
+                ResetActiveItems();
+                return RESULT_COLLISION;
             }
         } else {
             org->health = 0;
@@ -557,39 +582,39 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     } else if (tgt->kind == ENEMY && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
     }
-    return 0;
+    return RESULT_NO_COLLISION;
 }
 
-s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     int kind;
     u32 x;
 
     kind = org->kind;
-    if (kind == 1) {
+    if (kind == PLAYER) {
         if (PlayerCanBeMoved()) {
             if (((DirectionNormalize(DirectionTurnAround(direction) -
                                      Direction8FromAnimationState(tgt->animationState) + 5))) > 0xA) {
                 x = 0x11aa;
-                return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
+                return CollisionDefault(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
             } else {
                 sub_080180BC(org, tgt);
-                return 1;
+                return RESULT_COLLISION;
             }
         }
-    } else if (kind == 8) {
+    } else if (kind == PLAYER_ITEM) {
         if (DirectionNormalize(
                 (DirectionTurnAround(org->direction) - Direction8FromAnimationState(tgt->animationState) + 5)) <= 0xA) {
             org->health = 0;
             sub_080180BC(org, tgt);
-            return 1;
+            return RESULT_COLLISION;
         }
     } else {
         org->health = 0;
-        return 0;
+        return RESULT_NO_COLLISION;
     }
 
     x = 0x11aa;
-    return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
+    return CollisionDefault(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
 }
 
 void sub_080180BC(Entity* org, Entity* tgt) {
@@ -600,7 +625,7 @@ void sub_080180BC(Entity* org, Entity* tgt) {
     tgt->subAction = -1;
 }
 
-s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 v3;
     u32 x;
 
@@ -613,13 +638,13 @@ s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->iframes = -16;
         tgt->knockbackSpeed = 768;
         sub_08017940(org, tgt);
-        return 1;
+        return RESULT_COLLISION;
     }
     x = 0x352;
-    return sub_08018308(org, tgt, v3, &gCollisionMtx[org->hurtType + x]);
+    return CollisionDefault(org, tgt, v3, &gCollisionMtx[org->hurtType + x]);
 }
 
-s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
         if (org == &gPlayerEntity) {
             if (PlayerCanBeMoved() &&
@@ -639,7 +664,7 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 gPlayerEntity.iframes = 0xff;
                 tgt->iframes = -8;
                 PutAwayItems();
-                return 1;
+                return RESULT_COLLISION;
             }
         } else {
             org->health = 0;
@@ -647,16 +672,16 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     } else if ((tgt->kind == ENEMY) && (org == &gPlayerEntity)) {
         sub_08004484(tgt, &gPlayerEntity);
     }
-    return 0;
+    return RESULT_NO_COLLISION;
 }
 
-s32 sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (org == &gPlayerEntity && PlayerCanBeMoved())
         sub_08004484(tgt, org);
-    return 0;
+    return RESULT_NO_COLLISION;
 }
 
-s32 sub_08018250(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_08018250(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     org->iframes = -1;
     if (org->direction == 0) {
         tgt->iframes = 16;
@@ -664,18 +689,18 @@ s32 sub_08018250(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     } else {
         tgt->iframes = -1;
     }
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08018288(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult CollisionMazaalShrinkRay(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (org == &gPlayerEntity)
-        sub_0807AFE8();
+        PlayerShrinkByRay();
     else
         org->health = 0;
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
         if (org->iframes == 0)
             org->iframes = -1;
@@ -683,12 +708,12 @@ s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             tgt->iframes = -1;
     } else {
         u32 x = 0x92a;
-        return sub_08018308(org, tgt, direction, &gCollisionMtx[org->hurtType + x]);
+        return CollisionDefault(org, tgt, direction, &gCollisionMtx[org->hurtType + x]);
     }
-    return 1;
+    return RESULT_COLLISION;
 }
 
-s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 confused = 0;
     if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
@@ -697,7 +722,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if ((org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) &&
         gPlayerEntity.animationState ==
             AnimationStateFlip180(Direction8ToAnimationState(DirectionRoundUp(direction)))) {
-        return 0;
+        return RESULT_NO_COLLISION;
     }
     if (!confused) {
         u32 tmp2;
@@ -709,7 +734,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->damage = settings->tgtDamage;
         tmp2 = 0xFF;
         if (settings->tgtDamage != 0)
-            org->health = sub_08017874(org, tgt);
+            org->health = CalculateDamage(org, tgt);
         if (settings->orgConfusedTime > org->confusedTime)
             org->confusedTime = settings->orgConfusedTime;
         tgt->knockbackSpeed = 16 * settings->tgtKnockbackSpeed;
@@ -719,15 +744,15 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->knockbackDuration = settings->tgtKnockbackDuration;
         tmp2 &= (org->damage = settings->orgDamage);
         if (tmp2 != 0)
-            tgt->health = sub_08017874(tgt, org);
+            tgt->health = CalculateDamage(tgt, org);
         if (settings->tgtConfusedTime > tgt->confusedTime)
             tgt->confusedTime = settings->tgtConfusedTime;
     }
-    if (settings->_a & 1)
+    if (settings->flags & COL_FLAG_1)
         sub_08017940(org, tgt);
-    if (settings->_a & 2)
+    if (settings->flags & COL_FLAG_2)
         org->contactFlags = 0xca;
-    if (settings->_a & 4) {
+    if (settings->flags & COL_FLAG_4) {
         Entity* parent = tgt->parent;
         if (parent != NULL) {
             parent->contactFlags = 0xcc;
@@ -746,7 +771,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 sub_080179EC(org, tgt);
             }
         } else if (org->id == PL_ITEM_BOW) {
-            if (org->damage || (settings->_a & 8)) {
+            if (org->damage || (settings->flags & COL_FLAG_8)) {
                 sub_08017A90(org, tgt);
             }
         } else if (org->id == PL_ITEM_BOOMERANG) {
@@ -760,5 +785,5 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if (tgt->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) {
         gPlayerEntity.iframes = 0x80;
     }
-    return 1;
+    return RESULT_COLLISION;
 }

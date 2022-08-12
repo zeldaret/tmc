@@ -80,7 +80,7 @@ void sub_0801B250(PlayerItemBombEntity* this) {
     super->spriteSettings.draw = 1;
     super->action = 1;
     super->spritePriority.b1 = 3;
-    super->flags &= 0x7f;
+    super->flags &= ~0x80;
     if (super->type == 0xff) {
         super->timer = 60;
     } else if (super->type == 0xfe) {
@@ -105,17 +105,17 @@ void sub_0801B2CC(PlayerItemBombEntity* this) {
         RegisterCarryEntity(super);
     }
     switch (IsItemEquipped(ITEM_REMOTE_BOMBS)) {
-        case 0:
+        case EQUIP_SLOT_A:
             unaff_r5 = PLAYER_INPUT_1;
             break;
-        case 1:
+        case EQUIP_SLOT_B:
             unaff_r5 = PLAYER_INPUT_2;
             break;
-        case 2:
+        case EQUIP_SLOT_NONE:
             unaff_r5 = 0;
             break;
     }
-    if ((gPlayerState.playerInput.field_0x92 & unaff_r5) != 0) {
+    if ((gPlayerState.playerInput.newInput & unaff_r5) != 0) {
         super->timer = 0;
         super->subtimer = 1;
     }

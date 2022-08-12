@@ -972,10 +972,10 @@ static void InitializePlayer(void) {
     Entity* pl;
 
     sub_080784C8();
-    MemClear(&gUnk_03000B80, sizeof gUnk_03000B80);
-    MemClear(&gPlayerState, sizeof gPlayerState);
-    MemFill32(0xffffffff, &gPlayerState.path_memory, sizeof gPlayerState.path_memory);
-    MemClear(&gPlayerEntity, sizeof gPlayerEntity);
+    MemClear(&gActiveItems, sizeof(gActiveItems));
+    MemClear(&gPlayerState, sizeof(gPlayerState));
+    MemFill32(0xffffffff, &gPlayerState.path_memory, sizeof(gPlayerState.path_memory));
+    MemClear(&gPlayerEntity, sizeof(gPlayerEntity));
 
     pl = &gPlayerEntity;
 
@@ -2463,68 +2463,69 @@ void ModArrows(s32 arrows) {
  * 1: B
  * 2: Not equipped
  */
-u32 IsItemEquipped(u32 itemID) {
-    u32 itemSlot;
+EquipSlot IsItemEquipped(u32 itemId) {
+    EquipSlot equipSlot;
 
-    if (itemID == gSave.stats.itemButtons[SLOT_A])
-        itemSlot = 0;
-    else if (itemID == gSave.stats.itemButtons[SLOT_B])
-        itemSlot = 1;
-    else
-        itemSlot = 2;
-    return itemSlot;
+    if (itemId == gSave.stats.itemButtons[SLOT_A]) {
+        equipSlot = EQUIP_SLOT_A;
+    } else if (itemId == gSave.stats.itemButtons[SLOT_B]) {
+        equipSlot = EQUIP_SLOT_B;
+    } else {
+        equipSlot = EQUIP_SLOT_NONE;
+    }
+    return equipSlot;
 }
 
-void PutItemOnSlot(u32 itemID) {
-    u32 itemSlot;
-    u32 itemID2 = itemID;
-    if (itemID2 < 0x47) {
+void PutItemOnSlot(u32 itemId) {
+    EquipSlot equipSlot;
+    u32 itemId2 = itemId;
+    if (itemId2 < 0x47) {
         SetInventoryValue(0, 1);
     }
-    if (itemID2 - 1 < 0x1f) {
-        itemSlot = 2;
+    if (itemId2 - 1 < 0x1f) {
+        equipSlot = EQUIP_SLOT_NONE;
         if (gSave.stats.itemButtons[SLOT_A] == ITEM_NONE) {
-            itemSlot = 0;
+            equipSlot = EQUIP_SLOT_A;
         } else if (gSave.stats.itemButtons[SLOT_B] == ITEM_NONE) {
-            itemSlot = 1;
+            equipSlot = EQUIP_SLOT_B;
         }
-        if (itemSlot == 2) {
-            u32 temp = gItemMetaData[itemID2].menuSlot;
+        if (equipSlot == EQUIP_SLOT_NONE) {
+            u32 temp = gItemMetaData[itemId2].menuSlot;
             if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_A]].menuSlot) {
-                itemSlot = 0;
+                equipSlot = EQUIP_SLOT_A;
             } else {
                 if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_B]].menuSlot) {
-                    itemSlot = 1;
+                    equipSlot = EQUIP_SLOT_B;
                 }
             }
-            if (itemSlot == 2) {
+            if (equipSlot == EQUIP_SLOT_NONE) {
                 return;
             }
         }
-        ForceEquipItem(itemID2, itemSlot);
+        ForceEquipItem(itemId2, equipSlot);
     }
 }
 
-void ForceEquipItem(u32 itemID, u32 itemSlot) {
+void ForceEquipItem(u32 itemId, u32 equipSlot) {
     u32 otherItem;
-    u32 otherItemIndex;
+    u32 otherItemSlot;
     u32 replacedItem;
 
-    if ((itemID - 1 < 0x1f) && (itemSlot < 2)) {
-        otherItemIndex = itemSlot == 0;
-        replacedItem = gSave.stats.itemButtons[itemSlot];
-        otherItem = gSave.stats.itemButtons[otherItemIndex];
-        if (gItemMetaData[otherItem].menuSlot == gItemMetaData[itemID].menuSlot) {
+    if ((itemId - 1 < 0x1f) && (equipSlot < EQUIP_SLOT_NONE)) {
+        otherItemSlot = equipSlot == EQUIP_SLOT_A;
+        replacedItem = gSave.stats.itemButtons[equipSlot];
+        otherItem = gSave.stats.itemButtons[otherItemSlot];
+        if (gItemMetaData[otherItem].menuSlot == gItemMetaData[itemId].menuSlot) {
             otherItem = replacedItem;
         }
-        gSave.stats.itemButtons[itemSlot] = itemID;
-        gSave.stats.itemButtons[otherItemIndex] = otherItem;
+        gSave.stats.itemButtons[equipSlot] = itemId;
+        gSave.stats.itemButtons[otherItemSlot] = otherItem;
         gUnk_0200AF00.unk_13 = 0x7f;
         gUnk_0200AF00.unk_14 = 0x7f;
     }
 }
 
-u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
+u32 SetBottleContents(u32 itemId, u32 bottleIndex) {
     if (bottleIndex > 3) {
         bottleIndex = 0;
         for (bottleIndex = 0; gSave.stats.bottles[bottleIndex] != ITEM_BOTTLE_EMPTY;) {
@@ -2536,7 +2537,7 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
             return bottleIndex;
         }
     }
-    gSave.stats.bottles[bottleIndex] = itemID;
+    gSave.stats.bottles[bottleIndex] = itemId;
     return bottleIndex;
 }
 
@@ -2614,7 +2615,7 @@ void EnableRandomDrops(void) {
 
 extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
 extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
-u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter);
+u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter);
 u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     extern const u8 gUnk_080FE1B4[] /* = {
          ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,        ITEM_HEART,         ITEM_FAIRY,
@@ -2717,11 +2718,11 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     return ITEM_NONE;
 }
 
-u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
+u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
     u32 adjustedParam = itemParameter;
     Entity* itemEntity;
 
-    switch (itemID) {
+    switch (itemId) {
         case ITEM_ENEMY_BEETLE:
             if (!GetInventoryValue(ITEM_SMITH_SWORD)) {
                 return ITEM_NONE;
@@ -2757,22 +2758,22 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 return ITEM_NONE;
             }
 
-            if (itemID != ITEM_KINSTONE) {
-                adjustedParam = itemID - ITEM_KINSTONE_GREEN;
+            if (itemId != ITEM_KINSTONE) {
+                adjustedParam = itemId - ITEM_KINSTONE_GREEN;
                 rand = (Random() & 0x3f);
                 adjustedParam = gUnk_080FE1DD[(rand + adjustedParam * 0x40)];
                 if (adjustedParam == 0) {
-                    itemID = ITEM_NONE;
+                    itemId = ITEM_NONE;
                 } else {
-                    itemID = ITEM_KINSTONE;
+                    itemId = ITEM_KINSTONE;
                 }
             }
             break;
         }
     }
-    if (itemID != ITEM_NONE) {
-        if (itemID != ITEM_ENEMY_BEETLE) {
-            itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
+    if (itemId != ITEM_NONE) {
+        if (itemId != ITEM_ENEMY_BEETLE) {
+            itemEntity = CreateObject(GROUND_ITEM, itemId, adjustedParam);
             if (itemEntity != NULL) {
                 if (arg0 == &gPlayerEntity) {
                     itemEntity->timer = 1;
@@ -2800,7 +2801,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
             }
         }
     }
-    return itemID;
+    return itemId;
 }
 
 void Subtask_WorldEvent(void) {

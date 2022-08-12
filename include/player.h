@@ -12,7 +12,7 @@ enum PlayerActions {
     PLAYER_JUMP,
     PLAYER_PUSH,
     PLAYER_BOUNCE,
-    PLAYER_08070E9C,
+    PLAYER_08070E9C, // sub_080782C0, only when PLAYER_INPUT_1000 is newInput
     PLAYER_ITEMGET,
     PLAYER_MINISH,
     PLAYER_MINISHDIE,
@@ -236,35 +236,50 @@ typedef struct {
 typedef enum {
     PLAYER_INPUT_1 = 0x1,   // A
     PLAYER_INPUT_2 = 0x2,   // B
-    PLAYER_INPUT_8 = 0x8,   // A sub_080782C0, sub_0807953C, sub_0807AE20, sub_08076518. ItemForSale_Action2
-    PLAYER_INPUT_10 = 0x10, // B sub_0807953C, sub_0807ADB8, sub_08076518, ItemForSale_Action2
+    PLAYER_INPUT_8 = 0x8,   // A sub_080782C0, sub_0807953C, PlayerUpdateSwimming, sub_08076518. ItemForSale_Action2
+    PLAYER_INPUT_10 = 0x10, // B sub_0807953C, ToggleDiving, sub_08076518, ItemForSale_Action2
     PLAYER_INPUT_20 = 0x20, // R sub_0807953C
     PLAYER_INPUT_40 = 0x40, // A CrenelBeanSprout_Action1
-    PLAYER_INPUT_80 = 0x80, // R sub_08073584, sub_080777A0, sub_080782C0, CrenelBeanSprout_Action1, ItemForSale_Action2
+    PLAYER_INPUT_80 =
+        0x80, // R sub_08073584, IsPreventedFromUsingItem, sub_080782C0, CrenelBeanSprout_Action1, ItemForSale_Action2
     PLAYER_INPUT_RIGHT = 0x100,
     PLAYER_INPUT_LEFT = 0x200,
     PLAYER_INPUT_UP = 0x400,
     PLAYER_INPUT_DOWN = 0x800,
     PLAYER_INPUT_ANY_DIRECTION = 0xf00,
-    PLAYER_INPUT_1000 = 0x1000, // where is it set? sub_080782C0
-    PLAYER_INPUT_8000 = 0x8000, // R, sub_080778CC, sub_08076518
+    PLAYER_INPUT_1000 = 0x1000, // L, where is it set? sub_080782C0
+    PLAYER_INPUT_8000 = 0x8000, // R, IsTryingToPickupObject, sub_08076518
 
     // TODO What is the result of u32 result = (s32) - (keys & 0x200) >> 0x1f & 0x1000;?
 } PlayerInputState;
 
 typedef struct {
-    /*0x90*/ u16 field_0x90;
-    /*0x92*/ u16 field_0x92;
+    /*0x90*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
+    /*0x92*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
     /*0x94*/ u32 field_0x94;
     /*0x98*/ u16 playerMacroWaiting;
     /*0x9a*/ u16 playerMacroHeldKeys;
     /*0x9c*/ PlayerMacroEntry* playerMacro;
 } PlayerInput;
 
+typedef enum {
+    SWORD_MOVE_NONE,
+    SWORD_MOVE_SPIN,
+    SWORD_MOVE_ROLL,
+    SWORD_MOVE_DASH,
+    SWORD_MOVE_BREAK_POT,
+    SWORD_MOVE_FULL_BEAM,
+    SWORD_MOVE_GREAT_SPIN,
+    SWORD_MOVE_DOWN_THRUST,
+    SWORD_MOVE_LOW_BEAM,
+} SwordMove;
+
 typedef struct {
-    /*0x00*/ u8 field_0x0[2];
+    /*0x00*/ u8 prevAnim;
+    /*0x00*/ u8 grab_status;
     /*0x02*/ u8 jump_status;
-    /*0x03*/ u8 field_0x3[2];
+    /*0x03*/ u8 shield_status;
+    /*0x04*/ u8 attack_status;
     /*0x05*/ u8 heldObject;
     /*0x06*/ u8 pushedObject; // hi bit is special, rest is used as a timer
     /*0x07*/ u8 field_0x7;
@@ -272,8 +287,8 @@ typedef struct {
     /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
     /*0x0c*/ u8 queued_action;
-    /*0x0d*/ u8 field_0xd;
-    /*0x0e*/ u8 field_0xe;
+    /*0x0d*/ u8 direction;
+    /*0x0e*/ u8 itemAnimPriority;
     /*0x0f*/ u8 hurtBlinkSpeed;
     /*0x10*/ u8 field_0x10;
     /*0x11*/ u8 surfacePositionSameTimer;
@@ -291,7 +306,7 @@ typedef struct {
     /*0x1f*/ u8 field_0x1f[3];
     /*0x22*/ u16 tilePosition;
     /*0x24*/ u16 tileType;
-    /*0x26*/ u8 swim_state;
+    /*0x26*/ u8 swim_state; /**< Is the player swimming? 0x80 for diving */
     /*0x27*/ u8 field_0x27[5];
     /*0x2c*/ Entity* item;
     /*0x30*/ u32 flags;
@@ -323,10 +338,10 @@ typedef struct {
     /*0xa0*/ ChargeState chargeState;
     /*0xa8*/ u8 framestate;
     /*0xa9*/ u8 framestate_last;
-    /*0xaa*/ u8 field_0xaa;
-    /*0xab*/ u8 field_0xab;
-    /*0xac*/ u16 skills; /**< Bitfield of skills @see PlayerSkill */
-    /*0xae*/ u16 field_0xae;
+    /*0xaa*/ u8 attachedBeetleCount; /**< Count of the Beetles attached to the player. */
+    /*0xab*/ u8 lastSwordMove;       /**< The last move that has been performed with the sword. @see SwordMove */
+    /*0xac*/ u16 skills;             /**< Bitfield of skills @see PlayerSkill */
+    /*0xae*/ u8 pad[2];
 } PlayerState;
 
 typedef struct {
@@ -359,23 +374,25 @@ typedef struct {
 
 typedef struct {
     /*0x0*/ u8 field_0x0;
-    /*0x1*/ u8 behaviorID;
+    /*0x1*/ u8 behaviorId;
     /*0x2*/ u8 field_0x2[2];
     /*0x4*/ u8 stateID;
     /*0x5*/ u8 field_0x5;
     /*0x6*/ u8 field_0x6;
     /*0x7*/ u8 timer;
     /*0x8*/ u8 subtimer;
-    /*0x9*/ u8 field_0x9;
+    /*0x9*/ u8 priority;
     /*0xa*/ u8 playerAnimationState;
     /*0xb*/ u8 direction;
-    /*0xc*/ u8 playerAnimIndex;
-    /*0xd*/ u8 playerFrameDuration;
-    /*0xe*/ u8 playerFrame;
-    /*0xf*/ u8 field_0xf;
-    /*0x10*/ u16 field_0x10;
-    /*0xf*/ u8 playerFrameIndex;
-    /*0x12*/ u8 field_0x12[5];
+    /*0xc*/ u8 playerAnimIndex;     /**< Stored animIndex of the player entity. */
+    /*0xd*/ u8 playerFrameDuration; /**< Stored frameDuration of the player entity. */
+    /*0xe*/ u8
+        playerFrame; /**< Stored frame of the player entity. But also used for general purpose in item behaviours? */
+    /*0xf*/ u8
+        animPriority; /**< In sub_08079064 the animIndex of the ItemBehavior with the max animPriority is selected. */
+    /*0x10*/ u16 animIndex;
+    /*0x12*/ u8 playerFrameIndex; /**< Stored frameIndex of the player entity. */
+    /*0x13*/ u8 field_0x13[5];
     /*0x18*/ Entity* field_0x18;
 } ItemBehavior;
 
@@ -392,7 +409,7 @@ extern Entity gPlayerEntity;
 void DoPlayerAction(Entity*);
 bool32 CheckInitPauseMenu(void);
 void SetPlayerControl(PlayerControlMode mode);
-void ResetPlayerItem(void);
+void ResetActiveItems(void);
 void ResetPlayerVelocity(void);
 void ResetPlayerAnimationAndAction(void);
 void SetPlayerActionNormal(void);
@@ -407,7 +424,7 @@ void CreateEzloHint(u32, u32);
 
 // game.c
 /** @see Item */
-u32 IsItemEquipped(u32);
+/*EquipSlot*/ u32 IsItemEquipped(u32 itemId);
 /** @see Item */
 u32 GetInventoryValue(u32);
 /** @see Item */
@@ -418,7 +435,7 @@ void ModBombs(s32 delta);
 
 // playerUtils.c
 void DeleteClones(void);
-void sub_08077728(u32);
+void CreateItemEquippedAtSlot(/*EquipSlot*/ u32 equipSlot);
 void PutAwayItems(void);
 void sub_08079E58(s32 speed, u32 direction);
 void RespawnPlayer(void);
@@ -430,13 +447,13 @@ void PlayerMinishSetNormalAndCollide(void);
 u32 sub_08079B24(void);
 void sub_08079708(Entity*);
 void sub_08079744(Entity*);
-void sub_0807AE20(Entity*);
-u32 sub_0807A894(Entity*);
+void PlayerUpdateSwimming(Entity*);
+u32 GetCollisionTileInFront(Entity*);
 u32 sub_080797C4(void);
 void CheckPlayerVelocity(void);
 void sub_0807B068(Entity*);
 u32 sub_0807A2F8(u32);
-void sub_08077698(/* PlayerEntity* */);
+void UpdateActiveItems(/* PlayerEntity* */);
 bool32 sub_0807A2B8(void);
 u32 sub_08079550(void);
 u32 sub_080782C0(void);
@@ -467,20 +484,20 @@ void RegisterCarryEntity(Entity*);
 void FreeCarryEntity(Entity*);
 void PlayerDropHeldObject();
 void PlayerResetStateFromFusion();
-void DeletePlayerItem(ItemBehavior*, u32);
+void DeleteItemBehavior(ItemBehavior*, u32);
 void sub_08077D38(ItemBehavior*, u32);
-void sub_08077DF4(ItemBehavior*, u32);
+void SetItemAnim(ItemBehavior* this, u32 animIndex);
 void sub_08077E3C(ItemBehavior*, u32);
 void sub_080751E8(u32, u32, void*);
 void sub_08077B98(ItemBehavior*);
 void sub_08077BB8(ItemBehavior*);
-Entity* sub_08077C0C(ItemBehavior*, u32);
-Entity* sub_08077C94(ItemBehavior*, u32);
+Entity* CreatePlayerItemIfNotExists(ItemBehavior*, u32);
+Entity* FindPlayerItemForItem(ItemBehavior*, u32);
 bool32 PlayerCanBeMoved(void);
 bool32 sub_08077EC8(ItemBehavior*);
-bool32 sub_08077EFC(ItemBehavior*);
-bool32 sub_08077F10(ItemBehavior*);
-bool32 sub_08077F24(ItemBehavior*, u32);
+bool32 IsItemActive(ItemBehavior*);
+bool32 IsItemActivatedThisFrame(ItemBehavior*);
+bool32 IsItemActiveByInput(ItemBehavior*, PlayerInputState);
 bool32 sub_08077FEC(u32);
 void sub_08078180(void);
 void sub_080784C8();
@@ -500,17 +517,19 @@ void sub_08079BD8(Entity*);
 u32 sub_08079D48();
 void sub_08079D84(void);
 u32 sub_08079FC4(u32);
-void sub_0807A050(void);
+void UpdatePlayerPalette(void);
 void sub_0807A5B8(u32);
 void sub_0807A8D8(Entity*);
 void sub_0807AA80(Entity*);
 void sub_0807AABC(Entity*);
-void sub_0807ACCC(Entity*);
-u32 sub_0807B014();
+void PlayerSwimming(Entity*);
+u32 GetSwordBeam();
 void sub_0807B0C8(void);
 bool32 sub_0807BD14(Entity*, u32);
 Entity* CreatePlayerItemWithParent(ItemBehavior*, u32);
 bool32 HasSwordEquipped();
+u32 GetPlayerPalette(bool32 use);
+void PlayerShrinkByRay(void);
 
 // player.s
 extern u32 PlayerCheckNEastTile();

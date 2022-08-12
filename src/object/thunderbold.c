@@ -42,7 +42,7 @@ void Thunderbold(ThunderboldEntity* this) {
 void Thunderbold_Init(ThunderboldEntity* this) {
     const struct_08122950* ptr;
     super->action = 1;
-    super->flags &= 0x7f;
+    super->flags &= ~0x80;
     super->spriteSettings.draw = 1;
     if (super->collisionLayer == 0) {
         ResolveCollisionLayer(super);

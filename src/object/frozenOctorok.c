@@ -319,7 +319,7 @@ void FrozenOctorok_Action1SubAction6(FrozenOctorokEntity* this) {
         super->subAction = 7;
     }
     if ((gRoomTransition.frameCount & 0xf) == 0) {
-        SoundReq(SFX_163);
+        SoundReq(SFX_TOGGLE_DIVING);
     }
 }
 

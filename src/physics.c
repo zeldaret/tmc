@@ -83,7 +83,7 @@ bool32 sub_0806F3E4(Entity* ent) {
             ent->subAction = 3;
             gNewPlayerEntity.unk_70 = ent;
             gPlayerState.field_0x1c = 7;
-            item = CreatePlayerItem(PLAYER_ITEM_11, 0, 0, 0);
+            item = CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
             if (item != NULL) {
                 item->child = ent;
                 ent->parent = item;
@@ -247,10 +247,10 @@ bool32 sub_0806F8DC(Entity* ent) {
 
 u32 sub_0806F948(Entity* ent) {
     u32 v1;
-    if (gPlayerState.field_0xd == 0xFF)
+    if (gPlayerState.direction == 0xFF)
         return ent->animationState;
 
-    v1 = gPlayerState.field_0xd / 4;
+    v1 = gPlayerState.direction / 4;
     if ((v1 & 1) && !(((v1 + 1) - ent->animationState) & 4)) {
         return ent->animationState;
     } else {

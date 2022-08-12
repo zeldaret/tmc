@@ -30,8 +30,8 @@ void ResetPaletteTable(u32 a1) {
     sub_0801D000(a1);
 }
 
-void sub_0801CFD0(u32 a1) {
-    Palette* p = &gPaletteList[a1];
+void sub_0801CFD0(u32 index) {
+    Palette* p = &gPaletteList[index];
     p->_0_0 = 4;
     p->_0_4 = 1;
     p->_1 = 0x80;

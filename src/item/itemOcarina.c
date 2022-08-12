@@ -7,20 +7,20 @@ extern void CreateBird(Entity*);
 void OcarinaUse(ItemBehavior*, u32);
 void OcarinaUpdate(ItemBehavior*, u32);
 
-void ItemOcarina(ItemBehavior* this, u32 idx) {
+void ItemOcarina(ItemBehavior* this, u32 index) {
     static void (*const gOcarinaStates[])(ItemBehavior*, u32) = {
         OcarinaUse,
         OcarinaUpdate,
     };
-    gOcarinaStates[this->stateID](this, idx);
-    gPlayerEntity.field_0x7a.HWORD += 1;
+    gOcarinaStates[this->stateID](this, index);
+    gPlayerEntity.field_0x7a.HWORD++;
 }
 
-void OcarinaUse(ItemBehavior* this, u32 idx) {
+void OcarinaUse(ItemBehavior* this, u32 index) {
     if (gPlayerState.queued_action == PLAYER_ROLL) {
-        DeletePlayerItem(this, idx);
+        DeleteItemBehavior(this, index);
     } else {
-        this->field_0x9 |= 0xf;
+        this->priority |= 0xf;
         gPlayerEntity.animationState = 0x04;
         gPlayerEntity.spriteSettings.flipX = 0;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
@@ -28,17 +28,16 @@ void OcarinaUse(ItemBehavior* this, u32 idx) {
         gPlayerState.flags |= PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = -1;
         gPauseMenuOptions.disabled = 1;
-        gPlayerState.field_0xa = (8 >> idx) | gPlayerState.field_0xa;
-        gPlayerState.keepFacing = (8 >> idx) | gPlayerState.keepFacing;
+        gPlayerState.field_0xa = (8 >> index) | gPlayerState.field_0xa;
+        gPlayerState.keepFacing = (8 >> index) | gPlayerState.keepFacing;
         ResetPlayerVelocity();
-        sub_08077D38(this, idx);
+        sub_08077D38(this, index);
         SoundReq(SFX_216);
         SetPlayerEventPriority();
     }
 }
 
-void OcarinaUpdate(ItemBehavior* this, u32 idx) {
-    // TODO regalloc
+void OcarinaUpdate(ItemBehavior* this, u32 index) {
     UpdateItemAnim(this);
     if ((this->playerFrame & 0x80) != 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
@@ -47,6 +46,6 @@ void OcarinaUpdate(ItemBehavior* this, u32 idx) {
         gPauseMenuOptions.disabled = 0;
         CreateBird(&gPlayerEntity);
         ResetPlayerEventPriority();
-        DeletePlayerItem(this, idx);
+        DeleteItemBehavior(this, index);
     }
 }

@@ -149,7 +149,7 @@ void PutItemOnSlot(u32 item);
  * @param item The item to equip.
  * @param slot The slot to equip the item in.
  */
-void ForceEquipItem(u32 item, u32 slot);
+void ForceEquipItem(u32 item, /*EquipSlot*/ u32 slot);
 
 /**
  * Get item price.

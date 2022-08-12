@@ -7,6 +7,7 @@
 
 void CreateItemEntity(u32, u32, u32);
 void sub_08081404(Entity*, u32);
+extern void ExecuteItemFunction(ItemBehavior* this, u32 index);
 
 extern void ItemDebug(ItemBehavior*, u32);
 extern void ItemSword(ItemBehavior*, u32);
@@ -52,11 +53,12 @@ typedef enum {
     ITEM_ORB_GREEN,
     ITEM_ORB_BLUE,
     ITEM_ORB_RED,
-    ITEM_TRAP,
+    ITEM_TRY_PICKUP_OBJECT,
     ITEM_BOTTLE1,
     ITEM_BOTTLE2,
     ITEM_BOTTLE3,
     ITEM_BOTTLE4,
+    // End of activatable items.
     ITEM_BOTTLE_EMPTY,
     ITEM_BOTTLE_BUTTER,
     ITEM_BOTTLE_MILK,
@@ -150,5 +152,18 @@ typedef enum {
     ITEM_KINSTONE_RED,
     ITEM_ENEMY_BEETLE
 } Item;
+
+/** Slot that the item is equipped in. */
+typedef enum { EQUIP_SLOT_A, EQUIP_SLOT_B, EQUIP_SLOT_NONE } EquipSlot;
+
+/** Function used to create the item. */
+typedef enum {
+    CREATE_ITEM_0,
+    CREATE_ITEM_1,
+    CREATE_ITEM_2,
+    CREATE_ITEM_3,
+    CREATE_ITEM_4,
+    CREATE_ITEM_5,
+} CreateItemFunc;
 
 #endif // ITEM_H

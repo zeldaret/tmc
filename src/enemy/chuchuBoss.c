@@ -1830,7 +1830,7 @@ Entity* sub_08027D20(ChuchuBossEntity* this) {
         r4->spriteVramOffset = super->spriteVramOffset;
         r4->palette.b.b0 = super->palette.b.b0;
 #endif
-        r4->y.HALF.HI += 1;
+        r4->y.HALF.HI++;
         r4->spriteOffsetY = 8;
 #ifndef EU
         LoadFixedGFX(r4, 0x3e);

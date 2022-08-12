@@ -140,7 +140,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             if (super->parent->action == 2) {
                 switch (super->parent->subAction) {
                     case 1:
-                        if ((gPlayerState.field_0xd & 0x80) != 0) {
+                        if ((gPlayerState.direction & 0x80) != 0) {
                             InitializeAnimation(super, 4);
                         } else {
                             GetNextFrame(super);
@@ -163,7 +163,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
     } else {
         gPlayerState.mobility |= 0x80;
         gPlayerState.heldObject = 5;
-        if ((gPlayerState.field_0xd & 0x80) != 0) {
+        if ((gPlayerState.direction & 0x80) != 0) {
             InitializeAnimation(super, (super->type >> 1) + 3);
         } else {
             GetNextFrame(super);
@@ -181,7 +181,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
-        if ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
+        if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
             return;
         }
         if (gUnk_0200AF00.unk_2f != 3) {
@@ -297,7 +297,7 @@ void CrenelBeanSprout_Action6SubAction1(CrenelBeanSproutEntity* this) {
         sub_0807B7D8(gUnk_081231AE[super->type2], COORD_TO_TILE(super), super->collisionLayer);
         super->type2++;
         if (super->type2 == super->subtimer) {
-            gPlayerState.keepFacing &= 0x7f;
+            gPlayerState.keepFacing &= ~0x80;
             super->subAction++;
             super->timer = 60;
         } else {

@@ -537,7 +537,7 @@ sub_080042D0: @ 0x080042D0
 	ldrb r3, [r0, r3]
 	movs r4, #0xc
 	muls r3, r4, r3
-	ldr r4, _080043A4 @ =gUnk_02024494
+	ldr r4, _080043A4 @ =gGFXSlots+4
 	adds r4, r4, r3
 	ldrb r3, [r4]
 	movs r5, #0xf
@@ -619,7 +619,7 @@ _08004394: .4byte gUnk_08000228
 _08004398: .4byte 0x00004000
 _0800439C: .4byte gSpritePtrs
 _080043A0: .4byte gSpritePtrs
-_080043A4: .4byte gUnk_02024494
+_080043A4: .4byte gGFXSlots+4
 
 	thumb_func_start sub_080043A8
 sub_080043A8: @ 0x080043A8

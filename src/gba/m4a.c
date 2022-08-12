@@ -1313,7 +1313,7 @@ void CgbSound(void) {
                 if (channels->n4 & 0x80) {
                     *nrx0ptr = 0x80;
                     *nrx4ptr = channels->n4;
-                    channels->n4 &= 0x7f;
+                    channels->n4 &= ~0x80;
                 }
             } else {
                 envelopeStepTimeAndDir &= 0xf;

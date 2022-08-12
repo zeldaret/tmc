@@ -1,14 +1,14 @@
-#include "global.h"
-#include "sound.h"
-#include "main.h"
-#include "player.h"
-#include "structures.h"
-#include "save.h"
-#include "message.h"
 #include "functions.h"
-#include "screen.h"
 #include "gba/m4a.h"
+#include "global.h"
+#include "main.h"
+#include "message.h"
 #include "object.h"
+#include "player.h"
+#include "save.h"
+#include "screen.h"
+#include "sound.h"
+#include "structures.h"
 #include "ui.h"
 
 extern u8 gUnk_03003DE0;
@@ -197,7 +197,7 @@ void PlayerUpdate(Entity* this) {
     else
         gPlayerState.flags &= ~PL_DRUGGED;
 
-    if (EntityIsDeleted(this) == 0) {
+    if (!EntityIsDeleted(this)) {
         if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             PutAwayItems();
             if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {
@@ -218,7 +218,7 @@ void PlayerUpdate(Entity* this) {
     }
     sub_08078FB0(this);
     DrawEntity(this);
-    sub_0807A050();
+    UpdatePlayerPalette();
 }
 
 // Responsible for some life things like low health beep and initiating the death sequence
@@ -234,7 +234,7 @@ static void HandlePlayerLife(Entity* this) {
 
     gPlayerState.flags &= ~(PL_FALLING | PL_CONVEYOR_PUSHED);
     if (gPlayerState.flags & PL_BURNING)
-        ResetPlayerItem();
+        ResetActiveItems();
     if ((gPlayerState.flags & PL_CLONING) && gPlayerState.chargeState.action == 0)
         DeleteClones();
     if (sub_08079B24() == 0)
@@ -309,7 +309,7 @@ static void HandlePlayerLife(Entity* this) {
 
 static void sub_080171F0(void) {
     if (gPlayerState.mobility != 0)
-        ResetPlayerItem();
+        ResetActiveItems();
     if (gPlayerState.field_0x14 != 0)
         gPlayerState.field_0x14--;
     if (gPlayerEntity.field_0x7a.HWORD != 0)
@@ -331,7 +331,7 @@ static void sub_080171F0(void) {
     gPlayerState.keepFacing &= ~0x80;
     gPlayerState.mobility = 0;
     gPlayerState.speed_modifier = 0;
-    gPlayerState.field_0xaa = 0;
+    gPlayerState.attachedBeetleCount = 0;
     MemClear(&gCarriedEntity, sizeof(gCarriedEntity));
     gPlayerEntity.spriteOffsetY = gPlayerState.spriteOffsetY;
     gPlayerState.spriteOffsetY = 0;

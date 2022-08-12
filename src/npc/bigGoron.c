@@ -418,12 +418,12 @@ void sub_0806D520(Entity* this, u32 param_2) {
 }
 
 void sub_0806D5D4(void) {
-    u32 itemSlot;
+    EquipSlot equipSlot;
 
     InitBiggoronTimer();
-    itemSlot = IsItemEquipped(ITEM_SHIELD);
-    if (itemSlot != 2) {
-        gSave.stats.itemButtons[itemSlot] = ITEM_NONE;
+    equipSlot = IsItemEquipped(ITEM_SHIELD);
+    if (equipSlot != EQUIP_SLOT_NONE) {
+        gSave.stats.itemButtons[equipSlot] = ITEM_NONE;
     }
     SetInventoryValue(ITEM_SHIELD, 0);
 }

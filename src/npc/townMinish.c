@@ -320,7 +320,7 @@ void sub_0806AEE4(Entity* this) {
         if (tmp2 & 0x80) {
             this->animationState = sub_0806F5B0(index);
         }
-        tmp2 &= 0x7f;
+        tmp2 &= ~0x80;
         this->frame = tmp1;
         this->frameIndex = tmp2;
         this->frameSpriteSettings = 1;

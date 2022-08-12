@@ -78,7 +78,7 @@ SoftReset: @ 0x080B1504
 	ldr r3, _080B1518 @ =0x04000208
 	movs r2, #0
 	strb r2, [r3]
-	ldr r3, _080B151C @ =gUnk_03007FFA
+	ldr r3, _080B151C @ =soft_reset_flag
 	movs r2, #0
 	strb r2, [r3]
 	subs r3, #0xfa
@@ -87,4 +87,4 @@ SoftReset: @ 0x080B1504
 	svc #0
 	.align 2, 0
 _080B1518: .4byte 0x04000208
-_080B151C: .4byte gUnk_03007FFA
+_080B151C: .4byte soft_reset_flag

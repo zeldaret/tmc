@@ -50,7 +50,7 @@ void MiniSlime_OnCollision(Entity* this) {
 void MiniSlime_OnDeath(Entity* this) {
     Entity* parent = this->parent;
     if ((this != parent) && (parent != NULL)) {
-        this->field_0x6c.HALF.LO &= 0x7f;
+        this->field_0x6c.HALF.LO &= ~0x80;
         this->parent->child = this->child;
         this->child->parent = this->parent;
         if (this->field_0x6c.HALF.HI & 0x40)

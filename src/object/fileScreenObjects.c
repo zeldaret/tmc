@@ -9,8 +9,8 @@
 #include "main.h"
 #include "menu.h"
 #include "object.h"
+#include "player.h"
 
-extern int sub_0807A094(int);
 extern u32 sub_080041EC(int, int);
 
 static bool32 sub_0808E950(void);
@@ -104,7 +104,7 @@ void sub_0808E818(Entity* this) {
         this->field_0x68.HWORD = CheckGlobalFlag(EZERO_1ST) == 0 ? 0x400 : 0x100;
         this->field_0x70.BYTES.byte0 = 4;
         this->animationState = 2;
-        var1 = gUnk_08133368[sub_0807A094(1) - 22] & 0xFFFFFF;
+        var1 = gUnk_08133368[GetPlayerPalette(TRUE) - 22] & 0xFFFFFF;
         LoadPalettes(&gGlobalGfxAndPalettes[var1], 31, 1);
     }
 

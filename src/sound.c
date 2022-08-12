@@ -549,7 +549,7 @@ extern const SongHeader sfx15F;
 extern const SongHeader sfx160;
 extern const SongHeader sfx161;
 extern const SongHeader sfx162;
-extern const SongHeader sfx163;
+extern const SongHeader sfxToggleDiving;
 extern const SongHeader sfx164;
 extern const SongHeader sfx165;
 extern const SongHeader sfx166;
@@ -1181,7 +1181,7 @@ const Song gSongTable[] = {
     [SFX_160] = { &sfx160, MUSIC_PLAYER_04, MUSIC_PLAYER_04 },
     [SFX_161] = { &sfx161, MUSIC_PLAYER_1D, MUSIC_PLAYER_1D },
     [SFX_162] = { &sfx162, MUSIC_PLAYER_1C, MUSIC_PLAYER_1C },
-    [SFX_163] = { &sfx163, MUSIC_PLAYER_1B, MUSIC_PLAYER_1B },
+    [SFX_TOGGLE_DIVING] = { &sfxToggleDiving, MUSIC_PLAYER_1B, MUSIC_PLAYER_1B },
     [SFX_164] = { &sfx164, MUSIC_PLAYER_1A, MUSIC_PLAYER_1A },
     [SFX_165] = { &sfx165, MUSIC_PLAYER_19, MUSIC_PLAYER_19 },
     [SFX_166] = { &sfx166, MUSIC_PLAYER_18, MUSIC_PLAYER_18 },

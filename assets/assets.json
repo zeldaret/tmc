@@ -40117,7 +40117,7 @@
     "size": 8
   },
   {
-    "path": "data_0811BE38/gUnk_0811BE48_EU.bin",
+    "path": "data_0811BE38/gItemDefinitions_EU.bin",
     "variants": [
       "EU"
     ],
@@ -40127,7 +40127,7 @@
     "size": 384
   },
   {
-    "path": "data_0811BE38/gUnk_0811BE48_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "data_0811BE38/gItemDefinitions_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",

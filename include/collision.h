@@ -5,6 +5,7 @@
 #include "entity.h"
 
 /** Collisions. */
+
 typedef enum {
     COL_NONE = 0x0,
     COL_NORTH_WEST = 0x2,
@@ -24,6 +25,12 @@ typedef enum {
     COL_EAST_FULL = 0x6000,
     COL_EAST_ANY = 0xe000,
 } Collisions;
+
+typedef enum {
+    RESULT_NO_COLLISION = 0,
+    RESULT_COLLISION = 1,
+    RESULT_COLLISION_WITHOUT_SET = 2,
+} CollisionResult;
 
 bool32 IsTileCollision(const u8*, s32, s32, u32);
 bool32 IsColliding(Entity*, Entity*);

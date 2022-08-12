@@ -148,7 +148,7 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
     }
     super->action = 4;
     super->timer = 60;
-    super->flags &= 0x7f;
+    super->flags &= ~0x80;
 }
 
 void SmallIceBlock_Action4(SmallIceBlockEntity* this) {

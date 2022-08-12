@@ -13,10 +13,10 @@ extern const ObjectDefinition gObjectDefinitions[];
 
 static Entity* CreateSpeechBubble(Entity*, u32, s32, s32);
 
-Entity* sub_080A276C(Entity* parent, u32 type, u32 type2) {
+Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
     Entity* e = CreateItemGetEntity();
     if (e != NULL) {
-        e->id = OBJECT_C1;
+        e->id = LINK_ANIMATION;
         e->kind = OBJECT;
         e->type = type;
         e->type2 = type2;

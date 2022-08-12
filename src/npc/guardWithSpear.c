@@ -253,25 +253,25 @@ void sub_08064428(GuardWithSpearEntity* this) {
     ShowNPCDialogue(super, pDialog);
 }
 
-void sub_08064470(Entity* this, ScriptExecutionContext* context) {
-    if (gPlayerState.field_0xab == 1) {
+void GuardWithSpear_CheckSwordMoveSpin(Entity* this, ScriptExecutionContext* context) {
+    if (gPlayerState.lastSwordMove == SWORD_MOVE_SPIN) {
         context->condition = 1;
     } else {
         context->condition = 0;
     }
 }
 
-void sub_08064488(void) {
+void GuardWithSpear_ResetLastSwordMoveIfNotInSwordState(void) {
     if (gPlayerState.framestate != PL_STATE_SWORD) {
-        gPlayerState.field_0xab = 0;
+        gPlayerState.lastSwordMove = SWORD_MOVE_NONE;
     }
 }
 
-void sub_080644A4(void) {
-    gPlayerState.field_0xab = 0;
+void GuardWithSpear_ResetLastSwordMove(void) {
+    gPlayerState.lastSwordMove = SWORD_MOVE_NONE;
 }
 
-void sub_080644B4(Entity* this, ScriptExecutionContext* context) {
+void CheckLastSwordMove(Entity* this, ScriptExecutionContext* context) {
     context->condition = this->animationState == context->intVariable;
 }
 

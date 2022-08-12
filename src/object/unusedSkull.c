@@ -53,7 +53,7 @@ void UnusedSkull_Init(UnusedSkullEntity* this) {
 void UnusedSkull_Action1(UnusedSkullEntity* this) {
     if (super->contactFlags == 0x9c) {
         super->action = 2;
-        super->flags &= 0x7f;
+        super->flags &= ~0x80;
         CreateFx(super, FX_ICE, 0);
         EnqueueSFX(SFX_10D);
     }

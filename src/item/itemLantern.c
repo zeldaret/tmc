@@ -5,41 +5,41 @@
 #include "game.h"
 
 extern s8 gUnk_08126EEC[];
-extern Entity* sub_08077BD4(ItemBehavior*);
+extern Entity* CreatePlayerItemForItemIfNotExists(ItemBehavior*);
 extern void sub_0807AB44(Entity*, s32, s32);
 void sub_08075A0C(ItemBehavior*, u32);
 void sub_08075ADC(ItemBehavior*, u32);
 void sub_08075B54(ItemBehavior*, u32);
 void sub_08075C9C(ItemBehavior*, u32);
 
-void ItemLantern(ItemBehavior* this, u32 idx) {
+void ItemLantern(ItemBehavior* this, u32 index) {
     static void (*const stateFuncs[])(ItemBehavior*, u32) = {
         sub_08075A0C,
         sub_08075ADC,
         sub_08075B54,
         sub_08075C9C,
     };
-    stateFuncs[this->stateID](this, idx);
+    stateFuncs[this->stateID](this, index);
 }
 
-void sub_08075A0C(ItemBehavior* this, u32 idx) {
+void sub_08075A0C(ItemBehavior* this, u32 index) {
     Entity* object;
-    u32 itemSlot;
+    EquipSlot equipSlot;
     s8* tmp;
-    itemSlot = IsItemEquipped(this->behaviorID);
+    equipSlot = IsItemEquipped(this->behaviorId);
     if (gPlayerState.heldObject != 0 || gPlayerState.queued_action == PLAYER_ROLL || gPlayerState.jump_status != 0 ||
         gPlayerState.item != NULL || (gPlayerState.flags & PL_MINISH) != 0) {
-        ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
+        ForceEquipItem(ITEM_LANTERN_OFF, equipSlot);
         gPlayerState.flags &= ~PL_USE_LANTERN;
-        ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
-        DeletePlayerItem(this, idx);
+        ForceEquipItem(ITEM_LANTERN_OFF, equipSlot);
+        DeleteItemBehavior(this, index);
     } else {
-        this->field_0x9 |= 0x80;
-        sub_08077D38(this, idx);
-        sub_08077BD4(this);
+        this->priority |= 0x80;
+        sub_08077D38(this, index);
+        CreatePlayerItemForItemIfNotExists(this);
         sub_0806F948(&gPlayerEntity);
-        this->behaviorID = 0x10;
-        ForceEquipItem(ITEM_LANTERN_ON, itemSlot);
+        this->behaviorId = 0x10;
+        ForceEquipItem(ITEM_LANTERN_ON, equipSlot);
         tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
         object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
         if (object != NULL) {
@@ -50,7 +50,7 @@ void sub_08075A0C(ItemBehavior* this, u32 idx) {
     }
 }
 
-void sub_08075ADC(ItemBehavior* this, u32 idx) {
+void sub_08075ADC(ItemBehavior* this, u32 index) {
     u32 bVar1;
 
     if (
@@ -59,11 +59,11 @@ void sub_08075ADC(ItemBehavior* this, u32 idx) {
 #endif
         (this->playerFrame & 1) == 0 || (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 ||
         sub_08079D48() == 0) {
-        this->field_0xf = 0;
+        this->animPriority = 0;
         this->stateID++;
         gPlayerState.flags |= PL_USE_LANTERN;
-        bVar1 = 8 >> idx;
-        gPlayerState.field_0x3[1] = gPlayerState.field_0x3[1] & ~((bVar1 << 4) | bVar1);
+        bVar1 = 8 >> index;
+        gPlayerState.attack_status &= ~((bVar1 << 4) | bVar1);
         bVar1 = ~bVar1;
         gPlayerState.field_0xa = bVar1 & gPlayerState.field_0xa;
         gPlayerState.keepFacing = bVar1 & gPlayerState.keepFacing;
@@ -73,18 +73,19 @@ void sub_08075ADC(ItemBehavior* this, u32 idx) {
     }
 }
 
-void sub_08075B54(ItemBehavior* this, u32 idx) {
+void sub_08075B54(ItemBehavior* this, u32 index) {
     u32 bVar1;
-    u32 itemSlot;
+    EquipSlot equipSlot;
     Entity* object;
     s8* tmp;
 
     if ((gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS)) == 0) {
-        itemSlot = IsItemEquipped(this->behaviorID);
-        if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jump_status != 0))) {
-            ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
+        equipSlot = IsItemEquipped(this->behaviorId);
+        if (!(((IsItemActivatedThisFrame(this) == 0) && (equipSlot < EQUIP_SLOT_NONE)) ||
+              (gPlayerState.jump_status != 0))) {
+            ForceEquipItem(ITEM_LANTERN_OFF, equipSlot);
             gPlayerState.flags &= ~PL_USE_LANTERN;
-            DeletePlayerItem(this, idx);
+            DeleteItemBehavior(this, index);
             SoundReq(SFX_ITEM_LANTERN_OFF);
         } else {
             if (((gPlayerState.queued_action != PLAYER_ROLL) && (gPlayerEntity.frameIndex < 0x37)) &&
@@ -94,7 +95,7 @@ void sub_08075B54(ItemBehavior* this, u32 idx) {
                 if ((gPlayerState.jump_status == 0) &&
                     (sub_080B1BA4(TILE(gPlayerEntity.x.HALF.HI + tmp[0], gPlayerEntity.y.HALF.HI + tmp[1]),
                                   gPlayerEntity.collisionLayer, 0x40) != 0)) {
-                    this->field_0xf = 0xf;
+                    this->animPriority = 0xf;
                     this->stateID++;
                     gPlayerEntity.field_0x7a.HWORD = 2;
                     object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
@@ -103,8 +104,8 @@ void sub_08075B54(ItemBehavior* this, u32 idx) {
                         object->x.HALF.HI = tmp[0] + object->x.HALF.HI;
                         object->y.HALF.HI = tmp[1] + object->y.HALF.HI;
                     }
-                    sub_08077DF4(this, 0x60c);
-                    bVar1 = (8 >> (idx));
+                    SetItemAnim(this, 0x60c);
+                    bVar1 = (8 >> (index));
                     gPlayerState.field_0xa |= bVar1;
                     gPlayerState.keepFacing |= bVar1;
                 }
@@ -113,7 +114,7 @@ void sub_08075B54(ItemBehavior* this, u32 idx) {
     }
 }
 
-void sub_08075C9C(ItemBehavior* this, u32 idx) {
+void sub_08075C9C(ItemBehavior* this, u32 index) {
     s8* tmp;
 
     UpdateItemAnim(this);
@@ -122,10 +123,10 @@ void sub_08075C9C(ItemBehavior* this, u32 idx) {
         sub_0807AB44(&gPlayerEntity, tmp[0], tmp[1]);
     }
     if ((this->playerFrame & 0x80) != 0) {
-        this->field_0xf = 0;
+        this->animPriority = 0;
         this->stateID--;
-        gPlayerState.field_0xa = (~(8 >> idx)) & gPlayerState.field_0xa;
-        gPlayerState.keepFacing = (~(8 >> idx)) & gPlayerState.keepFacing;
+        gPlayerState.field_0xa = (~(8 >> index)) & gPlayerState.field_0xa;
+        gPlayerState.keepFacing = (~(8 >> index)) & gPlayerState.keepFacing;
     } else {
         gPlayerEntity.field_0x7a.HWORD++;
     }

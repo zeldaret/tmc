@@ -68,8 +68,8 @@ void PlayerItemBoomerang_Init(Entity* this) {
         uVar1 = 30;
     }
     this->timer = uVar1;
-    if (((s8)gPlayerState.field_0xd) >= 0) {
-        this->direction = gPlayerState.field_0xd;
+    if (((s8)gPlayerState.direction) >= 0) {
+        this->direction = gPlayerState.direction;
     } else {
         this->direction = this->animationState << 2;
     }
@@ -89,7 +89,7 @@ void sub_0801B584(Entity* this) {
     u32 cVar3;
 
     sub_0801B804(this);
-    if ((gPlayerState.field_0x3[1] == 0) || (gPlayerState.mobility != 0) || gPlayerState.item != this ||
+    if ((gPlayerState.attack_status == 0) || (gPlayerState.mobility != 0) || gPlayerState.item != this ||
         (gPlayerState.item == this && gPlayerEntity.action != PLAYER_NORMAL)) {
         if (gPlayerState.item == this) {
             gPlayerState.item = NULL;
@@ -124,7 +124,7 @@ void sub_0801B584(Entity* this) {
         this->y.HALF.HI += gUnk_080B7826[iVar2 + 1];
         InitializeAnimation(this, 0);
         gPlayerState.item = NULL;
-        gPlayerState.field_0x3[1] |= 0x80;
+        gPlayerState.attack_status |= 0x80;
     }
 }
 
@@ -133,8 +133,8 @@ void sub_0801B680(Entity* this) {
     u32 uVar6;
 
     sub_0801B804(this);
-    if ((this->field_0x68.HALF.LO == 12) && (this->field_0x80.HALF.LO == 0) && ((gPlayerState.field_0xd & 0x80) == 0)) {
-        if (((this->field_0x82.HALF.HI - gPlayerState.field_0xd) & 0x1f) > 0x10) {
+    if ((this->field_0x68.HALF.LO == 12) && (this->field_0x80.HALF.LO == 0) && ((gPlayerState.direction & 0x80) == 0)) {
+        if (((this->field_0x82.HALF.HI - gPlayerState.direction) & 0x1f) > 0x10) {
             this->field_0x82.HWORD += 0x40;
             this->field_0x82.HALF.HI &= 0x1f;
             this->direction = this->field_0x82.HALF.HI;
@@ -208,26 +208,26 @@ void sub_0801B7A8(Entity* this) {
 }
 
 void sub_0801B804(Entity* this) {
-    u32 itemSlot;
+    EquipSlot equipSlot;
     u32 uVar1;
 
-    itemSlot = IsItemEquipped(ITEM_MAGIC_BOOMERANG);
-    switch (itemSlot) {
-        case 0:
+    equipSlot = IsItemEquipped(ITEM_MAGIC_BOOMERANG);
+    switch (equipSlot) {
+        case EQUIP_SLOT_A:
             uVar1 = 1;
             break;
-        case 1:
+        case EQUIP_SLOT_B:
             uVar1 = 2;
             break;
-        case 2:
+        case EQUIP_SLOT_NONE:
             uVar1 = 0;
             break;
     }
 
-    if ((uVar1 & gPlayerState.playerInput.field_0x90) == 0) {
+    if ((uVar1 & gPlayerState.playerInput.heldInput) == 0) {
         this->field_0x80.HALF.LO = 1;
-        gPlayerState.field_0xa &= 0x7f;
-        gPlayerState.keepFacing &= 0x7f;
+        gPlayerState.field_0xa &= ~0x80;
+        gPlayerState.keepFacing &= ~0x80;
     } else {
         gPlayerState.field_0xa |= 0x80;
         gPlayerState.keepFacing |= 0x80;

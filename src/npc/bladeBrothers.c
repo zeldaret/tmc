@@ -144,7 +144,7 @@ void BladeBrothers_StartPlayerDemonstration(Entity* this, ScriptExecutionContext
 
     if (BladeBrothers_EquippedItem) {}
     if (p = this->timer, BladeBrothers_EquippedItem[p]) {
-        ForceEquipItem(BladeBrothers_EquippedItem[this->timer], 0);
+        ForceEquipItem(BladeBrothers_EquippedItem[this->timer], EQUIP_SLOT_A);
     }
     InitPlayerMacro(BladeBrothers_PlayerMacros[this->timer]);
 }
@@ -157,9 +157,10 @@ void sub_08068BB4(Entity* this) {
     *(&this->field_0x68.HALF.HI + 1) = item;
 }
 
+// Restore previous equipped items.
 void sub_08068BD0(Entity* this) {
-    ForceEquipItem(this->field_0x68.HALF.HI, 0);
-    ForceEquipItem(*(u8*)(&this->field_0x68.HALF.HI + 1), 1);
+    ForceEquipItem(this->field_0x68.HALF.HI, EQUIP_SLOT_A);
+    ForceEquipItem(*(u8*)(&this->field_0x68.HALF.HI + 1), EQUIP_SLOT_B);
 }
 
 static void sub_08068BEC(Entity* this, u32 unused) {
@@ -337,18 +338,18 @@ void sub_08068E78(Entity* this) {
     MessageNoOverlap(gUnk_08111714[this->timer], this);
 }
 
-void sub_08068E90(Entity* this) {
+void BladeBrothers_LearnSkill(Entity* this) {
     // Learn a skill.
     PlayerState* s = &gPlayerState;
     *(u16*)&s->skills = (1 << (gUnk_08111740[this->timer] - 1)) | *(u16*)&s->skills;
 }
 
-void sub_08068EB4(void) {
-    gPlayerState.field_0xab = 0;
+void BladeBrothers_ResetLastSwordMove(void) {
+    gPlayerState.lastSwordMove = SWORD_MOVE_NONE;
 }
 
-void sub_08068EC4(Entity* this, ScriptExecutionContext* context) {
-    if (gUnk_08111740[this->timer] == gPlayerState.field_0xab) {
+void BladeBrothers_CheckLastSwordMove(Entity* this, ScriptExecutionContext* context) {
+    if (gUnk_08111740[this->timer] == gPlayerState.lastSwordMove) {
         context->wait = gUnk_0811172A[this->timer];
         context->condition = 1;
     } else {

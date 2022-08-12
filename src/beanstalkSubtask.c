@@ -39,7 +39,16 @@ extern const u16* gUnk_080B4550[];
 extern const u16 gUnk_080B77C0[];
 extern BgAnimationFrame* gUnk_080B7278[];
 
-void sub_0801AD6C(u16*, u32);
+typedef struct {
+    u16 tileType;
+    u16 kind;
+    u16 id;
+    u16 type;
+    u16 type2;
+    u16 unk_a;
+} Data;
+
+void sub_0801AD6C(const Data*, u32);
 bool32 sub_0801A4F8(void);
 bool32 sub_0801AA58(Entity*, u32, u32);
 void sub_0801AB08(u16*, LayerStruct*);
@@ -146,7 +155,7 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
     u32 temp5;
 
     uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
-    if ((((gPlayerState.field_0x35 | gPlayerState.field_0xd) & 0x80) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
+    if ((((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
         position = (u16)(position + uVar1);
         temp4 = sub_080B1B54(GetTileType(position, gPlayerEntity.collisionLayer));
         switch (temp4) {
@@ -264,10 +273,10 @@ bool32 sub_0801A4F8(void) {
         if (GetInventoryValue(ITEM_POWER_BRACELETS) != 1) {
             return FALSE;
         }
-        if ((gPlayerState.field_0xd & 0x80) != 0) {
+        if ((gPlayerState.direction & 0x80) != 0) {
             return FALSE;
         }
-        if (gPlayerState.field_0xd != gPlayerEntity.direction) {
+        if (gPlayerState.direction != gPlayerEntity.direction) {
             return FALSE;
         }
         tmp = (((gPlayerEntity.direction + 4) & 0x18) >> 3);
@@ -275,7 +284,7 @@ bool32 sub_0801A4F8(void) {
             return FALSE;
         }
     } else {
-        if (((gPlayerState.field_0x35 | gPlayerState.field_0xd) & 0x80) != 0) {
+        if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
             return FALSE;
         }
         if ((gPlayerEntity.frame & 1) == 0) {
@@ -411,19 +420,18 @@ u32 sub_0801AC68(u32 position, u32 data) {
     return data << 2;
 }
 
-extern const u16 gUnk_080B44C0[];
-extern const u16 gUnk_080B44C2[];
+extern const Data gUnk_080B44C0[];
+extern const Data gUnk_080B44C2[];
 extern const u32 gUnk_080B44B8[];
 
 NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98()) {
+    u32 width;
     u32 height;
     u32 indexX;
-    u32 width;
     u32 indexY;
-    const u16* puVar7;
+    const Data* ptr1;
+    const Data* ptr2;
     u32 position;
-    const u32* ptr;
-    u32 tmp;
 
     width = gRoomControls.width >> 4;
     height = gRoomControls.height >> 4;
@@ -431,32 +439,30 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98
 
     for (indexY = 0; indexY < height; indexY++) {
         for (indexX = 0; indexX < width; indexX++, position++) {
-            for (puVar7 = gUnk_080B44C0; puVar7[0] != 0xffff; puVar7 += 6) {
-                if (puVar7[0] == GetTileType(position, 1)) {
-                    ptr = gUnk_080B44B8 + puVar7[5];
-                    if (ptr[0] != 0) {
-                        sub_0801AD6C((u16*)puVar7, position);
+            for (ptr1 = gUnk_080B44C0; ptr1->tileType != 0xffff; ptr1++) {
+                if (ptr1->tileType == GetTileType(position, 1)) {
+                    if (gUnk_080B44B8[ptr1->unk_a] != 0) {
+                        sub_0801AD6C(ptr1, position);
                         break;
                     }
                 }
             }
-            for (puVar7 = gUnk_080B44C2; puVar7[0] != 0xffff; puVar7 += 6) {
-                if (puVar7[0] == GetTileType(position, 2)) {
-                    ptr = gUnk_080B44B8 + puVar7[5];
-                    if (ptr[0] != 0) {
-                        sub_0801AD6C((u16*)puVar7, position);
+
+            for (ptr2 = gUnk_080B44C2; ptr2->tileType != 0xffff; ptr2++) {
+                if (ptr2->tileType == GetTileType(position, 2)) {
+                    if (gUnk_080B44B8[ptr2->unk_a] != 0) {
+                        sub_0801AD6C(ptr2, position);
                         break;
                     }
                 }
             }
         }
-        tmp = (position + 0x40);
-        position = tmp - width;
+        position = position + (0x40 - width);
     }
 }
 END_NONMATCH
 
-void sub_0801AD6C(u16* param_1, u32 param_2) {
+void sub_0801AD6C(const Data* param_1, u32 tilePosition) {
     Entity* entity;
     Manager* manager;
     s32 tmpX1;
@@ -464,16 +470,16 @@ void sub_0801AD6C(u16* param_1, u32 param_2) {
     s32 tmpX2;
     s32 tmpY2;
 
-    if (param_1[1] != MANAGER) {
+    if (param_1->kind != MANAGER) {
         entity = GetEmptyEntity();
         if (entity != NULL) {
-            entity->kind = (u8)param_1[1];
-            entity->id = (u8)param_1[2];
-            entity->type = (u8)param_1[3];
-            entity->type2 = (u8)param_1[4];
-            tmpX1 = ((u16)param_2 & 0x3f) * 0x10 + 8;
+            entity->kind = (u8)param_1->kind;
+            entity->id = (u8)param_1->id;
+            entity->type = (u8)param_1->type;
+            entity->type2 = (u8)param_1->type2;
+            tmpX1 = ((u16)tilePosition & 0x3f) * 0x10 + 8;
             entity->x.HALF.HI = tmpX1 + gRoomControls.origin_x;
-            tmpY1 = (s16)((param_2 & 0xfc0) >> 2) + 8;
+            tmpY1 = (s16)((tilePosition & 0xfc0) >> 2) + 8;
             entity->y.HALF.HI = tmpY1 + gRoomControls.origin_y;
             entity->collisionLayer = 0;
             ResolveCollisionLayer(entity);
@@ -482,14 +488,14 @@ void sub_0801AD6C(u16* param_1, u32 param_2) {
     } else {
         manager = GetEmptyManager();
         if (manager != NULL) {
-            manager->kind = (u8)param_1[1];
-            manager->id = (u8)param_1[2];
-            manager->type = (u8)param_1[3];
-            manager->type2 = (u8)param_1[4];
+            manager->kind = (u8)param_1->kind;
+            manager->id = (u8)param_1->id;
+            manager->type = (u8)param_1->type;
+            manager->type2 = (u8)param_1->type2;
             // TODO are these fields common for all managers or does this usually create managers of certain types?
-            tmpX2 = ((u16)param_2 & 0x3f) * 0x10 + 8;
+            tmpX2 = ((u16)tilePosition & 0x3f) * 0x10 + 8;
             *(u16*)(&manager[1].timer + 10) = tmpX2 + gRoomControls.origin_x;
-            tmpY2 = (s16)((param_2 & 0xfc0) >> 2) + 8;
+            tmpY2 = (s16)((tilePosition & 0xfc0) >> 2) + 8;
             *(u16*)(&manager[1].timer + 12) = tmpY2 + gRoomControls.origin_y;
             AppendEntityToList((Entity*)manager, gUnk_081091E4[manager->kind]);
         }

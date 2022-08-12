@@ -99,7 +99,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 super->interactType = 0;
                 super->subAction = 1;
                 sub_08078B48();
-                ResetPlayerItem();
+                ResetActiveItems();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;
                 gUnk_0200AF00.unk_2f = 2;
@@ -119,9 +119,9 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
     } else {
         ptr = sub_080784E4();
         if (((*(int*)(ptr + 8) == 0) ||
-             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.unk_2f = 7, (gPlayerState.playerInput.field_0x92 &
+             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.unk_2f = 7, (gPlayerState.playerInput.newInput &
                                                                    (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
-            ((gPlayerState.playerInput.field_0x92 & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
+            ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
             sub_080819B4(this);
         }
     }

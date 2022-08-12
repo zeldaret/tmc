@@ -14,7 +14,7 @@ void sub_08076A88(ItemBehavior*, u32);
 extern u16 gUnk_0800275C[];
 extern u8 gUnk_0811BE38[];
 
-void ItemPegasusBoots(ItemBehavior* this, u32 idx) {
+void ItemPegasusBoots(ItemBehavior* this, u32 index) {
     static void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior * beh, u32) = {
         sub_080768F8,
         sub_08076964,
@@ -26,8 +26,8 @@ void ItemPegasusBoots(ItemBehavior* this, u32 idx) {
 
     if (gPlayerEntity.field_0x7a.HWORD != 0) {
         gPlayerState.dash_state = 0;
-        gPlayerState.field_0xe = 0;
-        DeletePlayerItem(this, idx);
+        gPlayerState.itemAnimPriority = 0;
+        DeleteItemBehavior(this, index);
     } else {
         --this->timer;
         if ((this->timer & 7) == 0) {
@@ -54,15 +54,15 @@ void ItemPegasusBoots(ItemBehavior* this, u32 idx) {
                 }
             }
         }
-        ItemPegasusBoots_StateFunctions[this->stateID](this, idx);
+        ItemPegasusBoots_StateFunctions[this->stateID](this, index);
     }
 }
 
-void sub_080768F8(ItemBehavior* this, u32 idx) {
+void sub_080768F8(ItemBehavior* this, u32 index) {
     u32 bVar1;
     u32 bVar2;
 
-    bVar1 = gPlayerState.field_0x1c | gPlayerState.field_0x3[1] | gPlayerState.heldObject | gPlayerState.jump_status;
+    bVar1 = gPlayerState.field_0x1c | gPlayerState.attack_status | gPlayerState.heldObject | gPlayerState.jump_status;
     bVar2 = (gPlayerState.flags & PL_IN_MINECART);
     bVar1 |= bVar2;
     if (bVar1 == 0) {
@@ -73,19 +73,19 @@ void sub_080768F8(ItemBehavior* this, u32 idx) {
         } else {
             gPlayerState.animation = 0xc14;
         }
-        sub_08077D38(this, idx);
-        sub_08076964(this, idx);
+        sub_08077D38(this, index);
+        sub_08076964(this, index);
     } else {
         gPlayerState.dash_state = 0;
-        gPlayerState.field_0xe = 0;
-        DeletePlayerItem(this, idx);
+        gPlayerState.itemAnimPriority = 0;
+        DeleteItemBehavior(this, index);
     }
 }
 
-void sub_08076964(ItemBehavior* this, u32 idx) {
-    Entity* bombEntity;
+void sub_08076964(ItemBehavior* this, u32 index) {
+    Entity* entity;
     u32 uVar3;
-    if (sub_08077EFC(this) && gPlayerEntity.z.WORD == 0 && gPlayerState.dash_state) {
+    if (IsItemActive(this) && gPlayerEntity.z.WORD == 0 && gPlayerState.dash_state) {
         UpdateItemAnim(this);
 
         if ((gPlayerState.flags & PL_MINISH) == 0) {
@@ -95,28 +95,28 @@ void sub_08076964(ItemBehavior* this, u32 idx) {
         if ((++gPlayerState.dash_state) == 0x1e) {
             if ((gPlayerState.flags & PL_FLAGS2) != 0) {
                 gPlayerState.dash_state = 0;
-                DeletePlayerItem(this, idx);
+                DeleteItemBehavior(this, index);
                 return;
             }
             gPlayerState.dash_state = 0x40;
-            gPlayerState.field_0xa &= ~(8 >> idx);
+            gPlayerState.field_0xa &= ~(8 >> index);
             this->stateID++;
             if (HasSwordEquipped() && (gPlayerState.flags & PL_MINISH) == 0 &&
                 (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
-                gPlayerState.field_0xab = 3;
-                sub_08077DF4(this, 0x298);
-                bombEntity = CreatePlayerItemWithParent(this, PLAYER_ITEM_C);
-                if (bombEntity != NULL) {
+                gPlayerState.lastSwordMove = SWORD_MOVE_DASH;
+                SetItemAnim(this, 0x298);
+                entity = CreatePlayerItemWithParent(this, PLAYER_ITEM_DASH_SWORD);
+                if (entity != NULL) {
                     if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != 0) {
                         uVar3 = gSave.stats.itemButtons[SLOT_A];
                     } else {
                         uVar3 = gSave.stats.itemButtons[SLOT_B];
                     }
-                    bombEntity->field_0x68.HALF.LO = uVar3;
+                    entity->field_0x68.HALF.LO = uVar3;
                     return;
                 }
             } else if ((gPlayerState.flags & PL_MINISH) == 0) {
-                sub_08077DF4(this, 0x104);
+                SetItemAnim(this, 0x104);
                 return;
             } else {
                 gPlayerState.animation = 0xc10;
@@ -127,15 +127,15 @@ void sub_08076964(ItemBehavior* this, u32 idx) {
         }
     }
     gPlayerState.dash_state = 0;
-    DeletePlayerItem(this, idx);
+    DeleteItemBehavior(this, index);
 }
 
-void sub_08076A88(ItemBehavior* this, u32 idx) {
+void sub_08076A88(ItemBehavior* this, u32 index) {
     u32 uVar1;
     u32 uVar2;
     u8* ptr;
 
-    if ((sub_08077EFC(this) != 0) && (gPlayerState.dash_state != 0)) {
+    if ((IsItemActive(this) != 0) && (gPlayerState.dash_state != 0)) {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             gPlayerEntity.speed = 0x300;
         } else {
@@ -148,27 +148,27 @@ void sub_08076A88(ItemBehavior* this, u32 idx) {
                 gPlayerEntity.subAction = 0;
                 COLLISION_OFF(&gPlayerEntity);
                 gPlayerState.field_0x38 = 0;
-                gPlayerState.field_0xd = 0xff;
+                gPlayerState.direction = 0xff;
                 return;
             }
             this->subtimer = 1;
             return;
         }
         ptr = gUnk_0811BE38;
-        if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.field_0x90) == 0) {
+        if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.heldInput) == 0) {
             this->direction = (this->playerAnimationState & 0xe) * 4;
-            if ((gPlayerState.field_0xd != 0xff) && (gPlayerState.field_0xd != this->direction)) {
-                if (((gPlayerState.field_0xd - this->direction) & 0x1f) < 0x10) {
+            if ((gPlayerState.direction != 0xff) && (gPlayerState.direction != this->direction)) {
+                if (((gPlayerState.direction - this->direction) & 0x1f) < 0x10) {
                     this->direction = this->direction + 2;
                 }
                 this->direction--;
                 this->direction &= 0x1f;
             }
-            gPlayerState.field_0xd = this->direction;
+            gPlayerState.direction = this->direction;
             UpdateItemAnim(this);
             return;
         }
     }
     gPlayerState.dash_state = 0;
-    DeletePlayerItem(this, idx);
+    DeleteItemBehavior(this, index);
 }

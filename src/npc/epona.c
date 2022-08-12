@@ -104,7 +104,7 @@ void sub_08065AA4(Entity* this) {
 
 void Epona_Fusion(Entity* this) {
     if (this->action == 0) {
-        this->action += 1;
+        this->action++;
         this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 7);
     } else {

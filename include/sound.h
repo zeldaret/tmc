@@ -387,7 +387,7 @@ typedef enum {
     SFX_160,
     SFX_161,
     SFX_162,
-    SFX_163,
+    SFX_TOGGLE_DIVING,
     SFX_164,
     SFX_165,
     SFX_166,

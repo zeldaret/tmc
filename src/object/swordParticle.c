@@ -70,7 +70,7 @@ void SwordParticle_Action1(SwordParticleEntity* this) {
     u32 tmp2;
 
     if (super->type2 != 0) {
-        if ((gPlayerState.field_0x1f[2] == 0) || ((gPlayerState.field_0x3[1] & 0x80) != 0)) {
+        if ((gPlayerState.field_0x1f[2] == 0) || ((gPlayerState.attack_status & 0x80) != 0)) {
             DeleteThisEntity();
         }
         if (gPlayerState.field_0x1f[2] >= 0x50) {
@@ -85,7 +85,7 @@ void SwordParticle_Action1(SwordParticleEntity* this) {
             DeleteThisEntity();
         }
     } else {
-        if (gPlayerState.field_0x3[1] == 0) {
+        if (gPlayerState.attack_status == 0) {
             DeleteThisEntity();
         }
         if ((gPlayerState.sword_state & 1) != 0) {

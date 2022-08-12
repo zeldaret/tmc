@@ -166,7 +166,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                         this->child->parent = this->parent;
                         GET_HELPER(this->child) = GET_HELPER(this);
                     }
-                    this->type2 += 1;
+                    this->type2++;
                 }
                 CopyPosition(GET_HELPER(this)->tailObjects[0], this);
                 return;
@@ -193,7 +193,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 this->parent->subAction = 0;
                 return;
             }
-            this->timer += 1;
+            this->timer++;
             return;
         case 2:
             if (this->parent->type2 == 3) {

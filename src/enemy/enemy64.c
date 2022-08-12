@@ -411,13 +411,13 @@ void Enemy64_Action4_SubAction5(Enemy64Entity* this) {
         super->subAction = 6;
         super->spriteSettings.draw = 0;
         entity = super->child;
-        entity->flags &= 0x7f;
+        entity->flags &= ~0x80;
         entity->spriteSettings.draw = 0;
         entity = entity->child;
-        entity->flags &= 0x7f;
+        entity->flags &= ~0x80;
         entity->spriteSettings.draw = 0;
         entity = entity->child;
-        entity->flags &= 0x7f;
+        entity->flags &= ~0x80;
         entity->spriteSettings.draw = 0;
         entity = &gPlayerEntity;
         entity->x.HALF.HI = gRoomControls.origin_x + 0xa8;

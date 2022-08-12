@@ -170,7 +170,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
                 InitializeAnimation(super, super->animIndex + 2);
             }
             sub_08017744(super);
-            super->flags &= 0x7f;
+            super->flags &= ~0x80;
             super->speed = 0;
             tmp3 = super->x.WORD;
             if (tmp3 < 0) {
@@ -195,7 +195,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
                 super->direction ^= 0x10;
                 super->speed = 0x100;
                 super->zVelocity = Q_16_16(0.5);
-                super->flags &= 0x7f;
+                super->flags &= ~0x80;
                 InitializeAnimation(super, 6);
             } else {
                 super->action++;
@@ -230,7 +230,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
         if ((gPlayerEntity.frame & 1) != 0 && arrowCount != 0) {
             entity = CreatePlayerItem(PLAYER_ITEM_BOW, 1, super->hurtType, 9);
             if (entity != NULL) {
-                gPlayerState.field_0x3[1] |= 0x80;
+                gPlayerState.attack_status |= 0x80;
                 ModArrows(-1);
             }
         }

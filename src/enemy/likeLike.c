@@ -198,7 +198,7 @@ void sub_0802805C(LikeLikeEntity* this) {
     if (super->subtimer >= 0x19 || gSave.stats.health == 0) {
         LikeLike_ReleasePlayer(this);
     } else {
-        ResetPlayerItem();
+        ResetActiveItems();
         gPlayerState.mobility |= 0x80;
         PositionRelative(super, &gPlayerEntity, 0, Q_16_16(1.0));
 

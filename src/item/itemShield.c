@@ -8,45 +8,45 @@ void sub_08076D04(ItemBehavior*, u32);
 void sub_08076D34(ItemBehavior*, u32);
 void sub_08076D94(ItemBehavior*, u32);
 
-void ItemShield(ItemBehavior* beh, u32 idx) {
+void ItemShield(ItemBehavior* this, u32 index) {
     static void (*const stateFuncs[])(ItemBehavior*, u32) = {
         sub_08076D04,
         sub_08076D34,
         sub_08076D94,
     };
-    stateFuncs[beh->stateID](beh, idx);
+    stateFuncs[this->stateID](this, index);
 }
 
-void sub_08076D04(ItemBehavior* beh, u32 idx) {
-    gPlayerState.field_0x3[0] = 0x81;
-    beh->field_0x9 = 2;
+void sub_08076D04(ItemBehavior* this, u32 index) {
+    gPlayerState.shield_status = 0x81;
+    this->priority = 2;
     sub_0806F948(&gPlayerEntity);
-    sub_08077D38(beh, idx);
-    sub_08077BB8(beh);
+    sub_08077D38(this, index);
+    sub_08077BB8(this);
 }
 
-void sub_08076D34(ItemBehavior* beh, u32 idx) {
-    if (sub_08077EFC(beh) != 0) {
-        gPlayerState.field_0x3[0] |= 1;
-        UpdateItemAnim(beh);
-        if (beh->playerFrame != 0) {
-            beh->stateID++;
-            beh->field_0xf = 0;
-            gPlayerState.field_0xa &= ~(u8)(8 >> idx);
+void sub_08076D34(ItemBehavior* this, u32 index) {
+    if (IsItemActive(this) != 0) {
+        gPlayerState.shield_status |= 1;
+        UpdateItemAnim(this);
+        if (this->playerFrame != 0) {
+            this->stateID++;
+            this->animPriority = 0;
+            gPlayerState.field_0xa &= ~(u8)(8 >> index);
             SoundReq(SFX_15D);
         }
     } else {
-        gPlayerState.field_0x3[0] = 0;
-        DeletePlayerItem(beh, idx);
+        gPlayerState.shield_status = 0;
+        DeleteItemBehavior(this, index);
     }
 }
 
-void sub_08076D94(ItemBehavior* beh, u32 idx) {
-    if (sub_08077EFC(beh)) {
-        gPlayerState.field_0x3[0] |= 1;
-        UpdateItemAnim(beh);
+void sub_08076D94(ItemBehavior* this, u32 index) {
+    if (IsItemActive(this)) {
+        gPlayerState.shield_status |= 1;
+        UpdateItemAnim(this);
     } else {
-        gPlayerState.field_0x3[0] = 0;
-        DeletePlayerItem(beh, idx);
+        gPlayerState.shield_status = 0;
+        DeleteItemBehavior(this, index);
     }
 }

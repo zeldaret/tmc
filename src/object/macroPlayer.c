@@ -10,14 +10,13 @@
 #include "functions.h"
 #include "object.h"
 #include "physics.h"
+#include "player.h"
 
 typedef struct {
     Entity base;
     union SplitHWord unk68;
     u16 unk6a;
 } MacroPlayerEntity;
-
-extern int sub_0807A094(int);
 
 void MacroPlayer_Type0(MacroPlayerEntity*);
 void MacroPlayer_Type1(MacroPlayerEntity*);
@@ -118,7 +117,7 @@ void MacroPlayer_Type0_Init(MacroPlayerEntity* this) {
     super->spriteRendering.b0 = 3;
     SetAffineInfo(super, 4, 4, 0);
     gUnk_02018EB0.unk_14 = super;
-    ChangeObjPalette(super, sub_0807A094(0));
+    ChangeObjPalette(super, GetPlayerPalette(FALSE));
     pEVar1 = CreateObject(PORTAL_FALLING_PLAYER, 1, 0);
     if (pEVar1 != NULL) {
         pEVar1->parent = super;

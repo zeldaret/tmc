@@ -46,7 +46,7 @@ void sub_080A758C(PlayerItemSwordEntity* this) {
         SFX_PLY_VO4,
         SFX_PLY_VO5,
     };
-    if (((super->type == 0) && (gPlayerState.field_0x3[1] == 0)) && ((gPlayerState.jump_status & 0x20) == 0)) {
+    if (((super->type == 0) && (gPlayerState.attack_status == 0)) && ((gPlayerState.jump_status & 0x20) == 0)) {
         DeleteThisEntity();
     }
     if (AllocMutableHitbox(super) == NULL) {
@@ -157,7 +157,7 @@ void sub_080A76CC(PlayerItemSwordEntity* this) {
         if ((PlayerItemSwordEntity*)gPlayerState.item != this) {
             DeleteThisEntity();
         }
-        if (gPlayerState.field_0x3[1] == 0) {
+        if (gPlayerState.attack_status == 0) {
             gPlayerState.item = NULL;
             gPlayerState.sword_state = 0;
             DeleteThisEntity();
@@ -209,7 +209,7 @@ void sub_080A76CC(PlayerItemSwordEntity* this) {
         sub_080A78B8(this, &gPlayerEntity);
         sub_080A7A84(this);
     } else {
-        if (!((gPlayerState.field_0x3[1] == 0) || (gPlayerState.item->hurtType == 0))) {
+        if (!((gPlayerState.attack_status == 0) || (gPlayerState.item->hurtType == 0))) {
             super->flags |= ENT_COLLIDE;
             super->hurtType = gPlayerState.item->hurtType;
             sub_080A7A54(this);
@@ -225,7 +225,7 @@ void sub_080A7824(PlayerItemSwordEntity* this) {
     if (gPlayerState.item != super) {
         DeleteThisEntity();
     }
-    if (gPlayerState.field_0x3[1] != 0) {
+    if (gPlayerState.attack_status != 0) {
         if (gPlayerState.jump_status == 0) {
             gPlayerState.item = NULL;
             DeleteThisEntity();
@@ -306,7 +306,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
                 default:
                     if ((gPlayerState.sword_state & 0xc0) == 0) {
                         gPlayerState.sword_state = 0;
-                        gPlayerState.field_0x3[1] = 0;
+                        gPlayerState.attack_status = 0;
                         gPlayerState.item = NULL;
                         DeleteThisEntity();
                     }
