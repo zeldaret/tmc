@@ -594,7 +594,28 @@ void DeleteLoadedTileEntity(u32 position, s32 layer) {
     ptr[t] = ptr[count];
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AFE4.inc", void sub_0801AFE4(void))
+void sub_0801AFE4(void) {
+    const u16* ptr;
+    u8* collisionData;
+    u32 x;
+    u32 y;
+    u32 width;
+    u32 height;
+
+    collisionData = gMapBottom.collisionData;
+    width = gRoomControls.width >> 4;
+    height = gRoomControls.height >> 4;
+    for (y = 0; y < height; collisionData = collisionData + (0x40 - width), y++) {
+        for (x = 0; x < width; collisionData++, x++) {
+            for (ptr = gUnk_080B44D0; ptr[0] != 0; ptr += 2) {
+                if (ptr[0] == *collisionData) {
+                    SetTile(ptr[1], y * 0x40 + x, 1);
+                    break;
+                }
+            }
+        }
+    }
+}
 
 void UpdateBgAnimations(void) {
     bool32 alreadyUploadedGfx = FALSE;
