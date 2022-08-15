@@ -142,21 +142,15 @@ void sub_080197D4(u32* param_1) {
 // Has ifdefs for other variants
 ASM_FUNC("asm/non_matching/beanstalkSubtask/UpdatePlayerCollision.inc", void UpdatePlayerCollision())
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
-         bool32 sub_0801A2B0(LayerStruct* layer, u32 position, u32 collisionType)) {
+bool32 sub_0801A2B0(LayerStruct* layer, u32 position, u32 collisionType) {
     u16 uVar1;
-    u32 uVar2;
-    bool32 bVar3;
-    u32 pos;
-    s16 temp;
-    s16 temp2;
-    u16 temp3;
+    s16 x;
+    s16 y;
     u16 temp4;
-    u32 temp5;
 
     uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
     if ((((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
-        position = (u16)(position + uVar1);
+        position = (u16)(position - (-uVar1)); // necessary for match
         temp4 = sub_080B1B54(GetTileType(position, gPlayerEntity.collisionLayer));
         switch (temp4) {
             case 0x52:
@@ -170,9 +164,9 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
                 return FALSE;
             default:
                 if ((layer->collisionData[(position)] != 0x28)) {
-                    temp = (((position & 0x3f) * 0x10 + (u32)gRoomControls.origin_x));
-                    temp2 = (((position >> 6) * 0x10 + (u32)gRoomControls.origin_y));
-                    if ((!IsTileCollision(layer->collisionData, temp, temp2, collisionType))) {
+                    x = (((position & 0x3f) * 0x10 + (u32)gRoomControls.origin_x));
+                    y = (((position >> 6) * 0x10 + (u32)gRoomControls.origin_y));
+                    if ((!IsTileCollision(layer->collisionData, x, y, collisionType))) {
                         return TRUE;
                     }
                 }
@@ -181,7 +175,6 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A2B0.inc",
     }
     return FALSE;
 }
-END_NONMATCH
 
 bool32 sub_0801A370(LayerStruct* layer, u32 position) {
     LayerStruct* topLayer;
@@ -566,8 +559,40 @@ void sub_0801AF48(u32 data, u32 position, u32 layer) {
     }
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/DeleteLoadedTileEntity.inc",
-         void DeleteLoadedTileEntity(u32 position, u32 layer))
+void DeleteLoadedTileEntity(u32 position, s32 layer) {
+    u32 count;
+    struct_0200B240* ptr;
+    u32 positionLayer;
+    u32 t;
+
+    layer = layer << 12;
+    positionLayer = position | layer;
+    ptr = gUnk_0200B240;
+    count = gRoomVars.unk_0e;
+    t = 0;
+
+    if (t >= count) {
+        return;
+    }
+
+    if (positionLayer == ptr->position) {
+        count--;
+        gRoomVars.unk_0e = count;
+        ptr[0] = ptr[count];
+        return;
+    }
+    while (positionLayer != ptr->position) {
+        ptr++;
+        t++;
+        if (t >= count) {
+            return;
+        }
+    }
+    count--;
+    gRoomVars.unk_0e = count;
+    ptr = gUnk_0200B240;
+    ptr[t] = ptr[count];
+}
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AFE4.inc", void sub_0801AFE4(void))
 
