@@ -32,6 +32,7 @@ void sub_08079064(Entity*);
 extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
 extern const ScreenTransitionData gUnk_0813AD88[];
+extern const s8* gUnk_0811C0E8[];
 
 bool32 IsAbleToUseItem(PlayerEntity*);
 bool32 IsPreventedFromUsingItem();
@@ -1207,7 +1208,51 @@ void sub_08078CD0(PlayerEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08078D60.inc", void sub_08078D60())
+void sub_08078D60(void) {
+    const s8* puVar2;
+    u32 uVar3;
+    Entity* iVar4;
+    Entity* player;
+
+    player = &gPlayerEntity;
+    iVar4 = (*(Entity**)&((GenericEntity*)player)->field_0x74)->child;
+    if (iVar4->action != 2)
+        return;
+
+    iVar4->z.HALF.HI = gPlayerEntity.spriteOffsetY + gPlayerEntity.z.HALF.HI;
+    iVar4->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    iVar4->collisionLayer = gPlayerEntity.collisionLayer;
+    uVar3 = gPlayerEntity.frame & 0x7f;
+    puVar2 = gUnk_0811C0E8[iVar4->carryFlags >> 4];
+    if (gPlayerEntity.spriteSettings.flipX) {
+        iVar4->x.HALF.HI = gPlayerEntity.x.HALF.HI - puVar2[uVar3];
+    } else {
+        iVar4->x.HALF.HI = gPlayerEntity.x.HALF.HI + puVar2[uVar3];
+    }
+    iVar4->z.HALF.HI = puVar2[uVar3 + 1] + iVar4->z.HALF.HI;
+    iVar4->y.HALF.HI = gPlayerEntity.y.HALF.HI;
+    SortEntityAbove(&gPlayerEntity, iVar4);
+    if (gPlayerState.heldObject == 4) {
+        iVar4->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+        sub_0806F8DC(iVar4);
+        if ((iVar4->carryFlags & 0xf) == 2) {
+            switch (gRoomTransition.frameCount & 3) {
+                case 1:
+                    iVar4->x.HALF.HI++;
+                    break;
+                case 3:
+                    iVar4->x.HALF.HI--;
+                    break;
+            }
+        }
+    } else {
+        if (gPlayerEntity.animationState >> 1 != 0) {
+            iVar4->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
+        } else {
+            iVar4->spritePriority.b0 = gPlayerEntity.spritePriority.b0 + 1;
+        }
+    }
+}
 
 void sub_08078E84(Entity* param_1, Entity* param_2) {
     SpriteFrame* frame;

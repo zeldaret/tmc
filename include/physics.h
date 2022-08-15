@@ -43,6 +43,7 @@ void sub_0806FF48(Entity*, u32, u32);
 void sub_0806FCF4(Entity*, s32, s32, s32);
 void sub_0806FD3C(Entity*);
 bool32 sub_0806FDA0(Entity*);
+bool32 sub_0806F8DC(Entity*);
 void sub_0806FEBC(Entity*, u32, Entity*);
 extern bool32 ProcessMovement1(Entity*);
 extern bool32 ProcessMovement12(Entity*);
