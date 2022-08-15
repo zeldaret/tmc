@@ -566,8 +566,42 @@ void sub_0801AF48(u32 data, u32 position, u32 layer) {
     }
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/DeleteLoadedTileEntity.inc",
-         void DeleteLoadedTileEntity(u32 position, u32 layer))
+void DeleteLoadedTileEntity(u32 position, s32 layer) {
+    u32 count;
+    // struct_0200B240* ptr; //<- probably the better solution, no idea what is in there though
+    s32* ptr;
+    u32 positionLayer;
+
+    u32 t;
+    layer = layer << 12;
+    positionLayer = position | layer;
+    ptr = gUnk_0200B240;
+    count = gRoomVars.unk_0e;
+    t = 0;
+
+    if (t >= count) {
+        return;
+    }
+
+    if (positionLayer == (u16)*ptr) {
+        count--;
+        gRoomVars.unk_0e = count;
+        ptr[0] = *(count + ptr);
+        return;
+    }
+    do {
+        ptr++;
+        t++;
+        if (t >= count) {
+            return;
+        }
+
+    } while (positionLayer != (u16)*ptr);
+    count--;
+    gRoomVars.unk_0e = count;
+    ptr = gUnk_0200B240;
+    *(t + ptr) = *(count + ptr);
+}
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AFE4.inc", void sub_0801AFE4(void))
 
