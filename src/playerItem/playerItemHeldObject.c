@@ -34,7 +34,6 @@ void sub_080ACF2C(PlayerItemHeldObjectEntity*);
 void sub_080ACFCC(PlayerItemHeldObjectEntity*);
 void sub_080AD040(PlayerItemHeldObjectEntity*);
 void sub_080AD274(PlayerItemHeldObjectEntity*);
-bool32 sub_0806F8DC(Entity*);
 
 void PlayerItemHeldObject(Entity* this) {
     static void (*const subActionFuncs[])(PlayerItemHeldObjectEntity*) = {
