@@ -656,7 +656,47 @@ void sub_0801E24C(s32 param_1, s32 param_2) {
     }
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801E290.inc", void sub_0801E290(u32 a1, u32 a2, u32 a3));
+
+void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
+    s32 uVar1;
+    s32 iVar2;
+    s32 iVar4;
+    u8* forwardAccess;
+    u8* backwardAccess;
+    s16* puVar6;
+    u32 uVar5;
+    u32 uVar7;
+    u32 index;
+    u32 x;
+    forwardAccess = &gUnk_02017AA0[gUnk_03003DE4[0]].filler[param_2 * 2];
+    backwardAccess = forwardAccess;
+    uVar5 = uVar7 = param_2;
+    puVar6 = gUnk_02018EE0;
+
+    while (count-- > 0) { 
+        uVar1 = *puVar6++;
+        iVar2 = param_1 - uVar1;
+        iVar4 = param_1 + uVar1;
+        if (iVar2 < 0) {
+            iVar2 = 0;
+        }
+        if (iVar4 > 0xef) {
+            iVar4 = 0xf0;
+        }
+        if (((u16)uVar5 & 0xffff) < 0xa0) {
+            backwardAccess[0] = iVar4;
+            backwardAccess[1] = iVar2;
+        }
+        if (((u16)uVar7 & 0xffff) < 0xa0) {
+            forwardAccess[0] = iVar4;
+            forwardAccess[1] = iVar2;
+        }
+        backwardAccess -= 2;
+        forwardAccess += 2;
+        uVar5--;
+        uVar7++;
+    }
+}
 
 ASM_FUNC("asm/non_matching/common/sub_0801E31C.inc", void sub_0801E31C(u32 a1, u32 a2, u32 a3, u32 a4));
 
