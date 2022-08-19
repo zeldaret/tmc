@@ -34,7 +34,14 @@ extern const u16 gUnk_080B44A0[];
 extern const u16 gUnk_080B4410[];
 extern const s16 gUnk_080B4488[];
 extern const s16 gUnk_080B44A8[];
-extern const u16 gUnk_080B44D0[];
+
+typedef struct {
+    u16 unk0;
+    u16 unk1;
+} struct_080B44D0;
+
+extern const struct_080B44D0 gUnk_080B44D0[];
+
 extern const u16* gUnk_080B4550[];
 extern const u16 gUnk_080B77C0[];
 extern BgAnimationFrame* gUnk_080B7278[];
@@ -594,8 +601,9 @@ void DeleteLoadedTileEntity(u32 position, s32 layer) {
     ptr[t] = ptr[count];
 }
 
+// used for minish houses, seems to overwrite all tiles on layer 1 for them?
 void sub_0801AFE4(void) {
-    const u16* ptr;
+    const struct_080B44D0* ptr;
     u8* collisionData;
     u32 x;
     u32 y;
@@ -605,15 +613,17 @@ void sub_0801AFE4(void) {
     collisionData = gMapBottom.collisionData;
     width = gRoomControls.width >> 4;
     height = gRoomControls.height >> 4;
-    for (y = 0; y < height; collisionData = collisionData + (0x40 - width), y++) {
-        for (x = 0; x < width; collisionData++, x++) {
-            for (ptr = gUnk_080B44D0; ptr[0] != 0; ptr += 2) {
-                if (ptr[0] == *collisionData) {
-                    SetTile(ptr[1], y * 0x40 + x, 1);
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            for (ptr = gUnk_080B44D0; ptr->unk0 != 0; ptr++) {
+                if (ptr->unk0 == *collisionData) {
+                    SetTile(ptr->unk1, y * 0x40 + x, 1);
                     break;
                 }
             }
+            collisionData++;
         }
+        collisionData = collisionData + (0x40 - width);
     }
 }
 
