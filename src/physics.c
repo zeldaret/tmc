@@ -399,7 +399,7 @@ bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
     return rv;
 }
 
-NONMATCH("asm/non_matching/coord/sub_0806FC24.inc", bool32 sub_0806FC24(u32 param_1, u32 param_2)) {
+bool32 sub_0806FC24(u32 param_1, u32 param_2) {
     register u32 rv asm("r0");
     u32 val = sub_08007DD6(param_1, gUnk_080046A4);
     if (val) {
@@ -409,7 +409,6 @@ NONMATCH("asm/non_matching/coord/sub_0806FC24.inc", bool32 sub_0806FC24(u32 para
     }
     return rv;
 }
-END_NONMATCH
 
 const u16* sub_0806FC50(u32 param_1, u32 param_2) {
     const u16* rv;

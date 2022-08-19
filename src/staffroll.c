@@ -26,16 +26,16 @@ typedef struct {
 #define gStaffrollMenu (*(StaffrollMenu*)&gMenu)
 
 const Font gUnk_08127280 = {
-    (u16*)0x02021f72, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
+    &gBG1Buffer[0x21], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
 };
 const Font gUnk_08127298 = {
-    (u16*)0x02021f90, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
+    &gBG1Buffer[0x30], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
 };
 const Font gUnk_081272B0 = {
-    (u16*)0x0202204e, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
+    &gBG1Buffer[0x8f], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
 };
 const Font gUnk_081272C8 = {
-    (u16*)0x020222ce, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
+    &gBG1Buffer[0x1cf], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
 };
 
 const Font* const gUnk_081272E0[] = {

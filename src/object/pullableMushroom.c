@@ -126,9 +126,56 @@ void PullableMushroom_Action1_Type1(PullableMushroomEntity* this) {
         sub_0808B168(this, 0);
     }
 }
+void sub_0808ABC4(PullableMushroomEntity* this) {
+    static const s8 gUnk_081211CC[] = { 0, -128, 0, -6, 0, 0, 5, -4, 0, 0, 0, 0, 0, -128, -5, -4 };
+    u32 tmp;
+    const s8* ptr;
 
-const u16 gUnk_081211CC[] = { 32768, 64000, 0, 64517, 0, 0, 32768, 64763 };
-ASM_FUNC("asm/non_matching/pullableMushroom/sub_0808ABC4.inc", void sub_0808ABC4(PullableMushroomEntity* this))
+    if (super->parent->action == 1 && super->parent->subAction == 2) {
+        DeleteThisEntity();
+    }
+    tmp = sub_0808B1F0((PullableMushroomEntity*)super->child, super->parent);
+    if (tmp < 8) {
+        tmp = 0;
+    }
+    ptr = &gUnk_081211CC[super->animationState * 4];
+    if (tmp < 0x20) {
+        if (tmp != 0) {
+            tmp -= 6;
+        }
+        this->unk_70 = (*(u16*)ptr);
+        super->x.HALF.HI = (s16)ptr[2] + super->parent->x.HALF.HI;
+        super->y.HALF.HI = (s16)ptr[3] + super->parent->y.HALF.HI;
+        if (super->animationState & 1) {
+            this->unk_74 = 0x200 - (tmp << 4);
+            this->unk_78 = (tmp << 3) + 0x120;
+            super->frameIndex = 0x0f;
+        } else {
+            this->unk_78 = 0x200 - (tmp << 4);
+            this->unk_74 = (tmp << 3) + 0x120;
+            super->frameIndex = 0x14;
+        }
+    } else if (super->animationState & 1) {
+        this->unk_74 = 0x100 - 4 * (tmp - 0x20);
+        this->unk_78 = (tmp << 3) + 0x140;
+        super->frameIndex = 0x10;
+        if (super->animationState & 2) {
+            super->x.HALF.HI = (super->parent)->x.HALF.HI - (tmp >> 1);
+        } else {
+            super->x.HALF.HI = (super->parent)->x.HALF.HI + (tmp >> 1);
+        }
+    } else {
+        this->unk_78 = 0x100 - 4 * (tmp - 0x20);
+        this->unk_74 = (tmp << 3) + 0x140;
+        super->frameIndex = 0x15;
+        if (super->animationState & 2) {
+            super->y.HALF.HI = (super->parent)->y.HALF_U.HI + (tmp >> 1) + ptr[3];
+        } else {
+            super->y.HALF.HI = (super->parent)->y.HALF_U.HI - (tmp >> 1) + ptr[3];
+        }
+    }
+    SetAffineInfo(super, this->unk_74, this->unk_78, this->unk_70);
+}
 
 void sub_0808ACEC(PullableMushroomEntity* this) {
     if (super->animIndex != 0) {

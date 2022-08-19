@@ -51,6 +51,7 @@ typedef struct {
     /*0x10*/ union {
         s32 i;
         u16 h[2];
+        s16 sh[2];
         u8 a[4];
     } unk10;
     /*0x12*/ // u8 field_0x12;
