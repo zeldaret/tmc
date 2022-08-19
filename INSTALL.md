@@ -17,7 +17,7 @@ To build other variants, you need to place the corresponding baserom before buil
 
 The [prerelease version of the Linux subsystem](https://docs.microsoft.com/windows/wsl/install-legacy) available in the 1607 and 1703 releases of Windows 10 is obsolete so consider uninstalling it.
 
-Make sure that the `build-essential`, `git`, `python3`, `python3-pip` and `libpng-dev` packages are installed. The `build-essential` package includes the `make`, `gcc-core`, and `g++` packages so they do not have to be obtained separately.
+Make sure that the `build-essential`, `git`, `python3`, `python3-pip`, `cmake` and `libpng-dev` packages are installed. The `build-essential` package includes the `make`, `gcc-core`, and `g++` packages so they do not have to be obtained separately.
 
 In the case of Cygwin, [include](https://cygwin.com/cygwin-ug-net/setup-net.html#setup-packages) the `make`, `git`, `gcc-core`, `gcc-g++`, and `libpng-devel` packages.
 
