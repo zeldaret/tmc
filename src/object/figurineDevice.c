@@ -489,7 +489,62 @@ void sub_080882A8(FigurineDeviceEntity* this) {
     gScreen.bg0.updated = 1;
 }
 
-ASM_FUNC("asm/non_matching/figurineDevice/sub_08088328.inc", void sub_08088328(FigurineDeviceEntity* this))
+void sub_08088328(FigurineDeviceEntity* this) {
+    u32 uVar2;
+    u32 uVar3;
+    u32 uVar5;
+    u32 uVar6;
+
+    do {
+        uVar2 = Random();
+        uVar2 &= 0x7f;
+    } while (uVar2 >= 100);
+    ModShells(-this->unk_81);
+    uVar3 = Random();
+    uVar6 = (uVar3 & 0x7f) + 1;
+    uVar5 = uVar6;
+    sub_08088424(this);
+    if (uVar2 < this->unk_83) {
+        uVar2 = FALSE;
+        do {
+            if (uVar2)
+                break;
+            if (uVar6 > 0x88) {
+                uVar6 = 1;
+            }
+            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) == 0) {
+                uVar2 = TRUE;
+            } else {
+                uVar6++;
+            }
+        } while (uVar5 != uVar6);
+    } else {
+        uVar2 = TRUE;
+        do {
+            if (!uVar2)
+                break;
+            if (uVar6 > 0x88) {
+                uVar6 = 1;
+            }
+            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) != 0) {
+                uVar2 = FALSE;
+            } else {
+                uVar6++;
+            }
+        } while (uVar5 != uVar6);
+    }
+    if (uVar2) {
+        gSave.stats.filler[0]++;
+        if (gSave.stats.filler[0] != this->unk_80) {
+            SetRoomFlag(7);
+        } else {
+            SetLocalFlag(SHOP07_COMPLETE);
+            SetRoomFlag(8);
+        }
+    }
+    this->unk_7d = uVar6;
+    ((FigurineDeviceEntity*)super->parent)->unk_7d = uVar6;
+}
 
 void sub_08088424(FigurineDeviceEntity* this) {
     if (gSave.stats.filler[0] < 0x32) {
