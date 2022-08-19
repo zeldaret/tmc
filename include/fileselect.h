@@ -15,7 +15,7 @@ typedef struct {
     /*0x10*/ s16 unk_0x10;
     /*0x12*/ u16 unk_0x12;
     /*0x14*/ u8 fillerB[0xC];
-    /*0x20*/ u8 unk_0x20;
+    /*0x20*/ s8 unk_0x20;
     /*0x21*/ u8 fillerC[0xF];
 } ChooseFileState;
 static_assert(sizeof(ChooseFileState) == 0x30);

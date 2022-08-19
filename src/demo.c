@@ -106,70 +106,53 @@ void sub_080A2F8C(void) {
     }
 }
 
-// The condition on the left dpad is very convuluted for some reason (instead oj just an equality check).
-// This causes the entire function heirarchy to change on a whim and I couldn't quite figure out
-// the correct conditions/code to make it like the original function.
-NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)) {
-    s32 tmp;
-    u32 tmp2;
+void sub_080A2FD0(void) {
     u32 val;
     s32 tmp3;
-    u32 unk_0x0;
-    u32 tmp4;
-    s32 tmp5;
-    u32 keys;
 
     if (gFadeControl.active == 0) {
         val = 0;
-        keys = gInput.heldKeys;
-        switch (keys) {
-            case DPAD_RIGHT: {
+        switch (gInput.heldKeys) {
+            case DPAD_LEFT:
+                if (gChooseFileState.unk_0x0 == 0) {
+                    val = -1;
+                    gChooseFileState.unk_0x20 = -4;
+                    SoundReq(SFX_TEXTBOX_CHOICE);
+                }
+                break;
+            case DPAD_RIGHT:
                 if (gChooseFileState.unk_0x0 == 0) {
                     val = 1;
                     gChooseFileState.unk_0x20 = 4;
                     SoundReq(SFX_TEXTBOX_CHOICE);
                 }
-            }
-            case DPAD_LEFT: {
-                if (gChooseFileState.unk_0x0 == 0) {
-                    val = -1;
-                    gChooseFileState.unk_0x20 = 0xfc;
-                    SoundReq(SFX_TEXTBOX_CHOICE);
-                }
-            }
+                break;
             case START_BUTTON:
-            case A_BUTTON: {
+            case A_BUTTON:
                 if (gChooseFileState.unk_0x0 == 0) {
-                    gMain.task = 2;
-                    gMain.state = gChooseFileState.unk_0x0;
+                    gMain.state = 2;
+                    gMain.substate = gChooseFileState.unk_0x0;
                     SoundReq(SFX_TEXTBOX_SELECT);
                 }
-            }
+                break;
+            case DPAD_UP:
+            case DPAD_DOWN:
+                break;
         }
-        tmp = gSaveHeader->saveFileId;
-        tmp2 = val + 3;
-        tmp += tmp2;
-        gSaveHeader->saveFileId = tmp % 3;
+        gSaveHeader->saveFileId = (int)(gSaveHeader->saveFileId + 3 + val) % 3;
 
         tmp3 = gChooseFileState.unk_0x10;
 
-        tmp = gSaveHeader->saveFileId;
-        tmp *= 0x68;
-
-        if (tmp != tmp3) {
-            tmp5 = gChooseFileState.unk_0x20;
-            tmp5 += tmp3;
-            gChooseFileState.unk_0x10 = (tmp5 + (0x9c << 1)) % (0x9c << 1);
-            unk_0x0 = 1;
+        if (gSaveHeader->saveFileId * 0x68 != tmp3) {
+            gChooseFileState.unk_0x10 = (tmp3 + gChooseFileState.unk_0x20 + 0x138) % 0x138;
+            gChooseFileState.unk_0x0 = 1;
         } else {
-            unk_0x0 = 0;
+            gChooseFileState.unk_0x0 = 0;
         }
 
-        gChooseFileState.unk_0x0 = unk_0x0;
         sub_080A3198(gSaveHeader->saveFileId, 0);
     }
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/demoScreen/sub_080A30AC.inc", void sub_080A30AC(void)) {
     u32 unk_0x10;
