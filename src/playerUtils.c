@@ -166,6 +166,7 @@ extern s8* gUnk_0811C0B0[];
 extern u8 gUnk_0811C01C[];
 
 extern u32 gUnk_02022830[];
+extern u16* gUnk_0800823C[];
 
 void UpdateActiveItems(PlayerEntity* this) {
     u32 index;
@@ -2087,7 +2088,74 @@ u32 GetPlayerTilePos(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A5B8.inc", void sub_0807A5B8(u32 a))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A750.inc", void sub_0807A750())
+void sub_0807A750(u32 param_1, u32 param_2, u8* param_3, u32 param_4) {
+    u32 uVar2;
+    u16* ptr;
+    u32 uVar5;
+    s32 index;
+
+    if ((param_4 & 1) == 0) {
+        index = param_2 % 16;
+    } else {
+        index = param_1 % 16;
+    }
+    if ((index != 0) && (index != 0xf)) {
+        uVar2 = sub_080B1B44((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, gPlayerEntity.collisionLayer);
+        if (uVar2 > 0xf) {
+            if (uVar2 != 0xff) {
+                uVar2 = param_3[uVar2 - 0x10];
+            } else {
+                uVar2 = 0xf;
+            }
+        }
+        ptr = gUnk_0800823C[uVar2];
+        if ((param_4 & 1) == 0) {
+            uVar5 = 0x8000 >> (param_1 % 16);
+            if (param_4 == 0) {
+                while (index < 0xf) {
+                    if ((ptr[index] & uVar5) == 0) {
+                        break;
+                    }
+                    index++;
+                }
+                index--;
+            } else {
+                while (index > 0) {
+                    if ((ptr[index] & uVar5) == 0) {
+                        break;
+                    }
+                    index--;
+                }
+                index++;
+            }
+            gPlayerEntity.y.HALF.HI += index - (param_2 % 16);
+        } else {
+            uVar5 = ptr[param_2 % 16];
+            if (param_4 == 1) {
+                uVar5 = uVar5 >> ((0xf - index));
+                while (index > 0) {
+                    if ((uVar5 & 1) == 0) {
+                        break;
+                    }
+                    uVar5 >>= 1;
+                    index--;
+                }
+                index++;
+            } else {
+                uVar5 = uVar5 << index;
+                while (index < 0xf) {
+                    if ((uVar5 & 0x8000) == 0) {
+                        break;
+                    }
+                    uVar5 <<= 1;
+                    index++;
+                }
+                index--;
+            }
+            gPlayerEntity.x.HALF.HI += (index - (param_1 % 16));
+        }
+    }
+}
 
 u32 GetCollisionTileInFront(Entity* this) {
     s32 x;
@@ -3226,7 +3294,7 @@ void sub_0807C5B0(void) {
     roomControls->scroll_flags |= 2;
 }
 
-NONMATCH("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4(u16* param_1, u16* param_2)) {
+void sub_0807C5F4(u16* param_1, u16* param_2) {
     s32 iVar1;
     u16* puVar2;
     u16* puVar3;
@@ -3234,76 +3302,50 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4(u16*
     u32 index;
     u32 innerIndex;
 
-    /*
-        for (index = 0; index < 0x20; index++) {
-            for (innerIndex = 0; innerIndex < 0x20; innerIndex++) {
-                param_1[index*0x81+innerIndex] = param_2[innerIndex];
-            }
-        }
-
-    */
     puVar2 = param_1;
-    iVar1 = 0x20;
-    do {
-        uVar4 = 0;
-        iVar1--;
-        do {
+    for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
+        for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
             *puVar2 = *param_2;
             param_2++;
             puVar2++;
-            uVar4++;
-        } while (uVar4 < 0x20);
+        }
         puVar2 += 0x60;
-    } while (iVar1 != 0);
+    }
 
-    if (0xff < gRoomControls.width) {
+    if (gRoomControls.width > 0xff) {
         puVar2 = param_1 + 0x20;
-        iVar1 = 0x20;
-        do {
-            uVar4 = 0;
-            iVar1--;
-            do {
+        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
+            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
                 *puVar2 = *param_2;
                 param_2++;
                 puVar2++;
-                uVar4++;
-            } while (uVar4 < 0x20);
+            }
             puVar2 += 0x60;
-        } while (iVar1 != 0);
+        }
     }
-    if (0xff < gRoomControls.height) {
+    if (gRoomControls.height > 0xff) {
         puVar2 = param_1 + 0x1000;
-        iVar1 = 0x20;
-        do {
-            uVar4 = 0;
-            iVar1--;
-            do {
+        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
+            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
                 *puVar2 = *param_2;
                 param_2++;
                 puVar2++;
-                uVar4++;
-            } while (uVar4 < 0x20);
+            }
             puVar2 += 0x60;
-        } while (iVar1 != 0);
+        }
     }
-    if ((0xff < gRoomControls.width) && (0xff < gRoomControls.height)) {
+    if (gRoomControls.width > 0xff && gRoomControls.height > 0xff) {
         param_1 += 0x1020;
         puVar2 = param_1;
-        iVar1 = 0x20;
-        do {
-            uVar4 = 0;
-            iVar1--;
-            do {
-                *puVar2 = *param_2;
-                param_2++;
-                puVar2++;
-                uVar4++;
-            } while (uVar4 < 0x20);
+
+        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
+            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
+                *puVar2++ = *param_2++;
+            }
             puVar2 += 0x60;
-        } while (iVar1 != 0);
+        }
     }
 }
-END_NONMATCH
 
 void sub_0807C69C(u8* data, u32 width, u32 height) {
     u8* ptr1;

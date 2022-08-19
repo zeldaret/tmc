@@ -5,14 +5,16 @@
  * @brief Demo task
  */
 
-#include "global.h"
-#include "functions.h"
-#include "main.h"
 #include "common.h"
-#include "message.h"
 #include "fileselect.h"
-#include "screen.h"
+#include "functions.h"
 #include "game.h"
+#include "global.h"
+#include "main.h"
+#include "menu.h"
+#include "message.h"
+#include "screen.h"
+#include "menu.h"
 
 void sub_080A30AC(void);
 void sub_080A2E40(void);
@@ -154,54 +156,42 @@ void sub_080A2FD0(void) {
     }
 }
 
-NONMATCH("asm/non_matching/demoScreen/sub_080A30AC.inc", void sub_080A30AC(void)) {
-    u32 unk_0x10;
+void sub_080A30AC(void) {
+    s32 unk_0x10;
     u8* ptr;
     u8* currentPtr;
     u32 offset;
-    u32 xoffset;
     gOamCmd._4 = 0x2000;
     gOamCmd._6 = 0;
     gOamCmd._8 = 0xc00;
     gOamCmd.y = 0x40;
-    unk_0x10 = gChooseFileState.unk_0x10;
-    gOamCmd.x = 0xFFFFFED8 - unk_0x10;
+    unk_0x10 = (s16)gGenericMenu.unk10.h[0];
+    gOamCmd.x = -0x128 - unk_0x10;
     offset = *(u32*)gUnk_08A068BF;
     ptr = gUnk_08A068BF - 0xc;
     sub_080ADA04(&gOamCmd, ptr + offset);
-    // FIX: original assembly uses r1 for xoffset for no apparent reason. Could not make it compile to do the same.
-    // Maybe the original code was some sort of loop unrolling.
-    xoffset = -0xc0;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = -0xc0 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 4));
-    xoffset = -0x58;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = -0x58 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 8));
-    xoffset = 0x10;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = 0x10 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(gUnk_08A068BF));
-    xoffset = 0x78;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = 0x78 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 4));
-    xoffset = 0xe0;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = 0xe0 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 8));
-    xoffset = 0xa4 << 1;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = 0x148 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(gUnk_08A068BF));
-    xoffset = 0xd8 << 1;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = 0x1b0 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 4));
-    xoffset = 0x86 << 2;
-    gOamCmd.x = xoffset - unk_0x10;
+    gOamCmd.x = 0x218 - unk_0x10;
     sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 8));
 }
-END_NONMATCH
 
 void sub_080A3198(u32 param_1, u32 param_2) {
     static const Font gUnk_08127C98[] = {
-        { gUnk_0203508E, (void*)0x0600d000, (void*)0x02000d00, 0, 0x1080, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
-        { gUnk_0203510E, (void*)0x0600d000, (void*)0x02000d00, 0, 0x80, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
+        { gUnk_0203508E, BG_TILE_ADDR(0x1a0), gTextGfxBuffer, 0, 0x1080, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
+        { gUnk_0203510E, BG_TILE_ADDR(0x1a0), gTextGfxBuffer, 0, 0x80, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
     };
     static const u16 gUnk_08127CC8[4] = {
         0x71c,

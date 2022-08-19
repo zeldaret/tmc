@@ -1,8 +1,11 @@
+#include "common.h"
 #include "entity.h"
 #include "player.h"
-#include "structures.h"
 #include "room.h"
-#include "common.h"
+#include "structures.h"
+
+extern const u8 gUnk_08109202[];
+u32 ConvInputToState(u32 keys);
 
 bool32 sub_0805EC04(Entity* this) {
     u32 i = 1;
@@ -64,7 +67,82 @@ void InitPlayerMacro(PlayerMacroEntry* playerMacro) {
     gPlayerState.playerInput.playerMacroHeldKeys = 0;
 }
 
-ASM_FUNC("asm/non_matching/code_0805EC04/UpdatePlayerInput.inc", void UpdatePlayerInput())
+void UpdatePlayerInput(void) {
+    u32 flags;
+    u32 state;
+    u32 keys;
+    u32 prevState;
+    PlayerInput* playerInput;
+    PlayerMacroEntry* playerMacro;
+    u32 zero;
+
+    if (gPlayerState.playerInput.playerMacro != NULL) {
+        // Player is controlled by macro.
+        playerInput = &gPlayerState.playerInput;
+        playerMacro = playerInput->playerMacro;
+        if (playerInput->playerMacroWaiting == 0) { // Execute next macro entry.
+            zero = 0;
+            goto code_2;
+        code_0:
+            if (flags != 2) {
+                playerInput->playerMacroWaiting = playerMacro->flags;
+                playerInput->playerMacroHeldKeys = playerMacro->keys;
+            }
+            playerMacro++;
+            playerInput->playerMacro = playerMacro;
+            goto code_4;
+        code_2:
+            do {
+                flags = playerMacro->flags >> 0xe;
+                if (flags != 1) {
+                    break;
+                }
+                (u8*)playerMacro += ((s16)playerMacro->keys);
+            } while (TRUE);
+
+            if (flags == 3) {
+                playerInput->playerMacroWaiting = zero;
+                playerInput->playerMacroHeldKeys = zero;
+                playerMacro = NULL;
+                playerInput->playerMacro = playerMacro;
+            } else {
+                goto code_0;
+            }
+        }
+    code_4:
+        playerInput->playerMacroWaiting--;
+        keys = playerInput->playerMacroHeldKeys;
+    } else {
+        // Player has control.
+        switch (gPlayerState.controlMode) {
+            case CONTROL_DISABLED:
+            case CONTROL_1:
+            case CONTROL_2:
+            case CONTROL_ENABLED:
+                keys = 0;
+                break;
+        }
+        switch (gPlayerState.controlMode) {
+            case CONTROL_DISABLED:
+            case CONTROL_2:
+                keys = 0;
+                break;
+            case CONTROL_1:
+                gPlayerState.controlMode = CONTROL_ENABLED;
+                gPlayerState.playerInput.heldInput = ConvInputToState(gInput.heldKeys);
+                // fallthrough
+            case CONTROL_ENABLED:
+                keys = gInput.heldKeys;
+                break;
+        }
+    }
+    state = ConvInputToState(keys);
+    prevState = ~gPlayerState.playerInput.heldInput;
+    gPlayerState.playerInput.heldInput = state;
+    gPlayerState.playerInput.newInput = state & prevState;
+    // Calculate the direction from the currently held input.
+    gPlayerState.direction = gUnk_08109202[(state & PLAYER_INPUT_ANY_DIRECTION) >> 8];
+}
 
 u32 ConvInputToState(u32 keys) {
     u32 result;
