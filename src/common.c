@@ -656,7 +656,6 @@ void sub_0801E24C(s32 param_1, s32 param_2) {
     }
 }
 
-
 void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
     s32 uVar1;
     s32 iVar2;
@@ -673,7 +672,7 @@ void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
     uVar5 = uVar7 = param_2;
     puVar6 = gUnk_02018EE0;
 
-    while (count-- > 0) { 
+    while (count-- > 0) {
         uVar1 = *puVar6++;
         iVar2 = param_1 - uVar1;
         iVar4 = param_1 + uVar1;
