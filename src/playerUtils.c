@@ -33,6 +33,10 @@ extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
 extern const ScreenTransitionData gUnk_0813AD88[];
 extern const s8* gUnk_0811C0E8[];
+extern const u8 gUnk_0800851C[];
+extern const u8 gUnk_080084BC[];
+extern const u8 gUnk_0800845C[];
+extern const u8 gUnk_0800833C[];
 
 bool32 IsAbleToUseItem(PlayerEntity*);
 bool32 IsPreventedFromUsingItem();
@@ -50,6 +54,7 @@ u32 sub_08079FD4(Entity*, u32);
 void LoadRoomGfx(void);
 SurfaceType GetSurfaceCalcType(Entity*, s32, s32);
 void sub_0807AAF8(Entity*, u32);
+void sub_0807A750(u32, u32, const u8*, u32);
 
 extern ItemDefinition gItemDefinitions[];
 extern void (*const gUnk_0811C27C[])(Entity*);
@@ -2086,9 +2091,55 @@ u32 GetPlayerTilePos(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A5B8.inc", void sub_0807A5B8(u32 a))
+void sub_0807A5B8(u32 direction) {
+    u32 uVar2;
+    u32 uVar3;
+    const u8* pbVar4;
 
-void sub_0807A750(u32 param_1, u32 param_2, u8* param_3, u32 param_4) {
+    if ((((gPlayerState.jump_status & 0x80) == 0) && ((gPlayerState.flags & PL_HIDDEN) == 0)) &&
+        (gPlayerState.swim_state == 0)) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
+            pbVar4 = gUnk_0800833C;
+        } else if (((gPlayerState.flags & PL_PARACHUTE) != 0) || gPlayerState.jump_status != 0) {
+            pbVar4 = gUnk_0800845C;
+        } else if (gPlayerState.heldObject != 0 || gPlayerState.field_0x1c != 0) {
+            pbVar4 = gUnk_080084BC;
+        } else if (gPlayerState.attachedBeetleCount != 0) {
+            pbVar4 = gUnk_0800851C;
+        } else {
+            pbVar4 = gUnk_080082DC;
+        }
+
+        if (direction != DirectionNorth && direction != DirectionSouth) {
+            uVar3 = (gPlayerEntity.x.HALF.HI + (gPlayerEntity.hitbox)->unk2[0] + (gPlayerEntity.hitbox)->offset_x) -
+                    gRoomControls.origin_x;
+            uVar2 = (gPlayerEntity.y.HALF.HI + (gPlayerEntity.hitbox)->offset_y) - gRoomControls.origin_y;
+            if (sub_080086B4(uVar3, uVar2, pbVar4) != 0) {
+                sub_0807A750(uVar3, uVar2, pbVar4, 1);
+            }
+            uVar3 = ((gPlayerEntity.x.HALF.HI - (gPlayerEntity.hitbox)->unk2[0]) + (gPlayerEntity.hitbox)->offset_x) -
+                    gRoomControls.origin_x;
+            if (sub_080086B4(uVar3, uVar2, pbVar4) != 0) {
+                sub_0807A750(uVar3, uVar2, pbVar4, 3);
+            }
+        }
+        if (direction != DirectionEast && direction != DirectionWest) {
+            uVar3 = (gPlayerEntity.x.HALF.HI + (gPlayerEntity.hitbox)->offset_x) - gRoomControls.origin_x;
+            uVar2 = (gPlayerEntity.y.HALF.HI + (gPlayerEntity.hitbox)->unk2[3] + (gPlayerEntity.hitbox)->offset_y) -
+                    gRoomControls.origin_y;
+            if (sub_080086B4(uVar3, uVar2, pbVar4) != 0) {
+                sub_0807A750(uVar3, uVar2, pbVar4, 2);
+            }
+            uVar2 = ((gPlayerEntity.y.HALF.HI - (gPlayerEntity.hitbox)->unk2[3]) + (gPlayerEntity.hitbox)->offset_y) -
+                    gRoomControls.origin_y;
+            if (sub_080086B4(uVar3, uVar2, pbVar4) != 0) {
+                sub_0807A750(uVar3, uVar2, pbVar4, 0);
+            }
+        }
+    }
+}
+
+void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
     u32 uVar2;
     u16* ptr;
     u32 uVar5;

@@ -701,7 +701,43 @@ ASM_FUNC("asm/non_matching/common/sub_0801E31C.inc", void sub_0801E31C(u32 a1, u
 
 ASM_FUNC("asm/non_matching/common/sub_0801E49C.inc", void sub_0801E49C(u32 a1, u32 a2, u32 a3, u32 a4));
 
-ASM_FUNC("asm/non_matching/common/sub_0801E64C.inc", void sub_0801E64C(u32 a1, u32 a2, u32 a3, u32 a4, u32 a5));
+void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_5) {
+    s32 sVar1;
+    s32* ptr = (s32*)gUnk_02018EE0;
+    register s32 tmp asm("r1");
+
+    if ((0 <= param_2 || 0 <= param_4) && (param_2 < 0xa0 || (param_4 < 0xa0))) {
+        if (param_2 > param_4) {
+            SWAP(param_2, param_4, tmp);
+            SWAP(param_1, param_3, tmp);
+        }
+        if (param_2 != param_4) {
+            sVar1 = Div((param_3 - param_1) * 0x10000, param_4 - param_2);
+            if (param_2 < 0) {
+                param_1 += (sVar1 * -param_2) >> 0x10;
+                param_2 = 0;
+            }
+            if (0x9f < param_4) {
+                param_4 = 0x9f;
+            }
+            param_3 = param_1 << 0x10;
+            ptr += param_2 * 3 + param_5;
+            do {
+                if (param_1 < 0) {
+                    param_1 = 0;
+                }
+                if (0xf0 < param_1) {
+                    param_1 = 0xf0;
+                }
+                *ptr = param_1;
+                param_3 += sVar1;
+                param_1 = param_3 >> 0x10;
+                param_2++;
+                ptr += 3;
+            } while (param_2 <= param_4);
+        }
+    }
+}
 
 void sub_0801E6C8(u32 param_1) {
     u32 tmp;
