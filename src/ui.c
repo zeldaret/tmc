@@ -60,6 +60,7 @@ typedef struct {
 
 extern struct_020350E2 gUnk_020350E2;
 
+extern const u16 gUnk_080C8F2C[];
 extern u32 gUnk_085C4620[];
 extern Frame* gSpriteAnimations_322[];
 
@@ -95,6 +96,7 @@ void sub_0801CB20(UIElement*, UIElementDefinition*);
 UIElement* FindUIElement(u32);
 void sub_0801CAD0(UIElement*);
 void sub_0801CAB8(UIElement*, Frame*);
+void sub_0801C824(void);
 
 void UpdateUIElements(void) {
     u32 index;
@@ -374,7 +376,100 @@ void sub_0801C66C(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/ui/DrawHearts.inc", void DrawHearts())
+void DrawHearts(void) {
+    s32 health;
+    s32 uVar1;
+    s32 uVar2;
+    s32 uVar4;
+    u32 uVar6;
+    s32 maxHealth;
+    const u16* ptr;
+    s32 tmp1;
+    u16* ptr2;
+
+    if ((gUnk_0200AF00.unk_1 & 0x10) != 0) {
+        sub_0801C824();
+        sub_0801C66C();
+        return;
+    }
+    maxHealth = gSave.stats.maxHealth / 2;
+    if (maxHealth != gUnk_0200AF00.maxHealth) {
+        gUnk_0200AF00.maxHealth = maxHealth;
+        sub_0801C824();
+        sub_0801C66C();
+    }
+    if (gSave.stats.health != 1) {
+        health = gSave.stats.health / 2;
+    } else {
+        health = 1;
+    }
+    if (health > maxHealth) {
+        health = maxHealth;
+    }
+    maxHealth = 0;
+    if (health != gUnk_0200AF00.health) {
+        maxHealth = 1;
+        if (health > gUnk_0200AF00.health) {
+            maxHealth = 2;
+        }
+    }
+
+    switch (maxHealth) {
+        case 2:
+            uVar1 = gUnk_0200AF00.unk_5++;
+            if ((uVar1 & 1) == 0) {
+                if ((uVar1 & 7) == 0) {
+                    SoundReq(SFX_HEART_GET);
+                }
+                gUnk_0200AF00.health++;
+            } else {
+                maxHealth = 0;
+            }
+            break;
+        case 1:
+            gUnk_0200AF00.health--;
+            // fallthough
+        default:
+            gUnk_0200AF00.unk_5 = 0;
+            break;
+    }
+    if ((gUnk_0200AF00.unk_2 == 0) || (maxHealth != 0)) {
+        gUnk_0200AF00.unk_2 = 2;
+        uVar2 = gUnk_0200AF00.health >> 2;
+        if (uVar2 > 10) {
+            tmp1 = 10;
+            uVar6 = uVar2 - 10;
+        } else {
+            tmp1 = uVar2;
+            uVar6 = 0;
+        }
+
+        maxHealth = gUnk_0200AF00.maxHealth >> 2;
+        uVar1 = maxHealth;
+        if (maxHealth > 10) {
+            maxHealth = 10;
+        }
+
+        if (uVar1 - 10 > 0) {
+            ptr2 = (u16*)&gUnk_02034D30;
+            *ptr2 = 0xf010;
+            DmaSet(3, gUnk_080C8F2C + (10 - uVar6), ptr2 + 1, (uVar1 - 10) | 0x80000000);
+        }
+        ptr2 = (u16*)&gUnk_02034CF0[0].unk_0;
+        *ptr2 = 0xf010;
+
+        DmaSet(3, gUnk_080C8F2C + (10 - tmp1), ptr2 + 1, maxHealth | 0x80000000);
+
+        if ((gUnk_0200AF00.health & 3) != 0) {
+            if (9 < uVar2) {
+                uVar2 -= 10;
+                ptr2 += 0x20;
+            }
+            ptr2[uVar2 + 1] = ((gUnk_0200AF00.health & 3) + 0x11) | 0xf000;
+        }
+        gScreen.bg0.updated = 1;
+    }
+}
 
 void sub_0801C824(void) {
     struct_02034CF0* ptr;
