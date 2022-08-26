@@ -142,50 +142,49 @@ const u8 gUnk_081280EE[] = {
     0x5u, 0x7u, 0xau, 0xeu, 0x13u, 0x1au,
 };
 
-NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_Type1.inc", void KinstoneMenu_Type1(void)) {
-    s32 tmp1, tmp2, tmp3, tmp4, tmp5;
-    u8* ptr;
+void KinstoneMenu_Type1(void) {
+    s32 tmp1, tmp2, tmp3, tmp4;
     GenericMenu* menu;
     if (gFadeControl.active) {
         return;
     }
     menu = &gGenericMenu;
     menu->base.column_idx = 2;
-    tmp2 = menu->unk28 * 0x10000;
+    tmp2 = menu->unk28 << 0x10;
     tmp1 = tmp2 - menu->unk10.i;
     if ((tmp1 < 0 ? -tmp1 : tmp1) <= 0x1ffdu) {
         menu->unk10.i = tmp2;
     } else {
         menu->base.column_idx = 1;
         tmp2 = sub_08000E44(tmp1);
-        tmp1 = tmp1 / 0x20000;
-        if (tmp1 < 0)
-            tmp1 = -tmp1;
-        if (tmp1 > 5) {
-            tmp1 = 5;
+        tmp3 = tmp1 / 0x20000;
+        if (tmp3 < 0)
+            tmp3 = -tmp3;
+        if (tmp3 > 5) {
+            tmp3 = 5;
         }
-        menu->unk10.i += gUnk_081280EE[tmp1] * 0x666 * tmp2;
+        menu->unk10.i += gUnk_081280EE[tmp3] * 0x666 * tmp2;
     }
     if (menu->unk29 != menu->unk10.i / 0x10000) {
         menu->unk29 = menu->unk10.i / 0x10000;
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
-    if ((gInput.newKeys & 0x20a) != 0) {
+    if ((gInput.newKeys & (L_BUTTON | START_BUTTON | B_BUTTON)) != 0) {
         SetMenuType(2);
         SoundReq(SFX_MENU_CANCEL);
         return;
     }
     tmp3 = menu->unk28;
     switch (gInput.unk4) {
-        case 0x20:
-        case 0x40:
+        case DPAD_LEFT:
+        case DPAD_UP:
             tmp3--;
             break;
-        case 0x10:
-        case 0x80:
+        case DPAD_RIGHT:
+        case DPAD_DOWN:
             tmp3++;
             break;
-        case 1:
+        case A_BUTTON:
             if (gMenu.column_idx == 2) {
                 tmp3 = gGenericMenu.unk10.i / 0x10000;
                 gGenericMenu.unk2a = gSave.unk118[tmp3];
@@ -207,7 +206,6 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_Type1.inc", void Kins
         menu->unk28 = tmp3;
     }
 }
-END_NONMATCH
 
 void KinstoneMenu_Type2(void) {
     const struct_080C9CBC* ptr;
