@@ -1201,9 +1201,46 @@ static void sub_08043ABC(Entity* this) {
     ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->spriteOffsetY--;
 }
 
-static ASM_FUNC("asm/non_matching/vaati/sub_08043B08.inc", void sub_08043B08(Entity* this))
+void sub_08043B08(Entity* this) {
+    VaatiArm_HeapStruct1* hs1;
+    VaatiArm_HeapStruct1* hs2;
+    u32 bVar1;
+    s32 uVar6;
 
-    static void sub_08043B7C(Entity* this) {
+    hs1 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[this->type - 1];
+    hs2 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[this->type];
+    bVar1 = gUnk_080D13B2[this->type];
+    if (((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->type2 == 0) {
+        uVar6 = (s8)((hs1->unk00.HALF.HI - hs2->unk00.HALF.HI));
+        if (bVar1 < uVar6) {
+            if (uVar6 <= 0) {
+                hs2->unk00.HALF.HI = hs1->unk00.HALF.HI;
+            } else {
+                hs2->unk00.HALF.HI = hs1->unk00.HALF.HI - bVar1;
+            }
+        }
+    } else {
+        uVar6 = (s8)(hs2->unk00.HALF.HI - hs1->unk00.HALF.HI);
+        if (bVar1 < uVar6) {
+            if (uVar6 < 0) {
+                hs2->unk00.HALF.HI = hs1->unk00.HALF.HI;
+            } else {
+                hs2->unk00.HALF.HI = hs1->unk00.HALF.HI + bVar1;
+            }
+        }
+    }
+
+    uVar6 = hs1->unk04.HALF.HI - hs2->unk04.HALF.HI;
+    if ((bVar1 << 1) < uVar6 + bVar1) {
+        if (uVar6 > 0) {
+            hs2->unk04.HALF.HI = hs1->unk04.HALF.HI - bVar1;
+        } else {
+            hs2->unk04.HALF.HI = hs1->unk04.HALF.HI + bVar1;
+        }
+    }
+}
+
+static void sub_08043B7C(Entity* this) {
     sub_08043B08(((VaatiArm_HeapStruct*)this->myHeap)->entities[1]);
     sub_08043B08(((VaatiArm_HeapStruct*)this->myHeap)->entities[2]);
     sub_08043B08(((VaatiArm_HeapStruct*)this->myHeap)->entities[3]);
