@@ -146,12 +146,9 @@ void sub_08022DE8(Entity* this) {
     }
 }
 
-// this definition is only here, so clang-tidy does not mess gUnk_080CBBBC up.
-extern void sub_08022E40(Entity* this);
-
-NONMATCH("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* this)) {
+void sub_08022E40(Entity* this) {
     u32 bVar1;
-    u32 bVar2;
+    u32 animationState;
     u32 tmp;
     u32 tmp2;
     u8* ptr;
@@ -159,21 +156,21 @@ NONMATCH("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* 
     this->field_0x74.HWORD = this->x.HALF.HI;
     this->field_0x76.HWORD = this->y.HALF.HI;
     tmp2 = (this->parent->field_0x78.HALF.HI + 1) & 7;
-    bVar1 = ((u8*)&this->field_0x7c)[tmp2];
+    ptr = (u8*)&this->field_0x7c + tmp2;
+    bVar1 = *ptr;
     tmp = (bVar1 & 0xf) - 8;
     bVar1 >>= 4;
     this->x.HALF.HI = ((short)((tmp * 0x100)) >> 8) + this->x.HALF.HI;
     bVar1 -= 8;
     this->y.HALF.HI = bVar1 + this->y.HALF.HI;
-    bVar2 = (u8)(*(u32*)&this->cutsceneBeh >> (((this->parent->field_0x78.HALF.HI + 1) & 7) << 2)) & 7;
-    this->animationState = bVar2;
+    animationState = (u8)(*(u32*)&this->cutsceneBeh >> (((this->parent->field_0x78.HALF.HI + 1) & 7) << 2)) & 7;
+    this->animationState = animationState;
     if (this->type == 3) {
-        this->frameIndex = bVar2 + 10;
+        this->frameIndex = animationState + 10;
     } else {
         sub_08022EAC(this);
     }
 }
-END_NONMATCH
 
 void sub_08022EAC(Entity* this) {
     int iVar1;
