@@ -1012,8 +1012,40 @@ void sub_08036998(OctorokBossEntity* this) {
 }
 
 /** Calculate tail angles regular */
-ASM_FUNC("asm/non_matching/octorokBoss/sub_080369D0.inc",
-         void sub_080369D0(OctorokBossEntity* this, s32 radius, s32 angleSpeed))
+void sub_080369D0(OctorokBossEntity* this, s32 radius, s32 angleSpeed) {
+    u32 index;
+    s32 tmp;
+    s8 angleDiff;
+    OctorokBossHeap* heap = this->heap;
+    // Calculate the angle for the tail end
+    (heap->tailObjects[0])->angle.HALF.HI = (heap->tailObjects[heap->tailCount - 1])->angle.HALF.HI + this->timer;
+    // iterate tails from 0 to tailCount-1 to calculate the angles
+    for (index = 0; index < (u8)(heap->tailCount - 1); index++) {
+        if ((heap->tailObjects[index])->angle.HALF.HI != (heap->tailObjects[index + 1])->angle.HALF.HI) {
+            angleDiff = (heap->tailObjects[index + 1])->angle.HALF.HI - (heap->tailObjects[index])->angle.HALF.HI;
+            if (angleDiff >= 1) {
+                if (angleDiff > (u8)angleSpeed) {
+                    (heap->tailObjects[index + 1])->angle.HALF.HI =
+                        (heap->tailObjects[index])->angle.HALF.HI + angleSpeed;
+                }
+            } else {
+                if (angleDiff < (s8)-angleSpeed) {
+                    (heap->tailObjects[index + 1])->angle.HALF.HI =
+                        (heap->tailObjects[index])->angle.HALF.HI - angleSpeed;
+                }
+            }
+        }
+    }
+    // iterate tails from tailCount-1 to 0 to calculate the positions
+    for (index = heap->tailCount - 1; index != 0; index--) {
+        tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI ^ 0x80], radius << 4);
+        tmp = FixedDiv(tmp, 0x100);
+        heap->tailObjects[index - 1]->base.x.WORD = heap->tailObjects[index]->base.x.WORD + ((tmp << 0x10) >> 8);
+        tmp = FixedMul(gSineTable[(heap->tailObjects[index - 1]->angle.HALF.HI ^ 0x80) + 0x40], radius << 4);
+        tmp = FixedDiv(tmp, 0x100);
+        heap->tailObjects[index - 1]->base.y.WORD = heap->tailObjects[index]->base.y.WORD - ((tmp << 0x10) >> 8);
+    }
+}
 
 /** Calculate tail angles frozen sub_08036AF0 */
 ASM_FUNC("asm/non_matching/octorokBoss/sub_08036AF0.inc",
