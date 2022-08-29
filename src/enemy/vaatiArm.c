@@ -858,9 +858,45 @@ static void sub_0804325C(Entity* this) {
     }
 }
 
-static ASM_FUNC("asm/non_matching/vaati/sub_080432A8.inc", void sub_080432A8(Entity* this))
+void sub_080432A8(Entity* this) {
+    s32 iVar3;
+    s32 i;
+    VaatiArm_HeapStruct1* hs;
+    Entity* ent;
+    i = 3;
+    iVar3 = 0;
 
-    static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* this)) {
+    for (; i >= 0; i--) {
+        hs = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
+        if (hs->unk0c > 2) {
+            hs->unk0c--;
+            if (++iVar3 > 1) {
+                break;
+            }
+        }
+    }
+
+    hs = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
+    hs->unk04.HALF.HI -= 2;
+
+    for (i = 0; i < 4; i++) {
+        ent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
+        if (ent->z.HALF.HI < 4) {
+            COLLISION_ON(ent);
+            ent->spriteSettings.draw = 1;
+        }
+    }
+
+    if ((((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->spriteSettings.draw == 1) &&
+        (((VaatiArm_HeapStruct*)this->myHeap)->s1[1].unk0c < 3)) {
+        this->subAction = 1;
+        this->timer = 0x1e;
+        ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk04.HWORD = 0x4000;
+        sub_0804AA1C(((VaatiArm_HeapStruct*)this->myHeap)->entities[4]);
+    }
+}
+
+static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* this)) {
     int bVar1;
     Entity* entity;
     VaatiArm_HeapStruct1* s;
