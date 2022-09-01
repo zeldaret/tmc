@@ -32,10 +32,11 @@ typedef struct {
     /*0x80*/ u8 unk_80;
 #endif
     /*0x81*/ u8 unk_81;
-    /*0x82*/ s8 unk_82;
 #ifdef EU
+    /*0x82*/ u8 unk_82;
     /*0x83*/ u8 unk_83;
 #else
+    /*0x82*/ s8 unk_82;
     /*0x83*/ s8 unk_83;
 #endif
 } FigurineDeviceEntity;
@@ -319,7 +320,122 @@ void sub_08087F58(FigurineDeviceEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/figurineDevice/sub_08087F94.inc", void sub_08087F94(FigurineDeviceEntity* this, s32 param_2))
+void sub_08087F94(FigurineDeviceEntity* this, s32 param_2) {
+#ifdef EU
+    u32 uVar8;
+    u32 iVar9;
+
+    iVar9 = this->unk_83 + param_2;
+    if (CheckLocalFlag(SHOP07_COMPLETE)) {
+        sub_08088034(this);
+        return;
+    }
+
+    if (param_2 < 0) {
+        if (iVar9 < this->unk_82) {
+            if (this->unk_83 != this->unk_82) {
+                this->unk_83 = this->unk_82;
+                this->unk_81 = 1;
+                SoundReq(SFX_TEXTBOX_CHOICE);
+            } else {
+                sub_08088034(this);
+            }
+        } else {
+            this->unk_83 = iVar9;
+            this->unk_81 += param_2;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+        return;
+    }
+    uVar8 = this->unk_81 + param_2;
+    if (uVar8 > (s32)gSave.stats.shells) {
+        if (gSave.stats.shells != this->unk_81) {
+            uVar8 = gSave.stats.shells;
+            param_2 = (gSave.stats.shells - this->unk_81);
+            iVar9 = this->unk_83 + param_2;
+        } else {
+            sub_08088034(this);
+            return;
+        }
+    } else if (iVar9 > 100) {
+        if (this->unk_83 == 100) {
+            sub_08088034(this);
+            return;
+        } else {
+            iVar9 = 100;
+            param_2 = (iVar9 - this->unk_83);
+            uVar8 = this->unk_81 + param_2;
+        }
+    }
+
+#else
+    s32 uVar8;
+    s32 iVar9;
+    s32 t1, t2;
+
+    if (CheckLocalFlag(SHOP07_COMPLETE)) {
+        sub_08088034(this);
+        return;
+    }
+
+    // This could probably be done without t1 and t2
+    t1 = this->unk_83;
+    iVar9 = t1 + param_2;
+    if (param_2 < 0) {
+        if (iVar9 < this->unk_82) {
+            if (this->unk_83 != this->unk_82) {
+                this->unk_83 = this->unk_82;
+                this->unk_81 = 1;
+                SoundReq(SFX_TEXTBOX_CHOICE);
+            } else {
+                sub_08088034(this);
+            }
+        } else {
+            this->unk_83 = iVar9;
+            this->unk_81 += param_2;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+        return;
+    }
+    t2 = this->unk_81;
+    uVar8 = t2 + param_2;
+    if (uVar8 > gSave.stats.shells) {
+        if (gSave.stats.shells != this->unk_81) {
+            uVar8 = gSave.stats.shells;
+            param_2 = (gSave.stats.shells - this->unk_81);
+            iVar9 = t1 + param_2;
+#ifdef JP
+            if (iVar9 > 100) {
+                iVar9 = 100;
+                param_2 = (iVar9 - t1);
+                uVar8 = t2 + param_2;
+            }
+#endif
+        } else {
+            sub_08088034(this);
+            return;
+        }
+    }
+#ifdef JP
+    else if (iVar9 > 100) {
+#else
+    if (iVar9 > 100) {
+#endif
+        if (this->unk_83 == 100) {
+            sub_08088034(this);
+            return;
+        } else {
+            iVar9 = 100;
+            param_2 = (iVar9 - t1);
+            uVar8 = t2 + param_2;
+        }
+    }
+#endif
+
+    this->unk_83 = iVar9;
+    this->unk_81 = uVar8;
+    SoundReq(SFX_TEXTBOX_CHOICE);
+}
 
 void sub_08088034(FigurineDeviceEntity* this) {
     if (super->timer == 0) {
