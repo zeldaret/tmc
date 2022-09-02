@@ -19,6 +19,9 @@ void sub_0802A18C(Entity*);
 bool32 sub_08029FE4(Entity*);
 void sub_08029FB4(Entity*, u32, u32);
 void sub_0802A0F8(Entity*);
+void sub_08029F0C(Entity*);
+
+extern s16 gUnk_080B4488[];
 
 extern void (*const gUnk_080CCD44[])(Entity*);
 extern void (*const Madderpillar_Functions[])(Entity*);
@@ -320,7 +323,41 @@ void sub_08029DE4(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/madderpillar/sub_08029E0C.inc", void sub_08029E0C(Entity* this))
+void sub_08029E0C(Entity* this) {
+    u32 tile;
+    s32 uVar4;
+    s32 iVar3;
+    u32 i;
+    u32 uVar2;
+    const u8* ptr;
+    u32 local_24;
+    u32 dir;
+
+    uVar2 = (this->direction >> 3) * 3;
+    ptr = &gUnk_080CCDC8[uVar2];
+    uVar4 = (Random() & 1) * 2 - 1;
+    iVar3 = ((s32)Random() & 0xf) % 3;
+    tile = COORD_TO_TILE(this);
+    for (i = 0; i < 3; i++) {
+        dir = ptr[iVar3];
+        if (sub_080B1B44(gUnk_080B4488[dir >> 3] + tile, this->collisionLayer) == 0) {
+            local_24 = dir;
+            if (this->direction - this->field_0x74.HALF.LO != dir - this->direction)
+                break;
+        }
+        iVar3 = (iVar3 + uVar4 + 3) % 3;
+    }
+
+    if (i == 3) {
+        dir = local_24;
+    }
+
+    if (this->field_0x74.HALF.LO != this->direction) {
+        this->field_0x74.HALF.LO = this->direction;
+    }
+    this->direction = dir;
+    sub_08029F0C(this);
+}
 
 void sub_08029EEC(Entity* this) {
     u32 uVar1 = (this->direction >> 3) + this->field_0x74.HALF.HI;
