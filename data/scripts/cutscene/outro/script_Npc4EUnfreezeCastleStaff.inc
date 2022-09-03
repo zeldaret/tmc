@@ -27,6 +27,6 @@ SCRIPT_START script_Npc4EUnfreezeCastleStaff
 	Wait 0x0002
 	SetSyncFlag 0x00000020
 	Wait 0x0078
-	CallWithArg sub_0806DA1C, 0x0000000c
+	CallWithArg NPC4E_DoScreenTransition, 12
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -34,8 +34,8 @@ script_0800D962:
 	Wait 0x003c
 	SetLocalFlag 0x0032
 	PlaySound SFX_113
-	SetIntVariable 0x00000001
-	Call sub_0806DA1C
+	SetIntVariable 1
+	Call NPC4E_DoScreenTransition
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

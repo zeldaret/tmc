@@ -4,11 +4,14 @@
 	.section .rodata
 	.align 2
 
+@ fileselect.c
 gUnk_080FC908:: @ 080FC908
 	.4byte sub_08050888
 	.4byte sub_080508E4
 	.4byte sub_08050910
 
+
+@ fileselect.c
 gUnk_080FC914:: @ 080FC914
 	.incbin "data_080FC8A4/gUnk_080FC914.bin"
 
@@ -52,6 +55,7 @@ gUnk_080FC9BC:: @ 080FC9BC
 	.4byte sub_080515D4
 	.4byte sub_080516E0
 
+@ fileselect.c
 gUnk_080FC9C8:: @ 080FC9C8
 	.4byte sub_08051738
 	.4byte sub_080517EC

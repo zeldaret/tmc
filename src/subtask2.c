@@ -1,19 +1,18 @@
-#include "global.h"
-#include "menu.h"
-#include "game.h"
-#include "subtask.h"
-#include "save.h"
-#include "screen.h"
 #include "common.h"
 #include "fileselect.h"
 #include "flags.h"
 #include "functions.h"
-#include "main.h"
-#include "message.h"
-#include "ui.h"
-#include "kinstone.h"
-#include "itemMetaData.h"
+#include "game.h"
 #include "item.h"
+#include "itemMetaData.h"
+#include "kinstone.h"
+#include "main.h"
+#include "menu.h"
+#include "message.h"
+#include "save.h"
+#include "screen.h"
+#include "subtask.h"
+#include "ui.h"
 
 #ifdef EU
 #define DRAW_DIRECT_SPRITE_INDEX 0x1fa
@@ -24,7 +23,6 @@
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
 extern u16 gUnk_02017830[];
-extern u8 gUnk_080C9C6C[];
 extern u8 gUnk_020350F0[];
 extern u8 gUnk_08128C00[];
 extern Frame* gSpriteAnimations_322[];
@@ -100,7 +98,7 @@ void sub_080A6290(void);
 u32 sub_080A6D74(u32);
 
 extern const ScreenTransitionData gUnk_08128024[];
-void sub_080A71F4(ScreenTransitionData*);
+void sub_080A71F4(const ScreenTransitionData* exitTransition);
 
 extern void DeleteAllEntities(void);
 extern void sub_0805E974(void);
@@ -632,10 +630,10 @@ void sub_080A5C44(u32 param_1, u32 param_2, u32 param_3) {
 
 void sub_080A5C9C(void) {
     s32 newChoice;
-    u8* ptr;
+    const struct_080C9C6C* ptr;
 
     if (sub_080A51F4()) {
-        ptr = &gUnk_080C9C6C[gArea.dungeon_idx * 4];
+        ptr = &gUnk_080C9C6C[gArea.dungeon_idx];
         newChoice = gMenu.field_0x3;
         switch (gInput.newKeys) {
             case DPAD_UP:
@@ -644,7 +642,7 @@ void sub_080A5C9C(void) {
                 }
                 break;
             case DPAD_DOWN:
-                if (*ptr - 1 > newChoice) {
+                if (ptr->unk_0 - 1 > newChoice) {
                     newChoice++;
                 }
                 break;
@@ -677,10 +675,10 @@ void sub_080A5D1C(void) {
     u32 uVar6;
     u32 index;
     u8* puVar8;
-    u8* pbVar9;
+    const struct_080C9C6C* pbVar9;
 
-    pbVar9 = &gUnk_080C9C6C[gArea.dungeon_idx * 4];
-    bVar1 = gUnk_08128D3C[*pbVar9];
+    pbVar9 = &gUnk_080C9C6C[gArea.dungeon_idx];
+    bVar1 = gUnk_08128D3C[pbVar9->unk_0];
     uVar4 = sub_0801DB94();
     gOamCmd._4 = 0x400;
     gOamCmd._6 = 0;
@@ -711,7 +709,7 @@ void sub_080A5D1C(void) {
         if (sub_080A5F24()) {
             gOamCmd._8 = 0;
             gOamCmd.x = 0x46;
-            gOamCmd.y = bVar1 + (pbVar9[1] - pbVar9[2]) * 0xc;
+            gOamCmd.y = bVar1 + (pbVar9->unk_1 - pbVar9->unk_2) * 0xc;
             if ((gMain.ticks & 0x20) != 0) {
                 uVar6 = 0x7a;
             } else {
@@ -723,9 +721,9 @@ void sub_080A5D1C(void) {
     gOamCmd._8 = 0;
     gOamCmd.x = 0x34;
     gOamCmd.y = bVar1;
-    iVar3 = pbVar9[1] + 0x82;
+    iVar3 = pbVar9->unk_1 + 0x82;
 
-    for (index = 0; index < *pbVar9; index++) {
+    for (index = 0; index < pbVar9->unk_0; index++) {
         DrawDirect(DRAW_DIRECT_SPRITE_INDEX, iVar3);
         iVar3--;
         gOamCmd.y = gOamCmd.y + 0xc;
@@ -1291,7 +1289,7 @@ void sub_080A68D4(void) {
 
     for (i = 10; i <= 100; i++) {
         if (CheckKinstoneFused(i) && !sub_0801E810(i)) {
-            uVar4 = gUnk_080C9CBC[i]._5[1];
+            uVar4 = gUnk_080C9CBC[i].unk7;
             ptr = &gUnk_080FE320[gUnk_080C9CBC[i].evt_type];
             sub_080A698C(ptr->_c, ptr->_e, DRAW_DIRECT_SPRITE_INDEX, uVar4 + 100);
         }
@@ -1378,7 +1376,7 @@ void sub_080A6B04(void) {
     u32 uVar4;
     int uVar6;
     u32 uVar7;
-    struct_080C9CBC* ptr;
+    const struct_080C9CBC* ptr;
     struct_080FE320* ptr2;
     const struct_gUnk_08128E94* ptr3;
 
@@ -1386,7 +1384,7 @@ void sub_080A6B04(void) {
     sub_080A4DB8(6);
     ptr = &gUnk_080C9CBC[gFuseInfo._3];
     ptr2 = &gUnk_080FE320[ptr->evt_type];
-    bVar1 = ptr->_5[1];
+    bVar1 = ptr->unk7;
     uVar3 = ptr2->_c;
     uVar4 = ptr2->_e;
     uVar2 = sub_080A6A80(uVar3, uVar4)->_4;
@@ -1571,7 +1569,7 @@ void sub_080A6DF8(void) {
 
 void sub_080A6E44(void) {
     if (gFadeControl.active == 0) {
-        sub_080A71F4((ScreenTransitionData*)&gUnk_08128024[gMenu.field_0x3]);
+        sub_080A71F4(&gUnk_08128024[gMenu.field_0x3]);
     }
 }
 
@@ -1758,7 +1756,7 @@ void Subtask_Exit(void) {
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x20);
 }
 
-void sub_080A71F4(ScreenTransitionData* exitTransition) {
+void sub_080A71F4(const ScreenTransitionData* exitTransition) {
     if (exitTransition != NULL) {
         DoExitTransition(exitTransition);
     }

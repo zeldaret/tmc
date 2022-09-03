@@ -43,7 +43,7 @@ typedef struct {
     Gleerok_HeapStruct* unk_84;
 } GleerokEntity;
 
-extern void (*const Gleerok_Functions[])(Entity*);
+extern void (*const Gleerok_Functions[])(GleerokEntity*);
 extern void (*const gUnk_080CD75C[])(GleerokEntity*);
 extern void (*const gUnk_080CD7B8[])(GleerokEntity*);
 extern void (*const gUnk_080CD7E4[])(GleerokEntity*);
@@ -51,7 +51,6 @@ extern void (*const gUnk_080CD810[])(GleerokEntity*);
 extern void (*const gUnk_080CD828[])(GleerokEntity*);
 extern void (*const gUnk_080CD848[])(GleerokEntity*);
 
-extern u8 gUnk_080CD774[];
 extern Gleerok_HeapStruct2 gUnk_080CD7C4[];
 extern u8 gUnk_080CD884[];
 extern u8 gUnk_080CD7F8[];
@@ -81,8 +80,68 @@ extern bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3
 extern bool32 sub_0802EA88(Gleerok_HeapStruct* param_1);
 extern bool32 sub_0802E768(Gleerok_HeapStruct* param_1);
 
-void Gleerok(Entity* this) {
-    Gleerok_Functions[GetNextFunction(this)](this);
+void Gleerok_OnTick(GleerokEntity* this);
+void Gleerok_OnDeath(GleerokEntity* this);
+void sub_0802D158(GleerokEntity* this);
+void sub_0802D170(GleerokEntity* this);
+void sub_0802D218(GleerokEntity* this);
+void sub_0802D258(GleerokEntity* this);
+void sub_0802D33C(GleerokEntity* this);
+void sub_0802D3B8(GleerokEntity* this);
+void sub_0802D86C(GleerokEntity* this);
+void sub_0802D650(GleerokEntity* this);
+
+void (*const Gleerok_Functions[])(GleerokEntity*) = {
+    Gleerok_OnTick,
+    Gleerok_OnTick,
+    (void (*)(GleerokEntity*))GenericKnockback,
+    Gleerok_OnDeath,
+    (void (*)(GleerokEntity*))GenericConfused,
+};
+void (*const gUnk_080CD75C[])(GleerokEntity*) = {
+    sub_0802D158, sub_0802D170, sub_0802D170, sub_0802D218, sub_0802D258, sub_0802D33C,
+};
+const u8 gUnk_080CD774[] = {
+    24, 3, 16, 0, 32, 1, 16, 2, 16, 3, 24, 0, 24, 1, 4, 3, 4,  2, 24, 0, 4, 3, 24, 1, 4, 2, 24, 0, 24, 1, 24, 0, 24,  1,
+    24, 0, 24, 1, 4,  3, 4,  2, 24, 0, 24, 1, 4,  3, 4, 2, 24, 0, 24, 1, 4, 3, 4,  2, 4, 3, 4,  2, 24, 0, 24, 1, 255, 0,
+};
+void (*const gUnk_080CD7B8[])(GleerokEntity*) = {
+    sub_0802D3B8,
+    sub_0802D86C,
+    sub_0802D650,
+};
+
+/*
+remaining data:
+
+extern void (*const gUnk_080CD7B8[])(GleerokEntity*);
+extern Gleerok_HeapStruct2 gUnk_080CD7C4[];
+extern void (*const gUnk_080CD7E4[])(GleerokEntity*);
+extern u8 gUnk_080CD7F8[];
+extern void (*const gUnk_080CD810[])(GleerokEntity*);
+extern void (*const gUnk_080CD828[])(GleerokEntity*);
+extern u8 gUnk_080CD840[];
+extern u8 gUnk_080CD844[];
+extern void (*const gUnk_080CD848[])(GleerokEntity*);
+
+
+extern u8 gUnk_080CD850[];
+extern u8 gUnk_080CD854[];
+
+extern u8 gUnk_080CD858[];
+extern u8 gUnk_080CD85B[];
+extern u8 gUnk_080CD85E[];
+extern u8 gUnk_080CD861[];
+extern u8 gUnk_080CD864[];
+extern u8 gUnk_080CD867[];
+
+extern const u8* gUnk_080CD86C[];
+extern const u8* gUnk_080CD878[];
+extern u8 gUnk_080CD884[];
+*/
+
+void Gleerok(GleerokEntity* this) {
+    Gleerok_Functions[GetNextFunction(super)](this);
 }
 
 void Gleerok_OnDeath(GleerokEntity* this) {

@@ -6,6 +6,7 @@
  */
 #include "manager/vaati3InsideArmManager.h"
 #include "functions.h"
+#include "screenTransitions.h"
 #include "sound.h"
 #include "structures.h"
 
@@ -13,8 +14,6 @@ void sub_0805DBF0(Vaati3InsideArmManager*);
 void Vaati3InsideArmManager_Init(Vaati3InsideArmManager*);
 void Vaati3InsideArmManager_Action1(Vaati3InsideArmManager*);
 void Vaati3InsideArmManager_Action2(Vaati3InsideArmManager*);
-
-extern ScreenTransitionData gUnk_0813AC48;
 
 void sub_0805DC70(void);
 

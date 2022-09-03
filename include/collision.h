@@ -39,4 +39,6 @@ void CalculateEntityTileCollisions(Entity*, u32, u32);
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 u32 sub_080176E4(Entity*);
 
+extern const u8 gUnk_080B37A0[]; // unkData3 for tileType?
+
 #endif // COLLISION_H

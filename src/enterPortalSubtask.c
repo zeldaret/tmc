@@ -23,7 +23,7 @@ extern const EntityData* gUnk_080D4110[];
 
 bool32 sub_0804AD18(void);
 void sub_0804AD6C(RoomControls*);
-void sub_080A71F4(ScreenTransitionData*);
+void sub_080A71F4(const ScreenTransitionData*);
 bool32 sub_0804ACA8(void);
 
 bool32 CheckInitPortal(void) {
@@ -143,7 +143,7 @@ void sub_0804ACC8(void) {
     if (gFadeControl.active == 0) {
         SetGlobalFlag(gArea.portal_type + ENTRANCE_0);
         sub_0804AD6C(&gUI.roomControls);
-        sub_080A71F4(0);
+        sub_080A71F4(NULL);
     }
 }
 

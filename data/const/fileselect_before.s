@@ -5,10 +5,7 @@
 	.align 2
 
 
-
-gUnk_080FC3C4:: @ 080FC3C4
-	.incbin "data_080D5360/gUnk_080FC3C4.bin"
-
+@ figurine_menu.c, figurineDevice.c
 gUnk_080FC3E4:: @ 080FC3E4
 .ifdef JP
     @ TODO only small differences
@@ -22,8 +19,10 @@ gUnk_080FC3E4:: @ 080FC3E4
 .endif
 .endif
 
+@ fileselect.c
 gUnk_080FC844:: @ 080FC844
 	.incbin "data_080D5360/gUnk_080FC844.bin"
 
+@ fileselect.c
 gUnk_080FC85C:: @ 080FC85C
 	.incbin "data_080D5360/gUnk_080FC85C.bin"

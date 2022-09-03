@@ -225,7 +225,6 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
                 }
             }
         }
-        return;
     }
 }
 

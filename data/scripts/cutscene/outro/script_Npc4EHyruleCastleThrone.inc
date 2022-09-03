@@ -8,6 +8,6 @@ SCRIPT_START script_Npc4EHyruleCastleThrone
 	PlaySound SFX_APPARATE
 	EndBlock
 	Wait 0x003c
-	CallWithArg sub_0806DA1C, 0x00000009
+	CallWithArg NPC4E_DoScreenTransition, 9
 	DoPostScriptAction 0x0006
 SCRIPT_END

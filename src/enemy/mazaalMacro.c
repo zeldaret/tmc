@@ -6,9 +6,10 @@
  */
 
 #include "enemy.h"
+#include "functions.h"
+#include "screenTransitions.h"
 #include "script.h"
 #include "structures.h"
-#include "functions.h"
 
 extern void sub_0807B600(u32);
 
@@ -50,8 +51,6 @@ const u8 gUnk_080CEEC8[] = { FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION, FX_GIANT_EX
 const u8 gUnk_080CEECC[] = { 0x58, 0x68, 0x88, 0x68, 0xb8, 0x68, 0x58, 0xa8, 0x88, 0xa8, 0xb8, 0xa8 };
 const s16 gUnk_080CEED8[] = { -0x82, -0x81, -0x80, -0x7f, -0x7e, -0x42, -0x41, -0x40, -0x3f, -0x3e, -2,   -1,
                               1,     2,     0x3e,  0x3f,  0x40,  0x41,  0x42,  0x7e,  0x7f,  0x80,  0x81, 0x82 };
-
-extern const ScreenTransitionData gUnk_0813ABA8;
 
 void MazaalMacro(Entity* this) {
     MazaalMacro_Functions[GetNextFunction(this)](this);
@@ -184,7 +183,7 @@ void sub_08034EE4(Entity* this) {
 }
 
 void sub_08034F58(Entity* this) {
-    DoExitTransition((ScreenTransitionData*)&gUnk_0813ABA8);
+    DoExitTransition(&gUnk_0813ABA8);
     DeleteEntity(this);
 }
 

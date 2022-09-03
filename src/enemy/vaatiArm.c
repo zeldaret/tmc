@@ -5,10 +5,12 @@
  * @brief Vaati Arm enemy
  */
 
+#include "area.h"
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
+#include "roomid.h"
 
 typedef struct VaatiArm_HeapStruct1 {
     union SplitHWord unk00;
@@ -166,7 +168,9 @@ const Coords gUnk_080D13D8[] = { { .HALF = { -0x60, 0x80 } }, { .HALF = { 0x60, 
 const u8 gUnk_080D13E0[] = { 0xc, 0xe, 0x10 };
 const u8 gUnk_080D13E3[] = { 8, 9, 10, 4, 4, 5 };
 const s8 gUnk_080D13E9[] = { -8, 8 };
-const ScreenTransitionData gUnk_080D13EC = { 1, { 0, 0, 0, 0 }, 0x98, 0xb8, 0, 0x8a, 0, 1, 0, 0, 0 };
+const ScreenTransitionData gUnk_080D13EC = {
+    1, { 0, 0, 0, 0 }, 0x98, 0xb8, 0, AREA_VAATIS_ARMS, ROOM_VAATIS_ARMS_FIRST, 1, 0, 0, 0
+};
 const u16 gUnk_080D1400[][5] = {
     { 0x8000, 0x7000, 0x6000, 0x5000, 0x4000 },
     { 0x8000, -0x7000, -0x6000, -0x5000, -0x4000 },
@@ -1391,7 +1395,7 @@ static void sub_08043DB0(Entity* this) {
         pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.origin_x,
                                 pEVar3->y.HALF.HI - gRoomControls.origin_y + 2, 3, 3)) {
-            DoExitTransition((ScreenTransitionData*)&gUnk_080D13EC);
+            DoExitTransition(&gUnk_080D13EC);
             if ((gRoomTransition.field_0x39 & 3) != 3) {
                 gRoomTransition.player_status.room_next = 1;
             }

@@ -2036,8 +2036,32 @@
   {
     "path": "assets/gfx_unknown_4.bin",
     "start": 5931872,
-    "size": 192,
+    "size": 64,
     "type": "unknown"
+  },
+  {
+    "path": "palettes/bgAnim_57_0.gbapal",
+    "start": 5931936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_57_1.gbapal",
+    "start": 5931968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_57_0_1.gbapal",
+    "start": 5932000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_57_1_1.gbapal",
+    "start": 5932032,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_685.gbapal",
@@ -5478,7 +5502,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_6.bin",
+    "path": "assets/gfx_unknown_5.bin",
     "start": 5950496,
     "size": 32,
     "type": "unknown"
@@ -9288,7 +9312,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_7.bin",
+    "path": "assets/gfx_unknown_6.bin",
     "start": 5970816,
     "size": 384,
     "type": "unknown"
@@ -10686,7 +10710,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_8.bin",
+    "path": "assets/gfx_unknown_7.bin",
     "start": 5978624,
     "size": 96,
     "type": "unknown"
@@ -10788,7 +10812,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_9.bin",
+    "path": "assets/gfx_unknown_8.bin",
     "start": 5979232,
     "size": 96,
     "type": "unknown"
@@ -10890,7 +10914,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_10.bin",
+    "path": "assets/gfx_unknown_9.bin",
     "start": 5979840,
     "size": 96,
     "type": "unknown"
@@ -10992,7 +11016,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_11.bin",
+    "path": "assets/gfx_unknown_10.bin",
     "start": 5980448,
     "size": 96,
     "type": "unknown"
@@ -11052,7 +11076,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_12.bin",
+    "path": "assets/gfx_unknown_11.bin",
     "start": 5980928,
     "size": 96,
     "type": "unknown"
@@ -11322,7 +11346,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_13.bin",
+    "path": "assets/gfx_unknown_12.bin",
     "start": 5982432,
     "size": 1088,
     "type": "unknown"
@@ -13031,7 +13055,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_14.bin",
+    "path": "assets/gfx_unknown_13.bin",
     "start": 6018688,
     "size": 128,
     "type": "unknown"
@@ -13241,7 +13265,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_15.bin",
+    "path": "assets/gfx_unknown_14.bin",
     "start": 6019904,
     "size": 224,
     "type": "unknown"
@@ -13259,9 +13283,1845 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_16.bin",
+    "path": "palettes/bgAnim_96_0.gbapal",
     "start": 6020192,
-    "size": 10752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_1.gbapal",
+    "start": 6020224,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_2.gbapal",
+    "start": 6020256,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_3.gbapal",
+    "start": 6020288,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_4.gbapal",
+    "start": 6020320,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_5.gbapal",
+    "start": 6020352,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_6.gbapal",
+    "start": 6020384,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_7.gbapal",
+    "start": 6020416,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_8.gbapal",
+    "start": 6020448,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_9.gbapal",
+    "start": 6020480,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_10.gbapal",
+    "start": 6020512,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_11.gbapal",
+    "start": 6020544,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_12.gbapal",
+    "start": 6020576,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_13.gbapal",
+    "start": 6020608,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_14.gbapal",
+    "start": 6020640,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_96_15.gbapal",
+    "start": 6020672,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_0.gbapal",
+    "start": 6020704,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_1.gbapal",
+    "start": 6020736,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_2.gbapal",
+    "start": 6020768,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_3.gbapal",
+    "start": 6020800,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_4.gbapal",
+    "start": 6020832,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_5.gbapal",
+    "start": 6020864,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_6.gbapal",
+    "start": 6020896,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_7.gbapal",
+    "start": 6020928,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_8.gbapal",
+    "start": 6020960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_9.gbapal",
+    "start": 6020992,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_10.gbapal",
+    "start": 6021024,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_11.gbapal",
+    "start": 6021056,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_12.gbapal",
+    "start": 6021088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_13.gbapal",
+    "start": 6021120,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_14.gbapal",
+    "start": 6021152,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_73_15.gbapal",
+    "start": 6021184,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_0.gbapal",
+    "start": 6021216,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_1.gbapal",
+    "start": 6021248,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_2.gbapal",
+    "start": 6021280,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_3.gbapal",
+    "start": 6021312,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_4.gbapal",
+    "start": 6021344,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_5.gbapal",
+    "start": 6021376,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_6.gbapal",
+    "start": 6021408,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_7.gbapal",
+    "start": 6021440,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_8.gbapal",
+    "start": 6021472,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_9.gbapal",
+    "start": 6021504,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_10.gbapal",
+    "start": 6021536,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_11.gbapal",
+    "start": 6021568,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_12.gbapal",
+    "start": 6021600,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_13.gbapal",
+    "start": 6021632,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_14.gbapal",
+    "start": 6021664,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_68_15.gbapal",
+    "start": 6021696,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_0.gbapal",
+    "start": 6021728,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_1.gbapal",
+    "start": 6021760,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_2.gbapal",
+    "start": 6021792,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_3.gbapal",
+    "start": 6021824,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_4.gbapal",
+    "start": 6021856,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_5.gbapal",
+    "start": 6021888,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_6.gbapal",
+    "start": 6021920,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_7.gbapal",
+    "start": 6021952,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_8.gbapal",
+    "start": 6021984,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_9.gbapal",
+    "start": 6022016,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_10.gbapal",
+    "start": 6022048,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_11.gbapal",
+    "start": 6022080,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_12.gbapal",
+    "start": 6022112,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_13.gbapal",
+    "start": 6022144,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_14.gbapal",
+    "start": 6022176,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_69_15.gbapal",
+    "start": 6022208,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_0.gbapal",
+    "start": 6022240,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_1.gbapal",
+    "start": 6022272,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_2.gbapal",
+    "start": 6022304,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_3.gbapal",
+    "start": 6022336,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_4.gbapal",
+    "start": 6022368,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_5.gbapal",
+    "start": 6022400,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_6.gbapal",
+    "start": 6022432,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_7.gbapal",
+    "start": 6022464,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_8.gbapal",
+    "start": 6022496,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_9.gbapal",
+    "start": 6022528,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_10.gbapal",
+    "start": 6022560,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_11.gbapal",
+    "start": 6022592,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_12.gbapal",
+    "start": 6022624,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_13.gbapal",
+    "start": 6022656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_14.gbapal",
+    "start": 6022688,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_71_15.gbapal",
+    "start": 6022720,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_0.gbapal",
+    "start": 6022752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_1.gbapal",
+    "start": 6022784,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_2.gbapal",
+    "start": 6022816,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_3.gbapal",
+    "start": 6022848,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_4.gbapal",
+    "start": 6022880,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_5.gbapal",
+    "start": 6022912,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_6.gbapal",
+    "start": 6022944,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_7.gbapal",
+    "start": 6022976,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_8.gbapal",
+    "start": 6023008,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_9.gbapal",
+    "start": 6023040,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_10.gbapal",
+    "start": 6023072,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_11.gbapal",
+    "start": 6023104,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_12.gbapal",
+    "start": 6023136,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_13.gbapal",
+    "start": 6023168,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_14.gbapal",
+    "start": 6023200,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_70_15.gbapal",
+    "start": 6023232,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_0.gbapal",
+    "start": 6023264,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_1.gbapal",
+    "start": 6023296,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_2.gbapal",
+    "start": 6023328,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_3.gbapal",
+    "start": 6023360,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_4.gbapal",
+    "start": 6023392,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_5.gbapal",
+    "start": 6023424,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_6.gbapal",
+    "start": 6023456,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_7.gbapal",
+    "start": 6023488,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_8.gbapal",
+    "start": 6023520,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_9.gbapal",
+    "start": 6023552,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_10.gbapal",
+    "start": 6023584,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_11.gbapal",
+    "start": 6023616,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_12.gbapal",
+    "start": 6023648,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_13.gbapal",
+    "start": 6023680,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_14.gbapal",
+    "start": 6023712,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_72_15.gbapal",
+    "start": 6023744,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_0.gbapal",
+    "start": 6023776,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_1.gbapal",
+    "start": 6023808,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_2.gbapal",
+    "start": 6023840,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_3.gbapal",
+    "start": 6023872,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_4.gbapal",
+    "start": 6023904,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_5.gbapal",
+    "start": 6023936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_6.gbapal",
+    "start": 6023968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_7.gbapal",
+    "start": 6024000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_8.gbapal",
+    "start": 6024032,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_9.gbapal",
+    "start": 6024064,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_10.gbapal",
+    "start": 6024096,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_11.gbapal",
+    "start": 6024128,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_12.gbapal",
+    "start": 6024160,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_13.gbapal",
+    "start": 6024192,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_14.gbapal",
+    "start": 6024224,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_78_15.gbapal",
+    "start": 6024256,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_28_0.gbapal",
+    "start": 6024288,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_28_1.gbapal",
+    "start": 6024384,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_28_2.gbapal",
+    "start": 6024480,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_28_3.gbapal",
+    "start": 6024576,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_28_4.gbapal",
+    "start": 6024672,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_0.gbapal",
+    "start": 6024768,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_1.gbapal",
+    "start": 6024800,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_2.gbapal",
+    "start": 6024832,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_3.gbapal",
+    "start": 6024864,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_4.gbapal",
+    "start": 6024896,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_5.gbapal",
+    "start": 6024928,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_6.gbapal",
+    "start": 6024960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_7.gbapal",
+    "start": 6024992,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_8.gbapal",
+    "start": 6025024,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_9.gbapal",
+    "start": 6025056,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_10.gbapal",
+    "start": 6025088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_11.gbapal",
+    "start": 6025120,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_12.gbapal",
+    "start": 6025152,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_13.gbapal",
+    "start": 6025184,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_14.gbapal",
+    "start": 6025216,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_61_15.gbapal",
+    "start": 6025248,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_0.gbapal",
+    "start": 6025280,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_1.gbapal",
+    "start": 6025312,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_2.gbapal",
+    "start": 6025344,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_3.gbapal",
+    "start": 6025376,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_4.gbapal",
+    "start": 6025408,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_5.gbapal",
+    "start": 6025440,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_6.gbapal",
+    "start": 6025472,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_7.gbapal",
+    "start": 6025504,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_8.gbapal",
+    "start": 6025536,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_9.gbapal",
+    "start": 6025568,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_10.gbapal",
+    "start": 6025600,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_11.gbapal",
+    "start": 6025632,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_12.gbapal",
+    "start": 6025664,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_13.gbapal",
+    "start": 6025696,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_14.gbapal",
+    "start": 6025728,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_62_15.gbapal",
+    "start": 6025760,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_0.gbapal",
+    "start": 6025792,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_1.gbapal",
+    "start": 6025824,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_2.gbapal",
+    "start": 6025856,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_3.gbapal",
+    "start": 6025888,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_4.gbapal",
+    "start": 6025920,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_5.gbapal",
+    "start": 6025952,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_6.gbapal",
+    "start": 6025984,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_7.gbapal",
+    "start": 6026016,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_8.gbapal",
+    "start": 6026048,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_9.gbapal",
+    "start": 6026080,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_10.gbapal",
+    "start": 6026112,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_11.gbapal",
+    "start": 6026144,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_12.gbapal",
+    "start": 6026176,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_13.gbapal",
+    "start": 6026208,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_14.gbapal",
+    "start": 6026240,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_63_15.gbapal",
+    "start": 6026272,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_0.gbapal",
+    "start": 6026304,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_1.gbapal",
+    "start": 6026336,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_2.gbapal",
+    "start": 6026368,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_3.gbapal",
+    "start": 6026400,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_4.gbapal",
+    "start": 6026432,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_5.gbapal",
+    "start": 6026464,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_6.gbapal",
+    "start": 6026496,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_7.gbapal",
+    "start": 6026528,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_8.gbapal",
+    "start": 6026560,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_9.gbapal",
+    "start": 6026592,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_10.gbapal",
+    "start": 6026624,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_11.gbapal",
+    "start": 6026656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_12.gbapal",
+    "start": 6026688,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_13.gbapal",
+    "start": 6026720,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_14.gbapal",
+    "start": 6026752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_64_15.gbapal",
+    "start": 6026784,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_0.gbapal",
+    "start": 6026816,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_1.gbapal",
+    "start": 6026848,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_2.gbapal",
+    "start": 6026880,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_3.gbapal",
+    "start": 6026912,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_4.gbapal",
+    "start": 6026944,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_5.gbapal",
+    "start": 6026976,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_6.gbapal",
+    "start": 6027008,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_7.gbapal",
+    "start": 6027040,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_8.gbapal",
+    "start": 6027072,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_9.gbapal",
+    "start": 6027104,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_10.gbapal",
+    "start": 6027136,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_11.gbapal",
+    "start": 6027168,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_12.gbapal",
+    "start": 6027200,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_13.gbapal",
+    "start": 6027232,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_14.gbapal",
+    "start": 6027264,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_76_15.gbapal",
+    "start": 6027296,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_16_0.gbapal",
+    "start": 6027328,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_16_1.gbapal",
+    "start": 6027424,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_16_2.gbapal",
+    "start": 6027520,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_16_3.gbapal",
+    "start": 6027616,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_16_4.gbapal",
+    "start": 6027712,
+    "size": 96,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_0.gbapal",
+    "start": 6027808,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_1.gbapal",
+    "start": 6027840,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_2.gbapal",
+    "start": 6027872,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_3.gbapal",
+    "start": 6027904,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_4.gbapal",
+    "start": 6027936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_5.gbapal",
+    "start": 6027968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_6.gbapal",
+    "start": 6028000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_7.gbapal",
+    "start": 6028032,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_8.gbapal",
+    "start": 6028064,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_9.gbapal",
+    "start": 6028096,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_10.gbapal",
+    "start": 6028128,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_11.gbapal",
+    "start": 6028160,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_12.gbapal",
+    "start": 6028192,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_13.gbapal",
+    "start": 6028224,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_14.gbapal",
+    "start": 6028256,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_75_15.gbapal",
+    "start": 6028288,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_0.gbapal",
+    "start": 6028320,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_1.gbapal",
+    "start": 6028352,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_2.gbapal",
+    "start": 6028384,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_3.gbapal",
+    "start": 6028416,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_4.gbapal",
+    "start": 6028448,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_5.gbapal",
+    "start": 6028480,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_6.gbapal",
+    "start": 6028512,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_7.gbapal",
+    "start": 6028544,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_8.gbapal",
+    "start": 6028576,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_9.gbapal",
+    "start": 6028608,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_10.gbapal",
+    "start": 6028640,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_11.gbapal",
+    "start": 6028672,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_12.gbapal",
+    "start": 6028704,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_13.gbapal",
+    "start": 6028736,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_14.gbapal",
+    "start": 6028768,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_60_15.gbapal",
+    "start": 6028800,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_0.gbapal",
+    "start": 6028832,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_1.gbapal",
+    "start": 6028864,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_2.gbapal",
+    "start": 6028896,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_3.gbapal",
+    "start": 6028928,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_4.gbapal",
+    "start": 6028960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_5.gbapal",
+    "start": 6028992,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_6.gbapal",
+    "start": 6029024,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_7.gbapal",
+    "start": 6029056,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_8.gbapal",
+    "start": 6029088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_9.gbapal",
+    "start": 6029120,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_10.gbapal",
+    "start": 6029152,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_11.gbapal",
+    "start": 6029184,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_12.gbapal",
+    "start": 6029216,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_13.gbapal",
+    "start": 6029248,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_14.gbapal",
+    "start": 6029280,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_65_15.gbapal",
+    "start": 6029312,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_0.gbapal",
+    "start": 6029344,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_1.gbapal",
+    "start": 6029408,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_2.gbapal",
+    "start": 6029472,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_3.gbapal",
+    "start": 6029536,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_4.gbapal",
+    "start": 6029600,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_5.gbapal",
+    "start": 6029664,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_6.gbapal",
+    "start": 6029728,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_66_7.gbapal",
+    "start": 6029792,
+    "size": 64,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_0.gbapal",
+    "start": 6029856,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_1.gbapal",
+    "start": 6029888,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_2.gbapal",
+    "start": 6029920,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_3.gbapal",
+    "start": 6029952,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_4.gbapal",
+    "start": 6029984,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_5.gbapal",
+    "start": 6030016,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_6.gbapal",
+    "start": 6030048,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_7.gbapal",
+    "start": 6030080,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_8.gbapal",
+    "start": 6030112,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_9.gbapal",
+    "start": 6030144,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_10.gbapal",
+    "start": 6030176,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_11.gbapal",
+    "start": 6030208,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_12.gbapal",
+    "start": 6030240,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_13.gbapal",
+    "start": 6030272,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_14.gbapal",
+    "start": 6030304,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_67_15.gbapal",
+    "start": 6030336,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_0.gbapal",
+    "start": 6030368,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_1.gbapal",
+    "start": 6030400,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_2.gbapal",
+    "start": 6030432,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_3.gbapal",
+    "start": 6030464,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_4.gbapal",
+    "start": 6030496,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_5.gbapal",
+    "start": 6030528,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_6.gbapal",
+    "start": 6030560,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_7.gbapal",
+    "start": 6030592,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_8.gbapal",
+    "start": 6030624,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_9.gbapal",
+    "start": 6030656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_10.gbapal",
+    "start": 6030688,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_11.gbapal",
+    "start": 6030720,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_12.gbapal",
+    "start": 6030752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_13.gbapal",
+    "start": 6030784,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_14.gbapal",
+    "start": 6030816,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/bgAnim_79_15.gbapal",
+    "start": 6030848,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "assets/gfx_unknown_15.bin",
+    "start": 6030880,
+    "size": 64,
     "type": "unknown"
   },
   {
@@ -16418,7 +18278,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_19.bin",
+    "path": "assets/gfx_unknown_16.bin",
     "start": 6835328,
     "size": 7840,
     "type": "unknown"
@@ -16492,112 +18352,2144 @@
   {
     "path": "gfx/gUnk_086926A0.bin",
     "start": 6891168,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692780.bin",
     "start": 6891392,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692860.bin",
     "start": 6891616,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692940.bin",
     "start": 6891840,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692A20.bin",
     "start": 6892064,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692B00.bin",
     "start": 6892288,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692BE0.bin",
     "start": 6892512,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692CC0.bin",
     "start": 6892736,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692DA0.bin",
     "start": 6892960,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692E80.bin",
     "start": 6893184,
-    "size": 224
+    "size": 224,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692F60.bin",
     "start": 6893408,
-    "size": 64
+    "size": 64,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08692F60_1.bin",
     "start": 6893472,
-    "size": 16320
+    "size": 16320,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_08696F60.bin",
     "start": 6909792,
-    "size": 2432
+    "size": 2432,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086978E0.bin",
     "start": 6912224,
-    "size": 8192
+    "size": 8192,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086998E0.bin",
     "start": 6920416,
-    "size": 32768
+    "size": 32768,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086A18E0.bin",
     "start": 6953184,
-    "size": 4448
+    "size": 4448,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086A18E0_1.bin",
     "start": 6957632,
-    "size": 32
+    "size": 32,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086A2A60.bin",
     "start": 6957664,
-    "size": 1152
+    "size": 1152,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086A2EE0.bin",
     "start": 6958816,
-    "size": 32768
+    "size": 32768,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086AAEE0.bin",
     "start": 6991584,
-    "size": 169344
+    "size": 169344,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086D4460.bin",
     "start": 7160928,
-    "size": 81920
+    "size": 81920,
+    "type": "unknown"
   },
   {
     "path": "gfx/gUnk_086E8460.bin",
     "start": 7242848,
-    "size": 161088
+    "size": 51200,
+    "type": "unknown"
+  },
+  {
+    "path": "gfx/bgAnim_0_0.4bpp",
+    "start": 7294048,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_0_1.4bpp",
+    "start": 7294208,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_0_2.4bpp",
+    "start": 7294368,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_0_3.4bpp",
+    "start": 7294528,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_2_0.4bpp",
+    "start": 7294688,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_2_1.4bpp",
+    "start": 7295136,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_2_2.4bpp",
+    "start": 7295584,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_2_3.4bpp",
+    "start": 7296032,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_3_0.4bpp",
+    "start": 7296480,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_3_1.4bpp",
+    "start": 7296832,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_3_2.4bpp",
+    "start": 7297184,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_3_3.4bpp",
+    "start": 7297536,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_4_0.4bpp",
+    "start": 7297888,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_4_1.4bpp",
+    "start": 7298112,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_4_2.4bpp",
+    "start": 7298336,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_4_3.4bpp",
+    "start": 7298560,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_5_0.4bpp",
+    "start": 7298784,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_5_1.4bpp",
+    "start": 7299168,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_5_2.4bpp",
+    "start": 7299552,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_5_3.4bpp",
+    "start": 7299936,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_6_0.4bpp",
+    "start": 7300320,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_6_1.4bpp",
+    "start": 7300384,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_6_2.4bpp",
+    "start": 7300448,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_6_3.4bpp",
+    "start": 7300512,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_93_0.4bpp",
+    "start": 7300576,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_93_1.4bpp",
+    "start": 7300928,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_93_2.4bpp",
+    "start": 7301280,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_93_3.4bpp",
+    "start": 7301632,
+    "size": 352,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_94_0.4bpp",
+    "start": 7301984,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_94_1.4bpp",
+    "start": 7302464,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_94_2.4bpp",
+    "start": 7302944,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_94_3.4bpp",
+    "start": 7303424,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_95_0.4bpp",
+    "start": 7303904,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_95_1.4bpp",
+    "start": 7304416,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_95_2.4bpp",
+    "start": 7304928,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_95_3.4bpp",
+    "start": 7305440,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_30_0.4bpp",
+    "start": 7305952,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_30_1.4bpp",
+    "start": 7306240,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_30_2.4bpp",
+    "start": 7306528,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_30_3.4bpp",
+    "start": 7306816,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_0.4bpp",
+    "start": 7307104,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_1.4bpp",
+    "start": 7307296,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_2.4bpp",
+    "start": 7307488,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_3.4bpp",
+    "start": 7307680,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_0_1.4bpp",
+    "start": 7307872,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_1_1.4bpp",
+    "start": 7308000,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_2_1.4bpp",
+    "start": 7308128,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_31_3_1.4bpp",
+    "start": 7308256,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_32_0.4bpp",
+    "start": 7308384,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_32_1.4bpp",
+    "start": 7308416,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_32_2.4bpp",
+    "start": 7308448,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_32_3.4bpp",
+    "start": 7308480,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_32_4.4bpp",
+    "start": 7308512,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_32_5.4bpp",
+    "start": 7308544,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_33_0.4bpp",
+    "start": 7308576,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_33_1.4bpp",
+    "start": 7308608,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_33_2.4bpp",
+    "start": 7308640,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_33_3.4bpp",
+    "start": 7308672,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_33_4.4bpp",
+    "start": 7308704,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_33_5.4bpp",
+    "start": 7308736,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_34_0.4bpp",
+    "start": 7308768,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_34_1.4bpp",
+    "start": 7308800,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_34_2.4bpp",
+    "start": 7308832,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_34_3.4bpp",
+    "start": 7308864,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_34_4.4bpp",
+    "start": 7308896,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_34_5.4bpp",
+    "start": 7308928,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_35_0.4bpp",
+    "start": 7308960,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_35_1.4bpp",
+    "start": 7309440,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_35_2.4bpp",
+    "start": 7309920,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_35_3.4bpp",
+    "start": 7310400,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_8_0.4bpp",
+    "start": 7310880,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_8_1.4bpp",
+    "start": 7311360,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_8_2.4bpp",
+    "start": 7311840,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_8_3.4bpp",
+    "start": 7312320,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_9_0.4bpp",
+    "start": 7312800,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_9_1.4bpp",
+    "start": 7312928,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_9_2.4bpp",
+    "start": 7313056,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_9_3.4bpp",
+    "start": 7313184,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_10_0.4bpp",
+    "start": 7313312,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_10_1.4bpp",
+    "start": 7313440,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_10_2.4bpp",
+    "start": 7313568,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_10_3.4bpp",
+    "start": 7313696,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_11_0.4bpp",
+    "start": 7313824,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_11_1.4bpp",
+    "start": 7314048,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_11_2.4bpp",
+    "start": 7314272,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_11_3.4bpp",
+    "start": 7314496,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_12_0.4bpp",
+    "start": 7314720,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_12_1.4bpp",
+    "start": 7315200,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_12_2.4bpp",
+    "start": 7315680,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_12_3.4bpp",
+    "start": 7316160,
+    "size": 480,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_53_0.4bpp",
+    "start": 7316640,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_53_1.4bpp",
+    "start": 7316960,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_53_2.4bpp",
+    "start": 7317280,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_53_3.4bpp",
+    "start": 7317600,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_54_0.4bpp",
+    "start": 7317920,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_54_1.4bpp",
+    "start": 7318112,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_54_2.4bpp",
+    "start": 7318304,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_54_3.4bpp",
+    "start": 7318496,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_55_0.4bpp",
+    "start": 7318688,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_55_1.4bpp",
+    "start": 7319712,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_55_2.4bpp",
+    "start": 7320736,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_55_3.4bpp",
+    "start": 7321760,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_56_0.4bpp",
+    "start": 7322784,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_56_1.4bpp",
+    "start": 7322912,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_56_2.4bpp",
+    "start": 7323040,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_56_3.4bpp",
+    "start": 7323168,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_29_0.4bpp",
+    "start": 7323296,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_29_1.4bpp",
+    "start": 7323616,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_29_2.4bpp",
+    "start": 7323936,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_29_3.4bpp",
+    "start": 7324256,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_58_0.4bpp",
+    "start": 7324576,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_58_1.4bpp",
+    "start": 7324768,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_58_2.4bpp",
+    "start": 7324960,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_58_3.4bpp",
+    "start": 7325152,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_59_0.4bpp",
+    "start": 7325344,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_59_1.4bpp",
+    "start": 7325568,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_59_2.4bpp",
+    "start": 7325792,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_59_3.4bpp",
+    "start": 7326016,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_36_0.4bpp",
+    "start": 7326240,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_36_1.4bpp",
+    "start": 7326368,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_36_2.4bpp",
+    "start": 7326496,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_36_3.4bpp",
+    "start": 7326624,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_37_0.4bpp",
+    "start": 7326752,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_37_1.4bpp",
+    "start": 7326880,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_37_2.4bpp",
+    "start": 7327008,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_37_3.4bpp",
+    "start": 7327136,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_0.4bpp",
+    "start": 7327264,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_1.4bpp",
+    "start": 7327392,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_2.4bpp",
+    "start": 7327520,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_3.4bpp",
+    "start": 7327648,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_0_1.4bpp",
+    "start": 7327776,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_1_1.4bpp",
+    "start": 7327968,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_2_1.4bpp",
+    "start": 7328160,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_40_3_1.4bpp",
+    "start": 7328352,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_41_0.4bpp",
+    "start": 7328544,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_41_1.4bpp",
+    "start": 7328768,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_41_2.4bpp",
+    "start": 7328992,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_41_3.4bpp",
+    "start": 7329216,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_47_0.4bpp",
+    "start": 7329440,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_47_1.4bpp",
+    "start": 7329696,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_47_2.4bpp",
+    "start": 7329952,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_47_3.4bpp",
+    "start": 7330208,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_48_0.4bpp",
+    "start": 7330464,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_48_1.4bpp",
+    "start": 7330976,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_48_2.4bpp",
+    "start": 7331488,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_48_3.4bpp",
+    "start": 7332000,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_49_0.4bpp",
+    "start": 7332512,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_49_1.4bpp",
+    "start": 7332768,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_49_2.4bpp",
+    "start": 7333024,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_49_3.4bpp",
+    "start": 7333280,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_50_0.4bpp",
+    "start": 7333536,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_50_1.4bpp",
+    "start": 7333728,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_50_2.4bpp",
+    "start": 7333920,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_50_3.4bpp",
+    "start": 7334112,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_51_0.4bpp",
+    "start": 7334304,
+    "size": 736,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_51_1.4bpp",
+    "start": 7335040,
+    "size": 736,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_51_2.4bpp",
+    "start": 7335776,
+    "size": 736,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_51_3.4bpp",
+    "start": 7336512,
+    "size": 736,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_87_0.4bpp",
+    "start": 7337248,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_87_1.4bpp",
+    "start": 7337504,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_87_2.4bpp",
+    "start": 7337760,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_87_3.4bpp",
+    "start": 7338016,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_88_0.4bpp",
+    "start": 7338272,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_88_1.4bpp",
+    "start": 7339040,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_88_2.4bpp",
+    "start": 7339808,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_88_3.4bpp",
+    "start": 7340576,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_89_0.4bpp",
+    "start": 7341344,
+    "size": 928,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_89_1.4bpp",
+    "start": 7342272,
+    "size": 928,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_89_2.4bpp",
+    "start": 7343200,
+    "size": 928,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_89_3.4bpp",
+    "start": 7344128,
+    "size": 928,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_90_0.4bpp",
+    "start": 7345056,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_90_1.4bpp",
+    "start": 7345312,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_90_2.4bpp",
+    "start": 7345568,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_90_3.4bpp",
+    "start": 7345824,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_91_0.4bpp",
+    "start": 7346080,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_91_1.4bpp",
+    "start": 7346848,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_91_2.4bpp",
+    "start": 7347616,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_91_3.4bpp",
+    "start": 7348384,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_0.4bpp",
+    "start": 7349152,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_1.4bpp",
+    "start": 7349184,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_2.4bpp",
+    "start": 7349216,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_3.4bpp",
+    "start": 7349248,
+    "size": 32,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_0_1.4bpp",
+    "start": 7349280,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_1_1.4bpp",
+    "start": 7349536,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_2_1.4bpp",
+    "start": 7349792,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_92_3_1.4bpp",
+    "start": 7350048,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_26_0.4bpp",
+    "start": 7350304,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_26_1.4bpp",
+    "start": 7351072,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_26_2.4bpp",
+    "start": 7351840,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_26_3.4bpp",
+    "start": 7352608,
+    "size": 768,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_77_0.4bpp",
+    "start": 7353376,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_77_1.4bpp",
+    "start": 7354400,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_77_2.4bpp",
+    "start": 7355424,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_77_3.4bpp",
+    "start": 7356448,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_0.4bpp",
+    "start": 7357472,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_1.4bpp",
+    "start": 7357600,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_2.4bpp",
+    "start": 7357728,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_3.4bpp",
+    "start": 7357856,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_0_1.4bpp",
+    "start": 7357984,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_1_1.4bpp",
+    "start": 7358176,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_2_1.4bpp",
+    "start": 7358368,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_3_1.4bpp",
+    "start": 7358560,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_0_2.4bpp",
+    "start": 7358752,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_1_2.4bpp",
+    "start": 7358976,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_2_2.4bpp",
+    "start": 7359200,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_21_3_2.4bpp",
+    "start": 7359424,
+    "size": 224,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_0.4bpp",
+    "start": 7359648,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_1.4bpp",
+    "start": 7360256,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_2.4bpp",
+    "start": 7360864,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_3.4bpp",
+    "start": 7361472,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_0_1.4bpp",
+    "start": 7362080,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_1_1.4bpp",
+    "start": 7362464,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_2_1.4bpp",
+    "start": 7362848,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_22_3_1.4bpp",
+    "start": 7363232,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_23_0.4bpp",
+    "start": 7363616,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_23_1.4bpp",
+    "start": 7364064,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_23_2.4bpp",
+    "start": 7364512,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_23_3.4bpp",
+    "start": 7364960,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_20_0.4bpp",
+    "start": 7365408,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_20_1.4bpp",
+    "start": 7365536,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_20_2.4bpp",
+    "start": 7365664,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_20_3.4bpp",
+    "start": 7365792,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_24_0.4bpp",
+    "start": 7365920,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_24_1.4bpp",
+    "start": 7366432,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_24_2.4bpp",
+    "start": 7366944,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_24_3.4bpp",
+    "start": 7367456,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_24_4.4bpp",
+    "start": 7367968,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_25_0.4bpp",
+    "start": 7368480,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_25_1.4bpp",
+    "start": 7368864,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_25_2.4bpp",
+    "start": 7369248,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_25_3.4bpp",
+    "start": 7369632,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_27_0.4bpp",
+    "start": 7370016,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_27_1.4bpp",
+    "start": 7370528,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_27_2.4bpp",
+    "start": 7371040,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_27_3.4bpp",
+    "start": 7371552,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_27_4.4bpp",
+    "start": 7372064,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_46_0.4bpp",
+    "start": 7372576,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_46_1.4bpp",
+    "start": 7372736,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_46_2.4bpp",
+    "start": 7372896,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_46_3.4bpp",
+    "start": 7373056,
+    "size": 160,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_42_0.4bpp",
+    "start": 7373216,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_42_1.4bpp",
+    "start": 7373472,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_42_2.4bpp",
+    "start": 7373728,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_42_3.4bpp",
+    "start": 7373984,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_43_0.4bpp",
+    "start": 7374240,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_43_1.4bpp",
+    "start": 7374880,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_43_2.4bpp",
+    "start": 7375520,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_43_3.4bpp",
+    "start": 7376160,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_44_0.4bpp",
+    "start": 7376800,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_44_1.4bpp",
+    "start": 7377408,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_44_2.4bpp",
+    "start": 7378016,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_44_3.4bpp",
+    "start": 7378624,
+    "size": 608,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_45_0.4bpp",
+    "start": 7379232,
+    "size": 416,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_45_1.4bpp",
+    "start": 7379648,
+    "size": 416,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_45_2.4bpp",
+    "start": 7380064,
+    "size": 416,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_45_3.4bpp",
+    "start": 7380480,
+    "size": 416,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_85_0.4bpp",
+    "start": 7380896,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_85_1.4bpp",
+    "start": 7381088,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_85_2.4bpp",
+    "start": 7381280,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_85_3.4bpp",
+    "start": 7381472,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_86_0.4bpp",
+    "start": 7381664,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_86_1.4bpp",
+    "start": 7382048,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_86_2.4bpp",
+    "start": 7382432,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_86_3.4bpp",
+    "start": 7382816,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_17_0.4bpp",
+    "start": 7383200,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_17_1.4bpp",
+    "start": 7383520,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_17_2.4bpp",
+    "start": 7383840,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_17_3.4bpp",
+    "start": 7384160,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_18_0.4bpp",
+    "start": 7384480,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_18_1.4bpp",
+    "start": 7384768,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_18_2.4bpp",
+    "start": 7385056,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_18_3.4bpp",
+    "start": 7385344,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_19_0.4bpp",
+    "start": 7385632,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_19_1.4bpp",
+    "start": 7386016,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_19_2.4bpp",
+    "start": 7386400,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_19_3.4bpp",
+    "start": 7386784,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_1_0.4bpp",
+    "start": 7387168,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_1_1.4bpp",
+    "start": 7387680,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_1_2.4bpp",
+    "start": 7388192,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_1_3.4bpp",
+    "start": 7388704,
+    "size": 512,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_7_0.4bpp",
+    "start": 7389216,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_7_1.4bpp",
+    "start": 7389344,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_7_2.4bpp",
+    "start": 7389472,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_7_3.4bpp",
+    "start": 7389600,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_13_0.4bpp",
+    "start": 7389728,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_13_1.4bpp",
+    "start": 7389824,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_13_2.4bpp",
+    "start": 7389920,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_13_3.4bpp",
+    "start": 7390016,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_14_0.4bpp",
+    "start": 7390112,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_14_1.4bpp",
+    "start": 7390240,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_14_2.4bpp",
+    "start": 7390368,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_14_3.4bpp",
+    "start": 7390496,
+    "size": 128,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_15_0.4bpp",
+    "start": 7390624,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_15_1.4bpp",
+    "start": 7390720,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_15_2.4bpp",
+    "start": 7390816,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_15_3.4bpp",
+    "start": 7390912,
+    "size": 96,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_0.4bpp",
+    "start": 7391008,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_1.4bpp",
+    "start": 7391328,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_2.4bpp",
+    "start": 7391648,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_3.4bpp",
+    "start": 7391968,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_4.4bpp",
+    "start": 7392288,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_5.4bpp",
+    "start": 7392608,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_6.4bpp",
+    "start": 7392928,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_7.4bpp",
+    "start": 7393248,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_8.4bpp",
+    "start": 7393568,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_9.4bpp",
+    "start": 7393888,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_10.4bpp",
+    "start": 7394208,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_11.4bpp",
+    "start": 7394528,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_12.4bpp",
+    "start": 7394848,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_13.4bpp",
+    "start": 7395168,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_14.4bpp",
+    "start": 7395488,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_80_15.4bpp",
+    "start": 7395808,
+    "size": 320,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_81_0.4bpp",
+    "start": 7396128,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_81_1.4bpp",
+    "start": 7396512,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_81_2.4bpp",
+    "start": 7396896,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_81_3.4bpp",
+    "start": 7397280,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_82_0.4bpp",
+    "start": 7397664,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_82_1.4bpp",
+    "start": 7398304,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_82_2.4bpp",
+    "start": 7398944,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_82_3.4bpp",
+    "start": 7399584,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_83_0.4bpp",
+    "start": 7400224,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_83_1.4bpp",
+    "start": 7400288,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_83_2.4bpp",
+    "start": 7400352,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_83_3.4bpp",
+    "start": 7400416,
+    "size": 64,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_0.4bpp",
+    "start": 7400480,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_1.4bpp",
+    "start": 7400864,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_2.4bpp",
+    "start": 7401248,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_3.4bpp",
+    "start": 7401632,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_4.4bpp",
+    "start": 7402016,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_5.4bpp",
+    "start": 7402400,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_84_6.4bpp",
+    "start": 7402784,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_97_0.4bpp",
+    "start": 7403168,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_97_1.4bpp",
+    "start": 7403360,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_97_2.4bpp",
+    "start": 7403552,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "gfx/bgAnim_97_3.4bpp",
+    "start": 7403744,
+    "size": 192,
+    "type": "gfx"
   },
   {
     "path": "gfx/gGfx_38_0.4bpp",
@@ -16972,7 +20864,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_21.bin",
+    "path": "assets/gfx_unknown_17.bin",
     "start": 7899808,
     "size": 12288,
     "type": "unknown"
@@ -17032,7 +20924,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_22.bin",
+    "path": "assets/gfx_unknown_18.bin",
     "start": 7934624,
     "size": 6144,
     "type": "unknown"
@@ -18182,7 +22074,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_24.bin",
+    "path": "assets/gfx_unknown_19.bin",
     "start": 9272672,
     "size": 10240,
     "type": "unknown"
@@ -18194,7 +22086,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_25.bin",
+    "path": "assets/gfx_unknown_20.bin",
     "start": 9285472,
     "size": 2560,
     "type": "unknown"
@@ -18478,7 +22370,7 @@
     ]
   },
   {
-    "path": "assets/gfx_unknown_30.bin",
+    "path": "assets/gfx_unknown_21.bin",
     "start": 9422944,
     "size": 1280,
     "type": "unknown",
@@ -18890,7 +22782,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_42.bin",
+    "path": "assets/gfx_unknown_22.bin",
     "start": 9624544,
     "size": 2048,
     "type": "unknown"
@@ -19028,7 +22920,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_46.bin",
+    "path": "assets/gfx_unknown_23.bin",
     "start": 9683168,
     "size": 1280,
     "type": "unknown"
@@ -19445,7 +23337,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_49.bin",
+    "path": "assets/gfx_unknown_24.bin",
     "start": 10164432,
     "size": 1216,
     "type": "unknown"

@@ -59,6 +59,6 @@ SCRIPT_START script_Npc4EOutro
 	WaitForSyncFlagAndClear 0x00000100
 	PlayBgm BGM_INTRO_CUTSCENE
 	PlaySound SFX_APPARATE
-	CallWithArg sub_0806DA1C, 0x00000007
+	CallWithArg NPC4E_DoScreenTransition, 7
 	DoPostScriptAction 0x0006
 SCRIPT_END

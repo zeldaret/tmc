@@ -7,9 +7,9 @@
 
 #include "enemy.h"
 #include "functions.h"
+#include "screenTransitions.h"
 
 extern Entity* gUnk_020000B0;
-extern const ScreenTransitionData gUnk_0813AB94;
 
 bool32 sub_0803E4A0(Entity*);
 void VaatiProjectile_OnTick(Entity*);
@@ -199,7 +199,8 @@ void VaatiProjectileFunction0Action7(Entity* this) {
     sub_0803E4D8(this);
     if ((gRoomControls.origin_y + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
         SetInitializationPriority();
-        DoExitTransition((ScreenTransitionData*)&gUnk_0813AB94);
+        // TODO this screen transition is to mazaal. Is this also the projectile for Mazaals shrink ray?
+        DoExitTransition(&gUnk_0813AB94);
     }
 }
 

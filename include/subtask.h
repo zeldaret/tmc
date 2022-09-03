@@ -47,7 +47,7 @@ extern void sub_080A4E84(u8);
 extern const struct {
     u8 unk0;
     u8 unk1;
-    u8 filler[2];
+    // u8 pad[2];
     void (*func)(void);
 } gUnk_08128A38[];
 

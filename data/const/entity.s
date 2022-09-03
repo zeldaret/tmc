@@ -356,6 +356,7 @@ gUnk_0810918C:: @ 0810918C
 	.4byte gUnk_08109180
 	.4byte gUnk_0810910C
 
+@ scroll.c
 gUnk_08109194:: @ 08109194
 	.4byte gUnk_08108E90
 	.4byte gUnk_08108EBC
@@ -378,104 +379,14 @@ gUnk_08109194:: @ 08109194
 	.4byte gUnk_08109178
 	.4byte gUnk_0810918C
 
+@ beanstalkSubtask.c, room.c
 gUnk_081091E4:: @ 081091E4
 	.incbin "data_08108E6C/gUnk_081091E4.bin"
 
+@ entity.c
 gUnk_081091EE:: @ 081091EE
 	.incbin "data_08108E6C/gUnk_081091EE.bin"
 
+@ entity.c
 gUnk_081091F8:: @ 081091F8
 	.incbin "data_08108E6C/gUnk_081091F8.bin"
-
-gUnk_08109202:: @ 08109202
-	.incbin "data_08108E6C/gUnk_08109202.bin"
-
-gTranslations:: @ 08109214
-	.4byte translation
-	.4byte translation
-	.4byte translation
-.ifdef EU
-	.4byte translationFrench
-	.4byte translationGerman
-	.4byte translationSpanish
-	.4byte translationItalian
-.else
-	.4byte translation
-	.4byte translation
-	.4byte translation
-	.4byte translation
-.endif
-
-gUnk_08109230:: @ 08109230
-	.incbin "data_08108E6C/gUnk_08109230.bin"
-
-gUnk_08109244:: @ 08109244
-	.incbin "data_08108E6C/gUnk_08109244.bin"
-
-gUnk_08109248:: @ 08109248
-	.4byte gUnk_08692F60
-	.4byte gUnk_08692F60
-	.4byte gUnk_086978E0
-	.4byte gUnk_08696F60
-	.4byte gUnk_086AAEE0
-	.4byte gUnk_086998E0
-	.4byte gUnk_086A18E0
-	.4byte gUnk_086A2A60
-	.4byte gUnk_086A2EE0
-
-gUnk_0810926C:: @ 0810926C
-	.incbin "data_08108E6C/gUnk_0810926C.bin"
-
-gUnk_081092AC:: @ 081092AC
-	.4byte gUnk_086926A0
-	.4byte gUnk_08692780
-	.4byte gUnk_08692860
-	.4byte gUnk_08692940
-	.4byte gUnk_08692A20
-	.4byte gUnk_08692B00
-	.4byte gUnk_08692BE0
-	.4byte gUnk_08692CC0
-	.4byte gUnk_08692DA0
-	.4byte gUnk_08692E80
-
-gUnk_081092D4:: @ 081092D4
-	.incbin "data_08108E6C/gUnk_081092D4.bin"
-
-gUnk_0810942E:: @ 0810942E
-	.incbin "data_08108E6C/gUnk_0810942E.bin"
-
-gUnk_081094CE:: @ 081094CE
-	.incbin "data_08108E6C/gUnk_081094CE.bin"
-
-gUnk_08109A30:: @ 08109A30
-	.4byte sub_0805FA04
-	.4byte sub_0805FA98
-	.4byte sub_0805FBC4
-	.4byte gUnk_08109AB8
-	.4byte gUnk_08109AA8
-	.4byte gUnk_08109A98
-	.4byte gUnk_08109A88
-	.4byte gUnk_08109A78
-	.4byte gUnk_08109A68
-	.4byte gUnk_08109A58
-
-gUnk_08109A58:: @ 08109A58
-	.incbin "data_08108E6C/gUnk_08109A58.bin"
-
-gUnk_08109A68:: @ 08109A68
-	.incbin "data_08108E6C/gUnk_08109A68.bin"
-
-gUnk_08109A78:: @ 08109A78
-	.incbin "data_08108E6C/gUnk_08109A78.bin"
-
-gUnk_08109A88:: @ 08109A88
-	.incbin "data_08108E6C/gUnk_08109A88.bin"
-
-gUnk_08109A98:: @ 08109A98
-	.incbin "data_08108E6C/gUnk_08109A98.bin"
-
-gUnk_08109AA8:: @ 08109AA8
-	.incbin "data_08108E6C/gUnk_08109AA8.bin"
-
-gUnk_08109AB8:: @ 08109AB8
-	.incbin "data_08108E6C/gUnk_08109AB8.bin"

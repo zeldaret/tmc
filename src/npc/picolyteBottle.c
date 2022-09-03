@@ -1,13 +1,14 @@
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "structures.h"
 #include "functions.h"
-#include "message.h"
-#include "object.h"
-#include "npc.h"
 #include "hitbox.h"
 #include "kinstone.h"
+#include "message.h"
+#include "npc.h"
+#include "object.h"
+#include "screenTransitions.h"
+#include "script.h"
+#include "structures.h"
 
 typedef struct {
     Entity base;
@@ -17,8 +18,6 @@ typedef struct {
     u16 unk74;
     u16 unk76;
 } PicolyteBottleEntity;
-
-extern ScreenTransitionData gUnk_0813AD4C;
 
 void sub_0806E014(PicolyteBottleEntity* this);
 void sub_0806E0DC(PicolyteBottleEntity* this);
@@ -156,6 +155,8 @@ void sub_0806E0DC(PicolyteBottleEntity* this) {
         super->action = 3;
     }
 }
+
+// TODO the following functions seem to be script functions regarding burlov and carlov
 
 void sub_0806E140(PicolyteBottleEntity* this, ScriptExecutionContext* context) {
     u32 uVar1, uVar2;

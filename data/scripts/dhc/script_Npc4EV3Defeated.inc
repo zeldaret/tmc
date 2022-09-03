@@ -22,7 +22,7 @@ script_0800A0FE:
 	EndBlock
 	WaitForFadeFinish
 	WaitForSyncFlagAndClear 0x00000004
-	CallWithArg sub_0806DA1C, 0x00000006
+	CallWithArg NPC4E_DoScreenTransition, 6
 	DoPostScriptAction 0x0006
 SCRIPT_END
 .ifndef EU

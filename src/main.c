@@ -90,14 +90,15 @@ void AgbMain(void) {
     }
 }
 
+extern u8 gUnk_02000030[];
 // Interrupt handlers that are loaded into RAM.
 extern u8 sub_080B197C[];
 extern u8 ram_sub_080B197C[];
-extern u8 gUnk_02038560[];
-extern u8 gUnk_080B2CD8[];
-extern u8 gUnk_080B2CD8_2[];
-extern u8 gUnk_080B2CD8_3[];
-extern u8 gUnk_02000030[];
+extern u8 RAMFUNCS_END[];
+
+extern u8 gCopyToEndOfEwram_Start[];
+extern u8 gCopyToEndOfEwram_End[];
+extern u8 gEndOfEwram[];
 
 static void InitOverlays(void) {
     u32 size;
@@ -108,14 +109,14 @@ static void InitOverlays(void) {
     REG_WAITCNT = WAITCNT_PREFETCH_ENABLE | WAITCNT_WS0_S_1 | WAITCNT_WS0_N_3;
     size = 0x3FFD0;
     MemClear(gUnk_02000030, size);
-    size = (u32)gUnk_080B2CD8 - (u32)sub_080B197C;
+    size = (u32)RAMFUNCS_END - (u32)sub_080B197C;
     if (size != 0) {
         MemCopy(sub_080B197C, ram_sub_080B197C, size);
     }
 
-    size = (u32)gUnk_080B2CD8_2 - (u32)gUnk_080B2CD8_3;
+    size = (u32)gCopyToEndOfEwram_End - (u32)gCopyToEndOfEwram_Start;
     if (size != 0) {
-        MemCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
+        MemCopy(gCopyToEndOfEwram_Start, gEndOfEwram, size);
     }
 
     DispReset(0);

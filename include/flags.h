@@ -6,8 +6,8 @@
 bool32 CheckFlags(u32);
 bool32 CheckGlobalFlag(u32);
 bool32 CheckGlobalFlags(u32, u32);
-extern bool32 CheckLocalFlag(u32);
-extern bool32 CheckLocalFlagByBank(u32, u32);
+extern bool32 CheckLocalFlag(u32 flag);
+extern bool32 CheckLocalFlagByBank(u32 bank, u32 flag);
 bool32 CheckLocalFlags(u32, u32);
 bool32 CheckLocalFlagsByBank(u32, u32, u32);
 bool32 CheckRoomFlag(u32);
@@ -31,6 +31,27 @@ extern u32 WriteBit(void*, u32);
 extern u32 ClearBit(void*, u32);
 
 extern const u16 gLocalFlagBanks[];
+
+/**
+ * For indexing into gLocalFlagBanks.
+ * Annoyingly they are offset by 1. Needs to be taken into account whereever gLocalFlagBanks is used.
+ */
+enum LocalBanks {
+    LOCAL_BANK_G,
+    LOCAL_BANK_0,
+    LOCAL_BANK_1,
+    LOCAL_BANK_2,
+    LOCAL_BANK_3,
+    LOCAL_BANK_4,
+    LOCAL_BANK_5,
+    LOCAL_BANK_6,
+    LOCAL_BANK_7,
+    LOCAL_BANK_8,
+    LOCAL_BANK_9,
+    LOCAL_BANK_10,
+    LOCAL_BANK_11,
+    LOCAL_BANK_12,
+};
 
 enum LocalFlagOffsets {
     FLAG_BANK_G = 0,

@@ -1,19 +1,20 @@
 #include "beanstalkSubtask.h"
+
+#include "backgroundAnimations.h"
 #include "collision.h"
 #include "common.h"
 #include "fade.h"
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "item.h"
 #include "main.h"
 #include "manager.h"
+#include "manager/diggingCaveEntranceManager.h"
 #include "menu.h"
 #include "object.h"
 #include "screen.h"
-#include "structures.h"
-#include "manager/diggingCaveEntranceManager.h"
 #include "scroll.h"
+#include "structures.h"
 
 extern void sub_0807C898(void);
 extern void sub_0805BB74(s32);
@@ -35,16 +36,7 @@ extern const u16 gUnk_080B4410[];
 extern const s16 gUnk_080B4488[];
 extern const s16 gUnk_080B44A8[];
 
-typedef struct {
-    u16 unk0;
-    u16 unk1;
-} struct_080B44D0;
-
 extern const struct_080B44D0 gUnk_080B44D0[];
-
-extern const u16* gUnk_080B4550[];
-extern const u16 gUnk_080B77C0[];
-extern BgAnimationFrame* gUnk_080B7278[];
 
 typedef struct {
     u16 tileType;
@@ -59,9 +51,8 @@ void sub_0801AD6C(const Data*, u32);
 bool32 sub_0801A4F8(void);
 bool32 sub_0801AA58(Entity*, u32, u32);
 void sub_0801AB08(u16*, LayerStruct*);
-void LoadBgAnimationGfx(BgAnimationGfx*);
-u32 GetBgAnimationTimer(s32*);
-void ClearBgAnimations(void);
+
+u32 sub_0801AC68(u32 position, u32 data);
 
 void sub_0801967C(void) {
     gUnk_080B4458[gMenu.overlayType]();
@@ -403,7 +394,79 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
     return FALSE;
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801AB08.inc", void sub_0801AB08(u16* a, LayerStruct* layer))
+void sub_0801AB08(u16* specialData, LayerStruct* layer) {
+    u16* metatiles;
+    u16* mapData;
+    u16* mapDataClone;
+    u16 index;
+    u16 innerIndex;
+    u32 tmp2;
+    u32 tmp3;
+    u32 tmp1;
+
+    if (layer == &gMapBottom) {
+        tmp3 = 1;
+    } else {
+        tmp3 = 2;
+    }
+    tmp2 = tmp3 << 0xc;
+    mapDataClone = layer->mapDataClone;
+    mapData = layer->mapData;
+
+    for (index = 0; index < 0x40; index++) {
+        for (innerIndex = 0; innerIndex < 0x10; innerIndex++) {
+            if (mapData[0] < 0x4000) {
+                tmp1 = mapData[0] << 2;
+            } else {
+                tmp1 = sub_0801AC68(tmp2, mapDataClone[0]);
+            }
+            metatiles = layer->metatiles + tmp1;
+            specialData[0] = metatiles[0];
+            specialData[1] = metatiles[1];
+            specialData[0x80 + 0] = metatiles[2];
+            specialData[0x80 + 1] = metatiles[3];
+            specialData += 2;
+            if (mapData[1] < 0x4000) {
+                tmp1 = mapData[1] << 2;
+            } else {
+                tmp1 = sub_0801AC68(tmp2 + 1, mapDataClone[1]);
+            }
+            metatiles = layer->metatiles + tmp1;
+            specialData[0] = metatiles[0];
+            specialData[1] = metatiles[1];
+            specialData[0x80 + 0] = metatiles[2];
+            specialData[0x80 + 1] = metatiles[3];
+            specialData += 2;
+            if (mapData[2] < 0x4000) {
+                tmp1 = mapData[2] << 2;
+            } else {
+                tmp1 = sub_0801AC68(tmp2 + 2, mapDataClone[2]);
+            }
+            metatiles = layer->metatiles + tmp1;
+            specialData[0] = metatiles[0];
+            specialData[1] = metatiles[1];
+            specialData[0x80 + 0] = metatiles[2];
+            specialData[0x80 + 1] = metatiles[3];
+            specialData += 2;
+            if (mapData[3] < 0x4000) {
+                tmp1 = mapData[3] << 2;
+            } else {
+                tmp1 = sub_0801AC68(tmp2 + 3, mapDataClone[3]);
+            }
+            metatiles = layer->metatiles + tmp1;
+            specialData[0] = metatiles[0];
+            specialData[1] = metatiles[1];
+            specialData[0x80 + 0] = metatiles[2];
+            specialData[0x80 + 1] = metatiles[3];
+            specialData += 2;
+
+            mapData += 4;
+            mapDataClone += 4;
+            tmp2 = (u16)(tmp2 + 4);
+        }
+        specialData = specialData + 0x80;
+    }
+}
 
 u32 sub_0801AC68(u32 position, u32 data) {
     u32 index;
@@ -601,7 +664,12 @@ void DeleteLoadedTileEntity(u32 position, s32 layer) {
     ptr[t] = ptr[count];
 }
 
-// used for minish houses, seems to overwrite all tiles on layer 1 for them?
+const struct_080B44D0 gUnk_080B44D0[] = {
+    { 0x67, 0x4084 }, { 0x68, 0x4085 }, { 0x69, 0x4086 }, { 0x6a, 0x4087 },
+    { 0x6b, 0x4088 }, { 0x27, 0x4083 }, { 0x23, 0x408d }, { 0x0, 0x0 },
+};
+
+// used for minish houses, seems to overwrite all tiles with certain collision values on layer 1 for them?
 void sub_0801AFE4(void) {
     const struct_080B44D0* ptr;
     u8* collisionData;
@@ -615,89 +683,14 @@ void sub_0801AFE4(void) {
     height = gRoomControls.height >> 4;
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
-            for (ptr = gUnk_080B44D0; ptr->unk0 != 0; ptr++) {
-                if (ptr->unk0 == *collisionData) {
-                    SetTile(ptr->unk1, y * 0x40 + x, 1);
+            for (ptr = gUnk_080B44D0; ptr->collision != 0; ptr++) {
+                if (ptr->collision == *collisionData) {
+                    SetTile(ptr->tileIndex, y * 0x40 + x, 1);
                     break;
                 }
             }
             collisionData++;
         }
         collisionData = collisionData + (0x40 - width);
-    }
-}
-
-void UpdateBgAnimations(void) {
-    bool32 alreadyUploadedGfx = FALSE;
-    BgAnimation* animation = gBgAnimations;
-    s32 index = 8;
-    while (index != 0) {
-        if (animation->currentFrame == NULL) {
-            return;
-        }
-        if (--animation->timer == 0) {
-            if (!alreadyUploadedGfx) {
-                if (gFadeControl.active == 0) {
-                    LoadBgAnimationGfx(animation->currentFrame->gfx);
-                }
-                animation->timer = GetBgAnimationTimer(&animation->currentFrame->unk_4);
-                animation->currentFrame++;
-                if (animation->currentFrame->gfx == NULL) {
-                    animation->currentFrame -= animation->currentFrame->unk_4;
-                }
-                alreadyUploadedGfx = TRUE;
-            } else {
-                animation->timer++;
-            }
-        }
-        animation++;
-        index--;
-    }
-}
-
-u32 GetBgAnimationTimer(s32* param_1) {
-    if (param_1[0] < 0) {
-        return gUnk_080B4550[*(u8*)param_1][(Random() & 7)];
-    } else {
-        return param_1[0];
-    }
-}
-
-void LoadBgAnimationGfx(BgAnimationGfx* param_1) {
-    const u8* src;
-    u32 vramOffset;
-    u32 size;
-    while (TRUE) {
-        src = &gGlobalGfxAndPalettes[param_1->gfxOffset];
-        size = param_1->gfxSize;
-        vramOffset = param_1->vramOffset;
-        if ((*(u32*)param_1 >> 0x1c & 1) != 0) {
-            LoadPalettes(src, vramOffset >> 5, size);
-        } else {
-            MemCopy(src, (void*)(vramOffset + 0x6000000), size << 5);
-        }
-        if (*(int*)param_1 >= 0) {
-            return;
-        }
-        param_1++;
-    }
-}
-
-void LoadBgAnimations(u16* param_1) {
-    BgAnimation* animation;
-    ClearBgAnimations();
-    animation = gBgAnimations;
-    while (param_1[0] != 0xffff) {
-        animation->currentFrame = gUnk_080B7278[param_1[0]];
-        animation->timer = GetBgAnimationTimer(&animation->currentFrame->unk_4);
-        animation++;
-        param_1++;
-    }
-}
-
-void ClearBgAnimations(void) {
-    u32 index;
-    for (index = 0; index < MAX_BG_ANIMATIONS; index++) {
-        gBgAnimations[index].currentFrame = NULL;
     }
 }

@@ -5,11 +5,10 @@
  * @brief Wall Master enemy
  */
 
-#include "enemy.h"
 #include "area.h"
+#include "enemy.h"
 #include "functions.h"
-
-extern ScreenTransitionData* gUnk_0813AB1C[];
+#include "screenTransitions.h"
 
 void sub_0802A78C(Entity*);
 void sub_0802A7D0(Entity*);
@@ -169,7 +168,7 @@ void sub_0802A734(Entity* this) {
     sub_0802A7D0(this);
     if (--this->timer == 0) {
         SetInitializationPriority();
-        DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
+        DoExitTransition(gWallMasterScreenTransitions[gArea.dungeon_idx]);
     } else {
         this->z.WORD -= Q_16_16(2);
         gPlayerState.field_0xa |= 0x80;

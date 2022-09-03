@@ -5,9 +5,11 @@
  * @brief Mazaal Head enemy
  */
 
+#include "area.h"
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
+#include "roomid.h"
 #include "screen.h"
 
 extern void UnloadOBJPalette(Entity*);
@@ -98,8 +100,12 @@ void (*const gUnk_080CED74[])(Entity*) = {
     sub_08034BA0,
 };
 const s8 gUnk_080CED84[] = { 0x0d, 0x10, -0xd, 0x10 };
-const ScreenTransitionData gUnk_080CED88 = { 1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, 0x5a, 1, 1, 0, 0, 0 };
-const ScreenTransitionData gUnk_080CED9C = { 1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, 0x5a, 0, 1, 0, 0, 0 };
+const ScreenTransitionData gUnk_080CED88 = {
+    1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, AREA_INNER_MAZAAL, ROOM_INNER_MAZAAL_PHASE_1, 1, 0, 0, 0
+};
+const ScreenTransitionData gUnk_080CED9C = {
+    1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, AREA_INNER_MAZAAL, ROOM_INNER_MAZAAL_MAIN, 1, 0, 0, 0
+};
 
 void MazaalHead(Entity* this) {
     MazaalHead_Functions[GetNextFunction(this)](this);
@@ -812,9 +818,9 @@ void sub_08034C00(Entity* this) {
         CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.origin_x, this->y.HALF.HI - gRoomControls.origin_y + 0xd, 3,
                             3) != 0) {
         if (gRoomTransition.field_0x39 >= 0x3d) {
-            DoExitTransition((ScreenTransitionData*)&gUnk_080CED88);
+            DoExitTransition(&gUnk_080CED88);
         } else {
-            DoExitTransition((ScreenTransitionData*)&gUnk_080CED9C);
+            DoExitTransition(&gUnk_080CED9C);
         }
     }
 }

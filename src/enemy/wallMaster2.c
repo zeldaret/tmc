@@ -5,14 +5,14 @@
  * @brief Wall Master 2 enemy
  */
 
-#include "enemy.h"
 #include "area.h"
+#include "enemy.h"
 #include "functions.h"
+#include "screenTransitions.h"
 
 extern void GenericKnockback2(Entity*);
 
 extern Entity* gUnk_020000B0;
-extern ScreenTransitionData* gUnk_0813AB1C[];
 
 void sub_0802CF64(Entity*);
 void sub_0802CF8C(Entity*);
@@ -145,7 +145,7 @@ void sub_0802CEF4(Entity* this) {
     sub_0802CFD8(this);
     if (--this->timer == 0) {
         SetInitializationPriority();
-        DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
+        DoExitTransition(gWallMasterScreenTransitions[gArea.dungeon_idx]);
     } else {
         this->z.WORD -= Q_16_16(2);
         if (this->z.HALF.HI < -0x30) {

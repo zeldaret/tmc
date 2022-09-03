@@ -4,30 +4,6 @@
 	.section .rodata
     .align 2
 
-
-Gleerok_Functions:: @ 080CD748
-	.4byte Gleerok_OnTick
-	.4byte Gleerok_OnTick
-	.4byte GenericKnockback
-	.4byte Gleerok_OnDeath
-	.4byte GenericConfused
-
-gUnk_080CD75C:: @ 080CD75C
-	.4byte sub_0802D158
-	.4byte sub_0802D170
-	.4byte sub_0802D170
-	.4byte sub_0802D218
-	.4byte sub_0802D258
-	.4byte sub_0802D33C
-
-gUnk_080CD774:: @ 080CD774
-	.incbin "gleerok/gUnk_080CD774.bin"
-
-gUnk_080CD7B8:: @ 080CD7B8
-	.4byte sub_0802D3B8
-	.4byte sub_0802D86C
-	.4byte sub_0802D650
-
 gUnk_080CD7C4:: @ 080CD7C4
 	.incbin "gleerok/gUnk_080CD7C4.bin"
 

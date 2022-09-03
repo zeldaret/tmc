@@ -14,8 +14,8 @@ script_0800D8F4:
 	EzloMessage TEXT_VAATI, 0x25
 	WaitUntilTextboxCloses
 	PlaySound SFX_113
-	SetIntVariable 0x00000000
-	Call sub_0806DA1C
+	SetIntVariable 0
+	Call NPC4E_DoScreenTransition
 	EnablePlayerControl
 	Call EnablePauseMenu
 script_0800D924:

@@ -11,13 +11,12 @@
 #include "global.h"
 #include "hitbox.h"
 #include "object.h"
+#include "screenTransitions.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68;
 } WindTribeTeleporterEntity;
-
-extern ScreenTransitionData gUnk_0813ADEC[];
 
 void WindTribeTeleporter_Init(WindTribeTeleporterEntity*);
 void WindTribeTeleporter_Action1(WindTribeTeleporterEntity*);

@@ -5,11 +5,10 @@
  * @brief Puffstool enemy
  */
 
-#include "enemy.h"
 #include "collision.h"
+#include "enemy.h"
 #include "object.h"
 
-extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B3E80[];
 
 bool32 sub_080258C4(Entity*);
@@ -414,25 +413,23 @@ bool32 sub_0802571C(Entity* this) {
 }
 
 bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
-    u16 tmp;
-
-    tmp = sub_080B1A48(x - 0x00, y - 0x00, this->collisionLayer);
-    if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
+    u16 tileType = sub_080B1A48(x - 0x00, y - 0x00, this->collisionLayer);
+    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 
-    tmp = sub_080B1A48(x - 0x10, y - 0x00, this->collisionLayer);
-    if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
+    tileType = sub_080B1A48(x - 0x10, y - 0x00, this->collisionLayer);
+    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 
-    tmp = sub_080B1A48(x - 0x00, y - 0x10, this->collisionLayer);
-    if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
+    tileType = sub_080B1A48(x - 0x00, y - 0x10, this->collisionLayer);
+    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 
-    tmp = sub_080B1A48(x - 0x10, y - 0x10, this->collisionLayer);
-    if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
+    tileType = sub_080B1A48(x - 0x10, y - 0x10, this->collisionLayer);
+    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 

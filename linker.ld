@@ -115,14 +115,14 @@ SECTIONS {
         . = 0x00036AD0; gUnk_02036AD8 = .;
         . = 0x00036BB0; gUnk_02036BB8 = .;
         . = 0x00036BB8; gMPlayTracks = .;
-        . = 0x00038558; gUnk_02038560 = .;
+        . = 0x00038558; gEndOfEwram = .;
 #else
         . = 0x00036A50; gEEPROMConfig = .;
         . = 0x00036A58; gUnk_02036A58 = .;
         . = 0x00036AD8; gUnk_02036AD8 = .;
         . = 0x00036BB8; gUnk_02036BB8 = .;
         . = 0x00036BC0; gMPlayTracks = .;
-        . = 0x00038560; gUnk_02038560 = .;
+        . = 0x00038560; gEndOfEwram = .;
 #endif
         . = 0x00040000;
     } >ewram
@@ -281,6 +281,7 @@ SECTIONS {
         src/playerItem/playerItemBow.o(.text);
         src/playerItem/playerItemSwordBeam.o(.text);
         src/beanstalkSubtask.o(.text);
+        src/backgroundAnimations.o(.text);
         src/playerItem/playerItemBomb.o(.text);
         src/playerItem/playerItemBoomerang.o(.text);
         src/playerItem/playerItemDashSword.o(.text);
@@ -850,7 +851,7 @@ SECTIONS {
         asm/src/intr.o(.text);
 
         /* data */
-        data/data_080B2A70.o(.rodata);
+        data/const/interrupts.o(.rodata);
         src/interrupts.o(.rodata);
         src/playerItem.o(.rodata);
         src/object.o(.rodata);
@@ -858,21 +859,24 @@ SECTIONS {
         src/npcFunctions.o(.rodata);
         src/npc.o(.rodata);
         src/collision.o(.rodata);
-        data/data_080B3740.o(.rodata);
+        src/kinstone.o(.rodata);
         src/playerItem/playerItemGustBig.o(.rodata);
         src/playerItem/playerItemBow.o(.rodata);
-        data/data_080B3E70.o(.rodata);
+        data/const/playerItem/playerItemBow.o(.rodata);
         src/playerItem/playerItemSwordBeam.o(.rodata);
-        data/data_080B4410.o(.rodata);
+        data/const/beanstalkSubtask.o(.rodata);
+        src/beanstalkSubtask.o(.rodata);
+        src/backgroundAnimations.o(.rodata);
         src/playerItem/playerItemBomb.o(.rodata);
         src/playerItem/playerItemBoomerang.o(.rodata);
         src/playerItem/playerItemDashSword.o(.rodata);
         src/playerItem/playerItemBottle.o(.rodata);
-        data/data_080B7910.o(.rodata);
+        data/const/playerItem/playerItemCellOverwriteSet.o(.rodata);
         src/playerItem/playerItemCellOverwriteSet.o(.rodata);
-        data/data_080B7B74.o(.rodata);
+        data/const/ui.o(.rodata);
         src/sineTable.o(.rodata);
-        data/data_080C93E0.o(.rodata);
+        data/const/common.o(.rodata);
+        src/common.o(.rodata);
         src/enemy/octorok.o(.rodata);
         data/animations/enemy/octorok.o(.rodata);
         src/enemy/chuchu.o(.rodata);
@@ -1012,7 +1016,6 @@ SECTIONS {
         src/enemy/vaatiProjectile.o(.rodata);
         data/animations/enemy/vaatiProjectile.o(.rodata);
         src/enemy/ballChainSoldier.o(.rodata);
-        data/const/enemy/ballChainSoldier.o(.rodata);
         data/animations/enemy/ballChainSoldier.o(.rodata);
         src/enemy/enemy4D.o(.rodata);
         src/enemy/ghini.o(.rodata);
@@ -1056,17 +1059,20 @@ SECTIONS {
         src/enemy/treeItem.o(.rodata);
         src/enemy/enemy66.o(.rodata);
         src/enemy.o(.rodata);
-        data/data_080D3D94.o(.rodata);
+        data/const/enemyUtils.o(.rodata);
+        data/const/enterPortalSubtask.o(.rodata);
         data/map/entity_headers.o(.rodata);
-        data/data_080FC3C4.o(.rodata);
+        data/const/fade.o(.rodata);
+        data/const/fileselect_before.o(.rodata);
         src/fileselect.o(.rodata);
-        data/data_080FC8A4.o(.rodata);
+        data/const/fileselect_after.o(.rodata);
         src/game.o(.rodata);
-        data/data_080FCAC8.o(.rodata);
+        data/const/game.o(.rodata);
         src/itemMetaData.o(.rodata);
-        data/data_080FD964.o(.rodata);
+        data/const/game_2.o(.rodata);
         src/playerItem/playerItemLantern.o(.rodata);
-        data/data_080FEEB8.o(.rodata);
+        data/const/subtask.o(.rodata);
+        data/const/sub_08055E08.o(.rodata);
         data/gfx/palette_groups.o(.rodata);
         data/gfx/gfx_groups.o(.rodata);
         src/main.o(.rodata);
@@ -1116,7 +1122,10 @@ SECTIONS {
         src/manager/vaati3StartManager.o(.rodata);
         src/manager/floatingPlatformManager.o(.rodata);
         data/const/manager/enterRoomTextboxManager.o(.rodata);
-        data/data_08108E6C.o(.rodata);
+        data/const/entity.o(.rodata);
+        src/code_0805EC04.o(.rodata);
+        data/const/text.o(.rodata);
+        src/debug.o(.rodata);
         src/playerItem/playerItemSpiralBeam.o(.rodata);
         data/animations/npc/gentari.o(.rodata);
         src/npc/festari.o(.rodata);
@@ -1268,7 +1277,7 @@ SECTIONS {
         src/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
         src/npcUtils.o(.rodata);
-        data/data_081146D0.o(.rodata);
+        data/const/npcUtils.o(.rodata);
         src/physics.o(.rodata);
         src/playerHitbox.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
@@ -1291,7 +1300,7 @@ SECTIONS {
         src/item/itemJarEmpty.o(.rodata);
         data/item.o(.rodata);
         src/itemDefinitions.o(.rodata);
-        data/data_0811BE38.o(.rodata);
+        data/const/playerUtils.o(.rodata);
         data/map/room_headers.o(.rodata);
         src/flags.o(.rodata);
         src/save.o(.rodata);
@@ -1533,20 +1542,20 @@ SECTIONS {
         src/object/linkAnimation.o(.rodata);
         src/objectDefinitions.o(.rodata);
         src/playerItemDefinitions.o(.rodata);
-        data/data_08125104.o(.rodata);
+        data/const/objectUtils.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         src/playerItem/playerItemFireRodProjectile.o(.rodata);
 #ifdef DEMO_USA
         src/demo.o(.rodata);
 #endif
         src/staffroll.o(.rodata);
-        data/data_08127280.o(.rodata);
+        data/const/staffroll.o(.rodata);
         src/menu/kinstone_menu.o(.rodata);
         src/menu/figurine_menu.o(.rodata);
         data/gfx/figurines.o(.rodata);
-        data/data_08128A38.o(.rodata);
+        data/const/figurine_menu.o(.rodata);
         src/menu/pause_menu.o(.rodata);
-        data/data_08128BF4.o(.rodata);
+        data/const/subtask2.o(.rodata);
         src/playerItem/playerItemSword.o(.rodata);
         data/projectile_functions.o(.rodata);
         src/projectile/darkNutSwordSlash.o(.rodata);
@@ -1616,7 +1625,7 @@ SECTIONS {
         data/const/movement.o(.rodata);
         src/movement.o(.rodata);
         src/data/transitions.o(.rodata);
-        data/gfx_0813AA54.o(.rodata);
+        src/data/screenTransitions.o(.rodata);
         data/gfx/sprite_gfx.o(.rodata);
         data/gfx/frame_obj_lists.o(.rodata);
         data/map/map_data.o(.rodata);

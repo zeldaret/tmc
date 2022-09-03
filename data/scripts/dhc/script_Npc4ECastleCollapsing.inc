@@ -15,7 +15,7 @@ SCRIPT_START script_Npc4ECastleCollapsing
 	CallWithArg DeleteRepeatedSoundManager, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	SetLocalFlag 0x0079
-	CallWithArg sub_0806DA1C, 0x00000002
+	CallWithArg NPC4E_DoScreenTransition, 2
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

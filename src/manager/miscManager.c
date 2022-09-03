@@ -118,22 +118,21 @@ void MiscManager_Type0(MiscManager* this) {
     DeleteThisEntity();
 }
 
-void sub_08058F44(u32 unk0, u32 unk1, u32 unk2) {
-    if (CheckRoomFlag(unk2))
+void sub_08058F44(u32 x, u32 y, u32 flag) {
+    if (CheckRoomFlag(flag))
         return;
-    if (sub_080B1A48(unk0, unk1, 1) != 0x61)
+    if (sub_080B1A48(x, y, 1) != 0x61)
         return;
-    SetTileType(0x26, ((unk0 >> 4) & 0x3F) | (((unk1 >> 4) & 0x3F) << 6), 1);
-    sub_08058F84(unk0, unk1);
+    SetTileType(0x26, ((x >> 4) & 0x3F) | (((y >> 4) & 0x3F) << 6), 1);
+    sub_08058F84(x, y);
 }
 
-void sub_08058F84(u32 unk0, u32 unk1) {
-    Entity* tmp;
-    tmp = CreateObject(DIRT_PARTICLE, 0, 0);
-    if (!tmp)
+void sub_08058F84(u32 x, u32 y) {
+    Entity* particle = CreateObject(DIRT_PARTICLE, 0, 0);
+    if (!particle)
         return;
-    tmp->x.HALF.HI = gRoomControls.origin_x + unk0;
-    tmp->y.HALF.HI = gRoomControls.origin_y + unk1;
+    particle->x.HALF.HI = gRoomControls.origin_x + x;
+    particle->y.HALF.HI = gRoomControls.origin_y + y;
 }
 
 void MiscManager_Type1(MiscManager* this) {
@@ -147,12 +146,12 @@ void MiscManager_Type1(MiscManager* this) {
                 super->subAction = 8;
                 super->subtimer = 2;
             }
-            if (CheckFlags(this->unk_3e)) {
+            if (CheckFlags(this->flags)) {
                 DeleteManager(super);
             }
             break;
         case 1:
-            if (CheckFlags(this->unk_3e)) {
+            if (CheckFlags(this->flags)) {
                 super->action = 2;
                 super->timer = 120;
                 RequestPriorityDuration((Entity*)this, 240);
@@ -173,7 +172,7 @@ void MiscManager_Type1(MiscManager* this) {
             }
             break;
         default:
-            SetFlag(this->unk_3e);
+            SetFlag(this->flags);
             SetPlayerControl(1);
             DeleteThisEntity();
     }
@@ -237,14 +236,14 @@ void MiscManager_Type5(MiscManager* this) {
             }
             break;
         case 0:
-            if (CheckFlags(this->unk_3e)) {
+            if (CheckFlags(this->flags)) {
                 DeleteThisEntity();
             }
             super->action = 1;
             SetTileType(0x365, ((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, super->type2);
             break;
         case 1:
-            if (CheckFlags(this->unk_3e)) {
+            if (CheckFlags(this->flags)) {
                 RequestPriorityDuration((Entity*)this, 75);
                 super->timer = 45;
                 super->action++;
@@ -255,14 +254,14 @@ void MiscManager_Type5(MiscManager* this) {
 void MiscManager_Type6(MiscManager* this) {
     if (super->action == 0) {
         super->action = 1;
-        super->type2 = CheckFlags(this->unk_3e);
+        super->type2 = CheckFlags(this->flags);
         if (super->type2) {
             gRoomVars.lightLevel = this->unk_3a;
         } else {
             gRoomVars.lightLevel = this->unk_38;
         }
     } else {
-        u32 tmp = CheckFlags(this->unk_3e);
+        u32 tmp = CheckFlags(this->flags);
         if (super->type2 != tmp) {
             super->type2 = tmp;
             if (tmp) {
@@ -305,12 +304,12 @@ void MiscManager_Type8(MiscManager* this) {
 void MiscManager_Type9(MiscManager* this) {
     if (super->action == 0) {
         super->action = 1;
-        if (CheckFlags(this->unk_3e)) {
+        if (CheckFlags(this->flags)) {
             sub_080592EC(this);
             DeleteThisEntity();
         }
     } else {
-        if (CheckFlags(this->unk_3e)) {
+        if (CheckFlags(this->flags)) {
             sub_080592EC(this);
             sub_0805930C(this);
 #ifndef EU
@@ -348,7 +347,7 @@ void SetDirtTile(u32 tile) {
 void MiscManager_TypeA(MiscManager* this) {
     super->action = 1;
     if (this->unk_3c == gTextRender.curToken.textIndex) {
-        SetFlag(this->unk_3e);
+        SetFlag(this->flags);
         DeleteThisEntity();
     }
 }
@@ -373,7 +372,7 @@ bool32 sub_080593CC(MiscManager* this) {
 
 void MiscManager_TypeC(MiscManager* this) {
     Entity* tmp;
-    if (CheckFlags(this->unk_3e)) {
+    if (CheckFlags(this->flags)) {
         DeleteThisEntity();
     }
     if (!CheckFlags(this->unk_3c))
@@ -389,7 +388,7 @@ void MiscManager_TypeC(MiscManager* this) {
 }
 
 void MiscManager_TypeD(MiscManager* this) {
-    if (!CheckFlags(this->unk_3e)) {
+    if (!CheckFlags(this->flags)) {
         SetPlayerControl(3);
         if (gRoomControls.reload_flags)
             return;
@@ -411,17 +410,17 @@ void MiscManager_TypeE(MiscManager* this) {
         case 1:
             if (!GetInventoryValue(ITEM_FOURSWORD))
                 return;
-            if (CheckLocalFlagByBank(FLAG_BANK_10, 0x85))
+            if (CheckLocalFlagByBank(FLAG_BANK_10, LV6SOTO_01_CAP_0))
                 return;
             super->action = 2;
-            sub_080186C0(0xB0F);
+            SetNextAreaHint(TEXT_INDEX(TEXT_EZLO, 0xf));
             break;
         case 2:
         default:
-            if (gArea.unk28.inventoryGfxIdx != 0xFF) {
+            if (gArea.unk28.textBaseIndex != 0xFF) {
                 DeleteThisEntity();
             }
-            if (CheckLocalFlagByBank(FLAG_BANK_10, 0x85)) {
+            if (CheckLocalFlagByBank(FLAG_BANK_10, LV6SOTO_01_CAP_0)) {
                 sub_0801855C();
                 DeleteThisEntity();
             }

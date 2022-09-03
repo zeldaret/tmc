@@ -1,6 +1,6 @@
-#include "transitions.h"
 #include "area.h"
 #include "roomid.h"
+#include "transitions.h"
 
 // clang-format off
 

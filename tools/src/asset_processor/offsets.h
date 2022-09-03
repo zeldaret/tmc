@@ -7,7 +7,7 @@
 class OffsetCalculator {
 
   public:
-    OffsetCalculator(const std::filesystem::path& offsetsFile, int baseOffset_);
+    OffsetCalculator(const std::filesystem::path& asmOffsetsFile, const std::filesystem::path& cOffsetsFile, int baseOffset_);
     void addAsset(int start, const std::string& symbol);
     [[nodiscard]] int getLastEnd() const {
         return lastEnd;
@@ -16,7 +16,8 @@ class OffsetCalculator {
         this->lastEnd = lastEnd_;
     }
   private:
-    std::ofstream output;
+    std::ofstream asmOutput;
+    std::ofstream cOutput;
     int baseOffset;
     // Store the end of the previously added asset
     int lastEnd;

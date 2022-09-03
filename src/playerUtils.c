@@ -2,6 +2,7 @@
 #include "area.h"
 #include "asm.h"
 #include "common.h"
+#include "collision.h"
 #include "entity.h"
 #include "functions.h"
 #include "game.h"
@@ -16,6 +17,7 @@
 #include "room.h"
 #include "save.h"
 #include "screen.h"
+#include "screenTransitions.h"
 
 static void sub_08077E54(ItemBehavior* beh);
 
@@ -31,7 +33,6 @@ void sub_08079064(Entity*);
 
 extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
-extern const ScreenTransitionData gUnk_0813AD88[];
 extern const s8* gUnk_0811C0E8[];
 extern const u8 gUnk_0800851C[];
 extern const u8 gUnk_080084BC[];
@@ -70,7 +71,6 @@ extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 extern void DeleteLoadedTileEntity(u32, u32);
 
 extern const u8 gUnk_080B3E80[]; // collisionData for tileType?
-extern const u8 gUnk_080B37A0[]; // unkData3 for tileType?
 
 extern u8 gUpdateVisibleTiles;
 extern u16 gMapDataTopSpecial[];

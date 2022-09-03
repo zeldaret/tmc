@@ -4,10 +4,11 @@
  *
  * @brief Game task
  */
+#include "game.h"
 
-#include "global.h"
 #include "area.h"
 #include "asm.h"
+#include "backgroundAnimations.h"
 #include "common.h"
 #include "droptables.h"
 #include "enemy.h"
@@ -15,7 +16,6 @@
 #include "fileselect.h"
 #include "flags.h"
 #include "functions.h"
-#include "game.h"
 #include "item.h"
 #include "itemMetaData.h"
 #include "main.h"
@@ -87,7 +87,6 @@ extern const u16 gUnk_080FD5A8[];
 extern void** gAreaTilesets[];
 extern void** gAreaRoomMaps[];
 extern void* gAreaMetatiles[];
-extern void* gUnk_080B755C[];
 extern void** gAreaTable[];
 
 extern void FinalizeSave(void);
@@ -384,7 +383,7 @@ static void GameMain_ChangeRoom(void) {
     SetPlayerControl(0);
     gPauseMenuOptions.disabled = 0;
 #if defined(USA) || defined(DEMO_USA)
-    if (gArea.unk28.inventoryGfxIdx != 0xff) {
+    if (gArea.unk28.textBaseIndex != 0xff) {
         sub_0801855C();
     }
     CreateMiscManager();
@@ -394,13 +393,13 @@ static void GameMain_ChangeRoom(void) {
     sub_0801855C();
 #elif defined(JP)
     CheckAreaDiscovery();
-    if (gArea.unk28.inventoryGfxIdx != 0xff) {
+    if (gArea.unk28.textBaseIndex != 0xff) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
     if (gRoomTransition.field_0x2c[4])
         CheckAreaDiscovery();
-    if (gArea.unk28.inventoryGfxIdx != 0xff) {
+    if (gArea.unk28.textBaseIndex != 0xff) {
         sub_0801855C();
     }
     CreateMiscManager();
@@ -1428,7 +1427,7 @@ static void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 
     info->tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
     info->map = *(gAreaRoomMaps[area] + room);
     info->metatiles = gAreaMetatiles[area];
-    info->bg_anim = gUnk_080B755C[area];
+    info->bg_anim = (void*)gUnk_080B755C[area];
     info->exits = gExitLists[area][room];
     if (gAreaTable[area] != NULL) {
         info->properties = *(gAreaTable[area] + room);
@@ -1532,7 +1531,7 @@ void sub_08052FF4(u32 area, u32 room) {
     gArea.currentRoomInfo.tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
     gArea.currentRoomInfo.map = *(gAreaRoomMaps[area] + room);
     gArea.currentRoomInfo.metatiles = gAreaMetatiles[area];
-    gArea.currentRoomInfo.bg_anim = gUnk_080B755C[area];
+    gArea.currentRoomInfo.bg_anim = (void*)gUnk_080B755C[area];
 }
 
 void ChangeLightLevel(s32 lightLevel) {
@@ -2840,7 +2839,7 @@ void sub_080548E8(void) {
 void sub_08054920(void) {
     MessageInitialize();
     sub_0806F38C();
-    if (gUnk_080C9CBC[gFuseInfo._3]._5[1] != 0) {
+    if (gUnk_080C9CBC[gFuseInfo._3].unk7 != 0) {
         MenuFadeIn(10, gUI.field_0x3);
     } else {
         gUI.nextToLoad = 3;

@@ -5,6 +5,7 @@
  * @brief Moldworm enemy
  */
 
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -20,8 +21,6 @@ void sub_080237D8(Entity*);
 void sub_0802390C(Entity*);
 void sub_080239F0(Entity*);
 bool32 sub_08023B38(Entity*);
-
-extern const u8 gUnk_080B37A0[];
 
 extern void (*const Moldworm_Functions[])(Entity*);
 extern void (*const gUnk_080CBC50[])(Entity*);
@@ -488,12 +487,12 @@ void sub_080239F0(Entity* this) {
     *(u8*)((int)&this->field_0x86 + 1) = 0x88;
 }
 
-bool32 sub_08023A38(u32 unk) {
-    if (unk == 0x1a || unk == 0x29) {
+bool32 sub_08023A38(u32 tileType) {
+    if (tileType == 0x1a || tileType == 0x29) {
         return TRUE;
     } else {
-        unk = gUnk_080B37A0[unk];
-        if (unk == 9 || unk == 11 || unk == 10 || unk == 12) {
+        tileType = gUnk_080B37A0[tileType];
+        if (tileType == 9 || tileType == 11 || tileType == 10 || tileType == 12) {
             return TRUE;
         } else {
             return FALSE;

@@ -78,7 +78,7 @@ override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar -g3
 # override CFLAGS += -g
 # endif
 
-CPPFLAGS := -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc -undef -D$(GAME_VERSION) -DREVISION=$(REVISION) -D$(GAME_LANGUAGE)
+CPPFLAGS := -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc -undef -D$(GAME_VERSION) -DREVISION=$(REVISION) -D$(GAME_LANGUAGE) -I $(OBJ_DIR)
 
 LDFLAGS = -Map ../../$(MAP)
 

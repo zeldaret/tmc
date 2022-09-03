@@ -184,7 +184,7 @@ void Helmasaur(Entity*);
 void FallingBoulder(Entity*);
 void Bobomb(Entity*);
 void WallMaster2(Entity*);
-void Gleerok(Entity*);
+void Gleerok();
 void VaatiEyesMacro(Entity*);
 void Tektite(Entity*);
 void WizzrobeWind();

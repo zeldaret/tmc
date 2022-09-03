@@ -13,8 +13,7 @@
 #include "object.h"
 #include "room.h"
 #include "screen.h"
-
-extern const ScreenTransitionData gUnk_0813ABD0;
+#include "screenTransitions.h"
 
 struct GyorgChildSpawns {
     s16 offsetX;

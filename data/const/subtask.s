@@ -4,6 +4,7 @@
 	.section .rodata
     .align 2
 
+@ subtask.c
 gUnk_080FEEB8:: @ 080FEEB8
 	.4byte sub_08054C20
 	.4byte sub_08054C58
@@ -259,21 +260,14 @@ gUnk_080FF3C8:: @ 080FF3C8
 	.4byte 00000000
 	.4byte 00000000
 
+@ subtask.c
 gUnk_080FF3E8:: @ 080FF3E8
 	.4byte sub_08055CF4
 	.4byte sub_08055D2C
 	.4byte sub_08055D64
 
+@ subtask.c
 gUnk_080FF3F4:: @ 080FF3F4
 	.4byte sub_08055D9C
 	.4byte sub_08055DC0
 	.4byte sub_08055DEC
-
-gUnk_080FF400:: @ 080FF400
-	.incbin "data_080FEEB8/gUnk_080FF400.bin"
-	.4byte script_StampKinstone
-	.incbin "data_080FEEB8/gUnk_080FF400_1.bin"
-
-gUnk_080FF420:: @ 080FF420
-	.4byte sub_08055E24
-	.4byte nullsub_493
