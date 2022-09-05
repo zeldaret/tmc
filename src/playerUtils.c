@@ -1618,7 +1618,88 @@ u32 sub_080797C4(void) {
     return tmp == (gPlayerEntity.collisions & tmp);
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080797EC.inc", void sub_080797EC())
+void sub_080797EC(void) {
+    u32 animation;
+
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+        if (gPlayerState.heldObject != 0) {
+            animation = 0x934;
+        } else if (gPlayerState.shield_status != 0) {
+            animation = 0x410;
+        } else if (gPlayerState.field_0x1f[2] == 0) {
+            if (gPlayerState.swim_state != 0) {
+                animation = 0x290;
+            } else {
+                animation = 0x16c;
+                if ((gPlayerState.sword_state & 0x48) != 0) {
+                    gPlayerState.prevAnim = 0x6c;
+                    return;
+                } else if (gPlayerState.sword_state == 0) {
+                    if (gPlayerState.framestate == 0) {
+                        gPlayerState.framestate = 1;
+                    }
+                    animation = 0x404;
+                } else {
+                    animation = 0x16c;
+                    if (sub_080793E4(0)) {
+                        if (sub_080B1B44(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
+                            gPlayerState.sword_state &= ~8;
+                            animation = 0x170;
+                        }
+                    }
+                }
+            }
+        } else {
+            animation = 0x284;
+        }
+    } else {
+        if (gPlayerState.field_0x1c != 0) {
+            return;
+        } else if (gPlayerState.heldObject != 0) {
+            animation = 0x348;
+        } else if (gPlayerState.dash_state != 0) {
+            animation = 0x298;
+        } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
+            animation = 0x710;
+        } else if (gPlayerState.shield_status != 0) {
+            animation = 0x160;
+        } else if (gPlayerState.field_0x1f[2] != 0) {
+            animation = 0x284;
+        } else {
+            if (gPlayerState.swim_state != 0) {
+                animation = 0x290;
+            } else {
+                animation = 0x16c;
+                if ((gPlayerState.sword_state & 0x48) != 0) {
+                    gPlayerState.prevAnim = 0x6c;
+                    return;
+                } else if (gPlayerState.sword_state != 0) {
+                    animation = 0x16c;
+                    if (sub_080793E4(0)) {
+                        if (sub_080B1B44(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) != 0xff) {
+                            gPlayerState.sword_state &= ~8;
+                            animation = 0x170;
+                        }
+                    }
+                } else {
+                    if (gPlayerState.framestate == 0) {
+                        gPlayerState.framestate = 1;
+                    }
+                    if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
+                        animation = 0x608;
+                    } else {
+                        animation = 0x104;
+                    }
+                }
+            }
+        }
+    }
+    gPlayerState.animation = animation;
+
+    if (gPlayerState.shield_status == 0) {
+        UpdateAnimationSingleFrame(&gPlayerEntity);
+    }
+}
 
 void ResolvePlayerAnimation(void) {
     u32 index;
