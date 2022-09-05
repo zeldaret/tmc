@@ -34,10 +34,10 @@ SCRIPT_START script_Npc4EIntroCastle
 	StartPlayerScript script_PlayerAtIntroCeremony
 	WaitForSyncFlagAndClear 0x00000400
 	SetEntityPositionRelative 0x01f8, 0x0050
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	CameraTargetEntity
 	Wait 0x000a
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetFadeTime 0x0001
 	SetFade4
 	SetSyncFlag 0x0002a800
@@ -67,7 +67,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	MessageFromTargetPos TEXT_PROLOGUE, 0x3a, 0x000c
 	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x01c0
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	Wait 0x0078
 	SetSyncFlag 0x00280000
 	WaitForSyncFlagAndClear 0x00500000

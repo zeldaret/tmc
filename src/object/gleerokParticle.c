@@ -9,6 +9,7 @@
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"
+#include "hitbox.h"
 #include "object.h"
 #include "player.h"
 #include "room.h"
@@ -22,8 +23,6 @@ typedef struct {
     union SplitWord unk80;
     union SplitWord unk84;
 } GleerokParticleEntity;
-
-extern Hitbox gUnk_080FD2E8;
 
 void GleerokParticle_Init(GleerokParticleEntity*);
 void GleerokParticle_Action1(GleerokParticleEntity*);

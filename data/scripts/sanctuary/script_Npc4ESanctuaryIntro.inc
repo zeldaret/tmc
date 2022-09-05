@@ -9,12 +9,12 @@ script_08013CA6:
 	Call DisablePauseMenuAndPutAwayItems
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetEntityPositionRelative 0x00e8, 0x0138
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
 	Wait 0x0078
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
 	EzloMessage TEXT_PANEL_TUTORIAL, 0x04

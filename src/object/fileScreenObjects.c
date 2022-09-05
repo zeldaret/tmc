@@ -88,7 +88,7 @@ void sub_0808E7F0(Entity* this) {
 
 void sub_0808E818(Entity* this) {
     u32 var0;
-    u32 var1;
+    u32 offset;
 
     if (!sub_0808E950()) {
         int var2 = -1;
@@ -104,8 +104,8 @@ void sub_0808E818(Entity* this) {
         this->field_0x68.HWORD = CheckGlobalFlag(EZERO_1ST) == 0 ? 0x400 : 0x100;
         this->field_0x70.BYTES.byte0 = 4;
         this->animationState = 2;
-        var1 = gUnk_08133368[GetPlayerPalette(TRUE) - 22] & 0xFFFFFF;
-        LoadPalettes(&gGlobalGfxAndPalettes[var1], 31, 1);
+        offset = gUnk_08133368[GetPlayerPalette(TRUE) - 22] & 0xFFFFFF;
+        LoadPalettes(&gGlobalGfxAndPalettes[offset], 31, 1);
     }
 
     if (gUI.lastState == 0) {

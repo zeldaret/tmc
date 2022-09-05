@@ -70,7 +70,7 @@ void sub_080632C8(Entity* this) {
 }
 
 void sub_080632E0(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810C8D4) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810C8D4)) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
         this->spriteSettings.draw = 1;
@@ -127,7 +127,7 @@ void Beedle_Head(Entity* this) {
 
 void sub_08063410(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_0810C8D4) == 0) {
+        if (!LoadExtraSpriteData(this, gUnk_0810C8D4)) {
             return;
         }
         this->action++;

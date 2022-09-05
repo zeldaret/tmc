@@ -25,12 +25,12 @@ extern const EntityData gUnk_080FEE58[];
 extern const void* gUnk_080FED98[];
 
 void sub_08018AB4(int);
-void sub_08018BB4(int);
-void sub_08018A58(int);
-void sub_08018B50(int);
-void sub_080189EC(int);
-void sub_0801876C(int, int);
-void sub_08018738(u32, int);
+void sub_08018BB4(u32 worldEventId);
+void sub_08018A58(u32 worldEventId);
+void sub_08018B50(u32 worldEventId);
+void sub_080189EC(u32 worldEventId);
+void sub_0801876C(u32 worldEventId, bool32 isKinstoneFused);
+void sub_08018738(u32 kinstoneId, u32 worldEventId);
 void ShuffleEzloHints(int count, u16* basePtr);
 void sub_08018500();
 bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1);
@@ -239,60 +239,60 @@ void sub_080186D4(void) {
 }
 
 void sub_080186EC(u32 param_1) {
-    const struct_080C9CBC* psVar1;
+    const KinstoneWorldEvent* psVar1;
     u32 i;
 
-    for (i = 0, psVar1 = gUnk_080C9CBC; i <= 100; psVar1++, i++) {
-        if (psVar1->unk3 == 8) {
-            sub_08018738(i, psVar1->evt_type);
+    for (i = 0, psVar1 = gKinstoneWorldEvents; i <= 100; psVar1++, i++) {
+        if (psVar1->subtask == SUBTASK_WORLDEVENT) {
+            sub_08018738(i, psVar1->worldEventId);
         }
     }
 }
 
-void sub_08018710(u32 param_1) {
-    const struct_080C9CBC* psVar1;
+void sub_08018710(u32 previousworldEventId) {
+    const KinstoneWorldEvent* psVar1;
     u32 i;
 
-    for (i = 0, psVar1 = gUnk_080C9CBC; i <= 100; psVar1++, i++) {
-        if (psVar1->unk3 == 8 && param_1 != psVar1->evt_type) {
-            sub_08018738(i, psVar1->evt_type);
+    for (i = 0, psVar1 = gKinstoneWorldEvents; i <= 100; psVar1++, i++) {
+        if (psVar1->subtask == SUBTASK_WORLDEVENT && previousworldEventId != psVar1->worldEventId) {
+            sub_08018738(i, psVar1->worldEventId);
         }
     }
 }
 
-void sub_08018738(u32 param_1, int param_2) {
-    struct_080FE320* ptr = &gUnk_080FE320[param_2];
+void sub_08018738(u32 kinstoneId, u32 worldEventId) {
+    const WorldEvent* ptr = &gWorldEvents[worldEventId];
 
     if (ptr->area == gRoomControls.area && ptr->room == gRoomControls.room) {
-        sub_0801876C(param_2, CheckKinstoneFused(param_1));
+        sub_0801876C(worldEventId, CheckKinstoneFused(kinstoneId));
     }
 }
 
-void sub_0801876C(int param_1, int param_2) {
+void sub_0801876C(u32 worldEventId, bool32 isKinstoneFused) {
     Entity* roomEnt;
     Entity* ent;
     u32 uVar3;
     u32 tmp;
     u8* puVar4;
     u32 uVar5;
-    struct_080FE320* ptr;
+    const WorldEvent* ptr;
 
-    ptr = &gUnk_080FE320[param_1];
-    switch (ptr->evt_type) {
-        case 6:
-            if (param_2 == 0) {
+    ptr = &gWorldEvents[worldEventId];
+    switch (ptr->type) {
+        case WORLD_EVENT_TYPE_6:
+            if (isKinstoneFused == 0) {
                 sub_08018AB4((ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6);
             }
             break;
-        case 0:
+        case WORLD_EVENT_TYPE_0:
             break;
-        case 2:
-            if (param_2 != 0) {
-                sub_08018BB4(param_1);
+        case WORLD_EVENT_TYPE_2:
+            if (isKinstoneFused != 0) {
+                sub_08018BB4(worldEventId);
             }
             break;
-        case 1:
-            if (param_2 == 0) {
+        case WORLD_EVENT_TYPE_1:
+            if (isKinstoneFused == 0) {
                 return;
             }
             if (CheckGlobalFlag(ptr->flag)) {
@@ -300,8 +300,8 @@ void sub_0801876C(int param_1, int param_2) {
             }
             LoadRoomEntity(gUnk_080FEC28 + ptr->entity_idx);
             break;
-        case 3:
-            if (param_2 == 0) {
+        case WORLD_EVENT_TYPE_3:
+            if (isKinstoneFused == 0) {
                 return;
             }
             if (GetInventoryValue(ptr->flag)) {
@@ -309,47 +309,47 @@ void sub_0801876C(int param_1, int param_2) {
             }
             LoadRoomEntity(gUnk_080FEBE8 + ptr->entity_idx);
             break;
-        case 4:
-            if (param_2 == 0) {
-                sub_08018A58(param_1);
+        case WORLD_EVENT_TYPE_4:
+            if (isKinstoneFused == 0) {
+                sub_08018A58(worldEventId);
             }
             break;
-        case 5:
-            if (param_2 != 0) {
-                sub_08018B50(param_1);
+        case WORLD_EVENT_TYPE_5:
+            if (isKinstoneFused != 0) {
+                sub_08018B50(worldEventId);
             }
             break;
 
-        case 7:
-            if (param_2 != 0) {
+        case WORLD_EVENT_TYPE_7:
+            if (isKinstoneFused != 0) {
                 return;
             }
             if (ptr->entity_idx != 0x80) {
                 LoadRoomEntity(gUnk_080FECC8 + ptr->entity_idx);
             } else {
-                sub_080189EC(param_1);
+                sub_080189EC(worldEventId);
             }
             break;
-        case 0x19:
+        case WORLD_EVENT_TYPE_25:
             roomEnt = LoadRoomEntity(&gUnk_080FED18[ptr->entity_idx]);
             if (roomEnt != 0) {
-                roomEnt->type = param_2 ? 2 : 0;
+                roomEnt->type = isKinstoneFused ? 2 : 0;
             }
             break;
-        case 8:
-            if (param_2 == 0) {
+        case WORLD_EVENT_TYPE_8:
+            if (isKinstoneFused == 0) {
                 return;
             }
             SetTileType(0x168, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
             break;
-        case 0xb:
-            if (param_2 != 0) {
+        case WORLD_EVENT_TYPE_11:
+            if (isKinstoneFused != 0) {
                 LoadRoomEntity(&gUnk_080FED58[ptr->entity_idx]);
                 gRoomVars.field_0x8c[ptr->entity_idx] = (void*)gUnk_080FED98[ptr->entity_idx];
             }
             break;
-        case 9:
-            if (param_2 == 0) {
+        case WORLD_EVENT_TYPE_9:
+            if (isKinstoneFused == 0) {
                 return;
             }
             ent = LoadRoomEntity(&gUnk_080FEE78[ptr->entity_idx]);
@@ -366,38 +366,38 @@ void sub_0801876C(int param_1, int param_2) {
                 SetTileType(uVar3, uVar5, 1);
             }
             break;
-        case 0x18:
-            if (param_2 != 0) {
+        case WORLD_EVENT_TYPE_24:
+            if (isKinstoneFused != 0) {
                 LoadRoomEntityList(gUnk_080FEE18);
             }
             break;
-        case 0xf:
-            if (param_2 != 0) {
+        case WORLD_EVENT_TYPE_15:
+            if (isKinstoneFused != 0) {
                 LoadRoomEntity(gUnk_080FEE58);
             } else {
                 LoadRoomEntity(gUnk_080FEE48);
             }
             break;
-        case 0x11:
-            if (param_2 != 0) {
+        case WORLD_EVENT_TYPE_17:
+            if (isKinstoneFused != 0) {
                 SetLocalFlagByBank(FLAG_BANK_1, SOUGEN_05_BOMB_00);
                 LoadRoomEntityList(gUnk_080FEE38);
             }
             break;
-        case 0x1a:
-        case 0x1b:
-        case 0x1c:
+        case WORLD_EVENT_TYPE_26:
+        case WORLD_EVENT_TYPE_27:
+        case WORLD_EVENT_TYPE_28:
             break;
     }
 }
 
-void sub_080189EC(int param_1) {
+void sub_080189EC(u32 worldEventId) {
     u32 i;
     int iVar1;
     int tilePosition;
-    struct_080FE320* ptr;
+    const WorldEvent* ptr;
 
-    ptr = &gUnk_080FE320[param_1];
+    ptr = &gWorldEvents[worldEventId];
 
     tilePosition = (ptr->x >> 4) & 0x3f;
     tilePosition |= ((ptr->y >> 4) & 0x3f) << 6;
@@ -414,14 +414,14 @@ void sub_080189EC(int param_1) {
     }
 }
 
-void sub_08018A58(int param_1) {
+void sub_08018A58(u32 worldEventId) {
     u32 i;
     int iVar2;
     u32 j;
     int tilePosition;
-    struct_080FE320* ptr;
+    const WorldEvent* ptr;
 
-    ptr = &gUnk_080FE320[param_1];
+    ptr = &gWorldEvents[worldEventId];
 
     tilePosition = (ptr->x >> 4) & 0x3f;
     tilePosition |= ((ptr->y >> 4) & 0x3f) << 6;
@@ -470,14 +470,14 @@ void sub_08018B10(int param_1) {
     }
 }
 
-void sub_08018B50(int param_1) {
+void sub_08018B50(u32 worldEventId) {
     u32 i;
     int iVar2;
     u32 j;
     int tilePosition;
-    struct_080FE320* ptr;
+    const WorldEvent* ptr;
 
-    ptr = &gUnk_080FE320[param_1];
+    ptr = &gWorldEvents[worldEventId];
     if ((ptr->entity_idx & 0x80) == 0) {
         iVar2 = 0x200;
     } else {
@@ -495,14 +495,15 @@ void sub_08018B50(int param_1) {
     }
 }
 
-void sub_08018BB4(int param_1) {
+// TODO world event that loads tile entity
+void sub_08018BB4(u32 worldEventId) {
     u32 layer;
     TileEntity tile;
-    struct_080FE320* ptr;
+    const WorldEvent* ptr;
     u32 position;
 
-    MemCopy(gUnk_080FEAC8 + param_1, &tile, sizeof(TileEntity));
-    ptr = &gUnk_080FE320[param_1];
+    MemCopy(gUnk_080FEAC8 + worldEventId, &tile, sizeof(TileEntity));
+    ptr = &gWorldEvents[worldEventId];
     tile.tilePos = (ptr->x >> 4 & 0x3f) | (((ptr->y) >> 4 & 0x3f) << 6);
     sub_0804B3C4(&tile);
     if (CheckLocalFlag(tile.localFlag) == 0) {

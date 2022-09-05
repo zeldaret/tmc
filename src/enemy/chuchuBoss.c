@@ -559,7 +559,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
         this->unk_84->unk_03 = 3;
         gPlayerEntity.animationState = 0;
         gRoomControls.camera_target = super;
-        gRoomControls.unk5 = 1;
+        gRoomControls.scrollSpeed = 1;
         SetTile(0x4022, 0x2c8, 1);
     }
 }
@@ -583,7 +583,7 @@ void sub_08026358(ChuchuBossEntity* this) {
             this->unk_84->unk_03++;
             gPlayerEntity.animationState = 0;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 1;
+            gRoomControls.scrollSpeed = 1;
         } else if (bVar1 < 0x61) {
             if (bVar1 < 0x5c) {
                 gPlayerEntity.animationState = 4;
@@ -661,7 +661,7 @@ void sub_0802650C(ChuchuBossEntity* this) {
 
 void sub_0802653C(ChuchuBossEntity* this) {
     if (gRoomControls.reload_flags == 0) {
-        gRoomControls.unk5 = 4;
+        gRoomControls.scrollSpeed = 4;
         sub_08027B98(this, 0x90, 0xb0, 4, 0xff);
         sub_08027548(this, 0);
         InitAnimationForceUpdate(super->child, 0);

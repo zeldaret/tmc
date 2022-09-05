@@ -33,7 +33,6 @@ void sub_08079064(Entity*);
 
 extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
-extern const s8* gUnk_0811C0E8[];
 extern const u8 gUnk_0800851C[];
 extern const u8 gUnk_080084BC[];
 extern const u8 gUnk_0800845C[];
@@ -58,14 +57,7 @@ void sub_0807AAF8(Entity*, u32);
 void sub_0807A750(u32, u32, const u8*, u32);
 
 extern ItemDefinition gItemDefinitions[];
-extern void (*const gUnk_0811C27C[])(Entity*);
-extern void (*const gUnk_0811C284[])(PlayerEntity*);
-extern void (*const gUnk_0811C298[])(PlayerEntity*);
-extern bool32 (*const gPlayerChargeActions[])(ChargeState*);
-extern u8 gUnk_0811C000[];
-extern const u8 gUnk_0811C118[];
-extern void (*const gUnk_0811C120[])(Entity*);
-extern u16 gUnk_0811C268[];
+
 extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
 extern void DeleteLoadedTileEntity(u32, u32);
@@ -83,23 +75,14 @@ void sub_0807BFD0(void);
 void ForceSetPlayerState(u32 framestate);
 struct_03003DF8* sub_080784E4(void);
 
-extern const u16 gUnk_0811C0F8[];
-
 u32 sub_08079778(void);
 u32 GetPlayerTilePos(void);
-
-extern const u16 gUnk_0811C108[];
-
-extern const u16 gUnk_0811C110[];
 
 extern const u16 gUnk_08007CAC[];
 
 u32 sub_0807BEEC(u32 param_1, u32 param_2, u32 param_3);
 
-extern const u16 gUnk_0811C466[];
 bool32 sub_0807B434(u32 position, u32 layer);
-
-extern const u16 gUnk_0811C2AC[];
 
 void sub_0807B820(u32);
 void sub_0807B8A8(u32);
@@ -108,14 +91,9 @@ bool32 sub_0807B464(u32 param_1, u32 param_2);
 void sub_0807B55C(u32, u32, u16*);
 void sub_0807B480(u32, u32);
 
-extern const s16 gUnk_0811C456[];
-
 bool32 sub_0807B600(u32);
 
 bool32 sub_0807B464(u32 tilePos, u32 param_2);
-
-extern const u16 gUnk_0811C2CC[];
-extern const u16 gUnk_0811C2EC[];
 
 bool32 sub_0807B464(u32 param_1, u32 param_2);
 
@@ -166,9 +144,6 @@ void sub_0807C5B0(void);
 
 extern u8 gUnk_080082DC[];
 extern u32 sub_08004202(Entity*, u8*, u32);
-
-extern s8* gUnk_0811C0B0[];
-extern u8 gUnk_0811C01C[];
 
 extern u32 gUnk_02022830[];
 extern u16* gUnk_0800823C[];
@@ -293,6 +268,16 @@ bool32 IsTryingToPickupObject(void) {
         return FALSE;
     }
 }
+
+ItemBehavior* CreateItemNone(Item);
+ItemBehavior* CreateItem1(Item);
+ItemBehavior* CreateItem2(Item);
+ItemBehavior* CreateItem3(Item);
+ItemBehavior* CreateItem4(Item);
+ItemBehavior* CreateItem5(Item);
+ItemBehavior* (*const gCreateItemsFuncs[])(Item) = {
+    CreateItemNone, CreateItem1, CreateItem2, CreateItem3, CreateItem4, CreateItem5,
+};
 
 ItemBehavior* CreateItem(Item itemId) {
     if (((((gPlayerState.queued_action == PLAYER_ROLL) && (itemId != ITEM_TRY_PICKUP_OBJECT)) ||
@@ -658,6 +643,215 @@ bool32 PlayerTryDropObject(ItemBehavior* this, u32 index) {
 }
 
 // TODO move above into a itemUtils.c ?
+
+const u8 gUnk_0811BFE0[] = {
+    3, 10, 12, 3, 3, 14, 12, 3,
+};
+
+bool32 sub_08078008(ChargeState* state);
+bool32 sub_08078124(ChargeState* state);
+bool32 sub_08078140(ChargeState* state);
+bool32 sub_08078070(ChargeState* state);
+bool32 sub_080780E0(ChargeState* state);
+bool32 sub_08078108(ChargeState* state);
+bool32 (*const gPlayerChargeActions[])(ChargeState*) = {
+    sub_08078008, sub_08078124, sub_08078140, sub_08078070, sub_080780E0, sub_08078108,
+};
+
+const u8 gUnk_0811C000[] = {
+    0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+};
+const u8 gUnk_0811C00C[] = {
+    0, 238, 14, 255, 0, 10, 241, 255,
+};
+const u8 gUnk_0811C014[] = {
+    0, 242, 10, 255, 0, 6, 245, 255,
+};
+const u8 gUnk_0811C01C[] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 3, 3, 4, 3, 0, 1, 2, 0, 3, 3, 4, 3, 10, 15, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 5, 6, 6, 6, 5, 5, 5, 5, 5, 6, 6, 6, 5, 5, 5, 5, 11, 12, 5, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 7, 8, 8, 8, 7, 9, 9, 7, 7, 8, 8, 8, 7, 9, 9, 7, 13, 14, 7, 0, 0,
+};
+
+const s8 gUnk_0811C070[] = { 0, 16,  0, 17,  0, 18, 0,  15, 0,  14, 25, -4,  25, -3,  0, -24,
+                             0, -23, 0, -25, 0, 10, 21, -4, 16, -4, 0,  -18, 0,  -14, 0, 6 };
+const s8 gUnk_0811C090[] = { 0, 18,  0, 19,  0, 20, 0,  17, 0,  16, 24, -2,  24, -1,  0, -22,
+                             0, -21, 0, -23, 0, 12, 20, -4, 15, -4, 0,  -16, 0,  -12, 0, 8 };
+const s8* const gUnk_0811C0B0[] = {
+    gUnk_0811C070,
+    gUnk_0811C090,
+};
+
+const s8 gUnk_0811C0B8[] = { 0, -9, 0, -15, 0, -16, 12, -3, 10, -9, 0, 7, 0, -17, 0, -18 };
+const s8 gUnk_0811C0C8[] = { 0, -5, 0, -11, 0, -15, 12, 1, 10, -5, 0, 11, 0, -17, 0, -18 };
+const s8 gUnk_0811C0D8[] = { 0, -19, 0, -19, 0, -24, 32, -7, 10, -13, 0, 26, 0, -25, 0, -26 };
+const s8* const gUnk_0811C0E8[] = {
+    gUnk_0811C0B8,
+    gUnk_0811C0D8,
+    gUnk_0811C0B8,
+    gUnk_0811C0C8,
+};
+
+const u16 gUnk_0811C0F8[] = { 1024, 256, 2048, 512 };
+const s8 gUnk_0811C100[] = { 0, -8, 8, 0, 0, 3, -8, 0 };
+const u16 gUnk_0811C108[] = { 6, 24576, 96, 1536 };
+const u16 gUnk_0811C110[] = { 6, 24576, 96, 1536 };
+const u8 gUnk_0811C118[] = {
+    19, 18, 18, 16, 16, 17, 17, 19,
+};
+
+void SurfaceAction_DoNothing(Entity*);
+void SurfaceAction_Pit(Entity*);
+void SurfaceAction_SlopeGndGndVertical(Entity*);
+void SurfaceAction_SlopeGndGndHorizontal(Entity*);
+void SurfaceAction_6(Entity*);
+void SurfaceAction_7(Entity*);
+void SurfaceAction_MinishDoorFront(Entity*);
+void SurfaceAction_MinishDoorBack(Entity*);
+void SurfaceAction_A(Entity*);
+void SurfaceAction_B(Entity*);
+void SurfaceAction_SlopeGndWater(Entity*);
+void SurfaceAction_ConveyerNorth(Entity*);
+void SurfaceAction_ConveyerSouth(Entity*);
+void SurfaceAction_ConveyerWest(Entity*);
+void SurfaceAction_ConveyerEast(Entity*);
+void SurfaceAction_Swamp(Entity*);
+void SurfaceAction_14(Entity*);
+void SurfaceAction_CloneTile(Entity*);
+void SurfaceAction_16(Entity*);
+void SurfaceAction_Ice(Entity*);
+void SurfaceAction_ShallowWater(Entity*);
+void SurfaceAction_Water(Entity*);
+void SurfaceAction_Button(Entity*);
+void SurfaceAction_1B(Entity*);
+void SurfaceAction_1C(Entity*);
+void SurfaceAction_Ladder(Entity*);
+void SurfaceAction_20(Entity*);
+void SurfaceAction_22(Entity*);
+void SurfaceAction_Dust(Entity*);
+void SurfaceAction_26(Entity*);
+void SurfaceAction_Hole(Entity*);
+void SurfaceAction_AutoLadder(Entity*);
+void SurfaceAction_ClimbWall(Entity*);
+void SurfaceAction_2C(Entity*);
+
+void (*const gUnk_0811C120[])(Entity*) = {
+    SurfaceAction_DoNothing,
+    SurfaceAction_Pit,
+    NULL,
+    NULL,
+    SurfaceAction_SlopeGndGndVertical,
+    SurfaceAction_SlopeGndGndHorizontal,
+    SurfaceAction_6,
+    SurfaceAction_7,
+    SurfaceAction_MinishDoorFront,
+    SurfaceAction_MinishDoorBack,
+    SurfaceAction_A,
+    SurfaceAction_B,
+    SurfaceAction_SlopeGndWater,
+    SurfaceAction_ConveyerNorth,
+    SurfaceAction_ConveyerSouth,
+    SurfaceAction_ConveyerWest,
+    SurfaceAction_ConveyerEast,
+    SurfaceAction_Swamp,
+    SurfaceAction_DoNothing,
+    SurfaceAction_DoNothing,
+    SurfaceAction_14,
+    SurfaceAction_CloneTile,
+    SurfaceAction_16,
+    SurfaceAction_Ice,
+    SurfaceAction_ShallowWater,
+    SurfaceAction_Water,
+    SurfaceAction_Button,
+    SurfaceAction_1B,
+    SurfaceAction_1C,
+    NULL,
+    SurfaceAction_Ladder,
+    NULL,
+    SurfaceAction_20,
+    SurfaceAction_16,
+    SurfaceAction_22,
+    SurfaceAction_6,
+    SurfaceAction_6,
+    SurfaceAction_Dust,
+    SurfaceAction_26,
+    SurfaceAction_Hole,
+    SurfaceAction_SlopeGndGndVertical,
+    SurfaceAction_SlopeGndGndHorizontal,
+    SurfaceAction_AutoLadder,
+    SurfaceAction_ClimbWall,
+    SurfaceAction_2C,
+    SurfaceAction_Dust,
+};
+
+const u16 gUnk_0811C240[];
+const u16 gUnk_0811C24A[];
+const u16 gUnk_0811C254[];
+const u16 gUnk_0811C25E[];
+const u16 gUnk_0811C1F8[];
+const u16 gUnk_0811C20A[];
+const u16 gUnk_0811C21C[];
+const u16 gUnk_0811C22E[];
+
+const u16* const gUnk_0811C1D8[] = {
+    gUnk_0811C240,
+    gUnk_0811C24A,
+    gUnk_0811C254,
+    gUnk_0811C25E,
+};
+const u16* const gUnk_0811C1E8[] = {
+    gUnk_0811C1F8,
+    gUnk_0811C20A,
+    gUnk_0811C21C,
+    gUnk_0811C22E,
+};
+
+const u16 gUnk_0811C1F8[] = { 43, 1, 65, 1, 78, 8, 76, 2, 0 };
+const u16 gUnk_0811C20A[] = { 44, 3, 66, 3, 76, 2, 77, 4, 0 };
+const u16 gUnk_0811C21C[] = { 42, 5, 64, 5, 79, 6, 77, 4, 0 };
+const u16 gUnk_0811C22E[] = { 45, 7, 67, 7, 78, 8, 79, 6, 0 };
+const u16 gUnk_0811C240[] = { 42, 1, 38, 1, 0 };
+const u16 gUnk_0811C24A[] = { 45, 1, 39, 1, 0 };
+const u16 gUnk_0811C254[] = { 43, 1, 38, 1, 0 };
+const u16 gUnk_0811C25E[] = { 44, 1, 39, 1, 0 };
+const u16 gUnk_0811C268[] = { 16, 1, 90, 1, 17, 1, 19, 1, 0, 0 };
+void sub_0807B114(PlayerEntity*);
+void sub_0807B128(PlayerEntity*);
+void (*const gUnk_0811C27C[])(PlayerEntity*) = {
+    sub_0807B114,
+    sub_0807B128,
+};
+void sub_0807B1A8(PlayerEntity*);
+void sub_0807B144(PlayerEntity*);
+void nullsub_506(PlayerEntity*);
+void sub_0807B178(PlayerEntity*);
+void sub_0807B2F8(PlayerEntity*);
+
+void (*const gUnk_0811C284[])(PlayerEntity*) = {
+    sub_0807B1A8, sub_0807B144, nullsub_506, sub_0807B178, sub_0807B2F8,
+};
+void sub_0807B1DC(PlayerEntity*);
+void sub_0807B1EC(PlayerEntity*);
+void sub_0807B21C(PlayerEntity*);
+void sub_0807B264(PlayerEntity*);
+void sub_0807B2B8(PlayerEntity*);
+void (*const gUnk_0811C298[])(PlayerEntity*) = {
+    sub_0807B1DC, sub_0807B1EC, sub_0807B21C, sub_0807B264, sub_0807B2B8,
+};
+
+const u16 gUnk_0811C2AC[] = { 678, 693, 688, 685, 691, 692, 684, 682, 690, 687, 689, 681, 686, 683, 680, 679 };
+const u16 gUnk_0811C2CC[] = { 710, 747, 720, 717, 737, 744, 716, 714, 730, 719, 727, 713, 718, 715, 712, 711 };
+const u16 gUnk_0811C2EC[] = {
+    694, 15, 0,  695, 0,  15, 696, 1,  14, 697, 4, 11, 698, 8,  7, 699, 2,  13, 700, 9,  6,  701, 12, 3,  702, 3,  12,
+    703, 6,  9,  704, 13, 2,  705, 5,  10, 706, 7, 8,  707, 11, 4, 708, 10, 5,  709, 14, 1,  710, 0,  0,  711, 0,  15,
+    712, 0,  14, 713, 0,  11, 714, 0,  7,  715, 0, 13, 716, 0,  6, 717, 0,  3,  718, 0,  12, 719, 0,  9,  720, 0,  2,
+    721, 12, 2,  722, 5,  2,  723, 9,  2,  724, 4, 2,  725, 1,  2, 726, 8,  2,  727, 0,  10, 728, 4,  10, 729, 1,  10,
+    730, 0,  8,  731, 6,  8,  732, 5,  8,  733, 3, 8,  734, 4,  8, 735, 1,  8,  736, 2,  8,  737, 0,  4,  738, 10, 4,
+    739, 3,  4,  740, 9,  4,  741, 2,  4,  742, 8, 4,  743, 1,  4, 744, 0,  5,  745, 2,  5,  746, 8,  5,  747, 0,  1,
+    748, 10, 1,  749, 6,  1,  750, 12, 1,  751, 2, 1,  752, 8,  1, 753, 4,  1,  0,
+};
+const s16 gUnk_0811C456[] = { 0, -13, 13, 0, 0, 16, -13, 0 };
+const u16 gUnk_0811C466[] = { 803, 819, 822, 825, 820, 828, 826, 829, 821, 823, 831, 830, 824, 827, 832, 53, 0 };
 
 void sub_08077F84(void) {
     Entity* obj;
@@ -1194,7 +1388,7 @@ void UpdateCarriedObject(void) {
 void sub_08078CD0(PlayerEntity* this) {
     Entity* entity;
     u32 tmp;
-    s8* ptr;
+    const s8* ptr;
 
     entity = this->unk_70;
     entity->z.HALF.HI = super->z.HALF.HI - 1;
@@ -2610,8 +2804,8 @@ void sub_0807B0C8(void) {
     sub_0806FEBC(&gPlayerEntity, 3, 0);
 }
 
-void PlayerWarp(Entity* player) {
-    gUnk_0811C27C[player->subAction](player);
+void PlayerWarp(PlayerEntity* this) {
+    gUnk_0811C27C[super->subAction](this);
 }
 
 void sub_0807B114(PlayerEntity* this) {
@@ -2632,7 +2826,7 @@ void sub_0807B144(PlayerEntity* this) {
     SetPlayerActionNormal();
 }
 
-void nullsub_506(void) {
+void nullsub_506(PlayerEntity* this) {
 }
 
 void sub_0807B178(PlayerEntity* this) {
@@ -3100,8 +3294,8 @@ void sub_0807BC84(void) {
 bool32 sub_0807BD14(Entity* this, u32 scrollDirection) {
     u32 room = sub_0807BEEC(this->x.HALF.HI, this->y.HALF.HI, scrollDirection);
     if (room != 0xff) {
-        gRoomControls.unk3 = 2;
-        gRoomControls.unk4 = 0;
+        gRoomControls.scrollAction = 2;
+        gRoomControls.scrollSubAction = 0;
         gRoomControls.reload_flags = 1;
         gRoomControls.room = room;
         gRoomControls.scroll_direction = scrollDirection;
@@ -3696,12 +3890,12 @@ u32 SetInventoryValue(u32 item, u32 value) {
     return masked_value >> offset;
 }
 
-void sub_0807CAC8(u32 param_1) {
-    gSave.unk47C[gArea.dungeon_idx] |= (1 << param_1);
+void EnableDungeonWarp(u32 warp) {
+    gSave.dungeonWarps[gArea.dungeon_idx] |= (1 << warp);
 }
 
-u32 sub_0807CAEC(u32 param_1) {
-    return gSave.unk47C[gArea.dungeon_idx] >> param_1 & 1;
+u32 IsDungeonWarpActive(u32 warp) {
+    return gSave.dungeonWarps[gArea.dungeon_idx] >> warp & 1;
 }
 
 u32 CheckLocalFlagByBank(u32 bank, u32 flag) {

@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.section .rodata
-    .align 2
+    @.align 2
 
 @ before: playerItemBottle
 @ after: playerItemCellOverwriteSet

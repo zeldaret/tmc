@@ -307,7 +307,7 @@ void FrozenOctorok_Action1SubAction5(FrozenOctorokEntity* this) {
 void FrozenOctorok_Action1SubAction6(FrozenOctorokEntity* this) {
     LinearMoveUpdate(super);
     if ((gRoomControls.origin_y + 0x1c8) < super->y.HALF.HI) {
-        gRoomControls.unk5 = 4;
+        gRoomControls.scrollSpeed = 4;
         gRoomControls.camera_target = &gPlayerEntity;
         SetLocalFlag(0x9b);
         DeleteEntity(super->parent);

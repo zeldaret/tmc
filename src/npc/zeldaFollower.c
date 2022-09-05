@@ -3,9 +3,8 @@
 #include "functions.h"
 #include "common.h"
 
-extern void sub_08068318(Entity*);
-extern void sub_0806854C(Entity*, u32*);
-
+void sub_08068318(Entity*);
+void sub_0806854C(Entity*, u32*);
 void sub_08068578(Entity* this);
 
 void ZeldaFollower(Entity* this) {
@@ -40,20 +39,20 @@ void sub_0806854C(Entity* this, u32* none) {
 
 ASM_FUNC("asm/non_matching/zeldaFollower/sub_08068578.inc", void sub_08068578(Entity* this))
 
-void sub_08068680(Entity* this, Entity* entity) {
-    entity->field_0x68.HALF.LO = 0;
-    entity->spriteSettings.draw = 0;
+void ZeldaFollower_Hide(Entity* zelda, Entity* follower) {
+    follower->field_0x68.HALF.LO = 0;
+    follower->spriteSettings.draw = 0;
 }
 
-void sub_08068694(Entity* this, Entity* entity) {
-    entity->field_0x68.HALF.LO = 1;
-    entity->spriteSettings.draw = 1;
-    entity->animationState = this->animationState;
-    sub_08068578(entity);
-    InitAnimationForceUpdate(entity, entity->animationState / 2);
+void ZeldaFollower_Show(Entity* zelda, Entity* follower) {
+    follower->field_0x68.HALF.LO = 1;
+    follower->spriteSettings.draw = 1;
+    follower->animationState = zelda->animationState;
+    sub_08068578(follower);
+    InitAnimationForceUpdate(follower, follower->animationState / 2);
 }
 
-void sub_080686C4(Entity* this, Entity* entity) {
-    entity->y.HALF.HI -= 0x10;
-    sub_08068578(entity);
+void sub_080686C4(Entity* zelda, Entity* follower) {
+    follower->y.HALF.HI -= 0x10;
+    sub_08068578(follower);
 }

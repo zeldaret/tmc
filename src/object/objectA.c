@@ -40,7 +40,7 @@ void ObjectA(Entity* this) {
         SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
         SetFlag(this->field_0x86.HWORD);
         CreateDust(this);
-        sub_080526F8(-1);
+        ModDungeonKeys(-1);
         DeleteThisEntity();
     }
 }

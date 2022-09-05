@@ -23,8 +23,10 @@ gPalette_7::
 	.incbin "palettes/gPalette_7.gbapal"
 gPalette_8::
 	.incbin "palettes/gPalette_8.gbapal"
-gfx_unknown_0::
-	.incbin "assets/gfx_unknown_0.bin"
+gPalette_9::
+	.incbin "palettes/gPalette_9.gbapal"
+gPalette_10::
+	.incbin "palettes/gPalette_10.gbapal"
 gPalette_11::
 	.incbin "palettes/gPalette_11.gbapal"
 gPalette_12::
@@ -33,8 +35,290 @@ gPalette_13::
 	.incbin "palettes/gPalette_13.gbapal"
 gPalette_14::
 	.incbin "palettes/gPalette_14.gbapal"
-gfx_unknown_1::
-	.incbin "assets/gfx_unknown_1.bin"
+gPalette_15::
+	.incbin "palettes/gPalette_15.gbapal"
+gPalette_16::
+	.incbin "palettes/gPalette_16.gbapal"
+gPalette_17::
+	.incbin "palettes/gPalette_17.gbapal"
+gPalette_18::
+	.incbin "palettes/gPalette_18.gbapal"
+gPalette_19::
+	.incbin "palettes/gPalette_19.gbapal"
+gPalette_20::
+	.incbin "palettes/gPalette_20.gbapal"
+gPalette_21::
+	.incbin "palettes/gPalette_21.gbapal"
+gPalette_22::
+	.incbin "palettes/gPalette_22.gbapal"
+gPalette_23::
+	.incbin "palettes/gPalette_23.gbapal"
+gPalette_24::
+	.incbin "palettes/gPalette_24.gbapal"
+gPalette_25::
+	.incbin "palettes/gPalette_25.gbapal"
+gPalette_26::
+	.incbin "palettes/gPalette_26.gbapal"
+gPalette_27::
+	.incbin "palettes/gPalette_27.gbapal"
+gPalette_28::
+	.incbin "palettes/gPalette_28.gbapal"
+gPalette_29::
+	.incbin "palettes/gPalette_29.gbapal"
+gPalette_30::
+	.incbin "palettes/gPalette_30.gbapal"
+gPalette_31::
+	.incbin "palettes/gPalette_31.gbapal"
+gPalette_32::
+	.incbin "palettes/gPalette_32.gbapal"
+gPalette_33::
+	.incbin "palettes/gPalette_33.gbapal"
+gPalette_34::
+	.incbin "palettes/gPalette_34.gbapal"
+gPalette_35::
+	.incbin "palettes/gPalette_35.gbapal"
+gPalette_36::
+	.incbin "palettes/gPalette_36.gbapal"
+gPalette_37::
+	.incbin "palettes/gPalette_37.gbapal"
+gPalette_38::
+	.incbin "palettes/gPalette_38.gbapal"
+gPalette_39::
+	.incbin "palettes/gPalette_39.gbapal"
+gPalette_40::
+	.incbin "palettes/gPalette_40.gbapal"
+gPalette_41::
+	.incbin "palettes/gPalette_41.gbapal"
+gPalette_42::
+	.incbin "palettes/gPalette_42.gbapal"
+gPalette_43::
+	.incbin "palettes/gPalette_43.gbapal"
+gPalette_44::
+	.incbin "palettes/gPalette_44.gbapal"
+gPalette_45::
+	.incbin "palettes/gPalette_45.gbapal"
+gPalette_46::
+	.incbin "palettes/gPalette_46.gbapal"
+gPalette_47::
+	.incbin "palettes/gPalette_47.gbapal"
+gPalette_48::
+	.incbin "palettes/gPalette_48.gbapal"
+gPalette_49::
+	.incbin "palettes/gPalette_49.gbapal"
+gPalette_50::
+	.incbin "palettes/gPalette_50.gbapal"
+gPalette_51::
+	.incbin "palettes/gPalette_51.gbapal"
+gPalette_52::
+	.incbin "palettes/gPalette_52.gbapal"
+gPalette_53::
+	.incbin "palettes/gPalette_53.gbapal"
+gPalette_54::
+	.incbin "palettes/gPalette_54.gbapal"
+gPalette_55::
+	.incbin "palettes/gPalette_55.gbapal"
+gPalette_56::
+	.incbin "palettes/gPalette_56.gbapal"
+gPalette_57::
+	.incbin "palettes/gPalette_57.gbapal"
+gPalette_58::
+	.incbin "palettes/gPalette_58.gbapal"
+gPalette_59::
+	.incbin "palettes/gPalette_59.gbapal"
+gPalette_60::
+	.incbin "palettes/gPalette_60.gbapal"
+gPalette_61::
+	.incbin "palettes/gPalette_61.gbapal"
+gPalette_62::
+	.incbin "palettes/gPalette_62.gbapal"
+gPalette_63::
+	.incbin "palettes/gPalette_63.gbapal"
+gPalette_64::
+	.incbin "palettes/gPalette_64.gbapal"
+gPalette_65::
+	.incbin "palettes/gPalette_65.gbapal"
+gPalette_66::
+	.incbin "palettes/gPalette_66.gbapal"
+gPalette_67::
+	.incbin "palettes/gPalette_67.gbapal"
+gPalette_68::
+	.incbin "palettes/gPalette_68.gbapal"
+gPalette_69::
+	.incbin "palettes/gPalette_69.gbapal"
+gPalette_70::
+	.incbin "palettes/gPalette_70.gbapal"
+gPalette_71::
+	.incbin "palettes/gPalette_71.gbapal"
+gPalette_72::
+	.incbin "palettes/gPalette_72.gbapal"
+gPalette_73::
+	.incbin "palettes/gPalette_73.gbapal"
+gPalette_74::
+	.incbin "palettes/gPalette_74.gbapal"
+gPalette_75::
+	.incbin "palettes/gPalette_75.gbapal"
+gPalette_76::
+	.incbin "palettes/gPalette_76.gbapal"
+gPalette_77::
+	.incbin "palettes/gPalette_77.gbapal"
+gPalette_78::
+	.incbin "palettes/gPalette_78.gbapal"
+gPalette_79::
+	.incbin "palettes/gPalette_79.gbapal"
+gPalette_80::
+	.incbin "palettes/gPalette_80.gbapal"
+gPalette_81::
+	.incbin "palettes/gPalette_81.gbapal"
+gPalette_82::
+	.incbin "palettes/gPalette_82.gbapal"
+gPalette_83::
+	.incbin "palettes/gPalette_83.gbapal"
+gPalette_84::
+	.incbin "palettes/gPalette_84.gbapal"
+gPalette_85::
+	.incbin "palettes/gPalette_85.gbapal"
+gPalette_86::
+	.incbin "palettes/gPalette_86.gbapal"
+gPalette_87::
+	.incbin "palettes/gPalette_87.gbapal"
+gPalette_88::
+	.incbin "palettes/gPalette_88.gbapal"
+gPalette_89::
+	.incbin "palettes/gPalette_89.gbapal"
+gPalette_90::
+	.incbin "palettes/gPalette_90.gbapal"
+gPalette_91::
+	.incbin "palettes/gPalette_91.gbapal"
+gPalette_92::
+	.incbin "palettes/gPalette_92.gbapal"
+gPalette_93::
+	.incbin "palettes/gPalette_93.gbapal"
+gPalette_94::
+	.incbin "palettes/gPalette_94.gbapal"
+gPalette_95::
+	.incbin "palettes/gPalette_95.gbapal"
+gPalette_96::
+	.incbin "palettes/gPalette_96.gbapal"
+gPalette_97::
+	.incbin "palettes/gPalette_97.gbapal"
+gPalette_98::
+	.incbin "palettes/gPalette_98.gbapal"
+gPalette_99::
+	.incbin "palettes/gPalette_99.gbapal"
+gPalette_100::
+	.incbin "palettes/gPalette_100.gbapal"
+gPalette_101::
+	.incbin "palettes/gPalette_101.gbapal"
+gPalette_102::
+	.incbin "palettes/gPalette_102.gbapal"
+gPalette_103::
+	.incbin "palettes/gPalette_103.gbapal"
+gPalette_104::
+	.incbin "palettes/gPalette_104.gbapal"
+gPalette_105::
+	.incbin "palettes/gPalette_105.gbapal"
+gPalette_106::
+	.incbin "palettes/gPalette_106.gbapal"
+gPalette_107::
+	.incbin "palettes/gPalette_107.gbapal"
+gPalette_108::
+	.incbin "palettes/gPalette_108.gbapal"
+gPalette_109::
+	.incbin "palettes/gPalette_109.gbapal"
+gPalette_110::
+	.incbin "palettes/gPalette_110.gbapal"
+gPalette_111::
+	.incbin "palettes/gPalette_111.gbapal"
+gPalette_112::
+	.incbin "palettes/gPalette_112.gbapal"
+gPalette_113::
+	.incbin "palettes/gPalette_113.gbapal"
+gPalette_114::
+	.incbin "palettes/gPalette_114.gbapal"
+gPalette_115::
+	.incbin "palettes/gPalette_115.gbapal"
+gPalette_116::
+	.incbin "palettes/gPalette_116.gbapal"
+gPalette_117::
+	.incbin "palettes/gPalette_117.gbapal"
+gPalette_118::
+	.incbin "palettes/gPalette_118.gbapal"
+gPalette_119::
+	.incbin "palettes/gPalette_119.gbapal"
+gPalette_120::
+	.incbin "palettes/gPalette_120.gbapal"
+gPalette_121::
+	.incbin "palettes/gPalette_121.gbapal"
+gPalette_122::
+	.incbin "palettes/gPalette_122.gbapal"
+gPalette_123::
+	.incbin "palettes/gPalette_123.gbapal"
+gPalette_124::
+	.incbin "palettes/gPalette_124.gbapal"
+gPalette_125::
+	.incbin "palettes/gPalette_125.gbapal"
+gPalette_126::
+	.incbin "palettes/gPalette_126.gbapal"
+gPalette_127::
+	.incbin "palettes/gPalette_127.gbapal"
+gPalette_128::
+	.incbin "palettes/gPalette_128.gbapal"
+gPalette_129::
+	.incbin "palettes/gPalette_129.gbapal"
+gPalette_130::
+	.incbin "palettes/gPalette_130.gbapal"
+gPalette_131::
+	.incbin "palettes/gPalette_131.gbapal"
+gPalette_132::
+	.incbin "palettes/gPalette_132.gbapal"
+gPalette_133::
+	.incbin "palettes/gPalette_133.gbapal"
+gPalette_134::
+	.incbin "palettes/gPalette_134.gbapal"
+gPalette_135::
+	.incbin "palettes/gPalette_135.gbapal"
+gPalette_136::
+	.incbin "palettes/gPalette_136.gbapal"
+gPalette_137::
+	.incbin "palettes/gPalette_137.gbapal"
+gPalette_138::
+	.incbin "palettes/gPalette_138.gbapal"
+gPalette_139::
+	.incbin "palettes/gPalette_139.gbapal"
+gPalette_140::
+	.incbin "palettes/gPalette_140.gbapal"
+gPalette_141::
+	.incbin "palettes/gPalette_141.gbapal"
+gPalette_142::
+	.incbin "palettes/gPalette_142.gbapal"
+gPalette_143::
+	.incbin "palettes/gPalette_143.gbapal"
+gPalette_144::
+	.incbin "palettes/gPalette_144.gbapal"
+gPalette_145::
+	.incbin "palettes/gPalette_145.gbapal"
+gPalette_146::
+	.incbin "palettes/gPalette_146.gbapal"
+gPalette_147::
+	.incbin "palettes/gPalette_147.gbapal"
+gPalette_148::
+	.incbin "palettes/gPalette_148.gbapal"
+gPalette_149::
+	.incbin "palettes/gPalette_149.gbapal"
+gPalette_150::
+	.incbin "palettes/gPalette_150.gbapal"
+gPalette_151::
+	.incbin "palettes/gPalette_151.gbapal"
+gPalette_152::
+	.incbin "palettes/gPalette_152.gbapal"
+gPalette_153::
+	.incbin "palettes/gPalette_153.gbapal"
+gPalette_154::
+	.incbin "palettes/gPalette_154.gbapal"
+gPalette_155::
+	.incbin "palettes/gPalette_155.gbapal"
+gPalette_156::
+	.incbin "palettes/gPalette_156.gbapal"
 gPalette_157::
 	.incbin "palettes/gPalette_157.gbapal"
 gPalette_158::
@@ -51,8 +335,378 @@ gPalette_163::
 	.incbin "palettes/gPalette_163.gbapal"
 gPalette_164::
 	.incbin "palettes/gPalette_164.gbapal"
-gfx_unknown_2::
-	.incbin "assets/gfx_unknown_2.bin"
+gPalette_165::
+	.incbin "palettes/gPalette_165.gbapal"
+gPalette_166::
+	.incbin "palettes/gPalette_166.gbapal"
+gPalette_167::
+	.incbin "palettes/gPalette_167.gbapal"
+gPalette_168::
+	.incbin "palettes/gPalette_168.gbapal"
+gPalette_169::
+	.incbin "palettes/gPalette_169.gbapal"
+gPalette_170::
+	.incbin "palettes/gPalette_170.gbapal"
+gPalette_171::
+	.incbin "palettes/gPalette_171.gbapal"
+gPalette_172::
+	.incbin "palettes/gPalette_172.gbapal"
+gPalette_173::
+	.incbin "palettes/gPalette_173.gbapal"
+gPalette_174::
+	.incbin "palettes/gPalette_174.gbapal"
+gPalette_175::
+	.incbin "palettes/gPalette_175.gbapal"
+gPalette_176::
+	.incbin "palettes/gPalette_176.gbapal"
+gPalette_177::
+	.incbin "palettes/gPalette_177.gbapal"
+gPalette_178::
+	.incbin "palettes/gPalette_178.gbapal"
+gPalette_179::
+	.incbin "palettes/gPalette_179.gbapal"
+gPalette_180::
+	.incbin "palettes/gPalette_180.gbapal"
+gPalette_181::
+	.incbin "palettes/gPalette_181.gbapal"
+gPalette_182::
+	.incbin "palettes/gPalette_182.gbapal"
+gPalette_183::
+	.incbin "palettes/gPalette_183.gbapal"
+gPalette_184::
+	.incbin "palettes/gPalette_184.gbapal"
+gPalette_185::
+	.incbin "palettes/gPalette_185.gbapal"
+gPalette_186::
+	.incbin "palettes/gPalette_186.gbapal"
+gPalette_187::
+	.incbin "palettes/gPalette_187.gbapal"
+gPalette_188::
+	.incbin "palettes/gPalette_188.gbapal"
+gPalette_189::
+	.incbin "palettes/gPalette_189.gbapal"
+gPalette_190::
+	.incbin "palettes/gPalette_190.gbapal"
+gPalette_191::
+	.incbin "palettes/gPalette_191.gbapal"
+gPalette_192::
+	.incbin "palettes/gPalette_192.gbapal"
+gPalette_193::
+	.incbin "palettes/gPalette_193.gbapal"
+gPalette_194::
+	.incbin "palettes/gPalette_194.gbapal"
+gPalette_195::
+	.incbin "palettes/gPalette_195.gbapal"
+gPalette_196::
+	.incbin "palettes/gPalette_196.gbapal"
+gPalette_197::
+	.incbin "palettes/gPalette_197.gbapal"
+gPalette_198::
+	.incbin "palettes/gPalette_198.gbapal"
+gPalette_199::
+	.incbin "palettes/gPalette_199.gbapal"
+gPalette_200::
+	.incbin "palettes/gPalette_200.gbapal"
+gPalette_201::
+	.incbin "palettes/gPalette_201.gbapal"
+gPalette_202::
+	.incbin "palettes/gPalette_202.gbapal"
+gPalette_203::
+	.incbin "palettes/gPalette_203.gbapal"
+gPalette_204::
+	.incbin "palettes/gPalette_204.gbapal"
+gPalette_205::
+	.incbin "palettes/gPalette_205.gbapal"
+gPalette_206::
+	.incbin "palettes/gPalette_206.gbapal"
+gPalette_207::
+	.incbin "palettes/gPalette_207.gbapal"
+gPalette_208::
+	.incbin "palettes/gPalette_208.gbapal"
+gPalette_209::
+	.incbin "palettes/gPalette_209.gbapal"
+gPalette_210::
+	.incbin "palettes/gPalette_210.gbapal"
+gPalette_211::
+	.incbin "palettes/gPalette_211.gbapal"
+gPalette_212::
+	.incbin "palettes/gPalette_212.gbapal"
+gPalette_213::
+	.incbin "palettes/gPalette_213.gbapal"
+gPalette_214::
+	.incbin "palettes/gPalette_214.gbapal"
+gPalette_215::
+	.incbin "palettes/gPalette_215.gbapal"
+gPalette_216::
+	.incbin "palettes/gPalette_216.gbapal"
+gPalette_217::
+	.incbin "palettes/gPalette_217.gbapal"
+gPalette_218::
+	.incbin "palettes/gPalette_218.gbapal"
+gPalette_219::
+	.incbin "palettes/gPalette_219.gbapal"
+gPalette_220::
+	.incbin "palettes/gPalette_220.gbapal"
+gPalette_221::
+	.incbin "palettes/gPalette_221.gbapal"
+gPalette_222::
+	.incbin "palettes/gPalette_222.gbapal"
+gPalette_223::
+	.incbin "palettes/gPalette_223.gbapal"
+gPalette_224::
+	.incbin "palettes/gPalette_224.gbapal"
+gPalette_225::
+	.incbin "palettes/gPalette_225.gbapal"
+gPalette_226::
+	.incbin "palettes/gPalette_226.gbapal"
+gPalette_227::
+	.incbin "palettes/gPalette_227.gbapal"
+gPalette_228::
+	.incbin "palettes/gPalette_228.gbapal"
+gPalette_229::
+	.incbin "palettes/gPalette_229.gbapal"
+gPalette_230::
+	.incbin "palettes/gPalette_230.gbapal"
+gPalette_231::
+	.incbin "palettes/gPalette_231.gbapal"
+gPalette_232::
+	.incbin "palettes/gPalette_232.gbapal"
+gPalette_233::
+	.incbin "palettes/gPalette_233.gbapal"
+gPalette_234::
+	.incbin "palettes/gPalette_234.gbapal"
+gPalette_235::
+	.incbin "palettes/gPalette_235.gbapal"
+gPalette_236::
+	.incbin "palettes/gPalette_236.gbapal"
+gPalette_237::
+	.incbin "palettes/gPalette_237.gbapal"
+gPalette_238::
+	.incbin "palettes/gPalette_238.gbapal"
+gPalette_239::
+	.incbin "palettes/gPalette_239.gbapal"
+gPalette_240::
+	.incbin "palettes/gPalette_240.gbapal"
+gPalette_241::
+	.incbin "palettes/gPalette_241.gbapal"
+gPalette_242::
+	.incbin "palettes/gPalette_242.gbapal"
+gPalette_243::
+	.incbin "palettes/gPalette_243.gbapal"
+gPalette_244::
+	.incbin "palettes/gPalette_244.gbapal"
+gPalette_245::
+	.incbin "palettes/gPalette_245.gbapal"
+gPalette_246::
+	.incbin "palettes/gPalette_246.gbapal"
+gPalette_247::
+	.incbin "palettes/gPalette_247.gbapal"
+gPalette_248::
+	.incbin "palettes/gPalette_248.gbapal"
+gPalette_249::
+	.incbin "palettes/gPalette_249.gbapal"
+gPalette_250::
+	.incbin "palettes/gPalette_250.gbapal"
+gPalette_251::
+	.incbin "palettes/gPalette_251.gbapal"
+gPalette_252::
+	.incbin "palettes/gPalette_252.gbapal"
+gPalette_253::
+	.incbin "palettes/gPalette_253.gbapal"
+gPalette_254::
+	.incbin "palettes/gPalette_254.gbapal"
+gPalette_255::
+	.incbin "palettes/gPalette_255.gbapal"
+gPalette_256::
+	.incbin "palettes/gPalette_256.gbapal"
+gPalette_257::
+	.incbin "palettes/gPalette_257.gbapal"
+gPalette_258::
+	.incbin "palettes/gPalette_258.gbapal"
+gPalette_259::
+	.incbin "palettes/gPalette_259.gbapal"
+gPalette_260::
+	.incbin "palettes/gPalette_260.gbapal"
+gPalette_261::
+	.incbin "palettes/gPalette_261.gbapal"
+gPalette_262::
+	.incbin "palettes/gPalette_262.gbapal"
+gPalette_263::
+	.incbin "palettes/gPalette_263.gbapal"
+gPalette_264::
+	.incbin "palettes/gPalette_264.gbapal"
+gPalette_265::
+	.incbin "palettes/gPalette_265.gbapal"
+gPalette_266::
+	.incbin "palettes/gPalette_266.gbapal"
+gPalette_267::
+	.incbin "palettes/gPalette_267.gbapal"
+gPalette_268::
+	.incbin "palettes/gPalette_268.gbapal"
+gPalette_269::
+	.incbin "palettes/gPalette_269.gbapal"
+gPalette_270::
+	.incbin "palettes/gPalette_270.gbapal"
+gPalette_271::
+	.incbin "palettes/gPalette_271.gbapal"
+gPalette_272::
+	.incbin "palettes/gPalette_272.gbapal"
+gPalette_273::
+	.incbin "palettes/gPalette_273.gbapal"
+gPalette_274::
+	.incbin "palettes/gPalette_274.gbapal"
+gPalette_275::
+	.incbin "palettes/gPalette_275.gbapal"
+gPalette_276::
+	.incbin "palettes/gPalette_276.gbapal"
+gPalette_277::
+	.incbin "palettes/gPalette_277.gbapal"
+gPalette_278::
+	.incbin "palettes/gPalette_278.gbapal"
+gPalette_279::
+	.incbin "palettes/gPalette_279.gbapal"
+gPalette_280::
+	.incbin "palettes/gPalette_280.gbapal"
+gPalette_281::
+	.incbin "palettes/gPalette_281.gbapal"
+gPalette_282::
+	.incbin "palettes/gPalette_282.gbapal"
+gPalette_283::
+	.incbin "palettes/gPalette_283.gbapal"
+gPalette_284::
+	.incbin "palettes/gPalette_284.gbapal"
+gPalette_285::
+	.incbin "palettes/gPalette_285.gbapal"
+gPalette_286::
+	.incbin "palettes/gPalette_286.gbapal"
+gPalette_287::
+	.incbin "palettes/gPalette_287.gbapal"
+gPalette_288::
+	.incbin "palettes/gPalette_288.gbapal"
+gPalette_289::
+	.incbin "palettes/gPalette_289.gbapal"
+gPalette_290::
+	.incbin "palettes/gPalette_290.gbapal"
+gPalette_291::
+	.incbin "palettes/gPalette_291.gbapal"
+gPalette_292::
+	.incbin "palettes/gPalette_292.gbapal"
+gPalette_293::
+	.incbin "palettes/gPalette_293.gbapal"
+gPalette_294::
+	.incbin "palettes/gPalette_294.gbapal"
+gPalette_295::
+	.incbin "palettes/gPalette_295.gbapal"
+gPalette_296::
+	.incbin "palettes/gPalette_296.gbapal"
+gPalette_297::
+	.incbin "palettes/gPalette_297.gbapal"
+gPalette_298::
+	.incbin "palettes/gPalette_298.gbapal"
+gPalette_299::
+	.incbin "palettes/gPalette_299.gbapal"
+gPalette_300::
+	.incbin "palettes/gPalette_300.gbapal"
+gPalette_301::
+	.incbin "palettes/gPalette_301.gbapal"
+gPalette_302::
+	.incbin "palettes/gPalette_302.gbapal"
+gPalette_303::
+	.incbin "palettes/gPalette_303.gbapal"
+gPalette_304::
+	.incbin "palettes/gPalette_304.gbapal"
+gPalette_305::
+	.incbin "palettes/gPalette_305.gbapal"
+gPalette_306::
+	.incbin "palettes/gPalette_306.gbapal"
+gPalette_307::
+	.incbin "palettes/gPalette_307.gbapal"
+gPalette_308::
+	.incbin "palettes/gPalette_308.gbapal"
+gPalette_309::
+	.incbin "palettes/gPalette_309.gbapal"
+gPalette_310::
+	.incbin "palettes/gPalette_310.gbapal"
+gPalette_311::
+	.incbin "palettes/gPalette_311.gbapal"
+gPalette_312::
+	.incbin "palettes/gPalette_312.gbapal"
+gPalette_313::
+	.incbin "palettes/gPalette_313.gbapal"
+gPalette_314::
+	.incbin "palettes/gPalette_314.gbapal"
+gPalette_315::
+	.incbin "palettes/gPalette_315.gbapal"
+gPalette_316::
+	.incbin "palettes/gPalette_316.gbapal"
+gPalette_317::
+	.incbin "palettes/gPalette_317.gbapal"
+gPalette_318::
+	.incbin "palettes/gPalette_318.gbapal"
+gPalette_319::
+	.incbin "palettes/gPalette_319.gbapal"
+gPalette_320::
+	.incbin "palettes/gPalette_320.gbapal"
+gPalette_321::
+	.incbin "palettes/gPalette_321.gbapal"
+gPalette_322::
+	.incbin "palettes/gPalette_322.gbapal"
+gfx_unknown_0::
+	.incbin "assets/gfx_unknown_0.bin"
+gPalette_327::
+	.incbin "palettes/gPalette_327.gbapal"
+gPalette_328::
+	.incbin "palettes/gPalette_328.gbapal"
+gPalette_329::
+	.incbin "palettes/gPalette_329.gbapal"
+gPalette_330::
+	.incbin "palettes/gPalette_330.gbapal"
+gPalette_331::
+	.incbin "palettes/gPalette_331.gbapal"
+gPalette_332::
+	.incbin "palettes/gPalette_332.gbapal"
+gPalette_333::
+	.incbin "palettes/gPalette_333.gbapal"
+gPalette_334::
+	.incbin "palettes/gPalette_334.gbapal"
+gPalette_335::
+	.incbin "palettes/gPalette_335.gbapal"
+gPalette_336::
+	.incbin "palettes/gPalette_336.gbapal"
+gPalette_337::
+	.incbin "palettes/gPalette_337.gbapal"
+gPalette_338::
+	.incbin "palettes/gPalette_338.gbapal"
+gPalette_339::
+	.incbin "palettes/gPalette_339.gbapal"
+gPalette_340::
+	.incbin "palettes/gPalette_340.gbapal"
+gPalette_341::
+	.incbin "palettes/gPalette_341.gbapal"
+gPalette_342::
+	.incbin "palettes/gPalette_342.gbapal"
+gPalette_343::
+	.incbin "palettes/gPalette_343.gbapal"
+gPalette_344::
+	.incbin "palettes/gPalette_344.gbapal"
+gPalette_345::
+	.incbin "palettes/gPalette_345.gbapal"
+gPalette_346::
+	.incbin "palettes/gPalette_346.gbapal"
+gPalette_347::
+	.incbin "palettes/gPalette_347.gbapal"
+gPalette_348::
+	.incbin "palettes/gPalette_348.gbapal"
+gPalette_349::
+	.incbin "palettes/gPalette_349.gbapal"
+gPalette_350::
+	.incbin "palettes/gPalette_350.gbapal"
+gPalette_351::
+	.incbin "palettes/gPalette_351.gbapal"
+gPalette_352::
+	.incbin "palettes/gPalette_352.gbapal"
+gPalette_353::
+	.incbin "palettes/gPalette_353.gbapal"
 gPalette_354::
 	.incbin "palettes/gPalette_354.gbapal"
 gPalette_355::
@@ -651,8 +1305,8 @@ gPalette_651::
 	.incbin "palettes/gPalette_651.gbapal"
 gPalette_652::
 	.incbin "palettes/gPalette_652.gbapal"
-gfx_unknown_3::
-	.incbin "assets/gfx_unknown_3.bin"
+gfx_unknown_1::
+	.incbin "assets/gfx_unknown_1.bin"
 gPalette_666::
 	.incbin "palettes/gPalette_666.gbapal"
 gPalette_667::
@@ -679,8 +1333,10 @@ gPalette_677::
 	.incbin "palettes/gPalette_677.gbapal"
 gPalette_678::
 	.incbin "palettes/gPalette_678.gbapal"
-gfx_unknown_4::
-	.incbin "assets/gfx_unknown_4.bin"
+gPalette_679::
+	.incbin "palettes/gPalette_679.gbapal"
+gPalette_680::
+	.incbin "palettes/gPalette_680.gbapal"
 bgAnim_57_0::
 	.incbin "palettes/bgAnim_57_0.gbapal"
 bgAnim_57_1::
@@ -1835,8 +2491,8 @@ gPalette_1259::
 	.incbin "palettes/gPalette_1259.gbapal"
 gPalette_1260::
 	.incbin "palettes/gPalette_1260.gbapal"
-gfx_unknown_5::
-	.incbin "assets/gfx_unknown_5.bin"
+gPalette_1261::
+	.incbin "palettes/gPalette_1261.gbapal"
 gPalette_1262::
 	.incbin "palettes/gPalette_1262.gbapal"
 gPalette_1263::
@@ -3105,8 +3761,8 @@ gPalette_1894::
 	.incbin "palettes/gPalette_1894.gbapal"
 gPalette_1895::
 	.incbin "palettes/gPalette_1895.gbapal"
-gfx_unknown_6::
-	.incbin "assets/gfx_unknown_6.bin"
+gfx_unknown_2::
+	.incbin "assets/gfx_unknown_2.bin"
 gPalette_1908::
 	.incbin "palettes/gPalette_1908.gbapal"
 gPalette_1909::
@@ -3571,8 +4227,12 @@ gPalette_2138::
 	.incbin "palettes/gPalette_2138.gbapal"
 gPalette_2139::
 	.incbin "palettes/gPalette_2139.gbapal"
-gfx_unknown_7::
-	.incbin "assets/gfx_unknown_7.bin"
+gPalette_2140::
+	.incbin "palettes/gPalette_2140.gbapal"
+gPalette_2141::
+	.incbin "palettes/gPalette_2141.gbapal"
+gPalette_2142::
+	.incbin "palettes/gPalette_2142.gbapal"
 gPalette_2143::
 	.incbin "palettes/gPalette_2143.gbapal"
 gPalette_2144::
@@ -3605,8 +4265,12 @@ gPalette_2157::
 	.incbin "palettes/gPalette_2157.gbapal"
 gPalette_2158::
 	.incbin "palettes/gPalette_2158.gbapal"
-gfx_unknown_8::
-	.incbin "assets/gfx_unknown_8.bin"
+gPalette_2159::
+	.incbin "palettes/gPalette_2159.gbapal"
+gPalette_2160::
+	.incbin "palettes/gPalette_2160.gbapal"
+gPalette_2161::
+	.incbin "palettes/gPalette_2161.gbapal"
 gPalette_2162::
 	.incbin "palettes/gPalette_2162.gbapal"
 gPalette_2163::
@@ -3639,8 +4303,12 @@ gPalette_2176::
 	.incbin "palettes/gPalette_2176.gbapal"
 gPalette_2177::
 	.incbin "palettes/gPalette_2177.gbapal"
-gfx_unknown_9::
-	.incbin "assets/gfx_unknown_9.bin"
+gPalette_2178::
+	.incbin "palettes/gPalette_2178.gbapal"
+gPalette_2179::
+	.incbin "palettes/gPalette_2179.gbapal"
+gPalette_2180::
+	.incbin "palettes/gPalette_2180.gbapal"
 gPalette_2181::
 	.incbin "palettes/gPalette_2181.gbapal"
 gPalette_2182::
@@ -3673,8 +4341,12 @@ gPalette_2195::
 	.incbin "palettes/gPalette_2195.gbapal"
 gPalette_2196::
 	.incbin "palettes/gPalette_2196.gbapal"
-gfx_unknown_10::
-	.incbin "assets/gfx_unknown_10.bin"
+gPalette_2197::
+	.incbin "palettes/gPalette_2197.gbapal"
+gPalette_2198::
+	.incbin "palettes/gPalette_2198.gbapal"
+gPalette_2199::
+	.incbin "palettes/gPalette_2199.gbapal"
 gUnk_085B4180::
 	.incbin "assets/gUnk_085B4180.bin"
 gPalette_2204::
@@ -3693,8 +4365,12 @@ gPalette_2210::
 	.incbin "palettes/gPalette_2210.gbapal"
 gPalette_2211::
 	.incbin "palettes/gPalette_2211.gbapal"
-gfx_unknown_11::
-	.incbin "assets/gfx_unknown_11.bin"
+gPalette_2212::
+	.incbin "palettes/gPalette_2212.gbapal"
+gPalette_2213::
+	.incbin "palettes/gPalette_2213.gbapal"
+gPalette_2214::
+	.incbin "palettes/gPalette_2214.gbapal"
 gPalette_2215::
 	.incbin "palettes/gPalette_2215.gbapal"
 gPalette_2216::
@@ -3783,8 +4459,12 @@ gPalette_2257::
 	.incbin "palettes/gPalette_2257.gbapal"
 gPalette_2258::
 	.incbin "palettes/gPalette_2258.gbapal"
-gfx_unknown_12::
-	.incbin "assets/gfx_unknown_12.bin"
+gPalette_2259::
+	.incbin "palettes/gPalette_2259.gbapal"
+gPalette_2260::
+	.incbin "palettes/gPalette_2260.gbapal"
+gfx_unknown_3::
+	.incbin "assets/gfx_unknown_3.bin"
 gPalette_2293::
 	.incbin "palettes/gPalette_2293.gbapal"
 gPalette_2294::
@@ -4349,8 +5029,8 @@ gPalette_3390::
 	.incbin "palettes/gPalette_3390.gbapal"
 gPalette_3391::
 	.incbin "palettes/gPalette_3391.gbapal"
-gfx_unknown_13::
-	.incbin "assets/gfx_unknown_13.bin"
+gfx_unknown_4::
+	.incbin "assets/gfx_unknown_4.bin"
 gPalette_3396::
 	.incbin "palettes/gPalette_3396.gbapal"
 gPalette_3397::
@@ -4419,8 +5099,20 @@ gPalette_3428::
 	.incbin "palettes/gPalette_3428.gbapal"
 gPalette_3429::
 	.incbin "palettes/gPalette_3429.gbapal"
-gfx_unknown_14::
-	.incbin "assets/gfx_unknown_14.bin"
+gPalette_3430::
+	.incbin "palettes/gPalette_3430.gbapal"
+gPalette_3431::
+	.incbin "palettes/gPalette_3431.gbapal"
+gPalette_3432::
+	.incbin "palettes/gPalette_3432.gbapal"
+gPalette_3433::
+	.incbin "palettes/gPalette_3433.gbapal"
+gPalette_3434::
+	.incbin "palettes/gPalette_3434.gbapal"
+gPalette_3435::
+	.incbin "palettes/gPalette_3435.gbapal"
+gPalette_3436::
+	.incbin "palettes/gPalette_3436.gbapal"
 gPalette_3437::
 	.incbin "palettes/gPalette_3437.gbapal"
 gPalette_3438::
@@ -5037,8 +5729,10 @@ bgAnim_79_14::
 	.incbin "palettes/bgAnim_79_14.gbapal"
 bgAnim_79_15::
 	.incbin "palettes/bgAnim_79_15.gbapal"
-gfx_unknown_15::
-	.incbin "assets/gfx_unknown_15.bin"
+gPalette_3773::
+	.incbin "palettes/gPalette_3773.gbapal"
+gPalette_3774::
+	.incbin "palettes/gPalette_3774.gbapal"
 gGfx_89_3::
 	.incbin "gfx/gGfx_89_3.4bpp"
 gGfx_24_0::
@@ -6081,8 +6775,8 @@ fixedTypeGfx_243::
 	.incbin "gfx/fixedTypeGfx_243.4bpp"
 fixedTypeGfx_398::
 	.incbin "gfx/fixedTypeGfx_398.4bpp"
-gfx_unknown_16::
-	.incbin "assets/gfx_unknown_16.bin"
+gfx_unknown_5::
+	.incbin "assets/gfx_unknown_5.bin"
 fixedTypeGfx_496::
 	.incbin "gfx/fixedTypeGfx_496.4bpp"
 fixedTypeGfx_456::
@@ -6948,8 +7642,8 @@ gGfx_21_0::
 	.incbin "gfx/gGfx_21_0.4bpp"
 gGfx_48_0::
 	.incbin "gfx/gGfx_48_0.4bpp"
-gfx_unknown_17::
-	.incbin "assets/gfx_unknown_17.bin"
+gfx_unknown_6::
+	.incbin "assets/gfx_unknown_6.bin"
 gGfx_47_0::
 	.incbin "gfx/gGfx_47_0.4bpp"
 gGfx_49_0::
@@ -6968,8 +7662,8 @@ gGfx_76_0::
 	.incbin "gfx/gGfx_76_0.4bpp"
 gGfx_77_0::
 	.incbin "gfx/gGfx_77_0.4bpp"
-gfx_unknown_18::
-	.incbin "assets/gfx_unknown_18.bin"
+gfx_unknown_7::
+	.incbin "assets/gfx_unknown_7.bin"
 gGfx_78_0::
 	.incbin "gfx/gGfx_78_0.4bpp"
 gGfx_54_0::
@@ -7346,12 +8040,12 @@ gGfx_2_4::
 	.incbin "gfx/gGfx_2_4.4bpp"
 fixedTypeGfx_511::
 	.incbin "gfx/fixedTypeGfx_511.4bpp"
-gfx_unknown_19::
-	.incbin "assets/gfx_unknown_19.bin"
+gfx_unknown_8::
+	.incbin "assets/gfx_unknown_8.bin"
 fixedTypeGfx_512::
 	.incbin "gfx/fixedTypeGfx_512.4bpp"
-gfx_unknown_20::
-	.incbin "assets/gfx_unknown_20.bin"
+gfx_unknown_9::
+	.incbin "assets/gfx_unknown_9.bin"
 fixedTypeGfx_513::
 	.incbin "gfx/fixedTypeGfx_513.4bpp"
 fixedTypeGfx_514::
@@ -7435,8 +8129,8 @@ gGfx_10_0::
 .ifndef EU
 gGfx_11_1::
 	.incbin "gfx/gGfx_11_1.4bpp"
-gfx_unknown_21::
-	.incbin "assets/gfx_unknown_21.bin"
+gfx_unknown_10::
+	.incbin "assets/gfx_unknown_10.bin"
 .endif
 gGfx_88_0::
 	.incbin "gfx/gGfx_88_0.4bpp"
@@ -7564,8 +8258,8 @@ gGfx_92_0::
 	.incbin "gfx/gGfx_92_0.4bpp"
 gGfx_92_2::
 	.incbin "gfx/gGfx_92_2.4bpp"
-gfx_unknown_22::
-	.incbin "assets/gfx_unknown_22.bin"
+gfx_unknown_11::
+	.incbin "assets/gfx_unknown_11.bin"
 gGfx_92_4::
 	.incbin "gfx/gGfx_92_4.4bpp"
 gGfx_92_1::
@@ -7610,8 +8304,8 @@ gGfx_96_1::
 	.incbin "gfx/gGfx_96_1.4bpp"
 gGfx_102_1::
 	.incbin "gfx/gGfx_102_1.4bpp"
-gfx_unknown_23::
-	.incbin "assets/gfx_unknown_23.bin"
+gfx_unknown_12::
+	.incbin "assets/gfx_unknown_12.bin"
 gGfx_105_1::
 	.incbin "gfx/gGfx_105_1.4bpp"
 gGfx_113_1::
@@ -7737,5 +8431,5 @@ gGfx_132_0::
 	.align 2
 fixedTypeGfx_214::
 	.incbin "gfx/fixedTypeGfx_214.4bpp.lz"
-gfx_unknown_24::
-	.incbin "assets/gfx_unknown_24.bin"
+gfx_unknown_13::
+	.incbin "assets/gfx_unknown_13.bin"

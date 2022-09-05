@@ -39,7 +39,7 @@ typedef struct {
     /*0x003*/ u8 brightness;  /**< Brightness. */
     /*0x004*/ u8 filler4[0x2];
     /*0x006*/ u8 saw_staffroll;
-    /*0x007*/ u8 unk7;
+    /*0x007*/ u8 unk7;            // TODO rolling barrel state?
     /*0x008*/ u8 global_progress; /**< @see UpdateGlobalProgress */
     /*0x009*/ u8 field_0x9[0x17];
     /*0x020*/ u16 field_0x20;
@@ -55,19 +55,19 @@ typedef struct {
     /*0x088*/ PlayerRoomStatus saved_status; /**< Player room status. */
     /*0x0A8*/ Stats stats;                   /**< Player stats. */
     /*0x0D0*/ u8 fillerD0[34];
-    u8 inventory[36];
+    /*0x0F2*/ u8 inventory[36];
     /*0x116*/ u8 didAllFusions;
-    /*0x117*/ u8 unk117;
-    /*0x118*/ u8 unk118[0x13];
-    /*0x12B*/ u8 unk12B[0x16];
-    /*0x141*/ u8 unk141[128];
-    /*0x1C1*/ u8 unk1C1[128];
-    /*0x241*/ u8 unk241[13];
-    /*0x24E*/ u8 unk24E[14];
-    /*0x25C*/ u8 flags[0x200]; /**< Flags. */
-    /*0x45C*/ u8 unk45C[0x10];
-    /*0x46C*/ u8 unk46C[0x10];
-    /*0x46C*/ u8 unk47C[0x10];
+    /*0x117*/ u8 fusedKinstoneCount;
+    /*0x118*/ u8 unk118[0x13]; // TODO also related to kinstones
+    /*0x12B*/ u8 unk12B[0x16]; // TODO also related to kinstones
+    /*0x141*/ u8 unk141[128];  // TODO sub_08064F28 and also the goddesses, indexed by sub_08002632
+    /*0x1C1*/ u8 unk1C1[128];  //  TODO also related to kinstones, see sub_0801E6C8 0x80 available kinstone fusions?
+    /*0x241*/ u8 fusedKinstones[13]; /**< Bitfield for fused kinstones. @see CheckKinstoneFused */
+    /*0x24E*/ u8 unk24E[14];         // TODO something else with kinstones @see sub_0801E810
+    /*0x25C*/ u8 flags[0x200];       /**< Flags. */
+    /*0x45C*/ u8 dungeonKeys[0x10];  // TODO Indexed by dungeon id, keys per dungeon
+    /*0x46C*/ u8 dungeonItems[0x10]; // TODO items in the dungeon. 4: compass, 2: big key, 1: small key
+    /*0x46C*/ u8 dungeonWarps[0x10]; // TODO indexed by dungeon id, EnableDungeonWarp, IsDungeonWarpActive
     /*0x48C*/ u32 timers[7];
     /*0x4A8*/ u32 demo_timer; /**< Demo timer. */
     /*0x4AC*/ u8 filler4ac[0x8];

@@ -20,7 +20,7 @@ script_080157DA:
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	StartPlayerScript script_PlayerIntroBusinessScrub1
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetEntityPositionRelative 0x0248, 0x0218
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
@@ -50,7 +50,7 @@ script_08015888:
 	JumpIf script_08015888
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
-	_0807F0B4 0x0002
+	SetScrollSpeed 2
 	SetEntityPositionRelative 0x0248, 0x0208
 	CameraTargetEntity
 	StartPlayerScript script_PlayerIntroBusinessScrub3
@@ -68,7 +68,7 @@ script_08015888:
 	Call sub_08066FB8
 	Call EnablePauseMenu
 	EnablePlayerControl
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	DoPostScriptAction 0x0006
 SCRIPT_END

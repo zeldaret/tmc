@@ -89,7 +89,7 @@ void sub_08067100(Entity* this) {
 
 void Mutoh_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_08110C00) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08110C00)) {
             this->action++;
             this->spriteSettings.draw = TRUE;
             InitializeAnimation(this, 2);

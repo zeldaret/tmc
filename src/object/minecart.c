@@ -134,7 +134,7 @@ void Minecart_Action3(MinecartEntity* this) {
     u32 iVar2;
     u32 uVar3;
 
-    gRoomControls.unk5 = 7;
+    gRoomControls.scrollSpeed = 7;
     if ((gPlayerState.flags & PL_IN_MINECART) == 0) {
         super->action = 1;
         return;

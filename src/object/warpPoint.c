@@ -10,8 +10,8 @@
 #include "hitbox.h"
 #include "object.h"
 
-extern void sub_0807CAC8(u32);
-extern u32 sub_0807CAEC(u32);
+extern void EnableDungeonWarp(u32);
+extern u32 IsDungeonWarpActive(u32);
 
 void WarpPoint_Init(Entity*);
 void WarpPoint_Action1(Entity*);
@@ -50,7 +50,7 @@ void WarpPoint_Init(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
     } else {
-        if (AreaIsDungeon() && sub_0807CAEC(this->type)) {
+        if (AreaIsDungeon() && IsDungeonWarpActive(this->type)) {
             sub_0808B830(this);
         }
     }
@@ -69,7 +69,7 @@ void WarpPoint_Action1(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
         if (AreaIsDungeon()) {
-            sub_0807CAC8(this->type);
+            EnableDungeonWarp(this->type);
         }
         this->action = 2;
         this->subtimer = 60;

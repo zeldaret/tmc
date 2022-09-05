@@ -35,7 +35,7 @@ void sub_0801CFD0(u32 index) {
     p->_0_0 = 4;
     p->_0_4 = 1;
     p->_1 = 0x80;
-    p->_2 = 0xFFFF;
+    p->objPaletteId = 0xffff;
 }
 
 void sub_0801D000(u32 a1) {
@@ -56,58 +56,58 @@ void sub_0801D000(u32 a1) {
             gUnk_02001A3C._0_0 = 0;
             gUnk_02001A3C._0_4 = 0;
             gUnk_02001A3C._1 = 0;
-            gUnk_02001A3C._2 = 0;
+            gUnk_02001A3C.objPaletteId = 0;
         }
     }
 }
 
-u32 LoadObjPalette(Entity* entity, u32 a2) {
-    Palette* puVar1;
-    int iVar2;
+u32 LoadObjPalette(Entity* entity, u32 objPaletteId) {
+    Palette* palette;
+    s32 slot;
     u32 uVar3;
     u32 uVar4;
 
-    iVar2 = FindPalette(a2);
-    if (iVar2 < 0) {
-        if (a2 < 0x16) {
+    slot = FindPalette(objPaletteId);
+    if (slot < 0) {
+        if (objPaletteId < 0x16) {
             uVar3 = 1;
         } else {
-            uVar3 = gUnk_08133368[(a2 - 0x16)].BYTES.byte3;
+            uVar3 = gUnk_08133368[(objPaletteId - 0x16)].BYTES.byte3;
             uVar3 &= 0xf;
         }
-        iVar2 = FindFreeObjPalette(uVar3);
-        if (iVar2 < 0) {
+        slot = FindFreeObjPalette(uVar3);
+        if (slot < 0) {
             CleanUpObjPalettes();
-            iVar2 = FindFreeObjPalette(uVar3);
+            slot = FindFreeObjPalette(uVar3);
         }
-        if (iVar2 >= 0) {
-            puVar1 = &gPaletteList[iVar2];
-            puVar1->_2 = a2;
-            puVar1->_1 = 0;
-            puVar1->_0_4 = uVar3;
-            puVar1->_0_0 = 3;
+        if (slot >= 0) {
+            palette = &gPaletteList[slot];
+            palette->objPaletteId = objPaletteId;
+            palette->_1 = 0;
+            palette->_0_4 = uVar3;
+            palette->_0_0 = 3;
             for (uVar3 = uVar3 - 1; uVar3 != 0; uVar3--) {
-                puVar1++;
-                puVar1->_2 = 0;
-                puVar1->_1 = 0;
-                puVar1->_0_4 = uVar3;
-                puVar1->_0_0 = 2;
+                palette++;
+                palette->objPaletteId = 0;
+                palette->_1 = 0;
+                palette->_0_4 = uVar3;
+                palette->_0_0 = 2;
             }
-            LoadObjPaletteAtIndex(a2, iVar2);
+            LoadObjPaletteAtIndex(objPaletteId, slot);
         }
     }
-    SetEntityObjPalette(entity, iVar2);
-    return iVar2;
+    SetEntityObjPalette(entity, slot);
+    return slot;
 }
 
-s32 FindPalette(u32 a1) {
+s32 FindPalette(u32 objPaletteId) {
     u32 index;
     Palette* palette;
-    if (a1 <= 5)
-        return a1;
+    if (objPaletteId <= 5)
+        return objPaletteId;
 
     for (index = 6, palette = gPaletteList; index < ARRAY_COUNT(gPaletteList); index++) {
-        if (a1 == palette[index]._2) {
+        if (objPaletteId == palette[index].objPaletteId) {
             return index;
         }
     }
@@ -115,37 +115,37 @@ s32 FindPalette(u32 a1) {
     return -1;
 }
 
-u32 FindFreeObjPalette(u32 a1) {
-    u32 uVar1;
-    u32 uVar2;
+u32 FindFreeObjPalette(u32 paletteCount) {
+    u32 count;
+    u32 index;
     u32 tmp;
 
-    for (uVar1 = 0, uVar2 = 6; uVar2 < ARRAY_COUNT(gPaletteList); uVar2++) {
-        switch ((gPaletteList[uVar2]._0_0)) {
+    for (count = 0, index = 6; index < ARRAY_COUNT(gPaletteList); index++) {
+        switch ((gPaletteList[index]._0_0)) {
             case 0:
-                uVar1 = uVar1 + 1;
-                if (a1 > uVar1)
+                count = count + 1;
+                if (paletteCount > count)
                     continue;
-                tmp = uVar1 - 1;
-                return uVar2 - tmp;
+                tmp = count - 1;
+                return index - tmp;
             default:
-                uVar1 = 0;
+                count = 0;
                 break;
         }
     }
 
-    for (uVar1 = 0, uVar2 = 6; uVar2 < ARRAY_COUNT(gPaletteList); uVar2++) {
-        switch (gPaletteList[uVar2]._0_0) {
+    for (count = 0, index = 6; index < ARRAY_COUNT(gPaletteList); index++) {
+        switch (gPaletteList[index]._0_0) {
             case 0:
             case 1:
-                uVar1++;
-                if (a1 <= uVar1) {
-                    tmp = uVar1 - 1;
-                    return uVar2 - tmp;
+                count++;
+                if (paletteCount <= count) {
+                    tmp = count - 1;
+                    return index - tmp;
                 }
                 break;
             default:
-                uVar1 = 0;
+                count = 0;
                 break;
         }
     }
@@ -154,7 +154,7 @@ u32 FindFreeObjPalette(u32 a1) {
 
 NONMATCH("asm/non_matching/color/SetEntityObjPalette.inc", void SetEntityObjPalette(Entity* entity, u32 palette)) {
     u32 uVar1;
-    Palette* pPVar1;
+    Palette* pal;
 
     if (palette < 0) {
         palette = 0;
@@ -164,15 +164,15 @@ NONMATCH("asm/non_matching/color/SetEntityObjPalette.inc", void SetEntityObjPale
     }
     entity->palette.b.b0 = palette;
     entity->palette.b.b4 = palette;
-    pPVar1 = &gPaletteList[palette];
-    if ((s8)pPVar1->_0_0 != 4) {
-        pPVar1->_1++;
-        uVar1 = pPVar1->_0_4;
-        pPVar1->_0_0 = 3;
+    pal = &gPaletteList[palette];
+    if ((s8)pal->_0_0 != 4) {
+        pal->_1++;
+        uVar1 = pal->_0_4;
+        pal->_0_0 = 3;
         while (uVar1 = uVar1 - 1, uVar1 != 0) {
-            pPVar1 = pPVar1 + 1;
-            pPVar1->_0_4 = uVar1;
-            pPVar1->_0_0 = 2;
+            pal = pal + 1;
+            pal->_0_4 = uVar1;
+            pal->_0_0 = 2;
         }
     }
 }
@@ -204,7 +204,7 @@ void sub_0801D244(u32 a1) {
     }
 }
 
-void sub_0801D28C(Entity* entity, u32 palette) {
+void sub_0801D28C(Entity* entity, u32 objPaletteId) {
     u32 c = entity->spriteAnimation[1];
     Palette* list = gPaletteList;
     Palette* p = &list[c];
@@ -213,31 +213,31 @@ void sub_0801D28C(Entity* entity, u32 palette) {
     u32 lo = ((u32)((*(u8*)p) << 0x1c)) >> 0x1c;
 
     if (lo == 3) {
-        p->_2 = palette;
-        LoadObjPaletteAtIndex(palette, c);
+        p->objPaletteId = objPaletteId;
+        LoadObjPaletteAtIndex(objPaletteId, c);
     }
 }
 
-void ChangeObjPalette(Entity* entity, u32 a2) {
+void ChangeObjPalette(Entity* entity, u32 objPaletteId) {
     UnloadOBJPalette(entity);
-    LoadObjPalette(entity, a2);
+    LoadObjPalette(entity, objPaletteId);
 }
 
-void LoadObjPaletteAtIndex(u32 a1, u32 a2) {
+void LoadObjPaletteAtIndex(u32 objPaletteId, u32 a2) {
     u16* buffer;
 
     gUsedPalettes |= 1 << (a2 + 0x10);
-    if (5 < a1) {
-        if (a1 == 0x15) {
+    if (objPaletteId > 5) {
+        if (objPaletteId == 0x15) {
             buffer = gPaletteBuffer;
             MemFill16(buffer[0x3C], buffer + (a2 + 0x10) * 0x10, 0x20);
-        } else if (a1 < 0x15) {
-            LoadPalettes((u8*)(gPaletteBuffer + (a1 - 6) * 0x10), a2 + 0x10, 1);
+        } else if (objPaletteId < 0x15) {
+            LoadPalettes((u8*)(gPaletteBuffer + (objPaletteId - 6) * 0x10), a2 + 0x10, 1);
         } else {
-            u32 tmp1 = gUnk_08133368[(a1 - 0x16)].WORD_U;
-            u32 tmp2 = (tmp1 >> 0x18) & 0xf;
-            tmp1 &= 0xffffff;
-            LoadPalettes(gGlobalGfxAndPalettes + tmp1, a2 + 0x10, tmp2);
+            u32 offset = gUnk_08133368[(objPaletteId - 0x16)].WORD_U;
+            u32 numPalettes = (offset >> 0x18) & 0xf;
+            offset &= 0xffffff;
+            LoadPalettes(gGlobalGfxAndPalettes + offset, a2 + 0x10, numPalettes);
         }
     }
 }
@@ -260,7 +260,7 @@ void CleanUpObjPalettes(void) {
                 gPaletteList[index1]._0_0 = 0;
                 gPaletteList[index1]._0_4 = 0;
                 gPaletteList[index1]._1 = 0;
-                gPaletteList[index1]._2 = 0;
+                gPaletteList[index1].objPaletteId = 0;
                 break;
         }
     }
@@ -337,7 +337,7 @@ void sub_0801D48C(u32 a1, u32 a2) {
             pPVar1->_0_0 = 0;
             pPVar1->_0_4 = 0;
             pPVar1->_1 = 0;
-            pPVar1->_2 = 0;
+            pPVar1->objPaletteId = 0;
             MemCopy(iVar3, iVar4, 0x20);
             iVar3 += 0x10;
             pPVar1++;

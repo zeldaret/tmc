@@ -1,8 +1,8 @@
-#include "global.h"
+#include "effects.h"
 #include "entity.h"
 #include "functions.h"
+#include "kinstone.h"
 #include "message.h"
-#include "effects.h"
 #include "npc.h"
 
 void sub_08069310(Entity*);
@@ -158,7 +158,7 @@ void sub_080694EC(Entity* this) {
     u32 anim;
     this->animationState = 4;
     anim = 2;
-    if (!CheckKinstoneFused(47))
+    if (!CheckKinstoneFused(KINSTONE_2F))
         anim = 8;
     InitAnimationForceUpdate(this, anim);
     this->field_0x80.HWORD = anim;

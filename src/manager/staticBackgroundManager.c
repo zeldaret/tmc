@@ -63,14 +63,14 @@ void sub_0805B474(StaticBackgroundManager* this) {
 }
 
 void sub_0805B4B4(StaticBackgroundManager* this) {
-    sub_0805B4D0(super->type);
+    LoadStaticBackground(super->type);
     if (super->type == 2) {
         sub_0806D0F8();
     }
     StaticBackgroundManager_Main(this);
 }
 
-void sub_0805B4D0(u32 param_1) {
+void LoadStaticBackground(u32 param_1) {
     static const u8 gUnk_08108C5C[] = { 0x14, 0x15, 0x14, 0x2f, 0x4b, 0x4e, 0x4d, 0 };
     s32 iVar1;
     u32 uVar2;

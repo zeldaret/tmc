@@ -90,6 +90,7 @@ gSpriteAnimations_Kid:: @ 0810C1E4
 	.4byte gSpriteAnimations_Kid_0
 	.4byte 00000000
 
+@ TODO data of an unused entity?
 gUnk_0810C268:: @ 0810C268
 	.4byte sub_08062AD0
 	.4byte sub_08062AD4

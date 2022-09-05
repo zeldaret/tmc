@@ -39,10 +39,7 @@ void WindTribespeople(Entity* this) {
 }
 
 void sub_0806C798(Entity* this) {
-    s32 iVar1;
-
-    iVar1 = LoadExtraSpriteData(this, gUnk_08113A1C + (this->type * 4));
-    if (iVar1 != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08113A1C + (this->type * 4))) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->animationState = this->timer;
@@ -274,7 +271,7 @@ void sub_0806CA5C(Entity* this, ScriptExecutionContext* context) {
 
 void WindTribespeople_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08113A1C[this->type * 4]) != 0) {
+        if (LoadExtraSpriteData(this, &gUnk_08113A1C[this->type * 4])) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);

@@ -194,19 +194,19 @@ void sub_080A3198(u32 param_1, u32 param_2) {
         { gUnk_0203510E, BG_TILE_ADDR(0x1a0), gTextGfxBuffer, 0, 0x80, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
     };
     static const u16 gUnk_08127CC8[4] = {
-        0x71c,
-        0x720,
-        0x721,
+        TEXT_INDEX(TEXT_WINDCRESTS, 0x1c),
+        TEXT_INDEX(TEXT_WINDCRESTS, 0x20),
+        TEXT_INDEX(TEXT_WINDCRESTS, 0x21),
         0x0,
     };
-    u16 r4 = gUnk_08127CC8[param_1];
+    u16 textIndex = gUnk_08127CC8[param_1];
 
-    if (gChooseFileState.unk_0x12 != r4) {
-        gChooseFileState.unk_0x12 = r4;
+    if (gChooseFileState.unk_0x12 != textIndex) {
+        gChooseFileState.unk_0x12 = textIndex;
         MemClear(gUnk_08127C98[0].dest - 0xf, 0x180);
 
-        if (r4 != 0) {
-            sub_0805F46C(r4, gUnk_08127C98);
+        if (textIndex != 0) {
+            ShowTextBox(textIndex, gUnk_08127C98);
         }
 
         gScreen.bg0.updated = 1;

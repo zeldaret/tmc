@@ -4,32 +4,177 @@
 #include "npc.h"
 #include "item.h"
 
-extern void (*gUnk_08111D88[])(Entity*);
 void sub_08069FE8(Entity*);
-u32 sub_08069EF0(Entity*);
-
-extern u8 gUnk_08111DA8[];
+bool32 sub_08069EF0(Entity*);
 bool32 sub_08069F90(Entity*);
 void sub_08069F6C(Entity*);
 void sub_08069D00(Entity*);
 void sub_08069CB8(Entity*);
-
-extern u8 gUnk_08111DB0[];
 void sub_0806A028(Entity*);
-
 void sub_08069FBC(Entity*);
-
-extern SpriteLoadData gUnk_08111D58[];
-extern u8 gUnk_08111E30[];
-
 void sub_0806A080(Entity*);
 
-extern Dialog gUnk_08111E34[][10];
+const SpriteLoadData gUnk_08111D58[] = {
+#ifdef EU
+    { 82, 67, 4 }, { 7250, 67, 4 }, { 0, 0, 0 }, { 64, 69, 4 }, { 7232, 69, 4 }, { 0, 0, 0 },
+#else
+    { 82, 67, 4 }, { 7250, 67, 4 }, { 0, 0, 0 }, { 1, 69, 4 },  { 7169, 69, 4 }, { 0, 0, 0 },
+#endif
+    { 4, 68, 4 },  { 7172, 68, 4 }, { 0, 0, 0 }, { 83, 69, 4 }, { 7251, 69, 4 }, { 0, 0, 0 },
+};
 
-extern u16 gUnk_08111F74[][5];
+void sub_08069B44(Entity*);
+void sub_08069C40(Entity*);
+void sub_08069D54(Entity*);
+void sub_08069DF8(Entity*);
+void sub_08069E44(Entity*);
+void sub_08069E50(Entity*);
+void sub_08069ECC(Entity*);
+void sub_08069EE0(Entity*);
+void (*const gUnk_08111D88[])(Entity*) = {
+    sub_08069B44, sub_08069C40, sub_08069D54, sub_08069DF8, sub_08069E44, sub_08069E50, sub_08069ECC, sub_08069EE0,
+};
 
-extern u16 gUnk_08111FD8[];
+const u8 gUnk_08111DA8[] = { 7, 23, 8, 24, 8, 24, 9, 25 };
+const u8 gUnk_08111DB0[] = {
+    24,  24,  24,  24,  25,  25,  25,  25,  77,  77,  77,  77,  78,  78,  78,  146, 146, 214, 214, 214, 215, 215,
+    215, 215, 27,  27,  27,  27,  24,  24,  24,  24,  76,  76,  76,  76,  77,  77,  77,  77,  77,  77,  77,  77,
+    78,  78,  78,  78,  146, 146, 146, 146, 147, 147, 147, 215, 215, 27,  27,  27,  24,  24,  24,  24,  24,  76,
+    76,  76,  77,  77,  77,  77,  145, 145, 145, 145, 146, 146, 146, 146, 146, 146, 146, 146, 147, 147, 147, 147,
+    215, 215, 215, 215, 212, 212, 212, 24,  24,  24,  24,  24,  25,  25,  25,  77,  77,  145, 145, 145, 146, 146,
+    146, 146, 214, 214, 214, 214, 215, 215, 215, 215, 215, 215, 215, 215, 212, 212, 212, 212,
+};
+const u8 gUnk_08111E30[] = { 19, 13, 13, 13 };
 
+void sub_0806A0A4(Entity*);
+void sub_0806A144(Entity*);
+
+const Dialog gUnk_08111E34[][10] = {
+    {
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0x8), TEXT_INDEX(TEXT_STOCKWELL, 0x23) } },
+    },
+    {
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN, 0x18), TEXT_INDEX(TEXT_TOWN, 0x19) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN, 0x18), TEXT_INDEX(TEXT_TOWN, 0x19) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN, 0x18), TEXT_INDEX(TEXT_TOWN, 0x19) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN, 0x18), TEXT_INDEX(TEXT_TOWN, 0x19) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN2, 0x14), TEXT_INDEX(TEXT_TOWN2, 0x15) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN3, 0x14), TEXT_INDEX(TEXT_TOWN3, 0x15) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN4, 0x14), TEXT_INDEX(TEXT_TOWN4, 0x15) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN5, 0x14), TEXT_INDEX(TEXT_TOWN5, 0x15) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN6, 0x13), TEXT_INDEX(TEXT_TOWN6, 0x14) } },
+        { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_TOWN6, 0x13), TEXT_INDEX(TEXT_TOWN6, 0x14) } },
+    },
+    {
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A0A4 } },
+    },
+    {
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_0806A144 } },
+    }
+};
+const u16 gUnk_08111F74[][5] = {
+    {
+        TEXT_INDEX(TEXT_TOWN, 0x3b),
+        TEXT_INDEX(TEXT_TOWN, 0x3c),
+        TEXT_INDEX(TEXT_TOWN2, 0x32),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN2, 0x34),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN, 0x3b),
+        TEXT_INDEX(TEXT_TOWN, 0x3c),
+        TEXT_INDEX(TEXT_TOWN2, 0x32),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN2, 0x34),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN, 0x3b),
+        TEXT_INDEX(TEXT_TOWN, 0x3c),
+        TEXT_INDEX(TEXT_TOWN2, 0x32),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN2, 0x34),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN, 0x3b),
+        TEXT_INDEX(TEXT_TOWN, 0x3c),
+        TEXT_INDEX(TEXT_TOWN2, 0x32),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN2, 0x34),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN2, 0x30),
+        TEXT_INDEX(TEXT_TOWN2, 0x31),
+        TEXT_INDEX(TEXT_TOWN2, 0x32),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN2, 0x34),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN3, 0x2c),
+        TEXT_INDEX(TEXT_TOWN3, 0x2d),
+        TEXT_INDEX(TEXT_TOWN3, 0x2e),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN3, 0x2f),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN4, 0x28),
+        TEXT_INDEX(TEXT_TOWN4, 0x29),
+        TEXT_INDEX(TEXT_TOWN4, 0x2a),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN4, 0x2b),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN5, 0x28),
+        TEXT_INDEX(TEXT_TOWN5, 0x29),
+        TEXT_INDEX(TEXT_TOWN5, 0x2a),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN5, 0x2b),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN6, 0x21),
+        TEXT_INDEX(TEXT_TOWN6, 0x22),
+        TEXT_INDEX(TEXT_TOWN6, 0x23),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN6, 0x24),
+    },
+    {
+        TEXT_INDEX(TEXT_TOWN6, 0x21),
+        TEXT_INDEX(TEXT_TOWN6, 0x22),
+        TEXT_INDEX(TEXT_TOWN6, 0x23),
+        TEXT_INDEX(TEXT_TOWN2, 0x33),
+        TEXT_INDEX(TEXT_TOWN6, 0x24),
+    },
+};
+const u16 gUnk_08111FD8[] = {
+    TEXT_INDEX(TEXT_TOWN8, 0x7),  TEXT_INDEX(TEXT_TOWN8, 0x8), TEXT_INDEX(TEXT_TOWN8, 0x9),
+    TEXT_INDEX(TEXT_TOWN8, 0x11), TEXT_INDEX(TEXT_TOWN8, 0x3),
+};
 void Dog(Entity* this) {
     gUnk_08111D88[this->action](this);
     sub_0806ED78(this);
@@ -41,7 +186,7 @@ void sub_08069B44(Entity* this) {
     u32 sVar3;
     u32 uVar4;
     u32 uVar5;
-    if (sub_08069EF0(this) != 0) {
+    if (sub_08069EF0(this)) {
         uVar5 = sub_0805ACC0(this);
         if (uVar5 == 0) {
             sVar3 = this->x.HALF.HI;
@@ -234,13 +379,13 @@ void sub_08069EE8(Entity* this) {
     this->action = 5;
 }
 
-u32 sub_08069EF0(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_08111D58[this->type * 3]) == 0) {
-        return 0;
+bool32 sub_08069EF0(Entity* this) {
+    if (!LoadExtraSpriteData(this, &gUnk_08111D58[this->type * 3])) {
+        return FALSE;
     }
     this->action = 1;
     this->field_0x68.HWORD = gUnk_08111E30[this->type];
-    return 1;
+    return TRUE;
 }
 
 void Dog_Head(Entity* this) {
@@ -358,7 +503,7 @@ void sub_0806A144(Entity* this) {
 
 void Dog_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (sub_08069EF0(this) != 0) {
+        if (sub_08069EF0(this)) {
             this->action++;
             this->spriteSettings.draw = 1;
             SetDefaultPriority(this, PRIO_MESSAGE);

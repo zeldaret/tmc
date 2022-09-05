@@ -62,7 +62,7 @@ script_08012566:
 	StartPlayerScript script_PlayerEzloBeingBullied
 	WaitForSyncFlagAndClear 0x00000001
 	SetEntityPositionRelative 0x0388, 0x0168
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetEntity
 	Wait 0x005a
 	SetSyncFlag 0x00000004
@@ -113,7 +113,7 @@ script_08012566:
 	Wait 0x003c
 	PlayBGM
 	Call sub_0806DCA0
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call EnablePauseMenu
 	EnablePlayerControl

@@ -168,7 +168,7 @@ void sub_0806B60C(Entity* this) {
 
 void Percy_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_08112E1C) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08112E1C)) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 2);

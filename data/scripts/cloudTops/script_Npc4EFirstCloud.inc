@@ -24,7 +24,7 @@ script_0800D650:
 	Call sub_0807FBC4
 	Call sub_0807FBA0
 	SetEntitySpeed 0x0700
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	CameraTargetEntity
 	_0807EDD4 0x01e8, 0x01b8
 	Wait 0x003c

@@ -127,8 +127,8 @@ void sub_08064EE8(Entity* this) {
 void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
     u32 roomFlag;
     u32 bVar2;
-    int iVar3;
-    int iVar4;
+    s32 iVar3;
+    s32 remainingFusions;
     u32 uVar5;
 
     context->condition = 0;
@@ -148,35 +148,35 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
                 }
             }
         }
-        iVar4 = -1;
+        remainingFusions = -1;
     } else {
         if (CheckGlobalFlag(KAKERA_COMPLETE) == 0) {
-            iVar4 = 100 - gSave.unk117;
-            if (iVar4 < 1) {
+            remainingFusions = 100 - gSave.fusedKinstoneCount;
+            if (remainingFusions < 1) {
                 uVar5 = 8;
-                iVar4 = 0;
+                remainingFusions = 0;
                 SetGlobalFlag(KAKERA_COMPLETE);
                 context->condition = 1;
             } else {
                 uVar5 = 7;
-                if (9 < iVar4) {
+                if (9 < remainingFusions) {
                     uVar5 = 6;
                 }
-                if (0x27 < iVar4) {
+                if (0x27 < remainingFusions) {
                     uVar5 = 5;
                 }
-                if (0x45 < iVar4) {
+                if (0x45 < remainingFusions) {
                     uVar5 = 4;
                 }
             }
         } else {
             uVar5 = 8;
-            iVar4 = 0;
+            remainingFusions = 0;
         }
     }
     MessageNoOverlap(TingleSiblings_MessageIndices[this->type][uVar5], this);
-    if (iVar4 > 0) {
-        gMessage.rupees = (u16)iVar4;
+    if (remainingFusions > 0) {
+        gMessage.rupees = (u16)remainingFusions;
     }
 
     if (CheckRoomFlag(roomFlag) == 0) {

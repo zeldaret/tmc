@@ -52,7 +52,7 @@ void KinstoneSpark(Entity* this) {
         this->spriteRendering.b3 = 1;
         this->spritePriority.b0 = 0;
         this->spriteOrientation.flipY = 1;
-        ChangeObjPalette(this, gUnk_080C9CBC[gFuseInfo._3].unk0);
+        ChangeObjPalette(this, gKinstoneWorldEvents[gFuseInfo.kinstoneId].objPalette);
     }
     GetNextFrame(this);
 }

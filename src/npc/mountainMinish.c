@@ -55,7 +55,7 @@ void MountainMinish(Entity* this) {
 }
 
 void sub_08067E60(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_08111358) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08111358)) {
         this->action = 1;
         sub_08078778(this);
         InitializeAnimation(this, 2);
@@ -106,7 +106,7 @@ void sub_08067EF0(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_08111358) == 0) {
+            if (!LoadExtraSpriteData(this, gUnk_08111358)) {
                 return;
             }
             this->action = 1;
@@ -265,7 +265,7 @@ void MountainMinish_Head(Entity* this) {
 
 void MountainMinish_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_08111358) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08111358)) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);

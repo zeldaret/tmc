@@ -59,7 +59,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	Call sub_0807FB94 @ Roll Credits
 	MoveEntityToPlayer
 	Call sub_0807F844
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	SetSyncFlag 0x80000000
 	SetFade4

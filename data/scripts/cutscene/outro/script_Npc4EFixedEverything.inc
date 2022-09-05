@@ -11,7 +11,7 @@ SCRIPT_START script_Npc4EFixedEverything
 	PlaySound SFX_APPARATE
 	EndBlock
 	Wait 0x0078
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetEntityPositionRelative 0x0088, 0x0078
 	Call WaitForCameraTouchRoomBorder
 	MessageFromTargetPos TEXT_VAATI2, 0x64, 0x0000

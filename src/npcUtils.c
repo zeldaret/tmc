@@ -495,3 +495,16 @@ void ShowNPCDialogue(Entity* ent, const Dialog* dia) {
         MessageFromTarget(uVar2);
     }
 }
+
+const u8 gUnk_08114F30[] = {
+    0,
+    0,
+    1,
+    2,
+};
+const u8 gUnk_08114F34[] = {
+    1,
+    2,
+    3,
+    3,
+};

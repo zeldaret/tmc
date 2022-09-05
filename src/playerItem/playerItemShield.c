@@ -7,6 +7,8 @@
 #include "collision.h"
 #include "playeritem.h"
 
+const Hitbox gUnk_081271CC = { 0, 0, { 1, 0, 0, 1 }, 8, 8 };
+
 typedef struct {
     Entity base;
     u8 unk_68;
@@ -17,9 +19,35 @@ typedef struct {
     u32 unk_78;
     u8* unk_7c;
 } PlayerItemShieldEntity;
+void sub_080A2D98(PlayerItemShieldEntity*);
+void sub_080A2E00(PlayerItemShieldEntity*);
+void (*const gUnk_081271D4[])(PlayerItemShieldEntity*) = {
+    sub_080A2D98,
+    sub_080A2E00,
+};
+const u8 gUnk_081271DC[] = {
+    7, 60, 0, 0, 0, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 0, 3, 2, 0, 0, 4, 2, 0, 0, 5, 2, 0, 0, 6, 2, 0,   0, 7, 20,
+    0, 0,  0, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 0, 3, 2, 0, 0, 4, 2, 0, 0, 5, 2, 0, 0, 6, 2, 0, 0, 255, 0, 0, 0,
+};
+const u8 gUnk_08127220[] = {
+    0, 1, 0, 0, 1, 2, 0, 0, 2, 4, 0, 0, 3, 2, 0, 0, 4, 3, 0, 0, 5, 2, 0, 0, 3, 2, 0, 0, 255, 0, 0, 0,
+};
 
-extern void (*const gUnk_081271D4[])(PlayerItemShieldEntity*);
-extern u8 gUnk_081271DC[];
+const Hitbox gUnk_08127250;
+const Hitbox gUnk_08127258;
+const Hitbox gUnk_08127260;
+const Hitbox gUnk_08127268;
+const Hitbox* const gUnk_08127240[] = {
+    &gUnk_08127250,
+    &gUnk_08127258,
+    &gUnk_08127260,
+    &gUnk_08127268,
+};
+const Hitbox gUnk_08127250 = { 0, -7, { 0, 0, 0, 0 }, 6, 7 };
+const Hitbox gUnk_08127258 = { 5, -4, { 0, 0, 0, 0 }, 5, 7 };
+const Hitbox gUnk_08127260 = { 0, 0, { 0, 0, 0, 0 }, 6, 7 };
+const Hitbox gUnk_08127268 = { -5, -4, { 0, 0, 0, 0 }, 5, 7 };
+
 void sub_080A2E00(PlayerItemShieldEntity* this);
 
 void PlayerItemShield(PlayerItemShieldEntity* this) {
@@ -38,7 +66,7 @@ void sub_080A2D98(PlayerItemShieldEntity* this) {
         this->unk_70 = 0x27;
         this->unk_78 = gUnk_081271DC[1];
         this->unk_74 = 0;
-        this->unk_7c = gUnk_081271DC;
+        this->unk_7c = (u8*)gUnk_081271DC;
     } else {
         this->unk_70 = 0;
     }
@@ -47,9 +75,6 @@ void sub_080A2D98(PlayerItemShieldEntity* this) {
     LoadSwapGFX(super, 1, 3);
     sub_080A2E00(this);
 }
-
-extern Hitbox* gUnk_08127240[];
-extern u8 gUnk_08127220[];
 
 void sub_080A2E00(PlayerItemShieldEntity* this) {
     Entity* playerItem;
@@ -66,7 +91,7 @@ void sub_080A2E00(PlayerItemShieldEntity* this) {
 
     if ((gPlayerState.shield_status != 0) && (super == gPlayerState.item)) {
         if ((gPlayerState.shield_status & 0x80) != 0) {
-            super->hitbox = gUnk_08127240[super->animationState >> 1];
+            super->hitbox = (Hitbox*)gUnk_08127240[super->animationState >> 1];
             super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
             COLLISION_ON(super);
             gPlayerState.shield_status &= ~0x80;
@@ -84,7 +109,7 @@ void sub_080A2E00(PlayerItemShieldEntity* this) {
                     }
                     this->unk_78 = gUnk_08127220[1];
                     this->unk_74 = 0;
-                    this->unk_7c = gUnk_08127220;
+                    this->unk_7c = (u8*)gUnk_08127220;
                     gPlayerState.shield_status |= 0x40;
                 }
                 if (this->bounceTimer == 0) {
@@ -117,7 +142,7 @@ void sub_080A2E00(PlayerItemShieldEntity* this) {
                 pbVar3 = &this->unk_7c[tmp2];
                 if (pbVar3[0] == 0xff) {
                     if ((gPlayerState.shield_status & 0x40) != 0) {
-                        this->unk_7c = gUnk_081271DC;
+                        this->unk_7c = (u8*)gUnk_081271DC;
                         gPlayerState.shield_status &= ~0x40;
                     }
                     this->unk_74 = 0;

@@ -106,9 +106,9 @@ typedef struct {
     u8 unk_c;
     u8 unk_d;
     u16 rupees;
-    u8 unk_10;
+    u8 unk_10; // TODO drawing keys dirty flag or something?
     u8 unk_11;
-    u8 unk_12;
+    u8 dungeonKeys;
     s8 unk_13;
     s8 unk_14;
     u8 unk_15;
@@ -200,19 +200,21 @@ typedef struct {
 } PriorityHandler;
 extern PriorityHandler gPriorityHandler;
 
-extern struct {
+typedef struct {
     u8 disabled;
-    u8 unk1;
-    u8 unk2[0xf];
+    u8 screen;
+    u8 unk2[0xf]; // cursor positions on the different screens
     u8 unk11;
     u8 unk12;
     u8 unk13;
-    s8 unk14;
+    s8 screen2;
     u8 unk15;
     s8 unk16;
     u8 unk17;
-} gPauseMenuOptions;
-static_assert(sizeof(gPauseMenuOptions) == 0x18);
+} PauseMenuOptions;
+
+extern PauseMenuOptions gPauseMenuOptions;
+static_assert(sizeof(PauseMenuOptions) == 0x18);
 
 typedef struct {
     u8 unk00 : 1;
@@ -268,7 +270,7 @@ typedef struct {
 typedef struct {
     /*0x00*/ u8 unk_0;
     /*0x01*/ u8 unk_1;
-    /*0x02*/ u8 unk_2;
+    /*0x02*/ u8 unk_2; // TODO kinstoneId, sub_0801DFB4
     /*0x03*/ u8 unk_3;
     /*0x04*/ u8* unk_4;
     /*0x08*/ struct_03003DF8 array[0x20];
@@ -345,4 +347,15 @@ typedef struct {
 
 static_assert(sizeof(ItemDefinition) == 0xc);
 
+typedef struct {
+    u8 frame;
+    u8 frameIndex;
+} PACKED FrameStruct;
+
+typedef struct {
+    s8 x;
+    s8 y;
+    s8 width;
+    s8 height;
+} Rect;
 #endif // STRUCTURES_H

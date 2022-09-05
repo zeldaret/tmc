@@ -1,7 +1,7 @@
 @ Ezlo Cutscene CUTSCENE_ORCHESTRATOR MinishVaati
 SCRIPT_START script_CutsceneOrchestratorMinishVaati
 	BeginBlock
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	SetEntityPositionRelative 0x0078, 0x0068
 	CameraTargetEntity
 	EndBlock
@@ -16,7 +16,7 @@ SCRIPT_START script_CutsceneOrchestratorMinishVaati
 	WaitForSyncFlagAndClear 0x00001000
 	SetSyncFlag 0x00000880
 	WaitForSyncFlagAndClear 0x00001100
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	SetEntityPositionRelative 0x0078, 0x0090
 	MessageFromTargetPos TEXT_VAATI, 0x30, 0x0002
 	WaitUntilTextboxCloses

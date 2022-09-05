@@ -398,9 +398,9 @@ typedef struct {
 
 extern void (*const gPlayerItemFunctions[])(Entity*);
 
-extern u8 gBombBagSizes[];
-extern u8 gQuiverSizes[];
-extern u16 gWalletSizes[];
+extern const s16 gWalletSizes[];
+extern const u8 gBombBagSizes[];
+extern const u8 gQuiverSizes[];
 extern Entity* gPlayerClones[];
 
 extern PlayerState gPlayerState;
@@ -541,7 +541,7 @@ extern void sub_08008AC6(Entity*);
 extern void sub_08008AA0(Entity*);
 
 // zelda.c
-void SetZeldaFollowTarget(Entity*);
+void SetZeldaFollowTarget(Entity* target);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 

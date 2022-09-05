@@ -11,8 +11,10 @@ enum SetMessageValueIndex {
     SMV_FIELD_0X1C,
 };
 
+typedef u16 Script;
+
 typedef struct ScriptExecutionContext {
-    /*0x00*/ u16* scriptInstructionPointer;
+    /*0x00*/ Script* scriptInstructionPointer;
     /*0x04*/ u32 intVariable;
     /*0x08*/ u32 postScriptActions;
     /*0x0C*/ u8 unk_0C[0x4]; // unused
@@ -47,18 +49,19 @@ extern u32 GetNextScriptCommandWordAfterCommandMetadata(u16*);
 extern u32 GetNextScriptCommandHalfwordAfterCommandMetadata(u16*);
 
 void UnloadCutsceneData(Entity* entity);
-void StartPlayerScript(u16*);
+void StartPlayerScript(Script* script);
 
 void sub_0807DD50(Entity* entity);
 void sub_0807DD64(Entity* entity);
-void sub_0807DD80(Entity* entity, u16* script);
+void sub_0807DD80(Entity* entity, Script* script);
 void sub_0807DEDC(Entity*, ScriptExecutionContext*, u32, u32);
 
-ScriptExecutionContext* StartCutscene(Entity* entity, u16* script);
+ScriptExecutionContext* StartCutscene(Entity* entity, Script* script);
 void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*));
 void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context);
 void HandleEntity0x82Actions(Entity* entity);
 void sub_0807DD94(Entity*, void (*function)(Entity*, ScriptExecutionContext*));
 ScriptExecutionContext* CreateScriptExecutionContext(void);
-void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, u16* script);
+void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, Script* script);
+
 #endif // SCRIPT_H

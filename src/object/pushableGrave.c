@@ -96,7 +96,7 @@ void PushableGrave_Action2(PushableGraveEntity* this) {
             super->subAction = 1;
             super->subtimer = 120;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 2;
+            gRoomControls.scrollSpeed = 2;
         }
     } else {
         if (--super->subtimer == 0) {
@@ -122,7 +122,7 @@ void PushableGrave_Action3(PushableGraveEntity* this) {
             sub_080977F4(this);
             if (super->type == 0) {
                 gRoomControls.camera_target = &gPlayerEntity;
-                gRoomControls.unk5 = 4;
+                gRoomControls.scrollSpeed = 4;
             }
         }
     }

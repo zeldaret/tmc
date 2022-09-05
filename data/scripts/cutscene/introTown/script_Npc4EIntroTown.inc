@@ -11,12 +11,12 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitForFadeFinish
 	StartPlayerScript script_PlayerIntro1
 	SetSyncFlag 0x00000002
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetEntityPositionRelative 0x00c8, 0x0218
 	Call WaitForCameraTouchRoomBorder
 	Wait 0x0064
 	@ Camera reaches center of town square
-	_0807F0B4 0x0002
+	SetScrollSpeed 2
 	SetEntityPositionRelative 0x00c8, 0x0368
 	Call WaitForCameraTouchRoomBorder
 	WaitForSyncFlagAndClear 0x00000001
@@ -27,7 +27,7 @@ SCRIPT_START script_Npc4EIntroTown
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	@ Zelda ran off. Give control to the player
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call EnablePauseMenu
 	EnablePlayerControl
@@ -85,7 +85,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerIntro5
 	SetEntityPositionRelative 0x00f0, 0x0258
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetEntity
 	Wait 0x001e
 	Call sub_08063C2C
@@ -161,7 +161,7 @@ SCRIPT_START script_Npc4EIntroTown
 	@ Give control back to the player
 	CallWithArg SetPlayerMacro, 0x00000000
 	Call NPC4E_RestoreEquippedItems
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Wait 0x000a
 	SetSyncFlag 0x00000002

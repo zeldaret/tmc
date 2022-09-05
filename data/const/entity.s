@@ -378,15 +378,3 @@ gUnk_08109194:: @ 08109194
 	.4byte gUnk_08109158
 	.4byte gUnk_08109178
 	.4byte gUnk_0810918C
-
-@ beanstalkSubtask.c, room.c
-gUnk_081091E4:: @ 081091E4
-	.incbin "data_08108E6C/gUnk_081091E4.bin"
-
-@ entity.c
-gUnk_081091EE:: @ 081091EE
-	.incbin "data_08108E6C/gUnk_081091EE.bin"
-
-@ entity.c
-gUnk_081091F8:: @ 081091F8
-	.incbin "data_08108E6C/gUnk_081091F8.bin"

@@ -18,4 +18,10 @@ typedef struct {
     u16 tileIndex;
 } struct_080B44D0;
 
+typedef struct {
+    u32 src;
+    void* dest;
+    u32 size;
+} struct_08109194;
+
 #endif // BEANSTALKSUBTASK_H

@@ -4,6 +4,18 @@
 	.section .rodata
     .align 2
 
+gSpriteAnimations_Sturgeon_4:: @ 0810FB24
+	.include "animations/gSpriteAnimations_Sturgeon_4.s"
+
+gSpriteAnimations_Sturgeon_5:: @ 0810FB39
+	.include "animations/gSpriteAnimations_Sturgeon_5.s"
+
+gSpriteAnimations_Sturgeon_6:: @ 0810FB4E
+	.include "animations/gSpriteAnimations_Sturgeon_6.s"
+
+gSpriteAnimations_Sturgeon_7:: @ 0810FB63
+	.include "animations/gSpriteAnimations_Sturgeon_7.s"
+
 gSpriteAnimations_Sturgeon_0:: @ 0810FB78
 	.include "animations/gSpriteAnimations_Sturgeon_0.s"
 

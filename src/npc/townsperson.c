@@ -9,18 +9,18 @@ typedef struct {
     u8 unk3;
 } struct_0810B680;
 
-extern void (*const gUnk_0810B774[])(Entity*);
-extern void (*const gUnk_0810B77C[])(Entity*);
 extern void sub_08061CB4(Entity*, u32);
 extern void sub_08061D64(Entity*);
 extern void sub_08062048(Entity*);
 
-extern SpriteLoadData* gUnk_0810B6EC[];
-extern u8 gUnk_0810B78C[];
 extern struct_0810B680 gUnk_0810B680[];
+extern SpriteLoadData* gUnk_0810B6EC[];
+extern u32 gUnk_0810B740[]; // TODO fourth parameter of sub_08078850
+extern u8 gUnk_0810B748[];  // TODO third parameter of sub_08078850
 extern u16 gUnk_0810B74A[];
-extern u8 gUnk_0810B748[];
-extern u32 gUnk_0810B740[];
+extern void (*const gUnk_0810B774[])(Entity*);
+extern void (*const gUnk_0810B77C[])(Entity*);
+extern u8 gUnk_0810B78C[];
 extern u16 gUnk_0810B790[];
 extern u16 gUnk_0810B7BA[];
 extern Dialog gUnk_0810B7C0[];
@@ -283,7 +283,7 @@ void sub_08062048(Entity* this) {
 
 void Townsperson_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type]) == 0) {
+        if (!LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
             return;
         }
         this->action++;

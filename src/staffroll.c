@@ -1,13 +1,18 @@
-#include "global.h"
-#include "room.h"
-#include "main.h"
-#include "save.h"
-#include "flags.h"
-#include "fileselect.h"
-#include "screen.h"
+/**
+ * @file staffroll.c
+ * @ingroup Tasks
+ *
+ * @brief Staffroll task
+ */
 #include "common.h"
-#include "menu.h"
+#include "fileselect.h"
+#include "flags.h"
 #include "game.h"
+#include "main.h"
+#include "menu.h"
+#include "room.h"
+#include "save.h"
+#include "screen.h"
 #include "subtask.h"
 
 typedef struct {
@@ -125,7 +130,7 @@ void StaffrollTask_State1MenuType2(void) {
     switch (gStaffrollMenu.base.overlayType) {
         case 0:
             MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
-            sub_0805F46C(gStaffrollMenu.unk_10, (Font*)gUnk_081272E0[gStaffrollMenu.unk_19]);
+            ShowTextBox(gStaffrollMenu.unk_10, gUnk_081272E0[gStaffrollMenu.unk_19]);
             gScreen.bg1.updated = 1;
             gStaffrollMenu.base.overlayType++;
             gStaffrollMenu.unk_18 = 0;

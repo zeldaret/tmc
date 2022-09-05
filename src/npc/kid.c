@@ -2,14 +2,184 @@
 #include "message.h"
 #include "npc.h"
 
-extern void (*const gUnk_0810BE0C[])(Entity*);
+const SpriteLoadData gUnk_0810BD7C[] = {
+    { 58, 59, 4 },
+    { 10298, 59, 4 },
+    { 12288, 59, 4 },
+    { 0, 0, 0 },
+};
+const SpriteLoadData gUnk_0810BD8C[] = {
+    { 58, 59, 4 },
+    { 8250, 59, 4 },
+    { 10241, 59, 4 },
+    { 0, 0, 0 },
+};
+const SpriteLoadData gUnk_0810BD9C[] = {
+    { 16385, 59, 4 },
+    { 58, 59, 4 },
+    { 8250, 59, 4 },
+    { 0, 0, 0 },
+};
+const SpriteLoadData gUnk_0810BDAC[] = {
+    { 58, 59, 4 },
+    { 6202, 59, 4 },
+    { 0, 0, 0 },
+};
+const SpriteLoadData gUnk_0810BDB8[] = {
+    { 58, 59, 4 },
+    { 6202, 59, 4 },
+    { 0, 0, 0 },
+};
+
+const SpriteLoadData* const gUnk_0810BDC4[] = {
+    gUnk_0810BD7C, gUnk_0810BD7C, gUnk_0810BD7C, gUnk_0810BD7C, gUnk_0810BD8C,
+    gUnk_0810BD8C, gUnk_0810BD9C, gUnk_0810BDAC, gUnk_0810BDB8,
+};
+
+const u16 gUnk_0810BDE8[][2] = { {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 },
+                                 {
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                     TEXT_INDEX(TEXT_EMPTY, 0x1),
+                                 } };
+void sub_080620F4(Entity*);
+void sub_08062130(Entity*);
+void sub_08062194(Entity*);
+void (*const gUnk_0810BE0C[])(Entity*) = { sub_080620F4, sub_08062130, sub_08062194 };
+
+void sub_08062194(Entity*);
+const Dialog gUnk_0810BE10[] = {
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0xf) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x7) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x1d) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x1d) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x4) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x4) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x4) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x4) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x4) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x4) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0xb) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0xb) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x5) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x5) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x5) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x5) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x5) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x5) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0xc) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0xc) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SCHOOL, 0x8) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN8, 0x2e) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN8, 0x2e) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0xe) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN8, 0x2d) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN8, 0x2d) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x36) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SIMON, 0x13) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_SIMON, 0x13) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0x14) } },
+    { 9, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x31), TEXT_INDEX(TEXT_TOWN, 0x30) } },
+    { 9, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x31), TEXT_INDEX(TEXT_TOWN, 0x30) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x10) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN3, 0x35) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x16) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x16) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x1e) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x1e) } },
+    { 0, 0, DIALOG_CHECK_FLAG, 1, { TEXT_INDEX(TEXT_FESTIVAL, 0x20), TEXT_INDEX(TEXT_FESTIVAL, 0x13) } },
+#if defined(USA) || defined(DEMO_USA)
+    { 212, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2a), TEXT_INDEX(TEXT_TOWN, 0x29) } },
+    { 212, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2a), TEXT_INDEX(TEXT_TOWN, 0x29) } },
+#else
+    { 209, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2a), TEXT_INDEX(TEXT_TOWN, 0x29) } },
+    { 209, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2a), TEXT_INDEX(TEXT_TOWN, 0x29) } },
+#endif
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x11) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN3, 0x33) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x17) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x17) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x20) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x20) } },
+    { 0, 0, DIALOG_CHECK_FLAG, 1, { TEXT_INDEX(TEXT_FESTIVAL, 0x21), TEXT_INDEX(TEXT_FESTIVAL, 0x1e) } },
+#if defined(USA) || defined(DEMO_USA)
+    { 213, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2c), TEXT_INDEX(TEXT_TOWN, 0x2b) } },
+    { 213, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2c), TEXT_INDEX(TEXT_TOWN, 0x2b) } },
+#else
+    { 210, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2c), TEXT_INDEX(TEXT_TOWN, 0x2b) } },
+    { 210, DIALOG_LOCAL_FLAG, DIALOG_SET_FLAG, 1, { TEXT_INDEX(TEXT_TOWN, 0x2c), TEXT_INDEX(TEXT_TOWN, 0x2b) } },
+#endif
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x12) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN3, 0x34) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x18) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN5, 0x18) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x21) } },
+    { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_HAPPY_HEARTH, 0x21) } },
+};
+const FrameStruct gUnk_0810C0A0[] = {
+    { 25, 0 },   { 128, 15 }, { 37, 0 },    { 128, 15 }, { 46, 0 },    { 128, 15 },
+    { 55, 0 },   { 128, 15 }, { 64, 15 },   { 128, 15 }, { 72, 15 },   { 128, 15 },
+    { 120, 83 }, { 128, 15 }, { 131, 102 }, { 128, 15 }, { 139, 111 }, { 128, 15 },
+};
+
 void sub_080621AC(Entity*);
-
-extern SpriteLoadData* gUnk_0810BDC4[];
-
 void sub_080622F4(Entity*);
 void sub_0806265C(Entity*, ScriptExecutionContext*);
-
 void sub_0806252C(Entity*);
 
 typedef struct {
@@ -23,12 +193,6 @@ typedef struct {
 #define KID_HEAP_COUNT 0x14
 typedef KidHeapItem KidHeap[KID_HEAP_COUNT];
 
-extern u16 gUnk_0810BDE8[][2];
-
-extern Dialog gUnk_0810BE10[];
-
-extern u8 gUnk_0810C0A0[];
-
 void Kid(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_080621AC(this);
@@ -38,7 +202,7 @@ void Kid(Entity* this) {
 }
 
 void sub_080620F4(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type]) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type])) {
         this->animationState = 4;
         this->field_0x68.HALF.LO = 0;
         this->action = 1;
@@ -76,7 +240,7 @@ void sub_080621AC(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type]) != 0) {
+            if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type])) {
                 this->action = 1;
                 this->animationState = this->timer;
                 this->timer = 0;
@@ -204,7 +368,7 @@ void sub_0806265C(Entity* this, ScriptExecutionContext* context) {
     if (gSave.global_progress == 0) {
         MessageNoOverlap(0, this);
     } else {
-        Dialog* pDialog = &gUnk_0810BE10[this->type * 9];
+        const Dialog* pDialog = &gUnk_0810BE10[this->type * 9 - 1];
         pDialog += gSave.global_progress;
         ShowNPCDialogue(this, pDialog);
     }
@@ -273,17 +437,15 @@ void sub_080627E8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void Kid_Head(Entity* this) {
-    u32 uVar1;
     u32 uVar2;
     u32 uVar3;
     u32 uVar4;
     u32 uVar5;
-    u8* ptr;
+    const FrameStruct* ptr;
 
-    uVar1 = this->type * 4;
-    ptr = &gUnk_0810C0A0[uVar1];
-    uVar3 = ((u8)this->frame & 0x1f) + ptr[0];
-    uVar4 = (this->frameIndex & 0x1f) + ptr[1];
+    ptr = &gUnk_0810C0A0[this->type * 2];
+    uVar3 = ((u8)this->frame & 0x1f) + ptr->frame;
+    uVar4 = (this->frameIndex & 0x1f) + ptr->frameIndex;
     switch (this->type) {
         case 0:
         case 1:
@@ -400,7 +562,7 @@ void sub_08062A48(Entity* this, ScriptExecutionContext* context) {
 void Kid_Fusion(Entity* this) {
     u32 tmp;
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type]) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type])) {
             this->action = this->action + 1;
             this->spriteSettings.draw = 1;
             this->y.HALF.HI = this->y.HALF.HI + -8;

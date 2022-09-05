@@ -35,7 +35,7 @@ void Talon(Entity* this) {
 }
 
 void sub_08065570(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810FEB0)) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
         this->action = 1;
@@ -75,7 +75,7 @@ void sub_0806559C(Entity* this) {
 }
 
 void sub_08065608(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810FEB0)) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
@@ -164,7 +164,7 @@ void Talon_Head(Entity* this) {
 
 void Talon_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_0810FEB0) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_0810FEB0)) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);

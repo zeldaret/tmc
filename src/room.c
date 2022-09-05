@@ -11,7 +11,6 @@
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
-extern void* GetRoomProperty(u32, u32, u32);
 
 extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
@@ -374,7 +373,7 @@ void sub_0804B388(u32 a1, u32 a2) {
         e->collisionLayer = a2;
         sub_0806F704(e, a1);
     }
-    sub_080526F8(-1);
+    ModDungeonKeys(-1);
 }
 
 void sub_0804B3C4(TileEntity* tile) {

@@ -71,7 +71,7 @@ void Smith_Head(Entity* this) {
 }
 
 void sub_080660EC(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_08110354) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08110354)) {
         this->action = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
         InitAnimationForceUpdate(this, 2);
@@ -106,7 +106,7 @@ void sub_08066170(Entity* this) {
 }
 
 void sub_08066178(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_08110354) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08110354)) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
@@ -221,7 +221,7 @@ void sub_08066288(Entity* this) {
 
 void Smith_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_08110354) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08110354)) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitAnimationForceUpdate(this, 6);

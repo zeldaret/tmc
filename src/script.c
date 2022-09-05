@@ -10,7 +10,7 @@
 #include "item.h"
 #include "ui.h"
 
-void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
+void InitScriptExecutionContext(ScriptExecutionContext* context, Script* script);
 void sub_0807DE80(Entity*);
 void DisablePauseMenu(void);
 void ScriptCommandNop(Entity* entity, ScriptExecutionContext* context);
@@ -149,7 +149,7 @@ void ScriptCommand_SetInventoryValue(Entity* entity, ScriptExecutionContext* con
 void ScriptCommand_InitItemGetSequence(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetScrollSpeed(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
@@ -185,7 +185,7 @@ void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
     MemClear(context, sizeof(ScriptExecutionContext));
 }
 
-ScriptExecutionContext* StartCutscene(Entity* entity, u16* script) {
+ScriptExecutionContext* StartCutscene(Entity* entity, Script* script) {
     ScriptExecutionContext* context;
 
     context = CreateScriptExecutionContext();
@@ -195,7 +195,7 @@ ScriptExecutionContext* StartCutscene(Entity* entity, u16* script) {
     return context;
 }
 
-void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, u16* script) {
+void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, Script* script) {
     entity->flags |= ENT_SCRIPTED;
     *(ScriptExecutionContext**)&entity->cutsceneBeh = context;
     InitScriptExecutionContext(context, script);
@@ -209,7 +209,7 @@ void UnloadCutsceneData(Entity* entity) {
     }
 }
 
-void StartPlayerScript(u16* script) {
+void StartPlayerScript(Script* script) {
     Entity* player;
 
     MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
@@ -222,7 +222,7 @@ void StartPlayerScript(u16* script) {
     gPlayerState.field_0x38 = 0;
 }
 
-UNUSED ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
+UNUSED ScriptExecutionContext* StartCutscene2(Entity* entity, Script* script) {
     ScriptExecutionContext* context;
 
     context = CreateScriptExecutionContext();
@@ -234,7 +234,7 @@ UNUSED ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
     return context;
 }
 
-void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script) {
+void InitScriptExecutionContext(ScriptExecutionContext* context, Script* script) {
     MemClear(context, sizeof(ScriptExecutionContext));
     context->scriptInstructionPointer = script;
 }
@@ -325,7 +325,7 @@ void sub_0807DD64(Entity* entity) {
     entity->field_0x82.HWORD = 0;
 }
 
-void sub_0807DD80(Entity* entity, u16* script) {
+void sub_0807DD80(Entity* entity, Script* script) {
     InitScriptExecutionContext(*(ScriptExecutionContext**)&entity->cutsceneBeh, script);
     sub_0807DD64(entity);
 }
@@ -597,7 +597,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_InitItemGetSequence,
         ScriptCommand_CameraTargetEntity,
         ScriptCommand_CameraTargetPlayer,
-        ScriptCommand_0807F0B4,
+        ScriptCommand_SetScrollSpeed,
         ScriptCommand_0807F0C8,
     };
 
@@ -1516,8 +1516,8 @@ void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* co
     gRoomControls.camera_target = &gPlayerEntity;
 }
 
-void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context) {
-    gRoomControls.unk5 = context->scriptInstructionPointer[1] & 7;
+void ScriptCommand_SetScrollSpeed(Entity* entity, ScriptExecutionContext* context) {
+    gRoomControls.scrollSpeed = context->scriptInstructionPointer[1] & 7;
 }
 
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context) {

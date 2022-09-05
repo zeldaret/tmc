@@ -6,9 +6,10 @@
  */
 
 #define NENT_DEPRECATED
+#include "figurineMenu.h"
 #include "fileselect.h"
 #include "functions.h"
-#include "global.h"
+#include "kinstone.h"
 #include "item.h"
 #include "message.h"
 #include "object.h"
@@ -43,13 +44,6 @@ typedef struct {
 
 extern void ModShells(s32);
 extern u8 gUnk_020227F0;
-typedef struct {
-    u32 unk_0;
-    u16 unk_4;
-    u8 unk_6;
-    u8 unk_7;
-} struct_080FC3E4;
-extern const struct_080FC3E4 gUnk_080FC3E4[];
 
 void sub_0808804C(FigurineDeviceEntity*);
 void sub_08087F58(FigurineDeviceEntity*);
@@ -509,13 +503,13 @@ NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
         switch (ptr->unk_6) {
             case 0x8:
             case 0x40:
-                if (CheckLocalFlagByBank(ptr->unk_0, ptr->unk_4)) {
+                if (CheckLocalFlagByBank(ptr->bank, ptr->flag)) {
                     result = TRUE;
                 }
                 return result;
                 break;
             case 0x10:
-                if (CheckKinstoneFused(gUnk_080FC3E4[param_2].unk_4)) {
+                if (CheckKinstoneFused(gUnk_080FC3E4[param_2].flag)) {
                     result = TRUE;
                 }
                 return result;
@@ -523,30 +517,34 @@ NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
             default:
                 return result;
             case 0x20:
-                switch (gUnk_080FC3E4[param_2].unk_4) {
+                switch (gUnk_080FC3E4[param_2].flag) {
                     case 0:
-                        if (CheckKinstoneFused(0x20) || CheckKinstoneFused(0x10) || CheckKinstoneFused(0x19)) {
+                        if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10) ||
+                            CheckKinstoneFused(KINSTONE_19)) {
                             result = TRUE;
                         }
                         break;
                     case 1:
-                        if ((u8)this->unk_7c >= 5 && CheckKinstoneFused(0x28)) {
+                        if ((u8)this->unk_7c >= 5 && CheckKinstoneFused(KINSTONE_28)) {
                             result = TRUE;
                         }
 
                         break;
                     case 2:
-                        if (CheckKinstoneFused(0x54) || CheckKinstoneFused(0x56) || CheckKinstoneFused(0x3d)) {
+                        if (CheckKinstoneFused(KINSTONE_54) || CheckKinstoneFused(KINSTONE_56) ||
+                            CheckKinstoneFused(KINSTONE_3D)) {
                             result = TRUE;
                         }
                         break;
                     case 3:
-                        if (CheckKinstoneFused(0x3b) || CheckKinstoneFused(0x4a) || CheckKinstoneFused(0xd)) {
+                        if (CheckKinstoneFused(KINSTONE_3B) || CheckKinstoneFused(KINSTONE_4A) ||
+                            CheckKinstoneFused(KINSTONE_D)) {
                             result = TRUE;
                         }
                         break;
                     case 4:
-                        if (CheckKinstoneFused(0x49) || CheckKinstoneFused(0x55) || CheckKinstoneFused(0x3c)) {
+                        if (CheckKinstoneFused(KINSTONE_49) || CheckKinstoneFused(KINSTONE_55) ||
+                            CheckKinstoneFused(KINSTONE_3C)) {
                             result = TRUE;
                         }
                         break;
@@ -598,9 +596,9 @@ void sub_080882A8(FigurineDeviceEntity* this) {
     sub_08057044(this->unk_83, &gUnk_020227E8[1], 0x202020);
     ptr = (u8*)0x02000000;
     if (ptr[7] == 0) {
-        sub_0805F46C((u32)gUnk_08120AE4[super->type2], (Font*)&gUnk_08120AB4); // TODO convert data
+        ShowTextBox(gUnk_08120AE4[super->type2], (Font*)&gUnk_08120AB4); // TODO convert data
     } else {
-        sub_0805F46C((u32)gUnk_08120AE4[super->type2], (Font*)&gUnk_08120ACC); // TODO convert data
+        ShowTextBox(gUnk_08120AE4[super->type2], (Font*)&gUnk_08120ACC); // TODO convert data
     }
     gScreen.bg0.updated = 1;
 }

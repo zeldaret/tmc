@@ -4,6 +4,9 @@
 /**
  * @defgroup Tasks Tasks
  * @defgroup Subtasks Subtasks
+ * @brief Subtasks override the game task for short periods.
+ * @defgroup WorldEvents World Events
+ * @brief Cutscenes that happen after a kinstone fusion.
  */
 
 /**
@@ -18,7 +21,7 @@
  * @defgroup NPCs NPCs
  * @defgroup Items Items
  * @defgroup Managers Managers
- * @brief Entities with a smaller footprint of 0x40 bytes
+ * @brief Entities with a smaller footprint of 0x40 bytes.
  */
 ///@}
 
@@ -98,6 +101,11 @@ typedef union {
         s16 x, y;
     } HALF;
 } Coords;
+
+typedef struct {
+    s8 x;
+    s8 y;
+} PACKED Coords8;
 
 union SplitWord {
     s32 WORD;

@@ -13,7 +13,7 @@ void HurdyGurdyMan(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_081144F0) != 0) {
+            if (LoadExtraSpriteData(this, gUnk_081144F0)) {
                 this->action = 1;
                 this->field_0x68.HALF.HI = 0;
                 SetDefaultPriority(this, PRIO_MESSAGE);
@@ -106,11 +106,8 @@ void sub_0806E440(Entity* this) {
 }
 
 void HurdyGurdyMan_Fusion(Entity* this) {
-    u32 uVar1;
-
     if (this->action == 0) {
-        uVar1 = LoadExtraSpriteData(this, gUnk_081144F0);
-        if (uVar1 != 0) {
+        if (LoadExtraSpriteData(this, gUnk_081144F0)) {
             this->action++;
             this->spriteSettings.draw = 1;
             SetDefaultPriority(this, PRIO_MESSAGE);

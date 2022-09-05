@@ -4,12 +4,14 @@
  *
  * @brief File select task
  */
+#include "fileselect.h"
 
 #include "common.h"
-#include "fileselect.h"
+#include "figurineMenu.h"
 #include "functions.h"
 #include "game.h"
 #include "item.h"
+#include "kinstone.h"
 #include "main.h"
 #include "menu.h"
 #include "message.h"
@@ -43,6 +45,190 @@ typedef enum {
     RESULT_INVALID = 0,
     RESULT_ASCII = 1,
 } CharResult;
+
+const struct_080FC3E4 gUnk_080FC3E4[] = {
+    { 0, 0, 128, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+#ifdef EU
+    { 0, 0, 0, 1 },
+#else
+    { 0, 0, 2, 1 },
+#endif
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, KINSTONE_2C, UNK_6_10, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 4, 1 },
+    { 0, 0, 7, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 4, 1 },
+#ifdef EU
+    { 0, 0, 2, 1 },
+#else
+    { 0, 0, 3, 1 },
+#endif
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+#if defined(EU) || defined(JP)
+    { 0, 0x12, UNK_6_40, 1 },
+#else
+    { 0, 5, UNK_6_20, 1 },
+#endif
+    { 0, 0, 0, 1 },
+    { FLAG_BANK_4, YAMADOUKUTU_0E_SENNIN, UNK_6_40, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 5, 1 },
+    { 0, 0, 5, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 1, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 5, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 2, 1 },
+    { 0, 0, 2, 1 },
+    { 0, 0, 2, 1 },
+    { 0, 0, UNK_6_20, 1 },
+    { 0, KINSTONE_30, UNK_6_10, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 0, 1 },
+    { 0, 0, 4, 1 },
+    { 0, 0, 4, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 3, 1 },
+    { FLAG_BANK_4, GORON_DOUKUTU_APPEAR, UNK_6_40, 1 },
+    { 0, 0, 3, 1 },
+    { 0, 0, 3, 0 },
+    { 0, 0, 4, 0 },
+    { 0, 0, 7, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 2, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 4, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 4, 0 },
+    { 0, 0, 3, 0 },
+    { 0, 0, 3, 0 },
+    { 0, 0, 6, 0 },
+    { 0, 0, 0, 0 },
+    { 0, 0, 7, 0 },
+#ifdef EU
+    { 0, 0, 0, 0 },
+#else
+    { 0, 0, 2, 0 },
+#endif
+    { 0, KINSTONE_33, UNK_6_10, 1 },
+    { 0, 1, UNK_6_20, 0 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 4, 2 },
+    { 0, 0, 4, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 5, 2 },
+    { 0, 0, 7, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 3, 3 },
+    { 0, 0, 7, 3 },
+    { 0, 0, 0, 2 },
+#ifdef EU
+    { 0, 0, 3, 2 },
+    { 0, 0, 6, 2 },
+#else
+    { 0, 0, 6, 2 },
+    { 0, 0, 3, 2 },
+#endif
+    { 0, 0, 5, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 4, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 7, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 7, 3 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 2, 2 },
+    { 0, 0, 2, 2 },
+    { 0, 0, 6, 2 },
+    { 0, 0, 4, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 7, 2 },
+    { 0, 0, 7, 2 },
+    { 0, 0, 6, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 2, UNK_6_20, 3 },
+    { 0, 3, UNK_6_20, 3 },
+    { 0, 4, UNK_6_20, 3 },
+    { 0, 0, 2, 2 },
+    { 0, 0, 6, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 0, 2 },
+    { 0, 0, 3, 2 },
+    { 0, 0, 0, 3 },
+    { 0, 0, 1, 2 },
+    { 0, 0, 4, 3 },
+    { 0, 0, 7, 3 },
+    { 0, 0, 6, 1 },
+    { 0, 0, 0, 3 },
+    { 0, 0, 1, 3 },
+    { 0, 0, 3, 3 },
+    { FLAG_BANK_8, LV4_10_BOSSDIE, UNK_6_8, 3 },
+    { 0, 0, 9, 0 },
+    { 0, 0, 9, 1 },
+    { 0, 0, 9, 3 },
+    { 0, 0, 9, 3 },
+    { 0, 0, 9, 3 },
+    { 0, 0, 9, 3 },
+    { 0, 0xffff, 0, 1 },
+    { 0, 0xffff, 0, 1 },
+    { 0, 0xffff, 0, 1 },
+};
+
+extern u16 gUnk_02034E4E[];
+const Font gUnk_080FC844 = {
+    gUnk_02034E4E, BG_TILE_ADDR(0x198), gTextGfxBuffer, 0, 96, 224, 1, 1, 0, 1, 3, 0, 0, 1, 0
+};
+
+const u16 gUnk_080FC85C[][3] = {
+    { 0, 3, SFX_MENU_ERROR },
+    { 0, 4, SFX_MENU_ERROR },
+    { 1, 5, 0 },
+    { 0, 6, SFX_MENU_ERROR },
+    { 1, 7, 0 },
+    { 1, 8, 0 },
+    { 0, 9, SFX_MENU_ERROR },
+    { 1, 10, 0 },
+    { 1, 11, 0 },
+    { 0, 12, SFX_MENU_ERROR },
+    { 1, 13, 0 },
+    { 0, 14, 0 },
+};
 
 static void HandleFileScreenEnter(void);
 static void HandleFileScreenActive(void);
@@ -101,15 +287,19 @@ extern void (*const gUnk_080FC960[])(void);
 extern void (*const gUnk_080FC9B0[])(void);
 extern void (*const gUnk_080FC9BC[])(void);
 extern void (*const gUnk_080FC9C8[])(void);
-extern u8 gUnk_080FC970[];
-extern u8 gUnk_080FC980[];
-extern u8 gUnk_080FC9A0[];
+extern const u8 gUnk_080FC970[];
+extern const u8 gUnk_080FC980[];
+extern const u8 gUnk_080FC9A0[];
 
 static void ResetEmptyOrDeletedSaveFile(u32);
 static void sub_0805066C(void);
 static void HideButtonR(void);
 static void ShowButtonR(void);
 void sub_08051458(void);
+
+void sub_08050888(void);
+void sub_080508E4(void);
+void sub_08050910(void);
 
 void CreateDialogBox(u32 arg0, u32 arg1) {
     u32 sfx;
@@ -119,7 +309,7 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
     MemCopy(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
     sub_08056FEC(arg1, gUnk_020227E8);
     var0.gfx_src |= gUnk_080FC85C[arg0][0] << 0xC;
-    sub_0805F46C(gUnk_080FC85C[arg0][1], &var0);
+    ShowTextBox(gUnk_080FC85C[arg0][1], &var0);
     sfx = gUnk_080FC85C[arg0][2];
     if (sfx) {
         SoundReq(sfx);
@@ -375,6 +565,12 @@ void sub_08050848(void) {
     SetMenuType(1);
 }
 
+void (*const gUnk_080FC908[])(void) = {
+    sub_08050888,
+    sub_080508E4,
+    sub_08050910,
+};
+
 void sub_0805086C(void) {
     gUnk_080FC908[gChooseFileState.subState]();
 }
@@ -550,6 +746,9 @@ typedef struct {
 
 extern const u16 gUnk_080FC914[];
 
+const u16 gUnk_080FC914[] = { 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0xf251,
+                              0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d };
+
 // Handles drawing of hearts
 NONMATCH("asm/non_matching/save/sub_08050B3C.inc", void sub_08050B3C(u16* arg0)) {
     unk_08050B3C sp;
@@ -620,6 +819,14 @@ NONMATCH("asm/non_matching/save/sub_08050B3C.inc", void sub_08050B3C(u16* arg0))
 }
 END_NONMATCH
 
+void sub_08050C54(void);
+void sub_08050D68(void);
+
+void (*const gUnk_080FC93C[])() = {
+    sub_08050C54,
+    sub_08050D68,
+};
+
 void HandleFileView(void) {
     gUnk_080FC93C[gMenu.menuType]();
     sub_08050A64(gMapDataBottomSpecial.unk6);
@@ -687,6 +894,15 @@ void sub_08050D68(void) {
     }
 }
 
+void sub_08050DB8(void);
+void sub_08050DE4(void);
+void sub_08050E88(void);
+void (*const gUnk_080FC944[])(void) = {
+    sub_08050DB8,
+    sub_08050DE4,
+    sub_08050E88,
+};
+
 void HandleFileLanguageSelect(void) {
     gUnk_080FC944[gMenu.menuType]();
 }
@@ -747,6 +963,17 @@ void sub_08050E88(void) {
     if (HandleSave(2))
         SetFileSelectState(0);
 }
+
+void sub_08050EB8(void);
+void sub_08050EF4(void);
+void sub_08050FFC(void);
+void sub_0805103C(void);
+void (*const gUnk_080FC950[])(void) = {
+    sub_08050EB8,
+    sub_08050EF4,
+    sub_08050FFC,
+    sub_0805103C,
+};
 
 void HandleFileOptions(void) {
     gUnk_080FC950[gMenu.menuType]();
@@ -863,6 +1090,17 @@ void sub_0805103C(void) {
     }
 }
 
+void sub_08051090(void);
+void sub_080610B8(void);
+void sub_0805138C(void);
+void sub_0805144C(void);
+void (*const gUnk_080FC960[])(void) = {
+    sub_08051090,
+    sub_080610B8,
+    sub_0805138C,
+    sub_0805144C,
+};
+
 void HandleFileNew(void) {
     gUnk_080FC960[gMenu.menuType]();
 }
@@ -877,13 +1115,23 @@ void sub_08051090(void) {
     SetMenuType(1);
 }
 
+const u8 gUnk_080FC970[] = {
+    1, 2, 3, 5, 8, 0, 0, 0, 1, 2, 5, 8, 0, 0, 0, 0,
+};
+const u8 gUnk_080FC980[] = {
+    0, 0, 0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 0, 0, 0,
+};
+const u8 gUnk_080FC9A0[] = {
+    1, 3, 6, 8, 11, 0, 0, 0, 1, 4, 7, 11, 11, 0, 0, 0,
+};
+
 void sub_080610B8(void) {
     u8 uVar7;
     s32 uVar6;
     s32 tmp4;
-    u8* puVar3;
-    u8* puVar4;
-    u8* puVar5;
+    const u8* puVar3;
+    const u8* puVar4;
+    const u8* puVar5;
     s32 iVar4;
     u8 bVar2;
     u32 tmp1;
@@ -1060,6 +1308,15 @@ void sub_08051358(void) {
     }
 }
 
+void sub_080513A8(void);
+void sub_080513C0(void);
+void sub_0805141C(void);
+void (*const gUnk_080FC9B0[])(void) = {
+    sub_080513A8,
+    sub_080513C0,
+    sub_0805141C,
+};
+
 void sub_0805138C(void) {
     gUnk_080FC9B0[gMenu.overlayType]();
 }
@@ -1209,12 +1466,21 @@ void sub_08051574(u32 sfx) {
     sub_0805070C();
 }
 
+void sub_080515C8(void);
+void sub_080515D4(void);
+void sub_080516E0(void);
+void (*const gUnk_080FC9BC[])(void) = {
+    sub_080515C8,
+    sub_080515D4,
+    sub_080516E0,
+};
+
 void HandleFileDelete(void) {
     gUnk_080FC9BC[gMenu.menuType]();
     sub_08050A64(gMapDataBottomSpecial.unk6);
 }
 
-void sub_080515c8(void) {
+void sub_080515C8(void) {
     SetMenuType(1);
 }
 
@@ -1263,6 +1529,17 @@ void sub_080516E0(void) {
         SetFileSelectState(0);
     }
 }
+
+void sub_08051738(void);
+void sub_080517EC(void);
+void sub_08051874(void);
+void sub_080518E4(void);
+void (*const gUnk_080FC9C8[])(void) = {
+    sub_08051738,
+    sub_080517EC,
+    sub_08051874,
+    sub_080518E4,
+};
 
 void HandleFileCopy(void) {
     gUnk_080FC9C8[gMenu.menuType]();

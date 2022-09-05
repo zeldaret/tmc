@@ -12,7 +12,7 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	WaitForFadeFinish
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call EnablePauseMenu
 	EnablePlayerControl

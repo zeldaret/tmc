@@ -11,25 +11,202 @@
 #include "game.h"
 #include "item.h"
 
-extern void (*gUnk_081115C0[])(Entity*);
-extern void (*gUnk_081115D0[])(Entity*);
+void sub_08068A1C(Entity*);
+void sub_08068A4C(Entity*);
+void sub_08068AA4(Entity*);
+void sub_08068ADC(Entity*);
+void (*const gUnk_081115C0[])(Entity*) = {
+    sub_08068A1C,
+    sub_08068A4C,
+    sub_08068AA4,
+    sub_08068ADC,
+};
+void sub_08068AFC(Entity*);
+void sub_08068b2c(Entity*);
+void sub_08068B70(Entity*);
+void (*const gUnk_081115D0[])(Entity*) = {
+    sub_08068AFC,
+    sub_08068b2c,
+    sub_08068B70,
+};
 
-extern u16 gUnk_081115DC[];
-extern u8 BladeBrothers_EquippedItem[];
-extern PlayerMacroEntry* BladeBrothers_PlayerMacros[];
-extern u8 gUnk_08111623[];
-extern u8 gUnk_0811162B[];
-extern u16 gUnk_08111664[];
-extern u16 gUnk_0811167A[];
-extern u16 gUnk_08111690[];
-extern u16 gUnk_081116A6[];
-extern u16 gUnk_081116BC[];
-extern u16 gUnk_081116D2[];
-extern u16 gUnk_081116E8[];
-extern u16 gUnk_081116FE[];
-extern u16 gUnk_08111714[];
-extern u32 gUnk_08111740[];
-extern u16 gUnk_0811172A[];
+const u16 gUnk_081115DC[] = { 183, 184, 185, 186, 187, 188, 189, 190 };
+
+// TODO extract macros
+extern const PlayerMacroEntry gUnk_08004A0C;
+extern const PlayerMacroEntry gUnk_08004A16;
+extern const PlayerMacroEntry gUnk_08004A24;
+extern const PlayerMacroEntry gUnk_08004A32;
+extern const PlayerMacroEntry gUnk_08004A48;
+extern const PlayerMacroEntry gUnk_08004A72;
+extern const PlayerMacroEntry gUnk_08004A8C;
+extern const PlayerMacroEntry gUnk_08004AA6;
+const PlayerMacroEntry* const BladeBrothers_PlayerMacros[] = {
+    &gUnk_08004A0C, &gUnk_08004A16, &gUnk_08004A24, &gUnk_08004A32, &gUnk_08004A48, &gUnk_08004A72,
+    &gUnk_08004A8C, &gUnk_08004AA6, NULL,           NULL,           NULL,
+};
+
+const u8 BladeBrothers_EquippedItem[] = {
+    0, 0, ITEM_PEGASUS_BOOTS, ITEM_ROCS_CAPE, 0, 0, 0, 0, 0, 0, 0,
+};
+
+const u8 gUnk_08111623[] = {
+    7, 0, 4, 6, 5, 8, 9, 10,
+};
+const u8 gUnk_0811162B[] = {
+    ITEM_SKILL_SPIN_ATTACK,
+    ITEM_SKILL_ROCK_BREAKER,
+    ITEM_SKILL_DASH_ATTACK,
+    ITEM_SKILL_DOWN_THRUST,
+    ITEM_SKILL_ROLL_ATTACK,
+    ITEM_SKILL_SWORD_BEAM,
+    ITEM_SKILL_PERIL_BEAM,
+    ITEM_SKILL_GREAT_SPIN,
+    243,
+    244,
+    245,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+};
+
+const u16 gUnk_08111664[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x01), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x09), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x11),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x19), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x22), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x2b),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x34), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x3d), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x46),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x50), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x5a),
+};
+
+const u16 gUnk_0811167A[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x02), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x0a), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x12),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1a), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x23), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x2c),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x35), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x3e), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x47),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x51), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x5b),
+};
+const u16 gUnk_08111690[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x03),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x0b),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x13),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1b),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x24),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x2d),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x36),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x3f),
+    0x0,
+    0x0,
+    0x0,
+};
+const u16 gUnk_081116A6[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x04), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x0c), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x14),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1c), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x25), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x2e),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x37), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x40), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x48),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x52), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x5c),
+};
+const u16 gUnk_081116BC[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x05),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x0d),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x15),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1d),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x26),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x2f),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x38),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x41),
+    0x0,
+    0x0,
+    0x0,
+};
+const u16 gUnk_081116D2[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x06), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x0e), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x16),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1e), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x27), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x30),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x39), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x42), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x49),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x53), TEXT_INDEX(TEXT_BLADE_MASTERS, 0x5d),
+};
+const u16 gUnk_081116E8[] = {
+    0x0,
+    0x0,
+    0x0,
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1f),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x28),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x31),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x3a),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x43),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1f),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1f),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x1f),
+};
+const u16 gUnk_081116FE[] = {
+    0x0,
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x07),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x0f),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x17),
+    0x0,
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x32),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x3b),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x44),
+    0x0,
+    0x0,
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x5e),
+};
+const u16 gUnk_08111714[] = {
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x60),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x61),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x62),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x63),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x64),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x65),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x66),
+    TEXT_INDEX(TEXT_BLADE_MASTERS, 0x67),
+    0x0,
+    0x0,
+    0x0,
+};
+
+const u16 gUnk_0811172A[] = { 0, 0, 30, 0, 0, 0, 0, 30, 0, 0, 0 };
+const u32 gUnk_08111740[] = { 1, 4, 3, 7, 2, 5, 8, 6, 10, 11, 12 };
+
 extern u32 gUnk_0300402B;
 extern EntityData gUnk_080F3494;
 
@@ -146,7 +323,7 @@ void BladeBrothers_StartPlayerDemonstration(Entity* this, ScriptExecutionContext
     if (p = this->timer, BladeBrothers_EquippedItem[p]) {
         ForceEquipItem(BladeBrothers_EquippedItem[this->timer], EQUIP_SLOT_A);
     }
-    InitPlayerMacro(BladeBrothers_PlayerMacros[this->timer]);
+    InitPlayerMacro((PlayerMacroEntry*)BladeBrothers_PlayerMacros[this->timer]);
 }
 
 void sub_08068BB4(Entity* this) {
@@ -196,7 +373,7 @@ void BladeBrothers_GetScroll(Entity* this) {
 }
 
 void sub_08068C8C(Entity* this, ScriptExecutionContext* context) {
-    u8* arr = gUnk_0811162B + 0xd;
+    const u8* arr = gUnk_0811162B + 0xd;
     context->condition = *(u32*)(arr + this->timer * 4);
 }
 

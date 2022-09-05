@@ -7,7 +7,7 @@ typedef struct {
     u8 _0_0 : 4;
     u8 _0_4 : 4;
     u8 _1;
-    u16 _2;
+    u16 objPaletteId;
 } Palette;
 extern Palette gPaletteList[0x10];
 

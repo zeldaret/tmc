@@ -5,8 +5,8 @@
 #include "flags.h"
 #include "npc.h"
 
-void sub_08068680(Entity*, Entity*);
-void sub_08068694(Entity*, Entity*);
+void ZeldaFollower_Hide(Entity*, Entity*);
+void ZeldaFollower_Show(Entity*, Entity*);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
 void sub_08066CCC(Entity*);
@@ -44,7 +44,7 @@ void sub_08066D14(Entity* this, ScriptExecutionContext* context) {
         this->animationState = parent->animationState;
         this->spriteSettings.draw = 1;
         CopyPosition(parent, this);
-        sub_08068680(this, this->parent);
+        ZeldaFollower_Hide(this, this->parent);
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -52,16 +52,14 @@ void sub_08066D14(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
-    Entity* parent;
-
-    parent = this->parent;
+    Entity* parent = this->parent;
     if (this->parent != NULL) {
         CopyPosition(this, parent);
         this->parent->spriteSettings.draw = 1;
         this->parent->animationState = this->animationState;
         this->spriteSettings.draw = 0;
         this->followerFlag &= 0xFE;
-        sub_08068694(this, this->parent);
+        ZeldaFollower_Show(this, this->parent);
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -85,13 +83,11 @@ void sub_08066D94(Entity* this) {
     DeleteThisEntity();
 }
 
-void SetZeldaFollowTarget(Entity* this) {
-    Entity* pEVar1;
-
-    pEVar1 = DeepFindEntityByID(NPC, ZELDA_FOLLOWER);
-    if (pEVar1 != NULL) {
-        CopyPosition(this, pEVar1);
-        sub_080686C4(this, pEVar1);
+void SetZeldaFollowTarget(Entity* target) {
+    Entity* follower = DeepFindEntityByID(NPC, ZELDA_FOLLOWER);
+    if (follower != NULL) {
+        CopyPosition(target, follower);
+        sub_080686C4(target, follower);
     }
 }
 

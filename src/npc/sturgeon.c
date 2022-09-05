@@ -4,16 +4,32 @@
 #include "object.h"
 #include "item.h"
 
-extern u16 gUnk_0810FA54[];
+const SpriteLoadData gUnk_0810FA38[] = {
+    { 59, 140, 0 },
+    { 59, 140, 0 },
+    { 0, 0, 0 },
+};
+void sub_08064B44(Entity*);
+void sub_08064B88(Entity*);
+void sub_08064C2C(Entity*);
+void sub_08064C50(Entity*);
+void (*const gUnk_0810FA44[])(Entity*) = {
+    sub_08064B44,
+    sub_08064B88,
+    sub_08064C2C,
+    sub_08064C50,
+};
 
-extern SpriteLoadData gUnk_0810FA38;
+extern const u16 gUnk_0810FA54[];
+// const u16 gUnk_0810FA54[] = {
+// TEXT_INDEX(TEXT_LIBRARY, 0xe),
+// TEXT_INDEX(TEXT_LIBRARY, 0x15),
+// TEXT_INDEX(TEXT_LIBRARY, 0x11),
+// };
+extern u32 gUnk_0810FA5A; // TODO second parameter of sub_0806EE04
 
-extern u32 gUnk_0810FA5A;
 void sub_08064CC0(Entity* this);
-
-extern void (*const gUnk_0810FA44[])(Entity*);
 void sub_08064C9C(Entity* this);
-
 void sub_08064CD8(Entity* this);
 
 void Sturgeon(Entity* this) {
@@ -22,7 +38,7 @@ void Sturgeon(Entity* this) {
         sub_0806ED78(this);
     } else {
         if (this->action == 0) {
-            if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
+            if (LoadExtraSpriteData(this, gUnk_0810FA38)) {
                 this->action = 1;
                 this->timer = 0;
                 sub_0807DD50(this);
@@ -30,13 +46,13 @@ void Sturgeon(Entity* this) {
         } else {
             u32 tmp = this->action & 0x80;
             if (tmp) {
-                if (UpdateFuseInteraction(this) != 0) {
+                if (UpdateFuseInteraction(this)) {
                     this->action = 1;
                 }
             } else {
                 if (this->interactType == 2) {
                     this->action = this->action | 0xff;
-                    this->interactType = tmp;
+                    this->interactType = 0;
                     InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                     sub_0806F118(this);
                 } else {
@@ -49,7 +65,7 @@ void Sturgeon(Entity* this) {
 }
 
 void sub_08064B44(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810FA38)) {
         InitializeAnimation(this, 2);
         sub_0806EE04(this, &gUnk_0810FA5A, 0);
         sub_08064CC0(this);
@@ -152,7 +168,7 @@ void sub_08064D10(Entity* this) {
 
 void Sturgeon_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_0810FA38)) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);

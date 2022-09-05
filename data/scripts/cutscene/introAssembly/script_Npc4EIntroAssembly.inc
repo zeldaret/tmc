@@ -9,7 +9,7 @@ script_08008E12:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetEntity
 	WaitForPlayerEnterRoom
 	Wait 0x003c
@@ -66,7 +66,7 @@ script_08008E12:
 	_0807E8E4_0
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	SetGlobalFlag TABIDACHI
 	Call sub_0806DCC0

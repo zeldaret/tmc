@@ -169,7 +169,7 @@ const SaveHeader sDefaultSettings = {
 };
 
 // single misplaced ldr
-NONMATCH("asm/non_matching/InitSaveHeader.inc", /*static*/ void InitSaveHeader(void)) {
+/*static*/ NONMATCH("asm/non_matching/InitSaveHeader.inc", void InitSaveHeader(void)) {
     u32 b;
 
     if (!CheckHeaderValid()) {

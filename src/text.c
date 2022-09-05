@@ -7,21 +7,10 @@
 #include "message.h"
 #include "fileselect.h"
 
-extern u16 gUnk_081092D4;
-extern u8 gUnk_081094CE;
 extern u8 gUnk_02036AD8;
 extern u8 gUnk_02036A58;
-extern void* gUnk_081092AC[];
 
-typedef struct {
-    u8 filler0[12][16];
-} VStruct;
-
-extern VStruct gUnk_0810942E[];
-extern u32 gUnk_0810926C[];
 extern u32* Translations[];
-extern u32 gUnk_08109244;
-
 typedef struct {
     u8 unk0;
     u8 unk1;
@@ -29,7 +18,7 @@ typedef struct {
 
 void sub_0805F820(WStruct* r0, u32* r1);
 bool32 sub_0805EF40(Token* tok, const u8*);
-void sub_0805F440(Token*, u8*);
+void InitToken(Token* token, u32 textIndexOrPtr);
 u32 sub_0805F6A4(Token*, WStruct*);
 u32 GetCharacter(Token* tok);
 u32 GetFontStrWith(Token*, u32);
@@ -55,10 +44,19 @@ typedef struct {
 
 extern struct_gUnk_02034330 gUnk_02034330;
 extern WStruct gUnk_02036540[4];
-extern u32* gUnk_08109248[];
-extern u8* gUnk_08109230[];
+
 extern u32* gTranslations[];
-extern u32 gUnk_08109244;
+extern u8* gUnk_08109230[]; // TODO needs to be u8, but then is not passed correctly?
+extern u32 gUnk_08109244;   // TODO structure?
+extern u32* gUnk_08109248[];
+extern u32 gUnk_0810926C[];
+extern void* gUnk_081092AC[]; // TODO structure?
+extern u16 gUnk_081092D4;     // TODO array?
+typedef struct {
+    u8 filler0[12][16];
+} VStruct;
+extern VStruct gUnk_0810942E[]; // TODO structure?
+extern u8 gUnk_081094CE;        // TODO structure? array?
 
 void sub_0805EEB4(Token* token, u32 textIndex) {
     u32 langIndex;
@@ -424,16 +422,16 @@ u32 GetFontStrWith(Token* param_1, u32 param_2) {
     return rv;
 }
 
-void sub_0805F440(Token* param_1, u8* param_2) {
-    MemClear(param_1, sizeof(Token));
-    if ((u32)param_2 >= 0x10000) {
-        sub_0805EF40(param_1, param_2);
+void InitToken(Token* token, u32 textIndexOrPtr) {
+    MemClear(token, sizeof(Token));
+    if (textIndexOrPtr >= 0x10000) {
+        sub_0805EF40(token, (u8*)textIndexOrPtr);
     } else {
-        sub_0805EEB4(param_1, (u32)param_2);
+        sub_0805EEB4(token, textIndexOrPtr);
     }
 }
 
-u32 sub_0805F46C(u32 param_1, const Font* param_2) {
+u32 ShowTextBox(u32 textIndexOrPtr, const Font* paramFont) {
     u32 uVar1;
     WStruct* pWVar4;
     u32 uVar5;
@@ -450,8 +448,8 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
 
     pWVar4 = sub_0805F2C8();
     if (pWVar4 != NULL) {
-        MemCopy(param_2, &font, sizeof(Font));
-        sub_0805F440(&token, (u8*)param_1);
+        MemCopy(paramFont, &font, sizeof(Font));
+        InitToken(&token, textIndexOrPtr);
         token.unk05 = font.stylized & 3;
         pWVar4->unk04 = font.stylized;
         pWVar4->unk4 = font.width;
@@ -482,16 +480,16 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
                 font.dest++;
             }
             uVar8 = uVar8 >> 3;
-            param_1 = font.gfx_src;
-            DispMessageFrame(puVar9, uVar8, iVar10, param_1);
+            textIndexOrPtr = font.gfx_src;
+            DispMessageFrame(puVar9, uVar8, iVar10, textIndexOrPtr);
             puVar9 = puVar9 + 1;
             font.gfx_src = font.gfx_src + 7;
-            param_1 = font.gfx_src - 1;
+            textIndexOrPtr = font.gfx_src - 1;
             while (iVar10-- > 0) {
                 puVar9 += 0x20;
                 puVar6 = puVar9;
                 for (uVar5 = uVar8; (s32)uVar5-- > 0;) {
-                    *puVar6++ = param_1;
+                    *puVar6++ = textIndexOrPtr;
                 }
             }
         }
@@ -602,14 +600,12 @@ u32 sub_0805F6A4(Token* param_1, WStruct* param_2) {
     return iVar4;
 }
 
-u32 sub_0805F76C(u8* param_1, WStruct* param_2) {
-    u32 uVar1;
-    Token local_38;
+u32 sub_0805F76C(u32 textIdOrPtr, WStruct* param_2) {
+    Token stackToken;
 
-    sub_0805F440(&local_38, param_1);
-    local_38.unk05 = param_2->unk04 & 3;
-    uVar1 = sub_0805F6A4(&local_38, param_2);
-    return uVar1;
+    InitToken(&stackToken, textIdOrPtr);
+    stackToken.unk05 = param_2->unk04 & 3;
+    return sub_0805F6A4(&stackToken, param_2);
 }
 
 static u32 sub_0805F7A0(u32 param_1) {
