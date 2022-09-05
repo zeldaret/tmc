@@ -7,16 +7,25 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Ubuntu 22.04 is needed for an up-to-date version of doxygen.
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v2
-    - name: generate docs
-      uses: mattnotmitt/doxygen-action@v1
+    - name: Checkout m.css
+      uses: actions/checkout@v2
       with:
-        doxyfile-path: 'Doxyfile'
+        repository: octorock/m.css
+        ref: refs/heads/bitfields
+        path: ./m.css
+    - name: Install doxygen
+      run: sudo apt install -y doxygen
+    - name: Generate docs
+      run: ./m.css/documentation/doxygen.py doxygen_config.py
     - name: deploy docs to github pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/doxygen
+        publish_dir: ./docs/doxygen/html
+        # We do not need history for the gh-pages branch.
+        force_orphan: true

@@ -38,9 +38,11 @@ It can target the following ROMs:
 **Note:** This repository does not include any of the assets necessary to build the ROM.
 A prior copy of the game is required to extract the needed assets.
 
-Website: <https://zelda64.dev/>
+Website: <https://zelda64.dev>
 
 Discord: <https://discord.zelda64.dev>
+
+Documentation: <https://zeldaret.github.io/tmc>
 
 ## Installation
 
