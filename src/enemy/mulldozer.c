@@ -436,7 +436,7 @@ void sub_08033320(MulldozerEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mulldozer/sub_08033364.inc", bool32 sub_08033364(MulldozerEntity* this)) {
+bool32 sub_08033364(MulldozerEntity* this) {
     Entity* entity;
     u32 radius;
     u32 tmp;
@@ -452,14 +452,16 @@ NONMATCH("asm/non_matching/mulldozer/sub_08033364.inc", bool32 sub_08033364(Mull
             if (super->type != 0) {
                 return TRUE;
             }
-            if (((GetFacingDirection(super, gUnk_020000B0) + 2) & 0x1c) >> 2 == super->animationState) {
+            tmp = GetFacingDirection(super, gUnk_020000B0);
+            tmp = Direction8RoundUp(tmp);
+            tmp = Direction8ToAnimationState(tmp);
+            if (super->animationState == tmp) {
                 return TRUE;
             }
         }
     }
     return FALSE;
 }
-END_NONMATCH
 
 void (*const Mulldozer_Functions[])(MulldozerEntity*) = {
     Mulldozer_OnInit,

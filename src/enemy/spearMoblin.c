@@ -24,7 +24,7 @@ extern void (*const SpearMoblin_Functions[])(Entity*);
 extern void (*const gUnk_080CC7A8[])(Entity*);
 extern const u8 gUnk_080CC7BC[];
 extern const s8 gUnk_080CC7C0[];
-extern const u8 gUnk_080CC7D0[];
+extern const s8 gUnk_080CC7D0[];
 extern const u16 gUnk_080CC7D8[];
 
 extern const Hitbox* const gUnk_080CC944[];
@@ -242,7 +242,8 @@ void sub_08028528(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Entity* this)) {
+void sub_08028604(Entity* this) {
+    u32 iVar3;
     this->subtimer = 0;
     if (this->field_0x82.HALF.LO == 1) {
         this->timer = gUnk_080CC7BC[Random() & 3];
@@ -251,12 +252,10 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
             u32 rand = Random();
             u32 tmp;
             tmp = gUnk_080CC7D0[rand & 7] + 0x18;
-            tmp += this->direction;
-            tmp &= 0x18;
-            this->direction = tmp;
+            this->direction = DirectionRound(tmp + this->direction);
+            iVar3 = Direction8ToAnimationState(this->direction);
         } else {
-            u32 iVar3 = sub_08049EE4(this);
-            s8 uVar1;
+            iVar3 = sub_08049EE4(this);
             if (this->field_0x82.HALF.HI == 0) {
                 u32 rand = Random();
                 iVar3 += gUnk_080CC7C0[rand & 0xf];
@@ -267,18 +266,19 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
                 this->field_0x82.HALF.HI--;
             }
             this->direction = (iVar3 + 4U) & 0x18;
+            iVar3 = Direction8ToAnimationState(this->direction);
         }
     } else {
-        this->timer = 0xc;
+        this->timer = 12;
         this->speed = 0;
+        iVar3 = Direction8ToAnimationState(this->direction);
     }
 
-    if (this->direction >> 2 != this->animationState) {
-        this->animationState = this->direction >> 2;
+    if (iVar3 != this->animationState) {
+        this->animationState = iVar3;
         sub_080287E0(this);
     }
 }
-END_NONMATCH
 
 bool32 sub_080286CC(Entity* this) {
     if (this->field_0x80.HALF.HI == 0) {
@@ -429,7 +429,7 @@ const s8 gUnk_080CC7C0[] = {
     0x00, 0xFE,
 };
 
-const u8 gUnk_080CC7D0[] = {
+const s8 gUnk_080CC7D0[] = {
     0x08, 0x10,
     0x08, 0x00,
     0x10, 0x08,
