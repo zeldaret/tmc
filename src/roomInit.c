@@ -1,18 +1,18 @@
-#include "global.h"
-#include "main.h"
-#include "common.h"
-#include "functions.h"
-#include "sound.h"
-#include "effects.h"
-#include "screen.h"
-#include "flags.h"
-#include "item.h"
-#include "save.h"
 #include "area.h"
+#include "common.h"
+#include "effects.h"
+#include "flags.h"
+#include "functions.h"
 #include "game.h"
-#include "npc.h"
+#include "item.h"
 #include "kinstone.h"
+#include "main.h"
+#include "npc.h"
 #include "object.h"
+#include "save.h"
+#include "screen.h"
+#include "screenTransitions.h"
+#include "sound.h"
 
 extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
@@ -709,8 +709,6 @@ void sub_StateChange_HyruleCastle_4(void) {
 #endif
 #endif
 }
-
-extern ScreenTransitionData gUnk_0813AB80;
 
 void sub_0804BCDC(void) {
     sub_0808091C(&gUnk_0813AB80, TRANSITION_FADE_BLACK_SLOW);

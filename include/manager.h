@@ -159,6 +159,6 @@ extern void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExi
 
 extern u32 sub_0805ACC0(Entity*);
 extern void sub_0801855C(void);
-extern void sub_080186C0(u32);
+extern void SetNextAreaHint(u32 textId);
 
 #endif // MANAGER_H

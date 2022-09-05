@@ -1,10 +1,7 @@
 #include "entity.h"
-#include "script.h"
 #include "functions.h"
-
-extern ScreenTransitionData gUnk_0813AD10;
-extern ScreenTransitionData gUnk_0813AD24;
-extern ScreenTransitionData gUnk_0813AD38;
+#include "screenTransitions.h"
+#include "script.h"
 
 void Emma(Entity* this) {
     if (this->action == 0) {

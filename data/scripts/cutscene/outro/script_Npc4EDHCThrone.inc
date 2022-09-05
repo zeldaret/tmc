@@ -8,6 +8,6 @@ SCRIPT_START script_Npc4EDHCThrone
 	EndBlock
 	Wait 0x003c
 	PlaySound SFX_EVAPORATE
-	CallWithArg sub_0806DA1C, 0x00000008
+	CallWithArg NPC4E_DoScreenTransition, 8
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.section .rodata
-    .align 2
+	.align 2
 
 gGlobalGfxAndPalettes:: @ 085A2E80
 gPalette_0::
@@ -681,6 +681,14 @@ gPalette_678::
 	.incbin "palettes/gPalette_678.gbapal"
 gfx_unknown_4::
 	.incbin "assets/gfx_unknown_4.bin"
+bgAnim_57_0::
+	.incbin "palettes/bgAnim_57_0.gbapal"
+bgAnim_57_1::
+	.incbin "palettes/bgAnim_57_1.gbapal"
+bgAnim_57_0_1::
+	.incbin "palettes/bgAnim_57_0_1.gbapal"
+bgAnim_57_1_1::
+	.incbin "palettes/bgAnim_57_1_1.gbapal"
 gPalette_685::
 	.incbin "palettes/gPalette_685.gbapal"
 gPalette_686::
@@ -1827,8 +1835,8 @@ gPalette_1259::
 	.incbin "palettes/gPalette_1259.gbapal"
 gPalette_1260::
 	.incbin "palettes/gPalette_1260.gbapal"
-gfx_unknown_6::
-	.incbin "assets/gfx_unknown_6.bin"
+gfx_unknown_5::
+	.incbin "assets/gfx_unknown_5.bin"
 gPalette_1262::
 	.incbin "palettes/gPalette_1262.gbapal"
 gPalette_1263::
@@ -3097,8 +3105,8 @@ gPalette_1894::
 	.incbin "palettes/gPalette_1894.gbapal"
 gPalette_1895::
 	.incbin "palettes/gPalette_1895.gbapal"
-gfx_unknown_7::
-	.incbin "assets/gfx_unknown_7.bin"
+gfx_unknown_6::
+	.incbin "assets/gfx_unknown_6.bin"
 gPalette_1908::
 	.incbin "palettes/gPalette_1908.gbapal"
 gPalette_1909::
@@ -3563,8 +3571,8 @@ gPalette_2138::
 	.incbin "palettes/gPalette_2138.gbapal"
 gPalette_2139::
 	.incbin "palettes/gPalette_2139.gbapal"
-gfx_unknown_8::
-	.incbin "assets/gfx_unknown_8.bin"
+gfx_unknown_7::
+	.incbin "assets/gfx_unknown_7.bin"
 gPalette_2143::
 	.incbin "palettes/gPalette_2143.gbapal"
 gPalette_2144::
@@ -3597,8 +3605,8 @@ gPalette_2157::
 	.incbin "palettes/gPalette_2157.gbapal"
 gPalette_2158::
 	.incbin "palettes/gPalette_2158.gbapal"
-gfx_unknown_9::
-	.incbin "assets/gfx_unknown_9.bin"
+gfx_unknown_8::
+	.incbin "assets/gfx_unknown_8.bin"
 gPalette_2162::
 	.incbin "palettes/gPalette_2162.gbapal"
 gPalette_2163::
@@ -3631,8 +3639,8 @@ gPalette_2176::
 	.incbin "palettes/gPalette_2176.gbapal"
 gPalette_2177::
 	.incbin "palettes/gPalette_2177.gbapal"
-gfx_unknown_10::
-	.incbin "assets/gfx_unknown_10.bin"
+gfx_unknown_9::
+	.incbin "assets/gfx_unknown_9.bin"
 gPalette_2181::
 	.incbin "palettes/gPalette_2181.gbapal"
 gPalette_2182::
@@ -3665,10 +3673,10 @@ gPalette_2195::
 	.incbin "palettes/gPalette_2195.gbapal"
 gPalette_2196::
 	.incbin "palettes/gPalette_2196.gbapal"
-gfx_unknown_11::
-	.incbin "assets/gfx_unknown_11.bin"
+gfx_unknown_10::
+	.incbin "assets/gfx_unknown_10.bin"
 gUnk_085B4180::
-    .incbin "assets/gUnk_085B4180.bin"
+	.incbin "assets/gUnk_085B4180.bin"
 gPalette_2204::
 	.incbin "palettes/gPalette_2204.gbapal"
 gPalette_2205::
@@ -3685,8 +3693,8 @@ gPalette_2210::
 	.incbin "palettes/gPalette_2210.gbapal"
 gPalette_2211::
 	.incbin "palettes/gPalette_2211.gbapal"
-gfx_unknown_12::
-	.incbin "assets/gfx_unknown_12.bin"
+gfx_unknown_11::
+	.incbin "assets/gfx_unknown_11.bin"
 gPalette_2215::
 	.incbin "palettes/gPalette_2215.gbapal"
 gPalette_2216::
@@ -3775,8 +3783,8 @@ gPalette_2257::
 	.incbin "palettes/gPalette_2257.gbapal"
 gPalette_2258::
 	.incbin "palettes/gPalette_2258.gbapal"
-gfx_unknown_13::
-	.incbin "assets/gfx_unknown_13.bin"
+gfx_unknown_12::
+	.incbin "assets/gfx_unknown_12.bin"
 gPalette_2293::
 	.incbin "palettes/gPalette_2293.gbapal"
 gPalette_2294::
@@ -4341,8 +4349,8 @@ gPalette_3390::
 	.incbin "palettes/gPalette_3390.gbapal"
 gPalette_3391::
 	.incbin "palettes/gPalette_3391.gbapal"
-gfx_unknown_14::
-	.incbin "assets/gfx_unknown_14.bin"
+gfx_unknown_13::
+	.incbin "assets/gfx_unknown_13.bin"
 gPalette_3396::
 	.incbin "palettes/gPalette_3396.gbapal"
 gPalette_3397::
@@ -4411,14 +4419,626 @@ gPalette_3428::
 	.incbin "palettes/gPalette_3428.gbapal"
 gPalette_3429::
 	.incbin "palettes/gPalette_3429.gbapal"
-gfx_unknown_15::
-	.incbin "assets/gfx_unknown_15.bin"
+gfx_unknown_14::
+	.incbin "assets/gfx_unknown_14.bin"
 gPalette_3437::
 	.incbin "palettes/gPalette_3437.gbapal"
 gPalette_3438::
 	.incbin "palettes/gPalette_3438.gbapal"
-gfx_unknown_16::
-	.incbin "assets/gfx_unknown_16.bin"
+bgAnim_96_0::
+	.incbin "palettes/bgAnim_96_0.gbapal"
+bgAnim_96_1::
+	.incbin "palettes/bgAnim_96_1.gbapal"
+bgAnim_96_2::
+	.incbin "palettes/bgAnim_96_2.gbapal"
+bgAnim_96_3::
+	.incbin "palettes/bgAnim_96_3.gbapal"
+bgAnim_96_4::
+	.incbin "palettes/bgAnim_96_4.gbapal"
+bgAnim_96_5::
+	.incbin "palettes/bgAnim_96_5.gbapal"
+bgAnim_96_6::
+	.incbin "palettes/bgAnim_96_6.gbapal"
+bgAnim_96_7::
+	.incbin "palettes/bgAnim_96_7.gbapal"
+bgAnim_96_8::
+	.incbin "palettes/bgAnim_96_8.gbapal"
+bgAnim_96_9::
+	.incbin "palettes/bgAnim_96_9.gbapal"
+bgAnim_96_10::
+	.incbin "palettes/bgAnim_96_10.gbapal"
+bgAnim_96_11::
+	.incbin "palettes/bgAnim_96_11.gbapal"
+bgAnim_96_12::
+	.incbin "palettes/bgAnim_96_12.gbapal"
+bgAnim_96_13::
+	.incbin "palettes/bgAnim_96_13.gbapal"
+bgAnim_96_14::
+	.incbin "palettes/bgAnim_96_14.gbapal"
+bgAnim_96_15::
+	.incbin "palettes/bgAnim_96_15.gbapal"
+bgAnim_73_0::
+	.incbin "palettes/bgAnim_73_0.gbapal"
+bgAnim_73_1::
+	.incbin "palettes/bgAnim_73_1.gbapal"
+bgAnim_73_2::
+	.incbin "palettes/bgAnim_73_2.gbapal"
+bgAnim_73_3::
+	.incbin "palettes/bgAnim_73_3.gbapal"
+bgAnim_73_4::
+	.incbin "palettes/bgAnim_73_4.gbapal"
+bgAnim_73_5::
+	.incbin "palettes/bgAnim_73_5.gbapal"
+bgAnim_73_6::
+	.incbin "palettes/bgAnim_73_6.gbapal"
+bgAnim_73_7::
+	.incbin "palettes/bgAnim_73_7.gbapal"
+bgAnim_73_8::
+	.incbin "palettes/bgAnim_73_8.gbapal"
+bgAnim_73_9::
+	.incbin "palettes/bgAnim_73_9.gbapal"
+bgAnim_73_10::
+	.incbin "palettes/bgAnim_73_10.gbapal"
+bgAnim_73_11::
+	.incbin "palettes/bgAnim_73_11.gbapal"
+bgAnim_73_12::
+	.incbin "palettes/bgAnim_73_12.gbapal"
+bgAnim_73_13::
+	.incbin "palettes/bgAnim_73_13.gbapal"
+bgAnim_73_14::
+	.incbin "palettes/bgAnim_73_14.gbapal"
+bgAnim_73_15::
+	.incbin "palettes/bgAnim_73_15.gbapal"
+bgAnim_68_0::
+	.incbin "palettes/bgAnim_68_0.gbapal"
+bgAnim_68_1::
+	.incbin "palettes/bgAnim_68_1.gbapal"
+bgAnim_68_2::
+	.incbin "palettes/bgAnim_68_2.gbapal"
+bgAnim_68_3::
+	.incbin "palettes/bgAnim_68_3.gbapal"
+bgAnim_68_4::
+	.incbin "palettes/bgAnim_68_4.gbapal"
+bgAnim_68_5::
+	.incbin "palettes/bgAnim_68_5.gbapal"
+bgAnim_68_6::
+	.incbin "palettes/bgAnim_68_6.gbapal"
+bgAnim_68_7::
+	.incbin "palettes/bgAnim_68_7.gbapal"
+bgAnim_68_8::
+	.incbin "palettes/bgAnim_68_8.gbapal"
+bgAnim_68_9::
+	.incbin "palettes/bgAnim_68_9.gbapal"
+bgAnim_68_10::
+	.incbin "palettes/bgAnim_68_10.gbapal"
+bgAnim_68_11::
+	.incbin "palettes/bgAnim_68_11.gbapal"
+bgAnim_68_12::
+	.incbin "palettes/bgAnim_68_12.gbapal"
+bgAnim_68_13::
+	.incbin "palettes/bgAnim_68_13.gbapal"
+bgAnim_68_14::
+	.incbin "palettes/bgAnim_68_14.gbapal"
+bgAnim_68_15::
+	.incbin "palettes/bgAnim_68_15.gbapal"
+bgAnim_69_0::
+	.incbin "palettes/bgAnim_69_0.gbapal"
+bgAnim_69_1::
+	.incbin "palettes/bgAnim_69_1.gbapal"
+bgAnim_69_2::
+	.incbin "palettes/bgAnim_69_2.gbapal"
+bgAnim_69_3::
+	.incbin "palettes/bgAnim_69_3.gbapal"
+bgAnim_69_4::
+	.incbin "palettes/bgAnim_69_4.gbapal"
+bgAnim_69_5::
+	.incbin "palettes/bgAnim_69_5.gbapal"
+bgAnim_69_6::
+	.incbin "palettes/bgAnim_69_6.gbapal"
+bgAnim_69_7::
+	.incbin "palettes/bgAnim_69_7.gbapal"
+bgAnim_69_8::
+	.incbin "palettes/bgAnim_69_8.gbapal"
+bgAnim_69_9::
+	.incbin "palettes/bgAnim_69_9.gbapal"
+bgAnim_69_10::
+	.incbin "palettes/bgAnim_69_10.gbapal"
+bgAnim_69_11::
+	.incbin "palettes/bgAnim_69_11.gbapal"
+bgAnim_69_12::
+	.incbin "palettes/bgAnim_69_12.gbapal"
+bgAnim_69_13::
+	.incbin "palettes/bgAnim_69_13.gbapal"
+bgAnim_69_14::
+	.incbin "palettes/bgAnim_69_14.gbapal"
+bgAnim_69_15::
+	.incbin "palettes/bgAnim_69_15.gbapal"
+bgAnim_71_0::
+	.incbin "palettes/bgAnim_71_0.gbapal"
+bgAnim_71_1::
+	.incbin "palettes/bgAnim_71_1.gbapal"
+bgAnim_71_2::
+	.incbin "palettes/bgAnim_71_2.gbapal"
+bgAnim_71_3::
+	.incbin "palettes/bgAnim_71_3.gbapal"
+bgAnim_71_4::
+	.incbin "palettes/bgAnim_71_4.gbapal"
+bgAnim_71_5::
+	.incbin "palettes/bgAnim_71_5.gbapal"
+bgAnim_71_6::
+	.incbin "palettes/bgAnim_71_6.gbapal"
+bgAnim_71_7::
+	.incbin "palettes/bgAnim_71_7.gbapal"
+bgAnim_71_8::
+	.incbin "palettes/bgAnim_71_8.gbapal"
+bgAnim_71_9::
+	.incbin "palettes/bgAnim_71_9.gbapal"
+bgAnim_71_10::
+	.incbin "palettes/bgAnim_71_10.gbapal"
+bgAnim_71_11::
+	.incbin "palettes/bgAnim_71_11.gbapal"
+bgAnim_71_12::
+	.incbin "palettes/bgAnim_71_12.gbapal"
+bgAnim_71_13::
+	.incbin "palettes/bgAnim_71_13.gbapal"
+bgAnim_71_14::
+	.incbin "palettes/bgAnim_71_14.gbapal"
+bgAnim_71_15::
+	.incbin "palettes/bgAnim_71_15.gbapal"
+bgAnim_70_0::
+	.incbin "palettes/bgAnim_70_0.gbapal"
+bgAnim_70_1::
+	.incbin "palettes/bgAnim_70_1.gbapal"
+bgAnim_70_2::
+	.incbin "palettes/bgAnim_70_2.gbapal"
+bgAnim_70_3::
+	.incbin "palettes/bgAnim_70_3.gbapal"
+bgAnim_70_4::
+	.incbin "palettes/bgAnim_70_4.gbapal"
+bgAnim_70_5::
+	.incbin "palettes/bgAnim_70_5.gbapal"
+bgAnim_70_6::
+	.incbin "palettes/bgAnim_70_6.gbapal"
+bgAnim_70_7::
+	.incbin "palettes/bgAnim_70_7.gbapal"
+bgAnim_70_8::
+	.incbin "palettes/bgAnim_70_8.gbapal"
+bgAnim_70_9::
+	.incbin "palettes/bgAnim_70_9.gbapal"
+bgAnim_70_10::
+	.incbin "palettes/bgAnim_70_10.gbapal"
+bgAnim_70_11::
+	.incbin "palettes/bgAnim_70_11.gbapal"
+bgAnim_70_12::
+	.incbin "palettes/bgAnim_70_12.gbapal"
+bgAnim_70_13::
+	.incbin "palettes/bgAnim_70_13.gbapal"
+bgAnim_70_14::
+	.incbin "palettes/bgAnim_70_14.gbapal"
+bgAnim_70_15::
+	.incbin "palettes/bgAnim_70_15.gbapal"
+bgAnim_72_0::
+	.incbin "palettes/bgAnim_72_0.gbapal"
+bgAnim_72_1::
+	.incbin "palettes/bgAnim_72_1.gbapal"
+bgAnim_72_2::
+	.incbin "palettes/bgAnim_72_2.gbapal"
+bgAnim_72_3::
+	.incbin "palettes/bgAnim_72_3.gbapal"
+bgAnim_72_4::
+	.incbin "palettes/bgAnim_72_4.gbapal"
+bgAnim_72_5::
+	.incbin "palettes/bgAnim_72_5.gbapal"
+bgAnim_72_6::
+	.incbin "palettes/bgAnim_72_6.gbapal"
+bgAnim_72_7::
+	.incbin "palettes/bgAnim_72_7.gbapal"
+bgAnim_72_8::
+	.incbin "palettes/bgAnim_72_8.gbapal"
+bgAnim_72_9::
+	.incbin "palettes/bgAnim_72_9.gbapal"
+bgAnim_72_10::
+	.incbin "palettes/bgAnim_72_10.gbapal"
+bgAnim_72_11::
+	.incbin "palettes/bgAnim_72_11.gbapal"
+bgAnim_72_12::
+	.incbin "palettes/bgAnim_72_12.gbapal"
+bgAnim_72_13::
+	.incbin "palettes/bgAnim_72_13.gbapal"
+bgAnim_72_14::
+	.incbin "palettes/bgAnim_72_14.gbapal"
+bgAnim_72_15::
+	.incbin "palettes/bgAnim_72_15.gbapal"
+bgAnim_78_0::
+	.incbin "palettes/bgAnim_78_0.gbapal"
+bgAnim_78_1::
+	.incbin "palettes/bgAnim_78_1.gbapal"
+bgAnim_78_2::
+	.incbin "palettes/bgAnim_78_2.gbapal"
+bgAnim_78_3::
+	.incbin "palettes/bgAnim_78_3.gbapal"
+bgAnim_78_4::
+	.incbin "palettes/bgAnim_78_4.gbapal"
+bgAnim_78_5::
+	.incbin "palettes/bgAnim_78_5.gbapal"
+bgAnim_78_6::
+	.incbin "palettes/bgAnim_78_6.gbapal"
+bgAnim_78_7::
+	.incbin "palettes/bgAnim_78_7.gbapal"
+bgAnim_78_8::
+	.incbin "palettes/bgAnim_78_8.gbapal"
+bgAnim_78_9::
+	.incbin "palettes/bgAnim_78_9.gbapal"
+bgAnim_78_10::
+	.incbin "palettes/bgAnim_78_10.gbapal"
+bgAnim_78_11::
+	.incbin "palettes/bgAnim_78_11.gbapal"
+bgAnim_78_12::
+	.incbin "palettes/bgAnim_78_12.gbapal"
+bgAnim_78_13::
+	.incbin "palettes/bgAnim_78_13.gbapal"
+bgAnim_78_14::
+	.incbin "palettes/bgAnim_78_14.gbapal"
+bgAnim_78_15::
+	.incbin "palettes/bgAnim_78_15.gbapal"
+bgAnim_28_0::
+	.incbin "palettes/bgAnim_28_0.gbapal"
+bgAnim_28_1::
+	.incbin "palettes/bgAnim_28_1.gbapal"
+bgAnim_28_2::
+	.incbin "palettes/bgAnim_28_2.gbapal"
+bgAnim_28_3::
+	.incbin "palettes/bgAnim_28_3.gbapal"
+bgAnim_28_4::
+	.incbin "palettes/bgAnim_28_4.gbapal"
+bgAnim_61_0::
+	.incbin "palettes/bgAnim_61_0.gbapal"
+bgAnim_61_1::
+	.incbin "palettes/bgAnim_61_1.gbapal"
+bgAnim_61_2::
+	.incbin "palettes/bgAnim_61_2.gbapal"
+bgAnim_61_3::
+	.incbin "palettes/bgAnim_61_3.gbapal"
+bgAnim_61_4::
+	.incbin "palettes/bgAnim_61_4.gbapal"
+bgAnim_61_5::
+	.incbin "palettes/bgAnim_61_5.gbapal"
+bgAnim_61_6::
+	.incbin "palettes/bgAnim_61_6.gbapal"
+bgAnim_61_7::
+	.incbin "palettes/bgAnim_61_7.gbapal"
+bgAnim_61_8::
+	.incbin "palettes/bgAnim_61_8.gbapal"
+bgAnim_61_9::
+	.incbin "palettes/bgAnim_61_9.gbapal"
+bgAnim_61_10::
+	.incbin "palettes/bgAnim_61_10.gbapal"
+bgAnim_61_11::
+	.incbin "palettes/bgAnim_61_11.gbapal"
+bgAnim_61_12::
+	.incbin "palettes/bgAnim_61_12.gbapal"
+bgAnim_61_13::
+	.incbin "palettes/bgAnim_61_13.gbapal"
+bgAnim_61_14::
+	.incbin "palettes/bgAnim_61_14.gbapal"
+bgAnim_61_15::
+	.incbin "palettes/bgAnim_61_15.gbapal"
+bgAnim_62_0::
+	.incbin "palettes/bgAnim_62_0.gbapal"
+bgAnim_62_1::
+	.incbin "palettes/bgAnim_62_1.gbapal"
+bgAnim_62_2::
+	.incbin "palettes/bgAnim_62_2.gbapal"
+bgAnim_62_3::
+	.incbin "palettes/bgAnim_62_3.gbapal"
+bgAnim_62_4::
+	.incbin "palettes/bgAnim_62_4.gbapal"
+bgAnim_62_5::
+	.incbin "palettes/bgAnim_62_5.gbapal"
+bgAnim_62_6::
+	.incbin "palettes/bgAnim_62_6.gbapal"
+bgAnim_62_7::
+	.incbin "palettes/bgAnim_62_7.gbapal"
+bgAnim_62_8::
+	.incbin "palettes/bgAnim_62_8.gbapal"
+bgAnim_62_9::
+	.incbin "palettes/bgAnim_62_9.gbapal"
+bgAnim_62_10::
+	.incbin "palettes/bgAnim_62_10.gbapal"
+bgAnim_62_11::
+	.incbin "palettes/bgAnim_62_11.gbapal"
+bgAnim_62_12::
+	.incbin "palettes/bgAnim_62_12.gbapal"
+bgAnim_62_13::
+	.incbin "palettes/bgAnim_62_13.gbapal"
+bgAnim_62_14::
+	.incbin "palettes/bgAnim_62_14.gbapal"
+bgAnim_62_15::
+	.incbin "palettes/bgAnim_62_15.gbapal"
+bgAnim_63_0::
+	.incbin "palettes/bgAnim_63_0.gbapal"
+bgAnim_63_1::
+	.incbin "palettes/bgAnim_63_1.gbapal"
+bgAnim_63_2::
+	.incbin "palettes/bgAnim_63_2.gbapal"
+bgAnim_63_3::
+	.incbin "palettes/bgAnim_63_3.gbapal"
+bgAnim_63_4::
+	.incbin "palettes/bgAnim_63_4.gbapal"
+bgAnim_63_5::
+	.incbin "palettes/bgAnim_63_5.gbapal"
+bgAnim_63_6::
+	.incbin "palettes/bgAnim_63_6.gbapal"
+bgAnim_63_7::
+	.incbin "palettes/bgAnim_63_7.gbapal"
+bgAnim_63_8::
+	.incbin "palettes/bgAnim_63_8.gbapal"
+bgAnim_63_9::
+	.incbin "palettes/bgAnim_63_9.gbapal"
+bgAnim_63_10::
+	.incbin "palettes/bgAnim_63_10.gbapal"
+bgAnim_63_11::
+	.incbin "palettes/bgAnim_63_11.gbapal"
+bgAnim_63_12::
+	.incbin "palettes/bgAnim_63_12.gbapal"
+bgAnim_63_13::
+	.incbin "palettes/bgAnim_63_13.gbapal"
+bgAnim_63_14::
+	.incbin "palettes/bgAnim_63_14.gbapal"
+bgAnim_63_15::
+	.incbin "palettes/bgAnim_63_15.gbapal"
+bgAnim_64_0::
+	.incbin "palettes/bgAnim_64_0.gbapal"
+bgAnim_64_1::
+	.incbin "palettes/bgAnim_64_1.gbapal"
+bgAnim_64_2::
+	.incbin "palettes/bgAnim_64_2.gbapal"
+bgAnim_64_3::
+	.incbin "palettes/bgAnim_64_3.gbapal"
+bgAnim_64_4::
+	.incbin "palettes/bgAnim_64_4.gbapal"
+bgAnim_64_5::
+	.incbin "palettes/bgAnim_64_5.gbapal"
+bgAnim_64_6::
+	.incbin "palettes/bgAnim_64_6.gbapal"
+bgAnim_64_7::
+	.incbin "palettes/bgAnim_64_7.gbapal"
+bgAnim_64_8::
+	.incbin "palettes/bgAnim_64_8.gbapal"
+bgAnim_64_9::
+	.incbin "palettes/bgAnim_64_9.gbapal"
+bgAnim_64_10::
+	.incbin "palettes/bgAnim_64_10.gbapal"
+bgAnim_64_11::
+	.incbin "palettes/bgAnim_64_11.gbapal"
+bgAnim_64_12::
+	.incbin "palettes/bgAnim_64_12.gbapal"
+bgAnim_64_13::
+	.incbin "palettes/bgAnim_64_13.gbapal"
+bgAnim_64_14::
+	.incbin "palettes/bgAnim_64_14.gbapal"
+bgAnim_64_15::
+	.incbin "palettes/bgAnim_64_15.gbapal"
+bgAnim_76_0::
+	.incbin "palettes/bgAnim_76_0.gbapal"
+bgAnim_76_1::
+	.incbin "palettes/bgAnim_76_1.gbapal"
+bgAnim_76_2::
+	.incbin "palettes/bgAnim_76_2.gbapal"
+bgAnim_76_3::
+	.incbin "palettes/bgAnim_76_3.gbapal"
+bgAnim_76_4::
+	.incbin "palettes/bgAnim_76_4.gbapal"
+bgAnim_76_5::
+	.incbin "palettes/bgAnim_76_5.gbapal"
+bgAnim_76_6::
+	.incbin "palettes/bgAnim_76_6.gbapal"
+bgAnim_76_7::
+	.incbin "palettes/bgAnim_76_7.gbapal"
+bgAnim_76_8::
+	.incbin "palettes/bgAnim_76_8.gbapal"
+bgAnim_76_9::
+	.incbin "palettes/bgAnim_76_9.gbapal"
+bgAnim_76_10::
+	.incbin "palettes/bgAnim_76_10.gbapal"
+bgAnim_76_11::
+	.incbin "palettes/bgAnim_76_11.gbapal"
+bgAnim_76_12::
+	.incbin "palettes/bgAnim_76_12.gbapal"
+bgAnim_76_13::
+	.incbin "palettes/bgAnim_76_13.gbapal"
+bgAnim_76_14::
+	.incbin "palettes/bgAnim_76_14.gbapal"
+bgAnim_76_15::
+	.incbin "palettes/bgAnim_76_15.gbapal"
+bgAnim_16_0::
+	.incbin "palettes/bgAnim_16_0.gbapal"
+bgAnim_16_1::
+	.incbin "palettes/bgAnim_16_1.gbapal"
+bgAnim_16_2::
+	.incbin "palettes/bgAnim_16_2.gbapal"
+bgAnim_16_3::
+	.incbin "palettes/bgAnim_16_3.gbapal"
+bgAnim_16_4::
+	.incbin "palettes/bgAnim_16_4.gbapal"
+bgAnim_75_0::
+	.incbin "palettes/bgAnim_75_0.gbapal"
+bgAnim_75_1::
+	.incbin "palettes/bgAnim_75_1.gbapal"
+bgAnim_75_2::
+	.incbin "palettes/bgAnim_75_2.gbapal"
+bgAnim_75_3::
+	.incbin "palettes/bgAnim_75_3.gbapal"
+bgAnim_75_4::
+	.incbin "palettes/bgAnim_75_4.gbapal"
+bgAnim_75_5::
+	.incbin "palettes/bgAnim_75_5.gbapal"
+bgAnim_75_6::
+	.incbin "palettes/bgAnim_75_6.gbapal"
+bgAnim_75_7::
+	.incbin "palettes/bgAnim_75_7.gbapal"
+bgAnim_75_8::
+	.incbin "palettes/bgAnim_75_8.gbapal"
+bgAnim_75_9::
+	.incbin "palettes/bgAnim_75_9.gbapal"
+bgAnim_75_10::
+	.incbin "palettes/bgAnim_75_10.gbapal"
+bgAnim_75_11::
+	.incbin "palettes/bgAnim_75_11.gbapal"
+bgAnim_75_12::
+	.incbin "palettes/bgAnim_75_12.gbapal"
+bgAnim_75_13::
+	.incbin "palettes/bgAnim_75_13.gbapal"
+bgAnim_75_14::
+	.incbin "palettes/bgAnim_75_14.gbapal"
+bgAnim_75_15::
+	.incbin "palettes/bgAnim_75_15.gbapal"
+bgAnim_60_0::
+	.incbin "palettes/bgAnim_60_0.gbapal"
+bgAnim_60_1::
+	.incbin "palettes/bgAnim_60_1.gbapal"
+bgAnim_60_2::
+	.incbin "palettes/bgAnim_60_2.gbapal"
+bgAnim_60_3::
+	.incbin "palettes/bgAnim_60_3.gbapal"
+bgAnim_60_4::
+	.incbin "palettes/bgAnim_60_4.gbapal"
+bgAnim_60_5::
+	.incbin "palettes/bgAnim_60_5.gbapal"
+bgAnim_60_6::
+	.incbin "palettes/bgAnim_60_6.gbapal"
+bgAnim_60_7::
+	.incbin "palettes/bgAnim_60_7.gbapal"
+bgAnim_60_8::
+	.incbin "palettes/bgAnim_60_8.gbapal"
+bgAnim_60_9::
+	.incbin "palettes/bgAnim_60_9.gbapal"
+bgAnim_60_10::
+	.incbin "palettes/bgAnim_60_10.gbapal"
+bgAnim_60_11::
+	.incbin "palettes/bgAnim_60_11.gbapal"
+bgAnim_60_12::
+	.incbin "palettes/bgAnim_60_12.gbapal"
+bgAnim_60_13::
+	.incbin "palettes/bgAnim_60_13.gbapal"
+bgAnim_60_14::
+	.incbin "palettes/bgAnim_60_14.gbapal"
+bgAnim_60_15::
+	.incbin "palettes/bgAnim_60_15.gbapal"
+bgAnim_65_0::
+	.incbin "palettes/bgAnim_65_0.gbapal"
+bgAnim_65_1::
+	.incbin "palettes/bgAnim_65_1.gbapal"
+bgAnim_65_2::
+	.incbin "palettes/bgAnim_65_2.gbapal"
+bgAnim_65_3::
+	.incbin "palettes/bgAnim_65_3.gbapal"
+bgAnim_65_4::
+	.incbin "palettes/bgAnim_65_4.gbapal"
+bgAnim_65_5::
+	.incbin "palettes/bgAnim_65_5.gbapal"
+bgAnim_65_6::
+	.incbin "palettes/bgAnim_65_6.gbapal"
+bgAnim_65_7::
+	.incbin "palettes/bgAnim_65_7.gbapal"
+bgAnim_65_8::
+	.incbin "palettes/bgAnim_65_8.gbapal"
+bgAnim_65_9::
+	.incbin "palettes/bgAnim_65_9.gbapal"
+bgAnim_65_10::
+	.incbin "palettes/bgAnim_65_10.gbapal"
+bgAnim_65_11::
+	.incbin "palettes/bgAnim_65_11.gbapal"
+bgAnim_65_12::
+	.incbin "palettes/bgAnim_65_12.gbapal"
+bgAnim_65_13::
+	.incbin "palettes/bgAnim_65_13.gbapal"
+bgAnim_65_14::
+	.incbin "palettes/bgAnim_65_14.gbapal"
+bgAnim_65_15::
+	.incbin "palettes/bgAnim_65_15.gbapal"
+bgAnim_66_0::
+	.incbin "palettes/bgAnim_66_0.gbapal"
+bgAnim_66_1::
+	.incbin "palettes/bgAnim_66_1.gbapal"
+bgAnim_66_2::
+	.incbin "palettes/bgAnim_66_2.gbapal"
+bgAnim_66_3::
+	.incbin "palettes/bgAnim_66_3.gbapal"
+bgAnim_66_4::
+	.incbin "palettes/bgAnim_66_4.gbapal"
+bgAnim_66_5::
+	.incbin "palettes/bgAnim_66_5.gbapal"
+bgAnim_66_6::
+	.incbin "palettes/bgAnim_66_6.gbapal"
+bgAnim_66_7::
+	.incbin "palettes/bgAnim_66_7.gbapal"
+bgAnim_67_0::
+	.incbin "palettes/bgAnim_67_0.gbapal"
+bgAnim_67_1::
+	.incbin "palettes/bgAnim_67_1.gbapal"
+bgAnim_67_2::
+	.incbin "palettes/bgAnim_67_2.gbapal"
+bgAnim_67_3::
+	.incbin "palettes/bgAnim_67_3.gbapal"
+bgAnim_67_4::
+	.incbin "palettes/bgAnim_67_4.gbapal"
+bgAnim_67_5::
+	.incbin "palettes/bgAnim_67_5.gbapal"
+bgAnim_67_6::
+	.incbin "palettes/bgAnim_67_6.gbapal"
+bgAnim_67_7::
+	.incbin "palettes/bgAnim_67_7.gbapal"
+bgAnim_67_8::
+	.incbin "palettes/bgAnim_67_8.gbapal"
+bgAnim_67_9::
+	.incbin "palettes/bgAnim_67_9.gbapal"
+bgAnim_67_10::
+	.incbin "palettes/bgAnim_67_10.gbapal"
+bgAnim_67_11::
+	.incbin "palettes/bgAnim_67_11.gbapal"
+bgAnim_67_12::
+	.incbin "palettes/bgAnim_67_12.gbapal"
+bgAnim_67_13::
+	.incbin "palettes/bgAnim_67_13.gbapal"
+bgAnim_67_14::
+	.incbin "palettes/bgAnim_67_14.gbapal"
+bgAnim_67_15::
+	.incbin "palettes/bgAnim_67_15.gbapal"
+bgAnim_79_0::
+	.incbin "palettes/bgAnim_79_0.gbapal"
+bgAnim_79_1::
+	.incbin "palettes/bgAnim_79_1.gbapal"
+bgAnim_79_2::
+	.incbin "palettes/bgAnim_79_2.gbapal"
+bgAnim_79_3::
+	.incbin "palettes/bgAnim_79_3.gbapal"
+bgAnim_79_4::
+	.incbin "palettes/bgAnim_79_4.gbapal"
+bgAnim_79_5::
+	.incbin "palettes/bgAnim_79_5.gbapal"
+bgAnim_79_6::
+	.incbin "palettes/bgAnim_79_6.gbapal"
+bgAnim_79_7::
+	.incbin "palettes/bgAnim_79_7.gbapal"
+bgAnim_79_8::
+	.incbin "palettes/bgAnim_79_8.gbapal"
+bgAnim_79_9::
+	.incbin "palettes/bgAnim_79_9.gbapal"
+bgAnim_79_10::
+	.incbin "palettes/bgAnim_79_10.gbapal"
+bgAnim_79_11::
+	.incbin "palettes/bgAnim_79_11.gbapal"
+bgAnim_79_12::
+	.incbin "palettes/bgAnim_79_12.gbapal"
+bgAnim_79_13::
+	.incbin "palettes/bgAnim_79_13.gbapal"
+bgAnim_79_14::
+	.incbin "palettes/bgAnim_79_14.gbapal"
+bgAnim_79_15::
+	.incbin "palettes/bgAnim_79_15.gbapal"
+gfx_unknown_15::
+	.incbin "assets/gfx_unknown_15.bin"
 gGfx_89_3::
 	.incbin "gfx/gGfx_89_3.4bpp"
 gGfx_24_0::
@@ -4455,17 +5075,16 @@ gUnk_085C4620::
 	.incbin "assets/gUnk_085C4620.bin"
 RupeeKeyDigitsYellow::
 	.incbin "gfx/RupeeKeyDigitsYellow.4bpp"
-@ gfx_unknown_18
 RupeeKeyDigits::
 	.incbin "assets/RupeeKeyDigits.bin"
 gUnk_data0_085C4DA0::
-    .incbin "assets/gUnk_data0_085C4DA0.bin"
+	.incbin "assets/gUnk_data0_085C4DA0.bin"
 gUnk_data1_085C4E60::
-    .incbin "assets/gUnk_data1_085C4E60.bin"
+	.incbin "assets/gUnk_data1_085C4E60.bin"
 gUnk_data2_085C4F20::
-    .incbin "assets/gUnk_data2_085C4F20.bin"
+	.incbin "assets/gUnk_data2_085C4F20.bin"
 gUnk_data3_085C4FE0::
-    .incbin "assets/gUnk_data3_085C4FE0.bin"
+	.incbin "assets/gUnk_data3_085C4FE0.bin"
 fixedTypeGfx_494::
 	.incbin "gfx/fixedTypeGfx_494.4bpp"
 fixedTypeGfx_9::
@@ -5462,8 +6081,8 @@ fixedTypeGfx_243::
 	.incbin "gfx/fixedTypeGfx_243.4bpp"
 fixedTypeGfx_398::
 	.incbin "gfx/fixedTypeGfx_398.4bpp"
-gfx_unknown_19::
-	.incbin "assets/gfx_unknown_19.bin"
+gfx_unknown_16::
+	.incbin "assets/gfx_unknown_16.bin"
 fixedTypeGfx_496::
 	.incbin "gfx/fixedTypeGfx_496.4bpp"
 fixedTypeGfx_456::
@@ -5486,69 +6105,725 @@ fixedTypeGfx_197::
 	.incbin "gfx/fixedTypeGfx_197.4bpp"
 fixedTypeGfx_198::
 	.incbin "gfx/fixedTypeGfx_198.4bpp"
-gfx_unknown_20::
-gUnk_086926A0:: @ 086926A0
+gUnk_086926A0::
 	.incbin "gfx/gUnk_086926A0.bin"
-
-gUnk_08692780:: @ 08692780
+gUnk_08692780::
 	.incbin "gfx/gUnk_08692780.bin"
-
-gUnk_08692860:: @ 08692860
+gUnk_08692860::
 	.incbin "gfx/gUnk_08692860.bin"
-
-gUnk_08692940:: @ 08692940
+gUnk_08692940::
 	.incbin "gfx/gUnk_08692940.bin"
-
-gUnk_08692A20:: @ 08692A20
+gUnk_08692A20::
 	.incbin "gfx/gUnk_08692A20.bin"
-
-gUnk_08692B00:: @ 08692B00
+gUnk_08692B00::
 	.incbin "gfx/gUnk_08692B00.bin"
-
-gUnk_08692BE0:: @ 08692BE0
+gUnk_08692BE0::
 	.incbin "gfx/gUnk_08692BE0.bin"
-
-gUnk_08692CC0:: @ 08692CC0
+gUnk_08692CC0::
 	.incbin "gfx/gUnk_08692CC0.bin"
-
-gUnk_08692DA0:: @ 08692DA0
+gUnk_08692DA0::
 	.incbin "gfx/gUnk_08692DA0.bin"
-
-gUnk_08692E80:: @ 08692E80
+gUnk_08692E80::
 	.incbin "gfx/gUnk_08692E80.bin"
-
-gUnk_08692F60:: @ 08692F60
+gUnk_08692F60::
 	.incbin "gfx/gUnk_08692F60.bin"
-	@ TODO 08692FA0 to 086A2A3F is .incbin "graphics/font.4bpp"
+@ TODO 08692FA0 to 086A2A3F is .incbin "graphics/font.4bpp"
 	.incbin "gfx/gUnk_08692F60_1.bin"
-gUnk_08696F60:: @ 08696F60
+gUnk_08696F60::
 	.incbin "gfx/gUnk_08696F60.bin"
-gUnk_086978E0:: @ 086978E0
+gUnk_086978E0::
 	.incbin "gfx/gUnk_086978E0.bin"
-gUnk_086998E0:: @ 086998E0
+gUnk_086998E0::
 	.incbin "gfx/gUnk_086998E0.bin"
-gUnk_086A18E0:: @ 086A18E0
+gUnk_086A18E0::
 	.incbin "gfx/gUnk_086A18E0.bin"
-
 	.incbin "gfx/gUnk_086A18E0_1.bin"
-gUnk_086A2A60:: @ 086A2A60
+gUnk_086A2A60::
 	.incbin "gfx/gUnk_086A2A60.bin"
-
-gUnk_086A2EE0:: @ 086A2EE0
+gUnk_086A2EE0::
 	.incbin "gfx/gUnk_086A2EE0.bin"
-
-gUnk_086AAEE0:: @ 086AAEE0
+gUnk_086AAEE0::
 	.incbin "gfx/gUnk_086AAEE0.bin"
 
 @ TODO background graphics?
 @ TODO check http://kylehalladay.com/blog/tutorial/gba/2017/04/11/GBA-By-Example-3.html
 @ TODO contains credits images?
-gUnk_086D4460:: @ 086D4460
+gUnk_086D4460::
 	.incbin "gfx/gUnk_086D4460.bin"
 
 @ TODO 0x800 of this might be background?
 gUnk_086E8460:: @ 086E8460
 	.incbin "gfx/gUnk_086E8460.bin"
+bgAnim_0_0::
+	.incbin "gfx/bgAnim_0_0.4bpp"
+bgAnim_0_1::
+	.incbin "gfx/bgAnim_0_1.4bpp"
+bgAnim_0_2::
+	.incbin "gfx/bgAnim_0_2.4bpp"
+bgAnim_0_3::
+	.incbin "gfx/bgAnim_0_3.4bpp"
+bgAnim_2_0::
+	.incbin "gfx/bgAnim_2_0.4bpp"
+bgAnim_2_1::
+	.incbin "gfx/bgAnim_2_1.4bpp"
+bgAnim_2_2::
+	.incbin "gfx/bgAnim_2_2.4bpp"
+bgAnim_2_3::
+	.incbin "gfx/bgAnim_2_3.4bpp"
+bgAnim_3_0::
+	.incbin "gfx/bgAnim_3_0.4bpp"
+bgAnim_3_1::
+	.incbin "gfx/bgAnim_3_1.4bpp"
+bgAnim_3_2::
+	.incbin "gfx/bgAnim_3_2.4bpp"
+bgAnim_3_3::
+	.incbin "gfx/bgAnim_3_3.4bpp"
+bgAnim_4_0::
+	.incbin "gfx/bgAnim_4_0.4bpp"
+bgAnim_4_1::
+	.incbin "gfx/bgAnim_4_1.4bpp"
+bgAnim_4_2::
+	.incbin "gfx/bgAnim_4_2.4bpp"
+bgAnim_4_3::
+	.incbin "gfx/bgAnim_4_3.4bpp"
+bgAnim_5_0::
+	.incbin "gfx/bgAnim_5_0.4bpp"
+bgAnim_5_1::
+	.incbin "gfx/bgAnim_5_1.4bpp"
+bgAnim_5_2::
+	.incbin "gfx/bgAnim_5_2.4bpp"
+bgAnim_5_3::
+	.incbin "gfx/bgAnim_5_3.4bpp"
+bgAnim_6_0::
+	.incbin "gfx/bgAnim_6_0.4bpp"
+bgAnim_6_1::
+	.incbin "gfx/bgAnim_6_1.4bpp"
+bgAnim_6_2::
+	.incbin "gfx/bgAnim_6_2.4bpp"
+bgAnim_6_3::
+	.incbin "gfx/bgAnim_6_3.4bpp"
+bgAnim_93_0::
+	.incbin "gfx/bgAnim_93_0.4bpp"
+bgAnim_93_1::
+	.incbin "gfx/bgAnim_93_1.4bpp"
+bgAnim_93_2::
+	.incbin "gfx/bgAnim_93_2.4bpp"
+bgAnim_93_3::
+	.incbin "gfx/bgAnim_93_3.4bpp"
+bgAnim_94_0::
+	.incbin "gfx/bgAnim_94_0.4bpp"
+bgAnim_94_1::
+	.incbin "gfx/bgAnim_94_1.4bpp"
+bgAnim_94_2::
+	.incbin "gfx/bgAnim_94_2.4bpp"
+bgAnim_94_3::
+	.incbin "gfx/bgAnim_94_3.4bpp"
+bgAnim_95_0::
+	.incbin "gfx/bgAnim_95_0.4bpp"
+bgAnim_95_1::
+	.incbin "gfx/bgAnim_95_1.4bpp"
+bgAnim_95_2::
+	.incbin "gfx/bgAnim_95_2.4bpp"
+bgAnim_95_3::
+	.incbin "gfx/bgAnim_95_3.4bpp"
+bgAnim_30_0::
+	.incbin "gfx/bgAnim_30_0.4bpp"
+bgAnim_30_1::
+	.incbin "gfx/bgAnim_30_1.4bpp"
+bgAnim_30_2::
+	.incbin "gfx/bgAnim_30_2.4bpp"
+bgAnim_30_3::
+	.incbin "gfx/bgAnim_30_3.4bpp"
+bgAnim_31_0::
+	.incbin "gfx/bgAnim_31_0.4bpp"
+bgAnim_31_1::
+	.incbin "gfx/bgAnim_31_1.4bpp"
+bgAnim_31_2::
+	.incbin "gfx/bgAnim_31_2.4bpp"
+bgAnim_31_3::
+	.incbin "gfx/bgAnim_31_3.4bpp"
+bgAnim_31_0_1::
+	.incbin "gfx/bgAnim_31_0_1.4bpp"
+bgAnim_31_1_1::
+	.incbin "gfx/bgAnim_31_1_1.4bpp"
+bgAnim_31_2_1::
+	.incbin "gfx/bgAnim_31_2_1.4bpp"
+bgAnim_31_3_1::
+	.incbin "gfx/bgAnim_31_3_1.4bpp"
+bgAnim_32_0::
+	.incbin "gfx/bgAnim_32_0.4bpp"
+bgAnim_32_1::
+	.incbin "gfx/bgAnim_32_1.4bpp"
+bgAnim_32_2::
+	.incbin "gfx/bgAnim_32_2.4bpp"
+bgAnim_32_3::
+	.incbin "gfx/bgAnim_32_3.4bpp"
+bgAnim_32_4::
+	.incbin "gfx/bgAnim_32_4.4bpp"
+bgAnim_32_5::
+	.incbin "gfx/bgAnim_32_5.4bpp"
+bgAnim_33_0::
+	.incbin "gfx/bgAnim_33_0.4bpp"
+bgAnim_33_1::
+	.incbin "gfx/bgAnim_33_1.4bpp"
+bgAnim_33_2::
+	.incbin "gfx/bgAnim_33_2.4bpp"
+bgAnim_33_3::
+	.incbin "gfx/bgAnim_33_3.4bpp"
+bgAnim_33_4::
+	.incbin "gfx/bgAnim_33_4.4bpp"
+bgAnim_33_5::
+	.incbin "gfx/bgAnim_33_5.4bpp"
+bgAnim_34_0::
+	.incbin "gfx/bgAnim_34_0.4bpp"
+bgAnim_34_1::
+	.incbin "gfx/bgAnim_34_1.4bpp"
+bgAnim_34_2::
+	.incbin "gfx/bgAnim_34_2.4bpp"
+bgAnim_34_3::
+	.incbin "gfx/bgAnim_34_3.4bpp"
+bgAnim_34_4::
+	.incbin "gfx/bgAnim_34_4.4bpp"
+bgAnim_34_5::
+	.incbin "gfx/bgAnim_34_5.4bpp"
+bgAnim_35_0::
+	.incbin "gfx/bgAnim_35_0.4bpp"
+bgAnim_35_1::
+	.incbin "gfx/bgAnim_35_1.4bpp"
+bgAnim_35_2::
+	.incbin "gfx/bgAnim_35_2.4bpp"
+bgAnim_35_3::
+	.incbin "gfx/bgAnim_35_3.4bpp"
+bgAnim_8_0::
+	.incbin "gfx/bgAnim_8_0.4bpp"
+bgAnim_8_1::
+	.incbin "gfx/bgAnim_8_1.4bpp"
+bgAnim_8_2::
+	.incbin "gfx/bgAnim_8_2.4bpp"
+bgAnim_8_3::
+	.incbin "gfx/bgAnim_8_3.4bpp"
+bgAnim_9_0::
+	.incbin "gfx/bgAnim_9_0.4bpp"
+bgAnim_9_1::
+	.incbin "gfx/bgAnim_9_1.4bpp"
+bgAnim_9_2::
+	.incbin "gfx/bgAnim_9_2.4bpp"
+bgAnim_9_3::
+	.incbin "gfx/bgAnim_9_3.4bpp"
+bgAnim_10_0::
+	.incbin "gfx/bgAnim_10_0.4bpp"
+bgAnim_10_1::
+	.incbin "gfx/bgAnim_10_1.4bpp"
+bgAnim_10_2::
+	.incbin "gfx/bgAnim_10_2.4bpp"
+bgAnim_10_3::
+	.incbin "gfx/bgAnim_10_3.4bpp"
+bgAnim_11_0::
+	.incbin "gfx/bgAnim_11_0.4bpp"
+bgAnim_11_1::
+	.incbin "gfx/bgAnim_11_1.4bpp"
+bgAnim_11_2::
+	.incbin "gfx/bgAnim_11_2.4bpp"
+bgAnim_11_3::
+	.incbin "gfx/bgAnim_11_3.4bpp"
+bgAnim_12_0::
+	.incbin "gfx/bgAnim_12_0.4bpp"
+bgAnim_12_1::
+	.incbin "gfx/bgAnim_12_1.4bpp"
+bgAnim_12_2::
+	.incbin "gfx/bgAnim_12_2.4bpp"
+bgAnim_12_3::
+	.incbin "gfx/bgAnim_12_3.4bpp"
+bgAnim_53_0::
+	.incbin "gfx/bgAnim_53_0.4bpp"
+bgAnim_53_1::
+	.incbin "gfx/bgAnim_53_1.4bpp"
+bgAnim_53_2::
+	.incbin "gfx/bgAnim_53_2.4bpp"
+bgAnim_53_3::
+	.incbin "gfx/bgAnim_53_3.4bpp"
+bgAnim_54_0::
+	.incbin "gfx/bgAnim_54_0.4bpp"
+bgAnim_54_1::
+	.incbin "gfx/bgAnim_54_1.4bpp"
+bgAnim_54_2::
+	.incbin "gfx/bgAnim_54_2.4bpp"
+bgAnim_54_3::
+	.incbin "gfx/bgAnim_54_3.4bpp"
+bgAnim_55_0::
+	.incbin "gfx/bgAnim_55_0.4bpp"
+bgAnim_55_1::
+	.incbin "gfx/bgAnim_55_1.4bpp"
+bgAnim_55_2::
+	.incbin "gfx/bgAnim_55_2.4bpp"
+bgAnim_55_3::
+	.incbin "gfx/bgAnim_55_3.4bpp"
+bgAnim_56_0::
+	.incbin "gfx/bgAnim_56_0.4bpp"
+bgAnim_56_1::
+	.incbin "gfx/bgAnim_56_1.4bpp"
+bgAnim_56_2::
+	.incbin "gfx/bgAnim_56_2.4bpp"
+bgAnim_56_3::
+	.incbin "gfx/bgAnim_56_3.4bpp"
+bgAnim_29_0::
+	.incbin "gfx/bgAnim_29_0.4bpp"
+bgAnim_29_1::
+	.incbin "gfx/bgAnim_29_1.4bpp"
+bgAnim_29_2::
+	.incbin "gfx/bgAnim_29_2.4bpp"
+bgAnim_29_3::
+	.incbin "gfx/bgAnim_29_3.4bpp"
+bgAnim_58_0::
+	.incbin "gfx/bgAnim_58_0.4bpp"
+bgAnim_58_1::
+	.incbin "gfx/bgAnim_58_1.4bpp"
+bgAnim_58_2::
+	.incbin "gfx/bgAnim_58_2.4bpp"
+bgAnim_58_3::
+	.incbin "gfx/bgAnim_58_3.4bpp"
+bgAnim_59_0::
+	.incbin "gfx/bgAnim_59_0.4bpp"
+bgAnim_59_1::
+	.incbin "gfx/bgAnim_59_1.4bpp"
+bgAnim_59_2::
+	.incbin "gfx/bgAnim_59_2.4bpp"
+bgAnim_59_3::
+	.incbin "gfx/bgAnim_59_3.4bpp"
+bgAnim_36_0::
+	.incbin "gfx/bgAnim_36_0.4bpp"
+bgAnim_36_1::
+	.incbin "gfx/bgAnim_36_1.4bpp"
+bgAnim_36_2::
+	.incbin "gfx/bgAnim_36_2.4bpp"
+bgAnim_36_3::
+	.incbin "gfx/bgAnim_36_3.4bpp"
+bgAnim_37_0::
+	.incbin "gfx/bgAnim_37_0.4bpp"
+bgAnim_37_1::
+	.incbin "gfx/bgAnim_37_1.4bpp"
+bgAnim_37_2::
+	.incbin "gfx/bgAnim_37_2.4bpp"
+bgAnim_37_3::
+	.incbin "gfx/bgAnim_37_3.4bpp"
+bgAnim_40_0::
+	.incbin "gfx/bgAnim_40_0.4bpp"
+bgAnim_40_1::
+	.incbin "gfx/bgAnim_40_1.4bpp"
+bgAnim_40_2::
+	.incbin "gfx/bgAnim_40_2.4bpp"
+bgAnim_40_3::
+	.incbin "gfx/bgAnim_40_3.4bpp"
+bgAnim_40_0_1::
+	.incbin "gfx/bgAnim_40_0_1.4bpp"
+bgAnim_40_1_1::
+	.incbin "gfx/bgAnim_40_1_1.4bpp"
+bgAnim_40_2_1::
+	.incbin "gfx/bgAnim_40_2_1.4bpp"
+bgAnim_40_3_1::
+	.incbin "gfx/bgAnim_40_3_1.4bpp"
+bgAnim_41_0::
+	.incbin "gfx/bgAnim_41_0.4bpp"
+bgAnim_41_1::
+	.incbin "gfx/bgAnim_41_1.4bpp"
+bgAnim_41_2::
+	.incbin "gfx/bgAnim_41_2.4bpp"
+bgAnim_41_3::
+	.incbin "gfx/bgAnim_41_3.4bpp"
+bgAnim_47_0::
+	.incbin "gfx/bgAnim_47_0.4bpp"
+bgAnim_47_1::
+	.incbin "gfx/bgAnim_47_1.4bpp"
+bgAnim_47_2::
+	.incbin "gfx/bgAnim_47_2.4bpp"
+bgAnim_47_3::
+	.incbin "gfx/bgAnim_47_3.4bpp"
+bgAnim_48_0::
+	.incbin "gfx/bgAnim_48_0.4bpp"
+bgAnim_48_1::
+	.incbin "gfx/bgAnim_48_1.4bpp"
+bgAnim_48_2::
+	.incbin "gfx/bgAnim_48_2.4bpp"
+bgAnim_48_3::
+	.incbin "gfx/bgAnim_48_3.4bpp"
+bgAnim_49_0::
+	.incbin "gfx/bgAnim_49_0.4bpp"
+bgAnim_49_1::
+	.incbin "gfx/bgAnim_49_1.4bpp"
+bgAnim_49_2::
+	.incbin "gfx/bgAnim_49_2.4bpp"
+bgAnim_49_3::
+	.incbin "gfx/bgAnim_49_3.4bpp"
+bgAnim_50_0::
+	.incbin "gfx/bgAnim_50_0.4bpp"
+bgAnim_50_1::
+	.incbin "gfx/bgAnim_50_1.4bpp"
+bgAnim_50_2::
+	.incbin "gfx/bgAnim_50_2.4bpp"
+bgAnim_50_3::
+	.incbin "gfx/bgAnim_50_3.4bpp"
+bgAnim_51_0::
+	.incbin "gfx/bgAnim_51_0.4bpp"
+bgAnim_51_1::
+	.incbin "gfx/bgAnim_51_1.4bpp"
+bgAnim_51_2::
+	.incbin "gfx/bgAnim_51_2.4bpp"
+bgAnim_51_3::
+	.incbin "gfx/bgAnim_51_3.4bpp"
+bgAnim_87_0::
+	.incbin "gfx/bgAnim_87_0.4bpp"
+bgAnim_87_1::
+	.incbin "gfx/bgAnim_87_1.4bpp"
+bgAnim_87_2::
+	.incbin "gfx/bgAnim_87_2.4bpp"
+bgAnim_87_3::
+	.incbin "gfx/bgAnim_87_3.4bpp"
+bgAnim_88_0::
+	.incbin "gfx/bgAnim_88_0.4bpp"
+bgAnim_88_1::
+	.incbin "gfx/bgAnim_88_1.4bpp"
+bgAnim_88_2::
+	.incbin "gfx/bgAnim_88_2.4bpp"
+bgAnim_88_3::
+	.incbin "gfx/bgAnim_88_3.4bpp"
+bgAnim_89_0::
+	.incbin "gfx/bgAnim_89_0.4bpp"
+bgAnim_89_1::
+	.incbin "gfx/bgAnim_89_1.4bpp"
+bgAnim_89_2::
+	.incbin "gfx/bgAnim_89_2.4bpp"
+bgAnim_89_3::
+	.incbin "gfx/bgAnim_89_3.4bpp"
+bgAnim_90_0::
+	.incbin "gfx/bgAnim_90_0.4bpp"
+bgAnim_90_1::
+	.incbin "gfx/bgAnim_90_1.4bpp"
+bgAnim_90_2::
+	.incbin "gfx/bgAnim_90_2.4bpp"
+bgAnim_90_3::
+	.incbin "gfx/bgAnim_90_3.4bpp"
+bgAnim_91_0::
+	.incbin "gfx/bgAnim_91_0.4bpp"
+bgAnim_91_1::
+	.incbin "gfx/bgAnim_91_1.4bpp"
+bgAnim_91_2::
+	.incbin "gfx/bgAnim_91_2.4bpp"
+bgAnim_91_3::
+	.incbin "gfx/bgAnim_91_3.4bpp"
+bgAnim_92_0::
+	.incbin "gfx/bgAnim_92_0.4bpp"
+bgAnim_92_1::
+	.incbin "gfx/bgAnim_92_1.4bpp"
+bgAnim_92_2::
+	.incbin "gfx/bgAnim_92_2.4bpp"
+bgAnim_92_3::
+	.incbin "gfx/bgAnim_92_3.4bpp"
+bgAnim_92_0_1::
+	.incbin "gfx/bgAnim_92_0_1.4bpp"
+bgAnim_92_1_1::
+	.incbin "gfx/bgAnim_92_1_1.4bpp"
+bgAnim_92_2_1::
+	.incbin "gfx/bgAnim_92_2_1.4bpp"
+bgAnim_92_3_1::
+	.incbin "gfx/bgAnim_92_3_1.4bpp"
+bgAnim_26_0::
+	.incbin "gfx/bgAnim_26_0.4bpp"
+bgAnim_26_1::
+	.incbin "gfx/bgAnim_26_1.4bpp"
+bgAnim_26_2::
+	.incbin "gfx/bgAnim_26_2.4bpp"
+bgAnim_26_3::
+	.incbin "gfx/bgAnim_26_3.4bpp"
+bgAnim_77_0::
+	.incbin "gfx/bgAnim_77_0.4bpp"
+bgAnim_77_1::
+	.incbin "gfx/bgAnim_77_1.4bpp"
+bgAnim_77_2::
+	.incbin "gfx/bgAnim_77_2.4bpp"
+bgAnim_77_3::
+	.incbin "gfx/bgAnim_77_3.4bpp"
+bgAnim_21_0::
+	.incbin "gfx/bgAnim_21_0.4bpp"
+bgAnim_21_1::
+	.incbin "gfx/bgAnim_21_1.4bpp"
+bgAnim_21_2::
+	.incbin "gfx/bgAnim_21_2.4bpp"
+bgAnim_21_3::
+	.incbin "gfx/bgAnim_21_3.4bpp"
+bgAnim_21_0_1::
+	.incbin "gfx/bgAnim_21_0_1.4bpp"
+bgAnim_21_1_1::
+	.incbin "gfx/bgAnim_21_1_1.4bpp"
+bgAnim_21_2_1::
+	.incbin "gfx/bgAnim_21_2_1.4bpp"
+bgAnim_21_3_1::
+	.incbin "gfx/bgAnim_21_3_1.4bpp"
+bgAnim_21_0_2::
+	.incbin "gfx/bgAnim_21_0_2.4bpp"
+bgAnim_21_1_2::
+	.incbin "gfx/bgAnim_21_1_2.4bpp"
+bgAnim_21_2_2::
+	.incbin "gfx/bgAnim_21_2_2.4bpp"
+bgAnim_21_3_2::
+	.incbin "gfx/bgAnim_21_3_2.4bpp"
+bgAnim_22_0::
+	.incbin "gfx/bgAnim_22_0.4bpp"
+bgAnim_22_1::
+	.incbin "gfx/bgAnim_22_1.4bpp"
+bgAnim_22_2::
+	.incbin "gfx/bgAnim_22_2.4bpp"
+bgAnim_22_3::
+	.incbin "gfx/bgAnim_22_3.4bpp"
+bgAnim_22_0_1::
+	.incbin "gfx/bgAnim_22_0_1.4bpp"
+bgAnim_22_1_1::
+	.incbin "gfx/bgAnim_22_1_1.4bpp"
+bgAnim_22_2_1::
+	.incbin "gfx/bgAnim_22_2_1.4bpp"
+bgAnim_22_3_1::
+	.incbin "gfx/bgAnim_22_3_1.4bpp"
+bgAnim_23_0::
+	.incbin "gfx/bgAnim_23_0.4bpp"
+bgAnim_23_1::
+	.incbin "gfx/bgAnim_23_1.4bpp"
+bgAnim_23_2::
+	.incbin "gfx/bgAnim_23_2.4bpp"
+bgAnim_23_3::
+	.incbin "gfx/bgAnim_23_3.4bpp"
+bgAnim_20_0::
+	.incbin "gfx/bgAnim_20_0.4bpp"
+bgAnim_20_1::
+	.incbin "gfx/bgAnim_20_1.4bpp"
+bgAnim_20_2::
+	.incbin "gfx/bgAnim_20_2.4bpp"
+bgAnim_20_3::
+	.incbin "gfx/bgAnim_20_3.4bpp"
+bgAnim_24_0::
+	.incbin "gfx/bgAnim_24_0.4bpp"
+bgAnim_24_1::
+	.incbin "gfx/bgAnim_24_1.4bpp"
+bgAnim_24_2::
+	.incbin "gfx/bgAnim_24_2.4bpp"
+bgAnim_24_3::
+	.incbin "gfx/bgAnim_24_3.4bpp"
+bgAnim_24_4::
+	.incbin "gfx/bgAnim_24_4.4bpp"
+bgAnim_25_0::
+	.incbin "gfx/bgAnim_25_0.4bpp"
+bgAnim_25_1::
+	.incbin "gfx/bgAnim_25_1.4bpp"
+bgAnim_25_2::
+	.incbin "gfx/bgAnim_25_2.4bpp"
+bgAnim_25_3::
+	.incbin "gfx/bgAnim_25_3.4bpp"
+bgAnim_27_0::
+	.incbin "gfx/bgAnim_27_0.4bpp"
+bgAnim_27_1::
+	.incbin "gfx/bgAnim_27_1.4bpp"
+bgAnim_27_2::
+	.incbin "gfx/bgAnim_27_2.4bpp"
+bgAnim_27_3::
+	.incbin "gfx/bgAnim_27_3.4bpp"
+bgAnim_27_4::
+	.incbin "gfx/bgAnim_27_4.4bpp"
+bgAnim_46_0::
+	.incbin "gfx/bgAnim_46_0.4bpp"
+bgAnim_46_1::
+	.incbin "gfx/bgAnim_46_1.4bpp"
+bgAnim_46_2::
+	.incbin "gfx/bgAnim_46_2.4bpp"
+bgAnim_46_3::
+	.incbin "gfx/bgAnim_46_3.4bpp"
+bgAnim_42_0::
+	.incbin "gfx/bgAnim_42_0.4bpp"
+bgAnim_42_1::
+	.incbin "gfx/bgAnim_42_1.4bpp"
+bgAnim_42_2::
+	.incbin "gfx/bgAnim_42_2.4bpp"
+bgAnim_42_3::
+	.incbin "gfx/bgAnim_42_3.4bpp"
+bgAnim_43_0::
+	.incbin "gfx/bgAnim_43_0.4bpp"
+bgAnim_43_1::
+	.incbin "gfx/bgAnim_43_1.4bpp"
+bgAnim_43_2::
+	.incbin "gfx/bgAnim_43_2.4bpp"
+bgAnim_43_3::
+	.incbin "gfx/bgAnim_43_3.4bpp"
+bgAnim_44_0::
+	.incbin "gfx/bgAnim_44_0.4bpp"
+bgAnim_44_1::
+	.incbin "gfx/bgAnim_44_1.4bpp"
+bgAnim_44_2::
+	.incbin "gfx/bgAnim_44_2.4bpp"
+bgAnim_44_3::
+	.incbin "gfx/bgAnim_44_3.4bpp"
+bgAnim_45_0::
+	.incbin "gfx/bgAnim_45_0.4bpp"
+bgAnim_45_1::
+	.incbin "gfx/bgAnim_45_1.4bpp"
+bgAnim_45_2::
+	.incbin "gfx/bgAnim_45_2.4bpp"
+bgAnim_45_3::
+	.incbin "gfx/bgAnim_45_3.4bpp"
+bgAnim_85_0::
+	.incbin "gfx/bgAnim_85_0.4bpp"
+bgAnim_85_1::
+	.incbin "gfx/bgAnim_85_1.4bpp"
+bgAnim_85_2::
+	.incbin "gfx/bgAnim_85_2.4bpp"
+bgAnim_85_3::
+	.incbin "gfx/bgAnim_85_3.4bpp"
+bgAnim_86_0::
+	.incbin "gfx/bgAnim_86_0.4bpp"
+bgAnim_86_1::
+	.incbin "gfx/bgAnim_86_1.4bpp"
+bgAnim_86_2::
+	.incbin "gfx/bgAnim_86_2.4bpp"
+bgAnim_86_3::
+	.incbin "gfx/bgAnim_86_3.4bpp"
+bgAnim_17_0::
+	.incbin "gfx/bgAnim_17_0.4bpp"
+bgAnim_17_1::
+	.incbin "gfx/bgAnim_17_1.4bpp"
+bgAnim_17_2::
+	.incbin "gfx/bgAnim_17_2.4bpp"
+bgAnim_17_3::
+	.incbin "gfx/bgAnim_17_3.4bpp"
+bgAnim_18_0::
+	.incbin "gfx/bgAnim_18_0.4bpp"
+bgAnim_18_1::
+	.incbin "gfx/bgAnim_18_1.4bpp"
+bgAnim_18_2::
+	.incbin "gfx/bgAnim_18_2.4bpp"
+bgAnim_18_3::
+	.incbin "gfx/bgAnim_18_3.4bpp"
+bgAnim_19_0::
+	.incbin "gfx/bgAnim_19_0.4bpp"
+bgAnim_19_1::
+	.incbin "gfx/bgAnim_19_1.4bpp"
+bgAnim_19_2::
+	.incbin "gfx/bgAnim_19_2.4bpp"
+bgAnim_19_3::
+	.incbin "gfx/bgAnim_19_3.4bpp"
+bgAnim_1_0::
+	.incbin "gfx/bgAnim_1_0.4bpp"
+bgAnim_1_1::
+	.incbin "gfx/bgAnim_1_1.4bpp"
+bgAnim_1_2::
+	.incbin "gfx/bgAnim_1_2.4bpp"
+bgAnim_1_3::
+	.incbin "gfx/bgAnim_1_3.4bpp"
+bgAnim_7_0::
+	.incbin "gfx/bgAnim_7_0.4bpp"
+bgAnim_7_1::
+	.incbin "gfx/bgAnim_7_1.4bpp"
+bgAnim_7_2::
+	.incbin "gfx/bgAnim_7_2.4bpp"
+bgAnim_7_3::
+	.incbin "gfx/bgAnim_7_3.4bpp"
+bgAnim_13_0::
+	.incbin "gfx/bgAnim_13_0.4bpp"
+bgAnim_13_1::
+	.incbin "gfx/bgAnim_13_1.4bpp"
+bgAnim_13_2::
+	.incbin "gfx/bgAnim_13_2.4bpp"
+bgAnim_13_3::
+	.incbin "gfx/bgAnim_13_3.4bpp"
+bgAnim_14_0::
+	.incbin "gfx/bgAnim_14_0.4bpp"
+bgAnim_14_1::
+	.incbin "gfx/bgAnim_14_1.4bpp"
+bgAnim_14_2::
+	.incbin "gfx/bgAnim_14_2.4bpp"
+bgAnim_14_3::
+	.incbin "gfx/bgAnim_14_3.4bpp"
+bgAnim_15_0::
+	.incbin "gfx/bgAnim_15_0.4bpp"
+bgAnim_15_1::
+	.incbin "gfx/bgAnim_15_1.4bpp"
+bgAnim_15_2::
+	.incbin "gfx/bgAnim_15_2.4bpp"
+bgAnim_15_3::
+	.incbin "gfx/bgAnim_15_3.4bpp"
+bgAnim_80_0::
+	.incbin "gfx/bgAnim_80_0.4bpp"
+bgAnim_80_1::
+	.incbin "gfx/bgAnim_80_1.4bpp"
+bgAnim_80_2::
+	.incbin "gfx/bgAnim_80_2.4bpp"
+bgAnim_80_3::
+	.incbin "gfx/bgAnim_80_3.4bpp"
+bgAnim_80_4::
+	.incbin "gfx/bgAnim_80_4.4bpp"
+bgAnim_80_5::
+	.incbin "gfx/bgAnim_80_5.4bpp"
+bgAnim_80_6::
+	.incbin "gfx/bgAnim_80_6.4bpp"
+bgAnim_80_7::
+	.incbin "gfx/bgAnim_80_7.4bpp"
+bgAnim_80_8::
+	.incbin "gfx/bgAnim_80_8.4bpp"
+bgAnim_80_9::
+	.incbin "gfx/bgAnim_80_9.4bpp"
+bgAnim_80_10::
+	.incbin "gfx/bgAnim_80_10.4bpp"
+bgAnim_80_11::
+	.incbin "gfx/bgAnim_80_11.4bpp"
+bgAnim_80_12::
+	.incbin "gfx/bgAnim_80_12.4bpp"
+bgAnim_80_13::
+	.incbin "gfx/bgAnim_80_13.4bpp"
+bgAnim_80_14::
+	.incbin "gfx/bgAnim_80_14.4bpp"
+bgAnim_80_15::
+	.incbin "gfx/bgAnim_80_15.4bpp"
+bgAnim_81_0::
+	.incbin "gfx/bgAnim_81_0.4bpp"
+bgAnim_81_1::
+	.incbin "gfx/bgAnim_81_1.4bpp"
+bgAnim_81_2::
+	.incbin "gfx/bgAnim_81_2.4bpp"
+bgAnim_81_3::
+	.incbin "gfx/bgAnim_81_3.4bpp"
+bgAnim_82_0::
+	.incbin "gfx/bgAnim_82_0.4bpp"
+bgAnim_82_1::
+	.incbin "gfx/bgAnim_82_1.4bpp"
+bgAnim_82_2::
+	.incbin "gfx/bgAnim_82_2.4bpp"
+bgAnim_82_3::
+	.incbin "gfx/bgAnim_82_3.4bpp"
+bgAnim_83_0::
+	.incbin "gfx/bgAnim_83_0.4bpp"
+bgAnim_83_1::
+	.incbin "gfx/bgAnim_83_1.4bpp"
+bgAnim_83_2::
+	.incbin "gfx/bgAnim_83_2.4bpp"
+bgAnim_83_3::
+	.incbin "gfx/bgAnim_83_3.4bpp"
+bgAnim_84_0::
+	.incbin "gfx/bgAnim_84_0.4bpp"
+bgAnim_84_1::
+	.incbin "gfx/bgAnim_84_1.4bpp"
+bgAnim_84_2::
+	.incbin "gfx/bgAnim_84_2.4bpp"
+bgAnim_84_3::
+	.incbin "gfx/bgAnim_84_3.4bpp"
+bgAnim_84_4::
+	.incbin "gfx/bgAnim_84_4.4bpp"
+bgAnim_84_5::
+	.incbin "gfx/bgAnim_84_5.4bpp"
+bgAnim_84_6::
+	.incbin "gfx/bgAnim_84_6.4bpp"
+bgAnim_97_0::
+	.incbin "gfx/bgAnim_97_0.4bpp"
+bgAnim_97_1::
+	.incbin "gfx/bgAnim_97_1.4bpp"
+bgAnim_97_2::
+	.incbin "gfx/bgAnim_97_2.4bpp"
+bgAnim_97_3::
+	.incbin "gfx/bgAnim_97_3.4bpp"
 gGfx_38_0::
 	.incbin "gfx/gGfx_38_0.4bpp"
 gGfx_36_0::
@@ -5673,8 +6948,8 @@ gGfx_21_0::
 	.incbin "gfx/gGfx_21_0.4bpp"
 gGfx_48_0::
 	.incbin "gfx/gGfx_48_0.4bpp"
-gfx_unknown_21::
-	.incbin "assets/gfx_unknown_21.bin"
+gfx_unknown_17::
+	.incbin "assets/gfx_unknown_17.bin"
 gGfx_47_0::
 	.incbin "gfx/gGfx_47_0.4bpp"
 gGfx_49_0::
@@ -5693,8 +6968,8 @@ gGfx_76_0::
 	.incbin "gfx/gGfx_76_0.4bpp"
 gGfx_77_0::
 	.incbin "gfx/gGfx_77_0.4bpp"
-gfx_unknown_22::
-	.incbin "assets/gfx_unknown_22.bin"
+gfx_unknown_18::
+	.incbin "assets/gfx_unknown_18.bin"
 gGfx_78_0::
 	.incbin "gfx/gGfx_78_0.4bpp"
 gGfx_54_0::
@@ -6071,12 +7346,12 @@ gGfx_2_4::
 	.incbin "gfx/gGfx_2_4.4bpp"
 fixedTypeGfx_511::
 	.incbin "gfx/fixedTypeGfx_511.4bpp"
-gfx_unknown_24::
-	.incbin "assets/gfx_unknown_24.bin"
+gfx_unknown_19::
+	.incbin "assets/gfx_unknown_19.bin"
 fixedTypeGfx_512::
 	.incbin "gfx/fixedTypeGfx_512.4bpp"
-gfx_unknown_25::
-	.incbin "assets/gfx_unknown_25.bin"
+gfx_unknown_20::
+	.incbin "assets/gfx_unknown_20.bin"
 fixedTypeGfx_513::
 	.incbin "gfx/fixedTypeGfx_513.4bpp"
 fixedTypeGfx_514::
@@ -6160,8 +7435,8 @@ gGfx_10_0::
 .ifndef EU
 gGfx_11_1::
 	.incbin "gfx/gGfx_11_1.4bpp"
-gfx_unknown_30::
-	.incbin "assets/gfx_unknown_30.bin"
+gfx_unknown_21::
+	.incbin "assets/gfx_unknown_21.bin"
 .endif
 gGfx_88_0::
 	.incbin "gfx/gGfx_88_0.4bpp"
@@ -6289,8 +7564,8 @@ gGfx_92_0::
 	.incbin "gfx/gGfx_92_0.4bpp"
 gGfx_92_2::
 	.incbin "gfx/gGfx_92_2.4bpp"
-gfx_unknown_42::
-	.incbin "assets/gfx_unknown_42.bin"
+gfx_unknown_22::
+	.incbin "assets/gfx_unknown_22.bin"
 gGfx_92_4::
 	.incbin "gfx/gGfx_92_4.4bpp"
 gGfx_92_1::
@@ -6335,8 +7610,8 @@ gGfx_96_1::
 	.incbin "gfx/gGfx_96_1.4bpp"
 gGfx_102_1::
 	.incbin "gfx/gGfx_102_1.4bpp"
-gfx_unknown_46::
-	.incbin "assets/gfx_unknown_46.bin"
+gfx_unknown_23::
+	.incbin "assets/gfx_unknown_23.bin"
 gGfx_105_1::
 	.incbin "gfx/gGfx_105_1.4bpp"
 gGfx_113_1::
@@ -6462,5 +7737,5 @@ gGfx_132_0::
 	.align 2
 fixedTypeGfx_214::
 	.incbin "gfx/fixedTypeGfx_214.4bpp.lz"
-gfx_unknown_49::
-	.incbin "assets/gfx_unknown_49.bin"
+gfx_unknown_24::
+	.incbin "assets/gfx_unknown_24.bin"

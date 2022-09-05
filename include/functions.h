@@ -49,7 +49,6 @@ extern void UpdateDisplayControls(void);
 // Unidentified
 extern void sub_08000148(u32, u32, u32);
 extern u32 sub_080B1A0C(Entity*, s32, s32);
-extern u32 sub_080B1A48(u32, u32, u32);
 extern u32 sub_080B1AE0(u16, u8);
 extern u32 sub_080B1AF0(Entity*, s32, s32);
 extern u32 sub_080B1B18(s32, s32, u32);
@@ -100,7 +99,7 @@ extern void sub_0805F8E4(u32 r0, WStruct* r1);
 extern void sub_08060158(Entity*);
 extern void sub_0806D0B0(Entity*);
 extern bool32 sub_080806BC(u32, u32, u32, u32);
-extern void sub_0808091C(const ScreenTransitionData*, u32);
+extern void sub_0808091C(const ScreenTransitionData* screenTransition, u32 transitionType);
 extern void sub_080809D4(void);
 extern void sub_08080CB4(Entity*);
 extern u32 sub_0808288C(Entity*, u32, u32, u32);

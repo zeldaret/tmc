@@ -4,6 +4,7 @@
 	.section .rodata
     .align 2
 
+@ playerUtils.c
 gCreateItemsFuncs:: @ 0811BFC8
 	.4byte CreateItemNone
 	.4byte CreateItem1
@@ -192,5 +193,6 @@ gUnk_0811C2EC:: @ 0811C2EC
 gUnk_0811C456:: @ 0811C456
 	.incbin "data_0811BE38/gUnk_0811C456.bin"
 
+@ playerUtils.c
 gUnk_0811C466:: @ 0811C466
 	.incbin "data_0811BE38/gUnk_0811C466.bin"

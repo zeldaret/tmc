@@ -1,11 +1,11 @@
 #define NENT_DEPRECATED
-#include "global.h"
-#include "entity.h"
-#include "enemy.h"
-#include "sound.h"
 #include "asm.h"
-#include "functions.h"
+#include "collision.h"
+#include "enemy.h"
 #include "enemy/gyorg.h"
+#include "entity.h"
+#include "functions.h"
+#include "sound.h"
 
 extern u8 gEntCount;
 extern u8 gMapDataTopSpecial[];
@@ -29,7 +29,6 @@ void sub_080467DC(GyorgFemaleEntity*);
 
 extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_080B3E80[];
-extern u8 gUnk_080B37A0[];
 
 extern const u8 gUnk_080D1A94[];
 extern const u8 gUnk_080D1AAC[];

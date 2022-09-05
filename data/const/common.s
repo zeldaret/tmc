@@ -4,11 +4,21 @@
 	.section .rodata
 	.align 2
 
+@ before: playerItemCellOverwriteSet
+@ in here: ui.c, color.c, common.c
+@ before on data side: sineTable.c
+@ after: octorok.c
+
+@ code_080043E8.c
 gUnk_080C93E0:: @ 080C93E0
 	.incbin "data_080C93E0/gUnk_080C93E0.bin"
 
+@ common.c
 gUnk_080C9460:: @ 080C9460
 	.incbin "data_080C93E0/gUnk_080C9460.bin"
+
+
+@ DungeonLayout
 
 gUnk_080C9480:: @ 080C9480
 	.incbin "data_080C93E0/gUnk_080C9480.bin"
@@ -315,6 +325,7 @@ gUnk_080C9C3C:: @ 080C9C3C
 	.4byte gUnk_080C9BB4
 	.4byte gUnk_080C9C1C
 
+@ common.c
 gUnk_080C9C50:: @ 080C9C50
 	.4byte gUnk_080C9488
 	.4byte gUnk_080C953C
@@ -323,34 +334,3 @@ gUnk_080C9C50:: @ 080C9C50
 	.4byte gUnk_080C9864
 	.4byte gUnk_080C9A30
 	.4byte gUnk_080C9C3C
-
-gUnk_080C9C6C:: @ 080C9C6C
-	.incbin "data_080C93E0/gUnk_080C9C6C.bin"
-
-gUnk_080C9CAC:: @ 080C9CAC
-	.4byte sub_0801E02C
-	.4byte sub_0801E044
-	.4byte sub_0801E074
-	.4byte sub_0801E0A0
-
-gUnk_080C9CBC:: @ 080C9CBC
-.ifdef JP
-	@ TODO only small differences
-	.incbin "data_080C93E0/gUnk_080C9CBC_JP.bin"
-.else
-.ifdef EU
-	.incbin "data_080C93E0/gUnk_080C9CBC_1_EU.bin"
-.else
-	.incbin "data_080C93E0/gUnk_080C9CBC_2_USA-DEMO_USA-DEMO_JP.bin"
-.endif
-.endif
-
-gUnk_080CA06C:: @ 080CA06C
-.ifdef EU
-	.incbin "data_080C93E0/gUnk_080CA06C_EU.bin"
-.else
-	.incbin "data_080C93E0/gUnk_080CA06C_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_080CA11C:: @ 080CA11C
-	.incbin "data_080C93E0/gUnk_080CA11C.bin"

@@ -15,6 +15,6 @@ SCRIPT_START script_Npc4EMinishWoods
 	Wait 0x000a
 	SetSyncFlag 0x00000008
 	Wait 0x003c
-	CallWithArg sub_0806DA1C, 0x0000000d
+	CallWithArg NPC4E_DoScreenTransition, 13
 	DoPostScriptAction 0x0006
 SCRIPT_END

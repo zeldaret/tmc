@@ -150,7 +150,7 @@ gUnk_0800823C:: @ 0800823C
 	.4byte gUnk_080081FC
 	.4byte gUnk_0800821C
 	.4byte gUnk_080081BC
-	
+
 gUnk_080082DC:: @ 080082DC
 	.incbin "data_08007DF4/gUnk_080082DC.bin"
 

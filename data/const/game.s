@@ -4,6 +4,7 @@
 	.section .rodata
 	.align 2
 
+@ game.c
 gUnk_080FCB94:: @ 080FCB94
 	.incbin "data_080FC8A4/gUnk_080FCB94.bin"
 
@@ -643,5 +644,6 @@ gBombBagSizes:: @ 080FD5A0
 gQuiverSizes:: @ 080FD5A4
 	.incbin "data_080FC8A4/gQuiverSizes.bin"
 
+@ game.c
 gUnk_080FD5A8:: @ 080FD5A8
 	.incbin "data_080FC8A4/gUnk_080FD5A8.bin"

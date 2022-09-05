@@ -5,19 +5,21 @@
  * @brief Debug task
  */
 
-#include "global.h"
-#include "sound.h"
 #include "common.h"
 #include "functions.h"
+#include "game.h"
 #include "main.h"
 #include "menu.h"
-#include "screen.h"
 #include "message.h"
-#include "game.h"
+#include "screen.h"
+#include "sound.h"
 
-extern void (*const gUnk_08109A30[])(void);
+void sub_0805FA04(void);
+void sub_0805FA98(void);
+void sub_0805FBC4(void);
 
 void DebugTask(void) {
+    static void (*const gUnk_08109A30[])(void) = { sub_0805FA04, sub_0805FA98, sub_0805FBC4 };
     gUnk_08109A30[gMain.state]();
 }
 
@@ -44,7 +46,7 @@ void sub_0805FA04(void) {
 }
 
 void sub_0805FA98(void) {
-    int iVar1;
+    s32 iVar1;
 
     switch (gInput.newKeys) {
         case DPAD_UP:
@@ -101,3 +103,24 @@ void sub_0805FA98(void) {
 void sub_0805FBC4(void) {
     SetTask(TASK_TITLE);
 }
+
+extern const char gUnk_08109A58[];
+extern const char gUnk_08109A68[];
+extern const char gUnk_08109A78[];
+extern const char gUnk_08109A88[];
+extern const char gUnk_08109A98[];
+extern const char gUnk_08109AA8[];
+extern const char gUnk_08109AB8[];
+
+const char* const* const unusedLanguageEnum[] = {
+    (void*)gUnk_08109AB8, (void*)gUnk_08109AA8, (void*)gUnk_08109A98, (void*)gUnk_08109A88,
+    (void*)gUnk_08109A78, (void*)gUnk_08109A68, (void*)gUnk_08109A58,
+};
+
+const char gUnk_08109A58[] = "  ITALIAN     \0";
+const char gUnk_08109A68[] = "  SPANISH     \0";
+const char gUnk_08109A78[] = "  GERMAN      \0";
+const char gUnk_08109A88[] = "  FRENCH      \0";
+const char gUnk_08109A98[] = "  PAL ENGLISH \0";
+const char gUnk_08109AA8[] = "  USA ENGLISH \0";
+const char gUnk_08109AB8[] = "  JAPANESE    \0";

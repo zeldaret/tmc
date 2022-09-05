@@ -1,22 +1,17 @@
-#include "global.h"
-#include "room.h"
-#include "subtask.h"
+#include "area.h"
+#include "asm.h"
 #include "common.h"
 #include "flags.h"
-#include "player.h"
+#include "global.h"
+#include "item.h"
 #include "kinstone.h"
-#include "area.h"
 #include "manager.h"
-#include "asm.h"
+#include "message.h"
+#include "player.h"
+#include "room.h"
+#include "subtask.h"
 
-typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-} struct_gUnk_080B3D20;
-
-extern struct_gUnk_080B3D20 gUnk_080B3D20[];
+extern const struct_gUnk_080B3D20 gUnk_080B3D20[];
 extern EntityData gUnk_080FEC28[];
 extern EntityData gUnk_080FEBE8[];
 extern EntityData gUnk_080FECC8[];
@@ -28,7 +23,6 @@ extern const EntityData gUnk_080FEE18[];
 extern const EntityData gUnk_080FEE48[];
 extern const EntityData gUnk_080FEE58[];
 extern const void* gUnk_080FED98[];
-extern const u16 gUnk_080B3D14[];
 
 void sub_08018AB4(int);
 void sub_08018BB4(int);
@@ -37,9 +31,13 @@ void sub_08018B50(int);
 void sub_080189EC(int);
 void sub_0801876C(int, int);
 void sub_08018738(u32, int);
-void sub_08018690(int param_1, u16* param_2);
+void ShuffleEzloHints(int count, u16* basePtr);
 void sub_08018500();
 bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1);
+
+const u16 gEzloHintTextBase[] = { TEXT_INDEX(TEXT_EZLO2, 0x0),  TEXT_INDEX(TEXT_EZLO2, 0x12),
+                                  TEXT_INDEX(TEXT_EZLO2, 0x2d), TEXT_INDEX(TEXT_EZLO2, 0x48),
+                                  TEXT_INDEX(TEXT_EZLO2, 0x57), TEXT_INDEX(TEXT_EZLO2, 0x6f) };
 
 void sub_08018500(void) {
     s32 sVar1;
@@ -48,8 +46,8 @@ void sub_08018500(void) {
     u16* puVar4;
     struct_area_28* ptr = &gArea.unk28;
 
-    puVar3 = ptr->unk2C;
-    sVar1 = gUnk_080B3D14[ptr->inventoryGfxIdx] + ptr->unk29 * 3;
+    puVar3 = ptr->ezloHintTexts;
+    sVar1 = gEzloHintTextBase[ptr->textBaseIndex] + ptr->textIndexOffset * 3;
 
     for (i = 0; i < 3; i++) {
         *puVar3 = sVar1;
@@ -57,24 +55,85 @@ void sub_08018500(void) {
         puVar3++;
     }
 
-    sVar1 = ptr->inventoryGfxIdx * 5 + 0xc81;
-    for (i = 0, puVar4 = &ptr->unk2C[3]; i < 5; i++) {
+    sVar1 = ptr->textBaseIndex * 5 + 0xc81;
+    for (i = 0, puVar4 = &ptr->ezloHintTexts[3]; i < 5; i++) {
         *puVar3 = sVar1;
         sVar1++;
         puVar3++;
     }
-    sub_08018690(5, puVar4);
-    ptr->unk2a = 0;
+    ShuffleEzloHints(5, puVar4);
+    ptr->currentHint = 0;
 }
+
+/*
+Some sort of ezlo hint? Seem to be the ezlo hints depending on the current progress.
+*/
+
+#define CHECK_ITEM 0xfe
+#define CHECK_KINSTONE 0xfd
+
+const struct_gUnk_080B3D20 gUnk_080B3D20[] = {
+    { LOCAL_BANK_0, EZERO_1ST, 0, 0 },
+    { LOCAL_BANK_0, ENTRANCE_0, 0, 1 },
+    { LOCAL_BANK_2, KOBITO_MORI_1ST, 0, 2 },
+    { LOCAL_BANK_2, M_PRIEST_TALK, 0, 3 },
+    { CHECK_ITEM, ITEM_JABBERNUT, 0, 4 },
+    { LOCAL_BANK_2, M_ELDER_TALK1ST, 0, 5 },
+
+    { LOCAL_BANK_0, LV1_CLEAR, 1, 0 },
+    { LOCAL_BANK_2, M_ELDER_TALK2ND, 1, 1 },
+    { CHECK_ITEM, ITEM_KINSTONE_BAG, 1, 2 },
+    { CHECK_ITEM, ITEM_SKILL_SPIN_ATTACK, 1, 3 },
+    { LOCAL_BANK_1, YAMA_00_01, 1, 4 },
+    { LOCAL_BANK_0, WATERBEAN_PUT, 1, 5 },
+    { LOCAL_BANK_1, YAMA_00_00, 1, 6 },
+    { LOCAL_BANK_2, KOBITO_YAMA_ENTER, 1, 7 },
+    { LOCAL_BANK_2, OYAKATA_DEMO, 1, 8 },
+
+    { LOCAL_BANK_0, LV2_CLEAR, 2, 0 },
+    { CHECK_ITEM, ITEM_GREEN_SWORD, 2, 1 },
+    { LOCAL_BANK_3, SEIIKI_ENTER, 2, 2 },
+    { LOCAL_BANK_3, SEIIKI_BUNSHIN, 2, 3 },
+    { LOCAL_BANK_0, DASHBOOTS, 2, 4 },
+    { LOCAL_BANK_2, KHOUSE52_KINOKO, 2, 5 },
+    { CHECK_ITEM, ITEM_QST_MUSHROOM, 2, 6 },
+    { CHECK_ITEM, ITEM_PEGASUS_BOOTS, 2, 7 },
+    { LOCAL_BANK_1, LOST_00_ENTER, 2, 8 },
+
+    { CHECK_ITEM, ITEM_OCARINA, 3, 0 },
+    { LOCAL_BANK_0, MIZUKAKI_START, 3, 1 },
+    { LOCAL_BANK_0, MIZUKAKI_NECHAN, 3, 2 },
+    { LOCAL_BANK_2, MIZUKAKI_BOOK_ALLBACK, 3, 3 },
+    { CHECK_ITEM, ITEM_FLIPPERS, 3, 4 },
+
+    { LOCAL_BANK_1, LV4_CLEAR_MES, 4, 0 },
+    { CHECK_ITEM, ITEM_BLUE_SWORD, 4, 1 },
+    { LOCAL_BANK_3, LV4_HAKA_08_CAP_0, 4, 2 },
+    { LOCAL_BANK_3, OUBO_KAKERA, 4, 3 },
+    { CHECK_KINSTONE, KINSTONE_9, 4, 4 },
+    { LOCAL_BANK_0, TATSUMAKI, 4, 5 },
+    { LOCAL_BANK_2, SORA_YAKATA_ENTER, 4, 6 },
+    { LOCAL_BANK_2, SORA_CHIEF_TALK, 4, 7 },
+
+    { LOCAL_BANK_0, LV5_CLEAR, 5, 0 },
+    { CHECK_ITEM, ITEM_FOURSWORD, 5, 1 },
+    { LOCAL_BANK_10, LV6_1d_KEYGET, 5, 2 },
+    { LOCAL_BANK_10, LV6_KANE_START, 5, 3 },
+    { LOCAL_BANK_10, LV6_GUFUU2_DEAD, 5, 4 },
+    { LOCAL_BANK_10, LV6_ZELDA_DISCURSE, 5, 5 },
+
+    { 0xff, 0xff, 0xff, 0xff },
+};
 
 void sub_0801855C(void) {
     u32 bVar3;
     struct_area_28* ptr;
     // TODO: Figure out what is up with the pointer assignment
-    struct_gUnk_080B3D20* pcVar2 = (struct_gUnk_080B3D20*)&gArea.unk28;
+    const struct_gUnk_080B3D20* pcVar2 = (const struct_gUnk_080B3D20*)&gArea.unk28;
 
-    MemClear(pcVar2, sizeof(struct_area_28));
+    MemClear((void*)pcVar2, sizeof(struct_area_28));
     ptr = (struct_area_28*)pcVar2;
+    // Find the latest hint that is true.
     for (pcVar2 = gUnk_080B3D20, bVar3 = 0; pcVar2->unk0 != 0xff; pcVar2++) {
         if (sub_080185B4(pcVar2)) {
             bVar3 = ptr->unk2b;
@@ -83,21 +142,21 @@ void sub_0801855C(void) {
     }
     ptr->unk2b = bVar3;
     pcVar2 = &gUnk_080B3D20[ptr->unk2b];
-    ptr->inventoryGfxIdx = pcVar2->unk2;
-    ptr->unk29 = pcVar2->unk3;
+    ptr->textBaseIndex = pcVar2->unk2;
+    ptr->textIndexOffset = pcVar2->unk3;
     ptr->unk2b = bVar3 + 1;
     sub_08018500();
 }
 
 bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1) {
     if (param_1->unk0 == 0xff)
-        return 0;
+        return FALSE;
 
-    if (param_1->unk0 == 0xfe) {
+    if (param_1->unk0 == CHECK_ITEM) {
         return GetInventoryValue(param_1->unk1) != 0;
     }
 
-    if (param_1->unk0 == 0xfd) {
+    if (param_1->unk0 == CHECK_KINSTONE) {
         return CheckKinstoneFused(param_1->unk1);
     }
     return CheckLocalFlagByBank(gLocalFlagBanks[param_1->unk0], param_1->unk1);
@@ -105,18 +164,18 @@ bool32 sub_080185B4(const struct_gUnk_080B3D20* param_1) {
 
 void sub_080185F8(void) {
     struct_area_28* ptr2 = &gArea.unk28;
-    struct_gUnk_080B3D20* ptr = &gUnk_080B3D20[ptr2->unk2b];
+    const struct_gUnk_080B3D20* ptr = &gUnk_080B3D20[ptr2->unk2b];
 
     if (sub_080185B4(ptr)) {
-        ptr2->inventoryGfxIdx = ptr->unk2;
-        ptr2->unk29 = ptr->unk3;
+        ptr2->textBaseIndex = ptr->unk2;
+        ptr2->textIndexOffset = ptr->unk3;
         ptr2->unk2b++;
         sub_08018500();
     }
 }
 
 void GenerateAreaHint(void) {
-    u16 uVar1;
+    u16 tmp;
     struct_area_28* ptr;
 
     gPlayerState.queued_action = PLAYER_TALKEZLO;
@@ -127,24 +186,24 @@ void GenerateAreaHint(void) {
     gRoomTransition.hint_height = 0;
 #endif
     ptr = &gArea.unk28;
-    if (ptr->inventoryGfxIdx == 0xff) {
-        gRoomTransition.hint_idx = ptr->unk2C[0];
+    if (ptr->textBaseIndex == 0xff) {
+        gRoomTransition.hint_idx = ptr->ezloHintTexts[0];
     } else {
-        gRoomTransition.hint_idx = ptr->unk2C[ptr->unk2a];
-        ptr->unk2a++;
-        if (ptr->unk2a > 7) {
-            ptr->unk2a = 0;
-            sub_08018690(8, ptr->unk2C);
-            if (ptr->unk2C[0] == gRoomTransition.hint_idx) {
-                uVar1 = ptr->unk2C[0];
-                ptr->unk2C[0] = ptr->unk3E;
-                ptr->unk3E = uVar1;
+        gRoomTransition.hint_idx = ptr->ezloHintTexts[ptr->currentHint];
+        ptr->currentHint++;
+        if (ptr->currentHint > 7) {
+            ptr->currentHint = 0;
+            ShuffleEzloHints(8, ptr->ezloHintTexts);
+            if (ptr->ezloHintTexts[0] == gRoomTransition.hint_idx) {
+                tmp = ptr->ezloHintTexts[0];
+                ptr->ezloHintTexts[0] = ptr->ezloHintTexts[7];
+                ptr->ezloHintTexts[7] = tmp;
             }
         }
     }
 }
 
-void sub_08018690(int param_1, u16* param_2) {
+void ShuffleEzloHints(int count, u16* basePtr) {
     u32 uVar1;
     s32 uVar4;
     s32 uVar2;
@@ -152,14 +211,14 @@ void sub_08018690(int param_1, u16* param_2) {
     u16* puVar4;
     u16* puVar5;
 
-    uVar4 = param_1 - 1;
+    uVar4 = count - 1;
     if (uVar4 != 0) {
-        puVar5 = (u16*)(uVar4 * 2 + (int)param_2);
+        puVar5 = (u16*)(uVar4 * 2 + (int)basePtr);
         do {
             uVar2 = Random();
             iVar3 = uVar2 % (uVar4 + 1);
             uVar1 = *puVar5;
-            puVar4 = (u16*)(iVar3 * 2 + (int)param_2);
+            puVar4 = (u16*)(iVar3 * 2 + (int)basePtr);
             *puVar5 = *puVar4;
             *puVar4 = uVar1;
             puVar5--;
@@ -168,19 +227,19 @@ void sub_08018690(int param_1, u16* param_2) {
     }
 }
 
-void sub_080186C0(u32 param_1) {
-    gArea.unk28.inventoryGfxIdx = 0xff;
-    gArea.unk28.unk2C[0] = param_1;
+void SetNextAreaHint(u32 textId) {
+    gArea.unk28.textBaseIndex = 0xff;
+    gArea.unk28.ezloHintTexts[0] = textId;
 }
 
 void sub_080186D4(void) {
-    if (gArea.unk28.inventoryGfxIdx == 0xff) {
+    if (gArea.unk28.textBaseIndex == 0xff) {
         sub_0801855C();
     }
 }
 
 void sub_080186EC(u32 param_1) {
-    struct_080C9CBC* psVar1;
+    const struct_080C9CBC* psVar1;
     u32 i;
 
     for (i = 0, psVar1 = gUnk_080C9CBC; i <= 100; psVar1++, i++) {
@@ -191,7 +250,7 @@ void sub_080186EC(u32 param_1) {
 }
 
 void sub_08018710(u32 param_1) {
-    struct_080C9CBC* psVar1;
+    const struct_080C9CBC* psVar1;
     u32 i;
 
     for (i = 0, psVar1 = gUnk_080C9CBC; i <= 100; psVar1++, i++) {

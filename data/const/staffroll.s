@@ -6,6 +6,7 @@
 
 @ staffroll rodata
 
+@ staffroll.c
 gUnk_081272F0:: @ 081272F0
 	.incbin "data_08127280/gUnk_081272F0.bin"
 
@@ -37,6 +38,7 @@ gUnk_08127D10:: @ 08127D10
 @ End of staffroll
 
 
+@ game.c
 gAreaMetadata:: @ 08127D30
 .ifdef EU
     @ TODO only small differences
@@ -45,8 +47,6 @@ gAreaMetadata:: @ 08127D30
 	.incbin "data_08127280/gAreaMetadata_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
+@ game.c, subtask2.c
 gUnk_08127F94:: @ 08127F94
 	.incbin "data_08127280/gUnk_08127F94.bin"
-
-gUnk_08128024:: @ 08128024
-	.incbin "data_08127280/gUnk_08128024.bin"

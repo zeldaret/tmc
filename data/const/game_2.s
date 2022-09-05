@@ -4,6 +4,7 @@
 	.section .rodata
 	.align 2
 
+@ game.c, linkHoldingItem.c
 gUnk_080FD964:: @ 080FD964
 .ifdef EU
     @ TODO only small differences
@@ -279,6 +280,7 @@ gSpriteAnimations_322_61:: @ 080FDFCB
 gSpriteAnimations_322_62:: @ 080FDFD0
 	.include "animations/gSpriteAnimations_322_62.s"
 
+@ subtask2.c, ui.c, pause_menu.c
 gSpriteAnimations_322:: @ 080FDFD8
 	.4byte gSpriteAnimations_322_0
 	.4byte gSpriteAnimations_322_1
@@ -400,6 +402,7 @@ gSpriteAnimations_322:: @ 080FDFD8
 	.4byte gSpriteAnimations_322_0
 	.4byte 00000000
 
+@ game.c
 gUnk_080FE1B4:: @ 080FE1B4
 	.incbin "data_080FC8A4/gUnk_080FE1B4.bin"
 
@@ -414,6 +417,7 @@ gUnk_080FE2A0:: @ 080FE2A0
 	.4byte sub_080548E8
 	.4byte sub_08054920
 
+@ game.c
 gUnk_080FE2AC:: @ 080FE2AC
 	.4byte sub_08055D80
 	.4byte sub_08054E00
@@ -445,6 +449,7 @@ gUnk_080FE2AC:: @ 080FE2AC
 	.4byte sub_08055D80
 	.4byte sub_08055D80
 
+@ game.c, kinstone.c, subtask2.c
 gUnk_080FE320:: @ 080FE320
 .ifdef JP
     @ TODO only small differences
@@ -478,6 +483,7 @@ gUnk_080FE320:: @ 080FE320
 .endif
 .endif
 
+@ kinstone.c, subtask.c
 gUnk_080FEAC8:: @ 080FEAC8
 	.incbin "data_080FC8A4/gUnk_080FEAC8.bin"
 .ifdef JP
@@ -514,6 +520,7 @@ gUnk_080FEAC8:: @ 080FEAC8
 
 	.incbin "data_080FC8A4/gUnk_080FEAC8_9.bin"
 
+@ kinstone.c
 gUnk_080FEBE8:: @ 080FEBE8
 	.incbin "data_080FC8A4/gUnk_080FEBE8.bin"
 
@@ -529,6 +536,7 @@ gUnk_080FED18:: @ 080FED18
 gUnk_080FED58:: @ 080FED58
 	.incbin "data_080FC8A4/gUnk_080FED58.bin"
 
+@ kinstone.c
 gUnk_080FED98:: @ 080FED98
 	.4byte gUnk_080FEDA4
 	.4byte gUnk_080FEDDA
@@ -552,6 +560,7 @@ gUnk_080FEE38:: @ 080FEE38
 gUnk_080FEE48:: @ 080FEE48
 	.incbin "data_080FC8A4/gUnk_080FEE48.bin"
 
+@ kinstone.c
 gUnk_080FEE58:: @ 080FEE58
 .ifdef JP
     @ TODO only small differences
@@ -569,5 +578,6 @@ gUnk_080FEE58:: @ 080FEE58
 .endif
 .endif
 
+@ kinstone.c
 gUnk_080FEE78:: @ 080FEE78
 	.incbin "data_080FC8A4/gUnk_080FEE78.bin"

@@ -25,7 +25,7 @@ script_0800E012:
 	WaitUntilTextboxCloses
 	Wait 0x0096
 	PlaySound SFX_EVAPORATE
-	CallWithArg sub_0806DA1C, 0x00000005
+	CallWithArg NPC4E_DoScreenTransition, 5
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

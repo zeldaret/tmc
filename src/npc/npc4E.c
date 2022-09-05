@@ -1,14 +1,14 @@
-#include "global.h"
 #include "entity.h"
-#include "functions.h"
-#include "sound.h"
-#include "save.h"
 #include "flags.h"
-#include "object.h"
-#include "npc.h"
+#include "functions.h"
 #include "game.h"
 #include "hitbox.h"
 #include "item.h"
+#include "npc.h"
+#include "object.h"
+#include "save.h"
+#include "screenTransitions.h"
+#include "sound.h"
 
 typedef struct {
     u32 unk_00;
@@ -20,8 +20,8 @@ extern void script_MinishVillageObjectRightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;
 const u8 gUnk_0811415C[];
-const ScreenTransitionData* const gUnk_081141A4[];
-const u8 gUnk_081141E4[];
+const ScreenTransitionData* const gNpc4ETransitions[];
+const u8 gNpc4ETransitionTypes[];
 const u16 gUnk_081141F4[];
 
 extern void sub_0809623C(Entity*);
@@ -48,9 +48,8 @@ void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
     sub_08078850(this, 1, (u8)a->unk_04, a);
 }
 
-void sub_0806DA1C(Entity* this, ScriptExecutionContext* context) {
-    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[context->intVariable],
-                 (u32)(gUnk_081141E4[context->intVariable]));
+void NPC4E_DoScreenTransition(Entity* this, ScriptExecutionContext* context) {
+    sub_0808091C(gNpc4ETransitions[context->intVariable], gNpc4ETransitionTypes[context->intVariable]);
 }
 
 // Returns the kinstone id?
@@ -244,32 +243,20 @@ const u8 gUnk_0811415C[] = { //
     0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00
 #endif
 };
-extern ScreenTransitionData gUnk_0813AB6C;
-extern ScreenTransitionData gUnk_0813ABBC;
-extern ScreenTransitionData gUnk_0813ABE4;
-extern ScreenTransitionData gUnk_0813ABF8;
-extern ScreenTransitionData gUnk_0813AC0C;
-extern ScreenTransitionData gUnk_0813AC20;
-extern ScreenTransitionData gUnk_0813AC5C;
-extern ScreenTransitionData gUnk_0813AC70;
-extern ScreenTransitionData gUnk_0813AC84;
-extern ScreenTransitionData gUnk_0813AC98;
-extern ScreenTransitionData gUnk_0813ACAC;
-extern ScreenTransitionData gUnk_0813ACC0;
-extern ScreenTransitionData gUnk_0813ACD4;
-extern ScreenTransitionData gUnk_0813ACE8;
-extern ScreenTransitionData gUnk_0813ACFC;
 
 // Array of pointers to ScreenTransitionData
-const ScreenTransitionData* const gUnk_081141A4[] = { //
+const ScreenTransitionData* const gNpc4ETransitions[] = { //
     &gUnk_0813AB6C, &gUnk_0813ABBC, &gUnk_0813ABE4, &gUnk_0813ABF8, &gUnk_0813AC0C, &gUnk_0813AC20,
     &gUnk_0813AC5C, &gUnk_0813AC70, &gUnk_0813AC84, &gUnk_0813AC98, &gUnk_0813ACAC, &gUnk_0813ACC0,
     &gUnk_0813ACD4, &gUnk_0813ACE8, &gUnk_0813AC5C, &gUnk_0813ACFC
 };
 
-// param_2 for the call to sub_0808091C, same indices as gUnk_081141A4
-const u8 gUnk_081141E4[] = { //
-    0x02, 0x02, 0x04, 0x04, 0x02, 0x02, 0x09, 0x02, 0x02, 0x04, 0x02, 0x04, 0x04, 0x04, 0x04, 0x02
+// param_2 for the call to sub_0808091C, same indices as gNpc4ETransitions
+const u8 gNpc4ETransitionTypes[] = { //
+    TRANSITION_FADE_WHITE_SLOW, TRANSITION_FADE_WHITE_SLOW, TRANSITION_FADE_BLACK_SLOW, TRANSITION_FADE_BLACK_SLOW,
+    TRANSITION_FADE_WHITE_SLOW, TRANSITION_FADE_WHITE_SLOW, TRANSITION_CUT_FAST,        TRANSITION_FADE_WHITE_SLOW,
+    TRANSITION_FADE_WHITE_SLOW, TRANSITION_FADE_BLACK_SLOW, TRANSITION_FADE_WHITE_SLOW, TRANSITION_FADE_BLACK_SLOW,
+    TRANSITION_FADE_BLACK_SLOW, TRANSITION_FADE_BLACK_SLOW, TRANSITION_FADE_BLACK_SLOW, TRANSITION_FADE_WHITE_SLOW
 };
 
 // tiles that are changed?

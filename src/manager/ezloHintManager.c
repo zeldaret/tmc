@@ -78,7 +78,7 @@ static void EzloHintManager_Action2(EzloHintManager* this) {
         case 3:
             super->action = 4;
             super->subAction = 0;
-            sub_080186C0(this->msg_idx);
+            SetNextAreaHint(this->msg_idx);
             return;
     }
 }
@@ -149,7 +149,7 @@ static void EzloHintManager_Action3(EzloHintManager* this) {
 }
 
 static void EzloHintManager_Action4(EzloHintManager* this) {
-    if (gArea.unk28.inventoryGfxIdx != 0xFF) {
+    if (gArea.unk28.textBaseIndex != 0xFF) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->flag1)) {

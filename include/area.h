@@ -21,12 +21,11 @@ typedef struct {
 static_assert(sizeof(RoomResInfo) == 0x20);
 
 typedef struct {
-    u8 inventoryGfxIdx;
-    u8 unk29;
-    u8 unk2a;
+    u8 textBaseIndex;
+    u8 textIndexOffset;
+    u8 currentHint;
     u8 unk2b;
-    u16 unk2C[7];
-    u16 unk3E;
+    u16 ezloHintTexts[8];
 } struct_area_28;
 
 typedef struct {

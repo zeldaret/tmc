@@ -1,18 +1,19 @@
 #include "scroll.h"
-#include "global.h"
+
+#include "asm.h"
+#include "collision.h"
+#include "common.h"
+#include "effects.h"
 #include "entity.h"
-#include "structures.h"
+#include "fileselect.h"
 #include "functions.h"
 #include "game.h"
-#include "map.h"
-#include "asm.h"
-#include "common.h"
-#include "fileselect.h"
-#include "screen.h"
-#include "manager/diggingCaveEntranceManager.h"
 #include "kinstone.h"
-#include "effects.h"
+#include "manager/diggingCaveEntranceManager.h"
+#include "map.h"
 #include "object.h"
+#include "screen.h"
+#include "structures.h"
 
 extern void sub_08080BC4(void);
 extern void sub_080197D4(const void*);
@@ -29,7 +30,6 @@ extern u16 gUnk_0200B640;
 extern u32** gUnk_08109194[];
 extern u8 gUnk_02022830[];
 extern u16 gUnk_020246B0[];
-extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B7910[];
 
 void sub_0807FC64(RoomControls*);
@@ -634,9 +634,9 @@ void sub_08080910(s32 param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
-void sub_0808091C(const ScreenTransitionData* param_1, u32 param_2) {
-    DoExitTransition(param_1);
-    gRoomTransition.type = param_2;
+void sub_0808091C(const ScreenTransitionData* screenTransition, u32 transitionType) {
+    DoExitTransition(screenTransition);
+    gRoomTransition.type = transitionType;
 }
 
 void sub_08080930(u32 unused) {
@@ -770,7 +770,7 @@ END_NONMATCH
 void sub_08080B60(LayerStruct* layer) {
     u32 index;
     u16* metatileTypes = layer->metatileTypes;
-    u8* ptr = gUnk_080B37A0;
+    const u8* ptr = gUnk_080B37A0;
     u8* ptr3 = layer->unkData3;
     u16* mapData = layer->mapData;
     for (index = 0; index < 0x1000; index++) {
@@ -831,7 +831,7 @@ NONMATCH("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* t
     if (this->type != this->animIndex) {
         InitAnimationForceUpdate(this, this->type);
         if (this->type == 0x5c) {
-            struct_080C9CBC* ptr = &gUnk_080C9CBC[this->type2];
+            const struct_080C9CBC* ptr = &gUnk_080C9CBC[this->type2];
             this->palette.raw = ((ptr->unk0 & 0xf) << 4) | ptr->unk0;
         }
 

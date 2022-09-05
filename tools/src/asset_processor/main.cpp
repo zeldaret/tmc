@@ -151,12 +151,14 @@ int main(int argc, char** argv) {
                 if (gMode == EXTRACT || gMode == BUILD) {
                     std::filesystem::path path = gAssetsFolder;
                     path = path / asset["calculateOffsets"];
+                    std::filesystem::path cPath = path;
+                    cPath.replace_extension(".h");
                     int baseOffset = 0;
                     // During build mode the offsets are calculated directly instead of from a base address.
                     if (gMode == EXTRACT) {
                         baseOffset = asset["start"].get<int>() + currentOffset;
                     }
-                    offsetCalculator = std::make_unique<OffsetCalculator>(path, baseOffset);
+                    offsetCalculator = std::make_unique<OffsetCalculator>(path, cPath, baseOffset);
                 }
             } else if (asset.contains("path")) { // Asset definition
 

@@ -2,7 +2,8 @@
 	.include "constants/constants.inc"
 
 	.section .rodata
-    .align 2
+	.align 2
 
-gUnk_080B3E80:: @ 080B3E80
-	.incbin "data_080B3E70/gUnk_080B3E80.bin"
+
+gUnk_080FC3C4:: @ 080FC3C4
+	.incbin "data_080D5360/gUnk_080FC3C4.bin"

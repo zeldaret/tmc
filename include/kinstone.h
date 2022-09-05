@@ -28,9 +28,10 @@ typedef struct {
     u8 unk3;
     u8 evt_type;
     u8 unk5;
-    u8 _5[2];
+    u8 unk6;
+    u8 unk7;
 } struct_080C9CBC;
-extern struct_080C9CBC gUnk_080C9CBC[];
+extern const struct_080C9CBC gUnk_080C9CBC[];
 
 typedef enum {
     KINSTONE_0,
@@ -130,5 +131,12 @@ typedef enum {
     KINSTONE_5E,
     KINSTONE_5F,
 } KinstoneFlag;
+
+typedef struct {
+    u8 unk0; /**< Bank or 0xfd or 0xfe or 0xff */
+    u8 unk1; /**< Flag, for bank=0xfd: Kinstone, for bank=0xfe: Item */
+    u8 unk2; /**< Gfx id in the inventory? */
+    u8 unk3; /**< Offset on the gfx id? */
+} struct_gUnk_080B3D20;
 
 #endif // KINSTONE_H

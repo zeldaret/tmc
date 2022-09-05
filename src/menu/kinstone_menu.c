@@ -1,19 +1,20 @@
-#include "global.h"
-#include "menu.h"
-#include "room.h"
-#include "subtask.h"
+#include "area.h"
 #include "common.h"
+#include "enemy.h"
+#include "flags.h"
+#include "functions.h"
+#include "kinstone.h"
+#include "main.h"
+#include "menu.h"
+#include "message.h"
+#include "npc.h"
+#include "object.h"
+#include "room.h"
+#include "roomid.h"
+#include "save.h"
 #include "screen.h"
 #include "sound.h"
-#include "save.h"
-#include "kinstone.h"
-#include "flags.h"
-#include "message.h"
-#include "main.h"
-#include "object.h"
-#include "npc.h"
-#include "enemy.h"
-#include "functions.h"
+#include "subtask.h"
 #include "ui.h"
 
 extern u32 sub_08000E44(u32);
@@ -63,6 +64,18 @@ Subtask KinstoneMenu_Type2;
 Subtask KinstoneMenu_Type3;
 Subtask KinstoneMenu_Type4;
 Subtask KinstoneMenu_Type5;
+
+// Belongs to subtask2.c
+const ScreenTransitionData gUnk_08128024[] = {
+    { 1, { 0, 0, 0, 0 }, 0x98, 0xf8, 0, AREA_MT_CRENEL, ROOM_MT_CRENEL_CAVERN_OF_FLAMES_ENTRANCE, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0xf8, 0xf8, 0, AREA_VEIL_FALLS, ROOM_VEIL_FALLS_MAIN, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0x1e8, 0x1a8, 0, AREA_CLOUD_TOPS, ROOM_CLOUD_TOPS_CLOUD_TOPS, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0x278, 0x58, 0, AREA_HYRULE_TOWN, ROOM_HYRULE_TOWN_MAIN, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0xa8, 0x1b8, 0, AREA_LAKE_HYLIA, ROOM_LAKE_HYLIA_MAIN, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0x228, 0x398, 0, AREA_CASTOR_WILDS, ROOM_CASTOR_WILDS_MAIN, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0x2c8, 0x128, 0, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_SOUTH_HYRULE_FIELD, 1, 12, 4, 0 },
+    { 1, { 0, 0, 0, 0 }, 0x128, 0x2a8, 0, AREA_MINISH_WOODS, ROOM_MINISH_WOODS_MAIN, 1, 12, 4, 0 },
+};
 
 u32 sub_080A3B48(void) {
     u32 index;
@@ -581,7 +594,7 @@ u32 sub_080A4418(u32 param_1, u32 param_2) {
     } else {
         DMA3->sourceAddress = src;
         DMA3->destinationAddress = dest;
-        DMA3->control.word = 0x84000080;
+        DMA3->control.word = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_INC) << 16) + 0x80;
         return DMA3->control.word;
     }
 }

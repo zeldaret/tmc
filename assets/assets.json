@@ -3523,50 +3523,6 @@
     "size": 994
   },
   {
-    "path": "data_080B3740/gUnk_080B3D14.bin",
-    "start": 736532,
-    "size": 12
-  },
-  {
-    "path": "data_080B3740/gUnk_080B3D20_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 735936
-    },
-    "size": 176
-  },
-  {
-    "path": "data_080B3740/gUnk_080B3D20_1_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 734280
-    },
-    "size": 176
-  },
-  {
-    "path": "data_080B3740/gUnk_080B3D20_2_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 734564
-    },
-    "size": 176
-  },
-  {
-    "path": "data_080B3740/gUnk_080B3D20_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 736544,
-    "size": 176
-  },
-  {
     "path": "data_080B3E70/gUnk_080B3E80.bin",
     "start": 736896,
     "size": 1396
@@ -20596,191 +20552,6 @@
     "size": 12
   },
   {
-    "path": "data_080B4410/gUnk_080B7400.bin",
-    "start": 750592,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B740A.bin",
-    "start": 750602,
-    "size": 18
-  },
-  {
-    "path": "data_080B4410/gUnk_080B741C.bin",
-    "start": 750620,
-    "size": 18
-  },
-  {
-    "path": "data_080B4410/gUnk_080B742E.bin",
-    "start": 750638,
-    "size": 12
-  },
-  {
-    "path": "data_080B4410/gUnk_080B743A.bin",
-    "start": 750650,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7444.bin",
-    "start": 750660,
-    "size": 12
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7450.bin",
-    "start": 750672,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B745A.bin",
-    "start": 750682,
-    "size": 6
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7460.bin",
-    "start": 750688,
-    "size": 4
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7464.bin",
-    "start": 750692,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B746E.bin",
-    "start": 750702,
-    "size": 12
-  },
-  {
-    "path": "data_080B4410/gUnk_080B747A.bin",
-    "start": 750714,
-    "size": 6
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7480.bin",
-    "start": 750720,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B748A.bin",
-    "start": 750730,
-    "size": 4
-  },
-  {
-    "path": "data_080B4410/gUnk_080B748E.bin",
-    "start": 750734,
-    "size": 14
-  },
-  {
-    "path": "data_080B4410/gUnk_080B749C.bin",
-    "start": 750748,
-    "size": 14
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74AA.bin",
-    "start": 750762,
-    "size": 14
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74B8.bin",
-    "start": 750776,
-    "size": 14
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74C6.bin",
-    "start": 750790,
-    "size": 14
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74D4.bin",
-    "start": 750804,
-    "size": 8
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74DC.bin",
-    "start": 750812,
-    "size": 8
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74E4.bin",
-    "start": 750820,
-    "size": 8
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74EC.bin",
-    "start": 750828,
-    "size": 8
-  },
-  {
-    "path": "data_080B4410/gUnk_080B74F4.bin",
-    "start": 750836,
-    "size": 12
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7500.bin",
-    "start": 750848,
-    "size": 6
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7506.bin",
-    "start": 750854,
-    "size": 12
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7512.bin",
-    "start": 750866,
-    "size": 8
-  },
-  {
-    "path": "data_080B4410/gUnk_080B751A.bin",
-    "start": 750874,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7524.bin",
-    "start": 750884,
-    "size": 4
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7528.bin",
-    "start": 750888,
-    "size": 16
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7538.bin",
-    "start": 750904,
-    "size": 10
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7542.bin",
-    "start": 750914,
-    "size": 4
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7546.bin",
-    "start": 750918,
-    "size": 4
-  },
-  {
-    "path": "data_080B4410/gUnk_080B754A.bin",
-    "start": 750922,
-    "size": 4
-  },
-  {
-    "path": "data_080B4410/gUnk_080B754E.bin",
-    "start": 750926,
-    "size": 8
-  },
-  {
-    "path": "data_080B4410/gUnk_080B7556.bin",
-    "start": 750934,
-    "size": 6
-  },
-  {
-    "path": "data_080B4410/gUnk_080B77C0.bin",
-    "start": 751552,
-    "size": 8
-  },
-  {
     "path": "data_080B7910/gUnk_080B7910.bin",
     "start": 751888,
     "size": 151
@@ -24887,11 +24658,6 @@
     "start": 842717,
     "size": 35,
     "type": "animation"
-  },
-  {
-    "path": "gleerok/gUnk_080CD774.bin",
-    "start": 841588,
-    "size": 68
   },
   {
     "path": "gleerok/gUnk_080CD7C4.bin",
@@ -32272,15 +32038,9 @@
   },
   {
     "offsets": {
-      "EU": -2212,
-      "JP": -824,
-      "DEMO_JP": -2052
-    }
-  },
-  {
-    "offsets": {
       "EU": -2220,
-      "JP": -828
+      "JP": -828,
+      "DEMO_JP": -2052
     }
   },
   {
@@ -39259,16 +39019,6 @@
     "type": "animation"
   },
   {
-    "path": "npc58/gUnk_081146B8.bin",
-    "start": 1132216,
-    "size": 24
-  },
-  {
-    "path": "data_081146D0/gUnk_081146D0.bin",
-    "start": 1132240,
-    "size": 20
-  },
-  {
     "path": "data_081146D0/gUnk_08114F30.bin",
     "start": 1134384,
     "size": 4
@@ -40115,27 +39865,6 @@
     "path": "data_0811BE38/gUnk_0811BE40.bin",
     "start": 1162816,
     "size": 8
-  },
-  {
-    "path": "data_0811BE38/gItemDefinitions_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1160592
-    },
-    "size": 384
-  },
-  {
-    "path": "data_0811BE38/gItemDefinitions_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1162824,
-    "size": 384
   },
   {
     "path": "data_0811BE38/gUnk_0811BFE0.bin",
@@ -43703,11 +43432,6 @@
     "size": 144
   },
   {
-    "path": "data_08127280/gUnk_08128024.bin",
-    "start": 1212452,
-    "size": 160
-  },
-  {
     "path": "data_08127280/gUnk_08128A38.bin",
     "start": 1215032,
     "size": 4
@@ -44738,14 +44462,9 @@
   },
   {
     "offsets": {
+      "DEMO_JP": -988,
       "EU": -2480,
-      "JP": -980,
-      "DEMO_JP": -2268
-    }
-  },
-  {
-    "offsets": {
-      "DEMO_JP": -988
+      "JP": -980
     }
   },
   {
@@ -44868,247 +44587,6 @@
       "DEMO_USA": 2608,
       "EU": -2324
     }
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AA54.bin",
-    "start": 1288788,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AA68.bin",
-    "start": 1288808,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AA7C.bin",
-    "start": 1288828,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AA90.bin",
-    "start": 1288848,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AAA4.bin",
-    "start": 1288868,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AAB8.bin",
-    "start": 1288888,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AACC.bin",
-    "start": 1288908,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AAE0.bin",
-    "start": 1288928,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AAF4.bin",
-    "start": 1288948,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AB08.bin",
-    "start": 1288968,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AB58.bin",
-    "start": 1289048,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AB6C.bin",
-    "start": 1289068,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AB80.bin",
-    "start": 1289088,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AB94.bin",
-    "start": 1289108,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABA8.bin",
-    "start": 1289128,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABBC.bin",
-    "start": 1289148,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABD0.bin",
-    "start": 1289168,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABE4.bin",
-    "start": 1289188,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABF8_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1288228
-    },
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABF8_1_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1286884
-    },
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ABF8_2_USA-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1289208,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC0C.bin",
-    "start": 1289228,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC20.bin",
-    "start": 1289248,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC34.bin",
-    "start": 1289268,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC48.bin",
-    "start": 1289288,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC5C.bin",
-    "start": 1289308,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC70.bin",
-    "start": 1289328,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC84.bin",
-    "start": 1289348,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AC98.bin",
-    "start": 1289368,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ACAC.bin",
-    "start": 1289388,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ACC0.bin",
-    "start": 1289408,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ACD4.bin",
-    "start": 1289428,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ACE8.bin",
-    "start": 1289448,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ACFC.bin",
-    "start": 1289468,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD10.bin",
-    "start": 1289488,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD24.bin",
-    "start": 1289508,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD38.bin",
-    "start": 1289528,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD4C.bin",
-    "start": 1289548,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD60.bin",
-    "start": 1289568,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD74.bin",
-    "start": 1289588,
-    "size": 20
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD88_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1287284
-    },
-    "size": 100
-  },
-  {
-    "path": "data_08132B30/gUnk_0813AD88_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1289608,
-    "size": 100
-  },
-  {
-    "path": "data_08132B30/gUnk_0813ADEC.bin",
-    "start": 1289708,
-    "size": 40
   },
   {
     "path": "sprites/gSprite_Link.4bpp",

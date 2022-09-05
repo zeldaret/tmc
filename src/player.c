@@ -22,6 +22,7 @@
 #include "playeritem.h"
 #include "save.h"
 #include "screen.h"
+#include "screenTransitions.h"
 #include "sound.h"
 
 #define GRAVITY_RATE Q_8_8(32)
@@ -271,8 +272,6 @@ void SurfaceAction_AutoLadder(Entity*);
 extern void InitPauseMenu(void);
 extern u32 UpdatePlayerCollision(void);
 
-extern ScreenTransitionData gUnk_0813AB58;
-extern ScreenTransitionData gUnk_0813AD88[];
 extern u8 gUnk_080082DC[];
 
 extern u16 script_BedInLinksRoom;

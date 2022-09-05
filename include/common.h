@@ -142,4 +142,13 @@ u32 sub_0801E00C(void);
 bool32 sub_0801E810(u32);
 u32 sub_0801DB94(void);
 
+typedef struct {
+    u8 unk_0;
+    u8 unk_1;
+    u8 unk_2;
+    // u8 pad;
+} struct_080C9C6C;
+
+extern const struct_080C9C6C gUnk_080C9C6C[];
+
 #endif // COMMON_H

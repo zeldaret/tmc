@@ -13,6 +13,7 @@
 #include "area.h"
 #include "common.h"
 #include "flags.h"
+#include "message.h"
 #include "room.h"
 #include "sound.h"
 
@@ -61,16 +62,15 @@ void FightManager_Init(FightManager* this) {
 }
 
 void FightManager_WaitForFlag(FightManager* this) {
-    int tmp;
     if (CheckFlags(this->fightStartFlag)) {
         FightManager_LoadFight(this);
         if (!this->unk_35) {
-            tmp = gRoomVars.fight_bgm ? gRoomVars.fight_bgm : BGM_FIGHT_THEME2;
+            u32 bgm = gRoomVars.fight_bgm ? gRoomVars.fight_bgm : BGM_FIGHT_THEME2;
             this->prevBgm = gArea.bgm;
-            gArea.bgm = tmp;
-            SoundReq(tmp);
+            gArea.bgm = bgm;
+            SoundReq(bgm);
         }
-        sub_080186C0(0xB0F);
+        SetNextAreaHint(TEXT_INDEX(TEXT_EZLO, 0xf));
     }
 }
 

@@ -4,6 +4,7 @@
 	.section .rodata
     .align 2
 
+@ figurine_menu.c, pause_menu.c
 gUnk_08128A38:: @ 08128A38
 	.incbin "data_08127280/gUnk_08128A38.bin"
 	.4byte PauseMenu_Variant0
@@ -46,6 +47,7 @@ gUnk_08128A38:: @ 08128A38
 	.incbin "data_08127280/gUnk_08128A38_19.bin"
 	.4byte PauseMenu_Variant0
 
+@ figurine_menu.c
 gUnk_08128AD8:: @ 08128AD8
 .ifdef EU
     @ TODO only small differences

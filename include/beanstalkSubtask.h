@@ -14,23 +14,8 @@ typedef struct {
 extern struct_0200B240 gUnk_0200B240[MAX_0200B240];
 
 typedef struct {
-    u16 vramOffset;
-    u8 gfxSize;
-    u8 unk_3;
-    u32 gfxOffset;
-} BgAnimationGfx;
-
-typedef struct {
-    BgAnimationGfx* gfx;
-    u32 unk_4;
-} BgAnimationFrame;
-
-typedef struct {
-    BgAnimationFrame* currentFrame;
-    u16 unk_4;
-    u16 timer;
-} BgAnimation;
-#define MAX_BG_ANIMATIONS 8
-extern BgAnimation gBgAnimations[MAX_BG_ANIMATIONS];
+    u16 collision;
+    u16 tileIndex;
+} struct_080B44D0;
 
 #endif // BEANSTALKSUBTASK_H

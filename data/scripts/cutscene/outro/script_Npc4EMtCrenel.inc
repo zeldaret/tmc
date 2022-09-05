@@ -15,6 +15,6 @@ SCRIPT_START script_Npc4EMtCrenel
 	Wait 0x001e
 	SetSyncFlag 0x00000008
 	Wait 0x003c
-	CallWithArg sub_0806DA1C, 0x0000000e
+	CallWithArg NPC4E_DoScreenTransition, 14
 	DoPostScriptAction 0x0006
 SCRIPT_END

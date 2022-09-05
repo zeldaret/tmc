@@ -116,7 +116,7 @@ void CameraTarget_Action2(Entity* this) {
     u32 bVar3;
     u32 temp;
     u32 temp2;
-    struct_080C9CBC* ptr;
+    const struct_080C9CBC* ptr;
 
     if ((this->type != 1) &&
         (((u8)(gUnk_03003DF0.unk_4[3] - 1) >= 100 || (this->child != *(Entity**)(gUnk_03003DF0.unk_4 + 8))))) {
@@ -133,7 +133,7 @@ void CameraTarget_Action2(Entity* this) {
                 bVar2 = this->type2;
             }
             ptr = gUnk_080C9CBC + bVar2;
-            bVar1 = ptr->_5[0];
+            bVar1 = ptr->unk6;
             bVar3 = bVar1 & 1;
             this->palette.b.b0 = bVar3;
             temp = gUnk_0811F744[bVar1] < 0;

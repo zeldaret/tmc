@@ -3,7 +3,12 @@
 
 	.section .rodata
     .align 2
+@ before: playerItemCellOverwriteSet
+@ in here: ui.c, color.c, common.c
+@ afterwards on data side: sineTable.c
+@ after: octorok.c
 
+@ collision.c
 gCollisionMtx:: @ 080B7B74
 	.incbin "data_080B7B74/gCollisionMtx.bin"
 	.incbin "data_080B7B74/gUnk_080B802E.bin"
@@ -144,6 +149,7 @@ EzloNagUIElement_Actions:: @ 080C904C
 gUnk_080C9058:: @ 080C9058
 	.incbin "data_080B7B74/gUnk_080C9058.bin"
 
+@ ui.c
 gUnk_080C9094:: @ 080C9094
 	.incbin "data_080B7B74/gUnk_080C9094.bin"
 

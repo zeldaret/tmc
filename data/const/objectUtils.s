@@ -4,10 +4,11 @@
 	.section .rodata
     .align 2
 
-
+@ physics.c, dust.c, lilypadLarge.c, pullableMushroom.c, playerItemGust.c
 gUnk_08126EE4:: @ 08126EE4
 	.incbin "data_08125104/gUnk_08126EE4.bin"
 
+@ itemLantern.c
 gUnk_08126EEC:: @ 08126EEC
 	.incbin "data_08125104/gUnk_08126EEC.bin"
 
@@ -104,6 +105,7 @@ gSpriteAnimations_166_29:: @ 0812713A
 gSpriteAnimations_166_30:: @ 08127143
 	.include "animations/gSpriteAnimations_166_30.s"
 
+@ sprite_ptrs.s
 gSpriteAnimations_166:: @ 0812714C
 	.4byte gSpriteAnimations_166_0
 	.4byte gSpriteAnimations_166_1
@@ -138,5 +140,6 @@ gSpriteAnimations_166:: @ 0812714C
 	.4byte gSpriteAnimations_166_30
 	.4byte 00000000
 
+@ playerItemBoomerang.c
 gUnk_081271CC:: @ 081271CC
 	.incbin "data_08125104/gUnk_081271CC.bin"

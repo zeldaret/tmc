@@ -1,20 +1,17 @@
-#include "global.h"
-#include "sound.h"
 #include "entity.h"
-#include "room.h"
 #include "flags.h"
-#include "script.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
+#include "room.h"
 #include "screen.h"
+#include "screenTransitions.h"
+#include "script.h"
+#include "sound.h"
 
 typedef struct {
     u8 filler[4];
     u32 unk;
 } struct_0806C2A0;
-
-extern ScreenTransitionData gUnk_0813AD60;
-extern ScreenTransitionData gUnk_0813AD74;
 
 void Simon(Entity* this) {
     if (this->action == 0) {

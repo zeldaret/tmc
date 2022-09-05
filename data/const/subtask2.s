@@ -4,6 +4,7 @@
 	.section .rodata
     .align 2
 
+@ subtask2.c
 gUnk_08128C00:: @ 08128C00
 	.incbin "data_08127280/gUnk_08128C00.bin"
 
@@ -135,6 +136,7 @@ gUnk_0812901C:: @ 0812901C
 	.4byte Subtask_FadeOut
 	.4byte Subtask_Die
 
+@ subtask2.c
 gSubtasks:: @ 08129030
 	.4byte Subtask_Exit
 	.4byte Subtask_PauseMenu
