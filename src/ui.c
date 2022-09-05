@@ -63,6 +63,8 @@ extern struct_020350E2 gUnk_020350E2;
 extern const u16 gUnk_080C8F2C[];
 extern u32 gUnk_085C4620[];
 extern Frame* gSpriteAnimations_322[];
+extern u16 gUnk_080C8F54[];
+extern u32 gUnk_080C8F7C[];
 
 typedef struct {
     u16 unk_0; // -> gOamCmd._4
@@ -491,7 +493,59 @@ void sub_0801C824(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/ui/DrawChargeBar.inc", void DrawChargeBar())
+void DrawChargeBar(void) {
+    bool32 tmp1;
+    u16* ptr1;
+    u32 tmp2;
+    u32 tmp3;
+    register u32 rem asm("r1");
+    u32 tmp5;
+
+    tmp1 = FALSE;
+    if ((gUnk_0200AF00.unk_1 & 0x20) == 0) {
+        tmp1 = gPlayerState.chargeState.action != 0;
+    }
+
+    if (!tmp1)
+        return sub_0801C824();
+
+    ptr1 = (gUnk_0200AF00.maxHealth > 0x28) ? (u16*)((u8*)(&gUnk_02034D30) + 0x40) : (u16*)&gUnk_02034D30.unk_0;
+
+    tmp2 = Div(gPlayerState.chargeState.chargeTimer + 19, 20);
+    if (tmp2 > 40) {
+        tmp2 = 40;
+    }
+    if (gUnk_0200AF00.unk_6 == 0 || gUnk_0200AF00.unk_7 != tmp2) {
+        gUnk_0200AF00.unk_6 = 1;
+        gUnk_0200AF00.unk_7 = tmp2;
+        tmp3 = Div(tmp2, 4);
+        tmp5 = rem;
+        ptr1[0] = 0xf016;
+        ptr1[11] = 0xf416;
+        DmaSet(3, gUnk_080C8F54 + (10 - tmp3), ptr1 + 1, 0x8000000a);
+        if (tmp5 != 0) {
+            ptr1[tmp3 + 1] = ((tmp5 + 0x17U) & 0x3ff) | 0xf000;
+        }
+        gScreen.bg0.updated = 1;
+    }
+
+    switch (gPlayerState.chargeState.action) {
+        case 4:
+        case 5:
+            gUnk_0200AF00.unk_9 += (gPlayerState.chargeState.action == 4) ? 2 : 1;
+            tmp3 = gUnk_0200AF00.unk_9 >> 4 & 3;
+            break;
+        default:
+            tmp3 = 0;
+            break;
+    }
+
+    if (tmp3 != gUnk_0200AF00.unk_8) {
+        gUnk_0200AF00.unk_8 = tmp3;
+        ptr1 = (u16*)0x600c2c0;
+        DmaSet(3, gUnk_080C8F7C[tmp3], ptr1, 0x84000030);
+    }
+}
 
 void DrawKeys(void) {
     s32 iVar1;
