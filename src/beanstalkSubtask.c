@@ -487,14 +487,13 @@ extern const Data gUnk_080B44C0[];
 extern const Data gUnk_080B44C2[];
 extern const u32 gUnk_080B44B8[];
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98()) {
+void sub_0801AC98(void) {
+    u32 position;
     u32 width;
     u32 height;
     u32 indexX;
     u32 indexY;
-    const Data* ptr1;
-    const Data* ptr2;
-    u32 position;
+    const Data* ptr;
 
     width = gRoomControls.width >> 4;
     height = gRoomControls.height >> 4;
@@ -502,19 +501,19 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98
 
     for (indexY = 0; indexY < height; indexY++) {
         for (indexX = 0; indexX < width; indexX++, position++) {
-            for (ptr1 = gUnk_080B44C0; ptr1->tileType != 0xffff; ptr1++) {
-                if (ptr1->tileType == GetTileType(position, 1)) {
-                    if (gUnk_080B44B8[ptr1->unk_a] != 0) {
-                        sub_0801AD6C(ptr1, position);
+            for (ptr = gUnk_080B44C0; ptr->tileType != 0xffff; ptr++) {
+                if (ptr->tileType == GetTileType(position, 1)) {
+                    if (gUnk_080B44B8[ptr->unk_a] != 0) {
+                        sub_0801AD6C(ptr, position);
                         break;
                     }
                 }
             }
 
-            for (ptr2 = gUnk_080B44C2; ptr2->tileType != 0xffff; ptr2++) {
-                if (ptr2->tileType == GetTileType(position, 2)) {
-                    if (gUnk_080B44B8[ptr2->unk_a] != 0) {
-                        sub_0801AD6C(ptr2, position);
+            for (ptr = gUnk_080B44C2; ptr->tileType != 0xffff; ptr++) {
+                if (ptr->tileType == GetTileType(position, 2)) {
+                    if (gUnk_080B44B8[ptr->unk_a] != 0) {
+                        sub_0801AD6C(ptr, position);
                         break;
                     }
                 }
@@ -523,7 +522,6 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AC98.inc", void sub_0801AC98
         position = position + (0x40 - width);
     }
 }
-END_NONMATCH
 
 void sub_0801AD6C(const Data* param_1, u32 tilePosition) {
     Entity* entity;
