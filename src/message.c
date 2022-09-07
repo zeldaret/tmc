@@ -505,11 +505,7 @@ u16 RunTextCommand(TextRender* this) {
 const u8 gUnk_08107C0F[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
 const u8 gUnk_08107C14[] = { 0x8, 0x1e, 0x8, 0xFE, 0x0 };
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/TextDispEnquiry.inc", /*static*/ void TextDispEnquiry(TextRender* ctb))
-#else
-
-/*static*/ void TextDispEnquiry(TextRender* this) {
+void TextDispEnquiry(TextRender* this) {
     s32 nextTextIdx, choiceIdx, lastChoice;
     u32 doSwitch;
     const u8* src;
@@ -556,9 +552,21 @@ ASM_FUNC("asm/non_matching/eu/TextDispEnquiry.inc", /*static*/ void TextDispEnqu
         doSwitch = 1;
     }
     if (doSwitch) {
+#ifdef EU
+        u32 previousUnk6 = gTextRender._50.unk6;
+        gTextRender._50.unk6 = gMessageChoices.unk_08[lastChoice];
+        sub_0805F8E4(0, &this->_50);
+        gTextRender._50.unk6 = gMessageChoices.unk_08[choiceIdx];
+        sub_0805F8E4(1, &this->_50);
+        gTextRender._50.unk6 = previousUnk6;
+        gTextRender.updateDraw = 1;
+#else
         SwitchChoice(choiceIdx, lastChoice);
+#endif
     }
 }
+
+#ifndef EU
 
 static void SwitchChoice(u32 to, u32 from) {
     u16 t;
