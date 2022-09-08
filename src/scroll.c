@@ -83,92 +83,83 @@ void sub_0807FC64(RoomControls* controls) {
     UpdateIsDiggingCave();
 }
 
-NONMATCH("asm/non_matching/scroll/sub_0807FC7C.inc", void sub_0807FC7C(RoomControls* controls)) {
-    u32 uVar1;
-    u32 uVar2;
-    u32 uVar3;
-    int iVar4;
-    u32 uVar5;
-    u32 temp;
-    u32 temp2;
-    u32 uVar6;
+void sub_0807FC7C(RoomControls* controls) {
+    s32 uVar2;
+    s32 uVar3;
+    s32 iVar4;
+    s32 uVar5;
+    s32 temp;
 
     if (controls->camera_target != NULL) {
-        iVar4 = (int)controls->scroll_x;
+        iVar4 = controls->scroll_x;
         temp = controls->camera_target->x.HALF.HI - 0x78;
-        uVar3 = iVar4 - temp;
+        uVar3 = controls->scroll_x - temp;
         if (uVar3 != 0) {
-            uVar1 = (u16)controls->scroll_x;
-            uVar5 = uVar1 & 7;
-            uVar6 = uVar1;
-            if ((int)uVar3 >= 1) {
-                uVar2 = controls->origin_x;
-                if ((int)uVar2 < iVar4) {
-                    if ((int)controls->unk5 <= (int)uVar3) {
+            uVar5 = controls->scroll_x & 7;
+            if (uVar3 >= 1) {
+                if (controls->origin_x < controls->scroll_x) {
+                    if (controls->unk5 <= uVar3) {
                         uVar3 = controls->unk5;
-                        controls->scroll_flags = controls->scroll_flags | 4;
+                        controls->scroll_flags |= 4;
                     }
-                    controls->scroll_x = uVar6 - uVar3;
-                    if ((int)((uVar5)-uVar3) < 1) {
+                    controls->scroll_x = controls->scroll_x - uVar3;
+                    if (uVar5 - uVar3 < 1) {
                         gUpdateVisibleTiles = 1;
                     }
-                    if ((int)uVar2 >= (int)controls->scroll_x) {
-                        controls->scroll_x = (s16)uVar2;
+                    if (controls->origin_x >= controls->scroll_x) {
+                        controls->scroll_x = controls->origin_x;
                     }
                 }
             } else {
-                uVar2 = (controls->origin_x + controls->width) - 0xf0;
-                if (iVar4 < (int)uVar2) {
-                    if ((int)-controls->unk5 >= (int)uVar3) {
+                uVar2 = controls->origin_x + controls->width - 0xf0;
+                if (controls->scroll_x < uVar2) {
+                    if (-controls->unk5 >= uVar3) {
                         uVar3 = -controls->unk5;
                         controls->scroll_flags |= 4;
                     }
-                    controls->scroll_x = uVar1 - (short)uVar3;
-                    if (7 < (int)((uVar5)-uVar3)) {
+                    controls->scroll_x -= uVar3;
+                    if (uVar5 - uVar3 > 7) {
                         gUpdateVisibleTiles = 1;
                     }
-                    if ((int)controls->scroll_x >= (int)uVar2) {
-                        controls->scroll_x = (s16)uVar2;
+                    if (controls->scroll_x >= uVar2) {
+                        controls->scroll_x = uVar2;
                     }
                 }
             }
         }
 
-        iVar4 = (int)controls->scroll_y;
+        iVar4 = controls->scroll_y;
         temp = controls->camera_target->y.HALF.HI - 0x50;
-        uVar3 = iVar4 - (temp);
+        uVar3 = controls->scroll_y - (temp);
         if (uVar3 != 0) {
-            uVar1 = (u16)controls->scroll_y;
-            uVar5 = uVar1 & 7;
-            uVar6 = uVar1;
-            if ((int)uVar3 >= 1) {
-                uVar2 = temp2 = (u16)controls->origin_y;
-                if ((int)uVar2 < iVar4) {
-                    if ((int)controls->unk5 <= (int)uVar3) {
+            uVar5 = controls->scroll_y & 7;
+            if (uVar3 >= 1) {
+                if (controls->origin_y < controls->scroll_y) {
+                    if (controls->unk5 <= uVar3) {
                         uVar3 = controls->unk5;
                         controls->scroll_flags |= 4;
                     }
-                    controls->scroll_y = uVar6 - uVar3;
-                    if ((int)((uVar5)-uVar3) < 1) {
+                    controls->scroll_y = controls->scroll_y - uVar3;
+                    if (uVar5 - uVar3 < 1) {
                         gUpdateVisibleTiles = 1;
                     }
-                    if ((int)uVar2 >= (int)controls->scroll_y) {
-                        controls->scroll_y = (s16)uVar2;
+                    if (controls->origin_y >= controls->scroll_y) {
+                        controls->scroll_y = controls->origin_y;
                     }
                 }
             } else {
-                uVar2 = (controls->origin_y + controls->height) - DISPLAY_HEIGHT;
-                if (iVar4 < (int)uVar2) {
-                    if ((int)-controls->unk5 >= (int)uVar3) {
+                uVar2 = controls->origin_y + controls->height - DISPLAY_HEIGHT;
+                if (controls->scroll_y < uVar2) {
+                    if (-controls->unk5 >= uVar3) {
                         uVar3 = -controls->unk5;
-                        controls->scroll_flags = controls->scroll_flags | 4;
+                        controls->scroll_flags |= 4;
                     }
-                    controls->scroll_y = uVar1 - (short)uVar3;
-                    if (7 < (int)((uVar1 & 7) - uVar3)) {
+                    controls->scroll_y -= uVar3;
+                    if (uVar5 - uVar3 > 7) {
                         gUpdateVisibleTiles = 1;
                     }
-                    if ((int)controls->scroll_y >= (int)uVar2) {
-                        controls->scroll_y = (s16)uVar2;
+                    if (controls->scroll_y >= uVar2) {
+                        controls->scroll_y = uVar2;
                     }
                 }
             }
@@ -176,7 +167,6 @@ NONMATCH("asm/non_matching/scroll/sub_0807FC7C.inc", void sub_0807FC7C(RoomContr
     }
     sub_08080BC4();
 }
-END_NONMATCH
 
 void sub_0807FDB0(RoomControls* controls) {
     static void (*const gUnk_0811E780[])(RoomControls*) = {
