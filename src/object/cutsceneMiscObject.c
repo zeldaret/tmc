@@ -1107,34 +1107,34 @@ void sub_08095E7C(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx) {
     }
 }
 
-NONMATCH("asm/non_matching/cutsceneMiscObject/sub_08095EAC.inc",
-         void sub_08095EAC(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx)) {
+void sub_08095EAC(Entity* this, ScriptExecutionContext* ctx) {
     Entity* e = CreateObject(CUTSCENE_MISC_OBJECT, 0x1E, 1);
-    s32 x, y;
+    s32 x;
+    s16 y;
+    s32 a, b, speed;
+    s32 vel;
 
     if (e != NULL) {
-        s32 a, b, vel, speed;
         if (ctx->intVariable == 0) {
             a = 0x10;
             b = 0x1F;
-            vel = 0x4000;
+            vel = Q_16_16(0.25);
             speed = 0;
         } else {
             a = 0x8;
             b = 0xF;
-            vel = 0x40000;
+            vel = Q_16_16(4);
             speed = gUnk_08122B0E[Random() & 7];
             e->type2 = -1;
         }
 
-        x = a - (Random() & b);
-        y = a - (Random() & b);
-        PositionRelative(super, e, x << 16, y << 16);
+        x = (a - (Random() & b));
+        y = (a - (Random() & b));
+        PositionRelative(this, e, x << 16, y << 16);
         e->zVelocity = vel;
         e->speed = speed;
     }
 }
-END_NONMATCH
 
 #define local ((Type1F*)this)
 void sub_08095F38(CutsceneMiscObjectEntity* this) {
