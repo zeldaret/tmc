@@ -900,10 +900,9 @@ void sub_080432A8(Entity* this) {
     }
 }
 
-static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* this)) {
-    int bVar1;
+void sub_0804334C(Entity* this) {
+    u32 bVar1;
     Entity* entity;
-    VaatiArm_HeapStruct1* s;
     u32 i;
     VaatiArm_HeapStruct1* ptr;
 
@@ -913,13 +912,13 @@ static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Ent
         }
         for (i = 0; i < 5; i++) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-            entity->flags = entity->flags | ENT_COLLIDE;
+            COLLISION_ON(entity);
             entity->spriteSettings.draw = 1;
         }
     }
-    s = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
-    if ((gUnk_080D131C[this->type2] - s->unk00.HALF.HI) + 1 > 2u) {
-        s->unk00.HWORD += s->unk08;
+    ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
+    if (gUnk_080D131C[this->type2] - ptr->unk00.HALF.HI + 1 > 2u) {
+        ptr->unk00.HWORD += ptr->unk08;
         bVar1 = 0;
     } else {
         bVar1 = 1;
@@ -927,12 +926,11 @@ static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Ent
     sub_08043B9C(this);
     for (i = 0; i < 5; i++) {
         ptr = &(((VaatiArm_HeapStruct*)this->myHeap)->s1)[i];
+
         if (gUnk_080D1414[i] > ptr->unk0c) {
-            ptr->unk0c++;
-            if (gUnk_080D1414[i] != ptr->unk0c) {
-                return;
+            if (gUnk_080D1414[i] == ++ptr->unk0c) {
+                SoundReq(SFX_15E);
             }
-            SoundReq(SFX_15E);
             return;
         }
         if ((bVar1) && (i == 4)) {
@@ -945,7 +943,6 @@ static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Ent
         }
     }
 }
-END_NONMATCH
 
 static void sub_08043420(Entity* this) {
     gUnk_080D1320[this->subAction](this);
