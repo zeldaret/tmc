@@ -11,6 +11,7 @@
 
 extern void sub_0805ECEC(u32, u32, u32, u32);
 extern bool32 ItemIsBottle(u32);
+extern u32 sub_08000E44(u32);
 
 typedef struct {
     u16 unk_0;
@@ -669,7 +670,48 @@ void ButtonUIElement_Action0(UIElement* element) {
     sub_0801CAFC(element, element->type);
 }
 
-ASM_FUNC("asm/non_matching/ui/ButtonUIElement_Action1.inc", void ButtonUIElement_Action1())
+void ButtonUIElement_Action1(UIElement* element) {
+    u32 MAX_MOVEMENT;
+    s32 y;
+    u32 y_diff;
+    s32 x;
+    u32 x_diff;
+
+    MAX_MOVEMENT = (!element->type2) ? 4 : 8;
+
+    if (element->type2 == 0 && (((gUnk_0200AF00.unk_1 >> element->type) & 1) || (gMessage.doTextBox & 0x7f) != 0)) {
+        y = (s16)gUnk_0200AF00.buttonY[element->type] - 0x28;
+    } else {
+        y = (s16)gUnk_0200AF00.buttonY[element->type];
+    }
+
+    y -= (s16)element->y;
+    y_diff = (y > 0) ? y : -y;
+
+    if ((s32)MAX_MOVEMENT <= (s32)y_diff) {
+        y_diff = MAX_MOVEMENT;
+    }
+
+    y_diff *= sub_08000E44(y);
+
+    if (y_diff != 0) {
+        element->y += y_diff;
+    }
+
+    x = (short)gUnk_0200AF00.buttonX[element->type];
+    x -= (short)element->x;
+    x_diff = (x < 0) ? -x : x;
+
+    if ((int)MAX_MOVEMENT <= (int)x_diff) {
+        x_diff = MAX_MOVEMENT;
+    }
+
+    x_diff *= sub_08000E44(x);
+
+    if (x_diff != 0) {
+        element->x += x_diff;
+    }
+}
 
 u32 sub_0801CC80(UIElement* element) {
     u8 type = element->type;
