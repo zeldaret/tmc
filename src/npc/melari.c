@@ -26,7 +26,7 @@ void Melari(Entity* this) {
 }
 
 void sub_08068708(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_08111520) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08111520)) {
         this->action = 1;
         InitializeAnimation(this, 0);
         sub_08078778(this);
@@ -60,7 +60,7 @@ void sub_08068780(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_08111520) == 0) {
+            if (!LoadExtraSpriteData(this, gUnk_08111520)) {
                 return;
             }
             this->action = 1;

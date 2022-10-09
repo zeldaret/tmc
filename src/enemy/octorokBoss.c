@@ -361,7 +361,7 @@ void OctorokBoss_Intro_SubAction2(OctorokBossEntity* this) {
         this->timer = 60;
         gPlayerEntity.spriteSettings.draw |= 1;
         gRoomControls.camera_target = &gPlayerEntity;
-        gRoomControls.unk5 = 1;
+        gRoomControls.scrollSpeed = 1;
     }
 }
 
@@ -397,7 +397,7 @@ void OctorokBoss_Intro_SubAction5(OctorokBossEntity* this) {
             // Play boss theme, enable control and switch to main action
             super->action = ACTION1;
             super->subAction = 0;
-            gRoomControls.unk5 = gPlayerEntity.animationState;
+            gRoomControls.scrollSpeed = gPlayerEntity.animationState;
             OctorokBoss_SetAttackTimer(this);
             gPauseMenuOptions.disabled = 0;
             SoundReq(BGM_BOSS_THEME);

@@ -1,24 +1,510 @@
-#include "npc.h"
-#include "object.h"
 #include "functions.h"
-#include "playeritem.h"
 #include "item.h"
 #include "kinstone.h"
+#include "npc.h"
+#include "object.h"
+#include "playeritem.h"
+#include "structures.h"
 
-extern SpriteLoadData gUnk_0810A348;
-extern u8* gUnk_08109D18[];
-extern u8 gUnk_08109C98[];
-extern u16 gUnk_0810A354[];
-extern Dialog gUnk_08109DC8[];
-extern u16 gUnk_0810A35A[];
-extern u16 gUnk_0810A362[];
+const FrameStruct gUnk_08109C98[] = {
+    { 36, 26 },  { 37, 26 },  { 38, 26 },  { 39, 155 }, { 40, 155 }, { 41, 155 }, { 42, 155 }, { 43, 152 },
+    { 28, 152 }, { 29, 152 }, { 30, 153 }, { 31, 153 }, { 32, 153 }, { 33, 153 }, { 34, 26 },  { 35, 26 },
+    { 36, 154 }, { 37, 154 }, { 38, 27 },  { 39, 27 },  { 40, 27 },  { 41, 27 },  { 42, 27 },  { 43, 152 },
+    { 28, 152 }, { 29, 152 }, { 30, 152 }, { 31, 153 }, { 32, 153 }, { 33, 153 }, { 34, 154 }, { 35, 154 },
+    { 36, 154 }, { 37, 154 }, { 38, 155 }, { 39, 155 }, { 40, 155 }, { 41, 155 }, { 42, 24 },  { 43, 24 },
+    { 28, 24 },  { 29, 24 },  { 30, 24 },  { 31, 153 }, { 32, 153 }, { 33, 153 }, { 34, 153 }, { 35, 154 },
+    { 36, 154 }, { 37, 154 }, { 38, 154 }, { 39, 155 }, { 40, 155 }, { 41, 155 }, { 42, 152 }, { 43, 152 },
+    { 28, 152 }, { 29, 152 }, { 30, 25 },  { 31, 25 },  { 32, 25 },  { 33, 25 },  { 34, 25 },  { 35, 154 },
+};
+extern Script script_BombMinish;
+extern Script script_BombMinishKinstone;
+extern Script script_ForestMinish1;
+extern Script script_ForestMinish2;
+extern Script script_ForestMinish3;
+extern Script script_ForestMinish4;
+extern Script script_ForestMinish5;
+extern Script script_ForestMinish6;
+extern Script script_ForestMinish7;
+extern Script script_ForestMinish8;
+extern Script script_ForestMinish9;
+extern Script script_ForestMinish10;
+extern Script script_ForestMinish11;
+extern Script script_ForestMinish12;
+extern Script script_ForestMinish13;
+extern Script script_ForestMinish14;
+extern Script script_ForestMinish15;
+extern Script script_ForestMinish16;
+extern Script script_ForestMinish17;
+extern Script script_ForestMinish18;
+extern Script script_ForestMinish19;
+extern Script script_ForestMinish20;
+extern Script script_ForestMinish21;
+Script* const gUnk_08109D18[] = {
+    &script_BombMinish,     &script_BombMinishKinstone, &script_ForestMinish12, &script_ForestMinish13,
+    &script_ForestMinish14, &script_ForestMinish15,     &script_ForestMinish16, &script_ForestMinish17,
+    &script_ForestMinish18, &script_ForestMinish19,     &script_ForestMinish20, &script_ForestMinish21,
+    &script_ForestMinish1,  &script_ForestMinish1,      &script_ForestMinish1,  &script_ForestMinish2,
+    &script_ForestMinish3,  &script_ForestMinish1,      &script_ForestMinish1,  &script_ForestMinish1,
+    &script_ForestMinish1,  &script_ForestMinish1,      &script_ForestMinish10, &script_ForestMinish4,
+    &script_ForestMinish4,  &script_ForestMinish4,      &script_ForestMinish4,  &script_ForestMinish4,
+    &script_ForestMinish4,  &script_ForestMinish4,      &script_ForestMinish4,  &script_ForestMinish4,
+    &script_ForestMinish4,  &script_ForestMinish4,      &script_ForestMinish4,  &script_ForestMinish4,
+    &script_ForestMinish11, &script_ForestMinish11,     &script_ForestMinish11, &script_ForestMinish5,
+    &script_ForestMinish6,  &script_ForestMinish7,      &script_ForestMinish8,  &script_ForestMinish9,
+};
+
+void sub_080601D4(Entity*);
+const Dialog gUnk_08109DC8[][4] = {
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { KINSTONE_24,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x4), TEXT_INDEX(TEXT_MINISH, 0x0) } },
+        { KINSTONE_24,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x4), TEXT_INDEX(TEXT_MINISH, 0x0) } },
+        { KINSTONE_24,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x4), TEXT_INDEX(TEXT_MINISH, 0x0) } },
+        { KINSTONE_24,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x4), TEXT_INDEX(TEXT_MINISH, 0x0) } },
+    },
+    {
+        { KINSTONE_14,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x9), TEXT_INDEX(TEXT_MINISH, 0x5) } },
+        { KINSTONE_14,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x9), TEXT_INDEX(TEXT_MINISH, 0x5) } },
+        { KINSTONE_14,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x9), TEXT_INDEX(TEXT_MINISH, 0x5) } },
+        { KINSTONE_14,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x9), TEXT_INDEX(TEXT_MINISH, 0x5) } },
+    },
+    {
+#if defined(USA) || defined(DEMO_USA)
+        { KINSTONE_3F,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+        { KINSTONE_3F,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+        { KINSTONE_3F,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+        { KINSTONE_3F,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+#else
+        { KINSTONE_22,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+        { KINSTONE_22,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+        { KINSTONE_22,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+        { KINSTONE_22,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0xe), TEXT_INDEX(TEXT_MINISH, 0xa) } },
+#endif
+    },
+    {
+        { KINSTONE_2E,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x22), TEXT_INDEX(TEXT_MINISH, 0x1e) } },
+        { KINSTONE_2E,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x22), TEXT_INDEX(TEXT_MINISH, 0x1e) } },
+        { KINSTONE_2E,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x22), TEXT_INDEX(TEXT_MINISH, 0x1e) } },
+        { KINSTONE_2E,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x22), TEXT_INDEX(TEXT_MINISH, 0x1e) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x25) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x25) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x25) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x25) } },
+    },
+    {
+        { KINSTONE_23,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x13), TEXT_INDEX(TEXT_MINISH, 0xf) } },
+        { KINSTONE_23,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x13), TEXT_INDEX(TEXT_MINISH, 0xf) } },
+        { KINSTONE_23,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x13), TEXT_INDEX(TEXT_MINISH, 0xf) } },
+        { KINSTONE_23,
+          DIALOG_KINSTONE,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_MINISH, 0x13), TEXT_INDEX(TEXT_MINISH, 0xf) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1a) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1a) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1a) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x1a) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x15) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x15) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x15) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x15) } },
+    },
+    {
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_080601D4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_080601D4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_080601D4 } },
+        { 0, 0, DIALOG_CALL_FUNC, 0, { .func = sub_080601D4 } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x1) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x2) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x3) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x23) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x24) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x6) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0xe) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0xe) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0xe) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x15) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x15) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x15) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x1a) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x1a) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x1a) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x1f) } },
+        { ITEM_GREEN_SWORD,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_FOREST_MINISH, 0x21), TEXT_INDEX(TEXT_FOREST_MINISH, 0x20) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x21) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x24) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x25) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x25) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x29) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x2a) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x2b) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x2e) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x2f) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x2f) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x33) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x34) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x34) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x38) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x39) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x39) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x22) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x32) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x32) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x32) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_BELARI, 0x32) } },
+    },
+    {
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x31) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x31) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x31) } },
+        { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FOREST_MINISH, 0x31) } },
+    },
+    {
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0x9), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x3) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0x9), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x3) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0x9), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x3) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0x9), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x3) } },
+    },
+    {
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xb), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x5) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xb), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x5) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xb), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x5) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xb), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x5) } },
+    },
+    {
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xc), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x6) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xc), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x6) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xc), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x6) } },
+        { ITEM_FLIPPERS,
+          DIALOG_INVENTORY,
+          DIALOG_CHECK_FLAG,
+          1,
+          { TEXT_INDEX(TEXT_TOWN_MINISH2, 0xc), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x6) } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    },
+    {
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+        { 0, 0, DIALOG_NONE, 0, { 0, 0 } },
+    }
+};
+
+const SpriteLoadData gUnk_0810A348[] = {
+    { 48, 31, 4 },
+    { 8240, 31, 4 },
+    { 0, 0, 0 },
+};
+const u16 gUnk_0810A354[] = {
+    TEXT_INDEX(TEXT_MINISH, 0x14),
+    TEXT_INDEX(TEXT_MINISH, 0x18),
+    TEXT_INDEX(TEXT_ANSWER_HOUSE, 0x26),
+};
+const u16 gUnk_0810A35A[] = {
+    TEXT_INDEX(TEXT_UNK_WISE, 0x1),
+    TEXT_INDEX(TEXT_UNK_WISE, 0x2),
+    TEXT_INDEX(TEXT_UNK_WISE, 0x3),
+    TEXT_INDEX(TEXT_UNK_WISE, 0x4),
+};
+const u16 gUnk_0810A362[] = {
+    TEXT_INDEX(TEXT_BELARI, 0x2),
+    TEXT_INDEX(TEXT_BELARI, 0x3),
+    TEXT_INDEX(TEXT_BELARI, 0x9),
+    TEXT_INDEX(TEXT_BELARI, 0x8),
+};
 
 static void sub_080600F0(Entity* this);
 
 void ForestMinish(Entity* this) {
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
+            if (LoadExtraSpriteData(this, gUnk_0810A348)) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
                 this->field_0x68.HALF.HI = this->animationState = this->timer << 1;
@@ -100,7 +586,7 @@ void sub_0806014C(Entity* this) {
 
 void sub_08060158(Entity* this) {
     int index;
-    u8* idx3;
+    const FrameStruct* idx3;
     u8 tmp1, tmp2;
 
     if (this->timer) {
@@ -114,9 +600,9 @@ void sub_08060158(Entity* this) {
             index = state * 4;
         }
 
-        idx3 = gUnk_08109C98 + (this->animationState / 2) * 0x20 + (index >> 1) * 2;
-        tmp1 = idx3[0];
-        tmp2 = idx3[1];
+        idx3 = gUnk_08109C98 + (this->animationState / 2) * 0x10 + (index >> 1);
+        tmp1 = idx3->frame;
+        tmp2 = idx3->frameIndex;
 
         if (tmp2 & 0x80) {
             this->animationState = sub_0806F5B0(index);
@@ -144,7 +630,7 @@ void sub_080601D4(Entity* this) {
 }
 
 void sub_08060208(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08109DC8[this->type2 * 0x4]);
+    ShowNPCDialogue(this, gUnk_08109DC8[this->type2]);
 }
 
 void sub_0806021C(Entity* this) {
@@ -161,11 +647,11 @@ void sub_0806021C(Entity* this) {
     if (GetInventoryValue(ITEM_MOLE_MITTS)) {
         uVar2 = 3;
     }
-    ShowNPCDialogue(this, gUnk_08109DC8 + this->type2 * 0x4 + uVar2);
+    ShowNPCDialogue(this, &gUnk_08109DC8[this->type2][uVar2]);
 }
 
 void sub_0806025C(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08109DC8[this->type2 * 0x4]);
+    ShowNPCDialogue(this, gUnk_08109DC8[this->type2]);
 }
 
 void sub_08060270(Entity* this) {
@@ -249,7 +735,7 @@ u32 sub_08060354(void) {
 
 void ForestMinish_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
+        if (LoadExtraSpriteData(this, gUnk_0810A348)) {
             this->action++;
             this->spriteSettings.draw = TRUE;
             SetDefaultPriority(this, PRIO_MESSAGE);

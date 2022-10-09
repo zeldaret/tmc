@@ -14,7 +14,7 @@ SCRIPT_START script_Vaati1Intro
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	_0807E8E4_0
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
 	Call Vaati_Apparate
@@ -29,7 +29,7 @@ SCRIPT_START script_Vaati1Intro
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0008
 	Wait 0x0080
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
 	SetLocalFlag 0x0078

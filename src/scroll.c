@@ -72,13 +72,13 @@ void UpdateScroll(void) {
     };
 
     gRoomControls.scroll_flags &= 0xfb;
-    gUnk_0811E768[gRoomControls.unk3](&gRoomControls);
+    gUnk_0811E768[gRoomControls.scrollAction](&gRoomControls);
 }
 
 void sub_0807FC64(RoomControls* controls) {
-    controls->unk3 = 1;
+    controls->scrollAction = 1;
     controls->reload_flags = 0;
-    controls->unk5 = 4;
+    controls->scrollSpeed = 4;
     sub_0807FC7C(controls);
     UpdateIsDiggingCave();
 }
@@ -98,8 +98,8 @@ void sub_0807FC7C(RoomControls* controls) {
             uVar5 = controls->scroll_x & 7;
             if (uVar3 >= 1) {
                 if (controls->origin_x < controls->scroll_x) {
-                    if (controls->unk5 <= uVar3) {
-                        uVar3 = controls->unk5;
+                    if (controls->scrollSpeed <= uVar3) {
+                        uVar3 = controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
                     controls->scroll_x = controls->scroll_x - uVar3;
@@ -113,8 +113,8 @@ void sub_0807FC7C(RoomControls* controls) {
             } else {
                 uVar2 = controls->origin_x + controls->width - 0xf0;
                 if (controls->scroll_x < uVar2) {
-                    if (-controls->unk5 >= uVar3) {
-                        uVar3 = -controls->unk5;
+                    if (-controls->scrollSpeed >= uVar3) {
+                        uVar3 = -controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
                     controls->scroll_x -= uVar3;
@@ -135,8 +135,8 @@ void sub_0807FC7C(RoomControls* controls) {
             uVar5 = controls->scroll_y & 7;
             if (uVar3 >= 1) {
                 if (controls->origin_y < controls->scroll_y) {
-                    if (controls->unk5 <= uVar3) {
-                        uVar3 = controls->unk5;
+                    if (controls->scrollSpeed <= uVar3) {
+                        uVar3 = controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
                     controls->scroll_y = controls->scroll_y - uVar3;
@@ -150,8 +150,8 @@ void sub_0807FC7C(RoomControls* controls) {
             } else {
                 uVar2 = controls->origin_y + controls->height - DISPLAY_HEIGHT;
                 if (controls->scroll_y < uVar2) {
-                    if (-controls->unk5 >= uVar3) {
-                        uVar3 = -controls->unk5;
+                    if (-controls->scrollSpeed >= uVar3) {
+                        uVar3 = -controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
                     controls->scroll_y -= uVar3;
@@ -174,19 +174,19 @@ void sub_0807FDB0(RoomControls* controls) {
         sub_0807FDE4,
         sub_0807FDF8,
     };
-    gUnk_0811E780[controls->unk4](controls);
+    gUnk_0811E780[controls->scrollSubAction](controls);
 }
 
 void sub_0807FDC8(RoomControls* controls) {
     gUpdateVisibleTiles = 1;
     UpdateScrollVram();
-    controls->unk4 = 1;
+    controls->scrollSubAction = 1;
     gUpdateVisibleTiles = 0;
 }
 
 void sub_0807FDE4(RoomControls* controls) {
-    controls->unk4 = 2;
-    controls->filler2[0] = 0;
+    controls->scrollSubAction = 2;
+    controls->unk_18 = 0;
     gUpdateVisibleTiles = 2;
 }
 
@@ -196,7 +196,7 @@ void sub_0807FDF8(RoomControls* controls) {
     s32 iVar3;
 
     gUpdateVisibleTiles = 2;
-    controls->filler2[0]++;
+    controls->unk_18++;
     switch (controls->scroll_direction) {
         case 0:
             controls->scroll_y -= 4;
@@ -204,7 +204,7 @@ void sub_0807FDF8(RoomControls* controls) {
             if (pEVar2 == &gPlayerEntity) {
                 pEVar2->y.WORD = gPlayerEntity.y.WORD - Q_16_16(0.375);
             }
-            if (controls->filler2[0] == 0x28) {
+            if (controls->unk_18 == 0x28) {
                 sub_0807FEC8(controls);
             }
             break;
@@ -213,7 +213,7 @@ void sub_0807FDF8(RoomControls* controls) {
             if (controls->camera_target == &gPlayerEntity) {
                 gPlayerEntity.x.WORD += Q_16_16(0.25);
             }
-            if (controls->filler2[0] == 0x3c) {
+            if (controls->unk_18 == 0x3c) {
                 sub_0807FEC8(controls);
             }
             break;
@@ -223,7 +223,7 @@ void sub_0807FDF8(RoomControls* controls) {
             if (pEVar2 == &gPlayerEntity) {
                 pEVar2->y.WORD = gPlayerEntity.y.WORD + Q_16_16(0.375);
             }
-            if (controls->filler2[0] == 0x28) {
+            if (controls->unk_18 == 0x28) {
                 sub_0807FEC8(controls);
             }
             break;
@@ -232,7 +232,7 @@ void sub_0807FDF8(RoomControls* controls) {
             if (controls->camera_target == &gPlayerEntity) {
                 gPlayerEntity.x.WORD -= Q_16_16(0.25);
             }
-            if (controls->filler2[0] == 0x3c) {
+            if (controls->unk_18 == 0x3c) {
                 sub_0807FEC8(controls);
             }
             break;
@@ -242,11 +242,11 @@ void sub_0807FDF8(RoomControls* controls) {
     sub_08080BC4();
 }
 
-void sub_0807FEC8(RoomControls* this) {
-    this->unk3 = 0;
+void sub_0807FEC8(RoomControls* controls) {
+    controls->scrollAction = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, sizeof(gPlayerState.path_memory));
-    gPlayerState.startPosX = this->camera_target->x.HALF.HI;
-    gPlayerState.startPosY = this->camera_target->y.HALF.HI;
+    gPlayerState.startPosX = controls->camera_target->x.HALF.HI;
+    gPlayerState.startPosY = controls->camera_target->y.HALF.HI;
 }
 
 void sub_0807FEF0(RoomControls* controls) {
@@ -254,20 +254,20 @@ void sub_0807FEF0(RoomControls* controls) {
         sub_0807FF08,
         sub_0807FF1C,
     };
-    gUnk_0811E78C[controls->unk4](controls);
+    gUnk_0811E78C[controls->scrollSubAction](controls);
 }
 
 void sub_0807FF08(RoomControls* controls) {
-    controls->unk4 = 1;
-    controls->filler2[0] = 0;
+    controls->scrollSubAction = 1;
+    controls->unk_18 = 0;
     gUpdateVisibleTiles = 3;
 }
 
 void sub_0807FF1C(RoomControls* controls) {
     if ((gRoomTransition.frameCount & 1U) == 0) {
         gUpdateVisibleTiles = 3;
-        if (++controls->filler2[0] > 0x13) {
-            controls->unk3 = 0;
+        if (++controls->unk_18 > 0x13) {
+            controls->scrollAction = 0;
             ResetSystemPriority();
         }
     }
@@ -277,11 +277,11 @@ void sub_0807FF54(RoomControls* controls) {
     static void (*const gUnk_0811E794[])(RoomControls*) = {
         sub_0807FF6C, sub_0807FFE4, sub_08080040, sub_08080108, sub_08080198, sub_080801BC,
     };
-    gUnk_0811E794[controls->unk4](controls);
+    gUnk_0811E794[controls->scrollSubAction](controls);
 }
 
 void sub_0807FF6C(RoomControls* controls) {
-    controls->unk4 = 1;
+    controls->scrollSubAction = 1;
     gScreen.lcd.displayControl |= DISPCNT_WIN1_ON;
     gScreen.controls.windowInsideControl = (u8)gScreen.controls.windowInsideControl | 0x1700;
     gScreen.controls.windowOutsideControl = (gScreen.controls.windowOutsideControl & 0xff00) | 7;
@@ -298,8 +298,8 @@ void sub_0807FF6C(RoomControls* controls) {
 }
 
 void sub_0807FFE4(RoomControls* controls) {
-    controls->unk4 = 2;
-    controls->filler2[0] = sub_080803D0() + 6;
+    controls->scrollSubAction = 2;
+    controls->unk_18 = sub_080803D0() + 6;
     gUnk_0200B640 = sub_08080278();
     sub_080197D4(*gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type]);
     sub_0807C8B0(gMapTop.mapData, controls->width >> 4, controls->height >> 4);
@@ -314,32 +314,32 @@ void sub_08080040(RoomControls* controls) {
     s32 iVar7;
     s32 temp;
 
-    controls->filler2[0] -= 6;
-    controls->filler2[1] = (controls->filler2[0] << 1) / 3;
-    if (0x2a < controls->filler2[0]) {
+    controls->unk_18 -= 6;
+    controls->unk_1a = (controls->unk_18 << 1) / 3;
+    if (0x2a < controls->unk_18) {
         iVar2 = controls->camera_target->x.HALF.HI - controls->scroll_x;
-        uVar6 = (iVar2 - controls->filler2[0]) + 8;
+        uVar6 = (iVar2 - controls->unk_18) + 8;
         if (uVar6 < 0) {
             uVar6 = 0;
         }
-        iVar7 = iVar2 + controls->filler2[0] - 8;
+        iVar7 = iVar2 + controls->unk_18 - 8;
         if (DISPLAY_WIDTH < iVar7) {
             iVar7 = DISPLAY_WIDTH;
         }
         temp = controls->camera_target->y.HALF.HI - controls->scroll_y;
-        uVar5 = (temp - controls->filler2[1]) + 8;
+        uVar5 = (temp - controls->unk_1a) + 8;
         if (uVar5 < 0) {
             uVar5 = 0;
         }
-        iVar3 = temp + controls->filler2[1] - 8;
+        iVar3 = temp + controls->unk_1a - 8;
         if (DISPLAY_HEIGHT < iVar3) {
             iVar3 = DISPLAY_HEIGHT;
         }
         gScreen.controls.window1HorizontalDimensions = ((uVar6 & 0xff) << 8) | (iVar7 & 0xff);
         gScreen.controls.window1VerticalDimensions = ((uVar5 & 0xff) << 8) | (iVar3 & 0xff);
     }
-    if (controls->filler2[0] == 0) {
-        controls->unk4 = 3;
+    if (controls->unk_18 == 0) {
+        controls->scrollSubAction = 3;
         DeleteSleepingEntities();
         sub_0807C810();
         sub_08080C80(*(gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type] + 1));
@@ -349,7 +349,7 @@ void sub_08080040(RoomControls* controls) {
 }
 
 void sub_08080108(RoomControls* controls) {
-    controls->unk4 = 4;
+    controls->scrollSubAction = 4;
     MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
     MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapTop.mapData));
     sub_08080368();
@@ -365,8 +365,8 @@ void sub_08080108(RoomControls* controls) {
 }
 
 void sub_08080198(RoomControls* controls) {
-    controls->unk4 = 5;
-    controls->filler2[2] = 0xff;
+    controls->scrollSubAction = 5;
+    controls->unk_1c = 0xff;
     LoadRoom();
     CallRoomProp5And7();
     gUpdateVisibleTiles = 0;
@@ -381,32 +381,32 @@ void sub_080801BC(RoomControls* controls) {
     s32 iVar7;
     s32 temp;
 
-    controls->filler2[0] += 6;
-    controls->filler2[1] = (controls->filler2[0] << 1) / 3;
-    if (0x1e < controls->filler2[0]) {
+    controls->unk_18 += 6;
+    controls->unk_1a = (controls->unk_18 << 1) / 3;
+    if (0x1e < controls->unk_18) {
         iVar2 = controls->camera_target->x.HALF.HI - controls->scroll_x;
-        uVar6 = (iVar2 - controls->filler2[0]);
+        uVar6 = (iVar2 - controls->unk_18);
         if (uVar6 < 0) {
             uVar6 = 0;
         }
-        iVar7 = iVar2 + controls->filler2[0];
+        iVar7 = iVar2 + controls->unk_18;
         if (DISPLAY_WIDTH < iVar7) {
             iVar7 = DISPLAY_WIDTH;
         }
         temp = controls->camera_target->y.HALF.HI - controls->scroll_y;
-        uVar5 = (temp - controls->filler2[1]);
+        uVar5 = (temp - controls->unk_1a);
         if (uVar5 < 0) {
             uVar5 = 0;
         }
-        iVar3 = temp + controls->filler2[1];
+        iVar3 = temp + controls->unk_1a;
         if (DISPLAY_HEIGHT < iVar3) {
             iVar3 = DISPLAY_HEIGHT;
         }
         gScreen.controls.window1HorizontalDimensions = ((uVar6 & 0xff) << 8) | (iVar7 & 0xff);
         gScreen.controls.window1VerticalDimensions = ((uVar5 & 0xff) << 8) | (iVar3 & 0xff);
     }
-    if (controls->filler2[2] == 0) {
-        controls->unk3 = 0;
+    if (controls->unk_1c == 0) {
+        controls->scrollAction = 0;
         controls->reload_flags = 0;
         ResetSystemPriority();
         gScreen.lcd.displayControl &= ~DISPCNT_WIN1_ON;
@@ -414,7 +414,7 @@ void sub_080801BC(RoomControls* controls) {
         gScreen.controls.windowOutsideControl &= 0xff00;
     } else {
         gUpdateVisibleTiles = 4;
-        controls->filler2[2] = 0;
+        controls->unk_1c = 0;
     }
 }
 
@@ -461,7 +461,7 @@ void UpdateIsDiggingCave(void) {
 void ClearTilemaps(void) {
     MemClear(&gRoomControls, sizeof(gRoomControls));
     MemClear(&gDiggingCaveEntranceTransition, sizeof(gDiggingCaveEntranceTransition));
-    gRoomControls.filler3 = 0xffff;
+    gRoomControls.unk_22 = 0xffff;
     gDiggingCaveEntranceTransition.previousArea = 0xff;
     gUnk_02034480.unk_00 = 0;
     MemClear(&gMapDataBottomSpecial, 0x8000);
@@ -630,8 +630,8 @@ void sub_0808091C(const ScreenTransitionData* screenTransition, u32 transitionTy
 }
 
 void sub_08080930(u32 unused) {
-    gRoomControls.unk3 = 5;
-    gRoomControls.unk4 = 0;
+    gRoomControls.scrollAction = 5;
+    gRoomControls.scrollSubAction = 0;
     gRoomControls.reload_flags = 2;
     gRoomControls.scroll_direction = 0;
     SetInitializationPriority();
@@ -821,8 +821,8 @@ NONMATCH("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* t
     if (this->type != this->animIndex) {
         InitAnimationForceUpdate(this, this->type);
         if (this->type == 0x5c) {
-            const struct_080C9CBC* ptr = &gUnk_080C9CBC[this->type2];
-            this->palette.raw = ((ptr->unk0 & 0xf) << 4) | ptr->unk0;
+            const KinstoneWorldEvent* ptr = &gKinstoneWorldEvents[this->type2];
+            this->palette.raw = ((ptr->objPalette & 0xf) << 4) | ptr->objPalette;
         }
 
     } else {

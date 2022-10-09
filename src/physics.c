@@ -167,9 +167,9 @@ void LinearMoveUpdate(Entity* ent) {
     }
 }
 
-void sub_0806F704(Entity* ent, u32 a2) {
-    ent->x.HALF.HI = (((16 * a2) & 0x3F0) | 8) + gRoomControls.origin_x;
-    ent->y.HALF.HI = (((a2 >> 2) & 0x3F0) | 8) + gRoomControls.origin_y;
+void sub_0806F704(Entity* this, u32 tilePos) {
+    this->x.HALF.HI = (((16 * tilePos) & 0x3F0) | 8) + gRoomControls.origin_x;
+    this->y.HALF.HI = (((tilePos >> 2) & 0x3F0) | 8) + gRoomControls.origin_y;
 }
 
 /** Calculates the tile position of the player but modifies it by the hitbox depending on the animation state. */
@@ -509,30 +509,30 @@ bool32 sub_0806FDA0(Entity* this) {
     return 0;
 }
 
-u32 LoadExtraSpriteData(Entity* ent, const SpriteLoadData* data) {
+bool32 LoadExtraSpriteData(Entity* entity, const SpriteLoadData* spriteData) {
     const SpriteLoadData* ptr;
     u32 index;
     struct_gUnk_020000C0_1* ptr2;
-    if (sub_0806FDA0(ent) == 0)
-        return 0;
+    if (sub_0806FDA0(entity) == 0)
+        return FALSE;
 
-    UnloadOBJPalette(ent);
-    ptr2 = gUnk_020000C0[ent->spriteAnimation[2]].unk_00;
-    ptr = data;
+    UnloadOBJPalette(entity);
+    ptr2 = gUnk_020000C0[entity->spriteAnimation[2]].unk_00;
+    ptr = spriteData;
 
     for (index = 0; index < 4 && (((u16*)ptr)[1] & 0x3ff); index++) {
-        u32 pal = LoadObjPalette(ent, ((*(u32*)ptr) << 0x16) >> 0x16);
+        u32 pal = LoadObjPalette(entity, ((*(u32*)ptr) << 0x16) >> 0x16);
         sub_0806FEE8(ptr2, (*(u32*)ptr << 6) >> 0x16, pal, (*(u32*)ptr << 0x10) >> 0x1a);
         if (((u8*)ptr)[3] & 4) {
-            sub_0806FEFC(ptr2, ent);
+            sub_0806FEFC(ptr2, entity);
         }
 
         ptr2++;
         ptr++;
     }
 
-    ent->spriteAnimation[1] = 0;
-    return 1;
+    entity->spriteAnimation[1] = 0;
+    return TRUE;
 }
 
 void UnloadOBJPalette2(Entity* ent) {

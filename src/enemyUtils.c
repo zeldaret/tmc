@@ -1,11 +1,13 @@
 #define NENT_DEPRECATED
-#include "entity.h"
+#include "enemyUtils.h"
+
 #include "definitions.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
-#include "save.h"
-#include "projectile.h"
 #include "object/deathFx.h"
+#include "projectile.h"
+#include "save.h"
 
 extern void sub_08049CF4(Entity*);
 
@@ -13,8 +15,24 @@ extern EnemyDefinition gEnemyDefinitions[];
 
 const EnemyDefinition* GetEnemyDefinition(Entity* entity);
 bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition);
-extern const u16 gUnk_080D3E74[];
-extern const u8 gUnk_080D3D94[];
+
+const struct_080D3D94 gUnk_080D3D94[] = {
+    { 8, 8 },   { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 4, 4 },   { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 16, 16 },
+    { 64, 64 }, { 64, 64 }, { 12, 12 }, { 16, 16 }, { 8, 8 },   { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 10, 10 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 15, 9 },
+    { 12, 12 }, { 16, 16 }, { 24, 24 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 60, 60 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 24, 24 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 8, 8 },   { 8, 8 },   { 8, 8 },   { 16, 16 }, { 16, 16 },
+    { 16, 16 }, { 8, 8 },   { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+    { 64, 64 }, { 64, 64 }, { 64, 64 }, { 64, 64 },
+};
+
+const u16 gUnk_080D3E74[] = { 2373, 1105, 2324, 21568, 4177, 16656, 1365, 21760, 8209, 0, 20480, 5, 0, 0 };
 
 const EnemyDefinition* GetEnemyDefinition(Entity* entity) {
     const EnemyDefinition* definition = &gEnemyDefinitions[entity->id];
@@ -96,23 +114,23 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
 
 void sub_0804A720(GenericEntity* this) {
     int iVar2;
-    const u8* pbVar3;
+    const struct_080D3D94* pbVar3;
     GenericEntityData* ptr;
 
     if ((this->field_0x6c.HALF.HI & 4) != 0) {
         return;
     }
 
-    pbVar3 = &gUnk_080D3D94[super->id * 2];
+    pbVar3 = &gUnk_080D3D94[super->id];
     ptr = (GenericEntityData*)&this->field_0x68;
     if (ptr->field_0x7c.BYTES.byte2 == 0) {
-        this->field_0x6e.HALF.LO = pbVar3[0];
+        this->field_0x6e.HALF.LO = pbVar3->unk_0;
     } else {
         this->field_0x6e.HALF.LO = ptr->field_0x7c.BYTES.byte2;
     }
 
     if (ptr->field_0x7c.BYTES.byte3 == 0) {
-        this->field_0x6e.HALF.HI = pbVar3[1];
+        this->field_0x6e.HALF.HI = pbVar3->unk_1;
     } else {
         this->field_0x6e.HALF.HI = ptr->field_0x7c.BYTES.byte3;
     }

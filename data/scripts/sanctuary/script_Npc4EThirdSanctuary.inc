@@ -79,7 +79,7 @@ script_080138D0:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000
 .ifndef EU
-	_0807F0B4 0x0002
+	SetScrollSpeed 2
 	SetEntityPositionRelative 0x00e8, 0x00d8
 	CameraTargetEntity
 .endif

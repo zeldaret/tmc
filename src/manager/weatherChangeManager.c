@@ -58,7 +58,7 @@ void sub_080595E4(WeatherChangeManager* this) {
     gRoomVars.unk_10[0] = 0xFF;
     sub_08059690(this);
     sub_080596E0(this);
-    sub_0805B4D0(0);
+    LoadStaticBackground(0);
 }
 
 void sub_08059608(WeatherChangeManager* this) {

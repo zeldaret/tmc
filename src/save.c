@@ -46,7 +46,13 @@ const char gUnk_0811E470[4] = "LINK";
 #if defined(DEMO_USA) || defined(DEMO_JP)
 const u8 demoUnknown0 = 0x0;
 #ifdef DEMO_USA
-const u8 demoUnknown1[] = { 0x0f, 0x0a, 0x0a, 0x0f, 0x0f, 0x0f, 0x08, 0x05, 0x05, 0x00, 0x00 };
+const u8 demoUnknown1[] = {
+    // demo_timer for the three save files
+    0x0f, 0x0a, 0x0a, // gUnk_02000010.field_0x7 == 0
+    0x0f, 0x0f, 0x0f, // gUnk_02000010.field_0x7 == 1
+    0x08, 0x05, 0x05, // gUnk_02000010.field_0x7 == 2
+    0x00, 0x00
+};
 #else
 const u8 demoUnknown1[] = { 0 };
 #endif

@@ -31,7 +31,7 @@ SCRIPT_START script_Npc4EMonsters
 	Call SetPlayerActionNormal
 	CallWithArg EquipItem, ITEM_SHIELD
 	CallWithArg SetPlayerMacro, gUnk_080049F6
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetEntityPositionRelative 0x01f8, 0x0068
 	SetSyncFlag 0x00000004
 	Wait 0x001e

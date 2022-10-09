@@ -14,7 +14,7 @@ void NPC58(Entity* this) {
     Entity* entity;
 
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_081146D0) == 0) {
+        if (!LoadExtraSpriteData(this, gUnk_081146D0)) {
             return;
         }
         this->action++;

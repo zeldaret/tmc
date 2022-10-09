@@ -223,7 +223,7 @@ void LockedDoor_Action8(Entity* this) {
     this->timer = 20;
     sub_08083658(this);
     SetFlag(this->field_0x86.HWORD);
-    sub_080526F8(-1);
+    ModDungeonKeys(-1);
 }
 
 void sub_08083638(Entity* this) {

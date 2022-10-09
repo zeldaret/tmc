@@ -79,7 +79,7 @@ extern const DungeonLayout** const gUnk_080C9C50[];
 extern u8 gMapDataBottomSpecial[];
 
 u32 sub_0801DF10(const DungeonLayout* lyt);
-bool32 sub_0801DF90(TileEntity* tileEntity, u32 bank);
+bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank);
 u32 sub_0801DF60(u32 a1, u8* p);
 u32 sub_0801DF78(u32 a1, u32 a2);
 void sub_0801DF28(u32 x, u32 y, s32 color);
@@ -437,6 +437,7 @@ void DrawDungeonFeatures(u32 floor, void* data, u32 size) {
     layout = gUnk_080C9C50[gArea.dungeon_idx][floor];
     MemClear(gMapDataBottomSpecial, 0x8000);
     while (layout->area != 0) {
+        // ROOM_VISIT_MARKER has to be first TileEntity in the room.
         tileEntity = (TileEntity*)GetRoomProperty(layout->area, layout->room, 3);
         bankOffset = sub_0801DF10(layout);
         features = 0;
@@ -446,7 +447,7 @@ void DrawDungeonFeatures(u32 floor, void* data, u32 size) {
             if (HasDungeonSmallKey()) {
                 features = 2;
             }
-            if (sub_0801DF90(tileEntity, bankOffset)) {
+            if (IsRoomVisited(tileEntity, bankOffset)) {
                 features = 3;
             }
         }
@@ -514,12 +515,12 @@ u32 sub_0801DF78(u32 a1, u32 a2) {
     }
 }
 
-bool32 sub_0801DF90(TileEntity* tileEntity, u32 bank) {
+bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank) {
     if (tileEntity == NULL)
         return FALSE;
 
     for (; tileEntity->type != 0; tileEntity++) {
-        if (tileEntity->type == 1)
+        if (tileEntity->type == ROOM_VISIT_MARKER)
             return CheckLocalFlagByBank(bank, tileEntity->localFlag);
     }
     return FALSE;
@@ -531,7 +532,7 @@ void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
     gFuseInfo._8 = a3;
     gFuseInfo._a = a4;
     gFuseInfo.ent = entity;
-    gFuseInfo._3 = gUnk_03003DF0.unk_2;
+    gFuseInfo.kinstoneId = gUnk_03003DF0.unk_2;
     if (entity != NULL) {
         gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
@@ -738,12 +739,12 @@ void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_
     }
 }
 
-void sub_0801E6C8(u32 param_1) {
+void sub_0801E6C8(u32 kinstoneId) {
     u32 tmp;
     u32 index;
-    if (param_1 - 1 < 100) {
+    if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
-            if (param_1 == gSave.unk1C1[index]) {
+            if (kinstoneId == gSave.unk1C1[index]) {
                 gSave.unk1C1[index] = 0xf1;
             }
         }
@@ -752,7 +753,7 @@ void sub_0801E6C8(u32 param_1) {
             gSave.unk1C1[tmp] = 0xf2;
         }
         for (index = 0; index < 0x20; index++) {
-            if (param_1 == gUnk_03003DF0.array[index].unk_3) {
+            if (kinstoneId == gUnk_03003DF0.array[index].unk_3) {
                 gUnk_03003DF0.array[index].unk_3 = 0xf1;
             }
         }
@@ -803,18 +804,18 @@ u32 sub_0801E7D0(u32 a1) {
     return gSave.unk12B[tmp];
 }
 
-u32 CheckKinstoneFused(u32 idx) {
-    if (idx > 100 || idx < 1) {
+u32 CheckKinstoneFused(u32 kinstoneId) {
+    if (kinstoneId > 100 || kinstoneId < 1) {
         return 0;
     }
-    return ReadBit(&gSave.unk241, idx);
+    return ReadBit(&gSave.fusedKinstones, kinstoneId);
 }
 
-bool32 sub_0801E810(u32 idx) {
-    if (idx > 100 || idx < 1) {
+bool32 sub_0801E810(u32 kinstoneId) {
+    if (kinstoneId > 100 || kinstoneId < 1) {
         return FALSE;
     }
-    return ReadBit(&gSave.unk24E, idx);
+    return ReadBit(&gSave.unk24E, kinstoneId);
 }
 
 ASM_FUNC("asm/non_matching/common/sub_0801E82C.inc", void sub_0801E82C(void));
@@ -829,57 +830,59 @@ s32 sub_0801E8B0(u32 idx) {
     return -1;
 }
 
+// Check conditions, something with kinstones
 void sub_0801E8D4(void) {
-    u32 i;
-    for (i = 10; i <= 100; ++i) {
-        if (CheckKinstoneFused(i) && !sub_0801E810(i)) {
-            u32 evt_type = gUnk_080C9CBC[i].evt_type;
-            struct_080FE320* s = &gUnk_080FE320[evt_type];
+    u32 kinstoneId;
+    for (kinstoneId = 10; kinstoneId <= 100; ++kinstoneId) {
+        if (CheckKinstoneFused(kinstoneId) && !sub_0801E810(kinstoneId)) {
+            u32 worldEventId = gKinstoneWorldEvents[kinstoneId].worldEventId;
+            const WorldEvent* s = &gWorldEvents[worldEventId];
 #if !defined EU && !defined JP
             u32 flag = s->flag;
 #endif
             u32 tmp;
-            switch (s->_10) {
-                case 0:
+            switch (s->condition) {
+                case CND_0:
                     tmp = 0;
                     break;
-                case 1:
-                    tmp = s->_11;
+                case CND_1:
+                    tmp = s->bank;
                     break;
-                case 2:
+                case CND_2:
                     tmp = 0xf;
                     break;
-                case 3:
+                case CND_3:
                     tmp = 0x10;
                     break;
-                case 4:
+                case CND_4:
                     tmp = 0x11;
                     break;
 #if !defined EU && !defined JP
-                case 5:
-                    tmp = 4;
-                    flag = 0x83;
+                // Special conditions for BEANDEMO_00 to BEANDEMO_04
+                case CND_5:
+                    tmp = LOCAL_BANK_3;
+                    flag = SORA_10_H00;
                     break;
-                case 6:
-                    tmp = 4;
-                    flag = 0x84;
+                case CND_6:
+                    tmp = LOCAL_BANK_3;
+                    flag = SORA_11_H00;
                     break;
-                case 7:
-                    tmp = 4;
-                    flag = 0x87;
+                case CND_7:
+                    tmp = LOCAL_BANK_3;
+                    flag = SORA_12_T00;
                     break;
-                case 8:
-                    tmp = 4;
-                    flag = 0x88;
+                case CND_8:
+                    tmp = LOCAL_BANK_3;
+                    flag = SORA_13_H00;
                     break;
-                case 9:
-                    tmp = 4;
-                    flag = 0x8b;
+                case CND_9:
+                    tmp = LOCAL_BANK_3;
+                    flag = SORA_14_T00;
                     break;
 #ifndef DEMO_JP
-                case 10:
-                    tmp = 5;
-                    flag = 0x88;
+                case CND_10:
+                    tmp = LOCAL_BANK_4;
+                    flag = KS_B15;
                     break;
 #endif
 #endif
@@ -889,7 +892,7 @@ void sub_0801E8D4(void) {
 #else
             if (sub_0807CB24(tmp, s->flag)) {
 #endif
-                WriteBit(&gSave.unk24E, i);
+                WriteBit(&gSave.unk24E, kinstoneId);
             }
         }
     }
@@ -911,7 +914,7 @@ void (*const gUnk_080C9CAC[])(void) = {
 
 // TODO merge
 #ifdef JP
-const struct_080C9CBC gUnk_080C9CBC[] = {
+const KinstoneWorldEvent gKinstoneWorldEvents[] = {
     { 15, 44, 45, 8, 0, 0, 0, 0 }, { 4, 8, 1, 0, 0, 1, 2, 0 },    { 4, 9, 1, 0, 0, 2, 2, 0 },
     { 4, 10, 1, 0, 0, 3, 2, 0 },   { 4, 10, 1, 0, 0, 3, 2, 0 },   { 4, 9, 1, 0, 0, 2, 2, 0 },
     { 4, 13, 2, 0, 0, 6, 2, 0 },   { 4, 14, 2, 0, 0, 7, 2, 0 },   { 4, 15, 2, 0, 0, 8, 2, 0 },
@@ -956,7 +959,7 @@ const struct_080C9CBC gUnk_080C9CBC[] = {
 
 #else
 #ifdef EU
-const struct_080C9CBC gUnk_080C9CBC[] = {
+const KinstoneWorldEvent gKinstoneWorldEvents[] = {
     { 15, 44, 45, 8, 0, 0, 0, 0 }, { 4, 8, 1, 0, 0, 1, 2, 0 },    { 4, 9, 1, 0, 0, 2, 2, 0 },
     { 4, 10, 1, 0, 0, 3, 2, 0 },   { 4, 10, 1, 0, 0, 3, 2, 0 },   { 4, 9, 1, 0, 0, 2, 2, 0 },
     { 4, 13, 2, 0, 0, 6, 2, 0 },   { 4, 14, 2, 0, 0, 7, 2, 0 },   { 4, 15, 2, 0, 0, 8, 2, 0 },
@@ -999,7 +1002,7 @@ const struct_080C9CBC gUnk_080C9CBC[] = {
     { 2, 43, 7, 8, 0, 18, 0, 0 },
 };
 #else
-const struct_080C9CBC gUnk_080C9CBC[] = {
+const KinstoneWorldEvent gKinstoneWorldEvents[] = {
     { 15, 44, 45, 8, 0, 0, 0, 0 }, { 4, 8, 1, 0, 0, 1, 2, 0 },    { 4, 9, 1, 0, 0, 2, 2, 0 },
     { 4, 10, 1, 0, 0, 3, 2, 0 },   { 4, 10, 1, 0, 0, 3, 2, 0 },   { 4, 9, 1, 0, 0, 2, 2, 0 },
     { 4, 13, 2, 0, 0, 6, 2, 0 },   { 4, 14, 2, 0, 0, 7, 2, 0 },   { 4, 15, 2, 0, 0, 8, 2, 0 },
@@ -1063,13 +1066,14 @@ const u8 gUnk_080CA11C[] = {
     24, 45, 53, 54, 55, 57, 60, 68, 70, 71, 78, 80, 83, 85, 86, 88, 95, 96, 0, 0,
 };
 
+// Get a random kinstone
 u32 sub_0801EA74(void) {
     s32 r = (s32)Random() % 18;
     u32 i;
     for (i = 0; i < 18; ++i) {
-        u32 n = gUnk_080CA11C[r];
-        if (!CheckKinstoneFused(n))
-            return n;
+        u32 kinstoneId = gUnk_080CA11C[r];
+        if (!CheckKinstoneFused(kinstoneId))
+            return kinstoneId;
         r = (r + 1) % 18;
     }
     return 0xF2;

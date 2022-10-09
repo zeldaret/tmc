@@ -1,30 +1,120 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file enterPortalSubtask.c
+ * @ingroup Subtasks
+ *
+ * @brief Enter Portal Subtask
+ */
+#include "enterPortalSubtask.h"
+
 #include "area.h"
-#include "main.h"
 #include "common.h"
-#include "screen.h"
-#include "object.h"
+#include "entity.h"
+#include "fileselect.h"
 #include "functions.h"
 #include "game.h"
-#include "fileselect.h"
+#include "main.h"
+#include "object.h"
+#include "screen.h"
+#include "subtask.h"
 
 extern void ClearArmosData(void);
 extern void sub_080300C4(void);
 
-extern u16 gUnk_020178E0[];
 extern u8 gUnk_02017700[];
-
-extern void (*const gUnk_080D4120[])(void);
-extern void (*const gUnk_080D412C[])(void);
-extern const u16 gUnk_080D4140[];
-extern const u8 gUnk_080D4138[];
-extern const EntityData* gUnk_080D4110[];
 
 bool32 sub_0804AD18(void);
 void sub_0804AD6C(RoomControls*);
-void sub_080A71F4(const ScreenTransitionData*);
 bool32 sub_0804ACA8(void);
+
+// Entities spawned inside the portal transition cutscene.
+const EntityData gUnk_080D3E90[] = {
+    { OBJECT, 15, PORTAL_FALLING_PLAYER, 0, 0, 132, 156, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 0, 6, 120, 208, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 1, 1, 132, 160, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 2, 2, 96, 192, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 3, 3, 128, 208, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 5, 0, 120, 104, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 6, 1, 216, 200, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 7, 2, 120, 292, 0 },
+    { OBJECT, 15, PORTAL_MUSHROOM_STALKS, 8, 3, 17, 200, 0 },
+    { 0xff, 0, 0, 0, 0, 0, 0, 0 },
+};
+const EntityData gUnk_080D3F30[] = {
+    { OBJECT, 15, PORTAL_FALLING_PLAYER, 0, 0, 132, 156, 0 }, //
+    { OBJECT, 15, MACRO_CRYSTAL, 0, 6, 120, 200, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 1, 3, 132, 160, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 2, 2, 96, 192, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 3, 1, 128, 208, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 5, 0, 120, 104, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 6, 1, 216, 200, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 7, 2, 120, 292, 0 },
+    { OBJECT, 15, MACRO_CRYSTAL, 8, 3, 17, 200, 0 },
+    { 0xff, 0, 0, 0, 0, 0, 0, 0 },
+};
+const EntityData gUnk_080D3FD0[] = {
+    { OBJECT, 15, PORTAL_FALLING_PLAYER, 0, 0, 132, 156, 0 },
+    { OBJECT, 15, MACRO_LEAF, 0, 6, 120, 208, 0 },
+    { OBJECT, 15, MACRO_LEAF, 1, 1, 132, 160, 0 },
+    { OBJECT, 15, MACRO_LEAF, 2, 2, 96, 192, 0 },
+    { OBJECT, 15, MACRO_LEAF, 3, 3, 128, 208, 0 },
+    { OBJECT, 15, MACRO_LEAF, 5, 0, 120, 104, 0 },
+    { OBJECT, 15, MACRO_LEAF, 6, 1, 216, 200, 0 },
+    { OBJECT, 15, MACRO_LEAF, 7, 2, 120, 300, 0 },
+    { OBJECT, 15, MACRO_LEAF, 8, 3, 17, 200, 0 },
+    { 0xff, 0, 0, 0, 0, 0, 0, 0 },
+};
+const EntityData gUnk_080D4070[] = {
+    { OBJECT, 15, PORTAL_FALLING_PLAYER, 0, 0, 132, 156, 0 },
+    { OBJECT, 15, MACRO_LEAF, 9, 6, 120, 208, 0 },
+    { OBJECT, 15, MACRO_LEAF, 10, 1, 132, 160, 0 },
+    { OBJECT, 15, MACRO_LEAF, 11, 2, 96, 192, 0 },
+    { OBJECT, 15, MACRO_LEAF, 12, 3, 128, 208, 0 },
+    { OBJECT, 15, MACRO_LEAF, 14, 0, 120, 104, 0 },
+    { OBJECT, 15, MACRO_LEAF, 15, 1, 216, 200, 0 },
+    { OBJECT, 15, MACRO_LEAF, 16, 2, 120, 300, 0 },
+    { OBJECT, 15, MACRO_LEAF, 17, 3, 17, 200, 0 },
+    { 0xff, 0, 0, 0, 0, 0, 0, 0 },
+};
+
+const EntityData* const gUnk_080D4110[] = {
+    gUnk_080D3E90,
+    gUnk_080D3F30,
+    gUnk_080D3FD0,
+    gUnk_080D4070,
+};
+
+void sub_0804AAD4(void);
+void sub_0804AB04(void);
+void sub_0804AB24(void);
+void Subtask_PortalCutscene_0(void);
+void Subtask_PortalCutscene_1(void);
+void Subtask_PortalCutscene_2(void);
+
+void (*const gUnk_080D4120[])(void) = {
+    sub_0804AAD4,
+    sub_0804AB04,
+    sub_0804AB24,
+};
+void (*const Subtask_PortalCutscene_Functions[])(void) = {
+    Subtask_PortalCutscene_0,
+    Subtask_PortalCutscene_1,
+    Subtask_PortalCutscene_2,
+};
+
+const struct_080D4138 gUnk_080D4138[] = {
+    { 95, 39 },
+    { 96, 40 },
+    { 97, 41 },
+    { 98, 42 },
+};
+
+// x, y values. But they cannot be put in a struct matching?
+const s16 gUnk_080D4140[] = {
+    0,   -22, //
+    22,  0,   //
+    0,   22,  //
+    -22, 0,
+};
 
 bool32 CheckInitPortal(void) {
     if (gArea.portal_in_use) {
@@ -73,10 +163,10 @@ void sub_0804AB24(void) {
 }
 
 void Subtask_PortalCutscene(void) {
-    gUnk_080D412C[gArea.filler3[0]]();
+    Subtask_PortalCutscene_Functions[gArea.filler3[0]]();
 }
-void sub_0804AB70(void) {
-    const u8* ptr;
+void Subtask_PortalCutscene_0(void) {
+    const struct_080D4138* ptr;
     RoomControls* controls;
     u32 portalId;
 
@@ -92,19 +182,19 @@ void sub_0804AB70(void) {
     if ((portalId == 2) && (gUI.roomControls.area != 2)) {
         portalId = 3;
     }
-    ptr = &gUnk_080D4138[portalId * 2];
-    LoadPaletteGroup(ptr[0]);
-    LoadGfxGroup(ptr[1]);
+    ptr = &gUnk_080D4138[portalId];
+    LoadPaletteGroup(ptr->paletteGroup);
+    LoadGfxGroup(ptr->gfxGroup);
     MemCopy(&gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
     gUsedPalettes |= 0x200000;
     EraseAllEntities();
-    LoadRoomEntityList((EntityData*)gUnk_080D4110[portalId]);
+    LoadRoomEntityList(gUnk_080D4110[portalId]);
     ResetSystemPriority();
     gArea.filler3[0]++;
     SetFade(FADE_INSTANT, 8);
 }
 
-void sub_0804AC1C(void) {
+void Subtask_PortalCutscene_1(void) {
     s32 tmp;
 
     UpdateEntities();
@@ -139,7 +229,7 @@ bool32 sub_0804ACA8(void) {
     }
 }
 
-void sub_0804ACC8(void) {
+void Subtask_PortalCutscene_2(void) {
     if (gFadeControl.active == 0) {
         SetGlobalFlag(gArea.portal_type + ENTRANCE_0);
         sub_0804AD6C(&gUI.roomControls);
@@ -192,3 +282,5 @@ void sub_0804AD6C(RoomControls* controls) {
     ClearArmosData();
     sub_080300C4();
 }
+
+// TODO end of portal cutscene subtask?

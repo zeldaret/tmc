@@ -4,6 +4,10 @@
 	.section .rodata
 @    .align 2
 
+
+gSpriteAnimations_BladeBrothers_1_1:: @ 0811176C
+	.include "animations/gSpriteAnimations_BladeBrothers_1_1.s"
+
 gSpriteAnimations_BladeBrothers_1_0:: @ 08111771
 	.include "animations/gSpriteAnimations_BladeBrothers_1_0.s"
 

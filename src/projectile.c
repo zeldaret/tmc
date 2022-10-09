@@ -50,8 +50,8 @@ const ProjectileDefinition gProjectileDefinitions[] = {
     { 16400, 288, { &gHitbox_0 }, 107, 2, { 0, 1, 1, 1 }, 4, 384, 3, 11 }, // TODO sprite index too high
     MULTI_FORM(gProjectileDefinition_14),
     { 16400, 1, { &gHitbox_0 }, SPRITE_SPIDERWEB, 0, { 0, 1, 1, 1 }, 65, 640, 159, 143 },
-    { 0, 0, { &gHitbox_20 }, SPRITE_TORCHTRAPPROJECTILE_0, 0, { 0, 1, 1, 1 }, 66, 640, 146, 11 },
-    { 399, 0, { &gHitbox_20 }, SPRITE_TORCHTRAPPROJECTILE_1, 0, { 0, 1, 1, 1 }, 65, 640, 10, 11 },
+    { 0, 0, { (Hitbox*)&gHitbox_20 }, SPRITE_TORCHTRAPPROJECTILE_0, 0, { 0, 1, 1, 1 }, 66, 640, 146, 11 },
+    { 399, 0, { (Hitbox*)&gHitbox_20 }, SPRITE_TORCHTRAPPROJECTILE_1, 0, { 0, 1, 1, 1 }, 65, 640, 10, 11 },
     { 405, 0, { &gHitbox_0 }, SPRITE_V1DARKMAGICPROJECTILE, 0, { 3, 1, 1, 1 }, 66, 256, 46, 15 },
 #ifdef EU
     { 401, 112, { &gHitbox_1 }, 488, 0, { 1, 1, 1, 1 }, 65, 640, 162, 11 }, // TODO sprite index too high
@@ -64,8 +64,8 @@ const ProjectileDefinition gProjectileDefinitions[] = {
     MULTI_FORM(gProjectileDefinition_1D),
     MULTI_FORM(gProjectileDefinition_1E),
     MULTI_FORM(gProjectileDefinition_1F),
-    { 415, 4, { &gHitbox_20 }, SPRITE_V3HANDPROJECTILE, 0, { 1, 1, 1, 1 }, 66, 704, 60, 11 },
-    { 415, 320, { &gHitbox_20 }, SPRITE_V3HANDPROJECTILE, 0, { 1, 1, 1, 1 }, 66, 512, 164, 11 },
+    { 415, 4, { (Hitbox*)&gHitbox_20 }, SPRITE_V3HANDPROJECTILE, 0, { 1, 1, 1, 1 }, 66, 704, 60, 11 },
+    { 415, 320, { (Hitbox*)&gHitbox_20 }, SPRITE_V3HANDPROJECTILE, 0, { 1, 1, 1, 1 }, 66, 512, 164, 11 },
     MULTI_FORM(gProjectileDefinition_22),
     { 493, 0, { &gHitbox_22 }, SPRITE_GYORGMALEENERGYPROJECTILE, 0, { 0, 1, 1, 1 }, 66, 256, 31, 11 },
     { 418, 1, { &gHitbox_22 }, SPRITE_WRATHEYE, 0, { 1, 1, 1, 1 }, 66, 512, 55, 11 },
@@ -113,18 +113,18 @@ const ProjectileDefinition gProjectileDefinition_F[] = {
     { 32992, 1, { &gHitbox_0 }, SPRITE_POT, 0, { 3, 1, 1, 1 }, 66, 384, 157, 11 },
 };
 const ProjectileDefinition gProjectileDefinition_10[] = {
-    { 33008, 1, { &gUnk_080FD3FC }, 167, 1, { 0, 0, 1, 0 }, 65, 640, 110, 4 },
-    { 366, 0, { &gUnk_080FD3FC }, SPRITE_FLYINGSKULL, 0, { 0, 0, 1, 0 }, 65, 640, 110, 4 },
+    { 33008, 1, { (Hitbox*)&gUnk_080FD3FC }, 167, 1, { 0, 0, 1, 0 }, 65, 640, 110, 4 },
+    { 366, 0, { (Hitbox*)&gUnk_080FD3FC }, SPRITE_FLYINGSKULL, 0, { 0, 0, 1, 0 }, 65, 640, 110, 4 },
 }; // TODO sprite index too high
 #ifdef EU
 const ProjectileDefinition gProjectileDefinition_14[] = {
     { 387, 20, { &gHitbox_2 }, 486, 0, { 0, 1, 1, 1 }, 65, 640, 110, 12 },
-    { 387, 20, { &gUnk_080FD43C }, 486, 4, { 0, 1, 1, 1 }, 65, 640, 88, 5 },
+    { 387, 20, { (Hitbox*)&gUnk_080FD43C }, 486, 4, { 0, 1, 1, 1 }, 65, 640, 88, 5 },
 }; // TODO sprite index too high
 #else
 const ProjectileDefinition gProjectileDefinition_14[] = {
     { 387, 20, { &gHitbox_2 }, 487, 0, { 0, 1, 1, 1 }, 65, 640, 110, 12 },
-    { 387, 20, { &gUnk_080FD43C }, 487, 4, { 0, 1, 1, 1 }, 65, 640, 88, 5 },
+    { 387, 20, { (Hitbox*)&gUnk_080FD43C }, 487, 4, { 0, 1, 1, 1 }, 65, 640, 88, 5 },
 }; // TODO sprite index too high
 #endif
 const ProjectileDefinition gProjectileDefinition_1B[] = {
@@ -164,12 +164,12 @@ const ProjectileDefinition gProjectileDefinition_1F[] = {
 #ifdef EU
 const ProjectileDefinition gProjectileDefinition_22[] = {
     { 492, 372, { &gHitbox_1 }, 497, 0, { 0, 0, 1, 1 }, 65, 640, 29, 11 },
-    { 491, 338, { &gHitbox_20 }, 496, 0, { 0, 1, 1, 1 }, 65, 640, 29, 11 },
+    { 491, 338, { (Hitbox*)&gHitbox_20 }, 496, 0, { 0, 1, 1, 1 }, 65, 640, 29, 11 },
 }; // TODO sprite index too high
 #else
 const ProjectileDefinition gProjectileDefinition_22[] = {
     { 492, 372, { &gHitbox_1 }, 498, 0, { 0, 0, 1, 1 }, 65, 640, 29, 11 },
-    { 491, 338, { &gHitbox_20 }, 497, 0, { 0, 1, 1, 1 }, 65, 640, 29, 11 },
+    { 491, 338, { (Hitbox*)&gHitbox_20 }, 497, 0, { 0, 1, 1, 1 }, 65, 640, 29, 11 },
 }; // TODO sprite index too high
 #endif
 

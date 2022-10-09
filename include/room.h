@@ -25,30 +25,33 @@ enum RoomReloadType {
 
 typedef struct {
     /*0x00*/ u16 reload_flags;
-    /*0x02*/ u8 unk3;
-    /*0x03*/ u8 unk4;
+    /*0x02*/ u8 scrollAction;
+    /*0x03*/ u8 scrollSubAction;
     /*0x04*/ u8 area;
     /*0x05*/ u8 room;
     /*0x06*/ u16 origin_x;
     /*0x08*/ u16 origin_y;
     /*0x0A*/ s16 scroll_x;
     /*0x0C*/ s16 scroll_y;
-    /*0x0E*/ u8 unk5;
+    /*0x0E*/ u8 scrollSpeed;  /**< Pixels per frame that the camera can scroll. */
     /*0x0F*/ u8 scroll_flags; // 0x2 = ??, 0x4 = camera scrolling
     /*0x10*/ u8 scroll_direction;
     /*0x11*/ s8 oam_offset_x;
     /*0x12*/ s8 oam_offset_y;
-    /*0x13*/ u8 unk13;
+    /*0x13*/ u8 unk_13;
     /*0x14*/ u8 shake_magnitude;
-    /*0x15*/ u8 unk7;
+    /*0x15*/ u8 unk_15;
     /*0x16*/ u16 shake_duration;
-    /*0x18*/ u16 filler2[3];
+    /*0x18*/ u16 unk_18; // progress during transition in same area?
+    /*0x1A*/ u16 unk_1a; // calculated from unk_18
+    /*0x1C*/ u16 unk_1c; // 0, 0xff
     /*0x1E*/ u16 width;
     /*0x20*/ u16 height;
-    /*0x22*/ u16 filler3;
+    /*0x22*/ u16 unk_22; // so far always 0xffff
     /*0x24*/ s8 aff_x;
     /*0x25*/ s8 aff_y;
-    /*0x26*/ u8 filler26[2];
+    /*0x26*/ u8 unk_26;
+    /*0x27*/ u8 unk_27;
     /*0x28*/ union SplitWord bg3OffsetX;
     /*0x2C*/ union SplitWord bg3OffsetY;
     /*0x30*/ Entity* camera_target;
@@ -220,7 +223,7 @@ typedef enum {
 
 extern void** gCurrentRoomProperties;
 
-void SetTileType(u32, u32, u32);
+void SetTileType(u32 tileType, u32 position, u32 layer);
 void InitScreenShake(u32 time, u32 magnitude);
 
 void CallRoomProp5And7(void);
@@ -230,6 +233,7 @@ void* GetCurrentRoomProperty(u32);
 void LoadRoomTileEntities();
 Entity* LoadRoomEntity(const EntityData*);
 void LoadRoomEntityList(const EntityData* listPtr);
+void* GetRoomProperty(u32 area, u32 room, u32 property);
 
 bool32 LoadFixedGFX(Entity*, u32);
 void UnloadGFXSlots(Entity*);

@@ -8,7 +8,7 @@ script_0800DB7C:
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	SetEntityPositionRelative 0x0078, 0x0078
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder

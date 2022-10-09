@@ -254,7 +254,7 @@ void InitAnimationForceUpdate(Entity* entity, u32 animIndex);
 void UpdateAnimationSingleFrame(Entity* entity);
 void UpdateSpriteForCollisionLayer(Entity* entity);
 void GetNextFrame(Entity* entity);
-u32 LoadExtraSpriteData(Entity* entity, const SpriteLoadData* spriteData);
+bool32 LoadExtraSpriteData(Entity* entity, const SpriteLoadData* spriteData);
 void SetExtraSpriteFrame(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
@@ -548,6 +548,10 @@ extern u8 gManagerCount;
 #define Direction8ToAnimationState(expr) ((expr) >> 2)
 #define Direction8FromAnimationState(expr) ((expr) << 2)
 ///@}
+
+
+
+extern void DeleteAllEntities(void);
 
 #endif // ENTITY_H
 // clang-format on

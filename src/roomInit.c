@@ -2724,7 +2724,7 @@ extern EntityData gUnk_080E3850;
 void sub_StateChange_FortressOfWindsTop_Main(void) {
     SetGlobalFlag(LV3_CLEAR);
     UpdateGlobalProgress();
-    sub_0805B4D0(3);
+    LoadStaticBackground(3);
     if (!GetInventoryValue(ITEM_OCARINA) && CheckLocalFlag(0x45)) {
         LoadRoomEntityList(&gUnk_080E3850);
     }
@@ -3609,7 +3609,7 @@ u32 sub_unk3_DarkHyruleCastleBridge_Main(void) {
 }
 
 void sub_StateChange_DarkHyruleCastleBridge_Main(void) {
-    sub_0805B4D0(6);
+    LoadStaticBackground(6);
 }
 
 u32 sub_unk3_VaatisArms_First(void) {
@@ -3635,7 +3635,7 @@ extern EntityData gUnk_080EAD68;
 extern EntityData gUnk_080EADB8;
 
 void sub_StateChange_DarkHyruleCastleOutside_ZeldaStatuePlatform(void) {
-    sub_0805B4D0(4);
+    LoadStaticBackground(4);
     if (!CheckLocalFlag(0x77)) {
         LoadRoomEntityList(&gUnk_080EAD68);
     } else if (!CheckLocalFlag(0x79)) {
@@ -4405,7 +4405,7 @@ void sub_StateChange_HyruleTown_0(void) {
         } else {
             LoadRoomEntityList(&gUnk_080EE9DC);
         }
-        if ((gSave.global_progress > 4) && !CheckKinstoneFused(0xb) &&
+        if ((gSave.global_progress > 4) && !CheckKinstoneFused(KINSTONE_B) &&
             (CheckGlobalFlag(RENTED_HOUSE_DIN) || CheckGlobalFlag(RENTED_HOUSE_NAYRU) ||
              CheckGlobalFlag(RENTED_HOUSE_FARORE))) {
             LoadRoomEntityList(&gUnk_080EEA5C);
@@ -5543,7 +5543,7 @@ u32 sub_unk3_WindTribeTowerRoof_Main(void) {
 extern EntityData gUnk_080F66AC;
 
 void sub_StateChange_WindTribeTowerRoof_Main(void) {
-    sub_0805B4D0(5);
+    LoadStaticBackground(5);
     if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByBank(FLAG_BANK_1, 5)) {
         LoadRoomEntityList(&gUnk_080F66AC);
     }
@@ -5972,7 +5972,7 @@ extern EntityData gUnk_080F8430;
 
 void sub_StateChange_HyruleField_WesternWoodsCenter(void) {
     CloudOverlayManager_Main(NULL);
-    if (CheckKinstoneFused(KINSTONE_21) && !CheckLocalFlagByBank(FLAG_BANK_2, 0x42)) {
+    if (CheckKinstoneFused(KINSTONE_21) && !CheckLocalFlagByBank(FLAG_BANK_2, MHOUSE08_03)) {
         LoadRoomEntityList(&gUnk_080F8430);
     }
 }
@@ -6261,7 +6261,7 @@ u32 sub_unk3_VeilFallsTop_Main(void) {
 }
 
 void sub_StateChange_VeilFallsTop_Main(void) {
-    sub_0805B4D0(2);
+    LoadStaticBackground(2);
     sub_0806D0B0(0);
 }
 
@@ -6555,12 +6555,12 @@ void sub_StateChange_MtCrenel_MountainTop(void) {
     } else {
         LoadRoomEntityList(&gUnk_080FACB8);
     }
-    sub_0805B4D0(0);
+    LoadStaticBackground(0);
     sub_08059994();
 }
 
 void sub_unk1_MtCrenel_MountainTop(void) {
-    sub_0805B4D0(0);
+    LoadStaticBackground(0);
 }
 
 u32 sub_unk3_MtCrenel_WallClimb(void) {
@@ -6578,7 +6578,7 @@ extern EntityData gUnk_080FAFE4;
 extern EntityData gUnk_080FB004;
 
 void sub_StateChange_MtCrenel_CaveOfFlamesEntrance(void) {
-    sub_0805B4D0(1);
+    LoadStaticBackground(1);
     if (CheckGlobalFlag(LV2_CLEAR) && !CheckLocalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080FAFE4);
     }

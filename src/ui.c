@@ -312,7 +312,7 @@ void DrawRupees(void) {
                 }
             case 1:
                 DrawDigits(0x70, gUnk_0200AF00.rupees,
-                           gWalletSizes[(u32)gSave.stats.walletType * 2] <= gUnk_0200AF00.rupees, 3);
+                           (u16)gWalletSizes[(u32)gSave.stats.walletType * 2] <= gUnk_0200AF00.rupees, 3);
                 cVar1 = gUnk_0200AF00.unk_c + 1;
             default:
                 gUnk_0200AF00.unk_c = cVar1;
@@ -584,10 +584,10 @@ void DrawKeys(void) {
             ptr2->unk_6 = temp + 3;
             gScreen.bg0.updated = 1;
         }
-        if ((gUnk_0200AF00.unk_12 != gSave.unk45C[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
+        if ((gUnk_0200AF00.dungeonKeys != gSave.dungeonKeys[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
             gUnk_0200AF00.unk_10 = 2;
-            gUnk_0200AF00.unk_12 = gSave.unk45C[gArea.dungeon_idx];
-            DrawDigits(0x76, gUnk_0200AF00.unk_12, 0, 2);
+            gUnk_0200AF00.dungeonKeys = gSave.dungeonKeys[gArea.dungeon_idx];
+            DrawDigits(0x76, gUnk_0200AF00.dungeonKeys, 0, 2);
         }
     }
 }

@@ -17,24 +17,7 @@ typedef struct {
 } Input;
 extern Input gInput; /**< Input instance. */
 
-typedef struct {
-    u8 evt_type;
-    u8 entity_idx;
-    u8 area;
-    u8 room;
-    u16 _4;
-    u16 _6;
-    u16 x;
-    u16 y;
-    u16 _c;
-    u16 _e;
-    u8 _10;
-    u8 _11;
-    u16 flag;
-} struct_080FE320;
-extern struct_080FE320 gUnk_080FE320[];
-
-void LoadPalettes(const u8*, s32, s32);
+void LoadPalettes(const u8* src, s32 destPaletteNum, s32 numPalettes);
 
 /**
  * Loads a packed group of palettes.

@@ -52,7 +52,7 @@ extern struct_02019EE0 gMapDataBottomSpecial;
 // TODO size: 0x8000 from ClearTilemaps?
 
 extern void sub_08056FEC(u32, struct_020227E8*);
-extern u32 sub_0805F46C(u32, const Font*);
+extern u32 ShowTextBox(u32 textIndexOrPtr, const Font* font);
 extern void ClearTilemaps(void);
 extern void ResetSaveFile(u32);
 extern WStruct* sub_0805F2C8(void);
@@ -67,7 +67,6 @@ extern const Font gUnk_080FC844;
 extern const u16 gUnk_080FC85C[][3];
 extern void (*const gUnk_080FC908[])(void);
 extern const u8 gGlobalGfxAndPalettes[];
-extern void (*const gUnk_080FC93C[])();
 extern u32 gUsedPalettes;
 extern u8 gTextGfxBuffer[];
 extern u8 gUnk_02022030;

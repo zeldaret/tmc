@@ -9,7 +9,7 @@ script_0800934E:
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
 	Call sub_0806D638
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetEntity
 	CheckGlobalFlag GAMECLEAR
 	JumpIf script_BigGoronTalk
@@ -18,10 +18,10 @@ script_0800934E:
 script_08009376:
 	WaitUntilTextboxCloses
 	Call sub_0806D640
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetPlayer
 	Wait 0x002d
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	EnablePlayerControl
 	Call EnablePauseMenu
 	Jump script_0800934E

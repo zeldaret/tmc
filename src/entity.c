@@ -6,8 +6,6 @@
 #include "npc.h"
 #include "manager/diggingCaveEntranceManager.h"
 
-extern u8 gUnk_081091F8[];
-extern u8 gUnk_081091EE[];
 extern u8 gUpdateVisibleTiles;
 extern Manager gUnk_02033290;
 void UpdatePlayerInput(void);
@@ -35,6 +33,11 @@ typedef struct {
     void* restore_sp;
 } UpdateContext;
 extern UpdateContext gUpdateContext;
+
+// List by entity kind.
+const u8 gUnk_081091E4[] = {
+    8, 1, 8, 4, 5, 8, 6, 7, 2, 6,
+};
 
 void sub_0805E248(void) {
     s32 v0;
@@ -64,9 +67,16 @@ void sub_0805E248(void) {
     gUpdateVisibleTiles = 0;
 }
 
+const u8 gUnk_081091EE[] = {
+    0, 1, 0, 0, 0, 0, 1, 1, 1, 1,
+};
+const u8 gUnk_081091F8[] = {
+    0, 3, 0, 3, 3, 0, 3, 3, 3, 3,
+};
+
 void SetDefaultPriorityForKind(Entity* e) {
     u8 r3 = gRoomTransition.entity_update_type;
-    u8* array = gUnk_081091F8;
+    const u8* array = gUnk_081091F8;
 
     if (r3 != 2) {
         array = gUnk_081091EE;

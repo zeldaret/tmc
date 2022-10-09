@@ -66,7 +66,7 @@ void sub_08064570(CastleMaidEntity* this) {
                 tmp3 = 0;
             }
             data = &gUnk_0810F874[tmp3 * 3];
-            if (LoadExtraSpriteData(super, data) == 0) {
+            if (!LoadExtraSpriteData(super, data)) {
                 return;
             }
             super->action++;

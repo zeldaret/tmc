@@ -172,12 +172,17 @@ static u32 sub_080501C0(FadeControl* ctl) {
     return !!((s16)ctl->sustain ^ (s16)ctl->progress);
 }
 
+const u16 gMosaicSizes[] = {
+    0,      0x1111, 0x2222, 0x3333, 0x4444, 0x5555, 0x6666, 0x7777,
+    0x8888, 0x9999, 0xaaaa, 0xbbbb, 0xcccc, 0xdddd, 0xeeee, 0xffff,
+};
+
 static u32 sub_08050230(FadeControl* ctl) {
     u32 type = ctl->type;
     u32 idx = ((s16)ctl->progress >> 4) & 0xF;
     if (type & 1)
         idx = 0xF - idx;
-    gScreen.controls.mosaicSize = gUnk_080FC3C4[idx];
+    gScreen.controls.mosaicSize = gMosaicSizes[idx];
     if (ctl->progress != 0)
         return 1;
 

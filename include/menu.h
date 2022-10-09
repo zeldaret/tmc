@@ -126,4 +126,6 @@ extern Menu gMenu;
 #define gFigurineMenu (*(FigurineMenu*)&gMenu)
 #define gPauseMenu (*(PauseMenu*)&gMenu)
 
+extern u8 gUpdateVisibleTiles;
+
 #endif // MENU_H

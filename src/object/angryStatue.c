@@ -6,12 +6,11 @@
  */
 #include "asm.h"
 #include "entity.h"
+#include "hitbox.h"
 #include "physics.h"
 #include "projectile.h"
 #include "room.h"
 #include "sound.h"
-
-extern Hitbox gUnk_080FD178;
 
 void AngryStatue_Init(Entity*);
 void AngryStatue_Action1(Entity*);
@@ -29,7 +28,7 @@ void AngryStatue(Entity* this) {
 
 void AngryStatue_Init(Entity* this) {
     this->action = 1;
-    this->hitbox = &gUnk_080FD178;
+    this->hitbox = (Hitbox*)&gUnk_080FD178;
     SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
     InitializeAnimation(this, this->type);
 }

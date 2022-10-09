@@ -1,30 +1,57 @@
 #include "functions.h"
 #include "npc.h"
 
-extern void (*const gUnk_08111C48[])(Entity*);
-
 void sub_080697A4(Entity* this);
 void sub_08069838(Entity* this);
-
-extern SpriteLoadData gUnk_08111C3C;
-
-extern u8 gUnk_08111C9C[];
-
-extern u8 gUnk_08111CA8[];
-
-extern u8 gUnk_08111CB4[];
-
-extern u8 gUnk_08111CB8[];
-
 void sub_08069888(Entity* this);
 
-extern u16 gUnk_08111C50[];
-
-extern const s16 gUnk_08111C5C[];
-extern const u8 gUnk_08111C74[];
-
-extern const s16 gUnk_08111C84[];
-extern const u8 gUnk_08111C8C[];
+const SpriteLoadData gUnk_08111C3C[] = {
+    { 193, 64, 4 },
+    { 5313, 64, 4 },
+    { 0, 0, 0 },
+};
+void sub_080697C4(Entity*);
+void sub_080697EC(Entity*);
+void (*const gUnk_08111C48[])(Entity*) = {
+    sub_080697C4,
+    sub_080697EC,
+};
+const u16 gUnk_08111C50[] = {
+    TEXT_INDEX(TEXT_GORMAN_ORACLES, 0x1), TEXT_INDEX(TEXT_GORMAN_ORACLES, 0x2), TEXT_INDEX(TEXT_GORMAN_ORACLES, 0xc),
+    TEXT_INDEX(TEXT_GORMAN_ORACLES, 0xd), TEXT_INDEX(TEXT_GORMAN_ORACLES, 0xe), TEXT_INDEX(TEXT_GORMAN_ORACLES, 0x15),
+};
+const Coords gUnk_08111C5C[] = {
+    { .HALF = { 0x68, 0x1c8 } }, { .HALF = { 0x28, 0x1c8 } }, { .HALF = { 0x68, 0x188 } },
+    { .HALF = { 0x68, 0x1c8 } }, { .HALF = { 0x28, 0x188 } }, { .HALF = { 0x68, 0x188 } }
+};
+const u8 gUnk_08111C74[] = {
+    0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 0,
+};
+const Coords gUnk_08111C84[] = {
+    { .HALF = { 0x178, 0x108 } },
+    { .HALF = { 0x138, 0x108 } },
+};
+const u8 gUnk_08111C8C[] = {
+    0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 0,
+};
+const u8 gUnk_08111C9C[] = {
+    0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5,
+};
+const u8 gUnk_08111CA8[] = {
+    1, 2, 0, 0, 3, 4, 1, 2, 5, 5, 3, 4,
+};
+const u8 gUnk_08111CB4[] = {
+    0,
+    1,
+    0,
+    1,
+};
+const u8 gUnk_08111CB8[] = {
+    1,
+    1,
+    0,
+    0,
+};
 
 void Gorman(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
@@ -40,7 +67,7 @@ void sub_080697A4(Entity* this) {
 }
 
 void sub_080697C4(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_08111C3C) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08111C3C)) {
         this->action = 1;
         InitializeAnimation(this, 2);
         sub_08078778(this);
@@ -69,7 +96,7 @@ void sub_080697EC(Entity* this) {
 
 void sub_08069838(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08111C3C) == 0) {
+        if (!LoadExtraSpriteData(this, gUnk_08111C3C)) {
             return;
         }
         this->action++;
@@ -107,11 +134,11 @@ void sub_08069888(Entity* this) {
 
 void sub_0806991C(Entity* this, ScriptExecutionContext* context) {
     u32 tmp;
-    const s16* ptr;
+    const Coords* ptr;
     this->field_0x68.HALF.LO = (Random() & 0x1f) + 0x3c;
-    ptr = &gUnk_08111C5C[*(s8*)&this->field_0x68.HALF.HI * 2];
-    context->x.HALF.HI = gRoomControls.origin_x + ptr[0];
-    context->y.HALF.HI = gRoomControls.origin_y + ptr[1];
+    ptr = &gUnk_08111C5C[*(s8*)&this->field_0x68.HALF.HI];
+    context->x.HALF.HI = gRoomControls.origin_x + ptr->HALF.x;
+    context->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y;
     context->unk_19 = 8;
     context->postScriptActions |= 2;
     context->condition = 0;
@@ -123,11 +150,11 @@ void sub_0806991C(Entity* this, ScriptExecutionContext* context) {
 
 void sub_080699AC(Entity* this, ScriptExecutionContext* context) {
     u32 tmp;
-    const s16* ptr;
+    const Coords* ptr;
     this->field_0x68.HALF.LO = (Random() & 0x1f) + 0x3c;
-    ptr = &gUnk_08111C84[*(s8*)&this->field_0x68.HALF.HI * 2];
-    context->x.HALF.HI = gRoomControls.origin_x + ptr[0];
-    context->y.HALF.HI = gRoomControls.origin_y + ptr[1];
+    ptr = &gUnk_08111C84[*(s8*)&this->field_0x68.HALF.HI];
+    context->x.HALF.HI = gRoomControls.origin_x + ptr->HALF.x;
+    context->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y;
     context->unk_19 = 8;
     context->postScriptActions |= 2;
     context->condition = 0;

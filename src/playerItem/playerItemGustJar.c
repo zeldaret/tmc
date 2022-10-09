@@ -3,7 +3,11 @@
 #include "functions.h"
 #include "sound.h"
 
+extern const u8* gUnk_08132714[]; // Anim index lists?
+// TODO spriteAnimations in here
+// TODO sprite frame in here
 extern Hitbox gUnk_08132B28;
+
 void sub_080ADC84(Entity*);
 void PlayerItemGustJar_Init(Entity*);
 void PlayerItemGustJar_Action1(Entity*);
@@ -142,8 +146,6 @@ void PlayerItemGustJar_Action4(Entity* this) {
 void sub_080ADC84(Entity* this) {
     this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
 }
-
-extern const u8* gUnk_08132714[];
 
 void sub_080ADCA0(Entity* this, u32 param_2) {
     const u8* pFVar1 = gUnk_08132714[(param_2 + (gPlayerEntity.animationState >> 1))];

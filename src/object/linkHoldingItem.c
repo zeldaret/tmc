@@ -19,12 +19,6 @@ typedef struct {
     /*0x68*/ u16 unk_68;
 } LinkHoldingItemEntity;
 
-typedef struct {
-    u8 unk_0[6];
-    u16 unk_6;
-} struct_080FD964;
-extern const struct_080FD964 gUnk_080FD964[];
-
 void LinkHoldingItem_Init(LinkHoldingItemEntity*);
 void LinkHoldingItem_Action1(LinkHoldingItemEntity*);
 void LinkHoldingItem_Action2(LinkHoldingItemEntity*);
@@ -74,7 +68,7 @@ void LinkHoldingItem_Action1(LinkHoldingItemEntity* this) {
             break;
         case 2:
             GiveItem(super->type, super->type2);
-            this->unk_68 = gUnk_080FD964[super->type].unk_6;
+            this->unk_68 = gUnk_080FD964[super->type].gotItemMessageId;
             SoundReq(SFX_ITEM_GET);
             break;
         case 5:

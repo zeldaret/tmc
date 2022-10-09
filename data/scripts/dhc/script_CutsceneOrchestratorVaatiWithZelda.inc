@@ -11,7 +11,7 @@ script_0800DA64:
 	_0807E8E4_0
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	SetEntityPositionRelative 0x0078, 0x0080
 	CameraTargetEntity
 	Call WaitForCameraTouchRoomBorder
@@ -25,7 +25,7 @@ script_0800DA64:
 	WaitUntilTextboxCloses
 	_0807E8E4_0
 	CallWithArg SetPlayerPos, 0x00780138
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call WaitForCameraTouchRoomBorder
 	SetRoomFlag 0x0000

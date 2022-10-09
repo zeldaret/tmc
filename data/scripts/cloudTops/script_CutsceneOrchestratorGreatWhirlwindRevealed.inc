@@ -3,7 +3,7 @@ SCRIPT_START script_CutsceneOrchestratorGreatWhirlwindRevealed
 	BeginBlock
 	Call SetPriorityHighest
 	SetEntitySpeed 0x0700
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	CameraTargetEntity
 	Call sub_0807FBC4
 	EndBlock
@@ -14,7 +14,7 @@ SCRIPT_START script_CutsceneOrchestratorGreatWhirlwindRevealed
 	SetSyncFlag 0x0000000a
 	WaitForSyncFlagAndClear 0x00000004
 	_0807EEB4
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call sub_0807FBCC
 	EnablePlayerControl

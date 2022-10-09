@@ -13,16 +13,25 @@
 #include "screen.h"
 #include "script.h"
 
-extern u8 gUnk_08114F30[];
-extern u8 gUnk_08114F34[];
 extern u8 gUnk_08122AE0[];
 extern u16 gUnk_08122AE8[];
-extern s8 gUnk_08122AF8[];
+extern s8 gUnk_08122AF8[]; // TODO struct s8XY
 extern u16 gUnk_08122B00[];
 extern s16 gUnk_08122B0E[];
 extern u16 gUnk_08122B1E[];
-extern s8 gUnk_08122B2E[];
+extern Coords8 gUnk_08122B2E[]; // TODO struct xy
+typedef struct {
+    Hitbox hit;
+    u8 _8[4]; // TODO fourth param of sub_08078850
+    u8 _c;
+} HitboxCfg;
+extern HitboxCfg gUnk_08122B3C[];
 
+// npcUtils.c
+extern u8 gUnk_08114F30[];
+extern u8 gUnk_08114F34[];
+
+// TODO use Script type
 extern u16 script_CutsceneMiscObjectTheLittleHat;
 extern u16 script_CutsceneMiscObjectSwordInChest;
 extern u16 script_08015B14;
@@ -55,13 +64,6 @@ typedef struct {
     u8 fill[0x1C];
     u32 anim;
 } Type1F;
-
-typedef struct {
-    Hitbox hit;
-    u8 _8[4];
-    u8 _c;
-} HitboxCfg;
-extern HitboxCfg gUnk_08122B3C[];
 
 typedef void(CutsceneMiscObjectTypeAction)(CutsceneMiscObjectEntity*);
 
@@ -1265,10 +1267,10 @@ void sub_080961F4(CutsceneMiscObjectEntity* this) {
 }
 
 void sub_08096208(CutsceneMiscObjectEntity* this, u32 x) {
-    s8* p = &gUnk_08122B2E[x * 2];
+    Coords8* p = &gUnk_08122B2E[x];
     Entity* e = CreateObject(CUTSCENE_MISC_OBJECT, 0x26, 0);
     if (e != NULL) {
-        PositionRelative(super, e, Q_16_16(p[0]), Q_16_16(p[1]));
+        PositionRelative(super, e, Q_16_16(p->x), Q_16_16(p->y));
     }
 }
 

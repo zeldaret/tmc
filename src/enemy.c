@@ -114,7 +114,7 @@ const EnemyDefinition gEnemyDefinitions[] = {
     { 145, 2, { &gHitbox_13 }, 483, { 0, 1, 1, 1 }, 255, 256, 102, 139 }, // TODO sprite index too high
 #endif
     MULTI_FORM(gEnemyDefinition_30),
-    { 236, 1, { &gHitbox_19 }, SPRITE_CROW, { 1, 0, 1, 1 }, 2, 320, 41, 15 },
+    { 236, 1, { (Hitbox*)&gHitbox_19 }, SPRITE_CROW, { 1, 0, 1, 1 }, 2, 320, 41, 15 },
     MULTI_FORM(gEnemyDefinition_32),
     { 253, 112, { &gHitbox_0 }, SPRITE_BOMBAROSSA, { 1, 1, 1, 1 }, 255, 256, 1, 139 },
     MULTI_FORM(gEnemyDefinition_34),
@@ -134,7 +134,7 @@ const EnemyDefinition gEnemyDefinitions[] = {
     MULTI_FORM(gEnemyDefinition_42),
     { 366, 0, { &gHitbox_18 }, SPRITE_FLYINGSKULL, { 0, 1, 1, 0 }, 255, 640, 110, 132 },
     MULTI_FORM(gEnemyDefinition_44),
-    { 236, 0, { &gHitbox_19 }, SPRITE_CROW, { 1, 0, 1, 1 }, 4, 320, 87, 15 },
+    { 236, 0, { (Hitbox*)&gHitbox_19 }, SPRITE_CROW, { 1, 0, 1, 1 }, 4, 320, 87, 15 },
     MULTI_FORM(gEnemyDefinition_46),
     { 16400, 299, { &gHitbox_0 }, SPRITE_LAKITU, { 0, 1, 0, 1 }, 6, 128, 67, 143 },
     { 16400, 0, { &gHitbox_0 }, SPRITE_LAKITUCLOUDPROJECTILE, { 1, 1, 1, 2 }, 255, 0, 166, 143 },
@@ -157,15 +157,15 @@ const EnemyDefinition gEnemyDefinitions[] = {
     MULTI_FORM(gEnemyDefinition_0),
     MULTI_FORM(gEnemyDefinition_56),
     MULTI_FORM(gEnemyDefinition_57),
-    { 444, 0, { &gHitbox_25 }, SPRITE_FIREBALLGUY, { 1, 1, 1, 1 }, 4, 64, 25, 139 },
-    { 444, 0, { &gHitbox_26 }, SPRITE_FIREBALLGUY, { 1, 1, 1, 0 }, 1, 64, 25, 139 },
+    { 444, 0, { (Hitbox*)&gHitbox_25 }, SPRITE_FIREBALLGUY, { 1, 1, 1, 1 }, 4, 64, 25, 139 },
+    { 444, 0, { (Hitbox*)&gHitbox_26 }, SPRITE_FIREBALLGUY, { 1, 1, 1, 0 }, 1, 64, 25, 139 },
     MULTI_FORM(gEnemyDefinition_5A),
     { 114, 110, { &gHitbox_0 }, SPRITE_BUSINESSSCRUB, { 0, 0, 1, 1 }, 255, 0, 1, 139 },
     { 0, 0, { &gHitbox_0 }, SPRITE_0, { 0, 0, 0, 1 }, 24, 256, 0, 139 },
-    { 16448, 338, { &gHitbox_28 }, SPRITE_GYORGMALE, { 0, 0, 1, 1 }, 12, 256, 27, 139 },
+    { 16448, 338, { (Hitbox*)&gHitbox_28 }, SPRITE_GYORGMALE, { 0, 0, 1, 1 }, 12, 256, 27, 139 },
     { 485, 352, { &gHitbox_0 }, SPRITE_CURTAIN, { 0, 1, 1, 1 }, 255, 256, 154, 139 },
-    { 418, 320, { &gHitbox_20 }, SPRITE_WRATHEYE, { 1, 0, 1, 0 }, 255, 256, 57, 139 },
-    { 498, 0, { &gHitbox_20 }, SPRITE_GYORGCHILD, { 0, 0, 1, 1 }, 3, 256, 32, 15 },
+    { 418, 320, { (Hitbox*)&gHitbox_20 }, SPRITE_WRATHEYE, { 1, 0, 1, 0 }, 255, 256, 57, 139 },
+    { 498, 0, { (Hitbox*)&gHitbox_20 }, SPRITE_GYORGCHILD, { 0, 0, 1, 1 }, 3, 256, 32, 15 },
 #ifdef EU
     { 499, 377, { &gHitbox_22 }, SPRITE_GYORGFEMALEEYE, { 0, 0, 1, 1 }, 255, 256, 30, 139 },
 #else
@@ -173,7 +173,7 @@ const EnemyDefinition gEnemyDefinitions[] = {
 #endif
     { 500, 376, { &gHitbox_0 }, SPRITE_ENEMY62, { 0, 0, 1, 1 }, 255, 256, 30, 139 },
     { 504, 372, { &gHitbox_0 }, SPRITE_GYORGFEMALEMOUTH, { 0, 0, 1, 1 }, 255, 256, 136, 139 },
-    { 16448, 338, { &gHitbox_28 }, SPRITE_GYORGMALE, { 0, 0, 1, 1 }, 36, 256, 0, 139 },
+    { 16448, 338, { (Hitbox*)&gHitbox_28 }, SPRITE_GYORGMALE, { 0, 0, 1, 1 }, 36, 256, 0, 139 },
     { 0, 0, { &gHitbox_0 }, SPRITE_0, { 0, 0, 0, 1 }, 255, 256, 0, 139 },
 };
 
@@ -228,9 +228,9 @@ const EnemyDefinition gEnemyDefinition_10[] = {
     { 32, 0, &gUnk_080FD21C, SPRITE_SLUGGULA_2, { 0, 0, 1, 0 }, 3, 0, 0, 139 },
 };
 const EnemyDefinition gEnemyDefinition_11[] = {
-    { 34, 38, &gUnk_080FD22C, SPRITE_PESTO, { 3, 1, 1, 1 }, 4, 64, 119, 15 },
-    { 34, 39, &gUnk_080FD22C, SPRITE_PESTO, { 3, 1, 1, 1 }, 4, 64, 119, 15 },
-    { 34, 37, &gUnk_080FD22C, SPRITE_PESTO, { 3, 1, 1, 1 }, 4, 64, 119, 15 },
+    { 34, 38, (const Hitbox*)&gUnk_080FD22C, SPRITE_PESTO, { 3, 1, 1, 1 }, 4, 64, 119, 15 },
+    { 34, 39, (const Hitbox*)&gUnk_080FD22C, SPRITE_PESTO, { 3, 1, 1, 1 }, 4, 64, 119, 15 },
+    { 34, 37, (const Hitbox*)&gUnk_080FD22C, SPRITE_PESTO, { 3, 1, 1, 1 }, 4, 64, 119, 15 },
 };
 const EnemyDefinition gEnemyDefinition_12[] = {
     { 35, 40, &gHitbox_0, SPRITE_PUFFSTOOL, { 1, 1, 1, 0 }, 1, 64, 130, 15 },
@@ -370,11 +370,11 @@ const EnemyDefinition gEnemyDefinition_51[] = {
     { 417, 320, &gHitbox_0, SPRITE_VAATIWRATH_2, { 0, 0, 1, 1 }, 255, 256, 0, 139 },
 };
 const EnemyDefinition gEnemyDefinition_52[] = {
-    { 16400, 320, &gUnk_080FD538, SPRITE_VAATIARM, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
-    { 419, 320, &gUnk_080FD538, SPRITE_VAATIARM_1, { 0, 0, 1, 1 }, 255, 256, 57, 139 },
-    { 419, 320, &gUnk_080FD538, SPRITE_VAATIARM_1, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
-    { 419, 320, &gUnk_080FD538, SPRITE_VAATIARM_1, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
-    { 419, 320, &gUnk_080FD538, SPRITE_VAATIARM_1, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
+    { 16400, 320, (Hitbox*)&gUnk_080FD538, SPRITE_VAATIARM, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
+    { 419, 320, (Hitbox*)&gUnk_080FD538, SPRITE_VAATIARM_1, { 0, 0, 1, 1 }, 255, 256, 57, 139 },
+    { 419, 320, (Hitbox*)&gUnk_080FD538, SPRITE_VAATIARM_1, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
+    { 419, 320, (Hitbox*)&gUnk_080FD538, SPRITE_VAATIARM_1, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
+    { 419, 320, (Hitbox*)&gUnk_080FD538, SPRITE_VAATIARM_1, { 1, 0, 1, 1 }, 255, 256, 57, 139 },
 };
 const EnemyDefinition gEnemyDefinition_56[] = {
     { 422, 113, &gUnk_080FD488, SPRITE_SLIME, { 3, 1, 1, 1 }, 2, 64, 25, 139 },

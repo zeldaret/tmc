@@ -1,7 +1,7 @@
 @ Hyrule Town NPC4E Kinstone Cutscene
 SCRIPT_START script_Npc4EFirstKinstone
 	BeginBlock
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetPlayer
 	EndBlock
 script_0800F09A:

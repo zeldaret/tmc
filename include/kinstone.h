@@ -10,7 +10,7 @@ typedef struct {
     u8 _0;
     u8 action;
     u8 _2;
-    u8 _3;
+    u8 kinstoneId;
     u8 prevUpdatePriority;
     u8 _5;
     u16 textIndex;
@@ -22,16 +22,17 @@ static_assert(sizeof(FuseInfo) == 0x10);
 extern FuseInfo gFuseInfo;
 
 typedef struct {
-    u8 unk0;
+    u8 objPalette;
     u8 unk1;
     u8 unk2;
-    u8 unk3;
-    u8 evt_type;
+    u8 subtask; // SUBTASK_WORLDEVENT or 0
+    u8 worldEventId;
     u8 unk5;
     u8 unk6;
-    u8 unk7;
-} struct_080C9CBC;
-extern const struct_080C9CBC gUnk_080C9CBC[];
+    u8 unk7; // TODO flag if it shows a map hint?
+} KinstoneWorldEvent;
+// Indexed by kinstoneId
+extern const KinstoneWorldEvent gKinstoneWorldEvents[];
 
 typedef enum {
     KINSTONE_0,
@@ -130,7 +131,7 @@ typedef enum {
     KINSTONE_5D,
     KINSTONE_5E,
     KINSTONE_5F,
-} KinstoneFlag;
+} KinstoneId;
 
 typedef struct {
     u8 unk0; /**< Bank or 0xfd or 0xfe or 0xff */
@@ -138,5 +139,80 @@ typedef struct {
     u8 unk2; /**< Gfx id in the inventory? */
     u8 unk3; /**< Offset on the gfx id? */
 } struct_gUnk_080B3D20;
+
+enum {
+    WORLD_EVENT_0,
+    WORLD_EVENT_1,
+    WORLD_EVENT_2,
+    WORLD_EVENT_3,
+    WORLD_EVENT_4,
+    WORLD_EVENT_5,
+    // TODO add all and use them in gKinstoneWorldEvents
+} worldEventId;
+
+enum {
+    CND_0,
+    /**< Always false. */ // CND_FALSE
+    CND_1,                // local flag // CND_FLAG
+    CND_2,                // f CND_INVENTORY != 0
+    CND_3,                // 0x10 CND_INVENTORY == 1
+    CND_4,                // 0x11 CND_INVENTORY == 2
+    CND_5,                // SORA_10_H00
+    CND_6,                // SORA_11_H00
+    CND_7,                // SORA_12_T00
+    CND_8,                // SORA_13_H00
+    CND_9,                // SORA_14_T00
+    CND_10,               // KS_B15
+} WorldEvent_Condition;
+
+enum {
+    WORLD_EVENT_TYPE_0, // Does nothing
+    WORLD_EVENT_TYPE_1, // LoadRoomEntity after checking GlobalFlag
+    WORLD_EVENT_TYPE_2, // sub_08018BB4
+    WORLD_EVENT_TYPE_3, // LoadRoomEntity after checking InventoryValue
+    WORLD_EVENT_TYPE_4, // sub_08018A58
+    WORLD_EVENT_TYPE_5, // sub_08018B50
+    WORLD_EVENT_TYPE_6, // sub_08018AB4
+    WORLD_EVENT_TYPE_7, // LoadRoomEntity or sub_080189EC
+    WORLD_EVENT_TYPE_8, // set a tile type
+    WORLD_EVENT_TYPE_9, // LoadRoomEntity and set some tile type
+    WORLD_EVENT_TYPE_BEANSTALK,
+    WORLD_EVENT_TYPE_11, // LoadRoomEntity and set gRoomVars.field_0x8c
+    WORLD_EVENT_TYPE_12,
+    WORLD_EVENT_TYPE_13,
+    WORLD_EVENT_TYPE_14,
+    WORLD_EVENT_TYPE_15, // Load different room entity depending on if fused
+    WORLD_EVENT_TYPE_16,
+    WORLD_EVENT_TYPE_17, // Set local flag, LoadroomEntityList
+    WORLD_EVENT_TYPE_18,
+    WORLD_EVENT_TYPE_19,
+    WORLD_EVENT_TYPE_20,
+    WORLD_EVENT_TYPE_21,
+    WORLD_EVENT_TYPE_22,
+    WORLD_EVENT_TYPE_23,
+    WORLD_EVENT_TYPE_24, // LoadRoomEntityList
+    WORLD_EVENT_TYPE_25, // LoadRoomEntity, set type depending of if kinstone is fused
+    // The following do nothing.
+    WORLD_EVENT_TYPE_26,
+    WORLD_EVENT_TYPE_27,
+    WORLD_EVENT_TYPE_28
+} WorldEventType;
+
+typedef struct {
+    u8 type;
+    u8 entity_idx;
+    u8 area;
+    u8 room;
+    u16 offsetX;  /**< Scroll offset X from the room origin. */
+    u16 offsetY;  /**< Scroll offset Y from the room origin. */
+    u16 x;        /**< X position of the actual event. */
+    u16 y;        /**< Y position of the actual event. */
+    u16 _c;       // see sub_080A6A80, related to _0 and _2 of gUnk_08127F94
+    u16 _e;       // see sub_080A6A80, related to _1 and _3 of gUnk_08127F94
+    u8 condition; // TODO some sort of flag determining what type the bank&flag are? see sub_0801E8D4
+    u8 bank;      /**< @see LocalBanks */
+    u16 flag;
+} WorldEvent;
+extern const WorldEvent gWorldEvents[];
 
 #endif // KINSTONE_H

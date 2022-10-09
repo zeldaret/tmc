@@ -1,7 +1,7 @@
 @ Western Wood Cutscene CUTSCENE_ORCHESTRATOR in Castle
 SCRIPT_START script_CutsceneOrchestratorTakeoverCutscene
 	BeginBlock
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	SetEntityPositionRelative 0x0088, 0x0068
 	CameraTargetEntity
 	EndBlock
@@ -9,26 +9,26 @@ SCRIPT_START script_CutsceneOrchestratorTakeoverCutscene
 	SetFade4
 	WaitForFadeFinish
 	Wait 0x003c
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity
 	Wait 0x003c
 	PlayBgm BGM_VAATI_THEME
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	SetEntityPositionRelative 0x0088, 0x0070
 	CameraTargetEntity
 	Wait 0x003c
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity
 	Wait 0x003c
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	SetEntityPositionRelative 0x0088, 0x0070
 	CameraTargetEntity
 	Wait 0x003c

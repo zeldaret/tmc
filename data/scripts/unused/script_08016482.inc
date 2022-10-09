@@ -75,7 +75,7 @@ SCRIPT_START script_08016482
 	InitItemGetSequence ITEM_SMITH_SWORD
 	CameraTargetEntity
 	CameraTargetPlayer
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	_0807F0C8 0x003c, 0x0003
 SCRIPT_END
 	.2byte 0x0000

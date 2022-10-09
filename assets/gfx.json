@@ -66,10 +66,16 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_0.bin",
+    "path": "palettes/gPalette_9.gbapal",
     "start": 5910432,
-    "size": 64,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_10.gbapal",
+    "start": 5910464,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_11.gbapal",
@@ -96,10 +102,856 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_1.bin",
+    "path": "palettes/gPalette_15.gbapal",
     "start": 5910624,
-    "size": 4544,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_16.gbapal",
+    "start": 5910656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_17.gbapal",
+    "start": 5910688,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_18.gbapal",
+    "start": 5910720,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_19.gbapal",
+    "start": 5910752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_20.gbapal",
+    "start": 5910784,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_21.gbapal",
+    "start": 5910816,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_22.gbapal",
+    "start": 5910848,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_23.gbapal",
+    "start": 5910880,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_24.gbapal",
+    "start": 5910912,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_25.gbapal",
+    "start": 5910944,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_26.gbapal",
+    "start": 5910976,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_27.gbapal",
+    "start": 5911008,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_28.gbapal",
+    "start": 5911040,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_29.gbapal",
+    "start": 5911072,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_30.gbapal",
+    "start": 5911104,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_31.gbapal",
+    "start": 5911136,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_32.gbapal",
+    "start": 5911168,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_33.gbapal",
+    "start": 5911200,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_34.gbapal",
+    "start": 5911232,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_35.gbapal",
+    "start": 5911264,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_36.gbapal",
+    "start": 5911296,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_37.gbapal",
+    "start": 5911328,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_38.gbapal",
+    "start": 5911360,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_39.gbapal",
+    "start": 5911392,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_40.gbapal",
+    "start": 5911424,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_41.gbapal",
+    "start": 5911456,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_42.gbapal",
+    "start": 5911488,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_43.gbapal",
+    "start": 5911520,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_44.gbapal",
+    "start": 5911552,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_45.gbapal",
+    "start": 5911584,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_46.gbapal",
+    "start": 5911616,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_47.gbapal",
+    "start": 5911648,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_48.gbapal",
+    "start": 5911680,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_49.gbapal",
+    "start": 5911712,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_50.gbapal",
+    "start": 5911744,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_51.gbapal",
+    "start": 5911776,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_52.gbapal",
+    "start": 5911808,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_53.gbapal",
+    "start": 5911840,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_54.gbapal",
+    "start": 5911872,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_55.gbapal",
+    "start": 5911904,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_56.gbapal",
+    "start": 5911936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_57.gbapal",
+    "start": 5911968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_58.gbapal",
+    "start": 5912000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_59.gbapal",
+    "start": 5912032,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_60.gbapal",
+    "start": 5912064,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_61.gbapal",
+    "start": 5912096,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_62.gbapal",
+    "start": 5912128,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_63.gbapal",
+    "start": 5912160,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_64.gbapal",
+    "start": 5912192,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_65.gbapal",
+    "start": 5912224,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_66.gbapal",
+    "start": 5912256,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_67.gbapal",
+    "start": 5912288,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_68.gbapal",
+    "start": 5912320,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_69.gbapal",
+    "start": 5912352,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_70.gbapal",
+    "start": 5912384,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_71.gbapal",
+    "start": 5912416,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_72.gbapal",
+    "start": 5912448,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_73.gbapal",
+    "start": 5912480,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_74.gbapal",
+    "start": 5912512,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_75.gbapal",
+    "start": 5912544,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_76.gbapal",
+    "start": 5912576,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_77.gbapal",
+    "start": 5912608,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_78.gbapal",
+    "start": 5912640,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_79.gbapal",
+    "start": 5912672,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_80.gbapal",
+    "start": 5912704,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_81.gbapal",
+    "start": 5912736,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_82.gbapal",
+    "start": 5912768,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_83.gbapal",
+    "start": 5912800,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_84.gbapal",
+    "start": 5912832,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_85.gbapal",
+    "start": 5912864,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_86.gbapal",
+    "start": 5912896,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_87.gbapal",
+    "start": 5912928,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_88.gbapal",
+    "start": 5912960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_89.gbapal",
+    "start": 5912992,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_90.gbapal",
+    "start": 5913024,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_91.gbapal",
+    "start": 5913056,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_92.gbapal",
+    "start": 5913088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_93.gbapal",
+    "start": 5913120,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_94.gbapal",
+    "start": 5913152,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_95.gbapal",
+    "start": 5913184,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_96.gbapal",
+    "start": 5913216,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_97.gbapal",
+    "start": 5913248,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_98.gbapal",
+    "start": 5913280,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_99.gbapal",
+    "start": 5913312,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_100.gbapal",
+    "start": 5913344,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_101.gbapal",
+    "start": 5913376,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_102.gbapal",
+    "start": 5913408,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_103.gbapal",
+    "start": 5913440,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_104.gbapal",
+    "start": 5913472,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_105.gbapal",
+    "start": 5913504,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_106.gbapal",
+    "start": 5913536,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_107.gbapal",
+    "start": 5913568,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_108.gbapal",
+    "start": 5913600,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_109.gbapal",
+    "start": 5913632,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_110.gbapal",
+    "start": 5913664,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_111.gbapal",
+    "start": 5913696,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_112.gbapal",
+    "start": 5913728,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_113.gbapal",
+    "start": 5913760,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_114.gbapal",
+    "start": 5913792,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_115.gbapal",
+    "start": 5913824,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_116.gbapal",
+    "start": 5913856,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_117.gbapal",
+    "start": 5913888,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_118.gbapal",
+    "start": 5913920,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_119.gbapal",
+    "start": 5913952,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_120.gbapal",
+    "start": 5913984,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_121.gbapal",
+    "start": 5914016,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_122.gbapal",
+    "start": 5914048,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_123.gbapal",
+    "start": 5914080,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_124.gbapal",
+    "start": 5914112,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_125.gbapal",
+    "start": 5914144,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_126.gbapal",
+    "start": 5914176,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_127.gbapal",
+    "start": 5914208,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_128.gbapal",
+    "start": 5914240,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_129.gbapal",
+    "start": 5914272,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_130.gbapal",
+    "start": 5914304,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_131.gbapal",
+    "start": 5914336,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_132.gbapal",
+    "start": 5914368,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_133.gbapal",
+    "start": 5914400,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_134.gbapal",
+    "start": 5914432,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_135.gbapal",
+    "start": 5914464,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_136.gbapal",
+    "start": 5914496,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_137.gbapal",
+    "start": 5914528,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_138.gbapal",
+    "start": 5914560,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_139.gbapal",
+    "start": 5914592,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_140.gbapal",
+    "start": 5914624,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_141.gbapal",
+    "start": 5914656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_142.gbapal",
+    "start": 5914688,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_143.gbapal",
+    "start": 5914720,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_144.gbapal",
+    "start": 5914752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_145.gbapal",
+    "start": 5914784,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_146.gbapal",
+    "start": 5914816,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_147.gbapal",
+    "start": 5914848,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_148.gbapal",
+    "start": 5914880,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_149.gbapal",
+    "start": 5914912,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_150.gbapal",
+    "start": 5914944,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_151.gbapal",
+    "start": 5914976,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_152.gbapal",
+    "start": 5915008,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_153.gbapal",
+    "start": 5915040,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_154.gbapal",
+    "start": 5915072,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_155.gbapal",
+    "start": 5915104,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_156.gbapal",
+    "start": 5915136,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_157.gbapal",
@@ -150,10 +1002,1120 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_2.bin",
+    "path": "palettes/gPalette_165.gbapal",
     "start": 5915424,
-    "size": 6048,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_166.gbapal",
+    "start": 5915456,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_167.gbapal",
+    "start": 5915488,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_168.gbapal",
+    "start": 5915520,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_169.gbapal",
+    "start": 5915552,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_170.gbapal",
+    "start": 5915584,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_171.gbapal",
+    "start": 5915616,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_172.gbapal",
+    "start": 5915648,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_173.gbapal",
+    "start": 5915680,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_174.gbapal",
+    "start": 5915712,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_175.gbapal",
+    "start": 5915744,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_176.gbapal",
+    "start": 5915776,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_177.gbapal",
+    "start": 5915808,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_178.gbapal",
+    "start": 5915840,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_179.gbapal",
+    "start": 5915872,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_180.gbapal",
+    "start": 5915904,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_181.gbapal",
+    "start": 5915936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_182.gbapal",
+    "start": 5915968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_183.gbapal",
+    "start": 5916000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_184.gbapal",
+    "start": 5916032,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_185.gbapal",
+    "start": 5916064,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_186.gbapal",
+    "start": 5916096,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_187.gbapal",
+    "start": 5916128,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_188.gbapal",
+    "start": 5916160,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_189.gbapal",
+    "start": 5916192,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_190.gbapal",
+    "start": 5916224,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_191.gbapal",
+    "start": 5916256,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_192.gbapal",
+    "start": 5916288,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_193.gbapal",
+    "start": 5916320,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_194.gbapal",
+    "start": 5916352,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_195.gbapal",
+    "start": 5916384,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_196.gbapal",
+    "start": 5916416,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_197.gbapal",
+    "start": 5916448,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_198.gbapal",
+    "start": 5916480,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_199.gbapal",
+    "start": 5916512,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_200.gbapal",
+    "start": 5916544,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_201.gbapal",
+    "start": 5916576,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_202.gbapal",
+    "start": 5916608,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_203.gbapal",
+    "start": 5916640,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_204.gbapal",
+    "start": 5916672,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_205.gbapal",
+    "start": 5916704,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_206.gbapal",
+    "start": 5916736,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_207.gbapal",
+    "start": 5916768,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_208.gbapal",
+    "start": 5916800,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_209.gbapal",
+    "start": 5916832,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_210.gbapal",
+    "start": 5916864,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_211.gbapal",
+    "start": 5916896,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_212.gbapal",
+    "start": 5916928,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_213.gbapal",
+    "start": 5916960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_214.gbapal",
+    "start": 5916992,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_215.gbapal",
+    "start": 5917024,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_216.gbapal",
+    "start": 5917056,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_217.gbapal",
+    "start": 5917088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_218.gbapal",
+    "start": 5917120,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_219.gbapal",
+    "start": 5917152,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_220.gbapal",
+    "start": 5917184,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_221.gbapal",
+    "start": 5917216,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_222.gbapal",
+    "start": 5917248,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_223.gbapal",
+    "start": 5917280,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_224.gbapal",
+    "start": 5917312,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_225.gbapal",
+    "start": 5917344,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_226.gbapal",
+    "start": 5917376,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_227.gbapal",
+    "start": 5917408,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_228.gbapal",
+    "start": 5917440,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_229.gbapal",
+    "start": 5917472,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_230.gbapal",
+    "start": 5917504,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_231.gbapal",
+    "start": 5917536,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_232.gbapal",
+    "start": 5917568,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_233.gbapal",
+    "start": 5917600,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_234.gbapal",
+    "start": 5917632,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_235.gbapal",
+    "start": 5917664,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_236.gbapal",
+    "start": 5917696,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_237.gbapal",
+    "start": 5917728,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_238.gbapal",
+    "start": 5917760,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_239.gbapal",
+    "start": 5917792,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_240.gbapal",
+    "start": 5917824,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_241.gbapal",
+    "start": 5917856,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_242.gbapal",
+    "start": 5917888,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_243.gbapal",
+    "start": 5917920,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_244.gbapal",
+    "start": 5917952,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_245.gbapal",
+    "start": 5917984,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_246.gbapal",
+    "start": 5918016,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_247.gbapal",
+    "start": 5918048,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_248.gbapal",
+    "start": 5918080,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_249.gbapal",
+    "start": 5918112,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_250.gbapal",
+    "start": 5918144,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_251.gbapal",
+    "start": 5918176,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_252.gbapal",
+    "start": 5918208,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_253.gbapal",
+    "start": 5918240,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_254.gbapal",
+    "start": 5918272,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_255.gbapal",
+    "start": 5918304,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_256.gbapal",
+    "start": 5918336,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_257.gbapal",
+    "start": 5918368,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_258.gbapal",
+    "start": 5918400,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_259.gbapal",
+    "start": 5918432,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_260.gbapal",
+    "start": 5918464,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_261.gbapal",
+    "start": 5918496,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_262.gbapal",
+    "start": 5918528,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_263.gbapal",
+    "start": 5918560,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_264.gbapal",
+    "start": 5918592,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_265.gbapal",
+    "start": 5918624,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_266.gbapal",
+    "start": 5918656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_267.gbapal",
+    "start": 5918688,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_268.gbapal",
+    "start": 5918720,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_269.gbapal",
+    "start": 5918752,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_270.gbapal",
+    "start": 5918784,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_271.gbapal",
+    "start": 5918816,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_272.gbapal",
+    "start": 5918848,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_273.gbapal",
+    "start": 5918880,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_274.gbapal",
+    "start": 5918912,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_275.gbapal",
+    "start": 5918944,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_276.gbapal",
+    "start": 5918976,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_277.gbapal",
+    "start": 5919008,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_278.gbapal",
+    "start": 5919040,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_279.gbapal",
+    "start": 5919072,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_280.gbapal",
+    "start": 5919104,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_281.gbapal",
+    "start": 5919136,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_282.gbapal",
+    "start": 5919168,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_283.gbapal",
+    "start": 5919200,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_284.gbapal",
+    "start": 5919232,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_285.gbapal",
+    "start": 5919264,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_286.gbapal",
+    "start": 5919296,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_287.gbapal",
+    "start": 5919328,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_288.gbapal",
+    "start": 5919360,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_289.gbapal",
+    "start": 5919392,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_290.gbapal",
+    "start": 5919424,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_291.gbapal",
+    "start": 5919456,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_292.gbapal",
+    "start": 5919488,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_293.gbapal",
+    "start": 5919520,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_294.gbapal",
+    "start": 5919552,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_295.gbapal",
+    "start": 5919584,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_296.gbapal",
+    "start": 5919616,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_297.gbapal",
+    "start": 5919648,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_298.gbapal",
+    "start": 5919680,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_299.gbapal",
+    "start": 5919712,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_300.gbapal",
+    "start": 5919744,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_301.gbapal",
+    "start": 5919776,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_302.gbapal",
+    "start": 5919808,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_303.gbapal",
+    "start": 5919840,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_304.gbapal",
+    "start": 5919872,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_305.gbapal",
+    "start": 5919904,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_306.gbapal",
+    "start": 5919936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_307.gbapal",
+    "start": 5919968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_308.gbapal",
+    "start": 5920000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_309.gbapal",
+    "start": 5920032,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_310.gbapal",
+    "start": 5920064,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_311.gbapal",
+    "start": 5920096,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_312.gbapal",
+    "start": 5920128,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_313.gbapal",
+    "start": 5920160,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_314.gbapal",
+    "start": 5920192,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_315.gbapal",
+    "start": 5920224,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_316.gbapal",
+    "start": 5920256,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_317.gbapal",
+    "start": 5920288,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_318.gbapal",
+    "start": 5920320,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_319.gbapal",
+    "start": 5920352,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_320.gbapal",
+    "start": 5920384,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_321.gbapal",
+    "start": 5920416,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_322.gbapal",
+    "start": 5920448,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "assets/gfx_unknown_0.bin",
+    "start": 5920480,
+    "size": 128,
     "type": "unknown"
+  },
+  {
+    "path": "palettes/gPalette_327.gbapal",
+    "start": 5920608,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_328.gbapal",
+    "start": 5920640,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_329.gbapal",
+    "start": 5920672,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_330.gbapal",
+    "start": 5920704,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_331.gbapal",
+    "start": 5920736,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_332.gbapal",
+    "start": 5920768,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_333.gbapal",
+    "start": 5920800,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_334.gbapal",
+    "start": 5920832,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_335.gbapal",
+    "start": 5920864,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_336.gbapal",
+    "start": 5920896,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_337.gbapal",
+    "start": 5920928,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_338.gbapal",
+    "start": 5920960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_339.gbapal",
+    "start": 5920992,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_340.gbapal",
+    "start": 5921024,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_341.gbapal",
+    "start": 5921056,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_342.gbapal",
+    "start": 5921088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_343.gbapal",
+    "start": 5921120,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_344.gbapal",
+    "start": 5921152,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_345.gbapal",
+    "start": 5921184,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_346.gbapal",
+    "start": 5921216,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_347.gbapal",
+    "start": 5921248,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_348.gbapal",
+    "start": 5921280,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_349.gbapal",
+    "start": 5921312,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_350.gbapal",
+    "start": 5921344,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_351.gbapal",
+    "start": 5921376,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_352.gbapal",
+    "start": 5921408,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_353.gbapal",
+    "start": 5921440,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_354.gbapal",
@@ -1950,7 +3912,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_3.bin",
+    "path": "assets/gfx_unknown_1.bin",
     "start": 5931040,
     "size": 416,
     "type": "unknown"
@@ -2034,10 +3996,16 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_4.bin",
+    "path": "palettes/gPalette_679.gbapal",
     "start": 5931872,
-    "size": 64,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_680.gbapal",
+    "start": 5931904,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/bgAnim_57_0.gbapal",
@@ -5502,10 +7470,10 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_5.bin",
+    "path": "palettes/gPalette_1261.gbapal",
     "start": 5950496,
     "size": 32,
-    "type": "unknown"
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_1262.gbapal",
@@ -9312,7 +11280,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_6.bin",
+    "path": "assets/gfx_unknown_2.bin",
     "start": 5970816,
     "size": 384,
     "type": "unknown"
@@ -10710,10 +12678,22 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_7.bin",
+    "path": "palettes/gPalette_2140.gbapal",
     "start": 5978624,
-    "size": 96,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2141.gbapal",
+    "start": 5978656,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2142.gbapal",
+    "start": 5978688,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_2143.gbapal",
@@ -10812,10 +12792,22 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_8.bin",
+    "path": "palettes/gPalette_2159.gbapal",
     "start": 5979232,
-    "size": 96,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2160.gbapal",
+    "start": 5979264,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2161.gbapal",
+    "start": 5979296,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_2162.gbapal",
@@ -10914,10 +12906,22 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_9.bin",
+    "path": "palettes/gPalette_2178.gbapal",
     "start": 5979840,
-    "size": 96,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2179.gbapal",
+    "start": 5979872,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2180.gbapal",
+    "start": 5979904,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_2181.gbapal",
@@ -11016,10 +13020,22 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_10.bin",
+    "path": "palettes/gPalette_2197.gbapal",
     "start": 5980448,
-    "size": 96,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2198.gbapal",
+    "start": 5980480,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2199.gbapal",
+    "start": 5980512,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "assets/gUnk_085B4180.bin",
@@ -11076,10 +13092,22 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_11.bin",
+    "path": "palettes/gPalette_2212.gbapal",
     "start": 5980928,
-    "size": 96,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2213.gbapal",
+    "start": 5980960,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2214.gbapal",
+    "start": 5980992,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_2215.gbapal",
@@ -11346,9 +13374,21 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_12.bin",
+    "path": "palettes/gPalette_2259.gbapal",
     "start": 5982432,
-    "size": 1088,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_2260.gbapal",
+    "start": 5982464,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "assets/gfx_unknown_3.bin",
+    "start": 5982496,
+    "size": 1024,
     "type": "unknown"
   },
   {
@@ -13055,7 +15095,7 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_13.bin",
+    "path": "assets/gfx_unknown_4.bin",
     "start": 6018688,
     "size": 128,
     "type": "unknown"
@@ -13265,10 +15305,46 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_14.bin",
+    "path": "palettes/gPalette_3430.gbapal",
     "start": 6019904,
-    "size": 224,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3431.gbapal",
+    "start": 6019936,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3432.gbapal",
+    "start": 6019968,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3433.gbapal",
+    "start": 6020000,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3434.gbapal",
+    "start": 6020032,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3435.gbapal",
+    "start": 6020064,
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3436.gbapal",
+    "start": 6020096,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "palettes/gPalette_3437.gbapal",
@@ -15119,10 +17195,16 @@
     "type": "palette"
   },
   {
-    "path": "assets/gfx_unknown_15.bin",
+    "path": "palettes/gPalette_3773.gbapal",
     "start": 6030880,
-    "size": 64,
-    "type": "unknown"
+    "size": 32,
+    "type": "palette"
+  },
+  {
+    "path": "palettes/gPalette_3774.gbapal",
+    "start": 6030912,
+    "size": 32,
+    "type": "palette"
   },
   {
     "path": "gfx/gGfx_89_3.4bpp",
@@ -18278,7 +20360,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_16.bin",
+    "path": "assets/gfx_unknown_5.bin",
     "start": 6835328,
     "size": 7840,
     "type": "unknown"
@@ -20864,7 +22946,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_17.bin",
+    "path": "assets/gfx_unknown_6.bin",
     "start": 7899808,
     "size": 12288,
     "type": "unknown"
@@ -20924,7 +23006,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_18.bin",
+    "path": "assets/gfx_unknown_7.bin",
     "start": 7934624,
     "size": 6144,
     "type": "unknown"
@@ -22074,7 +24156,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_19.bin",
+    "path": "assets/gfx_unknown_8.bin",
     "start": 9272672,
     "size": 10240,
     "type": "unknown"
@@ -22086,7 +24168,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_20.bin",
+    "path": "assets/gfx_unknown_9.bin",
     "start": 9285472,
     "size": 2560,
     "type": "unknown"
@@ -22370,7 +24452,7 @@
     ]
   },
   {
-    "path": "assets/gfx_unknown_21.bin",
+    "path": "assets/gfx_unknown_10.bin",
     "start": 9422944,
     "size": 1280,
     "type": "unknown",
@@ -22782,7 +24864,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_22.bin",
+    "path": "assets/gfx_unknown_11.bin",
     "start": 9624544,
     "size": 2048,
     "type": "unknown"
@@ -22920,7 +25002,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_23.bin",
+    "path": "assets/gfx_unknown_12.bin",
     "start": 9683168,
     "size": 1280,
     "type": "unknown"
@@ -23337,7 +25419,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_24.bin",
+    "path": "assets/gfx_unknown_13.bin",
     "start": 10164432,
     "size": 1216,
     "type": "unknown"

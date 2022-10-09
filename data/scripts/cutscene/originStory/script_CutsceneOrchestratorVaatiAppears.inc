@@ -11,7 +11,7 @@ script_08014FCC:
 	Call WaitForPlayerNormal
 	Call DisablePauseMenuAndPutAwayItems
 	StopBgm
-	_0807F0B4 0x0001
+	SetScrollSpeed 1
 	CameraTargetEntity
 	StartPlayerScript script_PlayerAtVaatisAppearance
 	WaitForSyncFlagAndClear 0x00000001
@@ -39,7 +39,7 @@ script_08014FCC:
 	StopBgm
 	StartPlayerScript script_PlayerTryToFollowVaati
 	CameraTargetEntity
-	_0807F0B4 0x0003
+	SetScrollSpeed 3
 	SetEntityPositionRelative 0x01f8, 0x0148
 	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0804F6A8
@@ -105,7 +105,7 @@ script_08015104:
 	PlaySound SFX_10B
 	Wait 0x003c
 	PlaySound SFX_SECRET
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	SetLocalFlag SOUGEN_06_SAIKAI
 	EzloMessage TEXT_VAATI, 0x0c
@@ -120,7 +120,7 @@ script_08015104:
 	SetPlayerIdle
 	CallWithArg SetPlayerFlag, PL_NO_CAP
 	MoveEntityToPlayer
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetEntity
 	SetFadeTime 0x0100
 	SetFade4
@@ -139,7 +139,7 @@ script_08015104:
 	EzloMessage TEXT_VAATI, 0x15
 	EndBlock
 	WaitUntilTextboxCloses
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call EnableRandomDrops
 	PlayBGM

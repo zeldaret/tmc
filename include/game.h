@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "area.h"
+#include "structures.h"
 
 /**
  * Change the light level of the room.
@@ -83,7 +84,10 @@ u32 AreaAllowsWarp(void);
 void sub_08052878(void);
 #endif
 
-void sub_080526F8(s32 a1);
+/**
+ * Modify the number of keys the player has for the current dungeon.
+ */
+void ModDungeonKeys(s32 keys);
 
 /**
  * Check if the current dungeon has a map item.
@@ -295,4 +299,60 @@ typedef struct {
 } struct_08127F94;
 extern struct_08127F94 gUnk_08127F94[];
 
+typedef struct {
+    const Font* font;
+    u16 width;
+    u16 height;
+    u16 transitionTimer;
+    u16 fadeSpeed;
+} struct_080FCCB4;
+
+typedef struct {
+    u16 itemPrice;
+    u16 unused;
+    u16 saleItemConfirmMessageId;
+    u16 gotItemMessageId;
+} struct_080FD964;
+extern const struct_080FD964 gUnk_080FD964[];
+
+// Defined in gameUtils.c
+extern void ResetTmpFlags(void);
+extern void UpdateFakeScroll(void);
+extern void UpdatePlayerMapCoords(void);
+extern void CreateMiscManager(void);
+extern void CheckAreaDiscovery(void);
+extern void UpdateTimerCallbacks(void);
+extern void DecreasePortalTimer(void);
+extern bool32 CheckRoomExit(void);
+extern bool32 CheckGameOver(void);
+extern void InitializePlayer(void);
+extern void LoadRoomBgm(void);
+extern void sub_0805329C(void);
+extern void UpdatePlayerRoomStatus(void);
+extern void sub_08054524(void);
+extern void sub_08052FF4(u32 area, u32 room);
+extern void InitScriptData(void);
+extern void LoadItemGfx(void);
+
+// Defined in playerUtils.c
+extern void CloneMapData(void);
+extern void InitializeCamera(void);
+extern void ForceSetPlayerState(u32);
+
+extern void sub_080186D4(void);
+extern void sub_0806F364(void);
+extern void UpdateRoomTracker(void);
+extern void GenerateAreaHint(void);
+extern void sub_0801AE44(bool32 loadGfx);
+extern void sub_080ADE24(void);
+extern void CleanUpGFXSlots(void);
+void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4);
+extern void UpdateBgAnimations(void);
+extern void UpdateScroll(void);
+extern void sub_08018710(u32);
+extern void sub_0806F38C(void);
+extern void sub_08052010(void);
+void ModArrows(s32);
+bool32 ItemIsBottle(u32);
+void ModShells(s32);
 #endif // GAME_H

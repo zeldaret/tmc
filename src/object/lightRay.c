@@ -42,7 +42,7 @@ void LightRay_Type0(LightRayEntity* this) {
             super->timer = 60;
             super->subtimer = 0;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 1;
+            gRoomControls.scrollSpeed = 1;
             if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
                 tmp = 2;
             } else {
@@ -76,7 +76,7 @@ void LightRay_Type0(LightRayEntity* this) {
         case 2:
             if (--super->timer == 0) {
                 gScreen.lcd.displayControl |= 0x4800;
-                gRoomControls.unk5 = 4;
+                gRoomControls.scrollSpeed = 4;
                 (super->parent)->subAction = 1;
                 DeleteThisEntity();
             }
@@ -116,7 +116,7 @@ void LightRay_Type1(LightRayEntity* this) {
             super->timer = 60;
             super->subtimer = 32;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 1;
+            gRoomControls.scrollSpeed = 1;
             if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
                 tmp = 2;
             } else {
@@ -148,7 +148,7 @@ void LightRay_Type1(LightRayEntity* this) {
             break;
         case 2:
             if (--super->timer == 0) {
-                gRoomControls.unk5 = 4;
+                gRoomControls.scrollSpeed = 4;
                 gScreen.lcd.displayControl &= 0xd7ff;
                 (super->parent)->subAction = 1;
                 DeleteThisEntity();
@@ -167,7 +167,7 @@ void LightRay_Type2(LightRayEntity* this) {
             super->timer = 60;
             super->subtimer = 0;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 1;
+            gRoomControls.scrollSpeed = 1;
             if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
                 tmp = 2;
             } else {
@@ -214,12 +214,12 @@ void LightRay_Type2(LightRayEntity* this) {
             if (--super->timer == 0) {
                 super->action = 4;
                 gRoomControls.camera_target = &gPlayerEntity;
-                gRoomControls.unk5 = 2;
+                gRoomControls.scrollSpeed = 2;
             }
             break;
         case 4:
             if (sub_0809BE78(this)) {
-                gRoomControls.unk5 = 4;
+                gRoomControls.scrollSpeed = 4;
                 (super->parent)->subAction = 1;
                 SetRoomFlag(100);
                 DeleteThisEntity();
@@ -237,7 +237,7 @@ void LightRay_Type3(LightRayEntity* this) {
             super->timer = 60;
             super->subtimer = 0;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 1;
+            gRoomControls.scrollSpeed = 1;
             if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
                 tmp = 2;
             } else {
@@ -293,7 +293,7 @@ void LightRay_Type4(LightRayEntity* this) {
             super->timer = 60;
             super->subtimer = 128;
             gRoomControls.camera_target = super;
-            gRoomControls.unk5 = 1;
+            gRoomControls.scrollSpeed = 1;
             if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
                 tmp = 2;
             } else {
@@ -319,7 +319,7 @@ void LightRay_Type4(LightRayEntity* this) {
             break;
         case 2:
             if (--super->timer == 0) {
-                gRoomControls.unk5 = 4;
+                gRoomControls.scrollSpeed = 4;
                 (super->parent)->subAction = 1;
                 DeleteThisEntity();
             }

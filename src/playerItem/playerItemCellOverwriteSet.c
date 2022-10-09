@@ -4,6 +4,10 @@
 #include "common.h"
 #include "asm.h"
 
+extern const u8 gUnk_080B7910[];
+extern const u8 gUnk_080B79A7[];
+extern const u8 gUnk_080B7A3E[]; // TODO figure out type from arm_sub_080B1B84 and arm_sub_080B1BA4
+
 void PlayerItemCellOverwriteSet(Entity* this) {
     static const s8 gUnk_080B7B6C[] = { 0x0, -0x10, 0x10, 0x0, 0x0, 0x10, -0x10, 0x0 };
     u32 tmp;

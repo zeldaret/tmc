@@ -17,7 +17,7 @@
 _08080CD4:
 	ldrb r0, [r4, #0xb]
 	lsls r0, r0, #3
-	ldr r1, _08080CEC @ =gUnk_080C9CBC
+	ldr r1, _08080CEC @ =gKinstoneWorldEvents
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	movs r1, #0xf
@@ -27,7 +27,7 @@ _08080CD4:
 	strb r0, [r4, #0x1a]
 	b _08080E00
 	.align 2, 0
-_08080CEC: .4byte gUnk_080C9CBC
+_08080CEC: .4byte gKinstoneWorldEvents
 _08080CF0:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame

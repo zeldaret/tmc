@@ -11,7 +11,7 @@ void sub_0806BC58(Entity* this);
 
 void Farmers(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3]) == 0) {
+        if (!LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3])) {
             return;
         }
         this->action++;
@@ -81,8 +81,8 @@ void sub_0806BCE8(Entity* this) {
 
 void Farmers_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3]) != 0) {
-            this->action = this->action + 1;
+        if (LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3])) {
+            this->action++;
             this->spriteSettings.draw = 1;
             this->spriteSettings.flipX = 0;
             sub_0806BC58(this);

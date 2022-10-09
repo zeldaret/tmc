@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4ESpawnTextBoard
 	Call CreatePlayerExclamationMark
 	Wait 0x003c
-	_0807F0B4 0x0007
+	SetScrollSpeed 7
 	SetEntityPositionRelative 0x00e8, 0x00a8
 	CameraTargetEntity
 	Wait 0x003c
@@ -14,7 +14,7 @@ SCRIPT_START script_Npc4ESpawnTextBoard
 	WaitForSyncFlagAndClear 0x00000002
 	EzloMessage TEXT_PANEL_TUTORIAL, 0x01
 	WaitUntilTextboxCloses
-	_0807F0B4 0x0004
+	SetScrollSpeed 4
 	CameraTargetPlayer
 	SetLocalFlag 0x007a
 	Call sub_08053250

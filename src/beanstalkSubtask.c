@@ -26,17 +26,8 @@ extern void gMapData;
 extern u8 gUpdateVisibleTiles;
 extern u16 gMapDataTopSpecial[];
 extern u16 gMapDataBottomSpecial[];
-
 extern const u8 gGlobalGfxAndPalettes[];
 extern const u8 gUnk_081091E4[];
-
-extern void (*const gUnk_080B4458[])(void);
-extern const u16 gUnk_080B44A0[];
-extern const u16 gUnk_080B4410[];
-extern const s16 gUnk_080B4488[];
-extern const s16 gUnk_080B44A8[];
-
-extern const struct_080B44D0 gUnk_080B44D0[];
 
 typedef struct {
     u16 tileType;
@@ -46,6 +37,18 @@ typedef struct {
     u16 type2;
     u16 unk_a;
 } Data;
+
+extern const u16 gUnk_080B4410[]; // TODO figure out structure
+extern void (*const gUnk_080B4458[])(void);
+extern const s16 gUnk_080B4468[]; // TODO struct xy
+extern const s16 gUnk_080B4478[]; // TODO struct xy
+extern const s16 gUnk_080B4488[];
+extern const s16 gUnk_080B4490[]; // TODO struct xy
+extern const u16 gUnk_080B44A0[];
+extern const s16 gUnk_080B44A8[]; // TODO struct xy
+extern const u32 gUnk_080B44B8[]; // TODO actually function pointers?
+extern const Data gUnk_080B44C0[];
+extern const Data gUnk_080B44C2[];
 
 void sub_0801AD6C(const Data*, u32);
 bool32 sub_0801A4F8(void);
@@ -110,31 +113,30 @@ void SetBGDefaults(void) {
     gMapTop.bgSettings->control = gUnk_080B77C0[1];
 }
 
-void sub_080197D4(u32* param_1) {
+void sub_080197D4(struct_08109194* param_1) {
     u32 uVar1;
     u8* src;
     void* dest;
 
     do {
-        dest = (void*)param_1[1];
+        dest = param_1->dest;
         if (dest != NULL) {
-            src = &gMapData + (*param_1 & 0x7fffffff);
-            if ((param_1[2] & 0x80000000) != 0) {
+            src = &gMapData + (param_1->src & 0x7fffffff);
+            if ((param_1->size & 0x80000000) != 0) {
                 if ((u32)dest >> 0x18 == 6) {
                     LZ77UnCompVram(src, dest);
                 } else {
                     LZ77UnCompWram(src, dest);
                 }
             } else {
-                MemCopy(src, dest, param_1[2]);
+                MemCopy(src, dest, param_1->size);
             }
         } else {
-            LoadPaletteGroup((u32) * (u16*)param_1);
+            LoadPaletteGroup(*(u16*)param_1);
             sub_080533CC();
         }
-        param_1 += 3;
-        uVar1 = *(param_1 - 3);
-    } while ((uVar1 & 0x80000000) != 0);
+        param_1++;
+    } while (((param_1 - 1)->src & 0x80000000) != 0);
 }
 
 // Has ifdefs for other variants
@@ -483,10 +485,6 @@ u32 sub_0801AC68(u32 position, u32 data) {
     return data << 2;
 }
 
-extern const Data gUnk_080B44C0[];
-extern const Data gUnk_080B44C2[];
-extern const u32 gUnk_080B44B8[];
-
 void sub_0801AC98(void) {
     u32 position;
     u32 width;
@@ -571,11 +569,11 @@ u32 sub_0801AE34(void) {
     return gRoomControls.scroll_flags >> 1 & 1;
 }
 
-void sub_0801AE44(s32 param_1) {
+void sub_0801AE44(bool32 loadGfx) {
     void (*func)(void);
     gRoomControls.unk_34 = 0;
     sub_0807BFD0();
-    if (param_1 != 0) {
+    if (loadGfx != 0) {
         LoadRoomGfx();
     }
     sub_080809D4();

@@ -199,7 +199,7 @@ void sub_0806ACC4(Entity* this) {
     u8 delay;
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_08112674[this->type]) == 0)
+            if (!LoadExtraSpriteData(this, gUnk_08112674[this->type]))
                 return;
 
             this->action = 1;

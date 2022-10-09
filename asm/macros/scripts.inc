@@ -750,7 +750,7 @@
 	.2byte 0x0488
 .endm
 
-.macro _0807F0B4 s:req
+.macro SetScrollSpeed s:req
 	.2byte 0x0889
 	.2byte \s
 .endm

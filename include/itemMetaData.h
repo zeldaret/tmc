@@ -28,7 +28,7 @@ typedef enum {
 typedef struct ItemMetaData {
     u8 menuSlot;
     u8 unk1;
-    u8 unk2;
+    u8 unk2; // parameter? number of bombs, type of dungeon item
     u8 unk3; // flags? bit 0x2 makes pickup cutscene appear every time
     u8 textId;
     u8 textCategory;

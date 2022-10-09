@@ -60,10 +60,10 @@ void GreatFairy_CallBehavior(Entity* this) {
     if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < 168) {
 
         gRoomControls.camera_target = this;
-        gRoomControls.unk5 = 2;
+        gRoomControls.scrollSpeed = 2;
     } else {
         gRoomControls.camera_target = &gPlayerEntity;
-        gRoomControls.unk5 = 2;
+        gRoomControls.scrollSpeed = 2;
     }
 }
 

@@ -374,6 +374,8 @@ gUnk_080046A4:: @ 080046A4
 gUnk_080047F6:: @ 080047F6
 	.incbin "code_080043E8/gUnk_080047F6.bin"
 
+@ TODO PlayerMacros
+
 gUnk_080049D6:: @ 080049D6
 	.incbin "code_080043E8/gUnk_080049D6.bin"
 

@@ -175,11 +175,11 @@ static void HandleNintendoCapcomLogos(void) {
         advance = ADVANCE_NONE;
 #if defined(DEMO_USA)
         if (gUnk_02000010.listenForKeyPresses == 0) {
-            if ((gInput.heldKeys & 0x204) == 0x204) { // TODO
+            if ((gInput.heldKeys & (L_BUTTON | SELECT_BUTTON)) == (L_BUTTON | SELECT_BUTTON)) {
                 gUnk_02000010.field_0x7 = 1;
                 SoundReq(SFX_SECRET_BIG);
             } else {
-                if ((gInput.heldKeys & 0x104) == 0x104) { // TODO
+                if ((gInput.heldKeys & (R_BUTTON | SELECT_BUTTON)) == (R_BUTTON | SELECT_BUTTON)) {
                     gUnk_02000010.field_0x7 = 2;
                     SoundReq(SFX_TASK_COMPLETE);
                 } else {

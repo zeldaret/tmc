@@ -13,6 +13,19 @@ extern const ObjectDefinition gObjectDefinitions[];
 
 static Entity* CreateSpeechBubble(Entity*, u32, s32, s32);
 
+const s8 gUnk_08126EE4[] = {
+    0,   -32, //
+    22,  -6,  //
+    0,   12,  //
+    -22, -6,
+};
+const s8 gUnk_08126EEC[] = {
+    0,   -13, //
+    13,  0,   //
+    0,   16,  //
+    -13, 0,
+};
+
 Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
     Entity* e = CreateItemGetEntity();
     if (e != NULL) {
@@ -253,7 +266,8 @@ void CreateSparkle(Entity* entity) {
     }
 }
 
-NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void SyncPlayerToPlatform(Entity* this, bool32 param_2)) {
+NONMATCH("asm/non_matching/objectUtils/SyncPlayerToPlatform.inc",
+         void SyncPlayerToPlatform(Entity* this, bool32 param_2)) {
     s16 oldValue;
     s32 diff;
     u16 newValue;

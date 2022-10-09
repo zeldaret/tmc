@@ -22,7 +22,7 @@ void MinishEzlo(Entity* this) {
         { 0x0, 0x0, 0x0 },
     };
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_0810C48C) == 0) {
+        if (!LoadExtraSpriteData(this, gUnk_0810C48C)) {
             return;
         }
         this->action++;

@@ -29,13 +29,11 @@ void Syrup(Entity* this) {
 }
 
 void sub_0806A1F8(Entity* this) {
-    u32 iVar1;
     const SpriteLoadData* paVar2;
 
     this->type == 0 ? (paVar2 = gUnk_081121B4) : (paVar2 = gUnk_081121C4);
 
-    iVar1 = LoadExtraSpriteData(this, paVar2);
-    if (iVar1) {
+    if (LoadExtraSpriteData(this, paVar2)) {
         this->action = 1;
         SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD50(this);
