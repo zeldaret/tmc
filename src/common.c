@@ -106,33 +106,39 @@ u32 ReadBit(void* src, u32 bit) {
     return (*((u8*)src + bit / 8) >> (bit % 8)) & 1;
 }
 
-NONMATCH("asm/non_matching/common/WriteBit.inc", u32 WriteBit(void* src, u32 bit)) {
-    u8* b;
+u32 WriteBit(void* src, u32 bit) {
+    u32 b;
     u32 mask;
     u32 orig;
 
-    b = (u8*)(bit / 8 + (u32)src);
-    mask = 1 << (bit % 8);
-    orig = *b;
-    *b |= mask;
+    // note that the following line relies on undefined behaviour; b is not initialised
+    b += ((u32)src + bit / 8) - b;
+    mask = 0x7;
+    mask = 1 << (bit & mask);
+
+    orig = *((u8*)b);
+    *((u8*)b) |= mask;
+
     orig &= mask;
     return orig;
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/common/ClearBit.inc", u32 ClearBit(void* src, u32 bit)) {
-    u8* b;
+u32 ClearBit(void* src, u32 bit) {
+    u32 b;
     u32 mask;
     u32 orig;
 
-    b = (u8*)(bit / 8 + (u32)src);
-    mask = 1 << (bit % 8);
-    orig = *b;
-    *b &= ~mask;
+    // note that the following line relies on undefined behaviour; b is not initialised
+    b += ((u32)src + bit / 8) - b;
+    mask = 0x7;
+    mask = 1 << (bit & mask);
+
+    orig = *((u8*)b);
+    *((u8*)b) &= ~mask;
+
     orig &= mask;
     return orig;
 }
-END_NONMATCH
 
 void MemFill16(u32 value, void* dest, u32 size) {
     DmaFill16(3, value, dest, size);
