@@ -95,6 +95,12 @@
 #define END_NONMATCH }
 #endif
 
+#if NON_MATCHING
+#define FORCE_REGISTER(var, reg) var
+#else
+#define FORCE_REGISTER(var, reg) register var asm(#reg)
+#endif
+
 typedef union {
     s32 WORD;
     struct {
