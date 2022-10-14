@@ -140,7 +140,7 @@ typedef struct {
     u8 unk3; /**< Offset on the gfx id? */
 } struct_gUnk_080B3D20;
 
-enum {
+typedef enum {
     WORLD_EVENT_0,
     WORLD_EVENT_1,
     WORLD_EVENT_2,
@@ -148,9 +148,9 @@ enum {
     WORLD_EVENT_4,
     WORLD_EVENT_5,
     // TODO add all and use them in gKinstoneWorldEvents
-} worldEventId;
+} WorldEventId;
 
-enum {
+typedef enum {
     CND_0,
     /**< Always false. */ // CND_FALSE
     CND_1,                // local flag // CND_FLAG
@@ -163,9 +163,9 @@ enum {
     CND_8,                // SORA_13_H00
     CND_9,                // SORA_14_T00
     CND_10,               // KS_B15
-} WorldEvent_Condition;
+} WorldEventCondition;
 
-enum {
+typedef enum {
     WORLD_EVENT_TYPE_0, // Does nothing
     WORLD_EVENT_TYPE_1, // LoadRoomEntity after checking GlobalFlag
     WORLD_EVENT_TYPE_2, // sub_08018BB4
