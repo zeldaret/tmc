@@ -405,8 +405,93 @@ void sub_0808FF50(PushableFurnitureEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/pushableFurniture/sub_08090094.inc",
-         void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 param_3))
+void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
+    FORCE_REGISTER(u32 tmp1, r4);
+
+    u32 index;
+    u32 tmp2;
+
+    tmp1 = sub_080B1B44(tilePos, 1);
+    index = GetTileIndex(tilePos, 1);
+    if ((index & 0x4000) == 0) {
+        index = param_2;
+        switch (index) {
+            case 0x4025:
+                if (tmp1 == 5) {
+                    index = 0x4022;
+                }
+                SetTile(index, tilePos, 1);
+                return;
+            case 0x402d:
+            case 0x402f:
+                if (tmp1 == 5) {
+                    index = 0x4022;
+                }
+                SetTile(index, tilePos, 1);
+                return;
+            case 0x4024:
+            case 0x402c:
+            case 0x402e:
+                if (tmp1 == 10) {
+                    index = 0x4022;
+                }
+                SetTile(index, tilePos, 1);
+                return;
+            default:
+                SetTile(index, tilePos, 1);
+                return;
+        }
+    }
+    switch (index) {
+        case 0x4022:
+        default:
+            return;
+        case 0x4025:
+            if (param_2 == 0x4024) {
+                index = 0x4022;
+                this->unk_83 |= 0x10;
+            }
+            if (param_2 == 0x402c) {
+                index = 0x4022;
+                this->unk_83 |= 0x10;
+            }
+            break;
+        case 0x402d:
+        case 0x402f:
+            if (param_2 == 0x402c) {
+                index = 0x402b;
+                this->unk_83 |= 0x10;
+            }
+            if (param_2 == 0x4024) {
+                index = 0x4022;
+                this->unk_83 |= 0x10;
+            }
+            break;
+        case 0x4024:
+            if (param_2 == 0x4025) {
+                index = 0x4022;
+                this->unk_83 |= 0x20;
+            }
+            if (param_2 == 0x402d) {
+                index = 0x4022;
+                this->unk_83 |= 0x20;
+            }
+            break;
+        case 0x402c:
+        case 0x402e:
+            if (param_2 == 0x402d) {
+                index = 0x402b;
+                this->unk_83 |= 0x20;
+            }
+            if (param_2 == 0x4025) {
+                index = 0x4022;
+                this->unk_83 |= 0x20;
+            }
+            break;
+    }
+
+    SetTile(index, tilePos, 1);
+}
 
 void sub_08090254(PushableFurnitureEntity* this) {
     sub_0807B9B8(this->unk_74, this->unk_70, super->collisionLayer);
