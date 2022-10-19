@@ -168,8 +168,7 @@ const SaveHeader sDefaultSettings = {
     .initialized = 0,
 };
 
-// single misplaced ldr
-/*static*/ NONMATCH("asm/non_matching/InitSaveHeader.inc", void InitSaveHeader(void)) {
+void InitSaveHeader(void) {
     u32 b;
 
     if (!CheckHeaderValid()) {
@@ -196,11 +195,11 @@ const SaveHeader sDefaultSettings = {
         b = TRUE;
     }
     if (b) {
-        MemClear(&gUnk_02000010, sizeof gUnk_02000010);
-        gUnk_02000010.signature = SIGNATURE;
+        FORCE_REGISTER(struct_02000010 * ptr, r4) = &gUnk_02000010;
+        MemClear(ptr, sizeof gUnk_02000010);
+        ptr->signature = SIGNATURE;
     }
 }
-END_NONMATCH
 
 /*static*/ u32 CheckHeaderValid(void) {
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
