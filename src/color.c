@@ -13,12 +13,19 @@ extern Palette gUnk_02001A3C;
 void LoadObjPaletteAtIndex(u32 a1, u32 a2);
 void CleanUpObjPalettes();
 u32 FindFreeObjPalette(u32);
-void SetEntityObjPalette(Entity*, u32);
+void SetEntityObjPalette(Entity*, s32);
 u32 sub_0801D458(u32);
 void sub_0801D48C(u32, u32);
 static void sub_0801CFD0(u32 a1);
 
 extern union SplitWord gUnk_08133368[];
+
+typedef struct {
+    u8 _0_0 : 4;
+    u8 _0_4 : 4;
+    u8 _1;
+    u16 _2;
+} Palette2;
 
 void ResetPaletteTable(u32 a1) {
     u32 i;
@@ -152,9 +159,11 @@ u32 FindFreeObjPalette(u32 paletteCount) {
     return 0xffffffff;
 }
 
-NONMATCH("asm/non_matching/color/SetEntityObjPalette.inc", void SetEntityObjPalette(Entity* entity, u32 palette)) {
+void SetEntityObjPalette(Entity* entity, s32 palette) {
     u32 uVar1;
-    Palette* pal;
+    u32 mask;
+    FORCE_REGISTER(u32 tmp, r1);
+    Palette2* pPVar1;
 
     if (palette < 0) {
         palette = 0;
@@ -162,21 +171,26 @@ NONMATCH("asm/non_matching/color/SetEntityObjPalette.inc", void SetEntityObjPale
     if (0x7e < (u8)(entity->spriteAnimation[2] - 1)) {
         entity->spriteAnimation[1] = palette;
     }
-    entity->palette.b.b0 = palette;
-    entity->palette.b.b4 = palette;
-    pal = &gPaletteList[palette];
-    if ((s8)pal->_0_0 != 4) {
-        pal->_1++;
-        uVar1 = pal->_0_4;
-        pal->_0_0 = 3;
+
+    entity->palette.b.b0 = palette & 0xf;
+
+    mask = 0xF;
+    tmp = (palette & mask) << 4;
+    *(u8*)&entity->palette.b &= mask;
+    *(u8*)&entity->palette.b |= tmp;
+
+    pPVar1 = (Palette2*)&gPaletteList[palette];
+    if ((s8)pPVar1->_0_0 != 4) {
+        pPVar1->_1++;
+        uVar1 = pPVar1->_0_4;
+        pPVar1->_0_0 = 3;
         while (uVar1 = uVar1 - 1, uVar1 != 0) {
-            pal = pal + 1;
-            pal->_0_4 = uVar1;
-            pal->_0_0 = 2;
+            pPVar1 = pPVar1 + 1;
+            pPVar1->_0_4 = uVar1;
+            pPVar1->_0_0 = 2;
         }
     }
 }
-END_NONMATCH
 
 void UnloadOBJPalette(Entity* entity) {
     u8* p = &entity->spriteAnimation[1];
