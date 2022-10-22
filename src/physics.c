@@ -668,18 +668,16 @@ static bool32 sub_0807007C(struct_gUnk_020000C0* this, u32 param_2) {
     return 1;
 }
 
-NONMATCH("asm/non_matching/coord/GetSpriteSubEntryOffsetDataPointer.inc",
-         u8* GetSpriteSubEntryOffsetDataPointer(u32 param_1, u32 param_2)) {
-    u8* rv;
+u8* GetSpriteSubEntryOffsetDataPointer(u32 param_1, u32 param_2) {
     u32 val;
     u32 val2;
     val = ((u16*)(((u8*)gExtraFrameOffsets) + 0x10))[param_1];
-    val2 = ((u8*)gExtraFrameOffsets)[val + param_2] * 4;
-    rv = val2 + ((u8*)gExtraFrameOffsets);
-    rv = rv + *((u32*)((u8*)gExtraFrameOffsets));
-    return rv;
+    val += (u32)gExtraFrameOffsets;
+    val2 = *(u8*)(val + param_2) * 4;
+    val2 += (u32)gExtraFrameOffsets;
+    val = *((u32*)gExtraFrameOffsets) + val2;
+    return (u8*)val;
 }
-END_NONMATCH
 
 const u8 gUnk_08114F38[] = {
     0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0,
