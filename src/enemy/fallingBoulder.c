@@ -64,21 +64,25 @@ void sub_0802C318(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(Entity* this)) {
-    if ((u16)this->field_0x7c.HALF.LO == 0) {
+void sub_0802C334(Entity* this) {
+    register Entity* ent asm("r2");
+    u32 diff;
+    u16 tmp;
+    if (this->field_0x7c.HALF_U.LO == 0) {
         u32 tmp = gRoomControls.origin_y;
-        if (&gPlayerEntity == NULL)
+        ent = &gPlayerEntity;
+        if (ent == NULL)
             return;
-        if (gPlayerEntity.y.HALF.HI - tmp <= 0x38) {
+        if (ent->y.HALF.HI - tmp <= 0x38) {
             return;
         }
-        this->field_0x7c.HALF.LO = 1;
+        this->field_0x7c.HALF_U.LO = 1;
         this->spriteSettings.draw = 1;
     }
     GetNextFrame(this);
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
     if (sub_080044EC(this, *(u32*)&this->cutsceneBeh) == 1) {
-        EnqueueSFX(SFX_14C);
+        EnqueueSFX(0x14c);
         COLLISION_ON(this);
         this->field_0x7a.HWORD = 0xc;
         sub_0802C4B0(this);
@@ -86,20 +90,18 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
         s32 y;
 
         if (this->field_0x7a.HWORD) {
-            u16 tmp = --this->field_0x7a.HWORD;
+            tmp = --this->field_0x7a.HWORD;
             switch (tmp) {
                 case 0:
                     COLLISION_OFF(this);
                     break;
                 case 8:
                     if (this->type2 != 0 && !sub_08049FA0(this)) {
-                        u32 diff = 0;
-                        s32 i;
-                        for (i = 1; i > -1; i--) {
-                            Entity* ent = CreateFx(this, FX_ROCK2, 0);
-                            if (ent != NULL) {
-                                ent->x.HALF.HI += 12;
-                                ent->x.HALF.HI -= diff;
+                        diff = 0;
+                        for (y = 1; y > -1; y--) {
+                            ent = CreateFx(this, FX_ROCK2, 0);
+                            if (ent) {
+                                ent->x.HALF.HI = ent->x.HALF.HI + 12 - diff;
                             }
                             diff += 0x18;
                         }
@@ -111,7 +113,11 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
             }
         }
 
-        y = gRoomControls.origin_y + gRoomControls.height - this->y.HALF.HI;
+        {
+            FORCE_REGISTER(RoomControls * tmp, r0) = &gRoomControls;
+            y = tmp->origin_y + tmp->height - this->y.HALF.HI;
+        }
+
         if (y >= 5) {
             ProcessMovement1(this);
         } else {
@@ -129,7 +135,6 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
     this->spritePriority.b0 = 1;
     UpdateSpriteForCollisionLayer(this);
 }
-END_NONMATCH
 
 void nullsub_148(Entity* this) {
     /* ... */
