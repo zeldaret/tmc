@@ -78,7 +78,7 @@ extern void sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, 
 extern void sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802EA88(Gleerok_HeapStruct* param_1);
-extern bool32 sub_0802E768(Gleerok_HeapStruct* param_1);
+extern void sub_0802E768(Gleerok_HeapStruct* param_1);
 
 void Gleerok_OnTick(GleerokEntity* this);
 void Gleerok_OnDeath(GleerokEntity* this);
@@ -638,7 +638,7 @@ void sub_0802D86C(GleerokEntity* this) {
             super->child = enemy;
             if (enemy) {
                 enemy->parent = super->parent;
-                super->timer = this->unk_84->filler[0].unk1;
+                super->timer = this->unk_84->filler[0].unk0.HALF.HI;
                 this->unk_84->ent = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
@@ -669,8 +669,8 @@ void sub_0802D86C(GleerokEntity* this) {
                     SoundReq(SFX_BUTTON_PRESS);
                 }
             } else {
-                if (super->timer != this->unk_84->filler[0].unk1) {
-                    if (((super->timer - this->unk_84->filler[0].unk1) & 0x1f) > 0x10) {
+                if (super->timer != this->unk_84->filler[0].unk0.HALF.HI) {
+                    if (((super->timer - this->unk_84->filler[0].unk0.HALF.HI) & 0x1f) > 0x10) {
                         if (++super->frameIndex >= 0x31) {
                             super->frameIndex = 0x28;
                         }
@@ -680,7 +680,7 @@ void sub_0802D86C(GleerokEntity* this) {
                         }
                     }
 
-                    super->timer = this->unk_84->filler[0].unk1;
+                    super->timer = this->unk_84->filler[0].unk0.HALF.HI;
                 }
             }
 
@@ -1326,8 +1326,8 @@ void sub_0802E768(Gleerok_HeapStruct* param_1) {
     s32 iVar5;
 
     for (uVar4 = 0; uVar4 <= 4; uVar4++) {
-        bVar3 = param_1->filler[uVar4].unk1;
-        bVar2 = (bVar3 - param_1->filler[uVar4 + 1].unk1) & 0x1f;
+        bVar3 = param_1->filler[uVar4].unk0.HALF.HI;
+        bVar2 = (bVar3 - param_1->filler[uVar4 + 1].unk0.HALF.HI) & 0x1f;
 
         if (bVar2 > 0x10) {
             if (bVar2 <= 0x1e) {
@@ -1337,9 +1337,9 @@ void sub_0802E768(Gleerok_HeapStruct* param_1) {
             bVar3 = (bVar3 - 1) & 0x1f;
         }
 
-        param_1->filler[uVar4].unk1 = bVar3;
-        bVar3 = param_1->filler2[(uVar4)].unk1;
-        bVar2 = (bVar3 - param_1->filler2[(uVar4 + 1)].unk1) & 0x1f;
+        param_1->filler[uVar4].unk0.HALF.HI = bVar3;
+        bVar3 = param_1->filler2[(uVar4)].unk0.HALF.HI;
+        bVar2 = (bVar3 - param_1->filler2[(uVar4 + 1)].unk0.HALF.HI) & 0x1f;
 
         if (bVar2 > 0x10) {
             if (bVar2 <= 0x1d) {
@@ -1349,7 +1349,7 @@ void sub_0802E768(Gleerok_HeapStruct* param_1) {
             bVar3 = (bVar3 - 1) & 0x1f;
         }
 
-        param_1->filler2[(uVar4)].unk1 = bVar3;
+        param_1->filler2[(uVar4)].unk0.HALF.HI = bVar3;
     }
 }
 

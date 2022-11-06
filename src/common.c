@@ -887,9 +887,15 @@ code0_2:
         goto code0_2;
 #endif
 }
-return i;
-}
-return -1;
+
+s32 sub_0801E8B0(u32 idx) {
+    u32 i;
+
+    for (i = 0; i < 18; ++i) {
+        if (idx == gSave.unk118[i])
+            return i;
+    }
+    return -1;
 }
 
 // Check conditions, something with kinstones

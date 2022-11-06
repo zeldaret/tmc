@@ -57,6 +57,25 @@ void sub_0801AB08(u16*, LayerStruct*);
 
 u32 sub_0801AC68(u32 position, u32 data);
 
+extern u32 sub_0807BDB8(Entity* this, u32 param_2);
+extern void sub_0804B388(u32 a1, u32 a2);
+extern u32 sub_080A7CFC(u32 a1, u32 tmp); // TODO does this really have a second param?
+extern void OpenSmallChest(u32 pos, u32 layer);
+extern bool32 sub_08079778();
+extern Transition* sub_08080734(u32, u32);
+
+extern const s16 gUnk_080B4490[];
+extern const s16 gUnk_080B4468[];
+extern const s16 gUnk_080B4478[];
+
+bool32 sub_0801A2B0(LayerStruct* layer, u32 position, u32 collisionType);
+bool32 sub_0801A9F0(u32 param_1, u32 param_2, u32 param_3);
+u32 sub_0801A570(Entity*, u32);
+bool32 sub_0801A458(LayerStruct* layer, u32 position, u32 collisionType);
+bool32 sub_0801A370(LayerStruct* layer, u32 position);
+u32 sub_0801A8D0(Entity* this, u32 param_2);
+extern void sub_080001D0(u32, u32, u32);
+
 void sub_0801967C(void) {
     gUnk_080B4458[gMenu.overlayType]();
 }
@@ -140,7 +159,433 @@ void sub_080197D4(struct_08109194* param_1) {
 }
 
 // Has ifdefs for other variants
-ASM_FUNC("asm/non_matching/beanstalkSubtask/UpdatePlayerCollision.inc", void UpdatePlayerCollision())
+u32 UpdatePlayerCollision(void) {
+    u32 direction;
+    u32 tileType;
+    LayerStruct* layer;
+    Transition* transition;
+    Entity* pushedBlock;
+    Entity* player;
+    u32 position;
+    u32 index;
+    const s16* ptr1;
+    const s16* ptr2;
+    s32 tmp1;
+    u32 tmp2;
+    u32 tmp3;
+    // There are some weird assignment necessary to access gPlayerEntity.animationState correctly.
+    u32 animationState1;
+    u32 animationState2;
+    u32 animationState3;
+
+    if (gPlayerState.framestate == 0) {
+        tmp1 = gPlayerState.framestate_last;
+    } else {
+        tmp1 = gPlayerState.framestate;
+    }
+
+    switch (tmp1) {
+        case 3:
+            return 0;
+        case 0x12:
+            return 0;
+        case 0x16:
+            return 0;
+    }
+
+    if (gPlayerState.dash_state != 0 || gPlayerEntity.action == PLAYER_CLIMB) {
+        direction = gPlayerEntity.direction;
+    } else {
+        direction = gPlayerState.direction;
+    }
+    if (((direction & 0x83) == 0) && (gPlayerState.field_0xa == 0)) {
+        index = sub_0807BDB8(&gPlayerEntity, direction >> 2);
+        if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
+            ptr1 = &gUnk_080B4490[index * 2];
+            if (sub_080B1B44(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]), gPlayerEntity.collisionLayer) ==
+                0xff) {
+                if ((((gPlayerState.flags & 0x10002) != 0) || ((gPlayerState.sword_state & 0x10) != 0)) ||
+                    ((sub_080806BC(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
+                                   gPlayerEntity.y.HALF.HI - gRoomControls.origin_y, index, 5) == 0 &&
+                      (((gPlayerState.heldObject != 0 || ((gPlayerState.field_0x1c & 0xf) != 0)) ||
+                        (sub_0807BD14(&gPlayerEntity, index) == 0)))))) {
+                    return 3;
+                }
+                gPlayerEntity.direction = (index << 3);
+                return 0xf;
+            }
+        }
+    }
+    layer = GetLayerByIndex(gPlayerEntity.collisionLayer);
+    ptr1 = &gUnk_080B4468[gPlayerEntity.animationState & 6];
+    position = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]);
+    tileType = GetTileType(position, gPlayerEntity.collisionLayer);
+    if (tileType < 0x4000) {
+        direction = sub_080B1B54(tileType);
+    } else {
+        direction = tileType;
+    }
+    animationState1 = gPlayerEntity.animationState;
+    animationState2 = animationState1 & 0xff;
+
+    switch (direction) {
+        case 0x4000:
+            if (sub_0801A458(layer, position, 2) == 0) {
+                return 0;
+            }
+            layer->mapData[position] = 0x4001 + (gPlayerEntity.animationState >> 1);
+            if ((gPlayerState.flags & 0x80) != 0) {
+                gPlayerState.pushedObject = 0xc0;
+            } else {
+                gPlayerState.pushedObject = 0xa0;
+            }
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x28:
+            if ((gPlayerState.flags & 0x80) != 0) {
+                return 0;
+            }
+            gPlayerEntity.action = gPlayerEntity.action;
+            if (gPlayerState.field_0xa != 0) {
+                return 0;
+            }
+            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.direction & 0x80) != 0) {
+                return 0;
+            }
+            if (sub_080B1B44(position, gPlayerEntity.collisionLayer) != 0xf) {
+                return 0;
+            }
+            if (sub_08079778() == 0) {
+                return 0;
+            }
+
+            ptr1 = &gUnk_080B4478[gPlayerEntity.animationState & 6];
+            transition = sub_08080734((gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) + ptr1[0],
+                                      (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) + ptr1[1]);
+            if (transition == NULL) {
+                return 0;
+            }
+            if ((gPlayerEntity.animationState & 2) != 0) {
+                gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + transition->startY + 6;
+            } else {
+                gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + transition->startX;
+            }
+            sub_08078AC0(4, 0, 1);
+            return 0;
+        case 0x401b:
+            if (sub_0801A2B0(layer, position, 0xb) == 0) {
+                return 0;
+            }
+            layer->mapData[position] = 0x401c + (gPlayerEntity.animationState >> 1);
+            gPlayerState.pushedObject = 0xa0;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.type = 1;
+            return 1;
+        case 0x70:
+            if ((gPlayerState.field_0x35 & 0x80) == 0) {
+                if ((gPlayerEntity.frame & 1) != 0) {
+                    if (sub_0801A9F0(gPlayerState.field_0x35 << 2, tileType, position) != 0) {
+                        return 1;
+                    }
+                }
+            }
+            return 0;
+        case 0x3a:
+        case 0x5b:
+        case 0x4051:
+            if ((gPlayerState.flags & 0x80) != 0) {
+                return 0;
+            }
+            if (gPlayerEntity.animationState != 0) {
+                return 0;
+            }
+            gUnk_0200AF00.unk_2d = 4;
+            if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
+                return 0;
+            }
+            gPlayerState.mobility = 1;
+            sub_080A7CFC(position, gPlayerEntity.collisionLayer);
+            return 1;
+        case 0x1a:
+            if ((animationState1 & 0xff) != 0) {
+                return 0;
+            }
+            if ((gPlayerState.flags & 0x4080) != 0) {
+                return 0;
+            }
+            gUnk_0200AF00.unk_2d = 6;
+            if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
+                return 0;
+            }
+            gPlayerState.mobility = 1;
+            OpenSmallChest(position, gPlayerEntity.collisionLayer);
+            return 2;
+        case 0x71:
+            if (HasDungeonMap() == 0) {
+                return 0;
+            }
+            gUnk_0200AF00.unk_2d = 6;
+            if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
+                return 0;
+            }
+            gPlayerState.mobility = 1;
+            sub_0804B388(position, gPlayerEntity.collisionLayer);
+            return 2;
+        case 0x3d:
+        case 0x4040 ... 0x4048:
+            if ((gPlayerState.flags & 0x4000) != 0) {
+                return 0;
+            }
+            if (sub_08079778() == 0) {
+                return 0;
+            }
+#if !(defined(EU) || defined(JP))
+            if (gPlayerState.field_0xa != 0) {
+                return 0;
+            }
+#endif
+            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.direction & 0x80) != 0) {
+                return 0;
+            }
+            if (gPlayerEntity.subtimer < 6) {
+                return 0;
+            }
+            gPlayerState.jump_status = 0x81;
+            gPlayerState.flags |= 0x20;
+            gPlayerState.queued_action = PLAYER_USEPORTAL;
+            gPlayerEntity.zVelocity = 0x20000;
+            COLLISION_OFF(&gPlayerEntity);
+            return 1;
+        case 0x400b:
+            if (sub_0801A2B0(layer, position, 8) == 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.collisionLayer == 3) && (gMapTop.mapData[position] == 0x400b)) {
+                gMapTop.mapData[position] = 0x400c + (gPlayerEntity.animationState >> 1);
+            } else {
+                layer->mapData[position] = 0x400c + (gPlayerEntity.animationState >> 1);
+            }
+            gPlayerState.pushedObject = 0xa0;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x405a:
+            if (sub_0801A2B0(layer, position, 2) == 0) {
+                return 0;
+            }
+            layer->mapData[position] = 0x405b + (gPlayerEntity.animationState >> 1);
+            gPlayerState.pushedObject = 0x98;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x4036:
+            if (sub_0801A2B0(layer, position, 0xb) == 0) {
+                return 0;
+            }
+            layer->mapData[position] = 0x4037 + (gPlayerEntity.animationState >> 1);
+            gPlayerState.pushedObject = 0xa0;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x403e:
+            if ((animationState1 & 0xff) != 0) {
+                return 0;
+            }
+            if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.frame & 2) == 0) {
+                return 0;
+            }
+            layer->mapData[position] = 0x403f;
+            gPlayerState.pushedObject = 0x82;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x72:
+            if ((gPlayerState.field_0x35 & 0x80) != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.frame & 1) == 0) {
+                return 0;
+            }
+            position = sub_0801A570(&gPlayerEntity, 1);
+            if (position == 0xffff) {
+                return 0;
+            }
+            tmp2 = (position >> 0xc) - 1;
+            position &= 0xfff;
+            // TODO convert to for loop?
+            index = 0;
+            tmp3 = 0;
+            while (index < 3) {
+                if ((((*(u32*)(&(gPlayerClones[0])->field_0x6c)) & (1 << index)) != 0) &&
+                    (sub_0801A570(gPlayerClones[index], 0) == position)) {
+                    tmp3++;
+                }
+                index++;
+            }
+            if (tmp3 < tmp2) {
+                return 0;
+            }
+            pushedBlock = CreateObject(PUSHED_BLOCK, tmp2, 0);
+            if (pushedBlock == NULL) {
+                return 0;
+            }
+            pushedBlock->direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            pushedBlock->x.HALF.HI = ((position & 0xfff & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+            pushedBlock->y.HALF.HI = ((position & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
+            pushedBlock->collisionLayer = gPlayerEntity.collisionLayer;
+            gPlayerState.pushedObject = 0xa0;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = pushedBlock->direction;
+            return 1;
+        case 0x402b ... 0x402d:
+            if (sub_0801A370(layer, position) != 0) {
+                layer->mapData[position] = 0x4030 + ((gPlayerEntity.animationState & 4) >> 2);
+                if ((gPlayerState.flags & 0x80) != 0) {
+                    gPlayerState.pushedObject = 0xa0;
+                } else {
+                    gPlayerState.pushedObject = 0x90;
+                }
+                gPlayerState.queued_action = PLAYER_PUSH;
+                gPlayerState.flags |= 1;
+                gPlayerEntity.x.HALF.LO = 0;
+                gPlayerEntity.y.HALF.LO = 0;
+                gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+                return 1;
+            } else {
+                return 0;
+            }
+        case 0x404a:
+            if (sub_0801A458(layer, position, 8) == 0) {
+                return 0;
+            }
+            layer->mapData[position] = 0x404b + (gPlayerEntity.animationState >> 1);
+            if ((gPlayerState.flags & 0x80) != 0) {
+                gPlayerState.pushedObject = 0xc0;
+            } else {
+                gPlayerState.pushedObject = 0xa0;
+            }
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x4052:
+            if (gPlayerState.field_0x35 != 0) {
+                return 0;
+            }
+            SetTile(0x4054, position, gPlayerEntity.collisionLayer);
+            return 4;
+        case 0x4053:
+            if (gPlayerState.field_0x35 != 6) {
+                return 0;
+            }
+            SetTile(0x4054, position, gPlayerEntity.collisionLayer);
+            return 4;
+        case 0x4055:
+            position--;
+            // fallthrough
+        case 0x4056:
+            if (gPlayerState.field_0x35 != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.y.HALF.HI & 0xf) < 10) {
+                return 0;
+            }
+            for (index = 0; index < 3; index++) {
+                if (sub_0801A8D0(gPlayerClones[index], 0) == position) {
+                    SetTile(0x4059, position, gPlayerEntity.collisionLayer);
+                    return 4;
+                }
+            }
+            return 0;
+        case 0x4057:
+            position -= 0x40;
+            // fallthrough
+        case 0x4058:
+            if (gPlayerState.field_0x35 != 6) {
+                return 0;
+            }
+            if ((gPlayerEntity.x.HALF.HI & 0xf) < 10) {
+                return 0;
+            }
+            for (index = 0; index < 3; index++) {
+                if (sub_0801A8D0(gPlayerClones[index], 6) == position) {
+                    SetTile(0x4059, position, gPlayerEntity.collisionLayer);
+                    return 4;
+                }
+            }
+            return 0;
+        case 0x405f:
+            animationState3 = 2;
+            animationState3 &= animationState1;
+            if (animationState3 == 0) {
+                return 0;
+            }
+            if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.frame & 1) == 0) {
+                return 0;
+            }
+            SetTile(0x4074, position, gPlayerEntity.collisionLayer);
+            gPlayerState.pushedObject = 0xa0;
+            gPlayerState.queued_action = PLAYER_PUSH;
+            gPlayerState.flags |= 1;
+            gPlayerEntity.x.HALF.LO = 0;
+            gPlayerEntity.y.HALF.LO = 0;
+            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            return 1;
+        case 0x407d:
+            animationState3 = gPlayerEntity.animationState;
+            if ((animationState2) != 4) {
+                return 0;
+            }
+            if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+                return 0;
+            }
+            if ((gPlayerEntity.frame & 1) == 0) {
+                return 0;
+            }
+            SetTile(0x4074, position, gPlayerEntity.collisionLayer);
+            sub_080001D0(0xd, position, gPlayerEntity.collisionLayer);
+            return 1;
+        default:
+            return 0;
+    }
+}
 
 bool32 sub_0801A2B0(LayerStruct* layer, u32 position, u32 collisionType) {
     u16 uVar1;
@@ -287,7 +732,7 @@ bool32 sub_0801A4F8(void) {
     return TRUE;
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", void sub_0801A570())
+ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", u32 sub_0801A570(Entity* a, u32 b))
 
 u32 sub_0801A8D0(Entity* this, u32 param_2) {
     u16* mapData;
