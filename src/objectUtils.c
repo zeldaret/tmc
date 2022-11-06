@@ -266,52 +266,53 @@ void CreateSparkle(Entity* entity) {
     }
 }
 
-NONMATCH("asm/non_matching/objectUtils/SyncPlayerToPlatform.inc",
-         void SyncPlayerToPlatform(Entity* this, bool32 param_2)) {
+void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
     s16 oldValue;
     s32 diff;
     u16 newValue;
+    FORCE_REGISTER(Entity * that, r4) = this;
+    FORCE_REGISTER(bool32 p2, r6) = param_2;
+    u16 dir = that->direction;
 
-    if ((this->direction & 0x80) == 0) {
-        switch (this->direction >> 3) {
+    if ((dir & 0x80) == 0) {
+        switch (dir >> 3) {
             case 0:
-                oldValue = this->y.HALF_U.HI;
-                LinearMoveUpdate(this);
-                newValue = this->y.HALF_U.HI;
+                oldValue = that->y.HALF_U.HI;
+                LinearMoveUpdate(that);
+                newValue = that->y.HALF_U.HI;
                 diff = ((oldValue - newValue) << 0x10) >> 0x10;
-                if ((diff != 0) && (param_2 != 0)) {
+                if ((diff != 0) && (p2 != 0)) {
                     sub_080044AE(&gPlayerEntity, diff << 8, 0);
                 }
                 break;
             case 1:
-                oldValue = this->x.HALF_U.HI;
-                LinearMoveUpdate(this);
-                diff = ((this->x.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
-                if ((diff != 0) && (param_2 != 0)) {
+                oldValue = that->x.HALF_U.HI;
+                LinearMoveUpdate(that);
+                diff = ((that->x.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
+                if ((diff != 0) && (p2 != 0)) {
                     sub_080044AE(&gPlayerEntity, diff << 8, 8);
                 }
                 break;
             case 2:
-                oldValue = this->y.HALF_U.HI;
-                LinearMoveUpdate(this);
-                diff = ((this->y.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
-                if ((diff != 0) && (param_2 != 0)) {
+                oldValue = that->y.HALF_U.HI;
+                LinearMoveUpdate(that);
+                diff = ((that->y.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
+                if ((diff != 0) && (p2 != 0)) {
                     sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
                 }
                 break;
             case 3:
-                oldValue = this->x.HALF_U.HI;
-                LinearMoveUpdate(this);
-                newValue = this->x.HALF_U.HI;
+                oldValue = that->x.HALF_U.HI;
+                LinearMoveUpdate(that);
+                newValue = that->x.HALF_U.HI;
                 diff = ((oldValue - newValue) << 0x10) >> 0x10;
-                if ((diff != 0) && (param_2 != 0)) {
+                if ((diff != 0) && (p2 != 0)) {
                     sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
                 }
                 break;
         }
     }
 }
-END_NONMATCH
 
 void UpdateRailMovement(Entity* this, u16** param_2, u16* param_3) {
     u16* ptr = *param_2;
