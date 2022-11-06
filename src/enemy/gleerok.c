@@ -548,7 +548,7 @@ void sub_0802D7B4(GleerokEntity* this) {
     sub_0802E518(this);
 }
 
-NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokEntity* this)) {
+void sub_0802D86C(GleerokEntity* this) {
     Entity* enemy;
     Entity* enemy2;
     switch (super->type) {
@@ -638,7 +638,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             super->child = enemy;
             if (enemy) {
                 enemy->parent = super->parent;
-                super->timer = this->unk_84->filler[0].unk0.HALF.HI;
+                super->timer = this->unk_84->filler[0].unk1;
                 this->unk_84->ent = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
@@ -669,8 +669,8 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                     SoundReq(SFX_BUTTON_PRESS);
                 }
             } else {
-                if (super->timer != this->unk_84->filler[0].unk0.HALF.HI) {
-                    if (((super->timer - this->unk_84->filler[0].unk0.HALF.HI) & 0x1f) > 0x10) {
+                if (super->timer != this->unk_84->filler[0].unk1) {
+                    if (((super->timer - this->unk_84->filler[0].unk1) & 0x1f) > 0x10) {
                         if (++super->frameIndex >= 0x31) {
                             super->frameIndex = 0x28;
                         }
@@ -680,7 +680,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                         }
                     }
 
-                    super->timer = this->unk_84->filler[0].unk0.HALF.HI;
+                    super->timer = this->unk_84->filler[0].unk1;
                 }
             }
 
@@ -692,14 +692,12 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             if (super->zVelocity > 0)
                 return;
 
-            enemy = CreateEnemy(GLEEROK, 4);
-            super->child = enemy;
-            if (enemy) {
-                enemy->parent = super->parent;
+            super->child = CreateEnemy(GLEEROK, 4);
+            if (super->child) {
+                super->child->parent = super->parent;
                 this->unk_84->ent = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
-                // Making super in super->child volatile solves this but ugly
-                CopyPosition(super, super->child);
+                CopyPosition(super, ((volatile Entity*)super)->child);
                 DeleteThisEntity();
             }
 
@@ -710,7 +708,6 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             break;
     }
 }
-END_NONMATCH
 
 void sub_0802DB84(GleerokEntity* this) {
     u32 timer;
