@@ -413,7 +413,43 @@ void sub_08030834(ArmosEntity* this) {
     SetTile(this->unk_78, COORD_TO_TILE(super), super->collisionLayer);
 }
 
-ASM_FUNC("asm/non_matching/armos/sub_0803086C.inc", bool32 sub_0803086C(ArmosEntity* this))
+bool32 sub_0803086C(ArmosEntity* this) {
+    u32 uVar2;
+    u32 pos;
+    u32 pos2;
+    u16 centerY;
+    u16 centerX;
+    FORCE_REGISTER(u32 r2, r2);
+
+    if (this->unk_7c != NULL) {
+        if ((gPlayerState.flags & 0x80) != 0) {
+            centerX = super->x.HALF_U.HI - gRoomControls.origin_x;
+            centerY = super->y.HALF_U.HI - gRoomControls.origin_y;
+            // TODO for some reason the 0x3f of COORD_TO_TILE(super) needs to be forced to r2 here.
+            pos = ((((((super)->x.HALF.HI) - gRoomControls.origin_x) >> 4) & (r2 = 0x3f)) |
+                   (((((super)->y.HALF.HI) - gRoomControls.origin_y) >> 4) & r2) << 6);
+
+            if (GetTileType(pos, super->collisionLayer) == 0x4049) {
+                if (CheckPlayerInRegion(centerX, centerY, 2, 0xc) != 0) {
+                    if (CheckPlayerInRegion(centerX, centerY - 4, 2, 4) != 0) {
+                        gPlayerEntity.spritePriority.b0 = 3;
+                        DoExitTransition(this->unk_7c);
+                        gRoomTransition.armos_data.field_0xae = this->unk_80;
+                        return TRUE;
+                    }
+                } else {
+                    SetTile(0x4022, pos, super->collisionLayer);
+                }
+            } else {
+                if (CheckPlayerInRegion(centerX, centerY + 6, 2, 5) != 0) {
+                    SetTile(0x4049, COORD_TO_TILE(super), super->collisionLayer);
+                }
+            }
+        }
+        super->spritePriority.b0 = 4;
+    }
+    return FALSE;
+}
 
 void sub_080309A8(ArmosEntity* this) {
     GetNextFrame(super);
