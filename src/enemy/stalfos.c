@@ -73,7 +73,10 @@ void Stalfos_OnTick(StalfosEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosEntity* this)) {
+void sub_0803933C(StalfosEntity* this) {
+    Entity* r0;
+    Entity* r1;
+    u32 r2;
     if (super->hitType == 0x44) {
         switch (super->contactFlags & 0x7f) {
             case 4 ... 6:
@@ -87,20 +90,23 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
                 break;
         }
     }
-    if (super->contactFlags == 0x9d) {
-        if (super->child == NULL) {
+    r2 = super->contactFlags;
+    if (r2 == 0x9d) {
+        r1 = super->child;
+        if (r1 == NULL) {
             if (super->action < 9) {
-                Entity* projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
-                if (projectile != NULL) {
-                    projectile->frameIndex = super->animationState << 1;
-                    projectile->type2 = 2;
+                r1 = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
+                if (r1 != NULL) {
+                    r1->frameIndex = super->animationState << 1;
+                    r1->type2 = 2;
                     EnqueueSFX(SFX_186);
                 }
                 sub_08039A48(this);
                 this->unk_78 += 0x5a;
             }
         } else {
-            super->child->contactFlags = 0x9d;
+            r0 = r1;
+            r0->contactFlags = r2;
             EnqueueSFX(SFX_186);
             super->child = NULL;
             sub_08039A48(this);
@@ -113,7 +119,6 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
     }
     EnemyFunctionHandlerAfterCollision(super, Stalfos_Functions);
 }
-END_NONMATCH
 
 void sub_08039418(StalfosEntity* this) {
     if (super->type == 0) {

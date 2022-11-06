@@ -174,8 +174,9 @@ bool32 sub_0806650C(Entity* this) {
     return 1;
 }
 
-NONMATCH("asm/non_matching/npc23/sub_08066570.inc", void sub_08066570(Entity* this)) {
+void sub_08066570(Entity* this) {
     u32 direction;
+    s32 tmp;
     u32 dir1, dir2;
     bool32 cond;
     if ((this->frame & ANIM_DONE) == 0) {
@@ -191,6 +192,7 @@ NONMATCH("asm/non_matching/npc23/sub_08066570.inc", void sub_08066570(Entity* th
 
     dir2 = (direction & 0x18);
     dir1 = (this->direction & 0x18);
+    tmp = 0x18;
     if (dir1 == dir2) {
         dir1 = (direction + 5) & 7;
         dir2 = (this->direction + 5) & 7;
@@ -201,9 +203,8 @@ NONMATCH("asm/non_matching/npc23/sub_08066570.inc", void sub_08066570(Entity* th
     if (cond) {
         this->direction = direction;
         direction += 4;
-        direction &= 0x18;
+        direction &= tmp;
         direction >>= 3;
         InitializeAnimation(this, direction);
     }
 }
-END_NONMATCH

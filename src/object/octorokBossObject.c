@@ -146,8 +146,7 @@ void OctorokBossObject_Init(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
-         void OctorokBossObject_Action1(Entity* this)) {
+void OctorokBossObject_Action1(Entity* this) {
     s32 tmp_c;
     u32 loop_var;
 
@@ -184,7 +183,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             if ((u32)this->timer == GET_HELPER(this)->tailCount - 1) {
                 this->action = 2;
                 this->timer = 240;
-                this->direction = gUnk_0812384C[(this->type2 & 0xf) * 2] + ((u8)Random() & 0xf);
+                this->direction = gUnk_0812384C[(u8)((this->type2 & 0xf) * 2)] + ((u8)Random() & 0xf);
                 this->speed = gUnk_0812384C[(this->type2 & 0xf) * 2 + 1] + ((u16)Random() & 0x1ff);
                 if (this->type != 0) {
                     return;
@@ -233,6 +232,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 *(int*)&this->field_0x78 += -1;
                 return;
             }
+            GET_HELPER(this)->tailObjects[this->timer]->x = GET_HELPER(this)->tailObjects[this->timer]->x;
             DeleteThisEntity();
             break;
         case 5:
@@ -245,6 +245,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                     this->field_0x76.HWORD -= 0x20;
                     this->field_0x74.HWORD -= 0x20;
                 }
+
                 SetAffineInfo(this, (u32)this->field_0x76.HWORD, (u32)(u16)this->field_0x74.HWORD,
                               (u32)(u16)this->field_0x7a.HWORD);
             } else {
@@ -313,7 +314,6 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             break;
     }
 }
-END_NONMATCH
 
 void OctorokBossObject_Action2(Entity* this) {
     s32 tmp;

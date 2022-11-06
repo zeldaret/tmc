@@ -1048,8 +1048,52 @@ void sub_080369D0(OctorokBossEntity* this, s32 radius, s32 angleSpeed) {
 }
 
 /** Calculate tail angles frozen sub_08036AF0 */
-ASM_FUNC("asm/non_matching/octorokBoss/sub_08036AF0.inc",
-         void sub_08036AF0(OctorokBossEntity* this, s32 radius, s32 angleSpeed))
+void sub_08036AF0(OctorokBossEntity* this, s32 radius, s32 angleSpeed) {
+    s16 tmp;
+    OctorokBossHeap* heap;
+    u32 index;
+    heap = this->heap;
+    for (index = heap->tailCount - 1; index != 0; index--) {
+        if (angleSpeed == 0) {
+            if (radius >= sub_080041DC(&heap->tailObjects[index]->base, heap->tailObjects[index - 1]->base.x.HALF.HI,
+                                       heap->tailObjects[index - 1]->base.y.HALF.HI)) {
+                continue;
+            } else {
+                heap->tailObjects[index - 1]->angle.HALF.HI =
+                    sub_080045DA(heap->tailObjects[index - 1]->base.x.WORD - heap->tailObjects[index]->base.x.WORD,
+                                 heap->tailObjects[index - 1]->base.y.WORD - heap->tailObjects[index]->base.y.WORD);
+                tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI], radius << 4);
+                tmp = FixedDiv(tmp, 0x100);
+                heap->tailObjects[index - 1]->base.x.WORD = heap->tailObjects[index]->base.x.WORD + ((s32)tmp << 8);
+                tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI + 0x40], radius << 4);
+                heap->tailObjects[index - 1]->base.y.WORD =
+                    heap->tailObjects[index]->base.y.WORD - (FixedDiv(tmp, 0x100) << 8);
+            }
+        } else {
+            if (heap->tailObjects[index - 1]->angle.HALF.HI != heap->tailObjects[index]->angle.HALF.HI) {
+                if ((s8)(heap->tailObjects[index]->angle.HALF.HI - heap->tailObjects[index - 1]->angle.HALF.HI) >= 1) {
+                    if ((s8)(heap->tailObjects[index]->angle.HALF.HI - heap->tailObjects[index - 1]->angle.HALF.HI) >
+                        (u8)angleSpeed) {
+                        heap->tailObjects[index - 1]->angle.HALF.HI =
+                            heap->tailObjects[index]->angle.HALF.HI - angleSpeed;
+                    }
+                } else {
+                    if ((s8)(heap->tailObjects[index]->angle.HALF.HI - heap->tailObjects[index - 1]->angle.HALF.HI) <
+                        (s8)-angleSpeed) {
+                        heap->tailObjects[index - 1]->angle.HALF.HI =
+                            heap->tailObjects[index]->angle.HALF.HI + angleSpeed;
+                    }
+                }
+            }
+            tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI], radius << 4);
+            heap->tailObjects[index - 1]->base.x.WORD =
+                heap->tailObjects[index]->base.x.WORD + (FixedDiv(tmp, 0x100) << 8);
+            tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI + 0x40], radius << 4);
+            heap->tailObjects[index - 1]->base.y.WORD =
+                heap->tailObjects[index]->base.y.WORD - (FixedDiv(tmp, 0x100) << 8);
+        }
+    }
+}
 
 void OctorokBoss_SetAttackTimer(OctorokBossEntity* this) {
     // These attack timers are only used if the boss isn't frozen and gRoomVars.field_0xc != 0x100

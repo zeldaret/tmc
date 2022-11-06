@@ -78,7 +78,7 @@ extern void sub_0802EA48(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, 
 extern void sub_0802EA68(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4);
 extern bool32 sub_0802EA88(Gleerok_HeapStruct* param_1);
-extern bool32 sub_0802E768(Gleerok_HeapStruct* param_1);
+extern void sub_0802E768(Gleerok_HeapStruct* param_1);
 
 void Gleerok_OnTick(GleerokEntity* this);
 void Gleerok_OnDeath(GleerokEntity* this);
@@ -548,7 +548,7 @@ void sub_0802D7B4(GleerokEntity* this) {
     sub_0802E518(this);
 }
 
-NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokEntity* this)) {
+void sub_0802D86C(GleerokEntity* this) {
     Entity* enemy;
     Entity* enemy2;
     switch (super->type) {
@@ -692,14 +692,12 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             if (super->zVelocity > 0)
                 return;
 
-            enemy = CreateEnemy(GLEEROK, 4);
-            super->child = enemy;
-            if (enemy) {
-                enemy->parent = super->parent;
+            super->child = CreateEnemy(GLEEROK, 4);
+            if (super->child) {
+                super->child->parent = super->parent;
                 this->unk_84->ent = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
-                // Making super in super->child volatile solves this but ugly
-                CopyPosition(super, super->child);
+                CopyPosition(super, ((volatile Entity*)super)->child);
                 DeleteThisEntity();
             }
 
@@ -710,7 +708,6 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             break;
     }
 }
-END_NONMATCH
 
 void sub_0802DB84(GleerokEntity* this) {
     u32 timer;
@@ -1319,13 +1316,11 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleerok_HeapStruct* param_1)) {
+void sub_0802E768(Gleerok_HeapStruct* param_1) {
+    u32 cVar1;
     s32 bVar2;
     s32 bVar2a;
-    u32 bVar3;
-
-    // solves regalloc
-    // register u32 bVar3 asm("r1");
+    FORCE_REGISTER(u32 bVar3, r1);
     u32 bVar3a;
     u32 uVar4;
     s32 iVar5;
@@ -1343,8 +1338,8 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleero
         }
 
         param_1->filler[uVar4].unk0.HALF.HI = bVar3;
-        bVar3 = param_1->filler2[uVar4].unk0.HALF.HI;
-        bVar2 = (bVar3 - param_1->filler2[uVar4 + 1].unk0.HALF.HI) & 0x1f;
+        bVar3 = param_1->filler2[(uVar4)].unk0.HALF.HI;
+        bVar2 = (bVar3 - param_1->filler2[(uVar4 + 1)].unk0.HALF.HI) & 0x1f;
 
         if (bVar2 > 0x10) {
             if (bVar2 <= 0x1d) {
@@ -1354,10 +1349,9 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleero
             bVar3 = (bVar3 - 1) & 0x1f;
         }
 
-        param_1->filler2[uVar4].unk0.HALF.HI = bVar3;
+        param_1->filler2[(uVar4)].unk0.HALF.HI = bVar3;
     }
 }
-END_NONMATCH
 
 u32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4) {
     param_1->entities[(u8)param_2]->animationState = param_1->filler[(u8)param_2].unk0.HALF.HI;

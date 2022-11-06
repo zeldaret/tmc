@@ -813,20 +813,22 @@ void sub_08080C80(u32* param_1) {
     sub_0807C8B0(gMapTop.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
 }
 
-NONMATCH("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* this)) {
+void sub_08080CB4(Entity* this) {
     Entity* effect;
     u32 tmp;
     u32 tmp2;
+    u32 tmp3;
+    u32 mask;
 
     if (this->type != this->animIndex) {
         InitAnimationForceUpdate(this, this->type);
         if (this->type == 0x5c) {
             const KinstoneWorldEvent* ptr = &gKinstoneWorldEvents[this->type2];
-            this->palette.raw = ((ptr->objPalette & 0xf) << 4) | ptr->objPalette;
+            tmp = ptr->objPalette;
+            tmp2 = tmp & 0xf;
+            this->palette.raw = (tmp << 4) | tmp2;
         }
-
     } else {
-
         UpdateAnimationSingleFrame(this);
         if (this->spriteSettings.draw != 0) {
             switch (this->type) {
@@ -857,4 +859,3 @@ NONMATCH("asm/non_matching/scroll/sub_08080CB4.inc", void sub_08080CB4(Entity* t
         }
     }
 }
-END_NONMATCH

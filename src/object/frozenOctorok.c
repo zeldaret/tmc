@@ -40,6 +40,8 @@ void FrozenOctorok_ChangeObjPaletteOfChildren(FrozenOctorokEntity*, u32);
 void sub_0809CBE4(FrozenOctorokEntity*);
 void sub_0809CB70(FrozenOctorokEntity*, s32, s32);
 
+extern const u8 gUnk_08123E1C[];
+
 void FrozenOctorok(FrozenOctorokEntity* this) {
     static void (*const FrozenOctorok_Actions[])(FrozenOctorokEntity*) = {
         FrozenOctorok_Init,
@@ -162,8 +164,87 @@ const u8 gUnk_08123E1C[] = {
     128,
 };
 
-ASM_FUNC("asm/non_matching/frozenOctorok/FrozenOctorok_Action1.inc",
-         void FrozenOctorok_Action1(FrozenOctorokEntity* this))
+void FrozenOctorok_Action1(FrozenOctorokEntity* this) {
+    u32 tmp1;
+    u32 tmp2;
+
+    switch (super->type) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            SortEntityBelow(super->parent, super);
+            if (super->parent->subAction == 6) {
+                if ((s8)super->subtimer < 0) {
+                    super->subtimer = -this->heap->unk_0;
+                } else {
+                    super->subtimer = this->heap->unk_0;
+                }
+                sub_0809CBE4(this);
+            }
+            tmp1 = 0x10000 / (((FrozenOctorokEntity*)super->parent)->unk_76);
+            tmp1 = ((tmp1 << 0xd) >> 8);
+            tmp1 -= 0x2000;
+            if (this->heap->mouthObject->base.health == 1) {
+                tmp1 = 0x2200 + tmp1;
+            } else {
+                tmp1 = (tmp1 >> 1) + 0x2200;
+            }
+            tmp2 = (u8) - (((FrozenOctorokEntity*)super->parent)->unk_7b + gUnk_08123E18[super->type - 1]);
+            sub_0809CB70(this, tmp2, tmp1);
+            this->unk_7b =
+                ((FrozenOctorokEntity*)super->parent)->unk_7b + gUnk_08123E1C[super->type - 1] + this->unk_79;
+            SetAffineInfo(super, this->unk_76, this->unk_74, *(u16*)&this->unk_7a);
+            break;
+        case 5:
+            SortEntityBelow(super->parent, super);
+            if ((super->parent->subAction != 4) && (super->health != 1)) {
+                if (0x1c < this->unk_79) {
+                    this->unk_79--;
+                }
+                if (this->unk_76 > 0x100) {
+                    this->unk_76--;
+                } else {
+                    this->unk_76 = 0x100;
+                }
+            }
+            tmp1 = (0x10000 / ((FrozenOctorokEntity*)super->parent)->unk_74);
+            tmp1 = ((this->unk_79 << 8) * tmp1 >> 8);
+            tmp2 = (u8) - (((FrozenOctorokEntity*)super->parent)->unk_7b + 0x80);
+            sub_0809CB70(this, tmp2, tmp1);
+            this->unk_7b = ((FrozenOctorokEntity*)super->parent)->unk_7b;
+            SetAffineInfo(super, this->unk_76, this->unk_74, *(u16*)&this->unk_7a);
+            return;
+        case 0:
+            if (CheckFlags(OUGONTEKI_G)) {
+                RequestPriorityDuration(super, 0x1e);
+            }
+            FrozenOctorok_Action1SubActions[super->subAction](this);
+            if (super->subtimer != 0) {
+                if ((gRoomTransition.frameCount & 7) == 0) {
+                    CreateSparkle(super->child);
+                }
+                if (this->unk_7e != 0) {
+                    super->child->zVelocity = super->child->zVelocity - (s16)this->unk_7e;
+                    super->child->z.WORD += super->child->zVelocity;
+                    if (((super->child)->zVelocity == 0x3000) || ((super->child)->zVelocity == -0x3000)) {
+                        this->unk_7e = -this->unk_7e;
+                    }
+                }
+            }
+            SetAffineInfo(super, this->unk_76, this->unk_74, *(u16*)&this->unk_7a);
+            break;
+        case 6:
+            CopyPosition(super->parent, super);
+            SetAffineInfo(super, this->unk_76, this->unk_74, *(u16*)&this->unk_7a);
+            break;
+        case 7:
+            if (gRoomControls.camera_target != super) {
+                DeleteThisEntity();
+            }
+            break;
+    }
+}
 
 void FrozenOctorok_Action1SubAction0(FrozenOctorokEntity* this) {
     Entity* child;
