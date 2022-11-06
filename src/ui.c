@@ -592,27 +592,29 @@ void DrawKeys(void) {
     }
 }
 
-NONMATCH("asm/non_matching/ui/CreateUIElement.inc", void CreateUIElement(u32 type, u32 type2)) {
-    u8 bVar1;
+void CreateUIElement(u32 type, u32 type2) {
     u32 index;
+    UIElement* new_var;
     UIElement* element;
-    UIElementDefinition* definition;
 
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
-        element = &gUnk_0200AF00.elements[index];
-        if (element->used == 0) {
-            definition = &gUIElementDefinitions[type];
-            element->type = (u8)type;
+
+        element = gUnk_0200AF00.elements;
+        element += index;
+
+        if (!element->used) {
+            element->type = type;
             element->type2 = type2;
             element->frameIndex = 0xff;
             element->used = 1;
-            element->unk_1a = definition->unk_4;
-            element->buttonElementId = definition->buttonElementId;
+            element->unk_1a = gUIElementDefinitions[type].unk_4;
+            // Permuter trickery. TODO find something more senseful?
+            index = type;
+            element->buttonElementId = gUIElementDefinitions[index].buttonElementId;
             return;
         }
     }
 }
-END_NONMATCH
 
 void sub_0801CAB8(UIElement* element, Frame* frame) {
     element->framePtr = frame;
