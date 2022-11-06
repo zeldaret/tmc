@@ -1316,20 +1316,18 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleerok_HeapStruct* param_1)) {
+void sub_0802E768(Gleerok_HeapStruct* param_1) {
+    u32 cVar1;
     s32 bVar2;
     s32 bVar2a;
-    u32 bVar3;
-
-    // solves regalloc
-    // register u32 bVar3 asm("r1");
+    FORCE_REGISTER(u32 bVar3, r1);
     u32 bVar3a;
     u32 uVar4;
     s32 iVar5;
 
     for (uVar4 = 0; uVar4 <= 4; uVar4++) {
-        bVar3 = param_1->filler[uVar4].unk0.HALF.HI;
-        bVar2 = (bVar3 - param_1->filler[uVar4 + 1].unk0.HALF.HI) & 0x1f;
+        bVar3 = param_1->filler[uVar4].unk1;
+        bVar2 = (bVar3 - param_1->filler[uVar4 + 1].unk1) & 0x1f;
 
         if (bVar2 > 0x10) {
             if (bVar2 <= 0x1e) {
@@ -1339,9 +1337,9 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleero
             bVar3 = (bVar3 - 1) & 0x1f;
         }
 
-        param_1->filler[uVar4].unk0.HALF.HI = bVar3;
-        bVar3 = param_1->filler2[uVar4].unk0.HALF.HI;
-        bVar2 = (bVar3 - param_1->filler2[uVar4 + 1].unk0.HALF.HI) & 0x1f;
+        param_1->filler[uVar4].unk1 = bVar3;
+        bVar3 = param_1->filler2[(uVar4)].unk1;
+        bVar2 = (bVar3 - param_1->filler2[(uVar4 + 1)].unk1) & 0x1f;
 
         if (bVar2 > 0x10) {
             if (bVar2 <= 0x1d) {
@@ -1351,10 +1349,9 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E768.inc", bool32 sub_0802E768(Gleero
             bVar3 = (bVar3 - 1) & 0x1f;
         }
 
-        param_1->filler2[uVar4].unk0.HALF.HI = bVar3;
+        param_1->filler2[(uVar4)].unk1 = bVar3;
     }
 }
-END_NONMATCH
 
 u32 sub_0802E7CC(Gleerok_HeapStruct* param_1, u32 param_2, u32 param_3, u32 param_4) {
     param_1->entities[(u8)param_2]->animationState = param_1->filler[(u8)param_2].unk0.HALF.HI;
