@@ -55,13 +55,11 @@ const u8 gUnk_08123DDC[] = {
     9, 4, 0, 0, 1, 5, 0, 0, 1, 4, 0, 0, 1, 3, 0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 10, 4, 0, 0,
 };
 
-NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Init.inc", void FrozenOctorok_Init(FrozenOctorokEntity* this)) {
+void FrozenOctorok_Init(FrozenOctorokEntity* this) {
     OctorokBossHeap* heap;
-    Entity*** pppEVar2;
-    FrozenOctorokEntity* pEVar3;
     FrozenOctorokEntity* obj1;
     FrozenOctorokEntity* obj2;
-    u32 uVar3;
+    u32 i;
     u32 type;
 
     super->action = 1;
@@ -89,13 +87,15 @@ NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Init.inc", void FrozenOct
                     return;
                 }
                 super->myHeap = heap;
+                MEMORY_BARRIER;
                 this->heap->tailCount = 5;
 
-                for (uVar3 = 0; uVar3 < 4; uVar3++) {
-                    super->child = CreateObjectWithParent(super, FROZEN_OCTOROK, uVar3 + 1, 0);
+                for (i = 0; i < 4; i++) {
+                    super->child = CreateObjectWithParent(super, FROZEN_OCTOROK, i + 1, 0);
                     if (super->child != NULL) {
                         ((FrozenOctorokEntity*)super->child)->heap = this->heap;
-                        this->heap->legObjects[uVar3] = (OctorokBossEntity*)super->child;
+                        MEMORY_BARRIER;
+                        this->heap->legObjects[i] = (OctorokBossEntity*)super->child;
                     }
                 }
                 obj1 = (FrozenOctorokEntity*)CreateObjectWithParent(super, FROZEN_OCTOROK, 5, 0);
@@ -143,7 +143,6 @@ NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Init.inc", void FrozenOct
     InitializeAnimation(super, gUnk_08123DDC[super->type * 4]);
     FrozenOctorok_Action1(this);
 }
-END_NONMATCH
 
 void (*const FrozenOctorok_Action1SubActions[])(FrozenOctorokEntity*) = {
     FrozenOctorok_Action1SubAction0, FrozenOctorok_Action1SubAction1, FrozenOctorok_Action1SubAction2,

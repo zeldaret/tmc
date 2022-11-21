@@ -98,7 +98,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                         sub_080994B8(this);
                         break;
                     case 0:
-                        obj = CreateObject(SPECIAL_FX, 0xd, 0);
+                        obj = CreateObject(SPECIAL_FX, FX_ICE, 0);
                         if (obj != NULL) {
                             CopyPosition(super, obj);
                         }
@@ -165,7 +165,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
         }
         SetAffineInfo(super, 0x100, (0x3c - super->timer) * 0x20 + 0x100, 0);
         if ((super->timer & 1) != 0) {
-            obj = CreateObject(SPECIAL_FX, 0x11, 0x40);
+            obj = CreateObject(SPECIAL_FX, FX_DASH, 0x40);
             if (obj != NULL) {
                 rand = Random();
                 x = ((rand >> 0x10) % 9) - 4;

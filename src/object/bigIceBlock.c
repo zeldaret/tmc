@@ -116,7 +116,7 @@ void sub_08099880(BigIceBlockEntity* this) {
         uVar4 = (0x3c - super->timer) * 0x20 + 0x100;
         SetAffineInfo(super, 0x100, uVar4, 0);
         sub_0806FCF4(super, uVar4, 2, 0);
-        obj = CreateObject(SPECIAL_FX, 0x11, 0x40);
+        obj = CreateObject(SPECIAL_FX, FX_DASH, 0x40);
         if (obj != NULL) {
             rand = Random();
             x = ((rand >> 0x10) % 0x21) - 0x10;

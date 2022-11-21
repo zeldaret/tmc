@@ -44,7 +44,7 @@ const ObjectDefinition gObjectDefinition_F[] = {
     { { 1, 0, 0, 0, 154, 2, 0 }, { 4, 0, 0, 0, SPRITE_SPECIALFX, 0, 0 } },     // FX_BROWN_SMOKE_LARGE
     { { 1, 0, 0, 0, 154, 2, 0 }, { 4, 0, 0, 0, SPRITE_SPECIALFX, 0, 0 } },     // FX_BROWN_SMOKE2
     { { 1, 0, 0, 0, 243, 0, 0 }, { 1, 0, 0, 0, SPRITE_SPECIALFX_1, 0, 0 } },   // FX_SWEAT
-    { { 1, 0, 0, 0, 60, 2, 0 }, { 4, 0, 0, 0, SPRITE_SPECIALFX, 0, 0 } },      // FX_26
+    { { 1, 0, 0, 0, 60, 2, 0 }, { 4, 0, 0, 0, SPRITE_SPECIALFX, 0, 0 } },      // FX_SPARKLE4
     { { 1, 0, 0, 0, 96, 2, 0 }, { 0, 0, 0, 0, SPRITE_SPECIALFX_1, 0, 0 } },    // FX_27
     { { 1, 0, 0, 0, 154, 2, 0 }, { 3, 0, 0, 0, SPRITE_SPECIALFX, 0, 0 } },     // FX_SLOW_EXPLOSION
     { { 1, 0, 0, 0, 113, 0, 0 }, { 71, 0, 0, 0, SPRITE_SPECIALFX_1, 0, 0 } },  // FX_CONFETTI

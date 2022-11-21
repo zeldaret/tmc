@@ -248,7 +248,7 @@ void CreateSparkle(Entity* entity) {
     s32 y;
     s32 x;
 
-    sparkle = CreateObject(SPECIAL_FX, 0x26, 0);
+    sparkle = CreateObject(SPECIAL_FX, FX_SPARKLE4, 0);
     if (sparkle != NULL) {
         rand = Random();
         x = rand & 0xf;

@@ -750,74 +750,71 @@ const u16 gUnk_080FC914[] = { 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0xf251, 0x
                               0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d, 0xf24d };
 
 // Handles drawing of hearts
-NONMATCH("asm/non_matching/save/sub_08050B3C.inc", void sub_08050B3C(u16* arg0)) {
-    unk_08050B3C sp;
-    int var0;
-    int var1;
-    int var2;
-    int var3;
-    int var4;
-    int var5;
-    int var6;
-    int var7;
-    u16* var8;
+void sub_08050B3C(u16* target) {
+    s32 currentQuarterHearts;
+    s32 maxQuarterHearts;
+    s32 maxHeartsFirstRow;
+    s32 currentFullHearts;
+    s32 maxHeartsSecondRow;
+    u32 currentFullHeartsFirstRow;
+    s32 currentFullHeartsSecondRow;
+    u16* temp_target;
+    u32 currentPartialHeartValue;
+    u32 maxHearts;
 
-    sp.unk0 = arg0;
-    var0 = gSave.stats.health / 2;
-    if (var0 == 0) {
-        var0 = 1;
+    currentQuarterHearts = gSave.stats.health / 2;
+    if (currentQuarterHearts == 0) {
+        currentQuarterHearts = 1;
     }
 
-    var1 = gSave.stats.maxHealth / 2;
-    if (var1 == 0) {
+    maxQuarterHearts = gSave.stats.maxHealth / 2;
+    if (maxQuarterHearts == 0) {
         return;
     }
 
-    if (var0 > var1) {
-        var0 = var1;
+    if (currentQuarterHearts > maxQuarterHearts) {
+        currentQuarterHearts = maxQuarterHearts;
     }
 
-    sp.unk4 = var0 & 0x3;
-    var2 = var0 * 2;
-    var5 = var2;
-    if (var2 > 10) {
-        var5 = 10;
+    currentPartialHeartValue = currentQuarterHearts & 3;
+    currentFullHearts = currentQuarterHearts / 4;
+    currentFullHeartsFirstRow = currentFullHearts;
+    if (currentFullHearts > 10) {
+        currentFullHeartsFirstRow = 10;
     }
 
-    var6 = var2;
-    var6 -= 10;
-    var7 = var6;
-    if (var6 < 0) {
-        var7 = 0;
+    currentFullHeartsSecondRow = currentFullHearts - 10;
+    if (currentFullHeartsSecondRow < 0) {
+        currentFullHeartsSecondRow = 0;
     }
 
-    var1 = var1 >> 2;
-    var4 = var1;
-    if (var1 > 10) {
-        var1 = 10;
+    maxHearts = maxQuarterHearts / 4;
+    maxHeartsFirstRow = maxHearts;
+    if (maxHeartsFirstRow > 10) {
+        maxHeartsFirstRow = 10;
+    }
+    maxHeartsSecondRow = maxHearts - 10;
+    temp_target = target;
+    temp_target[0] = 0xF24C;
+    DmaCopy16(3, &gUnk_080FC914[10 - currentFullHeartsFirstRow], &temp_target[1], maxHeartsFirstRow * 2);
+    if (maxHeartsSecondRow > 0) {
+        temp_target += 0x20;
+        temp_target[0] = 0xF24C;
+        DmaCopy16(3, &gUnk_080FC914[10 - currentFullHeartsSecondRow], &temp_target[1], maxHeartsSecondRow * 2);
     }
 
-    var4 -= 10;
-    sp.unk0[0] = 0xF24C;
-    DmaCopy16(3, &gUnk_080FC914[10 - var5], &sp.unk0[1], var1 * 2);
-    if (var4 > 0) {
-        sp.unk0[0x20] = 0xF24C;
-        DmaCopy16(3, &gUnk_080FC914[10 - var7], &sp.unk0[1], var4 * 2);
-    }
-
-    if (!sp.unk4) {
+    if (!currentPartialHeartValue) {
         return;
     }
 
-    var8 = sp.unk0;
-    if (var2 >= 10) {
-        var2 = var6;
-        var8 += 0x20;
+    temp_target = target;
+    if (currentFullHearts >= 10) {
+        currentFullHearts = currentFullHearts - 10;
+        temp_target += 0x20;
     }
 
-    var8[var2 + 1] = sp.unk4 - 0xDB3;
+    temp_target[currentFullHearts + 1] = currentPartialHeartValue - 0xDB3;
 }
-END_NONMATCH
 
 void sub_08050C54(void);
 void sub_08050D68(void);

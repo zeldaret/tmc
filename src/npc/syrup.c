@@ -57,7 +57,7 @@ void sub_0806A26C(Entity* this) {
     const s8* ptr;
     u32 uVar2, uVar1;
     Entity* pEVar1;
-    pEVar1 = CreateObject(SPECIAL_FX, 0x2f, 0);
+    pEVar1 = CreateObject(SPECIAL_FX, FX_SLOW_SMOKE_SMALL, 0);
     if (pEVar1 != NULL) {
         PositionEntityOnTop(this, pEVar1);
         uVar2 = uVar1 = Random();

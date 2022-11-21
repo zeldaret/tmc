@@ -317,7 +317,125 @@ const u8 gUnk_080CF08C[] = {
     0, 4, 0, 0, 1, 5, 0, 0, 1, 4, 0, 0, 1, 3, 0, 0, 1, 2, 0, 0, 2, 1, 0, 0, 1, 1, 0, 0, 3, 6, 0, 0,
 };
 
-ASM_FUNC("asm/non_matching/octorokBoss/OctorokBoss_Init.inc", void OctorokBoss_Init(OctorokBossEntity* this))
+void OctorokBoss_Init(OctorokBossEntity* this) {
+    u32 leg;
+    u32 tail;
+
+    super->action = ACTION1;
+    super->spriteSettings.draw = 3;
+    switch (super->type) {
+        case WHOLE:
+            super->spritePriority.b0 = 4;
+            this->bossPhase = 0;
+            super->timer = 1;
+            this->heap = (OctorokBossHeap*)zMalloc(sizeof(OctorokBossHeap));
+            if (this->heap == NULL) {
+                // Kill this boss
+                GenericDeath(super);
+                return;
+            } else {
+
+                super->myHeap = (u32*)this->heap;
+            }
+            MEMORY_BARRIER;
+            (this->heap)->fallingStonesTimer = 0;
+            (this->heap)->unk_0 = 2;
+            (this->heap)->field_0x2 = 0;
+            (this->heap)->tailCount = 5;
+            super->spriteRendering.b0 = 3;
+            this->field_0x6c.HALF.HI |= 1;
+            this->unk_76 = 0xa0;
+            this->unk_74 = 0xa0;
+            this->angle.HWORD = 0;
+            // Create legs
+            for (leg = 0; leg < 4; leg++) {
+                super->child = CreateEnemy(OCTOROK_BOSS, leg + 1);
+                if (super->child != NULL) {
+                    CopyPosition(super, super->child);
+                    super->child->parent = super;
+                    ((OctorokBossEntity*)super->child)->heap = this->heap;
+                    MEMORY_BARRIER;
+                    this->heap->legObjects[leg] = ((OctorokBossEntity*)super->child);
+                }
+            }
+            // Create mouth
+            super->child = CreateEnemy(OCTOROK_BOSS, MOUTH);
+            if (super->child != NULL) {
+                CopyPosition(super, super->child);
+                super->child->parent = super;
+                ((OctorokBossEntity*)super->child)->heap = this->heap;
+            }
+            // Create tail end
+            super->child = CreateEnemy(OCTOROK_BOSS, TAIL_END);
+            if (super->child != NULL) {
+                CopyPosition(super, super->child);
+                super->child->parent = super;
+                ((OctorokBossEntity*)super->child)->heap = this->heap;
+                MEMORY_BARRIER;
+                (this->heap)->tailObjects[0] = (OctorokBossEntity*)super->child;
+            }
+            // Create tails
+
+            for (tail = 0; tail < 4; tail++) {
+                super->child = CreateEnemy(OCTOROK_BOSS, TAIL);
+                if (super->child != NULL) {
+                    super->child->type2 = tail;
+                    CopyPosition(super, super->child);
+                    super->child->parent = super;
+                    ((OctorokBossEntity*)super->child)->heap = this->heap;
+                    MEMORY_BARRIER;
+                    this->heap->tailObjects[tail + 1] = (OctorokBossEntity*)super->child;
+                }
+            }
+            super->action = INTRO;
+            super->subAction = 0;
+            this->timer = 0x3c;
+            gPlayerEntity.spriteSettings.draw = 0;
+            gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
+            gPlayerEntity.y.HALF.HI = super->y.HALF.HI - 0xa0;
+            gRoomControls.camera_target = super;
+            break;
+        case LEG_BR:
+        case LEG_FR:
+        case LEG_FL:
+        case LEG_BL:
+            super->timer = 0x10;
+            this->timer = 0;
+            if ((super->type & 2) == 0) {
+                super->subtimer = 2;
+            } else {
+                super->subtimer = 0xfe;
+            }
+            this->unk_74 = 0x100;
+            if ((super->type & 1) == 0) {
+                this->unk_76 = 0xff00;
+            } else {
+                this->unk_76 = 0x100;
+            }
+            break;
+        case MOUTH:
+            this->unk_76 = 0x100;
+            this->unk_74 = 0x100;
+            this->timer = 0x1c;
+            this->heap->mouthObject = this;
+            break;
+        case TAIL_END:
+            this->unk_76 = 0x100;
+            this->unk_74 = 0x100;
+            super->spritePriority.b0 = 0;
+            this->timer = 0;
+            super->timer = 0x10;
+            super->subtimer = 1;
+            GET_TAIL_RADIUS(this) = 0x80;
+            break;
+    }
+    if (super->type != TAIL_END) {
+        InitializeAnimation(super, gUnk_080CF08C[super->type * 4]);
+    } else {
+        InitAnimationForceUpdate(super, gUnk_080CF08C[super->type * 4]);
+    }
+    OctorokBoss_Action1(this);
+}
 
 void OctorokBoss_Intro(OctorokBossEntity* this) {
     static void (*const OctorokBoss_Intro_SubActions[])(OctorokBossEntity*) = {

@@ -337,47 +337,54 @@ void sub_080A7A54(PlayerItemSwordEntity* this) {
     super->hitbox->height = tmp[3];
 }
 
-NONMATCH("asm/non_matching/playerItemSword/sub_080A7A84.inc", void sub_080A7A84(PlayerItemSwordEntity* this)) {
-    s32 iVar1;
+void sub_080A7A84(PlayerItemSwordEntity* this) {
+    u32 one;
     Entity* effect;
+    s16 new_var;
     s32 uVar3;
-    s32 uVar4;
+    Entity* new_var2;
     const s8* ptr;
-    const s8* ptr2;
     u32 tmp;
+    u32 tmp2;
+    u32 r5;
 
     if ((gPlayerEntity.frame & 0xf) != 0) {
         uVar3 = gUnk_08129072[((gPlayerEntity.frame & 0xf) - 1)][0];
-        uVar4 = gUnk_08129072[((gPlayerEntity.frame & 0xf) - 1)][1];
-        if (((gPlayerState.sword_state & 0xc0) == 0) &&
-            ((s32)((u32) * (u8*)&gPlayerEntity.spriteSettings * 0x2000000) < 0)) {
+        one = 1;
+        r5 = gUnk_08129072[(gPlayerEntity.frame & 0xf) - 1][one];
+        if (((gPlayerState.sword_state & 0xc0) == 0) && (gPlayerEntity.spriteSettings.flipX == 1)) {
             uVar3 = -uVar3;
         }
         if (super->type != 0) {
-            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + uVar4);
-        } else {
-            if ((((super->z.WORD == 0) && (sub_08008796(super, (gPlayerState.skills & 8) != 0, super->x.HALF.HI + uVar3,
-                                                        super->y.HALF.HI + uVar4) == NULL)) &&
+            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + r5);
+        } else if (super->z.WORD == 0) {
+            if (gPlayerState.skills & SKILL_ROCK_BREAKER) {
+                tmp2 = 1;
+            } else {
+                tmp2 = 0;
+            }
+            new_var = uVar3;
+            if (((sub_08008796(super, tmp2, super->x.HALF.HI + new_var, super->y.HALF.HI + r5) == NULL) &&
                  (gPlayerState.sword_state != 0)) &&
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
-                if (GetRelativeCollisionTile(super, uVar3, uVar4) == 0x2e) {
+                new_var2 = super;
+                if (GetRelativeCollisionTile(new_var2, new_var, r5) == 0x2e) {
                     SoundReqClipped(&gPlayerEntity, SFX_ITEM_GLOVES_KNOCKBACK);
                 } else {
                     SoundReqClipped(&gPlayerEntity, SFX_METAL_CLINK);
                 }
-                effect = CreateObject(SPECIAL_FX, 0x1a, 0);
+                effect = CreateObject(SPECIAL_FX, FX_LIGHTNING, 0);
                 if (effect != NULL) {
-                    ptr2 = gUnk_0812908E;
-                    effect->x.HALF.HI = super->x.HALF.HI + ptr2[super->animationState];
-                    tmp = super->animationState + 1;
-                    effect->y.HALF.HI = super->y.HALF.HI + (ptr2)[tmp];
-                    effect->z = super->z;
+                    ptr = gUnk_0812908E;
+                    effect->x.HALF.HI = new_var2->x.HALF.HI + ptr[new_var2->animationState];
+                    tmp = new_var2->animationState + 1;
+                    effect->y.HALF.HI = new_var2->y.HALF.HI + ptr[tmp];
+                    effect->z = new_var2->z;
                 }
             }
         }
     }
 }
-END_NONMATCH
 
 void sub_080A7B98(PlayerItemSwordEntity* this) {
     u32 i, j;

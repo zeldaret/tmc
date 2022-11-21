@@ -101,6 +101,12 @@
 #define FORCE_REGISTER(var, reg) register var asm(#reg)
 #endif
 
+#if NON_MATCHING
+#define MEMORY_BARRIER
+#else
+#define MEMORY_BARRIER asm("" ::: "memory")
+#endif
+
 typedef union {
     s32 WORD;
     struct {

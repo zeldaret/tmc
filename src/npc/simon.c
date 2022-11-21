@@ -28,7 +28,7 @@ void sub_0806C224(void) {
 }
 
 void Simon_CreateChest(Entity* this) {
-    CreateObjectWithParent(this, SPECIAL_FX, 0x43, 0);
+    CreateObjectWithParent(this, SPECIAL_FX, FX_BIG_EXPLOSION2, 0);
     SetTileType(0x73, COORD_TO_TILE(this), this->collisionLayer);
     SoundReq(SFX_SECRET_BIG);
 }

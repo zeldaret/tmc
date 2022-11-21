@@ -71,7 +71,7 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
                     sub_08089538(this);
                     break;
                 case 0:
-                    obj = CreateObject(SPECIAL_FX, 4, 0);
+                    obj = CreateObject(SPECIAL_FX, FX_ROCK, 0);
                     if (obj != NULL) {
                         CopyPosition(super, obj);
                     }
@@ -118,7 +118,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
                 sub_08089538(this);
                 break;
             case 0:
-                obj = CreateObject(SPECIAL_FX, 4, 0);
+                obj = CreateObject(SPECIAL_FX, FX_ROCK, 0);
                 if (obj != NULL) {
                     CopyPosition(super, obj);
                 }
@@ -216,7 +216,7 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
             sub_08089454(this);
             return TRUE;
         }
-        obj = CreateObject(SPECIAL_FX, 4, 0);
+        obj = CreateObject(SPECIAL_FX, FX_ROCK, 0);
         if (obj != NULL) {
             CopyPosition(super, obj);
         }
