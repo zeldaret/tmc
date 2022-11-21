@@ -515,7 +515,7 @@ void sub_0802AF9C(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entity* this)) {
+void sub_0802AFC8(Entity* this) {
     u32 subtimer = this->subtimer;
     u32 flag = 8;
     if (subtimer < 0x29) {
@@ -526,13 +526,12 @@ NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entit
         } else {
             this->field_0x82.HWORD += 0x10;
         }
-        tmp2 = this->field_0x82.HWORD;
-        tmp = tmp2 & 0xf0;
+        tmp = this->field_0x82.HWORD & 0xf0;
         if (tmp == 0 || tmp > 0x80) {
             this->field_0x82.HWORD ^= 0x8000;
         }
-        tmp = 0x130 - (this->field_0x82.HWORD & 0xf0);
-        SetAffineInfo(this, tmp, tmp, 0);
+        tmp = this->field_0x82.HWORD & 0xf0;
+        SetAffineInfo(this, 0x130 - tmp, 0x130 - tmp, 0);
     }
     if (this->subtimer & flag) {
         this->palette.b.b0 = this->palette.b.b4;
@@ -540,7 +539,6 @@ NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entit
         this->palette.b.b0 = 0;
     }
 }
-END_NONMATCH
 
 void sub_0802B048(Entity* this) {
     Entity* ent;

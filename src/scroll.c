@@ -718,13 +718,11 @@ void sub_080809D4(void) {
     gUpdateVisibleTiles = 1;
 }
 
-NONMATCH("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTransition()) {
+void UpdateDoorTransition() {
     u32 uVar1;
-    u32 uVar2;
     u32 uVar3;
     u32 uVar4;
-    Entity* target;
-
+    RoomControls* controls = &gRoomControls;
     if (gRoomControls.camera_target != &gPlayerEntity) {
         return;
     }
@@ -740,11 +738,12 @@ NONMATCH("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTran
         case 9:
         case 0x18:
         case 0x1d:
-            uVar4 = gRoomControls.camera_target->y.HALF.HI - gRoomControls.origin_y;
-            uVar3 = gRoomControls.camera_target->x.HALF.HI - gRoomControls.origin_x;
-            uVar1 =
-                sub_080B1AE0(COORD_TO_TILE(gRoomControls.camera_target), gRoomControls.camera_target->collisionLayer);
-            gRoomTransition.stairs_idx = sub_080B1A48(uVar3, uVar4, gRoomControls.camera_target->collisionLayer);
+            uVar4 = controls->camera_target->y.HALF.HI - controls->origin_y;
+            uVar3 = controls->camera_target->x.HALF.HI - controls->origin_x;
+            uVar1 = sub_080B1AE0((((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
+                                     ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
+                                 controls->camera_target->collisionLayer);
+            gRoomTransition.stairs_idx = sub_080B1A48(uVar3, uVar4, controls->camera_target->collisionLayer);
             switch (uVar1) {
                 case 0x3f:
                 case 0xf1:
@@ -755,7 +754,6 @@ NONMATCH("asm/non_matching/scroll/UpdateDoorTransition.inc", void UpdateDoorTran
             }
     }
 }
-END_NONMATCH
 
 void sub_08080B60(LayerStruct* layer) {
     u32 index;

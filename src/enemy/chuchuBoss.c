@@ -327,7 +327,7 @@ void ChuchuBoss_OnTick(ChuchuBossEntity* this) {
     gUnk_080CC1B0[super->action](this);
 }
 
-NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(ChuchuBossEntity* this)) {
+void sub_08025DD8(ChuchuBossEntity* this) {
     super->action = 1;
     if (super->type == 8) {
         super->type = 4;
@@ -346,7 +346,7 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
         switch (super->type & 3) {
             Hitbox* hitbox;
             case 0:
-                super->type2 = super->type & 3;
+                super->type2 = super->type;
                 this->unk_84 = zMalloc(sizeof(Helper));
                 if (!this->unk_84 || !AllocMutableHitbox(super)) {
                     GenericDeath(super);
@@ -376,6 +376,7 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
                     this->unk_68->base.y.HALF.HI = super->y.HALF.HI - 0xE;
                     this->unk_68->base.timer = 0xE;
                     this->unk_68->base.parent = super;
+                    MEMORY_BARRIER;
                     this->unk_68->unk_68 = this;
                 }
                 super->parent = CreateEnemy(CHUCHU_BOSS, super->type | 2);
@@ -385,6 +386,7 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
                     super->parent->y.HALF.HI = this->unk_68->base.y.HALF.HI - 0x12;
                     super->parent->timer = 0x12;
                     super->parent->parent = (Entity*)this->unk_68;
+                    MEMORY_BARRIER;
                     this->unk_68->base.child = super->parent;
                     ((ChuchuBossEntity*)super->parent)->unk_68 = this;
                 }
@@ -417,7 +419,9 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
                     }
                 }
                 break;
-            case 1 ... 3:
+            case 1:
+            case 2:
+            case 3:
                 hitbox = super->hitbox;
                 if (!AllocMutableHitbox(super)) {
                     this->unk_68->base.health = 0;
@@ -437,7 +441,6 @@ NONMATCH("asm/non_matching/chuchuBoss/sub_08025DD8.inc", void sub_08025DD8(Chuch
         sub_08026060(this);
     }
 }
-END_NONMATCH
 
 void sub_08026060(ChuchuBossEntity* this) {
     gUnk_080CC1C8[super->type](this);

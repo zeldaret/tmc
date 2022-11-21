@@ -167,69 +167,65 @@ void sub_080442A0(DustEntity* this) {
 
 extern const u8 gUnk_080D15B4[];
 
-NONMATCH("asm/non_matching/dust/sub_080442BC.inc", void sub_080442BC(DustEntity* this)) {
-    u32 bVar1;
+void sub_080442BC(DustEntity* this) {
+    u32 hitboxCount;
     u32 i;
-    u32 tmp;
     const u8* ptr = gUnk_080D15B4;
-    u8* ptr2;
+    hitboxCount = HEAP->unk_0;
 
-    bVar1 = HEAP->unk_0;
-
-    for (i = 0; i < bVar1; i++) {
-        tmp = 0;
-        super->hitbox[i + 1].unk2[2] = ptr[0];
-        super->hitbox[i + 1].unk2[3] = ptr[1];
-        super->hitbox[i + 1].width = ptr[2];
-        super->hitbox[i + 1].height = ptr[3];
-        // hitbox is probably misused here.
-        super->hitbox[i + 1].offset_x = tmp;
-        super->hitbox[i + 2].offset_y = (s8)i;
+    for (i = 0; i < hitboxCount; i++) {
+        ((Hitbox3D*)&super->hitbox[i])[1].offset_x = ptr[0];
+        ((Hitbox3D*)&super->hitbox[i])[1].offset_y = ptr[1];
+        ((Hitbox3D*)&super->hitbox[i])[1].unknown[0] = ptr[2];
+        ((Hitbox3D*)&super->hitbox[i])[1].unknown[1] = ptr[3];
+        ((Hitbox3D*)&super->hitbox[i])[1].unknown[2] = 0;
+        ((Hitbox3D*)&super->hitbox[i])[1].unknown[3] = i;
     }
-    this->unk_74 = bVar1;
+    this->unk_74 = hitboxCount;
 }
-END_NONMATCH
 
 // heap and hitbox struct
-NONMATCH("asm/non_matching/dust/sub_08044310.inc", void sub_08044310(DustEntity* this)) {
+void sub_08044310(DustEntity* this) {
     Entity* iVar1;
     u32 bVar2;
-    Hitbox* pHVar3;
-    DustHeap* puVar4;
     u32 i;
-    u8* puVar6;
     u32 uVar7;
-    Hitbox* pHVar8;
     u8* pbVar9;
     u32 tmp;
+    DustHeap* reg7;
 
     uVar7 = 0xff;
     tmp = 0xff;
-    switch (gPlayerEntity.animationState >> 1 & 3) {
+
+    switch (gPlayerEntity.animationState / 2 & 3) {
         case 0:
             for (i = 0; i < this->unk_74; i++) {
-                if (((u8)super->hitbox[i + 2].offset_x == 0) && (tmp > (u32)super->hitbox[i + 1].unk2[3])) {
+                if ((((Hitbox3D*)&super->hitbox[i])[1].unknown[2] == 0) &&
+                    (tmp > (u8)((Hitbox3D*)&super->hitbox[i])[1].offset_y)) {
                     uVar7 = i;
                 }
             }
             break;
         case 1:
             for (i = 0; i < this->unk_74; i++) {
-                if (((u8)super->hitbox[i + 2].offset_x == 0) && (tmp > (u8)super->hitbox[i + 1].width)) {
+                if ((((Hitbox3D*)&super->hitbox[i])[1].unknown[2] == 0) &&
+                    (tmp > ((Hitbox3D*)&super->hitbox[i])[1].unknown[0])) {
                     uVar7 = i;
                 }
             }
             break;
         case 2:
             for (i = 0; i < this->unk_74; i++) {
-                if ((u8)super->hitbox[i + 2].offset_x == 0 && (tmp > (u8)super->hitbox[i + 1].unk2[2])) {
+                if ((((Hitbox3D*)&super->hitbox[i])[1].unknown[2] == 0) &&
+                    (tmp > (u8)((Hitbox3D*)&super->hitbox[i])[1].offset_x)) {
                     uVar7 = i;
                 }
             }
             break;
         case 3:
             for (i = 0; i < this->unk_74; i++) {
-                if (((u8)super->hitbox[i + 2].offset_x == 0) && (tmp > super->hitbox[i + 1].height)) {
+                if ((((Hitbox3D*)&super->hitbox[i])[1].unknown[2] == 0) &&
+                    (tmp > ((Hitbox3D*)&super->hitbox[i])[1].unknown[1])) {
                     uVar7 = i;
                 }
             }
@@ -239,9 +235,9 @@ NONMATCH("asm/non_matching/dust/sub_08044310.inc", void sub_08044310(DustEntity*
     if (uVar7 != 0xff) {
         super->hitbox[uVar7 + 2].offset_x = 1;
         HEAP->unk_0--;
-        puVar4 = HEAP;
-        bVar2 = puVar4->unk_0;
-        pbVar9 = &puVar4->items[(u32)(u8)super->hitbox[uVar7 + 2].offset_y].unk_1;
+        reg7 = HEAP + 1 + HEAP->unk_0 * 5;
+        bVar2 = HEAP->unk_0;
+        pbVar9 = &HEAP->items[(u32)(u8)super->hitbox[uVar7 + 2].offset_y].unk_0;
         iVar1 = CreateEnemy(DUST, 1);
         if (iVar1 != 0) {
             PositionRelative(super, iVar1, ((s8)*pbVar9 + 8) * 0x10000, ((s8)pbVar9[1] + 8) * 0x10000);
@@ -254,18 +250,17 @@ NONMATCH("asm/non_matching/dust/sub_08044310.inc", void sub_08044310(DustEntity*
         }
 
         for (i = 0; i < 5; i++) {
-            pbVar9[i] = (&puVar4->unk_0)[i];
+            pbVar9[i] = reg7[i].unk_0;
         }
 
         for (i = 0; i < this->unk_74; i++) {
-            if ((u8)super->hitbox[i + 2].offset_y == HEAP->unk_0) {
-                super->hitbox[i].unk2[3] = super->hitbox[uVar7 + 2].offset_y;
-                return;
+            if (((Hitbox3D*)&super->hitbox[i])[1].unknown[3] == HEAP->unk_0) {
+                ((Hitbox3D*)&super->hitbox[i])[1].unknown[3] = super->hitbox[uVar7 + 2].offset_y;
+                break;
             }
         }
     }
 }
-END_NONMATCH
 
 void sub_08044498(DustEntity* this) {
     Entity* pEVar1;
@@ -288,7 +283,7 @@ void sub_08044498(DustEntity* this) {
 
         for (i = 0; i < uVar4; i++) {
             if (xdiff - pbVar2[i].unk_0 < 0x10 && ydiff - pbVar2[i].unk_1 < 0x10) {
-                pEVar1 = CreateObject(SPECIAL_FX, 0x11, 0);
+                pEVar1 = CreateObject(SPECIAL_FX, FX_DASH, 0);
                 if (pEVar1 == NULL) {
                     return;
                 }
