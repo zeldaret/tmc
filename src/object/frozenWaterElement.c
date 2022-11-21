@@ -92,7 +92,7 @@ void FrozenWaterElement_Action2(FrozenWaterElementEntity* this) {
             super->spriteOffsetY += 8;
         }
         value = gUnk_08123DC0[this->unk_74 >> 5];
-        effect = CreateObject(SPECIAL_FX, 0x11, 0x40);
+        effect = CreateObject(SPECIAL_FX, FX_DASH, 0x40);
         if (effect != NULL) {
             rand = Random();
             tmp = (((rand >> 0x10) & value) - ((value + 1) >> 1));
@@ -101,7 +101,7 @@ void FrozenWaterElement_Action2(FrozenWaterElementEntity* this) {
             effect->x.HALF.HI = this->unk_80 + gRoomControls.origin_x + tmp;
             effect->y.HALF.HI = this->unk_82 + gRoomControls.origin_y + tmp2;
         }
-        effect = CreateObject(SPECIAL_FX, 2, 0x40);
+        effect = CreateObject(SPECIAL_FX, FX_DEATH, 0x40);
         if (effect != NULL) {
             rand = Random();
             tmp = (((rand >> 0x10) & value) - ((value + 1) >> 1));

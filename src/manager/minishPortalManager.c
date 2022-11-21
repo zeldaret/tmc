@@ -65,7 +65,7 @@ void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
     r = Random();
     if (r & 0x7)
         return;
-    spark = CreateObject(SPECIAL_FX, 0x26, 0);
+    spark = CreateObject(SPECIAL_FX, FX_SPARKLE4, 0);
     if (spark == NULL)
         return;
     offsetX = (r >> 0x8) & 0xF;

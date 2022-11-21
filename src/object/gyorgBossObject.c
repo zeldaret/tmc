@@ -437,7 +437,7 @@ void GyorgBossObject_SpawnChildren(u32 unk0, bool32 fromBlue, u32 animationState
     }
     if (fromBlue == FALSE) {
         Entity* tmp;
-        tmp = CreateObject(SPECIAL_FX, 2, 0);
+        tmp = CreateObject(SPECIAL_FX, FX_DEATH, 0);
         if (tmp) {
             tmp->x.HALF.HI = x;
             tmp->y.HALF.HI = y;

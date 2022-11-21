@@ -166,7 +166,7 @@ bool32 sub_08097008(ObjectOnPillarEntity* this) {
                 this->tileIndex = tileType;
                 break;
             default:
-                effect = CreateObject(SPECIAL_FX, 4, 0);
+                effect = CreateObject(SPECIAL_FX, FX_ROCK, 0);
                 if (effect != NULL) {
                     CopyPosition(super, effect);
                 }
@@ -244,11 +244,11 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
     EntityWithHitFlag* entity;
     u32 tilePosition;
 
-    entity = (EntityWithHitFlag*)CreateObject(SPECIAL_FX, 0x11, 0x40);
+    entity = (EntityWithHitFlag*)CreateObject(SPECIAL_FX, FX_DASH, 0x40);
     if (entity != NULL) {
         PositionRelative(super, &entity->base, -0x80000, 0x20000);
     }
-    entity = (EntityWithHitFlag*)CreateObject(SPECIAL_FX, 0x11, 0x40);
+    entity = (EntityWithHitFlag*)CreateObject(SPECIAL_FX, FX_DASH, 0x40);
     if (entity != NULL) {
         PositionRelative(super, &entity->base, 0x80000, 0x20000);
     }

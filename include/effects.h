@@ -42,7 +42,7 @@ typedef enum {
     FX_BROWN_SMOKE_LARGE,
     FX_BROWN_SMOKE2,
     FX_SWEAT,
-    FX_26,
+    FX_SPARKLE4,
     FX_27,
     FX_SLOW_EXPLOSION,
     FX_CONFETTI,

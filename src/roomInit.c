@@ -998,12 +998,12 @@ void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
     numEnts = ptr->entCnt;
 
     for (entCnt = 0; entCnt < numEnts; entCnt++) {
-        fx = CreateObject(SPECIAL_FX, 0xf, 0);
+        fx = CreateObject(SPECIAL_FX, FX_ROCK_SMALL, 0);
         if (fx != NULL) {
             fx->x.HALF.HI = ptr->x + gRoomControls.origin_x + entCnt * 0x10;
             fx->y.HALF.HI = ptr->y + gRoomControls.origin_y + (entCnt & 1) * 8;
         }
-        fx = CreateObject(SPECIAL_FX, 0x54, 0);
+        fx = CreateObject(SPECIAL_FX, FX_WHITE_PUFF, 0);
         if (fx != NULL) {
             fx->x.HALF.HI = ptr->x + gRoomControls.origin_x + entCnt * 0x10;
             fx->y.HALF.HI = ptr->y + gRoomControls.origin_y + -0xc + (entCnt & 1) * 8;

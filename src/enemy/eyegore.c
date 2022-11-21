@@ -314,13 +314,13 @@ void sub_08030E80(EyegoreEntity* this) {
         -11, 9, 11, 9, -9, -2, -8, 10, -11, -1, 11, -1, 9, -2, 8, 10,
     };
     u32 tmp = super->animationState << 2;
-    Entity* effect = CreateObject(SPECIAL_FX, 2, 0);
+    Entity* effect = CreateObject(SPECIAL_FX, FX_DEATH, 0);
     if (effect != NULL) {
         CopyPosition(super, effect);
         effect->x.HALF.HI += gUnk_080CE2F4[tmp + 0];
         effect->y.HALF.HI += gUnk_080CE2F4[tmp + 1];
     }
-    effect = CreateObject(SPECIAL_FX, 2, 0);
+    effect = CreateObject(SPECIAL_FX, FX_DEATH, 0);
     if (effect != NULL) {
         CopyPosition(super, effect);
         effect->x.HALF.HI += gUnk_080CE2F4[tmp + 2];
