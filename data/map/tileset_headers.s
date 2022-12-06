@@ -15,20 +15,20 @@ gAreaTilesets_Unused:: @ 08100CF0
 gAreaRoomMaps_Unused::
 	.4byte gAreaTileset_Unused_0
 
-gTileset_MinishWoods_0:: @ 08100CF4
+gAreaTileset_MinishWoods_0:: @ 08100CF4
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_1, 0x6004000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 28, 1
 
-gTileset_MinishWoods_1:: @ 08100D24
+gAreaTileset_MinishWoods_1:: @ 08100D24
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_3, 0x6000000, 0x2000, 1
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_4, 0x6008000, 0x2000, 1
 	tileset_palette_set 21, 1
 
 gAreaTilesets_MinishWoods:: @ 08100D48
-	.4byte gTileset_MinishWoods_0
-	.4byte gTileset_MinishWoods_1
+	.4byte gAreaTileset_MinishWoods_0
+	.4byte gAreaTileset_MinishWoods_1
 
 gAreaTileset_LakeHylia_0:: @ 08100D50
 	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_0, 0x6000000, 0x4000, 1

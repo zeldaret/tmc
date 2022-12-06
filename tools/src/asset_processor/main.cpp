@@ -3,6 +3,7 @@
 #include "assets/animation.h"
 #include "assets/frameobjlists.h"
 #include "assets/gfx.h"
+#include "assets/map.h"
 #include "assets/midi.h"
 #include "assets/palette.h"
 #include "assets/spriteframe.h"
@@ -281,7 +282,9 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
     } else if (type == "map_gfx" || type == "map_layer1" || type == "map_layer2" || type == "metatiles_tile_types1" ||
                type == "metatiles_tile_types2" || type == "metatiles_tileset1" || type == "metatiles_tileset2" ||
                type == "map_mapping1" || type == "map_mapping2" || type == "tileset_mapping3" ||
-               type == "map_collision" || type == "unknown") {
+               type == "map_collision") {
+        assetHandler = std::make_unique<MapAsset>(path, start, size, asset);
+    } else if (type == "unknown") {
         // TODO implement conversions
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
     } else if (type.empty()) {

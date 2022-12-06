@@ -1,6 +1,9 @@
+#ifndef MAP_H
+#define MAP_H
+
 #include "asset.h"
 
-class GfxAsset : public BaseAsset {
+class MapAsset : public BaseAsset {
   public:
     using BaseAsset::BaseAsset;
     virtual void convertToHumanReadable(const std::vector<char>& baserom);
@@ -10,3 +13,5 @@ class GfxAsset : public BaseAsset {
     virtual std::filesystem::path generateAssetPath();
     bool isCompressed();
 };
+
+#endif // MAP_H
