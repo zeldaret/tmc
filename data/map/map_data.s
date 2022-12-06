@@ -222,30 +222,30 @@ gAreaRoomMap_MtCrenel_4_0::
 gAreaRoomMap_MtCrenel_4_1::
 	.incbin "assets/gAreaRoomMap_MtCrenel_4_1.bin.lz"
 	.align 2
-gAreaRoomMap_HyruleField_7_0::
-	.incbin "assets/gAreaRoomMap_HyruleField_7_0.bin.lz"
+gAreaTileset_HyruleField_7_0::
+	.incbin "tilesets/gAreaTileset_HyruleField_7_0.4bpp.lz"
 	.align 2
 gAreaTileset_DigCaves1_0_1::
 	.incbin "tilesets/gAreaTileset_DigCaves1_0_1.4bpp.lz"
 	.align 2
-gAreaRoomMap_HyruleField_7_1::
-	.incbin "assets/gAreaRoomMap_HyruleField_7_1.bin.lz"
+gAreaTileset_HyruleField_7_1::
+	.incbin "tilesets/gAreaTileset_HyruleField_7_1.4bpp.lz"
 	.align 2
-gAreaRoomMap_HyruleField_6_0::
-	.incbin "assets/gAreaRoomMap_HyruleField_6_0.bin.lz"
+gAreaTileset_HyruleField_6_0::
+	.incbin "tilesets/gAreaTileset_HyruleField_6_0.4bpp.lz"
 gAreaTileset_HyruleField_2_1::
 	.incbin "tilesets/gAreaTileset_HyruleField_2_1.4bpp.lz"
 	.align 2
-gAreaRoomMap_HyruleField_6_1::
-	.incbin "assets/gAreaRoomMap_HyruleField_6_1.bin.lz"
-gAreaRoomMap_HyruleField_5_0::
-	.incbin "assets/gAreaRoomMap_HyruleField_5_0.bin.lz"
+gAreaTileset_HyruleField_6_1::
+	.incbin "tilesets/gAreaTileset_HyruleField_6_1.4bpp.lz"
+gAreaTileset_HyruleField_5_0::
+	.incbin "tilesets/gAreaTileset_HyruleField_5_0.4bpp.lz"
 	.align 2
 gAreaTileset_HyruleField_1_1::
 	.incbin "tilesets/gAreaTileset_HyruleField_1_1.4bpp.lz"
 	.align 2
-gAreaRoomMap_HyruleField_5_1::
-	.incbin "assets/gAreaRoomMap_HyruleField_5_1.bin.lz"
+gAreaTileset_HyruleField_5_1::
+	.incbin "tilesets/gAreaTileset_HyruleField_5_1.4bpp.lz"
 gAreaMetatiles_HyruleField_0::
 	.incbin "assets/gAreaMetatiles_HyruleField_0.bin.lz"
 	.align 2
@@ -257,7 +257,7 @@ gAreaMetatiles_HyruleField_2::
 gAreaMetatiles_HyruleField_3::
 	.incbin "assets/gAreaMetatiles_HyruleField_3.bin.lz"
 gAreaTileset_HyruleField_2_3::
-	.incbin "assets/gAreaTileset_HyruleField_2_3.bin.lz"
+	.incbin "tilesets/gAreaTileset_HyruleField_2_3.bin.lz"
 	.align 2
 gAreaRoomMap_HyruleField_0_0::
 	.incbin "assets/gAreaRoomMap_HyruleField_0_0.bin.lz"
@@ -378,7 +378,7 @@ gAreaRoomMap_CloudTops_2_1::
 	.incbin "assets/gAreaRoomMap_CloudTops_2_1.bin.lz"
 	.align 2
 gAreaTileset_CloudTops_0_3::
-	.incbin "assets/gAreaTileset_CloudTops_0_3.bin.lz"
+	.incbin "tilesets/gAreaTileset_CloudTops_0_3.bin.lz"
 	.align 2
 gAreaTileset_RoyalValley_0_0::
 	.incbin "tilesets/gAreaTileset_RoyalValley_0_0.4bpp.lz"
@@ -450,7 +450,7 @@ gAreaMetatiles_Beanstalks_1::
 	.incbin "assets/gAreaMetatiles_Beanstalks_1.bin.lz"
 	.align 2
 gAreaTileset_Beanstalks_0_3::
-	.incbin "assets/gAreaTileset_Beanstalks_0_3.bin.lz"
+	.incbin "tilesets/gAreaTileset_Beanstalks_0_3.bin.lz"
 	.align 2
 gAreaRoomMap_Beanstalks_5_1::
 	.incbin "assets/gAreaRoomMap_Beanstalks_5_1.bin.lz"
@@ -2633,7 +2633,7 @@ gAreaMetatiles_CaveOfFlamesBoss_3::
 	.incbin "assets/gAreaMetatiles_CaveOfFlamesBoss_3.bin.lz"
 	.align 2
 gAreaTileset_CaveOfFlames_0_3::
-	.incbin "assets/gAreaTileset_CaveOfFlames_0_3.bin.lz"
+	.incbin "tilesets/gAreaTileset_CaveOfFlames_0_3.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_0_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_0_0.bin.lz"
@@ -3546,7 +3546,7 @@ gAreaMetatiles_PalaceOfWinds_GyorgBossDoor::
 	.incbin "assets/gAreaMetatiles_PalaceOfWinds_GyorgBossDoor.bin.lz"
 	.align 2
 gAreaTileset_PalaceOfWinds_GyorgTornado_3::
-	.incbin "assets/gAreaTileset_PalaceOfWinds_GyorgTornado_3.bin.lz"
+	.incbin "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_3.bin.lz"
 gAreaTileset_PalaceOfWindsBoss_0_0::
 	.incbin "tilesets/gAreaTileset_PalaceOfWindsBoss_0_0.4bpp.lz"
 	.align 2
@@ -3562,7 +3562,7 @@ gAreaMetatiles_PalaceOfWindsBoss_1::
 unknown_134::
 	.incbin "assets/unknown_134.bin"
 gAreaTileset_PalaceOfWindsBoss_0_2::
-	.incbin "assets/gAreaTileset_PalaceOfWindsBoss_0_2.bin.lz"
+	.incbin "tilesets/gAreaTileset_PalaceOfWindsBoss_0_2.bin.lz"
 gAreaRoomMap_PalaceOfWinds_GyorgTornado_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgTornado_0.bin.lz"
 	.align 2
@@ -4696,7 +4696,7 @@ gAreaRoomMap_VaatisArms_2_1::
 	.incbin "assets/gAreaRoomMap_VaatisArms_2_1.bin.lz"
 	.align 2
 gAreaTileset_Vaati2_0_3::
-	.incbin "assets/gAreaTileset_Vaati2_0_3.bin.lz"
+	.incbin "tilesets/gAreaTileset_Vaati2_0_3.bin.lz"
 	.align 2
 gAreaTileset_DarkHyruleCastleOutside_0_0::
 	.incbin "tilesets/gAreaTileset_DarkHyruleCastleOutside_0_0.4bpp.lz"

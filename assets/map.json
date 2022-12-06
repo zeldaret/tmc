@@ -506,10 +506,10 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/gAreaRoomMap_HyruleField_7_0.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_7_0.4bpp.lz",
     "start": 3597384,
     "size": 10191,
-    "type": "map_gfx"
+    "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DigCaves1_0_1.4bpp.lz",
@@ -518,16 +518,16 @@
     "type": "tileset"
   },
   {
-    "path": "assets/gAreaRoomMap_HyruleField_7_1.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_7_1.4bpp.lz",
     "start": 3618032,
     "size": 7733,
-    "type": "map_gfx"
+    "type": "tileset"
   },
   {
-    "path": "assets/gAreaRoomMap_HyruleField_6_0.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_6_0.4bpp.lz",
     "start": 3625768,
     "size": 8748,
-    "type": "map_gfx"
+    "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleField_2_1.4bpp.lz",
@@ -536,16 +536,16 @@
     "type": "tileset"
   },
   {
-    "path": "assets/gAreaRoomMap_HyruleField_6_1.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_6_1.4bpp.lz",
     "start": 3644972,
     "size": 5768,
-    "type": "map_gfx"
+    "type": "tileset"
   },
   {
-    "path": "assets/gAreaRoomMap_HyruleField_5_0.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_5_0.4bpp.lz",
     "start": 3650740,
     "size": 9895,
-    "type": "map_gfx"
+    "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleField_1_1.4bpp.lz",
@@ -554,10 +554,10 @@
     "type": "tileset"
   },
   {
-    "path": "assets/gAreaRoomMap_HyruleField_5_1.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_5_1.4bpp.lz",
     "start": 3671092,
     "size": 6760,
-    "type": "map_gfx"
+    "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleField_0.bin.lz",
@@ -584,7 +584,7 @@
     "type": "metatiles_tile_types1"
   },
   {
-    "path": "assets/gAreaTileset_HyruleField_2_3.bin.lz",
+    "path": "tilesets/gAreaTileset_HyruleField_2_3.bin.lz",
     "start": 3693132,
     "size": 354,
     "type": "tileset_mapping3"
@@ -860,7 +860,7 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/gAreaTileset_CloudTops_0_3.bin.lz",
+    "path": "tilesets/gAreaTileset_CloudTops_0_3.bin.lz",
     "start": 3783800,
     "size": 530,
     "type": "tileset_mapping3"
@@ -1022,7 +1022,7 @@
     "type": "metatiles_tile_types2"
   },
   {
-    "path": "assets/gAreaTileset_Beanstalks_0_3.bin.lz",
+    "path": "tilesets/gAreaTileset_Beanstalks_0_3.bin.lz",
     "start": 3867784,
     "size": 439,
     "type": "tileset_mapping3"
@@ -5924,7 +5924,7 @@
     "type": "metatiles_tile_types1"
   },
   {
-    "path": "assets/gAreaTileset_CaveOfFlames_0_3.bin.lz",
+    "path": "tilesets/gAreaTileset_CaveOfFlames_0_3.bin.lz",
     "start": 5221452,
     "size": 749,
     "type": "tileset_mapping3"
@@ -8064,7 +8064,7 @@
     "type": "metatiles_tile_types1"
   },
   {
-    "path": "assets/gAreaTileset_PalaceOfWinds_GyorgTornado_3.bin.lz",
+    "path": "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_3.bin.lz",
     "start": 5528540,
     "size": 548,
     "type": "tileset_mapping3"
@@ -8122,7 +8122,7 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaTileset_PalaceOfWindsBoss_0_2.bin.lz",
+    "path": "tilesets/gAreaTileset_PalaceOfWindsBoss_0_2.bin.lz",
     "start": 5541760,
     "size": 548,
     "type": "tileset_mapping3"
@@ -10717,7 +10717,7 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/gAreaTileset_Vaati2_0_3.bin.lz",
+    "path": "tilesets/gAreaTileset_Vaati2_0_3.bin.lz",
     "start": 5843884,
     "size": 754,
     "type": "tileset_mapping3"

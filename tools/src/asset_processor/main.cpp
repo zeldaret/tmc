@@ -279,7 +279,7 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         assetHandler = std::make_unique<GfxAsset>(path, start, size, asset);
     } else if (type == "palette") {
         assetHandler = std::make_unique<PaletteAsset>(path, start, size, asset);
-    } else if (type == "map_gfx" || type == "map_layer1" || type == "map_layer2" || type == "metatiles_tile_types1" ||
+    } else if (type == "map_layer1" || type == "map_layer2" || type == "metatiles_tile_types1" ||
                type == "metatiles_tile_types2" || type == "metatiles_tileset1" || type == "metatiles_tileset2" ||
                type == "map_mapping1" || type == "map_mapping2" || type == "tileset_mapping3" ||
                type == "map_collision") {

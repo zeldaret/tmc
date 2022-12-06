@@ -85,23 +85,23 @@ gAreaTilesets_MtCrenel:: @ 08100E84
 	.4byte gAreaTileset_MtCrenel_0
 
 gAreaTileset_HyruleField_0:: @ 08100E88
-	tileset_tiles offset_gAreaRoomMap_HyruleField_7_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_7_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_DigCaves1_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaRoomMap_HyruleField_7_1, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_7_1, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_2_3, 0x600F000, 0x800, 1
 	tileset_palette_set 16, 1
 
 gAreaTileset_HyruleField_1:: @ 08100EC4
-	tileset_tiles offset_gAreaRoomMap_HyruleField_5_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_5_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_1_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaRoomMap_HyruleField_5_1, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_5_1, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_2_3, 0x600F000, 0x800, 1
 	tileset_palette_set 67, 1
 
 gAreaTileset_HyruleField_2:: @ 08100F00
-	tileset_tiles offset_gAreaRoomMap_HyruleField_6_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_6_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaRoomMap_HyruleField_6_1, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_6_1, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_2_3, 0x600F000, 0x800, 1
 	tileset_palette_set 46, 1
 
@@ -221,9 +221,9 @@ gAreaTilesets_HyruleDigCaves:: @ 081011FC
 	.4byte gAreaTileset_HyruleDigCaves_0
 
 gAreaTileset_DigCaves1_0:: @ 08101200
-	tileset_tiles offset_gAreaRoomMap_HyruleField_7_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_7_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_DigCaves1_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaRoomMap_HyruleField_7_1, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_7_1, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_DigCaves1_0_3, 0x6001000, 0x2000, 1
 	tileset_tiles offset_gAreaTileset_DigCaves1_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 85, 1
