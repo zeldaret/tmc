@@ -2,6 +2,7 @@
 #define AREA_H
 
 #include "global.h"
+#include "map.h"
 #include "transitions.h"
 
 #define MAX_ROOMS 64
@@ -11,9 +12,9 @@ typedef struct {
     u16 pixel_height;
     u16 map_x;
     u16 map_y;
-    void* tileset;
-    void* map;
-    void* metatiles;
+    MapDataDefinition* tileset;
+    MapDataDefinition* map;
+    MapDataDefinition* metatiles;
     void* bg_anim;
     const Transition* exits;
     void** properties;
@@ -80,9 +81,20 @@ typedef struct {
     u8 flags;
     u8 location;
     u8 flag_bank;
-    u8 _3;
+    u8 queueBgm;
 } AreaHeader;
 extern AreaHeader gAreaMetadata[];
+
+typedef enum {
+    AR_IS_OVERWORLD = 0x1,
+    AR_HAS_KEYS = 0x2,
+    AR_IS_DUNGEON = 0x4, /**< Causes the area to have a red name. */
+    AR_HAS_MAP = 0x8,
+    AR_HAS_ENEMIES = 0x10,
+    AR_IS_MOLE_CAVE = 0x20,
+    AR_HAS_NO_ENEMIES = 0x40,
+    AR_ALLOWS_WARP = 0x80, /**< Not used in EU. Allows to warp in areas that do not have AR_OVERWORLD set. */
+} AreaFlags;
 
 typedef enum {
     AREA_MINISH_WOODS,

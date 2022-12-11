@@ -108,7 +108,7 @@ void Bush_Action2SubAction2(BushEntity* this) {
     if (this->unk_72 == 0) {
         this->unk_72 = 1;
         super->spriteOffsetX = 0;
-        sub_0807B9B8(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetMetaTileByIndex(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
     if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         Bush_Action2SubAction5(this);

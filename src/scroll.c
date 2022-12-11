@@ -1,6 +1,7 @@
 #include "scroll.h"
 
 #include "asm.h"
+#include "beanstalkSubtask.h"
 #include "collision.h"
 #include "common.h"
 #include "effects.h"
@@ -16,13 +17,12 @@
 #include "structures.h"
 
 extern void sub_08080BC4(void);
-extern void sub_080197D4(const void*);
 extern void sub_0807C8B0(u16*, u32, u32);
-extern void sub_0801AB08(u8*, LayerStruct*);
+extern void RenderTilemapToScreenblock(u8*, LayerStruct*);
 extern void sub_0807C810();
 extern void DeleteSleepingEntities(void);
 extern void sub_0807BBE4();
-extern void sub_0807BC84();
+extern void CreateCollisionDataBorderAroundRoom();
 extern void sub_0805E248();
 
 extern u8 gUpdateVisibleTiles;
@@ -52,9 +52,9 @@ void sub_08080198(RoomControls*);
 void sub_080801BC(RoomControls*);
 u32 sub_080803D0();
 u32 sub_08080278();
-void sub_08080C80(u32*);
+void sub_08080C80(MapDataDefinition*);
 void sub_08080368();
-void sub_08080B60(LayerStruct*);
+void FillUnkData3ForLayer(LayerStruct*);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 void sub_080808D8(s32);
@@ -301,9 +301,9 @@ void sub_0807FFE4(RoomControls* controls) {
     controls->scrollSubAction = 2;
     controls->unk_18 = sub_080803D0() + 6;
     gUnk_0200B640 = sub_08080278();
-    sub_080197D4(*gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type]);
+    LoadMapData((MapDataDefinition*)*gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type]);
     sub_0807C8B0(gMapTop.mapData, controls->width >> 4, controls->height >> 4);
-    sub_0801AB08(gMapDataTopSpecial, &gMapTop);
+    RenderTilemapToScreenblock(gMapDataTopSpecial, &gMapTop);
 }
 
 void sub_08080040(RoomControls* controls) {
@@ -342,7 +342,7 @@ void sub_08080040(RoomControls* controls) {
         controls->scrollSubAction = 3;
         DeleteSleepingEntities();
         sub_0807C810();
-        sub_08080C80(*(gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type] + 1));
+        sub_08080C80((MapDataDefinition*)*(gUnk_08109194[gDiggingCaveEntranceTransition.entrance->type] + 1));
     } else {
         gUpdateVisibleTiles = 4;
     }
@@ -355,13 +355,13 @@ void sub_08080108(RoomControls* controls) {
     sub_08080368();
     gUnk_02034480.unk_00 = gUnk_0200B640;
     MemCopy(gUnk_02022830, gUnk_020246B0, 0x1800);
-    sub_08080B60(&gMapBottom);
-    sub_08080B60(&gMapTop);
+    FillUnkData3ForLayer(&gMapBottom);
+    FillUnkData3ForLayer(&gMapTop);
     sub_0807BBE4();
-    sub_0807BC84();
+    CreateCollisionDataBorderAroundRoom();
     sub_0805E248();
-    sub_0801AB08((u8*)&gMapDataBottomSpecial, &gMapBottom);
-    sub_0801AB08(gMapDataTopSpecial, &gMapTop);
+    RenderTilemapToScreenblock((u8*)&gMapDataBottomSpecial, &gMapBottom);
+    RenderTilemapToScreenblock(gMapDataTopSpecial, &gMapTop);
 }
 
 void sub_08080198(RoomControls* controls) {
@@ -433,7 +433,7 @@ void sub_08080368(void) {
         tmp = gUnk_02034480.unk_00 << 1;
         index = 0;
         while (index < tmp) {
-            sub_0807B9B8(ptr[1], ptr[0] & 0xfff, (ptr[0] >> 0xe));
+            SetMetaTileByIndex(ptr[1], ptr[0] & 0xfff, (ptr[0] >> 0xe));
             ptr += 2;
             index += 2;
         }
@@ -637,8 +637,8 @@ void sub_08080930(u32 unused) {
     SetInitializationPriority();
 }
 
-LayerStruct* GetLayerByIndex(u32 param_1) {
-    if (param_1 == 2) {
+LayerStruct* GetLayerByIndex(u32 layerIndex) {
+    if (layerIndex == 2) {
         return &gMapTop;
     } else {
         return &gMapBottom;
@@ -755,18 +755,19 @@ void UpdateDoorTransition() {
     }
 }
 
-void sub_08080B60(LayerStruct* layer) {
+// fill the unkData3 for the whole layer
+void FillUnkData3ForLayer(LayerStruct* layer) {
     u32 index;
     u16* metatileTypes = layer->metatileTypes;
     const u8* ptr = gUnk_080B37A0;
     u8* ptr3 = layer->unkData3;
     u16* mapData = layer->mapData;
     for (index = 0; index < 0x1000; index++) {
-        u16 val = mapData[index];
-        if (val < 0x4000) {
-            layer->unkData3[index] = ptr[metatileTypes[val]];
+        u16 metaTileIndex = mapData[index];
+        if (metaTileIndex < 0x4000) {
+            layer->unkData3[index] = ptr[metatileTypes[metaTileIndex]];
         } else {
-            layer->unkData3[index] = gUnk_080B7910[val - 0x4000];
+            layer->unkData3[index] = gUnk_080B7910[metaTileIndex - 0x4000];
         }
     }
 }
@@ -805,8 +806,8 @@ void sub_08080BC4(void) {
     }
 }
 
-void sub_08080C80(u32* param_1) {
-    sub_080197D4(param_1);
+void sub_08080C80(MapDataDefinition* param_1) {
+    LoadMapData(param_1);
     sub_0807C8B0(gMapBottom.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
     sub_0807C8B0(gMapTop.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
 }

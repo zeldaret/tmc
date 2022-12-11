@@ -161,7 +161,7 @@ gUnk_08000258::
 	.4byte gMapTop+0x5004
 	.4byte gMapBottom+0x3004
 	.4byte gMapBottom+0x5004
-gUnk_08000278::
+gUnk_08000278:: @ unkData3 for layers
 	.4byte gMapBottom+0xb004
 	.4byte gMapBottom+0xb004
 	.4byte gMapTop+0xb004

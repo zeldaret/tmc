@@ -212,7 +212,7 @@ void RoomExitCallback(void);
  *
  * @param a1
  */
-void RestoreGameTask(u32 a1);
+void RestoreGameTask(bool32 loadGfx);
 
 /**
  * Check if an Ezlo message can be displayed.

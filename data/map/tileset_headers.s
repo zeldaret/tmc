@@ -16,9 +16,9 @@ gAreaRoomMaps_Unused::
 	.4byte gAreaTileset_Unused_0
 
 gAreaTileset_MinishWoods_0:: @ 08100CF4
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 28, 1
 
 gAreaTileset_MinishWoods_1:: @ 08100D24
@@ -199,9 +199,9 @@ gAreaTilesets_GreatFairies:: @ 0810115C
 	.4byte gAreaTileset_GreatFairies_2
 
 gAreaTileset_LakeWoodsCave_0:: @ 08101168
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_0_2, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_3, 0x6001000, 0x2000, 1
 	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 21, 1
@@ -822,9 +822,9 @@ gAreaTilesets_InnerMazaal:: @ 08102040
 	.4byte gAreaTileset_InnerMazaal_0
 
 gAreaTileset_TempleOfDroplets_0:: @ 08102044
-	tileset_tiles offset_gAreaTileset_HyruleTownMinishCaves_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleTownMinishCaves_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleTownMinishCaves_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_TempleOfDroplets_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_TempleOfDroplets_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_TempleOfDroplets_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 55, 1
 
 gAreaTilesets_TempleOfDroplets:: @ 08102074
@@ -840,9 +840,9 @@ gAreaTilesets_61:: @ 081020A8
 	.4byte gAreaTileset_61_0
 
 gAreaTileset_HyruleTownMinishCaves_0:: @ 081020AC
-	tileset_tiles offset_gAreaTileset_HyruleTownMinishCaves_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleTownMinishCaves_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleTownMinishCaves_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_TempleOfDroplets_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_TempleOfDroplets_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_TempleOfDroplets_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 130, 1
 
 gAreaTilesets_HyruleTownMinishCaves:: @ 081020DC

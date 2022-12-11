@@ -53,7 +53,7 @@ extern const Data gUnk_080B44C2[];
 void sub_0801AD6C(const Data*, u32);
 bool32 sub_0801A4F8(void);
 bool32 sub_0801AA58(Entity*, u32, u32);
-void sub_0801AB08(u16*, LayerStruct*);
+void RenderTilemapToScreenblock(u16*, LayerStruct*);
 
 u32 sub_0801AC68(u32 position, u32 data);
 
@@ -132,30 +132,30 @@ void SetBGDefaults(void) {
     gMapTop.bgSettings->control = gUnk_080B77C0[1];
 }
 
-void sub_080197D4(struct_08109194* param_1) {
+void LoadMapData(MapDataDefinition* dataDefinition) {
     u32 uVar1;
     u8* src;
     void* dest;
 
     do {
-        dest = param_1->dest;
+        dest = dataDefinition->dest;
         if (dest != NULL) {
-            src = &gMapData + (param_1->src & 0x7fffffff);
-            if ((param_1->size & 0x80000000) != 0) {
+            src = &gMapData + (dataDefinition->src & 0x7fffffff);
+            if ((dataDefinition->size & 0x80000000) != 0) {
                 if ((u32)dest >> 0x18 == 6) {
                     LZ77UnCompVram(src, dest);
                 } else {
                     LZ77UnCompWram(src, dest);
                 }
             } else {
-                MemCopy(src, dest, param_1->size);
+                MemCopy(src, dest, dataDefinition->size);
             }
         } else {
-            LoadPaletteGroup(*(u16*)param_1);
+            LoadPaletteGroup(*(u16*)dataDefinition);
             sub_080533CC();
         }
-        param_1++;
-    } while (((param_1 - 1)->src & 0x80000000) != 0);
+        dataDefinition++;
+    } while (((dataDefinition - 1)->src & 0x80000000) != 0);
 }
 
 // Has ifdefs for other variants
@@ -841,7 +841,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
     return FALSE;
 }
 
-void sub_0801AB08(u16* specialData, LayerStruct* layer) {
+void RenderTilemapToScreenblock(u16* specialData, LayerStruct* layer) {
     u16* metatiles;
     u16* mapData;
     u16* mapDataClone;
@@ -1039,10 +1039,10 @@ void sub_0801AE44(bool32 loadGfx) {
     }
     if ((gRoomControls.scroll_flags & 1) == 0) {
         if (gMapBottom.bgSettings != NULL) {
-            sub_0801AB08(gMapDataBottomSpecial, &gMapBottom);
+            RenderTilemapToScreenblock(gMapDataBottomSpecial, &gMapBottom);
         }
         if (gMapTop.bgSettings != NULL) {
-            sub_0801AB08(gMapDataTopSpecial, &gMapTop);
+            RenderTilemapToScreenblock(gMapDataTopSpecial, &gMapTop);
         }
     } else {
         sub_0807C4F8();

@@ -1,6 +1,7 @@
 #define NENT_DEPRECATED
 #include "area.h"
 #include "asm.h"
+#include "beanstalkSubtask.h"
 #include "common.h"
 #include "collision.h"
 #include "entity.h"
@@ -106,19 +107,17 @@ extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
 
 bool32 sub_08079F48(u32 param_1, u32 param_2);
 
-extern void sub_08080B60(LayerStruct*);
-extern void sub_0801AB08(u16*, LayerStruct*);
+extern void FillUnkData3ForLayer(LayerStruct*);
+extern void RenderTilemapToScreenblock(u16*, LayerStruct*);
 
-extern u8 gUnk_02006F00[];
 extern u16 gUnk_080B77C0[];
 
 void sub_0807BFA8(void);
-void sub_080197D4(const void*);
 void sub_0807C8B0(u16*, u32, u32);
 void sub_0807C69C(u8*, u32, u32);
 void sub_0807C460(void);
 void sub_0807BBE4(void);
-void sub_0807BC84(void);
+void CreateCollisionDataBorderAroundRoom(void);
 void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
 
@@ -127,18 +126,16 @@ extern const u8 gUnk_080B3E80[];
 // collisions for tiles > 0x4000
 extern const u8 gUnk_080B79A7[];
 
-extern void sub_0801AB08(u16*, LayerStruct*);
+extern void RenderTilemapToScreenblock(u16*, LayerStruct*);
 
-extern u8 gUnk_02006F00[];
 extern u16 gUnk_080B77C0[];
 
 void sub_0807BFA8(void);
-void sub_080197D4(const void*);
 void sub_0807C8B0(u16*, u32, u32);
 void sub_0807C69C(u8*, u32, u32);
 void sub_0807C460(void);
 void sub_0807BBE4(void);
-void sub_0807BC84(void);
+void CreateCollisionDataBorderAroundRoom(void);
 void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
 
@@ -2906,6 +2903,10 @@ void sub_0807B2F8(PlayerEntity* this) {
     }
 }
 
+
+// tileType < 0x800   : set the MetaTileType
+// tileType >= 0x4000 : call SetTile directly
+// else               : restore the previous tile entity
 void SetTileType(u32 tileType, u32 position, u32 layer) {
     u8 collisionData;
     u16 metatile;
@@ -2932,7 +2933,8 @@ void SetTileType(u32 tileType, u32 position, u32 layer) {
                 dest = gMapDataTopSpecial + offset;
             }
             src = data->metatiles + metatile * 4;
-            *dest = *src;
+            // Copy over the tilemap entries (tile_attrs) to the special map data but in a different order.
+            dest[0] = src[0];
             dest[1] = src[1];
             dest[0x80] = src[2];
             dest[0x81] = src[3];
@@ -3126,7 +3128,7 @@ void sub_0807B930(u32 position) {
     SetTileType(0x292, position + TILE_POS(1, 0), 1);
 }
 
-void sub_0807B9B8(u32 tileIndex, u32 position, u32 layer) {
+void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     LayerStruct* data;
     u16* src;
     u16* dest;
@@ -3243,7 +3245,8 @@ void sub_0807BBE4(void) {
     }
 }
 
-void sub_0807BC84(void) {
+// Set collisionData at the room bounds (?) to 0xff?
+void CreateCollisionDataBorderAroundRoom(void) {
     s32 height;
     u32 width;
     u8* puVar3;
@@ -3438,7 +3441,10 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807BFD0.inc", void sub_0807BFD0())
 
 void LoadRoomGfx(void) {
     RoomControls* roomControls;
-    bool32 tmp;
+    bool32 clearBottomMap; // TODO maybe if it is a 256 bit background?
+    // So the first u16 being 0xffff indicates this and the rest of the background does not matter?
+    // Or is it used anywhere else?
+    // Probaby rather is some sort of different scroll mode where only a small part of the map is used?
 
     sub_0807BFA8();
     roomControls = &gRoomControls;
@@ -3447,14 +3453,14 @@ void LoadRoomGfx(void) {
     MemClear(gMapTop.collisionData, sizeof(gMapTop.collisionData));
     MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
-    sub_080197D4((gArea.pCurrentRoomInfo)->map);
+    LoadMapData((gArea.pCurrentRoomInfo)->map);
     if (gMapBottom.mapData[0] != 0xffff) {
         sub_0807C8B0(gMapBottom.mapData, roomControls->width >> 4, roomControls->height >> 4);
         sub_0807C8B0(gMapTop.mapData, roomControls->width >> 4, roomControls->height >> 4);
-        tmp = FALSE;
+        clearBottomMap = FALSE;
     } else {
         MemClear(gMapBottom.mapData, sizeof(gMapBottom.mapData));
-        tmp = TRUE;
+        clearBottomMap = TRUE;
     }
     if (gRoomTransition.field_0x2c[0] == 0) {
         MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
@@ -3473,48 +3479,52 @@ void LoadRoomGfx(void) {
         MemCopy(gMapTop.mapDataClone + 0x800, gMapTop.mapData + 0x800, 0x1000);
         MemCopy(gMapTop.unkData3, gMapTop.mapDataClone + 0x800, 0x1000);
     }
-    if (!tmp) {
+    if (!clearBottomMap) {
         sub_0807BBE4();
     } else {
         sub_0807C69C(gMapBottom.collisionData, roomControls->width >> 4, roomControls->height >> 4);
         sub_0807C69C(gMapTop.collisionData, roomControls->width >> 4, roomControls->height >> 4);
         sub_0807C460();
     }
-    sub_0807BC84();
-    sub_08080B60(&gMapBottom);
-    sub_08080B60(&gMapTop);
-    if (!tmp) {
-        sub_0801AB08((u16*)&gMapDataBottomSpecial, &gMapBottom);
-        sub_0801AB08((u16*)&gMapDataTopSpecial, &gMapTop);
+    CreateCollisionDataBorderAroundRoom();
+    FillUnkData3ForLayer(&gMapBottom);
+    FillUnkData3ForLayer(&gMapTop);
+    if (!clearBottomMap) {
+        // Render the complete bottom and top metatilemaps into the tilemaps.
+        RenderTilemapToScreenblock((u16*)&gMapDataBottomSpecial, &gMapBottom);
+        RenderTilemapToScreenblock((u16*)&gMapDataTopSpecial, &gMapTop);
     } else {
+        // Copy first half to second half.
+        // Then copy the room back to the first half?
+        // Then clear the second half.
         MemCopy(&gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000], 0x4000); // TODO
-        sub_0807C5F4((u16*)&gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000]);
+        sub_0807C5F4(gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000]);
         MemClear(&gMapDataBottomSpecial[0x2000], 0x4000);
         MemCopy(&gMapDataTopSpecial, &gMapDataTopSpecial[0x2000], 0x4000);
-        sub_0807C5F4((u16*)&gMapDataTopSpecial, (u16*)&gMapDataTopSpecial[0x2000]);
+        sub_0807C5F4(gMapDataTopSpecial, &gMapDataTopSpecial[0x2000]);
         MemClear(&gMapDataTopSpecial[0x2000], 0x4000);
     }
-    if (tmp || roomControls->area == 0x71) {
+    if (clearBottomMap || roomControls->area == AREA_PALACE_OF_WINDS_BOSS) {
         roomControls->scroll_flags |= 1;
     }
 
     switch (roomControls->area) {
-        case 0x20:
-        case 0x2d:
+        case AREA_MINISH_HOUSE_INTERIORS:
+        case AREA_TOWN_MINISH_HOLES:
             if (gMapBottom.bgSettings != NULL) {
                 gMapBottom.bgSettings->control |= 0x80;
             }
             gScreen.lcd.displayControl &= 0xfdff;
             break;
-        case 0x21:
-        case 0x22:
-        case 0x23:
-        case 0x24:
-        case 0x25:
-        case 0x27:
-        case 0x28:
-        case 0x30:
-        case 0x38:
+        case AREA_HOUSE_INTERIORS_1:
+        case AREA_HOUSE_INTERIORS_2:
+        case AREA_HOUSE_INTERIORS_3:
+        case AREA_TREE_INTERIORS:
+        case AREA_DOJOS:
+        case AREA_MINISH_CRACKS:
+        case AREA_HOUSE_INTERIORS_4:
+        case AREA_WIND_TRIBE_TOWER:
+        case AREA_EZLO_CUTSCENE:
             if (gMapTop.bgSettings != NULL) {
                 gMapTop.bgSettings->control = gUnk_080B77C0[2];
             }
@@ -3581,7 +3591,7 @@ void sub_0807C4F8(void) {
                 ptr[0] = puVar1[0] & 0x7fffffff;
                 ptr[1] = puVar1[1];
                 ptr[2] = puVar1[2];
-                sub_080197D4(ptr);
+                LoadMapData((MapDataDefinition*)ptr);
             }
         } while ((s32)*puVar1 < 0);
         MemCopy(gMapDataBottomSpecial, gMapDataBottomSpecial + 0x2000, 0x4000);
@@ -3620,55 +3630,55 @@ void sub_0807C5B0(void) {
     roomControls->scroll_flags |= 2;
 }
 
-void sub_0807C5F4(u16* param_1, u16* param_2) {
-    s32 iVar1;
-    u16* puVar2;
-    u16* puVar3;
-    u32 uVar4;
-    u32 index;
-    u32 innerIndex;
+// Copies parts over
+// 0x20 * 0x20 chunk if gRoomControls.width <= 0xff
+// more up to 0x40 * 0x40 if the room is bigger
+void sub_0807C5F4(u16* dest, u16* src) {
+    s32 index1;
+    u32 index2;
+    u16* ptr;
 
-    puVar2 = param_1;
-    for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-        for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-            *puVar2 = *param_2;
-            param_2++;
-            puVar2++;
+    ptr = dest;
+    for (index1 = 0x20; index1 != 0; index1--) {
+        for (index2 = 0; index2 < 0x20; index2++) {
+            *ptr = *src;
+            src++;
+            ptr++;
         }
-        puVar2 += 0x60;
+        ptr += 0x60;
     }
 
     if (gRoomControls.width > 0xff) {
-        puVar2 = param_1 + 0x20;
-        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-                *puVar2 = *param_2;
-                param_2++;
-                puVar2++;
+        ptr = dest + 0x20;
+        for (index1 = 0x20; index1 != 0; index1--) {
+            for (index2 = 0; index2 < 0x20; index2++) {
+                *ptr = *src;
+                src++;
+                ptr++;
             }
-            puVar2 += 0x60;
+            ptr += 0x60;
         }
     }
     if (gRoomControls.height > 0xff) {
-        puVar2 = param_1 + 0x1000;
-        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-                *puVar2 = *param_2;
-                param_2++;
-                puVar2++;
+        ptr = dest + 0x1000;
+        for (index1 = 0x20; index1 != 0; index1--) {
+            for (index2 = 0; index2 < 0x20; index2++) {
+                *ptr = *src;
+                src++;
+                ptr++;
             }
-            puVar2 += 0x60;
+            ptr += 0x60;
         }
     }
     if (gRoomControls.width > 0xff && gRoomControls.height > 0xff) {
-        param_1 += 0x1020;
-        puVar2 = param_1;
+        dest += 0x1020;
+        ptr = dest;
 
-        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-                *puVar2++ = *param_2++;
+        for (index1 = 0x20; index1 != 0; index1--) {
+            for (index2 = 0; index2 < 0x20; index2++) {
+                *ptr++ = *src++;
             }
-            puVar2 += 0x60;
+            ptr += 0x60;
         }
     }
 }

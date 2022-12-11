@@ -2519,4 +2519,5 @@ const u16* const gUnk_080B755C[] = {
     NULL,          NULL,          NULL,          NULL,          NULL,          NULL,
 };
 
+// TODO gMapTop.bgSettings->control values
 const u16 gUnk_080B77C0[] = { 0x1c42, 0x1d45, 0x1d46, 0x1e03 };

@@ -208,35 +208,36 @@ extern u16 gMapDataTopSpecial[0x2000];
 extern u16 gMapDataBottomSpecial[];
 
 void sub_08081E6C(Entity* this) {
-    u32 r4;
+    u32 tileType;
     LayerStruct* r1;
     u16* tmp2;
     u16* tmp;
     u16* tmp3;
-    u32 r6 = this->field_0x74.HWORD;
-    u32 r5 = this->collisionLayer;
-    u32 tile = GetTileType(r6, r5);
+    u32 tilePosition = this->field_0x74.HWORD;
+    u32 layer = this->collisionLayer;
+    u32 tile = GetTileType(tilePosition, layer);
 
     if (tile < 0x4000)
         return;
-    r1 = GetLayerByIndex(r5);
-    r4 = (this->type == 0 ? 0x7a : 0x78);
+    r1 = GetLayerByIndex(layer);
+    tileType = (this->type == 0 ? 0x7a : 0x78);
     tmp = r1->metatiles;
-    tmp = tmp + (r1->unkData2[r4] << 2);
-    tmp2 = (r5 == 2 ? gMapDataTopSpecial : gMapDataBottomSpecial);
-    tmp2 += (((0x3f & r6) << 1) + ((0xfc0 & r6) << 2));
+    tmp = tmp + (r1->unkData2[tileType] << 2);
+    tmp2 = (layer == 2 ? gMapDataTopSpecial : gMapDataBottomSpecial);
+    tmp2 += (((0x3f & tilePosition) << 1) + ((0xfc0 & tilePosition) << 2));
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;
-    SetTileType(r4, r6, r5);
-    SetTile(tile, r6, r5);
+    SetTileType(tileType, tilePosition, layer);
+    SetTile(tile, tilePosition, layer);
 }
 
-u32 sub_08081F00(u32* unk1, u32* unk2) {
-    if (*unk1 != *unk2)
-        return 0;
-    if (unk1[0x40] != unk2[1])
-        return 0;
-    return 1;
+// Are the two tiles already set to the correct one
+bool32 sub_08081F00(u32* screenblock, u32* metatileList) {
+    if (screenblock[0]  != metatileList[0])
+        return FALSE;
+    if (screenblock[0x40] != metatileList[1])
+        return FALSE;
+    return TRUE;
 }
 
 void sub_08081F24(Entity* this) {

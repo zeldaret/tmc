@@ -53,6 +53,7 @@ void TilesetAsset::buildToBinary() {
 
     if (isCompressed()) {
         // Compress.
+        cmd.clear();
         cmd.push_back(toolsPath / "bin" / "gbagfx");
         cmd.push_back(decompressedPath);
         cmd.push_back(path);

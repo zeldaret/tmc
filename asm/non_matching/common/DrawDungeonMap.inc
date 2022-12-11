@@ -22,7 +22,7 @@
 	ands r0, r1
 	strb r0, [r5, #2]
 	adds r5, #3
-	ldr r1, _0801DBE8 @ =gUnk_080C9C50
+	ldr r1, _0801DBE8 @ =gDungeonLayouts
 	ldr r0, _0801DBEC @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
@@ -34,7 +34,7 @@
 	b _0801DD3A
 	.align 2, 0
 _0801DBE4: .4byte gRoomTransition
-_0801DBE8: .4byte gUnk_080C9C50
+_0801DBE8: .4byte gDungeonLayouts
 _0801DBEC: .4byte gArea
 _0801DBF0:
 	ldrb r0, [r6]

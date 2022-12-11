@@ -43,7 +43,7 @@ void CutsceneMain_Init(void) {
 void sub_080535AC(void) {
     gMenu.overlayType = 1;
     gMenu.transitionTimer = 120;
-    gUI.field_0x6 = 1;
+    gUI.loadGfxOnRestore = TRUE;
     gUpdateVisibleTiles = 1;
     gScreen.lcd.displayControl &= 0xfeff;
     LoadRoomEntityList(gUnk_080FCB94);
@@ -216,7 +216,7 @@ void sub_08053758(void) {
     gMenu.transitionTimer = 120;
     gMenu.field_0xa = 0x1e;
     *((u8*)&gMenu + 0x10) = 0; // TODO
-    gUI.field_0x6 = 1;
+    gUI.loadGfxOnRestore = TRUE;
     gMapBottom.bgSettings = NULL;
     gMapTop.bgSettings = NULL;
     gRoomControls.camera_target = NULL;

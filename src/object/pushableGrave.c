@@ -157,16 +157,16 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
                 super->direction = 0;
                 super->speed = 0x40;
                 tilePosition = this->unk_68;
-                sub_0807B9B8(this->unk_72, tilePosition, super->collisionLayer);
+                SetMetaTileByIndex(this->unk_72, tilePosition, super->collisionLayer);
                 if (super->type2 == 2) {
-                    sub_0807B9B8(this->unk_6a, tilePosition - 0x41, super->collisionLayer);
-                    sub_0807B9B8(this->unk_6c, tilePosition - 0x40, super->collisionLayer);
-                    sub_0807B9B8(this->unk_6e, tilePosition - 0x3f, super->collisionLayer);
-                    sub_0807B9B8(this->unk_70, tilePosition - 1, super->collisionLayer);
-                    sub_0807B9B8(this->unk_74, tilePosition + 1, super->collisionLayer);
-                    sub_0807B9B8(this->unk_76, tilePosition + 0x3f, super->collisionLayer);
-                    sub_0807B9B8(this->unk_78, tilePosition + 0x40, super->collisionLayer);
-                    sub_0807B9B8(this->unk_7a, tilePosition + 0x41, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_6a, tilePosition - 0x41, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_6c, tilePosition - 0x40, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_6e, tilePosition - 0x3f, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_70, tilePosition - 1, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_74, tilePosition + 1, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_76, tilePosition + 0x3f, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_78, tilePosition + 0x40, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_7a, tilePosition + 0x41, super->collisionLayer);
                 }
                 SoundReq(SFX_10F);
                 return TRUE;

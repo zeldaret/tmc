@@ -151,7 +151,7 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
         gUI.field_0x5 = param_2;
         gUI.nextToLoad = 1; // Subtask_Init
     }
-    gUI.field_0x6 = 0;
+    gUI.loadGfxOnRestore = FALSE;
     gUI.fadeType = -1;
     gUI.fadeInTime = 0x20;
     gMain.substate = GAMEMAIN_SUBTASK;
@@ -256,7 +256,7 @@ void Subtask_FadeOut(void) {
         MemCopy(&gUnk_03001020, &gScreen, sizeof(Screen));
         gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
         gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        RestoreGameTask(gUI.field_0x6);
+        RestoreGameTask(gUI.loadGfxOnRestore);
         sub_0801D000(gUI.unk_d != 0);
         sub_080A74F4();
         if (gUI.fadeType != 0xffff) {

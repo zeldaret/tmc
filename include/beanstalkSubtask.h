@@ -2,6 +2,7 @@
 #define BEANSTALKSUBTASK_H
 
 #include "global.h"
+#include "map.h"
 
 /*
 tiles 0x4000 and above create an entry here
@@ -18,10 +19,6 @@ typedef struct {
     u16 tileIndex;
 } struct_080B44D0;
 
-typedef struct {
-    u32 src;
-    void* dest;
-    u32 size;
-} struct_08109194;
+void LoadMapData(MapDataDefinition* dataDefinition);
 
 #endif // BEANSTALKSUBTASK_H

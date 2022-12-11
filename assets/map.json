@@ -18,19 +18,19 @@
     "type": "map_layer2"
   },
   {
-    "path": "tilesets/gAreaTileset_LakeWoodsCave_0_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishWoods_0_0.4bpp.lz",
     "start": 3296948,
     "size": 11346,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_LakeWoodsCave_0_1.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishWoods_0_1.4bpp.lz",
     "start": 3308296,
     "size": 9712,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_LakeWoodsCave_0_2.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishWoods_0_2.4bpp.lz",
     "start": 3318008,
     "size": 8429,
     "type": "tileset"
@@ -5462,10 +5462,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_29.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/00_Madderpillar/dungeon_map.bin",
     "start": 5127436,
     "size": 76,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Madderpillar"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_1_0.bin.lz",
@@ -5480,10 +5485,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_30.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/01_BluePortal/dungeon_map.bin",
     "start": 5128228,
     "size": 108,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 7,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_BluePortal"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_2_0.bin.lz",
@@ -5498,10 +5508,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_31.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/02_StairsToB1/dungeon_map.bin",
     "start": 5128996,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_StairsToB1"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_3_0.bin.lz",
@@ -5516,10 +5531,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_32.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/03_PotBridge/dungeon_map.bin",
     "start": 5129676,
     "size": 76,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_PotBridge"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_4_0.bin.lz",
@@ -5534,10 +5554,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_33.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/04_DoubleStatue/dungeon_map.bin",
     "start": 5130208,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 10
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_DoubleStatue"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_5_0.bin.lz",
@@ -5552,10 +5577,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_34.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/05_Map/dungeon_map.bin",
     "start": 5131100,
     "size": 128,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 25
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Map"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_6_0.bin.lz",
@@ -5570,10 +5600,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_35.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/06_Barrel/dungeon_map.bin",
     "start": 5132376,
     "size": 200,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 25
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Barrel"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_7_0.bin.lz",
@@ -5588,10 +5623,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_36.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/07_Button/dungeon_map.bin",
     "start": 5133348,
     "size": 128,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 25
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Button"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_8_0.bin.lz",
@@ -5606,10 +5646,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_37.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/08_Mulldozer/dungeon_map.bin",
     "start": 5133972,
     "size": 60,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 12
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Mulldozer"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_9_0.bin.lz",
@@ -5624,10 +5669,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_38.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/09_Pillars/dungeon_map.bin",
     "start": 5134544,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Pillars"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_10_0.bin.lz",
@@ -5642,10 +5692,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_39.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/10_Lever/dungeon_map.bin",
     "start": 5135312,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 17
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Lever"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_11_0.bin.lz",
@@ -5660,10 +5715,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_40.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/11_Entrance/dungeon_map.bin",
     "start": 5136224,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 17
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Entrance"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_12_0.bin.lz",
@@ -5678,10 +5738,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_41.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/16_Torches/dungeon_map.bin",
     "start": 5137020,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 17
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Torches"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_13_0.bin.lz",
@@ -5696,10 +5761,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_42.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/17_BossKey/dungeon_map.bin",
     "start": 5137800,
     "size": 108,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 7,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_BossKey"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_14_0.bin.lz",
@@ -5714,10 +5784,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_43.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/18_Compass/dungeon_map.bin",
     "start": 5138532,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_Compass"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_15_0.bin.lz",
@@ -5735,7 +5810,12 @@
     "path": "assets/unknown_44.bin",
     "start": 5139036,
     "size": 60,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 12
+    },
+    "name": "gDungeonMaps_unknown_44"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_16_0.bin.lz",
@@ -5750,10 +5830,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_45.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/20_LilyPadWest/dungeon_map.bin",
     "start": 5140140,
     "size": 200,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 25
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_LilyPadWest"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_17_0.bin.lz",
@@ -5768,10 +5853,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_46.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/21_LilyPadEast/dungeon_map.bin",
     "start": 5140852,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 18
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_LilyPadEast"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrineBoss_0_0.bin.lz",
@@ -5786,10 +5876,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_47.bin",
+    "path": "maps/areas/073_DeepwoodShrineBoss/rooms/00_Main/dungeon_map.bin",
     "start": 5141508,
     "size": 76,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DeepwoodShrineBoss_Main"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_18_0.bin.lz",
@@ -5804,10 +5899,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_48.bin",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/23_BossDoor/dungeon_map.bin",
     "start": 5142384,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 17
+    },
+    "name": "gDungeonMaps_DeepwoodShrine_BossDoor"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_19_0.bin.lz",
@@ -5825,7 +5925,12 @@
     "path": "assets/unknown_49.bin",
     "start": 5142588,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_unknown_49"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrineEntry_0_0.bin",
@@ -5942,10 +6047,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_50.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/00_AfterCane/dungeon_map.bin",
     "start": 5222948,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 17
+    },
+    "name": "gDungeonMaps_CaveOfFlames_AfterCane"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_1_0.bin.lz",
@@ -5960,10 +6070,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_51.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/01_SpinyChu/dungeon_map.bin",
     "start": 5223772,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 17
+    },
+    "name": "gDungeonMaps_CaveOfFlames_SpinyChu"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_2_0.bin.lz",
@@ -5978,10 +6093,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_52.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/02_CartToSpinyChu/dungeon_map.bin",
     "start": 5224792,
     "size": 156,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 13
+    },
+    "name": "gDungeonMaps_CaveOfFlames_CartToSpinyChu"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_3_0.bin.lz",
@@ -5996,10 +6116,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_53.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/03_Entrance/dungeon_map.bin",
     "start": 5225332,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_CaveOfFlames_Entrance"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_4_0.bin.lz",
@@ -6014,10 +6139,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_54.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/04_MainCart/dungeon_map.bin",
     "start": 5226716,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 14,
+      "height": 17
+    },
+    "name": "gDungeonMaps_CaveOfFlames_MainCart"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_5_0.bin.lz",
@@ -6032,10 +6162,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_55.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/05_NorthEntrance/dungeon_map.bin",
     "start": 5227372,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_CaveOfFlames_NorthEntrance"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_6_0.bin.lz",
@@ -6050,10 +6185,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_56.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/06_CartWest/dungeon_map.bin",
     "start": 5228320,
     "size": 188,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 11,
+      "height": 17
+    },
+    "name": "gDungeonMaps_CaveOfFlames_CartWest"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_7_0.bin.lz",
@@ -6068,10 +6208,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_57.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/07_HelmasaurFight/dungeon_map.bin",
     "start": 5228960,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 17
+    },
+    "name": "gDungeonMaps_CaveOfFlames_HelmasaurFight"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_8_0.bin.lz",
@@ -6086,10 +6231,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_58.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/08_RollobiteLavaRoom/dungeon_map.bin",
     "start": 5230172,
     "size": 168,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 28
+    },
+    "name": "gDungeonMaps_CaveOfFlames_RollobiteLavaRoom"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_9_0.bin.lz",
@@ -6104,10 +6254,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_59.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/09_MinishLavaRoom/dungeon_map.bin",
     "start": 5231484,
     "size": 168,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 28
+    },
+    "name": "gDungeonMaps_CaveOfFlames_MinishLavaRoom"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_10_0.bin.lz",
@@ -6122,10 +6277,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_60.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/16_MinishSpikes/dungeon_map.bin",
     "start": 5233196,
     "size": 332,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 11,
+      "height": 30
+    },
+    "name": "gDungeonMaps_CaveOfFlames_MinishSpikes"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_11_0.bin.lz",
@@ -6140,10 +6300,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_61.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/17_TompasDoom/dungeon_map.bin",
     "start": 5234248,
     "size": 168,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 11,
+      "height": 15
+    },
+    "name": "gDungeonMaps_CaveOfFlames_TompasDoom"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_12_0.bin.lz",
@@ -6158,10 +6323,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_62.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/dungeon_map.bin",
     "start": 5234960,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 15
+    },
+    "name": "gDungeonMaps_CaveOfFlames_BeforeGleerok"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_13_0.bin.lz",
@@ -6176,10 +6346,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_63.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/dungeon_map.bin",
     "start": 5235636,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 15
+    },
+    "name": "gDungeonMaps_CaveOfFlames_BosskeyPath1"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_14_0.bin.lz",
@@ -6194,10 +6369,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_64.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/dungeon_map.bin",
     "start": 5236272,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 15
+    },
+    "name": "gDungeonMaps_CaveOfFlames_BosskeyPath2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_15_0.bin.lz",
@@ -6212,10 +6392,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_65.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/21_Compass/dungeon_map.bin",
     "start": 5236728,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_CaveOfFlames_Compass"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_16_0.bin.lz",
@@ -6230,10 +6415,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_66.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/dungeon_map.bin",
     "start": 5237112,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_CaveOfFlames_BobOmbWall"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_17_0.bin.lz",
@@ -6248,10 +6438,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_67.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/dungeon_map.bin",
     "start": 5238912,
     "size": 332,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 11,
+      "height": 30
+    },
+    "name": "gDungeonMaps_CaveOfFlames_BossDoor"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlamesBoss_0_0.bin.lz",
@@ -6266,10 +6461,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_68.bin",
+    "path": "maps/areas/081_CaveOfFlamesBoss/rooms/00_0/dungeon_map.bin",
     "start": 5240604,
     "size": 108,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 18
+    },
+    "name": "gDungeonMaps_CaveOfFlamesBoss_0"
   },
   {
     "path": "tilesets/gAreaTileset_CastorDarknut_0_0.4bpp.lz",
@@ -6410,10 +6610,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_69.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/00_DoubleEyegore/dungeon_map.bin",
     "start": 5334636,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_DoubleEyegore"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_1_0.bin.lz",
@@ -6428,10 +6633,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_70.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/01_BeforeMazaal/dungeon_map.bin",
     "start": 5335148,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_BeforeMazaal"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_2_0.bin.lz",
@@ -6446,10 +6656,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_71.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/02_EastKeyLever/dungeon_map.bin",
     "start": 5336500,
     "size": 272,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 10,
+      "height": 27
+    },
+    "name": "gDungeonMaps_FortressOfWinds_EastKeyLever"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_3_0.bin.lz",
@@ -6464,10 +6679,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_72.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/03_PitPlatforms/dungeon_map.bin",
     "start": 5337244,
     "size": 72,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 14
+    },
+    "name": "gDungeonMaps_FortressOfWinds_PitPlatforms"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_4_0.bin.lz",
@@ -6482,10 +6702,37 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_73.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/04_WestKeyLever/dungeon_map.bin",
     "start": 5338112,
-    "size": 248,
-    "type": "unknown"
+    "size": 112,
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 14
+    },
+    "name": "gDungeonMaps_FortressOfWinds_WestKeyLever"
+  },
+  {
+    "path": "maps/areas/088_FortressOfWinds/rooms/05_5/dungeon_map.bin",
+    "start": 5338224,
+    "size": 68,
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_5"
+  },
+  {
+    "path": "maps/areas/088_FortressOfWinds/rooms/06_6/dungeon_map.bin",
+    "start": 5338292,
+    "size": 68,
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_6"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_5_0.bin.lz",
@@ -6500,10 +6747,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_74.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/dungeon_map.bin",
     "start": 5338804,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_DarknutRoom"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_6_0.bin.lz",
@@ -6518,10 +6770,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_75.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/dungeon_map.bin",
     "start": 5339308,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_ArrowEyeBridge"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_7_0.bin.lz",
@@ -6536,10 +6793,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_76.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/18_NorthSplitPathPit/dungeon_map.bin",
     "start": 5340116,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_FortressOfWinds_NorthSplitPathPit"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_8_0.bin.lz",
@@ -6554,10 +6816,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_77.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/19_WallmasterMinishPortal/dungeon_map.bin",
     "start": 5340608,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_WallmasterMinishPortal"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_9_0.bin.lz",
@@ -6572,10 +6839,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_78.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/20_PillarCloneButtons/dungeon_map.bin",
     "start": 5341344,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_FortressOfWinds_PillarCloneButtons"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_10_0.bin.lz",
@@ -6590,10 +6862,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_79.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/21_RotatingSpikeTraps/dungeon_map.bin",
     "start": 5341900,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_RotatingSpikeTraps"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_11_0.bin.lz",
@@ -6608,10 +6885,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_80.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/22_Mazaal/dungeon_map.bin",
     "start": 5342420,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_Mazaal"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_12_0.bin.lz",
@@ -6626,10 +6908,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_81.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/23_Stalfos/dungeon_map.bin",
     "start": 5342936,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_Stalfos"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_13_0.bin.lz",
@@ -6644,10 +6931,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_82.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/dungeon_map.bin",
     "start": 5343376,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_EntranceMoleMitts"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_14_0.bin.lz",
@@ -6662,10 +6954,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_83.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/25_Main2f/dungeon_map.bin",
     "start": 5344292,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_FortressOfWinds_Main2f"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_15_0.bin.lz",
@@ -6680,10 +6977,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_84.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/dungeon_map.bin",
     "start": 5344824,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_MinishHole"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_16_0.bin.lz",
@@ -6698,10 +7000,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_85.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/27_BossKey/dungeon_map.bin",
     "start": 5345324,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_BossKey"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_17_0.bin.lz",
@@ -6716,10 +7023,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_86.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/28_WestStairs2f/dungeon_map.bin",
     "start": 5345788,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_WestStairs2f"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_18_0.bin.lz",
@@ -6734,10 +7046,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_87.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/dungeon_map.bin",
     "start": 5346284,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_EastStairs2f"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_19_0.bin.lz",
@@ -6752,10 +7069,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_88.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/32_WestStairs1f/dungeon_map.bin",
     "start": 5346708,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_WestStairs1f"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_20_0.bin.lz",
@@ -6770,10 +7092,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_89.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/dungeon_map.bin",
     "start": 5347132,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_CenterStairs1f"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_21_0.bin.lz",
@@ -6788,10 +7115,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_90.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/dungeon_map.bin",
     "start": 5347564,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_EastStairs1f"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_22_0.bin.lz",
@@ -6806,10 +7138,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_91.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/35_Wizzrobe/dungeon_map.bin",
     "start": 5347940,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_Wizzrobe"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_23_0.bin.lz",
@@ -6824,10 +7161,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_92.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/36_HeartPiece/dungeon_map.bin",
     "start": 5348348,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_FortressOfWinds_HeartPiece"
   },
   {
     "path": "assets/gAreaRoomMap_InnerMazaal_0_0.bin.lz",
@@ -6866,19 +7208,19 @@
     "type": "map_layer1"
   },
   {
-    "path": "tilesets/gAreaTileset_HyruleTownMinishCaves_0_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TempleOfDroplets_0_0.4bpp.lz",
     "start": 5350656,
     "size": 8744,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_HyruleTownMinishCaves_0_1.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TempleOfDroplets_0_1.4bpp.lz",
     "start": 5359400,
     "size": 9899,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_HyruleTownMinishCaves_0_2.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TempleOfDroplets_0_2.4bpp.lz",
     "start": 5369300,
     "size": 8707,
     "type": "tileset"
@@ -6962,10 +7304,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_93.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/00_WestHole/dungeon_map.bin",
     "start": 5414708,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_WestHole"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_1_0.bin.lz",
@@ -6980,10 +7327,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_94.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/01_NorthSplitRoom/dungeon_map.bin",
     "start": 5415192,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_NorthSplitRoom"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_2_0.bin.lz",
@@ -6998,10 +7350,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_95.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/02_EastHole/dungeon_map.bin",
     "start": 5415672,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_EastHole"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_3_0.bin.lz",
@@ -7016,10 +7373,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_96.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/03_Entrance/dungeon_map.bin",
     "start": 5416856,
     "size": 236,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 26
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_Entrance"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_4_0.bin.lz",
@@ -7034,10 +7396,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_97.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/04_NorthwestStairs/dungeon_map.bin",
     "start": 5417540,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_NorthwestStairs"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_5_0.bin.lz",
@@ -7052,10 +7419,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_98.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/05_ScissorsMiniboss/dungeon_map.bin",
     "start": 5417968,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_ScissorsMiniboss"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_6_0.bin.lz",
@@ -7070,10 +7442,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_99.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/06_WaterfallNorthwest/dungeon_map.bin",
     "start": 5418732,
     "size": 104,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 26
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_WaterfallNorthwest"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_7_0.bin.lz",
@@ -7088,10 +7465,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_100.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/07_WaterfallNortheast/dungeon_map.bin",
     "start": 5419512,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_WaterfallNortheast"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_8_0.bin.lz",
@@ -7106,10 +7488,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_101.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/08_Element/dungeon_map.bin",
     "start": 5421188,
     "size": 324,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 36
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_Element"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_9_0.bin.lz",
@@ -7124,10 +7511,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_102.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/09_IceCorner/dungeon_map.bin",
     "start": 5421920,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_IceCorner"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_10_0.bin.lz",
@@ -7142,10 +7534,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_103.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/10_IcePitMaze/dungeon_map.bin",
     "start": 5422896,
     "size": 156,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 39
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_IcePitMaze"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_11_0.bin.lz",
@@ -7160,10 +7557,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_104.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/11_HoleToBlueChuKey/dungeon_map.bin",
     "start": 5423536,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_HoleToBlueChuKey"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_12_0.bin.lz",
@@ -7178,10 +7580,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_105.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/dungeon_map.bin",
     "start": 5423916,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_WestWaterfallSoutheast"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_13_0.bin.lz",
@@ -7196,10 +7603,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_106.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/dungeon_map.bin",
     "start": 5424700,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_WestWaterfallSouthwest"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_14_0.bin.lz",
@@ -7214,10 +7626,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_107.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/14_BigOcto/dungeon_map.bin",
     "start": 5425252,
     "size": 144,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 16
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BigOcto"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_15_0.bin.lz",
@@ -7232,10 +7649,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_108.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/15_ToBlueChu/dungeon_map.bin",
     "start": 5425836,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_ToBlueChu"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_16_0.bin.lz",
@@ -7250,10 +7672,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_109.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/16_BlueChu/dungeon_map.bin",
     "start": 5426220,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BlueChu"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_17_0.bin.lz",
@@ -7268,10 +7695,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_110.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/dungeon_map.bin",
     "start": 5426624,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BlueChuKey"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_18_0.bin.lz",
@@ -7286,10 +7718,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_111.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/32_BossKey/dungeon_map.bin",
     "start": 5427240,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BossKey"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_19_0.bin.lz",
@@ -7304,10 +7741,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_112.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/33_NorthSmallKey/dungeon_map.bin",
     "start": 5427796,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_NorthSmallKey"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_20_0.bin.lz",
@@ -7322,10 +7764,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_113.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/34_BlockCloneButtonPuzzle/dungeon_map.bin",
     "start": 5428392,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BlockCloneButtonPuzzle"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_21_0.bin.lz",
@@ -7340,10 +7787,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_114.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/35_BlockClonePuzzle/dungeon_map.bin",
     "start": 5428892,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BlockClonePuzzle"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_22_0.bin.lz",
@@ -7358,10 +7810,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_115.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/36_BlockCloneIceBridge/dungeon_map.bin",
     "start": 5429848,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BlockCloneIceBridge"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_23_0.bin.lz",
@@ -7376,10 +7833,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_116.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/dungeon_map.bin",
     "start": 5430460,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_StairsToScissorsMiniboss"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_24_0.bin.lz",
@@ -7394,10 +7856,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_117.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/dungeon_map.bin",
     "start": 5431392,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 40
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_SpikeBarFlipperRoom"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_25_0.bin.lz",
@@ -7412,10 +7879,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_118.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/dungeon_map.bin",
     "start": 5431920,
     "size": 56,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 14
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_9Lanterns"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_26_0.bin.lz",
@@ -7450,10 +7922,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_119.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/40_LilypadIceBlocks/dungeon_map.bin",
     "start": 5433552,
     "size": 352,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 39
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_LilypadIceBlocks"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_27_0.bin.lz",
@@ -7468,10 +7945,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_120.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/41_29/dungeon_map.bin",
     "start": 5434340,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_29"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_28_0.bin.lz",
@@ -7486,10 +7968,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_121.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/42_MulldozersFireBars/dungeon_map.bin",
     "start": 5434748,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_MulldozersFireBars"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_29_0.bin.lz",
@@ -7504,10 +7991,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_122.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/43_DarkMaze/dungeon_map.bin",
     "start": 5435484,
     "size": 156,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 39
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_DarkMaze"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_30_0.bin.lz",
@@ -7522,10 +8014,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_123.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/44_TwinMadderpillars/dungeon_map.bin",
     "start": 5435956,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_TwinMadderpillars"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_31_0.bin.lz",
@@ -7540,10 +8037,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_124.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/45_AfterTwinMadderpillars/dungeon_map.bin",
     "start": 5436448,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_AfterTwinMadderpillars"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_32_0.bin.lz",
@@ -7558,10 +8060,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_125.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/dungeon_map.bin",
     "start": 5436916,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BlueChuKeyLever"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_33_0.bin.lz",
@@ -7576,10 +8083,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_126.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/47_MulldozerKey/dungeon_map.bin",
     "start": 5437284,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_MulldozerKey"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_34_0.bin.lz",
@@ -7594,10 +8106,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_127.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/48_BeforeTwinMadderpillars/dungeon_map.bin",
     "start": 5437676,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_BeforeTwinMadderpillars"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_35_0.bin.lz",
@@ -7612,10 +8129,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_128.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/49_LilypadB2West/dungeon_map.bin",
     "start": 5438436,
     "size": 136,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 27
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_LilypadB2West"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_36_0.bin.lz",
@@ -7630,10 +8152,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_129.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/50_Compass/dungeon_map.bin",
     "start": 5439028,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_Compass"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_37_0.bin.lz",
@@ -7648,10 +8175,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_130.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/51_DarkScissorBeetles/dungeon_map.bin",
     "start": 5439496,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_DarkScissorBeetles"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_38_0.bin.lz",
@@ -7666,10 +8198,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_131.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/52_LilypadB2Middle/dungeon_map.bin",
     "start": 5440144,
     "size": 128,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 14
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_LilypadB2Middle"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_39_0.bin.lz",
@@ -7684,10 +8221,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_132.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/53_IceMadderpillar/dungeon_map.bin",
     "start": 5440680,
     "size": 72,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 14
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_IceMadderpillar"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_40_0.bin.lz",
@@ -7702,10 +8244,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_133.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/54_FlamebarBlockPuzzle/dungeon_map.bin",
     "start": 5441140,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_TempleOfDroplets_FlamebarBlockPuzzle"
   },
   {
     "path": "assets/gAreaRoomMap_61_0_0.bin.lz",
@@ -8140,10 +8687,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_135.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/00_GyorgTornado/dungeon_map.bin",
     "start": 5543568,
     "size": 360,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_GyorgTornado"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BossKey_0.bin.lz",
@@ -8158,10 +8710,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_136.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/01_BossKey/dungeon_map.bin",
     "start": 5544224,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BossKey"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0.bin.lz",
@@ -8176,10 +8733,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_137.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/02_BeforeBallAndChainSoldiers/dungeon_map.bin",
     "start": 5544712,
     "size": 56,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 14
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BeforeBallAndChainSoldiers"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0.bin.lz",
@@ -8194,10 +8756,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_138.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/03_GyorgBossDoor/dungeon_map.bin",
     "start": 5545576,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_GyorgBossDoor"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0.bin.lz",
@@ -8212,10 +8779,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_139.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/04_EastChestFromGyorgBossDoor/dungeon_map.bin",
     "start": 5545952,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_EastChestFromGyorgBossDoor"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0.bin.lz",
@@ -8230,10 +8802,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_140.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/05_MoblinAndWizzrobeFight/dungeon_map.bin",
     "start": 5546684,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_MoblinAndWizzrobeFight"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0.bin.lz",
@@ -8248,10 +8825,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_141.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/06_FourButtonStalfos/dungeon_map.bin",
     "start": 5547468,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_FourButtonStalfos"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0.bin.lz",
@@ -8266,10 +8848,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_142.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/07_FanAndKeyToBossKey/dungeon_map.bin",
     "start": 5548292,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_FanAndKeyToBossKey"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0.bin.lz",
@@ -8284,10 +8871,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_143.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/08_BallAndChainSoldiers/dungeon_map.bin",
     "start": 5548988,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BallAndChainSoldiers"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombarossaPath_0.bin.lz",
@@ -8302,10 +8894,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_144.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/09_BombarossaPath/dungeon_map.bin",
     "start": 5549344,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BombarossaPath"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0.bin.lz",
@@ -8320,10 +8917,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_145.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/10_HoleToDarknut/dungeon_map.bin",
     "start": 5549768,
     "size": 52,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 13
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_HoleToDarknut"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0.bin.lz",
@@ -8338,10 +8940,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_146.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/11_ToBombarossaPath/dungeon_map.bin",
     "start": 5550132,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_ToBombarossaPath"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0.bin.lz",
@@ -8356,10 +8963,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_147.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/12_DarknutMiniboss/dungeon_map.bin",
     "start": 5550432,
     "size": 64,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 16
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_DarknutMiniboss"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_0.bin.lz",
@@ -8374,10 +8986,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_148.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/13_BombWallInside/dungeon_map.bin",
     "start": 5550804,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BombWallInside"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombWallOutside_0.bin.lz",
@@ -8392,10 +9009,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_149.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/14_BombWallOutside/dungeon_map.bin",
     "start": 5551240,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BombWallOutside"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_0.bin.lz",
@@ -8410,10 +9032,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_150.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/15_CloudJumps/dungeon_map.bin",
     "start": 5552228,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_CloudJumps"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0.bin.lz",
@@ -8428,10 +9055,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_151.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/16_BlockMazeToBossDoor/dungeon_map.bin",
     "start": 5553624,
     "size": 360,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BlockMazeToBossDoor"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0.bin.lz",
@@ -8446,10 +9078,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_152.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/17_CrackedFloorLakitu/dungeon_map.bin",
     "start": 5554656,
     "size": 120,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_CrackedFloorLakitu"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0.bin.lz",
@@ -8464,10 +9101,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_153.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/18_HeartPieceBridge/dungeon_map.bin",
     "start": 5555128,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_HeartPieceBridge"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_0.bin.lz",
@@ -8482,10 +9124,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_154.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/19_FanBridge/dungeon_map.bin",
     "start": 5556088,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_FanBridge"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_0.bin.lz",
@@ -8500,10 +9147,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_155.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/20_ToFanBridge/dungeon_map.bin",
     "start": 5556700,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_ToFanBridge"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_0.bin.lz",
@@ -8518,10 +9170,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_156.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/21_RedWarpHall/dungeon_map.bin",
     "start": 5558112,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_RedWarpHall"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0.bin.lz",
@@ -8536,10 +9193,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_157.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/22_PlatformCloneRide/dungeon_map.bin",
     "start": 5559244,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_PlatformCloneRide"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0.bin.lz",
@@ -8554,10 +9216,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_158.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/23_PitCornerAfterKey/dungeon_map.bin",
     "start": 5559696,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_PitCornerAfterKey"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_0.bin.lz",
@@ -8572,10 +9239,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_159.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/24_PlatformCrowRide/dungeon_map.bin",
     "start": 5560360,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 40
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_PlatformCrowRide"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0.bin.lz",
@@ -8590,10 +9262,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_160.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/25_GratePlatformRide/dungeon_map.bin",
     "start": 5561212,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_GratePlatformRide"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PotPush_0.bin.lz",
@@ -8608,10 +9285,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_161.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/26_PotPush/dungeon_map.bin",
     "start": 5562296,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_PotPush"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_0.bin.lz",
@@ -8626,10 +9308,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_162.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/27_FloormasterLever/dungeon_map.bin",
     "start": 5562772,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_FloormasterLever"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_Map_0.bin.lz",
@@ -8644,10 +9331,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_163.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/28_Map/dungeon_map.bin",
     "start": 5563100,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_Map"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CornerToMap_0.bin.lz",
@@ -8662,10 +9354,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_164.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/29_CornerToMap/dungeon_map.bin",
     "start": 5563444,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_CornerToMap"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0.bin.lz",
@@ -8680,10 +9377,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_165.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/30_StairsAfterFloormaster/dungeon_map.bin",
     "start": 5563792,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_StairsAfterFloormaster"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0.bin.lz",
@@ -8698,10 +9400,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_166.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/31_HoleToKinstoneWizzrobe/dungeon_map.bin",
     "start": 5564112,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_HoleToKinstoneWizzrobe"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0.bin.lz",
@@ -8716,10 +9423,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_167.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/32_KeyArrowButton/dungeon_map.bin",
     "start": 5564440,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_KeyArrowButton"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GratesTo3F_0.bin.lz",
@@ -8734,10 +9446,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_168.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/dungeon_map.bin",
     "start": 5565904,
     "size": 360,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_GratesTo3f"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_SpinyFight_0.bin.lz",
@@ -8752,10 +9469,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_169.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/34_SpinyFight/dungeon_map.bin",
     "start": 5567376,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_SpinyFight"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0.bin.lz",
@@ -8770,10 +9492,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_170.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/35_PeahatSwitch/dungeon_map.bin",
     "start": 5568132,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_PeahatSwitch"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0.bin.lz",
@@ -8788,10 +9515,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_171.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/36_WhirlwindBombarossa/dungeon_map.bin",
     "start": 5568776,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_WhirlwindBombarossa"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0.bin.lz",
@@ -8806,10 +9538,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_172.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/37_DoorToStalfosFirebar/dungeon_map.bin",
     "start": 5569272,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_DoorToStalfosFirebar"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0.bin.lz",
@@ -8824,10 +9561,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_173.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/38_StalfosFirebarHole/dungeon_map.bin",
     "start": 5569644,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_StalfosFirebarHole"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0.bin.lz",
@@ -8842,10 +9584,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_174.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/39_ShortcutDoorButtons/dungeon_map.bin",
     "start": 5570016,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_ShortcutDoorButtons"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0.bin.lz",
@@ -8860,10 +9607,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_175.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/40_ToPeahatSwitch/dungeon_map.bin",
     "start": 5570388,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_ToPeahatSwitch"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0.bin.lz",
@@ -8878,10 +9630,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_176.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/41_KinstoneWizzrobeFight/dungeon_map.bin",
     "start": 5570728,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_KinstoneWizzrobeFight"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_0.bin.lz",
@@ -8896,10 +9653,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_177.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/42_GibdoStairs/dungeon_map.bin",
     "start": 5571092,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_GibdoStairs"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0.bin.lz",
@@ -8914,10 +9676,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_178.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/43_SpikeBarSmallKey/dungeon_map.bin",
     "start": 5571624,
     "size": 80,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_SpikeBarSmallKey"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_RocCape_0.bin.lz",
@@ -8947,10 +9714,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_179.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/44_RocCape/dungeon_map.bin",
     "start": 5572700,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_RocCape"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_0.bin.lz",
@@ -8965,10 +9737,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_180.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/45_FireBarGrates/dungeon_map.bin",
     "start": 5573880,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 30
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_FireBarGrates"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0.bin.lz",
@@ -8983,10 +9760,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_181.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/46_PlatformRideBombarossas/dungeon_map.bin",
     "start": 5574756,
     "size": 200,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 40
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_PlatformRideBombarossas"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0.bin.lz",
@@ -9001,10 +9783,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_182.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/47_BridgeAfterDarknut/dungeon_map.bin",
     "start": 5575128,
     "size": 40,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 10
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BridgeAfterDarknut"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0.bin.lz",
@@ -9019,10 +9806,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_183.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/48_BridgeSwitchesCloneBlock/dungeon_map.bin",
     "start": 5576004,
     "size": 160,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 8,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_BridgeSwitchesCloneBlock"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_0.bin.lz",
@@ -9037,10 +9829,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_184.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/49_EntranceRoom/dungeon_map.bin",
     "start": 5576656,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 11
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_EntranceRoom"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0.bin.lz",
@@ -9055,10 +9852,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_185.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/50_DarkCompassHall/dungeon_map.bin",
     "start": 5577900,
     "size": 240,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 12,
+      "height": 20
+    },
+    "name": "gDungeonMaps_PalaceOfWinds_DarkCompassHall"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWindsBoss_0_0.bin.lz",
@@ -9559,10 +10361,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_188.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/00_1fEntrance/dungeon_map.bin",
     "start": 5808344,
     "size": 468,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 13,
+      "height": 36
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fEntrance"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0.bin.lz",
@@ -9577,10 +10384,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_189.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/01_3fTopLeftTower/dungeon_map.bin",
     "start": 5809156,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_3fTopLeftTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0.bin.lz",
@@ -9595,10 +10407,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_190.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/02_3fTopRightTower/dungeon_map.bin",
     "start": 5809592,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_3fTopRightTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0.bin.lz",
@@ -9613,10 +10430,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_191.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/03_3fBottomLeftTower/dungeon_map.bin",
     "start": 5810036,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_3fBottomLeftTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_0.bin.lz",
@@ -9631,10 +10453,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_192.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/04_3fBottomRightTower/dungeon_map.bin",
     "start": 5810488,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_3fBottomRightTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0.bin.lz",
@@ -9649,10 +10476,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_193.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/05_3fKeatonHallToVaati/dungeon_map.bin",
     "start": 5811284,
     "size": 156,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_3fKeatonHallToVaati"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_0.bin.lz",
@@ -9667,10 +10499,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_194.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/06_3fTripleDarknut/dungeon_map.bin",
     "start": 5812004,
     "size": 96,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 6,
+      "height": 16
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_3fTripleDarknut"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0.bin.lz",
@@ -9685,10 +10522,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_195.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/07_2fTopLeftTower/dungeon_map.bin",
     "start": 5812624,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopLeftTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0.bin.lz",
@@ -9703,10 +10545,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_196.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/08_2fTopLeftCorner/dungeon_map.bin",
     "start": 5813412,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopLeftCorner"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_0.bin.lz",
@@ -9721,10 +10568,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_197.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/09_2fBossKey/dungeon_map.bin",
     "start": 5814032,
     "size": 76,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBossKey"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0.bin.lz",
@@ -9739,10 +10591,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_198.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/10_2fBlueWarp/dungeon_map.bin",
     "start": 5814544,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBlueWarp"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0.bin.lz",
@@ -9757,10 +10614,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_199.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/11_2fTopRightCornerGhini/dungeon_map.bin",
     "start": 5814972,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopRightCornerGhini"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0.bin.lz",
@@ -9775,10 +10637,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_200.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/12_2fTopRightCornerTorches/dungeon_map.bin",
     "start": 5815420,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopRightCornerTorches"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0.bin.lz",
@@ -9793,10 +10660,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_201.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/13_2fTopRightTower/dungeon_map.bin",
     "start": 5815892,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopRightTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0.bin.lz",
@@ -9811,10 +10683,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_202.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/14_2fTopLeftDarknut/dungeon_map.bin",
     "start": 5816436,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopLeftDarknut"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FSparks_0.bin.lz",
@@ -9829,10 +10706,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_203.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/15_2fSparks/dungeon_map.bin",
     "start": 5816924,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fSparks"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0.bin.lz",
@@ -9847,10 +10729,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_204.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/16_2fTopRightDarknuts/dungeon_map.bin",
     "start": 5817456,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fTopRightDarknuts"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_0.bin.lz",
@@ -9865,10 +10752,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_205.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/17_2fLeft/dungeon_map.bin",
     "start": 5818136,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fLeft"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FRight_0.bin.lz",
@@ -9883,10 +10775,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_206.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/18_2fRight/dungeon_map.bin",
     "start": 5818824,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fRight"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0.bin.lz",
@@ -9901,10 +10798,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_207.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/19_2fBottomLeftDarknuts/dungeon_map.bin",
     "start": 5819400,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomLeftDarknuts"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0.bin.lz",
@@ -9919,10 +10821,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_208.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/20_2fBossDoor/dungeon_map.bin",
     "start": 5819972,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBossDoor"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_0.bin.lz",
@@ -9937,10 +10844,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_209.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/21_2fBottomRightDarknut/dungeon_map.bin",
     "start": 5820488,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomRightDarknut"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0.bin.lz",
@@ -9955,10 +10867,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_210.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/22_2fBottomLeftCornerPuzzle/dungeon_map.bin",
     "start": 5820940,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomLeftCornerPuzzle"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FEntrance_0.bin.lz",
@@ -9973,10 +10890,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_211.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/23_2fEntrance/dungeon_map.bin",
     "start": 5821688,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fEntrance"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0.bin.lz",
@@ -9991,10 +10913,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_212.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/24_2fBottomRightCorner/dungeon_map.bin",
     "start": 5822388,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomRightCorner"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_0.bin.lz",
@@ -10009,10 +10936,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_213.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/25_2fBottomLeftTower/dungeon_map.bin",
     "start": 5822892,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomLeftTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0.bin.lz",
@@ -10027,10 +10959,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_214.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/26_2fBottomLeftGhini/dungeon_map.bin",
     "start": 5823308,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomLeftGhini"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_0.bin.lz",
@@ -10048,7 +10985,12 @@
     "path": "assets/unknown_215.bin",
     "start": 5823496,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_unknown_215"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Entrance_0.bin.lz",
@@ -10063,10 +11005,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_216.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/28_B1Entrance/dungeon_map.bin",
     "start": 5824012,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1Entrance"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0.bin.lz",
@@ -10081,10 +11028,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_217.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/29_2fBottomRightTower/dungeon_map.bin",
     "start": 5824592,
     "size": 132,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_2fBottomRightTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_0.bin.lz",
@@ -10099,10 +11051,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_218.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/30_1fTopLeftTower/dungeon_map.bin",
     "start": 5825076,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fTopLeftTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0.bin.lz",
@@ -10117,10 +11074,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_219.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/31_1fThroneRoom/dungeon_map.bin",
     "start": 5825628,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fThroneRoom"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_0.bin.lz",
@@ -10135,10 +11097,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_220.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/32_1fCompass/dungeon_map.bin",
     "start": 5826168,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fCompass"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0.bin.lz",
@@ -10153,10 +11120,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_221.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/33_1fTopRightTower/dungeon_map.bin",
     "start": 5826644,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fTopRightTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0.bin.lz",
@@ -10171,10 +11143,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_222.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/34_1fBeforeThrone/dungeon_map.bin",
     "start": 5827148,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fBeforeThrone"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_0.bin.lz",
@@ -10189,10 +11166,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_223.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/35_1fLoopTopLeft/dungeon_map.bin",
     "start": 5827592,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopTopLeft"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTop_0.bin.lz",
@@ -10207,10 +11189,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_224.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTop/dungeon_map.bin",
     "start": 5827992,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopTop"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_0.bin.lz",
@@ -10225,10 +11212,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_225.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/dungeon_map.bin",
     "start": 5828416,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopTopRight"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_0.bin.lz",
@@ -10243,10 +11235,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_226.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/38_1fLoopLeft/dungeon_map.bin",
     "start": 5829004,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopLeft"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0.bin.lz",
@@ -10261,10 +11258,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_227.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/39_1fLoopRight/dungeon_map.bin",
     "start": 5829568,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopRight"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0.bin.lz",
@@ -10279,10 +11281,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_228.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/40_1fLoopBottomLeft/dungeon_map.bin",
     "start": 5830040,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopBottomLeft"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0.bin.lz",
@@ -10297,10 +11304,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_229.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottom/dungeon_map.bin",
     "start": 5830424,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopBottom"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0.bin.lz",
@@ -10315,10 +11327,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_230.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/dungeon_map.bin",
     "start": 5830840,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fLoopBottomRight"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0.bin.lz",
@@ -10333,10 +11350,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_231.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/43_1fBottomLeftTower/dungeon_map.bin",
     "start": 5831260,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fBottomLeftTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_0.bin.lz",
@@ -10351,10 +11373,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_232.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/44_1fBottomRightTower/dungeon_map.bin",
     "start": 5831676,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_1fBottomRightTower"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_0.bin.lz",
@@ -10369,10 +11396,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_233.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/45_B1BelowThrone/dungeon_map.bin",
     "start": 5832084,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1BelowThrone"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0.bin.lz",
@@ -10387,10 +11419,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_234.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/46_B1BelowCompass/dungeon_map.bin",
     "start": 5832540,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1BelowCompass"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_0.bin.lz",
@@ -10405,10 +11442,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_235.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/47_B1BeforeThrone/dungeon_map.bin",
     "start": 5832952,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1BeforeThrone"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrison_0.bin.lz",
@@ -10423,10 +11465,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_236.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/48_B1ToPrison/dungeon_map.bin",
     "start": 5833356,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1ToPrison"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BombWall_0.bin.lz",
@@ -10441,10 +11488,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_237.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/49_B1BombWall/dungeon_map.bin",
     "start": 5833764,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1BombWall"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Keatons_0.bin.lz",
@@ -10459,10 +11511,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_238.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/50_B1Keatons/dungeon_map.bin",
     "start": 5834196,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1Keatons"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0.bin.lz",
@@ -10477,10 +11534,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_239.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/dungeon_map.bin",
     "start": 5834760,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1ToPrisonFirebar"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Cannons_0.bin.lz",
@@ -10495,10 +11557,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_240.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/52_B1Cannons/dungeon_map.bin",
     "start": 5835316,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1Cannons"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_0.bin.lz",
@@ -10513,10 +11580,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_241.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/53_B1Left/dungeon_map.bin",
     "start": 5835824,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1Left"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Right_0.bin.lz",
@@ -10531,10 +11603,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_242.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/54_B1Right/dungeon_map.bin",
     "start": 5836300,
     "size": 68,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 13
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1Right"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_0.bin.lz",
@@ -10549,10 +11626,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_243.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/55_B1Map/dungeon_map.bin",
     "start": 5837996,
     "size": 340,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 13,
+      "height": 26
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B1Map"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0.bin.lz",
@@ -10567,10 +11649,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_244.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/56_B2ToPrison/dungeon_map.bin",
     "start": 5838764,
     "size": 76,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B2ToPrison"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Prison_0.bin.lz",
@@ -10585,10 +11672,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_245.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/57_B2Prison/dungeon_map.bin",
     "start": 5839404,
     "size": 136,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 9,
+      "height": 15
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B2Prison"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0.bin.lz",
@@ -10603,10 +11695,15 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_246.bin",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/58_B2Dropdown/dungeon_map.bin",
     "start": 5839900,
     "size": 92,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 18
+    },
+    "name": "gDungeonMaps_DarkHyruleCastle_B2Dropdown"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_0.bin.lz",
@@ -10624,7 +11721,12 @@
     "path": "assets/unknown_247.bin",
     "start": 5840112,
     "size": 112,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 4,
+      "height": 28
+    },
+    "name": "gDungeonMaps_unknown_247"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleBridge_0_0.bin.lz",
@@ -10642,7 +11744,12 @@
     "path": "assets/unknown_248.bin",
     "start": 5840868,
     "size": 100,
-    "type": "unknown"
+    "type": "dungeon_map",
+    "options": {
+      "width": 5,
+      "height": 20
+    },
+    "name": "gDungeonMaps_unknown_248"
   },
   {
     "path": "assets/gAreaRoomMap_Vaati3_0_0.bin.lz",

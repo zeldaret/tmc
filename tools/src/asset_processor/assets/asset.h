@@ -49,7 +49,7 @@ class BaseAsset {
     }
 
     // Returns the base of the filename of the asset.
-    [[nodiscard]] std::string getSymbol() const {
+    [[nodiscard]] virtual std::string getSymbol() const {
         // Need to get the stem twice to remove both of the .4bpp.lz extensions.
         return (path.stem()).stem();
     }

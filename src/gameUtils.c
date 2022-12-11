@@ -3,6 +3,7 @@
  *
  * @brief Game Utils
  */
+#include "area.h"
 #include "backgroundAnimations.h"
 #include "enemy.h"
 #include "entity.h"
@@ -162,17 +163,17 @@ void InitializePlayer(void) {
 
 bool32 AreaIsOverworld(void) {
 #ifdef EU
-    return gArea.areaMetadata == 0x01;
+    return gArea.areaMetadata == AR_IS_OVERWORLD;
 #else
-    return gArea.areaMetadata == 0x81;
+    return gArea.areaMetadata == (AR_ALLOWS_WARP | AR_IS_OVERWORLD);
 #endif
 }
 
 bool32 CheckAreaOverworld(u32 area) {
 #if EU
-    return gAreaMetadata[area].flags == 0x01;
+    return gAreaMetadata[area].flags == AR_IS_OVERWORLD;
 #else
-    return gAreaMetadata[area].flags == 0x81;
+    return gAreaMetadata[area].flags == (AR_ALLOWS_WARP | AR_IS_OVERWORLD);
 #endif
 }
 
@@ -274,20 +275,20 @@ bool32 HasDungeonSmallKey(void) {
 }
 
 extern u8 gPaletteBufferBackup[];
-void RestoreGameTask(u32 a1) {
+void RestoreGameTask(bool32 loadGfx) {
     LoadGfxGroups();
 #ifndef EU
     CleanUpGFXSlots();
 #endif
     sub_080ADE24();
     InitUI(TRUE);
-    sub_0801AE44(a1);
+    sub_0801AE44(loadGfx);
     MemCopy(gPaletteBufferBackup, gPaletteBuffer, 1024);
     gUsedPalettes = 0xffffffff;
 }
 
 void LoadRoomBgm(void) {
-    gArea.queued_bgm = gAreaMetadata[gRoomControls.area]._3;
+    gArea.queued_bgm = gAreaMetadata[gRoomControls.area].queueBgm;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
         gArea.queued_bgm = BGM_FIGHT_THEME2;
     }

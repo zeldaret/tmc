@@ -4,18 +4,19 @@
 	.section .rodata
 	.align 2
 
+
 gMapData:: @ 08324AE4
 @ Contains purely 0xff to indicate that no metatiles are used, but the mapping for the tiles is supplied directly.
 gAreaRoomMap_None::
 	.incbin "assets/gAreaRoomMap_None.bin.lz"
 	.align 2
-gAreaTileset_LakeWoodsCave_0_0::
-	.incbin "tilesets/gAreaTileset_LakeWoodsCave_0_0.4bpp.lz"
+gAreaTileset_MinishWoods_0_0::
+	.incbin "tilesets/gAreaTileset_MinishWoods_0_0.4bpp.lz"
 	.align 2
-gAreaTileset_LakeWoodsCave_0_1::
-	.incbin "tilesets/gAreaTileset_LakeWoodsCave_0_1.4bpp.lz"
-gAreaTileset_LakeWoodsCave_0_2::
-	.incbin "tilesets/gAreaTileset_LakeWoodsCave_0_2.4bpp.lz"
+gAreaTileset_MinishWoods_0_1::
+	.incbin "tilesets/gAreaTileset_MinishWoods_0_1.4bpp.lz"
+gAreaTileset_MinishWoods_0_2::
+	.incbin "tilesets/gAreaTileset_MinishWoods_0_2.4bpp.lz"
 	.align 2
 gAreaMetatiles_MinishWoods_0::
 	.incbin "assets/gAreaMetatiles_MinishWoods_0.bin.lz"
@@ -2430,115 +2431,115 @@ gAreaRoomMap_DeepwoodShrine_0_0::
 gAreaRoomMap_DeepwoodShrine_0_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_0_1.bin.lz"
 	.align 2
-unknown_29::
-	.incbin "assets/unknown_29.bin"
+ gDungeonMaps_DeepwoodShrine_Madderpillar::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/00_Madderpillar/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_1_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_1_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_1_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_1_1.bin.lz"
 	.align 2
-unknown_30::
-	.incbin "assets/unknown_30.bin"
+ gDungeonMaps_DeepwoodShrine_BluePortal::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/01_BluePortal/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_2_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_2_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_2_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_2_1.bin.lz"
 	.align 2
-unknown_31::
-	.incbin "assets/unknown_31.bin"
+ gDungeonMaps_DeepwoodShrine_StairsToB1::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/02_StairsToB1/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_3_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_3_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_3_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_3_1.bin.lz"
 	.align 2
-unknown_32::
-	.incbin "assets/unknown_32.bin"
+ gDungeonMaps_DeepwoodShrine_PotBridge::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/03_PotBridge/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_4_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_4_0.bin.lz"
 gAreaRoomMap_DeepwoodShrine_4_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_4_1.bin.lz"
 	.align 2
-unknown_33::
-	.incbin "assets/unknown_33.bin"
+ gDungeonMaps_DeepwoodShrine_DoubleStatue::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/04_DoubleStatue/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_5_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_5_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_5_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_5_1.bin.lz"
 	.align 2
-unknown_34::
-	.incbin "assets/unknown_34.bin"
+ gDungeonMaps_DeepwoodShrine_Map::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/05_Map/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_6_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_6_0.bin.lz"
 gAreaRoomMap_DeepwoodShrine_6_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_6_1.bin.lz"
 	.align 2
-unknown_35::
-	.incbin "assets/unknown_35.bin"
+ gDungeonMaps_DeepwoodShrine_Barrel::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/06_Barrel/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_7_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_7_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_7_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_7_1.bin.lz"
 	.align 2
-unknown_36::
-	.incbin "assets/unknown_36.bin"
+ gDungeonMaps_DeepwoodShrine_Button::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/07_Button/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_8_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_8_0.bin.lz"
 gAreaRoomMap_DeepwoodShrine_8_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_8_1.bin.lz"
 	.align 2
-unknown_37::
-	.incbin "assets/unknown_37.bin"
+ gDungeonMaps_DeepwoodShrine_Mulldozer::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/08_Mulldozer/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_9_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_9_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_9_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_9_1.bin.lz"
 	.align 2
-unknown_38::
-	.incbin "assets/unknown_38.bin"
+ gDungeonMaps_DeepwoodShrine_Pillars::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/09_Pillars/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_10_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_10_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_10_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_10_1.bin.lz"
 	.align 2
-unknown_39::
-	.incbin "assets/unknown_39.bin"
+ gDungeonMaps_DeepwoodShrine_Lever::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/10_Lever/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_11_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_11_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_11_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_11_1.bin.lz"
 	.align 2
-unknown_40::
-	.incbin "assets/unknown_40.bin"
+ gDungeonMaps_DeepwoodShrine_Entrance::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/11_Entrance/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_12_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_12_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_12_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_12_1.bin.lz"
 	.align 2
-unknown_41::
-	.incbin "assets/unknown_41.bin"
+ gDungeonMaps_DeepwoodShrine_Torches::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/16_Torches/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_13_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_13_0.bin.lz"
 gAreaRoomMap_DeepwoodShrine_13_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_13_1.bin.lz"
 	.align 2
-unknown_42::
-	.incbin "assets/unknown_42.bin"
+ gDungeonMaps_DeepwoodShrine_BossKey::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/17_BossKey/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_14_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_14_0.bin.lz"
 gAreaRoomMap_DeepwoodShrine_14_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_14_1.bin.lz"
 	.align 2
-unknown_43::
-	.incbin "assets/unknown_43.bin"
+ gDungeonMaps_DeepwoodShrine_Compass::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/18_Compass/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_15_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_15_0.bin.lz"
 	.align 2
@@ -2553,31 +2554,31 @@ gAreaRoomMap_DeepwoodShrine_16_0::
 gAreaRoomMap_DeepwoodShrine_16_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_16_1.bin.lz"
 	.align 2
-unknown_45::
-	.incbin "assets/unknown_45.bin"
+ gDungeonMaps_DeepwoodShrine_LilyPadWest::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/20_LilyPadWest/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_17_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_17_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_17_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_17_1.bin.lz"
 	.align 2
-unknown_46::
-	.incbin "assets/unknown_46.bin"
+ gDungeonMaps_DeepwoodShrine_LilyPadEast::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/21_LilyPadEast/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrineBoss_0_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrineBoss_0_0.bin.lz"
 gAreaRoomMap_DeepwoodShrineBoss_0_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrineBoss_0_1.bin.lz"
 	.align 2
-unknown_47::
-	.incbin "assets/unknown_47.bin"
+ gDungeonMaps_DeepwoodShrineBoss_Main::
+	.incbin "maps/areas/073_DeepwoodShrineBoss/rooms/00_Main/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_18_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_18_0.bin.lz"
 	.align 2
 gAreaRoomMap_DeepwoodShrine_18_1::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_18_1.bin.lz"
 	.align 2
-unknown_48::
-	.incbin "assets/unknown_48.bin"
+ gDungeonMaps_DeepwoodShrine_BossDoor::
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/23_BossDoor/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_19_0::
 	.incbin "assets/gAreaRoomMap_DeepwoodShrine_19_0.bin.lz"
 	.align 2
@@ -2641,142 +2642,142 @@ gAreaRoomMap_CaveOfFlames_0_0::
 gAreaRoomMap_CaveOfFlames_0_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_0_1.bin.lz"
 	.align 2
-unknown_50::
-	.incbin "assets/unknown_50.bin"
+ gDungeonMaps_CaveOfFlames_AfterCane::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/00_AfterCane/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_1_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_1_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_1_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_1_1.bin.lz"
 	.align 2
-unknown_51::
-	.incbin "assets/unknown_51.bin"
+ gDungeonMaps_CaveOfFlames_SpinyChu::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/01_SpinyChu/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_2_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_2_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_2_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_2_1.bin.lz"
 	.align 2
-unknown_52::
-	.incbin "assets/unknown_52.bin"
+ gDungeonMaps_CaveOfFlames_CartToSpinyChu::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/02_CartToSpinyChu/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_3_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_3_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_3_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_3_1.bin.lz"
 	.align 2
-unknown_53::
-	.incbin "assets/unknown_53.bin"
+ gDungeonMaps_CaveOfFlames_Entrance::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/03_Entrance/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_4_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_4_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_4_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_4_1.bin.lz"
 	.align 2
-unknown_54::
-	.incbin "assets/unknown_54.bin"
+ gDungeonMaps_CaveOfFlames_MainCart::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/04_MainCart/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_5_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_5_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_5_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_5_1.bin.lz"
 	.align 2
-unknown_55::
-	.incbin "assets/unknown_55.bin"
+ gDungeonMaps_CaveOfFlames_NorthEntrance::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/05_NorthEntrance/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_6_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_6_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_6_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_6_1.bin.lz"
 	.align 2
-unknown_56::
-	.incbin "assets/unknown_56.bin"
+ gDungeonMaps_CaveOfFlames_CartWest::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/06_CartWest/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_7_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_7_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_7_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_7_1.bin.lz"
 	.align 2
-unknown_57::
-	.incbin "assets/unknown_57.bin"
+ gDungeonMaps_CaveOfFlames_HelmasaurFight::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/07_HelmasaurFight/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_8_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_8_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_8_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_8_1.bin.lz"
 	.align 2
-unknown_58::
-	.incbin "assets/unknown_58.bin"
+ gDungeonMaps_CaveOfFlames_RollobiteLavaRoom::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/08_RollobiteLavaRoom/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_9_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_9_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_9_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_9_1.bin.lz"
 	.align 2
-unknown_59::
-	.incbin "assets/unknown_59.bin"
+ gDungeonMaps_CaveOfFlames_MinishLavaRoom::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/09_MinishLavaRoom/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_10_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_10_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_10_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_10_1.bin.lz"
 	.align 2
-unknown_60::
-	.incbin "assets/unknown_60.bin"
+ gDungeonMaps_CaveOfFlames_MinishSpikes::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/16_MinishSpikes/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_11_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_11_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_11_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_11_1.bin.lz"
 	.align 2
-unknown_61::
-	.incbin "assets/unknown_61.bin"
+ gDungeonMaps_CaveOfFlames_TompasDoom::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/17_TompasDoom/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_12_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_12_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_12_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_12_1.bin.lz"
 	.align 2
-unknown_62::
-	.incbin "assets/unknown_62.bin"
+ gDungeonMaps_CaveOfFlames_BeforeGleerok::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_13_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_13_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_13_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_13_1.bin.lz"
 	.align 2
-unknown_63::
-	.incbin "assets/unknown_63.bin"
+ gDungeonMaps_CaveOfFlames_BosskeyPath1::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_14_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_14_0.bin.lz"
 gAreaRoomMap_CaveOfFlames_14_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_14_1.bin.lz"
 	.align 2
-unknown_64::
-	.incbin "assets/unknown_64.bin"
+ gDungeonMaps_CaveOfFlames_BosskeyPath2::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_15_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_15_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_15_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_15_1.bin.lz"
 	.align 2
-unknown_65::
-	.incbin "assets/unknown_65.bin"
+ gDungeonMaps_CaveOfFlames_Compass::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/21_Compass/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_16_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_16_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_16_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_16_1.bin.lz"
 	.align 2
-unknown_66::
-	.incbin "assets/unknown_66.bin"
+ gDungeonMaps_CaveOfFlames_BobOmbWall::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_17_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_17_0.bin.lz"
 	.align 2
 gAreaRoomMap_CaveOfFlames_17_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlames_17_1.bin.lz"
 	.align 2
-unknown_67::
-	.incbin "assets/unknown_67.bin"
+ gDungeonMaps_CaveOfFlames_BossDoor::
+	.incbin "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlamesBoss_0_0::
 	.incbin "assets/gAreaRoomMap_CaveOfFlamesBoss_0_0.bin.lz"
 gAreaRoomMap_CaveOfFlamesBoss_0_1::
 	.incbin "assets/gAreaRoomMap_CaveOfFlamesBoss_0_1.bin.lz"
 	.align 2
-unknown_68::
-	.incbin "assets/unknown_68.bin"
+ gDungeonMaps_CaveOfFlamesBoss_0::
+	.incbin "maps/areas/081_CaveOfFlamesBoss/rooms/00_0/dungeon_map.bin"
 gAreaTileset_CastorDarknut_0_0::
 	.incbin "tilesets/gAreaTileset_CastorDarknut_0_0.4bpp.lz"
 	.align 2
@@ -2844,181 +2845,185 @@ gAreaRoomMap_FortressOfWinds_0_0::
 gAreaRoomMap_FortressOfWinds_0_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_0_1.bin.lz"
 	.align 2
-unknown_69::
-	.incbin "assets/unknown_69.bin"
+ gDungeonMaps_FortressOfWinds_DoubleEyegore::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/00_DoubleEyegore/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_1_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_1_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_1_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_1_1.bin.lz"
 	.align 2
-unknown_70::
-	.incbin "assets/unknown_70.bin"
+ gDungeonMaps_FortressOfWinds_BeforeMazaal::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/01_BeforeMazaal/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_2_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_2_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_2_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_2_1.bin.lz"
 	.align 2
-unknown_71::
-	.incbin "assets/unknown_71.bin"
+ gDungeonMaps_FortressOfWinds_EastKeyLever::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/02_EastKeyLever/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_3_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_3_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_3_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_3_1.bin.lz"
 	.align 2
-unknown_72::
-	.incbin "assets/unknown_72.bin"
+ gDungeonMaps_FortressOfWinds_PitPlatforms::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/03_PitPlatforms/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_4_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_4_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_4_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_4_1.bin.lz"
 	.align 2
-unknown_73::
-	.incbin "assets/unknown_73.bin"
+ gDungeonMaps_FortressOfWinds_WestKeyLever::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/04_WestKeyLever/dungeon_map.bin"
+ gDungeonMaps_FortressOfWinds_5::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/05_5/dungeon_map.bin"
+ gDungeonMaps_FortressOfWinds_6::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/06_6/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_5_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_5_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_5_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_5_1.bin.lz"
 	.align 2
-unknown_74::
-	.incbin "assets/unknown_74.bin"
+ gDungeonMaps_FortressOfWinds_DarknutRoom::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_6_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_6_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_6_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_6_1.bin.lz"
 	.align 2
-unknown_75::
-	.incbin "assets/unknown_75.bin"
+ gDungeonMaps_FortressOfWinds_ArrowEyeBridge::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_7_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_7_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_7_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_7_1.bin.lz"
 	.align 2
-unknown_76::
-	.incbin "assets/unknown_76.bin"
+ gDungeonMaps_FortressOfWinds_NorthSplitPathPit::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/18_NorthSplitPathPit/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_8_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_8_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_8_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_8_1.bin.lz"
 	.align 2
-unknown_77::
-	.incbin "assets/unknown_77.bin"
+ gDungeonMaps_FortressOfWinds_WallmasterMinishPortal::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/19_WallmasterMinishPortal/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_9_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_9_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_9_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_9_1.bin.lz"
 	.align 2
-unknown_78::
-	.incbin "assets/unknown_78.bin"
+ gDungeonMaps_FortressOfWinds_PillarCloneButtons::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/20_PillarCloneButtons/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_10_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_10_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_10_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_10_1.bin.lz"
 	.align 2
-unknown_79::
-	.incbin "assets/unknown_79.bin"
+ gDungeonMaps_FortressOfWinds_RotatingSpikeTraps::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/21_RotatingSpikeTraps/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_11_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_11_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_11_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_11_1.bin.lz"
 	.align 2
-unknown_80::
-	.incbin "assets/unknown_80.bin"
+ gDungeonMaps_FortressOfWinds_Mazaal::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/22_Mazaal/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_12_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_12_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_12_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_12_1.bin.lz"
 	.align 2
-unknown_81::
-	.incbin "assets/unknown_81.bin"
+ gDungeonMaps_FortressOfWinds_Stalfos::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/23_Stalfos/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_13_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_13_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_13_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_13_1.bin.lz"
 	.align 2
-unknown_82::
-	.incbin "assets/unknown_82.bin"
+ gDungeonMaps_FortressOfWinds_EntranceMoleMitts::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_14_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_14_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_14_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_14_1.bin.lz"
 	.align 2
-unknown_83::
-	.incbin "assets/unknown_83.bin"
+ gDungeonMaps_FortressOfWinds_Main2f::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/25_Main2f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_15_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_15_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_15_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_15_1.bin.lz"
 	.align 2
-unknown_84::
-	.incbin "assets/unknown_84.bin"
+ gDungeonMaps_FortressOfWinds_MinishHole::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_16_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_16_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_16_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_16_1.bin.lz"
 	.align 2
-unknown_85::
-	.incbin "assets/unknown_85.bin"
+ gDungeonMaps_FortressOfWinds_BossKey::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/27_BossKey/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_17_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_17_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_17_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_17_1.bin.lz"
 	.align 2
-unknown_86::
-	.incbin "assets/unknown_86.bin"
+ gDungeonMaps_FortressOfWinds_WestStairs2f::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/28_WestStairs2f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_18_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_18_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_18_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_18_1.bin.lz"
 	.align 2
-unknown_87::
-	.incbin "assets/unknown_87.bin"
+ gDungeonMaps_FortressOfWinds_EastStairs2f::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_19_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_19_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_19_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_19_1.bin.lz"
 	.align 2
-unknown_88::
-	.incbin "assets/unknown_88.bin"
+ gDungeonMaps_FortressOfWinds_WestStairs1f::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/32_WestStairs1f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_20_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_20_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_20_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_20_1.bin.lz"
 	.align 2
-unknown_89::
-	.incbin "assets/unknown_89.bin"
+ gDungeonMaps_FortressOfWinds_CenterStairs1f::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_21_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_21_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_21_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_21_1.bin.lz"
 	.align 2
-unknown_90::
-	.incbin "assets/unknown_90.bin"
+ gDungeonMaps_FortressOfWinds_EastStairs1f::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_22_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_22_0.bin.lz"
 gAreaRoomMap_FortressOfWinds_22_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_22_1.bin.lz"
 	.align 2
-unknown_91::
-	.incbin "assets/unknown_91.bin"
+ gDungeonMaps_FortressOfWinds_Wizzrobe::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/35_Wizzrobe/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_23_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_23_0.bin.lz"
 	.align 2
 gAreaRoomMap_FortressOfWinds_23_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWinds_23_1.bin.lz"
 	.align 2
-unknown_92::
-	.incbin "assets/unknown_92.bin"
+ gDungeonMaps_FortressOfWinds_HeartPiece::
+	.incbin "maps/areas/088_FortressOfWinds/rooms/36_HeartPiece/dungeon_map.bin"
 gAreaRoomMap_InnerMazaal_0_0::
 	.incbin "assets/gAreaRoomMap_InnerMazaal_0_0.bin.lz"
 	.align 2
@@ -3035,13 +3040,13 @@ gAreaRoomMap_FortressOfWindsTop_0_0::
 	.incbin "assets/gAreaRoomMap_FortressOfWindsTop_0_0.bin.lz"
 gAreaRoomMap_FortressOfWindsTop_0_1::
 	.incbin "assets/gAreaRoomMap_FortressOfWindsTop_0_1.bin.lz"
-gAreaTileset_HyruleTownMinishCaves_0_0::
-	.incbin "tilesets/gAreaTileset_HyruleTownMinishCaves_0_0.4bpp.lz"
-gAreaTileset_HyruleTownMinishCaves_0_1::
-	.incbin "tilesets/gAreaTileset_HyruleTownMinishCaves_0_1.4bpp.lz"
+gAreaTileset_TempleOfDroplets_0_0::
+	.incbin "tilesets/gAreaTileset_TempleOfDroplets_0_0.4bpp.lz"
+gAreaTileset_TempleOfDroplets_0_1::
+	.incbin "tilesets/gAreaTileset_TempleOfDroplets_0_1.4bpp.lz"
 	.align 2
-gAreaTileset_HyruleTownMinishCaves_0_2::
-	.incbin "tilesets/gAreaTileset_HyruleTownMinishCaves_0_2.4bpp.lz"
+gAreaTileset_TempleOfDroplets_0_2::
+	.incbin "tilesets/gAreaTileset_TempleOfDroplets_0_2.4bpp.lz"
 	.align 2
 gAreaMetatiles_TempleOfDroplets_0::
 	.incbin "assets/gAreaMetatiles_TempleOfDroplets_0.bin.lz"
@@ -3080,319 +3085,319 @@ gAreaRoomMap_TempleOfDroplets_0_0::
 gAreaRoomMap_TempleOfDroplets_0_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_0_1.bin.lz"
 	.align 2
-unknown_93::
-	.incbin "assets/unknown_93.bin"
+ gDungeonMaps_TempleOfDroplets_WestHole::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/00_WestHole/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_1_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_1_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_1_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_1_1.bin.lz"
 	.align 2
-unknown_94::
-	.incbin "assets/unknown_94.bin"
+ gDungeonMaps_TempleOfDroplets_NorthSplitRoom::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/01_NorthSplitRoom/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_2_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_2_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_2_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_2_1.bin.lz"
 	.align 2
-unknown_95::
-	.incbin "assets/unknown_95.bin"
+ gDungeonMaps_TempleOfDroplets_EastHole::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/02_EastHole/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_3_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_3_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_3_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_3_1.bin.lz"
 	.align 2
-unknown_96::
-	.incbin "assets/unknown_96.bin"
+ gDungeonMaps_TempleOfDroplets_Entrance::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/03_Entrance/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_4_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_4_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_4_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_4_1.bin.lz"
 	.align 2
-unknown_97::
-	.incbin "assets/unknown_97.bin"
+ gDungeonMaps_TempleOfDroplets_NorthwestStairs::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/04_NorthwestStairs/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_5_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_5_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_5_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_5_1.bin.lz"
 	.align 2
-unknown_98::
-	.incbin "assets/unknown_98.bin"
+ gDungeonMaps_TempleOfDroplets_ScissorsMiniboss::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/05_ScissorsMiniboss/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_6_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_6_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_6_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_6_1.bin.lz"
 	.align 2
-unknown_99::
-	.incbin "assets/unknown_99.bin"
+ gDungeonMaps_TempleOfDroplets_WaterfallNorthwest::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/06_WaterfallNorthwest/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_7_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_7_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_7_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_7_1.bin.lz"
 	.align 2
-unknown_100::
-	.incbin "assets/unknown_100.bin"
+ gDungeonMaps_TempleOfDroplets_WaterfallNortheast::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/07_WaterfallNortheast/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_8_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_8_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_8_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_8_1.bin.lz"
 	.align 2
-unknown_101::
-	.incbin "assets/unknown_101.bin"
+ gDungeonMaps_TempleOfDroplets_Element::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/08_Element/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_9_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_9_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_9_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_9_1.bin.lz"
 	.align 2
-unknown_102::
-	.incbin "assets/unknown_102.bin"
+ gDungeonMaps_TempleOfDroplets_IceCorner::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/09_IceCorner/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_10_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_10_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_10_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_10_1.bin.lz"
 	.align 2
-unknown_103::
-	.incbin "assets/unknown_103.bin"
+ gDungeonMaps_TempleOfDroplets_IcePitMaze::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/10_IcePitMaze/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_11_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_11_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_11_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_11_1.bin.lz"
 	.align 2
-unknown_104::
-	.incbin "assets/unknown_104.bin"
+ gDungeonMaps_TempleOfDroplets_HoleToBlueChuKey::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/11_HoleToBlueChuKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_12_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_12_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_12_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_12_1.bin.lz"
 	.align 2
-unknown_105::
-	.incbin "assets/unknown_105.bin"
+ gDungeonMaps_TempleOfDroplets_WestWaterfallSoutheast::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_13_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_13_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_13_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_13_1.bin.lz"
 	.align 2
-unknown_106::
-	.incbin "assets/unknown_106.bin"
+ gDungeonMaps_TempleOfDroplets_WestWaterfallSouthwest::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_14_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_14_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_14_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_14_1.bin.lz"
 	.align 2
-unknown_107::
-	.incbin "assets/unknown_107.bin"
+ gDungeonMaps_TempleOfDroplets_BigOcto::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/14_BigOcto/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_15_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_15_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_15_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_15_1.bin.lz"
 	.align 2
-unknown_108::
-	.incbin "assets/unknown_108.bin"
+ gDungeonMaps_TempleOfDroplets_ToBlueChu::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/15_ToBlueChu/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_16_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_16_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_16_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_16_1.bin.lz"
 	.align 2
-unknown_109::
-	.incbin "assets/unknown_109.bin"
+ gDungeonMaps_TempleOfDroplets_BlueChu::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/16_BlueChu/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_17_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_17_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_17_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_17_1.bin.lz"
 	.align 2
-unknown_110::
-	.incbin "assets/unknown_110.bin"
+ gDungeonMaps_TempleOfDroplets_BlueChuKey::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_18_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_18_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_18_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_18_1.bin.lz"
 	.align 2
-unknown_111::
-	.incbin "assets/unknown_111.bin"
+ gDungeonMaps_TempleOfDroplets_BossKey::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/32_BossKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_19_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_19_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_19_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_19_1.bin.lz"
 	.align 2
-unknown_112::
-	.incbin "assets/unknown_112.bin"
+ gDungeonMaps_TempleOfDroplets_NorthSmallKey::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/33_NorthSmallKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_20_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_20_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_20_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_20_1.bin.lz"
 	.align 2
-unknown_113::
-	.incbin "assets/unknown_113.bin"
+ gDungeonMaps_TempleOfDroplets_BlockCloneButtonPuzzle::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/34_BlockCloneButtonPuzzle/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_21_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_21_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_21_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_21_1.bin.lz"
 	.align 2
-unknown_114::
-	.incbin "assets/unknown_114.bin"
+ gDungeonMaps_TempleOfDroplets_BlockClonePuzzle::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/35_BlockClonePuzzle/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_22_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_22_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_22_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_22_1.bin.lz"
 	.align 2
-unknown_115::
-	.incbin "assets/unknown_115.bin"
+ gDungeonMaps_TempleOfDroplets_BlockCloneIceBridge::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/36_BlockCloneIceBridge/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_23_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_23_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_23_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_23_1.bin.lz"
 	.align 2
-unknown_116::
-	.incbin "assets/unknown_116.bin"
+ gDungeonMaps_TempleOfDroplets_StairsToScissorsMiniboss::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_24_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_24_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_24_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_24_1.bin.lz"
 	.align 2
-unknown_117::
-	.incbin "assets/unknown_117.bin"
+ gDungeonMaps_TempleOfDroplets_SpikeBarFlipperRoom::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_25_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_25_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_25_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_25_1.bin.lz"
 	.align 2
-unknown_118::
-	.incbin "assets/unknown_118.bin"
+ gDungeonMaps_TempleOfDroplets_9Lanterns::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_26_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_26_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_26_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_26_1.bin.lz"
 	.align 2
-unknown_119::
-	.incbin "assets/unknown_119.bin"
+ gDungeonMaps_TempleOfDroplets_LilypadIceBlocks::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/40_LilypadIceBlocks/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_27_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_27_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_27_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_27_1.bin.lz"
 	.align 2
-unknown_120::
-	.incbin "assets/unknown_120.bin"
+ gDungeonMaps_TempleOfDroplets_29::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/41_29/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_28_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_28_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_28_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_28_1.bin.lz"
 	.align 2
-unknown_121::
-	.incbin "assets/unknown_121.bin"
+ gDungeonMaps_TempleOfDroplets_MulldozersFireBars::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/42_MulldozersFireBars/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_29_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_29_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_29_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_29_1.bin.lz"
 	.align 2
-unknown_122::
-	.incbin "assets/unknown_122.bin"
+ gDungeonMaps_TempleOfDroplets_DarkMaze::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/43_DarkMaze/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_30_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_30_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_30_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_30_1.bin.lz"
 	.align 2
-unknown_123::
-	.incbin "assets/unknown_123.bin"
+ gDungeonMaps_TempleOfDroplets_TwinMadderpillars::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/44_TwinMadderpillars/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_31_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_31_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_31_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_31_1.bin.lz"
 	.align 2
-unknown_124::
-	.incbin "assets/unknown_124.bin"
+ gDungeonMaps_TempleOfDroplets_AfterTwinMadderpillars::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/45_AfterTwinMadderpillars/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_32_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_32_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_32_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_32_1.bin.lz"
 	.align 2
-unknown_125::
-	.incbin "assets/unknown_125.bin"
+ gDungeonMaps_TempleOfDroplets_BlueChuKeyLever::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_33_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_33_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_33_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_33_1.bin.lz"
 	.align 2
-unknown_126::
-	.incbin "assets/unknown_126.bin"
+ gDungeonMaps_TempleOfDroplets_MulldozerKey::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/47_MulldozerKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_34_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_34_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_34_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_34_1.bin.lz"
 	.align 2
-unknown_127::
-	.incbin "assets/unknown_127.bin"
+ gDungeonMaps_TempleOfDroplets_BeforeTwinMadderpillars::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/48_BeforeTwinMadderpillars/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_35_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_35_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_35_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_35_1.bin.lz"
 	.align 2
-unknown_128::
-	.incbin "assets/unknown_128.bin"
+ gDungeonMaps_TempleOfDroplets_LilypadB2West::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/49_LilypadB2West/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_36_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_36_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_36_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_36_1.bin.lz"
 	.align 2
-unknown_129::
-	.incbin "assets/unknown_129.bin"
+ gDungeonMaps_TempleOfDroplets_Compass::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/50_Compass/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_37_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_37_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_37_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_37_1.bin.lz"
 	.align 2
-unknown_130::
-	.incbin "assets/unknown_130.bin"
+ gDungeonMaps_TempleOfDroplets_DarkScissorBeetles::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/51_DarkScissorBeetles/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_38_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_38_0.bin.lz"
 gAreaRoomMap_TempleOfDroplets_38_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_38_1.bin.lz"
 	.align 2
-unknown_131::
-	.incbin "assets/unknown_131.bin"
+ gDungeonMaps_TempleOfDroplets_LilypadB2Middle::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/52_LilypadB2Middle/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_39_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_39_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_39_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_39_1.bin.lz"
 	.align 2
-unknown_132::
-	.incbin "assets/unknown_132.bin"
+ gDungeonMaps_TempleOfDroplets_IceMadderpillar::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/53_IceMadderpillar/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_40_0::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_40_0.bin.lz"
 	.align 2
 gAreaRoomMap_TempleOfDroplets_40_1::
 	.incbin "assets/gAreaRoomMap_TempleOfDroplets_40_1.bin.lz"
 	.align 2
-unknown_133::
-	.incbin "assets/unknown_133.bin"
+ gDungeonMaps_TempleOfDroplets_FlamebarBlockPuzzle::
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/54_FlamebarBlockPuzzle/dungeon_map.bin"
 gAreaRoomMap_61_0_0::
 	.incbin "assets/gAreaRoomMap_61_0_0.bin.lz"
 	.align 2
@@ -3569,400 +3574,400 @@ gAreaRoomMap_PalaceOfWinds_GyorgTornado_0::
 gAreaRoomMap_PalaceOfWinds_GyorgTornado_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgTornado_1.bin.lz"
 	.align 2
-unknown_135::
-	.incbin "assets/unknown_135.bin"
+ gDungeonMaps_PalaceOfWinds_GyorgTornado::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/00_GyorgTornado/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BossKey_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BossKey_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_BossKey_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BossKey_1.bin.lz"
 	.align 2
-unknown_136::
-	.incbin "assets/unknown_136.bin"
+ gDungeonMaps_PalaceOfWinds_BossKey::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/01_BossKey/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1.bin.lz"
 	.align 2
-unknown_137::
-	.incbin "assets/unknown_137.bin"
+ gDungeonMaps_PalaceOfWinds_BeforeBallAndChainSoldiers::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/02_BeforeBallAndChainSoldiers/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_1.bin.lz"
 	.align 2
-unknown_138::
-	.incbin "assets/unknown_138.bin"
+ gDungeonMaps_PalaceOfWinds_GyorgBossDoor::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/03_GyorgBossDoor/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1.bin.lz"
 	.align 2
-unknown_139::
-	.incbin "assets/unknown_139.bin"
+ gDungeonMaps_PalaceOfWinds_EastChestFromGyorgBossDoor::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/04_EastChestFromGyorgBossDoor/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1.bin.lz"
 	.align 2
-unknown_140::
-	.incbin "assets/unknown_140.bin"
+ gDungeonMaps_PalaceOfWinds_MoblinAndWizzrobeFight::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/05_MoblinAndWizzrobeFight/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1.bin.lz"
 	.align 2
-unknown_141::
-	.incbin "assets/unknown_141.bin"
+ gDungeonMaps_PalaceOfWinds_FourButtonStalfos::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/06_FourButtonStalfos/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1.bin.lz"
 	.align 2
-unknown_142::
-	.incbin "assets/unknown_142.bin"
+ gDungeonMaps_PalaceOfWinds_FanAndKeyToBossKey::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/07_FanAndKeyToBossKey/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1.bin.lz"
 	.align 2
-unknown_143::
-	.incbin "assets/unknown_143.bin"
+ gDungeonMaps_PalaceOfWinds_BallAndChainSoldiers::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/08_BallAndChainSoldiers/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BombarossaPath_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombarossaPath_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_BombarossaPath_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombarossaPath_1.bin.lz"
 	.align 2
-unknown_144::
-	.incbin "assets/unknown_144.bin"
+ gDungeonMaps_PalaceOfWinds_BombarossaPath::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/09_BombarossaPath/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1.bin.lz"
 	.align 2
-unknown_145::
-	.incbin "assets/unknown_145.bin"
+ gDungeonMaps_PalaceOfWinds_HoleToDarknut::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/10_HoleToDarknut/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1.bin.lz"
 	.align 2
-unknown_146::
-	.incbin "assets/unknown_146.bin"
+ gDungeonMaps_PalaceOfWinds_ToBombarossaPath::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/11_ToBombarossaPath/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_1.bin.lz"
 	.align 2
-unknown_147::
-	.incbin "assets/unknown_147.bin"
+ gDungeonMaps_PalaceOfWinds_DarknutMiniboss::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/12_DarknutMiniboss/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BombWallInside_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_BombWallInside_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_1.bin.lz"
 	.align 2
-unknown_148::
-	.incbin "assets/unknown_148.bin"
+ gDungeonMaps_PalaceOfWinds_BombWallInside::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/13_BombWallInside/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BombWallOutside_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallOutside_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_BombWallOutside_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallOutside_1.bin.lz"
 	.align 2
-unknown_149::
-	.incbin "assets/unknown_149.bin"
+ gDungeonMaps_PalaceOfWinds_BombWallOutside::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/14_BombWallOutside/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_CloudJumps_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_CloudJumps_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_1.bin.lz"
 	.align 2
-unknown_150::
-	.incbin "assets/unknown_150.bin"
+ gDungeonMaps_PalaceOfWinds_CloudJumps::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/15_CloudJumps/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1.bin.lz"
 	.align 2
-unknown_151::
-	.incbin "assets/unknown_151.bin"
+ gDungeonMaps_PalaceOfWinds_BlockMazeToBossDoor::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/16_BlockMazeToBossDoor/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1.bin.lz"
 	.align 2
-unknown_152::
-	.incbin "assets/unknown_152.bin"
+ gDungeonMaps_PalaceOfWinds_CrackedFloorLakitu::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/17_CrackedFloorLakitu/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_1.bin.lz"
 	.align 2
-unknown_153::
-	.incbin "assets/unknown_153.bin"
+ gDungeonMaps_PalaceOfWinds_HeartPieceBridge::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/18_HeartPieceBridge/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_FanBridge_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_FanBridge_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_1.bin.lz"
 	.align 2
-unknown_154::
-	.incbin "assets/unknown_154.bin"
+ gDungeonMaps_PalaceOfWinds_FanBridge::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/19_FanBridge/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_ToFanBridge_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_ToFanBridge_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_1.bin.lz"
 	.align 2
-unknown_155::
-	.incbin "assets/unknown_155.bin"
+ gDungeonMaps_PalaceOfWinds_ToFanBridge::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/20_ToFanBridge/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_RedWarpHall_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_RedWarpHall_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_1.bin.lz"
 	.align 2
-unknown_156::
-	.incbin "assets/unknown_156.bin"
+ gDungeonMaps_PalaceOfWinds_RedWarpHall::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/21_RedWarpHall/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1.bin.lz"
 	.align 2
-unknown_157::
-	.incbin "assets/unknown_157.bin"
+ gDungeonMaps_PalaceOfWinds_PlatformCloneRide::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/22_PlatformCloneRide/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1.bin.lz"
 	.align 2
-unknown_158::
-	.incbin "assets/unknown_158.bin"
+ gDungeonMaps_PalaceOfWinds_PitCornerAfterKey::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/23_PitCornerAfterKey/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_CrowRide_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_CrowRide_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_1.bin.lz"
 	.align 2
-unknown_159::
-	.incbin "assets/unknown_159.bin"
+ gDungeonMaps_PalaceOfWinds_PlatformCrowRide::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/24_PlatformCrowRide/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_GratePlatformRide_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratePlatformRide_1.bin.lz"
 	.align 2
-unknown_160::
-	.incbin "assets/unknown_160.bin"
+ gDungeonMaps_PalaceOfWinds_GratePlatformRide::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/25_GratePlatformRide/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_PotPush_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PotPush_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_PotPush_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PotPush_1.bin.lz"
 	.align 2
-unknown_161::
-	.incbin "assets/unknown_161.bin"
+ gDungeonMaps_PalaceOfWinds_PotPush::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/26_PotPush/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_FloormasterLever_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_FloormasterLever_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_1.bin.lz"
 	.align 2
-unknown_162::
-	.incbin "assets/unknown_162.bin"
+ gDungeonMaps_PalaceOfWinds_FloormasterLever::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/27_FloormasterLever/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_Map_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_Map_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_Map_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_Map_1.bin.lz"
 	.align 2
-unknown_163::
-	.incbin "assets/unknown_163.bin"
+ gDungeonMaps_PalaceOfWinds_Map::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/28_Map/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_CornerToMap_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CornerToMap_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_CornerToMap_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CornerToMap_1.bin.lz"
 	.align 2
-unknown_164::
-	.incbin "assets/unknown_164.bin"
+ gDungeonMaps_PalaceOfWinds_CornerToMap::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/29_CornerToMap/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1.bin.lz"
 	.align 2
-unknown_165::
-	.incbin "assets/unknown_165.bin"
+ gDungeonMaps_PalaceOfWinds_StairsAfterFloormaster::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/30_StairsAfterFloormaster/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1.bin.lz"
 	.align 2
-unknown_166::
-	.incbin "assets/unknown_166.bin"
+ gDungeonMaps_PalaceOfWinds_HoleToKinstoneWizzrobe::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/31_HoleToKinstoneWizzrobe/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1.bin.lz"
 	.align 2
-unknown_167::
-	.incbin "assets/unknown_167.bin"
+ gDungeonMaps_PalaceOfWinds_KeyArrowButton::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/32_KeyArrowButton/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_GratesTo3F_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratesTo3F_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_GratesTo3F_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratesTo3F_1.bin.lz"
 	.align 2
-unknown_168::
-	.incbin "assets/unknown_168.bin"
+ gDungeonMaps_PalaceOfWinds_GratesTo3f::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_SpinyFight_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpinyFight_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_SpinyFight_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpinyFight_1.bin.lz"
 	.align 2
-unknown_169::
-	.incbin "assets/unknown_169.bin"
+ gDungeonMaps_PalaceOfWinds_SpinyFight::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/34_SpinyFight/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1.bin.lz"
 	.align 2
-unknown_170::
-	.incbin "assets/unknown_170.bin"
+ gDungeonMaps_PalaceOfWinds_PeahatSwitch::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/35_PeahatSwitch/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_1.bin.lz"
 	.align 2
-unknown_171::
-	.incbin "assets/unknown_171.bin"
+ gDungeonMaps_PalaceOfWinds_WhirlwindBombarossa::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/36_WhirlwindBombarossa/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1.bin.lz"
 	.align 2
-unknown_172::
-	.incbin "assets/unknown_172.bin"
+ gDungeonMaps_PalaceOfWinds_DoorToStalfosFirebar::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/37_DoorToStalfosFirebar/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1.bin.lz"
 	.align 2
-unknown_173::
-	.incbin "assets/unknown_173.bin"
+ gDungeonMaps_PalaceOfWinds_StalfosFirebarHole::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/38_StalfosFirebarHole/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1.bin.lz"
 	.align 2
-unknown_174::
-	.incbin "assets/unknown_174.bin"
+ gDungeonMaps_PalaceOfWinds_ShortcutDoorButtons::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/39_ShortcutDoorButtons/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1.bin.lz"
 	.align 2
-unknown_175::
-	.incbin "assets/unknown_175.bin"
+ gDungeonMaps_PalaceOfWinds_ToPeahatSwitch::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/40_ToPeahatSwitch/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1.bin.lz"
 	.align 2
-unknown_176::
-	.incbin "assets/unknown_176.bin"
+ gDungeonMaps_PalaceOfWinds_KinstoneWizzrobeFight::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/41_KinstoneWizzrobeFight/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_GibdoStairs_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_GibdoStairs_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_1.bin.lz"
 	.align 2
-unknown_177::
-	.incbin "assets/unknown_177.bin"
+ gDungeonMaps_PalaceOfWinds_GibdoStairs::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/42_GibdoStairs/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_1.bin.lz"
 	.align 2
-unknown_178::
-	.incbin "assets/unknown_178.bin"
+ gDungeonMaps_PalaceOfWinds_SpikeBarSmallKey::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/43_SpikeBarSmallKey/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_RocCape_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RocCape_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_RocCape_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RocCape_1.bin.lz"
 	.align 2
-unknown_179::
-	.incbin "assets/unknown_179.bin"
+ gDungeonMaps_PalaceOfWinds_RocCape::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/44_RocCape/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_FireBarGrates_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_FireBarGrates_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_1.bin.lz"
 	.align 2
-unknown_180::
-	.incbin "assets/unknown_180.bin"
+ gDungeonMaps_PalaceOfWinds_FireBarGrates::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/45_FireBarGrates/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_1.bin.lz"
 	.align 2
-unknown_181::
-	.incbin "assets/unknown_181.bin"
+ gDungeonMaps_PalaceOfWinds_PlatformRideBombarossas::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/46_PlatformRideBombarossas/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1.bin.lz"
 	.align 2
-unknown_182::
-	.incbin "assets/unknown_182.bin"
+ gDungeonMaps_PalaceOfWinds_BridgeAfterDarknut::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/47_BridgeAfterDarknut/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0.bin.lz"
 gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1.bin.lz"
 	.align 2
-unknown_183::
-	.incbin "assets/unknown_183.bin"
+ gDungeonMaps_PalaceOfWinds_BridgeSwitchesCloneBlock::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/48_BridgeSwitchesCloneBlock/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_EntranceRoom_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_EntranceRoom_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_1.bin.lz"
 	.align 2
-unknown_184::
-	.incbin "assets/unknown_184.bin"
+ gDungeonMaps_PalaceOfWinds_EntranceRoom::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/49_EntranceRoom/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0.bin.lz"
 	.align 2
 gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1::
 	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1.bin.lz"
 	.align 2
-unknown_185::
-	.incbin "assets/unknown_185.bin"
+ gDungeonMaps_PalaceOfWinds_DarkCompassHall::
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/50_DarkCompassHall/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWindsBoss_0_0::
 	.incbin "assets/gAreaRoomMap_PalaceOfWindsBoss_0_0.bin.lz"
 	.align 2
@@ -4198,210 +4203,211 @@ gAreaRoomMap_DarkHyruleCastle_1FEntrance_0::
 gAreaRoomMap_DarkHyruleCastle_1FEntrance_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FEntrance_1.bin.lz"
 	.align 2
-unknown_188::
-	.incbin "assets/unknown_188.bin"
+ gDungeonMaps_DarkHyruleCastle_1fEntrance::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/00_1fEntrance/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_1.bin.lz"
 	.align 2
-unknown_189::
-	.incbin "assets/unknown_189.bin"
+ gDungeonMaps_DarkHyruleCastle_3fTopLeftTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/01_3fTopLeftTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_1.bin.lz"
 	.align 2
-unknown_190::
-	.incbin "assets/unknown_190.bin"
+ gDungeonMaps_DarkHyruleCastle_3fTopRightTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/02_3fTopRightTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_1.bin.lz"
 	.align 2
-unknown_191::
-	.incbin "assets/unknown_191.bin"
+ gDungeonMaps_DarkHyruleCastle_3fBottomLeftTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/03_3fBottomLeftTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_1.bin.lz"
 	.align 2
-unknown_192::
-	.incbin "assets/unknown_192.bin"
+ gDungeonMaps_DarkHyruleCastle_3fBottomRightTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/04_3fBottomRightTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_1.bin.lz"
 	.align 2
-unknown_193::
-	.incbin "assets/unknown_193.bin"
+ gDungeonMaps_DarkHyruleCastle_3fKeatonHallToVaati::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/05_3fKeatonHallToVaati/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_1.bin.lz"
 	.align 2
-unknown_194::
-	.incbin "assets/unknown_194.bin"
+
+ gDungeonMaps_DarkHyruleCastle_3fTripleDarknut::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/06_3fTripleDarknut/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_1.bin.lz"
 	.align 2
-unknown_195::
-	.incbin "assets/unknown_195.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopLeftTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/07_2fTopLeftTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_1.bin.lz"
 	.align 2
-unknown_196::
-	.incbin "assets/unknown_196.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopLeftCorner::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/08_2fTopLeftCorner/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBossKey_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBossKey_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_1.bin.lz"
 	.align 2
-unknown_197::
-	.incbin "assets/unknown_197.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBossKey::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/09_2fBossKey/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_1.bin.lz"
 	.align 2
-unknown_198::
-	.incbin "assets/unknown_198.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBlueWarp::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/10_2fBlueWarp/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_1.bin.lz"
 	.align 2
-unknown_199::
-	.incbin "assets/unknown_199.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopRightCornerGhini::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/11_2fTopRightCornerGhini/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_1.bin.lz"
 	.align 2
-unknown_200::
-	.incbin "assets/unknown_200.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopRightCornerTorches::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/12_2fTopRightCornerTorches/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_1.bin.lz"
 	.align 2
-unknown_201::
-	.incbin "assets/unknown_201.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopRightTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/13_2fTopRightTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_1.bin.lz"
 	.align 2
-unknown_202::
-	.incbin "assets/unknown_202.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopLeftDarknut::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/14_2fTopLeftDarknut/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FSparks_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FSparks_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_2FSparks_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FSparks_1.bin.lz"
 	.align 2
-unknown_203::
-	.incbin "assets/unknown_203.bin"
+ gDungeonMaps_DarkHyruleCastle_2fSparks::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/15_2fSparks/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_1.bin.lz"
 	.align 2
-unknown_204::
-	.incbin "assets/unknown_204.bin"
+ gDungeonMaps_DarkHyruleCastle_2fTopRightDarknuts::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/16_2fTopRightDarknuts/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FLeft_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FLeft_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_1.bin.lz"
 	.align 2
-unknown_205::
-	.incbin "assets/unknown_205.bin"
+ gDungeonMaps_DarkHyruleCastle_2fLeft::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/17_2fLeft/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FRight_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FRight_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_2FRight_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FRight_1.bin.lz"
 	.align 2
-unknown_206::
-	.incbin "assets/unknown_206.bin"
+ gDungeonMaps_DarkHyruleCastle_2fRight::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/18_2fRight/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_1.bin.lz"
 	.align 2
-unknown_207::
-	.incbin "assets/unknown_207.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomLeftDarknuts::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/19_2fBottomLeftDarknuts/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBossDoor_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBossDoor_1.bin.lz"
 	.align 2
-unknown_208::
-	.incbin "assets/unknown_208.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBossDoor::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/20_2fBossDoor/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_1.bin.lz"
 	.align 2
-unknown_209::
-	.incbin "assets/unknown_209.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomRightDarknut::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/21_2fBottomRightDarknut/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_1.bin.lz"
 	.align 2
-unknown_210::
-	.incbin "assets/unknown_210.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomLeftCornerPuzzle::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/22_2fBottomLeftCornerPuzzle/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FEntrance_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FEntrance_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FEntrance_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FEntrance_1.bin.lz"
 	.align 2
-unknown_211::
-	.incbin "assets/unknown_211.bin"
+ gDungeonMaps_DarkHyruleCastle_2fEntrance::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/23_2fEntrance/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_1.bin.lz"
 	.align 2
-unknown_212::
-	.incbin "assets/unknown_212.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomRightCorner::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/24_2fBottomRightCorner/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_1.bin.lz"
 	.align 2
-unknown_213::
-	.incbin "assets/unknown_213.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomLeftTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/25_2fBottomLeftTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_1.bin.lz"
 	.align 2
-unknown_214::
-	.incbin "assets/unknown_214.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomLeftGhini::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/26_2fBottomLeftGhini/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_1::
@@ -4415,237 +4421,237 @@ gAreaRoomMap_DarkHyruleCastle_B1Entrance_0::
 gAreaRoomMap_DarkHyruleCastle_B1Entrance_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Entrance_1.bin.lz"
 	.align 2
-unknown_216::
-	.incbin "assets/unknown_216.bin"
+ gDungeonMaps_DarkHyruleCastle_B1Entrance::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/28_B1Entrance/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_1.bin.lz"
 	.align 2
-unknown_217::
-	.incbin "assets/unknown_217.bin"
+ gDungeonMaps_DarkHyruleCastle_2fBottomRightTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/29_2fBottomRightTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_1.bin.lz"
 	.align 2
-unknown_218::
-	.incbin "assets/unknown_218.bin"
+ gDungeonMaps_DarkHyruleCastle_1fTopLeftTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/30_1fTopLeftTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_1.bin.lz"
 	.align 2
-unknown_219::
-	.incbin "assets/unknown_219.bin"
+ gDungeonMaps_DarkHyruleCastle_1fThroneRoom::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/31_1fThroneRoom/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FCompass_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FCompass_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_1.bin.lz"
 	.align 2
-unknown_220::
-	.incbin "assets/unknown_220.bin"
+ gDungeonMaps_DarkHyruleCastle_1fCompass::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/32_1fCompass/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_1.bin.lz"
 	.align 2
-unknown_221::
-	.incbin "assets/unknown_221.bin"
+ gDungeonMaps_DarkHyruleCastle_1fTopRightTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/33_1fTopRightTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_1.bin.lz"
 	.align 2
-unknown_222::
-	.incbin "assets/unknown_222.bin"
+ gDungeonMaps_DarkHyruleCastle_1fBeforeThrone::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/34_1fBeforeThrone/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_1.bin.lz"
 	.align 2
-unknown_223::
-	.incbin "assets/unknown_223.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopTopLeft::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/35_1fLoopTopLeft/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopTop_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTop_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1FLoopTop_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTop_1.bin.lz"
 	.align 2
-unknown_224::
-	.incbin "assets/unknown_224.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopTop::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTop/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_1.bin.lz"
 	.align 2
-unknown_225::
-	.incbin "assets/unknown_225.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopTopRight::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_1.bin.lz"
 	.align 2
-unknown_226::
-	.incbin "assets/unknown_226.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopLeft::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/38_1fLoopLeft/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FLoopRight_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopRight_1.bin.lz"
 	.align 2
-unknown_227::
-	.incbin "assets/unknown_227.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopRight::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/39_1fLoopRight/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_1.bin.lz"
 	.align 2
-unknown_228::
-	.incbin "assets/unknown_228.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopBottomLeft::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/40_1fLoopBottomLeft/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_1.bin.lz"
 	.align 2
-unknown_229::
-	.incbin "assets/unknown_229.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopBottom::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottom/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_1.bin.lz"
 	.align 2
-unknown_230::
-	.incbin "assets/unknown_230.bin"
+ gDungeonMaps_DarkHyruleCastle_1fLoopBottomRight::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_1.bin.lz"
 	.align 2
-unknown_231::
-	.incbin "assets/unknown_231.bin"
+ gDungeonMaps_DarkHyruleCastle_1fBottomLeftTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/43_1fBottomLeftTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_1.bin.lz"
 	.align 2
-unknown_232::
-	.incbin "assets/unknown_232.bin"
+ gDungeonMaps_DarkHyruleCastle_1fBottomRightTower::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/44_1fBottomRightTower/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_1.bin.lz"
 	.align 2
-unknown_233::
-	.incbin "assets/unknown_233.bin"
+ gDungeonMaps_DarkHyruleCastle_B1BelowThrone::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/45_B1BelowThrone/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_1.bin.lz"
 	.align 2
-unknown_234::
-	.incbin "assets/unknown_234.bin"
+ gDungeonMaps_DarkHyruleCastle_B1BelowCompass::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/46_B1BelowCompass/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_1.bin.lz"
 	.align 2
-unknown_235::
-	.incbin "assets/unknown_235.bin"
+ gDungeonMaps_DarkHyruleCastle_B1BeforeThrone::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/47_B1BeforeThrone/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1ToPrison_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrison_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_B1ToPrison_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrison_1.bin.lz"
 	.align 2
-unknown_236::
-	.incbin "assets/unknown_236.bin"
+ gDungeonMaps_DarkHyruleCastle_B1ToPrison::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/48_B1ToPrison/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1BombWall_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BombWall_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_B1BombWall_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1BombWall_1.bin.lz"
 	.align 2
-unknown_237::
-	.incbin "assets/unknown_237.bin"
+ gDungeonMaps_DarkHyruleCastle_B1BombWall::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/49_B1BombWall/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1Keatons_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Keatons_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_B1Keatons_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Keatons_1.bin.lz"
 	.align 2
-unknown_238::
-	.incbin "assets/unknown_238.bin"
+ gDungeonMaps_DarkHyruleCastle_B1Keatons::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/50_B1Keatons/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_1.bin.lz"
 	.align 2
-unknown_239::
-	.incbin "assets/unknown_239.bin"
+ gDungeonMaps_DarkHyruleCastle_B1ToPrisonFirebar::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1Cannons_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Cannons_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B1Cannons_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Cannons_1.bin.lz"
 	.align 2
-unknown_240::
-	.incbin "assets/unknown_240.bin"
+ gDungeonMaps_DarkHyruleCastle_B1Cannons::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/52_B1Cannons/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1Left_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B1Left_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_1.bin.lz"
 	.align 2
-unknown_241::
-	.incbin "assets/unknown_241.bin"
+ gDungeonMaps_DarkHyruleCastle_B1Left::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/53_B1Left/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1Right_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Right_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B1Right_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Right_1.bin.lz"
 	.align 2
-unknown_242::
-	.incbin "assets/unknown_242.bin"
+ gDungeonMaps_DarkHyruleCastle_B1Right::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/54_B1Right/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1Map_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B1Map_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_1.bin.lz"
 	.align 2
-unknown_243::
-	.incbin "assets/unknown_243.bin"
+ gDungeonMaps_DarkHyruleCastle_B1Map::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/55_B1Map/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B2ToPrison_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B2ToPrison_1.bin.lz"
 	.align 2
-unknown_244::
-	.incbin "assets/unknown_244.bin"
+ gDungeonMaps_DarkHyruleCastle_B2ToPrison::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/56_B2ToPrison/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B2Prison_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B2Prison_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B2Prison_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B2Prison_1.bin.lz"
 	.align 2
-unknown_245::
-	.incbin "assets/unknown_245.bin"
+ gDungeonMaps_DarkHyruleCastle_B2Prison::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/57_B2Prison/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0.bin.lz"
 	.align 2
 gAreaRoomMap_DarkHyruleCastle_B2Dropdown_1::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_1.bin.lz"
 	.align 2
-unknown_246::
-	.incbin "assets/unknown_246.bin"
+ gDungeonMaps_DarkHyruleCastle_B2Dropdown::
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/58_B2Dropdown/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_0::
 	.incbin "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_0.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_1::

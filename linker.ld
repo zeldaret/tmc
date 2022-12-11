@@ -51,7 +51,7 @@ SECTIONS {
         . = 0x00018EB0; gUnk_02018EB0 = .;
         . = 0x00018EE0; gUnk_02018EE0 = .;
         . = 0x00019EE0; gMapDataBottomSpecial = .;
-        . = 0x0001AEE0; gUnk_0201AEE0 = .;
+        . = 0x0001AEE0; gDungeonMap = .;
         . = 0x00021EE0; gSoundPlayingInfo = .;
         . = 0x00021F00; gUnk_02021F00 = .;
         . = 0x00021F20; gUnk_02021F20 = .;
@@ -909,7 +909,6 @@ SECTIONS {
         data/const/collisionMatrix.o(.rodata);
         data/const/ui.o(.rodata);
         src/sineTable.o(.rodata);
-        data/const/common.o(.rodata);
         src/common.o(.rodata);
         src/enemy/octorok.o(.rodata);
         data/animations/enemy/octorok.o(.rodata);

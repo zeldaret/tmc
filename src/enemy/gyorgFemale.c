@@ -1,5 +1,6 @@
 #define NENT_DEPRECATED
 #include "asm.h"
+#include "beanstalkSubtask.h"
 #include "collision.h"
 #include "enemy.h"
 #include "enemy/gyorg.h"
@@ -11,8 +12,6 @@ extern u8 gEntCount;
 extern u8 gMapDataTopSpecial[];
 
 extern u16 gMapDataBottomSpecial[];
-
-extern void sub_080197D4(const void*);
 
 extern u32 sub_08000E62(u32);
 extern void RegisterTransitionManager(void*, void (*)(), void (*)());
@@ -229,7 +228,7 @@ void sub_080464C0(GyorgFemaleEntity* this) {
     s32 i;
     u8* src;
     u8* dst;
-    sub_080197D4(gUnk_080D1A74[super->animationState >> 6]);
+    LoadMapData((MapDataDefinition*)gUnk_080D1A74[super->animationState >> 6]);
     sub_08046518();
     for (i = 0x20, src = ((u8*)&gMapDataBottomSpecial), dst = ((u8*)&gMapDataBottomSpecial) + 0x3260; i != 0; i--) {
         MemCopy(src, dst, 0x40);

@@ -494,9 +494,9 @@ void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
 }
 
 void sub_08090254(PushableFurnitureEntity* this) {
-    sub_0807B9B8(this->unk_74, this->unk_70, super->collisionLayer);
+    SetMetaTileByIndex(this->unk_74, this->unk_70, super->collisionLayer);
     if (this->unk_80 == 1) {
-        sub_0807B9B8(this->unk_76, this->unk_72, super->collisionLayer);
+        SetMetaTileByIndex(this->unk_76, this->unk_72, super->collisionLayer);
     }
 }
 

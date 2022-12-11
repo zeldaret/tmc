@@ -1,6 +1,7 @@
 #include "main.h"
 #include "assets/aif.h"
 #include "assets/animation.h"
+#include "assets/dungeonmap.h"
 #include "assets/frameobjlists.h"
 #include "assets/gfx.h"
 #include "assets/map.h"
@@ -284,6 +285,8 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
                type == "map_mapping1" || type == "map_mapping2" || type == "tileset_mapping3" ||
                type == "map_collision") {
         assetHandler = std::make_unique<MapAsset>(path, start, size, asset);
+    } else if (type == "dungeon_map") {
+        assetHandler = std::make_unique<DungeonMapAsset>(path, start, size, asset);
     } else if (type == "unknown") {
         // TODO implement conversions
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
@@ -291,7 +294,7 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         // Unknown binary asset
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
     } else {
-        fmt::print(stderr, "Error: Unimplemented asset type \"{}\"", type);
+        fmt::print(stderr, "Error: Unimplemented asset type \"{}\"\n", type);
         std::exit(1);
     }
     assetHandler->setup();

@@ -31,11 +31,11 @@
 	cmp r1, r0
 	beq _0807C01C
 	str r0, [r2, #0x34]
-	bl sub_080197D4
+	bl LoadMapData
 _0807C01C:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x10]
-	bl sub_080197D4
+	bl LoadMapData
 	ldr r1, _0807C0D0 @ =gPaletteBuffer
 	adds r0, r1, #0
 	adds r0, #0x60

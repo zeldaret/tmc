@@ -13,7 +13,7 @@ extern void SetTile(u32 index, u32 position, u32 layer);
 extern void UpdateScrollVram(void);
 extern u32 sub_080B1B0C(struct Entity_*);
 extern u32 sub_080B1BA4(u32, u32, u32);
-extern void LoadResourceAsync(const void*, u32, u32);
+extern void LoadResourceAsync(const void* src, u32 dest, u32 size);
 extern void GenericConfused(struct Entity_*);
 extern void sub_08001290(struct Entity_*, u32);
 extern void GenericKnockback(struct Entity_*);

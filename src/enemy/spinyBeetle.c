@@ -111,7 +111,7 @@ void sub_08033958(SpinyBeetleEntity* this) {
     u32 direction;
     if (sub_08033DF0(this)) {
         sub_08033E1C(this);
-        sub_0807B9B8(this->tileIndex, this->tile, super->collisionLayer);
+        SetMetaTileByIndex(this->tileIndex, this->tile, super->collisionLayer);
         return;
     }
 
@@ -160,7 +160,7 @@ void sub_08033958(SpinyBeetleEntity* this) {
     COLLISION_ON(super);
 
     super->y.WORD = (super->y.WORD & 0xfff00000) | 0xC0000;
-    sub_0807B9B8(this->tileIndex, this->tile, super->collisionLayer);
+    SetMetaTileByIndex(this->tileIndex, this->tile, super->collisionLayer);
     InitializeAnimation(super, 2);
 }
 

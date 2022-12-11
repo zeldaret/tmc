@@ -113,32 +113,32 @@ void sub_08059B18(void) {
     if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                sub_0807B9B8(loopVar * 0x10 + 0x4ab + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
+                SetMetaTileByIndex(loopVar * 0x10 + 0x4ab + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
                              1);
             }
         }
 
         for (loopVar = 0; loopVar < 3; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                sub_0807B9B8(loopVar * 0x10 + 0x440 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
+                SetMetaTileByIndex(loopVar * 0x10 + 0x440 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
                              2);
             }
         }
-        sub_0807B9B8(0xd6, 0x5c2, 2);
-        sub_0807B9B8(0xd7, 0x5c3, 2);
+        SetMetaTileByIndex(0xd6, 0x5c2, 2);
+        SetMetaTileByIndex(0xd7, 0x5c3, 2);
         LoadResourceAsync(&gUnk_086E8460, 0x6001800, 0x800);
     } else {
         if (CheckGlobalFlag(TATEKAKE_TOCHU) != 0) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                    sub_0807B9B8(loopVar * 0x10 + 0x4a6 + innerLoopVar,
+                    SetMetaTileByIndex(loopVar * 0x10 + 0x4a6 + innerLoopVar,
                                  COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
-            sub_0807B9B8(0x444, 0x602, 2);
-            sub_0807B9B8(0x445, 0x605, 2);
-            sub_0807B9B8(0x454, 0x642, 2);
-            sub_0807B9B8(0x455, 0x645, 2);
+            SetMetaTileByIndex(0x444, 0x602, 2);
+            SetMetaTileByIndex(0x445, 0x605, 2);
+            SetMetaTileByIndex(0x454, 0x642, 2);
+            SetMetaTileByIndex(0x455, 0x645, 2);
         }
     }
 }

@@ -56,6 +56,7 @@ void GfxAsset::buildToBinary() {
     check_call(cmd);
 
     if (isCompressed()) {
+        cmd.clear();
         // Compress.
         cmd.push_back(toolsPath / "bin" / "gbagfx");
         cmd.push_back(decompressedPath);

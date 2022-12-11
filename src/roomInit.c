@@ -118,7 +118,7 @@ u32 sub_unk3_ArmosInteriors_FortressOfWindsLeft(void) {
 void sub_StateChange_ArmosInteriors_FortressOfWindsLeft(void) {
     sub_08030118(9);
     gArea.dungeon_idx = 3;
-    gArea.areaMetadata = 0x4e;
+    gArea.areaMetadata = AR_HAS_NO_ENEMIES | AR_HAS_MAP | AR_IS_DUNGEON | AR_HAS_KEYS;
 }
 
 u32 sub_unk3_ArmosInteriors_FortressOfWindsRight(void) {
@@ -128,7 +128,7 @@ u32 sub_unk3_ArmosInteriors_FortressOfWindsRight(void) {
 void sub_StateChange_ArmosInteriors_FortressOfWindsRight(void) {
     sub_08030118(10);
     gArea.dungeon_idx = 3;
-    gArea.areaMetadata = 0x4e;
+    gArea.areaMetadata = AR_HAS_NO_ENEMIES | AR_HAS_MAP | AR_IS_DUNGEON | AR_HAS_KEYS;
 }
 
 u32 sub_unk3_CrenelMinishPaths_CrenelBean(void) {
@@ -1065,7 +1065,7 @@ u32 sub_unk3_RoyalValley_ForestMaze(void) {
 }
 
 void sub_StateChange_RoyalValley_ForestMaze(void) {
-    gArea.areaMetadata |= 0x40;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES;
     gArea.unk_0c_0 = 1;
     sub_0804C128();
 }
@@ -2341,7 +2341,7 @@ u32 sub_unk3_DeepwoodShrine_InsideBarrel(void) {
 
 void sub_StateChange_DeepwoodShrine_InsideBarrel(void) {
     sub_08058D34();
-    gArea.areaMetadata |= 0x40;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES;
     gMain.substate = GAMEMAIN_BARRELUPDATE;
 }
 
@@ -3681,7 +3681,7 @@ extern EntityData gUnk_080EAEC0;
 extern EntityData gUnk_080EAF20;
 
 void sub_StateChange_DarkHyruleCastleOutside_Garden(void) {
-    gArea.areaMetadata = 0x40;
+    gArea.areaMetadata = AR_HAS_NO_ENEMIES;
     gArea.locationIndex = 0;
     if (CheckGlobalFlag(ENDING)) {
         if (!CheckLocalFlag(0x7f)) {
@@ -5131,7 +5131,7 @@ void sub_StateChange_VeilFallsDigCave_Main(void) {
 }
 
 u32 sub_unk3_OuterFortressOfWinds_EntranceHall(void) {
-    gArea.areaMetadata |= 0x48;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES | AR_HAS_MAP;
     return 1;
 }
 
@@ -5139,7 +5139,7 @@ void sub_StateChange_OuterFortressOfWinds_EntranceHall(void) {
 }
 
 u32 sub_unk3_OuterFortressOfWinds_2F(void) {
-    gArea.areaMetadata |= 0x48;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES | AR_HAS_MAP;
     return 1;
 }
 
@@ -5147,7 +5147,7 @@ void sub_StateChange_OuterFortressOfWinds_2F(void) {
 }
 
 u32 sub_unk3_OuterFortressOfWinds_3F(void) {
-    gArea.areaMetadata |= 0x48;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES | AR_HAS_MAP;
     return 1;
 }
 
@@ -5156,7 +5156,7 @@ void sub_StateChange_OuterFortressOfWinds_3F(void) {
 
 u32 sub_unk3_OuterFortressOfWinds_MoleMitts(void) {
     sub_0801DD58(0x58, 5);
-    gArea.areaMetadata |= 0x48;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES | AR_HAS_MAP;
     return 1;
 }
 
@@ -5165,7 +5165,7 @@ void sub_StateChange_OuterFortressOfWinds_MoleMitts(void) {
 
 u32 sub_unk3_OuterFortressOfWinds_SmallKey(void) {
     sub_0801DD58(0x58, 6);
-    gArea.areaMetadata |= 0x48;
+    gArea.areaMetadata |= AR_HAS_NO_ENEMIES | AR_HAS_MAP;
     return 1;
 }
 
@@ -5549,7 +5549,7 @@ void sub_StateChange_WindTribeTowerRoof_Main(void) {
     }
     SetWorldMapPos(8, 0, 0x1e8, 0x158);
 #ifndef EU
-    gArea.areaMetadata |= 0x80;
+    gArea.areaMetadata |= AR_ALLOWS_WARP;
 #endif
 }
 

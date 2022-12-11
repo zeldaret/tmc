@@ -78,7 +78,7 @@ typedef struct {
     /*0x003*/ u8 field_0x3;
     /*0x004*/ u8 state;
     /*0x005*/ u8 field_0x5;
-    /*0x006*/ u8 field_0x6;
+    /*0x006*/ bool8 loadGfxOnRestore; // used in Subtask_FadeOut to determine the loadGfx parameter of RestoreGameTask.
     /*0x007*/ u8 pauseFadeIn;
     /*0x008*/ u16 fadeType;
     /*0x00A*/ u16 fadeInTime;

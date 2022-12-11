@@ -24,7 +24,7 @@ enum RoomReloadType {
 };
 
 typedef struct {
-    /*0x00*/ u16 reload_flags;
+    /*0x00*/ u16 reload_flags; // anything except for 0x1 prevents the screen from reloading when tiles are changed.
     /*0x02*/ u8 scrollAction;
     /*0x03*/ u8 scrollSubAction;
     /*0x04*/ u8 area;
