@@ -83,7 +83,7 @@ typedef struct {
     u8 flag_bank;
     u8 queueBgm;
 } AreaHeader;
-extern AreaHeader gAreaMetadata[];
+extern const AreaHeader gAreaMetadata[];
 
 typedef enum {
     AR_IS_OVERWORLD = 0x1,

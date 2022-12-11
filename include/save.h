@@ -44,7 +44,7 @@ typedef struct {
     /*0x009*/ u8 field_0x9[0x17];
     /*0x020*/ u16 field_0x20;
     /*0x022*/ u8 field_0x22[0x1e];
-    /*0x040*/ u32 windcrests; /**< Windcrest flags. */
+    /*0x040*/ u32 windcrests; /**< Windcrest flags. bits 0 - 0x10: Visited area of the overworld. Above 0x18: windcrest activated. */
     /*0x044*/ u8 filler44[0xC];
     /*0x050*/ u32 unk50;
     /*0x054*/ u8 filler54[0x8];

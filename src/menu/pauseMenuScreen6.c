@@ -75,7 +75,7 @@ void sub_080A667C(void) {
     }
 
     gMenu.field_0xa = uVar2;
-    sub_080A6FB4(gMenu.field_0x3, 0);
+    ShowAreaName(gMenu.field_0x3, 0);
 }
 
 void sub_080A66D0(void) {
@@ -217,7 +217,7 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     int iVar1;
 
     iVar1 = sub_080A69E0(param_1, param_2);
-    if (0 < iVar1) {
+    if (iVar1  > 0) {
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk0 = param_4 >> 8;
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk1 = param_4;
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk2 = param_3;
@@ -228,17 +228,17 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
 }
 
 s32 sub_080A69E0(u32 param_1, u32 param_2) {
-    const struct_08127F94* pbVar1;
+    const OverworldLocation* location;
     int iVar3;
 
     if ((param_1 | param_2) == 0)
         return -1;
 
-    pbVar1 = sub_080A6A80(param_1, param_2);
-    if (pbVar1 == NULL)
+    location = GetOverworldLocation(param_1, param_2);
+    if (location == NULL)
         return -1;
 
-    if (gMenu.field_0x3 != pbVar1->_4)
+    if (gMenu.field_0x3 != location->windcrestId)
         return -1;
 
     switch (gMenu.field_0x3) {
@@ -257,19 +257,19 @@ s32 sub_080A69E0(u32 param_1, u32 param_2) {
             break;
     }
 
-    param_1 = (s32)((param_1 - pbVar1->_0 * 0x10) * 100) / 0x23a;
-    param_2 = (s32)((param_2 - pbVar1->_1 * 0x10) * 100) / 0x23a;
+    param_1 = (s32)((param_1 - location->minX * 0x10) * 100) / 0x23a;
+    param_2 = (s32)((param_2 - location->minY * 0x10) * 100) / 0x23a;
     return (param_2 << 0x10) | param_1;
 }
 
-struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2) {
-    struct_08127F94* pbVar1;
-    param_1 >>= 4;
-    param_2 >>= 4;
+const OverworldLocation* GetOverworldLocation(u32 x, u32 y) {
+    const OverworldLocation* location;
+    x >>= 4;
+    y >>= 4;
 
-    for (pbVar1 = gUnk_08127F94; pbVar1->_0 != 0xff; pbVar1++) {
-        if (pbVar1->_0 <= param_1 && pbVar1->_2 >= param_1 && pbVar1->_1 <= param_2 && pbVar1->_3 >= param_2) {
-            return pbVar1;
+    for (location = gOverworldLocations; location->minX != 0xff; location++) {
+        if (location->minX <= x && location->maxX >= x && location->minY <= y && location->maxY >= y) {
+            return location;
         }
     }
     return NULL;

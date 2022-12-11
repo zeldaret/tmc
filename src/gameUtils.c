@@ -519,7 +519,7 @@ void SetDungeonMapPos(u32 area, u32 room, u32 x, u32 y) {
 }
 
 void InitRoom(void) {
-    AreaHeader* a_hdr = NULL;
+    const AreaHeader* a_hdr = NULL;
 
     MemClear(&gArea, sizeof gArea);
     a_hdr = &gAreaMetadata[gRoomControls.area];
@@ -535,7 +535,7 @@ void InitRoom(void) {
 }
 
 u32 GetFlagBankOffset(u32 idx) {
-    AreaHeader* a_hdr = &gAreaMetadata[idx];
+    const AreaHeader* a_hdr = &gAreaMetadata[idx];
     return gLocalFlagBanks[a_hdr->flag_bank];
 }
 
@@ -595,7 +595,7 @@ void sub_08052EA0(void) {
 }
 
 u32 sub_08052EF4(s32 idx) {
-    AreaHeader* a_hdr = NULL;
+    const AreaHeader* a_hdr = NULL;
     u32 i = idx < 0 ? gRoomControls.area : idx;
     a_hdr = &gAreaMetadata[i];
     return gLocalFlagBanks[a_hdr->flag_bank];

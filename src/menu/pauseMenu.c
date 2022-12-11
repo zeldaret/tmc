@@ -56,14 +56,13 @@ void Subtask_PauseMenu(void) {
     }
 }
 
-struct_08127F94* sub_080A6A80(u32, u32);
 
 extern u8 gUnk_02034492[];
 void sub_0801E8D4(void);
 s32 sub_080A50A0(s32);
 
 void PauseMenu_Variant0(void) {
-    struct_08127F94* ptr;
+    const OverworldLocation* location;
     int r0, r1;
 
     sub_0801E8D4();
@@ -73,9 +72,9 @@ void PauseMenu_Variant0(void) {
         gUnk_02034492[r1] = 0;
         r1++;
     } while (r1 <= 0xd);
-    ptr = sub_080A6A80((u16)gRoomTransition.player_status.overworld_map_x,
+    location = GetOverworldLocation((u16)gRoomTransition.player_status.overworld_map_x,
                        (u16)gRoomTransition.player_status.overworld_map_y);
-    gPauseMenuOptions.unk2[4] = ptr->_4;
+    gPauseMenuOptions.unk2[4] = location->windcrestId;
     gPauseMenuOptions.unk2[5] = sub_0801DB94();
     if (IsItemEquipped(ITEM_LANTERN_ON) != EQUIP_SLOT_NONE) {
         r1 = 0x10;
@@ -583,7 +582,6 @@ extern KeyButtonLayout gUnk_08128D60;
 
 void DrawDungeonMapActually();
 void sub_080A5CFC(u32, void*, u32);
-void sub_080A6FB4(u32, u32);
 void DrawDungeonFeatures(u32, void*, u32);
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -1082,7 +1080,7 @@ void sub_080A5C44(u32 param_1, u32 param_2, u32 param_3) {
     gMenu.field_0xc = gUnk_08128D38;
     sub_080A5CFC(gMenu.field_0x3, &gMenu, param_3);
     LoadGfxGroup(0x81);
-    sub_080A6FB4(gArea.dungeon_idx, 1);
+    ShowAreaName(gArea.dungeon_idx, 1);
     SetMenuType(1);
     ptr = &gUnk_08128D43[(u32)gArea.dungeon_idx * 2];
     gScreen.bg1.xOffset += ptr[0];
@@ -1455,7 +1453,7 @@ void sub_080A62E0(void) {
         gMenu.field_0x3 = windcrest;
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
-    sub_080A6FB4(gMenu.field_0x3, 0);
+    ShowAreaName(gMenu.field_0x3, 0);
 }
 
 void sub_080A6378(void) {

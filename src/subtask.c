@@ -62,7 +62,13 @@ void sub_080A6F6C(u32 textIndexOrPtr) {
     gScreen.bg0.yOffset = 2;
 }
 
-void sub_080A6FB4(u32 param_1, u32 param_2) {
+/*
+Show area name in a textbox.
+param_2:    0: visited overworld area name
+            2: overworld area name
+            1: dungeon name
+*/
+void ShowAreaName(u32 id, u32 type) {
     extern u16 gUnk_08128FF0[];
     extern Font gUnk_08128FD8;
     extern Font gUnk_08128FC0;
@@ -70,16 +76,16 @@ void sub_080A6FB4(u32 param_1, u32 param_2) {
     Font* font;
 
     textIndexOrPtr = 0;
-    switch (param_2) {
+    switch (type) {
         case 0:
-            if ((gSave.windcrests & (1 << param_1)) == 0)
+            if ((gSave.windcrests & (1 << id)) == 0)
                 break;
         case 2:
-            textIndexOrPtr = gUnk_08127F94[param_1]._6;
+            textIndexOrPtr = gOverworldLocations[id].textIndex;
             font = &gUnk_08128FC0;
             break;
         case 1:
-            textIndexOrPtr = gUnk_08128FF0[param_1];
+            textIndexOrPtr = gUnk_08128FF0[id];
             font = &gUnk_08128FD8;
             break;
     }

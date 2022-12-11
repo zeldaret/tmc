@@ -384,7 +384,7 @@ static void sub_08051DCC(void) {
 
 static void UpdateWindcrests(void) {
     if (AreaIsOverworld()) {
-        struct_08127F94* i;
+        const OverworldLocation* location;
         u32 hi_x, hi_y;
         s32 x, y;
 
@@ -398,9 +398,9 @@ static void UpdateWindcrests(void) {
             y += 0xf;
         hi_y = y >> 4;
 
-        for (i = gUnk_08127F94; i->_0 != 0xFF; i++) {
-            if (i->_0 <= hi_x && i->_2 >= hi_x && i->_1 <= hi_y && i->_3 >= hi_y) {
-                gSave.windcrests |= 1 << i->_4;
+        for (location = gOverworldLocations; location->minX != 0xFF; location++) {
+            if (location->minX <= hi_x && location->maxX >= hi_x && location->minY <= hi_y && location->maxY >= hi_y) {
+                gSave.windcrests |= 1 << location->windcrestId;
                 break;
             }
         }
