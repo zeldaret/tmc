@@ -14,13 +14,13 @@
   {
     "path": "assets/gAreaRoomMap_None.bin.lz",
     "start": 3295972,
-    "size": 974,
+    "size": 976,
     "type": "map_layer2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishWoods_0_0.4bpp.lz",
     "start": 3296948,
-    "size": 11346,
+    "size": 11348,
     "type": "tileset"
   },
   {
@@ -32,43 +32,43 @@
   {
     "path": "tilesets/gAreaTileset_MinishWoods_0_2.4bpp.lz",
     "start": 3318008,
-    "size": 8429,
+    "size": 8432,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_MinishWoods_0.bin.lz",
     "start": 3326440,
-    "size": 7034,
+    "size": 7036,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_MinishWoods_1.bin.lz",
     "start": 3333476,
-    "size": 3467,
+    "size": 3468,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_MinishWoods_2.bin.lz",
     "start": 3336944,
-    "size": 1071,
+    "size": 1072,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_MinishWoods_3.bin.lz",
     "start": 3338016,
-    "size": 707,
+    "size": 708,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishWoods_0_0.bin.lz",
     "start": 3338724,
-    "size": 4265,
+    "size": 4268,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishWoods_0_1.bin.lz",
     "start": 3342992,
-    "size": 1541,
+    "size": 1544,
     "type": "map_layer1"
   },
   {
@@ -80,55 +80,55 @@
   {
     "path": "tilesets/gAreaTileset_HyliaDigCaves_0_0.4bpp.lz",
     "start": 3346712,
-    "size": 8203,
+    "size": 8204,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyliaDigCaves_0_1.4bpp.lz",
     "start": 3354916,
-    "size": 9774,
+    "size": 9776,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyliaDigCaves_0_2.4bpp.lz",
     "start": 3364692,
-    "size": 7618,
+    "size": 7620,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_LakeHylia_0.bin.lz",
     "start": 3372312,
-    "size": 6103,
+    "size": 6104,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_LakeHylia_1.bin.lz",
     "start": 3378416,
-    "size": 3583,
+    "size": 3584,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_LakeHylia_2.bin.lz",
     "start": 3382000,
-    "size": 1143,
+    "size": 1144,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_LakeHylia_3.bin.lz",
     "start": 3383144,
-    "size": 726,
+    "size": 728,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_LakeHylia_0_0.bin.lz",
     "start": 3383872,
-    "size": 3187,
+    "size": 3188,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_LakeHylia_0_1.bin.lz",
     "start": 3387060,
-    "size": 1083,
+    "size": 1084,
     "type": "map_layer1"
   },
   {
@@ -140,13 +140,13 @@
   {
     "path": "assets/gAreaRoomMap_LakeHylia_1_0.bin.lz",
     "start": 3388904,
-    "size": 367,
+    "size": 368,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_LakeHylia_1_1.bin.lz",
     "start": 3389272,
-    "size": 322,
+    "size": 324,
     "type": "map_layer1"
   },
   {
@@ -158,13 +158,13 @@
   {
     "path": "tilesets/gAreaTileset_OuterFortressOfWinds_0_1.4bpp.lz",
     "start": 3400880,
-    "size": 10121,
+    "size": 10124,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_OuterFortressOfWinds_0_2.4bpp.lz",
     "start": 3411004,
-    "size": 5254,
+    "size": 5256,
     "type": "tileset"
   },
   {
@@ -176,13 +176,13 @@
   {
     "path": "assets/gAreaMetatiles_CastorWilds_1.bin.lz",
     "start": 3423732,
-    "size": 3634,
+    "size": 3636,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_CastorWilds_2.bin.lz",
     "start": 3427368,
-    "size": 1254,
+    "size": 1256,
     "type": "metatiles_tile_types2"
   },
   {
@@ -200,7 +200,7 @@
       "USA"
     ],
     "start": 3429368,
-    "size": 4218,
+    "size": 4220,
     "type": "map_layer2"
   },
   {
@@ -209,7 +209,7 @@
       "EU"
     ],
     "start": 3429368,
-    "size": 4214,
+    "size": 4216,
     "type": "map_layer2"
   },
   {
@@ -220,7 +220,7 @@
   {
     "path": "assets/gAreaRoomMap_CastorWilds_0_1.bin.lz",
     "start": 3433588,
-    "size": 1018,
+    "size": 1020,
     "type": "map_layer1"
   },
   {
@@ -232,13 +232,13 @@
   {
     "path": "assets/gAreaRoomMap_Ruins_0_0.bin.lz",
     "start": 3435572,
-    "size": 733,
+    "size": 736,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Ruins_0_1.bin.lz",
     "start": 3436308,
-    "size": 206,
+    "size": 208,
     "type": "map_layer1"
   },
   {
@@ -256,31 +256,31 @@
   {
     "path": "assets/gAreaRoomMap_Ruins_2_0.bin.lz",
     "start": 3436908,
-    "size": 246,
+    "size": 248,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Ruins_2_1.bin.lz",
     "start": 3437156,
-    "size": 98,
+    "size": 100,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Ruins_3_0.bin.lz",
     "start": 3437256,
-    "size": 254,
+    "size": 256,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Ruins_3_1.bin.lz",
     "start": 3437512,
-    "size": 91,
+    "size": 92,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Ruins_4_0.bin.lz",
     "start": 3437604,
-    "size": 769,
+    "size": 772,
     "type": "map_layer2"
   },
   {
@@ -292,13 +292,13 @@
   {
     "path": "assets/gAreaRoomMap_Ruins_5_0.bin.lz",
     "start": 3438612,
-    "size": 651,
+    "size": 652,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Ruins_5_1.bin.lz",
     "start": 3439264,
-    "size": 223,
+    "size": 224,
     "type": "map_layer1"
   },
   {
@@ -310,37 +310,37 @@
   {
     "path": "assets/gAreaMetatiles_HyruleTown_0.bin.lz",
     "start": 3465816,
-    "size": 8210,
+    "size": 8212,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleTown_1.bin.lz",
     "start": 3474028,
-    "size": 7411,
+    "size": 7412,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleTown_2.bin.lz",
     "start": 3481440,
-    "size": 1285,
+    "size": 1288,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleTown_3.bin.lz",
     "start": 3482728,
-    "size": 806,
+    "size": 808,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleDigCaves_0_0.4bpp.lz",
     "start": 3483536,
-    "size": 9757,
+    "size": 9760,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleDigCaves_0_1.4bpp.lz",
     "start": 3493296,
-    "size": 9362,
+    "size": 9364,
     "type": "tileset"
   },
   {
@@ -358,19 +358,19 @@
   {
     "path": "tilesets/gAreaTileset_FestivalTown_0_1.4bpp.lz",
     "start": 3517768,
-    "size": 9362,
+    "size": 9364,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_FestivalTown_0_2.4bpp.lz",
     "start": 3527132,
-    "size": 7515,
+    "size": 7516,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTown_0_0.bin.lz",
     "start": 3534648,
-    "size": 4509,
+    "size": 4512,
     "type": "map_layer2"
   },
   {
@@ -388,19 +388,19 @@
   {
     "path": "assets/gAreaRoomMap_FestivalTown_0_0.bin.lz",
     "start": 3542388,
-    "size": 2109,
+    "size": 2112,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FestivalTown_0_1.bin.lz",
     "start": 3544500,
-    "size": 1369,
+    "size": 1372,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_CrenelDigCave_0_0.4bpp.lz",
     "start": 3545872,
-    "size": 10517,
+    "size": 10520,
     "type": "tileset"
   },
   {
@@ -412,19 +412,19 @@
   {
     "path": "tilesets/gAreaTileset_CrenelDigCave_0_2.4bpp.lz",
     "start": 3565928,
-    "size": 8553,
+    "size": 8556,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_MtCrenel_0.bin.lz",
     "start": 3574484,
-    "size": 7451,
+    "size": 7452,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_MtCrenel_1.bin.lz",
     "start": 3581936,
-    "size": 3734,
+    "size": 3736,
     "type": "metatiles_tileset1"
   },
   {
@@ -436,7 +436,7 @@
   {
     "path": "assets/gAreaMetatiles_MtCrenel_3.bin.lz",
     "start": 3587088,
-    "size": 739,
+    "size": 740,
     "type": "metatiles_tile_types1"
   },
   {
@@ -448,7 +448,7 @@
   {
     "path": "assets/gAreaRoomMap_MtCrenel_0_1.bin.lz",
     "start": 3588676,
-    "size": 215,
+    "size": 216,
     "type": "map_layer1"
   },
   {
@@ -484,43 +484,43 @@
   {
     "path": "assets/gAreaRoomMap_MtCrenel_3_0.bin.lz",
     "start": 3592300,
-    "size": 1651,
+    "size": 1652,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MtCrenel_3_1.bin.lz",
     "start": 3593952,
-    "size": 405,
+    "size": 408,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MtCrenel_4_0.bin.lz",
     "start": 3594360,
-    "size": 2370,
+    "size": 2372,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MtCrenel_4_1.bin.lz",
     "start": 3596732,
-    "size": 651,
+    "size": 652,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleField_7_0.4bpp.lz",
     "start": 3597384,
-    "size": 10191,
+    "size": 10192,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DigCaves1_0_1.4bpp.lz",
     "start": 3607576,
-    "size": 10455,
+    "size": 10456,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleField_7_1.4bpp.lz",
     "start": 3618032,
-    "size": 7733,
+    "size": 7736,
     "type": "tileset"
   },
   {
@@ -532,7 +532,7 @@
   {
     "path": "tilesets/gAreaTileset_HyruleField_2_1.4bpp.lz",
     "start": 3634516,
-    "size": 10455,
+    "size": 10456,
     "type": "tileset"
   },
   {
@@ -544,13 +544,13 @@
   {
     "path": "tilesets/gAreaTileset_HyruleField_5_0.4bpp.lz",
     "start": 3650740,
-    "size": 9895,
+    "size": 9896,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleField_1_1.4bpp.lz",
     "start": 3660636,
-    "size": 10455,
+    "size": 10456,
     "type": "tileset"
   },
   {
@@ -562,13 +562,13 @@
   {
     "path": "assets/gAreaMetatiles_HyruleField_0.bin.lz",
     "start": 3677852,
-    "size": 8650,
+    "size": 8652,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleField_1.bin.lz",
     "start": 3686504,
-    "size": 4294,
+    "size": 4296,
     "type": "metatiles_tileset1"
   },
   {
@@ -586,7 +586,7 @@
   {
     "path": "tilesets/gAreaTileset_HyruleField_2_3.bin.lz",
     "start": 3693132,
-    "size": 354,
+    "size": 356,
     "type": "tileset_mapping3"
   },
   {
@@ -598,19 +598,19 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_0_1.bin.lz",
     "start": 3693980,
-    "size": 202,
+    "size": 204,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleField_1_3.bin.lz",
     "start": 3694184,
-    "size": 3134,
+    "size": 3136,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleField_1_4.bin.lz",
     "start": 3697320,
-    "size": 957,
+    "size": 960,
     "type": "map_layer1"
   },
   {
@@ -622,7 +622,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_2_1.bin.lz",
     "start": 3698844,
-    "size": 207,
+    "size": 208,
     "type": "map_layer1"
   },
   {
@@ -634,7 +634,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_3_4.bin.lz",
     "start": 3699636,
-    "size": 215,
+    "size": 216,
     "type": "map_layer1"
   },
   {
@@ -646,7 +646,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_4_4.bin.lz",
     "start": 3701080,
-    "size": 422,
+    "size": 424,
     "type": "map_layer1"
   },
   {
@@ -664,7 +664,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_5_4.bin.lz",
     "start": 3705064,
-    "size": 909,
+    "size": 912,
     "type": "map_layer1"
   },
   {
@@ -676,7 +676,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_6_3.bin.lz",
     "start": 3706660,
-    "size": 3322,
+    "size": 3324,
     "type": "map_layer2"
   },
   {
@@ -694,7 +694,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_7_4.bin.lz",
     "start": 3713184,
-    "size": 623,
+    "size": 624,
     "type": "map_layer1"
   },
   {
@@ -706,55 +706,55 @@
   {
     "path": "assets/gAreaRoomMap_HyruleField_8_0.bin.lz",
     "start": 3714288,
-    "size": 1405,
+    "size": 1408,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleField_8_1.bin.lz",
     "start": 3715696,
-    "size": 527,
+    "size": 528,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleField_9_0.bin.lz",
     "start": 3716224,
-    "size": 449,
+    "size": 452,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleField_9_1.bin.lz",
     "start": 3716676,
-    "size": 197,
+    "size": 200,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_CastleGarden_0_0.4bpp.lz",
     "start": 3716876,
-    "size": 7853,
+    "size": 7856,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CastleGarden_0_1.4bpp.lz",
     "start": 3724732,
-    "size": 7399,
+    "size": 7400,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CastleGarden_0_2.4bpp.lz",
     "start": 3732132,
-    "size": 4057,
+    "size": 4060,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_CastleGarden_0.bin.lz",
     "start": 3736192,
-    "size": 5494,
+    "size": 5496,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_CastleGarden_1.bin.lz",
     "start": 3741688,
-    "size": 2706,
+    "size": 2708,
     "type": "metatiles_tileset1"
   },
   {
@@ -772,19 +772,19 @@
   {
     "path": "assets/gAreaRoomMap_CastleGarden_0_0.bin.lz",
     "start": 3745780,
-    "size": 2418,
+    "size": 2420,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastleGarden_0_1.bin.lz",
     "start": 3748200,
-    "size": 1047,
+    "size": 1048,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_CloudTops_0_0.4bpp.lz",
     "start": 3749248,
-    "size": 5919,
+    "size": 5920,
     "type": "tileset"
   },
   {
@@ -796,7 +796,7 @@
   {
     "path": "tilesets/gAreaTileset_CloudTops_0_2.4bpp.lz",
     "start": 3761400,
-    "size": 3713,
+    "size": 3716,
     "type": "tileset"
   },
   {
@@ -808,7 +808,7 @@
   {
     "path": "assets/gAreaMetatiles_CloudTops_1.bin.lz",
     "start": 3769912,
-    "size": 2525,
+    "size": 2528,
     "type": "metatiles_tileset1"
   },
   {
@@ -820,13 +820,13 @@
   {
     "path": "assets/gAreaMetatiles_CloudTops_3.bin.lz",
     "start": 3773192,
-    "size": 682,
+    "size": 684,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_CloudTops_0_0.bin.lz",
     "start": 3773876,
-    "size": 1822,
+    "size": 1824,
     "type": "map_layer2"
   },
   {
@@ -844,25 +844,25 @@
   {
     "path": "assets/gAreaRoomMap_CloudTops_1_1.bin.lz",
     "start": 3779344,
-    "size": 1129,
+    "size": 1132,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CloudTops_2_0.bin.lz",
     "start": 3780476,
-    "size": 2337,
+    "size": 2340,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CloudTops_2_1.bin.lz",
     "start": 3782816,
-    "size": 983,
+    "size": 984,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_CloudTops_0_3.bin.lz",
     "start": 3783800,
-    "size": 530,
+    "size": 532,
     "type": "tileset_mapping3"
   },
   {
@@ -874,25 +874,25 @@
   {
     "path": "tilesets/gAreaTileset_RoyalValley_0_1.4bpp.lz",
     "start": 3793004,
-    "size": 6905,
+    "size": 6908,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_RoyalValley_0_2.4bpp.lz",
     "start": 3799912,
-    "size": 6707,
+    "size": 6708,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_RoyalValley_0.bin.lz",
     "start": 3806620,
-    "size": 4403,
+    "size": 4404,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_RoyalValley_1.bin.lz",
     "start": 3811024,
-    "size": 2826,
+    "size": 2828,
     "type": "metatiles_tileset1"
   },
   {
@@ -910,13 +910,13 @@
   {
     "path": "assets/gAreaRoomMap_RoyalValley_0_0.bin.lz",
     "start": 3815260,
-    "size": 1907,
+    "size": 1908,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalValley_0_1.bin.lz",
     "start": 3817168,
-    "size": 777,
+    "size": 780,
     "type": "map_layer1"
   },
   {
@@ -928,7 +928,7 @@
   {
     "path": "assets/gAreaRoomMap_RoyalValley_1_0.bin.lz",
     "start": 3818460,
-    "size": 237,
+    "size": 240,
     "type": "map_layer2"
   },
   {
@@ -946,25 +946,25 @@
   {
     "path": "tilesets/gAreaTileset_VeilFallsTop_0_1.4bpp.lz",
     "start": 3827768,
-    "size": 9555,
+    "size": 9556,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_VeilFallsDigCave_0_2.4bpp.lz",
     "start": 3837324,
-    "size": 6522,
+    "size": 6524,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFalls_0_0.bin.lz",
     "start": 3843848,
-    "size": 2362,
+    "size": 2364,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFalls_0_1.bin.lz",
     "start": 3846212,
-    "size": 537,
+    "size": 540,
     "type": "map_layer1"
   },
   {
@@ -982,7 +982,7 @@
   {
     "path": "assets/gAreaRoomMap_VeilFallsTop_0_0.bin.lz",
     "start": 3852952,
-    "size": 374,
+    "size": 376,
     "type": "map_layer2"
   },
   {
@@ -994,43 +994,43 @@
   {
     "path": "tilesets/gAreaTileset_Beanstalks_0_0.4bpp.lz",
     "start": 3853420,
-    "size": 4239,
+    "size": 4240,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_Beanstalks_0_1.4bpp.lz",
     "start": 3857660,
-    "size": 3049,
+    "size": 3052,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_Beanstalks_0_2.4bpp.lz",
     "start": 3860712,
-    "size": 6153,
+    "size": 6156,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_Beanstalks_0.bin.lz",
     "start": 3866868,
-    "size": 797,
+    "size": 800,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_Beanstalks_1.bin.lz",
     "start": 3867668,
-    "size": 114,
+    "size": 116,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "tilesets/gAreaTileset_Beanstalks_0_3.bin.lz",
     "start": 3867784,
-    "size": 439,
+    "size": 440,
     "type": "tileset_mapping3"
   },
   {
     "path": "assets/gAreaRoomMap_Beanstalks_5_1.bin.lz",
     "start": 3868224,
-    "size": 1470,
+    "size": 1472,
     "type": "map_mapping1"
   },
   {
@@ -1072,7 +1072,7 @@
   {
     "path": "assets/gAreaRoomMap_Empty_0_0.bin.lz",
     "start": 3871416,
-    "size": 1446,
+    "size": 1448,
     "type": "map_layer2"
   },
   {
@@ -1084,7 +1084,7 @@
   {
     "path": "tilesets/gAreaTileset_45_0_0.4bpp.lz",
     "start": 3873860,
-    "size": 10637,
+    "size": 10640,
     "type": "tileset"
   },
   {
@@ -1096,43 +1096,43 @@
   {
     "path": "tilesets/gAreaTileset_45_0_2.4bpp.lz",
     "start": 3895064,
-    "size": 6861,
+    "size": 6864,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_CrenelCaves_0.bin.lz",
     "start": 3901928,
-    "size": 8138,
+    "size": 8140,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_CrenelCaves_1.bin.lz",
     "start": 3910068,
-    "size": 6281,
+    "size": 6284,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_CrenelCaves_2.bin.lz",
     "start": 3916352,
-    "size": 1531,
+    "size": 1532,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_CrenelCaves_3.bin.lz",
     "start": 3917884,
-    "size": 1310,
+    "size": 1312,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_0_0.bin.lz",
     "start": 3919196,
-    "size": 1051,
+    "size": 1052,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_0_1.bin.lz",
     "start": 3920248,
-    "size": 487,
+    "size": 488,
     "type": "map_layer1"
   },
   {
@@ -1156,25 +1156,25 @@
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_2_1.bin.lz",
     "start": 3921656,
-    "size": 161,
+    "size": 164,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_3_0.bin.lz",
     "start": 3921820,
-    "size": 274,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_3_1.bin.lz",
     "start": 3922096,
-    "size": 75,
+    "size": 76,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_4_0.bin.lz",
     "start": 3922172,
-    "size": 245,
+    "size": 248,
     "type": "map_layer2"
   },
   {
@@ -1186,7 +1186,7 @@
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_5_0.bin.lz",
     "start": 3922504,
-    "size": 283,
+    "size": 284,
     "type": "map_layer2"
   },
   {
@@ -1198,7 +1198,7 @@
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_6_0.bin.lz",
     "start": 3922872,
-    "size": 298,
+    "size": 300,
     "type": "map_layer2"
   },
   {
@@ -1216,19 +1216,19 @@
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_7_1.bin.lz",
     "start": 3923508,
-    "size": 86,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_8_0.bin.lz",
     "start": 3923596,
-    "size": 430,
+    "size": 432,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_8_1.bin.lz",
     "start": 3924028,
-    "size": 153,
+    "size": 156,
     "type": "map_layer1"
   },
   {
@@ -1240,79 +1240,79 @@
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_9_1.bin.lz",
     "start": 3924484,
-    "size": 62,
+    "size": 64,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_10_0.bin.lz",
     "start": 3924548,
-    "size": 481,
+    "size": 484,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_10_1.bin.lz",
     "start": 3925032,
-    "size": 175,
+    "size": 176,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_11_0.bin.lz",
     "start": 3925208,
-    "size": 475,
+    "size": 476,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_11_1.bin.lz",
     "start": 3925684,
-    "size": 143,
+    "size": 144,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_12_0.bin.lz",
     "start": 3925828,
-    "size": 282,
+    "size": 284,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_12_1.bin.lz",
     "start": 3926112,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_13_0.bin.lz",
     "start": 3926164,
-    "size": 258,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_13_1.bin.lz",
     "start": 3926424,
-    "size": 86,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_14_0.bin.lz",
     "start": 3926512,
-    "size": 259,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_14_1.bin.lz",
     "start": 3926772,
-    "size": 62,
+    "size": 64,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_15_0.bin.lz",
     "start": 3926836,
-    "size": 246,
+    "size": 248,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_15_1.bin.lz",
     "start": 3927084,
-    "size": 66,
+    "size": 68,
     "type": "map_layer1"
   },
   {
@@ -1324,7 +1324,7 @@
   {
     "path": "assets/gAreaRoomMap_CrenelCaves_16_1.bin.lz",
     "start": 3927532,
-    "size": 126,
+    "size": 128,
     "type": "map_layer1"
   },
   {
@@ -1336,49 +1336,49 @@
   {
     "path": "tilesets/gAreaTileset_GreatFairies_2_1.4bpp.lz",
     "start": 3935368,
-    "size": 5469,
+    "size": 5472,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_GreatFairies_2_2.4bpp.lz",
     "start": 3940840,
-    "size": 3018,
+    "size": 3020,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_GreatFairies_0.bin.lz",
     "start": 3943860,
-    "size": 3275,
+    "size": 3276,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_GreatFairies_1.bin.lz",
     "start": 3947136,
-    "size": 1330,
+    "size": 1332,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_GreatFairies_2.bin.lz",
     "start": 3948468,
-    "size": 382,
+    "size": 384,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_GreatFairies_3.bin.lz",
     "start": 3948852,
-    "size": 242,
+    "size": 244,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_GreatFairies_0_0.bin.lz",
     "start": 3949096,
-    "size": 479,
+    "size": 480,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_GreatFairies_0_1.bin.lz",
     "start": 3949576,
-    "size": 159,
+    "size": 160,
     "type": "map_layer1"
   },
   {
@@ -1390,19 +1390,19 @@
   {
     "path": "assets/gAreaRoomMap_GreatFairies_1_1.bin.lz",
     "start": 3950204,
-    "size": 159,
+    "size": 160,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_GreatFairies_2_0.bin.lz",
     "start": 3950364,
-    "size": 475,
+    "size": 476,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_GreatFairies_2_1.bin.lz",
     "start": 3950840,
-    "size": 159,
+    "size": 160,
     "type": "map_layer1"
   },
   {
@@ -1420,49 +1420,49 @@
   {
     "path": "assets/gAreaRoomMap_CastorCaves_1_0.bin.lz",
     "start": 3951380,
-    "size": 354,
+    "size": 356,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_1_1.bin.lz",
     "start": 3951736,
-    "size": 69,
+    "size": 72,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_2_0.bin.lz",
     "start": 3951808,
-    "size": 214,
+    "size": 216,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_2_1.bin.lz",
     "start": 3952024,
-    "size": 113,
+    "size": 116,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_3_0.bin.lz",
     "start": 3952140,
-    "size": 235,
+    "size": 236,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_3_1.bin.lz",
     "start": 3952376,
-    "size": 113,
+    "size": 116,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_4_0.bin.lz",
     "start": 3952492,
-    "size": 258,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastorCaves_4_1.bin.lz",
     "start": 3952752,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
@@ -1474,25 +1474,25 @@
   {
     "path": "assets/gAreaRoomMap_CastorDarknut_0_1.bin.lz",
     "start": 3953160,
-    "size": 67,
+    "size": 68,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CastorDarknut_1_0.bin.lz",
     "start": 3953228,
-    "size": 338,
+    "size": 340,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastorDarknut_1_1.bin.lz",
     "start": 3953568,
-    "size": 102,
+    "size": 104,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_ArmosInteriors_0_0.4bpp.lz",
     "start": 3953672,
-    "size": 4505,
+    "size": 4508,
     "type": "tileset"
   },
   {
@@ -1504,31 +1504,31 @@
   {
     "path": "tilesets/gAreaTileset_ArmosInteriors_0_2.4bpp.lz",
     "start": 3965320,
-    "size": 4507,
+    "size": 4508,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_ArmosInteriors_0.bin.lz",
     "start": 3969828,
-    "size": 1905,
+    "size": 1908,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_ArmosInteriors_1.bin.lz",
     "start": 3971736,
-    "size": 1905,
+    "size": 1908,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_ArmosInteriors_2.bin.lz",
     "start": 3973644,
-    "size": 279,
+    "size": 280,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_ArmosInteriors_3.bin.lz",
     "start": 3973924,
-    "size": 283,
+    "size": 284,
     "type": "metatiles_tile_types1"
   },
   {
@@ -1672,19 +1672,19 @@
   {
     "path": "tilesets/gAreaTileset_GoronCave_0_1.4bpp.lz",
     "start": 3985500,
-    "size": 9418,
+    "size": 9420,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_GoronCave_0_2.4bpp.lz",
     "start": 3994920,
-    "size": 6654,
+    "size": 6656,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_GoronCave_0.bin.lz",
     "start": 4001576,
-    "size": 6657,
+    "size": 6660,
     "type": "metatiles_tileset2"
   },
   {
@@ -1702,19 +1702,19 @@
   {
     "path": "assets/gAreaMetatiles_GoronCave_3.bin.lz",
     "start": 4015728,
-    "size": 1222,
+    "size": 1224,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_GoronCave_0_0.bin.lz",
     "start": 4016952,
-    "size": 193,
+    "size": 196,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_GoronCave_0_1.bin.lz",
     "start": 4017148,
-    "size": 66,
+    "size": 68,
     "type": "map_layer1"
   },
   {
@@ -1732,7 +1732,7 @@
   {
     "path": "assets/gAreaRoomMap_Caves_0_0.bin.lz",
     "start": 4018064,
-    "size": 538,
+    "size": 540,
     "type": "map_layer2"
   },
   {
@@ -1744,13 +1744,13 @@
   {
     "path": "assets/gAreaRoomMap_Caves_1_0.bin.lz",
     "start": 4018716,
-    "size": 467,
+    "size": 468,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_1_1.bin.lz",
     "start": 4019184,
-    "size": 169,
+    "size": 172,
     "type": "map_layer1"
   },
   {
@@ -1762,79 +1762,79 @@
   {
     "path": "assets/gAreaRoomMap_Caves_2_1.bin.lz",
     "start": 4019616,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_3_0.bin.lz",
     "start": 4019660,
-    "size": 266,
+    "size": 268,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_3_1.bin.lz",
     "start": 4019928,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_4_0.bin.lz",
     "start": 4019972,
-    "size": 239,
+    "size": 240,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_4_1.bin.lz",
     "start": 4020212,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_5_0.bin.lz",
     "start": 4020256,
-    "size": 202,
+    "size": 204,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_5_1.bin.lz",
     "start": 4020460,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_6_0.bin.lz",
     "start": 4020504,
-    "size": 275,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_6_1.bin.lz",
     "start": 4020780,
-    "size": 150,
+    "size": 152,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_7_0.bin.lz",
     "start": 4020932,
-    "size": 261,
+    "size": 264,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_7_1.bin.lz",
     "start": 4021196,
-    "size": 82,
+    "size": 84,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_8_0.bin.lz",
     "start": 4021280,
-    "size": 275,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_8_1.bin.lz",
     "start": 4021556,
-    "size": 61,
+    "size": 64,
     "type": "map_layer1"
   },
   {
@@ -1852,13 +1852,13 @@
   {
     "path": "assets/gAreaRoomMap_Caves_10_0.bin.lz",
     "start": 4021972,
-    "size": 250,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_10_1.bin.lz",
     "start": 4022224,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
@@ -1870,55 +1870,55 @@
   {
     "path": "assets/gAreaRoomMap_Caves_11_1.bin.lz",
     "start": 4022536,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_12_0.bin.lz",
     "start": 4022588,
-    "size": 357,
+    "size": 360,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_12_1.bin.lz",
     "start": 4022948,
-    "size": 122,
+    "size": 124,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_13_0.bin.lz",
     "start": 4023072,
-    "size": 258,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_13_1.bin.lz",
     "start": 4023332,
-    "size": 142,
+    "size": 144,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_14_0.bin.lz",
     "start": 4023476,
-    "size": 303,
+    "size": 304,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_14_1.bin.lz",
     "start": 4023780,
-    "size": 123,
+    "size": 124,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_15_0.bin.lz",
     "start": 4023904,
-    "size": 265,
+    "size": 268,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_15_1.bin.lz",
     "start": 4024172,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
@@ -1930,37 +1930,37 @@
   {
     "path": "assets/gAreaRoomMap_Caves_16_1.bin.lz",
     "start": 4024464,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_17_0.bin.lz",
     "start": 4024516,
-    "size": 249,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_17_1.bin.lz",
     "start": 4024768,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_18_0.bin.lz",
     "start": 4024820,
-    "size": 249,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_18_1.bin.lz",
     "start": 4025072,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_19_0.bin.lz",
     "start": 4025116,
-    "size": 235,
+    "size": 236,
     "type": "map_layer2"
   },
   {
@@ -1972,25 +1972,25 @@
   {
     "path": "assets/gAreaRoomMap_Caves_20_0.bin.lz",
     "start": 4025432,
-    "size": 231,
+    "size": 232,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_20_1.bin.lz",
     "start": 4025664,
-    "size": 53,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_21_0.bin.lz",
     "start": 4025720,
-    "size": 223,
+    "size": 224,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_21_1.bin.lz",
     "start": 4025944,
-    "size": 154,
+    "size": 156,
     "type": "map_layer1"
   },
   {
@@ -2008,43 +2008,43 @@
   {
     "path": "assets/gAreaRoomMap_Caves_23_0.bin.lz",
     "start": 4026436,
-    "size": 195,
+    "size": 196,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Caves_23_1.bin.lz",
     "start": 4026632,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_0_0.bin.lz",
     "start": 4026684,
-    "size": 289,
+    "size": 292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_0_1.bin.lz",
     "start": 4026976,
-    "size": 105,
+    "size": 108,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_1_0.bin.lz",
     "start": 4027084,
-    "size": 401,
+    "size": 404,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_1_1.bin.lz",
     "start": 4027488,
-    "size": 189,
+    "size": 192,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_2_0.bin.lz",
     "start": 4027680,
-    "size": 218,
+    "size": 220,
     "type": "map_layer2"
   },
   {
@@ -2056,7 +2056,7 @@
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_3_0.bin.lz",
     "start": 4028048,
-    "size": 314,
+    "size": 316,
     "type": "map_layer2"
   },
   {
@@ -2068,7 +2068,7 @@
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_4_0.bin.lz",
     "start": 4028440,
-    "size": 221,
+    "size": 224,
     "type": "map_layer2"
   },
   {
@@ -2086,73 +2086,73 @@
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_5_1.bin.lz",
     "start": 4028980,
-    "size": 135,
+    "size": 136,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_6_0.bin.lz",
     "start": 4029116,
-    "size": 194,
+    "size": 196,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_6_1.bin.lz",
     "start": 4029312,
-    "size": 110,
+    "size": 112,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_7_0.bin.lz",
     "start": 4029424,
-    "size": 382,
+    "size": 384,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_7_1.bin.lz",
     "start": 4029808,
-    "size": 139,
+    "size": 140,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_8_0.bin.lz",
     "start": 4029948,
-    "size": 461,
+    "size": 464,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_8_1.bin.lz",
     "start": 4030412,
-    "size": 141,
+    "size": 144,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_9_0.bin.lz",
     "start": 4030556,
-    "size": 283,
+    "size": 284,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsCaves_9_1.bin.lz",
     "start": 4030840,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalValleyGraves_0_0.bin.lz",
     "start": 4030892,
-    "size": 282,
+    "size": 284,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalValleyGraves_0_1.bin.lz",
     "start": 4031176,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalValleyGraves_1_0.bin.lz",
     "start": 4031228,
-    "size": 363,
+    "size": 364,
     "type": "map_layer2"
   },
   {
@@ -2170,37 +2170,37 @@
   {
     "path": "tilesets/gAreaTileset_MinishCaves_0_1.4bpp.lz",
     "start": 4040228,
-    "size": 8711,
+    "size": 8712,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_MinishCaves_0_2.4bpp.lz",
     "start": 4048940,
-    "size": 5071,
+    "size": 5072,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_MinishCaves_0.bin.lz",
     "start": 4054012,
-    "size": 7737,
+    "size": 7740,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_MinishCaves_1.bin.lz",
     "start": 4061752,
-    "size": 4470,
+    "size": 4472,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_MinishCaves_2.bin.lz",
     "start": 4066224,
-    "size": 1185,
+    "size": 1188,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_MinishCaves_3.bin.lz",
     "start": 4067412,
-    "size": 898,
+    "size": 900,
     "type": "metatiles_tile_types1"
   },
   {
@@ -2212,55 +2212,55 @@
   {
     "path": "tilesets/gAreaTileset_37_0_1.4bpp.lz",
     "start": 4073372,
-    "size": 4506,
+    "size": 4508,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_37_0_2.4bpp.lz",
     "start": 4077880,
-    "size": 3319,
+    "size": 3320,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_CastleGardenMinishHoles_0.bin.lz",
     "start": 4081200,
-    "size": 2594,
+    "size": 2596,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_CastleGardenMinishHoles_1.bin.lz",
     "start": 4083796,
-    "size": 2750,
+    "size": 2752,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_CastleGardenMinishHoles_2.bin.lz",
     "start": 4086548,
-    "size": 390,
+    "size": 392,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_CastleGardenMinishHoles_3.bin.lz",
     "start": 4086940,
-    "size": 283,
+    "size": 284,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_0_0.bin.lz",
     "start": 4087224,
-    "size": 797,
+    "size": 800,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_0_1.bin.lz",
     "start": 4088024,
-    "size": 181,
+    "size": 184,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_1_0.bin.lz",
     "start": 4088208,
-    "size": 735,
+    "size": 736,
     "type": "map_layer2"
   },
   {
@@ -2278,13 +2278,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishCaves_2_1.bin.lz",
     "start": 4089460,
-    "size": 89,
+    "size": 92,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_3_0.bin.lz",
     "start": 4089552,
-    "size": 751,
+    "size": 752,
     "type": "map_layer2"
   },
   {
@@ -2296,19 +2296,19 @@
   {
     "path": "assets/gAreaRoomMap_MinishCaves_4_0.bin.lz",
     "start": 4090500,
-    "size": 386,
+    "size": 388,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_4_1.bin.lz",
     "start": 4090888,
-    "size": 79,
+    "size": 80,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_5_0.bin.lz",
     "start": 4090968,
-    "size": 498,
+    "size": 500,
     "type": "map_layer2"
   },
   {
@@ -2320,7 +2320,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCaves_6_0.bin.lz",
     "start": 4091580,
-    "size": 491,
+    "size": 492,
     "type": "map_layer2"
   },
   {
@@ -2332,61 +2332,61 @@
   {
     "path": "assets/gAreaRoomMap_MinishCaves_7_0.bin.lz",
     "start": 4092176,
-    "size": 1062,
+    "size": 1064,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_7_1.bin.lz",
     "start": 4093240,
-    "size": 271,
+    "size": 272,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_8_0.bin.lz",
     "start": 4093512,
-    "size": 661,
+    "size": 664,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_8_1.bin.lz",
     "start": 4094176,
-    "size": 149,
+    "size": 152,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_9_0.bin.lz",
     "start": 4094328,
-    "size": 1021,
+    "size": 1024,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCaves_9_1.bin.lz",
     "start": 4095352,
-    "size": 210,
+    "size": 212,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CastleGardenMinishHoles_0_0.bin.lz",
     "start": 4095564,
-    "size": 415,
+    "size": 416,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastleGardenMinishHoles_0_1.bin.lz",
     "start": 4095980,
-    "size": 73,
+    "size": 76,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CastleGardenMinishHoles_1_0.bin.lz",
     "start": 4096056,
-    "size": 409,
+    "size": 412,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CastleGardenMinishHoles_1_1.bin.lz",
     "start": 4096468,
-    "size": 73,
+    "size": 76,
     "type": "map_layer1"
   },
   {
@@ -2398,25 +2398,25 @@
   {
     "path": "assets/gAreaRoomMap_37_0_1.bin.lz",
     "start": 4096980,
-    "size": 150,
+    "size": 152,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_37_1_0.bin.lz",
     "start": 4097132,
-    "size": 429,
+    "size": 432,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_37_1_1.bin.lz",
     "start": 4097564,
-    "size": 171,
+    "size": 172,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_LakeWoodsCave_0_3.4bpp.lz",
     "start": 4097736,
-    "size": 4118,
+    "size": 4120,
     "type": "tileset"
   },
   {
@@ -2434,7 +2434,7 @@
   {
     "path": "tilesets/gAreaTileset_HyruleDigCaves_0_4.4bpp.lz",
     "start": 4108036,
-    "size": 2519,
+    "size": 2520,
     "type": "tileset"
   },
   {
@@ -2446,7 +2446,7 @@
   {
     "path": "tilesets/gAreaTileset_VeilFallsDigCave_0_4.4bpp.lz",
     "start": 4115012,
-    "size": 2986,
+    "size": 2988,
     "type": "tileset"
   },
   {
@@ -2458,13 +2458,13 @@
   {
     "path": "tilesets/gAreaTileset_DigCaves1_0_4.4bpp.lz",
     "start": 4121808,
-    "size": 2769,
+    "size": 2772,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_OuterFortressOfWinds_0_3.4bpp.lz",
     "start": 4124580,
-    "size": 5015,
+    "size": 5016,
     "type": "tileset"
   },
   {
@@ -2476,7 +2476,7 @@
   {
     "path": "tilesets/gAreaTileset_HyliaDigCaves_0_3.4bpp.lz",
     "start": 4132376,
-    "size": 3117,
+    "size": 3120,
     "type": "tileset"
   },
   {
@@ -2500,7 +2500,7 @@
   {
     "path": "assets/gAreaRoomMap_LakeWoodsCave_0_1.bin.lz",
     "start": 4140432,
-    "size": 1261,
+    "size": 1264,
     "type": "map_layer1"
   },
   {
@@ -2518,13 +2518,13 @@
   {
     "path": "assets/gAreaRoomMap_HyliaDigCaves_0_1.bin.lz",
     "start": 4142000,
-    "size": 170,
+    "size": 172,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyliaDigCaves_1_0.bin.lz",
     "start": 4142172,
-    "size": 946,
+    "size": 948,
     "type": "map_layer2"
   },
   {
@@ -2536,7 +2536,7 @@
   {
     "path": "assets/gAreaRoomMap_HyliaDigCaves_1_1.bin.lz",
     "start": 4143580,
-    "size": 981,
+    "size": 984,
     "type": "map_layer1"
   },
   {
@@ -2554,13 +2554,13 @@
   {
     "path": "assets/gAreaRoomMap_CastorWildsDigCave_0_1.bin.lz",
     "start": 4146608,
-    "size": 1045,
+    "size": 1048,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleDigCaves_0_0.bin.lz",
     "start": 4147656,
-    "size": 1311,
+    "size": 1312,
     "type": "map_layer2"
   },
   {
@@ -2572,13 +2572,13 @@
   {
     "path": "assets/gAreaRoomMap_HyruleDigCaves_0_1.bin.lz",
     "start": 4149924,
-    "size": 1343,
+    "size": 1344,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelDigCave_0_0.bin.lz",
     "start": 4151268,
-    "size": 805,
+    "size": 808,
     "type": "map_layer2"
   },
   {
@@ -2590,7 +2590,7 @@
   {
     "path": "assets/gAreaRoomMap_CrenelDigCave_0_1.bin.lz",
     "start": 4152356,
-    "size": 717,
+    "size": 720,
     "type": "map_layer1"
   },
   {
@@ -2608,13 +2608,13 @@
   {
     "path": "assets/gAreaRoomMap_DigCaves_0_1.bin.lz",
     "start": 4153772,
-    "size": 435,
+    "size": 436,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_DigCaves_1_0.bin.lz",
     "start": 4154208,
-    "size": 719,
+    "size": 720,
     "type": "map_layer2"
   },
   {
@@ -2626,13 +2626,13 @@
   {
     "path": "assets/gAreaRoomMap_DigCaves_1_1.bin.lz",
     "start": 4155408,
-    "size": 723,
+    "size": 724,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VeilFallsDigCave_0_0.bin.lz",
     "start": 4156132,
-    "size": 754,
+    "size": 756,
     "type": "map_layer2"
   },
   {
@@ -2644,13 +2644,13 @@
   {
     "path": "assets/gAreaRoomMap_VeilFallsDigCave_0_1.bin.lz",
     "start": 4157408,
-    "size": 737,
+    "size": 740,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_0_0.bin.lz",
     "start": 4158148,
-    "size": 367,
+    "size": 368,
     "type": "map_layer2"
   },
   {
@@ -2662,13 +2662,13 @@
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_0_1.bin.lz",
     "start": 4158708,
-    "size": 409,
+    "size": 412,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_1_0.bin.lz",
     "start": 4159120,
-    "size": 565,
+    "size": 568,
     "type": "map_layer2"
   },
   {
@@ -2680,13 +2680,13 @@
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_1_1.bin.lz",
     "start": 4159984,
-    "size": 678,
+    "size": 680,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_2_0.bin.lz",
     "start": 4160664,
-    "size": 446,
+    "size": 448,
     "type": "map_layer2"
   },
   {
@@ -2698,13 +2698,13 @@
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_2_1.bin.lz",
     "start": 4161304,
-    "size": 482,
+    "size": 484,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_3_0.bin.lz",
     "start": 4161788,
-    "size": 161,
+    "size": 164,
     "type": "map_layer2"
   },
   {
@@ -2716,13 +2716,13 @@
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_3_1.bin.lz",
     "start": 4162028,
-    "size": 265,
+    "size": 268,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_4_0.bin.lz",
     "start": 4162296,
-    "size": 174,
+    "size": 176,
     "type": "map_layer2"
   },
   {
@@ -2734,13 +2734,13 @@
   {
     "path": "assets/gAreaRoomMap_OuterFortressOfWinds_4_1.bin.lz",
     "start": 4162532,
-    "size": 186,
+    "size": 188,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_MinishVillage_0_0.4bpp.lz",
     "start": 4162720,
-    "size": 6774,
+    "size": 6776,
     "type": "tileset"
   },
   {
@@ -2752,19 +2752,19 @@
   {
     "path": "tilesets/gAreaTileset_MinishVillage_0_2.4bpp.lz",
     "start": 4178392,
-    "size": 8090,
+    "size": 8092,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_MinishVillage_0.bin.lz",
     "start": 4186484,
-    "size": 7170,
+    "size": 7172,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_MinishVillage_1.bin.lz",
     "start": 4193656,
-    "size": 5382,
+    "size": 5384,
     "type": "metatiles_tileset1"
   },
   {
@@ -2776,13 +2776,13 @@
   {
     "path": "assets/gAreaMetatiles_MinishVillage_3.bin.lz",
     "start": 4199788,
-    "size": 427,
+    "size": 428,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_MinishVillage_1_0.4bpp.lz",
     "start": 4200216,
-    "size": 5014,
+    "size": 5016,
     "type": "tileset"
   },
   {
@@ -2800,7 +2800,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishVillage_0_0.bin.lz",
     "start": 4217320,
-    "size": 3014,
+    "size": 3016,
     "type": "map_layer2"
   },
   {
@@ -2812,31 +2812,31 @@
   {
     "path": "assets/gAreaRoomMap_MinishVillage_1_0.bin.lz",
     "start": 4223080,
-    "size": 417,
+    "size": 420,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishVillage_1_1.bin.lz",
     "start": 4223500,
-    "size": 451,
+    "size": 452,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_MelarisMine_0_0.4bpp.lz",
     "start": 4223952,
-    "size": 9349,
+    "size": 9352,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_MelarisMine_0_1.4bpp.lz",
     "start": 4233304,
-    "size": 7199,
+    "size": 7200,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_MelarisMine_0_2.4bpp.lz",
     "start": 4240504,
-    "size": 9094,
+    "size": 9096,
     "type": "tileset"
   },
   {
@@ -2854,7 +2854,7 @@
   {
     "path": "assets/gAreaMetatiles_MelarisMine_2.bin.lz",
     "start": 4255560,
-    "size": 543,
+    "size": 544,
     "type": "metatiles_tile_types2"
   },
   {
@@ -2872,7 +2872,7 @@
   {
     "path": "assets/gAreaRoomMap_MelarisMine_0_1.bin.lz",
     "start": 4258088,
-    "size": 453,
+    "size": 456,
     "type": "map_layer1"
   },
   {
@@ -2884,13 +2884,13 @@
   {
     "path": "tilesets/gAreaTileset_MinishPaths_2_1.4bpp.lz",
     "start": 4265588,
-    "size": 6917,
+    "size": 6920,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_MnishPaths1_0.bin.lz",
     "start": 4272508,
-    "size": 3222,
+    "size": 3224,
     "type": "metatiles_tileset2"
   },
   {
@@ -2902,19 +2902,19 @@
   {
     "path": "assets/gAreaRoomMap_MinishPaths_0_0.bin.lz",
     "start": 4276028,
-    "size": 446,
+    "size": 448,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishPaths_1_0.bin.lz",
     "start": 4276476,
-    "size": 534,
+    "size": 536,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishPaths_2_0.bin.lz",
     "start": 4277012,
-    "size": 554,
+    "size": 556,
     "type": "map_layer2"
   },
   {
@@ -2926,19 +2926,19 @@
   {
     "path": "assets/gAreaRoomMap_MinishPaths_4_0.bin.lz",
     "start": 4278088,
-    "size": 413,
+    "size": 416,
     "type": "map_layer2"
   },
   {
     "path": "tilesets/gAreaTileset_CrenelMinishPaths_0_0.4bpp.lz",
     "start": 4278504,
-    "size": 6205,
+    "size": 6208,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CrenelMinishPaths_0_1.4bpp.lz",
     "start": 4284712,
-    "size": 6190,
+    "size": 6192,
     "type": "tileset"
   },
   {
@@ -2950,19 +2950,19 @@
   {
     "path": "tilesets/gAreaTileset_CrenelMinishPaths_2_1.4bpp.lz",
     "start": 4295748,
-    "size": 5587,
+    "size": 5588,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_CrenelMinishPaths_0.bin.lz",
     "start": 4301336,
-    "size": 4694,
+    "size": 4696,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_CrenelMinishPaths_1.bin.lz",
     "start": 4306032,
-    "size": 418,
+    "size": 420,
     "type": "metatiles_tile_types2"
   },
   {
@@ -2974,13 +2974,13 @@
   {
     "path": "assets/gAreaRoomMap_CrenelMinishPaths_1_0.bin.lz",
     "start": 4306952,
-    "size": 678,
+    "size": 680,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CrenelMinishPaths_2_0.bin.lz",
     "start": 4307632,
-    "size": 381,
+    "size": 384,
     "type": "map_layer2"
   },
   {
@@ -2992,19 +2992,19 @@
   {
     "path": "tilesets/gAreaTileset_EzloCutscene_0_2.4bpp.lz",
     "start": 4308460,
-    "size": 1998,
+    "size": 2000,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_EzloCutscene_1.bin.lz",
     "start": 4310460,
-    "size": 3969,
+    "size": 3972,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_EzloCutscene_3.bin.lz",
     "start": 4314432,
-    "size": 698,
+    "size": 700,
     "type": "metatiles_tile_types1"
   },
   {
@@ -3022,19 +3022,19 @@
   {
     "path": "assets/gAreaMetatiles_HouseInteriors1_0.bin.lz",
     "start": 4331872,
-    "size": 4770,
+    "size": 4772,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_HouseInteriors1_2.bin.lz",
     "start": 4336644,
-    "size": 619,
+    "size": 620,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "tilesets/gAreaTileset_HouseInteriors2_2_0.4bpp.lz",
     "start": 4337264,
-    "size": 9651,
+    "size": 9652,
     "type": "tileset"
   },
   {
@@ -3052,13 +3052,13 @@
   {
     "path": "assets/gAreaMetatiles_HouseInteriors2_2.bin.lz",
     "start": 4360248,
-    "size": 749,
+    "size": 752,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "tilesets/gAreaTileset_HouseInteriors4_0_0.4bpp.lz",
     "start": 4361000,
-    "size": 8318,
+    "size": 8320,
     "type": "tileset"
   },
   {
@@ -3076,7 +3076,7 @@
   {
     "path": "assets/gAreaMetatiles_HouseInteriors4_2.bin.lz",
     "start": 4382740,
-    "size": 793,
+    "size": 796,
     "type": "metatiles_tile_types2"
   },
   {
@@ -3094,19 +3094,19 @@
   {
     "path": "assets/gAreaMetatiles_HouseInteriors3_0.bin.lz",
     "start": 4400524,
-    "size": 3910,
+    "size": 3912,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_HouseInteriors3_2.bin.lz",
     "start": 4404436,
-    "size": 607,
+    "size": 608,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "tilesets/gAreaTileset_TreeInteriors_0_0.4bpp.lz",
     "start": 4405044,
-    "size": 7718,
+    "size": 7720,
     "type": "tileset"
   },
   {
@@ -3118,19 +3118,19 @@
   {
     "path": "assets/gAreaMetatiles_TreeInteriors_0.bin.lz",
     "start": 4421332,
-    "size": 3733,
+    "size": 3736,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_TreeInteriors_2.bin.lz",
     "start": 4425068,
-    "size": 527,
+    "size": 528,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishCracks_4_0.4bpp.lz",
     "start": 4425596,
-    "size": 8755,
+    "size": 8756,
     "type": "tileset"
   },
   {
@@ -3148,7 +3148,7 @@
   {
     "path": "assets/gAreaMetatiles_MinishCracks_2.bin.lz",
     "start": 4446840,
-    "size": 517,
+    "size": 520,
     "type": "metatiles_tile_types2"
   },
   {
@@ -3166,7 +3166,7 @@
   {
     "path": "assets/gAreaMetatiles_Dojos_0.bin.lz",
     "start": 4463740,
-    "size": 3733,
+    "size": 3736,
     "type": "metatiles_tileset2"
   },
   {
@@ -3178,31 +3178,31 @@
   {
     "path": "tilesets/gAreaTileset_MinishRafters_0_0.4bpp.lz",
     "start": 4468168,
-    "size": 6646,
+    "size": 6648,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_MinishRafters_0_1.4bpp.lz",
     "start": 4474816,
-    "size": 1947,
+    "size": 1948,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_MinishRafters_0.bin.lz",
     "start": 4476764,
-    "size": 3151,
+    "size": 3152,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_MinishRafters_2.bin.lz",
     "start": 4479916,
-    "size": 394,
+    "size": 396,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "tilesets/gAreaTileset_WindTribeTower_0_0.4bpp.lz",
     "start": 4480312,
-    "size": 7474,
+    "size": 7476,
     "type": "tileset"
   },
   {
@@ -3214,13 +3214,13 @@
   {
     "path": "assets/gAreaMetatiles_WindTribeTower_0.bin.lz",
     "start": 4496356,
-    "size": 3901,
+    "size": 3904,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_WindTribeTower_2.bin.lz",
     "start": 4500260,
-    "size": 481,
+    "size": 484,
     "type": "metatiles_tile_types2"
   },
   {
@@ -3238,31 +3238,31 @@
   {
     "path": "tilesets/gAreaTileset_WindTribeTowerRoof_0_2.4bpp.lz",
     "start": 4515780,
-    "size": 3535,
+    "size": 3536,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_WindTribeTowerRoof_0.bin.lz",
     "start": 4519316,
-    "size": 1673,
+    "size": 1676,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_WindTribeTowerRoof_1.bin.lz",
     "start": 4520992,
-    "size": 1607,
+    "size": 1608,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_WindTribeTowerRoof_2.bin.lz",
     "start": 4522600,
-    "size": 186,
+    "size": 188,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_WindTribeTowerRoof_3.bin.lz",
     "start": 4522788,
-    "size": 222,
+    "size": 224,
     "type": "metatiles_tile_types1"
   },
   {
@@ -3286,7 +3286,7 @@
   {
     "path": "assets/gAreaMetatiles_EzloCutscene_0.bin.lz",
     "start": 4536736,
-    "size": 1701,
+    "size": 1704,
     "type": "metatiles_tileset2"
   },
   {
@@ -3304,7 +3304,7 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_0_0.bin.lz",
     "start": 4539564,
-    "size": 286,
+    "size": 288,
     "type": "map_layer2"
   },
   {
@@ -3322,25 +3322,25 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_1_1.bin.lz",
     "start": 4540224,
-    "size": 117,
+    "size": 120,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_2_0.bin.lz",
     "start": 4540344,
-    "size": 286,
+    "size": 288,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_2_1.bin.lz",
     "start": 4540632,
-    "size": 110,
+    "size": 112,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_3_0.bin.lz",
     "start": 4540744,
-    "size": 289,
+    "size": 292,
     "type": "map_layer2"
   },
   {
@@ -3358,19 +3358,19 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_4_1.bin.lz",
     "start": 4541436,
-    "size": 74,
+    "size": 76,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_5_0.bin.lz",
     "start": 4541512,
-    "size": 238,
+    "size": 240,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_5_1.bin.lz",
     "start": 4541752,
-    "size": 82,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -3382,7 +3382,7 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_6_1.bin.lz",
     "start": 4542124,
-    "size": 95,
+    "size": 96,
     "type": "map_layer1"
   },
   {
@@ -3394,19 +3394,19 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_7_1.bin.lz",
     "start": 4542500,
-    "size": 86,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_8_0.bin.lz",
     "start": 4542588,
-    "size": 299,
+    "size": 300,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_8_1.bin.lz",
     "start": 4542888,
-    "size": 83,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -3418,13 +3418,13 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_9_1.bin.lz",
     "start": 4543240,
-    "size": 86,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_10_0.bin.lz",
     "start": 4543328,
-    "size": 270,
+    "size": 272,
     "type": "map_layer2"
   },
   {
@@ -3436,79 +3436,79 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_11_0.bin.lz",
     "start": 4543684,
-    "size": 279,
+    "size": 280,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_11_1.bin.lz",
     "start": 4543964,
-    "size": 89,
+    "size": 92,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_12_0.bin.lz",
     "start": 4544056,
-    "size": 278,
+    "size": 280,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_12_1.bin.lz",
     "start": 4544336,
-    "size": 71,
+    "size": 72,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_13_0.bin.lz",
     "start": 4544408,
-    "size": 291,
+    "size": 292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_13_1.bin.lz",
     "start": 4544700,
-    "size": 77,
+    "size": 80,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_14_0.bin.lz",
     "start": 4544780,
-    "size": 287,
+    "size": 288,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_14_1.bin.lz",
     "start": 4545068,
-    "size": 65,
+    "size": 68,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_15_0.bin.lz",
     "start": 4545136,
-    "size": 275,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_15_1.bin.lz",
     "start": 4545412,
-    "size": 91,
+    "size": 92,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_16_0.bin.lz",
     "start": 4545504,
-    "size": 210,
+    "size": 212,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_16_1.bin.lz",
     "start": 4545716,
-    "size": 98,
+    "size": 100,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_17_0.bin.lz",
     "start": 4545816,
-    "size": 267,
+    "size": 268,
     "type": "map_layer2"
   },
   {
@@ -3520,7 +3520,7 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors2_18_0.bin.lz",
     "start": 4546160,
-    "size": 271,
+    "size": 272,
     "type": "map_layer2"
   },
   {
@@ -3532,7 +3532,7 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_0_0.bin.lz",
     "start": 4546520,
-    "size": 267,
+    "size": 268,
     "type": "map_layer2"
   },
   {
@@ -3544,7 +3544,7 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_1_0.bin.lz",
     "start": 4546856,
-    "size": 338,
+    "size": 340,
     "type": "map_layer2"
   },
   {
@@ -3562,55 +3562,55 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_2_1.bin.lz",
     "start": 4547536,
-    "size": 61,
+    "size": 64,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_3_0.bin.lz",
     "start": 4547600,
-    "size": 279,
+    "size": 280,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_3_1.bin.lz",
     "start": 4547880,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_4_0.bin.lz",
     "start": 4547924,
-    "size": 271,
+    "size": 272,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_4_1.bin.lz",
     "start": 4548196,
-    "size": 90,
+    "size": 92,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_5_0.bin.lz",
     "start": 4548288,
-    "size": 307,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors4_5_1.bin.lz",
     "start": 4548596,
-    "size": 55,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_0_0.bin.lz",
     "start": 4548652,
-    "size": 307,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_0_1.bin.lz",
     "start": 4548960,
-    "size": 121,
+    "size": 124,
     "type": "map_layer1"
   },
   {
@@ -3622,19 +3622,19 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_1_1.bin.lz",
     "start": 4549392,
-    "size": 94,
+    "size": 96,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_2_0.bin.lz",
     "start": 4549488,
-    "size": 277,
+    "size": 280,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_2_1.bin.lz",
     "start": 4549768,
-    "size": 78,
+    "size": 80,
     "type": "map_layer1"
   },
   {
@@ -3652,91 +3652,91 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_4_0.bin.lz",
     "start": 4550200,
-    "size": 273,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_4_1.bin.lz",
     "start": 4550476,
-    "size": 73,
+    "size": 76,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_5_0.bin.lz",
     "start": 4550552,
-    "size": 245,
+    "size": 248,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_5_1.bin.lz",
     "start": 4550800,
-    "size": 71,
+    "size": 72,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_6_0.bin.lz",
     "start": 4550872,
-    "size": 309,
+    "size": 312,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_6_1.bin.lz",
     "start": 4551184,
-    "size": 74,
+    "size": 76,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_7_0.bin.lz",
     "start": 4551260,
-    "size": 253,
+    "size": 256,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_7_1.bin.lz",
     "start": 4551516,
-    "size": 65,
+    "size": 68,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_8_0.bin.lz",
     "start": 4551584,
-    "size": 278,
+    "size": 280,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors3_8_1.bin.lz",
     "start": 4551864,
-    "size": 71,
+    "size": 72,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_0_0.bin.lz",
     "start": 4551936,
-    "size": 334,
+    "size": 336,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_0_1.bin.lz",
     "start": 4552272,
-    "size": 71,
+    "size": 72,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_1_0.bin.lz",
     "start": 4552344,
-    "size": 291,
+    "size": 292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_1_1.bin.lz",
     "start": 4552636,
-    "size": 95,
+    "size": 96,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_2_0.bin.lz",
     "start": 4552732,
-    "size": 277,
+    "size": 280,
     "type": "map_layer2"
   },
   {
@@ -3760,85 +3760,85 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_4_0.bin.lz",
     "start": 4553676,
-    "size": 323,
+    "size": 324,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_4_1.bin.lz",
     "start": 4554000,
-    "size": 83,
+    "size": 84,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_5_0.bin.lz",
     "start": 4554084,
-    "size": 257,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_5_1.bin.lz",
     "start": 4554344,
-    "size": 105,
+    "size": 108,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_6_0.bin.lz",
     "start": 4554452,
-    "size": 259,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_6_1.bin.lz",
     "start": 4554712,
-    "size": 78,
+    "size": 80,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_7_0.bin.lz",
     "start": 4554792,
-    "size": 251,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_7_1.bin.lz",
     "start": 4555044,
-    "size": 82,
+    "size": 84,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_8_0.bin.lz",
     "start": 4555128,
-    "size": 249,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_8_1.bin.lz",
     "start": 4555380,
-    "size": 45,
+    "size": 48,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_9_0.bin.lz",
     "start": 4555428,
-    "size": 633,
+    "size": 636,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_9_1.bin.lz",
     "start": 4556064,
-    "size": 142,
+    "size": 144,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_10_0.bin.lz",
     "start": 4556208,
-    "size": 270,
+    "size": 272,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_10_1.bin.lz",
     "start": 4556480,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
@@ -3850,55 +3850,55 @@
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_11_1.bin.lz",
     "start": 4556916,
-    "size": 62,
+    "size": 64,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_12_0.bin.lz",
     "start": 4556980,
-    "size": 373,
+    "size": 376,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HouseInteriors1_12_1.bin.lz",
     "start": 4557356,
-    "size": 61,
+    "size": 64,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_0_0.bin.lz",
     "start": 4557420,
-    "size": 295,
+    "size": 296,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_0_1.bin.lz",
     "start": 4557716,
-    "size": 57,
+    "size": 60,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_1_0.bin.lz",
     "start": 4557776,
-    "size": 301,
+    "size": 304,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_1_1.bin.lz",
     "start": 4558080,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_2_0.bin.lz",
     "start": 4558136,
-    "size": 301,
+    "size": 304,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_2_1.bin.lz",
     "start": 4558440,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
@@ -3910,7 +3910,7 @@
   {
     "path": "assets/gAreaRoomMap_Dojos_3_1.bin.lz",
     "start": 4558788,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
@@ -3922,67 +3922,67 @@
   {
     "path": "assets/gAreaRoomMap_Dojos_4_1.bin.lz",
     "start": 4559136,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_5_0.bin.lz",
     "start": 4559192,
-    "size": 305,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_5_1.bin.lz",
     "start": 4559500,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_6_0.bin.lz",
     "start": 4559556,
-    "size": 299,
+    "size": 300,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_6_1.bin.lz",
     "start": 4559856,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_7_0.bin.lz",
     "start": 4559912,
-    "size": 158,
+    "size": 160,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_7_1.bin.lz",
     "start": 4560072,
-    "size": 65,
+    "size": 68,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_8_0.bin.lz",
     "start": 4560140,
-    "size": 161,
+    "size": 164,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_8_1.bin.lz",
     "start": 4560304,
-    "size": 78,
+    "size": 80,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_9_0.bin.lz",
     "start": 4560384,
-    "size": 163,
+    "size": 164,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_9_1.bin.lz",
     "start": 4560548,
-    "size": 114,
+    "size": 116,
     "type": "map_layer1"
   },
   {
@@ -3994,43 +3994,43 @@
   {
     "path": "assets/gAreaRoomMap_Dojos_10_1.bin.lz",
     "start": 4560860,
-    "size": 47,
+    "size": 48,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_11_0.bin.lz",
     "start": 4560908,
-    "size": 253,
+    "size": 256,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_11_1.bin.lz",
     "start": 4561164,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_12_0.bin.lz",
     "start": 4561212,
-    "size": 249,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_12_1.bin.lz",
     "start": 4561464,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_13_0.bin.lz",
     "start": 4561512,
-    "size": 247,
+    "size": 248,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Dojos_13_1.bin.lz",
     "start": 4561760,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4042,7 +4042,7 @@
   {
     "path": "assets/gAreaRoomMap_TreeInteriors_0_1.bin.lz",
     "start": 4562108,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4066,7 +4066,7 @@
   {
     "path": "assets/gAreaRoomMap_TreeInteriors_2_1.bin.lz",
     "start": 4562800,
-    "size": 65,
+    "size": 68,
     "type": "map_layer1"
   },
   {
@@ -4174,7 +4174,7 @@
   {
     "path": "assets/gAreaRoomMap_TreeInteriors_11_1.bin.lz",
     "start": 4565920,
-    "size": 45,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4186,7 +4186,7 @@
   {
     "path": "assets/gAreaRoomMap_TreeInteriors_12_1.bin.lz",
     "start": 4566268,
-    "size": 47,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4198,7 +4198,7 @@
   {
     "path": "assets/gAreaRoomMap_TreeInteriors_13_1.bin.lz",
     "start": 4566616,
-    "size": 85,
+    "size": 88,
     "type": "map_layer1"
   },
   {
@@ -4210,7 +4210,7 @@
   {
     "path": "assets/gAreaRoomMap_TreeInteriors_14_1.bin.lz",
     "start": 4567004,
-    "size": 45,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4246,7 +4246,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_0_1.bin.lz",
     "start": 4568060,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4258,7 +4258,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_1_1.bin.lz",
     "start": 4568408,
-    "size": 78,
+    "size": 80,
     "type": "map_layer1"
   },
   {
@@ -4270,7 +4270,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_2_1.bin.lz",
     "start": 4568788,
-    "size": 83,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -4282,7 +4282,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_3_1.bin.lz",
     "start": 4569172,
-    "size": 82,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -4300,7 +4300,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_5_0.bin.lz",
     "start": 4569636,
-    "size": 279,
+    "size": 280,
     "type": "map_layer2"
   },
   {
@@ -4318,7 +4318,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_6_1.bin.lz",
     "start": 4570284,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
@@ -4330,7 +4330,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_7_1.bin.lz",
     "start": 4570628,
-    "size": 83,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -4342,7 +4342,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_8_1.bin.lz",
     "start": 4571012,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4354,7 +4354,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_9_1.bin.lz",
     "start": 4571360,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4366,7 +4366,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_10_1.bin.lz",
     "start": 4571708,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4378,7 +4378,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_11_1.bin.lz",
     "start": 4572056,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4390,7 +4390,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_12_1.bin.lz",
     "start": 4572404,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
@@ -4402,13 +4402,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_13_1.bin.lz",
     "start": 4572752,
-    "size": 46,
+    "size": 48,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCracks_14_0.bin.lz",
     "start": 4572800,
-    "size": 270,
+    "size": 272,
     "type": "map_layer2"
   },
   {
@@ -4420,7 +4420,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_15_0.bin.lz",
     "start": 4573120,
-    "size": 270,
+    "size": 272,
     "type": "map_layer2"
   },
   {
@@ -4432,19 +4432,19 @@
   {
     "path": "assets/gAreaRoomMap_MinishCracks_16_0.bin.lz",
     "start": 4573440,
-    "size": 270,
+    "size": 272,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCracks_16_1.bin.lz",
     "start": 4573712,
-    "size": 54,
+    "size": 56,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_MinishCracks_17_0.bin.lz",
     "start": 4573768,
-    "size": 273,
+    "size": 276,
     "type": "map_layer2"
   },
   {
@@ -4456,13 +4456,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishRafters_0_0.bin.lz",
     "start": 4574092,
-    "size": 585,
+    "size": 588,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishRafters_1_0.bin.lz",
     "start": 4574680,
-    "size": 538,
+    "size": 540,
     "type": "map_layer2"
   },
   {
@@ -4474,13 +4474,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishRafters_3_0.bin.lz",
     "start": 4575896,
-    "size": 515,
+    "size": 516,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_EzloCutscene_0_0.bin.lz",
     "start": 4576412,
-    "size": 407,
+    "size": 408,
     "type": "map_layer2"
   },
   {
@@ -4498,49 +4498,49 @@
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_0_1.bin.lz",
     "start": 4577436,
-    "size": 131,
+    "size": 132,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_1_0.bin.lz",
     "start": 4577568,
-    "size": 489,
+    "size": 492,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_1_1.bin.lz",
     "start": 4578060,
-    "size": 121,
+    "size": 124,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_2_0.bin.lz",
     "start": 4578184,
-    "size": 470,
+    "size": 472,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_2_1.bin.lz",
     "start": 4578656,
-    "size": 125,
+    "size": 128,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_3_0.bin.lz",
     "start": 4578784,
-    "size": 495,
+    "size": 496,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTower_3_1.bin.lz",
     "start": 4579280,
-    "size": 93,
+    "size": 96,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_WindTribeTowerRoof_0_0.bin.lz",
     "start": 4579376,
-    "size": 594,
+    "size": 596,
     "type": "map_layer2"
   },
   {
@@ -4552,13 +4552,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_0_2.bin.lz",
     "start": 4580072,
-    "size": 1413,
+    "size": 1416,
     "type": "map_mapping2"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_0_1.bin.lz",
     "start": 4581488,
-    "size": 63,
+    "size": 64,
     "type": "map_collision"
   },
   {
@@ -4570,13 +4570,13 @@
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz",
     "start": 4582652,
-    "size": 17751,
+    "size": 17752,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_1_1.bin.lz",
     "start": 4600404,
-    "size": 59,
+    "size": 60,
     "type": "map_collision"
   },
   {
@@ -4600,7 +4600,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_3_2.bin.lz",
     "start": 4615816,
-    "size": 1042,
+    "size": 1044,
     "type": "map_mapping2"
   },
   {
@@ -4612,13 +4612,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_3_1.bin.lz",
     "start": 4626184,
-    "size": 49,
+    "size": 52,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_4_2.bin.lz",
     "start": 4626236,
-    "size": 1041,
+    "size": 1044,
     "type": "map_mapping2"
   },
   {
@@ -4642,19 +4642,19 @@
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz",
     "start": 4637568,
-    "size": 8933,
+    "size": 8936,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_5_1.bin.lz",
     "start": 4646504,
-    "size": 47,
+    "size": 48,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_6_2.bin.lz",
     "start": 4646552,
-    "size": 1043,
+    "size": 1044,
     "type": "map_mapping2"
   },
   {
@@ -4678,7 +4678,7 @@
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz",
     "start": 4659316,
-    "size": 20013,
+    "size": 20016,
     "type": "tileset"
   },
   {
@@ -4690,67 +4690,67 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_8_2.bin.lz",
     "start": 4679384,
-    "size": 1838,
+    "size": 1840,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz",
     "start": 4681224,
-    "size": 13589,
+    "size": 13592,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_8_1.bin.lz",
     "start": 4694816,
-    "size": 77,
+    "size": 80,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_9_2.bin.lz",
     "start": 4694896,
-    "size": 2653,
+    "size": 2656,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz",
     "start": 4697552,
-    "size": 16289,
+    "size": 16292,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_9_1.bin.lz",
     "start": 4713844,
-    "size": 83,
+    "size": 84,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_10_2.bin.lz",
     "start": 4713928,
-    "size": 1357,
+    "size": 1360,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz",
     "start": 4715288,
-    "size": 11535,
+    "size": 11536,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_10_1.bin.lz",
     "start": 4726824,
-    "size": 54,
+    "size": 56,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_11_2.bin.lz",
     "start": 4726880,
-    "size": 1378,
+    "size": 1380,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz",
     "start": 4728260,
-    "size": 11703,
+    "size": 11704,
     "type": "tileset"
   },
   {
@@ -4762,19 +4762,19 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_12_2.bin.lz",
     "start": 4740032,
-    "size": 1837,
+    "size": 1840,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz",
     "start": 4741872,
-    "size": 9865,
+    "size": 9868,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_12_1.bin.lz",
     "start": 4751740,
-    "size": 83,
+    "size": 84,
     "type": "map_collision"
   },
   {
@@ -4786,25 +4786,25 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_13_2.bin.lz",
     "start": 4775356,
-    "size": 1118,
+    "size": 1120,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz",
     "start": 4776476,
-    "size": 12221,
+    "size": 12224,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_13_1.bin.lz",
     "start": 4788700,
-    "size": 53,
+    "size": 56,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_14_2.bin.lz",
     "start": 4788756,
-    "size": 1127,
+    "size": 1128,
     "type": "map_mapping2"
   },
   {
@@ -4816,19 +4816,19 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_14_1.bin.lz",
     "start": 4801852,
-    "size": 50,
+    "size": 52,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_15_2.bin.lz",
     "start": 4801904,
-    "size": 1115,
+    "size": 1116,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz",
     "start": 4803020,
-    "size": 12141,
+    "size": 12144,
     "type": "tileset"
   },
   {
@@ -4846,19 +4846,19 @@
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz",
     "start": 4816332,
-    "size": 7859,
+    "size": 7860,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_16_1.bin.lz",
     "start": 4824192,
-    "size": 50,
+    "size": 52,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_17_2.bin.lz",
     "start": 4824244,
-    "size": 1125,
+    "size": 1128,
     "type": "map_mapping2"
   },
   {
@@ -4870,13 +4870,13 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_17_1.bin.lz",
     "start": 4837704,
-    "size": 58,
+    "size": 60,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_18_2.bin.lz",
     "start": 4837764,
-    "size": 1127,
+    "size": 1128,
     "type": "map_mapping2"
   },
   {
@@ -4888,7 +4888,7 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_18_1.bin.lz",
     "start": 4849308,
-    "size": 53,
+    "size": 56,
     "type": "map_collision"
   },
   {
@@ -4906,109 +4906,109 @@
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_19_1.bin.lz",
     "start": 4863204,
-    "size": 49,
+    "size": 52,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_20_2.bin.lz",
     "start": 4863256,
-    "size": 1127,
+    "size": 1128,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz",
     "start": 4864384,
-    "size": 12254,
+    "size": 12256,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_MinishHouseInteriors_20_1.bin.lz",
     "start": 4876640,
-    "size": 53,
+    "size": 56,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_0_2.bin.lz",
     "start": 4876696,
-    "size": 1285,
+    "size": 1288,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_0_0.8bpp.lz",
     "start": 4877984,
-    "size": 8598,
+    "size": 8600,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_0_1.bin.lz",
     "start": 4886584,
-    "size": 50,
+    "size": 52,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_1_2.bin.lz",
     "start": 4886636,
-    "size": 1413,
+    "size": 1416,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_1_0.8bpp.lz",
     "start": 4888052,
-    "size": 10686,
+    "size": 10688,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_1_1.bin.lz",
     "start": 4898740,
-    "size": 65,
+    "size": 68,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_2_2.bin.lz",
     "start": 4898808,
-    "size": 1317,
+    "size": 1320,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_2_0.8bpp.lz",
     "start": 4900128,
-    "size": 9694,
+    "size": 9696,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_2_1.bin.lz",
     "start": 4909824,
-    "size": 47,
+    "size": 48,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_3_2.bin.lz",
     "start": 4909872,
-    "size": 1415,
+    "size": 1416,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_3_0.8bpp.lz",
     "start": 4911288,
-    "size": 10723,
+    "size": 10724,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_3_1.bin.lz",
     "start": 4922012,
-    "size": 59,
+    "size": 60,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_4_2.bin.lz",
     "start": 4922072,
-    "size": 1339,
+    "size": 1340,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_4_0.8bpp.lz",
     "start": 4923412,
-    "size": 9306,
+    "size": 9308,
     "type": "tileset"
   },
   {
@@ -5026,7 +5026,7 @@
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_5_0.8bpp.lz",
     "start": 4934204,
-    "size": 12389,
+    "size": 12392,
     "type": "tileset"
   },
   {
@@ -5038,19 +5038,19 @@
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_6_2.bin.lz",
     "start": 4946648,
-    "size": 3294,
+    "size": 3296,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_6_0.8bpp.lz",
     "start": 4949944,
-    "size": 12973,
+    "size": 12976,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_6_1.bin.lz",
     "start": 4962920,
-    "size": 119,
+    "size": 120,
     "type": "map_collision"
   },
   {
@@ -5068,31 +5068,31 @@
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_7_1.bin.lz",
     "start": 4982416,
-    "size": 55,
+    "size": 56,
     "type": "map_collision"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_8_2.bin.lz",
     "start": 4982472,
-    "size": 2978,
+    "size": 2980,
     "type": "map_mapping2"
   },
   {
     "path": "tilesets/gAreaTileset_TownMinishHoles_8_0.8bpp.lz",
     "start": 4985452,
-    "size": 13622,
+    "size": 13624,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaRoomMap_TownMinishHoles_8_1.bin.lz",
     "start": 4999076,
-    "size": 78,
+    "size": 80,
     "type": "map_collision"
   },
   {
     "path": "tilesets/gAreaTileset_SimonsSimulation_0_0.4bpp.lz",
     "start": 4999156,
-    "size": 8059,
+    "size": 8060,
     "type": "tileset"
   },
   {
@@ -5104,19 +5104,19 @@
   {
     "path": "tilesets/gAreaTileset_SimonsSimulation_0_2.4bpp.lz",
     "start": 5015236,
-    "size": 5590,
+    "size": 5592,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleTownUnderground_0.bin.lz",
     "start": 5020828,
-    "size": 8858,
+    "size": 8860,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleTownUnderground_1.bin.lz",
     "start": 5029688,
-    "size": 5819,
+    "size": 5820,
     "type": "metatiles_tileset1"
   },
   {
@@ -5140,25 +5140,25 @@
   {
     "path": "assets/gAreaRoomMap_40_0_1.bin.lz",
     "start": 5038192,
-    "size": 107,
+    "size": 108,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_40_1_0.bin.lz",
     "start": 5038300,
-    "size": 563,
+    "size": 564,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_40_1_1.bin.lz",
     "start": 5038864,
-    "size": 158,
+    "size": 160,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_40_2_0.bin.lz",
     "start": 5039024,
-    "size": 355,
+    "size": 356,
     "type": "map_layer2"
   },
   {
@@ -5170,13 +5170,13 @@
   {
     "path": "assets/gAreaRoomMap_40_3_0.bin.lz",
     "start": 5039540,
-    "size": 342,
+    "size": 344,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_40_3_1.bin.lz",
     "start": 5039884,
-    "size": 159,
+    "size": 160,
     "type": "map_layer1"
   },
   {
@@ -5194,55 +5194,55 @@
   {
     "path": "assets/gAreaRoomMap_40_5_0.bin.lz",
     "start": 5040600,
-    "size": 397,
+    "size": 400,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_40_5_1.bin.lz",
     "start": 5041000,
-    "size": 141,
+    "size": 144,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_40_6_0.bin.lz",
     "start": 5041144,
-    "size": 622,
+    "size": 624,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_40_6_1.bin.lz",
     "start": 5041768,
-    "size": 226,
+    "size": 228,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_40_7_0.bin.lz",
     "start": 5041996,
-    "size": 321,
+    "size": 324,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_40_7_1.bin.lz",
     "start": 5042320,
-    "size": 121,
+    "size": 124,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_40_8_0.bin.lz",
     "start": 5042444,
-    "size": 257,
+    "size": 260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_40_8_1.bin.lz",
     "start": 5042704,
-    "size": 117,
+    "size": 120,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownUnderground_0_0.bin.lz",
     "start": 5042824,
-    "size": 1230,
+    "size": 1232,
     "type": "map_layer2"
   },
   {
@@ -5260,43 +5260,43 @@
   {
     "path": "assets/gAreaRoomMap_HyruleTownUnderground_1_1.bin.lz",
     "start": 5044732,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_GardenFountains_0_0.bin.lz",
     "start": 5044776,
-    "size": 221,
+    "size": 224,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_GardenFountains_0_1.bin.lz",
     "start": 5045000,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_GardenFountains_1_0.bin.lz",
     "start": 5045052,
-    "size": 247,
+    "size": 248,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_GardenFountains_1_1.bin.lz",
     "start": 5045300,
-    "size": 50,
+    "size": 52,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastleCellar_0_0.bin.lz",
     "start": 5045352,
-    "size": 333,
+    "size": 336,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastleCellar_0_1.bin.lz",
     "start": 5045688,
-    "size": 127,
+    "size": 128,
     "type": "map_layer1"
   },
   {
@@ -5308,19 +5308,19 @@
   {
     "path": "assets/gAreaRoomMap_HyruleCastleCellar_1_1.bin.lz",
     "start": 5046028,
-    "size": 74,
+    "size": 76,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_SimonsSimulation_0_0.bin.lz",
     "start": 5046104,
-    "size": 305,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_SimonsSimulation_0_1.bin.lz",
     "start": 5046412,
-    "size": 75,
+    "size": 76,
     "type": "map_layer1"
   },
   {
@@ -5332,19 +5332,19 @@
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrine_0_1.4bpp.lz",
     "start": 5055940,
-    "size": 9626,
+    "size": 9628,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrine_0_2.4bpp.lz",
     "start": 5065568,
-    "size": 8262,
+    "size": 8264,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrine_0.bin.lz",
     "start": 5073832,
-    "size": 9597,
+    "size": 9600,
     "type": "metatiles_tileset2"
   },
   {
@@ -5362,103 +5362,103 @@
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrine_3.bin.lz",
     "start": 5091292,
-    "size": 945,
+    "size": 948,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrineBoss_0_0.4bpp.lz",
     "start": 5092240,
-    "size": 3675,
+    "size": 3676,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrineBoss_0_1.4bpp.lz",
     "start": 5095916,
-    "size": 8030,
+    "size": 8032,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrineBoss_0_2.4bpp.lz",
     "start": 5103948,
-    "size": 1949,
+    "size": 1952,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineBoss_0.bin.lz",
     "start": 5105900,
-    "size": 4394,
+    "size": 4396,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineBoss_1.bin.lz",
     "start": 5110296,
-    "size": 790,
+    "size": 792,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineBoss_2.bin.lz",
     "start": 5111088,
-    "size": 621,
+    "size": 624,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineBoss_3.bin.lz",
     "start": 5111712,
-    "size": 217,
+    "size": 220,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrineEntry_0_0.4bpp.lz",
     "start": 5111932,
-    "size": 5426,
+    "size": 5428,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrineEntry_0_1.4bpp.lz",
     "start": 5117360,
-    "size": 2130,
+    "size": 2132,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DeepwoodShrineEntry_0_2.4bpp.lz",
     "start": 5119492,
-    "size": 4605,
+    "size": 4608,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineEntry_0.bin.lz",
     "start": 5124100,
-    "size": 1515,
+    "size": 1516,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineEntry_1.bin.lz",
     "start": 5125616,
-    "size": 1026,
+    "size": 1028,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineEntry_2.bin.lz",
     "start": 5126644,
-    "size": 175,
+    "size": 176,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_DeepwoodShrineEntry_3.bin.lz",
     "start": 5126820,
-    "size": 117,
+    "size": 120,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_0_0.bin.lz",
     "start": 5126940,
-    "size": 275,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_0_1.bin.lz",
     "start": 5127216,
-    "size": 217,
+    "size": 220,
     "type": "map_layer1"
   },
   {
@@ -5475,13 +5475,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_1_0.bin.lz",
     "start": 5127512,
-    "size": 462,
+    "size": 464,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_1_1.bin.lz",
     "start": 5127976,
-    "size": 250,
+    "size": 252,
     "type": "map_layer1"
   },
   {
@@ -5498,13 +5498,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_2_0.bin.lz",
     "start": 5128336,
-    "size": 426,
+    "size": 428,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_2_1.bin.lz",
     "start": 5128764,
-    "size": 230,
+    "size": 232,
     "type": "map_layer1"
   },
   {
@@ -5521,13 +5521,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_3_0.bin.lz",
     "start": 5129088,
-    "size": 406,
+    "size": 408,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_3_1.bin.lz",
     "start": 5129496,
-    "size": 178,
+    "size": 180,
     "type": "map_layer1"
   },
   {
@@ -5550,7 +5550,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_4_1.bin.lz",
     "start": 5130044,
-    "size": 162,
+    "size": 164,
     "type": "map_layer1"
   },
   {
@@ -5567,13 +5567,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_5_0.bin.lz",
     "start": 5130260,
-    "size": 621,
+    "size": 624,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_5_1.bin.lz",
     "start": 5130884,
-    "size": 213,
+    "size": 216,
     "type": "map_layer1"
   },
   {
@@ -5596,7 +5596,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_6_1.bin.lz",
     "start": 5132116,
-    "size": 259,
+    "size": 260,
     "type": "map_layer1"
   },
   {
@@ -5613,7 +5613,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_7_0.bin.lz",
     "start": 5132576,
-    "size": 589,
+    "size": 592,
     "type": "map_layer2"
   },
   {
@@ -5659,13 +5659,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_9_0.bin.lz",
     "start": 5134032,
-    "size": 346,
+    "size": 348,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_9_1.bin.lz",
     "start": 5134380,
-    "size": 163,
+    "size": 164,
     "type": "map_layer1"
   },
   {
@@ -5682,13 +5682,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_10_0.bin.lz",
     "start": 5134612,
-    "size": 471,
+    "size": 472,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_10_1.bin.lz",
     "start": 5135084,
-    "size": 226,
+    "size": 228,
     "type": "map_layer1"
   },
   {
@@ -5705,13 +5705,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_11_0.bin.lz",
     "start": 5135416,
-    "size": 469,
+    "size": 472,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_11_1.bin.lz",
     "start": 5135888,
-    "size": 335,
+    "size": 336,
     "type": "map_layer1"
   },
   {
@@ -5728,7 +5728,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_12_0.bin.lz",
     "start": 5136328,
-    "size": 425,
+    "size": 428,
     "type": "map_layer2"
   },
   {
@@ -5757,7 +5757,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_13_1.bin.lz",
     "start": 5137688,
-    "size": 109,
+    "size": 112,
     "type": "map_layer1"
   },
   {
@@ -5780,7 +5780,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_14_1.bin.lz",
     "start": 5138412,
-    "size": 117,
+    "size": 120,
     "type": "map_layer1"
   },
   {
@@ -5797,13 +5797,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_15_0.bin.lz",
     "start": 5138624,
-    "size": 309,
+    "size": 312,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_15_1.bin.lz",
     "start": 5138936,
-    "size": 97,
+    "size": 100,
     "type": "map_layer1"
   },
   {
@@ -5820,7 +5820,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_16_0.bin.lz",
     "start": 5139096,
-    "size": 687,
+    "size": 688,
     "type": "map_layer2"
   },
   {
@@ -5843,13 +5843,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_17_0.bin.lz",
     "start": 5140340,
-    "size": 322,
+    "size": 324,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_17_1.bin.lz",
     "start": 5140664,
-    "size": 187,
+    "size": 188,
     "type": "map_layer1"
   },
   {
@@ -5872,7 +5872,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrineBoss_0_1.bin.lz",
     "start": 5141416,
-    "size": 90,
+    "size": 92,
     "type": "map_layer1"
   },
   {
@@ -5889,13 +5889,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_18_0.bin.lz",
     "start": 5141584,
-    "size": 466,
+    "size": 468,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_18_1.bin.lz",
     "start": 5142052,
-    "size": 330,
+    "size": 332,
     "type": "map_layer1"
   },
   {
@@ -5912,13 +5912,13 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_19_0.bin.lz",
     "start": 5142488,
-    "size": 54,
+    "size": 56,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrine_19_1.bin.lz",
     "start": 5142544,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
@@ -5935,7 +5935,7 @@
   {
     "path": "assets/gAreaRoomMap_DeepwoodShrineEntry_0_0.bin",
     "start": 5142628,
-    "size": 450,
+    "size": 452,
     "type": "map_layer2"
   },
   {
@@ -5947,25 +5947,25 @@
   {
     "path": "tilesets/gAreaTileset_CaveOfFlames_0_0.4bpp.lz",
     "start": 5143336,
-    "size": 9905,
+    "size": 9908,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CaveOfFlames_0_1.4bpp.lz",
     "start": 5153244,
-    "size": 8807,
+    "size": 8808,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CaveOfFlames_0_2.4bpp.lz",
     "start": 5162052,
-    "size": 10087,
+    "size": 10088,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_CaveOfFlames_0.bin.lz",
     "start": 5172140,
-    "size": 7209,
+    "size": 7212,
     "type": "metatiles_tileset2"
   },
   {
@@ -5977,67 +5977,67 @@
   {
     "path": "assets/gAreaMetatiles_CaveOfFlames_2.bin.lz",
     "start": 5186008,
-    "size": 1169,
+    "size": 1172,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_CaveOfFlames_3.bin.lz",
     "start": 5187180,
-    "size": 1179,
+    "size": 1180,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_CaveOfFlamesBoss_0_0.4bpp.lz",
     "start": 5188360,
-    "size": 6937,
+    "size": 6940,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CaveOfFlamesBoss_0_1.4bpp.lz",
     "start": 5195300,
-    "size": 9046,
+    "size": 9048,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CaveOfFlamesBoss_0_2.4bpp.lz",
     "start": 5204348,
-    "size": 6385,
+    "size": 6388,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_CaveOfFlamesBoss_0.bin.lz",
     "start": 5210736,
-    "size": 4999,
+    "size": 5000,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_CaveOfFlamesBoss_1.bin.lz",
     "start": 5215736,
-    "size": 4442,
+    "size": 4444,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_CaveOfFlamesBoss_2.bin.lz",
     "start": 5220180,
-    "size": 651,
+    "size": 652,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_CaveOfFlamesBoss_3.bin.lz",
     "start": 5220832,
-    "size": 617,
+    "size": 620,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_CaveOfFlames_0_3.bin.lz",
     "start": 5221452,
-    "size": 749,
+    "size": 752,
     "type": "tileset_mapping3"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_0_0.bin.lz",
     "start": 5222204,
-    "size": 370,
+    "size": 372,
     "type": "map_layer2"
   },
   {
@@ -6066,7 +6066,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_1_1.bin.lz",
     "start": 5223404,
-    "size": 366,
+    "size": 368,
     "type": "map_layer1"
   },
   {
@@ -6083,7 +6083,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_2_0.bin.lz",
     "start": 5223876,
-    "size": 287,
+    "size": 288,
     "type": "map_layer2"
   },
   {
@@ -6112,7 +6112,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_3_1.bin.lz",
     "start": 5225008,
-    "size": 323,
+    "size": 324,
     "type": "map_layer1"
   },
   {
@@ -6129,13 +6129,13 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_4_0.bin.lz",
     "start": 5225400,
-    "size": 487,
+    "size": 488,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_4_1.bin.lz",
     "start": 5225888,
-    "size": 827,
+    "size": 828,
     "type": "map_layer1"
   },
   {
@@ -6158,7 +6158,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_5_1.bin.lz",
     "start": 5227016,
-    "size": 355,
+    "size": 356,
     "type": "map_layer1"
   },
   {
@@ -6175,13 +6175,13 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_6_0.bin.lz",
     "start": 5227440,
-    "size": 183,
+    "size": 184,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_6_1.bin.lz",
     "start": 5227624,
-    "size": 693,
+    "size": 696,
     "type": "map_layer1"
   },
   {
@@ -6204,7 +6204,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_7_1.bin.lz",
     "start": 5228576,
-    "size": 383,
+    "size": 384,
     "type": "map_layer1"
   },
   {
@@ -6227,7 +6227,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_8_1.bin.lz",
     "start": 5229628,
-    "size": 543,
+    "size": 544,
     "type": "map_layer1"
   },
   {
@@ -6244,13 +6244,13 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_9_0.bin.lz",
     "start": 5230340,
-    "size": 634,
+    "size": 636,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_9_1.bin.lz",
     "start": 5230976,
-    "size": 505,
+    "size": 508,
     "type": "map_layer1"
   },
   {
@@ -6273,7 +6273,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_10_1.bin.lz",
     "start": 5232528,
-    "size": 665,
+    "size": 668,
     "type": "map_layer1"
   },
   {
@@ -6336,13 +6336,13 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_13_0.bin.lz",
     "start": 5235052,
-    "size": 343,
+    "size": 344,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_13_1.bin.lz",
     "start": 5235396,
-    "size": 239,
+    "size": 240,
     "type": "map_layer1"
   },
   {
@@ -6382,13 +6382,13 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_15_0.bin.lz",
     "start": 5236364,
-    "size": 53,
+    "size": 56,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_15_1.bin.lz",
     "start": 5236420,
-    "size": 305,
+    "size": 308,
     "type": "map_layer1"
   },
   {
@@ -6405,7 +6405,7 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_16_0.bin.lz",
     "start": 5236780,
-    "size": 53,
+    "size": 56,
     "type": "map_layer2"
   },
   {
@@ -6428,13 +6428,13 @@
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_17_0.bin.lz",
     "start": 5237164,
-    "size": 1258,
+    "size": 1260,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_CaveOfFlames_17_1.bin.lz",
     "start": 5238424,
-    "size": 487,
+    "size": 488,
     "type": "map_layer1"
   },
   {
@@ -6474,13 +6474,13 @@
   {
     "path": "tilesets/gAreaTileset_CastorDarknut_0_0.4bpp.lz",
     "start": 5240712,
-    "size": 9770,
+    "size": 9772,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_CastorDarknut_0_1.4bpp.lz",
     "start": 5250484,
-    "size": 8674,
+    "size": 8676,
     "type": "tileset"
   },
   {
@@ -6492,97 +6492,97 @@
   {
     "path": "assets/gAreaMetatiles_FortressOfWinds_0.bin.lz",
     "start": 5267744,
-    "size": 8241,
+    "size": 8244,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_FortressOfWinds_1.bin.lz",
     "start": 5275988,
-    "size": 6169,
+    "size": 6172,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_FortressOfWinds_2.bin.lz",
     "start": 5282160,
-    "size": 1102,
+    "size": 1104,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_FortressOfWinds_3.bin.lz",
     "start": 5283264,
-    "size": 1131,
+    "size": 1132,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_InnerMazaal_0_0.4bpp.lz",
     "start": 5284396,
-    "size": 7481,
+    "size": 7484,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_InnerMazaal_0_1.4bpp.lz",
     "start": 5291880,
-    "size": 5449,
+    "size": 5452,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_InnerMazaal_0_2.4bpp.lz",
     "start": 5297332,
-    "size": 5222,
+    "size": 5224,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_InnerMazaal_0.bin.lz",
     "start": 5302556,
-    "size": 3493,
+    "size": 3496,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_InnerMazaal_1.bin.lz",
     "start": 5306052,
-    "size": 3787,
+    "size": 3788,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_InnerMazaal_2.bin.lz",
     "start": 5309840,
-    "size": 689,
+    "size": 692,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_InnerMazaal_3.bin.lz",
     "start": 5310532,
-    "size": 795,
+    "size": 796,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_FortressOfWindsTop_0_0.4bpp.lz",
     "start": 5311328,
-    "size": 4962,
+    "size": 4964,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_FortressOfWindsTop_0_1.4bpp.lz",
     "start": 5316292,
-    "size": 6827,
+    "size": 6828,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_FortressOfWindsTop_0_2.4bpp.lz",
     "start": 5323120,
-    "size": 6229,
+    "size": 6232,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_FortressOfWindsTop_0.bin.lz",
     "start": 5329352,
-    "size": 2759,
+    "size": 2760,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_FortressOfWindsTop_1.bin.lz",
     "start": 5332112,
-    "size": 1425,
+    "size": 1428,
     "type": "metatiles_tileset1"
   },
   {
@@ -6594,19 +6594,19 @@
   {
     "path": "assets/gAreaMetatiles_FortressOfWindsTop_3.bin.lz",
     "start": 5333944,
-    "size": 273,
+    "size": 276,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_0_0.bin.lz",
     "start": 5334220,
-    "size": 307,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_0_1.bin.lz",
     "start": 5334528,
-    "size": 107,
+    "size": 108,
     "type": "map_layer1"
   },
   {
@@ -6623,13 +6623,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_1_0.bin.lz",
     "start": 5334704,
-    "size": 289,
+    "size": 292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_1_1.bin.lz",
     "start": 5334996,
-    "size": 151,
+    "size": 152,
     "type": "map_layer1"
   },
   {
@@ -6646,7 +6646,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_2_0.bin.lz",
     "start": 5335216,
-    "size": 877,
+    "size": 880,
     "type": "map_layer2"
   },
   {
@@ -6669,13 +6669,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_3_0.bin.lz",
     "start": 5336772,
-    "size": 345,
+    "size": 348,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_3_1.bin.lz",
     "start": 5337120,
-    "size": 121,
+    "size": 124,
     "type": "map_layer1"
   },
   {
@@ -6698,7 +6698,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_4_1.bin.lz",
     "start": 5337880,
-    "size": 230,
+    "size": 232,
     "type": "map_layer1"
   },
   {
@@ -6743,7 +6743,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_5_1.bin.lz",
     "start": 5338420,
-    "size": 383,
+    "size": 384,
     "type": "map_layer1"
   },
   {
@@ -6760,13 +6760,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_6_0.bin.lz",
     "start": 5338872,
-    "size": 134,
+    "size": 136,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_6_1.bin.lz",
     "start": 5339008,
-    "size": 298,
+    "size": 300,
     "type": "map_layer1"
   },
   {
@@ -6789,7 +6789,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_7_1.bin.lz",
     "start": 5339808,
-    "size": 305,
+    "size": 308,
     "type": "map_layer1"
   },
   {
@@ -6812,7 +6812,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_8_1.bin.lz",
     "start": 5340308,
-    "size": 298,
+    "size": 300,
     "type": "map_layer1"
   },
   {
@@ -6829,13 +6829,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_9_0.bin.lz",
     "start": 5340676,
-    "size": 111,
+    "size": 112,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_9_1.bin.lz",
     "start": 5340788,
-    "size": 553,
+    "size": 556,
     "type": "map_layer1"
   },
   {
@@ -6858,7 +6858,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_10_1.bin.lz",
     "start": 5341536,
-    "size": 362,
+    "size": 364,
     "type": "map_layer1"
   },
   {
@@ -6881,7 +6881,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_11_1.bin.lz",
     "start": 5342332,
-    "size": 86,
+    "size": 88,
     "type": "map_layer1"
   },
   {
@@ -6898,13 +6898,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_12_0.bin.lz",
     "start": 5342500,
-    "size": 249,
+    "size": 252,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_12_1.bin.lz",
     "start": 5342752,
-    "size": 183,
+    "size": 184,
     "type": "map_layer1"
   },
   {
@@ -6921,7 +6921,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_13_0.bin.lz",
     "start": 5343004,
-    "size": 213,
+    "size": 216,
     "type": "map_layer2"
   },
   {
@@ -6944,13 +6944,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_14_0.bin.lz",
     "start": 5343444,
-    "size": 609,
+    "size": 612,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_14_1.bin.lz",
     "start": 5344056,
-    "size": 233,
+    "size": 236,
     "type": "map_layer1"
   },
   {
@@ -6973,7 +6973,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_15_1.bin.lz",
     "start": 5344648,
-    "size": 173,
+    "size": 176,
     "type": "map_layer1"
   },
   {
@@ -6990,13 +6990,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_16_0.bin.lz",
     "start": 5344892,
-    "size": 162,
+    "size": 164,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_16_1.bin.lz",
     "start": 5345056,
-    "size": 265,
+    "size": 268,
     "type": "map_layer1"
   },
   {
@@ -7019,7 +7019,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_17_1.bin.lz",
     "start": 5345672,
-    "size": 115,
+    "size": 116,
     "type": "map_layer1"
   },
   {
@@ -7059,13 +7059,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_19_0.bin.lz",
     "start": 5346352,
-    "size": 229,
+    "size": 232,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_19_1.bin.lz",
     "start": 5346584,
-    "size": 122,
+    "size": 124,
     "type": "map_layer1"
   },
   {
@@ -7088,7 +7088,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_20_1.bin.lz",
     "start": 5347020,
-    "size": 110,
+    "size": 112,
     "type": "map_layer1"
   },
   {
@@ -7105,7 +7105,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_21_0.bin.lz",
     "start": 5347184,
-    "size": 258,
+    "size": 260,
     "type": "map_layer2"
   },
   {
@@ -7134,7 +7134,7 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_22_1.bin.lz",
     "start": 5347836,
-    "size": 101,
+    "size": 104,
     "type": "map_layer1"
   },
   {
@@ -7151,13 +7151,13 @@
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_23_0.bin.lz",
     "start": 5347992,
-    "size": 247,
+    "size": 248,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_FortressOfWinds_23_1.bin.lz",
     "start": 5348240,
-    "size": 105,
+    "size": 108,
     "type": "map_layer1"
   },
   {
@@ -7174,25 +7174,25 @@
   {
     "path": "assets/gAreaRoomMap_InnerMazaal_0_0.bin.lz",
     "start": 5348400,
-    "size": 197,
+    "size": 200,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_InnerMazaal_0_1.bin.lz",
     "start": 5348600,
-    "size": 375,
+    "size": 376,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_InnerMazaal_1_0.bin.lz",
     "start": 5348976,
-    "size": 209,
+    "size": 212,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_InnerMazaal_1_1.bin.lz",
     "start": 5349188,
-    "size": 381,
+    "size": 384,
     "type": "map_layer1"
   },
   {
@@ -7216,31 +7216,31 @@
   {
     "path": "tilesets/gAreaTileset_TempleOfDroplets_0_1.4bpp.lz",
     "start": 5359400,
-    "size": 9899,
+    "size": 9900,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_TempleOfDroplets_0_2.4bpp.lz",
     "start": 5369300,
-    "size": 8707,
+    "size": 8708,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_TempleOfDroplets_0.bin.lz",
     "start": 5378008,
-    "size": 8683,
+    "size": 8684,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_TempleOfDroplets_1.bin.lz",
     "start": 5386692,
-    "size": 9146,
+    "size": 9148,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_TempleOfDroplets_2.bin.lz",
     "start": 5395840,
-    "size": 1234,
+    "size": 1236,
     "type": "metatiles_tile_types2"
   },
   {
@@ -7258,49 +7258,49 @@
   {
     "path": "tilesets/gAreaTileset_61_0_1.4bpp.lz",
     "start": 5405900,
-    "size": 4487,
+    "size": 4488,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_61_0_2.4bpp.lz",
     "start": 5410388,
-    "size": 2147,
+    "size": 2148,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_61_0.bin.lz",
     "start": 5412536,
-    "size": 1222,
+    "size": 1224,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_61_1.bin.lz",
     "start": 5413760,
-    "size": 285,
+    "size": 288,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_61_2.bin.lz",
     "start": 5414048,
-    "size": 151,
+    "size": 152,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_61_3.bin.lz",
     "start": 5414200,
-    "size": 102,
+    "size": 104,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_0_0.bin.lz",
     "start": 5414304,
-    "size": 271,
+    "size": 272,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_0_1.bin.lz",
     "start": 5414576,
-    "size": 131,
+    "size": 132,
     "type": "map_layer1"
   },
   {
@@ -7323,7 +7323,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_1_1.bin.lz",
     "start": 5415060,
-    "size": 131,
+    "size": 132,
     "type": "map_layer1"
   },
   {
@@ -7363,13 +7363,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_3_0.bin.lz",
     "start": 5415740,
-    "size": 583,
+    "size": 584,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_3_1.bin.lz",
     "start": 5416324,
-    "size": 529,
+    "size": 532,
     "type": "map_layer1"
   },
   {
@@ -7415,7 +7415,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_5_1.bin.lz",
     "start": 5417668,
-    "size": 297,
+    "size": 300,
     "type": "map_layer1"
   },
   {
@@ -7432,13 +7432,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_6_0.bin.lz",
     "start": 5418036,
-    "size": 287,
+    "size": 288,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_6_1.bin.lz",
     "start": 5418324,
-    "size": 407,
+    "size": 408,
     "type": "map_layer1"
   },
   {
@@ -7455,7 +7455,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_7_0.bin.lz",
     "start": 5418836,
-    "size": 329,
+    "size": 332,
     "type": "map_layer2"
   },
   {
@@ -7478,13 +7478,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_8_0.bin.lz",
     "start": 5419644,
-    "size": 778,
+    "size": 780,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_8_1.bin.lz",
     "start": 5420424,
-    "size": 763,
+    "size": 764,
     "type": "map_layer1"
   },
   {
@@ -7501,13 +7501,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_9_0.bin.lz",
     "start": 5421512,
-    "size": 214,
+    "size": 216,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_9_1.bin.lz",
     "start": 5421728,
-    "size": 191,
+    "size": 192,
     "type": "map_layer1"
   },
   {
@@ -7524,13 +7524,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_10_0.bin.lz",
     "start": 5421988,
-    "size": 666,
+    "size": 668,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_10_1.bin.lz",
     "start": 5422656,
-    "size": 237,
+    "size": 240,
     "type": "map_layer1"
   },
   {
@@ -7553,7 +7553,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_11_1.bin.lz",
     "start": 5423364,
-    "size": 171,
+    "size": 172,
     "type": "map_layer1"
   },
   {
@@ -7570,7 +7570,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_12_0.bin.lz",
     "start": 5423604,
-    "size": 53,
+    "size": 56,
     "type": "map_layer2"
   },
   {
@@ -7593,13 +7593,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_13_0.bin.lz",
     "start": 5423968,
-    "size": 369,
+    "size": 372,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_13_1.bin.lz",
     "start": 5424340,
-    "size": 358,
+    "size": 360,
     "type": "map_layer1"
   },
   {
@@ -7616,7 +7616,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_14_0.bin.lz",
     "start": 5424832,
-    "size": 285,
+    "size": 288,
     "type": "map_layer2"
   },
   {
@@ -7639,7 +7639,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_15_0.bin.lz",
     "start": 5425396,
-    "size": 285,
+    "size": 288,
     "type": "map_layer2"
   },
   {
@@ -7662,7 +7662,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_16_0.bin.lz",
     "start": 5425904,
-    "size": 255,
+    "size": 256,
     "type": "map_layer2"
   },
   {
@@ -7685,13 +7685,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_17_0.bin.lz",
     "start": 5426288,
-    "size": 199,
+    "size": 200,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_17_1.bin.lz",
     "start": 5426488,
-    "size": 134,
+    "size": 136,
     "type": "map_layer1"
   },
   {
@@ -7708,13 +7708,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_18_0.bin.lz",
     "start": 5426676,
-    "size": 347,
+    "size": 348,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_18_1.bin.lz",
     "start": 5427024,
-    "size": 213,
+    "size": 216,
     "type": "map_layer1"
   },
   {
@@ -7731,13 +7731,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_19_0.bin.lz",
     "start": 5427360,
-    "size": 301,
+    "size": 304,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_19_1.bin.lz",
     "start": 5427664,
-    "size": 131,
+    "size": 132,
     "type": "map_layer1"
   },
   {
@@ -7754,13 +7754,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_20_0.bin.lz",
     "start": 5427864,
-    "size": 281,
+    "size": 284,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_20_1.bin.lz",
     "start": 5428148,
-    "size": 243,
+    "size": 244,
     "type": "map_layer1"
   },
   {
@@ -7777,7 +7777,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_21_0.bin.lz",
     "start": 5428512,
-    "size": 266,
+    "size": 268,
     "type": "map_layer2"
   },
   {
@@ -7800,13 +7800,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_22_0.bin.lz",
     "start": 5428960,
-    "size": 314,
+    "size": 316,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_22_1.bin.lz",
     "start": 5429276,
-    "size": 569,
+    "size": 572,
     "type": "map_layer1"
   },
   {
@@ -7823,13 +7823,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_23_0.bin.lz",
     "start": 5429980,
-    "size": 278,
+    "size": 280,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_23_1.bin.lz",
     "start": 5430260,
-    "size": 199,
+    "size": 200,
     "type": "map_layer1"
   },
   {
@@ -7846,13 +7846,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_24_0.bin.lz",
     "start": 5430528,
-    "size": 149,
+    "size": 152,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_24_1.bin.lz",
     "start": 5430680,
-    "size": 710,
+    "size": 712,
     "type": "map_layer1"
   },
   {
@@ -7869,13 +7869,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_25_0.bin.lz",
     "start": 5431552,
-    "size": 58,
+    "size": 60,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_25_1.bin.lz",
     "start": 5431612,
-    "size": 306,
+    "size": 308,
     "type": "map_layer1"
   },
   {
@@ -7898,7 +7898,7 @@
       "USA"
     ],
     "start": 5431976,
-    "size": 1025,
+    "size": 1028,
     "type": "map_layer2"
   },
   {
@@ -7907,7 +7907,7 @@
       "EU"
     ],
     "start": 5431976,
-    "size": 1001,
+    "size": 1004,
     "type": "map_layer2"
   },
   {
@@ -7958,13 +7958,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_28_0.bin.lz",
     "start": 5434408,
-    "size": 237,
+    "size": 240,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_28_1.bin.lz",
     "start": 5434648,
-    "size": 97,
+    "size": 100,
     "type": "map_layer1"
   },
   {
@@ -7981,13 +7981,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_29_0.bin.lz",
     "start": 5434800,
-    "size": 511,
+    "size": 512,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_29_1.bin.lz",
     "start": 5435312,
-    "size": 171,
+    "size": 172,
     "type": "map_layer1"
   },
   {
@@ -8004,7 +8004,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_30_0.bin.lz",
     "start": 5435640,
-    "size": 53,
+    "size": 56,
     "type": "map_layer2"
   },
   {
@@ -8027,7 +8027,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_31_0.bin.lz",
     "start": 5436008,
-    "size": 174,
+    "size": 176,
     "type": "map_layer2"
   },
   {
@@ -8050,7 +8050,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_32_0.bin.lz",
     "start": 5436516,
-    "size": 241,
+    "size": 244,
     "type": "map_layer2"
   },
   {
@@ -8073,13 +8073,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_33_0.bin.lz",
     "start": 5436984,
-    "size": 187,
+    "size": 188,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_33_1.bin.lz",
     "start": 5437172,
-    "size": 111,
+    "size": 112,
     "type": "map_layer1"
   },
   {
@@ -8096,13 +8096,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_34_0.bin.lz",
     "start": 5437336,
-    "size": 53,
+    "size": 56,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_34_1.bin.lz",
     "start": 5437392,
-    "size": 282,
+    "size": 284,
     "type": "map_layer1"
   },
   {
@@ -8125,7 +8125,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_35_1.bin.lz",
     "start": 5438240,
-    "size": 194,
+    "size": 196,
     "type": "map_layer1"
   },
   {
@@ -8148,7 +8148,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_36_1.bin.lz",
     "start": 5438884,
-    "size": 143,
+    "size": 144,
     "type": "map_layer1"
   },
   {
@@ -8165,7 +8165,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_37_0.bin.lz",
     "start": 5439096,
-    "size": 298,
+    "size": 300,
     "type": "map_layer2"
   },
   {
@@ -8211,13 +8211,13 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_39_0.bin.lz",
     "start": 5440272,
-    "size": 291,
+    "size": 292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_39_1.bin.lz",
     "start": 5440564,
-    "size": 113,
+    "size": 116,
     "type": "map_layer1"
   },
   {
@@ -8234,7 +8234,7 @@
   {
     "path": "assets/gAreaRoomMap_TempleOfDroplets_40_0.bin.lz",
     "start": 5440752,
-    "size": 205,
+    "size": 208,
     "type": "map_layer2"
   },
   {
@@ -8257,7 +8257,7 @@
   {
     "path": "assets/gAreaRoomMap_61_0_0.bin.lz",
     "start": 5441192,
-    "size": 307,
+    "size": 308,
     "type": "map_layer2"
   },
   {
@@ -8275,7 +8275,7 @@
       "USA"
     ],
     "start": 5441568,
-    "size": 475,
+    "size": 476,
     "type": "map_layer2"
   },
   {
@@ -8284,7 +8284,7 @@
       "EU"
     ],
     "start": 5441568,
-    "size": 459,
+    "size": 460,
     "type": "map_layer2"
   },
   {
@@ -8295,31 +8295,31 @@
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_0_1.bin.lz",
     "start": 5442044,
-    "size": 166,
+    "size": 168,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_1_0.bin.lz",
     "start": 5442212,
-    "size": 373,
+    "size": 376,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_1_1.bin.lz",
     "start": 5442588,
-    "size": 166,
+    "size": 168,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_2_0.bin.lz",
     "start": 5442756,
-    "size": 269,
+    "size": 272,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_2_1.bin.lz",
     "start": 5443028,
-    "size": 209,
+    "size": 212,
     "type": "map_layer1"
   },
   {
@@ -8331,37 +8331,37 @@
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_3_1.bin.lz",
     "start": 5443308,
-    "size": 302,
+    "size": 304,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_4_0.bin.lz",
     "start": 5443612,
-    "size": 234,
+    "size": 236,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_4_1.bin.lz",
     "start": 5443848,
-    "size": 134,
+    "size": 136,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_5_0.bin.lz",
     "start": 5443984,
-    "size": 306,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_5_1.bin.lz",
     "start": 5444292,
-    "size": 101,
+    "size": 104,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_6_0.bin.lz",
     "start": 5444396,
-    "size": 275,
+    "size": 276,
     "type": "map_layer2"
   },
   {
@@ -8379,19 +8379,19 @@
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_7_1.bin.lz",
     "start": 5445000,
-    "size": 85,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_8_0.bin.lz",
     "start": 5445088,
-    "size": 331,
+    "size": 332,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_8_1.bin.lz",
     "start": 5445420,
-    "size": 110,
+    "size": 112,
     "type": "map_layer1"
   },
   {
@@ -8403,67 +8403,67 @@
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_9_1.bin.lz",
     "start": 5445812,
-    "size": 70,
+    "size": 72,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_10_0.bin.lz",
     "start": 5445884,
-    "size": 219,
+    "size": 220,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleTownMinishCaves_10_1.bin.lz",
     "start": 5446104,
-    "size": 207,
+    "size": 208,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_RoyalCrypt_0_0.4bpp.lz",
     "start": 5446312,
-    "size": 8126,
+    "size": 8128,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_RoyalCrypt_0_1.4bpp.lz",
     "start": 5454440,
-    "size": 7161,
+    "size": 7164,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_RoyalCrypt_0_2.4bpp.lz",
     "start": 5461604,
-    "size": 5569,
+    "size": 5572,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_RoyalCrypt_0.bin.lz",
     "start": 5467176,
-    "size": 7149,
+    "size": 7152,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_RoyalCrypt_1.bin.lz",
     "start": 5474328,
-    "size": 5117,
+    "size": 5120,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_RoyalCrypt_2.bin.lz",
     "start": 5479448,
-    "size": 1195,
+    "size": 1196,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_RoyalCrypt_3.bin.lz",
     "start": 5480644,
-    "size": 963,
+    "size": 964,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_0_0.bin.lz",
     "start": 5481608,
-    "size": 551,
+    "size": 552,
     "type": "map_layer2"
   },
   {
@@ -8475,19 +8475,19 @@
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_1_0.bin.lz",
     "start": 5482572,
-    "size": 289,
+    "size": 292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_1_1.bin.lz",
     "start": 5482864,
-    "size": 122,
+    "size": 124,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_2_0.bin.lz",
     "start": 5482988,
-    "size": 290,
+    "size": 292,
     "type": "map_layer2"
   },
   {
@@ -8499,13 +8499,13 @@
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_3_0.bin.lz",
     "start": 5483496,
-    "size": 371,
+    "size": 372,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_3_1.bin.lz",
     "start": 5483868,
-    "size": 202,
+    "size": 204,
     "type": "map_layer1"
   },
   {
@@ -8529,13 +8529,13 @@
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_5_1.bin.lz",
     "start": 5485624,
-    "size": 157,
+    "size": 160,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_6_0.bin.lz",
     "start": 5485784,
-    "size": 353,
+    "size": 356,
     "type": "map_layer2"
   },
   {
@@ -8547,7 +8547,7 @@
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_7_0.bin.lz",
     "start": 5486292,
-    "size": 342,
+    "size": 344,
     "type": "map_layer2"
   },
   {
@@ -8565,7 +8565,7 @@
   {
     "path": "assets/gAreaRoomMap_RoyalCrypt_8_1.bin.lz",
     "start": 5487060,
-    "size": 118,
+    "size": 120,
     "type": "map_layer1"
   },
   {
@@ -8577,19 +8577,19 @@
   {
     "path": "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_1.4bpp.lz",
     "start": 5496372,
-    "size": 8581,
+    "size": 8584,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_2.4bpp.lz",
     "start": 5504956,
-    "size": 7510,
+    "size": 7512,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_PalaceOfWinds_GyorgTornado.bin.lz",
     "start": 5512468,
-    "size": 7283,
+    "size": 7284,
     "type": "metatiles_tileset2"
   },
   {
@@ -8607,7 +8607,7 @@
   {
     "path": "assets/gAreaMetatiles_PalaceOfWinds_GyorgBossDoor.bin.lz",
     "start": 5527352,
-    "size": 1187,
+    "size": 1188,
     "type": "metatiles_tile_types1"
   },
   {
@@ -8619,7 +8619,7 @@
   {
     "path": "tilesets/gAreaTileset_PalaceOfWindsBoss_0_0.4bpp.lz",
     "start": 5529088,
-    "size": 4886,
+    "size": 4888,
     "type": "tileset"
   },
   {
@@ -8630,7 +8630,7 @@
       "EU"
     ],
     "start": 5533976,
-    "size": 4171,
+    "size": 4172,
     "type": "tileset"
   },
   {
@@ -8640,7 +8640,7 @@
       "USA"
     ],
     "start": 5533976,
-    "size": 4055,
+    "size": 4056,
     "type": "tileset"
   },
   {
@@ -8653,13 +8653,13 @@
   {
     "path": "assets/gAreaMetatiles_PalaceOfWindsBoss_0.bin.lz",
     "start": 5538032,
-    "size": 70,
+    "size": 72,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_PalaceOfWindsBoss_1.bin.lz",
     "start": 5538104,
-    "size": 25,
+    "size": 28,
     "type": "metatiles_tile_types1"
   },
   {
@@ -8677,13 +8677,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GyorgTornado_0.bin.lz",
     "start": 5542308,
-    "size": 829,
+    "size": 832,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GyorgTornado_1.bin.lz",
     "start": 5543140,
-    "size": 426,
+    "size": 428,
     "type": "map_layer1"
   },
   {
@@ -8700,13 +8700,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BossKey_0.bin.lz",
     "start": 5543928,
-    "size": 237,
+    "size": 240,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BossKey_1.bin.lz",
     "start": 5544168,
-    "size": 53,
+    "size": 56,
     "type": "map_layer1"
   },
   {
@@ -8729,7 +8729,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1.bin.lz",
     "start": 5544608,
-    "size": 101,
+    "size": 104,
     "type": "map_layer1"
   },
   {
@@ -8746,7 +8746,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0.bin.lz",
     "start": 5544768,
-    "size": 582,
+    "size": 584,
     "type": "map_layer2"
   },
   {
@@ -8769,13 +8769,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0.bin.lz",
     "start": 5545696,
-    "size": 201,
+    "size": 204,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1.bin.lz",
     "start": 5545900,
-    "size": 49,
+    "size": 52,
     "type": "map_layer1"
   },
   {
@@ -8792,13 +8792,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0.bin.lz",
     "start": 5545992,
-    "size": 517,
+    "size": 520,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1.bin.lz",
     "start": 5546512,
-    "size": 169,
+    "size": 172,
     "type": "map_layer1"
   },
   {
@@ -8815,13 +8815,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0.bin.lz",
     "start": 5546804,
-    "size": 493,
+    "size": 496,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1.bin.lz",
     "start": 5547300,
-    "size": 166,
+    "size": 168,
     "type": "map_layer1"
   },
   {
@@ -8838,13 +8838,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0.bin.lz",
     "start": 5547588,
-    "size": 517,
+    "size": 520,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1.bin.lz",
     "start": 5548108,
-    "size": 183,
+    "size": 184,
     "type": "map_layer1"
   },
   {
@@ -8861,13 +8861,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0.bin.lz",
     "start": 5548412,
-    "size": 387,
+    "size": 388,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1.bin.lz",
     "start": 5548800,
-    "size": 186,
+    "size": 188,
     "type": "map_layer1"
   },
   {
@@ -8884,7 +8884,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombarossaPath_0.bin.lz",
     "start": 5549068,
-    "size": 214,
+    "size": 216,
     "type": "map_layer2"
   },
   {
@@ -8907,13 +8907,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0.bin.lz",
     "start": 5549384,
-    "size": 253,
+    "size": 256,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1.bin.lz",
     "start": 5549640,
-    "size": 127,
+    "size": 128,
     "type": "map_layer1"
   },
   {
@@ -8930,13 +8930,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0.bin.lz",
     "start": 5549820,
-    "size": 225,
+    "size": 228,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1.bin.lz",
     "start": 5550048,
-    "size": 81,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -8953,7 +8953,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0.bin.lz",
     "start": 5550172,
-    "size": 195,
+    "size": 196,
     "type": "map_layer2"
   },
   {
@@ -8976,13 +8976,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_0.bin.lz",
     "start": 5550496,
-    "size": 221,
+    "size": 224,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_1.bin.lz",
     "start": 5550720,
-    "size": 83,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -9005,7 +9005,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BombWallOutside_1.bin.lz",
     "start": 5551148,
-    "size": 89,
+    "size": 92,
     "type": "map_layer1"
   },
   {
@@ -9022,13 +9022,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_0.bin.lz",
     "start": 5551320,
-    "size": 582,
+    "size": 584,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_1.bin.lz",
     "start": 5551904,
-    "size": 321,
+    "size": 324,
     "type": "map_layer1"
   },
   {
@@ -9045,13 +9045,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0.bin.lz",
     "start": 5552468,
-    "size": 817,
+    "size": 820,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1.bin.lz",
     "start": 5553288,
-    "size": 334,
+    "size": 336,
     "type": "map_layer1"
   },
   {
@@ -9068,13 +9068,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0.bin.lz",
     "start": 5553984,
-    "size": 523,
+    "size": 524,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1.bin.lz",
     "start": 5554508,
-    "size": 147,
+    "size": 148,
     "type": "map_layer1"
   },
   {
@@ -9091,7 +9091,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0.bin.lz",
     "start": 5554776,
-    "size": 235,
+    "size": 236,
     "type": "map_layer2"
   },
   {
@@ -9114,13 +9114,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_0.bin.lz",
     "start": 5555208,
-    "size": 583,
+    "size": 584,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_1.bin.lz",
     "start": 5555792,
-    "size": 295,
+    "size": 296,
     "type": "map_layer1"
   },
   {
@@ -9137,13 +9137,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_0.bin.lz",
     "start": 5556248,
-    "size": 371,
+    "size": 372,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_1.bin.lz",
     "start": 5556620,
-    "size": 79,
+    "size": 80,
     "type": "map_layer1"
   },
   {
@@ -9160,13 +9160,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_0.bin.lz",
     "start": 5556780,
-    "size": 998,
+    "size": 1000,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_1.bin.lz",
     "start": 5557780,
-    "size": 329,
+    "size": 332,
     "type": "map_layer1"
   },
   {
@@ -9189,7 +9189,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1.bin.lz",
     "start": 5558940,
-    "size": 301,
+    "size": 304,
     "type": "map_layer1"
   },
   {
@@ -9206,13 +9206,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0.bin.lz",
     "start": 5559404,
-    "size": 207,
+    "size": 208,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1.bin.lz",
     "start": 5559612,
-    "size": 83,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -9229,13 +9229,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_0.bin.lz",
     "start": 5559776,
-    "size": 383,
+    "size": 384,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_1.bin.lz",
     "start": 5560160,
-    "size": 198,
+    "size": 200,
     "type": "map_layer1"
   },
   {
@@ -9252,7 +9252,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0.bin.lz",
     "start": 5560520,
-    "size": 425,
+    "size": 428,
     "type": "map_layer2"
   },
   {
@@ -9281,7 +9281,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PotPush_1.bin.lz",
     "start": 5561992,
-    "size": 302,
+    "size": 304,
     "type": "map_layer1"
   },
   {
@@ -9298,13 +9298,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_0.bin.lz",
     "start": 5562456,
-    "size": 215,
+    "size": 216,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_1.bin.lz",
     "start": 5562672,
-    "size": 97,
+    "size": 100,
     "type": "map_layer1"
   },
   {
@@ -9327,7 +9327,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_Map_1.bin.lz",
     "start": 5563044,
-    "size": 55,
+    "size": 56,
     "type": "map_layer1"
   },
   {
@@ -9344,7 +9344,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_CornerToMap_0.bin.lz",
     "start": 5563140,
-    "size": 215,
+    "size": 216,
     "type": "map_layer2"
   },
   {
@@ -9367,13 +9367,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0.bin.lz",
     "start": 5563484,
-    "size": 223,
+    "size": 224,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1.bin.lz",
     "start": 5563708,
-    "size": 81,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -9390,13 +9390,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0.bin.lz",
     "start": 5563832,
-    "size": 205,
+    "size": 208,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1.bin.lz",
     "start": 5564040,
-    "size": 70,
+    "size": 72,
     "type": "map_layer1"
   },
   {
@@ -9413,13 +9413,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0.bin.lz",
     "start": 5564152,
-    "size": 209,
+    "size": 212,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1.bin.lz",
     "start": 5564364,
-    "size": 75,
+    "size": 76,
     "type": "map_layer1"
   },
   {
@@ -9442,7 +9442,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GratesTo3F_1.bin.lz",
     "start": 5565396,
-    "size": 506,
+    "size": 508,
     "type": "map_layer1"
   },
   {
@@ -9459,7 +9459,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_SpinyFight_0.bin.lz",
     "start": 5566264,
-    "size": 778,
+    "size": 780,
     "type": "map_layer2"
   },
   {
@@ -9482,13 +9482,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0.bin.lz",
     "start": 5567616,
-    "size": 369,
+    "size": 372,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1.bin.lz",
     "start": 5567988,
-    "size": 143,
+    "size": 144,
     "type": "map_layer1"
   },
   {
@@ -9505,7 +9505,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0.bin.lz",
     "start": 5568212,
-    "size": 390,
+    "size": 392,
     "type": "map_layer2"
   },
   {
@@ -9528,13 +9528,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0.bin.lz",
     "start": 5568936,
-    "size": 254,
+    "size": 256,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1.bin.lz",
     "start": 5569192,
-    "size": 77,
+    "size": 80,
     "type": "map_layer1"
   },
   {
@@ -9551,13 +9551,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0.bin.lz",
     "start": 5569312,
-    "size": 274,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1.bin.lz",
     "start": 5569588,
-    "size": 55,
+    "size": 56,
     "type": "map_layer1"
   },
   {
@@ -9580,7 +9580,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1.bin.lz",
     "start": 5569932,
-    "size": 81,
+    "size": 84,
     "type": "map_layer1"
   },
   {
@@ -9597,13 +9597,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0.bin.lz",
     "start": 5570056,
-    "size": 237,
+    "size": 240,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1.bin.lz",
     "start": 5570296,
-    "size": 91,
+    "size": 92,
     "type": "map_layer1"
   },
   {
@@ -9620,13 +9620,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0.bin.lz",
     "start": 5570428,
-    "size": 210,
+    "size": 212,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1.bin.lz",
     "start": 5570640,
-    "size": 86,
+    "size": 88,
     "type": "map_layer1"
   },
   {
@@ -9643,13 +9643,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_0.bin.lz",
     "start": 5570768,
-    "size": 235,
+    "size": 236,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_1.bin.lz",
     "start": 5571004,
-    "size": 87,
+    "size": 88,
     "type": "map_layer1"
   },
   {
@@ -9666,7 +9666,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0.bin.lz",
     "start": 5571132,
-    "size": 346,
+    "size": 348,
     "type": "map_layer2"
   },
   {
@@ -9694,7 +9694,7 @@
       "EU"
     ],
     "start": 5571704,
-    "size": 737,
+    "size": 740,
     "type": "map_layer2"
   },
   {
@@ -9704,7 +9704,7 @@
       "USA"
     ],
     "start": 5571704,
-    "size": 739,
+    "size": 740,
     "type": "map_layer2"
   },
   {
@@ -9727,13 +9727,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_0.bin.lz",
     "start": 5572940,
-    "size": 529,
+    "size": 532,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_1.bin.lz",
     "start": 5573472,
-    "size": 407,
+    "size": 408,
     "type": "map_layer1"
   },
   {
@@ -9750,7 +9750,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0.bin.lz",
     "start": 5574120,
-    "size": 425,
+    "size": 428,
     "type": "map_layer2"
   },
   {
@@ -9773,13 +9773,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0.bin.lz",
     "start": 5574956,
-    "size": 126,
+    "size": 128,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1.bin.lz",
     "start": 5575084,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
@@ -9802,7 +9802,7 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1.bin.lz",
     "start": 5575844,
-    "size": 159,
+    "size": 160,
     "type": "map_layer1"
   },
   {
@@ -9819,13 +9819,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_0.bin.lz",
     "start": 5576164,
-    "size": 357,
+    "size": 360,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_1.bin.lz",
     "start": 5576524,
-    "size": 129,
+    "size": 132,
     "type": "map_layer1"
   },
   {
@@ -9842,13 +9842,13 @@
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0.bin.lz",
     "start": 5576788,
-    "size": 767,
+    "size": 768,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1.bin.lz",
     "start": 5577556,
-    "size": 342,
+    "size": 344,
     "type": "map_layer1"
   },
   {
@@ -9877,13 +9877,13 @@
   {
     "path": "tilesets/gAreaTileset_Sanctuary_0_0.4bpp.lz",
     "start": 5582016,
-    "size": 7505,
+    "size": 7508,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_Sanctuary_0_1.4bpp.lz",
     "start": 5589524,
-    "size": 8322,
+    "size": 8324,
     "type": "tileset"
   },
   {
@@ -9895,19 +9895,19 @@
   {
     "path": "assets/gAreaMetatiles_Sanctuary_0.bin.lz",
     "start": 5602952,
-    "size": 7941,
+    "size": 7944,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_Sanctuary_1.bin.lz",
     "start": 5610896,
-    "size": 4354,
+    "size": 4356,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_Sanctuary_2.bin.lz",
     "start": 5615252,
-    "size": 866,
+    "size": 868,
     "type": "metatiles_tile_types2"
   },
   {
@@ -9919,73 +9919,73 @@
   {
     "path": "assets/gAreaRoomMap_Sanctuary_0_0.bin.lz",
     "start": 5616876,
-    "size": 786,
+    "size": 788,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Sanctuary_0_1.bin.lz",
     "start": 5617664,
-    "size": 246,
+    "size": 248,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Sanctuary_1_0.bin.lz",
     "start": 5617912,
-    "size": 1289,
+    "size": 1292,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Sanctuary_1_1.bin.lz",
     "start": 5619204,
-    "size": 695,
+    "size": 696,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Sanctuary_2_0.bin.lz",
     "start": 5619900,
-    "size": 691,
+    "size": 692,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Sanctuary_2_1.bin.lz",
     "start": 5620592,
-    "size": 191,
+    "size": 192,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleCastle_0_0.4bpp.lz",
     "start": 5620784,
-    "size": 8590,
+    "size": 8592,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleCastle_0_1.4bpp.lz",
     "start": 5629376,
-    "size": 7541,
+    "size": 7544,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_HyruleCastle_0_2.4bpp.lz",
     "start": 5636920,
-    "size": 6489,
+    "size": 6492,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleCastle_0.bin.lz",
     "start": 5643412,
-    "size": 7538,
+    "size": 7540,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleCastle_1.bin.lz",
     "start": 5650952,
-    "size": 5287,
+    "size": 5288,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_HyruleCastle_2.bin.lz",
     "start": 5656240,
-    "size": 1066,
+    "size": 1068,
     "type": "metatiles_tile_types2"
   },
   {
@@ -9997,7 +9997,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_0_0.bin.lz",
     "start": 5658152,
-    "size": 1002,
+    "size": 1004,
     "type": "map_layer2"
   },
   {
@@ -10009,7 +10009,7 @@
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_1_0.bin.lz",
     "start": 5659644,
-    "size": 777,
+    "size": 780,
     "type": "map_layer2"
   },
   {
@@ -10021,31 +10021,31 @@
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_2_0.bin.lz",
     "start": 5660820,
-    "size": 519,
+    "size": 520,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_2_1.bin.lz",
     "start": 5661340,
-    "size": 177,
+    "size": 180,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_3_0.bin.lz",
     "start": 5661520,
-    "size": 1195,
+    "size": 1196,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_3_1.bin.lz",
     "start": 5662716,
-    "size": 469,
+    "size": 472,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_4_0.bin.lz",
     "start": 5663188,
-    "size": 337,
+    "size": 340,
     "type": "map_layer2"
   },
   {
@@ -10057,25 +10057,25 @@
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_5_0.bin.lz",
     "start": 5663624,
-    "size": 214,
+    "size": 216,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_5_1.bin.lz",
     "start": 5663840,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_6_0.bin.lz",
     "start": 5663884,
-    "size": 203,
+    "size": 204,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_HyruleCastle_6_1.bin.lz",
     "start": 5664088,
-    "size": 43,
+    "size": 44,
     "type": "map_layer1"
   },
   {
@@ -10087,79 +10087,79 @@
   {
     "path": "tilesets/gAreaTileset_SanctuaryEntrance_0_0.4bpp.lz",
     "start": 5664416,
-    "size": 6970,
+    "size": 6972,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_SanctuaryEntrance_0_1.4bpp.lz",
     "start": 5671388,
-    "size": 5610,
+    "size": 5612,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_SanctuaryEntrance_0_2.4bpp.lz",
     "start": 5677000,
-    "size": 3069,
+    "size": 3072,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_SanctuaryEntrance_0.bin.lz",
     "start": 5680072,
-    "size": 2899,
+    "size": 2900,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_SanctuaryEntrance_1.bin.lz",
     "start": 5682972,
-    "size": 893,
+    "size": 896,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_SanctuaryEntrance_2.bin.lz",
     "start": 5683868,
-    "size": 365,
+    "size": 368,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_SanctuaryEntrance_3.bin.lz",
     "start": 5684236,
-    "size": 237,
+    "size": 240,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "assets/gAreaRoomMap_SanctuaryEntrance_0_0.bin.lz",
     "start": 5684476,
-    "size": 577,
+    "size": 580,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_SanctuaryEntrance_0_1.bin.lz",
     "start": 5685056,
-    "size": 142,
+    "size": 144,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastle_1FEntrance_0.4bpp.lz",
     "start": 5685200,
-    "size": 8657,
+    "size": 8660,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastle_1FEntrance_1.4bpp.lz",
     "start": 5693860,
-    "size": 8806,
+    "size": 8808,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastle_1FEntrance_2.4bpp.lz",
     "start": 5702668,
-    "size": 8098,
+    "size": 8100,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastle_1FEntrance.bin.lz",
     "start": 5710768,
-    "size": 11581,
+    "size": 11584,
     "type": "metatiles_tileset2"
   },
   {
@@ -10171,43 +10171,43 @@
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastle_3FTopRightTower.bin.lz",
     "start": 5730148,
-    "size": 1413,
+    "size": 1416,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastle_3FBottomLeftTower.bin.lz",
     "start": 5731564,
-    "size": 1263,
+    "size": 1264,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastleBridge_0_0.4bpp.lz",
     "start": 5732828,
-    "size": 4386,
+    "size": 4388,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastleBridge_0_1.4bpp.lz",
     "start": 5737216,
-    "size": 5945,
+    "size": 5948,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastleBridge_0_2.4bpp.lz",
     "start": 5743164,
-    "size": 3769,
+    "size": 3772,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastleBridge_0.bin.lz",
     "start": 5746936,
-    "size": 3549,
+    "size": 3552,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastleBridge_1.bin.lz",
     "start": 5750488,
-    "size": 2319,
+    "size": 2320,
     "type": "metatiles_tileset1"
   },
   {
@@ -10219,31 +10219,31 @@
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastleBridge_3.bin.lz",
     "start": 5753436,
-    "size": 534,
+    "size": 536,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_Vaati3_0_0.4bpp.lz",
     "start": 5753972,
-    "size": 4362,
+    "size": 4364,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_Vaati3_0_1.4bpp.lz",
     "start": 5758336,
-    "size": 4633,
+    "size": 4636,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_Vaati3_0_2.4bpp.lz",
     "start": 5762972,
-    "size": 8707,
+    "size": 8708,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_Vaati3_0.bin.lz",
     "start": 5771680,
-    "size": 1718,
+    "size": 1720,
     "type": "metatiles_tileset2"
   },
   {
@@ -10255,13 +10255,13 @@
   {
     "path": "assets/gAreaMetatiles_Vaati3_2.bin.lz",
     "start": 5773876,
-    "size": 210,
+    "size": 212,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_Vaati3_3.bin.lz",
     "start": 5774088,
-    "size": 143,
+    "size": 144,
     "type": "metatiles_tile_types1"
   },
   {
@@ -10273,7 +10273,7 @@
   {
     "path": "tilesets/gAreaTileset_Vaati2_0_1.4bpp.lz",
     "start": 5777016,
-    "size": 4679,
+    "size": 4680,
     "type": "tileset"
   },
   {
@@ -10285,61 +10285,61 @@
   {
     "path": "assets/gAreaMetatiles_Vaati2_0.bin.lz",
     "start": 5788372,
-    "size": 1065,
+    "size": 1068,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_Vaati2_1.bin.lz",
     "start": 5789440,
-    "size": 157,
+    "size": 160,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_Vaati2_2.bin.lz",
     "start": 5789600,
-    "size": 121,
+    "size": 124,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_Vaati2_3.bin.lz",
     "start": 5789724,
-    "size": 77,
+    "size": 80,
     "type": "metatiles_tile_types1"
   },
   {
     "path": "tilesets/gAreaTileset_VaatisArms_0_0.4bpp.lz",
     "start": 5789804,
-    "size": 6054,
+    "size": 6056,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_VaatisArms_0_1.4bpp.lz",
     "start": 5795860,
-    "size": 2513,
+    "size": 2516,
     "type": "tileset"
   },
   {
     "path": "tilesets/gAreaTileset_VaatisArms_0_2.4bpp.lz",
     "start": 5798376,
-    "size": 3574,
+    "size": 3576,
     "type": "tileset"
   },
   {
     "path": "assets/gAreaMetatiles_VaatisArms_0.bin.lz",
     "start": 5801952,
-    "size": 3269,
+    "size": 3272,
     "type": "metatiles_tileset2"
   },
   {
     "path": "assets/gAreaMetatiles_VaatisArms_1.bin.lz",
     "start": 5805224,
-    "size": 898,
+    "size": 900,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_VaatisArms_2.bin.lz",
     "start": 5806124,
-    "size": 259,
+    "size": 260,
     "type": "metatiles_tile_types2"
   },
   {
@@ -10351,13 +10351,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FEntrance_0.bin.lz",
     "start": 5806552,
-    "size": 1154,
+    "size": 1156,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FEntrance_1.bin.lz",
     "start": 5807708,
-    "size": 634,
+    "size": 636,
     "type": "map_layer1"
   },
   {
@@ -10374,13 +10374,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0.bin.lz",
     "start": 5808812,
-    "size": 217,
+    "size": 220,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_1.bin.lz",
     "start": 5809032,
-    "size": 123,
+    "size": 124,
     "type": "map_layer1"
   },
   {
@@ -10397,13 +10397,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0.bin.lz",
     "start": 5809224,
-    "size": 221,
+    "size": 224,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_1.bin.lz",
     "start": 5809448,
-    "size": 142,
+    "size": 144,
     "type": "map_layer1"
   },
   {
@@ -10420,13 +10420,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0.bin.lz",
     "start": 5809660,
-    "size": 239,
+    "size": 240,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_1.bin.lz",
     "start": 5809900,
-    "size": 135,
+    "size": 136,
     "type": "map_layer1"
   },
   {
@@ -10449,7 +10449,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_1.bin.lz",
     "start": 5810348,
-    "size": 138,
+    "size": 140,
     "type": "map_layer1"
   },
   {
@@ -10466,13 +10466,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0.bin.lz",
     "start": 5810556,
-    "size": 546,
+    "size": 548,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_1.bin.lz",
     "start": 5811104,
-    "size": 177,
+    "size": 180,
     "type": "map_layer1"
   },
   {
@@ -10495,7 +10495,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_1.bin.lz",
     "start": 5811844,
-    "size": 157,
+    "size": 160,
     "type": "map_layer1"
   },
   {
@@ -10512,7 +10512,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0.bin.lz",
     "start": 5812100,
-    "size": 329,
+    "size": 332,
     "type": "map_layer2"
   },
   {
@@ -10535,7 +10535,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0.bin.lz",
     "start": 5812756,
-    "size": 477,
+    "size": 480,
     "type": "map_layer2"
   },
   {
@@ -10558,13 +10558,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_0.bin.lz",
     "start": 5813544,
-    "size": 339,
+    "size": 340,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_1.bin.lz",
     "start": 5813884,
-    "size": 146,
+    "size": 148,
     "type": "map_layer1"
   },
   {
@@ -10581,13 +10581,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0.bin.lz",
     "start": 5814108,
-    "size": 297,
+    "size": 300,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_1.bin.lz",
     "start": 5814408,
-    "size": 133,
+    "size": 136,
     "type": "map_layer1"
   },
   {
@@ -10604,13 +10604,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0.bin.lz",
     "start": 5814612,
-    "size": 265,
+    "size": 268,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_1.bin.lz",
     "start": 5814880,
-    "size": 91,
+    "size": 92,
     "type": "map_layer1"
   },
   {
@@ -10627,13 +10627,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0.bin.lz",
     "start": 5815040,
-    "size": 271,
+    "size": 272,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_1.bin.lz",
     "start": 5815312,
-    "size": 107,
+    "size": 108,
     "type": "map_layer1"
   },
   {
@@ -10650,13 +10650,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0.bin.lz",
     "start": 5815488,
-    "size": 267,
+    "size": 268,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_1.bin.lz",
     "start": 5815756,
-    "size": 135,
+    "size": 136,
     "type": "map_layer1"
   },
   {
@@ -10673,13 +10673,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0.bin.lz",
     "start": 5815960,
-    "size": 315,
+    "size": 316,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_1.bin.lz",
     "start": 5816276,
-    "size": 158,
+    "size": 160,
     "type": "map_layer1"
   },
   {
@@ -10702,7 +10702,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FSparks_1.bin.lz",
     "start": 5816796,
-    "size": 125,
+    "size": 128,
     "type": "map_layer1"
   },
   {
@@ -10719,13 +10719,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0.bin.lz",
     "start": 5816992,
-    "size": 306,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_1.bin.lz",
     "start": 5817300,
-    "size": 155,
+    "size": 156,
     "type": "map_layer1"
   },
   {
@@ -10742,13 +10742,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_0.bin.lz",
     "start": 5817524,
-    "size": 414,
+    "size": 416,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_1.bin.lz",
     "start": 5817940,
-    "size": 195,
+    "size": 196,
     "type": "map_layer1"
   },
   {
@@ -10788,13 +10788,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0.bin.lz",
     "start": 5818924,
-    "size": 309,
+    "size": 312,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_1.bin.lz",
     "start": 5819236,
-    "size": 163,
+    "size": 164,
     "type": "map_layer1"
   },
   {
@@ -10811,7 +10811,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0.bin.lz",
     "start": 5819468,
-    "size": 350,
+    "size": 352,
     "type": "map_layer2"
   },
   {
@@ -10840,7 +10840,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_1.bin.lz",
     "start": 5820336,
-    "size": 151,
+    "size": 152,
     "type": "map_layer1"
   },
   {
@@ -10857,13 +10857,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0.bin.lz",
     "start": 5820556,
-    "size": 263,
+    "size": 264,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_1.bin.lz",
     "start": 5820820,
-    "size": 118,
+    "size": 120,
     "type": "map_layer1"
   },
   {
@@ -10880,7 +10880,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FEntrance_0.bin.lz",
     "start": 5821008,
-    "size": 450,
+    "size": 452,
     "type": "map_layer2"
   },
   {
@@ -10903,13 +10903,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0.bin.lz",
     "start": 5821820,
-    "size": 401,
+    "size": 404,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_1.bin.lz",
     "start": 5822224,
-    "size": 161,
+    "size": 164,
     "type": "map_layer1"
   },
   {
@@ -10932,7 +10932,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_1.bin.lz",
     "start": 5822752,
-    "size": 137,
+    "size": 140,
     "type": "map_layer1"
   },
   {
@@ -10949,7 +10949,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0.bin.lz",
     "start": 5822960,
-    "size": 258,
+    "size": 260,
     "type": "map_layer2"
   },
   {
@@ -10995,7 +10995,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Entrance_0.bin.lz",
     "start": 5823564,
-    "size": 294,
+    "size": 296,
     "type": "map_layer2"
   },
   {
@@ -11018,7 +11018,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0.bin.lz",
     "start": 5824080,
-    "size": 323,
+    "size": 324,
     "type": "map_layer2"
   },
   {
@@ -11064,13 +11064,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0.bin.lz",
     "start": 5825144,
-    "size": 335,
+    "size": 336,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_1.bin.lz",
     "start": 5825480,
-    "size": 147,
+    "size": 148,
     "type": "map_layer1"
   },
   {
@@ -11087,13 +11087,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_0.bin.lz",
     "start": 5825696,
-    "size": 305,
+    "size": 308,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_1.bin.lz",
     "start": 5826004,
-    "size": 161,
+    "size": 164,
     "type": "map_layer1"
   },
   {
@@ -11110,7 +11110,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0.bin.lz",
     "start": 5826236,
-    "size": 261,
+    "size": 264,
     "type": "map_layer2"
   },
   {
@@ -11133,13 +11133,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0.bin.lz",
     "start": 5826712,
-    "size": 282,
+    "size": 284,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_1.bin.lz",
     "start": 5826996,
-    "size": 149,
+    "size": 152,
     "type": "map_layer1"
   },
   {
@@ -11208,7 +11208,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_1.bin.lz",
     "start": 5828120,
-    "size": 295,
+    "size": 296,
     "type": "map_layer1"
   },
   {
@@ -11231,7 +11231,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_1.bin.lz",
     "start": 5828784,
-    "size": 217,
+    "size": 220,
     "type": "map_layer1"
   },
   {
@@ -11248,7 +11248,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0.bin.lz",
     "start": 5829104,
-    "size": 175,
+    "size": 176,
     "type": "map_layer2"
   },
   {
@@ -11271,7 +11271,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0.bin.lz",
     "start": 5829668,
-    "size": 226,
+    "size": 228,
     "type": "map_layer2"
   },
   {
@@ -11294,13 +11294,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0.bin.lz",
     "start": 5830108,
-    "size": 187,
+    "size": 188,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_1.bin.lz",
     "start": 5830296,
-    "size": 127,
+    "size": 128,
     "type": "map_layer1"
   },
   {
@@ -11317,13 +11317,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0.bin.lz",
     "start": 5830492,
-    "size": 202,
+    "size": 204,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_1.bin.lz",
     "start": 5830696,
-    "size": 141,
+    "size": 144,
     "type": "map_layer1"
   },
   {
@@ -11340,7 +11340,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0.bin.lz",
     "start": 5830908,
-    "size": 223,
+    "size": 224,
     "type": "map_layer2"
   },
   {
@@ -11369,7 +11369,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_1.bin.lz",
     "start": 5831544,
-    "size": 129,
+    "size": 132,
     "type": "map_layer1"
   },
   {
@@ -11392,7 +11392,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_1.bin.lz",
     "start": 5831988,
-    "size": 93,
+    "size": 96,
     "type": "map_layer1"
   },
   {
@@ -11409,13 +11409,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0.bin.lz",
     "start": 5832152,
-    "size": 275,
+    "size": 276,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_1.bin.lz",
     "start": 5832428,
-    "size": 110,
+    "size": 112,
     "type": "map_layer1"
   },
   {
@@ -11484,7 +11484,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BombWall_1.bin.lz",
     "start": 5833484,
-    "size": 277,
+    "size": 280,
     "type": "map_layer1"
   },
   {
@@ -11507,7 +11507,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Keatons_1.bin.lz",
     "start": 5833892,
-    "size": 302,
+    "size": 304,
     "type": "map_layer1"
   },
   {
@@ -11524,7 +11524,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0.bin.lz",
     "start": 5834264,
-    "size": 87,
+    "size": 88,
     "type": "map_layer2"
   },
   {
@@ -11547,7 +11547,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Cannons_0.bin.lz",
     "start": 5834860,
-    "size": 87,
+    "size": 88,
     "type": "map_layer2"
   },
   {
@@ -11570,13 +11570,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_0.bin.lz",
     "start": 5835416,
-    "size": 171,
+    "size": 172,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_1.bin.lz",
     "start": 5835588,
-    "size": 235,
+    "size": 236,
     "type": "map_layer1"
   },
   {
@@ -11593,7 +11593,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Right_0.bin.lz",
     "start": 5835892,
-    "size": 170,
+    "size": 172,
     "type": "map_layer2"
   },
   {
@@ -11616,13 +11616,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_0.bin.lz",
     "start": 5836368,
-    "size": 522,
+    "size": 524,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_1.bin.lz",
     "start": 5836892,
-    "size": 1102,
+    "size": 1104,
     "type": "map_layer1"
   },
   {
@@ -11639,7 +11639,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0.bin.lz",
     "start": 5838336,
-    "size": 310,
+    "size": 312,
     "type": "map_layer2"
   },
   {
@@ -11662,7 +11662,7 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Prison_0.bin.lz",
     "start": 5838840,
-    "size": 381,
+    "size": 384,
     "type": "map_layer2"
   },
   {
@@ -11685,13 +11685,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0.bin.lz",
     "start": 5839540,
-    "size": 243,
+    "size": 244,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_1.bin.lz",
     "start": 5839784,
-    "size": 113,
+    "size": 116,
     "type": "map_layer1"
   },
   {
@@ -11731,13 +11731,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleBridge_0_0.bin.lz",
     "start": 5840224,
-    "size": 498,
+    "size": 500,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleBridge_0_1.bin.lz",
     "start": 5840724,
-    "size": 143,
+    "size": 144,
     "type": "map_layer1"
   },
   {
@@ -11760,19 +11760,19 @@
   {
     "path": "assets/gAreaRoomMap_Vaati3_0_1.bin.lz",
     "start": 5841384,
-    "size": 85,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_Vaati3_1_0.bin.lz",
     "start": 5841472,
-    "size": 318,
+    "size": 320,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_Vaati3_1_1.bin.lz",
     "start": 5841792,
-    "size": 70,
+    "size": 72,
     "type": "map_layer1"
   },
   {
@@ -11784,55 +11784,55 @@
   {
     "path": "assets/gAreaRoomMap_Vaati2_0_1.bin.lz",
     "start": 5842184,
-    "size": 91,
+    "size": 92,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VaatisArms_0_0.bin.lz",
     "start": 5842276,
-    "size": 445,
+    "size": 448,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VaatisArms_0_1.bin.lz",
     "start": 5842724,
-    "size": 87,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VaatisArms_1_0.bin.lz",
     "start": 5842812,
-    "size": 445,
+    "size": 448,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VaatisArms_1_1.bin.lz",
     "start": 5843260,
-    "size": 87,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_VaatisArms_2_0.bin.lz",
     "start": 5843348,
-    "size": 445,
+    "size": 448,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_VaatisArms_2_1.bin.lz",
     "start": 5843796,
-    "size": 87,
+    "size": 88,
     "type": "map_layer1"
   },
   {
     "path": "tilesets/gAreaTileset_Vaati2_0_3.bin.lz",
     "start": 5843884,
-    "size": 754,
+    "size": 756,
     "type": "tileset_mapping3"
   },
   {
     "path": "tilesets/gAreaTileset_DarkHyruleCastleOutside_0_0.4bpp.lz",
     "start": 5844640,
-    "size": 8175,
+    "size": 8176,
     "type": "tileset"
   },
   {
@@ -11856,19 +11856,19 @@
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastleOutside_1.bin.lz",
     "start": 5873276,
-    "size": 3129,
+    "size": 3132,
     "type": "metatiles_tileset1"
   },
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastleOutside_2.bin.lz",
     "start": 5876408,
-    "size": 729,
+    "size": 732,
     "type": "metatiles_tile_types2"
   },
   {
     "path": "assets/gAreaMetatiles_DarkHyruleCastleOutside_3.bin.lz",
     "start": 5877140,
-    "size": 459,
+    "size": 460,
     "type": "metatiles_tile_types1"
   },
   {
@@ -11880,13 +11880,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_0_1.bin.lz",
     "start": 5878136,
-    "size": 109,
+    "size": 112,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_1_0.bin.lz",
     "start": 5878248,
-    "size": 541,
+    "size": 544,
     "type": "map_layer2"
   },
   {
@@ -11898,13 +11898,13 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_2_0.bin.lz",
     "start": 5878916,
-    "size": 234,
+    "size": 236,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_2_1.bin.lz",
     "start": 5879152,
-    "size": 347,
+    "size": 348,
     "type": "map_layer1"
   },
   {
@@ -11916,19 +11916,19 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_3_1.bin.lz",
     "start": 5879824,
-    "size": 446,
+    "size": 448,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_4_0.bin.lz",
     "start": 5880272,
-    "size": 139,
+    "size": 140,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_4_1.bin.lz",
     "start": 5880412,
-    "size": 225,
+    "size": 228,
     "type": "map_layer1"
   },
   {
@@ -11940,19 +11940,19 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_5_1.bin.lz",
     "start": 5880904,
-    "size": 363,
+    "size": 364,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_6_0.bin.lz",
     "start": 5881268,
-    "size": 431,
+    "size": 432,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_6_1.bin.lz",
     "start": 5881700,
-    "size": 581,
+    "size": 584,
     "type": "map_layer1"
   },
   {
@@ -11964,31 +11964,31 @@
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_7_1.bin.lz",
     "start": 5882668,
-    "size": 477,
+    "size": 480,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_8_0.bin.lz",
     "start": 5883148,
-    "size": 194,
+    "size": 196,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_DarkHyruleCastleOutside_8_1.bin.lz",
     "start": 5883344,
-    "size": 194,
+    "size": 196,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_47_0_0.bin.lz",
     "start": 5883540,
-    "size": 293,
+    "size": 296,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_47_0_1.bin.lz",
     "start": 5883836,
-    "size": 95,
+    "size": 96,
     "type": "map_layer1"
   },
   {
@@ -12000,7 +12000,7 @@
   {
     "path": "assets/gAreaRoomMap_47_1_1.bin.lz",
     "start": 5884224,
-    "size": 110,
+    "size": 112,
     "type": "map_layer1"
   },
   {
@@ -12012,13 +12012,13 @@
   {
     "path": "assets/gAreaRoomMap_47_2_1.bin.lz",
     "start": 5884832,
-    "size": 153,
+    "size": 156,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_45_0_0.bin.lz",
     "start": 5884988,
-    "size": 306,
+    "size": 308,
     "type": "map_layer2"
   },
   {
@@ -12030,7 +12030,7 @@
   {
     "path": "assets/gAreaRoomMap_46_0_0.bin.lz",
     "start": 5885364,
-    "size": 387,
+    "size": 388,
     "type": "map_layer2"
   },
   {
@@ -12042,19 +12042,19 @@
   {
     "path": "assets/gAreaRoomMap_46_1_0.bin.lz",
     "start": 5885864,
-    "size": 539,
+    "size": 540,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_46_1_1.bin.lz",
     "start": 5886404,
-    "size": 173,
+    "size": 176,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_46_2_0.bin.lz",
     "start": 5886580,
-    "size": 373,
+    "size": 376,
     "type": "map_layer2"
   },
   {
@@ -12066,7 +12066,7 @@
   {
     "path": "assets/gAreaRoomMap_46_3_0.bin.lz",
     "start": 5887108,
-    "size": 330,
+    "size": 332,
     "type": "map_layer2"
   },
   {
@@ -12078,37 +12078,37 @@
   {
     "path": "assets/gAreaRoomMap_46_4_0.bin.lz",
     "start": 5887596,
-    "size": 431,
+    "size": 432,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_46_4_1.bin.lz",
     "start": 5888028,
-    "size": 163,
+    "size": 164,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_46_5_0.bin.lz",
     "start": 5888192,
-    "size": 334,
+    "size": 336,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_46_5_1.bin.lz",
     "start": 5888528,
-    "size": 123,
+    "size": 124,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_46_6_0.bin.lz",
     "start": 5888652,
-    "size": 626,
+    "size": 628,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_46_6_1.bin.lz",
     "start": 5889280,
-    "size": 269,
+    "size": 272,
     "type": "map_layer1"
   },
   {
@@ -12120,7 +12120,7 @@
   {
     "path": "assets/gAreaRoomMap_46_7_1.bin.lz",
     "start": 5889928,
-    "size": 122,
+    "size": 124,
     "type": "map_layer1"
   },
   {
@@ -12138,19 +12138,19 @@
   {
     "path": "assets/gAreaRoomMap_4D_0_0.bin.lz",
     "start": 5892108,
-    "size": 1482,
+    "size": 1484,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_4D_0_1.bin.lz",
     "start": 5893592,
-    "size": 637,
+    "size": 640,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_57_0_0.bin.lz",
     "start": 5894232,
-    "size": 1389,
+    "size": 1392,
     "type": "map_layer2"
   },
   {
@@ -12162,67 +12162,67 @@
   {
     "path": "assets/gAreaRoomMap_5F_0_0.bin.lz",
     "start": 5896244,
-    "size": 965,
+    "size": 968,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_5F_0_1.bin.lz",
     "start": 5897212,
-    "size": 646,
+    "size": 648,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_67_0_0.bin.lz",
     "start": 5897860,
-    "size": 205,
+    "size": 208,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_67_0_1.bin.lz",
     "start": 5898068,
-    "size": 57,
+    "size": 60,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_6F_0_0.bin.lz",
     "start": 5898128,
-    "size": 1221,
+    "size": 1224,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_6F_0_1.bin.lz",
     "start": 5899352,
-    "size": 853,
+    "size": 856,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_77_0_0.bin.lz",
     "start": 5900208,
-    "size": 1530,
+    "size": 1532,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_77_0_1.bin.lz",
     "start": 5901740,
-    "size": 1109,
+    "size": 1112,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_7F_0_0.bin.lz",
     "start": 5902852,
-    "size": 1285,
+    "size": 1288,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_7F_0_1.bin.lz",
     "start": 5904140,
-    "size": 814,
+    "size": 816,
     "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_87_0_0.bin.lz",
     "start": 5904956,
-    "size": 1985,
+    "size": 1988,
     "type": "map_layer2"
   },
   {
@@ -12234,13 +12234,13 @@
   {
     "path": "assets/gAreaRoomMap_8F_0_0.bin.lz",
     "start": 5907684,
-    "size": 1523,
+    "size": 1524,
     "type": "map_layer2"
   },
   {
     "path": "assets/gAreaRoomMap_8F_0_1.bin.lz",
     "start": 5909208,
-    "size": 935,
+    "size": 936,
     "type": "map_layer1"
   }
 ]

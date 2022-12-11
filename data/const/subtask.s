@@ -123,8 +123,8 @@ gUnk_08128FC0:: @ 08128FC0
 gUnk_08128FD8:: @ 08128FD8
 	.incbin "data_08127280/gUnk_08128FD8.bin"
 
-gUnk_08128FF0:: @ 08128FF0
-	.incbin "data_08127280/gUnk_08128FF0.bin"
+gDungeonNames:: @ 08128FF0
+	.incbin "data_08127280/gDungeonNames.bin"
 
 gUnk_08129004:: @ 08129004
 	.incbin "data_08127280/gUnk_08129004.bin"

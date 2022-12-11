@@ -69,7 +69,7 @@ param_2:    0: visited overworld area name
             1: dungeon name
 */
 void ShowAreaName(u32 id, u32 type) {
-    extern u16 gUnk_08128FF0[];
+    extern u16 gDungeonNames[];
     extern Font gUnk_08128FD8;
     extern Font gUnk_08128FC0;
     u32 textIndexOrPtr;
@@ -85,7 +85,7 @@ void ShowAreaName(u32 id, u32 type) {
             font = &gUnk_08128FC0;
             break;
         case 1:
-            textIndexOrPtr = gUnk_08128FF0[id];
+            textIndexOrPtr = gDungeonNames[id];
             font = &gUnk_08128FD8;
             break;
     }
