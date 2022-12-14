@@ -22,8 +22,8 @@ gAreaTileset_MinishWoods_0:: @ 08100CF4
 	tileset_palette_set 28, 1
 
 gAreaTileset_MinishWoods_1:: @ 08100D24
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_3, 0x6000000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_4, 0x6008000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_1_0, 0x6000000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_1_1, 0x6008000, 0x2000, 1
 	tileset_palette_set 21, 1
 
 gAreaTilesets_MinishWoods:: @ 08100D48
@@ -31,36 +31,36 @@ gAreaTilesets_MinishWoods:: @ 08100D48
 	.4byte gAreaTileset_MinishWoods_1
 
 gAreaTileset_LakeHylia_0:: @ 08100D50
-	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_LakeHylia_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_LakeHylia_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_LakeHylia_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 39, 1
 
 gAreaTilesets_LakeHylia:: @ 08100D80
 	.4byte gAreaTileset_LakeHylia_0
 
 gAreaTileset_CastorWilds_0:: @ 08100D84
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 19, 1
 
 gAreaTilesets_CastorWilds:: @ 08100DB4
 	.4byte gAreaTileset_CastorWilds_0
 
 gAreaTileset_Ruins_0:: @ 08100DB8
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 29, 1
 
 gAreaTilesets_Ruins:: @ 08100DE8
 	.4byte gAreaTileset_Ruins_0
 
 gAreaTileset_HyruleTown_0:: @ 08100DEC
-	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleTown_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleTown_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleTown_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 27, 1
 
 gAreaTilesets_HyruleTown:: @ 08100E1C
@@ -76,33 +76,33 @@ gAreaTilesets_FestivalTown:: @ 08100E50
 	.4byte gAreaTileset_FestivalTown_0
 
 gAreaTileset_MtCrenel_0:: @ 08100E54
-	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MtCrenel_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MtCrenel_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MtCrenel_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 30, 1
 
 gAreaTilesets_MtCrenel:: @ 08100E84
 	.4byte gAreaTileset_MtCrenel_0
 
 gAreaTileset_HyruleField_0:: @ 08100E88
-	tileset_tiles offset_gAreaTileset_HyruleField_7_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DigCaves1_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_7_1, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_2_3, 0x600F000, 0x800, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_3, 0x600F000, 0x800, 1
 	tileset_palette_set 16, 1
 
 gAreaTileset_HyruleField_1:: @ 08100EC4
-	tileset_tiles offset_gAreaTileset_HyruleField_5_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_1_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_1_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_5_1, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_2_3, 0x600F000, 0x800, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_1_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_3, 0x600F000, 0x800, 1
 	tileset_palette_set 67, 1
 
 gAreaTileset_HyruleField_2:: @ 08100F00
-	tileset_tiles offset_gAreaTileset_HyruleField_6_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_2_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_6_1, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_2_3, 0x600F000, 0x800, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_2_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_3, 0x600F000, 0x800, 1
 	tileset_palette_set 46, 1
 
 gAreaTilesets_HyruleField:: @ 08100F3C
@@ -139,17 +139,17 @@ gAreaTilesets_RoyalValley:: @ 08100FEC
 	.4byte gAreaTileset_RoyalValley_0
 
 gAreaTileset_VeilFalls_0:: @ 08100FF0
-	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsDigCave_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 44, 1
 
 gAreaTilesets_VeilFalls:: @ 08101020
 	.4byte gAreaTileset_VeilFalls_0
 
 gAreaTileset_VeilFallsTop_0:: @ 08101024
-	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_1, 0x6004000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 44, 1
 
@@ -167,30 +167,30 @@ gAreaTilesets_Beanstalks:: @ 08101094
 	.4byte gAreaTileset_Beanstalks_0
 
 gAreaTileset_CrenelCaves_0:: @ 08101098
-	tileset_tiles offset_gAreaTileset_45_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 62, 1
 
 gAreaTilesets_CrenelCaves:: @ 081010C8
 	.4byte gAreaTileset_CrenelCaves_0
 
 gAreaTileset_GreatFairies_0:: @ 081010CC
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 92, 1
 
 gAreaTileset_GreatFairies_1:: @ 081010FC
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 102, 1
 
 gAreaTileset_GreatFairies_2:: @ 0810112C
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_GreatFairies_2_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_GreatFairies_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 103, 1
 
 gAreaTilesets_GreatFairies:: @ 0810115C
@@ -202,17 +202,17 @@ gAreaTileset_LakeWoodsCave_0:: @ 08101168
 	tileset_tiles offset_gAreaTileset_MinishWoods_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_MinishWoods_0_1, 0x6004000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_MinishWoods_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_3, 0x6001000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_LakeWoodsCave_0_4, 0x6009000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_1_0, 0x6001000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_MinishWoods_1_1, 0x6009000, 0x2000, 1
 	tileset_palette_set 21, 1
 
 gAreaTilesets_LakeWoodsCave:: @ 081011B0
 	.4byte gAreaTileset_LakeWoodsCave_0
 
 gAreaTileset_HyruleDigCaves_0:: @ 081011B4
-	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleTown_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleTown_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleTown_0_2, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_3, 0x6001000, 0x2000, 1
 	tileset_tiles offset_gAreaTileset_HyruleDigCaves_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 54, 1
@@ -221,64 +221,64 @@ gAreaTilesets_HyruleDigCaves:: @ 081011FC
 	.4byte gAreaTileset_HyruleDigCaves_0
 
 gAreaTileset_DigCaves1_0:: @ 08101200
-	tileset_tiles offset_gAreaTileset_HyruleField_7_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DigCaves1_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyruleField_7_1, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DigCaves1_0_3, 0x6001000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_DigCaves1_0_4, 0x6009000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HyruleField_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DigCaves_0_3, 0x6001000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_DigCaves_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 85, 1
 
 gAreaTilesets_DigCaves1:: @ 08101248
 	.4byte gAreaTileset_DigCaves1_0
 
 gAreaTileset_CrenelDigCave_0:: @ 0810124C
-	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsDigCave_0_3, 0x6001000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsDigCave_0_4, 0x6009000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_MtCrenel_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MtCrenel_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MtCrenel_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_3, 0x6001000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 33, 1
 
 gAreaTilesets_CrenelDigCave:: @ 08101294
 	.4byte gAreaTileset_CrenelDigCave_0
 
 gAreaTileset_VeilFallsDigCave_0:: @ 08101298
-	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsTop_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsDigCave_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsDigCave_0_3, 0x6001000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_VeilFallsDigCave_0_4, 0x6009000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_VeilFalls_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_3, 0x6001000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_CrenelDigCave_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 99, 1
 
 gAreaTilesets_VeilFallsDigCave:: @ 081012E0
 	.4byte gAreaTileset_VeilFallsDigCave_0
 
 gAreaTileset_CastorWildsDigCave_0:: @ 081012E4
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_3, 0x6001000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_4, 0x6009000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWildsDigCave_0_3, 0x6001000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_CastorWildsDigCave_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 100, 1
 
 gAreaTilesets_CastorWildsDigCave:: @ 0810132C
 	.4byte gAreaTileset_CastorWildsDigCave_0
 
 gAreaTileset_OuterFortressOfWinds_0:: @ 08101330
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_3, 0x6001000, 0x2000, 1
-	tileset_tiles offset_gAreaTileset_OuterFortressOfWinds_0_4, 0x6009000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWilds_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastorWildsDigCave_0_3, 0x6001000, 0x2000, 1
+	tileset_tiles offset_gAreaTileset_CastorWildsDigCave_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 167, 1
 
 gAreaTilesets_OuterFortressOfWinds:: @ 08101378
 	.4byte gAreaTileset_OuterFortressOfWinds_0
 
 gAreaTileset_HyliaDigCaves_0:: @ 0810137C
-	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_LakeHylia_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_LakeHylia_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_LakeHylia_0_2, 0x6008000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_3, 0x6001000, 0x2000, 1
 	tileset_tiles offset_gAreaTileset_HyliaDigCaves_0_4, 0x6009000, 0x2000, 1
 	tileset_palette_set 20, 1
@@ -312,18 +312,18 @@ gAreaTilesets_MelarisMine:: @ 08101460
 	.4byte gAreaTileset_MelarisMine_0
 
 gAreaTileset_MinishPaths_0:: @ 08101464
-	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_0_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 18, 1
 
 gAreaTileset_MinishPaths_1:: @ 08101488
-	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_0_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 63, 1
 
 gAreaTileset_MinishPaths_2:: @ 081014AC
-	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_0_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 64, 1
 
 gAreaTilesets_MinishPaths:: @ 081014D0
@@ -337,13 +337,13 @@ gAreaTileset_CrenelMinishPaths_0:: @ 081014DC
 	tileset_palette_set 65, 1
 
 gAreaTileset_CrenelMinishPaths_1:: @ 08101500
-	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_2_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_1_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_1_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 66, 1
 
 gAreaTileset_CrenelMinishPaths_2:: @ 08101524
-	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_2_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_1_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_1_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 93, 1
 
 gAreaTilesets_CrenelMinishPaths:: @ 08101548
@@ -503,28 +503,28 @@ gAreaTilesets_TownMinishHoles:: @ 0810185C
 gAreaTileset_HouseInteriors1_0:: @ 08101880
 	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 51, 1
 
 gAreaTilesets_HouseInteriors1:: @ 081018B0
 	.4byte gAreaTileset_HouseInteriors1_0
 
 gAreaTileset_HouseInteriors2_0:: @ 081018B4
-	tileset_tiles offset_gAreaTileset_HouseInteriors2_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HouseInteriors2_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors2_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors2_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 52, 1
 
 gAreaTileset_HouseInteriors2_1:: @ 081018E4
-	tileset_tiles offset_gAreaTileset_HouseInteriors2_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HouseInteriors2_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors2_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors2_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 168, 1
 
 gAreaTileset_HouseInteriors2_2:: @ 08101914
-	tileset_tiles offset_gAreaTileset_HouseInteriors2_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_HouseInteriors2_2_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors2_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors2_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 157, 1
 
 gAreaTilesets_HouseInteriors2:: @ 08101944
@@ -535,7 +535,7 @@ gAreaTilesets_HouseInteriors2:: @ 08101944
 gAreaTileset_HouseInteriors4_0:: @ 08101950
 	tileset_tiles offset_gAreaTileset_HouseInteriors4_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HouseInteriors4_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 89, 1
 
 gAreaTilesets_HouseInteriors4:: @ 08101980
@@ -544,7 +544,7 @@ gAreaTilesets_HouseInteriors4:: @ 08101980
 gAreaTileset_HouseInteriors3_0:: @ 08101984
 	tileset_tiles offset_gAreaTileset_HouseInteriors3_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HouseInteriors3_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 53, 1
 
 gAreaTilesets_HouseInteriors3:: @ 081019B4
@@ -553,46 +553,46 @@ gAreaTilesets_HouseInteriors3:: @ 081019B4
 gAreaTileset_TreeInteriors_0:: @ 081019B8
 	tileset_tiles offset_gAreaTileset_TreeInteriors_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_TreeInteriors_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 13, 1
 
 gAreaTilesets_TreeInteriors:: @ 081019E8
 	.4byte gAreaTileset_TreeInteriors_0
 
 gAreaTileset_Dojos_0:: @ 081019EC
-	tileset_tiles offset_gAreaTileset_Dojos_5_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_Dojos_5_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 150, 1
 
 gAreaTileset_Dojos_1:: @ 08101A1C
-	tileset_tiles offset_gAreaTileset_Dojos_5_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_Dojos_5_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 149, 1
 
 gAreaTileset_Dojos_2:: @ 08101A4C
-	tileset_tiles offset_gAreaTileset_Dojos_5_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_Dojos_5_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 148, 1
 
 gAreaTileset_Dojos_3:: @ 08101A7C
-	tileset_tiles offset_gAreaTileset_Dojos_5_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_Dojos_5_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 146, 1
 
 gAreaTileset_Dojos_4:: @ 08101AAC
-	tileset_tiles offset_gAreaTileset_Dojos_5_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_Dojos_5_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 147, 1
 
 gAreaTileset_Dojos_5:: @ 08101ADC
-	tileset_tiles offset_gAreaTileset_Dojos_5_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_Dojos_5_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Dojos_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 45, 1
 
 gAreaTilesets_Dojos:: @ 08101B0C
@@ -604,33 +604,33 @@ gAreaTilesets_Dojos:: @ 08101B0C
 	.4byte gAreaTileset_Dojos_5
 
 gAreaTileset_MinishCracks_0:: @ 08101B24
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 153, 1
 
 gAreaTileset_MinishCracks_1:: @ 08101B54
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 152, 1
 
 gAreaTileset_MinishCracks_2:: @ 08101B84
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 154, 1
 
 gAreaTileset_MinishCracks_3:: @ 08101BB4
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 34, 1
 
 gAreaTileset_MinishCracks_4:: @ 08101BE4
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishCracks_4_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishCracks_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 151, 1
 
 gAreaTilesets_MinishCracks:: @ 08101C14
@@ -652,7 +652,7 @@ gAreaTilesets_ArmosInteriors:: @ 08101C58
 gAreaTileset_MinishRafters_0:: @ 08101C5C
 	tileset_tiles offset_gAreaTileset_MinishRafters_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_MinishRafters_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 121, 1
 
 gAreaTilesets_MinishRafters:: @ 08101C8C
@@ -670,7 +670,7 @@ gAreaTilesets_GoronCave:: @ 08101CC0
 gAreaTileset_WindTribeTower_0:: @ 08101CC4
 	tileset_tiles offset_gAreaTileset_WindTribeTower_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_WindTribeTower_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 126, 1
 
 gAreaTilesets_WindTribeTower:: @ 08101CF4
@@ -695,18 +695,18 @@ gAreaTilesets_MinishCaves:: @ 08101D5C
 	.4byte gAreaTileset_MinishCaves_0
 
 gAreaTileset_CastleGardenMinishHoles_0:: @ 08101D60
-	tileset_tiles offset_gAreaTileset_37_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_37_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_37_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastleGardenMinishHoles_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastleGardenMinishHoles_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastleGardenMinishHoles_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 159, 1
 
 gAreaTilesets_CastleGardenMinishHoles:: @ 08101D90
 	.4byte gAreaTileset_CastleGardenMinishHoles_0
 
 gAreaTileset_37_0:: @ 08101D94
-	tileset_tiles offset_gAreaTileset_37_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_37_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_37_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastleGardenMinishHoles_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastleGardenMinishHoles_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CastleGardenMinishHoles_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 160, 1
 
 gAreaTilesets_37:: @ 08101DC4
@@ -715,34 +715,34 @@ gAreaTilesets_37:: @ 08101DC4
 gAreaTileset_EzloCutscene_0:: @ 08101DC8
 	tileset_tiles offset_gAreaTileset_EzloCutscene_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_EzloCutscene_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_EzloCutscene_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_HouseInteriors1_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 161, 1
 
 gAreaTilesets_EzloCutscene:: @ 08101DF8
 	.4byte gAreaTileset_EzloCutscene_0
 
 gAreaTileset_HyruleTownUnderground_0:: @ 08101DFC
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 109, 1
 
 gAreaTilesets_HyruleTownUnderground:: @ 08101E2C
 	.4byte gAreaTileset_HyruleTownUnderground_0
 
 gAreaTileset_SimonsSimulation_0:: @ 08101E30
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 15, 1
 
 gAreaTilesets_SimonsSimulation:: @ 08101E60
 	.4byte gAreaTileset_SimonsSimulation_0
 
 gAreaTileset_40_0:: @ 08101E64
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_SimonsSimulation_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_40_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 15, 1
 
 gAreaTilesets_40:: @ 08101E94
@@ -831,9 +831,9 @@ gAreaTilesets_TempleOfDroplets:: @ 08102074
 	.4byte gAreaTileset_TempleOfDroplets_0
 
 gAreaTileset_61_0:: @ 08102078
-	tileset_tiles offset_gAreaTileset_61_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_61_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_61_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Null61_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Null61_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_Null61_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 104, 1
 
 gAreaTilesets_61:: @ 081020A8
@@ -858,10 +858,10 @@ gAreaTilesets_RoyalCrypt:: @ 08102110
 	.4byte gAreaTileset_RoyalCrypt_0
 
 gAreaTileset_PalaceOfWinds_GyorgTornado:: @ 08102114
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_3, 0x600F000, 0x800, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_3, 0x600F000, 0x800, 1
 	tileset_palette_set 56, 1
 
 gAreaTilesets_PalaceOfWinds:: @ 08102150
@@ -904,9 +904,9 @@ gAreaTilesets_SanctuaryEntrance:: @ 08102220
 	.4byte gAreaTileset_SanctuaryEntrance_0
 
 gAreaTileset_DarkHyruleCastle_1FEntrance:: @ 08102224
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 59, 1
 
 gAreaTilesets_DarkHyruleCastle:: @ 08102254
@@ -959,45 +959,45 @@ gAreaTilesets_Vaati2:: @ 08102364
 	.4byte gAreaTileset_Vaati2_0
 
 gAreaTileset_45_0:: @ 08102368
-	tileset_tiles offset_gAreaTileset_45_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 35, 1
 
 gAreaTilesets_45:: @ 08102398
 	.4byte gAreaTileset_45_0
 
 gAreaTileset_CastorCaves_0:: @ 0810239C
-	tileset_tiles offset_gAreaTileset_45_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 101, 1
 
 gAreaTilesets_CastorCaves:: @ 081023CC
 	.4byte gAreaTileset_CastorCaves_0
 
 gAreaTileset_Caves_0:: @ 081023D0
-	tileset_tiles offset_gAreaTileset_45_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 131, 1
 
 gAreaTilesets_Caves:: @ 08102400
 	.4byte gAreaTileset_Caves_0
 
 gAreaTileset_VeilFallsCaves_0:: @ 08102404
-	tileset_tiles offset_gAreaTileset_45_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 132, 1
 
 gAreaTilesets_VeilFallsCaves:: @ 08102434
 	.4byte gAreaTileset_VeilFallsCaves_0
 
 gAreaTileset_RoyalValleyGraves_0:: @ 08102438
-	tileset_tiles offset_gAreaTileset_45_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_45_0_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_CrenelCaves_0_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 133, 1
 
 gAreaTilesets_RoyalValleyGraves:: @ 08102468

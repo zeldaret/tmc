@@ -1616,6 +1616,7 @@ SECTIONS {
 #endif
         src/staffroll.o(.rodata);
         data/const/staffroll.o(.rodata);
+        src/data/areaMetadata.o(.rodata);
         src/menu/kinstoneMenu.o(.rodata);
         src/menu/figurineMenu.o(.rodata);
         data/gfx/figurines.o(.rodata);
