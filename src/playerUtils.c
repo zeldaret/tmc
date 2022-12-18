@@ -1763,7 +1763,54 @@ u32 sub_0807953C(void) {
     return gPlayerState.playerInput.newInput & tmp;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079550.inc", u32 sub_08079550(void))
+bool32 sub_08079550(void) {
+    const s8* ptr;
+    u32 uVar3;
+    u32 tilePos2;
+    u32 tilePos1;
+
+    if (gDiggingCaveEntranceTransition.isDiggingCave == 0) {
+        if ((gPlayerState.dash_state == 0 || (gPlayerState.flags & PL_BURNING)) &&
+            (gPlayerState.swim_state != 0 || (gPlayerState.sword_state & 0x40) ||
+             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & 0x80))) {
+            gPlayerEntity.subtimer = 0;
+            return FALSE;
+        }
+        if (sub_08079778()) {
+            ptr = &gUnk_0811C100[gPlayerEntity.animationState & 6];
+            if ((gPlayerEntity.animationState & 2) != 0) {
+                tilePos1 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -(gPlayerEntity.hitbox)->unk2[1]);
+                tilePos2 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], +(gPlayerEntity.hitbox)->unk2[1]);
+            } else {
+
+                tilePos1 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -(gPlayerEntity.hitbox)->unk2[2], -ptr[1]);
+                tilePos2 = COORD_TO_TILE_OFFSET(&gPlayerEntity, (gPlayerEntity.hitbox)->unk2[2], -ptr[1]);
+            }
+
+            uVar3 = sub_080B1AE0(tilePos1, gPlayerEntity.collisionLayer);
+            uVar3 = sub_08007DD6(uVar3, gUnk_0811C1E8[gPlayerEntity.animationState >> 1]);
+            if (uVar3 != 0) {
+                uVar3 = sub_080B1AE0(tilePos2, gPlayerEntity.collisionLayer);
+                uVar3 = sub_08007DD6(uVar3, gUnk_0811C1E8[gPlayerEntity.animationState >> 1]);
+                if (uVar3 != 0) {
+                    gPlayerState.pushedObject |= 0x80;
+                    if (gPlayerState.dash_state == 0 && (++gPlayerEntity.subtimer <= 5)) {
+                        return FALSE;
+                    }
+
+                    gPlayerEntity.animationState = uVar3 - 1;
+                    gPlayerEntity.action = 4;
+                    gPlayerEntity.subAction = 0;
+                    COLLISION_OFF(&gPlayerEntity);
+                    gPlayerState.jump_status = 0x81;
+                    DoPlayerAction(&gPlayerEntity);
+                    return TRUE;
+                }
+            }
+        }
+    }
+    return FALSE;
+}
 
 void sub_08079708(Entity* this) {
     gPlayerState.framestate = PL_STATE_DIE;
