@@ -26,12 +26,12 @@ script_0800B4D4:
 script_0800B4F0:
 	EndBlock
 	ClearSyncFlag 0x00000008
-	_0807EDD4 0x0134, 0x0288
+	MoveTo 0x0134, 0x0288
 	SetAnimationState 0x0004
 	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTarget TEXT_LON_LON, 0x16
 	WaitUntilTextboxCloses
-	_0807EDD4 0x0158, 0x0288
+	MoveTo 0x0158, 0x0288
 	DoPostScriptAction 0x0000
 	SetAnimationState 0x0000
 	Wait 0x000a

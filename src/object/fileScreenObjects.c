@@ -545,7 +545,7 @@ static u32 sub_0808EF6C(Entity* this) {
         var7 = this->field_0x6c.HWORD;
     }
     this->speed = var7;
-    this->direction = sub_080045DA(var0, var2) >> 3;
+    this->direction = CalculateDirectionFromOffsets(var0, var2) >> 3;
     LinearMoveUpdate(this);
     return 1;
 }

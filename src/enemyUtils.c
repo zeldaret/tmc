@@ -9,7 +9,7 @@
 #include "projectile.h"
 #include "save.h"
 
-extern void sub_08049CF4(Entity*);
+extern void SetRoomTrackerFlag(Entity*);
 
 extern EnemyDefinition gEnemyDefinitions[];
 
@@ -191,7 +191,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
     } else {
         int tmp = parent->base.gustJarState & 2;
         if (tmp == 0) {
-            sub_08049CF4(&(parent->base));
+            SetRoomTrackerFlag(&(parent->base));
             gSave.unk50++;
             parent->base.gustJarState |= 2;
             parent->base.timer = 255;

@@ -18,7 +18,7 @@ script_0800FB6C:
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0200
-	_0807EDD4 0x00b8, 0x0318
+	MoveTo 0x00b8, 0x0318
 	SetEntityPositionRelative 0x00a0, 0x0260
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0001
@@ -36,9 +36,9 @@ script_0800FBAE:
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0200
-	_0807EDD4 0x00a0, 0x0268
-	_0807EDD4 0x0070, 0x0268
-	_0807EDD4 0x0070, 0x0208
+	MoveTo 0x00a0, 0x0268
+	MoveTo 0x0070, 0x0268
+	MoveTo 0x0070, 0x0208
 	SetEntityPositionRelative 0x0078, 0x01a8
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0001
@@ -55,7 +55,7 @@ script_0800FC06:
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0200
-	_0807EDD4 0x00f8, 0x01a8
+	MoveTo 0x00f8, 0x01a8
 	SetEntityPositionRelative 0x0118, 0x01c8
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
@@ -72,7 +72,7 @@ script_0800FC52:
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0200
-	_0807EDD4 0x0118, 0x0260
+	MoveTo 0x0118, 0x0260
 	SetEntityPositionRelative 0x00f8, 0x0270
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0001

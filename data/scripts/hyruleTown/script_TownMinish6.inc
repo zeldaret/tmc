@@ -21,7 +21,7 @@ script_0800EFFE:
 	Wait 0x0004
 	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000004
-	_0807EDD4 0x0088, 0x0040
+	MoveTo 0x0088, 0x0040
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000008
@@ -34,7 +34,7 @@ script_0800EFFE:
 	Wait 0x0004
 	SetAnimationState 0x0006
 	CallWithArg sub_0806AF60, 0x00000004
-	_0807EDD4 0x0068, 0x0040
+	MoveTo 0x0068, 0x0040
 	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x007b
 	JumpIf script_0800F082

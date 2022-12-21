@@ -536,7 +536,7 @@ void sub_0806D7C4(Entity* this, ScriptExecutionContext* context) {
     this->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0x18;
     entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
-        sub_0807DEDC(this, context, entity->x.HALF.HI, entity->y.HALF.HI);
+        LookAt(this, context, entity->x.HALF.HI, entity->y.HALF.HI);
     }
 }
 
@@ -547,7 +547,7 @@ void sub_0806D804(Entity* this, ScriptExecutionContext* context) {
         this->y.HALF.HI = entity->y.HALF.HI - 0x10;
         this->spritePriority.b1 = 0;
     }
-    sub_0807DEDC(this, context, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0x10);
+    LookAt(this, context, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0x10);
 }
 
 void sub_0806D858(Entity* this) {

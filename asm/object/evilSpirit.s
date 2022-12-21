@@ -163,7 +163,7 @@ sub_08086370: @ 0x08086370
 	ldr r1, [r2, #0x30]
 	ldr r2, [r6, #0x30]
 	subs r1, r1, r2
-	bl sub_080045DA
+	bl CalculateDirectionFromOffsets
 	movs r1, #0x80
 	eors r0, r1
 	strb r0, [r6, #0x15]
@@ -179,7 +179,7 @@ _080863B6:
 	ldr r1, [r2, #0x30]
 	ldr r2, [r6, #0x30]
 	subs r1, r1, r2
-	bl sub_080045DA
+	bl CalculateDirectionFromOffsets
 	adds r1, r0, #0
 	movs r0, #0x80
 	eors r1, r0
@@ -432,7 +432,7 @@ sub_08086594: @ 0x08086594
 	ldr r1, [r1]
 	ldr r2, [r7, #0x30]
 	subs r1, r1, r2
-	bl sub_080045DA
+	bl CalculateDirectionFromOffsets
 	strb r0, [r7, #0x15]
 	adds r0, r7, #0
 	adds r0, #0x41

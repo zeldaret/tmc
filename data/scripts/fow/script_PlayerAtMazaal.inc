@@ -4,7 +4,7 @@ SCRIPT_START script_PlayerAtMazaal
 	SetAnimationState 0x0000
 	SetEntitySpeed 0x0140
 	EndBlock
-	_0807EDD4 0x00b8, 0x0094
+	MoveTo 0x00b8, 0x0094
 	Wait 0x0008
 	DoPostScriptAction 0x0000
 	Wait 0x0008

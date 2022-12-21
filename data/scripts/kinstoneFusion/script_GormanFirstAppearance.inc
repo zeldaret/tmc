@@ -9,13 +9,13 @@ SCRIPT_START script_GormanFirstAppearance
 script_0800BA8E:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BA8E
-	_0807EDD4 0x02f8, 0x0350
+	MoveTo 0x02f8, 0x0350
 	Wait 0x001e
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	SetAnimationState 0x0006
 	Wait 0x001e
-	_0807EDD4 0x02f0, 0x0350
+	MoveTo 0x02f0, 0x0350
 	Wait 0x001e
 	MessageNoOverlap TEXT_KINSTONE, 0x00
 	WaitUntilTextboxCloses

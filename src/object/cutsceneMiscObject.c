@@ -714,7 +714,7 @@ void sub_0809567C(CutsceneMiscObjectEntity* this) {
     super->action = 3;
     super->subAction = 1;
     super->speed = 0x400;
-    super->direction = sub_080045DA(super->x.WORD - ((s16)this->px << 16), super->y.WORD - ((s16)this->py << 16));
+    super->direction = CalculateDirectionFromOffsets(super->x.WORD - ((s16)this->px << 16), super->y.WORD - ((s16)this->py << 16));
 }
 
 void sub_080956B4(CutsceneMiscObjectEntity* this) {

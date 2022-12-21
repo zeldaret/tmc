@@ -201,7 +201,7 @@ void sub_080845DC(SpecialFxObject* this) {
 
 void sub_080845F8(SpecialFxObject* this) {
     if (((8 - (super->x.HALF.HI & 0xF)) | (8 - (super->y.HALF.HI & 0xF))) != 0) {
-        super->direction = sub_080045DA((8 - (super->x.HALF.HI & 0xF)), (8 - (super->y.HALF.HI & 0xF))) >> 3;
+        super->direction = CalculateDirectionFromOffsets((8 - (super->x.HALF.HI & 0xF)), (8 - (super->y.HALF.HI & 0xF))) >> 3;
         LinearMoveUpdate(super);
     }
     sub_08084630(this);

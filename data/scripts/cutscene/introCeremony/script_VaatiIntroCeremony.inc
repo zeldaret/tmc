@@ -7,7 +7,7 @@ SCRIPT_START script_VaatiIntroCeremony
 	Call DeleteHitbox
 	WaitForSyncFlagAndClear 0x00000100
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01f8, 0x00d0
+	MoveTo 0x01f8, 0x00d0
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
@@ -44,7 +44,7 @@ SCRIPT_START script_VaatiIntroCeremony
 	WaitForSyncFlagAndClear 0x00000100
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01d8, 0x00a8
+	MoveTo 0x01d8, 0x00a8
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
@@ -64,7 +64,7 @@ SCRIPT_START script_VaatiIntroCeremony
 	WaitForSyncFlagAndClear 0x00000100
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01f8, 0x0098
+	MoveTo 0x01f8, 0x0098
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0004

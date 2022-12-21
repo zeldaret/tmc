@@ -312,7 +312,7 @@ void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
     const Coords* coords = &gUnk_0810A66C[var0[(s8)entity->field_0x68.HALF.HI]];
     u32 x = coords->HALF.x + gRoomControls.origin_x;
     u32 y = coords->HALF.y + gRoomControls.origin_y;
-    sub_0807DEDC(entity, context, x, y);
+    LookAt(entity, context, x, y);
     gActiveScriptInfo.flags |= 1;
 }
 

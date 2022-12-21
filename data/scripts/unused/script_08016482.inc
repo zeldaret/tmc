@@ -54,11 +54,11 @@ SCRIPT_START script_08016482
 	WalkSouth 0x0040
 	WalkWest 0x0050
 	_0807ED24 0x0000, 0x0000, 0x0000
-	_0807EDD4 0x0000, 0x0000
-	_0807EE04 0x0000, 0x0000
-	_0807EE30
-	_0807EEB4
-	_0807EEF4 0xfff0, 0x0014
+	MoveTo 0x0000, 0x0000
+	LookAt 0x0000, 0x0000
+	MoveTowardsTarget
+	MoveToPlayer
+	MoveToOffset 0xfff0, 0x0014
 	DoPostScriptAction 0x0000
 	DoPostScriptAction2 0x0001
 	PlaySound SFX_METAL_CLINK

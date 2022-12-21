@@ -17,7 +17,7 @@ SCRIPT_START script_EzloCapOutro
 	ClearSyncFlag 0x00000800
 	CallWithArg sub_080960C4, script_CutsceneMiscObjectEzloDismounting
 	Wait 0x003c
-	_0807EDD4 0x0088, 0x0068
+	MoveTo 0x0088, 0x0068
 	Wait 0x0078
 	SetSyncFlag 0x00000800
 	PlaySound SFX_143

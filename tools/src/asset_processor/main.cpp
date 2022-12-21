@@ -282,7 +282,7 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         assetHandler = std::make_unique<PaletteAsset>(path, start, size, asset);
     } else if (type == "metatilemap" ||
                type == "metatileset_types" || type == "metatileset" ||
-               type == "map_mapping1" || type == "map_mapping2" || type == "tileset_mapping3" ||
+               type == "map_mapping1" || type == "map_mapping2" ||
                type == "map_collision") {
         assetHandler = std::make_unique<MapAsset>(path, start, size, asset);
     } else if (type == "dungeon_map") {

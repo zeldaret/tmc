@@ -47,12 +47,12 @@ SCRIPT_START script_MinishEzloGoodbye
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, 0xfff0
+	MoveToOffset 0x0000, 0xfff0
 	Wait 0x003c
-	_0807EEF4 0x0000, 0xfff0
+	MoveToOffset 0x0000, 0xfff0
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
-	_0807EDD4 0x0088, 0x0040
+	MoveTo 0x0088, 0x0040
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x0006
 SCRIPT_END

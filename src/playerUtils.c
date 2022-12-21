@@ -2572,6 +2572,7 @@ void sub_0807AAF8(Entity* this, u32 tilePos) {
     }
 }
 
+// TODO some sort of flame spreading?
 void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
     Entity* object;
     const u16* ptr =

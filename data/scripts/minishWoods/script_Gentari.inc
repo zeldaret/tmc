@@ -57,7 +57,7 @@ script_0800C824:
 	MessageFromTarget TEXT_FINDING_EZLO, 0x35
 	WaitUntilTextboxCloses
 	SetEntitySpeed 0x0040
-	_0807EDD4 0x0038, 0x0044
+	MoveTo 0x0038, 0x0044
 	DoPostScriptAction 0x0000
 	Wait 0x000f
 	SetLocalFlag 0x0083

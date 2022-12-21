@@ -12,7 +12,7 @@ SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed1
 	Wait 0x003c
 	PlaySound SFX_123
 	CallWithArg sub_0807F464, 0x000001e0
-	_0807EDD4 0x01e0, 0x01d8
+	MoveTo 0x01e0, 0x01d8
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000010

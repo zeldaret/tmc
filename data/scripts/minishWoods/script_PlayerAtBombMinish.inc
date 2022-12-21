@@ -4,7 +4,7 @@ SCRIPT_START script_PlayerAtBombMinish
 	SetEntitySpeed 0x0100
 	EndBlock
 	WalkSouth 0x0010
-	_0807EDD4 0x0078, 0x0060
+	MoveTo 0x0078, 0x0060
 	SetAnimationState 0x0000
 	Wait 0x000f
 	DoPostScriptAction 0x0000

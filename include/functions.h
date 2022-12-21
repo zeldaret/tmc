@@ -81,7 +81,7 @@ extern void UpdateUIElements(void);
 extern void sub_0801E104(void);
 extern void sub_08030118(u32);
 extern void sub_0803C0AC(Entity*);
-extern void sub_08049CF4(Entity*);
+extern void SetRoomTrackerFlag(Entity*);
 extern u32 sub_0804A024(Entity*, u32, u32);
 extern u32 sub_080542AC(u32);
 extern void DisableRandomDrops();

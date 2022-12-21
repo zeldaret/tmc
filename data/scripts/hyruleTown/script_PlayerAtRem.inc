@@ -4,7 +4,7 @@ SCRIPT_START script_PlayerAtRem
 	SetAnimationState 0x0006
 	SetEntitySpeed 0x0140
 	EndBlock
-	_0807EDD4 0x00a8, 0x0060
+	MoveTo 0x00a8, 0x0060
 	Wait 0x0008
 	DoPostScriptAction 0x0000
 	Wait 0x0008

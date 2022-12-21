@@ -30,7 +30,7 @@ script_0800D372:
 script_0800D3B2:
 	SetAnimationState 0x0002
 	SetAnimation 0x0005
-	_0807EDD4 0x00a0, 0x0130
+	MoveTo 0x00a0, 0x0130
 	SetAnimationState 0x0006
 	SetAnimation 0x0003
 	SetIntVariable 0x00000004

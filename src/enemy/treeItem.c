@@ -12,7 +12,7 @@
 
 static bool32 ShouldSpawnTreeItem(Entity*);
 
-extern void sub_08049CF4(Entity*);
+extern void SetRoomTrackerFlag(Entity*);
 
 const u8 gTreeItemDropTables[][16] = {
     { 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF },
@@ -71,7 +71,7 @@ void TreeItem(Entity* this) {
             break;
     }
 
-    sub_08049CF4(this);
+    SetRoomTrackerFlag(this);
     DeleteThisEntity();
 }
 

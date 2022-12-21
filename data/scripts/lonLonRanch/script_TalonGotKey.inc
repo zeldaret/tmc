@@ -11,7 +11,7 @@ SCRIPT_START script_TalonGotKey
 	DoPostScriptAction 0x0004
 	SetSyncFlag 0x00000008
 	StartPlayerScript script_PlayerGiveKey
-	_0807EDD4 0x0140, 0x0298
+	MoveTo 0x0140, 0x0298
 	FacePlayer
 	WaitForSyncFlagAndClear 0x00000004
 	FacePlayer
@@ -23,12 +23,12 @@ SCRIPT_START script_TalonGotKey
 	MessageFromTarget TEXT_LON_LON, 0x0c
 	WaitUntilTextboxCloses
 	Wait 0x0014
-	_0807EDD4 0x0158, 0x0290
+	MoveTo 0x0158, 0x0290
 	Wait 0x000a
-	_0807EDD4 0x0158, 0x0288
+	MoveTo 0x0158, 0x0288
 	Wait 0x0014
 	SetSyncFlag 0x00000010
-	_0807EDD4 0x0158, 0x0280
+	MoveTo 0x0158, 0x0280
 	Wait 0x000a
 	DoPostScriptAction 0x0008
 	SetSyncFlag 0x00000010

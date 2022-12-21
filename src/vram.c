@@ -295,28 +295,28 @@ void SetGFXSlotStatus(GfxSlot* slot, u32 status) {
 }
 
 /**
- * Finds slotCount continous free slots and returns the index of the first slot or 0 if not enough free slots could be
+ * Finds slotCount continuos free slots and returns the index of the first slot or 0 if not enough free slots could be
  * found.
  */
 u32 FindFreeGFXSlots(u32 slotCount) {
     u32 index;
-    u32 continuousFreeSlots = 0;
+    u32 continuosFreeSlots = 0;
 
-    // First search for enough continous free slots.
+    // First search for enough continuos free slots.
     for (index = 4; index < MAX_GFX_SLOTS; index++) {
         if (gGFXSlots.slots[index].status == GFX_SLOT_FREE) {
-            continuousFreeSlots++;
-            if (slotCount <= continuousFreeSlots) {
-                return (index - continuousFreeSlots) + 1;
+            continuosFreeSlots++;
+            if (slotCount <= continuosFreeSlots) {
+                return (index - continuosFreeSlots) + 1;
             }
 
         } else {
-            continuousFreeSlots = 0;
+            continuosFreeSlots = 0;
         }
     }
 
-    // Now also search for enough continous free or unused slots.
-    continuousFreeSlots = 0;
+    // Now also search for enough continuos free or unused slots.
+    continuosFreeSlots = 0;
     index = 4;
     for (index = 4; index < MAX_GFX_SLOTS; index++) {
 #ifdef EU
@@ -324,12 +324,12 @@ u32 FindFreeGFXSlots(u32 slotCount) {
 #else
         if (gGFXSlots.slots[index].status == GFX_SLOT_FREE || gGFXSlots.slots[index].status == GFX_SLOT_UNLOADED) {
 #endif
-            continuousFreeSlots++;
-            if (slotCount <= continuousFreeSlots) {
-                return (index - continuousFreeSlots) + 1;
+            continuosFreeSlots++;
+            if (slotCount <= continuosFreeSlots) {
+                return (index - continuosFreeSlots) + 1;
             }
         } else {
-            continuousFreeSlots = 0;
+            continuosFreeSlots = 0;
         }
     }
     return 0;

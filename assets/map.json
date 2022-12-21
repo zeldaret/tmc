@@ -36,25 +36,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTileset_MinishWoods_bottom.bin.lz",
+    "path": "maps/areas/000_MinishWoods/metatileset/gAreaMetaTileset_MinishWoods_bottom.bin.lz",
     "start": 3326440,
     "size": 7036,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTileset_MinishWoods_top.bin.lz",
+    "path": "maps/areas/000_MinishWoods/metatileset/gAreaMetaTileset_MinishWoods_top.bin.lz",
     "start": 3333476,
     "size": 3468,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTilesetTypes_MinishWoods_bottom.bin.lz",
+    "path": "maps/areas/000_MinishWoods/metatileset/gAreaMetaTilesetTypes_MinishWoods_bottom.bin.lz",
     "start": 3336944,
     "size": 1072,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTilesetTypes_MinishWoods_top.bin.lz",
+    "path": "maps/areas/000_MinishWoods/metatileset/gAreaMetaTilesetTypes_MinishWoods_top.bin.lz",
     "start": 3338016,
     "size": 708,
     "type": "metatileset_types"
@@ -97,25 +97,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTileset_LakeHylia_bottom.bin.lz",
+    "path": "maps/areas/011_LakeHylia/metatileset/gAreaMetaTileset_LakeHylia_bottom.bin.lz",
     "start": 3372312,
     "size": 6104,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTileset_LakeHylia_top.bin.lz",
+    "path": "maps/areas/011_LakeHylia/metatileset/gAreaMetaTileset_LakeHylia_top.bin.lz",
     "start": 3378416,
     "size": 3584,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTilesetTypes_LakeHylia_bottom.bin.lz",
+    "path": "maps/areas/011_LakeHylia/metatileset/gAreaMetaTilesetTypes_LakeHylia_bottom.bin.lz",
     "start": 3382000,
     "size": 1144,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTilesetTypes_LakeHylia_top.bin.lz",
+    "path": "maps/areas/011_LakeHylia/metatileset/gAreaMetaTilesetTypes_LakeHylia_top.bin.lz",
     "start": 3383144,
     "size": 728,
     "type": "metatileset_types"
@@ -170,25 +170,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTileset_CastorWilds_bottom.bin.lz",
+    "path": "maps/areas/004_CastorWilds/metatileset/gAreaMetaTileset_CastorWilds_bottom.bin.lz",
     "start": 3416260,
     "size": 7472,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTileset_CastorWilds_top.bin.lz",
+    "path": "maps/areas/004_CastorWilds/metatileset/gAreaMetaTileset_CastorWilds_top.bin.lz",
     "start": 3423732,
     "size": 3636,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTilesetTypes_CastorWilds_bottom.bin.lz",
+    "path": "maps/areas/004_CastorWilds/metatileset/gAreaMetaTilesetTypes_CastorWilds_bottom.bin.lz",
     "start": 3427368,
     "size": 1256,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTilesetTypes_CastorWilds_top.bin.lz",
+    "path": "maps/areas/004_CastorWilds/metatileset/gAreaMetaTilesetTypes_CastorWilds_top.bin.lz",
     "start": 3428624,
     "size": 744,
     "type": "metatileset_types"
@@ -312,25 +312,25 @@
     "TODO": "three tilesets"
   },
   {
-    "path": "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTileset_HyruleTown_bottom.bin.lz",
+    "path": "maps/areas/002_HyruleTown/metatileset/gAreaMetaTileset_HyruleTown_bottom.bin.lz",
     "start": 3465816,
     "size": 8212,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTileset_HyruleTown_top.bin.lz",
+    "path": "maps/areas/002_HyruleTown/metatileset/gAreaMetaTileset_HyruleTown_top.bin.lz",
     "start": 3474028,
     "size": 7412,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTilesetTypes_HyruleTown_bottom.bin.lz",
+    "path": "maps/areas/002_HyruleTown/metatileset/gAreaMetaTilesetTypes_HyruleTown_bottom.bin.lz",
     "start": 3481440,
     "size": 1288,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTilesetTypes_HyruleTown_top.bin.lz",
+    "path": "maps/areas/002_HyruleTown/metatileset/gAreaMetaTilesetTypes_HyruleTown_top.bin.lz",
     "start": 3482728,
     "size": 808,
     "type": "metatileset_types"
@@ -421,25 +421,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTileset_MtCrenel_bottom.bin.lz",
+    "path": "maps/areas/006_MtCrenel/metatileset/gAreaMetaTileset_MtCrenel_bottom.bin.lz",
     "start": 3574484,
     "size": 7452,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTileset_MtCrenel_top.bin.lz",
+    "path": "maps/areas/006_MtCrenel/metatileset/gAreaMetaTileset_MtCrenel_top.bin.lz",
     "start": 3581936,
     "size": 3736,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTilesetTypes_MtCrenel_bottom.bin.lz",
+    "path": "maps/areas/006_MtCrenel/metatileset/gAreaMetaTilesetTypes_MtCrenel_bottom.bin.lz",
     "start": 3585672,
     "size": 1416,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTilesetTypes_MtCrenel_top.bin.lz",
+    "path": "maps/areas/006_MtCrenel/metatileset/gAreaMetaTilesetTypes_MtCrenel_top.bin.lz",
     "start": 3587088,
     "size": 740,
     "type": "metatileset_types"
@@ -566,25 +566,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/003_HyruleField/metatilesets/gAreaMetaTileset_HyruleField_bottom.bin.lz",
+    "path": "maps/areas/003_HyruleField/metatileset/gAreaMetaTileset_HyruleField_bottom.bin.lz",
     "start": 3677852,
     "size": 8652,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/003_HyruleField/metatilesets/gAreaMetaTileset_HyruleField_top.bin.lz",
+    "path": "maps/areas/003_HyruleField/metatileset/gAreaMetaTileset_HyruleField_top.bin.lz",
     "start": 3686504,
     "size": 4296,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/003_HyruleField/metatilesets/gAreaMetaTilesetTypes_HyruleField_bottom.bin.lz",
+    "path": "maps/areas/003_HyruleField/metatileset/gAreaMetaTilesetTypes_HyruleField_bottom.bin.lz",
     "start": 3690800,
     "size": 1560,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/003_HyruleField/metatilesets/gAreaMetaTilesetTypes_HyruleField_top.bin.lz",
+    "path": "maps/areas/003_HyruleField/metatileset/gAreaMetaTilesetTypes_HyruleField_top.bin.lz",
     "start": 3692360,
     "size": 772,
     "type": "metatileset_types"
@@ -593,7 +593,7 @@
     "path": "maps/areas/003_HyruleField/tilesets/0/gAreaTileset_HyruleField_0_3.4bpp.lz",
     "start": 3693132,
     "size": 356,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
     "path": "maps/areas/003_HyruleField/rooms/00_WesternWoodsSouth/gAreaRoomMap_HyruleField_WesternWoodsSouth_bottom.bin.lz",
@@ -755,25 +755,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTileset_CastleGarden_bottom.bin.lz",
+    "path": "maps/areas/007_CastleGarden/metatileset/gAreaMetaTileset_CastleGarden_bottom.bin.lz",
     "start": 3736192,
     "size": 5496,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTileset_CastleGarden_top.bin.lz",
+    "path": "maps/areas/007_CastleGarden/metatileset/gAreaMetaTileset_CastleGarden_top.bin.lz",
     "start": 3741688,
     "size": 2708,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTilesetTypes_CastleGarden_bottom.bin.lz",
+    "path": "maps/areas/007_CastleGarden/metatileset/gAreaMetaTilesetTypes_CastleGarden_bottom.bin.lz",
     "start": 3744396,
     "size": 828,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTilesetTypes_CastleGarden_top.bin.lz",
+    "path": "maps/areas/007_CastleGarden/metatileset/gAreaMetaTilesetTypes_CastleGarden_top.bin.lz",
     "start": 3745224,
     "size": 556,
     "type": "metatileset_types"
@@ -809,25 +809,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/008_CloudTops/metatilesets/gAreaMetaTileset_CloudTops_bottom.bin.lz",
+    "path": "maps/areas/008_CloudTops/metatileset/gAreaMetaTileset_CloudTops_bottom.bin.lz",
     "start": 3765116,
     "size": 4796,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/008_CloudTops/metatilesets/gAreaMetaTileset_CloudTops_top.bin.lz",
+    "path": "maps/areas/008_CloudTops/metatileset/gAreaMetaTileset_CloudTops_top.bin.lz",
     "start": 3769912,
     "size": 2528,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/008_CloudTops/metatilesets/gAreaMetaTilesetTypes_CloudTops_bottom.bin.lz",
+    "path": "maps/areas/008_CloudTops/metatileset/gAreaMetaTilesetTypes_CloudTops_bottom.bin.lz",
     "start": 3772440,
     "size": 752,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/008_CloudTops/metatilesets/gAreaMetaTilesetTypes_CloudTops_top.bin.lz",
+    "path": "maps/areas/008_CloudTops/metatileset/gAreaMetaTilesetTypes_CloudTops_top.bin.lz",
     "start": 3773192,
     "size": 684,
     "type": "metatileset_types"
@@ -872,7 +872,7 @@
     "path": "maps/areas/008_CloudTops/tilesets/0/gAreaTileset_CloudTops_0_3.4bpp.lz",
     "start": 3783800,
     "size": 532,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
     "path": "maps/areas/009_RoyalValley/tilesets/0/gAreaTileset_RoyalValley_0_0.4bpp.lz",
@@ -893,25 +893,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTileset_RoyalValley_bottom.bin.lz",
+    "path": "maps/areas/009_RoyalValley/metatileset/gAreaMetaTileset_RoyalValley_bottom.bin.lz",
     "start": 3806620,
     "size": 4404,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTileset_RoyalValley_top.bin.lz",
+    "path": "maps/areas/009_RoyalValley/metatileset/gAreaMetaTileset_RoyalValley_top.bin.lz",
     "start": 3811024,
     "size": 2828,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTilesetTypes_RoyalValley_bottom.bin.lz",
+    "path": "maps/areas/009_RoyalValley/metatileset/gAreaMetaTilesetTypes_RoyalValley_bottom.bin.lz",
     "start": 3813852,
     "size": 852,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTilesetTypes_RoyalValley_top.bin.lz",
+    "path": "maps/areas/009_RoyalValley/metatileset/gAreaMetaTilesetTypes_RoyalValley_top.bin.lz",
     "start": 3814704,
     "size": 556,
     "type": "metatileset_types"
@@ -1021,13 +1021,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/013_Beanstalks/metatilesets/gAreaMetaTileset_Beanstalks_bottom.bin.lz",
+    "path": "maps/areas/013_Beanstalks/metatileset/gAreaMetaTileset_Beanstalks_bottom.bin.lz",
     "start": 3866868,
     "size": 800,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/013_Beanstalks/metatilesets/gAreaMetaTilesetTypes_Beanstalks_bottom.bin.lz",
+    "path": "maps/areas/013_Beanstalks/metatileset/gAreaMetaTilesetTypes_Beanstalks_bottom.bin.lz",
     "start": 3867668,
     "size": 116,
     "type": "metatileset_types"
@@ -1036,10 +1036,10 @@
     "path": "maps/areas/013_Beanstalks/tilesets/0/gAreaTileset_Beanstalks_0_3.4bpp.lz",
     "start": 3867784,
     "size": 440,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
-    "path": "maps/areas/013_Beanstalks/rooms/00_CrenelClimb/gRoomMapping_Beanstalks_CrenelClimb_top.bin.lz",
+    "path": "maps/areas/013_Beanstalks/rooms/16_CrenelClimb/gRoomMapping_Beanstalks_CrenelClimb_top.bin.lz",
     "start": 3868224,
     "size": 1472,
     "type": "map_mapping1"
@@ -1112,25 +1112,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTileset_MinishHouseInteriors_bottom.bin.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTileset_MinishHouseInteriors_bottom.bin.lz",
     "start": 3901928,
     "size": 8140,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTileset_MinishHouseInteriors_top.bin.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTileset_MinishHouseInteriors_top.bin.lz",
     "start": 3910068,
     "size": 6284,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTilesetTypes_MinishHouseInteriors_bottom.bin.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTilesetTypes_MinishHouseInteriors_bottom.bin.lz",
     "start": 3916352,
     "size": 1532,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTilesetTypes_MinishHouseInteriors_top.bin.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTilesetTypes_MinishHouseInteriors_top.bin.lz",
     "start": 3917884,
     "size": 1312,
     "type": "metatileset_types"
@@ -1358,25 +1358,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTileset_GreatFairies_bottom.bin.lz",
+    "path": "maps/areas/041_GreatFairies/metatileset/gAreaMetaTileset_GreatFairies_bottom.bin.lz",
     "start": 3943860,
     "size": 3276,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTileset_GreatFairies_top.bin.lz",
+    "path": "maps/areas/041_GreatFairies/metatileset/gAreaMetaTileset_GreatFairies_top.bin.lz",
     "start": 3947136,
     "size": 1332,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTilesetTypes_GreatFairies_bottom.bin.lz",
+    "path": "maps/areas/041_GreatFairies/metatileset/gAreaMetaTilesetTypes_GreatFairies_bottom.bin.lz",
     "start": 3948468,
     "size": 384,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTilesetTypes_GreatFairies_top.bin.lz",
+    "path": "maps/areas/041_GreatFairies/metatileset/gAreaMetaTilesetTypes_GreatFairies_top.bin.lz",
     "start": 3948852,
     "size": 244,
     "type": "metatileset_types"
@@ -1520,25 +1520,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTileset_ArmosInteriors_bottom.bin.lz",
+    "path": "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTileset_ArmosInteriors_bottom.bin.lz",
     "start": 3969828,
     "size": 1908,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTileset_ArmosInteriors_top.bin.lz",
+    "path": "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTileset_ArmosInteriors_top.bin.lz",
     "start": 3971736,
     "size": 1908,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTilesetTypes_ArmosInteriors_bottom.bin.lz",
+    "path": "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTilesetTypes_ArmosInteriors_bottom.bin.lz",
     "start": 3973644,
     "size": 280,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTilesetTypes_ArmosInteriors_top.bin.lz",
+    "path": "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTilesetTypes_ArmosInteriors_top.bin.lz",
     "start": 3973924,
     "size": 284,
     "type": "metatileset_types"
@@ -1694,25 +1694,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/047_GoronCave/metatilesets/gAreaMetaTileset_GoronCave_bottom.bin.lz",
+    "path": "maps/areas/047_GoronCave/metatileset/gAreaMetaTileset_GoronCave_bottom.bin.lz",
     "start": 4001576,
     "size": 6660,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/047_GoronCave/metatilesets/gAreaMetaTileset_GoronCave_top.bin.lz",
+    "path": "maps/areas/047_GoronCave/metatileset/gAreaMetaTileset_GoronCave_top.bin.lz",
     "start": 4008236,
     "size": 6152,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/047_GoronCave/metatilesets/gAreaMetaTilesetTypes_GoronCave_bottom.bin.lz",
+    "path": "maps/areas/047_GoronCave/metatileset/gAreaMetaTilesetTypes_GoronCave_bottom.bin.lz",
     "start": 4014388,
     "size": 1340,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/047_GoronCave/metatilesets/gAreaMetaTilesetTypes_GoronCave_top.bin.lz",
+    "path": "maps/areas/047_GoronCave/metatileset/gAreaMetaTilesetTypes_GoronCave_top.bin.lz",
     "start": 4015728,
     "size": 1224,
     "type": "metatileset_types"
@@ -1898,13 +1898,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/050_Caves/rooms/12_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_bottom.bin.lz",
+    "path": "maps/areas/050_Caves/rooms/13_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_bottom.bin.lz",
     "start": 4023072,
     "size": 260,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/050_Caves/rooms/12_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_top.bin.lz",
+    "path": "maps/areas/050_Caves/rooms/13_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_top.bin.lz",
     "start": 4023332,
     "size": 144,
     "type": "metatilemap"
@@ -1922,13 +1922,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/050_Caves/rooms/12_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_bottom.bin.lz",
+    "path": "maps/areas/050_Caves/rooms/15_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_bottom.bin.lz",
     "start": 4023904,
     "size": 268,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/050_Caves/rooms/12_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_top.bin.lz",
+    "path": "maps/areas/050_Caves/rooms/15_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_top.bin.lz",
     "start": 4024172,
     "size": 52,
     "type": "metatilemap"
@@ -2192,25 +2192,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTileset_MinishCaves_bottom.bin.lz",
+    "path": "maps/areas/053_MinishCaves/metatileset/gAreaMetaTileset_MinishCaves_bottom.bin.lz",
     "start": 4054012,
     "size": 7740,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTileset_MinishCaves_top.bin.lz",
+    "path": "maps/areas/053_MinishCaves/metatileset/gAreaMetaTileset_MinishCaves_top.bin.lz",
     "start": 4061752,
     "size": 4472,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTilesetTypes_MinishCaves_bottom.bin.lz",
+    "path": "maps/areas/053_MinishCaves/metatileset/gAreaMetaTilesetTypes_MinishCaves_bottom.bin.lz",
     "start": 4066224,
     "size": 1188,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTilesetTypes_MinishCaves_top.bin.lz",
+    "path": "maps/areas/053_MinishCaves/metatileset/gAreaMetaTilesetTypes_MinishCaves_top.bin.lz",
     "start": 4067412,
     "size": 900,
     "type": "metatileset_types"
@@ -2234,25 +2234,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTileset_CastleGardenMinishHoles_bottom.bin.lz",
+    "path": "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTileset_CastleGardenMinishHoles_bottom.bin.lz",
     "start": 4081200,
     "size": 2596,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTileset_CastleGardenMinishHoles_top.bin.lz",
+    "path": "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTileset_CastleGardenMinishHoles_top.bin.lz",
     "start": 4083796,
     "size": 2752,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTilesetTypes_CastleGardenMinishHoles_bottom.bin.lz",
+    "path": "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTilesetTypes_CastleGardenMinishHoles_bottom.bin.lz",
     "start": 4086548,
     "size": 392,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTilesetTypes_CastleGardenMinishHoles_top.bin.lz",
+    "path": "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTilesetTypes_CastleGardenMinishHoles_top.bin.lz",
     "start": 4086940,
     "size": 284,
     "type": "metatileset_types"
@@ -2782,25 +2782,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTileset_MinishVillage_bottom.bin.lz",
+    "path": "maps/areas/001_MinishVillage/metatileset/gAreaMetaTileset_MinishVillage_bottom.bin.lz",
     "start": 4186484,
     "size": 7172,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTileset_MinishVillage_top.bin.lz",
+    "path": "maps/areas/001_MinishVillage/metatileset/gAreaMetaTileset_MinishVillage_top.bin.lz",
     "start": 4193656,
     "size": 5384,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTilesetTypes_MinishVillage_bottom.bin.lz",
+    "path": "maps/areas/001_MinishVillage/metatileset/gAreaMetaTilesetTypes_MinishVillage_bottom.bin.lz",
     "start": 4199040,
     "size": 748,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTilesetTypes_MinishVillage_top.bin.lz",
+    "path": "maps/areas/001_MinishVillage/metatileset/gAreaMetaTilesetTypes_MinishVillage_top.bin.lz",
     "start": 4199788,
     "size": 428,
     "type": "metatileset_types"
@@ -2866,25 +2866,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTileset_MelarisMine_bottom.bin.lz",
+    "path": "maps/areas/016_MelarisMine/metatileset/gAreaMetaTileset_MelarisMine_bottom.bin.lz",
     "start": 4249600,
     "size": 5764,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTileset_MelarisMine_top.bin.lz",
+    "path": "maps/areas/016_MelarisMine/metatileset/gAreaMetaTileset_MelarisMine_top.bin.lz",
     "start": 4255364,
     "size": 196,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTilesetTypes_MelarisMine_bottom.bin.lz",
+    "path": "maps/areas/016_MelarisMine/metatileset/gAreaMetaTilesetTypes_MelarisMine_bottom.bin.lz",
     "start": 4255560,
     "size": 544,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTilesetTypes_MelarisMine_top.bin.lz",
+    "path": "maps/areas/016_MelarisMine/metatileset/gAreaMetaTilesetTypes_MelarisMine_top.bin.lz",
     "start": 4256104,
     "size": 48,
     "type": "metatileset_types"
@@ -2914,13 +2914,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/017_MinishPaths/metatilesets/gAreaMetaTileset_MinishPaths_bottom.bin.lz",
+    "path": "maps/areas/017_MinishPaths/metatileset/gAreaMetaTileset_MinishPaths_bottom.bin.lz",
     "start": 4272508,
     "size": 3224,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/017_MinishPaths/metatilesets/gAreaMetaTilesetTypes_MinishPaths_bottom.bin.lz",
+    "path": "maps/areas/017_MinishPaths/metatileset/gAreaMetaTilesetTypes_MinishPaths_bottom.bin.lz",
     "start": 4275732,
     "size": 296,
     "type": "metatileset_types"
@@ -2980,13 +2980,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/018_CrenelMinishPaths/metatilesets/gAreaMetaTileset_CrenelMinishPaths_bottom.bin.lz",
+    "path": "maps/areas/018_CrenelMinishPaths/metatileset/gAreaMetaTileset_CrenelMinishPaths_bottom.bin.lz",
     "start": 4301336,
     "size": 4696,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/018_CrenelMinishPaths/metatilesets/gAreaMetaTilesetTypes_CrenelMinishPaths_bottom.bin.lz",
+    "path": "maps/areas/018_CrenelMinishPaths/metatileset/gAreaMetaTilesetTypes_CrenelMinishPaths_bottom.bin.lz",
     "start": 4306032,
     "size": 420,
     "type": "metatileset_types"
@@ -3022,13 +3022,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTileset_HouseInteriors1_top.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTileset_HouseInteriors1_top.bin.lz",
     "start": 4310460,
     "size": 3972,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTilesetTypes_HouseInteriors1_top.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTilesetTypes_HouseInteriors1_top.bin.lz",
     "start": 4314432,
     "size": 700,
     "type": "metatileset_types"
@@ -3046,13 +3046,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTileset_HouseInteriors1_bottom.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTileset_HouseInteriors1_bottom.bin.lz",
     "start": 4331872,
     "size": 4772,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTilesetTypes_HouseInteriors1_bottom.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTilesetTypes_HouseInteriors1_bottom.bin.lz",
     "start": 4336644,
     "size": 620,
     "type": "metatileset_types"
@@ -3070,13 +3070,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/metatilesets/gAreaMetaTileset_HouseInteriors2_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/metatileset/gAreaMetaTileset_HouseInteriors2_bottom.bin.lz",
     "start": 4355484,
     "size": 4764,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/metatilesets/gAreaMetaTilesetTypes_HouseInteriors2_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/metatileset/gAreaMetaTilesetTypes_HouseInteriors2_bottom.bin.lz",
     "start": 4360248,
     "size": 752,
     "type": "metatileset_types"
@@ -3094,13 +3094,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/040_HouseInteriors4/metatilesets/gAreaMetaTileset_HouseInteriors4_bottom.bin.lz",
+    "path": "maps/areas/040_HouseInteriors4/metatileset/gAreaMetaTileset_HouseInteriors4_bottom.bin.lz",
     "start": 4377888,
     "size": 4852,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/040_HouseInteriors4/metatilesets/gAreaMetaTilesetTypes_HouseInteriors4_bottom.bin.lz",
+    "path": "maps/areas/040_HouseInteriors4/metatileset/gAreaMetaTilesetTypes_HouseInteriors4_bottom.bin.lz",
     "start": 4382740,
     "size": 796,
     "type": "metatileset_types"
@@ -3118,13 +3118,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/035_HouseInteriors3/metatilesets/gAreaMetaTileset_HouseInteriors3_bottom.bin.lz",
+    "path": "maps/areas/035_HouseInteriors3/metatileset/gAreaMetaTileset_HouseInteriors3_bottom.bin.lz",
     "start": 4400524,
     "size": 3912,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/035_HouseInteriors3/metatilesets/gAreaMetaTilesetTypes_HouseInteriors3_bottom.bin.lz",
+    "path": "maps/areas/035_HouseInteriors3/metatileset/gAreaMetaTilesetTypes_HouseInteriors3_bottom.bin.lz",
     "start": 4404436,
     "size": 608,
     "type": "metatileset_types"
@@ -3142,13 +3142,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/metatilesets/gAreaMetaTileset_TreeInteriors_bottom.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/metatileset/gAreaMetaTileset_TreeInteriors_bottom.bin.lz",
     "start": 4421332,
     "size": 3736,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/metatilesets/gAreaMetaTilesetTypes_TreeInteriors_bottom.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/metatileset/gAreaMetaTilesetTypes_TreeInteriors_bottom.bin.lz",
     "start": 4425068,
     "size": 528,
     "type": "metatileset_types"
@@ -3166,13 +3166,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/039_MinishCracks/metatilesets/gAreaMetaTileset_MinishCracks_bottom.bin.lz",
+    "path": "maps/areas/039_MinishCracks/metatileset/gAreaMetaTileset_MinishCracks_bottom.bin.lz",
     "start": 4442920,
     "size": 3920,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/039_MinishCracks/metatilesets/gAreaMetaTilesetTypes_MinishCracks_bottom.bin.lz",
+    "path": "maps/areas/039_MinishCracks/metatileset/gAreaMetaTilesetTypes_MinishCracks_bottom.bin.lz",
     "start": 4446840,
     "size": 520,
     "type": "metatileset_types"
@@ -3190,13 +3190,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/037_Dojos/metatilesets/gAreaMetaTileset_Dojos_bottom.bin.lz",
+    "path": "maps/areas/037_Dojos/metatileset/gAreaMetaTileset_Dojos_bottom.bin.lz",
     "start": 4463740,
     "size": 3736,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/037_Dojos/metatilesets/gAreaMetaTilesetTypes_Dojos_bottom.bin.lz",
+    "path": "maps/areas/037_Dojos/metatileset/gAreaMetaTilesetTypes_Dojos_bottom.bin.lz",
     "start": 4467476,
     "size": 692,
     "type": "metatileset_types"
@@ -3214,13 +3214,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/046_MinishRafters/metatilesets/gAreaMetaTileset_MinishRafters_bottom.bin.lz",
+    "path": "maps/areas/046_MinishRafters/metatileset/gAreaMetaTileset_MinishRafters_bottom.bin.lz",
     "start": 4476764,
     "size": 3152,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/046_MinishRafters/metatilesets/gAreaMetaTilesetTypes_MinishRafters_bottom.bin.lz",
+    "path": "maps/areas/046_MinishRafters/metatileset/gAreaMetaTilesetTypes_MinishRafters_bottom.bin.lz",
     "start": 4479916,
     "size": 396,
     "type": "metatileset_types"
@@ -3238,13 +3238,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/048_WindTribeTower/metatilesets/gAreaMetaTileset_WindTribeTower_bottom.bin.lz",
+    "path": "maps/areas/048_WindTribeTower/metatileset/gAreaMetaTileset_WindTribeTower_bottom.bin.lz",
     "start": 4496356,
     "size": 3904,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/048_WindTribeTower/metatilesets/gAreaMetaTilesetTypes_WindTribeTower_bottom.bin.lz",
+    "path": "maps/areas/048_WindTribeTower/metatileset/gAreaMetaTilesetTypes_WindTribeTower_bottom.bin.lz",
     "start": 4500260,
     "size": 484,
     "type": "metatileset_types"
@@ -3268,25 +3268,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTileset_WindTribeTowerRoof_bottom.bin.lz",
+    "path": "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTileset_WindTribeTowerRoof_bottom.bin.lz",
     "start": 4519316,
     "size": 1676,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTileset_WindTribeTowerRoof_top.bin.lz",
+    "path": "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTileset_WindTribeTowerRoof_top.bin.lz",
     "start": 4520992,
     "size": 1608,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTilesetTypes_WindTribeTowerRoof_bottom.bin.lz",
+    "path": "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTilesetTypes_WindTribeTowerRoof_bottom.bin.lz",
     "start": 4522600,
     "size": 188,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTilesetTypes_WindTribeTowerRoof_top.bin.lz",
+    "path": "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTilesetTypes_WindTribeTowerRoof_top.bin.lz",
     "start": 4522788,
     "size": 224,
     "type": "metatileset_types"
@@ -3311,13 +3311,13 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/056_EzloCutscene/metatilesets/gAreaMetaTileset_EzloCutscene_bottom.bin.lz",
+    "path": "maps/areas/056_EzloCutscene/metatileset/gAreaMetaTileset_EzloCutscene_bottom.bin.lz",
     "start": 4536736,
     "size": 1704,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/056_EzloCutscene/metatilesets/gAreaMetaTilesetTypes_EzloCutscene_bottom.bin.lz",
+    "path": "maps/areas/056_EzloCutscene/metatileset/gAreaMetaTilesetTypes_EzloCutscene_bottom.bin.lz",
     "start": 4538440,
     "size": 240,
     "type": "metatileset_types"
@@ -3486,73 +3486,73 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/34_16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_bottom.bin.lz",
     "start": 4544408,
     "size": 292,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/34_16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_top.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_top.bin.lz",
     "start": 4544700,
     "size": 80,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/35_17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_bottom.bin.lz",
     "start": 4544780,
     "size": 288,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/35_17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_top.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_top.bin.lz",
     "start": 4545068,
     "size": 68,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/37_19_13_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/18_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_bottom.bin.lz",
     "start": 4545136,
     "size": 276,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/37_19_13_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_top.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/18_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_top.bin.lz",
     "start": 4545412,
     "size": 92,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/37_19_13/gAreaRoomMap_HouseInteriors2_13_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/19_13/gAreaRoomMap_HouseInteriors2_13_bottom.bin.lz",
     "start": 4545504,
     "size": 212,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/37_19_13/gAreaRoomMap_HouseInteriors2_13_top.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/19_13/gAreaRoomMap_HouseInteriors2_13_top.bin.lz",
     "start": 4545716,
     "size": 100,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/32_20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_bottom.bin.lz",
     "start": 4545816,
     "size": 268,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/32_20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_top.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_top.bin.lz",
     "start": 4546084,
     "size": 76,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/33_21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_bottom.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_bottom.bin.lz",
     "start": 4546160,
     "size": 272,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/034_HouseInteriors2/rooms/33_21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_top.bin.lz",
+    "path": "maps/areas/034_HouseInteriors2/rooms/21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_top.bin.lz",
     "start": 4546432,
     "size": 88,
     "type": "metatilemap"
@@ -3858,37 +3858,37 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/rooms/16_10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_bottom.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/rooms/10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_bottom.bin.lz",
     "start": 4556208,
     "size": 272,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/rooms/16_10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_top.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/rooms/10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_top.bin.lz",
     "start": 4556480,
     "size": 44,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/rooms/17_11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_bottom.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/rooms/11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_bottom.bin.lz",
     "start": 4556524,
     "size": 392,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/rooms/17_11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_top.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/rooms/11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_top.bin.lz",
     "start": 4556916,
     "size": 64,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/rooms/18_12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_bottom.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/rooms/12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_bottom.bin.lz",
     "start": 4556980,
     "size": 376,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/033_HouseInteriors1/rooms/18_12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_top.bin.lz",
+    "path": "maps/areas/033_HouseInteriors1/rooms/12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_top.bin.lz",
     "start": 4557356,
     "size": 64,
     "type": "metatilemap"
@@ -4122,61 +4122,61 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/01_14/gAreaRoomMap_TreeInteriors_14_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/20_14/gAreaRoomMap_TreeInteriors_14_bottom.bin",
     "start": 4563556,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/01_14/gAreaRoomMap_TreeInteriors_14_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/20_14/gAreaRoomMap_TreeInteriors_14_top.bin.lz",
     "start": 4563856,
     "size": 44,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/21_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_bottom.bin",
     "start": 4563900,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/21_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_top.bin.lz",
     "start": 4564200,
     "size": 44,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/22_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_bottom.bin",
     "start": 4564244,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/22_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_top.bin.lz",
     "start": 4564544,
     "size": 44,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/23_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_bottom.bin",
     "start": 4564588,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/23_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_top.bin.lz",
     "start": 4564888,
     "size": 44,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/24_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_bottom.bin",
     "start": 4564932,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/11_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/24_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_top.bin.lz",
     "start": 4565232,
     "size": 44,
     "type": "metatilemap"
@@ -4218,13 +4218,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/01_1c/gAreaRoomMap_TreeInteriors_1c_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/28_1c/gAreaRoomMap_TreeInteriors_1c_bottom.bin",
     "start": 4566316,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/01_1c/gAreaRoomMap_TreeInteriors_1c_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/28_1c/gAreaRoomMap_TreeInteriors_1c_top.bin.lz",
     "start": 4566616,
     "size": 88,
     "type": "metatilemap"
@@ -4242,13 +4242,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/01_1e/gAreaRoomMap_TreeInteriors_1e_bottom.bin",
+    "path": "maps/areas/036_TreeInteriors/rooms/30_1e/gAreaRoomMap_TreeInteriors_1e_bottom.bin",
     "start": 4567052,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/036_TreeInteriors/rooms/01_1e/gAreaRoomMap_TreeInteriors_1e_top.bin.lz",
+    "path": "maps/areas/036_TreeInteriors/rooms/30_1e/gAreaRoomMap_TreeInteriors_1e_top.bin.lz",
     "start": 4567352,
     "size": 64,
     "type": "metatilemap"
@@ -4386,49 +4386,49 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/16_10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_bottom.bin",
+    "path": "maps/areas/039_MinishCracks/rooms/10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_bottom.bin",
     "start": 4571408,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/16_10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_top.bin.lz",
+    "path": "maps/areas/039_MinishCracks/rooms/10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_top.bin.lz",
     "start": 4571708,
     "size": 48,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/17_11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_bottom.bin",
+    "path": "maps/areas/039_MinishCracks/rooms/11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_bottom.bin",
     "start": 4571756,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/17_11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_top.bin.lz",
+    "path": "maps/areas/039_MinishCracks/rooms/11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_top.bin.lz",
     "start": 4572056,
     "size": 48,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/18_12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_bottom.bin",
+    "path": "maps/areas/039_MinishCracks/rooms/12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_bottom.bin",
     "start": 4572104,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/18_12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_top.bin.lz",
+    "path": "maps/areas/039_MinishCracks/rooms/12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_top.bin.lz",
     "start": 4572404,
     "size": 48,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/19_13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_bottom.bin",
+    "path": "maps/areas/039_MinishCracks/rooms/13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_bottom.bin",
     "start": 4572452,
     "size": 300,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/039_MinishCracks/rooms/19_13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_top.bin.lz",
+    "path": "maps/areas/039_MinishCracks/rooms/13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_top.bin.lz",
     "start": 4572752,
     "size": 48,
     "type": "metatilemap"
@@ -4596,7 +4596,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/0/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz",
     "start": 4582652,
     "size": 17752,
     "type": "tileset"
@@ -4614,7 +4614,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_1_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/1/gAreaTileset_MinishHouseInteriors_1_0.8bpp.lz",
     "start": 4604164,
     "size": 11540,
     "type": "tileset"
@@ -4632,7 +4632,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_2_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/2/gAreaTileset_MinishHouseInteriors_2_0.8bpp.lz",
     "start": 4616860,
     "size": 9324,
     "type": "tileset"
@@ -4650,7 +4650,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_3_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/3/gAreaTileset_MinishHouseInteriors_3_0.8bpp.lz",
     "start": 4627280,
     "size": 9204,
     "type": "tileset"
@@ -4668,7 +4668,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/4/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz",
     "start": 4637568,
     "size": 8936,
     "type": "tileset"
@@ -4686,7 +4686,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_5_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/5/gAreaTileset_MinishHouseInteriors_5_0.8bpp.lz",
     "start": 4647596,
     "size": 10216,
     "type": "tileset"
@@ -4704,7 +4704,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/6/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz",
     "start": 4659316,
     "size": 20016,
     "type": "tileset"
@@ -4722,7 +4722,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/7/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz",
     "start": 4681224,
     "size": 13592,
     "type": "tileset"
@@ -4740,7 +4740,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/8/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz",
     "start": 4697552,
     "size": 16292,
     "type": "tileset"
@@ -4758,7 +4758,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/9/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz",
     "start": 4715288,
     "size": 11536,
     "type": "tileset"
@@ -4776,7 +4776,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/10/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz",
     "start": 4728260,
     "size": 11704,
     "type": "tileset"
@@ -4794,7 +4794,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/11/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz",
     "start": 4741872,
     "size": 9868,
     "type": "tileset"
@@ -4819,7 +4819,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/12/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz",
     "start": 4776476,
     "size": 12224,
     "type": "tileset"
@@ -4837,7 +4837,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_13_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/13/gAreaTileset_MinishHouseInteriors_13_0.8bpp.lz",
     "start": 4789884,
     "size": 11968,
     "type": "tileset"
@@ -4855,7 +4855,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/14/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz",
     "start": 4803020,
     "size": 12144,
     "type": "tileset"
@@ -4873,7 +4873,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/15/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz",
     "start": 4816332,
     "size": 7860,
     "type": "tileset"
@@ -4891,7 +4891,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_16_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/16/gAreaTileset_MinishHouseInteriors_16_0.8bpp.lz",
     "start": 4825372,
     "size": 12332,
     "type": "tileset"
@@ -4909,7 +4909,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_17_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/17/gAreaTileset_MinishHouseInteriors_17_0.8bpp.lz",
     "start": 4838892,
     "size": 10416,
     "type": "tileset"
@@ -4927,7 +4927,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_18_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/18/gAreaTileset_MinishHouseInteriors_18_0.8bpp.lz",
     "start": 4850488,
     "size": 12716,
     "type": "tileset"
@@ -4945,7 +4945,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz",
+    "path": "maps/areas/032_MinishHouseInteriors/tilesets/19/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz",
     "start": 4864384,
     "size": 12256,
     "type": "tileset"
@@ -4963,7 +4963,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_0_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/0/gAreaTileset_TownMinishHoles_0_0.8bpp.lz",
     "start": 4877984,
     "size": 8600,
     "type": "tileset"
@@ -4981,7 +4981,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_1_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/1/gAreaTileset_TownMinishHoles_1_0.8bpp.lz",
     "start": 4888052,
     "size": 10688,
     "type": "tileset"
@@ -4999,7 +4999,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_2_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/2/gAreaTileset_TownMinishHoles_2_0.8bpp.lz",
     "start": 4900128,
     "size": 9696,
     "type": "tileset"
@@ -5017,7 +5017,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_3_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/3/gAreaTileset_TownMinishHoles_3_0.8bpp.lz",
     "start": 4911288,
     "size": 10724,
     "type": "tileset"
@@ -5035,7 +5035,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_4_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/4/gAreaTileset_TownMinishHoles_4_0.8bpp.lz",
     "start": 4923412,
     "size": 9308,
     "type": "tileset"
@@ -5053,7 +5053,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_5_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/5/gAreaTileset_TownMinishHoles_5_0.8bpp.lz",
     "start": 4934204,
     "size": 12392,
     "type": "tileset"
@@ -5071,7 +5071,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_6_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/6/gAreaTileset_TownMinishHoles_6_0.8bpp.lz",
     "start": 4949944,
     "size": 12976,
     "type": "tileset"
@@ -5089,7 +5089,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_7_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/7/gAreaTileset_TownMinishHoles_7_0.8bpp.lz",
     "start": 4964716,
     "size": 17700,
     "type": "tileset"
@@ -5107,7 +5107,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_8_0.8bpp.lz",
+    "path": "maps/areas/045_TownMinishHoles/tilesets/8/gAreaTileset_TownMinishHoles_8_0.8bpp.lz",
     "start": 4985452,
     "size": 13624,
     "type": "tileset"
@@ -5137,25 +5137,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/064_40/metatilesets/gAreaMetaTileset_40_bottom.bin.lz",
+    "path": "maps/areas/064_40/metatileset/gAreaMetaTileset_40_bottom.bin.lz",
     "start": 5020828,
     "size": 8860,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/064_40/metatilesets/gAreaMetaTileset_40_top.bin.lz",
+    "path": "maps/areas/064_40/metatileset/gAreaMetaTileset_40_top.bin.lz",
     "start": 5029688,
     "size": 5820,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/064_40/metatilesets/gAreaMetaTilesetTypes_40_bottom.bin.lz",
+    "path": "maps/areas/064_40/metatileset/gAreaMetaTilesetTypes_40_bottom.bin.lz",
     "start": 5035508,
     "size": 1264,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/064_40/metatilesets/gAreaMetaTilesetTypes_40_top.bin.lz",
+    "path": "maps/areas/064_40/metatileset/gAreaMetaTilesetTypes_40_top.bin.lz",
     "start": 5036772,
     "size": 1004,
     "type": "metatileset_types"
@@ -5371,25 +5371,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTileset_DeepwoodShrine_bottom.bin.lz",
+    "path": "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTileset_DeepwoodShrine_bottom.bin.lz",
     "start": 5073832,
     "size": 9600,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTileset_DeepwoodShrine_top.bin.lz",
+    "path": "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTileset_DeepwoodShrine_top.bin.lz",
     "start": 5083432,
     "size": 6656,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrine_bottom.bin.lz",
+    "path": "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTilesetTypes_DeepwoodShrine_bottom.bin.lz",
     "start": 5090088,
     "size": 1204,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrine_top.bin.lz",
+    "path": "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTilesetTypes_DeepwoodShrine_top.bin.lz",
     "start": 5091292,
     "size": 948,
     "type": "metatileset_types"
@@ -5413,25 +5413,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTileset_DeepwoodShrineBoss_bottom.bin.lz",
+    "path": "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTileset_DeepwoodShrineBoss_bottom.bin.lz",
     "start": 5105900,
     "size": 4396,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTileset_DeepwoodShrineBoss_top.bin.lz",
+    "path": "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTileset_DeepwoodShrineBoss_top.bin.lz",
     "start": 5110296,
     "size": 792,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineBoss_bottom.bin.lz",
+    "path": "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineBoss_bottom.bin.lz",
     "start": 5111088,
     "size": 624,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineBoss_top.bin.lz",
+    "path": "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineBoss_top.bin.lz",
     "start": 5111712,
     "size": 220,
     "type": "metatileset_types"
@@ -5455,25 +5455,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTileset_DeepwoodShrineEntry_bottom.bin.lz",
+    "path": "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTileset_DeepwoodShrineEntry_bottom.bin.lz",
     "start": 5124100,
     "size": 1516,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTileset_DeepwoodShrineEntry_top.bin.lz",
+    "path": "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTileset_DeepwoodShrineEntry_top.bin.lz",
     "start": 5125616,
     "size": 1028,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineEntry_bottom.bin.lz",
+    "path": "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineEntry_bottom.bin.lz",
     "start": 5126644,
     "size": 176,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineEntry_top.bin.lz",
+    "path": "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineEntry_top.bin.lz",
     "start": 5126820,
     "size": 120,
     "type": "metatileset_types"
@@ -5801,13 +5801,13 @@
     "name": "gDungeonMaps_DeepwoodShrine_BossKey"
   },
   {
-    "path": "maps/areas/072_DeepwoodShrine/rooms/12_Compass/gAreaRoomMap_DeepwoodShrine_Compass_bottom.bin.lz",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/18_Compass/gAreaRoomMap_DeepwoodShrine_Compass_bottom.bin.lz",
     "start": 5137908,
     "size": 504,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/072_DeepwoodShrine/rooms/12_Compass/gAreaRoomMap_DeepwoodShrine_Compass_top.bin.lz",
+    "path": "maps/areas/072_DeepwoodShrine/rooms/18_Compass/gAreaRoomMap_DeepwoodShrine_Compass_top.bin.lz",
     "start": 5138412,
     "size": 120,
     "type": "metatilemap"
@@ -5844,7 +5844,7 @@
       "width": 5,
       "height": 12
     },
-    "name": "gDungeonMaps_072_DeepwoodShrine_19_13_unused"
+    "name": "gDungeonMaps_072_DeepwoodShrine_13_unused"
   },
   {
     "path": "maps/areas/072_DeepwoodShrine/rooms/20_LilyPadWest/gAreaRoomMap_DeepwoodShrine_LilyPadWest_bottom.bin.lz",
@@ -5992,25 +5992,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTileset_CaveOfFlames_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTileset_CaveOfFlames_bottom.bin.lz",
     "start": 5172140,
     "size": 7212,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTileset_CaveOfFlames_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTileset_CaveOfFlames_top.bin.lz",
     "start": 5179352,
     "size": 6656,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTilesetTypes_CaveOfFlames_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTilesetTypes_CaveOfFlames_bottom.bin.lz",
     "start": 5186008,
     "size": 1172,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTilesetTypes_CaveOfFlames_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTilesetTypes_CaveOfFlames_top.bin.lz",
     "start": 5187180,
     "size": 1180,
     "type": "metatileset_types"
@@ -6034,25 +6034,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTileset_CaveOfFlamesBoss_bottom.bin.lz",
+    "path": "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTileset_CaveOfFlamesBoss_bottom.bin.lz",
     "start": 5210736,
     "size": 5000,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTileset_CaveOfFlamesBoss_top.bin.lz",
+    "path": "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTileset_CaveOfFlamesBoss_top.bin.lz",
     "start": 5215736,
     "size": 4444,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTilesetTypes_CaveOfFlamesBoss_bottom.bin.lz",
+    "path": "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTilesetTypes_CaveOfFlamesBoss_bottom.bin.lz",
     "start": 5220180,
     "size": 652,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTilesetTypes_CaveOfFlamesBoss_top.bin.lz",
+    "path": "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTilesetTypes_CaveOfFlamesBoss_top.bin.lz",
     "start": 5220832,
     "size": 620,
     "type": "metatileset_types"
@@ -6061,7 +6061,7 @@
     "path": "maps/areas/080_CaveOfFlames/tilesets/0/gAreaTileset_CaveOfFlames_0_3.4bpp.lz",
     "start": 5221452,
     "size": 752,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
     "path": "maps/areas/080_CaveOfFlames/rooms/00_AfterCane/gAreaRoomMap_CaveOfFlames_AfterCane_bottom.bin.lz",
@@ -6340,13 +6340,13 @@
     "name": "gDungeonMaps_CaveOfFlames_TompasDoom"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_bottom.bin.lz",
     "start": 5234416,
     "size": 352,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_top.bin.lz",
     "start": 5234768,
     "size": 192,
     "type": "metatilemap"
@@ -6363,13 +6363,13 @@
     "name": "gDungeonMaps_CaveOfFlames_BeforeGleerok"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_bottom.bin.lz",
     "start": 5235052,
     "size": 344,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_top.bin.lz",
     "start": 5235396,
     "size": 240,
     "type": "metatilemap"
@@ -6386,19 +6386,19 @@
     "name": "gDungeonMaps_CaveOfFlames_BosskeyPath1"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_bottom.bin.lz",
     "start": 5235728,
     "size": 252,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_top.bin.lz",
     "start": 5235980,
     "size": 292,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/32_20_BosskeyPath2/dungeon_map.bin",
+    "path": "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/dungeon_map.bin",
     "start": 5236272,
     "size": 92,
     "type": "dungeon_map",
@@ -6409,13 +6409,13 @@
     "name": "gDungeonMaps_CaveOfFlames_BosskeyPath2"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/12_Compass/gAreaRoomMap_CaveOfFlames_Compass_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/21_Compass/gAreaRoomMap_CaveOfFlames_Compass_bottom.bin.lz",
     "start": 5236364,
     "size": 56,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/12_Compass/gAreaRoomMap_CaveOfFlames_Compass_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/21_Compass/gAreaRoomMap_CaveOfFlames_Compass_top.bin.lz",
     "start": 5236420,
     "size": 308,
     "type": "metatilemap"
@@ -6432,13 +6432,13 @@
     "name": "gDungeonMaps_CaveOfFlames_Compass"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_bottom.bin.lz",
     "start": 5236780,
     "size": 56,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_top.bin.lz",
     "start": 5236836,
     "size": 276,
     "type": "metatilemap"
@@ -6455,13 +6455,13 @@
     "name": "gDungeonMaps_CaveOfFlames_BobOmbWall"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_bottom.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_bottom.bin.lz",
     "start": 5237164,
     "size": 1260,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/080_CaveOfFlames/rooms/11_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_top.bin.lz",
+    "path": "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_top.bin.lz",
     "start": 5238424,
     "size": 488,
     "type": "metatilemap"
@@ -6519,25 +6519,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTileset_CastorDarknut_bottom.bin.lz",
+    "path": "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTileset_CastorDarknut_bottom.bin.lz",
     "start": 5267744,
     "size": 8244,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTileset_CastorDarknut_top.bin.lz",
+    "path": "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTileset_CastorDarknut_top.bin.lz",
     "start": 5275988,
     "size": 6172,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTilesetTypes_CastorDarknut_bottom.bin.lz",
+    "path": "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTilesetTypes_CastorDarknut_bottom.bin.lz",
     "start": 5282160,
     "size": 1104,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTilesetTypes_CastorDarknut_top.bin.lz",
+    "path": "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTilesetTypes_CastorDarknut_top.bin.lz",
     "start": 5283264,
     "size": 1132,
     "type": "metatileset_types"
@@ -6561,25 +6561,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTileset_InnerMazaal_bottom.bin.lz",
+    "path": "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTileset_InnerMazaal_bottom.bin.lz",
     "start": 5302556,
     "size": 3496,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTileset_InnerMazaal_top.bin.lz",
+    "path": "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTileset_InnerMazaal_top.bin.lz",
     "start": 5306052,
     "size": 3788,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTilesetTypes_InnerMazaal_bottom.bin.lz",
+    "path": "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTilesetTypes_InnerMazaal_bottom.bin.lz",
     "start": 5309840,
     "size": 692,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTilesetTypes_InnerMazaal_top.bin.lz",
+    "path": "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTilesetTypes_InnerMazaal_top.bin.lz",
     "start": 5310532,
     "size": 796,
     "type": "metatileset_types"
@@ -6603,25 +6603,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTileset_FortressOfWindsTop_bottom.bin.lz",
+    "path": "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTileset_FortressOfWindsTop_bottom.bin.lz",
     "start": 5329352,
     "size": 2760,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTileset_FortressOfWindsTop_top.bin.lz",
+    "path": "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTileset_FortressOfWindsTop_top.bin.lz",
     "start": 5332112,
     "size": 1428,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTilesetTypes_FortressOfWindsTop_bottom.bin.lz",
+    "path": "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTilesetTypes_FortressOfWindsTop_bottom.bin.lz",
     "start": 5333540,
     "size": 404,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTilesetTypes_FortressOfWindsTop_top.bin.lz",
+    "path": "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTilesetTypes_FortressOfWindsTop_top.bin.lz",
     "start": 5333944,
     "size": 276,
     "type": "metatileset_types"
@@ -6764,13 +6764,13 @@
     "name": "gDungeonMaps_FortressOfWinds_6"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/13_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_bottom.bin.lz",
     "start": 5338360,
     "size": 60,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/13_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_top.bin.lz",
     "start": 5338420,
     "size": 384,
     "type": "metatilemap"
@@ -6787,13 +6787,13 @@
     "name": "gDungeonMaps_FortressOfWinds_DarknutRoom"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/10_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_bottom.bin.lz",
     "start": 5338872,
     "size": 136,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/10_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_top.bin.lz",
     "start": 5339008,
     "size": 300,
     "type": "metatilemap"
@@ -6948,13 +6948,13 @@
     "name": "gDungeonMaps_FortressOfWinds_Stalfos"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/14_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_bottom.bin.lz",
     "start": 5343004,
     "size": 216,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/14_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_top.bin.lz",
     "start": 5343220,
     "size": 156,
     "type": "metatilemap"
@@ -6971,19 +6971,19 @@
     "name": "gDungeonMaps_FortressOfWinds_EntranceMoleMitts"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/37_25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_bottom.bin.lz",
     "start": 5343444,
     "size": 612,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/37_25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_top.bin.lz",
     "start": 5344056,
     "size": 236,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/37_25_Main2f/dungeon_map.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/25_Main2f/dungeon_map.bin",
     "start": 5344292,
     "size": 132,
     "type": "dungeon_map",
@@ -6994,19 +6994,19 @@
     "name": "gDungeonMaps_FortressOfWinds_Main2f"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/38_26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_bottom.bin.lz",
     "start": 5344424,
     "size": 224,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/38_26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_top.bin.lz",
     "start": 5344648,
     "size": 176,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/38_26_MinishHole/dungeon_map.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/dungeon_map.bin",
     "start": 5344824,
     "size": 68,
     "type": "dungeon_map",
@@ -7017,19 +7017,19 @@
     "name": "gDungeonMaps_FortressOfWinds_MinishHole"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/11_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/27_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_bottom.bin.lz",
     "start": 5344892,
     "size": 164,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/11_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/27_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_top.bin.lz",
     "start": 5345056,
     "size": 268,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/39_27_BossKey/dungeon_map.bin",
+    "path": "maps/areas/088_FortressOfWinds/rooms/27_BossKey/dungeon_map.bin",
     "start": 5345324,
     "size": 68,
     "type": "dungeon_map",
@@ -7063,13 +7063,13 @@
     "name": "gDungeonMaps_FortressOfWinds_WestStairs2f"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/14_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_bottom.bin.lz",
     "start": 5345856,
     "size": 324,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/14_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_top.bin.lz",
     "start": 5346180,
     "size": 104,
     "type": "metatilemap"
@@ -7109,13 +7109,13 @@
     "name": "gDungeonMaps_FortressOfWinds_WestStairs1f"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/12_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_bottom.bin.lz",
     "start": 5346760,
     "size": 260,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/12_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_top.bin.lz",
     "start": 5347020,
     "size": 112,
     "type": "metatilemap"
@@ -7132,13 +7132,13 @@
     "name": "gDungeonMaps_FortressOfWinds_CenterStairs1f"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/14_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_bottom.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_bottom.bin.lz",
     "start": 5347184,
     "size": 260,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/088_FortressOfWinds/rooms/14_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_top.bin.lz",
+    "path": "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_top.bin.lz",
     "start": 5347444,
     "size": 120,
     "type": "metatilemap"
@@ -7255,25 +7255,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTileset_TempleOfDroplets_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTileset_TempleOfDroplets_bottom.bin.lz",
     "start": 5378008,
     "size": 8684,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTileset_TempleOfDroplets_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTileset_TempleOfDroplets_top.bin.lz",
     "start": 5386692,
     "size": 9148,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTilesetTypes_TempleOfDroplets_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTilesetTypes_TempleOfDroplets_bottom.bin.lz",
     "start": 5395840,
     "size": 1236,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTilesetTypes_TempleOfDroplets_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTilesetTypes_TempleOfDroplets_top.bin.lz",
     "start": 5397076,
     "size": 1228,
     "type": "metatileset_types"
@@ -7297,25 +7297,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/097_Null61/metatilesets/gAreaMetaTileset_Null61_bottom.bin.lz",
+    "path": "maps/areas/097_Null61/metatileset/gAreaMetaTileset_Null61_bottom.bin.lz",
     "start": 5412536,
     "size": 1224,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/097_Null61/metatilesets/gAreaMetaTileset_Null61_top.bin.lz",
+    "path": "maps/areas/097_Null61/metatileset/gAreaMetaTileset_Null61_top.bin.lz",
     "start": 5413760,
     "size": 288,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/097_Null61/metatilesets/gAreaMetaTilesetTypes_Null61_bottom.bin.lz",
+    "path": "maps/areas/097_Null61/metatileset/gAreaMetaTilesetTypes_Null61_bottom.bin.lz",
     "start": 5414048,
     "size": 152,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/097_Null61/metatilesets/gAreaMetaTilesetTypes_Null61_top.bin.lz",
+    "path": "maps/areas/097_Null61/metatileset/gAreaMetaTilesetTypes_Null61_top.bin.lz",
     "start": 5414200,
     "size": 104,
     "type": "metatileset_types"
@@ -7597,19 +7597,19 @@
     "name": "gDungeonMaps_TempleOfDroplets_HoleToBlueChuKey"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/18_12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_bottom.bin.lz",
     "start": 5423604,
     "size": 56,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/18_12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_top.bin.lz",
     "start": 5423660,
     "size": 256,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/18_12_WestWaterfallSoutheast/dungeon_map.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/dungeon_map.bin",
     "start": 5423916,
     "size": 52,
     "type": "dungeon_map",
@@ -7620,19 +7620,19 @@
     "name": "gDungeonMaps_TempleOfDroplets_WestWaterfallSoutheast"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/19_13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_bottom.bin.lz",
     "start": 5423968,
     "size": 372,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/19_13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_top.bin.lz",
     "start": 5424340,
     "size": 360,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/19_13_WestWaterfallSouthwest/dungeon_map.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/dungeon_map.bin",
     "start": 5424700,
     "size": 132,
     "type": "dungeon_map",
@@ -7712,13 +7712,13 @@
     "name": "gDungeonMaps_TempleOfDroplets_BlueChu"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_bottom.bin.lz",
     "start": 5426288,
     "size": 200,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_top.bin.lz",
     "start": 5426488,
     "size": 136,
     "type": "metatilemap"
@@ -7850,19 +7850,19 @@
     "name": "gDungeonMaps_TempleOfDroplets_BlockCloneIceBridge"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/55_37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_bottom.bin.lz",
     "start": 5429980,
     "size": 280,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/55_37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_top.bin.lz",
     "start": 5430260,
     "size": 200,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/55_37_StairsToScissorsMiniboss/dungeon_map.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/dungeon_map.bin",
     "start": 5430460,
     "size": 68,
     "type": "dungeon_map",
@@ -7873,19 +7873,19 @@
     "name": "gDungeonMaps_TempleOfDroplets_StairsToScissorsMiniboss"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/56_38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_bottom.bin.lz",
     "start": 5430528,
     "size": 152,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/56_38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_top.bin.lz",
     "start": 5430680,
     "size": 712,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/56_38_SpikeBarFlipperRoom/dungeon_map.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/dungeon_map.bin",
     "start": 5431392,
     "size": 160,
     "type": "dungeon_map",
@@ -7896,19 +7896,19 @@
     "name": "gDungeonMaps_TempleOfDroplets_SpikeBarFlipperRoom"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/57_39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_bottom.bin.lz",
     "start": 5431552,
     "size": 60,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/57_39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_top.bin.lz",
     "start": 5431612,
     "size": 308,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/57_39_9Lanterns/dungeon_map.bin",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/dungeon_map.bin",
     "start": 5431920,
     "size": 56,
     "type": "dungeon_map",
@@ -8077,13 +8077,13 @@
     "name": "gDungeonMaps_TempleOfDroplets_AfterTwinMadderpillars"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_bottom.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_bottom.bin.lz",
     "start": 5436516,
     "size": 244,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_top.bin.lz",
+    "path": "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_top.bin.lz",
     "start": 5436760,
     "size": 156,
     "type": "metatilemap"
@@ -8376,13 +8376,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/07_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_bottom.bin.lz",
+    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/16_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_bottom.bin.lz",
     "start": 5443984,
     "size": 308,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/07_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_top.bin.lz",
+    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/16_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_top.bin.lz",
     "start": 5444292,
     "size": 104,
     "type": "metatilemap"
@@ -8436,13 +8436,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/01_10/gAreaRoomMap_HyruleTownMinishCaves_10_bottom.bin.lz",
+    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/21_10/gAreaRoomMap_HyruleTownMinishCaves_10_bottom.bin.lz",
     "start": 5445884,
     "size": 220,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/01_10/gAreaRoomMap_HyruleTownMinishCaves_10_top.bin.lz",
+    "path": "maps/areas/098_HyruleTownMinishCaves/rooms/21_10/gAreaRoomMap_HyruleTownMinishCaves_10_top.bin.lz",
     "start": 5446104,
     "size": 208,
     "type": "metatilemap"
@@ -8466,25 +8466,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTileset_RoyalCrypt_bottom.bin.lz",
+    "path": "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTileset_RoyalCrypt_bottom.bin.lz",
     "start": 5467176,
     "size": 7152,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTileset_RoyalCrypt_top.bin.lz",
+    "path": "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTileset_RoyalCrypt_top.bin.lz",
     "start": 5474328,
     "size": 5120,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTilesetTypes_RoyalCrypt_bottom.bin.lz",
+    "path": "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTilesetTypes_RoyalCrypt_bottom.bin.lz",
     "start": 5479448,
     "size": 1196,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTilesetTypes_RoyalCrypt_top.bin.lz",
+    "path": "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTilesetTypes_RoyalCrypt_top.bin.lz",
     "start": 5480644,
     "size": 964,
     "type": "metatileset_types"
@@ -8616,25 +8616,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTileset_PalaceOfWinds_bottom.bin.lz",
+    "path": "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTileset_PalaceOfWinds_bottom.bin.lz",
     "start": 5512468,
     "size": 7284,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTileset_PalaceOfWinds_top.bin.lz",
+    "path": "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTileset_PalaceOfWinds_top.bin.lz",
     "start": 5519752,
     "size": 6372,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTilesetTypes_PalaceOfWinds_bottom.bin.lz",
+    "path": "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTilesetTypes_PalaceOfWinds_bottom.bin.lz",
     "start": 5526124,
     "size": 1228,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTilesetTypes_PalaceOfWinds_top.bin.lz",
+    "path": "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTilesetTypes_PalaceOfWinds_top.bin.lz",
     "start": 5527352,
     "size": 1188,
     "type": "metatileset_types"
@@ -8643,7 +8643,7 @@
     "path": "maps/areas/112_PalaceOfWinds/tilesets/0/gAreaTileset_PalaceOfWinds_0_3.4bpp.lz",
     "start": 5528540,
     "size": 548,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
     "path": "maps/areas/113_PalaceOfWindsBoss/tilesets/0/gAreaTileset_PalaceOfWindsBoss_0_0.4bpp.lz",
@@ -8680,13 +8680,13 @@
     }
   },
   {
-    "path": "maps/areas/113_PalaceOfWindsBoss/metatilesets/gAreaMetaTileset_PalaceOfWindsBoss_top.bin.lz",
+    "path": "maps/areas/113_PalaceOfWindsBoss/metatileset/gAreaMetaTileset_PalaceOfWindsBoss_top.bin.lz",
     "start": 5538032,
     "size": 72,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/113_PalaceOfWindsBoss/metatilesets/gAreaMetaTilesetTypes_PalaceOfWindsBoss_top.bin.lz",
+    "path": "maps/areas/113_PalaceOfWindsBoss/metatileset/gAreaMetaTilesetTypes_PalaceOfWindsBoss_top.bin.lz",
     "start": 5538104,
     "size": 28,
     "type": "metatileset_types"
@@ -8702,7 +8702,7 @@
     "path": "maps/areas/113_PalaceOfWindsBoss/tilesets/0/gAreaTileset_PalaceOfWindsBoss_0_2.4bpp.lz",
     "start": 5541760,
     "size": 548,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
     "path": "maps/areas/112_PalaceOfWinds/rooms/00_GyorgTornado/gAreaRoomMap_PalaceOfWinds_GyorgTornado_bottom.bin.lz",
@@ -9464,19 +9464,19 @@
     "name": "gDungeonMaps_PalaceOfWinds_KeyArrowButton"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/rooms/51_33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_bottom.bin.lz",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_bottom.bin.lz",
     "start": 5564480,
     "size": 916,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/rooms/51_33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_top.bin.lz",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_top.bin.lz",
     "start": 5565396,
     "size": 508,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/112_PalaceOfWinds/rooms/51_33_GratesTo3f/dungeon_map.bin",
+    "path": "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/dungeon_map.bin",
     "start": 5565904,
     "size": 360,
     "type": "dungeon_map",
@@ -9924,25 +9924,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTileset_Sanctuary_bottom.bin.lz",
+    "path": "maps/areas/120_Sanctuary/metatileset/gAreaMetaTileset_Sanctuary_bottom.bin.lz",
     "start": 5602952,
     "size": 7944,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTileset_Sanctuary_top.bin.lz",
+    "path": "maps/areas/120_Sanctuary/metatileset/gAreaMetaTileset_Sanctuary_top.bin.lz",
     "start": 5610896,
     "size": 4356,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTilesetTypes_Sanctuary_bottom.bin.lz",
+    "path": "maps/areas/120_Sanctuary/metatileset/gAreaMetaTilesetTypes_Sanctuary_bottom.bin.lz",
     "start": 5615252,
     "size": 868,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTilesetTypes_Sanctuary_top.bin.lz",
+    "path": "maps/areas/120_Sanctuary/metatileset/gAreaMetaTilesetTypes_Sanctuary_top.bin.lz",
     "start": 5616120,
     "size": 756,
     "type": "metatileset_types"
@@ -10002,25 +10002,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTileset_HyruleCastle_bottom.bin.lz",
+    "path": "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTileset_HyruleCastle_bottom.bin.lz",
     "start": 5643412,
     "size": 7540,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTileset_HyruleCastle_top.bin.lz",
+    "path": "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTileset_HyruleCastle_top.bin.lz",
     "start": 5650952,
     "size": 5288,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTilesetTypes_HyruleCastle_bottom.bin.lz",
+    "path": "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTilesetTypes_HyruleCastle_bottom.bin.lz",
     "start": 5656240,
     "size": 1068,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTilesetTypes_HyruleCastle_top.bin.lz",
+    "path": "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTilesetTypes_HyruleCastle_top.bin.lz",
     "start": 5657308,
     "size": 844,
     "type": "metatileset_types"
@@ -10135,25 +10135,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTileset_SanctuaryEntrance_bottom.bin.lz",
+    "path": "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTileset_SanctuaryEntrance_bottom.bin.lz",
     "start": 5680072,
     "size": 2900,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTileset_SanctuaryEntrance_top.bin.lz",
+    "path": "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTileset_SanctuaryEntrance_top.bin.lz",
     "start": 5682972,
     "size": 896,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTilesetTypes_SanctuaryEntrance_bottom.bin.lz",
+    "path": "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTilesetTypes_SanctuaryEntrance_bottom.bin.lz",
     "start": 5683868,
     "size": 368,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTilesetTypes_SanctuaryEntrance_top.bin.lz",
+    "path": "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTilesetTypes_SanctuaryEntrance_top.bin.lz",
     "start": 5684236,
     "size": 240,
     "type": "metatileset_types"
@@ -10189,25 +10189,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTileset_DarkHyruleCastle_bottom.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTileset_DarkHyruleCastle_bottom.bin.lz",
     "start": 5710768,
     "size": 11584,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTileset_DarkHyruleCastle_top.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTileset_DarkHyruleCastle_top.bin.lz",
     "start": 5722352,
     "size": 7796,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastle_bottom.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastle_bottom.bin.lz",
     "start": 5730148,
     "size": 1416,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastle_top.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastle_top.bin.lz",
     "start": 5731564,
     "size": 1264,
     "type": "metatileset_types"
@@ -10231,25 +10231,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTileset_DarkHyruleCastleBridge_bottom.bin.lz",
+    "path": "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTileset_DarkHyruleCastleBridge_bottom.bin.lz",
     "start": 5746936,
     "size": 3552,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTileset_DarkHyruleCastleBridge_top.bin.lz",
+    "path": "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTileset_DarkHyruleCastleBridge_top.bin.lz",
     "start": 5750488,
     "size": 2320,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_bottom.bin.lz",
+    "path": "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_bottom.bin.lz",
     "start": 5752808,
     "size": 628,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_top.bin.lz",
+    "path": "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_top.bin.lz",
     "start": 5753436,
     "size": 536,
     "type": "metatileset_types"
@@ -10273,25 +10273,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/139_Vaati3/metatilesets/gAreaMetaTileset_Vaati3_bottom.bin.lz",
+    "path": "maps/areas/139_Vaati3/metatileset/gAreaMetaTileset_Vaati3_bottom.bin.lz",
     "start": 5771680,
     "size": 1720,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/139_Vaati3/metatilesets/gAreaMetaTileset_Vaati3_top.bin.lz",
+    "path": "maps/areas/139_Vaati3/metatileset/gAreaMetaTileset_Vaati3_top.bin.lz",
     "start": 5773400,
     "size": 476,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/139_Vaati3/metatilesets/gAreaMetaTilesetTypes_Vaati3_bottom.bin.lz",
+    "path": "maps/areas/139_Vaati3/metatileset/gAreaMetaTilesetTypes_Vaati3_bottom.bin.lz",
     "start": 5773876,
     "size": 212,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/139_Vaati3/metatilesets/gAreaMetaTilesetTypes_Vaati3_top.bin.lz",
+    "path": "maps/areas/139_Vaati3/metatileset/gAreaMetaTilesetTypes_Vaati3_top.bin.lz",
     "start": 5774088,
     "size": 144,
     "type": "metatileset_types"
@@ -10315,25 +10315,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/140_Vaati2/metatilesets/gAreaMetaTileset_Vaati2_bottom.bin.lz",
+    "path": "maps/areas/140_Vaati2/metatileset/gAreaMetaTileset_Vaati2_bottom.bin.lz",
     "start": 5788372,
     "size": 1068,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/140_Vaati2/metatilesets/gAreaMetaTileset_Vaati2_top.bin.lz",
+    "path": "maps/areas/140_Vaati2/metatileset/gAreaMetaTileset_Vaati2_top.bin.lz",
     "start": 5789440,
     "size": 160,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/140_Vaati2/metatilesets/gAreaMetaTilesetTypes_Vaati2_bottom.bin.lz",
+    "path": "maps/areas/140_Vaati2/metatileset/gAreaMetaTilesetTypes_Vaati2_bottom.bin.lz",
     "start": 5789600,
     "size": 124,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/140_Vaati2/metatilesets/gAreaMetaTilesetTypes_Vaati2_top.bin.lz",
+    "path": "maps/areas/140_Vaati2/metatileset/gAreaMetaTilesetTypes_Vaati2_top.bin.lz",
     "start": 5789724,
     "size": 80,
     "type": "metatileset_types"
@@ -10357,25 +10357,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTileset_VaatisArms_bottom.bin.lz",
+    "path": "maps/areas/138_VaatisArms/metatileset/gAreaMetaTileset_VaatisArms_bottom.bin.lz",
     "start": 5801952,
     "size": 3272,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTileset_VaatisArms_top.bin.lz",
+    "path": "maps/areas/138_VaatisArms/metatileset/gAreaMetaTileset_VaatisArms_top.bin.lz",
     "start": 5805224,
     "size": 900,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTilesetTypes_VaatisArms_bottom.bin.lz",
+    "path": "maps/areas/138_VaatisArms/metatileset/gAreaMetaTilesetTypes_VaatisArms_bottom.bin.lz",
     "start": 5806124,
     "size": 260,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTilesetTypes_VaatisArms_top.bin.lz",
+    "path": "maps/areas/138_VaatisArms/metatileset/gAreaMetaTilesetTypes_VaatisArms_top.bin.lz",
     "start": 5806384,
     "size": 168,
     "type": "metatileset_types"
@@ -11232,13 +11232,13 @@
     "name": "gDungeonMaps_DarkHyruleCastle_1fLoopTop"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_bottom.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_bottom.bin.lz",
     "start": 5828060,
     "size": 60,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_top.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_top.bin.lz",
     "start": 5828120,
     "size": 296,
     "type": "metatilemap"
@@ -11347,13 +11347,13 @@
     "name": "gDungeonMaps_DarkHyruleCastle_1fLoopBottom"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_bottom.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_bottom.bin.lz",
     "start": 5830492,
     "size": 204,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_top.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_top.bin.lz",
     "start": 5830696,
     "size": 144,
     "type": "metatilemap"
@@ -11554,13 +11554,13 @@
     "name": "gDungeonMaps_DarkHyruleCastle_B1Keatons"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/rooms/48_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_bottom.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_bottom.bin.lz",
     "start": 5834264,
     "size": 88,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/136_DarkHyruleCastle/rooms/48_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_top.bin.lz",
+    "path": "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_top.bin.lz",
     "start": 5834352,
     "size": 408,
     "type": "metatilemap"
@@ -11859,7 +11859,7 @@
     "path": "maps/areas/140_Vaati2/tilesets/0/gAreaTileset_Vaati2_0_3.4bpp.lz",
     "start": 5843884,
     "size": 756,
-    "type": "tileset_mapping3"
+    "type": "tileset"
   },
   {
     "path": "maps/areas/137_DarkHyruleCastleOutside/tilesets/0/gAreaTileset_DarkHyruleCastleOutside_0_0.4bpp.lz",
@@ -11880,25 +11880,25 @@
     "type": "tileset"
   },
   {
-    "path": "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTileset_DarkHyruleCastleOutside_bottom.bin.lz",
+    "path": "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTileset_DarkHyruleCastleOutside_bottom.bin.lz",
     "start": 5867864,
     "size": 5412,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTileset_DarkHyruleCastleOutside_top.bin.lz",
+    "path": "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTileset_DarkHyruleCastleOutside_top.bin.lz",
     "start": 5873276,
     "size": 3132,
     "type": "metatileset"
   },
   {
-    "path": "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_bottom.bin.lz",
+    "path": "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_bottom.bin.lz",
     "start": 5876408,
     "size": 732,
     "type": "metatileset_types"
   },
   {
-    "path": "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_top.bin.lz",
+    "path": "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_top.bin.lz",
     "start": 5877140,
     "size": 460,
     "type": "metatileset_types"
@@ -11988,13 +11988,13 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/137_DarkHyruleCastleOutside/rooms/06_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_bottom.bin.lz",
+    "path": "maps/areas/137_DarkHyruleCastleOutside/rooms/07_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_bottom.bin.lz",
     "start": 5882284,
     "size": 384,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/137_DarkHyruleCastleOutside/rooms/06_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_top.bin.lz",
+    "path": "maps/areas/137_DarkHyruleCastleOutside/rooms/07_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_top.bin.lz",
     "start": 5882668,
     "size": 480,
     "type": "metatilemap"

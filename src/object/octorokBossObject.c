@@ -171,7 +171,7 @@ void OctorokBossObject_Action1(Entity* this) {
                 return;
             }
         case 1:
-            this->direction = sub_080045DA(GET_HELPER(this)->tailObjects[this->timer]->x.WORD - this->x.WORD,
+            this->direction = CalculateDirectionFromOffsets(GET_HELPER(this)->tailObjects[this->timer]->x.WORD - this->x.WORD,
                                            GET_HELPER(this)->tailObjects[this->timer]->y.WORD - this->y.WORD);
             LinearMoveAngle(this, this->speed, this->direction);
             if (EntityInRectRadius(this, GET_HELPER(this)->tailObjects[this->timer], 2, 2) == 0) {
@@ -197,7 +197,7 @@ void OctorokBossObject_Action1(Entity* this) {
         case 2:
             if (this->parent->type2 == 3) {
                 Entity* object = GET_HELPER(this->parent)->mouthObject;
-                this->direction = sub_080045DA(object->x.WORD - this->x.WORD, object->y.WORD - this->y.WORD);
+                this->direction = CalculateDirectionFromOffsets(object->x.WORD - this->x.WORD, object->y.WORD - this->y.WORD);
                 LinearMoveAngle(this, 0x280, this->direction);
                 if (sub_0806FC80(this, this->parent, 0x48) == 0) {
                     return;

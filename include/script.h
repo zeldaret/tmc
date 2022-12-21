@@ -54,7 +54,7 @@ void StartPlayerScript(Script* script);
 void sub_0807DD50(Entity* entity);
 void sub_0807DD64(Entity* entity);
 void sub_0807DD80(Entity* entity, Script* script);
-void sub_0807DEDC(Entity*, ScriptExecutionContext*, u32, u32);
+void LookAt(Entity*, ScriptExecutionContext*, u32, u32);
 
 ScriptExecutionContext* StartCutscene(Entity* entity, Script* script);
 void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*));

@@ -635,27 +635,27 @@
 	.2byte \c
 .endm
 
-.macro _0807EDD4 a:req, b:req
+.macro MoveTo a:req, b:req
 	.2byte 0x0c73
 	.2byte \a
 	.2byte \b
 .endm
 
-.macro _0807EE04 a:req, b:req
+.macro LookAt a:req, b:req
 	.2byte 0x0c74
 	.2byte \a
 	.2byte \b
 .endm
 
-.macro _0807EE30
+.macro MoveTowardsTarget
 	.2byte 0x0475
 .endm
 
-.macro _0807EEB4
+.macro MoveToPlayer
 	.2byte 0x0476
 .endm
 
-.macro _0807EEF4 a:req, b:req
+.macro MoveToOffset a:req, b:req
 	.2byte 0x0c77
 	.2byte \a
 	.2byte \b

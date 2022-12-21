@@ -13,7 +13,7 @@ SCRIPT_START script_CutsceneOrchestratorGreatWhirlwindRevealed
 	WaitForSyncFlagAndClear 0x00000004
 	SetSyncFlag 0x0000000a
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EEB4
+	MoveToPlayer
 	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call sub_0807FBCC

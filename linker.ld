@@ -101,7 +101,7 @@ SECTIONS {
         . = 0x000350F0; gUnk_020350F0 = .;
         . = 0x0003510E; gUnk_0203510E = .;
         . = 0x00035160; gUnk_02035160 = .;
-        . = 0x000354B0; gUnk_020354B0 = .;
+        . = 0x000354B0; gRoomMemoryPtr = .;
         . = 0x000354B4; gManagerCount = .;
         . = 0x000354C0; gUnk_020354C0 = .;
         . = 0x00035540; gzHeap = .;

@@ -17,20 +17,20 @@ script_080111F6:
 script_08011206:
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01f8, 0x0050
+	MoveTo 0x01f8, 0x0050
 	FacePlayer
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01f8, 0x0020
+	MoveTo 0x01f8, 0x0020
 	DoPostScriptAction 0x0008
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x0001
 	SetEntitySpeed 0x0040
-	_0807EDD4 0x01e8, 0x0040
+	MoveTo 0x01e8, 0x0040
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010
@@ -38,7 +38,7 @@ script_08011206:
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01d8, 0x0058
+	MoveTo 0x01d8, 0x0058
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010

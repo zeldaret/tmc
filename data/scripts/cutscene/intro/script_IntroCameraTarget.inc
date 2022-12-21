@@ -13,5 +13,5 @@ SCRIPT_START script_IntroCameraTarget
 	SetSyncFlag 0x00000004
 	Call sub_08053648
 	@ Move camera target down
-	_0807EDD4 0x0240, 0x0228
+	MoveTo 0x0240, 0x0228
 SCRIPT_END

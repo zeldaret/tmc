@@ -16,9 +16,9 @@ SCRIPT_START script_Goron6Kindstone6
 	SetSyncFlag 0x0000007c
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0098, 0x00e8
-	_0807EDD4 0x00c8, 0x00e8
-	_0807EDD4 0x00c8, 0x00d8
+	MoveTo 0x0098, 0x00e8
+	MoveTo 0x00c8, 0x00e8
+	MoveTo 0x00c8, 0x00d8
 	Wait 0x000f
 	SetSyncFlag 0x0000007c
 	DoPostScriptAction 0x000f
@@ -32,6 +32,6 @@ SCRIPT_START script_Goron6Kindstone6
 	Wait 0x003c
 	SetSyncFlag 0x0000007c
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, -32
+	MoveToOffset 0x0000, -32
 	Call sub_08054968
 SCRIPT_END

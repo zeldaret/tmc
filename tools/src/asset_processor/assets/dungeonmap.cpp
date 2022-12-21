@@ -59,7 +59,7 @@ void DungeonMapAsset::buildToBinary() {
     file.close();
 
     auto output_file = util::open_file(buildPath, "w");
-    char byte = 0;
+    int byte = 0;
     size_t pixels = 0;
     for (size_t i = 0; i < static_cast<size_t>(fileSize); i++) {
         switch (data[i]) {

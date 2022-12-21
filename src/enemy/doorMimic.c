@@ -42,7 +42,7 @@ void DoorMimic_OnCollision(Entity* this) {
 void DoorMimic_OnDeath(Entity* this) {
     SetTile((u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI, this->collisionLayer);
     CreateFx(this, FX_POT_SHATTER, 0);
-    sub_08049CF4(this);
+    SetRoomTrackerFlag(this);
     DeleteThisEntity();
 }
 

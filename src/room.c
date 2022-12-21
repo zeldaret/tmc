@@ -10,7 +10,7 @@
 
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
-extern u32 sub_08049D1C(u32);
+extern bool32 IsRoomTrackerFlagSet(u32);
 
 extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
@@ -194,10 +194,10 @@ static void sub_0804B058(EntityData* dat) {
         uVar2 = 0;
         do {
             if ((uVar2 < 0x20) && ((dat->kind & 0xF) == 3)) {
-                if (sub_08049D1C(uVar2) != 0) {
+                if (IsRoomTrackerFlagSet(uVar2) ) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ent->field_0x6c.HALF.LO = uVar2 | 0x80;
+                        ent->field_0x6c.HALF.LO = uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the enemy so it does not appear next time the room is visited?
                     }
                 }
             } else {
@@ -209,8 +209,8 @@ static void sub_0804B058(EntityData* dat) {
     }
 }
 
-void sub_0804B0B0(u32 arg0, u32 arg1) {
-    LoadRoomEntityList(GetRoomProperty(arg0, arg1, 1));
+void sub_0804B0B0(u32 area, u32 room) {
+    LoadRoomEntityList(GetRoomProperty(area, room, 1));
 }
 
 void SetCurrentRoomPropertyList(u32 area, u32 room) {
@@ -220,11 +220,11 @@ void SetCurrentRoomPropertyList(u32 area, u32 room) {
     }
 }
 
-void sub_0804B0E8(u32 arg0, u32 arg1) {
+void sub_0804B0E8(u32 area, u32 room) {
     void (*func)(void);
 
     // init function at index 4 of room data
-    func = (void (*)())GetRoomProperty(arg0, arg1, 4);
+    func = (void (*)())GetRoomProperty(area, room, 4);
     if (func != NULL) {
         func();
     }
@@ -246,7 +246,7 @@ void* GetCurrentRoomProperty(u32 idx) {
     if (gCurrentRoomProperties == NULL)
         return NULL;
 
-    if (idx >= 0x80) {
+    if (idx >= 0x80) { // TODO different kind of room properties?
         return gRoomVars.field_0x8c[idx & 7];
     } else if (idx <= 7) {
         return gRoomVars.field_0x6c[idx];

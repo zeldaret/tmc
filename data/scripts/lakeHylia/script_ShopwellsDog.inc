@@ -6,7 +6,7 @@ SCRIPT_START script_ShopwellsDog
 	EndBlock
 	Wait 0x001e
 	PlaySound SFX_VO_DOG
-	_0807EDD4 0x008a, 0x005a
+	MoveTo 0x008a, 0x005a
 	Wait 0x000a
 	Call sub_08069EE8
 SCRIPT_END

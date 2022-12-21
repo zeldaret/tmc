@@ -12,7 +12,7 @@ SCRIPT_START script_CameraTarget7FirstCrow
 script_08009816:
 	EndBlock
 	BeginBlock
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_08009816
 	EndBlock
 	SetSyncFlag 0x00000004

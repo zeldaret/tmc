@@ -5,7 +5,7 @@ SCRIPT_START script_CutsceneMiscObjectWaterElementFloating
 	SetAnimation 0x0004
 	EndBlock
 	SetEntitySpeed 0x0080
-	_0807EDD4 0x0120, 0x0168
+	MoveTo 0x0120, 0x0168
 	SetAnimation 0x0005
 	SetSyncFlag 0x20000000
 SCRIPT_END

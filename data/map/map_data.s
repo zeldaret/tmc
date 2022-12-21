@@ -16,13 +16,13 @@ gAreaTileset_MinishWoods_0_1::
 gAreaTileset_MinishWoods_0_2::
 	.incbin "maps/areas/000_MinishWoods/tilesets/0/gAreaTileset_MinishWoods_0_2.4bpp.lz"
 gAreaMetaTileset_MinishWoods_bottom::
-	.incbin "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTileset_MinishWoods_bottom.bin.lz"
+	.incbin "maps/areas/000_MinishWoods/metatileset/gAreaMetaTileset_MinishWoods_bottom.bin.lz"
 gAreaMetaTileset_MinishWoods_top::
-	.incbin "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTileset_MinishWoods_top.bin.lz"
+	.incbin "maps/areas/000_MinishWoods/metatileset/gAreaMetaTileset_MinishWoods_top.bin.lz"
 gAreaMetaTilesetTypes_MinishWoods_bottom::
-	.incbin "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTilesetTypes_MinishWoods_bottom.bin.lz"
+	.incbin "maps/areas/000_MinishWoods/metatileset/gAreaMetaTilesetTypes_MinishWoods_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishWoods_top::
-	.incbin "maps/areas/000_MinishWoods/metatilesets/gAreaMetaTilesetTypes_MinishWoods_top.bin.lz"
+	.incbin "maps/areas/000_MinishWoods/metatileset/gAreaMetaTilesetTypes_MinishWoods_top.bin.lz"
 gAreaRoomMap_MinishWoods_Main_bottom::
 	.incbin "maps/areas/000_MinishWoods/rooms/00_Main/gAreaRoomMap_MinishWoods_Main_bottom.bin.lz"
 gAreaRoomMap_MinishWoods_Main_top::
@@ -36,13 +36,13 @@ gAreaTileset_LakeHylia_0_1::
 gAreaTileset_LakeHylia_0_2::
 	.incbin "maps/areas/011_LakeHylia/tilesets/0/gAreaTileset_LakeHylia_0_2.4bpp.lz"
 gAreaMetaTileset_LakeHylia_bottom::
-	.incbin "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTileset_LakeHylia_bottom.bin.lz"
+	.incbin "maps/areas/011_LakeHylia/metatileset/gAreaMetaTileset_LakeHylia_bottom.bin.lz"
 gAreaMetaTileset_LakeHylia_top::
-	.incbin "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTileset_LakeHylia_top.bin.lz"
+	.incbin "maps/areas/011_LakeHylia/metatileset/gAreaMetaTileset_LakeHylia_top.bin.lz"
 gAreaMetaTilesetTypes_LakeHylia_bottom::
-	.incbin "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTilesetTypes_LakeHylia_bottom.bin.lz"
+	.incbin "maps/areas/011_LakeHylia/metatileset/gAreaMetaTilesetTypes_LakeHylia_bottom.bin.lz"
 gAreaMetaTilesetTypes_LakeHylia_top::
-	.incbin "maps/areas/011_LakeHylia/metatilesets/gAreaMetaTilesetTypes_LakeHylia_top.bin.lz"
+	.incbin "maps/areas/011_LakeHylia/metatileset/gAreaMetaTilesetTypes_LakeHylia_top.bin.lz"
 gAreaRoomMap_LakeHylia_Main_bottom::
 	.incbin "maps/areas/011_LakeHylia/rooms/00_Main/gAreaRoomMap_LakeHylia_Main_bottom.bin.lz"
 gAreaRoomMap_LakeHylia_Main_top::
@@ -60,13 +60,13 @@ gAreaTileset_CastorWilds_0_1::
 gAreaTileset_CastorWilds_0_2::
 	.incbin "maps/areas/004_CastorWilds/tilesets/0/gAreaTileset_CastorWilds_0_2.4bpp.lz"
 gAreaMetaTileset_CastorWilds_bottom::
-	.incbin "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTileset_CastorWilds_bottom.bin.lz"
+	.incbin "maps/areas/004_CastorWilds/metatileset/gAreaMetaTileset_CastorWilds_bottom.bin.lz"
 gAreaMetaTileset_CastorWilds_top::
-	.incbin "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTileset_CastorWilds_top.bin.lz"
+	.incbin "maps/areas/004_CastorWilds/metatileset/gAreaMetaTileset_CastorWilds_top.bin.lz"
 gAreaMetaTilesetTypes_CastorWilds_bottom::
-	.incbin "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTilesetTypes_CastorWilds_bottom.bin.lz"
+	.incbin "maps/areas/004_CastorWilds/metatileset/gAreaMetaTilesetTypes_CastorWilds_bottom.bin.lz"
 gAreaMetaTilesetTypes_CastorWilds_top::
-	.incbin "maps/areas/004_CastorWilds/metatilesets/gAreaMetaTilesetTypes_CastorWilds_top.bin.lz"
+	.incbin "maps/areas/004_CastorWilds/metatileset/gAreaMetaTilesetTypes_CastorWilds_top.bin.lz"
 gAreaRoomMap_CastorWilds_Main_bottom::
 	.incbin "maps/areas/004_CastorWilds/rooms/00_Main/gAreaRoomMap_CastorWilds_Main_bottom.bin.lz"
 gAreaRoomMap_CastorWilds_Main_top::
@@ -100,13 +100,13 @@ gAreaRoomMap_Ruins_BelowFortressEntrance_top::
 unknown_3::
 	.incbin "assets/unknown_3.bin"
 gAreaMetaTileset_HyruleTown_bottom::
-	.incbin "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTileset_HyruleTown_bottom.bin.lz"
+	.incbin "maps/areas/002_HyruleTown/metatileset/gAreaMetaTileset_HyruleTown_bottom.bin.lz"
 gAreaMetaTileset_HyruleTown_top::
-	.incbin "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTileset_HyruleTown_top.bin.lz"
+	.incbin "maps/areas/002_HyruleTown/metatileset/gAreaMetaTileset_HyruleTown_top.bin.lz"
 gAreaMetaTilesetTypes_HyruleTown_bottom::
-	.incbin "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTilesetTypes_HyruleTown_bottom.bin.lz"
+	.incbin "maps/areas/002_HyruleTown/metatileset/gAreaMetaTilesetTypes_HyruleTown_bottom.bin.lz"
 gAreaMetaTilesetTypes_HyruleTown_top::
-	.incbin "maps/areas/002_HyruleTown/metatilesets/gAreaMetaTilesetTypes_HyruleTown_top.bin.lz"
+	.incbin "maps/areas/002_HyruleTown/metatileset/gAreaMetaTilesetTypes_HyruleTown_top.bin.lz"
 gAreaTileset_HyruleTown_0_0::
 	.incbin "maps/areas/002_HyruleTown/tilesets/0/gAreaTileset_HyruleTown_0_0.4bpp.lz"
 gAreaTileset_HyruleTown_0_1::
@@ -136,13 +136,13 @@ gAreaTileset_MtCrenel_0_1::
 gAreaTileset_MtCrenel_0_2::
 	.incbin "maps/areas/006_MtCrenel/tilesets/0/gAreaTileset_MtCrenel_0_2.4bpp.lz"
 gAreaMetaTileset_MtCrenel_bottom::
-	.incbin "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTileset_MtCrenel_bottom.bin.lz"
+	.incbin "maps/areas/006_MtCrenel/metatileset/gAreaMetaTileset_MtCrenel_bottom.bin.lz"
 gAreaMetaTileset_MtCrenel_top::
-	.incbin "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTileset_MtCrenel_top.bin.lz"
+	.incbin "maps/areas/006_MtCrenel/metatileset/gAreaMetaTileset_MtCrenel_top.bin.lz"
 gAreaMetaTilesetTypes_MtCrenel_bottom::
-	.incbin "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTilesetTypes_MtCrenel_bottom.bin.lz"
+	.incbin "maps/areas/006_MtCrenel/metatileset/gAreaMetaTilesetTypes_MtCrenel_bottom.bin.lz"
 gAreaMetaTilesetTypes_MtCrenel_top::
-	.incbin "maps/areas/006_MtCrenel/metatilesets/gAreaMetaTilesetTypes_MtCrenel_top.bin.lz"
+	.incbin "maps/areas/006_MtCrenel/metatileset/gAreaMetaTilesetTypes_MtCrenel_top.bin.lz"
 gAreaRoomMap_MtCrenel_Top_bottom::
 	.incbin "maps/areas/006_MtCrenel/rooms/00_Top/gAreaRoomMap_MtCrenel_Top_bottom.bin.lz"
 gAreaRoomMap_MtCrenel_Top_top::
@@ -184,13 +184,13 @@ gAreaTileset_HyruleField_1_1::
 gAreaTileset_HyruleField_1_2::
 	.incbin "maps/areas/003_HyruleField/tilesets/1/gAreaTileset_HyruleField_1_2.4bpp.lz"
 gAreaMetaTileset_HyruleField_bottom::
-	.incbin "maps/areas/003_HyruleField/metatilesets/gAreaMetaTileset_HyruleField_bottom.bin.lz"
+	.incbin "maps/areas/003_HyruleField/metatileset/gAreaMetaTileset_HyruleField_bottom.bin.lz"
 gAreaMetaTileset_HyruleField_top::
-	.incbin "maps/areas/003_HyruleField/metatilesets/gAreaMetaTileset_HyruleField_top.bin.lz"
+	.incbin "maps/areas/003_HyruleField/metatileset/gAreaMetaTileset_HyruleField_top.bin.lz"
 gAreaMetaTilesetTypes_HyruleField_bottom::
-	.incbin "maps/areas/003_HyruleField/metatilesets/gAreaMetaTilesetTypes_HyruleField_bottom.bin.lz"
+	.incbin "maps/areas/003_HyruleField/metatileset/gAreaMetaTilesetTypes_HyruleField_bottom.bin.lz"
 gAreaMetaTilesetTypes_HyruleField_top::
-	.incbin "maps/areas/003_HyruleField/metatilesets/gAreaMetaTilesetTypes_HyruleField_top.bin.lz"
+	.incbin "maps/areas/003_HyruleField/metatileset/gAreaMetaTilesetTypes_HyruleField_top.bin.lz"
 gAreaTileset_HyruleField_0_3::
 	.incbin "maps/areas/003_HyruleField/tilesets/0/gAreaTileset_HyruleField_0_3.4bpp.lz"
 gAreaRoomMap_HyruleField_WesternWoodsSouth_bottom::
@@ -246,13 +246,13 @@ gAreaTileset_CastleGarden_0_1::
 gAreaTileset_CastleGarden_0_2::
 	.incbin "maps/areas/007_CastleGarden/tilesets/0/gAreaTileset_CastleGarden_0_2.4bpp.lz"
 gAreaMetaTileset_CastleGarden_bottom::
-	.incbin "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTileset_CastleGarden_bottom.bin.lz"
+	.incbin "maps/areas/007_CastleGarden/metatileset/gAreaMetaTileset_CastleGarden_bottom.bin.lz"
 gAreaMetaTileset_CastleGarden_top::
-	.incbin "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTileset_CastleGarden_top.bin.lz"
+	.incbin "maps/areas/007_CastleGarden/metatileset/gAreaMetaTileset_CastleGarden_top.bin.lz"
 gAreaMetaTilesetTypes_CastleGarden_bottom::
-	.incbin "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTilesetTypes_CastleGarden_bottom.bin.lz"
+	.incbin "maps/areas/007_CastleGarden/metatileset/gAreaMetaTilesetTypes_CastleGarden_bottom.bin.lz"
 gAreaMetaTilesetTypes_CastleGarden_top::
-	.incbin "maps/areas/007_CastleGarden/metatilesets/gAreaMetaTilesetTypes_CastleGarden_top.bin.lz"
+	.incbin "maps/areas/007_CastleGarden/metatileset/gAreaMetaTilesetTypes_CastleGarden_top.bin.lz"
 gAreaRoomMap_CastleGarden_Main_bottom::
 	.incbin "maps/areas/007_CastleGarden/rooms/00_Main/gAreaRoomMap_CastleGarden_Main_bottom.bin.lz"
 gAreaRoomMap_CastleGarden_Main_top::
@@ -264,13 +264,13 @@ gAreaTileset_CloudTops_0_1::
 gAreaTileset_CloudTops_0_2::
 	.incbin "maps/areas/008_CloudTops/tilesets/0/gAreaTileset_CloudTops_0_2.4bpp.lz"
 gAreaMetaTileset_CloudTops_bottom::
-	.incbin "maps/areas/008_CloudTops/metatilesets/gAreaMetaTileset_CloudTops_bottom.bin.lz"
+	.incbin "maps/areas/008_CloudTops/metatileset/gAreaMetaTileset_CloudTops_bottom.bin.lz"
 gAreaMetaTileset_CloudTops_top::
-	.incbin "maps/areas/008_CloudTops/metatilesets/gAreaMetaTileset_CloudTops_top.bin.lz"
+	.incbin "maps/areas/008_CloudTops/metatileset/gAreaMetaTileset_CloudTops_top.bin.lz"
 gAreaMetaTilesetTypes_CloudTops_bottom::
-	.incbin "maps/areas/008_CloudTops/metatilesets/gAreaMetaTilesetTypes_CloudTops_bottom.bin.lz"
+	.incbin "maps/areas/008_CloudTops/metatileset/gAreaMetaTilesetTypes_CloudTops_bottom.bin.lz"
 gAreaMetaTilesetTypes_CloudTops_top::
-	.incbin "maps/areas/008_CloudTops/metatilesets/gAreaMetaTilesetTypes_CloudTops_top.bin.lz"
+	.incbin "maps/areas/008_CloudTops/metatileset/gAreaMetaTilesetTypes_CloudTops_top.bin.lz"
 gAreaRoomMap_CloudTops_CloudTops_bottom::
 	.incbin "maps/areas/008_CloudTops/rooms/00_CloudTops/gAreaRoomMap_CloudTops_CloudTops_bottom.bin.lz"
 gAreaRoomMap_CloudTops_CloudTops_top::
@@ -292,13 +292,13 @@ gAreaTileset_RoyalValley_0_1::
 gAreaTileset_RoyalValley_0_2::
 	.incbin "maps/areas/009_RoyalValley/tilesets/0/gAreaTileset_RoyalValley_0_2.4bpp.lz"
 gAreaMetaTileset_RoyalValley_bottom::
-	.incbin "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTileset_RoyalValley_bottom.bin.lz"
+	.incbin "maps/areas/009_RoyalValley/metatileset/gAreaMetaTileset_RoyalValley_bottom.bin.lz"
 gAreaMetaTileset_RoyalValley_top::
-	.incbin "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTileset_RoyalValley_top.bin.lz"
+	.incbin "maps/areas/009_RoyalValley/metatileset/gAreaMetaTileset_RoyalValley_top.bin.lz"
 gAreaMetaTilesetTypes_RoyalValley_bottom::
-	.incbin "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTilesetTypes_RoyalValley_bottom.bin.lz"
+	.incbin "maps/areas/009_RoyalValley/metatileset/gAreaMetaTilesetTypes_RoyalValley_bottom.bin.lz"
 gAreaMetaTilesetTypes_RoyalValley_top::
-	.incbin "maps/areas/009_RoyalValley/metatilesets/gAreaMetaTilesetTypes_RoyalValley_top.bin.lz"
+	.incbin "maps/areas/009_RoyalValley/metatileset/gAreaMetaTilesetTypes_RoyalValley_top.bin.lz"
 gAreaRoomMap_RoyalValley_Main_bottom::
 	.incbin "maps/areas/009_RoyalValley/rooms/00_Main/gAreaRoomMap_RoyalValley_Main_bottom.bin.lz"
 gAreaRoomMap_RoyalValley_Main_top::
@@ -334,13 +334,13 @@ gAreaTileset_Beanstalks_0_1::
 gAreaTileset_Beanstalks_0_2::
 	.incbin "maps/areas/013_Beanstalks/tilesets/0/gAreaTileset_Beanstalks_0_2.4bpp.lz"
 gAreaMetaTileset_Beanstalks_bottom::
-	.incbin "maps/areas/013_Beanstalks/metatilesets/gAreaMetaTileset_Beanstalks_bottom.bin.lz"
+	.incbin "maps/areas/013_Beanstalks/metatileset/gAreaMetaTileset_Beanstalks_bottom.bin.lz"
 gAreaMetaTilesetTypes_Beanstalks_bottom::
-	.incbin "maps/areas/013_Beanstalks/metatilesets/gAreaMetaTilesetTypes_Beanstalks_bottom.bin.lz"
+	.incbin "maps/areas/013_Beanstalks/metatileset/gAreaMetaTilesetTypes_Beanstalks_bottom.bin.lz"
 gAreaTileset_Beanstalks_0_3::
 	.incbin "maps/areas/013_Beanstalks/tilesets/0/gAreaTileset_Beanstalks_0_3.4bpp.lz"
 gRoomMapping_Beanstalks_CrenelClimb_top::
-	.incbin "maps/areas/013_Beanstalks/rooms/00_CrenelClimb/gRoomMapping_Beanstalks_CrenelClimb_top.bin.lz"
+	.incbin "maps/areas/013_Beanstalks/rooms/16_CrenelClimb/gRoomMapping_Beanstalks_CrenelClimb_top.bin.lz"
 gAreaRoomMap_Beanstalks_Crenel_bottom::
 	.incbin "maps/areas/013_Beanstalks/rooms/00_Crenel/gAreaRoomMap_Beanstalks_Crenel_bottom.bin"
 gAreaRoomMap_Beanstalks_LakeHylia_bottom::
@@ -364,13 +364,13 @@ gAreaTileset_CrenelCaves_0_1::
 gAreaTileset_CrenelCaves_0_2::
 	.incbin "maps/areas/038_CrenelCaves/tilesets/0/gAreaTileset_CrenelCaves_0_2.4bpp.lz"
 gAreaMetaTileset_MinishHouseInteriors_bottom::
-	.incbin "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTileset_MinishHouseInteriors_bottom.bin.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTileset_MinishHouseInteriors_bottom.bin.lz"
 gAreaMetaTileset_MinishHouseInteriors_top::
-	.incbin "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTileset_MinishHouseInteriors_top.bin.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTileset_MinishHouseInteriors_top.bin.lz"
 gAreaMetaTilesetTypes_MinishHouseInteriors_bottom::
-	.incbin "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTilesetTypes_MinishHouseInteriors_bottom.bin.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTilesetTypes_MinishHouseInteriors_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishHouseInteriors_top::
-	.incbin "maps/areas/032_MinishHouseInteriors/metatilesets/gAreaMetaTilesetTypes_MinishHouseInteriors_top.bin.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/metatileset/gAreaMetaTilesetTypes_MinishHouseInteriors_top.bin.lz"
 gAreaRoomMap_CrenelCaves_BlockPushing_bottom::
 	.incbin "maps/areas/038_CrenelCaves/rooms/00_BlockPushing/gAreaRoomMap_CrenelCaves_BlockPushing_bottom.bin.lz"
 gAreaRoomMap_CrenelCaves_BlockPushing_top::
@@ -446,13 +446,13 @@ gAreaTileset_GreatFairies_0_1::
 gAreaTileset_GreatFairies_0_2::
 	.incbin "maps/areas/041_GreatFairies/tilesets/0/gAreaTileset_GreatFairies_0_2.4bpp.lz"
 gAreaMetaTileset_GreatFairies_bottom::
-	.incbin "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTileset_GreatFairies_bottom.bin.lz"
+	.incbin "maps/areas/041_GreatFairies/metatileset/gAreaMetaTileset_GreatFairies_bottom.bin.lz"
 gAreaMetaTileset_GreatFairies_top::
-	.incbin "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTileset_GreatFairies_top.bin.lz"
+	.incbin "maps/areas/041_GreatFairies/metatileset/gAreaMetaTileset_GreatFairies_top.bin.lz"
 gAreaMetaTilesetTypes_GreatFairies_bottom::
-	.incbin "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTilesetTypes_GreatFairies_bottom.bin.lz"
+	.incbin "maps/areas/041_GreatFairies/metatileset/gAreaMetaTilesetTypes_GreatFairies_bottom.bin.lz"
 gAreaMetaTilesetTypes_GreatFairies_top::
-	.incbin "maps/areas/041_GreatFairies/metatilesets/gAreaMetaTilesetTypes_GreatFairies_top.bin.lz"
+	.incbin "maps/areas/041_GreatFairies/metatileset/gAreaMetaTilesetTypes_GreatFairies_top.bin.lz"
 gAreaRoomMap_GreatFairies_Graveyard_bottom::
 	.incbin "maps/areas/041_GreatFairies/rooms/00_Graveyard/gAreaRoomMap_GreatFairies_Graveyard_bottom.bin.lz"
 gAreaRoomMap_GreatFairies_Graveyard_top::
@@ -500,13 +500,13 @@ gAreaTileset_ArmosInteriors_0_1::
 gAreaTileset_ArmosInteriors_0_2::
 	.incbin "maps/areas/044_ArmosInteriors/tilesets/0/gAreaTileset_ArmosInteriors_0_2.4bpp.lz"
 gAreaMetaTileset_ArmosInteriors_bottom::
-	.incbin "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTileset_ArmosInteriors_bottom.bin.lz"
+	.incbin "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTileset_ArmosInteriors_bottom.bin.lz"
 gAreaMetaTileset_ArmosInteriors_top::
-	.incbin "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTileset_ArmosInteriors_top.bin.lz"
+	.incbin "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTileset_ArmosInteriors_top.bin.lz"
 gAreaMetaTilesetTypes_ArmosInteriors_bottom::
-	.incbin "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTilesetTypes_ArmosInteriors_bottom.bin.lz"
+	.incbin "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTilesetTypes_ArmosInteriors_bottom.bin.lz"
 gAreaMetaTilesetTypes_ArmosInteriors_top::
-	.incbin "maps/areas/044_ArmosInteriors/metatilesets/gAreaMetaTilesetTypes_ArmosInteriors_top.bin.lz"
+	.incbin "maps/areas/044_ArmosInteriors/metatileset/gAreaMetaTilesetTypes_ArmosInteriors_top.bin.lz"
 gAreaRoomMap_ArmosInteriors_RuinsEntranceNorth_bottom::
 	.incbin "maps/areas/044_ArmosInteriors/rooms/00_RuinsEntranceNorth/gAreaRoomMap_ArmosInteriors_RuinsEntranceNorth_bottom.bin"
 gAreaRoomMap_ArmosInteriors_RuinsEntranceNorth_top::
@@ -558,13 +558,13 @@ gAreaTileset_GoronCave_0_1::
 gAreaTileset_GoronCave_0_2::
 	.incbin "maps/areas/047_GoronCave/tilesets/0/gAreaTileset_GoronCave_0_2.4bpp.lz"
 gAreaMetaTileset_GoronCave_bottom::
-	.incbin "maps/areas/047_GoronCave/metatilesets/gAreaMetaTileset_GoronCave_bottom.bin.lz"
+	.incbin "maps/areas/047_GoronCave/metatileset/gAreaMetaTileset_GoronCave_bottom.bin.lz"
 gAreaMetaTileset_GoronCave_top::
-	.incbin "maps/areas/047_GoronCave/metatilesets/gAreaMetaTileset_GoronCave_top.bin.lz"
+	.incbin "maps/areas/047_GoronCave/metatileset/gAreaMetaTileset_GoronCave_top.bin.lz"
 gAreaMetaTilesetTypes_GoronCave_bottom::
-	.incbin "maps/areas/047_GoronCave/metatilesets/gAreaMetaTilesetTypes_GoronCave_bottom.bin.lz"
+	.incbin "maps/areas/047_GoronCave/metatileset/gAreaMetaTilesetTypes_GoronCave_bottom.bin.lz"
 gAreaMetaTilesetTypes_GoronCave_top::
-	.incbin "maps/areas/047_GoronCave/metatilesets/gAreaMetaTilesetTypes_GoronCave_top.bin.lz"
+	.incbin "maps/areas/047_GoronCave/metatileset/gAreaMetaTilesetTypes_GoronCave_top.bin.lz"
 gAreaRoomMap_GoronCave_Stairs_bottom::
 	.incbin "maps/areas/047_GoronCave/rooms/00_Stairs/gAreaRoomMap_GoronCave_Stairs_bottom.bin.lz"
 gAreaRoomMap_GoronCave_Stairs_top::
@@ -626,17 +626,17 @@ gAreaRoomMap_Caves_LonLonRanch_bottom::
 gAreaRoomMap_Caves_LonLonRanch_top::
 	.incbin "maps/areas/050_Caves/rooms/12_LonLonRanch/gAreaRoomMap_Caves_LonLonRanch_top.bin.lz"
 gAreaRoomMap_Caves_LonLonRanchSecret_bottom::
-	.incbin "maps/areas/050_Caves/rooms/12_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_bottom.bin.lz"
+	.incbin "maps/areas/050_Caves/rooms/13_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_bottom.bin.lz"
 gAreaRoomMap_Caves_LonLonRanchSecret_top::
-	.incbin "maps/areas/050_Caves/rooms/12_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_top.bin.lz"
+	.incbin "maps/areas/050_Caves/rooms/13_LonLonRanchSecret/gAreaRoomMap_Caves_LonLonRanchSecret_top.bin.lz"
 gAreaRoomMap_Caves_TrilbyHighlands_bottom::
 	.incbin "maps/areas/050_Caves/rooms/14_TrilbyHighlands/gAreaRoomMap_Caves_TrilbyHighlands_bottom.bin.lz"
 gAreaRoomMap_Caves_TrilbyHighlands_top::
 	.incbin "maps/areas/050_Caves/rooms/14_TrilbyHighlands/gAreaRoomMap_Caves_TrilbyHighlands_top.bin.lz"
 gAreaRoomMap_Caves_LonLonRanchWallet_bottom::
-	.incbin "maps/areas/050_Caves/rooms/12_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_bottom.bin.lz"
+	.incbin "maps/areas/050_Caves/rooms/15_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_bottom.bin.lz"
 gAreaRoomMap_Caves_LonLonRanchWallet_top::
-	.incbin "maps/areas/050_Caves/rooms/12_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_top.bin.lz"
+	.incbin "maps/areas/050_Caves/rooms/15_LonLonRanchWallet/gAreaRoomMap_Caves_LonLonRanchWallet_top.bin.lz"
 gAreaRoomMap_Caves_SouthHyruleFieldRupee_bottom::
 	.incbin "maps/areas/050_Caves/rooms/16_SouthHyruleFieldRupee/gAreaRoomMap_Caves_SouthHyruleFieldRupee_bottom.bin.lz"
 gAreaRoomMap_Caves_SouthHyruleFieldRupee_top::
@@ -724,13 +724,13 @@ gAreaTileset_MinishCaves_0_1::
 gAreaTileset_MinishCaves_0_2::
 	.incbin "maps/areas/053_MinishCaves/tilesets/0/gAreaTileset_MinishCaves_0_2.4bpp.lz"
 gAreaMetaTileset_MinishCaves_bottom::
-	.incbin "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTileset_MinishCaves_bottom.bin.lz"
+	.incbin "maps/areas/053_MinishCaves/metatileset/gAreaMetaTileset_MinishCaves_bottom.bin.lz"
 gAreaMetaTileset_MinishCaves_top::
-	.incbin "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTileset_MinishCaves_top.bin.lz"
+	.incbin "maps/areas/053_MinishCaves/metatileset/gAreaMetaTileset_MinishCaves_top.bin.lz"
 gAreaMetaTilesetTypes_MinishCaves_bottom::
-	.incbin "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTilesetTypes_MinishCaves_bottom.bin.lz"
+	.incbin "maps/areas/053_MinishCaves/metatileset/gAreaMetaTilesetTypes_MinishCaves_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishCaves_top::
-	.incbin "maps/areas/053_MinishCaves/metatilesets/gAreaMetaTilesetTypes_MinishCaves_top.bin.lz"
+	.incbin "maps/areas/053_MinishCaves/metatileset/gAreaMetaTilesetTypes_MinishCaves_top.bin.lz"
 gAreaTileset_CastleGardenMinishHoles_0_0::
 	.incbin "maps/areas/054_CastleGardenMinishHoles/tilesets/0/gAreaTileset_CastleGardenMinishHoles_0_0.4bpp.lz"
 gAreaTileset_CastleGardenMinishHoles_0_1::
@@ -738,13 +738,13 @@ gAreaTileset_CastleGardenMinishHoles_0_1::
 gAreaTileset_CastleGardenMinishHoles_0_2::
 	.incbin "maps/areas/054_CastleGardenMinishHoles/tilesets/0/gAreaTileset_CastleGardenMinishHoles_0_2.4bpp.lz"
 gAreaMetaTileset_CastleGardenMinishHoles_bottom::
-	.incbin "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTileset_CastleGardenMinishHoles_bottom.bin.lz"
+	.incbin "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTileset_CastleGardenMinishHoles_bottom.bin.lz"
 gAreaMetaTileset_CastleGardenMinishHoles_top::
-	.incbin "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTileset_CastleGardenMinishHoles_top.bin.lz"
+	.incbin "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTileset_CastleGardenMinishHoles_top.bin.lz"
 gAreaMetaTilesetTypes_CastleGardenMinishHoles_bottom::
-	.incbin "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTilesetTypes_CastleGardenMinishHoles_bottom.bin.lz"
+	.incbin "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTilesetTypes_CastleGardenMinishHoles_bottom.bin.lz"
 gAreaMetaTilesetTypes_CastleGardenMinishHoles_top::
-	.incbin "maps/areas/054_CastleGardenMinishHoles/metatilesets/gAreaMetaTilesetTypes_CastleGardenMinishHoles_top.bin.lz"
+	.incbin "maps/areas/054_CastleGardenMinishHoles/metatileset/gAreaMetaTilesetTypes_CastleGardenMinishHoles_top.bin.lz"
 gAreaRoomMap_MinishCaves_BeanPesto_bottom::
 	.incbin "maps/areas/053_MinishCaves/rooms/00_BeanPesto/gAreaRoomMap_MinishCaves_BeanPesto_bottom.bin.lz"
 gAreaRoomMap_MinishCaves_BeanPesto_top::
@@ -916,13 +916,13 @@ gAreaTileset_MinishVillage_0_1::
 gAreaTileset_MinishVillage_0_2::
 	.incbin "maps/areas/001_MinishVillage/tilesets/0/gAreaTileset_MinishVillage_0_2.4bpp.lz"
 gAreaMetaTileset_MinishVillage_bottom::
-	.incbin "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTileset_MinishVillage_bottom.bin.lz"
+	.incbin "maps/areas/001_MinishVillage/metatileset/gAreaMetaTileset_MinishVillage_bottom.bin.lz"
 gAreaMetaTileset_MinishVillage_top::
-	.incbin "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTileset_MinishVillage_top.bin.lz"
+	.incbin "maps/areas/001_MinishVillage/metatileset/gAreaMetaTileset_MinishVillage_top.bin.lz"
 gAreaMetaTilesetTypes_MinishVillage_bottom::
-	.incbin "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTilesetTypes_MinishVillage_bottom.bin.lz"
+	.incbin "maps/areas/001_MinishVillage/metatileset/gAreaMetaTilesetTypes_MinishVillage_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishVillage_top::
-	.incbin "maps/areas/001_MinishVillage/metatilesets/gAreaMetaTilesetTypes_MinishVillage_top.bin.lz"
+	.incbin "maps/areas/001_MinishVillage/metatileset/gAreaMetaTilesetTypes_MinishVillage_top.bin.lz"
 gAreaTileset_MinishVillage_1_0::
 	.incbin "maps/areas/001_MinishVillage/tilesets/1/gAreaTileset_MinishVillage_1_0.4bpp.lz"
 gAreaTileset_MinishVillage_1_1::
@@ -944,13 +944,13 @@ gAreaTileset_MelarisMine_0_1::
 gAreaTileset_MelarisMine_0_2::
 	.incbin "maps/areas/016_MelarisMine/tilesets/0/gAreaTileset_MelarisMine_0_2.4bpp.lz"
 gAreaMetaTileset_MelarisMine_bottom::
-	.incbin "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTileset_MelarisMine_bottom.bin.lz"
+	.incbin "maps/areas/016_MelarisMine/metatileset/gAreaMetaTileset_MelarisMine_bottom.bin.lz"
 gAreaMetaTileset_MelarisMine_top::
-	.incbin "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTileset_MelarisMine_top.bin.lz"
+	.incbin "maps/areas/016_MelarisMine/metatileset/gAreaMetaTileset_MelarisMine_top.bin.lz"
 gAreaMetaTilesetTypes_MelarisMine_bottom::
-	.incbin "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTilesetTypes_MelarisMine_bottom.bin.lz"
+	.incbin "maps/areas/016_MelarisMine/metatileset/gAreaMetaTilesetTypes_MelarisMine_bottom.bin.lz"
 gAreaMetaTilesetTypes_MelarisMine_top::
-	.incbin "maps/areas/016_MelarisMine/metatilesets/gAreaMetaTilesetTypes_MelarisMine_top.bin.lz"
+	.incbin "maps/areas/016_MelarisMine/metatileset/gAreaMetaTilesetTypes_MelarisMine_top.bin.lz"
 gAreaRoomMap_MelarisMine_Main_bottom::
 	.incbin "maps/areas/016_MelarisMine/rooms/00_Main/gAreaRoomMap_MelarisMine_Main_bottom.bin.lz"
 gAreaRoomMap_MelarisMine_Main_top::
@@ -960,9 +960,9 @@ gAreaTileset_MinishPaths_0_0::
 gAreaTileset_MinishPaths_0_1::
 	.incbin "maps/areas/017_MinishPaths/tilesets/0/gAreaTileset_MinishPaths_0_1.4bpp.lz"
 gAreaMetaTileset_MinishPaths_bottom::
-	.incbin "maps/areas/017_MinishPaths/metatilesets/gAreaMetaTileset_MinishPaths_bottom.bin.lz"
+	.incbin "maps/areas/017_MinishPaths/metatileset/gAreaMetaTileset_MinishPaths_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishPaths_bottom::
-	.incbin "maps/areas/017_MinishPaths/metatilesets/gAreaMetaTilesetTypes_MinishPaths_bottom.bin.lz"
+	.incbin "maps/areas/017_MinishPaths/metatileset/gAreaMetaTilesetTypes_MinishPaths_bottom.bin.lz"
 gAreaRoomMap_MinishPaths_MinishVillage_bottom::
 	.incbin "maps/areas/017_MinishPaths/rooms/00_MinishVillage/gAreaRoomMap_MinishPaths_MinishVillage_bottom.bin.lz"
 gAreaRoomMap_MinishPaths_Bow_bottom::
@@ -982,9 +982,9 @@ gAreaTileset_CrenelMinishPaths_1_0::
 gAreaTileset_CrenelMinishPaths_1_1::
 	.incbin "maps/areas/018_CrenelMinishPaths/tilesets/1/gAreaTileset_CrenelMinishPaths_1_1.4bpp.lz"
 gAreaMetaTileset_CrenelMinishPaths_bottom::
-	.incbin "maps/areas/018_CrenelMinishPaths/metatilesets/gAreaMetaTileset_CrenelMinishPaths_bottom.bin.lz"
+	.incbin "maps/areas/018_CrenelMinishPaths/metatileset/gAreaMetaTileset_CrenelMinishPaths_bottom.bin.lz"
 gAreaMetaTilesetTypes_CrenelMinishPaths_bottom::
-	.incbin "maps/areas/018_CrenelMinishPaths/metatilesets/gAreaMetaTilesetTypes_CrenelMinishPaths_bottom.bin.lz"
+	.incbin "maps/areas/018_CrenelMinishPaths/metatileset/gAreaMetaTilesetTypes_CrenelMinishPaths_bottom.bin.lz"
 gAreaRoomMap_CrenelMinishPaths_Bean_bottom::
 	.incbin "maps/areas/018_CrenelMinishPaths/rooms/00_Bean/gAreaRoomMap_CrenelMinishPaths_Bean_bottom.bin.lz"
 gAreaRoomMap_CrenelMinishPaths_SpringWater_bottom::
@@ -996,81 +996,81 @@ gAreaRoomMap_CrenelMinishPaths_Melari_bottom::
 gAreaTileset_HouseInteriors1_0_2::
 	.incbin "maps/areas/033_HouseInteriors1/tilesets/0/gAreaTileset_HouseInteriors1_0_2.4bpp.lz"
 gAreaMetaTileset_HouseInteriors1_top::
-	.incbin "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTileset_HouseInteriors1_top.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTileset_HouseInteriors1_top.bin.lz"
 gAreaMetaTilesetTypes_HouseInteriors1_top::
-	.incbin "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTilesetTypes_HouseInteriors1_top.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTilesetTypes_HouseInteriors1_top.bin.lz"
 gAreaTileset_HouseInteriors1_0_0::
 	.incbin "maps/areas/033_HouseInteriors1/tilesets/0/gAreaTileset_HouseInteriors1_0_0.4bpp.lz"
 gAreaTileset_HouseInteriors1_0_1::
 	.incbin "maps/areas/033_HouseInteriors1/tilesets/0/gAreaTileset_HouseInteriors1_0_1.4bpp.lz"
 gAreaMetaTileset_HouseInteriors1_bottom::
-	.incbin "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTileset_HouseInteriors1_bottom.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTileset_HouseInteriors1_bottom.bin.lz"
 gAreaMetaTilesetTypes_HouseInteriors1_bottom::
-	.incbin "maps/areas/033_HouseInteriors1/metatilesets/gAreaMetaTilesetTypes_HouseInteriors1_bottom.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/metatileset/gAreaMetaTilesetTypes_HouseInteriors1_bottom.bin.lz"
 gAreaTileset_HouseInteriors2_0_0::
 	.incbin "maps/areas/034_HouseInteriors2/tilesets/0/gAreaTileset_HouseInteriors2_0_0.4bpp.lz"
 gAreaTileset_HouseInteriors2_0_1::
 	.incbin "maps/areas/034_HouseInteriors2/tilesets/0/gAreaTileset_HouseInteriors2_0_1.4bpp.lz"
 gAreaMetaTileset_HouseInteriors2_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/metatilesets/gAreaMetaTileset_HouseInteriors2_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/metatileset/gAreaMetaTileset_HouseInteriors2_bottom.bin.lz"
 gAreaMetaTilesetTypes_HouseInteriors2_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/metatilesets/gAreaMetaTilesetTypes_HouseInteriors2_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/metatileset/gAreaMetaTilesetTypes_HouseInteriors2_bottom.bin.lz"
 gAreaTileset_HouseInteriors4_0_0::
 	.incbin "maps/areas/040_HouseInteriors4/tilesets/0/gAreaTileset_HouseInteriors4_0_0.4bpp.lz"
 gAreaTileset_HouseInteriors4_0_1::
 	.incbin "maps/areas/040_HouseInteriors4/tilesets/0/gAreaTileset_HouseInteriors4_0_1.4bpp.lz"
 gAreaMetaTileset_HouseInteriors4_bottom::
-	.incbin "maps/areas/040_HouseInteriors4/metatilesets/gAreaMetaTileset_HouseInteriors4_bottom.bin.lz"
+	.incbin "maps/areas/040_HouseInteriors4/metatileset/gAreaMetaTileset_HouseInteriors4_bottom.bin.lz"
 gAreaMetaTilesetTypes_HouseInteriors4_bottom::
-	.incbin "maps/areas/040_HouseInteriors4/metatilesets/gAreaMetaTilesetTypes_HouseInteriors4_bottom.bin.lz"
+	.incbin "maps/areas/040_HouseInteriors4/metatileset/gAreaMetaTilesetTypes_HouseInteriors4_bottom.bin.lz"
 gAreaTileset_HouseInteriors3_0_0::
 	.incbin "maps/areas/035_HouseInteriors3/tilesets/0/gAreaTileset_HouseInteriors3_0_0.4bpp.lz"
 gAreaTileset_HouseInteriors3_0_1::
 	.incbin "maps/areas/035_HouseInteriors3/tilesets/0/gAreaTileset_HouseInteriors3_0_1.4bpp.lz"
 gAreaMetaTileset_HouseInteriors3_bottom::
-	.incbin "maps/areas/035_HouseInteriors3/metatilesets/gAreaMetaTileset_HouseInteriors3_bottom.bin.lz"
+	.incbin "maps/areas/035_HouseInteriors3/metatileset/gAreaMetaTileset_HouseInteriors3_bottom.bin.lz"
 gAreaMetaTilesetTypes_HouseInteriors3_bottom::
-	.incbin "maps/areas/035_HouseInteriors3/metatilesets/gAreaMetaTilesetTypes_HouseInteriors3_bottom.bin.lz"
+	.incbin "maps/areas/035_HouseInteriors3/metatileset/gAreaMetaTilesetTypes_HouseInteriors3_bottom.bin.lz"
 gAreaTileset_TreeInteriors_0_0::
 	.incbin "maps/areas/036_TreeInteriors/tilesets/0/gAreaTileset_TreeInteriors_0_0.4bpp.lz"
 gAreaTileset_TreeInteriors_0_1::
 	.incbin "maps/areas/036_TreeInteriors/tilesets/0/gAreaTileset_TreeInteriors_0_1.4bpp.lz"
 gAreaMetaTileset_TreeInteriors_bottom::
-	.incbin "maps/areas/036_TreeInteriors/metatilesets/gAreaMetaTileset_TreeInteriors_bottom.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/metatileset/gAreaMetaTileset_TreeInteriors_bottom.bin.lz"
 gAreaMetaTilesetTypes_TreeInteriors_bottom::
-	.incbin "maps/areas/036_TreeInteriors/metatilesets/gAreaMetaTilesetTypes_TreeInteriors_bottom.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/metatileset/gAreaMetaTilesetTypes_TreeInteriors_bottom.bin.lz"
 gAreaTileset_MinishCracks_0_0::
 	.incbin "maps/areas/039_MinishCracks/tilesets/0/gAreaTileset_MinishCracks_0_0.4bpp.lz"
 gAreaTileset_MinishCracks_0_1::
 	.incbin "maps/areas/039_MinishCracks/tilesets/0/gAreaTileset_MinishCracks_0_1.4bpp.lz"
 gAreaMetaTileset_MinishCracks_bottom::
-	.incbin "maps/areas/039_MinishCracks/metatilesets/gAreaMetaTileset_MinishCracks_bottom.bin.lz"
+	.incbin "maps/areas/039_MinishCracks/metatileset/gAreaMetaTileset_MinishCracks_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishCracks_bottom::
-	.incbin "maps/areas/039_MinishCracks/metatilesets/gAreaMetaTilesetTypes_MinishCracks_bottom.bin.lz"
+	.incbin "maps/areas/039_MinishCracks/metatileset/gAreaMetaTilesetTypes_MinishCracks_bottom.bin.lz"
 gAreaTileset_Dojos_0_0::
 	.incbin "maps/areas/037_Dojos/tilesets/0/gAreaTileset_Dojos_0_0.4bpp.lz"
 gAreaTileset_Dojos_0_1::
 	.incbin "maps/areas/037_Dojos/tilesets/0/gAreaTileset_Dojos_0_1.4bpp.lz"
 gAreaMetaTileset_Dojos_bottom::
-	.incbin "maps/areas/037_Dojos/metatilesets/gAreaMetaTileset_Dojos_bottom.bin.lz"
+	.incbin "maps/areas/037_Dojos/metatileset/gAreaMetaTileset_Dojos_bottom.bin.lz"
 gAreaMetaTilesetTypes_Dojos_bottom::
-	.incbin "maps/areas/037_Dojos/metatilesets/gAreaMetaTilesetTypes_Dojos_bottom.bin.lz"
+	.incbin "maps/areas/037_Dojos/metatileset/gAreaMetaTilesetTypes_Dojos_bottom.bin.lz"
 gAreaTileset_MinishRafters_0_0::
 	.incbin "maps/areas/046_MinishRafters/tilesets/0/gAreaTileset_MinishRafters_0_0.4bpp.lz"
 gAreaTileset_MinishRafters_0_1::
 	.incbin "maps/areas/046_MinishRafters/tilesets/0/gAreaTileset_MinishRafters_0_1.4bpp.lz"
 gAreaMetaTileset_MinishRafters_bottom::
-	.incbin "maps/areas/046_MinishRafters/metatilesets/gAreaMetaTileset_MinishRafters_bottom.bin.lz"
+	.incbin "maps/areas/046_MinishRafters/metatileset/gAreaMetaTileset_MinishRafters_bottom.bin.lz"
 gAreaMetaTilesetTypes_MinishRafters_bottom::
-	.incbin "maps/areas/046_MinishRafters/metatilesets/gAreaMetaTilesetTypes_MinishRafters_bottom.bin.lz"
+	.incbin "maps/areas/046_MinishRafters/metatileset/gAreaMetaTilesetTypes_MinishRafters_bottom.bin.lz"
 gAreaTileset_WindTribeTower_0_0::
 	.incbin "maps/areas/048_WindTribeTower/tilesets/0/gAreaTileset_WindTribeTower_0_0.4bpp.lz"
 gAreaTileset_WindTribeTower_0_1::
 	.incbin "maps/areas/048_WindTribeTower/tilesets/0/gAreaTileset_WindTribeTower_0_1.4bpp.lz"
 gAreaMetaTileset_WindTribeTower_bottom::
-	.incbin "maps/areas/048_WindTribeTower/metatilesets/gAreaMetaTileset_WindTribeTower_bottom.bin.lz"
+	.incbin "maps/areas/048_WindTribeTower/metatileset/gAreaMetaTileset_WindTribeTower_bottom.bin.lz"
 gAreaMetaTilesetTypes_WindTribeTower_bottom::
-	.incbin "maps/areas/048_WindTribeTower/metatilesets/gAreaMetaTilesetTypes_WindTribeTower_bottom.bin.lz"
+	.incbin "maps/areas/048_WindTribeTower/metatileset/gAreaMetaTilesetTypes_WindTribeTower_bottom.bin.lz"
 gAreaTileset_WindTribeTowerRoof_0_0::
 	.incbin "maps/areas/049_WindTribeTowerRoof/tilesets/0/gAreaTileset_WindTribeTowerRoof_0_0.4bpp.lz"
 gAreaTileset_WindTribeTowerRoof_0_1::
@@ -1078,13 +1078,13 @@ gAreaTileset_WindTribeTowerRoof_0_1::
 gAreaTileset_WindTribeTowerRoof_0_2::
 	.incbin "maps/areas/049_WindTribeTowerRoof/tilesets/0/gAreaTileset_WindTribeTowerRoof_0_2.4bpp.lz"
 gAreaMetaTileset_WindTribeTowerRoof_bottom::
-	.incbin "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTileset_WindTribeTowerRoof_bottom.bin.lz"
+	.incbin "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTileset_WindTribeTowerRoof_bottom.bin.lz"
 gAreaMetaTileset_WindTribeTowerRoof_top::
-	.incbin "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTileset_WindTribeTowerRoof_top.bin.lz"
+	.incbin "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTileset_WindTribeTowerRoof_top.bin.lz"
 gAreaMetaTilesetTypes_WindTribeTowerRoof_bottom::
-	.incbin "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTilesetTypes_WindTribeTowerRoof_bottom.bin.lz"
+	.incbin "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTilesetTypes_WindTribeTowerRoof_bottom.bin.lz"
 gAreaMetaTilesetTypes_WindTribeTowerRoof_top::
-	.incbin "maps/areas/049_WindTribeTowerRoof/metatilesets/gAreaMetaTilesetTypes_WindTribeTowerRoof_top.bin.lz"
+	.incbin "maps/areas/049_WindTribeTowerRoof/metatileset/gAreaMetaTilesetTypes_WindTribeTowerRoof_top.bin.lz"
 unknown_26::
 	.incbin "assets/unknown_26.bin"
 gAreaTileset_EzloCutscene_0_0::
@@ -1092,9 +1092,9 @@ gAreaTileset_EzloCutscene_0_0::
 gAreaTileset_EzloCutscene_0_1::
 	.incbin "maps/areas/056_EzloCutscene/tilesets/0/gAreaTileset_EzloCutscene_0_1.4bpp.lz"
 gAreaMetaTileset_EzloCutscene_bottom::
-	.incbin "maps/areas/056_EzloCutscene/metatilesets/gAreaMetaTileset_EzloCutscene_bottom.bin.lz"
+	.incbin "maps/areas/056_EzloCutscene/metatileset/gAreaMetaTileset_EzloCutscene_bottom.bin.lz"
 gAreaMetaTilesetTypes_EzloCutscene_bottom::
-	.incbin "maps/areas/056_EzloCutscene/metatilesets/gAreaMetaTilesetTypes_EzloCutscene_bottom.bin.lz"
+	.incbin "maps/areas/056_EzloCutscene/metatileset/gAreaMetaTilesetTypes_EzloCutscene_bottom.bin.lz"
 unknown_27::
 	.incbin "assets/unknown_27.bin"
 gAreaRoomMap_HouseInteriors2_Stranger_bottom::
@@ -1150,29 +1150,29 @@ gAreaRoomMap_HouseInteriors2_Cucco_bottom::
 gAreaRoomMap_HouseInteriors2_Cucco_top::
 	.incbin "maps/areas/034_HouseInteriors2/rooms/12_Cucco/gAreaRoomMap_HouseInteriors2_Cucco_top.bin.lz"
 gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/34_16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_top::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/34_16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_top.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/16_LinksHouseEntrance/gAreaRoomMap_HouseInteriors2_LinksHouseEntrance_top.bin.lz"
 gAreaRoomMap_HouseInteriors2_LinksHouseSmith_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/35_17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors2_LinksHouseSmith_top::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/35_17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_top.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/17_LinksHouseSmith/gAreaRoomMap_HouseInteriors2_LinksHouseSmith_top.bin.lz"
 gAreaRoomMap_HouseInteriors2_Dampe_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/37_19_13_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/18_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors2_Dampe_top::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/37_19_13_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_top.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/18_Dampe/gAreaRoomMap_HouseInteriors2_Dampe_top.bin.lz"
 gAreaRoomMap_HouseInteriors2_13_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/37_19_13/gAreaRoomMap_HouseInteriors2_13_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/19_13/gAreaRoomMap_HouseInteriors2_13_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors2_13_top::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/37_19_13/gAreaRoomMap_HouseInteriors2_13_top.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/19_13/gAreaRoomMap_HouseInteriors2_13_top.bin.lz"
 gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/32_20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_top::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/32_20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_top.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/20_StockwellLakeHouse/gAreaRoomMap_HouseInteriors2_StockwellLakeHouse_top.bin.lz"
 gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_bottom::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/33_21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_bottom.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_top::
-	.incbin "maps/areas/034_HouseInteriors2/rooms/33_21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_top.bin.lz"
+	.incbin "maps/areas/034_HouseInteriors2/rooms/21_LinksHouseBedroom/gAreaRoomMap_HouseInteriors2_LinksHouseBedroom_top.bin.lz"
 gAreaRoomMap_HouseInteriors4_Carpenter_bottom::
 	.incbin "maps/areas/040_HouseInteriors4/rooms/00_Carpenter/gAreaRoomMap_HouseInteriors4_Carpenter_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors4_Carpenter_top::
@@ -1274,17 +1274,17 @@ gAreaRoomMap_HouseInteriors1_InnEast2f_bottom::
 gAreaRoomMap_HouseInteriors1_InnEast2f_top::
 	.incbin "maps/areas/033_HouseInteriors1/rooms/09_InnEast2f/gAreaRoomMap_HouseInteriors1_InnEast2f_top.bin.lz"
 gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_bottom::
-	.incbin "maps/areas/033_HouseInteriors1/rooms/16_10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_bottom.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/rooms/10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_top::
-	.incbin "maps/areas/033_HouseInteriors1/rooms/16_10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_top.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/rooms/10_InnMinishHeartPiece/gAreaRoomMap_HouseInteriors1_InnMinishHeartPiece_top.bin.lz"
 gAreaRoomMap_HouseInteriors1_SchoolWest_bottom::
-	.incbin "maps/areas/033_HouseInteriors1/rooms/17_11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_bottom.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/rooms/11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors1_SchoolWest_top::
-	.incbin "maps/areas/033_HouseInteriors1/rooms/17_11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_top.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/rooms/11_SchoolWest/gAreaRoomMap_HouseInteriors1_SchoolWest_top.bin.lz"
 gAreaRoomMap_HouseInteriors1_SchoolEast_bottom::
-	.incbin "maps/areas/033_HouseInteriors1/rooms/18_12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_bottom.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/rooms/12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_bottom.bin.lz"
 gAreaRoomMap_HouseInteriors1_SchoolEast_top::
-	.incbin "maps/areas/033_HouseInteriors1/rooms/18_12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_top.bin.lz"
+	.incbin "maps/areas/033_HouseInteriors1/rooms/12_SchoolEast/gAreaRoomMap_HouseInteriors1_SchoolEast_top.bin.lz"
 gAreaRoomMap_Dojos_Grayblade_bottom::
 	.incbin "maps/areas/037_Dojos/rooms/00_Grayblade/gAreaRoomMap_Dojos_Grayblade_bottom.bin.lz"
 gAreaRoomMap_Dojos_Grayblade_top::
@@ -1362,25 +1362,25 @@ gAreaRoomMap_TreeInteriors_Waveblade_bottom::
 gAreaRoomMap_TreeInteriors_Waveblade_top::
 	.incbin "maps/areas/036_TreeInteriors/rooms/19_Waveblade/gAreaRoomMap_TreeInteriors_Waveblade_top.bin.lz"
 gAreaRoomMap_TreeInteriors_14_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/01_14/gAreaRoomMap_TreeInteriors_14_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/20_14/gAreaRoomMap_TreeInteriors_14_bottom.bin"
 gAreaRoomMap_TreeInteriors_14_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/01_14/gAreaRoomMap_TreeInteriors_14_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/20_14/gAreaRoomMap_TreeInteriors_14_top.bin.lz"
 gAreaRoomMap_TreeInteriors_BoomerangNorthwest_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/21_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_bottom.bin"
 gAreaRoomMap_TreeInteriors_BoomerangNorthwest_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/21_BoomerangNorthwest/gAreaRoomMap_TreeInteriors_BoomerangNorthwest_top.bin.lz"
 gAreaRoomMap_TreeInteriors_BoomerangNortheast_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/22_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_bottom.bin"
 gAreaRoomMap_TreeInteriors_BoomerangNortheast_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/22_BoomerangNortheast/gAreaRoomMap_TreeInteriors_BoomerangNortheast_top.bin.lz"
 gAreaRoomMap_TreeInteriors_BoomerangSouthwest_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/23_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_bottom.bin"
 gAreaRoomMap_TreeInteriors_BoomerangSouthwest_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/23_BoomerangSouthwest/gAreaRoomMap_TreeInteriors_BoomerangSouthwest_top.bin.lz"
 gAreaRoomMap_TreeInteriors_BoomerangSoutheast_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/24_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_bottom.bin"
 gAreaRoomMap_TreeInteriors_BoomerangSoutheast_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/11_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/24_BoomerangSoutheast/gAreaRoomMap_TreeInteriors_BoomerangSoutheast_top.bin.lz"
 gAreaRoomMap_TreeInteriors_WesternWoodsHeartPiece_bottom::
 	.incbin "maps/areas/036_TreeInteriors/rooms/25_WesternWoodsHeartPiece/gAreaRoomMap_TreeInteriors_WesternWoodsHeartPiece_bottom.bin"
 gAreaRoomMap_TreeInteriors_WesternWoodsHeartPiece_top::
@@ -1394,17 +1394,17 @@ gAreaRoomMap_TreeInteriors_MinishWoodsGreatFairy_bottom::
 gAreaRoomMap_TreeInteriors_MinishWoodsGreatFairy_top::
 	.incbin "maps/areas/036_TreeInteriors/rooms/27_MinishWoodsGreatFairy/gAreaRoomMap_TreeInteriors_MinishWoodsGreatFairy_top.bin.lz"
 gAreaRoomMap_TreeInteriors_1c_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/01_1c/gAreaRoomMap_TreeInteriors_1c_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/28_1c/gAreaRoomMap_TreeInteriors_1c_bottom.bin"
 gAreaRoomMap_TreeInteriors_1c_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/01_1c/gAreaRoomMap_TreeInteriors_1c_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/28_1c/gAreaRoomMap_TreeInteriors_1c_top.bin.lz"
 gAreaRoomMap_TreeInteriors_MinishWoodsBusinessScrub_bottom::
 	.incbin "maps/areas/036_TreeInteriors/rooms/29_MinishWoodsBusinessScrub/gAreaRoomMap_TreeInteriors_MinishWoodsBusinessScrub_bottom.bin"
 gAreaRoomMap_TreeInteriors_MinishWoodsBusinessScrub_top::
 	.incbin "maps/areas/036_TreeInteriors/rooms/29_MinishWoodsBusinessScrub/gAreaRoomMap_TreeInteriors_MinishWoodsBusinessScrub_top.bin.lz"
 gAreaRoomMap_TreeInteriors_1e_bottom::
-	.incbin "maps/areas/036_TreeInteriors/rooms/01_1e/gAreaRoomMap_TreeInteriors_1e_bottom.bin"
+	.incbin "maps/areas/036_TreeInteriors/rooms/30_1e/gAreaRoomMap_TreeInteriors_1e_bottom.bin"
 gAreaRoomMap_TreeInteriors_1e_top::
-	.incbin "maps/areas/036_TreeInteriors/rooms/01_1e/gAreaRoomMap_TreeInteriors_1e_top.bin.lz"
+	.incbin "maps/areas/036_TreeInteriors/rooms/30_1e/gAreaRoomMap_TreeInteriors_1e_top.bin.lz"
 gAreaRoomMap_TreeInteriors_UnusedHeartContainer_bottom::
 	.incbin "maps/areas/036_TreeInteriors/rooms/31_UnusedHeartContainer/gAreaRoomMap_TreeInteriors_UnusedHeartContainer_bottom.bin"
 gAreaRoomMap_TreeInteriors_UnusedHeartContainer_top::
@@ -1450,21 +1450,21 @@ gAreaRoomMap_MinishCracks_CastorWildsNorth_bottom::
 gAreaRoomMap_MinishCracks_CastorWildsNorth_top::
 	.incbin "maps/areas/039_MinishCracks/rooms/09_CastorWildsNorth/gAreaRoomMap_MinishCracks_CastorWildsNorth_top.bin.lz"
 gAreaRoomMap_MinishCracks_CastorWildsWest_bottom::
-	.incbin "maps/areas/039_MinishCracks/rooms/16_10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_bottom.bin"
+	.incbin "maps/areas/039_MinishCracks/rooms/10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_bottom.bin"
 gAreaRoomMap_MinishCracks_CastorWildsWest_top::
-	.incbin "maps/areas/039_MinishCracks/rooms/16_10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_top.bin.lz"
+	.incbin "maps/areas/039_MinishCracks/rooms/10_CastorWildsWest/gAreaRoomMap_MinishCracks_CastorWildsWest_top.bin.lz"
 gAreaRoomMap_MinishCracks_CastorWildsMiddle_bottom::
-	.incbin "maps/areas/039_MinishCracks/rooms/17_11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_bottom.bin"
+	.incbin "maps/areas/039_MinishCracks/rooms/11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_bottom.bin"
 gAreaRoomMap_MinishCracks_CastorWildsMiddle_top::
-	.incbin "maps/areas/039_MinishCracks/rooms/17_11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_top.bin.lz"
+	.incbin "maps/areas/039_MinishCracks/rooms/11_CastorWildsMiddle/gAreaRoomMap_MinishCracks_CastorWildsMiddle_top.bin.lz"
 gAreaRoomMap_MinishCracks_RuinsTektite_bottom::
-	.incbin "maps/areas/039_MinishCracks/rooms/18_12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_bottom.bin"
+	.incbin "maps/areas/039_MinishCracks/rooms/12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_bottom.bin"
 gAreaRoomMap_MinishCracks_RuinsTektite_top::
-	.incbin "maps/areas/039_MinishCracks/rooms/18_12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_top.bin.lz"
+	.incbin "maps/areas/039_MinishCracks/rooms/12_RuinsTektite/gAreaRoomMap_MinishCracks_RuinsTektite_top.bin.lz"
 gAreaRoomMap_MinishCracks_CastorWildsNextToBow_bottom::
-	.incbin "maps/areas/039_MinishCracks/rooms/19_13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_bottom.bin"
+	.incbin "maps/areas/039_MinishCracks/rooms/13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_bottom.bin"
 gAreaRoomMap_MinishCracks_CastorWildsNextToBow_top::
-	.incbin "maps/areas/039_MinishCracks/rooms/19_13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_top.bin.lz"
+	.incbin "maps/areas/039_MinishCracks/rooms/13_CastorWildsNextToBow/gAreaRoomMap_MinishCracks_CastorWildsNextToBow_top.bin.lz"
 gAreaRoomMap_MinishCracks_E_bottom::
 	.incbin "maps/areas/039_MinishCracks/rooms/14_E/gAreaRoomMap_MinishCracks_E_bottom.bin.lz"
 gAreaRoomMap_MinishCracks_E_top::
@@ -1520,73 +1520,73 @@ gRoomCollisionMap_MinishHouseInteriors_GentariMain::
 gRoomMapping_MinishHouseInteriors_GentariExit_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/01_GentariExit/gRoomMapping_MinishHouseInteriors_GentariExit_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_0_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/0/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_GentariExit::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/01_GentariExit/gRoomCollisionMap_MinishHouseInteriors_GentariExit.bin.lz"
 gRoomMapping_MinishHouseInteriors_Festari_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/02_Festari/gRoomMapping_MinishHouseInteriors_Festari_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_1_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_1_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/1/gAreaTileset_MinishHouseInteriors_1_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_Festari::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/02_Festari/gRoomCollisionMap_MinishHouseInteriors_Festari.bin.lz"
 gRoomMapping_MinishHouseInteriors_Red_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/03_Red/gRoomMapping_MinishHouseInteriors_Red_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_2_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_2_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/2/gAreaTileset_MinishHouseInteriors_2_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_Red::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/03_Red/gRoomCollisionMap_MinishHouseInteriors_Red.bin.lz"
 gRoomMapping_MinishHouseInteriors_Green_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/04_Green/gRoomMapping_MinishHouseInteriors_Green_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_3_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_3_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/3/gAreaTileset_MinishHouseInteriors_3_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_Green::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/04_Green/gRoomCollisionMap_MinishHouseInteriors_Green.bin.lz"
 gRoomMapping_MinishHouseInteriors_Blue_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/05_Blue/gRoomMapping_MinishHouseInteriors_Blue_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_4_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/4/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_Blue::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/05_Blue/gRoomCollisionMap_MinishHouseInteriors_Blue.bin.lz"
 gRoomMapping_MinishHouseInteriors_SideArea_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/06_SideArea/gRoomMapping_MinishHouseInteriors_SideArea_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_5_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_5_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/5/gAreaTileset_MinishHouseInteriors_5_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_SideArea::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/06_SideArea/gRoomCollisionMap_MinishHouseInteriors_SideArea.bin.lz"
 gRoomMapping_MinishHouseInteriors_ShoeMinish_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/07_ShoeMinish/gRoomMapping_MinishHouseInteriors_ShoeMinish_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_6_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/6/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_ShoeMinish::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/07_ShoeMinish/gRoomCollisionMap_MinishHouseInteriors_ShoeMinish.bin.lz"
 gRoomMapping_MinishHouseInteriors_PotMinish_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/08_PotMinish/gRoomMapping_MinishHouseInteriors_PotMinish_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_7_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/7/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_PotMinish::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/08_PotMinish/gRoomCollisionMap_MinishHouseInteriors_PotMinish.bin.lz"
 gRoomMapping_MinishHouseInteriors_BarrelMinish_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/09_BarrelMinish/gRoomMapping_MinishHouseInteriors_BarrelMinish_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_8_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/8/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_BarrelMinish::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/09_BarrelMinish/gRoomCollisionMap_MinishHouseInteriors_BarrelMinish.bin.lz"
 gRoomMapping_MinishHouseInteriors_MelariMinesSouthwest_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/16_MelariMinesSouthwest/gRoomMapping_MinishHouseInteriors_MelariMinesSouthwest_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_9_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/9/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_MelariMinesSouthwest::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/16_MelariMinesSouthwest/gRoomCollisionMap_MinishHouseInteriors_MelariMinesSouthwest.bin.lz"
 gRoomMapping_MinishHouseInteriors_MelariMinesSoutheast_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/17_MelariMinesSoutheast/gRoomMapping_MinishHouseInteriors_MelariMinesSoutheast_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_10_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/10/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_MelariMinesSoutheast::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/17_MelariMinesSoutheast/gRoomCollisionMap_MinishHouseInteriors_MelariMinesSoutheast.bin.lz"
 gRoomMapping_MinishHouseInteriors_MelariMinesEast_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/18_MelariMinesEast/gRoomMapping_MinishHouseInteriors_MelariMinesEast_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_11_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/11/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_MelariMinesEast::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/18_MelariMinesEast/gRoomCollisionMap_MinishHouseInteriors_MelariMinesEast.bin.lz"
 unknown_28::
@@ -1594,103 +1594,103 @@ unknown_28::
 gRoomMapping_MinishHouseInteriors_HyruleFieldSouthwest_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/32_HyruleFieldSouthwest/gRoomMapping_MinishHouseInteriors_HyruleFieldSouthwest_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_12_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/12/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_HyruleFieldSouthwest::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/32_HyruleFieldSouthwest/gRoomCollisionMap_MinishHouseInteriors_HyruleFieldSouthwest.bin.lz"
 gRoomMapping_MinishHouseInteriors_SouthHyruleField_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/33_SouthHyruleField/gRoomMapping_MinishHouseInteriors_SouthHyruleField_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_13_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_13_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/13/gAreaTileset_MinishHouseInteriors_13_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_SouthHyruleField::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/33_SouthHyruleField/gRoomCollisionMap_MinishHouseInteriors_SouthHyruleField.bin.lz"
 gRoomMapping_MinishHouseInteriors_NextToKnuckle_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/34_NextToKnuckle/gRoomMapping_MinishHouseInteriors_NextToKnuckle_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_14_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/14/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_NextToKnuckle::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/34_NextToKnuckle/gRoomCollisionMap_MinishHouseInteriors_NextToKnuckle.bin.lz"
 gRoomMapping_MinishHouseInteriors_Librari_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/35_Librari/gRoomMapping_MinishHouseInteriors_Librari_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_15_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/15/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_Librari::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/35_Librari/gRoomCollisionMap_MinishHouseInteriors_Librari.bin.lz"
 gRoomMapping_MinishHouseInteriors_HyruleFieldExit_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/36_HyruleFieldExit/gRoomMapping_MinishHouseInteriors_HyruleFieldExit_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_16_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_16_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/16/gAreaTileset_MinishHouseInteriors_16_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_HyruleFieldExit::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/36_HyruleFieldExit/gRoomCollisionMap_MinishHouseInteriors_HyruleFieldExit.bin.lz"
 gRoomMapping_MinishHouseInteriors_HyruleTown_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/37_HyruleTown/gRoomMapping_MinishHouseInteriors_HyruleTown_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_17_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_17_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/17/gAreaTileset_MinishHouseInteriors_17_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_HyruleTown::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/37_HyruleTown/gRoomCollisionMap_MinishHouseInteriors_HyruleTown.bin.lz"
 gRoomMapping_MinishHouseInteriors_MinishWoodsBomb_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/38_MinishWoodsBomb/gRoomMapping_MinishHouseInteriors_MinishWoodsBomb_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_18_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_18_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/18/gAreaTileset_MinishHouseInteriors_18_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_MinishWoodsBomb::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/38_MinishWoodsBomb/gRoomCollisionMap_MinishHouseInteriors_MinishWoodsBomb.bin.lz"
 gRoomMapping_MinishHouseInteriors_LakeHyliaOcarina_bottom::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/39_LakeHyliaOcarina/gRoomMapping_MinishHouseInteriors_LakeHyliaOcarina_bottom.bin.lz"
 gAreaTileset_MinishHouseInteriors_19_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz"
+	.incbin "maps/areas/032_MinishHouseInteriors/tilesets/19/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz"
 gRoomCollisionMap_MinishHouseInteriors_LakeHyliaOcarina::
 	.incbin "maps/areas/032_MinishHouseInteriors/rooms/39_LakeHyliaOcarina/gRoomCollisionMap_MinishHouseInteriors_LakeHyliaOcarina.bin.lz"
 gRoomMapping_TownMinishHoles_MayorsHouse_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/00_MayorsHouse/gRoomMapping_TownMinishHoles_MayorsHouse_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_0_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_0_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/0/gAreaTileset_TownMinishHoles_0_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_MayorsHouse::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/00_MayorsHouse/gRoomCollisionMap_TownMinishHoles_MayorsHouse.bin.lz"
 gRoomMapping_TownMinishHoles_WestOracle_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/01_WestOracle/gRoomMapping_TownMinishHoles_WestOracle_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_1_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_1_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/1/gAreaTileset_TownMinishHoles_1_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_WestOracle::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/01_WestOracle/gRoomCollisionMap_TownMinishHoles_WestOracle.bin.lz"
 gRoomMapping_TownMinishHoles_DrLeft_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/02_DrLeft/gRoomMapping_TownMinishHoles_DrLeft_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_2_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_2_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/2/gAreaTileset_TownMinishHoles_2_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_DrLeft::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/02_DrLeft/gRoomCollisionMap_TownMinishHoles_DrLeft.bin.lz"
 gRoomMapping_TownMinishHoles_Carpenter_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/03_Carpenter/gRoomMapping_TownMinishHoles_Carpenter_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_3_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_3_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/3/gAreaTileset_TownMinishHoles_3_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_Carpenter::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/03_Carpenter/gRoomCollisionMap_TownMinishHoles_Carpenter.bin.lz"
 gRoomMapping_TownMinishHoles_Cafe_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/04_Cafe/gRoomMapping_TownMinishHoles_Cafe_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_4_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_4_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/4/gAreaTileset_TownMinishHoles_4_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_Cafe::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/04_Cafe/gRoomCollisionMap_TownMinishHoles_Cafe.bin.lz"
 gRoomMapping_TownMinishHoles_5_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/05_5/gRoomMapping_TownMinishHoles_5_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_5_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_5_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/5/gAreaTileset_TownMinishHoles_5_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_5::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/05_5/gRoomCollisionMap_TownMinishHoles_5.bin.lz"
 gRoomMapping_TownMinishHoles_LibraryBookshelf_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/16_LibraryBookshelf/gRoomMapping_TownMinishHoles_LibraryBookshelf_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_6_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_6_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/6/gAreaTileset_TownMinishHoles_6_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_LibraryBookshelf::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/16_LibraryBookshelf/gRoomCollisionMap_TownMinishHoles_LibraryBookshelf.bin.lz"
 gRoomMapping_TownMinishHoles_LibraryBooksHouse_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/17_LibraryBooksHouse/gRoomMapping_TownMinishHoles_LibraryBooksHouse_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_7_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_7_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/7/gAreaTileset_TownMinishHoles_7_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_LibraryBooksHouse::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/17_LibraryBooksHouse/gRoomCollisionMap_TownMinishHoles_LibraryBooksHouse.bin.lz"
 gRoomMapping_TownMinishHoles_RemShoeShop_bottom::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/18_RemShoeShop/gRoomMapping_TownMinishHoles_RemShoeShop_bottom.bin.lz"
 gAreaTileset_TownMinishHoles_8_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_8_0.8bpp.lz"
+	.incbin "maps/areas/045_TownMinishHoles/tilesets/8/gAreaTileset_TownMinishHoles_8_0.8bpp.lz"
 gRoomCollisionMap_TownMinishHoles_RemShoeShop::
 	.incbin "maps/areas/045_TownMinishHoles/rooms/18_RemShoeShop/gRoomCollisionMap_TownMinishHoles_RemShoeShop.bin.lz"
 gAreaTileset_40_0_0::
@@ -1700,13 +1700,13 @@ gAreaTileset_40_0_1::
 gAreaTileset_40_0_2::
 	.incbin "maps/areas/064_40/tilesets/0/gAreaTileset_40_0_2.4bpp.lz"
 gAreaMetaTileset_40_bottom::
-	.incbin "maps/areas/064_40/metatilesets/gAreaMetaTileset_40_bottom.bin.lz"
+	.incbin "maps/areas/064_40/metatileset/gAreaMetaTileset_40_bottom.bin.lz"
 gAreaMetaTileset_40_top::
-	.incbin "maps/areas/064_40/metatilesets/gAreaMetaTileset_40_top.bin.lz"
+	.incbin "maps/areas/064_40/metatileset/gAreaMetaTileset_40_top.bin.lz"
 gAreaMetaTilesetTypes_40_bottom::
-	.incbin "maps/areas/064_40/metatilesets/gAreaMetaTilesetTypes_40_bottom.bin.lz"
+	.incbin "maps/areas/064_40/metatileset/gAreaMetaTilesetTypes_40_bottom.bin.lz"
 gAreaMetaTilesetTypes_40_top::
-	.incbin "maps/areas/064_40/metatilesets/gAreaMetaTilesetTypes_40_top.bin.lz"
+	.incbin "maps/areas/064_40/metatileset/gAreaMetaTilesetTypes_40_top.bin.lz"
 gAreaRoomMap_40_0_bottom::
 	.incbin "maps/areas/064_40/rooms/00_0/gAreaRoomMap_40_0_bottom.bin.lz"
 gAreaRoomMap_40_0_top::
@@ -1778,13 +1778,13 @@ gAreaTileset_DeepwoodShrine_0_1::
 gAreaTileset_DeepwoodShrine_0_2::
 	.incbin "maps/areas/072_DeepwoodShrine/tilesets/0/gAreaTileset_DeepwoodShrine_0_2.4bpp.lz"
 gAreaMetaTileset_DeepwoodShrine_bottom::
-	.incbin "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTileset_DeepwoodShrine_bottom.bin.lz"
+	.incbin "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTileset_DeepwoodShrine_bottom.bin.lz"
 gAreaMetaTileset_DeepwoodShrine_top::
-	.incbin "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTileset_DeepwoodShrine_top.bin.lz"
+	.incbin "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTileset_DeepwoodShrine_top.bin.lz"
 gAreaMetaTilesetTypes_DeepwoodShrine_bottom::
-	.incbin "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrine_bottom.bin.lz"
+	.incbin "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTilesetTypes_DeepwoodShrine_bottom.bin.lz"
 gAreaMetaTilesetTypes_DeepwoodShrine_top::
-	.incbin "maps/areas/072_DeepwoodShrine/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrine_top.bin.lz"
+	.incbin "maps/areas/072_DeepwoodShrine/metatileset/gAreaMetaTilesetTypes_DeepwoodShrine_top.bin.lz"
 gAreaTileset_DeepwoodShrineBoss_0_0::
 	.incbin "maps/areas/073_DeepwoodShrineBoss/tilesets/0/gAreaTileset_DeepwoodShrineBoss_0_0.4bpp.lz"
 gAreaTileset_DeepwoodShrineBoss_0_1::
@@ -1792,13 +1792,13 @@ gAreaTileset_DeepwoodShrineBoss_0_1::
 gAreaTileset_DeepwoodShrineBoss_0_2::
 	.incbin "maps/areas/073_DeepwoodShrineBoss/tilesets/0/gAreaTileset_DeepwoodShrineBoss_0_2.4bpp.lz"
 gAreaMetaTileset_DeepwoodShrineBoss_bottom::
-	.incbin "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTileset_DeepwoodShrineBoss_bottom.bin.lz"
+	.incbin "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTileset_DeepwoodShrineBoss_bottom.bin.lz"
 gAreaMetaTileset_DeepwoodShrineBoss_top::
-	.incbin "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTileset_DeepwoodShrineBoss_top.bin.lz"
+	.incbin "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTileset_DeepwoodShrineBoss_top.bin.lz"
 gAreaMetaTilesetTypes_DeepwoodShrineBoss_bottom::
-	.incbin "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineBoss_bottom.bin.lz"
+	.incbin "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineBoss_bottom.bin.lz"
 gAreaMetaTilesetTypes_DeepwoodShrineBoss_top::
-	.incbin "maps/areas/073_DeepwoodShrineBoss/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineBoss_top.bin.lz"
+	.incbin "maps/areas/073_DeepwoodShrineBoss/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineBoss_top.bin.lz"
 gAreaTileset_DeepwoodShrineEntry_0_0::
 	.incbin "maps/areas/074_DeepwoodShrineEntry/tilesets/0/gAreaTileset_DeepwoodShrineEntry_0_0.4bpp.lz"
 gAreaTileset_DeepwoodShrineEntry_0_1::
@@ -1806,13 +1806,13 @@ gAreaTileset_DeepwoodShrineEntry_0_1::
 gAreaTileset_DeepwoodShrineEntry_0_2::
 	.incbin "maps/areas/074_DeepwoodShrineEntry/tilesets/0/gAreaTileset_DeepwoodShrineEntry_0_2.4bpp.lz"
 gAreaMetaTileset_DeepwoodShrineEntry_bottom::
-	.incbin "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTileset_DeepwoodShrineEntry_bottom.bin.lz"
+	.incbin "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTileset_DeepwoodShrineEntry_bottom.bin.lz"
 gAreaMetaTileset_DeepwoodShrineEntry_top::
-	.incbin "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTileset_DeepwoodShrineEntry_top.bin.lz"
+	.incbin "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTileset_DeepwoodShrineEntry_top.bin.lz"
 gAreaMetaTilesetTypes_DeepwoodShrineEntry_bottom::
-	.incbin "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineEntry_bottom.bin.lz"
+	.incbin "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineEntry_bottom.bin.lz"
 gAreaMetaTilesetTypes_DeepwoodShrineEntry_top::
-	.incbin "maps/areas/074_DeepwoodShrineEntry/metatilesets/gAreaMetaTilesetTypes_DeepwoodShrineEntry_top.bin.lz"
+	.incbin "maps/areas/074_DeepwoodShrineEntry/metatileset/gAreaMetaTilesetTypes_DeepwoodShrineEntry_top.bin.lz"
 gAreaRoomMap_DeepwoodShrine_Madderpillar_bottom::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/00_Madderpillar/gAreaRoomMap_DeepwoodShrine_Madderpillar_bottom.bin.lz"
 gAreaRoomMap_DeepwoodShrine_Madderpillar_top::
@@ -1898,16 +1898,16 @@ gAreaRoomMap_DeepwoodShrine_BossKey_top::
  gDungeonMaps_DeepwoodShrine_BossKey::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/17_BossKey/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_Compass_bottom::
-	.incbin "maps/areas/072_DeepwoodShrine/rooms/12_Compass/gAreaRoomMap_DeepwoodShrine_Compass_bottom.bin.lz"
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/18_Compass/gAreaRoomMap_DeepwoodShrine_Compass_bottom.bin.lz"
 gAreaRoomMap_DeepwoodShrine_Compass_top::
-	.incbin "maps/areas/072_DeepwoodShrine/rooms/12_Compass/gAreaRoomMap_DeepwoodShrine_Compass_top.bin.lz"
+	.incbin "maps/areas/072_DeepwoodShrine/rooms/18_Compass/gAreaRoomMap_DeepwoodShrine_Compass_top.bin.lz"
  gDungeonMaps_DeepwoodShrine_Compass::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/18_Compass/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_13_bottom::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/19_13/gAreaRoomMap_DeepwoodShrine_13_bottom.bin.lz"
 gAreaRoomMap_DeepwoodShrine_13_top::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/19_13/gAreaRoomMap_DeepwoodShrine_13_top.bin.lz"
-gDungeonMaps_072_DeepwoodShrine_19_13_unused::
+gDungeonMaps_072_DeepwoodShrine_13_unused::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/19_13/dungeon_map.bin"
 gAreaRoomMap_DeepwoodShrine_LilyPadWest_bottom::
 	.incbin "maps/areas/072_DeepwoodShrine/rooms/20_LilyPadWest/gAreaRoomMap_DeepwoodShrine_LilyPadWest_bottom.bin.lz"
@@ -1950,13 +1950,13 @@ gAreaTileset_CaveOfFlames_0_1::
 gAreaTileset_CaveOfFlames_0_2::
 	.incbin "maps/areas/080_CaveOfFlames/tilesets/0/gAreaTileset_CaveOfFlames_0_2.4bpp.lz"
 gAreaMetaTileset_CaveOfFlames_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTileset_CaveOfFlames_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTileset_CaveOfFlames_bottom.bin.lz"
 gAreaMetaTileset_CaveOfFlames_top::
-	.incbin "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTileset_CaveOfFlames_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTileset_CaveOfFlames_top.bin.lz"
 gAreaMetaTilesetTypes_CaveOfFlames_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTilesetTypes_CaveOfFlames_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTilesetTypes_CaveOfFlames_bottom.bin.lz"
 gAreaMetaTilesetTypes_CaveOfFlames_top::
-	.incbin "maps/areas/080_CaveOfFlames/metatilesets/gAreaMetaTilesetTypes_CaveOfFlames_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/metatileset/gAreaMetaTilesetTypes_CaveOfFlames_top.bin.lz"
 gAreaTileset_CaveOfFlamesBoss_0_0::
 	.incbin "maps/areas/081_CaveOfFlamesBoss/tilesets/0/gAreaTileset_CaveOfFlamesBoss_0_0.4bpp.lz"
 gAreaTileset_CaveOfFlamesBoss_0_1::
@@ -1964,13 +1964,13 @@ gAreaTileset_CaveOfFlamesBoss_0_1::
 gAreaTileset_CaveOfFlamesBoss_0_2::
 	.incbin "maps/areas/081_CaveOfFlamesBoss/tilesets/0/gAreaTileset_CaveOfFlamesBoss_0_2.4bpp.lz"
 gAreaMetaTileset_CaveOfFlamesBoss_bottom::
-	.incbin "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTileset_CaveOfFlamesBoss_bottom.bin.lz"
+	.incbin "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTileset_CaveOfFlamesBoss_bottom.bin.lz"
 gAreaMetaTileset_CaveOfFlamesBoss_top::
-	.incbin "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTileset_CaveOfFlamesBoss_top.bin.lz"
+	.incbin "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTileset_CaveOfFlamesBoss_top.bin.lz"
 gAreaMetaTilesetTypes_CaveOfFlamesBoss_bottom::
-	.incbin "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTilesetTypes_CaveOfFlamesBoss_bottom.bin.lz"
+	.incbin "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTilesetTypes_CaveOfFlamesBoss_bottom.bin.lz"
 gAreaMetaTilesetTypes_CaveOfFlamesBoss_top::
-	.incbin "maps/areas/081_CaveOfFlamesBoss/metatilesets/gAreaMetaTilesetTypes_CaveOfFlamesBoss_top.bin.lz"
+	.incbin "maps/areas/081_CaveOfFlamesBoss/metatileset/gAreaMetaTilesetTypes_CaveOfFlamesBoss_top.bin.lz"
 gAreaTileset_CaveOfFlames_0_3::
 	.incbin "maps/areas/080_CaveOfFlames/tilesets/0/gAreaTileset_CaveOfFlames_0_3.4bpp.lz"
 gAreaRoomMap_CaveOfFlames_AfterCane_bottom::
@@ -2046,39 +2046,39 @@ gAreaRoomMap_CaveOfFlames_TompasDoom_top::
  gDungeonMaps_CaveOfFlames_TompasDoom::
 	.incbin "maps/areas/080_CaveOfFlames/rooms/17_TompasDoom/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_BeforeGleerok_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_bottom.bin.lz"
 gAreaRoomMap_CaveOfFlames_BeforeGleerok_top::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/gAreaRoomMap_CaveOfFlames_BeforeGleerok_top.bin.lz"
  gDungeonMaps_CaveOfFlames_BeforeGleerok::
 	.incbin "maps/areas/080_CaveOfFlames/rooms/18_BeforeGleerok/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_BosskeyPath1_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_bottom.bin.lz"
 gAreaRoomMap_CaveOfFlames_BosskeyPath1_top::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/gAreaRoomMap_CaveOfFlames_BosskeyPath1_top.bin.lz"
  gDungeonMaps_CaveOfFlames_BosskeyPath1::
 	.incbin "maps/areas/080_CaveOfFlames/rooms/19_BosskeyPath1/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_BosskeyPath2_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_bottom.bin.lz"
 gAreaRoomMap_CaveOfFlames_BosskeyPath2_top::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/gAreaRoomMap_CaveOfFlames_BosskeyPath2_top.bin.lz"
  gDungeonMaps_CaveOfFlames_BosskeyPath2::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/32_20_BosskeyPath2/dungeon_map.bin"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/20_BosskeyPath2/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_Compass_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/12_Compass/gAreaRoomMap_CaveOfFlames_Compass_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/21_Compass/gAreaRoomMap_CaveOfFlames_Compass_bottom.bin.lz"
 gAreaRoomMap_CaveOfFlames_Compass_top::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/12_Compass/gAreaRoomMap_CaveOfFlames_Compass_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/21_Compass/gAreaRoomMap_CaveOfFlames_Compass_top.bin.lz"
  gDungeonMaps_CaveOfFlames_Compass::
 	.incbin "maps/areas/080_CaveOfFlames/rooms/21_Compass/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_BobOmbWall_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_bottom.bin.lz"
 gAreaRoomMap_CaveOfFlames_BobOmbWall_top::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/gAreaRoomMap_CaveOfFlames_BobOmbWall_top.bin.lz"
  gDungeonMaps_CaveOfFlames_BobOmbWall::
 	.incbin "maps/areas/080_CaveOfFlames/rooms/22_BobOmbWall/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlames_BossDoor_bottom::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_bottom.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_bottom.bin.lz"
 gAreaRoomMap_CaveOfFlames_BossDoor_top::
-	.incbin "maps/areas/080_CaveOfFlames/rooms/11_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_top.bin.lz"
+	.incbin "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/gAreaRoomMap_CaveOfFlames_BossDoor_top.bin.lz"
  gDungeonMaps_CaveOfFlames_BossDoor::
 	.incbin "maps/areas/080_CaveOfFlames/rooms/23_BossDoor/dungeon_map.bin"
 gAreaRoomMap_CaveOfFlamesBoss_0_bottom::
@@ -2094,13 +2094,13 @@ gAreaTileset_CastorDarknut_0_1::
 gAreaTileset_CastorDarknut_0_2::
 	.incbin "maps/areas/043_CastorDarknut/tilesets/0/gAreaTileset_CastorDarknut_0_2.4bpp.lz"
 gAreaMetaTileset_CastorDarknut_bottom::
-	.incbin "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTileset_CastorDarknut_bottom.bin.lz"
+	.incbin "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTileset_CastorDarknut_bottom.bin.lz"
 gAreaMetaTileset_CastorDarknut_top::
-	.incbin "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTileset_CastorDarknut_top.bin.lz"
+	.incbin "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTileset_CastorDarknut_top.bin.lz"
 gAreaMetaTilesetTypes_CastorDarknut_bottom::
-	.incbin "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTilesetTypes_CastorDarknut_bottom.bin.lz"
+	.incbin "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTilesetTypes_CastorDarknut_bottom.bin.lz"
 gAreaMetaTilesetTypes_CastorDarknut_top::
-	.incbin "maps/areas/043_CastorDarknut/metatilesets/gAreaMetaTilesetTypes_CastorDarknut_top.bin.lz"
+	.incbin "maps/areas/043_CastorDarknut/metatileset/gAreaMetaTilesetTypes_CastorDarknut_top.bin.lz"
 gAreaTileset_InnerMazaal_0_0::
 	.incbin "maps/areas/090_InnerMazaal/tilesets/0/gAreaTileset_InnerMazaal_0_0.4bpp.lz"
 gAreaTileset_InnerMazaal_0_1::
@@ -2108,13 +2108,13 @@ gAreaTileset_InnerMazaal_0_1::
 gAreaTileset_InnerMazaal_0_2::
 	.incbin "maps/areas/090_InnerMazaal/tilesets/0/gAreaTileset_InnerMazaal_0_2.4bpp.lz"
 gAreaMetaTileset_InnerMazaal_bottom::
-	.incbin "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTileset_InnerMazaal_bottom.bin.lz"
+	.incbin "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTileset_InnerMazaal_bottom.bin.lz"
 gAreaMetaTileset_InnerMazaal_top::
-	.incbin "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTileset_InnerMazaal_top.bin.lz"
+	.incbin "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTileset_InnerMazaal_top.bin.lz"
 gAreaMetaTilesetTypes_InnerMazaal_bottom::
-	.incbin "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTilesetTypes_InnerMazaal_bottom.bin.lz"
+	.incbin "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTilesetTypes_InnerMazaal_bottom.bin.lz"
 gAreaMetaTilesetTypes_InnerMazaal_top::
-	.incbin "maps/areas/090_InnerMazaal/metatilesets/gAreaMetaTilesetTypes_InnerMazaal_top.bin.lz"
+	.incbin "maps/areas/090_InnerMazaal/metatileset/gAreaMetaTilesetTypes_InnerMazaal_top.bin.lz"
 gAreaTileset_FortressOfWindsTop_0_0::
 	.incbin "maps/areas/089_FortressOfWindsTop/tilesets/0/gAreaTileset_FortressOfWindsTop_0_0.4bpp.lz"
 gAreaTileset_FortressOfWindsTop_0_1::
@@ -2122,13 +2122,13 @@ gAreaTileset_FortressOfWindsTop_0_1::
 gAreaTileset_FortressOfWindsTop_0_2::
 	.incbin "maps/areas/089_FortressOfWindsTop/tilesets/0/gAreaTileset_FortressOfWindsTop_0_2.4bpp.lz"
 gAreaMetaTileset_FortressOfWindsTop_bottom::
-	.incbin "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTileset_FortressOfWindsTop_bottom.bin.lz"
+	.incbin "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTileset_FortressOfWindsTop_bottom.bin.lz"
 gAreaMetaTileset_FortressOfWindsTop_top::
-	.incbin "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTileset_FortressOfWindsTop_top.bin.lz"
+	.incbin "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTileset_FortressOfWindsTop_top.bin.lz"
 gAreaMetaTilesetTypes_FortressOfWindsTop_bottom::
-	.incbin "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTilesetTypes_FortressOfWindsTop_bottom.bin.lz"
+	.incbin "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTilesetTypes_FortressOfWindsTop_bottom.bin.lz"
 gAreaMetaTilesetTypes_FortressOfWindsTop_top::
-	.incbin "maps/areas/089_FortressOfWindsTop/metatilesets/gAreaMetaTilesetTypes_FortressOfWindsTop_top.bin.lz"
+	.incbin "maps/areas/089_FortressOfWindsTop/metatileset/gAreaMetaTilesetTypes_FortressOfWindsTop_top.bin.lz"
 gAreaRoomMap_FortressOfWinds_DoubleEyegore_bottom::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/00_DoubleEyegore/gAreaRoomMap_FortressOfWinds_DoubleEyegore_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_DoubleEyegore_top::
@@ -2164,15 +2164,15 @@ gAreaRoomMap_FortressOfWinds_WestKeyLever_top::
  gDungeonMaps_FortressOfWinds_6::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/06_6/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_DarknutRoom_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/13_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_DarknutRoom_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/13_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/gAreaRoomMap_FortressOfWinds_DarknutRoom_top.bin.lz"
  gDungeonMaps_FortressOfWinds_DarknutRoom::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/16_DarknutRoom/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/10_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/10_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/gAreaRoomMap_FortressOfWinds_ArrowEyeBridge_top.bin.lz"
  gDungeonMaps_FortressOfWinds_ArrowEyeBridge::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/17_ArrowEyeBridge/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_NorthSplitPathPit_bottom::
@@ -2212,29 +2212,29 @@ gAreaRoomMap_FortressOfWinds_Stalfos_top::
  gDungeonMaps_FortressOfWinds_Stalfos::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/23_Stalfos/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/14_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/14_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/gAreaRoomMap_FortressOfWinds_EntranceMoleMitts_top.bin.lz"
  gDungeonMaps_FortressOfWinds_EntranceMoleMitts::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/24_EntranceMoleMitts/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_Main2f_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/37_25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_Main2f_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/37_25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/25_Main2f/gAreaRoomMap_FortressOfWinds_Main2f_top.bin.lz"
  gDungeonMaps_FortressOfWinds_Main2f::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/37_25_Main2f/dungeon_map.bin"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/25_Main2f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_MinishHole_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/38_26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_MinishHole_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/38_26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/gAreaRoomMap_FortressOfWinds_MinishHole_top.bin.lz"
  gDungeonMaps_FortressOfWinds_MinishHole::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/38_26_MinishHole/dungeon_map.bin"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/26_MinishHole/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_BossKey_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/11_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/27_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_BossKey_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/11_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/27_BossKey/gAreaRoomMap_FortressOfWinds_BossKey_top.bin.lz"
  gDungeonMaps_FortressOfWinds_BossKey::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/39_27_BossKey/dungeon_map.bin"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/27_BossKey/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_WestStairs2f_bottom::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/28_WestStairs2f/gAreaRoomMap_FortressOfWinds_WestStairs2f_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_WestStairs2f_top::
@@ -2242,9 +2242,9 @@ gAreaRoomMap_FortressOfWinds_WestStairs2f_top::
  gDungeonMaps_FortressOfWinds_WestStairs2f::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/28_WestStairs2f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_EastStairs2f_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/14_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_EastStairs2f_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/14_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/gAreaRoomMap_FortressOfWinds_EastStairs2f_top.bin.lz"
  gDungeonMaps_FortressOfWinds_EastStairs2f::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/29_EastStairs2f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_WestStairs1f_bottom::
@@ -2254,15 +2254,15 @@ gAreaRoomMap_FortressOfWinds_WestStairs1f_top::
  gDungeonMaps_FortressOfWinds_WestStairs1f::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/32_WestStairs1f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_CenterStairs1f_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/12_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_CenterStairs1f_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/12_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/gAreaRoomMap_FortressOfWinds_CenterStairs1f_top.bin.lz"
  gDungeonMaps_FortressOfWinds_CenterStairs1f::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/33_CenterStairs1f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_EastStairs1f_bottom::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/14_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_bottom.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_bottom.bin.lz"
 gAreaRoomMap_FortressOfWinds_EastStairs1f_top::
-	.incbin "maps/areas/088_FortressOfWinds/rooms/14_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_top.bin.lz"
+	.incbin "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/gAreaRoomMap_FortressOfWinds_EastStairs1f_top.bin.lz"
  gDungeonMaps_FortressOfWinds_EastStairs1f::
 	.incbin "maps/areas/088_FortressOfWinds/rooms/34_EastStairs1f/dungeon_map.bin"
 gAreaRoomMap_FortressOfWinds_Wizzrobe_bottom::
@@ -2296,13 +2296,13 @@ gAreaTileset_TempleOfDroplets_0_1::
 gAreaTileset_TempleOfDroplets_0_2::
 	.incbin "maps/areas/096_TempleOfDroplets/tilesets/0/gAreaTileset_TempleOfDroplets_0_2.4bpp.lz"
 gAreaMetaTileset_TempleOfDroplets_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTileset_TempleOfDroplets_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTileset_TempleOfDroplets_bottom.bin.lz"
 gAreaMetaTileset_TempleOfDroplets_top::
-	.incbin "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTileset_TempleOfDroplets_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTileset_TempleOfDroplets_top.bin.lz"
 gAreaMetaTilesetTypes_TempleOfDroplets_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTilesetTypes_TempleOfDroplets_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTilesetTypes_TempleOfDroplets_bottom.bin.lz"
 gAreaMetaTilesetTypes_TempleOfDroplets_top::
-	.incbin "maps/areas/096_TempleOfDroplets/metatilesets/gAreaMetaTilesetTypes_TempleOfDroplets_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/metatileset/gAreaMetaTilesetTypes_TempleOfDroplets_top.bin.lz"
 gAreaTileset_Null61_0_0::
 	.incbin "maps/areas/097_Null61/tilesets/0/gAreaTileset_Null61_0_0.4bpp.lz"
 gAreaTileset_Null61_0_1::
@@ -2310,13 +2310,13 @@ gAreaTileset_Null61_0_1::
 gAreaTileset_Null61_0_2::
 	.incbin "maps/areas/097_Null61/tilesets/0/gAreaTileset_Null61_0_2.4bpp.lz"
 gAreaMetaTileset_Null61_bottom::
-	.incbin "maps/areas/097_Null61/metatilesets/gAreaMetaTileset_Null61_bottom.bin.lz"
+	.incbin "maps/areas/097_Null61/metatileset/gAreaMetaTileset_Null61_bottom.bin.lz"
 gAreaMetaTileset_Null61_top::
-	.incbin "maps/areas/097_Null61/metatilesets/gAreaMetaTileset_Null61_top.bin.lz"
+	.incbin "maps/areas/097_Null61/metatileset/gAreaMetaTileset_Null61_top.bin.lz"
 gAreaMetaTilesetTypes_Null61_bottom::
-	.incbin "maps/areas/097_Null61/metatilesets/gAreaMetaTilesetTypes_Null61_bottom.bin.lz"
+	.incbin "maps/areas/097_Null61/metatileset/gAreaMetaTilesetTypes_Null61_bottom.bin.lz"
 gAreaMetaTilesetTypes_Null61_top::
-	.incbin "maps/areas/097_Null61/metatilesets/gAreaMetaTilesetTypes_Null61_top.bin.lz"
+	.incbin "maps/areas/097_Null61/metatileset/gAreaMetaTilesetTypes_Null61_top.bin.lz"
 gAreaRoomMap_TempleOfDroplets_WestHole_bottom::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/00_WestHole/gAreaRoomMap_TempleOfDroplets_WestHole_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_WestHole_top::
@@ -2390,17 +2390,17 @@ gAreaRoomMap_TempleOfDroplets_HoleToBlueChuKey_top::
  gDungeonMaps_TempleOfDroplets_HoleToBlueChuKey::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/11_HoleToBlueChuKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/18_12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/18_12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/gAreaRoomMap_TempleOfDroplets_WestWaterfallSoutheast_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_WestWaterfallSoutheast::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/18_12_WestWaterfallSoutheast/dungeon_map.bin"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/12_WestWaterfallSoutheast/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/19_13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/19_13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/gAreaRoomMap_TempleOfDroplets_WestWaterfallSouthwest_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_WestWaterfallSouthwest::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/19_13_WestWaterfallSouthwest/dungeon_map.bin"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/13_WestWaterfallSouthwest/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_BigOcto_bottom::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/14_BigOcto/gAreaRoomMap_TempleOfDroplets_BigOcto_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_BigOcto_top::
@@ -2420,9 +2420,9 @@ gAreaRoomMap_TempleOfDroplets_BlueChu_top::
  gDungeonMaps_TempleOfDroplets_BlueChu::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/16_BlueChu/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_BlueChuKey_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_BlueChuKey_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/gAreaRoomMap_TempleOfDroplets_BlueChuKey_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_BlueChuKey::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/17_BlueChuKey/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_BossKey_bottom::
@@ -2456,23 +2456,23 @@ gAreaRoomMap_TempleOfDroplets_BlockCloneIceBridge_top::
  gDungeonMaps_TempleOfDroplets_BlockCloneIceBridge::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/36_BlockCloneIceBridge/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/55_37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/55_37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/gAreaRoomMap_TempleOfDroplets_StairsToScissorsMiniboss_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_StairsToScissorsMiniboss::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/55_37_StairsToScissorsMiniboss/dungeon_map.bin"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/37_StairsToScissorsMiniboss/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/56_38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/56_38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/gAreaRoomMap_TempleOfDroplets_SpikeBarFlipperRoom_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_SpikeBarFlipperRoom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/56_38_SpikeBarFlipperRoom/dungeon_map.bin"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/38_SpikeBarFlipperRoom/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_9Lanterns_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/57_39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_9Lanterns_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/57_39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/gAreaRoomMap_TempleOfDroplets_9Lanterns_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_9Lanterns::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/57_39_9Lanterns/dungeon_map.bin"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/39_9Lanterns/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_LilypadIceBlocks_bottom::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/40_LilypadIceBlocks/gAreaRoomMap_TempleOfDroplets_LilypadIceBlocks_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_LilypadIceBlocks_top::
@@ -2510,9 +2510,9 @@ gAreaRoomMap_TempleOfDroplets_AfterTwinMadderpillars_top::
  gDungeonMaps_TempleOfDroplets_AfterTwinMadderpillars::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/45_AfterTwinMadderpillars/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_bottom::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_bottom.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_bottom.bin.lz"
 gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_top::
-	.incbin "maps/areas/096_TempleOfDroplets/rooms/16_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_top.bin.lz"
+	.incbin "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/gAreaRoomMap_TempleOfDroplets_BlueChuKeyLever_top.bin.lz"
  gDungeonMaps_TempleOfDroplets_BlueChuKeyLever::
 	.incbin "maps/areas/096_TempleOfDroplets/rooms/46_BlueChuKeyLever/dungeon_map.bin"
 gAreaRoomMap_TempleOfDroplets_MulldozerKey_bottom::
@@ -2588,9 +2588,9 @@ gAreaRoomMap_HyruleTownMinishCaves_4_bottom::
 gAreaRoomMap_HyruleTownMinishCaves_4_top::
 	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/04_4/gAreaRoomMap_HyruleTownMinishCaves_4_top.bin.lz"
 gAreaRoomMap_HyruleTownMinishCaves_Unused10_bottom::
-	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/07_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_bottom.bin.lz"
+	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/16_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_bottom.bin.lz"
 gAreaRoomMap_HyruleTownMinishCaves_Unused10_top::
-	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/07_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_top.bin.lz"
+	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/16_Unused10/gAreaRoomMap_HyruleTownMinishCaves_Unused10_top.bin.lz"
 gAreaRoomMap_HyruleTownMinishCaves_6_bottom::
 	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/17_6/gAreaRoomMap_HyruleTownMinishCaves_6_bottom.bin.lz"
 gAreaRoomMap_HyruleTownMinishCaves_6_top::
@@ -2608,9 +2608,9 @@ gAreaRoomMap_HyruleTownMinishCaves_9_bottom::
 gAreaRoomMap_HyruleTownMinishCaves_9_top::
 	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/20_9/gAreaRoomMap_HyruleTownMinishCaves_9_top.bin.lz"
 gAreaRoomMap_HyruleTownMinishCaves_10_bottom::
-	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/01_10/gAreaRoomMap_HyruleTownMinishCaves_10_bottom.bin.lz"
+	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/21_10/gAreaRoomMap_HyruleTownMinishCaves_10_bottom.bin.lz"
 gAreaRoomMap_HyruleTownMinishCaves_10_top::
-	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/01_10/gAreaRoomMap_HyruleTownMinishCaves_10_top.bin.lz"
+	.incbin "maps/areas/098_HyruleTownMinishCaves/rooms/21_10/gAreaRoomMap_HyruleTownMinishCaves_10_top.bin.lz"
 gAreaTileset_RoyalCrypt_0_0::
 	.incbin "maps/areas/104_RoyalCrypt/tilesets/0/gAreaTileset_RoyalCrypt_0_0.4bpp.lz"
 gAreaTileset_RoyalCrypt_0_1::
@@ -2618,13 +2618,13 @@ gAreaTileset_RoyalCrypt_0_1::
 gAreaTileset_RoyalCrypt_0_2::
 	.incbin "maps/areas/104_RoyalCrypt/tilesets/0/gAreaTileset_RoyalCrypt_0_2.4bpp.lz"
 gAreaMetaTileset_RoyalCrypt_bottom::
-	.incbin "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTileset_RoyalCrypt_bottom.bin.lz"
+	.incbin "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTileset_RoyalCrypt_bottom.bin.lz"
 gAreaMetaTileset_RoyalCrypt_top::
-	.incbin "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTileset_RoyalCrypt_top.bin.lz"
+	.incbin "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTileset_RoyalCrypt_top.bin.lz"
 gAreaMetaTilesetTypes_RoyalCrypt_bottom::
-	.incbin "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTilesetTypes_RoyalCrypt_bottom.bin.lz"
+	.incbin "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTilesetTypes_RoyalCrypt_bottom.bin.lz"
 gAreaMetaTilesetTypes_RoyalCrypt_top::
-	.incbin "maps/areas/104_RoyalCrypt/metatilesets/gAreaMetaTilesetTypes_RoyalCrypt_top.bin.lz"
+	.incbin "maps/areas/104_RoyalCrypt/metatileset/gAreaMetaTilesetTypes_RoyalCrypt_top.bin.lz"
 gAreaRoomMap_RoyalCrypt_0_bottom::
 	.incbin "maps/areas/104_RoyalCrypt/rooms/00_0/gAreaRoomMap_RoyalCrypt_0_bottom.bin.lz"
 gAreaRoomMap_RoyalCrypt_0_top::
@@ -2668,13 +2668,13 @@ gAreaTileset_PalaceOfWinds_0_1::
 gAreaTileset_PalaceOfWinds_0_2::
 	.incbin "maps/areas/112_PalaceOfWinds/tilesets/0/gAreaTileset_PalaceOfWinds_0_2.4bpp.lz"
 gAreaMetaTileset_PalaceOfWinds_bottom::
-	.incbin "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTileset_PalaceOfWinds_bottom.bin.lz"
+	.incbin "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTileset_PalaceOfWinds_bottom.bin.lz"
 gAreaMetaTileset_PalaceOfWinds_top::
-	.incbin "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTileset_PalaceOfWinds_top.bin.lz"
+	.incbin "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTileset_PalaceOfWinds_top.bin.lz"
 gAreaMetaTilesetTypes_PalaceOfWinds_bottom::
-	.incbin "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTilesetTypes_PalaceOfWinds_bottom.bin.lz"
+	.incbin "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTilesetTypes_PalaceOfWinds_bottom.bin.lz"
 gAreaMetaTilesetTypes_PalaceOfWinds_top::
-	.incbin "maps/areas/112_PalaceOfWinds/metatilesets/gAreaMetaTilesetTypes_PalaceOfWinds_top.bin.lz"
+	.incbin "maps/areas/112_PalaceOfWinds/metatileset/gAreaMetaTilesetTypes_PalaceOfWinds_top.bin.lz"
 gAreaTileset_PalaceOfWinds_0_3::
 	.incbin "maps/areas/112_PalaceOfWinds/tilesets/0/gAreaTileset_PalaceOfWinds_0_3.4bpp.lz"
 gAreaTileset_PalaceOfWindsBoss_0_0::
@@ -2682,9 +2682,9 @@ gAreaTileset_PalaceOfWindsBoss_0_0::
 gAreaTileset_PalaceOfWindsBoss_0_1::
 	.incbin "maps/areas/113_PalaceOfWindsBoss/tilesets/0/gAreaTileset_PalaceOfWindsBoss_0_1.4bpp.lz"
 gAreaMetaTileset_PalaceOfWindsBoss_top::
-	.incbin "maps/areas/113_PalaceOfWindsBoss/metatilesets/gAreaMetaTileset_PalaceOfWindsBoss_top.bin.lz"
+	.incbin "maps/areas/113_PalaceOfWindsBoss/metatileset/gAreaMetaTileset_PalaceOfWindsBoss_top.bin.lz"
 gAreaMetaTilesetTypes_PalaceOfWindsBoss_top::
-	.incbin "maps/areas/113_PalaceOfWindsBoss/metatilesets/gAreaMetaTilesetTypes_PalaceOfWindsBoss_top.bin.lz"
+	.incbin "maps/areas/113_PalaceOfWindsBoss/metatileset/gAreaMetaTilesetTypes_PalaceOfWindsBoss_top.bin.lz"
 unknown_134::
 	.incbin "assets/unknown_134.bin"
 gAreaTileset_PalaceOfWindsBoss_0_2::
@@ -2888,11 +2888,11 @@ gAreaRoomMap_PalaceOfWinds_KeyArrowButton_top::
  gDungeonMaps_PalaceOfWinds_KeyArrowButton::
 	.incbin "maps/areas/112_PalaceOfWinds/rooms/32_KeyArrowButton/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_GratesTo3f_bottom::
-	.incbin "maps/areas/112_PalaceOfWinds/rooms/51_33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_bottom.bin.lz"
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_bottom.bin.lz"
 gAreaRoomMap_PalaceOfWinds_GratesTo3f_top::
-	.incbin "maps/areas/112_PalaceOfWinds/rooms/51_33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_top.bin.lz"
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/gAreaRoomMap_PalaceOfWinds_GratesTo3f_top.bin.lz"
  gDungeonMaps_PalaceOfWinds_GratesTo3f::
-	.incbin "maps/areas/112_PalaceOfWinds/rooms/51_33_GratesTo3f/dungeon_map.bin"
+	.incbin "maps/areas/112_PalaceOfWinds/rooms/33_GratesTo3f/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWinds_SpinyFight_bottom::
 	.incbin "maps/areas/112_PalaceOfWinds/rooms/34_SpinyFight/gAreaRoomMap_PalaceOfWinds_SpinyFight_bottom.bin.lz"
 gAreaRoomMap_PalaceOfWinds_SpinyFight_top::
@@ -3006,13 +3006,13 @@ gAreaTileset_Sanctuary_0_1::
 gAreaTileset_Sanctuary_0_2::
 	.incbin "maps/areas/120_Sanctuary/tilesets/0/gAreaTileset_Sanctuary_0_2.4bpp.lz"
 gAreaMetaTileset_Sanctuary_bottom::
-	.incbin "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTileset_Sanctuary_bottom.bin.lz"
+	.incbin "maps/areas/120_Sanctuary/metatileset/gAreaMetaTileset_Sanctuary_bottom.bin.lz"
 gAreaMetaTileset_Sanctuary_top::
-	.incbin "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTileset_Sanctuary_top.bin.lz"
+	.incbin "maps/areas/120_Sanctuary/metatileset/gAreaMetaTileset_Sanctuary_top.bin.lz"
 gAreaMetaTilesetTypes_Sanctuary_bottom::
-	.incbin "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTilesetTypes_Sanctuary_bottom.bin.lz"
+	.incbin "maps/areas/120_Sanctuary/metatileset/gAreaMetaTilesetTypes_Sanctuary_bottom.bin.lz"
 gAreaMetaTilesetTypes_Sanctuary_top::
-	.incbin "maps/areas/120_Sanctuary/metatilesets/gAreaMetaTilesetTypes_Sanctuary_top.bin.lz"
+	.incbin "maps/areas/120_Sanctuary/metatileset/gAreaMetaTilesetTypes_Sanctuary_top.bin.lz"
 gAreaRoomMap_Sanctuary_Hall_bottom::
 	.incbin "maps/areas/120_Sanctuary/rooms/00_Hall/gAreaRoomMap_Sanctuary_Hall_bottom.bin.lz"
 gAreaRoomMap_Sanctuary_Hall_top::
@@ -3032,13 +3032,13 @@ gAreaTileset_HyruleCastle_0_1::
 gAreaTileset_HyruleCastle_0_2::
 	.incbin "maps/areas/128_HyruleCastle/tilesets/0/gAreaTileset_HyruleCastle_0_2.4bpp.lz"
 gAreaMetaTileset_HyruleCastle_bottom::
-	.incbin "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTileset_HyruleCastle_bottom.bin.lz"
+	.incbin "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTileset_HyruleCastle_bottom.bin.lz"
 gAreaMetaTileset_HyruleCastle_top::
-	.incbin "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTileset_HyruleCastle_top.bin.lz"
+	.incbin "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTileset_HyruleCastle_top.bin.lz"
 gAreaMetaTilesetTypes_HyruleCastle_bottom::
-	.incbin "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTilesetTypes_HyruleCastle_bottom.bin.lz"
+	.incbin "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTilesetTypes_HyruleCastle_bottom.bin.lz"
 gAreaMetaTilesetTypes_HyruleCastle_top::
-	.incbin "maps/areas/128_HyruleCastle/metatilesets/gAreaMetaTilesetTypes_HyruleCastle_top.bin.lz"
+	.incbin "maps/areas/128_HyruleCastle/metatileset/gAreaMetaTilesetTypes_HyruleCastle_top.bin.lz"
 gAreaRoomMap_HyruleCastle_0_bottom::
 	.incbin "maps/areas/128_HyruleCastle/rooms/00_0/gAreaRoomMap_HyruleCastle_0_bottom.bin.lz"
 gAreaRoomMap_HyruleCastle_0_top::
@@ -3076,13 +3076,13 @@ gAreaTileset_SanctuaryEntrance_0_1::
 gAreaTileset_SanctuaryEntrance_0_2::
 	.incbin "maps/areas/129_SanctuaryEntrance/tilesets/0/gAreaTileset_SanctuaryEntrance_0_2.4bpp.lz"
 gAreaMetaTileset_SanctuaryEntrance_bottom::
-	.incbin "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTileset_SanctuaryEntrance_bottom.bin.lz"
+	.incbin "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTileset_SanctuaryEntrance_bottom.bin.lz"
 gAreaMetaTileset_SanctuaryEntrance_top::
-	.incbin "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTileset_SanctuaryEntrance_top.bin.lz"
+	.incbin "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTileset_SanctuaryEntrance_top.bin.lz"
 gAreaMetaTilesetTypes_SanctuaryEntrance_bottom::
-	.incbin "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTilesetTypes_SanctuaryEntrance_bottom.bin.lz"
+	.incbin "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTilesetTypes_SanctuaryEntrance_bottom.bin.lz"
 gAreaMetaTilesetTypes_SanctuaryEntrance_top::
-	.incbin "maps/areas/129_SanctuaryEntrance/metatilesets/gAreaMetaTilesetTypes_SanctuaryEntrance_top.bin.lz"
+	.incbin "maps/areas/129_SanctuaryEntrance/metatileset/gAreaMetaTilesetTypes_SanctuaryEntrance_top.bin.lz"
 gAreaRoomMap_SanctuaryEntrance_Main_bottom::
 	.incbin "maps/areas/129_SanctuaryEntrance/rooms/00_Main/gAreaRoomMap_SanctuaryEntrance_Main_bottom.bin.lz"
 gAreaRoomMap_SanctuaryEntrance_Main_top::
@@ -3094,13 +3094,13 @@ gAreaTileset_DarkHyruleCastle_0_1::
 gAreaTileset_DarkHyruleCastle_0_2::
 	.incbin "maps/areas/136_DarkHyruleCastle/tilesets/0/gAreaTileset_DarkHyruleCastle_0_2.4bpp.lz"
 gAreaMetaTileset_DarkHyruleCastle_bottom::
-	.incbin "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTileset_DarkHyruleCastle_bottom.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTileset_DarkHyruleCastle_bottom.bin.lz"
 gAreaMetaTileset_DarkHyruleCastle_top::
-	.incbin "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTileset_DarkHyruleCastle_top.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTileset_DarkHyruleCastle_top.bin.lz"
 gAreaMetaTilesetTypes_DarkHyruleCastle_bottom::
-	.incbin "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastle_bottom.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastle_bottom.bin.lz"
 gAreaMetaTilesetTypes_DarkHyruleCastle_top::
-	.incbin "maps/areas/136_DarkHyruleCastle/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastle_top.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastle_top.bin.lz"
 gAreaTileset_DarkHyruleCastleBridge_0_0::
 	.incbin "maps/areas/141_DarkHyruleCastleBridge/tilesets/0/gAreaTileset_DarkHyruleCastleBridge_0_0.4bpp.lz"
 gAreaTileset_DarkHyruleCastleBridge_0_1::
@@ -3108,13 +3108,13 @@ gAreaTileset_DarkHyruleCastleBridge_0_1::
 gAreaTileset_DarkHyruleCastleBridge_0_2::
 	.incbin "maps/areas/141_DarkHyruleCastleBridge/tilesets/0/gAreaTileset_DarkHyruleCastleBridge_0_2.4bpp.lz"
 gAreaMetaTileset_DarkHyruleCastleBridge_bottom::
-	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTileset_DarkHyruleCastleBridge_bottom.bin.lz"
+	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTileset_DarkHyruleCastleBridge_bottom.bin.lz"
 gAreaMetaTileset_DarkHyruleCastleBridge_top::
-	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTileset_DarkHyruleCastleBridge_top.bin.lz"
+	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTileset_DarkHyruleCastleBridge_top.bin.lz"
 gAreaMetaTilesetTypes_DarkHyruleCastleBridge_bottom::
-	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_bottom.bin.lz"
+	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_bottom.bin.lz"
 gAreaMetaTilesetTypes_DarkHyruleCastleBridge_top::
-	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_top.bin.lz"
+	.incbin "maps/areas/141_DarkHyruleCastleBridge/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleBridge_top.bin.lz"
 gAreaTileset_Vaati3_0_0::
 	.incbin "maps/areas/139_Vaati3/tilesets/0/gAreaTileset_Vaati3_0_0.4bpp.lz"
 gAreaTileset_Vaati3_0_1::
@@ -3122,13 +3122,13 @@ gAreaTileset_Vaati3_0_1::
 gAreaTileset_Vaati3_0_2::
 	.incbin "maps/areas/139_Vaati3/tilesets/0/gAreaTileset_Vaati3_0_2.4bpp.lz"
 gAreaMetaTileset_Vaati3_bottom::
-	.incbin "maps/areas/139_Vaati3/metatilesets/gAreaMetaTileset_Vaati3_bottom.bin.lz"
+	.incbin "maps/areas/139_Vaati3/metatileset/gAreaMetaTileset_Vaati3_bottom.bin.lz"
 gAreaMetaTileset_Vaati3_top::
-	.incbin "maps/areas/139_Vaati3/metatilesets/gAreaMetaTileset_Vaati3_top.bin.lz"
+	.incbin "maps/areas/139_Vaati3/metatileset/gAreaMetaTileset_Vaati3_top.bin.lz"
 gAreaMetaTilesetTypes_Vaati3_bottom::
-	.incbin "maps/areas/139_Vaati3/metatilesets/gAreaMetaTilesetTypes_Vaati3_bottom.bin.lz"
+	.incbin "maps/areas/139_Vaati3/metatileset/gAreaMetaTilesetTypes_Vaati3_bottom.bin.lz"
 gAreaMetaTilesetTypes_Vaati3_top::
-	.incbin "maps/areas/139_Vaati3/metatilesets/gAreaMetaTilesetTypes_Vaati3_top.bin.lz"
+	.incbin "maps/areas/139_Vaati3/metatileset/gAreaMetaTilesetTypes_Vaati3_top.bin.lz"
 gAreaTileset_Vaati2_0_0::
 	.incbin "maps/areas/140_Vaati2/tilesets/0/gAreaTileset_Vaati2_0_0.4bpp.lz"
 gAreaTileset_Vaati2_0_1::
@@ -3136,13 +3136,13 @@ gAreaTileset_Vaati2_0_1::
 gAreaTileset_Vaati2_0_2::
 	.incbin "maps/areas/140_Vaati2/tilesets/0/gAreaTileset_Vaati2_0_2.4bpp.lz"
 gAreaMetaTileset_Vaati2_bottom::
-	.incbin "maps/areas/140_Vaati2/metatilesets/gAreaMetaTileset_Vaati2_bottom.bin.lz"
+	.incbin "maps/areas/140_Vaati2/metatileset/gAreaMetaTileset_Vaati2_bottom.bin.lz"
 gAreaMetaTileset_Vaati2_top::
-	.incbin "maps/areas/140_Vaati2/metatilesets/gAreaMetaTileset_Vaati2_top.bin.lz"
+	.incbin "maps/areas/140_Vaati2/metatileset/gAreaMetaTileset_Vaati2_top.bin.lz"
 gAreaMetaTilesetTypes_Vaati2_bottom::
-	.incbin "maps/areas/140_Vaati2/metatilesets/gAreaMetaTilesetTypes_Vaati2_bottom.bin.lz"
+	.incbin "maps/areas/140_Vaati2/metatileset/gAreaMetaTilesetTypes_Vaati2_bottom.bin.lz"
 gAreaMetaTilesetTypes_Vaati2_top::
-	.incbin "maps/areas/140_Vaati2/metatilesets/gAreaMetaTilesetTypes_Vaati2_top.bin.lz"
+	.incbin "maps/areas/140_Vaati2/metatileset/gAreaMetaTilesetTypes_Vaati2_top.bin.lz"
 gAreaTileset_VaatisArms_0_0::
 	.incbin "maps/areas/138_VaatisArms/tilesets/0/gAreaTileset_VaatisArms_0_0.4bpp.lz"
 gAreaTileset_VaatisArms_0_1::
@@ -3150,13 +3150,13 @@ gAreaTileset_VaatisArms_0_1::
 gAreaTileset_VaatisArms_0_2::
 	.incbin "maps/areas/138_VaatisArms/tilesets/0/gAreaTileset_VaatisArms_0_2.4bpp.lz"
 gAreaMetaTileset_VaatisArms_bottom::
-	.incbin "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTileset_VaatisArms_bottom.bin.lz"
+	.incbin "maps/areas/138_VaatisArms/metatileset/gAreaMetaTileset_VaatisArms_bottom.bin.lz"
 gAreaMetaTileset_VaatisArms_top::
-	.incbin "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTileset_VaatisArms_top.bin.lz"
+	.incbin "maps/areas/138_VaatisArms/metatileset/gAreaMetaTileset_VaatisArms_top.bin.lz"
 gAreaMetaTilesetTypes_VaatisArms_bottom::
-	.incbin "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTilesetTypes_VaatisArms_bottom.bin.lz"
+	.incbin "maps/areas/138_VaatisArms/metatileset/gAreaMetaTilesetTypes_VaatisArms_bottom.bin.lz"
 gAreaMetaTilesetTypes_VaatisArms_top::
-	.incbin "maps/areas/138_VaatisArms/metatilesets/gAreaMetaTilesetTypes_VaatisArms_top.bin.lz"
+	.incbin "maps/areas/138_VaatisArms/metatileset/gAreaMetaTilesetTypes_VaatisArms_top.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1fEntrance_bottom::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/00_1fEntrance/gAreaRoomMap_DarkHyruleCastle_1fEntrance_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1fEntrance_top::
@@ -3381,9 +3381,9 @@ gAreaRoomMap_DarkHyruleCastle_1fLoopTop_top::
  gDungeonMaps_DarkHyruleCastle_1fLoopTop::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTop/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_bottom::
-	.incbin "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_bottom.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_top::
-	.incbin "maps/areas/136_DarkHyruleCastle/rooms/36_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_top.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/gAreaRoomMap_DarkHyruleCastle_1fLoopTopRight_top.bin.lz"
  gDungeonMaps_DarkHyruleCastle_1fLoopTopRight::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/37_1fLoopTopRight/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1fLoopLeft_bottom::
@@ -3411,9 +3411,9 @@ gAreaRoomMap_DarkHyruleCastle_1fLoopBottom_top::
  gDungeonMaps_DarkHyruleCastle_1fLoopBottom::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottom/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_bottom::
-	.incbin "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_bottom.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_top::
-	.incbin "maps/areas/136_DarkHyruleCastle/rooms/41_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_top.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/gAreaRoomMap_DarkHyruleCastle_1fLoopBottomRight_top.bin.lz"
  gDungeonMaps_DarkHyruleCastle_1fLoopBottomRight::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/42_1fLoopBottomRight/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_1fBottomLeftTower_bottom::
@@ -3465,9 +3465,9 @@ gAreaRoomMap_DarkHyruleCastle_B1Keatons_top::
  gDungeonMaps_DarkHyruleCastle_B1Keatons::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/50_B1Keatons/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_bottom::
-	.incbin "maps/areas/136_DarkHyruleCastle/rooms/48_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_bottom.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_top::
-	.incbin "maps/areas/136_DarkHyruleCastle/rooms/48_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_top.bin.lz"
+	.incbin "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_top.bin.lz"
  gDungeonMaps_DarkHyruleCastle_B1ToPrisonFirebar::
 	.incbin "maps/areas/136_DarkHyruleCastle/rooms/51_B1ToPrisonFirebar/dungeon_map.bin"
 gAreaRoomMap_DarkHyruleCastle_B1Cannons_bottom::
@@ -3557,13 +3557,13 @@ gAreaTileset_DarkHyruleCastleOutside_0_1::
 gAreaTileset_DarkHyruleCastleOutside_0_2::
 	.incbin "maps/areas/137_DarkHyruleCastleOutside/tilesets/0/gAreaTileset_DarkHyruleCastleOutside_0_2.4bpp.lz"
 gAreaMetaTileset_DarkHyruleCastleOutside_bottom::
-	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTileset_DarkHyruleCastleOutside_bottom.bin.lz"
+	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTileset_DarkHyruleCastleOutside_bottom.bin.lz"
 gAreaMetaTileset_DarkHyruleCastleOutside_top::
-	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTileset_DarkHyruleCastleOutside_top.bin.lz"
+	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTileset_DarkHyruleCastleOutside_top.bin.lz"
 gAreaMetaTilesetTypes_DarkHyruleCastleOutside_bottom::
-	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_bottom.bin.lz"
+	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_bottom.bin.lz"
 gAreaMetaTilesetTypes_DarkHyruleCastleOutside_top::
-	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatilesets/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_top.bin.lz"
+	.incbin "maps/areas/137_DarkHyruleCastleOutside/metatileset/gAreaMetaTilesetTypes_DarkHyruleCastleOutside_top.bin.lz"
 gAreaRoomMap_DarkHyruleCastleOutside_ZeldaStatuePlatform_bottom::
 	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/00_ZeldaStatuePlatform/gAreaRoomMap_DarkHyruleCastleOutside_ZeldaStatuePlatform_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastleOutside_ZeldaStatuePlatform_top::
@@ -3593,9 +3593,9 @@ gAreaRoomMap_DarkHyruleCastleOutside_South_bottom::
 gAreaRoomMap_DarkHyruleCastleOutside_South_top::
 	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/06_South/gAreaRoomMap_DarkHyruleCastleOutside_South_top.bin.lz"
 gAreaRoomMap_DarkHyruleCastleOutside_Southeast_bottom::
-	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/06_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_bottom.bin.lz"
+	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/07_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastleOutside_Southeast_top::
-	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/06_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_top.bin.lz"
+	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/07_Southeast/gAreaRoomMap_DarkHyruleCastleOutside_Southeast_top.bin.lz"
 gAreaRoomMap_DarkHyruleCastleOutside_8_bottom::
 	.incbin "maps/areas/137_DarkHyruleCastleOutside/rooms/08_8/gAreaRoomMap_DarkHyruleCastleOutside_8_bottom.bin.lz"
 gAreaRoomMap_DarkHyruleCastleOutside_8_top::

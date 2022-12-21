@@ -13,7 +13,7 @@ SCRIPT_START script_CutsceneMiscObjectMinishCapOutro
 	CallWithArg sub_080960C4, script_CutsceneMiscObjectEzloDismounting
 	SetAnimation 0x0002
 	Call sub_08094B0C
-	_0807EDD4 0x0068, 0x0088
+	MoveTo 0x0068, 0x0088
 	Call sub_08094B80
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000008

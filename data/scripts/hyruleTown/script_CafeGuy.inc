@@ -11,7 +11,7 @@ SCRIPT_START script_CafeGuy
 script_0800ECAC:
 	SetAnimationState 0x0006
 	SetAnimation 0x0007
-	_0807EDD4 0x0028, 0x0050
+	MoveTo 0x0028, 0x0050
 	Wait 0x001e
 	SetAnimationState 0x0004
 	SetAnimation 0x0002
@@ -21,7 +21,7 @@ script_0800ECAC:
 	Wait 0x001e
 	SetAnimationState 0x0002
 	SetAnimation 0x0005
-	_0807EDD4 0x0048, 0x0050
+	MoveTo 0x0048, 0x0050
 	Wait 0x001e
 	SetAnimationState 0x0004
 	SetAnimation 0x0002

@@ -10,7 +10,7 @@ SCRIPT_START script_KingDaltusIntroCeremony
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x0001
 	SetEntitySpeed 0x0040
-	_0807EDD4 0x01f8, 0x0048
+	MoveTo 0x01f8, 0x0048
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000040

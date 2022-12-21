@@ -192,7 +192,7 @@ void Enemy64_Action2_SubAction0(Enemy64Entity* this) {
 }
 
 void Enemy64_Action2_SubAction1(Enemy64Entity* this) {
-    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (4 < (((super->direction - tmp) + 2) & 0xff)) {
         if (((tmp - super->direction) & 0x80) != 0) {
             super->direction--;
@@ -293,7 +293,7 @@ void Enemy64_Action3(Enemy64Entity* this) {
 }
 
 void Enemy64_Action3_SubAction0(Enemy64Entity* this) {
-    u32 tmp = sub_080045DA(gRoomControls.origin_x + 0xa8 - super->x.HALF.HI,
+    u32 tmp = CalculateDirectionFromOffsets(gRoomControls.origin_x + 0xa8 - super->x.HALF.HI,
                            gRoomControls.origin_y + 0x80 - super->y.HALF.HI);
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0x80) != 0) {
@@ -493,7 +493,7 @@ void sub_080499F0(Enemy64Entity* this) {
         ((this->unk_7c & 1) == 0)) {
         if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
             ((this->unk_7c & 2) == 0)) {
-            tmp = sub_080045DA((s32)gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
+            tmp = CalculateDirectionFromOffsets((s32)gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
                                (s32)gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
             gPlayerEntity.x.WORD = super->x.WORD + gSineTable[tmp] * 0x2400;
             gPlayerEntity.y.WORD = super->y.WORD + gSineTable[tmp + 0x40] * -0x2400;

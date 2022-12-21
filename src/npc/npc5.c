@@ -366,7 +366,7 @@ bool32 sub_08060FD0(Entity* this, u32 a, u32 b) {
 
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
-    iVar3 = sub_080045DA(a - x, b - y);
+    iVar3 = CalculateDirectionFromOffsets(a - x, b - y);
     x <<= 8;
     y <<= 8;
     sVar1 = gSineTable[iVar3] * 6;
