@@ -208,7 +208,7 @@ bool32 IsPreventedFromUsingItem(void) {
                     }
                     return FALSE;
                 default:
-                    if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
+                    if ((((gHUD.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
@@ -970,21 +970,21 @@ void sub_08078180(void) {
     u8 uVar3;
     struct_03003DF8* ptr;
 
-    if (gUnk_0200AF00.unk_2f != 0)
+    if (gHUD.unk_2f != 0)
         return;
 
     uVar1 = 0;
     if ((gPlayerState.jump_status == 0) &&
         ((gPlayerState.flags & (PL_IN_HOLE | PL_FROZEN | PL_BURNING | PL_DISABLE_ITEMS | PL_DRUGGED)) == 0)) {
         if ((u8)(gPlayerState.heldObject - 1) < 4) {
-            if (gUnk_0200AF00.unk_2e != 0) {
-                uVar1 = gUnk_0200AF00.unk_2e;
+            if (gHUD.unk_2e != 0) {
+                uVar1 = gHUD.unk_2e;
             } else {
                 uVar1 = 3;
             }
         } else {
-            if (gUnk_0200AF00.unk_2d != 0) {
-                uVar1 = gUnk_0200AF00.unk_2d;
+            if (gHUD.unk_2d != 0) {
+                uVar1 = gHUD.unk_2d;
             } else {
                 ptr = sub_080784E4();
                 if (ptr->entity->interactType == 0) {
@@ -1034,7 +1034,7 @@ void sub_08078180(void) {
             }
         }
     }
-    gUnk_0200AF00.unk_2c = uVar1;
+    gHUD.unk_2c = uVar1;
 }
 
 bool32 sub_080782C0(void) {

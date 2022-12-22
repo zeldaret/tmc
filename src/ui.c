@@ -1,13 +1,14 @@
-#include "global.h"
-#include "sound.h"
-#include "message.h"
-#include "functions.h"
-#include "screen.h"
-#include "common.h"
-#include "save.h"
-#include "player.h"
 #include "area.h"
+#include "common.h"
+#include "functions.h"
 #include "game.h"
+#include "global.h"
+#include "message.h"
+#include "player.h"
+#include "save.h"
+#include "screen.h"
+#include "sound.h"
+#include "structures.h"
 
 extern void sub_0805ECEC(u32, u32, u32, u32);
 extern bool32 ItemIsBottle(u32);
@@ -106,7 +107,7 @@ void UpdateUIElements(void) {
     UIElement* element;
     const UIElementDefinition* definition;
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
-        element = &gUnk_0200AF00.elements[index];
+        element = &gHUD.elements[index];
         if (element->used != 0) {
             definition = &gUIElementDefinitions[element->type];
             definition->updateFunction(element);
@@ -120,7 +121,7 @@ void DrawUIElements(void) {
     UIElementDefinition* definition;
     index = 0;
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
-        element = &gUnk_0200AF00.elements[index];
+        element = &gHUD.elements[index];
         if (element->used == 1 && element->unk_0_1 == 1) {
             gOamCmd.x = element->x;
             gOamCmd.y = element->y;
@@ -140,7 +141,7 @@ void sub_0801C25C(void) {
     UIElement* element;
 
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
-        element = &gUnk_0200AF00.elements[index];
+        element = &gHUD.elements[index];
         if (((element->used) == 1) && ((element->unk_0_1) == 1)) {
             u8 temp = element->unk_0_2;
             if (temp == 1) {
@@ -149,14 +150,14 @@ void sub_0801C25C(void) {
             }
         }
     }
-    if (gUnk_0200AF00.unk_13 < 0) {
-        tmp = gUnk_0200AF00.unk_13 & 0x7f;
-        gUnk_0200AF00.unk_13 = tmp;
+    if (gHUD.unk_13 < 0) {
+        tmp = gHUD.unk_13 & 0x7f;
+        gHUD.unk_13 = tmp;
         sub_0801C2F0(0x11a, tmp);
     }
-    if (gUnk_0200AF00.unk_14 < 0) {
-        tmp = gUnk_0200AF00.unk_14 & 0x7f;
-        gUnk_0200AF00.unk_14 = tmp;
+    if (gHUD.unk_14 < 0) {
+        tmp = gHUD.unk_14 & 0x7f;
+        gHUD.unk_14 = tmp;
         sub_0801C2F0(0x126, tmp);
     }
 }
@@ -177,12 +178,12 @@ void sub_0801C2F0(u32 param_1, u32 param_2) {
 }
 
 void DrawUI(void) {
-    gUnk_0200AF00.unk_0 &= ~gUnk_0200AF00.unk_1;
+    gHUD.unk_0 &= ~gHUD.hideFlags;
     DrawHearts();
     DrawChargeBar();
     DrawRupees();
     DrawKeys();
-    gUnk_0200AF00.unk_0 = 0;
+    gHUD.unk_0 = 0;
     UpdateUIElements();
 }
 
@@ -194,13 +195,13 @@ void InitUI(bool32 keepHealthAndRupees) {
         health = gSave.stats.health >> 1;
         rupees = gSave.stats.rupees;
     } else {
-        health = gUnk_0200AF00.health;
-        rupees = gUnk_0200AF00.rupees;
+        health = gHUD.health;
+        rupees = gHUD.rupees;
     }
-    MemClear(&gUnk_0200AF00, sizeof(struct_0200AF00));
-    gUnk_0200AF00.health = health;
-    gUnk_0200AF00.rupees = rupees;
-    gUnk_0200AF00.maxHealth = gSave.stats.maxHealth >> 1;
+    MemClear(&gHUD, sizeof(HUD));
+    gHUD.health = health;
+    gHUD.rupees = rupees;
+    gHUD.maxHealth = gSave.stats.maxHealth >> 1;
     LoadPaletteGroup(0xc);
     LoadGfxGroup(0x10);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
@@ -210,21 +211,21 @@ void InitUI(bool32 keepHealthAndRupees) {
     gOAMControls.unk[0].unk7 = 1;
     gOAMControls.unk[0].unk6 = 1;
     gOAMControls.unk[1].unk6 = 1;
-    gUnk_0200AF00.unk_13 = 0x7f;
-    gUnk_0200AF00.unk_14 = 0x7f;
-    gUnk_0200AF00.unk_8 = 0x7f;
+    gHUD.unk_13 = 0x7f;
+    gHUD.unk_14 = 0x7f;
+    gHUD.unk_8 = 0x7f;
     DrawHearts();
     DrawRupees();
     DrawChargeBar();
     DrawKeys();
-    gUnk_0200AF00.buttonX[0] = 0xd0;
-    gUnk_0200AF00.buttonX[1] = 0xb8;
-    gUnk_0200AF00.buttonX[2] = 0xd8;
-    gUnk_0200AF00.buttonY[0] = 0x1c;
-    gUnk_0200AF00.buttonY[1] = 0x1c;
-    gUnk_0200AF00.buttonY[2] = 0xe;
+    gHUD.buttonX[0] = 0xd0;
+    gHUD.buttonX[1] = 0xb8;
+    gHUD.buttonX[2] = 0xd8;
+    gHUD.buttonY[0] = 0x1c;
+    gHUD.buttonY[1] = 0x1c;
+    gHUD.buttonY[2] = 0xe;
     // TODO why is this array cleared again? Is it filled by the function calls in the mean time?
-    MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
+    MemClear(gHUD.elements, sizeof(gHUD.elements));
     CreateUIElement(UI_ELEMENT_TEXT_R, 9);
     CreateUIElement(UI_ELEMENT_ITEM_A, 0);
     CreateUIElement(UI_ELEMENT_ITEM_B, 0);
@@ -240,9 +241,9 @@ void RefreshUI(void) {
 }
 
 void RecoverUI(u32 bottomPt, u32 topPt) {
-    gUnk_0200AF00.unk_2 = 0;
-    gUnk_0200AF00.unk_10 = 0;
-    gUnk_0200AF00.unk_a = 0;
+    gHUD.unk_2 = 0;
+    gHUD.unk_10 = 0;
+    gHUD.unk_a = 0;
 }
 
 void DrawRupees(void) {
@@ -254,9 +255,9 @@ void DrawRupees(void) {
     const u16* ptr3;
     struct_02035160* ptr4;
 
-    if ((gUnk_0200AF00.unk_1 & 0x40) != 0) {
-        if (gUnk_0200AF00.unk_a != 0) {
-            gUnk_0200AF00.unk_a = 0;
+    if (gHUD.hideFlags & HUD_HIDE_RUPEES) {
+        if (gHUD.unk_a != 0) {
+            gHUD.unk_a = 0;
             ptr4 = &gUnk_02035160;
             ptr = &ptr4->unk_0;
             ptr->unk_0 = 0;
@@ -273,8 +274,8 @@ void DrawRupees(void) {
             gScreen.bg0.updated = 1;
         }
     } else {
-        if (gUnk_0200AF00.unk_a == 0) {
-            gUnk_0200AF00.unk_a = 2;
+        if (gHUD.unk_a == 0) {
+            gHUD.unk_a = 2;
             ptr4 = &gUnk_02035160;
             ptr2 = &ptr4->unk_40;
             ptr3 = gWalletSizes;
@@ -295,33 +296,35 @@ void DrawRupees(void) {
             cVar1 = 0;
         }
 
-        if (gUnk_0200AF00.rupees != gSave.stats.rupees) {
-            if (gUnk_0200AF00.rupees < gSave.stats.rupees) {
-                gUnk_0200AF00.rupees++;
+        if (gHUD.rupees != gSave.stats.rupees) {
+            if (gHUD.rupees < gSave.stats.rupees) {
+                gHUD.rupees++;
             } else {
-                gUnk_0200AF00.rupees--;
+                gHUD.rupees--;
             }
             cVar1 = 2;
         }
         switch (cVar1) {
             case 2:
-                temp = gUnk_0200AF00.unk_c;
+                temp = gHUD.unk_c;
                 temp &= 3;
                 if ((temp) == 0) {
                     SoundReq(SFX_RUPEE_GET);
                 }
             case 1:
-                DrawDigits(0x70, gUnk_0200AF00.rupees,
-                           (u16)gWalletSizes[(u32)gSave.stats.walletType * 2] <= gUnk_0200AF00.rupees, 3);
-                cVar1 = gUnk_0200AF00.unk_c + 1;
+                DrawDigits(0x70, gHUD.rupees,
+                           (u16)gWalletSizes[(u32)gSave.stats.walletType * 2] <= gHUD.rupees, 3);
+                cVar1 = gHUD.unk_c + 1;
             default:
-                gUnk_0200AF00.unk_c = cVar1;
+                gHUD.unk_c = cVar1;
                 break;
         }
     }
 }
 
-// Draw icon with text for rupees or keys
+/**
+ * Draw icon with text for rupees or keys
+*/
 void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     int iVar2;
     int iVar3;
@@ -357,9 +360,9 @@ void sub_0801C66C(void) {
     struct_02034CF0* ptr;
     s32 index;
 
-    if (gUnk_0200AF00.unk_2 != 0) {
-        gUnk_0200AF00.unk_2 = 0;
-        if (gUnk_0200AF00.maxHealth > 0x28) {
+    if (gHUD.unk_2 != 0) {
+        gHUD.unk_2 = 0;
+        if (gHUD.maxHealth > 0x28) {
             index = 2;
         } else {
             index = 1;
@@ -390,14 +393,14 @@ void DrawHearts(void) {
     s32 tmp1;
     u16* ptr2;
 
-    if ((gUnk_0200AF00.unk_1 & 0x10) != 0) {
+    if (gHUD.hideFlags & HUD_HIDE_HEARTS) {
         sub_0801C824();
         sub_0801C66C();
         return;
     }
     maxHealth = gSave.stats.maxHealth / 2;
-    if (maxHealth != gUnk_0200AF00.maxHealth) {
-        gUnk_0200AF00.maxHealth = maxHealth;
+    if (maxHealth != gHUD.maxHealth) {
+        gHUD.maxHealth = maxHealth;
         sub_0801C824();
         sub_0801C66C();
     }
@@ -410,35 +413,35 @@ void DrawHearts(void) {
         health = maxHealth;
     }
     maxHealth = 0;
-    if (health != gUnk_0200AF00.health) {
+    if (health != gHUD.health) {
         maxHealth = 1;
-        if (health > gUnk_0200AF00.health) {
+        if (health > gHUD.health) {
             maxHealth = 2;
         }
     }
 
     switch (maxHealth) {
         case 2:
-            uVar1 = gUnk_0200AF00.unk_5++;
+            uVar1 = gHUD.unk_5++;
             if ((uVar1 & 1) == 0) {
                 if ((uVar1 & 7) == 0) {
                     SoundReq(SFX_HEART_GET);
                 }
-                gUnk_0200AF00.health++;
+                gHUD.health++;
             } else {
                 maxHealth = 0;
             }
             break;
         case 1:
-            gUnk_0200AF00.health--;
+            gHUD.health--;
             // fallthough
         default:
-            gUnk_0200AF00.unk_5 = 0;
+            gHUD.unk_5 = 0;
             break;
     }
-    if ((gUnk_0200AF00.unk_2 == 0) || (maxHealth != 0)) {
-        gUnk_0200AF00.unk_2 = 2;
-        uVar2 = gUnk_0200AF00.health >> 2;
+    if ((gHUD.unk_2 == 0) || (maxHealth != 0)) {
+        gHUD.unk_2 = 2;
+        uVar2 = gHUD.health >> 2;
         if (uVar2 > 10) {
             tmp1 = 10;
             uVar6 = uVar2 - 10;
@@ -447,7 +450,7 @@ void DrawHearts(void) {
             uVar6 = 0;
         }
 
-        maxHealth = gUnk_0200AF00.maxHealth >> 2;
+        maxHealth = gHUD.maxHealth >> 2;
         uVar1 = maxHealth;
         if (maxHealth > 10) {
             maxHealth = 10;
@@ -463,12 +466,12 @@ void DrawHearts(void) {
 
         DmaSet(3, gUnk_080C8F2C + (10 - tmp1), ptr2 + 1, maxHealth | 0x80000000);
 
-        if ((gUnk_0200AF00.health & 3) != 0) {
+        if ((gHUD.health & 3) != 0) {
             if (9 < uVar2) {
                 uVar2 -= 10;
                 ptr2 += 0x20;
             }
-            ptr2[uVar2 + 1] = ((gUnk_0200AF00.health & 3) + 0x11) | 0xf000;
+            ptr2[uVar2 + 1] = ((gHUD.health & 3) + 0x11) | 0xf000;
         }
         gScreen.bg0.updated = 1;
     }
@@ -477,9 +480,9 @@ void DrawHearts(void) {
 void sub_0801C824(void) {
     struct_02034CF0* ptr;
 
-    if (gUnk_0200AF00.unk_6 != 0) {
-        gUnk_0200AF00.unk_6 = 0;
-        if (gUnk_0200AF00.maxHealth > 4 * 10) {
+    if (gHUD.unk_6 != 0) {
+        gHUD.unk_6 = 0;
+        if (gHUD.maxHealth > 4 * 10) {
             ptr = &gUnk_02034D30.unk_40; // Show second row of hearts
         } else {
             ptr = &gUnk_02034D30.unk_0;
@@ -503,22 +506,22 @@ void DrawChargeBar(void) {
     u32 tmp5;
 
     tmp1 = FALSE;
-    if ((gUnk_0200AF00.unk_1 & 0x20) == 0) {
+    if ((gHUD.hideFlags & HUD_HIDE_CHARGE_BAR) == 0) {
         tmp1 = gPlayerState.chargeState.action != 0;
     }
 
     if (!tmp1)
         return sub_0801C824();
 
-    ptr1 = (gUnk_0200AF00.maxHealth > 0x28) ? (u16*)((u8*)(&gUnk_02034D30) + 0x40) : (u16*)&gUnk_02034D30.unk_0;
+    ptr1 = (gHUD.maxHealth > 0x28) ? (u16*)((u8*)(&gUnk_02034D30) + 0x40) : (u16*)&gUnk_02034D30.unk_0;
 
     tmp2 = Div(gPlayerState.chargeState.chargeTimer + 19, 20);
     if (tmp2 > 40) {
         tmp2 = 40;
     }
-    if (gUnk_0200AF00.unk_6 == 0 || gUnk_0200AF00.unk_7 != tmp2) {
-        gUnk_0200AF00.unk_6 = 1;
-        gUnk_0200AF00.unk_7 = tmp2;
+    if (gHUD.unk_6 == 0 || gHUD.unk_7 != tmp2) {
+        gHUD.unk_6 = 1;
+        gHUD.unk_7 = tmp2;
         tmp3 = Div(tmp2, 4);
         tmp5 = rem;
         ptr1[0] = 0xf016;
@@ -533,16 +536,16 @@ void DrawChargeBar(void) {
     switch (gPlayerState.chargeState.action) {
         case 4:
         case 5:
-            gUnk_0200AF00.unk_9 += (gPlayerState.chargeState.action == 4) ? 2 : 1;
-            tmp3 = gUnk_0200AF00.unk_9 >> 4 & 3;
+            gHUD.unk_9 += (gPlayerState.chargeState.action == 4) ? 2 : 1;
+            tmp3 = gHUD.unk_9 >> 4 & 3;
             break;
         default:
             tmp3 = 0;
             break;
     }
 
-    if (tmp3 != gUnk_0200AF00.unk_8) {
-        gUnk_0200AF00.unk_8 = tmp3;
+    if (tmp3 != gHUD.unk_8) {
+        gHUD.unk_8 = tmp3;
         ptr1 = (u16*)0x600c2c0;
         DmaSet(3, gUnk_080C8F7C[tmp3], ptr1, 0x84000030);
     }
@@ -554,9 +557,9 @@ void DrawKeys(void) {
     substruct_0E2* ptr2;
     u32 temp;
 
-    if (!(((gUnk_0200AF00.unk_1 & 0x80) == 0) && (AreaHasKeys()))) {
-        if (gUnk_0200AF00.unk_10 != 0) {
-            gUnk_0200AF00.unk_10 = 0;
+    if (!(((gHUD.hideFlags & HUD_HIDE_KEYS) == 0) && (AreaHasKeys()))) {
+        if (gHUD.unk_10 != 0) {
+            gHUD.unk_10 = 0;
             ptr1 = &gUnk_020350E2.unk_0[0];
             ptr1->unk_0 = 0;
             ptr1->unk_2 = 0;
@@ -569,7 +572,7 @@ void DrawKeys(void) {
             gScreen.bg0.updated = 1;
         }
     } else {
-        if (gUnk_0200AF00.unk_10 == 0) {
+        if (gHUD.unk_10 == 0) {
             ptr1 = &gUnk_020350E2.unk_0[0];
             ptr2 = &gUnk_020350E2.unk_0[1];
             temp = 0xf01c;
@@ -584,10 +587,10 @@ void DrawKeys(void) {
             ptr2->unk_6 = temp + 3;
             gScreen.bg0.updated = 1;
         }
-        if ((gUnk_0200AF00.dungeonKeys != gSave.dungeonKeys[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
-            gUnk_0200AF00.unk_10 = 2;
-            gUnk_0200AF00.dungeonKeys = gSave.dungeonKeys[gArea.dungeon_idx];
-            DrawDigits(0x76, gUnk_0200AF00.dungeonKeys, 0, 2);
+        if ((gHUD.dungeonKeys != gSave.dungeonKeys[gArea.dungeon_idx]) || (gHUD.unk_10 == 0)) {
+            gHUD.unk_10 = 2;
+            gHUD.dungeonKeys = gSave.dungeonKeys[gArea.dungeon_idx];
+            DrawDigits(0x76, gHUD.dungeonKeys, 0, 2);
         }
     }
 }
@@ -599,7 +602,7 @@ void CreateUIElement(u32 type, u32 type2) {
 
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
 
-        element = gUnk_0200AF00.elements;
+        element = gHUD.elements;
         element += index;
 
         if (!element->used) {
@@ -665,8 +668,8 @@ void ButtonUIElement(UIElement* element) {
 }
 
 void ButtonUIElement_Action0(UIElement* element) {
-    element->x = gUnk_0200AF00.buttonX[element->type];
-    element->y = gUnk_0200AF00.buttonY[element->type] - 0x20;
+    element->x = gHUD.buttonX[element->type];
+    element->y = gHUD.buttonY[element->type] - 0x20;
     element->action = 1;
     element->unk_0_1 = 1;
     sub_0801CAFC(element, element->type);
@@ -681,10 +684,10 @@ void ButtonUIElement_Action1(UIElement* element) {
 
     MAX_MOVEMENT = (!element->type2) ? 4 : 8;
 
-    if (element->type2 == 0 && (((gUnk_0200AF00.unk_1 >> element->type) & 1) || (gMessage.doTextBox & 0x7f) != 0)) {
-        y = (s16)gUnk_0200AF00.buttonY[element->type] - 0x28;
+    if (element->type2 == 0 && (((gHUD.hideFlags >> element->type) & 1) || (gMessage.doTextBox & 0x7f) != 0)) {
+        y = (s16)gHUD.buttonY[element->type] - 0x28;
     } else {
-        y = (s16)gUnk_0200AF00.buttonY[element->type];
+        y = (s16)gHUD.buttonY[element->type];
     }
 
     y -= (s16)element->y;
@@ -700,7 +703,7 @@ void ButtonUIElement_Action1(UIElement* element) {
         element->y += y_diff;
     }
 
-    x = (short)gUnk_0200AF00.buttonX[element->type];
+    x = (short)gHUD.buttonX[element->type];
     x -= (short)element->x;
     x_diff = (x < 0) ? -x : x;
 
@@ -752,9 +755,9 @@ void ItemUIElement(UIElement* element) {
         uiElementType = 0;
     }
 
-    psVar8 = &gUnk_0200AF00.unk_13;
+    psVar8 = &gHUD.unk_13;
     if (uiElementType != 0) {
-        psVar8 = &gUnk_0200AF00.unk_14;
+        psVar8 = &gHUD.unk_14;
     }
 
     switch ((s32)element->unk_8) {
@@ -797,12 +800,12 @@ void ItemUIElement(UIElement* element) {
 void TextUIElement(UIElement* element) {
     UIElement* buttonUIElement;
     u32 tmp;
-    extern struct_0200AF00* ptr;
+    extern HUD* ptr;
     u32 tmp1;
     UIElement* ptr2;
 
     if (element->type2 == 9) {
-        tmp = gUnk_0200AF00.unk_2f;
+        tmp = gHUD.unk_2f;
         if (tmp == 0) {
             switch (gArea.portal_mode) {
                 case 2:
@@ -812,13 +815,13 @@ void TextUIElement(UIElement* element) {
                     tmp = 0xa;
                     break;
                 default:
-                    tmp = gUnk_0200AF00.unk_2c;
+                    tmp = gHUD.unk_2c;
                     break;
             }
         }
-        gUnk_0200AF00.unk_32 = tmp;
+        gHUD.unk_32 = tmp;
     }
-    tmp = gUnk_0200AF00.unk_30[element->buttonElementId];
+    tmp = gHUD.unk_30[element->buttonElementId];
     element->unk_0_1 = 0;
     if (tmp != 0) {
         tmp += gUnk_080C9044[((SaveHeader*)0x2000000)->language];
@@ -836,7 +839,7 @@ UIElement* FindUIElement(u32 type) {
     UIElement* element;
     u32 index;
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
-        element = &gUnk_0200AF00.elements[index];
+        element = &gHUD.elements[index];
         if (element->used != 0 && type == element->type) {
             return element;
         }
@@ -851,8 +854,8 @@ void HeartUIElement(UIElement* element) {
     u32 health;
     u32 frameIndex;
     element->unk_0_1 = 0;
-    if (((gUnk_0200AF00.unk_1 & 0x10) == 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
-        health = gUnk_0200AF00.health;
+    if (((gHUD.hideFlags & HUD_HIDE_HEARTS) == 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
+        health = gHUD.health;
         if (health != 0) {
             element->unk_0_1 = 1;
             // Calculate the position for this heart.
@@ -880,8 +883,8 @@ void EzloNagUIElement(UIElement* element) {
 }
 
 void EzloNagUIElement_Action0(UIElement* element) {
-    if (gUnk_0200AF00.ezloNagFuncIndex == 1) {
-        gUnk_0200AF00.ezloNagFuncIndex = 2;
+    if (gHUD.ezloNagFuncIndex == 1) {
+        gHUD.ezloNagFuncIndex = 2;
         element->x = 0x10;
         element->y = 0x90;
         element->unk_6 = 0;
@@ -898,19 +901,19 @@ void EzloNagUIElement_Action1(UIElement* element) {
     if (tmp == 0) {
         element->action = 2;
         element->type = UI_ELEMENT_EZLONAGACTIVE;
-        gUnk_0200AF00.ezloNagFuncIndex = 3;
+        gHUD.ezloNagFuncIndex = 3;
         SoundReq(SFX_EZLO_UI);
     }
 }
 
 void EzloNagUIElement_Action2(UIElement* element) {
-    if (gUnk_0200AF00.ezloNagFuncIndex >= 5 || (gMessage.doTextBox & 0x7f)) {
+    if (gHUD.ezloNagFuncIndex >= 5 || (gMessage.doTextBox & 0x7f)) {
         element->action = 0;
         element->unk_0_1 = 0;
         return;
     }
     sub_0801CAD0(element);
     if (element->frameSettings == 1) {
-        gUnk_0200AF00.ezloNagFuncIndex = 4;
+        gHUD.ezloNagFuncIndex = 4;
     }
 }

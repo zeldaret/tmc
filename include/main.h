@@ -71,6 +71,7 @@ typedef struct {
 /**
  * HUD structure.
  */
+// TODO Rather a structure more generally about gfx?
 typedef struct {
     /*0x000*/ u8 nextToLoad;
     /*0x001*/ u8 _1;

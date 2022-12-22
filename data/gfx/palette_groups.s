@@ -3495,623 +3495,623 @@ gPaletteGroup_10::
 	palette_set palette=pal_0, offset=0x10, count=5
 	palette_set palette=pal_3438, offset=0x18, count=1, terminator=1
 
-gPaletteGroup_21::
+gPaletteGroup_12::
 	palette_set palette=pal_12, offset=0xf, count=1, terminator=1
 
-gPaletteGroup_20::
+gPaletteGroup_11::
 	palette_set palette=pal_0, offset=0x10, count=5
 	palette_set palette=pal_0, count=5, terminator=1
 
-gPaletteGroup_37::
+gPaletteGroup_28::
 	palette_set palette=pal_354, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_48::
+gPaletteGroup_39::
 	palette_set palette=pal_380, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_30::
+gPaletteGroup_21::
 	palette_set palette=pal_367, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_29::
+gPaletteGroup_20::
 	palette_set palette=pal_393, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_23::
+gPaletteGroup_14::
 	palette_set palette=pal_1118, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_31::
-	palette_set palette=pal_1118, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_32::
-	palette_set palette=pal_1131, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_33::
-	palette_set palette=pal_1144, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_34::
-	palette_set palette=pal_1157, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_70::
-	palette_set palette=pal_1170, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_36::
-	palette_set palette=pal_406, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_269::
-	palette_set palette=pal_419, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_63::
-	palette_set palette=pal_432, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_27::
-	palette_set palette=pal_1183, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_72::
-	palette_set palette=pal_1196, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_73::
-	palette_set palette=pal_1209, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_74::
-	palette_set palette=pal_1222, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_75::
-	palette_set palette=pal_1235, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_102::
-	palette_set palette=pal_1248, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_24::
-	palette_set palette=pal_685, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_208::
-	palette_set palette=pal_698, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_26::
-	palette_set palette=pal_711, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_35::
-	palette_set palette=pal_724, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_99::
-	palette_set palette=pal_737, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_45::
-	palette_set palette=pal_750, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_46::
-	palette_set palette=pal_763, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_227::
-	palette_set palette=pal_776, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_103::
-	palette_set palette=pal_789, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_64::
-	palette_set palette=pal_802, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_203::
-	palette_set palette=pal_815, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_229::
-	palette_set palette=pal_828, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_69::
-	palette_set palette=pal_845, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_65::
-	palette_set palette=pal_858, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_261::
-	palette_set palette=pal_1105, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_66::
-	palette_set palette=pal_871, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_67::
-	palette_set palette=pal_884, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_244::
-	palette_set palette=pal_897, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_68::
-	palette_set palette=pal_910, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_243::
-	palette_set palette=pal_962, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_279::
-	palette_set palette=pal_923, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_254::
-	palette_set palette=pal_936, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_255::
-	palette_set palette=pal_949, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_268::
-	palette_set palette=pal_975, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_204::
-	palette_set palette=pal_988, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_205::
-	palette_set palette=pal_1001, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_206::
-	palette_set palette=pal_1014, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_207::
-	palette_set palette=pal_1027, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_219::
-	palette_set palette=pal_1040, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_262::
-	palette_set palette=pal_1053, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_263::
-	palette_set palette=pal_1066, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_264::
-	palette_set palette=pal_1079, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_265::
-	palette_set palette=pal_1092, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_25::
-	palette_set palette=pal_445, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_55::
-	palette_set palette=pal_458, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_76::
-	palette_set palette=pal_471, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_94::
-	palette_set palette=pal_484, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_28::
-	palette_set palette=pal_497, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_38::
-	palette_set palette=pal_536, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_39::
-	palette_set palette=pal_549, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_42::
-	palette_set palette=pal_588, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_108::
-	palette_set palette=pal_601, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_109::
-	palette_set palette=pal_510, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_266::
-	palette_set palette=pal_523, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_53::
-	palette_set palette=pal_575, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_40::
-	palette_set palette=pal_614, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_41::
-	palette_set palette=pal_627, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_47::
-	palette_set palette=pal_640, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_50::
-	palette_set palette=pal_666, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_71::
-	palette_set palette=pal_1921, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_101::
-	palette_set palette=pal_1934, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_201::
-	palette_set palette=pal_1947, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_202::
-	palette_set palette=pal_1960, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_60::
-	palette_set palette=pal_1262, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_61::
-	palette_set palette=pal_1275, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_98::
-	palette_set palette=pal_1288, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_256::
-	palette_set palette=pal_1301, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_267::
-	palette_set palette=pal_1314, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_62::
-	palette_set palette=pal_1327, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_22::
-	palette_set palette=pal_1340, offset=0x2, count=13, terminator=1
+	palette_set palette=pal_1118, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_23::
+	palette_set palette=pal_1131, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_24::
+	palette_set palette=pal_1144, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_25::
+	palette_set palette=pal_1157, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_61::
+	palette_set palette=pal_1170, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_27::
+	palette_set palette=pal_406, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_170::
+	palette_set palette=pal_419, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_54::
-	palette_set palette=pal_1353, offset=0x2, count=13, terminator=1
+	palette_set palette=pal_432, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_245::
-	palette_set palette=pal_1366, offset=0x2, count=13, terminator=1
+gPaletteGroup_18::
+	palette_set palette=pal_1183, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_246::
-	palette_set palette=pal_1379, offset=0x2, count=13, terminator=1
+gPaletteGroup_63::
+	palette_set palette=pal_1196, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_247::
-	palette_set palette=pal_1392, offset=0x2, count=13, terminator=1
+gPaletteGroup_64::
+	palette_set palette=pal_1209, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_248::
-	palette_set palette=pal_1405, offset=0x2, count=13, terminator=1
+gPaletteGroup_65::
+	palette_set palette=pal_1222, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_249::
-	palette_set palette=pal_1418, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_43::
-	palette_set palette=pal_1431, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_250::
-	palette_set palette=pal_1444, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_251::
-	palette_set palette=pal_1457, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_252::
-	palette_set palette=pal_1470, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_253::
-	palette_set palette=pal_1483, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_44::
-	palette_set palette=pal_1908, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_200::
-	palette_set palette=pal_1973, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_209::
-	palette_set palette=pal_1986, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_220::
-	palette_set palette=pal_1496, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_224::
-	palette_set palette=pal_1999, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_225::
-	palette_set palette=pal_1509, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_226::
-	palette_set palette=pal_1522, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_230::
-	palette_set palette=pal_2012, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_231::
-	palette_set palette=pal_2025, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_232::
-	palette_set palette=pal_2038, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_257::
-	palette_set palette=pal_2051, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_258::
-	palette_set palette=pal_2064, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_259::
-	palette_set palette=pal_2077, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_260::
-	palette_set palette=pal_1535, offset=0x2, count=13, terminator=1
-
-gPaletteGroup_210::
-	palette_set palette=pal_2090, offset=0xb, count=1, terminator=1
-
-gPaletteGroup_211::
-	palette_set palette=pal_2091, offset=0xb, count=1, terminator=1
-
-gPaletteGroup_212::
-	palette_set palette=pal_2092, offset=0xb, count=1, terminator=1
-
-gPaletteGroup_213::
-	palette_set palette=pal_2093, offset=0xb, count=1, terminator=1
-
-gPaletteGroup_104::
-	palette_set palette=pal_2124, count=16, terminator=1
-
-gPaletteGroup_105::
-	palette_set palette=pal_2143, count=16, terminator=1
-
-gPaletteGroup_106::
-	palette_set palette=pal_2162, count=16, terminator=1
-
-gPaletteGroup_107::
-	palette_set palette=pal_2181, count=16, terminator=1
-
-gPaletteGroup_77::
-	palette_set palette=pal_1548, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_78::
-	palette_set palette=pal_1560, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_79::
-	palette_set palette=pal_1572, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_80::
-	palette_set palette=pal_1584, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_81::
-	palette_set palette=pal_1596, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_82::
-	palette_set palette=pal_1608, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_83::
-	palette_set palette=pal_1620, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_84::
-	palette_set palette=pal_1632, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_85::
-	palette_set palette=pal_1644, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_95::
-	palette_set palette=pal_1656, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_96::
-	palette_set palette=pal_1668, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_97::
-	palette_set palette=pal_1680, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_86::
-	palette_set palette=pal_1692, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_87::
-	palette_set palette=pal_1704, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_88::
-	palette_set palette=pal_1716, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_89::
-	palette_set palette=pal_1728, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_90::
-	palette_set palette=pal_1740, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_91::
-	palette_set palette=pal_1752, offset=0x3, count=12, terminator=1
-
-gPaletteGroup_92::
-	palette_set palette=pal_1764, offset=0x3, count=12, terminator=1
+gPaletteGroup_66::
+	palette_set palette=pal_1235, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_93::
-	palette_set palette=pal_1776, offset=0x3, count=12, terminator=1
+	palette_set palette=pal_1248, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_214::
-	palette_set palette=pal_1788, offset=0x3, count=12, terminator=1
+gPaletteGroup_15::
+	palette_set palette=pal_685, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_215::
-	palette_set palette=pal_1800, offset=0x3, count=12, terminator=1
+gPaletteGroup_109::
+	palette_set palette=pal_698, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_216::
-	palette_set palette=pal_1812, offset=0x3, count=12, terminator=1
+gPaletteGroup_17::
+	palette_set palette=pal_711, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_217::
-	palette_set palette=pal_1824, offset=0x3, count=12, terminator=1
+gPaletteGroup_26::
+	palette_set palette=pal_724, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_218::
-	palette_set palette=pal_1836, offset=0x3, count=12, terminator=1
+gPaletteGroup_90::
+	palette_set palette=pal_737, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_228::
-	palette_set palette=pal_1848, offset=0x3, count=12, terminator=1
+gPaletteGroup_36::
+	palette_set palette=pal_750, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_223::
-	palette_set palette=pal_1860, offset=0x3, count=12, terminator=1
+gPaletteGroup_37::
+	palette_set palette=pal_763, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_222::
-	palette_set palette=pal_1872, offset=0x3, count=12, terminator=1
+gPaletteGroup_128::
+	palette_set palette=pal_776, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_221::
-	palette_set palette=pal_1884, offset=0x3, count=12, terminator=1
+gPaletteGroup_94::
+	palette_set palette=pal_789, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_49::
-	palette_set palette=pal_2204, count=8, terminator=1
+gPaletteGroup_55::
+	palette_set palette=pal_802, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_51::
-	palette_set palette=pal_2094, offset=0x5, count=3, terminator=1
+gPaletteGroup_104::
+	palette_set palette=pal_815, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_52::
-	palette_set palette=pal_2097, offset=0x5, count=3, terminator=1
+gPaletteGroup_130::
+	palette_set palette=pal_828, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_60::
+	palette_set palette=pal_845, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_56::
-	palette_set palette=pal_5, offset=0x1f, count=1, terminator=1
+	palette_set palette=pal_858, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_162::
+	palette_set palette=pal_1105, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_57::
-	palette_set palette=pal_6, offset=0x1f, count=1, terminator=1
+	palette_set palette=pal_871, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_58::
-	palette_set palette=pal_7, offset=0x1f, count=1, terminator=1
+	palette_set palette=pal_884, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_145::
+	palette_set palette=pal_897, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_59::
-	palette_set palette=pal_8, offset=0x1f, count=1, terminator=1
+	palette_set palette=pal_910, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_144::
+	palette_set palette=pal_962, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_180::
+	palette_set palette=pal_923, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_155::
+	palette_set palette=pal_936, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_156::
+	palette_set palette=pal_949, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_169::
+	palette_set palette=pal_975, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_105::
+	palette_set palette=pal_988, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_106::
+	palette_set palette=pal_1001, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_107::
+	palette_set palette=pal_1014, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_108::
+	palette_set palette=pal_1027, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_120::
+	palette_set palette=pal_1040, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_163::
+	palette_set palette=pal_1053, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_164::
+	palette_set palette=pal_1066, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_165::
+	palette_set palette=pal_1079, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_166::
+	palette_set palette=pal_1092, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_16::
+	palette_set palette=pal_445, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_46::
+	palette_set palette=pal_458, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_67::
+	palette_set palette=pal_471, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_85::
+	palette_set palette=pal_484, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_19::
+	palette_set palette=pal_497, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_29::
+	palette_set palette=pal_536, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_30::
+	palette_set palette=pal_549, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_33::
+	palette_set palette=pal_588, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_99::
+	palette_set palette=pal_601, offset=0x2, count=13, terminator=1
 
 gPaletteGroup_100::
+	palette_set palette=pal_510, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_167::
+	palette_set palette=pal_523, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_44::
+	palette_set palette=pal_575, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_31::
+	palette_set palette=pal_614, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_32::
+	palette_set palette=pal_627, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_38::
+	palette_set palette=pal_640, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_41::
+	palette_set palette=pal_666, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_62::
+	palette_set palette=pal_1921, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_92::
+	palette_set palette=pal_1934, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_102::
+	palette_set palette=pal_1947, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_103::
+	palette_set palette=pal_1960, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_51::
+	palette_set palette=pal_1262, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_52::
+	palette_set palette=pal_1275, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_89::
+	palette_set palette=pal_1288, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_157::
+	palette_set palette=pal_1301, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_168::
+	palette_set palette=pal_1314, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_53::
+	palette_set palette=pal_1327, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_13::
+	palette_set palette=pal_1340, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_45::
+	palette_set palette=pal_1353, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_146::
+	palette_set palette=pal_1366, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_147::
+	palette_set palette=pal_1379, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_148::
+	palette_set palette=pal_1392, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_149::
+	palette_set palette=pal_1405, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_150::
+	palette_set palette=pal_1418, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_34::
+	palette_set palette=pal_1431, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_151::
+	palette_set palette=pal_1444, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_152::
+	palette_set palette=pal_1457, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_153::
+	palette_set palette=pal_1470, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_154::
+	palette_set palette=pal_1483, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_35::
+	palette_set palette=pal_1908, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_101::
+	palette_set palette=pal_1973, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_110::
+	palette_set palette=pal_1986, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_121::
+	palette_set palette=pal_1496, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_125::
+	palette_set palette=pal_1999, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_126::
+	palette_set palette=pal_1509, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_127::
+	palette_set palette=pal_1522, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_131::
+	palette_set palette=pal_2012, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_132::
+	palette_set palette=pal_2025, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_133::
+	palette_set palette=pal_2038, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_158::
+	palette_set palette=pal_2051, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_159::
+	palette_set palette=pal_2064, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_160::
+	palette_set palette=pal_2077, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_161::
+	palette_set palette=pal_1535, offset=0x2, count=13, terminator=1
+
+gPaletteGroup_111::
+	palette_set palette=pal_2090, offset=0xb, count=1, terminator=1
+
+gPaletteGroup_112::
+	palette_set palette=pal_2091, offset=0xb, count=1, terminator=1
+
+gPaletteGroup_113::
+	palette_set palette=pal_2092, offset=0xb, count=1, terminator=1
+
+gPaletteGroup_114::
+	palette_set palette=pal_2093, offset=0xb, count=1, terminator=1
+
+gPaletteGroup_95::
+	palette_set palette=pal_2124, count=16, terminator=1
+
+gPaletteGroup_96::
+	palette_set palette=pal_2143, count=16, terminator=1
+
+gPaletteGroup_97::
+	palette_set palette=pal_2162, count=16, terminator=1
+
+gPaletteGroup_98::
+	palette_set palette=pal_2181, count=16, terminator=1
+
+gPaletteGroup_68::
+	palette_set palette=pal_1548, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_69::
+	palette_set palette=pal_1560, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_70::
+	palette_set palette=pal_1572, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_71::
+	palette_set palette=pal_1584, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_72::
+	palette_set palette=pal_1596, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_73::
+	palette_set palette=pal_1608, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_74::
+	palette_set palette=pal_1620, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_75::
+	palette_set palette=pal_1632, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_76::
+	palette_set palette=pal_1644, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_86::
+	palette_set palette=pal_1656, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_87::
+	palette_set palette=pal_1668, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_88::
+	palette_set palette=pal_1680, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_77::
+	palette_set palette=pal_1692, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_78::
+	palette_set palette=pal_1704, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_79::
+	palette_set palette=pal_1716, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_80::
+	palette_set palette=pal_1728, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_81::
+	palette_set palette=pal_1740, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_82::
+	palette_set palette=pal_1752, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_83::
+	palette_set palette=pal_1764, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_84::
+	palette_set palette=pal_1776, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_115::
+	palette_set palette=pal_1788, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_116::
+	palette_set palette=pal_1800, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_117::
+	palette_set palette=pal_1812, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_118::
+	palette_set palette=pal_1824, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_119::
+	palette_set palette=pal_1836, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_129::
+	palette_set palette=pal_1848, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_124::
+	palette_set palette=pal_1860, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_123::
+	palette_set palette=pal_1872, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_122::
+	palette_set palette=pal_1884, offset=0x3, count=12, terminator=1
+
+gPaletteGroup_40::
+	palette_set palette=pal_2204, count=8, terminator=1
+
+gPaletteGroup_42::
+	palette_set palette=pal_2094, offset=0x5, count=3, terminator=1
+
+gPaletteGroup_43::
+	palette_set palette=pal_2097, offset=0x5, count=3, terminator=1
+
+gPaletteGroup_47::
+	palette_set palette=pal_5, offset=0x1f, count=1, terminator=1
+
+gPaletteGroup_48::
+	palette_set palette=pal_6, offset=0x1f, count=1, terminator=1
+
+gPaletteGroup_49::
+	palette_set palette=pal_7, offset=0x1f, count=1, terminator=1
+
+gPaletteGroup_50::
+	palette_set palette=pal_8, offset=0x1f, count=1, terminator=1
+
+gPaletteGroup_91::
 	palette_set palette=pal_562, offset=0x2, count=13, terminator=1
 
-gPaletteGroup_233::
+gPaletteGroup_134::
 	palette_set palette=pal_2100, offset=0x9, count=6, terminator=1
 
-gPaletteGroup_234::
+gPaletteGroup_135::
 	palette_set palette=pal_2106, offset=0x9, count=6, terminator=1
 
-gPaletteGroup_235::
+gPaletteGroup_136::
 	palette_set palette=pal_2112, offset=0x9, count=6, terminator=1
 
-gPaletteGroup_236::
+gPaletteGroup_137::
 	palette_set palette=pal_2118, offset=0x9, count=6, terminator=1
 
-gPaletteGroup_237::
+gPaletteGroup_138::
 	palette_set palette=pal_2307, offset=0x6, count=9, terminator=1
 
-gPaletteGroup_238::
+gPaletteGroup_139::
 	palette_set palette=pal_2316, offset=0x6, count=9, terminator=1
 
-gPaletteGroup_239::
+gPaletteGroup_140::
 	palette_set palette=pal_2325, offset=0x6, count=9, terminator=1
 
-gPaletteGroup_240::
+gPaletteGroup_141::
 	palette_set palette=pal_2334, offset=0x6, count=9, terminator=1
 
-gPaletteGroup_241::
+gPaletteGroup_142::
 	palette_set palette=pal_2343, offset=0x6, count=9, terminator=1
 
-gPaletteGroup_242::
+gPaletteGroup_143::
 	palette_set palette=pal_2352, offset=0x6, count=9, terminator=1
 
-gPaletteGroup_270::
+gPaletteGroup_171::
 	palette_set palette=pal_2361, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_271::
+gPaletteGroup_172::
 	palette_set palette=pal_2369, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_272::
+gPaletteGroup_173::
 	palette_set palette=pal_2377, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_273::
+gPaletteGroup_174::
 	palette_set palette=pal_2385, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_274::
+gPaletteGroup_175::
 	palette_set palette=pal_2393, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_275::
+gPaletteGroup_176::
 	palette_set palette=pal_2401, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_276::
+gPaletteGroup_177::
 	palette_set palette=pal_2409, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_277::
+gPaletteGroup_178::
 	palette_set palette=pal_2417, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_278::
+gPaletteGroup_179::
 	palette_set palette=pal_2425, offset=0x7, count=8, terminator=1
 
-gPaletteGroup_280::
+gPaletteGroup_181::
 	palette_set palette=pal_0, count=4
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_0, offset=0x10, count=5, terminator=1
 
-gPaletteGroup_281::
+gPaletteGroup_182::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2220, offset=0x15, count=6, terminator=1
 
-gPaletteGroup_282::
+gPaletteGroup_183::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2220, offset=0x15, count=6
 	palette_set palette=pal_13, offset=0x1e, count=1, terminator=1
 
-gPaletteGroup_283::
+gPaletteGroup_184::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2254, offset=0xb, count=2
 	palette_set palette=pal_2220, offset=0x15, count=6, terminator=1
 
-gPaletteGroup_284::
+gPaletteGroup_185::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2217, offset=0x5, count=1
 	palette_set palette=pal_2226, offset=0x6, count=7
 	palette_set palette=pal_2220, offset=0x15, count=6
 	palette_set palette=pal_14, offset=0x17, count=1, terminator=1
 
-gPaletteGroup_285::
+gPaletteGroup_186::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2233, offset=0xc, count=1, terminator=1
 
-gPaletteGroup_286::
+gPaletteGroup_187::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2233, offset=0xc, count=1, terminator=1
 
-gPaletteGroup_287::
+gPaletteGroup_188::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2234, offset=0xb, count=2, terminator=1
 
-gPaletteGroup_288::
+gPaletteGroup_189::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2234, offset=0xb, count=2, terminator=1
 
-gPaletteGroup_289::
+gPaletteGroup_190::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2236, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_290::
+gPaletteGroup_191::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2240, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_291::
+gPaletteGroup_192::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2240, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_292::
+gPaletteGroup_193::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2244, offset=0xa, count=3, terminator=1
 
-gPaletteGroup_293::
+gPaletteGroup_194::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2240, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_294::
+gPaletteGroup_195::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2244, offset=0xa, count=3, terminator=1
 
-gPaletteGroup_295::
+gPaletteGroup_196::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2240, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_296::
+gPaletteGroup_197::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2236, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_297::
+gPaletteGroup_198::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2240, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_298::
+gPaletteGroup_199::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2240, offset=0x9, count=4, terminator=1
 
-gPaletteGroup_299::
+gPaletteGroup_200::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2247, offset=0xb, count=2, terminator=1
 
-gPaletteGroup_300::
+gPaletteGroup_201::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2249, offset=0xa, count=3, terminator=1
 
-gPaletteGroup_301::
+gPaletteGroup_202::
 	palette_set palette=pal_2215, offset=0xd, count=2
 	palette_set palette=pal_2252, offset=0xb, count=2, terminator=1
 
-gPaletteGroup_302::
+gPaletteGroup_203::
 	palette_set palette=pal_0, count=5
 	palette_set palette=pal_2256, offset=0xb, count=2
 	palette_set palette=pal_0, offset=0x10, count=5
 	palette_set palette=pal_2258, offset=0x15, count=1, terminator=1
 
-gPaletteGroup_303::
+gPaletteGroup_204::
 	palette_set palette=pal_0, count=5
 	palette_set palette=pal_0, offset=0x10, count=5
 	palette_set palette=pal_2258, offset=0x15, count=1, terminator=1
 
-gPaletteGroup_304::
+gPaletteGroup_205::
 	palette_set palette=pal_0, count=5
 	palette_set palette=pal_0, offset=0x10, count=5
 	palette_set palette=pal_157, offset=0x18, count=1
@@ -4123,12 +4123,12 @@ gPaletteGroup_304::
 	palette_set palette=pal_163, offset=0x1e, count=1
 	palette_set palette=pal_164, offset=0x1f, count=1, terminator=1
 
-gPaletteGroup_305::
+gPaletteGroup_206::
 	palette_set palette=pal_11, offset=0xc, count=1
 	palette_set palette=pal_2433, offset=0x13, count=1, terminator=1
 
 .ifndef EU
-gPaletteGroup_306::
+gPaletteGroup_207::
 	palette_set palette=pal_0, count=4
 	palette_set palette=pal_0, offset=0x10, count=5
 	palette_set palette=pal_2218, offset=0xc, count=2, terminator=1
@@ -4146,6 +4146,15 @@ gPaletteGroups::
 	.4byte gPaletteGroup_8
 	.4byte gPaletteGroup_9
 	.4byte gPaletteGroup_10
+	.4byte gPaletteGroup_11
+	.4byte gPaletteGroup_12
+	.4byte gPaletteGroup_13
+	.4byte gPaletteGroup_14
+	.4byte gPaletteGroup_15
+	.4byte gPaletteGroup_16
+	.4byte gPaletteGroup_17
+	.4byte gPaletteGroup_18
+	.4byte gPaletteGroup_19
 	.4byte gPaletteGroup_20
 	.4byte gPaletteGroup_21
 	.4byte gPaletteGroup_22
@@ -4236,6 +4245,96 @@ gPaletteGroups::
 	.4byte gPaletteGroup_107
 	.4byte gPaletteGroup_108
 	.4byte gPaletteGroup_109
+	.4byte gPaletteGroup_110
+	.4byte gPaletteGroup_111
+	.4byte gPaletteGroup_112
+	.4byte gPaletteGroup_113
+	.4byte gPaletteGroup_114
+	.4byte gPaletteGroup_115
+	.4byte gPaletteGroup_116
+	.4byte gPaletteGroup_117
+	.4byte gPaletteGroup_118
+	.4byte gPaletteGroup_119
+	.4byte gPaletteGroup_120
+	.4byte gPaletteGroup_121
+	.4byte gPaletteGroup_122
+	.4byte gPaletteGroup_123
+	.4byte gPaletteGroup_124
+	.4byte gPaletteGroup_125
+	.4byte gPaletteGroup_126
+	.4byte gPaletteGroup_127
+	.4byte gPaletteGroup_128
+	.4byte gPaletteGroup_129
+	.4byte gPaletteGroup_130
+	.4byte gPaletteGroup_131
+	.4byte gPaletteGroup_132
+	.4byte gPaletteGroup_133
+	.4byte gPaletteGroup_134
+	.4byte gPaletteGroup_135
+	.4byte gPaletteGroup_136
+	.4byte gPaletteGroup_137
+	.4byte gPaletteGroup_138
+	.4byte gPaletteGroup_139
+	.4byte gPaletteGroup_140
+	.4byte gPaletteGroup_141
+	.4byte gPaletteGroup_142
+	.4byte gPaletteGroup_143
+	.4byte gPaletteGroup_144
+	.4byte gPaletteGroup_145
+	.4byte gPaletteGroup_146
+	.4byte gPaletteGroup_147
+	.4byte gPaletteGroup_148
+	.4byte gPaletteGroup_149
+	.4byte gPaletteGroup_150
+	.4byte gPaletteGroup_151
+	.4byte gPaletteGroup_152
+	.4byte gPaletteGroup_153
+	.4byte gPaletteGroup_154
+	.4byte gPaletteGroup_155
+	.4byte gPaletteGroup_156
+	.4byte gPaletteGroup_157
+	.4byte gPaletteGroup_158
+	.4byte gPaletteGroup_159
+	.4byte gPaletteGroup_160
+	.4byte gPaletteGroup_161
+	.4byte gPaletteGroup_162
+	.4byte gPaletteGroup_163
+	.4byte gPaletteGroup_164
+	.4byte gPaletteGroup_165
+	.4byte gPaletteGroup_166
+	.4byte gPaletteGroup_167
+	.4byte gPaletteGroup_168
+	.4byte gPaletteGroup_169
+	.4byte gPaletteGroup_170
+	.4byte gPaletteGroup_171
+	.4byte gPaletteGroup_172
+	.4byte gPaletteGroup_173
+	.4byte gPaletteGroup_174
+	.4byte gPaletteGroup_175
+	.4byte gPaletteGroup_176
+	.4byte gPaletteGroup_177
+	.4byte gPaletteGroup_178
+	.4byte gPaletteGroup_179
+	.4byte gPaletteGroup_180
+	.4byte gPaletteGroup_181
+	.4byte gPaletteGroup_182
+	.4byte gPaletteGroup_183
+	.4byte gPaletteGroup_184
+	.4byte gPaletteGroup_185
+	.4byte gPaletteGroup_186
+	.4byte gPaletteGroup_187
+	.4byte gPaletteGroup_188
+	.4byte gPaletteGroup_189
+	.4byte gPaletteGroup_190
+	.4byte gPaletteGroup_191
+	.4byte gPaletteGroup_192
+	.4byte gPaletteGroup_193
+	.4byte gPaletteGroup_194
+	.4byte gPaletteGroup_195
+	.4byte gPaletteGroup_196
+	.4byte gPaletteGroup_197
+	.4byte gPaletteGroup_198
+	.4byte gPaletteGroup_199
 	.4byte gPaletteGroup_200
 	.4byte gPaletteGroup_201
 	.4byte gPaletteGroup_202
@@ -4243,105 +4342,6 @@ gPaletteGroups::
 	.4byte gPaletteGroup_204
 	.4byte gPaletteGroup_205
 	.4byte gPaletteGroup_206
-	.4byte gPaletteGroup_207
-	.4byte gPaletteGroup_208
-	.4byte gPaletteGroup_209
-	.4byte gPaletteGroup_210
-	.4byte gPaletteGroup_211
-	.4byte gPaletteGroup_212
-	.4byte gPaletteGroup_213
-	.4byte gPaletteGroup_214
-	.4byte gPaletteGroup_215
-	.4byte gPaletteGroup_216
-	.4byte gPaletteGroup_217
-	.4byte gPaletteGroup_218
-	.4byte gPaletteGroup_219
-	.4byte gPaletteGroup_220
-	.4byte gPaletteGroup_221
-	.4byte gPaletteGroup_222
-	.4byte gPaletteGroup_223
-	.4byte gPaletteGroup_224
-	.4byte gPaletteGroup_225
-	.4byte gPaletteGroup_226
-	.4byte gPaletteGroup_227
-	.4byte gPaletteGroup_228
-	.4byte gPaletteGroup_229
-	.4byte gPaletteGroup_230
-	.4byte gPaletteGroup_231
-	.4byte gPaletteGroup_232
-	.4byte gPaletteGroup_233
-	.4byte gPaletteGroup_234
-	.4byte gPaletteGroup_235
-	.4byte gPaletteGroup_236
-	.4byte gPaletteGroup_237
-	.4byte gPaletteGroup_238
-	.4byte gPaletteGroup_239
-	.4byte gPaletteGroup_240
-	.4byte gPaletteGroup_241
-	.4byte gPaletteGroup_242
-	.4byte gPaletteGroup_243
-	.4byte gPaletteGroup_244
-	.4byte gPaletteGroup_245
-	.4byte gPaletteGroup_246
-	.4byte gPaletteGroup_247
-	.4byte gPaletteGroup_248
-	.4byte gPaletteGroup_249
-	.4byte gPaletteGroup_250
-	.4byte gPaletteGroup_251
-	.4byte gPaletteGroup_252
-	.4byte gPaletteGroup_253
-	.4byte gPaletteGroup_254
-	.4byte gPaletteGroup_255
-	.4byte gPaletteGroup_256
-	.4byte gPaletteGroup_257
-	.4byte gPaletteGroup_258
-	.4byte gPaletteGroup_259
-	.4byte gPaletteGroup_260
-	.4byte gPaletteGroup_261
-	.4byte gPaletteGroup_262
-	.4byte gPaletteGroup_263
-	.4byte gPaletteGroup_264
-	.4byte gPaletteGroup_265
-	.4byte gPaletteGroup_266
-	.4byte gPaletteGroup_267
-	.4byte gPaletteGroup_268
-	.4byte gPaletteGroup_269
-	.4byte gPaletteGroup_270
-	.4byte gPaletteGroup_271
-	.4byte gPaletteGroup_272
-	.4byte gPaletteGroup_273
-	.4byte gPaletteGroup_274
-	.4byte gPaletteGroup_275
-	.4byte gPaletteGroup_276
-	.4byte gPaletteGroup_277
-	.4byte gPaletteGroup_278
-	.4byte gPaletteGroup_279
-	.4byte gPaletteGroup_280
-	.4byte gPaletteGroup_281
-	.4byte gPaletteGroup_282
-	.4byte gPaletteGroup_283
-	.4byte gPaletteGroup_284
-	.4byte gPaletteGroup_285
-	.4byte gPaletteGroup_286
-	.4byte gPaletteGroup_287
-	.4byte gPaletteGroup_288
-	.4byte gPaletteGroup_289
-	.4byte gPaletteGroup_290
-	.4byte gPaletteGroup_291
-	.4byte gPaletteGroup_292
-	.4byte gPaletteGroup_293
-	.4byte gPaletteGroup_294
-	.4byte gPaletteGroup_295
-	.4byte gPaletteGroup_296
-	.4byte gPaletteGroup_297
-	.4byte gPaletteGroup_298
-	.4byte gPaletteGroup_299
-	.4byte gPaletteGroup_300
-	.4byte gPaletteGroup_301
-	.4byte gPaletteGroup_302
-	.4byte gPaletteGroup_303
-	.4byte gPaletteGroup_304
-	.4byte gPaletteGroup_305
 .ifndef EU
-	.4byte gPaletteGroup_306
+	.4byte gPaletteGroup_207
 .endif

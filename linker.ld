@@ -31,7 +31,7 @@ SECTIONS {
         . = 0x00002A40; gSave = .;
         . = 0x00002F00; gMapDataTopSpecial = .;
         . = 0x00006F00; gUnk_02006F00 = .;
-        . = 0x0000AF00; gUnk_0200AF00 = .;
+        . = 0x0000AF00; gHUD = .;
         . = 0x0000AF34; gUnk_0200AF34 = .;
         . = 0x0000B240; gUnk_0200B240 = .;
         . = 0x0000B640; gUnk_0200B640 = .;

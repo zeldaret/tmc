@@ -592,7 +592,7 @@ void sub_080A4DB8(u32 param_1) {
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
     MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
-    MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
+    MemClear(gHUD.elements, sizeof(gHUD.elements));
     MemClear(&gFigurineMenu, sizeof(gFigurineMenu));
     gFigurineMenu.unk2e = -1;
     gMenu.field_0x3 = gPauseMenuOptions.unk2[param_1];

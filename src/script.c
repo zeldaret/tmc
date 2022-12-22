@@ -446,13 +446,13 @@ void DisablePauseMenuAndPutAwayItems(void) {
 }
 
 void DisablePauseMenu(void) {
-    gUnk_0200AF00.unk_1 = 0xff;
+    gHUD.hideFlags = HUD_HIDE_ALL;
     gPauseMenuOptions.disabled = 0xff;
 }
 
 void EnablePauseMenu(void) {
     gPauseMenuOptions.disabled = 0;
-    gUnk_0200AF00.unk_1 = 0;
+    gHUD.hideFlags = HUD_HIDE_NONE;
     RecoverUI(0, 0);
     ResetPlayerAnimationAndAction();
     PlayerDropHeldObject();

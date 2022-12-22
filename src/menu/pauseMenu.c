@@ -763,13 +763,13 @@ void sub_080A56A0(void) {
         case 0:
         case 2:
             if (gGenericMenu.unk10.a[gMenu.field_0x3] != 0) {
-                gUnk_0200AF00.buttonY[0] = 0x10;
+                gHUD.buttonY[0] = 0x10;
             } else {
-                gUnk_0200AF00.buttonY[0] = 0xfff0;
+                gHUD.buttonY[0] = 0xfff0;
             }
             break;
         default:
-            gUnk_0200AF00.buttonY[0] = 0xfff0;
+            gHUD.buttonY[0] = 0xfff0;
             break;
     }
 

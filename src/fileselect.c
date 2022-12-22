@@ -404,7 +404,7 @@ static void HandleFileScreenEnter(void) {
     ClearTilemaps();
     ResetPalettes();
     ResetPaletteTable(0);
-    MemClear(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
+    MemClear(&gHUD, sizeof(gHUD));
     MemClear(&gMapDataBottomSpecial, sizeof(gMapDataBottomSpecial));
     gMapDataBottomSpecial.unk3 = 7;
     gMapDataBottomSpecial.unk6 = gSaveHeader->language > LANGUAGE_EN ? 3 : 0;
@@ -543,13 +543,13 @@ void sub_08050790(void) {
 }
 
 static void HideButtonR(void) {
-    gUnk_0200AF00.buttonX[2] = 0x140;
-    gUnk_0200AF00.buttonY[2] = 0x24;
+    gHUD.buttonX[2] = 0x140;
+    gHUD.buttonY[2] = 0x24;
 }
 
 static void ShowButtonR(void) {
-    gUnk_0200AF00.buttonX[2] = 0xD0;
-    gUnk_0200AF00.buttonY[2] = 0x24;
+    gHUD.buttonX[2] = 0xD0;
+    gHUD.buttonY[2] = 0x24;
 }
 
 static void HandleFileSelect(void) {

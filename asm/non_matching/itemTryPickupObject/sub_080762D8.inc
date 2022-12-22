@@ -54,7 +54,7 @@ _08076340:
 	adds r1, #0xa8
 	movs r0, #5
 	strb r0, [r1]
-	ldr r0, _08076368 @ =gUnk_0200AF00
+	ldr r0, _08076368 @ =gHUD
 	adds r0, #0x2e
 	movs r1, #8
 	strb r1, [r0]
@@ -69,7 +69,7 @@ _0807635A:
 	b _08076380
 	.align 2, 0
 _08076364: .4byte gPlayerState
-_08076368: .4byte gUnk_0200AF00
+_08076368: .4byte gHUD
 _0807636C:
 	ldr r1, [r5, #0x18]
 	cmp r1, #0
