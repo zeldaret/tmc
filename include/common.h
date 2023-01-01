@@ -124,6 +124,7 @@ void sub_0801DFB4(struct Entity_*, u32, u32, u32);
 u32 sub_0801E00C(void);
 bool32 sub_0801E810(u32);
 u32 sub_0801DB94(void);
+u32 sub_0801EA74(u8*);
 
 typedef struct {
     u8 unk_0;

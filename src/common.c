@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "game.h"
 #include "global.h"
+#include "item.h"
 #include "kinstone.h"
 #include "main.h"
 #include "message.h"
@@ -966,7 +967,64 @@ void sub_0801E8D4(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801E99C.inc", u32 sub_0801E99C(u32 a1));
+extern u8* gUnk_08001DCC[];
+
+u32 sub_0801E99C(Entity* entity) {
+    FORCE_REGISTER(u32 fuserId, r8);
+    u8* fuserData;
+    u32 offeredFusion;
+    u32 fuserProgress;
+    u8* fuserFusionData;
+    s32 randomMood;
+    u32 fuserStability;
+    fuserId = sub_08002632(entity);
+    fuserData = gUnk_08001DCC[fuserId];
+    if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
+        return 0;
+    }
+    offeredFusion = gSave.unk1C1[fuserId];
+    fuserProgress = gSave.unk141[fuserId];
+    fuserFusionData = (u8*) (fuserProgress + (u32) fuserData);
+    while (TRUE) { // loop through fusions for this fuser
+        switch (offeredFusion) {
+            case 0xF1: // offered fusion completed with someone else
+            case 0x00: // no fusion offered yet
+                offeredFusion = fuserFusionData[5];
+                if (offeredFusion == 0x00 || offeredFusion == 0xFF || CheckKinstoneFused(offeredFusion) == 0) {
+                    break;
+                }
+            case 0xF2: // previous fusion completed
+                fuserFusionData++;
+                fuserProgress++;
+                offeredFusion = fuserFusionData[5];
+        }
+        if (offeredFusion == 0xFF) { // random shared fusion
+            offeredFusion = sub_0801EA74(fuserData);
+        }
+        if (offeredFusion == 0x00) { // end of fusion list
+            offeredFusion = 0xF3; // mark this fuser as done
+            break;
+        }
+        if (offeredFusion == 0xF2) { // previous fusion completed
+            continue;
+        }
+        if (CheckKinstoneFused(offeredFusion) == 0) {
+            break;
+        }
+        offeredFusion = 0xF1; // already completed, try next fusion in the list
+    }
+    gSave.unk1C1[fuserId] = offeredFusion;
+    gSave.unk141[fuserId] = fuserProgress;
+    randomMood = Random();
+    fuserStability = fuserData[1];
+    if (fuserStability <= randomMood % 100) {
+        return 0; // fickleness
+    }
+    if (offeredFusion - 1 > 99) {
+        offeredFusion = 0;
+    }
+    return offeredFusion;
+}
 
 const struct_080C9C6C gUnk_080C9C6C[] = {
     { 1, 2, 2 }, { 3, 3, 3 }, { 4, 3, 0 }, { 3, 5, 5 }, { 3, 2, 2 }, { 5, 7, 7 }, { 5, 5, 5 }, { 1, 3, 3 },
@@ -1135,7 +1193,7 @@ const u8 gUnk_080CA11C[] = {
 };
 
 // Get a random kinstone
-u32 sub_0801EA74(void) {
+u32 sub_0801EA74(u8* fuserData) {
     s32 r = (s32)Random() % 18;
     u32 i;
     for (i = 0; i < 18; ++i) {
