@@ -970,8 +970,8 @@ void sub_0801E8D4(void) {
 extern u8* gUnk_08001DCC[];
 
 u32 sub_0801E99C(Entity* entity) {
-    FORCE_REGISTER(u32 fuserId, r8);
     u8* fuserData;
+    u32 fuserId;
     u32 offeredFusion;
     u32 fuserProgress;
     u8* fuserFusionData;
