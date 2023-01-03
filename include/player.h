@@ -400,7 +400,7 @@ extern void (*const gPlayerItemFunctions[])(Entity*);
 
 typedef struct {
     u16 size;
-    u16 unk;
+    u16 iconStartTile;
 } Wallet;
 extern const Wallet gWalletSizes[];
 extern const u8 gBombBagSizes[];

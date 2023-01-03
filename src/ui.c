@@ -276,7 +276,7 @@ void DrawRupees(void) {
             gUnk_0200AF00.unk_a = 2;
             ptr4 = &gUnk_02035160;
             ptr2 = &ptr4->unk_40;
-            ptr4->unk_0.unk_0 = temp2 = gWalletSizes[gSave.stats.walletType].unk;
+            ptr4->unk_0.unk_0 = temp2 = gWalletSizes[gSave.stats.walletType].iconStartTile;
             ptr4->unk_0.unk_2 = temp2 + 1;
             ptr2->unk_0 = temp2 + 2;
             ptr2->unk_2 = temp2 + 3;
