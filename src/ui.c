@@ -29,23 +29,6 @@ typedef struct {
 extern struct_02035160 gUnk_02035160;
 
 typedef struct {
-    u32 unk_0;
-    u32 unk_4;
-    u32 unk_8;
-    u32 unk_c;
-    u32 unk_10;
-    u32 unk_14;
-    u8 unk_18[40];
-} struct_02034CF0;
-
-typedef struct {
-    struct_02034CF0 unk_0;
-    struct_02034CF0 unk_40;
-} struct_02034D30;
-
-extern struct_02034D30 gUnk_02034D30;
-
-typedef struct {
     u16 unk_0;
     u16 unk_2;
     u16 unk_4;
@@ -448,7 +431,7 @@ void DrawHearts(void) {
         }
 
         if (uVar1 - 10 > 0) {
-            ptr2 = (u16*)&gUnk_02034D30;
+            ptr2 = &gBG0Buffer[0x40];
             *ptr2 = 0xf010;
             DmaSet(3, gUnk_080C8F2C + (10 - uVar6), ptr2 + 1, (uVar1 - 10) | 0x80000000);
         }
@@ -469,21 +452,21 @@ void DrawHearts(void) {
 }
 
 void sub_0801C824(void) {
-    struct_02034CF0* ptr;
+    u32* ptr;
 
     if (gUnk_0200AF00.unk_6 != 0) {
         gUnk_0200AF00.unk_6 = 0;
-        if (gUnk_0200AF00.maxHealth > 4 * 10) {
-            ptr = &gUnk_02034D30.unk_40; // Show second row of hearts
+        if (gUnk_0200AF00.maxHealth > 10 * 4) {
+            ptr = (u32*)&gBG0Buffer[0x60]; // Show second row of hearts
         } else {
-            ptr = &gUnk_02034D30.unk_0;
+            ptr = (u32*)&gBG0Buffer[0x40];
         }
-        ptr->unk_0 = 0;
-        ptr->unk_4 = 0;
-        ptr->unk_8 = 0;
-        ptr->unk_c = 0;
-        ptr->unk_10 = 0;
-        ptr->unk_14 = 0;
+        ptr[0] = 0;
+        ptr[1] = 0;
+        ptr[2] = 0;
+        ptr[3] = 0;
+        ptr[4] = 0;
+        ptr[5] = 0;
         gScreen.bg0.updated = 1;
     }
 }
@@ -504,7 +487,7 @@ void DrawChargeBar(void) {
     if (!tmp1)
         return sub_0801C824();
 
-    ptr1 = (gUnk_0200AF00.maxHealth > 0x28) ? (u16*)((u8*)(&gUnk_02034D30) + 0x40) : (u16*)&gUnk_02034D30.unk_0;
+    ptr1 = (gUnk_0200AF00.maxHealth > 10 * 4) ? &gBG0Buffer[0x60] : &gBG0Buffer[0x40];
 
     tmp2 = Div(gPlayerState.chargeState.chargeTimer + 19, 20);
     if (tmp2 > 40) {

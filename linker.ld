@@ -88,7 +88,6 @@ SECTIONS {
         . = 0x000344A0; gUnk_020344A0 = .;
         . = 0x000344B0; gBG2Buffer = .;
         . = 0x00034CB0; gBG0Buffer = .;
-        . = 0x00034D30; gUnk_02034D30 = .;
         . = 0x00034DF0; gUnk_02034DF0 = .;
         . = 0x00034E4E; gUnk_02034E4E = .;
         . = 0x0003508E; gUnk_0203508E = .;
