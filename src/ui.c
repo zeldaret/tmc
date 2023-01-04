@@ -28,20 +28,6 @@ typedef struct {
 } struct_02035160;
 extern struct_02035160 gUnk_02035160;
 
-typedef struct {
-    u16 unk_0;
-    u16 unk_2;
-    u16 unk_4;
-    u16 unk_6;
-    u8 pad[56];
-} substruct_0E2;
-
-typedef struct {
-    substruct_0E2 unk_0[2];
-} struct_020350E2;
-
-extern struct_020350E2 gUnk_020350E2;
-
 extern const u16 gUnk_080C8F2C[];
 extern u32 gUnk_085C4620[];
 extern Frame* gSpriteAnimations_322[];
@@ -527,38 +513,38 @@ void DrawChargeBar(void) {
 
 void DrawKeys(void) {
     s32 iVar1;
-    substruct_0E2* ptr1;
-    substruct_0E2* ptr2;
+    u16* ptr1;
+    u16* ptr2;
     u32 temp;
 
     if (!(((gUnk_0200AF00.unk_1 & 0x80) == 0) && (AreaHasKeys()))) {
         if (gUnk_0200AF00.unk_10 != 0) {
             gUnk_0200AF00.unk_10 = 0;
-            ptr1 = &gUnk_020350E2.unk_0[0];
-            ptr1->unk_0 = 0;
-            ptr1->unk_2 = 0;
-            ptr1->unk_4 = 0;
-            ptr1->unk_6 = 0;
-            gUnk_020350E2.unk_0[1].unk_0 = 0;
-            gUnk_020350E2.unk_0[1].unk_2 = 0;
-            gUnk_020350E2.unk_0[1].unk_4 = 0;
-            gUnk_020350E2.unk_0[1].unk_6 = 0;
+            ptr1 = &gBG0Buffer[0x219];
+            ptr1[0] = 0;
+            ptr1[1] = 0;
+            ptr1[2] = 0;
+            ptr1[3] = 0;
+            ptr1[0x20] = 0;
+            ptr1[0x21] = 0;
+            ptr1[0x22] = 0;
+            ptr1[0x23] = 0;
             gScreen.bg0.updated = 1;
         }
     } else {
         if (gUnk_0200AF00.unk_10 == 0) {
-            ptr1 = &gUnk_020350E2.unk_0[0];
-            ptr2 = &gUnk_020350E2.unk_0[1];
+            ptr1 = &gBG0Buffer[0x219];
+            ptr2 = &gBG0Buffer[0x239];
             temp = 0xf01c;
-            ptr1->unk_0 = temp;
-            ptr1->unk_2 = temp + 1;
-            ptr2->unk_0 = temp + 2;
-            ptr2->unk_2 = temp + 3;
+            ptr1[0] = temp;
+            ptr1[1] = temp + 1;
+            ptr2[0] = temp + 2;
+            ptr2[1] = temp + 3;
             temp = 0xf076;
-            ptr1->unk_4 = temp;
-            ptr2->unk_4 = temp + 1;
-            ptr1->unk_6 = temp + 2;
-            ptr2->unk_6 = temp + 3;
+            ptr1[2] = temp;
+            ptr2[2] = temp + 1;
+            ptr1[3] = temp + 2;
+            ptr2[3] = temp + 3;
             gScreen.bg0.updated = 1;
         }
         if ((gUnk_0200AF00.dungeonKeys != gSave.dungeonKeys[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
