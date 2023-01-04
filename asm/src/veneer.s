@@ -19,7 +19,7 @@ UpdateScrollVram: @ 0x08000108
 	cmp r0, #0
 	beq _08000126
 	ldr r0, _080001F0 @ =gMapDataBottomSpecial
-	ldr r1, _080001F4 @ =gUnk_02021F70
+	ldr r1, _080001F4 @ =gBG1Buffer+0x40
 	bl _call_via_r4
 _08000126:
 	ldr r0, _080001F8 @ =gMapTop
@@ -124,7 +124,7 @@ GetTileIndex: @ 0x080001DA
 _080001E8: .4byte gUpdateVisibleTiles
 _080001EC: .4byte gMapBottom
 _080001F0: .4byte gMapDataBottomSpecial
-_080001F4: .4byte gUnk_02021F70
+_080001F4: .4byte gBG1Buffer+0x40
 _080001F8: .4byte gMapTop
 _080001FC: .4byte gMapDataTopSpecial
 _08000200: .4byte gBG2Buffer+0x40
