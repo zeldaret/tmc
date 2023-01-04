@@ -1359,7 +1359,7 @@ void sub_0805144C(void) {
 
 void sub_08051458(void) {
     sub_080503A8(gMenu.column_idx + 9);
-    MemCopy(gBG3Buffer + 0x80, &gUnk_02022030, 0x400);
+    MemCopy(&gBG3Buffer[0x80], &gBG1Buffer[0x80], 0x400);
 }
 
 u32 sub_080514BC(u32);
