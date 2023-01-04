@@ -12,7 +12,12 @@
 #include "enemy.h"
 #include "message.h"
 
-const s16 gWalletSizes[] = { 100, -4000, 300, -3996, 500, -3992, 999, -3988 };
+const Wallet gWalletSizes[] = {
+    { 100, 0xf060 },
+    { 300, 0xf064 },
+    { 500, 0xf068 },
+    { 999, 0xf06c },
+};
 const u8 gBombBagSizes[] = {
     10,
     30,

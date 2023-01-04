@@ -222,8 +222,8 @@ void ModRupees(s32 delta) {
     if (newRupeeCount < 0) {
         newRupeeCount = 0;
     } else {
-        if (newRupeeCount > (u16)gWalletSizes[s->walletType * 2]) {
-            newRupeeCount = (u16)gWalletSizes[s->walletType * 2];
+        if (newRupeeCount > gWalletSizes[s->walletType].size) {
+            newRupeeCount = gWalletSizes[s->walletType].size;
         }
     }
     s->rupees = newRupeeCount;

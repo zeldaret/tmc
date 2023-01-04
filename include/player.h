@@ -398,7 +398,11 @@ typedef struct {
 
 extern void (*const gPlayerItemFunctions[])(Entity*);
 
-extern const s16 gWalletSizes[];
+typedef struct {
+    u16 size;
+    u16 iconStartTile;
+} Wallet;
+extern const Wallet gWalletSizes[];
 extern const u8 gBombBagSizes[];
 extern const u8 gQuiverSizes[];
 extern Entity* gPlayerClones[];

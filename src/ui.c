@@ -251,7 +251,6 @@ void DrawRupees(void) {
     u32 temp2;
     substruct_160* ptr;
     substruct_160* ptr2;
-    const u16* ptr3;
     struct_02035160* ptr4;
 
     if ((gUnk_0200AF00.unk_1 & 0x40) != 0) {
@@ -277,8 +276,7 @@ void DrawRupees(void) {
             gUnk_0200AF00.unk_a = 2;
             ptr4 = &gUnk_02035160;
             ptr2 = &ptr4->unk_40;
-            ptr3 = gWalletSizes;
-            ptr4->unk_0.unk_0 = temp2 = *(ptr3 + (u32)gSave.stats.walletType * 2 + 1);
+            ptr4->unk_0.unk_0 = temp2 = gWalletSizes[gSave.stats.walletType].iconStartTile;
             ptr4->unk_0.unk_2 = temp2 + 1;
             ptr2->unk_0 = temp2 + 2;
             ptr2->unk_2 = temp2 + 3;
@@ -312,7 +310,7 @@ void DrawRupees(void) {
                 }
             case 1:
                 DrawDigits(0x70, gUnk_0200AF00.rupees,
-                           (u16)gWalletSizes[(u32)gSave.stats.walletType * 2] <= gUnk_0200AF00.rupees, 3);
+                           gWalletSizes[(u32)gSave.stats.walletType].size <= gUnk_0200AF00.rupees, 3);
                 cVar1 = gUnk_0200AF00.unk_c + 1;
             default:
                 gUnk_0200AF00.unk_c = cVar1;
