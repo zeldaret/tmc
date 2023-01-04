@@ -10,7 +10,6 @@
 #include "game.h"
 
 extern void sub_0805ECEC(u32, u32, u32, u32);
-extern bool32 ItemIsBottle(u32);
 extern u32 sub_08000E44(u32);
 
 extern const u16 gUnk_080C8F2C[];
@@ -45,13 +44,13 @@ void DrawChargeBar(void);
 void DrawRupees(void);
 void DrawKeys(void);
 void CreateUIElement(u32, u32);
-void DrawDigits(u32, u32, u32, u32);
+void RenderDigits(u32, u32, u32, u32);
 void sub_0801CAFC(UIElement*, u32);
 void sub_0801CB20(UIElement*, UIElementDefinition*);
 UIElement* FindUIElement(u32);
 void sub_0801CAD0(UIElement*);
 void sub_0801CAB8(UIElement*, Frame*);
-void sub_0801C824(void);
+void EraseChargeBar(void);
 
 void UpdateUIElements(void) {
     u32 index;
@@ -70,7 +69,7 @@ void DrawUIElements(void) {
     u32 index;
     UIElement* element;
     UIElementDefinition* definition;
-    index = 0;
+
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
         element = &gUnk_0200AF00.elements[index];
         if (element->used == 1 && element->unk_0_1 == 1) {
@@ -86,7 +85,6 @@ void DrawUIElements(void) {
 }
 
 void sub_0801C25C(void) {
-    u32 uVar1;
     s32 index;
     u8 tmp;
     UIElement* element;
@@ -116,7 +114,6 @@ void sub_0801C25C(void) {
 void sub_0801C2F0(u32 param_1, u32 param_2) {
     u32 uVar1;
     register u32 rem asm("r1");
-    vu32* ptr;
     param_1 = param_1 * 0x20 + 0x6010000;
 
     uVar1 = Div(param_2, 10);
@@ -201,42 +198,42 @@ void DrawRupees(void) {
     u32 cVar1;
     u32 temp;
     u32 temp2;
-    u16* ptr;
-    u16* ptr2;
+    u16* row1;
+    u16* row2;
 
     if ((gUnk_0200AF00.unk_1 & 0x40) != 0) {
         if (gUnk_0200AF00.unk_a != 0) {
             gUnk_0200AF00.unk_a = 0;
-            ptr = &gBG0Buffer[0x258];
-            ptr[0] = 0;
-            ptr[1] = 0;
-            ptr[2] = 0;
-            ptr[3] = 0;
-            ptr[4] = 0;
-            ptr2 = &gBG0Buffer[0x278];
-            ptr2[0] = 0;
-            ptr2[1] = 0;
-            ptr2[2] = 0;
-            ptr2[3] = 0;
-            ptr2[4] = 0;
+            row1 = &gBG0Buffer[0x258];
+            row1[0] = 0;
+            row1[1] = 0;
+            row1[2] = 0;
+            row1[3] = 0;
+            row1[4] = 0;
+            row2 = &gBG0Buffer[0x278];
+            row2[0] = 0;
+            row2[1] = 0;
+            row2[2] = 0;
+            row2[3] = 0;
+            row2[4] = 0;
             gScreen.bg0.updated = 1;
         }
     } else {
         if (gUnk_0200AF00.unk_a == 0) {
             gUnk_0200AF00.unk_a = 2;
-            ptr = &gBG0Buffer[0x258];
-            ptr2 = &gBG0Buffer[0x278];
-            ptr[0] = temp2 = gWalletSizes[gSave.stats.walletType].iconStartTile;
-            ptr[1] = temp2 + 1;
-            ptr2[0] = temp2 + 2;
-            ptr2[1] = temp2 + 3;
+            row1 = &gBG0Buffer[0x258];
+            row2 = &gBG0Buffer[0x278];
+            row1[0] = temp2 = gWalletSizes[gSave.stats.walletType].iconStartTile;
+            row1[1] = temp2 + 1;
+            row2[0] = temp2 + 2;
+            row2[1] = temp2 + 3;
             temp2 = 0xf070;
-            ptr[2] = temp2;
-            ptr2[2] = temp2 + 1;
-            ptr[3] = temp2 + 2;
-            ptr2[3] = temp2 + 3;
-            ptr[4] = temp2 + 4;
-            ptr2[4] = temp2 + 5;
+            row1[2] = temp2;
+            row2[2] = temp2 + 1;
+            row1[3] = temp2 + 2;
+            row2[3] = temp2 + 3;
+            row1[4] = temp2 + 4;
+            row2[4] = temp2 + 5;
             gScreen.bg0.updated = 1;
             cVar1 = 1;
         } else {
@@ -259,8 +256,8 @@ void DrawRupees(void) {
                     SoundReq(SFX_RUPEE_GET);
                 }
             case 1:
-                DrawDigits(0x70, gUnk_0200AF00.rupees,
-                           gWalletSizes[(u32)gSave.stats.walletType].size <= gUnk_0200AF00.rupees, 3);
+                RenderDigits(0x70, gUnk_0200AF00.rupees,
+                             gWalletSizes[(u32)gSave.stats.walletType].size <= gUnk_0200AF00.rupees, 3);
                 cVar1 = gUnk_0200AF00.unk_c + 1;
             default:
                 gUnk_0200AF00.unk_c = cVar1;
@@ -269,8 +266,7 @@ void DrawRupees(void) {
     }
 }
 
-// Draw icon with text for rupees or keys
-void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
+void RenderDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     int iVar2;
     int iVar3;
     u8* puVar4;
@@ -290,7 +286,7 @@ void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
             digit = Div(count, 100);
             count = r1;
             DmaCopy32(3, puVar4 + digit * 0x40, iVar2, 0x10 * 4);
-            iVar2 = iVar3 + 0x600c040;
+            iVar2 += 0x40;
         case 2:
             digit = Div(count, 10);
             count = r1;
@@ -301,13 +297,13 @@ void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     DmaCopy32(3, puVar4 + count * 0x40, iVar2, 0x10 * 4);
 }
 
-void sub_0801C66C(void) {
+void EraseHearts(void) {
     u32* ptr;
     s32 index;
 
     if (gUnk_0200AF00.unk_2 != 0) {
         gUnk_0200AF00.unk_2 = 0;
-        if (gUnk_0200AF00.maxHealth > 0x28) {
+        if (gUnk_0200AF00.maxHealth > 10 * 4) {
             index = 2;
         } else {
             index = 1;
@@ -334,18 +330,18 @@ void DrawHearts(void) {
     u32 uVar6;
     s32 maxHealth;
     s32 tmp1;
-    u16* ptr2;
+    u16* ptr;
 
     if ((gUnk_0200AF00.unk_1 & 0x10) != 0) {
-        sub_0801C824();
-        sub_0801C66C();
+        EraseChargeBar();
+        EraseHearts();
         return;
     }
     maxHealth = gSave.stats.maxHealth / 2;
     if (maxHealth != gUnk_0200AF00.maxHealth) {
         gUnk_0200AF00.maxHealth = maxHealth;
-        sub_0801C824();
-        sub_0801C66C();
+        EraseChargeBar();
+        EraseHearts();
     }
     if (gSave.stats.health != 1) {
         health = gSave.stats.health / 2;
@@ -400,33 +396,33 @@ void DrawHearts(void) {
         }
 
         if (uVar1 - 10 > 0) {
-            ptr2 = &gBG0Buffer[0x40];
-            *ptr2 = 0xf010;
-            DmaSet(3, gUnk_080C8F2C + (10 - uVar6), ptr2 + 1, (uVar1 - 10) | 0x80000000);
+            ptr = &gBG0Buffer[0x40];
+            *ptr = 0xf010;
+            DmaSet(3, gUnk_080C8F2C + (10 - uVar6), ptr + 1, (uVar1 - 10) | 0x80000000);
         }
-        ptr2 = &gBG0Buffer[0x20];
-        *ptr2 = 0xf010;
+        ptr = &gBG0Buffer[0x20];
+        *ptr = 0xf010;
 
-        DmaSet(3, gUnk_080C8F2C + (10 - tmp1), ptr2 + 1, maxHealth | 0x80000000);
+        DmaSet(3, gUnk_080C8F2C + (10 - tmp1), ptr + 1, maxHealth | 0x80000000);
 
         if ((gUnk_0200AF00.health & 3) != 0) {
             if (9 < uVar2) {
                 uVar2 -= 10;
-                ptr2 += 0x20;
+                ptr += 0x20;
             }
-            ptr2[uVar2 + 1] = ((gUnk_0200AF00.health & 3) + 0x11) | 0xf000;
+            ptr[uVar2 + 1] = ((gUnk_0200AF00.health & 3) + 0x11) | 0xf000;
         }
         gScreen.bg0.updated = 1;
     }
 }
 
-void sub_0801C824(void) {
+void EraseChargeBar(void) {
     u32* ptr;
 
     if (gUnk_0200AF00.unk_6 != 0) {
         gUnk_0200AF00.unk_6 = 0;
         if (gUnk_0200AF00.maxHealth > 10 * 4) {
-            ptr = (u32*)&gBG0Buffer[0x60]; // Show second row of hearts
+            ptr = (u32*)&gBG0Buffer[0x60];
         } else {
             ptr = (u32*)&gBG0Buffer[0x40];
         }
@@ -454,9 +450,13 @@ void DrawChargeBar(void) {
     }
 
     if (!tmp1)
-        return sub_0801C824();
+        return EraseChargeBar();
 
-    ptr1 = (gUnk_0200AF00.maxHealth > 10 * 4) ? &gBG0Buffer[0x60] : &gBG0Buffer[0x40];
+    if (gUnk_0200AF00.maxHealth > 10 * 4) {
+        ptr1 = &gBG0Buffer[0x60];
+    } else {
+        ptr1 = &gBG0Buffer[0x40];
+    }
 
     tmp2 = Div(gPlayerState.chargeState.chargeTimer + 19, 20);
     if (tmp2 > 40) {
@@ -495,52 +495,50 @@ void DrawChargeBar(void) {
 }
 
 void DrawKeys(void) {
-    s32 iVar1;
-    u16* ptr1;
-    u16* ptr2;
+    u16* row1;
+    u16* row2;
     u32 temp;
 
     if (!(((gUnk_0200AF00.unk_1 & 0x80) == 0) && (AreaHasKeys()))) {
         if (gUnk_0200AF00.unk_10 != 0) {
             gUnk_0200AF00.unk_10 = 0;
-            ptr1 = &gBG0Buffer[0x219];
-            ptr1[0] = 0;
-            ptr1[1] = 0;
-            ptr1[2] = 0;
-            ptr1[3] = 0;
-            ptr1[0x20] = 0;
-            ptr1[0x21] = 0;
-            ptr1[0x22] = 0;
-            ptr1[0x23] = 0;
+            row1 = &gBG0Buffer[0x219];
+            row1[0] = 0;
+            row1[1] = 0;
+            row1[2] = 0;
+            row1[3] = 0;
+            row1[0x20] = 0;
+            row1[0x21] = 0;
+            row1[0x22] = 0;
+            row1[0x23] = 0;
             gScreen.bg0.updated = 1;
         }
     } else {
         if (gUnk_0200AF00.unk_10 == 0) {
-            ptr1 = &gBG0Buffer[0x219];
-            ptr2 = &gBG0Buffer[0x239];
+            row1 = &gBG0Buffer[0x219];
+            row2 = &gBG0Buffer[0x239];
             temp = 0xf01c;
-            ptr1[0] = temp;
-            ptr1[1] = temp + 1;
-            ptr2[0] = temp + 2;
-            ptr2[1] = temp + 3;
+            row1[0] = temp;
+            row1[1] = temp + 1;
+            row2[0] = temp + 2;
+            row2[1] = temp + 3;
             temp = 0xf076;
-            ptr1[2] = temp;
-            ptr2[2] = temp + 1;
-            ptr1[3] = temp + 2;
-            ptr2[3] = temp + 3;
+            row1[2] = temp;
+            row2[2] = temp + 1;
+            row1[3] = temp + 2;
+            row2[3] = temp + 3;
             gScreen.bg0.updated = 1;
         }
         if ((gUnk_0200AF00.dungeonKeys != gSave.dungeonKeys[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
             gUnk_0200AF00.unk_10 = 2;
             gUnk_0200AF00.dungeonKeys = gSave.dungeonKeys[gArea.dungeon_idx];
-            DrawDigits(0x76, gUnk_0200AF00.dungeonKeys, 0, 2);
+            RenderDigits(0x76, gUnk_0200AF00.dungeonKeys, 0, 2);
         }
     }
 }
 
 void CreateUIElement(u32 type, u32 type2) {
     u32 index;
-    UIElement* new_var;
     UIElement* element;
 
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
@@ -674,7 +672,6 @@ u32 sub_0801CC80(UIElement* element) {
 void ItemUIElement(UIElement* element) {
     u32 itemMaxNumber;
     u32 itemId;
-    u8* puVar3;
     UIElement* element2;
     u32 uVar5;
     u32 playerItemCount;
@@ -743,9 +740,6 @@ void ItemUIElement(UIElement* element) {
 void TextUIElement(UIElement* element) {
     UIElement* buttonUIElement;
     u32 tmp;
-    extern struct_0200AF00* ptr;
-    u32 tmp1;
-    UIElement* ptr2;
 
     if (element->type2 == 9) {
         tmp = gUnk_0200AF00.unk_2f;
