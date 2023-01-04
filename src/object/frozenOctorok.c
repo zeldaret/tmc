@@ -421,10 +421,17 @@ void sub_0809CB70(FrozenOctorokEntity* this, s32 angle, s32 radius) {
     super->z.WORD = super->parent->z.WORD;
 }
 
-NONMATCH("asm/non_matching/frozenOctorok/sub_0809CBE4.inc", void sub_0809CBE4(FrozenOctorokEntity* this)) {
-    this->unk_79 += super->subtimer;
+void sub_0809CBE4(FrozenOctorokEntity* this) {
+    u16 tmp1;
+    FORCE_REGISTER(u8 tmp4, r4);
+    u8* tmp3 = &this->unk_79;
+    tmp1 = super->subtimer;
+    tmp4 = *tmp3;
+    tmp1 += tmp4;
+    this->unk_79 = tmp1;
     if ((s8)super->subtimer < 0) {
-        if (super->timer < -this->unk_79) {
+        u8 tmp_r0 = super->timer;
+        if (tmp1 << 0x18 < -tmp_r0 << 0x18) {
             super->subtimer = -super->subtimer;
             SoundReq(SFX_19E);
         }
@@ -433,7 +440,6 @@ NONMATCH("asm/non_matching/frozenOctorok/sub_0809CBE4.inc", void sub_0809CBE4(Fr
         SoundReq(SFX_19E);
     }
 }
-END_NONMATCH
 
 void FrozenOctorok_ChangeObjPaletteOfChildren(FrozenOctorokEntity* this, u32 palette) {
     u32 index;
