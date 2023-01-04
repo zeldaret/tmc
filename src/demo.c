@@ -30,7 +30,6 @@ extern u8 gUnk_08A05751[];
 // sprite_table
 extern void gUnk_089FD1B4;
 extern void gUnk_089FD2F4;
-extern u16 gUnk_0203508E[];
 extern u16 gUnk_0203510E[];
 
 extern u8 gUnk_08A068BF[129];
@@ -190,7 +189,7 @@ void sub_080A30AC(void) {
 
 void sub_080A3198(u32 param_1, u32 param_2) {
     static const Font gUnk_08127C98[] = {
-        { gUnk_0203508E, BG_TILE_ADDR(0x1a0), gTextGfxBuffer, 0, 0x1080, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
+        { &gBG0Buffer[0x1ef], BG_TILE_ADDR(0x1a0), gTextGfxBuffer, 0, 0x1080, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
         { gUnk_0203510E, BG_TILE_ADDR(0x1a0), gTextGfxBuffer, 0, 0x80, 0xd0, 1, 0, 0, 1, 9, 0, 0, 1, 1 },
     };
     static const u16 gUnk_08127CC8[4] = {
