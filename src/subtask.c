@@ -97,11 +97,10 @@ void sub_080A6FB4(u32 param_1, u32 param_2) {
 
 void sub_080A7040(u32 param_1) {
     extern Font gUnk_08129004;
-    extern u8 gUnk_02022130[];
     if (gGenericMenu.unk2e.HWORD != param_1) {
         gGenericMenu.unk2e.HWORD = param_1;
-        MemClear(gUnk_02022130, 0x300);
-        MemCopy(gUnk_02022130 - 0x200, (void*)0x600e000, 0x800);
+        MemClear(&gBG1Buffer[0x100], 0x300);
+        MemCopy(gBG1Buffer, (void*)0x600e000, 0x800);
         if (GetInventoryValue(gUnk_08128D70[param_1].item) != 0) {
             ShowTextBox(gUnk_08128D70[param_1].textIndex, &gUnk_08129004);
         }

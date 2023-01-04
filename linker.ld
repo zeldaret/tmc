@@ -56,7 +56,6 @@ SECTIONS {
         . = 0x00021F00; gUnk_02021F00 = .;
         . = 0x00021F20; gUnk_02021F20 = .;
         . = 0x00021F30; gBG1Buffer = .;
-        . = 0x00022130; gUnk_02022130 = .;
         . = 0x00022730; gVBlankDMA = .;
         . = 0x00022740; gFuseInfo = .;
         . = 0x00022750; gPlayerScriptExecutionContext = .;
