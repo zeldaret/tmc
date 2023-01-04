@@ -96,7 +96,49 @@ void sub_080382EC(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/ropeGolden/sub_08038304.inc", void sub_08038304(Entity* this))
+void sub_08038304(Entity* this) {
+    u32 cVar2;
+    s32 tmp;
+    u32 tmp3;
+    u32 h;
+
+    UpdateAnimationVariableFrames(this, 2);
+    if (!ProcessMovement0(this)) {
+        if (this->field_0x78.HALF.LO == this->direction) {
+#ifdef EU
+            this->subtimer = 30;
+#else
+            this->subtimer = 90;
+#endif
+            sub_080383AC(this);
+        } else {
+            this->direction = this->field_0x78.HALF.LO;
+        }
+    } else {
+        tmp = 10;
+        if ((u8)((++this->timer) % tmp) == 0) {
+            this->timer = 0;
+            if (this->field_0x78.HALF.LO == this->direction) {
+                cVar2 = ((Random() & 2) - 1) << 27;
+                cVar2 = cVar2 >> 24;
+                h = this->field_0x78.HALF.HI;
+                tmp3 = (u8)cVar2 << 24;
+                if (tmp3 >> 24 == h) {
+                    if (h == this->field_0x7a.HALF.LO) {
+                        cVar2 = -tmp3 >> 24;
+                    }
+                }
+                this->field_0x7a.HALF.LO = this->field_0x78.HALF.HI;
+                this->field_0x78.HALF.HI = cVar2;
+                this->direction = (this->direction + cVar2) & 0x18;
+            } else {
+                this->direction = this->field_0x78.HALF.LO;
+            }
+            this->animationState = this->direction >> 3;
+            InitializeAnimation(this, this->animationState + 4);
+        }
+    }
+}
 
 void sub_080383AC(Entity* this) {
     u32 v;

@@ -240,30 +240,30 @@ void sub_080464C0(GyorgFemaleEntity* this) {
     gUpdateVisibleTiles = 1;
 }
 
-NONMATCH("asm/non_matching/gyorg_female/sub_08046518.inc", void sub_08046518(void)) {
-    u32 r5;
-    u16* stack1;
-    u8* stack2;
-    u8* r6;
+#define sub_08046518_offset 0x658
+
+void sub_08046518(void) {
+    u16* ptr = gMapTop.metatileTypes;
+    u16* sl = &gMapTop.mapData[sub_08046518_offset];
+    u16* stack1 = &gMapTop.mapDataClone[sub_08046518_offset];
+    u8* stack2 = &gMapTop.unkData3[sub_08046518_offset];
+    u8* r6 = &gMapTop.collisionData[sub_08046518_offset];
     u32 i;
-    u16* sl;
-    sl = &gMapTop.metatileTypes[0xFFFFBCB0];
-    stack1 = &gMapTop.metatileTypes[0xFFFFECB0];
-    stack2 = (u8*)&gMapTop.metatileTypes[0x00006658];
-    r6 = (u8*)&gMapTop.metatileTypes[0xFFFFD658];
-    for (i = 0; i < 0x10; i++) {
+    for (i = 0x10; i != 0; i--) {
+        u32 j;
+        for (j = 0x10; j != 0; j--) {
+            u16 new_var;
+            stack1[j] = sl[j];
+            new_var = ptr[sl[j]];
+            stack2[j] = gUnk_080B37A0[new_var];
+            r6[j] = gUnk_080B3E80[new_var];
+        }
         sl += 0x40;
         stack1 += 0x40;
-        for (r5 = 0; r5 < 0x10; r5++) {
-            stack1[r5] = sl[r5];
-            stack2[r5] = gUnk_080B37A0[gMapTop.metatileTypes[sl[r5]]];
-            r6[r5] = gUnk_080B3E80[gMapTop.metatileTypes[sl[r5]]];
-        }
-        stack2 = stack2 + 0x40;
-        r6 = r6 + 0x40;
+        stack2 += 0x40;
+        r6 += 0x40;
     }
 }
-END_NONMATCH
 
 void sub_080465C8(void) {
     s32 x, y;
