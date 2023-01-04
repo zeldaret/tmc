@@ -984,7 +984,7 @@ u32 sub_0801E99C(Entity* entity) {
     }
     offeredFusion = gSave.unk1C1[fuserId];
     fuserProgress = gSave.unk141[fuserId];
-    fuserFusionData = (u8*) (fuserProgress + (u32) fuserData);
+    fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
             case 0xF1: // offered fusion completed with someone else
@@ -1002,7 +1002,7 @@ u32 sub_0801E99C(Entity* entity) {
             offeredFusion = sub_0801EA74(fuserData);
         }
         if (offeredFusion == 0x00) { // end of fusion list
-            offeredFusion = 0xF3; // mark this fuser as done
+            offeredFusion = 0xF3;    // mark this fuser as done
             break;
         }
         if (offeredFusion == 0xF2) { // previous fusion completed
