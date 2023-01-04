@@ -13,21 +13,6 @@ extern void sub_0805ECEC(u32, u32, u32, u32);
 extern bool32 ItemIsBottle(u32);
 extern u32 sub_08000E44(u32);
 
-typedef struct {
-    u16 unk_0;
-    u16 unk_2;
-    u16 unk_4;
-    u16 unk_6;
-    u16 unk_8;
-} substruct_160;
-
-typedef struct {
-    substruct_160 unk_0;
-    u8 unk_9[50];
-    substruct_160 unk_40;
-} struct_02035160;
-extern struct_02035160 gUnk_02035160;
-
 extern const u16 gUnk_080C8F2C[];
 extern u32 gUnk_085C4620[];
 extern Frame* gSpriteAnimations_322[];
@@ -216,44 +201,42 @@ void DrawRupees(void) {
     u32 cVar1;
     u32 temp;
     u32 temp2;
-    substruct_160* ptr;
-    substruct_160* ptr2;
-    struct_02035160* ptr4;
+    u16* ptr;
+    u16* ptr2;
 
     if ((gUnk_0200AF00.unk_1 & 0x40) != 0) {
         if (gUnk_0200AF00.unk_a != 0) {
             gUnk_0200AF00.unk_a = 0;
-            ptr4 = &gUnk_02035160;
-            ptr = &ptr4->unk_0;
-            ptr->unk_0 = 0;
-            ptr->unk_2 = 0;
-            ptr->unk_4 = 0;
-            ptr->unk_6 = 0;
-            ptr->unk_8 = 0;
-            ptr2 = &ptr4->unk_40;
-            ptr2->unk_0 = 0;
-            ptr2->unk_2 = 0;
-            ptr2->unk_4 = 0;
-            ptr2->unk_6 = 0;
-            ptr2->unk_8 = 0;
+            ptr = &gBG0Buffer[0x258];
+            ptr[0] = 0;
+            ptr[1] = 0;
+            ptr[2] = 0;
+            ptr[3] = 0;
+            ptr[4] = 0;
+            ptr2 = &gBG0Buffer[0x278];
+            ptr2[0] = 0;
+            ptr2[1] = 0;
+            ptr2[2] = 0;
+            ptr2[3] = 0;
+            ptr2[4] = 0;
             gScreen.bg0.updated = 1;
         }
     } else {
         if (gUnk_0200AF00.unk_a == 0) {
             gUnk_0200AF00.unk_a = 2;
-            ptr4 = &gUnk_02035160;
-            ptr2 = &ptr4->unk_40;
-            ptr4->unk_0.unk_0 = temp2 = gWalletSizes[gSave.stats.walletType].iconStartTile;
-            ptr4->unk_0.unk_2 = temp2 + 1;
-            ptr2->unk_0 = temp2 + 2;
-            ptr2->unk_2 = temp2 + 3;
+            ptr = &gBG0Buffer[0x258];
+            ptr2 = &gBG0Buffer[0x278];
+            ptr[0] = temp2 = gWalletSizes[gSave.stats.walletType].iconStartTile;
+            ptr[1] = temp2 + 1;
+            ptr2[0] = temp2 + 2;
+            ptr2[1] = temp2 + 3;
             temp2 = 0xf070;
-            ptr4->unk_0.unk_4 = temp2;
-            ptr2->unk_4 = temp2 + 1;
-            ptr4->unk_0.unk_6 = temp2 + 2;
-            ptr2->unk_6 = temp2 + 3;
-            ptr4->unk_0.unk_8 = temp2 + 4;
-            ptr2->unk_8 = temp2 + 5;
+            ptr[2] = temp2;
+            ptr2[2] = temp2 + 1;
+            ptr[3] = temp2 + 2;
+            ptr2[3] = temp2 + 3;
+            ptr[4] = temp2 + 4;
+            ptr2[4] = temp2 + 5;
             gScreen.bg0.updated = 1;
             cVar1 = 1;
         } else {
