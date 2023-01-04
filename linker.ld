@@ -88,7 +88,6 @@ SECTIONS {
         . = 0x000344A0; gUnk_020344A0 = .;
         . = 0x000344B0; gBG2Buffer = .;
         . = 0x00034CB0; gBG0Buffer = .;
-        . = 0x00034CF0; gUnk_02034CF0 = .;
         . = 0x00034D30; gUnk_02034D30 = .;
         . = 0x00034DF0; gUnk_02034DF0 = .;
         . = 0x00034E4E; gUnk_02034E4E = .;
@@ -97,6 +96,7 @@ SECTIONS {
         . = 0x000350F0; gUnk_020350F0 = .;
         . = 0x0003510E; gUnk_0203510E = .;
         . = 0x00035160; gUnk_02035160 = .;
+
         . = 0x000354B0; gUnk_020354B0 = .;
         . = 0x000354B4; gManagerCount = .;
         . = 0x000354C0; gUnk_020354C0 = .;

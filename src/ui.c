@@ -38,8 +38,6 @@ typedef struct {
     u8 unk_18[40];
 } struct_02034CF0;
 
-extern struct_02034CF0 gUnk_02034CF0[];
-
 typedef struct {
     struct_02034CF0 unk_0;
     struct_02034CF0 unk_40;
@@ -352,7 +350,7 @@ void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
 }
 
 void sub_0801C66C(void) {
-    struct_02034CF0* ptr;
+    u32* ptr;
     s32 index;
 
     if (gUnk_0200AF00.unk_2 != 0) {
@@ -362,15 +360,15 @@ void sub_0801C66C(void) {
         } else {
             index = 1;
         }
-        ptr = gUnk_02034CF0;
+        ptr = (u32*)&gBG0Buffer[0x20];
         do {
-            ptr->unk_0 = 0;
-            ptr->unk_4 = 0;
-            ptr->unk_8 = 0;
-            ptr->unk_c = 0;
-            ptr->unk_10 = 0;
-            ptr->unk_14 = 0;
-            ptr++;
+            ptr[0] = 0;
+            ptr[1] = 0;
+            ptr[2] = 0;
+            ptr[3] = 0;
+            ptr[4] = 0;
+            ptr[5] = 0;
+            ptr += 0x10;
             index--;
         } while (index > 0);
         gScreen.bg0.updated = 1;
@@ -381,10 +379,8 @@ void DrawHearts(void) {
     s32 health;
     s32 uVar1;
     s32 uVar2;
-    s32 uVar4;
     u32 uVar6;
     s32 maxHealth;
-    const u16* ptr;
     s32 tmp1;
     u16* ptr2;
 
@@ -456,7 +452,7 @@ void DrawHearts(void) {
             *ptr2 = 0xf010;
             DmaSet(3, gUnk_080C8F2C + (10 - uVar6), ptr2 + 1, (uVar1 - 10) | 0x80000000);
         }
-        ptr2 = (u16*)&gUnk_02034CF0[0].unk_0;
+        ptr2 = &gBG0Buffer[0x20];
         *ptr2 = 0xf010;
 
         DmaSet(3, gUnk_080C8F2C + (10 - tmp1), ptr2 + 1, maxHealth | 0x80000000);
