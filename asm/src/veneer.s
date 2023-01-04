@@ -27,7 +27,7 @@ _08000126:
 	cmp r0, #0
 	beq _08000136
 	ldr r0, _080001FC @ =gMapDataTopSpecial
-	ldr r1, _08000200 @ =gUnk_020344F0
+	ldr r1, _08000200 @ =gBG2Buffer+0x40
 	bl _call_via_r4
 _08000136:
 	pop {r4, pc}
@@ -127,7 +127,7 @@ _080001F0: .4byte gMapDataBottomSpecial
 _080001F4: .4byte gUnk_02021F70
 _080001F8: .4byte gMapTop
 _080001FC: .4byte gMapDataTopSpecial
-_08000200: .4byte gUnk_020344F0
+_08000200: .4byte gBG2Buffer+0x40
 _08000204: .4byte gUnk_08000248
 _08000208: .4byte gUnk_08000228
 _0800020C: .4byte 0x00004000
