@@ -210,9 +210,8 @@ const struct_080FC3E4 gUnk_080FC3E4[] = {
     { 0, 0xffff, 0, 1 },
 };
 
-extern u16 gUnk_02034E4E[];
 const Font gUnk_080FC844 = {
-    gUnk_02034E4E, BG_TILE_ADDR(0x198), gTextGfxBuffer, 0, 96, 224, 1, 1, 0, 1, 3, 0, 0, 1, 0
+    &gBG0Buffer[0xcf], BG_TILE_ADDR(0x198), gTextGfxBuffer, 0, 96, 224, 1, 1, 0, 1, 3, 0, 0, 1, 0
 };
 
 const u16 gUnk_080FC85C[][3] = {
