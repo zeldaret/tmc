@@ -66,6 +66,13 @@ extern u8 gMapDataTopSpecial[];
 
 extern const s8 gUnk_080169A4[];
 
+extern u16 gUnk_02022830[];
+
+extern u8 gMapDataTop[];
+extern u8 gMapDataBottom[];
+extern u8 gUnk_0200E654[];
+extern u8 gUnk_02028EB4[];
+
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
         sub_0807FC64, sub_0807FC7C, sub_0807FDB0, NULL, sub_0807FEF0, sub_0807FF54,
@@ -418,7 +425,68 @@ void sub_080801BC(RoomControls* controls) {
     }
 }
 
-ASM_FUNC("asm/non_matching/scroll/sub_08080278.inc", u32 sub_08080278())
+u32 sub_08080278(void) {
+    u32 width;
+    u32 height;
+    u32 tilePos;
+    u16* bottomMapDataPtr;
+    u16* topMapDataPtr;
+    u32 result;
+    u16* bottomMapDataClonePtr;
+    u16* topMapDataClonePtr;
+    u32 indexX;
+    FORCE_REGISTER(u32 indexY, r10);
+    int iVar10;
+    u16* ptr1;
+    u32 tmp;
+
+    ptr1 = gUnk_02022830;
+    width = gRoomControls.width >> 4;
+    height = (gRoomControls.height >> 4) << 6;
+    result = 0;
+    indexY = 0;
+    if (result < height) {
+        iVar10 = 0;
+        do {
+            indexX = 0;
+            if (indexX < width) {
+                topMapDataPtr = (u16*)((int)gMapTop.mapData + iVar10);
+                topMapDataClonePtr = (u16*)((int)gMapTop.mapDataClone + iVar10);
+                bottomMapDataPtr = (u16*)((int)gMapBottom.mapData + iVar10);
+                bottomMapDataClonePtr = (u16*)((int)gMapBottom.mapDataClone + iVar10);
+                while (indexX < width) {
+                    tilePos = indexY + indexX;
+                    if ((bottomMapDataClonePtr[0] != bottomMapDataPtr[0]) && (bottomMapDataPtr[0] <= 0x3fff)) {
+                        ptr1[0] = tilePos | 0x4000;
+                        ptr1[1] = bottomMapDataPtr[0];
+                        ptr1 += 2;
+                        result++;
+                        if (result > 0x5ff) {
+                            return result;
+                        }
+                    }
+                    if ((topMapDataClonePtr[0] != topMapDataPtr[0]) && (topMapDataPtr[0] < 0x4000)) {
+                        ptr1[0] = tilePos | 0x8000;
+                        ptr1[1] = topMapDataPtr[0];
+                        ptr1 += 2;
+                        result++;
+                        if (result > 0x7ff) {
+                            return result;
+                        }
+                    }
+                    topMapDataPtr++;
+                    topMapDataClonePtr++;
+                    bottomMapDataPtr++;
+                    bottomMapDataClonePtr++;
+                    indexX++;
+                }
+            }
+            iVar10 += 0x80;
+            indexY += 0x40;
+        } while (indexY < height);
+    }
+    return result;
+}
 
 void sub_08080368(void) {
     u32 tmp;
