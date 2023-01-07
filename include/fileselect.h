@@ -69,6 +69,5 @@ extern void (*const gUnk_080FC908[])(void);
 extern const u8 gGlobalGfxAndPalettes[];
 extern u32 gUsedPalettes;
 extern u8 gTextGfxBuffer[];
-extern u8 gUnk_02022030;
 
 #endif // FILESELECT_H

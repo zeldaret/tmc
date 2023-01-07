@@ -14,7 +14,6 @@
 #include "subtask.h"
 #include "ui.h"
 
-extern u8 gUnk_020350F0[];
 extern Screen gUnk_03001020;
 extern u8 gPaletteBufferBackup[];
 extern u8 gUnk_03000420[];
@@ -53,7 +52,7 @@ void sub_080A6F6C(u32 textIndexOrPtr) {
     extern Font gUnk_08128FA8;
     if (gGenericMenu.unk2e.HWORD != textIndexOrPtr) {
         gGenericMenu.unk2e.HWORD = textIndexOrPtr;
-        MemClear(gUnk_020350F0, 0x100);
+        MemClear(&gBG0Buffer[0x220], 0x100);
         if ((textIndexOrPtr & 0xff) != 0) {
             ShowTextBox(textIndexOrPtr, &gUnk_08128FA8);
         }
@@ -86,7 +85,7 @@ void sub_080A6FB4(u32 param_1, u32 param_2) {
 
     if (gGenericMenu.unk2e.HWORD != textIndexOrPtr) {
         gGenericMenu.unk2e.HWORD = textIndexOrPtr;
-        MemClear(&gUnk_020350F0, 0x100);
+        MemClear(&gBG0Buffer[0x220], 0x100);
         if ((textIndexOrPtr & 0xff) != 0) {
             ShowTextBox(textIndexOrPtr, font);
         }
@@ -97,11 +96,10 @@ void sub_080A6FB4(u32 param_1, u32 param_2) {
 
 void sub_080A7040(u32 param_1) {
     extern Font gUnk_08129004;
-    extern u8 gUnk_02022130[];
     if (gGenericMenu.unk2e.HWORD != param_1) {
         gGenericMenu.unk2e.HWORD = param_1;
-        MemClear(gUnk_02022130, 0x300);
-        MemCopy(gUnk_02022130 - 0x200, (void*)0x600e000, 0x800);
+        MemClear(&gBG1Buffer[0x100], 0x300);
+        MemCopy(gBG1Buffer, (void*)0x600e000, 0x800);
         if (GetInventoryValue(gUnk_08128D70[param_1].item) != 0) {
             ShowTextBox(gUnk_08128D70[param_1].textIndex, &gUnk_08129004);
         }

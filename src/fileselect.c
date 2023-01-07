@@ -210,9 +210,8 @@ const struct_080FC3E4 gUnk_080FC3E4[] = {
     { 0, 0xffff, 0, 1 },
 };
 
-extern u16 gUnk_02034E4E[];
 const Font gUnk_080FC844 = {
-    gUnk_02034E4E, BG_TILE_ADDR(0x198), gTextGfxBuffer, 0, 96, 224, 1, 1, 0, 1, 3, 0, 0, 1, 0
+    &gBG0Buffer[0xcf], BG_TILE_ADDR(0x198), gTextGfxBuffer, 0, 96, 224, 1, 1, 0, 1, 3, 0, 0, 1, 0
 };
 
 const u16 gUnk_080FC85C[][3] = {
@@ -1359,7 +1358,7 @@ void sub_0805144C(void) {
 
 void sub_08051458(void) {
     sub_080503A8(gMenu.column_idx + 9);
-    MemCopy(gBG3Buffer + 0x80, &gUnk_02022030, 0x400);
+    MemCopy(&gBG3Buffer[0x80], &gBG1Buffer[0x80], 0x400);
 }
 
 u32 sub_080514BC(u32);
