@@ -36,7 +36,7 @@ void ResetScreenRegs(void);
 void MessageFromFusionTarget(u32);
 void sub_0801E24C(s32, s32);
 void sub_0801E290(u32, u32, u32);
-s32 sub_0801E8B0(u32);
+s32 GetIndexInKinstoneBag(u32);
 
 extern u32 sub_0807CB24(u32, u32);
 
@@ -71,7 +71,7 @@ extern const GfxItem* gGfxGroups[];
 
 extern const u32 gUnk_080C9460[];
 
-void sub_0801E82C(void);
+void SortKinstoneBag(void);
 
 extern void* GetRoomProperty(u32, u32, u32);
 
@@ -767,13 +767,13 @@ void sub_0801E6C8(u32 kinstoneId) {
     }
 }
 
-void sub_0801E738(u32 param_1) {
+void AddKinstoneToBag(u32 kinstoneId) {
     s32 index;
     s32 tmp;
 
-    sub_0801E82C();
-    if (param_1 - 0x65 < 0x11) {
-        index = sub_0801E8B0(param_1);
+    SortKinstoneBag(); // sometimes called just for this function
+    if (kinstoneId - 0x65 < 0x11) {
+        index = GetIndexInKinstoneBag(kinstoneId);
         if (index < 0) {
             index = 0;
             while (gSave.kinstoneTypes[index] != 0) {
@@ -781,7 +781,7 @@ void sub_0801E738(u32 param_1) {
             }
         }
         if ((u32)index < 0x12) {
-            gSave.kinstoneTypes[index] = param_1;
+            gSave.kinstoneTypes[index] = kinstoneId;
             tmp = gSave.kinstoneAmounts[index] + 1;
             if (tmp > 99) {
                 tmp = 99;
@@ -791,8 +791,8 @@ void sub_0801E738(u32 param_1) {
     }
 }
 
-void sub_0801E798(u32 a1) {
-    s32 idx = sub_0801E8B0(a1);
+void RemoveKinstoneFromBag(u32 kinstoneId) {
+    s32 idx = GetIndexInKinstoneBag(kinstoneId);
     if (idx >= 0) {
         s32 next = gSave.kinstoneAmounts[idx] - 1;
         if (next <= 0) {
@@ -803,12 +803,12 @@ void sub_0801E798(u32 a1) {
     }
 }
 
-u32 sub_0801E7D0(u32 a1) {
-    s32 tmp = sub_0801E8B0(a1);
-    if (tmp < 0) {
+u32 GetAmountInKinstoneBag(u32 kinstoneId) {
+    s32 index = GetIndexInKinstoneBag(kinstoneId);
+    if (index < 0) {
         return 0;
     }
-    return gSave.kinstoneAmounts[tmp];
+    return gSave.kinstoneAmounts[index];
 }
 
 u32 CheckKinstoneFused(u32 kinstoneId) {
@@ -825,7 +825,7 @@ bool32 sub_0801E810(u32 kinstoneId) {
     return ReadBit(&gSave.unk24E, kinstoneId);
 }
 
-void sub_0801E82C(void) {
+void SortKinstoneBag(void) {
 #ifdef NON_MATCHING
     u32 r5;
 
@@ -889,11 +889,11 @@ code0_2:
 #endif
 }
 
-s32 sub_0801E8B0(u32 idx) {
+s32 GetIndexInKinstoneBag(u32 kinstoneId) {
     u32 i;
 
-    for (i = 0; i < 18; ++i) {
-        if (idx == gSave.kinstoneTypes[i])
+    for (i = 0; i < 0x12; ++i) {
+        if (kinstoneId == gSave.kinstoneTypes[i])
             return i;
     }
     return -1;

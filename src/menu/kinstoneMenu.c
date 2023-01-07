@@ -28,7 +28,7 @@ extern void sub_080A3B74(void);
 extern u32 sub_080A3B48(void);
 extern void sub_0805ECEC(u32, u32, u32, u32);
 extern void sub_0801E6C8(u32);
-extern void sub_0801E798(u32);
+extern void RemoveKinstoneFromBag(u32);
 extern WStruct* sub_0805F2C8(void);
 extern void sub_0805F300(WStruct*);
 extern u32 sub_0805F76C(u8*, WStruct*);
@@ -151,7 +151,7 @@ void KinstoneMenu_Type0(void) {
     gScreen.bg3.updated = 1;
     KinstoneMenu_080A4528();
     sub_080A4398();
-    sub_0801E738(0);
+    AddKinstoneToBag(0);
     sub_080A70AC((void*)gUnk_081280DC);
     SetMenuType(1);
     SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
@@ -609,7 +609,7 @@ void KinstoneMenu_080A4468(void) {
     gUnk_03003DF0.unk_2 = 0;
     gUnk_03003DF0.unk_4[3] = 0;
     sub_0801E6C8(gFuseInfo.kinstoneId);
-    sub_0801E798(gKinstoneMenu.unk2a);
+    RemoveKinstoneFromBag(gKinstoneMenu.unk2a);
 }
 
 u32 KinstoneMenu_080A4494(void) {

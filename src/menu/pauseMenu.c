@@ -1281,7 +1281,7 @@ void PauseMenu_Screen_7(void) {
 
 void sub_080A6024(void) {
     sub_080A70AC((KeyButtonLayout*)&gUnk_08128D60);
-    sub_0801E738(0);
+    AddKinstoneToBag(0);
     sub_080A4398();
     SetMenuType(1);
 }

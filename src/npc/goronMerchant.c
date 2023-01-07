@@ -13,7 +13,7 @@ extern void (*const gUnk_08111B98[])(Entity*);
 
 static const u16 sKinstonePrices[];
 
-extern u32 sub_0801E7D0(u32);
+extern u32 GetAmountInKinstoneBag(u32);
 
 void GoronMerchant(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
@@ -132,7 +132,7 @@ static u32 GoronMerchant_GetSalePrice(Entity* this) {
 void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* context) {
     s32 salePrice = GoronMerchant_GetSalePrice(this);
     if (salePrice <= gSave.stats.rupees) {
-        if (sub_0801E7D0(gRoomVars.shopItemType2) < 99) {
+        if (GetAmountInKinstoneBag(gRoomVars.shopItemType2) < 99) {
             ModRupees(-salePrice);
             InitItemGetSequence(0x5c, gRoomVars.shopItemType2, 0);
             gRoomVars.shopItemType = 0;

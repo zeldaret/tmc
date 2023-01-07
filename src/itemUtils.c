@@ -114,7 +114,7 @@ u32 GiveItem(Item item, u32 param_2) {
             gSave.dungeonItems[gArea.dungeon_idx] |= metaData->unk2;
             break;
         case 0xd:
-            sub_0801E738(0x72);
+            AddKinstoneToBag(0x72);
             break;
         case 0x12:
             if (item == ITEM_BOOMERANG) {
@@ -174,7 +174,7 @@ u32 GiveItem(Item item, u32 param_2) {
             SoundReq(SFX_103);
             break;
         case 0x0f:
-            sub_0801E738(param_2);
+            AddKinstoneToBag(param_2);
             break;
         case 0x10:
             gSave.stats.walletType++;
