@@ -776,17 +776,17 @@ void sub_0801E738(u32 param_1) {
         index = sub_0801E8B0(param_1);
         if (index < 0) {
             index = 0;
-            while (gSave.unk118[index] != 0) {
+            while (gSave.kinstoneTypes[index] != 0) {
                 index++;
             }
         }
         if ((u32)index < 0x12) {
-            gSave.unk118[index] = param_1;
-            tmp = gSave.unk12B[index] + 1;
+            gSave.kinstoneTypes[index] = param_1;
+            tmp = gSave.kinstoneAmounts[index] + 1;
             if (tmp > 99) {
                 tmp = 99;
             }
-            gSave.unk12B[index] = tmp;
+            gSave.kinstoneAmounts[index] = tmp;
         }
     }
 }
@@ -794,12 +794,12 @@ void sub_0801E738(u32 param_1) {
 void sub_0801E798(u32 a1) {
     s32 idx = sub_0801E8B0(a1);
     if (idx >= 0) {
-        s32 next = gSave.unk12B[idx] - 1;
+        s32 next = gSave.kinstoneAmounts[idx] - 1;
         if (next <= 0) {
-            gSave.unk118[idx] = 0;
+            gSave.kinstoneTypes[idx] = 0;
             next = 0;
         }
-        gSave.unk12B[idx] = next;
+        gSave.kinstoneAmounts[idx] = next;
     }
 }
 
@@ -808,7 +808,7 @@ u32 sub_0801E7D0(u32 a1) {
     if (tmp < 0) {
         return 0;
     }
-    return gSave.unk12B[tmp];
+    return gSave.kinstoneAmounts[tmp];
 }
 
 u32 CheckKinstoneFused(u32 kinstoneId) {
@@ -830,18 +830,18 @@ void sub_0801E82C(void) {
     u32 r5;
 
     for (r5 = 0; r5 < 0x13; r5++) {
-        if (gSave.unk12B[r5] == 0) {
-            gSave.unk118[r5] = gSave.unk12B[r5];
+        if (gSave.kinstoneAmounts[r5] == 0) {
+            gSave.kinstoneTypes[r5] = gSave.kinstoneAmounts[r5];
         }
     }
 
-    gSave.unk118[0x12] = 0;
-    gSave.unk12B[0x12] = 0;
+    gSave.kinstoneTypes[0x12] = 0;
+    gSave.kinstoneAmounts[0x12] = 0;
 
     for (r5 = 0; r5 < 0x12; r5++) {
-        if ((gSave.unk118[r5] - 0x65) > 0x10) {
-            MemCopy(&gSave.unk118[r5 + 1], &gSave.unk118[r5], 0x12 - r5);
-            MemCopy(&gSave.unk12B[r5 + 1], &gSave.unk12B[r5], 0x12 - r5);
+        if ((gSave.kinstoneTypes[r5] - 0x65) > 0x10) {
+            MemCopy(&gSave.kinstoneTypes[r5 + 1], &gSave.kinstoneTypes[r5], 0x12 - r5);
+            MemCopy(&gSave.kinstoneAmounts[r5 + 1], &gSave.kinstoneAmounts[r5], 0x12 - r5);
         }
     }
 #else
@@ -852,7 +852,7 @@ void sub_0801E82C(void) {
     new_var = 4;
     r1 = &gSave.inventory[34];
     r5 = 0;
-    r2 = gSave.unk118;
+    r2 = gSave.kinstoneTypes;
 code0_0:
     r0 = r2[0x13];
     r3 = &r1[4];
@@ -893,7 +893,7 @@ s32 sub_0801E8B0(u32 idx) {
     u32 i;
 
     for (i = 0; i < 18; ++i) {
-        if (idx == gSave.unk118[i])
+        if (idx == gSave.kinstoneTypes[i])
             return i;
     }
     return -1;

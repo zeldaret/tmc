@@ -665,7 +665,7 @@ void sub_080A5594(void) {
         iVar5 = 0;
         if (GetInventoryValue(ITEM_KINSTONE_BAG) != 0) {
             for (i = 0; i < 0x13; i++) {
-                iVar5 += gSave.unk12B[i];
+                iVar5 += gSave.kinstoneAmounts[i];
             }
 
             if (iVar5 >= 0x50) {
@@ -1299,11 +1299,11 @@ void sub_080A6044(void) {
         gOamCmd._6 = 0;
         uVar4 = 0;
         uVar2 = 0;
-        uVar1 = gSave.unk118[0];
+        uVar1 = gSave.kinstoneTypes[0];
         while (uVar1 != 0) {
             gOamCmd.x = (uVar4 & 3) * 0x30 + 0x2b;
             gOamCmd.y = (uVar4 >> 2) * 0x24 + 0x34;
-            uVar3 = gSave.unk12B[uVar2];
+            uVar3 = gSave.kinstoneAmounts[uVar2];
             gMenu.column_idx = 0;
             sub_080A42E0(uVar1, uVar3);
             uVar4++;
@@ -1314,7 +1314,7 @@ void sub_080A6044(void) {
             if (0x11 < uVar2) {
                 return;
             }
-            uVar1 = gSave.unk118[uVar2];
+            uVar1 = gSave.kinstoneTypes[uVar2];
         }
     }
 }

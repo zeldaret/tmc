@@ -1090,7 +1090,7 @@ bool32 sub_080782C0(void) {
     }
     if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
         sub_0801E738(0);
-        if (gSave.unk12B[0] != 0) {
+        if (gSave.kinstoneAmounts[0] != 0) {
             gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4[3];
             *(u8*)(*(int*)(gUnk_03003DF0.unk_4 + 8) + 0x39) = 2;
             gPlayerState.queued_action = PLAYER_08070E9C;

@@ -86,7 +86,7 @@ const ScreenTransitionData gUnk_08128024[] = {
 u32 sub_080A3B48(void) {
     u32 index;
     for (index = 0; index <= 0x12; index++) {
-        if (gSave.unk12B[index] == 0) {
+        if (gSave.kinstoneAmounts[index] == 0) {
             break;
         }
     }
@@ -206,7 +206,7 @@ void KinstoneMenu_Type1(void) {
         case A_BUTTON:
             if (gMenu.column_idx == 2) {
                 tmp3 = gGenericMenu.unk10.i / 0x10000;
-                gGenericMenu.unk2a = gSave.unk118[tmp3];
+                gGenericMenu.unk2a = gSave.kinstoneTypes[tmp3];
                 SetMenuType(3);
             }
             break;
@@ -448,7 +448,7 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
         gOamCmd.x = ((gSineTable[(uVar1 + 0x40) & 0xff] * 0x42) / 0x100) - 0x10;
         iVar2 = gKinstoneMenu.unk10.WORD / 0x10000 + i;
         if (iVar2 >= 0) {
-            uVar3 = gSave.unk12B[iVar2];
+            uVar3 = gSave.kinstoneAmounts[iVar2];
             if (i == 0) {
                 switch (gMenu.column_idx) {
                     case 3:
@@ -460,7 +460,7 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
                 }
             }
             if (0 < uVar3) {
-                sub_080A42E0(gSave.unk118[iVar2], uVar3);
+                sub_080A42E0(gSave.kinstoneTypes[iVar2], uVar3);
             }
         }
     }
