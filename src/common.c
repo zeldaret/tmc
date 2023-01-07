@@ -751,13 +751,13 @@ void sub_0801E6C8(u32 kinstoneId) {
     u32 index;
     if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
-            if (kinstoneId == gSave.unk1C1[index]) {
-                gSave.unk1C1[index] = 0xf1;
+            if (kinstoneId == gSave.fuserOffers[index]) {
+                gSave.fuserOffers[index] = 0xf1;
             }
         }
         tmp = sub_08002632(gFuseInfo.ent);
-        if ((tmp - 1 < 0x7f) && (gSave.unk1C1[tmp] == 0xf1)) {
-            gSave.unk1C1[tmp] = 0xf2;
+        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == 0xf1)) {
+            gSave.fuserOffers[tmp] = 0xf2;
         }
         for (index = 0; index < 0x20; index++) {
             if (kinstoneId == gUnk_03003DF0.array[index].unk_3) {
@@ -982,8 +982,8 @@ u32 sub_0801E99C(Entity* entity) {
     if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
         return 0;
     }
-    offeredFusion = gSave.unk1C1[fuserId];
-    fuserProgress = gSave.unk141[fuserId];
+    offeredFusion = gSave.fuserOffers[fuserId];
+    fuserProgress = gSave.fuserProgress[fuserId];
     fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
@@ -1013,8 +1013,8 @@ u32 sub_0801E99C(Entity* entity) {
         }
         offeredFusion = 0xF1; // already completed, try next fusion in the list
     }
-    gSave.unk1C1[fuserId] = offeredFusion;
-    gSave.unk141[fuserId] = fuserProgress;
+    gSave.fuserOffers[fuserId] = offeredFusion;
+    gSave.fuserProgress[fuserId] = fuserProgress;
     randomMood = Random();
     fuserStability = fuserData[1];
     if (fuserStability <= randomMood % 100) {

@@ -113,7 +113,7 @@ void sub_0806E65C(Entity* this) {
 void Cucco_ShowMessage(Entity* this) {
     u32 val = 0;
     u32 index = sub_08002632(this);
-    if (gSave.unk1C1[index] == 0xf3) {
+    if (gSave.fuserOffers[index] == 0xf3) {
         val = 1;
     }
 

@@ -60,8 +60,8 @@ typedef struct {
     /*0x117*/ u8 fusedKinstoneCount;
     /*0x118*/ u8 unk118[0x13]; // TODO also related to kinstones
     /*0x12B*/ u8 unk12B[0x16]; // TODO also related to kinstones
-    /*0x141*/ u8 unk141[128];  // TODO sub_08064F28 and also the goddesses, indexed by sub_08002632
-    /*0x1C1*/ u8 unk1C1[128];  //  TODO also related to kinstones, see sub_0801E6C8 0x80 available kinstone fusions?
+    /*0x141*/ u8 fuserProgress[128]; // indexed by fuser id, incremented after fusion
+    /*0x1C1*/ u8 fuserOffers[128];   // available kinstone fusion for each fuser
     /*0x241*/ u8 fusedKinstones[13]; /**< Bitfield for fused kinstones. @see CheckKinstoneFused */
     /*0x24E*/ u8 unk24E[14];         // TODO something else with kinstones @see sub_0801E810
     /*0x25C*/ u8 flags[0x200];       /**< Flags. */

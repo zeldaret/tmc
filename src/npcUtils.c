@@ -355,7 +355,7 @@ u32 UpdateFuseInteraction(Entity* ent) {
 void sub_0806F188(Entity* ent) {
     u32 idx = sub_08002632(ent);
     if (idx != 0)
-        gSave.unk1C1[idx] = 0xF3;
+        gSave.fuserOffers[idx] = 0xF3;
 }
 
 void ShowNPCDialogue(Entity* ent, const Dialog* dia) {

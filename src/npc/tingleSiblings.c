@@ -134,7 +134,7 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     roomFlag = gUnk_0810FC50[this->type];
     if (CheckRoomFlag(roomFlag) == 0) {
-        bVar2 = gSave.unk141[sub_08002632(this)];
+        bVar2 = gSave.fuserProgress[sub_08002632(this)];
         if (bVar2 >= 2) {
             uVar5 = 3;
         } else {
