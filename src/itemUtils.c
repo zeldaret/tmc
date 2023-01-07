@@ -508,7 +508,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     return ITEM_NONE;
 }
 
-extern u8 gUnk_080FE1DD[];
+extern u8 gUnk_080FE1DD[3][0x40];
 u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
     u32 adjustedParam = itemParameter;
     Entity* itemEntity;
@@ -552,7 +552,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
             if (itemId != ITEM_KINSTONE) {
                 adjustedParam = itemId - ITEM_KINSTONE_RED;
                 rand = (Random() & 0x3f);
-                adjustedParam = gUnk_080FE1DD[(rand + adjustedParam * 0x40)];
+                adjustedParam = gUnk_080FE1DD[adjustedParam][rand];
                 if (adjustedParam == 0) {
                     itemId = ITEM_NONE;
                 } else {
