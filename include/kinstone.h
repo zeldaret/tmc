@@ -23,13 +23,13 @@ extern FuseInfo gFuseInfo;
 
 typedef struct {
     u8 objPalette;
-    u8 unk1;
-    u8 unk2;
+    u8 gfxOffsetPiece;
+    u8 gfxOffsetFull;
     u8 subtask; // SUBTASK_WORLDEVENT or 0
     u8 worldEventId;
-    u8 unk5;
-    u8 unk6;
-    u8 unk7; // TODO flag if it shows a map hint?
+    u8 shape;
+    u8 bubbleIcon;
+    u8 mapMarkerIcon; // 0 for no map marker
 } KinstoneWorldEvent;
 // Indexed by kinstoneId
 extern const KinstoneWorldEvent gKinstoneWorldEvents[];

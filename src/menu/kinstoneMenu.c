@@ -265,8 +265,8 @@ void KinstoneMenu_Type3_Overlay0(void) {
 }
 
 void KinstoneMenu_Type3_Overlay1(void) {
-    u32 temp = gKinstoneWorldEvents[gKinstoneMenu.unk2a].unk5;
-    if (temp != gKinstoneWorldEvents[gFuseInfo.kinstoneId].unk5) {
+    u32 temp = gKinstoneWorldEvents[gKinstoneMenu.unk2a].shape;
+    if (temp != gKinstoneWorldEvents[gFuseInfo.kinstoneId].shape) {
         SoundReq(SFX_ITEM_SHIELD_BOUNCE);
         SetMenuType(4);
     } else {
@@ -517,9 +517,9 @@ void sub_080A42E0(u32 kinstoneId, u32 param_2) {
     const KinstoneWorldEvent* ptr = &gKinstoneWorldEvents[kinstoneId];
 
     if (param_2 == 0xff) {
-        uVar1 = ptr->unk2;
+        uVar1 = ptr->gfxOffsetFull;
     } else {
-        uVar1 = ptr->unk1;
+        uVar1 = ptr->gfxOffsetPiece;
     }
     iVar4 = sub_080A43A8(uVar1);
     if ((param_2 != 0) && (param_2 != 0xff)) {

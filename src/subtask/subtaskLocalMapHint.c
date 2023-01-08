@@ -38,7 +38,7 @@ void sub_080A6B04(void) {
     sub_080A4DB8(6);
     ptr = &gKinstoneWorldEvents[gFuseInfo.kinstoneId];
     ptr2 = &gWorldEvents[ptr->worldEventId];
-    bVar1 = ptr->unk7;
+    bVar1 = ptr->mapMarkerIcon;
     uVar3 = ptr2->_c;
     uVar4 = ptr2->_e;
     uVar2 = sub_080A6A80(uVar3, uVar4)->_4;

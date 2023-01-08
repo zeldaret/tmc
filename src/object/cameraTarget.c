@@ -133,7 +133,7 @@ void CameraTarget_Action2(Entity* this) {
                 bVar2 = this->type2;
             }
             ptr = gKinstoneWorldEvents + bVar2;
-            bVar1 = ptr->unk6;
+            bVar1 = ptr->bubbleIcon;
             bVar3 = bVar1 & 1;
             this->palette.b.b0 = bVar3;
             temp = gUnk_0811F744[bVar1] < 0;
