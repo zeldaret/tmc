@@ -183,11 +183,12 @@ void sub_0806265C(Entity*, ScriptExecutionContext*);
 void sub_0806252C(Entity*);
 
 typedef struct {
-    u16 unk_0; /* u16 */
-    u16 unk_2; /* u16 */
-    u16 unk_4; /* u16 */
-    u8 unk_6;
-    u8 unk_7;
+    u16 x;
+    u16 y;
+    u16 z;
+    u8 framestate;
+    u8 animationState : 6;
+    u8 collisionLayer : 2;
 } KidHeapItem;
 
 #define KID_HEAP_COUNT 0x14
@@ -318,45 +319,86 @@ void sub_08062500(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this)) {
+void sub_0806252C(Entity* this) {
     s16 sVar1;
     s16 sVar2;
     u16 uVar3;
     u8 uVar4;
-    s16 r0;
     s16 sVar5;
     s16 sVar6;
     u8 bVar7;
-    KidHeapItem* heapObj;
+    KidHeapItem* item;
     s32 loopVar;
-    s32 iVar10;
-    s32 iVar11;
+    FORCE_REGISTER(u32 r5, r5);
+    FORCE_REGISTER(u32 r6, r6);
+    FORCE_REGISTER(u32 r0, r0);
+    FORCE_REGISTER(u32 r1, r1);
+    FORCE_REGISTER(u32 r2, r2);
+    u32 r3;
+    FORCE_REGISTER(s32 r8, r8);
+    s32 y;
+    s32 r10;
+    FORCE_REGISTER(s32 x, r12);
 
-    uVar4 = gPlayerState.framestate;
-    uVar3 = gPlayerEntity.z.HALF.HI;
-    sVar2 = gPlayerEntity.y.HALF.HI;
-    sVar1 = gPlayerEntity.x.HALF.HI;
-    r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
-    sVar5 = FixedDiv(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, KID_HEAP_COUNT);
-    sVar6 = FixedDiv(r0, KID_HEAP_COUNT);
-    heapObj = (KidHeapItem*)this->myHeap;
-    iVar10 = 0;
-    iVar11 = 0;
+    r1 = gPlayerEntity.x.HALF_U.HI;
+    r3 = 0xffff0000;
+    r0 = r3;
+    r0 &= r5;
+    r0 |= r1;
 
-    for (loopVar = KID_HEAP_COUNT - 1; loopVar > -1; loopVar--) {
-        heapObj->unk_0 = sVar1 - (s16)((u32)iVar11 >> 8);
-        heapObj->unk_2 = sVar2 - (s16)((u32)iVar10 >> 8);
-        heapObj->unk_4 = uVar3;
-        heapObj->unk_6 = uVar4;
-        bVar7 = this->animationState & 0x3f;
-        heapObj->unk_7 = (heapObj->unk_7 & 0xc0) | bVar7;
-        heapObj->unk_7 = bVar7 | this->collisionLayer << 6;
-        heapObj = heapObj + 1;
-        iVar10 = iVar10 + sVar6;
-        iVar11 = iVar11 + sVar5;
+    r1 = gPlayerEntity.y.HALF_U.HI;
+    r1 <<= 0x10;
+    r2 = 0x0000ffff;
+    r0 &= r2;
+    r0 |= r1;
+    r5 = r0;
+
+    r0 = gPlayerEntity.z.HALF_U.HI;
+    r3 &= r6;
+    r3 |= r0;
+
+    r0 = gPlayerState.framestate;
+    r0 <<= 0x10;
+    r2 = 0xff00ffff;
+    r2 &= r3;
+    r2 |= r0;
+
+    r1 = gPlayerEntity.animationState;
+    r0 = 0x3f;
+    r1 &= r0;
+    r1 <<= 0x18;
+    r0 = 0xc0ffffff;
+    r0 &= r2;
+    r0 |= r1;
+
+    r1 = gPlayerEntity.collisionLayer;
+    r1 <<= 0x1e;
+    r2 = 0x3fffffff;
+    r0 &= r2;
+    r0 |= r1;
+    r6 = r0;
+
+    r10 = r0 = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
+    r8 = r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+
+    r10 = FixedDiv(r10, KID_HEAP_COUNT);
+    r8 = FixedDiv(r8, KID_HEAP_COUNT);
+    item = (KidHeapItem*)this->myHeap;
+    y = 0;
+    x = 0;
+
+    for (loopVar = KID_HEAP_COUNT - 1; loopVar >= 0; loopVar--) {
+        item->x = r5 - (x >> 8);
+        item->y = (r5 >> 0x10) - (y >> 8);
+        item->z = r6;
+        item->framestate = r6 >> 0x10;
+        item->animationState = this->animationState & 0x3f;
+        item->collisionLayer = this->collisionLayer;
+        item++;
+        y = y + r8;
+        x = x + r10;
     }
 }
-END_NONMATCH
 
 void sub_08062634(Entity* this) {
     u32 a = this->type2;
