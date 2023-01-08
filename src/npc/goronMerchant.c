@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "save.h"
 #include "npc.h"
+#include "item.h"
 
 static u32 GoronMerchant_GetSalePrice(Entity*);
 
@@ -134,7 +135,7 @@ void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* contex
     if (salePrice <= gSave.stats.rupees) {
         if (GetAmountInKinstoneBag(gRoomVars.shopItemType2) < 99) {
             ModRupees(-salePrice);
-            InitItemGetSequence(0x5c, gRoomVars.shopItemType2, 0);
+            InitItemGetSequence(ITEM_KINSTONE, gRoomVars.shopItemType2, 0);
             gRoomVars.shopItemType = 0;
             gRoomVars.shopItemType2 = 0;
             context->condition = 1;
