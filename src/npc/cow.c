@@ -50,7 +50,7 @@ void sub_08068FC0(Entity* ent) {
         *(u16*)&ent->field_0x68 = var1;
         ent->field_0x6a.HWORD = r2;
     }
-    ent->field_0x6c.HALF.LO = sub_0801E99C(ent);
+    ent->field_0x6c.HALF.LO = GetFusionToOffer(ent);
 
     InitAnimationForceUpdate(ent, ent->animationState + 4);
 }

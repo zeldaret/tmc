@@ -105,7 +105,7 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
 }
 
 u32 sub_08069480(Entity* this) {
-    return (u8)sub_0801E99C(this);
+    return (u8)GetFusionToOffer(this);
 }
 
 void sub_0806948C(Entity* this, ScriptExecutionContext* context) {

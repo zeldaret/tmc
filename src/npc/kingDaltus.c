@@ -39,7 +39,7 @@ void KingDaltus(Entity* this) {
 void sub_08066654(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
     InitAnimationForceUpdate(this, 2);
 }
@@ -72,7 +72,7 @@ void sub_080666DC(Entity* this) {
 void sub_080666E4(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     sub_0807DD50(this);
 }
 

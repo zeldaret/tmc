@@ -899,8 +899,8 @@ s32 GetIndexInKinstoneBag(u32 kinstoneId) {
     return -1;
 }
 
-// Check conditions, something with kinstones
-void sub_0801E8D4(void) {
+// For example if a chest from a fusion is opened, hide the chest marker
+void UpdateVisibleFusionMapMarkers(void) {
     u32 kinstoneId;
     for (kinstoneId = 10; kinstoneId <= 100; ++kinstoneId) {
         if (CheckKinstoneFused(kinstoneId) && !CheckFusionMapMarkerDisabled(kinstoneId)) {
@@ -969,7 +969,7 @@ void sub_0801E8D4(void) {
 
 extern u8* gUnk_08001DCC[];
 
-u32 sub_0801E99C(Entity* entity) {
+u32 GetFusionToOffer(Entity* entity) {
     u8* fuserData;
     u32 fuserId;
     u32 offeredFusion;

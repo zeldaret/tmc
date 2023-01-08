@@ -30,7 +30,7 @@ void Farore(Entity* this) {
 }
 
 void sub_08064A28(Entity* this) {
-    u32 tmp = sub_0801E99C(this);
+    u32 tmp = GetFusionToOffer(this);
     if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
         tmp = 0;
     }

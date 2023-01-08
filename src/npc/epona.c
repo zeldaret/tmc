@@ -27,7 +27,7 @@ void sub_080659B8(Entity* this) {
     this->spriteSettings.draw = 1;
     this->animationState = 6;
     this->field_0x68.HALF.HI = -1;
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     InitAnimationForceUpdate(this, this->animationState / 2);
 }
 

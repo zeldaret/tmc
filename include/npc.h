@@ -86,7 +86,7 @@ void CollideFollowers(void);
 // TODO move?
 void sub_08078784(Entity* ent, u32 arg1);
 u32 sub_0806F5A4(u32);
-u32 sub_0801E99C(Entity*);
+u32 GetFusionToOffer(Entity*);
 void sub_08078778(Entity*);
 void sub_0807000C(Entity*);
 void sub_080787A8(Entity*, u32);

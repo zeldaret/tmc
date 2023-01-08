@@ -68,7 +68,7 @@ void sub_08064DE4(Entity* this) {
         case 2:
             if (UpdateFuseInteraction(this)) {
                 this->action = 1;
-                sub_0801E99C(this);
+                GetFusionToOffer(this);
             }
             break;
     }
@@ -84,7 +84,7 @@ void sub_08064DE4(Entity* this) {
 }
 
 void sub_08064EA4(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     switch (this->type) {
         case 0:
             if ((CheckKinstoneFused(KINSTONE_59) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {

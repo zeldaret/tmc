@@ -60,7 +60,7 @@ void sub_0806BCC0(Entity* this) {
 }
 
 void sub_0806BCD4(Entity* this) {
-    sub_08078784(this, sub_0801E99C(this));
+    sub_08078784(this, GetFusionToOffer(this));
 }
 
 void sub_0806BCE8(Entity* this) {

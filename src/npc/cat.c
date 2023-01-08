@@ -129,7 +129,7 @@ void sub_080677EC(Entity* this) {
         this->spriteSettings.flipX = 0;
     }
 
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     this->hitbox = (Hitbox*)&gUnk_08110EF0;
     uVar2 = sub_0805ACC0(this);
     if (uVar2 == 0) {
