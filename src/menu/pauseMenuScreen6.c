@@ -205,7 +205,7 @@ void sub_080A68D4(void) {
     }
 
     for (i = 10; i <= 100; i++) {
-        if (CheckKinstoneFused(i) && !sub_0801E810(i)) {
+        if (CheckKinstoneFused(i) && !CheckFusionMapMarkerDisabled(i)) {
             uVar4 = gKinstoneWorldEvents[i].unk7;
             ptr = &gWorldEvents[gKinstoneWorldEvents[i].worldEventId];
             sub_080A698C(ptr->_c, ptr->_e, DRAW_DIRECT_SPRITE_INDEX, uVar4 + 100);

@@ -327,7 +327,7 @@ void CollideFollowers(void) {
 }
 
 void sub_0806F118(Entity* ent) {
-    u32 idx = sub_08002632(ent);
+    u32 idx = GetFuserId(ent);
     NPCData* data = gUnk_08001A7C[idx];
     sub_0801DFB4(ent, data->textIndex, data->_2, data->_4);
     gPlayerState.controlMode = CONTROL_DISABLED;
@@ -353,7 +353,7 @@ u32 UpdateFuseInteraction(Entity* ent) {
 }
 
 void sub_0806F188(Entity* ent) {
-    u32 idx = sub_08002632(ent);
+    u32 idx = GetFuserId(ent);
     if (idx != 0)
         gSave.fuserOffers[idx] = 0xF3;
 }

@@ -1822,7 +1822,7 @@ void sub_0807F634(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F650(Entity* entity, ScriptExecutionContext* context) {
-    u32 p = sub_08002632(entity);
+    u32 p = GetFuserId(entity);
     sub_0801DFB4(entity, gUnk_08001A7C[p][0], gUnk_08001A7C[p][1], gUnk_08001A7C[p][2]);
     gPlayerState.controlMode = CONTROL_DISABLED;
 }

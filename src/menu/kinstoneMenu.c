@@ -27,7 +27,7 @@ extern u32 sub_08000E44(u32);
 extern void sub_080A3B74(void);
 extern u32 sub_080A3B48(void);
 extern void sub_0805ECEC(u32, u32, u32, u32);
-extern void sub_0801E6C8(u32);
+extern void NotifyFusersOnFusionDone(u32);
 extern void RemoveKinstoneFromBag(u32);
 extern WStruct* sub_0805F2C8(void);
 extern void sub_0805F300(WStruct*);
@@ -608,7 +608,7 @@ u32 sub_080A4418(u32 param_1, u32 param_2) {
 void KinstoneMenu_080A4468(void) {
     gUnk_03003DF0.unk_2 = 0;
     gUnk_03003DF0.unk_4[3] = 0;
-    sub_0801E6C8(gFuseInfo.kinstoneId);
+    NotifyFusersOnFusionDone(gFuseInfo.kinstoneId);
     RemoveKinstoneFromBag(gKinstoneMenu.unk2a);
 }
 
@@ -625,9 +625,9 @@ u32 KinstoneMenu_080A4494(void) {
         psVar1->unk1 = 0;
         sub_080A44E0(psVar1, gSave.name, 0x80);
 #if NON_MATCHING
-        ret = sub_080A44E0(psVar1, sub_08002632(gFuseInfo.ent) >> 0x20, 0xa0);
+        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.ent) >> 0x20, 0xa0);
 #else
-        sub_08002632(gFuseInfo.ent);
+        GetFuserId(gFuseInfo.ent);
         asm("" : "=r"(r1));
         ret = sub_080A44E0(psVar1, r1, 0xa0);
 #endif
