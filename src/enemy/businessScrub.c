@@ -28,7 +28,7 @@ void sub_0802922C(Entity*);
 void sub_0802925C(Entity*);
 
 extern const struct SalesOffering gUnk_080CC954[];
-extern const u8 gUnk_080CC9C0[];
+extern const u8 kinstoneTypes[];
 extern void (*const BusinessScrub_Functions[])(Entity*);
 extern void (*const gUnk_080CC9E0[])(Entity*);
 extern const u8 gUnk_080CCA04[];
@@ -258,7 +258,7 @@ void sub_08028CE8(Entity* this) {
                     case 0:
                         subtype = offer->field_0x9;
                         if (subtype == 0xff) {
-                            subtype = gUnk_080CC9C0[Random() & 7];
+                            subtype = kinstoneTypes[Random() & 7];
                         }
 
                         CreateItemEntity(offer->offeredItem, subtype, 0);
@@ -577,17 +577,7 @@ const struct SalesOffering gUnk_080CC954[] = {
 #endif
 };
 
-const u8 gUnk_080CC9C0[] = {
-    0x6e,
-    0x6f,
-    0x70,
-    0x71,
-    0x72,
-    0x73,
-    0x74,
-    0x75,
-
-};
+const u8 kinstoneTypes[] = { 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75 };
 
 void (*const BusinessScrub_Functions[])(Entity*) = {
     BusinessScrub_OnTick,
