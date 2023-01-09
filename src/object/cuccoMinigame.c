@@ -33,8 +33,8 @@ typedef struct {
     u16 numCuccos;
 } CuccoMinigameGoal;
 
-const CuccoMinigameGoal goalData[10] = { { 25, 2}, { 25, 3}, { 30, 4}, { 45, 5}, { 50, 5},
-                                         { 45, 5}, { 50, 6}, { 60, 7}, { 55, 2}, { 55, 3} };
+const CuccoMinigameGoal goalData[10] = { { 25, 2 }, { 25, 3 }, { 30, 4 }, { 45, 5 }, { 50, 5 },
+                                         { 45, 5 }, { 50, 6 }, { 60, 7 }, { 55, 2 }, { 55, 3 } };
 
 static const u16 pCuccoMinigame_MinigameCuccoDefs[][30] = {
     { 0x0001, 0x02E9, 0x0318, 0x0001, 0x0280, 0x0380, 0x0002, 0x0277, 0x0314, 0x0001,
@@ -78,16 +78,11 @@ typedef struct {
     u8 unk3;
 } CuccoMinigamePrizeData;
 
-static const CuccoMinigamePrizeData prizeData[10] = { { ITEM_SHELLS,      10,   1, 0 },
-                                                      { ITEM_SHELLS,      10,   1, 0 },
-                                                      { ITEM_SHELLS,      20,   1, 0 },
-                                                      { ITEM_SHELLS,      20,   1, 0 },
-                                                      { ITEM_SHELLS,      30,   1, 0 },
-                                                      { ITEM_SHELLS,      30,   1, 0 },
-                                                      { ITEM_KINSTONE,    0x6E, 1, 0 },
-                                                      { ITEM_KINSTONE,    0x6F, 1, 0 },
-                                                      { ITEM_KINSTONE,    0x70, 1, 0 },
-                                                      { ITEM_HEART_PIECE, 0,    1, 0 } };
+static const CuccoMinigamePrizeData prizeData[10] = { { ITEM_SHELLS,   10,   1, 0 }, { ITEM_SHELLS,      10,   1, 0 },
+                                                      { ITEM_SHELLS,   20,   1, 0 }, { ITEM_SHELLS,      20,   1, 0 },
+                                                      { ITEM_SHELLS,   30,   1, 0 }, { ITEM_SHELLS,      30,   1, 0 },
+                                                      { ITEM_KINSTONE, 0x6E, 1, 0 }, { ITEM_KINSTONE,    0x6F, 1, 0 },
+                                                      { ITEM_KINSTONE, 0x70, 1, 0 }, { ITEM_HEART_PIECE, 0,    1, 0 } };
 
 static const u16 CuccoMinigame_Sounds[] = { SFX_VO_CUCCO5, SFX_VO_CUCCO_CALL };
 
