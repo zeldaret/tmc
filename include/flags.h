@@ -396,14 +396,14 @@ typedef enum {
     KAKERA_TAKARA_X,              /* 200 Rupee Chest Open in Crenel base */
     KAKERA_TAKARA_Y,              /* 200 Shell Chest Open in Wind Ruins Tektite Room */
     KAKERA_TAKARA_Z,              
-    MACHI_02_HEISHI               /* Showed Spin Attack to Westside Soldier in Hyrule Town */_TALK,         /* Spoke to Westside Soldier in Hyrule Town */
+    MACHI_02_HEISHI_TALK,         /* Spoke to Westside Soldier in Hyrule Town */
     MACHI00_00,                   /* Flipped Minish Pot in Hyrule Town, Top of Library */
     MACHI00_02,                   /* Un-Flipped Minish Pot in Hyrule Town, Top of School */
     MACHI00_03,                   /* Pushed box in the minish cat path in Hyrule Town */
     MACHI_00_T00,                 /* Red > Kinstone Chest Open in Hyrule Town, Happy Hearth Balcony */
     MACHI_00_T01,                 /* Opened Red W Kinstone Chest in Hyrule Town, Top of School */
     MACHI_01_DEMO,                /* Lolly and Candy Moved in Hyrule Town, Festival */
-    MACHI_02_HEISHI,
+    MACHI_02_HEISHI,              /* Showed Spin Attack to Westside Soldier in Hyrule Town */
     MACHI_02_DOG, /* Talk to dog as minish       */
     MACHI_07_BELL,                /* Obtained Heart Piece in Bell in Hyrule Town */
     SHOP05_OPEN,                  /* Figurine House Open in Hyrule Town */
@@ -659,8 +659,8 @@ typedef enum {
     KOBITOYAMA_00_R05,            /* Hidden Green [ Kinstone Obtained in Melari's Mine */
     KOBITOYAMA_00_R06,            /* Hidden Red Rupee Obtained in Melari's Mine */
     KOBITOYAMA_00_R07,            /* Hidden Red W Kinstone Obtained in Melari's Mine */
-    KOBITO_MORI_00_H0             /* Obtained Heart Piece in Minish Village */0,           
-    KOBITO_MORI_00_H0,
+    KOBITO_MORI_00_H00,           
+    KOBITO_MORI_00_H0,            /* Obtained Heart Piece in Minish Village */
     CAFE_01_CAP_0,                /* Ezlo talks after Pot Minish Cutscene in Hyrule Town */
     BILL_00_CAP_0,                /* Ezlo talks about Mayor's House in Mayor's House */
     BILL_02_CAP_0,                /* Ezlo talks about books in Hyrule Town Library 2F, bottom right bookshelf */
@@ -1364,8 +1364,8 @@ typedef enum {
     LV4_10_T0,                    /* Lantern Chest Open in Temple of Droplets Big Blue Chuchu */
     LV4_10_BOSSDIE,               /* Defeated Big Blue Chuchu in Temple of Droplets Big Blue Chuchu */
     LV4_11_00,                    /* Ice Block Melts in Temple of Droplets Blue Chuchu Key */
-    LV4_11_RAY                    /* Lever Turned in Blue Chuchu Key Room in Temple of Droplets West Hole to Boss Key */_SP,                /* Thawing Zone Active in Temple of Droplets Blue Chuchu Key */
-    LV4_11_RAY,
+    LV4_11_RAY_SP,                /* Thawing Zone Active in Temple of Droplets Blue Chuchu Key */
+    LV4_11_RAY,                   /* Lever Turned in Blue Chuchu Key Room in Temple of Droplets West Hole to Boss Key */
     LV4_11_T0,                    /* Obtained Key in Temple of Droplets Blue Chuchu Key Lever */
     LV4_20_00,                    
     LV4_20_RAY,                   /* Turned Lever in Temple of Droplets Boss Key Room */
