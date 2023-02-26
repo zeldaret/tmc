@@ -20,6 +20,10 @@ eu jp usa demo_jp demo_usa:
 custom: tools
 	@$(MAKE) GAME_VERSION=USA CUSTOM=1
 
+.PHONY: extract_assets
+extract_assets:
+	@$(MAKE) -f GBA.mk extract_assets
+
 .PHONY: tools
 tools: tools/bin
 
