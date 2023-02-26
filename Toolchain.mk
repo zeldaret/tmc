@@ -2,21 +2,27 @@
 # compiler
 # ========
 
+ifndef TOOLCHAIN_PATH
 ifneq (,$(shell which arm-none-eabi-gcc))
-PREFIX :=
+TOOLCHAIN_PATH :=
 else ifdef DEVKITARM
-PREFIX := $(DEVKITARM)/bin/
+TOOLCHAIN_PATH := $(DEVKITARM)/bin/
 else
 $(error arm-none-eabi-gcc not found, please install (devkitPro supported))
 endif
+endif
 
+# ensure trailing slash
+ifneq ($(TOOLCHAIN_PATH),)
+override TOOLCHAIN_PATH:=$(TOOLCHAIN_PATH)/
+endif
 
-CC := $(PREFIX)arm-none-eabi-gcc
+CC := $(TOOLCHAIN_PATH)arm-none-eabi-gcc
 CPP := $(CC) -E
-CXX := $(PREFIX)arm-none-eabi-g++
-AS := $(PREFIX)arm-none-eabi-as
-LD := $(PREFIX)arm-none-eabi-ld
-OBJCOPY := $(PREFIX)arm-none-eabi-objcopy
+CXX := $(TOOLCHAIN_PATH)arm-none-eabi-g++
+AS := $(TOOLCHAIN_PATH)arm-none-eabi-as
+LD := $(TOOLCHAIN_PATH)arm-none-eabi-ld
+OBJCOPY := $(TOOLCHAIN_PATH)arm-none-eabi-objcopy
 
 # ============
 # custom tools
