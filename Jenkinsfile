@@ -12,7 +12,7 @@ pipeline {
                 sh 'cp /usr/local/etc/roms/tmc.demo.jp.gba baserom_demo_jp.gba'
                 sh 'cp /usr/local/etc/roms/tmc.jp.gba baserom_jp.gba'
                 sh 'cp /usr/local/etc/roms/tmc.eu.gba baserom_eu.gba'
-                sh 'make setup'
+                sh 'make tools'
             }
         }
         stage('Build') {
