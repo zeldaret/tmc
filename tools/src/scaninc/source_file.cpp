@@ -25,7 +25,7 @@ SourceFileType GetFileType(std::string& path) {
     std::size_t pos = path.find_last_of('.');
 
     if (pos == std::string::npos)
-        fatal_error("no file extension in path \"%s\"\n", path.c_str());
+        fatal_error("no file extension in path \"{}\"\n", path.c_str());
 
     std::string extension = path.substr(pos + 1);
 
@@ -38,7 +38,7 @@ SourceFileType GetFileType(std::string& path) {
     else if (extension == "inc")
         return SourceFileType::Inc;
     else
-        fatal_error("Unrecognized extension \"%s\"\n", extension.c_str());
+        fatal_error("Unrecognized extension \"{}\"\n", extension.c_str());
 
     // Unreachable
     return SourceFileType::Cpp;

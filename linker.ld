@@ -880,7 +880,7 @@ SECTIONS {
         src/gba/m4a.o(.text);
         asm/lib/libagbsyscall.o(.text);
         src/eeprom.o(.text);
-        *libc.a:memcpy.o(.text);
+        libc.a(.text);
         /* handwritten assembly in arm mode */
         asm/src/intr.o(.text);
 
