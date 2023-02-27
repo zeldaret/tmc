@@ -111,7 +111,7 @@ void sub_08065CCC(Entity* this) {
 }
 
 void sub_08065D00(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
 }
 

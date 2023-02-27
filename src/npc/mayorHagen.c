@@ -11,7 +11,7 @@ void MayorHagen(Entity* this) {
         case 0:
             this->action = 1;
             this->field_0x68.HALF.HI = 0;
-            this->field_0x68.HALF.LO = sub_0801E99C(this);
+            this->field_0x68.HALF.LO = GetFusionToOffer(this);
             SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             break;
@@ -44,7 +44,7 @@ void sub_0806CE5C(Entity* this) {
         8,
         16,
     };
-    sub_08078784(this, sub_0801E99C(this));
+    sub_08078784(this, GetFusionToOffer(this));
     sub_08078850(this, 1, 0, gUnk_08113F44);
 }
 

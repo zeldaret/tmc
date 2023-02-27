@@ -73,7 +73,7 @@ void Smith_Head(Entity* this) {
 void sub_080660EC(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08110354)) {
         this->action = 1;
-        this->field_0x68.HALF.LO = sub_0801E99C(this);
+        this->field_0x68.HALF.LO = GetFusionToOffer(this);
         InitAnimationForceUpdate(this, 2);
     }
 }
@@ -109,7 +109,7 @@ void sub_08066178(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08110354)) {
         this->action = 1;
         this->spriteSettings.draw = 1;
-        this->field_0x68.HALF.LO = sub_0801E99C(this);
+        this->field_0x68.HALF.LO = GetFusionToOffer(this);
         sub_0807DD50(this);
     }
 }

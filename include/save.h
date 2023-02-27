@@ -58,12 +58,14 @@ typedef struct {
     /*0x0F2*/ u8 inventory[36];
     /*0x116*/ u8 didAllFusions;
     /*0x117*/ u8 fusedKinstoneCount;
-    /*0x118*/ u8 unk118[0x13]; // TODO also related to kinstones
-    /*0x12B*/ u8 unk12B[0x16]; // TODO also related to kinstones
-    /*0x141*/ u8 unk141[128];  // TODO sub_08064F28 and also the goddesses, indexed by sub_08002632
-    /*0x1C1*/ u8 unk1C1[128];  //  TODO also related to kinstones, see sub_0801E6C8 0x80 available kinstone fusions?
+    /*0x118*/ u8 kinstoneTypes[0x13];   // 0x65-0x75 for each kinstone type present in kinstone bag
+    /*0x12B*/ u8 kinstoneAmounts[0x13]; // amount of each kinstone type above
+    /*0x13E*/ u8 filler13E[3];
+    /*0x141*/ u8 fuserProgress[128]; // indexed by fuser id, incremented after fusion
+    /*0x1C1*/ u8 fuserOffers[128];   // available kinstone fusion for each fuser
     /*0x241*/ u8 fusedKinstones[13]; /**< Bitfield for fused kinstones. @see CheckKinstoneFused */
-    /*0x24E*/ u8 unk24E[14];         // TODO something else with kinstones @see sub_0801E810
+    /*0x24E*/ u8 fusionUnmarked[13]; /**< Bitfield for disabled fusion map markers. @see CheckFusionMapMarkerDisabled */
+    /*0x25B*/ u8 filler25B;
     /*0x25C*/ u8 flags[0x200];       /**< Flags. */
     /*0x45C*/ u8 dungeonKeys[0x10];  // TODO Indexed by dungeon id, keys per dungeon
     /*0x46C*/ u8 dungeonItems[0x10]; // TODO items in the dungeon. 4: compass, 2: big key, 1: small key

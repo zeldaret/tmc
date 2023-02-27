@@ -81,7 +81,7 @@ void sub_0806C85C(Entity* this) {
 void sub_0806C870(Entity* this) {
     u8 bVar1;
 
-    bVar1 = sub_0801E99C(this);
+    bVar1 = GetFusionToOffer(this);
     this->field_0x68.HALF.LO = bVar1;
     sub_08078784(this, this->field_0x68.HALF.LO);
 }

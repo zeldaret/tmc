@@ -206,7 +206,7 @@ void sub_08069B44(Entity* this) {
         this->timer = 30;
         this->animationState = 2;
         this->field_0x6a.HALF.LO = 0xff;
-        this->field_0x74.HALF.LO = sub_0801E99C(this);
+        this->field_0x74.HALF.LO = GetFusionToOffer(this);
         SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
         if ((this->flags & ENT_SCRIPTED) != 0) {

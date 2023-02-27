@@ -15,7 +15,7 @@ void Cucco(Entity* this) {
 
 void Cucco_Init(Entity* this) {
     this->action++;
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
     sub_080787A8(this, this->field_0x68.HALF.LO);
     SetDefaultPriority(this, PRIO_MESSAGE);
     this->subAction = 0;
@@ -112,8 +112,8 @@ void sub_0806E65C(Entity* this) {
 
 void Cucco_ShowMessage(Entity* this) {
     u32 val = 0;
-    u32 index = sub_08002632(this);
-    if (gSave.unk1C1[index] == 0xf3) {
+    u32 index = GetFuserId(this);
+    if (gSave.fuserOffers[index] == 0xf3) {
         val = 1;
     }
 

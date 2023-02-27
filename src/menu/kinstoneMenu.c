@@ -27,8 +27,8 @@ extern u32 sub_08000E44(u32);
 extern void sub_080A3B74(void);
 extern u32 sub_080A3B48(void);
 extern void sub_0805ECEC(u32, u32, u32, u32);
-extern void sub_0801E6C8(u32);
-extern void sub_0801E798(u32);
+extern void NotifyFusersOnFusionDone(u32);
+extern void RemoveKinstoneFromBag(u32);
 extern WStruct* sub_0805F2C8(void);
 extern void sub_0805F300(WStruct*);
 extern u32 sub_0805F76C(u8*, WStruct*);
@@ -86,7 +86,7 @@ const ScreenTransitionData gUnk_08128024[] = {
 u32 sub_080A3B48(void) {
     u32 index;
     for (index = 0; index <= 0x12; index++) {
-        if (gSave.unk12B[index] == 0) {
+        if (gSave.kinstoneAmounts[index] == 0) {
             break;
         }
     }
@@ -151,7 +151,7 @@ void KinstoneMenu_Type0(void) {
     gScreen.bg3.updated = 1;
     KinstoneMenu_080A4528();
     sub_080A4398();
-    sub_0801E738(0);
+    AddKinstoneToBag(0);
     sub_080A70AC((void*)gUnk_081280DC);
     SetMenuType(1);
     SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
@@ -206,7 +206,7 @@ void KinstoneMenu_Type1(void) {
         case A_BUTTON:
             if (gMenu.column_idx == 2) {
                 tmp3 = gGenericMenu.unk10.i / 0x10000;
-                gGenericMenu.unk2a = gSave.unk118[tmp3];
+                gGenericMenu.unk2a = gSave.kinstoneTypes[tmp3];
                 SetMenuType(3);
             }
             break;
@@ -265,8 +265,8 @@ void KinstoneMenu_Type3_Overlay0(void) {
 }
 
 void KinstoneMenu_Type3_Overlay1(void) {
-    u32 temp = gKinstoneWorldEvents[gKinstoneMenu.unk2a].unk5;
-    if (temp != gKinstoneWorldEvents[gFuseInfo.kinstoneId].unk5) {
+    u32 temp = gKinstoneWorldEvents[gKinstoneMenu.unk2a].shape;
+    if (temp != gKinstoneWorldEvents[gFuseInfo.kinstoneId].shape) {
         SoundReq(SFX_ITEM_SHIELD_BOUNCE);
         SetMenuType(4);
     } else {
@@ -448,7 +448,7 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
         gOamCmd.x = ((gSineTable[(uVar1 + 0x40) & 0xff] * 0x42) / 0x100) - 0x10;
         iVar2 = gKinstoneMenu.unk10.WORD / 0x10000 + i;
         if (iVar2 >= 0) {
-            uVar3 = gSave.unk12B[iVar2];
+            uVar3 = gSave.kinstoneAmounts[iVar2];
             if (i == 0) {
                 switch (gMenu.column_idx) {
                     case 3:
@@ -460,7 +460,7 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
                 }
             }
             if (0 < uVar3) {
-                sub_080A42E0(gSave.unk118[iVar2], uVar3);
+                sub_080A42E0(gSave.kinstoneTypes[iVar2], uVar3);
             }
         }
     }
@@ -517,9 +517,9 @@ void sub_080A42E0(u32 kinstoneId, u32 param_2) {
     const KinstoneWorldEvent* ptr = &gKinstoneWorldEvents[kinstoneId];
 
     if (param_2 == 0xff) {
-        uVar1 = ptr->unk2;
+        uVar1 = ptr->gfxOffsetFull;
     } else {
-        uVar1 = ptr->unk1;
+        uVar1 = ptr->gfxOffsetPiece;
     }
     iVar4 = sub_080A43A8(uVar1);
     if ((param_2 != 0) && (param_2 != 0xff)) {
@@ -608,8 +608,8 @@ u32 sub_080A4418(u32 param_1, u32 param_2) {
 void KinstoneMenu_080A4468(void) {
     gUnk_03003DF0.unk_2 = 0;
     gUnk_03003DF0.unk_4[3] = 0;
-    sub_0801E6C8(gFuseInfo.kinstoneId);
-    sub_0801E798(gKinstoneMenu.unk2a);
+    NotifyFusersOnFusionDone(gFuseInfo.kinstoneId);
+    RemoveKinstoneFromBag(gKinstoneMenu.unk2a);
 }
 
 u32 KinstoneMenu_080A4494(void) {
@@ -625,9 +625,9 @@ u32 KinstoneMenu_080A4494(void) {
         psVar1->unk1 = 0;
         sub_080A44E0(psVar1, gSave.name, 0x80);
 #if NON_MATCHING
-        ret = sub_080A44E0(psVar1, sub_08002632(gFuseInfo.ent) >> 0x20, 0xa0);
+        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.ent) >> 0x20, 0xa0);
 #else
-        sub_08002632(gFuseInfo.ent);
+        GetFuserId(gFuseInfo.ent);
         asm("" : "=r"(r1));
         ret = sub_080A44E0(psVar1, r1, 0xa0);
 #endif

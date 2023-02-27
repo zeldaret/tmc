@@ -60,7 +60,7 @@ void sub_08066864(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            this->field_0x68.HALF.LO = sub_0801E99C(this);
+            this->field_0x68.HALF.LO = GetFusionToOffer(this);
             sub_0807DD50(this);
             break;
         case 1:
@@ -82,7 +82,7 @@ void sub_08066864(Entity* this) {
 }
 
 void sub_080668F0(Entity* this) {
-    sub_08078784(this, sub_0801E99C(this));
+    sub_08078784(this, GetFusionToOffer(this));
 }
 
 void sub_08066904(Entity* this) {

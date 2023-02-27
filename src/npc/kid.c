@@ -597,7 +597,7 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08062A48(Entity* this, ScriptExecutionContext* context) {
-    this->field_0x6a.HALF.LO = sub_0801E99C(this);
+    this->field_0x6a.HALF.LO = GetFusionToOffer(this);
     sub_08078784(this, this->field_0x6a.HALF.LO);
 }
 

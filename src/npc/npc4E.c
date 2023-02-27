@@ -83,7 +83,7 @@ u8 sub_0806DA3C(Entity* this) {
         case 8:
         case 9:
         case 10:
-            result = sub_0801E99C(this);
+            result = GetFusionToOffer(this);
             break;
     }
     return result;

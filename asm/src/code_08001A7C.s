@@ -792,8 +792,8 @@ gUnk_0800232E:: @ 0800232E
 gUnk_08002342:: @ 08002342
 	.incbin "code_080011C4/gUnk_08002342.bin"
 
-	non_word_aligned_thumb_func_start sub_08002632
-sub_08002632: @ 0x08002632
+	non_word_aligned_thumb_func_start GetFuserId
+GetFuserId: @ 0x08002632
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _0800269C @ =gUnk_0800232E
 	ldrb r3, [r0, #8]

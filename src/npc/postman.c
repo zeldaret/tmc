@@ -234,7 +234,7 @@ void sub_08060528(Entity* this) {
             this->field_0x68.HALF.HI = 0;
             this->field_0x6a.HWORD = 0;
             this->field_0x6c.HALF.HI = 0;
-            this->field_0x6c.HALF.LO = sub_0801E99C(this);
+            this->field_0x6c.HALF.LO = GetFusionToOffer(this);
             sub_0807DD50(this);
             break;
         case 1:
@@ -293,7 +293,7 @@ void sub_08060528(Entity* this) {
 }
 
 void sub_080606C0(Entity* this) {
-    this->field_0x6c.HALF.LO = sub_0801E99C(this);
+    this->field_0x6c.HALF.LO = GetFusionToOffer(this);
     sub_08078784(this, this->field_0x6c.HALF.LO);
 }
 

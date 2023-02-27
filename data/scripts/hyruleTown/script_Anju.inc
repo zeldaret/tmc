@@ -16,7 +16,7 @@ script_0801015A:
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_080101A6
-	Call sub_080A1608
+	Call CuccoMinigame_TellObjective
 	WaitUntilTextboxCloses
 	EnablePlayerControl
 	CallWithArg CuccoMinigame_Init, script_080101AC
@@ -25,7 +25,7 @@ script_0801015A:
 	SetRoomFlag 0x0001
 	Jump script_0801015A
 script_0801019E:
-	Call sub_080A1608
+	Call CuccoMinigame_TellObjective
 	WaitUntilTextboxCloses
 script_080101A6:
 	EnablePlayerControl
@@ -60,14 +60,14 @@ script_080101AC:
 	SetFade4
 	WaitForFadeFinish
 	PlayBGM
-	Call sub_080A13B4
+	Call CuccoMinigame_Results
 	WaitUntilTextboxCloses
 	JumpIfNot script_08010240
-	Call sub_080A13E8
+	Call CuccoMinigame_WinItem
 	WaitPlayerGetItem
-	Call sub_080A1460
+	Call CuccoMinigame_WinRupees
 	WaitUntilTextboxCloses
-	Call sub_080A14A8
+	Call CuccoMinigame_AdvanceLevel
 script_08010240:
 	Call EnablePauseMenu
 	EnablePlayerControl

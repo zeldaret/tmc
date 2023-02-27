@@ -8,16 +8,17 @@
 #include "asm.h"
 #include "flags.h"
 #include "object.h"
+#include "item.h"
 
 typedef struct {
     u16 minType;
-    u16 maxType;
+    u16 numTypes;
     u16 x;
     u16 y;
 } GoronShopSpawnData;
 
 void GoronMerchantShopManager_Main(GoronMerchantShopManager* this) {
-    static const GoronShopSpawnData gUnk_08108D5C[3] = { { 0x6e, 0x3, 0x210, 0x210 },
+    static const GoronShopSpawnData shopSpawnData[3] = { { 0x6e, 0x3, 0x210, 0x210 },
                                                          { 0x71, 0x2, 0x220, 0x210 },
                                                          { 0x73, 0x3, 0x230, 0x210 } };
     s32 uVar2;
@@ -54,12 +55,12 @@ void GoronMerchantShopManager_Main(GoronMerchantShopManager* this) {
         this->itemActive[2] = 0;
         this->itemActive[1] = 0;
         this->itemActive[0] = 0;
-        spawnData = gUnk_08108D5C;
+        spawnData = shopSpawnData;
         count = 0;
         for (count = 0; count < 3;) {
             if (CheckGlobalFlag(GORON_KAKERA_L + count) == 0) {
                 Entity* object =
-                    CreateObject(SHOP_ITEM, 0x5c, ((s32)Random() % spawnData->maxType) + spawnData->minType);
+                    CreateObject(SHOP_ITEM, ITEM_KINSTONE, ((s32)Random() % spawnData->numTypes) + spawnData->minType);
                 if (object != NULL) {
                     object->timer = 1;
                     object->subtimer = count;

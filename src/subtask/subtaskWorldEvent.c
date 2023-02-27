@@ -58,7 +58,7 @@ void Subtask_WorldEvent_Update(void) {
 void Subtask_WorldEvent_End(void) {
     MessageInitialize();
     sub_0806F38C();
-    if (gKinstoneWorldEvents[gFuseInfo.kinstoneId].unk7 != 0) {
+    if (gKinstoneWorldEvents[gFuseInfo.kinstoneId].mapMarkerIcon != 0) {
         // Show the map hint.
         MenuFadeIn(SUBTASK_LOCALMAPHINT, gUI.field_0x3);
     } else {

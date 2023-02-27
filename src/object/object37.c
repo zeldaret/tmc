@@ -44,14 +44,14 @@ void Object37_Init(Object37Entity* this) {
 void Object37_Action1(Object37Entity* this) {
     Entity* item;
 
-    if ((gSave.unk24E[0] != 0) && (this->unk70 != *this->unk78)) {
+    if ((gSave.fusionUnmarked[0] != 0) && (this->unk70 != *this->unk78)) {
         item = CreateGroundItem(super, ITEM_RUPEE100, 0);
         if (item != 0) {
             item->direction = gPlayerEntity.animationState << 2;
             item->speed = 0x80;
             item->zVelocity = Q_16_16(2.0);
         }
-        gSave.unk24E[0] = 1;
+        gSave.fusionUnmarked[0] = 1;
         DeleteThisEntity();
     }
 }

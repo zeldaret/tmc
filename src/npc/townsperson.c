@@ -104,7 +104,7 @@ void sub_08061CEC(Entity* this) {
             this->field_0x6a.HWORD = (uVar2 >> 0x10);
         }
         *(u16*)&this->field_0x6c = uVar2;
-        this->field_0x68.HALF.LO = sub_0801E99C(this);
+        this->field_0x68.HALF.LO = GetFusionToOffer(this);
         sub_0807DD64(this);
         sub_08061D64(this);
     }

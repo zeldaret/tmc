@@ -208,7 +208,7 @@ void sub_0806ACC4(Entity* this) {
             this->animationState = delay * 2;
             this->timer = 0;
 
-            this->field_0x68.HALF.LO = sub_0801E99C(this);
+            this->field_0x68.HALF.LO = GetFusionToOffer(this);
             sub_0807DD50(this);
             InitializeAnimation(this, (this->animationState / 2) + 8);
             break;

@@ -36,7 +36,7 @@ void ResetScreenRegs(void);
 void MessageFromFusionTarget(u32);
 void sub_0801E24C(s32, s32);
 void sub_0801E290(u32, u32, u32);
-s32 sub_0801E8B0(u32);
+s32 GetIndexInKinstoneBag(u32);
 
 extern u32 sub_0807CB24(u32, u32);
 
@@ -71,7 +71,7 @@ extern const GfxItem* gGfxGroups[];
 
 extern const u32 gUnk_080C9460[];
 
-void sub_0801E82C(void);
+void SortKinstoneBag(void);
 
 extern void* GetRoomProperty(u32, u32, u32);
 
@@ -831,18 +831,18 @@ void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_
     }
 }
 
-void sub_0801E6C8(u32 kinstoneId) {
+void NotifyFusersOnFusionDone(u32 kinstoneId) {
     u32 tmp;
     u32 index;
     if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
-            if (kinstoneId == gSave.unk1C1[index]) {
-                gSave.unk1C1[index] = 0xf1;
+            if (kinstoneId == gSave.fuserOffers[index]) {
+                gSave.fuserOffers[index] = 0xf1;
             }
         }
-        tmp = sub_08002632(gFuseInfo.ent);
-        if ((tmp - 1 < 0x7f) && (gSave.unk1C1[tmp] == 0xf1)) {
-            gSave.unk1C1[tmp] = 0xf2;
+        tmp = GetFuserId(gFuseInfo.ent);
+        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == 0xf1)) {
+            gSave.fuserOffers[tmp] = 0xf2;
         }
         for (index = 0; index < 0x20; index++) {
             if (kinstoneId == gUnk_03003DF0.array[index].unk_3) {
@@ -852,48 +852,48 @@ void sub_0801E6C8(u32 kinstoneId) {
     }
 }
 
-void sub_0801E738(u32 param_1) {
+void AddKinstoneToBag(u32 kinstoneId) {
     s32 index;
     s32 tmp;
 
-    sub_0801E82C();
-    if (param_1 - 0x65 < 0x11) {
-        index = sub_0801E8B0(param_1);
+    SortKinstoneBag(); // sometimes called just for this function
+    if (kinstoneId - 0x65 < 0x11) {
+        index = GetIndexInKinstoneBag(kinstoneId);
         if (index < 0) {
             index = 0;
-            while (gSave.unk118[index] != 0) {
+            while (gSave.kinstoneTypes[index] != 0) {
                 index++;
             }
         }
         if ((u32)index < 0x12) {
-            gSave.unk118[index] = param_1;
-            tmp = gSave.unk12B[index] + 1;
+            gSave.kinstoneTypes[index] = kinstoneId;
+            tmp = gSave.kinstoneAmounts[index] + 1;
             if (tmp > 99) {
                 tmp = 99;
             }
-            gSave.unk12B[index] = tmp;
+            gSave.kinstoneAmounts[index] = tmp;
         }
     }
 }
 
-void sub_0801E798(u32 a1) {
-    s32 idx = sub_0801E8B0(a1);
+void RemoveKinstoneFromBag(u32 kinstoneId) {
+    s32 idx = GetIndexInKinstoneBag(kinstoneId);
     if (idx >= 0) {
-        s32 next = gSave.unk12B[idx] - 1;
+        s32 next = gSave.kinstoneAmounts[idx] - 1;
         if (next <= 0) {
-            gSave.unk118[idx] = 0;
+            gSave.kinstoneTypes[idx] = 0;
             next = 0;
         }
-        gSave.unk12B[idx] = next;
+        gSave.kinstoneAmounts[idx] = next;
     }
 }
 
-u32 sub_0801E7D0(u32 a1) {
-    s32 tmp = sub_0801E8B0(a1);
-    if (tmp < 0) {
+u32 GetAmountInKinstoneBag(u32 kinstoneId) {
+    s32 index = GetIndexInKinstoneBag(kinstoneId);
+    if (index < 0) {
         return 0;
     }
-    return gSave.unk12B[tmp];
+    return gSave.kinstoneAmounts[index];
 }
 
 u32 CheckKinstoneFused(u32 kinstoneId) {
@@ -903,30 +903,30 @@ u32 CheckKinstoneFused(u32 kinstoneId) {
     return ReadBit(&gSave.fusedKinstones, kinstoneId);
 }
 
-bool32 sub_0801E810(u32 kinstoneId) {
+bool32 CheckFusionMapMarkerDisabled(u32 kinstoneId) {
     if (kinstoneId > 100 || kinstoneId < 1) {
         return FALSE;
     }
-    return ReadBit(&gSave.unk24E, kinstoneId);
+    return ReadBit(&gSave.fusionUnmarked, kinstoneId);
 }
 
-void sub_0801E82C(void) {
+void SortKinstoneBag(void) {
 #ifdef NON_MATCHING
     u32 r5;
 
     for (r5 = 0; r5 < 0x13; r5++) {
-        if (gSave.unk12B[r5] == 0) {
-            gSave.unk118[r5] = gSave.unk12B[r5];
+        if (gSave.kinstoneAmounts[r5] == 0) {
+            gSave.kinstoneTypes[r5] = gSave.kinstoneAmounts[r5];
         }
     }
 
-    gSave.unk118[0x12] = 0;
-    gSave.unk12B[0x12] = 0;
+    gSave.kinstoneTypes[0x12] = 0;
+    gSave.kinstoneAmounts[0x12] = 0;
 
     for (r5 = 0; r5 < 0x12; r5++) {
-        if ((gSave.unk118[r5] - 0x65) > 0x10) {
-            MemCopy(&gSave.unk118[r5 + 1], &gSave.unk118[r5], 0x12 - r5);
-            MemCopy(&gSave.unk12B[r5 + 1], &gSave.unk12B[r5], 0x12 - r5);
+        if ((gSave.kinstoneTypes[r5] - 0x65) > 0x10) {
+            MemCopy(&gSave.kinstoneTypes[r5 + 1], &gSave.kinstoneTypes[r5], 0x12 - r5);
+            MemCopy(&gSave.kinstoneAmounts[r5 + 1], &gSave.kinstoneAmounts[r5], 0x12 - r5);
         }
     }
 #else
@@ -937,7 +937,7 @@ void sub_0801E82C(void) {
     new_var = 4;
     r1 = &gSave.inventory[34];
     r5 = 0;
-    r2 = gSave.unk118;
+    r2 = gSave.kinstoneTypes;
 code0_0:
     r0 = r2[0x13];
     r3 = &r1[4];
@@ -974,21 +974,21 @@ code0_2:
 #endif
 }
 
-s32 sub_0801E8B0(u32 idx) {
+s32 GetIndexInKinstoneBag(u32 kinstoneId) {
     u32 i;
 
-    for (i = 0; i < 18; ++i) {
-        if (idx == gSave.unk118[i])
+    for (i = 0; i < 0x12; ++i) {
+        if (kinstoneId == gSave.kinstoneTypes[i])
             return i;
     }
     return -1;
 }
 
-// Check conditions, something with kinstones
-void sub_0801E8D4(void) {
+// For example if a chest from a fusion is opened, hide the chest marker
+void UpdateVisibleFusionMapMarkers(void) {
     u32 kinstoneId;
     for (kinstoneId = 10; kinstoneId <= 100; ++kinstoneId) {
-        if (CheckKinstoneFused(kinstoneId) && !sub_0801E810(kinstoneId)) {
+        if (CheckKinstoneFused(kinstoneId) && !CheckFusionMapMarkerDisabled(kinstoneId)) {
             u32 worldEventId = gKinstoneWorldEvents[kinstoneId].worldEventId;
             const WorldEvent* s = &gWorldEvents[worldEventId];
 #if !defined EU && !defined JP
@@ -1046,7 +1046,7 @@ void sub_0801E8D4(void) {
 #else
             if (sub_0807CB24(tmp, s->flag)) {
 #endif
-                WriteBit(&gSave.unk24E, kinstoneId);
+                WriteBit(&gSave.fusionUnmarked, kinstoneId);
             }
         }
     }
@@ -1054,7 +1054,7 @@ void sub_0801E8D4(void) {
 
 extern u8* gUnk_08001DCC[];
 
-u32 sub_0801E99C(Entity* entity) {
+u32 GetFusionToOffer(Entity* entity) {
     u8* fuserData;
     u32 fuserId;
     u32 offeredFusion;
@@ -1062,13 +1062,13 @@ u32 sub_0801E99C(Entity* entity) {
     u8* fuserFusionData;
     s32 randomMood;
     u32 fuserStability;
-    fuserId = sub_08002632(entity);
+    fuserId = GetFuserId(entity);
     fuserData = gUnk_08001DCC[fuserId];
     if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
         return 0;
     }
-    offeredFusion = gSave.unk1C1[fuserId];
-    fuserProgress = gSave.unk141[fuserId];
+    offeredFusion = gSave.fuserOffers[fuserId];
+    fuserProgress = gSave.fuserProgress[fuserId];
     fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
@@ -1084,7 +1084,7 @@ u32 sub_0801E99C(Entity* entity) {
                 offeredFusion = fuserFusionData[5];
         }
         if (offeredFusion == 0xFF) { // random shared fusion
-            offeredFusion = sub_0801EA74(fuserData);
+            offeredFusion = GetRandomSharedFusion(fuserData);
         }
         if (offeredFusion == 0x00) { // end of fusion list
             offeredFusion = 0xF3;    // mark this fuser as done
@@ -1098,8 +1098,8 @@ u32 sub_0801E99C(Entity* entity) {
         }
         offeredFusion = 0xF1; // already completed, try next fusion in the list
     }
-    gSave.unk1C1[fuserId] = offeredFusion;
-    gSave.unk141[fuserId] = fuserProgress;
+    gSave.fuserOffers[fuserId] = offeredFusion;
+    gSave.fuserProgress[fuserId] = fuserProgress;
     randomMood = Random();
     fuserStability = fuserData[1];
     if (fuserStability <= randomMood % 100) {
@@ -1272,17 +1272,16 @@ const u32 gUnk_080CA06C[] = { 139808, 139808, 140320, 140832, 141344, 141856, 14
                               150560, 151584, 152608, 153632, 154656, 155680, 156704, 157728, 158752, 159776, 160800 };
 #endif
 
-// TODO maybe KinstoneFlag?
-const u8 gUnk_080CA11C[] = {
-    24, 45, 53, 54, 55, 57, 60, 68, 70, 71, 78, 80, 83, 85, 86, 88, 95, 96, 0, 0,
+const u8 SharedFusions[] = {
+    0x18, 0x2D, 0x35, 0x36, 0x37, 0x39, 0x3C, 0x44, 0x46, 0x47, 0x4E, 0x50, 0x53, 0x55, 0x56, 0x58, 0x5F, 0x60, 0, 0,
 };
 
 // Get a random kinstone
-u32 sub_0801EA74(u8* fuserData) {
+u32 GetRandomSharedFusion(u8* fuserData) {
     s32 r = (s32)Random() % 18;
     u32 i;
     for (i = 0; i < 18; ++i) {
-        u32 kinstoneId = gUnk_080CA11C[r];
+        u32 kinstoneId = SharedFusions[r];
         if (!CheckKinstoneFused(kinstoneId))
             return kinstoneId;
         r = (r + 1) % 18;

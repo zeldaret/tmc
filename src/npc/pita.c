@@ -41,10 +41,10 @@ void RemoveAllBakedGoods(void) {
 
 bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
     u32 tmp;
-    u32 tmp2;
+    u32 kinstoneId;
     static const u8 chanceForPrize[] = { 0x20, 0x40, 0x60, 0x80, 0xFF };
-    static const u8 gUnk_0810C435[] = { 0x10, 0x10, 0x10, 0x20, 0x20, 0x30, 0x30, 0x30 };
-    static const u8 gUnk_0810C43D[] = { 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75 };
+    static const u8 chancesPerType[] = { 0x10, 0x10, 0x10, 0x20, 0x20, 0x30, 0x30, 0x30 };
+    static const u8 kinstoneTypes[] = { 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75 };
 
     //! @bug: tmp is uninitialized, in practice player must have an item here
     if (GetInventoryValue(ITEM_BRIOCHE) != 0) {
@@ -67,9 +67,9 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
         context->condition = FALSE;
         return FALSE;
     } else {
-        tmp = GetRandomByWeight(gUnk_0810C435);
-        tmp2 = gUnk_0810C43D[tmp];
-        InitItemGetSequence(ITEM_KINSTONE, tmp2, 1);
+        tmp = GetRandomByWeight(chancesPerType);
+        kinstoneId = kinstoneTypes[tmp];
+        InitItemGetSequence(ITEM_KINSTONE, kinstoneId, 1);
         MessageNoOverlap(TEXT_INDEX(TEXT_BAKERY, 0x5), this);
         context->condition = TRUE;
         return TRUE;

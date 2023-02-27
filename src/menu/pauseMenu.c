@@ -59,14 +59,14 @@ void Subtask_PauseMenu(void) {
 struct_08127F94* sub_080A6A80(u32, u32);
 
 extern u8 gUnk_02034492[];
-void sub_0801E8D4(void);
+void UpdateVisibleFusionMapMarkers(void);
 s32 sub_080A50A0(s32);
 
 void PauseMenu_Variant0(void) {
     struct_08127F94* ptr;
     int r0, r1;
 
-    sub_0801E8D4();
+    UpdateVisibleFusionMapMarkers();
     sub_080A4D34();
     r1 = 4;
     do {
@@ -665,7 +665,7 @@ void sub_080A5594(void) {
         iVar5 = 0;
         if (GetInventoryValue(ITEM_KINSTONE_BAG) != 0) {
             for (i = 0; i < 0x13; i++) {
-                iVar5 += gSave.unk12B[i];
+                iVar5 += gSave.kinstoneAmounts[i];
             }
 
             if (iVar5 >= 0x50) {
@@ -1281,7 +1281,7 @@ void PauseMenu_Screen_7(void) {
 
 void sub_080A6024(void) {
     sub_080A70AC((KeyButtonLayout*)&gUnk_08128D60);
-    sub_0801E738(0);
+    AddKinstoneToBag(0);
     sub_080A4398();
     SetMenuType(1);
 }
@@ -1299,11 +1299,11 @@ void sub_080A6044(void) {
         gOamCmd._6 = 0;
         uVar4 = 0;
         uVar2 = 0;
-        uVar1 = gSave.unk118[0];
+        uVar1 = gSave.kinstoneTypes[0];
         while (uVar1 != 0) {
             gOamCmd.x = (uVar4 & 3) * 0x30 + 0x2b;
             gOamCmd.y = (uVar4 >> 2) * 0x24 + 0x34;
-            uVar3 = gSave.unk12B[uVar2];
+            uVar3 = gSave.kinstoneAmounts[uVar2];
             gMenu.column_idx = 0;
             sub_080A42E0(uVar1, uVar3);
             uVar4++;
@@ -1314,7 +1314,7 @@ void sub_080A6044(void) {
             if (0x11 < uVar2) {
                 return;
             }
-            uVar1 = gSave.unk118[uVar2];
+            uVar1 = gSave.kinstoneTypes[uVar2];
         }
     }
 }

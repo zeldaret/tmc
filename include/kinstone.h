@@ -23,13 +23,13 @@ extern FuseInfo gFuseInfo;
 
 typedef struct {
     u8 objPalette;
-    u8 unk1;
-    u8 unk2;
+    u8 gfxOffsetPiece;
+    u8 gfxOffsetFull;
     u8 subtask; // SUBTASK_WORLDEVENT or 0
     u8 worldEventId;
-    u8 unk5;
-    u8 unk6;
-    u8 unk7; // TODO flag if it shows a map hint?
+    u8 shape;
+    u8 bubbleIcon;
+    u8 mapMarkerIcon; // 0 for no map marker
 } KinstoneWorldEvent;
 // Indexed by kinstoneId
 extern const KinstoneWorldEvent gKinstoneWorldEvents[];
@@ -209,7 +209,7 @@ typedef struct {
     u16 y;        /**< Y position of the actual event. */
     u16 _c;       // see sub_080A6A80, related to _0 and _2 of gUnk_08127F94
     u16 _e;       // see sub_080A6A80, related to _1 and _3 of gUnk_08127F94
-    u8 condition; // TODO some sort of flag determining what type the bank&flag are? see sub_0801E8D4
+    u8 condition; // TODO some sort of flag determining what type the bank&flag are? see UpdateVisibleFusionMapMarkers
     u8 bank;      /**< @see LocalBanks */
     u16 flag;
 } WorldEvent;

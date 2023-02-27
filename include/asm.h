@@ -17,7 +17,7 @@ extern void LoadResourceAsync(const void*, u32, u32);
 extern void GenericConfused(struct Entity_*);
 extern void sub_08001290(struct Entity_*, u32);
 extern void GenericKnockback(struct Entity_*);
-extern u32 sub_08002632(struct Entity_*);
+extern u32 GetFuserId(struct Entity_*);
 extern u32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
 extern u32 GravityUpdate(struct Entity_*, u32);
 extern u32 CheckOnScreen(struct Entity_*);
