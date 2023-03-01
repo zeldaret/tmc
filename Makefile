@@ -14,14 +14,14 @@ jp: GAME_VERSION=JP
 usa: GAME_VERSION=USA
 demo_jp: GAME_VERSION=DEMO_JP
 demo_usa: GAME_VERSION=DEMO_USA
-eu jp usa demo_jp demo_usa:
+eu jp usa demo_jp demo_usa: tools
 	@$(MAKE) GAME_VERSION=$(GAME_VERSION)
 
 custom: tools
 	@$(MAKE) GAME_VERSION=USA CUSTOM=1
 
 .PHONY: extract_assets
-extract_assets:
+extract_assets: tools
 	@$(MAKE) -f GBA.mk extract_assets
 
 .PHONY: tools
