@@ -2,6 +2,24 @@
 #include "message.h"
 #include "npc.h"
 
+typedef union {
+    struct {
+        s16 x;
+        s16 y;
+        s16 z;
+        u8 framestate;
+        u8 animationState : 6;
+        u8 collisionLayer : 2;
+    } FIELDS;
+    u64 DWORD;
+} KidItem;
+
+#define KID_HEAP_LEN 20
+#define KID_HEAP ((KidItem*)this->myHeap)
+#define KID_HEAP_END ((KidItem*)this->myHeap + (KID_HEAP_LEN - 1))
+
+#define KID_HEAP_SHIFT_RIGHT(this, heapPtr)
+
 const SpriteLoadData gUnk_0810BD7C[] = {
     { 58, 59, 4 },
     { 10298, 59, 4 },
@@ -307,7 +325,113 @@ void sub_080621AC(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/kid/sub_080622F4.inc", void sub_080622F4(Entity* this))
+do {
+    int i;
+    heapPtr = ((KidItem*)this->myHeap);
+    heapPtr += (KID_HEAP_LEN - 2);
+    for (i = 0; i < (KID_HEAP_LEN - 1); i++) {
+        heapPtr[1] = heapPtr[0];
+        heapPtr--;
+    }
+} while (0);
+
+// Type your C code here...
+
+/* This subroutine handles something to do with following.
+ * It maintains a FIFO of positions based on the player.
+ */
+void sub_080622F4(Entity* this) {
+    s32 dx;
+    s32 dy;
+    s32 dist;
+
+    u32 animIndex; // used as 2nd param of InitAnimationForceUpdate
+    u32 animIndexTmp;
+
+    KidItem* heapPtr;
+    KidItem item;
+
+    // Prepended heap item is initialized from player's current state.
+    item.FIELDS.x = gPlayerEntity.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.z.HALF_U.HI;
+    item.FIELDS.framestate = gPlayerState.framestate;
+    item.FIELDS.animationState = gPlayerEntity.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
+
+    heapPtr = this->myHeap;
+    if (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16) {
+        dx = this->x.HALF.HI - gPlayerEntity.x.HALF.HI;
+        dy = this->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+
+        if (dx < 0)
+            dx = -dx;
+        if (dy < 0)
+            dy = -dy;
+
+        if (dx > 120 || dy > 80) {
+            this->field_0x68.HALF.LO = 0;
+            return;
+        }
+
+        sub_0806252C(this);
+    }
+
+    animIndex = 0;
+
+    if (item.DWORD != heapPtr->DWORD) {
+        KID_HEAP_SHIFT_RIGHT(this, heapPtr);
+        heapPtr = KID_HEAP;
+        heapPtr[0] = item;
+
+        animIndex = 0x4;
+        if ((s8)this->field_0x68.HALF.HI > 0) {
+            this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+        }
+    } else {
+        heapPtr += KID_HEAP_LEN - 1;
+        if (heapPtr->FIELDS.z < 0) {
+            KID_HEAP_SHIFT_RIGHT(this, heapPtr);
+            animIndex = 0x4;
+        } else {
+            dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
+                                (u16)heapPtr->FIELDS.y);
+            dist = ((u32)dist) >> 0x4;
+            if (dist > 0x18) {
+
+                KID_HEAP_SHIFT_RIGHT(this, heapPtr);
+                animIndex = 0x4;
+            }
+        }
+    }
+    heapPtr = (KidItem*)this->myHeap;
+    heapPtr += +KID_HEAP_LEN - 1;
+    this->x.HALF.HI = heapPtr->FIELDS.x;
+    this->y.HALF.HI = heapPtr->FIELDS.y;
+    this->z.HALF.HI = heapPtr->FIELDS.z;
+    this->animationState = heapPtr->FIELDS.animationState;
+    this->collisionLayer = heapPtr->FIELDS.collisionLayer;
+
+    if (((s8)this->field_0x68.HALF.HI) > 0) {
+        this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+    }
+
+    animIndexTmp = animIndex;
+    animIndex += this->animationState >> 1;
+    if (this->type == OBJECT) {
+        animIndex += 0x10;
+    }
+
+    if (!(animIndex == this->animIndex || (animIndexTmp == 0 && ((s8)this->field_0x68.HALF.HI) > 0))) {
+        InitAnimationForceUpdate(this, animIndex);
+        this->field_0x68.HALF.HI = 0x1e;
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
+
+    sub_0800451C(this);
+    return;
+}
 
 void sub_08062500(Entity* this) {
     this->myHeap = zMalloc(sizeof(KidHeap));
