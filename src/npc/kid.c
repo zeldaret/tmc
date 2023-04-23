@@ -312,7 +312,7 @@ void sub_080621AC(Entity* this) {
     }
 }
 
-#define KID_HEAP_SHIFT_RIGHT(this)               \
+#define KID_HEAP_SHIFT_RIGHT                     \
     heapPtr = KID_HEAP;                          \
     heapPtr += (KID_HEAP_COUNT - 2);             \
     for (i = 0; i < (KID_HEAP_COUNT - 1); i++) { \
@@ -361,7 +361,7 @@ void sub_080622F4(Entity* this) {
     animIndex = 0;
 
     if (item.DWORD != heapPtr->DWORD) {
-        KID_HEAP_SHIFT_RIGHT(this);
+        KID_HEAP_SHIFT_RIGHT;
         heapPtr = KID_HEAP;
         heapPtr[0] = item;
 
@@ -372,7 +372,7 @@ void sub_080622F4(Entity* this) {
     } else {
         heapPtr += KID_HEAP_COUNT - 1;
         if (heapPtr->FIELDS.z < 0) {
-            KID_HEAP_SHIFT_RIGHT(this);
+            KID_HEAP_SHIFT_RIGHT;
             animIndex = 0x4;
         } else {
             dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
@@ -380,7 +380,7 @@ void sub_080622F4(Entity* this) {
             dist = ((u32)dist) >> 0x4;
             if (dist > 0x18) {
 
-                KID_HEAP_SHIFT_RIGHT(this);
+                KID_HEAP_SHIFT_RIGHT;
                 animIndex = 0x4;
             }
         }
