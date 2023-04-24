@@ -1153,17 +1153,17 @@ void sub_080A5D1C(void) {
     DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks & 0x20) != 0 ? 0x78 : 0x79);
     gOamCmd.y = 0x7e;
     gOamCmd._8 = 0x4380;
-    if (HasDungeonSmallKey()) {
+    if (HasDungeonMap()) {
         gOamCmd.x = 0x18;
         frameIndex = gSpriteAnimations_322[0x50]->index;
         DrawDirect(SUB_080A5D1C_SPRITE_INDEX, frameIndex);
     }
-    if (HasDungeonCompass()) {
+    if (HasDungeonBigKey()) {
         gOamCmd.x = 0x2e;
         frameIndex = gSpriteAnimations_322[0x52]->index;
         DrawDirect(SUB_080A5D1C_SPRITE_INDEX, frameIndex);
     }
-    if (HasDungeonBigKey()) {
+    if (HasDungeonCompass()) {
         gOamCmd.x = 0x45;
         gOamCmd._8 = 0x380;
         frameIndex = gSpriteAnimations_322[0x51]->index;

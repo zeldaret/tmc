@@ -721,17 +721,17 @@ void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* conte
     u32 tmp;
     u32 tmp2 = GetNextScriptCommandHalfwordAfterCommandMetadata(context->scriptInstructionPointer);
     switch (tmp2) {
-        case 0x53:
-            tmp = HasDungeonMap();
+        case ITEM_SMALL_KEY:
+            tmp = HasDungeonSmallKey();
             break;
-        case 0x52:
-            tmp = HasDungeonCompass();
-            break;
-        case 0x51:
+        case ITEM_BIG_KEY:
             tmp = HasDungeonBigKey();
             break;
-        case 0x50:
-            tmp = HasDungeonSmallKey();
+        case ITEM_COMPASS:
+            tmp = HasDungeonCompass();
+            break;
+        case ITEM_DUNGEON_MAP:
+            tmp = HasDungeonMap();
             break;
         default:
             tmp = GetInventoryValue(tmp2);

@@ -88,13 +88,13 @@ _080785B0:
 	ands r0, r1
 	cmp r0, #0
 	bne _080785F0
-	bl HasDungeonMap
+	bl HasDungeonSmallKey
 	cmp r0, #0
 	beq _080785C4
 	movs r0, #1
 _080785C4:
 	adds r7, r0, #0
-	bl HasDungeonCompass
+	bl HasDungeonBigKey
 	cmp r0, #0
 	beq _080785D2
 	movs r0, #2
