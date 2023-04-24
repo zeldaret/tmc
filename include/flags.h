@@ -3,6 +3,8 @@
 
 #include "global.h"
 
+// clang-format off
+
 bool32 CheckFlags(u32);
 bool32 CheckGlobalFlag(u32);
 bool32 CheckGlobalFlags(u32, u32);
@@ -1761,5 +1763,7 @@ typedef enum {
     BEGIN_12,
     END_12,
 } LocalFlags12;
+
+// clang-format on
 
 #endif // FLAGS_H
