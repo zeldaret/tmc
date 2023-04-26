@@ -254,12 +254,12 @@ typedef enum {
 } PlayerInputState;
 
 typedef struct {
-    /*0x90*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
-    /*0x92*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
-    /*0x94*/ u32 field_0x94;
-    /*0x98*/ u16 playerMacroWaiting;
-    /*0x9a*/ u16 playerMacroHeldKeys;
-    /*0x9c*/ PlayerMacroEntry* playerMacro;
+    /*0x0*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
+    /*0x2*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
+    /*0x4*/ u32 field_0x94;
+    /*0x8*/ u16 playerMacroWaiting;
+    /*0xa*/ u16 playerMacroHeldKeys;
+    /*0xc*/ PlayerMacroEntry* playerMacro;
 } PlayerInput;
 
 typedef enum {
@@ -276,7 +276,7 @@ typedef enum {
 
 typedef struct {
     /*0x00*/ u8 prevAnim;
-    /*0x00*/ u8 grab_status;
+    /*0x01*/ u8 grab_status;
     /*0x02*/ u8 jump_status;
     /*0x03*/ u8 shield_status;
     /*0x04*/ u8 attack_status;
