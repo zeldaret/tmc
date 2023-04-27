@@ -658,8 +658,8 @@ bool32 (*const gPlayerChargeActions[])(ChargeState*) = {
     sub_08078008, sub_08078124, sub_08078140, sub_08078070, sub_080780E0, sub_08078108,
 };
 
-const u8 gUnk_0811C000[] = {
-    0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+const struct_03003DF8 gUnk_0811C000 = {
+    0, 255, 0, 0, 0, 0,
 };
 const u8 gUnk_0811C00C[] = {
     0, 238, 14, 255, 0, 10, 241, 255,
@@ -1088,11 +1088,11 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
+    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4->unk_3 - 1) < 100)) {
         AddKinstoneToBag(0);
         if (gSave.kinstoneAmounts[0] != 0) {
-            gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4[3];
-            *(u8*)(*(int*)(gUnk_03003DF0.unk_4 + 8) + 0x39) = 2;
+            gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4->unk_3;
+            gUnk_03003DF0.unk_4->entity->interactType = 2;
             gPlayerState.queued_action = PLAYER_08070E9C;
         } else {
             CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0);
@@ -1103,7 +1103,7 @@ bool32 sub_080782C0(void) {
     if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
         return FALSE;
     }
-    switch (gUnk_03003DF0.unk_4[1]) {
+    switch (gUnk_03003DF0.unk_4->unk_1) {
         default:
         case 0:
             return TRUE;
@@ -1133,7 +1133,7 @@ bool32 sub_080782C0(void) {
 
 void sub_080784C8(void) {
     MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
-    gUnk_03003DF0.unk_4 = (u8*)gUnk_0811C000;
+    gUnk_03003DF0.unk_4 = (struct_03003DF8*)&gUnk_0811C000;
 }
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", struct_03003DF8* sub_080784E4(void))

@@ -272,7 +272,7 @@ typedef struct {
     /*0x01*/ u8 unk_1;
     /*0x02*/ u8 unk_2; // TODO kinstoneId, sub_0801DFB4
     /*0x03*/ u8 unk_3;
-    /*0x04*/ u8* unk_4;
+    /*0x04*/ struct_03003DF8* unk_4;
     /*0x08*/ struct_03003DF8 array[0x20];
 } struct_03003DF0;
 

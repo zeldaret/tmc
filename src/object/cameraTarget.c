@@ -53,16 +53,17 @@ void CameraTarget(Entity* this) {
         case 0:
         case 1:
         case 2:
-            if ((gMessage.doTextBox & 0x7f) != 0) {
-                default:
-                    if (gUnk_03003DF0.unk_4[3] == 50) {
-                        if (CheckKinstoneFused(KINSTONE_32) == 0) {
-                            uVar2 = 0;
-                            break;
-                        }
-                    }
-                    uVar2 = 1;
+            if ((gMessage.doTextBox & 0x7f) == 0) {
+                break;
             }
+        default:
+            if (gUnk_03003DF0.unk_4->unk_3 == KINSTONE_32) {
+                if (CheckKinstoneFused(KINSTONE_32) == 0) {
+                    uVar2 = 0;
+                    break;
+                }
+            }
+            uVar2 = 1;
             break;
     }
 
@@ -102,8 +103,8 @@ void CameraTarget_Action1(Entity* this) {
     if (this->timer) {
         this->timer--;
     } else {
-        if ((*(Entity**)(gUnk_03003DF0.unk_4 + 8) != NULL) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
-            this->child = *(Entity**)(gUnk_03003DF0.unk_4 + 8);
+        if ((gUnk_03003DF0.unk_4->entity != NULL) && ((u8)(gUnk_03003DF0.unk_4->unk_3 - 1) < 100)) {
+            this->child = gUnk_03003DF0.unk_4->entity;
             this->interactType = gUnk_03003DF0.unk_3;
             sub_08083A40(this);
         }
@@ -119,7 +120,7 @@ void CameraTarget_Action2(Entity* this) {
     const KinstoneWorldEvent* ptr;
 
     if ((this->type != 1) &&
-        (((u8)(gUnk_03003DF0.unk_4[3] - 1) >= 100 || (this->child != *(Entity**)(gUnk_03003DF0.unk_4 + 8))))) {
+        (((u8)(gUnk_03003DF0.unk_4->unk_3 - 1) >= 100 || (this->child != gUnk_03003DF0.unk_4->entity)))) {
         sub_080838DC(this);
     } else {
         this->x = this->child->x;
@@ -128,7 +129,7 @@ void CameraTarget_Action2(Entity* this) {
         if (this->frame == 1) {
             this->frame = 0;
             if (this->type == 0) {
-                bVar2 = gUnk_03003DF0.unk_4[3];
+                bVar2 = gUnk_03003DF0.unk_4->unk_3;
             } else {
                 bVar2 = this->type2;
             }
