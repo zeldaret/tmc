@@ -27,7 +27,7 @@ SCRIPT_START script_08016384
 	FacePlayerAndCheckDist
 	HasRupees 200
 	CheckTextboxResult
-	CheckKinstoneFused KINSTONE_1
+	CheckKinstoneFused KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT
 	BuyItem ITEM_BOMBS10, 0x0000
 	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	VariableBitSet 0x00000000

@@ -4,6 +4,7 @@
 #include "game.h"
 #include "hitbox.h"
 #include "item.h"
+#include "kinstone.h"
 #include "npc.h"
 #include "object.h"
 #include "save.h"
@@ -53,30 +54,30 @@ void NPC4E_DoScreenTransition(Entity* this, ScriptExecutionContext* context) {
 }
 
 // Returns the kinstone id?
-u8 sub_0806DA3C(Entity* this) {
+u8 NPC4E_GetKinstoneId(Entity* this) {
     u32 result;
 
     switch (this->type) {
         default:
-            result = 0;
+            result = KINSTONE_0;
             break;
         case 1:
-            result = 1;
+            result = KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT;
             break;
         case 2:
-            result = 2;
+            result = KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_LEFT;
             break;
         case 3:
-            result = 3;
+            result = KINSTONE_MYSTERIOUS_CLOUD_TOP_LEFT;
             break;
         case 4:
-            result = 4;
+            result = KINSTONE_MYSTERIOUS_CLOUD_MIDDLE;
             break;
         case 5:
-            result = 5;
+            result = KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_RIGHT;
             break;
         case 11:
-            result = 9;
+            result = KINSTONE_SOURCE_FLOW;
             break;
         case 6:
         case 7:
@@ -91,13 +92,13 @@ u8 sub_0806DA3C(Entity* this) {
 
 // Check whether a kinstone fusion is possible and store the result somewhere in param_2?
 void sub_0806DAAC(Entity* this, ScriptExecutionContext* context) {
-    context->condition = CheckKinstoneFused(sub_0806DA3C(this));
+    context->condition = CheckKinstoneFused(NPC4E_GetKinstoneId(this));
     gActiveScriptInfo.flags |= 1;
 }
 
 // maybe actually execute the kinstone fusion?
 void sub_0806DAD0(Entity* this) {
-    sub_08078790(this, sub_0806DA3C(this));
+    sub_08078790(this, NPC4E_GetKinstoneId(this));
 }
 
 void sub_0806DAE8(Entity* this) {
