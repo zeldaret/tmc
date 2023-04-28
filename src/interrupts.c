@@ -240,7 +240,7 @@ static void HandlePlayerLife(Entity* this) {
     if (sub_08079B24() == 0)
         sub_08079708(this);
 
-    gUnk_03003DF0.unk_0 = 0;
+    gPossibleInteraction.isUpdated = 0;
     if (gPlayerState.field_0x27[0] != 0)
         gPlayerState.field_0x27[0]--;
 

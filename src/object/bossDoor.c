@@ -27,7 +27,7 @@ typedef struct {
 } BossDoorEntity;
 
 extern bool32 gUnk_02036BB8;
-extern const u8 gUnk_0811F740[];
+extern const u8 gLockedDoorInteractDirections[];
 
 void sub_0808C500(BossDoorEntity*);
 void sub_0808C4BC(BossDoorEntity*);
@@ -70,7 +70,7 @@ void BossDoor_Init(BossDoorEntity* this) {
             super->spriteSettings.draw = 1;
             sub_0808C500(this);
             sub_08078800(super);
-            sub_08078850(super, 0, gUnk_0811F740[this->unk_76], 0);
+            sub_08078850(super, 0, gLockedDoorInteractDirections[this->unk_76], 0);
             break;
         case 1:
             super->action = 4;

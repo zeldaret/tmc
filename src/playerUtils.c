@@ -73,7 +73,7 @@ bool32 sub_0807BF88(u32, u32, RoomResInfo*);
 void sub_0807BFD0(void);
 
 void ForceSetPlayerState(u32 framestate);
-struct_03003DF8* sub_080784E4(void);
+InteractableObject* sub_080784E4(void);
 
 u32 sub_08079778(void);
 u32 GetPlayerTilePos(void);
@@ -658,14 +658,17 @@ bool32 (*const gPlayerChargeActions[])(ChargeState*) = {
     sub_08078008, sub_08078124, sub_08078140, sub_08078070, sub_080780E0, sub_08078108,
 };
 
-const struct_03003DF8 gUnk_0811C000 = {
-    0, 255, 0, 0, 0, 0,
+const InteractableObject gNoInteraction = {
+    0, 0xFF, 0, 0, 0, 0,
 };
-const u8 gUnk_0811C00C[] = {
-    0, 238, 14, 255, 0, 10, 241, 255,
+
+// for shifting the hitbox in which entities can be interacted with in Link's facing direction
+// from left to right: north, east, south and west in x, y pairs
+const s8 gPlayerInteractHitboxOffsetNormal[] = {
+    0, -18, 14, -1, 0, 10, -15, -1,
 };
-const u8 gUnk_0811C014[] = {
-    0, 242, 10, 255, 0, 6, 245, 255,
+const s8 gPlayerInteractHitboxOffsetMinish[] = {
+    0, -14, 10, -1, 0, 6, -11, -1,
 };
 const u8 gUnk_0811C01C[] = {
     0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 3, 3, 4, 3, 0, 1, 2, 0, 3, 3, 4, 3, 10, 15, 0, 0, 0,
@@ -971,7 +974,7 @@ void ForceSetPlayerState(u32 framestate) {
 void sub_08078180(void) {
     u8 uVar1;
     u8 uVar3;
-    struct_03003DF8* ptr;
+    InteractableObject* ptr;
 
     if (gUnk_0200AF00.unk_2f != 0)
         return;
@@ -992,7 +995,7 @@ void sub_08078180(void) {
                 ptr = sub_080784E4();
                 if (ptr->entity->interactType == 0) {
 
-                    switch (ptr->unk_1) {
+                    switch (ptr->interactCondition) {
                         case 1:
                         case 7:
                             uVar1 = 7;
@@ -1088,11 +1091,11 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4->unk_3 - 1) < 100)) {
+    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
         AddKinstoneToBag(0);
         if (gSave.kinstoneAmounts[0] != 0) {
-            gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4->unk_3;
-            gUnk_03003DF0.unk_4->entity->interactType = 2;
+            gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;
+            gPossibleInteraction.currentObject->entity->interactType = 2;
             gPlayerState.queued_action = PLAYER_08070E9C;
         } else {
             CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0);
@@ -1103,7 +1106,7 @@ bool32 sub_080782C0(void) {
     if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
         return FALSE;
     }
-    switch (gUnk_03003DF0.unk_4->unk_1) {
+    switch (gPossibleInteraction.currentObject->interactCondition) {
         default:
         case 0:
             return TRUE;
@@ -1117,7 +1120,7 @@ bool32 sub_080782C0(void) {
         case 5:
         case 7:
             entity->interactType = 1;
-            gUnk_03003DF0.unk_2 = 0;
+            gPossibleInteraction.kinstoneId = 0;
             return TRUE;
         case 8:
             if (gRoomVars.shopItemType == 0) {
@@ -1132,11 +1135,11 @@ bool32 sub_080782C0(void) {
 }
 
 void sub_080784C8(void) {
-    MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
-    gUnk_03003DF0.unk_4 = (struct_03003DF8*)&gUnk_0811C000;
+    MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
+    gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", struct_03003DF8* sub_080784E4(void))
+ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", InteractableObject* sub_080784E4(void))
 
 void sub_08078778(Entity* ent) {
     sub_0807887C(ent, 1, 0);
@@ -1175,7 +1178,7 @@ s32 sub_080787D8(Entity* ent) {
 
     iVar1 = sub_0807887C(ent, 8, 0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_2 = 0xbe;
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
@@ -1185,7 +1188,7 @@ s32 sub_08078800(Entity* ent) {
 
     iVar1 = sub_0807887C(ent, 6, 0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_2 = 0xbe;
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
@@ -1195,7 +1198,7 @@ s32 sub_08078828(Entity* ent) {
 
     iVar1 = sub_0807887C(ent, 3, 0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_2 = 0xbe;
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
@@ -1205,9 +1208,9 @@ void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, const void* arg3) {
 
     iVar1 = sub_08078904(arg0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_0 = arg1;
-        gUnk_03003DF0.array[iVar1].unk_2 = arg2;
-        gUnk_03003DF0.array[iVar1].unk_4 = arg3;
+        gPossibleInteraction.candidates[iVar1].ignoreLayer = arg1;
+        gPossibleInteraction.candidates[iVar1].interactDirections = arg2;
+        gPossibleInteraction.candidates[iVar1].customHitbox = arg3;
     }
 }
 
@@ -1219,9 +1222,9 @@ s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
         index = sub_08078904(0);
     }
     if (index >= 0) {
-        gUnk_03003DF0.array[index].entity = entity;
-        gUnk_03003DF0.array[index].unk_1 = param_2;
-        gUnk_03003DF0.array[index].unk_3 = param_3;
+        gPossibleInteraction.candidates[index].entity = entity;
+        gPossibleInteraction.candidates[index].interactCondition = param_2;
+        gPossibleInteraction.candidates[index].kinstoneId = param_3;
     }
     if (param_3 != 0) {
         Entity* entity = FindEntityByID(OBJECT, CAMERA_TARGET, 6);
@@ -1236,7 +1239,7 @@ s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
 void sub_080788E0(Entity* entity) {
     s32 index = sub_08078904(entity);
     if (index > -1) {
-        MemClear(&gUnk_03003DF0.array[index], 0xc);
+        MemClear(&gPossibleInteraction.candidates[index], sizeof(InteractableObject));
     }
 }
 
@@ -1244,7 +1247,7 @@ void sub_080788E0(Entity* entity) {
 s32 sub_08078904(Entity* entity) {
     u32 index;
     for (index = 0; index < 0x20; index++) {
-        if (entity == gUnk_03003DF0.array[index].entity) {
+        if (entity == gPossibleInteraction.candidates[index].entity) {
             return index;
         }
     }
@@ -1376,7 +1379,7 @@ void ClearPlayerState(void) {
     gPlayerState.spriteOffsetY = 0;
     gPlayerState.field_0x3c = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, 0x40);
-    MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
+    MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
 }
 
 void UpdateCarriedObject(void) {

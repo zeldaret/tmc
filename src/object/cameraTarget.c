@@ -57,7 +57,7 @@ void CameraTarget(Entity* this) {
                 break;
             }
         default:
-            if (gUnk_03003DF0.unk_4->unk_3 == KINSTONE_32) {
+            if (gPossibleInteraction.currentObject->kinstoneId == KINSTONE_32) {
                 if (CheckKinstoneFused(KINSTONE_32) == 0) {
                     uVar2 = 0;
                     break;
@@ -103,9 +103,9 @@ void CameraTarget_Action1(Entity* this) {
     if (this->timer) {
         this->timer--;
     } else {
-        if ((gUnk_03003DF0.unk_4->entity != NULL) && ((u8)(gUnk_03003DF0.unk_4->unk_3 - 1) < 100)) {
-            this->child = gUnk_03003DF0.unk_4->entity;
-            this->interactType = gUnk_03003DF0.unk_3;
+        if ((gPossibleInteraction.currentObject->entity != NULL) && ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
+            this->child = gPossibleInteraction.currentObject->entity;
+            this->interactType = gPossibleInteraction.currentIndex;
             sub_08083A40(this);
         }
     }
@@ -120,7 +120,7 @@ void CameraTarget_Action2(Entity* this) {
     const KinstoneWorldEvent* ptr;
 
     if ((this->type != 1) &&
-        (((u8)(gUnk_03003DF0.unk_4->unk_3 - 1) >= 100 || (this->child != gUnk_03003DF0.unk_4->entity)))) {
+        (((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) >= 100 || (this->child != gPossibleInteraction.currentObject->entity)))) {
         sub_080838DC(this);
     } else {
         this->x = this->child->x;
@@ -129,7 +129,7 @@ void CameraTarget_Action2(Entity* this) {
         if (this->frame == 1) {
             this->frame = 0;
             if (this->type == 0) {
-                bVar2 = gUnk_03003DF0.unk_4->unk_3;
+                bVar2 = gPossibleInteraction.currentObject->kinstoneId;
             } else {
                 bVar2 = this->type2;
             }

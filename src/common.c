@@ -624,7 +624,7 @@ void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
     gFuseInfo._8 = a3;
     gFuseInfo._a = a4;
     gFuseInfo.ent = entity;
-    gFuseInfo.kinstoneId = gUnk_03003DF0.unk_2;
+    gFuseInfo.kinstoneId = gPossibleInteraction.kinstoneId;
     if (entity != NULL) {
         gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
@@ -845,8 +845,8 @@ void NotifyFusersOnFusionDone(u32 kinstoneId) {
             gSave.fuserOffers[tmp] = 0xf2;
         }
         for (index = 0; index < 0x20; index++) {
-            if (kinstoneId == gUnk_03003DF0.array[index].unk_3) {
-                gUnk_03003DF0.array[index].unk_3 = 0xf1;
+            if (kinstoneId == gPossibleInteraction.candidates[index].kinstoneId) {
+                gPossibleInteraction.candidates[index].kinstoneId = 0xf1;
             }
         }
     }

@@ -606,8 +606,8 @@ u32 sub_080A4418(u32 param_1, u32 param_2) {
 }
 
 void KinstoneMenu_080A4468(void) {
-    gUnk_03003DF0.unk_2 = 0;
-    gUnk_03003DF0.unk_4->unk_3 = 0;
+    gPossibleInteraction.kinstoneId = 0;
+    gPossibleInteraction.currentObject->kinstoneId = 0;
     NotifyFusersOnFusionDone(gFuseInfo.kinstoneId);
     RemoveKinstoneFromBag(gKinstoneMenu.unk2a);
 }

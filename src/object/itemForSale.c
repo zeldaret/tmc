@@ -160,7 +160,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
 void sub_08081A5C(ItemForSaleEntity* this) {
     u32 tmp = sub_080787D8(super);
     if (super->timer == 1) {
-        gUnk_03003DF0.array[tmp].unk_2 = 0;
+        gPossibleInteraction.candidates[tmp].interactDirections = 0;
     }
 }
 

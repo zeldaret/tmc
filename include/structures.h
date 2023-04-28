@@ -259,26 +259,26 @@ typedef struct {
 } struct_020227E8;
 
 typedef struct {
-    /*0x00*/ u8 unk_0;
-    /*0x01*/ u8 unk_1;
-    /*0x02*/ u8 unk_2;
-    /*0x03*/ u8 unk_3;
-    /*0x04*/ const u8* unk_4;
+    /*0x00*/ u8 ignoreLayer; /* if bit 0 set, skip layer check for collision */
+    /*0x01*/ u8 interactCondition;
+    /*0x02*/ u8 interactDirections; /* lower 4 bits determine Link's allowed facing directions to interact, 0 to allow (0000WSEN) */
+    /*0x03*/ u8 kinstoneId;
+    /*0x04*/ const u8* customHitbox; /* if set, array contains x, y, width and height */
     /*0x08*/ Entity* entity;
-} struct_03003DF8;
+} InteractableObject;
 
 typedef struct {
-    /*0x00*/ u8 unk_0;
-    /*0x01*/ u8 unk_1;
-    /*0x02*/ u8 unk_2; // TODO kinstoneId, sub_0801DFB4
-    /*0x03*/ u8 unk_3;
-    /*0x04*/ struct_03003DF8* unk_4;
-    /*0x08*/ struct_03003DF8 array[0x20];
-} struct_03003DF0;
+    /*0x00*/ u8 isUpdated;
+    /*0x01*/ u8 unused;
+    /*0x02*/ u8 kinstoneId;
+    /*0x03*/ u8 currentIndex; /* index of currentObject in canditate list, or 0xFF */
+    /*0x04*/ InteractableObject* currentObject;
+    /*0x08*/ InteractableObject candidates[0x20]; /* contains the loaded NPCs, key doors, windcrests and other objects */
+} PossibleInteraction;
 
-static_assert(sizeof(struct_03003DF0) == 0x188);
+static_assert(sizeof(PossibleInteraction) == 0x188);
 
-extern struct_03003DF0 gUnk_03003DF0;
+extern PossibleInteraction gPossibleInteraction;
 
 typedef struct {
     u8 numTiles;
