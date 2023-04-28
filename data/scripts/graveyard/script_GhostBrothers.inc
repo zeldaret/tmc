@@ -1,7 +1,7 @@
 @ Graveyard GhostBrothers
 SCRIPT_START script_GhostBrothers
 	BeginBlock
-	Call sub_08065D00
+	Call GhostBrothers_MakeInteractable
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a

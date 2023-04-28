@@ -1,7 +1,7 @@
 @ Older lady in cat persons house
 SCRIPT_START script_OldLadyCatHouse2
 	BeginBlock
-	Call sub_08061E70
+	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0006
 	Call sub_08061FD8

@@ -5,7 +5,7 @@ SCRIPT_START script_MysteriousWall
 	DoPostScriptAction 0x0008
 	Call sub_0806DAAC
 	JumpIf script_0800B9AC
-	Call sub_0806DAD0
+	Call NPC4E_MakeFuserInteractable
 	CallWithArg sub_0806DA04, 0x00000005
 	EndBlock
 script_0800B98A:

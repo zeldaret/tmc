@@ -1,7 +1,7 @@
 @ Hyrule Town Nayru
 SCRIPT_START script_Nayru
 	BeginBlock
-	Call sub_08064928
+	Call Nayru_MakeInteractable
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a

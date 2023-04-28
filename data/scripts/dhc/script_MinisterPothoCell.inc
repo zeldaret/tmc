@@ -3,7 +3,7 @@ SCRIPT_START script_MinisterPothoCell
 	BeginBlock
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x000a
-	Call sub_080668F0
+	Call MinisterPotho_MakeInteractable
 	EndBlock
 script_0800E41A:
 	CheckEntityInteractType

@@ -1,7 +1,7 @@
 @ Outside Castle Mutoh
 SCRIPT_START script_MutohOutsideTown
 	BeginBlock
-	Call sub_08067100
+	Call Mutoh_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

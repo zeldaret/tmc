@@ -14,7 +14,7 @@ void SmallTownMinish(Entity* this) {
         this->action++;
         this->hitbox = (Hitbox*)&gUnk_081142FC;
         sub_0807DD50(this);
-        sub_08078850(this, 1, 0, gUnk_08114304);
+        SetInteractableObjectCollision(this, 1, 0, gUnk_08114304);
     } else {
         sub_0807DD94(this, NULL);
     }

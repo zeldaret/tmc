@@ -32,7 +32,7 @@ script_0800E0DE:
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0093
 script_0800E12E:
-	Call sub_080668F0
+	Call MinisterPotho_MakeInteractable
 	EnablePlayerControl
 	EndBlock
 script_0800E138:

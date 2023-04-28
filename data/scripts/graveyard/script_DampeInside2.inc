@@ -1,7 +1,7 @@
 @ Graveyard Dampe in house 2?
 SCRIPT_START script_DampeInside2
 	BeginBlock
-	Call sub_0806BE3C
+	Call Dampe_MakeInteractable
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
 	EndBlock

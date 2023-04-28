@@ -46,14 +46,13 @@ void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
     // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
     gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
         (gUnk_0810C89C_struct*)gUnk_0811415C)[context->intVariable]; // cast necessary to no longer make it a const* ?
-    sub_08078850(this, 1, (u8)a->unk_04, a);
+    SetInteractableObjectCollision(this, 1, (u8)a->unk_04, a);
 }
 
 void NPC4E_DoScreenTransition(Entity* this, ScriptExecutionContext* context) {
     sub_0808091C(gNpc4ETransitions[context->intVariable], gNpc4ETransitionTypes[context->intVariable]);
 }
 
-// Returns the kinstone id?
 u8 NPC4E_GetKinstoneId(Entity* this) {
     u32 result;
 
@@ -97,8 +96,8 @@ void sub_0806DAAC(Entity* this, ScriptExecutionContext* context) {
 }
 
 // maybe actually execute the kinstone fusion?
-void sub_0806DAD0(Entity* this) {
-    sub_08078790(this, NPC4E_GetKinstoneId(this));
+void NPC4E_MakeFuserInteractable(Entity* this) {
+    AddInteractableFuser(this, NPC4E_GetKinstoneId(this));
 }
 
 void sub_0806DAE8(Entity* this) {

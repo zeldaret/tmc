@@ -1,7 +1,7 @@
 @ Forest Minish above cafe
 SCRIPT_START script_ForestMinish11
 	BeginBlock
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800E6BE:

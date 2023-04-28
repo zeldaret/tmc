@@ -4,7 +4,7 @@ SCRIPT_START script_GoronPunching
 	_0807E9D4
 	Call sub_080694EC
 	DoPostScriptAction 0x000a
-	Call sub_080694B0
+	Call Goron_MakeInteractable
 	EndBlock
 script_0800B9CA:
 	Call CheckInteractType

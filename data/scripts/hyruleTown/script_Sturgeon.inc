@@ -1,7 +1,7 @@
 @ Library Sturgeon
 SCRIPT_START script_Sturgeon
 	BeginBlock
-	Call sub_08064CC0
+	Call Sturgeon_MakeInteractable
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
 	SetAnimationState 0x0002

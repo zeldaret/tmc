@@ -1,7 +1,7 @@
 @ Hyrule Town Dog person talking to Cat person
 SCRIPT_START script_DogPersonInCatHouse
 	BeginBlock
-	Call sub_08061E70
+	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0006
 	Call sub_08061FD8
@@ -19,7 +19,7 @@ script_0800EB7C:
 	Call sub_08061FD8
 	Jump script_0800EB7C
 	BeginBlock
-	Call sub_08061E70
+	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0002
 	Call sub_08061FD8

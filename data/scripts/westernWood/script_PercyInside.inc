@@ -4,7 +4,7 @@ SCRIPT_START script_PercyInside
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	Call sub_0806B60C
+	Call Percy_MakeInteractable
 	EndBlock
 script_08012E9E:
 	CheckEntityInteractType

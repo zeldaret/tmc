@@ -534,9 +534,9 @@ void ForestMinish(Entity* this) {
     }
 }
 
-void sub_08060090(Entity* this) {
+void ForestMinish_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void ForestMinish_Head(Entity* this) {

@@ -29,12 +29,12 @@ void Din(Entity* this) {
     }
 }
 
-void sub_08064828(Entity* this) {
+void Din_MakeInteractable(Entity* this) {
     u32 tmp = GetFusionToOffer(this);
     if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
         tmp = 0;
     }
-    sub_08078784(this, tmp);
+    AddInteractableWhenBigFuser(this, tmp);
 }
 
 void Din_Fusion(Entity* this) {

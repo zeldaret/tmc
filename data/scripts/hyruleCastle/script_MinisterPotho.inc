@@ -4,7 +4,7 @@ SCRIPT_START script_MinisterPotho
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 script_0800927E:
-	Call sub_080668F0
+	Call MinisterPotho_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800928A:

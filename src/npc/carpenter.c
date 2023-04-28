@@ -91,9 +91,9 @@ void sub_08067304(Entity* this) {
     ShowNPCDialogue(this, &dialog);
 }
 
-void sub_08067314(Entity* this) {
+void Carpenter_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Carpenter_Fusion(Entity* this) {

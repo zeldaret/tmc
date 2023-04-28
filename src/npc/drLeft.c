@@ -83,5 +83,5 @@ void sub_0806C09C(Entity* this) {
         8,
         12,
     };
-    sub_08078850(this, 1, 0, &gUnk_081133B4);
+    SetInteractableObjectCollision(this, 1, 0, &gUnk_081133B4);
 }

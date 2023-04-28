@@ -1,7 +1,7 @@
 @ Hyrule Town Rem
 SCRIPT_START script_Rem
 	BeginBlock
-	CallWithArg sub_0806A93C, 0x12345678
+	CallWithArg Rem_MakeInteractable, 0x12345678
 	SetAnimationState 0x0004
 	SetAnimation 0x0002
 	CheckInventory1 ITEM_PEGASUS_BOOTS

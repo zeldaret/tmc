@@ -235,9 +235,9 @@ void SittingPerson_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-void sub_080639D0(Entity* this) {
+void SittingPerson_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void SittingPerson_Fusion(Entity* this) {

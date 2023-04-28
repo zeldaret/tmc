@@ -260,7 +260,7 @@ typedef struct {
 
 typedef struct {
     /*0x00*/ u8 ignoreLayer; /* if bit 0 set, skip layer check for collision */
-    /*0x01*/ u8 interactCondition;
+    /*0x01*/ u8 type;
     /*0x02*/ u8 interactDirections; /* lower 4 bits determine Link's allowed facing directions to interact, 0 to allow (0000WSEN) */
     /*0x03*/ u8 kinstoneId;
     /*0x04*/ const u8* customHitbox; /* if set, array contains x, y, width and height */

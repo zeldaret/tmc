@@ -27,14 +27,14 @@ typedef struct {
                     // not match.
 } ModifiedParentEntity;
 
-extern u32 sub_080787D8(Entity*);
+extern u32 AddInteractableShopItem(Entity*);
 extern void* sub_080784E4(void);
 
 void ItemForSale_Init(ItemForSaleEntity*);
 void ItemForSale_Action1(ItemForSaleEntity*);
 void ItemForSale_Action2(ItemForSaleEntity*);
 void ItemForSale_Action3(ItemForSaleEntity*);
-void sub_08081A5C(ItemForSaleEntity*);
+void ItemForSale_MakeInteractable(ItemForSaleEntity*);
 void sub_080819B4(ItemForSaleEntity*);
 void sub_08081AB0(void);
 
@@ -71,7 +71,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
     SetDefaultPriority(super, 6);
 #endif
     super->child = super;
-    sub_08081A5C(this);
+    ItemForSale_MakeInteractable(this);
     switch (super->timer) {
         case 0:
             super->hitbox = (Hitbox*)&gUnk_080FD328;
@@ -154,11 +154,11 @@ void sub_080819B4(ItemForSaleEntity* this) {
     super->collisionLayer = 1;
     super->spritePriority.b0 = 4;
     UpdateSpriteForCollisionLayer(super);
-    sub_08081A5C(this);
+    ItemForSale_MakeInteractable(this);
 }
 
-void sub_08081A5C(ItemForSaleEntity* this) {
-    u32 tmp = sub_080787D8(super);
+void ItemForSale_MakeInteractable(ItemForSaleEntity* this) {
+    u32 tmp = AddInteractableShopItem(super);
     if (super->timer == 1) {
         gPossibleInteraction.candidates[tmp].interactDirections = 0;
     }

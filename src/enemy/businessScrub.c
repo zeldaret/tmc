@@ -547,7 +547,7 @@ void sub_0802922C(Entity* this) {
 }
 
 void sub_0802925C(Entity* this) {
-    sub_08078784(this, GetFusionToOffer(this));
+    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
 }
 
 void sub_08029270(Entity* this) {

@@ -42,9 +42,9 @@ void Teachers(Entity* this) {
     }
 }
 
-void sub_0806C674(Entity* this) {
+void Teachers_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Teachers_Head(Entity* this) {

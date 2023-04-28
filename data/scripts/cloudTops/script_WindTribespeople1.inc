@@ -1,7 +1,7 @@
 @ Cloud Tops WindTribespeople blocking exit
 SCRIPT_START script_WindTribespeople1
 	BeginBlock
-	Call sub_0806C870
+	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
 	CheckGlobalFlag WARP_EVENT_END
 	JumpIf script_08014976

@@ -14,7 +14,7 @@ script_08009646:
 	Call sub_0806BF44
 	JumpIf script_08009646
 	EndBlock
-	Call sub_0806BE3C
+	Call Dampe_MakeInteractable
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
 script_08009660:

@@ -1,7 +1,7 @@
 @ Hyrule Town Farore
 SCRIPT_START script_Farore
 	BeginBlock
-	Call sub_08064A28
+	Call Farore_MakeInteractable
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a

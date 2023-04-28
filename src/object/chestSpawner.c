@@ -26,7 +26,7 @@ extern const Hitbox gUnk_0811F8A8;
 extern const Hitbox gUnk_0811F8B0;
 
 void sub_080842D8(ChestSpawnerEntity*);
-void sub_08078828(ChestSpawnerEntity*);
+void AddInteractableChest(ChestSpawnerEntity*);
 void sub_08083E20(ChestSpawnerEntity*);
 void sub_08084074(u32);
 void sub_080840A8(s32, s32);
@@ -76,7 +76,7 @@ void sub_08083E20(ChestSpawnerEntity* this) {
     super->spriteSettings.draw = 1;
     super->spriteRendering.alphaBlend = 0;
     sub_080842D8(this);
-    sub_08078828(this);
+    AddInteractableChest(this);
 }
 void ChestSpawner_Type2Init(ChestSpawnerEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_0811F8B0;
@@ -153,7 +153,7 @@ void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
     if (super->interactType != 0) {
         super->action = 4;
         super->subtimer = 30;
-        sub_080788E0(super);
+        RemoveInteractableObject(super);
         RequestPriorityDuration(super, 60);
         SoundReq(SFX_CHEST_OPEN);
     }

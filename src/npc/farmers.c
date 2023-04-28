@@ -59,8 +59,8 @@ void sub_0806BCC0(Entity* this) {
     }
 }
 
-void sub_0806BCD4(Entity* this) {
-    sub_08078784(this, GetFusionToOffer(this));
+void Farmers_MakeInteractable(Entity* this) {
+    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
 }
 
 void sub_0806BCE8(Entity* this) {

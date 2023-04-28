@@ -42,7 +42,7 @@ void sub_0806854C(Entity* this, u32* none) {
     this->myHeap = zMalloc(sizeof(ZeldaFollowerHeap));
     if (this->myHeap != NULL) {
         this->field_0x68.HALF.LO = 1;
-        sub_080788E0(this);
+        RemoveInteractableObject(this);
         this->hitbox = NULL;
         sub_08068578(this);
     }

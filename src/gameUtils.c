@@ -108,7 +108,7 @@ void InitializePlayer(void) {
 
     Entity* pl;
 
-    sub_080784C8();
+    ResetPossibleInteraction();
     MemClear(&gActiveItems, sizeof(gActiveItems));
     MemClear(&gPlayerState, sizeof(gPlayerState));
     MemFill32(0xffffffff, &gPlayerState.path_memory, sizeof(gPlayerState.path_memory));

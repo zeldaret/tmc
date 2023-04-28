@@ -78,12 +78,12 @@ void sub_0806C85C(Entity* this) {
     }
 }
 
-void sub_0806C870(Entity* this) {
+void WindTribespeople_MakeInteractable(Entity* this) {
     u8 bVar1;
 
     bVar1 = GetFusionToOffer(this);
     this->field_0x68.HALF.LO = bVar1;
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void WindTribespeople_Head(Entity* this) {

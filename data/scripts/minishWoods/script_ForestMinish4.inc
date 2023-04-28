@@ -2,7 +2,7 @@
 SCRIPT_START script_ForestMinish4
 	BeginBlock
 script_0800C5FE:
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800C60A:

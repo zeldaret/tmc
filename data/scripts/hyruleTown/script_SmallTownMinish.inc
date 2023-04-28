@@ -3,7 +3,7 @@ SCRIPT_START script_SmallTownMinish
 	BeginBlock
 	CheckPlayerMinish
 	JumpIfNot script_08010BAC
-	Call sub_0807F924
+	Call MakeInteractableAsMinish
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0007

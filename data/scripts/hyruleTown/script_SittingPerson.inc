@@ -1,7 +1,7 @@
 @ Hyrule Town SittingPerson
 SCRIPT_START script_SittingPerson
 	BeginBlock
-	Call sub_080639D0
+	Call SittingPerson_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 	BeginBlock

@@ -228,7 +228,7 @@ void sub_0806ACC4(Entity* this) {
                 }
                 if (this->type == 1) {
                     u8 idx = gPlayerEntity.animationState >> 1;
-                    sub_08078850(this, 1, gUnk_081126E4[idx], gUnk_081126D4[idx]);
+                    SetInteractableObjectCollision(this, 1, gUnk_081126E4[idx], gUnk_081126D4[idx]);
                 }
             }
             break;
@@ -250,8 +250,8 @@ void sub_0806ACC4(Entity* this) {
     }
 }
 
-void sub_0806ADFC(Entity* this) {
-    sub_08078784(this, this->field_0x68.HALF.LO);
+void TownMinish_MakeInteractable(Entity* this) {
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void TownMinish_Head(Entity* this) {

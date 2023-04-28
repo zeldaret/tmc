@@ -1,7 +1,7 @@
 @ Farmer
 SCRIPT_START script_Farmer
 	BeginBlock
-	Call sub_0806BCD4
+	Call Farmers_MakeInteractable
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0806BC94, 0x00000000
 	EndBlock

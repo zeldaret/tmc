@@ -7,7 +7,7 @@ SCRIPT_START script_Npc4EFirstCloud
 	DoPostScriptAction 0x0008
 	Call sub_0806DAAC
 	JumpIf script_0800D6AE
-	Call sub_0806DAD0
+	Call NPC4E_MakeFuserInteractable
 	CallWithArg sub_0806DA04, 0x00000002
 	EndBlock
 script_0800D636:

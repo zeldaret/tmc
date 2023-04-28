@@ -29,12 +29,12 @@ void Nayru(Entity* this) {
     }
 }
 
-void sub_08064928(Entity* this) {
+void Nayru_MakeInteractable(Entity* this) {
     u32 tmp = GetFusionToOffer(this);
     if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
         tmp = 0;
     }
-    sub_08078784(this, tmp);
+    AddInteractableWhenBigFuser(this, tmp);
 }
 
 void Nayru_Fusion(Entity* this) {

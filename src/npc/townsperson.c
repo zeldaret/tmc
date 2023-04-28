@@ -15,8 +15,8 @@ extern void sub_08062048(Entity*);
 
 extern struct_0810B680 gUnk_0810B680[];
 extern SpriteLoadData* gUnk_0810B6EC[];
-extern u32 gUnk_0810B740[]; // TODO fourth parameter of sub_08078850
-extern u8 gUnk_0810B748[];  // TODO third parameter of sub_08078850
+extern u32 gUnk_0810B740[]; // TODO fourth parameter of SetInteractableObjectCollision
+extern u8 gUnk_0810B748[];  // TODO third parameter of SetInteractableObjectCollision
 extern u16 gUnk_0810B74A[];
 extern void (*const gUnk_0810B774[])(Entity*);
 extern void (*const gUnk_0810B77C[])(Entity*);
@@ -150,11 +150,11 @@ void sub_08061E50(Entity* this) {
     }
 }
 
-void sub_08061E70(Entity* this) {
+void Townsperson_MakeInteractable(Entity* this) {
     if (this->id == 6) {
-        sub_08078784(this, this->field_0x68.HALF.LO);
+        AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
     } else {
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
 }
 
@@ -236,7 +236,7 @@ void sub_08061FB0(Entity* this) {
 void sub_08061FB8(Entity* this, ScriptExecutionContext* context) {
     u8* temp = gUnk_0810B748;
 
-    sub_08078850(this, 1, temp[context->intVariable], &gUnk_0810B740[context->intVariable]);
+    SetInteractableObjectCollision(this, 1, temp[context->intVariable], &gUnk_0810B740[context->intVariable]);
 }
 
 void sub_08061FD8(Entity* this) {

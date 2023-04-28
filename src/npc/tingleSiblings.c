@@ -83,7 +83,7 @@ void sub_08064DE4(Entity* this) {
     }
 }
 
-void sub_08064EA4(Entity* this) {
+void TingleSiblings_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
     switch (this->type) {
         case 0:
@@ -99,7 +99,7 @@ void sub_08064EA4(Entity* this) {
         default:
             break;
     }
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void sub_08064EE8(Entity* this) {

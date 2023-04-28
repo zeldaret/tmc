@@ -29,12 +29,12 @@ void Farore(Entity* this) {
     }
 }
 
-void sub_08064A28(Entity* this) {
+void Farore_MakeInteractable(Entity* this) {
     u32 tmp = GetFusionToOffer(this);
     if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
         tmp = 0;
     }
-    sub_08078784(this, tmp);
+    AddInteractableWhenBigFuser(this, tmp);
 }
 
 void Farore_Fusion(Entity* this) {

@@ -41,7 +41,7 @@ void sub_0806B3CC(Entity* this) {
         }
         this->action = 1;
         InitializeAnimation(this, 0);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
     GetNextFrame(this);
     if (this->interactType != 0) {
@@ -161,9 +161,9 @@ void sub_0806B540(Entity* this) {
     gActiveScriptInfo.commandSize = 0;
 }
 
-void sub_0806B60C(Entity* this) {
+void Percy_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Percy_Fusion(Entity* this) {

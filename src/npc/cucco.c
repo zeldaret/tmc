@@ -16,7 +16,7 @@ void Cucco(Entity* this) {
 void Cucco_Init(Entity* this) {
     this->action++;
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_080787A8(this, this->field_0x68.HALF.LO);
+    AddInteractableAsMinishFuser(this, this->field_0x68.HALF.LO);
     SetDefaultPriority(this, PRIO_MESSAGE);
     this->subAction = 0;
     sub_0806E4EC(this);

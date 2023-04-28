@@ -294,7 +294,7 @@ void sub_08063D44(Entity* this) {
             ent->subtimer = 60;
             break;
         case 4 ... 5:
-            sub_08078778(this);
+            AddInteractableWhenBigObject(this);
             break;
     }
     this->action++;

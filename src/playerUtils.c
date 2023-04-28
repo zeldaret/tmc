@@ -995,7 +995,7 @@ void sub_08078180(void) {
                 ptr = sub_080784E4();
                 if (ptr->entity->interactType == 0) {
 
-                    switch (ptr->interactCondition) {
+                    switch (ptr->type) {
                         case 1:
                         case 7:
                             uVar1 = 7;
@@ -1106,7 +1106,7 @@ bool32 sub_080782C0(void) {
     if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
         return FALSE;
     }
-    switch (gPossibleInteraction.currentObject->interactCondition) {
+    switch (gPossibleInteraction.currentObject->type) {
         default:
         case 0:
             return TRUE;
@@ -1134,99 +1134,102 @@ bool32 sub_080782C0(void) {
     return TRUE;
 }
 
-void sub_080784C8(void) {
+void ResetPossibleInteraction(void) {
     MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
     gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
 }
 
+// determines which (if any) object the player is currently able to interact with
 ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", InteractableObject* sub_080784E4(void))
 
-void sub_08078778(Entity* ent) {
-    sub_0807887C(ent, 1, 0);
+void AddInteractableWhenBigObject(Entity* ent) {
+    AddInteractableObject(ent, 1, 0);
 }
 
-void sub_08078784(Entity* ent, u32 arg1) {
-    sub_0807887C(ent, 1, arg1);
+void AddInteractableWhenBigFuser(Entity* ent, u32 kinstoneId) {
+    AddInteractableObject(ent, 1, kinstoneId);
 }
 
-void sub_08078790(Entity* ent, u32 arg1) {
-    sub_0807887C(ent, 2, arg1);
+void AddInteractableFuser(Entity* ent, u32 kinstoneId) {
+    AddInteractableObject(ent, 2, kinstoneId);
 }
 
-void sub_0807879C(Entity* ent) {
-    sub_0807887C(ent, 7, 0);
+void AddInteractableAsMinishObject(Entity* ent) {
+    AddInteractableObject(ent, 7, 0);
 }
 
-void sub_080787A8(Entity* ent, u32 arg1) {
-    sub_0807887C(ent, 7, arg1);
+void AddInteractableAsMinishFuser(Entity* ent, u32 kinstoneId) {
+    AddInteractableObject(ent, 7, kinstoneId);
 }
 
-void sub_080787B4(Entity* ent) {
-    sub_0807887C(ent, 9, 0);
+void AddInteractableCheckableObject(Entity* ent) {
+    AddInteractableObject(ent, 9, 0);
 }
 
-void sub_080787C0(Entity* ent) {
-    sub_0807887C(ent, 10, 0);
+void AddInteractablePedestal(Entity* ent) {
+    AddInteractableObject(ent, 10, 0);
 }
 
-void sub_080787CC(Entity* ent) {
-    sub_0807887C(ent, 5, 0);
+void AddInteractableSmallKeyLock(Entity* ent) {
+    AddInteractableObject(ent, 5, 0);
 }
 
-s32 sub_080787D8(Entity* ent) {
+s32 AddInteractableShopItem(Entity* ent) {
     s32 iVar1;
 
-    iVar1 = sub_0807887C(ent, 8, 0);
+    iVar1 = AddInteractableObject(ent, 8, 0);
     if (iVar1 >= 0) {
         gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
 
-s32 sub_08078800(Entity* ent) {
+s32 AddInteractableBossDoor(Entity* ent) {
     s32 iVar1;
 
-    iVar1 = sub_0807887C(ent, 6, 0);
+    iVar1 = AddInteractableObject(ent, 6, 0);
+    if (iVar1 >= 0) {
+        // weird, this line assumes it's a north door, and is unnecessary
+        // anyway because this is overwritten right after returning
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
+    }
+    return iVar1;
+}
+
+s32 AddInteractableChest(Entity* ent) {
+    s32 iVar1;
+
+    iVar1 = AddInteractableObject(ent, 3, 0);
     if (iVar1 >= 0) {
         gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
 
-s32 sub_08078828(Entity* ent) {
+void SetInteractableObjectCollision(Entity* arg0, u32 ignoreLayer, u32 interactDirections, const void* customHitbox) {
     s32 iVar1;
 
-    iVar1 = sub_0807887C(ent, 3, 0);
+    iVar1 = GetInteractableObjectIndex(arg0);
     if (iVar1 >= 0) {
-        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
-    }
-    return iVar1;
-}
-
-void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, const void* arg3) {
-    s32 iVar1;
-
-    iVar1 = sub_08078904(arg0);
-    if (iVar1 >= 0) {
-        gPossibleInteraction.candidates[iVar1].ignoreLayer = arg1;
-        gPossibleInteraction.candidates[iVar1].interactDirections = arg2;
-        gPossibleInteraction.candidates[iVar1].customHitbox = arg3;
+        gPossibleInteraction.candidates[iVar1].ignoreLayer = ignoreLayer;
+        gPossibleInteraction.candidates[iVar1].interactDirections = interactDirections;
+        gPossibleInteraction.candidates[iVar1].customHitbox = customHitbox;
     }
 }
 
-s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
+s32 AddInteractableObject(Entity* entity, u32 type, u32 kinstoneId) {
     s32 index;
     entity->interactType = 0;
-    index = sub_08078904(entity);
+    index = GetInteractableObjectIndex(entity);
     if (index < 0) {
-        index = sub_08078904(0);
+        index = GetInteractableObjectIndex(0);
     }
     if (index >= 0) {
         gPossibleInteraction.candidates[index].entity = entity;
-        gPossibleInteraction.candidates[index].interactCondition = param_2;
-        gPossibleInteraction.candidates[index].kinstoneId = param_3;
+        gPossibleInteraction.candidates[index].type = type;
+        gPossibleInteraction.candidates[index].kinstoneId = kinstoneId;
     }
-    if (param_3 != 0) {
+    if (kinstoneId != 0) {
         Entity* entity = FindEntityByID(OBJECT, CAMERA_TARGET, 6);
         if (entity == NULL) {
             CreateObject(CAMERA_TARGET, 0, 0);
@@ -1236,15 +1239,15 @@ s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
 }
 
 /** Clear entry for Entity. */
-void sub_080788E0(Entity* entity) {
-    s32 index = sub_08078904(entity);
+void RemoveInteractableObject(Entity* entity) {
+    s32 index = GetInteractableObjectIndex(entity);
     if (index > -1) {
         MemClear(&gPossibleInteraction.candidates[index], sizeof(InteractableObject));
     }
 }
 
 /** Find entry for Entity. */
-s32 sub_08078904(Entity* entity) {
+s32 GetInteractableObjectIndex(Entity* entity) {
     u32 index;
     for (index = 0; index < 0x20; index++) {
         if (entity == gPossibleInteraction.candidates[index].entity) {

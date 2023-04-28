@@ -1,7 +1,7 @@
 @ Cloud Tops Windtribespeople blocking way up
 SCRIPT_START script_WindTribespeople4
 	BeginBlock
-	Call sub_0806C870
+	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08014A36:

@@ -4,7 +4,7 @@ SCRIPT_START script_HurdyGurdyMan
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	SetAnimation 0x0008
-	Call sub_0806E440
+	Call HurdyGurdyMan_MakeInteractable
 	EndBlock
 script_08010BCA:
 	CheckEntityInteractType

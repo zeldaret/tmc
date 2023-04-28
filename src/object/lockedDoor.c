@@ -133,8 +133,8 @@ void LockedDoor_Init(Entity* this) {
                     this->action = 5;
                 } else {
                     this->action = 8;
-                    sub_080787CC(this);
-                    sub_08078850(this, 0, gLockedDoorInteractDirections[this->field_0x7c.BYTES.byte2], 0);
+                    AddInteractableSmallKeyLock(this);
+                    SetInteractableObjectCollision(this, 0, gLockedDoorInteractDirections[this->field_0x7c.BYTES.byte2], NULL);
                 }
             } else {
                 DeleteThisEntity();

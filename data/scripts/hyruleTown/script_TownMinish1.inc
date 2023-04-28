@@ -2,7 +2,7 @@
 @ also in library, cafe
 SCRIPT_START script_TownMinish1
 	BeginBlock
-	Call sub_0806ADFC
+	Call TownMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 script_0800E6F4:
 	EndBlock

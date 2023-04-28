@@ -110,9 +110,9 @@ void sub_08065CCC(Entity* this) {
     gScreen.controls.alphaBlend = 0x10;
 }
 
-void sub_08065D00(Entity* this) {
+void GhostBrothers_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void sub_08065D18(Entity* this) {
@@ -219,7 +219,7 @@ void sub_08065EDC(Entity* this) {
             *(u16**)&this->field_0x6c = (++puVar3);
         } else {
             this->action++;
-            sub_08078778(this);
+            AddInteractableWhenBigObject(this);
         }
     }
 }

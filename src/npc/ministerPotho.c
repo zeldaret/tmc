@@ -27,7 +27,7 @@ void sub_080667E4(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 2);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 }
 
 void sub_08066808(Entity* this) {
@@ -81,8 +81,8 @@ void sub_08066864(Entity* this) {
     }
 }
 
-void sub_080668F0(Entity* this) {
-    sub_08078784(this, GetFusionToOffer(this));
+void MinisterPotho_MakeInteractable(Entity* this) {
+    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
 }
 
 void sub_08066904(Entity* this) {

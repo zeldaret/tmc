@@ -72,7 +72,7 @@ void sub_080632C8(Entity* this) {
 void sub_080632E0(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_0810C8D4)) {
         InitializeAnimation(this, 0);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
         this->spriteSettings.draw = 1;
         this->action = 1;
     }
@@ -103,7 +103,7 @@ void sub_08063390(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 1;
         InitializeAnimation(this, GetAnimationState(this));
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
     sub_0806ED78(this);
 }
@@ -136,7 +136,7 @@ void sub_08063410(Entity* this) {
             this->type2 = 0;
         }
         sub_0807DD64(this);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
     if (this->type != 0) {
         sub_0806346C(this);
@@ -217,7 +217,7 @@ void sub_0806346C(Entity* this) {
     bVar1 = gUnk_0810C8F0[iVar2][iVar3][gPlayerEntity.animationState >> 1];
     if (bVar1 != this->type2) {
         const gUnk_0810C89C_struct* temp = &gUnk_0810C89C[bVar1];
-        sub_08078850(this, 1, temp->unk_04, temp);
+        SetInteractableObjectCollision(this, 1, temp->unk_04, temp);
         this->type2 = bVar1;
     }
 }

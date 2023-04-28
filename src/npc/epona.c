@@ -73,9 +73,9 @@ void sub_08065A64(Entity* this) {
 
     if (uVar2 != this->field_0x68.HALF.HI) {
         if (uVar2 == 0) {
-            sub_08078778(this);
+            AddInteractableWhenBigObject(this);
         } else {
-            sub_080787A8(this, this->field_0x68.HALF.LO);
+            AddInteractableAsMinishFuser(this, this->field_0x68.HALF.LO);
         }
     }
     this->field_0x68.HALF.HI = uVar2;

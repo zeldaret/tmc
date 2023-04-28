@@ -1,7 +1,7 @@
 @ TODO UNUSED?
 SCRIPT_START script_08013D04
 	BeginBlock
-	Call sub_0807F92C
+	Call MakePedestalInteractable
 	DoPostScriptAction 0x0008
 	CallWithArg sub_0806DA04, 0x00000004
 	EndBlock
