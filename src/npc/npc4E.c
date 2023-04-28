@@ -90,7 +90,7 @@ u8 NPC4E_GetKinstoneId(Entity* this) {
 }
 
 // Check whether a kinstone fusion is possible and store the result somewhere in param_2?
-void sub_0806DAAC(Entity* this, ScriptExecutionContext* context) {
+void NPC4E_IsKinstoneFused(Entity* this, ScriptExecutionContext* context) {
     context->condition = CheckKinstoneFused(NPC4E_GetKinstoneId(this));
     gActiveScriptInfo.flags |= 1;
 }
@@ -100,7 +100,7 @@ void NPC4E_MakeFuserInteractable(Entity* this) {
     AddInteractableFuser(this, NPC4E_GetKinstoneId(this));
 }
 
-void sub_0806DAE8(Entity* this) {
+void NPC4E_SetPinwheelFlag(Entity* this) {
     switch (this->type - 1) {
         case 0:
             SetLocalFlag(KUMOUE_02_AWASE_01);
@@ -122,7 +122,7 @@ void sub_0806DAE8(Entity* this) {
     SoundReq(SFX_TASK_COMPLETE);
 }
 
-void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
+void NPC4E_IsEveryPinwheelActivated(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
 
     if (CheckLocalFlag(KUMOUE_02_AWASE_01) && CheckLocalFlag(KUMOUE_02_AWASE_02) &&
@@ -148,29 +148,29 @@ void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-u32 sub_0806DBF4(u32 param_1) {
-    switch (param_1) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 6:
-            param_1 = ITEM_SMITH_SWORD;
+Item NPC4E_GetItemWithSwordUpgraded(Item itemId) {
+    switch (itemId) {
+        case ITEM_SMITH_SWORD:
+        case ITEM_GREEN_SWORD:
+        case ITEM_RED_SWORD:
+        case ITEM_BLUE_SWORD:
+        case ITEM_FOURSWORD:
+            itemId = ITEM_SMITH_SWORD;
             if (GetInventoryValue(ITEM_GREEN_SWORD) != 0) {
-                param_1 = ITEM_GREEN_SWORD;
+                itemId = ITEM_GREEN_SWORD;
             }
             if (GetInventoryValue(ITEM_RED_SWORD) != 0) {
-                param_1 = ITEM_RED_SWORD;
+                itemId = ITEM_RED_SWORD;
             }
             if (GetInventoryValue(ITEM_BLUE_SWORD) != 0) {
-                param_1 = ITEM_BLUE_SWORD;
+                itemId = ITEM_BLUE_SWORD;
             }
             if (GetInventoryValue(ITEM_FOURSWORD) != 0) {
-                param_1 = ITEM_FOURSWORD;
+                itemId = ITEM_FOURSWORD;
             }
             break;
     }
-    return param_1;
+    return itemId;
 }
 
 void NPC4E_SaveEquippedItems(Entity* this) {
@@ -179,8 +179,8 @@ void NPC4E_SaveEquippedItems(Entity* this) {
 }
 
 void NPC4E_RestoreEquippedItems(Entity* this) {
-    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.LO), EQUIP_SLOT_A);
-    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), EQUIP_SLOT_B);
+    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->field_0x68.HALF.LO), EQUIP_SLOT_A);
+    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->field_0x68.HALF.HI), EQUIP_SLOT_B);
 }
 
 void sub_0806DC7C(void) {

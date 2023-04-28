@@ -3,7 +3,7 @@ SCRIPT_START script_MysteriousWall
 	BeginBlock
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008
-	Call sub_0806DAAC
+	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800B9AC
 	Call NPC4E_MakeFuserInteractable
 	CallWithArg sub_0806DA04, 0x00000005
