@@ -437,6 +437,20 @@ s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);
 void ModBombs(s32 delta);
 
+typedef enum {
+    INTERACTION_NONE,
+    INTERACTION_TALK,
+    INTERACTION_FUSE,
+    INTERACTION_OPEN_CHEST,
+    INTERACTION_UNUSED,
+    INTERACTION_USE_SMALL_KEY,
+    INTERACTION_USE_BIG_KEY,
+    INTERACTION_TALK_MINISH,
+    INTERACTION_LIFT_SHOP_ITEM,
+    INTERACTION_CHECK,
+    INTERACTION_DROP_PEDESTAL,
+} InteractionType;
+
 // playerUtils.c
 void DeleteClones(void);
 void CreateItemEquippedAtSlot(/*EquipSlot*/ u32 equipSlot);

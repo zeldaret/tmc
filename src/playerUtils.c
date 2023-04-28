@@ -996,24 +996,24 @@ void sub_08078180(void) {
                 if (ptr->entity->interactType == 0) {
 
                     switch (ptr->type) {
-                        case 1:
-                        case 7:
+                        case INTERACTION_TALK:
+                        case INTERACTION_TALK_MINISH:
                             uVar1 = 7;
                             break;
-                        case 8:
+                        case INTERACTION_LIFT_SHOP_ITEM:
                             if (gRoomVars.shopItemType == ITEM_NONE) {
                                 uVar1 = 9;
                             }
                             break;
-                        case 3:
-                        case 5:
-                        case 6:
+                        case INTERACTION_OPEN_CHEST:
+                        case INTERACTION_USE_SMALL_KEY:
+                        case INTERACTION_USE_BIG_KEY:
                             uVar1 = 6;
                             break;
-                        case 9:
+                        case INTERACTION_CHECK:
                             uVar1 = 5;
                             break;
-                        case 10:
+                        case INTERACTION_DROP_PEDESTAL:
                             uVar1 = 2;
                             break;
                     }
@@ -1108,21 +1108,21 @@ bool32 sub_080782C0(void) {
     }
     switch (gPossibleInteraction.currentObject->type) {
         default:
-        case 0:
+        case INTERACTION_NONE:
             return TRUE;
-        case 1:
-        case 6:
-        case 9:
-        case 0xa:
+        case INTERACTION_TALK:
+        case INTERACTION_USE_BIG_KEY:
+        case INTERACTION_CHECK:
+        case INTERACTION_DROP_PEDESTAL:
             gPlayerState.queued_action = PLAYER_08070E9C;
             ForceSetPlayerState(PL_STATE_TALKEZLO);
-        case 3:
-        case 5:
-        case 7:
+        case INTERACTION_OPEN_CHEST:
+        case INTERACTION_USE_SMALL_KEY:
+        case INTERACTION_TALK_MINISH:
             entity->interactType = 1;
             gPossibleInteraction.kinstoneId = 0;
             return TRUE;
-        case 8:
+        case INTERACTION_LIFT_SHOP_ITEM:
             if (gRoomVars.shopItemType == 0) {
                 entity->interactType = 1;
                 gRoomVars.shopItemType = entity->type;
@@ -1146,11 +1146,11 @@ void AddInteractableWhenBigObject(Entity* ent) {
     AddInteractableObject(ent, 1, 0);
 }
 
-void AddInteractableWhenBigFuser(Entity* ent, u32 kinstoneId) {
+void AddInteractableWhenBigFuser(Entity* ent, KinstoneId kinstoneId) {
     AddInteractableObject(ent, 1, kinstoneId);
 }
 
-void AddInteractableFuser(Entity* ent, u32 kinstoneId) {
+void AddInteractableFuser(Entity* ent, KinstoneId kinstoneId) {
     AddInteractableObject(ent, 2, kinstoneId);
 }
 
@@ -1158,7 +1158,7 @@ void AddInteractableAsMinishObject(Entity* ent) {
     AddInteractableObject(ent, 7, 0);
 }
 
-void AddInteractableAsMinishFuser(Entity* ent, u32 kinstoneId) {
+void AddInteractableAsMinishFuser(Entity* ent, KinstoneId kinstoneId) {
     AddInteractableObject(ent, 7, kinstoneId);
 }
 
@@ -1217,7 +1217,7 @@ void SetInteractableObjectCollision(Entity* arg0, u32 ignoreLayer, u32 interactD
     }
 }
 
-s32 AddInteractableObject(Entity* entity, u32 type, u32 kinstoneId) {
+s32 AddInteractableObject(Entity* entity, InteractionType type, KinstoneId kinstoneId) {
     s32 index;
     entity->interactType = 0;
     index = GetInteractableObjectIndex(entity);
