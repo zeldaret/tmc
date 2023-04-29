@@ -11,6 +11,7 @@
 #include "game.h"
 #include "item.h"
 #include "itemMetaData.h"
+#include "kinstone.h"
 #include "main.h"
 #include "menu.h"
 #include "message.h"
@@ -1281,7 +1282,7 @@ void PauseMenu_Screen_7(void) {
 
 void sub_080A6024(void) {
     sub_080A70AC((KeyButtonLayout*)&gUnk_08128D60);
-    AddKinstoneToBag(0);
+    AddKinstoneToBag(KINSTONE_NONE);
     sub_080A4398();
     SetMenuType(1);
 }

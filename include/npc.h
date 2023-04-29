@@ -84,12 +84,12 @@ void NPCInit(Entity* ent);
 void CollideFollowers(void);
 
 // TODO move?
-void AddInteractableWhenBigFuser(Entity* ent, u32 arg1);
+void AddInteractableWhenBigFuser(Entity* ent, u32 kinstoneId);
 u32 sub_0806F5A4(u32);
 u32 GetFusionToOffer(Entity*);
 void AddInteractableWhenBigObject(Entity*);
 void sub_0807000C(Entity*);
-void AddInteractableAsMinishFuser(Entity*, u32);
+void AddInteractableAsMinishFuser(Entity* ent, u32 kinstoneId);
 
 enum NPC {
     /*0x00*/ NPC_NONE_0,

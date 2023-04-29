@@ -1,5 +1,6 @@
 #include "npc.h"
 #include "functions.h"
+#include "kinstone.h"
 
 void (*const Cucco_Actions[])(Entity*);
 const u16 Cucco_Sounds[];
@@ -113,7 +114,7 @@ void sub_0806E65C(Entity* this) {
 void Cucco_ShowMessage(Entity* this) {
     u32 val = 0;
     u32 index = GetFuserId(this);
-    if (gSave.fuserOffers[index] == 0xf3) {
+    if (gSave.fuserOffers[index] == KINSTONE_FUSER_DONE) {
         val = 1;
     }
 

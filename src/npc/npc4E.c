@@ -58,7 +58,7 @@ u8 NPC4E_GetKinstoneId(Entity* this) {
 
     switch (this->type) {
         default:
-            result = KINSTONE_0;
+            result = KINSTONE_NONE;
             break;
         case 1:
             result = KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT;
@@ -89,13 +89,11 @@ u8 NPC4E_GetKinstoneId(Entity* this) {
     return result;
 }
 
-// Check whether a kinstone fusion is possible and store the result somewhere in param_2?
 void NPC4E_IsKinstoneFused(Entity* this, ScriptExecutionContext* context) {
     context->condition = CheckKinstoneFused(NPC4E_GetKinstoneId(this));
     gActiveScriptInfo.flags |= 1;
 }
 
-// maybe actually execute the kinstone fusion?
 void NPC4E_MakeFuserInteractable(Entity* this) {
     AddInteractableFuser(this, NPC4E_GetKinstoneId(this));
 }

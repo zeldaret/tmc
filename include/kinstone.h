@@ -35,7 +35,7 @@ typedef struct {
 extern const KinstoneWorldEvent gKinstoneWorldEvents[];
 
 typedef enum {
-    KINSTONE_0,
+    KINSTONE_NONE,
     KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT,
     KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_LEFT,
     KINSTONE_MYSTERIOUS_CLOUD_TOP_LEFT,
@@ -136,6 +136,11 @@ typedef enum {
     KINSTONE_62,
     KINSTONE_63,
     KINSTONE_64,
+    /* some special values, mostly for fusers */
+    KINSTONE_NEEDS_REPLACEMENT = 0xF1,
+    KINSTONE_JUST_FUSED = 0xF2,
+    KINSTONE_FUSER_DONE = 0xF3,
+    KINSTONE_RANDOM = 0xFF,
 } KinstoneId;
 
 typedef struct {

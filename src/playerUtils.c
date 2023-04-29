@@ -1092,7 +1092,7 @@ bool32 sub_080782C0(void) {
         }
     }
     if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
-        AddKinstoneToBag(0);
+        AddKinstoneToBag(KINSTONE_NONE);
         if (gSave.kinstoneAmounts[0] != 0) {
             gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;
             gPossibleInteraction.currentObject->entity->interactType = 2;
@@ -1120,7 +1120,7 @@ bool32 sub_080782C0(void) {
         case INTERACTION_USE_SMALL_KEY:
         case INTERACTION_TALK_MINISH:
             entity->interactType = 1;
-            gPossibleInteraction.kinstoneId = 0;
+            gPossibleInteraction.kinstoneId = KINSTONE_NONE;
             return TRUE;
         case INTERACTION_LIFT_SHOP_ITEM:
             if (gRoomVars.shopItemType == 0) {
@@ -1229,7 +1229,7 @@ s32 AddInteractableObject(Entity* entity, InteractionType type, KinstoneId kinst
         gPossibleInteraction.candidates[index].type = type;
         gPossibleInteraction.candidates[index].kinstoneId = kinstoneId;
     }
-    if (kinstoneId != 0) {
+    if (kinstoneId != KINSTONE_NONE) {
         Entity* entity = FindEntityByID(OBJECT, CAMERA_TARGET, 6);
         if (entity == NULL) {
             CreateObject(CAMERA_TARGET, 0, 0);

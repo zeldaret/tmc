@@ -13,6 +13,7 @@
 #include "functions.h"
 #include "game.h"
 #include "item.h"
+#include "kinstone.h"
 
 void sub_08028E9C(Entity*);
 void sub_08028EDC(Entity*);
@@ -257,7 +258,7 @@ void sub_08028CE8(Entity* this) {
                 switch (offer->field_0x0 >> 2) {
                     case 0:
                         subtype = offer->field_0x9;
-                        if (subtype == 0xff) {
+                        if (subtype == KINSTONE_RANDOM) {
                             subtype = kinstoneTypes[Random() & 7];
                         }
 
