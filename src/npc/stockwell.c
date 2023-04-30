@@ -9,7 +9,7 @@
 #include "game.h"
 
 #ifndef EU
-static const s8 gUnk_0810FDA0[] = { 0, 8, 10, 16 };
+static const Rect gUnk_0810FDA0 = { 0, 8, 10, 16 };
 #endif
 
 extern u16 script_StockwellBuy[];

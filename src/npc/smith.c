@@ -206,12 +206,7 @@ void sub_08066258(void) {
 }
 
 void Smith_ChangeInteractableHitbox(Entity* this) {
-    static const s8 gUnk_081103E0[] = {
-        0,
-        6,
-        8,
-        12,
-    };
+    static const Rect gUnk_081103E0 = { 0, 6, 8, 12 };
     SetInteractableObjectCollision(this, 1, 0, &gUnk_081103E0);
 }
 

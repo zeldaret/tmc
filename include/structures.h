@@ -259,11 +259,18 @@ typedef struct {
 } struct_020227E8;
 
 typedef struct {
+    s8 x;
+    s8 y;
+    s8 width;
+    s8 height;
+} Rect;
+
+typedef struct {
     /*0x00*/ u8 ignoreLayer; /* if bit 0 set, skip layer check for collision */
     /*0x01*/ u8 type;
     /*0x02*/ u8 interactDirections; /* lower 4 bits determine Link's allowed facing directions to interact, 0 to allow (0000WSEN) */
     /*0x03*/ u8 kinstoneId;
-    /*0x04*/ const s8* customHitbox; /* if set, array contains x, y, width and height */
+    /*0x04*/ const Rect* customHitbox; /* optional custom rectangle */
     /*0x08*/ Entity* entity;
 } InteractableObject;
 
@@ -351,11 +358,4 @@ typedef struct {
     u8 frame;
     u8 frameIndex;
 } PACKED FrameStruct;
-
-typedef struct {
-    s8 x;
-    s8 y;
-    s8 width;
-    s8 height;
-} Rect;
 #endif // STRUCTURES_H

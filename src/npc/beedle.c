@@ -9,7 +9,7 @@
 #include "item.h"
 
 typedef struct {
-    s8 customHitbox[4];
+    Rect customHitbox;
     s8 interactDirections;
     u8 unused[3];
 } InteractCollisionData;

@@ -12,7 +12,7 @@
 #include "sound.h"
 
 typedef struct {
-    s8 customHitbox[4];
+    Rect customHitbox;
     u8 interactDirections;
     u8 unused[3];
 } InteractCollisionData;
