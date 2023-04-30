@@ -4,7 +4,7 @@ SCRIPT_START script_Npc4EWindRuinsTextBoard
 	Call MakeCheckableObjectInteractable
 	DoPostScriptAction 0x0008
 	SetIntVariable 0x00000001
-	Call sub_0806DA04
+	Call NPC4E_ChangeInteractableHitbox
 	EndBlock
 script_0800D88E:
 	CheckEntityInteractType

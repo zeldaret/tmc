@@ -12,15 +12,16 @@
 #include "sound.h"
 
 typedef struct {
-    u32 unk_00;
-    s8 unk_04;
-} gUnk_0810C89C_struct;
+    s8 customHitbox[4];
+    u8 interactDirections;
+    u8 unused[3];
+} InteractCollisionData;
 
 extern void script_MinishVillageObjectLeftStoneOpening;  // Cutscene data type?
 extern void script_MinishVillageObjectRightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;
-const u8 gUnk_0811415C[];
+const InteractCollisionData gNpc4ECollisionData[];
 const ScreenTransitionData* const gNpc4ETransitions[];
 const u8 gNpc4ETransitionTypes[];
 const u16 gUnk_081141F4[];
@@ -42,11 +43,9 @@ void NPC4E(Entity* this) {
     }
 }
 
-void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
-    // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
-    gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
-        (gUnk_0810C89C_struct*)gUnk_0811415C)[context->intVariable]; // cast necessary to no longer make it a const* ?
-    SetInteractableObjectCollision(this, 1, (u8)a->unk_04, a);
+void NPC4E_ChangeInteractableHitbox(Entity* this, ScriptExecutionContext* context) {
+    const InteractCollisionData* data = &gNpc4ECollisionData[context->intVariable];
+    SetInteractableObjectCollision(this, 1, data->interactDirections, data);
 }
 
 void NPC4E_DoScreenTransition(Entity* this, ScriptExecutionContext* context) {
@@ -232,13 +231,13 @@ void NPC4E_Fusion(Entity* this) {
 
 const Hitbox gUnk_08114154 = { 0, -8, 0, 0, 0, 0, 24, 8 };
 
-const u8 gUnk_0811415C[] = { //
-    0x00, 0x00, 0x08, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x08, 0x0e, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x04, 0x0e, 0x00, 0x00, 0x00,
-    0x00, 0x08, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0xf8, 0x18, 0x08, 0x0e, 0x00, 0x00, 0x00,
+const InteractCollisionData gNpc4ECollisionData[] = { //
+    { 0, 0, 8, 8, 0x0E, 0, 0, 0 },   { 0, 0, 26, 8, 0x0E, 0, 0, 0 },
+    { 0, 0, 16, 4, 0x0E, 0, 0, 0 },  { 0, 0, 10, 10, 0x00, 0, 0, 0 },
+    { 0, 0, 10, 10, 0x00, 0, 0, 0 }, { 0, 0, 6, 4, 0x0E, 0, 0, 0 },
+    { 0, 8, 16, 4, 0x0E, 0, 0, 0 },  { 0, -8, 24, 8, 0x0E, 0, 0, 0 },
 #ifndef EU
-    0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00
+    { 0, 0, 88, 8, 0x0E, 0, 0, 0 }
 #endif
 };
 

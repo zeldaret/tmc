@@ -5,7 +5,7 @@ SCRIPT_START script_Npc4ESecondSanctuary
 	EndBlock
 	BeginBlock
 	Call MakePedestalInteractable
-	CallWithArg sub_0806DA04, 0x00000003
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000003
 	EndBlock
 script_0801373C:
 	CheckEntityInteractType

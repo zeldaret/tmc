@@ -5,7 +5,7 @@ SCRIPT_START script_NPC4ESourceOfTheFlow
 	CheckKinstoneFused KINSTONE_SOURCE_FLOW
 	JumpIf script_08016028
 	_0807EA88 KINSTONE_SOURCE_FLOW
-	CallWithArg sub_0806DA04, 0x00000007
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000007
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08015FE4:

@@ -8,7 +8,7 @@ SCRIPT_START script_Npc4EFirstCloud
 	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800D6AE
 	Call NPC4E_MakeFuserInteractable
-	CallWithArg sub_0806DA04, 0x00000002
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000002
 	EndBlock
 script_0800D636:
 	_0807EA4C

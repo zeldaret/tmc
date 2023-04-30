@@ -6,7 +6,7 @@ SCRIPT_START script_MysteriousWall
 	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800B9AC
 	Call NPC4E_MakeFuserInteractable
-	CallWithArg sub_0806DA04, 0x00000005
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000005
 	EndBlock
 script_0800B98A:
 	_0807EA4C

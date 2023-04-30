@@ -8,7 +8,7 @@ script_0801427C:
 	JumpIfNot script_0801427C
 	BeginBlock
 	Call MakeCheckableObjectInteractable
-	CallWithArg sub_0806DA04, 0x00000008
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000008
 	EndBlock
 script_08014298:
 	CheckEntityInteractType

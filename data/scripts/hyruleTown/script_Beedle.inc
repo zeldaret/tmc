@@ -19,7 +19,7 @@ script_08010502:
 	MessageNoOverlap TEXT_PICOLYTE, 0x10
 	WaitUntilTextboxCloses
 script_0801052E:
-	Call sub_080634E4
+	Call Beedle_GetObjectType
 	JumpTable script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
 script_08010544:
 	MessageNoOverlap TEXT_PICOLYTE, 0x0d
@@ -37,7 +37,7 @@ script_08010564:
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010570:
-	Call sub_080634EC
+	Call Beedle_ConfirmBuyItem
 	CallWithArg ScriptCommand_SaleItemConfirmMessage, 0x00000000
 	WaitUntilTextboxCloses
 	CheckTextboxResult
@@ -46,7 +46,7 @@ script_08010570:
 	JumpIfNot script_080105C4
 	CheckBottleContaining ITEM_BOTTLE_EMPTY
 	JumpIfNot script_080105CC
-	Call sub_08063504
+	Call Beedle_IsBottleInInventory
 	JumpIf script_080105D4
 	MessageNoOverlap TEXT_PICOLYTE, 0x07
 	WaitUntilTextboxCloses
