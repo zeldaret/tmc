@@ -449,6 +449,7 @@ typedef enum {
     INTERACTION_LIFT_SHOP_ITEM,
     INTERACTION_CHECK,
     INTERACTION_DROP_PEDESTAL,
+    INTERACTION_NULL = 0xFF,
 } InteractionType;
 
 // playerUtils.c

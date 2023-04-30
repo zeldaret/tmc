@@ -121,8 +121,7 @@ typedef struct {
     u8 unk_2d;
     u8 unk_2e;
     u8 unk_2f;
-    u8 unk_30[2];
-    u8 unk_32;
+    u8 buttonText[3];
     u8 unk_33;
     UIElement elements[MAX_UI_ELEMENTS];
 } struct_0200AF00;
@@ -157,6 +156,7 @@ typedef struct {
     /*0x06*/ u16 paletteIndex;
     /*0x08*/ const void* palettePointer;
 } GfxSlot;
+
 typedef struct {
     /*0x00*/ u8 unk0;
     /*0x01*/ u8 unk_1;

@@ -659,7 +659,7 @@ bool32 (*const gPlayerChargeActions[])(ChargeState*) = {
 };
 
 const InteractableObject gNoInteraction = {
-    0, 0xFF, 0, 0, 0, 0,
+    0, INTERACTION_NULL, 0, 0, NULL, NULL,
 };
 
 // for shifting the hitbox in which entities can be interacted with in Link's facing direction

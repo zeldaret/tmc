@@ -756,9 +756,9 @@ void TextUIElement(UIElement* element) {
                     break;
             }
         }
-        gUnk_0200AF00.unk_32 = tmp;
+        gUnk_0200AF00.buttonText[2] = tmp;
     }
-    tmp = gUnk_0200AF00.unk_30[element->buttonElementId];
+    tmp = gUnk_0200AF00.buttonText[element->buttonElementId];
     element->unk_0_1 = 0;
     if (tmp != 0) {
         tmp += gUnk_080C9044[((SaveHeader*)0x2000000)->language];
