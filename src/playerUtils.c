@@ -971,7 +971,7 @@ void ForceSetPlayerState(u32 framestate) {
     sub_08078B48();
 }
 
-void sub_08078180(void) {
+void DetermineRButtonInteraction(void) {
     u8 rAction;
     InteractableObject* interaction;
 

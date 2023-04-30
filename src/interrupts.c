@@ -325,7 +325,7 @@ static void sub_080171F0(void) {
     if (gPlayerState.flags & PL_CLONING)
         gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
 
-    sub_08078180();
+    DetermineRButtonInteraction();
     gPlayerState.field_0x7 &= ~0x80;
     gPlayerState.field_0xa &= 0xf;
     gPlayerState.keepFacing &= ~0x80;

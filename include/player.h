@@ -12,7 +12,7 @@ enum PlayerActions {
     PLAYER_JUMP,
     PLAYER_PUSH,
     PLAYER_BOUNCE,
-    PLAYER_08070E9C, // sub_080782C0, only when PLAYER_INPUT_1000 is newInput
+    PLAYER_08070E9C, // sub_080782C0, only when pressing L to start a Kinstone Fusion
     PLAYER_ITEMGET,
     PLAYER_MINISH,
     PLAYER_MINISHDIE,
@@ -534,7 +534,7 @@ bool32 IsItemActive(ItemBehavior*);
 bool32 IsItemActivatedThisFrame(ItemBehavior*);
 bool32 IsItemActiveByInput(ItemBehavior*, PlayerInputState);
 bool32 sub_08077FEC(u32);
-void sub_08078180(void);
+void DetermineRButtonInteraction(void);
 void ResetPossibleInteraction();
 void AddInteractableFuser(Entity*, u32);
 void AddInteractableSmallKeyLock(Entity*);
