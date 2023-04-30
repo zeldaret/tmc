@@ -211,7 +211,7 @@ bool32 IsPreventedFromUsingItem(void) {
                     }
                     return FALSE;
                 default:
-                    if ((((gUnk_0200AF00.rActionInteractObject == 0xc) && (gPlayerState.field_0x1c == 0)) &&
+                    if ((((gUnk_0200AF00.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.field_0x1c == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
@@ -972,49 +972,48 @@ void ForceSetPlayerState(u32 framestate) {
 }
 
 void sub_08078180(void) {
-    u8 uVar1;
-    u8 uVar3;
-    InteractableObject* ptr;
+    u8 rAction;
+    InteractableObject* interaction;
 
-    if (gUnk_0200AF00.rActionPlayerState != 0)
+    if (gUnk_0200AF00.rActionPlayerState != R_ACTION_NONE)
         return;
 
-    uVar1 = 0;
+    rAction = R_ACTION_NONE;
     if ((gPlayerState.jump_status == 0) &&
         ((gPlayerState.flags & (PL_IN_HOLE | PL_FROZEN | PL_BURNING | PL_DISABLE_ITEMS | PL_DRUGGED)) == 0)) {
         if ((u8)(gPlayerState.heldObject - 1) < 4) {
-            if (gUnk_0200AF00.rActionGrabbing != 0) {
-                uVar1 = gUnk_0200AF00.rActionGrabbing;
+            if (gUnk_0200AF00.rActionGrabbing != R_ACTION_NONE) {
+                rAction = gUnk_0200AF00.rActionGrabbing;
             } else {
-                uVar1 = 3;
+                rAction = R_ACTION_THROW;
             }
         } else {
-            if (gUnk_0200AF00.rActionInteractTile != 0) {
-                uVar1 = gUnk_0200AF00.rActionInteractTile;
+            if (gUnk_0200AF00.rActionInteractTile != R_ACTION_NONE) {
+                rAction = gUnk_0200AF00.rActionInteractTile;
             } else {
-                ptr = sub_080784E4();
-                if (ptr->entity->interactType == 0) {
+                interaction = sub_080784E4();
+                if (interaction->entity->interactType == 0) {
 
-                    switch (ptr->type) {
+                    switch (interaction->type) {
                         case INTERACTION_TALK:
                         case INTERACTION_TALK_MINISH:
-                            uVar1 = 7;
+                            rAction = R_ACTION_SPEAK;
                             break;
                         case INTERACTION_LIFT_SHOP_ITEM:
                             if (gRoomVars.shopItemType == ITEM_NONE) {
-                                uVar1 = 9;
+                                rAction = R_ACTION_LIFT;
                             }
                             break;
                         case INTERACTION_OPEN_CHEST:
                         case INTERACTION_USE_SMALL_KEY:
                         case INTERACTION_USE_BIG_KEY:
-                            uVar1 = 6;
+                            rAction = R_ACTION_OPEN;
                             break;
                         case INTERACTION_CHECK:
-                            uVar1 = 5;
+                            rAction = R_ACTION_CHECK;
                             break;
                         case INTERACTION_DROP_PEDESTAL:
-                            uVar1 = 2;
+                            rAction = R_ACTION_DROP;
                             break;
                     }
                 } else {
@@ -1022,25 +1021,25 @@ void sub_08078180(void) {
                         if (((gPlayerState.framestate != PL_STATE_USEPORTAL))) {
 
                             if ((gCarriedEntity.unk_1 == 2) && ((gCarriedEntity.unk_8)->carryFlags == 1)) {
-                                uVar1 = 8;
+                                rAction = R_ACTION_GRAB;
                             } else {
-                                uVar1 = 9;
+                                rAction = R_ACTION_LIFT;
                             }
                         } else {
                             return;
                         }
                     } else {
                         if ((gPlayerState.framestate == PL_STATE_WALK) && (gPlayerState.mobility == 0)) {
-                            uVar1 = 0xc;
+                            rAction = R_ACTION_ROLL;
                         } else {
-                            uVar1 = 0;
+                            rAction = R_ACTION_NONE;
                         }
                     }
                 }
             }
         }
     }
-    gUnk_0200AF00.rActionInteractObject = uVar1;
+    gUnk_0200AF00.rActionInteractObject = rAction;
 }
 
 bool32 sub_080782C0(void) {

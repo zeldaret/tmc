@@ -225,9 +225,9 @@ void PlayerUpdate(Entity* this) {
 static void HandlePlayerLife(Entity* this) {
     u32 temp;
 
-    gUnk_0200AF00.rActionPlayerState = 0;
-    gUnk_0200AF00.rActionInteractTile = 0;
-    gUnk_0200AF00.rActionGrabbing = 0;
+    gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
+    gUnk_0200AF00.rActionInteractTile = R_ACTION_NONE;
+    gUnk_0200AF00.rActionGrabbing = R_ACTION_NONE;
 
     if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
@@ -323,7 +323,7 @@ static void sub_080171F0(void) {
     sub_080028E0(&gPlayerEntity);
 
     if (gPlayerState.flags & PL_CLONING)
-        gUnk_0200AF00.rActionPlayerState = 1;
+        gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
 
     sub_08078180();
     gPlayerState.field_0x7 &= ~0x80;

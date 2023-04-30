@@ -743,13 +743,13 @@ void TextUIElement(UIElement* element) {
 
     if (element->type2 == 9) {
         frameIndex = gUnk_0200AF00.rActionPlayerState;
-        if (frameIndex == 0) {
+        if (frameIndex == R_ACTION_NONE) {
             switch (gArea.portal_mode) {
                 case 2:
-                    frameIndex = 0xb;
+                    frameIndex = R_ACTION_SHRINK;
                     break;
                 case 3:
-                    frameIndex = 0xa;
+                    frameIndex = R_ACTION_GROW;
                     break;
                 default:
                     frameIndex = gUnk_0200AF00.rActionInteractObject;

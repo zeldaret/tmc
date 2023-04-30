@@ -452,6 +452,22 @@ typedef enum {
     INTERACTION_NULL = 0xFF,
 } InteractionType;
 
+typedef enum {
+    R_ACTION_NONE,
+    R_ACTION_CANCEL,
+    R_ACTION_DROP,
+    R_ACTION_THROW,
+    R_ACTION_READ,
+    R_ACTION_CHECK,
+    R_ACTION_OPEN,
+    R_ACTION_SPEAK,
+    R_ACTION_GRAB,
+    R_ACTION_LIFT,
+    R_ACTION_GROW,
+    R_ACTION_SHRINK,
+    R_ACTION_ROLL,
+} ActionRButton;
+
 // playerUtils.c
 void DeleteClones(void);
 void CreateItemEquippedAtSlot(/*EquipSlot*/ u32 equipSlot);

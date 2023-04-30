@@ -102,7 +102,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;
-                gUnk_0200AF00.rActionPlayerState = 2;
+                gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
                 MessageClose();
             }
         }
@@ -112,14 +112,14 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
 void ItemForSale_Action2(ItemForSaleEntity* this) {
     void* ptr;
 
-    gUnk_0200AF00.rActionPlayerState = 2;
+    gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
     super->spriteSettings.draw = gPlayerEntity.spriteSettings.draw;
     if ((gPlayerState.heldObject == 0) || (super != gNewPlayerEntity.unk_74)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
         if (((*(int*)(ptr + 8) == 0) ||
-             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = 7, (gPlayerState.playerInput.newInput &
+             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = R_ACTION_SPEAK, (gPlayerState.playerInput.newInput &
                                                                    (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
             ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
             sub_080819B4(this);
@@ -142,8 +142,8 @@ void sub_080819B4(ItemForSaleEntity* this) {
     gNewPlayerEntity.unk_74 = 0;
     ptr = &gUnk_0200AF00;
     gRoomVars.shopItemType = 0;
-    ptr->rActionInteractObject = 0;
-    ptr->rActionPlayerState = 0;
+    ptr->rActionInteractObject = R_ACTION_NONE;
+    ptr->rActionPlayerState = R_ACTION_NONE;
     gRoomVars.shopItemType2 = 0;
     super->x.HALF.HI = this->unk_80 + gRoomControls.origin_x;
     super->y.HALF.HI = this->unk_82 + gRoomControls.origin_y;
