@@ -1526,10 +1526,10 @@ void sub_08078FB0(Entity* this) {
         gPlayerState.field_0x35 = 0xff;
     }
     sub_08079064(this);
-    if ((gPlayerState.flags & 8) != 0) {
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         animIndex = 0x58;
     } else {
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             animIndex = 0x18;
         } else {
             if (gPlayerState.animation >> 8 == 7) {
@@ -1722,8 +1722,8 @@ void RespawnPlayer(void) {
     player->zVelocity = 0;
     player->knockbackDuration = 0;
     ResetPlayerPosition();
-    if ((gPlayerState.flags & 0x20000) == 0) {
-        if ((gPlayerState.flags & 0x10000) != 0) {
+    if ((gPlayerState.flags & PL_GYORG_FIGHT) == 0) {
+        if ((gPlayerState.flags & PL_FLAGS10000) != 0) {
             player->x.HALF.HI = gPlayerState.lilypad->x.HALF.HI;
             player->y.HALF.HI = gPlayerState.lilypad->y.HALF.HI;
         } else {
