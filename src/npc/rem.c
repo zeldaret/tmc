@@ -329,7 +329,7 @@ void sub_0806A914(Entity* this) {
 }
 
 void Rem_MakeInteractable(Entity* this) {
-    static const u8 gUnk_0811229C[] = { 0, 6, 10, 16 };
+    static const s8 gUnk_0811229C[] = { 0, 6, 10, 16 };
     AddInteractableWhenBigObject(this);
     SetInteractableObjectCollision(this, 0, 0, &gUnk_0811229C);
 }

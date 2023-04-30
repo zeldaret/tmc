@@ -9,7 +9,7 @@
 
 void SmallTownMinish(Entity* this) {
     static const Hitbox gUnk_081142FC = { -2, 1, { 0, 0, 0, 0 }, 6, 6 };
-    static const u8 gUnk_08114304[] = { -2, 1, 6, 6 };
+    static const s8 gUnk_08114304[] = { -2, 1, 6, 6 };
     if (this->action == 0) {
         this->action++;
         this->hitbox = (Hitbox*)&gUnk_081142FC;

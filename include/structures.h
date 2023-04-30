@@ -263,7 +263,7 @@ typedef struct {
     /*0x01*/ u8 type;
     /*0x02*/ u8 interactDirections; /* lower 4 bits determine Link's allowed facing directions to interact, 0 to allow (0000WSEN) */
     /*0x03*/ u8 kinstoneId;
-    /*0x04*/ const u8* customHitbox; /* if set, array contains x, y, width and height */
+    /*0x04*/ const s8* customHitbox; /* if set, array contains x, y, width and height */
     /*0x08*/ Entity* entity;
 } InteractableObject;
 

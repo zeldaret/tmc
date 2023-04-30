@@ -23,7 +23,7 @@ void Windcrest(Entity* this) {
 }
 
 void Windcrest_ChangeInteractableHitbox(Entity* this) {
-    static const u8 gUnk_08125010[] = { 0, 0, 12, 12 };
+    static const s8 gUnk_08125010[] = { 0, 0, 12, 12 };
     SetInteractableObjectCollision(this, 1, 0xe, gUnk_08125010);
 }
 

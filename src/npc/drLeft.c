@@ -77,7 +77,7 @@ void sub_0806C038(Entity* this) {
 }
 
 void sub_0806C09C(Entity* this) {
-    static const u8 gUnk_081133B4[] = {
+    static const s8 gUnk_081133B4[] = {
         0,
         6,
         8,

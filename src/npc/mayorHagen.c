@@ -38,7 +38,7 @@ void MayorHagen(Entity* this) {
 }
 
 void MayorHagen_MakeInteractable(Entity* this) {
-    static const u8 gUnk_08113F44[] = {
+    static const s8 gUnk_08113F44[] = {
         0,
         8,
         8,

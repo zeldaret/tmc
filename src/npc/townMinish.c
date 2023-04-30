@@ -129,11 +129,11 @@ static const SpriteLoadData gUnk_08112674[][4] = {
         { 0x0, 0x0, 0x0 },
     },
 };
-static const u8 gUnk_081126D4[][4] = {
-    { 0x0, 0x8, 0x8, 0x10 },
-    { 0xf8, 0xfe, 0x10, 0x8 },
-    { 0x0, 0x8, 0x8, 0x10 },
-    { 0x8, 0xfe, 0x10, 0x8 },
+static const s8 gUnk_081126D4[][4] = {
+    { 0, 8, 8, 16 },
+    { -8, -2, 16, 8 },
+    { 0, 8, 8, 16 },
+    { 8, -2, 16, 8 },
 };
 static const u8 gUnk_081126E4[4] = { 14, 13, 11, 7 };
 
