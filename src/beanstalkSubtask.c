@@ -310,7 +310,7 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerEntity.animationState != 0) {
                 return 0;
             }
-            gUnk_0200AF00.unk_2d = 4;
+            gUnk_0200AF00.rActionInteractTile = 4;
             if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
                 return 0;
             }
@@ -324,7 +324,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerState.flags & 0x4080) != 0) {
                 return 0;
             }
-            gUnk_0200AF00.unk_2d = 6;
+            gUnk_0200AF00.rActionInteractTile = 6;
             if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
                 return 0;
             }
@@ -335,7 +335,7 @@ u32 UpdatePlayerCollision(void) {
             if (HasDungeonSmallKey() == 0) {
                 return 0;
             }
-            gUnk_0200AF00.unk_2d = 6;
+            gUnk_0200AF00.rActionInteractTile = 6;
             if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
                 return 0;
             }

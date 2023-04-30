@@ -117,10 +117,10 @@ typedef struct {
     u8 filler22[0x2];
     u8 ezloNagFuncIndex;
     u8 filler25[7];
-    u8 unk_2c;
-    u8 unk_2d;
-    u8 unk_2e;
-    u8 unk_2f;
+    u8 rActionInteractObject; // used as R button UI frame index
+    u8 rActionInteractTile;
+    u8 rActionGrabbing;
+    u8 rActionPlayerState; // if not 0, overrides other R actions
     u8 buttonText[3];
     u8 unk_33;
     UIElement elements[MAX_UI_ELEMENTS];
