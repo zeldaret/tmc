@@ -136,4 +136,4 @@ void (*const Cucco_Actions[])(Entity*) = {
 };
 
 const u16 Cucco_Sounds[] = { SFX_VO_CUCCO1, SFX_VO_CUCCO2, SFX_VO_CUCCO3, SFX_VO_CUCCO4 };
-const u16 Cucco_Messages[] = { TEXT_INDEX(TEXT_MINISH, 0Xb4), TEXT_INDEX(TEXT_MINISH, 0xb5) };
+const u16 Cucco_Messages[] = { TEXT_INDEX(TEXT_MINISH, 0xb4), TEXT_INDEX(TEXT_MINISH, 0xb5) };

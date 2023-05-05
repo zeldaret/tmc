@@ -1075,7 +1075,7 @@ KinstoneId GetFusionToOffer(Entity* entity) {
             case KINSTONE_NEEDS_REPLACEMENT: // offered fusion completed with someone else
             case KINSTONE_NONE: // no fusion offered yet
                 offeredFusion = fuserFusionData[5];
-                if (offeredFusion == KINSTONE_NONE || offeredFusion == 0xFF || CheckKinstoneFused(offeredFusion) == 0) {
+                if (offeredFusion == KINSTONE_NONE || offeredFusion == KINSTONE_RANDOM || CheckKinstoneFused(offeredFusion) == 0) {
                     break;
                 }
             case KINSTONE_JUST_FUSED: // previous fusion completed
@@ -1083,7 +1083,7 @@ KinstoneId GetFusionToOffer(Entity* entity) {
                 fuserProgress++;
                 offeredFusion = fuserFusionData[5];
         }
-        if (offeredFusion == 0xFF) { // random shared fusion
+        if (offeredFusion == KINSTONE_RANDOM) { // random shared fusion
             offeredFusion = GetRandomSharedFusion(fuserData);
         }
         if (offeredFusion == KINSTONE_NONE) { // end of fusion list

@@ -786,9 +786,13 @@ gUnk_08002325:: @ 08002325
 gUnk_0800232C:: @ 0800232C
 	.incbin "code_080011C4/gUnk_0800232C.bin"
 
+@ used for business scrub fusers, together with first 4 bytes of next table
+@ each entry contains 6 bytes, the first 3 describe which entities are described by this,
+@ the last 3 contain fuser id and text id for fuser name
 gUnk_0800232E:: @ 0800232E
 	.incbin "code_080011C4/gUnk_0800232E.bin"
 
+@ same as above, but for other fusers
 gUnk_08002342:: @ 08002342
 	.incbin "code_080011C4/gUnk_08002342.bin"
 
@@ -798,11 +802,12 @@ GetFuserId: @ 0x08002632
 	ldr r4, _0800269C @ =gUnk_0800232E
 	ldrb r3, [r0, #8]
 	cmp r3, #3
-	beq _08002642
+	beq enemy
 	cmp r3, #7
-	bne _08002684
+	bne not_found
+npc: @ 0x08002640
 	ldr r4, _080026A0 @ =gUnk_08002342
-_08002642:
+enemy: @ 0x08002642
 	ldrb r3, [r0, #9]
 	lsls r1, r3, #0x10
 	ldrb r3, [r0, #0xa]
@@ -810,43 +815,48 @@ _08002642:
 	orrs r1, r3
 	ldrb r3, [r0, #0xb]
 	orrs r1, r3
-	add r6, pc, #0x38
-_08002652:
+	add r6, pc, #(entity_type_bitmasks - next - 2) @ pointer to entity_type_bitmasks
+next: @ 0x08002652
 	adds r4, #6
-	ldrb r3, [r4]
+	ldrb r3, [r4] @ entity id
 	lsls r2, r3, #0x10
-	beq _08002684
+	beq not_found @ end of list reached
 	movs r5, #0
-	ldrb r3, [r4, #1]
+	ldrb r3, [r4, #1] @ entity type, or 0xff for any
 	cmp r3, #0xff
-	bne _08002664
+	bne must_match_entity_type
 	movs r5, #8
-_08002664:
+must_match_entity_type: @ 0x08002664
 	lsls r3, r3, #8
 	orrs r2, r3
-	ldrb r3, [r4, #2]
+	ldrb r3, [r4, #2] @ entity type2, or 0xff for any
 	cmp r3, #0xff
-	bne _08002670
+	bne must_match_entity_type2
 	adds r5, #4
-_08002670:
+must_match_entity_type2: @ 0x08002670
 	orrs r2, r3
 	ldr r5, [r6, r5]
 	adds r3, r1, #0
 	ands r3, r5
 	ands r2, r5
 	cmp r3, r2
-	bne _08002652
-	ldrb r0, [r4, #3]
-	ldrh r1, [r4, #4]
+	bne next
+match: @ 0x0800267E
+	ldrb r0, [r4, #3] @ fuser id
+	ldrh r1, [r4, #4] @ text id for fuser name, used in KinstoneMenu_080A4494
 	pop {r4, r5, r6, r7, pc}
-_08002684:
+not_found: @ 0x08002684
 	movs r0, #0
 	movs r1, #0
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0800268C:
+entity_type_bitmasks: @ 0x0800268C
+@ each 0xFF means that entity member must match
+@         type2 type  id
 	.byte 0xFF, 0xFF, 0xFF, 0x00
-	.byte 0x00, 0xFF, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00
+	.byte 0x00, 0xFF, 0xFF, 0x00
+	.byte 0xFF, 0x00, 0xFF, 0x00
+	.byte 0x00, 0x00, 0xFF, 0x00
 _0800269C: .4byte gUnk_0800232E
 _080026A0: .4byte gUnk_08002342
 
