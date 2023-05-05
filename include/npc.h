@@ -74,7 +74,7 @@ void sub_0806EE04(Entity* ent, void* a2, u32 a3);
 u32 sub_0806EE20(Entity* ent);
 s32 sub_0806F078(Entity* ent, s32 a2);
 void sub_0806F118(Entity* ent);
-void sub_0806F188(Entity* ent);
+void MarkFuserDone(Entity* ent);
 void ShowNPCDialogue(Entity* ent, const Dialog* dia);
 
 Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);

@@ -16,7 +16,7 @@ script_0800B98A:
 	EnablePlayerControl
 	Jump script_0800B98A
 script_0800B99E:
-	Call sub_0806F188
+	Call MarkFuserDone
 	Call EnablePauseMenu
 	EnablePlayerControl
 script_0800B9AC:
