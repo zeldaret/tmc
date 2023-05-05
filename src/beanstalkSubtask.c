@@ -204,7 +204,8 @@ u32 UpdatePlayerCollision(void) {
             ptr1 = &gUnk_080B4490[index * 2];
             if (sub_080B1B44(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]), gPlayerEntity.collisionLayer) ==
                 0xff) {
-                if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) || ((gPlayerState.sword_state & 0x10) != 0)) ||
+                if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) ||
+                     ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
                                    gPlayerEntity.y.HALF.HI - gRoomControls.origin_y, index, 5) == 0 &&
                       (((gPlayerState.heldObject != 0 || ((gPlayerState.field_0x1c & 0xf) != 0)) ||

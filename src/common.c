@@ -468,7 +468,8 @@ void DrawDungeonMap(u32 floor, DungeonMapObject* specialData, u32 size) {
                     tileEntity++;
                 }
             }
-            if ((HasDungeonCompass() && ((floorMapData->unk_2 & 2) != 0)) && (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
+            if ((HasDungeonCompass() && ((floorMapData->unk_2 & 2) != 0)) &&
+                (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
                 roomHeader = gAreaRoomHeaders[floorMapData->area] + floorMapData->room;
                 specialData->type = DMO_TYPE_BOSS;
                 tmp1 = ((roomHeader->pixel_width / 2) + roomHeader->map_x) / 16;
@@ -1073,9 +1074,10 @@ KinstoneId GetFusionToOffer(Entity* entity) {
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
             case KINSTONE_NEEDS_REPLACEMENT: // offered fusion completed with someone else
-            case KINSTONE_NONE: // no fusion offered yet
+            case KINSTONE_NONE:              // no fusion offered yet
                 offeredFusion = fuserFusionData[5];
-                if (offeredFusion == KINSTONE_NONE || offeredFusion == KINSTONE_RANDOM || CheckKinstoneFused(offeredFusion) == 0) {
+                if (offeredFusion == KINSTONE_NONE || offeredFusion == KINSTONE_RANDOM ||
+                    CheckKinstoneFused(offeredFusion) == 0) {
                     break;
                 }
             case KINSTONE_JUST_FUSED: // previous fusion completed
@@ -1086,8 +1088,8 @@ KinstoneId GetFusionToOffer(Entity* entity) {
         if (offeredFusion == KINSTONE_RANDOM) { // random shared fusion
             offeredFusion = GetRandomSharedFusion(fuserData);
         }
-        if (offeredFusion == KINSTONE_NONE) { // end of fusion list
-            offeredFusion = KINSTONE_FUSER_DONE;    // mark this fuser as done
+        if (offeredFusion == KINSTONE_NONE) {    // end of fusion list
+            offeredFusion = KINSTONE_FUSER_DONE; // mark this fuser as done
             break;
         }
         if (offeredFusion == KINSTONE_JUST_FUSED) { // previous fusion completed

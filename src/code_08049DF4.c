@@ -51,8 +51,8 @@ Entity* sub_08049E80(void) {
 }
 
 Entity* sub_08049EB0(void) {
-    if ((gPlayerState.field_0x3c == 0) && !(gPlayerState.flags &
-      (PL_MOLDWORM_CAPTURED | PL_DISABLE_ITEMS | PL_MINISH | PL_CAPTURED))) {
+    if ((gPlayerState.field_0x3c == 0) &&
+        !(gPlayerState.flags & (PL_MOLDWORM_CAPTURED | PL_DISABLE_ITEMS | PL_MINISH | PL_CAPTURED))) {
         gUnk_020000B0 = &gPlayerEntity;
         return &gPlayerEntity;
     }

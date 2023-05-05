@@ -134,7 +134,8 @@ void LockedDoor_Init(Entity* this) {
                 } else {
                     this->action = 8;
                     AddInteractableSmallKeyLock(this);
-                    SetInteractableObjectCollision(this, 0, gLockedDoorInteractDirections[this->field_0x7c.BYTES.byte2], NULL);
+                    SetInteractableObjectCollision(this, 0, gLockedDoorInteractDirections[this->field_0x7c.BYTES.byte2],
+                                                   NULL);
                 }
             } else {
                 DeleteThisEntity();

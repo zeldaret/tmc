@@ -118,9 +118,9 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
-        if (((*(int*)(ptr + 8) == 0) ||
-             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = R_ACTION_SPEAK, (gPlayerState.playerInput.newInput &
-                                                                   (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
+        if (((*(int*)(ptr + 8) == 0) || ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = R_ACTION_SPEAK,
+                                                                   (gPlayerState.playerInput.newInput &
+                                                                    (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
             ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
             sub_080819B4(this);
         }

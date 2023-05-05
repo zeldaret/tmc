@@ -1090,7 +1090,8 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
+    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) &&
+        ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
         AddKinstoneToBag(KINSTONE_NONE);
         if (gSave.kinstoneAmounts[0] != 0) {
             gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;

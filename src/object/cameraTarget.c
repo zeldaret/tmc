@@ -103,7 +103,8 @@ void CameraTarget_Action1(Entity* this) {
     if (this->timer) {
         this->timer--;
     } else {
-        if ((gPossibleInteraction.currentObject->entity != NULL) && ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
+        if ((gPossibleInteraction.currentObject->entity != NULL) &&
+            ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
             this->child = gPossibleInteraction.currentObject->entity;
             this->interactType = gPossibleInteraction.currentIndex;
             sub_08083A40(this);
@@ -119,8 +120,8 @@ void CameraTarget_Action2(Entity* this) {
     u32 temp2;
     const KinstoneWorldEvent* ptr;
 
-    if ((this->type != 1) &&
-        (((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) >= 100 || (this->child != gPossibleInteraction.currentObject->entity)))) {
+    if ((this->type != 1) && (((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) >= 100 ||
+                               (this->child != gPossibleInteraction.currentObject->entity)))) {
         sub_080838DC(this);
     } else {
         this->x = this->child->x;
