@@ -1,7 +1,6 @@
-#include "global.h"
+#include "common.h"
 #include "entity.h"
 #include "functions.h"
-#include "common.h"
 
 typedef struct {
     u16 x;
