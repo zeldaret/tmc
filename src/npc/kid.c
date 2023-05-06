@@ -76,6 +76,7 @@ void sub_080620F4(Entity*);
 void sub_08062130(Entity*);
 void sub_08062194(Entity*);
 void (*const gUnk_0810BE0C[])(Entity*) = { sub_080620F4, sub_08062130, sub_08062194 };
+extern s32 sub_080041E8(s32 x1, s32 y1, s32 x2, s32 y2);
 
 void sub_08062194(Entity*);
 const Dialog gUnk_0810BE10[] = {
@@ -182,17 +183,21 @@ void sub_080622F4(Entity*);
 void sub_0806265C(Entity*, ScriptExecutionContext*);
 void sub_0806252C(Entity*);
 
-typedef struct {
-    u16 x;
-    u16 y;
-    u16 z;
-    u8 framestate;
-    u8 animationState : 6;
-    u8 collisionLayer : 2;
+typedef union {
+    struct {
+        s16 x;
+        s16 y;
+        s16 z;
+        u8 framestate;
+        u8 animationState : 6;
+        u8 collisionLayer : 2;
+    } FIELDS;
+    u64 DWORD;
 } KidHeapItem;
 
 #define KID_HEAP_COUNT 0x14
 typedef KidHeapItem KidHeap[KID_HEAP_COUNT];
+#define KID_HEAP ((KidHeapItem*)this->myHeap)
 
 void Kid(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
@@ -307,7 +312,107 @@ void sub_080621AC(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/kid/sub_080622F4.inc", void sub_080622F4(Entity* this))
+#define KID_HEAP_SHIFT_RIGHT                     \
+    heapPtr = KID_HEAP;                          \
+    heapPtr += (KID_HEAP_COUNT - 2);             \
+    for (i = 0; i < (KID_HEAP_COUNT - 1); i++) { \
+        heapPtr[1] = heapPtr[0];                 \
+        heapPtr--;                               \
+    }
+
+void sub_080622F4(Entity* this) {
+    s32 dx;
+    s32 dy;
+    s32 dist;
+    s32 i;
+
+    u32 animIndex; // used as 2nd param of InitAnimationForceUpdate
+    u32 animIndexTmp;
+
+    KidHeapItem* heapPtr;
+    KidHeapItem item;
+
+    // Prepended heap item is initialized from player's current state.
+    item.FIELDS.x = gPlayerEntity.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.z.HALF_U.HI;
+    item.FIELDS.framestate = gPlayerState.framestate;
+    item.FIELDS.animationState = gPlayerEntity.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
+
+    heapPtr = this->myHeap;
+    if (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16) {
+        dx = this->x.HALF.HI - gPlayerEntity.x.HALF.HI;
+        dy = this->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+
+        if (dx < 0)
+            dx = -dx;
+        if (dy < 0)
+            dy = -dy;
+
+        if (dx > 120 || dy > 80) {
+            this->field_0x68.HALF.LO = 0;
+            return;
+        }
+
+        sub_0806252C(this);
+    }
+
+    animIndex = 0;
+
+    if (item.DWORD != heapPtr->DWORD) {
+        KID_HEAP_SHIFT_RIGHT;
+        heapPtr = KID_HEAP;
+        heapPtr[0] = item;
+
+        animIndex = 0x4;
+        if ((s8)this->field_0x68.HALF.HI > 0) {
+            this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+        }
+    } else {
+        heapPtr += KID_HEAP_COUNT - 1;
+        if (heapPtr->FIELDS.z < 0) {
+            KID_HEAP_SHIFT_RIGHT;
+            animIndex = 0x4;
+        } else {
+            dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
+                                (u16)heapPtr->FIELDS.y);
+            dist = ((u32)dist) >> 0x4;
+            if (dist > 0x18) {
+
+                KID_HEAP_SHIFT_RIGHT;
+                animIndex = 0x4;
+            }
+        }
+    }
+    heapPtr = KID_HEAP;
+    heapPtr += +KID_HEAP_COUNT - 1;
+    this->x.HALF.HI = heapPtr->FIELDS.x;
+    this->y.HALF.HI = heapPtr->FIELDS.y;
+    this->z.HALF.HI = heapPtr->FIELDS.z;
+    this->animationState = heapPtr->FIELDS.animationState;
+    this->collisionLayer = heapPtr->FIELDS.collisionLayer;
+
+    if (((s8)this->field_0x68.HALF.HI) > 0) {
+        this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+    }
+
+    animIndexTmp = animIndex;
+    animIndex += this->animationState >> 1;
+    if (this->type == OBJECT) {
+        animIndex += 0x10;
+    }
+
+    if (!(animIndex == this->animIndex || (animIndexTmp == 0 && ((s8)this->field_0x68.HALF.HI) > 0))) {
+        InitAnimationForceUpdate(this, animIndex);
+        this->field_0x68.HALF.HI = 0x1e;
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
+
+    sub_0800451C(this);
+    return;
+}
 
 void sub_08062500(Entity* this) {
     this->myHeap = zMalloc(sizeof(KidHeap));
@@ -388,12 +493,12 @@ void sub_0806252C(Entity* this) {
     x = 0;
 
     for (loopVar = KID_HEAP_COUNT - 1; loopVar >= 0; loopVar--) {
-        item->x = r5 - (x >> 8);
-        item->y = (r5 >> 0x10) - (y >> 8);
-        item->z = r6;
-        item->framestate = r6 >> 0x10;
-        item->animationState = this->animationState & 0x3f;
-        item->collisionLayer = this->collisionLayer;
+        item->FIELDS.x = r5 - (x >> 8);
+        item->FIELDS.y = (r5 >> 0x10) - (y >> 8);
+        item->FIELDS.z = r6;
+        item->FIELDS.framestate = r6 >> 0x10;
+        item->FIELDS.animationState = this->animationState & 0x3f;
+        item->FIELDS.collisionLayer = this->collisionLayer;
         item++;
         y = y + r8;
         x = x + r10;

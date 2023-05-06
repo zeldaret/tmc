@@ -2,7 +2,6 @@
 
 import argparse
 import json
-import git
 import os
 import re
 
@@ -26,7 +25,7 @@ def parse_map(non_matching_funcs):
     data = 0
     non_matching = 0
 
-    with open('tmc.map', 'r') as map:
+    with open('build/USA/tmc.map', 'r') as map:
         # Skip to the linker script section
         line = map.readline()
         while not line.startswith('Linker script and memory map'):
@@ -119,6 +118,7 @@ def main():
 
 
     if args.format == 'csv':
+        import git
         version = 2
         git_object = git.Repo().head.object
         timestamp = str(git_object.committed_date)

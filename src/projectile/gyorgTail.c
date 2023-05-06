@@ -169,70 +169,76 @@ void sub_080AC560(Entity* this) {
     this->y.WORD = entity->y.WORD - gSineTable[entity->direction + 0x40] * factor;
 }
 
-NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Entity* this)) {
+bool32 sub_080AC5E4(Entity* this) {
     // TODO regalloc
     Entity* entity;
+    Entity* new_var2;
     Entity* entity2;
     Entity* entity3;
     Entity* entity4;
-    u8 uVar3;
 
     if (this->type == 0) {
-        if (0x43 < gEntCount) {
+        if (gEntCount > 0x43) {
             return FALSE;
         }
         this->field_0x78.HALF.HI = 0x11;
-        entity = CreateProjectile(0x22);
+        entity = CreateProjectile(GYORG_TAIL);
         entity->type = this->type;
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x12;
         this->child = entity;
-        entity2 = CreateProjectile(0x22);
+
+        entity2 = CreateProjectile(GYORG_TAIL);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
         entity2->field_0x78.HALF.HI = 0x14;
-        uVar3 = entity2->field_0x78.HALF.HI;
-        entity2->field_0x78.HALF.HI = uVar3;
         entity->child = entity2;
-        entity3 = CreateProjectile(0x22);
+
+        entity3 = CreateProjectile(GYORG_TAIL);
         entity3->type = this->type;
         entity3->type2 = 3;
         entity3->parent = this->parent;
         entity3->child = NULL;
         entity3->field_0x78.HALF.HI = 0;
         entity2->child = entity3;
+
+        entity = CreateProjectile(GYORG_TAIL);
+        entity->type = this->type;
+        entity->type2 = 4;
+        entity->parent = this->parent;
+        entity->child = this;
+        entity->field_0x78.HALF.HI = 0x14;
     } else {
-        if (0x44 < gEntCount) {
+        if (gEntCount > 0x44) {
             return FALSE;
         }
         this->field_0x78.HALF.HI = 0xf;
-        entity = CreateProjectile(0x22);
+        entity = CreateProjectile(GYORG_TAIL);
         entity->type = this->type;
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x10;
-        uVar3 = entity->field_0x78.HALF.HI;
-        entity->field_0x78.HALF.HI = uVar3;
         this->child = entity;
-        entity2 = CreateProjectile(0x22);
+
+        entity2 = CreateProjectile(GYORG_TAIL);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
         entity2->child = NULL;
         entity2->field_0x78.HALF.HI = 0x20;
         entity->child = entity2;
+
+        entity = CreateProjectile(GYORG_TAIL);
+        entity->type = this->type;
+        entity->type2 = 4;
+        entity->parent = this->parent;
+        entity->child = this;
+        entity->field_0x78.HALF.HI = 0x10;
     }
-    entity = CreateProjectile(0x22);
-    entity->type = this->type;
-    entity->type2 = 4;
-    entity->parent = this->parent;
-    entity->child = this;
-    entity->field_0x78.HALF.HI = uVar3;
     return TRUE;
 }
-END_NONMATCH
 
 void sub_080AC6F0(Entity* this) {
     static const u8 gUnk_0812A9C0[] = { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,

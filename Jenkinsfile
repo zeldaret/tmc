@@ -12,12 +12,12 @@ pipeline {
                 sh 'cp /usr/local/etc/roms/tmc.demo.jp.gba baserom_demo_jp.gba'
                 sh 'cp /usr/local/etc/roms/tmc.jp.gba baserom_jp.gba'
                 sh 'cp /usr/local/etc/roms/tmc.eu.gba baserom_eu.gba'
-                sh 'make -j setup'
+                sh 'make tools'
             }
         }
         stage('Build') {
             steps {
-                sh 'make usa demo_usa jp demo_jp eu -j'
+                sh 'make all -j'
             }
         }
         stage('Report Progress') {
