@@ -32,7 +32,6 @@ typedef union {
         }                                                     \
     } while (0)
 
-
 void sub_08068318(Entity*);
 void sub_0806854C(Entity*, u32*);
 void sub_08068578(Entity* this);
