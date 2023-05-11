@@ -136,7 +136,7 @@ LIB := -L ../../tools/agbcc/lib -lc
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x9000000 $< $@
 
-$(ELF): objs = $(shell grep -o -E "(\w|/)+\.o" linker.ld)
+$(ELF): objs = $(shell grep -vE "\*\w+\.a" linker.ld | grep -oE "(\w|/)+\.o")
 $(ELF): $(BUILD_DIR)/linker.ld $$(addprefix $(BUILD_DIR)/, $$(objs))
 	cd $(BUILD_DIR) && $(LD) $(LDFLAGS) -n -T linker.ld -o ../../$@ $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
