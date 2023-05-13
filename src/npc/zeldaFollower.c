@@ -19,20 +19,19 @@ typedef union {
 
 #define ZELDA_FOLLOWER_HEAP_LEN 20
 
-#define ZELDA_FOLLOWER_HEAP ((ZeldaFollowerItem *)this->myHeap)
-#define ZELDA_FOLLOWER_HEAP_END ((ZeldaFollowerItem *)this->myHeap + (ZELDA_FOLLOWER_HEAP_LEN - 1))
+#define ZELDA_FOLLOWER_HEAP ((ZeldaFollowerItem*)this->myHeap)
+#define ZELDA_FOLLOWER_HEAP_END ((ZeldaFollowerItem*)this->myHeap + (ZELDA_FOLLOWER_HEAP_LEN - 1))
 
-#define ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr)                \
-        do {                                                          \
-            int i;                                                    \
-            heapPtr = ((ZeldaFollowerItem*)this->myHeap);             \
-            heapPtr += (ZELDA_FOLLOWER_HEAP_LEN - 2);                 \
-            for ( i = 0; i < (ZELDA_FOLLOWER_HEAP_LEN - 1); i++) {    \
-                heapPtr[1] = heapPtr[0];                              \
-                heapPtr--;                                            \
-            }                                                         \
-        } while (0)
-
+#define ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr)        \
+    do {                                                      \
+        int i;                                                \
+        heapPtr = ((ZeldaFollowerItem*)this->myHeap);         \
+        heapPtr += (ZELDA_FOLLOWER_HEAP_LEN - 2);             \
+        for (i = 0; i < (ZELDA_FOLLOWER_HEAP_LEN - 1); i++) { \
+            heapPtr[1] = heapPtr[0];                          \
+            heapPtr--;                                        \
+        }                                                     \
+    } while (0)
 
 void sub_08068318(Entity*);
 void sub_0806854C(Entity*, u32*);
@@ -66,16 +65,16 @@ void sub_08068318(Entity* this) {
     ZeldaFollowerItem* heapPtr;
     ZeldaFollowerItem item;
 
-    item.FIELDS.x              = gPlayerEntity.x.HALF_U.HI;
-    item.FIELDS.y              = gPlayerEntity.y.HALF_U.HI;
-    item.FIELDS.z              = gPlayerEntity.z.HALF_U.HI;
-    item.FIELDS.framestate     = gPlayerState.framestate;
+    item.FIELDS.x = gPlayerEntity.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.z.HALF_U.HI;
+    item.FIELDS.framestate = gPlayerState.framestate;
     item.FIELDS.animationState = gPlayerEntity.animationState;
     item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
 
     heapPtr = this->myHeap;
 
-    if ( (heapPtr->FIELDS.framestate == 0xa  && item.FIELDS.framestate != 0xa) ||
+    if ((heapPtr->FIELDS.framestate == 0xa && item.FIELDS.framestate != 0xa) ||
         (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16)) {
         this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
         this->y.HALF.HI = gPlayerEntity.y.HALF.HI;
@@ -84,7 +83,7 @@ void sub_08068318(Entity* this) {
     }
 
     animIndex = 0;
-    if (item.DWORD != heapPtr->DWORD || item.FIELDS.framestate == 0x16 || item.FIELDS.framestate == 0xa ) {
+    if (item.DWORD != heapPtr->DWORD || item.FIELDS.framestate == 0x16 || item.FIELDS.framestate == 0xa) {
         ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr);
         heapPtr = ZELDA_FOLLOWER_HEAP;
         heapPtr[0] = item;
@@ -101,12 +100,8 @@ void sub_08068318(Entity* this) {
             ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr);
             animIndex = 0x4;
         } else {
-            dist = sub_080041E8(
-                gPlayerEntity.x.HALF.HI,
-                gPlayerEntity.y.HALF.HI,
-                (u16) heapPtr->FIELDS.x,
-                (u16) heapPtr->FIELDS.y
-            );
+            dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
+                                (u16)heapPtr->FIELDS.y);
             dist = ((u32)dist) >> 0x4;
             if (dist > 0x18) {
                 ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr);
@@ -117,9 +112,9 @@ void sub_08068318(Entity* this) {
 
     heapPtr = ZELDA_FOLLOWER_HEAP;
     heapPtr += ZELDA_FOLLOWER_HEAP_LEN - 1;
-    this->x.HALF.HI      = heapPtr->FIELDS.x;
-    this->y.HALF.HI      = heapPtr->FIELDS.y;
-    this->z.HALF.HI      = heapPtr->FIELDS.z;
+    this->x.HALF.HI = heapPtr->FIELDS.x;
+    this->y.HALF.HI = heapPtr->FIELDS.y;
+    this->z.HALF.HI = heapPtr->FIELDS.z;
     this->animationState = heapPtr->FIELDS.animationState;
     this->collisionLayer = heapPtr->FIELDS.collisionLayer;
 
