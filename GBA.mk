@@ -123,7 +123,7 @@ $(BUILD_DIR)/%.o : %.c $$(deps)
 	@mkdir -p $(dir $@)
 	$(CPP) $(CPPFLAGS) $< -o $(BUILD_DIR)/$*.i
 	$(CC1) $(CFLAGS) -o $(BUILD_DIR)/$*.s $(BUILD_DIR)/$*.i
-	@echo "\t.text\n\t.align\t2, 0 @ Don't pad with nop\n" >> $(BUILD_DIR)/$*.s
+	@printf "\t.text\n\t.align\t2, 0 @ Don't pad with nop\n" >> $(BUILD_DIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(BUILD_DIR)/$*.s
 
 # ==============
