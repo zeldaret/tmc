@@ -122,7 +122,7 @@ s32 FindPalette(u32 objPaletteId) {
     return -1;
 }
 
-i32 FindFreeObjPalette(u32 paletteCount) {
+s32 FindFreeObjPalette(u32 paletteCount) {
     for (u32 count = 0, index = 6; index < ARRAY_COUNT(gPaletteList); index++) {
         switch (gPaletteList[index]._0_0) {
             case 0:
