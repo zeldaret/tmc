@@ -12,7 +12,7 @@ extern Palette gUnk_02001A3C;
 
 void LoadObjPaletteAtIndex(u32 a1, u32 a2);
 void CleanUpObjPalettes();
-u32 FindFreeObjPalette(u32);
+s32 FindFreeObjPalette(u32);
 void SetEntityObjPalette(Entity*, s32);
 u32 sub_0801D458(u32);
 void sub_0801D48C(u32, u32);
@@ -129,9 +129,6 @@ s32 FindFreeObjPalette(u32 paletteCount) {
             case 1:
                 if (paletteCount <= ++count)
                     return index - count + 1;
-                break;
-            default:
-                break;
         }
     }
     return -1;
