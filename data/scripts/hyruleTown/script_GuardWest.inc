@@ -32,7 +32,7 @@ script_0800FFCC:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
-	CheckInventory1 ITEM_SKILL_SPIN_ATTACK
+	CheckInventory ITEM_SKILL_SPIN_ATTACK
 	JumpIf script_0800FFF8
 	MessageNoOverlap TEXT_TOWN, 0x01
 	WaitUntilTextboxCloses

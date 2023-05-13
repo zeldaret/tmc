@@ -23,9 +23,9 @@ script_0800C674:
 	WaitForSyncFlagAndClear 0x00000001
 	DoPostScriptAction 0x000a
 script_0800C684:
-	CheckInventory1 ITEM_EARTH_ELEMENT
+	CheckInventory ITEM_EARTH_ELEMENT
 	JumpIf script_0800C730
-	CheckInventory1 ITEM_JABBERNUT
+	CheckInventory ITEM_JABBERNUT
 	JumpIf script_0800C6B6
 	DoPostScriptAction 0x0002
 	MessageFromTarget TEXT_BELARI, 0x16

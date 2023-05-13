@@ -25,7 +25,7 @@ script_08012FD2:
 	CallWithArg sub_0807F93C, 0x0000f2f4
 	Call sub_0806AA10
 	EndBlock
-	CheckInventory1 ITEM_QST_MUSHROOM
+	CheckInventory ITEM_QST_MUSHROOM
 	JumpIf script_08013006
 script_08012FFA:
 	TriggerInteract

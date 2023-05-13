@@ -120,7 +120,7 @@
 	.4byte \bitmask
 .endm
 
-.macro CheckInventory1 s:req
+.macro CheckInventory s:req
 	.2byte 0x080f
 	.2byte \s
 .endm

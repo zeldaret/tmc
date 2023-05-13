@@ -11,7 +11,7 @@ script_08012284:
 	BeginBlock
 	CheckGlobalFlag DASHBOOTS
 	JumpIfNot script_08012298
-	CheckInventory1 ITEM_PEGASUS_BOOTS
+	CheckInventory ITEM_PEGASUS_BOOTS
 	JumpIf script_080122BA
 script_08012298:
 	CheckEntityInteractType

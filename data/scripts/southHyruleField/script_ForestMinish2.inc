@@ -14,7 +14,7 @@ script_0800C592:
 script_0800C5A6:
 	EndBlock
 	SetPlayerIdle
-	CheckInventory1 ITEM_KINSTONE_BAG
+	CheckInventory ITEM_KINSTONE_BAG
 	JumpIfNot script_0800C5BC
 	Call sub_08060208
 	Jump script_0800C5C0

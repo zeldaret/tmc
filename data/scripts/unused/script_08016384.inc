@@ -14,7 +14,7 @@ SCRIPT_START script_08016384
 	CallWithArg script_08016384, 0x12345678
 	LoadRoomEntityList script_08016384
 	CheckSyncFlagAndClear 0x00000001
-	CheckInventory1 ITEM_SMITH_SWORD
+	CheckInventory ITEM_SMITH_SWORD
 	CheckInventory2 ITEM_SMITH_SWORD
 	HasRoomItemForSale
 	CheckLocalFlag 0x0067

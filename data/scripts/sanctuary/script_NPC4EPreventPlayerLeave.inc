@@ -10,7 +10,7 @@ script_08013FF0:
 	JumpIf script_0801404C
 	CheckLocalFlag 0x007a
 	JumpIfNot script_08013FF0
-	CheckInventory1 ITEM_RED_SWORD
+	CheckInventory ITEM_RED_SWORD
 	JumpIfNot script_08013FF0
 	CallWithArg sub_0807F6B4, 0x000000d0
 	JumpIfNot script_08013FF0

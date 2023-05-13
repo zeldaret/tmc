@@ -332,7 +332,7 @@ u32 UpdatePlayerCollision(void) {
             OpenSmallChest(position, gPlayerEntity.collisionLayer);
             return 2;
         case 0x71:
-            if (HasDungeonMap() == 0) {
+            if (HasDungeonSmallKey() == 0) {
                 return 0;
             }
             gUnk_0200AF00.unk_2d = 6;

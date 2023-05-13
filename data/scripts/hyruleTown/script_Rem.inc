@@ -4,7 +4,7 @@ SCRIPT_START script_Rem
 	CallWithArg sub_0806A93C, 0x12345678
 	SetAnimationState 0x0004
 	SetAnimation 0x0002
-	CheckInventory1 ITEM_PEGASUS_BOOTS
+	CheckInventory ITEM_PEGASUS_BOOTS
 	JumpIf script_080130B6
 	CheckLocalFlag 0x0060
 	JumpIf script_08012FD2

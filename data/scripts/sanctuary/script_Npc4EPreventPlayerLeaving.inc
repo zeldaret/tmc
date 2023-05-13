@@ -7,7 +7,7 @@ script_08013B1E:
 	BeginBlock
 	CallWithArg sub_0807F6B4, 0x000001c8
 	JumpIfNot script_08013B1E
-	CheckInventory1 ITEM_FOURSWORD
+	CheckInventory ITEM_FOURSWORD
 	JumpIfNot script_08013B1E
 	CheckLocalFlag 0x0078
 	JumpIf script_08013B1E

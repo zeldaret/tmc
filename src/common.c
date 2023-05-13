@@ -444,7 +444,7 @@ void DrawDungeonMap(u32 floor, DungeonMapObject* specialData, u32 size) {
             floorMapData++;
         } else {
             flagBankOffset = sub_0801DF10(floorMapData);
-            if (HasDungeonBigKey()) {
+            if (HasDungeonCompass()) {
                 while (tileEntity->type != 0) {
                     switch (tileEntity->type) {
                         case SMALL_CHEST:
@@ -468,7 +468,7 @@ void DrawDungeonMap(u32 floor, DungeonMapObject* specialData, u32 size) {
                     tileEntity++;
                 }
             }
-            if ((HasDungeonBigKey() && ((floorMapData->unk_2 & 2) != 0)) && (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
+            if ((HasDungeonCompass() && ((floorMapData->unk_2 & 2) != 0)) && (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
                 roomHeader = gAreaRoomHeaders[floorMapData->area] + floorMapData->room;
                 specialData->type = DMO_TYPE_BOSS;
                 tmp1 = ((roomHeader->pixel_width / 2) + roomHeader->map_x) / 16;
@@ -536,7 +536,7 @@ void DrawDungeonFeatures(u32 floor, void* data, u32 size) {
         if (layout->area == gUI.roomControls.area && layout->room == gUI.roomControls.room) {
             features = 8;
         } else {
-            if (HasDungeonSmallKey()) {
+            if (HasDungeonMap()) {
                 features = 2;
             }
             if (IsRoomVisited(tileEntity, bankOffset)) {

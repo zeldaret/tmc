@@ -8,7 +8,7 @@ SCRIPT_START script_08013F94
 script_08013FA4:
 	EndBlock
 	BeginBlock
-	CheckInventory1 ITEM_RED_SWORD
+	CheckInventory ITEM_RED_SWORD
 	JumpIfNot script_08013FA4
 	CheckPlayerFlags PL_CLONING
 	JumpIfNot script_08013FA4

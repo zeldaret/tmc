@@ -2,15 +2,15 @@
 SCRIPT_START script_BigGoronTalk
 	CheckLocalFlag DAIGORON_EXCHG
 	JumpIf script_0800943E
-	CheckInventory1 ITEM_SHIELD
+	CheckInventory ITEM_SHIELD
 	JumpIf script_080093BC
-	CheckInventory1 ITEM_MIRROR_SHIELD
+	CheckInventory ITEM_MIRROR_SHIELD
 	JumpIf script_080093BC
 	MessageNoOverlap TEXT_GORONS, 0x02
 	WaitUntilTextboxCloses
 	Jump script_08009376
 script_080093BC:
-	CheckInventory1 ITEM_MIRROR_SHIELD
+	CheckInventory ITEM_MIRROR_SHIELD
 	JumpIfNot script_080093DA
 	Call sub_0806D788
 	MessageNoOverlap TEXT_GORONS, 0x03

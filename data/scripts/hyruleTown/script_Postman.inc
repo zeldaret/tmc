@@ -1,7 +1,7 @@
 @ Hyrule Town Postman
 SCRIPT_START script_Postman
 	BeginBlock
-	CheckInventory1 ITEM_KINSTONE_BAG
+	CheckInventory ITEM_KINSTONE_BAG
 	JumpIfNot script_08010B62
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

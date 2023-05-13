@@ -1,7 +1,7 @@
 @ Mines CUTSCENE_MISC_OBJECT Broken Sword on Table?
 SCRIPT_START script_CutsceneMiscObjectBrokenSword
 	BeginBlock
-	CheckInventory1 ITEM_FIRE_ELEMENT
+	CheckInventory ITEM_FIRE_ELEMENT
 	JumpIf script_0800D24C
 	CheckLocalFlag 0x007e
 	JumpIf script_0800D242

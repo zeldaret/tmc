@@ -1,7 +1,7 @@
 @ Minish Village ForestMinish at the back of the pico flowers
 SCRIPT_START script_ForestMinish10
 	BeginBlock
-	CheckInventory1 ITEM_JABBERNUT
+	CheckInventory ITEM_JABBERNUT
 	JumpIfNot script_0800C5FE
 	Call sub_08060090
 	DoPostScriptAction 0x000a

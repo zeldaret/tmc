@@ -6,15 +6,15 @@ SCRIPT_START script_Melari
 	SetAnimationState 0x0004
 	SetAnimation 0x0000
 	EndBlock
-	CheckInventory1 ITEM_FIRE_ELEMENT
+	CheckInventory ITEM_FIRE_ELEMENT
 	JumpIf script_0800CFD2
 	CheckLocalFlag 0x007e
 	JumpIfNot script_0800CFD2
 	SetAnimation 0x0008
 script_0800CFD2:
-	CheckInventory1 ITEM_GREEN_SWORD
+	CheckInventory ITEM_GREEN_SWORD
 	JumpIf script_0800CFFA
-	CheckInventory1 ITEM_FIRE_ELEMENT
+	CheckInventory ITEM_FIRE_ELEMENT
 	JumpIfNot script_0800CFEC
 	SetSyncFlag 0x00000020
 	Jump script_0800CFFA
@@ -31,7 +31,7 @@ script_0800CFFA:
 	EndBlock
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
-	CheckInventory1 ITEM_GREEN_SWORD
+	CheckInventory ITEM_GREEN_SWORD
 	JumpIfNot script_0800D032
 	FacePlayer
 	SetIntVariable 0x00000000
@@ -39,7 +39,7 @@ script_0800CFFA:
 	MessageNoOverlap TEXT_MINISH2, 0x19
 	Jump script_0800D17C
 script_0800D032:
-	CheckInventory1 ITEM_FIRE_ELEMENT
+	CheckInventory ITEM_FIRE_ELEMENT
 	JumpIfNot script_0800D098
 	StartPlayerScript script_PlayerAtMelari
 	WaitForSyncFlagAndClear 0x00000008

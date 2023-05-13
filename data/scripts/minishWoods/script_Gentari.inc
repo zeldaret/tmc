@@ -10,9 +10,9 @@ script_0800C780:
 	Call DisablePauseMenuAndPutAwayItems
 	StartPlayerScript script_PlayerAtGentari
 	WaitForSyncFlagAndClear 0x00000001
-	CheckInventory1 ITEM_EARTH_ELEMENT
+	CheckInventory ITEM_EARTH_ELEMENT
 	JumpIf script_0800C824
-	CheckInventory1 ITEM_JABBERNUT
+	CheckInventory ITEM_JABBERNUT
 	JumpIf script_0800C7C0
 	SetAnimation 0x0008
 	MessageFromTarget TEXT_FOREST_MINISH, 0x22

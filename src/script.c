@@ -28,7 +28,7 @@ void ScriptCommand_Call(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckSyncFlagAndClear(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_CheckInventory(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckInventory2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckLocalFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckLocalFlagByBank(Entity* entity, ScriptExecutionContext* context);
@@ -475,7 +475,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_CallWithArg,
         ScriptCommand_LoadRoomEntityList,
         ScriptCommand_CheckSyncFlagAndClear,
-        ScriptCommand_CheckInventory1,
+        ScriptCommand_CheckInventory,
         ScriptCommand_CheckInventory2,
         ScriptCommand_HasRoomItemForSale,
         ScriptCommand_CheckLocalFlag,
@@ -717,26 +717,26 @@ void ScriptCommand_CheckSyncFlagAndClear(Entity* entity, ScriptExecutionContext*
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp;
-    u32 tmp2 = GetNextScriptCommandHalfwordAfterCommandMetadata(context->scriptInstructionPointer);
-    switch (tmp2) {
-        case 0x53:
-            tmp = HasDungeonMap();
+void ScriptCommand_CheckInventory(Entity* entity, ScriptExecutionContext* context) {
+    u32 result;
+    u32 item = GetNextScriptCommandHalfwordAfterCommandMetadata(context->scriptInstructionPointer);
+    switch (item) {
+        case ITEM_SMALL_KEY:
+            result = HasDungeonSmallKey();
             break;
-        case 0x52:
-            tmp = HasDungeonCompass();
+        case ITEM_BIG_KEY:
+            result = HasDungeonBigKey();
             break;
-        case 0x51:
-            tmp = HasDungeonBigKey();
+        case ITEM_COMPASS:
+            result = HasDungeonCompass();
             break;
-        case 0x50:
-            tmp = HasDungeonSmallKey();
+        case ITEM_DUNGEON_MAP:
+            result = HasDungeonMap();
             break;
         default:
-            tmp = GetInventoryValue(tmp2);
+            result = GetInventoryValue(item);
     }
-    context->condition = tmp;
+    context->condition = result;
     gActiveScriptInfo.flags |= 1;
 }
 

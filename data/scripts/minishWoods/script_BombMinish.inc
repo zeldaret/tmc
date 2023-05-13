@@ -6,7 +6,7 @@ SCRIPT_START script_BombMinish
 	DoPostScriptAction 0x000a
 	CheckKinstoneFused KINSTONE_1C
 	JumpIf script_08009FD2
-	CheckInventory1 ITEM_BOMBS
+	CheckInventory ITEM_BOMBS
 	JumpIf script_08009F84
 	EndBlock
 script_08009F36:
@@ -90,7 +90,7 @@ script_0800A024:
 	JumpIfNot script_0800A024
 	EndBlock
 	SetPlayerIdle
-	CheckInventory1 ITEM_REMOTE_BOMBS
+	CheckInventory ITEM_REMOTE_BOMBS
 	JumpIf script_0800A052
 	MessageNoOverlap TEXT_BELARI, 0x14
 	WaitUntilTextboxCloses
