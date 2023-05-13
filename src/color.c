@@ -122,41 +122,19 @@ s32 FindPalette(u32 objPaletteId) {
     return -1;
 }
 
-u32 FindFreeObjPalette(u32 paletteCount) {
-    u32 count;
-    u32 index;
-    u32 tmp;
-
-    for (count = 0, index = 6; index < ARRAY_COUNT(gPaletteList); index++) {
-        switch ((gPaletteList[index]._0_0)) {
-            case 0:
-                count = count + 1;
-                if (paletteCount > count)
-                    continue;
-                tmp = count - 1;
-                return index - tmp;
-            default:
-                count = 0;
-                break;
-        }
-    }
-
-    for (count = 0, index = 6; index < ARRAY_COUNT(gPaletteList); index++) {
+i32 FindFreeObjPalette(u32 paletteCount) {
+    for (u32 count = 0, index = 6; index < ARRAY_COUNT(gPaletteList); index++) {
         switch (gPaletteList[index]._0_0) {
             case 0:
             case 1:
-                count++;
-                if (paletteCount <= count) {
-                    tmp = count - 1;
-                    return index - tmp;
-                }
+                if (paletteCount <= ++count)
+                    return index - count + 1;
                 break;
             default:
-                count = 0;
                 break;
         }
     }
-    return 0xffffffff;
+    return -1;
 }
 
 void SetEntityObjPalette(Entity* entity, s32 palette) {
