@@ -35,7 +35,7 @@ void sub_08062BD4(Entity* ent) {
     ent->action = 1;
     ent->spriteSettings.draw = 1;
     InitializeAnimation(ent, 0);
-    sub_08078778(ent);
+    AddInteractableWhenBigObject(ent);
 }
 
 void sub_08062BF8(Entity* ent) {

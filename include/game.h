@@ -90,32 +90,32 @@ void sub_08052878(void);
 void ModDungeonKeys(s32 keys);
 
 /**
- * Check if the current dungeon has a map item.
+ * Check if the player has at least one small key for the current dungeon.
  *
- * @return True if the current dungeon has a map item.
+ * @return True if the player has a small key.
  */
-bool32 HasDungeonMap(void);
+bool32 HasDungeonSmallKey(void);
 
 /**
- * Check if the current dungeon has a compass item.
+ * Check if the player has the big key for the current dungeon.
  *
- * @return True if the current dungeon has a compass item.
- */
-bool32 HasDungeonCompass(void);
-
-/**
- * Check if the current dungeon has a big key item.
- *
- * @return True if the current dungeon has a big key item.
+ * @return True if the player has the big key.
  */
 bool32 HasDungeonBigKey(void);
 
 /**
- * Check if the current dungeon has a small key item.
+ * Check if the player has the compass for the current dungeon.
  *
- * @return True if the current dungeon has a small key item.
+ * @return True if the player has the compass.
  */
-bool32 HasDungeonSmallKey(void);
+bool32 HasDungeonCompass(void);
+
+/**
+ * Check if the player has the map for the current dungeon.
+ *
+ * @return True if the player has the map.
+ */
+bool32 HasDungeonMap(void);
 
 /**
  * @brief Check if item is a sword.

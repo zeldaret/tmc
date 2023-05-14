@@ -14,8 +14,8 @@
 #include "entity.h"
 #include "player.h"
 
-void sub_080787C0(Entity*);
-void sub_080787B4(Entity*);
+void AddInteractablePedestal(Entity*);
+void AddInteractableCheckableObject(Entity*);
 void sub_0808C650(Entity*, u32);
 u32 sub_0808C67C(void);
 void sub_0808C688(void);

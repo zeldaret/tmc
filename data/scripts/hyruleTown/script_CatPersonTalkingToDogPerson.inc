@@ -1,7 +1,7 @@
 @ Hyrule Town Cat person talking to Dog person
 SCRIPT_START script_CatPersonTalkingToDogPerson
 	BeginBlock
-	Call sub_08061E70
+	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0002
 	Call sub_08061FD8

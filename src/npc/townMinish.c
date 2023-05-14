@@ -129,13 +129,13 @@ static const SpriteLoadData gUnk_08112674[][4] = {
         { 0x0, 0x0, 0x0 },
     },
 };
-static const u8 gUnk_081126D4[][4] = {
-    { 0x0, 0x8, 0x8, 0x10 },
-    { 0xf8, 0xfe, 0x10, 0x8 },
-    { 0x0, 0x8, 0x8, 0x10 },
-    { 0x8, 0xfe, 0x10, 0x8 },
+static const Rect gUnk_081126D4[4] = {
+    { 0, 8, 8, 16 },
+    { -8, -2, 16, 8 },
+    { 0, 8, 8, 16 },
+    { 8, -2, 16, 8 },
 };
-static const u8 gUnk_081126E4[4] = { 14, 13, 11, 7 };
+static const u8 gUnk_081126E4[4] = { 0x0e, 0x0d, 0x0b, 0x07 };
 
 void TownMinish(Entity* this) {
     static void (*const scriptedActionFuncs[])(Entity*) = {
@@ -228,7 +228,7 @@ void sub_0806ACC4(Entity* this) {
                 }
                 if (this->type == 1) {
                     u8 idx = gPlayerEntity.animationState >> 1;
-                    sub_08078850(this, 1, gUnk_081126E4[idx], gUnk_081126D4[idx]);
+                    SetInteractableObjectCollision(this, 1, gUnk_081126E4[idx], &gUnk_081126D4[idx]);
                 }
             }
             break;
@@ -250,8 +250,8 @@ void sub_0806ACC4(Entity* this) {
     }
 }
 
-void sub_0806ADFC(Entity* this) {
-    sub_08078784(this, this->field_0x68.HALF.LO);
+void TownMinish_MakeInteractable(Entity* this) {
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void TownMinish_Head(Entity* this) {

@@ -1,7 +1,7 @@
 @ Mines Mountain Minish
 SCRIPT_START script_MountainMinish2
 	BeginBlock
-	Call sub_08068104
+	Call MountainMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800CF96:

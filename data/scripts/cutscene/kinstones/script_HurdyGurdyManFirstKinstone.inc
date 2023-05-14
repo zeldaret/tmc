@@ -17,7 +17,7 @@ SCRIPT_START script_HurdyGurdyManFirstKinstone
 	_0807E8E4_0
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002
-	Call sub_0806E440
+	Call HurdyGurdyMan_MakeInteractable
 	Wait 0x0078
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002

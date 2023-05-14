@@ -444,7 +444,7 @@ void DrawDungeonMap(u32 floor, DungeonMapObject* specialData, u32 size) {
             floorMapData++;
         } else {
             flagBankOffset = sub_0801DF10(floorMapData);
-            if (HasDungeonBigKey()) {
+            if (HasDungeonCompass()) {
                 while (tileEntity->type != 0) {
                     switch (tileEntity->type) {
                         case SMALL_CHEST:
@@ -468,7 +468,8 @@ void DrawDungeonMap(u32 floor, DungeonMapObject* specialData, u32 size) {
                     tileEntity++;
                 }
             }
-            if ((HasDungeonBigKey() && ((floorMapData->unk_2 & 2) != 0)) && (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
+            if ((HasDungeonCompass() && ((floorMapData->unk_2 & 2) != 0)) &&
+                (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
                 roomHeader = gAreaRoomHeaders[floorMapData->area] + floorMapData->room;
                 specialData->type = DMO_TYPE_BOSS;
                 tmp1 = ((roomHeader->pixel_width / 2) + roomHeader->map_x) / 16;
@@ -536,7 +537,7 @@ void DrawDungeonFeatures(u32 floor, void* data, u32 size) {
         if (layout->area == gUI.roomControls.area && layout->room == gUI.roomControls.room) {
             features = 8;
         } else {
-            if (HasDungeonSmallKey()) {
+            if (HasDungeonMap()) {
                 features = 2;
             }
             if (IsRoomVisited(tileEntity, bankOffset)) {
@@ -624,7 +625,7 @@ void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
     gFuseInfo._8 = a3;
     gFuseInfo._a = a4;
     gFuseInfo.ent = entity;
-    gFuseInfo.kinstoneId = gUnk_03003DF0.unk_2;
+    gFuseInfo.kinstoneId = gPossibleInteraction.kinstoneId;
     if (entity != NULL) {
         gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
@@ -831,28 +832,28 @@ void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_
     }
 }
 
-void NotifyFusersOnFusionDone(u32 kinstoneId) {
+void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
     u32 tmp;
     u32 index;
     if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
             if (kinstoneId == gSave.fuserOffers[index]) {
-                gSave.fuserOffers[index] = 0xf1;
+                gSave.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
         tmp = GetFuserId(gFuseInfo.ent);
-        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == 0xf1)) {
-            gSave.fuserOffers[tmp] = 0xf2;
+        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
+            gSave.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
         }
         for (index = 0; index < 0x20; index++) {
-            if (kinstoneId == gUnk_03003DF0.array[index].unk_3) {
-                gUnk_03003DF0.array[index].unk_3 = 0xf1;
+            if (kinstoneId == gPossibleInteraction.candidates[index].kinstoneId) {
+                gPossibleInteraction.candidates[index].kinstoneId = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
     }
 }
 
-void AddKinstoneToBag(u32 kinstoneId) {
+void AddKinstoneToBag(KinstoneId kinstoneId) {
     s32 index;
     s32 tmp;
 
@@ -861,7 +862,7 @@ void AddKinstoneToBag(u32 kinstoneId) {
         index = GetIndexInKinstoneBag(kinstoneId);
         if (index < 0) {
             index = 0;
-            while (gSave.kinstoneTypes[index] != 0) {
+            while (gSave.kinstoneTypes[index] != KINSTONE_NONE) {
                 index++;
             }
         }
@@ -876,19 +877,19 @@ void AddKinstoneToBag(u32 kinstoneId) {
     }
 }
 
-void RemoveKinstoneFromBag(u32 kinstoneId) {
+void RemoveKinstoneFromBag(KinstoneId kinstoneId) {
     s32 idx = GetIndexInKinstoneBag(kinstoneId);
     if (idx >= 0) {
         s32 next = gSave.kinstoneAmounts[idx] - 1;
         if (next <= 0) {
-            gSave.kinstoneTypes[idx] = 0;
+            gSave.kinstoneTypes[idx] = KINSTONE_NONE;
             next = 0;
         }
         gSave.kinstoneAmounts[idx] = next;
     }
 }
 
-u32 GetAmountInKinstoneBag(u32 kinstoneId) {
+u32 GetAmountInKinstoneBag(KinstoneId kinstoneId) {
     s32 index = GetIndexInKinstoneBag(kinstoneId);
     if (index < 0) {
         return 0;
@@ -896,15 +897,15 @@ u32 GetAmountInKinstoneBag(u32 kinstoneId) {
     return gSave.kinstoneAmounts[index];
 }
 
-u32 CheckKinstoneFused(u32 kinstoneId) {
-    if (kinstoneId > 100 || kinstoneId < 1) {
+u32 CheckKinstoneFused(KinstoneId kinstoneId) {
+    if (kinstoneId - 1 >= 100) {
         return 0;
     }
     return ReadBit(&gSave.fusedKinstones, kinstoneId);
 }
 
-bool32 CheckFusionMapMarkerDisabled(u32 kinstoneId) {
-    if (kinstoneId > 100 || kinstoneId < 1) {
+bool32 CheckFusionMapMarkerDisabled(KinstoneId kinstoneId) {
+    if (kinstoneId - 1 >= 100) {
         return FALSE;
     }
     return ReadBit(&gSave.fusionUnmarked, kinstoneId);
@@ -974,7 +975,7 @@ code0_2:
 #endif
 }
 
-s32 GetIndexInKinstoneBag(u32 kinstoneId) {
+s32 GetIndexInKinstoneBag(KinstoneId kinstoneId) {
     u32 i;
 
     for (i = 0; i < 0x12; ++i) {
@@ -1054,7 +1055,7 @@ void UpdateVisibleFusionMapMarkers(void) {
 
 extern u8* gUnk_08001DCC[];
 
-u32 GetFusionToOffer(Entity* entity) {
+KinstoneId GetFusionToOffer(Entity* entity) {
     u8* fuserData;
     u32 fuserId;
     u32 offeredFusion;
@@ -1065,48 +1066,49 @@ u32 GetFusionToOffer(Entity* entity) {
     fuserId = GetFuserId(entity);
     fuserData = gUnk_08001DCC[fuserId];
     if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
-        return 0;
+        return KINSTONE_NONE;
     }
     offeredFusion = gSave.fuserOffers[fuserId];
     fuserProgress = gSave.fuserProgress[fuserId];
     fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
-            case 0xF1: // offered fusion completed with someone else
-            case 0x00: // no fusion offered yet
+            case KINSTONE_NEEDS_REPLACEMENT: // offered fusion completed with someone else
+            case KINSTONE_NONE:              // no fusion offered yet
                 offeredFusion = fuserFusionData[5];
-                if (offeredFusion == 0x00 || offeredFusion == 0xFF || CheckKinstoneFused(offeredFusion) == 0) {
+                if (offeredFusion == KINSTONE_NONE || offeredFusion == KINSTONE_RANDOM ||
+                    CheckKinstoneFused(offeredFusion) == 0) {
                     break;
                 }
-            case 0xF2: // previous fusion completed
+            case KINSTONE_JUST_FUSED: // previous fusion completed
                 fuserFusionData++;
                 fuserProgress++;
                 offeredFusion = fuserFusionData[5];
         }
-        if (offeredFusion == 0xFF) { // random shared fusion
+        if (offeredFusion == KINSTONE_RANDOM) { // random shared fusion
             offeredFusion = GetRandomSharedFusion(fuserData);
         }
-        if (offeredFusion == 0x00) { // end of fusion list
-            offeredFusion = 0xF3;    // mark this fuser as done
+        if (offeredFusion == KINSTONE_NONE) {    // end of fusion list
+            offeredFusion = KINSTONE_FUSER_DONE; // mark this fuser as done
             break;
         }
-        if (offeredFusion == 0xF2) { // previous fusion completed
+        if (offeredFusion == KINSTONE_JUST_FUSED) { // previous fusion completed
             continue;
         }
         if (CheckKinstoneFused(offeredFusion) == 0) {
             break;
         }
-        offeredFusion = 0xF1; // already completed, try next fusion in the list
+        offeredFusion = KINSTONE_NEEDS_REPLACEMENT; // already completed, try next fusion in the list
     }
     gSave.fuserOffers[fuserId] = offeredFusion;
     gSave.fuserProgress[fuserId] = fuserProgress;
     randomMood = Random();
     fuserStability = fuserData[1];
     if (fuserStability <= randomMood % 100) {
-        return 0; // fickleness
+        return KINSTONE_NONE; // fickleness
     }
     if (offeredFusion - 1 > 99) {
-        offeredFusion = 0;
+        offeredFusion = KINSTONE_NONE;
     }
     return offeredFusion;
 }
@@ -1286,5 +1288,5 @@ u32 GetRandomSharedFusion(u8* fuserData) {
             return kinstoneId;
         r = (r + 1) % 18;
     }
-    return 0xF2;
+    return KINSTONE_JUST_FUSED;
 }

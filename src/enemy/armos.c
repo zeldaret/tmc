@@ -422,7 +422,7 @@ bool32 sub_0803086C(ArmosEntity* this) {
     FORCE_REGISTER(u32 r2, r2);
 
     if (this->unk_7c != NULL) {
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             centerX = super->x.HALF_U.HI - gRoomControls.origin_x;
             centerY = super->y.HALF_U.HI - gRoomControls.origin_y;
             // TODO for some reason the 0x3f of COORD_TO_TILE(super) needs to be forced to r2 here.

@@ -1,7 +1,7 @@
 @ Phonograph
 SCRIPT_START script_Phonograph
 	BeginBlock
-	Call sub_0807F934
+	Call MakeCheckableObjectInteractable
 	EndBlock
 script_0800BA46:
 	CheckEntityInteractType

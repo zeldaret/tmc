@@ -213,7 +213,7 @@ void sub_080620F4(Entity* this) {
         this->field_0x68.HALF.LO = 0;
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
 }
 
@@ -418,7 +418,7 @@ void sub_08062500(Entity* this) {
     this->myHeap = zMalloc(sizeof(KidHeap));
     if (this->myHeap != NULL) {
         this->field_0x68.HALF.LO = 1;
-        sub_080788E0(this);
+        RemoveInteractableObject(this);
         this->hitbox = NULL;
         sub_0806252C(this);
     }
@@ -701,9 +701,9 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-void sub_08062A48(Entity* this, ScriptExecutionContext* context) {
+void Kid_MakeInteractable(Entity* this, ScriptExecutionContext* context) {
     this->field_0x6a.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x6a.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x6a.HALF.LO);
 }
 
 void Kid_Fusion(Entity* this) {

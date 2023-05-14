@@ -32,7 +32,7 @@ void sub_08063A98(Entity* this) {
     this->action++;
     this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 4);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 }
 
 void sub_08063AC0(Entity* this) {
@@ -150,9 +150,9 @@ void sub_08063C90(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810CE04[gSave.global_progress]);
 }
 
-void sub_08063CAC(Entity* this) {
+void Pina_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Pina_Fusion(Entity* this) {

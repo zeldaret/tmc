@@ -1,7 +1,7 @@
 @ CUTSCENE_ORCHESTRATOR in witch hut?
 SCRIPT_START script_CutsceneOrchestratorPotionRed
 	BeginBlock
-	Call sub_080787B4
+	Call AddInteractableCheckableObject
 	EndBlock
 script_0801619A:
 	CheckEntityInteractType

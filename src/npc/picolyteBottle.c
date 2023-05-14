@@ -26,7 +26,7 @@ void PicolyteBottle_Action1(PicolyteBottleEntity* this);
 void PicolyteBottle_Action2(PicolyteBottleEntity* this);
 void nullsub_111(PicolyteBottleEntity* this);
 
-extern void sub_08078828(Entity*);
+extern void AddInteractableChest(Entity*);
 
 void PicolyteBottle(Entity* this) {
     static void (*const PicolyteBottle_Actions[])(PicolyteBottleEntity*) = {
@@ -97,7 +97,7 @@ void PicolyteBottle_Action2(PicolyteBottleEntity* this) {
                 super->child = obj;
                 CopyPosition(super, obj);
             }
-            sub_080788E0(super);
+            RemoveInteractableObject(super);
             sub_0807B7D8(0x74, this->unk76, 2);
         }
     }
@@ -149,7 +149,7 @@ void sub_0806E0DC(PicolyteBottleEntity* this) {
             DeleteEntity(super->child);
             super->child = NULL;
         }
-        sub_08078828(super);
+        AddInteractableChest(super);
         sub_0807B7D8(0x73, this->unk76, 2);
     } else {
         super->action = 3;

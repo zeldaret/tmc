@@ -8,7 +8,7 @@
 #include "global.h"
 #include "message.h"
 
-extern void sub_080787B4(Entity*);
+extern void AddInteractableCheckableObject(Entity*);
 void SwordsmanNewsletter_Init(Entity*);
 void SwordsmanNewsletter_Action1(Entity*);
 
@@ -27,7 +27,7 @@ void SwordsmanNewsletter_Init(Entity* this) {
     this->frameIndex = this->type;
     UpdateSpriteForCollisionLayer(this);
     this->hitbox = (Hitbox*)&gUnk_081228A8;
-    sub_080787B4(this);
+    AddInteractableCheckableObject(this);
 }
 
 void SwordsmanNewsletter_Action1(Entity* this) {

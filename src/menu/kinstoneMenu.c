@@ -151,7 +151,7 @@ void KinstoneMenu_Type0(void) {
     gScreen.bg3.updated = 1;
     KinstoneMenu_080A4528();
     sub_080A4398();
-    AddKinstoneToBag(0);
+    AddKinstoneToBag(KINSTONE_NONE);
     sub_080A70AC((void*)gUnk_081280DC);
     SetMenuType(1);
     SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
@@ -606,8 +606,8 @@ u32 sub_080A4418(u32 param_1, u32 param_2) {
 }
 
 void KinstoneMenu_080A4468(void) {
-    gUnk_03003DF0.unk_2 = 0;
-    gUnk_03003DF0.unk_4[3] = 0;
+    gPossibleInteraction.kinstoneId = KINSTONE_NONE;
+    gPossibleInteraction.currentObject->kinstoneId = KINSTONE_NONE;
     NotifyFusersOnFusionDone(gFuseInfo.kinstoneId);
     RemoveKinstoneFromBag(gKinstoneMenu.unk2a);
 }

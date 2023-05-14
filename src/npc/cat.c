@@ -281,7 +281,7 @@ void sub_08067AAC(Entity* this) {
     this->spriteSettings.flipX = this->direction >> 4 ^ 1;
 
     sub_08067DCC(this, 3);
-    sub_08078850(this, 0, gUnk_0811110C[2], gUnk_0811110F);
+    SetInteractableObjectCollision(this, 0, gUnk_0811110C[2], gUnk_0811110F);
 }
 
 void sub_08067B08(Entity* this) {
@@ -293,7 +293,7 @@ void sub_08067B08(Entity* this) {
 void sub_08067B34(Entity* this) {
     sub_08067DCC(this, 0);
     this->frameDuration = (Random() & 0x30) + 0xb4;
-    sub_08078850(this, 0, gUnk_0811110C[this->spriteSettings.flipX], gUnk_0811110F);
+    SetInteractableObjectCollision(this, 0, gUnk_0811110C[this->spriteSettings.flipX], gUnk_0811110F);
 }
 
 void sub_08067B70(Entity* this) {
@@ -350,9 +350,9 @@ void sub_08067C44(Entity* this) {
 
     if (uVar5 != this->field_0x68.HALF.HI) {
         if (uVar5 == 0) {
-            sub_08078778(this);
+            AddInteractableWhenBigObject(this);
         } else {
-            sub_080787A8(this, this->field_0x68.HALF.LO);
+            AddInteractableAsMinishFuser(this, this->field_0x68.HALF.LO);
         }
     }
 

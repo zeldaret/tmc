@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
+#include "kinstone.h"
 
 void Farore(Entity* this) {
     switch (this->action) {
@@ -29,12 +30,12 @@ void Farore(Entity* this) {
     }
 }
 
-void sub_08064A28(Entity* this) {
-    u32 tmp = GetFusionToOffer(this);
+void Farore_MakeInteractable(Entity* this) {
+    u32 kinstoneId = GetFusionToOffer(this);
     if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
-        tmp = 0;
+        kinstoneId = KINSTONE_NONE;
     }
-    sub_08078784(this, tmp);
+    AddInteractableWhenBigFuser(this, kinstoneId);
 }
 
 void Farore_Fusion(Entity* this) {

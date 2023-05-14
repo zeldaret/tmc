@@ -739,30 +739,30 @@ void ItemUIElement(UIElement* element) {
 
 void TextUIElement(UIElement* element) {
     UIElement* buttonUIElement;
-    u32 tmp;
+    u32 frameIndex;
 
     if (element->type2 == 9) {
-        tmp = gUnk_0200AF00.unk_2f;
-        if (tmp == 0) {
+        frameIndex = gUnk_0200AF00.rActionPlayerState;
+        if (frameIndex == R_ACTION_NONE) {
             switch (gArea.portal_mode) {
                 case 2:
-                    tmp = 0xb;
+                    frameIndex = R_ACTION_SHRINK;
                     break;
                 case 3:
-                    tmp = 0xa;
+                    frameIndex = R_ACTION_GROW;
                     break;
                 default:
-                    tmp = gUnk_0200AF00.unk_2c;
+                    frameIndex = gUnk_0200AF00.rActionInteractObject;
                     break;
             }
         }
-        gUnk_0200AF00.unk_32 = tmp;
+        gUnk_0200AF00.buttonText[2] = frameIndex;
     }
-    tmp = gUnk_0200AF00.unk_30[element->buttonElementId];
+    frameIndex = gUnk_0200AF00.buttonText[element->buttonElementId];
     element->unk_0_1 = 0;
-    if (tmp != 0) {
-        tmp += gUnk_080C9044[((SaveHeader*)0x2000000)->language];
-        sub_0801CAFC(element, tmp);
+    if (frameIndex != 0) {
+        frameIndex += gUnk_080C9044[((SaveHeader*)0x2000000)->language];
+        sub_0801CAFC(element, frameIndex);
         buttonUIElement = FindUIElement(element->buttonElementId);
         if (buttonUIElement != NULL) {
             element->x = buttonUIElement->x;

@@ -22,9 +22,9 @@ void Windcrest(Entity* this) {
     HandleEntity0x82Actions(this);
 }
 
-void sub_080A2124(Entity* this) {
-    static const u8 gUnk_08125010[] = { 0, 0, 12, 12 };
-    sub_08078850(this, 1, 0xe, gUnk_08125010);
+void Windcrest_ChangeInteractableHitbox(Entity* this) {
+    static const Rect gUnk_08125010 = { 0, 0, 12, 12 };
+    SetInteractableObjectCollision(this, 1, 0xe, &gUnk_08125010);
 }
 
 void Windcrest_Unlock(Entity* this) {

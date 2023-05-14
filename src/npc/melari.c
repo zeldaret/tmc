@@ -29,7 +29,7 @@ void sub_08068708(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08111520)) {
         this->action = 1;
         InitializeAnimation(this, 0);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
 }
 
@@ -100,9 +100,9 @@ void sub_08068780(Entity* this) {
     }
 }
 
-void sub_08068884(Entity* this) {
+void Melari_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Melari_Head(Entity* this) {

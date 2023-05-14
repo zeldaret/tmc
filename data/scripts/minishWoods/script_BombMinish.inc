@@ -2,7 +2,7 @@
 SCRIPT_START script_BombMinish
 	BeginBlock
 	SetAnimationState 0x0004
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	CheckKinstoneFused KINSTONE_1C
 	JumpIf script_08009FD2

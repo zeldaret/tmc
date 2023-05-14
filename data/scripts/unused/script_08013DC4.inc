@@ -1,9 +1,9 @@
 @ TODO UNUSED?
 SCRIPT_START script_08013DC4
 	BeginBlock
-	Call sub_0807F92C
+	Call MakePedestalInteractable
 	DoPostScriptAction 0x0008
-	CallWithArg sub_0806DA04, 0x00000004
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000004
 	EndBlock
 script_08013DDC:
 	CheckEntityInteractType

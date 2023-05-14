@@ -30,7 +30,7 @@ void sub_0806355C(Entity* this) {
     this->action = this->action + 1;
     this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 4);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 }
 
 void sub_08063584(Entity* this) {
@@ -114,9 +114,9 @@ void sub_080636D8(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810CAAC[gSave.global_progress]);
 }
 
-void sub_080636F4(Entity* this) {
+void Brocco_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Brocco_Fusion(Entity* this) {

@@ -4,6 +4,7 @@
 #include "game.h"
 #include "hitbox.h"
 #include "item.h"
+#include "kinstone.h"
 #include "npc.h"
 #include "object.h"
 #include "save.h"
@@ -11,15 +12,16 @@
 #include "sound.h"
 
 typedef struct {
-    u32 unk_00;
-    s8 unk_04;
-} gUnk_0810C89C_struct;
+    Rect customHitbox;
+    u8 interactDirections;
+    u8 unused[3];
+} InteractCollisionData;
 
 extern void script_MinishVillageObjectLeftStoneOpening;  // Cutscene data type?
 extern void script_MinishVillageObjectRightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;
-const u8 gUnk_0811415C[];
+const InteractCollisionData gNpc4ECollisionData[];
 const ScreenTransitionData* const gNpc4ETransitions[];
 const u8 gNpc4ETransitionTypes[];
 const u16 gUnk_081141F4[];
@@ -41,42 +43,39 @@ void NPC4E(Entity* this) {
     }
 }
 
-void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
-    // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
-    gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
-        (gUnk_0810C89C_struct*)gUnk_0811415C)[context->intVariable]; // cast necessary to no longer make it a const* ?
-    sub_08078850(this, 1, (u8)a->unk_04, a);
+void NPC4E_ChangeInteractableHitbox(Entity* this, ScriptExecutionContext* context) {
+    const InteractCollisionData* data = &gNpc4ECollisionData[context->intVariable];
+    SetInteractableObjectCollision(this, 1, data->interactDirections, data);
 }
 
 void NPC4E_DoScreenTransition(Entity* this, ScriptExecutionContext* context) {
     sub_0808091C(gNpc4ETransitions[context->intVariable], gNpc4ETransitionTypes[context->intVariable]);
 }
 
-// Returns the kinstone id?
-u8 sub_0806DA3C(Entity* this) {
+u8 NPC4E_GetKinstoneId(Entity* this) {
     u32 result;
 
     switch (this->type) {
         default:
-            result = 0;
+            result = KINSTONE_NONE;
             break;
         case 1:
-            result = 1;
+            result = KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT;
             break;
         case 2:
-            result = 2;
+            result = KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_LEFT;
             break;
         case 3:
-            result = 3;
+            result = KINSTONE_MYSTERIOUS_CLOUD_TOP_LEFT;
             break;
         case 4:
-            result = 4;
+            result = KINSTONE_MYSTERIOUS_CLOUD_MIDDLE;
             break;
         case 5:
-            result = 5;
+            result = KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_RIGHT;
             break;
         case 11:
-            result = 9;
+            result = KINSTONE_SOURCE_FLOW;
             break;
         case 6:
         case 7:
@@ -89,18 +88,16 @@ u8 sub_0806DA3C(Entity* this) {
     return result;
 }
 
-// Check whether a kinstone fusion is possible and store the result somewhere in param_2?
-void sub_0806DAAC(Entity* this, ScriptExecutionContext* context) {
-    context->condition = CheckKinstoneFused(sub_0806DA3C(this));
+void NPC4E_IsKinstoneFused(Entity* this, ScriptExecutionContext* context) {
+    context->condition = CheckKinstoneFused(NPC4E_GetKinstoneId(this));
     gActiveScriptInfo.flags |= 1;
 }
 
-// maybe actually execute the kinstone fusion?
-void sub_0806DAD0(Entity* this) {
-    sub_08078790(this, sub_0806DA3C(this));
+void NPC4E_MakeFuserInteractable(Entity* this) {
+    AddInteractableFuser(this, NPC4E_GetKinstoneId(this));
 }
 
-void sub_0806DAE8(Entity* this) {
+void NPC4E_SetPinwheelFlag(Entity* this) {
     switch (this->type - 1) {
         case 0:
             SetLocalFlag(KUMOUE_02_AWASE_01);
@@ -122,7 +119,7 @@ void sub_0806DAE8(Entity* this) {
     SoundReq(SFX_TASK_COMPLETE);
 }
 
-void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
+void NPC4E_IsEveryPinwheelActivated(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
 
     if (CheckLocalFlag(KUMOUE_02_AWASE_01) && CheckLocalFlag(KUMOUE_02_AWASE_02) &&
@@ -148,29 +145,29 @@ void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-u32 sub_0806DBF4(u32 param_1) {
-    switch (param_1) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 6:
-            param_1 = ITEM_SMITH_SWORD;
+Item NPC4E_GetItemWithSwordUpgraded(Item itemId) {
+    switch (itemId) {
+        case ITEM_SMITH_SWORD:
+        case ITEM_GREEN_SWORD:
+        case ITEM_RED_SWORD:
+        case ITEM_BLUE_SWORD:
+        case ITEM_FOURSWORD:
+            itemId = ITEM_SMITH_SWORD;
             if (GetInventoryValue(ITEM_GREEN_SWORD) != 0) {
-                param_1 = ITEM_GREEN_SWORD;
+                itemId = ITEM_GREEN_SWORD;
             }
             if (GetInventoryValue(ITEM_RED_SWORD) != 0) {
-                param_1 = ITEM_RED_SWORD;
+                itemId = ITEM_RED_SWORD;
             }
             if (GetInventoryValue(ITEM_BLUE_SWORD) != 0) {
-                param_1 = ITEM_BLUE_SWORD;
+                itemId = ITEM_BLUE_SWORD;
             }
             if (GetInventoryValue(ITEM_FOURSWORD) != 0) {
-                param_1 = ITEM_FOURSWORD;
+                itemId = ITEM_FOURSWORD;
             }
             break;
     }
-    return param_1;
+    return itemId;
 }
 
 void NPC4E_SaveEquippedItems(Entity* this) {
@@ -179,8 +176,8 @@ void NPC4E_SaveEquippedItems(Entity* this) {
 }
 
 void NPC4E_RestoreEquippedItems(Entity* this) {
-    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.LO), EQUIP_SLOT_A);
-    ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), EQUIP_SLOT_B);
+    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->field_0x68.HALF.LO), EQUIP_SLOT_A);
+    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->field_0x68.HALF.HI), EQUIP_SLOT_B);
 }
 
 void sub_0806DC7C(void) {
@@ -234,13 +231,12 @@ void NPC4E_Fusion(Entity* this) {
 
 const Hitbox gUnk_08114154 = { 0, -8, 0, 0, 0, 0, 24, 8 };
 
-const u8 gUnk_0811415C[] = { //
-    0x00, 0x00, 0x08, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x08, 0x0e, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x04, 0x0e, 0x00, 0x00, 0x00,
-    0x00, 0x08, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0xf8, 0x18, 0x08, 0x0e, 0x00, 0x00, 0x00,
+const InteractCollisionData gNpc4ECollisionData[] = { //
+    { 0, 0, 8, 8, 0x0E, 0, 0, 0 },   { 0, 0, 26, 8, 0x0E, 0, 0, 0 },  { 0, 0, 16, 4, 0x0E, 0, 0, 0 },
+    { 0, 0, 10, 10, 0x00, 0, 0, 0 }, { 0, 0, 10, 10, 0x00, 0, 0, 0 }, { 0, 0, 6, 4, 0x0E, 0, 0, 0 },
+    { 0, 8, 16, 4, 0x0E, 0, 0, 0 },  { 0, -8, 24, 8, 0x0E, 0, 0, 0 },
 #ifndef EU
-    0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00
+    { 0, 0, 88, 8, 0x0E, 0, 0, 0 }
 #endif
 };
 

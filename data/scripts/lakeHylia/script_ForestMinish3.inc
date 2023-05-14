@@ -1,7 +1,7 @@
 @ Lake Hylia Forest Minish telling us to go to the library
 SCRIPT_START script_ForestMinish3
 	BeginBlock
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800C5D6:

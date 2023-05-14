@@ -2,7 +2,7 @@
 SCRIPT_START script_Anju
 	BeginBlock
 	DoPostScriptAction 0x0001
-	Call sub_0806C354
+	Call Anju_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0801015A:

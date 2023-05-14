@@ -182,7 +182,7 @@ void sub_080A76CC(PlayerItemSwordEntity* this) {
             }
         } else {
 
-            if ((gPlayerState.flags & 0x8000000) != 0) {
+            if ((gPlayerState.flags & PL_SWORD_THRUST) != 0) {
                 if (this->unk_68 == 6) {
                     super->hurtType = 0xc;
                 } else {

@@ -1,7 +1,7 @@
 @ Western Wood Forest Minish
 SCRIPT_START script_ForestMinish1
 	BeginBlock
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800C55E:

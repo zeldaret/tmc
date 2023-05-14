@@ -1,7 +1,7 @@
 @ Hyrule Town Teachers
 SCRIPT_START script_Teachers
 	BeginBlock
-	Call sub_0806C674
+	Call Teachers_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	EndBlock

@@ -2,7 +2,7 @@
 SCRIPT_START script_KidInn
 	BeginBlock
 	DoPostScriptAction 0x000a
-	Call sub_08062A48
+	Call Kid_MakeInteractable
 	DoPostScriptAction 0x0000
 script_0800D5AC:
 	EndBlock

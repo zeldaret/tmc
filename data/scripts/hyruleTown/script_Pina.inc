@@ -3,7 +3,7 @@ SCRIPT_START script_Pina
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0000
-	Call sub_08063CAC
+	Call Pina_MakeInteractable
 	DoPostScriptAction 0x000a
 	Call SetPriorityMessage
 	EndBlock

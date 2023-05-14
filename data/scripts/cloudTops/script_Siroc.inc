@@ -1,7 +1,7 @@
 @ Cloud Tops Windtribespeople Leader Siroc
 SCRIPT_START script_Siroc
 	BeginBlock
-	Call sub_0806C870
+	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08014AD2:

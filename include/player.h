@@ -12,7 +12,7 @@ enum PlayerActions {
     PLAYER_JUMP,
     PLAYER_PUSH,
     PLAYER_BOUNCE,
-    PLAYER_08070E9C, // sub_080782C0, only when PLAYER_INPUT_1000 is newInput
+    PLAYER_08070E9C, // sub_080782C0, only when pressing L to start a Kinstone Fusion
     PLAYER_ITEMGET,
     PLAYER_MINISH,
     PLAYER_MINISHDIE,
@@ -254,12 +254,12 @@ typedef enum {
 } PlayerInputState;
 
 typedef struct {
-    /*0x90*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
-    /*0x92*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
-    /*0x94*/ u32 field_0x94;
-    /*0x98*/ u16 playerMacroWaiting;
-    /*0x9a*/ u16 playerMacroHeldKeys;
-    /*0x9c*/ PlayerMacroEntry* playerMacro;
+    /*0x0*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
+    /*0x2*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
+    /*0x4*/ u32 field_0x94;
+    /*0x8*/ u16 playerMacroWaiting;
+    /*0xa*/ u16 playerMacroHeldKeys;
+    /*0xc*/ PlayerMacroEntry* playerMacro;
 } PlayerInput;
 
 typedef enum {
@@ -276,7 +276,7 @@ typedef enum {
 
 typedef struct {
     /*0x00*/ u8 prevAnim;
-    /*0x00*/ u8 grab_status;
+    /*0x01*/ u8 grab_status;
     /*0x02*/ u8 jump_status;
     /*0x03*/ u8 shield_status;
     /*0x04*/ u8 attack_status;
@@ -437,6 +437,37 @@ s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);
 void ModBombs(s32 delta);
 
+typedef enum {
+    INTERACTION_NONE,
+    INTERACTION_TALK,
+    INTERACTION_FUSE,
+    INTERACTION_OPEN_CHEST,
+    INTERACTION_UNUSED,
+    INTERACTION_USE_SMALL_KEY,
+    INTERACTION_USE_BIG_KEY,
+    INTERACTION_TALK_MINISH,
+    INTERACTION_LIFT_SHOP_ITEM,
+    INTERACTION_CHECK,
+    INTERACTION_DROP_PEDESTAL,
+    INTERACTION_NULL = 0xFF,
+} InteractionType;
+
+typedef enum {
+    R_ACTION_NONE,
+    R_ACTION_CANCEL,
+    R_ACTION_DROP,
+    R_ACTION_THROW,
+    R_ACTION_READ,
+    R_ACTION_CHECK,
+    R_ACTION_OPEN,
+    R_ACTION_SPEAK,
+    R_ACTION_GRAB,
+    R_ACTION_LIFT,
+    R_ACTION_GROW,
+    R_ACTION_SHRINK,
+    R_ACTION_ROLL,
+} ActionRButton;
+
 // playerUtils.c
 void DeleteClones(void);
 void CreateItemEquippedAtSlot(/*EquipSlot*/ u32 equipSlot);
@@ -469,13 +500,13 @@ void UpdatePlayerSkills(void);
 u32 sub_0807AC54(Entity*);
 void sub_080792D8(void);
 u32 sub_08078F74(Entity*);
-void sub_0807879C(Entity*);
+void AddInteractableAsMinishObject(Entity*);
 void sub_08078D60(void);
 void PlayerSetNormalAndCollide(void);
 bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk);
 void InitItemGetSequence(u32, u32, u32);
 void sub_0807B7D8(u32, u32, u32);
-void sub_08078850(Entity*, u32, u32, const void*);
+void SetInteractableObjectCollision(Entity*, u32, u32, const void*);
 void sub_08079D84(void);
 u32 sub_0807953C(void);
 void sub_0807BB68(const s16*, u32, u32);
@@ -503,14 +534,14 @@ bool32 IsItemActive(ItemBehavior*);
 bool32 IsItemActivatedThisFrame(ItemBehavior*);
 bool32 IsItemActiveByInput(ItemBehavior*, PlayerInputState);
 bool32 sub_08077FEC(u32);
-void sub_08078180(void);
-void sub_080784C8();
-void sub_08078790(Entity*, u32);
-void sub_080787CC(Entity*);
-s32 sub_08078800(Entity*);
-s32 sub_0807887C(Entity*, u32, u32);
-void sub_080788E0(Entity*);
-s32 sub_08078904();
+void DetermineRButtonInteraction(void);
+void ResetPossibleInteraction();
+void AddInteractableFuser(Entity*, u32);
+void AddInteractableSmallKeyLock(Entity*);
+s32 AddInteractableBossDoor(Entity*);
+s32 AddInteractableObject(Entity*, u32, u32);
+void RemoveInteractableObject(Entity*);
+s32 GetInteractableObjectIndex();
 void sub_08078AC0(u32, u32, u32);
 void sub_08078B48(void);
 void sub_08078E84(Entity*, Entity*);

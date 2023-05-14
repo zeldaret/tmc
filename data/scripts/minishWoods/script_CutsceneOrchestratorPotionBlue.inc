@@ -1,7 +1,7 @@
 @ Syrup CUTSCENE_ORCHESTRATOR Potion
 SCRIPT_START script_CutsceneOrchestratorPotionBlue
 	BeginBlock
-	Call sub_080787B4
+	Call AddInteractableCheckableObject
 	EndBlock
 script_08016146:
 	CheckEntityInteractType

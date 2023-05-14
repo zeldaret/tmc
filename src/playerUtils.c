@@ -73,7 +73,7 @@ bool32 sub_0807BF88(u32, u32, RoomResInfo*);
 void sub_0807BFD0(void);
 
 void ForceSetPlayerState(u32 framestate);
-struct_03003DF8* sub_080784E4(void);
+InteractableObject* sub_080784E4(void);
 
 u32 sub_08079778(void);
 u32 GetPlayerTilePos(void);
@@ -211,7 +211,7 @@ bool32 IsPreventedFromUsingItem(void) {
                     }
                     return FALSE;
                 default:
-                    if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
+                    if ((((gUnk_0200AF00.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.field_0x1c == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
@@ -658,14 +658,17 @@ bool32 (*const gPlayerChargeActions[])(ChargeState*) = {
     sub_08078008, sub_08078124, sub_08078140, sub_08078070, sub_080780E0, sub_08078108,
 };
 
-const u8 gUnk_0811C000[] = {
-    0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+const InteractableObject gNoInteraction = {
+    0, INTERACTION_NULL, 0, 0, NULL, NULL,
 };
-const u8 gUnk_0811C00C[] = {
-    0, 238, 14, 255, 0, 10, 241, 255,
+
+// for shifting the hitbox in which entities can be interacted with in Link's facing direction
+// from left to right: north, east, south and west in x, y pairs
+const s8 gPlayerInteractHitboxOffsetNormal[] = {
+    0, -18, 14, -1, 0, 10, -15, -1,
 };
-const u8 gUnk_0811C014[] = {
-    0, 242, 10, 255, 0, 6, 245, 255,
+const s8 gPlayerInteractHitboxOffsetMinish[] = {
+    0, -14, 10, -1, 0, 6, -11, -1,
 };
 const u8 gUnk_0811C01C[] = {
     0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 3, 3, 4, 3, 0, 1, 2, 0, 3, 3, 4, 3, 10, 15, 0, 0, 0,
@@ -968,50 +971,49 @@ void ForceSetPlayerState(u32 framestate) {
     sub_08078B48();
 }
 
-void sub_08078180(void) {
-    u8 uVar1;
-    u8 uVar3;
-    struct_03003DF8* ptr;
+void DetermineRButtonInteraction(void) {
+    u8 rAction;
+    InteractableObject* interaction;
 
-    if (gUnk_0200AF00.unk_2f != 0)
+    if (gUnk_0200AF00.rActionPlayerState != R_ACTION_NONE)
         return;
 
-    uVar1 = 0;
+    rAction = R_ACTION_NONE;
     if ((gPlayerState.jump_status == 0) &&
         ((gPlayerState.flags & (PL_IN_HOLE | PL_FROZEN | PL_BURNING | PL_DISABLE_ITEMS | PL_DRUGGED)) == 0)) {
         if ((u8)(gPlayerState.heldObject - 1) < 4) {
-            if (gUnk_0200AF00.unk_2e != 0) {
-                uVar1 = gUnk_0200AF00.unk_2e;
+            if (gUnk_0200AF00.rActionGrabbing != R_ACTION_NONE) {
+                rAction = gUnk_0200AF00.rActionGrabbing;
             } else {
-                uVar1 = 3;
+                rAction = R_ACTION_THROW;
             }
         } else {
-            if (gUnk_0200AF00.unk_2d != 0) {
-                uVar1 = gUnk_0200AF00.unk_2d;
+            if (gUnk_0200AF00.rActionInteractTile != R_ACTION_NONE) {
+                rAction = gUnk_0200AF00.rActionInteractTile;
             } else {
-                ptr = sub_080784E4();
-                if (ptr->entity->interactType == 0) {
+                interaction = sub_080784E4();
+                if (interaction->entity->interactType == 0) {
 
-                    switch (ptr->unk_1) {
-                        case 1:
-                        case 7:
-                            uVar1 = 7;
+                    switch (interaction->type) {
+                        case INTERACTION_TALK:
+                        case INTERACTION_TALK_MINISH:
+                            rAction = R_ACTION_SPEAK;
                             break;
-                        case 8:
+                        case INTERACTION_LIFT_SHOP_ITEM:
                             if (gRoomVars.shopItemType == ITEM_NONE) {
-                                uVar1 = 9;
+                                rAction = R_ACTION_LIFT;
                             }
                             break;
-                        case 3:
-                        case 5:
-                        case 6:
-                            uVar1 = 6;
+                        case INTERACTION_OPEN_CHEST:
+                        case INTERACTION_USE_SMALL_KEY:
+                        case INTERACTION_USE_BIG_KEY:
+                            rAction = R_ACTION_OPEN;
                             break;
-                        case 9:
-                            uVar1 = 5;
+                        case INTERACTION_CHECK:
+                            rAction = R_ACTION_CHECK;
                             break;
-                        case 10:
-                            uVar1 = 2;
+                        case INTERACTION_DROP_PEDESTAL:
+                            rAction = R_ACTION_DROP;
                             break;
                     }
                 } else {
@@ -1019,25 +1021,25 @@ void sub_08078180(void) {
                         if (((gPlayerState.framestate != PL_STATE_USEPORTAL))) {
 
                             if ((gCarriedEntity.unk_1 == 2) && ((gCarriedEntity.unk_8)->carryFlags == 1)) {
-                                uVar1 = 8;
+                                rAction = R_ACTION_GRAB;
                             } else {
-                                uVar1 = 9;
+                                rAction = R_ACTION_LIFT;
                             }
                         } else {
                             return;
                         }
                     } else {
                         if ((gPlayerState.framestate == PL_STATE_WALK) && (gPlayerState.mobility == 0)) {
-                            uVar1 = 0xc;
+                            rAction = R_ACTION_ROLL;
                         } else {
-                            uVar1 = 0;
+                            rAction = R_ACTION_NONE;
                         }
                     }
                 }
             }
         }
     }
-    gUnk_0200AF00.unk_2c = uVar1;
+    gUnk_0200AF00.rActionInteractObject = rAction;
 }
 
 bool32 sub_080782C0(void) {
@@ -1088,11 +1090,12 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
-        AddKinstoneToBag(0);
+    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) &&
+        ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
+        AddKinstoneToBag(KINSTONE_NONE);
         if (gSave.kinstoneAmounts[0] != 0) {
-            gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4[3];
-            *(u8*)(*(int*)(gUnk_03003DF0.unk_4 + 8) + 0x39) = 2;
+            gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;
+            gPossibleInteraction.currentObject->entity->interactType = 2;
             gPlayerState.queued_action = PLAYER_08070E9C;
         } else {
             CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0);
@@ -1103,23 +1106,23 @@ bool32 sub_080782C0(void) {
     if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
         return FALSE;
     }
-    switch (gUnk_03003DF0.unk_4[1]) {
+    switch (gPossibleInteraction.currentObject->type) {
         default:
-        case 0:
+        case INTERACTION_NONE:
             return TRUE;
-        case 1:
-        case 6:
-        case 9:
-        case 0xa:
+        case INTERACTION_TALK:
+        case INTERACTION_USE_BIG_KEY:
+        case INTERACTION_CHECK:
+        case INTERACTION_DROP_PEDESTAL:
             gPlayerState.queued_action = PLAYER_08070E9C;
             ForceSetPlayerState(PL_STATE_TALKEZLO);
-        case 3:
-        case 5:
-        case 7:
+        case INTERACTION_OPEN_CHEST:
+        case INTERACTION_USE_SMALL_KEY:
+        case INTERACTION_TALK_MINISH:
             entity->interactType = 1;
-            gUnk_03003DF0.unk_2 = 0;
+            gPossibleInteraction.kinstoneId = KINSTONE_NONE;
             return TRUE;
-        case 8:
+        case INTERACTION_LIFT_SHOP_ITEM:
             if (gRoomVars.shopItemType == 0) {
                 entity->interactType = 1;
                 gRoomVars.shopItemType = entity->type;
@@ -1131,99 +1134,102 @@ bool32 sub_080782C0(void) {
     return TRUE;
 }
 
-void sub_080784C8(void) {
-    MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
-    gUnk_03003DF0.unk_4 = (u8*)gUnk_0811C000;
+void ResetPossibleInteraction(void) {
+    MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
+    gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", struct_03003DF8* sub_080784E4(void))
+// determines which (if any) object the player is currently able to interact with
+ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", InteractableObject* sub_080784E4(void))
 
-void sub_08078778(Entity* ent) {
-    sub_0807887C(ent, 1, 0);
+void AddInteractableWhenBigObject(Entity* ent) {
+    AddInteractableObject(ent, 1, 0);
 }
 
-void sub_08078784(Entity* ent, u32 arg1) {
-    sub_0807887C(ent, 1, arg1);
+void AddInteractableWhenBigFuser(Entity* ent, KinstoneId kinstoneId) {
+    AddInteractableObject(ent, 1, kinstoneId);
 }
 
-void sub_08078790(Entity* ent, u32 arg1) {
-    sub_0807887C(ent, 2, arg1);
+void AddInteractableFuser(Entity* ent, KinstoneId kinstoneId) {
+    AddInteractableObject(ent, 2, kinstoneId);
 }
 
-void sub_0807879C(Entity* ent) {
-    sub_0807887C(ent, 7, 0);
+void AddInteractableAsMinishObject(Entity* ent) {
+    AddInteractableObject(ent, 7, 0);
 }
 
-void sub_080787A8(Entity* ent, u32 arg1) {
-    sub_0807887C(ent, 7, arg1);
+void AddInteractableAsMinishFuser(Entity* ent, KinstoneId kinstoneId) {
+    AddInteractableObject(ent, 7, kinstoneId);
 }
 
-void sub_080787B4(Entity* ent) {
-    sub_0807887C(ent, 9, 0);
+void AddInteractableCheckableObject(Entity* ent) {
+    AddInteractableObject(ent, 9, 0);
 }
 
-void sub_080787C0(Entity* ent) {
-    sub_0807887C(ent, 10, 0);
+void AddInteractablePedestal(Entity* ent) {
+    AddInteractableObject(ent, 10, 0);
 }
 
-void sub_080787CC(Entity* ent) {
-    sub_0807887C(ent, 5, 0);
+void AddInteractableSmallKeyLock(Entity* ent) {
+    AddInteractableObject(ent, 5, 0);
 }
 
-s32 sub_080787D8(Entity* ent) {
+s32 AddInteractableShopItem(Entity* ent) {
     s32 iVar1;
 
-    iVar1 = sub_0807887C(ent, 8, 0);
+    iVar1 = AddInteractableObject(ent, 8, 0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_2 = 0xbe;
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
 
-s32 sub_08078800(Entity* ent) {
+s32 AddInteractableBossDoor(Entity* ent) {
     s32 iVar1;
 
-    iVar1 = sub_0807887C(ent, 6, 0);
+    iVar1 = AddInteractableObject(ent, 6, 0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_2 = 0xbe;
+        // weird, this line assumes it's a north door, and is unnecessary
+        // anyway because this is overwritten right after returning
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
 
-s32 sub_08078828(Entity* ent) {
+s32 AddInteractableChest(Entity* ent) {
     s32 iVar1;
 
-    iVar1 = sub_0807887C(ent, 3, 0);
+    iVar1 = AddInteractableObject(ent, 3, 0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_2 = 0xbe;
+        gPossibleInteraction.candidates[iVar1].interactDirections = 0xbe;
     }
     return iVar1;
 }
 
-void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, const void* arg3) {
+void SetInteractableObjectCollision(Entity* arg0, u32 ignoreLayer, u32 interactDirections, const void* customHitbox) {
     s32 iVar1;
 
-    iVar1 = sub_08078904(arg0);
+    iVar1 = GetInteractableObjectIndex(arg0);
     if (iVar1 >= 0) {
-        gUnk_03003DF0.array[iVar1].unk_0 = arg1;
-        gUnk_03003DF0.array[iVar1].unk_2 = arg2;
-        gUnk_03003DF0.array[iVar1].unk_4 = arg3;
+        gPossibleInteraction.candidates[iVar1].ignoreLayer = ignoreLayer;
+        gPossibleInteraction.candidates[iVar1].interactDirections = interactDirections;
+        gPossibleInteraction.candidates[iVar1].customHitbox = customHitbox;
     }
 }
 
-s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
+s32 AddInteractableObject(Entity* entity, InteractionType type, KinstoneId kinstoneId) {
     s32 index;
     entity->interactType = 0;
-    index = sub_08078904(entity);
+    index = GetInteractableObjectIndex(entity);
     if (index < 0) {
-        index = sub_08078904(0);
+        index = GetInteractableObjectIndex(0);
     }
     if (index >= 0) {
-        gUnk_03003DF0.array[index].entity = entity;
-        gUnk_03003DF0.array[index].unk_1 = param_2;
-        gUnk_03003DF0.array[index].unk_3 = param_3;
+        gPossibleInteraction.candidates[index].entity = entity;
+        gPossibleInteraction.candidates[index].type = type;
+        gPossibleInteraction.candidates[index].kinstoneId = kinstoneId;
     }
-    if (param_3 != 0) {
+    if (kinstoneId != KINSTONE_NONE) {
         Entity* entity = FindEntityByID(OBJECT, CAMERA_TARGET, 6);
         if (entity == NULL) {
             CreateObject(CAMERA_TARGET, 0, 0);
@@ -1233,18 +1239,18 @@ s32 sub_0807887C(Entity* entity, u32 param_2, u32 param_3) {
 }
 
 /** Clear entry for Entity. */
-void sub_080788E0(Entity* entity) {
-    s32 index = sub_08078904(entity);
+void RemoveInteractableObject(Entity* entity) {
+    s32 index = GetInteractableObjectIndex(entity);
     if (index > -1) {
-        MemClear(&gUnk_03003DF0.array[index], 0xc);
+        MemClear(&gPossibleInteraction.candidates[index], sizeof(InteractableObject));
     }
 }
 
 /** Find entry for Entity. */
-s32 sub_08078904(Entity* entity) {
+s32 GetInteractableObjectIndex(Entity* entity) {
     u32 index;
     for (index = 0; index < 0x20; index++) {
-        if (entity == gUnk_03003DF0.array[index].entity) {
+        if (entity == gPossibleInteraction.candidates[index].entity) {
             return index;
         }
     }
@@ -1376,7 +1382,7 @@ void ClearPlayerState(void) {
     gPlayerState.spriteOffsetY = 0;
     gPlayerState.field_0x3c = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, 0x40);
-    MemClear(&gUnk_03003DF0, sizeof(gUnk_03003DF0));
+    MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
 }
 
 void UpdateCarriedObject(void) {
@@ -1521,10 +1527,10 @@ void sub_08078FB0(Entity* this) {
         gPlayerState.field_0x35 = 0xff;
     }
     sub_08079064(this);
-    if ((gPlayerState.flags & 8) != 0) {
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         animIndex = 0x58;
     } else {
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             animIndex = 0x18;
         } else {
             if (gPlayerState.animation >> 8 == 7) {
@@ -1717,8 +1723,8 @@ void RespawnPlayer(void) {
     player->zVelocity = 0;
     player->knockbackDuration = 0;
     ResetPlayerPosition();
-    if ((gPlayerState.flags & 0x20000) == 0) {
-        if ((gPlayerState.flags & 0x10000) != 0) {
+    if ((gPlayerState.flags & PL_GYORG_FIGHT) == 0) {
+        if ((gPlayerState.flags & PL_FLAGS10000) != 0) {
             player->x.HALF.HI = gPlayerState.lilypad->x.HALF.HI;
             player->y.HALF.HI = gPlayerState.lilypad->y.HALF.HI;
         } else {

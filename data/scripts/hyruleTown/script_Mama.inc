@@ -1,7 +1,7 @@
 @ Hyrule Town Mama
 SCRIPT_START script_Mama
 	BeginBlock
-	Call sub_0806C4F8
+	Call Mama_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0000
 	EndBlock

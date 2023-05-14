@@ -53,14 +53,14 @@ void sub_0806BCB8(Entity* this) {
     this->animationState = this->timer;
 }
 
-void sub_0806BCC0(Entity* this) {
+void Farmers_MarkEenieFuserDoner(Entity* this) {
     if (this->type == 0) {
-        sub_0806F188(this);
+        MarkFuserDone(this);
     }
 }
 
-void sub_0806BCD4(Entity* this) {
-    sub_08078784(this, GetFusionToOffer(this));
+void Farmers_MakeInteractable(Entity* this) {
+    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
 }
 
 void sub_0806BCE8(Entity* this) {
@@ -69,12 +69,12 @@ void sub_0806BCE8(Entity* this) {
           DIALOG_KINSTONE,
           DIALOG_CHECK_FLAG,
           1,
-          { TEXT_INDEX(TEXT_FARMERS, 0X7), TEXT_INDEX(TEXT_FARMERS, 0x2) } },
+          { TEXT_INDEX(TEXT_FARMERS, 0x7), TEXT_INDEX(TEXT_FARMERS, 0x2) } },
         { 0x29,
           DIALOG_KINSTONE,
           DIALOG_CHECK_FLAG,
           1,
-          { TEXT_INDEX(TEXT_FARMERS, 0X11), TEXT_INDEX(TEXT_FARMERS, 0xd) } },
+          { TEXT_INDEX(TEXT_FARMERS, 0x11), TEXT_INDEX(TEXT_FARMERS, 0xd) } },
     };
     ShowNPCDialogue(this, &gUnk_08113158[this->type]);
 }

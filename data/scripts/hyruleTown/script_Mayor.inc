@@ -1,7 +1,7 @@
 @ Hyrule Town Mayor Hagen
 SCRIPT_START script_Mayor
 	BeginBlock
-	Call sub_0806CE5C
+	Call MayorHagen_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	SetAnimation 0x0008

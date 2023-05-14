@@ -57,7 +57,7 @@ void MountainMinish(Entity* this) {
 void sub_08067E60(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08111358)) {
         this->action = 1;
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
         InitializeAnimation(this, 2);
     }
 }
@@ -179,9 +179,9 @@ void sub_08067EF0(Entity* this) {
     }
 }
 
-void sub_08068104(Entity* this) {
+void MountainMinish_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void sub_0806811C(Entity* this) {

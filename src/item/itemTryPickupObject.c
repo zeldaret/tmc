@@ -95,7 +95,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 index) {
                 carried->subAction = 5;
                 gPlayerState.framestate = PL_STATE_THROW;
                 sub_080762C4(this, carried, 2, index);
-                gUnk_0200AF00.unk_2e = 8;
+                gUnk_0200AF00.rActionGrabbing = R_ACTION_GRAB;
                 SoundReq(SFX_102);
                 break;
             case 1:

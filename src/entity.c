@@ -351,7 +351,7 @@ void DeleteEntity(Entity* ent) {
         UnloadGFXSlots(ent);
         UnloadOBJPalette(ent);
         UnloadOBJPalette2(ent);
-        sub_080788E0(ent);
+        RemoveInteractableObject(ent);
         FreeCarryEntity(ent);
         sub_0805EC60(ent);
         sub_08017744(ent);

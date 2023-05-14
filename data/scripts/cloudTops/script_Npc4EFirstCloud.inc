@@ -5,15 +5,15 @@ SCRIPT_START script_Npc4EFirstCloud
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008
-	Call sub_0806DAAC
+	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800D6AE
-	Call sub_0806DAD0
-	CallWithArg sub_0806DA04, 0x00000002
+	Call NPC4E_MakeFuserInteractable
+	CallWithArg NPC4E_ChangeInteractableHitbox, 0x00000002
 	EndBlock
 script_0800D636:
 	_0807EA4C
 	_0807E9F0
-	Call sub_0806DAAC
+	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800D650
 	Call EnablePauseMenu
 	EnablePlayerControl
@@ -28,9 +28,9 @@ script_0800D650:
 	CameraTargetEntity
 	_0807EDD4 0x01e8, 0x01b8
 	Wait 0x003c
-	Call sub_0806DAE8
+	Call NPC4E_SetPinwheelFlag
 	Wait 0x0078
-	Call sub_0806DB44
+	Call NPC4E_IsEveryPinwheelActivated
 	JumpIfNot script_Npc4EKinstoneFused
 	LoadRoomEntityList gUnk_080DD730
 	DoPostScriptAction 0x0006

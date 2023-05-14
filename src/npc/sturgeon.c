@@ -28,7 +28,7 @@ extern const u16 gUnk_0810FA54[];
 // };
 extern u32 gUnk_0810FA5A; // TODO second parameter of sub_0806EE04
 
-void sub_08064CC0(Entity* this);
+void Sturgeon_MakeInteractable(Entity* this);
 void sub_08064C9C(Entity* this);
 void sub_08064CD8(Entity* this);
 
@@ -68,7 +68,7 @@ void sub_08064B44(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_0810FA38)) {
         InitializeAnimation(this, 2);
         sub_0806EE04(this, &gUnk_0810FA5A, 0);
-        sub_08064CC0(this);
+        Sturgeon_MakeInteractable(this);
         this->action = 1;
         this->subAction = 0;
         this->spriteSettings.draw = 1;
@@ -140,9 +140,9 @@ void sub_08064C9C(Entity* this) {
     }
 }
 
-void sub_08064CC0(Entity* this) {
+void Sturgeon_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void sub_08064CD8(Entity* this) {

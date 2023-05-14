@@ -22,7 +22,7 @@ extern u16 gUnk_08122B1E[];
 extern Coords8 gUnk_08122B2E[]; // TODO struct xy
 typedef struct {
     Hitbox hit;
-    u8 _8[4]; // TODO fourth param of sub_08078850
+    u8 _8[4]; // TODO fourth param of SetInteractableObjectCollision
     u8 _c;
 } HitboxCfg;
 extern HitboxCfg gUnk_08122B3C[];
@@ -395,13 +395,13 @@ void sub_08094FA8(CutsceneMiscObjectEntity* this) {
             super->action = 1;
             super->frameIndex = 0;
             super->spritePriority.b0 = 7;
-            sub_080787B4(super);
+            AddInteractableCheckableObject(super);
             break;
         case 1:
             if (super->interactType != 0) {
                 super->interactType = 0;
                 super->action = 2;
-                sub_080788E0(super);
+                RemoveInteractableObject(super);
                 gPlayerState.queued_action = PLAYER_EMPTYBOTTLE;
                 gPlayerState.field_0x38 = 54;
 #ifndef EU
@@ -449,13 +449,13 @@ void sub_08095088(CutsceneMiscObjectEntity* this) {
                 DeleteThisEntity();
             super->action = 1;
             super->spritePriority.b0 = 7;
-            sub_080787B4(super);
+            AddInteractableCheckableObject(super);
             break;
         case 1:
             if (super->interactType != 0) {
                 super->interactType = 0;
                 super->action = 2;
-                sub_080788E0(super);
+                RemoveInteractableObject(super);
                 CreateEzloHint(TEXT_INDEX(TEXT_BELARI, 0x1F), 0);
             }
             break;
@@ -1322,6 +1322,6 @@ void sub_080962E8(CutsceneMiscObjectEntity* this) {
 
 void sub_080962F8(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx) {
     HitboxCfg* cfg = &gUnk_08122B3C[ctx->intVariable];
-    sub_08078850(super, 1, cfg->_c, cfg->_8);
+    SetInteractableObjectCollision(super, 1, cfg->_c, cfg->_8);
     super->hitbox = &cfg->hit;
 }

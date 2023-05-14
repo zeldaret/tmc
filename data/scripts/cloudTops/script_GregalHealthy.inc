@@ -1,7 +1,7 @@
 @ Cloud Tops Gregal healthy
 SCRIPT_START script_GregalHealthy
 	BeginBlock
-	Call sub_0806CD58
+	Call Gregal_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	SetAnimation 0x0006

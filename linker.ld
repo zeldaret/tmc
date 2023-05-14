@@ -143,8 +143,8 @@ SECTIONS {
         . = 0x00003DD0; gUpdateContext = .;
         . = 0x00003DE0; gUnk_03003DE0 = .;
         . = 0x00003DE4; gUnk_03003DE4 = .;
-        . = 0x00003DF0; gUnk_03003DF0 = .;
-        . = 0x00003DF8; gUnk_03003DF8 = .;
+        . = 0x00003DF0; gPossibleInteraction = .;
+        . = 0x00003DF8; gInteractableObjects = .;
         . = 0x00003F80; gPlayerState = .;
         . = 0x00004030; gDiggingCaveEntranceTransition = .;
         . = 0x00004040; gPlayerClones = .;

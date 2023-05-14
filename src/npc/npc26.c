@@ -18,7 +18,7 @@ static void sub_080669B8(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 2);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 }
 
 static void sub_080669DC(Entity* this) {

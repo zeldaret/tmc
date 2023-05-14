@@ -3,7 +3,7 @@ SCRIPT_START script_Kid5
 	BeginBlock
 	SetAnimation 0x0008
 script_08010622:
-	Call sub_08062A48
+	Call Kid_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0801062E:

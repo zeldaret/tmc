@@ -82,9 +82,9 @@ void sub_080670E4(Entity* this) {
     ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
 
-void sub_08067100(Entity* this) {
+void Mutoh_MakeInteractable(Entity* this) {
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Mutoh_Fusion(Entity* this) {

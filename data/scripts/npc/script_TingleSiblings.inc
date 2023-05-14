@@ -1,7 +1,7 @@
 @ Tingle Siblings
 SCRIPT_START script_TingleSiblings
 	BeginBlock
-	Call sub_08064EA4
+	Call TingleSiblings_MakeInteractable
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a

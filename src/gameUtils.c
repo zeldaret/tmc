@@ -108,7 +108,7 @@ void InitializePlayer(void) {
 
     Entity* pl;
 
-    sub_080784C8();
+    ResetPossibleInteraction();
     MemClear(&gActiveItems, sizeof(gActiveItems));
     MemClear(&gPlayerState, sizeof(gPlayerState));
     MemFill32(0xffffffff, &gPlayerState.path_memory, sizeof(gPlayerState.path_memory));
@@ -243,7 +243,7 @@ bool32 AreaHasKeys(void) {
     return (gArea.areaMetadata >> 1) & 1;
 }
 
-bool32 HasDungeonMap(void) {
+bool32 HasDungeonSmallKey(void) {
     u32 tmp;
 
     if (AreaHasKeys())
@@ -251,7 +251,7 @@ bool32 HasDungeonMap(void) {
     return tmp ? 1 : 0;
 }
 
-bool32 HasDungeonCompass(void) {
+bool32 HasDungeonBigKey(void) {
     u32 tmp;
 
     if (AreaHasKeys())
@@ -259,15 +259,13 @@ bool32 HasDungeonCompass(void) {
     return tmp ? 1 : 0;
 }
 
-bool32 HasDungeonBigKey(void) {
+bool32 HasDungeonCompass(void) {
     if (!AreaHasKeys())
         return 0;
     return (gSave.dungeonItems[gArea.dungeon_idx] >> 1) & 1;
 }
 
-bool32 HasDungeonSmallKey(void) {
-    u32 tmp;
-
+bool32 HasDungeonMap(void) {
     if (!AreaHasKeys())
         return 0;
     return gSave.dungeonItems[gArea.dungeon_idx] & 1;

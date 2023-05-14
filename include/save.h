@@ -34,7 +34,7 @@ extern SaveResult HandleSave(u32 idx);
  */
 typedef struct {
     /*0x000*/ u8 invalid;     /**< File is invalid. */
-    /*0x000*/ u8 initialized; /**< File is initialized. */
+    /*0x001*/ u8 initialized; /**< File is initialized. */
     /*0x002*/ u8 msg_speed;   /**< Message speed. */
     /*0x003*/ u8 brightness;  /**< Brightness. */
     /*0x004*/ u8 filler4[0x2];
@@ -69,7 +69,7 @@ typedef struct {
     /*0x25C*/ u8 flags[0x200];       /**< Flags. */
     /*0x45C*/ u8 dungeonKeys[0x10];  // TODO Indexed by dungeon id, keys per dungeon
     /*0x46C*/ u8 dungeonItems[0x10]; // TODO items in the dungeon. 4: compass, 2: big key, 1: small key
-    /*0x46C*/ u8 dungeonWarps[0x10]; // TODO indexed by dungeon id, EnableDungeonWarp, IsDungeonWarpActive
+    /*0x47C*/ u8 dungeonWarps[0x10]; // TODO indexed by dungeon id, EnableDungeonWarp, IsDungeonWarpActive
     /*0x48C*/ u32 timers[7];
     /*0x4A8*/ u32 demo_timer; /**< Demo timer. */
     /*0x4AC*/ u8 filler4ac[0x8];

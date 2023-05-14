@@ -117,12 +117,11 @@ typedef struct {
     u8 filler22[0x2];
     u8 ezloNagFuncIndex;
     u8 filler25[7];
-    u8 unk_2c;
-    u8 unk_2d;
-    u8 unk_2e;
-    u8 unk_2f;
-    u8 unk_30[2];
-    u8 unk_32;
+    u8 rActionInteractObject; // used as R button UI frame index
+    u8 rActionInteractTile;
+    u8 rActionGrabbing;
+    u8 rActionPlayerState; // if not 0, overrides other R actions
+    u8 buttonText[3];
     u8 unk_33;
     UIElement elements[MAX_UI_ELEMENTS];
 } struct_0200AF00;
@@ -157,6 +156,7 @@ typedef struct {
     /*0x06*/ u16 paletteIndex;
     /*0x08*/ const void* palettePointer;
 } GfxSlot;
+
 typedef struct {
     /*0x00*/ u8 unk0;
     /*0x01*/ u8 unk_1;
@@ -259,26 +259,35 @@ typedef struct {
 } struct_020227E8;
 
 typedef struct {
-    /*0x00*/ u8 unk_0;
-    /*0x01*/ u8 unk_1;
-    /*0x02*/ u8 unk_2;
-    /*0x03*/ u8 unk_3;
-    /*0x04*/ const u8* unk_4;
-    /*0x08*/ Entity* entity;
-} struct_03003DF8;
+    s8 x;
+    s8 y;
+    s8 width;
+    s8 height;
+} Rect;
 
 typedef struct {
-    /*0x00*/ u8 unk_0;
-    /*0x01*/ u8 unk_1;
-    /*0x02*/ u8 unk_2; // TODO kinstoneId, sub_0801DFB4
-    /*0x03*/ u8 unk_3;
-    /*0x04*/ u8* unk_4;
-    /*0x08*/ struct_03003DF8 array[0x20];
-} struct_03003DF0;
+    /*0x00*/ u8 ignoreLayer; /* if bit 0 set, skip layer check for collision */
+    /*0x01*/ u8 type;
+    /*0x02*/ u8 interactDirections; /* lower 4 bits determine Link's allowed facing directions to interact, 0 to allow
+                                       (0000WSEN) */
+    /*0x03*/ u8 kinstoneId;
+    /*0x04*/ const Rect* customHitbox; /* optional custom rectangle */
+    /*0x08*/ Entity* entity;
+} InteractableObject;
 
-static_assert(sizeof(struct_03003DF0) == 0x188);
+typedef struct {
+    /*0x00*/ u8 isUpdated;
+    /*0x01*/ u8 unused;
+    /*0x02*/ u8 kinstoneId;
+    /*0x03*/ u8 currentIndex; /* index of currentObject in candidate list, or 0xFF */
+    /*0x04*/ InteractableObject* currentObject;
+    /*0x08*/ InteractableObject
+        candidates[0x20]; /* contains the loaded NPCs, key doors, windcrests and other objects */
+} PossibleInteraction;
 
-extern struct_03003DF0 gUnk_03003DF0;
+static_assert(sizeof(PossibleInteraction) == 0x188);
+
+extern PossibleInteraction gPossibleInteraction;
 
 typedef struct {
     u8 numTiles;
@@ -351,11 +360,4 @@ typedef struct {
     u8 frame;
     u8 frameIndex;
 } PACKED FrameStruct;
-
-typedef struct {
-    s8 x;
-    s8 y;
-    s8 width;
-    s8 height;
-} Rect;
 #endif // STRUCTURES_H

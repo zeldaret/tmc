@@ -8,7 +8,7 @@
 extern void sub_08060528(Entity*);
 extern void sub_080604DC(Entity*);
 extern void sub_080606D8(Entity*);
-extern void sub_080606C0(Entity*);
+extern void Postman_MakeInteractable(Entity*);
 
 const Coords gUnk_0810A66C[] = {
     { .HALF = { 0x0, 0x0 } },     { .HALF = { 0x48, 0xa8 } },   { .HALF = { 0x0, 0xf0 } },
@@ -274,7 +274,7 @@ void sub_08060528(Entity* this) {
             this->field_0x6a.HWORD = 0;
             this->zVelocity = Q_16_16(2.0);
             this->field_0x6c.HALF.HI = 1;
-            sub_080788E0(this);
+            RemoveInteractableObject(this);
             EnqueueSFX(SFX_PLY_JUMP);
         } else {
             this->field_0x6a.HWORD--;
@@ -283,7 +283,7 @@ void sub_08060528(Entity* this) {
     GravityUpdate(this, Q_8_8(24.0));
     if (((this->field_0x6c.HALF.HI != 0) && (this->zVelocity == 0)) && this->z.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
-        sub_080606C0(this);
+        Postman_MakeInteractable(this);
     }
     if (this->z.WORD >= 0 &&
         ((gPlayerEntity.collisionLayer == 0 || (this->collisionLayer == gPlayerEntity.collisionLayer)))) {
@@ -292,9 +292,9 @@ void sub_08060528(Entity* this) {
     sub_0800451C(this);
 }
 
-void sub_080606C0(Entity* this) {
+void Postman_MakeInteractable(Entity* this) {
     this->field_0x6c.HALF.LO = GetFusionToOffer(this);
-    sub_08078784(this, this->field_0x6c.HALF.LO);
+    AddInteractableWhenBigFuser(this, this->field_0x6c.HALF.LO);
 }
 
 void sub_080606D8(Entity* this) {
@@ -336,7 +336,7 @@ void sub_0806076C(Entity* this, ScriptExecutionContext* context) {
     }
     this->field_0x68.HALF.HI++;
     this->collisionLayer = 1;
-    sub_080606C0(this);
+    Postman_MakeInteractable(this);
     pbVar10 = gUnk_0810A918[(s8)this->field_0x68.HALF.LO];
     pbVar10 += (s8)this->field_0x68.HALF.HI;
     do {

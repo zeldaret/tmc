@@ -209,9 +209,9 @@ void sub_0806920C(Entity* ent) {
 
     if (var1 != ent->field_0x6c.HALF.HI) {
         if (var1 == 0) {
-            sub_08078778(ent);
+            AddInteractableWhenBigObject(ent);
         } else {
-            sub_080787A8(ent, ent->field_0x6c.HALF.LO);
+            AddInteractableAsMinishFuser(ent, ent->field_0x6c.HALF.LO);
         }
     }
 

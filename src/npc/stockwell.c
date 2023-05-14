@@ -9,7 +9,7 @@
 #include "game.h"
 
 #ifndef EU
-static const u8 gUnk_0810FDA0[] = { 0, 8, 10, 16 };
+static const Rect gUnk_0810FDA0 = { 0, 8, 10, 16 };
 #endif
 
 extern u16 script_StockwellBuy[];
@@ -48,9 +48,9 @@ void sub_08065080(Entity* this) {
     this->spriteSettings.draw = 1;
     SetDefaultPriority(this, PRIO_MESSAGE);
     InitializeAnimation(this, 4);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 #ifndef EU
-    sub_08078850(this, 0, 0, &gUnk_0810FDA0);
+    SetInteractableObjectCollision(this, 0, 0, &gUnk_0810FDA0);
 #endif
     context = StartCutscene(this, &script_Stockwell);
     *(ScriptExecutionContext**)&this->cutsceneBeh = context;

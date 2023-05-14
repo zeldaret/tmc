@@ -27,14 +27,14 @@ typedef struct {
                     // not match.
 } ModifiedParentEntity;
 
-extern u32 sub_080787D8(Entity*);
+extern u32 AddInteractableShopItem(Entity*);
 extern void* sub_080784E4(void);
 
 void ItemForSale_Init(ItemForSaleEntity*);
 void ItemForSale_Action1(ItemForSaleEntity*);
 void ItemForSale_Action2(ItemForSaleEntity*);
 void ItemForSale_Action3(ItemForSaleEntity*);
-void sub_08081A5C(ItemForSaleEntity*);
+void ItemForSale_MakeInteractable(ItemForSaleEntity*);
 void sub_080819B4(ItemForSaleEntity*);
 void sub_08081AB0(void);
 
@@ -71,7 +71,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
     SetDefaultPriority(super, 6);
 #endif
     super->child = super;
-    sub_08081A5C(this);
+    ItemForSale_MakeInteractable(this);
     switch (super->timer) {
         case 0:
             super->hitbox = (Hitbox*)&gUnk_080FD328;
@@ -85,7 +85,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
 void ItemForSale_Action1(ItemForSaleEntity* this) {
     if (super->subAction != 0) {
         super->action = 2;
-        gUnk_0200AF00.unk_2f = 2;
+        gUnk_0200AF00.rActionPlayerState = 2;
     } else {
         if (super->type == 0x36) {
             if (super->interactType != 0) {
@@ -102,7 +102,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;
-                gUnk_0200AF00.unk_2f = 2;
+                gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
                 MessageClose();
             }
         }
@@ -112,15 +112,15 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
 void ItemForSale_Action2(ItemForSaleEntity* this) {
     void* ptr;
 
-    gUnk_0200AF00.unk_2f = 2;
+    gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
     super->spriteSettings.draw = gPlayerEntity.spriteSettings.draw;
     if ((gPlayerState.heldObject == 0) || (super != gNewPlayerEntity.unk_74)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
-        if (((*(int*)(ptr + 8) == 0) ||
-             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.unk_2f = 7, (gPlayerState.playerInput.newInput &
-                                                                   (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
+        if (((*(int*)(ptr + 8) == 0) || ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = R_ACTION_SPEAK,
+                                                                   (gPlayerState.playerInput.newInput &
+                                                                    (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
             ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
             sub_080819B4(this);
         }
@@ -142,8 +142,8 @@ void sub_080819B4(ItemForSaleEntity* this) {
     gNewPlayerEntity.unk_74 = 0;
     ptr = &gUnk_0200AF00;
     gRoomVars.shopItemType = 0;
-    ptr->unk_2c = 0;
-    ptr->unk_2f = 0;
+    ptr->rActionInteractObject = R_ACTION_NONE;
+    ptr->rActionPlayerState = R_ACTION_NONE;
     gRoomVars.shopItemType2 = 0;
     super->x.HALF.HI = this->unk_80 + gRoomControls.origin_x;
     super->y.HALF.HI = this->unk_82 + gRoomControls.origin_y;
@@ -154,13 +154,13 @@ void sub_080819B4(ItemForSaleEntity* this) {
     super->collisionLayer = 1;
     super->spritePriority.b0 = 4;
     UpdateSpriteForCollisionLayer(super);
-    sub_08081A5C(this);
+    ItemForSale_MakeInteractable(this);
 }
 
-void sub_08081A5C(ItemForSaleEntity* this) {
-    u32 tmp = sub_080787D8(super);
+void ItemForSale_MakeInteractable(ItemForSaleEntity* this) {
+    u32 tmp = AddInteractableShopItem(super);
     if (super->timer == 1) {
-        gUnk_03003DF0.array[tmp].unk_2 = 0;
+        gPossibleInteraction.candidates[tmp].interactDirections = 0;
     }
 }
 

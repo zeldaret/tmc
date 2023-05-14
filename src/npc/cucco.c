@@ -1,5 +1,6 @@
 #include "npc.h"
 #include "functions.h"
+#include "kinstone.h"
 
 void (*const Cucco_Actions[])(Entity*);
 const u16 Cucco_Sounds[];
@@ -16,7 +17,7 @@ void Cucco(Entity* this) {
 void Cucco_Init(Entity* this) {
     this->action++;
     this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_080787A8(this, this->field_0x68.HALF.LO);
+    AddInteractableAsMinishFuser(this, this->field_0x68.HALF.LO);
     SetDefaultPriority(this, PRIO_MESSAGE);
     this->subAction = 0;
     sub_0806E4EC(this);
@@ -113,7 +114,7 @@ void sub_0806E65C(Entity* this) {
 void Cucco_ShowMessage(Entity* this) {
     u32 val = 0;
     u32 index = GetFuserId(this);
-    if (gSave.fuserOffers[index] == 0xf3) {
+    if (gSave.fuserOffers[index] == KINSTONE_FUSER_DONE) {
         val = 1;
     }
 
@@ -135,4 +136,4 @@ void (*const Cucco_Actions[])(Entity*) = {
 };
 
 const u16 Cucco_Sounds[] = { SFX_VO_CUCCO1, SFX_VO_CUCCO2, SFX_VO_CUCCO3, SFX_VO_CUCCO4 };
-const u16 Cucco_Messages[] = { TEXT_INDEX(TEXT_MINISH, 0Xb4), TEXT_INDEX(TEXT_MINISH, 0xb5) };
+const u16 Cucco_Messages[] = { TEXT_INDEX(TEXT_MINISH, 0xb4), TEXT_INDEX(TEXT_MINISH, 0xb5) };

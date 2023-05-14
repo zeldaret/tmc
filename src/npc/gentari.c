@@ -9,7 +9,7 @@ void Gentari(Entity* this) {
             this->spriteSettings.draw = TRUE;
             SetDefaultPriority(this, PRIO_MESSAGE);
             this->field_0x68.HALF.LO = GetFusionToOffer(this);
-            sub_08078784(this, this->field_0x68.HALF.LO);
+            AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
             sub_0807DD50(this);
             break;
         case 1:

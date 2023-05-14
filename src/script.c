@@ -94,12 +94,12 @@ void ScriptCommand_SetVariableToFrame(Entity* entity, ScriptExecutionContext* co
 void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E9D4(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E9DC(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E9E4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_AddInteractableWhenBigObject(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_RemoveInteractableObject(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EA88(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_AddInteractableFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageFromTarget(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageNoOverlap(Entity* entity, ScriptExecutionContext* context);
@@ -543,12 +543,12 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetAnimation,
         ScriptCommand_TriggerInteract,
         ScriptCommand_0807E974,
-        ScriptCommand_0807E9D4,
-        ScriptCommand_0807E9DC,
-        ScriptCommand_0807E9E4,
+        ScriptCommand_AddInteractableWhenBigObject,
+        ScriptCommand_RemoveInteractableObject,
+        ScriptCommand_AddInteractableWhenBigFuser,
         ScriptCommand_0807E9F0,
         ScriptCommand_0807EA4C,
-        ScriptCommand_0807EA88,
+        ScriptCommand_AddInteractableFuser,
         ScriptCommand_WaitUntilTextboxCloses,
         ScriptCommand_MessageFromTarget,
         ScriptCommand_MessageNoOverlap,
@@ -721,17 +721,17 @@ void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* conte
     u32 tmp;
     u32 tmp2 = GetNextScriptCommandHalfwordAfterCommandMetadata(context->scriptInstructionPointer);
     switch (tmp2) {
-        case 0x53:
-            tmp = HasDungeonMap();
+        case ITEM_SMALL_KEY:
+            tmp = HasDungeonSmallKey();
             break;
-        case 0x52:
-            tmp = HasDungeonCompass();
-            break;
-        case 0x51:
+        case ITEM_BIG_KEY:
             tmp = HasDungeonBigKey();
             break;
-        case 0x50:
-            tmp = HasDungeonSmallKey();
+        case ITEM_COMPASS:
+            tmp = HasDungeonCompass();
+            break;
+        case ITEM_DUNGEON_MAP:
+            tmp = HasDungeonMap();
             break;
         default:
             tmp = GetInventoryValue(tmp2);
@@ -1136,16 +1136,16 @@ void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 
-void ScriptCommand_0807E9D4(Entity* entity, ScriptExecutionContext* context) {
-    sub_08078778(entity);
+void ScriptCommand_AddInteractableWhenBigObject(Entity* entity, ScriptExecutionContext* context) {
+    AddInteractableWhenBigObject(entity);
 }
 
-void ScriptCommand_0807E9DC(Entity* entity, ScriptExecutionContext* context) {
-    sub_080788E0(entity);
+void ScriptCommand_RemoveInteractableObject(Entity* entity, ScriptExecutionContext* context) {
+    RemoveInteractableObject(entity);
 }
 
-void ScriptCommand_0807E9E4(Entity* entity, ScriptExecutionContext* context) {
-    sub_08078784(entity, context->scriptInstructionPointer[1]);
+void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionContext* context) {
+    AddInteractableWhenBigFuser(entity, context->scriptInstructionPointer[1]);
 }
 
 void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
@@ -1184,8 +1184,8 @@ void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void ScriptCommand_0807EA88(Entity* entity, ScriptExecutionContext* context) {
-    sub_08078790(entity, context->scriptInstructionPointer[1]);
+void ScriptCommand_AddInteractableFuser(Entity* entity, ScriptExecutionContext* context) {
+    AddInteractableFuser(entity, context->scriptInstructionPointer[1]);
 }
 
 void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context) {
@@ -1966,16 +1966,16 @@ void PutItemAnySlot(Entity* entity, ScriptExecutionContext* context) {
     PutItemOnSlot(context->intVariable);
 }
 
-void sub_0807F924(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807879C(entity);
+void MakeInteractableAsMinish(Entity* entity, ScriptExecutionContext* context) {
+    AddInteractableAsMinishObject(entity);
 }
 
-void sub_0807F92C(Entity* entity, ScriptExecutionContext* context) {
-    sub_080787C0(entity);
+void MakePedestalInteractable(Entity* entity, ScriptExecutionContext* context) {
+    AddInteractablePedestal(entity);
 }
 
-void sub_0807F934(Entity* entity, ScriptExecutionContext* context) {
-    sub_080787B4(entity);
+void MakeCheckableObjectInteractable(Entity* entity, ScriptExecutionContext* context) {
+    AddInteractableCheckableObject(entity);
 }
 
 void sub_0807F93C(Entity* entity, ScriptExecutionContext* context) {

@@ -1,7 +1,7 @@
 @ Farmer
 SCRIPT_START script_Farmer
 	BeginBlock
-	Call sub_0806BCD4
+	Call Farmers_MakeInteractable
 	DoPostScriptAction 0x000a
 	CallWithArg sub_0806BC94, 0x00000000
 	EndBlock
@@ -30,9 +30,10 @@ script_0800B134:
 	Call sub_0807F650
 	_0807E9F0
 .ifndef EU
+	@! @bug: In EU, Eenie is marked as done fusing if kinstone menu is closed without fusing
 	JumpIfNot script_0800B160
 .endif
-	Call sub_0806BCC0
+	Call Farmers_MarkEenieFuserDoner
 script_0800B160:
 	Call EnablePauseMenu
 	EnablePlayerControl

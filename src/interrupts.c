@@ -225,9 +225,9 @@ void PlayerUpdate(Entity* this) {
 static void HandlePlayerLife(Entity* this) {
     u32 temp;
 
-    gUnk_0200AF00.unk_2f = 0;
-    gUnk_0200AF00.unk_2d = 0;
-    gUnk_0200AF00.unk_2e = 0;
+    gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
+    gUnk_0200AF00.rActionInteractTile = R_ACTION_NONE;
+    gUnk_0200AF00.rActionGrabbing = R_ACTION_NONE;
 
     if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
@@ -240,7 +240,7 @@ static void HandlePlayerLife(Entity* this) {
     if (sub_08079B24() == 0)
         sub_08079708(this);
 
-    gUnk_03003DF0.unk_0 = 0;
+    gPossibleInteraction.isUpdated = 0;
     if (gPlayerState.field_0x27[0] != 0)
         gPlayerState.field_0x27[0]--;
 
@@ -323,9 +323,9 @@ static void sub_080171F0(void) {
     sub_080028E0(&gPlayerEntity);
 
     if (gPlayerState.flags & PL_CLONING)
-        gUnk_0200AF00.unk_2f = 1;
+        gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
 
-    sub_08078180();
+    DetermineRButtonInteraction();
     gPlayerState.field_0x7 &= ~0x80;
     gPlayerState.field_0xa &= 0xf;
     gPlayerState.keepFacing &= ~0x80;

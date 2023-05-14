@@ -37,15 +37,10 @@ void MayorHagen(Entity* this) {
     }
 }
 
-void sub_0806CE5C(Entity* this) {
-    static const u8 gUnk_08113F44[] = {
-        0,
-        8,
-        8,
-        16,
-    };
-    sub_08078784(this, GetFusionToOffer(this));
-    sub_08078850(this, 1, 0, gUnk_08113F44);
+void MayorHagen_MakeInteractable(Entity* this) {
+    static const Rect gUnk_08113F44 = { 0, 8, 8, 16 };
+    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
+    SetInteractableObjectCollision(this, 1, 0, &gUnk_08113F44);
 }
 
 void sub_0806CE80(Entity* this) {
