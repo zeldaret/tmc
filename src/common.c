@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "game.h"
 #include "global.h"
+#include "item.h"
 #include "kinstone.h"
 #include "main.h"
 #include "message.h"
@@ -30,7 +31,7 @@ void ResetScreenRegs(void);
 void MessageFromFusionTarget(u32);
 void sub_0801E24C(s32, s32);
 void sub_0801E290(u32, u32, u32);
-s32 sub_0801E8B0(u32);
+s32 GetIndexInKinstoneBag(u32);
 
 extern u32 sub_0807CB24(u32, u32);
 
@@ -65,7 +66,7 @@ extern const GfxItem* gGfxGroups[];
 
 extern const u32 gUnk_080C9460[];
 
-void sub_0801E82C(void);
+void SortKinstoneBag(void);
 
 extern void* GetRoomProperty(u32, u32, u32);
 
@@ -78,6 +79,24 @@ bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank);
 u32 sub_0801DF60(u32 a1, u8* p);
 u32 sub_0801DF78(u32 a1, u32 a2);
 void DrawMapPixel(u32 x, u32 y, s32 color);
+
+extern void* GetRoomProperty(u32, u32, u32);
+
+enum DungeonMapObjectTypes {
+    DMO_TYPE_NONE,
+    DMO_TYPE_PLAYER,
+    DMO_TYPE_CHEST,
+    DMO_TYPE_ENTRY,
+    DMO_TYPE_BOSS,
+};
+
+typedef struct {
+    u8 type; /**< @see DungeonMapObjectTypes */
+    u8 x;
+    u8 y;
+} PACKED DungeonMapObject;
+
+// More like PrepareTileEntitesForDungeonMap or so
 
 u32 DecToHex(u32 value) {
     u32 result;
@@ -415,7 +434,75 @@ u32 sub_0801DB94(void) {
     return gRoomTransition.player_status.dungeon_map_y >> 11;
 }
 
-ASM_FUNC("asm/non_matching/common/DrawDungeonMap.inc", void DrawDungeonMap(u32 floor, void* data, u32 size));
+void DrawDungeonMap(u32 floor, DungeonMapObject* specialData, u32 size) {
+    DungeonLayout* floorMapData;
+    TileEntity* tileEntity;
+    u32 flagBankOffset;
+    RoomHeader* roomHeader;
+    s32 tmp1;
+    s32 tmp3;
+
+    MemClear(specialData, size);
+    specialData->type = DMO_TYPE_PLAYER;
+    specialData->x = (gRoomTransition.player_status.dungeon_map_x >> 4) & 0x7f;
+    specialData->y = (gRoomTransition.player_status.dungeon_map_y >> 4) & 0x7f;
+    specialData++;
+    floorMapData = (DungeonLayout*)gDungeonLayouts[gArea.dungeon_idx][floor];
+    while (floorMapData->area != 0) {
+        tileEntity = (TileEntity*)GetRoomProperty(floorMapData->area, floorMapData->room, 3);
+        if (tileEntity == NULL) {
+            floorMapData++;
+        } else {
+            flagBankOffset = sub_0801DF10(floorMapData);
+            if (HasDungeonCompass()) {
+                while (tileEntity->type != 0) {
+                    switch (tileEntity->type) {
+                        case SMALL_CHEST:
+                        case BIG_CHEST:
+                            if (!CheckLocalFlagByBank(flagBankOffset, tileEntity->localFlag)) {
+                                roomHeader = gAreaRoomHeaders[floorMapData->area] + floorMapData->room;
+                                specialData->type = DMO_TYPE_CHEST;
+                                if (tileEntity->type == SMALL_CHEST) {
+                                    specialData->x =
+                                        ((((tileEntity->tilePos << 4 & 0x3f0) | 8) + (roomHeader->map_x % 0x800)) >> 4);
+                                    specialData->y =
+                                        ((((tileEntity->tilePos >> 2 & 0x3f0) | 8) + (roomHeader->map_y % 0x800)) >> 4);
+                                } else {
+                                    specialData->x = (((roomHeader->map_x % 0x800) + tileEntity->tilePos) >> 4);
+                                    specialData->y = (((roomHeader->map_y % 0x800) + (*(u16*)&tileEntity->_6)) >> 4);
+                                }
+                                specialData++;
+                            }
+                            break;
+                    }
+                    tileEntity++;
+                }
+            }
+            if ((HasDungeonCompass() && ((floorMapData->unk_2 & 2) != 0)) &&
+                (!CheckGlobalFlag(gArea.dungeon_idx + 1))) {
+                roomHeader = gAreaRoomHeaders[floorMapData->area] + floorMapData->room;
+                specialData->type = DMO_TYPE_BOSS;
+                tmp1 = ((roomHeader->pixel_width / 2) + roomHeader->map_x) / 16;
+                if (tmp1 < 0) {
+                    tmp1 = tmp1 + 0x7f;
+                }
+                specialData->x = tmp1 + (tmp1 / 128) * -128;
+                tmp3 = ((roomHeader->pixel_height / 2) + roomHeader->map_y) / 16;
+                specialData->y = tmp3 + (tmp3 / 128) * -128;
+                specialData++;
+            }
+            if (floorMapData->area == gRoomTransition.player_status.dungeon_area &&
+                floorMapData->room == gRoomTransition.player_status.dungeon_room) {
+                specialData->type = DMO_TYPE_ENTRY;
+                // TODO rename dungeon_x and dungeon_y to dungeonEntryX/Y?
+                specialData->x = ((u16)gRoomTransition.player_status.dungeon_x >> 4) & 0x7f;
+                specialData->y = ((u16)gRoomTransition.player_status.dungeon_y >> 4) & 0x7f;
+                specialData++;
+            }
+            floorMapData++;
+        }
+    }
+}
 
 void sub_0801DD58(u32 area, u32 room) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
@@ -460,7 +547,7 @@ void DrawDungeonFeatures(u32 floor, void* data, u32 size) {
         if (layout->area == gUI.roomControls.area && layout->room == gUI.roomControls.room) {
             features = 8;
         } else {
-            if (HasDungeonSmallKey()) {
+            if (HasDungeonMap()) {
                 features = 2;
             }
             if (IsRoomVisited(tileEntity, bankOffset)) {
@@ -549,7 +636,7 @@ void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
     gFuseInfo._8 = a3;
     gFuseInfo._a = a4;
     gFuseInfo.ent = entity;
-    gFuseInfo.kinstoneId = gUnk_03003DF0.unk_2;
+    gFuseInfo.kinstoneId = gPossibleInteraction.kinstoneId;
     if (entity != NULL) {
         gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
@@ -756,102 +843,102 @@ void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_
     }
 }
 
-void sub_0801E6C8(u32 kinstoneId) {
+void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
     u32 tmp;
     u32 index;
     if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
-            if (kinstoneId == gSave.unk1C1[index]) {
-                gSave.unk1C1[index] = 0xf1;
+            if (kinstoneId == gSave.fuserOffers[index]) {
+                gSave.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
-        tmp = sub_08002632(gFuseInfo.ent);
-        if ((tmp - 1 < 0x7f) && (gSave.unk1C1[tmp] == 0xf1)) {
-            gSave.unk1C1[tmp] = 0xf2;
+        tmp = GetFuserId(gFuseInfo.ent);
+        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
+            gSave.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
         }
         for (index = 0; index < 0x20; index++) {
-            if (kinstoneId == gUnk_03003DF0.array[index].unk_3) {
-                gUnk_03003DF0.array[index].unk_3 = 0xf1;
+            if (kinstoneId == gPossibleInteraction.candidates[index].kinstoneId) {
+                gPossibleInteraction.candidates[index].kinstoneId = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
     }
 }
 
-void sub_0801E738(u32 param_1) {
+void AddKinstoneToBag(KinstoneId kinstoneId) {
     s32 index;
     s32 tmp;
 
-    sub_0801E82C();
-    if (param_1 - 0x65 < 0x11) {
-        index = sub_0801E8B0(param_1);
+    SortKinstoneBag(); // sometimes called just for this function
+    if (kinstoneId - 0x65 < 0x11) {
+        index = GetIndexInKinstoneBag(kinstoneId);
         if (index < 0) {
             index = 0;
-            while (gSave.unk118[index] != 0) {
+            while (gSave.kinstoneTypes[index] != KINSTONE_NONE) {
                 index++;
             }
         }
         if ((u32)index < 0x12) {
-            gSave.unk118[index] = param_1;
-            tmp = gSave.unk12B[index] + 1;
+            gSave.kinstoneTypes[index] = kinstoneId;
+            tmp = gSave.kinstoneAmounts[index] + 1;
             if (tmp > 99) {
                 tmp = 99;
             }
-            gSave.unk12B[index] = tmp;
+            gSave.kinstoneAmounts[index] = tmp;
         }
     }
 }
 
-void sub_0801E798(u32 a1) {
-    s32 idx = sub_0801E8B0(a1);
+void RemoveKinstoneFromBag(KinstoneId kinstoneId) {
+    s32 idx = GetIndexInKinstoneBag(kinstoneId);
     if (idx >= 0) {
-        s32 next = gSave.unk12B[idx] - 1;
+        s32 next = gSave.kinstoneAmounts[idx] - 1;
         if (next <= 0) {
-            gSave.unk118[idx] = 0;
+            gSave.kinstoneTypes[idx] = KINSTONE_NONE;
             next = 0;
         }
-        gSave.unk12B[idx] = next;
+        gSave.kinstoneAmounts[idx] = next;
     }
 }
 
-u32 sub_0801E7D0(u32 a1) {
-    s32 tmp = sub_0801E8B0(a1);
-    if (tmp < 0) {
+u32 GetAmountInKinstoneBag(KinstoneId kinstoneId) {
+    s32 index = GetIndexInKinstoneBag(kinstoneId);
+    if (index < 0) {
         return 0;
     }
-    return gSave.unk12B[tmp];
+    return gSave.kinstoneAmounts[index];
 }
 
-u32 CheckKinstoneFused(u32 kinstoneId) {
-    if (kinstoneId > 100 || kinstoneId < 1) {
+u32 CheckKinstoneFused(KinstoneId kinstoneId) {
+    if (kinstoneId - 1 >= 100) {
         return 0;
     }
     return ReadBit(&gSave.fusedKinstones, kinstoneId);
 }
 
-bool32 sub_0801E810(u32 kinstoneId) {
-    if (kinstoneId > 100 || kinstoneId < 1) {
+bool32 CheckFusionMapMarkerDisabled(KinstoneId kinstoneId) {
+    if (kinstoneId - 1 >= 100) {
         return FALSE;
     }
-    return ReadBit(&gSave.unk24E, kinstoneId);
+    return ReadBit(&gSave.fusionUnmarked, kinstoneId);
 }
 
-void sub_0801E82C(void) {
+void SortKinstoneBag(void) {
 #ifdef NON_MATCHING
     u32 r5;
 
     for (r5 = 0; r5 < 0x13; r5++) {
-        if (gSave.unk12B[r5] == 0) {
-            gSave.unk118[r5] = gSave.unk12B[r5];
+        if (gSave.kinstoneAmounts[r5] == 0) {
+            gSave.kinstoneTypes[r5] = gSave.kinstoneAmounts[r5];
         }
     }
 
-    gSave.unk118[0x12] = 0;
-    gSave.unk12B[0x12] = 0;
+    gSave.kinstoneTypes[0x12] = 0;
+    gSave.kinstoneAmounts[0x12] = 0;
 
     for (r5 = 0; r5 < 0x12; r5++) {
-        if ((gSave.unk118[r5] - 0x65) > 0x10) {
-            MemCopy(&gSave.unk118[r5 + 1], &gSave.unk118[r5], 0x12 - r5);
-            MemCopy(&gSave.unk12B[r5 + 1], &gSave.unk12B[r5], 0x12 - r5);
+        if ((gSave.kinstoneTypes[r5] - 0x65) > 0x10) {
+            MemCopy(&gSave.kinstoneTypes[r5 + 1], &gSave.kinstoneTypes[r5], 0x12 - r5);
+            MemCopy(&gSave.kinstoneAmounts[r5 + 1], &gSave.kinstoneAmounts[r5], 0x12 - r5);
         }
     }
 #else
@@ -862,7 +949,7 @@ void sub_0801E82C(void) {
     new_var = 4;
     r1 = &gSave.inventory[34];
     r5 = 0;
-    r2 = gSave.unk118;
+    r2 = gSave.kinstoneTypes;
 code0_0:
     r0 = r2[0x13];
     r3 = &r1[4];
@@ -899,21 +986,21 @@ code0_2:
 #endif
 }
 
-s32 sub_0801E8B0(u32 idx) {
+s32 GetIndexInKinstoneBag(KinstoneId kinstoneId) {
     u32 i;
 
-    for (i = 0; i < 18; ++i) {
-        if (idx == gSave.unk118[i])
+    for (i = 0; i < 0x12; ++i) {
+        if (kinstoneId == gSave.kinstoneTypes[i])
             return i;
     }
     return -1;
 }
 
-// Check conditions, something with kinstones
-void sub_0801E8D4(void) {
+// For example if a chest from a fusion is opened, hide the chest marker
+void UpdateVisibleFusionMapMarkers(void) {
     u32 kinstoneId;
     for (kinstoneId = 10; kinstoneId <= 100; ++kinstoneId) {
-        if (CheckKinstoneFused(kinstoneId) && !sub_0801E810(kinstoneId)) {
+        if (CheckKinstoneFused(kinstoneId) && !CheckFusionMapMarkerDisabled(kinstoneId)) {
             u32 worldEventId = gKinstoneWorldEvents[kinstoneId].worldEventId;
             const WorldEvent* s = &gWorldEvents[worldEventId];
 #if !defined EU && !defined JP
@@ -971,13 +1058,71 @@ void sub_0801E8D4(void) {
 #else
             if (sub_0807CB24(tmp, s->flag)) {
 #endif
-                WriteBit(&gSave.unk24E, kinstoneId);
+                WriteBit(&gSave.fusionUnmarked, kinstoneId);
             }
         }
     }
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801E99C.inc", u32 sub_0801E99C(u32 a1));
+extern u8* gUnk_08001DCC[];
+
+KinstoneId GetFusionToOffer(Entity* entity) {
+    u8* fuserData;
+    u32 fuserId;
+    u32 offeredFusion;
+    u32 fuserProgress;
+    u8* fuserFusionData;
+    s32 randomMood;
+    u32 fuserStability;
+    fuserId = GetFuserId(entity);
+    fuserData = gUnk_08001DCC[fuserId];
+    if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
+        return KINSTONE_NONE;
+    }
+    offeredFusion = gSave.fuserOffers[fuserId];
+    fuserProgress = gSave.fuserProgress[fuserId];
+    fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
+    while (TRUE) { // loop through fusions for this fuser
+        switch (offeredFusion) {
+            case KINSTONE_NEEDS_REPLACEMENT: // offered fusion completed with someone else
+            case KINSTONE_NONE:              // no fusion offered yet
+                offeredFusion = fuserFusionData[5];
+                if (offeredFusion == KINSTONE_NONE || offeredFusion == KINSTONE_RANDOM ||
+                    CheckKinstoneFused(offeredFusion) == 0) {
+                    break;
+                }
+            case KINSTONE_JUST_FUSED: // previous fusion completed
+                fuserFusionData++;
+                fuserProgress++;
+                offeredFusion = fuserFusionData[5];
+        }
+        if (offeredFusion == KINSTONE_RANDOM) { // random shared fusion
+            offeredFusion = GetRandomSharedFusion(fuserData);
+        }
+        if (offeredFusion == KINSTONE_NONE) {    // end of fusion list
+            offeredFusion = KINSTONE_FUSER_DONE; // mark this fuser as done
+            break;
+        }
+        if (offeredFusion == KINSTONE_JUST_FUSED) { // previous fusion completed
+            continue;
+        }
+        if (CheckKinstoneFused(offeredFusion) == 0) {
+            break;
+        }
+        offeredFusion = KINSTONE_NEEDS_REPLACEMENT; // already completed, try next fusion in the list
+    }
+    gSave.fuserOffers[fuserId] = offeredFusion;
+    gSave.fuserProgress[fuserId] = fuserProgress;
+    randomMood = Random();
+    fuserStability = fuserData[1];
+    if (fuserStability <= randomMood % 100) {
+        return KINSTONE_NONE; // fickleness
+    }
+    if (offeredFusion - 1 > 99) {
+        offeredFusion = KINSTONE_NONE;
+    }
+    return offeredFusion;
+}
 
 const u16 gUnk_080C93E0[] = { 3, 9, 16, 22, 28, 35, 41, 48, 54, 61, 67, 74, 81, 88, 95, 102, 110, 117, 125, 133, 141, 149, 158, 167, 176, 185, 195, 205, 215, 226, 238, 250, 262, 276, 290, 304, 320, 336, 354, 373, 394, 415, 439, 465, 493, 525, 559, 597, 640, 689, 744, 808, 883, 971, 1078, 1209, 1375, 1591, 1885, 2308, 2973, 4167, 6950, 20860 };
 
@@ -1224,20 +1369,19 @@ const u32 gUnk_080CA06C[] = { 139808, 139808, 140320, 140832, 141344, 141856, 14
                               150560, 151584, 152608, 153632, 154656, 155680, 156704, 157728, 158752, 159776, 160800 };
 #endif
 
-// TODO maybe KinstoneFlag?
-const u8 gUnk_080CA11C[] = {
-    24, 45, 53, 54, 55, 57, 60, 68, 70, 71, 78, 80, 83, 85, 86, 88, 95, 96, 0, 0,
+const u8 SharedFusions[] = {
+    0x18, 0x2D, 0x35, 0x36, 0x37, 0x39, 0x3C, 0x44, 0x46, 0x47, 0x4E, 0x50, 0x53, 0x55, 0x56, 0x58, 0x5F, 0x60, 0, 0,
 };
 
 // Get a random kinstone
-u32 sub_0801EA74(void) {
+u32 GetRandomSharedFusion(u8* fuserData) {
     s32 r = (s32)Random() % 18;
     u32 i;
     for (i = 0; i < 18; ++i) {
-        u32 kinstoneId = gUnk_080CA11C[r];
+        u32 kinstoneId = SharedFusions[r];
         if (!CheckKinstoneFused(kinstoneId))
             return kinstoneId;
         r = (r + 1) % 18;
     }
-    return 0xF2;
+    return KINSTONE_JUST_FUSED;
 }

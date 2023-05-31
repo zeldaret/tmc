@@ -1,7 +1,7 @@
 @ Hyrule Town Din
 SCRIPT_START script_Din
 	BeginBlock
-	Call sub_08064828
+	Call Din_MakeInteractable
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a

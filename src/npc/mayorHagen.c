@@ -11,7 +11,7 @@ void MayorHagen(Entity* this) {
         case 0:
             this->action = 1;
             this->field_0x68.HALF.HI = 0;
-            this->field_0x68.HALF.LO = sub_0801E99C(this);
+            this->field_0x68.HALF.LO = GetFusionToOffer(this);
             SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             break;
@@ -37,15 +37,10 @@ void MayorHagen(Entity* this) {
     }
 }
 
-void sub_0806CE5C(Entity* this) {
-    static const u8 gUnk_08113F44[] = {
-        0,
-        8,
-        8,
-        16,
-    };
-    sub_08078784(this, sub_0801E99C(this));
-    sub_08078850(this, 1, 0, gUnk_08113F44);
+void MayorHagen_MakeInteractable(Entity* this) {
+    static const Rect gUnk_08113F44 = { 0, 8, 8, 16 };
+    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
+    SetInteractableObjectCollision(this, 1, 0, &gUnk_08113F44);
 }
 
 void sub_0806CE80(Entity* this) {

@@ -81,7 +81,7 @@ const struct_0811F730 gUnk_0811F730[] = {
     { { 8, 8 }, { 8, -8 } },
 };
 
-const u8 gUnk_0811F740[] = {
+const u8 gLockedDoorInteractDirections[] = {
     0xBE,
     0x7D,
     0xEB,
@@ -133,8 +133,9 @@ void LockedDoor_Init(Entity* this) {
                     this->action = 5;
                 } else {
                     this->action = 8;
-                    sub_080787CC(this);
-                    sub_08078850(this, 0, gUnk_0811F740[this->field_0x7c.BYTES.byte2], 0);
+                    AddInteractableSmallKeyLock(this);
+                    SetInteractableObjectCollision(this, 0, gLockedDoorInteractDirections[this->field_0x7c.BYTES.byte2],
+                                                   NULL);
                 }
             } else {
                 DeleteThisEntity();

@@ -92,9 +92,9 @@ void sub_0806C4DC(Entity* this) {
     ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
 
-void sub_0806C4F8(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+void Mama_MakeInteractable(Entity* this) {
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Mama_Fusion(Entity* this) {

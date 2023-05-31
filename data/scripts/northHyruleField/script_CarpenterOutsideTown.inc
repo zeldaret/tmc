@@ -2,7 +2,7 @@
 @ Hyrule Town Carpenter
 SCRIPT_START script_CarpenterOutsideTown
 	BeginBlock
-	Call sub_08067314
+	Call Carpenter_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	SetIntVariable 0x00000000

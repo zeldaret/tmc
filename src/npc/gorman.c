@@ -70,7 +70,7 @@ void sub_080697C4(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08111C3C)) {
         this->action = 1;
         InitializeAnimation(this, 2);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
 }
 

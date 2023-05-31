@@ -14,9 +14,9 @@ typedef union {
         s16 bombs;
         s16 arrows;
         s16 mysteriousShells;
-        s16 kinstoneGreen;
-        s16 kinstoneBlue;
         s16 kinstoneRed;
+        s16 kinstoneBlue;
+        s16 kinstoneGreen;
         s16 none2;
         s16 none3;
         s16 none4;

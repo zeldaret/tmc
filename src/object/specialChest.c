@@ -9,7 +9,7 @@
 #include "flags.h"
 #include "room.h"
 
-extern void sub_08078828(Entity*);
+extern void AddInteractableChest(Entity*);
 extern void OpenSmallChest(u32 pos, u32 layer);
 
 void SpecialChest(Entity* this) {
@@ -19,7 +19,7 @@ void SpecialChest(Entity* this) {
         }
         this->action = 1;
         this->collisionLayer = 1;
-        sub_08078828(this);
+        AddInteractableChest(this);
     }
     if (this->interactType != 0) {
         OpenSmallChest(COORD_TO_TILE(this), 2);

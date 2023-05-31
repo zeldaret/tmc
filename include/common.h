@@ -119,11 +119,12 @@ u32 CheckKinstoneFused(u32);
 void sub_0801E1EC(u32, u32, u32);
 void sub_0801DD58(u32, u32);
 void sub_0801E1B8(u32, u32);
-void sub_0801E738(u32);
+void AddKinstoneToBag(u32);
 void sub_0801DFB4(struct Entity_*, u32, u32, u32);
 u32 sub_0801E00C(void);
-bool32 sub_0801E810(u32);
+bool32 CheckFusionMapMarkerDisabled(u32);
 u32 sub_0801DB94(void);
+u32 GetRandomSharedFusion(u8*);
 
 typedef struct {
     u8 numFloors;

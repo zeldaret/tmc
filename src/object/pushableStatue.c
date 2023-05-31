@@ -132,7 +132,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
     if (sub_080896B0()) {
         gPlayerState.queued_action = PLAYER_PULL;
         gPlayerState.field_0x38 = 0x20;
-        gPlayerState.flags |= 1;
+        gPlayerState.flags |= PL_BUSY;
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;
         super->direction = (gPlayerEntity.animationState ^ 4) << 2;

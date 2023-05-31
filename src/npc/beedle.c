@@ -9,22 +9,17 @@
 #include "item.h"
 
 typedef struct {
-    s8 unk_00;
-    u8 unk_01;
-    u8 unk_02;
-    u8 unk_03;
-    s8 unk_04;
-    s8 unk_05;
-    s8 unk_06;
-    s8 unk_07;
-} gUnk_0810C89C_struct;
+    Rect customHitbox;
+    s8 interactDirections;
+    u8 unused[3];
+} InteractCollisionData;
 
 void sub_080632E0(Entity* this);
 void sub_08063314(Entity* this);
 void sub_0806336C(Entity* this);
 void sub_08063390(Entity* this);
 
-static const u8 gUnk_0810C88C[] = {
+static const u8 gBeedleItems[] = {
     ITEM_NONE,
     ITEM_BOTTLE_PICOLYTE_BLUE,
     ITEM_BOTTLE_PICOLYTE_GREEN,
@@ -32,10 +27,10 @@ static const u8 gUnk_0810C88C[] = {
     ITEM_BOTTLE_PICOLYTE_ORANGE,
     ITEM_BOTTLE_PICOLYTE_YELLOW,
     ITEM_BOTTLE_PICOLYTE_WHITE,
-    ITEM_NONE,
+    0,
 };
 static const Hitbox gUnk_0810C894 = { 0, 0, { 0, 0, 0, 0 }, 16, 6 };
-static const gUnk_0810C89C_struct gUnk_0810C89C[] = {
+static const InteractCollisionData gBeedleCollisionData[] = {
     { 0, 0, 6, 6, 0, 0, 0, 0 },    { -24, 0, 6, 6, 0, 0, 0, 0 }, { -24, 16, 6, 6, 0, 0, 0, 0 },
     { -24, 32, 6, 6, 0, 0, 0, 0 }, { 24, 0, 6, 6, 0, 0, 0, 0 },  { 24, 16, 6, 6, 0, 0, 0, 0 },
     { 24, 32, 6, 6, 0, 0, 0, 0 },
@@ -72,7 +67,7 @@ void sub_080632C8(Entity* this) {
 void sub_080632E0(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_0810C8D4)) {
         InitializeAnimation(this, 0);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
         this->spriteSettings.draw = 1;
         this->action = 1;
     }
@@ -103,7 +98,7 @@ void sub_08063390(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 1;
         InitializeAnimation(this, GetAnimationState(this));
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
     sub_0806ED78(this);
 }
@@ -136,7 +131,7 @@ void sub_08063410(Entity* this) {
             this->type2 = 0;
         }
         sub_0807DD64(this);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
     if (this->type != 0) {
         sub_0806346C(this);
@@ -146,8 +141,10 @@ void sub_08063410(Entity* this) {
     GetNextFrame(this);
 }
 
+// figures out with which of the 7 objects the player interacts with
+// based on the player's position and facing direction
 void sub_0806346C(Entity* this) {
-    static const u8 gUnk_0810C8F0[][6][4] = {
+    static const u8 gUnk_0810C8F0[5][6][4] = {
         {
             { 1, 1, 1, 1 },
             { 1, 1, 1, 1 },
@@ -216,20 +213,20 @@ void sub_0806346C(Entity* this) {
 
     bVar1 = gUnk_0810C8F0[iVar2][iVar3][gPlayerEntity.animationState >> 1];
     if (bVar1 != this->type2) {
-        const gUnk_0810C89C_struct* temp = &gUnk_0810C89C[bVar1];
-        sub_08078850(this, 1, temp->unk_04, temp);
+        const InteractCollisionData* data = &gBeedleCollisionData[bVar1];
+        SetInteractableObjectCollision(this, 1, data->interactDirections, data);
         this->type2 = bVar1;
     }
 }
 
-void sub_080634E4(Entity* this, ScriptExecutionContext* context) {
+void Beedle_GetObjectType(Entity* this, ScriptExecutionContext* context) {
     context->intVariable = this->type2;
 }
 
-void sub_080634EC(Entity* this) {
-    gRoomVars.shopItemType = gUnk_0810C88C[this->type2];
+void Beedle_ConfirmBuyItem(Entity* this) {
+    gRoomVars.shopItemType = gBeedleItems[this->type2];
 }
 
-void sub_08063504(Entity* this, ScriptExecutionContext* context) {
-    context->condition = !!GetBottleContaining(gUnk_0810C88C[this->type2]);
+void Beedle_IsBottleInInventory(Entity* this, ScriptExecutionContext* context) {
+    context->condition = !!GetBottleContaining(gBeedleItems[this->type2]);
 }

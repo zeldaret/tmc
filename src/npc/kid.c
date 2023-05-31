@@ -76,6 +76,7 @@ void sub_080620F4(Entity*);
 void sub_08062130(Entity*);
 void sub_08062194(Entity*);
 void (*const gUnk_0810BE0C[])(Entity*) = { sub_080620F4, sub_08062130, sub_08062194 };
+extern s32 sub_080041E8(s32 x1, s32 y1, s32 x2, s32 y2);
 
 void sub_08062194(Entity*);
 const Dialog gUnk_0810BE10[] = {
@@ -182,16 +183,21 @@ void sub_080622F4(Entity*);
 void sub_0806265C(Entity*, ScriptExecutionContext*);
 void sub_0806252C(Entity*);
 
-typedef struct {
-    u16 unk_0; /* u16 */
-    u16 unk_2; /* u16 */
-    u16 unk_4; /* u16 */
-    u8 unk_6;
-    u8 unk_7;
+typedef union {
+    struct {
+        s16 x;
+        s16 y;
+        s16 z;
+        u8 framestate;
+        u8 animationState : 6;
+        u8 collisionLayer : 2;
+    } FIELDS;
+    u64 DWORD;
 } KidHeapItem;
 
 #define KID_HEAP_COUNT 0x14
 typedef KidHeapItem KidHeap[KID_HEAP_COUNT];
+#define KID_HEAP ((KidHeapItem*)this->myHeap)
 
 void Kid(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
@@ -207,7 +213,7 @@ void sub_080620F4(Entity* this) {
         this->field_0x68.HALF.LO = 0;
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     }
 }
 
@@ -306,57 +312,198 @@ void sub_080621AC(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/kid/sub_080622F4.inc", void sub_080622F4(Entity* this))
+#define KID_HEAP_SHIFT_RIGHT                     \
+    heapPtr = KID_HEAP;                          \
+    heapPtr += (KID_HEAP_COUNT - 2);             \
+    for (i = 0; i < (KID_HEAP_COUNT - 1); i++) { \
+        heapPtr[1] = heapPtr[0];                 \
+        heapPtr--;                               \
+    }
+
+void sub_080622F4(Entity* this) {
+    s32 dx;
+    s32 dy;
+    s32 dist;
+    s32 i;
+
+    u32 animIndex; // used as 2nd param of InitAnimationForceUpdate
+    u32 animIndexTmp;
+
+    KidHeapItem* heapPtr;
+    KidHeapItem item;
+
+    // Prepended heap item is initialized from player's current state.
+    item.FIELDS.x = gPlayerEntity.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.z.HALF_U.HI;
+    item.FIELDS.framestate = gPlayerState.framestate;
+    item.FIELDS.animationState = gPlayerEntity.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
+
+    heapPtr = this->myHeap;
+    if (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16) {
+        dx = this->x.HALF.HI - gPlayerEntity.x.HALF.HI;
+        dy = this->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+
+        if (dx < 0)
+            dx = -dx;
+        if (dy < 0)
+            dy = -dy;
+
+        if (dx > 120 || dy > 80) {
+            this->field_0x68.HALF.LO = 0;
+            return;
+        }
+
+        sub_0806252C(this);
+    }
+
+    animIndex = 0;
+
+    if (item.DWORD != heapPtr->DWORD) {
+        KID_HEAP_SHIFT_RIGHT;
+        heapPtr = KID_HEAP;
+        heapPtr[0] = item;
+
+        animIndex = 0x4;
+        if ((s8)this->field_0x68.HALF.HI > 0) {
+            this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+        }
+    } else {
+        heapPtr += KID_HEAP_COUNT - 1;
+        if (heapPtr->FIELDS.z < 0) {
+            KID_HEAP_SHIFT_RIGHT;
+            animIndex = 0x4;
+        } else {
+            dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
+                                (u16)heapPtr->FIELDS.y);
+            dist = ((u32)dist) >> 0x4;
+            if (dist > 0x18) {
+
+                KID_HEAP_SHIFT_RIGHT;
+                animIndex = 0x4;
+            }
+        }
+    }
+    heapPtr = KID_HEAP;
+    heapPtr += +KID_HEAP_COUNT - 1;
+    this->x.HALF.HI = heapPtr->FIELDS.x;
+    this->y.HALF.HI = heapPtr->FIELDS.y;
+    this->z.HALF.HI = heapPtr->FIELDS.z;
+    this->animationState = heapPtr->FIELDS.animationState;
+    this->collisionLayer = heapPtr->FIELDS.collisionLayer;
+
+    if (((s8)this->field_0x68.HALF.HI) > 0) {
+        this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+    }
+
+    animIndexTmp = animIndex;
+    animIndex += this->animationState >> 1;
+    if (this->type == OBJECT) {
+        animIndex += 0x10;
+    }
+
+    if (!(animIndex == this->animIndex || (animIndexTmp == 0 && ((s8)this->field_0x68.HALF.HI) > 0))) {
+        InitAnimationForceUpdate(this, animIndex);
+        this->field_0x68.HALF.HI = 0x1e;
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
+
+    sub_0800451C(this);
+    return;
+}
 
 void sub_08062500(Entity* this) {
     this->myHeap = zMalloc(sizeof(KidHeap));
     if (this->myHeap != NULL) {
         this->field_0x68.HALF.LO = 1;
-        sub_080788E0(this);
+        RemoveInteractableObject(this);
         this->hitbox = NULL;
         sub_0806252C(this);
     }
 }
 
-NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this)) {
+void sub_0806252C(Entity* this) {
     s16 sVar1;
     s16 sVar2;
     u16 uVar3;
     u8 uVar4;
-    s16 r0;
     s16 sVar5;
     s16 sVar6;
     u8 bVar7;
-    KidHeapItem* heapObj;
+    KidHeapItem* item;
     s32 loopVar;
-    s32 iVar10;
-    s32 iVar11;
+    FORCE_REGISTER(u32 r5, r5);
+    FORCE_REGISTER(u32 r6, r6);
+    FORCE_REGISTER(u32 r0, r0);
+    FORCE_REGISTER(u32 r1, r1);
+    FORCE_REGISTER(u32 r2, r2);
+    u32 r3;
+    FORCE_REGISTER(s32 r8, r8);
+    s32 y;
+    s32 r10;
+    FORCE_REGISTER(s32 x, r12);
 
-    uVar4 = gPlayerState.framestate;
-    uVar3 = gPlayerEntity.z.HALF.HI;
-    sVar2 = gPlayerEntity.y.HALF.HI;
-    sVar1 = gPlayerEntity.x.HALF.HI;
-    r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
-    sVar5 = FixedDiv(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, KID_HEAP_COUNT);
-    sVar6 = FixedDiv(r0, KID_HEAP_COUNT);
-    heapObj = (KidHeapItem*)this->myHeap;
-    iVar10 = 0;
-    iVar11 = 0;
+    r1 = gPlayerEntity.x.HALF_U.HI;
+    r3 = 0xffff0000;
+    r0 = r3;
+    r0 &= r5;
+    r0 |= r1;
 
-    for (loopVar = KID_HEAP_COUNT - 1; loopVar > -1; loopVar--) {
-        heapObj->unk_0 = sVar1 - (s16)((u32)iVar11 >> 8);
-        heapObj->unk_2 = sVar2 - (s16)((u32)iVar10 >> 8);
-        heapObj->unk_4 = uVar3;
-        heapObj->unk_6 = uVar4;
-        bVar7 = this->animationState & 0x3f;
-        heapObj->unk_7 = (heapObj->unk_7 & 0xc0) | bVar7;
-        heapObj->unk_7 = bVar7 | this->collisionLayer << 6;
-        heapObj = heapObj + 1;
-        iVar10 = iVar10 + sVar6;
-        iVar11 = iVar11 + sVar5;
+    r1 = gPlayerEntity.y.HALF_U.HI;
+    r1 <<= 0x10;
+    r2 = 0x0000ffff;
+    r0 &= r2;
+    r0 |= r1;
+    r5 = r0;
+
+    r0 = gPlayerEntity.z.HALF_U.HI;
+    r3 &= r6;
+    r3 |= r0;
+
+    r0 = gPlayerState.framestate;
+    r0 <<= 0x10;
+    r2 = 0xff00ffff;
+    r2 &= r3;
+    r2 |= r0;
+
+    r1 = gPlayerEntity.animationState;
+    r0 = 0x3f;
+    r1 &= r0;
+    r1 <<= 0x18;
+    r0 = 0xc0ffffff;
+    r0 &= r2;
+    r0 |= r1;
+
+    r1 = gPlayerEntity.collisionLayer;
+    r1 <<= 0x1e;
+    r2 = 0x3fffffff;
+    r0 &= r2;
+    r0 |= r1;
+    r6 = r0;
+
+    r10 = r0 = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
+    r8 = r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+
+    r10 = FixedDiv(r10, KID_HEAP_COUNT);
+    r8 = FixedDiv(r8, KID_HEAP_COUNT);
+    item = (KidHeapItem*)this->myHeap;
+    y = 0;
+    x = 0;
+
+    for (loopVar = KID_HEAP_COUNT - 1; loopVar >= 0; loopVar--) {
+        item->FIELDS.x = r5 - (x >> 8);
+        item->FIELDS.y = (r5 >> 0x10) - (y >> 8);
+        item->FIELDS.z = r6;
+        item->FIELDS.framestate = r6 >> 0x10;
+        item->FIELDS.animationState = this->animationState & 0x3f;
+        item->FIELDS.collisionLayer = this->collisionLayer;
+        item++;
+        y = y + r8;
+        x = x + r10;
     }
 }
-END_NONMATCH
 
 void sub_08062634(Entity* this) {
     u32 a = this->type2;
@@ -554,9 +701,9 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-void sub_08062A48(Entity* this, ScriptExecutionContext* context) {
-    this->field_0x6a.HALF.LO = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x6a.HALF.LO);
+void Kid_MakeInteractable(Entity* this, ScriptExecutionContext* context) {
+    this->field_0x6a.HALF.LO = GetFusionToOffer(this);
+    AddInteractableWhenBigFuser(this, this->field_0x6a.HALF.LO);
 }
 
 void Kid_Fusion(Entity* this) {

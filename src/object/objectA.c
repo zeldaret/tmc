@@ -34,7 +34,7 @@ void ObjectA(Entity* this) {
             }
             DeleteThisEntity();
         } else {
-            sub_080787CC(this);
+            AddInteractableSmallKeyLock(this);
         }
     } else if (this->interactType != 0) {
         SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);

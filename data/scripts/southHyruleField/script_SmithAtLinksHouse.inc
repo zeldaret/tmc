@@ -2,8 +2,8 @@
 SCRIPT_START script_SmithAtLinksHouse
 	BeginBlock
 	Call SetPriorityMessage
-	Call sub_08066288
-	Call sub_08066274
+	Call Smith_MakeInteractable
+	Call Smith_ChangeInteractableHitbox
 	DoPostScriptAction 0x000a
 	SetAnimation 0x000c
 	SetAction 0x0003

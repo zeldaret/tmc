@@ -127,7 +127,7 @@ void sub_080754B8(ItemBehavior* this, u32 index) {
         }
 
         if ((this->playerFrame & 0x80) != 0) {
-            if (((gPlayerState.flags & 0x80) != 0) || ((gPlayerState.skills & SKILL_SPIN_ATTACK) == 0)) {
+            if (((gPlayerState.flags & PL_MINISH) != 0) || ((gPlayerState.skills & SKILL_SPIN_ATTACK) == 0)) {
                 sub_080759B8(this, index);
             } else {
                 sub_08075580(this, index);

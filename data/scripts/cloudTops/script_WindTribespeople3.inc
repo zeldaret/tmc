@@ -2,7 +2,7 @@
 SCRIPT_START script_WindTribespeople3
 	BeginBlock
 	SetEntitySpeed 0x0080
-	Call sub_0806C870
+	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_080149DE:

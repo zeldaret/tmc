@@ -22,7 +22,7 @@ void sub_08062AF0(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = TRUE;
     InitializeAnimation(this, 0);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 }
 
 void sub_08062B14(Entity* this) {

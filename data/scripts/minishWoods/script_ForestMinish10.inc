@@ -3,7 +3,7 @@ SCRIPT_START script_ForestMinish10
 	BeginBlock
 	CheckInventory1 ITEM_JABBERNUT
 	JumpIfNot script_0800C5FE
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800CD92:

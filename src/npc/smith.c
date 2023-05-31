@@ -73,7 +73,7 @@ void Smith_Head(Entity* this) {
 void sub_080660EC(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08110354)) {
         this->action = 1;
-        this->field_0x68.HALF.LO = sub_0801E99C(this);
+        this->field_0x68.HALF.LO = GetFusionToOffer(this);
         InitAnimationForceUpdate(this, 2);
     }
 }
@@ -109,7 +109,7 @@ void sub_08066178(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_08110354)) {
         this->action = 1;
         this->spriteSettings.draw = 1;
-        this->field_0x68.HALF.LO = sub_0801E99C(this);
+        this->field_0x68.HALF.LO = GetFusionToOffer(this);
         sub_0807DD50(this);
     }
 }
@@ -205,18 +205,13 @@ void sub_08066258(void) {
     SoundReq(hammerSounds[Random() & 7]);
 }
 
-void sub_08066274(Entity* this) {
-    static const u8 gUnk_081103E0[] = {
-        0,
-        6,
-        8,
-        12,
-    };
-    sub_08078850(this, 1, 0, &gUnk_081103E0);
+void Smith_ChangeInteractableHitbox(Entity* this) {
+    static const Rect gUnk_081103E0 = { 0, 6, 8, 12 };
+    SetInteractableObjectCollision(this, 1, 0, &gUnk_081103E0);
 }
 
-void sub_08066288(Entity* this) {
-    sub_08078784(this, this->field_0x68.HALF.LO);
+void Smith_MakeInteractable(Entity* this) {
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Smith_Fusion(Entity* this) {

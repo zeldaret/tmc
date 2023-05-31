@@ -13,23 +13,28 @@
 #include "npc.h"
 #include "object.h"
 #include "script.h"
+#include "item.h"
 
 typedef struct {
     Entity base;
-    s16 unk68;
-    s16 unk6a;
-    s16 unk6c;
+    s16 timer;
+    s16 currentCuccos;
+    s16 targetCuccos;
     u16 unk6e;
-    u8 unk70[0x18];
+    u8 returnedCuccoTypes[0x18];
 } CuccoMinigameEntity;
 
 typedef Entity* CuccoMinigameHeap[10];
 
-u32 sub_080A1514();
+u32 CuccoMinigame_GetLevel();
 
-const u16 gUnk_08124C20[] = {
-    25, 0x2, 25, 0x3, 30, 0x4, 45, 0x5, 50, 0x5, 45, 0x5, 50, 0x6, 60, 0x7, 55, 0x2, 55, 0x3,
-};
+typedef struct {
+    u16 time;
+    u16 numCuccos;
+} CuccoMinigameGoal;
+
+const CuccoMinigameGoal goalData[10] = { { 25, 2 }, { 25, 3 }, { 30, 4 }, { 45, 5 }, { 50, 5 },
+                                         { 45, 5 }, { 50, 6 }, { 60, 7 }, { 55, 2 }, { 55, 3 } };
 
 static const u16 pCuccoMinigame_MinigameCuccoDefs[][30] = {
     { 0x0001, 0x02E9, 0x0318, 0x0001, 0x0280, 0x0380, 0x0002, 0x0277, 0x0314, 0x0001,
@@ -66,9 +71,18 @@ static const u16 pCuccoMinigame_MinigameCuccoDefs[][30] = {
       0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000 }
 };
 
-static const u8 gUnk_08124EA0[] = { 0x3F, 0x0A, 0x01, 0x00, 0x3F, 0x0A, 0x01, 0x00, 0x3F, 0x14, 0x01, 0x00, 0x3F, 0x14,
-                                    0x01, 0x00, 0x3F, 0x1E, 0x01, 0x00, 0x3F, 0x1E, 0x01, 0x00, 0x5C, 0x6E, 0x01, 0x00,
-                                    0x5C, 0x6F, 0x01, 0x00, 0x5C, 0x70, 0x01, 0x00, 0x63, 0x00, 0x01, 0x00 };
+typedef struct {
+    u8 item;
+    u8 subtype;
+    u8 unk2;
+    u8 unk3;
+} CuccoMinigamePrizeData;
+
+static const CuccoMinigamePrizeData prizeData[10] = { { ITEM_SHELLS, 10, 1, 0 },     { ITEM_SHELLS, 10, 1, 0 },
+                                                      { ITEM_SHELLS, 20, 1, 0 },     { ITEM_SHELLS, 20, 1, 0 },
+                                                      { ITEM_SHELLS, 30, 1, 0 },     { ITEM_SHELLS, 30, 1, 0 },
+                                                      { ITEM_KINSTONE, 0x6E, 1, 0 }, { ITEM_KINSTONE, 0x6F, 1, 0 },
+                                                      { ITEM_KINSTONE, 0x70, 1, 0 }, { ITEM_HEART_PIECE, 0, 1, 0 } };
 
 static const u16 CuccoMinigame_Sounds[] = { SFX_VO_CUCCO5, SFX_VO_CUCCO_CALL };
 
@@ -78,17 +92,17 @@ void CuccoMinigame(CuccoMinigameEntity* this) {
     int index;
     u32 val;
     u8* puVar2;
-    const u16* ptr;
+    const CuccoMinigameGoal* ptr;
 
     if (super->action == 0) {
         super->action++;
-        ptr = gUnk_08124C20 + sub_080A1514() * 2;
-        this->unk68 = ptr[0] * 0x3c;
-        this->unk6a = 0;
-        this->unk6c = ptr[1];
+        ptr = &goalData[CuccoMinigame_GetLevel()];
+        this->timer = ptr->time * 60;
+        this->currentCuccos = 0;
+        this->targetCuccos = ptr->numCuccos;
         this->unk6e = 1;
 
-        for (puVar2 = this->unk70, val = 0, index = 9; index >= 0; index--) {
+        for (puVar2 = this->returnedCuccoTypes, val = 0, index = 9; index >= 0; index--) {
             *puVar2++ = val;
         }
         sub_0807DD64(super);
@@ -110,7 +124,7 @@ NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(CuccoMi
 
     sVar6 = 0;
     entArray = ((Entity**)super->myHeap);
-    ptr = this->unk70;
+    ptr = this->returnedCuccoTypes;
     iVar1 = (gRoomControls.origin_x + 0x360);
     iVar4 = (gRoomControls.origin_y + 0x350);
     iVar1 = (iVar1 << 16) >> 16;
@@ -147,9 +161,9 @@ NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(CuccoMi
         }
     }
 
-    this->unk6a = sVar6;
+    this->currentCuccos = sVar6;
     gPlayerState.field_0x27[0] = 0xff;
-    if (--this->unk68 < 1) {
+    if (--this->timer < 1) {
         SoundReq(SFX_CUCCO_MINIGAME_BELL);
         sub_08050384();
     } else {
@@ -163,7 +177,7 @@ void CuccoMinigame_Cleanup(CuccoMinigameEntity* this) {
     s8* pcVar2;
     int index;
 
-    pcVar2 = this->unk70;
+    pcVar2 = this->returnedCuccoTypes;
     puVar1 = super->myHeap;
 
     for (index = 9; index >= 0; index--, pcVar2++, puVar1++) {
@@ -174,8 +188,8 @@ void CuccoMinigame_Cleanup(CuccoMinigameEntity* this) {
     }
 }
 
-void sub_080A13B4(CuccoMinigameEntity* this, ScriptExecutionContext* context) {
-    if (this->unk6a >= this->unk6c) {
+void CuccoMinigame_Results(CuccoMinigameEntity* this, ScriptExecutionContext* context) {
+    if (this->currentCuccos >= this->targetCuccos) {
         MessageFromTarget(TEXT_INDEX(TEXT_ANJU, 0xc));
         context->condition = 1;
     } else {
@@ -184,115 +198,115 @@ void sub_080A13B4(CuccoMinigameEntity* this, ScriptExecutionContext* context) {
     }
 }
 
-void sub_080A13E8(CuccoMinigameEntity* this) {
-    bool32 bVar2;
-    const u8* ptr = &gUnk_08124EA0[sub_080A1514() * 4];
+void CuccoMinigame_WinItem(CuccoMinigameEntity* this) {
+    bool32 skipItem;
+    const CuccoMinigamePrizeData* prize = &prizeData[CuccoMinigame_GetLevel()];
 
-    bVar2 = 0;
-    switch (ptr[0]) {
-        case 0x3f:
+    skipItem = 0;
+    switch (prize->item) {
+        case ITEM_SHELLS:
             if (gSave.stats.hasAllFigurines) {
-                bVar2 = 1;
+                skipItem = 1;
             }
             break;
-        case 0x5c:
+        case ITEM_KINSTONE:
             if (gSave.didAllFusions) {
-                bVar2 = 1;
+                skipItem = 1;
             }
             break;
-        case 0x63:
+        case ITEM_HEART_PIECE:
             if (!CheckGlobalFlag(ANJU_HEART)) {
                 SetGlobalFlag(ANJU_HEART);
                 break;
             }
-            bVar2 = 1;
+            skipItem = 1;
             break;
     }
 
-    if (!bVar2) {
-        InitItemGetSequence(ptr[0], ptr[1], 0);
+    if (!skipItem) {
+        InitItemGetSequence(prize->item, prize->subtype, 0);
     } else {
         this->unk6e = 2;
     }
 }
 
-void sub_080A1460(CuccoMinigameEntity* this) {
-    s8* pcVar1;
-    int iVar2;
+void CuccoMinigame_WinRupees(CuccoMinigameEntity* this) {
+    s8* cuccoTypes;
+    int index;
     s32 rupees;
-    const u8* ptr;
+    const u8* rupeeValues;
 
-    sub_080A1514();
-    pcVar1 = this->unk70;
+    CuccoMinigame_GetLevel(); // Rupees previously dependent on level?
+    cuccoTypes = this->returnedCuccoTypes;
     rupees = 0;
-    ptr = CuccoMinigameRupees;
+    rupeeValues = CuccoMinigameRupees;
 
-    for (iVar2 = 9; iVar2 >= 0; iVar2--) {
+    for (index = 9; index >= 0; index--) { // Only first 10 count?
         // Weird register addition
-        // ptr[*pcVar1] translates to add r0,r3,r0 but should be add r0,r3
-        u32 temp = *pcVar1;
-        temp += (int)ptr;
+        // rupeeValues[*cuccoTypes] translates to add r0,r3,r0 but should be add r0,r3
+        u32 temp = *cuccoTypes;
+        temp += (int)rupeeValues;
         rupees += *(u8*)temp;
-        pcVar1++;
+        cuccoTypes++;
     }
     ModRupees(rupees);
     MessageNoOverlap(TEXT_INDEX(TEXT_ANJU, 0x7), super);
     gMessage.rupees = (u16)rupees;
 }
 
-void sub_080A14A8(void) {
-    int iVar1;
+void CuccoMinigame_AdvanceLevel(void) {
+    int level;
 
-    iVar1 = sub_080A1514();
-    iVar1++;
-    if (iVar1 > 9) {
-        iVar1 = 9;
+    level = CuccoMinigame_GetLevel();
+    level++;
+    if (level > 9) {
+        level = 9;
     }
 
-    if (iVar1 & 1) {
+    if (level & 1) {
         SetGlobalFlag(ANJU_LV_BIT0);
     } else {
         ClearGlobalFlag(ANJU_LV_BIT0);
     }
 
-    if (iVar1 & 2) {
+    if (level & 2) {
         SetGlobalFlag(ANJU_LV_BIT1);
     } else {
         ClearGlobalFlag(ANJU_LV_BIT1);
     }
 
-    if (iVar1 & 4) {
+    if (level & 4) {
         SetGlobalFlag(ANJU_LV_BIT2);
     } else {
         ClearGlobalFlag(ANJU_LV_BIT2);
     }
 
-    if (iVar1 & 8) {
+    if (level & 8) {
         SetGlobalFlag(ANJU_LV_BIT3);
     } else {
         ClearGlobalFlag(ANJU_LV_BIT3);
     }
 }
 
-u32 sub_080A1514(void) {
-    u32 rv = 0;
+u32 CuccoMinigame_GetLevel(void) {
+    u32 level = 0;
 
     if (CheckGlobalFlag(ANJU_LV_BIT0)) {
-        rv = 1;
+        level = 1;
     }
 
     if (CheckGlobalFlag(ANJU_LV_BIT1)) {
-        rv |= 2;
+        level |= 2;
     }
 
     if (CheckGlobalFlag(ANJU_LV_BIT2)) {
-        rv |= 4;
+        level |= 4;
     }
 
     if (CheckGlobalFlag(ANJU_LV_BIT3)) {
-        rv |= 8;
+        level |= 8;
     }
-    return rv;
+    return level;
 }
 
 void CuccoMinigame_Init(Entity* this, ScriptExecutionContext* context) {
@@ -311,7 +325,7 @@ void CuccoMinigame_Init(Entity* this, ScriptExecutionContext* context) {
         } else {
             *(ScriptExecutionContext**)&((GenericEntity*)pEnt)->cutsceneBeh =
                 (ScriptExecutionContext*)StartCutscene(pEnt, (u16*)context->intVariable);
-            pCuccoMinigameDef = pCuccoMinigame_MinigameCuccoDefs[sub_080A1514()];
+            pCuccoMinigameDef = pCuccoMinigame_MinigameCuccoDefs[CuccoMinigame_GetLevel()];
             ppEVar5 = (Entity**)pEnt->myHeap;
             room = &gRoomControls;
             for (index = 9; index >= 0; index--, pCuccoMinigameDef += 3) {
@@ -332,9 +346,9 @@ void CuccoMinigame_Init(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-void sub_080A1608(void) {
+void CuccoMinigame_TellObjective(void) {
     u16 messageIndex;
-    const u16* ptr;
+    const CuccoMinigameGoal* ptr;
 
     messageIndex = TEXT_INDEX(TEXT_ANJU, 0x2);
     if (CheckRoomFlag(1)) {
@@ -343,9 +357,9 @@ void sub_080A1608(void) {
     MessageFromTarget(messageIndex);
     gMessage.textWindowPosX = 1;
     gMessage.textWindowPosY = 0;
-    ptr = &gUnk_08124C20[sub_080A1514() * 2];
-    gMessage.rupees = ptr[0];
-    gMessage.field_0x14 = ptr[1];
+    ptr = &goalData[CuccoMinigame_GetLevel()];
+    gMessage.rupees = ptr->time;
+    gMessage.field_0x14 = ptr->numCuccos;
 }
 
 void sub_080A1648(void) {

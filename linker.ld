@@ -56,9 +56,6 @@ SECTIONS {
         . = 0x00021F00; gUnk_02021F00 = .;
         . = 0x00021F20; gUnk_02021F20 = .;
         . = 0x00021F30; gBG1Buffer = .;
-        . = 0x00021F70; gUnk_02021F70 = .;
-        . = 0x00022030; gUnk_02022030 = .;
-        . = 0x00022130; gUnk_02022130 = .;
         . = 0x00022730; gVBlankDMA = .;
         . = 0x00022740; gFuseInfo = .;
         . = 0x00022750; gPlayerScriptExecutionContext = .;
@@ -90,17 +87,7 @@ SECTIONS {
         . = 0x00034492; gUnk_02034492 = .;
         . = 0x000344A0; gUnk_020344A0 = .;
         . = 0x000344B0; gBG2Buffer = .;
-        . = 0x000344F0; gUnk_020344F0 = .;
         . = 0x00034CB0; gBG0Buffer = .;
-        . = 0x00034CF0; gUnk_02034CF0 = .;
-        . = 0x00034D30; gUnk_02034D30 = .;
-        . = 0x00034DF0; gUnk_02034DF0 = .;
-        . = 0x00034E4E; gUnk_02034E4E = .;
-        . = 0x0003508E; gUnk_0203508E = .;
-        . = 0x000350E2; gUnk_020350E2 = .;
-        . = 0x000350F0; gUnk_020350F0 = .;
-        . = 0x0003510E; gUnk_0203510E = .;
-        . = 0x00035160; gUnk_02035160 = .;
         . = 0x000354B0; gRoomMemoryPtr = .;
         . = 0x000354B4; gManagerCount = .;
         . = 0x000354C0; gUnk_020354C0 = .;
@@ -156,8 +143,8 @@ SECTIONS {
         . = 0x00003DD0; gUpdateContext = .;
         . = 0x00003DE0; gUnk_03003DE0 = .;
         . = 0x00003DE4; gUnk_03003DE4 = .;
-        . = 0x00003DF0; gUnk_03003DF0 = .;
-        . = 0x00003DF8; gUnk_03003DF8 = .;
+        . = 0x00003DF0; gPossibleInteraction = .;
+        . = 0x00003DF8; gInteractableObjects = .;
         . = 0x00003F80; gPlayerState = .;
         . = 0x00004030; gDiggingCaveEntranceTransition = .;
         . = 0x00004040; gPlayerClones = .;

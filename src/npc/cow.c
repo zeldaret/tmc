@@ -50,7 +50,7 @@ void sub_08068FC0(Entity* ent) {
         *(u16*)&ent->field_0x68 = var1;
         ent->field_0x6a.HWORD = r2;
     }
-    ent->field_0x6c.HALF.LO = sub_0801E99C(ent);
+    ent->field_0x6c.HALF.LO = GetFusionToOffer(ent);
 
     InitAnimationForceUpdate(ent, ent->animationState + 4);
 }
@@ -209,9 +209,9 @@ void sub_0806920C(Entity* ent) {
 
     if (var1 != ent->field_0x6c.HALF.HI) {
         if (var1 == 0) {
-            sub_08078778(ent);
+            AddInteractableWhenBigObject(ent);
         } else {
-            sub_080787A8(ent, ent->field_0x6c.HALF.LO);
+            AddInteractableAsMinishFuser(ent, ent->field_0x6c.HALF.LO);
         }
     }
 

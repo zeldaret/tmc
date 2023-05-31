@@ -10,7 +10,7 @@ SCRIPT_START script_Postman
 	Call sub_0806075C
 	EndBlock
 	WaitUntilTextboxCloses
-	Call sub_080606C0
+	Call Postman_MakeInteractable
 script_08010B10:
 	EndBlock
 	Call sub_0806076C

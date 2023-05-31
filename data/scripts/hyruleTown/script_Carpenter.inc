@@ -4,7 +4,7 @@ SCRIPT_START script_Carpenter
 	SetAnimationState 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	DoPostScriptAction 0x000a
-	Call sub_08067314
+	Call Carpenter_MakeInteractable
 	EndBlock
 script_08010AB4:
 	CheckEntityInteractType

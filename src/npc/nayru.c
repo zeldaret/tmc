@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
+#include "kinstone.h"
 
 void Nayru(Entity* this) {
     switch (this->action) {
@@ -29,12 +30,12 @@ void Nayru(Entity* this) {
     }
 }
 
-void sub_08064928(Entity* this) {
-    u32 tmp = sub_0801E99C(this);
-    if ((gSave.unk141[sub_08002632(this)] != 0) && (gSave.global_progress < 7)) {
-        tmp = 0;
+void Nayru_MakeInteractable(Entity* this) {
+    u32 kinstoneId = GetFusionToOffer(this);
+    if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
+        kinstoneId = KINSTONE_NONE;
     }
-    sub_08078784(this, tmp);
+    AddInteractableWhenBigFuser(this, kinstoneId);
 }
 
 void Nayru_Fusion(Entity* this) {

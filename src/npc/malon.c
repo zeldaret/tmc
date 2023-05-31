@@ -43,8 +43,8 @@ void sub_08065888(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     this->animationState = 4;
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
     sub_0807DD50(this);
 }
 

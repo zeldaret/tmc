@@ -26,7 +26,7 @@ void HurdyGurdyMan(Entity* this) {
                 this->interactType = 0;
                 this->field_0x68.HALF.HI = this->animIndex;
                 InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                index = sub_08002632(this);
+                index = GetFuserId(this);
                 pointerToArray = gUnk_08001A7C[index];
                 if (this->field_0x68.HALF.LO == 0x32) {
                     pointerToArray = pointerToArray + 3;
@@ -100,9 +100,9 @@ void sub_0806E418(Entity* this) {
     ShowNPCDialogue(this, &dialogs[tmp]);
 }
 
-void sub_0806E440(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+void HurdyGurdyMan_MakeInteractable(Entity* this) {
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void HurdyGurdyMan_Fusion(Entity* this) {

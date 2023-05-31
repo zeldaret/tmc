@@ -38,7 +38,7 @@ void sub_080662F8(Entity* this) {
     this->parent = &gPlayerEntity;
     this->cutsceneBeh.HWORD = 0;
     sub_08066490(this, this->parent);
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
 }
 
 void sub_08066358(Entity* this) {
@@ -56,7 +56,7 @@ void sub_08066358(Entity* this) {
             this->speed = 0x80;
             this->cutsceneBeh.HWORD = 1;
             gPauseMenuOptions.disabled = 1;
-            sub_080788E0(this);
+            RemoveInteractableObject(this);
         }
     } else {
         sub_08066490(this, this->parent);

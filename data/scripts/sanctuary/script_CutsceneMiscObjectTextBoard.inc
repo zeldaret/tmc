@@ -23,7 +23,7 @@ script_08013C2A:
 script_08013C32:
 	BeginBlock
 	DoPostScriptAction 0x0007
-	Call sub_0807F934
+	Call MakeCheckableObjectInteractable
 	DoPostScriptAction 0x000a
 	CallWithArg sub_080962F8, 0x00000000
 .ifndef EU

@@ -3,7 +3,7 @@ SCRIPT_START script_Brocco
 	BeginBlock
 	SetAnimationState 0x0004
 	SetAnimation 0x0000
-	Call sub_080636F4
+	Call Brocco_MakeInteractable
 	DoPostScriptAction 0x000a
 	Call SetPriorityMessage
 	EndBlock

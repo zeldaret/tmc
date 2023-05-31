@@ -30,7 +30,7 @@ void Goron(Entity* this) {
 }
 
 void sub_08069310(Entity* this) {
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
     this->action = 1;
     InitAnimationForceUpdate(this, 2);
 }
@@ -105,7 +105,7 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
 }
 
 u32 sub_08069480(Entity* this) {
-    return (u8)sub_0801E99C(this);
+    return (u8)GetFusionToOffer(this);
 }
 
 void sub_0806948C(Entity* this, ScriptExecutionContext* context) {
@@ -113,12 +113,12 @@ void sub_0806948C(Entity* this, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void sub_080694B0(Entity* this) {
+void Goron_MakeInteractable(Entity* this) {
     u32 kinstone = (u8)sub_08069480(this);
     if (CheckKinstoneFused(kinstone)) {
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
     } else {
-        sub_08078784(this, kinstone);
+        AddInteractableWhenBigFuser(this, kinstone);
     }
 }
 

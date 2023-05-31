@@ -206,7 +206,7 @@ void sub_08069B44(Entity* this) {
         this->timer = 30;
         this->animationState = 2;
         this->field_0x6a.HALF.LO = 0xff;
-        this->field_0x74.HALF.LO = sub_0801E99C(this);
+        this->field_0x74.HALF.LO = GetFusionToOffer(this);
         SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
         if ((this->flags & ENT_SCRIPTED) != 0) {
@@ -351,7 +351,7 @@ void sub_08069E50(Entity* this) {
     if (GetInventoryValue(ITEM_QST_DOGFOOD) == 2) {
         this->action = 7;
         InitAnimationForceUpdate(this, 0x29);
-        sub_080788E0(this);
+        RemoveInteractableObject(this);
         EnqueueSFX(SFX_VO_DOG);
         EnqueueSFX(SFX_TASK_COMPLETE);
     }
@@ -432,9 +432,9 @@ void sub_08069FE8(Entity* this) {
 
     if (tmp != this->field_0x6a.HALF.LO) {
         if (tmp == 0) {
-            sub_08078778(this);
+            AddInteractableWhenBigObject(this);
         } else {
-            sub_080787A8(this, this->field_0x74.HALF.LO);
+            AddInteractableAsMinishFuser(this, this->field_0x74.HALF.LO);
         }
     }
     this->field_0x6a.HALF.LO = tmp;

@@ -4,7 +4,7 @@
 	mov r6, sb
 	mov r5, r8
 	push {r5, r6, r7}
-	ldr r0, _080784FC @ =gUnk_03003DF0
+	ldr r0, _080784FC @ =gPossibleInteraction
 	ldrb r1, [r0]
 	mov r8, r0
 	cmp r1, #0
@@ -12,7 +12,7 @@
 	ldr r0, [r0, #4]
 	b _0807876A
 	.align 2, 0
-_080784FC: .4byte gUnk_03003DF0
+_080784FC: .4byte gPossibleInteraction
 _08078500:
 	ldr r2, _08078528 @ =gPlayerState
 	adds r0, r2, #0
@@ -74,27 +74,27 @@ _08078598:
 	movs r0, #0xff
 	mov r1, r8
 	strb r0, [r1, #3]
-	ldr r0, _080785AC @ =gUnk_0811C000
+	ldr r0, _080785AC @ =gNoInteraction
 	str r0, [r1, #4]
 	movs r1, #1
 	mov r2, r8
 	strb r1, [r2]
 	b _0807876A
 	.align 2, 0
-_080785AC: .4byte gUnk_0811C000
+_080785AC: .4byte gNoInteraction
 _080785B0:
 	ldr r0, [r2, #0x30]
 	movs r1, #0x80
 	ands r0, r1
 	cmp r0, #0
 	bne _080785F0
-	bl HasDungeonMap
+	bl HasDungeonSmallKey
 	cmp r0, #0
 	beq _080785C4
 	movs r0, #1
 _080785C4:
 	adds r7, r0, #0
-	bl HasDungeonCompass
+	bl HasDungeonBigKey
 	cmp r0, #0
 	beq _080785D2
 	movs r0, #2
@@ -104,21 +104,21 @@ _080785D2:
 	ldrb r0, [r3, #0x14]
 	movs r1, #6
 	ands r1, r0
-	ldr r0, _080785E8 @ =gUnk_0811C00C
+	ldr r0, _080785E8 @ =gPlayerInteractHitboxOffsetNormal
 	adds r2, r1, r0
-	ldr r5, _080785EC @ =gUnk_03003DF0
+	ldr r5, _080785EC @ =gPossibleInteraction
 	mov r8, r5
 	b _080785FE
 	.align 2, 0
 _080785E4: .4byte gPlayerEntity
-_080785E8: .4byte gUnk_0811C00C
-_080785EC: .4byte gUnk_03003DF0
+_080785E8: .4byte gPlayerInteractHitboxOffsetNormal
+_080785EC: .4byte gPossibleInteraction
 _080785F0:
 	ldr r3, _08078624 @ =gPlayerEntity
 	ldrb r0, [r3, #0x14]
 	movs r1, #6
 	ands r1, r0
-	ldr r0, _08078628 @ =gUnk_0811C014
+	ldr r0, _08078628 @ =gPlayerInteractHitboxOffsetMinish
 	adds r2, r1, r0
 	movs r7, #0
 _080785FE:
@@ -138,12 +138,12 @@ _080785FE:
 	adds r1, r1, r0
 	mov sb, r1
 	movs r6, #0
-	ldr r5, _0807862C @ =gUnk_03003DF8
+	ldr r5, _0807862C @ =gInteractableObjects
 	b _08078724
 	.align 2, 0
 _08078624: .4byte gPlayerEntity
-_08078628: .4byte gUnk_0811C014
-_0807862C: .4byte gUnk_03003DF8
+_08078628: .4byte gPlayerInteractHitboxOffsetMinish
+_0807862C: .4byte gInteractableObjects
 _08078630:
 	ldrb r1, [r5]
 	movs r3, #1
@@ -264,7 +264,7 @@ _08078714:
 	lsls r0, r6, #1
 	adds r0, r0, r6
 	lsls r0, r0, #2
-	ldr r3, _08078754 @ =gUnk_03003DF8
+	ldr r3, _08078754 @ =gInteractableObjects
 	adds r5, r0, r3
 _08078724:
 	ldr r2, [r5, #8]
@@ -292,12 +292,12 @@ _0807873A:
 	str r0, [r5, #4]
 	b _08078762
 	.align 2, 0
-_08078754: .4byte gUnk_03003DF8
+_08078754: .4byte gInteractableObjects
 _08078758:
 	movs r0, #0xff
 	mov r1, r8
 	strb r0, [r1, #3]
-	ldr r0, _08078774 @ =gUnk_0811C000
+	ldr r0, _08078774 @ =gNoInteraction
 	str r0, [r1, #4]
 _08078762:
 	movs r0, #1
@@ -311,5 +311,5 @@ _0807876A:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08078774: .4byte gUnk_0811C000
+_08078774: .4byte gNoInteraction
 	.syntax divided

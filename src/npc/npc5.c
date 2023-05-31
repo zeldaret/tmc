@@ -875,7 +875,7 @@ void sub_08061ACC(Entity* this) {
     this->subAction = 0xff;
     this->timer = 0;
     this->followerFlag = this->followerFlag & 0xfe;
-    sub_08078778(this);
+    AddInteractableWhenBigObject(this);
     sub_08061AFC(this);
 }
 

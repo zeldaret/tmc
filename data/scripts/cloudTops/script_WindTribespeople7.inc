@@ -3,7 +3,7 @@ SCRIPT_START script_WindTribespeople7
 	BeginBlock
 	CheckGlobalFlag KUMOTATSUMAKI
 	JumpIf script_08014CD4
-	Call sub_0806C870
+	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0000
 	EndBlock

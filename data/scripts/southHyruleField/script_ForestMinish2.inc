@@ -1,7 +1,7 @@
 @ Hyrule Fields? ForestMinish with Beanstock left to Minish Woods
 SCRIPT_START script_ForestMinish2
 	BeginBlock
-	Call sub_08060090
+	Call ForestMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800C592:

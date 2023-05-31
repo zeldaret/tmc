@@ -2,7 +2,7 @@
 SCRIPT_START script_LibraryVisitor
 	BeginBlock
 	Call sub_08061FD8
-	Call sub_08061E70
+	Call Townsperson_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08008DA0:

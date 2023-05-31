@@ -11,6 +11,7 @@
 #include "game.h"
 #include "item.h"
 #include "itemMetaData.h"
+#include "kinstone.h"
 #include "main.h"
 #include "menu.h"
 #include "message.h"
@@ -58,14 +59,14 @@ void Subtask_PauseMenu(void) {
 
 
 extern u8 gUnk_02034492[];
-void sub_0801E8D4(void);
+void UpdateVisibleFusionMapMarkers(void);
 s32 sub_080A50A0(s32);
 
 void PauseMenu_Variant0(void) {
     const OverworldLocation* location;
     int r0, r1;
 
-    sub_0801E8D4();
+    UpdateVisibleFusionMapMarkers();
     sub_080A4D34();
     r1 = 4;
     do {
@@ -663,7 +664,7 @@ void sub_080A5594(void) {
         iVar5 = 0;
         if (GetInventoryValue(ITEM_KINSTONE_BAG) != 0) {
             for (i = 0; i < 0x13; i++) {
-                iVar5 += gSave.unk12B[i];
+                iVar5 += gSave.kinstoneAmounts[i];
             }
 
             if (iVar5 >= 0x50) {
@@ -1151,17 +1152,17 @@ void DrawDungeonMapActually(void) {
     DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks & 0x20) != 0 ? 0x78 : 0x79);
     gOamCmd.y = 0x7e;
     gOamCmd._8 = 0x4380;
-    if (HasDungeonSmallKey()) {
+    if (HasDungeonMap()) {
         gOamCmd.x = 0x18;
         frameIndex = gSpriteAnimations_322[0x50]->index;
         DrawDirect(SUB_080A5D1C_SPRITE_INDEX, frameIndex);
     }
-    if (HasDungeonCompass()) {
+    if (HasDungeonBigKey()) {
         gOamCmd.x = 0x2e;
         frameIndex = gSpriteAnimations_322[0x52]->index;
         DrawDirect(SUB_080A5D1C_SPRITE_INDEX, frameIndex);
     }
-    if (HasDungeonBigKey()) {
+    if (HasDungeonCompass()) {
         gOamCmd.x = 0x45;
         gOamCmd._8 = 0x380;
         frameIndex = gSpriteAnimations_322[0x51]->index;
@@ -1280,7 +1281,7 @@ void PauseMenu_Screen_7(void) {
 
 void sub_080A6024(void) {
     sub_080A70AC((KeyButtonLayout*)&gUnk_08128D60);
-    sub_0801E738(0);
+    AddKinstoneToBag(KINSTONE_NONE);
     sub_080A4398();
     SetMenuType(1);
 }
@@ -1298,11 +1299,11 @@ void sub_080A6044(void) {
         gOamCmd._6 = 0;
         uVar4 = 0;
         uVar2 = 0;
-        uVar1 = gSave.unk118[0];
+        uVar1 = gSave.kinstoneTypes[0];
         while (uVar1 != 0) {
             gOamCmd.x = (uVar4 & 3) * 0x30 + 0x2b;
             gOamCmd.y = (uVar4 >> 2) * 0x24 + 0x34;
-            uVar3 = gSave.unk12B[uVar2];
+            uVar3 = gSave.kinstoneAmounts[uVar2];
             gMenu.column_idx = 0;
             sub_080A42E0(uVar1, uVar3);
             uVar4++;
@@ -1313,7 +1314,7 @@ void sub_080A6044(void) {
             if (0x11 < uVar2) {
                 return;
             }
-            uVar1 = gSave.unk118[uVar2];
+            uVar1 = gSave.kinstoneTypes[uVar2];
         }
     }
 }

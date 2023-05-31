@@ -1,7 +1,7 @@
 @ Hyrule Town Windstribepeople in house
 SCRIPT_START script_WindTribespeopleVisitor
 	BeginBlock
-	Call sub_0806C870
+	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
 	SetAnimationState 0x0004
 	SetAnimation 0x0000

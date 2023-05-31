@@ -12,7 +12,12 @@
 #include "enemy.h"
 #include "message.h"
 
-const s16 gWalletSizes[] = { 100, -4000, 300, -3996, 500, -3992, 999, -3988 };
+const Wallet gWalletSizes[] = {
+    { 100, 0xf060 },
+    { 300, 0xf064 },
+    { 500, 0xf068 },
+    { 999, 0xf06c },
+};
 const u8 gBombBagSizes[] = {
     10,
     30,
@@ -109,7 +114,7 @@ u32 GiveItem(Item item, u32 param_2) {
             gSave.dungeonItems[gArea.dungeon_idx] |= metaData->unk2;
             break;
         case 0xd:
-            sub_0801E738(0x72);
+            AddKinstoneToBag(0x72);
             break;
         case 0x12:
             if (item == ITEM_BOOMERANG) {
@@ -169,7 +174,7 @@ u32 GiveItem(Item item, u32 param_2) {
             SoundReq(SFX_103);
             break;
         case 0x0f:
-            sub_0801E738(param_2);
+            AddKinstoneToBag(param_2);
             break;
         case 0x10:
             gSave.stats.walletType++;
@@ -403,9 +408,9 @@ extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
 u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter);
 u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     extern const u8 gUnk_080FE1B4[] /* = {
-         ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,        ITEM_HEART,         ITEM_FAIRY,
-         ITEM_BOMBS5,       ITEM_ARROWS5, ITEM_SHELLS, ITEM_KINSTONE_GREEN, ITEM_KINSTONE_BLUE, ITEM_KINSTONE_RED,
-         ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
+         ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,      ITEM_HEART,         ITEM_FAIRY,
+         ITEM_BOMBS5,       ITEM_ARROWS5, ITEM_SHELLS, ITEM_KINSTONE_RED, ITEM_KINSTONE_BLUE, ITEM_KINSTONE_GREEN,
+         ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,         ITEM_NONE,          ITEM_NONE,
      }*/;
 
     int r0, r1, rand, summOdds, item;
@@ -503,7 +508,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     return ITEM_NONE;
 }
 
-extern u8 gUnk_080FE1DD[];
+extern u8 gUnk_080FE1DD[3][0x40];
 u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
     u32 adjustedParam = itemParameter;
     Entity* itemEntity;
@@ -534,7 +539,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
             break;
         }
         case ITEM_KINSTONE:
-        case ITEM_KINSTONE_GREEN ... ITEM_KINSTONE_RED: {
+        case ITEM_KINSTONE_RED ... ITEM_KINSTONE_GREEN: {
             u32 rand;
 
             if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
@@ -545,9 +550,9 @@ u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
             }
 
             if (itemId != ITEM_KINSTONE) {
-                adjustedParam = itemId - ITEM_KINSTONE_GREEN;
+                adjustedParam = itemId - ITEM_KINSTONE_RED;
                 rand = (Random() & 0x3f);
-                adjustedParam = gUnk_080FE1DD[(rand + adjustedParam * 0x40)];
+                adjustedParam = gUnk_080FE1DD[adjustedParam][rand];
                 if (adjustedParam == 0) {
                     itemId = ITEM_NONE;
                 } else {

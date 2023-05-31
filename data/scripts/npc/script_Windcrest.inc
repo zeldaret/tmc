@@ -1,8 +1,8 @@
 @ All Windcrests
 SCRIPT_START script_Windcrest
 	BeginBlock
-	Call sub_0807F934
-	Call sub_080A2124
+	Call MakeCheckableObjectInteractable
+	Call Windcrest_ChangeInteractableHitbox
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
 	EndBlock

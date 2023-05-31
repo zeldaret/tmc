@@ -117,7 +117,7 @@ void sub_080855E8(LilypadLargeEntity* this) {
     super->flags |= 0x20;
     if (sub_0806FC80(super, &gPlayerEntity, 0x18) != 0) {
 
-        gPlayerState.flags |= 2;
+        gPlayerState.flags |= PL_FLAGS2;
         if (gPlayerEntity.z.WORD == 0) {
             if (gPlayerState.swim_state != 0) {
                 gPlayerEntity.collisionFlags &= 0xfb;
@@ -258,7 +258,7 @@ void sub_080855E8(LilypadLargeEntity* this) {
             this->unk_85 = 0;
         }
 
-        if ((gPlayerState.flags & 2) != 0) {
+        if ((gPlayerState.flags & PL_FLAGS2) != 0) {
             sub_08085F1C(this);
         }
 

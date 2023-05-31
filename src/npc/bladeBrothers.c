@@ -235,7 +235,7 @@ void sub_08068A1C(Entity* this) {
         bVar1 = 3;
 
     } else {
-        sub_08078778(this);
+        AddInteractableWhenBigObject(this);
         offset = 2;
         bVar1 = 1;
     }
@@ -291,8 +291,8 @@ void sub_08068ADC(Entity* this) {
 void sub_08068AFC(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
     sub_0807DD50(this);
 }
 

@@ -26,7 +26,7 @@ CFile::CFile(std::string path) {
     FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == NULL)
-        fatal_error("Failed to open \"%s\" for reading.\n", path.c_str());
+        fatal_error("Failed to open \"{}\" for reading.\n", path.c_str());
 
     std::fseek(fp, 0, SEEK_END);
 
@@ -38,7 +38,7 @@ CFile::CFile(std::string path) {
     std::rewind(fp);
 
     if (std::fread(m_buffer, m_size, 1, fp) != 1)
-        fatal_error("Failed to read \"%s\".\n", path.c_str());
+        fatal_error("Failed to read \"{}\".\n", path.c_str());
 
     std::fclose(fp);
 

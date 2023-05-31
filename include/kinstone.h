@@ -23,28 +23,28 @@ extern FuseInfo gFuseInfo;
 
 typedef struct {
     u8 objPalette;
-    u8 unk1;
-    u8 unk2;
+    u8 gfxOffsetPiece;
+    u8 gfxOffsetFull;
     u8 subtask; // SUBTASK_WORLDEVENT or 0
     u8 worldEventId;
-    u8 unk5;
-    u8 unk6;
-    u8 unk7; // TODO flag if it shows a map hint?
+    u8 shape;
+    u8 bubbleIcon;
+    u8 mapMarkerIcon; // 0 for no map marker
 } KinstoneWorldEvent;
 // Indexed by kinstoneId
 extern const KinstoneWorldEvent gKinstoneWorldEvents[];
 
 typedef enum {
-    KINSTONE_0,
-    KINSTONE_1,
-    KINSTONE_2,
-    KINSTONE_3,
-    KINSTONE_4,
-    KINSTONE_5,
+    KINSTONE_NONE,
+    KINSTONE_MYSTERIOUS_CLOUD_TOP_RIGHT,
+    KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_LEFT,
+    KINSTONE_MYSTERIOUS_CLOUD_TOP_LEFT,
+    KINSTONE_MYSTERIOUS_CLOUD_MIDDLE,
+    KINSTONE_MYSTERIOUS_CLOUD_BOTTOM_RIGHT,
     KINSTONE_CASTOR_WILDS_STATUE_LEFT,
     KINSTONE_CASTOR_WILDS_STATUE_MIDDLE,
     KINSTONE_CASTOR_WILDS_STATUE_RIGHT,
-    KINSTONE_9,
+    KINSTONE_SOURCE_FLOW,
     KINSTONE_A,
     KINSTONE_B,
     KINSTONE_C,
@@ -131,6 +131,16 @@ typedef enum {
     KINSTONE_5D,
     KINSTONE_5E,
     KINSTONE_5F,
+    KINSTONE_60,
+    KINSTONE_61,
+    KINSTONE_62,
+    KINSTONE_63,
+    KINSTONE_64,
+    /* some special values, mostly for fusers */
+    KINSTONE_NEEDS_REPLACEMENT = 0xF1,
+    KINSTONE_JUST_FUSED = 0xF2,
+    KINSTONE_FUSER_DONE = 0xF3,
+    KINSTONE_RANDOM = 0xFF,
 } KinstoneId;
 
 typedef struct {
@@ -209,7 +219,7 @@ typedef struct {
     u16 y;        /**< Y position of the actual event. */
     u16 _c;       // see GetOverworldLocation, related to _0 and _2 of gOverworldLocations
     u16 _e;       // see GetOverworldLocation, related to _1 and _3 of gOverworldLocations
-    u8 condition; // TODO some sort of flag determining what type the bank&flag are? see sub_0801E8D4
+    u8 condition; // TODO some sort of flag determining what type the bank&flag are? see UpdateVisibleFusionMapMarkers
     u8 bank;      /**< @see LocalBanks */
     u16 flag;
 } WorldEvent;

@@ -13,8 +13,6 @@
 #include "message.h"
 #include "screen.h"
 
-extern u8 gUnk_02034DF0[0x2F2];
-
 const u16 gUnk_08108DE8[] = { 0,     0x70b, 0x70c, 0x70d, 0x70e, 0x70f, 0x710, 0x711, 0x712, 0x713, 0x714,
                               0x715, 0x716, 0x717, 0x718, 0x719, 0x71a, 0x71b, 0x71c, 0x71d, 0x71e, 0x71f,
                               0x726, 0x720, 0x720, 0x721, 0x722, 0x723, 0x725, 0x727, 0x724, 0x728 };
@@ -67,7 +65,7 @@ void sub_0805E18C(EnterRoomTextboxManager* this) {
 }
 
 void sub_0805E1D8(EnterRoomTextboxManager* this) {
-    MemClear(&gUnk_02034DF0, 0x80);
+    MemClear(&gBG0Buffer[0xa0], 0x80);
     gScreen.bg0.updated = 1;
     DeleteThisEntity();
 }
@@ -80,7 +78,7 @@ void sub_0805E1F8(u32 unk0, bool32 isDungeon) {
         u8 unk_06[3];
     } PACKED tmp;
     const Font* font;
-    MemClear(&gUnk_02034DF0, 0x80);
+    MemClear(&gBG0Buffer[0xa0], 0x80);
     MemCopy(gUnk_08108E60, &tmp, sizeof(tmp));
     tmp.unk_04 = unk0 >> 8;
     tmp.unk_05 = unk0;

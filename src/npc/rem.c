@@ -328,10 +328,10 @@ void sub_0806A914(Entity* this) {
     }
 }
 
-void sub_0806A93C(Entity* this) {
-    static const u8 gUnk_0811229C[] = { 0, 6, 10, 16 };
-    sub_08078778(this);
-    sub_08078850(this, 0, 0, &gUnk_0811229C);
+void Rem_MakeInteractable(Entity* this) {
+    static const Rect gUnk_0811229C = { 0, 6, 10, 16 };
+    AddInteractableWhenBigObject(this);
+    SetInteractableObjectCollision(this, 0, 0, &gUnk_0811229C);
 }
 
 void sub_0806A958(Entity* this) {

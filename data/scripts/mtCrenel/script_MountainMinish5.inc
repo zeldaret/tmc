@@ -2,7 +2,7 @@
 SCRIPT_START script_MountainMinish5
 	BeginBlock
 	SetEntitySpeed 0x0100
-	Call sub_08068104
+	Call MountainMinish_MakeInteractable
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800D426:
@@ -42,7 +42,7 @@ script_0800D426:
 	.2byte 0x0000
 	BeginBlock
 	DoPostScriptAction 0x000a
-	Call sub_08062A48
+	Call Kid_MakeInteractable
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 script_0800D4E4:

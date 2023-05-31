@@ -42,8 +42,8 @@ void sub_0806CAF4(Entity* this) {
             SortEntityAbove(this, npc);
         }
         sub_0807DD64(this);
-        sub_08078778(this);
-        sub_08078850(this, 1, (u8)gUnk_08113D84[1], gUnk_08113D84);
+        AddInteractableWhenBigObject(this);
+        SetInteractableObjectCollision(this, 1, (u8)gUnk_08113D84[1], gUnk_08113D84);
     }
     ExecuteScriptForEntity(this, NULL);
     HandleEntity0x82Actions(this);
@@ -154,9 +154,9 @@ void sub_0806CD4C(Entity* this) {
     ChangeObjPalette(this, 0x110);
 }
 
-void sub_0806CD58(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x68.HALF.LO);
+void Gregal_MakeInteractable(Entity* this) {
+    this->field_0x68.HALF.LO = GetFusionToOffer(this);
+    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
 }
 
 void Gregal_Fusion(Entity* this) {

@@ -79,7 +79,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
         case 0:
             if (CheckLocalFlag(SHOP07_TANA)) {
                 this->unk_7a = 1;
-                sub_080787B4(super);
+                AddInteractableCheckableObject(super);
             } else {
                 this->unk_7a = 0;
             }
@@ -123,7 +123,7 @@ void FigurineDevice_Action1(FigurineDeviceEntity* this) {
     switch (this->unk_7a) {
         case 0:
             this->unk_7a = 1;
-            sub_080787B4(super);
+            AddInteractableCheckableObject(super);
             break;
         case 1:
             if (super->interactType != 0) {
@@ -142,7 +142,7 @@ void FigurineDevice_Action1(FigurineDeviceEntity* this) {
         default:
             if (CheckRoomFlag(2) == 0) {
                 this->unk_7a = 1;
-                sub_080787B4(super);
+                AddInteractableCheckableObject(super);
             }
             break;
     }
