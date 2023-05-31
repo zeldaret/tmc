@@ -17,18 +17,21 @@
 
 typedef struct {
     /*0x00*/ Menu base;
-    s16 unk_10;
-    u16 unk_12;
+    s16 gfxEntry;
+    u16 bg2XOffset;
     u16 unk_14;
     u8 unk_16;
     u8 unk_17;
     u8 unk_18;
-    u8 unk_19;
+    u8 font;
     u8 bgmMusicStarted;
     u8 unk_1b[0x14];
     u8 unk_2f;
 } StaffrollMenu;
 #define gStaffrollMenu (*(StaffrollMenu*)&gMenu)
+
+
+
 
 const Font gUnk_08127280 = {
     &gBG1Buffer[0x21], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
@@ -43,18 +46,20 @@ const Font gUnk_081272C8 = {
     &gBG1Buffer[0x1cf], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
 };
 
-const Font* const gUnk_081272E0[] = {
+const Font* const gStaffrollFonts[] = {
     &gUnk_08127280,
     &gUnk_08127298,
     &gUnk_081272B0,
     &gUnk_081272C8,
 };
 
+
+
 // TODO figure out structure of gStaffrollMenu.base.field_0xc
-extern u8 gUnk_081272F0[];
-extern u8 gUnk_08127644[];
-extern u8 gUnk_08127998[];
-extern const u8 gUnk_08127CEC[];
+extern StaffrollEntry gUnk_081272F0[];
+extern StaffrollEntry gUnk_08127644[];
+extern StaffrollEntry gUnk_08127998[];
+extern const StaffrollGfxEntry gUnk_08127CEC[];
 extern void (*const gUnk_08127D00[])(void);
 extern void (*const gUnk_08127D10[])(void);
 
@@ -74,13 +79,13 @@ void StaffrollTask_State0(void) {
     gStaffrollMenu.unk_16 = 5;
     gStaffrollMenu.unk_17 = 4;
     gStaffrollMenu.bgmMusicStarted = 0;
-    if (gSaveHeader->language >= 2) {
-        gStaffrollMenu.base.field_0xc = gUnk_08127998;
+    if (gSaveHeader->language >= LANGUAGE_FR) { // European
+        gStaffrollMenu.base.field_0xc = (void*)gUnk_08127998;
     } else {
-        if (gSaveHeader->language == 1) {
-            gStaffrollMenu.base.field_0xc = gUnk_08127644;
-        } else {
-            gStaffrollMenu.base.field_0xc = gUnk_081272F0;
+        if (gSaveHeader->language == LANGUAGE_EN) { // English
+            gStaffrollMenu.base.field_0xc = (void*)gUnk_08127644;
+        } else { // Japanese
+            gStaffrollMenu.base.field_0xc = (void*)gUnk_081272F0;
         }
     }
     DispReset(0);
@@ -109,12 +114,12 @@ void StaffrollTask_State1MenuType0(void) {
 
 void StaffrollTask_State1MenuType1(void) {
     if (gFadeControl.active == 0) {
-        const u8* ptr = &gUnk_08127CEC[gStaffrollMenu.unk_10 * 2];
-        LoadPaletteGroup(ptr[0]);
-        LoadGfxGroup(ptr[1]);
+        const StaffrollGfxEntry* ptr = &gUnk_08127CEC[gStaffrollMenu.gfxEntry];
+        LoadPaletteGroup(ptr->paletteGroup);
+        LoadGfxGroup(ptr->gfxGroup);
         MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
         gScreen.bg1.updated = 1;
-        gScreen.bg2.xOffset = gStaffrollMenu.unk_12;
+        gScreen.bg2.xOffset = gStaffrollMenu.bg2XOffset;
         gScreen.controls.alphaBlend = 0x1000;
         gStaffrollMenu.base.menuType = 0;
         if (gStaffrollMenu.bgmMusicStarted == 0) {
@@ -130,7 +135,7 @@ void StaffrollTask_State1MenuType2(void) {
     switch (gStaffrollMenu.base.overlayType) {
         case 0:
             MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
-            ShowTextBox(gStaffrollMenu.unk_10, gUnk_081272E0[gStaffrollMenu.unk_19]);
+            ShowTextBox(gStaffrollMenu.gfxEntry, gStaffrollFonts[gStaffrollMenu.font]);
             gScreen.bg1.updated = 1;
             gStaffrollMenu.base.overlayType++;
             gStaffrollMenu.unk_18 = 0;
@@ -225,11 +230,11 @@ void sub_080A3954(void) {
     pbVar4 = gStaffrollMenu.base.field_0xc + 1;
     gStaffrollMenu.base.menuType = *gStaffrollMenu.base.field_0xc;
     gStaffrollMenu.base.overlayType = 0;
-    gStaffrollMenu.unk_10 = *puVar1;
+    gStaffrollMenu.gfxEntry = *puVar1;
     gStaffrollMenu.base.transitionTimer = *(u16*)(gStaffrollMenu.base.field_0xc + 4);
-    gStaffrollMenu.unk_12 = *puVar2;
+    gStaffrollMenu.bg2XOffset = *puVar2;
     gStaffrollMenu.unk_14 = *puVar3;
-    gStaffrollMenu.unk_19 = *pbVar4;
+    gStaffrollMenu.font = *pbVar4;
     gStaffrollMenu.base.field_0xc += 0xc;
 }
 

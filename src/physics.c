@@ -115,6 +115,7 @@ void sub_0806F4E8(Entity* ent) {
     }
 }
 
+// TODO isSuckedInByGustJar?
 bool32 sub_0806F520(Entity* ent) {
     if (ent->contactFlags == 0x93)
         return 1;

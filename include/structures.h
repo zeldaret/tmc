@@ -372,4 +372,21 @@ typedef struct {
     s8 width;
     s8 height;
 } Rect;
+
+typedef struct {
+    /*0x0*/ u8 menuType;
+    /*0x1*/ u16 font;
+    /*0x3*/ u8 unk_3; // TODO padding?
+    /*0x4*/ u16 transitionTimer;
+    /*0x6*/ u16 gfxEntry;
+    /*0x8*/ u16 bg2XOffset;
+    /*0xa*/ u16 sm_unk_14;
+} PACKED StaffrollEntry;
+
+static_assert(sizeof(StaffrollEntry) == 0xc);
+
+typedef struct {
+    u8 paletteGroup;
+    u8 gfxGroup;
+} PACKED StaffrollGfxEntry;
 #endif // STRUCTURES_H
