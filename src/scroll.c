@@ -16,7 +16,7 @@
 #include "screen.h"
 #include "structures.h"
 
-extern void sub_08080BC4(void);
+extern void UpdateScreenShake(void);
 extern void sub_0807C8B0(u16*, u32, u32);
 extern void RenderTilemapToScreenblock(u8*, LayerStruct*);
 extern void sub_0807C810();
@@ -64,7 +64,7 @@ void sub_08080910(s32);
 
 extern u8 gMapDataTopSpecial[];
 
-extern const s8 gUnk_080169A4[];
+extern const s8 gScreenShakeOffsets[];
 
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
@@ -83,27 +83,29 @@ void sub_0807FC64(RoomControls* controls) {
     UpdateIsDiggingCave();
 }
 
+// Scroll until target is at the center of the screen.
 void sub_0807FC7C(RoomControls* controls) {
     s32 uVar2;
-    s32 uVar3;
+    s32 diff;
     s32 iVar4;
     s32 uVar5;
-    s32 temp;
+    s32 targetValue;
 
     if (controls->camera_target != NULL) {
+        // Scroll in x direction.
         iVar4 = controls->scroll_x;
-        temp = controls->camera_target->x.HALF.HI - 0x78;
-        uVar3 = controls->scroll_x - temp;
-        if (uVar3 != 0) {
+        targetValue = controls->camera_target->x.HALF.HI - 0x78;
+        diff = controls->scroll_x - targetValue;
+        if (diff != 0) {
             uVar5 = controls->scroll_x & 7;
-            if (uVar3 >= 1) {
+            if (diff >= 1) {
                 if (controls->origin_x < controls->scroll_x) {
-                    if (controls->scrollSpeed <= uVar3) {
-                        uVar3 = controls->scrollSpeed;
+                    if (controls->scrollSpeed <= diff) {
+                        diff = controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
-                    controls->scroll_x = controls->scroll_x - uVar3;
-                    if (uVar5 - uVar3 < 1) {
+                    controls->scroll_x = controls->scroll_x - diff;
+                    if (uVar5 - diff < 1) {
                         gUpdateVisibleTiles = 1;
                     }
                     if (controls->origin_x >= controls->scroll_x) {
@@ -113,12 +115,12 @@ void sub_0807FC7C(RoomControls* controls) {
             } else {
                 uVar2 = controls->origin_x + controls->width - 0xf0;
                 if (controls->scroll_x < uVar2) {
-                    if (-controls->scrollSpeed >= uVar3) {
-                        uVar3 = -controls->scrollSpeed;
+                    if (-controls->scrollSpeed >= diff) {
+                        diff = -controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
-                    controls->scroll_x -= uVar3;
-                    if (uVar5 - uVar3 > 7) {
+                    controls->scroll_x -= diff;
+                    if (uVar5 - diff > 7) {
                         gUpdateVisibleTiles = 1;
                     }
                     if (controls->scroll_x >= uVar2) {
@@ -128,19 +130,20 @@ void sub_0807FC7C(RoomControls* controls) {
             }
         }
 
+        // Scroll in y direction.
         iVar4 = controls->scroll_y;
-        temp = controls->camera_target->y.HALF.HI - 0x50;
-        uVar3 = controls->scroll_y - (temp);
-        if (uVar3 != 0) {
+        targetValue = controls->camera_target->y.HALF.HI - 0x50;
+        diff = controls->scroll_y - (targetValue);
+        if (diff != 0) {
             uVar5 = controls->scroll_y & 7;
-            if (uVar3 >= 1) {
+            if (diff >= 1) {
                 if (controls->origin_y < controls->scroll_y) {
-                    if (controls->scrollSpeed <= uVar3) {
-                        uVar3 = controls->scrollSpeed;
+                    if (controls->scrollSpeed <= diff) {
+                        diff = controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
-                    controls->scroll_y = controls->scroll_y - uVar3;
-                    if (uVar5 - uVar3 < 1) {
+                    controls->scroll_y = controls->scroll_y - diff;
+                    if (uVar5 - diff < 1) {
                         gUpdateVisibleTiles = 1;
                     }
                     if (controls->origin_y >= controls->scroll_y) {
@@ -150,12 +153,12 @@ void sub_0807FC7C(RoomControls* controls) {
             } else {
                 uVar2 = controls->origin_y + controls->height - DISPLAY_HEIGHT;
                 if (controls->scroll_y < uVar2) {
-                    if (-controls->scrollSpeed >= uVar3) {
-                        uVar3 = -controls->scrollSpeed;
+                    if (-controls->scrollSpeed >= diff) {
+                        diff = -controls->scrollSpeed;
                         controls->scroll_flags |= 4;
                     }
-                    controls->scroll_y -= uVar3;
-                    if (uVar5 - uVar3 > 7) {
+                    controls->scroll_y -= diff;
+                    if (uVar5 - diff > 7) {
                         gUpdateVisibleTiles = 1;
                     }
                     if (controls->scroll_y >= uVar2) {
@@ -165,7 +168,7 @@ void sub_0807FC7C(RoomControls* controls) {
             }
         }
     }
-    sub_08080BC4();
+    UpdateScreenShake();
 }
 
 void sub_0807FDB0(RoomControls* controls) {
@@ -239,7 +242,7 @@ void sub_0807FDF8(RoomControls* controls) {
     }
 
     controls->shake_duration = 0;
-    sub_08080BC4();
+    UpdateScreenShake();
 }
 
 void sub_0807FEC8(RoomControls* controls) {
@@ -775,7 +778,7 @@ void sub_080809D4(void) {
         roomControls->scroll_y = var1 - 80;
     }
 
-    sub_08080BC4();
+    UpdateScreenShake();
     gUpdateVisibleTiles = 1;
 }
 
@@ -833,44 +836,41 @@ void FillUnkData3ForLayer(LayerStruct* layer) {
     }
 }
 
-void sub_08080BC4(void) {
-    const s8* ptr;
-    s32 tmpX;
-    s32 tmpY;
-
-    tmpX = (gRoomControls.scroll_x - gRoomControls.origin_x) & 0xf;
-    tmpY = ((gRoomControls.scroll_y - gRoomControls.origin_y) & 0xf) + 8;
+void UpdateScreenShake(void) {
+    const s8* screenShakeOffset;
+    s32 roomOffsetX = (gRoomControls.scroll_x - gRoomControls.origin_x) & 0xf;
+    s32 roomOffsetY = ((gRoomControls.scroll_y - gRoomControls.origin_y) & 0xf) + 8;
     if (gRoomControls.shake_duration != 0) {
         gRoomControls.shake_duration--;
-        ptr = &gUnk_080169A4[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
+        screenShakeOffset = &gScreenShakeOffsets[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
         if (gMapBottom.bgSettings != NULL) {
-            gMapBottom.bgSettings->xOffset = ptr[0] + tmpX;
-            gMapBottom.bgSettings->yOffset = ptr[1] + tmpY;
+            gMapBottom.bgSettings->xOffset = screenShakeOffset[0] + roomOffsetX;
+            gMapBottom.bgSettings->yOffset = screenShakeOffset[1] + roomOffsetY;
         }
         if (gMapTop.bgSettings != NULL) {
-            gMapTop.bgSettings->xOffset = ptr[0] + tmpX;
-            gMapTop.bgSettings->yOffset = ptr[1] + tmpY;
+            gMapTop.bgSettings->xOffset = screenShakeOffset[0] + roomOffsetX;
+            gMapTop.bgSettings->yOffset = screenShakeOffset[1] + roomOffsetY;
         }
-        gRoomControls.aff_x = ptr[0];
-        gRoomControls.aff_y = ptr[1];
+        gRoomControls.aff_x = screenShakeOffset[0];
+        gRoomControls.aff_y = screenShakeOffset[1];
     } else {
         if (gMapBottom.bgSettings != NULL) {
-            gMapBottom.bgSettings->xOffset = tmpX;
-            gMapBottom.bgSettings->yOffset = tmpY;
+            gMapBottom.bgSettings->xOffset = roomOffsetX;
+            gMapBottom.bgSettings->yOffset = roomOffsetY;
         }
         if (gMapTop.bgSettings != NULL) {
-            gMapTop.bgSettings->xOffset = tmpX;
-            gMapTop.bgSettings->yOffset = tmpY;
+            gMapTop.bgSettings->xOffset = roomOffsetX;
+            gMapTop.bgSettings->yOffset = roomOffsetY;
         }
         gRoomControls.aff_x = 0;
         gRoomControls.aff_y = 0;
     }
 }
 
-void sub_08080C80(MapDataDefinition* param_1) {
-    LoadMapData(param_1);
-    sub_0807C8B0(gMapBottom.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
-    sub_0807C8B0(gMapTop.mapData, gRoomControls.width >> 4, gRoomControls.height >> 4);
+void sub_08080C80(MapDataDefinition* dataDefinition) {
+    LoadMapData(dataDefinition);
+    sub_0807C8B0(gMapBottom.mapData, gRoomControls.width / 16, gRoomControls.height / 16);
+    sub_0807C8B0(gMapTop.mapData, gRoomControls.width / 16, gRoomControls.height / 16);
 }
 
 void sub_08080CB4(Entity* this) {

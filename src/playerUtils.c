@@ -28,7 +28,7 @@ extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern void sub_08003FDE(Entity*, u32, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
-extern void sub_08080BC4(void);
+extern void UpdateScreenShake(void);
 void sub_080790E4(Entity* this);
 void sub_08079064(Entity*);
 
@@ -3509,8 +3509,8 @@ void LoadRoomGfx(void) {
     MemClear(&gMapDataTopSpecial, 0x8000);
     LoadMapData((gArea.pCurrentRoomInfo)->map);
     if (gMapBottom.mapData[0] != 0xffff) {
-        sub_0807C8B0(gMapBottom.mapData, roomControls->width >> 4, roomControls->height >> 4);
-        sub_0807C8B0(gMapTop.mapData, roomControls->width >> 4, roomControls->height >> 4);
+        sub_0807C8B0(gMapBottom.mapData, roomControls->width / 16, roomControls->height / 16);
+        sub_0807C8B0(gMapTop.mapData, roomControls->width / 16, roomControls->height / 16);
         clearBottomMap = FALSE;
     } else {
         MemClear(gMapBottom.mapData, sizeof(gMapBottom.mapData));
@@ -3834,7 +3834,7 @@ void InitializeCamera() {
         }
     }
     roomControls->scroll_flags &= 0xfb;
-    sub_08080BC4();
+    UpdateScreenShake();
 }
 
 void sub_0807C810(void) {
