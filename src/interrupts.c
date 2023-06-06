@@ -94,8 +94,10 @@ void sub_08016CA8(BgSettings* bg) {
     }
 }
 
-NONMATCH("asm/non_matching/DispCtrlSet.inc", void DispCtrlSet(void)) {
+void DispCtrlSet(void) {
+    u16* tmp2;
     BgControls* controls;
+    BgTransformationSettings* bgTfSettings;
     u16 tmp = gScreen.lcd.displayControl & gScreen.lcd.displayControlMask;
     REG_DISPCNT = tmp;
 
@@ -113,36 +115,41 @@ NONMATCH("asm/non_matching/DispCtrlSet.inc", void DispCtrlSet(void)) {
     REG_BG3VOFS = gScreen.bg3.yOffset;
 
     controls = &(gScreen.controls);
-    REG_BG2PA = controls->bg2.dx;
-    REG_BG2PB = controls->bg2.dmx;
-    REG_BG2PC = controls->bg2.dy;
-    REG_BG2PD = controls->bg2.dmy;
-    REG_BG2X_L = controls->bg2.xPointLeastSig;
-    REG_BG2X_H = controls->bg2.xPointMostSig;
-    REG_BG2Y_L = controls->bg2.yPointLeastSig;
-    REG_BG2Y_H = controls->bg2.yPointMostSig;
+    bgTfSettings = &controls->bg2;
 
-    REG_BG3PA = controls->bg3.dx;
-    REG_BG3PB = controls->bg3.dmx;
-    REG_BG3PC = controls->bg3.dy;
-    REG_BG3PD = controls->bg3.dmy;
-    REG_BG3X_L = controls->bg3.xPointLeastSig;
-    REG_BG3X_H = controls->bg3.xPointMostSig;
-    REG_BG3Y_L = controls->bg3.yPointLeastSig;
-    REG_BG3Y_H = controls->bg3.yPointMostSig;
+    REG_BG2PA = bgTfSettings->dx;
+    REG_BG2PB = bgTfSettings->dmx;
+    REG_BG2PC = bgTfSettings->dy;
+    REG_BG2PD = bgTfSettings->dmy;
+    REG_BG2X_L = bgTfSettings->xPointLeastSig;
+    REG_BG2X_H = bgTfSettings->xPointMostSig;
+    REG_BG2Y_L = bgTfSettings->yPointLeastSig;
+    REG_BG2Y_H = bgTfSettings->yPointMostSig;
 
-    REG_WIN0H = controls->window0HorizontalDimensions;
-    REG_WIN1H = controls->window1HorizontalDimensions;
-    REG_WIN0V = controls->window0VerticalDimensions;
-    REG_WIN1V = controls->window1VerticalDimensions;
-    REG_WININ = controls->windowInsideControl;
-    REG_WINOUT = controls->windowOutsideControl;
-    REG_MOSAIC = controls->mosaicSize;
-    REG_BLDCNT = controls->layerFXControl;
-    REG_BLDALPHA = controls->alphaBlend;
-    REG_BLDY = controls->layerBrightness;
+    bgTfSettings = &controls->bg3;
+
+    REG_BG3PA = bgTfSettings->dx;
+    REG_BG3PB = bgTfSettings->dmx;
+    REG_BG3PC = bgTfSettings->dy;
+    REG_BG3PD = bgTfSettings->dmy;
+    REG_BG3X_L = bgTfSettings->xPointLeastSig;
+    REG_BG3X_H = bgTfSettings->xPointMostSig;
+    REG_BG3Y_L = bgTfSettings->yPointLeastSig;
+    REG_BG3Y_H = bgTfSettings->yPointMostSig;
+
+    tmp2 = &controls->window0HorizontalDimensions;
+    REG_WIN0H = tmp2[0];
+    // REG_WIN0H = *tmp2;
+    REG_WIN1H = tmp2[1];
+    REG_WIN0V = tmp2[2];
+    REG_WIN1V = tmp2[3];
+    REG_WININ = tmp2[4];
+    REG_WINOUT = tmp2[5];
+    REG_MOSAIC = tmp2[6];
+    REG_BLDCNT = tmp2[7];
+    REG_BLDALPHA = tmp2[8];
+    REG_BLDY = tmp2[9];
 }
-END_NONMATCH
 
 // Load any resources that were requested with LoadResourceAsync
 void LoadResources(void) {
