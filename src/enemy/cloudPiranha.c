@@ -245,7 +245,7 @@ void sub_080387F0(CloudPiranhaEntity* this) {
     const s8* ptr;
 
     if ((super->action != 4) && (this->unk_82 == 0)) {
-        iVar4 = sub_080B1B44(COORD_TO_TILE(super), super->collisionLayer);
+        iVar4 = GetCollisionData(COORD_TO_TILE(super), super->collisionLayer);
         if ((iVar4 == 0xf) || (iVar4 == 0x2a)) {
             this->unk_82 = 0x20;
         }

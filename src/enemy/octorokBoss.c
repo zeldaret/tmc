@@ -168,12 +168,13 @@ void OctorokBoss_Hit_SubAction1(OctorokBossEntity* this) {
         if (diffX > 8 || diffY > 8) {
             this->heap->field_0x2 = 1;
 #if defined(JP) || defined(DEMO_JP) || defined(EU)
-            super->direction = ((s32)CalculateDirectionFromOffsets((((gRoomControls.origin_x + 0x108) << 0x10) - super->x.WORD),
-                                                  (((gRoomControls.origin_y + 0x88) << 0x10) - super->y.WORD))) >>
-                               3;
+            super->direction =
+                ((s32)CalculateDirectionFromOffsets((((gRoomControls.origin_x + 0x108) << 0x10) - super->x.WORD),
+                                                    (((gRoomControls.origin_y + 0x88) << 0x10) - super->y.WORD))) >>
+                3;
 #else
             super->direction = ((s32)CalculateDirectionFromOffsets(gRoomControls.origin_x + 0x108 - super->x.HALF.HI,
-                                                  gRoomControls.origin_y + 0x88 - super->y.HALF.HI)) >>
+                                                                   gRoomControls.origin_y + 0x88 - super->y.HALF.HI)) >>
                                3;
 #endif
             super->speed = 0x100;
@@ -690,8 +691,9 @@ void OctorokBoss_Action1_AimTowardsPlayer(OctorokBossEntity* this) {
     s32 tmp1;
     s32 tmp2;
 
-    tmp1 = (u8)(CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD) -
-                (((u8)(-this->angle.HALF.HI) ^ 0x80)));
+    tmp1 =
+        (u8)(CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD) -
+             (((u8)(-this->angle.HALF.HI) ^ 0x80)));
     if (IS_FROZEN(this) == FALSE) {
         tmp2 = 8;
     } else {
@@ -898,7 +900,8 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
     s32 tmp;
 
     if (this->unk_80 == 0) {
-        super->direction = CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD);
+        super->direction =
+            CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD);
         tmp = ((u8) - (this->angle.HALF.HI + 0x80)) - super->direction;
         if (tmp < 0) {
             tmp = -tmp;
@@ -911,9 +914,9 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
                         if (sub_0806FC80(super, &gPlayerEntity, 0x48) != 0) {
                             this->unk_80 = 1;
                             this->timer = 2;
-                            this->heap->targetAngle =
-                                CalculateDirectionFromOffsets((gRoomControls.origin_x + 0x108) * 0x10000 - super->x.WORD,
-                                             (gRoomControls.origin_y + 0x88) * 0x10000 - super->y.WORD);
+                            this->heap->targetAngle = CalculateDirectionFromOffsets(
+                                (gRoomControls.origin_x + 0x108) * 0x10000 - super->x.WORD,
+                                (gRoomControls.origin_y + 0x88) * 0x10000 - super->y.WORD);
                             this->heap->targetAngle = (u8) - (this->heap->targetAngle + 0x80);
                             SoundReq(SFX_ED);
                         }
@@ -956,7 +959,8 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
     } else {
         this->timer--;
         if ((gPlayerState.flags == PL_FROZEN) && (this->timer == 0x3c)) {
-            tmp = CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD);
+            tmp = CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD,
+                                                gPlayerEntity.y.WORD - super->y.WORD);
             if ((u8)((tmp - ((u8) - this->angle.HALF.HI ^ 0x80))) > 0x80) {
                 this->heap->targetAngle = this->angle.HALF.HI + 0x30;
             } else {
@@ -1177,9 +1181,9 @@ void sub_08036AF0(OctorokBossEntity* this, s32 radius, s32 angleSpeed) {
                                        heap->tailObjects[index - 1]->base.y.HALF.HI)) {
                 continue;
             } else {
-                heap->tailObjects[index - 1]->angle.HALF.HI =
-                    CalculateDirectionFromOffsets(heap->tailObjects[index - 1]->base.x.WORD - heap->tailObjects[index]->base.x.WORD,
-                                 heap->tailObjects[index - 1]->base.y.WORD - heap->tailObjects[index]->base.y.WORD);
+                heap->tailObjects[index - 1]->angle.HALF.HI = CalculateDirectionFromOffsets(
+                    heap->tailObjects[index - 1]->base.x.WORD - heap->tailObjects[index]->base.x.WORD,
+                    heap->tailObjects[index - 1]->base.y.WORD - heap->tailObjects[index]->base.y.WORD);
                 tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI], radius << 4);
                 tmp = FixedDiv(tmp, 0x100);
                 heap->tailObjects[index - 1]->base.x.WORD = heap->tailObjects[index]->base.x.WORD + ((s32)tmp << 8);

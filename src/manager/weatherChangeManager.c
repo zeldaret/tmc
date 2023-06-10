@@ -10,6 +10,7 @@
 #include "common.h"
 #include "fileselect.h"
 #include "functions.h"
+#include "main.h"
 #include "room.h"
 #include "screen.h"
 #include "sound.h"
@@ -21,15 +22,12 @@ void sub_080596E0(WeatherChangeManager*);
 u32 sub_08059844(void);
 u32 sub_0805986C(void);
 void sub_08059894(const u16*, const u16*, u32);
-u32 sub_080598F8(u32, u32, u32);
-void sub_08059960(const u16*, const u16*, u16*, u8);
+u32 MixColors(u32, u32, u32);
+void MixPalettes(const u16*, const u16*, u16*, u8);
 
 const u8 gUnk_08108390[6] = {
     0x0F, 0x1E, 0x2D, 0x3C, 0x01, 0x01,
 };
-
-extern u16 gUnk_020176E0[];
-extern u8 gUnk_02017700[];
 
 extern const u16 gPalette_549[];
 
@@ -160,54 +158,56 @@ u32 sub_0805986C(void) {
     return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > 0x200;
 }
 
-void sub_08059894(const u16* unk1, const u16* unk2, u32 unk3) {
+void sub_08059894(const u16* palette1, const u16* palette2, u32 factor) {
     const u16* tmp1;
     const u16* tmp2;
     u16* tmp3;
     u32 tmp4;
     u32 i;
-    tmp1 = unk1;
-    tmp2 = unk2;
-    tmp3 = gUnk_020176E0;
+    tmp1 = palette1;
+    tmp2 = palette2;
+    tmp3 = gPaletteBuffer + 2 * 16;
     for (i = 0; i < 13; i++) {
-        sub_08059960(tmp1, tmp2, tmp3, unk3);
+        MixPalettes(tmp1, tmp2, tmp3, factor);
         tmp1 += 0x10;
         tmp2 += 0x10;
         tmp3 += 0x10;
     }
-    MemCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
-    gUsedPalettes |= 0x207ffc;
+    MemCopy(gPaletteBuffer + 3 * 16, gPaletteBuffer + 21 * 16, 16 * 2);
+    // Use palettes 2 to 14 and 21.
+    gUsedPalettes |= 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5 | 1 << 6 | 1 << 7 | 1 << 8 | 1 << 9 | 1 << 10 | 1 << 11 |
+                     1 << 12 | 1 << 13 | 1 << 14 | 1 << 21;
 }
 
-u32 sub_080598F8(u32 unk1, u32 unk2, u32 unk3) {
+u32 MixColors(u32 color1, u32 color2, u32 factor) {
     u32 tmp1, tmp2, tmp3;
     u32 tmp4, tmp5, tmp6;
 
-    tmp1 = (unk1 & 0x1F) << 8;
-    tmp1 = (tmp1 * unk3) >> 5;
-    tmp4 = (unk2 & 0x1F) << 8;
-    tmp4 = (tmp4 * (0x20 - unk3)) >> 5;
+    tmp1 = (color1 & 0x1F) << 8;
+    tmp1 = (tmp1 * factor) >> 5;
+    tmp4 = (color2 & 0x1F) << 8;
+    tmp4 = (tmp4 * (0x20 - factor)) >> 5;
     tmp1 = (tmp1 + tmp4) >> 8;
 
-    tmp2 = (unk1 & 0x3E0) << 3;
-    tmp2 = (tmp2 * unk3) >> 5;
-    tmp5 = (unk2 & 0x3E0) << 3;
-    tmp5 = (tmp5 * (0x20 - unk3)) >> 5;
+    tmp2 = (color1 & 0x3E0) << 3;
+    tmp2 = (tmp2 * factor) >> 5;
+    tmp5 = (color2 & 0x3E0) << 3;
+    tmp5 = (tmp5 * (0x20 - factor)) >> 5;
     tmp2 = (tmp2 + tmp5) >> 8;
 
-    tmp3 = (unk1 & 0x7C00) >> 2;
-    tmp3 = (tmp3 * unk3) >> 5;
-    tmp6 = (unk2 & 0x7C00) >> 2;
-    tmp6 = (tmp6 * (0x20 - unk3)) >> 5;
+    tmp3 = (color1 & 0x7C00) >> 2;
+    tmp3 = (tmp3 * factor) >> 5;
+    tmp6 = (color2 & 0x7C00) >> 2;
+    tmp6 = (tmp6 * (0x20 - factor)) >> 5;
     tmp3 = (tmp3 + tmp6) >> 8;
 
     return tmp1 | (tmp2 << 5) | (tmp3 << 10);
 }
 
-void sub_08059960(const u16* unk1, const u16* unk2, u16* unk3, u8 unk4) {
+void MixPalettes(const u16* srcPalette1, const u16* srcPalette2, u16* destPalette, u8 factor) {
     u32 i;
     for (i = 0; i < 0x10; i++) {
-        *unk3++ = sub_080598F8(*unk1++, *unk2++, unk4);
+        *destPalette++ = MixColors(*srcPalette1++, *srcPalette2++, factor);
     }
 }
 

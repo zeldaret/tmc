@@ -98,8 +98,8 @@ void FigurineMenu_080A4608(void) {
 
     SetBgmVolume(0x80);
     sub_080A4DA8(3);
-    SetColor(0, gPaletteBuffer[0xfb]);
-    SetColor(0x15c, gPaletteBuffer[0xd3]);
+    SetColor(0, gPaletteBuffer[251]);
+    SetColor(0x15c, gPaletteBuffer[211]);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG3Buffer, sizeof(gBG3Buffer));
     gScreen.controls.window0HorizontalDimensions = DISPLAY_WIDTH;

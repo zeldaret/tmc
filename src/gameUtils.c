@@ -824,16 +824,15 @@ void LoadItemGfx(void) {
     LoadGfxGroup(GetInventoryValue(ITEM_MAGIC_BOOMERANG) ? 28 : 27);
 }
 
-extern u16 gUnk_020178E0[];
 void sub_080533CC(void) {
-    u16* p1 = gUnk_020178E0;
-    u16* p2 = gUnk_020178E0 - 0x100;
+    u16* p1 = gPaletteBuffer + 288;
+    u16* p2 = gPaletteBuffer + 32;
     *p2++ = *p1++;
     *p2++ = *p1++;
     *p2++ = *p1++;
     *p2++ = *p1++;
     *p2++ = *p1++;
-    gUsedPalettes |= 8;
+    gUsedPalettes |= 1 << 3;
 }
 
 void UpdateTimerCallbacks(void) {

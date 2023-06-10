@@ -10,6 +10,7 @@
 #include "global.h"
 #include "item.h"
 #include "kinstone.h"
+#include "main.h"
 #include "manager/diggingCaveEntranceManager.h"
 #include "message.h"
 #include "new_player.h"
@@ -33,7 +34,6 @@ void sub_080790E4(Entity* this);
 void sub_08079064(Entity*);
 
 extern u8 gMapData;
-extern const u8 gUnk_020176E0[];
 extern const u8 gUnk_0800851C[];
 extern const u8 gUnk_080084BC[];
 extern const u8 gUnk_0800845C[];
@@ -125,8 +125,6 @@ void sub_0807C5B0(void);
 extern const u8 gUnk_080B3E80[];
 // collisions for tiles > 0x4000
 extern const u8 gUnk_080B79A7[];
-
-extern void RenderTilemapToScreenblock(u16*, LayerStruct*);
 
 extern u16 gUnk_080B77C0[];
 
@@ -1736,7 +1734,7 @@ void RespawnPlayer(void) {
             index = 0;
             if (gPlayerState.path_memory[0] != 0xffffffff) {
                 ptr1 = gPlayerState.path_memory;
-                while (sub_080B1B44((u16)*ptr1, *ptr1 >> 0x1e) == 0xf) {
+                while (GetCollisionData((u16)*ptr1, *ptr1 >> 0x1e) == 0xf) {
                     ptr1++;
                     index++;
                     if ((index > 0xf) || (*ptr1 == -1)) {
@@ -1886,7 +1884,7 @@ void sub_080797EC(void) {
                 } else {
                     animation = 0x16c;
                     if (sub_080793E4(0)) {
-                        if (sub_080B1B44(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
+                        if (GetCollisionData(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
                             animation = 0x170;
                         }
@@ -1920,7 +1918,7 @@ void sub_080797EC(void) {
                 } else if (gPlayerState.sword_state != 0) {
                     animation = 0x16c;
                     if (sub_080793E4(0)) {
-                        if (sub_080B1B44(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) != 0xff) {
+                        if (GetCollisionData(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
                             animation = 0x170;
                         }
@@ -2476,7 +2474,7 @@ void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
         index = param_1 % 16;
     }
     if ((index != 0) && (index != 0xf)) {
-        uVar2 = sub_080B1B44((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, gPlayerEntity.collisionLayer);
+        uVar2 = GetCollisionData((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, gPlayerEntity.collisionLayer);
         if (uVar2 > 0xf) {
             if (uVar2 != 0xff) {
                 uVar2 = param_3[uVar2 - 0x10];
@@ -2957,7 +2955,6 @@ void sub_0807B2F8(PlayerEntity* this) {
     }
 }
 
-
 // tileType < 0x800   : set the MetaTileType
 // tileType >= 0x4000 : call SetTile directly
 // else               : restore the previous tile entity
@@ -3095,10 +3092,10 @@ u32 sub_0807B600(u32 param_1) {
         } else {
             if (GetTileType(param_1, 2) != 0) {
                 SetTileType(0x2f2, param_1, 1);
-                if (sub_080B1B44(tile, 1) == 3) {
+                if (GetCollisionData(tile, 1) == 3) {
                     SetTileType(0x2f4, tile, 1);
                 }
-                if (sub_080B1B44(param_1 + 0x40, 1) == 3) {
+                if (GetCollisionData(param_1 + 0x40, 1) == 3) {
                     SetTileType(0x2f4, param_1, 1);
                 }
             } else {
@@ -3630,18 +3627,20 @@ void sub_0807C460(void) {
 }
 
 void sub_0807C4F8(void) {
+    // TODO convert to MapDataDefinition*
     u32* puVar1;
     u32* ptr;
 
-    if (gRoomControls.area != 0x71) {
+    if (gRoomControls.area != AREA_PALACE_OF_WINDS_BOSS) {
         MemClear(gMapDataBottomSpecial, 0x8000);
-        MemClear(&gMapDataTopSpecial, 0x8000);
+        MemClear(gMapDataTopSpecial, 0x8000);
         ptr = gUnk_02022830;
         puVar1 = (u32*)(gArea.pCurrentRoomInfo)->map;
         puVar1 -= 3;
         do {
             puVar1 += 3;
             if (((u16*)puVar1[1] == gMapDataBottomSpecial) || ((u16*)puVar1[1] == (u16*)&gMapDataTopSpecial)) {
+                // only store the map data definitions for bitmap backgrounds in gUnk_02022830?
                 ptr[0] = puVar1[0] & 0x7fffffff;
                 ptr[1] = puVar1[1];
                 ptr[2] = puVar1[2];
@@ -3895,8 +3894,8 @@ void sub_0807C9D8(u32* a1) {
     LoadCompressedMapData((u8*)0x6004000, *a1);
     LoadCompressedMapData((u8*)0x6000000, v1[1]);
     LoadCompressedMapData((u8*)0x6008000, v1[2]);
-    LoadCompressedMapData((u8*)gUnk_020176E0, v1[3]);
-    LoadPalettes(gUnk_020176E0, 2, 13);
+    LoadCompressedMapData((u8*)(gPaletteBuffer + 32), v1[3]);
+    LoadPalettes((u8*)(gPaletteBuffer + 32), 2, 13);
 }
 
 u32 FinalizeSave(void) {

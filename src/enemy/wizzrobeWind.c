@@ -236,7 +236,7 @@ void sub_0802F8E4(WizzrobeEntity* this) {
             iVar4 = ((s32)(rand)&0x7ff0) % (this->unk_6f << 3);
             uVar7 = (uVar1 + iVar4) | 8;
             uVar6 = TILE(uVar8, uVar7);
-            if ((sub_080B1B44(uVar6, super->collisionLayer) == 0) &&
+            if ((GetCollisionData(uVar6, super->collisionLayer) == 0) &&
                 (GetTileIndex(uVar6, super->collisionLayer) != 0x4071)) {
                 super->x.HALF.HI = (s16)uVar8;
                 super->y.HALF.HI = (s16)uVar7;

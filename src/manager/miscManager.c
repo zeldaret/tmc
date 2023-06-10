@@ -179,13 +179,13 @@ void MiscManager_Type1(MiscManager* this) {
 }
 
 void sub_08059064(MiscManager* this) {
-    Entity* tmp;
-    tmp = CreateObject(GROUND_ITEM, ITEM_SMALL_KEY, 0);
-    if (!tmp)
+    Entity* key;
+    key = CreateObject(GROUND_ITEM, ITEM_SMALL_KEY, 0);
+    if (!key)
         return;
-    tmp->timer = 2;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
+    key->timer = 2;
+    key->x.HALF.HI = this->x + gRoomControls.origin_x;
+    key->y.HALF.HI = this->y + gRoomControls.origin_y;
 }
 
 void MiscManager_Type3(MiscManager* this) {
@@ -229,8 +229,8 @@ void MiscManager_Type5(MiscManager* this) {
     switch (super->action) {
         default:
             if (!--super->timer) {
-                CreateDustAt(this->unk_38, this->unk_3a, super->type2);
-                RestorePrevTileEntity(((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, super->type2);
+                CreateDustAt(this->x, this->y, super->type2);
+                RestorePrevTileEntity(TILE_LOCAL(this->x, this->y), super->type2);
                 SoundReq(SFX_TASK_COMPLETE);
                 DeleteThisEntity();
             }
@@ -240,7 +240,7 @@ void MiscManager_Type5(MiscManager* this) {
                 DeleteThisEntity();
             }
             super->action = 1;
-            SetTileType(0x365, ((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, super->type2);
+            SetTileType(0x365, TILE_LOCAL(this->x, this->y), super->type2);
             break;
         case 1:
             if (CheckFlags(this->flags)) {
@@ -256,18 +256,18 @@ void MiscManager_Type6(MiscManager* this) {
         super->action = 1;
         super->type2 = CheckFlags(this->flags);
         if (super->type2) {
-            gRoomVars.lightLevel = this->unk_3a;
+            gRoomVars.lightLevel = this->y;
         } else {
-            gRoomVars.lightLevel = this->unk_38;
+            gRoomVars.lightLevel = this->x;
         }
     } else {
         u32 tmp = CheckFlags(this->flags);
         if (super->type2 != tmp) {
             super->type2 = tmp;
             if (tmp) {
-                gRoomVars.lightLevel = this->unk_3a;
+                gRoomVars.lightLevel = this->y;
             } else {
-                gRoomVars.lightLevel = this->unk_38;
+                gRoomVars.lightLevel = this->x;
             }
         }
     }
@@ -321,7 +321,7 @@ void MiscManager_Type9(MiscManager* this) {
 }
 
 void sub_080592EC(MiscManager* this) {
-    SetDirtTile(((this->unk_38 >> 4) & 0x3F) | (((this->unk_3a >> 4) & 0x3F) << 6));
+    SetDirtTile(TILE_LOCAL(this->x, this->y));
 }
 
 void sub_0805930C(MiscManager* this) {
@@ -333,8 +333,8 @@ void sub_0805930C(MiscManager* this) {
 #endif
     if (!tmp)
         return;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
+    tmp->x.HALF.HI = this->x + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->y + gRoomControls.origin_y;
     tmp->collisionLayer = 1;
 }
 
@@ -355,7 +355,7 @@ void MiscManager_TypeA(MiscManager* this) {
 void MiscManager_TypeB(MiscManager* this) {
     if (sub_080593CC(this)) {
         if (++super->timer >= 8) {
-            sub_080806BC(this->unk_38 - gRoomControls.origin_x, this->unk_3a - gRoomControls.origin_y, 0xFF, 0xA);
+            sub_080806BC(this->x - gRoomControls.origin_x, this->y - gRoomControls.origin_y, 0xFF, 0xA);
         }
     } else {
         super->timer = 0;
@@ -365,7 +365,7 @@ void MiscManager_TypeB(MiscManager* this) {
 bool32 sub_080593CC(MiscManager* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
         (gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) == PLAYER_INPUT_UP) {
-        return EntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
+        return EntityWithinDistance(&gPlayerEntity, this->x, this->y + 12, 6);
     }
     return FALSE;
 }
@@ -381,8 +381,8 @@ void MiscManager_TypeC(MiscManager* this) {
     if (!tmp)
         return;
     tmp->collisionLayer = 2;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
+    tmp->x.HALF.HI = this->x + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->y + gRoomControls.origin_y;
     EnqueueSFX(SFX_1B0);
     DeleteThisEntity();
 }

@@ -194,10 +194,12 @@ static void sub_0804B058(EntityData* dat) {
         uVar2 = 0;
         do {
             if ((uVar2 < 0x20) && ((dat->kind & 0xF) == 3)) {
-                if (IsRoomTrackerFlagSet(uVar2) ) {
+                if (IsRoomTrackerFlagSet(uVar2)) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ent->field_0x6c.HALF.LO = uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the enemy so it does not appear next time the room is visited?
+                        ent->field_0x6c.HALF.LO =
+                            uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the enemy so it does not
+                                          // appear next time the room is visited?
                     }
                 }
             } else {

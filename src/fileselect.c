@@ -350,7 +350,7 @@ void LoadOptionsFromSave(u32 idx) {
 
     gSaveHeader->msg_speed = msg_speed;
     gSaveHeader->brightness = brightness;
-    gUsedPalettes = 0xFFFFFFFF;
+    gUsedPalettes = 0xffffffff;
 }
 
 void SetActiveSave(u32 idx) {

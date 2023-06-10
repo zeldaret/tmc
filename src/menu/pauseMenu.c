@@ -57,7 +57,6 @@ void Subtask_PauseMenu(void) {
     }
 }
 
-
 extern u8 gUnk_02034492[];
 void UpdateVisibleFusionMapMarkers(void);
 s32 sub_080A50A0(s32);
@@ -74,7 +73,7 @@ void PauseMenu_Variant0(void) {
         r1++;
     } while (r1 <= 0xd);
     location = GetOverworldLocation((u16)gRoomTransition.player_status.overworld_map_x,
-                       (u16)gRoomTransition.player_status.overworld_map_y);
+                                    (u16)gRoomTransition.player_status.overworld_map_y);
     gPauseMenuOptions.unk2[4] = location->windcrestId;
     gPauseMenuOptions.unk2[5] = sub_0801DB94();
     if (IsItemEquipped(ITEM_LANTERN_ON) != EQUIP_SLOT_NONE) {
@@ -1062,17 +1061,19 @@ void sub_080A5BB8(void) {
 
 void PauseMenu_Screen_5(void) {
     extern void (*const gUnk_08128D30[])(void);
-    u32 uVar1;
-    u32 temp;
+    u32 paletteColor;
+    u32 ticks;
 
     gUnk_08128D30[gMenu.menuType]();
     DrawDungeonMapActually();
-    temp = gMain.ticks;
-    if ((temp & 7) == 0) {
-        uVar1 = *gUnk_02017830;
-        MemCopy(gUnk_02017830 + 1, gUnk_02017830, 0xe);
-        gUnk_02017830[7] = uVar1;
-        gUsedPalettes |= 0x1000;
+    ticks = gMain.ticks;
+    // TODO gUnk_02017830 is gPaletteBuffer[200]
+    if ((ticks & 7) == 0) {
+        // Rotate these 8 palette colors.
+        paletteColor = *gUnk_02017830;
+        MemCopy(gUnk_02017830 + 1, gUnk_02017830, 7 * 2);
+        gUnk_02017830[7] = paletteColor;
+        gUsedPalettes |= 1 << 12;
     }
 }
 

@@ -510,7 +510,7 @@ void sub_08025A54(Entity* this) {
 }
 
 bool32 sub_08025AB8(u32 tile, u32 layer) {
-    if (sub_080B1B44(tile, layer))
+    if (GetCollisionData(tile, layer))
         return FALSE;
 
     if (sub_080B1AE0(tile, layer) == 10) {

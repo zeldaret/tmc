@@ -312,27 +312,27 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
     u32 uVar3;
 
     uVar3 = (u32)this->unk_70;
-    uVar1 = sub_080B1B44(uVar3 - 1, 1);
+    uVar1 = GetCollisionData(uVar3 - 1, 1);
     iVar2 = GetTileIndex(uVar3, 1);
     if (iVar2 == 0x402e) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 5) == 0)) {
             SetTile(0x402c, uVar3, 1);
         }
     } else {
-        iVar2 = sub_080B1B44(uVar3, 1);
+        iVar2 = GetCollisionData(uVar3, 1);
         if ((iVar2 == 5) && ((((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)) && ((uVar1 & 5) != 0)))) {
             SetTile(0x402e, uVar3, 1);
         }
     }
     uVar3 = (u32)this->unk_72;
-    uVar1 = sub_080B1B44(uVar3 + 1, 1);
+    uVar1 = GetCollisionData(uVar3 + 1, 1);
     iVar2 = GetTileIndex(uVar3, 1);
     if (iVar2 == 0x402f) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 10) == 0)) {
             SetTile(0x402d, uVar3, 1);
         }
     } else {
-        iVar2 = sub_080B1B44(uVar3, 1);
+        iVar2 = GetCollisionData(uVar3, 1);
         if (((iVar2 == 10) && (((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)))) && ((uVar1 & 10) != 0)) {
             SetTile(0x402f, uVar3, 1);
         }
@@ -411,7 +411,7 @@ void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
     u32 index;
     u32 tmp2;
 
-    tmp1 = sub_080B1B44(tilePos, 1);
+    tmp1 = GetCollisionData(tilePos, 1);
     index = GetTileIndex(tilePos, 1);
     if ((index & 0x4000) == 0) {
         index = param_2;
@@ -599,12 +599,12 @@ void sub_08090498(PushableFurnitureEntity* this) {
     u32 tmp = this->unk_70 - 0x80;
     RestorePrevTileEntity(tmp, 1);
     if (((this->unk_83 & 1) != 0) && (GetTileType(tmp, 2) == 0x306)) {
-        sub_08000148(0x62, tmp, 1);
+        SetCollisionData(0x62, tmp, 1);
     }
     tmp = this->unk_72 - 0x80;
     RestorePrevTileEntity(tmp, 1);
     if (((this->unk_83 & 2) != 0) && (GetTileType(tmp, 2) == 0x308)) {
-        sub_08000148(99, tmp, 1);
+        SetCollisionData(99, tmp, 1);
     }
 }
 

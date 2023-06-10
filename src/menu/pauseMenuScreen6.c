@@ -217,7 +217,7 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     int iVar1;
 
     iVar1 = sub_080A69E0(param_1, param_2);
-    if (iVar1  > 0) {
+    if (iVar1 > 0) {
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk0 = param_4 >> 8;
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk1 = param_4;
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk2 = param_3;

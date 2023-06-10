@@ -257,8 +257,7 @@ void DrawRupees(void) {
                     SoundReq(SFX_RUPEE_GET);
                 }
             case 1:
-                RenderDigits(0x70, gHUD.rupees,
-                             gWalletSizes[(u32)gSave.stats.walletType].size <= gHUD.rupees, 3);
+                RenderDigits(0x70, gHUD.rupees, gWalletSizes[(u32)gSave.stats.walletType].size <= gHUD.rupees, 3);
                 cVar1 = gHUD.unk_c + 1;
             default:
                 gHUD.unk_c = cVar1;
@@ -384,7 +383,7 @@ void DrawHearts(void) {
     }
     if ((gHUD.unk_2 == 0) || (maxHealth != 0)) {
         gHUD.unk_2 = 2;
-        uVar2 = gHUD.health >> 2;
+        uVar2 = gHUD.health / 4;
         if (uVar2 > 10) {
             tmp1 = 10;
             uVar6 = uVar2 - 10;
@@ -393,7 +392,7 @@ void DrawHearts(void) {
             uVar6 = 0;
         }
 
-        maxHealth = gHUD.maxHealth >> 2;
+        maxHealth = gHUD.maxHealth / 4;
         uVar1 = maxHealth;
         if (maxHealth > 10) {
             maxHealth = 10;
@@ -503,7 +502,7 @@ void DrawKeys(void) {
     u16* row2;
     u32 temp;
 
-    if (!(((gHUD.hideFlags & HUD_HIDE_KEYS) == 0)&& (AreaHasKeys()))) {
+    if (!(((gHUD.hideFlags & HUD_HIDE_KEYS) == 0) && (AreaHasKeys()))) {
         if (gHUD.unk_10 != 0) {
             gHUD.unk_10 = 0;
             row1 = &gBG0Buffer[0x219];

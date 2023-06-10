@@ -45,8 +45,8 @@ typedef struct {
     /*0x18*/ u16 unk_18; // progress during transition in same area?
     /*0x1A*/ u16 unk_1a; // calculated from unk_18
     /*0x1C*/ u16 unk_1c; // 0, 0xff
-    /*0x1E*/ u16 width;
-    /*0x20*/ u16 height;
+    /*0x1E*/ u16 width;  /**< Width in pixels. */
+    /*0x20*/ u16 height; /**< Height in pixels. */
     /*0x22*/ u16 unk_22; // so far always 0xffff
     /*0x24*/ s8 aff_x;
     /*0x25*/ s8 aff_y;
@@ -91,7 +91,8 @@ typedef struct {
     u8 area;
     u8 room;
     u16 unk_02;
-    u32 flags; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start in the discovered state?)*/
+    u32 flags; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start in
+                  the discovered state?)*/
 } RoomMemory;
 
 extern RoomMemory* gRoomMemoryPtr;

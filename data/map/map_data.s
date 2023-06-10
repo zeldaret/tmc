@@ -27,8 +27,10 @@ gAreaRoomMap_MinishWoods_Main_bottom::
 	.incbin "maps/areas/000_MinishWoods/rooms/00_Main/gAreaRoomMap_MinishWoods_Main_bottom.bin.lz"
 gAreaRoomMap_MinishWoods_Main_top::
 	.incbin "maps/areas/000_MinishWoods/rooms/00_Main/gAreaRoomMap_MinishWoods_Main_top.bin.lz"
-unknown_0::
-	.incbin "assets/unknown_0.bin"
+gCaveBorder_LakeWoods_outside::
+	.incbin "maps/areas/000_MinishWoods/rooms/00_Main/gCaveBorder_LakeWoods_outside.bin.lz"
+gCaveBorder_LakeWoods_unused::
+	.incbin "maps/areas/000_MinishWoods/rooms/00_Main/gCaveBorder_LakeWoods_unused.bin.lz"
 gAreaTileset_LakeHylia_0_0::
 	.incbin "maps/areas/011_LakeHylia/tilesets/0/gAreaTileset_LakeHylia_0_0.4bpp.lz"
 gAreaTileset_LakeHylia_0_1::
@@ -47,8 +49,8 @@ gAreaRoomMap_LakeHylia_Main_bottom::
 	.incbin "maps/areas/011_LakeHylia/rooms/00_Main/gAreaRoomMap_LakeHylia_Main_bottom.bin.lz"
 gAreaRoomMap_LakeHylia_Main_top::
 	.incbin "maps/areas/011_LakeHylia/rooms/00_Main/gAreaRoomMap_LakeHylia_Main_top.bin.lz"
-unknown_1::
-	.incbin "assets/unknown_1.bin"
+gCaveBorder_LakeHyliaNorth_outside::
+	.incbin "maps/areas/011_LakeHylia/rooms/00_Main/gCaveBorder_LakeHyliaNorth_outside.bin.lz"
 gAreaRoomMap_LakeHylia_Beanstalk_bottom::
 	.incbin "maps/areas/011_LakeHylia/rooms/01_Beanstalk/gAreaRoomMap_LakeHylia_Beanstalk_bottom.bin.lz"
 gAreaRoomMap_LakeHylia_Beanstalk_top::
@@ -71,8 +73,8 @@ gAreaRoomMap_CastorWilds_Main_bottom::
 	.incbin "maps/areas/004_CastorWilds/rooms/00_Main/gAreaRoomMap_CastorWilds_Main_bottom.bin.lz"
 gAreaRoomMap_CastorWilds_Main_top::
 	.incbin "maps/areas/004_CastorWilds/rooms/00_Main/gAreaRoomMap_CastorWilds_Main_top.bin.lz"
-unknown_2::
-	.incbin "assets/unknown_2.bin"
+gCaveBorder_CastorWilds_outside::
+	.incbin "maps/areas/004_CastorWilds/rooms/00_Main/gCaveBorder_CastorWilds_outside.bin.lz"
 gAreaRoomMap_Ruins_Entrance_bottom::
 	.incbin "maps/areas/005_Ruins/rooms/00_Entrance/gAreaRoomMap_Ruins_Entrance_bottom.bin.lz"
 gAreaRoomMap_Ruins_Entrance_top::
@@ -123,8 +125,8 @@ gAreaRoomMap_HyruleTown_Main_bottom::
 	.incbin "maps/areas/002_HyruleTown/rooms/00_Main/gAreaRoomMap_HyruleTown_Main_bottom.bin.lz"
 gAreaRoomMap_HyruleTown_Main_top::
 	.incbin "maps/areas/002_HyruleTown/rooms/00_Main/gAreaRoomMap_HyruleTown_Main_top.bin.lz"
-unknown_4::
-	.incbin "assets/unknown_4.bin"
+gCaveBorder_HyruleTown_outside::
+	.incbin "maps/areas/002_HyruleTown/rooms/00_Main/gCaveBorder_HyruleTown_outside.bin.lz"
 gAreaRoomMap_FestivalTown_Main_bottom::
 	.incbin "maps/areas/021_FestivalTown/rooms/00_Main/gAreaRoomMap_FestivalTown_Main_bottom.bin.lz"
 gAreaRoomMap_FestivalTown_Main_top::
@@ -151,8 +153,8 @@ gAreaRoomMap_MtCrenel_WallClimb_bottom::
 	.incbin "maps/areas/006_MtCrenel/rooms/01_WallClimb/gAreaRoomMap_MtCrenel_WallClimb_bottom.bin.lz"
 gAreaRoomMap_MtCrenel_WallClimb_top::
 	.incbin "maps/areas/006_MtCrenel/rooms/01_WallClimb/gAreaRoomMap_MtCrenel_WallClimb_top.bin.lz"
-unknown_5::
-	.incbin "assets/unknown_5.bin"
+gCaveBorder_Crenel_outside::
+	.incbin "maps/areas/006_MtCrenel/rooms/01_WallClimb/gCaveBorder_Crenel_outside.bin.lz"
 gAreaRoomMap_MtCrenel_CavernOfFlamesEntrance_bottom::
 	.incbin "maps/areas/006_MtCrenel/rooms/02_CavernOfFlamesEntrance/gAreaRoomMap_MtCrenel_CavernOfFlamesEntrance_bottom.bin.lz"
 gAreaRoomMap_MtCrenel_CavernOfFlamesEntrance_top::
@@ -201,26 +203,26 @@ gAreaRoomMap_HyruleField_SouthHyruleField_bottom::
 	.incbin "maps/areas/003_HyruleField/rooms/01_SouthHyruleField/gAreaRoomMap_HyruleField_SouthHyruleField_bottom.bin.lz"
 gAreaRoomMap_HyruleField_SouthHyruleField_top::
 	.incbin "maps/areas/003_HyruleField/rooms/01_SouthHyruleField/gAreaRoomMap_HyruleField_SouthHyruleField_top.bin.lz"
-gAreaRoomMap_HyruleField_EasternHilllsSouth_bottom::
-	.incbin "maps/areas/003_HyruleField/rooms/02_EasternHilllsSouth/gAreaRoomMap_HyruleField_EasternHilllsSouth_bottom.bin.lz"
-gAreaRoomMap_HyruleField_EasternHilllsSouth_top::
-	.incbin "maps/areas/003_HyruleField/rooms/02_EasternHilllsSouth/gAreaRoomMap_HyruleField_EasternHilllsSouth_top.bin.lz"
-gAreaRoomMap_HyruleField_EasternHilllsCenter_bottom::
-	.incbin "maps/areas/003_HyruleField/rooms/03_EasternHilllsCenter/gAreaRoomMap_HyruleField_EasternHilllsCenter_bottom.bin.lz"
-gAreaRoomMap_HyruleField_EasternHilllsCenter_top::
-	.incbin "maps/areas/003_HyruleField/rooms/03_EasternHilllsCenter/gAreaRoomMap_HyruleField_EasternHilllsCenter_top.bin.lz"
-gAreaRoomMap_HyruleField_EasternHilllsNorth_bottom::
-	.incbin "maps/areas/003_HyruleField/rooms/04_EasternHilllsNorth/gAreaRoomMap_HyruleField_EasternHilllsNorth_bottom.bin.lz"
-gAreaRoomMap_HyruleField_EasternHilllsNorth_top::
-	.incbin "maps/areas/003_HyruleField/rooms/04_EasternHilllsNorth/gAreaRoomMap_HyruleField_EasternHilllsNorth_top.bin.lz"
-unknown_6::
-	.incbin "assets/unknown_6.bin"
+gAreaRoomMap_HyruleField_EasternHillsSouth_bottom::
+	.incbin "maps/areas/003_HyruleField/rooms/02_EasternHillsSouth/gAreaRoomMap_HyruleField_EasternHillsSouth_bottom.bin.lz"
+gAreaRoomMap_HyruleField_EasternHillsSouth_top::
+	.incbin "maps/areas/003_HyruleField/rooms/02_EasternHillsSouth/gAreaRoomMap_HyruleField_EasternHillsSouth_top.bin.lz"
+gAreaRoomMap_HyruleField_EasternHillsCenter_bottom::
+	.incbin "maps/areas/003_HyruleField/rooms/03_EasternHillsCenter/gAreaRoomMap_HyruleField_EasternHillsCenter_bottom.bin.lz"
+gAreaRoomMap_HyruleField_EasternHillsCenter_top::
+	.incbin "maps/areas/003_HyruleField/rooms/03_EasternHillsCenter/gAreaRoomMap_HyruleField_EasternHillsCenter_top.bin.lz"
+gAreaRoomMap_HyruleField_EasternHillsNorth_bottom::
+	.incbin "maps/areas/003_HyruleField/rooms/04_EasternHillsNorth/gAreaRoomMap_HyruleField_EasternHillsNorth_bottom.bin.lz"
+gAreaRoomMap_HyruleField_EasternHillsNorth_top::
+	.incbin "maps/areas/003_HyruleField/rooms/04_EasternHillsNorth/gAreaRoomMap_HyruleField_EasternHillsNorth_top.bin.lz"
+gCaveBorder_EasternHills_outside::
+	.incbin "maps/areas/003_HyruleField/rooms/04_EasternHillsNorth/gCaveBorder_EasternHills_outside.bin.lz"
 gAreaRoomMap_HyruleField_LonLonRanch_bottom::
 	.incbin "maps/areas/003_HyruleField/rooms/05_LonLonRanch/gAreaRoomMap_HyruleField_LonLonRanch_bottom.bin.lz"
 gAreaRoomMap_HyruleField_LonLonRanch_top::
 	.incbin "maps/areas/003_HyruleField/rooms/05_LonLonRanch/gAreaRoomMap_HyruleField_LonLonRanch_top.bin.lz"
-unknown_7::
-	.incbin "assets/unknown_7.bin"
+gCaveBorder_LonLonRanch_outside::
+	.incbin "maps/areas/003_HyruleField/rooms/05_LonLonRanch/gCaveBorder_LonLonRanch_outside.bin.lz"
 gAreaRoomMap_HyruleField_NorthHyruleField_bottom::
 	.incbin "maps/areas/003_HyruleField/rooms/06_NorthHyruleField/gAreaRoomMap_HyruleField_NorthHyruleField_bottom.bin.lz"
 gAreaRoomMap_HyruleField_NorthHyruleField_top::
@@ -229,8 +231,8 @@ gAreaRoomMap_HyruleField_TrilbyHighlands_bottom::
 	.incbin "maps/areas/003_HyruleField/rooms/07_TrilbyHighlands/gAreaRoomMap_HyruleField_TrilbyHighlands_bottom.bin.lz"
 gAreaRoomMap_HyruleField_TrilbyHighlands_top::
 	.incbin "maps/areas/003_HyruleField/rooms/07_TrilbyHighlands/gAreaRoomMap_HyruleField_TrilbyHighlands_top.bin.lz"
-unknown_8::
-	.incbin "assets/unknown_8.bin"
+gCaveBorder_TrilbyHighlands_outside::
+	.incbin "maps/areas/003_HyruleField/rooms/07_TrilbyHighlands/gCaveBorder_TrilbyHighlands_outside.bin.lz"
 gAreaRoomMap_HyruleField_WesternWoodsNorth_bottom::
 	.incbin "maps/areas/003_HyruleField/rooms/08_WesternWoodsNorth/gAreaRoomMap_HyruleField_WesternWoodsNorth_bottom.bin.lz"
 gAreaRoomMap_HyruleField_WesternWoodsNorth_top::
@@ -319,8 +321,8 @@ gAreaRoomMap_VeilFalls_Main_bottom::
 	.incbin "maps/areas/010_VeilFalls/rooms/00_Main/gAreaRoomMap_VeilFalls_Main_bottom.bin.lz"
 gAreaRoomMap_VeilFalls_Main_top::
 	.incbin "maps/areas/010_VeilFalls/rooms/00_Main/gAreaRoomMap_VeilFalls_Main_top.bin.lz"
-unknown_10::
-	.incbin "assets/unknown_10.bin"
+gCaveBorder_VeilFalls_outside::
+	.incbin "maps/areas/010_VeilFalls/rooms/00_Main/gCaveBorder_VeilFalls_outside.bin.lz"
 gAreaTileset_VeilFallsTop_0_2::
 	.incbin "maps/areas/026_VeilFallsTop/tilesets/0/gAreaTileset_VeilFallsTop_0_2.4bpp.lz"
 gAreaRoomMap_VeilFallsTop_0_bottom::
@@ -827,56 +829,56 @@ gAreaTileset_HyliaDigCaves_0_4::
 	.incbin "maps/areas/025_HyliaDigCaves/tilesets/0/gAreaTileset_HyliaDigCaves_0_4.4bpp.lz"
 gAreaRoomMap_LakeWoodsCave_Main_bottom::
 	.incbin "maps/areas/012_LakeWoodsCave/rooms/00_Main/gAreaRoomMap_LakeWoodsCave_Main_bottom.bin.lz"
-unknown_12::
-	.incbin "assets/unknown_12.bin"
+gCaveBorder_LakeWoods_inside::
+	.incbin "maps/areas/012_LakeWoodsCave/rooms/00_Main/gCaveBorder_LakeWoods_inside.bin.lz"
 gAreaRoomMap_LakeWoodsCave_Main_top::
 	.incbin "maps/areas/012_LakeWoodsCave/rooms/00_Main/gAreaRoomMap_LakeWoodsCave_Main_top.bin.lz"
 gAreaRoomMap_HyliaDigCaves_0_bottom::
 	.incbin "maps/areas/025_HyliaDigCaves/rooms/00_0/gAreaRoomMap_HyliaDigCaves_0_bottom.bin.lz"
-unknown_13::
-	.incbin "assets/unknown_13.bin"
+gCaveBorder_LakeHyliaCenter_inside::
+	.incbin "maps/areas/025_HyliaDigCaves/rooms/00_0/gCaveBorder_LakeHyliaCenter_inside.bin.lz"
 gAreaRoomMap_HyliaDigCaves_0_top::
 	.incbin "maps/areas/025_HyliaDigCaves/rooms/00_0/gAreaRoomMap_HyliaDigCaves_0_top.bin.lz"
 gAreaRoomMap_HyliaDigCaves_1_bottom::
 	.incbin "maps/areas/025_HyliaDigCaves/rooms/01_1/gAreaRoomMap_HyliaDigCaves_1_bottom.bin.lz"
-unknown_14::
-	.incbin "assets/unknown_14.bin"
+gCaveBorder_LakeHyliaNorth_inside::
+	.incbin "maps/areas/025_HyliaDigCaves/rooms/01_1/gCaveBorder_LakeHyliaNorth_inside.bin.lz"
 gAreaRoomMap_HyliaDigCaves_1_top::
 	.incbin "maps/areas/025_HyliaDigCaves/rooms/01_1/gAreaRoomMap_HyliaDigCaves_1_top.bin.lz"
 gAreaRoomMap_CastorWildsDigCave_0_bottom::
 	.incbin "maps/areas/023_CastorWildsDigCave/rooms/00_0/gAreaRoomMap_CastorWildsDigCave_0_bottom.bin.lz"
-unknown_15::
-	.incbin "assets/unknown_15.bin"
+gCaveBorder_CastorWilds_inside::
+	.incbin "maps/areas/023_CastorWildsDigCave/rooms/00_0/gCaveBorder_CastorWilds_inside.bin.lz"
 gAreaRoomMap_CastorWildsDigCave_0_top::
 	.incbin "maps/areas/023_CastorWildsDigCave/rooms/00_0/gAreaRoomMap_CastorWildsDigCave_0_top.bin.lz"
 gAreaRoomMap_HyruleDigCaves_Town_bottom::
 	.incbin "maps/areas/015_HyruleDigCaves/rooms/00_Town/gAreaRoomMap_HyruleDigCaves_Town_bottom.bin.lz"
-unknown_16::
-	.incbin "assets/unknown_16.bin"
+gCaveBorder_HyruleTown_inside::
+	.incbin "maps/areas/015_HyruleDigCaves/rooms/00_Town/gCaveBorder_HyruleTown_inside.bin.lz"
 gAreaRoomMap_HyruleDigCaves_Town_top::
 	.incbin "maps/areas/015_HyruleDigCaves/rooms/00_Town/gAreaRoomMap_HyruleDigCaves_Town_top.bin.lz"
 gAreaRoomMap_CrenelDigCave_0_bottom::
 	.incbin "maps/areas/020_CrenelDigCave/rooms/00_0/gAreaRoomMap_CrenelDigCave_0_bottom.bin.lz"
-unknown_17::
-	.incbin "assets/unknown_17.bin"
+gCaveBorder_Crenel_inside::
+	.incbin "maps/areas/020_CrenelDigCave/rooms/00_0/gCaveBorder_Crenel_inside.bin.lz"
 gAreaRoomMap_CrenelDigCave_0_top::
 	.incbin "maps/areas/020_CrenelDigCave/rooms/00_0/gAreaRoomMap_CrenelDigCave_0_top.bin.lz"
 gAreaRoomMap_DigCaves_EasternHills_bottom::
 	.incbin "maps/areas/019_DigCaves/rooms/00_EasternHills/gAreaRoomMap_DigCaves_EasternHills_bottom.bin.lz"
-unknown_18::
-	.incbin "assets/unknown_18.bin"
+gCaveBorder_EasternHills_inside::
+	.incbin "maps/areas/019_DigCaves/rooms/00_EasternHills/gCaveBorder_EasternHills_inside.bin.lz"
 gAreaRoomMap_DigCaves_EasternHills_top::
 	.incbin "maps/areas/019_DigCaves/rooms/00_EasternHills/gAreaRoomMap_DigCaves_EasternHills_top.bin.lz"
 gAreaRoomMap_DigCaves_TrilbyHighlands_bottom::
 	.incbin "maps/areas/019_DigCaves/rooms/03_TrilbyHighlands/gAreaRoomMap_DigCaves_TrilbyHighlands_bottom.bin.lz"
-unknown_19::
-	.incbin "assets/unknown_19.bin"
+gCaveBorder_TrilbyHighlands_inside::
+	.incbin "maps/areas/019_DigCaves/rooms/03_TrilbyHighlands/gCaveBorder_TrilbyHighlands_inside.bin.lz"
 gAreaRoomMap_DigCaves_TrilbyHighlands_top::
 	.incbin "maps/areas/019_DigCaves/rooms/03_TrilbyHighlands/gAreaRoomMap_DigCaves_TrilbyHighlands_top.bin.lz"
 gAreaRoomMap_VeilFallsDigCave_0_bottom::
 	.incbin "maps/areas/022_VeilFallsDigCave/rooms/00_0/gAreaRoomMap_VeilFallsDigCave_0_bottom.bin.lz"
-unknown_20::
-	.incbin "assets/unknown_20.bin"
+gCaveBorder_VeilFalls_inside::
+	.incbin "maps/areas/022_VeilFallsDigCave/rooms/00_0/gCaveBorder_VeilFalls_inside.bin.lz"
 gAreaRoomMap_VeilFallsDigCave_0_top::
 	.incbin "maps/areas/022_VeilFallsDigCave/rooms/00_0/gAreaRoomMap_VeilFallsDigCave_0_top.bin.lz"
 gAreaRoomMap_OuterFortressOfWinds_EntranceHall_bottom::
@@ -2685,8 +2687,14 @@ gAreaMetaTileset_PalaceOfWindsBoss_top::
 	.incbin "maps/areas/113_PalaceOfWindsBoss/metatileset/gAreaMetaTileset_PalaceOfWindsBoss_top.bin.lz"
 gAreaMetaTilesetTypes_PalaceOfWindsBoss_top::
 	.incbin "maps/areas/113_PalaceOfWindsBoss/metatileset/gAreaMetaTilesetTypes_PalaceOfWindsBoss_top.bin.lz"
-unknown_134::
-	.incbin "assets/unknown_134.bin"
+gyorgMapping_2_bottom::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_2_bottom.bin.lz"
+gyorgMapping_3_bottom::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_3_bottom.bin.lz"
+gyorgMapping_1_bottom::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_1_bottom.bin.lz"
+gyorgMapping_0_bottom::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_0_bottom.bin.lz"
 gAreaTileset_PalaceOfWindsBoss_0_2::
 	.incbin "maps/areas/113_PalaceOfWindsBoss/tilesets/0/gAreaTileset_PalaceOfWindsBoss_0_2.4bpp.lz"
 gAreaRoomMap_PalaceOfWinds_GyorgTornado_bottom::
@@ -2997,8 +3005,12 @@ gAreaRoomMap_PalaceOfWinds_DarkCompassHall_top::
 	.incbin "maps/areas/112_PalaceOfWinds/rooms/50_DarkCompassHall/dungeon_map.bin"
 gAreaRoomMap_PalaceOfWindsBoss_0_top::
 	.incbin "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gAreaRoomMap_PalaceOfWindsBoss_0_top.bin.lz"
-unknown_186::
-	.incbin "assets/unknown_186.bin"
+gyorgRoomMap_1_top::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gyorgRoomMap_1_top.bin.lz"
+gyorgRoomMap_2_top::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gyorgRoomMap_2_top.bin.lz"
+gyorgRoomMap_3_top::
+	.incbin "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gyorgRoomMap_3_top.bin.lz"
 gAreaTileset_Sanctuary_0_0::
 	.incbin "maps/areas/120_Sanctuary/tilesets/0/gAreaTileset_Sanctuary_0_0.4bpp.lz"
 gAreaTileset_Sanctuary_0_1::

@@ -113,15 +113,15 @@ void sub_08059B18(void) {
     if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                SetMetaTileByIndex(loopVar * 0x10 + 0x4ab + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
-                             1);
+                SetMetaTileByIndex(loopVar * 0x10 + 0x4ab + innerLoopVar,
+                                   COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
             }
         }
 
         for (loopVar = 0; loopVar < 3; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                SetMetaTileByIndex(loopVar * 0x10 + 0x440 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
-                             2);
+                SetMetaTileByIndex(loopVar * 0x10 + 0x440 + innerLoopVar,
+                                   COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
             }
         }
         SetMetaTileByIndex(0xd6, 0x5c2, 2);
@@ -132,7 +132,7 @@ void sub_08059B18(void) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
                     SetMetaTileByIndex(loopVar * 0x10 + 0x4a6 + innerLoopVar,
-                                 COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
+                                       COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
             SetMetaTileByIndex(0x444, 0x602, 2);

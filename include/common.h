@@ -135,7 +135,6 @@ typedef struct {
 
 extern const DungeonFloorMetadata gDungeonFloorMetadatas[];
 
-
 typedef struct {
     u8 area;
     u8 room;

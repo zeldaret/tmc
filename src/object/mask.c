@@ -61,7 +61,7 @@ void Mask_Init(Entity* this) {
     this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
     this->field_0x7c.HALF_U.LO = GetTileIndex(this->field_0x7c.HALF_U.HI, 1);
 
-    this->field_0x7a.HWORD = sub_080B1B44((u16)this->field_0x7c.HALF.HI, 1);
+    this->field_0x7a.HWORD = GetCollisionData((u16)this->field_0x7c.HALF.HI, 1);
 
     SetTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
 }
@@ -90,7 +90,7 @@ void Mask_Action1(Entity* this) {
     // Presumably, make the mask fall
     SetTile(this->field_0x7c.HALF_U.LO, this->field_0x7c.HALF_U.HI, 1);
 
-    sub_08000148(this->field_0x7a.HWORD, (u16)this->field_0x7c.HALF.HI, 1);
+    SetCollisionData(this->field_0x7a.HWORD, (u16)this->field_0x7c.HALF.HI, 1);
 
     this->action = 2;
 

@@ -141,7 +141,7 @@ void LoadMapData(MapDataDefinition* dataDefinition) {
         dest = dataDefinition->dest;
         if (dest != NULL) {
             src = &gMapData + (dataDefinition->src & 0x7fffffff);
-            if ((dataDefinition->size & 0x80000000) != 0) {
+            if ((dataDefinition->size & MAP_COMPRESSED) != 0) {
                 if ((u32)dest >> 0x18 == 6) {
                     LZ77UnCompVram(src, dest);
                 } else {
@@ -155,7 +155,7 @@ void LoadMapData(MapDataDefinition* dataDefinition) {
             sub_080533CC();
         }
         dataDefinition++;
-    } while (((dataDefinition - 1)->src & 0x80000000) != 0);
+    } while (((dataDefinition - 1)->src & MAP_MULTIPLE) != 0);
 }
 
 // Has ifdefs for other variants
@@ -202,8 +202,8 @@ u32 UpdatePlayerCollision(void) {
         index = sub_0807BDB8(&gPlayerEntity, direction >> 2);
         if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
             ptr1 = &gUnk_080B4490[index * 2];
-            if (sub_080B1B44(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]), gPlayerEntity.collisionLayer) ==
-                0xff) {
+            if (GetCollisionData(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]),
+                                 gPlayerEntity.collisionLayer) == 0xff) {
                 if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) ||
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
@@ -260,7 +260,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.direction & 0x80) != 0) {
                 return 0;
             }
-            if (sub_080B1B44(position, gPlayerEntity.collisionLayer) != 0xf) {
+            if (GetCollisionData(position, gPlayerEntity.collisionLayer) != 0xf) {
                 return 0;
             }
             if (sub_08079778() == 0) {

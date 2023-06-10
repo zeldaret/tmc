@@ -40,11 +40,7 @@ SECTIONS {
         . = 0x00017654; gCurrentRoomProperties = .;
         . = 0x00017660; gSmallChests = .;
         . = 0x000176A0; gPaletteBuffer = .;
-        . = 0x000176E0; gUnk_020176E0 = .;
-        . = 0x00017700; gUnk_02017700 = .;
-        . = 0x00017760; gUnk_02017760 = .;
         . = 0x00017830; gUnk_02017830 = .;
-        . = 0x000178E0; gUnk_020178E0 = .;
         . = 0x00017AA0; gUnk_02017AA0 = .;
         . = 0x00017BA0; gUnk_02017BA0 = .;
         . = 0x00018EA0; gUnk_02018EA0 = .;
@@ -180,7 +176,7 @@ SECTIONS {
         . = 0x0000588C; ram_sub_080B1B18 = .;
         . = 0x000058A0; ram_sub_080B1B2C = .;
         . = 0x000058B0; ram_sub_080B1B3C = .;
-        . = 0x000058B8; ram_sub_080B1B44 = .;
+        . = 0x000058B8; ram_GetCollisionData = .;
         . = 0x000058C8; ram_sub_080B1B54 = .;
         . = 0x000058DC; ram_sub_080B1B68 = .;
         . = 0x000058F8; ram_sub_080B1B84 = .;
@@ -1172,7 +1168,7 @@ SECTIONS {
         src/manager/floatingPlatformManager.o(.rodata);
         src/manager/enterRoomTextboxManager.o(.rodata);
         data/const/manager/enterRoomTextboxManager.o(.rodata);
-        data/const/entity.o(.rodata);
+        src/data/caveBorderMapData.o(.rodata);
         src/entity.o(.rodata);
         src/code_0805EC04.o(.rodata);
         data/const/text.o(.rodata);

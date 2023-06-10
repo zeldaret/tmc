@@ -1431,11 +1431,9 @@ const ObjectDefinition gObjectDefinition_0[] = {
 };
 #endif
 
-#define MULTI_FORM(definition_ptr)       \
-    {                                    \
-        { 2, 0, 0, 0, 0, 0, 0 }, {       \
-            .definition = definition_ptr \
-        }                                \
+#define MULTI_FORM(definition_ptr)                                \
+    {                                                             \
+        { 2, 0, 0, 0, 0, 0, 0 }, { .definition = definition_ptr } \
     }
 const ObjectDefinition gObjectDefinitions[] = {
     MULTI_FORM(gObjectDefinition_0),

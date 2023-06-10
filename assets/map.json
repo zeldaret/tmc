@@ -72,11 +72,16 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_0.bin",
+    "path": "maps/areas/000_MinishWoods/rooms/00_Main/gCaveBorder_LakeWoods_outside.bin.lz",
     "start": 3344536,
-    "size": 2176,
-    "type": "unknown",
-    "TODO": "Two metatilemaps of size 63x63"
+    "size": 1010,
+    "type": "metatilemap"
+  },
+  {
+    "path": "maps/areas/000_MinishWoods/rooms/00_Main/gCaveBorder_LakeWoods_unused.bin.lz",
+    "start": 3345546,
+    "size": 1166,
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/011_LakeHylia/tilesets/0/gAreaTileset_LakeHylia_0_0.4bpp.lz",
@@ -133,11 +138,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_1.bin",
+    "path": "maps/areas/011_LakeHylia/rooms/00_Main/gCaveBorder_LakeHyliaNorth_outside.bin.lz",
     "start": 3388144,
     "size": 760,
-    "type": "unknown",
-    "TODO": "1 metatilemap 48x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/011_LakeHylia/rooms/01_Beanstalk/gAreaRoomMap_LakeHylia_Beanstalk_bottom.bin.lz",
@@ -226,11 +230,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_2.bin",
+    "path": "maps/areas/004_CastorWilds/rooms/00_Main/gCaveBorder_CastorWilds_outside.bin.lz",
     "start": 3434608,
     "size": 964,
-    "type": "unknown",
-    "TODO": "metatilemap 63x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/005_Ruins/rooms/00_Entrance/gAreaRoomMap_Ruins_Entrance_bottom.bin.lz",
@@ -384,11 +387,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_4.bin",
+    "path": "maps/areas/002_HyruleTown/rooms/00_Main/gCaveBorder_HyruleTown_outside.bin.lz",
     "start": 3541432,
     "size": 956,
-    "type": "unknown",
-    "TODO": "metatilemap 63x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/021_FestivalTown/rooms/00_Main/gAreaRoomMap_FestivalTown_Main_bottom.bin.lz",
@@ -469,11 +471,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_5.bin",
+    "path": "maps/areas/006_MtCrenel/rooms/01_WallClimb/gCaveBorder_Crenel_outside.bin.lz",
     "start": 3589952,
     "size": 264,
-    "type": "unknown",
-    "TODO": "metatilemap 24x38"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/006_MtCrenel/rooms/02_CavernOfFlamesEntrance/gAreaRoomMap_MtCrenel_CavernOfFlamesEntrance_bottom.bin.lz",
@@ -620,47 +621,46 @@
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/003_HyruleField/rooms/02_EasternHilllsSouth/gAreaRoomMap_HyruleField_EasternHilllsSouth_bottom.bin.lz",
+    "path": "maps/areas/003_HyruleField/rooms/02_EasternHillsSouth/gAreaRoomMap_HyruleField_EasternHillsSouth_bottom.bin.lz",
     "start": 3698280,
     "size": 564,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/003_HyruleField/rooms/02_EasternHilllsSouth/gAreaRoomMap_HyruleField_EasternHilllsSouth_top.bin.lz",
+    "path": "maps/areas/003_HyruleField/rooms/02_EasternHillsSouth/gAreaRoomMap_HyruleField_EasternHillsSouth_top.bin.lz",
     "start": 3698844,
     "size": 208,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/003_HyruleField/rooms/03_EasternHilllsCenter/gAreaRoomMap_HyruleField_EasternHilllsCenter_bottom.bin.lz",
+    "path": "maps/areas/003_HyruleField/rooms/03_EasternHillsCenter/gAreaRoomMap_HyruleField_EasternHillsCenter_bottom.bin.lz",
     "start": 3699052,
     "size": 584,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/003_HyruleField/rooms/03_EasternHilllsCenter/gAreaRoomMap_HyruleField_EasternHilllsCenter_top.bin.lz",
+    "path": "maps/areas/003_HyruleField/rooms/03_EasternHillsCenter/gAreaRoomMap_HyruleField_EasternHillsCenter_top.bin.lz",
     "start": 3699636,
     "size": 216,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/003_HyruleField/rooms/04_EasternHilllsNorth/gAreaRoomMap_HyruleField_EasternHilllsNorth_bottom.bin.lz",
+    "path": "maps/areas/003_HyruleField/rooms/04_EasternHillsNorth/gAreaRoomMap_HyruleField_EasternHillsNorth_bottom.bin.lz",
     "start": 3699852,
     "size": 1228,
     "type": "metatilemap"
   },
   {
-    "path": "maps/areas/003_HyruleField/rooms/04_EasternHilllsNorth/gAreaRoomMap_HyruleField_EasternHilllsNorth_top.bin.lz",
+    "path": "maps/areas/003_HyruleField/rooms/04_EasternHillsNorth/gAreaRoomMap_HyruleField_EasternHillsNorth_top.bin.lz",
     "start": 3701080,
     "size": 424,
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_6.bin",
+    "path": "maps/areas/003_HyruleField/rooms/04_EasternHillsNorth/gCaveBorder_EasternHills_outside.bin.lz",
     "start": 3701504,
     "size": 296,
-    "type": "unknown",
-    "TODO": "metatilemap 30x34"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/003_HyruleField/rooms/05_LonLonRanch/gAreaRoomMap_HyruleField_LonLonRanch_bottom.bin.lz",
@@ -675,11 +675,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_7.bin",
+    "path": "maps/areas/003_HyruleField/rooms/05_LonLonRanch/gCaveBorder_LonLonRanch_outside.bin.lz",
     "start": 3705976,
     "size": 684,
-    "type": "unknown",
-    "TODO": "metatilemap 45x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/003_HyruleField/rooms/06_NorthHyruleField/gAreaRoomMap_HyruleField_NorthHyruleField_bottom.bin.lz",
@@ -706,11 +705,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_8.bin",
+    "path": "maps/areas/003_HyruleField/rooms/07_TrilbyHighlands/gCaveBorder_TrilbyHighlands_outside.bin.lz",
     "start": 3713808,
     "size": 480,
-    "type": "unknown",
-    "TODO": "metatilemap 30x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/003_HyruleField/rooms/08_WesternWoodsNorth/gAreaRoomMap_HyruleField_WesternWoodsNorth_bottom.bin.lz",
@@ -978,11 +976,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_10.bin",
+    "path": "maps/areas/010_VeilFalls/rooms/00_Main/gCaveBorder_VeilFalls_outside.bin.lz",
     "start": 3846752,
     "size": 520,
-    "type": "unknown",
-    "TODO": "metatilemap 30x63"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/026_VeilFallsTop/tilesets/0/gAreaTileset_VeilFallsTop_0_2.4bpp.lz",
@@ -2504,11 +2501,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_12.bin",
+    "path": "maps/areas/012_LakeWoodsCave/rooms/00_Main/gCaveBorder_LakeWoods_inside.bin.lz",
     "start": 4139404,
     "size": 1028,
-    "type": "unknown",
-    "TODO": "metatilemap 63x63"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/012_LakeWoodsCave/rooms/00_Main/gAreaRoomMap_LakeWoodsCave_Main_top.bin.lz",
@@ -2523,11 +2519,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_13.bin",
+    "path": "maps/areas/025_HyliaDigCaves/rooms/00_0/gCaveBorder_LakeHyliaCenter_inside.bin.lz",
     "start": 4141884,
     "size": 116,
-    "type": "unknown",
-    "TODO": "metatilemap 17x16"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/025_HyliaDigCaves/rooms/00_0/gAreaRoomMap_HyliaDigCaves_0_top.bin.lz",
@@ -2542,11 +2537,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_14.bin",
+    "path": "maps/areas/025_HyliaDigCaves/rooms/01_1/gCaveBorder_LakeHyliaNorth_inside.bin.lz",
     "start": 4143120,
     "size": 460,
-    "type": "unknown",
-    "TODO": "metatilemap 63x27"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/025_HyliaDigCaves/rooms/01_1/gAreaRoomMap_HyliaDigCaves_1_top.bin.lz",
@@ -2561,11 +2555,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_15.bin",
+    "path": "maps/areas/023_CastorWildsDigCave/rooms/00_0/gCaveBorder_CastorWilds_inside.bin.lz",
     "start": 4145644,
     "size": 964,
-    "type": "unknown",
-    "TODO": "metatilemap 63x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/023_CastorWildsDigCave/rooms/00_0/gAreaRoomMap_CastorWildsDigCave_0_top.bin.lz",
@@ -2580,11 +2573,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_16.bin",
+    "path": "maps/areas/015_HyruleDigCaves/rooms/00_Town/gCaveBorder_HyruleTown_inside.bin.lz",
     "start": 4148968,
     "size": 956,
-    "type": "unknown",
-    "TODO": "metatilemap 63x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/015_HyruleDigCaves/rooms/00_Town/gAreaRoomMap_HyruleDigCaves_Town_top.bin.lz",
@@ -2599,11 +2591,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_17.bin",
+    "path": "maps/areas/020_CrenelDigCave/rooms/00_0/gCaveBorder_Crenel_inside.bin.lz",
     "start": 4152076,
     "size": 280,
-    "type": "unknown",
-    "TODO": "metatilemap 31x32"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/020_CrenelDigCave/rooms/00_0/gAreaRoomMap_CrenelDigCave_0_top.bin.lz",
@@ -2618,11 +2609,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_18.bin",
+    "path": "maps/areas/019_DigCaves/rooms/00_EasternHills/gCaveBorder_EasternHills_inside.bin.lz",
     "start": 4153476,
     "size": 296,
-    "type": "unknown",
-    "TODO": "metatilemap 30x34"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/019_DigCaves/rooms/00_EasternHills/gAreaRoomMap_DigCaves_EasternHills_top.bin.lz",
@@ -2637,11 +2627,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_19.bin",
+    "path": "maps/areas/019_DigCaves/rooms/03_TrilbyHighlands/gCaveBorder_TrilbyHighlands_inside.bin.lz",
     "start": 4154928,
     "size": 480,
-    "type": "unknown",
-    "TODO": "metatilemap 30x60"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/019_DigCaves/rooms/03_TrilbyHighlands/gAreaRoomMap_DigCaves_TrilbyHighlands_top.bin.lz",
@@ -2656,11 +2645,10 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_20.bin",
+    "path": "maps/areas/022_VeilFallsDigCave/rooms/00_0/gCaveBorder_VeilFalls_inside.bin.lz",
     "start": 4156888,
     "size": 520,
-    "type": "unknown",
-    "TODO": "metatilemap 30x63"
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/022_VeilFallsDigCave/rooms/00_0/gAreaRoomMap_VeilFallsDigCave_0_top.bin.lz",
@@ -8692,11 +8680,28 @@
     "type": "metatileset_types"
   },
   {
-    "path": "assets/unknown_134.bin",
+    "path": "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_2_bottom.bin.lz",
     "start": 5538132,
-    "size": 3628,
-    "type": "unknown",
-    "TODO": "4 mappings?"
+    "size": 916,
+    "type": "map_mapping2"
+  },
+  {
+    "path": "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_3_bottom.bin.lz",
+    "start": 5539048,
+    "size": 900,
+    "type": "map_mapping2"
+  },
+  {
+    "path": "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_1_bottom.bin.lz",
+    "start": 5539948,
+    "size": 896,
+    "type": "map_mapping2"
+  },
+  {
+    "path": "maps/areas/113_PalaceOfWindsBoss/mappings/gyorgMapping_0_bottom.bin.lz",
+    "start": 5540844,
+    "size": 916,
+    "type": "map_mapping2"
   },
   {
     "path": "maps/areas/113_PalaceOfWindsBoss/tilesets/0/gAreaTileset_PalaceOfWindsBoss_0_2.4bpp.lz",
@@ -9899,11 +9904,22 @@
     "type": "metatilemap"
   },
   {
-    "path": "assets/unknown_186.bin",
+    "path": "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gyorgRoomMap_1_top.bin.lz",
     "start": 5579112,
-    "size": 2904,
-    "type": "unknown",
-    "TODO": "3* 0x1f80 10 00"
+    "size": 968,
+    "type": "metatilemap"
+  },
+  {
+    "path": "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gyorgRoomMap_2_top.bin.lz",
+    "start": 5580080,
+    "size": 968,
+    "type": "metatilemap"
+  },
+  {
+    "path": "maps/areas/113_PalaceOfWindsBoss/rooms/00_0/gyorgRoomMap_3_top.bin.lz",
+    "start": 5581048,
+    "size": 968,
+    "type": "metatilemap"
   },
   {
     "path": "maps/areas/120_Sanctuary/tilesets/0/gAreaTileset_Sanctuary_0_0.4bpp.lz",

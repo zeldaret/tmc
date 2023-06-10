@@ -154,7 +154,7 @@ u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(Entity* this) {
     Entity* ent;
-    if (sub_080B1B44(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
+    if (GetCollisionData(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
         return 0;
     }
     ent = 0;
@@ -233,7 +233,7 @@ void sub_08081E6C(Entity* this) {
 
 // Are the two tiles already set to the correct one
 bool32 sub_08081F00(u32* screenblock, u32* metatileList) {
-    if (screenblock[0]  != metatileList[0])
+    if (screenblock[0] != metatileList[0])
         return FALSE;
     if (screenblock[0x40] != metatileList[1])
         return FALSE;

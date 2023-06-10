@@ -323,7 +323,7 @@ void sub_08033D78(SpinyBeetleEntity* this) {
         case 0x1c5:
             break;
         default:
-            if (sub_080B1B44(tile, super->collisionLayer) - 1 > 0x3e)
+            if (GetCollisionData(tile, super->collisionLayer) - 1 > 0x3e)
                 ProcessMovement0(super);
             break;
     }

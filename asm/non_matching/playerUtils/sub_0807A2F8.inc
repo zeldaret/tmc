@@ -100,7 +100,7 @@ _0807A3AA:
 	lsrs r4, r7, #1
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080B1B44
+	bl GetCollisionData
 	cmp r0, #0
 	beq _0807A3FC
 	lsls r0, r4, #0x10
@@ -138,7 +138,7 @@ _0807A400:
 	lsrs r4, r6, #1
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080B1B44
+	bl GetCollisionData
 	cmp r0, #0
 	beq _0807A44C
 	lsls r0, r4, #0x10
@@ -195,7 +195,7 @@ _0807A46E:
 	adds r7, r0, #0
 	lsrs r0, r7, #1
 	movs r1, #2
-	bl sub_080B1B44
+	bl GetCollisionData
 	cmp r0, #0
 	bne _0807A4F2
 	adds r0, r4, #0
@@ -206,7 +206,7 @@ _0807A46E:
 	lsrs r0, r6, #1
 	movs r1, #2
 _0807A4A0:
-	bl sub_080B1B44
+	bl GetCollisionData
 	cmp r0, #0
 	beq _0807A4EC
 	b _0807A4F2
@@ -224,7 +224,7 @@ _0807A4B0:
 _0807A4C2:
 	lsrs r0, r7, #1
 	movs r1, #1
-	bl sub_080B1B44
+	bl GetCollisionData
 	cmp r0, #0
 	bne _0807A4F2
 	mov r1, sb

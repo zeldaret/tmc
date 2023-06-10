@@ -210,7 +210,7 @@ _080040F2:
 	movs r3, #0x38
 	ldrb r3, [r0, r3]
 	lsls r3, r3, #2
-	ldr r4, _08004380 @ =gUnk_08000248
+	ldr r4, _08004380 @ =gCollisionDataPtrs
 	ldr r3, [r4, r3]
 	ldrb r4, [r3, r2]
 	pop {r2, r3}
@@ -403,7 +403,7 @@ _0800423C:
 	movs r4, #0x38
 	ldrb r4, [r0, r4]
 	lsls r4, r4, #3
-	ldr r3, _08004394 @ =gUnk_08000228
+	ldr r3, _08004394 @ =gMapDataPtrs
 	adds r3, r3, r4
 	ldr r4, [r3]
 	ldrh r1, [r4, r2]
@@ -610,12 +610,12 @@ _08004370: .4byte 0x0000011E
 _08004374: .4byte gRoomControls + 6
 _08004378: .4byte gRoomControls + 8
 _0800437C: .4byte 0x000003F0
-_08004380: .4byte gUnk_08000248
+_08004380: .4byte gCollisionDataPtrs
 _08004384: .4byte 0x000FFFFF
 _08004388: .4byte 0x00080000
 _0800438C: .4byte 0x0000EE00
 _08004390: .4byte 0x00001FFF
-_08004394: .4byte gUnk_08000228
+_08004394: .4byte gMapDataPtrs
 _08004398: .4byte 0x00004000
 _0800439C: .4byte gSpritePtrs
 _080043A0: .4byte gSpritePtrs

@@ -165,7 +165,6 @@ const AreaHeader gAreaMetadata[] = {
     { 0, 0, 0, 0 },
 };
 
-
 const OverworldLocation gOverworldLocations[] = {
     { 0, 0, 62, 74, 0, TEXT_INDEX(TEXT_WINDCRESTS, 0x0b) },
     { 0, 75, 62, 104, 1, TEXT_INDEX(TEXT_WINDCRESTS, 0x0c) },

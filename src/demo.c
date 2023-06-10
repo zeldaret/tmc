@@ -24,7 +24,6 @@ void sub_080A2F8C(void);
 extern u8 gUnk_02000004;
 void sub_080A3198(u32, u32);
 
-extern u8 gUnk_02017760[];
 extern u8 gUnk_08A05751[];
 
 // sprite_table
@@ -59,8 +58,8 @@ void sub_080A2E40(void) {
     LoadGfxGroups();
     LoadPaletteGroup(0xb5);
     LoadGfxGroup(0x56);
-    MemCopy(&gUnk_089FD1B4, &gUnk_02017760[0], 0x100);
-    MemCopy(&gUnk_089FD1B4, &gUnk_02017760[0x200], 0x100);
+    MemCopy(&gUnk_089FD1B4, gPaletteBuffer + 96, 0x100);
+    MemCopy(&gUnk_089FD1B4, gPaletteBuffer + 352, 0x100);
     MemCopy(&gUnk_089FD2F4, (void*)0x6000000, 0x8000);
     MemCopy(&gUnk_089FD2F4, (void*)0x6010000, 0x8000);
     MemCopy(&gUnk_08A05751, &gBG1Buffer, 0x800);

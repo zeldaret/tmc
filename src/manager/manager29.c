@@ -32,8 +32,8 @@ void sub_0805CBD0(Manager29* this) {
     super->action = 1;
     this->unk_38 = (this->unk_38 >> 4 & 0x3fU) | (((this->unk_3a << 0x10) >> 0x14 & 0x3fU) << 6);
     this->unk_3a = (this->unk_3c >> 4 & 0x3f) | (((this->unk_36 + this->unk_37 * 0x100) >> 4 & 0x3fU) << 6);
-    this->unk_3c = GetTileType(this->unk_38, this->unk_34);
-    layer = GetLayerByIndex(this->unk_34);
+    this->unk_3c = GetTileType(this->unk_38, this->layer);
+    layer = GetLayerByIndex(this->layer);
     this->unk_28 = (u16*)layer->metatileTypes;
     this->unk_2c = &layer->mapData[(s16)this->unk_3a];
 }
@@ -46,7 +46,7 @@ void sub_0805CC3C(Manager29* this) {
     iVar3 = this->unk_38;
     iVar2 = (short)this->unk_3a;
 
-    if (this->unk_34 == 1) {
+    if (this->layer == 1) {
         uVar4 = 0x321;
     } else {
         uVar4 = 0x322;
@@ -54,74 +54,74 @@ void sub_0805CC3C(Manager29* this) {
 
     switch (super->type) {
         default:
-            sub_0807B7D8(uVar4, iVar3, this->unk_34);
-            sub_0807B7D8(0x365, iVar2, this->unk_34);
+            sub_0807B7D8(uVar4, iVar3, this->layer);
+            sub_0807B7D8(0x365, iVar2, this->layer);
             break;
         case 1:
-            sub_0807B7D8(uVar4, iVar3, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 1, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x40, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x41, this->unk_34);
-            sub_0807B7D8(this->unk_3c, iVar2, this->unk_34);
-            sub_0807B7D8(0x36f, iVar2 + 1, this->unk_34);
-            sub_0807B7D8(0x370, iVar2 + 0x40, this->unk_34);
-            sub_0807B7D8(0x371, iVar2 + 0x41, this->unk_34);
+            sub_0807B7D8(uVar4, iVar3, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 1, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x40, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x41, this->layer);
+            sub_0807B7D8(this->unk_3c, iVar2, this->layer);
+            sub_0807B7D8(0x36f, iVar2 + 1, this->layer);
+            sub_0807B7D8(0x370, iVar2 + 0x40, this->layer);
+            sub_0807B7D8(0x371, iVar2 + 0x41, this->layer);
             break;
 
         case 2:
-            sub_0807B7D8(uVar4, iVar3, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 1, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 2, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x40, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x41, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x42, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x80, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x81, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x82, this->unk_34);
-            sub_0807B7D8(this->unk_3c, iVar2, this->unk_34);
-            sub_0807B7D8(0x372, iVar2 + 1, this->unk_34);
-            sub_0807B7D8(0x36f, iVar2 + 2, this->unk_34);
-            sub_0807B7D8(0x374, iVar2 + 0x40, this->unk_34);
-            sub_0807B7D8(0x376, iVar2 + 0x41, this->unk_34);
-            sub_0807B7D8(0x375, iVar2 + 0x42, this->unk_34);
-            sub_0807B7D8(0x370, iVar2 + 0x80, this->unk_34);
-            sub_0807B7D8(0x373, iVar2 + 0x81, this->unk_34);
-            sub_0807B7D8(0x371, iVar2 + 0x82, this->unk_34);
+            sub_0807B7D8(uVar4, iVar3, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 1, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 2, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x40, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x41, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x42, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x80, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x81, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x82, this->layer);
+            sub_0807B7D8(this->unk_3c, iVar2, this->layer);
+            sub_0807B7D8(0x372, iVar2 + 1, this->layer);
+            sub_0807B7D8(0x36f, iVar2 + 2, this->layer);
+            sub_0807B7D8(0x374, iVar2 + 0x40, this->layer);
+            sub_0807B7D8(0x376, iVar2 + 0x41, this->layer);
+            sub_0807B7D8(0x375, iVar2 + 0x42, this->layer);
+            sub_0807B7D8(0x370, iVar2 + 0x80, this->layer);
+            sub_0807B7D8(0x373, iVar2 + 0x81, this->layer);
+            sub_0807B7D8(0x371, iVar2 + 0x82, this->layer);
             break;
 
         case 3:
-            sub_0807B7D8(uVar4, iVar3, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 1, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 2, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 3, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x40, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x41, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x42, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x43, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x80, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x81, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x82, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0x83, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0xc0, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0xc1, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0xc2, this->unk_34);
-            sub_0807B7D8(uVar4, iVar3 + 0xc3, this->unk_34);
-            sub_0807B7D8(this->unk_3c, iVar2, this->unk_34);
-            sub_0807B7D8(0x372, iVar2 + 1, this->unk_34);
-            sub_0807B7D8(0x372, iVar2 + 2, this->unk_34);
-            sub_0807B7D8(0x36f, iVar2 + 3, this->unk_34);
-            sub_0807B7D8(0x374, iVar2 + 0x40, this->unk_34);
-            sub_0807B7D8(0x376, iVar2 + 0x41, this->unk_34);
-            sub_0807B7D8(0x376, iVar2 + 0x42, this->unk_34);
-            sub_0807B7D8(0x375, iVar2 + 0x43, this->unk_34);
-            sub_0807B7D8(0x374, iVar2 + 0x80, this->unk_34);
-            sub_0807B7D8(0x376, iVar2 + 0x81, this->unk_34);
-            sub_0807B7D8(0x376, iVar2 + 0x82, this->unk_34);
-            sub_0807B7D8(0x375, iVar2 + 0x83, this->unk_34);
-            sub_0807B7D8(0x370, iVar2 + 0xc0, this->unk_34);
-            sub_0807B7D8(0x373, iVar2 + 0xc1, this->unk_34);
-            sub_0807B7D8(0x373, iVar2 + 0xc2, this->unk_34);
-            sub_0807B7D8(0x371, iVar2 + 0xc3, this->unk_34);
+            sub_0807B7D8(uVar4, iVar3, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 1, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 2, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 3, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x40, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x41, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x42, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x43, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x80, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x81, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x82, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0x83, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0xc0, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0xc1, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0xc2, this->layer);
+            sub_0807B7D8(uVar4, iVar3 + 0xc3, this->layer);
+            sub_0807B7D8(this->unk_3c, iVar2, this->layer);
+            sub_0807B7D8(0x372, iVar2 + 1, this->layer);
+            sub_0807B7D8(0x372, iVar2 + 2, this->layer);
+            sub_0807B7D8(0x36f, iVar2 + 3, this->layer);
+            sub_0807B7D8(0x374, iVar2 + 0x40, this->layer);
+            sub_0807B7D8(0x376, iVar2 + 0x41, this->layer);
+            sub_0807B7D8(0x376, iVar2 + 0x42, this->layer);
+            sub_0807B7D8(0x375, iVar2 + 0x43, this->layer);
+            sub_0807B7D8(0x374, iVar2 + 0x80, this->layer);
+            sub_0807B7D8(0x376, iVar2 + 0x81, this->layer);
+            sub_0807B7D8(0x376, iVar2 + 0x82, this->layer);
+            sub_0807B7D8(0x375, iVar2 + 0x83, this->layer);
+            sub_0807B7D8(0x370, iVar2 + 0xc0, this->layer);
+            sub_0807B7D8(0x373, iVar2 + 0xc1, this->layer);
+            sub_0807B7D8(0x373, iVar2 + 0xc2, this->layer);
+            sub_0807B7D8(0x371, iVar2 + 0xc3, this->layer);
             break;
     }
 }

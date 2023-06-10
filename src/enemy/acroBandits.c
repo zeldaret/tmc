@@ -171,7 +171,7 @@ void AcroBandit_Type0Action1(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
     } else {
-        if (sub_08049FDC(this, 1)) {
+        if (sub_08049FDC(this, 1) != 0) {
             rand = Random();
             x = this->field_0x74.HWORD + ((s32)rand % 5) * 0x10 - 0x20;
             y = this->field_0x76.HWORD + ((s32)(rand >> 4) % 5) * 0x10 - 0x20;

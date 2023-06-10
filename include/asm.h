@@ -11,7 +11,6 @@ extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 extern u32 GetTileType(u32 position, u32 layer);
 extern void SetTile(u32 index, u32 position, u32 layer);
 extern void UpdateScrollVram(void);
-extern u32 sub_080B1B0C(struct Entity_*);
 extern u32 sub_080B1BA4(u32, u32, u32);
 extern void LoadResourceAsync(const void* src, u32 dest, u32 size);
 extern void GenericConfused(struct Entity_*);
@@ -37,9 +36,34 @@ extern u32 sub_0800442E(struct Entity_*);
 extern u32 sub_08007DD6(u32, const u16*);
 extern void SoundReqClipped(struct Entity_*, u32);
 extern u32 sub_0800132C(struct Entity_*, struct Entity_*);
-extern u32 sub_080B1B44(u32, u32);
+
+/**
+ * Sets the collision data for one metatile.
+ */
+extern void SetCollisionData(u32 collisionData, u32 metaTilePos, u32 layer);
+/**
+ * Returns the collision data for one metatile.
+ */
+extern u32 GetCollisionData(u32 metaTilePos, u32 layer);
+/**
+ * Returns the collision data for one metatile. (x, y in metatiles relative to the room)
+ */
+extern u32 sub_080B1B3C(u32 x, u32 y, u32 layer);
+/**
+ * Returns the collision data for one metatile. (x, y in pixels relative to the room)
+ */
+extern u32 sub_080B1B2C(u32 x, u32 y, u32 layer);
+/**
+ * Returns the collision data for one metatile. (x, y in pixels relative to the world)
+ */
+extern u32 sub_080B1B18(u32 x, u32 y, u32 layer);
+
+extern u32 sub_080B1B0C(struct Entity_* entity);
+
+// Get CollisionData for entity (relative to entity?)
+extern u32 sub_080B1AF0(struct Entity_*, s32 xOffset, s32 yOffset);
+
 extern u32 sub_080B1A48(u32, u32, u32);
-extern u32 sub_080B1B18(s32, s32, u32);
 extern u32 sub_080B1AE0(u16, u8);
 extern u32 GetTileUnderEntity(struct Entity_*);
 extern u32 sub_0800445C(struct Entity_*);

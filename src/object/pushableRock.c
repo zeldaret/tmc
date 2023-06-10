@@ -92,7 +92,7 @@ void sub_0808A644(PushableRockEntity* this) {
     u32 tmp;
     this->tilePosition = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    this->unk_72 = sub_080B1B44(this->tilePosition, super->collisionLayer);
+    this->unk_72 = GetCollisionData(this->tilePosition, super->collisionLayer);
     tmp = sub_080B1AE0(this->tilePosition, super->collisionLayer);
     if ((tmp == 0x19) || (tmp == 0xf0)) {
         SetTile(0x4015, this->tilePosition, super->collisionLayer);

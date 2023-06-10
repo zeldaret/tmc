@@ -117,22 +117,22 @@ gAreaRoomMap_HyruleField_1:: @ 081034D0
 	map_top offset_gAreaRoomMap_HyruleField_SouthHyruleField_top, 0x152A, 1, 1
 
 gAreaRoomMap_HyruleField_2:: @ 0810350C
-	map_bottom offset_gAreaRoomMap_HyruleField_EasternHilllsSouth_bottom, 0x30C, 1
-	map_top offset_gAreaRoomMap_HyruleField_EasternHilllsSouth_top, 0x30C, 1, 1
+	map_bottom offset_gAreaRoomMap_HyruleField_EasternHillsSouth_bottom, 0x30C, 1
+	map_top offset_gAreaRoomMap_HyruleField_EasternHillsSouth_top, 0x30C, 1, 1
 
 gAreaRoomMap_HyruleField_3:: @ 08103524
 	tileset_tiles offset_gAreaTileset_HyruleField_0_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_0_2, 0x6008000, 0x4000, 1
 	.4byte 0x80000010, 0x0, 0x0
-	map_bottom offset_gAreaRoomMap_HyruleField_EasternHilllsCenter_bottom, 0x3C0, 1
-	map_top offset_gAreaRoomMap_HyruleField_EasternHilllsCenter_top, 0x3C0, 1, 1
+	map_bottom offset_gAreaRoomMap_HyruleField_EasternHillsCenter_bottom, 0x3C0, 1
+	map_top offset_gAreaRoomMap_HyruleField_EasternHillsCenter_top, 0x3C0, 1, 1
 
 gAreaRoomMap_HyruleField_4:: @ 08103560
 	tileset_tiles offset_gAreaTileset_HyruleField_1_0, 0x6000000, 0x4000, 1
 	tileset_tiles offset_gAreaTileset_HyruleField_1_2, 0x6008000, 0x4000, 1
 	.4byte 0x80000043, 0x0, 0x0
-	map_bottom offset_gAreaRoomMap_HyruleField_EasternHilllsNorth_bottom, 0x7F8, 1
-	map_top offset_gAreaRoomMap_HyruleField_EasternHilllsNorth_top, 0x7F8, 1, 1
+	map_bottom offset_gAreaRoomMap_HyruleField_EasternHillsNorth_bottom, 0x7F8, 1
+	map_top offset_gAreaRoomMap_HyruleField_EasternHillsNorth_top, 0x7F8, 1, 1
 
 gAreaRoomMap_HyruleField_5:: @ 0810359C
 	tileset_tiles offset_gAreaTileset_HyruleField_1_0, 0x6000000, 0x4000, 1

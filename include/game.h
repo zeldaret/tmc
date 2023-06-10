@@ -295,7 +295,7 @@ typedef struct {
     u8 maxX;
     u8 maxY;
     u8 windcrestId; /**< Id to set in gSave.windcrests when the user entered a room in the boundaries specified above.*/
-    //u8 pad;
+    // u8 pad;
     u16 textIndex; /**< The text to show for this area.*/
 } OverworldLocation;
 extern const OverworldLocation gOverworldLocations[];

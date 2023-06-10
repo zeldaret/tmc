@@ -205,7 +205,7 @@ sub_080086D8: @ 0x080086D8
 	movs r3, #0x38
 	ldrb r3, [r2, r3]
 	lsls r3, r3, #2
-	ldr r1, _080088C4 @ =gUnk_08000248
+	ldr r1, _080088C4 @ =gCollisionDataPtrs
 	ldr r1, [r1, r3]
 	ldrb r2, [r0, r1]
 	push {r2}
@@ -451,7 +451,7 @@ _080088B4: .4byte gRoomControls + 6
 _080088B8: .4byte gRoomControls + 8
 _080088BC: .4byte gPlayerEntity
 _080088C0: .4byte 0x000003F0
-_080088C4: .4byte gUnk_08000248
+_080088C4: .4byte gCollisionDataPtrs
 _080088C8: .4byte gPlayerState
 _080088CC: .4byte gUnk_0800823C
 _080088D0: .4byte gUnk_08007DF4

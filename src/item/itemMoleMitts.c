@@ -181,7 +181,7 @@ s32 sub_080774A0(void) {
     uVar3 = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
                                  -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
 
-    iVar2 = sub_080B1B44(uVar3, gPlayerEntity.collisionLayer);
+    iVar2 = GetCollisionData(uVar3, gPlayerEntity.collisionLayer);
 
     if (iVar2 > 0x16)
         return 0;

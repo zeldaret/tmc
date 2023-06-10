@@ -11,13 +11,13 @@ UpdateScrollVram: @ 0x08000108
 	ldr r0, _080001E8 @ =gUpdateVisibleTiles
 	ldrb r1, [r0]
 	lsls r1, r1, #2
-	beq _08000136
-	add r4, pc, #0x20
-	ldr r4, [r4, r1]
+	beq _08000136 @ jump if gUpdateVisibleTiles == 0
+	add r4, pc, #0x20 @ r4 = 0x8000134
+	ldr r4, [r4, r1] @ r4 = r4[gUpdateVisibleTiles] (1: _08000138, 2: _0800013C, 3: _08000140, 4:_08000144)
 	ldr r0, _080001EC @ =gMapBottom
 	ldr r0, [r0]
 	cmp r0, #0
-	beq _08000126
+	beq _08000126 @ jump if gMapBottom.bgSettings == NULL
 	ldr r0, _080001F0 @ =gMapDataBottomSpecial
 	ldr r1, _080001F4 @ =gBG1Buffer+0x40
 	bl _call_via_r4
@@ -25,7 +25,7 @@ _08000126:
 	ldr r0, _080001F8 @ =gMapTop
 	ldr r0, [r0]
 	cmp r0, #0
-	beq _08000136
+	beq _08000136 @ jump if gMapTop.bgSettings == NULL
 	ldr r0, _080001FC @ =gMapDataTopSpecial
 	ldr r1, _08000200 @ =gBG2Buffer+0x40
 	bl _call_via_r4
@@ -37,10 +37,10 @@ _0800013C: .4byte sub_0807D280 @ layer 1, 2, 3?
 _08000140: .4byte sub_0807D46C
 _08000144: .4byte sub_0807D6D8
 
-	thumb_func_start sub_08000148
-sub_08000148: @ 0x08000148
+	thumb_func_start SetCollisionData
+SetCollisionData: @ 0x08000148
 	lsls r2, r2, #2
-	ldr r3, _08000204 @ =gUnk_08000248
+	ldr r3, _08000204 @ =gCollisionDataPtrs
 	ldr r2, [r3, r2]
 	strb r0, [r2, r1]
 	bx lr
@@ -58,7 +58,7 @@ CloneTile: @ 0x08000152
 SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	push {r4-r7, lr}
 	lsls r3, r2, #3
-	ldr r4, _08000208 @ =gUnk_08000228
+	ldr r4, _08000208 @ =gMapDataPtrs
 	ldr r5, [r4, r3]
 	lsls r6, r1, #1
 	ldrh r7, [r5, r6]
@@ -74,7 +74,7 @@ SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	ldr r3, _08000214 @ =gUnk_080B79A7
 	ldrb r0, [r3, r4]
 	lsrs r2, r2, #2
-	bl sub_08000148
+	bl SetCollisionData
 	pop {r0, r1} @ tilepos, layer
 	push {r0, r1}
 	bl DeleteLoadedTileEntity
@@ -94,7 +94,7 @@ _0800019A:
 	ldr r3, _0800021C @ =gUnk_080B3E80
 	ldrb r0, [r3, r4]
 	lsrs r2, r2, #2
-	bl sub_08000148
+	bl SetCollisionData
 	pop {r0, r1}
 	bl DeleteLoadedTileEntity
 	pop {r4, r5, r6, r7, pc}
@@ -115,7 +115,7 @@ sub_080001D0: @ 0x080001D0
 	non_word_aligned_thumb_func_start GetTileIndex
 GetTileIndex: @ 0x080001DA
 	lsls r1, r1, #3
-	ldr r2, _08000224 @ =gUnk_08000228
+	ldr r2, _08000224 @ =gMapDataPtrs
 	ldr r1, [r2, r1]
 	lsls r0, r0, #1
 	ldrh r0, [r1, r0]
@@ -128,44 +128,45 @@ _080001F4: .4byte gBG1Buffer+0x40
 _080001F8: .4byte gMapTop
 _080001FC: .4byte gMapDataTopSpecial
 _08000200: .4byte gBG2Buffer+0x40
-_08000204: .4byte gUnk_08000248
-_08000208: .4byte gUnk_08000228
+_08000204: .4byte gCollisionDataPtrs
+_08000208: .4byte gMapDataPtrs
 _0800020C: .4byte 0x00004000
 _08000210: .4byte gUnk_080B7910
 _08000214: .4byte gUnk_080B79A7
 _08000218: .4byte gUnk_080B37A0
 _0800021C: .4byte gUnk_080B3E80
 _08000220: .4byte gUnk_08000278
-_08000224: .4byte gUnk_08000228
-gUnk_08000228::
-	.4byte gMapBottom+0x0004
-gUnk_0800022C::
+_08000224: .4byte gMapDataPtrs
+
+gMapDataPtrs::
+	.4byte gMapBottom+0x0004 @ layer 0
+gMetatileTypesPtrs::
 	.4byte gMapBottom+0x5004
-	.4byte gMapBottom+0x0004
+	.4byte gMapBottom+0x0004 @ layer 1
 	.4byte gMapBottom+0x5004
-	.4byte gMapTop+0x0004
+	.4byte gMapTop+0x0004 @ layer 2
 	.4byte gMapTop+0x5004
-	.4byte gMapBottom+0x0004
+	.4byte gMapBottom+0x0004 @ layer 3
 	.4byte gMapBottom+0x5004
-gUnk_08000248::
-	.4byte gMapBottom+0x2004
-	.4byte gMapBottom+0x2004
-	.4byte gMapTop+0x2004
-	.4byte gMapBottom+0x2004
-gUnk_08000258::
-	.4byte gMapBottom+0x3004
+gCollisionDataPtrs::
+	.4byte gMapBottom+0x2004 @ layer 0
+	.4byte gMapBottom+0x2004 @ layer 1
+	.4byte gMapTop+0x2004 @ layer 2
+	.4byte gMapBottom+0x2004 @ layer 3
+gUnk_08000258:: @ mapDataClone and metatileTypes
+	.4byte gMapBottom+0x3004 @ layer 0
 	.4byte gMapBottom+0x5004
-	.4byte gMapBottom+0x3004
+	.4byte gMapBottom+0x3004 @ layer 1
 	.4byte gMapBottom+0x5004
-	.4byte gMapTop+0x3004
+	.4byte gMapTop+0x3004 @ layer 2
 	.4byte gMapTop+0x5004
-	.4byte gMapBottom+0x3004
+	.4byte gMapBottom+0x3004 @ layer 3
 	.4byte gMapBottom+0x5004
 gUnk_08000278:: @ unkData3 for layers
-	.4byte gMapBottom+0xb004
-	.4byte gMapBottom+0xb004
-	.4byte gMapTop+0xb004
-	.4byte gMapBottom+0xb004
+	.4byte gMapBottom+0xb004 @ layer 0
+	.4byte gMapBottom+0xb004 @ layer 1
+	.4byte gMapTop+0xb004 @ layer 2
+	.4byte gMapBottom+0xb004 @ layer 3
 
 @ call 0x80B19CC
 @ ========
@@ -364,9 +365,9 @@ sub_080B1B3C: @ 0x080002DC
 @ call 0x080B1B44
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080B1B44
-sub_080B1B44: @ 0x080002E0
-	ldr r3, _0800034C @ =ram_sub_080B1B44
+	thumb_func_start GetCollisionData
+GetCollisionData: @ 0x080002E0
+	ldr r3, _0800034C @ =ram_GetCollisionData
 	bx r3
 
 @ call 0x080B1B54
@@ -423,7 +424,7 @@ _0800033C: .4byte ram_sub_080B1B0C
 _08000340: .4byte ram_sub_080B1B18
 _08000344: .4byte ram_sub_080B1B2C
 _08000348: .4byte ram_sub_080B1B3C
-_0800034C: .4byte ram_sub_080B1B44
+_0800034C: .4byte ram_GetCollisionData
 _08000350: .4byte ram_sub_080B1B54
 _08000354: .4byte ram_sub_080B1B68
 _08000358: .4byte ram_sub_080B1B84

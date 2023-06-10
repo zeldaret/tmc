@@ -64,8 +64,8 @@ typedef struct {
     u8 pauseFrames;   /**< Number of frames to pause. */
     u8 pauseCount;    /**< Number of pauses to make. */
     u8 pauseInterval; /**< Number of frames to play between each pause. */
-    u8 pad;
-    u16 ticks; /**< Current time. */
+    u8 pad;           // TODO actually used in CopyOAM()
+    u16 ticks;        /**< Current time. */
 } Main;
 
 /**

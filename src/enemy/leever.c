@@ -8,7 +8,6 @@
 #include "enemy.h"
 #include "physics.h"
 
-extern u32 sub_080B1B18(s32, s32, u32);
 extern u32 sub_080B1AB4(s32, s32, u32);
 
 extern Entity* gUnk_020000B0;

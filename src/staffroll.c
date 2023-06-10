@@ -30,9 +30,6 @@ typedef struct {
 } StaffrollMenu;
 #define gStaffrollMenu (*(StaffrollMenu*)&gMenu)
 
-
-
-
 const Font gUnk_08127280 = {
     &gBG1Buffer[0x21], BG_TILE_ADDR(0x188), gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
 };
@@ -52,8 +49,6 @@ const Font* const gStaffrollFonts[] = {
     &gUnk_081272B0,
     &gUnk_081272C8,
 };
-
-
 
 // TODO figure out structure of gStaffrollMenu.base.field_0xc
 extern StaffrollEntry gUnk_081272F0[];

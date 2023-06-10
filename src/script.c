@@ -1382,7 +1382,7 @@ void ScriptCommand_MoveTo(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_LookAt(Entity* entity, ScriptExecutionContext* context) {
     LookAt(entity, context, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
-                 context->scriptInstructionPointer[2] + gRoomControls.origin_y);
+           context->scriptInstructionPointer[2] + gRoomControls.origin_y);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1390,8 +1390,8 @@ void ScriptCommand_MoveTowardsTarget(Entity* entity, ScriptExecutionContext* con
     s32 tmp, tmp2;
     if (!--context->unk_19) {
         context->unk_19 = 8;
-        entity->direction =
-            CalculateDirectionFromOffsets(context->x.HALF.HI - entity->x.HALF.HI, context->y.HALF.HI - entity->y.HALF.HI);
+        entity->direction = CalculateDirectionFromOffsets(context->x.HALF.HI - entity->x.HALF.HI,
+                                                          context->y.HALF.HI - entity->y.HALF.HI);
     }
     tmp = entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 = entity->y.HALF.HI - context->y.HALF.HI;
@@ -1423,7 +1423,7 @@ void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context)
     if (!context->unk_18) {
         context->unk_18 = 1;
         LookAt(entity, context, entity->x.HALF.HI + ((s16)context->scriptInstructionPointer[1]),
-                     entity->y.HALF.HI + ((s16)context->scriptInstructionPointer[2]));
+               entity->y.HALF.HI + ((s16)context->scriptInstructionPointer[2]));
     }
     ScriptCommand_MoveTowardsTarget(entity, context);
     // Repeat this command until we are at the target.

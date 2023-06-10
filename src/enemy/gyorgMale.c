@@ -286,7 +286,8 @@ void sub_08046B8C(GyorgMaleEntity* this) {
         this->unk_82 = gRoomControls.origin_y + 0x210;
         sub_08047D88(this);
     } else {
-        super->direction = CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        super->direction =
+            CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
@@ -314,7 +315,8 @@ void sub_08046C88(GyorgMaleEntity* this) {
         sub_08048178(this, sub_08048158(this->unk_70));
         sub_08047D88(this);
     } else {
-        super->direction = CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        super->direction =
+            CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
@@ -372,7 +374,8 @@ void sub_08046E0C(GyorgMaleEntity* this) {
         this->unk_76 = super->direction << 8;
         sub_08047D88(this);
     } else {
-        super->direction = CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        super->direction =
+            CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
@@ -1069,7 +1072,8 @@ void sub_08047EA4(GyorgMaleEntity* this, u32 unk1) {
         return;
     if (this->unk_7c & 1) {
         tmp2 = sub_08047F68(this) << 8;
-        dir = CalculateDirectionFromOffsets(gPlayerEntity.x.HALF.HI - super->x.HALF.HI, gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
+        dir = CalculateDirectionFromOffsets(gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
+                                            gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
         tmp = dir - (tmp / 256);
         tmp &= 0xFF;
         gPlayerEntity.x.WORD += (gSineTable[tmp] - gSineTable[dir]) * tmp2;
@@ -1152,7 +1156,7 @@ void sub_08048004(GyorgMaleEntity* this) {
                 if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
                     if (!(this->unk_7c & 2)) {
                         u32 tmp = CalculateDirectionFromOffsets(gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
-                                               gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
+                                                                gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
                         gPlayerEntity.x.WORD = super->x.WORD + (gSineTable[tmp] * 9216);
                         gPlayerEntity.y.WORD = super->y.WORD - (gSineTable[tmp + 0x40] * 9216);
                     }

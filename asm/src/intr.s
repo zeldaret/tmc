@@ -10,6 +10,7 @@
 .global RAMFUNCS_BASE
 RAMFUNCS_BASE::
 
+@ Called when gUpdateVisibleTiles == 1
 sub_080B197C:: @ 0x080B197C
 	push {r4, r5, r6}
 	ldr r2, _080B19C0 @ =gRoomControls
@@ -107,7 +108,7 @@ arm_sub_080B1A58:
 
 	arm_func_start arm_GetTileType
 arm_GetTileType: @ 0x080B1A60
-	ldr r2, _080B1C1C @ =gUnk_08000228
+	ldr r2, _080B1C1C @ =gMapDataPtrs
 _080B1A64:
 	add r2, r2, r1, lsl #3
 	ldr r1, [r2]
@@ -180,8 +181,8 @@ arm_sub_080B1B2C:
 arm_sub_080B1B3C:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
-arm_sub_080B1B44:
-	ldr r2, _080B1C2C @ =gUnk_08000248
+arm_GetCollisionData:
+	ldr r2, _080B1C2C @ =gCollisionDataPtrs
 	ldr r1, [r2, r1, lsl #2]
 	ldrb r0, [r1, r0]
 	bx lr
@@ -198,7 +199,7 @@ arm_sub_080B1B54: @ 0x080B1B54
 arm_sub_080B1B68: @ 0x080B1B68
 	lsrs r2, r0, #0xe
 	bxne lr
-	ldr r2, _080B1C38 @ =gUnk_0800022C
+	ldr r2, _080B1C38 @ =gMetatileTypesPtrs
 	ldr r1, [r2, r1, lsl #3]
 	lsl r0, r0, #1
 	ldrh r0, [r1, r0]
@@ -251,14 +252,14 @@ sub_080B1BCC: @ 0x080B1BCC
 _080B1C10: .4byte gRoomControls
 _080B1C14: .4byte gUnk_08000258
 _080B1C18: .4byte gRoomControls
-_080B1C1C: .4byte gUnk_08000228
+_080B1C1C: .4byte gMapDataPtrs
 _080B1C20: .4byte gRoomControls
 _080B1C24: .4byte gUnk_08000278
 _080B1C28: .4byte gRoomControls
-_080B1C2C: .4byte gUnk_08000248
+_080B1C2C: .4byte gCollisionDataPtrs
 _080B1C30: .4byte gUnk_080B37A0
 _080B1C34: .4byte gUnk_080B7910
-_080B1C38: .4byte gUnk_0800022C
+_080B1C38: .4byte gMetatileTypesPtrs
 _080B1C3C: .4byte gUnk_08000360
 _080B1C40: .4byte gUnk_080B7A3E
 _080B1C44: .4byte gUnk_08000360
@@ -1697,7 +1698,7 @@ _080B1FBC:
 	mov r3, #0
 	bl arm_CheckBitsEU
 	mov r5, #0
-	ldr r4, _080B2194 @ =0x03003DF8
+	ldr r4, _080B2194 @ =gInteractableObjects
 _080B1FECEU:
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -1813,7 +1814,7 @@ _080B1FBC:
 	mov r3, #0
 	bl arm_CheckBitsEU
 	mov r5, #0
-	ldr r4, _080B2194 @ =0x03003DF8
+	ldr r4, _080B2194 @ =gInteractableObjects
 _080B1FECEU:
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -1940,8 +1941,8 @@ _080B2A64: .4byte gOAMControls
 _080B2A68: .4byte ram_0x80b2be8
 _080B2A6C: .4byte 0x3E003F00
 .ifdef EU
-_080B2194: .4byte 0x03003DF8 @TODO pointer?
+_080B2194: .4byte gInteractableObjects
 .endif
 .ifdef DEMO_JP @ TODO deduplicate same as EU
-_080B2194: .4byte 0x03003DF8 @TODO pointer?
+_080B2194: .4byte gInteractableObjects
 .endif
