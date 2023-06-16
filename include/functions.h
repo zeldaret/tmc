@@ -49,7 +49,6 @@ extern void SetBGDefaults(void);
 
 // Unidentified
 extern u32 sub_080B1A0C(Entity*, s32, s32);
-extern u32 sub_080B1AE0(u16, u8);
 extern s32 sub_080012DC(Entity*);
 extern void sub_08001318(Entity*);
 extern void sub_080027EA(Entity*, u32, u32);

@@ -104,15 +104,15 @@ static void sub_0809E96C(Entity* this) {
 }
 
 static u32 sub_0809E9A0(void) {
-    u32 rv;
+    u32 vvv;
     const s16* ptr;
 
     if (gPlayerEntity.action != PLAYER_BOUNCE) {
-        rv = 0;
+        vvv = 0;
     } else {
         ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
-        rv = sub_080B1AE0(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), 1);
+        vvv = GetVvvAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), 1);
     }
 
-    return rv;
+    return vvv;
 }

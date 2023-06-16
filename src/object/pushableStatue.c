@@ -212,7 +212,7 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
     LinearMoveUpdate(super);
     if ((--this->unk_86 == 0) && (sub_0800442E(super) == 0)) {
         super->spriteOffsetY = 0;
-        if (!sub_080B1B0C(super)) {
+        if (!GetCollisionDataAtEntity(super)) {
             sub_08089454(this);
             return TRUE;
         }
@@ -258,14 +258,14 @@ bool32 sub_080896B0(void) {
     const s16* ptr;
     u32 tmp1;
     u32 tmp2;
-    u32 val;
+    u32 vvv;
 
     if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.frame & 1) != 0)) {
         ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
         uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]) - uVar1;
-        val = sub_080B1AE0(uVar4, gPlayerEntity.collisionLayer);
-        if ((val - 0x26 > 1) && (val != 0x29)) {
+        vvv = GetVvvAtMetaTilePos(uVar4, gPlayerEntity.collisionLayer);
+        if ((vvv - 0x26 > 1) && (vvv != 0x29)) {
             layer = GetLayerByIndex(gPlayerEntity.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
             tmp1 = layer->collisionData[iVar2];

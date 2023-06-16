@@ -15,8 +15,6 @@
 u32 sub_0805BFC4(u32, u32);
 void sub_0805C02C(BombableWallManager*);
 
-extern u32 sub_080B1AE0(u16, u8);
-
 u32 getArchwayType(void);
 void BombableWallManager_Init(BombableWallManager*);
 void BombableWallManager_Action1(BombableWallManager*);
@@ -47,7 +45,7 @@ void BombableWallManager_Init(BombableWallManager* this) {
 }
 
 void BombableWallManager_Action1(BombableWallManager* this) {
-    if (sub_080B1AE0(this->tile, this->field_0x35) != 0x2e) {
+    if (GetVvvAtMetaTilePos(this->tile, this->field_0x35) != 0x2e) {
         super->action = 2;
         super->timer = 90;
         sub_0805C02C(this);

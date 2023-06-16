@@ -158,7 +158,7 @@ void SpiderWeb_SubAction0(Entity* this) {
         if (tmp * 2 - entity->animationState == 0) {
             x = gUnk_0812A064[tmp * 2] + this->x.HALF.HI;
             y = gUnk_0812A064[tmp * 2 + 1] + this->y.HALF.HI;
-            if (sub_080B1B18(x, y, entity->collisionLayer) == 0) {
+            if (GetCollisionDataAtWorldCoords(x, y, entity->collisionLayer) == 0) {
                 entity->x.HALF.HI = x;
                 entity->y.HALF.HI = y;
             }
@@ -225,7 +225,7 @@ void sub_080AA9E0(Entity* this) {
 }
 
 void sub_080AAA68(Entity* this) {
-    static const u16 typeTiles[] = { 16419, 16421, 16422, 16420 };
+    static const u16 typeTiles[] = { 0x4023, 0x4025, 0x4026, 0x4024 };
     SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 

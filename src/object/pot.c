@@ -118,7 +118,7 @@ void Pot_Action1(Entity* this) {
                         DeleteThisEntity();
                         break;
                     default:
-                        if (GetTileUnderEntity(this) == 13) {
+                        if (GetVvvAtEntity(this) == 13) {
                             CreateFx(this, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;

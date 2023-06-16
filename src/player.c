@@ -1974,7 +1974,7 @@ static void PlayerRoomTransition(Entity* this) {
 static void sub_080724DC(Entity* this) {
     this->knockbackDuration = 0;
     DeleteClones();
-    if (GetTileUnderEntity(this) != 0x29) {
+    if (GetVvvAtEntity(this) != 0x29) {
         if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
             PlayerUpdateSwimming(this);
         }
@@ -2000,7 +2000,7 @@ static void sub_080724DC(Entity* this) {
 
 static void sub_0807258C(Entity* this) {
     if (gRoomControls.reload_flags == 0) {
-        if (GetCollisionTileInFront(this) == 0x29) {
+        if (GetVvvInFront(this) == 0x29) {
             UpdatePlayerMovement();
             if (sub_080797C4() != 0) {
                 gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
@@ -2336,15 +2336,21 @@ static void sub_08072CFC(Entity* this) {
     ResetActiveItems();
 }
 
-static const u16 sTiles[] = {
-    0x1AD, 1, 0, 0x1AE, 1, 0, 0x1AC, 1, 0, 0x1AF, 1, 0,
-};
+// TODO Why would this use FindValueForKey just to do a normal comparison?
+static const KeyValuePair sTiles0 = { 0x1AD, 1 };
+static const u16 sTiles0End = 0;
+static const KeyValuePair sTiles1 = { 0x1AE, 1 };
+static const u16 sTiles1End = 0;
+static const KeyValuePair sTiles2 = { 0x1AC, 1 };
+static const u16 sTiles2End = 0;
+static const KeyValuePair sTiles3 = { 0x1AF, 1 };
+static const u16 sTiles3End = 0;
 
-static const u16* const sTileTable[] = {
-    sTiles,
-    sTiles + 3,
-    sTiles + 6,
-    sTiles + 9,
+static const KeyValuePair* const sTileTable[] = {
+    &sTiles0,
+    &sTiles1,
+    &sTiles2,
+    &sTiles3,
 };
 
 static void sub_08072D54(Entity* this) {
@@ -2359,13 +2365,13 @@ static void sub_08072D54(Entity* this) {
         uVar2 = GetTileType(sub_0806F730(this), this->collisionLayer);
         switch (this->subtimer) {
             case 0:
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
                     this->timer = 1;
                     this->subtimer = 1;
                 }
                 break;
             case 1:
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
                     this->timer = 1;
                 } else {
                     this->subtimer = 2;
@@ -2373,7 +2379,7 @@ static void sub_08072D54(Entity* this) {
                 break;
             case 2:
                 this->animationState ^= 4;
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1]) != 0) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.animationState >> 1]) != 0) {
                     this->timer = 1;
                     this->subtimer = 3;
                 }
@@ -2381,7 +2387,7 @@ static void sub_08072D54(Entity* this) {
                 break;
             case 3:
                 this->animationState ^= 4;
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
                     this->timer = 1;
                 } else {
                     this->subtimer = 4;
@@ -2616,7 +2622,7 @@ static void sub_080731D8(Entity* this) {
 
 static void sub_080732D0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (GetTileUnderEntity(this) != 40) {
+    if (GetVvvAtEntity(this) != 40) {
         this->direction = DirectionNorth;
         LinearMoveUpdate(this);
     } else {
@@ -2878,7 +2884,7 @@ static void sub_080737BC(Entity* this) {
         pos = this->y.HALF.HI;
     tmp = 0xf;
     tmp &= pos;
-    if (tmp == 8 && !sub_080B1B0C(this)) {
+    if (tmp == 8 && !GetCollisionDataAtEntity(this)) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
     }
@@ -4100,7 +4106,7 @@ void sub_0807529C(Entity* this) {
 void sub_080752AC(Entity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(this);
     if (!ctx->unk_18) {
-        if (GetTileUnderEntity(this) != 41) {
+        if (GetVvvAtEntity(this) != 41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

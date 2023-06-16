@@ -230,7 +230,7 @@ void sub_0802EFB8(Entity* this) {
         uVar3 = GetFacingDirection(&gPlayerEntity, this);
         uVar1 = (uVar3 + 4) & 0x18;
     }
-    iVar4 = GetCollisionData(TILE(this->x.HALF.HI, this->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
+    iVar4 = GetCollisionDataAtMetaTilePos(TILE(this->x.HALF.HI, this->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
     if (iVar4 != 0) {
         this->direction = 0xff;
     } else {

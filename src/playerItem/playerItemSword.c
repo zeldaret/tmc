@@ -340,35 +340,35 @@ void sub_080A7A54(PlayerItemSwordEntity* this) {
 void sub_080A7A84(PlayerItemSwordEntity* this) {
     u32 one;
     Entity* effect;
-    s16 new_var;
+    s16 xOffset;
     s32 uVar3;
-    Entity* new_var2;
+    Entity* entity;
     const s8* ptr;
     u32 tmp;
     u32 tmp2;
-    u32 r5;
+    u32 yOffset;
 
     if ((gPlayerEntity.frame & 0xf) != 0) {
         uVar3 = gUnk_08129072[((gPlayerEntity.frame & 0xf) - 1)][0];
         one = 1;
-        r5 = gUnk_08129072[(gPlayerEntity.frame & 0xf) - 1][one];
+        yOffset = gUnk_08129072[(gPlayerEntity.frame & 0xf) - 1][one];
         if (((gPlayerState.sword_state & 0xc0) == 0) && (gPlayerEntity.spriteSettings.flipX == 1)) {
             uVar3 = -uVar3;
         }
         if (super->type != 0) {
-            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + r5);
+            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + yOffset);
         } else if (super->z.WORD == 0) {
             if (gPlayerState.skills & SKILL_ROCK_BREAKER) {
                 tmp2 = 1;
             } else {
                 tmp2 = 0;
             }
-            new_var = uVar3;
-            if (((sub_08008796(super, tmp2, super->x.HALF.HI + new_var, super->y.HALF.HI + r5) == NULL) &&
+            xOffset = uVar3;
+            if (((sub_08008796(super, tmp2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset) == NULL) &&
                  (gPlayerState.sword_state != 0)) &&
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
-                new_var2 = super;
-                if (GetRelativeCollisionTile(new_var2, new_var, r5) == 0x2e) {
+                entity = super;
+                if (GetVvvRelativeToEntity(entity, xOffset, yOffset) == 0x2e) {
                     SoundReqClipped(&gPlayerEntity, SFX_ITEM_GLOVES_KNOCKBACK);
                 } else {
                     SoundReqClipped(&gPlayerEntity, SFX_METAL_CLINK);
@@ -376,10 +376,10 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
                 effect = CreateObject(SPECIAL_FX, FX_LIGHTNING, 0);
                 if (effect != NULL) {
                     ptr = gUnk_0812908E;
-                    effect->x.HALF.HI = new_var2->x.HALF.HI + ptr[new_var2->animationState];
-                    tmp = new_var2->animationState + 1;
-                    effect->y.HALF.HI = new_var2->y.HALF.HI + ptr[tmp];
-                    effect->z = new_var2->z;
+                    effect->x.HALF.HI = entity->x.HALF.HI + ptr[entity->animationState];
+                    tmp = entity->animationState + 1;
+                    effect->y.HALF.HI = entity->y.HALF.HI + ptr[tmp];
+                    effect->z = entity->z;
                 }
             }
         }

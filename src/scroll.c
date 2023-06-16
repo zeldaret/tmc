@@ -28,8 +28,8 @@ extern void sub_0805E248();
 extern u8 gUpdateVisibleTiles;
 extern u16 gUnk_0200B640;
 extern MapDataDefinition** gCaveBorderMapData[];
-extern u32 gUnk_02022830[];
-extern u16 gUnk_020246B0[];
+extern u16 gUnk_02022830[0xc00];
+extern u16 gUnk_020246B0[0xc00];
 extern u8 gUnk_080B7910[];
 
 void Scroll0(RoomControls*);
@@ -54,7 +54,7 @@ u32 sub_080803D0();
 u32 sub_08080278();
 void sub_08080C80(MapDataDefinition*);
 void sub_08080368();
-void FillUnkData3ForLayer(LayerStruct*);
+void FillVvvForLayer(LayerStruct*);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 void sub_080808D8(s32);
@@ -357,8 +357,8 @@ void Scroll5Sub3(RoomControls* controls) {
     sub_08080368();
     gUnk_02034480.unk_00 = gUnk_0200B640;
     MemCopy(gUnk_02022830, gUnk_020246B0, 0x1800);
-    FillUnkData3ForLayer(&gMapBottom);
-    FillUnkData3ForLayer(&gMapTop);
+    FillVvvForLayer(&gMapBottom);
+    FillVvvForLayer(&gMapTop);
     sub_0807BBE4();
     CreateCollisionDataBorderAroundRoom();
     sub_0805E248();
@@ -435,7 +435,7 @@ u32 sub_08080278(void) {
     u16* ptr1;
     u32 tmp;
 
-    ptr1 = (u16*)gUnk_02022830;
+    ptr1 = gUnk_02022830;
     width = gRoomControls.width >> 4;
     height = (gRoomControls.height >> 4) << 6;
     result = 0;
@@ -803,9 +803,10 @@ void UpdateDoorTransition() {
         case 0x1d:
             uVar4 = controls->camera_target->y.HALF.HI - controls->origin_y;
             uVar3 = controls->camera_target->x.HALF.HI - controls->origin_x;
-            uVar1 = sub_080B1AE0((((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
-                                     ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
-                                 controls->camera_target->collisionLayer);
+            uVar1 = GetVvvAtMetaTilePos(
+                (((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
+                    ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
+                controls->camera_target->collisionLayer);
             gRoomTransition.stairs_idx = sub_080B1A48(uVar3, uVar4, controls->camera_target->collisionLayer);
             switch (uVar1) {
                 case 0x3f:
@@ -818,19 +819,19 @@ void UpdateDoorTransition() {
     }
 }
 
-// fill the unkData3 for the whole layer
-void FillUnkData3ForLayer(LayerStruct* layer) {
-    u32 index;
+// fill the vvv for the whole layer
+void FillVvvForLayer(LayerStruct* layer) {
+    u32 metaTilePos;
     u16* metatileTypes = layer->metatileTypes;
     const u8* ptr = gUnk_080B37A0;
-    u8* ptr3 = layer->unkData3;
+    u8* ptr3 = layer->vvv;
     u16* mapData = layer->mapData;
-    for (index = 0; index < 0x1000; index++) {
-        u16 metaTileIndex = mapData[index];
+    for (metaTilePos = 0; metaTilePos < 0x40 * 0x40; metaTilePos++) {
+        u16 metaTileIndex = mapData[metaTilePos];
         if (metaTileIndex < 0x4000) {
-            layer->unkData3[index] = ptr[metatileTypes[metaTileIndex]];
+            layer->vvv[metaTilePos] = ptr[metatileTypes[metaTileIndex]];
         } else {
-            layer->unkData3[index] = gUnk_080B7910[metaTileIndex - 0x4000];
+            layer->vvv[metaTilePos] = gUnk_080B7910[metaTileIndex - 0x4000];
         }
     }
 }

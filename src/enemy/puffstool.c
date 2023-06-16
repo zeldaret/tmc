@@ -481,10 +481,10 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
         u8 bVar6;
         iVar9 = xDiff + unk[0];
         iVar11 = yDiff + unk[1];
-        bVar4 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        bVar5 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        bVar6 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        bVar7 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        bVar4 = GetCollisionDataAtWorldCoords(iVar9 - 0x00, iVar11 - 0x00, uVar1);
+        bVar5 = GetCollisionDataAtWorldCoords(iVar9 - 0x10, iVar11 - 0x00, uVar1);
+        bVar6 = GetCollisionDataAtWorldCoords(iVar9 - 0x00, iVar11 - 0x10, uVar1);
+        bVar7 = GetCollisionDataAtWorldCoords(iVar9 - 0x10, iVar11 - 0x10, uVar1);
         if ((bVar4 | bVar5 | bVar6 | bVar7) == 0) {
             this->field_0x7c.HALF.LO = gRoomControls.origin_x + iVar9;
             this->field_0x7c.HALF.HI = gRoomControls.origin_y + iVar11;
@@ -510,10 +510,10 @@ void sub_08025A54(Entity* this) {
 }
 
 bool32 sub_08025AB8(u32 tile, u32 layer) {
-    if (GetCollisionData(tile, layer))
+    if (GetCollisionDataAtMetaTilePos(tile, layer))
         return FALSE;
 
-    if (sub_080B1AE0(tile, layer) == 10) {
+    if (GetVvvAtMetaTilePos(tile, layer) == 10) {
         sub_0807B7D8(0x61, tile, layer);
         return TRUE;
     }

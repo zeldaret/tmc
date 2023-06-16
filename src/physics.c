@@ -18,7 +18,7 @@ const u8 gUnk_08114F38[];
 
 extern u16 gExtraFrameOffsets[];
 extern s8 gUnk_08126EE4[];
-extern const u16 gUnk_080046A4[];
+extern const KeyValuePair gUnk_080046A4[];
 extern const u16 gUnk_080047F6[];
 
 static void sub_0806FEE8(struct_gUnk_020000C0_1*, u32, u32, u32);
@@ -402,7 +402,7 @@ bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
 
 bool32 sub_0806FC24(u32 param_1, u32 param_2) {
     register u32 rv asm("r0");
-    u32 val = sub_08007DD6(param_1, gUnk_080046A4);
+    u32 val = FindValueForKey(param_1, gUnk_080046A4);
     if (val) {
         rv = (*(gUnk_080047F6 + (val << 2)) >> param_2) & 0x1;
     } else {
@@ -413,7 +413,7 @@ bool32 sub_0806FC24(u32 param_1, u32 param_2) {
 
 const u16* sub_0806FC50(u32 param_1, u32 param_2) {
     const u16* rv;
-    u32 val = sub_08007DD6(param_1, gUnk_080046A4);
+    u32 val = FindValueForKey(param_1, gUnk_080046A4);
     if (!val || ((gUnk_080047F6[val << 2] >> param_2) & 0x1) == 0) {
         rv = 0;
     } else {

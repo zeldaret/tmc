@@ -18,7 +18,7 @@ _080789C0:
 	cmp r0, #0
 	bne _08078A56
 	ldr r0, _08078A60 @ =gPlayerEntity
-	bl sub_080B1B0C
+	bl GetCollisionDataAtEntity
 	adds r4, r0, #0
 	cmp r4, #0xf
 	bls _080789E6

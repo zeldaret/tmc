@@ -61,7 +61,7 @@ void Mask_Init(Entity* this) {
     this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
     this->field_0x7c.HALF_U.LO = GetTileIndex(this->field_0x7c.HALF_U.HI, 1);
 
-    this->field_0x7a.HWORD = GetCollisionData((u16)this->field_0x7c.HALF.HI, 1);
+    this->field_0x7a.HWORD = GetCollisionDataAtMetaTilePos((u16)this->field_0x7c.HALF.HI, 1);
 
     SetTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
 }

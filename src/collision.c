@@ -788,7 +788,7 @@ CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSet
     return RESULT_COLLISION;
 }
 
-// unkData3 for tileType?
+// vvv for tileType?
 
 #ifdef EU
 const u8 gUnk_080B37A0[] = {

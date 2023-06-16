@@ -27,7 +27,7 @@ void Minecart_Action5(MinecartEntity*);
 void Minecart_Action6(MinecartEntity*);
 void Minecart_Action7(MinecartEntity*);
 
-extern const u16* const gUnk_081223D8[];
+extern const KeyValuePair* const gUnk_081223D8[];
 
 void Minecart(Entity* this) {
     static void (*const Minecart_Actions[])(MinecartEntity*) = {
@@ -129,10 +129,9 @@ void Minecart_Action2(MinecartEntity* this) {
 }
 
 void Minecart_Action3(MinecartEntity* this) {
-    static const s8 gUnk_081223C8[] = { 0, -7, 7, 0, 0, 7, -7, 0 };
+    static const s8 offsetCoords[] = { 0, -7, 7, 0, 0, 7, -7, 0 };
 
-    u32 iVar2;
-    u32 uVar3;
+    u32 vvv;
 
     gRoomControls.scrollSpeed = 7;
     if ((gPlayerState.flags & PL_IN_MINECART) == 0) {
@@ -164,14 +163,13 @@ void Minecart_Action3(MinecartEntity* this) {
                 super->subtimer = 60;
             }
 
-            uVar3 = GetRelativeCollisionTile(super, gUnk_081223C8[super->animationState * 2],
-                                             gUnk_081223C8[super->animationState * 2 + 1]);
-            iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[super->animationState]);
-            if (iVar2 == 0) {
+            vvv = GetVvvRelativeToEntity(super, offsetCoords[super->animationState * 2],
+                                         offsetCoords[super->animationState * 2 + 1]);
+            if (FindValueForKey(vvv, gUnk_081223D8[super->animationState]) == 0) {
                 super->direction = DirectionTurnAround(super->direction);
                 super->animationState = AnimationStateFlip90(super->animationState);
             } else {
-                switch (uVar3) {
+                switch (vvv) {
                     case 0x64:
                         super->flags &= ~ENT_PERSIST;
                         super->hitType = 1;
@@ -200,7 +198,7 @@ void Minecart_Action3(MinecartEntity* this) {
                     case 0x6d:
                     case 0x6e:
                     case 0x6f:
-                        if (uVar3 == GetTileUnderEntity(super)) {
+                        if (vvv == GetVvvAtEntity(super)) {
                             Minecart_Action4(this);
                             gPlayerEntity.animationState = super->animationState << 1;
                             return;
@@ -222,7 +220,7 @@ void Minecart_Action3(MinecartEntity* this) {
 void Minecart_Action4(MinecartEntity* this) {
     sub_08004168(super);
     CopyPosition(super, &gPlayerEntity);
-    switch (GetTileUnderEntity(super)) {
+    switch (GetVvvAtEntity(super)) {
         case 0x67:
             if (super->direction == DirectionWest) {
                 super->direction = DirectionNorth;
@@ -312,8 +310,8 @@ void Minecart_Action7(MinecartEntity* this) {
 
 bool32 sub_08091DDC(MinecartEntity* this) {
     static const s8 gUnk_081223D0[] = { 0, -8, 8, 0, 0, 8, -8, 0 };
-    if ((sub_080B1AF0(super, gUnk_081223D0[super->animationState * 2], gUnk_081223D0[super->animationState * 2 + 1]) ==
-         0xff) &&
+    if ((GetCollisionDataRelativeTo(super, gUnk_081223D0[super->animationState * 2],
+                                    gUnk_081223D0[super->animationState * 2 + 1]) == 0xff) &&
         (sub_0807BD14(&gPlayerEntity, super->animationState))) {
         super->updatePriority = 6;
         super->action = 5;
@@ -332,3 +330,31 @@ bool32 sub_08091DDC(MinecartEntity* this) {
         return 0;
     }
 }
+
+extern const KeyValuePair gUnk_081223E8[];
+extern const KeyValuePair gUnk_08122402[];
+extern const KeyValuePair gUnk_0812241C[];
+extern const KeyValuePair gUnk_08122436[];
+
+const KeyValuePair* const gUnk_081223D8[] = {
+    gUnk_081223E8,
+    gUnk_08122402,
+    gUnk_0812241C,
+    gUnk_08122436,
+};
+const KeyValuePair gUnk_081223E8[] = {
+    { 242, 1 }, { 101, 1 }, { 104, 1 }, { 106, 1 }, { 100, 1 }, { 41, 1 },
+};
+const u16 gUnk_081223E8End = 0;
+const KeyValuePair gUnk_08122402[] = {
+    { 243, 1 }, { 102, 1 }, { 104, 1 }, { 105, 1 }, { 100, 1 }, { 41, 1 },
+};
+const u16 gUnk_08122402End = 0;
+const KeyValuePair gUnk_0812241C[] = {
+    { 242, 1 }, { 101, 1 }, { 103, 1 }, { 105, 1 }, { 100, 1 }, { 41, 1 },
+};
+const u16 gUnk_0812241CEnd = 0;
+const KeyValuePair gUnk_08122436[] = {
+    { 243, 1 }, { 102, 1 }, { 106, 1 }, { 103, 1 }, { 100, 1 }, { 41, 1 },
+};
+const u16 gUnk_08122436End = 0;

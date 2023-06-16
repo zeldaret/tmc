@@ -129,8 +129,8 @@ void sub_08099880(BigIceBlockEntity* this) {
 
 void sub_08099910(BigIceBlockEntity* this) {
     u32 uVar2;
-    s32 iVar1;
-    u32 uVar3;
+    s32 vvv;
+    u32 tileIndex;
     u32 position;
 
     position = COORD_TO_TILE(super);
@@ -146,112 +146,112 @@ void sub_08099910(BigIceBlockEntity* this) {
             SetTile(0x4022, position, super->collisionLayer);
             break;
         case 1:
-            iVar1 = sub_080B1AE0(position - 0x41, super->collisionLayer);
-            uVar3 = 0x4024;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4079;
+            vvv = GetVvvAtMetaTilePos(position - 0x41, super->collisionLayer);
+            tileIndex = 0x4024;
+            if (vvv == 0x12) {
+                tileIndex = 0x4079;
             }
-            SetTile(uVar3, position - 0x41, super->collisionLayer);
+            SetTile(tileIndex, position - 0x41, super->collisionLayer);
             SetTile(0x4022, position - 0x40, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position - 0x3f, super->collisionLayer);
-            uVar3 = 0x4025;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407b;
+            vvv = GetVvvAtMetaTilePos(position - 0x3f, super->collisionLayer);
+            tileIndex = 0x4025;
+            if (vvv == 0x12) {
+                tileIndex = 0x407b;
             }
-            SetTile(uVar3, position - 0x3f, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position - 1, super->collisionLayer);
-            uVar3 = 0x4024;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4079;
+            SetTile(tileIndex, position - 0x3f, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position - 1, super->collisionLayer);
+            tileIndex = 0x4024;
+            if (vvv == 0x12) {
+                tileIndex = 0x4079;
             }
-            SetTile(uVar3, position - 1, super->collisionLayer);
+            SetTile(tileIndex, position - 1, super->collisionLayer);
             SetTile(0x4022, position, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 1, super->collisionLayer);
-            uVar3 = 0x4025;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407b;
+            vvv = GetVvvAtMetaTilePos(position + 1, super->collisionLayer);
+            tileIndex = 0x4025;
+            if (vvv == 0x12) {
+                tileIndex = 0x407b;
             }
-            SetTile(uVar3, position + 1, super->collisionLayer);
+            SetTile(tileIndex, position + 1, super->collisionLayer);
             return;
             break;
         case 2:
-            iVar1 = sub_080B1AE0(position - 0x41, super->collisionLayer);
-            uVar3 = 0x4023;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4077;
+            vvv = GetVvvAtMetaTilePos(position - 0x41, super->collisionLayer);
+            tileIndex = 0x4023;
+            if (vvv == 0x12) {
+                tileIndex = 0x4077;
             }
-            SetTile(uVar3, position - 0x41, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position - 0x40, super->collisionLayer);
-            uVar3 = 0x4023;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4077;
+            SetTile(tileIndex, position - 0x41, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position - 0x40, super->collisionLayer);
+            tileIndex = 0x4023;
+            if (vvv == 0x12) {
+                tileIndex = 0x4077;
             }
-            SetTile(uVar3, position - 0x40, super->collisionLayer);
+            SetTile(tileIndex, position - 0x40, super->collisionLayer);
             SetTile(0x4022, position - 1, super->collisionLayer);
             SetTile(0x4022, position, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 0x3f, super->collisionLayer);
-            uVar3 = 0x4026;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407c;
+            vvv = GetVvvAtMetaTilePos(position + 0x3f, super->collisionLayer);
+            tileIndex = 0x4026;
+            if (vvv == 0x12) {
+                tileIndex = 0x407c;
             }
-            SetTile(uVar3, position + 0x3f, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 0x40, super->collisionLayer);
-            uVar3 = 0x4026;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407c;
+            SetTile(tileIndex, position + 0x3f, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position + 0x40, super->collisionLayer);
+            tileIndex = 0x4026;
+            if (vvv == 0x12) {
+                tileIndex = 0x407c;
             }
-            SetTile(uVar3, position + 0x40, super->collisionLayer);
+            SetTile(tileIndex, position + 0x40, super->collisionLayer);
             break;
         case 3:
-            iVar1 = sub_080B1AE0(position - 0x41, super->collisionLayer);
-            uVar3 = 0x4027;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4075;
+            vvv = GetVvvAtMetaTilePos(position - 0x41, super->collisionLayer);
+            tileIndex = 0x4027;
+            if (vvv == 0x12) {
+                tileIndex = 0x4075;
             }
-            SetTile(uVar3, position - 0x41, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position - 0x40, super->collisionLayer);
-            uVar3 = 0x4023;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4077;
+            SetTile(tileIndex, position - 0x41, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position - 0x40, super->collisionLayer);
+            tileIndex = 0x4023;
+            if (vvv == 0x12) {
+                tileIndex = 0x4077;
             }
-            SetTile(uVar3, position - 0x40, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position - 0x3f, super->collisionLayer);
-            uVar3 = 0x4028;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4076;
+            SetTile(tileIndex, position - 0x40, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position - 0x3f, super->collisionLayer);
+            tileIndex = 0x4028;
+            if (vvv == 0x12) {
+                tileIndex = 0x4076;
             }
-            SetTile(uVar3, position - 0x3f, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position - 1, super->collisionLayer);
-            uVar3 = 0x4024;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4079;
+            SetTile(tileIndex, position - 0x3f, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position - 1, super->collisionLayer);
+            tileIndex = 0x4024;
+            if (vvv == 0x12) {
+                tileIndex = 0x4079;
             }
-            SetTile(uVar3, position - 1, super->collisionLayer);
+            SetTile(tileIndex, position - 1, super->collisionLayer);
             SetTile(0x4022, position, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 1, super->collisionLayer);
-            uVar3 = 0x4025;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407b;
+            vvv = GetVvvAtMetaTilePos(position + 1, super->collisionLayer);
+            tileIndex = 0x4025;
+            if (vvv == 0x12) {
+                tileIndex = 0x407b;
             }
-            SetTile(uVar3, position + 1, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 0x3f, super->collisionLayer);
-            uVar3 = 0x4029;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x4078;
+            SetTile(tileIndex, position + 1, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position + 0x3f, super->collisionLayer);
+            tileIndex = 0x4029;
+            if (vvv == 0x12) {
+                tileIndex = 0x4078;
             }
-            SetTile(uVar3, position + 0x3f, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 0x40, super->collisionLayer);
-            uVar3 = 0x4026;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407c;
+            SetTile(tileIndex, position + 0x3f, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position + 0x40, super->collisionLayer);
+            tileIndex = 0x4026;
+            if (vvv == 0x12) {
+                tileIndex = 0x407c;
             }
-            SetTile(uVar3, position + 0x40, super->collisionLayer);
-            iVar1 = sub_080B1AE0(position + 0x41, super->collisionLayer);
-            uVar3 = 0x402a;
-            if (iVar1 == 0x12) {
-                uVar3 = 0x407a;
+            SetTile(tileIndex, position + 0x40, super->collisionLayer);
+            vvv = GetVvvAtMetaTilePos(position + 0x41, super->collisionLayer);
+            tileIndex = 0x402a;
+            if (vvv == 0x12) {
+                tileIndex = 0x407a;
             }
-            SetTile(uVar3, position + 0x41, super->collisionLayer);
+            SetTile(tileIndex, position + 0x41, super->collisionLayer);
             break;
     }
 }

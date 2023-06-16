@@ -5,8 +5,6 @@
 #include "object.h"
 #include "room.h"
 
-extern u32 sub_080B1AE0(u16, u8);
-
 extern void (*const RemovableDust_Functions[])(Entity*);
 extern const u16 gUnk_08129FD0[];
 extern const u16 gUnk_08129FE4[];
@@ -88,7 +86,7 @@ void sub_080AA534(Entity* this) {
 
 void sub_080AA544(Entity* this) {
     u8* pbVar1;
-    s32 iVar2;
+    s32 vvv;
     u32 uVar3;
     s32 iVar4;
     const u16* puVar5;
@@ -101,8 +99,8 @@ void sub_080AA544(Entity* this) {
         uVar3 = 0;
         iVar4 = 0;
         do {
-            iVar2 = sub_080B1AE0((param - tmp[uVar3]) & 0xffff, this->collisionLayer);
-            if (iVar2 == 0x3e) {
+            vvv = GetVvvAtMetaTilePos((param - tmp[uVar3]) & 0xffff, this->collisionLayer);
+            if (vvv == 0x3e) {
                 iVar4++;
             }
             uVar3++;

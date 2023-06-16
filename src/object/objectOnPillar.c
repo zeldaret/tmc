@@ -38,11 +38,6 @@ typedef struct {
     /*0x86*/ u16 hitFlag;
 } EntityWithHitFlag;
 
-typedef struct {
-    u16 key;
-    u16 value;
-} KeyValuePair;
-
 void sub_080970F4(ObjectOnPillarEntity*);
 void sub_080971E0(ObjectOnPillarEntity*);
 bool32 sub_08097194(ObjectOnPillarEntity*);
@@ -180,8 +175,9 @@ bool32 sub_08097008(ObjectOnPillarEntity* this) {
 u32 sub_08097074(u32 tileType) {
 
     static const KeyValuePair gUnk_0812327C[] = {
-        { 0x4037, 1 }, { 0x4038, 1 }, { 0x4039, 1 }, { 0x403a, 1 }, { 0x7a, 2 }, { 0x78, 2 }, { 0, 0 },
+        { 0x4037, 1 }, { 0x4038, 1 }, { 0x4039, 1 }, { 0x403a, 1 }, { 0x7a, 2 }, { 0x78, 2 },
     };
+    static const u16 gUnk_0812327CEnd = 0;
     const KeyValuePair* entry = gUnk_0812327C;
     for (; entry->key != 0; entry++) {
         if (entry->key == tileType) {
@@ -211,7 +207,7 @@ void sub_080970F4(ObjectOnPillarEntity* this) {
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (GetTileUnderEntity(super) == 0x19) {
+    if (GetVvvAtEntity(super) == 0x19) {
         super->spriteOffsetY = 2;
     }
     if ((--this->unk_76 == 0) && sub_08097194(this) == FALSE) {

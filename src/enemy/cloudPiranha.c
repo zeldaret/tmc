@@ -245,13 +245,13 @@ void sub_080387F0(CloudPiranhaEntity* this) {
     const s8* ptr;
 
     if ((super->action != 4) && (this->unk_82 == 0)) {
-        iVar4 = GetCollisionData(COORD_TO_TILE(super), super->collisionLayer);
+        iVar4 = GetCollisionDataAtMetaTilePos(COORD_TO_TILE(super), super->collisionLayer);
         if ((iVar4 == 0xf) || (iVar4 == 0x2a)) {
             this->unk_82 = 0x20;
         }
         ptr = &gUnk_080CF520[super->direction >> 1];
         bVar1 = super->direction;
-        iVar4 = sub_080B1AF0(super, ptr[0], ptr[1]);
+        iVar4 = GetCollisionDataRelativeTo(super, ptr[0], ptr[1]);
         if ((iVar4 == 0xf) || (iVar4 == 0x2a)) {
             super->direction = (super->direction + 0x10) & 0x1f;
         } else {

@@ -122,11 +122,11 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             super->direction = super->knockbackDirection;
             super->knockbackDuration = 0;
         }
-        if (GetRelativeCollisionTile(super, gUnk_081320C4[super->direction >> 2],
-                                     gUnk_081320C4[(super->direction >> 2) + 1]) == 0x74) {
+        if (GetVvvRelativeToEntity(super, gUnk_081320C4[super->direction >> 2],
+                                   gUnk_081320C4[(super->direction >> 2) + 1]) == 0x74) {
             LinearMoveUpdate(super);
         } else {
-            tile = sub_080B1B0C(super);
+            tile = GetCollisionDataAtEntity(super);
             if ((tile != 0x24) && (tile != 0x26)) {
                 ProcessMovement10(super);
             }
@@ -136,7 +136,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             (child->base).x = super->x;
             (child->base).y = super->y;
             (child->base).z = super->z;
-            tile = GetTileUnderEntity(super);
+            tile = GetVvvAtEntity(super);
             switch (tile) {
                 case 0xd:
                 case 0x10:

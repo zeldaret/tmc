@@ -57,43 +57,43 @@ CloneTile: @ 0x08000152
 	non_word_aligned_thumb_func_start SetTile
 SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	push {r4-r7, lr}
-	lsls r3, r2, #3
+	lsls r3, r2, #3 @ 1: 8, 2: 16
 	ldr r4, _08000208 @ =gMapDataPtrs
-	ldr r5, [r4, r3]
+	ldr r5, [r4, r3] @ layer 1: gMapBottom.mapData, 2: gMapTop.mapData
 	lsls r6, r1, #1
-	ldrh r7, [r5, r6]
-	strh r0, [r5, r6]
+	ldrh r7, [r5, r6] @ r7 (oldMetaTile) = gMapBottom.mapData[metaTilePos]
+	strh r0, [r5, r6] @ gMapBottom.mapData[metaTilePos] = metaTile
 	ldr r6, _0800020C @ =0x00004000
 	cmp r0, r6
-	blo _0800019A
+	blo _0800019A @ jump if metaTile < 0x4000
 	push {r1, r2}
-	subs r4, r0, r6
+	subs r4, r0, r6 @ r4 = metaTile - 0x4000
 	ldr r3, _08000210 @ =gUnk_080B7910
-	ldrb r0, [r3, r4]
-	bl sub_080001D0
+	ldrb r0, [r3, r4] @ r0 = gUnk_080B7910[metaTile - 0x4000]
+	bl SetVvvAtMetaTilePos
 	ldr r3, _08000214 @ =gUnk_080B79A7
-	ldrb r0, [r3, r4]
-	lsrs r2, r2, #2
+	ldrb r0, [r3, r4] @ r0 = gUnk_080B79A7[metaTile - 0x4000]
+	lsrs r2, r2, #2 @ r2 = layer
 	bl SetCollisionData
 	pop {r0, r1} @ tilepos, layer
 	push {r0, r1}
-	bl DeleteLoadedTileEntity
-	adds r0, r7, #0
+	bl DeleteLoadedTileEntity @ DeleteLoadedTileEntity(metaTilePos, layer)
+	adds r0, r7, #0 @ r0 = oldMetaTile
 	pop {r1, r2}
-	bl sub_0801AF48
-	pop {r4, r5, r6, r7, pc}
+	bl sub_0801AF48 @ sub_0801AF48(oldMetaTile, metaTilePos, layer)
+	pop {r4, r5, r6, r7, pc} @ pop pc results in returning to the calling function
 _0800019A:
-	adds r3, #4
+	adds r3, #4 @ r3 = layer * 8 + 4
 	ldr r4, [r4, r3]
-	lsls r0, r0, #1
-	ldrh r4, [r4, r0]
+	lsls r0, r0, #1 @ r0 = metaTile * 2
+	ldrh r4, [r4, r0] @ r4 (metaTileType) = gMapBottom.metatileTypes[metaTile]
 	push {r1, r2}
 	ldr r3, _08000218 @ =gUnk_080B37A0
-	ldrb r0, [r3, r4]
-	bl sub_080001D0
+	ldrb r0, [r3, r4] @ r0 = gUnk_080B37A0[metaTileType]
+	bl SetVvvAtMetaTilePos
 	ldr r3, _0800021C @ =gUnk_080B3E80
-	ldrb r0, [r3, r4]
-	lsrs r2, r2, #2
+	ldrb r0, [r3, r4] @ r0 = gUnk_080B3E80[metaTileType]
+	lsrs r2, r2, #2 @ r2 = layer
 	bl SetCollisionData
 	pop {r0, r1}
 	bl DeleteLoadedTileEntity
@@ -104,12 +104,13 @@ _080001C4: .4byte gMapBottom+0x6004
 _080001C8: .4byte gMapTop+0x6004
 _080001CC: .4byte gMapBottom+0x6004
 
-	thumb_func_start sub_080001D0
-sub_080001D0: @ 0x080001D0
+@ r0: @see gUnk_080B7910  r1: metaTilePos, r2: layer
+	thumb_func_start SetVvvAtMetaTilePos
+SetVvvAtMetaTilePos: @ 0x080001D0
 	lsls r2, r2, #2
-	ldr r3, _08000220 @ =gUnk_08000278
-	ldr r3, [r3, r2]
-	strb r0, [r3, r1]
+	ldr r3, _08000220 @ =gVvvPtrs
+	ldr r3, [r3, r2] @ r3 = gMapBottom.vvv
+	strb r0, [r3, r1] @ gMapBottom.vvv[metaTilePos] = r0
 	bx lr
 
 	non_word_aligned_thumb_func_start GetTileIndex
@@ -135,7 +136,7 @@ _08000210: .4byte gUnk_080B7910
 _08000214: .4byte gUnk_080B79A7
 _08000218: .4byte gUnk_080B37A0
 _0800021C: .4byte gUnk_080B3E80
-_08000220: .4byte gUnk_08000278
+_08000220: .4byte gVvvPtrs
 _08000224: .4byte gMapDataPtrs
 
 gMapDataPtrs::
@@ -162,7 +163,7 @@ gUnk_08000258:: @ mapDataClone and metatileTypes
 	.4byte gMapTop+0x5004
 	.4byte gMapBottom+0x3004 @ layer 3
 	.4byte gMapBottom+0x5004
-gUnk_08000278:: @ unkData3 for layers
+gVvvPtrs:: @ vvv for layers
 	.4byte gMapBottom+0xb004 @ layer 0
 	.4byte gMapBottom+0xb004 @ layer 1
 	.4byte gMapTop+0xb004 @ layer 2
@@ -266,9 +267,9 @@ GetTileType: @ 0x080002B0
 @ r0: Entity*
 @ r1: u32
 @ r2: u32
-	thumb_func_start GetRelativeCollisionTile
-GetRelativeCollisionTile: @ 0x080002B4
-	ldr r3, _08000320 @ =ram_GetRelativeCollisionTile
+	thumb_func_start GetVvvRelativeToEntity
+GetVvvRelativeToEntity: @ 0x080002B4
+	ldr r3, _08000320 @ =ram_GetVvvRelativeToEntity
 	bx r3
 
 @ call 0x080B1AA8
@@ -278,18 +279,18 @@ GetRelativeCollisionTile: @ 0x080002B4
 @ return: 
 @ ========
 @ Called every frame a pot is thrown, every frame the screen is sliding in a transition, and once when entering stairs.
-	thumb_func_start GetTileUnderEntity
-GetTileUnderEntity: @ 0x080002B8
-	ldr r3, _08000324 @ =ram_GetTileUnderEntity
+	thumb_func_start GetVvvAtEntity
+GetVvvAtEntity: @ 0x080002B8
+	ldr r3, _08000324 @ =ram_GetVvvAtEntity
 	bx r3
 
 @ call 0x080B1AB4
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080B1AB4
-sub_080B1AB4: @ 0x080002BC
-	ldr r3, _08000328 @ =ram_sub_080B1AB4
+	thumb_func_start GetVvvAtWorldCoords
+GetVvvAtWorldCoords: @ 0x080002BC
+	ldr r3, _08000328 @ =ram_GetVvvAtWorldCoords
 	bx r3
 
 @ call 0x080B1AC8
@@ -297,9 +298,9 @@ sub_080B1AB4: @ 0x080002BC
 @ r1: u32
 @ r2: u32
 @ return: ???
-	thumb_func_start sub_080B1AC8
-sub_080B1AC8: @ 0x080002C0
-	ldr r3, _0800032C @ =ram_sub_080B1AC8
+	thumb_func_start GetVvvAtRoomCoords
+GetVvvAtRoomCoords: @ 0x080002C0
+	ldr r3, _0800032C @ =ram_GetVvvAtRoomCoords
 	bx r3
 
 @ call 0x080B1AD8
@@ -308,66 +309,66 @@ sub_080B1AC8: @ 0x080002C0
 @ r2: s32 (yOffset)
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080B1AD8
-sub_080B1AD8: @ 0x080002C4
-	ldr r3, _08000330 @ =ram_sub_080B1AD8
+	thumb_func_start GetVvvAtRoomTile
+GetVvvAtRoomTile: @ 0x080002C4
+	ldr r3, _08000330 @ =ram_GetVvvAtRoomTile
 	bx r3
 
 @ call 0x080B1AE0
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
-	thumb_func_start sub_080B1AE0
-sub_080B1AE0: @ 0x080002C8
-	ldr r3, _08000334 @ =ram_sub_080B1AE0
+	thumb_func_start GetVvvAtMetaTilePos
+GetVvvAtMetaTilePos: @ 0x080002C8
+	ldr r3, _08000334 @ =ram_GetVvvAtMetaTilePos
 	bx r3
 
 @ call 0x080B1AF0
 @ r0: Entity*
 @ r1: ???
 @ r2: ???
-	thumb_func_start sub_080B1AF0
-sub_080B1AF0: @ 0x080002CC
-	ldr r3, _08000338 @ =ram_sub_080B1AF0
+	thumb_func_start GetCollisionDataRelativeTo
+GetCollisionDataRelativeTo: @ 0x080002CC
+	ldr r3, _08000338 @ =ram_GetCollisionDataRelativeTo
 	bx r3
 
 @ call 0x080B1B0C
 @ r0: Entity*
-	thumb_func_start sub_080B1B0C
-sub_080B1B0C: @ 0x080002D0
-	ldr r3, _0800033C @ =ram_sub_080B1B0C
+	thumb_func_start GetCollisionDataAtEntity
+GetCollisionDataAtEntity: @ 0x080002D0
+	ldr r3, _0800033C @ =ram_GetCollisionDataAtEntity
 	bx r3
 
 @ call 0x080B1B18
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080B1B18
-sub_080B1B18: @ 0x080002D4
-	ldr r3, _08000340 @ =ram_sub_080B1B18
+	thumb_func_start GetCollisionDataAtWorldCoords
+GetCollisionDataAtWorldCoords: @ 0x080002D4
+	ldr r3, _08000340 @ =ram_GetCollisionDataAtWorldCoords
 	bx r3
 
 @ call 0x080B1B2C
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080B1B2C
-sub_080B1B2C: @ 0x080002D8
-	ldr r3, _08000344 @ =ram_sub_080B1B2C
+	thumb_func_start GetCollisionDataAtRoomCoords
+GetCollisionDataAtRoomCoords: @ 0x080002D8
+	ldr r3, _08000344 @ =ram_GetCollisionDataAtRoomCoords
 	bx r3
 
 @ call 0x080B1B3C
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080B1B3C
-sub_080B1B3C: @ 0x080002DC
-	ldr r3, _08000348 @ =ram_sub_080B1B3C
+	thumb_func_start GetCollisionDataAtRoomTile
+GetCollisionDataAtRoomTile: @ 0x080002DC
+	ldr r3, _08000348 @ =ram_GetCollisionDataAtRoomTile
 	bx r3
 
 @ call 0x080B1B44
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start GetCollisionData
-GetCollisionData: @ 0x080002E0
-	ldr r3, _0800034C @ =ram_GetCollisionData
+	thumb_func_start GetCollisionDataAtMetaTilePos
+GetCollisionDataAtMetaTilePos: @ 0x080002E0
+	ldr r3, _0800034C @ =ram_GetCollisionDataAtMetaTilePos
 	bx r3
 
 @ call 0x080B1B54
@@ -413,18 +414,18 @@ _08000310: .4byte ram_GetTileTypeByPos
 _08000314: .4byte ram_sub_080B1A48
 _08000318: .4byte ram_sub_080B1A58
 _0800031C: .4byte ram_GetTileType
-_08000320: .4byte ram_GetRelativeCollisionTile
-_08000324: .4byte ram_GetTileUnderEntity
-_08000328: .4byte ram_sub_080B1AB4
-_0800032C: .4byte ram_sub_080B1AC8
-_08000330: .4byte ram_sub_080B1AD8
-_08000334: .4byte ram_sub_080B1AE0
-_08000338: .4byte ram_sub_080B1AF0
-_0800033C: .4byte ram_sub_080B1B0C
-_08000340: .4byte ram_sub_080B1B18
-_08000344: .4byte ram_sub_080B1B2C
-_08000348: .4byte ram_sub_080B1B3C
-_0800034C: .4byte ram_GetCollisionData
+_08000320: .4byte ram_GetVvvRelativeToEntity
+_08000324: .4byte ram_GetVvvAtEntity
+_08000328: .4byte ram_GetVvvAtWorldCoords
+_0800032C: .4byte ram_GetVvvAtRoomCoords
+_08000330: .4byte ram_GetVvvAtRoomTile
+_08000334: .4byte ram_GetVvvAtMetaTilePos
+_08000338: .4byte ram_GetCollisionDataRelativeTo
+_0800033C: .4byte ram_GetCollisionDataAtEntity
+_08000340: .4byte ram_GetCollisionDataAtWorldCoords
+_08000344: .4byte ram_GetCollisionDataAtRoomCoords
+_08000348: .4byte ram_GetCollisionDataAtRoomTile
+_0800034C: .4byte ram_GetCollisionDataAtMetaTilePos
 _08000350: .4byte ram_sub_080B1B54
 _08000354: .4byte ram_sub_080B1B68
 _08000358: .4byte ram_sub_080B1B84

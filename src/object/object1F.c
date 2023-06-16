@@ -83,7 +83,7 @@ void Object1F_Action1(Object1FEntity* this) {
 void Object1F_Action2(Object1FEntity* this) {
     u8 bVar1;
 
-    bVar1 = sub_080B1B0C(super);
+    bVar1 = GetCollisionDataAtEntity(super);
     switch (bVar1) {
         case 0x21:
             CreateFx(super, FX_FALL_DOWN, 0);

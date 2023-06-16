@@ -34,7 +34,8 @@ typedef struct {
     /*0x0A*/ s16 scroll_x;
     /*0x0C*/ s16 scroll_y;
     /*0x0E*/ u8 scrollSpeed;  /**< Pixels per frame that the camera can scroll. */
-    /*0x0F*/ u8 scroll_flags; // 0x2 = ??, 0x4 = camera scrolling
+    /*0x0F*/ u8 scroll_flags; // 0x2 = ?? (apply collision value on bottom map no matter the layer SetTileType is called
+                              // for), 0x4 = camera scrolling
     /*0x10*/ u8 scroll_direction;
     /*0x11*/ s8 oam_offset_x;
     /*0x12*/ s8 oam_offset_y;
@@ -73,7 +74,7 @@ typedef struct {
     /* 0x0a */ u8 unk2;
     /* 0x0b */ u8 filler2;
     /* 0x0c */ s16 lightLevel;
-    /* 0x0e */ u16 unk_0e;
+    /* 0x0e */ u16 unk_0e; // Number of previous values for special tiles stored in gUnk_0200B240
     /* 0x10 */ u8 unk_10[4];
     /* 0x14 */ u32 flags;
     /* 0x18 */ u32 unk3;

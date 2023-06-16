@@ -976,16 +976,6 @@
     "size": 384
   },
   {
-    "path": "code_080043E8/gUnk_080046A4.bin",
-    "start": 18084,
-    "size": 338
-  },
-  {
-    "path": "code_080043E8/gUnk_080047F6.bin",
-    "start": 18422,
-    "size": 480
-  },
-  {
     "path": "code_080043E8/gUnk_080049D6.bin",
     "start": 18902,
     "size": 32
@@ -3159,59 +3149,6 @@
     "type": "animation"
   },
   {
-    "path": "code_080043E8/gUnk_08007CAC.bin",
-    "start": 31916,
-    "size": 91
-  },
-  {
-    "path": "code_080043E8/gUnk_08007CAC_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 32079
-    },
-    "size": 207
-  },
-  {
-    "path": "code_080043E8/gUnk_08007CAC_2_DEMO_USA.bin",
-    "variants": [
-      "DEMO_USA"
-    ],
-    "starts": {
-      "DEMO_USA": 32007
-    },
-    "size": 207
-  },
-  {
-    "path": "code_080043E8/gUnk_08007CAC_3_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 32007
-    },
-    "size": 207
-  },
-  {
-    "path": "code_080043E8/gUnk_08007CAC_4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 32159
-    },
-    "size": 207
-  },
-  {
-    "path": "code_080043E8/gUnk_08007CAC_5_USA.bin",
-    "variants": [
-      "USA"
-    ],
-    "start": 32007,
-    "size": 207
-  },
-  {
     "path": "data_08007DF4/gUnk_08007DF4.bin",
     "start": 32244,
     "size": 8
@@ -3558,21 +3495,6 @@
     "path": "data_080B4410/gUnk_080B44C2.bin",
     "start": 738498,
     "size": 14
-  },
-  {
-    "path": "data_080B7910/gUnk_080B7910.bin",
-    "start": 751888,
-    "size": 151
-  },
-  {
-    "path": "data_080B7910/gUnk_080B79A7.bin",
-    "start": 752039,
-    "size": 151
-  },
-  {
-    "path": "data_080B7910/gUnk_080B7A3E.bin",
-    "start": 752190,
-    "size": 302
   },
   {
     "path": "data_080B7B74/gCollisionMtx.bin",
@@ -20723,26 +20645,6 @@
     "start": 1188656,
     "size": 4,
     "type": "animation"
-  },
-  {
-    "path": "minecart/gUnk_081223E8.bin",
-    "start": 1188840,
-    "size": 26
-  },
-  {
-    "path": "minecart/gUnk_08122402.bin",
-    "start": 1188866,
-    "size": 26
-  },
-  {
-    "path": "minecart/gUnk_0812241C.bin",
-    "start": 1188892,
-    "size": 26
-  },
-  {
-    "path": "minecart/gUnk_08122436.bin",
-    "start": 1188918,
-    "size": 26
   },
   {
     "path": "animations/gSpriteAnimations_Minecart_0.bin",

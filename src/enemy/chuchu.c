@@ -703,11 +703,11 @@ void sub_0801FB68(Entity* this) {
     this->zVelocity = 0;
 }
 
-u32 sub_0801FBD0(Entity* this) {
-    if (GetTileUnderEntity(this) == 0x10) {
-        return 1;
+bool32 sub_0801FBD0(Entity* this) {
+    if (GetVvvAtEntity(this) == 0x10) {
+        return TRUE;
     } else {
-        return 0;
+        return FALSE;
     }
 }
 

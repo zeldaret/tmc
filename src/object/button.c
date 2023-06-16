@@ -154,7 +154,7 @@ u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(Entity* this) {
     Entity* ent;
-    if (GetCollisionData(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
+    if (GetCollisionDataAtMetaTilePos(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
         return 0;
     }
     ent = 0;

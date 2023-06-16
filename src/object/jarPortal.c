@@ -176,10 +176,10 @@ void sub_0808C148(Entity* this, u32 a2) {
 
     pos = COORD_TO_TILE(this);
     if (!a2) {
-        SetTile(16530, pos - 1, this->collisionLayer);
-        SetTile(16531, pos, this->collisionLayer);
-        SetTile(16532, pos + 63, this->collisionLayer);
-        SetTile(16533, pos + 64, this->collisionLayer);
+        SetTile(0x4092, pos - 1, this->collisionLayer);
+        SetTile(0x4093, pos, this->collisionLayer);
+        SetTile(0x4094, pos + 63, this->collisionLayer);
+        SetTile(0x4095, pos + 64, this->collisionLayer);
     } else {
         RestorePrevTileEntity(pos - 1, this->collisionLayer);
         RestorePrevTileEntity(pos, this->collisionLayer);

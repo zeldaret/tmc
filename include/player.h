@@ -158,8 +158,8 @@ enum PlayerItemId {
 typedef enum {
     SURFACE_NORMAL,
     SURFACE_PIT,
-    SURFACE_2,
-    SURFACE_3,
+    SURFACE_2, // nulled
+    SURFACE_3, // nulled
     SURFACE_SLOPE_GNDGND_V,
     SURFACE_SLOPE_GNDGND_H,
     SURFACE_6,
@@ -169,10 +169,10 @@ typedef enum {
     SURFACE_A,
     SURFACE_B,
     SURFACE_SLOPE_GNDWATER,
-    SURFACE_D,
-    SURFACE_E,
-    SURFACE_F,
-    SURFACE_10,
+    SURFACE_D,  // SurfaceAction_ConveyerNorth
+    SURFACE_E,  // SurfaceAction_ConveyerSouth
+    SURFACE_F,  // SurfaceAction_ConveyerWest
+    SURFACE_10, // SurfaceAction_ConveyerEast
     SURFACE_SWAMP,
     SURFACE_DOOR,
     SURFACE_DOOR_13,
@@ -189,18 +189,19 @@ typedef enum {
     SURFACE_LADDER,
     SURFACE_1F, // nulled
     SURFACE_20,
-    SURFACE_21,
+    SURFACE_21, // reuses SurfaceAction_16
     SURFACE_22,
-    SURFACE_EDGE,
-    SURFACE_24,
+    SURFACE_EDGE, // reuses SurfaceAction_6
+    SURFACE_24,   // reuses SurfaceAction_6
     SURFACE_DUST,
     SURFACE_26,
     SURFACE_HOLE,
-    SURFACE_LIGHT_GRADE,
-    SURFACE_29,
+    SURFACE_LIGHT_GRADE, // reuses SurfaceAction_SlopeGndGndVertical
+    SURFACE_29,          // reuses SurfaceAction_SlopeGndGndHorizontal
     SURFACE_AUTO_LADDER,
     SURFACE_CLIMB_WALL,
     SURFACE_2C,
+    SURFACE_2D // reuses SurfaceAction_Dust
 } SurfaceType;
 
 typedef enum {
@@ -292,8 +293,8 @@ typedef struct {
     /*0x0f*/ u8 hurtBlinkSpeed;
     /*0x10*/ u8 field_0x10;
     /*0x11*/ u8 surfacePositionSameTimer;
-    /*0x12*/ u8 floor_type;
-    /*0x13*/ u8 floor_type_last;
+    /*0x12*/ u8 floor_type;      /**< @see SurfaceType */
+    /*0x13*/ u8 floor_type_last; /**< @see SurfaceType */
     /*0x14*/ u8 field_0x14;
     /*0x15*/ u8 field_0x15;
     /*0x16*/ u16 startPosX;
@@ -483,7 +484,7 @@ u32 sub_08079B24(void);
 void sub_08079708(Entity*);
 void sub_08079744(Entity*);
 void PlayerUpdateSwimming(Entity*);
-u32 GetCollisionTileInFront(Entity*);
+u32 GetVvvInFront(Entity* player);
 u32 sub_080797C4(void);
 void CheckPlayerVelocity(void);
 void sub_0807B068(Entity*);

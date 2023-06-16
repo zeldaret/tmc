@@ -74,7 +74,6 @@ u32 sub_0801A570(Entity*, u32);
 bool32 sub_0801A458(LayerStruct* layer, u32 position, u32 collisionType);
 bool32 sub_0801A370(LayerStruct* layer, u32 position);
 u32 sub_0801A8D0(Entity* this, u32 param_2);
-extern void sub_080001D0(u32, u32, u32);
 
 void sub_0801967C(void) {
     gUnk_080B4458[gMenu.overlayType]();
@@ -202,8 +201,8 @@ u32 UpdatePlayerCollision(void) {
         index = sub_0807BDB8(&gPlayerEntity, direction >> 2);
         if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
             ptr1 = &gUnk_080B4490[index * 2];
-            if (GetCollisionData(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]),
-                                 gPlayerEntity.collisionLayer) == 0xff) {
+            if (GetCollisionDataAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]),
+                                              gPlayerEntity.collisionLayer) == 0xff) {
                 if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) ||
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
@@ -260,7 +259,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.direction & 0x80) != 0) {
                 return 0;
             }
-            if (GetCollisionData(position, gPlayerEntity.collisionLayer) != 0xf) {
+            if (GetCollisionDataAtMetaTilePos(position, gPlayerEntity.collisionLayer) != 0xf) {
                 return 0;
             }
             if (sub_08079778() == 0) {
@@ -581,7 +580,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             SetTile(0x4074, position, gPlayerEntity.collisionLayer);
-            sub_080001D0(0xd, position, gPlayerEntity.collisionLayer);
+            SetVvvAtMetaTilePos(0xd, position, gPlayerEntity.collisionLayer);
             return 1;
         default:
             return 0;

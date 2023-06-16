@@ -758,12 +758,12 @@ CheckNEastTile: @ 0x08008B02
 	push {r0, r1, lr}
 	movs r1, #0
 	movs r2, #0
-	bl GetRelativeCollisionTile
+	bl GetVvvRelativeToEntity
 	// check if north east collision?
 	ldr r1, =0x4000
 	tst r0, r1
 	bne _08008B1E
-	ldr r1, =gUnk_08007CAC
+	ldr r1, =gMapVvvToSurfaceType
 	bl sub_08007DE0
 	movs r2, #1
 	cmp r3, #1

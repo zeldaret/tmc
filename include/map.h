@@ -19,12 +19,19 @@ typedef struct {
     /*0x7004*/ u16 metatiles[0x800 * 4];
     /**< Mapping from a metatile to the four tile_attrs it consists of.*/ // gMetatilesTop, gMetatilesBottom
 
-    /*0xb004*/ u8 unkData3[0x40*0x40]; /**< Some sort of special behavior for tiles? Falling into holes or jumping off walls does not work when this is all zero.*/     // gUnk_02016654, gUnk_02030EB4
+    /*
+    Temporarily call this vvv
+    VVV
+    vvv
+    Vvv
+
+    */
+    /*0xb004*/ u8 vvv[0x40*0x40]; /**< Some sort of special behavior for tiles? Falling into holes or jumping off walls does not work when this is all zero.*/     // gUnk_02016654, gUnk_02030EB4
     // TODO check with debugger what accesses this
     // 0x637
     // 0x2030eb4 + 0x637
     // 0x20314eb
-    // e.g. sub_080B1AE0 accesses this
+    // e.g. GetVvvAtMetaTilePos accesses this
     // TODO check whether this also affects sound played when walking?
     /*
     0x10: water

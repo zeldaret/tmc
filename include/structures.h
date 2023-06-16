@@ -391,4 +391,5 @@ typedef struct {
     u8 paletteGroup;
     u8 gfxGroup;
 } PACKED StaffrollGfxEntry;
+
 #endif // STRUCTURES_H

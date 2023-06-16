@@ -340,7 +340,7 @@ void sub_08029E0C(Entity* this) {
     tile = COORD_TO_TILE(this);
     for (i = 0; i < 3; i++) {
         dir = ptr[iVar3];
-        if (GetCollisionData(gUnk_080B4488[dir >> 3] + tile, this->collisionLayer) == 0) {
+        if (GetCollisionDataAtMetaTilePos(gUnk_080B4488[dir >> 3] + tile, this->collisionLayer) == 0) {
             local_24 = dir;
             if (this->direction - this->field_0x74.HALF.LO != dir - this->direction)
                 break;

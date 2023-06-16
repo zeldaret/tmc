@@ -246,7 +246,7 @@ void sub_08046518(void) {
     u16* ptr = gMapTop.metatileTypes;
     u16* sl = &gMapTop.mapData[sub_08046518_offset];
     u16* stack1 = &gMapTop.mapDataClone[sub_08046518_offset];
-    u8* stack2 = &gMapTop.unkData3[sub_08046518_offset];
+    u8* stack2 = &gMapTop.vvv[sub_08046518_offset];
     u8* r6 = &gMapTop.collisionData[sub_08046518_offset];
     u32 i;
     for (i = 0x10; i != 0; i--) {

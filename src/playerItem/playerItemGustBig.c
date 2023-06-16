@@ -1,9 +1,8 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "functions.h"
-#include "sound.h"
 #include "asm.h"
+#include "entity.h"
+#include "functions.h"
+#include "player.h"
+#include "sound.h"
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);
@@ -11,8 +10,6 @@ extern void sub_08018CBC(Entity*);
 extern void sub_08018DE8(Entity*);
 extern void sub_08018E68(Entity*);
 extern void sub_08018F6C(Entity*);
-
-extern u32 sub_08007DD6(u32, const u16*);
 
 extern const u8 gUnk_08003E44[];
 
@@ -40,9 +37,11 @@ static const Hitbox* const gUnk_080B3DE8[] = {
     &gUnk_080B3E20,
     &gUnk_080B3E28,
 };
-static const u16 gUnk_080B3DF4[] = {
-    0x75, 0x1, 0x76, 0x1, 0x3ac, 0x1, 0x4050, 0x1, 0x377, 0x1, 0x378, 0x1, 0x71, 0x1, 0x72, 0x1, 0, 0,
+static const KeyValuePair gUnk_080B3DF4[] = {
+    { 0x75, 0x1 },  { 0x76, 0x1 },  { 0x3ac, 0x1 }, { 0x4050, 0x1 },
+    { 0x377, 0x1 }, { 0x378, 0x1 }, { 0x71, 0x1 },  { 0x72, 0x1 },
 };
+static const u16 gUnk_080B3DF4End = 0;
 
 static const Hitbox gUnk_080B3E18 = { 0, 0, { 6, 3, 3, 6 }, 6, 6 };
 static const Hitbox gUnk_080B3E20 = { 0, 0, { 6, 3, 3, 6 }, 8, 8 };
@@ -161,10 +160,10 @@ void sub_08018E68(Entity* this) {
         if (this->type2 == 0) {
             sub_0800451C(this);
         }
-        if (sub_08007DD6(sub_080B1A0C(this, x, y), gUnk_080B3DF4) != 0) {
+        if (FindValueForKey(sub_080B1A0C(this, x, y), gUnk_080B3DF4) != 0) {
             return;
         }
-        if (GetRelativeCollisionTile(this, x, y) == 0x74) {
+        if (GetVvvRelativeToEntity(this, x, y) == 0x74) {
             return;
         }
         if (sub_080040D8(this, (u8*)gUnk_08003E44, this->x.HALF.HI + x, this->y.HALF.HI + y) == 0) {

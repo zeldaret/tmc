@@ -200,7 +200,7 @@ void sub_0802AAC0(Entity* this) {
             this->child = NULL;
 #ifdef EU
         } else if (ent->timer == 0) {
-            if (GetCollisionData(COORD_TO_TILE(this), 1) == 0) {
+            if (GetCollisionDataAtMetaTilePos(COORD_TO_TILE(this), 1) == 0) {
                 if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10) && ent->subtimer <= 0x50) {
                     this->field_0x80.HALF.HI = 0;
                 }

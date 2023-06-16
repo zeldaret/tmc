@@ -1,10 +1,9 @@
-#include "global.h"
+#include "asm.h"
 #include "entity.h"
-#include "npc.h"
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
 
-extern u32 sub_080B1AC8(u32, u32, u32);
 void sub_0806ACC4(Entity*);
 void sub_0806ABFC(Entity*);
 void sub_0806AC3C(Entity*);
@@ -792,8 +791,9 @@ void sub_0806B0E0(Entity* this, ScriptExecutionContext* context) {
     static const u16 gUnk_08112C5C[2] = { TEXT_INDEX(TEXT_TOWN_MINISH2, 0x25), TEXT_INDEX(TEXT_TOWN_MINISH2, 0x26) };
     int idx = 0;
 
-    if (sub_080B1AC8(0x38, 0xb8, 1) == 0x57 && sub_080B1AC8(0x48, 0xb8, 1) == 0x57 &&
-        sub_080B1AC8(0x38, 200, 1) == 0x57 && sub_080B1AC8(0x48, 200, 1) == 0x57) {
+    // Checks if the dust is gone at these four meta tiles.
+    if (GetVvvAtRoomCoords(56, 184, 1) == 0x57 && GetVvvAtRoomCoords(72, 184, 1) == 0x57 &&
+        GetVvvAtRoomCoords(56, 200, 1) == 0x57 && GetVvvAtRoomCoords(72, 200, 1) == 0x57) {
         idx = 1;
     }
 

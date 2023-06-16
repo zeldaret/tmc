@@ -158,7 +158,7 @@ void sub_0802F300(Entity* this) {
         return;
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
-    } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
+    } else if ((GetVvvAtEntity(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 

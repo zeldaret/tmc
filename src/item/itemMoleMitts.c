@@ -181,13 +181,13 @@ s32 sub_080774A0(void) {
     uVar3 = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
                                  -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
 
-    iVar2 = GetCollisionData(uVar3, gPlayerEntity.collisionLayer);
+    iVar2 = GetCollisionDataAtMetaTilePos(uVar3, gPlayerEntity.collisionLayer);
 
     if (iVar2 > 0x16)
         return 0;
     if (iVar2 < 0xf)
         return 0;
-    if (sub_080B1AE0(uVar3, gPlayerEntity.collisionLayer) != 0x56) {
+    if (GetVvvAtMetaTilePos(uVar3, gPlayerEntity.collisionLayer) != 0x56) {
         return 1;
     } else {
         return 0x56;

@@ -10,8 +10,6 @@
 #include "object.h"
 #include "room.h"
 
-extern void sub_080001D0(u32, u32, u32);
-
 enum {
     FURNITURE_INIT,
     FURNITURE_UPDATE,
@@ -263,7 +261,7 @@ static void FurnitureInit(FurnitureEntity* this) {
             for (i = 0; i < cnt; ++i, ++tile) {
                 SetTile(0x4026, tile, 2);
                 SetTile(0x4026, tile, 1);
-                sub_080001D0(0, tile + 64, 1);
+                SetVvvAtMetaTilePos(0, tile + 64, 1);
             }
             break;
     }
@@ -289,7 +287,7 @@ static void FurnitureInit(FurnitureEntity* this) {
             super->collisionLayer = 1;
             super->spriteOrientation.flipY = 2;
             SetTile(0x4074, this->tile - 64, super->collisionLayer);
-            sub_080001D0(63, this->tile - 64, super->collisionLayer);
+            SetVvvAtMetaTilePos(63, this->tile - 64, super->collisionLayer);
             SetTile(0x4017, this->tile, super->collisionLayer);
             SetTile(0x4017, this->tile + 64, super->collisionLayer);
             break;

@@ -72,7 +72,7 @@ void sub_080878CC(Entity* this) {
     for (itX = -0x10; itX < 0x11; itX += 0x10) {
         for (itY = -0x10; itY < 0x11; itY += 0x10) {
             pos = TILE((u32)x + itX, (u32)y + itY);
-            if (sub_080B1AE0(pos, (u8)layer) == 0x2e) {
+            if (GetVvvAtMetaTilePos(pos, (u8)layer) == 0x2e) {
                 switch (GetTileType(pos, layer)) {
                     case 0x368:
                     case 0x367:

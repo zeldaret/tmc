@@ -121,67 +121,67 @@ _080B1A64:
 	ldrh r0, [r1, r0]
 	bx lr
 
-	arm_func_start arm_GetRelativeCollisionTile
-arm_GetRelativeCollisionTile: @ 0x080B1A8C
+	arm_func_start arm_GetVvvRelativeToEntity
+arm_GetVvvRelativeToEntity: @ 0x080B1A8C @ entity plus offset to world pixel coordinates and layer
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b arm_sub_080B1AB4
-arm_GetTileUnderEntity:
+	b arm_GetVvvAtWorldCoords
+arm_GetVvvAtEntity: @ entity to world pixel coordinates and layer
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-arm_sub_080B1AB4:
+arm_GetVvvAtWorldCoords: @ world pixel coordinates to room pixel coordinates
 	ldr ip, _080B1C20 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
-arm_sub_080B1AC8:
+arm_GetVvvAtRoomCoords: @ room pixel coordinates to room tile coordinates
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
-arm_sub_080B1AD8:
+arm_GetVvvAtRoomTile:
 	add r0, r0, r1, lsl #6
-	mov r1, r2
-arm_sub_080B1AE0:
-	ldr r2, _080B1C24 @ =gUnk_08000278
+	mov r1, r2 @ move layer to r1
+arm_GetVvvAtMetaTilePos:
+	ldr r2, _080B1C24 @ =gVvvPtrs
 	ldr r2, [r2, r1, lsl #2]
 	ldrb r0, [r2, r0]
 	bx lr
 
-	arm_func_start arm_sub_080B1AF0
-arm_sub_080B1AF0: @ 0x080B1AF0
+	arm_func_start arm_GetCollisionDataRelativeTo
+arm_GetCollisionDataRelativeTo: @ 0x080B1AF0
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b arm_sub_080B1B18
-arm_sub_080B1B0C:
+	b arm_GetCollisionDataAtWorldCoords
+arm_GetCollisionDataAtEntity:
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-arm_sub_080B1B18:
+arm_GetCollisionDataAtWorldCoords:
 	ldr ip, _080B1C28 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
-arm_sub_080B1B2C:
+arm_GetCollisionDataAtRoomCoords:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
-arm_sub_080B1B3C:
+arm_GetCollisionDataAtRoomTile:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
-arm_GetCollisionData:
+arm_GetCollisionDataAtMetaTilePos:
 	ldr r2, _080B1C2C @ =gCollisionDataPtrs
 	ldr r1, [r2, r1, lsl #2]
 	ldrb r0, [r1, r0]
@@ -243,7 +243,7 @@ sub_080B1BCC: @ 0x080B1BCC
 	and r1, r1, #0x3f0
 	and r2, r2, #0x3f0
 	add r1, r1, r2, lsl #6
-	ldr r2, _080B1C50 @ =gUnk_08000278
+	ldr r2, _080B1C50 @ =gVvvPtrs
 	ldrb r3, [r0, #0x38]
 	ldr r2, [r2, r3, lsl #2]
 	ldrb r0, [r2, r1, lsr #4]
@@ -254,7 +254,7 @@ _080B1C14: .4byte gUnk_08000258
 _080B1C18: .4byte gRoomControls
 _080B1C1C: .4byte gMapDataPtrs
 _080B1C20: .4byte gRoomControls
-_080B1C24: .4byte gUnk_08000278
+_080B1C24: .4byte gVvvPtrs
 _080B1C28: .4byte gRoomControls
 _080B1C2C: .4byte gCollisionDataPtrs
 _080B1C30: .4byte gUnk_080B37A0
@@ -265,7 +265,7 @@ _080B1C40: .4byte gUnk_080B7A3E
 _080B1C44: .4byte gUnk_08000360
 _080B1C48: .4byte gUnk_080B7A3E
 _080B1C4C: .4byte gRoomControls
-_080B1C50: .4byte gUnk_08000278
+_080B1C50: .4byte gVvvPtrs
 
 	arm_func_start UpdateCollision
 UpdateCollision: @ 0x080B1C54

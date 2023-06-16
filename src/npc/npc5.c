@@ -472,7 +472,7 @@ u32 sub_080611D4(Entity* this) {
         0x2b, 0x10, 0x2a, 0x0, 0x2d, 0x8, 0x2c, 0x18, 0x0,
     };
 
-    u32 uVar2;
+    u32 vvv;
     u32 x;
     s32 a;
     s32 b;
@@ -482,11 +482,11 @@ u32 sub_080611D4(Entity* this) {
     ptr = (s8*)gUnk_0810AC4C;
     a = ptr[x];
     b = ptr[x + 1];
-    uVar2 = GetRelativeCollisionTile(this, a, b);
+    vvv = GetVvvRelativeToEntity(this, a, b);
     ptr2 = gUnk_0810AC54;
 
     do {
-        if (*ptr2 != uVar2 || this->animationState != (ptr2[1] >> 2)) {
+        if (*ptr2 != vvv || this->animationState != (ptr2[1] >> 2)) {
             continue;
         }
 

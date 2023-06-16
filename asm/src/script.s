@@ -106,7 +106,7 @@ _08016A64:
 sub_08016A6C: @ 0x08016A6C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl GetTileUnderEntity
+	bl GetVvvAtEntity
 	add r1, pc, #0x38
 _08016A76:
 	adds r1, #4
