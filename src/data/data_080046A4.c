@@ -1,4 +1,5 @@
 #include "asm.h"
+#include "player.h"
 
 const KeyValuePair gUnk_080046A4[] = {
     { 63, 1 },     { 80, 2 },   { 69, 8 },   { 70, 9 },   { 71, 10 },  { 72, 11 },  { 73, 12 },  { 74, 13 },
@@ -32,3 +33,67 @@ const u16 gUnk_080047F6[] = {
     32776, 1039, 65280, 52,    32779, 21263, 65280, 19,    32779, 21263, 65280, 789,   0,     30,    2,     18,
     64,    8,    0,     1,     128,   10,    0,     1,     128,   8,     384,   10,    128,   30,    1,     49152
 };
+
+#define PLAYER_MACRO_JUMPTO 0x4000 // Jump
+#define PLAYER_MACRO_IGNORE 0x8000 // Do not set playerMacroWaiting and playerMacroHeldKeys?
+#define PLAYER_MACRO_END 0xC000 // End // 49152
+
+// Link tries out the shield.
+const PlayerMacroEntry gPlayerMacroTryOutShield[] = {
+    { 4, DPAD_LEFT }, { 1, DPAD_DOWN },  { 60, A_BUTTON }, { 1, DPAD_LEFT },
+    { 60, A_BUTTON }, { 1, DPAD_RIGHT }, { 60, A_BUTTON }, { PLAYER_MACRO_JUMPTO, -4 },
+};
+
+// Link holding his shield when the monsters escape or vaati attacks zelda.
+const PlayerMacroEntry gPlayerMacroProtectWithShield[] = {
+    { 0, A_BUTTON },
+    { PLAYER_MACRO_JUMPTO, -4 },
+};
+
+const PlayerMacroEntry gPlayerMacroSanctuary[] = {
+    { 1, DPAD_UP },
+    { 120, B_BUTTON },
+    { 60, 0 },
+};
+const u16 gPlayerMacroSanctuaryEnd = PLAYER_MACRO_END;
+
+const PlayerMacroEntry gPlayerMacroBladeBrothers0[] = {
+    { 120, B_BUTTON },
+    { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers0End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers1[] = {
+    { 60, DPAD_RIGHT },
+    { 4, B_BUTTON },
+    { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers1End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers2[] = {
+    { 4, DPAD_LEFT },
+    { 120, A_BUTTON },
+    { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers2End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers3[] = {
+    { 1, DPAD_DOWN }, { 4, A_BUTTON }, { 10, 0 }, { 10, B_BUTTON }, { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers3End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers4[] = {
+    { 4, DPAD_RIGHT }, { 8, R_BUTTON + DPAD_RIGHT }, { 30, 0 }, { 1, DPAD_LEFT }, { 30, 0 },
+    { 4, DPAD_LEFT },  { 4, R_BUTTON + DPAD_LEFT },  { 20, 0 }, { 6, B_BUTTON },  { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers4End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers5[] = {
+    { 1, DPAD_LEFT }, { 30, 0 }, { 4, B_BUTTON }, { 60, 0 }, { 4, B_BUTTON }, { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers5End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers6[] = {
+    { 1, DPAD_LEFT }, { 30, 0 }, { 4, B_BUTTON }, { 60, 0 }, { 4, B_BUTTON }, { 60, 0 },
+};
+const u16 gPlayerMacroBladeBrothers6End = PLAYER_MACRO_END;
+const PlayerMacroEntry gPlayerMacroBladeBrothers7[] = {
+    { 1, DPAD_LEFT }, { 120, B_BUTTON }, { 10, 0 }, { 4, B_BUTTON }, { 4, 0 },  { 4, B_BUTTON },
+    { 4, 0 },         { 4, B_BUTTON },   { 4, 0 },  { 4, B_BUTTON }, { 4, 0 },  { 4, B_BUTTON },
+    { 4, 0 },         { 4, B_BUTTON },   { 4, 0 },  { 4, B_BUTTON }, { 30, 0 },
+};
+const u16 gPlayerMacroBladeBrothers7End = PLAYER_MACRO_END;

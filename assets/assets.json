@@ -976,61 +976,6 @@
     "size": 384
   },
   {
-    "path": "code_080043E8/gUnk_080049D6.bin",
-    "start": 18902,
-    "size": 32
-  },
-  {
-    "path": "code_080043E8/gUnk_080049F6.bin",
-    "start": 18934,
-    "size": 8
-  },
-  {
-    "path": "code_080043E8/gUnk_080049FE.bin",
-    "start": 18942,
-    "size": 14
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A0C.bin",
-    "start": 18956,
-    "size": 10
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A16.bin",
-    "start": 18966,
-    "size": 14
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A24.bin",
-    "start": 18980,
-    "size": 14
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A32.bin",
-    "start": 18994,
-    "size": 22
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A48.bin",
-    "start": 19016,
-    "size": 42
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A72.bin",
-    "start": 19058,
-    "size": 26
-  },
-  {
-    "path": "code_080043E8/gUnk_08004A8C.bin",
-    "start": 19084,
-    "size": 26
-  },
-  {
-    "path": "code_080043E8/gUnk_08004AA6.bin",
-    "start": 19110,
-    "size": 70
-  },
-  {
     "path": "animations/gSpriteAnimations_1_0.bin",
     "start": 19180,
     "size": 5,

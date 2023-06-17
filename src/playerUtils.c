@@ -2113,7 +2113,7 @@ void sub_08079BD8(Entity* this) {
     this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
 }
 
-bool32 sub_08079C30(Entity* param_1) {
+bool32 sub_08079C30(Entity* player) {
     if (gPlayerState.field_0x14 == 0 && (gPlayerState.flags & PL_FLAGS2) == 0) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             return TRUE;
@@ -2129,13 +2129,13 @@ bool32 sub_08079C30(Entity* param_1) {
                 return TRUE;
         }
 
-        if (gPlayerState.floor_type != FindValueForKey(GetVvvRelativeToEntity(param_1, 0, -1), gMapVvvToSurfaceType))
+        if (gPlayerState.floor_type != FindValueForKey(GetVvvRelativeToEntity(player, 0, -1), gMapVvvToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type != FindValueForKey(GetVvvRelativeToEntity(param_1, 2, 0), gMapVvvToSurfaceType))
+        if (gPlayerState.floor_type != FindValueForKey(GetVvvRelativeToEntity(player, 2, 0), gMapVvvToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type == FindValueForKey(GetVvvRelativeToEntity(param_1, -2, 0), gMapVvvToSurfaceType)) {
+        if (gPlayerState.floor_type == FindValueForKey(GetVvvRelativeToEntity(player, -2, 0), gMapVvvToSurfaceType)) {
             return TRUE;
         }
     }

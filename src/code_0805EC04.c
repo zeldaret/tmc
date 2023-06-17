@@ -79,7 +79,7 @@ void UpdatePlayerInput(void) {
     PlayerMacroEntry* playerMacro;
     u32 zero;
 
-    if (gPlayerState.playerInput.playerMacro != NULL) {
+        if (gPlayerState.playerInput.playerMacro != NULL) {
         // Player is controlled by macro.
         playerInput = &gPlayerState.playerInput;
         playerMacro = playerInput->playerMacro;
@@ -87,7 +87,7 @@ void UpdatePlayerInput(void) {
             zero = 0;
             goto code_2;
         code_0:
-            if (flags != 2) {
+            if (flags != 2) { // !PLAYER_MACRO_IGNORE
                 playerInput->playerMacroWaiting = playerMacro->flags;
                 playerInput->playerMacroHeldKeys = playerMacro->keys;
             }
@@ -100,10 +100,12 @@ void UpdatePlayerInput(void) {
                 if (flags != 1) {
                     break;
                 }
+                // PLAYER_MACRO_JUMPTO
                 (u8*)playerMacro += ((s16)playerMacro->keys);
             } while (TRUE);
 
             if (flags == 3) {
+                // PLAYER_MACRO_END
                 playerInput->playerMacroWaiting = zero;
                 playerInput->playerMacroHeldKeys = zero;
                 playerMacro = NULL;

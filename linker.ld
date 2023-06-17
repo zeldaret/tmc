@@ -243,7 +243,6 @@ SECTIONS {
         asm/src/code_08003FC4.o(.text);
         asm/src/code_080043E8.o(.text);
         src/data/data_080046A4.o(.rodata);
-        data/data_080046A4.o(.rodata);
         data/gfx/link_animations.o(.rodata);
         src/data/mapVvvToSurfaceType.o(.rodata);
         asm/src/code_08007CAC.o(.text);

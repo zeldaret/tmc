@@ -232,7 +232,7 @@ typedef struct {
 typedef struct {
     u16 flags;
     u16 keys;
-} PlayerMacroEntry;
+} PlayerMacroEntry ALIGNED(2);
 
 typedef enum {
     PLAYER_INPUT_1 = 0x1,   // A
