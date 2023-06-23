@@ -89,7 +89,7 @@ void sub_08097EB8(MacroDecorationEntity* this) {
     const s16* tilePosPtr;
     u16 tile = COORD_TO_TILE(super);
     for (tilePosPtr = tilePosArray; *tilePosPtr != 0x7fff; tilePosPtr += 2) {
-        SetTile((u16)tilePosPtr[1], tile + tilePosPtr[0], 1);
+        SetMetaTile((u16)tilePosPtr[1], tile + tilePosPtr[0], 1);
     }
 }
 

@@ -107,7 +107,7 @@ void sub_080AB4A4(Entity* this) {
     tile = TILE(this->x.HALF.HI, this->y.HALF.HI);
     if (tmp != tile) {
         this->field_0x76.HWORD = tile;
-        switch (GetTileTypeByEntity(this)) {
+        switch (GetMetaTileTypeByEntity(this)) {
             case 0x13:
             case 0x34:
                 sub_0807B7D8(0x34c, this->field_0x76.HWORD, this->collisionLayer);

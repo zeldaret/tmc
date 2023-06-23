@@ -83,7 +83,7 @@ void sub_08034CC4(Entity* this) {
         this->field_0x78.HWORD = 0x4b0;
         sub_08034F70(this);
         InitializeAnimation(this, this->type);
-        SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
         entity = CreateEnemy(MAZAAL_MACRO, 2);
         if (entity != NULL) {
             this->child = entity;

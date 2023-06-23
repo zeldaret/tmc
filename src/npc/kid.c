@@ -567,12 +567,12 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08062788(Entity* this, ScriptExecutionContext* context) {
-    SetTile(0x4072, 0x60b, 1);
-    SetTile(0x4072, 0x60c, 1);
-    SetTile(0x4072, 0x60d, 1);
-    SetTile(0x4072, 0x64b, 1);
-    SetTile(0x4072, 0x64c, 1);
-    SetTile(0x4072, 0x64d, 1);
+    SetMetaTile(0x4072, 0x60b, 1);
+    SetMetaTile(0x4072, 0x60c, 1);
+    SetMetaTile(0x4072, 0x60d, 1);
+    SetMetaTile(0x4072, 0x64b, 1);
+    SetMetaTile(0x4072, 0x64c, 1);
+    SetMetaTile(0x4072, 0x64d, 1);
 }
 
 void sub_080627E8(Entity* this, ScriptExecutionContext* context) {

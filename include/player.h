@@ -231,7 +231,7 @@ typedef struct {
 
 typedef struct {
     u16 flags;
-    u16 keys;
+    u16 keys; /**< GBA keys bitmask, see io_reg.h */
 } PlayerMacroEntry ALIGNED(2);
 
 typedef enum {

@@ -1,9 +1,10 @@
 
-#include "item.h"
-#include "functions.h"
-#include "sound.h"
 #include "effects.h"
+#include "functions.h"
+#include "item.h"
 #include "object.h"
+#include "sound.h"
+#include "tiles.h"
 
 s32 sub_080774A0(void);
 extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
@@ -176,18 +177,18 @@ void sub_08077448(ItemBehavior* this, u32 index) {
 s32 sub_080774A0(void) {
     static const s8 gUnk_0811BE1E[] = { 0, -13, 13, 0, 0, 16, -13, 0, 0, 0 };
     u32 iVar2;
-    u32 uVar3;
+    u32 metaTilePos;
 
-    uVar3 = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
+    metaTilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
                                  -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
 
-    iVar2 = GetCollisionDataAtMetaTilePos(uVar3, gPlayerEntity.collisionLayer);
+    iVar2 = GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer);
 
     if (iVar2 > 0x16)
         return 0;
     if (iVar2 < 0xf)
         return 0;
-    if (GetVvvAtMetaTilePos(uVar3, gPlayerEntity.collisionLayer) != 0x56) {
+    if (GetVvvAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer) != VVV_86) {
         return 1;
     } else {
         return 0x56;

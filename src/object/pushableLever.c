@@ -33,7 +33,7 @@ extern const u8 PushableLever_PushedOffsets[];
 
 void PushableLever_SetIdle(PushableLeverEntity*);
 bool32 PushableLever_ShouldStartPushing(PushableLeverEntity* this);
-void PushableLever_SetTiles(PushableLeverEntity*);
+void PushableLever_SetMetaTiles(PushableLeverEntity*);
 void PushableLever_CalculateSpriteOffsets(PushableLeverEntity*);
 
 #define TILE_INITIAL 0x4053
@@ -53,7 +53,7 @@ void PushableLever_Idle(PushableLeverEntity* this) {
         super->action = PUSHING;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = 0;
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetMetaTile(this->tileIndex, this->tilePosition, super->collisionLayer);
         EnqueueSFX(SFX_16A);
         RequestPriorityDuration(super, 30);
         if (PlayerCanBeMoved()) {
@@ -82,32 +82,32 @@ void PushableLever_Pushing(PushableLeverEntity* this) {
 void PushableLever_SetIdle(PushableLeverEntity* this) {
     super->action = IDLE;
     this->timer = 60;
-    PushableLever_SetTiles(this);
+    PushableLever_SetMetaTiles(this);
 }
 
-void PushableLever_SetTiles(PushableLeverEntity* this) {
+void PushableLever_SetMetaTiles(PushableLeverEntity* this) {
     if (CheckFlags(this->pushedFlag) == FALSE) {
         super->type2 = 0;
         this->tilePosition = COORD_TO_TILE_OFFSET(super, 0, 0x10);
-        this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-        SetTile(TILE_INITIAL, this->tilePosition, super->collisionLayer);
+        this->tileIndex = GetMetaTileIndex(this->tilePosition, super->collisionLayer);
+        SetMetaTile(TILE_INITIAL, this->tilePosition, super->collisionLayer);
         InitializeAnimation(super, 1);
     } else {
         super->type2 = 1;
         this->tilePosition = COORD_TO_TILE_OFFSET(super, 0x10, 0);
-        this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-        SetTile(TILE_PUSHED, this->tilePosition, super->collisionLayer);
+        this->tileIndex = GetMetaTileIndex(this->tilePosition, super->collisionLayer);
+        SetMetaTile(TILE_PUSHED, this->tilePosition, super->collisionLayer);
         InitializeAnimation(super, 0);
     }
 }
 
 bool32 PushableLever_ShouldStartPushing(PushableLeverEntity* this) {
-    if (GetTileIndex(this->tilePosition, super->collisionLayer) == 0x4054) {
+    if (GetMetaTileIndex(this->tilePosition, super->collisionLayer) == 0x4054) {
         if (--this->timer == 0) {
             return TRUE;
         }
         PushableLever_CalculateSpriteOffsets(this);
-        SetTile(PushableLever_Tiles[super->type2], this->tilePosition, super->collisionLayer);
+        SetMetaTile(PushableLever_Tiles[super->type2], this->tilePosition, super->collisionLayer);
     } else {
         this->timer = 60;
         super->spriteOffsetX = 0;

@@ -47,15 +47,15 @@ void PushableGrave_Init(PushableGraveEntity* this) {
     super->frameIndex = super->type;
     super->updatePriority = 3;
     tilePosition = COORD_TO_TILE(super);
-    this->unk_6a = GetTileIndex(tilePosition - 0x41, super->collisionLayer);
-    this->unk_6c = GetTileIndex(tilePosition - 0x40, super->collisionLayer);
-    this->unk_6e = GetTileIndex(tilePosition - 0x3f, super->collisionLayer);
-    this->unk_70 = GetTileIndex(tilePosition - 1, super->collisionLayer);
-    this->unk_72 = GetTileIndex(tilePosition, super->collisionLayer);
-    this->unk_74 = GetTileIndex(tilePosition + 1, super->collisionLayer);
-    this->unk_76 = GetTileIndex(tilePosition + 0x3f, super->collisionLayer);
-    this->unk_78 = GetTileIndex(tilePosition + 0x40, super->collisionLayer);
-    this->unk_7a = GetTileIndex(tilePosition + 0x41, super->collisionLayer);
+    this->unk_6a = GetMetaTileIndex(tilePosition - 0x41, super->collisionLayer);
+    this->unk_6c = GetMetaTileIndex(tilePosition - 0x40, super->collisionLayer);
+    this->unk_6e = GetMetaTileIndex(tilePosition - 0x3f, super->collisionLayer);
+    this->unk_70 = GetMetaTileIndex(tilePosition - 1, super->collisionLayer);
+    this->unk_72 = GetMetaTileIndex(tilePosition, super->collisionLayer);
+    this->unk_74 = GetMetaTileIndex(tilePosition + 1, super->collisionLayer);
+    this->unk_76 = GetMetaTileIndex(tilePosition + 0x3f, super->collisionLayer);
+    this->unk_78 = GetMetaTileIndex(tilePosition + 0x40, super->collisionLayer);
+    this->unk_7a = GetMetaTileIndex(tilePosition + 0x41, super->collisionLayer);
     if (sub_0809798C(this)) {
         if (super->type == 0) {
             super->y.HALF.HI -= 0x16;
@@ -71,12 +71,12 @@ void PushableGrave_Init(PushableGraveEntity* this) {
         tileIndex = PushableGrave_Tiles[super->type2];
         if (super->type == 0) {
             super->hitbox = (Hitbox*)&gUnk_080FD578;
-            SetTile(tileIndex, tilePosition - 1, super->collisionLayer);
-            SetTile(tileIndex, tilePosition, super->collisionLayer);
+            SetMetaTile(tileIndex, tilePosition - 1, super->collisionLayer);
+            SetMetaTile(tileIndex, tilePosition, super->collisionLayer);
             super->y.HALF.HI += 2;
         } else {
             super->hitbox = (Hitbox*)&gUnk_080FD570;
-            SetTile(tileIndex, tilePosition, super->collisionLayer);
+            SetMetaTile(tileIndex, tilePosition, super->collisionLayer);
             if (super->type2 == 2) {
                 SetMultipleTiles((TileData*)gUnk_081232C0, tilePosition, super->collisionLayer);
             }
@@ -136,9 +136,9 @@ void sub_080977F4(PushableGraveEntity* this) {
     super->action = 4;
     super->spriteOffsetY = 0;
     tilePosition = COORD_TO_TILE(super);
-    SetTile(0x4022, tilePosition, super->collisionLayer);
+    SetMetaTile(0x4022, tilePosition, super->collisionLayer);
     if (super->type == 0) {
-        SetTile(0x4022, tilePosition - 1, super->collisionLayer);
+        SetMetaTile(0x4022, tilePosition - 1, super->collisionLayer);
     }
     if (this->pushedFlag != 0) {
         SetFlag(this->pushedFlag);
@@ -150,7 +150,7 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
 
     if (super->type != 0) {
         if (super->type2 != 0) {
-            if ((CheckFlags(this->pushedFlag) != 0) || GetTileType(this->unk_68, super->collisionLayer) == 0x403f) {
+            if ((CheckFlags(this->pushedFlag) != 0) || GetMetaTileType(this->unk_68, super->collisionLayer) == 0x403f) {
                 super->action = 3;
                 super->timer = 64;
                 super->subtimer = 0;

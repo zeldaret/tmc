@@ -90,7 +90,7 @@ void sub_08028994(Entity* this) {
     } else {
         this->timer = 0;
         this->field_0x76.HWORD = COORD_TO_TILE(this);
-        this->field_0x74.HWORD = GetTileIndex(this->field_0x76.HWORD, this->collisionLayer);
+        this->field_0x74.HWORD = GetMetaTileIndex(this->field_0x76.HWORD, this->collisionLayer);
         this->hurtType = 0x41;
         sub_08028FFC(this);
     }
@@ -429,7 +429,7 @@ void sub_08028FFC(Entity* this) {
     this->x.HALF.HI = this->field_0x78.HWORD;
     this->y.HALF.HI = this->field_0x7a.HWORD;
     InitializeAnimation(this, 0);
-    SetTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
+    SetMetaTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
 }
 
 void sub_08029078(Entity* this) {
@@ -443,7 +443,7 @@ void sub_08029078(Entity* this) {
         this->spriteIndex = 0xd0;
         sub_08028FDC(this);
         sub_080290E0(this, 1);
-        SetTile(this->field_0x74.HWORD, this->field_0x76.HWORD, this->collisionLayer);
+        SetMetaTile(this->field_0x74.HWORD, this->field_0x76.HWORD, this->collisionLayer);
     }
 }
 

@@ -93,10 +93,10 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BEFC(void) {
-    SetTileType(0x17E, 0x58E, 1);
-    SetTileType(0x17F, 0x58F, 1);
-    SetTileType(0x180, 0x5CE, 1);
-    SetTileType(0x181, 0x5CF, 1);
+    SetMetaTileType(0x17E, 0x58E, 1);
+    SetMetaTileType(0x17F, 0x58F, 1);
+    SetMetaTileType(0x180, 0x5CE, 1);
+    SetMetaTileType(0x181, 0x5CF, 1);
 }
 
 void sub_0806BF44(Entity* this, ScriptExecutionContext* context) {

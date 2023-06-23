@@ -101,12 +101,12 @@ void sub_0809CDF0(Entity* this) {
                              (((this->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
     y = this->field_0x80.HWORD;
-    SetTile(0x402e, y - 0x01, this->collisionLayer);
-    SetTile(0x4022, y - 0x00, this->collisionLayer);
-    SetTile(0x4022, y + 0x01, this->collisionLayer);
-    SetTile(0x4026, y - 0x41, this->collisionLayer);
-    SetTile(0x4026, y - 0x40, this->collisionLayer);
-    SetTile(0x4024, y - 0x3f, this->collisionLayer);
-    SetTile(0x4026, y - 0x81, this->collisionLayer);
-    SetTile(0x4026, y - 0x80, this->collisionLayer);
+    SetMetaTile(0x402e, y - 0x01, this->collisionLayer);
+    SetMetaTile(0x4022, y - 0x00, this->collisionLayer);
+    SetMetaTile(0x4022, y + 0x01, this->collisionLayer);
+    SetMetaTile(0x4026, y - 0x41, this->collisionLayer);
+    SetMetaTile(0x4026, y - 0x40, this->collisionLayer);
+    SetMetaTile(0x4024, y - 0x3f, this->collisionLayer);
+    SetMetaTile(0x4026, y - 0x81, this->collisionLayer);
+    SetMetaTile(0x4026, y - 0x80, this->collisionLayer);
 }

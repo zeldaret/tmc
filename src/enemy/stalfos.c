@@ -440,7 +440,7 @@ void sub_08039AD4(StalfosEntity* this) {
             super->action = 0xb;
             super->child = projectile;
             InitAnimationForceUpdate(super, super->animationState + 0x18);
-            SetTile(0x4067, position, super->collisionLayer);
+            SetMetaTile(0x4067, position, super->collisionLayer);
             return;
         }
     }
@@ -457,7 +457,7 @@ u32 sub_08039B28(StalfosEntity* this) {
         ptr2 = &gUnk_080CF930[super->animationState * 2];
         pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
 
-        tileType = GetTileType(pos, (u32)super->collisionLayer);
+        tileType = GetMetaTileType(pos, (u32)super->collisionLayer);
         ptr = gUnk_080CF938;
         do {
             if (ptr[0] != tileType) {

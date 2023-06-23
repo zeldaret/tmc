@@ -128,13 +128,13 @@ void sub_08085394(Entity* this) {
     tile = COORD_TO_TILE(this);
 
     this->field_0x74.HWORD = *(layerData - off);
-    SetTile(uVar1, tile - off, this->collisionLayer);
+    SetMetaTile(uVar1, tile - off, this->collisionLayer);
 
     this->field_0x76.HWORD = layerData[0x0];
-    SetTile(uVar1, tile - 0x0, this->collisionLayer);
+    SetMetaTile(uVar1, tile - 0x0, this->collisionLayer);
 
     this->field_0x78.HWORD = layerData[off];
-    SetTile(uVar1, tile + off, this->collisionLayer);
+    SetMetaTile(uVar1, tile + off, this->collisionLayer);
 }
 
 void sub_0808543C(Entity* this) {
@@ -144,9 +144,9 @@ void sub_0808543C(Entity* this) {
 
     temp = gUnk_080B4488[this->animationState / 2][0];
     uVar2 = COORD_TO_TILE(this);
-    SetTile(this->field_0x74.HWORD, uVar2 - temp, this->collisionLayer);
-    SetTile(this->field_0x76.HWORD, uVar2, this->collisionLayer);
-    SetTile(this->field_0x78.HWORD, uVar2 + temp, this->collisionLayer);
+    SetMetaTile(this->field_0x74.HWORD, uVar2 - temp, this->collisionLayer);
+    SetMetaTile(this->field_0x76.HWORD, uVar2, this->collisionLayer);
+    SetMetaTile(this->field_0x78.HWORD, uVar2 + temp, this->collisionLayer);
 }
 
 u32 sub_080854A8(Entity* this) {

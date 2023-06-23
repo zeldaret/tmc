@@ -277,6 +277,6 @@ void sub_0803E4D8(Entity* this) {
 
     tile = TILE(this->x.HALF.HI, this->y.HALF.HI + 8);
     if (GetCollisionDataAtMetaTilePos(tile, gPlayerEntity.collisionLayer) != 0xff) {
-        SetTile(0x4074, tile, gPlayerEntity.collisionLayer);
+        SetMetaTile(0x4074, tile, gPlayerEntity.collisionLayer);
     }
 }

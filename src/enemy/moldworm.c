@@ -157,7 +157,7 @@ void sub_08023288(Entity* this) {
         for (i = 0; i < 0x10; i++) {
             u32 x = gPlayerEntity.x.HALF.HI + gUnk_080CBC70[idx + 0];
             u32 y = gPlayerEntity.y.HALF.HI + gUnk_080CBC70[idx + 1];
-            if (sub_08023A38(GetTileTypeByPos(x, y, gPlayerEntity.collisionLayer))) {
+            if (sub_08023A38(GetMetaTileTypeByPos(x, y, gPlayerEntity.collisionLayer))) {
                 sub_08023990(this, x, y);
                 return;
             }
@@ -195,7 +195,7 @@ void sub_08023398(Entity* this) {
     }
 
     if (--this->field_0x78.HWORD == 0) {
-        if (sub_08023A38(GetTileTypeByEntity(this))) {
+        if (sub_08023A38(GetMetaTileTypeByEntity(this))) {
             this->action = 5;
             this->field_0x7c.BYTES.byte3 = 0;
             COLLISION_OFF(this);

@@ -226,7 +226,7 @@ void sub_080AA9E0(Entity* this) {
 
 void sub_080AAA68(Entity* this) {
     static const u16 typeTiles[] = { 0x4023, 0x4025, 0x4026, 0x4024 };
-    SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    SetMetaTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
 void sub_080AAAA8(Entity* this) {

@@ -86,12 +86,12 @@ arm_sub_080B1A0C: @ 0x080B1A0C
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b arm_GetTileTypeByPos
-arm_GetTileTypeByEntity:
+	b arm_GetMetaTileTypeByPos
+arm_GetMetaTileTypeByEntity:
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-arm_GetTileTypeByPos:
+arm_GetMetaTileTypeByPos:
 	ldr ip, _080B1C18 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
@@ -106,8 +106,8 @@ arm_sub_080B1A58:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
 
-	arm_func_start arm_GetTileType
-arm_GetTileType: @ 0x080B1A60
+	arm_func_start arm_GetMetaTileType
+arm_GetMetaTileType: @ 0x080B1A60
 	ldr r2, _080B1C1C @ =gMapDataPtrs
 _080B1A64:
 	add r2, r2, r1, lsl #3
@@ -208,7 +208,7 @@ arm_sub_080B1B68: @ 0x080B1B68
 	arm_func_start arm_sub_080B1B84
 arm_sub_080B1B84: @ 0x080B1B84
 	mov ip, lr
-	bl arm_GetTileType
+	bl arm_GetMetaTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C3C @ =gUnk_08000360
 	ldrhs r1, _080B1C40 @ =gUnk_080B7A3E
@@ -220,7 +220,7 @@ arm_sub_080B1B84: @ 0x080B1B84
 arm_sub_080B1BA4: @ 0x080B1BA4
 	mov ip, lr
 	mov r3, r2
-	bl arm_GetTileType
+	bl arm_GetMetaTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C44 @ =gUnk_08000360
 	ldrhs r1, _080B1C48 @ =gUnk_080B7A3E

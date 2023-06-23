@@ -37,7 +37,7 @@ void LadderUp(Entity* this) {
                 return;
             }
             this->y.HALF.HI = (this->y.HALF.HI & 0xfff0) + 0xc;
-            SetTile(0x4023, COORD_TO_TILE(this), this->collisionLayer);
+            SetMetaTile(0x4023, COORD_TO_TILE(this), this->collisionLayer);
             break;
         case 1:
             if (GravityUpdate(this, Q_8_8(16.0)) == 0) {
@@ -65,17 +65,17 @@ void LadderUp(Entity* this) {
         default:
             if (this->type2 == 0) {
                 if (gPlayerEntity.y.HALF.HI < this->y.HALF.HI) {
-                    if (gPlayerState.floor_type != SURFACE_LADDER && (GetTileTypeByEntity(this) == 0x4017)) {
-                        SetTile(0x4023, COORD_TO_TILE(this), this->collisionLayer);
+                    if (gPlayerState.floor_type != SURFACE_LADDER && (GetMetaTileTypeByEntity(this) == 0x4017)) {
+                        SetMetaTile(0x4023, COORD_TO_TILE(this), this->collisionLayer);
                         RestorePrevTileEntity(COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
                     }
                 } else {
-                    if (GetTileTypeByEntity(this) != 0x4017) {
-                        SetTile(0x4017, COORD_TO_TILE(this), this->collisionLayer);
+                    if (GetMetaTileTypeByEntity(this) != 0x4017) {
+                        SetMetaTile(0x4017, COORD_TO_TILE(this), this->collisionLayer);
                         if (this->type == 0) {
-                            SetTile(0x4017, COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
+                            SetMetaTile(0x4017, COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
                         } else {
-                            SetTile(0x4014, COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
+                            SetMetaTile(0x4014, COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
                         }
                     }
                 }

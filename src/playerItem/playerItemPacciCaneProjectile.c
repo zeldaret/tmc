@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "sound.h"
 #include "object.h"
+#include "tiles.h"
 
 static const Hitbox gUnk_0811B9D0;
 
@@ -109,15 +110,15 @@ void sub_080701F8(Entity* this) {
         }
         if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
             if (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) == 0) {
-                if (GetVvvAtEntity(this) == 0x19) {
+                if (GetVvvAtEntity(this) == VVV_25) {
                     this->action = 4;
                     COLLISION_OFF(this);
                     this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
                     this->y.HALF.HI = (this->y.HALF.HI & 0xfff0) | 8;
                     this->spritePriority.b0 = 7;
-                    this->field_0x7c.WORD = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
+                    this->field_0x7c.WORD = GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer);
                     InitializeAnimation(this, 0x14);
-                    SetTile(0x4020, COORD_TO_TILE(this), this->collisionLayer);
+                    SetMetaTile(0x4020, COORD_TO_TILE(this), this->collisionLayer);
                     return;
                 }
             } else {
@@ -147,7 +148,7 @@ void sub_08070398(Entity* this) {
 
 void sub_080703BC(Entity* this) {
     GetNextFrame(this);
-    switch (GetTileIndex(COORD_TO_TILE(this), this->collisionLayer)) {
+    switch (GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer)) {
         default:
             this->field_0x7c.WORD = 0;
             sub_08070458(this);
@@ -179,7 +180,7 @@ void sub_08070458(Entity* this) {
     COLLISION_OFF(this);
     this->speed = 0;
     if (this->field_0x7c.WORD != 0) {
-        SetTile(this->field_0x7c.WORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+        SetMetaTile(this->field_0x7c.WORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
     }
     InitializeAnimation(this, 0x13);
     sub_08017744(this);

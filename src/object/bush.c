@@ -69,8 +69,8 @@ void Bush_Init(BushEntity* this) {
     super->flags2 = 4;
     super->hitbox = (Hitbox*)&gUnk_081205B4;
     this->unk_72 = 0;
-    this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+    this->unk_70 = GetMetaTileIndex(COORD_TO_TILE(super), super->collisionLayer);
+    SetMetaTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
     InitializeAnimation(super, gUnk_08120588[super->type].unk_0);
 }
 

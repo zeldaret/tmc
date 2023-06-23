@@ -177,31 +177,31 @@ void sub_0808C4BC(BossDoorEntity* this) {
 
 void sub_0808C500(BossDoorEntity* this) {
     if ((this->unk_76 == 0) || (this->unk_76 == 2)) {
-        this->unk_78 = GetTileIndex(this->unk_74 - 1, super->collisionLayer);
-        this->unk_7a = GetTileIndex(this->unk_74, super->collisionLayer);
-        this->unk_7c = GetTileIndex(this->unk_74 + 1, super->collisionLayer);
-        SetTile(0x4022, this->unk_74 - 1, super->collisionLayer);
-        SetTile(0x4022, this->unk_74, super->collisionLayer);
-        SetTile(0x4022, this->unk_74 + 1, super->collisionLayer);
+        this->unk_78 = GetMetaTileIndex(this->unk_74 - 1, super->collisionLayer);
+        this->unk_7a = GetMetaTileIndex(this->unk_74, super->collisionLayer);
+        this->unk_7c = GetMetaTileIndex(this->unk_74 + 1, super->collisionLayer);
+        SetMetaTile(0x4022, this->unk_74 - 1, super->collisionLayer);
+        SetMetaTile(0x4022, this->unk_74, super->collisionLayer);
+        SetMetaTile(0x4022, this->unk_74 + 1, super->collisionLayer);
     } else {
-        this->unk_78 = GetTileIndex(this->unk_74 - 0x40, super->collisionLayer);
-        this->unk_7a = GetTileIndex(this->unk_74, super->collisionLayer);
-        this->unk_7c = GetTileIndex(this->unk_74 + 0x40, super->collisionLayer);
-        SetTile(0x4022, this->unk_74 - 0x40, super->collisionLayer);
-        SetTile(0x4022, this->unk_74, super->collisionLayer);
-        SetTile(0x4022, this->unk_74 + 0x40, super->collisionLayer);
+        this->unk_78 = GetMetaTileIndex(this->unk_74 - 0x40, super->collisionLayer);
+        this->unk_7a = GetMetaTileIndex(this->unk_74, super->collisionLayer);
+        this->unk_7c = GetMetaTileIndex(this->unk_74 + 0x40, super->collisionLayer);
+        SetMetaTile(0x4022, this->unk_74 - 0x40, super->collisionLayer);
+        SetMetaTile(0x4022, this->unk_74, super->collisionLayer);
+        SetMetaTile(0x4022, this->unk_74 + 0x40, super->collisionLayer);
     }
 }
 
 void sub_0808C5D0(BossDoorEntity* this) {
     if ((this->unk_76 == 0) || (this->unk_76 == 2)) {
-        SetTile(this->unk_78, this->unk_74 - 1, super->collisionLayer);
-        SetTile(this->unk_7a, this->unk_74, super->collisionLayer);
-        SetTile(this->unk_7c, this->unk_74 + 1, super->collisionLayer);
+        SetMetaTile(this->unk_78, this->unk_74 - 1, super->collisionLayer);
+        SetMetaTile(this->unk_7a, this->unk_74, super->collisionLayer);
+        SetMetaTile(this->unk_7c, this->unk_74 + 1, super->collisionLayer);
     } else {
-        SetTile(this->unk_78, this->unk_74 - 0x40, super->collisionLayer);
-        SetTile(this->unk_7a, this->unk_74, super->collisionLayer);
-        SetTile(this->unk_7c, this->unk_74 + 0x40, super->collisionLayer);
+        SetMetaTile(this->unk_78, this->unk_74 - 0x40, super->collisionLayer);
+        SetMetaTile(this->unk_7a, this->unk_74, super->collisionLayer);
+        SetMetaTile(this->unk_7c, this->unk_74 + 0x40, super->collisionLayer);
     }
 }
 

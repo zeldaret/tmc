@@ -80,7 +80,7 @@ ResolveCollisionLayer: @ 0x08016A30
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r4, #0x32]
 	movs r2, #2
-	bl GetTileTypeByPos
+	bl GetMetaTileTypeByPos
 	movs r3, #1
 	cmp r0, #0
 	beq _08016A62

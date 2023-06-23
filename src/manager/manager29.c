@@ -27,15 +27,15 @@ void Manager29_Main(Manager29* this) {
 }
 
 void sub_0805CBD0(Manager29* this) {
-    LayerStruct* layer;
+    MapLayer* mapLayer;
 
     super->action = 1;
     this->unk_38 = (this->unk_38 >> 4 & 0x3fU) | (((this->unk_3a << 0x10) >> 0x14 & 0x3fU) << 6);
     this->unk_3a = (this->unk_3c >> 4 & 0x3f) | (((this->unk_36 + this->unk_37 * 0x100) >> 4 & 0x3fU) << 6);
-    this->unk_3c = GetTileType(this->unk_38, this->layer);
-    layer = GetLayerByIndex(this->layer);
-    this->unk_28 = (u16*)layer->metatileTypes;
-    this->unk_2c = &layer->mapData[(s16)this->unk_3a];
+    this->unk_3c = GetMetaTileType(this->unk_38, this->layer);
+    mapLayer = GetLayerByIndex(this->layer);
+    this->unk_28 = (u16*)mapLayer->metatileTypes;
+    this->unk_2c = &mapLayer->mapData[(s16)this->unk_3a];
 }
 
 void sub_0805CC3C(Manager29* this) {

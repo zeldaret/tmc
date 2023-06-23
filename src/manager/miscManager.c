@@ -123,7 +123,7 @@ void sub_08058F44(u32 x, u32 y, u32 flag) {
         return;
     if (sub_080B1A48(x, y, 1) != 0x61)
         return;
-    SetTileType(0x26, ((x >> 4) & 0x3F) | (((y >> 4) & 0x3F) << 6), 1);
+    SetMetaTileType(0x26, ((x >> 4) & 0x3F) | (((y >> 4) & 0x3F) << 6), 1);
     sub_08058F84(x, y);
 }
 
@@ -240,7 +240,7 @@ void MiscManager_Type5(MiscManager* this) {
                 DeleteThisEntity();
             }
             super->action = 1;
-            SetTileType(0x365, TILE_LOCAL(this->x, this->y), super->type2);
+            SetMetaTileType(0x365, TILE_LOCAL(this->x, this->y), super->type2);
             break;
         case 1:
             if (CheckFlags(this->flags)) {
@@ -339,9 +339,9 @@ void sub_0805930C(MiscManager* this) {
 }
 
 void SetDirtTile(u32 tile) {
-    SetTileType(CUT_GRASS, tile, 1);
-    SetTileType(0, tile, 2);
-    SetTileType(0, tile - 0x40, 2);
+    SetMetaTileType(CUT_GRASS, tile, 1);
+    SetMetaTileType(0, tile, 2);
+    SetMetaTileType(0, tile - 0x40, 2);
 }
 
 void MiscManager_TypeA(MiscManager* this) {

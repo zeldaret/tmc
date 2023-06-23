@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "object.h"
 #include "room.h"
+#include "tiles.h"
 
 extern void (*const RemovableDust_Functions[])(Entity*);
 extern const u16 gUnk_08129FD0[];
@@ -60,7 +61,7 @@ void sub_080AA494(Entity* this) {
     u32 index;
 
     index = 0;
-    tileType = GetTileTypeByEntity(this);
+    tileType = GetMetaTileTypeByEntity(this);
     iterator = gUnk_08129FD0;
     while (*iterator != 0) {
         if (*(iterator++) == tileType) {
@@ -76,7 +77,7 @@ void sub_080AA494(Entity* this) {
     }
     this->type2 = index;
     this->spritePriority.b0 = 7;
-    SetTile(0x4068, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    SetMetaTile(0x4068, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
 void sub_080AA534(Entity* this) {
@@ -100,7 +101,7 @@ void sub_080AA544(Entity* this) {
         iVar4 = 0;
         do {
             vvv = GetVvvAtMetaTilePos((param - tmp[uVar3]) & 0xffff, this->collisionLayer);
-            if (vvv == 0x3e) {
+            if (vvv == VVV_62) {
                 iVar4++;
             }
             uVar3++;

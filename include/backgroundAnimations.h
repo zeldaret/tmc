@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-enum {
+typedef enum {
     BG_ANIM_DEFAULT = 0,
     BG_ANIM_PALETTE = 16,
     BG_ANIM_MULTIPLE = 128,

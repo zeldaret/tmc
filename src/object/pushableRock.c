@@ -7,8 +7,8 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -43,7 +43,7 @@ void PushableRock_Action1(PushableRockEntity* this) {
     u32 tileType;
     u32 tmp;
 
-    tileType = GetTileType(this->tilePosition, super->collisionLayer);
+    tileType = GetMetaTileType(this->tilePosition, super->collisionLayer);
     switch (tileType) {
         case 0x401c:
         case 0x401d:
@@ -57,7 +57,7 @@ void PushableRock_Action1(PushableRockEntity* this) {
             } else {
                 super->spriteSettings.flipX = 0;
             }
-            SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+            SetMetaTile(this->tileIndex, this->tilePosition, super->collisionLayer);
             super->action = 2;
             InitializeAnimation(super, (super->animationState >> 1) + 1);
             EnqueueSFX(SFX_10F);
@@ -91,11 +91,11 @@ void PushableRock_Action3(PushableRockEntity* this) {
 void sub_0808A644(PushableRockEntity* this) {
     u32 vvv;
     this->tilePosition = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
+    this->tileIndex = GetMetaTileIndex(this->tilePosition, super->collisionLayer);
     this->unk_72 = GetCollisionDataAtMetaTilePos(this->tilePosition, super->collisionLayer);
     vvv = GetVvvAtMetaTilePos(this->tilePosition, super->collisionLayer);
-    if ((vvv == 0x19) || (vvv == 0xf0)) {
-        SetTile(0x4015, this->tilePosition, super->collisionLayer);
+    if ((vvv == VVV_25) || (vvv == VVV_240)) {
+        SetMetaTile(0x4015, this->tilePosition, super->collisionLayer);
         super->action = 3;
         if (!CheckFlags(this->pushedFlag)) {
             SetFlag(this->pushedFlag);
@@ -105,7 +105,7 @@ void sub_0808A644(PushableRockEntity* this) {
             InitializeAnimation(super, 6);
         }
     } else {
-        SetTile(0x401b, this->tilePosition, super->collisionLayer);
+        SetMetaTile(0x401b, this->tilePosition, super->collisionLayer);
     }
 }
 

@@ -293,7 +293,7 @@ void sub_08088F20(BigBarrelEntity* this) {
                 pEVar3->collisionLayer = 2;
                 pEVar3->spritePriority.b0 = 2;
             }
-            SetTileType(0x76, COORD_TO_TILE(super), 2);
+            SetMetaTileType(0x76, COORD_TO_TILE(super), 2);
             break;
         case 2:
             if (--super->timer) {

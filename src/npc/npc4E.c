@@ -185,7 +185,7 @@ void sub_0806DC7C(void) {
     while (*tiles != 0) {
         u32 tile = *tiles;
         tiles = tiles + 1;
-        SetTileType(0x4072, tile, 1);
+        SetMetaTileType(0x4072, tile, 1);
     }
 }
 

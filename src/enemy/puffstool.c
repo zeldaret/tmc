@@ -8,6 +8,7 @@
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"
+#include "tiles.h"
 
 extern u8 gUnk_080B3E80[];
 
@@ -509,12 +510,12 @@ void sub_08025A54(Entity* this) {
     }
 }
 
-bool32 sub_08025AB8(u32 tile, u32 layer) {
-    if (GetCollisionDataAtMetaTilePos(tile, layer))
+bool32 sub_08025AB8(u32 metaTilePos, u32 layer) {
+    if (GetCollisionDataAtMetaTilePos(metaTilePos, layer))
         return FALSE;
 
-    if (GetVvvAtMetaTilePos(tile, layer) == 10) {
-        sub_0807B7D8(0x61, tile, layer);
+    if (GetVvvAtMetaTilePos(metaTilePos, layer) == VVV_10) {
+        sub_0807B7D8(0x61, metaTilePos, layer);
         return TRUE;
     }
 

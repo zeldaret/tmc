@@ -1,8 +1,9 @@
+#include "collision.h"
 #include "functions.h"
+#include "hitbox.h"
 #include "message.h"
 #include "npc.h"
-#include "hitbox.h"
-#include "collision.h"
+#include "tiles.h"
 
 typedef struct {
     u8 unk_0;  // u8
@@ -469,7 +470,12 @@ u32 sub_080611D4(Entity* this) {
     };
 
     static const u8 gUnk_0810AC54[] = {
-        0x2b, 0x10, 0x2a, 0x0, 0x2d, 0x8, 0x2c, 0x18, 0x0,
+        // vvv, animationState
+        VVV_43, 0x10,
+        VVV_42, 0x0,
+        VVV_45, 0x8,
+        VVV_44, 0x18,
+        0x0,
     };
 
     u32 vvv;

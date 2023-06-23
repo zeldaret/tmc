@@ -6,7 +6,6 @@
 #include "common.h"
 #include "effects.h"
 #include "entity.h"
-#include "fileselect.h"
 #include "functions.h"
 #include "game.h"
 #include "kinstone.h"
@@ -15,10 +14,11 @@
 #include "object.h"
 #include "screen.h"
 #include "structures.h"
+#include "tilemap.h"
+#include "tiles.h"
 
 extern void UpdateScreenShake(void);
 extern void sub_0807C8B0(u16*, u32, u32);
-extern void RenderTilemapToScreenblock(u8*, LayerStruct*);
 extern void sub_0807C810();
 extern void DeleteSleepingEntities(void);
 extern void sub_0807BBE4();
@@ -54,15 +54,13 @@ u32 sub_080803D0();
 u32 sub_08080278();
 void sub_08080C80(MapDataDefinition*);
 void sub_08080368();
-void FillVvvForLayer(LayerStruct*);
+void FillVvvForLayer(MapLayer* mapLayer);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 void sub_080808D8(s32);
 void sub_080808E4(s32);
 void sub_08080904(s32);
 void sub_08080910(s32);
-
-extern u8 gMapDataTopSpecial[];
 
 extern const s8 gScreenShakeOffsets[];
 
@@ -305,7 +303,7 @@ void Scroll5Sub1(RoomControls* controls) {
     gUnk_0200B640 = sub_08080278();
     LoadMapData(gCaveBorderMapData[gDiggingCaveEntranceTransition.entrance->type][0]);
     sub_0807C8B0(gMapTop.mapData, controls->width >> 4, controls->height >> 4);
-    RenderTilemapToScreenblock(gMapDataTopSpecial, &gMapTop);
+    RenderMapLayerToTileMap(gMapDataTopSpecial, &gMapTop);
 }
 
 void Scroll5Sub2(RoomControls* controls) {
@@ -362,8 +360,8 @@ void Scroll5Sub3(RoomControls* controls) {
     sub_0807BBE4();
     CreateCollisionDataBorderAroundRoom();
     sub_0805E248();
-    RenderTilemapToScreenblock((u8*)&gMapDataBottomSpecial, &gMapBottom);
-    RenderTilemapToScreenblock(gMapDataTopSpecial, &gMapTop);
+    RenderMapLayerToTileMap(gMapDataBottomSpecial, &gMapBottom);
+    RenderMapLayerToTileMap(gMapDataTopSpecial, &gMapTop);
 }
 
 void Scroll5Sub4(RoomControls* controls) {
@@ -700,8 +698,8 @@ void sub_08080930(u32 unused) {
     SetInitializationPriority();
 }
 
-LayerStruct* GetLayerByIndex(u32 layerIndex) {
-    if (layerIndex == 2) {
+MapLayer* GetLayerByIndex(u32 layerIndex) {
+    if (layerIndex == LAYER_TOP) {
         return &gMapTop;
     } else {
         return &gMapBottom;
@@ -782,7 +780,7 @@ void sub_080809D4(void) {
 }
 
 void UpdateDoorTransition() {
-    u32 uVar1;
+    u32 vvv;
     u32 uVar3;
     u32 uVar4;
     RoomControls* controls = &gRoomControls;
@@ -803,16 +801,16 @@ void UpdateDoorTransition() {
         case 0x1d:
             uVar4 = controls->camera_target->y.HALF.HI - controls->origin_y;
             uVar3 = controls->camera_target->x.HALF.HI - controls->origin_x;
-            uVar1 = GetVvvAtMetaTilePos(
+            vvv = GetVvvAtMetaTilePos(
                 (((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
                     ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
                 controls->camera_target->collisionLayer);
             gRoomTransition.stairs_idx = sub_080B1A48(uVar3, uVar4, controls->camera_target->collisionLayer);
-            switch (uVar1) {
-                case 0x3f:
-                case 0xf1:
-                case 0x28:
-                case 0x29:
+            switch (vvv) {
+                case VVV_63:
+                case VVV_241:
+                case VVV_40:
+                case VVV_41:
                     sub_080806BC(uVar3, uVar4, 0xff, 10);
                     break;
             }
@@ -820,18 +818,18 @@ void UpdateDoorTransition() {
 }
 
 // fill the vvv for the whole layer
-void FillVvvForLayer(LayerStruct* layer) {
+void FillVvvForLayer(MapLayer* mapLayer) {
     u32 metaTilePos;
-    u16* metatileTypes = layer->metatileTypes;
+    u16* metatileTypes = mapLayer->metatileTypes;
     const u8* ptr = gUnk_080B37A0;
-    u8* ptr3 = layer->vvv;
-    u16* mapData = layer->mapData;
+    u8* ptr3 = mapLayer->vvv;
+    u16* mapData = mapLayer->mapData;
     for (metaTilePos = 0; metaTilePos < 0x40 * 0x40; metaTilePos++) {
         u16 metaTileIndex = mapData[metaTilePos];
         if (metaTileIndex < 0x4000) {
-            layer->vvv[metaTilePos] = ptr[metatileTypes[metaTileIndex]];
+            mapLayer->vvv[metaTilePos] = ptr[metatileTypes[metaTileIndex]];
         } else {
-            layer->vvv[metaTilePos] = gUnk_080B7910[metaTileIndex - 0x4000];
+            mapLayer->vvv[metaTilePos] = gUnk_080B7910[metaTileIndex - 0x4000];
         }
     }
 }

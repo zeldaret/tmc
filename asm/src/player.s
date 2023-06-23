@@ -326,7 +326,7 @@ sub_08008796: @ 0x08008796
 	adds r1, r7, #0
 	movs r2, #0x38
 	ldrb r2, [r4, r2]
-	bl GetTileTypeByPos
+	bl GetMetaTileTypeByPos
 	ldr r1, _080088D8 @ =gUnk_080046A4
 	bl sub_08007DE0
 	beq _080087CE

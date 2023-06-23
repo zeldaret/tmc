@@ -45,7 +45,7 @@ void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
         }
     }
     if (super->health == 0) {
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetMetaTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     }
 }
 
@@ -138,7 +138,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                 super->subtimer = 0;
                 super->flags &= ~0x80;
                 EnqueueSFX(SFX_156);
-                SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+                SetMetaTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 InitializeAnimation(super, super->direction >> 3);
             }
             break;
@@ -210,8 +210,8 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
 void sub_0802F888(WizzrobeEntity* this) {
     super->direction = (sub_08049F84(super, 3) + 4) & 0x18;
     this->tilePosition = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    SetTile(0x4071, this->tilePosition, super->collisionLayer);
+    this->tileIndex = GetMetaTileIndex(this->tilePosition, super->collisionLayer);
+    SetMetaTile(0x4071, this->tilePosition, super->collisionLayer);
 }
 
 void sub_0802F8E4(WizzrobeEntity* this) {
@@ -237,7 +237,7 @@ void sub_0802F8E4(WizzrobeEntity* this) {
             uVar7 = (uVar1 + iVar4) | 8;
             uVar6 = TILE(uVar8, uVar7);
             if ((GetCollisionDataAtMetaTilePos(uVar6, super->collisionLayer) == 0) &&
-                (GetTileIndex(uVar6, super->collisionLayer) != 0x4071)) {
+                (GetMetaTileIndex(uVar6, super->collisionLayer) != 0x4071)) {
                 super->x.HALF.HI = (s16)uVar8;
                 super->y.HALF.HI = (s16)uVar7;
                 if (sub_08049FA0(super) != 0) {

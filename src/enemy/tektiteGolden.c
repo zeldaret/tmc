@@ -134,7 +134,7 @@ void sub_08038048(Entity* this) {
         return;
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
-    } else if ((GetVvvAtEntity(this) & 0xf0) == 0x50) {
+    } else if ((GetVvvAtEntity(this) & 0xf0) == 0x50) { // VVV_240 and VVV_241?
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 

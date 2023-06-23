@@ -100,7 +100,7 @@ _0801A628:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl GetTileType
+	bl GetMetaTileType
 	adds r5, r0, #0
 	ldr r1, _0801A670 @ =0xFFFFFC97
 	adds r0, r5, r1
@@ -201,7 +201,7 @@ _0801A6E6:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl GetTileType
+	bl GetMetaTileType
 	adds r5, r0, #0
 	ldr r0, _0801A734 @ =0x00000369
 	cmp r5, r0
@@ -303,7 +303,7 @@ _0801A7A6:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl GetTileType
+	bl GetMetaTileType
 	adds r5, r0, #0
 	ldr r0, _0801A7F4 @ =0x00000369
 	cmp r5, r0
@@ -399,7 +399,7 @@ _0801A85E:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl GetTileType
+	bl GetMetaTileType
 	adds r5, r0, #0
 	ldr r0, _0801A89C @ =0x00000369
 	cmp r5, r0

@@ -12,6 +12,7 @@
 #include "script.h"
 #include "subtask.h"
 #include "manager/bombableWallManager.h"
+#include "tiles.h"
 
 // Called Goron Kinstone Fusion Script
 void sub_08054EB8(Entity* this, ScriptExecutionContext* context) {
@@ -21,11 +22,11 @@ void sub_08054EB8(Entity* this, ScriptExecutionContext* context) {
         manager->base.id = BOMBABLE_WALL_MANAGER;
         manager->x = this->x.HALF.HI - gRoomControls.origin_x;
         manager->y = (this->y.HALF.HI - gRoomControls.origin_y) - 0x10;
-        manager->field_0x35 = 1;
+        manager->layer = LAYER_BOTTOM;
 #if defined(EU) || defined(JP) || defined(DEMO_JP)
-        manager->field_0x3e = 0x77;
+        manager->flag = 0x77;
 #else
-        manager->field_0x3e = 0x79;
+        manager->flag = 0x79;
 #endif
         AppendEntityToList((Entity*)manager, 6);
     }
@@ -33,9 +34,9 @@ void sub_08054EB8(Entity* this, ScriptExecutionContext* context) {
 
 void sub_08054EFC(Entity* this, ScriptExecutionContext* context) {
     Entity* effect;
-    u32 tmp = COORD_TO_TILE(this) - 0x40;
-    SetTile(0x4074, tmp, 1);
-    this->collisionLayer = 2;
+    u32 metaTilePos = COORD_TO_TILE(this) - 0x40;
+    SetMetaTile(SPECIAL_META_TILE_116, metaTilePos, LAYER_BOTTOM);
+    this->collisionLayer = LAYER_TOP;
     UpdateSpriteForCollisionLayer(this);
     effect = CreateFx(this, FX_BIG_EXPLOSION, 0);
     if (effect != NULL) {
@@ -156,6 +157,6 @@ void WorldEvent_17_0(void) {
 void WorldEvent_17_1(void) {
     if (gMenu.field_0xa != 0) {
         gMenu.field_0xa = 0;
-        SetTileType(0x74, 0x407, 1);
+        SetMetaTileType(0x74, 0x407, 1);
     }
 }

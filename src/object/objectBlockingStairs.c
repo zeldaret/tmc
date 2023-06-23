@@ -109,9 +109,9 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     }
 
     if (this->unk7b & 0x40) {
-        tileType = (u32)GetTileType(this->tilePos - 1, super->collisionLayer);
+        tileType = (u32)GetMetaTileType(this->tilePos - 1, super->collisionLayer);
     } else {
-        tileType = (u32)GetTileType(this->tilePos + 1, super->collisionLayer);
+        tileType = (u32)GetMetaTileType(this->tilePos + 1, super->collisionLayer);
     }
 
     switch (tileType) {
@@ -135,23 +135,23 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     if (this->unk7b & 0x80) {
         this->unk7b &= ~0x80;
         if ((this->unk7b & 0x40) != 0) {
-            SetTile(0x402c, this->tilePos - 1, super->collisionLayer);
-            SetTile(0x403d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(0x402c, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(0x403d, this->tilePos + 1, super->collisionLayer);
         } else {
-            SetTile(0x403d, this->tilePos - 1, super->collisionLayer);
-            SetTile(0x402d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(0x403d, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(0x402d, this->tilePos + 1, super->collisionLayer);
         }
     } else if (this->unk7b & 0x40) {
         if (xDist >= 5) {
             this->unk7b &= ~(0x40 | 0x80);
-            SetTile(0x403d, this->tilePos - 1, super->collisionLayer);
-            SetTile(0x402d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(0x403d, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(0x402d, this->tilePos + 1, super->collisionLayer);
         }
     } else {
         if (-xDist > 4) {
             this->unk7b |= 0x40;
-            SetTile(0x402c, this->tilePos - 1, super->collisionLayer);
-            SetTile(0x403d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(0x402c, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(0x403d, this->tilePos + 1, super->collisionLayer);
         }
     }
 }
@@ -225,7 +225,7 @@ void sub_080931A4(ObjectBlockingStairsEntity* this, u32 param_2) {
 
     for (index = 0, iVar5 = 0; index < 9; index++) {
         u32 pos = tilePos + iVar5 + index - 1;
-        SetTile(pTileTypes[index], pos, collisionLayer);
+        SetMetaTile(pTileTypes[index], pos, collisionLayer);
         switch (index) {
             case 2:
                 iVar5 = 0x3d;

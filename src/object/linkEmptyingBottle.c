@@ -119,7 +119,7 @@ void sub_08094980(LinkEmptyingBottleEntity* this, u32 searchTileIndex, u32 repla
         xOffset = gUnk_08122A28[index];
         yOffset = gUnk_08122A28[index + 1];
         if (searchTileIndex == sub_080B1A0C(super, xOffset, yOffset)) {
-            SetTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
+            SetMetaTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
                     super->collisionLayer);
         }
         index += 2;

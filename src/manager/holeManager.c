@@ -14,7 +14,6 @@
 
 extern void (*const HoleManager_Actions[])(HoleManager*);
 
-extern u8 gGlobalGfxAndPalettes[];
 
 void HoleManager_Main(HoleManager* this) {
     HoleManager_Actions[super->action](this);

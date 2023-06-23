@@ -7,12 +7,12 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "player.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 void Pot_Action5(Entity*);
 static void sub_08082850(Entity*, Entity*);
@@ -68,12 +68,12 @@ void Pot_Init(Entity* this) {
         ResolveCollisionLayer(this);
     }
 
-    this->field_0x70.HALF.LO = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
+    this->field_0x70.HALF.LO = GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer);
     if ((u16)this->field_0x70.HALF.LO == 0x4000) {
         DeleteThisEntity();
     }
 
-    SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
     InitializeAnimation(this, 5);
 }
 
@@ -86,7 +86,7 @@ void Pot_Action1(Entity* this) {
             this->subAction = 0;
             break;
         case 0x1D:
-            SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+            SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             this->action = 5;
             this->zVelocity = Q_16_16(2.625);
             this->spriteOffsetY = 0;
@@ -96,7 +96,7 @@ void Pot_Action1(Entity* this) {
             Pot_Action5(this);
             break;
         default:
-            tileType = GetTileTypeByEntity(this);
+            tileType = GetMetaTileTypeByEntity(this);
             if (tileType != 0x4000) {
                 switch (tileType) {
                     case 0x4004:
@@ -110,19 +110,19 @@ void Pot_Action1(Entity* this) {
                             this->speed >>= 1;
                             this->timer = 64;
                         }
-                        SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+                        SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         EnqueueSFX(SFX_10F);
                         break;
                     case 0x4067:
-                        SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+                        SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         DeleteThisEntity();
                         break;
                     default:
-                        if (GetVvvAtEntity(this) == 13) {
+                        if (GetVvvAtEntity(this) == VVV_13) {
                             CreateFx(this, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
-                            SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+                            SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         }
                         sub_08082850(this, NULL);
                         break;
@@ -148,7 +148,7 @@ void sub_08082510(Entity* this) {
     this->hitType = 1;
     this->flags2 = gPlayerEntity.flags2;
     this->spriteOffsetY = 0;
-    SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
     this->subAction++;
 }
 
@@ -212,15 +212,15 @@ void Pot_Action4(Entity* this) {
         this->speed <<= 1;
     }
 
-    this->field_0x70.HALF.LO = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
-    tileType = GetTileTypeByEntity(this);
+    this->field_0x70.HALF.LO = GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer);
+    tileType = GetMetaTileTypeByEntity(this);
     switch (tileType) {
         case 0x71:
         case 0x72:
             sub_08082850(this, NULL);
             break;
         default:
-            SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+            SetMetaTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
             RegisterCarryEntity(this);
             break;
     }
@@ -243,7 +243,7 @@ void sub_0808270C(Entity* this) {
     if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {
         this->spriteOffsetX = 0;
         this->action = 1;
-        SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
     } else {
         sub_0806F4E8(this);
     }
@@ -254,7 +254,7 @@ void sub_08082778(Entity* this) {
         this->timer = 1;
         this->spriteOffsetX = 0;
         this->spriteOffsetY = -2;
-        SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
     }
 
     if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {

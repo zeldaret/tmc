@@ -91,6 +91,7 @@ gSpriteAnimations_Kid:: @ 0810C1E4
 	.4byte 00000000
 
 @ TODO data of an unused entity?
+@ maybe the unused original guard npc?
 gUnk_0810C268:: @ 0810C268
 	.4byte sub_08062AD0
 	.4byte sub_08062AD4
@@ -103,6 +104,8 @@ gUnk_0810C275:: @ 0810C275
 
 gUnk_0810C27A:: @ 0810C27A
 	.incbin "kid/gUnk_0810C27A.bin"
+
+gUnk_0810C280:: @ 0810C280
 	.4byte gUnk_0810C270
 	.4byte gUnk_0810C275
 	.4byte gUnk_0810C27A

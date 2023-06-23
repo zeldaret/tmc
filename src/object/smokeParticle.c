@@ -6,8 +6,8 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 void SmokeParticle_Init(Entity*);
 void SmokeParticle_Action1(Entity*);
@@ -64,22 +64,22 @@ void sub_080878CC(Entity* this) {
     s32 itX;
     s32 itY;
     u32 layer;
-    u32 pos;
+    u32 metaTilePos;
 
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
     layer = this->collisionLayer;
     for (itX = -0x10; itX < 0x11; itX += 0x10) {
         for (itY = -0x10; itY < 0x11; itY += 0x10) {
-            pos = TILE((u32)x + itX, (u32)y + itY);
-            if (GetVvvAtMetaTilePos(pos, (u8)layer) == 0x2e) {
-                switch (GetTileType(pos, layer)) {
+            metaTilePos = TILE((u32)x + itX, (u32)y + itY);
+            if (GetVvvAtMetaTilePos(metaTilePos, (u8)layer) == VVV_46) {
+                switch (GetMetaTileType(metaTilePos, layer)) {
                     case 0x368:
                     case 0x367:
                         sub_08008796(this, 3, x + itX, y + itY);
                         break;
                     default:
-                        SetTile(0x4022, pos, layer);
+                        SetMetaTile(0x4022, metaTilePos, layer);
                         break;
                 }
             } else {

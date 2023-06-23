@@ -45,5 +45,5 @@ void RailIntersectionManager_Action1(RailIntersectionManager* this) {
 
 void sub_0805B778(RailIntersectionManager* this) {
     static const u16 gUnk_08108C9C[] = { 0x358, 0x359, 0x356, 0x35a, 0x35a, 0x357 };
-    SetTileType(gUnk_08108C9C[super->type * 2 + super->type2], this->field_0x38, this->field_0x36);
+    SetMetaTileType(gUnk_08108C9C[super->type * 2 + super->type2], this->field_0x38, this->field_0x36);
 }

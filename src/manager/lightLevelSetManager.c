@@ -10,6 +10,7 @@
 #include "game.h"
 #include "object.h"
 #include "room.h"
+#include "tiles.h"
 
 void sub_0805BE94(LightLevelSetManager*);
 void sub_0805BEC4(LightLevelSetManager*);
@@ -17,7 +18,7 @@ void LightLevelSetManager_Type0(LightLevelSetManager*);
 void LightLevelSetManager_Type1(LightLevelSetManager*);
 void LightLevelSetManager_Type2(LightLevelSetManager*);
 void LightLevelSetManager_Type3(LightLevelSetManager*);
-void sub_0805BE70(LightLevelSetManager*, u32);
+void sub_0805BE70(LightLevelSetManager* this, u32 metaTileType);
 
 void LightLevelSetManager_Main(Manager* this) {
     static void (*const LightLevelSetManager_Types[])(LightLevelSetManager*) = {
@@ -49,7 +50,7 @@ void LightLevelSetManager_Type1(LightLevelSetManager* this) {
             super->action = 1;
             super->subtimer = 30;
             if (CheckFlags(this->field_0x3e) != 0) {
-                sub_0805BE70(this, 0x75);
+                sub_0805BE70(this, META_TILE_TYPE_117);
                 super->action = 2;
             }
             break;
@@ -57,13 +58,13 @@ void LightLevelSetManager_Type1(LightLevelSetManager* this) {
             if (CheckFlags(this->field_0x3e) != 0 && --super->subtimer == 0) {
                 super->subtimer = 30;
                 sub_0805BEC4(this);
-                sub_0805BE70(this, 0x76);
+                sub_0805BE70(this, META_TILE_TYPE_118);
             }
             break;
         case 2:
             if (CheckFlags(this->field_0x3e) == 0 && --super->subtimer == 0) {
                 super->subtimer = 30;
-                sub_0805BE70(this, 0x75);
+                sub_0805BE70(this, META_TILE_TYPE_117);
             }
             break;
     }
@@ -78,7 +79,7 @@ void LightLevelSetManager_Type2(LightLevelSetManager* this) {
             ((s16)this->field_0x38 >> 4 & 0x3fU) | ((s32)((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
         super->action = 1;
     } else {
-        if (GetTileType(this->field_0x20, super->type2) == 0x76) {
+        if (GetMetaTileType(this->field_0x20, super->type2) == 0x76) {
             SetFlag(this->field_0x3e);
             ChangeLightLevel(super->timer);
             DeleteThisEntity();
@@ -102,7 +103,7 @@ void LightLevelSetManager_Type3(LightLevelSetManager* this) {
             break;
 
         case 1:
-            if (GetTileType(this->field_0x20, super->type2) != 0x76) {
+            if (GetMetaTileType(this->field_0x20, super->type2) != 0x76) {
                 return;
             }
             SetFlag(this->field_0x3e);
@@ -130,14 +131,14 @@ void LightLevelSetManager_Type3(LightLevelSetManager* this) {
     }
 }
 
-void sub_0805BE70(LightLevelSetManager* this, u32 param_2) {
-    SetTileType(param_2,
+void sub_0805BE70(LightLevelSetManager* this, u32 metaTileType) {
+    SetMetaTileType(metaTileType,
                 ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
                 super->type2);
 }
 
 void sub_0805BE94(LightLevelSetManager* this) {
-    SetTileType(0x76, ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+    SetMetaTileType(META_TILE_TYPE_118, ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
                 super->type2);
     ChangeLightLevel(super->timer);
     DeleteThisEntity();

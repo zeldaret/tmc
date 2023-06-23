@@ -7,6 +7,7 @@
 #include "asm.h"
 #include "enemy.h"
 #include "physics.h"
+#include "tiles.h"
 
 extern Entity* gUnk_020000B0;
 
@@ -203,10 +204,10 @@ const s8 gLeeverDrift[] = {
 };
 
 const u16 gUnk_080CA4CA[] = {
-    0x000A,
-    0x0009,
-    0x000C,
-    0x000B,
+    VVV_10,
+    VVV_9,
+    VVV_12,
+    VVV_11,
     0xFFFF,
 };
 // clang-format on

@@ -392,4 +392,7 @@ typedef struct {
     u8 gfxGroup;
 } PACKED StaffrollGfxEntry;
 
+extern const u8 gGlobalGfxAndPalettes[];
+extern u32 gUsedPalettes;
+
 #endif // STRUCTURES_H

@@ -430,7 +430,7 @@ void sub_080244E8(Entity* this) {
                             this->timer = 12;
                             this->field_0x82.HALF.HI &= ~0x80;
                             ent = this->child;
-                            SetTile((u16)ent->field_0x70.HALF.LO, COORD_TO_TILE(ent), ent->collisionLayer);
+                            SetMetaTile((u16)ent->field_0x70.HALF.LO, COORD_TO_TILE(ent), ent->collisionLayer);
                             DeleteEntity(ent);
                             this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;

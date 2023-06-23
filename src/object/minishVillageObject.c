@@ -90,7 +90,7 @@ void MinishVillageObject_Type1(MinishVillageObjectEntity* this) {
             super->subtimer = 0;
             super->frameIndex = 0;
             super->spritePriority.b0 = 7;
-            SetTile(0x4069, COORD_TO_TILE(super) - 0x40, 1);
+            SetMetaTile(0x4069, COORD_TO_TILE(super) - 0x40, 1);
             break;
         case 2:
             if ((gRoomTransition.frameCount & 3U) == 0) {
@@ -224,7 +224,7 @@ void MinishVillageObject_Type8_Init(MinishVillageObjectEntity* this) {
         if (super->type2 != 0) {
             tilePosition -= 0x40;
         }
-        SetTile(0x4069, tilePosition, super->collisionLayer);
+        SetMetaTile(0x4069, tilePosition, super->collisionLayer);
     }
 }
 
@@ -237,7 +237,7 @@ void MinishVillageObject_Type8_Action1(MinishVillageObjectEntity* this) {
             super->timer = 8;
             super->spriteRendering.alphaBlend = 0;
             gScreen.controls.layerFXControl = 0;
-            SetTile(0x4069, COORD_TO_TILE(super), super->collisionLayer);
+            SetMetaTile(0x4069, COORD_TO_TILE(super), super->collisionLayer);
         }
     }
 }

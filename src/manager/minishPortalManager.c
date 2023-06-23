@@ -13,6 +13,7 @@
 #include "player.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 bool32 PortalReadyForMinish(void);
 
@@ -41,7 +42,7 @@ void MinishPortalManager_Main(MinishPortalManager* this) {
                     gArea.portal_mode = 3;
                 }
             }
-            if (GetVvvAtRoomCoords(this->unk_38, this->unk_3a, super->timer) == 0x3d) {
+            if (GetVvvAtRoomCoords(this->unk_38, this->unk_3a, super->timer) == VVV_61) {
                 CreateMagicSparkles(this->unk_38 + gRoomControls.origin_x, this->unk_3a + gRoomControls.origin_y,
                                     super->timer);
                 if (super->subtimer == 0) {

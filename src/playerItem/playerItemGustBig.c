@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "player.h"
 #include "sound.h"
+#include "tiles.h"
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);
@@ -163,7 +164,7 @@ void sub_08018E68(Entity* this) {
         if (FindValueForKey(sub_080B1A0C(this, x, y), gUnk_080B3DF4) != 0) {
             return;
         }
-        if (GetVvvRelativeToEntity(this, x, y) == 0x74) {
+        if (GetVvvRelativeToEntity(this, x, y) == VVV_116) {
             return;
         }
         if (sub_080040D8(this, (u8*)gUnk_08003E44, this->x.HALF.HI + x, this->y.HALF.HI + y) == 0) {

@@ -216,7 +216,7 @@ void sub_08081188(Entity* this) {
 void sub_080811AC(Entity* this) {
     this->action = 2;
     this->spriteSettings.draw = 0;
-    this->field_0x6e.HWORD = GetTileTypeByEntity(this);
+    this->field_0x6e.HWORD = GetMetaTileTypeByEntity(this);
 }
 
 void sub_080811C8(Entity* this) {
@@ -282,7 +282,7 @@ void sub_080812A0(Entity* this) {
 }
 
 void sub_080812A8(Entity* this) {
-    if (GetCollisionDataAtEntity(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
+    if (GetCollisionDataAtEntity(this) != 0xF && this->field_0x6e.HWORD != GetMetaTileTypeByEntity(this)) {
         this->direction = 0;
         this->speed = 0;
         this->spriteSettings.draw = 1;

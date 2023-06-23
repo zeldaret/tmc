@@ -33,7 +33,7 @@ SECTIONS {
         . = 0x00006F00; gUnk_02006F00 = .;
         . = 0x0000AF00; gHUD = .;
         . = 0x0000AF34; gUnk_0200AF34 = .;
-        . = 0x0000B240; gUnk_0200B240 = .;
+        . = 0x0000B240; gMetaTilesForSpecialTiles = .;
         . = 0x0000B640; gUnk_0200B640 = .;
         . = 0x0000B644; gUsedPalettes = .;
         . = 0x0000B650; gMapTop = .;
@@ -160,11 +160,11 @@ SECTIONS {
         . = 0x00005770; ram_sub_080B19FC = .;
         . = 0x00005778; ram_sub_080B1A04 = .;
         . = 0x00005780; ram_sub_080B1A0C = .;
-        . = 0x0000579C; ram_GetTileTypeByEntity = .;
-        . = 0x000057A8; ram_GetTileTypeByPos = .;
+        . = 0x0000579C; ram_GetMetaTileTypeByEntity = .;
+        . = 0x000057A8; ram_GetMetaTileTypeByPos = .;
         . = 0x000057BC; ram_sub_080B1A48 = .;
         . = 0x000057CC; ram_sub_080B1A58 = .;
-        . = 0x000057D4; ram_GetTileType = .;
+        . = 0x000057D4; ram_GetMetaTileType = .;
         . = 0x00005800; ram_GetVvvRelativeToEntity = .;
         . = 0x0000581C; ram_GetVvvAtEntity = .;
         . = 0x00005828; ram_GetVvvAtWorldCoords = .;

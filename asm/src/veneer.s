@@ -5,6 +5,7 @@
 
 	.text
 
+@ copies from the gMapDataBottomSpecial to the bg buffers depending on gUpdateVisibleTiles
 	thumb_func_start UpdateScrollVram
 UpdateScrollVram: @ 0x08000108
 	push {r4, lr}
@@ -54,8 +55,8 @@ CloneTile: @ 0x08000152
 	ldrh r0, [r3, r0]
 	lsrs r2, r2, #2
 
-	non_word_aligned_thumb_func_start SetTile
-SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
+	non_word_aligned_thumb_func_start SetMetaTile
+SetMetaTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	push {r4-r7, lr}
 	lsls r3, r2, #3 @ 1: 8, 2: 16
 	ldr r4, _08000208 @ =gMapDataPtrs
@@ -80,7 +81,7 @@ SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	bl DeleteLoadedTileEntity @ DeleteLoadedTileEntity(metaTilePos, layer)
 	adds r0, r7, #0 @ r0 = oldMetaTile
 	pop {r1, r2}
-	bl sub_0801AF48 @ sub_0801AF48(oldMetaTile, metaTilePos, layer)
+	bl StoreMetaTileForSpecialTile @ StoreMetaTileForSpecialTile(oldMetaTile, metaTilePos, layer)
 	pop {r4, r5, r6, r7, pc} @ pop pc results in returning to the calling function
 _0800019A:
 	adds r3, #4 @ r3 = layer * 8 + 4
@@ -113,8 +114,8 @@ SetVvvAtMetaTilePos: @ 0x080001D0
 	strb r0, [r3, r1] @ gMapBottom.vvv[metaTilePos] = r0
 	bx lr
 
-	non_word_aligned_thumb_func_start GetTileIndex
-GetTileIndex: @ 0x080001DA
+	non_word_aligned_thumb_func_start GetMetaTileIndex
+GetMetaTileIndex: @ 0x080001DA
 	lsls r1, r1, #3
 	ldr r2, _08000224 @ =gMapDataPtrs
 	ldr r1, [r2, r1]
@@ -221,9 +222,9 @@ sub_080B1A0C: @ 0x0800029C
 @ call 0x080B1A28
 @ r0: entity
 @ return: u32 (tileType)
-	thumb_func_start GetTileTypeByEntity
-GetTileTypeByEntity: @ 0x080002A0
-	ldr r3, _0800030C @ =ram_GetTileTypeByEntity
+	thumb_func_start GetMetaTileTypeByEntity
+GetMetaTileTypeByEntity: @ 0x080002A0
+	ldr r3, _0800030C @ =ram_GetMetaTileTypeByEntity
 	bx r3
 
 @ call 0x080B1A34
@@ -231,9 +232,9 @@ GetTileTypeByEntity: @ 0x080002A0
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
 @ return: u32 (tileType)
-	thumb_func_start GetTileTypeByPos
-GetTileTypeByPos: @ 0x080002A4
-	ldr r3, _08000310 @ =ram_GetTileTypeByPos
+	thumb_func_start GetMetaTileTypeByPos
+GetMetaTileTypeByPos: @ 0x080002A4
+	ldr r3, _08000310 @ =ram_GetMetaTileTypeByPos
 	bx r3
 
 @ call 0x080B1A48
@@ -258,9 +259,9 @@ sub_080B1A58: @ 0x080002AC
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
 @ return: u32 (tileType)
-	thumb_func_start GetTileType
-GetTileType: @ 0x080002B0
-	ldr r3, _0800031C @ =ram_GetTileType
+	thumb_func_start GetMetaTileType
+GetMetaTileType: @ 0x080002B0
+	ldr r3, _0800031C @ =ram_GetMetaTileType
 	bx r3
 
 @ call 0x080B1A8C
@@ -409,11 +410,11 @@ _080002FC: .4byte ram_sub_080B19EC
 _08000300: .4byte ram_sub_080B19FC
 _08000304: .4byte ram_sub_080B1A04
 _08000308: .4byte ram_sub_080B1A0C
-_0800030C: .4byte ram_GetTileTypeByEntity
-_08000310: .4byte ram_GetTileTypeByPos
+_0800030C: .4byte ram_GetMetaTileTypeByEntity
+_08000310: .4byte ram_GetMetaTileTypeByPos
 _08000314: .4byte ram_sub_080B1A48
 _08000318: .4byte ram_sub_080B1A58
-_0800031C: .4byte ram_GetTileType
+_0800031C: .4byte ram_GetMetaTileType
 _08000320: .4byte ram_GetVvvRelativeToEntity
 _08000324: .4byte ram_GetVvvAtEntity
 _08000328: .4byte ram_GetVvvAtWorldCoords

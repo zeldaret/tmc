@@ -172,7 +172,7 @@ void sub_08066F94(void) {
     while (*puVar2 != 0) {
         uVar1 = *puVar2;
         puVar2++;
-        SetTileType(16498, uVar1, 1);
+        SetMetaTileType(0x4072, uVar1, 1);
     }
 }
 

@@ -66,8 +66,6 @@ extern void CreateDialogBox(u32, u32);
 extern const Font gUnk_080FC844;
 extern const u16 gUnk_080FC85C[][3];
 extern void (*const gUnk_080FC908[])(void);
-extern const u8 gGlobalGfxAndPalettes[];
-extern u32 gUsedPalettes;
 extern u8 gTextGfxBuffer[];
 
 #endif // FILESELECT_H

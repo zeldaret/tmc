@@ -7,9 +7,9 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -150,7 +150,7 @@ void ObjectOnPillar_Action4(ObjectOnPillarEntity* this) {
 
 bool32 sub_08097008(ObjectOnPillarEntity* this) {
     Entity* effect;
-    u32 tileType = GetTileType(this->tilePosition, super->collisionLayer);
+    u32 tileType = GetMetaTileType(this->tilePosition, super->collisionLayer);
     if (tileType != 0x4036) {
         switch (sub_08097074(tileType)) {
             case 1:
@@ -191,8 +191,8 @@ void sub_08097098(ObjectOnPillarEntity* this) {
     u16 tileType;
     this->unk_76 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
-    tileType = GetTileType(gUnk_080B4488[super->direction >> 3] + this->tilePosition, super->collisionLayer);
+    SetMetaTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+    tileType = GetMetaTileType(gUnk_080B4488[super->direction >> 3] + this->tilePosition, super->collisionLayer);
     if ((tileType == 0x79) || tileType == 0x77) {
         super->spriteOffsetY = 2;
     }
@@ -200,14 +200,14 @@ void sub_08097098(ObjectOnPillarEntity* this) {
 
 void sub_080970F4(ObjectOnPillarEntity* this) {
     this->tilePosition = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    SetTile(0x4036, this->tilePosition, super->collisionLayer);
+    this->tileIndex = GetMetaTileIndex(this->tilePosition, super->collisionLayer);
+    SetMetaTile(0x4036, this->tilePosition, super->collisionLayer);
 }
 
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (GetVvvAtEntity(super) == 0x19) {
+    if (GetVvvAtEntity(super) == VVV_25) {
         super->spriteOffsetY = 2;
     }
     if ((--this->unk_76 == 0) && sub_08097194(this) == FALSE) {
@@ -223,7 +223,7 @@ bool32 sub_08097194(ObjectOnPillarEntity* this) {
     if (sub_0800442E(super)) {
         return TRUE;
     } else {
-        u32 tileType = GetTileTypeByEntity(super);
+        u32 tileType = GetMetaTileTypeByEntity(super);
         if (tileType == 0x71 || tileType == 0x72 || (tileType == 0x4020)) {
             SetFlag(this->unk_86);
             EnqueueSFX(SFX_10B);
@@ -254,13 +254,13 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
             super->action = 4;
             super->frameIndex = 1;
             super->spritePriority.b0 = 7;
-            SetTile(0, COORD_TO_TILE(super), super->collisionLayer);
+            SetMetaTile(0, COORD_TO_TILE(super), super->collisionLayer);
             DeleteThisEntity();
             break;
         case 1:
             tilePosition = COORD_TO_TILE(super);
             if (sub_08097348(tilePosition) == 0) {
-                SetTileType(0x73, tilePosition, super->collisionLayer);
+                SetMetaTileType(0x73, tilePosition, super->collisionLayer);
             }
             DeleteThisEntity();
             break;

@@ -260,7 +260,7 @@ void sub_08020A7C(Entity* this) {
 bool32 Rollobite_TryToHoleUp(Entity* this) {
     if (Rollobite_IsRolledUp(this) && this->z.HALF.HI == 0) {
         int tile = COORD_TO_TILE(this);
-        int iVar1 = GetTileType(tile, this->collisionLayer);
+        int iVar1 = GetMetaTileType(tile, this->collisionLayer);
         if ((iVar1 * 0x10000 - 0x710000U) >> 0x10 < 2) {
             this->action = 6;
             COLLISION_OFF(this);
@@ -270,7 +270,7 @@ bool32 Rollobite_TryToHoleUp(Entity* this) {
             this->y.HALF.HI += 13;
             this->zVelocity = Q_16_16(2.0);
             InitializeAnimation(this, this->animationState + 0x14);
-            SetTile(0x4034, tile, this->collisionLayer);
+            SetMetaTile(0x4034, tile, this->collisionLayer);
             return TRUE;
         }
     }

@@ -139,11 +139,11 @@ u32 sub_0804A024(Entity* ent, u32 arg1, u32 arg2) {
     }
 }
 
-u32 sub_0804A168(Entity*, Entity*, LayerStruct*);
-u32 sub_0804A318(Entity*, Entity*, LayerStruct*);
+u32 sub_0804A168(Entity*, Entity*, MapLayer* mapLayer);
+u32 sub_0804A318(Entity*, Entity*, MapLayer* mapLayer);
 
 u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
-    LayerStruct* layer;
+    MapLayer* mapLayer;
     s32 ret;
     s32 yDiff;
     s32 xDiff;
@@ -170,7 +170,7 @@ u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
 
         //! @bug flags & 5 can never equal 0xA
         if (flags && ((flags & 5) != 0xA)) {
-            layer = GetLayerByIndex(entA->collisionLayer);
+            mapLayer = GetLayerByIndex(entA->collisionLayer);
             if (xDiff < 0) {
                 xDiff = -xDiff;
             }
@@ -179,7 +179,7 @@ u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
             }
             if (xDiff < yDiff) {
                 if (flags & 1) {
-                    ret = sub_0804A168(entA, entB, layer);
+                    ret = sub_0804A168(entA, entB, mapLayer);
                     if (ret != 0xFF) {
                         return ret;
                     }
@@ -187,10 +187,10 @@ u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
                 if (!(flags & 4)) {
                     return 0xFF;
                 }
-                ret = sub_0804A318(entA, entB, layer);
+                ret = sub_0804A318(entA, entB, mapLayer);
             } else {
                 if (flags & 4) {
-                    ret = sub_0804A318(entA, entB, layer);
+                    ret = sub_0804A318(entA, entB, mapLayer);
                     if (ret != 0xFF) {
                         return ret;
                     }
@@ -198,7 +198,7 @@ u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
                 if (!(flags & 1)) {
                     return 0xFF;
                 }
-                ret = sub_0804A168(entA, entB, layer);
+                ret = sub_0804A168(entA, entB, mapLayer);
             }
             if (ret != 0xFF) {
                 return ret;
@@ -208,9 +208,9 @@ u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
     return 0xFF;
 }
 
-bool32 sub_0804A4BC(u8* arg0, u8* arg1, s32 arg2, u32 arg3);
+bool32 sub_0804A4BC(u8* from, u8* to, s32 step, u32 bitmask);
 
-u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
+u32 sub_0804A168(Entity* entA, Entity* entB, MapLayer* mapLayer) {
     u32 uVar2;
     u32 uVar3;
     u32 tile1;
@@ -222,13 +222,13 @@ u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(uVar2, entA->y.HALF.HI + 10);
         tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 0x40, uVar3)) {
+        if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], 0x40, uVar3)) {
             uVar2 = entA->x.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(uVar2, entA->y.HALF.HI + 10);
             tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 0x40, uVar3)) {
+            if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], 0x40, uVar3)) {
                 return 0x10;
             }
         }
@@ -238,13 +238,13 @@ u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(uVar2, entA->y.HALF.HI - 10);
         tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -0x40, uVar3)) {
+        if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], -0x40, uVar3)) {
             uVar2 = entA->x.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(uVar2, entA->y.HALF.HI - 10);
             tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -0x40, uVar3)) {
+            if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], -0x40, uVar3)) {
                 return 0;
             }
         }
@@ -252,7 +252,7 @@ u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
     return 0xFF;
 }
 
-u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
+u32 sub_0804A318(Entity* entA, Entity* entB, MapLayer* mapLayer) {
     u32 uVar2;
     u32 uVar3;
     u32 tile1;
@@ -264,13 +264,13 @@ u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(entA->x.HALF.HI + 10, uVar2);
         tile2 = TILE(entB->x.HALF.HI, uVar2);
 
-        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 1, uVar3)) {
+        if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], 1, uVar3)) {
             uVar2 = entA->y.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(entA->x.HALF.HI + 10, uVar2);
             tile2 = TILE(entB->x.HALF.HI, uVar2);
 
-            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 1, uVar3)) {
+            if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], 1, uVar3)) {
                 return 8;
             }
         }
@@ -280,12 +280,12 @@ u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(entA->x.HALF.HI - 10, uVar2);
         tile2 = TILE(entB->x.HALF.HI, uVar2);
 
-        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -1, uVar3)) {
+        if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], -1, uVar3)) {
             uVar2 = entA->y.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(entA->x.HALF.HI - 10, uVar2);
             tile2 = TILE(entB->x.HALF.HI, uVar2);
-            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -1, uVar3)) {
+            if (sub_0804A4BC(&mapLayer->collisionData[tile1], &mapLayer->collisionData[tile2], -1, uVar3)) {
                 return 0x18;
             }
         }
@@ -293,21 +293,21 @@ u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
     return 0xFF;
 }
 
-bool32 sub_0804A4BC(u8* arg0, u8* arg1, s32 arg2, u32 arg3) {
-    while (arg0 != arg1) {
-        u8 r0 = *arg0;
+bool32 sub_0804A4BC(u8* from, u8* to, s32 step, u32 bitmask) {
+    while (from != to) {
+        u8 r0 = *from;
 
         if (r0 != 0) {
             if (r0 > 0xF) {
                 return FALSE;
             }
 
-            r0 &= arg3;
+            r0 &= bitmask;
             if (r0 != 0) {
                 return FALSE;
             }
         }
-        arg0 += arg2;
+        from += step;
     }
 
     return TRUE;

@@ -5,11 +5,12 @@
  *
  * @brief Large Lilypad object
  */
-#include "global.h"
 #include "area.h"
 #include "functions.h"
 #include "item.h"
 #include "object.h"
+#include "map.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -344,10 +345,10 @@ void sub_08085A1C(LilypadLargeEntity* this) {
 
 void sub_08085A44(LilypadLargeEntity* this) {
     super->speed = 0x200;
-    if (GetVvvRelativeToEntity(super, 0x10, 0x18) != 0x11) {
+    if (GetVvvRelativeToEntity(super, 0x10, 0x18) != VVV_17) {
         super->direction = 0x18;
     } else {
-        if (GetVvvRelativeToEntity(super, -0x10, 0x18) != 0x11) {
+        if (GetVvvRelativeToEntity(super, -0x10, 0x18) != VVV_17) {
             super->direction = 8;
         } else {
             super->direction = 0x10;
@@ -368,7 +369,7 @@ void sub_08085A98(LilypadLargeEntity* this) {
         this->unk_78.WORD -= 0x20000;
         SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
     }
-    if (GetVvvRelativeToEntity(super, 0, 0x18) != 0x11) {
+    if (GetVvvRelativeToEntity(super, 0, 0x18) != VVV_17) {
         super->subAction = 2;
         if (gArea.locationIndex == 0x1b) {
             super->y.HALF.HI += 0xd0;
@@ -401,7 +402,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
         }
     } else {
         ResetCollisionLayer(super);
-        if (GetVvvAtEntity(super) == 0xd) {
+        if (GetVvvAtEntity(super) == VVV_13) {
             ResetCollisionLayer(&gPlayerEntity);
             sub_08085CDC(this);
             super->direction = GetFacingDirection(&gPlayerEntity, super);
@@ -423,7 +424,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
             super->timer |= 0x80;
             this->unk_70 = 0;
             this->unk_6c = 0;
-            if (GetVvvAtEntity(super) == 0xd) {
+            if (GetVvvAtEntity(super) == VVV_13) {
                 super->action = 4;
             }
         }
@@ -471,7 +472,7 @@ void sub_08085D10(LilypadLargeEntity* this) {
 
 void sub_08085D28(LilypadLargeEntity* this) {
     if (((gPlayerState.framestate != PL_STATE_TALKEZLO) && ((gPlayerState.flags & PL_FLAGS2) != 0)) &&
-        (GetVvvRelativeToEntity(super, 0, 0x18) == 0x11)) {
+        (GetVvvRelativeToEntity(super, 0, 0x18) == VVV_17)) {
         super->action = 2;
         super->subAction = 0;
         sub_08078B48();

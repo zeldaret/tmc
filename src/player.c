@@ -24,6 +24,7 @@
 #include "screen.h"
 #include "screenTransitions.h"
 #include "sound.h"
+#include "tiles.h"
 
 #define GRAVITY_RATE Q_8_8(32)
 #define SLOPE_SPEED_MODIFIER 0x50
@@ -1974,7 +1975,7 @@ static void PlayerRoomTransition(Entity* this) {
 static void sub_080724DC(Entity* this) {
     this->knockbackDuration = 0;
     DeleteClones();
-    if (GetVvvAtEntity(this) != 0x29) {
+    if (GetVvvAtEntity(this) != VVV_41) {
         if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
             PlayerUpdateSwimming(this);
         }
@@ -2000,7 +2001,7 @@ static void sub_080724DC(Entity* this) {
 
 static void sub_0807258C(Entity* this) {
     if (gRoomControls.reload_flags == 0) {
-        if (GetVvvInFront(this) == 0x29) {
+        if (GetVvvInFront(this) == VVV_41) {
             UpdatePlayerMovement();
             if (sub_080797C4() != 0) {
                 gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
@@ -2188,11 +2189,11 @@ static void PlayerInHoleInit(Entity* this) {
             gPlayerState.animation = 0x950;
         } else {
             gPlayerState.animation = 0x61c;
-            if (GetTileIndex(COORD_TO_TILE(this), this->collisionLayer) == 0x4020) {
+            if (GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer) == 0x4020) {
                 this->timer = 1;
             }
         }
-        SetTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
         ResetActiveItems();
         PlayerInHoleUpdate(this);
         SoundReq(SFX_81);
@@ -2249,7 +2250,7 @@ static void sub_08072B5C(Entity* this) {
         return;
     }
 
-    SetTile(0x4021, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTile(0x4021, COORD_TO_TILE(this), this->collisionLayer);
     this->direction = Direction8FromAnimationState(this->animationState);
     temp = sub_0807A2F8(1);
     if (!temp) {
@@ -2362,7 +2363,7 @@ static void sub_08072D54(Entity* this) {
         LinearMoveUpdate(this);
         this->timer--;
     } else {
-        uVar2 = GetTileType(sub_0806F730(this), this->collisionLayer);
+        uVar2 = GetMetaTileType(sub_0806F730(this), this->collisionLayer);
         switch (this->subtimer) {
             case 0:
                 if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
@@ -2622,7 +2623,7 @@ static void sub_080731D8(Entity* this) {
 
 static void sub_080732D0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (GetVvvAtEntity(this) != 40) {
+    if (GetVvvAtEntity(this) != VVV_40) {
         this->direction = DirectionNorth;
         LinearMoveUpdate(this);
     } else {
@@ -4106,7 +4107,7 @@ void sub_0807529C(Entity* this) {
 void sub_080752AC(Entity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(this);
     if (!ctx->unk_18) {
-        if (GetVvvAtEntity(this) != 41) {
+        if (GetVvvAtEntity(this) != VVV_41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

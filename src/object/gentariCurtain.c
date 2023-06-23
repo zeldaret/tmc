@@ -58,10 +58,10 @@ void GentariCurtain_Init(GentariCurtainEntity* this) {
             UpdateSpriteForCollisionLayer(super);
             this->tile = COORD_TO_TILE_OFFSET(super, 0, 8);
             this->tile2 = COORD_TO_TILE_OFFSET(super, 0, -8);
-            this->tileIndex = GetTileIndex(this->tile, 1);
-            this->tileIndex2 = GetTileIndex(this->tile2, 1);
-            SetTile(0x4022, this->tile, 1);
-            SetTile(0x4022, this->tile2, 1);
+            this->tileIndex = GetMetaTileIndex(this->tile, 1);
+            this->tileIndex2 = GetMetaTileIndex(this->tile2, 1);
+            SetMetaTile(0x4022, this->tile, 1);
+            SetMetaTile(0x4022, this->tile2, 1);
             InitAnimationForceUpdate(super, 0);
         } else {
             super->action = 1;
@@ -81,8 +81,8 @@ void GentariCurtain_Action2(GentariCurtainEntity* this) {
     UpdateAnimationSingleFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
-        SetTile(this->tileIndex, this->tile, 1);
-        SetTile(this->tileIndex2, this->tile2, 1);
+        SetMetaTile(this->tileIndex, this->tile, 1);
+        SetMetaTile(this->tileIndex2, this->tile2, 1);
         sub_08092214(this);
         sub_0809223C(this);
         InitAnimationForceUpdate(super, 1);

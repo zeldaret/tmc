@@ -340,7 +340,7 @@ void sub_0801876C(u32 worldEventId, bool32 isKinstoneFused) {
             if (isKinstoneFused == 0) {
                 return;
             }
-            SetTileType(0x168, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
+            SetMetaTileType(0x168, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
             break;
         case WORLD_EVENT_TYPE_11:
             if (isKinstoneFused != 0) {
@@ -358,12 +358,12 @@ void sub_0801876C(u32 worldEventId, bool32 isKinstoneFused) {
                 *(u16*)&ent->gustJarState = ptr->y + gRoomControls.origin_y;
             }
             if (ptr->entity_idx == 0) {
-                SetTileType(0x8d, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
+                SetMetaTileType(0x8d, (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6, 1);
             } else {
                 uVar5 = (ptr->x >> 4 & 0x3f) | (ptr->y >> 4 & 0x3f) << 6;
-                SetTileType(0x8c, uVar5 - 1, 1);
+                SetMetaTileType(0x8c, uVar5 - 1, 1);
                 uVar3 = 0x8e;
-                SetTileType(uVar3, uVar5, 1);
+                SetMetaTileType(uVar3, uVar5, 1);
             }
             break;
         case WORLD_EVENT_TYPE_24:
@@ -404,13 +404,13 @@ void sub_080189EC(u32 worldEventId) {
     tilePosition -= 0x42;
 
     for (i = 0; i < 4; i++) {
-        SetTileType(i + 0x1df, tilePosition + i, 2);
+        SetMetaTileType(i + 0x1df, tilePosition + i, 2);
     }
 
     tilePosition += 0x40;
     for (i = 0; i < 4; i++) {
-        SetTileType(i + 0x1e3, tilePosition + i, 2);
-        SetTileType(i + 0x1db, tilePosition + i, 1);
+        SetMetaTileType(i + 0x1e3, tilePosition + i, 2);
+        SetMetaTileType(i + 0x1db, tilePosition + i, 1);
     }
 }
 
@@ -430,7 +430,7 @@ void sub_08018A58(u32 worldEventId) {
 
     for (i = 0; i < 4; tilePosition += 0x40, i++) {
         for (j = 0; j < 7; j++) {
-            SetTileType(iVar2++, tilePosition + j, 1);
+            SetMetaTileType(iVar2++, tilePosition + j, 1);
         }
     }
 }
@@ -447,8 +447,8 @@ void sub_08018AB4(int param_1) {
     for (i = 0; i < 3; i++) {
         j = 0;
         for (; j < 4; j++) {
-            SetTileType(iVar2++, param_1 + j, 1);
-            SetTileType(iVar6++, param_1 - 0x40 + j, 2);
+            SetMetaTileType(iVar2++, param_1 + j, 1);
+            SetMetaTileType(iVar6++, param_1 - 0x40 + j, 2);
         }
         param_1 += 0x40;
     }
@@ -465,8 +465,8 @@ void sub_08018B10(int param_1) {
     index = 0;
     iVar1 = param_1 - 0x40;
     for (; index < 4; iVar1++, index++) {
-        SetTileType(iVar4++, param_1 + index, 1);
-        SetTileType(iVar3++, iVar1, 2);
+        SetMetaTileType(iVar4++, param_1 + index, 1);
+        SetMetaTileType(iVar3++, iVar1, 2);
     }
 }
 
@@ -490,7 +490,7 @@ void sub_08018B50(u32 worldEventId) {
 
     for (i = 0; i < 5; tilePosition += 0x40, i++) {
         for (j = 0; j < 5; j++) {
-            SetTileType(iVar2++, tilePosition + j, 1);
+            SetMetaTileType(iVar2++, tilePosition + j, 1);
         }
     }
 }
@@ -513,7 +513,7 @@ void sub_08018BB4(u32 worldEventId) {
         } else {
             layer = 2;
         }
-        SetTileType(0x73, position, layer);
+        SetMetaTileType(0x73, position, layer);
     }
 }
 
@@ -523,7 +523,7 @@ void CreateMinishEntrance(u32 tilePos) {
 
     for (y = 0; y <= 3; y++) {
         for (x = 0; x <= 4; x++) {
-            SetTileType(tileID++, tilePos + x, 1);
+            SetMetaTileType(tileID++, tilePos + x, 1);
         }
         tilePos += 0x40;
     }
@@ -533,7 +533,7 @@ void sub_08018C58(u32 tilePos) {
     u32 i;
 
     for (i = 0; i < 6; i += 2, tilePos += 0x40) {
-        SetTileType(0x260 + i, tilePos, 1);
-        SetTileType(0x261 + i, tilePos + 1, 1);
+        SetMetaTileType(0x260 + i, tilePos, 1);
+        SetMetaTileType(0x261 + i, tilePos + 1, 1);
     }
 }

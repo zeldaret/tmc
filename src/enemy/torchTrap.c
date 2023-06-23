@@ -70,7 +70,7 @@ void sub_0803CF38(TorchTrapEntity* this) {
 }
 
 void sub_0803CF94(TorchTrapEntity* this) {
-    if (GetTileType(this->unk_74, super->collisionLayer) == 0x76) {
+    if (GetMetaTileType(this->unk_74, super->collisionLayer) == 0x76) {
         this->unk_80 = 0;
         TorchTrap_Reset(this);
     } else if (this->unk_7c && sub_0803CFD8(this)) {

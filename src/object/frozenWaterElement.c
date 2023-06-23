@@ -115,33 +115,33 @@ void FrozenWaterElement_Action2(FrozenWaterElementEntity* this) {
 
 void sub_0809C0A8(FrozenWaterElementEntity* this) {
     u32 position = COORD_TO_TILE(super);
-    SetTile(0x4022, position - 0x41, super->collisionLayer);
-    SetTile(0x4022, position - 0x40, super->collisionLayer);
-    SetTile(0x4022, position - 0x3f, super->collisionLayer);
-    SetTile(0x4022, position - 2, super->collisionLayer);
-    SetTile(0x4022, position - 1, super->collisionLayer);
-    SetTile(0x4022, position, super->collisionLayer);
-    SetTile(0x4022, position + 1, super->collisionLayer);
-    SetTile(0x4022, position + 2, super->collisionLayer);
-    SetTile(0x4022, position + 0x3e, super->collisionLayer);
-    SetTile(0x4022, position + 0x3f, super->collisionLayer);
-    SetTile(0x4022, position + 0x40, super->collisionLayer);
-    SetTile(0x4022, position + 0x41, super->collisionLayer);
-    SetTile(0x4022, position + 0x42, super->collisionLayer);
-    SetTile(0x4022, position + 0x7f, super->collisionLayer);
-    SetTile(0x4022, position + 0x80, super->collisionLayer);
-    SetTile(0x4022, position + 0x81, super->collisionLayer);
-    SetTile(0x4022, position + 0x13f, super->collisionLayer);
-    SetTile(0x4022, position + 0x140, super->collisionLayer);
-    SetTile(0x4022, position + 0x141, super->collisionLayer);
-    SetTile(0x4022, position + 0x17f, super->collisionLayer);
-    SetTile(0x4022, position + 0x181, super->collisionLayer);
-    SetTile(0x4022, position + 0x1bd, super->collisionLayer);
-    SetTile(0x4022, position + 0x1be, super->collisionLayer);
-    SetTile(0x4022, position + 0x1bf, super->collisionLayer);
-    SetTile(0x4022, position + 0x1c1, super->collisionLayer);
-    SetTile(0x4022, position + 0x1c2, super->collisionLayer);
-    SetTile(0x4022, position + 0x1c3, super->collisionLayer);
+    SetMetaTile(0x4022, position - 0x41, super->collisionLayer);
+    SetMetaTile(0x4022, position - 0x40, super->collisionLayer);
+    SetMetaTile(0x4022, position - 0x3f, super->collisionLayer);
+    SetMetaTile(0x4022, position - 2, super->collisionLayer);
+    SetMetaTile(0x4022, position - 1, super->collisionLayer);
+    SetMetaTile(0x4022, position, super->collisionLayer);
+    SetMetaTile(0x4022, position + 1, super->collisionLayer);
+    SetMetaTile(0x4022, position + 2, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x3e, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x3f, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x40, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x41, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x42, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x7f, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x80, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x81, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x13f, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x140, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x141, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x17f, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x181, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x1bd, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x1be, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x1bf, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x1c1, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x1c2, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x1c3, super->collisionLayer);
 }
 
 void sub_0809C23C(FrozenWaterElementEntity* this) {

@@ -806,10 +806,10 @@ extern EntityData gUnk_080D7D34;
 
 void sub_StateChange_GreatFairies_Exit(void) {
     if (GetInventoryValue(ITEM_FOURSWORD)) {
-        SetTile(0x4072, 0x14d, 1);
-        SetTile(0x4072, 0x10c, 1);
-        SetTile(0x4090, 0x14c, 1);
-        SetTile(0x4090, 0x18c, 1);
+        SetMetaTile(0x4072, 0x14d, 1);
+        SetMetaTile(0x4072, 0x10c, 1);
+        SetMetaTile(0x4090, 0x14c, 1);
+        SetMetaTile(0x4090, 0x18c, 1);
         LoadRoomEntityList(&gUnk_080D7D34);
     }
 }
@@ -860,8 +860,8 @@ void sub_StateChange_Dojos_Grimblade(void) {
         LoadRoomEntityList(&gUnk_080D827C);
     } else {
         sub_0805BC4C();
-        SetTileType(0x76, 0x82, 2);
-        SetTileType(0x76, 0x8c, 2);
+        SetMetaTileType(0x76, 0x82, 2);
+        SetMetaTileType(0x76, 0x8c, 2);
     }
 }
 
@@ -1042,16 +1042,16 @@ void sub_StateChange_RoyalValley_Main(void) {
 
     if (GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) != 2) {
         LoadRoomEntityList(&gUnk_080D9098);
-        SetTileType(0x17a, 0x58e, 1);
-        SetTileType(0x17b, 0x58f, 1);
-        SetTileType(0x17c, 0x5ce, 1);
-        SetTileType(0x17d, 0x5cf, 1);
+        SetMetaTileType(0x17a, 0x58e, 1);
+        SetMetaTileType(0x17b, 0x58f, 1);
+        SetMetaTileType(0x17c, 0x5ce, 1);
+        SetMetaTileType(0x17d, 0x5cf, 1);
     }
 
     EnableRandomDrops();
     sub_08059278();
-    SetTile(0x4072, 0xa47, 1);
-    SetTile(0x4072, 0xc47, 1);
+    SetMetaTile(0x4072, 0xa47, 1);
+    SetMetaTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
         if (gRoomTransition.player_status.start_pos_x == 0x78 && gRoomTransition.player_status.start_pos_y == 0x278)
@@ -1109,7 +1109,7 @@ static void sub_0804C128(void) {
         if (gArea.unk_0c_4 == 6) {
             sub_080AF250(1);
             if (CheckLocalFlag(HAKA_01_T0) == 0) {
-                SetTileType(0x73, 0x107, 1);
+                SetMetaTileType(0x73, 0x107, 1);
             }
             LoadRoomTileEntities(gUnk_080D9328);
             SetGlobalFlag(MAZE_CLEAR);
@@ -1144,7 +1144,7 @@ void sub_0804C290(void) {
 
     if (gArea.unk_0c_1) {
         iVar1 = gArea.unk_0c_1;
-        SetTileType((gUnk_080D9348 + iVar1)->unk0, (gUnk_080D9348 + iVar1)->unk2, 1);
+        SetMetaTileType((gUnk_080D9348 + iVar1)->unk0, (gUnk_080D9348 + iVar1)->unk2, 1);
     }
 }
 
@@ -1688,7 +1688,7 @@ void sub_StateChange_TownMinishHoles_RemShoeShop(void) {
     if (!CheckLocalFlag(KOBITO_DOUKUTU_05_T0)) {
         tilePos = 0x140;
         for (i = 0; i < 0x13; i++, tilePos++) {
-            SetTileType(0x4072, tilePos, 1);
+            SetMetaTileType(0x4072, tilePos, 1);
         }
     }
     LoadRoomEntityList(&gUnk_080DBB90);
@@ -2151,11 +2151,11 @@ void sub_StateChange_DeepwoodShrine_StairsToB1(void) {
     } else {
         if (!CheckLocalFlag(0x4c)) {
             LoadRoomEntityList(&gUnk_additional_8_DeepwoodShrine_StairsToB1);
-            SetTileType(0x79, 0x285, 1);
+            SetMetaTileType(0x79, 0x285, 1);
         } else {
-            SetTileType(0x7a, 0x285, 1);
+            SetMetaTileType(0x7a, 0x285, 1);
             if (!CheckLocalFlag(0x24)) {
-                SetTileType(0x73, 0x205, 1);
+                SetMetaTileType(0x73, 0x205, 1);
             }
         }
     }
@@ -2190,21 +2190,21 @@ void sub_StateChange_DeepwoodShrine_Barrel(void) {
     switch (gSave.unk7) {
         case 0:
         default:
-            SetTileType(0x90, 0x20b, 1);
-            SetTileType(0x90, 0x411, 1);
+            SetMetaTileType(0x90, 0x20b, 1);
+            SetMetaTileType(0x90, 0x411, 1);
             break;
         case 2:
-            SetTileType(0x90, 0x211, 1);
-            SetTileType(0x90, 0x40b, 1);
+            SetMetaTileType(0x90, 0x211, 1);
+            SetMetaTileType(0x90, 0x40b, 1);
             break;
     }
 
     if (CheckLocalFlag(0x15)) {
-        SetTileType(0x76, 0x304, 2);
+        SetMetaTileType(0x76, 0x304, 2);
     }
 
     if (CheckLocalFlag(0x16)) {
-        SetTileType(0x76, 0x318, 2);
+        SetMetaTileType(0x76, 0x318, 2);
     }
 }
 
@@ -2248,9 +2248,9 @@ void sub_StateChange_DeepwoodShrine_Entrance(void) {
     if (GetInventoryValue(ITEM_EARTH_ELEMENT) == 0) {
 #endif
 #endif
-        SetTileType(0x365, 0x349, 1);
-        SetTileType(0x365, 0x34a, 1);
-        SetTileType(0x365, 0x34b, 1);
+        SetMetaTileType(0x365, 0x349, 1);
+        SetMetaTileType(0x365, 0x34a, 1);
+        SetMetaTileType(0x365, 0x34b, 1);
     }
 }
 #else
@@ -2385,9 +2385,9 @@ u32 sub_unk3_CaveOfFlames_Entrance(void) {
 #ifdef DEMO_USA
 void sub_StateChange_CaveOfFlames_Entrance(void) {
     if (GetInventoryValue(ITEM_FIRE_ELEMENT) == 0) {
-        SetTileType(0x365, 0x287, 2);
-        SetTileType(0x365, 0x288, 2);
-        SetTileType(0x365, 0x289, 2);
+        SetMetaTileType(0x365, 0x287, 2);
+        SetMetaTileType(0x365, 0x288, 2);
+        SetMetaTileType(0x365, 0x289, 2);
     }
 }
 #else
@@ -3140,7 +3140,7 @@ extern EntityData gUnk_080E718C;
 extern EntityData gUnk_080E71AC;
 
 void sub_StateChange_RoyalCrypt_Entrance(void) {
-    SetTileType(0x312, 0x108, 1);
+    SetMetaTileType(0x312, 0x108, 1);
     EnableRandomDrops();
     if (!CheckLocalFlag(0xc4)) {
         LoadRoomEntityList(&gUnk_080E718C);
@@ -3640,8 +3640,8 @@ void sub_StateChange_DarkHyruleCastleOutside_ZeldaStatuePlatform(void) {
         LoadRoomEntityList(&gUnk_080EAD68);
     } else if (!CheckLocalFlag(0x79)) {
         LoadRoomEntityList(&gUnk_080EADB8);
-        SetTileType(0x4072, 0x145, 1);
-        SetTileType(0x4072, 0x149, 1);
+        SetMetaTileType(0x4072, 0x145, 1);
+        SetMetaTileType(0x4072, 0x149, 1);
         gArea.queued_bgm = SFX_NONE;
     }
 }
@@ -3656,7 +3656,7 @@ void sub_0804D7EC(void) {
     while (*tilePos != 0) {
         temp = *tilePos;
         tilePos++;
-        SetTileType(0x4072, temp, 1);
+        SetMetaTileType(0x4072, temp, 1);
     }
 }
 
@@ -4352,7 +4352,7 @@ void sub_StateChange_HyruleTown_0(void) {
     EnableRandomDrops();
     TryLoadPrologueHyruleTown();
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-    SetTileType(0x176, 0x66b, 1);
+    SetMetaTileType(0x176, 0x66b, 1);
 #endif
     if (gSave.global_progress == 1) {
         sub_0801D000(0);
@@ -4445,7 +4445,7 @@ void sub_0804E150(void) {
     uVar3 = 1 << gSave.global_progress;
     for (; pTileData[1] != 0; pTileData += 3) {
         if ((pTileData[0] & uVar3) != 0) {
-            SetTile(pTileData[2], pTileData[1], 1);
+            SetMetaTile(pTileData[2], pTileData[1], 1);
         }
     }
     if (CheckLocalFlag(SHOP05_OPEN) == 0) {
@@ -4453,7 +4453,7 @@ void sub_0804E150(void) {
         uVar3 = 1 << gSave.global_progress;
         for (; pTileData[0] != 0; pTileData += 3) {
             if ((pTileData[0] & uVar3) != 0) {
-                SetTile(pTileData[2], pTileData[1], 1);
+                SetMetaTile(pTileData[2], pTileData[1], 1);
             }
         }
     }
@@ -4462,7 +4462,7 @@ void sub_0804E150(void) {
         uVar3 = 1 << gSave.global_progress;
         for (; pTileData[0] != 0; pTileData += 3) {
             if ((pTileData[0] & uVar3) != 0) {
-                SetTile(pTileData[2], pTileData[1], 1);
+                SetMetaTile(pTileData[2], pTileData[1], 1);
             }
         }
     }
@@ -4596,16 +4596,16 @@ void sub_StateChange_CastleGarden_Main(void) {
     }
     if (!CheckLocalFlag(SOUGEN_08_TORITSUKI)) {
         LoadRoomEntityList(&gUnk_080F0800);
-        SetTileType(0x4072, 600, 1);
-        SetTileType(0x4072, 0x298, 1);
-        SetTileType(0x4072, 0x266, 1);
-        SetTileType(0x4072, 0x2a6, 1);
+        SetMetaTileType(0x4072, 600, 1);
+        SetMetaTileType(0x4072, 0x298, 1);
+        SetMetaTileType(0x4072, 0x266, 1);
+        SetMetaTileType(0x4072, 0x2a6, 1);
     } else {
         if (!GetInventoryValue(ITEM_FOURSWORD)) {
             LoadRoomEntityList(&gUnk_080F08F0);
-            SetTileType(0x4072, 0x9e, 1);
-            SetTileType(0x4072, 0x9f, 1);
-            SetTileType(0x4072, 0xa0, 1);
+            SetMetaTileType(0x4072, 0x9e, 1);
+            SetMetaTileType(0x4072, 0x9f, 1);
+            SetMetaTileType(0x4072, 0xa0, 1);
         }
         LoadRoomEntityList(&gUnk_080F0850);
         if (!GetInventoryValue(ITEM_WATER_ELEMENT)) {
@@ -4613,8 +4613,8 @@ void sub_StateChange_CastleGarden_Main(void) {
         } else {
             LoadRoomEntityList(&gUnk_080F0890);
         }
-        SetTileType(0x4072, 600, 1);
-        SetTileType(0x4072, 0x298, 1);
+        SetMetaTileType(0x4072, 600, 1);
+        SetMetaTileType(0x4072, 0x298, 1);
         if (CheckLocalFlag(MAENIWA_00_WARP)) {
             LoadRoomEntityList(&gUnk_080F0920);
             ClearLocalFlag(MAENIWA_00_WARP);
@@ -4953,10 +4953,10 @@ extern EntityData gUnk_080F3260;
 void sub_StateChange_HouseInteriors4_Carpenter(void) {
     if (GetInventoryValue(ITEM_PACCI_CANE)) {
         LoadRoomEntityList(&gUnk_080F3260);
-        SetTileType(0x4072, 0x202, 1);
-        SetTileType(0x4072, 0x242, 1);
-        SetTileType(0x4072, 0x204, 1);
-        SetTileType(0x4072, 0x244, 1);
+        SetMetaTileType(0x4072, 0x202, 1);
+        SetMetaTileType(0x4072, 0x242, 1);
+        SetMetaTileType(0x4072, 0x204, 1);
+        SetMetaTileType(0x4072, 0x244, 1);
     }
 }
 
@@ -5042,22 +5042,22 @@ void sub_StateChange_LakeHylia_Main(void) {
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F3C44);
     }
-    SetTile(0x4091, 0x590, 1);
-    SetTile(0x4091, 0x591, 1);
-    SetTile(0x4091, 0x592, 1);
-    SetTile(0x4091, 0x593, 1);
-    SetTile(0x4091, 0x594, 1);
-    SetTile(0x4091, 0x5d0, 1);
-    SetTile(0x4091, 0x610, 1);
-    SetTile(0x4091, 0x650, 1);
-    SetTile(0x4091, 0x5d4, 1);
-    SetTile(0x4091, 0x614, 1);
-    SetTile(0x4091, 0x654, 1);
-    SetTile(0x4091, 0x690, 1);
-    SetTile(0x4091, 0x691, 1);
-    SetTile(0x4091, 0x692, 1);
-    SetTile(0x4091, 0x693, 1);
-    SetTile(0x4091, 0x694, 1);
+    SetMetaTile(0x4091, 0x590, 1);
+    SetMetaTile(0x4091, 0x591, 1);
+    SetMetaTile(0x4091, 0x592, 1);
+    SetMetaTile(0x4091, 0x593, 1);
+    SetMetaTile(0x4091, 0x594, 1);
+    SetMetaTile(0x4091, 0x5d0, 1);
+    SetMetaTile(0x4091, 0x610, 1);
+    SetMetaTile(0x4091, 0x650, 1);
+    SetMetaTile(0x4091, 0x5d4, 1);
+    SetMetaTile(0x4091, 0x614, 1);
+    SetMetaTile(0x4091, 0x654, 1);
+    SetMetaTile(0x4091, 0x690, 1);
+    SetMetaTile(0x4091, 0x691, 1);
+    SetMetaTile(0x4091, 0x692, 1);
+    SetMetaTile(0x4091, 0x693, 1);
+    SetMetaTile(0x4091, 0x694, 1);
 }
 
 u32 sub_unk3_LakeHylia_Beanstalk(void) {
@@ -5211,8 +5211,8 @@ void sub_StateChange_MinishWoods_Main(void) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
 #ifdef DEMO_USA
-    SetTileType(0x177, 0x5b4, 1);
-    SetTileType(0x177, 0x5f4, 1);
+    SetMetaTileType(0x177, 0x5b4, 1);
+    SetMetaTileType(0x177, 0x5f4, 1);
 #endif
 }
 
@@ -5491,8 +5491,8 @@ void sub_StateChange_WindTribeTower_Entrance(void) {
         LoadRoomEntityList(&gUnk_080F61BC);
     }
     if (!CheckGlobalFlag(WARP_EVENT_END)) {
-        SetTileType(0x4072, 0x4c7, 1);
-        SetTileType(0x4072, 0x507, 1);
+        SetMetaTileType(0x4072, 0x4c7, 1);
+        SetMetaTileType(0x4072, 0x507, 1);
     }
     SetWorldMapPos(8, 0, 0x1e8, 0x158);
 }
@@ -5701,10 +5701,10 @@ void sub_StateChange_HyruleField_EasternHillsNorth(void) {
     }
     if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
         LoadRoomEntityList(&gUnk_080F7550);
-        SetTileType(0x4072, 0x311, 1);
-        SetTileType(0x4072, 0x351, 1);
-        SetTileType(0x4072, 0x3d9, 1);
-        SetTileType(0x4072, 0x419, 1);
+        SetMetaTileType(0x4072, 0x311, 1);
+        SetMetaTileType(0x4072, 0x351, 1);
+        SetMetaTileType(0x4072, 0x3d9, 1);
+        SetMetaTileType(0x4072, 0x419, 1);
     }
 }
 
@@ -5733,8 +5733,8 @@ void sub_StateChange_HyruleField_LonLonRanch(void) {
     }
     if (!CheckKinstoneFused(KINSTONE_29)) {
         LoadRoomEntityList(&gUnk_080F7860);
-        SetTile(0x4072, 0xd88, 1);
-        SetTile(0x4096, 0xdc8, 1);
+        SetMetaTile(0x4072, 0xd88, 1);
+        SetMetaTile(0x4096, 0xdc8, 1);
     }
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F78A0);
@@ -5775,11 +5775,11 @@ void sub_StateChange_HyruleField_OutsideCastle(void) {
     sub_0804F4E4();
     if (!CheckLocalFlag(SOUGEN_06_AKINDO)) {
         LoadRoomEntityList(&gUnk_080F7D70);
-        SetTileType(0x174, 0x7a2, 1);
-        SetTileType(0x174, 0x7a3, 1);
-        SetTileType(0x174, 0x7a5, 1);
-        SetTileType(0x174, 0x7a6, 1);
-        SetTileType(0x174, 0x7a7, 1);
+        SetMetaTileType(0x174, 0x7a2, 1);
+        SetMetaTileType(0x174, 0x7a3, 1);
+        SetMetaTileType(0x174, 0x7a5, 1);
+        SetMetaTileType(0x174, 0x7a6, 1);
+        SetMetaTileType(0x174, 0x7a7, 1);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
 #ifdef EU
@@ -5796,26 +5796,26 @@ static void sub_0804F578(void) {
     if (!CheckLocalFlag(SOUGEN_06_SLIDE)) {
         LoadRoomEntityList(&gUnk_080F7DC0);
     } else {
-        SetTileType(0x37, 0x94a, 1);
-        SetTileType(0x37, 0x94b, 1);
-        SetTileType(0x37, 0x94c, 1);
-        SetTileType(0x37, 0x98a, 1);
-        SetTileType(0x37, 0x98b, 1);
-        SetTileType(0x37, 0x98c, 1);
+        SetMetaTileType(0x37, 0x94a, 1);
+        SetMetaTileType(0x37, 0x94b, 1);
+        SetMetaTileType(0x37, 0x94c, 1);
+        SetMetaTileType(0x37, 0x98a, 1);
+        SetMetaTileType(0x37, 0x98b, 1);
+        SetMetaTileType(0x37, 0x98c, 1);
     }
 }
 
 void sub_0804F5E8(void) {
     sub_0804F4E4();
-    SetTileType(0x1d3, 0xbde, 1);
-    SetTileType(0x1d6, 0xbe2, 1);
-    SetTileType(0x1d4, 0xc1f, 1);
-    SetTileType(0x1d5, 0xc20, 1);
-    SetTileType(0x1d6, 0xc5e, 1);
-    SetTileType(0x4072, 0xb9b, 1);
-    SetTileType(0x4072, 0xbdb, 1);
-    SetTileType(0x4072, 0xaa4, 1);
-    SetTileType(0x4072, 0xae4, 1);
+    SetMetaTileType(0x1d3, 0xbde, 1);
+    SetMetaTileType(0x1d6, 0xbe2, 1);
+    SetMetaTileType(0x1d4, 0xc1f, 1);
+    SetMetaTileType(0x1d5, 0xc20, 1);
+    SetMetaTileType(0x1d6, 0xc5e, 1);
+    SetMetaTileType(0x4072, 0xb9b, 1);
+    SetMetaTileType(0x4072, 0xbdb, 1);
+    SetMetaTileType(0x4072, 0xaa4, 1);
+    SetMetaTileType(0x4072, 0xae4, 1);
 }
 
 void sub_0804F680(Entity* parent, s32 x, s32 y) {
@@ -5877,34 +5877,34 @@ void sub_0804F79C(Entity* parent) {
 }
 
 void sub_0804F808(void) {
-    SetTileType(0x1d3, 0x41d, 1);
-    SetTileType(0x1d3, 0x621, 1);
+    SetMetaTileType(0x1d3, 0x41d, 1);
+    SetMetaTileType(0x1d3, 0x621, 1);
 }
 
 void sub_0804F830(void) {
-    SetTileType(0x1d4, 0x41e, 1);
-    SetTileType(0x1d4, 0x620, 1);
+    SetMetaTileType(0x1d4, 0x41e, 1);
+    SetMetaTileType(0x1d4, 0x620, 1);
 }
 
 void sub_0804F854(void) {
-    SetTileType(0x1d5, 0x41f, 1);
-    SetTileType(0x1d4, 0x4e5, 1);
-    SetTileType(0x1d5, 0x61f, 1);
-    SetTileType(0x1d4, 0x559, 1);
+    SetMetaTileType(0x1d5, 0x41f, 1);
+    SetMetaTileType(0x1d4, 0x4e5, 1);
+    SetMetaTileType(0x1d5, 0x61f, 1);
+    SetMetaTileType(0x1d4, 0x559, 1);
 }
 
 void sub_0804F89C(void) {
-    SetTileType(0x1d6, 0x420, 1);
-    SetTileType(0x1d5, 0x525, 1);
-    SetTileType(0x1d6, 0x61e, 1);
-    SetTileType(0x1d5, 0x519, 1);
+    SetMetaTileType(0x1d6, 0x420, 1);
+    SetMetaTileType(0x1d5, 0x525, 1);
+    SetMetaTileType(0x1d6, 0x61e, 1);
+    SetMetaTileType(0x1d5, 0x519, 1);
 }
 
 void sub_0804F8E0(void) {
-    SetTileType(0x1d3, 0x421, 1);
-    SetTileType(0x1d6, 0x565, 1);
-    SetTileType(0x1d3, 0x61d, 1);
-    SetTileType(0x1d6, 0x4d9, 1);
+    SetMetaTileType(0x1d3, 0x421, 1);
+    SetMetaTileType(0x1d6, 0x565, 1);
+    SetMetaTileType(0x1d3, 0x61d, 1);
+    SetMetaTileType(0x1d6, 0x4d9, 1);
 }
 
 void sub_0804F928(void) {
@@ -6089,7 +6089,7 @@ void sub_StateChange_Caves_LonLonRanchSecret(void) {
         SetRoomFlag(1);
         ChangeLightLevel(0x100);
         if (!CheckLocalFlag(0x12)) {
-            SetTileType(0x73, 0xcb, 1);
+            SetMetaTileType(0x73, 0xcb, 1);
         }
     }
 }
@@ -6609,7 +6609,7 @@ u32 sub_unk3_MtCrenel_Entrance(void) {
 
 void sub_StateChange_MtCrenel_Entrance(void) {
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-    SetTileType(0x176, 0x66f, 1);
+    SetMetaTileType(0x176, 0x66f, 1);
 #endif
 }
 

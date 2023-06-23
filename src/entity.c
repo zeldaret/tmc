@@ -44,25 +44,25 @@ void sub_0805E248(void) {
 
     v0 = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
     if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
-        SetTileType(0x27c, v0 + TILE_POS(-1, -1), 1);
-        SetTileType(0x283, v0 + TILE_POS(-1, -1), 2);
-        SetTileType(0x27d, v0 + TILE_POS(0, -1), 1);
-        SetTileType(0x284, v0 + TILE_POS(0, -1), 2);
-        SetTileType(0x27e, v0 + TILE_POS(1, -1), 1);
-        SetTileType(0x285, v0 + TILE_POS(1, -1), 2);
-        SetTileType(0x27f, v0 + TILE_POS(-1, 0), 1);
-        SetTileType(0x280, v0 + TILE_POS(0, 0), 1);
-        SetTileType(0x282, v0 + TILE_POS(1, 0), 1);
+        SetMetaTileType(0x27c, v0 + TILE_POS(-1, -1), 1);
+        SetMetaTileType(0x283, v0 + TILE_POS(-1, -1), 2);
+        SetMetaTileType(0x27d, v0 + TILE_POS(0, -1), 1);
+        SetMetaTileType(0x284, v0 + TILE_POS(0, -1), 2);
+        SetMetaTileType(0x27e, v0 + TILE_POS(1, -1), 1);
+        SetMetaTileType(0x285, v0 + TILE_POS(1, -1), 2);
+        SetMetaTileType(0x27f, v0 + TILE_POS(-1, 0), 1);
+        SetMetaTileType(0x280, v0 + TILE_POS(0, 0), 1);
+        SetMetaTileType(0x282, v0 + TILE_POS(1, 0), 1);
     } else {
-        SetTileType(0x26c, v0 + TILE_POS(-1, -1), 1);
-        SetTileType(0x273, v0 + TILE_POS(-1, -1), 2);
-        SetTileType(0x26d, v0 + TILE_POS(0, -1), 1);
-        SetTileType(0x274, v0 + TILE_POS(0, -1), 2);
-        SetTileType(0x26e, v0 + TILE_POS(1, -1), 1);
-        SetTileType(0x275, v0 + TILE_POS(1, -1), 2);
-        SetTileType(0x26f, v0 + TILE_POS(-1, 0), 1);
-        SetTileType(0x270, v0 + TILE_POS(0, 0), 1);
-        SetTileType(0x272, v0 + TILE_POS(1, 0), 1);
+        SetMetaTileType(0x26c, v0 + TILE_POS(-1, -1), 1);
+        SetMetaTileType(0x273, v0 + TILE_POS(-1, -1), 2);
+        SetMetaTileType(0x26d, v0 + TILE_POS(0, -1), 1);
+        SetMetaTileType(0x274, v0 + TILE_POS(0, -1), 2);
+        SetMetaTileType(0x26e, v0 + TILE_POS(1, -1), 1);
+        SetMetaTileType(0x275, v0 + TILE_POS(1, -1), 2);
+        SetMetaTileType(0x26f, v0 + TILE_POS(-1, 0), 1);
+        SetMetaTileType(0x270, v0 + TILE_POS(0, 0), 1);
+        SetMetaTileType(0x272, v0 + TILE_POS(1, 0), 1);
     }
     gUpdateVisibleTiles = 0;
 }

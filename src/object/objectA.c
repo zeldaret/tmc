@@ -28,7 +28,7 @@ void ObjectA(Entity* this) {
         }
         this->field_0x70.HALF.LO = uVar2;
         if (CheckFlags(this->field_0x86.HWORD) != 0) {
-            SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+            SetMetaTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             if ((gRoomControls.reload_flags & 1) != 0) {
                 gUpdateVisibleTiles = 0;
             }
@@ -37,7 +37,7 @@ void ObjectA(Entity* this) {
             AddInteractableSmallKeyLock(this);
         }
     } else if (this->interactType != 0) {
-        SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
         SetFlag(this->field_0x86.HWORD);
         CreateDust(this);
         ModDungeonKeys(-1);

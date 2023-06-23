@@ -330,26 +330,26 @@ void sub_08030E80(EyegoreEntity* this) {
 
 void sub_08030F00(EyegoreEntity* this) {
     u32 position = COORD_TO_TILE_OFFSET(super, 8, 0x14);
-    u16 tileIndex = GetTileIndex(position, super->collisionLayer);
+    u16 tileIndex = GetMetaTileIndex(position, super->collisionLayer);
     this->unk_80 = tileIndex;
-    tileIndex = GetTileIndex(position + 1, super->collisionLayer);
+    tileIndex = GetMetaTileIndex(position + 1, super->collisionLayer);
     this->unk_82 = tileIndex;
-    tileIndex = GetTileIndex(position + 0x40, super->collisionLayer);
+    tileIndex = GetMetaTileIndex(position + 0x40, super->collisionLayer);
     this->unk_84 = tileIndex;
-    tileIndex = GetTileIndex(position + 0x41, super->collisionLayer);
+    tileIndex = GetMetaTileIndex(position + 0x41, super->collisionLayer);
     this->unk_86 = tileIndex;
-    SetTile(0x4022, position, super->collisionLayer);
-    SetTile(0x4022, position + 1, super->collisionLayer);
-    SetTile(0x4022, position + 0x40, super->collisionLayer);
-    SetTile(0x4022, position + 0x41, super->collisionLayer);
+    SetMetaTile(0x4022, position, super->collisionLayer);
+    SetMetaTile(0x4022, position + 1, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x40, super->collisionLayer);
+    SetMetaTile(0x4022, position + 0x41, super->collisionLayer);
 }
 
 void sub_08030FB4(EyegoreEntity* this) {
     u32 position = COORD_TO_TILE_OFFSET(super, 8, 0x14);
-    SetTile(this->unk_80, position, super->collisionLayer);
-    SetTile(this->unk_82, position + 1, super->collisionLayer);
-    SetTile(this->unk_84, position + 0x40, super->collisionLayer);
-    SetTile(this->unk_86, position + 0x41, super->collisionLayer);
+    SetMetaTile(this->unk_80, position, super->collisionLayer);
+    SetMetaTile(this->unk_82, position + 1, super->collisionLayer);
+    SetMetaTile(this->unk_84, position + 0x40, super->collisionLayer);
+    SetMetaTile(this->unk_86, position + 0x41, super->collisionLayer);
 }
 
 void sub_08031024(EyegoreEntity* this) {
@@ -402,9 +402,9 @@ void sub_08031024(EyegoreEntity* this) {
                     }
                 } else {
                     tmp2 = this->unk_7b >> 1;
-                    uVar5 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
+                    uVar5 = GetMetaTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
                                              super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
-                    uVar8 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
+                    uVar8 = GetMetaTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
                                              super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
                     if (!(((gUnk_080B3E80[uVar5] == 0) && (gUnk_080B3E80[uVar8] == 0)) ||
                           ((this->unk_7b | 1) & 1) == 0)) {

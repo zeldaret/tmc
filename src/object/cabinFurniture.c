@@ -44,38 +44,38 @@ void CabinFurniture_Init(CabinFurnitureEntity* this) {
             super->spritePriority.b0 = 6;
             uVar7 = this->tile;
             uVar6 = uVar7 - 1;
-            SetTile(0x4022, uVar6, uVar1);
-            SetTile(0x4022, uVar7, uVar1);
-            SetTile(0x4022, uVar7 + 1, uVar1);
-            SetTile(0x4022, uVar7 + 0x3f, uVar1);
-            SetTile(0x4022, uVar7 + 0x40, uVar1);
-            SetTile(0x4022, uVar7 + 0x41, uVar1);
-            SetTile(0x403d, uVar7 - 0x41, uVar1);
-            SetTile(0x403d, uVar7 - 0x40, uVar1);
-            SetTile(0x4026, uVar7 - 0x3f, uVar1);
-            SetTile(0x4026, uVar7 - 0x81, uVar1);
-            SetTile(0x4026, uVar7 - 0x80, uVar1);
+            SetMetaTile(0x4022, uVar6, uVar1);
+            SetMetaTile(0x4022, uVar7, uVar1);
+            SetMetaTile(0x4022, uVar7 + 1, uVar1);
+            SetMetaTile(0x4022, uVar7 + 0x3f, uVar1);
+            SetMetaTile(0x4022, uVar7 + 0x40, uVar1);
+            SetMetaTile(0x4022, uVar7 + 0x41, uVar1);
+            SetMetaTile(0x403d, uVar7 - 0x41, uVar1);
+            SetMetaTile(0x403d, uVar7 - 0x40, uVar1);
+            SetMetaTile(0x4026, uVar7 - 0x3f, uVar1);
+            SetMetaTile(0x4026, uVar7 - 0x81, uVar1);
+            SetMetaTile(0x4026, uVar7 - 0x80, uVar1);
             break;
         case 1:
             super->action = 1;
             uVar6 = this->tile;
-            SetTile(0x4022, uVar6, uVar1);
-            SetTile(0x4022, uVar6 + 0x40, uVar1);
-            SetTile(0x4025, uVar6 + 0x41, uVar1);
+            SetMetaTile(0x4022, uVar6, uVar1);
+            SetMetaTile(0x4022, uVar6 + 0x40, uVar1);
+            SetMetaTile(0x4025, uVar6 + 0x41, uVar1);
             if (CheckLocalFlag(0x4f) == 0) {
-                SetTile(0x402f, uVar6 + 1, uVar1);
+                SetMetaTile(0x402f, uVar6 + 1, uVar1);
             } else {
-                SetTile(0x402d, uVar6 + 1, uVar1);
+                SetMetaTile(0x402d, uVar6 + 1, uVar1);
             }
             break;
         case 2:
             super->action = 1;
             uVar7 = this->tile;
             uVar6 = uVar7 - 0x41;
-            SetTile(0x4022, uVar6, uVar1);
-            SetTile(0x4022, uVar7 - 0x40, uVar1);
-            SetTile(0x4022, uVar7 - 1, uVar1);
-            SetTile(0x4022, uVar7, uVar1);
+            SetMetaTile(0x4022, uVar6, uVar1);
+            SetMetaTile(0x4022, uVar7 - 0x40, uVar1);
+            SetMetaTile(0x4022, uVar7 - 1, uVar1);
+            SetMetaTile(0x4022, uVar7, uVar1);
             break;
     }
 }

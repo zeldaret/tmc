@@ -1,17 +1,18 @@
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "functions.h"
-#include "player.h"
-#include "new_player.h"
 #include "asm.h"
 #include "effects.h"
+#include "entity.h"
 #include "functions.h"
-#include "player.h"
+#include "functions.h"
+#include "functions.h"
 #include "new_player.h"
+#include "new_player.h"
+#include "new_player.h"
+#include "player.h"
+#include "player.h"
+#include "player.h"
 #include "sound.h"
-#include "functions.h"
-#include "new_player.h"
-#include "player.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -123,7 +124,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             super->knockbackDuration = 0;
         }
         if (GetVvvRelativeToEntity(super, gUnk_081320C4[super->direction >> 2],
-                                   gUnk_081320C4[(super->direction >> 2) + 1]) == 0x74) {
+                                   gUnk_081320C4[(super->direction >> 2) + 1]) == VVV_116) {
             LinearMoveUpdate(super);
         } else {
             tile = GetCollisionDataAtEntity(super);
@@ -138,11 +139,11 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             (child->base).z = super->z;
             tile = GetVvvAtEntity(super);
             switch (tile) {
-                case 0xd:
-                case 0x10:
-                case 0x11:
-                case 0x13:
-                case 0x5a:
+                case VVV_13:
+                case VVV_16:
+                case VVV_17:
+                case VVV_19:
+                case VVV_90:
                     if (child == this) {
 
                         switch (tile) {

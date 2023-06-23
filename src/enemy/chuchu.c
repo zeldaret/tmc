@@ -8,6 +8,7 @@
 #include "asm.h"
 #include "enemy.h"
 #include "functions.h"
+#include "tiles.h"
 
 extern Entity* gUnk_020000B0;
 
@@ -704,7 +705,7 @@ void sub_0801FB68(Entity* this) {
 }
 
 bool32 sub_0801FBD0(Entity* this) {
-    if (GetVvvAtEntity(this) == 0x10) {
+    if (GetVvvAtEntity(this) == VVV_16) {
         return TRUE;
     } else {
         return FALSE;

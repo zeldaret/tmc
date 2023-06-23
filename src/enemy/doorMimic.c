@@ -40,7 +40,7 @@ void DoorMimic_OnCollision(Entity* this) {
 }
 
 void DoorMimic_OnDeath(Entity* this) {
-    SetTile((u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI, this->collisionLayer);
+    SetMetaTile((u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI, this->collisionLayer);
     CreateFx(this, FX_POT_SHATTER, 0);
     SetRoomTrackerFlag(this);
     DeleteThisEntity();
@@ -116,8 +116,8 @@ void sub_08022198(Entity* this) {
 void sub_080221C0(Entity* this) {
     u32 tile = COORD_TO_TILE(this) + gUnk_080B4488[this->type2];
     this->field_0x7c.HALF.HI = tile;
-    this->field_0x7c.HALF.LO = GetTileIndex(tile, this->collisionLayer);
-    SetTile(gUnk_080CB79C[this->type2], tile, this->collisionLayer);
+    this->field_0x7c.HALF.LO = GetMetaTileIndex(tile, this->collisionLayer);
+    SetMetaTile(gUnk_080CB79C[this->type2], tile, this->collisionLayer);
 }
 
 // clang-format off

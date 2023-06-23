@@ -307,9 +307,9 @@ void sub_08087F58(FigurineDeviceEntity* this) {
     switch (super->type) {
         case 0:
         case 1:
-            SetTile(0x4022, this->unk_78 - 1, 1);
-            SetTile(0x4022, this->unk_78, 1);
-            SetTile(0x4022, this->unk_78 + 1, 1);
+            SetMetaTile(0x4022, this->unk_78 - 1, 1);
+            SetMetaTile(0x4022, this->unk_78, 1);
+            SetMetaTile(0x4022, this->unk_78 + 1, 1);
             break;
     }
 }

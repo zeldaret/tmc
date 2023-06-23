@@ -1,10 +1,11 @@
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "functions.h"
-#include "sound.h"
 #include "asm.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
 #include "object.h"
+#include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -368,7 +369,7 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
                  (gPlayerState.sword_state != 0)) &&
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
                 entity = super;
-                if (GetVvvRelativeToEntity(entity, xOffset, yOffset) == 0x2e) {
+                if (GetVvvRelativeToEntity(entity, xOffset, yOffset) == VVV_46) {
                     SoundReqClipped(&gPlayerEntity, SFX_ITEM_GLOVES_KNOCKBACK);
                 } else {
                     SoundReqClipped(&gPlayerEntity, SFX_METAL_CLINK);

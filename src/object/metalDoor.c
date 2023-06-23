@@ -103,16 +103,16 @@ void MetalDoor_Action4(Entity* this) {
 }
 
 void sub_080A080C(Entity* this) {
-    this->field_0x76.HWORD = GetTileIndex(this->field_0x74.HWORD - 1, this->collisionLayer);
-    this->field_0x78.HWORD = GetTileIndex(this->field_0x74.HWORD, this->collisionLayer);
-    this->field_0x7a.HWORD = GetTileIndex(this->field_0x74.HWORD + 1, this->collisionLayer);
-    SetTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
-    SetTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
-    SetTile(0x4022, this->field_0x74.HWORD + 1, this->collisionLayer);
+    this->field_0x76.HWORD = GetMetaTileIndex(this->field_0x74.HWORD - 1, this->collisionLayer);
+    this->field_0x78.HWORD = GetMetaTileIndex(this->field_0x74.HWORD, this->collisionLayer);
+    this->field_0x7a.HWORD = GetMetaTileIndex(this->field_0x74.HWORD + 1, this->collisionLayer);
+    SetMetaTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
+    SetMetaTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
+    SetMetaTile(0x4022, this->field_0x74.HWORD + 1, this->collisionLayer);
 }
 
 void sub_080A0870(Entity* this) {
-    SetTile(this->field_0x76.HWORD, this->field_0x74.HWORD - 1, this->collisionLayer);
-    SetTile(this->field_0x78.HWORD, this->field_0x74.HWORD, this->collisionLayer);
-    SetTile(this->field_0x7a.HWORD, this->field_0x74.HWORD + 1, this->collisionLayer);
+    SetMetaTile(this->field_0x76.HWORD, this->field_0x74.HWORD - 1, this->collisionLayer);
+    SetMetaTile(this->field_0x78.HWORD, this->field_0x74.HWORD, this->collisionLayer);
+    SetMetaTile(this->field_0x7a.HWORD, this->field_0x74.HWORD + 1, this->collisionLayer);
 }

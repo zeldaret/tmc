@@ -102,8 +102,8 @@ void MandiblesProjectile_Action2(Entity* this) {
         EnqueueSFX(SFX_15D);
     }
     this->field_0x78.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    if (GetTileType(this->field_0x78.HWORD, this->collisionLayer) == 0x4000) {
-        SetTile(0x4005, this->field_0x78.HWORD, this->collisionLayer);
+    if (GetMetaTileType(this->field_0x78.HWORD, this->collisionLayer) == 0x4000) {
+        SetMetaTile(0x4005, this->field_0x78.HWORD, this->collisionLayer);
     }
 }
 

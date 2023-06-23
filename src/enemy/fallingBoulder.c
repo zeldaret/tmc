@@ -145,7 +145,7 @@ void sub_0802C4B0(Entity* this) {
     u32 index;
     u32 rand;
 
-    switch (GetTileIndex(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
+    switch (GetMetaTileIndex(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
         case 0x1ab ... 0x1af:
             offset = 8;
             break;

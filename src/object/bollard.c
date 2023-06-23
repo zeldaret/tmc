@@ -59,7 +59,7 @@ void Bollard_Action1(BollardEntity* this) {
     }
     super->action = 2;
     InitializeAnimation(super, 3);
-    SetTile(this->tileIndex, this->tile, super->collisionLayer);
+    SetMetaTile(this->tileIndex, this->tile, super->collisionLayer);
     EnqueueSFX(SFX_1A5);
 }
 
@@ -94,9 +94,9 @@ void Bollard_Action4(BollardEntity* this) {
 void sub_0808B3AC(BollardEntity* this) {
     super->spritePriority.b0 = 4;
     this->tile = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
+    this->tileIndex = GetMetaTileIndex(this->tile, super->collisionLayer);
     this->unk74 = GetCollisionDataAtMetaTilePos(this->tile, super->collisionLayer);
-    SetTile(0x400b, this->tile, super->collisionLayer);
+    SetMetaTile(0x400b, this->tile, super->collisionLayer);
 }
 
 void sub_0808B41C(BollardEntity* this) {

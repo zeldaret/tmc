@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "item.h"
 #include "npc.h"
+#include "tiles.h"
 
 void sub_0806ACC4(Entity*);
 void sub_0806ABFC(Entity*);
@@ -792,8 +793,8 @@ void sub_0806B0E0(Entity* this, ScriptExecutionContext* context) {
     int idx = 0;
 
     // Checks if the dust is gone at these four meta tiles.
-    if (GetVvvAtRoomCoords(56, 184, 1) == 0x57 && GetVvvAtRoomCoords(72, 184, 1) == 0x57 &&
-        GetVvvAtRoomCoords(56, 200, 1) == 0x57 && GetVvvAtRoomCoords(72, 200, 1) == 0x57) {
+    if (GetVvvAtRoomCoords(56, 184, 1) == VVV_87 && GetVvvAtRoomCoords(72, 184, 1) == VVV_87 &&
+        GetVvvAtRoomCoords(56, 200, 1) == VVV_87 && GetVvvAtRoomCoords(72, 200, 1) == VVV_87) {
         idx = 1;
     }
 

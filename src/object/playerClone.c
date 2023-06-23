@@ -52,7 +52,7 @@ void PlayerClone_Init(PlayerCloneEntity* this) {
     super->y.HALF.HI = (super->y.HALF.HI & 0xfff0) | 8;
     this->tilePos = COORD_TO_TILE(super);
     InitializeAnimation(super, 8);
-    SetTile(0x4016, this->tilePos, super->collisionLayer);
+    SetMetaTile(0x4016, this->tilePos, super->collisionLayer);
     SoundReq(SFX_112);
 }
 
@@ -191,7 +191,7 @@ void sub_08084CAC(PlayerCloneEntity* this) {
 
     if (((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 == 0) {
         ptr = &gUnk_080B4468[super->animationState & 6];
-        if (sub_080B1B54(GetTileType(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]), super->collisionLayer)) == 0x72) {
+        if (sub_080B1B54(GetMetaTileType(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]), super->collisionLayer)) == 0x72) {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c |= (1 << super->type);
         } else {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c &= ~(1 << super->type);

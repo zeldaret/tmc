@@ -261,7 +261,7 @@ void sub_0804B16C(void) {
     TileEntity* tile = gSmallChests;
     do {
         if (tile->tilePos != 0 && CheckLocalFlag(tile->localFlag)) {
-            SetTileType(0x74, tile->tilePos, tile->_6 & 1 ? 2 : 1);
+            SetMetaTileType(0x74, tile->tilePos, tile->_6 & 1 ? 2 : 1);
         }
     } while (++tile < gSmallChests + 8);
 }
@@ -342,8 +342,8 @@ static void LoadBombableWallTile(TileEntity* tile) {
         mgr->base.id = BOMBABLE_WALL_MANAGER;
         mgr->x = tile->tilePos;
         mgr->y = *(u16*)&tile->_6;
-        mgr->field_0x35 = tile->_2;
-        mgr->field_0x3e = tile->localFlag;
+        mgr->layer = tile->_2;
+        mgr->flag = tile->localFlag;
         AppendEntityToList((Entity*)mgr, 6);
     }
 }
@@ -354,7 +354,7 @@ static void LoadDarknessTile(TileEntity* tile) {
 
 static void LoadDestructibleTile(TileEntity* tile) {
     if (CheckLocalFlag(*(u16*)&tile->_2)) {
-        SetTileType(*(u16*)&tile->_6, tile->tilePos, tile->localFlag);
+        SetMetaTileType(*(u16*)&tile->_6, tile->tilePos, tile->localFlag);
     } else if (!gRoomVars.filler_0x1) {
         Manager* mgr;
         gRoomVars.filler_0x1 = 1;
@@ -369,7 +369,7 @@ static void LoadDestructibleTile(TileEntity* tile) {
 
 void sub_0804B388(u32 a1, u32 a2) {
     Entity* e;
-    SetTileType(a2 == 1 ? 38 : 52, a1, a2);
+    SetMetaTileType(a2 == 1 ? 38 : 52, a1, a2);
     e = CreateObject(SPECIAL_FX, FX_DEATH, 0);
     if (e != NULL) {
         e->collisionLayer = a2;

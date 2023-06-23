@@ -5,10 +5,10 @@
  * @brief Pushable Statue object
  */
 #define NENT_DEPRECATED
-#include "global.h"
 #include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -62,7 +62,7 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
     Entity* obj;
 
     if (sub_0800442E(super) == 0) {
-        tileType = GetTileType(this->unk_84, super->collisionLayer);
+        tileType = GetMetaTileType(this->unk_84, super->collisionLayer);
         if (tileType != 0x400b) {
             switch (sub_0808968C(tileType)) {
                 case 1:
@@ -110,7 +110,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         ptr = &gUnk_08120CB4[index];
         PositionRelative(super, &gPlayerEntity, *(ptr) << 0x10, *(ptr + 1) << 0x10);
     }
-    tileType = GetTileType(this->unk_84, super->collisionLayer);
+    tileType = GetMetaTileType(this->unk_84, super->collisionLayer);
     if (tileType != 0x400b) {
         switch (sub_0808968C(tileType)) {
             case 1:
@@ -157,17 +157,17 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
     } else {
         super->spriteSettings.draw = 1;
         super->action = 1;
-        SetTile(0x400b, this->unk_84, super->collisionLayer);
+        SetMetaTile(0x400b, this->unk_84, super->collisionLayer);
         sub_080894C8(this);
     }
 }
 
 void sub_08089454(PushableStatueEntity* this) {
     this->unk_84 = COORD_TO_TILE(super);
-    this->unk_80 = GetTileIndex(this->unk_84, super->collisionLayer);
-    SetTile(0x400b, this->unk_84, super->collisionLayer);
-    if (super->collisionLayer == 2 && GetTileType(this->unk_84, 1) == 0x310) {
-        SetTile(0x400b, this->unk_84, 1);
+    this->unk_80 = GetMetaTileIndex(this->unk_84, super->collisionLayer);
+    SetMetaTile(0x400b, this->unk_84, super->collisionLayer);
+    if (super->collisionLayer == 2 && GetMetaTileType(this->unk_84, 1) == 0x310) {
+        SetMetaTile(0x400b, this->unk_84, 1);
     }
 }
 
@@ -196,11 +196,11 @@ void sub_08089538(PushableStatueEntity* this) {
     u16 tileType;
     this->unk_86 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetTile(this->unk_80, this->unk_84, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetTileType(this->unk_84, 1) == 0x400b)) {
+    SetMetaTile(this->unk_80, this->unk_84, super->collisionLayer);
+    if ((super->collisionLayer == 2) && (GetMetaTileType(this->unk_84, 1) == 0x400b)) {
         CloneTile(0x310, this->unk_84, 1);
     }
-    tileType = GetTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    tileType = GetMetaTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if ((tileType == 0x79) || (tileType == 0x77)) {
         super->spriteOffsetY = -2;
     }
@@ -253,7 +253,7 @@ u32 sub_0808968C(u32 param_1) {
 bool32 sub_080896B0(void) {
     s16 uVar1;
     s16 iVar2;
-    LayerStruct* layer;
+    MapLayer* mapLayer;
     s32 uVar4;
     const s16* ptr;
     u32 tmp1;
@@ -265,11 +265,11 @@ bool32 sub_080896B0(void) {
         uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]) - uVar1;
         vvv = GetVvvAtMetaTilePos(uVar4, gPlayerEntity.collisionLayer);
-        if ((vvv - 0x26 > 1) && (vvv != 0x29)) {
-            layer = GetLayerByIndex(gPlayerEntity.collisionLayer);
+        if ((vvv - 0x26 > 1) && (vvv != VVV_41)) {
+            mapLayer = GetLayerByIndex(gPlayerEntity.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
-            tmp1 = layer->collisionData[iVar2];
-            tmp2 = layer->collisionData[(iVar2 - uVar1)];
+            tmp1 = mapLayer->collisionData[iVar2];
+            tmp2 = mapLayer->collisionData[(iVar2 - uVar1)];
             if ((tmp1 == 0) && (tmp2 == 0)) {
                 return TRUE;
             }

@@ -34,20 +34,20 @@ void HiddenLadderDown_Init(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         this->spriteSettings.draw = TRUE;
-        SetTileType(0x1a2, *puVar3 - 0x41, this->collisionLayer);
-        SetTileType(0x1a3, *puVar3 - 0x40, this->collisionLayer);
-        SetTileType(0x1a4, *puVar3 - 0x3f, this->collisionLayer);
-        SetTileType(0x1a5, *puVar3 - 1, this->collisionLayer);
-        SetTileType(0x1a6, *puVar3, this->collisionLayer);
-        SetTileType(0x1a7, *puVar3 + 1, this->collisionLayer);
-        SetTileType(0x1a8, *puVar3 + 0x3f, this->collisionLayer);
-        SetTileType(0x1a9, *puVar3 + 0x40, this->collisionLayer);
-        SetTileType(0x1aa, *puVar3 + 0x41, this->collisionLayer);
+        SetMetaTileType(0x1a2, *puVar3 - 0x41, this->collisionLayer);
+        SetMetaTileType(0x1a3, *puVar3 - 0x40, this->collisionLayer);
+        SetMetaTileType(0x1a4, *puVar3 - 0x3f, this->collisionLayer);
+        SetMetaTileType(0x1a5, *puVar3 - 1, this->collisionLayer);
+        SetMetaTileType(0x1a6, *puVar3, this->collisionLayer);
+        SetMetaTileType(0x1a7, *puVar3 + 1, this->collisionLayer);
+        SetMetaTileType(0x1a8, *puVar3 + 0x3f, this->collisionLayer);
+        SetMetaTileType(0x1a9, *puVar3 + 0x40, this->collisionLayer);
+        SetMetaTileType(0x1aa, *puVar3 + 0x41, this->collisionLayer);
     }
 }
 
 void HiddenLadderDown_Action1(Entity* this) {
-    if (GetTileType(*(u16*)&this->field_0x70.HALF.LO, this->collisionLayer) == 0x1a6) {
+    if (GetMetaTileType(*(u16*)&this->field_0x70.HALF.LO, this->collisionLayer) == 0x1a6) {
         this->action = 2;
         this->spriteSettings.draw = TRUE;
         SetFlag(this->field_0x86.HWORD);

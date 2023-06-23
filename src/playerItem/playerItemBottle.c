@@ -1,9 +1,10 @@
 #include "entity.h"
+#include "functions.h"
+#include "item.h"
+#include "object.h"
 #include "save.h"
 #include "sound.h"
-#include "functions.h"
-#include "object.h"
-#include "item.h"
+#include "tiles.h"
 
 void PlayerItemBottle_UseEmptyBottle(Entity*);
 void PlayerItemBottle_Action1(Entity*);
@@ -272,7 +273,7 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
             if (this->spriteSettings.flipX != 0) {
                 iVar2 = -iVar2;
             }
-            if (GetVvvRelativeToEntity(this, iVar2, (s8)ptr2[1]) == 0x10) {
+            if (GetVvvRelativeToEntity(this, iVar2, (s8)ptr2[1]) == VVV_16) {
                 this->type2 = ITEM_BOTTLE_WATER;
             }
         }

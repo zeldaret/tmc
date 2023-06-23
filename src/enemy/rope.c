@@ -7,6 +7,7 @@
 
 #include "enemy.h"
 #include "physics.h"
+#include "tiles.h"
 
 void Rope_OnTick(Entity*);
 void Rope_OnCollision(Entity*);
@@ -196,7 +197,7 @@ void sub_08031600(Entity* this) {
 
 u32 sub_0803163C(Entity* this) {
     u32 h;
-    if (GetVvvAtEntity(this) == 0x13) {
+    if (GetVvvAtEntity(this) == VVV_19) {
         h = this->field_0x7a.HWORD / 2;
     } else {
         h = this->field_0x7a.HWORD;

@@ -232,7 +232,7 @@ void ChestSpawner_Type0Init(ChestSpawnerEntity* this) {
     super->action++;
     this->tilePosition = COORD_TO_TILE(super);
     super->hitbox = (Hitbox*)&gUnk_0811F8A8;
-    if (GetTileTypeByEntity(super) == 0x74) {
+    if (GetMetaTileTypeByEntity(super) == 0x74) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->unk_86)) {
@@ -271,7 +271,7 @@ void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
     if ((super->type == 1) || (super->type == 7)) {
-        if (GetTileTypeByEntity(super) == 0x74) {
+        if (GetMetaTileTypeByEntity(super) == 0x74) {
             DeleteEntity(super);
         } else {
             if (!CheckFlags(this->unk_86)) {

@@ -39,10 +39,10 @@ void GiantRock2_Init(GiantRock2Entity* this) {
     position = (this->tile - 0x80);
     tileIndex = 0x4022;
     for (index = 4; index > -1; index--) {
-        SetTile(tileIndex, position - 2, collisionLayer);
-        SetTile(tileIndex, position - 1, collisionLayer);
-        SetTile(tileIndex, position, collisionLayer);
-        SetTile(tileIndex, position + 1, collisionLayer);
+        SetMetaTile(tileIndex, position - 2, collisionLayer);
+        SetMetaTile(tileIndex, position - 1, collisionLayer);
+        SetMetaTile(tileIndex, position, collisionLayer);
+        SetMetaTile(tileIndex, position + 1, collisionLayer);
         position += 0x40;
     }
 }

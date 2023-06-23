@@ -51,36 +51,36 @@ void sub_0808E55C(GiantBookLadderEntity* this) {
         case 2:
             position = this->unk74;
             unaff_r9 = position - 0x101;
-            SetTile(0x408f, unaff_r9, super->collisionLayer);
-            SetTile(0x408f, position - 0x100, super->collisionLayer);
-            SetTile(0x406c, position - 0x102, super->collisionLayer);
-            SetTile(0x406d, position - 0xff, super->collisionLayer);
+            SetMetaTile(0x408f, unaff_r9, super->collisionLayer);
+            SetMetaTile(0x408f, position - 0x100, super->collisionLayer);
+            SetMetaTile(0x406c, position - 0x102, super->collisionLayer);
+            SetMetaTile(0x406d, position - 0xff, super->collisionLayer);
             type = super->type;
             uVar5 = 6;
             if (type != 0) {
                 uVar5 = 4;
-                SetTile(0x4072, position + 0x3f, super->collisionLayer);
-                SetTile(0x4072, position + 0x40, super->collisionLayer);
-                SetTile(0x4072, position + 0x7f, super->collisionLayer);
-                SetTile(0x4072, position + 0x80, super->collisionLayer);
+                SetMetaTile(0x4072, position + 0x3f, super->collisionLayer);
+                SetMetaTile(0x4072, position + 0x40, super->collisionLayer);
+                SetMetaTile(0x4072, position + 0x7f, super->collisionLayer);
+                SetMetaTile(0x4072, position + 0x80, super->collisionLayer);
             }
             break;
         case 1:
             position = this->unk74;
             unaff_r9 = position - 1;
-            SetTile(0x408e, unaff_r9, super->collisionLayer);
-            SetTile(0x408e, position, super->collisionLayer);
+            SetMetaTile(0x408e, unaff_r9, super->collisionLayer);
+            SetMetaTile(0x408e, position, super->collisionLayer);
             uVar5 = 2;
             break;
     }
 
     for (uVar4 = 0; uVar4 < uVar5; uVar4++) {
         unaff_r9 += 0x40;
-        SetTile(0x408e, unaff_r9, super->collisionLayer);
-        SetTile(0x408e, unaff_r9 + 1, super->collisionLayer);
+        SetMetaTile(0x408e, unaff_r9, super->collisionLayer);
+        SetMetaTile(0x408e, unaff_r9 + 1, super->collisionLayer);
     }
 }
 
 u32 sub_0808E670(GiantBookLadderEntity* this) {
-    return GetTileType(this->unk74 - 0x101, 1);
+    return GetMetaTileType(this->unk74 - 0x101, 1);
 }

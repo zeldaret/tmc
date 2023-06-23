@@ -29,7 +29,7 @@ void Fireplace_Init(Entity* this) {
         DeleteThisEntity();
     } else {
         sub_0807B7D8(0x30b, TILE(this->x.HALF.HI, this->y.HALF.HI), 2);
-        SetTile(0x4061, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+        SetMetaTile(0x4061, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
     }
     Fireplace_Action1(this);
 }
@@ -43,7 +43,7 @@ void Fireplace_Action1(Entity* this) {
 }
 
 void sub_0809B7C0(Entity* this) {
-    u32 tileType = GetTileTypeByEntity(this);
+    u32 tileType = GetMetaTileTypeByEntity(this);
     if (tileType != 0x4061 && tileType != 0x4062) {
         sub_0809B7DC(this);
     }
@@ -51,6 +51,6 @@ void sub_0809B7C0(Entity* this) {
 
 void sub_0809B7DC(Entity* this) {
     sub_0807B7D8(0xc3 << 2, TILE(this->x.HALF.HI, this->y.HALF.HI), 2);
-    SetTile(0x4062, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    SetMetaTile(0x4062, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
     this->timer = 1;
 }

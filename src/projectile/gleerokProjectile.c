@@ -140,7 +140,7 @@ void sub_080A90D8(Entity* this) {
 
     if (this->field_0x74.HWORD != TILE(this->x.HALF.HI, this->y.HALF.HI)) {
         this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-        tmp = GetTileTypeByEntity(this);
+        tmp = GetMetaTileTypeByEntity(this);
         if ((tmp == 0x13) || (tmp == 0x34)) {
             sub_0807B7D8(0x34c, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
         }

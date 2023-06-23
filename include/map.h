@@ -4,6 +4,16 @@
 #include "global.h"
 #include "screen.h"
 
+/**
+ * @page TileMap TileMap
+ * @brief
+ *
+ */
+
+/**
+ * @brief Layer of the MetaTileMap.
+ * @ingroup TileMap
+ */
 typedef struct {
     /*0x0000*/ BgSettings* bgSettings;
     /*0x0004*/ u16 mapData[0x40 * 0x40];
@@ -38,16 +48,13 @@ typedef struct {
     0x12: ice
     0x57: cloning pad
     */
-} LayerStruct;
+} MapLayer;
 
-extern LayerStruct gMapTop;
-extern LayerStruct gMapBottom;
+extern MapLayer gMapTop;
+extern MapLayer gMapBottom;
 
-// Rendered tilemaps https://www.coranac.com/tonc/text/regbg.htm#sec-map
-// extern u16 gMapDataTopSpecial[0x4000];
-// extern u16 gMapDataBottomSpecial[0x4000];
 
-LayerStruct* GetLayerByIndex(u32);
+extern MapLayer* GetLayerByIndex(u32 layer);
 
 /*
 Definition where some map data is found and where it should be copied to.
@@ -63,5 +70,10 @@ typedef struct {
 #define MAP_MULTIPLE 0x80000000
 // The src is compressed.
 #define MAP_COMPRESSED 0x80000000
+
+typedef enum {
+    LAYER_BOTTOM = 1,
+    LAYER_TOP = 2,
+} LayerIndex;
 
 #endif // MAP_H

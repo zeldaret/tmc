@@ -88,8 +88,8 @@ void SpinyBeetle_Init(SpinyBeetleEntity* this) {
     this->unk_78 = 0;
     this->unk_7b = 0;
     this->tile = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
-    SetTile(0x4022, this->tile, super->collisionLayer);
+    this->tileIndex = GetMetaTileIndex(this->tile, super->collisionLayer);
+    SetMetaTile(0x4022, this->tile, super->collisionLayer);
     obj = CreateObject(OBJECT_ON_BEETLE, super->type, 0);
 
     if (obj == NULL) {
@@ -232,7 +232,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         super->spritePriority.b1 = 0;
         this->unk_7b = 0x78;
         this->tile = COORD_TO_TILE(super);
-        this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
+        this->tileIndex = GetMetaTileIndex(this->tile, super->collisionLayer);
 
         if (this->tileIndex != 0x4022) {
             stop++;
@@ -254,7 +254,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         }
     }
 
-    SetTile(0x4022, this->tile, super->collisionLayer);
+    SetMetaTile(0x4022, this->tile, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
 
@@ -316,7 +316,7 @@ void sub_08033D78(SpinyBeetleEntity* this) {
     s32 tile;
     u32 type;
     tile = COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]);
-    type = GetTileType(tile, super->collisionLayer);
+    type = GetMetaTileType(tile, super->collisionLayer);
 
     switch (type) {
         case 0x1c4:

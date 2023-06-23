@@ -363,11 +363,11 @@ void CuccoMinigame_TellObjective(void) {
 }
 
 void sub_080A1648(void) {
-    SetTileType(0x407f, 0xd36, 1);
-    SetTileType(0x407f, 0xd37, 1);
-    SetTileType(0x407f, 0xd38, 1);
-    SetTileType(0x407e, 0xd75, 1);
-    SetTileType(0x407e, 0xe75, 1);
+    SetMetaTileType(0x407f, 0xd36, 1);
+    SetMetaTileType(0x407f, 0xd37, 1);
+    SetMetaTileType(0x407f, 0xd38, 1);
+    SetMetaTileType(0x407e, 0xd75, 1);
+    SetMetaTileType(0x407e, 0xe75, 1);
 }
 
 void sub_080A169C(void) {

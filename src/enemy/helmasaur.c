@@ -5,10 +5,10 @@
  * @brief Helmasaur enemy
  */
 
-#include "enemy.h"
-#include "object.h"
-#include "functions.h"
 #include "collision.h"
+#include "enemy.h"
+#include "functions.h"
+#include "object.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
 
@@ -338,15 +338,15 @@ bool32 sub_0802C0E8(Entity* this) {
         s32 y = this->y.HALF.HI + this->hitbox->offset_y + ptr[1] * 6;
 
         u8* layer = this->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
-        u32 ret = FALSE;
+        u32 result = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
             if (IsTileCollision(layer, x, y, 0)) {
-                ret = 1;
+                result = TRUE;
             } else {
-                ret = 0;
+                result = FALSE;
             }
         }
-        return ret;
+        return result;
     }
 }
 

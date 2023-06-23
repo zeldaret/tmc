@@ -67,20 +67,20 @@ void sub_08067418(Entity* this) {
     this->field_0x74.HWORD = COORD_TO_TILE(this);
     if (this->type == 0) {
         this->hitbox = (Hitbox*)&gUnk_08110E94;
-        SetTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
-        SetTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
-        SetTile(0x4022, this->field_0x74.HWORD + 0x3f, this->collisionLayer);
-        SetTile(0x4022, this->field_0x74.HWORD + 0x40, this->collisionLayer);
+        SetMetaTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
+        SetMetaTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
+        SetMetaTile(0x4022, this->field_0x74.HWORD + 0x3f, this->collisionLayer);
+        SetMetaTile(0x4022, this->field_0x74.HWORD + 0x40, this->collisionLayer);
     } else {
         this->collisionLayer = 3;
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;
         this->spritePriority.b0 = 2;
         if (CheckLocalFlag(HIKYOU_00_SEKIZOU) == 0) {
-            SetTile(0x4022, 0xe81, 1);
-            SetTile(0x4022, 0xe82, 1);
-            SetTile(0x4022, 0xe83, 1);
-            SetTile(0x4022, 0xec3, 1);
+            SetMetaTile(0x4022, 0xe81, 1);
+            SetMetaTile(0x4022, 0xe82, 1);
+            SetMetaTile(0x4022, 0xe83, 1);
+            SetMetaTile(0x4022, 0xec3, 1);
         }
     }
     sub_0807DD50(this);

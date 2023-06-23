@@ -673,7 +673,7 @@ void sub_0802B204(Entity* this) {
 
 bool32 sub_0802B234(Entity* this) {
     bool32 ret = FALSE;
-    if (GetTileTypeByEntity(this) - 0x1c4 > 1)
+    if (GetMetaTileTypeByEntity(this) - 0x1c4 > 1)
         ret = TRUE;
     return ret;
 }

@@ -62,7 +62,7 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
             super->spritePriority.b0 = 4;
             super->hitbox = (Hitbox*)&gUnk_080FD224;
             super->carryFlags = 1;
-            SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+            SetMetaTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
             super->health = 1;
             super->collisionFlags = 7;
             super->hitType = 0x6e;

@@ -91,7 +91,7 @@ static void sub_0809EAD8(Entity* this) {
         UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
 
     } else {
-        SetTile(0x4050, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(0x4050, COORD_TO_TILE(this), this->collisionLayer);
     }
 }
 

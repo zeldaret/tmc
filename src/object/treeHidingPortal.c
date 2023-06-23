@@ -8,11 +8,11 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 #include "player.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 extern const s16 gUnk_080B4468[];
 
@@ -54,7 +54,7 @@ void TreeHidingPortal_Action1(Entity* this) {
             }
         }
     }
-    if (sub_0809E9A0() == 0x54) {
+    if (sub_0809E9A0() == VVV_84) {
         this->action = 2;
         this->timer = 15;
         SetPlayerControl(1);
@@ -108,7 +108,7 @@ static u32 sub_0809E9A0(void) {
     const s16* ptr;
 
     if (gPlayerEntity.action != PLAYER_BOUNCE) {
-        vvv = 0;
+        vvv = VVV_0;
     } else {
         ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
         vvv = GetVvvAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), 1);

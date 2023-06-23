@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "object.h"
 #include "room.h"
+#include "tiles.h"
 
 enum {
     FURNITURE_INIT,
@@ -216,14 +217,14 @@ static void FurnitureInit(FurnitureEntity* this) {
             break;
         case 0x40:
             super->y.HALF.HI = (super->y.HALF.HI & ~0xF) | 4;
-            SetTile(0x4017, this->tile - 128, 1);
-            SetTile(0x4017, this->tile - 64, 1);
+            SetMetaTile(0x4017, this->tile - 128, 1);
+            SetMetaTile(0x4017, this->tile - 64, 1);
             break;
         case 0x80:
             super->frameIndex = 0;
             super->y.HALF.HI = (super->y.HALF.HI & ~0xF) | 6;
             this->tile = COORD_TO_TILE(super);
-            SetTile(0x4026, this->tile, super->collisionLayer);
+            SetMetaTile(0x4026, this->tile, super->collisionLayer);
             break;
         case 0x200:
             break;
@@ -259,9 +260,9 @@ static void FurnitureInit(FurnitureEntity* this) {
             tile = this->tile - 129;
             cnt = super->type != 26 ? 3 : 2;
             for (i = 0; i < cnt; ++i, ++tile) {
-                SetTile(0x4026, tile, 2);
-                SetTile(0x4026, tile, 1);
-                SetVvvAtMetaTilePos(0, tile + 64, 1);
+                SetMetaTile(0x4026, tile, 2);
+                SetMetaTile(0x4026, tile, 1);
+                SetVvvAtMetaTilePos(VVV_0, tile + 64, 1);
             }
             break;
     }
@@ -286,22 +287,22 @@ static void FurnitureInit(FurnitureEntity* this) {
         case STAIRCASE:
             super->collisionLayer = 1;
             super->spriteOrientation.flipY = 2;
-            SetTile(0x4074, this->tile - 64, super->collisionLayer);
-            SetVvvAtMetaTilePos(63, this->tile - 64, super->collisionLayer);
-            SetTile(0x4017, this->tile, super->collisionLayer);
-            SetTile(0x4017, this->tile + 64, super->collisionLayer);
+            SetMetaTile(0x4074, this->tile - 64, super->collisionLayer);
+            SetVvvAtMetaTilePos(VVV_63, this->tile - 64, super->collisionLayer);
+            SetMetaTile(0x4017, this->tile, super->collisionLayer);
+            SetMetaTile(0x4017, this->tile + 64, super->collisionLayer);
             break;
         case MINISH_CHEESE:
             if (super->type2 != 0)
                 super->spriteOffsetX = -4;
             break;
         case WOODEN_TABLE:
-            SetTile(0x4023, this->tile - 65, super->collisionLayer);
-            SetTile(0x4023, this->tile - 64, super->collisionLayer);
-            SetTile(0x4023, this->tile - 63, super->collisionLayer);
+            SetMetaTile(0x4023, this->tile - 65, super->collisionLayer);
+            SetMetaTile(0x4023, this->tile - 64, super->collisionLayer);
+            SetMetaTile(0x4023, this->tile - 63, super->collisionLayer);
             break;
         case LOW_BOOKSHELF:
-            SetTile(0x4022, this->tile + 65, super->collisionLayer);
+            SetMetaTile(0x4022, this->tile + 65, super->collisionLayer);
     }
 }
 
@@ -337,20 +338,20 @@ static void FurnitureUpdate(FurnitureEntity* this) {
             break;
         case 0x80:
             if (gPlayerEntity.y.HALF.HI < super->y.HALF.HI + 8) {
-                if (gPlayerState.floor_type != SURFACE_LADDER && GetTileTypeByEntity(super) == 0x4017) {
-                    SetTile(0x4026, this->tile, super->collisionLayer);
-                    SetTile(0x403D, this->tile - 64, super->collisionLayer);
-                    SetTile(0x403D, this->tile - 128, super->collisionLayer);
+                if (gPlayerState.floor_type != SURFACE_LADDER && GetMetaTileTypeByEntity(super) == 0x4017) {
+                    SetMetaTile(0x4026, this->tile, super->collisionLayer);
+                    SetMetaTile(0x403D, this->tile - 64, super->collisionLayer);
+                    SetMetaTile(0x403D, this->tile - 128, super->collisionLayer);
                 }
             } else {
                 if (gPlayerEntity.collisionLayer & 2) {
                     gPlayerEntity.collisionLayer = 1;
                     UpdateSpriteForCollisionLayer(&gPlayerEntity);
                 }
-                if (GetTileTypeByEntity(super) != 0x4017) {
-                    SetTile(0x4017, this->tile, super->collisionLayer);
-                    SetTile(0x4017, this->tile - 64, super->collisionLayer);
-                    SetTile(0x4014, this->tile - 128, super->collisionLayer);
+                if (GetMetaTileTypeByEntity(super) != 0x4017) {
+                    SetMetaTile(0x4017, this->tile, super->collisionLayer);
+                    SetMetaTile(0x4017, this->tile - 64, super->collisionLayer);
+                    SetMetaTile(0x4014, this->tile - 128, super->collisionLayer);
                 }
             }
             break;
@@ -375,28 +376,28 @@ static void sub_08090B6C(FurnitureEntity* this) {
                     num = 2;
                 }
                 for (i = -num; i <= num; ++i) {
-                    SetTile(0x4022, tile + i, cl);
+                    SetMetaTile(0x4022, tile + i, cl);
                 }
                 if (px & 8) {
                     sub_08090CDC(0x4024, tile - i, cl);
                     sub_08090CDC(0x4025, tile + i, cl);
                 } else {
-                    SetTile(0x4022, tile - i, cl);
+                    SetMetaTile(0x4022, tile - i, cl);
                 }
                 break;
             case 1:
                 num = w2 / 8;
                 for (i = -num; i <= num; i++) {
-                    SetTile(0x4022, tile + i, cl);
+                    SetMetaTile(0x4022, tile + i, cl);
                 }
                 if (px & 8) {
                     sub_08090CDC(0x4024, tile - i, cl);
                     if (i != 0) {
-                        SetTile(0x4022, tile + i, cl);
+                        SetMetaTile(0x4022, tile + i, cl);
                     }
                 } else {
                     if (i != 0) {
-                        SetTile(0x4022, tile - i, cl);
+                        SetMetaTile(0x4022, tile - i, cl);
                     }
                     sub_08090CDC(0x4025, tile + i, cl);
                 }
@@ -404,10 +405,10 @@ static void sub_08090B6C(FurnitureEntity* this) {
             case 2:
                 num = w2 / 4;
                 for (i = -num; i < num; ++i) {
-                    SetTile(0x4022, tile + i, cl);
+                    SetMetaTile(0x4022, tile + i, cl);
                 }
                 if (px & 8) {
-                    SetTile(0x4022, tile + i, cl);
+                    SetMetaTile(0x4022, tile + i, cl);
                 } else {
                     sub_08090CDC(0x4024, tile - i - 1, cl);
                     sub_08090CDC(0x4025, tile + i, cl);
@@ -416,7 +417,7 @@ static void sub_08090B6C(FurnitureEntity* this) {
             case 3:
                 num = w2 / 4;
                 for (i = -num; i <= num; ++i) {
-                    SetTile(0x4022, tile + i, cl);
+                    SetMetaTile(0x4022, tile + i, cl);
                 }
                 if (px & 8) {
                     sub_08090CDC(0x4025, tile + i, cl);
@@ -429,12 +430,12 @@ static void sub_08090B6C(FurnitureEntity* this) {
 }
 
 static void sub_08090CDC(u32 id, u32 pos, u32 layer) {
-    u16 cur = GetTileIndex(pos, layer);
+    u16 cur = GetMetaTileIndex(pos, layer);
     u32 next = cur;
     u32 id2;
 
     if ((cur & 0x4000) == 0) {
-        SetTile(id, pos, layer);
+        SetMetaTile(id, pos, layer);
     } else {
         switch (cur) {
             case 0x4025:
@@ -472,7 +473,7 @@ static void sub_08090CDC(u32 id, u32 pos, u32 layer) {
             default:
                 return;
         }
-        SetTile(next, pos, layer);
+        SetMetaTile(next, pos, layer);
     }
 }
 

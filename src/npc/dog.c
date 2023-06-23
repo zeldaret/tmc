@@ -217,7 +217,7 @@ void sub_08069B44(Entity* this) {
             this->action = 4;
         }
         if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
-            SetTile(0x4072, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
+            SetMetaTile(0x4072, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
         }
     }
 }
