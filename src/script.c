@@ -1368,7 +1368,7 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 
-//player movement?
+// player movement?
 void ScriptCommand_0807EDD4(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;

@@ -178,7 +178,7 @@ void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
 }
 
 void sub_08084074(u32 flag) {
-    TileEntity* tileEntity = (TileEntity *)GetCurrentRoomProperty(3);
+    TileEntity* tileEntity = (TileEntity*)GetCurrentRoomProperty(3);
     if (tileEntity != NULL) {
         for (; tileEntity->type != 0; tileEntity++) {
             if ((tileEntity->type == BIG_CHEST) && (flag == tileEntity->localFlag)) {

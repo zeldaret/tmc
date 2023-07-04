@@ -5716,7 +5716,7 @@ extern EntityData gUnk_080F77F0;
 extern EntityData gUnk_080F77C0;
 extern EntityData gUnk_080F7810;
 extern EntityData gUnk_080F7860;
-extern EntityData gUnk_080F78A0;\
+extern EntityData gUnk_080F78A0;
 
 void sub_StateChange_HyruleField_LonLonRanch(void) {
     CloudOverlayManager_Main(NULL);

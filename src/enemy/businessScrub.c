@@ -256,7 +256,7 @@ void BusinessScrub_Action5(Entity* this) {
             } else {
                 ModRupees(-offer->price);
                 switch (offer->field_0x0 >> 2) {
-                    case 0: //random kinstone
+                    case 0: // random kinstone
                         subtype = offer->item_subtype;
                         if (subtype == KINSTONE_RANDOM) {
                             subtype = kinstoneTypes[Random() & 7];
@@ -272,12 +272,12 @@ void BusinessScrub_Action5(Entity* this) {
                         SetLocalFlag(KS_B06);
 #endif
                         return;
-                    case 1: //refill, bottle, specific kinstone
+                    case 1: // refill, bottle, specific kinstone
                         CreateItemEntity(offer->offeredItem, offer->item_subtype, 0);
                         this->timer = 4;
                         sub_0802922C(this);
                         return;
-                    case 2: //grip ring
+                    case 2: // grip ring
                         CreateItemEntity(offer->offeredItem, offer->item_subtype, 0);
                         this->timer = 8;
                         sub_0802922C(this);
