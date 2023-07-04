@@ -222,10 +222,10 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
             }
             break;
         case ITEM_WALLET:
-            localFlag = 0x55;
+            localFlag = SHOP00_SAIFU;
             break;
         case ITEM_LARGE_QUIVER:
-            localFlag = 0x56;
+            localFlag = SHOP00_YAZUTSU;
             break;
 #ifndef EU
         case ITEM_BOMBBAG:
@@ -251,7 +251,7 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
             if (localFlag) {
                 SetLocalFlag(localFlag);
             }
-            if (gSave.unk5C <= -2) {
+            if (gSave.unk5C <= ~1u) {
                 gSave.unk5C++;
             }
 

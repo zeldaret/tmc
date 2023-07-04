@@ -7,7 +7,7 @@ SCRIPT_START script_MountainMinish3
 script_0800D282:
 	CheckInventory1 ITEM_FIRE_ELEMENT
 	JumpIf script_0800D292
-	CheckLocalFlag 0x007e
+	CheckLocalFlag OYAKATA_DEMO
 	JumpIf script_0800D2EA
 script_0800D292:
 	BeginBlock

@@ -1,4 +1,4 @@
-@ Hyrule Town Carlov
+@ Hyrule Town ~~Carlov~~ Burlov
 SCRIPT_START script_Carlov
 	BeginBlock
 	_0807E9D4

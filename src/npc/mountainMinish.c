@@ -224,7 +224,7 @@ void sub_08068190(Entity* this) {
     }
 
     uVar2 = 0;
-    if (CheckLocalFlag(0x7e)) {
+    if (CheckLocalFlag(OYAKATA_DEMO)) {
         uVar2 = 1;
     }
     if (GetInventoryValue(ITEM_FIRE_ELEMENT) != 0) {

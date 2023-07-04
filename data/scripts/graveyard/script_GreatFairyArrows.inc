@@ -31,7 +31,7 @@ script_0800B684:
 	Jump script_0800B6A6
 script_0800B68E:
 	WaitUntilTextboxCloses
-	SetLocalFlag 0x009e
+	SetLocalFlag IZUMI_00_FAIRY
 	GivePlayerItem ITEM_LARGE_QUIVER
 script_0800B698:
 	WaitPlayerGetItem

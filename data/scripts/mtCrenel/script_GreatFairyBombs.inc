@@ -24,7 +24,7 @@ script_0800B734:
 	Jump script_0800B6A6
 script_0800B794:
 	WaitUntilTextboxCloses
-	SetLocalFlag 0x00a0
+	SetLocalFlag IZUMI_02_FAIRY
 	GivePlayerItem ITEM_BOMBBAG
 	Jump script_0800B698
 script_0800B7A2:

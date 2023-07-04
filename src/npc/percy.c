@@ -3,6 +3,7 @@
 #include "npc.h"
 #include "functions.h"
 #include "kinstone.h"
+#include "item.h"
 
 static const SpriteLoadData gUnk_08112E1C[] = {
     { 0x30f6, 0x47, 0x4 },
@@ -143,9 +144,9 @@ void sub_0806B540(Entity* this) {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 context->unk_18 = 3;
                 if (gSave.stats.hasAllFigurines != 0) {
-                    InitItemGetSequence(0x58, 0, 0);
+                    InitItemGetSequence(ITEM_RUPEE100, 0, 0);
                 } else {
-                    InitItemGetSequence(0x3f, 100, 0);
+                    InitItemGetSequence(ITEM_SHELLS, 100, 0);
                 }
                 SetRoomFlag(0xf);
             }

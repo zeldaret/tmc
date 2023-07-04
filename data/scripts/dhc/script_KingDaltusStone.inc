@@ -3,9 +3,9 @@ SCRIPT_START script_KingDaltusStone
 	BeginBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x000a
-	CheckLocalFlag 0x0071
+	CheckLocalFlag LV6_1d_KEYGET
 	JumpIf script_0800E3E8
-	CheckLocalFlag 0x0096
+	CheckLocalFlag LV6_39_KING
 	JumpIf script_0800E3BE
 	SetAnimation 0x000c
 	CallWithArg sub_0807F8E8, 0x00000000
@@ -28,7 +28,7 @@ script_0800E37A:
 	Wait 0x001e
 	DoPostScriptAction 0x0000
 	FacePlayer
-	SetLocalFlag 0x0096
+	SetLocalFlag LV6_39_KING
 script_0800E3BE:
 	DoPostScriptAction 0x0000
 	_0807E9D4
@@ -44,7 +44,7 @@ script_0800E3C8:
 	Wait 0x000f
 	GivePlayerItem ITEM_SMALL_KEY
 	WaitPlayerGetItem
-	SetLocalFlag 0x0071
+	SetLocalFlag LV6_1d_KEYGET
 	EnablePlayerControl
 script_0800E3E8:
 	_0807E9D4

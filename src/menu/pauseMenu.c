@@ -905,37 +905,37 @@ void sub_080A59AC(void) {
 }
 
 void sub_080A59C8(void) {
-    u32 uVar2;
-    u32 bVar3;
+    u32 cursor_position;
+    u32 select_option;
 
     if (!sub_080A51F4()) {
         return;
     }
-    uVar2 = gMenu.field_0x3;
-    bVar3 = FALSE;
+    cursor_position = gMenu.field_0x3;
+    select_option = FALSE;
 
     switch (gInput.newKeys) {
         case DPAD_UP:
-            uVar2 = 0;
+            cursor_position = 0;
             break;
         case B_BUTTON:
             if (gMenu.field_0x3 == 0) {
-                uVar2 = 1;
+                cursor_position = 1;
             } else {
-                bVar3 = TRUE;
+                select_option = TRUE;
             }
             break;
         case DPAD_DOWN:
-            uVar2 = 1;
+            cursor_position = 1;
             break;
         case A_BUTTON:
-            bVar3 = TRUE;
+            select_option = TRUE;
             break;
     }
 
-    if (bVar3) {
+    if (select_option) {
         gMenu.transitionTimer = 255;
-        if (uVar2 == 0) {
+        if (cursor_position == 0) {
             CreateDialogBox(8, 0);
             SetMenuType(2);
             SoundReq(SFX_TEXTBOX_SELECT);
@@ -943,9 +943,9 @@ void sub_080A59C8(void) {
             SetMenuType(3);
             SoundReq(SFX_MENU_CANCEL);
         }
-    } else if (gMenu.field_0x3 != uVar2) {
-        gMenu.field_0x3 = uVar2;
-        SetPopupState(0, uVar2);
+    } else if (gMenu.field_0x3 != cursor_position) {
+        gMenu.field_0x3 = cursor_position;
+        SetPopupState(0, cursor_position);
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }

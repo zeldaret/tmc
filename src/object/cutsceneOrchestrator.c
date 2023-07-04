@@ -2,7 +2,7 @@
  * @file cutsceneOrchestrator.c
  * @ingroup Objects
  *
- * @brief CutsceneO rchestrator object
+ * @brief Cutscene Orchestrator object
  */
 #include "entity.h"
 #include "functions.h"
