@@ -4,11 +4,12 @@
 #include "enemy.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
     u8 filler[0xc];
-    u16 unk_0x74;
+    u16 metaTileIndex;
     u8 unk_0x76;
 } FlyingSkullEntity;
 
@@ -45,7 +46,7 @@ void FlyingSkull_OnCollision(FlyingSkullEntity* this) {
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);
         super->spritePriority.b1 = 1;
-        SetMetaTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        SetMetaTile(this->metaTileIndex, COORD_TO_TILE(super), super->collisionLayer);
     } else if (super->z.HALF.HI) {
         sub_0803A0E0(this);
     }
@@ -84,7 +85,7 @@ void sub_08039CE0(FlyingSkullEntity* this) {
         super->timer = 1;
         super->z.HALF.HI = -1;
         super->spriteOffsetX = 0;
-        SetMetaTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        SetMetaTile(this->metaTileIndex, COORD_TO_TILE(super), super->collisionLayer);
     }
 
     if (sub_0806F520(super)) {
@@ -108,15 +109,15 @@ void sub_08039D6C(FlyingSkullEntity* this) {
 }
 
 void sub_08039D74(FlyingSkullEntity* this) {
-    u32 tmp;
+    u32 tilePos;
     super->action = 1;
     super->gustJarFlags = 2;
     super->carryFlags = 0;
     super->y.HALF.HI += 3;
 
-    tmp = COORD_TO_TILE(super);
-    this->unk_0x74 = GetMetaTileIndex(tmp, super->collisionLayer);
-    SetMetaTile(0x4060, tmp, super->collisionLayer);
+    tilePos = COORD_TO_TILE(super);
+    this->metaTileIndex = GetMetaTileIndex(tilePos, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_96, tilePos, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
 
@@ -124,8 +125,8 @@ void sub_08039DD8(FlyingSkullEntity* this) {
     sub_0803A100(this);
 
     if (super->type == 0) {
-        if (GetMetaTileTypeByEntity(super) == 0x4073) {
-            SetMetaTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        if (GetMetaTileTypeByEntity(super) == SPECIAL_META_TILE_115) {
+            SetMetaTile(this->metaTileIndex, COORD_TO_TILE(super), super->collisionLayer);
             sub_0803A0E0(this);
         }
 
@@ -142,7 +143,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
                     if (ent != NULL) {
                         ent->type2 = 1;
                         CopyPosition(super, ent);
-                        SetMetaTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+                        SetMetaTile(this->metaTileIndex, COORD_TO_TILE(super), super->collisionLayer);
                         DeleteEntity(super);
                     }
                 }
@@ -162,7 +163,7 @@ void sub_08039EE4(FlyingSkullEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_080FD340;
     gPlayerEntity.animationState;
     this->unk_0x76 = gPlayerEntity.animationState;
-    SetMetaTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+    SetMetaTile(this->metaTileIndex, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 void sub_08039F4C(FlyingSkullEntity* this) {
@@ -195,7 +196,7 @@ void sub_08039FAC(FlyingSkullEntity* this) {
         super->hitType = 0xa0;
         super->flags2 = 0xf;
         super->hitbox = (Hitbox*)&gUnk_080FD34C;
-        SetMetaTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        SetMetaTile(this->metaTileIndex, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 
@@ -242,9 +243,9 @@ void sub_0803A0E0(FlyingSkullEntity* this) {
 }
 
 void sub_0803A100(FlyingSkullEntity* this) {
-    u32 tile = COORD_TO_TILE(super);
-    if (GetMetaTileIndex(tile, super->collisionLayer) == 0x4067) {
-        SetMetaTile(this->unk_0x74, tile, super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE(super);
+    if (GetMetaTileIndex(tilePos, super->collisionLayer) == SPECIAL_META_TILE_103) {
+        SetMetaTile(this->metaTileIndex, tilePos, super->collisionLayer);
         DeleteThisEntity();
     }
 }

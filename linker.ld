@@ -177,7 +177,7 @@ SECTIONS {
         . = 0x000058A0; ram_GetCollisionDataAtRoomCoords = .;
         . = 0x000058B0; ram_GetCollisionDataAtRoomTile = .;
         . = 0x000058B8; ram_GetCollisionDataAtMetaTilePos = .;
-        . = 0x000058C8; ram_sub_080B1B54 = .;
+        . = 0x000058C8; ram_GetVvvForMetaTileType = .;
         . = 0x000058DC; ram_sub_080B1B68 = .;
         . = 0x000058F8; ram_sub_080B1B84 = .;
         . = 0x00005918; ram_sub_080B1BA4 = .;

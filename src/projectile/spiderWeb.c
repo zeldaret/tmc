@@ -1,8 +1,9 @@
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
-#include "object.h"
 #include "hitbox.h"
+#include "object.h"
+#include "tiles.h"
 
 typedef struct {
     u8 b0;
@@ -225,7 +226,8 @@ void sub_080AA9E0(Entity* this) {
 }
 
 void sub_080AAA68(Entity* this) {
-    static const u16 typeTiles[] = { 0x4023, 0x4025, 0x4026, 0x4024 };
+    static const u16 typeTiles[] = { SPECIAL_META_TILE_35, SPECIAL_META_TILE_37, SPECIAL_META_TILE_38,
+                                     SPECIAL_META_TILE_36 };
     SetMetaTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 

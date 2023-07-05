@@ -128,7 +128,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             LinearMoveUpdate(super);
         } else {
             tile = GetCollisionDataAtEntity(super);
-            if ((tile != 0x24) && (tile != 0x26)) {
+            if ((tile != COLLISION_DATA_36) && (tile != COLLISION_DATA_38)) {
                 ProcessMovement10(super);
             }
         }
@@ -147,17 +147,17 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
                     if (child == this) {
 
                         switch (tile) {
-                            case 0xd:
+                            case VVV_13:
                                 CreateFx(super, FX_FALL_DOWN, 0);
                                 break;
-                            case 0x5a:
+                            case VVV_90:
                                 CreateFx(super, FX_LAVA_SPLASH, 0);
                                 break;
-                            case 0x10:
-                            case 0x11:
+                            case VVV_16:
+                            case VVV_17:
                                 CreateFx(super, FX_WATER_SPLASH, 0);
                                 break;
-                            case 0x13:
+                            case VVV_19:
                                 CreateFx(super, FX_GREEN_SPLASH, 0);
                                 break;
                         }

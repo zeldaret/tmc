@@ -7,9 +7,9 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 #include "screen.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -88,15 +88,15 @@ void LightDoor_Action4(LightDoorEntity* this) {
 }
 
 void sub_080850FC(LightDoorEntity* this) {
-    u32 position = COORD_TO_TILE(super);
+    u32 tilePos = COORD_TO_TILE(super);
     u32 layer = super->collisionLayer;
-    SetMetaTile(0x403d, position - 0x41, layer);
-    SetMetaTile(0x403d, position - 0x40, layer);
-    SetMetaTile(0x403d, position - 0x3f, layer);
-    SetMetaTile(0x403d, position - 1, layer);
-    SetMetaTile(0x403d, position, layer);
-    SetMetaTile(0x403d, position + 1, layer);
-    SetMetaTile(0x403d, position + 0x3f, layer);
-    SetMetaTile(0x403d, position + 0x40, layer);
-    SetMetaTile(0x403d, position + 0x41, layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(-1, -1), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(0, -1), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(1, -1), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(-1, 0), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(0, 0), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(1, 0), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(-1, 1), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(0, 1), layer);
+    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(1, 1), layer);
 }

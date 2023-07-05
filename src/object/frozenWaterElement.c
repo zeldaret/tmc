@@ -6,8 +6,8 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -115,62 +115,62 @@ void FrozenWaterElement_Action2(FrozenWaterElementEntity* this) {
 
 void sub_0809C0A8(FrozenWaterElementEntity* this) {
     u32 position = COORD_TO_TILE(super);
-    SetMetaTile(0x4022, position - 0x41, super->collisionLayer);
-    SetMetaTile(0x4022, position - 0x40, super->collisionLayer);
-    SetMetaTile(0x4022, position - 0x3f, super->collisionLayer);
-    SetMetaTile(0x4022, position - 2, super->collisionLayer);
-    SetMetaTile(0x4022, position - 1, super->collisionLayer);
-    SetMetaTile(0x4022, position, super->collisionLayer);
-    SetMetaTile(0x4022, position + 1, super->collisionLayer);
-    SetMetaTile(0x4022, position + 2, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x3e, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x3f, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x40, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x41, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x42, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x7f, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x80, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x81, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x13f, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x140, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x141, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x17f, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x181, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x1bd, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x1be, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x1bf, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x1c1, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x1c2, super->collisionLayer);
-    SetMetaTile(0x4022, position + 0x1c3, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, -1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, -1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, -1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 0), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 0), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 0), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 0), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(2, 0), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(2, 1), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 2), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 2), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 2), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 5), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 5), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 5), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 6), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 6), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-3, 7), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 7), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 7), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 7), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(2, 7), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(3, 7), super->collisionLayer);
 }
 
 void sub_0809C23C(FrozenWaterElementEntity* this) {
     u32 position = COORD_TO_TILE(super);
-    RestorePrevTileEntity(position - 0x41, super->collisionLayer);
-    RestorePrevTileEntity(position - 0x40, super->collisionLayer);
-    RestorePrevTileEntity(position - 0x3f, super->collisionLayer);
-    RestorePrevTileEntity(position - 2, super->collisionLayer);
-    RestorePrevTileEntity(position - 1, super->collisionLayer);
-    RestorePrevTileEntity(position, super->collisionLayer);
-    RestorePrevTileEntity(position + 1, super->collisionLayer);
-    RestorePrevTileEntity(position + 2, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x3e, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x3f, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x40, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x41, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x42, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x7f, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x80, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x81, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x13f, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x140, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x141, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x17f, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x181, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x1bd, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x1be, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x1bf, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x1c1, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x1c2, super->collisionLayer);
-    RestorePrevTileEntity(position + 0x1c3, super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, -1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(0, -1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, -1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-2, 0), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, 0), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(0, 0), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, 0), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(2, 0), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-2, 1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, 1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(0, 1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, 1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(2, 1), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, 2), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(0, 2), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, 2), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, 5), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(0, 5), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, 5), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, 6), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, 6), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-3, 7), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-2, 7), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(-1, 7), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(1, 7), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(2, 7), super->collisionLayer);
+    RestorePrevTileEntity(position + TILE_POS(3, 7), super->collisionLayer);
 }

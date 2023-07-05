@@ -99,7 +99,7 @@ typedef enum {
 typedef struct {
     Entity base;
     /* 0x68 */ u8 pad[0x10];
-    /* 0x78 */ u16 tile;
+    /* 0x78 */ u16 tilePos;
     /* 0x7a */ u16 unk1;
     /* 0x7c */ u16 unk2;
     /* 0x7e */ u16 unk3;
@@ -202,11 +202,11 @@ void Furniture(Entity* this) {
 }
 
 static void FurnitureInit(FurnitureEntity* this) {
-    u32 i, tile, cnt;
+    u32 i, tilePos, cnt;
     Entity* e;
 
     super->action = FURNITURE_UPDATE;
-    this->tile = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     sub_08090DC4(this);
     switch (this->flags & 0x7fff) {
         case 0x100:
@@ -217,14 +217,14 @@ static void FurnitureInit(FurnitureEntity* this) {
             break;
         case 0x40:
             super->y.HALF.HI = (super->y.HALF.HI & ~0xF) | 4;
-            SetMetaTile(0x4017, this->tile - 128, 1);
-            SetMetaTile(0x4017, this->tile - 64, 1);
+            SetMetaTile(SPECIAL_META_TILE_23, this->tilePos - 128, LAYER_BOTTOM);
+            SetMetaTile(SPECIAL_META_TILE_23, this->tilePos - 64, LAYER_BOTTOM);
             break;
         case 0x80:
             super->frameIndex = 0;
             super->y.HALF.HI = (super->y.HALF.HI & ~0xF) | 6;
-            this->tile = COORD_TO_TILE(super);
-            SetMetaTile(0x4026, this->tile, super->collisionLayer);
+            this->tilePos = COORD_TO_TILE(super);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePos, super->collisionLayer);
             break;
         case 0x200:
             break;
@@ -242,14 +242,14 @@ static void FurnitureInit(FurnitureEntity* this) {
     if (this->height != 16) {
         switch (this->height & 0x70) {
             case 0x30:
-                this->tile -= 64;
+                this->tilePos -= 64;
                 sub_08090B6C(this);
-                this->tile = COORD_TO_TILE(super);
+                this->tilePos = COORD_TO_TILE(super);
             case 0x20:
-                this->tile += 64;
+                this->tilePos += 64;
                 sub_08090B6C(this);
         }
-        this->tile = COORD_TO_TILE(super);
+        this->tilePos = COORD_TO_TILE(super);
     }
 
     switch (this->flags & 0x7fff) {
@@ -257,12 +257,12 @@ static void FurnitureInit(FurnitureEntity* this) {
             ChangeObjPalette(super, 0x7E);
             break;
         case 0x2:
-            tile = this->tile - 129;
+            tilePos = this->tilePos - 129;
             cnt = super->type != 26 ? 3 : 2;
-            for (i = 0; i < cnt; ++i, ++tile) {
-                SetMetaTile(0x4026, tile, 2);
-                SetMetaTile(0x4026, tile, 1);
-                SetVvvAtMetaTilePos(VVV_0, tile + 64, 1);
+            for (i = 0; i < cnt; ++i, ++tilePos) {
+                SetMetaTile(SPECIAL_META_TILE_38, tilePos, LAYER_TOP);
+                SetMetaTile(SPECIAL_META_TILE_38, tilePos, LAYER_BOTTOM);
+                SetVvvAtMetaTilePos(VVV_0, tilePos + TILE_POS(0, 1), 1);
             }
             break;
     }
@@ -282,27 +282,27 @@ static void FurnitureInit(FurnitureEntity* this) {
             }
             break;
         case SHOE_DESK:
-            sub_0807B7D8(774, this->tile + 65, 2);
+            sub_0807B7D8(774, this->tilePos + 65, 2);
             break;
         case STAIRCASE:
             super->collisionLayer = 1;
             super->spriteOrientation.flipY = 2;
-            SetMetaTile(0x4074, this->tile - 64, super->collisionLayer);
-            SetVvvAtMetaTilePos(VVV_63, this->tile - 64, super->collisionLayer);
-            SetMetaTile(0x4017, this->tile, super->collisionLayer);
-            SetMetaTile(0x4017, this->tile + 64, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_116, this->tilePos - 64, super->collisionLayer);
+            SetVvvAtMetaTilePos(VVV_63, this->tilePos - 64, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_23, this->tilePos + 64, super->collisionLayer);
             break;
         case MINISH_CHEESE:
             if (super->type2 != 0)
                 super->spriteOffsetX = -4;
             break;
         case WOODEN_TABLE:
-            SetMetaTile(0x4023, this->tile - 65, super->collisionLayer);
-            SetMetaTile(0x4023, this->tile - 64, super->collisionLayer);
-            SetMetaTile(0x4023, this->tile - 63, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_35, this->tilePos - 65, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_35, this->tilePos - 64, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_35, this->tilePos - 63, super->collisionLayer);
             break;
         case LOW_BOOKSHELF:
-            SetMetaTile(0x4022, this->tile + 65, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePos + 65, super->collisionLayer);
     }
 }
 
@@ -338,20 +338,21 @@ static void FurnitureUpdate(FurnitureEntity* this) {
             break;
         case 0x80:
             if (gPlayerEntity.y.HALF.HI < super->y.HALF.HI + 8) {
-                if (gPlayerState.floor_type != SURFACE_LADDER && GetMetaTileTypeByEntity(super) == 0x4017) {
-                    SetMetaTile(0x4026, this->tile, super->collisionLayer);
-                    SetMetaTile(0x403D, this->tile - 64, super->collisionLayer);
-                    SetMetaTile(0x403D, this->tile - 128, super->collisionLayer);
+                if (gPlayerState.floor_type != SURFACE_LADDER &&
+                    GetMetaTileTypeByEntity(super) == SPECIAL_META_TILE_23) {
+                    SetMetaTile(SPECIAL_META_TILE_38, this->tilePos, super->collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_61, this->tilePos + TILE_POS(0, -1), super->collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_61, this->tilePos + TILE_POS(0, -2), super->collisionLayer);
                 }
             } else {
                 if (gPlayerEntity.collisionLayer & 2) {
                     gPlayerEntity.collisionLayer = 1;
                     UpdateSpriteForCollisionLayer(&gPlayerEntity);
                 }
-                if (GetMetaTileTypeByEntity(super) != 0x4017) {
-                    SetMetaTile(0x4017, this->tile, super->collisionLayer);
-                    SetMetaTile(0x4017, this->tile - 64, super->collisionLayer);
-                    SetMetaTile(0x4014, this->tile - 128, super->collisionLayer);
+                if (GetMetaTileTypeByEntity(super) != SPECIAL_META_TILE_23) {
+                    SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, super->collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_23, this->tilePos + TILE_POS(0, -1), super->collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_20, this->tilePos + TILE_POS(0, -2), super->collisionLayer);
                 }
             }
             break;
@@ -365,8 +366,8 @@ static void sub_08090B6C(FurnitureEntity* this) {
     if (width != 0) {
         u8 w2 = width / 8;
         u32 px = super->x.HALF.HI & 0xF;
-        u32 tile = this->tile;
-        u32 cl = super->collisionLayer;
+        u32 tilePos = this->tilePos;
+        u32 layer = super->collisionLayer;
         int i;
 
         switch ((u32)w2 & 3) {
@@ -376,104 +377,103 @@ static void sub_08090B6C(FurnitureEntity* this) {
                     num = 2;
                 }
                 for (i = -num; i <= num; ++i) {
-                    SetMetaTile(0x4022, tile + i, cl);
+                    SetMetaTile(SPECIAL_META_TILE_34, tilePos + i, layer);
                 }
                 if (px & 8) {
-                    sub_08090CDC(0x4024, tile - i, cl);
-                    sub_08090CDC(0x4025, tile + i, cl);
+                    sub_08090CDC(SPECIAL_META_TILE_36, tilePos - i, layer);
+                    sub_08090CDC(SPECIAL_META_TILE_37, tilePos + i, layer);
                 } else {
-                    SetMetaTile(0x4022, tile - i, cl);
+                    SetMetaTile(SPECIAL_META_TILE_34, tilePos - i, layer);
                 }
                 break;
             case 1:
                 num = w2 / 8;
                 for (i = -num; i <= num; i++) {
-                    SetMetaTile(0x4022, tile + i, cl);
+                    SetMetaTile(SPECIAL_META_TILE_34, tilePos + i, layer);
                 }
                 if (px & 8) {
-                    sub_08090CDC(0x4024, tile - i, cl);
+                    sub_08090CDC(SPECIAL_META_TILE_36, tilePos - i, layer);
                     if (i != 0) {
-                        SetMetaTile(0x4022, tile + i, cl);
+                        SetMetaTile(SPECIAL_META_TILE_34, tilePos + i, layer);
                     }
                 } else {
                     if (i != 0) {
-                        SetMetaTile(0x4022, tile - i, cl);
+                        SetMetaTile(SPECIAL_META_TILE_34, tilePos - i, layer);
                     }
-                    sub_08090CDC(0x4025, tile + i, cl);
+                    sub_08090CDC(SPECIAL_META_TILE_37, tilePos + i, layer);
                 }
                 break;
             case 2:
                 num = w2 / 4;
                 for (i = -num; i < num; ++i) {
-                    SetMetaTile(0x4022, tile + i, cl);
+                    SetMetaTile(SPECIAL_META_TILE_34, tilePos + i, layer);
                 }
                 if (px & 8) {
-                    SetMetaTile(0x4022, tile + i, cl);
+                    SetMetaTile(SPECIAL_META_TILE_34, tilePos + i, layer);
                 } else {
-                    sub_08090CDC(0x4024, tile - i - 1, cl);
-                    sub_08090CDC(0x4025, tile + i, cl);
+                    sub_08090CDC(SPECIAL_META_TILE_36, tilePos - i - 1, layer);
+                    sub_08090CDC(SPECIAL_META_TILE_37, tilePos + i, layer);
                 }
                 break;
             case 3:
                 num = w2 / 4;
                 for (i = -num; i <= num; ++i) {
-                    SetMetaTile(0x4022, tile + i, cl);
+                    SetMetaTile(SPECIAL_META_TILE_34, tilePos + i, layer);
                 }
                 if (px & 8) {
-                    sub_08090CDC(0x4025, tile + i, cl);
+                    sub_08090CDC(SPECIAL_META_TILE_37, tilePos + i, layer);
                 } else {
-                    sub_08090CDC(0x4024, tile - i, cl);
+                    sub_08090CDC(SPECIAL_META_TILE_36, tilePos - i, layer);
                 }
                 break;
         }
     }
 }
 
-static void sub_08090CDC(u32 id, u32 pos, u32 layer) {
-    u16 cur = GetMetaTileIndex(pos, layer);
+static void sub_08090CDC(u32 metaTileIndex, u32 metaTilePos, u32 layer) {
+    u16 cur = GetMetaTileIndex(metaTilePos, layer);
     u32 next = cur;
-    u32 id2;
 
     if ((cur & 0x4000) == 0) {
-        SetMetaTile(id, pos, layer);
+        SetMetaTile(metaTileIndex, metaTilePos, layer);
     } else {
         switch (cur) {
-            case 0x4025:
-                if (id == 0x4024)
-                    next = 0x4022;
-                if (id == 0x402c)
-                    next = 0x4022;
+            case SPECIAL_META_TILE_37:
+                if (metaTileIndex == SPECIAL_META_TILE_36)
+                    next = SPECIAL_META_TILE_34;
+                if (metaTileIndex == SPECIAL_META_TILE_44)
+                    next = SPECIAL_META_TILE_34;
                 break;
-            case 0x402D:
-                if (id == 0x402c)
-                    next = 0x402b;
-                if (id == 0x4024)
-                    next = 0x4022;
+            case SPECIAL_META_TILE_45:
+                if (metaTileIndex == SPECIAL_META_TILE_44)
+                    next = SPECIAL_META_TILE_43;
+                if (metaTileIndex == SPECIAL_META_TILE_36)
+                    next = SPECIAL_META_TILE_34;
                 break;
-            case 0x4024:
-                if (id == 0x4025)
-                    next = 0x4022;
-                if (id == 0x402d)
-                    next = 0x4022;
+            case SPECIAL_META_TILE_36:
+                if (metaTileIndex == SPECIAL_META_TILE_37)
+                    next = SPECIAL_META_TILE_34;
+                if (metaTileIndex == SPECIAL_META_TILE_45)
+                    next = SPECIAL_META_TILE_34;
                 break;
-            case 0x402C:
-                if (id == 0x402d)
-                    next = 0x402b;
-                if (id == 0x4025)
-                    next = 0x4022;
+            case SPECIAL_META_TILE_44:
+                if (metaTileIndex == SPECIAL_META_TILE_45)
+                    next = SPECIAL_META_TILE_43;
+                if (metaTileIndex == SPECIAL_META_TILE_37)
+                    next = SPECIAL_META_TILE_34;
                 break;
-            case 0x4022:
-            case 0x4023:
-            case 0x4026:
-            case 0x4027:
-            case 0x4028:
-            case 0x4029:
-            case 0x402a:
-            case 0x402b:
+            case SPECIAL_META_TILE_34:
+            case SPECIAL_META_TILE_35:
+            case SPECIAL_META_TILE_38:
+            case SPECIAL_META_TILE_39:
+            case SPECIAL_META_TILE_40:
+            case SPECIAL_META_TILE_41:
+            case SPECIAL_META_TILE_42:
+            case SPECIAL_META_TILE_43:
             default:
                 return;
         }
-        SetMetaTile(next, pos, layer);
+        SetMetaTile(next, metaTilePos, layer);
     }
 }
 

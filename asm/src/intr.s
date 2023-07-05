@@ -187,11 +187,11 @@ arm_GetCollisionDataAtMetaTilePos:
 	ldrb r0, [r1, r0]
 	bx lr
 
-	arm_func_start arm_sub_080B1B54
-arm_sub_080B1B54: @ 0x080B1B54
+	arm_func_start arm_GetVvvForMetaTileType
+arm_GetVvvForMetaTileType: @ 0x080B1B54
 	lsls r0, r0, #0x12
-	ldrlo r1, _080B1C30 @ =gUnk_080B37A0
-	ldrhs r1, _080B1C34 @ =gUnk_080B7910
+	ldrlo r1, _080B1C30 @ =gMapMetaTileTypeToVvv
+	ldrhs r1, _080B1C34 @ =gMapSpecialMetaTileToVvv
 	ldrb r0, [r1, r0, lsr #18]
 	bx lr
 
@@ -257,8 +257,8 @@ _080B1C20: .4byte gRoomControls
 _080B1C24: .4byte gVvvPtrs
 _080B1C28: .4byte gRoomControls
 _080B1C2C: .4byte gCollisionDataPtrs
-_080B1C30: .4byte gUnk_080B37A0
-_080B1C34: .4byte gUnk_080B7910
+_080B1C30: .4byte gMapMetaTileTypeToVvv
+_080B1C34: .4byte gMapSpecialMetaTileToVvv
 _080B1C38: .4byte gMetatileTypesPtrs
 _080B1C3C: .4byte gUnk_08000360
 _080B1C40: .4byte gUnk_080B7A3E

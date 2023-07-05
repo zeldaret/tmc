@@ -11,9 +11,9 @@
 #include "flags.h"
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "hitbox.h"
 #include "sound.h"
+#include "tiles.h"
 
 void LockedDoor_Init(Entity*);
 void LockedDoor_Action1(Entity*);
@@ -251,12 +251,12 @@ void sub_080836A0(Entity* this) {
     this->spriteSettings.draw = 1;
     this->x.HALF.HI = this->field_0x70.HALF.LO;
     this->y.HALF.HI = this->field_0x70.HALF.HI;
-    SetMetaTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, this->field_0x76.HWORD, this->collisionLayer);
 }
 
 void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     const struct_0811F680* tmp;
-    SetMetaTile(0x4022, unk_1, this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, unk_1, this->collisionLayer);
     this->timer = 7;
     this->spriteSettings.draw = 1;
     this->direction = (unk_0 << 3) ^ 0x10;

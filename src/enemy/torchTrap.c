@@ -4,11 +4,12 @@
 #include "room.h"
 #include "physics.h"
 #include "player.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
     u8 filler[0xc];
-    u16 unk_74;
+    u16 metaTilePos;
     u16 filler2;
     u16 unk_78;
     u16 projectileTimer;
@@ -40,7 +41,7 @@ void TorchTrap_Init(TorchTrapEntity* this) {
     this->unk_84 &= 0xfff;
     sub_0804A720(super);
     super->action = 1;
-    this->unk_74 = this->unk_82 & 0xfff;
+    this->metaTilePos = this->unk_82 & 0xfff;
     super->x.HALF.HI = ((this->unk_82 & 0x3f) << 4) + 8 + gRoomControls.origin_x;
     super->y.HALF.HI = ((this->unk_82 & 0xfc0) >> 2) + (gRoomControls.origin_y + 8);
     super->direction = ((s16)this->unk_82 & 0xf000) >> 10;
@@ -70,7 +71,7 @@ void sub_0803CF38(TorchTrapEntity* this) {
 }
 
 void sub_0803CF94(TorchTrapEntity* this) {
-    if (GetMetaTileType(this->unk_74, super->collisionLayer) == 0x76) {
+    if (GetMetaTileType(this->metaTilePos, super->collisionLayer) == META_TILE_TYPE_118) {
         this->unk_80 = 0;
         TorchTrap_Reset(this);
     } else if (this->unk_7c && sub_0803CFD8(this)) {
@@ -79,35 +80,34 @@ void sub_0803CF94(TorchTrapEntity* this) {
 }
 
 bool32 sub_0803CFD8(TorchTrapEntity* this) {
-    u32 rv;
+    u32 result;
     if (this->unk_7c == 0) {
-        rv = 1;
+        result = TRUE;
     } else {
-        rv = CheckFlags(this->unk_7c);
+        result = CheckFlags(this->unk_7c);
     }
-    return rv;
+    return result;
 }
 
 bool32 sub_0803CFF0(TorchTrapEntity* this) {
-    u32 rv;
+    u32 result;
     if (this->unk_80 != 0) {
         if (this->unk_80 == this->unk_7c) {
             u32 val = CheckFlags(this->unk_80);
-            rv = 0;
+            result = FALSE;
             if (val == 0) {
-                rv = 1;
+                result = TRUE;
             }
-            return rv;
+            return result;
         } else {
             return CheckFlags(this->unk_80);
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 void TorchTrap_Reset(TorchTrapEntity* this) {
-    u32 val;
     super->action = 2;
     if (this->unk_78) {
         this->projectileTimer = this->unk_78;
@@ -136,7 +136,7 @@ void TorchTrap_CreateProjectile(TorchTrapEntity* this) {
 
 void sub_0803D0B0(TorchTrapEntity* this) {
     super->action = 3;
-    sub_0807B7D8(0x75, this->unk_74, super->collisionLayer);
+    sub_0807B7D8(META_TILE_TYPE_117, this->metaTilePos, super->collisionLayer);
 }
 
 void (*const gTorchTrapActions[])(TorchTrapEntity*) = {
@@ -147,12 +147,12 @@ void (*const gTorchTrapActions[])(TorchTrapEntity*) = {
 };
 
 const u16 gTorchTrapTimerLengths[] = {
-    0x3c, 0x3c, 0x5a, 0x5a, 0x5a, 0x78, 0x78, 0x96,
+    60, 60, 90, 90, 90, 120, 120, 150,
 };
 
 const u16 gTorchTrapProjectileSpeeds[] = {
-    0x80,
-    0x100,
-    0x180,
-    0x200,
+    128,
+    256,
+    384,
+    512,
 };

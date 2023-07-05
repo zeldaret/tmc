@@ -184,7 +184,7 @@ typedef struct Entity_ {
     /*0x24*/ s16 speed;     /**< Magnitude of speed. */
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ SpritePriority spritePriority;
-    /*0x2a*/ u16 collisions;    /**< Collision flags for each direction. */
+    /*0x2a*/ u16 collisions;    /**< Collision flags for each direction. @see Collisions*/
     /*0x2c*/ union SplitWord x; /**< X position, fixed point Q16.16. */
     /*0x30*/ union SplitWord y; /**< Y position, fixed point Q16.16. */
     /*0x34*/ union SplitWord z; /**< Z position, fixed point Q16.16. */

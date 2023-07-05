@@ -7,8 +7,8 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -143,22 +143,28 @@ void GiantTwig_Type2Idle(GiantTwigEntity* this) {
 
 void sub_08093984(GiantTwigEntity* this) {
     u32 index;
-    const s16* array;
+    const s16* metaTileOffsets;
 
     if (super->type2 != 0) {
         static const s16 gUnk_081228F8[] = {
-            -130, -129, -128, -127, -66, -65, -64, -63, -62, -2, -1, 0, 1, 2, 63, 64, 65, 66, 67,
+            TILE_POS(-2, -2), TILE_POS(-1, -2), TILE_POS(0, -2), TILE_POS(1, -2), TILE_POS(-2, -1),
+            TILE_POS(-1, -1), TILE_POS(0, -1),  TILE_POS(1, -1), TILE_POS(2, -1), TILE_POS(-2, 0),
+            TILE_POS(-1, 0),  TILE_POS(0, 0),   TILE_POS(1, 0),  TILE_POS(2, 0),  TILE_POS(-1, 1),
+            TILE_POS(0, 1),   TILE_POS(1, 1),   TILE_POS(2, 1),  TILE_POS(3, 1),
         };
-        array = gUnk_081228F8;
+        metaTileOffsets = gUnk_081228F8;
     } else {
         static const s16 gUnk_0812291E[] = {
-            -129, -128, -127, -126, -66, -65, -64, -63, -62, -2, -1, 0, 1, 2, 61, 62, 63, 64, 65,
+            TILE_POS(-1, -2), TILE_POS(0, -2), TILE_POS(1, -2), TILE_POS(2, -2), TILE_POS(-2, -1),
+            TILE_POS(-1, -1), TILE_POS(0, -1), TILE_POS(1, -1), TILE_POS(2, -1), TILE_POS(-2, 0),
+            TILE_POS(-1, 0),  TILE_POS(0, 0),  TILE_POS(1, 0),  TILE_POS(2, 0),  TILE_POS(-3, 1),
+            TILE_POS(-2, 1),  TILE_POS(-1, 1), TILE_POS(0, 1),  TILE_POS(1, 1),
         };
-        array = gUnk_0812291E;
+        metaTileOffsets = gUnk_0812291E;
     }
 
     for (index = 0; index < 0x13; index++) {
-        SetMetaTile(0x4074, array[index] + this->tilePosition, 1);
+        SetMetaTile(SPECIAL_META_TILE_116, metaTileOffsets[index] + this->tilePosition, LAYER_BOTTOM);
     }
 }
 
@@ -177,47 +183,47 @@ void GiantTwig_Type3Idle(GiantTwigEntity* this) {
 void sub_08093A1C(GiantTwigEntity* this) {
     switch (super->type) {
         case 0:
-            SetMetaTile(0x4024, this->tilePosition + 0x3c, super->collisionLayer);
-            SetMetaTile(0x4022, this->tilePosition + 0x3d, super->collisionLayer);
-            SetMetaTile(0x4022, this->tilePosition + 0x3e, super->collisionLayer);
-            SetMetaTile(0x4029, this->tilePosition + 0x7c, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x7d, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x7e, super->collisionLayer);
-            SetMetaTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
-            SetMetaTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
-            SetMetaTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
-            SetMetaTile(0x4023, this->tilePosition + 0x42, super->collisionLayer);
-            SetMetaTile(0x406d, this->tilePosition + 0x43, super->collisionLayer);
-            SetMetaTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x82, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x83, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_36, this->tilePosition + TILE_POS(-4, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(-3, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(-2, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_41, this->tilePosition + TILE_POS(-4, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(-3, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(-2, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_61, this->tilePosition + TILE_POS(0, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_61, this->tilePosition + TILE_POS(0, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_39, this->tilePosition + TILE_POS(1, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_35, this->tilePosition + TILE_POS(2, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_109, this->tilePosition + TILE_POS(3, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_41, this->tilePosition + TILE_POS(1, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(2, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(3, 2), super->collisionLayer);
             break;
         case 1:
             if ((super->type2 & 1) != 0) {
-                SetMetaTile(0x406d, this->tilePosition - 0x81, super->collisionLayer);
-                SetMetaTile(0x4022, this->tilePosition - 0x41, super->collisionLayer);
-                SetMetaTile(0x4029, this->tilePosition - 2, super->collisionLayer);
-                SetMetaTile(0x4026, this->tilePosition - 1, super->collisionLayer);
-                SetMetaTile(0x4022, this->tilePosition, super->collisionLayer);
-                SetMetaTile(0x406d, this->tilePosition + 1, super->collisionLayer);
-                SetMetaTile(0x406e, this->tilePosition + 0x40, super->collisionLayer);
-                SetMetaTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
-                SetMetaTile(0x406d, this->tilePosition + 0x42, super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_109, this->tilePosition + TILE_POS(-1, -2), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(-1, -1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_41, this->tilePosition + TILE_POS(-2, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(-1, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(0, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_109, this->tilePosition + TILE_POS(1, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_110, this->tilePosition + TILE_POS(0, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(1, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_109, this->tilePosition + TILE_POS(2, 1), super->collisionLayer);
             } else {
-                SetMetaTile(0x406c, this->tilePosition - 0x7f, super->collisionLayer);
-                SetMetaTile(0x4022, this->tilePosition - 0x3f, super->collisionLayer);
-                SetMetaTile(0x406c, this->tilePosition - 1, super->collisionLayer);
-                SetMetaTile(0x4022, this->tilePosition, super->collisionLayer);
-                SetMetaTile(0x4026, this->tilePosition + 1, super->collisionLayer);
-                SetMetaTile(0x402a, this->tilePosition + 2, super->collisionLayer);
-                SetMetaTile(0x406c, this->tilePosition + 0x3e, super->collisionLayer);
-                SetMetaTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
-                SetMetaTile(0x406f, this->tilePosition + 0x40, super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_108, this->tilePosition + TILE_POS(1, -2), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(1, -1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_108, this->tilePosition + TILE_POS(-1, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(0, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(1, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_42, this->tilePosition + TILE_POS(2, 0), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_108, this->tilePosition + TILE_POS(-2, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(-1, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_111, this->tilePosition + TILE_POS(0, 1), super->collisionLayer);
                 return;
             }
             break;
         case 3:
-            SetMetaTile(0x4022, this->tilePosition, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition, super->collisionLayer);
             break;
     }
 }
@@ -226,12 +232,12 @@ void sub_08093C70(GiantTwigEntity* this) {
     if (this->unk_78 != 0) {
         if (gPlayerState.heldObject != 0) {
             this->unk_78 = 0;
-            SetMetaTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
-            SetMetaTile(0x4022, this->tilePosition + 0x40, super->collisionLayer);
-            SetMetaTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x7f, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x80, super->collisionLayer);
-            SetMetaTile(0x4026, this->tilePosition + 0x81, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(-1, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(0, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, this->tilePosition + TILE_POS(1, 1), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(-1, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(0, 2), super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_38, this->tilePosition + TILE_POS(1, 2), super->collisionLayer);
         }
 
     } else {
@@ -239,12 +245,12 @@ void sub_08093C70(GiantTwigEntity* this) {
             if (--this->unk_7a == 0) {
                 this->unk_78++;
                 this->unk_7a = 0x3c;
-                SetMetaTile(0x403d, this->tilePosition + 0x3f, super->collisionLayer);
-                SetMetaTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
-                SetMetaTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
-                SetMetaTile(0x403d, this->tilePosition + 0x7f, super->collisionLayer);
-                SetMetaTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
-                SetMetaTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_61, this->tilePosition + TILE_POS(-1, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_61, this->tilePosition + TILE_POS(0, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_39, this->tilePosition + TILE_POS(1, 1), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_61, this->tilePosition + TILE_POS(-1, 2), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_61, this->tilePosition + TILE_POS(0, 2), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_41, this->tilePosition + TILE_POS(1, 2), super->collisionLayer);
             }
         }
     }

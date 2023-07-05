@@ -6,19 +6,19 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
 #include "item.h"
+#include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[0x4];
     /*0x6c*/ u16 unk_6c;
     /*0x6e*/ u8 unk_6e[0x2];
-    /*0x70*/ u16 unk_70;
+    /*0x70*/ u16 tilePos;
     /*0x72*/ u8 unk_72[0x14];
     /*0x86*/ u16 unk_86;
 } SmallIceBlockEntity;
@@ -87,8 +87,8 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
         }
     } else {
         if (!sub_0800442E(super)) {
-            tileType = GetMetaTileType(this->unk_70, super->collisionLayer);
-            if (tileType != 0x405a) {
+            tileType = GetMetaTileType(this->tilePos, super->collisionLayer);
+            if (tileType != SPECIAL_META_TILE_90) {
                 switch (sub_08099618(tileType)) {
                     case 1:
                         super->action = 2;
@@ -102,7 +102,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                         if (obj != NULL) {
                             CopyPosition(super, obj);
                         }
-                        SetMetaTile(this->unk_6c, this->unk_70, super->collisionLayer);
+                        SetMetaTile(this->unk_6c, this->tilePos, super->collisionLayer);
                         DeleteEntity(super);
                         break;
 
@@ -161,7 +161,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
         DeleteThisEntity();
     } else {
         if (super->timer == 0x30) {
-            SetMetaTile(this->unk_6c, this->unk_70, super->collisionLayer);
+            SetMetaTile(this->unk_6c, this->tilePos, super->collisionLayer);
         }
         SetAffineInfo(super, 0x100, (0x3c - super->timer) * 0x20 + 0x100, 0);
         if ((super->timer & 1) != 0) {
@@ -178,20 +178,20 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
 }
 
 void sub_08099468(SmallIceBlockEntity* this) {
-    this->unk_70 = COORD_TO_TILE(super);
-    this->unk_6c = GetMetaTileIndex(this->unk_70, super->collisionLayer);
-    SetMetaTile(0x405a, this->unk_70, super->collisionLayer);
+    this->tilePos = COORD_TO_TILE(super);
+    this->unk_6c = GetMetaTileIndex(this->tilePos, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_90, this->tilePos, super->collisionLayer);
 }
 
 void sub_080994B8(SmallIceBlockEntity* this) {
     u16 tileType;
 
     EnqueueSFX(SFX_ICE_BLOCK_SLIDE);
-    SetMetaTile(this->unk_6c, this->unk_70, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetMetaTileType(this->unk_70, 1) == 0x405a)) {
-        CloneTile(0x310, this->unk_70, 1);
+    SetMetaTile(this->unk_6c, this->tilePos, super->collisionLayer);
+    if ((super->collisionLayer == 2) && (GetMetaTileType(this->tilePos, 1) == SPECIAL_META_TILE_90)) {
+        CloneTile(META_TILE_TYPE_784, this->tilePos, 1);
     }
-    tileType = GetMetaTileType(this->unk_70 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    tileType = GetMetaTileType(this->tilePos + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if (tileType == 0x79 || tileType == 0x77) {
         super->spriteOffsetY = -2;
     }
@@ -328,5 +328,17 @@ const u16 gUnk_08123748[] = {
     277,
 };
 const u16 gUnk_08123750[] = {
-    0x405b, 1, 0x405c, 1, 0x405d, 1, 0x405e, 1, 0x7a, 2, 0x78, 2, 0,
+    SPECIAL_META_TILE_91,
+    1,
+    SPECIAL_META_TILE_92,
+    1,
+    SPECIAL_META_TILE_93,
+    1,
+    SPECIAL_META_TILE_94,
+    1,
+    META_TILE_TYPE_122,
+    2,
+    META_TILE_TYPE_120,
+    2,
+    0,
 };

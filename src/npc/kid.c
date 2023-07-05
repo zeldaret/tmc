@@ -1,6 +1,7 @@
 #include "functions.h"
 #include "message.h"
 #include "npc.h"
+#include "tiles.h"
 
 const SpriteLoadData gUnk_0810BD7C[] = {
     { 58, 59, 4 },
@@ -567,21 +568,21 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08062788(Entity* this, ScriptExecutionContext* context) {
-    SetMetaTile(0x4072, 0x60b, 1);
-    SetMetaTile(0x4072, 0x60c, 1);
-    SetMetaTile(0x4072, 0x60d, 1);
-    SetMetaTile(0x4072, 0x64b, 1);
-    SetMetaTile(0x4072, 0x64c, 1);
-    SetMetaTile(0x4072, 0x64d, 1);
+    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(11, 24), LAYER_BOTTOM);
+    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(12, 24), LAYER_BOTTOM);
+    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(13, 24), LAYER_BOTTOM);
+    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(11, 25), LAYER_BOTTOM);
+    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(12, 25), LAYER_BOTTOM);
+    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(13, 25), LAYER_BOTTOM);
 }
 
 void sub_080627E8(Entity* this, ScriptExecutionContext* context) {
-    RestorePrevTileEntity(0x60b, 1);
-    RestorePrevTileEntity(0x60c, 1);
-    RestorePrevTileEntity(0x60d, 1);
-    RestorePrevTileEntity(0x64b, 1);
-    RestorePrevTileEntity(0x64c, 1);
-    RestorePrevTileEntity(0x64d, 1);
+    RestorePrevTileEntity(TILE_POS(11, 24), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(12, 24), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(13, 24), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(11, 25), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(12, 25), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(13, 25), LAYER_BOTTOM);
 }
 
 void Kid_Head(Entity* this) {

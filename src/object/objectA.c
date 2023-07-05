@@ -8,10 +8,10 @@
 #include "flags.h"
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "room.h"
+#include "tiles.h"
 
 extern u8 gUpdateVisibleTiles;
 
@@ -21,10 +21,10 @@ void ObjectA(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->hitbox = (Hitbox*)&gHitbox_2;
-        if (this->collisionLayer == 1) {
-            uVar2 = 0x26;
+        if (this->collisionLayer == LAYER_BOTTOM) {
+            uVar2 = META_TILE_TYPE_38;
         } else {
-            uVar2 = 0x34;
+            uVar2 = META_TILE_TYPE_52;
         }
         this->field_0x70.HALF.LO = uVar2;
         if (CheckFlags(this->field_0x86.HWORD) != 0) {

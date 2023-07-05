@@ -7,6 +7,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "room.h"
+#include "tiles.h"
 
 void StoneTablet_Init(Entity*);
 void StoneTablet_Action1(Entity*);
@@ -22,9 +23,23 @@ void StoneTablet(Entity* this) {
 
 void StoneTablet_Init(Entity* this) {
     // TODO recreate as TileData[]
-    static const u16 gUnk_081232EC[] = { 0x4022, -2, 0x4022, -1, 0x4022, 0, 0x4022, 1, 0xffff };
+    static const u16 gUnk_081232EC[] = {
+        SPECIAL_META_TILE_34, -2, SPECIAL_META_TILE_34, -1, SPECIAL_META_TILE_34, 0, SPECIAL_META_TILE_34, 1, 0xffff,
+    };
     static const u16 gUnk_081232FE[] = {
-        0x4065, -65, 0x4022, -64, 0x4066, -63, 0x4029, -1, 0x4026, 0, 0x402a, 1, 0xffff
+        SPECIAL_META_TILE_101,
+        -65,
+        SPECIAL_META_TILE_34,
+        -64,
+        SPECIAL_META_TILE_102,
+        -63,
+        SPECIAL_META_TILE_41,
+        -1,
+        SPECIAL_META_TILE_38,
+        0,
+        SPECIAL_META_TILE_42,
+        1,
+        0xffff,
     };
     this->action = 1;
     this->spriteSettings.draw = 1;

@@ -7,6 +7,7 @@
 #include "screenTransitions.h"
 #include "script.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     u8 filler[4];
@@ -29,7 +30,7 @@ void sub_0806C224(void) {
 
 void Simon_CreateChest(Entity* this) {
     CreateObjectWithParent(this, SPECIAL_FX, FX_BIG_EXPLOSION2, 0);
-    SetMetaTileType(0x73, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTileType(META_TILE_TYPE_115, COORD_TO_TILE(this), this->collisionLayer);
     SoundReq(SFX_SECRET_BIG);
 }
 

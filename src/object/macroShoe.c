@@ -6,6 +6,8 @@
  */
 #include "asm.h"
 #include "entity.h"
+#include "tiles.h"
+#include "map.h"
 
 void MacroShoe_Init(Entity*);
 void MacroShoe_Idle(Entity*);
@@ -39,9 +41,9 @@ void MacroShoe_Init(Entity* this) {
     this->action = 1;
     this->hitbox = (Hitbox*)MacroShoe_TypeHitboxes[this->type];
     if (this->type2 == 1) {
-        SetMetaTile(0x4024, 0x410, 1);
-        SetMetaTile(0x4026, 0x411, 1);
-        SetMetaTile(0x4025, 0x412, 1);
+        SetMetaTile(SPECIAL_META_TILE_36, TILE_POS(16, 16), LAYER_BOTTOM);
+        SetMetaTile(SPECIAL_META_TILE_38, TILE_POS(17, 16), LAYER_BOTTOM);
+        SetMetaTile(SPECIAL_META_TILE_37, TILE_POS(18, 16), LAYER_BOTTOM);
     }
 }
 

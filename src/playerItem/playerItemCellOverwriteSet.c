@@ -6,314 +6,314 @@
 #include "tiles.h"
 
 // vvv for specialMetaTile
-const u8 gUnk_080B7910[] = {
-    0, // SPECIAL_META_TILE_0
-    0, // SPECIAL_META_TILE_1
-    0, // SPECIAL_META_TILE_2
-    0, // SPECIAL_META_TILE_3
-    0, // SPECIAL_META_TILE_4
-    0, // SPECIAL_META_TILE_5
-    0, // SPECIAL_META_TILE_6
-    0, // SPECIAL_META_TILE_7
-    0, // SPECIAL_META_TILE_8
-    0, // SPECIAL_META_TILE_9
-    0, // SPECIAL_META_TILE_10
-    0, // SPECIAL_META_TILE_11
-    0, // SPECIAL_META_TILE_12
-    0, // SPECIAL_META_TILE_13
-    0, // SPECIAL_META_TILE_14
-    0, // SPECIAL_META_TILE_15
-    0, // SPECIAL_META_TILE_16
-    0, // SPECIAL_META_TILE_17
-    0, // SPECIAL_META_TILE_18
-    0, // SPECIAL_META_TILE_19
+const u8 gMapSpecialMetaTileToVvv[] = {
+    0,       // SPECIAL_META_TILE_0
+    0,       // SPECIAL_META_TILE_1
+    0,       // SPECIAL_META_TILE_2
+    0,       // SPECIAL_META_TILE_3
+    0,       // SPECIAL_META_TILE_4
+    0,       // SPECIAL_META_TILE_5
+    0,       // SPECIAL_META_TILE_6
+    0,       // SPECIAL_META_TILE_7
+    0,       // SPECIAL_META_TILE_8
+    0,       // SPECIAL_META_TILE_9
+    0,       // SPECIAL_META_TILE_10
+    0,       // SPECIAL_META_TILE_11
+    0,       // SPECIAL_META_TILE_12
+    0,       // SPECIAL_META_TILE_13
+    0,       // SPECIAL_META_TILE_14
+    0,       // SPECIAL_META_TILE_15
+    0,       // SPECIAL_META_TILE_16
+    0,       // SPECIAL_META_TILE_17
+    0,       // SPECIAL_META_TILE_18
+    0,       // SPECIAL_META_TILE_19
     VVV_241, // SPECIAL_META_TILE_20
-    0, // SPECIAL_META_TILE_21
-    0, // SPECIAL_META_TILE_22
-    VVV_83, // SPECIAL_META_TILE_23
+    0,       // SPECIAL_META_TILE_21
+    0,       // SPECIAL_META_TILE_22
+    VVV_83,  // SPECIAL_META_TILE_23
     VVV_242, // SPECIAL_META_TILE_24
     VVV_243, // SPECIAL_META_TILE_25
-    0, // SPECIAL_META_TILE_26
-    0, // SPECIAL_META_TILE_27
-    0, // SPECIAL_META_TILE_28
-    0, // SPECIAL_META_TILE_29
-    0, // SPECIAL_META_TILE_30
-    0, // SPECIAL_META_TILE_31
+    0,       // SPECIAL_META_TILE_26
+    0,       // SPECIAL_META_TILE_27
+    0,       // SPECIAL_META_TILE_28
+    0,       // SPECIAL_META_TILE_29
+    0,       // SPECIAL_META_TILE_30
+    0,       // SPECIAL_META_TILE_31
     VVV_240, // SPECIAL_META_TILE_32
-    0, // SPECIAL_META_TILE_33
-    0, // SPECIAL_META_TILE_34
-    0, // SPECIAL_META_TILE_35
-    0, // SPECIAL_META_TILE_36
-    0, // SPECIAL_META_TILE_37
-    0, // SPECIAL_META_TILE_38
-    0, // SPECIAL_META_TILE_39
-    0, // SPECIAL_META_TILE_40
-    0, // SPECIAL_META_TILE_41
-    0, // SPECIAL_META_TILE_42
-    0, // SPECIAL_META_TILE_43
-    0, // SPECIAL_META_TILE_44
-    0, // SPECIAL_META_TILE_45
-    0, // SPECIAL_META_TILE_46
-    0, // SPECIAL_META_TILE_47
-    0, // SPECIAL_META_TILE_48
-    0, // SPECIAL_META_TILE_49
-    0, // SPECIAL_META_TILE_50
-    0, // SPECIAL_META_TILE_51
-    0, // SPECIAL_META_TILE_52
-    0, // SPECIAL_META_TILE_53
-    0, // SPECIAL_META_TILE_54
-    0, // SPECIAL_META_TILE_55
-    0, // SPECIAL_META_TILE_56
-    0, // SPECIAL_META_TILE_57
-    0, // SPECIAL_META_TILE_58
-    0, // SPECIAL_META_TILE_59
-    0, // SPECIAL_META_TILE_60
-    0, // SPECIAL_META_TILE_61
-    0, // SPECIAL_META_TILE_62
-    0, // SPECIAL_META_TILE_63
-    VVV_61, // SPECIAL_META_TILE_64
-    VVV_61, // SPECIAL_META_TILE_65
-    VVV_61, // SPECIAL_META_TILE_66
-    VVV_61, // SPECIAL_META_TILE_67
-    VVV_61, // SPECIAL_META_TILE_68
-    VVV_61, // SPECIAL_META_TILE_69
-    VVV_61, // SPECIAL_META_TILE_70
-    VVV_61, // SPECIAL_META_TILE_71
-    VVV_61, // SPECIAL_META_TILE_72
-    0, // SPECIAL_META_TILE_73
-    0, // SPECIAL_META_TILE_74
-    0, // SPECIAL_META_TILE_75
-    0, // SPECIAL_META_TILE_76
-    0, // SPECIAL_META_TILE_77
-    0, // SPECIAL_META_TILE_78
-    0, // SPECIAL_META_TILE_79
-    0, // SPECIAL_META_TILE_80
-    VVV_58, // SPECIAL_META_TILE_81
-    0, // SPECIAL_META_TILE_82
-    0, // SPECIAL_META_TILE_83
-    0, // SPECIAL_META_TILE_84
-    0, // SPECIAL_META_TILE_85
-    0, // SPECIAL_META_TILE_86
-    0, // SPECIAL_META_TILE_87
-    0, // SPECIAL_META_TILE_88
-    0, // SPECIAL_META_TILE_89
-    0, // SPECIAL_META_TILE_90
-    0, // SPECIAL_META_TILE_91
-    0, // SPECIAL_META_TILE_92
-    0, // SPECIAL_META_TILE_93
-    0, // SPECIAL_META_TILE_94
-    0, // SPECIAL_META_TILE_95
-    0, // SPECIAL_META_TILE_96
-    0, // SPECIAL_META_TILE_97
-    0, // SPECIAL_META_TILE_98
-    0, // SPECIAL_META_TILE_99
-    0, // SPECIAL_META_TILE_100
-    0, // SPECIAL_META_TILE_101
-    0, // SPECIAL_META_TILE_102
-    0, // SPECIAL_META_TILE_103
-    0, // SPECIAL_META_TILE_104
-    VVV_40, // SPECIAL_META_TILE_105
-    0, // SPECIAL_META_TILE_106
-    0, // SPECIAL_META_TILE_107
-    0, // SPECIAL_META_TILE_108
-    0, // SPECIAL_META_TILE_109
-    0, // SPECIAL_META_TILE_110
-    0, // SPECIAL_META_TILE_111
-    0, // SPECIAL_META_TILE_112
-    0, // SPECIAL_META_TILE_113
-    0, // SPECIAL_META_TILE_114
-    0, // SPECIAL_META_TILE_115
-    0, // SPECIAL_META_TILE_116
-    VVV_18, // SPECIAL_META_TILE_117
-    VVV_18, // SPECIAL_META_TILE_118
-    VVV_18, // SPECIAL_META_TILE_119
-    VVV_18, // SPECIAL_META_TILE_120
-    VVV_18, // SPECIAL_META_TILE_121
-    VVV_18, // SPECIAL_META_TILE_122
-    VVV_18, // SPECIAL_META_TILE_123
-    VVV_18, // SPECIAL_META_TILE_124
-    0, // SPECIAL_META_TILE_125
+    0,       // SPECIAL_META_TILE_33
+    0,       // SPECIAL_META_TILE_34
+    0,       // SPECIAL_META_TILE_35
+    0,       // SPECIAL_META_TILE_36
+    0,       // SPECIAL_META_TILE_37
+    0,       // SPECIAL_META_TILE_38
+    0,       // SPECIAL_META_TILE_39
+    0,       // SPECIAL_META_TILE_40
+    0,       // SPECIAL_META_TILE_41
+    0,       // SPECIAL_META_TILE_42
+    0,       // SPECIAL_META_TILE_43
+    0,       // SPECIAL_META_TILE_44
+    0,       // SPECIAL_META_TILE_45
+    0,       // SPECIAL_META_TILE_46
+    0,       // SPECIAL_META_TILE_47
+    0,       // SPECIAL_META_TILE_48
+    0,       // SPECIAL_META_TILE_49
+    0,       // SPECIAL_META_TILE_50
+    0,       // SPECIAL_META_TILE_51
+    0,       // SPECIAL_META_TILE_52
+    0,       // SPECIAL_META_TILE_53
+    0,       // SPECIAL_META_TILE_54
+    0,       // SPECIAL_META_TILE_55
+    0,       // SPECIAL_META_TILE_56
+    0,       // SPECIAL_META_TILE_57
+    0,       // SPECIAL_META_TILE_58
+    0,       // SPECIAL_META_TILE_59
+    0,       // SPECIAL_META_TILE_60
+    0,       // SPECIAL_META_TILE_61
+    0,       // SPECIAL_META_TILE_62
+    0,       // SPECIAL_META_TILE_63
+    VVV_61,  // SPECIAL_META_TILE_64
+    VVV_61,  // SPECIAL_META_TILE_65
+    VVV_61,  // SPECIAL_META_TILE_66
+    VVV_61,  // SPECIAL_META_TILE_67
+    VVV_61,  // SPECIAL_META_TILE_68
+    VVV_61,  // SPECIAL_META_TILE_69
+    VVV_61,  // SPECIAL_META_TILE_70
+    VVV_61,  // SPECIAL_META_TILE_71
+    VVV_61,  // SPECIAL_META_TILE_72
+    0,       // SPECIAL_META_TILE_73
+    0,       // SPECIAL_META_TILE_74
+    0,       // SPECIAL_META_TILE_75
+    0,       // SPECIAL_META_TILE_76
+    0,       // SPECIAL_META_TILE_77
+    0,       // SPECIAL_META_TILE_78
+    0,       // SPECIAL_META_TILE_79
+    0,       // SPECIAL_META_TILE_80
+    VVV_58,  // SPECIAL_META_TILE_81
+    0,       // SPECIAL_META_TILE_82
+    0,       // SPECIAL_META_TILE_83
+    0,       // SPECIAL_META_TILE_84
+    0,       // SPECIAL_META_TILE_85
+    0,       // SPECIAL_META_TILE_86
+    0,       // SPECIAL_META_TILE_87
+    0,       // SPECIAL_META_TILE_88
+    0,       // SPECIAL_META_TILE_89
+    0,       // SPECIAL_META_TILE_90
+    0,       // SPECIAL_META_TILE_91
+    0,       // SPECIAL_META_TILE_92
+    0,       // SPECIAL_META_TILE_93
+    0,       // SPECIAL_META_TILE_94
+    0,       // SPECIAL_META_TILE_95
+    0,       // SPECIAL_META_TILE_96
+    0,       // SPECIAL_META_TILE_97
+    0,       // SPECIAL_META_TILE_98
+    0,       // SPECIAL_META_TILE_99
+    0,       // SPECIAL_META_TILE_100
+    0,       // SPECIAL_META_TILE_101
+    0,       // SPECIAL_META_TILE_102
+    0,       // SPECIAL_META_TILE_103
+    0,       // SPECIAL_META_TILE_104
+    VVV_40,  // SPECIAL_META_TILE_105
+    0,       // SPECIAL_META_TILE_106
+    0,       // SPECIAL_META_TILE_107
+    0,       // SPECIAL_META_TILE_108
+    0,       // SPECIAL_META_TILE_109
+    0,       // SPECIAL_META_TILE_110
+    0,       // SPECIAL_META_TILE_111
+    0,       // SPECIAL_META_TILE_112
+    0,       // SPECIAL_META_TILE_113
+    0,       // SPECIAL_META_TILE_114
+    0,       // SPECIAL_META_TILE_115
+    0,       // SPECIAL_META_TILE_116
+    VVV_18,  // SPECIAL_META_TILE_117
+    VVV_18,  // SPECIAL_META_TILE_118
+    VVV_18,  // SPECIAL_META_TILE_119
+    VVV_18,  // SPECIAL_META_TILE_120
+    VVV_18,  // SPECIAL_META_TILE_121
+    VVV_18,  // SPECIAL_META_TILE_122
+    VVV_18,  // SPECIAL_META_TILE_123
+    VVV_18,  // SPECIAL_META_TILE_124
+    0,       // SPECIAL_META_TILE_125
     VVV_116, // SPECIAL_META_TILE_126
     VVV_116, // SPECIAL_META_TILE_127
-    VVV_41, // SPECIAL_META_TILE_128
-    0, // SPECIAL_META_TILE_129
-    VVV_35, // SPECIAL_META_TILE_130
-    VVV_41, // SPECIAL_META_TILE_131
-    VVV_41, // SPECIAL_META_TILE_132
-    VVV_41, // SPECIAL_META_TILE_133
-    VVV_41, // SPECIAL_META_TILE_134
-    VVV_41, // SPECIAL_META_TILE_135
-    VVV_41, // SPECIAL_META_TILE_136
-    VVV_16, // SPECIAL_META_TILE_137
-    VVV_16, // SPECIAL_META_TILE_138
-    VVV_16, // SPECIAL_META_TILE_139
-    VVV_16, // SPECIAL_META_TILE_140
-    VVV_41, // SPECIAL_META_TILE_141
-    VVV_80, // SPECIAL_META_TILE_142
-    VVV_81, // SPECIAL_META_TILE_143
-    0, // SPECIAL_META_TILE_144
-    VVV_15, // SPECIAL_META_TILE_145
-    0, // SPECIAL_META_TILE_146
-    0, // SPECIAL_META_TILE_147
-    0, // SPECIAL_META_TILE_148
-    0, // SPECIAL_META_TILE_149
-    0, // SPECIAL_META_TILE_150
-    };
+    VVV_41,  // SPECIAL_META_TILE_128
+    0,       // SPECIAL_META_TILE_129
+    VVV_35,  // SPECIAL_META_TILE_130
+    VVV_41,  // SPECIAL_META_TILE_131
+    VVV_41,  // SPECIAL_META_TILE_132
+    VVV_41,  // SPECIAL_META_TILE_133
+    VVV_41,  // SPECIAL_META_TILE_134
+    VVV_41,  // SPECIAL_META_TILE_135
+    VVV_41,  // SPECIAL_META_TILE_136
+    VVV_16,  // SPECIAL_META_TILE_137
+    VVV_16,  // SPECIAL_META_TILE_138
+    VVV_16,  // SPECIAL_META_TILE_139
+    VVV_16,  // SPECIAL_META_TILE_140
+    VVV_41,  // SPECIAL_META_TILE_141
+    VVV_80,  // SPECIAL_META_TILE_142
+    VVV_81,  // SPECIAL_META_TILE_143
+    0,       // SPECIAL_META_TILE_144
+    VVV_15,  // SPECIAL_META_TILE_145
+    0,       // SPECIAL_META_TILE_146
+    0,       // SPECIAL_META_TILE_147
+    0,       // SPECIAL_META_TILE_148
+    0,       // SPECIAL_META_TILE_149
+    0,       // SPECIAL_META_TILE_150
+};
 
 // collisionData for specialMetaTile
-const u8 gUnk_080B79A7[] = {
-    29, // SPECIAL_META_TILE_0
-    0, // SPECIAL_META_TILE_1
-    0, // SPECIAL_META_TILE_2
-    0, // SPECIAL_META_TILE_3
-    0, // SPECIAL_META_TILE_4
-    0, // SPECIAL_META_TILE_5
-    15, // SPECIAL_META_TILE_6
-    0, // SPECIAL_META_TILE_7
-    0, // SPECIAL_META_TILE_8
-    0, // SPECIAL_META_TILE_9
-    0, // SPECIAL_META_TILE_10
-    15, // SPECIAL_META_TILE_11
-    0, // SPECIAL_META_TILE_12
-    0, // SPECIAL_META_TILE_13
-    0, // SPECIAL_META_TILE_14
-    0, // SPECIAL_META_TILE_15
-    0, // SPECIAL_META_TILE_16
-    0, // SPECIAL_META_TILE_17
-    0, // SPECIAL_META_TILE_18
-    0, // SPECIAL_META_TILE_19
-    0, // SPECIAL_META_TILE_20
-    0, // SPECIAL_META_TILE_21
-    0, // SPECIAL_META_TILE_22
-    23, // SPECIAL_META_TILE_23
-    40, // SPECIAL_META_TILE_24
-    40, // SPECIAL_META_TILE_25
-    40, // SPECIAL_META_TILE_26
-    15, // SPECIAL_META_TILE_27
-    0, // SPECIAL_META_TILE_28
-    0, // SPECIAL_META_TILE_29
-    0, // SPECIAL_META_TILE_30
-    0, // SPECIAL_META_TILE_31
-    32, // SPECIAL_META_TILE_32
-    0, // SPECIAL_META_TILE_33
-    15, // SPECIAL_META_TILE_34
-    3, // SPECIAL_META_TILE_35
-    5, // SPECIAL_META_TILE_36
-    10, // SPECIAL_META_TILE_37
-    12, // SPECIAL_META_TILE_38
-    1, // SPECIAL_META_TILE_39
-    2, // SPECIAL_META_TILE_40
-    4, // SPECIAL_META_TILE_41
-    8, // SPECIAL_META_TILE_42
-    15, // SPECIAL_META_TILE_43
-    5, // SPECIAL_META_TILE_44
-    10, // SPECIAL_META_TILE_45
-    69, // SPECIAL_META_TILE_46
-    68, // SPECIAL_META_TILE_47
-    0, // SPECIAL_META_TILE_48
-    0, // SPECIAL_META_TILE_49
-    15, // SPECIAL_META_TILE_50
-    0, // SPECIAL_META_TILE_51
-    0, // SPECIAL_META_TILE_52
-    0, // SPECIAL_META_TILE_53
-    15, // SPECIAL_META_TILE_54
-    0, // SPECIAL_META_TILE_55
-    0, // SPECIAL_META_TILE_56
-    0, // SPECIAL_META_TILE_57
-    0, // SPECIAL_META_TILE_58
-    15, // SPECIAL_META_TILE_59
-    0, // SPECIAL_META_TILE_60
-    0, // SPECIAL_META_TILE_61
-    15, // SPECIAL_META_TILE_62
-    0, // SPECIAL_META_TILE_63
-    1, // SPECIAL_META_TILE_64
-    3, // SPECIAL_META_TILE_65
-    2, // SPECIAL_META_TILE_66
-    5, // SPECIAL_META_TILE_67
-    15, // SPECIAL_META_TILE_68
-    10, // SPECIAL_META_TILE_69
-    4, // SPECIAL_META_TILE_70
-    12, // SPECIAL_META_TILE_71
-    8, // SPECIAL_META_TILE_72
-    71, // SPECIAL_META_TILE_73
-    15, // SPECIAL_META_TILE_74
-    0, // SPECIAL_META_TILE_75
-    0, // SPECIAL_META_TILE_76
-    0, // SPECIAL_META_TILE_77
-    0, // SPECIAL_META_TILE_78
-    0, // SPECIAL_META_TILE_79
-    15, // SPECIAL_META_TILE_80
-    15, // SPECIAL_META_TILE_81
-    3, // SPECIAL_META_TILE_82
-    5, // SPECIAL_META_TILE_83
-    0, // SPECIAL_META_TILE_84
-    13, // SPECIAL_META_TILE_85
-    12, // SPECIAL_META_TILE_86
-    11, // SPECIAL_META_TILE_87
-    10, // SPECIAL_META_TILE_88
-    0, // SPECIAL_META_TILE_89
-    15, // SPECIAL_META_TILE_90
-    15, // SPECIAL_META_TILE_91
-    15, // SPECIAL_META_TILE_92
-    15, // SPECIAL_META_TILE_93
-    15, // SPECIAL_META_TILE_94
-    15, // SPECIAL_META_TILE_95
-    15, // SPECIAL_META_TILE_96
-    15, // SPECIAL_META_TILE_97
-    80, // SPECIAL_META_TILE_98
-    7, // SPECIAL_META_TILE_99
-    11, // SPECIAL_META_TILE_100
-    13, // SPECIAL_META_TILE_101
-    14, // SPECIAL_META_TILE_102
-    15, // SPECIAL_META_TILE_103
-    15, // SPECIAL_META_TILE_104
-    39, // SPECIAL_META_TILE_105
-    15, // SPECIAL_META_TILE_106
-    15, // SPECIAL_META_TILE_107
-    16, // SPECIAL_META_TILE_108
-    17, // SPECIAL_META_TILE_109
-    18, // SPECIAL_META_TILE_110
-    19, // SPECIAL_META_TILE_111
-    0, // SPECIAL_META_TILE_112
-    0, // SPECIAL_META_TILE_113
-    15, // SPECIAL_META_TILE_114
-    15, // SPECIAL_META_TILE_115
-    0, // SPECIAL_META_TILE_116
-    1, // SPECIAL_META_TILE_117
-    2, // SPECIAL_META_TILE_118
-    3, // SPECIAL_META_TILE_119
-    4, // SPECIAL_META_TILE_120
-    5, // SPECIAL_META_TILE_121
-    8, // SPECIAL_META_TILE_122
-    10, // SPECIAL_META_TILE_123
-    12, // SPECIAL_META_TILE_124
-    15, // SPECIAL_META_TILE_125
-    5, // SPECIAL_META_TILE_126
-    12, // SPECIAL_META_TILE_127
-    0, // SPECIAL_META_TILE_128
-    0, // SPECIAL_META_TILE_129
-    95, // SPECIAL_META_TILE_130
-    39, // SPECIAL_META_TILE_131
-    103, // SPECIAL_META_TILE_132
-    104, // SPECIAL_META_TILE_133
-    105, // SPECIAL_META_TILE_134
-    106, // SPECIAL_META_TILE_135
-    107, // SPECIAL_META_TILE_136
-    49, // SPECIAL_META_TILE_137
-    50, // SPECIAL_META_TILE_138
-    58, // SPECIAL_META_TILE_139
-    60, // SPECIAL_META_TILE_140
-    35, // SPECIAL_META_TILE_141
-    43, // SPECIAL_META_TILE_142
-    43, // SPECIAL_META_TILE_143
-    5, // SPECIAL_META_TILE_144
-    34, // SPECIAL_META_TILE_145
-    1, // SPECIAL_META_TILE_146
-    2, // SPECIAL_META_TILE_147
-    4, // SPECIAL_META_TILE_148
-    8, // SPECIAL_META_TILE_149
-    12, // SPECIAL_META_TILE_150
-    };
+const u8 gMapSpecialMetaTileToCollisionData[] = {
+    COLLISION_DATA_29,  // SPECIAL_META_TILE_0
+    0,                  // SPECIAL_META_TILE_1
+    0,                  // SPECIAL_META_TILE_2
+    0,                  // SPECIAL_META_TILE_3
+    0,                  // SPECIAL_META_TILE_4
+    0,                  // SPECIAL_META_TILE_5
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_6
+    0,                  // SPECIAL_META_TILE_7
+    0,                  // SPECIAL_META_TILE_8
+    0,                  // SPECIAL_META_TILE_9
+    0,                  // SPECIAL_META_TILE_10
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_11
+    0,                  // SPECIAL_META_TILE_12
+    0,                  // SPECIAL_META_TILE_13
+    0,                  // SPECIAL_META_TILE_14
+    0,                  // SPECIAL_META_TILE_15
+    0,                  // SPECIAL_META_TILE_16
+    0,                  // SPECIAL_META_TILE_17
+    0,                  // SPECIAL_META_TILE_18
+    0,                  // SPECIAL_META_TILE_19
+    0,                  // SPECIAL_META_TILE_20
+    0,                  // SPECIAL_META_TILE_21
+    0,                  // SPECIAL_META_TILE_22
+    COLLISION_DATA_23,  // SPECIAL_META_TILE_23
+    COLLISION_DATA_40,  // SPECIAL_META_TILE_24
+    COLLISION_DATA_40,  // SPECIAL_META_TILE_25
+    COLLISION_DATA_40,  // SPECIAL_META_TILE_26
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_27
+    0,                  // SPECIAL_META_TILE_28
+    0,                  // SPECIAL_META_TILE_29
+    0,                  // SPECIAL_META_TILE_30
+    0,                  // SPECIAL_META_TILE_31
+    COLLISION_DATA_32,  // SPECIAL_META_TILE_32
+    0,                  // SPECIAL_META_TILE_33
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_34
+    COLLISION_DATA_3,   // SPECIAL_META_TILE_35
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_36
+    COLLISION_DATA_10,  // SPECIAL_META_TILE_37
+    COLLISION_DATA_12,  // SPECIAL_META_TILE_38
+    COLLISION_DATA_1,   // SPECIAL_META_TILE_39
+    COLLISION_DATA_2,   // SPECIAL_META_TILE_40
+    COLLISION_DATA_4,   // SPECIAL_META_TILE_41
+    COLLISION_DATA_8,   // SPECIAL_META_TILE_42
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_43
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_44
+    COLLISION_DATA_10,  // SPECIAL_META_TILE_45
+    COLLISION_DATA_69,  // SPECIAL_META_TILE_46
+    COLLISION_DATA_68,  // SPECIAL_META_TILE_47
+    0,                  // SPECIAL_META_TILE_48
+    0,                  // SPECIAL_META_TILE_49
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_50
+    0,                  // SPECIAL_META_TILE_51
+    0,                  // SPECIAL_META_TILE_52
+    0,                  // SPECIAL_META_TILE_53
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_54
+    0,                  // SPECIAL_META_TILE_55
+    0,                  // SPECIAL_META_TILE_56
+    0,                  // SPECIAL_META_TILE_57
+    0,                  // SPECIAL_META_TILE_58
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_59
+    0,                  // SPECIAL_META_TILE_60
+    0,                  // SPECIAL_META_TILE_61
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_62
+    0,                  // SPECIAL_META_TILE_63
+    COLLISION_DATA_1,   // SPECIAL_META_TILE_64
+    COLLISION_DATA_3,   // SPECIAL_META_TILE_65
+    COLLISION_DATA_2,   // SPECIAL_META_TILE_66
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_67
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_68
+    COLLISION_DATA_10,  // SPECIAL_META_TILE_69
+    COLLISION_DATA_4,   // SPECIAL_META_TILE_70
+    COLLISION_DATA_12,  // SPECIAL_META_TILE_71
+    COLLISION_DATA_8,   // SPECIAL_META_TILE_72
+    COLLISION_DATA_71,  // SPECIAL_META_TILE_73
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_74
+    0,                  // SPECIAL_META_TILE_75
+    0,                  // SPECIAL_META_TILE_76
+    0,                  // SPECIAL_META_TILE_77
+    0,                  // SPECIAL_META_TILE_78
+    0,                  // SPECIAL_META_TILE_79
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_80
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_81
+    COLLISION_DATA_3,   // SPECIAL_META_TILE_82
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_83
+    0,                  // SPECIAL_META_TILE_84
+    COLLISION_DATA_13,  // SPECIAL_META_TILE_85
+    COLLISION_DATA_12,  // SPECIAL_META_TILE_86
+    COLLISION_DATA_11,  // SPECIAL_META_TILE_87
+    COLLISION_DATA_10,  // SPECIAL_META_TILE_88
+    0,                  // SPECIAL_META_TILE_89
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_90
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_91
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_92
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_93
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_94
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_95
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_96
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_97
+    COLLISION_DATA_80,  // SPECIAL_META_TILE_98
+    COLLISION_DATA_7,   // SPECIAL_META_TILE_99
+    COLLISION_DATA_11,  // SPECIAL_META_TILE_100
+    COLLISION_DATA_13,  // SPECIAL_META_TILE_101
+    COLLISION_DATA_14,  // SPECIAL_META_TILE_102
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_103
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_104
+    COLLISION_DATA_39,  // SPECIAL_META_TILE_105
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_106
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_107
+    COLLISION_DATA_16,  // SPECIAL_META_TILE_108
+    COLLISION_DATA_17,  // SPECIAL_META_TILE_109
+    COLLISION_DATA_18,  // SPECIAL_META_TILE_110
+    COLLISION_DATA_19,  // SPECIAL_META_TILE_111
+    0,                  // SPECIAL_META_TILE_112
+    0,                  // SPECIAL_META_TILE_113
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_114
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_115
+    0,                  // SPECIAL_META_TILE_116
+    COLLISION_DATA_1,   // SPECIAL_META_TILE_117
+    COLLISION_DATA_2,   // SPECIAL_META_TILE_118
+    COLLISION_DATA_3,   // SPECIAL_META_TILE_119
+    COLLISION_DATA_4,   // SPECIAL_META_TILE_120
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_121
+    COLLISION_DATA_8,   // SPECIAL_META_TILE_122
+    COLLISION_DATA_10,  // SPECIAL_META_TILE_123
+    COLLISION_DATA_12,  // SPECIAL_META_TILE_124
+    COLLISION_DATA_15,  // SPECIAL_META_TILE_125
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_126
+    COLLISION_DATA_12,  // SPECIAL_META_TILE_127
+    0,                  // SPECIAL_META_TILE_128
+    0,                  // SPECIAL_META_TILE_129
+    COLLISION_DATA_95,  // SPECIAL_META_TILE_130
+    COLLISION_DATA_39,  // SPECIAL_META_TILE_131
+    COLLISION_DATA_103, // SPECIAL_META_TILE_132
+    COLLISION_DATA_104, // SPECIAL_META_TILE_133
+    COLLISION_DATA_105, // SPECIAL_META_TILE_134
+    COLLISION_DATA_106, // SPECIAL_META_TILE_135
+    COLLISION_DATA_107, // SPECIAL_META_TILE_136
+    COLLISION_DATA_49,  // SPECIAL_META_TILE_137
+    COLLISION_DATA_50,  // SPECIAL_META_TILE_138
+    COLLISION_DATA_58,  // SPECIAL_META_TILE_139
+    COLLISION_DATA_60,  // SPECIAL_META_TILE_140
+    COLLISION_DATA_35,  // SPECIAL_META_TILE_141
+    COLLISION_DATA_43,  // SPECIAL_META_TILE_142
+    COLLISION_DATA_43,  // SPECIAL_META_TILE_143
+    COLLISION_DATA_5,   // SPECIAL_META_TILE_144
+    COLLISION_DATA_34,  // SPECIAL_META_TILE_145
+    COLLISION_DATA_1,   // SPECIAL_META_TILE_146
+    COLLISION_DATA_2,   // SPECIAL_META_TILE_147
+    COLLISION_DATA_4,   // SPECIAL_META_TILE_148
+    COLLISION_DATA_8,   // SPECIAL_META_TILE_149
+    COLLISION_DATA_12,  // SPECIAL_META_TILE_150
+};
 
 const u16 gUnk_080B7A3E[] = {
     1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,  0, 0,  0, 0, 0, 0, 0,   0, 0, 0,  0, 0, 0, 0, 0, 1, 0, 0, 0,
@@ -325,15 +325,15 @@ const u16 gUnk_080B7A3E[] = {
 // TODO figure out type from arm_sub_080B1B84 and arm_sub_080B1BA4, also related to specialMetaTiles
 
 void PlayerItemCellOverwriteSet(Entity* this) {
-    static const s8 gUnk_080B7B6C[] = { 0x0, -0x10, 0x10, 0x0, 0x0, 0x10, -0x10, 0x0 };
+    static const s8 offsetByDirection[] = { 0, -16, 16, 0, 0, 16, -16, 0 };
     u32 tmp;
     Entity* player = &gPlayerEntity;
 
     if (this->action == 0) {
         this->field_0x6c.HWORD =
-            GetMetaTileType(TILE(player->x.HALF.HI + gUnk_080B7B6C[player->animationState & 0xe],
-                             player->y.HALF.HI + gUnk_080B7B6C[(player->animationState & 0xe) + 1]),
-                        this->collisionLayer);
+            GetMetaTileType(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+                                 player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
+                            this->collisionLayer);
         this->action++;
     }
     gPlayerState.mobility |= 0x80;
@@ -341,9 +341,9 @@ void PlayerItemCellOverwriteSet(Entity* this) {
     if ((gInput.heldKeys & A_BUTTON) != 0) {
         if ((R_BUTTON & gInput.newKeys) != 0) {
             this->field_0x6c.HWORD =
-                GetMetaTileType(TILE(player->x.HALF.HI + gUnk_080B7B6C[player->animationState & 0xe],
-                                 player->y.HALF.HI + gUnk_080B7B6C[(player->animationState & 0xe) + 1]),
-                            this->collisionLayer);
+                GetMetaTileType(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+                                     player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
+                                this->collisionLayer);
         }
         if ((gInput.heldKeys & R_BUTTON) != 0) {
             player->iframes = 2;
@@ -370,24 +370,24 @@ void PlayerItemCellOverwriteSet(Entity* this) {
         }
     } else {
         sub_0807B7D8(this->field_0x6c.HWORD,
-                     TILE(player->x.HALF.HI + gUnk_080B7B6C[player->animationState & 0xe],
-                          player->y.HALF.HI + gUnk_080B7B6C[(player->animationState & 0xe) + 1]),
+                     TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+                          player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
                      this->collisionLayer);
         gPlayerState.mobility &= ~0x80;
         DeleteThisEntity();
     }
     if ((gInput.heldKeys & B_BUTTON) != 0) {
         sub_0807B7D8(this->field_0x6c.HWORD,
-                     TILE(player->x.HALF.HI + gUnk_080B7B6C[0], player->y.HALF.HI + gUnk_080B7B6C[1]),
+                     TILE(player->x.HALF.HI + offsetByDirection[0], player->y.HALF.HI + offsetByDirection[1]),
                      this->collisionLayer);
         sub_0807B7D8(this->field_0x6c.HWORD,
-                     TILE(player->x.HALF.HI + gUnk_080B7B6C[2], player->y.HALF.HI + gUnk_080B7B6C[3]),
+                     TILE(player->x.HALF.HI + offsetByDirection[2], player->y.HALF.HI + offsetByDirection[3]),
                      this->collisionLayer);
         sub_0807B7D8(this->field_0x6c.HWORD,
-                     TILE(player->x.HALF.HI + gUnk_080B7B6C[4], player->y.HALF.HI + gUnk_080B7B6C[5]),
+                     TILE(player->x.HALF.HI + offsetByDirection[4], player->y.HALF.HI + offsetByDirection[5]),
                      this->collisionLayer);
         sub_0807B7D8(this->field_0x6c.HWORD,
-                     TILE(player->x.HALF.HI + gUnk_080B7B6C[6], player->y.HALF.HI + gUnk_080B7B6C[7]),
+                     TILE(player->x.HALF.HI + offsetByDirection[6], player->y.HALF.HI + offsetByDirection[7]),
                      this->collisionLayer);
     }
 }

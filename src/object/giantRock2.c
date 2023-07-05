@@ -8,11 +8,12 @@
 #include "asm.h"
 #include "entity.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
     u8 filler[0xC];
-    u16 tile;
+    u16 metaTilePos;
 } GiantRock2Entity;
 
 void GiantRock2_Init(GiantRock2Entity*);
@@ -28,22 +29,22 @@ void GiantRock2(Entity* this) {
 
 void GiantRock2_Init(GiantRock2Entity* this) {
     u32 collisionLayer;
-    u16 position;
+    u16 metaTilePos;
     int index;
     u32 tileIndex;
 
     super->action = 1;
-    this->tile = COORD_TO_TILE(super);
+    this->metaTilePos = COORD_TO_TILE(super);
     collisionLayer = super->collisionLayer;
     super->spritePriority.b0 = 7;
-    position = (this->tile - 0x80);
-    tileIndex = 0x4022;
+    metaTilePos = (this->metaTilePos - TILE_POS(0, 2));
+    tileIndex = SPECIAL_META_TILE_34;
     for (index = 4; index > -1; index--) {
-        SetMetaTile(tileIndex, position - 2, collisionLayer);
-        SetMetaTile(tileIndex, position - 1, collisionLayer);
-        SetMetaTile(tileIndex, position, collisionLayer);
-        SetMetaTile(tileIndex, position + 1, collisionLayer);
-        position += 0x40;
+        SetMetaTile(tileIndex, metaTilePos - 2, collisionLayer);
+        SetMetaTile(tileIndex, metaTilePos - 1, collisionLayer);
+        SetMetaTile(tileIndex, metaTilePos, collisionLayer);
+        SetMetaTile(tileIndex, metaTilePos + 1, collisionLayer);
+        metaTilePos += TILE_POS(0, 1);
     }
 }
 

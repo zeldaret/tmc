@@ -8,9 +8,10 @@
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"
+#include "tiles.h"
 
 extern void SoundReqClipped(Entity*, u32);
-extern bool32 sub_08023A38(u32);
+extern bool32 sub_08023A38(u32 metaTileType);
 extern void sub_08023990(Entity*, u32, u32);
 extern void sub_08023A88(Entity*, u32);
 
@@ -487,12 +488,12 @@ void sub_080239F0(Entity* this) {
     *(u8*)((int)&this->field_0x86 + 1) = 0x88;
 }
 
-bool32 sub_08023A38(u32 tileType) {
-    if (tileType == 0x1a || tileType == 0x29) {
+bool32 sub_08023A38(u32 metaTileType) {
+    if (metaTileType == META_TILE_TYPE_26 || metaTileType == META_TILE_TYPE_41) {
         return TRUE;
     } else {
-        tileType = gUnk_080B37A0[tileType];
-        if (tileType == 9 || tileType == 11 || tileType == 10 || tileType == 12) {
+        metaTileType = gMapMetaTileTypeToVvv[metaTileType];
+        if (metaTileType == VVV_9 || metaTileType == VVV_11 || metaTileType == VVV_10 || metaTileType == VVV_12) {
             return TRUE;
         } else {
             return FALSE;

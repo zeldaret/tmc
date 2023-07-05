@@ -64,7 +64,7 @@ void sub_08085504(LilypadLargeEntity* this) {
         super->type = 0;
     }
     if (super->type != 0) {
-        if (gArea.locationIndex == 0x1b) {
+        if (gArea.locationIndex == 27) { // AREA_TEMPLE_OF_DROPLETS
             if (CheckLocalFlag(super->type2) == 0) {
                 DeleteThisEntity();
             }
@@ -371,7 +371,7 @@ void sub_08085A98(LilypadLargeEntity* this) {
     }
     if (GetVvvRelativeToEntity(super, 0, 0x18) != VVV_17) {
         super->subAction = 2;
-        if (gArea.locationIndex == 0x1b) {
+        if (gArea.locationIndex == 27) { // AREA_TEMPLE_OF_DROPLETS
             super->y.HALF.HI += 0xd0;
             super->z.HALF.HI = -0xd0;
             this->unk_82 = 0x46;
@@ -394,7 +394,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
                 SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
             }
             gPlayerEntity.y.HALF.HI = (super->y.HALF.HI + super->z.HALF.HI) - this->unk_74;
-            if (gArea.locationIndex == 0x1b) {
+            if (gArea.locationIndex == 27) { // AREA_TEMPLE_OF_DROPLETS
                 gPlayerEntity.z.HALF.HI = super->y.HALF.HI - this->unk_74 - 0xd0 - gPlayerEntity.y.HALF.HI;
             } else {
                 gPlayerEntity.z.HALF.HI = super->y.HALF.HI - this->unk_74 - 0x40 - gPlayerEntity.y.HALF.HI;
@@ -510,7 +510,7 @@ void sub_08085D60(LilypadLargeEntity* this) {
                     tmp = r4 >> 2;
                     tmpX = gUnk_08120638[tmp];
                     tmpY = gUnk_08120638[tmp + 1];
-                    if (GetCollisionDataRelativeTo(super, tmpX, tmpY) == 0xff) {
+                    if (GetCollisionDataRelativeTo(super, tmpX, tmpY) == COLLISION_DATA_255) {
 
                         if (sub_080806BC((super->x.HALF.HI - gRoomControls.origin_x) + tmpX,
                                          (super->y.HALF.HI - gRoomControls.origin_y) + tmpY, r4, 5) == 0) {
@@ -529,7 +529,7 @@ void sub_08085D60(LilypadLargeEntity* this) {
                     tmp = r6 >> 2;
                     tmpX2 = gUnk_08120638[tmp];
                     tmpY2 = gUnk_08120638[tmp + 1];
-                    if (GetCollisionDataRelativeTo(super, tmpX2, tmpY2) == 0xff) {
+                    if (GetCollisionDataRelativeTo(super, tmpX2, tmpY2) == COLLISION_DATA_255) {
                         if (sub_0807BD14(&gPlayerEntity, r6 >> 3) != 0) {
                             super->direction = (u8)r6;
                             sub_08085E74(this);

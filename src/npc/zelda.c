@@ -1,9 +1,9 @@
-#include "global.h"
-#include "sound.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
+#include "functions.h"
 #include "npc.h"
+#include "sound.h"
+#include "tiles.h"
 
 void ZeldaFollower_Hide(Entity*, Entity*);
 void ZeldaFollower_Show(Entity*, Entity*);
@@ -165,14 +165,14 @@ static const u16 gUnk_08110BE0[] = {
 };
 
 void sub_08066F94(void) {
-    u16 uVar1;
+    u16 metaTilePos;
     const u16* puVar2;
 
     puVar2 = gUnk_08110BE0;
     while (*puVar2 != 0) {
-        uVar1 = *puVar2;
+        metaTilePos = *puVar2;
         puVar2++;
-        SetMetaTileType(0x4072, uVar1, 1);
+        SetMetaTileType(SPECIAL_META_TILE_114, metaTilePos, LAYER_BOTTOM);
     }
 }
 

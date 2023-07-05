@@ -2189,11 +2189,11 @@ static void PlayerInHoleInit(Entity* this) {
             gPlayerState.animation = 0x950;
         } else {
             gPlayerState.animation = 0x61c;
-            if (GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer) == 0x4020) {
+            if (GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer) == SPECIAL_META_TILE_32) {
                 this->timer = 1;
             }
         }
-        SetMetaTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_112, COORD_TO_TILE(this), this->collisionLayer);
         ResetActiveItems();
         PlayerInHoleUpdate(this);
         SoundReq(SFX_81);
@@ -2250,7 +2250,7 @@ static void sub_08072B5C(Entity* this) {
         return;
     }
 
-    SetMetaTile(0x4021, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_33, COORD_TO_TILE(this), this->collisionLayer);
     this->direction = Direction8FromAnimationState(this->animationState);
     temp = sub_0807A2F8(1);
     if (!temp) {
@@ -2771,7 +2771,7 @@ static void sub_08073584(Entity* this) {
         return;
     }
 
-    if (gArea.locationIndex == 16)
+    if (gArea.locationIndex == 16) // AREA_CLOUD_TOPS
         this->speed = 0x100;
     else
         this->speed = 0x80;
@@ -2832,7 +2832,7 @@ static void sub_08073584(Entity* this) {
         }
 
         if (sAnims1[idx] == gPlayerState.animation) {
-            if (gArea.locationIndex == 16)
+            if (gArea.locationIndex == 16) // AREA_CLOUD_TOPS
                 sub_080042BA(this, 2);
             else
                 UpdateAnimationSingleFrame(this);
@@ -2885,7 +2885,7 @@ static void sub_080737BC(Entity* this) {
         pos = this->y.HALF.HI;
     tmp = 0xf;
     tmp &= pos;
-    if (tmp == 8 && !GetCollisionDataAtEntity(this)) {
+    if (tmp == 8 && GetCollisionDataAtEntity(this) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
     }
@@ -3711,7 +3711,7 @@ void SurfaceAction_20(Entity* this) {
         if (e != NULL) {
             e->timer = 1;
             UpdateSpriteForCollisionLayer(e);
-            CloneTile(57, gPlayerState.tilePosition, this->collisionLayer);
+            CloneTile(META_TILE_TYPE_57, gPlayerState.tilePosition, this->collisionLayer);
         }
     }
     SurfaceAction_Water(this);

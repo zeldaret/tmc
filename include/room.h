@@ -34,8 +34,8 @@ typedef struct {
     /*0x0A*/ s16 scroll_x;
     /*0x0C*/ s16 scroll_y;
     /*0x0E*/ u8 scrollSpeed;  /**< Pixels per frame that the camera can scroll. */
-    /*0x0F*/ u8 scroll_flags; // 0x2 = ?? (apply collision value on bottom map no matter the layer SetMetaTileType is called
-                              // for), 0x4 = camera scrolling
+    /*0x0F*/ u8 scroll_flags; // 0x2 = ?? (apply collision value on bottom map no matter the layer SetMetaTileType is
+                              // called for), 0x4 = camera scrolling
     /*0x10*/ u8 scroll_direction;
     /*0x11*/ s8 oam_offset_x;
     /*0x12*/ s8 oam_offset_y;
@@ -154,7 +154,7 @@ typedef struct {
     /* 0x06 */ u16 field_0x6;
     /* 0x08 */ bool8 transitioningOut;
     /* 0x09 */ u8 type;        // transition when changing areas
-    /* 0x0a */ u16 stairs_idx; // seems to be a tile type
+    /* 0x0a */ u16 stairs_idx; // seems to be a tile type @see MetaTileType, set in UpdateDoorTransition()
     /* 0x0c */ PlayerRoomStatus player_status;
     /* 0x2c */ u8 entity_update_type; // differentiates entity priority on kinstone menu?
     /* 0x2d */ u8 field_0x2c[0x8];

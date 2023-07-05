@@ -14,7 +14,6 @@
 
 extern void (*const HoleManager_Actions[])(HoleManager*);
 
-
 void HoleManager_Main(HoleManager* this) {
     HoleManager_Actions[super->action](this);
 }

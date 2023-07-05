@@ -9,6 +9,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -31,12 +32,12 @@ void CabinFurniture(Entity* this) {
 }
 
 void CabinFurniture_Init(CabinFurnitureEntity* this) {
-    u32 uVar1;
+    u32 layer;
     u32 uVar6;
     u32 uVar7;
 
     this->tile = COORD_TO_TILE(super);
-    uVar1 = super->collisionLayer;
+    layer = super->collisionLayer;
     UpdateSpriteForCollisionLayer(super);
     switch (super->type) {
         case 0:
@@ -44,38 +45,38 @@ void CabinFurniture_Init(CabinFurnitureEntity* this) {
             super->spritePriority.b0 = 6;
             uVar7 = this->tile;
             uVar6 = uVar7 - 1;
-            SetMetaTile(0x4022, uVar6, uVar1);
-            SetMetaTile(0x4022, uVar7, uVar1);
-            SetMetaTile(0x4022, uVar7 + 1, uVar1);
-            SetMetaTile(0x4022, uVar7 + 0x3f, uVar1);
-            SetMetaTile(0x4022, uVar7 + 0x40, uVar1);
-            SetMetaTile(0x4022, uVar7 + 0x41, uVar1);
-            SetMetaTile(0x403d, uVar7 - 0x41, uVar1);
-            SetMetaTile(0x403d, uVar7 - 0x40, uVar1);
-            SetMetaTile(0x4026, uVar7 - 0x3f, uVar1);
-            SetMetaTile(0x4026, uVar7 - 0x81, uVar1);
-            SetMetaTile(0x4026, uVar7 - 0x80, uVar1);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar6, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7 + 1, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7 + 0x3f, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7 + 0x40, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7 + 0x41, layer);
+            SetMetaTile(SPECIAL_META_TILE_61, uVar7 - 0x41, layer);
+            SetMetaTile(SPECIAL_META_TILE_61, uVar7 - 0x40, layer);
+            SetMetaTile(SPECIAL_META_TILE_38, uVar7 - 0x3f, layer);
+            SetMetaTile(SPECIAL_META_TILE_38, uVar7 - 0x81, layer);
+            SetMetaTile(SPECIAL_META_TILE_38, uVar7 - 0x80, layer);
             break;
         case 1:
             super->action = 1;
             uVar6 = this->tile;
-            SetMetaTile(0x4022, uVar6, uVar1);
-            SetMetaTile(0x4022, uVar6 + 0x40, uVar1);
-            SetMetaTile(0x4025, uVar6 + 0x41, uVar1);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar6, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar6 + 0x40, layer);
+            SetMetaTile(SPECIAL_META_TILE_37, uVar6 + 0x41, layer);
             if (CheckLocalFlag(0x4f) == 0) {
-                SetMetaTile(0x402f, uVar6 + 1, uVar1);
+                SetMetaTile(SPECIAL_META_TILE_47, uVar6 + 1, layer);
             } else {
-                SetMetaTile(0x402d, uVar6 + 1, uVar1);
+                SetMetaTile(SPECIAL_META_TILE_45, uVar6 + 1, layer);
             }
             break;
         case 2:
             super->action = 1;
             uVar7 = this->tile;
             uVar6 = uVar7 - 0x41;
-            SetMetaTile(0x4022, uVar6, uVar1);
-            SetMetaTile(0x4022, uVar7 - 0x40, uVar1);
-            SetMetaTile(0x4022, uVar7 - 1, uVar1);
-            SetMetaTile(0x4022, uVar7, uVar1);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar6, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7 - 0x40, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7 - 1, layer);
+            SetMetaTile(SPECIAL_META_TILE_34, uVar7, layer);
             break;
     }
 }

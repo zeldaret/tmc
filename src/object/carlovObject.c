@@ -6,8 +6,8 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -99,7 +99,7 @@ void CarlovObject_Type1Init(CarlovObjectEntity* this) {
     if (super->timer == 0) {
         super->action = 1;
         super->subtimer = 120;
-        SetMetaTile(0x4022, this->unk_76, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_76, super->collisionLayer);
     } else {
         super->action = 3;
         super->spriteSettings.draw = 0;
@@ -142,7 +142,7 @@ void CarlovObject_Type1Action4(CarlovObjectEntity* this) {
         super->action = 5;
         sub_08083814(super, 2);
         EnqueueSFX(SFX_10B);
-        SetMetaTile(0x4022, this->unk_76, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_76, super->collisionLayer);
     }
 }
 

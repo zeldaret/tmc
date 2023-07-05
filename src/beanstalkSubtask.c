@@ -203,7 +203,7 @@ u32 UpdatePlayerCollision(void) {
         if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
             ptr1 = &gUnk_080B4490[index * 2];
             if (GetCollisionDataAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]),
-                                              gPlayerEntity.collisionLayer) == 0xff) {
+                                              gPlayerEntity.collisionLayer) == COLLISION_DATA_255) {
                 if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) ||
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
@@ -222,7 +222,7 @@ u32 UpdatePlayerCollision(void) {
     position = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]);
     tileType = GetMetaTileType(position, gPlayerEntity.collisionLayer);
     if (tileType < 0x4000) {
-        direction = sub_080B1B54(tileType);
+        direction = GetVvvForMetaTileType(tileType);
     } else {
         direction = tileType;
     }
@@ -230,7 +230,7 @@ u32 UpdatePlayerCollision(void) {
     animationState2 = animationState1 & 0xff;
 
     switch (direction) {
-        case 0x4000:
+        case SPECIAL_META_TILE_0:
             if (sub_0801A458(mapLayer, position, 2) == 0) {
                 return 0;
             }
@@ -246,7 +246,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x28:
+        case VVV_40:
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 return 0;
             }
@@ -260,7 +260,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.direction & 0x80) != 0) {
                 return 0;
             }
-            if (GetCollisionDataAtMetaTilePos(position, gPlayerEntity.collisionLayer) != 0xf) {
+            if (GetCollisionDataAtMetaTilePos(position, gPlayerEntity.collisionLayer) != COLLISION_DATA_15) {
                 return 0;
             }
             if (sub_08079778() == 0) {
@@ -280,11 +280,12 @@ u32 UpdatePlayerCollision(void) {
             }
             sub_08078AC0(4, 0, 1);
             return 0;
-        case 0x401b:
+        case SPECIAL_META_TILE_27:
             if (sub_0801A2B0(mapLayer, position, 0xb) == 0) {
                 return 0;
             }
-            mapLayer->mapData[position] = 0x401c + (gPlayerEntity.animationState >> 1);
+            // Start moving the boulder.
+            mapLayer->mapData[position] = SPECIAL_META_TILE_28 + (gPlayerEntity.animationState / 2);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
@@ -293,7 +294,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             gPlayerEntity.type = 1;
             return 1;
-        case 0x70:
+        case VVV_112:
             if ((gPlayerState.field_0x35 & 0x80) == 0) {
                 if ((gPlayerEntity.frame & 1) != 0) {
                     if (sub_0801A9F0(gPlayerState.field_0x35 << 2, tileType, position) != 0) {
@@ -302,9 +303,9 @@ u32 UpdatePlayerCollision(void) {
                 }
             }
             return 0;
-        case 0x3a:
-        case 0x5b:
-        case 0x4051:
+        case VVV_58:
+        case VVV_91:
+        case SPECIAL_META_TILE_81:
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 return 0;
             }
@@ -318,7 +319,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerState.mobility = 1;
             sub_080A7CFC(position, gPlayerEntity.collisionLayer);
             return 1;
-        case 0x1a:
+        case VVV_26:
             if ((animationState1 & 0xff) != 0) {
                 return 0;
             }
@@ -332,7 +333,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerState.mobility = 1;
             OpenSmallChest(position, gPlayerEntity.collisionLayer);
             return 2;
-        case 0x71:
+        case VVV_113:
             if (HasDungeonSmallKey() == 0) {
                 return 0;
             }
@@ -343,8 +344,8 @@ u32 UpdatePlayerCollision(void) {
             gPlayerState.mobility = 1;
             sub_0804B388(position, gPlayerEntity.collisionLayer);
             return 2;
-        case 0x3d:
-        case 0x4040 ... 0x4048:
+        case VVV_61:
+        case SPECIAL_META_TILE_64 ... SPECIAL_META_TILE_72:
             if ((gPlayerState.flags & PL_DRUGGED) != 0) {
                 return 0;
             }
@@ -371,14 +372,14 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.zVelocity = 0x20000;
             COLLISION_OFF(&gPlayerEntity);
             return 1;
-        case 0x400b:
+        case SPECIAL_META_TILE_11:
             if (sub_0801A2B0(mapLayer, position, 8) == 0) {
                 return 0;
             }
-            if ((gPlayerEntity.collisionLayer == 3) && (gMapTop.mapData[position] == 0x400b)) {
-                gMapTop.mapData[position] = 0x400c + (gPlayerEntity.animationState >> 1);
+            if ((gPlayerEntity.collisionLayer == 3) && (gMapTop.mapData[position] == SPECIAL_META_TILE_11)) {
+                gMapTop.mapData[position] = SPECIAL_META_TILE_12 + (gPlayerEntity.animationState >> 1);
             } else {
-                mapLayer->mapData[position] = 0x400c + (gPlayerEntity.animationState >> 1);
+                mapLayer->mapData[position] = SPECIAL_META_TILE_12 + (gPlayerEntity.animationState >> 1);
             }
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
@@ -387,11 +388,12 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x405a:
+        case SPECIAL_META_TILE_90:
             if (sub_0801A2B0(mapLayer, position, 2) == 0) {
                 return 0;
             }
-            mapLayer->mapData[position] = 0x405b + (gPlayerEntity.animationState >> 1);
+            // Move ice block.
+            mapLayer->mapData[position] = SPECIAL_META_TILE_91 + (gPlayerEntity.animationState >> 1);
             gPlayerState.pushedObject = 0x98;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
@@ -399,11 +401,11 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x4036:
+        case SPECIAL_META_TILE_54:
             if (sub_0801A2B0(mapLayer, position, 0xb) == 0) {
                 return 0;
             }
-            mapLayer->mapData[position] = 0x4037 + (gPlayerEntity.animationState >> 1);
+            mapLayer->mapData[position] = SPECIAL_META_TILE_55 + (gPlayerEntity.animationState >> 1);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
@@ -411,7 +413,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x403e:
+        case SPECIAL_META_TILE_62:
             if ((animationState1 & 0xff) != 0) {
                 return 0;
             }
@@ -421,7 +423,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.frame & 2) == 0) {
                 return 0;
             }
-            mapLayer->mapData[position] = 0x403f;
+            mapLayer->mapData[position] = SPECIAL_META_TILE_63;
             gPlayerState.pushedObject = 0x82;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
@@ -429,7 +431,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x72:
+        case VVV_114:
             if ((gPlayerState.field_0x35 & 0x80) != 0) {
                 return 0;
             }
@@ -470,9 +472,9 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = pushedBlock->direction;
             return 1;
-        case 0x402b ... 0x402d:
+        case SPECIAL_META_TILE_43 ... SPECIAL_META_TILE_45:
             if (sub_0801A370(mapLayer, position) != 0) {
-                mapLayer->mapData[position] = 0x4030 + ((gPlayerEntity.animationState & 4) >> 2);
+                mapLayer->mapData[position] = SPECIAL_META_TILE_48 + ((gPlayerEntity.animationState & 4) >> 2);
                 if ((gPlayerState.flags & PL_MINISH) != 0) {
                     gPlayerState.pushedObject = 0xa0;
                 } else {
@@ -487,11 +489,11 @@ u32 UpdatePlayerCollision(void) {
             } else {
                 return 0;
             }
-        case 0x404a:
+        case SPECIAL_META_TILE_74:
             if (sub_0801A458(mapLayer, position, 8) == 0) {
                 return 0;
             }
-            mapLayer->mapData[position] = 0x404b + (gPlayerEntity.animationState >> 1);
+            mapLayer->mapData[position] = SPECIAL_META_TILE_75 + (gPlayerEntity.animationState >> 1);
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 gPlayerState.pushedObject = 0xc0;
             } else {
@@ -503,22 +505,22 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x4052:
+        case SPECIAL_META_TILE_82:
             if (gPlayerState.field_0x35 != 0) {
                 return 0;
             }
-            SetMetaTile(0x4054, position, gPlayerEntity.collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_84, position, gPlayerEntity.collisionLayer);
             return 4;
-        case 0x4053:
+        case SPECIAL_META_TILE_83:
             if (gPlayerState.field_0x35 != 6) {
                 return 0;
             }
-            SetMetaTile(0x4054, position, gPlayerEntity.collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_84, position, gPlayerEntity.collisionLayer);
             return 4;
-        case 0x4055:
+        case SPECIAL_META_TILE_85:
             position--;
             // fallthrough
-        case 0x4056:
+        case SPECIAL_META_TILE_86:
             if (gPlayerState.field_0x35 != 0) {
                 return 0;
             }
@@ -527,15 +529,15 @@ u32 UpdatePlayerCollision(void) {
             }
             for (index = 0; index < 3; index++) {
                 if (sub_0801A8D0(gPlayerClones[index], 0) == position) {
-                    SetMetaTile(0x4059, position, gPlayerEntity.collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_89, position, gPlayerEntity.collisionLayer);
                     return 4;
                 }
             }
             return 0;
-        case 0x4057:
+        case SPECIAL_META_TILE_87:
             position -= 0x40;
             // fallthrough
-        case 0x4058:
+        case SPECIAL_META_TILE_88:
             if (gPlayerState.field_0x35 != 6) {
                 return 0;
             }
@@ -544,12 +546,12 @@ u32 UpdatePlayerCollision(void) {
             }
             for (index = 0; index < 3; index++) {
                 if (sub_0801A8D0(gPlayerClones[index], 6) == position) {
-                    SetMetaTile(0x4059, position, gPlayerEntity.collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_89, position, gPlayerEntity.collisionLayer);
                     return 4;
                 }
             }
             return 0;
-        case 0x405f:
+        case SPECIAL_META_TILE_95:
             animationState3 = 2;
             animationState3 &= animationState1;
             if (animationState3 == 0) {
@@ -561,7 +563,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.frame & 1) == 0) {
                 return 0;
             }
-            SetMetaTile(0x4074, position, gPlayerEntity.collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_116, position, gPlayerEntity.collisionLayer);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
@@ -569,7 +571,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             return 1;
-        case 0x407d:
+        case SPECIAL_META_TILE_125:
             animationState3 = gPlayerEntity.animationState;
             if ((animationState2) != 4) {
                 return 0;
@@ -580,7 +582,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.frame & 1) == 0) {
                 return 0;
             }
-            SetMetaTile(0x4074, position, gPlayerEntity.collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_116, position, gPlayerEntity.collisionLayer);
             SetVvvAtMetaTilePos(VVV_13, position, gPlayerEntity.collisionLayer);
             return 1;
         default:
@@ -597,7 +599,7 @@ bool32 sub_0801A2B0(MapLayer* mapLayer, u32 position, u32 collisionType) {
     uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
     if ((((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
         position = (u16)(position - (-uVar1)); // necessary for match
-        temp4 = sub_080B1B54(GetMetaTileType(position, gPlayerEntity.collisionLayer));
+        temp4 = GetVvvForMetaTileType(GetMetaTileType(position, gPlayerEntity.collisionLayer));
         switch (temp4) {
             case 0x52:
                 break;
@@ -640,16 +642,16 @@ bool32 sub_0801A370(MapLayer* mapLayer, u32 position) {
     pos = position + offset;
     tileType = GetMetaTileType(pos, gPlayerEntity.collisionLayer);
     switch (tileType) {
-        case 0x402b:
+        case SPECIAL_META_TILE_43:
             pos += offset;
             break;
-        case 0x402c ... 0x402f:
+        case SPECIAL_META_TILE_44 ... SPECIAL_META_TILE_47:
             return TRUE;
     }
     if (topLayer->collisionData[pos - 0x80] == 0x46) {
         return FALSE;
     }
-    switch ((u16)sub_080B1B54(GetMetaTileType(pos, gPlayerEntity.collisionLayer))) {
+    switch ((u16)GetVvvForMetaTileType(GetMetaTileType(pos, gPlayerEntity.collisionLayer))) {
         case 0x52:
             return FALSE;
         case 0x26:
@@ -686,7 +688,7 @@ bool32 sub_0801A458(MapLayer* mapLayer, u32 position, u32 collisionType) {
     if (sub_0801A4F8()) {
         pos = position + offset;
         tileType = GetMetaTileType(pos, gPlayerEntity.collisionLayer);
-        switch (sub_080B1B54(tileType)) {
+        switch (GetVvvForMetaTileType(tileType)) {
             case 0x52:
             case 0x26:
             case 0x27:
@@ -747,19 +749,19 @@ u32 sub_0801A8D0(Entity* this, u32 param_2) {
     if (param_2 == 0) {
         position = COORD_TO_TILE_OFFSET(this, 0, 8);
         tile = mapData[position];
-        if (tile == 0x4055) {
+        if (tile == SPECIAL_META_TILE_85) {
             return position - 1;
         }
-        if (tile == 0x4056) {
+        if (tile == SPECIAL_META_TILE_86) {
             return position;
         }
     } else {
         position = COORD_TO_TILE_OFFSET(this, 8, 0);
         tile = mapData[position];
-        if (tile == 0x4057) {
+        if (tile == SPECIAL_META_TILE_87) {
             return position - 0x40;
         }
-        if (tile == 0x4058) {
+        if (tile == SPECIAL_META_TILE_88) {
             return position;
         }
     }
@@ -773,7 +775,7 @@ bool32 sub_0801A980(void) {
     ptr = &gUnk_080B44A8[gPlayerEntity.animationState & 6];
     tileType = GetMetaTileType(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), gPlayerEntity.collisionLayer);
     if (tileType < 0x4000) {
-        sub_080B1B54(tileType);
+        GetVvvForMetaTileType(tileType);
     }
     return FALSE;
 }
@@ -1113,8 +1115,10 @@ void DeleteLoadedTileEntity(u32 metaTilePos, s32 layer) {
 }
 
 const struct_080B44D0 gUnk_080B44D0[] = {
-    { 0x67, 0x4084 }, { 0x68, 0x4085 }, { 0x69, 0x4086 }, { 0x6a, 0x4087 },
-    { 0x6b, 0x4088 }, { 0x27, 0x4083 }, { 0x23, 0x408d }, { 0x0, 0x0 },
+    { 0x67, SPECIAL_META_TILE_132 }, { 0x68, SPECIAL_META_TILE_133 },
+    { 0x69, SPECIAL_META_TILE_134 }, { 0x6a, SPECIAL_META_TILE_135 },
+    { 0x6b, SPECIAL_META_TILE_136 }, { 0x27, SPECIAL_META_TILE_131 },
+    { 0x23, SPECIAL_META_TILE_141 }, { 0x0, 0x0 },
 };
 
 // used for minish houses, seems to overwrite all tiles with certain collision values on layer 1 for them?
@@ -1127,13 +1131,13 @@ void sub_0801AFE4(void) {
     u32 height;
 
     collisionData = gMapBottom.collisionData;
-    width = gRoomControls.width >> 4;
-    height = gRoomControls.height >> 4;
+    width = gRoomControls.width / 16;
+    height = gRoomControls.height / 16;
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
             for (ptr = gUnk_080B44D0; ptr->collision != 0; ptr++) {
                 if (ptr->collision == *collisionData) {
-                    SetMetaTile(ptr->tileIndex, y * 0x40 + x, 1);
+                    SetMetaTile(ptr->tileIndex, y * 0x40 + x, LAYER_BOTTOM);
                     break;
                 }
             }

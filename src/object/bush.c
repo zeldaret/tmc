@@ -5,10 +5,10 @@
  * @brief Bush object
  */
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -70,7 +70,7 @@ void Bush_Init(BushEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_081205B4;
     this->unk_72 = 0;
     this->unk_70 = GetMetaTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    SetMetaTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
     InitializeAnimation(super, gUnk_08120588[super->type].unk_0);
 }
 

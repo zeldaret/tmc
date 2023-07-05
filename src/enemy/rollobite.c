@@ -5,11 +5,12 @@
  * @brief Rollobite enemy
  */
 
+#include "collision.h"
 #include "enemy.h"
 #include "physics.h"
 #include "player.h"
 #include "room.h"
-#include "collision.h"
+#include "tiles.h"
 
 extern void (*const Rollobite_Functions[])(Entity*);
 extern void (*const gRollobiteActions[])(Entity*);
@@ -243,11 +244,11 @@ void sub_08020A30(Entity* this) {
 }
 
 void sub_08020A7C(Entity* this) {
-    int tmp = Random();
+    s32 tmp = Random();
     u32 state = DirectionRound(this->direction + gUnk_080CA6D4[tmp % 3]);
 
     if (sub_08049FA0(this) == 0) {
-        int tmp = DirectionRoundUp(sub_08049EE4(this));
+        u32 tmp = DirectionRoundUp(sub_08049EE4(this));
         if ((state ^ 0x10) == tmp)
             state ^= 0x10;
     }
@@ -259,9 +260,9 @@ void sub_08020A7C(Entity* this) {
 
 bool32 Rollobite_TryToHoleUp(Entity* this) {
     if (Rollobite_IsRolledUp(this) && this->z.HALF.HI == 0) {
-        int tile = COORD_TO_TILE(this);
-        int iVar1 = GetMetaTileType(tile, this->collisionLayer);
-        if ((iVar1 * 0x10000 - 0x710000U) >> 0x10 < 2) {
+        u32 tilePos = COORD_TO_TILE(this);
+        u32 tileType = GetMetaTileType(tilePos, this->collisionLayer);
+        if ((tileType * 0x10000 - 0x710000U) >> 0x10 < 2) {
             this->action = 6;
             COLLISION_OFF(this);
             this->x.HALF.HI &= 0xfff0;
@@ -270,7 +271,7 @@ bool32 Rollobite_TryToHoleUp(Entity* this) {
             this->y.HALF.HI += 13;
             this->zVelocity = Q_16_16(2.0);
             InitializeAnimation(this, this->animationState + 0x14);
-            SetMetaTile(0x4034, tile, this->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_52, tilePos, this->collisionLayer);
             return TRUE;
         }
     }

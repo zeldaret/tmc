@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "game.h"
 #include "hitbox.h"
+#include "tiles.h"
 
 extern void (*const MandiblesProjectile_Functions[])(Entity*);
 extern void (*const MandiblesProjectile_Actions[])(Entity*);
@@ -102,8 +103,8 @@ void MandiblesProjectile_Action2(Entity* this) {
         EnqueueSFX(SFX_15D);
     }
     this->field_0x78.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    if (GetMetaTileType(this->field_0x78.HWORD, this->collisionLayer) == 0x4000) {
-        SetMetaTile(0x4005, this->field_0x78.HWORD, this->collisionLayer);
+    if (GetMetaTileType(this->field_0x78.HWORD, this->collisionLayer) == SPECIAL_META_TILE_0) {
+        SetMetaTile(SPECIAL_META_TILE_5, this->field_0x78.HWORD, this->collisionLayer);
     }
 }
 

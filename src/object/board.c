@@ -10,6 +10,7 @@
 #include "functions.h"
 #include "player.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -54,7 +55,7 @@ void Board_Init(BoardEntity* this) {
     UpdateSpriteForCollisionLayer(super);
     super->spritePriority.b0 = 6;
     if (super->type == 0) {
-        SetMetaTile(0x4074, this->tile - 0x40, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_116, this->tile + TILE_POS(0, -1), super->collisionLayer);
     }
     sub_08098BE8(this);
 }

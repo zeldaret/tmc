@@ -3,8 +3,8 @@
 
 #include "global.h"
 
-// gMapDataTopSpecial and gMapDataBottomSpecial are tilemaps of 8x8 pixels. But they are also reused for other data in other parts of the game.
-
+// gMapDataTopSpecial and gMapDataBottomSpecial are tilemaps of 8x8 pixels. But they are also reused for other data in
+// other parts of the game.
 
 // Rendered tilemaps https://www.coranac.com/tonc/text/regbg.htm#sec-map
 extern u16 gMapDataTopSpecial[0x4000];

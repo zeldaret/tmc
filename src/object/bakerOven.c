@@ -6,6 +6,7 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 extern void SoundReqClipped(Entity*, u32);
 void sub_0809CDF0(Entity*);
@@ -95,18 +96,18 @@ void BakerOven_Action2(Entity* this) {
 }
 
 void sub_0809CDF0(Entity* this) {
-    u32 y;
+    u32 metaTilePos;
 
     this->field_0x80.HWORD = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
                              (((this->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
-    y = this->field_0x80.HWORD;
-    SetMetaTile(0x402e, y - 0x01, this->collisionLayer);
-    SetMetaTile(0x4022, y - 0x00, this->collisionLayer);
-    SetMetaTile(0x4022, y + 0x01, this->collisionLayer);
-    SetMetaTile(0x4026, y - 0x41, this->collisionLayer);
-    SetMetaTile(0x4026, y - 0x40, this->collisionLayer);
-    SetMetaTile(0x4024, y - 0x3f, this->collisionLayer);
-    SetMetaTile(0x4026, y - 0x81, this->collisionLayer);
-    SetMetaTile(0x4026, y - 0x80, this->collisionLayer);
+    metaTilePos = this->field_0x80.HWORD;
+    SetMetaTile(SPECIAL_META_TILE_46, metaTilePos + TILE_POS(-1, 0), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + TILE_POS(0, 0), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + TILE_POS(1, 0), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(-1, -1), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(0, -1), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_36, metaTilePos + TILE_POS(1, -1), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(-1, -2), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(0, -2), this->collisionLayer);
 }

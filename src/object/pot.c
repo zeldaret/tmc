@@ -69,11 +69,11 @@ void Pot_Init(Entity* this) {
     }
 
     this->field_0x70.HALF.LO = GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer);
-    if ((u16)this->field_0x70.HALF.LO == 0x4000) {
+    if ((u16)this->field_0x70.HALF.LO == SPECIAL_META_TILE_0) {
         DeleteThisEntity();
     }
 
-    SetMetaTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_0, COORD_TO_TILE(this), this->collisionLayer);
     InitializeAnimation(this, 5);
 }
 
@@ -99,11 +99,11 @@ void Pot_Action1(Entity* this) {
             tileType = GetMetaTileTypeByEntity(this);
             if (tileType != 0x4000) {
                 switch (tileType) {
-                    case 0x4004:
-                    case 0x4003:
-                    case 0x4002:
-                    case 0x4001:
-                        this->direction = (tileType - 0x4001) * 8;
+                    case SPECIAL_META_TILE_4:
+                    case SPECIAL_META_TILE_3:
+                    case SPECIAL_META_TILE_2:
+                    case SPECIAL_META_TILE_1:
+                        this->direction = (tileType - SPECIAL_META_TILE_1) * 8;
                         this->timer = 32;
                         this->action = 4;
                         if (gPlayerState.flags & PL_MINISH) {
@@ -113,14 +113,14 @@ void Pot_Action1(Entity* this) {
                         SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         EnqueueSFX(SFX_10F);
                         break;
-                    case 0x4067:
+                    case SPECIAL_META_TILE_103:
                         SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         DeleteThisEntity();
                         break;
                     default:
                         if (GetVvvAtEntity(this) == VVV_13) {
                             CreateFx(this, FX_FALL_DOWN, 0);
-                        } else if (tileType == 0x4005) {
+                        } else if (tileType == SPECIAL_META_TILE_5) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
                             SetMetaTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         }
@@ -220,7 +220,7 @@ void Pot_Action4(Entity* this) {
             sub_08082850(this, NULL);
             break;
         default:
-            SetMetaTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_0, COORD_TO_TILE(this), this->collisionLayer);
             RegisterCarryEntity(this);
             break;
     }
@@ -243,7 +243,7 @@ void sub_0808270C(Entity* this) {
     if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {
         this->spriteOffsetX = 0;
         this->action = 1;
-        SetMetaTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_0, COORD_TO_TILE(this), this->collisionLayer);
     } else {
         sub_0806F4E8(this);
     }

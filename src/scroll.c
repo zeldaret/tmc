@@ -30,7 +30,7 @@ extern u16 gUnk_0200B640;
 extern MapDataDefinition** gCaveBorderMapData[];
 extern u16 gUnk_02022830[0xc00];
 extern u16 gUnk_020246B0[0xc00];
-extern u8 gUnk_080B7910[];
+extern u8 gMapSpecialMetaTileToVvv[];
 
 void Scroll0(RoomControls*);
 void Scroll1(RoomControls*);
@@ -781,8 +781,8 @@ void sub_080809D4(void) {
 
 void UpdateDoorTransition() {
     u32 vvv;
-    u32 uVar3;
-    u32 uVar4;
+    u32 x;
+    u32 y;
     RoomControls* controls = &gRoomControls;
     if (gRoomControls.camera_target != &gPlayerEntity) {
         return;
@@ -799,19 +799,19 @@ void UpdateDoorTransition() {
         case 9:
         case 0x18:
         case 0x1d:
-            uVar4 = controls->camera_target->y.HALF.HI - controls->origin_y;
-            uVar3 = controls->camera_target->x.HALF.HI - controls->origin_x;
+            y = controls->camera_target->y.HALF.HI - controls->origin_y;
+            x = controls->camera_target->x.HALF.HI - controls->origin_x;
             vvv = GetVvvAtMetaTilePos(
                 (((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
                     ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
                 controls->camera_target->collisionLayer);
-            gRoomTransition.stairs_idx = sub_080B1A48(uVar3, uVar4, controls->camera_target->collisionLayer);
+            gRoomTransition.stairs_idx = sub_080B1A48(x, y, controls->camera_target->collisionLayer);
             switch (vvv) {
                 case VVV_63:
                 case VVV_241:
                 case VVV_40:
                 case VVV_41:
-                    sub_080806BC(uVar3, uVar4, 0xff, 10);
+                    sub_080806BC(x, y, 0xff, 10);
                     break;
             }
     }
@@ -821,7 +821,7 @@ void UpdateDoorTransition() {
 void FillVvvForLayer(MapLayer* mapLayer) {
     u32 metaTilePos;
     u16* metatileTypes = mapLayer->metatileTypes;
-    const u8* ptr = gUnk_080B37A0;
+    const u8* ptr = gMapMetaTileTypeToVvv;
     u8* ptr3 = mapLayer->vvv;
     u16* mapData = mapLayer->mapData;
     for (metaTilePos = 0; metaTilePos < 0x40 * 0x40; metaTilePos++) {
@@ -829,7 +829,7 @@ void FillVvvForLayer(MapLayer* mapLayer) {
         if (metaTileIndex < 0x4000) {
             mapLayer->vvv[metaTilePos] = ptr[metatileTypes[metaTileIndex]];
         } else {
-            mapLayer->vvv[metaTilePos] = gUnk_080B7910[metaTileIndex - 0x4000];
+            mapLayer->vvv[metaTilePos] = gMapSpecialMetaTileToVvv[metaTileIndex - 0x4000];
         }
     }
 }

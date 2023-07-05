@@ -6,9 +6,10 @@
  */
 
 #define NENT_DEPRECATED
+#include "area.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -27,11 +28,11 @@ void BlockPushed(BlockPushedEntity* this) {
 
 void BlockPushed_Init(BlockPushedEntity* this) {
     u16 tmp;
-    u32 pos;
+    u32 metaTilePos;
 
-    if (gRoomControls.area == 0x11) {
+    if (gRoomControls.area == AREA_MINISH_PATHS) {
         UnloadGFXSlots(super);
-        if (LoadFixedGFX(super, 0x1c1) == 0) {
+        if (LoadFixedGFX(super, 449) == 0) {
             super->spriteSettings.draw = 0;
             return;
         }
@@ -41,50 +42,50 @@ void BlockPushed_Init(BlockPushedEntity* this) {
     super->timer = 32;
     super->speed = 0x80;
     super->spritePriority.b0 = 6;
-    pos = COORD_TO_TILE(super);
+    metaTilePos = COORD_TO_TILE(super);
     tmp = super->type * 8;
     super->x.HALF.HI += tmp;
     super->y.HALF.HI += tmp;
     super->hitbox = (Hitbox*)gUnk_0811F64C[super->type];
-    this->unk_68 = GetMetaTileType(pos, (u32)super->collisionLayer);
+    this->unk_68 = GetMetaTileType(metaTilePos, super->collisionLayer);
     switch (super->type) {
         case 0:
-            sub_080832D8(pos, this);
+            sub_080832D8(metaTilePos, this);
             break;
         case 1:
-            sub_080832D8(pos, this);
-            sub_080832D8(pos + 1, this);
-            sub_080832D8(pos + 0x40, this);
-            sub_080832D8(pos + 0x41, this);
+            sub_080832D8(metaTilePos, this);
+            sub_080832D8(metaTilePos + 1, this);
+            sub_080832D8(metaTilePos + 0x40, this);
+            sub_080832D8(metaTilePos + 0x41, this);
             break;
         case 2:
-            sub_080832D8(pos, this);
-            sub_080832D8(pos + 1, this);
-            sub_080832D8(pos + 2, this);
-            sub_080832D8(pos + 0x40, this);
-            sub_080832D8(pos + 0x41, this);
-            sub_080832D8(pos + 0x42, this);
-            sub_080832D8(pos + 0x80, this);
-            sub_080832D8(pos + 0x81, this);
-            sub_080832D8(pos + 0x82, this);
+            sub_080832D8(metaTilePos, this);
+            sub_080832D8(metaTilePos + 1, this);
+            sub_080832D8(metaTilePos + 2, this);
+            sub_080832D8(metaTilePos + 0x40, this);
+            sub_080832D8(metaTilePos + 0x41, this);
+            sub_080832D8(metaTilePos + 0x42, this);
+            sub_080832D8(metaTilePos + 0x80, this);
+            sub_080832D8(metaTilePos + 0x81, this);
+            sub_080832D8(metaTilePos + 0x82, this);
             break;
         default:
-            sub_080832D8(pos, this);
-            sub_080832D8(pos + 1, this);
-            sub_080832D8(pos + 2, this);
-            sub_080832D8(pos + 3, this);
-            sub_080832D8(pos + 0x40, this);
-            sub_080832D8(pos + 0x41, this);
-            sub_080832D8(pos + 0x42, this);
-            sub_080832D8(pos + 0x43, this);
-            sub_080832D8(pos + 0x80, this);
-            sub_080832D8(pos + 0x81, this);
-            sub_080832D8(pos + 0x82, this);
-            sub_080832D8(pos + 0x83, this);
-            sub_080832D8(pos + 0xc0, this);
-            sub_080832D8(pos + 0xc1, this);
-            sub_080832D8(pos + 0xc2, this);
-            sub_080832D8(pos + 0xc3, this);
+            sub_080832D8(metaTilePos, this);
+            sub_080832D8(metaTilePos + 1, this);
+            sub_080832D8(metaTilePos + 2, this);
+            sub_080832D8(metaTilePos + 3, this);
+            sub_080832D8(metaTilePos + 0x40, this);
+            sub_080832D8(metaTilePos + 0x41, this);
+            sub_080832D8(metaTilePos + 0x42, this);
+            sub_080832D8(metaTilePos + 0x43, this);
+            sub_080832D8(metaTilePos + 0x80, this);
+            sub_080832D8(metaTilePos + 0x81, this);
+            sub_080832D8(metaTilePos + 0x82, this);
+            sub_080832D8(metaTilePos + 0x83, this);
+            sub_080832D8(metaTilePos + 0xc0, this);
+            sub_080832D8(metaTilePos + 0xc1, this);
+            sub_080832D8(metaTilePos + 0xc2, this);
+            sub_080832D8(metaTilePos + 0xc3, this);
             break;
     }
     EnqueueSFX(SFX_10F);
@@ -148,18 +149,18 @@ void sub_080830B8(BlockPushedEntity* this) {
     DeleteEntity(super);
 }
 
-void sub_080832D8(u32 param_1, BlockPushedEntity* this) {
+void sub_080832D8(u32 metaTilePos, BlockPushedEntity* this) {
     if (super->collisionLayer != 2) {
         if ((super->direction & 8) != 0) {
-            sub_0807B7D8(0x21, param_1, super->collisionLayer);
+            sub_0807B7D8(META_TILE_TYPE_33, metaTilePos, super->collisionLayer);
         } else {
-            sub_0807B7D8(0x20, param_1, super->collisionLayer);
+            sub_0807B7D8(META_TILE_TYPE_32, metaTilePos, super->collisionLayer);
         }
     } else {
         if ((super->direction & 8) != 0) {
-            sub_0807B7D8(0x2f, param_1, super->collisionLayer);
+            sub_0807B7D8(META_TILE_TYPE_47, metaTilePos, super->collisionLayer);
         } else {
-            sub_0807B7D8(0x2e, param_1, super->collisionLayer);
+            sub_0807B7D8(META_TILE_TYPE_46, metaTilePos, super->collisionLayer);
         }
     }
 }

@@ -5,9 +5,10 @@
  * @brief Door Mimic enemy
  */
 
-#include "sound.h"
 #include "enemy.h"
 #include "functions.h"
+#include "sound.h"
+#include "tiles.h"
 
 void sub_080221C0(Entity*);
 
@@ -114,10 +115,10 @@ void sub_08022198(Entity* this) {
 }
 
 void sub_080221C0(Entity* this) {
-    u32 tile = COORD_TO_TILE(this) + gUnk_080B4488[this->type2];
-    this->field_0x7c.HALF.HI = tile;
-    this->field_0x7c.HALF.LO = GetMetaTileIndex(tile, this->collisionLayer);
-    SetMetaTile(gUnk_080CB79C[this->type2], tile, this->collisionLayer);
+    u32 tilePos = COORD_TO_TILE(this) + gUnk_080B4488[this->type2];
+    this->field_0x7c.HALF.HI = tilePos;
+    this->field_0x7c.HALF.LO = GetMetaTileIndex(tilePos, this->collisionLayer);
+    SetMetaTile(gUnk_080CB79C[this->type2], tilePos, this->collisionLayer);
 }
 
 // clang-format off
@@ -182,10 +183,10 @@ const PosOffset gUnk_080CB76C[][6] = {
 };
 
 const u16 gUnk_080CB79C[] = {
-    0x4023,
-    0x4025,
-    0x4026,
-    0x4024,
+    SPECIAL_META_TILE_35,
+    SPECIAL_META_TILE_37,
+    SPECIAL_META_TILE_38,
+    SPECIAL_META_TILE_36,
 };
 
 

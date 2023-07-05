@@ -8,9 +8,10 @@
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"
+#include "tiles.h"
 
 void WaterfallBottomManager_Main(WaterfallBottomManager* this) {
-    SetMetaTile(0x4014, 0x5c3, 1);
+    SetMetaTile(SPECIAL_META_TILE_20, TILE_POS(3, 23), LAYER_BOTTOM);
     if ((gRoomControls.origin_y + 200 < gPlayerEntity.y.HALF.HI) &&
         ((u32)(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) - 0x30 < 0x11)) {
         gPlayerEntity.collisionLayer = 3;

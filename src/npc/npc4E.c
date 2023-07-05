@@ -10,6 +10,7 @@
 #include "save.h"
 #include "screenTransitions.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Rect customHitbox;
@@ -183,18 +184,18 @@ void NPC4E_RestoreEquippedItems(Entity* this) {
 void sub_0806DC7C(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
-        u32 tile = *tiles;
+        u32 metaTilePos = *tiles;
         tiles = tiles + 1;
-        SetMetaTileType(0x4072, tile, 1);
+        SetMetaTileType(SPECIAL_META_TILE_114, metaTilePos, LAYER_BOTTOM);
     }
 }
 
 void sub_0806DCA0(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
-        u32 tile = *tiles;
+        u32 metaTilePos = *tiles;
         tiles = tiles + 1;
-        RestorePrevTileEntity(tile, 1);
+        RestorePrevTileEntity(metaTilePos, LAYER_BOTTOM);
     }
 }
 

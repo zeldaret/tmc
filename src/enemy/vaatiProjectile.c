@@ -8,6 +8,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "screenTransitions.h"
+#include "tiles.h"
 
 extern Entity* gUnk_020000B0;
 
@@ -273,10 +274,8 @@ bool32 sub_0803E4A0(Entity* this) {
 }
 
 void sub_0803E4D8(Entity* this) {
-    u32 tile;
-
-    tile = TILE(this->x.HALF.HI, this->y.HALF.HI + 8);
-    if (GetCollisionDataAtMetaTilePos(tile, gPlayerEntity.collisionLayer) != 0xff) {
-        SetMetaTile(0x4074, tile, gPlayerEntity.collisionLayer);
+    u32 metaTilePos = TILE(this->x.HALF.HI, this->y.HALF.HI + 8);
+    if (GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer) != COLLISION_DATA_255) {
+        SetMetaTile(SPECIAL_META_TILE_116, metaTilePos, gPlayerEntity.collisionLayer);
     }
 }

@@ -7,6 +7,7 @@
 #include "area.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 extern u32 PortalReadyForMinish(void);
 
@@ -17,7 +18,7 @@ void JarPortal_Action1(Entity*);
 void JarPortal_Action2(Entity*);
 void JarPortal_Action3(Entity*);
 void JarPortal_Action4(Entity*);
-void sub_0808C148(Entity*, u32);
+void sub_0808C148(Entity*, bool32);
 void sub_0808C01C(Entity*, u32);
 
 void JarPortal(Entity* this) {
@@ -62,7 +63,7 @@ void JarPortal_Action1(Entity* this) {
         } else {
             ClearLocalFlag(this->type);
         }
-        sub_0808C148(this, 0);
+        sub_0808C148(this, FALSE);
     }
     sub_0808C01C(this, 0);
 }
@@ -89,7 +90,7 @@ void JarPortal_Action2(Entity* this) {
                 ++this->action;
                 this->subtimer = 0;
                 InitAnimationForceUpdate(this, 1);
-                sub_0808C148(this, 1);
+                sub_0808C148(this, TRUE);
             }
             break;
     }
@@ -103,7 +104,7 @@ void JarPortal_Action3(Entity* this) {
             ClearLocalFlag(this->type);
         else
             SetLocalFlag(this->type);
-        sub_0808C148(this, 0);
+        sub_0808C148(this, FALSE);
     }
     sub_0808C01C(this, 1);
 }
@@ -156,7 +157,7 @@ void JarPortal_Action4(Entity* this) {
             if (!this->z.HALF.HI) {
                 this->action = 1;
                 InitAnimationForceUpdate(this, 0);
-                sub_0808C148(this, 1);
+                sub_0808C148(this, TRUE);
             }
             break;
     }
@@ -171,19 +172,17 @@ void sub_0808C13C(Entity* this) {
     this->zVelocity = Q_16_16(2.5);
 }
 
-void sub_0808C148(Entity* this, u32 a2) {
-    u32 pos;
-
-    pos = COORD_TO_TILE(this);
-    if (!a2) {
-        SetMetaTile(0x4092, pos - 1, this->collisionLayer);
-        SetMetaTile(0x4093, pos, this->collisionLayer);
-        SetMetaTile(0x4094, pos + 63, this->collisionLayer);
-        SetMetaTile(0x4095, pos + 64, this->collisionLayer);
+void sub_0808C148(Entity* this, bool32 setTiles) {
+    u32 tilePos = COORD_TO_TILE(this);
+    if (!setTiles) {
+        SetMetaTile(SPECIAL_META_TILE_146, tilePos + TILE_POS(-1, 0), this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_147, tilePos + TILE_POS(0, 0), this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_148, tilePos + TILE_POS(-1, 1), this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_149, tilePos + TILE_POS(0, 1), this->collisionLayer);
     } else {
-        RestorePrevTileEntity(pos - 1, this->collisionLayer);
-        RestorePrevTileEntity(pos, this->collisionLayer);
-        RestorePrevTileEntity(pos + 63, this->collisionLayer);
-        RestorePrevTileEntity(pos + 64, this->collisionLayer);
+        RestorePrevTileEntity(tilePos + TILE_POS(-1, 0), this->collisionLayer);
+        RestorePrevTileEntity(tilePos + 0, this->collisionLayer);
+        RestorePrevTileEntity(tilePos + TILE_POS(-1, 1), this->collisionLayer);
+        RestorePrevTileEntity(tilePos + TILE_POS(0, 1), this->collisionLayer);
     }
 }

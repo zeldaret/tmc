@@ -11,6 +11,7 @@
 #include "global.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 void sub_08085394(Entity*);
 void sub_0808543C(Entity*);
@@ -114,39 +115,39 @@ void Railtrack_Action3(Entity* this) {
     }
 }
 
-static const u16 gUnk_081205E0[] = { 0x4018, 0x4019 };
+static const u16 gUnk_081205E0[] = { SPECIAL_META_TILE_24, SPECIAL_META_TILE_25 };
 
 void sub_08085394(Entity* this) {
-    u32 uVar1;
+    u32 specialTile;
     u16* layerData;
-    u32 tile;
-    s8 off;
+    u32 tilePos;
+    s8 offset;
 
-    uVar1 = gUnk_081205E0[this->animationState / 2];
-    off = gUnk_080B4488[this->animationState / 2][0];
+    specialTile = gUnk_081205E0[this->animationState / 2];
+    offset = gUnk_080B4488[this->animationState / 2][0];
     layerData = (u16*)this->field_0x70.WORD;
-    tile = COORD_TO_TILE(this);
+    tilePos = COORD_TO_TILE(this);
 
-    this->field_0x74.HWORD = *(layerData - off);
-    SetMetaTile(uVar1, tile - off, this->collisionLayer);
+    this->field_0x74.HWORD = *(layerData - offset);
+    SetMetaTile(specialTile, tilePos - offset, this->collisionLayer);
 
     this->field_0x76.HWORD = layerData[0x0];
-    SetMetaTile(uVar1, tile - 0x0, this->collisionLayer);
+    SetMetaTile(specialTile, tilePos, this->collisionLayer);
 
-    this->field_0x78.HWORD = layerData[off];
-    SetMetaTile(uVar1, tile + off, this->collisionLayer);
+    this->field_0x78.HWORD = layerData[offset];
+    SetMetaTile(specialTile, tilePos + offset, this->collisionLayer);
 }
 
 void sub_0808543C(Entity* this) {
     s8* cVar1;
-    u32 uVar2;
-    s8 temp;
+    u32 metaTilePos;
+    s8 offset;
 
-    temp = gUnk_080B4488[this->animationState / 2][0];
-    uVar2 = COORD_TO_TILE(this);
-    SetMetaTile(this->field_0x74.HWORD, uVar2 - temp, this->collisionLayer);
-    SetMetaTile(this->field_0x76.HWORD, uVar2, this->collisionLayer);
-    SetMetaTile(this->field_0x78.HWORD, uVar2 + temp, this->collisionLayer);
+    offset = gUnk_080B4488[this->animationState / 2][0];
+    metaTilePos = COORD_TO_TILE(this);
+    SetMetaTile(this->field_0x74.HWORD, metaTilePos - offset, this->collisionLayer);
+    SetMetaTile(this->field_0x76.HWORD, metaTilePos, this->collisionLayer);
+    SetMetaTile(this->field_0x78.HWORD, metaTilePos + offset, this->collisionLayer);
 }
 
 u32 sub_080854A8(Entity* this) {

@@ -7,8 +7,8 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -37,9 +37,6 @@ void BigPushableLever_SetIdle(BigPushableLeverEntity*);
 bool32 BigPushableLever_ShouldStartPushing(BigPushableLeverEntity*);
 void BigPushableLever_SetMetaTiles(BigPushableLeverEntity*);
 void BigPushableLever_CalculateSpriteOffsets(BigPushableLeverEntity*);
-
-#define TILE_INITIAL 0x4058
-#define TILE_PUSHED 0x4056
 
 void BigPushableLever(BigPushableLeverEntity* this) {
     BigPushableLever_Actions[super->action](this);
@@ -93,8 +90,8 @@ void BigPushableLever_SetMetaTiles(BigPushableLeverEntity* this) {
         this->tilePositionLower = this->tilePositionUpper - 0x40;
         this->tileIndexUpper = GetMetaTileIndex(this->tilePositionUpper, super->collisionLayer);
         this->tileIndexLower = GetMetaTileIndex(this->tilePositionLower, super->collisionLayer);
-        SetMetaTile(0x4057, this->tilePositionUpper, super->collisionLayer);
-        SetMetaTile(0x4058, this->tilePositionLower, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_87, this->tilePositionUpper, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_88, this->tilePositionLower, super->collisionLayer);
         InitializeAnimation(super, 1);
     } else {
         super->type2 = 1;
@@ -102,14 +99,14 @@ void BigPushableLever_SetMetaTiles(BigPushableLeverEntity* this) {
         this->tilePositionLower = this->tilePositionUpper - 1;
         this->tileIndexUpper = GetMetaTileIndex(this->tilePositionUpper, super->collisionLayer);
         this->tileIndexLower = GetMetaTileIndex(this->tilePositionLower, super->collisionLayer);
-        SetMetaTile(0x4055, this->tilePositionUpper, super->collisionLayer);
-        SetMetaTile(0x4056, this->tilePositionLower, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_85, this->tilePositionUpper, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_86, this->tilePositionLower, super->collisionLayer);
         InitializeAnimation(super, 0);
     }
 }
 
 bool32 BigPushableLever_ShouldStartPushing(BigPushableLeverEntity* this) {
-    if (GetMetaTileIndex(this->tilePositionLower, super->collisionLayer) == 0x4059) {
+    if (GetMetaTileIndex(this->tilePositionLower, super->collisionLayer) == SPECIAL_META_TILE_89) {
         if (--this->timer == 0) {
             return TRUE;
         }
@@ -144,8 +141,8 @@ void (*const BigPushableLever_Actions[])(BigPushableLeverEntity*) = {
     BigPushableLever_Pushing,
 };
 const u16 gUnk_081236E8[] = {
-    TILE_INITIAL,
-    TILE_PUSHED,
+    SPECIAL_META_TILE_88,
+    SPECIAL_META_TILE_86,
 };
 const u8 BigPushableLever_InitialOffsets[] = {
     0, 0, 0, 0, 255, 0, 0, 0,

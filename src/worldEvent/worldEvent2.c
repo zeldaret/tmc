@@ -6,10 +6,12 @@
  */
 #include "fade.h"
 #include "flags.h"
+#include "map.h"
 #include "menu.h"
 #include "room.h"
 #include "sound.h"
 #include "subtask.h"
+#include "tiles.h"
 
 void sub_08055994(void);
 
@@ -54,12 +56,13 @@ void sub_08055994(void) {
     u32 layer;
     TileEntity* ptr = &gUnk_080FEAC8[gMenu.field_0x4];
     if ((ptr->_6 & 1) != 0) {
-        layer = 2;
+        layer = LAYER_TOP;
     } else {
-        layer = 1;
+        layer = LAYER_BOTTOM;
     }
-    SetMetaTileType(0x73, (*(u16*)(gMenu.field_0xc + 8) >> 4 & 0x3f) | (*(u16*)(gMenu.field_0xc + 10) >> 4 & 0x3f) << 6,
-                layer);
+    SetMetaTileType(META_TILE_TYPE_115,
+                    (*(u16*)(gMenu.field_0xc + 8) >> 4 & 0x3f) | (*(u16*)(gMenu.field_0xc + 10) >> 4 & 0x3f) << 6,
+                    layer);
     sub_080553E0((u32)gMenu.field_0x4);
     SoundReq(SFX_SECRET_BIG);
 }

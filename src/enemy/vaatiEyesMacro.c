@@ -221,7 +221,7 @@ void sub_0802EFB8(Entity* this) {
     u32 uVar1;
     u32 rand;
     u32 uVar3;
-    int iVar4;
+    u32 collisionData;
 
     rand = Random();
     if ((rand >> 0x10 & 3) != 0) {
@@ -230,8 +230,9 @@ void sub_0802EFB8(Entity* this) {
         uVar3 = GetFacingDirection(&gPlayerEntity, this);
         uVar1 = (uVar3 + 4) & 0x18;
     }
-    iVar4 = GetCollisionDataAtMetaTilePos(TILE(this->x.HALF.HI, this->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
-    if (iVar4 != 0) {
+    collisionData =
+        GetCollisionDataAtMetaTilePos(TILE(this->x.HALF.HI, this->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
+    if (collisionData != 0) {
         this->direction = 0xff;
     } else {
         this->timer = (rand & 3) + 1;

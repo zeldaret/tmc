@@ -176,17 +176,17 @@ void sub_08077448(ItemBehavior* this, u32 index) {
 
 s32 sub_080774A0(void) {
     static const s8 gUnk_0811BE1E[] = { 0, -13, 13, 0, 0, 16, -13, 0, 0, 0 };
-    u32 iVar2;
+    u32 collisionData;
     u32 metaTilePos;
 
     metaTilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
-                                 -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
+                                       -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
 
-    iVar2 = GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer);
+    collisionData = GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer);
 
-    if (iVar2 > 0x16)
+    if (collisionData > 0x16)
         return 0;
-    if (iVar2 < 0xf)
+    if (collisionData < 0xf)
         return 0;
     if (GetVvvAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer) != VVV_86) {
         return 1;

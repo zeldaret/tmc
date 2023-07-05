@@ -1,10 +1,9 @@
+#include "asm.h"
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
 #include "room.h"
 #include "physics.h"
-
-extern u32 GetCollisionDataAtMetaTilePos(u32, u32);
 
 extern void (*const Projectile5_Functions[])(Entity*);
 extern void (*const Projectile5_Actions[])(Entity*);

@@ -6,6 +6,7 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 void Mask_Init(Entity*);
 void Mask_Action1(Entity*);
@@ -59,11 +60,11 @@ void Mask_Init(Entity* this) {
     this->frameIndex = this->type2 & 0x3f;
 
     this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
-    this->field_0x7c.HALF_U.LO = GetMetaTileIndex(this->field_0x7c.HALF_U.HI, 1);
+    this->field_0x7c.HALF_U.LO = GetMetaTileIndex(this->field_0x7c.HALF_U.HI, LAYER_BOTTOM);
 
-    this->field_0x7a.HWORD = GetCollisionDataAtMetaTilePos((u16)this->field_0x7c.HALF.HI, 1);
+    this->field_0x7a.HWORD = GetCollisionDataAtMetaTilePos((u16)this->field_0x7c.HALF.HI, LAYER_BOTTOM);
 
-    SetMetaTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
+    SetMetaTile(SPECIAL_META_TILE_34, this->field_0x7c.HALF_U.HI, LAYER_BOTTOM);
 }
 
 // Probably related to knocking it down
@@ -88,7 +89,7 @@ void Mask_Action1(Entity* this) {
     }
 
     // Presumably, make the mask fall
-    SetMetaTile(this->field_0x7c.HALF_U.LO, this->field_0x7c.HALF_U.HI, 1);
+    SetMetaTile(this->field_0x7c.HALF_U.LO, this->field_0x7c.HALF_U.HI, LAYER_BOTTOM);
 
     SetCollisionData(this->field_0x7a.HWORD, (u16)this->field_0x7c.HALF.HI, 1);
 

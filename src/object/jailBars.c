@@ -7,9 +7,9 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 static void SetJailBarTiles(Entity*, u32);
 void JailBars_Init(Entity*);
@@ -61,10 +61,36 @@ void JailBars_Action3(Entity* this) {
 }
 
 static void SetJailBarTiles(Entity* this, u32 arg1) {
-    static const s16 gUnk_08124960[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4023, -0x1, 0x4023,
-                                         0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
-    static const s16 gUnk_0812497A[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4088, -0x1, 0x4087,
-                                         0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
+    static const s16 gUnk_08124960[] = {
+        SPECIAL_META_TILE_35,
+        -0x3,
+        SPECIAL_META_TILE_35,
+        -0x2,
+        SPECIAL_META_TILE_35,
+        -0x1,
+        SPECIAL_META_TILE_35,
+        0x0,
+        SPECIAL_META_TILE_35,
+        0x1,
+        SPECIAL_META_TILE_35,
+        0x2,
+        -0x1,
+    };
+    static const s16 gUnk_0812497A[] = {
+        SPECIAL_META_TILE_35,
+        -0x3,
+        SPECIAL_META_TILE_35,
+        -0x2,
+        SPECIAL_META_TILE_136,
+        -0x1,
+        SPECIAL_META_TILE_135,
+        0x0,
+        SPECIAL_META_TILE_35,
+        0x1,
+        SPECIAL_META_TILE_35,
+        0x2,
+        -0x1,
+    };
     const s16* puVar1;
 
     puVar1 = gUnk_08124960;

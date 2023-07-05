@@ -8,11 +8,11 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 static void sub_0809EB30(Entity*);
 static void sub_0809EAD8(Entity*);
@@ -91,7 +91,7 @@ static void sub_0809EAD8(Entity* this) {
         UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
 
     } else {
-        SetMetaTile(0x4050, COORD_TO_TILE(this), this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_80, COORD_TO_TILE(this), this->collisionLayer);
     }
 }
 

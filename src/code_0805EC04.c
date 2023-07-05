@@ -79,7 +79,7 @@ void UpdatePlayerInput(void) {
     PlayerMacroEntry* playerMacro;
     u32 zero;
 
-        if (gPlayerState.playerInput.playerMacro != NULL) {
+    if (gPlayerState.playerInput.playerMacro != NULL) {
         // Player is controlled by macro.
         playerInput = &gPlayerState.playerInput;
         playerMacro = playerInput->playerMacro;

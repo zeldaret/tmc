@@ -1,8 +1,9 @@
 
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 extern void (*const V2Projectile_Functions[])(Entity*);
 extern void (*const gUnk_0812A7EC[])(Entity*);
@@ -92,7 +93,7 @@ void sub_080ABCC4(Entity* this) {
     this->subtimer = 0;
     this->direction = Random() & 0x1f;
     this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    this->field_0x76.HWORD = GetMetaTileType(this->field_0x74.HWORD, 2);
+    this->field_0x76.HWORD = GetMetaTileType(this->field_0x74.HWORD, LAYER_TOP);
     this->spritePriority.b0 = 2;
     InitializeAnimation(this, 0);
     SoundReq(SFX_14B);
@@ -114,14 +115,14 @@ void sub_080ABD70(Entity* this) {
         this->frame &= 0xef;
         this->speed = 0;
         this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-        this->field_0x76.HWORD = GetMetaTileType(this->field_0x74.HWORD, 2);
+        this->field_0x76.HWORD = GetMetaTileType(this->field_0x74.HWORD, LAYER_TOP);
         tmp = this->field_0x76.HWORD;
         if (tmp != 0x13) {
             if (tmp == 0x315) {
-                SetMetaTileType(0x6e, this->field_0x74.HWORD, 2);
+                SetMetaTileType(META_TILE_TYPE_110, this->field_0x74.HWORD, LAYER_TOP);
             }
         } else {
-            SetMetaTileType(0x6d, this->field_0x74.HWORD, 2);
+            SetMetaTileType(META_TILE_TYPE_109, this->field_0x74.HWORD, LAYER_TOP);
         }
     }
     if ((this->frame & ANIM_DONE) != 0) {

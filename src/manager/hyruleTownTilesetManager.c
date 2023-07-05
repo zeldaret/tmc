@@ -11,6 +11,7 @@
 #include "functions.h"
 #include "main.h"
 #include "room.h"
+#include "tiles.h"
 
 void sub_08059A58(HyruleTownTilesetManager*);
 void sub_08059A2C(HyruleTownTilesetManager*);
@@ -113,32 +114,32 @@ void sub_08059B18(void) {
     if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                SetMetaTileByIndex(loopVar * 0x10 + 0x4ab + innerLoopVar,
+                SetMetaTileByIndex(loopVar * 0x10 + META_TILE_TYPE_1195 + innerLoopVar,
                                    COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
             }
         }
 
         for (loopVar = 0; loopVar < 3; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                SetMetaTileByIndex(loopVar * 0x10 + 0x440 + innerLoopVar,
+                SetMetaTileByIndex(loopVar * 0x10 + META_TILE_TYPE_1088 + innerLoopVar,
                                    COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
             }
         }
-        SetMetaTileByIndex(0xd6, 0x5c2, 2);
-        SetMetaTileByIndex(0xd7, 0x5c3, 2);
+        SetMetaTileByIndex(META_TILE_TYPE_214, TILE_POS(2, 23), LAYER_TOP);
+        SetMetaTileByIndex(META_TILE_TYPE_215, TILE_POS(3, 23), LAYER_TOP);
         LoadResourceAsync(&gUnk_086E8460, 0x6001800, 0x800);
     } else {
         if (CheckGlobalFlag(TATEKAKE_TOCHU) != 0) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                    SetMetaTileByIndex(loopVar * 0x10 + 0x4a6 + innerLoopVar,
+                    SetMetaTileByIndex(loopVar * 0x10 + META_TILE_TYPE_1190 + innerLoopVar,
                                        COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
-            SetMetaTileByIndex(0x444, 0x602, 2);
-            SetMetaTileByIndex(0x445, 0x605, 2);
-            SetMetaTileByIndex(0x454, 0x642, 2);
-            SetMetaTileByIndex(0x455, 0x645, 2);
+            SetMetaTileByIndex(META_TILE_TYPE_1092, TILE_POS(2, 24), LAYER_TOP);
+            SetMetaTileByIndex(META_TILE_TYPE_1093, TILE_POS(5, 24), LAYER_TOP);
+            SetMetaTileByIndex(META_TILE_TYPE_1108, TILE_POS(2, 25), LAYER_TOP);
+            SetMetaTileByIndex(META_TILE_TYPE_1109, TILE_POS(5, 25), LAYER_TOP);
         }
     }
 }

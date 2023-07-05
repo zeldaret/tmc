@@ -6,12 +6,12 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
 #include "enemy.h"
 #include "enemy/wizzrobe.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 extern void (*const WizzrobeWind_Functions[])(WizzrobeEntity*);
 extern void (*const WizzrobeWind_Actions[])(WizzrobeEntity*);
@@ -211,13 +211,13 @@ void sub_0802F888(WizzrobeEntity* this) {
     super->direction = (sub_08049F84(super, 3) + 4) & 0x18;
     this->tilePosition = COORD_TO_TILE(super);
     this->tileIndex = GetMetaTileIndex(this->tilePosition, super->collisionLayer);
-    SetMetaTile(0x4071, this->tilePosition, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_113, this->tilePosition, super->collisionLayer);
 }
 
 void sub_0802F8E4(WizzrobeEntity* this) {
     u16 uVar1;
     s32 iVar4;
-    u32 uVar6;
+    u32 metaTilePos;
     u32 uVar7;
     u32 uVar8;
 
@@ -235,9 +235,9 @@ void sub_0802F8E4(WizzrobeEntity* this) {
             uVar1 = this->unk_72;
             iVar4 = ((s32)(rand)&0x7ff0) % (this->unk_6f << 3);
             uVar7 = (uVar1 + iVar4) | 8;
-            uVar6 = TILE(uVar8, uVar7);
-            if ((GetCollisionDataAtMetaTilePos(uVar6, super->collisionLayer) == 0) &&
-                (GetMetaTileIndex(uVar6, super->collisionLayer) != 0x4071)) {
+            metaTilePos = TILE(uVar8, uVar7);
+            if ((GetCollisionDataAtMetaTilePos(metaTilePos, super->collisionLayer) == 0) &&
+                (GetMetaTileIndex(metaTilePos, super->collisionLayer) != SPECIAL_META_TILE_113)) {
                 super->x.HALF.HI = (s16)uVar8;
                 super->y.HALF.HI = (s16)uVar7;
                 if (sub_08049FA0(super) != 0) {

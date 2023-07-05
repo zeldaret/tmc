@@ -5,9 +5,10 @@
  * @brief Pushable Statue object
  */
 #define NENT_DEPRECATED
-#include "object.h"
+#include "area.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
 #include "tiles.h"
 
 typedef struct {
@@ -30,7 +31,7 @@ extern const u16 gUnk_08120CBC[];
 extern const u16 gUnk_08120CCC[];
 extern const u16 gUnk_08120D6C[];
 
-u32 sub_0808968C(u32);
+u32 sub_0808968C(u32 metaTileType);
 bool32 sub_0808965C(PushableStatueEntity*);
 void sub_08089454(PushableStatueEntity*);
 void sub_080894C8(PushableStatueEntity*);
@@ -58,16 +59,16 @@ void PushableStatue_Init(PushableStatueEntity* this) {
 }
 
 void PushableStatue_Action1(PushableStatueEntity* this) {
-    u16 tileType;
+    u16 metaTileType;
     Entity* obj;
 
     if (sub_0800442E(super) == 0) {
-        tileType = GetMetaTileType(this->unk_84, super->collisionLayer);
-        if (tileType != 0x400b) {
-            switch (sub_0808968C(tileType)) {
+        metaTileType = GetMetaTileType(this->unk_84, super->collisionLayer);
+        if (metaTileType != SPECIAL_META_TILE_11) {
+            switch (sub_0808968C(metaTileType)) {
                 case 1:
                     super->action = 3;
-                    super->direction = ((tileType - 0xc) & 3) << 3;
+                    super->direction = ((metaTileType - 0xc) & 3) << 3;
                     sub_08089538(this);
                     break;
                 case 0:
@@ -78,7 +79,7 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
                     sub_080894FC(this);
                     break;
                 case 2:
-                    this->unk_80 = tileType;
+                    this->unk_80 = metaTileType;
                     break;
             }
         } else {
@@ -99,7 +100,7 @@ void PushableStatue_Action2(PushableStatueEntity* this) {
 }
 
 void PushableStatue_SubAction0(PushableStatueEntity* this) {
-    u16 tileType;
+    u16 metaTileType;
     Entity* obj;
     u32 index;
     const s8* ptr;
@@ -110,11 +111,11 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         ptr = &gUnk_08120CB4[index];
         PositionRelative(super, &gPlayerEntity, *(ptr) << 0x10, *(ptr + 1) << 0x10);
     }
-    tileType = GetMetaTileType(this->unk_84, super->collisionLayer);
-    if (tileType != 0x400b) {
-        switch (sub_0808968C(tileType)) {
+    metaTileType = GetMetaTileType(this->unk_84, super->collisionLayer);
+    if (metaTileType != SPECIAL_META_TILE_11) {
+        switch (sub_0808968C(metaTileType)) {
             case 1:
-                super->direction = (((tileType - 0xc) & 3) << 3);
+                super->direction = (((metaTileType - 0xc) & 3) << 3);
                 sub_08089538(this);
                 break;
             case 0:
@@ -125,7 +126,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
                 sub_080894FC(this);
                 return;
             case 2:
-                this->unk_80 = tileType;
+                this->unk_80 = metaTileType;
                 break;
         }
     }
@@ -157,7 +158,7 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
     } else {
         super->spriteSettings.draw = 1;
         super->action = 1;
-        SetMetaTile(0x400b, this->unk_84, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_11, this->unk_84, super->collisionLayer);
         sub_080894C8(this);
     }
 }
@@ -165,9 +166,9 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
 void sub_08089454(PushableStatueEntity* this) {
     this->unk_84 = COORD_TO_TILE(super);
     this->unk_80 = GetMetaTileIndex(this->unk_84, super->collisionLayer);
-    SetMetaTile(0x400b, this->unk_84, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_11, this->unk_84, super->collisionLayer);
     if (super->collisionLayer == 2 && GetMetaTileType(this->unk_84, 1) == 0x310) {
-        SetMetaTile(0x400b, this->unk_84, 1);
+        SetMetaTile(SPECIAL_META_TILE_11, this->unk_84, LAYER_BOTTOM);
     }
 }
 
@@ -193,32 +194,32 @@ void sub_080894FC(PushableStatueEntity* this) {
 }
 
 void sub_08089538(PushableStatueEntity* this) {
-    u16 tileType;
+    u16 metaTileType;
     this->unk_86 = 0x20;
     EnqueueSFX(SFX_10F);
     SetMetaTile(this->unk_80, this->unk_84, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetMetaTileType(this->unk_84, 1) == 0x400b)) {
-        CloneTile(0x310, this->unk_84, 1);
+    if ((super->collisionLayer == 2) && (GetMetaTileType(this->unk_84, LAYER_BOTTOM) == SPECIAL_META_TILE_11)) {
+        CloneTile(META_TILE_TYPE_784, this->unk_84, 1);
     }
-    tileType = GetMetaTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
-    if ((tileType == 0x79) || (tileType == 0x77)) {
+    metaTileType = GetMetaTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    if ((metaTileType == META_TILE_TYPE_121) || (metaTileType == META_TILE_TYPE_119)) {
         super->spriteOffsetY = -2;
     }
 }
 
 bool32 sub_080895C0(PushableStatueEntity* this) {
-    Entity* obj;
+    Entity* rockFx;
 
     LinearMoveUpdate(super);
     if ((--this->unk_86 == 0) && (sub_0800442E(super) == 0)) {
         super->spriteOffsetY = 0;
-        if (!GetCollisionDataAtEntity(super)) {
+        if (GetCollisionDataAtEntity(super) == 0) {
             sub_08089454(this);
             return TRUE;
         }
-        obj = CreateObject(SPECIAL_FX, FX_ROCK, 0);
-        if (obj != NULL) {
-            CopyPosition(super, obj);
+        rockFx = CreateObject(SPECIAL_FX, FX_ROCK, 0);
+        if (rockFx != NULL) {
+            CopyPosition(super, rockFx);
         }
         super->spriteSettings.draw = 0;
         super->x.HALF.HI += gUnk_08120CBC[super->direction >> 2];
@@ -232,18 +233,18 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
 }
 
 bool32 sub_0808965C(PushableStatueEntity* this) {
-    if (gRoomControls.area < 0x40) {
-        return LoadFixedGFX(super, 0xe9);
+    if (gRoomControls.area < AREA_40) {
+        return LoadFixedGFX(super, 233);
     } else {
-        return LoadFixedGFX(super, gUnk_08120CCC[gRoomControls.area - 0x40]);
+        return LoadFixedGFX(super, gUnk_08120CCC[gRoomControls.area - AREA_40]);
     }
 }
 
-u32 sub_0808968C(u32 param_1) {
+u32 sub_0808968C(u32 metaTileType) {
     const u16* it;
 
     for (it = gUnk_08120D6C; *it != 0; it += 2) {
-        if (*it == param_1) {
+        if (*it == metaTileType) {
             return it[1];
         }
     }
@@ -297,5 +298,17 @@ const u16 gUnk_08120CCC[] = {
     78, 78, 79, 79, 79, 79, 79, 79, 79, 79, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 81, 81,
 };
 const u16 gUnk_08120D6C[] = {
-    0x400c, 1, 0x400d, 1, 0x400e, 1, 0x400f, 1, 0x7a, 2, 0x78, 2, 0,
+    SPECIAL_META_TILE_12,
+    1,
+    SPECIAL_META_TILE_13,
+    1,
+    SPECIAL_META_TILE_14,
+    1,
+    SPECIAL_META_TILE_15,
+    1,
+    META_TILE_TYPE_122,
+    2,
+    META_TILE_TYPE_120,
+    2,
+    0,
 };

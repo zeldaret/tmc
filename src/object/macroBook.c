@@ -10,6 +10,7 @@
 #include "flags.h"
 #include "functions.h"
 #include "npc.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -136,8 +137,26 @@ void MacroBook_Action3(MacroBookEntity* this) {
 void sub_0809A958(MacroBookEntity* this) {
 
     static const u16 tileIndices[] = {
-        0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0x4074,
-        0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0x4074, 0,      0,      0x4022, 0x4022,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        SPECIAL_META_TILE_116,
+        0,
+        0,
+        SPECIAL_META_TILE_34,
+        SPECIAL_META_TILE_34,
     };
     int index;
     int index2;
@@ -151,7 +170,7 @@ void sub_0809A958(MacroBookEntity* this) {
     for (index = 0; index < 5; index++, tilePos += 0x40) {
         for (index2 = 0; index2 < 4; index2++, tileIndexPtr++) {
             if ((*tileIndexPtr & 0x4000) != 0) {
-                SetMetaTile(*tileIndexPtr, tilePos + index2, 1);
+                SetMetaTile(*tileIndexPtr, tilePos + index2, LAYER_BOTTOM);
             }
         }
     }

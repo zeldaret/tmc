@@ -7,8 +7,8 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -171,8 +171,8 @@ void PushableFurniture_Action1(PushableFurnitureEntity* this) {
 void sub_0808FB68(PushableFurnitureEntity* this) {
     u32 tileIndex = GetMetaTileIndex(this->unk_70, super->collisionLayer);
     switch (tileIndex) {
-        case 0x4030:
-        case 0x4031:
+        case SPECIAL_META_TILE_48:
+        case SPECIAL_META_TILE_49:
             super->action = 2;
             super->direction = (((tileIndex - 0x30) & 1) << 4) | 8;
             SetPlayerControl(CONTROL_1);
@@ -181,8 +181,8 @@ void sub_0808FB68(PushableFurnitureEntity* this) {
         default:
             tileIndex = GetMetaTileIndex(this->unk_72, super->collisionLayer);
             switch (tileIndex) {
-                case 0x4030:
-                case 0x4031:
+                case SPECIAL_META_TILE_48:
+                case SPECIAL_META_TILE_49:
                     super->action = 2;
                     super->direction = (((tileIndex - 0x30) & 1) << 4) | 8;
                     SetPlayerControl(CONTROL_1);
@@ -196,7 +196,7 @@ void sub_0808FB68(PushableFurnitureEntity* this) {
 
 void sub_0808FBFC(PushableFurnitureEntity* this) {
     u32 tileIndex = GetMetaTileIndex(this->unk_7c, super->collisionLayer);
-    if (tileIndex != 0x404a) {
+    if (tileIndex != SPECIAL_META_TILE_74) {
         super->action = 2;
         super->direction = ((tileIndex - 0x4bU) & 3) << 3;
         SetPlayerControl(CONTROL_1);
@@ -309,32 +309,32 @@ void sub_0808FD44(PushableFurnitureEntity* this, u32 param_2) {
 void sub_0808FDE8(PushableFurnitureEntity* this) {
     u32 uVar1;
     s32 iVar2;
-    u32 uVar3;
+    u32 metaTilePos;
 
-    uVar3 = (u32)this->unk_70;
-    uVar1 = GetCollisionDataAtMetaTilePos(uVar3 - 1, 1);
-    iVar2 = GetMetaTileIndex(uVar3, 1);
-    if (iVar2 == 0x402e) {
+    metaTilePos = (u32)this->unk_70;
+    uVar1 = GetCollisionDataAtMetaTilePos(metaTilePos - 1, LAYER_BOTTOM);
+    iVar2 = GetMetaTileIndex(metaTilePos, LAYER_BOTTOM);
+    if (iVar2 == SPECIAL_META_TILE_46) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 5) == 0)) {
-            SetMetaTile(0x402c, uVar3, 1);
+            SetMetaTile(SPECIAL_META_TILE_44, metaTilePos, LAYER_BOTTOM);
         }
     } else {
-        iVar2 = GetCollisionDataAtMetaTilePos(uVar3, 1);
+        iVar2 = GetCollisionDataAtMetaTilePos(metaTilePos, LAYER_BOTTOM);
         if ((iVar2 == 5) && ((((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)) && ((uVar1 & 5) != 0)))) {
-            SetMetaTile(0x402e, uVar3, 1);
+            SetMetaTile(SPECIAL_META_TILE_46, metaTilePos, LAYER_BOTTOM);
         }
     }
-    uVar3 = (u32)this->unk_72;
-    uVar1 = GetCollisionDataAtMetaTilePos(uVar3 + 1, 1);
-    iVar2 = GetMetaTileIndex(uVar3, 1);
-    if (iVar2 == 0x402f) {
+    metaTilePos = (u32)this->unk_72;
+    uVar1 = GetCollisionDataAtMetaTilePos(metaTilePos + 1, LAYER_BOTTOM);
+    iVar2 = GetMetaTileIndex(metaTilePos, LAYER_BOTTOM);
+    if (iVar2 == SPECIAL_META_TILE_47) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 10) == 0)) {
-            SetMetaTile(0x402d, uVar3, 1);
+            SetMetaTile(SPECIAL_META_TILE_45, metaTilePos, LAYER_BOTTOM);
         }
     } else {
-        iVar2 = GetCollisionDataAtMetaTilePos(uVar3, 1);
+        iVar2 = GetCollisionDataAtMetaTilePos(metaTilePos, LAYER_BOTTOM);
         if (((iVar2 == 10) && (((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)))) && ((uVar1 & 10) != 0)) {
-            SetMetaTile(0x402f, uVar3, 1);
+            SetMetaTile(SPECIAL_META_TILE_47, metaTilePos, LAYER_BOTTOM);
         }
     }
 }
@@ -380,24 +380,24 @@ void sub_0808FF50(PushableFurnitureEntity* this) {
     switch (this->unk_80) {
         case 0:
             this->unk_70 = tmp;
-            this->unk_74 = GetMetaTileIndex(this->unk_70, 1);
-            SetMetaTile(0x404a, tmp, 1);
+            this->unk_74 = GetMetaTileIndex(this->unk_70, LAYER_BOTTOM);
+            SetMetaTile(SPECIAL_META_TILE_74, tmp, LAYER_BOTTOM);
             break;
         case 1:
             if ((tmp2 & 8) != 0) {
                 this->unk_70 = this->unk_7c;
-                this->unk_74 = GetMetaTileIndex(this->unk_70, 1);
-                SetMetaTile(gUnk_08121EE4[this->unk_81], position, 1);
+                this->unk_74 = GetMetaTileIndex(this->unk_70, LAYER_BOTTOM);
+                SetMetaTile(gUnk_08121EE4[this->unk_81], position, LAYER_BOTTOM);
                 this->unk_72 = tmp + 1;
-                this->unk_76 = GetMetaTileIndex(this->unk_72, 1);
+                this->unk_76 = GetMetaTileIndex(this->unk_72, LAYER_BOTTOM);
                 sub_08090094(this, gUnk_08121EE4[this->unk_81 + 4], this->unk_72);
                 sub_0809028C(this, 1);
             } else {
                 this->unk_72 = this->unk_7c;
-                this->unk_76 = GetMetaTileIndex(this->unk_72, 1);
-                SetMetaTile(gUnk_08121EE4[this->unk_81], position, 1);
+                this->unk_76 = GetMetaTileIndex(this->unk_72, LAYER_BOTTOM);
+                SetMetaTile(gUnk_08121EE4[this->unk_81], position, LAYER_BOTTOM);
                 this->unk_70 = tmp - 1;
-                this->unk_74 = GetMetaTileIndex(this->unk_70, 1);
+                this->unk_74 = GetMetaTileIndex(this->unk_70, LAYER_BOTTOM);
                 sub_08090094(this, gUnk_08121EE4[this->unk_81 + 2], this->unk_70);
                 sub_0809028C(this, 0);
             }
@@ -405,92 +405,92 @@ void sub_0808FF50(PushableFurnitureEntity* this) {
     }
 }
 
-void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
+void sub_08090094(PushableFurnitureEntity* this, u32 tileIndex, u32 tilePos) {
     FORCE_REGISTER(u32 tmp1, r4);
 
-    u32 index;
+    u32 newTileIndex;
     u32 tmp2;
 
     tmp1 = GetCollisionDataAtMetaTilePos(tilePos, 1);
-    index = GetMetaTileIndex(tilePos, 1);
-    if ((index & 0x4000) == 0) {
-        index = param_2;
-        switch (index) {
-            case 0x4025:
+    newTileIndex = GetMetaTileIndex(tilePos, LAYER_BOTTOM);
+    if ((newTileIndex & 0x4000) == 0) {
+        newTileIndex = tileIndex;
+        switch (newTileIndex) {
+            case SPECIAL_META_TILE_37:
                 if (tmp1 == 5) {
-                    index = 0x4022;
+                    newTileIndex = SPECIAL_META_TILE_34;
                 }
-                SetMetaTile(index, tilePos, 1);
+                SetMetaTile(newTileIndex, tilePos, LAYER_BOTTOM);
                 return;
-            case 0x402d:
-            case 0x402f:
+            case SPECIAL_META_TILE_45:
+            case SPECIAL_META_TILE_47:
                 if (tmp1 == 5) {
-                    index = 0x4022;
+                    newTileIndex = SPECIAL_META_TILE_34;
                 }
-                SetMetaTile(index, tilePos, 1);
+                SetMetaTile(newTileIndex, tilePos, LAYER_BOTTOM);
                 return;
-            case 0x4024:
-            case 0x402c:
-            case 0x402e:
+            case SPECIAL_META_TILE_36:
+            case SPECIAL_META_TILE_44:
+            case SPECIAL_META_TILE_46:
                 if (tmp1 == 10) {
-                    index = 0x4022;
+                    newTileIndex = SPECIAL_META_TILE_34;
                 }
-                SetMetaTile(index, tilePos, 1);
+                SetMetaTile(newTileIndex, tilePos, LAYER_BOTTOM);
                 return;
             default:
-                SetMetaTile(index, tilePos, 1);
+                SetMetaTile(newTileIndex, tilePos, LAYER_BOTTOM);
                 return;
         }
     }
-    switch (index) {
-        case 0x4022:
+    switch (newTileIndex) {
+        case SPECIAL_META_TILE_34:
         default:
             return;
-        case 0x4025:
-            if (param_2 == 0x4024) {
-                index = 0x4022;
+        case SPECIAL_META_TILE_37:
+            if (tileIndex == SPECIAL_META_TILE_36) {
+                newTileIndex = SPECIAL_META_TILE_34;
                 this->unk_83 |= 0x10;
             }
-            if (param_2 == 0x402c) {
-                index = 0x4022;
-                this->unk_83 |= 0x10;
-            }
-            break;
-        case 0x402d:
-        case 0x402f:
-            if (param_2 == 0x402c) {
-                index = 0x402b;
-                this->unk_83 |= 0x10;
-            }
-            if (param_2 == 0x4024) {
-                index = 0x4022;
+            if (tileIndex == SPECIAL_META_TILE_44) {
+                newTileIndex = SPECIAL_META_TILE_34;
                 this->unk_83 |= 0x10;
             }
             break;
-        case 0x4024:
-            if (param_2 == 0x4025) {
-                index = 0x4022;
+        case SPECIAL_META_TILE_45:
+        case SPECIAL_META_TILE_47:
+            if (tileIndex == SPECIAL_META_TILE_44) {
+                newTileIndex = SPECIAL_META_TILE_43;
+                this->unk_83 |= 0x10;
+            }
+            if (tileIndex == SPECIAL_META_TILE_36) {
+                newTileIndex = SPECIAL_META_TILE_34;
+                this->unk_83 |= 0x10;
+            }
+            break;
+        case SPECIAL_META_TILE_36:
+            if (tileIndex == SPECIAL_META_TILE_37) {
+                newTileIndex = SPECIAL_META_TILE_34;
                 this->unk_83 |= 0x20;
             }
-            if (param_2 == 0x402d) {
-                index = 0x4022;
+            if (tileIndex == SPECIAL_META_TILE_45) {
+                newTileIndex = SPECIAL_META_TILE_34;
                 this->unk_83 |= 0x20;
             }
             break;
-        case 0x402c:
-        case 0x402e:
-            if (param_2 == 0x402d) {
-                index = 0x402b;
+        case SPECIAL_META_TILE_44:
+        case SPECIAL_META_TILE_46:
+            if (tileIndex == SPECIAL_META_TILE_45) {
+                newTileIndex = SPECIAL_META_TILE_43;
                 this->unk_83 |= 0x20;
             }
-            if (param_2 == 0x4025) {
-                index = 0x4022;
+            if (tileIndex == SPECIAL_META_TILE_37) {
+                newTileIndex = SPECIAL_META_TILE_34;
                 this->unk_83 |= 0x20;
             }
             break;
     }
 
-    SetMetaTile(index, tilePos, 1);
+    SetMetaTile(newTileIndex, tilePos, LAYER_BOTTOM);
 }
 
 void sub_08090254(PushableFurnitureEntity* this) {
@@ -591,8 +591,8 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
     }
 }
 
-void sub_08090480(u32 param_1, u32 param_2) {
-    SetMetaTile(gUnk_08121EF0[param_1], param_2, 1);
+void sub_08090480(u32 param_1, u32 tilePos) {
+    SetMetaTile(gUnk_08121EF0[param_1], tilePos, LAYER_BOTTOM);
 }
 
 void sub_08090498(PushableFurnitureEntity* this) {
@@ -637,11 +637,12 @@ void (*const PushableFurniture_Actions[])(PushableFurnitureEntity*) = {
     PushableFurniture_Action2,
 };
 const u16 gUnk_08121EE4[] = {
-    0x402b, 0x4022, 0x402c, 0x4024, 0x402d, 0x4025,
+    SPECIAL_META_TILE_43, SPECIAL_META_TILE_34, SPECIAL_META_TILE_44,
+    SPECIAL_META_TILE_36, SPECIAL_META_TILE_45, SPECIAL_META_TILE_37,
 };
 const u16 gUnk_08121EF0[] = {
-    0x4026,
-    0x4065,
-    0x4066,
+    SPECIAL_META_TILE_38,
+    SPECIAL_META_TILE_101,
+    SPECIAL_META_TILE_102,
     0,
 };

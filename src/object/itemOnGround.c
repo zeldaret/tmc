@@ -8,13 +8,13 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "item.h"
 #include "itemMetaData.h"
 #include "object.h"
 #include "player.h"
 #include "sound.h"
+#include "tiles.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);
@@ -282,7 +282,8 @@ void sub_080812A0(Entity* this) {
 }
 
 void sub_080812A8(Entity* this) {
-    if (GetCollisionDataAtEntity(this) != 0xF && this->field_0x6e.HWORD != GetMetaTileTypeByEntity(this)) {
+    if (GetCollisionDataAtEntity(this) != COLLISION_DATA_15 &&
+        this->field_0x6e.HWORD != GetMetaTileTypeByEntity(this)) {
         this->direction = 0;
         this->speed = 0;
         this->spriteSettings.draw = 1;

@@ -1,8 +1,9 @@
-#include "entity.h"
 #include "collision.h"
+#include "entity.h"
 #include "functions.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "tiles.h"
 
 void sub_08069FE8(Entity*);
 bool32 sub_08069EF0(Entity*);
@@ -217,7 +218,7 @@ void sub_08069B44(Entity* this) {
             this->action = 4;
         }
         if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
-            SetMetaTile(0x4072, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_114, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
         }
     }
 }

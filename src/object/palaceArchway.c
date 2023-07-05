@@ -5,6 +5,7 @@
  * @brief Palace Archway object
  */
 #include "object.h"
+#include "tiles.h"
 
 void PalaceArchway_Init(Entity*);
 void PalaceArchway_Action1(Entity*);
@@ -22,7 +23,7 @@ void PalaceArchway_Init(Entity* this) {
     this->frameIndex = this->type2;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
-    SetMetaTile(0x4069, COORD_TO_TILE(this), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_105, COORD_TO_TILE(this), this->collisionLayer);
 }
 
 void PalaceArchway_Action1(Entity* this) {

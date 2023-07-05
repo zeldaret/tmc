@@ -5,15 +5,15 @@
  * @brief Beanstalk object
  */
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[4];
     /*0x6c*/ u32 unk_6c;
-    /*0x70*/ u16 unk_70;
+    /*0x70*/ u16 tilePos;
     /*0x72*/ u16 unk_72;
 } BeanstalkEntity;
 
@@ -256,11 +256,11 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
                 return;
             }
             this->unk_6c = gRoomControls.origin_y;
-            this->unk_70 = TILE(super->x.HALF.HI, this->unk_6c);
+            this->tilePos = TILE(super->x.HALF.HI, this->unk_6c);
             while (TRUE) {
-                this->unk_70 = TILE(super->x.HALF.HI, this->unk_6c);
-                SetMetaTile(0x4017, this->unk_70, 2);
-                SetMetaTile(0x4017, this->unk_70, 1);
+                this->tilePos = TILE(super->x.HALF.HI, this->unk_6c);
+                SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, LAYER_TOP);
+                SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, LAYER_BOTTOM);
                 this->unk_6c += 0x10;
                 if (this->unk_6c >= gRoomControls.origin_y + gRoomControls.height)
                     break;
@@ -308,8 +308,8 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
     Entity* obj;
 
     super->spriteOrientation.flipY = 2;
-    this->unk_70 = COORD_TO_TILE(super);
-    SetMetaTile(0x4017, this->unk_70, 1);
+    this->tilePos = COORD_TO_TILE(super);
+    SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, LAYER_BOTTOM);
     super->subAction = 1;
     obj = CreateObjectWithParent(super, CHUCHU_BOSS_PARTICLE, 0, 0);
     if (obj != NULL) {
@@ -334,19 +334,19 @@ void Beanstalk_Action1Type9(BeanstalkEntity* this) {
     if (super->subAction == 0) {
         super->subAction = 1;
         super->y.HALF.HI += 0x28;
-        this->unk_72 = sub_080B1A0C(super, 0, -0x18);
+        this->unk_72 = sub_080B1A0C(super, 0, -24);
     }
     super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
     super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
     if (gPlayerState.floor_type == SURFACE_LADDER) {
         super->spritePriority.b0 = 0;
-        if (sub_080B1A0C(super, 0, -0x18) != 0x4014) {
-            SetMetaTile(0x4014, COORD_TO_TILE_OFFSET(super, 0, 0x18), 1);
+        if (sub_080B1A0C(super, 0, -24) != SPECIAL_META_TILE_20) {
+            SetMetaTile(SPECIAL_META_TILE_20, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
         }
     } else {
         super->spritePriority.b0 = 5;
-        if (this->unk_72 != sub_080B1A0C(super, 0, -0x18)) {
-            SetMetaTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 0x18), 1);
+        if (this->unk_72 != sub_080B1A0C(super, 0, -24)) {
+            SetMetaTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
         }
     }
 }

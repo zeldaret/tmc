@@ -7,9 +7,9 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -180,16 +180,16 @@ void sub_0808C500(BossDoorEntity* this) {
         this->unk_78 = GetMetaTileIndex(this->unk_74 - 1, super->collisionLayer);
         this->unk_7a = GetMetaTileIndex(this->unk_74, super->collisionLayer);
         this->unk_7c = GetMetaTileIndex(this->unk_74 + 1, super->collisionLayer);
-        SetMetaTile(0x4022, this->unk_74 - 1, super->collisionLayer);
-        SetMetaTile(0x4022, this->unk_74, super->collisionLayer);
-        SetMetaTile(0x4022, this->unk_74 + 1, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_74 - 1, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_74, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_74 + 1, super->collisionLayer);
     } else {
         this->unk_78 = GetMetaTileIndex(this->unk_74 - 0x40, super->collisionLayer);
         this->unk_7a = GetMetaTileIndex(this->unk_74, super->collisionLayer);
         this->unk_7c = GetMetaTileIndex(this->unk_74 + 0x40, super->collisionLayer);
-        SetMetaTile(0x4022, this->unk_74 - 0x40, super->collisionLayer);
-        SetMetaTile(0x4022, this->unk_74, super->collisionLayer);
-        SetMetaTile(0x4022, this->unk_74 + 0x40, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_74 - 0x40, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_74, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->unk_74 + 0x40, super->collisionLayer);
     }
 }
 

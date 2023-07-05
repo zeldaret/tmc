@@ -4,6 +4,7 @@
  *
  * @brief Giant Leaf object
  */
+#include "map.h"
 #include "object.h"
 
 void sub_0808D618(Entity* ent);
@@ -35,6 +36,6 @@ void sub_0808D618(Entity* ent) {
               ((((ent->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) * 64);
 
     for (i = 0; i < 13; i++) {
-        SetMetaTile(16500, tilePos + arr[i], 1);
+        SetMetaTile(16500, tilePos + arr[i], LAYER_BOTTOM);
     }
 }

@@ -3,6 +3,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -89,7 +90,7 @@ void SpinyBeetle_Init(SpinyBeetleEntity* this) {
     this->unk_7b = 0;
     this->tile = COORD_TO_TILE(super);
     this->tileIndex = GetMetaTileIndex(this->tile, super->collisionLayer);
-    SetMetaTile(0x4022, this->tile, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, this->tile, super->collisionLayer);
     obj = CreateObject(OBJECT_ON_BEETLE, super->type, 0);
 
     if (obj == NULL) {
@@ -234,7 +235,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         this->tile = COORD_TO_TILE(super);
         this->tileIndex = GetMetaTileIndex(this->tile, super->collisionLayer);
 
-        if (this->tileIndex != 0x4022) {
+        if (this->tileIndex != SPECIAL_META_TILE_34) {
             stop++;
         } else {
             switch (DirectionRound(super->direction) >> 2) {
@@ -254,7 +255,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         }
     }
 
-    SetMetaTile(0x4022, this->tile, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, this->tile, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
 

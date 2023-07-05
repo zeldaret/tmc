@@ -28,7 +28,7 @@ void sub_08046518(void);
 void sub_080467DC(GyorgFemaleEntity*);
 
 extern u8 gUpdateVisibleTiles;
-extern u8 gUnk_080B3E80[];
+extern u8 gMapMetaTileTypeToCollisionData[];
 
 extern const MapDataDefinition gGyorgMapping0[];
 extern const MapDataDefinition gGyorgMapping1[];
@@ -255,8 +255,8 @@ void sub_08046518(void) {
             u16 new_var;
             stack1[j] = sl[j];
             new_var = ptr[sl[j]];
-            stack2[j] = gUnk_080B37A0[new_var];
-            r6[j] = gUnk_080B3E80[new_var];
+            stack2[j] = gMapMetaTileTypeToVvv[new_var];
+            r6[j] = gMapMetaTileTypeToCollisionData[new_var];
         }
         sl += 0x40;
         stack1 += 0x40;

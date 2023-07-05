@@ -8,7 +8,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
+#include "tiles.h"
 
 void HiddenLadderDown_Init(Entity*);
 void HiddenLadderDown_Action1(Entity*);
@@ -34,15 +34,15 @@ void HiddenLadderDown_Init(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         this->spriteSettings.draw = TRUE;
-        SetMetaTileType(0x1a2, *puVar3 - 0x41, this->collisionLayer);
-        SetMetaTileType(0x1a3, *puVar3 - 0x40, this->collisionLayer);
-        SetMetaTileType(0x1a4, *puVar3 - 0x3f, this->collisionLayer);
-        SetMetaTileType(0x1a5, *puVar3 - 1, this->collisionLayer);
-        SetMetaTileType(0x1a6, *puVar3, this->collisionLayer);
-        SetMetaTileType(0x1a7, *puVar3 + 1, this->collisionLayer);
-        SetMetaTileType(0x1a8, *puVar3 + 0x3f, this->collisionLayer);
-        SetMetaTileType(0x1a9, *puVar3 + 0x40, this->collisionLayer);
-        SetMetaTileType(0x1aa, *puVar3 + 0x41, this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_418, *puVar3 + TILE_POS(-1, -1), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_419, *puVar3 + TILE_POS(0, -1), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_420, *puVar3 + TILE_POS(1, -1), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_421, *puVar3 + TILE_POS(-1, 0), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_422, *puVar3 + TILE_POS(0, 0), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_423, *puVar3 + TILE_POS(1, 0), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_424, *puVar3 + TILE_POS(-1, 1), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_425, *puVar3 + TILE_POS(0, 1), this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_426, *puVar3 + TILE_POS(1, 1), this->collisionLayer);
     }
 }
 

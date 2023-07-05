@@ -2,20 +2,6 @@
 #define TILES_H
 
 typedef enum {
-    CUT_BUSH = 0x1C,
-    CUT_GRASS = 0x1D,
-    CUT_SIGNPOST = 0x1E,
-    CUT_TREE = 0x1F,
-    ROCK = 0x55,
-    CHEST = 0x73,
-    SIGNPOST = 0x176,
-    PERMA_ROCK = 0x1D3,
-    PERMA_ROCK2 = 0x1D4,
-    PERMA_ROCK3 = 0x1D5,
-    PERMA_ROCK4 = 0x1D6,
-} Tile;
-
-typedef enum {
     META_TILE_TYPE_0,    // 0x0
     META_TILE_TYPE_1,    // 0x1
     META_TILE_TYPE_2,    // 0x2
@@ -44,10 +30,10 @@ typedef enum {
     META_TILE_TYPE_25,   // 0x19
     META_TILE_TYPE_26,   // 0x1a
     META_TILE_TYPE_27,   // 0x1b
-    META_TILE_TYPE_28,   // 0x1c
-    META_TILE_TYPE_29,   // 0x1d
-    META_TILE_TYPE_30,   // 0x1e
-    META_TILE_TYPE_31,   // 0x1f
+    META_TILE_TYPE_28,   // 0x1c CUT_BUSH
+    META_TILE_TYPE_29,   // 0x1d CUT_GRASS
+    META_TILE_TYPE_30,   // 0x1e CUT_SIGNPOST
+    META_TILE_TYPE_31,   // 0x1f CUT_TREE
     META_TILE_TYPE_32,   // 0x20
     META_TILE_TYPE_33,   // 0x21
     META_TILE_TYPE_34,   // 0x22
@@ -101,7 +87,7 @@ typedef enum {
     META_TILE_TYPE_82,   // 0x52
     META_TILE_TYPE_83,   // 0x53
     META_TILE_TYPE_84,   // 0x54
-    META_TILE_TYPE_85,   // 0x55
+    META_TILE_TYPE_85,   // 0x55 ROCK
     META_TILE_TYPE_86,   // 0x56
     META_TILE_TYPE_87,   // 0x57
     META_TILE_TYPE_88,   // 0x58
@@ -131,7 +117,7 @@ typedef enum {
     META_TILE_TYPE_112,  // 0x70
     META_TILE_TYPE_113,  // 0x71
     META_TILE_TYPE_114,  // 0x72
-    META_TILE_TYPE_115,  // 0x73
+    META_TILE_TYPE_115,  // 0x73 CHEST
     META_TILE_TYPE_116,  // 0x74
     META_TILE_TYPE_117,  // 0x75
     META_TILE_TYPE_118,  // 0x76
@@ -390,7 +376,7 @@ typedef enum {
     META_TILE_TYPE_371,  // 0x173
     META_TILE_TYPE_372,  // 0x174
     META_TILE_TYPE_373,  // 0x175
-    META_TILE_TYPE_374,  // 0x176
+    META_TILE_TYPE_374,  // 0x176 SIGNPOST
     META_TILE_TYPE_375,  // 0x177
     META_TILE_TYPE_376,  // 0x178
     META_TILE_TYPE_377,  // 0x179
@@ -483,10 +469,10 @@ typedef enum {
     META_TILE_TYPE_464,  // 0x1d0
     META_TILE_TYPE_465,  // 0x1d1
     META_TILE_TYPE_466,  // 0x1d2
-    META_TILE_TYPE_467,  // 0x1d3
-    META_TILE_TYPE_468,  // 0x1d4
-    META_TILE_TYPE_469,  // 0x1d5
-    META_TILE_TYPE_470,  // 0x1d6
+    META_TILE_TYPE_467,  // 0x1d3 PERMA_ROCK
+    META_TILE_TYPE_468,  // 0x1d4 PERMA_ROCK2
+    META_TILE_TYPE_469,  // 0x1d5 PERMA_ROCK3
+    META_TILE_TYPE_470,  // 0x1d6 PERMA_ROCK4
     META_TILE_TYPE_471,  // 0x1d7
     META_TILE_TYPE_472,  // 0x1d8
     META_TILE_TYPE_473,  // 0x1d9
@@ -807,8 +793,8 @@ typedef enum {
     META_TILE_TYPE_788,  // 0x314
     META_TILE_TYPE_789,  // 0x315
     META_TILE_TYPE_790,  // 0x316
-    META_TILE_TYPE_791,  // 0x317
-    META_TILE_TYPE_792,  // 0x318
+    META_TILE_TYPE_791,  // 0x317 RED_TILE
+    META_TILE_TYPE_792,  // 0x318 BLUE_TILE
     META_TILE_TYPE_793,  // 0x319
     META_TILE_TYPE_794,  // 0x31a
     META_TILE_TYPE_795,  // 0x31b
@@ -1412,162 +1398,164 @@ typedef enum {
     META_TILE_TYPE_1393, // 0x571
     META_TILE_TYPE_1394, // 0x572
     META_TILE_TYPE_1395, // 0x573
-} MetaTile;
+} MetaTileType;
 
 typedef enum {
-    SPECIAL_META_TILE_0 = 0x4000,
-    SPECIAL_META_TILE_1,   // 0x4001
-    SPECIAL_META_TILE_2,   // 0x4002
-    SPECIAL_META_TILE_3,   // 0x4003
-    SPECIAL_META_TILE_4,   // 0x4004
-    SPECIAL_META_TILE_5,   // 0x4005
-    SPECIAL_META_TILE_6,   // 0x4006
-    SPECIAL_META_TILE_7,   // 0x4007
-    SPECIAL_META_TILE_8,   // 0x4008
-    SPECIAL_META_TILE_9,   // 0x4009
-    SPECIAL_META_TILE_10,  // 0x400a
-    SPECIAL_META_TILE_11,  // 0x400b
-    SPECIAL_META_TILE_12,  // 0x400c
-    SPECIAL_META_TILE_13,  // 0x400d
-    SPECIAL_META_TILE_14,  // 0x400e
-    SPECIAL_META_TILE_15,  // 0x400f
-    SPECIAL_META_TILE_16,  // 0x4010
-    SPECIAL_META_TILE_17,  // 0x4011
-    SPECIAL_META_TILE_18,  // 0x4012
-    SPECIAL_META_TILE_19,  // 0x4013
-    SPECIAL_META_TILE_20,  // 0x4014
-    SPECIAL_META_TILE_21,  // 0x4015
-    SPECIAL_META_TILE_22,  // 0x4016
-    SPECIAL_META_TILE_23,  // 0x4017
-    SPECIAL_META_TILE_24,  // 0x4018
-    SPECIAL_META_TILE_25,  // 0x4019
-    SPECIAL_META_TILE_26,  // 0x401a
-    SPECIAL_META_TILE_27,  // 0x401b
-    SPECIAL_META_TILE_28,  // 0x401c
-    SPECIAL_META_TILE_29,  // 0x401d
-    SPECIAL_META_TILE_30,  // 0x401e
-    SPECIAL_META_TILE_31,  // 0x401f
-    SPECIAL_META_TILE_32,  // 0x4020
-    SPECIAL_META_TILE_33,  // 0x4021
-    SPECIAL_META_TILE_34,  // 0x4022
-    SPECIAL_META_TILE_35,  // 0x4023
-    SPECIAL_META_TILE_36,  // 0x4024
-    SPECIAL_META_TILE_37,  // 0x4025
-    SPECIAL_META_TILE_38,  // 0x4026
-    SPECIAL_META_TILE_39,  // 0x4027
-    SPECIAL_META_TILE_40,  // 0x4028
-    SPECIAL_META_TILE_41,  // 0x4029
-    SPECIAL_META_TILE_42,  // 0x402a
-    SPECIAL_META_TILE_43,  // 0x402b
-    SPECIAL_META_TILE_44,  // 0x402c
-    SPECIAL_META_TILE_45,  // 0x402d
-    SPECIAL_META_TILE_46,  // 0x402e
+    SPECIAL_META_TILE_0 = 0x4000, // Pots
+    SPECIAL_META_TILE_1,          // 0x4001 // Move Pot Up
+    SPECIAL_META_TILE_2,          // 0x4002 // Move Pot Right
+    SPECIAL_META_TILE_3,          // 0x4003 // Move Pot Down
+    SPECIAL_META_TILE_4,          // 0x4004 // Move Pot Left
+    SPECIAL_META_TILE_5,          // 0x4005
+    SPECIAL_META_TILE_6,          // 0x4006
+    SPECIAL_META_TILE_7,          // 0x4007
+    SPECIAL_META_TILE_8,          // 0x4008
+    SPECIAL_META_TILE_9,          // 0x4009
+    SPECIAL_META_TILE_10,         // 0x400a
+    SPECIAL_META_TILE_11,         // 0x400b // Statues/ Pillar Gates
+    SPECIAL_META_TILE_12,         // 0x400c // Move Statue Up
+    SPECIAL_META_TILE_13,         // 0x400d // Move Statue Right
+    SPECIAL_META_TILE_14,         // 0x400e // Move Statue Down
+    SPECIAL_META_TILE_15,         // 0x400f // Move Statue Left
+    SPECIAL_META_TILE_16,         // 0x4010
+    SPECIAL_META_TILE_17,         // 0x4011
+    SPECIAL_META_TILE_18,         // 0x4012
+    SPECIAL_META_TILE_19,         // 0x4013
+    SPECIAL_META_TILE_20,         // 0x4014 // Beanstalk/Ladder Top (Transition)
+    SPECIAL_META_TILE_21,         // 0x4015 // Boulder in Hole
+    SPECIAL_META_TILE_22,         // 0x4016
+    SPECIAL_META_TILE_23,         // 0x4017 // Beanstalk/Ladder
+    SPECIAL_META_TILE_24,         // 0x4018
+    SPECIAL_META_TILE_25,         // 0x4019
+    SPECIAL_META_TILE_26,         // 0x401a
+    SPECIAL_META_TILE_27,         // 0x401b // Boulder
+    SPECIAL_META_TILE_28,         // 0x401c // Move Bolder Up
+    SPECIAL_META_TILE_29,         // 0x401d // Move Bolder Right
+    SPECIAL_META_TILE_30,         // 0x401e // Move Bolder Down
+    SPECIAL_META_TILE_31,         // 0x401f // Move Bolder Left
+    SPECIAL_META_TILE_32,         // 0x4020 // Spring hole (Cane shot hole)
+    SPECIAL_META_TILE_33,         // 0x4021
+    SPECIAL_META_TILE_34,  // 0x4022 // Furniture Center Locked Door/Frozen Element/Octo/O Shaped Ice (ToD) Big Chest
+                           // Closed (ToD) Gust Jar Mushrooms (ToD)     Perhaps this is just tiles that change on
+                           // interaction?
+    SPECIAL_META_TILE_35,  // 0x4023 // Object Top
+    SPECIAL_META_TILE_36,  // 0x4024 // Object Left
+    SPECIAL_META_TILE_37,  // 0x4025 // Object Right
+    SPECIAL_META_TILE_38,  // 0x4026 // Object Bottom
+    SPECIAL_META_TILE_39,  // 0x4027 // Object Top Left Corner
+    SPECIAL_META_TILE_40,  // 0x4028 // Object Top Right Corner
+    SPECIAL_META_TILE_41,  // 0x4029 // Object Bottom Left Corner
+    SPECIAL_META_TILE_42,  // 0x402a // Object Bottom Right Corner
+    SPECIAL_META_TILE_43,  // 0x402b // Push Object Either (1 off)
+    SPECIAL_META_TILE_44,  // 0x402c // Push Object Left (1 off)
+    SPECIAL_META_TILE_45,  // 0x402d // Push Object Right (1 off)
+    SPECIAL_META_TILE_46,  // 0x402e // Push Object Either
     SPECIAL_META_TILE_47,  // 0x402f
     SPECIAL_META_TILE_48,  // 0x4030
-    SPECIAL_META_TILE_49,  // 0x4031
-    SPECIAL_META_TILE_50,  // 0x4032
+    SPECIAL_META_TILE_49,  // 0x4031 // Pushed Object
+    SPECIAL_META_TILE_50,  // 0x4032 // Blue Bean in Hole
     SPECIAL_META_TILE_51,  // 0x4033
     SPECIAL_META_TILE_52,  // 0x4034
     SPECIAL_META_TILE_53,  // 0x4035
-    SPECIAL_META_TILE_54,  // 0x4036
-    SPECIAL_META_TILE_55,  // 0x4037
-    SPECIAL_META_TILE_56,  // 0x4038
-    SPECIAL_META_TILE_57,  // 0x4039
-    SPECIAL_META_TILE_58,  // 0x403a
-    SPECIAL_META_TILE_59,  // 0x403b
+    SPECIAL_META_TILE_54,  // 0x4036 // Pillar w/ Object
+    SPECIAL_META_TILE_55,  // 0x4037 // Move pillar Up
+    SPECIAL_META_TILE_56,  // 0x4038 // Move pillar Right
+    SPECIAL_META_TILE_57,  // 0x4039 // Move pillar Down
+    SPECIAL_META_TILE_58,  // 0x403a // Move pillar Left
+    SPECIAL_META_TILE_59,  // 0x403b // Green Bean in Hole
     SPECIAL_META_TILE_60,  // 0x403c
-    SPECIAL_META_TILE_61,  // 0x403d
-    SPECIAL_META_TILE_62,  // 0x403e
+    SPECIAL_META_TILE_61,  // 0x403d // Minish Path Under Stick, Stone over hole in light rooms (ToD), Object Blocking
+                           // Town doors
+    SPECIAL_META_TILE_62,  // 0x403e // Grave
     SPECIAL_META_TILE_63,  // 0x403f
-    SPECIAL_META_TILE_64,  // 0x4040
-    SPECIAL_META_TILE_65,  // 0x4041
-    SPECIAL_META_TILE_66,  // 0x4042
-    SPECIAL_META_TILE_67,  // 0x4043
-    SPECIAL_META_TILE_68,  // 0x4044
-    SPECIAL_META_TILE_69,  // 0x4045
-    SPECIAL_META_TILE_70,  // 0x4046
-    SPECIAL_META_TILE_71,  // 0x4047
-    SPECIAL_META_TILE_72,  // 0x4048
+    SPECIAL_META_TILE_64,  // 0x4040 // Portal Top Left
+    SPECIAL_META_TILE_65,  // 0x4041 // Portal Top
+    SPECIAL_META_TILE_66,  // 0x4042 // Portal Top Right
+    SPECIAL_META_TILE_67,  // 0x4043 // Portal Left
+    SPECIAL_META_TILE_68,  // 0x4044 // Portal Center
+    SPECIAL_META_TILE_69,  // 0x4045 // Portal Right
+    SPECIAL_META_TILE_70,  // 0x4046 // Portal Bottom Left
+    SPECIAL_META_TILE_71,  // 0x4047 // Portal Bottom
+    SPECIAL_META_TILE_72,  // 0x4048 // Portal Bottom Right
     SPECIAL_META_TILE_73,  // 0x4049
-    SPECIAL_META_TILE_74,  // 0x404a
-    SPECIAL_META_TILE_75,  // 0x404b
-    SPECIAL_META_TILE_76,  // 0x404c
-    SPECIAL_META_TILE_77,  // 0x404d
-    SPECIAL_META_TILE_78,  // 0x404e
+    SPECIAL_META_TILE_74,  // 0x404a // Push Box
+    SPECIAL_META_TILE_75,  // 0x404b // Move Block Up
+    SPECIAL_META_TILE_76,  // 0x404c // Move Block Right
+    SPECIAL_META_TILE_77,  // 0x404d // Move Block Down
+    SPECIAL_META_TILE_78,  // 0x404e // Push Box Locked
     SPECIAL_META_TILE_79,  // 0x404f
-    SPECIAL_META_TILE_80,  // 0x4050
+    SPECIAL_META_TILE_80,  // 0x4050 // Impact Switch
     SPECIAL_META_TILE_81,  // 0x4051
-    SPECIAL_META_TILE_82,  // 0x4052
-    SPECIAL_META_TILE_83,  // 0x4053
-    SPECIAL_META_TILE_84,  // 0x4054
-    SPECIAL_META_TILE_85,  // 0x4055
-    SPECIAL_META_TILE_86,  // 0x4056
-    SPECIAL_META_TILE_87,  // 0x4057
-    SPECIAL_META_TILE_88,  // 0x4058
+    SPECIAL_META_TILE_82,  // 0x4052 // Lever (facing left)
+    SPECIAL_META_TILE_83,  // 0x4053 // Lever (facing up)
+    SPECIAL_META_TILE_84,  // 0x4054 // After Lever push (facing left)
+    SPECIAL_META_TILE_85,  // 0x4055 // Big lever (facing left inside)
+    SPECIAL_META_TILE_86,  // 0x4056 // Big lever (facing left outside)
+    SPECIAL_META_TILE_87,  // 0x4057 // Big lever (facing up inside)
+    SPECIAL_META_TILE_88,  // 0x4058 // Big lever (facing up outside)
     SPECIAL_META_TILE_89,  // 0x4059
-    SPECIAL_META_TILE_90,  // 0x405a
-    SPECIAL_META_TILE_91,  // 0x405b
-    SPECIAL_META_TILE_92,  // 0x405c
-    SPECIAL_META_TILE_93,  // 0x405d
-    SPECIAL_META_TILE_94,  // 0x405e
+    SPECIAL_META_TILE_90,  // 0x405a // Ice Blocks
+    SPECIAL_META_TILE_91,  // 0x405b // Move Block Up
+    SPECIAL_META_TILE_92,  // 0x405c // Move Block Right
+    SPECIAL_META_TILE_93,  // 0x405d // Move Block Down
+    SPECIAL_META_TILE_94,  // 0x405e // Move Block Left
     SPECIAL_META_TILE_95,  // 0x405f
-    SPECIAL_META_TILE_96,  // 0x4060
-    SPECIAL_META_TILE_97,  // 0x4061
+    SPECIAL_META_TILE_96,  // 0x4060 // Skull
+    SPECIAL_META_TILE_97,  // 0x4061 // Lit Fireplace
     SPECIAL_META_TILE_98,  // 0x4062
     SPECIAL_META_TILE_99,  // 0x4063
     SPECIAL_META_TILE_100, // 0x4064
-    SPECIAL_META_TILE_101, // 0x4065
-    SPECIAL_META_TILE_102, // 0x4066
+    SPECIAL_META_TILE_101, // 0x4065 // Tree Thorns Right
+    SPECIAL_META_TILE_102, // 0x4066 // Tree Thorns Left
     SPECIAL_META_TILE_103, // 0x4067
-    SPECIAL_META_TILE_104, // 0x4068
-    SPECIAL_META_TILE_105, // 0x4069
+    SPECIAL_META_TILE_104, // 0x4068 // Hot Ash Covering Objects
+    SPECIAL_META_TILE_105, // 0x4069 // Loading Zone
     SPECIAL_META_TILE_106, // 0x406a
     SPECIAL_META_TILE_107, // 0x406b
-    SPECIAL_META_TILE_108, // 0x406c
-    SPECIAL_META_TILE_109, // 0x406d
-    SPECIAL_META_TILE_110, // 0x406e
-    SPECIAL_META_TILE_111, // 0x406f
-    SPECIAL_META_TILE_112, // 0x4070
+    SPECIAL_META_TILE_108, // 0x406c // Acorn Top Left
+    SPECIAL_META_TILE_109, // 0x406d // Acorn Top Right
+    SPECIAL_META_TILE_110, // 0x406e // Acorn Bottom Left
+    SPECIAL_META_TILE_111, // 0x406f // Acorn Bottom Right
+    SPECIAL_META_TILE_112, // 0x4070 // Link in a hole
     SPECIAL_META_TILE_113, // 0x4071
-    SPECIAL_META_TILE_114, // 0x4072
+    SPECIAL_META_TILE_114, // 0x4072 // Blocking Library, all kinds of objects?
     SPECIAL_META_TILE_115, // 0x4073
-    SPECIAL_META_TILE_116, // 0x4074
-    SPECIAL_META_TILE_117, // 0x4075
-    SPECIAL_META_TILE_118, // 0x4076
-    SPECIAL_META_TILE_119, // 0x4077
-    SPECIAL_META_TILE_120, // 0x4078
-    SPECIAL_META_TILE_121, // 0x4079
-    SPECIAL_META_TILE_122, // 0x407a
-    SPECIAL_META_TILE_123, // 0x407b
-    SPECIAL_META_TILE_124, // 0x407c
-    SPECIAL_META_TILE_125, // 0x407d
+    SPECIAL_META_TILE_116, // 0x4074 // Leaf
+    SPECIAL_META_TILE_117, // 0x4075 // Chest Ice Block Top Left
+    SPECIAL_META_TILE_118, // 0x4076 // Chest Ice Block Top Right
+    SPECIAL_META_TILE_119, // 0x4077 // Chest Ice Block Top
+    SPECIAL_META_TILE_120, // 0x4078 // Chest Ice Block Bottom Left
+    SPECIAL_META_TILE_121, // 0x4079 // Chest Ice Block Left
+    SPECIAL_META_TILE_122, // 0x407a // Chest Ice Block Bottom Right
+    SPECIAL_META_TILE_123, // 0x407b // Chest Ice Block Right
+    SPECIAL_META_TILE_124, // 0x407c // Chest Ice Block Bottom
+    SPECIAL_META_TILE_125, // 0x407d // Town Well
     SPECIAL_META_TILE_126, // 0x407e
     SPECIAL_META_TILE_127, // 0x407f
-    SPECIAL_META_TILE_128, // 0x4080
+    SPECIAL_META_TILE_128, // 0x4080 // Dig Cave Outside
     SPECIAL_META_TILE_129, // 0x4081
-    SPECIAL_META_TILE_130, // 0x4082
-    SPECIAL_META_TILE_131, // 0x4083
+    SPECIAL_META_TILE_130, // 0x4082 // Bookshelf slider
+    SPECIAL_META_TILE_131, // 0x4083 // Minish House doorways
     SPECIAL_META_TILE_132, // 0x4084
     SPECIAL_META_TILE_133, // 0x4085
     SPECIAL_META_TILE_134, // 0x4086
     SPECIAL_META_TILE_135, // 0x4087
     SPECIAL_META_TILE_136, // 0x4088
-    SPECIAL_META_TILE_137, // 0x4089
-    SPECIAL_META_TILE_138, // 0x408a
-    SPECIAL_META_TILE_139, // 0x408b
-    SPECIAL_META_TILE_140, // 0x408c
+    SPECIAL_META_TILE_137, // 0x4089 // Shallow Water Outside ToD
+    SPECIAL_META_TILE_138, // 0x408a // Shallow Water Outside ToD
+    SPECIAL_META_TILE_139, // 0x408b // Shallow Water Outside ToD
+    SPECIAL_META_TILE_140, // 0x408c // Shallow Water Outside ToD
     SPECIAL_META_TILE_141, // 0x408d
-    SPECIAL_META_TILE_142, // 0x408e
-    SPECIAL_META_TILE_143, // 0x408f
+    SPECIAL_META_TILE_142, // 0x408e // Climb Wall Down, Library book ladder, Rock Boost
+    SPECIAL_META_TILE_143, // 0x408f // Climb Wall Up, Rock Boost
     SPECIAL_META_TILE_144, // 0x4090
-    SPECIAL_META_TILE_145, // 0x4091
-    SPECIAL_META_TILE_146, // 0x4092
-    SPECIAL_META_TILE_147, // 0x4093
-    SPECIAL_META_TILE_148, // 0x4094
-    SPECIAL_META_TILE_149, // 0x4095
+    SPECIAL_META_TILE_145, // 0x4091 // Shallow Water Outside ToD
+    SPECIAL_META_TILE_146, // 0x4092 // Minish Pot Top Left Flipping
+    SPECIAL_META_TILE_147, // 0x4093 // Minish Pot Top Right Flipping
+    SPECIAL_META_TILE_148, // 0x4094 // Minish Pot Bottom Left Flipping
+    SPECIAL_META_TILE_149, // 0x4095 // Minish Pot Botom Right Flipping
     SPECIAL_META_TILE_150, // 0x4096
 } SpecialMetaTile;
-
 
 typedef enum {
     VVV_0 = 0,
@@ -1584,14 +1572,14 @@ typedef enum {
     VVV_11 = 11, // sub_0801FDE4(leever)
     VVV_12 = 12, // sub_0801FDE4(leever)
     VVV_13 = 13, // -> SURFACE_PIT, sub_08094E30(cutsceneMiscObject), sub_08085B40(lilypadLarge), Pot_Action1,
-                 // sub_080AD040(playerItemHeldObject), UpdatePlayerCollision, sub_0807B434(playerUtils)
+                 // sub_080AD040(playerItemHeldObject), UpdatePlayerCollision, sub_0807B434(playerUtils), FX_FALL_DOWN
     VVV_14 = 14, // -> SURFACE_SLOPE_GNDWATER
     VVV_15 = 15, // -> SURFACE_SHALLOW_WATER, SPECIAL_META_TILE_145
     VVV_16 = 16, // -> SURFACE_WATER, sub_0801FBD0(chuchu), PlayerItemBottle_UseEmptyBottle, SPECIAL_META_TILE_137 -
-                 // 140, sub_080AD040(playerItemHeldObject)
-    VVV_17 = 17, // -> SURFACE_14, sub_08085A44(lilypadLarge), sub_080AD040(playerItemHeldObject)
+                 // 140, sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH
+    VVV_17 = 17, // -> SURFACE_14, sub_08085A44(lilypadLarge), sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH
     VVV_18 = 18, // -> SURFACE_ICE, SPECIAL_META_TILE_117 - 124
-    VVV_19 = 19, // -> SURFACE_SWAMP, sub_0803163C(rope), sub_080AD040(playerItemHeldObject)
+    VVV_19 = 19, // -> SURFACE_SWAMP, sub_0803163C(rope), sub_080AD040(playerItemHeldObject), FX_GREEN_SPLASH
     VVV_20 = 20,
     VVV_21 = 21,
     VVV_22 = 22, // -> SURFACE_DUST
@@ -1615,7 +1603,8 @@ typedef enum {
     VVV_39 = 39, // -> SURFACE_SLOPE_GNDGND_H
     VVV_40 = 40, // -> SURFACE_DOOR_13, SPECIAL_META_TILE_105, sub_080732D0(player), UpdateDoorTransition
     VVV_41 = 41, // -> SURFACE_DOOR, sub_08076DF4(itemGustJar), Minecart_Action3, sub_080896B0(pushableStatue),
-                 // SPECIAL_META_TILE_128, SPECIAL_META_TILE_131 - 136, SPECIAL_META_TILE_141, sub_080724DC(player), UpdateDoorTransition
+                 // SPECIAL_META_TILE_128, SPECIAL_META_TILE_131 - 136, SPECIAL_META_TILE_141, sub_080724DC(player),
+                 // UpdateDoorTransition
     VVV_42 = 42, // -> SURFACE_E, sub_080611D4(npc5)
     VVV_43 = 43, // -> SURFACE_D, sub_080611D4(npc5)
     VVV_44 = 44, // -> SURFACE_10, sub_080611D4(npc5)
@@ -1664,16 +1653,16 @@ typedef enum {
     VVV_87 = 87, // -> SURFACE_CLONE_TILE, sub_0806B0E0(townMinish)
     VVV_88 = 88,
     VVV_89 = 89,
-    VVV_90 = 90, // -> SURFACE_1C, sub_080AD040(playerItemHeldObject)
+    VVV_90 = 90, // -> SURFACE_1C, sub_080AD040(playerItemHeldObject), FX_LAVA_SPLASH
     VVV_91 = 91,
     VVV_92 = 92,
     VVV_93 = 93,
     VVV_94 = 94,
     VVV_95 = 95,
     VVV_96 = 96,
-    VVV_97 = 97, // -> SURFACE_1B
-    VVV_98 = 98, // -> SURFACE_21
-    VVV_99 = 99, // -> SURFACE_24
+    VVV_97 = 97,   // -> SURFACE_1B
+    VVV_98 = 98,   // -> SURFACE_21
+    VVV_99 = 99,   // -> SURFACE_24
     VVV_100 = 100, // Minecart_Action3
     VVV_101 = 101, // -> SURFACE_6, Minecart_Action3
     VVV_102 = 102, // -> SURFACE_6, Minecart_Action3
@@ -1700,10 +1689,94 @@ typedef enum {
     // up to VVV_255 -> sub_0802F300(tektite)
 } Vvv;
 
-
 typedef enum {
-    COLLISION_TYPE_0,
-
-
-} CollisionType;
+    COLLISION_DATA_0 = 0,
+    COLLISION_DATA_1 = 1,
+    COLLISION_DATA_2 = 2,
+    COLLISION_DATA_3 = 3,
+    COLLISION_DATA_4 = 4,
+    COLLISION_DATA_5 = 5,
+    COLLISION_DATA_6 = 6,
+    COLLISION_DATA_7 = 7,
+    COLLISION_DATA_8 = 8,
+    COLLISION_DATA_9 = 9,
+    COLLISION_DATA_10 = 10,
+    COLLISION_DATA_11 = 11,
+    COLLISION_DATA_12 = 12,
+    COLLISION_DATA_13 = 13,
+    COLLISION_DATA_14 = 14,
+    COLLISION_DATA_15 = 15,
+    COLLISION_DATA_16 = 16,
+    COLLISION_DATA_17 = 17,
+    COLLISION_DATA_18 = 18,
+    COLLISION_DATA_19 = 19,
+    COLLISION_DATA_20 = 20,
+    COLLISION_DATA_21 = 21,
+    COLLISION_DATA_23 = 23,
+    COLLISION_DATA_24 = 24,
+    COLLISION_DATA_25 = 25,
+    COLLISION_DATA_26 = 26,
+    COLLISION_DATA_27 = 27,
+    COLLISION_DATA_28 = 28,
+    COLLISION_DATA_29 = 29,
+    COLLISION_DATA_32 = 32,
+    COLLISION_DATA_33 = 33, // FX_FALL_DOWN
+    COLLISION_DATA_34 = 34,
+    COLLISION_DATA_35 = 35,
+    COLLISION_DATA_36 = 36, // FX_WATER_SPLASH
+    COLLISION_DATA_37 = 37, // FX_LAVA_SPLASH
+    COLLISION_DATA_38 = 38,
+    COLLISION_DATA_39 = 39,
+    COLLISION_DATA_40 = 40,
+    COLLISION_DATA_41 = 41,
+    COLLISION_DATA_42 = 42,
+    COLLISION_DATA_43 = 43,
+    COLLISION_DATA_44 = 44,
+    COLLISION_DATA_45 = 45,
+    COLLISION_DATA_46 = 46,
+    COLLISION_DATA_47 = 47,
+    COLLISION_DATA_48 = 48, // FX_WATER_SPLASH
+    COLLISION_DATA_49 = 49,
+    COLLISION_DATA_50 = 50,
+    COLLISION_DATA_58 = 58,
+    COLLISION_DATA_60 = 60,
+    COLLISION_DATA_63 = 63,
+    COLLISION_DATA_66 = 66,
+    COLLISION_DATA_67 = 67,
+    COLLISION_DATA_68 = 68,
+    COLLISION_DATA_69 = 69,
+    COLLISION_DATA_70 = 70,
+    COLLISION_DATA_71 = 71,
+    COLLISION_DATA_72 = 72,
+    COLLISION_DATA_74 = 74,
+    COLLISION_DATA_75 = 75,
+    COLLISION_DATA_80 = 80,
+    COLLISION_DATA_81 = 81,
+    COLLISION_DATA_82 = 82,
+    COLLISION_DATA_83 = 83,
+    COLLISION_DATA_84 = 84,
+    COLLISION_DATA_85 = 85,
+    COLLISION_DATA_87 = 87,
+    COLLISION_DATA_88 = 88,
+    COLLISION_DATA_89 = 89,
+    COLLISION_DATA_90 = 90,
+    COLLISION_DATA_91 = 91,
+    COLLISION_DATA_92 = 92,
+    COLLISION_DATA_93 = 93,
+    COLLISION_DATA_94 = 94,
+    COLLISION_DATA_95 = 95,
+    COLLISION_DATA_96 = 96,
+    COLLISION_DATA_97 = 97,
+    COLLISION_DATA_98 = 98,
+    COLLISION_DATA_99 = 99,
+    COLLISION_DATA_100 = 100,
+    COLLISION_DATA_101 = 101,
+    COLLISION_DATA_102 = 102,
+    COLLISION_DATA_103 = 103,
+    COLLISION_DATA_104 = 104,
+    COLLISION_DATA_105 = 105,
+    COLLISION_DATA_106 = 106,
+    COLLISION_DATA_107 = 107,
+    COLLISION_DATA_255 = 255,
+} CollisionData;
 #endif // TILES_H

@@ -7,13 +7,14 @@
 
 #include "asm.h"
 #include "enemy.h"
-#include "message.h"
-#include "save.h"
-#include "npc.h"
 #include "functions.h"
 #include "game.h"
 #include "item.h"
 #include "kinstone.h"
+#include "message.h"
+#include "npc.h"
+#include "save.h"
+#include "tiles.h"
 
 void sub_08028E9C(Entity*);
 void sub_08028EDC(Entity*);
@@ -429,7 +430,7 @@ void sub_08028FFC(Entity* this) {
     this->x.HALF.HI = this->field_0x78.HWORD;
     this->y.HALF.HI = this->field_0x7a.HWORD;
     InitializeAnimation(this, 0);
-    SetMetaTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, this->field_0x76.HWORD, this->collisionLayer);
 }
 
 void sub_08029078(Entity* this) {

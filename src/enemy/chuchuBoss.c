@@ -5,10 +5,10 @@
  *
  * @brief Chuchu Boss enemy
  */
-#include "global.h"
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
+#include "tiles.h"
 
 typedef struct {
     u8 unk_00;
@@ -563,7 +563,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
         gPlayerEntity.animationState = 0;
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 1;
-        SetMetaTile(0x4022, 0x2c8, 1);
+        SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(8, 11), LAYER_BOTTOM);
     }
 }
 

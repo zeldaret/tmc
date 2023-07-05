@@ -342,7 +342,8 @@ bool32 sub_0809A6F8(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     if (sub_0809A758(param_1, param_2) != 0) {
         if (gUnk_081238A0[param_3] != 0) {
             if ((param_4 & 1) != 0) {
-                SetMetaTileByIndex(gUnk_081238A0[param_3], (param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
+                SetMetaTileByIndex(gUnk_081238A0[param_3], (param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
+                                   LAYER_BOTTOM);
             } else {
                 RestorePrevTileEntity((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
             }

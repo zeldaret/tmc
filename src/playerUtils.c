@@ -65,7 +65,7 @@ extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
 extern void DeleteLoadedTileEntity(u32, u32);
 
-extern const u8 gUnk_080B3E80[]; // collisionData for tileType?
+extern const u8 gMapMetaTileTypeToCollisionData[]; // collisionData for tileType?
 
 extern u8 gUpdateVisibleTiles;
 
@@ -122,9 +122,9 @@ void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
 
 // collisions for metatiles < 0x4000
-extern const u8 gUnk_080B3E80[];
+extern const u8 gMapMetaTileTypeToCollisionData[];
 // collisions for tiles > 0x4000
-extern const u8 gUnk_080B79A7[];
+extern const u8 gMapSpecialMetaTileToCollisionData[];
 
 extern u16 gUnk_080B77C0[];
 
@@ -860,13 +860,29 @@ const u16 gUnk_0811C2EC[] = {
     748, 10, 1,  749, 6,  1,  750, 12, 1,  751, 2, 1,  752, 8,  1, 753, 4,  1,  0,
 };
 const s16 gUnk_0811C456[] = { 0, -13, 13, 0, 0, 16, -13, 0 };
-const u16 gUnk_0811C466[] = { 803, 819, 822, 825, 820, 828, 826, 829, 821, 823, 831, 830, 824, 827, 832, 53, 0 };
+const u16 gUnk_0811C466[] = { META_TILE_TYPE_803,
+                              META_TILE_TYPE_819,
+                              META_TILE_TYPE_822,
+                              META_TILE_TYPE_825,
+                              META_TILE_TYPE_820,
+                              META_TILE_TYPE_828,
+                              META_TILE_TYPE_826,
+                              META_TILE_TYPE_829,
+                              META_TILE_TYPE_821,
+                              META_TILE_TYPE_823,
+                              META_TILE_TYPE_831,
+                              META_TILE_TYPE_830,
+                              META_TILE_TYPE_824,
+                              META_TILE_TYPE_827,
+                              META_TILE_TYPE_832,
+                              META_TILE_TYPE_53,
+                              0 };
 
 void sub_08077F84(void) {
     Entity* obj;
 
     if ((gPlayerEntity.collisionLayer & 2) == 0) {
-        u32 tile = GetMetaTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 12, 2);
+        u32 tile = GetMetaTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 12, LAYER_TOP);
         if (tile == 0x343 || tile == 0x344 || tile == 0x345 || tile == 0x346) {
             sub_0807AA80(&gPlayerEntity);
             gPlayerState.jump_status |= 8;
@@ -1745,7 +1761,7 @@ void RespawnPlayer(void) {
             index = 0;
             if (gPlayerState.path_memory[0] != 0xffffffff) {
                 ptr1 = gPlayerState.path_memory;
-                while (GetCollisionDataAtMetaTilePos((u16)*ptr1, *ptr1 >> 0x1e) == 0xf) {
+                while (GetCollisionDataAtMetaTilePos((u16)*ptr1, *ptr1 >> 0x1e) == COLLISION_DATA_15) {
                     ptr1++;
                     index++;
                     if ((index > 0xf) || (*ptr1 == -1)) {
@@ -1895,7 +1911,8 @@ void sub_080797EC(void) {
                 } else {
                     animation = 0x16c;
                     if (sub_080793E4(0)) {
-                        if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
+                        if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), gPlayerEntity.collisionLayer) !=
+                            COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
                             animation = 0x170;
                         }
@@ -1930,7 +1947,7 @@ void sub_080797EC(void) {
                     animation = 0x16c;
                     if (sub_080793E4(0)) {
                         if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) !=
-                            0xff) {
+                            COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
                             animation = 0x170;
                         }
@@ -2198,7 +2215,7 @@ void sub_08079E58(s32 speed, u32 direction) {
     sub_0807A5B8(direction);
 }
 
-bool32 sub_08079E90(u32 param_1) {
+bool32 sub_08079E90(u32 direction) {
     s16 tmp1;
     s16 tmp2;
 
@@ -2217,24 +2234,24 @@ bool32 sub_08079E90(u32 param_1) {
             tmp1 = -gPlayerEntity.hitbox->unk2[3];
         }
     }
-    if (!sub_08079F48(param_1, GetCollisionDataRelativeTo(&gPlayerEntity, tmp2, tmp1))) {
+    if (!sub_08079F48(direction, GetCollisionDataRelativeTo(&gPlayerEntity, tmp2, tmp1))) {
         if ((gPlayerEntity.direction & DirectionSouth) != 0) {
             tmp1 = -tmp1;
         } else {
             tmp2 = -tmp2;
         }
-        if (!sub_08079F48(param_1, GetCollisionDataRelativeTo(&gPlayerEntity, tmp2, tmp1))) {
+        if (!sub_08079F48(direction, GetCollisionDataRelativeTo(&gPlayerEntity, tmp2, tmp1))) {
             return FALSE;
         }
     }
     return TRUE;
 }
 
-bool32 sub_08079F48(u32 param_1, u32 param_2) {
-    if (gUnk_0811C118[param_1 >> 2] == param_2) {
+bool32 sub_08079F48(u32 direction, u32 collisionData) {
+    if (gUnk_0811C118[direction >> 2] == collisionData) {
         gPlayerEntity.direction = (gPlayerEntity.direction + 4) & 0x1f;
     } else {
-        if (gUnk_0811C118[(param_1 >> 2) + 1] != param_2) {
+        if (gUnk_0811C118[(direction >> 2) + 1] != collisionData) {
             return FALSE;
         }
         gPlayerEntity.direction = (gPlayerEntity.direction - 4) & 0x1f;
@@ -2654,7 +2671,7 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
                 object->child = (Entity*)ptr;
-                SetMetaTile(0x404f, COORD_TO_TILE(object), object->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_79, COORD_TO_TILE(object), object->collisionLayer);
             }
         }
     }
@@ -2984,12 +3001,12 @@ void SetMetaTileType(u32 tileType, u32 position, u32 layer) {
         mapLayer = GetLayerByIndex(layer);
         metatile = mapLayer->unkData2[tileType];
         mapLayer->mapData[position] = metatile;
-        collisionData = gUnk_080B3E80[tileType];
+        collisionData = gMapMetaTileTypeToCollisionData[tileType];
         mapLayer->collisionData[position] = collisionData;
         if ((gRoomControls.scroll_flags & 2) != 0) {
             gMapBottom.collisionData[position] = collisionData;
         }
-        mapLayer->vvv[position] = gUnk_080B37A0[tileType];
+        mapLayer->vvv[position] = gMapMetaTileTypeToVvv[tileType];
         if ((gRoomControls.scroll_flags & 1) == 0) {
             u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
             if (layer != 2) {
@@ -3016,8 +3033,8 @@ void SetMetaTileType(u32 tileType, u32 position, u32 layer) {
 
 bool32 sub_0807B434(u32 metaTilePos, u32 layer) {
     switch (GetMetaTileType(metaTilePos, layer)) {
-        case 0x36:
-        case 0x37:
+        case META_TILE_TYPE_54:
+        case META_TILE_TYPE_55:
             return FALSE;
         default:
             return GetVvvAtMetaTilePos(metaTilePos, layer) != VVV_13;
@@ -3028,25 +3045,25 @@ bool32 sub_0807B464(u32 metaTilePos, u32 layer) {
     return GetVvvAtMetaTilePos(metaTilePos, layer) == VVV_86;
 }
 
-void sub_0807B480(u32 tilePos, u32 param_2) {
+void sub_0807B480(u32 metaTilePos, u32 param_2) {
     u32 tmp1;
     u16 tmp2;
     u16 tmp3;
     u16 tileType;
     const u16* ptr;
 
-    if (sub_0807B464(tilePos, 2)) {
-        tmp1 = sub_0807B464(tilePos - 0x40, 2);
-        tmp1 |= sub_0807B464(tilePos + 1, 2) << 1;
-        tmp1 |= sub_0807B464(tilePos + 0x40, 2) << 2;
-        tmp1 |= sub_0807B464(tilePos - 1, 2) << 3;
-        tmp1 |= sub_0807B464(tilePos + 0x41, 1) << 1;
-        tmp1 |= sub_0807B464(tilePos + 0x3f, 1) << 3;
-        if (GetMetaTileType(tilePos + 0x40, 2) != 0) {
-            tmp1 |= sub_0807B464(tilePos + 0x80, 1) << 2;
+    if (sub_0807B464(metaTilePos, LAYER_TOP)) {
+        tmp1 = sub_0807B464(metaTilePos - 0x40, LAYER_TOP);
+        tmp1 |= sub_0807B464(metaTilePos + 1, LAYER_TOP) << 1;
+        tmp1 |= sub_0807B464(metaTilePos + 0x40, LAYER_TOP) << 2;
+        tmp1 |= sub_0807B464(metaTilePos - 1, LAYER_TOP) << 3;
+        tmp1 |= sub_0807B464(metaTilePos + 0x41, LAYER_BOTTOM) << 1;
+        tmp1 |= sub_0807B464(metaTilePos + 0x3f, LAYER_BOTTOM) << 3;
+        if (GetMetaTileType(metaTilePos + 0x40, LAYER_TOP) != 0) {
+            tmp1 |= sub_0807B464(metaTilePos + 0x80, LAYER_BOTTOM) << 2;
         }
         tmp2 = gUnk_0811C2CC[tmp1];
-        tileType = GetMetaTileType(tilePos, 2);
+        tileType = GetMetaTileType(metaTilePos, LAYER_TOP);
         ptr = gUnk_0811C2EC;
         tmp3 = 0;
         for (; *ptr != 0; ptr = ptr + 3) {
@@ -3062,7 +3079,7 @@ void sub_0807B480(u32 tilePos, u32 param_2) {
                 break;
             }
         }
-        SetMetaTileType(tmp2, tilePos, 2);
+        SetMetaTileType(tmp2, metaTilePos, LAYER_TOP);
     }
 }
 
@@ -3082,115 +3099,115 @@ bool32 sub_0807B5B0(Entity* this) {
                                              -gUnk_0811C456[(this->animationState & 6) + 1]));
 }
 
-u32 sub_0807B600(u32 param_1) {
+u32 sub_0807B600(u32 metaTilePos) {
     u32 tileType;
-    u32 tile;
+    u32 metaTilePos2;
 
-    tile = param_1 - 0x40;
-    if (GetVvvAtMetaTilePos(param_1, 1) != VVV_86) {
+    metaTilePos2 = metaTilePos - 0x40;
+    if (GetVvvAtMetaTilePos(metaTilePos, LAYER_BOTTOM) != VVV_86) {
         return FALSE;
     } else {
-        tileType = GetMetaTileType(param_1, 1);
-        if (tileType == 0x26a) {
-            sub_0807B820(param_1);
-        } else if (tileType == 0x267) {
-            sub_0807B820(param_1 + 0x40);
-        } else if (tileType == 0x27a) {
-            sub_0807B8A8(param_1);
-        } else if (tileType == 0x277) {
-            sub_0807B8A8(param_1 + 0x40);
-        } else if (tileType == 0x28a) {
-            sub_0807B930(param_1);
-        } else if (tileType == 0x287) {
-            sub_0807B930(param_1 + 0x40);
+        tileType = GetMetaTileType(metaTilePos, LAYER_BOTTOM);
+        if (tileType == META_TILE_TYPE_618) {
+            sub_0807B820(metaTilePos);
+        } else if (tileType == META_TILE_TYPE_615) {
+            sub_0807B820(metaTilePos + 0x40);
+        } else if (tileType == META_TILE_TYPE_634) {
+            sub_0807B8A8(metaTilePos);
+        } else if (tileType == META_TILE_TYPE_631) {
+            sub_0807B8A8(metaTilePos + 0x40);
+        } else if (tileType == META_TILE_TYPE_650) {
+            sub_0807B930(metaTilePos);
+        } else if (tileType == META_TILE_TYPE_647) {
+            sub_0807B930(metaTilePos + 0x40);
         } else {
-            if (GetMetaTileType(param_1, 2) != 0) {
-                SetMetaTileType(0x2f2, param_1, 1);
-                if (GetCollisionDataAtMetaTilePos(tile, 1) == 3) {
-                    SetMetaTileType(0x2f4, tile, 1);
+            if (GetMetaTileType(metaTilePos, LAYER_TOP) != 0) {
+                SetMetaTileType(META_TILE_TYPE_754, metaTilePos, LAYER_BOTTOM);
+                if (GetCollisionDataAtMetaTilePos(metaTilePos2, LAYER_BOTTOM) == COLLISION_DATA_3) {
+                    SetMetaTileType(META_TILE_TYPE_756, metaTilePos2, LAYER_BOTTOM);
                 }
-                if (GetCollisionDataAtMetaTilePos(param_1 + 0x40, 1) == 3) {
-                    SetMetaTileType(0x2f4, param_1, 1);
+                if (GetCollisionDataAtMetaTilePos(metaTilePos + 0x40, LAYER_BOTTOM) == COLLISION_DATA_3) {
+                    SetMetaTileType(META_TILE_TYPE_756, metaTilePos, LAYER_BOTTOM);
                 }
             } else {
-                SetMetaTileType(0x2f4, param_1, 1);
+                SetMetaTileType(META_TILE_TYPE_756, metaTilePos, LAYER_BOTTOM);
             }
-            if (sub_0807B464(tile, 2)) {
-                SetMetaTileType(0, tile, 2);
-                if (GetMetaTileType(tile, 1) == 0x2f2) {
-                    SetMetaTileType(0x2f4, tile, 1);
+            if (sub_0807B464(metaTilePos2, LAYER_TOP)) {
+                SetMetaTileType(0, metaTilePos2, LAYER_TOP);
+                if (GetMetaTileType(metaTilePos2, LAYER_BOTTOM) == META_TILE_TYPE_754) {
+                    SetMetaTileType(META_TILE_TYPE_756, metaTilePos2, LAYER_BOTTOM);
                 }
-                sub_0807B55C(param_1 + 1, 1, (u16*)&gUnk_0811C2AC);
-                sub_0807B55C(param_1 - 1, 1, (u16*)&gUnk_0811C2AC);
-                sub_0807B55C(tile, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(metaTilePos + 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(metaTilePos - 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(metaTilePos2, 1, (u16*)&gUnk_0811C2AC);
             }
-            sub_0807B480(tile + 1, 3);
-            sub_0807B480(tile - 1, 1);
-            sub_0807B480(tile + 0x40, 0);
-            sub_0807B480(tile - 0x40, 2);
+            sub_0807B480(metaTilePos2 + 1, 3);
+            sub_0807B480(metaTilePos2 - 1, 1);
+            sub_0807B480(metaTilePos2 + 0x40, 0);
+            sub_0807B480(metaTilePos2 - 0x40, 2);
         }
         return TRUE;
     }
 }
 
-void sub_0807B778(u32 position, u32 layer) {
+void sub_0807B778(u32 metaTilePos, u32 layer) {
     u32 tmp;
-    if (GetVvvAtMetaTilePos(position, layer) == VVV_13) {
-        tmp = sub_0807B434(position - 0x40, layer);
-        tmp |= sub_0807B434(position + 1, layer) << 1;
-        tmp |= sub_0807B434(position + 0x40, layer) << 2;
-        tmp |= sub_0807B434(position - 1, layer) << 3;
-        SetMetaTileType(gUnk_0811C466[tmp], position, layer);
+    if (GetVvvAtMetaTilePos(metaTilePos, layer) == VVV_13) {
+        tmp = sub_0807B434(metaTilePos + TILE_POS(0, -1), layer);
+        tmp |= sub_0807B434(metaTilePos + TILE_POS(1, 0), layer) << 1;
+        tmp |= sub_0807B434(metaTilePos + TILE_POS(0, 1), layer) << 2;
+        tmp |= sub_0807B434(metaTilePos + TILE_POS(-1, 0), layer) << 3;
+        SetMetaTileType(gUnk_0811C466[tmp], metaTilePos, layer);
     }
 }
 
-void sub_0807B7D8(u32 param_1, u32 metaTilePos, u32 param_3) {
-    if (param_1 == 53) {
-        CloneTile(53, metaTilePos, param_3);
-        sub_0807B778(metaTilePos, param_3);
-        sub_0807B778(metaTilePos + 1, param_3);
-        sub_0807B778(metaTilePos - 1, param_3);
-        sub_0807B778(metaTilePos + 64, param_3);
-        sub_0807B778(metaTilePos - 64, param_3);
+void sub_0807B7D8(u32 metaTileType, u32 metaTilePos, u32 layer) {
+    if (metaTileType == META_TILE_TYPE_53) {
+        CloneTile(META_TILE_TYPE_53, metaTilePos, layer);
+        sub_0807B778(metaTilePos, layer);
+        sub_0807B778(metaTilePos + TILE_POS(1, 0), layer);
+        sub_0807B778(metaTilePos + TILE_POS(-1, 0), layer);
+        sub_0807B778(metaTilePos + TILE_POS(0, 1), layer);
+        sub_0807B778(metaTilePos + TILE_POS(0, -1), layer);
     } else {
-        SetMetaTileType(param_1, metaTilePos, param_3);
+        SetMetaTileType(metaTileType, metaTilePos, layer);
     }
 }
 
-void sub_0807B820(u32 position) {
-    SetMetaTileType(0x26c, position + TILE_POS(-1, -1), 1);
-    SetMetaTileType(0x273, position + TILE_POS(-1, -1), 2);
-    SetMetaTileType(0x26d, position + TILE_POS(0, -1), 1);
-    SetMetaTileType(0x274, position + TILE_POS(0, -1), 2);
-    SetMetaTileType(0x26e, position + TILE_POS(1, -1), 1);
-    SetMetaTileType(0x275, position + TILE_POS(1, -1), 2);
-    SetMetaTileType(0x26f, position + TILE_POS(-1, 0), 1);
-    SetMetaTileType(0x270, position, 1);
-    SetMetaTileType(0x272, position + TILE_POS(1, 0), 1);
+void sub_0807B820(u32 metaTilePos) {
+    SetMetaTileType(META_TILE_TYPE_620, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_627, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_621, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_628, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_622, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_629, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_623, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_624, metaTilePos, LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_626, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B8A8(u32 position) {
-    SetMetaTileType(0x27c, position + TILE_POS(-1, -1), 1);
-    SetMetaTileType(0x283, position + TILE_POS(-1, -1), 2);
-    SetMetaTileType(0x27d, position + TILE_POS(0, -1), 1);
-    SetMetaTileType(0x284, position + TILE_POS(0, -1), 2);
-    SetMetaTileType(0x27e, position + TILE_POS(1, -1), 1);
-    SetMetaTileType(0x285, position + TILE_POS(1, -1), 2);
-    SetMetaTileType(0x27f, position + TILE_POS(-1, 0), 1);
-    SetMetaTileType(0x280, position, 1);
-    SetMetaTileType(0x282, position + TILE_POS(1, 0), 1);
+void sub_0807B8A8(u32 metaTilePos) {
+    SetMetaTileType(META_TILE_TYPE_636, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_643, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_637, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_644, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_638, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_645, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_639, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_640, metaTilePos, LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_642, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B930(u32 position) {
-    SetMetaTileType(0x28c, position + TILE_POS(-1, -1), 1);
-    SetMetaTileType(0x293, position + TILE_POS(-1, -1), 2);
-    SetMetaTileType(0x28d, position + TILE_POS(0, -1), 1);
-    SetMetaTileType(0x294, position + TILE_POS(0, -1), 2);
-    SetMetaTileType(0x28e, position + TILE_POS(1, -1), 1);
-    SetMetaTileType(0x295, position + TILE_POS(1, -1), 2);
-    SetMetaTileType(0x28f, position + TILE_POS(-1, 0), 1);
-    SetMetaTileType(0x290, position, 1);
-    SetMetaTileType(0x292, position + TILE_POS(1, 0), 1);
+void sub_0807B930(u32 metaTilePos) {
+    SetMetaTileType(META_TILE_TYPE_652, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_659, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_653, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_660, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_654, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_661, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_655, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_656, metaTilePos, LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_658, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
 void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
@@ -3203,8 +3220,8 @@ void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     mapLayer = GetLayerByIndex(layer);
     mapLayer->mapData[position] = tileIndex;
     tileType = mapLayer->metatileTypes[tileIndex];
-    mapLayer->collisionData[position] = gUnk_080B3E80[tileType];
-    mapLayer->vvv[position] = gUnk_080B37A0[tileType];
+    mapLayer->collisionData[position] = gMapMetaTileTypeToCollisionData[tileType];
+    mapLayer->vvv[position] = gMapMetaTileTypeToVvv[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
         u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
         if (layer != 2) {
@@ -3223,21 +3240,21 @@ void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     }
 }
 
-void RestorePrevTileEntity(u32 position, u32 layer) {
+void RestorePrevTileEntity(u32 metaTilePos, u32 layer) {
     u32 tileIndex;
     u32 tileType;
     MapLayer* mapLayer;
     u16* dest;
     u16* src;
 
-    DeleteLoadedTileEntity(position, layer);
+    DeleteLoadedTileEntity(metaTilePos, layer);
     mapLayer = GetLayerByIndex(layer);
-    mapLayer->mapData[position] = tileIndex = mapLayer->mapDataClone[position];
+    mapLayer->mapData[metaTilePos] = tileIndex = mapLayer->mapDataClone[metaTilePos];
     tileType = mapLayer->metatileTypes[tileIndex];
-    mapLayer->collisionData[position] = gUnk_080B3E80[tileType];
-    mapLayer->vvv[position] = gUnk_080B37A0[tileType];
+    mapLayer->collisionData[metaTilePos] = gMapMetaTileTypeToCollisionData[tileType];
+    mapLayer->vvv[metaTilePos] = gMapMetaTileTypeToVvv[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
-        u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+        u32 offset = (metaTilePos & 0x3f) * 2 + (metaTilePos & 0xfc0) * 4;
         if (layer != 2) {
             dest = gMapDataBottomSpecial + offset;
         } else {
@@ -3266,7 +3283,7 @@ void sub_0807BB98(s32 basePosition, u32 layer, u32 width, u32 height) {
     u32 x;
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
-            SetMetaTile(0x4072, basePosition + x, layer);
+            SetMetaTile(SPECIAL_META_TILE_114, basePosition + x, layer);
         }
         basePosition += 0x40;
     }
@@ -3294,17 +3311,17 @@ void sub_0807BBE4(void) {
         tile = *bottomMap;
         bottomMap++;
         if (tile < 0x4000) {
-            *bottomCollision = gUnk_080B3E80[bottomMetatiles[tile]];
+            *bottomCollision = gMapMetaTileTypeToCollisionData[bottomMetatiles[tile]];
         } else {
-            *bottomCollision = gUnk_080B79A7[tile - 0x4000];
+            *bottomCollision = gMapSpecialMetaTileToCollisionData[tile - 0x4000];
         }
         bottomCollision++;
         tile = (u32)*topMap;
         topMap++;
         if (tile < 0x4000) {
-            *topCollision = gUnk_080B3E80[topMetatiles[tile]];
+            *topCollision = gMapMetaTileTypeToCollisionData[topMetatiles[tile]];
         } else {
-            *topCollision = gUnk_080B79A7[tile - 0x4000];
+            *topCollision = gMapSpecialMetaTileToCollisionData[tile - 0x4000];
         }
         topCollision++;
     }
@@ -3625,10 +3642,10 @@ void sub_0807C460(void) {
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
             if (*mapBottom > 0x3fff) {
-                SetMetaTile(*mapBottom, position, 1);
+                SetMetaTile(*mapBottom, position, LAYER_BOTTOM);
             }
             if (*mapTop > 0x3fff) {
-                SetMetaTile(*mapTop, position, 2);
+                SetMetaTile(*mapTop, position, LAYER_TOP);
             }
             mapBottom++;
             mapTop++;

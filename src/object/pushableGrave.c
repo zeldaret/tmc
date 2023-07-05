@@ -7,9 +7,9 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -136,9 +136,9 @@ void sub_080977F4(PushableGraveEntity* this) {
     super->action = 4;
     super->spriteOffsetY = 0;
     tilePosition = COORD_TO_TILE(super);
-    SetMetaTile(0x4022, tilePosition, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_34, tilePosition, super->collisionLayer);
     if (super->type == 0) {
-        SetMetaTile(0x4022, tilePosition - 1, super->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, tilePosition - 1, super->collisionLayer);
     }
     if (this->pushedFlag != 0) {
         SetFlag(this->pushedFlag);
@@ -150,7 +150,8 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
 
     if (super->type != 0) {
         if (super->type2 != 0) {
-            if ((CheckFlags(this->pushedFlag) != 0) || GetMetaTileType(this->unk_68, super->collisionLayer) == 0x403f) {
+            if ((CheckFlags(this->pushedFlag) != 0) ||
+                GetMetaTileType(this->unk_68, super->collisionLayer) == SPECIAL_META_TILE_63) {
                 super->action = 3;
                 super->timer = 64;
                 super->subtimer = 0;
@@ -159,14 +160,14 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
                 tilePosition = this->unk_68;
                 SetMetaTileByIndex(this->unk_72, tilePosition, super->collisionLayer);
                 if (super->type2 == 2) {
-                    SetMetaTileByIndex(this->unk_6a, tilePosition - 0x41, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_6c, tilePosition - 0x40, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_6e, tilePosition - 0x3f, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_70, tilePosition - 1, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_74, tilePosition + 1, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_76, tilePosition + 0x3f, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_78, tilePosition + 0x40, super->collisionLayer);
-                    SetMetaTileByIndex(this->unk_7a, tilePosition + 0x41, super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_6a, tilePosition + TILE_POS(-1, -1), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_6c, tilePosition + TILE_POS(0, -1), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_6e, tilePosition + TILE_POS(1, -1), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_70, tilePosition + TILE_POS(-1, 0), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_74, tilePosition + TILE_POS(1, 0), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_76, tilePosition + TILE_POS(-1, 1), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_78, tilePosition + TILE_POS(0, 1), super->collisionLayer);
+                    SetMetaTileByIndex(this->unk_7a, tilePosition + TILE_POS(1, 1), super->collisionLayer);
                 }
                 SoundReq(SFX_10F);
                 return TRUE;
@@ -207,7 +208,7 @@ const u8 gUnk_081232C0[] = {
     255, 61, 64,  1,   0,  61, 64,  63,  0,  61, 64,  65,  0,  255, 255,
 };
 const u16 PushableGrave_Tiles[] = {
-    0x4022,
-    0x403e,
-    0x403e,
+    SPECIAL_META_TILE_34,
+    SPECIAL_META_TILE_62,
+    SPECIAL_META_TILE_62,
 };

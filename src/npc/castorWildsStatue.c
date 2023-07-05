@@ -1,10 +1,11 @@
-#include "sound.h"
-#include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "flags.h"
 #include "effects.h"
+#include "entity.h"
+#include "flags.h"
+#include "functions.h"
 #include "npc.h"
+#include "script.h"
+#include "sound.h"
+#include "tiles.h"
 
 static const Hitbox gUnk_08110E94;
 
@@ -67,20 +68,20 @@ void sub_08067418(Entity* this) {
     this->field_0x74.HWORD = COORD_TO_TILE(this);
     if (this->type == 0) {
         this->hitbox = (Hitbox*)&gUnk_08110E94;
-        SetMetaTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
-        SetMetaTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
-        SetMetaTile(0x4022, this->field_0x74.HWORD + 0x3f, this->collisionLayer);
-        SetMetaTile(0x4022, this->field_0x74.HWORD + 0x40, this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->field_0x74.HWORD - 1, this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->field_0x74.HWORD, this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->field_0x74.HWORD + 0x3f, this->collisionLayer);
+        SetMetaTile(SPECIAL_META_TILE_34, this->field_0x74.HWORD + 0x40, this->collisionLayer);
     } else {
         this->collisionLayer = 3;
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;
         this->spritePriority.b0 = 2;
         if (CheckLocalFlag(HIKYOU_00_SEKIZOU) == 0) {
-            SetMetaTile(0x4022, 0xe81, 1);
-            SetMetaTile(0x4022, 0xe82, 1);
-            SetMetaTile(0x4022, 0xe83, 1);
-            SetMetaTile(0x4022, 0xec3, 1);
+            SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(1, 58), LAYER_BOTTOM);
+            SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(2, 58), LAYER_BOTTOM);
+            SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(3, 58), LAYER_BOTTOM);
+            SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(3, 59), LAYER_BOTTOM);
         }
     }
     sub_0807DD50(this);

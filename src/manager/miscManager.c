@@ -121,9 +121,9 @@ void MiscManager_Type0(MiscManager* this) {
 void sub_08058F44(u32 x, u32 y, u32 flag) {
     if (CheckRoomFlag(flag))
         return;
-    if (sub_080B1A48(x, y, 1) != 0x61)
+    if (sub_080B1A48(x, y, LAYER_BOTTOM) != META_TILE_TYPE_97)
         return;
-    SetMetaTileType(0x26, ((x >> 4) & 0x3F) | (((y >> 4) & 0x3F) << 6), 1);
+    SetMetaTileType(META_TILE_TYPE_38, ((x >> 4) & 0x3F) | (((y >> 4) & 0x3F) << 6), LAYER_BOTTOM);
     sub_08058F84(x, y);
 }
 
@@ -240,7 +240,7 @@ void MiscManager_Type5(MiscManager* this) {
                 DeleteThisEntity();
             }
             super->action = 1;
-            SetMetaTileType(0x365, TILE_LOCAL(this->x, this->y), super->type2);
+            SetMetaTileType(META_TILE_TYPE_869, TILE_LOCAL(this->x, this->y), super->type2);
             break;
         case 1:
             if (CheckFlags(this->flags)) {
@@ -338,10 +338,10 @@ void sub_0805930C(MiscManager* this) {
     tmp->collisionLayer = 1;
 }
 
-void SetDirtTile(u32 tile) {
-    SetMetaTileType(CUT_GRASS, tile, 1);
-    SetMetaTileType(0, tile, 2);
-    SetMetaTileType(0, tile - 0x40, 2);
+void SetDirtTile(u32 metaTilePos) {
+    SetMetaTileType(META_TILE_TYPE_29, metaTilePos, LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_0, metaTilePos, LAYER_TOP);
+    SetMetaTileType(META_TILE_TYPE_0, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
 }
 
 void MiscManager_TypeA(MiscManager* this) {

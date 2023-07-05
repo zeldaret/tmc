@@ -6,11 +6,11 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 #include "physics.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -241,18 +241,18 @@ void sub_080387F0(CloudPiranhaEntity* this) {
     };
     u8 bVar1;
     u8 bVar2;
-    s32 iVar4;
+    s32 collisionData;
     const s8* ptr;
 
     if ((super->action != 4) && (this->unk_82 == 0)) {
-        iVar4 = GetCollisionDataAtMetaTilePos(COORD_TO_TILE(super), super->collisionLayer);
-        if ((iVar4 == 0xf) || (iVar4 == 0x2a)) {
+        collisionData = GetCollisionDataAtMetaTilePos(COORD_TO_TILE(super), super->collisionLayer);
+        if ((collisionData == COLLISION_DATA_15) || (collisionData == COLLISION_DATA_42)) {
             this->unk_82 = 0x20;
         }
         ptr = &gUnk_080CF520[super->direction >> 1];
         bVar1 = super->direction;
-        iVar4 = GetCollisionDataRelativeTo(super, ptr[0], ptr[1]);
-        if ((iVar4 == 0xf) || (iVar4 == 0x2a)) {
+        collisionData = GetCollisionDataRelativeTo(super, ptr[0], ptr[1]);
+        if ((collisionData == COLLISION_DATA_15) || (collisionData == COLLISION_DATA_42)) {
             super->direction = (super->direction + 0x10) & 0x1f;
         } else {
             if (super->collisions != COL_NONE) {

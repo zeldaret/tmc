@@ -11,13 +11,14 @@
 #include "functions.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
     u8 filler[0x8];
-    u16 tile;
-    u16 tileIndex;
-    u8 unk74;
+    u16 metaTilePos;
+    u16 metaTileIndex;
+    u8 collisionData;
     u8 unk75;
     u8 filler2[0x10];
     u16 flags;
@@ -59,7 +60,7 @@ void Bollard_Action1(BollardEntity* this) {
     }
     super->action = 2;
     InitializeAnimation(super, 3);
-    SetMetaTile(this->tileIndex, this->tile, super->collisionLayer);
+    SetMetaTile(this->metaTileIndex, this->metaTilePos, super->collisionLayer);
     EnqueueSFX(SFX_1A5);
 }
 
@@ -93,10 +94,10 @@ void Bollard_Action4(BollardEntity* this) {
 
 void sub_0808B3AC(BollardEntity* this) {
     super->spritePriority.b0 = 4;
-    this->tile = COORD_TO_TILE(super);
-    this->tileIndex = GetMetaTileIndex(this->tile, super->collisionLayer);
-    this->unk74 = GetCollisionDataAtMetaTilePos(this->tile, super->collisionLayer);
-    SetMetaTile(0x400b, this->tile, super->collisionLayer);
+    this->metaTilePos = COORD_TO_TILE(super);
+    this->metaTileIndex = GetMetaTileIndex(this->metaTilePos, super->collisionLayer);
+    this->collisionData = GetCollisionDataAtMetaTilePos(this->metaTilePos, super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_11, this->metaTilePos, super->collisionLayer);
 }
 
 void sub_0808B41C(BollardEntity* this) {

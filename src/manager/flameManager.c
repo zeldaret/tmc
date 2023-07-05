@@ -10,23 +10,24 @@
 #include "asm.h"
 #include "functions.h"
 #include "room.h"
+#include "tiles.h"
 
 void FlameManager_Main(FlameManager* this) {
     if (super->action == 0) {
-        this->field_0x38 = TILE(this->field_0x38, this->field_0x3a);
-        if (GetMetaTileType(this->field_0x38, 2) == 0x75) {
+        this->metaTilePos = TILE(this->metaTilePos, this->field_0x3a);
+        if (GetMetaTileType(this->metaTilePos, LAYER_TOP) == META_TILE_TYPE_117) {
             super->action = 1;
-            SetMetaTile(0x406a, this->field_0x38, 1);
+            SetMetaTile(SPECIAL_META_TILE_106, this->metaTilePos, LAYER_BOTTOM);
         } else {
             DeleteThisEntity();
         }
     }
-    if (GetMetaTileType(this->field_0x38, 1) == 0x406b) {
-        sub_0807B7D8(0x76, this->field_0x38, 2);
+    if (GetMetaTileType(this->metaTilePos, LAYER_BOTTOM) == SPECIAL_META_TILE_107) {
+        sub_0807B7D8(META_TILE_TYPE_118, this->metaTilePos, LAYER_TOP);
         DeleteThisEntity();
     }
-    if (GetMetaTileType(this->field_0x38, 2) == 0x76) {
-        SetMetaTile(0x406b, this->field_0x38, 1);
+    if (GetMetaTileType(this->metaTilePos, LAYER_TOP) == META_TILE_TYPE_118) {
+        SetMetaTile(SPECIAL_META_TILE_107, this->metaTilePos, LAYER_BOTTOM);
         DeleteThisEntity();
     }
 }

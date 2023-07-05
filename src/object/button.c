@@ -6,6 +6,7 @@
  */
 #include "object.h"
 #include "functions.h"
+#include "tiles.h"
 
 void Button_Init(Entity*);
 void Button_Action1(Entity*);
@@ -35,7 +36,7 @@ void Button_Init(Entity* this) {
     this->field_0x70.HALF.HI = GetMetaTileType(this->field_0x74.HWORD, this->collisionLayer);
     if (this->type == 0 && CheckFlags(this->field_0x86.HWORD)) {
         this->action = 5;
-        SetMetaTileType(0x7A, this->field_0x74.HWORD, this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_122, this->field_0x74.HWORD, this->collisionLayer);
     } else {
         if (sub_08081E3C(this)) {
             this->action = 2;
@@ -69,12 +70,12 @@ void Button_Action2(Entity* this) {
     }
 }
 
-u32 sub_08081F7C(Entity*, u32);
+u32 sub_08081F7C(Entity*, u32 metaTileType);
 u32 sub_08081D28(Entity*);
 void sub_08081E6C(Entity*);
 
 void Button_Action3(Entity* this) {
-    if (!sub_08081F7C(this, 0x78))
+    if (!sub_08081F7C(this, META_TILE_TYPE_120))
         return;
     if (!sub_08081D28(this)) {
         this->action = 4;
@@ -94,7 +95,7 @@ void Button_Action4(Entity* this) {
         this->timer--;
         if (this->subtimer != 0) {
             this->subtimer = 0;
-            SetMetaTile(0x4035, this->field_0x74.HWORD, this->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_53, this->field_0x74.HWORD, this->collisionLayer);
         }
         if (sub_08081CB0(this)) {
             this->action = 3;
@@ -103,13 +104,13 @@ void Button_Action4(Entity* this) {
     } else {
         this->action = 2;
         ClearFlag(this->field_0x86.HWORD);
-        SetMetaTileType(0x77, this->field_0x74.HWORD, this->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_119, this->field_0x74.HWORD, this->collisionLayer);
         SoundReq(SFX_BUTTON_PRESS);
     }
 }
 
 void Button_Action5(Entity* this) {
-    if (sub_08081F7C(this, 0x7a)) {
+    if (sub_08081F7C(this, META_TILE_TYPE_122)) {
         sub_08081E6C(this);
     }
 }
@@ -117,16 +118,16 @@ void Button_Action5(Entity* this) {
 Entity* sub_08081D74(Entity*);
 
 u32 sub_08081CB0(Entity* this) {
-    u16 tmp;
+    u16 tileType;
     if (sub_08081D74(this)) {
         this->field_0x70.HALF.LO = -1;
-        if (GetMetaTileType(this->field_0x74.HWORD, this->collisionLayer) == 0x4035) {
+        if (GetMetaTileType(this->field_0x74.HWORD, this->collisionLayer) == SPECIAL_META_TILE_53) {
             sub_0807B7D8(0x78, this->field_0x74.HWORD, this->collisionLayer);
         }
         return 1;
     } else {
-        tmp = GetMetaTileType(this->field_0x74.HWORD, this->collisionLayer);
-        if (tmp != 0x77 && tmp != 0x79 && tmp != 0x4035) {
+        tileType = GetMetaTileType(this->field_0x74.HWORD, this->collisionLayer);
+        if (tileType != 0x77 && tileType != 0x79 && tileType != SPECIAL_META_TILE_53) {
             this->field_0x70.HALF.LO = GetMetaTileIndex(this->field_0x74.HWORD, this->collisionLayer);
             return 1;
         }
@@ -154,8 +155,8 @@ u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(Entity* this) {
     Entity* ent;
-    if (GetCollisionDataAtMetaTilePos(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
-        return 0;
+    if (GetCollisionDataAtMetaTilePos(this->field_0x74.HWORD, this->collisionLayer) == COLLISION_DATA_15) {
+        return NULL;
     }
     ent = 0;
     if (sub_08081E0C(this)) {
@@ -208,27 +209,27 @@ extern u16 gMapDataTopSpecial[0x2000];
 extern u16 gMapDataBottomSpecial[];
 
 void sub_08081E6C(Entity* this) {
-    u32 tileType;
+    u32 metaTileType;
     MapLayer* mapLayer;
     u16* tmp2;
     u16* tmp;
     u16* tmp3;
-    u32 tilePosition = this->field_0x74.HWORD;
+    u32 metaTilePos = this->field_0x74.HWORD;
     u32 layer = this->collisionLayer;
-    u32 tile = GetMetaTileType(tilePosition, layer);
+    u32 specialMetaTile = GetMetaTileType(metaTilePos, layer);
 
-    if (tile < 0x4000)
+    if (specialMetaTile < 0x4000)
         return;
     mapLayer = GetLayerByIndex(layer);
-    tileType = (this->type == 0 ? 0x7a : 0x78);
+    metaTileType = (this->type == 0 ? META_TILE_TYPE_122 : META_TILE_TYPE_120);
     tmp = mapLayer->metatiles;
-    tmp = tmp + (mapLayer->unkData2[tileType] << 2);
+    tmp = tmp + (mapLayer->unkData2[metaTileType] << 2);
     tmp2 = (layer == 2 ? gMapDataTopSpecial : gMapDataBottomSpecial);
-    tmp2 += (((0x3f & tilePosition) << 1) + ((0xfc0 & tilePosition) << 2));
+    tmp2 += (((0x3f & metaTilePos) << 1) + ((0xfc0 & metaTilePos) << 2));
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;
-    SetMetaTileType(tileType, tilePosition, layer);
-    SetMetaTile(tile, tilePosition, layer);
+    SetMetaTileType(metaTileType, metaTilePos, layer);
+    SetMetaTile(specialMetaTile, metaTilePos, layer);
 }
 
 // Are the two tiles already set to the correct one
@@ -255,7 +256,7 @@ void sub_08081F24(Entity* this) {
     }
 }
 
-u32 sub_08081F7C(Entity* this, u32 r7) {
+u32 sub_08081F7C(Entity* this, u32 metaTileType) {
     u16 tmp;
     if (this->timer == 0)
         return 1;
@@ -265,7 +266,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
     } else {
         if (this->timer == 6) {
             SetFlag(this->field_0x86.HWORD);
-            SetMetaTileType(r7, this->field_0x74.HWORD, this->collisionLayer);
+            SetMetaTileType(metaTileType, this->field_0x74.HWORD, this->collisionLayer);
             sub_08081F24(this);
             SoundReq(SFX_BUTTON_PRESS);
             if (this->field_0x70.HALF_U.LO != 0xFFFF)

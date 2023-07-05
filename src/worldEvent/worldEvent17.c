@@ -157,6 +157,6 @@ void WorldEvent_17_0(void) {
 void WorldEvent_17_1(void) {
     if (gMenu.field_0xa != 0) {
         gMenu.field_0xa = 0;
-        SetMetaTileType(0x74, 0x407, 1);
+        SetMetaTileType(META_TILE_TYPE_116, TILE_POS(7, 16), LAYER_BOTTOM);
     }
 }

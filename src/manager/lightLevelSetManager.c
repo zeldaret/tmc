@@ -79,7 +79,7 @@ void LightLevelSetManager_Type2(LightLevelSetManager* this) {
             ((s16)this->field_0x38 >> 4 & 0x3fU) | ((s32)((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
         super->action = 1;
     } else {
-        if (GetMetaTileType(this->field_0x20, super->type2) == 0x76) {
+        if (GetMetaTileType(this->field_0x20, super->type2) == META_TILE_TYPE_118) {
             SetFlag(this->field_0x3e);
             ChangeLightLevel(super->timer);
             DeleteThisEntity();
@@ -103,7 +103,7 @@ void LightLevelSetManager_Type3(LightLevelSetManager* this) {
             break;
 
         case 1:
-            if (GetMetaTileType(this->field_0x20, super->type2) != 0x76) {
+            if (GetMetaTileType(this->field_0x20, super->type2) != META_TILE_TYPE_118) {
                 return;
             }
             SetFlag(this->field_0x3e);
@@ -133,13 +133,14 @@ void LightLevelSetManager_Type3(LightLevelSetManager* this) {
 
 void sub_0805BE70(LightLevelSetManager* this, u32 metaTileType) {
     SetMetaTileType(metaTileType,
-                ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
-                super->type2);
+                    ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+                    super->type2);
 }
 
 void sub_0805BE94(LightLevelSetManager* this) {
-    SetMetaTileType(META_TILE_TYPE_118, ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
-                super->type2);
+    SetMetaTileType(META_TILE_TYPE_118,
+                    ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+                    super->type2);
     ChangeLightLevel(super->timer);
     DeleteThisEntity();
 }

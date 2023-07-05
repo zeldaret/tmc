@@ -5,11 +5,11 @@
  * @brief Three Thorns object
  */
 #include "entity.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "physics.h"
 #include "room.h"
+#include "tiles.h"
 
 void TreeThorns(Entity* this) {
     Entity* ent;
@@ -30,8 +30,8 @@ void TreeThorns(Entity* this) {
             this->flags2 = 1;
             this->hitbox = (Hitbox*)&gHitbox_1;
             tilePos = COORD_TO_TILE(this);
-            SetMetaTile(0x4066, tilePos - 1, *layer);
-            SetMetaTile(0x4065, tilePos, *layer);
+            SetMetaTile(SPECIAL_META_TILE_102, tilePos - 1, *layer);
+            SetMetaTile(SPECIAL_META_TILE_101, tilePos, *layer);
             UpdateSpriteForCollisionLayer(this);
             ent = CreateObject(TREE_THORNS, 1, 0);
             if (ent != NULL) {

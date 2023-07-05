@@ -79,7 +79,7 @@ void sub_080878CC(Entity* this) {
                         sub_08008796(this, 3, x + itX, y + itY);
                         break;
                     default:
-                        SetMetaTile(0x4022, metaTilePos, layer);
+                        SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, layer);
                         break;
                 }
             } else {

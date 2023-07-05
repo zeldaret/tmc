@@ -11,6 +11,7 @@
 #include "player.h"
 #include "room.h"
 #include "scroll.h"
+#include "tiles.h"
 
 void DiggingCaveEntranceManager_Main(DiggingCaveEntranceManager*);
 void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager*);
@@ -31,7 +32,7 @@ void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager* this) {
     const DiggingCaveEntrance* entrance;
     u8 room;
     u8 area;
-    u16 tile = 0x81 << 7;
+    u16 tile = SPECIAL_META_TILE_128;
     UpdateIsDiggingCave();
     if (gDiggingCaveEntranceTransition.isDiggingCave) {
         if (gDiggingCaveEntranceTransition.entrance == NULL) {
@@ -50,12 +51,12 @@ void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager* this) {
         }
         room = gRoomControls.room;
         entrance = diggingCaveEntrances[gRoomControls.area];
-        tile = 0x81 << 7; // 0x4080
+        tile = SPECIAL_META_TILE_128;
         for (entrance = GetDiggingCaveEntranceForRoom(entrance, room); entrance != 0;
              entrance = GetDiggingCaveEntranceForRoom(entrance, room)) {
-            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(-1, 1), 1);
-            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(0, 1), 1);
-            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(1, 1), 1);
+            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(1, 1), LAYER_BOTTOM);
             entrance++;
         }
     }

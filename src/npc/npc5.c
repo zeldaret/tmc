@@ -471,11 +471,7 @@ u32 sub_080611D4(Entity* this) {
 
     static const u8 gUnk_0810AC54[] = {
         // vvv, animationState
-        VVV_43, 0x10,
-        VVV_42, 0x0,
-        VVV_45, 0x8,
-        VVV_44, 0x18,
-        0x0,
+        VVV_43, 0x10, VVV_42, 0x0, VVV_45, 0x8, VVV_44, 0x18, 0x0,
     };
 
     u32 vvv;

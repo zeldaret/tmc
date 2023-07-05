@@ -118,7 +118,7 @@ void sub_080701F8(Entity* this) {
                     this->spritePriority.b0 = 7;
                     this->field_0x7c.WORD = GetMetaTileIndex(COORD_TO_TILE(this), this->collisionLayer);
                     InitializeAnimation(this, 0x14);
-                    SetMetaTile(0x4020, COORD_TO_TILE(this), this->collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_32, COORD_TO_TILE(this), this->collisionLayer);
                     return;
                 }
             } else {
@@ -153,12 +153,12 @@ void sub_080703BC(Entity* this) {
             this->field_0x7c.WORD = 0;
             sub_08070458(this);
             break;
-        case 0x4021:
+        case SPECIAL_META_TILE_33:
             sub_08070458(this);
             break;
-        case 0x4070:
+        case SPECIAL_META_TILE_112:
             *(int*)&this->field_0x78 = 0xff;
-        case 0x4020:
+        case SPECIAL_META_TILE_32:
             if (--(*(int*)&this->field_0x78) == -1) {
                 sub_08070458(this);
             } else {

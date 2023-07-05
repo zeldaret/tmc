@@ -853,7 +853,7 @@ void DummyHandler(u32* a1) {
 }
 
 void sub_08053434(u32* a1) {
-    if (gArea.locationIndex == 29 && *a1) {
+    if (gArea.locationIndex == 29 && *a1) { // AREA_DARK_HYRULE_CASTLE
         if (!--*a1) {
             ResetTimerFlags();
             MenuFadeIn(5, 6);

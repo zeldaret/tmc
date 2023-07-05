@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
 #include "enemy.h"
 #include "functions.h"
 #include "fade.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -88,16 +88,16 @@ void Enemy64_Init(Enemy64Entity* this) {
     Entity* tail;
 
     if (CheckFlags(0x7c)) {
-        SetMetaTile(0x4081, 10, 2);
-        SetMetaTile(0x4081, 0x4a, 2);
-        SetMetaTile(0x4081, 0x8a, 2);
-        SetMetaTile(0x4081, 0xca, 2);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 0), LAYER_TOP);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 1), LAYER_TOP);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 2), LAYER_TOP);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 3), LAYER_TOP);
         DeleteThisEntity();
     } else {
-        sub_0807B7D8(0x323, 10, 1);
-        sub_0807B7D8(0x323, 0x4a, 1);
-        sub_0807B7D8(0x323, 0x8a, 1);
-        sub_0807B7D8(0x323, 0xca, 1);
+        sub_0807B7D8(0x323, TILE_POS(10, 0), LAYER_BOTTOM);
+        sub_0807B7D8(0x323, TILE_POS(10, 1), LAYER_BOTTOM);
+        sub_0807B7D8(0x323, TILE_POS(10, 2), LAYER_BOTTOM);
+        sub_0807B7D8(0x323, TILE_POS(10, 3), LAYER_BOTTOM);
     }
     tail = CreateProjectile(GYORG_TAIL);
     if (tail != NULL) {
@@ -442,20 +442,20 @@ void Enemy64_Action4_SubAction7(Enemy64Entity* this) {
     if (--super->timer == 0) {
         DeleteThisEntity();
     } else if (super->timer == 16) {
-        sub_0807B7D8(0x36, 0xca, 1);
-        SetMetaTile(0x4081, 0xca, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 3), LAYER_BOTTOM);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 3), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 24) {
-        sub_0807B7D8(0x36, 0x8a, 1);
-        SetMetaTile(0x4081, 0x8a, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 2), LAYER_BOTTOM);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 2), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 32) {
-        sub_0807B7D8(0x36, 0x4a, 1);
-        SetMetaTile(0x4081, 0x4a, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 1), LAYER_BOTTOM);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 1), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 40) {
-        sub_0807B7D8(0x36, 10, 1);
-        SetMetaTile(0x4081, 10, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 0), LAYER_BOTTOM);
+        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 0), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     }
 }

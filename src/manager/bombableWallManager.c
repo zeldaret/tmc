@@ -91,7 +91,8 @@ u32 BombableWallManager_GetBombableType(u32 metaTilePos, u32 layer) {
 
 void BombableWallManager_DestroyWall(BombableWallManager* this) {
     static void (*const gUnk_08108CE8[])(u32, u32) = {
-        BombableWallManager_DestroyWall0, BombableWallManager_DestroyWall1, BombableWallManager_DestroyWall2, BombableWallManager_DestroyWall3, BombableWallManager_DestroyWall4,
+        BombableWallManager_DestroyWall0, BombableWallManager_DestroyWall1, BombableWallManager_DestroyWall2,
+        BombableWallManager_DestroyWall3, BombableWallManager_DestroyWall4,
     };
     if (super->type != 0xff) {
         gUnk_08108CE8[super->type](this->metaTilePos, this->layer);
@@ -99,11 +100,11 @@ void BombableWallManager_DestroyWall(BombableWallManager* this) {
 }
 
 void BombableWallManager_DestroyWall0(u32 metaTilePos, u32 layer) {
-    SetMetaTileType(META_TILE_TYPE_177, metaTilePos - 0x41, layer);
-    SetMetaTileType(META_TILE_TYPE_178, metaTilePos - 0x40, layer);
-    SetMetaTileType(META_TILE_TYPE_179, metaTilePos - 0x3f, layer);
-    SetMetaTileType(META_TILE_TYPE_180, metaTilePos - 1, layer);
-    SetMetaTileType(META_TILE_TYPE_183, metaTilePos + 1, layer);
+    SetMetaTileType(META_TILE_TYPE_177, metaTilePos + TILE_POS(-1, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_178, metaTilePos + TILE_POS(0, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_179, metaTilePos + TILE_POS(1, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_180, metaTilePos + TILE_POS(-1, 0), layer);
+    SetMetaTileType(META_TILE_TYPE_183, metaTilePos + TILE_POS(1, 0), layer);
     if (layer == LAYER_BOTTOM) {
         if (AreaHasEnemies()) {
             Entity* object = CreateObject(ARCHWAY, 0xe, 0);
@@ -120,9 +121,9 @@ void BombableWallManager_DestroyWall0(u32 metaTilePos, u32 layer) {
             }
         }
 
-        SetMetaTileType(META_TILE_TYPE_184, metaTilePos - 0x41, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_185, metaTilePos - 0x40, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_186, metaTilePos - 0x3f, LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_184, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_185, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_186, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
     } else {
         Entity* object;
         SetMetaTileType(META_TILE_TYPE_181, metaTilePos, LAYER_TOP);
@@ -142,11 +143,11 @@ void BombableWallManager_DestroyWall0(u32 metaTilePos, u32 layer) {
 void BombableWallManager_DestroyWall1(u32 metaTilePos, u32 layer) {
     Entity* object;
 
-    SetMetaTileType(META_TILE_TYPE_241, metaTilePos - 0x40, layer);
-    SetMetaTileType(META_TILE_TYPE_245, metaTilePos - 0x3f, layer);
-    SetMetaTileType(META_TILE_TYPE_246, metaTilePos + 1, layer);
-    SetMetaTileType(META_TILE_TYPE_244, metaTilePos + 0x40, layer);
-    SetMetaTileType(META_TILE_TYPE_247, metaTilePos + 0x41, layer);
+    SetMetaTileType(META_TILE_TYPE_241, metaTilePos + TILE_POS(0, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_245, metaTilePos + TILE_POS(1, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_246, metaTilePos + TILE_POS(1, 0), layer);
+    SetMetaTileType(META_TILE_TYPE_244, metaTilePos + TILE_POS(0, 1), layer);
+    SetMetaTileType(META_TILE_TYPE_247, metaTilePos + TILE_POS(1, 1), layer);
     if (layer == LAYER_BOTTOM) {
         if (AreaHasEnemies()) {
 
@@ -163,9 +164,9 @@ void BombableWallManager_DestroyWall1(u32 metaTilePos, u32 layer) {
                 SetMetaTileType(META_TILE_TYPE_243, metaTilePos, LAYER_BOTTOM);
             }
         }
-        SetMetaTileType(META_TILE_TYPE_248, metaTilePos - 0x3f, LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_248, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
         SetMetaTileType(META_TILE_TYPE_249, metaTilePos + 1, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_250, metaTilePos + 0x41, LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_250, metaTilePos + TILE_POS(1, 1), LAYER_TOP);
     } else {
         SetMetaTileType(META_TILE_TYPE_242, metaTilePos, LAYER_TOP);
         if (!AreaIsDungeon()) {
@@ -184,11 +185,11 @@ void BombableWallManager_DestroyWall1(u32 metaTilePos, u32 layer) {
 void BombableWallManager_DestroyWall2(u32 metaTilePos, u32 layer) {
     Entity* object;
 
-    SetMetaTileType(META_TILE_TYPE_209, metaTilePos - 1, layer);
-    SetMetaTileType(META_TILE_TYPE_212, metaTilePos + 1, layer);
-    SetMetaTileType(META_TILE_TYPE_213, metaTilePos + 0x3f, layer);
-    SetMetaTileType(META_TILE_TYPE_214, metaTilePos + 0x40, layer);
-    SetMetaTileType(META_TILE_TYPE_215, metaTilePos + 0x41, layer);
+    SetMetaTileType(META_TILE_TYPE_209, metaTilePos + TILE_POS(-1, 0), layer);
+    SetMetaTileType(META_TILE_TYPE_212, metaTilePos + TILE_POS(1, 0), layer);
+    SetMetaTileType(META_TILE_TYPE_213, metaTilePos + TILE_POS(-1, 1), layer);
+    SetMetaTileType(META_TILE_TYPE_214, metaTilePos + TILE_POS(0, 1), layer);
+    SetMetaTileType(META_TILE_TYPE_215, metaTilePos + TILE_POS(1, 1), layer);
     if (layer == LAYER_BOTTOM) {
         if (AreaHasEnemies()) {
             object = CreateObject(ARCHWAY, 0xe, 2);
@@ -204,9 +205,9 @@ void BombableWallManager_DestroyWall2(u32 metaTilePos, u32 layer) {
                 SetMetaTileType(META_TILE_TYPE_211, metaTilePos, LAYER_BOTTOM);
             }
         }
-        SetMetaTileType(META_TILE_TYPE_216, metaTilePos + 0x3f, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_217, metaTilePos + 0x40, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_218, metaTilePos + 0x41, LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_216, metaTilePos + TILE_POS(-1, 1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_217, metaTilePos + TILE_POS(0, 1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_218, metaTilePos + TILE_POS(1, 1), LAYER_TOP);
     } else {
         SetMetaTileType(META_TILE_TYPE_210, metaTilePos, LAYER_TOP);
         if (AreaIsDungeon() == 0) {
@@ -225,11 +226,11 @@ void BombableWallManager_DestroyWall2(u32 metaTilePos, u32 layer) {
 void BombableWallManager_DestroyWall3(u32 metaTilePos, u32 layer) {
     Entity* object;
 
-    SetMetaTileType(META_TILE_TYPE_225, metaTilePos - 0x41, layer);
-    SetMetaTileType(META_TILE_TYPE_228, metaTilePos - 0x40, layer);
-    SetMetaTileType(META_TILE_TYPE_226, metaTilePos - 1, layer);
-    SetMetaTileType(META_TILE_TYPE_227, metaTilePos + 0x3f, layer);
-    SetMetaTileType(META_TILE_TYPE_231, metaTilePos + 0x40, layer);
+    SetMetaTileType(META_TILE_TYPE_225, metaTilePos + TILE_POS(-1, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_228, metaTilePos + TILE_POS(0, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_226, metaTilePos + TILE_POS(-1, 0), layer);
+    SetMetaTileType(META_TILE_TYPE_227, metaTilePos + TILE_POS(-1, 1), layer);
+    SetMetaTileType(META_TILE_TYPE_231, metaTilePos + TILE_POS(0, 1), layer);
     if (layer == LAYER_BOTTOM) {
         if (AreaHasEnemies()) {
             object = CreateObject(ARCHWAY, 0xe, 3);
@@ -245,9 +246,9 @@ void BombableWallManager_DestroyWall3(u32 metaTilePos, u32 layer) {
                 SetMetaTileType(META_TILE_TYPE_230, metaTilePos, LAYER_BOTTOM);
             }
         }
-        SetMetaTileType(META_TILE_TYPE_232, metaTilePos - 0x41, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_233, metaTilePos - 1, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_234, metaTilePos + 0x3f, LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_232, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_233, metaTilePos + TILE_POS(-1, 0), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_234, metaTilePos + TILE_POS(-1, 1), LAYER_TOP);
     } else {
         SetMetaTileType(META_TILE_TYPE_229, metaTilePos, LAYER_TOP);
         if (!AreaIsDungeon()) {
@@ -267,11 +268,11 @@ void BombableWallManager_DestroyWall3(u32 metaTilePos, u32 layer) {
 void BombableWallManager_DestroyWall4(u32 metaTilePos, u32 layer) {
     Entity* object;
 
-    SetMetaTileType(META_TILE_TYPE_193, metaTilePos - 0x41, layer);
-    SetMetaTileType(META_TILE_TYPE_194, metaTilePos - 0x40, layer);
-    SetMetaTileType(META_TILE_TYPE_195, metaTilePos - 0x3f, layer);
-    SetMetaTileType(META_TILE_TYPE_196, metaTilePos - 1, layer);
-    SetMetaTileType(META_TILE_TYPE_199, metaTilePos + 1, layer);
+    SetMetaTileType(META_TILE_TYPE_193, metaTilePos + TILE_POS(-1, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_194, metaTilePos + TILE_POS(0, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_195, metaTilePos + TILE_POS(1, -1), layer);
+    SetMetaTileType(META_TILE_TYPE_196, metaTilePos + TILE_POS(-1, 0), layer);
+    SetMetaTileType(META_TILE_TYPE_199, metaTilePos + TILE_POS(1, 0), layer);
     if (layer == LAYER_BOTTOM) {
         if (AreaHasEnemies()) {
             object = CreateObject(ARCHWAY, 0xe, 0);
@@ -287,9 +288,9 @@ void BombableWallManager_DestroyWall4(u32 metaTilePos, u32 layer) {
                 SetMetaTileType(META_TILE_TYPE_198, metaTilePos, LAYER_BOTTOM);
             }
         }
-        SetMetaTileType(META_TILE_TYPE_200, metaTilePos - 0x41, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_201, metaTilePos - 0x40, LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_202, metaTilePos - 0x3f, LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_200, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_201, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
+        SetMetaTileType(META_TILE_TYPE_202, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
     } else {
         SetMetaTileType(META_TILE_TYPE_197, metaTilePos, LAYER_TOP);
         if (!AreaIsDungeon()) {

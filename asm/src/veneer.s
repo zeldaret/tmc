@@ -69,11 +69,11 @@ SetMetaTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	blo _0800019A @ jump if metaTile < 0x4000
 	push {r1, r2}
 	subs r4, r0, r6 @ r4 = metaTile - 0x4000
-	ldr r3, _08000210 @ =gUnk_080B7910
-	ldrb r0, [r3, r4] @ r0 = gUnk_080B7910[metaTile - 0x4000]
+	ldr r3, _08000210 @ =gMapSpecialMetaTileToVvv
+	ldrb r0, [r3, r4] @ r0 = gMapSpecialMetaTileToVvv[metaTile - 0x4000]
 	bl SetVvvAtMetaTilePos
-	ldr r3, _08000214 @ =gUnk_080B79A7
-	ldrb r0, [r3, r4] @ r0 = gUnk_080B79A7[metaTile - 0x4000]
+	ldr r3, _08000214 @ =gMapSpecialMetaTileToCollisionData
+	ldrb r0, [r3, r4] @ r0 = gMapSpecialMetaTileToCollisionData[metaTile - 0x4000]
 	lsrs r2, r2, #2 @ r2 = layer
 	bl SetCollisionData
 	pop {r0, r1} @ tilepos, layer
@@ -89,11 +89,11 @@ _0800019A:
 	lsls r0, r0, #1 @ r0 = metaTile * 2
 	ldrh r4, [r4, r0] @ r4 (metaTileType) = gMapBottom.metatileTypes[metaTile]
 	push {r1, r2}
-	ldr r3, _08000218 @ =gUnk_080B37A0
-	ldrb r0, [r3, r4] @ r0 = gUnk_080B37A0[metaTileType]
+	ldr r3, _08000218 @ =gMapMetaTileTypeToVvv
+	ldrb r0, [r3, r4] @ r0 = gMapMetaTileTypeToVvv[metaTileType]
 	bl SetVvvAtMetaTilePos
-	ldr r3, _0800021C @ =gUnk_080B3E80
-	ldrb r0, [r3, r4] @ r0 = gUnk_080B3E80[metaTileType]
+	ldr r3, _0800021C @ =gMapMetaTileTypeToCollisionData
+	ldrb r0, [r3, r4] @ r0 = gMapMetaTileTypeToCollisionData[metaTileType]
 	lsrs r2, r2, #2 @ r2 = layer
 	bl SetCollisionData
 	pop {r0, r1}
@@ -105,7 +105,7 @@ _080001C4: .4byte gMapBottom+0x6004
 _080001C8: .4byte gMapTop+0x6004
 _080001CC: .4byte gMapBottom+0x6004
 
-@ r0: @see gUnk_080B7910  r1: metaTilePos, r2: layer
+@ r0: @see gMapSpecialMetaTileToVvv  r1: metaTilePos, r2: layer
 	thumb_func_start SetVvvAtMetaTilePos
 SetVvvAtMetaTilePos: @ 0x080001D0
 	lsls r2, r2, #2
@@ -133,10 +133,10 @@ _08000200: .4byte gBG2Buffer+0x40
 _08000204: .4byte gCollisionDataPtrs
 _08000208: .4byte gMapDataPtrs
 _0800020C: .4byte 0x00004000
-_08000210: .4byte gUnk_080B7910
-_08000214: .4byte gUnk_080B79A7
-_08000218: .4byte gUnk_080B37A0
-_0800021C: .4byte gUnk_080B3E80
+_08000210: .4byte gMapSpecialMetaTileToVvv
+_08000214: .4byte gMapSpecialMetaTileToCollisionData
+_08000218: .4byte gMapMetaTileTypeToVvv
+_0800021C: .4byte gMapMetaTileTypeToCollisionData
 _08000220: .4byte gVvvPtrs
 _08000224: .4byte gMapDataPtrs
 
@@ -374,9 +374,9 @@ GetCollisionDataAtMetaTilePos: @ 0x080002E0
 
 @ call 0x080B1B54
 @ r0: u32 (tileIndex)
-	thumb_func_start sub_080B1B54
-sub_080B1B54: @ 0x080002E4
-	ldr r3, _08000350 @ =ram_sub_080B1B54
+	thumb_func_start GetVvvForMetaTileType
+GetVvvForMetaTileType: @ 0x080002E4
+	ldr r3, _08000350 @ =ram_GetVvvForMetaTileType
 	bx r3
 
 @ call 0x080B1B68
@@ -427,7 +427,7 @@ _08000340: .4byte ram_GetCollisionDataAtWorldCoords
 _08000344: .4byte ram_GetCollisionDataAtRoomCoords
 _08000348: .4byte ram_GetCollisionDataAtRoomTile
 _0800034C: .4byte ram_GetCollisionDataAtMetaTilePos
-_08000350: .4byte ram_sub_080B1B54
+_08000350: .4byte ram_GetVvvForMetaTileType
 _08000354: .4byte ram_sub_080B1B68
 _08000358: .4byte ram_sub_080B1B84
 _0800035C: .4byte ram_sub_080B1BA4

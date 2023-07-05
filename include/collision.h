@@ -32,13 +32,29 @@ typedef enum {
     RESULT_COLLISION_WITHOUT_SET = 2,
 } CollisionResult;
 
-bool32 IsTileCollision(const u8*, s32, s32, u32);
+/**
+ * @brief
+ *
+ * @param collisionData
+ * @param x x world coordinate
+ * @param y y world coordinate
+ * @param collisionType @see CollisionType
+ * @return bool32
+ */
+bool32 IsTileCollision(const u8* collisionData, s32 x, s32 y, u32 collisionType);
 bool32 IsColliding(Entity*, Entity*);
 bool32 IsCollidingPlayer(Entity*);
-void CalculateEntityTileCollisions(Entity*, u32, u32);
+/**
+ * @brief Calculates the collisions with the tiles around the entity and stores the result in Entity.collisions.
+ *
+ * @param this
+ * @param direction
+ * @param collisionType @see CollisionType
+ */
+void CalculateEntityTileCollisions(Entity* this, u32 direction, u32 collisionType);
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 u32 sub_080176E4(Entity*);
 
-extern const u8 gUnk_080B37A0[]; // vvv for tileType?
+extern const u8 gMapMetaTileTypeToVvv[]; // vvv for tileType?
 
 #endif // COLLISION_H

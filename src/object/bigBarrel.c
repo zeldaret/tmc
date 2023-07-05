@@ -9,10 +9,12 @@
 #include "common.h"
 #include "entity.h"
 #include "flags.h"
+#include "map.h"
 #include "object.h"
 #include "room.h"
 #include "save.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -293,7 +295,7 @@ void sub_08088F20(BigBarrelEntity* this) {
                 pEVar3->collisionLayer = 2;
                 pEVar3->spritePriority.b0 = 2;
             }
-            SetMetaTileType(0x76, COORD_TO_TILE(super), 2);
+            SetMetaTileType(META_TILE_TYPE_118, COORD_TO_TILE(super), LAYER_TOP);
             break;
         case 2:
             if (--super->timer) {

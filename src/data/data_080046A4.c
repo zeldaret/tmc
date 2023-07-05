@@ -36,7 +36,7 @@ const u16 gUnk_080047F6[] = {
 
 #define PLAYER_MACRO_JUMPTO 0x4000 // Jump
 #define PLAYER_MACRO_IGNORE 0x8000 // Do not set playerMacroWaiting and playerMacroHeldKeys?
-#define PLAYER_MACRO_END 0xC000 // End // 49152
+#define PLAYER_MACRO_END 0xC000    // End // 49152
 
 // Link tries out the shield.
 const PlayerMacroEntry gPlayerMacroTryOutShield[] = {

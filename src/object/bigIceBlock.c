@@ -140,116 +140,116 @@ void sub_08099910(BigIceBlockEntity* this) {
 
     switch (uVar2) {
         default:
-            SetMetaTile(0x4022, metaTilePos - 0x41, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos - 0x40, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos - 1, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos - 0x41, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos - 0x40, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos - 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, super->collisionLayer);
             break;
         case 1:
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x41, super->collisionLayer);
-            tileIndex = 0x4024;
+            tileIndex = SPECIAL_META_TILE_36;
             if (vvv == VVV_18) {
-                tileIndex = 0x4079;
+                tileIndex = SPECIAL_META_TILE_121;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x41, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos - 0x40, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos - 0x40, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x3f, super->collisionLayer);
-            tileIndex = 0x4025;
+            tileIndex = SPECIAL_META_TILE_37;
             if (vvv == VVV_18) {
-                tileIndex = 0x407b;
+                tileIndex = SPECIAL_META_TILE_123;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x3f, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos - 1, super->collisionLayer);
-            tileIndex = 0x4024;
+            tileIndex = SPECIAL_META_TILE_36;
             if (vvv == VVV_18) {
-                tileIndex = 0x4079;
+                tileIndex = SPECIAL_META_TILE_121;
             }
             SetMetaTile(tileIndex, metaTilePos - 1, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 1, super->collisionLayer);
-            tileIndex = 0x4025;
+            tileIndex = SPECIAL_META_TILE_37;
             if (vvv == VVV_18) {
-                tileIndex = 0x407b;
+                tileIndex = SPECIAL_META_TILE_123;
             }
             SetMetaTile(tileIndex, metaTilePos + 1, super->collisionLayer);
             return;
             break;
         case 2:
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x41, super->collisionLayer);
-            tileIndex = 0x4023;
+            tileIndex = SPECIAL_META_TILE_35;
             if (vvv == VVV_18) {
-                tileIndex = 0x4077;
+                tileIndex = SPECIAL_META_TILE_119;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x41, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x40, super->collisionLayer);
-            tileIndex = 0x4023;
+            tileIndex = SPECIAL_META_TILE_35;
             if (vvv == VVV_18) {
-                tileIndex = 0x4077;
+                tileIndex = SPECIAL_META_TILE_119;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x40, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos - 1, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos - 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 0x3f, super->collisionLayer);
-            tileIndex = 0x4026;
+            tileIndex = SPECIAL_META_TILE_38;
             if (vvv == VVV_18) {
-                tileIndex = 0x407c;
+                tileIndex = SPECIAL_META_TILE_124;
             }
             SetMetaTile(tileIndex, metaTilePos + 0x3f, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 0x40, super->collisionLayer);
-            tileIndex = 0x4026;
+            tileIndex = SPECIAL_META_TILE_38;
             if (vvv == VVV_18) {
-                tileIndex = 0x407c;
+                tileIndex = SPECIAL_META_TILE_124;
             }
             SetMetaTile(tileIndex, metaTilePos + 0x40, super->collisionLayer);
             break;
         case 3:
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x41, super->collisionLayer);
-            tileIndex = 0x4027;
+            tileIndex = SPECIAL_META_TILE_39;
             if (vvv == VVV_18) {
-                tileIndex = 0x4075;
+                tileIndex = SPECIAL_META_TILE_117;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x41, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x40, super->collisionLayer);
-            tileIndex = 0x4023;
+            tileIndex = SPECIAL_META_TILE_35;
             if (vvv == VVV_18) {
-                tileIndex = 0x4077;
+                tileIndex = SPECIAL_META_TILE_119;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x40, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos - 0x3f, super->collisionLayer);
-            tileIndex = 0x4028;
+            tileIndex = SPECIAL_META_TILE_40;
             if (vvv == VVV_18) {
-                tileIndex = 0x4076;
+                tileIndex = SPECIAL_META_TILE_118;
             }
             SetMetaTile(tileIndex, metaTilePos - 0x3f, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos - 1, super->collisionLayer);
-            tileIndex = 0x4024;
+            tileIndex = SPECIAL_META_TILE_36;
             if (vvv == VVV_18) {
-                tileIndex = 0x4079;
+                tileIndex = SPECIAL_META_TILE_121;
             }
             SetMetaTile(tileIndex, metaTilePos - 1, super->collisionLayer);
-            SetMetaTile(0x4022, metaTilePos, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 1, super->collisionLayer);
-            tileIndex = 0x4025;
+            tileIndex = SPECIAL_META_TILE_37;
             if (vvv == VVV_18) {
-                tileIndex = 0x407b;
+                tileIndex = SPECIAL_META_TILE_123;
             }
             SetMetaTile(tileIndex, metaTilePos + 1, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 0x3f, super->collisionLayer);
-            tileIndex = 0x4029;
+            tileIndex = SPECIAL_META_TILE_41;
             if (vvv == VVV_18) {
-                tileIndex = 0x4078;
+                tileIndex = SPECIAL_META_TILE_120;
             }
             SetMetaTile(tileIndex, metaTilePos + 0x3f, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 0x40, super->collisionLayer);
-            tileIndex = 0x4026;
+            tileIndex = SPECIAL_META_TILE_38;
             if (vvv == VVV_18) {
-                tileIndex = 0x407c;
+                tileIndex = SPECIAL_META_TILE_124;
             }
             SetMetaTile(tileIndex, metaTilePos + 0x40, super->collisionLayer);
             vvv = GetVvvAtMetaTilePos(metaTilePos + 0x41, super->collisionLayer);
-            tileIndex = 0x402a;
+            tileIndex = SPECIAL_META_TILE_42;
             if (vvv == VVV_18) {
-                tileIndex = 0x407a;
+                tileIndex = SPECIAL_META_TILE_122;
             }
             SetMetaTile(tileIndex, metaTilePos + 0x41, super->collisionLayer);
             break;

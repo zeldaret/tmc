@@ -10,7 +10,7 @@
 #include "object.h"
 #include "tiles.h"
 
-extern u8 gUnk_080B3E80[];
+extern u8 gMapMetaTileTypeToCollisionData[];
 
 bool32 sub_080258C4(Entity*);
 void sub_08025B18(Entity*);
@@ -414,23 +414,27 @@ bool32 sub_0802571C(Entity* this) {
 }
 
 bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
-    u16 tileType = sub_080B1A48(x - 0x00, y - 0x00, this->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    u16 metaTileType = sub_080B1A48(x - 0x00, y - 0x00, this->collisionLayer);
+    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
+        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x10, y - 0x00, this->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    metaTileType = sub_080B1A48(x - 0x10, y - 0x00, this->collisionLayer);
+    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
+        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x00, y - 0x10, this->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    metaTileType = sub_080B1A48(x - 0x00, y - 0x10, this->collisionLayer);
+    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
+        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x10, y - 0x10, this->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    metaTileType = sub_080B1A48(x - 0x10, y - 0x10, this->collisionLayer);
+    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
+        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
         return TRUE;
     }
 
@@ -469,9 +473,9 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
     s16 xDiff;
     s16 yDiff;
     s16 iVar9;
-    u32 uVar1;
+    u32 layer;
     const s8* unk = gUnk_080CC090[param_2];
-    uVar1 = this->collisionLayer;
+    layer = this->collisionLayer;
     xDiff = (this->x.HALF.HI - gRoomControls.origin_x + 8) & -0x10;
     yDiff = (this->y.HALF.HI - gRoomControls.origin_y + 8) & -0x10;
     do {
@@ -482,10 +486,10 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
         u8 bVar6;
         iVar9 = xDiff + unk[0];
         iVar11 = yDiff + unk[1];
-        bVar4 = GetCollisionDataAtWorldCoords(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        bVar5 = GetCollisionDataAtWorldCoords(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        bVar6 = GetCollisionDataAtWorldCoords(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        bVar7 = GetCollisionDataAtWorldCoords(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        bVar4 = GetCollisionDataAtWorldCoords(iVar9 - 0x00, iVar11 - 0x00, layer);
+        bVar5 = GetCollisionDataAtWorldCoords(iVar9 - 0x10, iVar11 - 0x00, layer);
+        bVar6 = GetCollisionDataAtWorldCoords(iVar9 - 0x00, iVar11 - 0x10, layer);
+        bVar7 = GetCollisionDataAtWorldCoords(iVar9 - 0x10, iVar11 - 0x10, layer);
         if ((bVar4 | bVar5 | bVar6 | bVar7) == 0) {
             this->field_0x7c.HALF.LO = gRoomControls.origin_x + iVar9;
             this->field_0x7c.HALF.HI = gRoomControls.origin_y + iVar11;

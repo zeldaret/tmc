@@ -7,11 +7,11 @@
 
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "item.h"
 #include "object.h"
 #include "screen.h"
 #include "structures.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -29,7 +29,7 @@ void sub_080842D8(ChestSpawnerEntity*);
 void AddInteractableChest(ChestSpawnerEntity*);
 void sub_08083E20(ChestSpawnerEntity*);
 void sub_08084074(u32);
-void sub_080840A8(s32, s32);
+void sub_080840A8(s32 x, s32 y);
 void ChestSpawner_Type0(ChestSpawnerEntity*);
 void ChestSpawner_Type2(ChestSpawnerEntity*);
 void ChestSpawner_Type0Init(ChestSpawnerEntity*);
@@ -164,7 +164,7 @@ void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         if (--super->subtimer == 0) {
-            if (super->timer == 0x18) {
+            if (super->timer == 24) {
                 super->action = 6;
                 super->timer = 8;
                 super->subtimer = 16;
@@ -189,18 +189,18 @@ void sub_08084074(u32 param_1) {
     }
 }
 
-void sub_080840A8(s32 param_1, s32 param_2) {
+void sub_080840A8(s32 x, s32 y) {
     static const u8 gUnk_0811F838[] = { 84, 84, 84, 84, 85, 85, 85, 86 };
-    static const s32 gUnk_0811F840[] = { 393216, 458752, 524288, 589824 };
-    static const s8 gUnk_0811F850[] = { -6, 0, 0, 6 };
+    static const s32 zVelocities[] = { 0x60000, 0x70000, 0x80000, 0x90000 };
+    static const s8 xOffsets[] = { -6, 0, 0, 6 };
     Entity* obj = CreateObject(GROUND_ITEM, gUnk_0811F838[Random() & 7], 0);
     if (obj != NULL) {
         obj->timer = 6;
         obj->direction = ((Random() & 7) + 0xc) | 0x80;
         obj->speed = (Random() & 0xf) * 2 + 0x20;
-        obj->zVelocity = gUnk_0811F840[Random() & 3];
-        obj->x.HALF.HI = gUnk_0811F850[Random() & 3] + param_1;
-        obj->y.HALF.HI = param_2 + 1;
+        obj->zVelocity = zVelocities[Random() & 3];
+        obj->x.HALF.HI = xOffsets[Random() & 3] + x;
+        obj->y.HALF.HI = y + 1;
         obj->z.HALF.HI = -8;
         ResolveCollisionLayer(obj);
         obj = CreateFx(obj, FX_DASH, 0);
@@ -232,7 +232,7 @@ void ChestSpawner_Type0Init(ChestSpawnerEntity* this) {
     super->action++;
     this->tilePosition = COORD_TO_TILE(super);
     super->hitbox = (Hitbox*)&gUnk_0811F8A8;
-    if (GetMetaTileTypeByEntity(super) == 0x74) {
+    if (GetMetaTileTypeByEntity(super) == META_TILE_TYPE_116) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->unk_86)) {
@@ -271,7 +271,7 @@ void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
     if ((super->type == 1) || (super->type == 7)) {
-        if (GetMetaTileTypeByEntity(super) == 0x74) {
+        if (GetMetaTileTypeByEntity(super) == META_TILE_TYPE_116) {
             DeleteEntity(super);
         } else {
             if (!CheckFlags(this->unk_86)) {

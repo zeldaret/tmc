@@ -53,7 +53,6 @@ typedef struct {
 extern MapLayer gMapTop;
 extern MapLayer gMapBottom;
 
-
 extern MapLayer* GetLayerByIndex(u32 layer);
 
 /*

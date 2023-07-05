@@ -56,13 +56,13 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
                     PositionRelative(&gPlayerEntity, super, 0, 0x10000);
-                    SetMetaTile(0x4022, 0xdc, super->collisionLayer);
+                    SetMetaTile(SPECIAL_META_TILE_34, 0xdc, super->collisionLayer);
                 } else {
                     if (CheckLocalFlag(super->type2) == 0) {
                         InitializeAnimation(super, 10);
                         super->y.HALF.HI += 4;
                         super->action = 4;
-                        SetMetaTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
+                        SetMetaTile(SPECIAL_META_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
                         return;
                     }
                     super->type2 = 0;
@@ -109,7 +109,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
                 InitializeAnimation(super, 0xb);
                 super->y.HALF.HI += 4;
                 super->action = 4;
-                SetMetaTile(0x4032, COORD_TO_TILE(super), super->collisionLayer);
+                SetMetaTile(SPECIAL_META_TILE_50, COORD_TO_TILE(super), super->collisionLayer);
                 return;
             } else {
                 super->type2 = 0;
@@ -234,7 +234,7 @@ void CrenelBeanSprout_Action3(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action4(CrenelBeanSproutEntity* this) {
-    static const u16 gUnk_0812319C[] = { 0x403c, 0x4033 };
+    static const u16 gUnk_0812319C[] = { SPECIAL_META_TILE_60, SPECIAL_META_TILE_51 };
     if (gUnk_0812319C[super->type >> 1] == GetMetaTileTypeByEntity(super)) {
         GetNextFrame(super);
         gPlayerState.keepFacing |= 0x80;
@@ -331,5 +331,5 @@ void sub_08096A78(CrenelBeanSproutEntity* this) {
     sub_08004168(super);
     super->y.HALF.HI += 4;
     super->action = 3;
-    SetMetaTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
 }

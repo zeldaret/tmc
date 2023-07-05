@@ -77,7 +77,7 @@ void sub_080AA494(Entity* this) {
     }
     this->type2 = index;
     this->spritePriority.b0 = 7;
-    SetMetaTile(0x4068, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    SetMetaTile(SPECIAL_META_TILE_104, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
 void sub_080AA534(Entity* this) {

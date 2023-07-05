@@ -1,11 +1,12 @@
-#include "global.h"
 #include "entity.h"
-#include "player.h"
-#include "room.h"
 #include "flags.h"
+#include "item.h"
+#include "map.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
+#include "player.h"
+#include "room.h"
+#include "tiles.h"
 
 void Dampe(Entity* this) {
     switch (this->action) {
@@ -93,10 +94,10 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BEFC(void) {
-    SetMetaTileType(0x17E, 0x58E, 1);
-    SetMetaTileType(0x17F, 0x58F, 1);
-    SetMetaTileType(0x180, 0x5CE, 1);
-    SetMetaTileType(0x181, 0x5CF, 1);
+    SetMetaTileType(META_TILE_TYPE_382, TILE_POS(14, 22), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_383, TILE_POS(15, 22), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_384, TILE_POS(14, 23), LAYER_BOTTOM);
+    SetMetaTileType(META_TILE_TYPE_385, TILE_POS(15, 23), LAYER_BOTTOM);
 }
 
 void sub_0806BF44(Entity* this, ScriptExecutionContext* context) {

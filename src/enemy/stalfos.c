@@ -6,10 +6,10 @@
  */
 
 #define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -440,7 +440,7 @@ void sub_08039AD4(StalfosEntity* this) {
             super->action = 0xb;
             super->child = projectile;
             InitAnimationForceUpdate(super, super->animationState + 0x18);
-            SetMetaTile(0x4067, position, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_103, position, super->collisionLayer);
             return;
         }
     }

@@ -12,6 +12,7 @@
 #include "functions.h"
 #include "object.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -115,8 +116,8 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     }
 
     switch (tileType) {
-        case 0x4030:
-        case 0x4031:
+        case SPECIAL_META_TILE_48:
+        case SPECIAL_META_TILE_49:
             super->action = 3;
             super->direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             super->speed = 0x80;
@@ -135,23 +136,23 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     if (this->unk7b & 0x80) {
         this->unk7b &= ~0x80;
         if ((this->unk7b & 0x40) != 0) {
-            SetMetaTile(0x402c, this->tilePos - 1, super->collisionLayer);
-            SetMetaTile(0x403d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_44, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_61, this->tilePos + 1, super->collisionLayer);
         } else {
-            SetMetaTile(0x403d, this->tilePos - 1, super->collisionLayer);
-            SetMetaTile(0x402d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_61, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_45, this->tilePos + 1, super->collisionLayer);
         }
     } else if (this->unk7b & 0x40) {
         if (xDist >= 5) {
             this->unk7b &= ~(0x40 | 0x80);
-            SetMetaTile(0x403d, this->tilePos - 1, super->collisionLayer);
-            SetMetaTile(0x402d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_61, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_45, this->tilePos + 1, super->collisionLayer);
         }
     } else {
         if (-xDist > 4) {
             this->unk7b |= 0x40;
-            SetMetaTile(0x402c, this->tilePos - 1, super->collisionLayer);
-            SetMetaTile(0x403d, this->tilePos + 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_44, this->tilePos - 1, super->collisionLayer);
+            SetMetaTile(SPECIAL_META_TILE_61, this->tilePos + 1, super->collisionLayer);
         }
     }
 }
@@ -192,10 +193,18 @@ void ObjectBlockingStairs_Action4(ObjectBlockingStairsEntity* this) {
 }
 
 void sub_080931A4(ObjectBlockingStairsEntity* this, u32 param_2) {
-    static const u16 gUnk_08122850[] = { 0x4027, 0x4023, 0x4028, 0x402c, 0x402b, 0x402d, 0x4029, 0x4026, 0x402a };
-    static const u16 gUnk_08122862[] = { 0x4027, 0x4023, 0x4028, 0x4024, 0x4022, 0x4025, 0x4029, 0x4026, 0x402a };
-    static const u16 gUnk_08122874[] = { 0x4027, 0x4023, 0x4023, 0x4024, 0x4022, 0x4022, 0x4029, 0x4026, 0x4026 };
-    static const u16 gUnk_08122886[] = { 0x4023, 0x4023, 0x4028, 0x4022, 0x4022, 0x4025, 0x4026, 0x4026, 0x402a };
+    static const u16 gUnk_08122850[] = { SPECIAL_META_TILE_39, SPECIAL_META_TILE_35, SPECIAL_META_TILE_40,
+                                         SPECIAL_META_TILE_44, SPECIAL_META_TILE_43, SPECIAL_META_TILE_45,
+                                         SPECIAL_META_TILE_41, SPECIAL_META_TILE_38, SPECIAL_META_TILE_42 };
+    static const u16 gUnk_08122862[] = { SPECIAL_META_TILE_39, SPECIAL_META_TILE_35, SPECIAL_META_TILE_40,
+                                         SPECIAL_META_TILE_36, SPECIAL_META_TILE_34, SPECIAL_META_TILE_37,
+                                         SPECIAL_META_TILE_41, SPECIAL_META_TILE_38, SPECIAL_META_TILE_42 };
+    static const u16 gUnk_08122874[] = { SPECIAL_META_TILE_39, SPECIAL_META_TILE_35, SPECIAL_META_TILE_35,
+                                         SPECIAL_META_TILE_36, SPECIAL_META_TILE_34, SPECIAL_META_TILE_34,
+                                         SPECIAL_META_TILE_41, SPECIAL_META_TILE_38, SPECIAL_META_TILE_38 };
+    static const u16 gUnk_08122886[] = { SPECIAL_META_TILE_35, SPECIAL_META_TILE_35, SPECIAL_META_TILE_40,
+                                         SPECIAL_META_TILE_34, SPECIAL_META_TILE_34, SPECIAL_META_TILE_37,
+                                         SPECIAL_META_TILE_38, SPECIAL_META_TILE_38, SPECIAL_META_TILE_42 };
 
     u32 collisionLayer;
     const u16* pTileTypes;

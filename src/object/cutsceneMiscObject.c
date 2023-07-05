@@ -12,6 +12,7 @@
 #include "object.h"
 #include "screen.h"
 #include "script.h"
+#include "tiles.h"
 
 extern u8 gUnk_08122AE0[];
 extern u16 gUnk_08122AE8[];
@@ -335,7 +336,7 @@ void sub_08094E30(CutsceneMiscObjectEntity* this) {
                 super->zVelocity = 0;
                 SetDefaultPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
-                if (GetVvvAtEntity(super) == 13) {
+                if (GetVvvAtEntity(super) == VVV_13) {
                     super->action = 3;
                 }
                 break;

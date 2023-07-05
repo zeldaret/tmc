@@ -3,10 +3,11 @@
 #include "flags.h"
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "manager/bombableWallManager.h"
+#include "map.h"
 #include "object.h"
 #include "room.h"
+#include "tiles.h"
 
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
@@ -261,7 +262,7 @@ void sub_0804B16C(void) {
     TileEntity* tile = gSmallChests;
     do {
         if (tile->tilePos != 0 && CheckLocalFlag(tile->localFlag)) {
-            SetMetaTileType(0x74, tile->tilePos, tile->_6 & 1 ? 2 : 1);
+            SetMetaTileType(META_TILE_TYPE_116, tile->tilePos, tile->_6 & 1 ? LAYER_TOP : LAYER_BOTTOM);
         }
     } while (++tile < gSmallChests + 8);
 }

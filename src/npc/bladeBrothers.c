@@ -40,8 +40,17 @@ extern const PlayerMacroEntry gPlayerMacroBladeBrothers5;
 extern const PlayerMacroEntry gPlayerMacroBladeBrothers6;
 extern const PlayerMacroEntry gPlayerMacroBladeBrothers7;
 const PlayerMacroEntry* const BladeBrothers_PlayerMacros[] = {
-    &gPlayerMacroBladeBrothers0, &gPlayerMacroBladeBrothers1, &gPlayerMacroBladeBrothers2, &gPlayerMacroBladeBrothers3, &gPlayerMacroBladeBrothers4, &gPlayerMacroBladeBrothers5,
-    &gPlayerMacroBladeBrothers6, &gPlayerMacroBladeBrothers7, NULL,           NULL,           NULL,
+    &gPlayerMacroBladeBrothers0,
+    &gPlayerMacroBladeBrothers1,
+    &gPlayerMacroBladeBrothers2,
+    &gPlayerMacroBladeBrothers3,
+    &gPlayerMacroBladeBrothers4,
+    &gPlayerMacroBladeBrothers5,
+    &gPlayerMacroBladeBrothers6,
+    &gPlayerMacroBladeBrothers7,
+    NULL,
+    NULL,
+    NULL,
 };
 
 const u8 BladeBrothers_EquippedItem[] = {
