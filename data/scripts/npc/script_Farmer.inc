@@ -28,7 +28,7 @@ script_0800B134:
 	FacePlayer
 	CallWithArg sub_0806BC94, 0x00000004
 	Call sub_0807F650
-	_0807E9F0
+	UpdateFusion
 .ifndef EU
 	@! @bug: In EU, Eenie is marked as done fusing if kinstone menu is closed without fusing
 	JumpIfNot script_0800B160

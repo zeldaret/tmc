@@ -361,7 +361,7 @@ void sub_08028F0C(Entity* this) {
     if (this->interactType == 2) {
         this->action = 8;
         this->interactType = 0;
-        sub_0806F118(this);
+        InitializeNPCFusion(this);
     } else if (this->interactType != 0) {
         u16 dialog;
         const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;

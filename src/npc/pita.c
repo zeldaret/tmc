@@ -4,10 +4,17 @@
  *
  * @brief Pita NPC
  */
+#define NENT_DEPRECATED
 #include "item.h"
 #include "npc.h"
 
-void Pita(Entity* this) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[24];
+    /*0x80*/ u16 unk_80;
+} PitaEntity;
+
+void Pita(PitaEntity* this) {
     static const Hitbox gUnk_0810C428 = {
         0,
         2,
@@ -19,17 +26,17 @@ void Pita(Entity* this) {
 #endif
         18,
     };
-    if (this->action == 0) {
-        this->action++;
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        SortEntityAbove(this, this);
-        this->hitbox = (Hitbox*)&gUnk_0810C428;
-        sub_0807DD64(this);
+    if (super->action == 0) {
+        super->action++;
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        SortEntityAbove(super, super);
+        super->hitbox = (Hitbox*)&gUnk_0810C428;
+        sub_0807DD64(super);
     }
-    sub_0807DD94(this, NULL);
-    if ((this->frame & 1) != 0) {
-        InitAnimationForceUpdate(this, (u32)(this->animationState >> 1));
-        this->field_0x80.HWORD = this->animIndex;
+    ExecuteScriptAndHandleAnimation(super, NULL);
+    if ((super->frame & 1) != 0) {
+        InitAnimationForceUpdate(super, (u32)(super->animationState >> 1));
+        this->unk_80 = super->animIndex;
     }
 }
 

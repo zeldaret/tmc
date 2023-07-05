@@ -4,11 +4,17 @@
  *
  * @brief Tingle Siblings NPC
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
 #include "kinstone.h"
 #include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} TingleSiblingsEntity;
 
 extern void sub_08064DE4(Entity*);
 extern void sub_08064D78(Entity*);
@@ -58,16 +64,17 @@ void sub_08064DE4(Entity* this) {
             this->action = 1;
             this->spriteSettings.draw = 1;
             this->animationState = 4;
-            sub_0807DD50(this);
+            InitScriptForNPC(this);
             break;
         case 1:
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+                InitAnimationForceUpdate(this,
+                                         GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)));
+                InitializeNPCFusion(this);
             } else {
-                sub_0807DD94(this, 0);
+                ExecuteScriptAndHandleAnimation(this, NULL);
             }
             break;
         case 2:
@@ -88,28 +95,28 @@ void sub_08064DE4(Entity* this) {
     }
 }
 
-void TingleSiblings_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    switch (this->type) {
+void TingleSiblings_MakeInteractable(TingleSiblingsEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    switch (super->type) {
         case 0:
             if ((CheckKinstoneFused(KINSTONE_59) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {
-                this->field_0x68.HALF.LO = 0;
+                this->fusionOffer = 0;
             }
             break;
         case 3:
             if ((CheckKinstoneFused(KINSTONE_5A) != 0) && (GetInventoryValue(ITEM_MAGIC_BOOMERANG) == 0)) {
-                this->field_0x68.HALF.LO = 0;
+                this->fusionOffer = 0;
             }
             break;
         default:
             break;
     }
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void sub_08064EE8(Entity* this) {
     u32 bVar1;
-    Entity* fxEnt;
+    Entity* fxEntity;
     u32 confettiFx;
 
     UpdateAnimationSingleFrame(this);
@@ -122,9 +129,9 @@ void sub_08064EE8(Entity* this) {
             confettiFx = FX_CONFETTI_LARGE;
         }
 
-        fxEnt = CreateFx(this, confettiFx, 0);
-        if ((fxEnt != NULL) && (bVar1 == 2)) {
-            fxEnt->spriteSettings.flipX = 1;
+        fxEntity = CreateFx(this, confettiFx, 0);
+        if ((fxEntity != NULL) && (bVar1 == 2)) {
+            fxEntity->spriteSettings.flipX = 1;
         }
     }
 }

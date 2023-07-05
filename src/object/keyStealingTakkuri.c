@@ -478,7 +478,7 @@ void sub_0809E1F0(KeyStealingTakkuriEntity* this) {
 }
 
 void sub_0809E210(KeyStealingTakkuriEntity* this) {
-    gPlayerEntity.animationState = sub_0806F5B0(GetFacingDirection(&gPlayerEntity, super)) & 0xfe;
+    gPlayerEntity.animationState = GetAnimationStateForDirection8(GetFacingDirection(&gPlayerEntity, super)) & 0xfe;
     gPlayerState.animation = 0x100;
 }
 

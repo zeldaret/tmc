@@ -4,6 +4,7 @@
  *
  * @brief Vaati Reborn NPC
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 

@@ -4,11 +4,17 @@
  *
  * @brief BigGoron NPC
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "item.h"
 #include "npc.h"
 #include "screen.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16 originalX;
+} BigGoronEntity;
 
 static const u16 goronSounds[] = {
     SFX_VO_GORON1,
@@ -20,19 +26,18 @@ static const u16 goronSounds[] = {
 extern u8 gMapDataTopSpecial[];
 extern u8 gUnk_02006F00[];
 
-void sub_0806D520(Entity*, u32);
-void sub_0806D41C(Entity*);
-void sub_0806CF30(Entity*);
-void sub_0806D1D0(Entity*);
-void sub_0806D274(Entity*);
-void sub_0806D348(Entity*);
-void sub_0806D3C0(Entity*);
-void sub_0806D41C(Entity*);
-void sub_0806D4F0(Entity*);
-void sub_0806D4FC(Entity*);
-void sub_0806D508(Entity*);
-void sub_0806D514(Entity*);
-void sub_0806D40C(Entity*);
+void sub_0806D520(BigGoronEntity* this, u32);
+void sub_0806CF30(BigGoronEntity* this);
+void sub_0806D1D0(BigGoronEntity* this);
+void sub_0806D274(BigGoronEntity* this);
+void sub_0806D348(BigGoronEntity* this);
+void sub_0806D3C0(BigGoronEntity* this);
+void sub_0806D41C(BigGoronEntity* this);
+void sub_0806D4F0(BigGoronEntity* this);
+void sub_0806D4FC(BigGoronEntity* this);
+void sub_0806D508(BigGoronEntity* this);
+void sub_0806D514(BigGoronEntity* this);
+void sub_0806D40C(BigGoronEntity* this);
 
 static void sub_0806D02C(Entity* this);
 
@@ -54,7 +59,7 @@ void sub_0806D164(Entity* this);
 
 Entity* sub_0806D00C(Entity* this);
 
-void sub_0806D4C0(Entity*, u32);
+void sub_0806D4C0(BigGoronEntity* this, u32 type);
 
 typedef struct {
     s8 type;
@@ -63,51 +68,51 @@ typedef struct {
     u8 direction;
 } struct_08114104;
 
-void BigGoron(Entity* this) {
-    static void (*const typeFunctions[])(Entity*) = {
+void BigGoron(BigGoronEntity* this) {
+    static void (*const typeFunctions[])(BigGoronEntity*) = {
         sub_0806CF30, sub_0806D1D0, sub_0806D274, sub_0806D348, sub_0806D3C0, sub_0806D41C,
         sub_0806D4F0, sub_0806D4FC, sub_0806D508, sub_0806D514, sub_0806D40C,
     };
-    typeFunctions[this->type](this);
+    typeFunctions[super->type](this);
 }
 
-void sub_0806CF30(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        this->subAction = 1;
-        this->field_0x68.HWORD = this->x.HALF.HI;
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        sub_0806D0B0(this);
-        sub_0807DD64(this);
+void sub_0806CF30(BigGoronEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->subAction = 1;
+        this->originalX = super->x.HALF.HI;
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        sub_0806D0B0(super);
+        sub_0807DD64(super);
     } else {
-        ExecuteScriptForEntity(this, NULL);
-        HandleEntity0x82Actions(this);
+        ExecuteScriptForEntity(super, NULL);
+        HandleEntity0x82Actions(super);
     }
 
-    switch (this->subAction) {
+    switch (super->subAction) {
         case 0:
         case 1:
             if (gRoomTransition.frameCount % 4 == 0) {
-                if (gPlayerEntity.x.HALF.HI < this->x.HALF.HI && this->field_0x68.HWORD - 32 < this->x.HALF.HI) {
-                    this->x.HALF.HI--;
+                if (gPlayerEntity.x.HALF.HI < super->x.HALF.HI && this->originalX - 32 < super->x.HALF.HI) {
+                    super->x.HALF.HI--;
                 }
-                if (gPlayerEntity.x.HALF.HI > this->x.HALF.HI && this->field_0x68.HWORD + 32 > this->x.HALF.HI) {
-                    this->x.HALF.HI++;
+                if (gPlayerEntity.x.HALF.HI > super->x.HALF.HI && this->originalX + 32 > super->x.HALF.HI) {
+                    super->x.HALF.HI++;
                 }
             }
             break;
         case 2:
-            if (--this->timer == 0) {
+            if (--super->timer == 0) {
                 u32 uVar2 = Random();
                 SoundReq(goronSounds[uVar2 % 4]);
-                this->timer = ((u8)uVar2 & 7) * 16;
-                this->timer += 128;
+                super->timer = ((u8)uVar2 & 7) * 16;
+                super->timer += 128;
             }
             break;
         case 3:
             break;
     }
-    sub_0806D02C(this);
+    sub_0806D02C(super);
 }
 
 Entity* sub_0806D00C(Entity* this) {
@@ -198,228 +203,228 @@ void sub_0806D164(Entity* this) {
     gScreen.bg1.updated = 1;
 }
 
-void sub_0806D1D0(Entity* this) {
-    if (this->action == 0) {
-        if (sub_0806D00C(this) == NULL) {
+void sub_0806D1D0(BigGoronEntity* this) {
+    if (super->action == 0) {
+        if (sub_0806D00C(super) == NULL) {
             DeleteThisEntity();
         }
-        this->action = 1;
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
-        this->spritePriority.b0 = 7;
-        this->spriteSettings.draw = 3;
-        this->frameIndex = 0;
-        this->timer = 30;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        super->action = 1;
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
+        super->spritePriority.b0 = 7;
+        super->spriteSettings.draw = 3;
+        super->frameIndex = 0;
+        super->timer = 30;
+        SetDefaultPriority(super, PRIO_MESSAGE);
     }
 
-    switch (this->subAction) {
+    switch (super->subAction) {
         case 0:
         default:
-            if (--this->timer == 0) {
-                this->timer = (Random() & 0x7f) + 48;
-                this->subtimer = 8;
-                this->frameIndex = 1;
+            if (--super->timer == 0) {
+                super->timer = (Random() & 0x7f) + 48;
+                super->subtimer = 8;
+                super->frameIndex = 1;
             }
-            if (this->subtimer != 0) {
-                if (--this->subtimer == 0) {
-                    this->frameIndex = 0;
+            if (super->subtimer != 0) {
+                if (--super->subtimer == 0) {
+                    super->frameIndex = 0;
                 }
             }
             break;
         case 1:
-            this->frameIndex = this->subAction;
+            super->frameIndex = super->subAction;
             break;
         case 2:
-            this->spriteSettings.draw = 0;
+            super->spriteSettings.draw = 0;
             break;
     }
-    this->x.HALF.HI = this->parent->x.HALF.HI;
-    this->y.HALF.HI = this->parent->y.HALF.HI;
+    super->x.HALF.HI = super->parent->x.HALF.HI;
+    super->y.HALF.HI = super->parent->y.HALF.HI;
 }
 
-void sub_0806D274(Entity* this) {
+void sub_0806D274(BigGoronEntity* this) {
     Entity* npc;
 
-    if (this->action == 0) {
-        if (sub_0806D00C(this) == NULL) {
+    if (super->action == 0) {
+        if (sub_0806D00C(super) == NULL) {
             DeleteThisEntity();
         }
-        this->action = 1;
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
-        this->spritePriority.b0 = 7;
-        this->frameIndex = 2;
-        this->timer = 8;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        super->action = 1;
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
+        super->spritePriority.b0 = 7;
+        super->frameIndex = 2;
+        super->timer = 8;
+        SetDefaultPriority(super, PRIO_MESSAGE);
         npc = CreateNPC(BIG_GORON, 3, 0);
         if (npc != NULL) {
-            npc->child = this;
+            npc->child = super;
         }
     }
-    switch (this->subAction) {
+    switch (super->subAction) {
         case 0:
         case 1:
         default:
             if ((gMessage.doTextBox & 0x7f) == 0) {
-                this->frameIndex = 2;
+                super->frameIndex = 2;
                 break;
             }
-            if (--this->timer == 0) {
-                this->timer = 8;
-                this->frameIndex ^= 1;
+            if (--super->timer == 0) {
+                super->timer = 8;
+                super->frameIndex ^= 1;
             }
             break;
         case 2:
-            if (--this->timer == 0) {
-                this->timer = 8;
-                this->frameIndex ^= 1;
+            if (--super->timer == 0) {
+                super->timer = 8;
+                super->frameIndex ^= 1;
             }
             break;
         case 3:
-            this->frameIndex = 4;
+            super->frameIndex = 4;
             break;
         case 4:
-            this->frameIndex = 2;
+            super->frameIndex = 2;
             break;
     }
-    this->x.HALF.HI = this->parent->x.HALF.HI;
-    this->y.HALF.HI = this->parent->y.HALF.HI;
+    super->x.HALF.HI = super->parent->x.HALF.HI;
+    super->y.HALF.HI = super->parent->y.HALF.HI;
 }
 
-void sub_0806D348(Entity* this) {
-    if (this->action == 0) {
-        if (sub_0806D00C(this) == NULL) {
+void sub_0806D348(BigGoronEntity* this) {
+    if (super->action == 0) {
+        if (sub_0806D00C(super) == NULL) {
             DeleteThisEntity();
         }
-        this->action = 1;
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
-        this->spritePriority.b0 = 6;
-        this->spriteSettings.draw = 0;
-        this->frameIndex = 5;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        super->action = 1;
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
+        super->spritePriority.b0 = 6;
+        super->spriteSettings.draw = 0;
+        super->frameIndex = 5;
+        SetDefaultPriority(super, PRIO_MESSAGE);
     }
-    if (this->child->frameIndex == 4) {
-        this->spriteSettings.draw = 3;
+    if (super->child->frameIndex == 4) {
+        super->spriteSettings.draw = 3;
     } else {
-        this->spriteSettings.draw = 0;
+        super->spriteSettings.draw = 0;
     }
-    this->x.HALF.HI = this->parent->x.HALF.HI;
-    this->y.HALF.HI = this->parent->y.HALF.HI;
+    super->x.HALF.HI = super->parent->x.HALF.HI;
+    super->y.HALF.HI = super->parent->y.HALF.HI;
 }
 
-void sub_0806D3C0(Entity* this) {
-    if (this->action == 0) {
-        if (sub_0806D00C(this) == NULL) {
+void sub_0806D3C0(BigGoronEntity* this) {
+    if (super->action == 0) {
+        if (sub_0806D00C(super) == NULL) {
             DeleteThisEntity();
         }
-        this->action = 1;
-        this->hitbox = (Hitbox*)&gHitbox_3;
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        sub_0807DD64(this);
+        super->action = 1;
+        super->hitbox = (Hitbox*)&gHitbox_3;
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        sub_0807DD64(super);
     } else {
-        this->x.HALF.HI = this->parent->x.HALF.HI;
-        ExecuteScriptForEntity(this, NULL);
-        HandleEntity0x82Actions(this);
+        super->x.HALF.HI = super->parent->x.HALF.HI;
+        ExecuteScriptForEntity(super, NULL);
+        HandleEntity0x82Actions(super);
     }
 }
 
-void sub_0806D40C(Entity* this) {
-    this->spriteSettings.flipX = 1;
+void sub_0806D40C(BigGoronEntity* this) {
+    super->spriteSettings.flipX = 1;
     sub_0806D41C(this);
 }
 
-void sub_0806D41C(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        this->frameIndex = 6;
-        sub_0807DD64(this);
+void sub_0806D41C(BigGoronEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->frameIndex = 6;
+        sub_0807DD64(super);
         sub_0806D4C0(this, 0);
         sub_0806D4C0(this, 1);
         sub_0806D4C0(this, 2);
         sub_0806D4C0(this, 3);
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetDefaultPriority(super, PRIO_MESSAGE);
     } else {
-        ExecuteScriptForEntity(this, NULL);
-        HandleEntity0x82Actions(this);
+        ExecuteScriptForEntity(super, NULL);
+        HandleEntity0x82Actions(super);
     }
     if ((gRoomTransition.frameCount & 1) == 0) {
-        if (CheckPlayerProximity(this->x.HALF.HI - 0x20, this->y.HALF.HI, 0x40, 0x40) != 0) {
-            if (this->spriteOffsetY > -8) {
-                this->spriteOffsetY--;
+        if (CheckPlayerProximity(super->x.HALF.HI - 0x20, super->y.HALF.HI, 0x40, 0x40) != 0) {
+            if (super->spriteOffsetY > -8) {
+                super->spriteOffsetY--;
             }
         } else {
-            if (this->spriteOffsetY < 0) {
-                this->spriteOffsetY++;
+            if (super->spriteOffsetY < 0) {
+                super->spriteOffsetY++;
             }
         }
     }
 }
 
-void sub_0806D4C0(Entity* this, u32 param) {
-    Entity* npc = CreateNPC(BIG_GORON, param + 6, 0);
+void sub_0806D4C0(BigGoronEntity* this, u32 type) {
+    Entity* npc = CreateNPC(BIG_GORON, type + 6, 0);
     if (npc != NULL) {
-        npc->parent = this;
-        CopyPosition(this, npc);
-        SortEntityAbove(this, npc);
+        npc->parent = super;
+        CopyPosition(super, npc);
+        SortEntityAbove(super, npc);
         SetDefaultPriority(npc, PRIO_MESSAGE);
     }
 }
 
-void sub_0806D4F0(Entity* this) {
+void sub_0806D4F0(BigGoronEntity* this) {
     sub_0806D520(this, 0);
 }
 
-void sub_0806D4FC(Entity* this) {
+void sub_0806D4FC(BigGoronEntity* this) {
     sub_0806D520(this, 1);
 }
 
-void sub_0806D508(Entity* this) {
+void sub_0806D508(BigGoronEntity* this) {
     sub_0806D520(this, 2);
 }
 
-void sub_0806D514(Entity* this) {
+void sub_0806D514(BigGoronEntity* this) {
     sub_0806D520(this, 3);
 }
 
-void sub_0806D520(Entity* this, u32 param_2) {
+void sub_0806D520(BigGoronEntity* this, u32 param_2) {
     static const u8 gUnk_08114100[] = {
         10,
         7,
         4,
         1,
     };
-    if (this->action == 0) {
-        this->action = 1;
-        this->subtimer = gUnk_08114100[param_2] + 6;
-        this->frameIndex = this->subtimer;
-        this->timer = 8;
+    if (super->action == 0) {
+        super->action = 1;
+        super->subtimer = gUnk_08114100[param_2] + 6;
+        super->frameIndex = super->subtimer;
+        super->timer = 8;
     }
-    this->x.HALF.HI = this->parent->x.HALF.HI;
-    this->y.HALF.HI = this->parent->y.HALF.HI;
-    this->spriteOffsetX = this->parent->spriteOffsetX;
-    this->spriteOffsetY = this->parent->spriteOffsetY;
-    this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
-    if (this->subAction != 0 ||
-        CheckPlayerProximity(this->x.HALF.HI + param_2 * -0x10 + 0xc, this->y.HALF.HI, 0x18, 0x40)) {
-        if (this->frameIndex >= this->subtimer + 2) {
+    super->x.HALF.HI = super->parent->x.HALF.HI;
+    super->y.HALF.HI = super->parent->y.HALF.HI;
+    super->spriteOffsetX = super->parent->spriteOffsetX;
+    super->spriteOffsetY = super->parent->spriteOffsetY;
+    super->spriteOrientation.flipY = super->parent->spriteOrientation.flipY;
+    if (super->subAction != 0 ||
+        CheckPlayerProximity(super->x.HALF.HI + param_2 * -0x10 + 0xc, super->y.HALF.HI, 0x18, 0x40)) {
+        if (super->frameIndex >= super->subtimer + 2) {
             return;
         }
-        if (--this->timer != 0) {
+        if (--super->timer != 0) {
             return;
         }
-        this->timer = 8;
-        this->frameIndex++;
+        super->timer = 8;
+        super->frameIndex++;
     } else {
-        if (this->frameIndex <= this->subtimer) {
+        if (super->frameIndex <= super->subtimer) {
             return;
         }
-        if (--this->timer != 0) {
+        if (--super->timer != 0) {
             return;
         }
-        this->timer = 8;
-        this->frameIndex--;
+        super->timer = 8;
+        super->frameIndex--;
     }
 }
 

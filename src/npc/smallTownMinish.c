@@ -4,6 +4,7 @@
  *
  * @brief Small Town Minish NPC
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -18,10 +19,10 @@ void SmallTownMinish(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->hitbox = (Hitbox*)&gUnk_081142FC;
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
         SetInteractableObjectCollision(this, 1, 0, &gUnk_08114304);
     } else {
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(this, NULL);
     }
     if ((gPlayerState.flags & PL_MINISH) != 0) {
         this->spriteSettings.draw = 1;

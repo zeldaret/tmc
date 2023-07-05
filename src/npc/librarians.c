@@ -4,6 +4,7 @@
  *
  * @brief Librarians NPC
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -19,7 +20,7 @@ extern const u8 gUnk_08114F30[];
 void Librarians(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
         this->spriteRendering.b3 = gUnk_08114F30[this->spriteRendering.b3];
     }
     ExecuteScriptForEntity(this, NULL);

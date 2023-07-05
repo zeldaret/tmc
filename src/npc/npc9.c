@@ -4,6 +4,7 @@
  *
  * @brief NPC 9
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "message.h"
 #include "npc.h"

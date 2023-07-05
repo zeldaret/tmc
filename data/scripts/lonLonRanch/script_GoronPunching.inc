@@ -23,7 +23,7 @@ script_0800B9F4:
 	FacePlayer
 	DoPostScriptAction 0x0000
 	Call sub_0807F650
-	_0807E9F0
+	UpdateFusion
 	SetPlayerIdle
 	Call sub_0806948C
 	JumpIf script_0800BA24

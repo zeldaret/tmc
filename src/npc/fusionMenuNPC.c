@@ -6,6 +6,7 @@
  *
  * Representation for the NPCs in the fusion menu.
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 

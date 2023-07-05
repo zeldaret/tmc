@@ -10,7 +10,7 @@ SCRIPT_START script_MysteriousWall
 	EndBlock
 script_0800B98A:
 	_0807EA4C
-	_0807E9F0
+	UpdateFusion
 	JumpIf script_0800B99E
 	Call EnablePauseMenu
 	EnablePlayerControl

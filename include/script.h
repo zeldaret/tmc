@@ -51,7 +51,7 @@ extern u32 GetNextScriptCommandHalfwordAfterCommandMetadata(u16*);
 void UnloadCutsceneData(Entity* entity);
 void StartPlayerScript(Script* script);
 
-void sub_0807DD50(Entity* entity);
+void InitScriptForNPC(Entity* entity);
 void sub_0807DD64(Entity* entity);
 void sub_0807DD80(Entity* entity, Script* script);
 void sub_0807DEDC(Entity*, ScriptExecutionContext*, u32, u32);
@@ -60,7 +60,7 @@ ScriptExecutionContext* StartCutscene(Entity* entity, Script* script);
 void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*));
 void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context);
 void HandleEntity0x82Actions(Entity* entity);
-void sub_0807DD94(Entity*, void (*function)(Entity*, ScriptExecutionContext*));
+void ExecuteScriptAndHandleAnimation(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*));
 ScriptExecutionContext* CreateScriptExecutionContext(void);
 void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, Script* script);
 

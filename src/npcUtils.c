@@ -12,8 +12,8 @@ extern const NPCDefinition gNPCDefinitions[];
 
 typedef struct {
     u16 textIndex;
-    u16 _2;
-    u16 _4;
+    u16 cancelledTextIndex;
+    u16 fusingTextIndex;
 } NPCData;
 extern NPCData* gUnk_08001A7C[];
 
@@ -128,7 +128,7 @@ s32 GetAnimationStateInRectRadius(Entity* ent, u32 x, u32 y) {
 
 u32 GetAnimationState(Entity* ent) {
     u32 direction = GetFacingDirection(ent, &gPlayerEntity);
-    return sub_0806F5A4(direction);
+    return GetAnimationStateForDirection4(direction);
 }
 
 s32 GetFacingDirectionInRectRadius(Entity* ent, u32 x, u32 y) {
@@ -161,7 +161,7 @@ u32 sub_0806EE20(Entity* ent) {
     } else {
         ent->knockbackSpeed = 8;
         v3 = GetFacingDirection(ent, &gPlayerEntity);
-        ent->knockbackDirection = sub_0806F5A4(v3);
+        ent->knockbackDirection = GetAnimationStateForDirection4(v3);
     }
     return 0;
 }
@@ -206,7 +206,7 @@ static void sub_0806EF14(Entity* ent) {
     sub_0806EF4C(ent, xy);
     ent->direction = sub_080045B4(ent, xy[0], xy[1]);
     if ((ent->collisionFlags & 1) == 0)
-        ent->knockbackDirection = sub_0806F5A4(ent->direction);
+        ent->knockbackDirection = GetAnimationStateForDirection4(ent->direction);
 }
 
 static void sub_0806EF4C(Entity* ent, u16* xy) {
@@ -326,36 +326,37 @@ void CollideFollowers(void) {
     }
 }
 
-void sub_0806F118(Entity* ent) {
-    u32 idx = GetFuserId(ent);
-    NPCData* data = gUnk_08001A7C[idx];
-    sub_0801DFB4(ent, data->textIndex, data->_2, data->_4);
+void InitializeNPCFusion(Entity* entity) {
+    u32 fuserId = GetFuserId(entity);
+    NPCData* data = gUnk_08001A7C[fuserId];
+    InitializeFuseInfo(entity, data->textIndex, data->cancelledTextIndex, data->fusingTextIndex);
     gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
-u32 UpdateFuseInteraction(Entity* ent) {
-    u32 ret;
-    sub_0801E00C();
-    ret = -1;
-    switch (gFuseInfo._0) {
+// Returns -1, 0, or 1
+u32 UpdateFuseInteraction(Entity* entity) {
+    u32 result;
+    PerformFuseAction();
+    result = -1;
+    switch (gFuseInfo.fusionState) {
         default:
-            ret = 0;
+            result = 0;
             break;
-        case 2:
+        case FUSION_STATE_2:
             gPlayerState.controlMode = CONTROL_DISABLED;
-            ret = 1;
-        case 1:
+            result = 1;
+        case FUSION_STATE_1:
             PlayerResetStateFromFusion();
             gPlayerState.controlMode = CONTROL_1;
             break;
     }
-    return ret;
+    return result;
 }
 
-void MarkFuserDone(Entity* ent) {
-    u32 idx = GetFuserId(ent);
-    if (idx != 0)
-        gSave.fuserOffers[idx] = KINSTONE_FUSER_DONE;
+void MarkFuserDone(Entity* entity) {
+    u32 fuserId = GetFuserId(entity);
+    if (fuserId != 0)
+        gSave.fuserOffers[fuserId] = KINSTONE_FUSER_DONE;
 }
 
 void ShowNPCDialogue(Entity* ent, const Dialog* dia) {

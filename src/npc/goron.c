@@ -4,6 +4,7 @@
  *
  * @brief Goron NPC
  */
+#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"
@@ -11,27 +12,34 @@
 #include "message.h"
 #include "npc.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[24];
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u16 unk_82;
+} GoronEntity;
+
 void sub_08069310(Entity*);
 void sub_08069328(Entity*);
 void sub_08069390(Entity*);
-void sub_080693C4(Entity*);
-void sub_080693D0(Entity*);
+void sub_080693C4(GoronEntity*);
+void sub_080693D0(GoronEntity*);
 
-void Goron(Entity* this) {
+void Goron(GoronEntity* this) {
     static void (*const actionFuncs[])(Entity*) = {
         sub_08069310,
         sub_08069328,
         sub_08069390,
     };
-    static void (*const scriptedActionFuncs[])(Entity*) = {
+    static void (*const scriptedActionFuncs[])(GoronEntity*) = {
         sub_080693C4,
         sub_080693D0,
     };
-    if (this->flags & ENT_SCRIPTED) {
-        scriptedActionFuncs[this->action](this);
+    if (super->flags & ENT_SCRIPTED) {
+        scriptedActionFuncs[super->action](this);
     } else {
-        actionFuncs[this->action](this);
-        sub_0806ED78(this);
+        actionFuncs[super->action](super);
+        sub_0806ED78(super);
     }
 }
 
@@ -72,25 +80,25 @@ void sub_08069390(Entity* this) {
     }
 }
 
-void sub_080693C4(Entity* this) {
-    this->action = 1;
-    sub_0807DD50(this);
+void sub_080693C4(GoronEntity* this) {
+    super->action = 1;
+    InitScriptForNPC(super);
 }
 
 void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65);
 
-void sub_080693D0(Entity* this) {
-    sub_0807DD94(this, NULL);
-    if (this->animIndex == 8) {
-        bool32 createFx65 = (this->field_0x82.HWORD & 0xF) != 0;
+void sub_080693D0(GoronEntity* this) {
+    ExecuteScriptAndHandleAnimation(super, NULL);
+    if (super->animIndex == 8) {
+        bool32 createFx65 = (this->unk_82 & 0xF) != 0;
 
-        if (this->frame == 1) {
-            this->frame = 0;
-            sub_08069428(this, Q_16_16(-8.0), createFx65);
+        if (super->frame == 1) {
+            super->frame = 0;
+            sub_08069428(super, Q_16_16(-8.0), createFx65);
         }
-        if (this->frame == 2) {
-            this->frame = 0;
-            sub_08069428(this, Q_16_16(8.0), createFx65);
+        if (super->frame == 2) {
+            super->frame = 0;
+            sub_08069428(super, Q_16_16(8.0), createFx65);
         }
     }
 }
@@ -160,14 +168,14 @@ void sub_080694D8(Entity* this) {
     ShowNPCDialogue(this, &gUnk_08111A94[this->type]);
 }
 
-void sub_080694EC(Entity* this) {
+void sub_080694EC(GoronEntity* this) {
     u32 anim;
-    this->animationState = 4;
+    super->animationState = 4;
     anim = 2;
     if (!CheckKinstoneFused(KINSTONE_2F))
         anim = 8;
-    InitAnimationForceUpdate(this, anim);
-    this->field_0x80.HWORD = anim;
+    InitAnimationForceUpdate(super, anim);
+    this->unk_80 = anim;
 }
 
 void Goron_Fusion(Entity* this) {

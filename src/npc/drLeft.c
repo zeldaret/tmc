@@ -4,6 +4,7 @@
  *
  * @brief Dr Left NPC
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "npc.h"
@@ -15,7 +16,7 @@ void DrLeft(Entity* this) {
         if (this->action == 0) {
             this->action++;
             SetDefaultPriority(this, PRIO_MESSAGE);
-            sub_0807DD50(this);
+            InitScriptForNPC(this);
         }
         ExecuteScriptForEntity(this, NULL);
         HandleEntity0x82Actions(this);
