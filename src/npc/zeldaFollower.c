@@ -1,3 +1,9 @@
+/**
+ * @file zeldaFollower.c
+ * @ingroup NPCs
+ *
+ * @brief Zelda Follower NPC
+ */
 #include "common.h"
 #include "entity.h"
 #include "functions.h"

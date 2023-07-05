@@ -1,3 +1,9 @@
+/**
+ * @file emma.c
+ * @ingroup NPCs
+ *
+ * @brief Emma NPC
+ */
 #include "entity.h"
 #include "functions.h"
 #include "screenTransitions.h"

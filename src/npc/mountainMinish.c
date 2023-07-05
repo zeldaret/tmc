@@ -1,10 +1,16 @@
+/**
+ * @file mountainMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Mountain Minish NPC
+ */
 #include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "message.h"
 #include "flags.h"
-#include "npc.h"
+#include "functions.h"
 #include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "script.h"
 
 const u8 gUnk_08111284[][0x20] = {
     { 0x8, 0x1,  0x9, 0x1,  0xa, 0x1,  0xb, 0x83, 0xc, 0x83, 0xd, 0x83, 0xe, 0x83, 0xf, 0x80,

@@ -1,10 +1,16 @@
-#include "global.h"
+
+/**
+ * @file mutoh.c
+ * @ingroup NPCs
+ *
+ * @brief Mutoh NPC
+ */
 #include "entity.h"
-#include "player.h"
 #include "flags.h"
+#include "item.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
+#include "player.h"
 
 static const SpriteLoadData gUnk_08110C00[] = {
     { 0x51, 0x3e, 0x4 },

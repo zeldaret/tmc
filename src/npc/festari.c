@@ -1,4 +1,9 @@
-#include "global.h"
+/**
+ * @file festari.c
+ * @ingroup NPCs
+ *
+ * @brief Festari NPC
+ */
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"

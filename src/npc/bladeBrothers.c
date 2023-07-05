@@ -1,15 +1,20 @@
-#include "global.h"
+/**
+ * @file bladeBrothers.c
+ * @ingroup NPCs
+ *
+ * @brief Blade Brothers NPC
+ */
 #include "entity.h"
 #include "flags.h"
-#include "player.h"
-#include "room.h"
-#include "message.h"
-#include "save.h"
-#include "script.h"
-#include "npc.h"
 #include "functions.h"
 #include "game.h"
 #include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "player.h"
+#include "room.h"
+#include "save.h"
+#include "script.h"
 
 void sub_08068A1C(Entity*);
 void sub_08068A4C(Entity*);

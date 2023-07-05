@@ -1,3 +1,9 @@
+/**
+ * @file npc4F.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 4F
+ */
 #include "npc.h"
 
 void NPC4F(Entity* this) {

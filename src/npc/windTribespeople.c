@@ -1,7 +1,12 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file windTribespeople.c
+ * @ingroup NPCs
+ *
+ * @brief Wind Tribespeople NPC
+ */
 #include "entity.h"
 #include "npc.h"
+#include "sound.h"
 
 void sub_0806C798(Entity*);
 void sub_0806C7D4(Entity*);

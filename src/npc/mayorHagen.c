@@ -1,9 +1,14 @@
-#include "global.h"
+/**
+ * @file mayorHagen.c
+ * @ingroup NPCs
+ *
+ * @brief Mayor Hagen NPC
+ */
 #include "entity.h"
-#include "player.h"
 #include "flags.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "player.h"
 
 void MayorHagen(Entity* this) {
     u32 v;

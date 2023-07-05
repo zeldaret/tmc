@@ -1,9 +1,14 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file epona.c
+ * @ingroup NPCs
+ *
+ * @brief Epona NPC
+ */
 #include "entity.h"
+#include "functions.h"
 #include "message.h"
 #include "npc.h"
-#include "functions.h"
+#include "sound.h"
 
 void sub_08065A64(Entity* this);
 void sub_08065AA4(Entity*);

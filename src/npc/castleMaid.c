@@ -1,12 +1,18 @@
+/**
+ * @file castleMaid.c
+ * @ingroup NPCs
+ *
+ * @brief Castle Maid NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "save.h"
 #include "flags.h"
+#include "functions.h"
+#include "manager.h"
 #include "message.h"
 #include "npc.h"
-#include "manager.h"
-#include "functions.h"
+#include "save.h"
+#include "script.h"
 
 typedef struct {
     Entity base;

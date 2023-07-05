@@ -1,4 +1,9 @@
-#include "global.h"
+/**
+ * @file gentari.c
+ * @ingroup NPCs
+ *
+ * @brief Gentari NPC
+ */
 #include "entity.h"
 #include "npc.h"
 

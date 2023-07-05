@@ -1,5 +1,11 @@
-#include "npc.h"
+/**
+ * @file smith.c
+ * @ingroup NPCs
+ *
+ * @brief Smith NPC
+ */
 #include "functions.h"
+#include "npc.h"
 
 static const SpriteLoadData gUnk_08110354[] = {
     { 0x4d, 0x38, 0x4 },

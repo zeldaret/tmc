@@ -1,11 +1,17 @@
+/**
+ * @file guardWithSpear.c
+ * @ingroup NPCs
+ *
+ * @brief Guard with Spear NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "player.h"
-#include "npc.h"
 #include "functions.h"
-#include "object.h"
 #include "item.h"
+#include "npc.h"
+#include "object.h"
+#include "player.h"
+#include "script.h"
 
 typedef struct {
     Entity base;

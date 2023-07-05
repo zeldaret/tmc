@@ -1,3 +1,9 @@
+/**
+ * @file moblinLady.c
+ * @ingroup NPCs
+ *
+ * @brief Moblin Lady NPC
+ */
 #include "entity.h"
 #include "npc.h"
 

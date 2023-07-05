@@ -1,3 +1,9 @@
+/**
+ * @file forestMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Forest Minish NPC
+ */
 #include "functions.h"
 #include "item.h"
 #include "kinstone.h"

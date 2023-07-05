@@ -1,6 +1,12 @@
+/**
+ * @file anju.c
+ * @ingroup NPCs
+ *
+ * @brief Anju NPC
+ */
 #include "entity.h"
-#include "player.h"
 #include "npc.h"
+#include "player.h"
 
 void Anju(Entity* this) {
     switch (this->action) {

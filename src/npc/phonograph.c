@@ -1,11 +1,17 @@
-#include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "fileselect.h"
-#include "screen.h"
+/**
+ * @file phonograph.c
+ * @ingroup NPCs
+ *
+ * @brief Phonograph NPC
+ */
 #include "common.h"
+#include "entity.h"
+#include "fileselect.h"
 #include "flags.h"
+#include "functions.h"
 #include "message.h"
+#include "screen.h"
+#include "script.h"
 
 #ifdef EU
 void sub_0806EABC(Entity* this);

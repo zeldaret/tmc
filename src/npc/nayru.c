@@ -1,7 +1,12 @@
-#include "global.h"
+/**
+ * @file nayru.c
+ * @ingroup NPCs
+ *
+ * @brief Nayru NPC
+ */
 #include "entity.h"
-#include "npc.h"
 #include "kinstone.h"
+#include "npc.h"
 
 void Nayru(Entity* this) {
     switch (this->action) {

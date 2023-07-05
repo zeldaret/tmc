@@ -1,3 +1,9 @@
+/**
+ * @file ezlo.c
+ * @ingroup NPCs
+ *
+ * @brief Ezlo NPC
+ */
 #include "npc.h"
 
 const u8 gUnk_08114134[];

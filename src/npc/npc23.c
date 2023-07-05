@@ -1,9 +1,15 @@
+/**
+ * @file npc23.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 23
+ */
 #include "entity.h"
-#include "player.h"
-#include "structures.h"
 #include "functions.h"
 #include "message.h"
 #include "npc.h"
+#include "player.h"
+#include "structures.h"
 
 bool32 sub_0806650C(Entity*);
 

@@ -1,12 +1,18 @@
+/**
+ * @file stockwell.c
+ * @ingroup NPCs
+ *
+ * @brief Stockwell NPC
+ */
 #include "entity.h"
-#include "script.h"
-#include "room.h"
-#include "message.h"
 #include "functions.h"
+#include "game.h"
+#include "item.h"
+#include "message.h"
 #include "npc.h"
 #include "object.h"
-#include "item.h"
-#include "game.h"
+#include "room.h"
+#include "script.h"
 
 #ifndef EU
 static const Rect gUnk_0810FDA0 = { 0, 8, 10, 16 };

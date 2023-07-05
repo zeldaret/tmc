@@ -1,9 +1,14 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file cow.c
+ * @ingroup NPCs
+ *
+ * @brief Cow NPC
+ */
 #include "entity.h"
-#include "player.h"
-#include "npc.h"
 #include "functions.h"
+#include "npc.h"
+#include "player.h"
+#include "sound.h"
 
 void sub_0806920C(Entity* ent);
 void sub_0806924C(Entity* ent);

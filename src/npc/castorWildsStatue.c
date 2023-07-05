@@ -1,10 +1,16 @@
-#include "sound.h"
-#include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "flags.h"
+/**
+ * @file castorWildsStatue.c
+ * @ingroup NPCs
+ *
+ * @brief Castor Wilds Statue NPC
+ */
 #include "effects.h"
+#include "entity.h"
+#include "flags.h"
+#include "functions.h"
 #include "npc.h"
+#include "script.h"
+#include "sound.h"
 
 static const Hitbox gUnk_08110E94;
 

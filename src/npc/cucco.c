@@ -1,6 +1,12 @@
-#include "npc.h"
+/**
+ * @file cucco.c
+ * @ingroup NPCs
+ *
+ * @brief Cucco NPC
+ */
 #include "functions.h"
 #include "kinstone.h"
+#include "npc.h"
 
 void (*const Cucco_Actions[])(Entity*);
 const u16 Cucco_Sounds[];

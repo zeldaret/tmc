@@ -1,8 +1,13 @@
-#include "global.h"
+/**
+ * @file carpenter.c
+ * @ingroup NPCs
+ *
+ * @brief Carpenter NPC
+ */
 #include "entity.h"
-#include "player.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "player.h"
 
 static const SpriteLoadData gUnk_08110CA8[] = {
     { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0x4001, 0x3f, 0x4 }, { 0, 0, 0 },

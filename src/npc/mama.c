@@ -1,7 +1,13 @@
+/**
+ * @file mama.c
+ * @ingroup NPCs
+ *
+ * @brief Mama NPC
+ */
 #include "entity.h"
-#include "script.h"
-#include "save.h"
 #include "npc.h"
+#include "save.h"
+#include "script.h"
 
 static const SpriteLoadData gUnk_08113754[] = {
     { 0x101, 0x4e, 0x4 },

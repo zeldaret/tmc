@@ -1,7 +1,13 @@
+/**
+ * @file gregal.c
+ * @ingroup NPCs
+ *
+ * @brief Gregal NPC
+ */
 #include "entity.h"
-#include "script.h"
 #include "functions.h"
 #include "npc.h"
+#include "script.h"
 
 static const u32 gUnk_08113D84[] = {
     0x100c0200,

@@ -1,3 +1,9 @@
+/**
+ * @file picolyteBottle.c
+ * @ingroup NPCs
+ *
+ * @brief Picolyte Bottle NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"

@@ -1,11 +1,16 @@
-#include "global.h"
+/**
+ * @file smallTownMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Small Town Minish NPC
+ */
 #include "entity.h"
-#include "player.h"
-#include "script.h"
-#include "save.h"
-#include "npc.h"
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
+#include "player.h"
+#include "save.h"
+#include "script.h"
 
 void SmallTownMinish(Entity* this) {
     static const Hitbox gUnk_081142FC = { -2, 1, { 0, 0, 0, 0 }, 6, 6 };

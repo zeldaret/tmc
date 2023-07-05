@@ -1,5 +1,11 @@
-#include "npc.h"
+/**
+ * @file melari.c
+ * @ingroup NPCs
+ *
+ * @brief Melari NPC
+ */
 #include "item.h"
+#include "npc.h"
 
 void sub_08068780(Entity*);
 void sub_08068708(Entity*);

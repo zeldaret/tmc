@@ -1,10 +1,15 @@
-#include "global.h"
-#include "entity.h"
-#include "message.h"
-#include "functions.h"
+/**
+ * @file stamp.c
+ * @ingroup NPCs
+ *
+ * @brief Stamp NPC
+ */
 #include "effects.h"
-#include "npc.h"
+#include "entity.h"
+#include "functions.h"
 #include "kinstone.h"
+#include "message.h"
+#include "npc.h"
 
 void sub_08062CA4(Entity*);
 void sub_08062BD4(Entity*);

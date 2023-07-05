@@ -1,8 +1,13 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file postman.c
+ * @ingroup NPCs
+ *
+ * @brief Postman NPC
+ */
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
+#include "sound.h"
 #include "structures.h"
 
 extern void sub_08060528(Entity*);

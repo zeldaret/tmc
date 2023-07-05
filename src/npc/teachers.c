@@ -1,9 +1,14 @@
-#include "global.h"
+/**
+ * @file teachers.c
+ * @ingroup NPCs
+ *
+ * @brief Teachers NPC
+ */
 #include "entity.h"
+#include "npc.h"
 #include "player.h"
 #include "save.h"
 #include "script.h"
-#include "npc.h"
 
 static const SpriteLoadData gUnk_08113910[] = {
     { 0x103, 0x4f, 0x4 }, { 0x2103, 0x4f, 0x4 }, { 0, 0, 0 },           { 0, 0, 0 },

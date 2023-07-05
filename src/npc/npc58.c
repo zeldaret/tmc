@@ -1,3 +1,9 @@
+/**
+ * @file npc58.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 58
+ */
 #include "entity.h"
 #include "npc.h"
 

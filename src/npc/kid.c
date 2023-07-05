@@ -1,3 +1,9 @@
+/**
+ * @file kid.c
+ * @ingroup NPCs
+ *
+ * @brief Kid NPC
+ */
 #include "functions.h"
 #include "message.h"
 #include "npc.h"

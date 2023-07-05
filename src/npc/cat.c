@@ -1,10 +1,15 @@
-#include "global.h"
+/**
+ * @file cat.c
+ * @ingroup NPCs
+ *
+ * @brief Cat NPC
+ */
+#include "enemy.h"
 #include "entity.h"
 #include "functions.h"
-#include "save.h"
 #include "message.h"
 #include "npc.h"
-#include "enemy.h"
+#include "save.h"
 
 static const Hitbox gUnk_08110EF0 = { 0, -1, { 5, 3, 3, 5 }, 5, 4 };
 

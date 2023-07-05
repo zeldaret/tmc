@@ -1,8 +1,14 @@
-#include "entity.h"
+/**
+ * @file dog.c
+ * @ingroup NPCs
+ *
+ * @brief Dog NPC
+ */
 #include "collision.h"
+#include "entity.h"
 #include "functions.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
 
 void sub_08069FE8(Entity*);
 bool32 sub_08069EF0(Entity*);

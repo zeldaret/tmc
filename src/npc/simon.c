@@ -1,3 +1,9 @@
+/**
+ * @file simon.c
+ * @ingroup NPCs
+ *
+ * @brief Simon NPC
+ */
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"

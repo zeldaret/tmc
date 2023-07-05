@@ -1,8 +1,14 @@
+/**
+ * @file minishEzlo.c
+ * @ingroup NPCs
+ *
+ * @brief Minish Ezlo NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "sound.h"
-#include "script.h"
 #include "npc.h"
+#include "script.h"
+#include "sound.h"
 
 typedef struct {
     Entity base;

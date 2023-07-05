@@ -1,9 +1,14 @@
-#include "global.h"
+/**
+ * @file tingleSiblings.c
+ * @ingroup NPCs
+ *
+ * @brief Tingle Siblings NPC
+ */
 #include "entity.h"
-#include "npc.h"
 #include "functions.h"
 #include "item.h"
 #include "kinstone.h"
+#include "npc.h"
 
 extern void sub_08064DE4(Entity*);
 extern void sub_08064D78(Entity*);

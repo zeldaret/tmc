@@ -1,8 +1,13 @@
-#include "global.h"
+/**
+ * @file vaati.c
+ * @ingroup NPCs
+ *
+ * @brief Vaati NPC
+ */
 #include "entity.h"
+#include "functions.h"
 #include "script.h"
 #include "sound.h"
-#include "functions.h"
 
 extern void sub_08095CB0(Entity*);
 extern void CreateRepeatedSoundManager(Entity*);

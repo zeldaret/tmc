@@ -1,5 +1,11 @@
-#include "npc.h"
+/**
+ * @file syrup.c
+ * @ingroup NPCs
+ *
+ * @brief Syrup NPC
+ */
 #include "functions.h"
+#include "npc.h"
 #include "object.h"
 
 static const SpriteLoadData gUnk_081121B4[] = {

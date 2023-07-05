@@ -1,9 +1,14 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file zelda.c
+ * @ingroup NPCs
+ *
+ * @brief Zelda NPC
+ */
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
+#include "functions.h"
 #include "npc.h"
+#include "sound.h"
 
 void ZeldaFollower_Hide(Entity*, Entity*);
 void ZeldaFollower_Show(Entity*, Entity*);

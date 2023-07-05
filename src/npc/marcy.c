@@ -1,8 +1,14 @@
+/**
+ * @file marcy.c
+ * @ingroup NPCs
+ *
+ * @brief Marcy NPC
+ */
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
-#include "message.h"
+#include "functions.h"
 #include "item.h"
+#include "message.h"
 
 void Marcy(Entity* this) {
     if (this->action == 0) {

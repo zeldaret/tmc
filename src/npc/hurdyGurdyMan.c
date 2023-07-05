@@ -1,7 +1,13 @@
+/**
+ * @file hurdyGurdyMan.c
+ * @ingroup NPCs
+ *
+ * @brief Hurdy Gurdy Man NPC
+ */
 #include "entity.h"
 #include "functions.h"
-#include "save.h"
 #include "npc.h"
+#include "save.h"
 
 static const SpriteLoadData gUnk_081144F0[] = { { 0x163, 0x59, 0x4 }, { 0x4163, 0x59, 0x4 }, { 0, 0, 0 } };
 

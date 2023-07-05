@@ -1,11 +1,16 @@
-#include "global.h"
+/**
+ * @file dampe.c
+ * @ingroup NPCs
+ *
+ * @brief Dampe NPC
+ */
 #include "entity.h"
-#include "player.h"
-#include "room.h"
 #include "flags.h"
+#include "item.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
+#include "player.h"
+#include "room.h"
 
 void Dampe(Entity* this) {
     switch (this->action) {

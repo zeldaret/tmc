@@ -1,7 +1,13 @@
-#include "sound.h"
+/**
+ * @file carlov.c
+ * @ingroup NPCs
+ *
+ * @brief Carlov NPC
+ */
 #include "entity.h"
-#include "room.h"
 #include "npc.h"
+#include "room.h"
+#include "sound.h"
 
 void Carlov(Entity* this) {
     if (this->action == 0) {

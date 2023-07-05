@@ -1,9 +1,15 @@
+/**
+ * @file ghostBrothers.c
+ * @ingroup NPCs
+ *
+ * @brief Ghost Brothers NPC
+ */
 #include "entity.h"
 #include "functions.h"
-#include "save.h"
-#include "screen.h"
 #include "message.h"
 #include "npc.h"
+#include "save.h"
+#include "screen.h"
 
 extern u32 gSpriteAnimations_GhostBrothers[];
 

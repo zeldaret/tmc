@@ -1,4 +1,9 @@
-#include "global.h"
+/**
+ * @file farore.c
+ * @ingroup NPCs
+ *
+ * @brief Farore NPC
+ */
 #include "entity.h"
 #include "npc.h"
 #include "kinstone.h"

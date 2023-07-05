@@ -1,10 +1,16 @@
+/**
+ * @file librarians.c
+ * @ingroup NPCs
+ *
+ * @brief Librarians NPC
+ */
 #include "entity.h"
-#include "script.h"
-#include "functions.h"
 #include "flags.h"
-#include "message.h"
-#include "sound.h"
+#include "functions.h"
 #include "item.h"
+#include "message.h"
+#include "script.h"
+#include "sound.h"
 
 extern void sub_08095BE0(Entity*, u32);
 

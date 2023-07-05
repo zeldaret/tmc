@@ -1,6 +1,12 @@
-#include "npc.h"
+/**
+ * @file townsperson.c
+ * @ingroup NPCs
+ *
+ * @brief Townsperson NPC
+ */
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
 
 typedef struct {
     u8 frame1;

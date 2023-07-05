@@ -1,3 +1,9 @@
+/**
+ * @file clothesRack.c
+ * @ingroup NPCs
+ *
+ * @brief Clothes Rack NPC
+ */
 #include "npc.h"
 
 void sub_0806DD90(Entity*);

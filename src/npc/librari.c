@@ -1,7 +1,12 @@
-#include "global.h"
+/**
+ * @file librari.c
+ * @ingroup NPCs
+ *
+ * @brief Librari NPC
+ */
 #include "entity.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
 
 void Librari(Entity* this) {
     switch (this->action) {

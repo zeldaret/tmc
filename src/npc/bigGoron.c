@@ -1,8 +1,14 @@
-#include "npc.h"
+/**
+ * @file bigGoron.c
+ * @ingroup NPCs
+ *
+ * @brief BigGoron NPC
+ */
 #include "functions.h"
-#include "screen.h"
 #include "hitbox.h"
 #include "item.h"
+#include "npc.h"
+#include "screen.h"
 
 static const u16 goronSounds[] = {
     SFX_VO_GORON1,

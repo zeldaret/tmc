@@ -1,3 +1,9 @@
+/**
+ * @file gorman.c
+ * @ingroup NPCs
+ *
+ * @brief Gorman NPC
+ */
 #include "functions.h"
 #include "npc.h"
 

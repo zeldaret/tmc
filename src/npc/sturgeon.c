@@ -1,8 +1,14 @@
+/**
+ * @file sturgeon.c
+ * @ingroup NPCs
+ *
+ * @brief Sturgeon NPC
+ */
 #include "entity.h"
 #include "functions.h"
+#include "item.h"
 #include "npc.h"
 #include "object.h"
-#include "item.h"
 
 const SpriteLoadData gUnk_0810FA38[] = {
     { 59, 140, 0 },

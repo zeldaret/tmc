@@ -1,7 +1,13 @@
+/**
+ * @file brocco.c
+ * @ingroup NPCs
+ *
+ * @brief Brocco NPC
+ */
 #include "entity.h"
 #include "message.h"
-#include "save.h"
 #include "npc.h"
+#include "save.h"
 
 void sub_08063544(Entity*);
 void sub_0806362C(Entity*);

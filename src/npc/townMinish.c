@@ -1,8 +1,13 @@
-#include "global.h"
+/**
+ * @file townMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Town Minish NPC
+ */
 #include "entity.h"
-#include "npc.h"
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
 
 extern u32 sub_080B1AC8(u32, u32, u32);
 void sub_0806ACC4(Entity*);

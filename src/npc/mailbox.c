@@ -1,7 +1,12 @@
-#include "global.h"
+/**
+ * @file mailbox.c
+ * @ingroup NPCs
+ *
+ * @brief Mailbox NPC
+ */
+#include "effects.h"
 #include "entity.h"
 #include "message.h"
-#include "effects.h"
 #include "npc.h"
 
 void sub_08063280(Entity*);

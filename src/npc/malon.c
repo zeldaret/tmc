@@ -1,7 +1,12 @@
-#include "global.h"
+/**
+ * @file malon.c
+ * @ingroup NPCs
+ *
+ * @brief Malon NPC
+ */
 #include "entity.h"
-#include "script.h"
 #include "npc.h"
+#include "script.h"
 
 void sub_08065864(Entity* this);
 void sub_08065880(Entity* this);

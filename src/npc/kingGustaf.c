@@ -1,4 +1,9 @@
-#include "global.h"
+/**
+ * @file kingGustaf.c
+ * @ingroup NPCs
+ *
+ * @brief King Gustaf NPC
+ */
 #include "entity.h"
 #include "functions.h"
 #include "screen.h"

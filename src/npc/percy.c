@@ -1,9 +1,14 @@
-#include "global.h"
+/**
+ * @file percy.c
+ * @ingroup NPCs
+ *
+ * @brief Percy NPC
+ */
 #include "entity.h"
-#include "npc.h"
 #include "functions.h"
-#include "kinstone.h"
 #include "item.h"
+#include "kinstone.h"
+#include "npc.h"
 
 static const SpriteLoadData gUnk_08112E1C[] = {
     { 0x30f6, 0x47, 0x4 },

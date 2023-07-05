@@ -1,11 +1,16 @@
-#include "global.h"
+/**
+ * @file goronMerchant.c
+ * @ingroup NPCs
+ *
+ * @brief Goron Merchant NPC
+ */
 #include "entity.h"
-#include "functions.h"
-#include "message.h"
 #include "flags.h"
-#include "save.h"
-#include "npc.h"
+#include "functions.h"
 #include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "save.h"
 
 static u32 GoronMerchant_GetSalePrice(Entity*);
 

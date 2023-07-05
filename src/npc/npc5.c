@@ -1,8 +1,14 @@
+/**
+ * @file npc5.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 5
+ */
+#include "collision.h"
 #include "functions.h"
+#include "hitbox.h"
 #include "message.h"
 #include "npc.h"
-#include "hitbox.h"
-#include "collision.h"
 
 typedef struct {
     u8 unk_0;  // u8

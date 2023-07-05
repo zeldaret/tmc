@@ -1,3 +1,9 @@
+/**
+ * @file wheaton.c
+ * @ingroup NPCs
+ *
+ * @brief Wheaton NPC
+ */
 #include "npc.h"
 
 void Wheaton(Entity* this) {

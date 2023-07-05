@@ -1,21 +1,23 @@
-#include "npc.h"
+/**
+ * @file pita.c
+ * @ingroup NPCs
+ *
+ * @brief Pita NPC
+ */
 #include "item.h"
+#include "npc.h"
 
 void Pita(Entity* this) {
     static const Hitbox gUnk_0810C428 = {
+        0,
+        2,
+        { 0, 0, 0, 0 },
 #if EU
-        0,
-        2,
-        { 0, 0, 0, 0 },
         6,
-        18,
 #else
-        0,
-        2,
-        { 0, 0, 0, 0 },
         10,
-        18,
 #endif
+        18,
     };
     if (this->action == 0) {
         this->action++;

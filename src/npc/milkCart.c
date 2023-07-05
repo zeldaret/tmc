@@ -1,3 +1,9 @@
+/**
+ * @file milkCart.c
+ * @ingroup NPCs
+ *
+ * @brief Milk Cart NPC
+ */
 #include "entity.h"
 #include "npc.h"
 

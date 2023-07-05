@@ -1,3 +1,9 @@
+/**
+ * @file goron.c
+ * @ingroup NPCs
+ *
+ * @brief Goron NPC
+ */
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"

@@ -1,8 +1,14 @@
+/**
+ * @file kingDaltus.c
+ * @ingroup NPCs
+ *
+ * @brief King Daltus NPC
+ */
 #include "entity.h"
-#include "script.h"
 #include "functions.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "script.h"
 
 void sub_08066654(Entity*);
 void sub_08066688(Entity*);

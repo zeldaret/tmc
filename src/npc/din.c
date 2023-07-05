@@ -1,7 +1,12 @@
-#include "global.h"
+/**
+ * @file din.c
+ * @ingroup NPCs
+ *
+ * @brief Din NPC
+ */
 #include "entity.h"
-#include "npc.h"
 #include "kinstone.h"
+#include "npc.h"
 
 void Din(Entity* this) {
     switch (this->action) {

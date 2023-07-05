@@ -1,6 +1,12 @@
-#include "npc.h"
+/**
+ * @file talon.c
+ * @ingroup NPCs
+ *
+ * @brief Talon NPC
+ */
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
 
 static const SpriteLoadData gUnk_0810FEB0[] = {
     { 0x4b, 0x8b, 0 },

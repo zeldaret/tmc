@@ -1,13 +1,18 @@
-#include "global.h"
+/**
+ * @file guard.c
+ * @ingroup NPCs
+ *
+ * @brief Guard NPC
+ */
 #include "entity.h"
-#include "player.h"
 #include "flags.h"
+#include "functions.h"
 #include "message.h"
+#include "npc.h"
+#include "player.h"
+#include "projectile.h"
 #include "room.h"
 #include "script.h"
-#include "functions.h"
-#include "npc.h"
-#include "projectile.h"
 
 typedef struct {
     u32 unk;

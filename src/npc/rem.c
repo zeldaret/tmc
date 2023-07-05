@@ -1,6 +1,12 @@
+/**
+ * @file rem.c
+ * @ingroup NPCs
+ *
+ * @brief Rem NPC
+ */
 #include "functions.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
 
 extern void sub_0806A8C8(Entity*);
 

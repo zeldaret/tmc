@@ -1,8 +1,14 @@
+/**
+ * @file ministerPotho.c
+ * @ingroup NPCs
+ *
+ * @brief Minister Potho NPC
+ */
 #include "entity.h"
 #include "flags.h"
+#include "item.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
 
 void sub_08066864(Entity*);
 void sub_080667E4(Entity*);

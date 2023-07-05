@@ -1,6 +1,12 @@
-#include "npc.h"
+/**
+ * @file drLeft.c
+ * @ingroup NPCs
+ *
+ * @brief Dr Left NPC
+ */
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
 
 void sub_0806BFD8(Entity* this);
 

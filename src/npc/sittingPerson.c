@@ -1,3 +1,9 @@
+/**
+ * @file sittingPerson.c
+ * @ingroup NPCs
+ *
+ * @brief Sitting Person NPC
+ */
 #include "npc.h"
 #include "functions.h"
 

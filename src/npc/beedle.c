@@ -1,12 +1,17 @@
-#include "global.h"
+/**
+ * @file beedle.c
+ * @ingroup NPCs
+ *
+ * @brief Beedle NPC
+ */
 #include "entity.h"
+#include "functions.h"
+#include "game.h"
+#include "item.h"
 #include "message.h"
+#include "npc.h"
 #include "room.h"
 #include "script.h"
-#include "npc.h"
-#include "game.h"
-#include "functions.h"
-#include "item.h"
 
 typedef struct {
     Rect customHitbox;

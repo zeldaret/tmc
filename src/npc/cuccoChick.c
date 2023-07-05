@@ -1,5 +1,11 @@
-#include "npc.h"
+/**
+ * @file cuccoChick.c
+ * @ingroup NPCs
+ *
+ * @brief Cucco Chick NPC
+ */
 #include "functions.h"
+#include "npc.h"
 
 void CuccoChick_Init(Entity*);
 void sub_0806E764(Entity*);
@@ -91,7 +97,7 @@ void sub_0806E838(Entity* this) {
 }
 
 void sub_0806E884(Entity* this) {
-    MessageNoOverlap(TEXT_INDEX(TEXT_MINISH, 0Xb6), this);
+    MessageNoOverlap(TEXT_INDEX(TEXT_MINISH, 0xB6), this);
 }
 
 void CuccoChick_Fusion(Entity* this) {

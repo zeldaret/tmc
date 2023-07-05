@@ -1,4 +1,9 @@
-#include "global.h"
+/**
+ * @file npc26.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 26
+ */
 #include "entity.h"
 #include "npc.h"
 

@@ -1,9 +1,15 @@
+/**
+ * @file pina.c
+ * @ingroup NPCs
+ *
+ * @brief Pina NPC
+ */
 #include "entity.h"
 #include "functions.h"
 #include "message.h"
-#include "save.h"
 #include "npc.h"
 #include "object.h"
+#include "save.h"
 
 void sub_08063B68(Entity* this);
 void sub_08063A80(Entity* this);

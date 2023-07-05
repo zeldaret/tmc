@@ -1,4 +1,11 @@
-#include "global.h"
+/**
+ * @file fusionMenuNPC.c
+ * @ingroup NPCs
+ *
+ * @brief Fusion Menu NPC
+ *
+ * Representation for the NPCs in the fusion menu.
+ */
 #include "entity.h"
 #include "npc.h"
 

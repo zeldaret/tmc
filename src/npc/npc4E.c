@@ -1,3 +1,9 @@
+/**
+ * @file npc4E.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 4E
+ */
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"

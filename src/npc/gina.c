@@ -1,7 +1,12 @@
-#include "global.h"
+/**
+ * @file gina.c
+ * @ingroup NPCs
+ *
+ * @brief Gina NPC
+ */
 #include "entity.h"
-#include "player.h"
 #include "npc.h"
+#include "player.h"
 
 void Gina(Entity* this) {
     switch (this->action) {
