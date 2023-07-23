@@ -1,8 +1,15 @@
-#include "entity.h"
+/**
+ * @file v3HandProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief V3 Hand Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
-#include "player.h"
+#include "entity.h"
 #include "functions.h"
+#include "player.h"
 
 extern void (*const V3HandProjectile_Functions[])(Entity*);
 
@@ -30,10 +37,10 @@ void V3HandProjectile_OnTick(Entity* this) {
     }
 }
 
-void sub_080ABFA8(Entity* this) {
+void V3HandProjectile_OnCollision(Entity* this) {
     DeleteThisEntity();
 }
 
 void (*const V3HandProjectile_Functions[])(Entity*) = {
-    V3HandProjectile_OnTick, sub_080ABFA8, DeleteEntity, DeleteEntity, DeleteEntity,
+    V3HandProjectile_OnTick, V3HandProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };

@@ -1,118 +1,134 @@
-#include "entity.h"
+/**
+ * @file mandiblesProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Mandibles Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "physics.h"
+#include "entity.h"
 #include "functions.h"
 #include "game.h"
 #include "hitbox.h"
+#include "physics.h"
 
-extern void (*const MandiblesProjectile_Functions[])(Entity*);
-extern void (*const MandiblesProjectile_Actions[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unused2[6];
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u8 unk_82;
+} MandiblesProjectileEntity;
+
+extern void (*const MandiblesProjectile_Functions[])(MandiblesProjectileEntity*);
+extern void (*const MandiblesProjectile_Actions[])(MandiblesProjectileEntity*);
 extern const u8 gUnk_08129CA4[];
 extern const Hitbox* const gUnk_08129CF4[];
 extern const u8 gUnk_08129CAC[];
 extern const s8 gUnk_08129D14[];
 
 void sub_080AA1D8(Entity*);
-void sub_080AA270(Entity*);
+void sub_080AA270(MandiblesProjectileEntity*);
 bool32 sub_080AA2E0(Entity*);
-void sub_080AA320(Entity*);
-void sub_080AA3E0(Entity*, u32);
+void sub_080AA320(MandiblesProjectileEntity*);
+void sub_080AA3E0(MandiblesProjectileEntity*, u32);
 bool32 sub_080AA374(Entity*);
 
-void MandiblesProjectile(Entity* this) {
-    Entity* entity = this->child;
+void MandiblesProjectile(MandiblesProjectileEntity* this) {
+    Entity* entity = super->child;
     if (entity == NULL) {
-        entity = this->parent;
+        entity = super->parent;
     }
-    if ((entity->confusedTime == 0) && ((this->flags & ENT_COLLIDE) == 0)) {
-        COLLISION_ON(this);
+    if ((entity->confusedTime == 0) && ((super->flags & ENT_COLLIDE) == 0)) {
+        COLLISION_ON(super);
     }
-    MandiblesProjectile_Functions[GetNextFunction(this)](this);
+    MandiblesProjectile_Functions[GetNextFunction(super)](this);
 }
 
-void MandiblesProjectile_OnTick(Entity* this) {
-    if (this->action < 3) {
-        sub_080AA1D8(this);
+void MandiblesProjectile_OnTick(MandiblesProjectileEntity* this) {
+    if (super->action < 3) {
+        sub_080AA1D8(super);
     }
-    MandiblesProjectile_Actions[this->action](this);
+    MandiblesProjectile_Actions[super->action](this);
 }
 
-void sub_080A9EBC(Entity* this) {
+void MandiblesProjectile_OnCollision(MandiblesProjectileEntity* this) {
     Entity* parent;
 
-    if ((this->contactFlags & 0x80) != 0) {
-        switch (this->action) {
+    if ((super->contactFlags & 0x80) != 0) {
+        switch (super->action) {
             case 4:
-                this->subtimer = 0;
+                super->subtimer = 0;
                 ModHealth(-2);
-                ProcessMovement3(this);
-                UpdateAnimationSingleFrame(this);
+                ProcessMovement3(super);
+                UpdateAnimationSingleFrame(super);
                 break;
             case 3:
-                if (this->confusedTime != 0) {
-                    this->field_0x82.HALF.LO = 2;
-                    this->animationState = 0xff;
+                if (super->confusedTime != 0) {
+                    this->unk_82 = 2;
+                    super->animationState = 0xff;
                     sub_080AA270(this);
-                    this->subtimer = 32;
+                    super->subtimer = 32;
                 }
                 break;
             default:
-                parent = this->parent;
-                parent->iframes = this->iframes;
-                parent->knockbackDirection = this->knockbackDirection;
-                parent->knockbackDuration = this->knockbackDuration;
-                if (this->action == 1) {
+                parent = super->parent;
+                parent->iframes = super->iframes;
+                parent->knockbackDirection = super->knockbackDirection;
+                parent->knockbackDuration = super->knockbackDuration;
+                if (super->action == 1) {
                     sub_080AA320(this);
                 }
                 break;
         }
-        this->knockbackDuration = 0;
+        super->knockbackDuration = 0;
     }
 }
 
-void MandiblesProjectile_Init(Entity* this) {
-    this->action = 1;
-    this->field_0x80.HWORD = 0;
-    this->animationState = 0xff;
-    this->field_0x82.HALF.LO = 0;
-    this->spritePriority.b0 = 4;
-    SortEntityBelow(this, this->parent);
+void MandiblesProjectile_Init(MandiblesProjectileEntity* this) {
+    super->action = 1;
+    this->unk_80 = 0;
+    super->animationState = 0xff;
+    this->unk_82 = 0;
+    super->spritePriority.b0 = 4;
+    SortEntityBelow(super, super->parent);
     sub_080AA270(this);
 }
 
-void MandiblesProjectile_Action1(Entity* this) {
-    if (this->field_0x80.HWORD != 0) {
-        this->field_0x80.HWORD--;
+void MandiblesProjectile_Action1(MandiblesProjectileEntity* this) {
+    if (this->unk_80 != 0) {
+        this->unk_80--;
     } else {
-        if (--this->subtimer == 0) {
+        if (--super->subtimer == 0) {
             sub_080AA270(this);
         } else {
-            if (sub_080AA2E0(this) != 0) {
+            if (sub_080AA2E0(super) != 0) {
                 sub_080AA320(this);
             }
         }
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void MandiblesProjectile_Action2(Entity* this) {
-    UpdateAnimationSingleFrame(this);
-    if ((this->frame & 0x40) != 0) {
-        this->frame &= ~0x40;
+void MandiblesProjectile_Action2(MandiblesProjectileEntity* this) {
+    UpdateAnimationSingleFrame(super);
+    if ((super->frame & 0x40) != 0) {
+        super->frame &= ~0x40;
         EnqueueSFX(SFX_15D);
     }
-    this->field_0x78.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    if (GetTileType(this->field_0x78.HWORD, this->collisionLayer) == 0x4000) {
-        SetTile(0x4005, this->field_0x78.HWORD, this->collisionLayer);
+    this->unk_78 = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    if (GetTileType(this->unk_78, super->collisionLayer) == 0x4000) {
+        SetTile(0x4005, this->unk_78, super->collisionLayer);
     }
 }
 
-void MandiblesProjectile_Action3(Entity* this) {
+void MandiblesProjectile_Action3(MandiblesProjectileEntity* this) {
     u32 uVar1;
     s8* tmp;
     Entity* entity;
 
-    entity = this->child;
+    entity = super->child;
     if (entity == NULL) {
         DeleteThisEntity();
     }
@@ -121,30 +137,30 @@ void MandiblesProjectile_Action3(Entity* this) {
     } else {
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)entity->spriteIndex, entity->frameIndex);
         if ((entity->animationState & 4) != 0) {
-            PositionRelative(entity, this, Q_16_16(-tmp[0]), Q_16_16(tmp[1]));
+            PositionRelative(entity, super, Q_16_16(-tmp[0]), Q_16_16(tmp[1]));
         } else {
-            PositionRelative(entity, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
+            PositionRelative(entity, super, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
         }
     }
     if (entity->confusedTime == 0) {
-        if (this->subtimer != 0) {
-            this->subtimer--;
+        if (super->subtimer != 0) {
+            super->subtimer--;
         } else {
-            UpdateAnimationSingleFrame(this);
-            if ((this->frame & ANIM_DONE) != 0) {
-                this->action = 4;
-                this->field_0x82.HALF.LO = 3;
-                this->subtimer = 64;
+            UpdateAnimationSingleFrame(super);
+            if ((super->frame & ANIM_DONE) != 0) {
+                super->action = 4;
+                this->unk_82 = 3;
+                super->subtimer = 64;
                 uVar1 = entity->animationState;
-                this->direction = uVar1 << 2;
-                this->animationState = uVar1 << 0x1a >> 0x1a;
+                super->direction = uVar1 << 2;
+                super->animationState = uVar1 << 0x1a >> 0x1a;
 #ifdef EU
-                this->spriteOrientation.flipY = 1;
-                this->hitbox = (Hitbox*)&gHitbox_0;
+                super->spriteOrientation.flipY = 1;
+                super->hitbox = (Hitbox*)&gHitbox_0;
 #else
-                this->hitbox = (Hitbox*)&gHitbox_0;
+                super->hitbox = (Hitbox*)&gHitbox_0;
                 if (AreaIsDungeon() != 0) {
-                    this->spriteOrientation.flipY = 1;
+                    super->spriteOrientation.flipY = 1;
                 }
 #endif
                 sub_080AA3E0(this, 0);
@@ -153,51 +169,51 @@ void MandiblesProjectile_Action3(Entity* this) {
     }
 }
 
-void MandiblesProjectile_Action4(Entity* this) {
+void MandiblesProjectile_Action4(MandiblesProjectileEntity* this) {
     s32 iVar1;
     u32 uVar2;
-    Entity* entity;
+    MandiblesProjectileEntity* entity;
 
-    entity = this->child;
+    entity = (MandiblesProjectileEntity*)super->child;
     if (entity != NULL) {
-        if (entity->next == NULL) {
-            this->child = NULL;
+        if (entity->base.next == NULL) {
+            super->child = NULL;
         }
-        if (this->subtimer != 0) {
-            this->subtimer--;
+        if (super->subtimer != 0) {
+            super->subtimer--;
         } else {
-            if (sub_080AA374(this) != 0) {
-                if (entity->health == 0) {
+            if (sub_080AA374(super) != 0) {
+                if (entity->base.health == 0) {
                     DeleteThisEntity();
                 }
                 EnqueueSFX(SFX_F2);
-                this->action = 1;
-                this->animationState = 0xff;
-                this->field_0x82.HALF.LO = 0;
-                this->timer = 0;
-                this->field_0x80.HWORD = 0x20;
-                this->spriteOrientation.flipY = 2;
-                this->parent = this->child;
-                this->child = NULL;
+                super->action = 1;
+                super->animationState = 0xff;
+                this->unk_82 = 0;
+                super->timer = 0;
+                this->unk_80 = 0x20;
+                super->spriteOrientation.flipY = 2;
+                super->parent = super->child;
+                super->child = NULL;
                 sub_080AA270(this);
-                entity = this->parent;
-                entity->action = 1;
-                entity->direction = entity->animationState << 2;
-                entity->speed = 0;
-                entity->field_0x82.HALF.LO = 1;
-                entity->timer = 0;
-                entity->subtimer = 120;
-                entity->field_0x80.HWORD = 0x20;
+                entity = (MandiblesProjectileEntity*)super->parent;
+                entity->base.action = 1;
+                entity->base.direction = entity->base.animationState << 2;
+                entity->base.speed = 0;
+                entity->unk_82 = 1;
+                entity->base.timer = 0;
+                entity->base.subtimer = 120;
+                entity->unk_80 = 0x20;
                 sub_080AA3E0(entity, 1);
             }
         }
     } else {
-        if (CheckOnScreen(this) == 0) {
+        if (CheckOnScreen(super) == 0) {
             DeleteThisEntity();
         }
     }
-    LinearMoveUpdate(this);
-    UpdateAnimationSingleFrame(this);
+    LinearMoveUpdate(super);
+    UpdateAnimationSingleFrame(super);
 }
 
 void sub_080AA1D8(Entity* this) {
@@ -231,21 +247,21 @@ void sub_080AA1D8(Entity* this) {
     }
 }
 
-void sub_080AA270(Entity* this) {
+void sub_080AA270(MandiblesProjectileEntity* this) {
     u32 animationState;
     Entity* parent;
-    parent = this->parent;
-    this->subtimer = gUnk_08129CA4[Random() & 7];
+    parent = super->parent;
+    super->subtimer = gUnk_08129CA4[Random() & 7];
     animationState = parent->animationState;
-    if (this->animationState == 0xff) {
-        this->animationState = animationState;
-        this->hitbox = (Hitbox*)gUnk_08129CF4[animationState];
+    if (super->animationState == 0xff) {
+        super->animationState = animationState;
+        super->hitbox = (Hitbox*)gUnk_08129CF4[animationState];
         sub_080AA3E0(this, 0);
     } else {
         animationState = (gUnk_08129CAC[Random() & 7] + animationState) & 7;
-        if (animationState != this->animationState) {
-            this->animationState = animationState;
-            this->hitbox = (Hitbox*)gUnk_08129CF4[animationState];
+        if (animationState != super->animationState) {
+            super->animationState = animationState;
+            super->hitbox = (Hitbox*)gUnk_08129CF4[animationState];
             sub_080AA3E0(this, 0);
         }
     }
@@ -271,25 +287,25 @@ bool32 sub_080AA2E0(Entity* this) {
     return TRUE;
 }
 
-void sub_080AA320(Entity* this) {
+void sub_080AA320(MandiblesProjectileEntity* this) {
     u32 uVar2;
-    Entity* parent;
+    MandiblesProjectileEntity* parent;
 
-    parent = this->parent;
-    this->action = 2;
-    this->field_0x82.HALF.LO = 1;
-    this->subtimer = 0;
-    parent->action = 2;
-    parent->subtimer = 48;
-    parent->field_0x80.HWORD = 0x50;
-    parent->speed = 0;
-    parent->direction = sub_08049F84(parent, 0);
+    parent = (MandiblesProjectileEntity*)super->parent;
+    super->action = 2;
+    this->unk_82 = 1;
+    super->subtimer = 0;
+    parent->base.action = 2;
+    parent->base.subtimer = 48;
+    parent->unk_80 = 0x50;
+    parent->base.speed = 0;
+    parent->base.direction = sub_08049F84(&parent->base, 0);
     // TODO regalloc
-    uVar2 = Direction8Round(parent->direction + 4);
-    this->animationState = uVar2 >> 2;
-    parent->animationState = DirectionRound(uVar2) >> 2;
+    uVar2 = Direction8Round(parent->base.direction + 4);
+    super->animationState = uVar2 >> 2;
+    parent->base.animationState = DirectionRound(uVar2) >> 2;
     sub_080AA3E0(parent, 1);
-    sub_080AA1D8(this);
+    sub_080AA1D8(super);
 }
 
 bool32 sub_080AA374(Entity* this) {
@@ -312,20 +328,24 @@ bool32 sub_080AA374(Entity* this) {
     return result;
 }
 
-void sub_080AA3E0(Entity* this, u32 param) {
+void sub_080AA3E0(MandiblesProjectileEntity* this, u32 param) {
     u32 tmp;
 
-    tmp = this->animationState | this->field_0x82.HALF.LO << 3;
+    tmp = super->animationState | this->unk_82 << 3;
     if (param != 0) {
         tmp >>= 1;
     }
-    InitAnimationForceUpdate(this, tmp);
+    InitAnimationForceUpdate(super, tmp);
 }
 
-void (*const MandiblesProjectile_Functions[])(Entity*) = {
-    MandiblesProjectile_OnTick, sub_080A9EBC, DeleteEntity, DeleteEntity, DeleteEntity,
+void (*const MandiblesProjectile_Functions[])(MandiblesProjectileEntity*) = {
+    MandiblesProjectile_OnTick,
+    MandiblesProjectile_OnCollision,
+    (void (*)(MandiblesProjectileEntity*))DeleteEntity,
+    (void (*)(MandiblesProjectileEntity*))DeleteEntity,
+    (void (*)(MandiblesProjectileEntity*))DeleteEntity,
 };
-void (*const MandiblesProjectile_Actions[])(Entity*) = {
+void (*const MandiblesProjectile_Actions[])(MandiblesProjectileEntity*) = {
     MandiblesProjectile_Init,    MandiblesProjectile_Action1, MandiblesProjectile_Action2,
     MandiblesProjectile_Action3, MandiblesProjectile_Action4,
 };

@@ -1,241 +1,255 @@
-#include "entity.h"
+/**
+ * @file gyorgTail.c
+ * @ingroup Projectiles
+ *
+ * @brief Gyorg Tail Projectile
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
-#include "physics.h"
-#include "sound.h"
+#include "entity.h"
 #include "functions.h"
-#include "projectile.h"
 #include "hitbox.h"
+#include "physics.h"
+#include "projectile.h"
+#include "sound.h"
 
-bool32 sub_080AC5E4(Entity*);
-void sub_080AC388(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[10];
+    /*0x72*/ u16 unk_72;
+    /*0x74*/ u8 unused2[5];
+    /*0x79*/ u8 unk_79;
+    /*0x7a*/ s16 unk_7a;
+    /*0x7c*/ u16 unk_7c;
+} GyorgTailEntity;
+
+bool32 sub_080AC5E4(GyorgTailEntity*);
+void GyorgTail_Action1(GyorgTailEntity*);
 void sub_080AC6F0(Entity*);
 void sub_080AC760(Entity*);
-void sub_080AC7C4(Entity*);
-void sub_080AC328(Entity*);
-void sub_080AC510(Entity*);
-void sub_080AC560(Entity*);
-void sub_080AC884(Entity*);
-void sub_080AC480(Entity*);
-void GyorgTail_Init(Entity*);
+void sub_080AC7C4(GyorgTailEntity*);
+void sub_080AC328(GyorgTailEntity*);
+void sub_080AC510(GyorgTailEntity*);
+void sub_080AC560(GyorgTailEntity*);
+void sub_080AC884(GyorgTailEntity*);
+void GyorgTail_Action2(GyorgTailEntity*);
+void GyorgTail_Init(GyorgTailEntity*);
 
-void GyorgTail(Entity* this) {
-    static void (*const gUnk_0812A994[])(Entity*) = {
+void GyorgTail(GyorgTailEntity* this) {
+    static void (*const gUnk_0812A994[])(GyorgTailEntity*) = {
         sub_080AC328, sub_080AC510, sub_080AC510, sub_080AC510, sub_080AC560,
     };
-    Entity* parent;
+    GyorgTailEntity* parent;
 
-    if (this->parent->next == NULL) {
+    if (super->parent->next == NULL) {
         DeleteThisEntity();
     }
-    gUnk_0812A994[this->type2](this);
-    if (this->type == 0) {
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
-        this->spritePriority.b0 = 1;
+    gUnk_0812A994[super->type2](this);
+    if (super->type == 0) {
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
+        super->spritePriority.b0 = 1;
     } else {
-        parent = this->parent;
-        this->spriteOrientation.flipY = parent->spriteOrientation.flipY;
-        this->spriteRendering.b3 = parent->spriteRendering.b3;
-        this->spritePriority.b0 = parent->spritePriority.b0 - 2;
+        parent = (GyorgTailEntity*)super->parent;
+        super->spriteOrientation.flipY = parent->base.spriteOrientation.flipY;
+        super->spriteRendering.b3 = parent->base.spriteRendering.b3;
+        super->spritePriority.b0 = parent->base.spritePriority.b0 - 2;
 
-        if ((parent->spriteRendering.b3 == 3) && (parent->field_0x7c.BYTES.byte0 == 0)) {
-            COLLISION_OFF(this);
+        if ((parent->base.spriteRendering.b3 == 3) && (*(u8*)&parent->unk_7c == 0)) {
+            COLLISION_OFF(super);
         } else {
-            COLLISION_ON(this);
+            COLLISION_ON(super);
         }
     }
 }
 
-void sub_080AC328(Entity* this) {
-    static void (*const GyorgTail_Actions[])(Entity*) = {
+void sub_080AC328(GyorgTailEntity* this) {
+    static void (*const GyorgTail_Actions[])(GyorgTailEntity*) = {
         GyorgTail_Init,
-        sub_080AC388,
-        sub_080AC480,
+        GyorgTail_Action1,
+        GyorgTail_Action2,
     };
-    GyorgTail_Actions[this->action](this);
+    GyorgTail_Actions[super->action](this);
 }
 
-void GyorgTail_Init(Entity* this) {
+void GyorgTail_Init(GyorgTailEntity* this) {
     static const s16 gUnk_0812A9B4[] = { -64, 64 };
     if (sub_080AC5E4(this) != 0) {
-        this->action = 1;
-        this->frameIndex = 0xc;
-        this->spriteSettings.draw = 1;
-        this->field_0x7a.HWORD = gUnk_0812A9B4[Random() & 1];
-        this->collisionLayer = 2;
-        sub_080AC388(this);
+        super->action = 1;
+        super->frameIndex = 0xc;
+        super->spriteSettings.draw = 1;
+        this->unk_7a = gUnk_0812A9B4[Random() & 1];
+        super->collisionLayer = 2;
+        GyorgTail_Action1(this);
     }
 }
 
-void sub_080AC388(Entity* this) {
+void GyorgTail_Action1(GyorgTailEntity* this) {
     static const u8 gUnk_0812A9B8[] = { 24, 20 };
     Entity* pEVar2;
     int iVar3;
     u32 uVar5;
 
-    uVar5 = gUnk_0812A9B8[this->type];
-    pEVar2 = this->parent;
-    iVar3 = (pEVar2->animationState ^ 0x80) - (this->field_0x7c.HALF_U.LO >> 8);
-    if ((short)this->field_0x7a.HWORD < 0) {
+    uVar5 = gUnk_0812A9B8[super->type];
+    pEVar2 = super->parent;
+    iVar3 = (pEVar2->animationState ^ 0x80) - (this->unk_7c >> 8);
+    if ((short)this->unk_7a < 0) {
         if (((iVar3 - uVar5) & 0xff) <= 0x7f) {
-            s32 tmp = -(short)this->field_0x7a.HWORD;
-            this->field_0x7a.HWORD = tmp;
-            this->field_0x7c.HALF_U.LO = (short)((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8);
+            s32 tmp = -(short)this->unk_7a;
+            this->unk_7a = tmp;
+            this->unk_7c = (short)((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8);
             sub_080AC884(this);
         } else {
-            this->field_0x7c.HALF_U.LO = this->field_0x7c.HALF_U.LO + this->field_0x7a.HWORD;
+            this->unk_7c = this->unk_7c + this->unk_7a;
             if (((iVar3 + uVar5) & 0xff) >= 0x81) {
-                this->field_0x7c.HALF_U.LO = ((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8) | 0x80;
+                this->unk_7c = ((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8) | 0x80;
             }
         }
     } else {
         if (((iVar3 + uVar5) & 0xff) >= 0x81) {
-            s32 tmp = -(short)this->field_0x7a.HWORD;
-            this->field_0x7a.HWORD = tmp;
-            this->field_0x7c.HALF_U.LO = (short)((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8);
+            s32 tmp = -(short)this->unk_7a;
+            this->unk_7a = tmp;
+            this->unk_7c = (short)((((pEVar2->animationState ^ 0x80) + uVar5) & 0xff) << 8);
             sub_080AC884(this);
         } else {
-            this->field_0x7c.HALF_U.LO = this->field_0x7c.HALF_U.LO + this->field_0x7a.HWORD;
+            this->unk_7c = this->unk_7c + this->unk_7a;
             if (0x7e >= ((iVar3 - uVar5) & 0xff) - 1) {
-                this->field_0x7c.HALF_U.LO = ((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8) | 0x80;
+                this->unk_7c = ((((pEVar2->animationState ^ 0x80) - uVar5) & 0xff) << 8) | 0x80;
             }
         }
     }
 
-    this->direction = this->field_0x7c.HALF_U.LO >> 8;
-    sub_080AC6F0(this);
-    sub_080AC760(this);
+    super->direction = this->unk_7c >> 8;
+    sub_080AC6F0(super);
+    sub_080AC760(super);
     sub_080AC7C4(this);
 }
 
-void sub_080AC480(Entity* this) {
-    if (this->timer != 0) {
-        if (this->parent->health == 0) {
-            this->action = 1;
-            this->hitType = 0x1d;
+void GyorgTail_Action2(GyorgTailEntity* this) {
+    if (super->timer != 0) {
+        if (super->parent->health == 0) {
+            super->action = 1;
+            super->hitType = 0x1d;
         } else {
-            if (--this->timer == 0) {
-                this->hitType = 0x1c;
+            if (--super->timer == 0) {
+                super->hitType = 0x1c;
                 SoundReq(SFX_116);
             }
         }
     } else {
-        if (--this->subtimer == 0) {
-            this->action = 1;
-            this->hitType = 0x1d;
+        if (--super->subtimer == 0) {
+            super->action = 1;
+            super->hitType = 0x1d;
         }
-        this->field_0x7c.HALF_U.LO += ((s16)this->field_0x7a.HWORD >= 1) ? 0x300 : -0x300;
-        this->direction = this->field_0x7c.HALF.LO >> 8;
-        sub_080AC6F0(this);
-        sub_080AC760(this);
+        this->unk_7c += ((s16)this->unk_7a >= 1) ? 0x300 : -0x300;
+        super->direction = this->unk_7c >> 8;
+        sub_080AC6F0(super);
+        sub_080AC760(super);
         sub_080AC7C4(this);
     }
 }
 
-void sub_080AC510(Entity* this) {
+void sub_080AC510(GyorgTailEntity* this) {
     static const u8 gUnk_0812A9BA[] = { 24, 25, 25, 24, 24, 24 };
-    if (this->action == 0) {
-        this->action = 1;
-        this->frameIndex = gUnk_0812A9BA[this->type * 3 + this->type2 - 1];
-        this->spriteSettings.draw = 1;
-        this->collisionLayer = 2;
-        if (*(u16*)&this->type == 0x300) {
-            this->hitbox = (Hitbox*)&gHitbox_21;
+    if (super->action == 0) {
+        super->action = 1;
+        super->frameIndex = gUnk_0812A9BA[super->type * 3 + super->type2 - 1];
+        super->spriteSettings.draw = 1;
+        super->collisionLayer = 2;
+        if (*(u16*)&super->type == 0x300) {
+            super->hitbox = (Hitbox*)&gHitbox_21;
         }
     }
 }
 
-void sub_080AC560(Entity* this) {
+void sub_080AC560(GyorgTailEntity* this) {
     s32 factor;
     Entity* entity;
 
-    entity = this->child;
+    entity = super->child;
     if (entity->next == NULL) {
         DeleteThisEntity();
     }
-    if (this->action == 0) {
-        this->action = 1;
-        this->collisionLayer = 2;
-        if (this->type == 0) {
-            this->hitbox = (Hitbox*)&gHitbox_1;
+    if (super->action == 0) {
+        super->action = 1;
+        super->collisionLayer = 2;
+        if (super->type == 0) {
+            super->hitbox = (Hitbox*)&gHitbox_1;
         } else {
-            this->hitbox = (Hitbox*)&gHitbox_20;
+            super->hitbox = (Hitbox*)&gHitbox_20;
         }
-        this->frameIndex = 0xff;
-        this->spriteSettings.draw = 1;
+        super->frameIndex = 0xff;
+        super->spriteSettings.draw = 1;
     }
-    factor = this->field_0x78.HALF.HI << 8;
-    this->x.WORD = entity->x.WORD + gSineTable[entity->direction] * factor;
-    this->y.WORD = entity->y.WORD - gSineTable[entity->direction + 0x40] * factor;
+    factor = this->unk_79 << 8;
+    super->x.WORD = entity->x.WORD + gSineTable[entity->direction] * factor;
+    super->y.WORD = entity->y.WORD - gSineTable[entity->direction + 0x40] * factor;
 }
 
-bool32 sub_080AC5E4(Entity* this) {
-    // TODO regalloc
-    Entity* entity;
-    Entity* new_var2;
-    Entity* entity2;
-    Entity* entity3;
-    Entity* entity4;
+bool32 sub_080AC5E4(GyorgTailEntity* this) {
+    GyorgTailEntity* entity;
+    GyorgTailEntity* entity2;
+    GyorgTailEntity* entity3;
 
-    if (this->type == 0) {
+    if (super->type == 0) {
         if (gEntCount > 0x43) {
             return FALSE;
         }
-        this->field_0x78.HALF.HI = 0x11;
-        entity = CreateProjectile(GYORG_TAIL);
-        entity->type = this->type;
-        entity->type2 = 1;
-        entity->parent = this->parent;
-        entity->field_0x78.HALF.HI = 0x12;
-        this->child = entity;
+        this->unk_79 = 0x11;
+        entity = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity->base.type = super->type;
+        entity->base.type2 = 1;
+        entity->base.parent = super->parent;
+        entity->unk_79 = 0x12;
+        super->child = &entity->base;
 
-        entity2 = CreateProjectile(GYORG_TAIL);
-        entity2->type = this->type;
-        entity2->type2 = 2;
-        entity2->parent = this->parent;
-        entity2->field_0x78.HALF.HI = 0x14;
-        entity->child = entity2;
+        entity2 = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity2->base.type = super->type;
+        entity2->base.type2 = 2;
+        entity2->base.parent = super->parent;
+        entity2->unk_79 = 0x14;
+        entity->base.child = &entity2->base;
 
-        entity3 = CreateProjectile(GYORG_TAIL);
-        entity3->type = this->type;
-        entity3->type2 = 3;
-        entity3->parent = this->parent;
-        entity3->child = NULL;
-        entity3->field_0x78.HALF.HI = 0;
-        entity2->child = entity3;
+        entity3 = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity3->base.type = super->type;
+        entity3->base.type2 = 3;
+        entity3->base.parent = super->parent;
+        entity3->base.child = NULL;
+        entity3->unk_79 = 0;
+        entity2->base.child = &entity3->base;
 
-        entity = CreateProjectile(GYORG_TAIL);
-        entity->type = this->type;
-        entity->type2 = 4;
-        entity->parent = this->parent;
-        entity->child = this;
-        entity->field_0x78.HALF.HI = 0x14;
+        entity = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity->base.type = super->type;
+        entity->base.type2 = 4;
+        entity->base.parent = super->parent;
+        entity->base.child = super;
+        entity->unk_79 = 0x14;
     } else {
         if (gEntCount > 0x44) {
             return FALSE;
         }
-        this->field_0x78.HALF.HI = 0xf;
-        entity = CreateProjectile(GYORG_TAIL);
-        entity->type = this->type;
-        entity->type2 = 1;
-        entity->parent = this->parent;
-        entity->field_0x78.HALF.HI = 0x10;
-        this->child = entity;
+        this->unk_79 = 0xf;
+        entity = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity->base.type = super->type;
+        entity->base.type2 = 1;
+        entity->base.parent = super->parent;
+        entity->unk_79 = 0x10;
+        super->child = &entity->base;
 
-        entity2 = CreateProjectile(GYORG_TAIL);
-        entity2->type = this->type;
-        entity2->type2 = 2;
-        entity2->parent = this->parent;
-        entity2->child = NULL;
-        entity2->field_0x78.HALF.HI = 0x20;
-        entity->child = entity2;
+        entity2 = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity2->base.type = super->type;
+        entity2->base.type2 = 2;
+        entity2->base.parent = super->parent;
+        entity2->base.child = NULL;
+        entity2->unk_79 = 0x20;
+        entity->base.child = &entity2->base;
 
-        entity = CreateProjectile(GYORG_TAIL);
-        entity->type = this->type;
-        entity->type2 = 4;
-        entity->parent = this->parent;
-        entity->child = this;
-        entity->field_0x78.HALF.HI = 0x10;
+        entity = (GyorgTailEntity*)CreateProjectile(GYORG_TAIL);
+        entity->base.type = super->type;
+        entity->base.type2 = 4;
+        entity->base.parent = super->parent;
+        entity->base.child = super;
+        entity->unk_79 = 0x10;
     }
     return TRUE;
 }
@@ -322,10 +336,10 @@ void sub_080AC760(Entity* param_1) {
     }
 }
 
-void sub_080AC7C4(Entity* this) {
-    Entity* entity1;
-    Entity* entity2;
-    Entity* entity3;
+void sub_080AC7C4(GyorgTailEntity* this) {
+    GyorgTailEntity* entity1;
+    GyorgTailEntity* entity2;
+    GyorgTailEntity* entity3;
     s32 tmp;
     s32 tmp2;
     s32 tmp3;
@@ -334,36 +348,36 @@ void sub_080AC7C4(Entity* this) {
     s32 tmp6;
     s32 r6;
 
-    entity1 = this->child;
-    entity2 = entity1->child;
-    entity3 = entity2->child;
+    entity1 = (GyorgTailEntity*)super->child;
+    entity2 = (GyorgTailEntity*)entity1->base.child;
+    entity3 = (GyorgTailEntity*)entity2->base.child;
     if (entity3 != NULL) {
-        CopyPosition(this->parent, entity3);
+        CopyPosition(super->parent, &entity3->base);
     } else {
-        entity3 = this->parent;
+        entity3 = (GyorgTailEntity*)super->parent;
     }
-    tmp = entity2->field_0x78.HALF.HI << 8;
-    tmp2 = gSineTable[entity2->direction];
+    tmp = entity2->unk_79 << 8;
+    tmp2 = gSineTable[entity2->base.direction];
     r6 = tmp2 * tmp;
-    tmp2 = gSineTable[entity2->direction + 0x40] * tmp;
-    PositionRelative(entity3, entity2, r6, -tmp2);
-    tmp3 = entity1->field_0x78.HALF.HI << 8;
-    tmp4 = gSineTable[entity1->direction];
+    tmp2 = gSineTable[entity2->base.direction + 0x40] * tmp;
+    PositionRelative(&entity3->base, &entity2->base, r6, -tmp2);
+    tmp3 = entity1->unk_79 << 8;
+    tmp4 = gSineTable[entity1->base.direction];
     r6 = tmp4 * tmp3;
-    tmp4 = gSineTable[entity1->direction + 0x40] * tmp3;
-    PositionRelative(entity2, entity1, r6, -tmp4);
-    tmp5 = this->field_0x78.HALF.HI << 8;
-    tmp6 = gSineTable[this->direction];
+    tmp4 = gSineTable[entity1->base.direction + 0x40] * tmp3;
+    PositionRelative(&entity2->base, &entity1->base, r6, -tmp4);
+    tmp5 = this->unk_79 << 8;
+    tmp6 = gSineTable[super->direction];
     r6 = tmp6 * tmp5;
-    tmp6 = gSineTable[this->direction + 0x40] * tmp5;
-    PositionRelative(entity1, this, r6, -tmp6);
+    tmp6 = gSineTable[super->direction + 0x40] * tmp5;
+    PositionRelative(&entity1->base, super, r6, -tmp6);
 }
 
-void sub_080AC884(Entity* this) {
-    if (this->parent->field_0x70.HALF_U.HI != 0) {
-        this->parent->field_0x70.HALF_U.HI = 0;
-        this->action = 2;
-        this->timer = 60;
-        this->subtimer = 86;
+void sub_080AC884(GyorgTailEntity* this) {
+    if (((GyorgTailEntity*)super->parent)->unk_72 != 0) {
+        ((GyorgTailEntity*)super->parent)->unk_72 = 0;
+        super->action = 2;
+        super->timer = 60;
+        super->subtimer = 86;
     }
 }

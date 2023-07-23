@@ -1,6 +1,13 @@
+/**
+ * @file mazaalEnergyBeam.c
+ * @ingroup Projectiles
+ *
+ * @brief Mazaal Energy Beam Projectile
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "sound.h"
 #include "physics.h"
+#include "sound.h"
 
 extern void (*const MazaalEnergyBeam_Actions[])(Entity*);
 

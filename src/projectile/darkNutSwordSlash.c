@@ -1,6 +1,13 @@
+/**
+ * @file darkNutSwordSlash.c
+ * @ingroup Projectiles
+ *
+ * @brief Dark Nut Sword Slash Projectile
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "physics.h"
+#include "player.h"
 
 extern const u8 DarkNutSwordSlash_hitTypes[];
 extern void (*const DarkNutSwordSlash_UpdatesForType[])(Entity*);

@@ -1,6 +1,12 @@
-
-#include "entity.h"
+/**
+ * @file fireProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Fire Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const FireProjectile_Actions[])(Entity*);

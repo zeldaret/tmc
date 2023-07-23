@@ -1,6 +1,13 @@
-#include "entity.h"
+/**
+ * @file cannonballProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Cannonball Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const CannonballProjectile_Functions[])(Entity*);
@@ -17,7 +24,7 @@ void CannonballProjectile_OnTick(Entity* this) {
     CannonballProjectile_Actions[this->action](this);
 }
 
-void sub_080AB544(Entity* this) {
+void CannonballProjectile_OnCollision(Entity* this) {
     u32 tmp;
 
     if (this->iframes < -4) {
@@ -90,7 +97,7 @@ bool32 sub_080AB634(Entity* this) {
 }
 
 void (*const CannonballProjectile_Functions[])(Entity*) = {
-    CannonballProjectile_OnTick, sub_080AB544, DeleteEntity, DeleteEntity, DeleteEntity,
+    CannonballProjectile_OnTick, CannonballProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const CannonballProjectile_Actions[])(Entity*) = {
     CannonballProjectile_Init,

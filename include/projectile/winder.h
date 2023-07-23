@@ -5,8 +5,8 @@
 #define WINDER_NUM_SEGMENTS 8
 
 typedef struct {
-    Entity base;
-    s16 positions[2 * WINDER_NUM_SEGMENTS];
+    /*0x00*/ Entity base;
+    /*0x68*/ s16 positions[2 * WINDER_NUM_SEGMENTS];
 } WinderEntity;
 
 #endif // WINDER_H

@@ -1,5 +1,12 @@
-#include "entity.h"
+/**
+ * @file windProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Wind Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const WindProjectile_Actions[])(Entity*);

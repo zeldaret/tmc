@@ -73,7 +73,7 @@ void Stalfos_OnTick(StalfosEntity* this) {
     }
 }
 
-void sub_0803933C(StalfosEntity* this) {
+void Stalfos_OnCollision(StalfosEntity* this) {
     Entity* r0;
     Entity* r1;
     u32 r2;
@@ -120,7 +120,7 @@ void sub_0803933C(StalfosEntity* this) {
     EnemyFunctionHandlerAfterCollision(super, Stalfos_Functions);
 }
 
-void sub_08039418(StalfosEntity* this) {
+void Stalfos_OnDeath(StalfosEntity* this) {
     if (super->type == 0) {
         CreateDeathFx(super, 0xf3, 0);
     } else {
@@ -128,7 +128,7 @@ void sub_08039418(StalfosEntity* this) {
     }
 }
 
-void sub_08039438(StalfosEntity* this) {
+void Stalfos_OnGrabbed(StalfosEntity* this) {
     if (sub_0806F520(super)) {
         Stalfos_SubActions[super->subAction](this);
     }
@@ -475,11 +475,11 @@ found:
 
 void (*const Stalfos_Functions[])(StalfosEntity*) = {
     Stalfos_OnTick,
-    sub_0803933C,
+    Stalfos_OnCollision,
     (void (*)(StalfosEntity*))GenericKnockback,
-    sub_08039418,
+    Stalfos_OnDeath,
     (void (*)(StalfosEntity*))GenericConfused,
-    sub_08039438,
+    Stalfos_OnGrabbed,
 };
 void (*const Stalfos_Actions[])(StalfosEntity*) = {
     Stalfos_Init,    Stalfos_Action1, Stalfos_Action2, Stalfos_Action3, Stalfos_Action4,  Stalfos_Action5,

@@ -1,5 +1,12 @@
-#include "entity.h"
+/**
+ * @file rockProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Rock Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const RockProjectile_Functions[])(Entity*);
@@ -15,7 +22,7 @@ void RockProjectile_OnTick(Entity* this) {
     RockProjectile_Actions[this->action](this);
 }
 
-void sub_080A8064(Entity* this) {
+void RockProjectile_OnCollision(Entity* this) {
     if (this->contactFlags == 0x80) {
         DeleteEntity(this);
     } else {
@@ -86,7 +93,7 @@ void sub_080A8178(Entity* this) {
 }
 
 void (*const RockProjectile_Functions[])(Entity*) = {
-    RockProjectile_OnTick, sub_080A8064, DeleteEntity, DeleteEntity, DeleteEntity,
+    RockProjectile_OnTick, RockProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const RockProjectile_Actions[])(Entity*) = {
     RockProjectile_Init,

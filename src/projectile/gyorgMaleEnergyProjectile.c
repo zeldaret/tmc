@@ -1,8 +1,15 @@
-#include "entity.h"
+/**
+ * @file gyorgMaleEnergyProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Gyorg Male Energy Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
+#include "functions.h"
 #include "physics.h"
 #include "player.h"
-#include "functions.h"
 
 extern void (*const GyorgMaleEnergyProjectile_Functions[])(Entity*);
 extern void (*const GyorgMaleEnergyProjectile_Actions[])(Entity*);
@@ -17,7 +24,7 @@ void GyorgMaleEnergyProjectile_OnTick(Entity* this) {
     GyorgMaleEnergyProjectile_Actions[this->action](this);
 }
 
-void sub_080AC8DC(Entity* this) {
+void GyorgMaleEnergyProjectile_OnCollision(Entity* this) {
     switch ((s8)(this->contactFlags & 0x7f)) {
         case 0:
         case 1:
@@ -92,7 +99,7 @@ void GyorgMaleEnergyProjectile_Action3(Entity* this) {
 }
 
 void (*const GyorgMaleEnergyProjectile_Functions[])(Entity*) = {
-    GyorgMaleEnergyProjectile_OnTick, sub_080AC8DC, DeleteEntity, DeleteEntity, DeleteEntity,
+    GyorgMaleEnergyProjectile_OnTick, GyorgMaleEnergyProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const GyorgMaleEnergyProjectile_Actions[])(Entity*) = {
     GyorgMaleEnergyProjectile_Init,

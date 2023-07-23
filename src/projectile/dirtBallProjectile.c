@@ -1,9 +1,22 @@
-#include "sound.h"
-#include "entity.h"
+/**
+ * @file dirtBallProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Dirt Ball Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "player.h"
-#include "physics.h"
+#include "entity.h"
 #include "functions.h"
+#include "physics.h"
+#include "player.h"
+#include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[27];
+    /*0x83*/ u8 unk_83;
+} DirtBallProjectileEntity;
 
 extern void (*const DirtBallProjectile_Functions[])(Entity*);
 extern void (*const DirtBallProjectile_Actions[])(Entity*);
@@ -25,7 +38,7 @@ void DirtBallProjectile_OnTick(Entity* this) {
     DirtBallProjectile_Actions[this->action](this);
 }
 
-void sub_080A881C(Entity* this) {
+void DirtBallProjectile_OnCollision(Entity* this) {
     this->knockbackSpeed = 0;
     if (this->type == 0) {
         this->parent->child = NULL;
@@ -37,7 +50,7 @@ void sub_080A881C(Entity* this) {
     } else {
         if (this->action < 2) {
             this->action = 2;
-            this->parent->field_0x82.HALF.HI = 0xc0;
+            ((DirtBallProjectileEntity*)this->parent)->unk_83 = 0xc0;
         }
     }
 }
@@ -88,7 +101,7 @@ void DirtBallProjectile_Action1(Entity* this) {
                     entity->subtimer++;
                 }
                 if ((this->child->subtimer < 0x20) && ((this->child->subtimer & 3) == 3)) {
-                    parent->field_0x82.HALF.HI = 0xc0;
+                    ((DirtBallProjectileEntity*)parent)->unk_83 = 0xc0;
                     this->action = 2;
                 }
             }
@@ -97,7 +110,7 @@ void DirtBallProjectile_Action1(Entity* this) {
             this->z.HALF.HI += Q_8_8(1.0 / 16.0 - 1.0 / 128.0);
             if (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe) != 0) {
                 this->action = 2;
-                parent->field_0x82.HALF.HI = 0xc0;
+                ((DirtBallProjectileEntity*)parent)->unk_83 = 0xc0;
             }
             break;
     }
@@ -165,7 +178,7 @@ void DirtBallProjectile_Action3(Entity* this) {
 }
 
 void (*const DirtBallProjectile_Functions[])(Entity*) = {
-    DirtBallProjectile_OnTick, sub_080A881C, DeleteEntity, DeleteEntity, DeleteEntity,
+    DirtBallProjectile_OnTick, DirtBallProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const DirtBallProjectile_Actions[])(Entity*) = {
     DirtBallProjectile_Init,

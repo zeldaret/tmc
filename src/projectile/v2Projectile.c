@@ -1,49 +1,62 @@
-
-#include "entity.h"
+/**
+ * @file v2Projectile.c
+ * @ingroup Projectiles
+ *
+ * @brief V2 Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
 
-extern void (*const V2Projectile_Functions[])(Entity*);
-extern void (*const gUnk_0812A7EC[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u16 unk_76;
+} V2ProjectileEntity;
+
+extern void (*const V2Projectile_Functions[])(V2ProjectileEntity*);
+extern void (*const gUnk_0812A7EC[])(V2ProjectileEntity*);
 extern void (*const gUnk_0812A7F8[])(Entity*);
 extern void (*const gUnk_0812A800[])(Entity*);
 extern void (*const gUnk_0812A808[])(Entity*);
 
-void V2Projectile(Entity* this) {
-    V2Projectile_Functions[GetNextFunction(this)](this);
+void V2Projectile(V2ProjectileEntity* this) {
+    V2Projectile_Functions[GetNextFunction(super)](this);
 }
 
-void sub_080ABBA8(Entity* this) {
-    switch (this->type) {
+void V2Projectile_OnTick(V2ProjectileEntity* this) {
+    switch (super->type) {
         case 0: {
-            gUnk_0812A7EC[this->action](this);
+            gUnk_0812A7EC[super->action](this);
             break;
         }
         case 1: {
-            gUnk_0812A7F8[this->action](this);
+            gUnk_0812A7F8[super->action](super);
             break;
         }
         case 2:
         default:
-            gUnk_0812A800[this->action](this);
+            gUnk_0812A800[super->action](super);
     }
 }
 
-void sub_080ABBF4(Entity* this) {
-    if ((this->contactFlags & 0x80) == 0)
+void V2Projectile_OnCollision(V2ProjectileEntity* this) {
+    if ((super->contactFlags & 0x80) == 0)
         return;
 
-    switch (this->type) {
+    switch (super->type) {
         case 2: {
-            switch ((this->contactFlags & 0x3f)) {
+            switch ((super->contactFlags & 0x3f)) {
                 case 0: {
                     ModHealth(-4);
                     // fallthrough
                 }
                 case 3:
                 case 0x14: {
-                    CreateDust(this);
+                    CreateDust(super);
                     DeleteThisEntity();
                     break;
                 }
@@ -52,7 +65,7 @@ void sub_080ABBF4(Entity* this) {
         }
         case 0:
         case 1: {
-            if ((this->contactFlags & 0x3f) == 0) {
+            if ((super->contactFlags & 0x3f) == 0) {
                 ModHealth(-2);
                 DeleteThisEntity();
             }
@@ -61,12 +74,12 @@ void sub_080ABBF4(Entity* this) {
     }
 }
 
-void sub_080ABC54(Entity* this) {
-    if (!sub_0806F520(this)) {
-        CreateFx(this, FX_DEATH, 0);
+void V2Projectile_OnGrabbed(V2ProjectileEntity* this) {
+    if (!sub_0806F520(super)) {
+        CreateFx(super, FX_DEATH, 0);
         DeleteThisEntity();
     }
-    gUnk_0812A808[this->subAction](this);
+    gUnk_0812A808[super->subAction](super);
 }
 
 void sub_080ABC84(Entity* this) {
@@ -86,45 +99,45 @@ void sub_080ABC90(Entity* this) {
     }
 }
 
-void sub_080ABCC4(Entity* this) {
-    this->action = 1;
-    this->timer = (Random() & 0x3f) + 48;
-    this->subtimer = 0;
-    this->direction = Random() & 0x1f;
-    this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    this->field_0x76.HWORD = GetTileType(this->field_0x74.HWORD, 2);
-    this->spritePriority.b0 = 2;
-    InitializeAnimation(this, 0);
+void sub_080ABCC4(V2ProjectileEntity* this) {
+    super->action = 1;
+    super->timer = (Random() & 0x3f) + 48;
+    super->subtimer = 0;
+    super->direction = Random() & 0x1f;
+    this->unk_74 = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    this->unk_76 = GetTileType(this->unk_74, 2);
+    super->spritePriority.b0 = 2;
+    InitializeAnimation(super, 0);
     SoundReq(SFX_14B);
 }
 
-void sub_080ABD44(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 2;
-        InitializeAnimation(this, 1);
+void sub_080ABD44(V2ProjectileEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 2;
+        InitializeAnimation(super, 1);
     }
-    ProcessMovement3(this);
-    GetNextFrame(this);
+    ProcessMovement3(super);
+    GetNextFrame(super);
 }
 
-void sub_080ABD70(Entity* this) {
+void sub_080ABD70(V2ProjectileEntity* this) {
     u32 tmp;
-    GetNextFrame(this);
-    if ((this->frame & 0x10) != 0) {
-        this->frame &= 0xef;
-        this->speed = 0;
-        this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-        this->field_0x76.HWORD = GetTileType(this->field_0x74.HWORD, 2);
-        tmp = this->field_0x76.HWORD;
+    GetNextFrame(super);
+    if ((super->frame & 0x10) != 0) {
+        super->frame &= 0xef;
+        super->speed = 0;
+        this->unk_74 = TILE(super->x.HALF.HI, super->y.HALF.HI);
+        this->unk_76 = GetTileType(this->unk_74, 2);
+        tmp = this->unk_76;
         if (tmp != 0x13) {
             if (tmp == 0x315) {
-                SetTileType(0x6e, this->field_0x74.HWORD, 2);
+                SetTileType(0x6e, this->unk_74, 2);
             }
         } else {
-            SetTileType(0x6d, this->field_0x74.HWORD, 2);
+            SetTileType(0x6d, this->unk_74, 2);
         }
     }
-    if ((this->frame & ANIM_DONE) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }
@@ -180,10 +193,15 @@ void sub_080ABF04(Entity* this) {
     GetNextFrame(this);
 }
 
-void (*const V2Projectile_Functions[])(Entity*) = {
-    sub_080ABBA8, sub_080ABBF4, DeleteEntity, DeleteEntity, DeleteEntity, sub_080ABC54,
+void (*const V2Projectile_Functions[])(V2ProjectileEntity*) = {
+    V2Projectile_OnTick,
+    V2Projectile_OnCollision,
+    (void (*)(V2ProjectileEntity*))DeleteEntity,
+    (void (*)(V2ProjectileEntity*))DeleteEntity,
+    (void (*)(V2ProjectileEntity*))DeleteEntity,
+    V2Projectile_OnGrabbed,
 };
-void (*const gUnk_0812A7EC[])(Entity*) = {
+void (*const gUnk_0812A7EC[])(V2ProjectileEntity*) = {
     sub_080ABCC4,
     sub_080ABD44,
     sub_080ABD70,

@@ -53,7 +53,7 @@ void Mulldozer_OnInit(MulldozerEntity* this) {
     Mulldozer_Actions[super->action](this);
 }
 
-void sub_08032CAC(MulldozerEntity* this) {
+void Mulldozer_OnCollision(MulldozerEntity* this) {
     if (super->confusedTime != 0) {
         Create0x68FX(super, 0x1c);
     }
@@ -80,7 +80,7 @@ void sub_08032CAC(MulldozerEntity* this) {
     }
 }
 
-void sub_08032D3C(MulldozerEntity* this) {
+void Mulldozer_OnKnockback(MulldozerEntity* this) {
     if (--super->subtimer == 0) {
         super->subtimer = 2;
         super->animationState = (super->animationState + 1) & 7;
@@ -90,7 +90,7 @@ void sub_08032D3C(MulldozerEntity* this) {
     GenericKnockback(super);
 }
 
-void nullsub_157(MulldozerEntity* this) {
+void Mulldozer_OnGrabbed(MulldozerEntity* this) {
 }
 
 void Mulldozer_Init(MulldozerEntity* this) {
@@ -465,11 +465,11 @@ bool32 sub_08033364(MulldozerEntity* this) {
 
 void (*const Mulldozer_Functions[])(MulldozerEntity*) = {
     Mulldozer_OnInit,
-    sub_08032CAC,
-    sub_08032D3C,
+    Mulldozer_OnCollision,
+    Mulldozer_OnKnockback,
     (void (*)(MulldozerEntity*))GenericDeath,
     (void (*)(MulldozerEntity*))GenericConfused,
-    nullsub_157,
+    Mulldozer_OnGrabbed,
 };
 void (*const Mulldozer_Actions[])(MulldozerEntity*) = {
     Mulldozer_Init,    Mulldozer_Action1, Mulldozer_Action2, Mulldozer_Action3,

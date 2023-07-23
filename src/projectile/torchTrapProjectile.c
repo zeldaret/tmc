@@ -1,6 +1,13 @@
-#include "entity.h"
+/**
+ * @file torchTrapProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Torch Trap Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const TorchTrapProjectile_Functions[])(Entity*);
@@ -14,7 +21,7 @@ void TorchTrapProjectile_OnTick(Entity* this) {
     TorchTrapProjectile_Actions[this->action](this);
 }
 
-void sub_080AAB1C(Entity* this) {
+void TorchTrapProjectile_OnCollision(Entity* this) {
     DeleteThisEntity();
 }
 
@@ -49,7 +56,7 @@ void TorchTrapProjectile_Action2(Entity* this) {
 }
 
 void (*const TorchTrapProjectile_Functions[])(Entity*) = {
-    TorchTrapProjectile_OnTick, sub_080AAB1C, DeleteEntity, DeleteEntity, DeleteEntity,
+    TorchTrapProjectile_OnTick, TorchTrapProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const TorchTrapProjectile_Actions[])(Entity*) = {
     TorchTrapProjectile_Init,

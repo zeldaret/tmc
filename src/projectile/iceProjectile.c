@@ -1,6 +1,12 @@
-
-#include "entity.h"
+/**
+ * @file iceProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Ice Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const IceProjectile_Actions[])(Entity*);

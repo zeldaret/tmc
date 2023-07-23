@@ -1,5 +1,12 @@
-#include "entity.h"
+/**
+ * @file lakituCloudProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Lakitu Cloud Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void SoundReqClipped(Entity*, u32);
@@ -20,10 +27,10 @@ void LakituCloudProjectile_OnTick(Entity* this) {
     LakituCloudProjectile_Actions[this->action](this);
 }
 
-void nullsub_539(Entity* this) {
+void LakituCloudProjectile_OnCollision(Entity* this) {
 }
 
-void sub_080A9CF0(Entity* this) {
+void LakituCloudProjectile_OnGrabbed(Entity* this) {
     if (!sub_0806F520(this)) {
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
@@ -63,7 +70,8 @@ void LakituCloudProjectile_Action1(Entity* this) {
 }
 
 void (*const LakituCloudProjectile_Functions[])(Entity*) = {
-    LakituCloudProjectile_OnTick, nullsub_539, DeleteEntity, DeleteEntity, DeleteEntity, sub_080A9CF0,
+    LakituCloudProjectile_OnTick,    LakituCloudProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
+    LakituCloudProjectile_OnGrabbed,
 };
 void (*const LakituCloudProjectile_Actions[])(Entity*) = {
     LakituCloudProjectile_Init,
