@@ -1,22 +1,27 @@
+/**
+ * @file playerItemBow.c
+ * @ingroup Items
+ *
+ * @brief Bow Player Item
+ */
 #define NENT_DEPRECATED
-#include "global.h"
 #include "asm.h"
+#include "effects.h"
 #include "entity.h"
 #include "functions.h"
-#include "effects.h"
 #include "object.h"
 #include "playeritem.h"
-#include "sound.h"
 #include "save.h"
+#include "sound.h"
 
 typedef struct {
-    Entity base;
-    u8 unk_68;
-    u8 unk_69[3];
-    u32 unk_6c;
-    u32 unk_70;
-    u32 unk_74;
-    u32 unk_78;
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x69*/ u8 unk_69[3];
+    /*0x6c*/ u32 unk_6c;
+    /*0x70*/ u32 unk_70;
+    /*0x74*/ u32 unk_74;
+    /*0x78*/ u32 unk_78;
 } PlayerItemBowEntity;
 
 typedef struct {
@@ -37,20 +42,20 @@ extern Entity* sub_08008782(Entity*, u32, s32, s32);
 extern void sub_08017744(Entity*);
 extern void ModArrows(s32);
 
-void sub_08019468(PlayerItemBowEntity*);
-void sub_08018FE4(PlayerItemBowEntity*);
-void sub_0801917C(PlayerItemBowEntity*);
-void sub_08019410(PlayerItemBowEntity*);
-void sub_08019444(PlayerItemBowEntity*);
+void sub_08019468(PlayerItemBowEntity* this);
+void PlayerItemBow_Init(PlayerItemBowEntity* this);
+void PlayerItemBow_Action1(PlayerItemBowEntity* this);
+void PlayerItemBow_Action2(PlayerItemBowEntity* this);
+void PlayerItemBow_Action3(PlayerItemBowEntity* this);
 
 void PlayerItemBow(Entity* this) {
-    static void (*const gUnk_080B3E30[])(PlayerItemBowEntity*) = {
-        sub_08018FE4,
-        sub_0801917C,
-        sub_08019410,
-        sub_08019444,
+    static void (*const PlayerItemBow_Actions[])(PlayerItemBowEntity*) = {
+        PlayerItemBow_Init,
+        PlayerItemBow_Action1,
+        PlayerItemBow_Action2,
+        PlayerItemBow_Action3,
     };
-    gUnk_080B3E30[this->action]((PlayerItemBowEntity*)this);
+    PlayerItemBow_Actions[this->action]((PlayerItemBowEntity*)this);
 }
 
 static const Hitbox gUnk_080B3E70;
@@ -66,14 +71,14 @@ static const struct_080B3E40 gUnk_080B3E40[] = {
 static const Hitbox gUnk_080B3E70 = { 0, 0, { 4, 0, 0, 0 }, 6, 4 };
 static const Hitbox gUnk_080B3E78 = { 0, 0, { 0, 0, 0, 4 }, 4, 6 };
 
-void sub_08018FE4(PlayerItemBowEntity* this) {
+void PlayerItemBow_Init(PlayerItemBowEntity* this) {
     Entity* object;
     const struct_080B3E40* ptr;
     super->action = 1;
     if (super->type != 0) {
         super->spriteSettings.draw = 1;
         super->flags |= 0x80;
-        this->unk_74 = 0x6a;
+        this->unk_74 = 106;
         super->hurtType = super->type2;
         super->spriteIndex = 0xa6;
         if (super->hurtType == 0x0e) {
@@ -114,7 +119,7 @@ void sub_08018FE4(PlayerItemBowEntity* this) {
         LoadSwapGFX(super, 1, 3);
         sub_08079BD8(super);
         if (this->unk_68 == 0xa) {
-            this->unk_78 = 0x3c;
+            this->unk_78 = 60;
             object = CreateObject(SWORD_PARTICLE, super->type, 1);
             if (object != NULL) {
                 CopyPosition(super, object);
@@ -122,11 +127,11 @@ void sub_08018FE4(PlayerItemBowEntity* this) {
         } else {
             this->unk_78 = 0;
         }
-        sub_0801917C(this);
+        PlayerItemBow_Action1(this);
     }
 }
 
-void sub_0801917C(PlayerItemBowEntity* this) {
+void PlayerItemBow_Action1(PlayerItemBowEntity* this) {
     u8 arrowCount;
     bool32 tmp2;
     s32 tmp3;
@@ -138,7 +143,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
             DeleteThisEntity();
         }
         GetNextFrame(super);
-        if (this->unk_74 < 0x18) {
+        if (this->unk_74 < 24) {
             super->spriteSettings.draw ^= 1;
         }
         LinearMoveUpdate(super);
@@ -238,7 +243,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
     }
 }
 
-void sub_08019410(PlayerItemBowEntity* this) {
+void PlayerItemBow_Action2(PlayerItemBowEntity* this) {
     if (super->timer < 0xf) {
         InitializeAnimation(super, super->animIndex);
     } else {
@@ -249,7 +254,7 @@ void sub_08019410(PlayerItemBowEntity* this) {
     }
 }
 
-void sub_08019444(PlayerItemBowEntity* this) {
+void PlayerItemBow_Action3(PlayerItemBowEntity* this) {
     GetNextFrame(super);
     LinearMoveUpdate(super);
     if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
@@ -258,7 +263,7 @@ void sub_08019444(PlayerItemBowEntity* this) {
 }
 
 void sub_08019468(PlayerItemBowEntity* this) {
-    if (super->hurtType == 0x0e) {
+    if (super->hurtType == 0xe) {
         CreateFx(super, FX_REFLECT5, 0);
     }
 }

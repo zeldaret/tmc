@@ -1,24 +1,25 @@
+/**
+ * @file playerItemHeldObject.c
+ * @ingroup Items
+ *
+ * @brief Held Object Player Item
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "functions.h"
-#include "player.h"
-#include "new_player.h"
 #include "asm.h"
 #include "effects.h"
+#include "entity.h"
 #include "functions.h"
-#include "player.h"
 #include "new_player.h"
+#include "player.h"
 #include "sound.h"
-#include "functions.h"
-#include "new_player.h"
-#include "player.h"
 
 typedef struct {
-    Entity base;
-    u8 unk_68[4];
-    u16 unk_6c;
-    u16 unk_6e;
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68[4];
+    /*0x6c*/ u16 unk_6c;
+    /*0x6e*/ u16 unk_6e;
 } PlayerItemHeldObjectEntity;
+
 extern bool32 ProcessMovement10(Entity*);
 
 typedef struct {
@@ -28,26 +29,26 @@ typedef struct {
     u8 unk3;
 } struct_gUnk_081320B8;
 
-bool32 sub_080AD32C(PlayerItemHeldObjectEntity*);
-void sub_080AD27C(PlayerItemHeldObjectEntity*);
-void sub_080ACF2C(PlayerItemHeldObjectEntity*);
-void sub_080ACFCC(PlayerItemHeldObjectEntity*);
-void sub_080AD040(PlayerItemHeldObjectEntity*);
-void sub_080AD274(PlayerItemHeldObjectEntity*);
+bool32 sub_080AD32C(PlayerItemHeldObjectEntity* this);
+void sub_080AD27C(PlayerItemHeldObjectEntity* this);
+void PlayerItemHeldObject_SubAction0(PlayerItemHeldObjectEntity* this);
+void PlayerItemHeldObject_SubAction1(PlayerItemHeldObjectEntity* this);
+void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this);
+void PlayerItemHeldObject_SubAction3(PlayerItemHeldObjectEntity* this);
 
 void PlayerItemHeldObject(Entity* this) {
-    static void (*const subActionFuncs[])(PlayerItemHeldObjectEntity*) = {
-        sub_080ACF2C,
-        sub_080ACFCC,
-        sub_080AD040,
-        sub_080AD274,
+    static void (*const PlayerItemHeldObject_SubActions[])(PlayerItemHeldObjectEntity*) = {
+        PlayerItemHeldObject_SubAction0,
+        PlayerItemHeldObject_SubAction1,
+        PlayerItemHeldObject_SubAction2,
+        PlayerItemHeldObject_SubAction3,
     };
-    subActionFuncs[this->subAction]((PlayerItemHeldObjectEntity*)this);
+    PlayerItemHeldObject_SubActions[this->subAction]((PlayerItemHeldObjectEntity*)this);
 }
 
 static const Hitbox3D gUnk_081320E4;
 
-void sub_080ACF2C(PlayerItemHeldObjectEntity* this) {
+void PlayerItemHeldObject_SubAction0(PlayerItemHeldObjectEntity* this) {
     static const struct_gUnk_081320B8 gUnk_081320B8[] = { { 0, 2, 0xe8, 0 }, { 0, 5, 0xe0, 0 }, { 0, 5, 0xf2, 0 } };
     PlayerItemHeldObjectEntity* child;
     PlayerItemHeldObjectEntity* child2;
@@ -80,7 +81,7 @@ void sub_080ACF2C(PlayerItemHeldObjectEntity* this) {
     this->unk_6e = (child->base).id;
 }
 
-void sub_080ACFCC(PlayerItemHeldObjectEntity* this) {
+void PlayerItemHeldObject_SubAction1(PlayerItemHeldObjectEntity* this) {
     Entity* child = super->child;
     if ((this->unk_6c == child->kind) || (this->unk_6e == child->id)) {
         if (child->action != 2) {
@@ -101,7 +102,7 @@ void sub_080ACFCC(PlayerItemHeldObjectEntity* this) {
     }
 }
 
-void sub_080AD040(PlayerItemHeldObjectEntity* this) {
+void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
     static const s8 gUnk_081320C4[] = {
         0, -6, 6, 0, 0, 6, -6, 0,
     };
@@ -222,7 +223,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
     }
 }
 
-void sub_080AD274(PlayerItemHeldObjectEntity* this) {
+void PlayerItemHeldObject_SubAction3(PlayerItemHeldObjectEntity* this) {
     DeleteThisEntity();
 }
 

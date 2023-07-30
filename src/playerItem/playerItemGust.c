@@ -1,9 +1,15 @@
+/**
+ * @file playerItemGust.c
+ * @ingroup Items
+ *
+ * @brief Gust Player Item
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "player.h"
-#include "functions.h"
 #include "asm.h"
+#include "entity.h"
+#include "functions.h"
 #include "object.h"
+#include "player.h"
 #include "playeritem.h"
 
 enum {
@@ -12,20 +18,21 @@ enum {
 };
 
 typedef struct {
-    Entity base;
-    u32 filler68[2];
-    u32 timer;
-    u32 offset_iter;
-    u32 unk78;
-} GustEntity;
-typedef void(GustActionFunc)(GustEntity*);
+    /*0x00*/ Entity base;
+    /*0x68*/ u32 filler68[2];
+    /*0x70*/ u32 timer;
+    /*0x74*/ u32 offset_iter;
+    /*0x78*/ u32 unk78;
+} PlayerItemGustEntity;
+
+typedef void(GustActionFunc)(PlayerItemGustEntity*);
 
 static GustActionFunc PlayerItemGust_Init;
 static GustActionFunc PlayerItemGust_Update;
 
-static void sub_080ACC78(GustEntity*);
-/*static*/ bool32 sub_080ACDB0(GustEntity*);
-static void sub_080ACECC(GustEntity*);
+static void sub_080ACC78(PlayerItemGustEntity*);
+/*static*/ bool32 sub_080ACDB0(PlayerItemGustEntity*);
+static void sub_080ACECC(PlayerItemGustEntity*);
 
 typedef struct {
     u16 bits;
@@ -50,7 +57,7 @@ extern const s8 gUnk_08126EE4[];
 // type 2: same as 1?
 // type 3: horizontal spread
 void PlayerItemGust(Entity* this) {
-    static GustActionFunc* const sActions[] = {
+    static GustActionFunc* const PlayerItemGust_Actions[] = {
         PlayerItemGust_Init,
         PlayerItemGust_Update,
     };
@@ -58,11 +65,11 @@ void PlayerItemGust(Entity* this) {
     if ((gPlayerState.field_0x1c & 0x7f) != 1) {
         DeleteThisEntity();
     }
-    sActions[this->action]((GustEntity*)this);
+    PlayerItemGust_Actions[this->action]((PlayerItemGustEntity*)this);
     this->iframes = 0;
 }
 
-static void PlayerItemGust_Init(GustEntity* this) {
+static void PlayerItemGust_Init(PlayerItemGustEntity* this) {
     super->action = GUST_UPDATE;
     super->flags2 = gPlayerEntity.flags2;
     super->direction = super->animationState << 2;
@@ -75,14 +82,14 @@ static void PlayerItemGust_Init(GustEntity* this) {
     sub_0801766C(super);
 }
 
-static void PlayerItemGust_Update(GustEntity* this) {
+static void PlayerItemGust_Update(PlayerItemGustEntity* this) {
     if (sub_080ACDB0(this) == FALSE) {
         sub_080ACC78(this);
         sub_080ACECC(this);
     }
 }
 
-static void sub_080ACC78(GustEntity* this) {
+static void sub_080ACC78(PlayerItemGustEntity* this) {
     s32 width;
     Obj11* o;
     Entity* child;
@@ -151,7 +158,7 @@ static void sub_080ACC78(GustEntity* this) {
     }
 }
 
-bool32 sub_080ACDB0(GustEntity* this) {
+bool32 sub_080ACDB0(PlayerItemGustEntity* this) {
     s32 sVar2;
     s32 sVar3;
     Entity* pEVar4;
@@ -217,7 +224,7 @@ bool32 sub_080ACDB0(GustEntity* this) {
     return 0;
 }
 
-static void sub_080ACECC(GustEntity* this) {
+static void sub_080ACECC(PlayerItemGustEntity* this) {
     Entity* entity;
 
     if (super->type < 3 && super->child == NULL && (s32)this->unk78 >= 0 && gUnk_0812AAE8[super->type] <= this->unk78) {

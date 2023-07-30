@@ -1,31 +1,46 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "functions.h"
-#include "sound.h"
+/**
+ * @file playerItemGustBig.c
+ * @ingroup Items
+ *
+ * @brief Gust Big Player Item
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
+#include "entity.h"
+#include "functions.h"
+#include "global.h"
+#include "new_player.h"
+#include "player.h"
+#include "sound.h"
 
-extern void sub_08078CD0(Entity*);
-extern void sub_08018FA0(Entity*);
-extern void sub_08018CBC(Entity*);
-extern void sub_08018DE8(Entity*);
-extern void sub_08018E68(Entity*);
-extern void sub_08018F6C(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[24];
+    /*0x80*/ u32 unk_80;
+    /*0x84*/ u32 unk_84;
+} PlayerItemGustBigEntity;
+
+extern void sub_08078CD0(Entity* this);
+extern void sub_08018FA0(Entity* this);
+extern void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this);
+extern void PlayerItemGustBig_Action1(PlayerItemGustBigEntity* this);
+extern void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this);
+extern void PlayerItemGustBig_Action3(PlayerItemGustBigEntity* this);
 
 extern u32 sub_08007DD6(u32, const u16*);
 
 extern const u8 gUnk_08003E44[];
 
-void PlayerItemGustBig(Entity* this) {
-    static void (*const gUnk_080B3DD0[])(Entity*) = {
-        sub_08018CBC,
-        sub_08018DE8,
-        sub_08018E68,
-        sub_08018F6C,
+void PlayerItemGustBig(PlayerItemGustBigEntity* this) {
+    static void (*const PlayerItemGustBig_Actions[])(PlayerItemGustBigEntity*) = {
+        PlayerItemGustBig_Init,
+        PlayerItemGustBig_Action1,
+        PlayerItemGustBig_Action2,
+        PlayerItemGustBig_Action3,
     };
-    if (this->health) {
-        this->iframes = 0;
-        gUnk_080B3DD0[this->action](this);
+    if (super->health) {
+        super->iframes = 0;
+        PlayerItemGustBig_Actions[super->action](this);
     } else {
         DeleteThisEntity();
     }
@@ -48,95 +63,95 @@ static const Hitbox gUnk_080B3E18 = { 0, 0, { 6, 3, 3, 6 }, 6, 6 };
 static const Hitbox gUnk_080B3E20 = { 0, 0, { 6, 3, 3, 6 }, 8, 8 };
 static const Hitbox gUnk_080B3E28 = { 0, 0, { 6, 3, 3, 6 }, 12, 12 };
 
-void sub_08018CBC(Entity* this) {
+void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
     u32 PVar1;
     u8 uVar2;
     Entity* pEVar3;
 
-    *(u32*)&this->cutsceneBeh = this->x.WORD = gPlayerEntity.x.WORD;
-    *(u32*)&this->field_0x80 = this->y.WORD = gPlayerEntity.y.WORD;
-    uVar2 = this->animationState = gPlayerEntity.animationState & 0xe;
-    this->direction = (u8)(uVar2 << 2);
-    this->speed = 0x400;
-    this->hitType = 0x96;
-    this->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x80;
-    this->flags2 = gPlayerEntity.flags2;
-    pEVar3 = this->child;
+    this->unk_84 = super->x.WORD = gPlayerEntity.x.WORD;
+    this->unk_80 = super->y.WORD = gPlayerEntity.y.WORD;
+    uVar2 = super->animationState = gPlayerEntity.animationState & 0xe;
+    super->direction = (u8)(uVar2 << 2);
+    super->speed = 0x400;
+    super->hitType = 0x96;
+    super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x80;
+    super->flags2 = gPlayerEntity.flags2;
+    pEVar3 = super->child;
     if (pEVar3 != NULL) {
-        this->action = 1;
-        COLLISION_OFF(this);
-        this->timer = 86;
-        this->hurtType = 0x1c;
-        this->damage = 6;
-        this->hitbox = (Hitbox*)&gUnk_080B3E18;
-        this->child->spriteOffsetX = 0;
-        this->child->spriteSettings.draw = 0;
+        super->action = 1;
+        COLLISION_OFF(super);
+        super->timer = 86;
+        super->hurtType = 0x1c;
+        super->damage = 6;
+        super->hitbox = (Hitbox*)&gUnk_080B3E18;
+        super->child->spriteOffsetX = 0;
+        super->child->spriteSettings.draw = 0;
     } else {
         if (gPlayerState.field_0x1c == 0) {
             DeleteThisEntity();
         }
-        this->action = 2;
-        this->spriteSettings.draw = 1;
-        this->spriteIndex = 0xa6;
-        this->palette.raw = 0x33;
-        this->spriteVramOffset = 0;
-        this->type = gPlayerState.gustJarSpeed - 1;
-        this->timer = gUnk_080B3DE0[this->type * 2];
-        this->damage = gUnk_080B3DE0[this->type * 2 + 1];
-        this->hurtType = 0x1b;
-        this->hitbox = (Hitbox*)gUnk_080B3DE8[this->type];
-        (u32*)gPlayerEntity.field_0x70.WORD = this;
+        super->action = 2;
+        super->spriteSettings.draw = 1;
+        super->spriteIndex = 0xa6;
+        super->palette.raw = 0x33;
+        super->spriteVramOffset = 0;
+        super->type = gPlayerState.gustJarSpeed - 1;
+        super->timer = gUnk_080B3DE0[super->type * 2];
+        super->damage = gUnk_080B3DE0[super->type * 2 + 1];
+        super->hurtType = 0x1b;
+        super->hitbox = (Hitbox*)gUnk_080B3DE8[super->type];
+        gNewPlayerEntity.unk_70 = super;
         sub_08078CD0(&gPlayerEntity);
-        (u32*)gPlayerEntity.field_0x70.WORD = pEVar3;
-        InitializeAnimation(this, this->type + 10);
-        sub_08018FA0(this);
+        gNewPlayerEntity.unk_70 = pEVar3;
+        InitializeAnimation(super, super->type + 10);
+        sub_08018FA0(super);
     }
-    sub_0801766C(this);
+    sub_0801766C(super);
 }
 
-void sub_08018DE8(Entity* this) {
+void PlayerItemGustBig_Action1(PlayerItemGustBigEntity* this) {
     u8 bVar1;
 
-    bVar1 = this->child->gustJarState & 4;
+    bVar1 = super->child->gustJarState & 4;
     if (bVar1 == 0) {
         gPlayerState.field_0x1c = bVar1;
         DeleteThisEntity();
     }
     switch (gPlayerState.field_0x1c) {
         case 0:
-            sub_08018F6C(this);
+            PlayerItemGustBig_Action3(this);
             break;
         case 5:
-            this->child->subAction = 4;
-            COLLISION_ON(this);
-            this->action = 2;
-            this->spritePriority.b0 = 2;
-            this->child->spriteSettings.draw = 1;
-            sub_08018FA0(this);
+            super->child->subAction = 4;
+            COLLISION_ON(super);
+            super->action = 2;
+            super->spritePriority.b0 = 2;
+            super->child->spriteSettings.draw = 1;
+            sub_08018FA0(super);
             break;
     }
     sub_08078CD0(&gPlayerEntity);
 }
 
-void sub_08018E68(Entity* this) {
+void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
     s32 y;
     s32 x;
-    if (this->child == NULL) {
-        GetNextFrame(this);
-        sub_08008790(this, 5);
+    if (super->child == NULL) {
+        GetNextFrame(super);
+        sub_08008790(super, 5);
     } else {
-        if ((this->child->gustJarState & 4) == 0) {
+        if ((super->child->gustJarState & 4) == 0) {
             DeleteThisEntity();
         }
-        if ((this->contactFlags & 0x80) != 0) {
-            sub_08018F6C(this);
+        if ((super->contactFlags & 0x80) != 0) {
+            PlayerItemGustBig_Action3(this);
             return;
         }
     }
-    if (this->timer-- != 0) {
-        LinearMoveUpdate(this);
+    if (super->timer-- != 0) {
+        LinearMoveUpdate(super);
 
-        switch (this->direction) {
+        switch (super->direction) {
             case DirectionNorth:
                 x = 0;
                 y = -4;
@@ -154,38 +169,38 @@ void sub_08018E68(Entity* this) {
                 y = 0;
                 break;
         }
-        if (this->child != NULL) {
-            this->child->direction = this->direction;
-            CopyPosition(this, this->child);
+        if (super->child != NULL) {
+            super->child->direction = super->direction;
+            CopyPosition(super, super->child);
         }
-        if (this->type2 == 0) {
-            sub_0800451C(this);
+        if (super->type2 == 0) {
+            sub_0800451C(super);
         }
-        if (sub_08007DD6(sub_080B1A0C(this, x, y), gUnk_080B3DF4) != 0) {
+        if (sub_08007DD6(sub_080B1A0C(super, x, y), gUnk_080B3DF4) != 0) {
             return;
         }
-        if (GetRelativeCollisionTile(this, x, y) == 0x74) {
+        if (GetRelativeCollisionTile(super, x, y) == 0x74) {
             return;
         }
-        if (sub_080040D8(this, (u8*)gUnk_08003E44, this->x.HALF.HI + x, this->y.HALF.HI + y) == 0) {
+        if (sub_080040D8(super, (u8*)gUnk_08003E44, super->x.HALF.HI + x, super->y.HALF.HI + y) == 0) {
             return;
         }
     }
 
-    if (this->child == NULL) {
-        InitializeAnimation(this, this->type + 0xd);
+    if (super->child == NULL) {
+        InitializeAnimation(super, super->type + 0xd);
     }
-    this->action++;
-    sub_08018F6C(this);
+    super->action++;
+    PlayerItemGustBig_Action3(this);
 }
 
-void sub_08018F6C(Entity* this) {
-    if (this->child != NULL) {
-        this->child->subAction = 5;
-        this->child->spriteSettings.draw = 1;
+void PlayerItemGustBig_Action3(PlayerItemGustBigEntity* this) {
+    if (super->child != NULL) {
+        super->child->subAction = 5;
+        super->child->spriteSettings.draw = 1;
     } else {
-        GetNextFrame(this);
-        if (this->frame == 0) {
+        GetNextFrame(super);
+        if (super->frame == 0) {
             return;
         }
     }
@@ -194,8 +209,8 @@ void sub_08018F6C(Entity* this) {
 
 void sub_08018FA0(Entity* this) {
     this->collisionLayer = gPlayerEntity.collisionLayer;
-    if (this->collisionLayer == 0x02) {
-        this->type2 = 0x01;
+    if (this->collisionLayer == 2) {
+        this->type2 = 1;
     }
     SoundReq(this->type + SFX_EA);
 }

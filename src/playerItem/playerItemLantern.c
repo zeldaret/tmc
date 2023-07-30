@@ -1,27 +1,33 @@
+/**
+ * @file playerItemLantern.c
+ * @ingroup Items
+ *
+ * @brief Lantern Player Item
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "functions.h"
 #include "item.h"
 #include "object.h"
+#include "player.h"
 
-void sub_08054AC8(Entity*);
-void sub_08054A60(Entity*);
+void PlayerItemLantern_Init(Entity* this);
+void PlayerItemLantern_Action1(Entity* this);
 
 void PlayerItemLantern(Entity* this) {
-    static void (*const gUnk_080FEEA8[])(Entity*) = {
-        sub_08054A60,
-        sub_08054AC8,
+    static void (*const PlayerItemLantern_Actions[])(Entity*) = {
+        PlayerItemLantern_Init,
+        PlayerItemLantern_Action1,
     };
-    gUnk_080FEEA8[this->action](this);
+    PlayerItemLantern_Actions[this->action](this);
     this->contactFlags = 0;
 }
 
-void sub_08054A60(Entity* this) {
+void PlayerItemLantern_Init(Entity* this) {
     this->flags |= (ENT_PERSIST | ENT_COLLIDE);
     this->action = 1;
     this->timer = 4;
     this->frameIndex = -1;
-    // TODO regalloc and mov 6 too early
     this->updatePriority = 6;
     this->collisionFlags = 7;
     this->flags2 = -0x80;
@@ -31,10 +37,10 @@ void sub_08054A60(Entity* this) {
     }
     sub_0801766C(this);
     LoadSwapGFX(this, 1, 3);
-    sub_08054AC8(this);
+    PlayerItemLantern_Action1(this);
 }
 
-void sub_08054AC8(Entity* this) {
+void PlayerItemLantern_Action1(Entity* this) {
     Entity* object;
     static const s8 offsets[] = { 6, -6, 7, -3, -5, 2, -7, -3 };
     this->animationState = gPlayerEntity.animationState & 0xe;
