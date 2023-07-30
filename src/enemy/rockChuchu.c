@@ -4,7 +4,7 @@
  *
  * @brief Rock Chuchu enemy
  */
-
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "player.h"
 
@@ -20,7 +20,7 @@ void RockChuchu_OnTick(Entity* this) {
 }
 
 void RockChuchu_OnCollision(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     if (this->health) {
         switch (this->contactFlags & 0x7f) {
@@ -44,18 +44,18 @@ void RockChuchu_OnCollision(Entity* this) {
             case 0x16:
             case 0x1c:
                 CreateFx(this, FX_ROCK, 0);
-                ent = CreateEnemy(CHUCHU, 1);
-                if (ent != NULL) {
-                    ent->type2 = 1;
+                entity = CreateEnemy(CHUCHU, 1);
+                if (entity != NULL) {
+                    entity->type2 = 1;
 #ifndef EU
-                    ent->iframes = -8;
+                    entity->iframes = -8;
 #endif
-                    sub_0804A4E4(this, ent);
+                    sub_0804A4E4(this, entity);
                     this->action = 2;
                     COLLISION_OFF(this);
                     this->spriteSettings.draw = 0;
                     this->direction = this->knockbackDirection;
-                    this->child = ent;
+                    this->child = entity;
                 }
         }
     } else {
@@ -97,15 +97,15 @@ void sub_08022390(Entity* this) {
 }
 
 void sub_080223E4(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
-    ent = this->child;
-    if (ent != NULL) {
-        ent->contactFlags = 0x94;
-        ent->iframes = 0x10;
+    entity = this->child;
+    if (entity != NULL) {
+        entity->contactFlags = 0x94;
+        entity->iframes = 0x10;
 #ifndef EU
-        ent->knockbackDuration = 0xc;
-        ent->knockbackDirection = this->direction;
+        entity->knockbackDuration = 0xc;
+        entity->knockbackDirection = this->direction;
 #endif
     }
 

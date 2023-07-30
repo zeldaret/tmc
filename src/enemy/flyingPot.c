@@ -6,8 +6,8 @@
  */
 #define NENT_DEPRECATED
 #include "collision.h"
-#include "functions.h"
 #include "enemy.h"
+#include "functions.h"
 #include "player.h"
 #include "room.h"
 

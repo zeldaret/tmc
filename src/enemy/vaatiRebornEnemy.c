@@ -4,9 +4,9 @@
  *
  * @brief Vaati Reborn enemy
  */
-
-#include "enemy.h"
+//#define NENT_DEPRECATED
 #include "area.h"
+#include "enemy.h"
 #include "functions.h"
 
 void VaatiRebornEnemyType0PreAction(Entity*);

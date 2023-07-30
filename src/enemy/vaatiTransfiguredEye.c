@@ -4,12 +4,12 @@
  *
  * @brief Vaati Transfigured Eye enemy
  */
-
-#include "entity.h"
+//#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
+#include "functions.h"
 #include "message.h"
 #include "physics.h"
-#include "functions.h"
 
 void sub_08045A00(Entity*);
 void sub_08045A28(Entity*);

@@ -4,11 +4,10 @@
  *
  * @brief Tree Item enemy
  */
-
-#include "global.h"
+//#define NENT_DEPRECATED
 #include "enemy.h"
-#include "object.h"
 #include "item.h"
+#include "object.h"
 
 static bool32 ShouldSpawnTreeItem(Entity*);
 

@@ -1,10 +1,15 @@
+/**
+ * @file gyorgFemaleEye.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Female Eye enemy
+ */
 #define NENT_DEPRECATED
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
-#include "player.h"
-#include "functions.h"
 #include "enemy/gyorg.h"
+#include "entity.h"
+#include "functions.h"
+#include "player.h"
 
 void GyorgFemaleEye_OnTick(GyorgFemaleEyeEntity*);
 void GyorgFemaleEye_OnCollision(GyorgFemaleEyeEntity*);

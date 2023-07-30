@@ -4,11 +4,33 @@
  *
  * @brief Mazaal Bracelet enemy
  */
-
+//#define NENT_DEPRECATED
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u32 unk_74;
+// // Overlap of 4
+//     /*0x74*/ u8 unk_74;
+//     /*0x75*/ u8 unk_75;
+    /*0x76*/ u8 unused2[2];
+    /*0x78*/ u32 unk_78;
+// // Overlap of 4
+//     /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unused3[2];
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unk_80;
+// // Overlap of 1
+//     /*0x80*/ u16 unk_80;
+    /*0x82*/ u8 unused4[2];
+    /*0x84*/ u8 unk_84;
+} MazaalBraceletEntity;
 
 void sub_0803B538(Entity*);
 u32 sub_0803B4E4(Entity*);
@@ -134,27 +156,27 @@ void MazaalBracelet_OnTick(Entity* this) {
 }
 
 void MazaalBracelet_OnCollision(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     if (this->type < 2) {
         if (this->action != 0x2b) {
             if ((0 < this->iframes) && ((this->contactFlags == 0x95 || (this->contactFlags == 0x8e)))) {
                 this->action = 0x28;
                 COLLISION_OFF(this);
-                ent = this->parent;
-                ent->field_0x7c.BYTES.byte1 = ent->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
-                ent->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | ent->field_0x80.HALF.LO;
-                ent = this->child;
-                ent->iframes = this->iframes;
-                ent = (*(Entity**)&this->field_0x74);
-                ent->iframes = this->iframes;
+                entity = this->parent;
+                entity->field_0x7c.BYTES.byte1 = entity->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
+                entity->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | entity->field_0x80.HALF.LO;
+                entity = this->child;
+                entity->iframes = this->iframes;
+                entity = (*(Entity**)&this->field_0x74);
+                entity->iframes = this->iframes;
                 SoundReq(SFX_BOSS_HIT);
             }
         } else {
-            ent = this->child;
-            ent->iframes = this->iframes;
-            ent = (*(Entity**)&this->field_0x74);
-            ent->iframes = this->iframes;
+            entity = this->child;
+            entity->iframes = this->iframes;
+            entity = (*(Entity**)&this->field_0x74);
+            entity->iframes = this->iframes;
             InitializeAnimation(this, 0x18);
             InitAnimationForceUpdate(this->child, 9);
             SoundReq(SFX_BOSS_HIT);
@@ -1357,10 +1379,10 @@ void sub_0803BA80(Entity* this) {
 }
 
 void sub_0803BA8C(Entity* this, u32 unk) {
-    u32 sVar2;
+    u32 palette;
     u32 tmp;
 
-    sVar2 = 0;
+    palette = 0;
     tmp = this->field_0x74.HALF.LO & 0xe0;
     if ((this->field_0x74.HALF.LO & 0xe0) == 0) {
         if (this->field_0x74.HALF.LO == 0) {
@@ -1368,9 +1390,9 @@ void sub_0803BA8C(Entity* this, u32 unk) {
                 this->field_0x74.HALF.HI = 0;
             }
             if (this->type == 2) {
-                sVar2 = gUnk_080CFD30[this->field_0x74.HALF.HI];
+                palette = gUnk_080CFD30[this->field_0x74.HALF.HI];
             } else {
-                sVar2 = gUnk_080CFD44[this->field_0x74.HALF.HI];
+                palette = gUnk_080CFD44[this->field_0x74.HALF.HI];
             }
         }
         this->field_0x74.HALF.LO++;
@@ -1381,14 +1403,14 @@ void sub_0803BA8C(Entity* this, u32 unk) {
         if ((tmp & 0x80) == 0) {
             this->field_0x74.HALF.LO |= 0x80;
             if ((tmp & 0x20) != 0) {
-                sVar2 = gUnk_080CFD58[this->type - 2];
+                palette = gUnk_080CFD58[this->type - 2];
             } else {
-                sVar2 = gUnk_080CFD5C[this->type - 2];
+                palette = gUnk_080CFD5C[this->type - 2];
             }
         }
     }
-    if (sVar2 != 0) {
-        ChangeObjPalette(this, sVar2);
+    if (palette != 0) {
+        ChangeObjPalette(this, palette);
         (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
         (*(Entity**)&this->parent->field_0x78)->palette.b.b4 = this->palette.b.b0;
         this->parent->child->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;

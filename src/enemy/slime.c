@@ -4,142 +4,148 @@
  *
  * @brief Slime enemy
  */
-
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "physics.h"
 #include "room.h"
 
 typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[28];
+    /*0x84*/ u8 unk_84;
+} SlimeEntity;
+
+typedef struct {
     s8 h, v;
 } PACKED PosOffset;
 
-void sub_08044FF8(Entity*);
-void Slime_OnTick(Entity*);
-void Slime_OnCollision(Entity*);
-void Slime_OnGrabbed(Entity*);
-void sub_08044FC8(Entity*);
-void sub_08044FF8(Entity*);
-void sub_08045018(Entity*);
-void sub_08045088(Entity*);
-void sub_080450A8(Entity*);
-void sub_08045178(Entity*, Entity*, int, int);
+void sub_08044FF8(SlimeEntity* this);
+void Slime_OnTick(SlimeEntity* this);
+void Slime_OnCollision(SlimeEntity* this);
+void Slime_OnGrabbed(SlimeEntity* this);
+void sub_08044FC8(SlimeEntity* this);
+void sub_08044FF8(SlimeEntity* this);
+void sub_08045018(SlimeEntity* this);
+void sub_08045088(SlimeEntity* this);
+void sub_080450A8(SlimeEntity* this);
+void sub_08045178(SlimeEntity* this, Entity*, int, int);
 
-static void (*const Slime_Functions[])(Entity*) = {
-    Slime_OnTick, Slime_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Slime_OnGrabbed,
+static void (*const Slime_Functions[])(SlimeEntity*) = {
+    Slime_OnTick, Slime_OnCollision, (void (*)(SlimeEntity*))GenericKnockback, (void (*)(SlimeEntity*))GenericDeath, (void (*)(SlimeEntity*))GenericConfused, Slime_OnGrabbed,
 };
 
-void Slime(Entity* this) {
-    EnemyFunctionHandler(this, Slime_Functions);
-    SetChildOffset(this, 0, 1, -12);
+void Slime(SlimeEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)Slime_Functions);
+    SetChildOffset(super, 0, 1, -12);
 }
 
-void Slime_OnTick(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void Slime_OnTick(SlimeEntity* this) {
+    static void (*const actionFuncs[])(SlimeEntity*) = {
         sub_08044FC8, sub_08044FF8, sub_08045018, sub_08045088, sub_080450A8,
     };
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
 }
 
-void Slime_OnCollision(Entity* this) {
-    if ((this->health != 0) && (this->cutsceneBeh.HALF.LO != this->health)) {
-        this->action = 4;
+void Slime_OnCollision(SlimeEntity* this) {
+    if ((super->health != 0) && (this->unk_84 != super->health)) {
+        super->action = 4;
     } else {
-        EnemyFunctionHandlerAfterCollision(this, Slime_Functions);
+        EnemyFunctionHandlerAfterCollision(super, Slime_Functions);
     }
 
-    if (this->confusedTime != 0) {
-        Create0x68FX(this, FX_STARS);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
 }
 
-void Slime_OnGrabbed(Entity* this) {
+void Slime_OnGrabbed(SlimeEntity* this) {
 }
 
-void sub_08044FC8(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->speed = 128;
-    sub_0804A720(this);
-    InitializeAnimation(this, 0);
+void sub_08044FC8(SlimeEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    super->speed = 128;
+    sub_0804A720(super);
+    InitializeAnimation(super, 0);
     sub_08044FF8(this);
 }
 
-void sub_08044FF8(Entity* this) {
-    this->action = 2;
-    this->timer = (Random() & 0x1F) + 30;
-    this->cutsceneBeh.HALF.LO = this->health;
+void sub_08044FF8(SlimeEntity* this) {
+    super->action = 2;
+    super->timer = (Random() & 0x1F) + 30;
+    this->unk_84 = super->health;
 }
 
-void sub_08045018(Entity* this) {
-    GetNextFrame(this);
-    if (--this->timer == 0) {
-        this->action = 3;
-        this->timer = 1;
-        if (0 < this->speed) {
-            this->timer = FixedDiv(0x1000, this->speed) >> 8;
+void sub_08045018(SlimeEntity* this) {
+    GetNextFrame(super);
+    if (--super->timer == 0) {
+        super->action = 3;
+        super->timer = 1;
+        if (0 < super->speed) {
+            super->timer = FixedDiv(0x1000, super->speed) >> 8;
         }
-        if (sub_08049FA0(this) == 0 && (Random() & 3)) {
-            this->direction = (sub_08049EE4(this) + 0xfc + (Random() & 8)) & 24;
+        if (sub_08049FA0(super) == 0 && (Random() & 3)) {
+            super->direction = (sub_08049EE4(super) + 0xfc + (Random() & 8)) & 24;
             return;
         }
-        this->direction = Random() & 24;
+        super->direction = Random() & 24;
     }
 }
 
-void sub_08045088(Entity* this) {
-    ProcessMovement0(this);
-    GetNextFrame(this);
-    if (--this->timer == 0) {
-        this->action = 1;
+void sub_08045088(SlimeEntity* this) {
+    ProcessMovement0(super);
+    GetNextFrame(super);
+    if (--super->timer == 0) {
+        super->action = 1;
     }
 }
 
 /* Split slime into new ones */
-void sub_080450A8(Entity* this) {
+void sub_080450A8(SlimeEntity* this) {
     Entity* entities[4];
-    Entity* ent;
+    Entity* entity;
     s32 count, i;
     const PosOffset* off;
     static const u8 typeEntityCount[4] = { 2, 2, 4, 2 };
     static const PosOffset gUnk_080D16D4[4] = { { 6, 0 }, { -6, 0 }, { 0, 6 }, { 0, -6 } };
 
     /* Can we create enough new entities? */
-    count = typeEntityCount[this->type];
+    count = typeEntityCount[super->type];
     if (MAX_ENTITIES + 1 - count <= gEntCount)
         return;
 
     /* Create 2-4 new MiniSlime */
     for (i = 0; i < count; i++)
-        entities[i] = CreateEnemy(MINI_SLIME, this->type);
+        entities[i] = CreateEnemy(MINI_SLIME, super->type);
 
     off = gUnk_080D16D4;
     for (i = 0; i < count; i++) {
-        ent = entities[i];
-        ent->child = entities[(i + 1) % count];
-        ent->parent = entities[(i + count - 1) % count];
-        ent->type2 = 1;
-        ent->z.HALF.HI = 0;
-        ent->iframes = -0x10;
+        entity = entities[i];
+        entity->child = entities[(i + 1) % count];
+        entity->parent = entities[(i + count - 1) % count];
+        entity->type2 = 1;
+        entity->z.HALF.HI = 0;
+        entity->iframes = -0x10;
 
         /* Set MiniSlime offset relative to killed slime. */
-        sub_08045178(this, ent, off->h, off->v);
+        sub_08045178(this, entity, off->h, off->v);
         off++;
     }
 
-    ent = CreateFx(this, FX_DEATH, 0);
-    if (ent != NULL)
-        CopyPosition(this, ent);
+    entity = CreateFx(super, FX_DEATH, 0);
+    if (entity != NULL)
+        CopyPosition(super, entity);
 
-    DeleteEntity(this);
+    DeleteEntity(super);
 }
 
-void sub_08045178(Entity* this, Entity* child, int h, int v) {
+void sub_08045178(SlimeEntity* this, Entity* child, int h, int v) {
     int x, y;
 
     if (child == NULL)
         return;
 
-    sub_0804A4E4(this, child);
+    sub_0804A4E4(super, child);
     if (sub_080B1AF0(child, h, v))
         return;
 

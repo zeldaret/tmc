@@ -4,9 +4,7 @@
  *
  * @brief Mulldozer enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
 #include "enemy.h"
 

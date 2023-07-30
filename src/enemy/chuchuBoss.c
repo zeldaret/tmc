@@ -1,14 +1,13 @@
-#define NENT_DEPRECATED
 /**
  * @file chuchuBoss.c
  * @ingroup Enemies
  *
  * @brief Chuchu Boss enemy
  */
-#include "global.h"
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 
 typedef struct {
     u8 unk_00;

@@ -4,11 +4,9 @@
  *
  * @brief Wizzrobe Fire enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
-#include "enemy.h"
 #include "enemy/wizzrobe.h"
+#include "enemy.h"
 #include "functions.h"
 
 extern void (*const WizzrobeFire_Functions[])(WizzrobeEntity*);

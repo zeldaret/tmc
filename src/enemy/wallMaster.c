@@ -4,7 +4,7 @@
  *
  * @brief Wall Master enemy
  */
-
+//#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy.h"
 #include "functions.h"
@@ -70,14 +70,14 @@ void sub_0802A534(Entity* this) {
     if (this->field_0x78.HWORD) {
         this->field_0x78.HWORD--;
     } else if (this->field_0x7a.HWORD == 0) {
-        Entity* ent = sub_08049DF4(1);
-        if (ent != NULL) {
+        Entity* entity = sub_08049DF4(1);
+        if (entity != NULL) {
             this->action = 2;
             this->timer = 90;
             COLLISION_ON(this);
             this->spriteSettings.draw = 3;
-            this->x.HALF.HI = ent->x.HALF.HI;
-            this->y.HALF.HI = ent->y.HALF.HI;
+            this->x.HALF.HI = entity->x.HALF.HI;
+            this->y.HALF.HI = entity->y.HALF.HI;
             this->z.HALF.HI = -0x80;
             this->spritePriority.b1 = 1;
             this->spriteSettings.shadow = 2;

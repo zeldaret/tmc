@@ -4,10 +4,10 @@
  *
  * @brief Water Drop enemy
  */
-
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "screen.h"
 #include "object.h"
+#include "screen.h"
 #include "structures.h"
 
 void sub_0802A39C(Entity*);
@@ -22,7 +22,7 @@ void WaterDrop(Entity* this) {
 }
 
 void sub_0802A250(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     this->action = 1;
     this->timer = 0;
@@ -33,9 +33,9 @@ void sub_0802A250(Entity* this) {
     InitializeAnimation(this, 0);
     UpdateSpriteForCollisionLayer(this);
 
-    ent = CreateObject(WATER_DROP_OBJECT, 0, 0);
-    if (ent != NULL) {
-        ent->parent = this;
+    entity = CreateObject(WATER_DROP_OBJECT, 0, 0);
+    if (entity != NULL) {
+        entity->parent = this;
     }
 }
 

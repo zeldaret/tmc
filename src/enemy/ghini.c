@@ -4,12 +4,10 @@
  *
  * @brief Ghini enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
+#include "area.h"
 #include "enemy.h"
 #include "functions.h"
-#include "area.h"
 #include "physics.h"
 
 typedef struct {

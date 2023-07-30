@@ -1,9 +1,14 @@
+/**
+ * @file gyorgChild.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Child enemy
+ */
 #define NENT_DEPRECATED
-#include "global.h"
-#include "room.h"
 #include "asm.h"
-#include "functions.h"
 #include "enemy/gyorg.h"
+#include "functions.h"
+#include "room.h"
 
 void GyorgChild_OnTick(GyorgChildEntity*);
 void GyorgChild_OnCollision(GyorgChildEntity*);

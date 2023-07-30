@@ -4,9 +4,9 @@
  *
  * @brief Moldorm enemy
  */
-
-#include "enemy.h"
+//#define NENT_DEPRECATED
 #include "collision.h"
+#include "enemy.h"
 #include "functions.h"
 
 void sub_08022EAC(Entity*);

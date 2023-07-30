@@ -4,12 +4,12 @@
  *
  * @brief Vaati Ball enemy
  */
-
-#include "entity.h"
+//#define NENT_DEPRECATED
 #include "enemy.h"
-#include "player.h"
-#include "object.h"
+#include "entity.h"
 #include "functions.h"
+#include "object.h"
+#include "player.h"
 
 typedef struct {
     s8 h, v;

@@ -4,7 +4,7 @@
  *
  * @brief Vaati Arm enemy
  */
-
+//#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy.h"
 #include "functions.h"
@@ -866,7 +866,7 @@ void sub_080432A8(Entity* this) {
     s32 iVar3;
     s32 i;
     VaatiArm_HeapStruct1* hs;
-    Entity* ent;
+    Entity* entity;
     i = 3;
     iVar3 = 0;
 
@@ -884,10 +884,10 @@ void sub_080432A8(Entity* this) {
     hs->unk04.HALF.HI -= 2;
 
     for (i = 0; i < 4; i++) {
-        ent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-        if (ent->z.HALF.HI < 4) {
-            COLLISION_ON(ent);
-            ent->spriteSettings.draw = 1;
+        entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
+        if (entity->z.HALF.HI < 4) {
+            COLLISION_ON(entity);
+            entity->spriteSettings.draw = 1;
         }
     }
 
@@ -1205,11 +1205,11 @@ void sub_0804393C(Entity* this) {
     s32 uVar6;
     s32 iVar7;
     VaatiArm_HeapStruct1* hs;
-    Entity* ent;
+    Entity* entity;
 
-    ent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[0];
-    if (ent->field_0x7c.BYTES.byte0 != 0 && ent->field_0x7c.BYTES.byte1 <= this->type) {
-        uVar2 = gUnk_080D1362[this->type * 16 + ((ent->field_0x7c.BYTES.byte0 >> 3) & 0xf)];
+    entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[0];
+    if (entity->field_0x7c.BYTES.byte0 != 0 && entity->field_0x7c.BYTES.byte1 <= this->type) {
+        uVar2 = gUnk_080D1362[this->type * 16 + ((entity->field_0x7c.BYTES.byte0 >> 3) & 0xf)];
     } else {
         uVar2 = 0;
     }

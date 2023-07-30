@@ -4,15 +4,13 @@
  *
  * @brief Gyorg Male enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
+#include "effects.h"
 #include "enemy.h"
-#include "player.h"
+#include "enemy/gyorg.h"
 #include "fileselect.h"
 #include "functions.h"
-#include "effects.h"
-#include "enemy/gyorg.h"
+#include "player.h"
 
 // todo: wrong types
 extern void sub_080A1D70(Entity*, u32);

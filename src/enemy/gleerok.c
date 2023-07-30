@@ -1,10 +1,16 @@
+/**
+ * @file gleerok.c
+ * @ingroup Enemies
+ *
+ * @brief Gleerok enemy
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
 #include "enemy.h"
-#include "player.h"
-#include "screen.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
+#include "player.h"
+#include "screen.h"
 
 typedef struct {
     union SplitHWord unk0;
@@ -19,7 +25,7 @@ typedef struct {
     /*0x2e*/ u16 filler_2e;
     /*0x30*/ u8 unk_30[6];
     /*0x36*/ u8 filler_36[0x2];
-    /*0x38*/ Entity* ent;
+    /*0x38*/ Entity* entity1;
     /*0x3c*/ Entity* entities[5];
     /*0x50*/ Entity* ent2;
 } Gleerok_HeapStruct;
@@ -485,7 +491,7 @@ void sub_0802D714(GleerokEntity* this) {
     super->child = enemy;
     if (enemy) {
         enemy->parent = super;
-        heap->ent = super->child;
+        heap->entity1 = super->child;
         ((GleerokEntity*)(super->child))->unk_84 = heap;
     }
 
@@ -612,7 +618,7 @@ void sub_0802D86C(GleerokEntity* this) {
             super->child = enemy;
             if (enemy) {
                 enemy->parent = super->parent;
-                this->unk_84->ent = super->child;
+                this->unk_84->entity1 = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
 
@@ -633,7 +639,7 @@ void sub_0802D86C(GleerokEntity* this) {
             if (enemy) {
                 enemy->parent = super->parent;
                 super->timer = this->unk_84->filler[0].unk0.HALF.HI;
-                this->unk_84->ent = super->child;
+                this->unk_84->entity1 = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
 
@@ -689,7 +695,7 @@ void sub_0802D86C(GleerokEntity* this) {
             super->child = CreateEnemy(GLEEROK, 4);
             if (super->child) {
                 super->child->parent = super->parent;
-                this->unk_84->ent = super->child;
+                this->unk_84->entity1 = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
                 CopyPosition(super, ((volatile Entity*)super)->child);
                 DeleteThisEntity();
@@ -1097,7 +1103,7 @@ void sub_0802E300(GleerokEntity* this) {
     u32 index;
     Gleerok_HeapStruct2* ptr;
     u8* ptr2;
-    Entity* ent;
+    Entity* entity;
     Gleerok_HeapStruct* heap;
     if ((this->unk_79 & 0x80) == 0) {
         this->unk_7c.HALF.LO--;
@@ -1144,11 +1150,11 @@ void sub_0802E300(GleerokEntity* this) {
         super->type2 = 0;
         *ptr2 = 0;
         InitializeAnimation(super, 0x4d);
-        ent = CreateEnemy(GLEEROK, 5);
-        super->child = ent;
+        entity = CreateEnemy(GLEEROK, 5);
+        super->child = entity;
         if (super->child != NULL) {
             super->child->parent = super;
-            heap->ent = super->child;
+            heap->entity1 = super->child;
             ((GleerokEntity*)super->child)->unk_84 = heap;
         }
 
@@ -1368,7 +1374,7 @@ void sub_0802E7E4(Gleerok_HeapStruct* this) {
                 this->entities[i + 1]->spritePriority.b0 = bVar6;
             }
         }
-        this->ent->spritePriority.b0 = 0;
+        this->entity1->spritePriority.b0 = 0;
     } else {
         bVar6 = 5;
 
@@ -1388,7 +1394,7 @@ void sub_0802E7E4(Gleerok_HeapStruct* this) {
                 this->entities[i + 1]->spritePriority.b0 = bVar6;
             }
         }
-        this->ent->spritePriority.b0 = 6;
+        this->entity1->spritePriority.b0 = 6;
     }
 }
 

@@ -1,3 +1,9 @@
+/**
+ * @file gyorgFemale.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Female enemy
+ */
 #define NENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
@@ -51,32 +57,32 @@ void GyorgFemale(Entity* this) {
 }
 
 void GyorgFemale_Setup(GyorgFemaleEntity* this) {
-    Entity* tmp;
+    Entity* entity;
     if (gEntCount > 0x3d)
         return;
-    tmp = CreateProjectile(GYORG_TAIL);
-    tmp->type = 0;
-    tmp->parent = super;
-    ((GyorgHeap*)super->myHeap)->tail = (GenericEntity*)tmp;
-    tmp = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
-    tmp->parent = super;
-    ((GyorgHeap*)super->myHeap)->mouth = (GyorgFemaleMouthEntity*)tmp;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 0);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 1);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 2);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 3);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 4);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 5);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 6);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 7);
-    tmp->parent = super;
+    entity = CreateProjectile(GYORG_TAIL);
+    entity->type = 0;
+    entity->parent = super;
+    ((GyorgHeap*)super->myHeap)->tail = (GenericEntity*)entity;
+    entity = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
+    entity->parent = super;
+    ((GyorgHeap*)super->myHeap)->mouth = (GyorgFemaleMouthEntity*)entity;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 0);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 1);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 2);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 3);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 4);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 5);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 6);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 7);
+    entity->parent = super;
     super->action = 1;
     super->spriteOrientation.flipY = 2;
     super->spriteRendering.b3 = 2;

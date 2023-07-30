@@ -4,9 +4,9 @@
  *
  * @brief Hanging Seed enemy
  */
-
-#include "entity.h"
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const HangingSeed_Functions[])(Entity*);

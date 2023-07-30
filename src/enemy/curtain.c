@@ -1,3 +1,10 @@
+/**
+ * @file curtain.c
+ * @ingroup Enemies
+ *
+ * @brief Curtain enemy
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 

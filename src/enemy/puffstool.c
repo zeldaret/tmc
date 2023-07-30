@@ -4,10 +4,30 @@
  *
  * @brief Puffstool enemy
  */
-
+//#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+    /*0x7c*/ u8 unk_7c;
+// // Overlap of 1
+//     /*0x7c*/ u16 unk_7c;
+// Overlap of 1
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unused2[1];
+    /*0x84*/ u16 unk_84;
+    /*0x86*/ u16 unk_86;
+} PuffstoolEntity;
 
 extern u8 gUnk_080B3E80[];
 
@@ -83,10 +103,10 @@ void Puffstool_OnCollide(Entity* this) {
             break;
         default:
             if (this->hitType == 0x82 && this->iframes < 0) {
-                Entity* ent = CreateObject(DIRT_PARTICLE, 2, 0);
-                if (ent != NULL) {
-                    ent->spritePriority.b0 = 3;
-                    CopyPosition(this, ent);
+                Entity* entity = CreateObject(DIRT_PARTICLE, 2, 0);
+                if (entity != NULL) {
+                    entity->spritePriority.b0 = 3;
+                    CopyPosition(this, entity);
                 }
                 EnqueueSFX(SFX_186);
             }
@@ -299,12 +319,12 @@ void sub_08025514(Entity* this) {
 }
 
 void sub_08025554(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL) {
         sub_080256B4(this);
     } else {
         if ((this->timer & 3) == 0) {
-            this->direction = GetFacingDirection(ent, this);
+            this->direction = GetFacingDirection(entity, this);
         }
         sub_08025C44(this);
         GetNextFrame(this);
@@ -319,8 +339,8 @@ void sub_08025554(Entity* this) {
 }
 
 void sub_080255AC(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL) {
         sub_080256B4(this);
     } else {
         if (this->field_0x80.HALF.HI != 0) {
@@ -338,7 +358,7 @@ void sub_080255AC(Entity* this) {
             }
             tmp -= 7;
 
-            this->direction = (GetFacingDirection(ent, this) + tmp) & 0x1f;
+            this->direction = (GetFacingDirection(entity, this) + tmp) & 0x1f;
         }
 
         if (this->field_0x78.HWORD == 0) {
@@ -437,15 +457,15 @@ bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
 }
 
 bool32 sub_080258C4(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL) {
         return FALSE;
     } else {
         s32 iVar4;
         s32 iVar1;
-        iVar4 = ent->x.HALF.HI - this->x.HALF.HI;
+        iVar4 = entity->x.HALF.HI - this->x.HALF.HI;
         iVar4 = iVar4 * iVar4;
-        iVar1 = ent->y.HALF.HI - this->y.HALF.HI;
+        iVar1 = entity->y.HALF.HI - this->y.HALF.HI;
         iVar1 = iVar1 * iVar1;
         iVar4 = iVar4 + iVar1;
         if (this->cutsceneBeh.HWORD == 0 && this->field_0x80.HALF.HI == 0 && 0x400 >= iVar4) {
@@ -522,21 +542,21 @@ bool32 sub_08025AB8(u32 tile, u32 layer) {
 }
 
 void sub_08025AE8(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
-    ent = CreateFx(this, FX_BROWN_SMOKE, 0);
-    if (ent != NULL) {
-        ent->y.WORD--;
+    entity = CreateFx(this, FX_BROWN_SMOKE, 0);
+    if (entity != NULL) {
+        entity->y.WORD--;
     }
 
-    ent = CreateFx(this, FX_BROWN_SMOKE_LARGE, 0);
-    if (ent != NULL) {
-        ent->y.WORD++;
+    entity = CreateFx(this, FX_BROWN_SMOKE_LARGE, 0);
+    if (entity != NULL) {
+        entity->y.WORD++;
     }
 }
 
 void sub_08025B18(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     s32 x = this->x.HALF.HI - gRoomControls.origin_x;
     s32 y = this->y.HALF.HI - gRoomControls.origin_y;
@@ -548,25 +568,25 @@ void sub_08025B18(Entity* this) {
     for (; i < 9; i++, offset += 2) {
         sub_08025AB8((((x + offset[0]) >> 4) & 0x3fU) | ((((y + offset[1]) >> 4) & 0x3fU) << 6), layer);
 
-        ent = CreateObject(DIRT_PARTICLE, 2, 0);
-        if (ent != NULL) {
-            PositionRelative(this, ent, Q_16_16(offset[0]), Q_16_16(offset[1]));
-            ent->x.HALF.HI &= -0x10;
-            ent->x.HALF.HI += 8;
-            ent->y.HALF.HI &= -0x10;
-            ent->y.HALF.HI += 8;
-            ent->z.HALF.HI = -1;
+        entity = CreateObject(DIRT_PARTICLE, 2, 0);
+        if (entity != NULL) {
+            PositionRelative(this, entity, Q_16_16(offset[0]), Q_16_16(offset[1]));
+            entity->x.HALF.HI &= -0x10;
+            entity->x.HALF.HI += 8;
+            entity->y.HALF.HI &= -0x10;
+            entity->y.HALF.HI += 8;
+            entity->z.HALF.HI = -1;
         }
     }
 }
 
 void sub_08025BD4(Entity* this) {
     if (this->field_0x82.HALF.LO && (this->frame & 1) == 0) {
-        Entity* ent = CreateObject(DIRT_PARTICLE, 0, 0);
-        if (ent != NULL) {
-            PositionRelative(this, ent, Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 0]),
+        Entity* entity = CreateObject(DIRT_PARTICLE, 0, 0);
+        if (entity != NULL) {
+            PositionRelative(this, entity, Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 0]),
                              Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 1]));
-            ent->z.HALF.HI = -10;
+            entity->z.HALF.HI = -10;
         }
     }
 }

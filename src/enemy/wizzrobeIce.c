@@ -4,11 +4,9 @@
  *
  * @brief Wizzrobe Ice enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
-#include "enemy.h"
 #include "enemy/wizzrobe.h"
+#include "enemy.h"
 #include "functions.h"
 #include "object.h"
 

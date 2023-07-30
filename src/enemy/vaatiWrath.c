@@ -4,11 +4,11 @@
  *
  * @brief Vaati Wrath enemy
  */
-
+//#define NENT_DEPRECATED
 #include "enemy.h"
-#include "object.h"
-#include "message.h"
 #include "functions.h"
+#include "message.h"
+#include "object.h"
 #include "save.h"
 #include "screen.h"
 

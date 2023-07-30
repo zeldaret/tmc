@@ -4,58 +4,66 @@
  *
  * @brief Lakitu Cloud enemy
  */
-
-#include "global.h"
+#define NENT_DEPRECATED
 #include "asm.h"
-#include "entity.h"
-#include "player.h"
 #include "effects.h"
 #include "enemy.h"
-#include "physics.h"
-#include "room.h"
+#include "entity.h"
 #include "object.h"
+#include "physics.h"
+#include "player.h"
+#include "room.h"
 
-extern void (*const LakituCloud_Functions[6])(Entity*);
-extern void (*const gUnk_080D0430[3])(Entity*);
-extern void (*const gUnk_080D043C[3])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u8 unused2[2];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+} LakituCloudEntity;
 
-void sub_0803CE14(Entity*);
-void sub_0803CE3C(Entity*);
+extern void (*const LakituCloud_Functions[6])(LakituCloudEntity*);
+extern void (*const gUnk_080D0430[3])(LakituCloudEntity*);
+extern void (*const gUnk_080D043C[3])(LakituCloudEntity*);
 
-void LakituCloud(Entity* this) {
-    LakituCloud_Functions[GetNextFunction(this)](this);
+void sub_0803CE14(LakituCloudEntity*);
+void sub_0803CE3C(LakituCloudEntity*);
+
+void LakituCloud(LakituCloudEntity* this) {
+    LakituCloud_Functions[GetNextFunction(super)](this);
 }
 
-void LakituCloud_OnTick(Entity* this) {
-    gUnk_080D0430[this->action](this);
+void LakituCloud_OnTick(LakituCloudEntity* this) {
+    gUnk_080D0430[super->action](this);
 }
 
-void LakituCloud_OnKnockback(Entity* this) {
-    this->knockbackDuration = 0;
+void LakituCloud_OnKnockback(LakituCloudEntity* this) {
+    super->knockbackDuration = 0;
     LakituCloud_OnTick(this);
 }
 
-void LakituCloud_OnGrabbed(Entity* this) {
-    if (!sub_0806F520(this)) {
-        if (this->subAction == 2) {
+void LakituCloud_OnGrabbed(LakituCloudEntity* this) {
+    if (!sub_0806F520(super)) {
+        if (super->subAction == 2) {
             sub_0803CE3C(this);
         }
     } else {
-        gUnk_080D043C[this->subAction](this);
+        gUnk_080D043C[super->subAction](this);
     }
 }
 
-void sub_0803CD2C(Entity* this) {
-    this->subAction = 1;
-    this->gustJarTolerance = 0x3c;
+void sub_0803CD2C(LakituCloudEntity* this) {
+    super->subAction = 1;
+    super->gustJarTolerance = 0x3c;
 }
 
-void sub_0803CD38(Entity* this) {
-    sub_0806F4E8(this);
+void sub_0803CD38(LakituCloudEntity* this) {
+    sub_0806F4E8(super);
 }
 
-void sub_0803CD40(Entity* this) {
-    if (!sub_0806F3E4(this)) {
+void sub_0803CD40(LakituCloudEntity* this) {
+    if (!sub_0806F3E4(super)) {
         return;
     }
 
@@ -67,101 +75,103 @@ void sub_0803CD40(Entity* this) {
     sub_0803CE3C(this);
 }
 
-void sub_0803CD6C(Entity* this) {
+void sub_0803CD6C(LakituCloudEntity* this) {
     Entity* lakitu;
 
-    this->action = 1;
-    this->z.HALF.HI = -2;
+    super->action = 1;
+    super->z.HALF.HI = -2;
 
     // Set parent to lakitu
-    lakitu = GetCurrentRoomProperty(this->type);
-    this->child = lakitu;
-    this->parent = lakitu;
+    lakitu = GetCurrentRoomProperty(super->type);
+    super->child = lakitu;
+    super->parent = lakitu;
 
-    this->field_0x78.HWORD = this->x.HALF.HI;
-    this->field_0x7a.HWORD = this->y.HALF.HI;
+    this->unk_78 = super->x.HALF.HI;
+    this->unk_7a = super->y.HALF.HI;
 
-    InitAnimationForceUpdate(this, 4);
+    InitAnimationForceUpdate(super, 4);
 
     sub_0803CE14(this);
 }
 
-void sub_0803CDA8(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_0803CDA8(LakituCloudEntity* this) {
+    UpdateAnimationSingleFrame(super);
 
-    if ((this->direction & 0x80) == 0) {
-        LinearMoveUpdate(this);
+    if ((super->direction & 0x80) == 0) {
+        LinearMoveUpdate(super);
     }
 
-    if (--this->field_0x74.HWORD << 0x10 == 0) {
+    if (--this->unk_74 << 0x10 == 0) {
         sub_0803CE14(this);
     }
 }
 
-void sub_0803CDD8(Entity* this) {
+void sub_0803CDD8(LakituCloudEntity* this) {
     u8 one;
     u8 draw;
 
-    draw = this->spriteSettings.draw;
+    draw = super->spriteSettings.draw;
     one = 1;
-    this->spriteSettings.draw = draw ^ one;
+    super->spriteSettings.draw = draw ^ one;
 
-    this->timer--;
+    super->timer--;
 
-    if (this->timer == 0) {
-        this->action = 1;
+    if (super->timer == 0) {
+        super->action = 1;
 
-        COLLISION_ON(this);
+        COLLISION_ON(super);
 
-        this->spriteSettings.draw = one;
+        super->spriteSettings.draw = one;
     }
 }
 
-void sub_0803CE14(Entity* this) {
+void sub_0803CE14(LakituCloudEntity* this) {
     u8 direction;
 
-    UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
+    UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
-    direction = this->direction;
+    direction = super->direction;
     if (direction & 0x80) {
         return;
     }
 
     direction = direction / 8 + 4;
 
-    InitAnimationForceUpdate(this, direction);
+    InitAnimationForceUpdate(super, direction);
 }
 
-void sub_0803CE3C(Entity* this) {
-    CreateFx(this, FX_DEATH, 0);
+void sub_0803CE3C(LakituCloudEntity* this) {
+    CreateFx(super, FX_DEATH, 0);
 
-    this->action = 2;
-    this->timer = 60;
+    super->action = 2;
+    super->timer = 60;
 
-    COLLISION_OFF(this);
+    COLLISION_OFF(super);
 
-    this->gustJarState &= 0xfb;
+    super->gustJarState &= 0xfb;
 
-    this->x.HALF.HI = this->field_0x78.HWORD;
-    this->y.HALF.HI = this->field_0x7a.HWORD;
+    super->x.HALF.HI = this->unk_78;
+    super->y.HALF.HI = this->unk_7a;
 
-    this->child = this->parent;
+    super->child = super->parent;
 
     sub_0803CE14(this);
 }
 
-void (*const LakituCloud_Functions[])(Entity*) = {
+void (*const LakituCloud_Functions[])(LakituCloudEntity*) = {
     LakituCloud_OnTick, LakituCloud_OnTick, LakituCloud_OnKnockback,
-    GenericDeath,       GenericConfused,    LakituCloud_OnGrabbed,
+    (void (*)(LakituCloudEntity*))
+GenericDeath,       (void (*)(LakituCloudEntity*))
+GenericConfused,    LakituCloud_OnGrabbed,
 };
 
-void (*const gUnk_080D0430[])(Entity*) = {
+void (*const gUnk_080D0430[])(LakituCloudEntity*) = {
     sub_0803CD6C,
     sub_0803CDA8,
     sub_0803CDD8,
 };
 
-void (*const gUnk_080D043C[])(Entity*) = {
+void (*const gUnk_080D043C[])(LakituCloudEntity*) = {
     sub_0803CD2C,
     sub_0803CD38,
     sub_0803CD40,

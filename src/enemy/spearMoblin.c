@@ -4,7 +4,7 @@
  *
  * @brief Spear Moblin enemy
  */
-
+//#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 
@@ -196,10 +196,10 @@ void sub_08028488(Entity* this) {
 }
 
 void sub_08028528(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
+    Entity* entity = sub_08049DF4(1);
     const Hitbox* box;
 
-    if (ent == NULL) {
+    if (entity == NULL) {
         this->subtimer = 0;
         sub_08028728(this);
     } else {
@@ -218,7 +218,7 @@ void sub_08028528(Entity* this) {
             if (++this->timer == 0x20) {
                 u32 direction;
                 this->timer = 0;
-                direction = GetFacingDirection(this, ent);
+                direction = GetFacingDirection(this, entity);
                 if (sub_08028828(this->direction, direction)) {
                     this->direction = direction;
                 }
@@ -282,13 +282,13 @@ void sub_08028604(Entity* this) {
 
 bool32 sub_080286CC(Entity* this) {
     if (this->field_0x80.HALF.HI == 0) {
-        Entity* ent = sub_08049DF4(1);
-        if (ent != NULL) {
-            if (this->field_0x82.HALF.LO == 2 && sub_0806FC80(this, ent, 0x30))
+        Entity* entity = sub_08049DF4(1);
+        if (entity != NULL) {
+            if (this->field_0x82.HALF.LO == 2 && sub_0806FC80(this, entity, 0x30))
                 return TRUE;
 
-            if (sub_0806FC80(this, ent, 0x40) &&
-                DirectionRoundUp(GetFacingDirection(this, ent)) >> 2 == this->animationState)
+            if (sub_0806FC80(this, entity, 0x40) &&
+                DirectionRoundUp(GetFacingDirection(this, entity)) >> 2 == this->animationState)
                 return TRUE;
         }
     }
@@ -386,13 +386,13 @@ bool32 sub_080288A4(Entity* this) {
 }
 
 void sub_080288C0(Entity* this) {
-    Entity* ent = this->child;
-    if ((ent != NULL) && (ent->contactFlags & 0x80)) {
-        this->knockbackDirection = ent->knockbackDirection;
-        this->iframes = -ent->iframes;
-        this->knockbackSpeed = ent->knockbackSpeed;
-        this->knockbackDuration = ent->knockbackDuration;
-        ent->knockbackDuration = 0;
+    Entity* entity = this->child;
+    if ((entity != NULL) && (entity->contactFlags & 0x80)) {
+        this->knockbackDirection = entity->knockbackDirection;
+        this->iframes = -entity->iframes;
+        this->knockbackSpeed = entity->knockbackSpeed;
+        this->knockbackDuration = entity->knockbackDuration;
+        entity->knockbackDuration = 0;
     }
 }
 

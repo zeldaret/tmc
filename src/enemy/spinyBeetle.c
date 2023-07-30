@@ -1,6 +1,12 @@
+/**
+ * @file spinyBeetle.c
+ * @ingroup Enemies
+ *
+ * @brief Spiny Beetle enemy
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
 

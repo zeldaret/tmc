@@ -4,10 +4,10 @@
  *
  * @brief Vaati Transfigured enemy
  */
-
+//#define NENT_DEPRECATED
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 
 void sub_080409B0(Entity*);
 void sub_080408EC(Entity*);

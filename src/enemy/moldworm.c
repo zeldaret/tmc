@@ -4,7 +4,7 @@
  *
  * @brief Moldworm enemy
  */
-
+//#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"

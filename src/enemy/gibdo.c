@@ -4,12 +4,10 @@
  *
  * @brief Gibdo enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 
 typedef struct {
     Entity base;
@@ -409,23 +407,23 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
 }
 
 void Gibdo_MoveObjectsToStalfos(GibdoEntity* this, Entity* that) {
-    Entity* ent = this->field_0x80;
+    Entity* entity = this->field_0x80;
 
-    if (ent != NULL) {
-        ent->timer = 15;
-        ent->parent = that;
+    if (entity != NULL) {
+        entity->timer = 15;
+        entity->parent = that;
     }
 
-    ent = this->field_0x84;
-    if (ent != NULL) {
-        ent->timer = 15;
-        ent->parent = that;
+    entity = this->field_0x84;
+    if (entity != NULL) {
+        entity->timer = 15;
+        entity->parent = that;
     }
 
-    ent = super->child;
-    if (ent != NULL) {
-        ent->timer = 15;
-        ent->parent = that;
+    entity = super->child;
+    if (entity != NULL) {
+        entity->timer = 15;
+        entity->parent = that;
     }
 }
 

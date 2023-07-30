@@ -1,8 +1,13 @@
+/**
+ * @file gyorgFemaleMouth.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Female Mouth enemy
+ */
 #define NENT_DEPRECATED
-#include "global.h"
+#include "enemy/gyorg.h"
 #include "player.h"
 #include "room.h"
-#include "enemy/gyorg.h"
 
 extern const Hitbox gUnk_080D28DC;
 extern const Hitbox gUnk_080D28E4;

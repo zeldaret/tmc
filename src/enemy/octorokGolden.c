@@ -1,6 +1,13 @@
+/**
+ * @file octorokGolden.c
+ * @ingroup Enemies
+ *
+ * @brief Golden Octorock enemy
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
-#include "map.h"
 #include "enemy.h"
+#include "map.h"
 #include "player.h"
 #include "item.h"
 

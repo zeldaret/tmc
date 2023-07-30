@@ -1,12 +1,18 @@
+/**
+ * @file dust.c
+ * @ingroup Enemies
+ *
+ * @brief Dust enemy
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "enemy.h"
-#include "hitbox.h"
-#include "player.h"
-#include "physics.h"
-#include "room.h"
 #include "asm.h"
+#include "enemy.h"
+#include "entity.h"
+#include "hitbox.h"
 #include "object.h"
+#include "physics.h"
+#include "player.h"
+#include "room.h"
 
 typedef struct {
     Entity base;

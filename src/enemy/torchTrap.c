@@ -1,9 +1,15 @@
+/**
+ * @file torchTrap.c
+ * @ingroup Enemies
+ *
+ * @brief Torch Trap enemy
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
 #include "enemy.h"
-#include "room.h"
+#include "entity.h"
 #include "physics.h"
 #include "player.h"
+#include "room.h"
 
 typedef struct {
     Entity base;

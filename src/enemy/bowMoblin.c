@@ -4,11 +4,9 @@
  *
  * @brief Bow Moblin enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {
@@ -270,16 +268,16 @@ void sub_0803C4B0(BowMoblinEntity* this) {
 
 bool32 sub_0803C568(BowMoblinEntity* this) {
     if (this->unk_0x81 == 0) {
-        Entity* ent = sub_08049DF4(1);
-        if (ent != NULL) {
+        Entity* entity = sub_08049DF4(1);
+        if (entity != NULL) {
             if (this->unk_0x82 == 2) {
-                if (sub_0806FC80(super, ent, 0x30)) {
+                if (sub_0806FC80(super, entity, 0x30)) {
                     return TRUE;
                 }
             }
 
-            if (sub_0806FC80(super, ent, 0x40)) {
-                u32 direction = (GetFacingDirection(super, ent) + 4) & 0x18;
+            if (sub_0806FC80(super, entity, 0x40)) {
+                u32 direction = (GetFacingDirection(super, entity) + 4) & 0x18;
                 direction = direction >> 2;
                 if (direction == super->animationState) {
                     return TRUE;

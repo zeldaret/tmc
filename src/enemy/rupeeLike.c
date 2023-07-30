@@ -4,237 +4,246 @@
  *
  * @brief Rupee Like enemy
  */
-
-#include "global.h"
-#include "entity.h"
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "object.h"
-#include "save.h"
+#include "entity.h"
 #include "hitbox.h"
+#include "object.h"
 #include "room.h"
+#include "save.h"
 
-extern void sub_080293DC(Entity*);
-extern void sub_080296D8(Entity*);
-extern void sub_08029770(Entity*);
-extern void sub_080297F0(Entity*);
-extern void sub_080296C8(Entity*);
-extern void sub_0802969C(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[24];
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unk_83;
+    /*0x84*/ u8 unk_84;
+} RupeeLikeEntity;
 
-extern void (*const RupeeLike_Functions[])(Entity*);
-extern void (*const gUnk_080CCC18[])(Entity*);
-extern void (*const gUnk_080CCC3C[])(Entity*);
+extern void sub_080293DC(RupeeLikeEntity* this);
+extern void sub_080296D8(RupeeLikeEntity* this);
+extern void sub_08029770(RupeeLikeEntity* this);
+extern void sub_080297F0(RupeeLikeEntity* this);
+extern void sub_080296C8(RupeeLikeEntity* this);
+extern void sub_0802969C(RupeeLikeEntity* this);
+
+extern void (*const RupeeLike_Functions[])(RupeeLikeEntity*);
+extern void (*const gUnk_080CCC18[])(RupeeLikeEntity*);
+extern void (*const gUnk_080CCC3C[])(RupeeLikeEntity*);
 
 extern const u8 gUnk_080CCC34[];
 extern const s8 gUnk_080CCC44[];
 extern const u8 gUnk_080CCC47[];
 
-void RupeeLike(Entity* this) {
+void RupeeLike(RupeeLikeEntity* this) {
     u32 uVar1;
 
-    if (this->type2 == 0) {
-        uVar1 = (u8)sub_080043E8(this);
+    if (super->type2 == 0) {
+        uVar1 = (u8)sub_080043E8(super);
         if (uVar1 != 0) {
-            if (this->action == 4) {
+            if (super->action == 4) {
                 sub_080296D8(this);
             }
-            sub_08001290(this, uVar1);
+            sub_08001290(super, uVar1);
         } else {
-            RupeeLike_Functions[GetNextFunction(this)](this);
-            SetChildOffset(this, 0, 1, -0x10);
+            RupeeLike_Functions[GetNextFunction(super)](this);
+            SetChildOffset(super, 0, 1, -0x10);
         }
     } else {
         sub_080293DC(this);
     }
 }
 
-void RupeeLike_OnTick(Entity* this) {
-    gUnk_080CCC18[this->action](this);
+void RupeeLike_OnTick(RupeeLikeEntity* this) {
+    gUnk_080CCC18[super->action](this);
 }
 
-void RupeeLike_OnCollision(Entity* this) {
-    if (this->hitType == 0x8e) {
+void RupeeLike_OnCollision(RupeeLikeEntity* this) {
+    if (super->hitType == 0x8e) {
         sub_08029770(this);
     } else {
-        if (this->action == 4) {
+        if (super->action == 4) {
             sub_080296D8(this);
         }
-        if (*(u8*)(*(u32*)&this->contactedEntity + 8) == 1) {
-            if (this->action == 2) {
-                InitializeAnimation(this, 0);
-                InitializeAnimation(this->child, 4);
+        if (*(u8*)(*(u32*)&super->contactedEntity + 8) == 1) {
+            if (super->action == 2) {
+                InitializeAnimation(super, 0);
+                InitializeAnimation(super->child, 4);
             }
-            this->action = 4;
-            this->timer = 60;
-            this->subtimer = 0;
-            this->field_0x82.HALF.HI = 0x41;
-            this->flags2 &= 0xfc;
-            this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
+            super->action = 4;
+            super->timer = 60;
+            super->subtimer = 0;
+            this->unk_83 = 0x41;
+            super->flags2 &= 0xfc;
+            this->unk_80 = gPlayerEntity.spritePriority.b1;
             EnqueueSFX(SFX_PLACE_OBJ);
         } else {
-            if (this->confusedTime != 0) {
-                Create0x68FX(this, FX_STARS);
+            if (super->confusedTime != 0) {
+                Create0x68FX(super, FX_STARS);
             }
         }
     }
-    EnemyFunctionHandlerAfterCollision(this, RupeeLike_Functions);
+    EnemyFunctionHandlerAfterCollision(super, RupeeLike_Functions);
 }
 
-void RupeeLike_OnDeath(Entity* this) {
-    CreateDeathFx(this, 0xff, gUnk_080CCC34[this->cutsceneBeh.HALF.LO * 3 + this->type]);
+void RupeeLike_OnDeath(RupeeLikeEntity* this) {
+    CreateDeathFx(super, 0xff, gUnk_080CCC34[this->unk_84 * 3 + super->type]);
 }
 
-void RupeeLike_OnGrabbed(Entity* this) {
+void RupeeLike_OnGrabbed(RupeeLikeEntity* this) {
 }
 
-void sub_080293DC(Entity* this) {
-    CopyPositionAndSpriteOffset(this->parent, this);
-    this->y.HALF.HI++;
-    this->z.HALF.HI--;
-    gUnk_080CCC3C[this->action](this);
+void sub_080293DC(RupeeLikeEntity* this) {
+    CopyPositionAndSpriteOffset(super->parent, super);
+    super->y.HALF.HI++;
+    super->z.HALF.HI--;
+    gUnk_080CCC3C[super->action](this);
 }
 
-void sub_0802940C(Entity* this) {
-    Entity* ent;
+void sub_0802940C(RupeeLikeEntity* this) {
+    Entity* entity;
 
-    ent = CreateEnemy(RUPEE_LIKE, this->type);
-    if (ent != NULL) {
-        sub_0804A720(this);
-        ent->parent = this;
-        ent->type2 = 1;
-        this->child = ent;
-        this->field_0x80.HALF.HI = 0;
-        this->cutsceneBeh.HALF.LO = 0;
-        this->field_0x82.HALF.LO = this->palette.b.b0;
+    entity = CreateEnemy(RUPEE_LIKE, super->type);
+    if (entity != NULL) {
+        sub_0804A720(super);
+        entity->parent = super;
+        entity->type2 = 1;
+        super->child = entity;
+        this->unk_81 = 0;
+        this->unk_84 = 0;
+        this->unk_82 = super->palette.b.b0;
         sub_080297F0(this);
     }
 }
 
-void sub_0802944C(Entity* this) {
+void sub_0802944C(RupeeLikeEntity* this) {
     sub_080296C8(this);
-    if ((this->field_0x80.HALF.HI != 0) && sub_08049FDC(this, 1)) {
+    if ((this->unk_81 != 0) && sub_08049FDC(super, 1)) {
         sub_08029770(this);
     }
 }
 
-void sub_08029474(Entity* this) {
+void sub_08029474(RupeeLikeEntity* this) {
     u32 bVar1;
 
     sub_080296C8(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 3;
-        this->timer = 8;
-        bVar1 = GetFacingDirection(this, &gPlayerEntity);
-        this->direction = bVar1;
-        this->animationState = (bVar1 << 0x18) >> 0x1c;
-        InitializeAnimation(this, this->animationState);
-        InitializeAnimation(this->child, this->animationState + 4);
+    if (super->frame & ANIM_DONE) {
+        super->action = 3;
+        super->timer = 8;
+        bVar1 = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = bVar1;
+        super->animationState = (bVar1 << 0x18) >> 0x1c;
+        InitializeAnimation(super, super->animationState);
+        InitializeAnimation(super->child, super->animationState + 4);
     } else {
-        if (this->frame == 1) {
-            this->frame = 0;
-            COLLISION_ON(this);
+        if (super->frame == 1) {
+            super->frame = 0;
+            COLLISION_ON(super);
         }
     }
 }
 
-void sub_080294D4(Entity* this) {
-    if (sub_08049FDC(this, 1) != 0) {
-        if (--this->timer == 0) {
-            this->timer = 8;
-            sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
+void sub_080294D4(RupeeLikeEntity* this) {
+    if (sub_08049FDC(super, 1) != 0) {
+        if (--super->timer == 0) {
+            super->timer = 8;
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
             sub_0802969C(this);
         }
-        ProcessMovement0(this);
+        ProcessMovement0(super);
         sub_080296C8(this);
     } else {
-        this->action = 6;
-        COLLISION_OFF(this);
-        InitializeAnimation(this, 3);
-        InitializeAnimation(this->child, 7);
+        super->action = 6;
+        COLLISION_OFF(super);
+        InitializeAnimation(super, 3);
+        InitializeAnimation(super->child, 7);
     }
 }
 
-void sub_0802953C(Entity* this) {
+void sub_0802953C(RupeeLikeEntity* this) {
     u8* pbVar3;
 
     sub_080296C8(this);
     sub_080296C8(this);
     if (sub_0807953C() != 0) {
-        this->subtimer++;
+        super->subtimer++;
     }
-    if (this->timer != 0) {
-        this->timer--;
+    if (super->timer != 0) {
+        super->timer--;
     }
-    if (((this->subtimer > 0x2d) || (gSave.stats.rupees == 0)) && (this->timer == 0)) {
+    if (((super->subtimer > 0x2d) || (gSave.stats.rupees == 0)) && (super->timer == 0)) {
         sub_080296D8(this);
     } else {
         ResetActiveItems();
         gPlayerState.mobility |= 0x80;
-        PositionRelative(this, &gPlayerEntity, 0, Q_16_16(1.0));
-        pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
+        PositionRelative(super, &gPlayerEntity, 0, Q_16_16(1.0));
+        pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)super->spriteIndex, super->frameIndex);
         gPlayerEntity.spriteOffsetX = pbVar3[0];
         gPlayerEntity.spriteOffsetY = pbVar3[1] - 1;
         gPlayerEntity.spritePriority.b1 = 0;
-        if (--this->field_0x82.HALF.HI == 0) {
-            this->field_0x82.HALF.HI = 0x41;
+        if (--this->unk_83 == 0) {
+            this->unk_83 = 0x41;
             if (gSave.stats.rupees != 0) {
-                ModRupees(gUnk_080CCC44[this->type]);
-                this->cutsceneBeh.HALF.LO = 1;
+                ModRupees(gUnk_080CCC44[super->type]);
+                this->unk_84 = 1;
             }
         }
     }
 }
 
-void sub_08029610(Entity* this) {
-    if (--this->subtimer == 0) {
-        this->action = 3;
-        this->timer = 1;
+void sub_08029610(RupeeLikeEntity* this) {
+    if (--super->subtimer == 0) {
+        super->action = 3;
+        super->timer = 1;
     }
     sub_080296C8(this);
 }
 
-void sub_08029630(Entity* this) {
+void sub_08029630(RupeeLikeEntity* this) {
     sub_080296C8(this);
-    if (this->frame & ANIM_DONE) {
-        this->field_0x80.HALF.HI = 1;
-        this->child->spriteSettings.draw = FALSE;
+    if (super->frame & ANIM_DONE) {
+        this->unk_81 = 1;
+        super->child->spriteSettings.draw = FALSE;
         sub_080297F0(this);
     }
 }
 
-void sub_08029660(Entity* this) {
+void sub_08029660(RupeeLikeEntity* this) {
     u32 temp;
-    this->action = 1;
-    this->spriteIndex = 0xd1;
-    temp = gUnk_080CCC47[this->type];
-    this->palette.b.b0 = temp;
+    super->action = 1;
+    super->spriteIndex = 0xd1;
+    temp = gUnk_080CCC47[super->type];
+    super->palette.b.b0 = temp;
 }
 
-void sub_08029688(Entity* this) {
-    if (this->parent->next == NULL) {
-        DeleteEntity(this);
+void sub_08029688(RupeeLikeEntity* this) {
+    if (super->parent->next == NULL) {
+        DeleteEntity(super);
     }
 }
 
-void sub_0802969C(Entity* this) {
+void sub_0802969C(RupeeLikeEntity* this) {
     u32 bVar1;
 
-    if ((this->direction & 0xf) != 0) {
+    if ((super->direction & 0xf) != 0) {
 
-        bVar1 = this->direction >> 4;
-        if (bVar1 != this->animationState) {
-            this->animationState = bVar1;
-            InitializeAnimation(this, bVar1);
-            InitializeAnimation(this->child, bVar1 + 4);
+        bVar1 = super->direction >> 4;
+        if (bVar1 != super->animationState) {
+            super->animationState = bVar1;
+            InitializeAnimation(super, bVar1);
+            InitializeAnimation(super->child, bVar1 + 4);
         }
     }
 }
 
-void sub_080296C8(Entity* this) {
-    GetNextFrame(this);
-    GetNextFrame(this->child);
+void sub_080296C8(RupeeLikeEntity* this) {
+    GetNextFrame(super);
+    GetNextFrame(super->child);
 }
 
-void sub_080296D8(Entity* this) {
+void sub_080296D8(RupeeLikeEntity* this) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.flags &= ~PL_CAPTURED;
     gPlayerEntity.flags |= ENT_COLLIDE;
@@ -242,65 +251,65 @@ void sub_080296D8(Entity* this) {
     gPlayerEntity.iframes = 0xa6;
     gPlayerEntity.z.HALF.HI = -2;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-    gPlayerEntity.spritePriority.b1 = this->field_0x80.HALF.LO;
+    gPlayerEntity.spritePriority.b1 = this->unk_80;
     gPlayerEntity.spriteOffsetY = 0;
     gPlayerEntity.speed = 0x140;
-    this->action = 5;
-    this->subtimer = 60;
-    this->flags2 |= 3;
-    if ((s8)this->iframes == 0) {
-        this->iframes = 0xf4;
+    super->action = 5;
+    super->subtimer = 60;
+    super->flags2 |= 3;
+    if ((s8)super->iframes == 0) {
+        super->iframes = 0xf4;
     }
 }
 
-void sub_08029770(Entity* this) {
+void sub_08029770(RupeeLikeEntity* this) {
     u32 temp;
-    if (LoadFixedGFX(this, 0x73) != 0) {
-        this->action = 2;
-        COLLISION_OFF(this);
-        this->spriteIndex = 0xd1;
-        this->spritePriority.b1 = 3;
-        temp = this->field_0x82.HALF.LO;
-        this->palette.b.b0 = temp;
-        this->hitType = 0x8d;
-        this->hitbox = (Hitbox*)&gUnk_080FD260;
-        InitializeAnimation(this, 2);
-        this->child->spriteSettings.draw = TRUE;
-        InitializeAnimation(this->child, 6);
-        CreateDust(this);
+    if (LoadFixedGFX(super, 0x73) != 0) {
+        super->action = 2;
+        COLLISION_OFF(super);
+        super->spriteIndex = 0xd1;
+        super->spritePriority.b1 = 3;
+        temp = this->unk_82;
+        super->palette.b.b0 = temp;
+        super->hitType = 0x8d;
+        super->hitbox = (Hitbox*)&gUnk_080FD260;
+        InitializeAnimation(super, 2);
+        super->child->spriteSettings.draw = TRUE;
+        InitializeAnimation(super->child, 6);
+        CreateDust(super);
     }
 }
 
-void sub_080297F0(Entity* this) {
+void sub_080297F0(RupeeLikeEntity* this) {
     u32 temp;
-    this->action = 1;
-    this->timer = 120;
-    COLLISION_ON(this);
-    this->spriteSettings.draw = TRUE;
-    this->hitType = 0x8e;
-    UnloadGFXSlots(this);
+    super->action = 1;
+    super->timer = 120;
+    COLLISION_ON(super);
+    super->spriteSettings.draw = TRUE;
+    super->hitType = 0x8e;
+    UnloadGFXSlots(super);
 #ifdef EU
-    this->spriteIndex = 0x142;
+    super->spriteIndex = 0x142;
 #else
-    this->spriteIndex = 0x143;
+    super->spriteIndex = 0x143;
 #endif
-    temp = gUnk_080CCC47[this->type];
-    this->palette.b.b0 = temp;
-    this->spriteVramOffset = 9;
-    InitializeAnimation(this, 0x54);
+    temp = gUnk_080CCC47[super->type];
+    super->palette.b.b0 = temp;
+    super->spriteVramOffset = 9;
+    InitializeAnimation(super, 0x54);
 }
 
 // clang-format off
-void (*const RupeeLike_Functions[])(Entity*) = {
+void (*const RupeeLike_Functions[])(RupeeLikeEntity*) = {
     RupeeLike_OnTick,
     RupeeLike_OnCollision,
-    GenericKnockback,
+    (void (*)(RupeeLikeEntity*))GenericKnockback,
     RupeeLike_OnDeath,
-    GenericConfused,
+    (void (*)(RupeeLikeEntity*))GenericConfused,
     RupeeLike_OnGrabbed,
 };
 
-void (*const gUnk_080CCC18[])(Entity*) = {
+void (*const gUnk_080CCC18[])(RupeeLikeEntity*) = {
     sub_0802940C,
     sub_0802944C,
     sub_08029474,
@@ -316,7 +325,7 @@ const u8 gUnk_080CCC34[] = {
     0x56, 0x57,
 };
 
-void (*const gUnk_080CCC3C[])(Entity*) = {
+void (*const gUnk_080CCC3C[])(RupeeLikeEntity*) = {
     sub_08029660,
     sub_08029688,
 };

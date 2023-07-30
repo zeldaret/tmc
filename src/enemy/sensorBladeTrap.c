@@ -4,105 +4,118 @@
  *
  * @brief Sensor Blade Trap enemy
  */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "map.h"
 #include "physics.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ u16 unk_7c;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unused2[4];
+    /*0x84*/ u16 unk_84;
+    /*0x86*/ u16 unk_86;
+} SensorBladeTrapEntity;
+
 extern u32 sub_0804A024(Entity*, u32, u32);
 
-void sub_0802BB10(Entity*);
-bool32 sub_0802BB2C(Entity*, u32);
+void sub_0802BB10(SensorBladeTrapEntity* this);
+bool32 sub_0802BB2C(SensorBladeTrapEntity* this, u32);
 
-extern void (*const gUnk_080CD3C4[])(Entity*);
+extern void (*const gUnk_080CD3C4[])(SensorBladeTrapEntity*);
 extern const u16 gUnk_080CD3D4[];
 extern const s8 gUnk_080CD3DC[];
 
-void SensorBladeTrap(Entity* this) {
-    gUnk_080CD3C4[this->action](this);
+void SensorBladeTrap(SensorBladeTrapEntity* this) {
+    gUnk_080CD3C4[super->action](this);
 }
 
-void sub_0802B9EC(Entity* this) {
-    this->action = 1;
-    this->field_0x78.HWORD = gUnk_080CD3D4[this->type];
-    this->field_0x7c.HALF.LO = this->cutsceneBeh.HWORD;
-    this->field_0x7c.HALF.HI = this->field_0x86.HWORD;
+void sub_0802B9EC(SensorBladeTrapEntity* this) {
+    super->action = 1;
+    this->unk_78 = gUnk_080CD3D4[super->type];
+    this->unk_7c = this->unk_84;
+    this->unk_7e = this->unk_86;
 }
 
-void sub_0802BA18(Entity* this) {
-    u32 direction = sub_0804A024(this, 1, 0xe);
+void sub_0802BA18(SensorBladeTrapEntity* this) {
+    u32 direction = sub_0804A024(super, 1, 0xe);
     if (direction == 0xff)
         return;
 
     if (sub_0802BB2C(this, direction))
         return;
 
-    this->action = 2;
-    this->speed = this->field_0x78.HWORD;
-    this->direction = direction;
+    super->action = 2;
+    super->speed = this->unk_78;
+    super->direction = direction;
 
     switch (direction >> 3) {
         case 0:
-            this->field_0x7a.HWORD = this->y.HALF.HI - this->field_0x7c.HALF.HI;
+            this->unk_7a = super->y.HALF.HI - this->unk_7e;
             break;
         case 1:
-            this->field_0x7a.HWORD = this->x.HALF.HI + this->field_0x7c.HALF.LO;
+            this->unk_7a = super->x.HALF.HI + this->unk_7c;
             break;
         case 2:
-            this->field_0x7a.HWORD = this->y.HALF.HI + this->field_0x7c.HALF.HI;
+            this->unk_7a = super->y.HALF.HI + this->unk_7e;
             break;
         case 3:
-            this->field_0x7a.HWORD = this->x.HALF.HI - this->field_0x7c.HALF.LO;
+            this->unk_7a = super->x.HALF.HI - this->unk_7c;
             break;
     }
 }
 
-void sub_0802BA8C(Entity* this) {
-    if (!ProcessMovement12(this)) {
+void sub_0802BA8C(SensorBladeTrapEntity* this) {
+    if (!ProcessMovement12(super)) {
         sub_0802BB10(this);
     } else {
-        switch (this->direction >> 3) {
+        switch (super->direction >> 3) {
             case 0:
-                if (this->field_0x7a.HWORD >= this->y.HALF.HI)
+                if (this->unk_7a >= super->y.HALF.HI)
                     sub_0802BB10(this);
                 break;
             case 1:
-                if (this->field_0x7a.HWORD <= this->x.HALF.HI)
+                if (this->unk_7a <= super->x.HALF.HI)
                     sub_0802BB10(this);
                 break;
             case 2:
-                if (this->field_0x7a.HWORD <= this->y.HALF.HI)
+                if (this->unk_7a <= super->y.HALF.HI)
                     sub_0802BB10(this);
                 break;
             case 3:
-                if (this->field_0x7a.HWORD >= this->x.HALF.HI)
+                if (this->unk_7a >= super->x.HALF.HI)
                     sub_0802BB10(this);
                 break;
         }
     }
 }
 
-void sub_0802BAFC(Entity* this) {
-    if (!ProcessMovement12(this)) {
-        this->action = 1;
+void sub_0802BAFC(SensorBladeTrapEntity* this) {
+    if (!ProcessMovement12(super)) {
+        super->action = 1;
     }
 }
 
-void sub_0802BB10(Entity* this) {
-    this->action = 3;
-    this->speed = 0xc0;
-    this->direction = this->direction ^ 0x10;
+void sub_0802BB10(SensorBladeTrapEntity* this) {
+    super->action = 3;
+    super->speed = 0xc0;
+    super->direction = super->direction ^ 0x10;
     EnqueueSFX(SFX_METAL_CLINK);
 }
 
-bool32 sub_0802BB2C(Entity* this, u32 param_2) {
-    u8* layer = this->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
+bool32 sub_0802BB2C(SensorBladeTrapEntity* this, u32 param_2) {
+    u8* layer = super->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
     const s8* ptr = &gUnk_080CD3DC[param_2 >> 2];
-    return IsTileCollision(layer, this->x.HALF.HI + ptr[0], this->y.HALF.HI + ptr[1], 0);
+    return IsTileCollision(layer, super->x.HALF.HI + ptr[0], super->y.HALF.HI + ptr[1], 0);
 }
 
 // clang-format off
-void (*const gUnk_080CD3C4[])(Entity*) = {
+void (*const gUnk_080CD3C4[])(SensorBladeTrapEntity*) = {
     sub_0802B9EC,
     sub_0802BA18,
     sub_0802BA8C,

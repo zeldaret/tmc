@@ -4,13 +4,13 @@
  *
  * @brief Pesto enemy
  */
-
-#include "enemy.h"
+//#define NENT_DEPRECATED
 #include "collision.h"
-#include "object.h"
+#include "enemy.h"
 #include "game.h"
-#include "save.h"
+#include "object.h"
 #include "playeritem.h"
+#include "save.h"
 
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);
@@ -166,14 +166,14 @@ void sub_080240B8(Entity* this) {
     sub_080249DC(this);
 
     if (this->type == 1) {
-        Entity* ent;
+        Entity* entity;
 
         this->field_0x82.HALF.HI = 0;
-        ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
-        if (ent != NULL) {
-            this->child = ent;
-            ent->parent = this;
-            ent->y.HALF.HI += 0x10;
+        entity = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
+        if (entity != NULL) {
+            this->child = entity;
+            entity->parent = this;
+            entity->y.HALF.HI += 0x10;
         }
     }
 }
@@ -403,7 +403,7 @@ void sub_080244E8(Entity* this) {
                         break;
                     case 1:
                         if (EntityInRectRadius(this, this->child, 6, 6)) {
-                            Entity* ent;
+                            Entity* entity;
 
                             this->field_0x80.HALF.LO++;
                             this->timer = 12;
@@ -412,34 +412,34 @@ void sub_080244E8(Entity* this) {
                             this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;
 
-                            ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
-                            if (ent != NULL) {
-                                ent->parent = this;
-                                ent->z.HALF.HI += 0xe;
-                                ent->child = this->child;
-                                CopyPosition(ent, ent->child);
-                                this->child = ent;
+                            entity = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
+                            if (entity != NULL) {
+                                entity->parent = this;
+                                entity->z.HALF.HI += 0xe;
+                                entity->child = this->child;
+                                CopyPosition(entity, entity->child);
+                                this->child = entity;
                             }
                         }
                         break;
                     case 2:
                         if (EntityInRectRadius(this, this->child, 6, 6)) {
-                            Entity* ent;
+                            Entity* entity;
 
                             this->field_0x80.HALF.LO++;
                             this->timer = 12;
                             this->field_0x82.HALF.HI &= ~0x80;
-                            ent = this->child;
-                            SetTile((u16)ent->field_0x70.HALF.LO, COORD_TO_TILE(ent), ent->collisionLayer);
-                            DeleteEntity(ent);
+                            entity = this->child;
+                            SetTile((u16)entity->field_0x70.HALF.LO, COORD_TO_TILE(entity), entity->collisionLayer);
+                            DeleteEntity(entity);
                             this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;
 
-                            ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
-                            if (ent != NULL) {
-                                ent->parent = this;
-                                ent->z.HALF.HI += 0xe;
-                                this->child = ent;
+                            entity = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
+                            if (entity != NULL) {
+                                entity->parent = this;
+                                entity->z.HALF.HI += 0xe;
+                                this->child = entity;
                             }
                         }
                         break;
@@ -635,7 +635,7 @@ bool32 sub_08024AD8(Entity* this) {
 
 bool32 sub_08024B38(Entity* this) {
     int iVar4 = 0;
-    Entity* ent;
+    Entity* entity;
 
     if (gPlayerState.hurtBlinkSpeed != 0) {
         if (gPlayerState.swim_state == 1) {
@@ -660,34 +660,34 @@ bool32 sub_08024B38(Entity* this) {
         }
     }
 
-    ent = FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_BOMB, 2);
-    if (ent != NULL) {
+    entity = FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_BOMB, 2);
+    if (entity != NULL) {
         do {
-            if (ent->action != 2 && ent->z.HALF.HI == 0 && sub_08049F1C(this, ent, 0xa0)) {
+            if (entity->action != 2 && entity->z.HALF.HI == 0 && sub_08049F1C(this, entity, 0xa0)) {
                 iVar4 = 1;
-                this->child = ent;
+                this->child = entity;
                 this->field_0x82.HALF.HI |= 1;
                 this->field_0x82.HALF.HI &= ~0x40;
                 break;
             }
-        } while (ent = FindNextDuplicateID(ent, 2), ent != NULL);
+        } while (entity = FindNextDuplicateID(entity, 2), entity != NULL);
     }
 
     if (iVar4 != 0) {
         return iVar4;
     }
 
-    ent = FindEntityByID(OBJECT, POT, 6);
-    if (ent != NULL) {
+    entity = FindEntityByID(OBJECT, POT, 6);
+    if (entity != NULL) {
         do {
-            if (ent->action == 1 && sub_08049F1C(this, ent, 0xa0)) {
+            if (entity->action == 1 && sub_08049F1C(this, entity, 0xa0)) {
                 iVar4 = 1;
-                this->child = ent;
+                this->child = entity;
                 this->field_0x82.HALF.HI |= 2;
                 this->field_0x82.HALF.HI &= ~0x40;
                 break;
             }
-        } while (ent = FindNextDuplicateID(ent, 6), ent != NULL);
+        } while (entity = FindNextDuplicateID(entity, 6), entity != NULL);
     }
 
     if (iVar4 == 0) {

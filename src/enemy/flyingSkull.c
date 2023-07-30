@@ -1,7 +1,13 @@
+/**
+ * @file flyingSkull.c
+ * @ingroup Enemies
+ *
+ * @brief Flying Skull enemy
+ */
 #define NENT_DEPRECATED
 #include "collision.h"
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 #include "hitbox.h"
 
@@ -132,16 +138,16 @@ void sub_08039DD8(FlyingSkullEntity* this) {
         RegisterCarryEntity(super);
     } else {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
-            Entity* ent = &gPlayerEntity;
-            if (EntityWithinDistance(super, ent->x.HALF.HI, ent->y.HALF.HI, 0x30)) {
+            Entity* player = &gPlayerEntity;
+            if (EntityWithinDistance(super, player->x.HALF.HI, player->y.HALF.HI, 0x30)) {
                 if (super->type == 1) {
                     super->action = 3;
                     super->timer = 30;
                 } else {
-                    ent = CreateEnemy(STALFOS, super->type - 2);
-                    if (ent != NULL) {
-                        ent->type2 = 1;
-                        CopyPosition(super, ent);
+                    player = CreateEnemy(STALFOS, super->type - 2);
+                    if (player != NULL) {
+                        player->type2 = 1;
+                        CopyPosition(super, player);
                         SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
                         DeleteEntity(super);
                     }

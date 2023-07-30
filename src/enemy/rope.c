@@ -4,203 +4,211 @@
  *
  * @brief Rope enemy
  */
-
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "physics.h"
 
-void Rope_OnTick(Entity*);
-void Rope_OnCollision(Entity*);
-void Rope_OnGrabbed(Entity*);
-void sub_08031434(Entity*);
-void sub_08031480(Entity*);
-void sub_080314FC(Entity*);
-void sub_080315BC(Entity*);
-void sub_0803140C(Entity*);
-void sub_08031418(Entity*);
-void sub_08031420(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u8 unk_78;
+    /*0x79*/ u8 unused2[1];
+    /*0x7a*/ u16 unk_7a;
+} RopeEntity;
 
-static void (*const Rope_Functions[6])(Entity*) = {
-    Rope_OnTick, Rope_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Rope_OnGrabbed,
+void Rope_OnTick(RopeEntity* this);
+void Rope_OnCollision(RopeEntity* this);
+void Rope_OnGrabbed(RopeEntity* this);
+void sub_08031434(RopeEntity* this);
+void sub_08031480(RopeEntity* this);
+void sub_080314FC(RopeEntity* this);
+void sub_080315BC(RopeEntity* this);
+void sub_0803140C(RopeEntity* this);
+void sub_08031418(RopeEntity* this);
+void sub_08031420(RopeEntity* this);
+
+static void (*const Rope_Functions[6])(RopeEntity*) = {
+    Rope_OnTick, Rope_OnCollision, (void (*)(RopeEntity*))GenericKnockback, (void (*)(RopeEntity*))GenericDeath, (void (*)(RopeEntity*))GenericConfused, Rope_OnGrabbed,
 };
 
 extern Entity* gUnk_020000B0;
 
-void sub_08031600(Entity*);
-u32 sub_0803163C(Entity*);
+void sub_08031600(RopeEntity* this);
+u32 sub_0803163C(RopeEntity* this);
 
-void Rope(Entity* this) {
-    EnemyFunctionHandler(this, Rope_Functions);
-    SetChildOffset(this, 0, 1, -16);
+void Rope(RopeEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)Rope_Functions);
+    SetChildOffset(super, 0, 1, -16);
 }
 
-void Rope_OnTick(Entity* this) {
-    static void (*const actionFuncs[4])(Entity*) = {
+void Rope_OnTick(RopeEntity* this) {
+    static void (*const actionFuncs[4])(RopeEntity*) = {
         sub_08031434,
         sub_08031480,
         sub_080314FC,
         sub_080315BC,
     };
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
 }
 
-void Rope_OnCollision(Entity* this) {
-    if (this->action == 3) {
-        this->subtimer = 30;
-        this->field_0x78.HALF.LO = 0x3c;
+void Rope_OnCollision(RopeEntity* this) {
+    if (super->action == 3) {
+        super->subtimer = 30;
+        this->unk_78 = 0x3c;
         sub_08031600(this);
     }
-    if (this->confusedTime) {
-        Create0x68FX(this, FX_STARS);
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
-    EnemyFunctionHandlerAfterCollision(this, Rope_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Rope_Functions);
 }
 
-void Rope_OnGrabbed(Entity* this) {
-    static void (*const subActionFuncs[3])(Entity*) = {
+void Rope_OnGrabbed(RopeEntity* this) {
+    static void (*const subActionFuncs[3])(RopeEntity*) = {
         sub_0803140C,
         sub_08031418,
         sub_08031420,
     };
-    if (sub_0806F520(this)) {
-        subActionFuncs[this->subAction](this);
+    if (sub_0806F520(super)) {
+        subActionFuncs[super->subAction](this);
     }
 }
 
-void sub_0803140C(Entity* this) {
-    this->subAction = 1;
-    this->gustJarTolerance = 0x3c;
+void sub_0803140C(RopeEntity* this) {
+    super->subAction = 1;
+    super->gustJarTolerance = 0x3c;
 }
 
-void sub_08031418(Entity* this) {
-    sub_0806F4E8(this);
+void sub_08031418(RopeEntity* this) {
+    sub_0806F4E8(super);
 }
 
-void sub_08031420(Entity* this) {
-    if (sub_0806F3E4(this)) {
-        GenericDeath(this);
+void sub_08031420(RopeEntity* this) {
+    if (sub_0806F3E4(super)) {
+        GenericDeath(super);
     }
 }
 
-void sub_08031434(Entity* this) {
+void sub_08031434(RopeEntity* this) {
 
-    sub_0804A720(this);
-    this->animationState = 0xff;
-    this->gustJarFlags = 1;
-    this->field_0x7a.HWORD = this->speed;
-    if (!(this->type)) {
+    sub_0804A720(super);
+    super->animationState = 0xff;
+    super->gustJarFlags = 1;
+    this->unk_7a = super->speed;
+    if (!(super->type)) {
         sub_08031600(this);
     } else {
-        this->action = 1;
-        this->subAction = 0;
-        this->spriteSettings.draw = (this->spriteSettings.draw & 0xfc);
-        this->z.HALF.HI = -0x80;
-        this->frameIndex = 0xff;
+        super->action = 1;
+        super->subAction = 0;
+        super->spriteSettings.draw = (super->spriteSettings.draw & 0xfc);
+        super->z.HALF.HI = -0x80;
+        super->frameIndex = 0xff;
     }
 }
 
-void sub_08031480(Entity* this) {
-    if (this->subAction == 0) {
-        if (this->timer != 0) {
-            this->timer--;
+void sub_08031480(RopeEntity* this) {
+    if (super->subAction == 0) {
+        if (super->timer != 0) {
+            super->timer--;
         } else {
             sub_08031600(this);
-            this->action = 1;
-            this->subAction = 1;
-            this->spriteSettings.draw = 3;
-            this->spriteRendering.b3 = 1;
-            this->spriteOrientation.flipY = 1;
+            super->action = 1;
+            super->subAction = 1;
+            super->spriteSettings.draw = 3;
+            super->spriteRendering.b3 = 1;
+            super->spriteOrientation.flipY = 1;
             SoundReq(SFX_12D);
         }
     } else {
-        if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
-            this->action = 2;
-            this->subtimer = 15;
-            this->spriteSettings.draw = 1;
-            UpdateSpriteForCollisionLayer(this);
+        if (GravityUpdate(super, Q_8_8(24.0)) == 0) {
+            super->action = 2;
+            super->subtimer = 15;
+            super->spriteSettings.draw = 1;
+            UpdateSpriteForCollisionLayer(super);
             EnqueueSFX(SFX_WATER_SPLASH);
         }
     }
 }
-void sub_080314FC(Entity* this) {
+void sub_080314FC(RopeEntity* this) {
     u32 u;
 
-    GetNextFrame(this);
-    if (this->subtimer) {
-        this->subtimer--;
+    GetNextFrame(super);
+    if (super->subtimer) {
+        super->subtimer--;
     } else {
-        if (this->field_0x78.HALF.LO) {
-            this->field_0x78.HALF.LO--;
+        if (this->unk_78) {
+            this->unk_78--;
         }
-        if (sub_08049FA0(this)) {
-            if (!(this->field_0x78.HALF.LO)) {
-                if (sub_08049FDC(this, 1)) {
-                    u = sub_0804A044(this, gUnk_020000B0, 0xc);
+        if (sub_08049FA0(super)) {
+            if (!(this->unk_78)) {
+                if (sub_08049FDC(super, 1)) {
+                    u = sub_0804A044(super, gUnk_020000B0, 0xc);
                     if (u != 0xff) {
-                        this->action = 3;
-                        this->timer = 30;
-                        this->field_0x7a.HWORD = this->speed = 0x1a0;
-                        this->direction = u;
-                        this->animationState = this->direction >> 3;
-                        InitializeAnimation(this, this->animationState + 4);
+                        super->action = 3;
+                        super->timer = 30;
+                        this->unk_7a = super->speed = 0x1a0;
+                        super->direction = u;
+                        super->animationState = super->direction >> 3;
+                        InitializeAnimation(super, super->animationState + 4);
                         return;
                     }
                 }
             }
         } else {
             if ((Random() & 1)) {
-                this->direction = DirectionRoundUp(sub_08049EE4(this));
-                u = this->direction >> 3;
-                if (u != this->animationState) {
-                    this->animationState = u;
-                    InitializeAnimation(this, u);
+                super->direction = DirectionRoundUp(sub_08049EE4(super));
+                u = super->direction >> 3;
+                if (u != super->animationState) {
+                    super->animationState = u;
+                    InitializeAnimation(super, u);
                 }
             }
         }
-        if (--this->timer == 0) {
+        if (--super->timer == 0) {
             sub_08031600(this);
         }
         sub_0803163C(this);
     }
 }
 
-void sub_080315BC(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
-        UpdateAnimationVariableFrames(this, 2);
+void sub_080315BC(RopeEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
+        UpdateAnimationVariableFrames(super, 2);
     } else {
-        if (sub_08049FA0(this)) {
-            GetNextFrame(this);
+        if (sub_08049FA0(super)) {
+            GetNextFrame(super);
             if (sub_0803163C(this)) {
                 return;
             }
         }
-        this->field_0x78.HALF.LO = 0x1e;
+        this->unk_78 = 0x1e;
         sub_08031600(this);
     }
 }
 
-void sub_08031600(Entity* this) {
+void sub_08031600(RopeEntity* this) {
     u32 r;
-    this->action = 2;
-    this->timer = (Random() & 0x30) + 60;
-    this->speed = 0x80;
-    this->field_0x7a.HWORD = 0x80;
+    super->action = 2;
+    super->timer = (Random() & 0x30) + 60;
+    super->speed = 0x80;
+    this->unk_7a = 0x80;
     r = Random() & 0x18;
-    this->direction = r;
+    super->direction = r;
     r = r / 8;
-    if (r != this->animationState) {
-        this->animationState = r;
-        InitializeAnimation(this, r);
+    if (r != super->animationState) {
+        super->animationState = r;
+        InitializeAnimation(super, r);
     }
 }
 
-u32 sub_0803163C(Entity* this) {
+u32 sub_0803163C(RopeEntity* this) {
     u32 h;
-    if (GetTileUnderEntity(this) == 0x13) {
-        h = this->field_0x7a.HWORD / 2;
+    if (GetTileUnderEntity(super) == 0x13) {
+        h = this->unk_7a / 2;
     } else {
-        h = this->field_0x7a.HWORD;
+        h = this->unk_7a;
     }
-    this->speed = h;
-    return ProcessMovement0(this);
+    super->speed = h;
+    return ProcessMovement0(super);
 }

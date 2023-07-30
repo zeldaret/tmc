@@ -4,7 +4,7 @@
  *
  * @brief Spark enemy
  */
-
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"
@@ -21,7 +21,7 @@ void Spark_OnTick(Entity* this) {
 }
 
 void Spark_OnCollision(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     if (this->contactFlags & 0x80) {
         if ((this->contactFlags & 0x7f) == 0x14) {
@@ -29,11 +29,11 @@ void Spark_OnCollision(Entity* this) {
             this->iframes = 0;
             this->spriteSettings.draw = 0;
             this->action = 2;
-            ent = CreateFx(this, FX_DEATH, 0);
-            if (ent != NULL) {
-                this->child = ent;
+            entity = CreateFx(this, FX_DEATH, 0);
+            if (entity != NULL) {
+                this->child = entity;
                 this->timer = 14;
-                CopyPosition(this, ent);
+                CopyPosition(this, entity);
             }
         }
     }
@@ -120,9 +120,9 @@ void sub_0802B35C(Entity* this) {
 
 void sub_0802B4A8(Entity* this) {
     if (--this->timer == 0) {
-        Entity* ent = CreateObjectWithParent(this, GROUND_ITEM, 0x60, 0);
-        if (ent != NULL) {
-            ent->y.HALF.HI -= 4;
+        Entity* entity = CreateObjectWithParent(this, GROUND_ITEM, 0x60, 0);
+        if (entity != NULL) {
+            entity->y.HALF.HI -= 4;
         }
         DeleteEntity(this);
     }

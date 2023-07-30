@@ -1,6 +1,12 @@
+/**
+ * @file cuccoAggr.c
+ * @ingroup Enemies
+ *
+ * @brief Cucco Aggr enemy
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {
@@ -292,13 +298,13 @@ bool32 CuccoAggr_IsOutsideScroll(CuccoAggrEntity* this) {
 void sub_080391B4(CuccoAggrEntity* this) {
     if (this->unk_7a) {
         if ((this->unk_7b++ & 0x1f) == 0) {
-            Entity* ent = CreateEnemy(CUCCO_AGGR, 2);
-            if (ent != NULL) {
+            Entity* entity = CreateEnemy(CUCCO_AGGR, 2);
+            if (entity != NULL) {
                 u32 rand = (Random() & 0x17);
                 const PosOffset* ptr = &gCuccoAggrSpawnPoints[rand];
-                ent->x.HALF.HI = gRoomControls.scroll_x + ptr->x;
-                ent->y.HALF.HI = gRoomControls.scroll_y + ptr->y;
-                ent->collisionLayer = super->collisionLayer;
+                entity->x.HALF.HI = gRoomControls.scroll_x + ptr->x;
+                entity->y.HALF.HI = gRoomControls.scroll_y + ptr->y;
+                entity->collisionLayer = super->collisionLayer;
             }
         }
     }
@@ -317,10 +323,10 @@ void sub_08039218(CuccoAggrEntity* this) {
 }
 
 void CuccoAggr_CreateFx(CuccoAggrEntity* this) {
-    Entity* ent = CreateFx(super, gCuccoAggrFx[super->type], 0);
+    Entity* entity = CreateFx(super, gCuccoAggrFx[super->type], 0);
 
-    if (ent != NULL) {
-        ent->x.HALF.HI += gCuccoAggrFxHorizontalOffsets[super->spriteSettings.flipX];
+    if (entity != NULL) {
+        entity->x.HALF.HI += gCuccoAggrFxHorizontalOffsets[super->spriteSettings.flipX];
     }
 }
 

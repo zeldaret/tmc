@@ -4,23 +4,31 @@
  *
  * @brief Lakitu enemy
  */
-
-#include "global.h"
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "physics.h"
 #include "player.h"
 
-extern void (*const LakituActionFuncs[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u16 unk_76;
+    /*0x78*/ u8 unk_78;
+    /*0x79*/ u8 unk_79;
+} LakituEntity;
+
+extern void (*const LakituActionFuncs[])(LakituEntity*);
 
 // Forward references to functions in lakitu.c
-extern void sub_0803CAD0(Entity*);
-extern void sub_0803CBAC(Entity*);
-extern void sub_0803CA84(Entity*, u32);
-extern bool32 sub_0803CA4C(Entity*);
-extern bool32 sub_0803CB04(Entity*);
-extern void Lakitu_SpawnLightning(Entity*);
-extern void sub_0803CB34(Entity*);
-extern void sub_0803CC08(Entity* this);
+extern void sub_0803CAD0(LakituEntity* this);
+extern void sub_0803CBAC(LakituEntity* this);
+extern void sub_0803CA84(LakituEntity* this, u32);
+extern bool32 sub_0803CA4C(LakituEntity* this);
+extern bool32 sub_0803CB04(LakituEntity* this);
+extern void Lakitu_SpawnLightning(LakituEntity* this);
+extern void sub_0803CB34(LakituEntity* this);
+extern void sub_0803CC08(LakituEntity* this);
 
 enum {
     INIT,
@@ -39,36 +47,36 @@ typedef struct {
 } PACKED OffsetCoords;
 
 // Variables
-extern void (*const Lakitu_Functions[])(Entity*);
-extern void (*const gUnk_080D0128[])(Entity*);
-extern void (*const gUnk_080D0148[])(Entity*);
+extern void (*const Lakitu_Functions[])(LakituEntity*);
+extern void (*const gUnk_080D0128[])(LakituEntity*);
+extern void (*const gUnk_080D0148[])(LakituEntity*);
 extern const OffsetCoords gUnk_080D0154[];
 
-void Lakitu(Entity* this) {
-    EnemyFunctionHandler(this, Lakitu_Functions);
+void Lakitu(LakituEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)Lakitu_Functions);
 
-    SetChildOffset(this, 0, 1, -16);
+    SetChildOffset(super, 0, 1, -16);
 }
 
-void Lakitu_OnTick(Entity* this) {
-    if (this->action != 0 && this->action != 7) {
+void Lakitu_OnTick(LakituEntity* this) {
+    if (super->action != 0 && super->action != 7) {
         sub_0803CAD0(this);
     }
 
-    LakituActionFuncs[this->action](this);
+    LakituActionFuncs[super->action](this);
 }
 
-void Lakitu_OnCollision(Entity* this) {
-    if ((this->contactFlags & 0x7f) == 0x1d) {
-        this->zVelocity = Q_16_16(2.0);
+void Lakitu_OnCollision(LakituEntity* this) {
+    if ((super->contactFlags & 0x7f) == 0x1d) {
+        super->zVelocity = Q_16_16(2.0);
 
         sub_0803CBAC(this);
     } else {
-        if (this->hitType == 0x43) {
-            Entity* fx = CreateFx(this, FX_DEATH, 0);
+        if (super->hitType == 0x43) {
+            Entity* fx = CreateFx(super, FX_DEATH, 0);
 
             if (fx != NULL) {
-                u32 angle = (this->knockbackDirection ^ 0x10) << 3;
+                u32 angle = (super->knockbackDirection ^ 0x10) << 3;
                 s32 sine;
 
                 sine = gSineTable[angle];
@@ -88,163 +96,163 @@ void Lakitu_OnCollision(Entity* this) {
         }
     }
 
-    if (this->confusedTime) {
-        Create0x68FX(this, FX_STARS);
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    EnemyFunctionHandlerAfterCollision(this, Lakitu_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Lakitu_Functions);
 }
 
-void Lakitu_OnGrabbed(Entity* this) {
-    if (sub_0806F520(this)) {
-        gUnk_080D0148[this->subAction](this);
+void Lakitu_OnGrabbed(LakituEntity* this) {
+    if (sub_0806F520(super)) {
+        gUnk_080D0148[super->subAction](this);
     }
 }
 
-void sub_0803C844(Entity* this) {
-    this->subAction = 1;
-    this->gustJarTolerance = 0x3c;
+void sub_0803C844(LakituEntity* this) {
+    super->subAction = 1;
+    super->gustJarTolerance = 0x3c;
 }
 
-void sub_0803C850(Entity* this) {
-    Entity* cloud = this->child;
+void sub_0803C850(LakituEntity* this) {
+    Entity* cloud = super->child;
     if (cloud != NULL) {
-        cloud->spriteOffsetX = this->spriteOffsetX;
+        cloud->spriteOffsetX = super->spriteOffsetX;
     }
 
-    sub_0806F4E8(this);
+    sub_0806F4E8(super);
 }
 
-void sub_0803C86C(Entity* this) {
+void sub_0803C86C(LakituEntity* this) {
     sub_0803CBAC(this);
-    this->child = NULL;
+    super->child = NULL;
 }
 
-void Lakitu_Initialize(Entity* this) {
-    Entity* cloud = CreateProjectileWithParent(this, 17, 0);
+void Lakitu_Initialize(LakituEntity* this) {
+    Entity* cloud = CreateProjectileWithParent(super, 17, 0);
     if (cloud == NULL) {
         return;
     }
 
-    cloud->parent = this;
-    this->child = cloud;
+    cloud->parent = super;
+    super->child = cloud;
 
-    sub_0804A720(this);
+    sub_0804A720(super);
 
-    this->action = HIDDEN;
+    super->action = HIDDEN;
 
-    this->z.HALF.HI = -2;
+    super->z.HALF.HI = -2;
 
-    this->spriteOffsetY = 0xff;
+    super->spriteOffsetY = 0xff;
 
-    this->field_0x74.HWORD = this->x.HALF.HI;
-    this->field_0x76.HWORD = this->y.HALF.HI;
+    this->unk_74 = super->x.HALF.HI;
+    this->unk_76 = super->y.HALF.HI;
 }
 
-void Lakitu_Hide(Entity* this) {
+void Lakitu_Hide(LakituEntity* this) {
     sub_0803CA84(this, 0);
 
     if (sub_0803CA4C(this)) {
-        this->action = END_HIDE;
-        this->spriteSettings.draw = 1;
+        super->action = END_HIDE;
+        super->spriteSettings.draw = 1;
     }
 }
 
-void Lakitu_EndHide(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void Lakitu_EndHide(LakituEntity* this) {
+    UpdateAnimationSingleFrame(super);
 
-    if (this->frame & ANIM_DONE) {
-        this->action = IDLE;
-        this->timer = 60;
+    if (super->frame & ANIM_DONE) {
+        super->action = IDLE;
+        super->timer = 60;
 
-        this->hitType = 0x42;
+        super->hitType = 0x42;
 
-        InitAnimationForceUpdate(this, this->animationState + 4);
+        InitAnimationForceUpdate(super, super->animationState + 4);
     }
 }
 
-void Lakitu_Idle(Entity* this) {
+void Lakitu_Idle(LakituEntity* this) {
     if (sub_0803CB04(this)) {
         return;
     }
 
     if (!sub_0803CA4C(this)) {
-        this->action = BEGIN_HIDE;
+        super->action = BEGIN_HIDE;
 
-        this->hitType = 0x43;
-        InitAnimationForceUpdate(this, this->animationState + 0xc);
+        super->hitType = 0x43;
+        InitAnimationForceUpdate(super, super->animationState + 0xc);
     } else {
         sub_0803CA84(this, 4);
     }
 }
 
-void Lakitu_BeginHide(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void Lakitu_BeginHide(LakituEntity* this) {
+    UpdateAnimationSingleFrame(super);
 
-    if (this->frame & ANIM_DONE) {
-        this->action = HIDDEN;
-        this->spriteSettings.draw = 0;
+    if (super->frame & ANIM_DONE) {
+        super->action = HIDDEN;
+        super->spriteSettings.draw = 0;
 
-        InitAnimationForceUpdate(this, this->animationState);
+        InitAnimationForceUpdate(super, super->animationState);
     }
 }
 
-void Lakitu_Lightning(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void Lakitu_Lightning(LakituEntity* this) {
+    UpdateAnimationSingleFrame(super);
 
-    if (!(this->frame & ANIM_DONE)) {
+    if (!(super->frame & ANIM_DONE)) {
         return;
     }
 
     Lakitu_SpawnLightning(this);
 
-    this->action = LIGHTNING_DELAY;
-    this->hitType = 0x42;
+    super->action = LIGHTNING_DELAY;
+    super->hitType = 0x42;
 
-    if ((Random() & 1) && !this->field_0x78.HALF.HI) {
-        this->timer = 15;
+    if ((Random() & 1) && !this->unk_79) {
+        super->timer = 15;
 
-        this->field_0x78.HALF.HI = TRUE;
+        this->unk_79 = TRUE;
     } else {
-        this->timer = 30;
+        super->timer = 30;
 
-        this->field_0x78.HALF.HI = FALSE;
+        this->unk_79 = FALSE;
 
-        InitAnimationForceUpdate(this->child, this->animationState);
+        InitAnimationForceUpdate(super->child, super->animationState);
     }
 }
 
-void Lakitu_LightningDelay(Entity* this) {
-    this->timer--;
+void Lakitu_LightningDelay(LakituEntity* this) {
+    super->timer--;
 
-    if (this->timer != 0) {
+    if (super->timer != 0) {
         return;
     }
 
-    if (this->field_0x78.HALF.HI == 1) {
+    if (this->unk_79 == 1) {
         sub_0803CB34(this);
     } else {
-        this->action = IDLE;
-        this->timer = 180;
+        super->action = IDLE;
+        super->timer = 180;
 
-        InitAnimationForceUpdate(this, this->animationState + 4);
+        InitAnimationForceUpdate(super, super->animationState + 4);
     }
 }
 
-void Lakitu_Cloudless(Entity* this) {
-    if (GravityUpdate(this, Q_8_8(24.0)) == 0 && this->animIndex <= 19) {
-        InitAnimationForceUpdate(this, this->animationState + 20);
+void Lakitu_Cloudless(LakituEntity* this) {
+    if (GravityUpdate(super, Q_8_8(24.0)) == 0 && super->animIndex <= 19) {
+        InitAnimationForceUpdate(super, super->animationState + 20);
 
-        this->spritePriority.b1 = 0;
+        super->spritePriority.b1 = 0;
     }
 
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
     sub_0803CC08(this);
 }
 
-bool32 sub_0803CA4C(Entity* this) {
-    if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
-        if (EntityInRectRadius(this, &gPlayerEntity, 0x70, 0x50)) {
+bool32 sub_0803CA4C(LakituEntity* this) {
+    if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
+        if (EntityInRectRadius(super, &gPlayerEntity, 0x70, 0x50)) {
             return TRUE;
         }
     }
@@ -252,158 +260,158 @@ bool32 sub_0803CA4C(Entity* this) {
     return FALSE;
 }
 
-void sub_0803CA84(Entity* this, u32 unkParameter) {
-    u32 altAnimState = GetFacingDirection(this, &gPlayerEntity);
+void sub_0803CA84(LakituEntity* this, u32 unkParameter) {
+    u32 altAnimState = GetFacingDirection(super, &gPlayerEntity);
 
-    if (((altAnimState - 3) & 7) > 2 || ((this->animationState - (altAnimState >> 3)) & 3) > 1) {
+    if (((altAnimState - 3) & 7) > 2 || ((super->animationState - (altAnimState >> 3)) & 3) > 1) {
         altAnimState = DirectionRoundUp(altAnimState) >> 3;
 
-        if (altAnimState != this->animationState) {
-            this->animationState = altAnimState;
+        if (altAnimState != super->animationState) {
+            super->animationState = altAnimState;
 
-            InitAnimationForceUpdate(this, altAnimState + unkParameter);
-            InitAnimationForceUpdate(this->child, altAnimState);
+            InitAnimationForceUpdate(super, altAnimState + unkParameter);
+            InitAnimationForceUpdate(super->child, altAnimState);
         }
     }
 }
 
-void sub_0803CAD0(Entity* this) {
-    if (!EntityWithinDistance(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1)) {
-        this->direction =
-            CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
+void sub_0803CAD0(LakituEntity* this) {
+    if (!EntityWithinDistance(super, this->unk_74, this->unk_76, 1)) {
+        super->direction =
+            CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_74, this->unk_76);
 
-        ProcessMovement2(this);
+        ProcessMovement2(super);
     }
 }
 
-bool32 sub_0803CB04(Entity* this) {
+bool32 sub_0803CB04(LakituEntity* this) {
     bool32 ret;
     u8 delay;
 
-    delay = --this->timer;
+    delay = --super->timer;
     if (delay != 0) {
         ret = FALSE;
     } else {
         sub_0803CB34(this);
-        this->field_0x78.HALF.HI = delay;
+        this->unk_79 = delay;
 
-        InitAnimationForceUpdate(this->child, this->animationState + 4);
+        InitAnimationForceUpdate(super->child, super->animationState + 4);
         ret = TRUE;
     }
 
     return ret;
 }
 
-void sub_0803CB34(Entity* this) {
-    this->action = LIGHTNING_THROW;
-    this->hitType = 0xa6;
+void sub_0803CB34(LakituEntity* this) {
+    super->action = LIGHTNING_THROW;
+    super->hitType = 0xa6;
 
-    this->field_0x78.HALF.LO = GetFacingDirection(this, &gPlayerEntity);
+    this->unk_78 = GetFacingDirection(super, &gPlayerEntity);
 
-    InitAnimationForceUpdate(this, this->animationState + 8);
+    InitAnimationForceUpdate(super, super->animationState + 8);
 }
 
-void Lakitu_SpawnLightning(Entity* this) {
+void Lakitu_SpawnLightning(LakituEntity* this) {
     Entity* lightning;
     const OffsetCoords* offset;
 
-    lightning = CreateProjectileWithParent(this, LAKITU_LIGHTNING, 0);
+    lightning = CreateProjectileWithParent(super, LAKITU_LIGHTNING, 0);
 
     if (lightning == NULL) {
         return;
     }
 
-    offset = &gUnk_080D0154[this->animationState];
+    offset = &gUnk_080D0154[super->animationState];
 
-    lightning->direction = this->field_0x78.HALF.LO;
+    lightning->direction = this->unk_78;
 
-    PositionRelative(this, lightning, Q_16_16(offset->x), Q_16_16(offset->y));
+    PositionRelative(super, lightning, Q_16_16(offset->x), Q_16_16(offset->y));
 
     EnqueueSFX(SFX_193);
 }
 
-void sub_0803CBAC(Entity* this) {
+void sub_0803CBAC(LakituEntity* this) {
     Entity* cloud;
 
-    cloud = this->child;
+    cloud = super->child;
     if (cloud != NULL) {
         cloud->flags |= ENT_COLLIDE;
         cloud->hitType = 0x43;
     }
 
-    this->action = CLOUDLESS;
-    this->spriteSettings.draw = 1;
+    super->action = CLOUDLESS;
+    super->spriteSettings.draw = 1;
 
-    this->spritePriority.b1 = 1;
+    super->spritePriority.b1 = 1;
 
-    this->flags2 &= 0x7b;
+    super->flags2 &= 0x7b;
 
-    this->hitType = 0x42;
+    super->hitType = 0x42;
 
-    InitAnimationForceUpdate(this, this->animationState + 16);
+    InitAnimationForceUpdate(super, super->animationState + 16);
 }
 
-void sub_0803CC08(Entity* this) {
+void sub_0803CC08(LakituEntity* this) {
     Entity* cloud;
     Entity* fx;
 
     const s32 diff = Q_8_8(3.0 / 128.0);
 
-    cloud = this->child;
+    cloud = super->child;
     if (cloud == NULL) {
         return;
     }
 
-    if ((u32)(cloud->z.HALF.HI - this->z.HALF.HI) > 2) {
+    if ((u32)(cloud->z.HALF.HI - super->z.HALF.HI) > 2) {
         return;
     }
 
-    if (this->zVelocity >= 0) {
+    if (super->zVelocity >= 0) {
         return;
     }
 
-    if (!EntityWithinDistance(this, cloud->x.HALF.HI, cloud->y.HALF.HI, 6)) {
+    if (!EntityWithinDistance(super, cloud->x.HALF.HI, cloud->y.HALF.HI, 6)) {
         return;
     }
 
-    fx = CreateFx(this, FX_DEATH, 0);
+    fx = CreateFx(super, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += diff;
         fx->y.HALF.HI += diff;
     }
 
-    fx = CreateFx(this, FX_DEATH, 0);
+    fx = CreateFx(super, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI -= diff;
         fx->y.HALF.HI += diff;
     }
 
-    fx = CreateFx(this, FX_DEATH, 0);
+    fx = CreateFx(super, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += diff;
         fx->y.HALF.HI -= diff;
     }
 
-    fx = CreateFx(this, FX_DEATH, 0);
+    fx = CreateFx(super, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI -= diff;
         fx->y.HALF.HI -= diff;
     }
 
-    this->child = NULL;
+    super->child = NULL;
     DeleteEntity(cloud);
 }
 
-void (*const Lakitu_Functions[])(Entity*) = {
-    Lakitu_OnTick, Lakitu_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Lakitu_OnGrabbed,
+void (*const Lakitu_Functions[])(LakituEntity*) = {
+    Lakitu_OnTick, Lakitu_OnCollision, (void (*)(LakituEntity*))GenericKnockback, (void (*)(LakituEntity*))GenericDeath, (void (*)(LakituEntity*))GenericConfused, Lakitu_OnGrabbed,
 };
 
-void (*const LakituActionFuncs[])(Entity*) = {
+void (*const LakituActionFuncs[])(LakituEntity*) = {
     Lakitu_Initialize, Lakitu_Hide,      Lakitu_EndHide,        Lakitu_Idle,
     Lakitu_BeginHide,  Lakitu_Lightning, Lakitu_LightningDelay, Lakitu_Cloudless,
 };
 
-void (*const gUnk_080D0148[])(Entity*) = {
+void (*const gUnk_080D0148[])(LakituEntity*) = {
     sub_0803C844,
     sub_0803C850,
     sub_0803C86C,

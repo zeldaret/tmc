@@ -4,20 +4,29 @@
  *
  * @brief Door Mimic enemy
  */
-
-#include "sound.h"
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
+#include "sound.h"
 
-void sub_080221C0(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ u16 unk_7c;
+    /*0x7e*/ u16 unk_7e;
+} DoorMimicEntity;
+
+void sub_080221C0(DoorMimicEntity*);
 
 typedef struct {
     s8 h;
     s8 v;
 } PACKED PosOffset;
 
-extern void (*const DoorMimic_Functions[])(Entity*);
-extern void (*const gUnk_080CB74C[])(Entity*);
+extern void (*const DoorMimic_Functions[])(DoorMimicEntity*);
+extern void (*const gUnk_080CB74C[])(DoorMimicEntity*);
 
 extern const s8 gUnk_080CB764[];
 extern const PosOffset gUnk_080CB76C[4][6];
@@ -26,111 +35,111 @@ extern const Hitbox* const* const gUnk_080CB8A4[];
 
 extern s16 gUnk_080B4488[];
 
-void DoorMimic(Entity* this) {
-    DoorMimic_Functions[GetNextFunction(this)](this);
-    this->hitbox = (Hitbox*)gUnk_080CB8A4[this->type2][this->frameIndex];
+void DoorMimic(DoorMimicEntity* this) {
+    DoorMimic_Functions[GetNextFunction(super)](this);
+    super->hitbox = (Hitbox*)gUnk_080CB8A4[super->type2][super->frameIndex];
 }
 
-void DoorMimic_OnTick(Entity* this) {
-    gUnk_080CB74C[this->action](this);
+void DoorMimic_OnTick(DoorMimicEntity* this) {
+    gUnk_080CB74C[super->action](this);
 }
 
-void DoorMimic_OnCollision(Entity* this) {
-    EnemyFunctionHandlerAfterCollision(this, DoorMimic_Functions);
+void DoorMimic_OnCollision(DoorMimicEntity* this) {
+    EnemyFunctionHandlerAfterCollision(super, DoorMimic_Functions);
 }
 
-void DoorMimic_OnDeath(Entity* this) {
-    SetTile((u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI, this->collisionLayer);
-    CreateFx(this, FX_POT_SHATTER, 0);
-    sub_08049CF4(this);
+void DoorMimic_OnDeath(DoorMimicEntity* this) {
+    SetTile(this->unk_7c, this->unk_7e, super->collisionLayer);
+    CreateFx(super, FX_POT_SHATTER, 0);
+    sub_08049CF4(super);
     DeleteThisEntity();
 }
 
-void sub_08022034(Entity* this) {
-    this->action = 1;
-    this->type2 = this->type & 3;
-    this->spritePriority.b0 = 5;
-    this->field_0x78.HWORD = gUnk_080CB764[this->type2 * 2 + 0] + this->x.HALF.HI;
-    this->field_0x7a.HWORD = gUnk_080CB764[this->type2 * 2 + 1] + this->y.HALF.HI;
-    InitializeAnimation(this, this->type2);
+void sub_08022034(DoorMimicEntity* this) {
+    super->action = 1;
+    super->type2 = super->type & 3;
+    super->spritePriority.b0 = 5;
+    this->unk_78 = gUnk_080CB764[super->type2 * 2 + 0] + super->x.HALF.HI;
+    this->unk_7a = gUnk_080CB764[super->type2 * 2 + 1] + super->y.HALF.HI;
+    InitializeAnimation(super, super->type2);
     sub_080221C0(this);
 }
 
-void sub_0802209C(Entity* this) {
-    if (this->timer == 0) {
-        if (CheckPlayerProximity(this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x10, 0x10)) {
-            this->action = 2;
-            this->timer = 18;
-            InitializeAnimation(this, this->type2 + 4);
+void sub_0802209C(DoorMimicEntity* this) {
+    if (super->timer == 0) {
+        if (CheckPlayerProximity(this->unk_78, this->unk_7a, 0x10, 0x10)) {
+            super->action = 2;
+            super->timer = 18;
+            InitializeAnimation(super, super->type2 + 4);
         }
     } else {
-        this->timer--;
+        super->timer--;
     }
 }
 
-void sub_080220D8(Entity* this) {
-    if (--this->timer == 0)
-        this->action = 3;
+void sub_080220D8(DoorMimicEntity* this) {
+    if (--super->timer == 0)
+        super->action = 3;
 }
 
-void sub_080220F0(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
+void sub_080220F0(DoorMimicEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
         const PosOffset* off;
         u32 i;
 
-        this->action = 4;
-        this->timer = 120;
-        this->damage = 0;
-        off = gUnk_080CB76C[this->type2];
+        super->action = 4;
+        super->timer = 120;
+        super->damage = 0;
+        off = gUnk_080CB76C[super->type2];
         for (i = 0; i < 6; i++, off++) {
-            Entity* fx = CreateFx(this, FX_DASH, 0);
+            Entity* fx = CreateFx(super, FX_DASH, 0);
             if (fx) {
                 fx->x.HALF.HI += off->h;
                 fx->y.HALF.HI += off->v;
             }
         }
         EnqueueSFX(SFX_PLACE_OBJ);
-    } else if (this->frame & 1) {
-        this->damage = 4;
+    } else if (super->frame & 1) {
+        super->damage = 4;
     }
 }
 
-void sub_08022174(Entity* this) {
-    sub_0800445C(this);
-    if (--this->timer == 0) {
-        this->action = 5;
-        InitializeAnimation(this, this->type2 + 8);
+void sub_08022174(DoorMimicEntity* this) {
+    sub_0800445C(super);
+    if (--super->timer == 0) {
+        super->action = 5;
+        InitializeAnimation(super, super->type2 + 8);
     }
 }
 
-void sub_08022198(Entity* this) {
-    sub_0800445C(this);
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 1;
-        this->timer = 90;
+void sub_08022198(DoorMimicEntity* this) {
+    sub_0800445C(super);
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 1;
+        super->timer = 90;
     }
 }
 
-void sub_080221C0(Entity* this) {
-    u32 tile = COORD_TO_TILE(this) + gUnk_080B4488[this->type2];
-    this->field_0x7c.HALF.HI = tile;
-    this->field_0x7c.HALF.LO = GetTileIndex(tile, this->collisionLayer);
-    SetTile(gUnk_080CB79C[this->type2], tile, this->collisionLayer);
+void sub_080221C0(DoorMimicEntity* this) {
+    u32 tile = COORD_TO_TILE(super) + gUnk_080B4488[super->type2];
+    this->unk_7e = tile;
+    this->unk_7c = GetTileIndex(tile, super->collisionLayer);
+    SetTile(gUnk_080CB79C[super->type2], tile, super->collisionLayer);
 }
 
 // clang-format off
-void (*const DoorMimic_Functions[])(Entity*) = {
+void (*const DoorMimic_Functions[])(DoorMimicEntity*) = {
     DoorMimic_OnTick,
     DoorMimic_OnCollision,
-    GenericKnockback,
+    (void (*)(DoorMimicEntity*))GenericKnockback,
     DoorMimic_OnDeath,
-    GenericConfused,
+    (void (*)(DoorMimicEntity*))GenericConfused,
     DoorMimic_OnTick,
 };
 
-void (*const gUnk_080CB74C[])(Entity*) = {
+void (*const gUnk_080CB74C[])(DoorMimicEntity*) = {
     sub_08022034,
     sub_0802209C,
     sub_080220D8,

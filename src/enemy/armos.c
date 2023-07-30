@@ -4,15 +4,13 @@
  *
  * @brief Armos enemy
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
+#include "collision.h"
+#include "common.h"
 #include "enemy.h"
+#include "flags.h"
 #include "functions.h"
 #include "hitbox.h"
-#include "common.h"
-#include "flags.h"
-#include "collision.h"
 
 typedef struct {
     /*0x00*/ Entity base;

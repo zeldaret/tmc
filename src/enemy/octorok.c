@@ -4,7 +4,7 @@
  *
  * @brief Octorok enemy
  */
-
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "physics.h"
 
@@ -128,14 +128,14 @@ void Octorok_Move(Entity* this) {
 void Octorok_ShootNut(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        Entity* ent = CreateProjectileWithParent(this, ROCK_PROJECTILE, 0);
-        if (ent != NULL) {
+        Entity* entity = CreateProjectileWithParent(this, ROCK_PROJECTILE, 0);
+        if (entity != NULL) {
             const s8* off;
-            ent->direction = this->direction;
+            entity->direction = this->direction;
             off = &gOctorokNutOffset[this->direction / 4];
-            ent->x.HALF.HI += off[0];
-            ent->y.HALF.HI += off[1];
-            ent->z.HALF.HI = -3;
+            entity->x.HALF.HI += off[0];
+            entity->y.HALF.HI += off[1];
+            entity->z.HALF.HI = -3;
             this->frame &= 0xfe;
             EnqueueSFX(SFX_18D);
         }
@@ -182,12 +182,12 @@ void Octorok_Turn(Entity* this) {
 }
 
 bool32 Octorok_FacesPlayer(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
+    Entity* entity = sub_08049DF4(1);
 
-    if (ent == NULL)
+    if (entity == NULL)
         return FALSE;
 
-    if (DirectionRoundUp(GetFacingDirection(this, ent)) != this->direction)
+    if (DirectionRoundUp(GetFacingDirection(this, entity)) != this->direction)
         return FALSE;
 
     return TRUE;

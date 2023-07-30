@@ -4,13 +4,12 @@
  *
  * @brief Like Like enemy
  */
-
 #define NENT_DEPRECATED
 #include "enemy.h"
-#include "message.h"
-#include "save.h"
-#include "object.h"
 #include "item.h"
+#include "message.h"
+#include "object.h"
+#include "save.h"
 
 typedef struct {
     Entity base;

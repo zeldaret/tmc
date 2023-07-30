@@ -1,8 +1,14 @@
+/**
+ * @file bombarossa.c
+ * @ingroup Enemies
+ *
+ * @brief Bombarossa enemy
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
 #include "enemy.h"
-#include "room.h"
+#include "entity.h"
 #include "object.h"
+#include "room.h"
 
 typedef struct {
     Entity base;
@@ -39,12 +45,12 @@ void Bombarossa_OnTick(BombarossaEntity* this) {
 }
 
 void Bombarossa_OnCollision(BombarossaEntity* this) {
-    Entity* ent;
+    Entity* entity;
     switch (super->contactFlags & 0x7f) {
         default:
-            ent = CreateObject(SMOKE_PARTICLE, 0, 0);
-            if (ent != NULL) {
-                CopyPosition(super, ent);
+            entity = CreateObject(SMOKE_PARTICLE, 0, 0);
+            if (entity != NULL) {
+                CopyPosition(super, entity);
             }
             DeleteThisEntity();
         case 1:

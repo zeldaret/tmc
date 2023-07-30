@@ -4,12 +4,12 @@
  *
  * @brief Wisp enemy
  */
-
+//#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
-#include "save.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
+#include "save.h"
 
 static void sub_08033744(Entity* this);
 void Wisp_OnTick(Entity* this);
@@ -41,7 +41,7 @@ void Wisp_OnTick(Entity* this) {
 
 void Wisp_OnCollision(Entity* this) {
     u32 bits;
-    Entity* ent;
+    Entity* entity;
 
     bits = this->contactFlags;
     if ((bits & 0x80) == 0) {
@@ -70,11 +70,11 @@ void Wisp_OnCollision(Entity* this) {
             COLLISION_OFF(this);
             this->iframes = 0;
             this->spriteSettings.draw = FALSE;
-            ent = CreateFx(this, FX_DEATH, 0);
-            if (ent != NULL) {
-                this->child = ent;
+            entity = CreateFx(this, FX_DEATH, 0);
+            if (entity != NULL) {
+                this->child = entity;
                 this->timer = 14;
-                CopyPosition(this, ent);
+                CopyPosition(this, entity);
             }
             DeleteThisEntity();
             break;
