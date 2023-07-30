@@ -1,53 +1,67 @@
+/**
+ * @file playerItemBottle.c
+ * @ingroup Items
+ *
+ * @brief Bottle Player Item
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
+#include "functions.h"
+#include "item.h"
+#include "object.h"
 #include "save.h"
 #include "sound.h"
-#include "functions.h"
-#include "object.h"
-#include "item.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 bottleIndex; /**< @see Item */
+    /*0x69*/ u8 unused[6];
+    /*0x6f*/ u8 bottleContent; /**< @see Item */
+} PlayerItemBottleEntity;
 
 void PlayerItemBottle_UseEmptyBottle(Entity*);
-void PlayerItemBottle_Action1(Entity*);
+void PlayerItemBottle_Action1(PlayerItemBottleEntity*);
 void sub_0801BDE8(Entity*, Entity*);
 void PlayerItemBottle_UseEmptyBottle2(Entity*);
-void PlayerItemBottle_UsePotionOrPicolyte(Entity*);
-void PlayerItemBottle_UseOther(Entity*);
-void PlayerItemBottle_Init(Entity*);
+void PlayerItemBottle_UsePotionOrPicolyte(PlayerItemBottleEntity*);
+void PlayerItemBottle_UseOther(PlayerItemBottleEntity*);
+void PlayerItemBottle_Init(PlayerItemBottleEntity*);
 
 extern u32 SetBottleContents(u32 itemID, u32 bottleIndex);
 extern void sub_0801B9F0(Entity* this);
 
-void PlayerItemBottle(Entity* this) {
-    static void (*const PlayerItemBottle_Actions[])(Entity*) = {
+void PlayerItemBottle(PlayerItemBottleEntity* this) {
+    static void (*const PlayerItemBottle_Actions[])(PlayerItemBottleEntity*) = {
         PlayerItemBottle_Init,
         PlayerItemBottle_Action1,
     };
-    PlayerItemBottle_Actions[this->action](this);
+    PlayerItemBottle_Actions[super->action](this);
 }
 
-void PlayerItemBottle_Init(Entity* this) {
-    u32 bottleType;
+void PlayerItemBottle_Init(PlayerItemBottleEntity* this) {
+    u32 bottleContent;
 
-    if (this->field_0x68.HALF.LO == ITEM_QST_DOGFOOD) {
-        bottleType = ITEM_QST_DOGFOOD;
+    if (this->bottleIndex == ITEM_QST_DOGFOOD) {
+        bottleContent = ITEM_QST_DOGFOOD;
     } else {
-        u32 tmp = this->field_0x68.HALF.LO;
-        bottleType = gSave.saved_status.field_0x24[tmp - 6];
+        u32 tmp = this->bottleIndex;
+        bottleContent = gSave.stats.bottles[tmp - ITEM_BOTTLE1];
     }
-    this->field_0x6e.HALF.HI = bottleType;
-    switch (bottleType) {
+    this->bottleContent = bottleContent;
+    switch (bottleContent) {
         case ITEM_BOTTLE_EMPTY:
-            if (AllocMutableHitbox(this) == NULL) {
+            if (AllocMutableHitbox(super) == NULL) {
                 return;
             }
-            COLLISION_ON(this);
-            this->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
-            this->flags2 = gPlayerEntity.flags2;
-            this->hurtType = 0x1f;
-            this->type = 1;
-            this->type2 = ITEM_BOTTLE_EMPTY;
-            this->timer = 82;
-            this->subtimer = 27;
-            sub_0801766C(this);
+            COLLISION_ON(super);
+            super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
+            super->flags2 = gPlayerEntity.flags2;
+            super->hurtType = 0x1f;
+            super->type = 1;
+            super->type2 = ITEM_BOTTLE_EMPTY;
+            super->timer = 82;
+            super->subtimer = 27;
+            sub_0801766C(super);
             SoundReq(SFX_1DC);
             break;
         case ITEM_BOTTLE_BUTTER:
@@ -61,43 +75,43 @@ void PlayerItemBottle_Init(Entity* this) {
         case ITEM_BOTTLE_PICOLYTE_GREEN:
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
-            this->timer = 213;
-            this->subtimer = 60;
+            super->timer = 213;
+            super->subtimer = 60;
             break;
         case BOTTLE_CHARM_NAYRU:
         case BOTTLE_CHARM_FARORE:
         case BOTTLE_CHARM_DIN:
         default:
-            this->timer = 55;
-            this->subtimer = 0;
+            super->timer = 55;
+            super->subtimer = 0;
     }
-    this->action = 1;
-    this->frameIndex = 0xff;
-    gPlayerState.item = this;
-    LoadSwapGFX(this, 1, 3);
+    super->action = 1;
+    super->frameIndex = 0xff;
+    gPlayerState.item = super;
+    LoadSwapGFX(super, 1, 3);
     PlayerItemBottle_Action1(this);
 }
 
-void PlayerItemBottle_Action1(Entity* this) {
-    int iVar1;
+void PlayerItemBottle_Action1(PlayerItemBottleEntity* this) {
+    u32 bottleIndex;
 
-    if (gPlayerState.item != this) {
-        if ((this->type == 1) && (this->type2 != ITEM_BOTTLE_EMPTY)) {
-            iVar1 = this->field_0x68.HALF.LO - 0x1c;
-            SetBottleContents(this->type2, iVar1);
+    if (gPlayerState.item != super) {
+        if ((super->type == 1) && (super->type2 != ITEM_BOTTLE_EMPTY)) {
+            bottleIndex = this->bottleIndex - ITEM_BOTTLE1;
+            SetBottleContents(super->type2, bottleIndex);
 #if defined(EU) || defined(JP) || defined(DEMO_JP)
-            CreateItemEntity(this->type2, iVar1, 5);
+            CreateItemEntity(super->type2, bottleIndex, 5);
 #else
-            InitItemGetSequence(this->type2, iVar1, 5);
+            InitItemGetSequence(super->type2, bottleIndex, 5);
 #endif
             SoundReq(SFX_ITEM_GET);
         }
         DeleteThisEntity();
     }
-    sub_0801BDE8(this, &gPlayerEntity);
-    switch (this->field_0x6e.HALF.HI) {
+    sub_0801BDE8(super, &gPlayerEntity);
+    switch (this->bottleContent) {
         case ITEM_BOTTLE_EMPTY:
-            PlayerItemBottle_UseEmptyBottle2(this);
+            PlayerItemBottle_UseEmptyBottle2(super);
             break;
         case ITEM_BOTTLE_BUTTER:
         case ITEM_BOTTLE_MILK:
@@ -127,15 +141,15 @@ void PlayerItemBottle_UseEmptyBottle2(Entity* this) {
     PlayerItemBottle_UseEmptyBottle(this);
 }
 
-void PlayerItemBottle_UsePotionOrPicolyte(Entity* this) {
+void PlayerItemBottle_UsePotionOrPicolyte(PlayerItemBottleEntity* this) {
     u32 health;
-    u32 bottleType;
+    u32 bottleContent;
 
-    bottleType = ITEM_BOTTLE_EMPTY;
+    bottleContent = ITEM_BOTTLE_EMPTY;
     health = 0;
-    switch (this->field_0x6e.HALF.HI) {
+    switch (this->bottleContent) {
         case ITEM_BOTTLE_MILK:
-            bottleType = ITEM_BOTTLE_HALF_MILK;
+            bottleContent = ITEM_BOTTLE_HALF_MILK;
         case ITEM_BOTTLE_HALF_MILK:
             health = 40;
             break;
@@ -152,69 +166,69 @@ void PlayerItemBottle_UsePotionOrPicolyte(Entity* this) {
         case ITEM_BOTTLE_PICOLYTE_GREEN:
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
-            gSave.stats.picolyteType = this->field_0x6e.HALF.HI;
+            gSave.stats.picolyteType = this->bottleContent;
             gSave.stats.picolyteTimer = 900;
             SoundReq(SFX_PICOLYTE);
             break;
     }
     ModHealth(health);
-    SetBottleContents(bottleType, this->field_0x68.HALF.LO - 0x1c);
+    SetBottleContents(bottleContent, this->bottleIndex - 0x1c);
 }
 
-void PlayerItemBottle_UseOther(Entity* this) {
+void PlayerItemBottle_UseOther(PlayerItemBottleEntity* this) {
     if (gPlayerEntity.frame == 1) {
-        if (this->field_0x6e.HALF.HI != 0x36) {
-            SetBottleContents(ITEM_BOTTLE_EMPTY, this->field_0x68.HALF.LO - 0x1c);
+        if (this->bottleContent != ITEM_QST_DOGFOOD) {
+            SetBottleContents(ITEM_BOTTLE_EMPTY, this->bottleIndex - 0x1c);
         }
-        switch (this->field_0x6e.HALF.HI) {
+        switch (this->bottleContent) {
             case ITEM_BOTTLE_WATER:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 0, 0);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 0, 0);
                 break;
             case ITEM_BOTTLE_MINERAL_WATER:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 1, 1);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 1, 1);
                 break;
             case ITEM_BOTTLE_FAIRY:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 2, 2);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 2, 2);
                 ModHealth(0x20);
                 break;
             case BOTTLE_CHARM_NAYRU:
             case BOTTLE_CHARM_FARORE:
             case BOTTLE_CHARM_DIN:
-                gSave.stats.charm = this->field_0x6e.HALF.HI;
+                gSave.stats.charm = this->bottleContent;
                 gSave.stats.charmTimer = 3600;
                 SoundReq(SFX_ELEMENT_CHARGE);
         }
     }
     if (gPlayerEntity.frame == 2) {
-        switch (this->field_0x6e.HALF.HI) {
+        switch (this->bottleContent) {
             case ITEM_BOTTLE_WATER:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 0, 0);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 0, 0);
                 break;
             case ITEM_BOTTLE_MINERAL_WATER:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 1, 1);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 1, 1);
                 break;
         }
     }
     if (gPlayerEntity.frame == 3) {
-        switch (this->field_0x6e.HALF.HI) {
+        switch (this->bottleContent) {
             case ITEM_BOTTLE_WATER:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 0, 0);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 0, 0);
                 break;
             case ITEM_BOTTLE_MINERAL_WATER:
-                CreateObjectWithParent(this, LINK_EMPTYING_BOTTLE, 1, 0);
+                CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 1, 0);
                 break;
         }
     }
 }
 
 void sub_0801BDE8(Entity* this, Entity* ent2) {
-    u32 uVar1;
+    u32 frameIndex;
     u32 flipX;
     u32 animationState;
 
-    uVar1 = (ent2->frameIndex - this->timer) + this->subtimer;
-    if (uVar1 != this->frameIndex) {
-        this->frameIndex = uVar1;
+    frameIndex = (ent2->frameIndex - this->timer) + this->subtimer;
+    if (frameIndex != this->frameIndex) {
+        this->frameIndex = frameIndex;
         sub_080042D0(this, this->frameIndex, (u16)this->spriteIndex);
     }
     flipX = ent2->spriteSettings.flipX;
@@ -235,8 +249,8 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
         16, -12, 9,   9,  0,  0, 0,   0,   0,  0, 0,  0,  0,   0, 0, 0,  0,   0,  0,  0, 0,   0,  0,  0, 0,   0,
 
     };
-    int iVar2;
-    Hitbox* pHVar5;
+    s32 iVar2;
+    Hitbox* hitbox;
     const u8* ptr;
     const s8* ptr2;
 
@@ -256,11 +270,11 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
 
     ptr = &bottleHitboxParameters[(this->frameIndex - 0x1b) * 4];
     if (this->spriteSettings.flipX != 0) {
-        pHVar5 = this->hitbox;
-        pHVar5->offset_x = -ptr[0];
+        hitbox = this->hitbox;
+        hitbox->offset_x = -ptr[0];
     } else {
-        pHVar5 = this->hitbox;
-        pHVar5->offset_x = ptr[0];
+        hitbox = this->hitbox;
+        hitbox->offset_x = ptr[0];
     }
     this->hitbox->offset_y = ptr[1];
     this->hitbox->width = ptr[2];

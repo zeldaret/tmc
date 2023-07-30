@@ -20,7 +20,7 @@ typedef struct {
 static_assert(sizeof(OctorokBossHeap) == 0x30);
 
 struct OctorokBossEntity {
-    Entity base;
+    /*0x00*/ Entity base;
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
     /*0x6c*/ union SplitHWord field_0x6c;
