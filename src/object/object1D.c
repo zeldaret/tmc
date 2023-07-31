@@ -4,6 +4,7 @@
  *
  * @brief Object1D object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 
 void Object1D_Init(Entity*);

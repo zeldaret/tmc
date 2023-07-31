@@ -2,8 +2,9 @@
  * @file cutsceneOrchestrator.c
  * @ingroup Objects
  *
- * @brief CutsceneO rchestrator object
+ * @brief Cutscene Orchestrator object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "hitbox.h"

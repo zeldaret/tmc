@@ -4,10 +4,8 @@
  *
  * @brief Enemy Item object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 typedef struct {

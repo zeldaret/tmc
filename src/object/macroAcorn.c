@@ -4,41 +4,48 @@
  *
  * @brief Macro Acorn object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "object.h"
 #include "physics.h"
 
-void MacroAcorn_Init(Entity*);
-void MacroAcorn_Action1(Entity*);
-void sub_0809E5F0(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[24];
+    /*0x80*/ u16 unk_80;
+} MacroAcornEntity;
 
-void MacroAcorn(Entity* this) {
-    static void (*const MacroAcorn_Actions[])(Entity*) = {
+void MacroAcorn_Init(MacroAcornEntity* this);
+void MacroAcorn_Action1(MacroAcornEntity* this);
+void sub_0809E5F0(MacroAcornEntity* this);
+
+void MacroAcorn(MacroAcornEntity* this) {
+    static void (*const MacroAcorn_Actions[])(MacroAcornEntity*) = {
         MacroAcorn_Init,
         MacroAcorn_Action1,
     };
-    MacroAcorn_Actions[this->action](this);
+    MacroAcorn_Actions[super->action](this);
 }
 
-void MacroAcorn_Init(Entity* this) {
+void MacroAcorn_Init(MacroAcornEntity* this) {
     u32 bVar2;
     Entity* pEVar3;
 
-    this->action = 1;
-    if (this->type == 0xff) {
-        this->frameIndex = this->type2;
+    super->action = 1;
+    if (super->type == 0xff) {
+        super->frameIndex = super->type2;
     } else {
-        bVar2 = (this->type & 1) ? 4 : 0;
-        if ((this->type & 2)) {
+        bVar2 = (super->type & 1) ? 4 : 0;
+        if ((super->type & 2)) {
             if (gEntCount < 0x45) {
-                this->frameIndex = bVar2;
+                super->frameIndex = bVar2;
                 pEVar3 = CreateObject(HUGE_ACORN, 0xff, ++bVar2);
-                CopyPosition(this, pEVar3);
+                CopyPosition(super, pEVar3);
                 pEVar3 = CreateObject(HUGE_ACORN, 0xff, ++bVar2);
-                PositionRelative(this, pEVar3, 0, 0x10000);
+                PositionRelative(super, pEVar3, 0, 0x10000);
                 pEVar3->spriteOffsetY = -1;
                 pEVar3 = CreateObject(HUGE_ACORN, 0xff, ++bVar2);
-                CopyPosition(this, pEVar3);
+                CopyPosition(super, pEVar3);
             } else {
                 DeleteThisEntity();
             }
@@ -47,26 +54,26 @@ void MacroAcorn_Init(Entity* this) {
             if (pEVar3 == NULL) {
                 DeleteThisEntity();
             } else {
-                this->frameIndex = bVar2;
-                CopyPosition(this, pEVar3);
+                super->frameIndex = bVar2;
+                CopyPosition(super, pEVar3);
             }
         }
         sub_0809E5F0(this);
     }
 
-    if ((this->frameIndex & 1) != 0) {
-        this->spriteRendering.b3 = 3;
-        this->spritePriority.b0 = 7;
+    if ((super->frameIndex & 1) != 0) {
+        super->spriteRendering.b3 = 3;
+        super->spritePriority.b0 = 7;
     }
 }
 
-void MacroAcorn_Action1(Entity* this) {
+void MacroAcorn_Action1(MacroAcornEntity* this) {
 }
 
-void sub_0809E5F0(Entity* this) {
-    u32 position = COORD_TO_TILE(this);
-    this->field_0x80.HWORD = position;
-    switch (this->type) {
+void sub_0809E5F0(MacroAcornEntity* this) {
+    u32 position = COORD_TO_TILE(super);
+    this->unk_80 = position;
+    switch (super->type) {
         case 2:
             SetTile(0x4022, position - 0x3d, 1);
             SetTile(0x406d, position - 0x3c, 1);

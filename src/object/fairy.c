@@ -4,11 +4,9 @@
  *
  * @brief Fairy object
  */
-
 #define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "item.h"
 #include "object.h"
@@ -35,6 +33,8 @@ void Fairy_Action4(FairyEntity*);
 void Fairy_SubAction0(FairyEntity*);
 void Fairy_SubAction1(FairyEntity*);
 void Fairy_SubAction2(FairyEntity*);
+
+extern void sub_08081404(Entity*, u32);
 
 void Fairy(FairyEntity* this) {
     static void (*const Fairy_Actions[])(FairyEntity*) = {

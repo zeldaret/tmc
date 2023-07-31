@@ -4,247 +4,264 @@
  *
  * @brief Chuchu Boss Start Particle object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
-static void sub_0808F2B0(Entity*);
-void sub_0808F14C(Entity*);
-void sub_0808F244(Entity*);
-void sub_0808F0B8(Entity*);
-void sub_0808F1E0(Entity*);
-void sub_0808F2C0(Entity*);
-void sub_0808F370(Entity*);
-void sub_0808F3DC(Entity*);
-void sub_0808F498(Entity*);
-void sub_0808F554(Entity*);
-void sub_0808F0D0(Entity*);
-void sub_0808F170(Entity*);
-void sub_0808F1A4(Entity*);
-void sub_0808F244(Entity*);
-void sub_0808F1F8(Entity*);
-void sub_0808F5EC(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[5];
+    /*0x6d*/ u8 unk_6d;
+    /*0x6e*/ u8 unused2[2];
+    /*0x70*/ u32 unk_70;
+    /*0x74*/ u32 unk_74;
+    /*0x78*/ u32 unk_78;
+    /*0x7c*/ u8 unused3[3];
+    /*0x7f*/ u8 unk_7f;
+    /*0x80*/ u8 unused4[4];
+    /*0x84*/ u32 unk_84;
+} ChuchuBossStartParticleEntity;
 
-void ChuchuBossStartParticle(Entity* this) {
-    static void (*const typeFuncs[])(Entity*) = {
-        sub_0808F0B8, sub_0808F1E0, sub_0808F2C0, sub_0808F370, sub_0808F0B8, sub_0808F3DC,
-        sub_0808F3DC, sub_0808F3DC, sub_0808F3DC, sub_0808F498, sub_0808F554,
+static void sub_0808F2B0(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type0_Action1(ChuchuBossStartParticleEntity* this);
+void sub_0808F244(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type0(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type1(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type2(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type3(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type5(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type9(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type10(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type0_Init(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type0_Action2(ChuchuBossStartParticleEntity* this);
+void ChuchuBossStartParticle_Type0_Action3(ChuchuBossStartParticleEntity* this);
+void sub_0808F244(ChuchuBossStartParticleEntity* this);
+void sub_0808F1F8(ChuchuBossStartParticleEntity* this);
+void sub_0808F5EC(ChuchuBossStartParticleEntity* this);
+
+void ChuchuBossStartParticle(ChuchuBossStartParticleEntity* this) {
+    static void (*const ChuchuBossStartParticle_Types[])(ChuchuBossStartParticleEntity*) = {
+        ChuchuBossStartParticle_Type0, ChuchuBossStartParticle_Type1,  ChuchuBossStartParticle_Type2,
+        ChuchuBossStartParticle_Type3, ChuchuBossStartParticle_Type0,  ChuchuBossStartParticle_Type5,
+        ChuchuBossStartParticle_Type5, ChuchuBossStartParticle_Type5,  ChuchuBossStartParticle_Type5,
+        ChuchuBossStartParticle_Type9, ChuchuBossStartParticle_Type10,
     };
-    typeFuncs[this->type](this);
+    ChuchuBossStartParticle_Types[super->type](this);
 }
 
-void sub_0808F0B8(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0808F0D0,
-        sub_0808F14C,
-        sub_0808F170,
-        sub_0808F1A4,
+void ChuchuBossStartParticle_Type0(ChuchuBossStartParticleEntity* this) {
+    static void (*const ChuchuBossStartParticle_Type0_Actions[])(ChuchuBossStartParticleEntity*) = {
+        ChuchuBossStartParticle_Type0_Init,
+        ChuchuBossStartParticle_Type0_Action1,
+        ChuchuBossStartParticle_Type0_Action2,
+        ChuchuBossStartParticle_Type0_Action3,
     };
-    actionFuncs[this->action](this);
+    ChuchuBossStartParticle_Type0_Actions[super->action](this);
 }
 
-void sub_0808F0D0(Entity* this) {
+void ChuchuBossStartParticle_Type0_Init(ChuchuBossStartParticleEntity* this) {
     u32 offsetX;
     u32 offsetY;
     Entity* ent;
     u32 uVar3;
 
-    ent = CreateObjectWithParent(this, CHUCHU_BOSS_START_PARTICLE, 2, 0);
-    this->child = ent;
+    ent = CreateObjectWithParent(super, CHUCHU_BOSS_START_PARTICLE, 2, 0);
+    super->child = ent;
     if (ent == NULL) {
         DeleteThisEntity();
     }
-    this->action = 1;
-    this->z.HALF.HI = -0xc0;
+    super->action = 1;
+    super->z.HALF.HI = -0xc0;
     offsetX = Random() % 64;
     if ((Random() & 1) != 0) {
         offsetX = -offsetX;
     }
-    this->x.HALF.HI = this->parent->x.HALF.HI + offsetX;
+    super->x.HALF.HI = super->parent->x.HALF.HI + offsetX;
     offsetY = Random() % 32;
     if ((Random() & 1) != 0) {
         offsetY = -offsetY;
     }
-    this->y.HALF.HI = this->parent->y.HALF.HI + offsetY;
-    *(u32*)&this->field_0x74 = 0x240;
-    *(u32*)&this->field_0x78 = 0x140;
-    InitializeAnimation(this, 3);
-    sub_0808F14C(this);
+    super->y.HALF.HI = super->parent->y.HALF.HI + offsetY;
+    this->unk_74 = 0x240;
+    this->unk_78 = 0x140;
+    InitializeAnimation(super, 3);
+    ChuchuBossStartParticle_Type0_Action1(this);
 }
 
-void sub_0808F14C(Entity* this) {
+void ChuchuBossStartParticle_Type0_Action1(ChuchuBossStartParticleEntity* this) {
     sub_0808F2B0(this);
-    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
-        this->action++;
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
+        super->action++;
         SoundReq(SFX_WATER_SPLASH);
     }
 }
 
-void sub_0808F170(Entity* this) {
-    *(u32*)&this->field_0x74 -= 0x20;
-    *(u32*)&this->field_0x78 += 0x20;
-    sub_0806FCF4(this, *(u32*)&this->field_0x78, 8, 2);
-    if (*(u32*)&this->field_0x78 > 0x1ff) {
-        this->action++;
+void ChuchuBossStartParticle_Type0_Action2(ChuchuBossStartParticleEntity* this) {
+    this->unk_74 -= 0x20;
+    this->unk_78 += 0x20;
+    sub_0806FCF4(super, this->unk_78, 8, 2);
+    if (this->unk_78 > 0x1ff) {
+        super->action++;
     }
     sub_0808F2B0(this);
 }
 
-void sub_0808F1A4(Entity* this) {
-    *(u32*)&this->field_0x78 += 0x10;
-    *(u32*)&this->field_0x74 += 0x10;
-    sub_0806FCF4(this, *(u32*)&this->field_0x78, 8, 2);
-    if (*(u32*)&this->field_0x78 > 0x3ff) {
-        this->child->action = 0xff;
+void ChuchuBossStartParticle_Type0_Action3(ChuchuBossStartParticleEntity* this) {
+    this->unk_78 += 0x10;
+    this->unk_74 += 0x10;
+    sub_0806FCF4(super, this->unk_78, 8, 2);
+    if (this->unk_78 > 0x3ff) {
+        super->child->action = 0xff;
         DeleteThisEntity();
     } else {
         sub_0808F2B0(this);
     }
 }
 
-void sub_0808F1E0(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void ChuchuBossStartParticle_Type1(ChuchuBossStartParticleEntity* this) {
+    static void (*const actionFuncs[])(ChuchuBossStartParticleEntity*) = {
         sub_0808F1F8,
         sub_0808F244,
     };
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
 }
 
-void sub_0808F1F8(Entity* this) {
+void sub_0808F1F8(ChuchuBossStartParticleEntity* this) {
     u8 bVar1;
 
-    this->spriteRendering.b0 = 3;
-    this->action++;
-    this->spriteRendering.b3 = this->parent->spriteRendering.b3;
-    this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
-    this->spritePriority.b0 = 7;
-    InitializeAnimation(this, 1);
+    super->spriteRendering.b0 = 3;
+    super->action++;
+    super->spriteRendering.b3 = super->parent->spriteRendering.b3;
+    super->spriteOrientation.flipY = super->parent->spriteOrientation.flipY;
+    super->spritePriority.b0 = 7;
+    InitializeAnimation(super, 1);
     sub_0808F244(this);
 }
 
-void sub_0808F244(Entity* this) {
+void sub_0808F244(ChuchuBossStartParticleEntity* this) {
 
-    this->spriteSettings.draw = this->parent->spriteSettings.draw;
-    this->y.HALF.HI = this->parent->y.HALF.HI + 3;
-    this->x.HALF.HI = (*(s8*)&this->child->spriteOffsetX + this->child->x.HALF.HI);
-    this->z.WORD = 0;
-    *(u32*)&this->field_0x74 = 0x80 - this->parent->z.HALF.HI;
-    *(u32*)&this->field_0x78 = 0x100 - this->parent->z.HALF.HI;
-    *(u32*)&this->field_0x70.WORD = *((u8*)&this->parent->field_0x7c + 3);
+    super->spriteSettings.draw = super->parent->spriteSettings.draw;
+    super->y.HALF.HI = super->parent->y.HALF.HI + 3;
+    super->x.HALF.HI = (*(s8*)&super->child->spriteOffsetX + super->child->x.HALF.HI);
+    super->z.WORD = 0;
+    this->unk_74 = 0x80 - super->parent->z.HALF.HI;
+    this->unk_78 = 0x100 - super->parent->z.HALF.HI;
+    this->unk_70 = ((ChuchuBossStartParticleEntity*)super->parent)->unk_7f;
     sub_0808F2B0(this);
-    if ((this->parent->field_0x6c.HALF.HI & 2) != 0) {
+    if ((((ChuchuBossStartParticleEntity*)super->parent)->unk_6d & 2) != 0) {
         DeleteThisEntity();
     }
 }
 
-static void sub_0808F2B0(Entity* this) {
-    SetAffineInfo(this, *(u32*)&this->field_0x74, *(u32*)&this->field_0x78, this->field_0x70.WORD);
+static void sub_0808F2B0(ChuchuBossStartParticleEntity* this) {
+    SetAffineInfo(super, this->unk_74, this->unk_78, this->unk_70);
 }
 
-void sub_0808F2C0(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteRendering.b3 = this->parent->spriteRendering.b3;
-        this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
-        this->spriteSettings.draw = 1;
-        this->spritePriority.b0 = 7;
-        this->z.WORD = 0;
+void ChuchuBossStartParticle_Type2(ChuchuBossStartParticleEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteRendering.b3 = super->parent->spriteRendering.b3;
+        super->spriteOrientation.flipY = super->parent->spriteOrientation.flipY;
+        super->spriteSettings.draw = 1;
+        super->spritePriority.b0 = 7;
+        super->z.WORD = 0;
 
-        this->y.HALF.HI = this->parent->y.HALF.HI + 3;
-        this->x.HALF.HI = this->parent->x.HALF.HI;
-        InitializeAnimation(this, 3);
+        super->y.HALF.HI = super->parent->y.HALF.HI + 3;
+        super->x.HALF.HI = super->parent->x.HALF.HI;
+        InitializeAnimation(super, 3);
     }
-    if (this->parent->z.HALF.HI == 0) {
-        *(u32*)&this->field_0x74 = *(u32*)&this->parent->field_0x74;
-        *(u32*)&this->field_0x78 = *(u32*)&this->parent->field_0x78;
+    if (super->parent->z.HALF.HI == 0) {
+        this->unk_74 = ((ChuchuBossStartParticleEntity*)super->parent)->unk_74;
+        this->unk_78 = ((ChuchuBossStartParticleEntity*)super->parent)->unk_78;
     } else {
-        *(u32*)&this->field_0x74 = 0x200 - this->parent->z.HALF.HI;
-        *(u32*)&this->field_0x78 = this->parent->z.HALF.HI * -2 + 0x300;
+        this->unk_74 = 0x200 - super->parent->z.HALF.HI;
+        this->unk_78 = super->parent->z.HALF.HI * -2 + 0x300;
     }
-    *(u32*)&this->field_0x70 = 0;
+    this->unk_70 = 0;
     sub_0808F2B0(this);
-    sub_0806FCF4(this, *(u32*)&this->field_0x78, 8, 2);
-    if (this->action == 0xff) {
+    sub_0806FCF4(super, this->unk_78, 8, 2);
+    if (super->action == 0xff) {
         DeleteThisEntity();
     }
 }
 
-void sub_0808F370(Entity* this) {
+void ChuchuBossStartParticle_Type3(ChuchuBossStartParticleEntity* this) {
     static const u16 gUnk_08121EA0[] = { 0x1a4, 0x12c };
-    if (this->action == 0) {
-        if (this->parent->subAction == 1) {
-            this->action = 1;
-            this->field_0x70.WORD = 0;
+    if (super->action == 0) {
+        if (super->parent->subAction == 1) {
+            super->action = 1;
+            this->unk_70 = 0;
             sub_0808F5EC(this);
         }
     } else {
-        u8 flag = this->parent->subAction - 1;
+        u8 flag = super->parent->subAction - 1;
         if (flag < 5) {
-            if (this->field_0x70.WORD == 0) {
-                if (--(*(u32*)&this->field_0x74) == -1) {
-                    this->field_0x70.WORD = gUnk_08121EA0[Random() & 1];
+            if (this->unk_70 == 0) {
+                if (--(this->unk_74) == -1) {
+                    this->unk_70 = gUnk_08121EA0[Random() & 1];
                 }
             } else {
-                if (--this->field_0x70.WORD == 0) {
+                if (--this->unk_70 == 0) {
                     sub_0808F5EC(this);
                 }
             }
         } else {
-            this->action = 0;
-            *(u32*)&this->field_0x74 = 0;
+            super->action = 0;
+            this->unk_74 = 0;
         }
     }
 }
 
-void sub_0808F3DC(Entity* this) {
-    if (this->action == 0) {
-        this->spriteSettings.draw = 1;
-        this->action = 1;
-        this->timer = 120;
-        InitializeAnimation(this, this->type + 1);
+void ChuchuBossStartParticle_Type5(ChuchuBossStartParticleEntity* this) {
+    if (super->action == 0) {
+        super->spriteSettings.draw = 1;
+        super->action = 1;
+        super->timer = 120;
+        InitializeAnimation(super, super->type + 1);
         // TODO: This block of code might supposed to be a switch statement.
-        if (this->type != 8) {
-            if (this->type == 7) {
-                SortEntityBelow(this->child, this);
+        if (super->type != 8) {
+            if (super->type == 7) {
+                SortEntityBelow(super->child, super);
                 return;
             }
         } else {
-            this->hitType = this->child->hitType;
-            this->child->hitType = 0x7E;
+            super->hitType = super->child->hitType;
+            super->child->hitType = 0x7E;
         }
-        SortEntityAbove(this->child, this);
+        SortEntityAbove(super->child, super);
     } else {
-        if (*(u32*)&this->parent->field_0x74 == 0) {
-            if (this->type == 8) {
-                this->child->hitType = this->hitType;
+        if (((ChuchuBossStartParticleEntity*)super->parent)->unk_74 == 0) {
+            if (super->type == 8) {
+                super->child->hitType = super->hitType;
             }
             DeleteThisEntity();
         }
 
-        if (this->type == 5 && (this->frame & 1)) {
-            Entity* entity = CreateObjectWithParent(this->child, CHUCHU_BOSS_START_PARTICLE, 8, 0);
+        if (super->type == 5 && (super->frame & 1)) {
+            Entity* entity = CreateObjectWithParent(super->child, CHUCHU_BOSS_START_PARTICLE, 8, 0);
             if (entity != NULL) {
-                entity->parent = this->parent;
-                entity->child = this->parent->parent;
+                entity->parent = super->parent;
+                entity->child = super->parent->parent;
             }
         }
 
-        GetNextFrame(this);
-        CopyPositionAndSpriteOffset(this->child, this);
+        GetNextFrame(super);
+        CopyPositionAndSpriteOffset(super->child, super);
     }
 }
 
-void sub_0808F498(Entity* this) {
+void ChuchuBossStartParticle_Type9(ChuchuBossStartParticleEntity* this) {
     u32 var0;
 
-    if (this->action != 0) {
-        if (sub_0806F3E4(this)) {
+    if (super->action != 0) {
+        if (sub_0806F3E4(super)) {
             if (gRoomTransition.frameCount % 16 == 0) {
                 SoundReq(SFX_EF);
             }
             DeleteThisEntity();
         }
 
-        if (this->timer-- == 0) {
+        if (super->timer-- == 0) {
             DeleteThisEntity();
         }
 
@@ -252,59 +269,59 @@ void sub_0808F498(Entity* this) {
             DeleteThisEntity();
         }
     } else {
-        this->action = 1;
-        this->timer = 64;
-        var0 = this->type2 != 0 ? 44 : 43;
-        this->x.HALF.HI -= this->parent->hitbox->width;
-        this->x.HALF.HI += (s32)Random() % (this->parent->hitbox->width * 2);
-        this->y.HALF.HI -= this->parent->hitbox->height;
-        this->y.HALF.HI += (s32)Random() % (this->parent->hitbox->height * 2);
-        ChangeObjPalette(this, var0);
-        InitializeAnimation(this, 4);
+        super->action = 1;
+        super->timer = 64;
+        var0 = super->type2 != 0 ? 44 : 43;
+        super->x.HALF.HI -= super->parent->hitbox->width;
+        super->x.HALF.HI += (s32)Random() % (super->parent->hitbox->width * 2);
+        super->y.HALF.HI -= super->parent->hitbox->height;
+        super->y.HALF.HI += (s32)Random() % (super->parent->hitbox->height * 2);
+        ChangeObjPalette(super, var0);
+        InitializeAnimation(super, 4);
     }
 }
 
-void sub_0808F554(Entity* this) {
-    CopyPositionAndSpriteOffset(this->parent, this);
-    this->spriteOffsetY -= 24;
-    if ((s8)this->parent->spriteOffsetX != 0) {
-        this->spriteOffsetX += (s8)this->parent->spriteOffsetX / 2;
+void ChuchuBossStartParticle_Type10(ChuchuBossStartParticleEntity* this) {
+    CopyPositionAndSpriteOffset(super->parent, super);
+    super->spriteOffsetY -= 24;
+    if ((s8)super->parent->spriteOffsetX != 0) {
+        super->spriteOffsetX += (s8)super->parent->spriteOffsetX / 2;
     }
 
-    if (this->action != 0) {
-        if (*(u32*)&this->cutsceneBeh) {
-            if (--(*(u32*)&this->cutsceneBeh) == 0) {
+    if (super->action != 0) {
+        if (this->unk_84) {
+            if (--(this->unk_84) == 0) {
                 DeleteThisEntity();
             }
         }
-        GetNextFrame(this);
+        GetNextFrame(super);
     } else {
-        this->action = 1;
-        this->spriteRendering.b3 = this->parent->spriteRendering.b3;
-        this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
-        this->spritePriority.b0 = 0;
-        InitializeAnimation(this, 3);
+        super->action = 1;
+        super->spriteRendering.b3 = super->parent->spriteRendering.b3;
+        super->spriteOrientation.flipY = super->parent->spriteOrientation.flipY;
+        super->spritePriority.b0 = 0;
+        InitializeAnimation(super, 3);
     }
 }
 
-void sub_0808F5EC(Entity* this) {
-    Entity* entity = CreateObjectWithParent(this->child, CHUCHU_BOSS_START_PARTICLE, 5, 0);
+void sub_0808F5EC(ChuchuBossStartParticleEntity* this) {
+    Entity* entity = CreateObjectWithParent(super->child, CHUCHU_BOSS_START_PARTICLE, 5, 0);
     if (entity != NULL) {
-        entity->parent = this;
-        entity->child = this->child;
+        entity->parent = super;
+        entity->child = super->child;
     }
 
-    entity = CreateObjectWithParent(this->child, CHUCHU_BOSS_START_PARTICLE, 6, 0);
+    entity = CreateObjectWithParent(super->child, CHUCHU_BOSS_START_PARTICLE, 6, 0);
     if (entity != NULL) {
-        entity->parent = this;
-        entity->child = this->child;
+        entity->parent = super;
+        entity->child = super->child;
     }
 
-    entity = CreateObjectWithParent(this->child, CHUCHU_BOSS_START_PARTICLE, 7, 0);
+    entity = CreateObjectWithParent(super->child, CHUCHU_BOSS_START_PARTICLE, 7, 0);
     if (entity != NULL) {
-        entity->parent = this;
-        entity->child = this->child;
+        entity->parent = super;
+        entity->child = super->child;
     }
 
-    *(u32*)&this->field_0x74 = 600;
+    this->unk_74 = 600;
 }

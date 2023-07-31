@@ -4,74 +4,81 @@
  *
  * @brief Baker Oven object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
-extern void SoundReqClipped(Entity*, u32);
-void sub_0809CDF0(Entity*);
-void BakerOven_Init(Entity*);
-void BakerOven_Action1(Entity*);
-void BakerOven_Action2(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[24];
+    /*0x80*/ u16 unk_80;
+} BakerOvenEntity;
 
-void BakerOven(Entity* this) {
-    static void (*const BakerOven_Actions[])(Entity*) = {
+extern void SoundReqClipped(Entity*, u32);
+void sub_0809CDF0(BakerOvenEntity* this);
+void BakerOven_Init(BakerOvenEntity* this);
+void BakerOven_Action1(BakerOvenEntity* this);
+void BakerOven_Action2(BakerOvenEntity* this);
+
+void BakerOven(BakerOvenEntity* this) {
+    static void (*const BakerOven_Actions[])(BakerOvenEntity*) = {
         BakerOven_Init,
         BakerOven_Action1,
         BakerOven_Action2,
     };
-    BakerOven_Actions[this->action](this);
+    BakerOven_Actions[super->action](this);
 }
 
-void BakerOven_Init(Entity* this) {
+void BakerOven_Init(BakerOvenEntity* this) {
     u32 i;
-    Entity* ent;
+    Entity* entity;
 
-    this->action = 1;
-    UpdateSpriteForCollisionLayer(this);
+    super->action = 1;
+    UpdateSpriteForCollisionLayer(super);
 
-    if (this->type == 0) {
-        this->spritePriority.b0 = 5;
+    if (super->type == 0) {
+        super->spritePriority.b0 = 5;
         /* Create steam clouds */
         for (i = 0; i < 3; i++) {
-            ent = CreateObject(BAKER_OVEN, 1, i);
-            if (ent != NULL) {
-                ent->parent = this;
-                PositionRelative(this, ent, 16 * Q_16_16((i + 1) / 2) - Q_16_16(8.0), Q_16_16(-14.0));
+            entity = CreateObject(BAKER_OVEN, 1, i);
+            if (entity != NULL) {
+                entity->parent = super;
+                PositionRelative(super, entity, 16 * Q_16_16((i + 1) / 2) - Q_16_16(8.0), Q_16_16(-14.0));
             }
         }
         sub_0809CDF0(this);
     } else {
-        if (this->type2 & 1) {
-            this->spriteSettings.draw = 1;
-            this->timer = 20;
+        if (super->type2 & 1) {
+            super->spriteSettings.draw = 1;
+            super->timer = 20;
         } else {
-            this->action = 2;
-            this->timer = (this->type2 & 2) ? 20 : 18;
+            super->action = 2;
+            super->timer = (super->type2 & 2) ? 20 : 18;
         }
-        InitializeAnimation(this, 0);
+        InitializeAnimation(super, 0);
     }
 }
 
-void BakerOven_Action1(Entity* this) {
-    u8* frames;
+void BakerOven_Action1(BakerOvenEntity* this) {
+    u8* frame;
 
-    if (this->type) {
-        GetNextFrame(this);
-        frames = &this->frame;
-        if (this->frame & 1) {
-            this->frame &= ~1;
-            this->y.HALF.HI++;
+    if (super->type) {
+        GetNextFrame(super);
+        frame = &super->frame;
+        if (super->frame & 1) {
+            super->frame &= ~1;
+            super->y.HALF.HI++;
         }
 
-        if ((*frames & ANIM_DONE) && this->frameDuration == 1) {
-            this->action = 2;
-            this->spriteSettings.draw = 0;
+        if ((*frame & ANIM_DONE) && super->frameDuration == 1) {
+            super->action = 2;
+            super->spriteSettings.draw = 0;
         }
 
         /* Damage minish link if he touches a steam cloud */
-        if (this->subtimer == 0 && gPlayerEntity.iframes == 0 && this->frameIndex &&
-            sub_0806FC80(this, &gPlayerEntity, 4)) {
-            this->subtimer++;
+        if (super->subtimer == 0 && gPlayerEntity.iframes == 0 && super->frameIndex &&
+            sub_0806FC80(super, &gPlayerEntity, 4)) {
+            super->subtimer++;
             ModHealth(-2);
             SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
             gPlayerEntity.iframes = 16;
@@ -82,31 +89,31 @@ void BakerOven_Action1(Entity* this) {
     }
 }
 
-void BakerOven_Action2(Entity* this) {
+void BakerOven_Action2(BakerOvenEntity* this) {
     /* Reset cloud position and start animation. */
-    if (--this->timer == 0) {
-        this->action = 1;
-        this->timer = 30;
-        this->subtimer = 0;
-        this->spriteSettings.draw = 1;
-        this->y.HALF.HI = this->parent->y.HALF.HI - 0xe;
-        InitializeAnimation(this, 0);
+    if (--super->timer == 0) {
+        super->action = 1;
+        super->timer = 30;
+        super->subtimer = 0;
+        super->spriteSettings.draw = 1;
+        super->y.HALF.HI = super->parent->y.HALF.HI - 0xe;
+        InitializeAnimation(super, 0);
     }
 }
 
-void sub_0809CDF0(Entity* this) {
+void sub_0809CDF0(BakerOvenEntity* this) {
     u32 y;
 
-    this->field_0x80.HWORD = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
-                             (((this->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
+    this->unk_80 = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
+                   (((super->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
-    y = this->field_0x80.HWORD;
-    SetTile(0x402e, y - 0x01, this->collisionLayer);
-    SetTile(0x4022, y - 0x00, this->collisionLayer);
-    SetTile(0x4022, y + 0x01, this->collisionLayer);
-    SetTile(0x4026, y - 0x41, this->collisionLayer);
-    SetTile(0x4026, y - 0x40, this->collisionLayer);
-    SetTile(0x4024, y - 0x3f, this->collisionLayer);
-    SetTile(0x4026, y - 0x81, this->collisionLayer);
-    SetTile(0x4026, y - 0x80, this->collisionLayer);
+    y = this->unk_80;
+    SetTile(0x402e, y - 0x01, super->collisionLayer);
+    SetTile(0x4022, y - 0x00, super->collisionLayer);
+    SetTile(0x4022, y + 0x01, super->collisionLayer);
+    SetTile(0x4026, y - 0x41, super->collisionLayer);
+    SetTile(0x4026, y - 0x40, super->collisionLayer);
+    SetTile(0x4024, y - 0x3f, super->collisionLayer);
+    SetTile(0x4026, y - 0x81, super->collisionLayer);
+    SetTile(0x4026, y - 0x80, super->collisionLayer);
 }

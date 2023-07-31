@@ -34,20 +34,20 @@ void MacroPlayer_Type0_Action10(MacroPlayerEntity*);
 void sub_0808CB9C(MacroPlayerEntity*);
 
 void MacroPlayer(Entity* this) {
-    static void (*const typeFuncs[])(MacroPlayerEntity*) = {
+    static void (*const MacroPlayer_Types[])(MacroPlayerEntity*) = {
         MacroPlayer_Type0,
         MacroPlayer_Type1,
     };
-    typeFuncs[this->type]((MacroPlayerEntity*)this);
+    MacroPlayer_Types[this->type]((MacroPlayerEntity*)this);
 }
 
 void MacroPlayer_Type0(MacroPlayerEntity* this) {
-    static void (*const actionFuncs[])(MacroPlayerEntity*) = {
+    static void (*const MacroPlayer_Type0_Actions[])(MacroPlayerEntity*) = {
         MacroPlayer_Type0_Init,    MacroPlayer_Type0_Action1, MacroPlayer_Type0_Action2,  MacroPlayer_Type0_Action3,
         MacroPlayer_Type0_Action4, MacroPlayer_Type0_Action5, MacroPlayer_Type0_Action6,  MacroPlayer_Type0_Action7,
         MacroPlayer_Type0_Action8, MacroPlayer_Type0_Action9, MacroPlayer_Type0_Action10,
     };
-    actionFuncs[super->action](this);
+    MacroPlayer_Type0_Actions[super->action](this);
     sub_0808CB9C(this);
 }
 

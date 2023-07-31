@@ -9,8 +9,8 @@
 #include "functions.h"
 
 void WaterDropObject(Entity* this) {
-    int iVar2;
-    int iVar4;
+    u32 iVar2;
+    u32 iVar4;
     Entity* parent;
 
     parent = this->parent;

@@ -21,14 +21,14 @@ void JapaneseSubtitle_Type3(Entity*);
 const u16 gUnk_08124B10[] = { 0x40, 0x58, 0x68, 0x80, 0x94, 0xA8, 0xB0, 0x0 };
 
 void JapaneseSubtitle(Entity* this) {
-    static void (*const typeFuncs[])(Entity*) = {
+    static void (*const JapaneseSubtitle_Types[])(Entity*) = {
         JapaneseSubtitle_Type0,
         JapaneseSubtitle_Type1,
         JapaneseSubtitle_Type2,
         JapaneseSubtitle_Type3,
     };
 
-    typeFuncs[this->type]((Entity*)this);
+    JapaneseSubtitle_Types[this->type]((Entity*)this);
 }
 
 void JapaneseSubtitle_Type0(Entity* this) {

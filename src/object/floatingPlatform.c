@@ -1,10 +1,10 @@
-#define NENT_DEPRECATED
 /**
  * @file floatingPlatform.c
  * @ingroup Objects
  *
  * @brief Floating Platform object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "object.h"
@@ -15,20 +15,20 @@ typedef struct {
     u16 unk70;
 } FloatingPlatformEntity;
 
-void sub_080860D8(FloatingPlatformEntity*);
-void sub_0808611C(FloatingPlatformEntity*);
+void FloatingPlatform_Init(FloatingPlatformEntity*);
+void FloatingPlatform_Action1(FloatingPlatformEntity*);
 bool32 sub_08086168(FloatingPlatformEntity*);
 
 void FloatingPlatform(Entity* this) {
-    static void (*const actionFuncs[])(FloatingPlatformEntity*) = {
-        sub_080860D8,
-        sub_0808611C,
+    static void (*const FloatingPlatform_Action[])(FloatingPlatformEntity*) = {
+        FloatingPlatform_Init,
+        FloatingPlatform_Action1,
     };
 
-    actionFuncs[this->action]((FloatingPlatformEntity*)this);
+    FloatingPlatform_Action[this->action]((FloatingPlatformEntity*)this);
 }
 
-void sub_080860D8(FloatingPlatformEntity* this) {
+void FloatingPlatform_Init(FloatingPlatformEntity* this) {
     super->action = 1;
     super->speed = 0x100;
     super->spriteSettings.draw = 1;
@@ -38,7 +38,7 @@ void sub_080860D8(FloatingPlatformEntity* this) {
     UpdateRailMovement(super, (u16**)&super->child, &this->unk70);
 }
 
-void sub_0808611C(FloatingPlatformEntity* this) {
+void FloatingPlatform_Action1(FloatingPlatformEntity* this) {
     bool32 iVar2 = sub_08086168(this);
 
     if (super->timer != 0 && super->parent->timer == 0) {

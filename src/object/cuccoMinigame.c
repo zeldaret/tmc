@@ -10,10 +10,10 @@
 #include "entity.h"
 #include "fileselect.h"
 #include "functions.h"
+#include "item.h"
 #include "npc.h"
 #include "object.h"
 #include "script.h"
-#include "item.h"
 
 typedef struct {
     Entity base;

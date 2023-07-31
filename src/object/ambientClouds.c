@@ -4,6 +4,7 @@
  *
  * @brief Ambient Clouds object
  */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -27,8 +28,6 @@ void AmbientClouds(Entity* this) {
 }
 
 void AmbientClouds_Init(Entity* this) {
-    Entity* pEVar2;
-
 #ifndef EU
     if ((this->flags & ENT_DID_INIT) != 0) {
 #endif
@@ -44,10 +43,10 @@ void AmbientClouds_Init(Entity* this) {
                 this->parent = NULL;
                 CreateObjectWithParent(this, AMBIENT_CLOUDS, 0, 0xff);
                 for (; this->type != 0; --this->type) {
-                    pEVar2 = CreateObjectWithParent(this, AMBIENT_CLOUDS, 0, this->type);
-                    this->child = pEVar2;
-                    if (pEVar2 != NULL) {
-                        pEVar2->parent = this->parent;
+                    Entity* entity = CreateObjectWithParent(this, AMBIENT_CLOUDS, 0, this->type);
+                    this->child = entity;
+                    if (entity != NULL) {
+                        entity->parent = this->parent;
                         if (this->parent != NULL) {
                             this->parent->child = this->child;
                         }
@@ -77,9 +76,6 @@ void AmbientClouds_Init(Entity* this) {
 }
 
 void AmbientClouds_Action1(Entity* this) {
-    int iVar1;
-    Entity* pEVar2;
-
     if (this->type2 == 0xff) {
         this->spritePriority.b0 = 7;
         this->spriteRendering.b3 = 3;
@@ -92,8 +88,7 @@ void AmbientClouds_Action1(Entity* this) {
             else
                 this->timer = 0;
             this->y.HALF.HI += (this->type2 - 1) * -0x24;
-            iVar1 = EntityInRectRadius(this, &gPlayerEntity, 0xf, 0xf);
-            if ((iVar1 != 0) && (this->timer != 0)) {
+            if (EntityInRectRadius(this, &gPlayerEntity, 15, 15) && (this->timer != 0)) {
                 this->action = 2;
                 this->spriteOrientation.flipY = 2;
                 this->spriteRendering.b3 = 3;
@@ -105,21 +100,21 @@ void AmbientClouds_Action1(Entity* this) {
                 gPlayerEntity.z.HALF.HI += 0x24;
                 sub_0807AA80(&gPlayerEntity);
                 if (this->subtimer == 0) {
-                    pEVar2 = CreateFx(&gPlayerEntity, FX_DEATH, 0);
-                    if (pEVar2 != NULL) {
-                        pEVar2->x.HALF.HI += 8;
+                    Entity* fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    if (fx != NULL) {
+                        fx->x.HALF.HI += 8;
                     }
-                    pEVar2 = CreateFx(&gPlayerEntity, FX_DEATH, 0);
-                    if (pEVar2 != NULL) {
-                        pEVar2->x.HALF.HI -= 8;
+                    fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    if (fx != NULL) {
+                        fx->x.HALF.HI -= 8;
                     }
-                    pEVar2 = CreateFx(&gPlayerEntity, FX_DEATH, 0);
-                    if (pEVar2 != NULL) {
-                        pEVar2->y.HALF.HI += 8;
+                    fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    if (fx != NULL) {
+                        fx->y.HALF.HI += 8;
                     }
-                    pEVar2 = CreateFx(&gPlayerEntity, FX_DEATH, 0);
-                    if (pEVar2 != NULL) {
-                        pEVar2->y.HALF.HI -= 8;
+                    fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    if (fx != NULL) {
+                        fx->y.HALF.HI -= 8;
                     }
                 }
             }
@@ -131,7 +126,7 @@ void AmbientClouds_Action1(Entity* this) {
 
 void AmbientClouds_Action2(Entity* this) {
     this->y.HALF.HI += this->type2 * -0x24;
-    if (EntityInRectRadius(this, &gPlayerEntity, 0xf, 0xf)) {
+    if (EntityInRectRadius(this, &gPlayerEntity, 15, 15)) {
         gPlayerState.field_0x14 = 1;
         gPlayerState.flags |= PL_FLAGS2;
     } else {
@@ -144,7 +139,7 @@ void AmbientClouds_Action2(Entity* this) {
 }
 
 void AmbientClouds_Action3(Entity* this) {
-    if (EntityInRectRadius(this, &gPlayerEntity, 0xf, 0xf)) {
+    if (EntityInRectRadius(this, &gPlayerEntity, 15, 15)) {
         gPlayerState.field_0x14 = 1;
     }
 }

@@ -4,164 +4,173 @@
  *
  * @brief Lightable Switch object
  */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "room.h"
 #include "sound.h"
 
-static void sub_0809EB30(Entity*);
-static void sub_0809EAD8(Entity*);
-static void sub_0809EABC(Entity*);
-static void LightableSwitch_Type0(Entity*);
-static void LightableSwitch_Type1(Entity*);
-static void LightableSwitch_Type0_Init(Entity*);
-static void LightableSwitch_Type0_Action1(Entity*);
-static void LightableSwitch_Type1_Action3(Entity*);
-static void LightableSwitch_Type1_Action2(Entity*);
-static void LightableSwitch_Type1_Action1(Entity*);
-static void LightableSwitch_Type1_Init(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u8 unused2[14];
+    /*0x84*/ u16 unk_84;
+    /*0x86*/ u16 unk_86;
+} LightableSwitchEntity;
 
-void LightableSwitch(Entity* this) {
-    static void (*const LightableSwitch_Types[])(Entity*) = {
+static void sub_0809EB30(LightableSwitchEntity* this);
+static void sub_0809EAD8(LightableSwitchEntity* this);
+static void sub_0809EABC(LightableSwitchEntity* this);
+static void LightableSwitch_Type0(LightableSwitchEntity* this);
+static void LightableSwitch_Type1(LightableSwitchEntity* this);
+static void LightableSwitch_Type0_Init(LightableSwitchEntity* this);
+static void LightableSwitch_Type0_Action1(LightableSwitchEntity* this);
+static void LightableSwitch_Type1_Action3(LightableSwitchEntity* this);
+static void LightableSwitch_Type1_Action2(LightableSwitchEntity* this);
+static void LightableSwitch_Type1_Action1(LightableSwitchEntity* this);
+static void LightableSwitch_Type1_Init(LightableSwitchEntity* this);
+
+void LightableSwitch(LightableSwitchEntity* this) {
+    static void (*const LightableSwitch_Types[])(LightableSwitchEntity*) = {
         LightableSwitch_Type0,
         LightableSwitch_Type1,
     };
-    LightableSwitch_Types[this->type](this);
+    LightableSwitch_Types[super->type](this);
     sub_0809EB30(this);
 }
 
-void LightableSwitch_Type0(Entity* this) {
-    static void (*const LightableSwitch_Type0_Actions[])(Entity*) = {
+void LightableSwitch_Type0(LightableSwitchEntity* this) {
+    static void (*const LightableSwitch_Type0_Actions[])(LightableSwitchEntity*) = {
         LightableSwitch_Type0_Init,
         LightableSwitch_Type0_Action1,
     };
-    LightableSwitch_Type0_Actions[this->action](this);
+    LightableSwitch_Type0_Actions[super->action](this);
 }
 
-void LightableSwitch_Type0_Init(Entity* this) {
-    this->action = 1;
-    COLLISION_ON(this);
-    this->frameIndex = 0;
-    this->collisionFlags = 7;
-    this->hurtType = 0x48;
-    this->hitType = 0x28;
-    this->flags2 = 10;
-    this->hitbox = (Hitbox*)&gHitbox_0;
+void LightableSwitch_Type0_Init(LightableSwitchEntity* this) {
+    super->action = 1;
+    COLLISION_ON(super);
+    super->frameIndex = 0;
+    super->collisionFlags = 7;
+    super->hurtType = 0x48;
+    super->hitType = 0x28;
+    super->flags2 = 10;
+    super->hitbox = (Hitbox*)&gHitbox_0;
     sub_0809EAD8(this);
-    UpdateSpriteForCollisionLayer(this);
+    UpdateSpriteForCollisionLayer(super);
     sub_0809EABC(this);
 }
 
-void LightableSwitch_Type0_Action1(Entity* this) {
+void LightableSwitch_Type0_Action1(LightableSwitchEntity* this) {
 
-    if ((this->contactFlags & 0x80) != 0) {
-        if (CheckFlags(this->field_0x86.HWORD) != 0) {
-            ClearFlag(this->field_0x86.HWORD);
+    if ((super->contactFlags & 0x80) != 0) {
+        if (CheckFlags(this->unk_86) != 0) {
+            ClearFlag(this->unk_86);
         } else {
-            SetFlag(this->field_0x86.HWORD);
+            SetFlag(this->unk_86);
         }
         EnqueueSFX(SFX_110);
     }
     sub_0809EABC(this);
 }
 
-static void sub_0809EABC(Entity* this) {
+static void sub_0809EABC(LightableSwitchEntity* this) {
     bool32 anySet = 0;
 
-    if (CheckFlags(this->field_0x86.HWORD)) {
+    if (CheckFlags(this->unk_86)) {
         anySet = 1;
     }
-    if (this->frameIndex != anySet) {
-        this->frameIndex = anySet;
+    if (super->frameIndex != anySet) {
+        super->frameIndex = anySet;
     }
 }
 
-static void sub_0809EAD8(Entity* this) {
+static void sub_0809EAD8(LightableSwitchEntity* this) {
     u8 bVar1;
     Entity* pEVar2;
 
-    if (this->type2 != 0) {
+    if (super->type2 != 0) {
 
-        this->child = GetCurrentRoomProperty(this->type2);
-        UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
+        super->child = GetCurrentRoomProperty(super->type2);
+        UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
     } else {
-        SetTile(0x4050, COORD_TO_TILE(this), this->collisionLayer);
+        SetTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 
-static void sub_0809EB30(Entity* this) {
+static void sub_0809EB30(LightableSwitchEntity* this) {
     u16 uVar1;
     u16* puVar2;
 
-    if (this->type2 != 0) {
-        if ((this->direction & 0x80) == 0) {
-            LinearMoveUpdate(this);
+    if (super->type2 != 0) {
+        if ((super->direction & 0x80) == 0) {
+            LinearMoveUpdate(super);
         }
-        puVar2 = &this->field_0x74.HWORD;
+        puVar2 = &this->unk_74;
         if (!--*puVar2) {
-            UpdateRailMovement(this, (u16**)&this->child, puVar2);
+            UpdateRailMovement(super, (u16**)&super->child, puVar2);
         }
     }
 }
 
-void LightableSwitch_Type1(Entity* this) {
-    static void (*const LightableSwitch_Type1_Actions[])(Entity*) = {
+void LightableSwitch_Type1(LightableSwitchEntity* this) {
+    static void (*const LightableSwitch_Type1_Actions[])(LightableSwitchEntity*) = {
         LightableSwitch_Type1_Init,
         LightableSwitch_Type1_Action1,
         LightableSwitch_Type1_Action2,
         LightableSwitch_Type1_Action3,
     };
-    LightableSwitch_Type1_Actions[this->action](this);
+    LightableSwitch_Type1_Actions[super->action](this);
 }
 
-void LightableSwitch_Type1_Init(Entity* this) {
+void LightableSwitch_Type1_Init(LightableSwitchEntity* this) {
 
-    this->action = 1;
-    COLLISION_ON(this);
-    this->frameIndex = 3;
-    this->collisionFlags = 7;
-    this->hurtType = 0x48;
-    this->hitType = 0x28;
-    this->flags2 = 10;
-    this->hitbox = (Hitbox*)&gHitbox_0;
+    super->action = 1;
+    COLLISION_ON(super);
+    super->frameIndex = 3;
+    super->collisionFlags = 7;
+    super->hurtType = 0x48;
+    super->hitType = 0x28;
+    super->flags2 = 10;
+    super->hitbox = (Hitbox*)&gHitbox_0;
     sub_0809EAD8(this);
-    UpdateSpriteForCollisionLayer(this);
-    if (CheckFlags(this->cutsceneBeh.HWORD) != 0) {
-        this->action = 3;
-        this->frameIndex = 2;
+    UpdateSpriteForCollisionLayer(super);
+    if (CheckFlags(this->unk_84)) {
+        super->action = 3;
+        super->frameIndex = 2;
     }
 }
 
-void LightableSwitch_Type1_Action1(Entity* this) {
-    if ((this->contactFlags & 0x80) != 0) {
-        this->action = 2;
-        this->timer = 16;
-        this->frameIndex = 2;
-        SetFlag(this->field_0x86.HWORD);
+void LightableSwitch_Type1_Action1(LightableSwitchEntity* this) {
+    if ((super->contactFlags & 0x80) != 0) {
+        super->action = 2;
+        super->timer = 16;
+        super->frameIndex = 2;
+        SetFlag(this->unk_86);
         EnqueueSFX(SFX_110);
     }
 }
 
-void LightableSwitch_Type1_Action2(Entity* this) {
+void LightableSwitch_Type1_Action2(LightableSwitchEntity* this) {
 
-    if (CheckFlags(this->cutsceneBeh.HWORD) != 0) {
-        this->action = 3;
+    if (CheckFlags(this->unk_84)) {
+        super->action = 3;
 
     } else {
-        if (--this->timer == 0) {
-            this->action = 1;
-            this->frameIndex = 3;
-            ClearFlag(this->field_0x86.HWORD);
+        if (--super->timer == 0) {
+            super->action = 1;
+            super->frameIndex = 3;
+            ClearFlag(this->unk_86);
             EnqueueSFX(SFX_110);
         }
     }
 }
 
-void LightableSwitch_Type1_Action3(Entity* this) {
+void LightableSwitch_Type1_Action3(LightableSwitchEntity* this) {
 }

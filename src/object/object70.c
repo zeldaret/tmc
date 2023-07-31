@@ -4,11 +4,9 @@
  *
  * @brief Object70 object
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 
 void Object70_Init(Entity*);
 void Object70_Action1(Entity*);

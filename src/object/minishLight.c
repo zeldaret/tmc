@@ -4,6 +4,7 @@
  *
  * @brief Minish Light object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 
 void MinishLight_Init(Entity*);

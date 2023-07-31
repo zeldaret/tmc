@@ -4,11 +4,9 @@
  *
  * @brief Pullable Mushroom object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 

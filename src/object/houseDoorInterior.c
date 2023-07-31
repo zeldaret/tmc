@@ -33,12 +33,12 @@ static const HouseDoorInteriorFrameIndices_struct HouseDoorInteriorFrameIndices[
 };
 
 void HouseDoorInterior(Entity* this) {
-    static void (*const actionFuncs[])(HouseDoorInteriorEntity*) = {
+    static void (*const HouseDoorInterior_Actions[])(HouseDoorInteriorEntity*) = {
         HouseDoorInterior_Init,
         HouseDoorInterior_Action1,
         HouseDoorInterior_Delete,
     };
-    actionFuncs[this->action]((HouseDoorInteriorEntity*)this);
+    HouseDoorInterior_Actions[this->action]((HouseDoorInteriorEntity*)this);
 }
 
 typedef struct {

@@ -4,101 +4,107 @@
  *
  * @brief Flame object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[30];
+    /*0x86*/ u16 unk_86;
+} FlameEntity;
 
 extern void sub_0807AB44(Entity*, s32, s32);
 
-void (*const Flame_Actions[])(Entity*);
+void (*const Flame_Actions[])(FlameEntity*);
 
-void Flame(Entity* this) {
-    Flame_Actions[this->action](this);
+void Flame(FlameEntity* this) {
+    Flame_Actions[super->action](this);
 }
 
-void Flame_Init(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = TRUE;
-    if (this->type2 != 0) {
-        this->timer = this->type2;
+void Flame_Init(FlameEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = TRUE;
+    if (super->type2 != 0) {
+        super->timer = super->type2;
     }
-    InitializeAnimation(this, 0);
-    switch (this->type) {
+    InitializeAnimation(super, 0);
+    switch (super->type) {
         case 1:
-            this->y.HALF.HI -= 8;
-            this->timer = 40;
+            super->y.HALF.HI -= 8;
+            super->timer = 40;
             break;
         case 2:
-            this->timer = 15;
-            sub_08004168(this);
+            super->timer = 15;
+            sub_08004168(super);
             break;
         case 3:
-            CopyPosition(this->parent, this);
+            CopyPosition(super->parent, super);
             break;
         case 4:
-            if (!CheckFlags(this->field_0x86.HWORD)) {
-                this->spriteSettings.draw = FALSE;
-                this->subAction = 1;
+            if (!CheckFlags(this->unk_86)) {
+                super->spriteSettings.draw = FALSE;
+                super->subAction = 1;
                 return;
             }
     }
     EnqueueSFX(SFX_124);
 }
 
-void Flame_Action1(Entity* this) {
+void Flame_Action1(FlameEntity* this) {
     u32 val;
-    GetNextFrame(this);
+    GetNextFrame(super);
 
-    switch (this->type) {
+    switch (super->type) {
         case 0:
         default:
-            if (this->type2 == 0)
+            if (super->type2 == 0)
                 return;
         case 1:
         case 2:
-            if (this->timer-- != 0)
+            if (super->timer-- != 0)
                 return;
-            if (this->type == 2) {
-                sub_0807B7D8(((u16*)this->child)[3], COORD_TO_TILE(this), this->collisionLayer);
-                sub_0807AB44(this, 0, 0x10);
-                sub_0807AB44(this, 0, -0x10);
-                sub_0807AB44(this, 0x10, 0);
-                sub_0807AB44(this, -0x10, 0);
+            if (super->type == 2) {
+                sub_0807B7D8(((u16*)super->child)[3], COORD_TO_TILE(super), super->collisionLayer);
+                sub_0807AB44(super, 0, 0x10);
+                sub_0807AB44(super, 0, -0x10);
+                sub_0807AB44(super, 0x10, 0);
+                sub_0807AB44(super, -0x10, 0);
             }
             DeleteThisEntity();
             break;
         case 3:
-            if (this->parent->next == NULL) {
+            if (super->parent->next == NULL) {
                 DeleteThisEntity();
             }
-            if (--this->timer == 0) {
+            if (--super->timer == 0) {
                 DeleteThisEntity();
             }
 
-            CopyPosition(this->parent, this);
+            CopyPosition(super->parent, super);
             break;
         case 4:
-            val = CheckFlags(this->field_0x86.HWORD);
-            if (this->subAction == 0) {
+            val = CheckFlags(this->unk_86);
+            if (super->subAction == 0) {
                 if (val)
                     return;
-                this->subAction = 1;
-                this->spriteSettings.draw = 0;
+                super->subAction = 1;
+                super->spriteSettings.draw = 0;
             } else {
                 if (!val)
                     return;
-                this->subAction = 0;
-                this->spriteSettings.draw = 1;
-                InitializeAnimation(this, 0);
+                super->subAction = 0;
+                super->spriteSettings.draw = 1;
+                InitializeAnimation(super, 0);
                 EnqueueSFX(SFX_124);
             }
             break;
     }
 }
 
-void (*const Flame_Actions[])(Entity*) = {
+void (*const Flame_Actions[])(FlameEntity*) = {
     Flame_Init,
     Flame_Action1,
 };

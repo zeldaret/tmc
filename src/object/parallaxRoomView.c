@@ -4,35 +4,42 @@
  *
  * @brief Parallax Room View object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "room.h"
 
-void ParallaxRoomView(Entity* this) {
-    int iVar1;
-    int diffY;
-    int diffX;
-    int iVar4;
-    int temp;
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16 unk_68;
+    /*0x6a*/ u16 unk_6a;
+} ParallaxRoomViewEntity;
 
-    if (this->action == 0) {
-        this->action = 1;
-        this->spriteSettings.draw = 3;
-        this->frameIndex = this->type2;
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
-        if (this->type == 3) {
-            this->spritePriority.b0 = 6;
+void ParallaxRoomView(ParallaxRoomViewEntity* this) {
+    s32 iVar1;
+    s32 diffY;
+    s32 diffX;
+    s32 iVar4;
+    s32 temp;
+
+    if (super->action == 0) {
+        super->action = 1;
+        super->spriteSettings.draw = 3;
+        super->frameIndex = super->type2;
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
+        if (super->type == 3) {
+            super->spritePriority.b0 = 6;
         } else {
-            this->spritePriority.b0 = 7;
+            super->spritePriority.b0 = 7;
         }
-        this->field_0x68.HWORD = this->x.HALF.HI;
-        this->field_0x6a.HWORD = this->y.HALF.HI;
-        SetDefaultPriority(this, 6);
+        this->unk_68 = super->x.HALF.HI;
+        this->unk_6a = super->y.HALF.HI;
+        SetDefaultPriority(super, 6);
     }
-    if ((this->flags & 0x10) == 0) {
-        iVar4 = (int)this->x.HALF.HI - (int)gRoomControls.scroll_x;
+    if ((super->flags & 0x10) == 0) {
+        iVar4 = super->x.HALF.HI - gRoomControls.scroll_x;
         diffX = iVar4 - 0x78;
-        iVar1 = (int)this->y.HALF.HI - (int)gRoomControls.scroll_y;
+        iVar1 = super->y.HALF.HI - gRoomControls.scroll_y;
         diffY = iVar1 - 0x50;
         if (diffX < 0) {
             temp = (iVar4 - 0x75);
@@ -51,18 +58,18 @@ void ParallaxRoomView(Entity* this) {
         if (diffX < -0x10) {
             diffX = -0x10;
         }
-        if (0x10 < diffX) {
+        if (diffX > 0x10) {
             diffX = 0x10;
         }
 
         if (diffY < -0x10) {
             diffY = -0x10;
         }
-        if (0x10 < diffY) {
+        if (diffY > 0x10) {
             diffY = 0x10;
         }
 
-        this->x.HALF.HI = this->field_0x68.HWORD + diffX;
-        this->y.HALF.HI = this->field_0x6a.HWORD + diffY;
+        super->x.HALF.HI = this->unk_68 + diffX;
+        super->y.HALF.HI = this->unk_6a + diffY;
     }
 }

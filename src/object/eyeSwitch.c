@@ -19,20 +19,20 @@ typedef struct {
     u16 eyeSwitchFlags2;
 } EyeSwitchEntity;
 
-void sub_080886A4(EyeSwitchEntity* this);
-void sub_08088718(EyeSwitchEntity* this);
-void sub_08088760(EyeSwitchEntity* this);
-void sub_08088790(EyeSwitchEntity* this);
-void sub_080887D8(EyeSwitchEntity* this);
+void EyeSwitch_Init(EyeSwitchEntity* this);
+void EyeSwitch_Action1(EyeSwitchEntity* this);
+void EyeSwitch_Action2(EyeSwitchEntity* this);
+void EyeSwitch_Action3(EyeSwitchEntity* this);
+void EyeSwitch_Action4(EyeSwitchEntity* this);
 
 void EyeSwitch(Entity* this) {
-    static void (*const actionFuncs[])(EyeSwitchEntity*) = {
-        sub_080886A4, sub_08088718, sub_08088760, sub_08088790, sub_080887D8,
+    static void (*const EyeSwitch_Actions[])(EyeSwitchEntity*) = {
+        EyeSwitch_Init, EyeSwitch_Action1, EyeSwitch_Action2, EyeSwitch_Action3, EyeSwitch_Action4,
     };
-    actionFuncs[this->action]((EyeSwitchEntity*)this);
+    EyeSwitch_Actions[this->action]((EyeSwitchEntity*)this);
 }
 
-void sub_080886A4(EyeSwitchEntity* this) {
+void EyeSwitch_Init(EyeSwitchEntity* this) {
     super->animationState = super->type & 3;
     super->spritePriority.b0 = 6;
     super->collisionFlags = 7;
@@ -50,7 +50,7 @@ void sub_080886A4(EyeSwitchEntity* this) {
     }
 }
 
-void sub_08088718(EyeSwitchEntity* this) {
+void EyeSwitch_Action1(EyeSwitchEntity* this) {
     if ((super->contactFlags == 0x95 || super->contactFlags == 0x8e) &&
         (DirectionRoundUp(super->contactedEntity->direction) >> 3 == (super->animationState & 3))) {
         super->action = 2;
@@ -60,7 +60,7 @@ void sub_08088718(EyeSwitchEntity* this) {
     }
 }
 
-void sub_08088760(EyeSwitchEntity* this) {
+void EyeSwitch_Action2(EyeSwitchEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
@@ -69,7 +69,7 @@ void sub_08088760(EyeSwitchEntity* this) {
     }
 }
 
-void sub_08088790(EyeSwitchEntity* this) {
+void EyeSwitch_Action3(EyeSwitchEntity* this) {
     if (super->timer != 0) {
         if ((this->eyeSwitchFlags2 != this->eyeSwitchFlags) && (CheckFlags(this->eyeSwitchFlags))) {
             super->timer = 0;
@@ -82,7 +82,7 @@ void sub_08088790(EyeSwitchEntity* this) {
     }
 }
 
-void sub_080887D8(EyeSwitchEntity* this) {
+void EyeSwitch_Action4(EyeSwitchEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 1;

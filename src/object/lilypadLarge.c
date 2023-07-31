@@ -1,61 +1,47 @@
-#define NENT_DEPRECATED
 /**
  * @file lilypadLarge.c
  * @ingroup Objects
  *
  * @brief Large Lilypad object
  */
-#include "global.h"
+#define NENT_DEPRECATED
+#include "object/lilypadLarge.h"
 #include "area.h"
 #include "functions.h"
 #include "item.h"
 #include "object.h"
 
-typedef struct {
-    Entity base;
-    u8 unk_68[4];
-    s32 unk_6c;
-    s32 unk_70;
-    s16 unk_74;
-    s16 unk_76;
-    union SplitWord unk_78;
-    union SplitWord unk_7c;
-    u8 unk_80[2];
-    u16 unk_82;
-    u8 unk_84;
-    u8 unk_85;
-} LilypadLargeEntity;
-
 extern s8 gUnk_08126EE4[];
 
-void sub_080855E8(LilypadLargeEntity*);
-void sub_08085CDC(LilypadLargeEntity*);
+void LilypadLarge_Action1(LilypadLargeEntity*);
+void LilypadLarge_Action4(LilypadLargeEntity*);
 void sub_08085EFC(LilypadLargeEntity*);
 void sub_08085F1C(LilypadLargeEntity*);
 void sub_08085E74(LilypadLargeEntity*);
 void sub_08085F48(LilypadLargeEntity*);
 void sub_08085D28(LilypadLargeEntity*);
 void sub_08085D60(LilypadLargeEntity*);
-void sub_08085504(LilypadLargeEntity*);
-void sub_080855E8(LilypadLargeEntity*);
-void sub_08085A1C(LilypadLargeEntity*);
-void sub_08085C5C(LilypadLargeEntity*);
-void sub_08085CDC(LilypadLargeEntity*);
-void sub_08085D10(LilypadLargeEntity*);
+void LilypadLarge_Init(LilypadLargeEntity*);
+void LilypadLarge_Action1(LilypadLargeEntity*);
+void LilypadLarge_Action2(LilypadLargeEntity*);
+void LilypadLarge_Action3(LilypadLargeEntity*);
+void LilypadLarge_Action4(LilypadLargeEntity*);
+void LilypadLarge_Action5(LilypadLargeEntity*);
 void sub_08085B40(LilypadLargeEntity*);
 void sub_08085A98(LilypadLargeEntity*);
 void sub_08085A44(LilypadLargeEntity*);
 
 void LilypadLarge(LilypadLargeEntity* this) {
-    static void (*const actionFuncs[])(LilypadLargeEntity*) = {
-        sub_08085504, sub_080855E8, sub_08085A1C, sub_08085C5C, sub_08085CDC, sub_08085D10,
+    static void (*const LilypadLarge_actions[])(LilypadLargeEntity*) = {
+        LilypadLarge_Init,    LilypadLarge_Action1, LilypadLarge_Action2,
+        LilypadLarge_Action3, LilypadLarge_Action4, LilypadLarge_Action5,
     };
-    actionFuncs[super->action](this);
+    LilypadLarge_actions[super->action](this);
 }
 
 static const Hitbox gUnk_08120640;
 
-void sub_08085504(LilypadLargeEntity* this) {
+void LilypadLarge_Init(LilypadLargeEntity* this) {
     if (super->type == 0xff) {
         if (GetInventoryValue(ITEM_FLIPPERS)) {
             DeleteThisEntity();
@@ -97,10 +83,10 @@ void sub_08085504(LilypadLargeEntity* this) {
     this->unk_85 = 0;
     this->unk_84 = 0;
     InitializeAnimation(super, 9);
-    sub_080855E8(this);
+    LilypadLarge_Action1(this);
 }
 
-void sub_080855E8(LilypadLargeEntity* this) {
+void LilypadLarge_Action1(LilypadLargeEntity* this) {
     static const u32 gUnk_08120620[] = {
         0x5000,
         0x18000,
@@ -331,7 +317,7 @@ void sub_080855E8(LilypadLargeEntity* this) {
     sub_08085F48(this);
 }
 
-void sub_08085A1C(LilypadLargeEntity* this) {
+void LilypadLarge_Action2(LilypadLargeEntity* this) {
     static void (*const subActionFuncs[])(LilypadLargeEntity*) = {
         sub_08085A44,
         sub_08085A98,
@@ -403,7 +389,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
         ResetCollisionLayer(super);
         if (GetTileUnderEntity(super) == 0xd) {
             ResetCollisionLayer(&gPlayerEntity);
-            sub_08085CDC(this);
+            LilypadLarge_Action4(this);
             super->direction = GetFacingDirection(&gPlayerEntity, super);
             LinearMoveDirection(&gPlayerEntity, 0x100, super->direction);
         }
@@ -432,7 +418,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
     }
 }
 
-void sub_08085C5C(LilypadLargeEntity* this) {
+void LilypadLarge_Action3(LilypadLargeEntity* this) {
     if (sub_0806FC80(super, &gPlayerEntity, 0x18) != 0) {
         LinearMoveUpdate(super);
         gPlayerEntity.speed = super->speed;
@@ -453,7 +439,7 @@ void sub_08085C5C(LilypadLargeEntity* this) {
     }
 }
 
-void sub_08085CDC(LilypadLargeEntity* this) {
+void LilypadLarge_Action4(LilypadLargeEntity* this) {
     this->unk_78.WORD += 0x100000;
     if (this->unk_78.WORD_U < 0x4000000) {
         SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
@@ -462,7 +448,7 @@ void sub_08085CDC(LilypadLargeEntity* this) {
     }
 }
 
-void sub_08085D10(LilypadLargeEntity* this) {
+void LilypadLarge_Action5(LilypadLargeEntity* this) {
     if (EntityHasDuplicateID(super) != 0) {
         SetLocalFlag(super->type2);
         DeleteThisEntity();

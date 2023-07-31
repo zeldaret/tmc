@@ -4,11 +4,12 @@
  *
  * @brief Item On Ground object
  */
+#define NENT_DEPRECATED
+#include "object/itemOnGround.h"
 #include "collision.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "item.h"
 #include "itemMetaData.h"
@@ -16,40 +17,41 @@
 #include "player.h"
 #include "sound.h"
 
-void sub_08081150(Entity*);
+void sub_08081150(ItemOnGroundEntity* this);
 u8 sub_0808147C(u32);
-void sub_080814A4(Entity*);
-u32 sub_080814C0(Entity*);
-void sub_08081500(Entity*);
-void sub_0808153C(Entity*);
-void sub_08081598(Entity*);
-void sub_080813BC(Entity*);
-void sub_080810FC(Entity*);
-void ItemOnGround_Init(Entity*);
-void ItemOnGround_Action1(Entity*);
-void ItemOnGround_Action2(Entity*);
-void ItemOnGround_Action3(Entity*);
-void ItemOnGround_Action4(Entity*);
-void sub_080810A8(Entity*);
-void sub_080810FC(Entity*);
-void sub_08081150(Entity*);
-void sub_08081134(Entity*);
-void sub_08081188(Entity*);
-void sub_080811AC(Entity*);
-void sub_080811C8(Entity*);
-void sub_080811D8(Entity*);
-void sub_08081248(Entity*);
-void sub_0808126C(Entity*);
-void sub_0808127C(Entity*);
-void nullsub_113(Entity*);
-void sub_080812A0(Entity*);
-void sub_080812A8(Entity*);
-void sub_080812E8(Entity*);
-void nullsub_510(Entity*);
-void sub_080813D4(Entity*);
-void sub_080813E8(Entity*);
-void sub_080813F0(Entity*);
-bool32 CheckShouldPlayItemGetCutscene(Entity*);
+void sub_080814A4(ItemOnGroundEntity* this);
+u32 sub_080814C0(ItemOnGroundEntity* this);
+void sub_08081500(ItemOnGroundEntity* this);
+void sub_0808153C(ItemOnGroundEntity* this);
+void sub_08081598(ItemOnGroundEntity* this);
+void sub_080813BC(ItemOnGroundEntity* this);
+void sub_080810FC(ItemOnGroundEntity* this);
+void ItemOnGround_Init(ItemOnGroundEntity* this);
+void ItemOnGround_Action1(ItemOnGroundEntity* this);
+void ItemOnGround_Action2(ItemOnGroundEntity* this);
+void ItemOnGround_Action3(ItemOnGroundEntity* this);
+void ItemOnGround_Action4(ItemOnGroundEntity* this);
+void sub_080810A8(ItemOnGroundEntity* this);
+void sub_080810FC(ItemOnGroundEntity* this);
+void sub_08081150(ItemOnGroundEntity* this);
+void sub_08081134(ItemOnGroundEntity* this);
+void sub_08081188(ItemOnGroundEntity* this);
+void sub_080811AC(ItemOnGroundEntity* this);
+void sub_080811C8(ItemOnGroundEntity* this);
+void sub_080811D8(ItemOnGroundEntity* this);
+void sub_08081248(ItemOnGroundEntity* this);
+void sub_0808126C(ItemOnGroundEntity* this);
+void sub_0808127C(ItemOnGroundEntity* this);
+void nullsub_113(ItemOnGroundEntity* this);
+void sub_080812A0(ItemOnGroundEntity* this);
+void sub_080812A8(ItemOnGroundEntity* this);
+void sub_080812E8(ItemOnGroundEntity* this);
+void nullsub_510(ItemOnGroundEntity* this);
+void sub_080813D4(ItemOnGroundEntity* this);
+void sub_080813E8(ItemOnGroundEntity* this);
+void sub_080813F0(ItemOnGroundEntity* this);
+bool32 CheckShouldPlayItemGetCutscene(ItemOnGroundEntity* this);
+void sub_08081404(ItemOnGroundEntity*, u32);
 
 typedef struct {
     u8 unk0[2];
@@ -58,18 +60,18 @@ typedef struct {
     u8 unk5[3];
 } Unk_0811E84C;
 
-void ItemOnGround(Entity* this) {
-    static void (*const ItemOnGround_Actions[])(Entity*) = {
+void ItemOnGround(ItemOnGroundEntity* this) {
+    static void (*const ItemOnGround_Actions[])(ItemOnGroundEntity*) = {
         ItemOnGround_Init, ItemOnGround_Action1, ItemOnGround_Action2, ItemOnGround_Action3, ItemOnGround_Action4,
     };
-    if (this->contactFlags & 0x80) {
-        switch (this->contactFlags & 0x7F) {
+    if (super->contactFlags & 0x80) {
+        switch (super->contactFlags & 0x7F) {
             case 20:
-                this->action = 3;
-                COLLISION_OFF(this);
-                this->spriteSettings.draw = 1;
-                this->collisionFlags |= 0x10;
-                this->child = this->contactedEntity;
+                super->action = 3;
+                COLLISION_OFF(super);
+                super->spriteSettings.draw = 1;
+                super->collisionFlags |= 0x10;
+                super->child = super->contactedEntity;
                 break;
             case 0:
             case 1:
@@ -87,38 +89,38 @@ void ItemOnGround(Entity* this) {
         }
     }
 
-    if (sub_0806F520(this)) {
+    if (sub_0806F520(super)) {
         sub_080813BC(this);
     } else {
-        ItemOnGround_Actions[this->action](this);
+        ItemOnGround_Actions[super->action](this);
     }
 
-    if (this->type == 0x5C) {
+    if (super->type == 0x5C) {
         gRoomVars.field_0x4++;
     }
 
-    sub_08080CB4(this);
+    sub_08080CB4(super);
 }
 
-void ItemOnGround_Init(Entity* this) {
-    static void (*const gUnk_0811E7E8[])(Entity*) = {
+void ItemOnGround_Init(ItemOnGroundEntity* this) {
+    static void (*const gUnk_0811E7E8[])(ItemOnGroundEntity*) = {
         sub_080810A8, sub_080810FC, sub_08081150, sub_08081134, sub_08081188, sub_080810A8,
         sub_080810A8, sub_080811AC, sub_080811C8, sub_080811D8, sub_080810A8,
     };
-    if (this->field_0x86.HWORD && CheckFlags(this->field_0x86.HWORD)) {
+    if (this->unk_86 && CheckFlags(this->unk_86)) {
         DeleteThisEntity();
     }
 
-    if (this->type != ITEM_FAIRY) {
-        this->spriteSettings.draw = 1;
-        this->spritePriority.b1 = 3;
-        this->spriteSettings.shadow = 0;
-        this->hitType = 7;
-        this->collisionFlags = 0x47;
-        this->hurtType = 0x44;
-        this->health = 0xFF;
-        this->hitbox = (Hitbox*)&gUnk_080FD1A8;
-        switch (this->type) {
+    if (super->type != ITEM_FAIRY) {
+        super->spriteSettings.draw = 1;
+        super->spritePriority.b1 = 3;
+        super->spriteSettings.shadow = 0;
+        super->hitType = 7;
+        super->collisionFlags = 0x47;
+        super->hurtType = 0x44;
+        super->health = 0xFF;
+        super->hitbox = (Hitbox*)&gUnk_080FD1A8;
+        switch (super->type) {
             case ITEM_SHELLS:
             case ITEM_RUPEE1:
             case ITEM_RUPEE5:
@@ -129,144 +131,144 @@ void ItemOnGround_Init(Entity* this) {
             case ITEM_BOMBS5:
             case ITEM_ARROWS5:
             case ITEM_HEART:
-                this->flags2 = 0x17;
+                super->flags2 = 0x17;
                 break;
             default:
-                this->flags2 = 0x11;
+                super->flags2 = 0x11;
                 break;
         }
 
-        this->field_0x68.HALF.HI = this->timer;
-        this->field_0x6a.HALF.LO = 0;
-        this->field_0x6c.HWORD = 0;
-        this->field_0x68.HALF.LO = 0;
-        this->timer = 0;
-        SetDefaultPriority(this, PRIO_NO_BLOCK);
-        this->gustJarFlags = sub_0808147C(this->type);
-        gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
+        this->unk_69 = super->timer;
+        this->unk_6a = 0;
+        this->unk_6c = 0;
+        this->unk_68 = 0;
+        super->timer = 0;
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        super->gustJarFlags = sub_0808147C(super->type);
+        gUnk_0811E7E8[this->unk_69](this);
     } else {
         Entity* entity = CreateObject(FAIRY, 0x60, 0);
         if (entity != NULL) {
             entity->timer = 0;
-            if (this->timer == 1) {
+            if (super->timer == 1) {
                 entity->type2 = 2;
             }
-            CopyPosition(this, entity);
+            CopyPosition(super, entity);
             DeleteThisEntity();
         }
     }
 }
 
-void sub_080810A8(Entity* this) {
-    this->action = 1;
+void sub_080810A8(ItemOnGroundEntity* this) {
+    super->action = 1;
     sub_080814A4(this);
-    if (this->direction & 0x80) {
-        this->direction &= 0x1F;
-        if (this->speed == 0) {
-            this->speed = 0x100;
+    if (super->direction & 0x80) {
+        super->direction &= 0x1F;
+        if (super->speed == 0) {
+            super->speed = 0x100;
         }
     } else {
-        this->direction |= 0xFF;
+        super->direction |= 0xFF;
     }
 
-    if (this->zVelocity == 0) {
-        this->zVelocity = Q_16_16(1.875);
+    if (super->zVelocity == 0) {
+        super->zVelocity = Q_16_16(1.875);
     }
 
-    if (this->collisionLayer == 2) {
-        ResolveCollisionLayer(this);
+    if (super->collisionLayer == 2) {
+        ResolveCollisionLayer(super);
     }
 }
 
-void sub_080810FC(Entity* this) {
-    if (this->type != ITEM_HEART) {
+void sub_080810FC(ItemOnGroundEntity* this) {
+    if (super->type != ITEM_HEART) {
         sub_08081598(this);
     } else {
-        this->action = 2;
-        this->subAction = 0;
-        COLLISION_ON(this);
-        this->flags2 = 0x11;
-        CopyPosition(&gPlayerEntity, this);
+        super->action = 2;
+        super->subAction = 0;
+        COLLISION_ON(super);
+        super->flags2 = 0x11;
+        CopyPosition(&gPlayerEntity, super);
     }
 }
 
-void sub_08081134(Entity* this) {
+void sub_08081134(ItemOnGroundEntity* this) {
     sub_080814A4(this);
-    this->field_0x6c.HWORD += 80;
+    this->unk_6c += 80;
     sub_08081150(this);
 }
 
-void sub_08081150(Entity* this) {
-    this->action = 2;
-    COLLISION_ON(this);
-    this->z.HALF.HI = -0x80;
-    this->spriteOrientation.flipY = 1;
-    this->spriteRendering.b3 = 1;
+void sub_08081150(ItemOnGroundEntity* this) {
+    super->action = 2;
+    COLLISION_ON(super);
+    super->z.HALF.HI = -0x80;
+    super->spriteOrientation.flipY = 1;
+    super->spriteRendering.b3 = 1;
     SoundReq(SFX_12D);
 }
 
-void sub_08081188(Entity* this) {
-    this->action = 2;
-    COLLISION_ON(this);
-    if (this->collisionLayer == 2) {
-        ResolveCollisionLayer(this);
+void sub_08081188(ItemOnGroundEntity* this) {
+    super->action = 2;
+    COLLISION_ON(super);
+    if (super->collisionLayer == 2) {
+        ResolveCollisionLayer(super);
     }
 }
 
-void sub_080811AC(Entity* this) {
-    this->action = 2;
-    this->spriteSettings.draw = 0;
-    this->field_0x6e.HWORD = GetTileTypeByEntity(this);
+void sub_080811AC(ItemOnGroundEntity* this) {
+    super->action = 2;
+    super->spriteSettings.draw = 0;
+    this->unk_6e = GetTileTypeByEntity(super);
 }
 
-void sub_080811C8(Entity* this) {
-    this->action = 2;
-    this->spriteSettings.draw = 0;
+void sub_080811C8(ItemOnGroundEntity* this) {
+    super->action = 2;
+    super->spriteSettings.draw = 0;
 }
 
-void sub_080811D8(Entity* this) {
+void sub_080811D8(ItemOnGroundEntity* this) {
     sub_08081188(this);
     SoundReq(SFX_215);
 }
 
-void ItemOnGround_Action1(Entity* this) {
-    if (this->field_0x68.HALF.HI != 6) {
-        ProcessMovement2(this);
+void ItemOnGround_Action1(ItemOnGroundEntity* this) {
+    if (this->unk_69 != 6) {
+        ProcessMovement2(super);
     } else {
-        LinearMoveUpdate(this);
+        LinearMoveUpdate(super);
     }
 
-    GravityUpdate(this, Q_8_8(40.0));
-    if (this->zVelocity <= 0) {
-        this->action = 2;
-        COLLISION_ON(this);
+    GravityUpdate(super, Q_8_8(40.0));
+    if (super->zVelocity <= 0) {
+        super->action = 2;
+        COLLISION_ON(super);
         sub_080814A4(this);
     }
 }
 
-void ItemOnGround_Action2(Entity* this) {
-    static void (*const gUnk_0811E814[])(Entity*) = {
+void ItemOnGround_Action2(ItemOnGroundEntity* this) {
+    static void (*const gUnk_0811E814[])(ItemOnGroundEntity*) = {
         sub_08081248, sub_08081248, sub_0808126C, sub_0808127C, nullsub_113,  sub_080812A0,
         sub_08081248, sub_080812A8, sub_080812E8, nullsub_510,  sub_08081248,
     };
-    gUnk_0811E814[this->field_0x68.HALF.HI](this);
+    gUnk_0811E814[this->unk_69](this);
 }
 
-void sub_08081248(Entity* this) {
+void sub_08081248(ItemOnGroundEntity* this) {
     sub_08081500(this);
     if (sub_080814C0(this)) {
         sub_08081404(this, 0);
     } else {
-        sub_0800442E(this);
+        sub_0800442E(super);
     }
 }
 
-void sub_0808126C(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_0808126C(ItemOnGroundEntity* this) {
+    UpdateAnimationSingleFrame(super);
     sub_0808153C(this);
 }
 
-void sub_0808127C(Entity* this) {
+void sub_0808127C(ItemOnGroundEntity* this) {
     if (sub_080814C0(this)) {
         sub_08081404(this, 0);
     } else {
@@ -274,111 +276,111 @@ void sub_0808127C(Entity* this) {
     }
 }
 
-void nullsub_113(Entity* this) {
+void nullsub_113(ItemOnGroundEntity* this) {
 }
 
-void sub_080812A0(Entity* this) {
+void sub_080812A0(ItemOnGroundEntity* this) {
     sub_08081500(this);
 }
 
-void sub_080812A8(Entity* this) {
-    if (sub_080B1B0C(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
-        this->direction = 0;
-        this->speed = 0;
-        this->spriteSettings.draw = 1;
-        this->field_0x68.HALF.HI = 0;
+void sub_080812A8(ItemOnGroundEntity* this) {
+    if (sub_080B1B0C(super) != 0xF && this->unk_6e != GetTileTypeByEntity(super)) {
+        super->direction = 0;
+        super->speed = 0;
+        super->spriteSettings.draw = 1;
+        this->unk_69 = 0;
         sub_080810A8(this);
     }
 }
 
-void sub_080812E8(Entity* this) {
+void sub_080812E8(ItemOnGroundEntity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
-    if ((playerState->swim_state & 0x80) && IsColliding(this, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && IsColliding(super, &gPlayerEntity)) {
 #else
     if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
-        IsColliding(this, &gPlayerEntity)) {
+        IsColliding(super, &gPlayerEntity)) {
 #endif
         sub_080810FC(this);
     }
 }
 
-void nullsub_510(Entity* this) {
+void nullsub_510(ItemOnGroundEntity* this) {
 }
 
-void ItemOnGround_Action3(Entity* this) {
-    Entity* other = this->child;
+void ItemOnGround_Action3(ItemOnGroundEntity* this) {
+    Entity* other = super->child;
     if (!(other->kind == PLAYER_ITEM && other->id == 3)) {
         sub_08081404(this, 0);
     } else {
-        CopyPosition(other, this);
-        this->z.HALF.HI--;
+        CopyPosition(other, super);
+        super->z.HALF.HI--;
         other = &gPlayerEntity;
-        if (IsColliding(this, other)) {
+        if (IsColliding(super, other)) {
             sub_080810FC(this);
         }
     }
 }
 
-void ItemOnGround_Action4(Entity* this) {
-    if (--this->timer) {
-        Entity* other = this->child;
-        this->x.WORD = other->x.WORD;
-        this->y.WORD = other->y.WORD;
-        this->spriteOrientation.flipY = other->spriteOrientation.flipY;
-        this->spriteRendering.b3 = other->spriteRendering.b3;
-        GravityUpdate(this, Q_8_8(40.0));
+void ItemOnGround_Action4(ItemOnGroundEntity* this) {
+    if (--super->timer) {
+        Entity* other = super->child;
+        super->x.WORD = other->x.WORD;
+        super->y.WORD = other->y.WORD;
+        super->spriteOrientation.flipY = other->spriteOrientation.flipY;
+        super->spriteRendering.b3 = other->spriteRendering.b3;
+        GravityUpdate(super, Q_8_8(40.0));
     } else {
         sub_08081404(this, 1);
     }
 }
 
-void sub_080813BC(Entity* this) {
-    static void (*const subActionFuncs[])(Entity*) = {
+void sub_080813BC(ItemOnGroundEntity* this) {
+    static void (*const subActionFuncs[])(ItemOnGroundEntity*) = {
         sub_080813D4,
         sub_080813E8,
         sub_080813F0,
     };
-    subActionFuncs[this->subAction](this);
+    subActionFuncs[super->subAction](this);
 }
 
-void sub_080813D4(Entity* this) {
-    this->subAction = 1;
-    this->gustJarTolerance = 1;
-    this->spriteSettings.draw = 1;
+void sub_080813D4(ItemOnGroundEntity* this) {
+    super->subAction = 1;
+    super->gustJarTolerance = 1;
+    super->spriteSettings.draw = 1;
 }
 
-void sub_080813E8(Entity* this) {
-    sub_0806F4E8(this);
+void sub_080813E8(ItemOnGroundEntity* this) {
+    sub_0806F4E8(super);
 }
 
-void sub_080813F0(Entity* this) {
-    if (sub_0806F3E4(this)) {
+void sub_080813F0(ItemOnGroundEntity* this) {
+    if (sub_0806F3E4(super)) {
         sub_080810FC(this);
     }
 }
 
-void sub_08081404(Entity* this, u32 arg1) {
-    if (arg1 && this->field_0x86.HWORD) {
-        SetFlag(this->field_0x86.HWORD);
+void sub_08081404(ItemOnGroundEntity* this, u32 arg1) {
+    if (arg1 && this->unk_86) {
+        SetFlag(this->unk_86);
     }
 
     DeleteThisEntity();
 }
 
-bool32 sub_08081420(Entity* this) {
+bool32 sub_08081420(ItemOnGroundEntity* this) {
     if (CheckShouldPlayItemGetCutscene(this)) {
-        SetDefaultPriority(this, PRIO_PLAYER_EVENT);
-        CreateItemEntity(this->type, this->type2, 0);
+        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        CreateItemEntity(super->type, super->type2, 0);
         return TRUE;
     } else {
-        GiveItem(this->type, this->type2);
+        GiveItem(super->type, super->type2);
         return FALSE;
     }
 }
 
-bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
-    return ((gItemMetaData[this->type].unk3 & 0x2) || !GetInventoryValue(this->type));
+bool32 CheckShouldPlayItemGetCutscene(ItemOnGroundEntity* this) {
+    return ((gItemMetaData[super->type].unk3 & 0x2) || !GetInventoryValue(super->type));
 }
 
 static const Unk_0811E84C gUnk_0811E84C[118] = {
@@ -411,79 +413,79 @@ void sub_0808148C(u32 arg0) {
     }
 }
 
-void sub_080814A4(Entity* this) {
-    if (this->field_0x68.HALF.HI == 10) {
-        this->field_0x6c.HWORD = 120;
+void sub_080814A4(ItemOnGroundEntity* this) {
+    if (this->unk_69 == 10) {
+        this->unk_6c = 120;
     } else {
-        this->field_0x6c.HWORD = 600;
+        this->unk_6c = 600;
     }
 }
 
-u32 sub_080814C0(Entity* this) {
+u32 sub_080814C0(ItemOnGroundEntity* this) {
     if (!AnyPrioritySet()) {
-        if (--this->field_0x6c.HWORD == 0) {
+        if (--this->unk_6c == 0) {
             return TRUE;
         }
 
-        if (this->field_0x6c.HWORD < 90) {
-            this->spriteSettings.draw ^= 1;
+        if (this->unk_6c < 90) {
+            super->spriteSettings.draw ^= 1;
         }
     }
 
     return FALSE;
 }
 
-void sub_08081500(Entity* this) {
-    if (this->field_0x68.HALF.LO == 0) {
-        u32 var0 = sub_080044EC(this, 0x2800);
+void sub_08081500(ItemOnGroundEntity* this) {
+    if (this->unk_68 == 0) {
+        u32 var0 = sub_080044EC(super, 0x2800);
         if (var0 == 0) {
-            this->field_0x68.HALF.LO = 1;
+            this->unk_68 = 1;
         } else {
             if (var0 == 1) {
-                sub_0808148C(this->type);
-                UpdateSpriteForCollisionLayer(this);
+                sub_0808148C(super->type);
+                UpdateSpriteForCollisionLayer(super);
             }
 
-            ProcessMovement2(this);
+            ProcessMovement2(super);
         }
     }
 }
 
-void sub_0808153C(Entity* this) {
-    if (this->field_0x68.HALF.LO > 1)
+void sub_0808153C(ItemOnGroundEntity* this) {
+    if (this->unk_68 > 1)
         return;
 
-    if (this->field_0x68.HALF.LO == 0) {
-        if (!GravityUpdate(this, Q_8_8(16.0)) && !sub_0800442E(this)) {
-            this->field_0x68.HALF.LO = 1;
-            this->zVelocity = Q_16_16(1.875);
-            sub_0808148C(this->type);
-            UpdateSpriteForCollisionLayer(this);
+    if (this->unk_68 == 0) {
+        if (!GravityUpdate(super, Q_8_8(16.0)) && !sub_0800442E(super)) {
+            this->unk_68 = 1;
+            super->zVelocity = Q_16_16(1.875);
+            sub_0808148C(super->type);
+            UpdateSpriteForCollisionLayer(super);
         }
     } else {
-        if (!GravityUpdate(this, Q_8_8(40.0))) {
-            this->field_0x68.HALF.LO = 2;
-            sub_0808148C(this->type);
+        if (!GravityUpdate(super, Q_8_8(40.0))) {
+            this->unk_68 = 2;
+            sub_0808148C(super->type);
         }
     }
 }
 
-void sub_08081598(Entity* this) {
-    if (this->health == 0) {
+void sub_08081598(ItemOnGroundEntity* this) {
+    if (super->health == 0) {
         sub_08081404(this, 1);
     }
 
-    COLLISION_OFF(this);
-    this->action = 4;
-    this->timer = 14;
-    this->zVelocity = Q_16_16(2.0);
-    this->spriteSettings.draw = 1;
-    this->spritePriority.b1 = 2;
-    this->spritePriority.b0 = 3;
-    this->child = &gPlayerEntity;
-    CopyPosition(this->child, this);
-    this->z.HALF.HI -= 4;
-    if (this->type != 0x5F && sub_08081420(this)) {
+    COLLISION_OFF(super);
+    super->action = 4;
+    super->timer = 14;
+    super->zVelocity = Q_16_16(2.0);
+    super->spriteSettings.draw = 1;
+    super->spritePriority.b1 = 2;
+    super->spritePriority.b0 = 3;
+    super->child = &gPlayerEntity;
+    CopyPosition(super->child, super);
+    super->z.HALF.HI -= 4;
+    if (super->type != 0x5F && sub_08081420(this)) {
         sub_08081404(this, 1);
     }
 }

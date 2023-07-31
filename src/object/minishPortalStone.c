@@ -6,7 +6,6 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 #include "screen.h"
 
@@ -16,14 +15,14 @@ typedef struct {
     /*0x86*/ u16 unk_86;
 } MinishPortalStoneEntity;
 
-void MinishPortalStone_Init(MinishPortalStoneEntity*);
-void MinishPortalStone_Action1(MinishPortalStoneEntity*);
-void MinishPortalStone_Action2(MinishPortalStoneEntity*);
-void MinishPortalStone_Action3(MinishPortalStoneEntity*);
-void MinishPortalStone_Action4(MinishPortalStoneEntity*);
-void sub_08097CFC(MinishPortalStoneEntity*);
-bool32 sub_08097CB0(MinishPortalStoneEntity*);
-void sub_08097CB4(MinishPortalStoneEntity*);
+void MinishPortalStone_Init(MinishPortalStoneEntity* this);
+void MinishPortalStone_Action1(MinishPortalStoneEntity* this);
+void MinishPortalStone_Action2(MinishPortalStoneEntity* this);
+void MinishPortalStone_Action3(MinishPortalStoneEntity* this);
+void MinishPortalStone_Action4(MinishPortalStoneEntity* this);
+void sub_08097CFC(MinishPortalStoneEntity* this);
+bool32 sub_08097CB0(MinishPortalStoneEntity* this);
+void sub_08097CB4(MinishPortalStoneEntity* this);
 
 const Hitbox gUnk_08123328 = { 0, 0, { 4, 0, 0, 4 }, 18, 18 };
 

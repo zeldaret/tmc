@@ -4,171 +4,182 @@
  *
  * @brief Pot object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
+#include "object/itemOnGround.h"
 #include "player.h"
 #include "room.h"
 #include "sound.h"
 
-void Pot_Action5(Entity*);
-static void sub_08082850(Entity*, Entity*);
-void sub_08082608(Entity*);
-void Pot_Init(Entity*);
-void Pot_Action1(Entity*);
-void Pot_Action2(Entity*);
-void Pot_Action3(Entity*);
-void Pot_Action4(Entity*);
-void Pot_Action5(Entity*);
-void sub_08082510(Entity*);
-void nullsub_511(Entity*);
-void sub_08082588(Entity*);
-void sub_0808259C(Entity*);
-void sub_080825E8(Entity*);
-void sub_080825F0(Entity*);
-void sub_08082608(Entity*);
-void sub_08082818(Entity*);
-void nullsub_512(Entity*);
-void sub_080827F8(Entity*);
-void sub_08082778(Entity*);
-void sub_0808270C(Entity*);
-void sub_080826FC(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[8];
+    /*0x70*/ u16 unk_70;
+    /*0x72*/ u8 unused2[11];
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u8 unused3[8];
+    /*0x86*/ u16 unk_86;
+} PotEntity;
+
+void Pot_Action5(PotEntity*);
+static void sub_08082850(PotEntity*, Entity*);
+void sub_08082608(PotEntity* this);
+void Pot_Init(PotEntity* this);
+void Pot_Action1(PotEntity* this);
+void Pot_Action2(PotEntity* this);
+void Pot_Action3(PotEntity* this);
+void Pot_Action4(PotEntity* this);
+void Pot_Action5(PotEntity* this);
+void sub_08082510(PotEntity* this);
+void nullsub_511(PotEntity* this);
+void sub_08082588(PotEntity* this);
+void sub_0808259C(PotEntity* this);
+void sub_080825E8(PotEntity* this);
+void sub_080825F0(PotEntity* this);
+void sub_08082608(PotEntity* this);
+void sub_08082818(PotEntity* this);
+void nullsub_512(PotEntity* this);
+void sub_080827F8(PotEntity* this);
+void sub_08082778(PotEntity* this);
+void sub_0808270C(PotEntity* this);
+void sub_080826FC(PotEntity* this);
 
 extern void RegisterCarryEntity(Entity*);
 extern void sub_08016A6C(Entity*);
 
-void Pot(Entity* this) {
-    static void (*const Pot_Actions[])(Entity*) = {
+void Pot(PotEntity* this) {
+    static void (*const Pot_Actions[])(PotEntity*) = {
         Pot_Init, Pot_Action1, Pot_Action2, Pot_Action3, Pot_Action4, Pot_Action5,
     };
-    Pot_Actions[this->action](this);
-    this->contactFlags = 0;
+    Pot_Actions[super->action](this);
+    super->contactFlags = 0;
 }
 
-void Pot_Init(Entity* this) {
-    if (this->type2 == 1 && CheckFlags(this->field_0x86.HWORD)) {
+void Pot_Init(PotEntity* this) {
+    if (super->type2 == 1 && CheckFlags(this->unk_86)) {
         DeleteThisEntity();
     }
 
-    this->action = 1;
-    this->hitbox = (Hitbox*)&gHitbox_18;
-    this->speed = 0x80;
-    this->y.HALF.HI += 3;
-    this->carryFlags = 0;
-    COLLISION_ON(this);
-    this->health = 1;
-    this->collisionFlags = 7;
-    this->hitType = 0x6E;
-    this->flags2 = 0x84;
-    this->gustJarFlags = 0x12;
-    if (this->collisionLayer == 0) {
-        ResolveCollisionLayer(this);
+    super->action = 1;
+    super->hitbox = (Hitbox*)&gHitbox_18;
+    super->speed = 0x80;
+    super->y.HALF.HI += 3;
+    super->carryFlags = 0;
+    COLLISION_ON(super);
+    super->health = 1;
+    super->collisionFlags = 7;
+    super->hitType = 0x6E;
+    super->flags2 = 0x84;
+    super->gustJarFlags = 0x12;
+    if (super->collisionLayer == 0) {
+        ResolveCollisionLayer(super);
     }
 
-    this->field_0x70.HALF.LO = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
-    if ((u16)this->field_0x70.HALF.LO == 0x4000) {
+    this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
+    if (this->unk_70 == 0x4000) {
         DeleteThisEntity();
     }
 
-    SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
-    InitializeAnimation(this, 5);
+    SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+    InitializeAnimation(super, 5);
 }
 
-void Pot_Action1(Entity* this) {
+void Pot_Action1(PotEntity* this) {
     u32 tileType;
-    u32 var0 = this->contactFlags & 0x7F;
+    u32 var0 = super->contactFlags & 0x7F;
     switch (var0) {
         case 0x13:
-            this->action = 3;
-            this->subAction = 0;
+            super->action = 3;
+            super->subAction = 0;
             break;
         case 0x1D:
-            SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-            this->action = 5;
-            this->zVelocity = Q_16_16(2.625);
-            this->spriteOffsetY = 0;
-            this->spriteSettings.shadow = 1;
-            this->spritePriority.b1 = 3;
-            COLLISION_OFF(this);
+            SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+            super->action = 5;
+            super->zVelocity = Q_16_16(2.625);
+            super->spriteOffsetY = 0;
+            super->spriteSettings.shadow = 1;
+            super->spritePriority.b1 = 3;
+            COLLISION_OFF(super);
             Pot_Action5(this);
             break;
         default:
-            tileType = GetTileTypeByEntity(this);
+            tileType = GetTileTypeByEntity(super);
             if (tileType != 0x4000) {
                 switch (tileType) {
                     case 0x4004:
                     case 0x4003:
                     case 0x4002:
                     case 0x4001:
-                        this->direction = (tileType - 0x4001) * 8;
-                        this->timer = 32;
-                        this->action = 4;
+                        super->direction = (tileType - 0x4001) * 8;
+                        super->timer = 32;
+                        super->action = 4;
                         if (gPlayerState.flags & PL_MINISH) {
-                            this->speed >>= 1;
-                            this->timer = 64;
+                            super->speed >>= 1;
+                            super->timer = 64;
                         }
-                        SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+                        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         EnqueueSFX(SFX_10F);
                         break;
                     case 0x4067:
-                        SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+                        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         DeleteThisEntity();
                         break;
                     default:
-                        if (GetTileUnderEntity(this) == 13) {
-                            CreateFx(this, FX_FALL_DOWN, 0);
+                        if (GetTileUnderEntity(super) == 13) {
+                            CreateFx(super, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
-                            SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+                            SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         }
                         sub_08082850(this, NULL);
                         break;
                 }
             } else {
-                RegisterCarryEntity(this);
+                RegisterCarryEntity(super);
             }
             break;
     }
 }
 
-void Pot_Action2(Entity* this) {
-    static void (*const subActionFuncs[])(Entity*) = {
+void Pot_Action2(PotEntity* this) {
+    static void (*const subActionFuncs[])(PotEntity*) = {
         sub_08082510, nullsub_511, sub_08082588, sub_0808259C, sub_080825E8, sub_080825F0, sub_08082608,
     };
-    subActionFuncs[this->subAction](this);
+    subActionFuncs[super->subAction](this);
 }
 
-void sub_08082510(Entity* this) {
-    COLLISION_ON(this);
-    this->hitbox = (Hitbox*)&gUnk_080FD340;
-    this->collisionFlags = 7;
-    this->hitType = 1;
-    this->flags2 = gPlayerEntity.flags2;
-    this->spriteOffsetY = 0;
-    SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-    this->subAction++;
+void sub_08082510(PotEntity* this) {
+    COLLISION_ON(super);
+    super->hitbox = (Hitbox*)&gUnk_080FD340;
+    super->collisionFlags = 7;
+    super->hitType = 1;
+    super->flags2 = gPlayerEntity.flags2;
+    super->spriteOffsetY = 0;
+    SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+    super->subAction++;
 }
 
-void nullsub_511(Entity* this) {
+void nullsub_511(PotEntity* this) {
 }
 
-void sub_08082588(Entity* this) {
-    this->spritePriority.b1 = 3;
+void sub_08082588(PotEntity* this) {
+    super->spritePriority.b1 = 3;
 }
 
-void sub_0808259C(Entity* this) {
-    switch (sub_080043E8(this)) {
+void sub_0808259C(PotEntity* this) {
+    switch (sub_080043E8(super)) {
         case 2:
-            CreateFx(this, FX_WATER_SPLASH, 0);
+            CreateFx(super, FX_WATER_SPLASH, 0);
             break;
         case 1:
-            CreateFx(this, FX_FALL_DOWN, 0);
+            CreateFx(super, FX_FALL_DOWN, 0);
             break;
         case 3:
-            CreateFx(this, FX_LAVA_SPLASH, 0);
+            CreateFx(super, FX_LAVA_SPLASH, 0);
             break;
         default:
             sub_08082850(this, &gPlayerEntity);
@@ -178,131 +189,131 @@ void sub_0808259C(Entity* this) {
     DeleteThisEntity();
 }
 
-void sub_080825E8(Entity* this) {
+void sub_080825E8(PotEntity* this) {
     DeleteThisEntity();
 }
 
-void sub_080825F0(Entity* this) {
+void sub_080825F0(PotEntity* this) {
     if (gPlayerState.heldObject == 0) {
         sub_08082608(this);
     }
 }
 
-void sub_08082608(Entity* this) {
-    this->action = 1;
-    this->subAction = 0;
+void sub_08082608(PotEntity* this) {
+    super->action = 1;
+    super->subAction = 0;
 }
 
-void Pot_Action4(Entity* this) {
+void Pot_Action4(PotEntity* this) {
     u32 tileType;
 
-    sub_0800445C(this);
-    if (this->timer-- != 0) {
-        LinearMoveUpdate(this);
-        sub_08016A6C(this);
+    sub_0800445C(super);
+    if (super->timer-- != 0) {
+        LinearMoveUpdate(super);
+        sub_08016A6C(super);
         return;
     }
 
-    if (sub_0800442E(this)) {
+    if (sub_0800442E(super)) {
         return;
     }
 
-    this->action = 1;
+    super->action = 1;
     if (gPlayerState.flags & PL_MINISH) {
-        this->speed <<= 1;
+        super->speed <<= 1;
     }
 
-    this->field_0x70.HALF.LO = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
-    tileType = GetTileTypeByEntity(this);
+    this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
+    tileType = GetTileTypeByEntity(super);
     switch (tileType) {
         case 0x71:
         case 0x72:
             sub_08082850(this, NULL);
             break;
         default:
-            SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
-            RegisterCarryEntity(this);
+            SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+            RegisterCarryEntity(super);
             break;
     }
 }
 
-void Pot_Action3(Entity* this) {
-    static void (*const subActionFuncs[])(Entity*) = {
+void Pot_Action3(PotEntity* this) {
+    static void (*const subActionFuncs[])(PotEntity*) = {
         sub_080826FC, sub_0808270C, sub_08082778, sub_080827F8, nullsub_512, sub_08082818,
     };
-    subActionFuncs[this->subAction](this);
+    subActionFuncs[super->subAction](this);
 }
 
-void sub_080826FC(Entity* this) {
-    this->subAction = 1;
-    this->gustJarTolerance = 48;
-    this->timer = 0;
+void sub_080826FC(PotEntity* this) {
+    super->subAction = 1;
+    super->gustJarTolerance = 48;
+    super->timer = 0;
 }
 
-void sub_0808270C(Entity* this) {
-    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {
-        this->spriteOffsetX = 0;
-        this->action = 1;
-        SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
+void sub_0808270C(PotEntity* this) {
+    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
+        super->spriteOffsetX = 0;
+        super->action = 1;
+        SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
     } else {
-        sub_0806F4E8(this);
+        sub_0806F4E8(super);
     }
 }
 
-void sub_08082778(Entity* this) {
-    if (this->timer == 0) {
-        this->timer = 1;
-        this->spriteOffsetX = 0;
-        this->spriteOffsetY = -2;
-        SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+void sub_08082778(PotEntity* this) {
+    if (super->timer == 0) {
+        super->timer = 1;
+        super->spriteOffsetX = 0;
+        super->spriteOffsetY = -2;
+        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
 
-    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {
+    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
         sub_08082850(this, NULL);
     } else {
-        sub_0806F3E4(this);
+        sub_0806F3E4(super);
     }
 }
 
-void sub_080827F8(Entity* this) {
+void sub_080827F8(PotEntity* this) {
     if (gPlayerState.field_0x1c == 0) {
         sub_08082850(this, NULL);
     }
 }
 
-void nullsub_512(Entity* this) {
+void nullsub_512(PotEntity* this) {
 }
 
-void sub_08082818(Entity* this) {
+void sub_08082818(PotEntity* this) {
     sub_08082850(this, NULL);
 }
 
-void Pot_Action5(Entity* this) {
-    if (this->zVelocity < 0) {
-        this->spriteSettings.flipY = 1;
+void Pot_Action5(PotEntity* this) {
+    if (super->zVelocity < 0) {
+        super->spriteSettings.flipY = 1;
     }
 
-    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
         sub_08082850(this, NULL);
     }
 }
 
-static void sub_08082850(Entity* this, Entity* parent) {
-    u32 parameter = sub_0808288C(this, this->type, this->field_0x7c.BYTES.byte1, this->type2);
-    Entity* fxEntity = CreateFx(this, FX_POT_SHATTER, parameter);
+static void sub_08082850(PotEntity* this, Entity* parent) {
+    u32 parameter = sub_0808288C(super, super->type, this->unk_7d, super->type2);
+    Entity* fxEntity = CreateFx(super, FX_POT_SHATTER, parameter);
     if (fxEntity) {
         fxEntity->parent = parent;
     }
 
-    if (this->type2 == 1) {
-        SetFlag(this->field_0x86.HWORD);
+    if (super->type2 == 1) {
+        SetFlag(this->unk_86);
     }
 
     DeleteThisEntity();
 }
 
 u32 sub_0808288C(Entity* this, u32 form, u32 arg2, u32 arg3) {
-    Entity* entity;
+    ItemOnGroundEntity* entity;
     u32 result = 0;
     switch (form) {
         case 0xFF:
@@ -312,13 +323,13 @@ u32 sub_0808288C(Entity* this, u32 form, u32 arg2, u32 arg3) {
             result = 0x80;
             break;
         default:
-            entity = CreateObjectWithParent(this, GROUND_ITEM, form, arg2);
+            entity = (ItemOnGroundEntity*)CreateObjectWithParent(this, GROUND_ITEM, form, arg2);
             if (entity != NULL) {
                 if (arg3 == 2) {
-                    entity->timer = 5;
-                    entity->field_0x86.HWORD = this->field_0x86.HWORD;
+                    entity->base.timer = 5;
+                    entity->unk_86 = ((PotEntity*)this)->unk_86; // This function is also used by flyingSkull.
                 } else {
-                    entity->timer = 0;
+                    entity->base.timer = 0;
                 }
             }
             break;

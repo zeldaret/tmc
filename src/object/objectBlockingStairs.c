@@ -39,16 +39,15 @@ u32 sub_080932D8(u32);
 void sub_080931A4(ObjectBlockingStairsEntity*, u32);
 
 void ObjectBlockingStairs(Entity* this) {
-    static void (*const actionFuncs[])(ObjectBlockingStairsEntity*) = {
+    static void (*const ObjectBlockingStairs_Actions[])(ObjectBlockingStairsEntity*) = {
         ObjectBlockingStairs_Init,    ObjectBlockingStairs_Action1, ObjectBlockingStairs_Action2,
         ObjectBlockingStairs_Action3, ObjectBlockingStairs_Action4,
     };
 
-    actionFuncs[this->action]((ObjectBlockingStairsEntity*)this);
+    ObjectBlockingStairs_Actions[this->action]((ObjectBlockingStairsEntity*)this);
 }
 
 void ObjectBlockingStairs_Init(ObjectBlockingStairsEntity* this) {
-    int iVar1;
     u32 uVar2;
 
     switch (sub_080932D8(super->type)) {

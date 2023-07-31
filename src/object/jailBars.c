@@ -4,63 +4,69 @@
  *
  * @brief Jail Bars object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "room.h"
 #include "sound.h"
 
-static void SetJailBarTiles(Entity*, u32);
-void JailBars_Init(Entity*);
-void JailBars_Action1(Entity*);
-void JailBars_Action2(Entity*);
-void JailBars_Action3(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[30];
+    /*0x86*/ u16 unk_86;
+} JailBarsEntity;
 
-void JailBars(Entity* this) {
-    static void (*const JailBars_Actions[])(Entity*) = {
+static void SetJailBarTiles(JailBarsEntity* this, u32);
+void JailBars_Init(JailBarsEntity* this);
+void JailBars_Action1(JailBarsEntity* this);
+void JailBars_Action2(JailBarsEntity* this);
+void JailBars_Action3(JailBarsEntity* this);
+
+void JailBars(JailBarsEntity* this) {
+    static void (*const JailBars_Actions[])(JailBarsEntity*) = {
         JailBars_Init,
         JailBars_Action1,
         JailBars_Action2,
         JailBars_Action3,
     };
-    JailBars_Actions[this->action](this);
+    JailBars_Actions[super->action](this);
 }
 
-void JailBars_Init(Entity* this) {
-    if (CheckFlags(this->field_0x86.HWORD) == 0) {
-        this->action = 1;
+void JailBars_Init(JailBarsEntity* this) {
+    if (CheckFlags(this->unk_86) == 0) {
+        super->action = 1;
         SetJailBarTiles(this, 0);
     } else {
-        this->action = 3;
-        InitializeAnimation(this, 1);
+        super->action = 3;
+        InitializeAnimation(super, 1);
         SetJailBarTiles(this, 1);
     }
-    this->spriteSettings.draw = 3; // ???
-    this->collisionLayer = 1;
-    UpdateSpriteForCollisionLayer(this);
+    super->spriteSettings.draw = 3; // ???
+    super->collisionLayer = 1;
+    UpdateSpriteForCollisionLayer(super);
 }
 
-void JailBars_Action1(Entity* this) {
-    if (CheckFlags(this->field_0x86.HWORD) != 0) {
-        this->action = 2;
+void JailBars_Action1(JailBarsEntity* this) {
+    if (CheckFlags(this->unk_86) != 0) {
+        super->action = 2;
         SetJailBarTiles(this, 1);
         SoundReq(SFX_10B);
     }
 }
 
-void JailBars_Action2(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 3;
-        InitializeAnimation(this, 1);
+void JailBars_Action2(JailBarsEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 3;
+        InitializeAnimation(super, 1);
     }
 }
 
-void JailBars_Action3(Entity* this) {
+void JailBars_Action3(JailBarsEntity* this) {
 }
 
-static void SetJailBarTiles(Entity* this, u32 arg1) {
+static void SetJailBarTiles(JailBarsEntity* this, u32 arg1) {
     static const s16 gUnk_08124960[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4023, -0x1, 0x4023,
                                          0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
     static const s16 gUnk_0812497A[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4088, -0x1, 0x4087,
@@ -71,5 +77,5 @@ static void SetJailBarTiles(Entity* this, u32 arg1) {
     if (arg1 == 1) {
         puVar1 = gUnk_0812497A;
     }
-    SetMultipleTiles((const TileData*)puVar1, COORD_TO_TILE(this), 1);
+    SetMultipleTiles((const TileData*)puVar1, COORD_TO_TILE(super), 1);
 }

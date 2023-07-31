@@ -9,7 +9,6 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 #include "player.h"
 #include "sound.h"

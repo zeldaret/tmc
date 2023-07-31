@@ -4,30 +4,42 @@
  *
  * @brief Mask object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
-void Mask_Init(Entity*);
-void Mask_Action1(Entity*);
-void Mask_Action2(Entity*);
-void Mask_Delete(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ u16 unk_7c;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unused2[6];
+    /*0x86*/ u16 unk_86;
+} MaskEntity;
 
-void Mask(Entity* this) {
-    static void (*const Mask_Actions[])(Entity*) = {
+void Mask_Init(MaskEntity* this);
+void Mask_Action1(MaskEntity* this);
+void Mask_Action2(MaskEntity* this);
+void Mask_Delete(MaskEntity* this);
+
+void Mask(MaskEntity* this) {
+    static void (*const Mask_Actions[])(MaskEntity*) = {
         Mask_Init,
         Mask_Action1,
         Mask_Action2,
         Mask_Delete,
     };
-    Mask_Actions[this->action](this);
+    Mask_Actions[super->action](this);
 }
 
-void Mask_Init(Entity* this) {
-    if (this->type2 & 0xC0) {
-        if (CheckFlags(this->field_0x86.HWORD)) {
+void Mask_Init(MaskEntity* this) {
+    if (super->type2 & 0xC0) {
+        if (CheckFlags(this->unk_86)) {
             s32 field_0x0a;
 
-            switch (this->type2 & 0xC0) {
+            switch (super->type2 & 0xC0) {
                 case 0x40:
                     field_0x0a = gRoomTransition.stairs_idx;
 
@@ -37,7 +49,7 @@ void Mask_Init(Entity* this) {
                             DeleteThisEntity();
                             break;
                         default:
-                            ClearFlag(this->field_0x86.HWORD);
+                            ClearFlag(this->unk_86);
                     }
 
                     break;
@@ -48,26 +60,26 @@ void Mask_Init(Entity* this) {
         }
     }
 
-    this->action = 1;
-    this->zVelocity = Q_16_16(1.5);
+    super->action = 1;
+    super->zVelocity = Q_16_16(1.5);
 
-    this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
+    this->unk_78 = ((Random() & 7) << 10) | 0x2000;
 
-    this->subtimer = this->timer >> 1;
-    this->timer = 0;
+    super->subtimer = super->timer >> 1;
+    super->timer = 0;
 
-    this->frameIndex = this->type2 & 0x3f;
+    super->frameIndex = super->type2 & 0x3f;
 
-    this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
-    this->field_0x7c.HALF_U.LO = GetTileIndex(this->field_0x7c.HALF_U.HI, 1);
+    this->unk_7e = COORD_TO_TILE(super);
+    this->unk_7c = GetTileIndex(this->unk_7e, 1);
 
-    this->field_0x7a.HWORD = sub_080B1B44((u16)this->field_0x7c.HALF.HI, 1);
+    this->unk_7a = sub_080B1B44(this->unk_7e, 1);
 
-    SetTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
+    SetTile(0x4022, this->unk_7e, 1);
 }
 
 // Probably related to knocking it down
-void Mask_Action1(Entity* this) {
+void Mask_Action1(MaskEntity* this) {
     // Check for the first frame of bonking animation
     if (gPlayerEntity.action != PLAYER_BOUNCE) {
         return;
@@ -78,54 +90,54 @@ void Mask_Action1(Entity* this) {
     }
 
     // Check if link is close enough to the mask
-    if (this->y.HALF.HI + 40 < gPlayerEntity.y.HALF.HI) {
+    if (super->y.HALF.HI + 40 < gPlayerEntity.y.HALF.HI) {
         return;
     }
 
-    if (this->x.HALF.HI - gPlayerEntity.x.HALF.HI >= this->subtimer ||
-        this->x.HALF.HI - gPlayerEntity.x.HALF.HI <= -this->subtimer) {
+    if (super->x.HALF.HI - gPlayerEntity.x.HALF.HI >= super->subtimer ||
+        super->x.HALF.HI - gPlayerEntity.x.HALF.HI <= -super->subtimer) {
         return;
     }
 
     // Presumably, make the mask fall
-    SetTile(this->field_0x7c.HALF_U.LO, this->field_0x7c.HALF_U.HI, 1);
+    SetTile(this->unk_7c, this->unk_7e, 1);
 
-    sub_08000148(this->field_0x7a.HWORD, (u16)this->field_0x7c.HALF.HI, 1);
+    sub_08000148(this->unk_7a, this->unk_7e, 1);
 
-    this->action = 2;
+    super->action = 2;
 
-    this->z.HALF.HI -= 0x20;
-    this->y.HALF.HI += 0x20;
+    super->z.HALF.HI -= 0x20;
+    super->y.HALF.HI += 0x20;
 
-    this->spriteRendering.b3 = 2;
+    super->spriteRendering.b3 = 2;
 }
 
 // Probably falling down
-void Mask_Action2(Entity* this) {
-    if (this->timer == 1) {
-        this->action = 3;
+void Mask_Action2(MaskEntity* this) {
+    if (super->timer == 1) {
+        super->action = 3;
 
-        this->timer = 0;
-        switch (this->type2 & 0xC0) {
+        super->timer = 0;
+        switch (super->type2 & 0xC0) {
             case 0x80:
                 EnqueueSFX(SFX_SECRET);
             case 0x40:
-                SetFlag(this->field_0x86.HWORD);
+                SetFlag(this->unk_86);
                 break;
         }
 
-        CreateFx(this, FX_POT_SHATTER, 0);
+        CreateFx(super, FX_POT_SHATTER, 0);
 
-        CreateRandomItemDrop(this, 3);
+        CreateRandomItemDrop(super, 3);
     } else {
-        sub_080044EC(this, this->field_0x78.HWORD);
+        sub_080044EC(super, this->unk_78);
 
-        if (this->z.HALF.HI == 0) {
-            this->timer++;
+        if (super->z.HALF.HI == 0) {
+            super->timer++;
         }
     }
 }
 
-void Mask_Delete(Entity* this) {
+void Mask_Delete(MaskEntity* this) {
     DeleteThisEntity();
 }

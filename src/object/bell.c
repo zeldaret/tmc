@@ -4,28 +4,29 @@
  *
  * @brief Bell object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
-void Bell_Init(Entity*);
-void Bell_Action1(Entity*);
+void Bell_Init(Entity* this);
+void Bell_Action1(Entity* this);
 
-void Bell(Entity* ent) {
+void Bell(Entity* this) {
     static void (*const Bell_Actions[])(Entity*) = {
         Bell_Init,
         Bell_Action1,
     };
-    Bell_Actions[ent->action](ent);
+    Bell_Actions[this->action](this);
 }
 
-void Bell_Init(Entity* ent) {
-    ent->action = 1;
-    ent->spriteSettings.draw = 1;
-    ent->collisionLayer = 1;
-    ent->spritePriority.b0 = 0;
-    UpdateSpriteForCollisionLayer(ent);
-    InitAnimationForceUpdate(ent, 0);
+void Bell_Init(Entity* this) {
+    this->action = 1;
+    this->spriteSettings.draw = 1;
+    this->collisionLayer = 1;
+    this->spritePriority.b0 = 0;
+    UpdateSpriteForCollisionLayer(this);
+    InitAnimationForceUpdate(this, 0);
 }
 
-void Bell_Action1(Entity* ent) {
-    UpdateAnimationSingleFrame(ent);
+void Bell_Action1(Entity* this) {
+    UpdateAnimationSingleFrame(this);
 }

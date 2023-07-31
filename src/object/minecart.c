@@ -17,15 +17,15 @@ typedef struct {
 
 extern void sub_08017744(Entity*);
 
-u32 sub_08091DDC(MinecartEntity*);
-void Minecart_Init(MinecartEntity*);
-void Minecart_Action1(MinecartEntity*);
-void Minecart_Action2(MinecartEntity*);
-void Minecart_Action3(MinecartEntity*);
-void Minecart_Action4(MinecartEntity*);
-void Minecart_Action5(MinecartEntity*);
-void Minecart_Action6(MinecartEntity*);
-void Minecart_Action7(MinecartEntity*);
+u32 sub_08091DDC(MinecartEntity* this);
+void Minecart_Init(MinecartEntity* this);
+void Minecart_Action1(MinecartEntity* this);
+void Minecart_Action2(MinecartEntity* this);
+void Minecart_Action3(MinecartEntity* this);
+void Minecart_Action4(MinecartEntity* this);
+void Minecart_Action5(MinecartEntity* this);
+void Minecart_Action6(MinecartEntity* this);
+void Minecart_Action7(MinecartEntity* this);
 
 extern const u16* const gUnk_081223D8[];
 
