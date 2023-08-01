@@ -1,54 +1,67 @@
-#include "entity.h"
+/**
+ * @file v1FireProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief V1 Fire Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "player.h"
+#include "entity.h"
 #include "functions.h"
+#include "player.h"
 
-extern void (*const V1FireProjectile_Functions[])(Entity*);
-extern void (*const V1FireProjectile_Actions[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[14];
+    /*0x76*/ u16 unk_76;
+} V1FireProjectileEntity;
+
+extern void (*const V1FireProjectile_Functions[])(V1FireProjectileEntity*);
+extern void (*const V1FireProjectile_Actions[])(V1FireProjectileEntity*);
 extern const s8 gUnk_0812A4EC[];
 
-void sub_080AB4A4(Entity*);
+void sub_080AB4A4(V1FireProjectileEntity*);
 s8* sub_080AB4F8(Entity*);
 
-void V1FireProjectile(Entity* this) {
-    V1FireProjectile_Functions[GetNextFunction(this)](this);
+void V1FireProjectile(V1FireProjectileEntity* this) {
+    V1FireProjectile_Functions[GetNextFunction(super)](this);
 }
 
-void V1FireProjectile_OnTick(Entity* this) {
-    V1FireProjectile_Actions[this->action](this);
+void V1FireProjectile_OnTick(V1FireProjectileEntity* this) {
+    V1FireProjectile_Actions[super->action](this);
 }
 
-void sub_080AB2DC(Entity* this) {
-    if ((this->contactFlags & 0x80) != 0) {
-        this->action = 3;
-        COLLISION_OFF(this);
-        InitializeAnimation(this, 0x53);
-        if ((this->contactFlags & 0x7f) == 0) {
+void V1FireProjectile_OnCollision(V1FireProjectileEntity* this) {
+    if ((super->contactFlags & 0x80) != 0) {
+        super->action = 3;
+        COLLISION_OFF(super);
+        InitializeAnimation(super, 0x53);
+        if ((super->contactFlags & 0x7f) == 0) {
             ModHealth(-4);
         }
     }
 }
 
-void V1FireProjectile_Init(Entity* this) {
+void V1FireProjectile_Init(V1FireProjectileEntity* this) {
     s32 iVar2;
     u32 rnd;
     u32 x;
     u32 y;
     s8* data;
 
-    this->action = 1;
-    this->zVelocity = Q_16_16(-1.0);
-    this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    CopyPosition(this->parent, this);
-    LinearMoveDirection(this, 0x1000, this->direction);
-    this->spritePriority.b0 = 1;
-    this->z = this->parent->z;
-    InitializeAnimation(this, 0x51);
+    super->action = 1;
+    super->zVelocity = Q_16_16(-1.0);
+    this->unk_76 = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    CopyPosition(super->parent, super);
+    LinearMoveDirection(super, 0x1000, super->direction);
+    super->spritePriority.b0 = 1;
+    super->z = super->parent->z;
+    InitializeAnimation(super, 0x51);
     SoundReq(SFX_1B5);
-    data = sub_080AB4F8(this);
-    x = this->x.HALF.HI + data[0];
-    y = this->y.HALF.HI + data[1];
-    iVar2 = sub_080041DC(this, x, y);
+    data = sub_080AB4F8(super);
+    x = super->x.HALF.HI + data[0];
+    y = super->y.HALF.HI + data[1];
+    iVar2 = sub_080041DC(super, x, y);
     rnd = Random() & 0x1ff;
     if ((gRoomTransition.frameCount & 1U) != 0) {
 
@@ -63,54 +76,54 @@ void V1FireProjectile_Init(Entity* this) {
             iVar2 = 0x20;
         }
     }
-    this->zVelocity = (this->z.WORD / (iVar2 << 8)) << 0xd;
+    super->zVelocity = (super->z.WORD / (iVar2 << 8)) << 0xd;
 
-    this->direction = sub_080045B4(this, x, y);
+    super->direction = sub_080045B4(super, x, y);
 }
 
-void V1FireProjectile_Action1(Entity* this) {
-    GetNextFrame(this);
-    LinearMoveUpdate(this);
-    if (GravityUpdate(this, 0) == 0) {
-        this->action = 2;
-        this->timer = 15;
-        InitializeAnimation(this, 0x54);
+void V1FireProjectile_Action1(V1FireProjectileEntity* this) {
+    GetNextFrame(super);
+    LinearMoveUpdate(super);
+    if (GravityUpdate(super, 0) == 0) {
+        super->action = 2;
+        super->timer = 15;
+        InitializeAnimation(super, 0x54);
         sub_080AB4A4(this);
     } else {
-        if (++this->timer > 0xe0) {
+        if (++super->timer > 0xe0) {
             DeleteThisEntity();
         }
     }
 }
 
-void V1FireProjectile_Action2(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 3;
-        COLLISION_OFF(this);
-        InitializeAnimation(this, 0x53);
+void V1FireProjectile_Action2(V1FireProjectileEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 3;
+        COLLISION_OFF(super);
+        InitializeAnimation(super, 0x53);
     }
 }
 
-void V1FireProjectile_Action3(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
+void V1FireProjectile_Action3(V1FireProjectileEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }
 
-void sub_080AB4A4(Entity* this) {
+void sub_080AB4A4(V1FireProjectileEntity* this) {
     u32 tmp;
     u16 tile;
 
-    tmp = this->field_0x76.HWORD;
-    tile = TILE(this->x.HALF.HI, this->y.HALF.HI);
+    tmp = this->unk_76;
+    tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
     if (tmp != tile) {
-        this->field_0x76.HWORD = tile;
-        switch (GetTileTypeByEntity(this)) {
+        this->unk_76 = tile;
+        switch (GetTileTypeByEntity(super)) {
             case 0x13:
             case 0x34:
-                sub_0807B7D8(0x34c, this->field_0x76.HWORD, this->collisionLayer);
+                sub_0807B7D8(0x34c, this->unk_76, super->collisionLayer);
                 break;
         }
     }
@@ -120,10 +133,14 @@ s8* sub_080AB4F8(Entity* this) {
     return (s8*)&gUnk_0812A4EC[this->type << 5 | this->subtimer << 1];
 }
 
-void (*const V1FireProjectile_Functions[])(Entity*) = {
-    V1FireProjectile_OnTick, sub_080AB2DC, DeleteEntity, DeleteEntity, DeleteEntity,
+void (*const V1FireProjectile_Functions[])(V1FireProjectileEntity*) = {
+    V1FireProjectile_OnTick,
+    V1FireProjectile_OnCollision,
+    (void (*)(V1FireProjectileEntity*))DeleteEntity,
+    (void (*)(V1FireProjectileEntity*))DeleteEntity,
+    (void (*)(V1FireProjectileEntity*))DeleteEntity,
 };
-void (*const V1FireProjectile_Actions[])(Entity*) = {
+void (*const V1FireProjectile_Actions[])(V1FireProjectileEntity*) = {
     V1FireProjectile_Init,
     V1FireProjectile_Action1,
     V1FireProjectile_Action2,

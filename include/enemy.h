@@ -13,6 +13,14 @@
 #include "projectile.h"
 
 bool32 EnemyInit(Entity* this);
+/**
+ * 0: _OnTick
+ * 1: _OnCollision
+ * 2: _OnKnockback
+ * 3: _OnDeath
+ * 4: _OnConfused
+ * 5: _OnGrabbed
+ */
 u32 GetNextFunction(Entity*);
 void EnemyFunctionHandler(Entity*, EntityActionArray);
 void EnemyFunctionHandlerAfterCollision(Entity*, void (*const[])());

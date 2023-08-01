@@ -1,8 +1,21 @@
+/**
+ * @file v1EyeLaser.c
+ * @ingroup Projectiles
+ *
+ * @brief V1 Eye Laser Projectile
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "projectile.h"
 
-extern void (*const V1EyeLaser_Actions[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u32 unk_74;
+} V1EyeLaserEntity;
+
+extern void (*const V1EyeLaser_Actions[])(V1EyeLaserEntity*);
 extern const Hitbox* const gUnk_0812A5F4[];
 extern const Hitbox gUnk_0812A614;
 extern const Hitbox gUnk_0812A61C;
@@ -11,42 +24,42 @@ void sub_080AB758(Entity*);
 void sub_080AB888(Entity*);
 void sub_080AB844(Entity* this, s32 param_1, s32 param_2);
 
-void V1EyeLaser(Entity* this) {
-    if (this->parent->spriteSettings.draw == 0) {
+void V1EyeLaser(V1EyeLaserEntity* this) {
+    if (super->parent->spriteSettings.draw == 0) {
         DeleteThisEntity();
     }
-    V1EyeLaser_Actions[this->action](this);
+    V1EyeLaser_Actions[super->action](this);
 }
 
-void V1EyeLaser_Init(Entity* this) {
-    *(u32*)&this->field_0x74 = this->parent->x.WORD;
-    if (this->type == 0) {
-        this->action = 1;
-        COLLISION_OFF(this);
-        this->hitbox = (Hitbox*)&gUnk_0812A614;
-        InitializeAnimation(this, 0);
+void V1EyeLaser_Init(V1EyeLaserEntity* this) {
+    this->unk_74 = super->parent->x.WORD;
+    if (super->type == 0) {
+        super->action = 1;
+        COLLISION_OFF(super);
+        super->hitbox = (Hitbox*)&gUnk_0812A614;
+        InitializeAnimation(super, 0);
     } else {
-        this->action = 2;
-        this->subtimer = 4;
-        InitializeAnimation(this, this->timer);
+        super->action = 2;
+        super->subtimer = 4;
+        InitializeAnimation(super, super->timer);
     }
 }
 
-void V1EyeLaser_Action1(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 2;
-        InitializeAnimation(this, 1);
-        sub_080AB758(this);
+void V1EyeLaser_Action1(V1EyeLaserEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 2;
+        InitializeAnimation(super, 1);
+        sub_080AB758(super);
     }
 }
 
-void V1EyeLaser_Action2(Entity* this) {
-    GetNextFrame(this);
-    this->x.WORD += (this->parent->x.WORD - *(u32*)&this->field_0x74);
-    *(u32*)&this->field_0x74 = this->parent->x.WORD;
-    sub_080AB888(this);
-    if (this->parent->subtimer == 0) {
+void V1EyeLaser_Action2(V1EyeLaserEntity* this) {
+    GetNextFrame(super);
+    super->x.WORD += (super->parent->x.WORD - this->unk_74);
+    this->unk_74 = super->parent->x.WORD;
+    sub_080AB888(super);
+    if (super->parent->subtimer == 0) {
         DeleteThisEntity();
     }
 }
@@ -128,7 +141,7 @@ void sub_080AB888(Entity* this) {
     }
 }
 
-void (*const V1EyeLaser_Actions[])(Entity*) = {
+void (*const V1EyeLaser_Actions[])(V1EyeLaserEntity*) = {
     V1EyeLaser_Init,
     V1EyeLaser_Action1,
     V1EyeLaser_Action2,

@@ -1,11 +1,18 @@
-#include "entity.h"
+/**
+ * @file arrowProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Arrow Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
 
-extern void (*const gArrowProjectile[])(Entity*);
-extern void (*const gArrowProjectileActions[])(Entity*);
+extern void (*const ArrowProjectile_Functions[])(Entity*);
+extern void (*const ArrowProjectile_Actions[])(Entity*);
 
 typedef struct {
     u8 flipX;
@@ -20,14 +27,14 @@ void sub_080A9488(Entity*);
 void sub_080A94C0(Entity*, u32);
 
 void ArrowProjectile(Entity* this) {
-    gArrowProjectile[GetNextFunction(this)](this);
+    ArrowProjectile_Functions[GetNextFunction(this)](this);
 }
 
 void ArrowProjectile_OnTick(Entity* this) {
-    gArrowProjectileActions[this->action](this);
+    ArrowProjectile_Actions[this->action](this);
 }
 
-void sub_080A9334(Entity* this) {
+void ArrowProjectile_OnCollision(Entity* this) {
     if ((this->contactFlags & 0x80) != 0) {
         if ((this->contactFlags & 0x3f) != 0) {
             ModHealth(-2);
@@ -119,10 +126,10 @@ void sub_080A94C0(Entity* this, u32 animationState) {
     InitializeAnimation(this, this->animIndex);
 }
 
-void (*const gArrowProjectile[])(Entity*) = {
-    ArrowProjectile_OnTick, sub_080A9334, DeleteEntity, DeleteEntity, DeleteEntity,
+void (*const ArrowProjectile_Functions[])(Entity*) = {
+    ArrowProjectile_OnTick, ArrowProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
-void (*const gArrowProjectileActions[])(Entity*) = {
+void (*const ArrowProjectile_Actions[])(Entity*) = {
     ArrowProjectile_Init,    ArrowProjectile_Action1, ArrowProjectile_Action2,
     ArrowProjectile_Action3, ArrowProjectile_Action4,
 };

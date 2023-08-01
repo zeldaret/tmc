@@ -1,6 +1,13 @@
-#include "entity.h"
+/**
+ * @file lakituLightning.c
+ * @ingroup Projectiles
+ *
+ * @brief Lakitu Lightning Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const LakituLightning_Functions[])(Entity*);
@@ -16,7 +23,7 @@ void LakituLightning_OnTick(Entity* this) {
     LakituLightning_Actions[this->action](this);
 }
 
-void sub_080A9DD8(Entity* this) {
+void LakituLightning_OnCollision(Entity* this) {
     if ((this->health == 0) || (this->contactFlags == 0x80)) {
         DeleteThisEntity();
     }
@@ -43,7 +50,7 @@ void LakituLightning_Action1(Entity* this) {
 }
 
 void (*const LakituLightning_Functions[])(Entity*) = {
-    LakituLightning_OnTick, sub_080A9DD8, DeleteEntity, DeleteEntity, DeleteEntity,
+    LakituLightning_OnTick, LakituLightning_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const LakituLightning_Actions[])(Entity*) = {
     LakituLightning_Init,

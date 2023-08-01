@@ -1,148 +1,168 @@
-#include "entity.h"
+/**
+ * @file spiderWeb.c
+ * @ingroup Projectiles
+ *
+ * @brief Spider Web Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
-#include "object.h"
 #include "hitbox.h"
+#include "object.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[28];
+    /*0x84*/ u8 unk_84;
+    /*0x85*/ u8 unused2;
+    /*0x86*/ u16 unk_86;
+} SpiderWebEntity;
 
 typedef struct {
     u8 b0;
     u8 direction;
 } PACKED Struct_0812A074;
 
-void SpiderWeb_OnTick(Entity*);
-void sub_080AA6C0(Entity*);
-void sub_080AAAA8(Entity*);
+void SpiderWeb_OnTick(SpiderWebEntity*);
+void SpiderWeb_OnCollision(SpiderWebEntity*);
+void sub_080AAAA8(SpiderWebEntity*);
 void sub_080AAA68(Entity*);
 void sub_080AA9E0(Entity*);
-void sub_080AA78C(Entity*);
-void SpiderWeb_Init(Entity*);
-void SpiderWeb_Action1(Entity*);
-void SpiderWeb_Action2(Entity*);
-void SpiderWeb_Action3(Entity*);
-void SpiderWeb_SubAction0(Entity*);
-void SpiderWeb_SubAction1(Entity*);
+void SpiderWeb_OnGrabbed(SpiderWebEntity*);
+void SpiderWeb_Init(SpiderWebEntity*);
+void SpiderWeb_Action1(SpiderWebEntity*);
+void SpiderWeb_Action2(SpiderWebEntity*);
+void SpiderWeb_Action3(SpiderWebEntity*);
+void SpiderWeb_SubAction0(SpiderWebEntity*);
+void SpiderWeb_SubAction1(SpiderWebEntity*);
 
-void SpiderWeb(Entity* this) {
-    static void (*const SpiderWeb_Functions[])(Entity*) = {
-        SpiderWeb_OnTick, sub_080AA6C0, DeleteEntity, DeleteEntity, DeleteEntity, sub_080AA78C,
+void SpiderWeb(SpiderWebEntity* this) {
+    static void (*const SpiderWeb_Functions[])(SpiderWebEntity*) = {
+        SpiderWeb_OnTick,
+        SpiderWeb_OnCollision,
+        (void (*)(SpiderWebEntity*))DeleteEntity,
+        (void (*)(SpiderWebEntity*))DeleteEntity,
+        (void (*)(SpiderWebEntity*))DeleteEntity,
+        SpiderWeb_OnGrabbed,
     };
-    SpiderWeb_Functions[GetNextFunction(this)](this);
+    SpiderWeb_Functions[GetNextFunction(super)](this);
 }
 
-void SpiderWeb_OnTick(Entity* this) {
-    static void (*const SpiderWeb_Actions[])(Entity*) = {
+void SpiderWeb_OnTick(SpiderWebEntity* this) {
+    static void (*const SpiderWeb_Actions[])(SpiderWebEntity*) = {
         SpiderWeb_Init,
         SpiderWeb_Action1,
         SpiderWeb_Action2,
         SpiderWeb_Action3,
     };
-    SpiderWeb_Actions[this->action](this);
+    SpiderWeb_Actions[super->action](this);
 }
 
-void sub_080AA6C0(Entity* this) {
+void SpiderWeb_OnCollision(SpiderWebEntity* this) {
     static const s8 typeSpritOffsets[] = {
         -8, -4, 6, 1, 4, -11, -3, 3, -7, -3, 6, 4, -4, -11, 3, 3,
     };
     Entity* object;
 
-    if (this->contactFlags == 0x87) {
-        this->action = 3;
-        this->timer = 90;
-        COLLISION_OFF(this);
-        InitAnimationForceUpdate(this, this->type + 0x10);
+    if (super->contactFlags == 0x87) {
+        super->action = 3;
+        super->timer = 90;
+        COLLISION_OFF(super);
+        InitAnimationForceUpdate(super, super->type + 0x10);
         object = CreateObject(FLAME, 3, 0);
         if (object != NULL) {
             object->type2 = 0x5a;
             object->spritePriority.b0 = 3;
-            object->spriteOffsetX = typeSpritOffsets[this->type * 4];
-            object->spriteOffsetY = typeSpritOffsets[this->type * 4 + 1];
-            object->parent = this;
+            object->spriteOffsetX = typeSpritOffsets[super->type * 4];
+            object->spriteOffsetY = typeSpritOffsets[super->type * 4 + 1];
+            object->parent = super;
         }
         object = CreateObject(FLAME, 3, 0);
         if (object != NULL) {
             object->type2 = 0x5a;
             object->spritePriority.b0 = 3;
-            object->spriteOffsetX = typeSpritOffsets[this->type * 4 + 2];
-            object->spriteOffsetY = typeSpritOffsets[this->type * 4 + 3];
-            object->parent = this;
+            object->spriteOffsetX = typeSpritOffsets[super->type * 4 + 2];
+            object->spriteOffsetY = typeSpritOffsets[super->type * 4 + 3];
+            object->parent = super;
         }
     } else {
-        InitAnimationForceUpdate(this, this->type + 0x10);
+        InitAnimationForceUpdate(super, super->type + 0x10);
         EnqueueSFX(SFX_101);
     }
 }
 
-void sub_080AA78C(Entity* this) {
+void SpiderWeb_OnGrabbed(SpiderWebEntity* this) {
     u32 animationState;
 
-    if (this->subAction == 0) {
+    if (super->subAction == 0) {
         animationState = (gPlayerEntity.animationState >> 1);
-        if (animationState != this->type) {
-            this->gustJarState &= ~4;
-            if (AnimationStateFlip90(animationState) != this->type) {
+        if (animationState != super->type) {
+            super->gustJarState &= ~4;
+            if (AnimationStateFlip90(animationState) != super->type) {
                 return;
             }
-            this->iframes = 0xe2;
-            sub_080AA6C0(this);
+            super->iframes = 0xe2;
+            SpiderWeb_OnCollision(this);
             return;
         }
-        this->subAction = 1;
-        InitAnimationForceUpdate(this, animationState + 8);
+        super->subAction = 1;
+        InitAnimationForceUpdate(super, animationState + 8);
     }
-    if (sub_0806F520(this)) {
-        UpdateAnimationSingleFrame(this);
-        if ((this->frame & 0x10) != 0) {
-            this->frame &= ~0x10;
+    if (sub_0806F520(super)) {
+        UpdateAnimationSingleFrame(super);
+        if ((super->frame & 0x10) != 0) {
+            super->frame &= ~0x10;
             EnqueueSFX(SFX_100);
         }
-        if ((this->frame & ANIM_DONE) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             sub_080AAAA8(this);
         }
     } else {
-        if ((this->frame & 1) != 0) {
+        if ((super->frame & 1) != 0) {
             sub_080AAAA8(this);
         } else {
-            InitAnimationForceUpdate(this, this->type + 0x10);
+            InitAnimationForceUpdate(super, super->type + 0x10);
         }
     }
 }
 
-void SpiderWeb_Init(Entity* this) {
+void SpiderWeb_Init(SpiderWebEntity* this) {
     static const Hitbox* const typeHitboxes[] = {
         &gUnk_080FD41C,
         &gUnk_080FD424,
         &gUnk_080FD42C,
         &gUnk_080FD434,
     };
-    if (CheckFlags(this->field_0x86.HWORD) != 0) {
+    if (CheckFlags(this->unk_86) != 0) {
         DeleteThisEntity();
     }
-    this->action = 1;
-    this->gustJarFlags = 1;
-    this->carryFlags = 1;
-    this->hitbox = (Hitbox*)typeHitboxes[this->type];
-    this->cutsceneBeh.HALF.LO = 0;
-    InitAnimationForceUpdate(this, this->type);
-    sub_080AAA68(this);
+    super->action = 1;
+    super->gustJarFlags = 1;
+    super->carryFlags = 1;
+    super->hitbox = (Hitbox*)typeHitboxes[super->type];
+    this->unk_84 = 0;
+    InitAnimationForceUpdate(super, super->type);
+    sub_080AAA68(super);
 }
 
-void SpiderWeb_Action1(Entity* this) {
-    if ((this->frame & ANIM_DONE) == 0) {
-        UpdateAnimationSingleFrame(this);
+void SpiderWeb_Action1(SpiderWebEntity* this) {
+    if ((super->frame & ANIM_DONE) == 0) {
+        UpdateAnimationSingleFrame(super);
     }
-    sub_080AA9E0(this);
+    sub_080AA9E0(super);
 }
 
-void SpiderWeb_Action2(Entity* this) {
-    static void (*const SpiderWeb_SubActions[])(Entity*) = {
+void SpiderWeb_Action2(SpiderWebEntity* this) {
+    static void (*const SpiderWeb_SubActions[])(SpiderWebEntity*) = {
         SpiderWeb_SubAction0,
         SpiderWeb_SubAction1,
     };
-    sub_0806FBB4(this);
-    SpiderWeb_SubActions[this->subAction - 5](this);
+    sub_0806FBB4(super);
+    SpiderWeb_SubActions[super->subAction - 5](this);
 }
 
-void SpiderWeb_SubAction0(Entity* this) {
+void SpiderWeb_SubAction0(SpiderWebEntity* this) {
     static const s8 gUnk_0812A064[] = { 0, 17, -15, 4, 0, -11, 15, 4 };
     static const s8 gUnk_0812A06C[] = { 0, 2, -2, 0, 0, -2, 2, 0 };
 
@@ -153,24 +173,24 @@ void SpiderWeb_SubAction0(Entity* this) {
 
     entity = &gPlayerEntity;
 
-    if (this->cutsceneBeh.HALF.LO == 0) {
-        tmp = this->type;
+    if (this->unk_84 == 0) {
+        tmp = super->type;
         if (tmp * 2 - entity->animationState == 0) {
-            x = gUnk_0812A064[tmp * 2] + this->x.HALF.HI;
-            y = gUnk_0812A064[tmp * 2 + 1] + this->y.HALF.HI;
+            x = gUnk_0812A064[tmp * 2] + super->x.HALF.HI;
+            y = gUnk_0812A064[tmp * 2 + 1] + super->y.HALF.HI;
             if (sub_080B1B18(x, y, entity->collisionLayer) == 0) {
                 entity->x.HALF.HI = x;
                 entity->y.HALF.HI = y;
             }
         }
-        this->cutsceneBeh.HALF.LO = 1;
-        this->subtimer = 2;
-        InitAnimationForceUpdate(this, this->type + 4);
+        this->unk_84 = 1;
+        super->subtimer = 2;
+        InitAnimationForceUpdate(super, super->type + 4);
     }
-    if ((entity->animationState >> 1 == this->type) && (gPlayerState.framestate == PL_STATE_PULL) &&
-        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((this->frame & ANIM_DONE) == 0)) {
-        UpdateAnimationSingleFrame(this);
-        if ((this->frame & 1) != 0) {
+    if ((entity->animationState >> 1 == super->type) && (gPlayerState.framestate == PL_STATE_PULL) &&
+        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((super->frame & ANIM_DONE) == 0)) {
+        UpdateAnimationSingleFrame(super);
+        if ((super->frame & 1) != 0) {
             entity->x.HALF.HI = gUnk_0812A06C[entity->animationState] + entity->x.HALF.HI;
             entity->y.HALF.HI = gUnk_0812A06C[entity->animationState + 1] + entity->y.HALF.HI;
             EnqueueSFX(SFX_100);
@@ -178,15 +198,15 @@ void SpiderWeb_SubAction0(Entity* this) {
     }
 }
 
-void SpiderWeb_SubAction1(Entity* this) {
-    this->action = 1;
-    this->cutsceneBeh.HALF.LO = 0;
-    InitAnimationForceUpdate(this, this->type + 0xc);
+void SpiderWeb_SubAction1(SpiderWebEntity* this) {
+    super->action = 1;
+    this->unk_84 = 0;
+    InitAnimationForceUpdate(super, super->type + 0xc);
 }
 
-void SpiderWeb_Action3(Entity* this) {
-    GetNextFrame(this);
-    if (--this->timer == 0) {
+void SpiderWeb_Action3(SpiderWebEntity* this) {
+    GetNextFrame(super);
+    if (--super->timer == 0) {
         sub_080AAAA8(this);
     }
 }
@@ -229,8 +249,8 @@ void sub_080AAA68(Entity* this) {
     SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
-void sub_080AAAA8(Entity* this) {
-    SetFlag(this->field_0x86.HWORD);
-    RestorePrevTileEntity(TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+void sub_080AAAA8(SpiderWebEntity* this) {
+    SetFlag(this->unk_86);
+    RestorePrevTileEntity(TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     DeleteThisEntity();
 }

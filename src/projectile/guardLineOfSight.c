@@ -1,10 +1,17 @@
-#include "entity.h"
+/**
+ * @file guardLineOfSightProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Guard Line of Sight Projectile
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
-#include "physics.h"
-#include "functions.h"
-#include "projectile.h"
-#include "hitbox.h"
 #include "collision.h"
+#include "entity.h"
+#include "functions.h"
+#include "hitbox.h"
+#include "physics.h"
+#include "projectile.h"
 
 extern u32 sub_080644C8(Entity*);
 

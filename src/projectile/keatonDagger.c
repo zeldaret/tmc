@@ -1,3 +1,10 @@
+/**
+ * @file keatonDagger.c
+ * @ingroup Projectiles
+ *
+ * @brief Keaton Dagger Projectile
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "player.h"
 #include "physics.h"

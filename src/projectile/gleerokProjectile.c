@@ -1,50 +1,62 @@
-
-#include "entity.h"
+/**
+ * @file gleerokProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Gleerok Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
-#include "player.h"
+#include "entity.h"
 #include "functions.h"
+#include "player.h"
 
-extern void (*const GleerokProjectile_Functions[])(Entity*);
-extern void (*const GleerokProjectile_Actions[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[12];
+    /*0x74*/ u16 unk_74;
+} GleerokProjectileEntity;
+
+extern void (*const GleerokProjectile_Functions[])(GleerokProjectileEntity*);
+extern void (*const GleerokProjectile_Actions[])(GleerokProjectileEntity*);
 extern const s8 gUnk_08129978[];
 extern const s8 gUnk_08129980[];
 extern const s8 gUnk_08129988[];
 
-void sub_080A90D8(Entity*);
+void sub_080A90D8(GleerokProjectileEntity*);
 
-void GleerokProjectile(Entity* this) {
-    GleerokProjectile_Functions[GetNextFunction(this)](this);
+void GleerokProjectile(GleerokProjectileEntity* this) {
+    GleerokProjectile_Functions[GetNextFunction(super)](this);
 }
 
-void GleerokProjectile_OnTick(Entity* this) {
-    if (((this->type != 3) && ((this->contactFlags & 0x80) != 0)) && ((this->contactFlags & 0x7f) != 0x1e)) {
-        this->action = 3;
-        COLLISION_OFF(this);
-        InitializeAnimation(this, 0x53);
+void GleerokProjectile_OnTick(GleerokProjectileEntity* this) {
+    if (((super->type != 3) && ((super->contactFlags & 0x80) != 0)) && ((super->contactFlags & 0x7f) != 0x1e)) {
+        super->action = 3;
+        COLLISION_OFF(super);
+        InitializeAnimation(super, 0x53);
     }
-    GleerokProjectile_Actions[this->action](this);
+    GleerokProjectile_Actions[super->action](this);
 }
 
-void GleerokProjectile_Init(Entity* this) {
+void GleerokProjectile_Init(GleerokProjectileEntity* this) {
     u32 uVar1;
     s32 iVar2;
 
-    this->action = 1;
-    this->zVelocity = Q_16_16(-1.0);
-    if (this->type != 3) {
-        CopyPosition(this->parent, this);
-        LinearMoveDirection(this, 0x1000, this->direction);
-        this->z.WORD = this->parent->y.WORD - this->child->y.WORD;
-        this->y.WORD -= this->z.WORD;
-        InitializeAnimation(this, 0x51);
+    super->action = 1;
+    super->zVelocity = Q_16_16(-1.0);
+    if (super->type != 3) {
+        CopyPosition(super->parent, super);
+        LinearMoveDirection(super, 0x1000, super->direction);
+        super->z.WORD = super->parent->y.WORD - super->child->y.WORD;
+        super->y.WORD -= super->z.WORD;
+        InitializeAnimation(super, 0x51);
         SoundReq(SFX_1B5);
     }
 
-    switch (this->type) {
+    switch (super->type) {
         case 0:
         case 1:
-            iVar2 = sub_080041DC(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
-            if (this->type == 1) {
+            iVar2 = sub_080041DC(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+            if (super->type == 1) {
                 uVar1 = Random() & 0x1ff;
                 if ((gRoomTransition.frameCount & 1U) == 0) {
                     iVar2 += uVar1;
@@ -57,100 +69,104 @@ void GleerokProjectile_Init(Entity* this) {
             } else if (0x400 < iVar2) {
                 iVar2 = 0x400;
             }
-            this->zVelocity = this->z.WORD / (iVar2 << 8) << 0xd;
-            this->subtimer = 30;
+            super->zVelocity = super->z.WORD / (iVar2 << 8) << 0xd;
+            super->subtimer = 30;
             break;
         case 2:
-            this->zVelocity = (this->z.WORD / 0x18000) << 0xc;
+            super->zVelocity = (super->z.WORD / 0x18000) << 0xc;
             break;
         case 3:
-            this->z.WORD = Q_16_16(-160.0);
+            super->z.WORD = Q_16_16(-160.0);
             uVar1 = (Random() & 3) * 2;
-            this->x.HALF.HI = gUnk_08129978[uVar1] + this->x.HALF.HI;
-            this->y.HALF.HI = gUnk_08129978[uVar1 + 1] + this->y.HALF.HI;
+            super->x.HALF.HI = gUnk_08129978[uVar1] + super->x.HALF.HI;
+            super->y.HALF.HI = gUnk_08129978[uVar1 + 1] + super->y.HALF.HI;
             if ((uVar1 & 2) != 0) {
-                this->x.HALF.HI += gUnk_08129988[Random() & 0xf];
-                this->y.HALF.HI += gUnk_08129980[Random() & 7];
+                super->x.HALF.HI += gUnk_08129988[Random() & 0xf];
+                super->y.HALF.HI += gUnk_08129980[Random() & 7];
             } else {
-                this->x.HALF.HI += gUnk_08129980[Random() & 7];
-                this->y.HALF.HI += gUnk_08129988[Random() & 0xf];
+                super->x.HALF.HI += gUnk_08129980[Random() & 7];
+                super->y.HALF.HI += gUnk_08129988[Random() & 0xf];
             }
-            sub_08004168(this);
-            InitializeAnimation(this, 0);
+            sub_08004168(super);
+            InitializeAnimation(super, 0);
             break;
     }
 }
 
-void GleerokProjectile_Action1(Entity* this) {
-    if (this->type == 3) {
-        if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
-            sub_08008790(this, 7);
-            CreateFx(this, FX_ROCK, 0);
+void GleerokProjectile_Action1(GleerokProjectileEntity* this) {
+    if (super->type == 3) {
+        if (GravityUpdate(super, Q_8_8(24.0)) == 0) {
+            sub_08008790(super, 7);
+            CreateFx(super, FX_ROCK, 0);
             DeleteThisEntity();
         }
     } else {
-        GetNextFrame(this);
-        LinearMoveUpdate(this);
-        if ((this->type != 2) && (this->subtimer-- == 0)) {
-            this->subtimer = 30;
-            sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
+        GetNextFrame(super);
+        LinearMoveUpdate(super);
+        if ((super->type != 2) && (super->subtimer-- == 0)) {
+            super->subtimer = 30;
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
         }
-        if (GravityUpdate(this, 0) == 0) {
-            this->action = 2;
+        if (GravityUpdate(super, 0) == 0) {
+            super->action = 2;
             sub_080A90D8(this);
-            if (this->type == 2) {
-                this->timer = 15;
-                InitializeAnimation(this, 0x54);
+            if (super->type == 2) {
+                super->timer = 15;
+                InitializeAnimation(super, 0x54);
             } else {
-                InitializeAnimation(this, 0x52);
+                InitializeAnimation(super, 0x52);
             }
         }
     }
 }
 
-void GleerokProjectile_Action2(Entity* this) {
-    GetNextFrame(this);
-    if (this->type == 2) {
-        if (this->timer-- == 0) {
-            COLLISION_OFF(this);
-            this->action = 3;
-            InitializeAnimation(this, 0x55);
+void GleerokProjectile_Action2(GleerokProjectileEntity* this) {
+    GetNextFrame(super);
+    if (super->type == 2) {
+        if (super->timer-- == 0) {
+            COLLISION_OFF(super);
+            super->action = 3;
+            InitializeAnimation(super, 0x55);
         } else {
-            LinearMoveUpdate(this);
+            LinearMoveUpdate(super);
             sub_080A90D8(this);
         }
     } else {
-        if ((this->frame & ANIM_DONE) != 0) {
-            this->action = 3;
-            COLLISION_OFF(this);
-            InitializeAnimation(this, 0x53);
+        if ((super->frame & ANIM_DONE) != 0) {
+            super->action = 3;
+            COLLISION_OFF(super);
+            InitializeAnimation(super, 0x53);
         }
     }
 }
 
-void GleerokProjectile_Action3(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
+void GleerokProjectile_Action3(GleerokProjectileEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }
 
-void sub_080A90D8(Entity* this) {
+void sub_080A90D8(GleerokProjectileEntity* this) {
     u32 tmp;
 
-    if (this->field_0x74.HWORD != TILE(this->x.HALF.HI, this->y.HALF.HI)) {
-        this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-        tmp = GetTileTypeByEntity(this);
+    if (this->unk_74 != TILE(super->x.HALF.HI, super->y.HALF.HI)) {
+        this->unk_74 = TILE(super->x.HALF.HI, super->y.HALF.HI);
+        tmp = GetTileTypeByEntity(super);
         if ((tmp == 0x13) || (tmp == 0x34)) {
-            sub_0807B7D8(0x34c, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+            sub_0807B7D8(0x34c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
         }
     }
 }
 
-void (*const GleerokProjectile_Functions[])(Entity*) = {
-    GleerokProjectile_OnTick, GleerokProjectile_OnTick, DeleteEntity, DeleteEntity, DeleteEntity,
+void (*const GleerokProjectile_Functions[])(GleerokProjectileEntity*) = {
+    GleerokProjectile_OnTick,
+    GleerokProjectile_OnTick,
+    (void (*)(GleerokProjectileEntity*))DeleteEntity,
+    (void (*)(GleerokProjectileEntity*))DeleteEntity,
+    (void (*)(GleerokProjectileEntity*))DeleteEntity,
 };
-void (*const GleerokProjectile_Actions[])(Entity*) = {
+void (*const GleerokProjectile_Actions[])(GleerokProjectileEntity*) = {
     GleerokProjectile_Init,
     GleerokProjectile_Action1,
     GleerokProjectile_Action2,

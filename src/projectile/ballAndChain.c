@@ -1,7 +1,24 @@
+/**
+ * @file ballAndChain.c
+ * @ingroup Projectiles
+ *
+ * @brief Ball and Chain Projectile
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
-#include "projectile.h"
 #include "hitbox.h"
+#include "projectile.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[19];
+    /*0x7b*/ u8 unk_7b;
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unused2;
+    /*0x7e*/ u8 unk_7e;
+    /*0x7f*/ s8 unk_7f;
+} BallAndChainEntity;
 
 typedef struct {
     s8 x;
@@ -10,41 +27,41 @@ typedef struct {
 
 bool32 sub_080AB12C(Entity* this);
 
-extern void (*const gUnk_0812A494[])(Entity*);
+extern void (*const gUnk_0812A494[])(BallAndChainEntity*);
 extern const PosOffset gUnk_0812A4A8[];
 
-void BallAndChain(Entity* this) {
-    gUnk_0812A494[this->type](this);
+void BallAndChain(BallAndChainEntity* this) {
+    gUnk_0812A494[super->type](this);
 }
 
-void sub_080AB074(Entity* this) {
-    Entity* parent;
+void sub_080AB074(BallAndChainEntity* this) {
+    BallAndChainEntity* parent;
     const s16* tmp;
     u32 factor;
 
-    parent = this->parent;
-    if (parent->next == NULL) {
+    parent = (BallAndChainEntity*)super->parent;
+    if (parent->base.next == NULL) {
         DeleteThisEntity();
     }
-    if (this->action == 0) {
-        if (sub_080AB12C(this) == FALSE) {
+    if (super->action == 0) {
+        if (sub_080AB12C(super) == FALSE) {
             return;
         }
-        this->action = 1;
-        this->frameIndex = 0;
-        this->spritePriority.b0 = 3;
+        super->action = 1;
+        super->frameIndex = 0;
+        super->spritePriority.b0 = 3;
     }
-    sub_0806FA90(this->parent, this, 0, -10 + -(s8)parent->field_0x7c.BYTES.byte3);
+    sub_0806FA90(super->parent, super, 0, -10 + -parent->unk_7f);
 
-    this->x.WORD += gSineTable[parent->field_0x7c.BYTES.byte0] * (parent->field_0x7c.BYTES.byte2 << 8);
-    this->y.WORD -= gSineTable[parent->field_0x7c.BYTES.byte0 + 0x40] * (parent->field_0x7c.BYTES.byte2 << 8);
+    super->x.WORD += gSineTable[parent->unk_7c] * (parent->unk_7e << 8);
+    super->y.WORD -= gSineTable[parent->unk_7c + 0x40] * (parent->unk_7e << 8);
 
-    this->z.HALF.HI += (s8)parent->field_0x7c.BYTES.byte3;
-    if (parent->field_0x7a.HALF.HI != 0) {
-        parent = CreateProjectile(BALL_AND_CHAIN);
+    super->z.HALF.HI += parent->unk_7f;
+    if (parent->unk_7b != 0) {
+        parent = (BallAndChainEntity*)CreateProjectile(BALL_AND_CHAIN);
         if (parent != NULL) {
-            parent->type = 4;
-            CopyPositionAndSpriteOffset(this, parent);
+            parent->base.type = 4;
+            CopyPositionAndSpriteOffset(super, &parent->base);
         }
     }
 }
@@ -67,76 +84,76 @@ bool32 sub_080AB12C(Entity* this) {
     return TRUE;
 }
 
-void sub_080AB170(Entity* this) {
+void sub_080AB170(BallAndChainEntity* this) {
     s32 val;
     s32 type;
-    Entity* ent;
-    Entity* parent = this->parent;
+    BallAndChainEntity* ent;
+    Entity* parent = super->parent;
     if (parent->next == NULL) {
         DeleteThisEntity();
     }
 
-    if (this->action == 0) {
-        this->action = 1;
-        this->spritePriority.b1 = 0;
-        this->frameIndex = 5;
-        this->spritePriority.b0 = 3;
-        this->hitbox = (Hitbox*)&gHitbox_22;
+    if (super->action == 0) {
+        super->action = 1;
+        super->spritePriority.b1 = 0;
+        super->frameIndex = 5;
+        super->spritePriority.b0 = 3;
+        super->hitbox = (Hitbox*)&gHitbox_22;
     }
 
-    ent = parent->parent;
-    if (this->field_0x7c.BYTES.byte0 != ent->field_0x7c.BYTES.byte0) {
-        this->flags |= ENT_COLLIDE;
+    ent = (BallAndChainEntity*)parent->parent;
+    if (this->unk_7c != ent->unk_7c) {
+        super->flags |= ENT_COLLIDE;
     } else {
-        this->flags &= ~ENT_COLLIDE;
+        super->flags &= ~ENT_COLLIDE;
     }
 
-    this->field_0x7c.BYTES.byte0 = ent->field_0x7c.BYTES.byte0;
+    this->unk_7c = ent->unk_7c;
 
-    if ((ent->frame & 0x20) == 0) {
-        u8 index = ent->frame & 0x1f;
+    if ((ent->base.frame & 0x20) == 0) {
+        u8 index = ent->base.frame & 0x1f;
         PosOffset* pOffset = (PosOffset*)((s8*)gUnk_0812A4A8 + index);
-        sub_0806FA90(ent, this, pOffset->x, pOffset->y);
+        sub_0806FA90(&ent->base, super, pOffset->x, pOffset->y);
     } else {
-        sub_0806FA90(ent, this, 0, -10);
+        sub_0806FA90(&ent->base, super, 0, -10);
     }
 
-    val = (parent->x.HALF.HI - this->x.HALF.HI) * this->type;
+    val = (parent->x.HALF.HI - super->x.HALF.HI) * super->type;
     if (val < 0) {
         val += 3;
     }
-    this->x.HALF.HI += (val >> 2);
+    super->x.HALF.HI += (val >> 2);
 
-    val = (parent->y.HALF.HI - this->y.HALF.HI) * this->type;
+    val = (parent->y.HALF.HI - super->y.HALF.HI) * super->type;
     if (val < 0) {
         val += 3;
     }
-    this->y.HALF.HI += (val >> 2);
+    super->y.HALF.HI += (val >> 2);
 
-    val = (parent->z.HALF.HI - this->z.HALF.HI) * this->type;
+    val = (parent->z.HALF.HI - super->z.HALF.HI) * super->type;
     if (val < 0) {
         val += 3;
     }
-    this->z.HALF.HI += (val >> 2);
+    super->z.HALF.HI += (val >> 2);
 }
 
-void sub_080AB26C(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        this->timer = 5;
-        this->frameIndex = 0;
+void sub_080AB26C(BallAndChainEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->timer = 5;
+        super->frameIndex = 0;
 #ifndef EU
-        this->spritePriority.b1 = 0;
+        super->spritePriority.b1 = 0;
 #endif
     }
-    if (--this->timer == 0) {
+    if (--super->timer == 0) {
         DeleteThisEntity();
     } else {
-        this->frameIndex++;
+        super->frameIndex++;
     }
 }
 
-void (*const gUnk_0812A494[])(Entity*) = {
+void (*const gUnk_0812A494[])(BallAndChainEntity*) = {
     sub_080AB074, sub_080AB170, sub_080AB170, sub_080AB170, sub_080AB26C,
 };
 const PosOffset gUnk_0812A4A8[] = {

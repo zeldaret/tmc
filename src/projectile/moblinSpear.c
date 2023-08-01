@@ -1,5 +1,12 @@
-#include "entity.h"
+/**
+ * @file moblinSpear.c
+ * @ingroup Projectiles
+ *
+ * @brief Moblin Spear Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "physics.h"
 
 typedef struct {
@@ -10,13 +17,13 @@ typedef struct {
 } HitboxChange;
 
 void MoblinSpear_OnTick(Entity* this);
-void sub_080A832C(Entity* this);
+void MoblinSpear_OnCollision(Entity* this);
 void MoblinSpear_Init(Entity* this);
 void MoblinSpear_Action1(Entity* this);
 
 void MoblinSpear(Entity* this) {
     static void (*const MoblinSpear_Functions[])(Entity*) = {
-        MoblinSpear_OnTick, sub_080A832C, DeleteEntity, DeleteEntity, DeleteEntity,
+        MoblinSpear_OnTick, MoblinSpear_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
     };
     MoblinSpear_Functions[GetNextFunction(this)](this);
 }
@@ -29,7 +36,7 @@ void MoblinSpear_OnTick(Entity* this) {
     MoblinSpear_Actions[this->action](this);
 }
 
-void sub_080A832C(Entity* this) {
+void MoblinSpear_OnCollision(Entity* this) {
     u8 tmp;
 
     if (this->contactFlags == 0x80) {

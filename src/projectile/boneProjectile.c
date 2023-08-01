@@ -1,6 +1,13 @@
-#include "entity.h"
+/**
+ * @file boneProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Bone Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const BoneProjectile_Functions[])(Entity*);
@@ -16,7 +23,7 @@ void BoneProjectile_OnTick(Entity* this) {
     BoneProjectile_Actions[this->action](this);
 }
 
-void sub_080A81C4(Entity* this) {
+void BoneProjectile_OnCollision(Entity* this) {
     if (this->contactFlags == 0x80) {
         DeleteEntity(this);
     } else {
@@ -86,7 +93,7 @@ void sub_080A82D8(Entity* this) {
 }
 
 void (*const BoneProjectile_Functions[])(Entity*) = {
-    BoneProjectile_OnTick, sub_080A81C4, DeleteEntity, DeleteEntity, DeleteEntity,
+    BoneProjectile_OnTick, BoneProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const BoneProjectile_Actions[])(Entity*) = {
     BoneProjectile_Init, BoneProjectile_Action1, BoneProjectile_Action2, BoneProjectile_Action3, BoneProjectile_Action4,

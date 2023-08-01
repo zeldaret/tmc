@@ -1,96 +1,115 @@
-#include "entity.h"
+/**
+ * @file v1DarkMagicProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief V1 Dark Magic Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
+#include "functions.h"
 #include "physics.h"
 #include "player.h"
-#include "functions.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u8 unk_74;
+    /*0x75*/ u8 unused2[11];
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x92*/ u8 unused3[2];
+    /*0x84*/ u16 unk_84;
+    /*0x86*/ u8 unk_86;
+} V1DarkMagicProjectileEntity;
 
 extern void SoundReqClipped(Entity*, u32);
 
-extern void (*const V1DarkMagicProjectile_Functions[])(Entity*);
-extern void (*const V1DarkMagicProjectile_Actions[])(Entity*);
+extern void (*const V1DarkMagicProjectile_Functions[])(V1DarkMagicProjectileEntity*);
+extern void (*const V1DarkMagicProjectile_Actions[])(V1DarkMagicProjectileEntity*);
 extern void (*const V1DarkMagicProjectile_SubActions[])(Entity*);
 
-void sub_080AAF74(Entity*);
+void sub_080AAF74(V1DarkMagicProjectileEntity*);
 void sub_080AB034(Entity*);
 
-void V1DarkMagicProjectile(Entity* this) {
-    V1DarkMagicProjectile_Functions[GetNextFunction(this)](this);
+void V1DarkMagicProjectile(V1DarkMagicProjectileEntity* this) {
+    V1DarkMagicProjectile_Functions[GetNextFunction(super)](this);
 }
 
-void V1DarkMagicProjectile_OnTick(Entity* this) {
-    V1DarkMagicProjectile_Actions[this->action](this);
-    if ((this->type2 == 0) && (--this->cutsceneBeh.HWORD == 0)) {
-        this->health = 0;
+void V1DarkMagicProjectile_OnTick(V1DarkMagicProjectileEntity* this) {
+    V1DarkMagicProjectile_Actions[super->action](this);
+    if ((super->type2 == 0) && (--this->unk_84 == 0)) {
+        super->health = 0;
     }
 }
 
-void sub_080AAC44(Entity* this) {
-    if ((this->contactFlags & 0x80) != 0) {
-        if (this->type2 == 0) {
-            if ((this->contactFlags & 0x3f) == 0) {
-                this->action = 2;
-                COLLISION_OFF(this);
-                if (this->type == 0) {
-                    SortEntityAbove(&gPlayerEntity, this);
+void V1DarkMagicProjectile_OnCollision(V1DarkMagicProjectileEntity* this) {
+    if ((super->contactFlags & 0x80) != 0) {
+        if (super->type2 == 0) {
+            if ((super->contactFlags & 0x3f) == 0) {
+                super->action = 2;
+                COLLISION_OFF(super);
+                if (super->type == 0) {
+                    SortEntityAbove(&gPlayerEntity, super);
                 } else {
-                    SortEntityAbove(this->parent, this);
+                    SortEntityAbove(super->parent, super);
                 }
                 ResetActiveItems();
                 gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
             }
             if (gPlayerEntity.health == 0) {
-                this->health = 0;
+                super->health = 0;
             }
         } else {
             SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
-            CopyPosition(this->parent, this);
+            CopyPosition(super->parent, super);
         }
     }
-    if (this->knockbackDuration != 0) {
-        this->knockbackDuration = 0;
+    if (super->knockbackDuration != 0) {
+        super->knockbackDuration = 0;
     }
 }
 
-void sub_080AACE0(Entity* this) {
-    Entity* parent;
-    if (this->type && this->type2) {
+void V1DarkMagicProjectile_OnDeath(V1DarkMagicProjectileEntity* this) {
+    V1DarkMagicProjectileEntity* parent;
+    if (super->type && super->type2) {
         DeleteThisEntity();
     }
 
-    if (this->spriteSettings.draw == 1) {
-        this->spriteSettings.draw = 0;
-        this->field_0x86.HALF.LO = 1;
-        CreateFx(this, FX_DEATH, 0);
+    if (super->spriteSettings.draw == 1) {
+        super->spriteSettings.draw = 0;
+        this->unk_86 = 1;
+        CreateFx(super, FX_DEATH, 0);
     }
 
-    parent = this->parent;
-    if (this->type2 == 0) {
-        u8* ptr = &(parent->field_0x74.HALF.LO);
-        parent->field_0x74.HALF.LO = 3;
-        parent->field_0x80.HALF.LO += this->field_0x80.HALF.HI >> 1;
-        if (parent->field_0x80.HALF.LO > 8) {
-            parent->field_0x80.HALF.LO = 8;
-        } else if (parent->field_0x80.HALF.LO == 0) {
-            parent->field_0x80.HALF.LO = 1;
+    parent = (V1DarkMagicProjectileEntity*)super->parent;
+    if (super->type2 == 0) {
+        u8* ptr = &(parent->unk_74);
+        parent->unk_74 = 3;
+        parent->unk_80 += this->unk_81 >> 1;
+        if (parent->unk_80 > 8) {
+            parent->unk_80 = 8;
+        } else if (parent->unk_80 == 0) {
+            parent->unk_80 = 1;
         }
     } else {
-        parent->cutsceneBeh.HALF.LO = 0;
-        parent->hitType = 0x2b;
+        *(u8*)&parent->unk_84 = 0;
+        parent->base.hitType = 0x2b;
     }
 
-    if (this->field_0x86.HALF.LO == 0) {
-        CreateFx(this, FX_DEATH, 0);
+    if (this->unk_86 == 0) {
+        CreateFx(super, FX_DEATH, 0);
     }
 
     DeleteThisEntity();
 }
 
-void sub_080AAD70(Entity* this) {
-    if (!sub_0806F520(this)) {
-        this->health = 0;
+void V1DarkMagicProjectile_OnGrabbed(V1DarkMagicProjectileEntity* this) {
+    if (!sub_0806F520(super)) {
+        super->health = 0;
     }
-    V1DarkMagicProjectile_SubActions[this->subAction](this);
+    V1DarkMagicProjectile_SubActions[super->subAction](super);
 }
 
 void V1DarkMagicProjectile_SubAction0(Entity* this) {
@@ -106,120 +125,120 @@ void V1DarkMagicProjectile_SubAction2(Entity* this) {
     }
 }
 
-void V1DarkMagicProjectile_Init(Entity* this) {
+void V1DarkMagicProjectile_Init(V1DarkMagicProjectileEntity* this) {
     Entity* entity;
 
-    if (this->type2 == 0) {
-        this->action = 1;
+    if (super->type2 == 0) {
+        super->action = 1;
     } else {
-        this->action = 3;
-        this->hitType = 0x2c;
-        SortEntityAbove(this->parent, this);
+        super->action = 3;
+        super->hitType = 0x2c;
+        SortEntityAbove(super->parent, super);
     }
-    if (this->type == 0) {
-        this->timer = 0;
-        this->subtimer = 4;
-        this->field_0x80.HALF.LO = 0;
-        this->field_0x80.HALF.HI = 0;
-        this->health = 0x10;
-        this->z.HALF.HI += 4;
-        this->spriteOrientation.flipY = 1;
-        this->spriteRendering.b3 = 1;
-        this->spritePriority.b0 = 4;
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
-        this->field_0x86.HALF.LO = 0;
-        this->cutsceneBeh.HWORD = 300;
+    if (super->type == 0) {
+        super->timer = 0;
+        super->subtimer = 4;
+        this->unk_80 = 0;
+        this->unk_81 = 0;
+        super->health = 0x10;
+        super->z.HALF.HI += 4;
+        super->spriteOrientation.flipY = 1;
+        super->spriteRendering.b3 = 1;
+        super->spritePriority.b0 = 4;
+        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        this->unk_86 = 0;
+        this->unk_84 = 300;
         entity = CreateProjectile(V1_DARK_MAGIC_PROJECTILE);
         if (entity != NULL) {
             entity->type = 1;
-            entity->type2 = this->type2;
-            entity->parent = this;
+            entity->type2 = super->type2;
+            entity->parent = super;
         }
     } else {
-        SortEntityAbove(this->parent, this);
-        COLLISION_OFF(this);
-        CopyPosition(this->parent, this);
+        SortEntityAbove(super->parent, super);
+        COLLISION_OFF(super);
+        CopyPosition(super->parent, super);
     }
-    InitializeAnimation(this, this->type);
+    InitializeAnimation(super, super->type);
 }
 
-void V1DarkMagicProjectile_Action1(Entity* this) {
+void V1DarkMagicProjectile_Action1(V1DarkMagicProjectileEntity* this) {
     u8 bVar1;
     u32 uVar2;
 
-    switch (this->type) {
+    switch (super->type) {
         case 0:
-            if (--this->subtimer == 0) {
-                this->subtimer = 4;
-                uVar2 = GetFacingDirection(this, &gPlayerEntity);
-                sub_08004596(this, uVar2);
+            if (--super->subtimer == 0) {
+                super->subtimer = 4;
+                uVar2 = GetFacingDirection(super, &gPlayerEntity);
+                sub_08004596(super, uVar2);
             }
-            LinearMoveUpdate(this);
+            LinearMoveUpdate(super);
             break;
         case 1:
-            if ((this->parent == NULL) || (this->parent->next == NULL)) {
+            if ((super->parent == NULL) || (super->parent->next == NULL)) {
                 DeleteThisEntity();
             }
         case 2:
-            if (this->parent->spriteSettings.draw == 0) {
+            if (super->parent->spriteSettings.draw == 0) {
                 DeleteThisEntity();
             }
-            CopyPosition(this->parent, this);
+            CopyPosition(super->parent, super);
             break;
     }
-    sub_080AB034(this);
+    sub_080AB034(super);
 }
 
-void V1DarkMagicProjectile_Action2(Entity* this) {
+void V1DarkMagicProjectile_Action2(V1DarkMagicProjectileEntity* this) {
     sub_080AAF74(this);
-    sub_080AB034(this);
+    sub_080AB034(super);
 }
 
-void V1DarkMagicProjectile_Action3(Entity* this) {
-    CopyPosition(this->parent, this);
-    sub_080AB034(this);
-    this->spriteSettings.draw = this->parent->spriteSettings.draw;
-    if (this->type != 0) {
-        this->health = this->parent->health;
+void V1DarkMagicProjectile_Action3(V1DarkMagicProjectileEntity* this) {
+    CopyPosition(super->parent, super);
+    sub_080AB034(super);
+    super->spriteSettings.draw = super->parent->spriteSettings.draw;
+    if (super->type != 0) {
+        super->health = super->parent->health;
     }
 #ifndef EU
-    if (this->parent->action == 2) {
-        if ((this->flags & ENT_COLLIDE) != 0) {
-            COLLISION_OFF(this);
+    if (super->parent->action == 2) {
+        if ((super->flags & ENT_COLLIDE) != 0) {
+            COLLISION_OFF(super);
         }
     } else {
-        if ((this->flags & ENT_COLLIDE) == 0) {
-            COLLISION_ON(this);
+        if ((super->flags & ENT_COLLIDE) == 0) {
+            COLLISION_ON(super);
         }
     }
 #endif
 }
 
-void sub_080AAF74(Entity* this) {
+void sub_080AAF74(V1DarkMagicProjectileEntity* this) {
     if (sub_0807953C() != 0) {
-        this->field_0x80.HALF.LO += (Random() & 1) + 1;
+        this->unk_80 += (Random() & 1) + 1;
     }
-    if (++this->timer == 0x3c) {
-        this->timer = 30;
+    if (++super->timer == 0x3c) {
+        super->timer = 30;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
         SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
         if (gPlayerEntity.health == 0) {
-            this->health = 0;
+            super->health = 0;
         }
     }
-    if (!((this->field_0x80.HALF.LO < 0x31) && (this->field_0x80.HALF.HI != 0x10))) {
-        this->action = 1;
-        this->field_0x80.HALF.LO = 0;
+    if (!((this->unk_80 < 0x31) && (this->unk_81 != 0x10))) {
+        super->action = 1;
+        this->unk_80 = 0;
         gPlayerEntity.iframes = 0xf0;
         gPlayerState.mobility = 0;
-        this->health = 0;
+        super->health = 0;
     } else {
         ResetActiveItems();
         gPlayerState.mobility |= 0x80;
         gPlayerState.field_0xa |= 0x80;
-        CopyPosition(&gPlayerEntity, this);
-        this->z.HALF.HI = gPlayerEntity.z.HALF.HI - 4;
+        CopyPosition(&gPlayerEntity, super);
+        super->z.HALF.HI = gPlayerEntity.z.HALF.HI - 4;
     }
 }
 
@@ -235,10 +254,15 @@ void sub_080AB034(Entity* this) {
     ChangeObjPalette(this, tmp);
 }
 
-void (*const V1DarkMagicProjectile_Functions[])(Entity*) = {
-    V1DarkMagicProjectile_OnTick, sub_080AAC44, DeleteEntity, sub_080AACE0, DeleteEntity, sub_080AAD70,
+void (*const V1DarkMagicProjectile_Functions[])(V1DarkMagicProjectileEntity*) = {
+    V1DarkMagicProjectile_OnTick,
+    V1DarkMagicProjectile_OnCollision,
+    (void (*)(V1DarkMagicProjectileEntity*))DeleteEntity,
+    V1DarkMagicProjectile_OnDeath,
+    (void (*)(V1DarkMagicProjectileEntity*))DeleteEntity,
+    V1DarkMagicProjectile_OnGrabbed,
 };
-void (*const V1DarkMagicProjectile_Actions[])(Entity*) = {
+void (*const V1DarkMagicProjectile_Actions[])(V1DarkMagicProjectileEntity*) = {
     V1DarkMagicProjectile_Init,
     V1DarkMagicProjectile_Action1,
     V1DarkMagicProjectile_Action2,

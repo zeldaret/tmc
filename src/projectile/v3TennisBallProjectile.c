@@ -1,6 +1,13 @@
-#include "entity.h"
+/**
+ * @file v3TennisBallProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief V3 Tennis Ball Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const V3TennisBallProjectile_Functions[])(Entity*);
@@ -17,7 +24,7 @@ void V3TennisBallProjectile_OnTick(Entity* this) {
     V3TennisBallProjectile_Actions[this->action](this);
 }
 
-void sub_080ACA68(Entity* this) {
+void V3TennisBallProjectile_OnCollision(Entity* this) {
     switch (this->contactFlags & 0x7f) {
         case 0x1a:
         case 0xa:
@@ -114,7 +121,7 @@ void sub_080ACB90(Entity* this) {
 }
 
 void (*const V3TennisBallProjectile_Functions[])(Entity*) = {
-    V3TennisBallProjectile_OnTick, sub_080ACA68, DeleteEntity, DeleteEntity, DeleteEntity,
+    V3TennisBallProjectile_OnTick, V3TennisBallProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
     V3TennisBallProjectile_OnTick,
 };
 void (*const V3TennisBallProjectile_Actions[])(Entity*) = {

@@ -1,15 +1,21 @@
+/**
+ * @file spikedRollers.c
+ * @ingroup Projectiles
+ *
+ * @brief Spiked Rollers Projectile
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 
 typedef struct {
-    Entity base;
-    s16 x2;
-    s16 y2;
-    s16 unk_0x6c;
-    u8 fill[0x16];
-    u16 unk_0x84;
-    u16 speed2;
+    /*0x00*/ Entity base;
+    /*0x68*/ s16 x2;
+    /*0x6a*/ s16 y2;
+    /*0x6c*/ s16 unk_0x6c;
+    /*0x6e*/ u8 fill[0x16];
+    /*0x84*/ u16 unk_0x84;
+    /*0x86*/ u16 speed2;
 } SpikedRollersEntity;
 
 static void (*const SpikedRollers_Actions[])(SpikedRollersEntity*);
@@ -19,7 +25,7 @@ void SpikedRollers(SpikedRollersEntity* this) {
     SpikedRollers_Actions[super->action](this);
 }
 
-void sub_080ABA74(SpikedRollersEntity* this) {
+void SpikedRollers_Init(SpikedRollersEntity* this) {
     s32 val;
     super->action++;
     super->speed = this->speed2;
@@ -46,7 +52,7 @@ void sub_080ABA74(SpikedRollersEntity* this) {
     InitializeAnimation(super, super->type);
 }
 
-void sub_080ABAE0(SpikedRollersEntity* this) {
+void SpikedRollers_Action1(SpikedRollersEntity* this) {
     s32 diff, unk_0x6c;
     ProcessMovement3(super);
 
@@ -85,8 +91,8 @@ void sub_080ABAE0(SpikedRollersEntity* this) {
 }
 
 static void (*const SpikedRollers_Actions[])(SpikedRollersEntity*) = {
-    sub_080ABA74,
-    sub_080ABAE0,
+    SpikedRollers_Init,
+    SpikedRollers_Action1,
 };
 
 static const u8 gSpikedRollersOffsets[] = {
