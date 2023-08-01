@@ -1,213 +1,228 @@
-#include "entity.h"
-#include "sound.h"
-#include "functions.h"
+/**
+ * @file playerItemBoomerang.c
+ * @ingroup Items
+ *
+ * @brief Boomerang Player Item
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
+#include "entity.h"
+#include "functions.h"
 #include "item.h"
+#include "sound.h"
 
-void sub_0801B804(Entity*);
-Entity* sub_0801B864(Entity*);
-void sub_0801B584(Entity*);
-void PlayerItemBoomerang_Init(Entity*);
-void sub_0801B680(Entity*);
-void sub_0801B7A8(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x69*/ u8 unused1[23];
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unused2[1];
+    /*0x83*/ union SplitHWord unk_82;
+    /*0x84*/ u8 unused3[2];
+    /*0x86*/ u16 unk_86;
+} PlayerItemBoomerangEntity;
+
+void sub_0801B804(PlayerItemBoomerangEntity* this);
+Entity* sub_0801B864(Entity* this);
+void PlayerItemBoomerang_Action1(PlayerItemBoomerangEntity* this);
+void PlayerItemBoomerang_Init(PlayerItemBoomerangEntity* this);
+void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this);
+void PlayerItemBoomerang_Action3(PlayerItemBoomerangEntity* this);
 
 extern Entity* sub_08008782(Entity*, u32, s32, s32);
 extern bool32 sub_080040E2(Entity*, u8*);
 extern Hitbox gUnk_081271CC;
 extern u8 gUnk_08003E44;
 
-void PlayerItemBoomerang(Entity* this) {
-    static void (*const PlayerItemBoomerang_Actions[])(Entity*) = {
+void PlayerItemBoomerang(PlayerItemBoomerangEntity* this) {
+    static void (*const PlayerItemBoomerang_Actions[])(PlayerItemBoomerangEntity*) = {
         PlayerItemBoomerang_Init,
-        sub_0801B584,
-        sub_0801B680,
-        sub_0801B7A8,
+        PlayerItemBoomerang_Action1,
+        PlayerItemBoomerang_Action2,
+        PlayerItemBoomerang_Action3,
     };
 
     // Unused
     static const u16 gUnk_080B780C[] = { 0x75, 0x1, 0x76, 0x1, 0x3ac, 0x1, 0x4050, 0x1, 0x377, 0x1, 0x378, 0x1, 0x0 };
 
-    PlayerItemBoomerang_Actions[this->action](this);
-    if (this->animIndex != 0xb) {
-        if (this->animationState == 6) {
-            this->field_0x86.HWORD += 0x2000;
+    PlayerItemBoomerang_Actions[super->action](this);
+    if (super->animIndex != 0xb) {
+        if (super->animationState == 6) {
+            this->unk_86 += 0x2000;
         } else {
-            this->field_0x86.HWORD -= 0x2000;
+            this->unk_86 -= 0x2000;
         }
-        SetAffineInfo(this, 0x100, 0x100, this->field_0x86.HWORD);
+        SetAffineInfo(super, 0x100, 0x100, this->unk_86);
     }
 
-    this->subtimer--;
-    if ((this->subtimer & 0xf) == 0) {
+    super->subtimer--;
+    if ((super->subtimer & 0xf) == 0) {
         EnqueueSFX(SFX_FB);
     }
 }
 
-void PlayerItemBoomerang_Init(Entity* this) {
-    u32 uVar1;
-
-    gPlayerState.item = this;
-    this->action = 1;
-    this->hitbox = &gUnk_081271CC;
-    this->frameIndex = 0xff;
-    this->field_0x80.HALF.LO = 0;
+void PlayerItemBoomerang_Init(PlayerItemBoomerangEntity* this) {
+    gPlayerState.item = super;
+    super->action = 1;
+    super->hitbox = &gUnk_081271CC;
+    super->frameIndex = 0xff;
+    this->unk_80 = 0;
 #ifdef EU
-    this->spriteVramOffset = gPlayerEntity.spriteVramOffset;
+    super->spriteVramOffset = gPlayerEntity.spriteVramOffset;
 #endif
-    this->animIndex = 11;
-    this->parent = &gPlayerEntity;
-    this->field_0x86.HWORD = 0;
-    if ((this->animationState & 2) != 0) {
-        this->spriteSettings.flipX = ~gPlayerEntity.spriteSettings.flipX;
+    super->animIndex = 11;
+    super->parent = &gPlayerEntity;
+    this->unk_86 = 0;
+    if ((super->animationState & 2) != 0) {
+        super->spriteSettings.flipX = ~gPlayerEntity.spriteSettings.flipX;
     }
-    if (this->field_0x68.HALF.LO == 12) {
-        this->speed = 0x280;
-        uVar1 = 60;
+    if (this->unk_68 == 12) {
+        super->speed = 0x280;
+        super->timer = 60;
     } else {
-        this->speed = 0x200;
-        uVar1 = 30;
+        super->speed = 0x200;
+        super->timer = 30;
     }
-    this->timer = uVar1;
     if (((s8)gPlayerState.direction) >= 0) {
-        this->direction = gPlayerState.direction;
+        super->direction = gPlayerState.direction;
     } else {
-        this->direction = this->animationState << 2;
+        super->direction = super->animationState << 2;
     }
-    this->field_0x82.HALF.HI = this->direction;
-    if (this->collisionLayer == 2) {
-        this->type2 = 1;
+    this->unk_82.HALF.HI = super->direction;
+    if (super->collisionLayer == 2) {
+        super->type2 = 1;
     }
-    LoadSwapGFX(this, 1, 3);
-    sub_0801766C(this);
-    sub_0801B584(this);
+    LoadSwapGFX(super, 1, 3);
+    sub_0801766C(super);
+    PlayerItemBoomerang_Action1(this);
 }
 
-void sub_0801B584(Entity* this) {
+void PlayerItemBoomerang_Action1(PlayerItemBoomerangEntity* this) {
     static const s8 gUnk_080B7826[] = { 0, -8, 8, -4, 0, 8, -8, -4 };
     u32 frameIndex;
     int iVar2;
     u32 cVar3;
 
     sub_0801B804(this);
-    if ((gPlayerState.attack_status == 0) || (gPlayerState.mobility != 0) || gPlayerState.item != this ||
-        (gPlayerState.item == this && gPlayerEntity.action != PLAYER_NORMAL)) {
-        if (gPlayerState.item == this) {
+    if ((gPlayerState.attack_status == 0) || (gPlayerState.mobility != 0) || gPlayerState.item != super ||
+        (gPlayerState.item == super && gPlayerEntity.action != PLAYER_NORMAL)) {
+        if (gPlayerState.item == super) {
             gPlayerState.item = NULL;
         }
         DeleteThisEntity();
     }
 
     if ((gPlayerEntity.frame & 1) == 0) {
-        if (this->field_0x68.HALF.LO == 12) {
+        if (this->unk_68 == 12) {
             cVar3 = 6;
         } else {
             cVar3 = 0;
         }
         frameIndex = (gPlayerEntity.frame >> 4) + cVar3;
-        if (this->frameIndex != frameIndex) {
-            this->frameIndex = frameIndex;
-            sub_080042D0(this, this->frameIndex, this->spriteIndex);
+        if (super->frameIndex != frameIndex) {
+            super->frameIndex = frameIndex;
+            sub_080042D0(super, super->frameIndex, super->spriteIndex);
         }
-        sub_08078E84(this, &gPlayerEntity);
+        sub_08078E84(super, &gPlayerEntity);
     } else {
-        this->action = 2;
-        this->spriteVramOffset = 0xd5;
-        COLLISION_ON(this);
-        this->collisionFlags |= 1;
-        this->flags2 = gPlayerEntity.flags2;
-        this->spriteIndex = 0xa6;
-        this->spriteSettings.flipX = 0;
-        this->spriteSettings.draw = 1;
+        super->action = 2;
+        super->spriteVramOffset = 0xd5;
+        COLLISION_ON(super);
+        super->collisionFlags |= 1;
+        super->flags2 = gPlayerEntity.flags2;
+        super->spriteIndex = 0xa6;
+        super->spriteSettings.flipX = 0;
+        super->spriteSettings.draw = 1;
 
-        iVar2 = (this->animationState >> 1) * 2;
-        this->x.HALF.HI += gUnk_080B7826[iVar2];
-        this->y.HALF.HI += gUnk_080B7826[iVar2 + 1];
-        InitializeAnimation(this, 0);
+        iVar2 = (super->animationState >> 1) * 2;
+        super->x.HALF.HI += gUnk_080B7826[iVar2];
+        super->y.HALF.HI += gUnk_080B7826[iVar2 + 1];
+        InitializeAnimation(super, 0);
         gPlayerState.item = NULL;
         gPlayerState.attack_status |= 0x80;
     }
 }
 
-void sub_0801B680(Entity* this) {
-    u32 uvar1;
-    u32 uVar6;
+void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this) {
+    u32 uVar1;
+    bool32 uVar6;
 
     sub_0801B804(this);
-    if ((this->field_0x68.HALF.LO == 12) && (this->field_0x80.HALF.LO == 0) && ((gPlayerState.direction & 0x80) == 0)) {
-        if (((this->field_0x82.HALF.HI - gPlayerState.direction) & 0x1f) > 0x10) {
-            this->field_0x82.HWORD += 0x40;
-            this->field_0x82.HALF.HI &= 0x1f;
-            this->direction = this->field_0x82.HALF.HI;
+    if ((this->unk_68 == 12) && (this->unk_80 == 0) && ((gPlayerState.direction & 0x80) == 0)) {
+        if (((this->unk_82.HALF.HI - gPlayerState.direction) & 0x1f) > 0x10) {
+            this->unk_82.HWORD += 0x40;
+            this->unk_82.HALF.HI &= 0x1f;
+            super->direction = this->unk_82.HALF.HI;
         } else {
-            this->field_0x82.HWORD -= 0x40;
-            this->field_0x82.HALF.HI &= 0x1f;
-            this->direction = this->field_0x82.HALF.HI;
+            this->unk_82.HWORD -= 0x40;
+            this->unk_82.HALF.HI &= 0x1f;
+            super->direction = this->unk_82.HALF.HI;
         }
     }
-    LinearMoveUpdate(this);
-    uVar6 = 0;
-    if (sub_0801B864(this)) {
-        uvar1 = this->field_0x68.HALF.LO;
-        uvar1 ^= 0xc;
-        if (uvar1) {
+    LinearMoveUpdate(super);
+    uVar6 = FALSE;
+    if (sub_0801B864(super)) {
+        uVar1 = this->unk_68;
+        uVar1 ^= 0xc;
+        if (uVar1) {
             uVar6 = TRUE;
         } else {
             uVar6 = FALSE;
         }
     }
 
-    if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
-        if (uVar6 == 0) {
-            uVar6 = sub_080040E2(this, &gUnk_08003E44);
+    if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) {
+        if (!uVar6) {
+            uVar6 = sub_080040E2(super, &gUnk_08003E44);
         }
     }
 
-    if (uVar6 == 0) {
-        if (--this->timer < 0xc) {
-            this->speed = this->speed + -0x10;
+    if (!uVar6) {
+        if (--super->timer < 0xc) {
+            super->speed = super->speed + -0x10;
         }
-        if (this->timer == 0) {
-            uVar6 = 1;
+        if (super->timer == 0) {
+            uVar6 = TRUE;
         }
-        if (this->contactFlags & 0x80) {
-            uVar6 = 1;
+        if (super->contactFlags & 0x80) {
+            uVar6 = TRUE;
         }
-        if (uVar6 == 0) {
+        if (!uVar6) {
             return;
         }
-        if (this->field_0x68.HALF.LO == 12) {
-            this->timer = 30;
+        if (this->unk_68 == 12) {
+            super->timer = 30;
         } else {
-            this->timer = 12;
+            super->timer = 12;
         }
     } else {
-        this->timer = 1;
+        super->timer = 1;
     }
 
     if (uVar6) {
-        this->action++;
-        this->speed = 0x1c0;
+        super->action++;
+        super->speed = 0x1c0;
     }
 }
 
-void sub_0801B7A8(Entity* this) {
+void PlayerItemBoomerang_Action3(PlayerItemBoomerangEntity* this) {
     sub_0801B804(this);
-    if (this->timer != 0) {
-        this->timer--;
+    if (super->timer != 0) {
+        super->timer--;
     } else {
-        sub_0801B864(this);
-        if (this->speed < 0x280) {
-            this->speed += 8;
+        sub_0801B864(super);
+        if (super->speed < 0x280) {
+            super->speed += 8;
         }
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
-        LinearMoveUpdate(this);
-        if (sub_0800419C(this, &gPlayerEntity, 2, 2) != 0) {
+        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        LinearMoveUpdate(super);
+        if (sub_0800419C(super, &gPlayerEntity, 2, 2) != 0) {
             DeleteThisEntity();
         }
     }
 }
 
-void sub_0801B804(Entity* this) {
+void sub_0801B804(PlayerItemBoomerangEntity* this) {
     EquipSlot equipSlot;
     u32 uVar1;
 
@@ -225,7 +240,7 @@ void sub_0801B804(Entity* this) {
     }
 
     if ((uVar1 & gPlayerState.playerInput.heldInput) == 0) {
-        this->field_0x80.HALF.LO = 1;
+        this->unk_80 = 1;
         gPlayerState.field_0xa &= ~0x80;
         gPlayerState.keepFacing &= ~0x80;
     } else {

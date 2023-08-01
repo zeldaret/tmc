@@ -1,26 +1,45 @@
+/**
+ * @file playerItemPacciCaneProjectile.c
+ * @ingroup Items
+ *
+ * @brief Pacci Cane Projectile Player Item
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"
-#include "sound.h"
 #include "object.h"
+#include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[4];
+    /*0x6c*/ u32 unk_6c;
+    /*0x70*/ u32 unk_70;
+    /*0x74*/ s32 unk_74;
+    /*0x78*/ s32 unk_78;
+    /*0x7c*/ u32 unk_7c;
+} PlayerItemPacciCaneProjectileEntity;
 
 static const Hitbox gUnk_0811B9D0;
 
-void PlayerItemPacciCaneProjectile_Init(Entity* this);
-void sub_080701F8(Entity* this);
-void sub_0807037C(Entity* this);
-void sub_08070398(Entity* this);
-void sub_080703BC(Entity* this);
-void sub_08070458(Entity* this);
+void PlayerItemPacciCaneProjectile_Init(PlayerItemPacciCaneProjectileEntity* this);
+void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* this);
+void PlayerItemPacciCaneProjectile_Action2(PlayerItemPacciCaneProjectileEntity* this);
+void PlayerItemPacciCaneProjectile_Action3(PlayerItemPacciCaneProjectileEntity* this);
+void PlayerItemPacciCaneProjectile_Action4(PlayerItemPacciCaneProjectileEntity* this);
+void sub_08070458(PlayerItemPacciCaneProjectileEntity* this);
 
 extern void sub_08017744(Entity*);
 extern u8* sub_08008782(Entity*, u32, u32, u32);
 
-void PlayerItemPacciCaneProjectile(Entity* this) {
-    static void (*const PlayerItemPacciCaneProjectile_Actions[])(Entity*) = {
-        PlayerItemPacciCaneProjectile_Init, sub_080701F8, sub_0807037C, sub_08070398, sub_080703BC,
+void PlayerItemPacciCaneProjectile(PlayerItemPacciCaneProjectileEntity* this) {
+    static void (*const PlayerItemPacciCaneProjectile_Actions[])(PlayerItemPacciCaneProjectileEntity*) = {
+        PlayerItemPacciCaneProjectile_Init,    PlayerItemPacciCaneProjectile_Action1,
+        PlayerItemPacciCaneProjectile_Action2, PlayerItemPacciCaneProjectile_Action3,
+        PlayerItemPacciCaneProjectile_Action4,
     };
-    PlayerItemPacciCaneProjectile_Actions[this->action](this);
+    PlayerItemPacciCaneProjectile_Actions[super->action](this);
 }
 
 extern u8 gUnk_08003E44;
@@ -34,7 +53,7 @@ typedef struct {
     u8 filler[3];
 } gUnk_0811B9A8_struct;
 
-void PlayerItemPacciCaneProjectile_Init(Entity* this) {
+void PlayerItemPacciCaneProjectile_Init(PlayerItemPacciCaneProjectileEntity* this) {
     static const s8 gUnk_0811B9A0[] = {
         0, -18, 14, 0, 0, 14, -14, 0,
     };
@@ -46,36 +65,36 @@ void PlayerItemPacciCaneProjectile_Init(Entity* this) {
     };
     const gUnk_0811B9A8_struct* ptr;
 
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    COLLISION_ON(this);
-    this->direction = this->animationState << 2;
-    this->speed = 0x200;
-    *(u32*)&this->field_0x74 = 0x40;
-    *(u32*)&this->field_0x78 = 0x1e0;
-    this->x.HALF.HI = gPlayerEntity.x.HALF.HI + gUnk_0811B9A0[this->animationState];
-    this->y.HALF.HI = gPlayerEntity.y.HALF.HI + gUnk_0811B9A0[this->animationState + 1];
-    this->collisionFlags = 7;
-    this->flags2 = 0x8a;
-    this->hitbox = (Hitbox*)&gUnk_0811B9D0;
-    if (this->collisionLayer == 2) {
-        this->type = 1;
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    COLLISION_ON(super);
+    super->direction = super->animationState << 2;
+    super->speed = 0x200;
+    this->unk_74 = 0x40;
+    this->unk_78 = 0x1e0;
+    super->x.HALF.HI = gPlayerEntity.x.HALF.HI + gUnk_0811B9A0[super->animationState];
+    super->y.HALF.HI = gPlayerEntity.y.HALF.HI + gUnk_0811B9A0[super->animationState + 1];
+    super->collisionFlags = 7;
+    super->flags2 = 0x8a;
+    super->hitbox = (Hitbox*)&gUnk_0811B9D0;
+    if (super->collisionLayer == 2) {
+        super->type = 1;
     } else {
-        this->type = 0;
+        super->type = 0;
     }
-    this->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    ptr = &gUnk_0811B9A8[(this->animationState >> 1)];
-    this->spriteSettings.flipX = ptr->flipX;
-    this->spriteSettings.flipY = ptr->flipY;
-    this->animIndex = ptr->animIndex;
-    *(int*)&this->field_0x6c = ptr->unk2;
-    this->field_0x70.WORD = ptr->unk3;
-    sub_0801766C(this);
-    InitializeAnimation(this, this->animIndex);
+    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    ptr = &gUnk_0811B9A8[(super->animationState >> 1)];
+    super->spriteSettings.flipX = ptr->flipX;
+    super->spriteSettings.flipY = ptr->flipY;
+    super->animIndex = ptr->animIndex;
+    this->unk_6c = ptr->unk2;
+    this->unk_70 = ptr->unk3;
+    sub_0801766C(super);
+    InitializeAnimation(super, super->animIndex);
     SoundReq(SFX_1DD);
 }
 
-void sub_080701F8(Entity* this) {
+void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* this) {
     static const s8 gUnk_0811B9C8[] = {
         0, -4, 4, 0, 0, 4, -4, 0,
     };
@@ -84,87 +103,87 @@ void sub_080701F8(Entity* this) {
     u8* iVar3;
     Entity* pEVar4;
 
-    cVar1 = gUnk_0811B9C8[this->animationState];
-    cVar2 = gUnk_0811B9C8[this->animationState + 1];
-    iVar3 = sub_08008782(this, 10, cVar1, cVar2);
+    cVar1 = gUnk_0811B9C8[super->animationState];
+    cVar2 = gUnk_0811B9C8[super->animationState + 1];
+    iVar3 = sub_08008782(super, 10, cVar1, cVar2);
     if (iVar3) {
         pEVar4 = CreateObject(OBJECT_53, iVar3[5], iVar3[2]);
         if (pEVar4) {
             pEVar4->timer = iVar3[3];
-            pEVar4->x.HALF.HI = this->x.HALF.HI + cVar1;
-            pEVar4->y.HALF.HI = this->y.HALF.HI + cVar2;
+            pEVar4->x.HALF.HI = super->x.HALF.HI + cVar1;
+            pEVar4->y.HALF.HI = super->y.HALF.HI + cVar2;
         }
 
         sub_08070458(this);
         return;
     }
 
-    if ((--(*(int*)&this->field_0x74) == -1) || (--(*(int*)&this->field_0x78) == -1)) {
+    if ((--(this->unk_74) == -1) || (--(this->unk_78) == -1)) {
         sub_08070458(this);
     } else {
-        GetNextFrame(this);
-        LinearMoveUpdate(this);
-        if (this->type == 0) {
-            sub_0800451C(this);
+        GetNextFrame(super);
+        LinearMoveUpdate(super);
+        if (super->type == 0) {
+            sub_0800451C(super);
         }
-        if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
-            if (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) == 0) {
-                if (GetTileUnderEntity(this) == 0x19) {
-                    this->action = 4;
-                    COLLISION_OFF(this);
-                    this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
-                    this->y.HALF.HI = (this->y.HALF.HI & 0xfff0) | 8;
-                    this->spritePriority.b0 = 7;
-                    this->field_0x7c.WORD = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
-                    InitializeAnimation(this, 0x14);
-                    SetTile(0x4020, COORD_TO_TILE(this), this->collisionLayer);
+        if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) {
+            if (sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) == 0) {
+                if (GetTileUnderEntity(super) == 0x19) {
+                    super->action = 4;
+                    COLLISION_OFF(super);
+                    super->x.HALF.HI = (super->x.HALF.HI & 0xfff0) | 8;
+                    super->y.HALF.HI = (super->y.HALF.HI & 0xfff0) | 8;
+                    super->spritePriority.b0 = 7;
+                    this->unk_7c = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
+                    InitializeAnimation(super, 0x14);
+                    SetTile(0x4020, COORD_TO_TILE(super), super->collisionLayer);
                     return;
                 }
             } else {
                 sub_08070458(this);
             }
         }
-        if (this->contactFlags != 0) {
+        if (super->contactFlags != 0) {
             sub_08070458(this);
         }
     }
 }
 
-void sub_0807037C(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
+void PlayerItemPacciCaneProjectile_Action2(PlayerItemPacciCaneProjectileEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }
 
-void sub_08070398(Entity* this) {
-    GetNextFrame(this);
-    LinearMoveUpdate(this);
-    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
+void PlayerItemPacciCaneProjectile_Action3(PlayerItemPacciCaneProjectileEntity* this) {
+    GetNextFrame(super);
+    LinearMoveUpdate(super);
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
         DeleteThisEntity();
     }
 }
 
-void sub_080703BC(Entity* this) {
-    GetNextFrame(this);
-    switch (GetTileIndex(COORD_TO_TILE(this), this->collisionLayer)) {
+void PlayerItemPacciCaneProjectile_Action4(PlayerItemPacciCaneProjectileEntity* this) {
+    GetNextFrame(super);
+    switch (GetTileIndex(COORD_TO_TILE(super), super->collisionLayer)) {
         default:
-            this->field_0x7c.WORD = 0;
+            this->unk_7c = 0;
             sub_08070458(this);
             break;
         case 0x4021:
             sub_08070458(this);
             break;
         case 0x4070:
-            *(int*)&this->field_0x78 = 0xff;
+            this->unk_78 = 0xff;
         case 0x4020:
-            if (--(*(int*)&this->field_0x78) == -1) {
+            if (--(this->unk_78) == -1) {
                 sub_08070458(this);
             } else {
-                if (this->contactFlags == 0) {
+                if (super->contactFlags == 0) {
                     return;
                 }
-                if (((this->contactFlags & 0x7f) == 0) && (this->action != 0x1a)) {
+                if (((super->contactFlags & 0x7f) == 0) && (super->action != 0x1a)) {
                     return;
                 }
                 sub_08070458(this);
@@ -174,15 +193,15 @@ void sub_080703BC(Entity* this) {
     }
 }
 
-void sub_08070458(Entity* this) {
-    this->action = 2;
-    COLLISION_OFF(this);
-    this->speed = 0;
-    if (this->field_0x7c.WORD != 0) {
-        SetTile(this->field_0x7c.WORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+void sub_08070458(PlayerItemPacciCaneProjectileEntity* this) {
+    super->action = 2;
+    COLLISION_OFF(super);
+    super->speed = 0;
+    if (this->unk_7c != 0) {
+        SetTile(this->unk_7c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
-    InitializeAnimation(this, 0x13);
-    sub_08017744(this);
+    InitializeAnimation(super, 0x13);
+    sub_08017744(super);
     SoundReq(SFX_199);
 }
 

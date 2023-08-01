@@ -1,52 +1,56 @@
-
+/**
+ * @file playerItemDashSword.c
+ * @ingroup Items
+ *
+ * @brief Dash Sword Player Item
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "functions.h"
+#include "player.h"
 
 extern Entity* sub_08008782(Entity*, u32, s32, s32);
 
-void sub_0801B8FC(Entity*);
-void sub_0801B8B0(Entity*);
-void sub_0801B938(Entity*);
+void PlayerItemDashSword_Action1(Entity* this);
+void PlayerItemDashSword_Init(Entity* this);
+void sub_0801B938(Entity* this);
 
 extern void sub_08017744(Entity*);
 
 void PlayerItemDashSword(Entity* this) {
-    static void (*const PlayerItemC_Actions[])(Entity*) = {
-        sub_0801B8B0,
-        sub_0801B8FC,
+    static void (*const PlayerItemDashSword_Actions[])(Entity*) = {
+        PlayerItemDashSword_Init,
+        PlayerItemDashSword_Action1,
     };
-    PlayerItemC_Actions[this->action](this);
+    PlayerItemDashSword_Actions[this->action](this);
 }
 
-void sub_0801B8B0(Entity* this) {
+void PlayerItemDashSword_Init(Entity* this) {
     if (gPlayerState.dash_state != 0) {
         gPlayerState.item = this;
         this->flags |= ENT_PERSIST;
-        this->action = 0x01;
+        this->action = 1;
         this->flags2 = 8;
         LoadSwapGFX(this, 1, 3);
         sub_08079BD8(this);
         sub_0801766C(this);
-        sub_0801B8FC(this);
+        PlayerItemDashSword_Action1(this);
     } else {
         DeleteThisEntity();
     }
 }
 
-void sub_0801B8FC(Entity* this) {
-    Entity* pbVar1;
-    pbVar1 = (Entity*)gPlayerState.item;
-    if ((Entity*)gPlayerState.item != this) {
+void PlayerItemDashSword_Action1(Entity* this) {
+    if (gPlayerState.item != this) {
         DeleteThisEntity();
     } else {
         if (gPlayerState.dash_state == 0) {
             gPlayerState.item = NULL;
             DeleteThisEntity();
         } else {
-            pbVar1->flags |= ENT_COLLIDE;
-            pbVar1->collisionFlags = 0x21;
-            sub_0801B938(pbVar1);
+            this->flags |= ENT_COLLIDE;
+            this->collisionFlags = 0x21;
+            sub_0801B938(this);
         }
     }
 }

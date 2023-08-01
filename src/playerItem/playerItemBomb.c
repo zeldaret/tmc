@@ -1,49 +1,56 @@
+/**
+ * @file playerItemBomb.c
+ * @ingroup Items
+ *
+ * @brief Bomb Player Item
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "player.h"
-#include "functions.h"
 #include "asm.h"
+#include "entity.h"
+#include "functions.h"
 #include "item.h"
 #include "object.h"
+#include "player.h"
 
 typedef struct {
-    Entity base;
-    u32 unk_68;
+    /*0x00*/ Entity base;
+    /*0x68*/ u32 unk_68;
 } PlayerItemBombEntity;
 
-void sub_0801B418(Entity*);
-void sub_0801B3A4(PlayerItemBombEntity*);
-void sub_0801B250(PlayerItemBombEntity*);
-void sub_0801B2CC(PlayerItemBombEntity*);
-void sub_0801B318(PlayerItemBombEntity*);
-void sub_0801B38C(PlayerItemBombEntity*);
-void sub_0801B330(PlayerItemBombEntity*);
-void sub_0801B340(PlayerItemBombEntity*);
-void sub_0801B354(PlayerItemBombEntity*);
-void sub_0801B368(PlayerItemBombEntity*);
-void sub_0801B384(PlayerItemBombEntity*);
+void sub_0801B418(Entity* this);
+void sub_0801B3A4(PlayerItemBombEntity* this);
+void PlayerItemBomb_Init(PlayerItemBombEntity* this);
+void PlayerItemBomb_Action1(PlayerItemBombEntity* this);
+void PlayerItemBomb_Action2(PlayerItemBombEntity* this);
+void PlayerItemBomb_Action3(PlayerItemBombEntity* this);
+void PlayerItemBomb_SubAction0(PlayerItemBombEntity* this);
+void PlayerItemBomb_SubAction1(PlayerItemBombEntity* this);
+void PlayerItemBomb_SubAction2(PlayerItemBombEntity* this);
+void PlayerItemBomb_SubAction3(PlayerItemBombEntity* this);
+void PlayerItemBomb_SubAction4(PlayerItemBombEntity* this);
 
-static void (*const actionFuncs[])(PlayerItemBombEntity*) = {
-    sub_0801B250,
-    sub_0801B2CC,
-    sub_0801B318,
-    sub_0801B38C,
+static void (*const PlayerItemBomb_Actions[])(PlayerItemBombEntity*) = {
+    PlayerItemBomb_Init,
+    PlayerItemBomb_Action1,
+    PlayerItemBomb_Action2,
+    PlayerItemBomb_Action3,
 };
 
-static void (*const subActionFuncs[])(PlayerItemBombEntity*) = {
-    sub_0801B330, sub_0801B340, sub_0801B354, sub_0801B368, sub_0801B384,
+static void (*const PlayerItemBomb_SubActions[])(PlayerItemBombEntity*) = {
+    PlayerItemBomb_SubAction0, PlayerItemBomb_SubAction1, PlayerItemBomb_SubAction2,
+    PlayerItemBomb_SubAction3, PlayerItemBomb_SubAction4,
 };
 
 static const Hitbox unusedHitbox = { 0, 0, { 4, 0, 0, 4 }, 22, 22 };
 static const Hitbox gUnk_080B77F4 = { 0, 0, 6, 0, 0, 6, 4, 4 };
 
 void PlayerItemBomb(PlayerItemBombEntity* this) {
-    u8 uVar1, uVar2;
+    u8 action, uVar2;
 
-    actionFuncs[super->action](this);
+    PlayerItemBomb_Actions[super->action](this);
     GetNextFrame(super);
-    uVar2 = uVar1 = super->action;
-    if (uVar1 != 0x03) {
+    uVar2 = action = super->action;
+    if (action != 3) {
         if (super->timer != 0) {
             if (*(u8*)&this->unk_68 == 7) {
                 super->timer--;
@@ -56,11 +63,11 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
             }
         } else {
             if (super->subtimer != 0) {
-                if (super->subtimer-- == 0x01) {
-                    if ((uVar1 == 0x02) && (super->subAction == 1)) {
+                if (super->subtimer-- == 1) {
+                    if ((action == 2) && (super->subAction == 1)) {
                         gPlayerState.heldObject = 0;
                     }
-                    super->action = 0x03;
+                    super->action = 3;
                     super->spritePriority.b1 = 2;
                     super->timer = 15;
                     super->spriteSettings.draw = 0;
@@ -76,7 +83,7 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
     }
 }
 
-void sub_0801B250(PlayerItemBombEntity* this) {
+void PlayerItemBomb_Init(PlayerItemBombEntity* this) {
     super->spriteSettings.draw = 1;
     super->action = 1;
     super->spritePriority.b1 = 3;
@@ -98,59 +105,59 @@ void sub_0801B250(PlayerItemBombEntity* this) {
     }
 }
 
-void sub_0801B2CC(PlayerItemBombEntity* this) {
-    u16 unaff_r5;
+void PlayerItemBomb_Action1(PlayerItemBombEntity* this) {
+    u16 input;
 
     if (!sub_0800442E(super)) {
         RegisterCarryEntity(super);
     }
     switch (IsItemEquipped(ITEM_REMOTE_BOMBS)) {
         case EQUIP_SLOT_A:
-            unaff_r5 = PLAYER_INPUT_1;
+            input = PLAYER_INPUT_1;
             break;
         case EQUIP_SLOT_B:
-            unaff_r5 = PLAYER_INPUT_2;
+            input = PLAYER_INPUT_2;
             break;
         case EQUIP_SLOT_NONE:
-            unaff_r5 = 0;
+            input = 0;
             break;
     }
-    if ((gPlayerState.playerInput.newInput & unaff_r5) != 0) {
+    if ((gPlayerState.playerInput.newInput & input) != 0) {
         super->timer = 0;
         super->subtimer = 1;
     }
 }
 
-void sub_0801B318(PlayerItemBombEntity* this) {
-    subActionFuncs[super->subAction](this);
+void PlayerItemBomb_Action2(PlayerItemBombEntity* this) {
+    PlayerItemBomb_SubActions[super->subAction](this);
 }
 
-void sub_0801B330(PlayerItemBombEntity* this) {
+void PlayerItemBomb_SubAction0(PlayerItemBombEntity* this) {
     super->subAction++;
     sub_08079BD8(super);
 }
 
-void sub_0801B340(PlayerItemBombEntity* this) {
+void PlayerItemBomb_SubAction1(PlayerItemBombEntity* this) {
     super->spritePriority.b1 = 2;
 }
 
-void sub_0801B354(PlayerItemBombEntity* this) {
+void PlayerItemBomb_SubAction2(PlayerItemBombEntity* this) {
     super->spritePriority.b1 = 3;
 }
 
-void sub_0801B368(PlayerItemBombEntity* this) {
+void PlayerItemBomb_SubAction3(PlayerItemBombEntity* this) {
     super->action--;
     super->subAction = 0;
-    if (0x3c < super->timer) {
+    if (super->timer > 60) {
         super->timer = 60;
     }
 }
 
-void sub_0801B384(PlayerItemBombEntity* this) {
+void PlayerItemBomb_SubAction4(PlayerItemBombEntity* this) {
     DeleteThisEntity();
 }
 
-void sub_0801B38C(PlayerItemBombEntity* this) {
+void PlayerItemBomb_Action3(PlayerItemBombEntity* this) {
     if (super->timer-- == 0) {
         DeleteThisEntity();
     }
@@ -158,7 +165,7 @@ void sub_0801B38C(PlayerItemBombEntity* this) {
 
 void sub_0801B3A4(PlayerItemBombEntity* this) {
     u32 tmp;
-    if (super->subtimer >= 0x29) {
+    if (super->subtimer > 40) {
         tmp = 8;
     } else {
         tmp = 4;

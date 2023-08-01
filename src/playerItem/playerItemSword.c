@@ -1,32 +1,38 @@
+/**
+ * @file playerItemSword.c
+ * @ingroup Items
+ *
+ * @brief Sword Player Item
+ */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "functions.h"
-#include "sound.h"
 #include "asm.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
 #include "object.h"
+#include "sound.h"
 
 typedef struct {
-    Entity base;
-    u8 unk_68;
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
 } PlayerItemSwordEntity;
 
 void sub_080A78B8(PlayerItemSwordEntity*, Entity*);
 void sub_080A7B98(PlayerItemSwordEntity*);
 
 void sub_080A7A54(PlayerItemSwordEntity*);
-void sub_080A7824(PlayerItemSwordEntity*);
-void sub_080A76CC(PlayerItemSwordEntity*);
-void sub_080A758C(PlayerItemSwordEntity*);
+void PlayerItemSword_Action2(PlayerItemSwordEntity*);
+void PlayerItemSword_Action1(PlayerItemSwordEntity*);
+void PlayerItemSword_Init(PlayerItemSwordEntity*);
 void sub_080A7A84(PlayerItemSwordEntity*);
 
 void PlayerItemSword(Entity* this) {
-    static void (*const gUnk_0812905C[])(PlayerItemSwordEntity*) = {
-        sub_080A758C,
-        sub_080A76CC,
-        sub_080A7824,
+    static void (*const PlayerItemSword_Actions[])(PlayerItemSwordEntity*) = {
+        PlayerItemSword_Init,
+        PlayerItemSword_Action1,
+        PlayerItemSword_Action2,
     };
-    gUnk_0812905C[this->action]((PlayerItemSwordEntity*)this);
+    PlayerItemSword_Actions[this->action]((PlayerItemSwordEntity*)this);
     if (this->type == 0) {
         sub_08078E84(this, &gPlayerEntity);
         this->hitbox->offset_x += this->spriteOffsetX;
@@ -34,7 +40,7 @@ void PlayerItemSword(Entity* this) {
     }
 }
 
-void sub_080A758C(PlayerItemSwordEntity* this) {
+void PlayerItemSword_Init(PlayerItemSwordEntity* this) {
     static const u8 gUnk_08129068[] = {
         0x56,
         0x55,
@@ -79,16 +85,16 @@ void sub_080A758C(PlayerItemSwordEntity* this) {
                     break;
             }
             super->action++;
-            sub_080A7824(this);
+            PlayerItemSword_Action2(this);
         } else {
             super->damage = gPlayerState.swordDamage * 2 + 4;
-            sub_080A76CC(this);
+            PlayerItemSword_Action1(this);
         }
         gPlayerState.item = super;
         sub_08079BD8(super);
         SoundReq(gUnk_0812906C[GetRandomByWeight(gUnk_08129068)]);
     } else {
-        sub_080A76CC(this);
+        PlayerItemSword_Action1(this);
     }
     SoundReq(SFX_10E);
 }
@@ -147,7 +153,7 @@ static const s8 gUnk_081292E2[] = { 0x0,   0x2,  -0x8,  0xa,   -0x8,  0xa,   0x0
                                     0x0,   -0x2, 0x10,  -0x12, 0x10,  -0x12, 0x0,   -0x16, 0x0,   -0x16, -0xc,
                                     -0x14, -0xc, -0x10, -0xc,  -0xc,  0x0,   -0x2 };
 
-void sub_080A76CC(PlayerItemSwordEntity* this) {
+void PlayerItemSword_Action1(PlayerItemSwordEntity* this) {
     Entity* effect;
     Effect type;
     const s8* ptr;
@@ -221,7 +227,7 @@ void sub_080A76CC(PlayerItemSwordEntity* this) {
     }
 }
 
-void sub_080A7824(PlayerItemSwordEntity* this) {
+void PlayerItemSword_Action2(PlayerItemSwordEntity* this) {
     if (gPlayerState.item != super) {
         DeleteThisEntity();
     }
