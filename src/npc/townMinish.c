@@ -732,7 +732,7 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
     int idx = 0;
 
     if (CheckGlobalFlag(MIZUKAKI_START)) {
-        if (CheckLocalFlag(0x73)) {
+        if (CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK)) {
             if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
                 idx = 3;
                 if (CheckLocalFlag(KHOUSE51_00) == 0) {

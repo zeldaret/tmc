@@ -1368,6 +1368,7 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 
+// player movement?
 void ScriptCommand_0807EDD4(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
@@ -1485,7 +1486,7 @@ void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* con
 
 void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = 0;
-    if (context->scriptInstructionPointer[1] == 0x3F) {
+    if (context->scriptInstructionPointer[1] == ITEM_SHELLS) {
         tmp = context->intVariable;
     }
     InitItemGetSequence(context->scriptInstructionPointer[1], tmp, 0);

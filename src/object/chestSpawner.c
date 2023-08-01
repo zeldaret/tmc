@@ -177,12 +177,12 @@ void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
     }
 }
 
-void sub_08084074(u32 param_1) {
-    u8* arr = (u8*)GetCurrentRoomProperty(3);
-    if (arr != NULL) {
-        for (; arr[0] != 0; arr += 8) {
-            if ((arr[0] == 3) && (param_1 == arr[1])) {
-                CreateItemEntity(arr[2], arr[3], 0);
+void sub_08084074(u32 flag) {
+    TileEntity* tileEntity = (TileEntity*)GetCurrentRoomProperty(3);
+    if (tileEntity != NULL) {
+        for (; tileEntity->type != 0; tileEntity++) {
+            if ((tileEntity->type == BIG_CHEST) && (flag == tileEntity->localFlag)) {
+                CreateItemEntity(tileEntity->_2, tileEntity->_3, 0);
                 return;
             }
         }
@@ -190,7 +190,9 @@ void sub_08084074(u32 param_1) {
 }
 
 void sub_080840A8(s32 param_1, s32 param_2) {
-    static const u8 gUnk_0811F838[] = { 84, 84, 84, 84, 85, 85, 85, 86 };
+    static const u8 gUnk_0811F838[] = {
+        ITEM_RUPEE1, ITEM_RUPEE1, ITEM_RUPEE1, ITEM_RUPEE1, ITEM_RUPEE5, ITEM_RUPEE5, ITEM_RUPEE5, ITEM_RUPEE20,
+    };
     static const s32 gUnk_0811F840[] = { 393216, 458752, 524288, 589824 };
     static const s8 gUnk_0811F850[] = { -6, 0, 0, 6 };
     Entity* obj = CreateObject(GROUND_ITEM, gUnk_0811F838[Random() & 7], 0);

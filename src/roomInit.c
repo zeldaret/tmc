@@ -1580,7 +1580,7 @@ extern EntityData gUnk_080DB4D0;
 extern EntityData gUnk_080DB4A0;
 
 void sub_StateChange_TownMinishHoles_MayorsHouse(void) {
-    if (!GetInventoryValue(ITEM_FLIPPERS) && !GetInventoryValue(ITEM_QST_BOOK3) && CheckLocalFlag(KOBITO_DOUKUTU_04_T0))
+    if (!GetInventoryValue(ITEM_FLIPPERS) && !GetInventoryValue(ITEM_QST_BOOK3) && CheckLocalFlag(MIZUKAKI_HINT3_MAYOR))
         LoadRoomEntityList(&gUnk_080DB4D0);
     else
         LoadRoomEntityList(&gUnk_080DB4A0);
@@ -1631,7 +1631,7 @@ void sub_StateChange_TownMinishHoles_5(void) {
 extern u32 gUnk_080DB910;
 
 u32 sub_unk3_TownMinishHoles_LibraryBookshelf(void) {
-    if (CheckGlobalFlag(MIZUKAKI_START) && !CheckLocalFlag(KOBITO_DOUKUTU_09_T0)) {
+    if (CheckGlobalFlag(MIZUKAKI_START) && !CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK)) {
         gRoomVars.field_0x6c[1] = &gUnk_080DB910;
     }
     return 1;
@@ -1655,7 +1655,7 @@ u32 sub_unk3_TownMinishHoles_LibrariBookHouse(void) {
 extern EntityData gUnk_080DBA08;
 
 void sub_StateChange_TownMinishHoles_LibrariBookHouse(void) {
-    if (GetInventoryValue(ITEM_FLIPPERS) || !CheckLocalFlag(KOBITO_DOUKUTU_09_T0)) {
+    if (GetInventoryValue(ITEM_FLIPPERS) || !CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK)) {
         LoadRoomEntityList(&gUnk_080DBA08);
     }
     sub_0801AFE4();
@@ -1779,7 +1779,7 @@ extern EntityData gUnk_080DC4C0;
 void sub_StateChange_MinishVillage_Main(void) {
     if (!GetInventoryValue(ITEM_JABBERNUT)) {
         LoadRoomEntityList(&gUnk_080DC390);
-        if (!CheckLocalFlagByBank(FLAG_BANK_2, 0x80)) {
+        if (!CheckLocalFlagByBank(FLAG_BANK_2, M_PRIEST_TALK)) {
             LoadRoomEntityList(&gUnk_080DC3F0);
         }
     } else {
@@ -1791,7 +1791,7 @@ void sub_StateChange_MinishVillage_Main(void) {
     if ((!CheckLocalFlagByBank(FLAG_BANK_2, M_ELDER_TALK2ND)) && GetInventoryValue(ITEM_GUST_JAR)) {
         LoadRoomEntityList(&gUnk_080DC470);
     }
-    if (!CheckLocalFlag(0x8d)) {
+    if (!CheckLocalFlag(KOBITO_MORI_1ST)) {
         LoadRoomEntityList(&gUnk_080DC4C0);
     }
     sub_08057E64();
@@ -1988,12 +1988,12 @@ void sub_StateChange_MelarisMine_Main(void) {
     if (!CheckGlobalFlag(WHITE_SWORD_END)) {
         LoadRoomEntityList(&gUnk_additional_8_MelarisMine_Main);
     }
-    if (!CheckLocalFlag(0x7f)) {
+    if (!CheckLocalFlag(YAMAKOBITO_OPEN)) {
         LoadRoomEntityList(&gUnk_additional_9_MelarisMine_Main);
     } else {
         LoadRoomEntityList(&gUnk_080DD294);
     }
-    SetLocalFlag(0x8e);
+    SetLocalFlag(KOBITO_YAMA_ENTER);
 }
 
 u32 sub_unk3_CloudTops_House(void) {
@@ -2725,7 +2725,7 @@ void sub_StateChange_FortressOfWindsTop_Main(void) {
     SetGlobalFlag(LV3_CLEAR);
     UpdateGlobalProgress();
     LoadStaticBackground(3);
-    if (!GetInventoryValue(ITEM_OCARINA) && CheckLocalFlag(0x45)) {
+    if (!GetInventoryValue(ITEM_OCARINA) && CheckLocalFlag(LV3_OCARINA_FALL)) {
         LoadRoomEntityList(&gUnk_080E3850);
     }
 }
@@ -4657,7 +4657,7 @@ void sub_StateChange_SimonsSimulation_Main(void) {
         SetLocalFlag(0xC6);
         index = 0xE;
     }
-    sub_0804B3C4(&gUnk_080F0E1C[index]);
+    LoadSmallChestTile2(&gUnk_080F0E1C[index]);
     SoundReq(SONG_STOP_BGM);
 }
 
@@ -4798,14 +4798,14 @@ extern EntityData gUnk_080F2798;
 
 void sub_StateChange_HouseInteriors2_Percy(void) {
     if (CheckKinstoneFused(KINSTONE_21)) {
-        if (!CheckLocalFlag(0x42)) {
-            if (!CheckLocalFlag(0x43)) {
+        if (!CheckLocalFlag(MHOUSE08_03)) {
+            if (!CheckLocalFlag(MHOUSE08_04)) {
                 LoadRoomEntityList(&gUnk_additional_9_HouseInteriors2_Percy);
                 LoadRoomTileEntities(&gUnk_080F2860);
             } else {
                 LoadRoomEntityList(&gUnk_additional_a_HouseInteriors2_Percy);
             }
-        } else if (!CheckLocalFlag(0x3f)) {
+        } else if (!CheckLocalFlag(MHOUSE08_00)) {
             LoadRoomEntityList(&gUnk_080F27D8);
         } else {
             LoadRoomEntityList(&gUnk_080F2798);
@@ -4894,7 +4894,7 @@ u32 sub_unk3_HouseInteriors2_Dampe(void) {
 extern EntityData gUnk_080F2FD4;
 
 void sub_StateChange_HouseInteriors2_Dampe(void) {
-    if (!CheckLocalFlag(0x69) || GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) > 1) {
+    if (!CheckLocalFlag(DANPEI_TALK1ST) || GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) > 1) {
         LoadRoomEntityList(&gUnk_080F2FD4);
     }
 }
@@ -5351,10 +5351,10 @@ extern EntityData gUnk_080F5788;
 
 void sub_StateChange_HouseInteriors3_StockwellShop(void) {
     LoadRoomEntityList(&gUnk_080F5758);
-    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(FLAG_BANK_2, 0x8f)) {
+    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(FLAG_BANK_2, KHOUSE52_KINOKO)) {
         LoadRoomEntityList(&gUnk_080F57E8);
     }
-    if (!CheckLocalFlag(0x55)) {
+    if (!CheckLocalFlag(SHOP00_SAIFU)) {
         LoadRoomEntityList(&gUnk_080F57A8);
     } else {
         if (gBombBagSizes[gSave.stats.bombBagType] >= 30) {
@@ -5364,7 +5364,7 @@ void sub_StateChange_HouseInteriors3_StockwellShop(void) {
             LoadRoomEntityList(&gUnk_080F5888);
 #ifndef EU
         } else {
-            if (!CheckLocalFlag(0xcd)) {
+            if (!CheckLocalFlag(SHOP00_BOMBBAG)) {
                 LoadRoomEntityList(&gUnk_080F58A8);
             }
 #endif
@@ -5372,7 +5372,7 @@ void sub_StateChange_HouseInteriors3_StockwellShop(void) {
     }
     if (GetInventoryValue(ITEM_BOW) || CheckGlobalFlag(LV3_CLEAR)) {
         LoadRoomEntityList(&gUnk_080F5868);
-        if (!CheckLocalFlag(0x56)) {
+        if (!CheckLocalFlag(SHOP00_YAZUTSU)) {
             LoadRoomEntityList(&gUnk_080F5828);
         } else {
             LoadRoomEntityList(&gUnk_080F5848);
@@ -5508,7 +5508,7 @@ void sub_StateChange_WindTribeTower_Floor2(void) {
     if (!CheckGlobalFlag(WARP_EVENT_END)) {
         LoadRoomEntityList(&gUnk_080F62E4);
     } else {
-        if (CheckLocalFlag(99)) {
+        if (CheckLocalFlag(SORA_ELDER_RECOVER)) {
             LoadRoomEntityList(&gUnk_080F6324);
         }
     }
@@ -5719,9 +5719,8 @@ extern EntityData gUnk_080F7860;
 extern EntityData gUnk_080F78A0;
 
 void sub_StateChange_HyruleField_LonLonRanch(void) {
-
-    CloudOverlayManager_Main(0);
-    if (CheckLocalFlagByBank(FLAG_BANK_2, 0x8f)) {
+    CloudOverlayManager_Main(NULL);
+    if (CheckLocalFlagByBank(FLAG_BANK_2, KHOUSE52_KINOKO)) {
         if (!CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080F77C0);
         }

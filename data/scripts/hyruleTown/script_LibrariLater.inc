@@ -1,4 +1,4 @@
-@ Library if you talk to him later?
+@ Librari at the lake
 SCRIPT_START script_LibrariLater
 	BeginBlock
 	DoPostScriptAction 0x000a
@@ -14,9 +14,9 @@ script_08012440:
 	SetAnimation 0x0009
 	Call sub_0806B2B4
 	WaitUntilTextboxCloses
-	CheckLocalFlag 0x00b3
+	CheckLocalFlag KHOUSE23_TALK1ST
 	JumpIf script_08012474
-	SetLocalFlag 0x00b3
+	SetLocalFlag KHOUSE23_TALK1ST
 	GivePlayerItem ITEM_HEART_CONTAINER
 	WaitPlayerGetItem
 .ifdef USA

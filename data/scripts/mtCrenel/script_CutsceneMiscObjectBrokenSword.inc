@@ -3,7 +3,7 @@ SCRIPT_START script_CutsceneMiscObjectBrokenSword
 	BeginBlock
 	CheckInventory1 ITEM_FIRE_ELEMENT
 	JumpIf script_0800D24C
-	CheckLocalFlag 0x007e
+	CheckLocalFlag OYAKATA_DEMO
 	JumpIf script_0800D242
 	DoPostScriptAction 0x0008
 	EndBlock

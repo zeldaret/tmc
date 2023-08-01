@@ -237,7 +237,7 @@ void* GetRoomProperty(u32 area, u32 room, u32 property);
 
 bool32 LoadFixedGFX(Entity*, u32);
 void UnloadGFXSlots(Entity*);
-void sub_0804B3C4(TileEntity*);
+void LoadSmallChestTile2(TileEntity*);
 void sub_0804B0B0(u32 arg0, u32 arg1);
 
 void DoExitTransition(const ScreenTransitionData* data);

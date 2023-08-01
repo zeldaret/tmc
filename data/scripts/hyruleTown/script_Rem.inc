@@ -6,7 +6,7 @@ SCRIPT_START script_Rem
 	SetAnimation 0x0002
 	CheckInventory1 ITEM_PEGASUS_BOOTS
 	JumpIf script_080130B6
-	CheckLocalFlag 0x0060
+	CheckLocalFlag SHOP02_KUTSU_00
 	JumpIf script_08012FD2
 	CheckGlobalFlag DASHBOOTS
 	JumpIf script_RemFallingAsleep

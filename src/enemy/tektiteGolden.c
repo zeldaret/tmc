@@ -7,6 +7,7 @@
 
 #include "collision.h"
 #include "enemy.h"
+#include "item.h"
 #include "functions.h"
 
 void sub_08038168(Entity*);
@@ -70,9 +71,9 @@ void TektiteGolden_OnDeath(Entity* this) {
         SetGlobalFlag(this->type2);
     }
     if (this->type != 0) {
-        uVar1 = 0x59;
+        uVar1 = ITEM_RUPEE200;
     } else {
-        uVar1 = 0x58;
+        uVar1 = ITEM_RUPEE100;
     }
     CreateDeathFx(this, 0xff, uVar1);
 }

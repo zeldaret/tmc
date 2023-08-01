@@ -15,6 +15,7 @@ script_0800B6D4:
 	WaitForSyncFlagAndClear 0x00000004
 	SetRoomFlag 0x0000
 	WaitForSyncFlagAndClear 0x00000004
+	//30
 	CheckLocalFlag 0x009f
 	JumpIf script_0800B7A2
 	MessageNoOverlap TEXT_ITEM_GET, 0x7b
@@ -22,7 +23,7 @@ script_0800B6D4:
 	CallWithArg CheckMessageEqual, TEXT_ITEM_GET << 8 | 0x7d
 	JumpIf script_0800B6A6
 	WaitUntilTextboxCloses
-	SetLocalFlag 0x009f
+	SetLocalFlag IZUMI_01_FAIRY
 	GivePlayerItem ITEM_WALLET
 	Jump script_0800B698
 	.2byte 0x0000

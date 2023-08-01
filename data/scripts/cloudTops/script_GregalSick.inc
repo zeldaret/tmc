@@ -4,7 +4,7 @@ SCRIPT_START script_GregalSick
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000
 	EndBlock
-	CheckLocalFlag 0x0063
+	CheckLocalFlag SORA_ELDER_RECOVER
 	JumpIf script_08014BE8
 script_08014B48:
 	EndBlock
@@ -54,9 +54,9 @@ script_08014BF2:
 	CheckEntityInteractType
 	JumpIfNot script_08014BF2
 	SetPlayerIdle
-	CheckLocalFlag 0x0065
+	CheckLocalFlag SORA_ELDER_TALK1ST
 	JumpIf script_08014C1C
-	SetLocalFlag 0x0065
+	SetLocalFlag SORA_ELDER_TALK1ST
 	MessageNoOverlap TEXT_WIND_TRIBE, 0x07
 	WaitUntilTextboxCloses
 	SetIntVariable 100

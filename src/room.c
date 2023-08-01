@@ -376,6 +376,6 @@ void sub_0804B388(u32 a1, u32 a2) {
     ModDungeonKeys(-1);
 }
 
-void sub_0804B3C4(TileEntity* tile) {
+void LoadSmallChestTile2(TileEntity* tile) {
     LoadSmallChestTile(tile);
 }

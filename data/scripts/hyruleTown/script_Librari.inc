@@ -28,12 +28,12 @@ script_0800E974:
 	SetAnimation 0x0000
 	StartPlayerScript script_PlayerActivatedTrapCard
 	WaitForSyncFlagAndClear 0x00000001
-	SetLocalFlag 0x0074
+	SetLocalFlag MIZUKAKI_STAIR
 	PlaySound SFX_SECRET
 	Wait 0x00f0
 	MessageFromTarget TEXT_TOWN_MINISH1, 0x26
 	WaitUntilTextboxCloses
-	SetLocalFlag 0x0075
+	SetLocalFlag MIZUKAKI_STAIR_WARP_OK
 script_0800E9E4:
 	WaitUntilTextboxCloses
 	Wait 0x000f

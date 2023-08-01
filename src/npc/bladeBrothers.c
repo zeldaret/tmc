@@ -62,9 +62,9 @@ const u8 gUnk_0811162B[] = {
     ITEM_SKILL_SWORD_BEAM,
     ITEM_SKILL_PERIL_BEAM,
     ITEM_SKILL_GREAT_SPIN,
-    243,
-    244,
-    245,
+    ITEM_SKILL_FAST_SPIN | 0x80,
+    ITEM_SKILL_FAST_SPLIT | 0x80,
+    ITEM_SKILL_LONG_SPIN | 0x80,
     0,
     0,
     0,
@@ -424,22 +424,22 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
             context->condition = 1;
             return;
         case 1:
-            itemID = 0x2;
+            itemID = ITEM_GREEN_SWORD;
             break;
         case 2:
-            itemID = 0x15;
+            itemID = ITEM_PEGASUS_BOOTS;
             break;
         case 3:
-            itemID = 0x14;
+            itemID = ITEM_ROCS_CAPE;
             break;
         case 5:
-            if (CheckLocalFlag(3) == 0) {
+            if (CheckLocalFlag(DOUKUTU_05_EVENT) == 0) {
                 return;
             }
             context->condition = 1;
             return;
         case 6:
-            if (gSave.stats.maxHealth < 0x50)
+            if (gSave.stats.maxHealth < (10 * 8)) // ten hearts
                 return;
             context->condition = 1;
             return;

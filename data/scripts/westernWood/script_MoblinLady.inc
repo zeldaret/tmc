@@ -12,9 +12,9 @@ script_08012338:
 	SetPlayerIdle
 	MessageFromTarget TEXT_PERCY, 0x04
 	WaitUntilTextboxCloses
-	CheckLocalFlag 0x0042
+	CheckLocalFlag MHOUSE08_03
 	JumpIf script_0801235A
-	SetLocalFlag 0x0042
+	SetLocalFlag MHOUSE08_03
 	GivePlayerItem ITEM_RUPEE50
 	WaitPlayerGetItem
 script_0801235A:

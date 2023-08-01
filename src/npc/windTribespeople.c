@@ -58,7 +58,8 @@ void sub_0806C7D4(Entity* this) {
         sub_0806F118(this);
     } else {
         sub_0807DD94(this, NULL);
-        if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) && (CheckRoomFlag(0))) {
+        if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(SORA_ELDER_RECOVER)) &&
+            (CheckRoomFlag(0))) {
             this->type2 = 7;
             sub_0807DD80(this, &script_WindTribespeople6);
         }
@@ -201,7 +202,7 @@ void sub_0806C99C(Entity* this, ScriptExecutionContext* context) {
     if (CheckGlobalFlag(WARP_EVENT_END)) {
         flagAsBool = 2;
     }
-    if (CheckLocalFlag(99) != 0) {
+    if (CheckLocalFlag(SORA_ELDER_RECOVER)) {
         flagAsBool++;
     }
     MessageNoOverlap(messageIndices[flagAsBool], this);

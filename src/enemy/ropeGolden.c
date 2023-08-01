@@ -10,6 +10,7 @@
 #include "enemy.h"
 #include "physics.h"
 #include "player.h"
+#include "item.h"
 
 void RopeGolden_OnTick(Entity*);
 void RopeGolden_OnCollision(Entity*);
@@ -58,7 +59,7 @@ void RopeGolden_OnDeath(Entity* this) {
     if ((this->gustJarState & 2) == 0) {
         SetGlobalFlag(this->type2);
     }
-    CreateDeathFx(this, 0xff, 0x58);
+    CreateDeathFx(this, 0xff, ITEM_RUPEE100);
 }
 
 void sub_08038258(Entity* this) {

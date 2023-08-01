@@ -17,9 +17,9 @@ script_08014C4C:
 script_08014C56:
 	Call sub_0806CCB4
 	JumpIfNot script_08014C56
-	CheckLocalFlag 0x0066
+	CheckLocalFlag SORA_ELDER_TALK2ND
 	JumpIf script_08014C7C
-	SetLocalFlag 0x0066
+	SetLocalFlag SORA_ELDER_TALK2ND
 	MessageNoOverlap TEXT_WIND_TRIBE, 0x0d
 	WaitUntilTextboxCloses
 	GivePlayerItem ITEM_LIGHT_ARROW

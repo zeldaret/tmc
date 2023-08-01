@@ -2,6 +2,7 @@
 #include "map.h"
 #include "enemy.h"
 #include "player.h"
+#include "item.h"
 
 void (*const OctorokGolden_Functions[])(Entity*);
 void (*const gUnk_080CF484[])(Entity*);
@@ -40,7 +41,7 @@ void OctorokGolden_OnDeath(Entity* this) {
         SetGlobalFlag(this->type2);
     }
 
-    CreateDeathFx(this, 0xff, 0x58);
+    CreateDeathFx(this, 0xff, ITEM_RUPEE100);
 }
 
 void sub_08037CE4(Entity* this) {

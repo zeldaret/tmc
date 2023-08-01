@@ -490,9 +490,9 @@ const WorldEvent gWorldEvents[] = {
 //     { NONE, 0, 0, 0, 0x0, 0, 0 },
 // };
 extern TileEntity gUnk_080FEAC8[]; // TODO differs jp, demo_jp, eu
-extern EntityData gUnk_080FEBE8[];
-extern EntityData gUnk_080FEC28[];
+extern const EntityData gUnk_080FEBE8[];
 extern EntityData gUnk_080FECC8[];
+extern EntityData gUnk_080FEC28[];
 extern const EntityData gUnk_080FED18[];
 extern EntityData gUnk_080FED58[];
 // TODO need to find out what gRoomVars.field_0x8c[ptr->entity_idx] is.
