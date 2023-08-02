@@ -150,6 +150,6 @@ struct Entity_;
  */
 
 #define BIT(bit) (1 << (bit))
-#define IS_BIT_SET(value, bit) ((value) & BIT(bit))
+#define IS_BIT_SET(value, bit) ((value)&BIT(bit))
 
 #endif // GLOBAL_H
