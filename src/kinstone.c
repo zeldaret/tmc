@@ -179,11 +179,7 @@ void GenerateAreaHint(void) {
     struct_area_28* ptr;
 
     gPlayerState.queued_action = PLAYER_TALKEZLO;
-#if defined(EU) || defined(JP)
-    gRoomTransition.hint_heightEU = 0;
-#else
     gRoomTransition.hint_height = 0;
-#endif
     ptr = &gArea.unk28;
     if (ptr->textBaseIndex == 0xff) {
         gRoomTransition.hint_idx = ptr->ezloHintTexts[0];

@@ -448,18 +448,10 @@ bool32 CanDispEzloMessage(void) {
 void DisplayEzloMessage(void) {
     u32 height;
     u32 idx;
-#if defined(JP) || defined(EU)
-    if (gRoomTransition.hint_heightEU == 0) {
-#else
     if (gRoomTransition.hint_height == 0) {
-#endif
         height = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y > 96 ? 1 : 13;
     } else {
-#if defined(JP) || defined(EU)
-        height = gRoomTransition.hint_heightEU;
-#else
         height = gRoomTransition.hint_height;
-#endif
     }
     MessageAtHeight(gRoomTransition.hint_idx, height);
 }

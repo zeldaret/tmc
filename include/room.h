@@ -162,8 +162,13 @@ typedef struct {
     /* 0x31 */ u8 field31;
     /* 0x32 */ u8 field32;
     /* 0x33 */ u8 field33;
-    /* 0x34 */ u8 hint_heightEU;
+#if defined(JP) || defined(EU)
+    /* 0x34 */ u8 hint_height;
+    /* 0x35 */ u8 field35;
+#else
+    /* 0x34 */ u8 field35;
     /* 0x35 */ u8 hint_height;
+#endif
     /* 0x36 */ u16 hint_idx;
     /* 0x38 */ u8 field_0x38;
     /* 0x39 */ u8 field_0x39;

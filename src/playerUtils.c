@@ -1288,11 +1288,7 @@ void SetPlayerControl(PlayerControlMode mode) {
 void CreateEzloHint(u32 hintId, u32 hintHeight) {
     gPlayerState.queued_action = PLAYER_TALKEZLO;
     gRoomTransition.hint_idx = hintId;
-#if defined(EU) || defined(JP)
-    gRoomTransition.hint_heightEU = hintHeight;
-#else
     gRoomTransition.hint_height = hintHeight;
-#endif
 }
 
 void sub_08078AC0(u32 param_1, u32 param_2, u32 param_3) {
