@@ -54,7 +54,7 @@ void Vaati3StartManager_Type0_Init(Vaati3StartManager* this) {
     *(u8*)&gRoomTransition.field_0x3a = 0x20;
     *((u8*)&gRoomTransition.field_0x3a + 1) = 0x20;
 #if !defined(EU) && !defined(JP)
-    gSave.timers[3] = 0x1194;
+    gSave.vaati_timer = 0x1194;
 #endif
 }
 

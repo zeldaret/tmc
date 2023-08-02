@@ -367,7 +367,7 @@ typedef struct {
     /*0x1c*/ u16 charmTimer;
     /*0x1e*/ u16 picolyteTimer;
     /*0x20*/ u16 effectTimer;
-    /*0x22*/ u8 filler4[6];
+    /*0x22*/ u8 filler22[2];
 } Stats;
 
 #define SLOT_A 0

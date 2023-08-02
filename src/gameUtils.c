@@ -25,8 +25,8 @@
 u32 StairsAreValid(void);
 void ClearFlagArray(const u16*);
 void DummyHandler(u32* a1);
-void sub_08053434(u32* a1);
-void sub_080534E4(u32* a1);
+void DarknutTimerHandler(u32* a1);
+void BiggoronTimerHandler(u32* a1);
 void InitAllRoomResInfo(void);
 void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 void sub_080532E4(void);
@@ -839,24 +839,25 @@ void sub_080533CC(void) {
 
 void UpdateTimerCallbacks(void) {
     static void (*const sHandlers[])(u32*) = {
-        sub_08053434, DummyHandler, sub_080534E4, DummyHandler, DummyHandler, DummyHandler, DummyHandler, DummyHandler,
+        DarknutTimerHandler, DummyHandler, BiggoronTimerHandler, DummyHandler,
+        DummyHandler,        DummyHandler, DummyHandler,         DummyHandler,
     };
 
     u32* p;
     u32 i;
 
-    p = gSave.timers;
+    p = &gSave.darknut_timer;
     for (i = 0; i < 8; i++, p++) {
         (sHandlers[i])(p);
     }
 }
 
-void DummyHandler(u32* a1) {
+void DummyHandler(u32* timer) {
 }
 
-void sub_08053434(u32* a1) {
-    if (gArea.locationIndex == 29 && *a1) {
-        if (!--*a1) {
+void DarknutTimerHandler(u32* timer) {
+    if (gArea.locationIndex == 29 && *timer) {
+        if (!--*timer) {
             ResetTimerFlags();
             MenuFadeIn(5, 6);
         }
@@ -878,33 +879,31 @@ void ResetTimerFlags(void) {
         0xFFFF,
     };
 
-    gSave.timers[0] = 0;
+    gSave.darknut_timer = 0;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_ZELDA_DISCURSE))
         ClearGlobalFlag(ZELDA_CHASE);
     ClearFlagArray(sClearFlags);
 }
 
 void StartDarkNutTimer(void) {
-    gSave.timers[0] = 10800;
+    gSave.darknut_timer = 10800;
 }
 
 void sub_080534AC(void) {
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
         ClearLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START);
-        gSave.timers[0] = 0;
+        gSave.darknut_timer = 0;
         SoundReq(SONG_STOP_BGM);
     }
 }
 
-void sub_080534E4(u32* a1) {
-    if (gRoomControls.area != AREA_VEIL_FALLS_TOP) {
-        if (*a1)
-            --*a1;
-    }
+void BiggoronTimerHandler(u32* timer) {
+    if (gRoomControls.area != AREA_VEIL_FALLS_TOP && *timer)
+        --*timer;
 }
 
 void InitBiggoronTimer(void) {
-    gSave.timers[2] = 36000;
+    gSave.biggoron_timer = 36000;
 }
 
 void ResetTmpFlags(void) {

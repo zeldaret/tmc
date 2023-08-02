@@ -626,7 +626,7 @@ void sub_08088328(FigurineDeviceEntity* this) {
             if (uVar6 > 0x88) {
                 uVar6 = 1;
             }
-            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) == 0) {
+            if (sub_08088160(this, uVar6) && ReadBit(gSave.figurines, uVar6) == 0) {
                 uVar2 = TRUE;
             } else {
                 uVar6++;
@@ -640,7 +640,7 @@ void sub_08088328(FigurineDeviceEntity* this) {
             if (uVar6 > 0x88) {
                 uVar6 = 1;
             }
-            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) != 0) {
+            if (sub_08088160(this, uVar6) && ReadBit(gSave.figurines, uVar6) != 0) {
                 uVar2 = FALSE;
             } else {
                 uVar6++;

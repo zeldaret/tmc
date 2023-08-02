@@ -429,7 +429,7 @@ void sub_0806D5D4(void) {
 }
 
 void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
-    context->condition = gSave.timers[2] == 0;
+    context->condition = gSave.biggoron_timer == 0;
 }
 
 void sub_0806D620(void) {
