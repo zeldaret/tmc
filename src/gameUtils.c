@@ -207,7 +207,7 @@ s32 ModHealth(s32 delta) {
         newHealth = 0;
     }
     if (stats->maxHealth < newHealth) {
-        newHealth = (u32)stats->maxHealth;
+        newHealth = stats->maxHealth;
     }
     stats->health = newHealth;
     gPlayerEntity.health = newHealth;

@@ -53,7 +53,7 @@ typedef struct {
     /*0x05C*/ u32 items_bought;              /**< number of items bought in stockwells shop */
     /*0x060*/ u32 areaVisitFlags[8];         /**< Area visit flags. */
     /*0x080*/ char name[FILENAME_LENGTH];    /**< Save file name. */
-    /*0x086*/ u8 filler86[0x2];              /**< unused filler */
+    /*0x086*/ u8 filler86[2];                /**< unused filler */
     /*0x088*/ PlayerRoomStatus saved_status; /**< Player room status. */
     /*0x0A8*/ Stats stats;                   /**< Player stats. */
     /*0x0D0*/ u8 fillerD0[34];
