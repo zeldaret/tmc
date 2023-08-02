@@ -8,6 +8,7 @@
 #include "player.h"
 #include "area.h"
 #include "game.h"
+#include "item.h"
 
 extern void sub_0805ECEC(u32, u32, u32, u32);
 extern u32 sub_08000E44(u32);
@@ -664,7 +665,7 @@ u32 sub_0801CC80(UIElement* element) {
     u32 buttonId = (type ^ 3) != 0;
     u32 itemId = gSave.stats.itemButtons[buttonId];
     if (ItemIsBottle(itemId)) {
-        itemId = gSave.saved_status.field_0x24[itemId - 6];
+        itemId = gSave.stats.bottles[itemId - ITEM_BOTTLE1];
     }
     return itemId;
 }

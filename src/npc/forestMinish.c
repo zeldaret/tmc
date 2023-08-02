@@ -706,13 +706,13 @@ void sub_08060318(void) {
 }
 
 void sub_08060340(void) {
-    gSave.timers[1] = gSave.unk50;
+    gSave.timers[1] = gSave.enemies_killed;
 }
 
 u32 sub_08060354(void) {
     s32 iVar2;
 
-    iVar2 = gSave.unk50 - gSave.timers[1];
+    iVar2 = gSave.enemies_killed - gSave.timers[1];
     if (CheckGlobalFlag(DRUG_1) == 0) {
         if (4 < iVar2) {
             return 0x8444;

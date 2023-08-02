@@ -449,15 +449,17 @@ void DisplayEzloMessage(void) {
     u32 height;
     u32 idx;
 #if defined(JP) || defined(EU)
-    idx = 0x10;
+    if (gRoomTransition.hint_heightEU == 0) {
 #else
-    idx = 0x11;
+    if (gRoomTransition.hint_height == 0) {
 #endif
-
-    if (gRoomTransition.player_status.field_0x24[idx] == 0) {
         height = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y > 96 ? 1 : 13;
     } else {
-        height = gRoomTransition.player_status.field_0x24[idx];
+#if defined(JP) || defined(EU)
+        height = gRoomTransition.hint_heightEU;
+#else
+        height = gRoomTransition.hint_height;
+#endif
     }
     MessageAtHeight(gRoomTransition.hint_idx, height);
 }
@@ -466,11 +468,11 @@ void DisplayEzloMessage(void) {
 void CreateMiscManager(void) {
     Entity* e = NULL;
 
-    if (gRoomTransition.player_status.field_0x24[13])
+    if (gRoomTransition.field31)
         return;
-    gRoomTransition.player_status.field_0x24[13] = 1;
+    gRoomTransition.field31 = 1;
 #ifndef DEMO_JP
-    gRoomTransition.player_status.field_0x24[10] = gArea.locationIndex;
+    gRoomTransition.location = gArea.locationIndex;
 #endif
     e = (Entity*)GetEmptyManager();
     if (e == NULL)
@@ -714,7 +716,7 @@ u32 sub_08053144(void) {
         return 0;
     ret = 0;
     if (gArea.locationIndex != 0)
-        ret = !!(gRoomTransition.player_status.field_0x24[10] ^ gArea.locationIndex);
+        ret = !!(gRoomTransition.location ^ gArea.locationIndex);
     return ret;
 }
 
@@ -722,7 +724,7 @@ void CheckAreaDiscovery(void) {
     if (!sub_08053144())
         return;
 
-    gRoomTransition.player_status.field_0x24[10] = gArea.locationIndex;
+    gRoomTransition.location = gArea.locationIndex;
 
     if (!CheckGlobalFlag(TABIDACHI))
         return;
@@ -772,7 +774,7 @@ void sub_0805329C(void) {
     if (sub_08053144()) {
         switch (gRoomControls.area) {
             case AREA_DEEPWOOD_SHRINE:
-                gSave.unk7 = 0;
+                gSave.dws_barrel_state = 0;
                 break;
             case AREA_CAVE_OF_FLAMES:
                 sub_080530B0();

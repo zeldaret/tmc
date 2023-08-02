@@ -474,11 +474,11 @@ void sub_080880D8(FigurineDeviceEntity* this) {
         it++;
     }
     if (++this->unk_7b == 4) {
-        if (gSave.field_0x9[0] != this->unk_80) {
-            if (gSave.field_0x9[0] != 0) {
+        if (gSave.available_figurines != this->unk_80) {
+            if (gSave.available_figurines != 0) {
                 SetRoomFlag(6);
             }
-            gSave.field_0x9[0] = this->unk_80;
+            gSave.available_figurines = this->unk_80;
         }
         if (CheckLocalFlag(SHOP07_COMPLETE) && (this->unk_80 != gSave.stats.filler[0])) {
             ClearLocalFlag(SHOP07_COMPLETE);

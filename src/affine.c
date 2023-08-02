@@ -53,7 +53,7 @@ void CopyOAM(void) {
 void DrawEntities(void) {
     void (*fn)(void);
 
-    gOAMControls._0[6] = gRoomTransition.field_0x2c[2] ? 15 : 0;
+    gOAMControls._0[6] = gRoomTransition.field2f ? 15 : 0;
     gOAMControls._4 = gRoomControls.aff_x + gRoomControls.scroll_x;
     gOAMControls._6 = gRoomControls.aff_y + gRoomControls.scroll_y;
     gOAMControls.field_0x1++;

@@ -33,25 +33,27 @@ extern SaveResult HandleSave(u32 idx);
  * The contents of this structure are read from and written to EEPROM.
  */
 typedef struct {
-    /*0x000*/ u8 invalid;     /**< File is invalid. */
-    /*0x001*/ u8 initialized; /**< File is initialized. */
-    /*0x002*/ u8 msg_speed;   /**< Message speed. */
-    /*0x003*/ u8 brightness;  /**< Brightness. */
-    /*0x004*/ u8 filler4[0x2];
-    /*0x006*/ u8 saw_staffroll;
-    /*0x007*/ u8 unk7;            // TODO rolling barrel state?
-    /*0x008*/ u8 global_progress; /**< @see UpdateGlobalProgress */
-    /*0x009*/ u8 field_0x9[0x17];
-    /*0x020*/ u16 field_0x20;
-    /*0x022*/ u8 field_0x22[0x1e];
-    /*0x040*/ u32 windcrests; /**< Windcrest flags. */
-    /*0x044*/ u8 filler44[0xC];
-    /*0x050*/ u32 unk50;
-    /*0x054*/ u8 filler54[0x8];
-    /*0x05C*/ u32 unk5C;
-    /*0x060*/ u32 areaVisitFlags[8];      /**< Area visit flags. */
-    /*0x080*/ char name[FILENAME_LENGTH]; /**< Save file name. */
-    /*0x086*/ u8 filler86[0x2];
+    /*0x000*/ u8 invalid;                    /**< File is invalid. */
+    /*0x001*/ u8 initialized;                /**< File is initialized. */
+    /*0x002*/ u8 msg_speed;                  /**< Message speed. */
+    /*0x003*/ u8 brightness;                 /**< Brightness. */
+    /*0x004*/ u8 filler4[0x2];               /**< unused filler */
+    /*0x006*/ u8 saw_staffroll;              /**< beat the game and watched the credits */
+    /*0x007*/ u8 dws_barrel_state;           /**< state of the big barrel in DWS, 0 or 2 */
+    /*0x008*/ u8 global_progress;            /**< @see UpdateGlobalProgress */
+    /*0x009*/ u8 available_figurines;        /**< figurines available to get */
+    /*0x00A*/ u8 fillerA[0x16];              /**< unused filler */
+    /*0x020*/ u16 map_hints;                 /**< bitmask, used by subtask MapHint */
+    /*0x022*/ u8 filler22[0x1e];             /**< unused filler */
+    /*0x040*/ u32 windcrests;                /**< upper 8 bit Windcrest flags @see WindcrestID
+                                              * lower bits used for other things */
+    /*0x044*/ u8 filler44[0xC];              /**< unused filler */
+    /*0x050*/ u32 enemies_killed;            /**< number of enemies killed */
+    /*0x054*/ u8 filler54[0x8];              /**< unused filler */
+    /*0x05C*/ u32 items_bought;              /**< number of items bought in stockwells shop */
+    /*0x060*/ u32 areaVisitFlags[8];         /**< Area visit flags. */
+    /*0x080*/ char name[FILENAME_LENGTH];    /**< Save file name. */
+    /*0x086*/ u8 filler86[0x2];              /**< unused filler */
     /*0x088*/ PlayerRoomStatus saved_status; /**< Player room status. */
     /*0x0A8*/ Stats stats;                   /**< Player stats. */
     /*0x0D0*/ u8 fillerD0[34];

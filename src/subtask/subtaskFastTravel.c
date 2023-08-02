@@ -168,7 +168,7 @@ void sub_080A6E70(void) {
 
     DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
     for (i = 0; i < 8; i++) {
-        if ((gSave.windcrests & (1 << (i + 0x18))) != 0) {
+        if (IS_BIT_SET(gSave.windcrests, i + 24)) {
             sub_080A6EE0(i);
             DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x5c);
         }

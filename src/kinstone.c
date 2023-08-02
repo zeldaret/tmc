@@ -180,8 +180,7 @@ void GenerateAreaHint(void) {
 
     gPlayerState.queued_action = PLAYER_TALKEZLO;
 #if defined(EU) || defined(JP)
-    // TODO what fields of the room transition are switched in these variants?
-    gRoomTransition.field_0x2c[7] = 0;
+    gRoomTransition.hint_heightEU = 0;
 #else
     gRoomTransition.hint_height = 0;
 #endif
