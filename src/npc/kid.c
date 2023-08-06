@@ -1,6 +1,27 @@
+/**
+ * @file kid.c
+ * @ingroup NPCs
+ *
+ * @brief Kid NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "message.h"
 #include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x69*/ u8 unk_69;
+    /*0x6a*/ u8 fusionOffer;
+    /*0x6b*/ u8 unk_6b;
+    /*0x6c*/ u16 unk_6c;
+    /*0x6e*/ u16 unk_6e;
+    /*0x70*/ u8 unused1[16];
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u8 unused2[2];
+    /*0x84*/ ScriptExecutionContext* context;
+} KidEntity;
 
 const SpriteLoadData gUnk_0810BD7C[] = {
     { 58, 59, 4 },
@@ -72,13 +93,12 @@ const u16 gUnk_0810BDE8[][2] = { {
                                      TEXT_INDEX(TEXT_EMPTY, 0x1),
                                      TEXT_INDEX(TEXT_EMPTY, 0x1),
                                  } };
-void sub_080620F4(Entity*);
-void sub_08062130(Entity*);
-void sub_08062194(Entity*);
-void (*const gUnk_0810BE0C[])(Entity*) = { sub_080620F4, sub_08062130, sub_08062194 };
+void sub_080620F4(KidEntity*);
+void sub_08062130(KidEntity*);
+void sub_08062194(KidEntity*);
+void (*const gUnk_0810BE0C[])(KidEntity*) = { sub_080620F4, sub_08062130, sub_08062194 };
 extern s32 sub_080041E8(s32 x1, s32 y1, s32 x2, s32 y2);
 
-void sub_08062194(Entity*);
 const Dialog gUnk_0810BE10[] = {
     { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_FESTIVAL, 0xf) } },
     { 0, 0, DIALOG_NORMAL, 1, { 0, TEXT_INDEX(TEXT_TOWN4, 0x33) } },
@@ -178,10 +198,10 @@ const FrameStruct gUnk_0810C0A0[] = {
     { 120, 83 }, { 128, 15 }, { 131, 102 }, { 128, 15 }, { 139, 111 }, { 128, 15 },
 };
 
-void sub_080621AC(Entity*);
-void sub_080622F4(Entity*);
-void sub_0806265C(Entity*, ScriptExecutionContext*);
-void sub_0806252C(Entity*);
+void sub_080621AC(KidEntity* this);
+void sub_080622F4(KidEntity* this);
+void sub_0806265C(Entity* this, ScriptExecutionContext* context);
+void sub_0806252C(Entity* this);
 
 typedef union {
     struct {
@@ -197,114 +217,115 @@ typedef union {
 
 #define KID_HEAP_COUNT 0x14
 typedef KidHeapItem KidHeap[KID_HEAP_COUNT];
-#define KID_HEAP ((KidHeapItem*)this->myHeap)
+#define KID_HEAP ((KidHeapItem*)super->myHeap)
 
-void Kid(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
+void Kid(KidEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
         sub_080621AC(this);
     } else {
-        gUnk_0810BE0C[this->action](this);
+        gUnk_0810BE0C[super->action](this);
     }
 }
 
-void sub_080620F4(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type])) {
-        this->animationState = 4;
-        this->field_0x68.HALF.LO = 0;
-        this->action = 1;
-        InitAnimationForceUpdate(this, 2);
-        AddInteractableWhenBigObject(this);
+void sub_080620F4(KidEntity* this) {
+    if (LoadExtraSpriteData(super, gUnk_0810BDC4[super->type])) {
+        super->animationState = 4;
+        this->unk_68 = 0;
+        super->action = 1;
+        InitAnimationForceUpdate(super, 2);
+        AddInteractableWhenBigObject(super);
     }
 }
 
-void sub_08062130(Entity* this) {
-    if (this->interactType != 0) {
-        this->action = 2;
-        InitAnimationForceUpdate(this, GetAnimationState(this));
+void sub_08062130(KidEntity* this) {
+    if (super->interactType != 0) {
+        super->action = 2;
+        InitAnimationForceUpdate(super, GetAnimationState(super));
     }
-    if (this->subtimer++ >= 0x79) {
-        this->subtimer = 0;
-        this->timer = (this->timer + 1) & 7;
-        if (this->type == 6) {
-            this->timer = this->timer + 16;
+    if (super->subtimer++ >= 0x79) {
+        super->subtimer = 0;
+        super->timer = (super->timer + 1) & 7;
+        if (super->type == 6) {
+            super->timer = super->timer + 16;
         }
-        InitAnimationForceUpdate(this, this->timer);
+        InitAnimationForceUpdate(super, super->timer);
     } else {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
-    sub_0806ED78(this);
+    sub_0806ED78(super);
 }
 
-void sub_08062194(Entity* this) {
+void sub_08062194(KidEntity* this) {
     MessageFromTarget(0);
-    this->action = 1;
-    this->interactType = 0;
+    super->action = 1;
+    super->interactType = 0;
 }
 
-void sub_080621AC(Entity* this) {
+void sub_080621AC(KidEntity* this) {
     u32 tmp;
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type])) {
-                this->action = 1;
-                this->animationState = this->timer;
-                this->timer = 0;
-                this->field_0x68.HALF.LO = 0;
-                this->field_0x68.HALF.HI = 0;
-                this->field_0x6a.HALF.HI = 0xff;
-                tmp = sub_0805ACC0(this);
+            if (LoadExtraSpriteData(super, gUnk_0810BDC4[super->type])) {
+                super->action = 1;
+                super->animationState = super->timer;
+                super->timer = 0;
+                this->unk_68 = 0;
+                this->unk_69 = 0;
+                this->unk_6b = 0xff;
+                tmp = sub_0805ACC0(super);
                 if (tmp == 0) {
-                    this->field_0x6c.HWORD = this->x.HALF.HI;
-                    this->field_0x6e.HWORD = this->y.HALF.HI;
+                    this->unk_6c = super->x.HALF.HI;
+                    this->unk_6e = super->y.HALF.HI;
                 } else {
-                    this->field_0x6c.HWORD = tmp >> 0x10;
-                    this->field_0x6e.HWORD = tmp;
+                    this->unk_6c = tmp >> 0x10;
+                    this->unk_6e = tmp;
                 }
-                sub_0807DD50(this);
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 3;
-                this->interactType = 0;
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 3;
+                super->interactType = 0;
+                InitializeNPCFusion(super);
             } else {
-                if ((s8)this->field_0x68.HALF.LO != 0) {
-                    if (this->interactType != 0) {
-                        this->action = 2;
-                        this->interactType = 0;
+                if ((s8)this->unk_68 != 0) {
+                    if (super->interactType != 0) {
+                        super->action = 2;
+                        super->interactType = 0;
                     } else {
                         sub_080622F4(this);
                         return;
                     }
                 } else {
-                    sub_0807DD94(this, NULL);
-                    if (this->interactType != 0) {
-                        this->action = 2;
-                        this->interactType = 0;
+                    ExecuteScriptAndHandleAnimation(super, NULL);
+                    if (super->interactType != 0) {
+                        super->action = 2;
+                        super->interactType = 0;
                     } else {
                         return;
                     }
                 }
-                sub_0806265C(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-                tmp = this->animIndex;
+                sub_0806265C(super, this->context);
+                tmp = super->animIndex;
             }
-            this->field_0x6a.HALF.HI = this->animIndex;
-            if (this->animIndex < 8) {
-                InitializeAnimation(this, (this->animIndex & 0xfffffffc) +
-                                              sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+            this->unk_6b = super->animIndex;
+            if (super->animIndex < 8) {
+                InitializeAnimation(super,
+                                    (super->animIndex & 0xfffffffc) +
+                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
             }
             break;
         case 2:
-            GetNextFrame(this);
+            GetNextFrame(super);
             if ((gMessage.doTextBox & 0x7f) == 0) {
-                this->action = 1;
+                super->action = 1;
             }
             break;
         case 3:
-            if (UpdateFuseInteraction(this) != 0) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super) != 0) {
+                super->action = 1;
             }
             break;
         default:
@@ -320,7 +341,7 @@ void sub_080621AC(Entity* this) {
         heapPtr--;                               \
     }
 
-void sub_080622F4(Entity* this) {
+void sub_080622F4(KidEntity* this) {
     s32 dx;
     s32 dy;
     s32 dist;
@@ -340,10 +361,10 @@ void sub_080622F4(Entity* this) {
     item.FIELDS.animationState = gPlayerEntity.animationState;
     item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
 
-    heapPtr = this->myHeap;
+    heapPtr = super->myHeap;
     if (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16) {
-        dx = this->x.HALF.HI - gPlayerEntity.x.HALF.HI;
-        dy = this->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+        dx = super->x.HALF.HI - gPlayerEntity.x.HALF.HI;
+        dy = super->y.HALF.HI - gPlayerEntity.y.HALF.HI;
 
         if (dx < 0)
             dx = -dx;
@@ -351,11 +372,11 @@ void sub_080622F4(Entity* this) {
             dy = -dy;
 
         if (dx > 120 || dy > 80) {
-            this->field_0x68.HALF.LO = 0;
+            this->unk_68 = 0;
             return;
         }
 
-        sub_0806252C(this);
+        sub_0806252C(super);
     }
 
     animIndex = 0;
@@ -366,8 +387,8 @@ void sub_080622F4(Entity* this) {
         heapPtr[0] = item;
 
         animIndex = 0x4;
-        if ((s8)this->field_0x68.HALF.HI > 0) {
-            this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+        if ((s8)this->unk_69 > 0) {
+            this->unk_69 = this->unk_69 - 1;
         }
     } else {
         heapPtr += KID_HEAP_COUNT - 1;
@@ -387,40 +408,40 @@ void sub_080622F4(Entity* this) {
     }
     heapPtr = KID_HEAP;
     heapPtr += +KID_HEAP_COUNT - 1;
-    this->x.HALF.HI = heapPtr->FIELDS.x;
-    this->y.HALF.HI = heapPtr->FIELDS.y;
-    this->z.HALF.HI = heapPtr->FIELDS.z;
-    this->animationState = heapPtr->FIELDS.animationState;
-    this->collisionLayer = heapPtr->FIELDS.collisionLayer;
+    super->x.HALF.HI = heapPtr->FIELDS.x;
+    super->y.HALF.HI = heapPtr->FIELDS.y;
+    super->z.HALF.HI = heapPtr->FIELDS.z;
+    super->animationState = heapPtr->FIELDS.animationState;
+    super->collisionLayer = heapPtr->FIELDS.collisionLayer;
 
-    if (((s8)this->field_0x68.HALF.HI) > 0) {
-        this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+    if (((s8)this->unk_69) > 0) {
+        this->unk_69 = this->unk_69 - 1;
     }
 
     animIndexTmp = animIndex;
-    animIndex += this->animationState >> 1;
-    if (this->type == OBJECT) {
+    animIndex += super->animationState >> 1;
+    if (super->type == OBJECT) {
         animIndex += 0x10;
     }
 
-    if (!(animIndex == this->animIndex || (animIndexTmp == 0 && ((s8)this->field_0x68.HALF.HI) > 0))) {
-        InitAnimationForceUpdate(this, animIndex);
-        this->field_0x68.HALF.HI = 0x1e;
+    if (!(animIndex == super->animIndex || (animIndexTmp == 0 && ((s8)this->unk_69) > 0))) {
+        InitAnimationForceUpdate(super, animIndex);
+        this->unk_69 = 0x1e;
     } else {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
 
-    sub_0800451C(this);
+    sub_0800451C(super);
     return;
 }
 
-void sub_08062500(Entity* this) {
-    this->myHeap = zMalloc(sizeof(KidHeap));
-    if (this->myHeap != NULL) {
-        this->field_0x68.HALF.LO = 1;
-        RemoveInteractableObject(this);
-        this->hitbox = NULL;
-        sub_0806252C(this);
+void sub_08062500(KidEntity* this) {
+    super->myHeap = zMalloc(sizeof(KidHeap));
+    if (super->myHeap != NULL) {
+        this->unk_68 = 1;
+        RemoveInteractableObject(super);
+        super->hitbox = NULL;
+        sub_0806252C(super);
     }
 }
 
@@ -636,7 +657,7 @@ void Kid_Head(Entity* this) {
     }
 }
 
-void sub_08062948(Entity* this, ScriptExecutionContext* context) {
+void sub_08062948(KidEntity* this, ScriptExecutionContext* context) {
     s32 bVar1;
     u16 uVar2;
     u32 uVar3;
@@ -646,7 +667,7 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
         context->unk_18++;
         context->unk_12 = (Random() & 0x3f) + 0x20;
         uVar3 = Random() & 0x18;
-        switch (this->direction) {
+        switch (super->direction) {
             case 0:
                 if (uVar3 == 0x10) {
                     uVar3 = 8;
@@ -668,32 +689,32 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
                 }
         }
 
-        this->direction = (u8)uVar3;
-        this->animationState = sub_0806F5B0(uVar3);
-        this->speed = 0x80;
+        super->direction = (u8)uVar3;
+        super->animationState = GetAnimationStateForDirection8(uVar3);
+        super->speed = 0x80;
     }
-    uVar3 = (this->animationState >> 1) + 4;
-    if (uVar3 != this->animIndex) {
-        InitializeAnimation(this, uVar3);
-        this->field_0x80.HWORD = (u16)this->animIndex;
+    uVar3 = (super->animationState >> 1) + 4;
+    if (uVar3 != super->animIndex) {
+        InitializeAnimation(super, uVar3);
+        this->unk_80 = (u16)super->animIndex;
     }
-    ProcessMovement0(this);
-    iVar4 = this->x.HALF.HI - (s16)this->field_0x6c.HWORD;
+    ProcessMovement0(super);
+    iVar4 = super->x.HALF.HI - (s16)this->unk_6c;
     if (0x10 < iVar4) {
-        this->x.HALF.HI = this->field_0x6c.HWORD + 0x10;
+        super->x.HALF.HI = this->unk_6c + 0x10;
         context->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
-        this->x.HALF.HI = this->field_0x6c.HWORD - 0x10;
+        super->x.HALF.HI = this->unk_6c - 0x10;
         context->unk_12 = 1;
     }
-    iVar4 = this->y.HALF.HI - (s16)this->field_0x6e.HWORD;
+    iVar4 = super->y.HALF.HI - (s16)this->unk_6e;
     if (0x10 < iVar4) {
-        this->y.HALF.HI = this->field_0x6e.HWORD + 0x10;
+        super->y.HALF.HI = this->unk_6e + 0x10;
         context->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
-        this->y.HALF.HI = this->field_0x6e.HWORD - 0x10;
+        super->y.HALF.HI = this->unk_6e - 0x10;
         context->unk_12 = 1;
     }
     if (--context->unk_12 != 0) {
@@ -701,9 +722,9 @@ void sub_08062948(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-void Kid_MakeInteractable(Entity* this, ScriptExecutionContext* context) {
-    this->field_0x6a.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x6a.HALF.LO);
+void Kid_MakeInteractable(KidEntity* this, ScriptExecutionContext* context) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Kid_Fusion(Entity* this) {

@@ -1,6 +1,19 @@
-#include "npc.h"
+/**
+ * @file syrup.c
+ * @ingroup NPCs
+ *
+ * @brief Syrup NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
+#include "npc.h"
 #include "object.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[26];
+    /*0x82*/ u16 unk_82;
+} SyrupEntity;
 
 static const SpriteLoadData gUnk_081121B4[] = {
     { 0xc2, 0x46, 0x4 },
@@ -16,38 +29,38 @@ static const SpriteLoadData gUnk_081121C4[] = {
 };
 
 void sub_0806A26C(Entity*);
-void sub_0806A1F8(Entity*);
-void sub_0806A234(Entity*);
+void sub_0806A1F8(SyrupEntity*);
+void sub_0806A234(SyrupEntity*);
 
-void Syrup(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void Syrup(SyrupEntity* this) {
+    static void (*const actionFuncs[])(SyrupEntity*) = {
         sub_0806A1F8,
         sub_0806A234,
     };
-    actionFuncs[this->action](this);
-    sub_0806ED78(this);
+    actionFuncs[super->action](this);
+    sub_0806ED78(super);
 }
 
-void sub_0806A1F8(Entity* this) {
+void sub_0806A1F8(SyrupEntity* this) {
     const SpriteLoadData* paVar2;
 
-    this->type == 0 ? (paVar2 = gUnk_081121B4) : (paVar2 = gUnk_081121C4);
+    super->type == 0 ? (paVar2 = gUnk_081121B4) : (paVar2 = gUnk_081121C4);
 
-    if (LoadExtraSpriteData(this, paVar2)) {
-        this->action = 1;
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        sub_0807DD50(this);
-        InitializeAnimation(this, 0);
+    if (LoadExtraSpriteData(super, paVar2)) {
+        super->action = 1;
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        InitScriptForNPC(super);
+        InitializeAnimation(super, 0);
     }
 }
 
-void sub_0806A234(Entity* this) {
-    sub_0807DD94(this, 0);
-    if ((this->field_0x82.HWORD & 4) != 0) {
+void sub_0806A234(SyrupEntity* this) {
+    ExecuteScriptAndHandleAnimation(super, NULL);
+    if ((this->unk_82 & 4) != 0) {
         if ((gRoomTransition.frameCount & 7) == 0) {
-            sub_0806A26C(this);
+            sub_0806A26C(super);
         }
-        sub_080042BA(this, 2);
+        sub_080042BA(super, 2);
     }
 }
 

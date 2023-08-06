@@ -1,7 +1,18 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file windTribespeople.c
+ * @ingroup NPCs
+ *
+ * @brief Wind Tribespeople NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
+#include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} WindTribespeopleEntity;
 
 void sub_0806C798(Entity*);
 void sub_0806C7D4(Entity*);
@@ -43,7 +54,7 @@ void sub_0806C798(Entity* this) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->animationState = this->timer;
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
         sub_0806C7D4(this);
     }
 }
@@ -52,12 +63,12 @@ void sub_0806C7D4(Entity* this) {
     u32 iVar1;
     u32 uVar2;
 
-    if (this->interactType == '\x02') {
+    if (this->interactType == 2) {
         this->action = 3;
         this->interactType = 0;
-        sub_0806F118(this);
+        InitializeNPCFusion(this);
     } else {
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(this, NULL);
         if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(SORA_ELDER_RECOVER)) &&
             (CheckRoomFlag(0))) {
             this->type2 = 7;
@@ -79,12 +90,9 @@ void sub_0806C85C(Entity* this) {
     }
 }
 
-void WindTribespeople_MakeInteractable(Entity* this) {
-    u8 bVar1;
-
-    bVar1 = GetFusionToOffer(this);
-    this->field_0x68.HALF.LO = bVar1;
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void WindTribespeople_MakeInteractable(WindTribespeopleEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void WindTribespeople_Head(Entity* this) {

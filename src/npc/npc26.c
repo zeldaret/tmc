@@ -1,4 +1,10 @@
-#include "global.h"
+/**
+ * @file npc26.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 26
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 
@@ -53,11 +59,11 @@ static void sub_08066A30(Entity* this) {
 static void sub_08066A38(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
-    sub_0807DD50(this);
+    InitScriptForNPC(this);
 }
 
 static void sub_08066A50(Entity* this) {
-    sub_0807DD94(this, NULL);
+    ExecuteScriptAndHandleAnimation(this, NULL);
 }
 
 static void (*const gUnk_081106D4[])(Entity*) = { sub_080669B8, sub_080669DC, sub_08066A30 };

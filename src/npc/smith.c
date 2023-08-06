@@ -1,5 +1,19 @@
-#include "npc.h"
+/**
+ * @file smith.c
+ * @ingroup NPCs
+ *
+ * @brief Smith NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
+#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unused[23];
+    /*0x80*/ u16 unk_80;
+} SmithEntity;
 
 static const SpriteLoadData gUnk_08110354[] = {
     { 0x4d, 0x38, 0x4 },
@@ -7,22 +21,22 @@ static const SpriteLoadData gUnk_08110354[] = {
     { 0, 0, 0 },
 };
 
-void sub_080660EC(Entity*);
-void sub_08066118(Entity*);
-void sub_08066170(Entity*);
-void sub_08066178(Entity*);
-void sub_080661B0(Entity*);
-void sub_080661BC(Entity*);
-void sub_08066200(Entity*);
-void sub_08066218(Entity*);
+void sub_080660EC(SmithEntity*);
+void sub_08066118(SmithEntity*);
+void sub_08066170(SmithEntity*);
+void sub_08066178(SmithEntity*);
+void sub_080661B0(SmithEntity*);
+void sub_080661BC(SmithEntity*);
+void sub_08066200(SmithEntity*);
+void sub_08066218(SmithEntity*);
 
-void Smith(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void Smith(SmithEntity* this) {
+    static void (*const actionFuncs[])(SmithEntity*) = {
         sub_080660EC,
         sub_08066118,
         sub_08066170,
     };
-    static void (*const scriptedActionFuncs[])(Entity*) = {
+    static void (*const scriptedActionFuncs[])(SmithEntity*) = {
         sub_08066178, sub_080661B0, sub_080661BC, sub_08066200, sub_08066218,
     };
     static const u16 gUnk_08110380[] = {
@@ -30,28 +44,28 @@ void Smith(Entity* this) {
     };
     u32 index;
 
-    if ((this->flags & ENT_SCRIPTED) != 0) {
-        if (this->interactType == 2) {
-            this->action = 4;
-            this->interactType = 0;
-            index = (this->animIndex == 0xc) ? 8 : 0;
-            index += sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
-            InitAnimationForceUpdate(this, index);
-            sub_0806F118(this);
+    if ((super->flags & ENT_SCRIPTED) != 0) {
+        if (super->interactType == 2) {
+            super->action = 4;
+            super->interactType = 0;
+            index = (super->animIndex == 0xc) ? 8 : 0;
+            index += GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+            InitAnimationForceUpdate(super, index);
+            InitializeNPCFusion(super);
         }
-        scriptedActionFuncs[this->action](this);
+        scriptedActionFuncs[super->action](this);
     } else {
-        actionFuncs[this->action](this);
-        sub_0806ED78(this);
+        actionFuncs[super->action](this);
+        sub_0806ED78(super);
     }
-    if (this->animIndex == 0xc) {
-        this->spritePriority.b1 = 0;
+    if (super->animIndex == 0xc) {
+        super->spritePriority.b1 = 0;
     } else {
-        this->spritePriority.b1 = 1;
+        super->spritePriority.b1 = 1;
     }
-    if ((this->frame & 1) != 0) {
-        this->frame &= 0xfe;
-        CreateFx(this, FX_STARS2, 0x20);
+    if ((super->frame & 1) != 0) {
+        super->frame &= 0xfe;
+        CreateFx(super, FX_STARS2, 0x20);
         SoundReq(gUnk_08110380[(Random() & 7)]);
     }
 }
@@ -70,75 +84,75 @@ void Smith_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-void sub_080660EC(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_08110354)) {
-        this->action = 1;
-        this->field_0x68.HALF.LO = GetFusionToOffer(this);
-        InitAnimationForceUpdate(this, 2);
+void sub_080660EC(SmithEntity* this) {
+    if (LoadExtraSpriteData(super, gUnk_08110354)) {
+        super->action = 1;
+        this->fusionOffer = GetFusionToOffer(super);
+        InitAnimationForceUpdate(super, 2);
     }
 }
 
-void sub_08066118(Entity* this) {
+void sub_08066118(SmithEntity* this) {
     s32 uVar1;
 
-    uVar1 = GetAnimationStateInRectRadius(this, 0x28, 0x28);
+    uVar1 = GetAnimationStateInRectRadius(super, 0x28, 0x28);
     if (uVar1 < 0) {
         uVar1 = 2;
     } else {
-        if (this->subtimer == 0) {
-            this->subtimer = 16;
+        if (super->subtimer == 0) {
+            super->subtimer = 16;
         } else {
-            --this->subtimer;
-            uVar1 = this->animIndex;
+            --super->subtimer;
+            uVar1 = super->animIndex;
         }
     }
-    if (sub_0806F078(this, uVar1) == 0) {
-        UpdateAnimationSingleFrame(this);
+    if (sub_0806F078(super, uVar1) == 0) {
+        UpdateAnimationSingleFrame(super);
     }
-    if (this->interactType != 0) {
-        this->action = 2;
+    if (super->interactType != 0) {
+        super->action = 2;
         MessageFromTarget(0);
     }
 }
 
-void sub_08066170(Entity* this) {
-    this->action = 1;
+void sub_08066170(SmithEntity* this) {
+    super->action = 1;
 }
 
-void sub_08066178(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_08110354)) {
-        this->action = 1;
-        this->spriteSettings.draw = 1;
-        this->field_0x68.HALF.LO = GetFusionToOffer(this);
-        sub_0807DD50(this);
+void sub_08066178(SmithEntity* this) {
+    if (LoadExtraSpriteData(super, gUnk_08110354)) {
+        super->action = 1;
+        super->spriteSettings.draw = 1;
+        this->fusionOffer = GetFusionToOffer(super);
+        InitScriptForNPC(super);
     }
 }
 
-void sub_080661B0(Entity* this) {
-    sub_0807DD94(this, NULL);
+void sub_080661B0(SmithEntity* this) {
+    ExecuteScriptAndHandleAnimation(super, NULL);
 }
 
-void sub_080661BC(Entity* this) {
-    if (this->animIndex == 0xc) {
-        UpdateAnimationSingleFrame(this);
-        if (this->frame & ANIM_DONE) {
-            this->field_0x80.HWORD = GetAnimationState(this) + 8;
-            InitAnimationForceUpdate(this, this->field_0x80.HWORD);
+void sub_080661BC(SmithEntity* this) {
+    if (super->animIndex == 0xc) {
+        UpdateAnimationSingleFrame(super);
+        if (super->frame & ANIM_DONE) {
+            this->unk_80 = GetAnimationState(super) + 8;
+            InitAnimationForceUpdate(super, this->unk_80);
         }
     } else {
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(super, NULL);
     }
 }
 
-void sub_08066200(Entity* this) {
-    ExecuteScriptForEntity(this, NULL);
-    HandleEntity0x82Actions(this);
-    UpdateAnimationSingleFrame(this);
+void sub_08066200(SmithEntity* this) {
+    ExecuteScriptForEntity(super, NULL);
+    HandleEntity0x82Actions(super);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_08066218(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
+void sub_08066218(SmithEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
     }
 }
 
@@ -210,8 +224,8 @@ void Smith_ChangeInteractableHitbox(Entity* this) {
     SetInteractableObjectCollision(this, 1, 0, &gUnk_081103E0);
 }
 
-void Smith_MakeInteractable(Entity* this) {
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Smith_MakeInteractable(SmithEntity* this) {
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Smith_Fusion(Entity* this) {

@@ -1,19 +1,31 @@
+/**
+ * @file sturgeon.c
+ * @ingroup NPCs
+ *
+ * @brief Sturgeon NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
+#include "item.h"
 #include "npc.h"
 #include "object.h"
-#include "item.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} SturgeonEntity;
 
 const SpriteLoadData gUnk_0810FA38[] = {
     { 59, 140, 0 },
     { 59, 140, 0 },
     { 0, 0, 0 },
 };
-void sub_08064B44(Entity*);
-void sub_08064B88(Entity*);
-void sub_08064C2C(Entity*);
-void sub_08064C50(Entity*);
-void (*const gUnk_0810FA44[])(Entity*) = {
+void sub_08064B44(SturgeonEntity*);
+void sub_08064B88(SturgeonEntity*);
+void sub_08064C2C(SturgeonEntity*);
+void sub_08064C50(SturgeonEntity*);
+void (*const gUnk_0810FA44[])(SturgeonEntity*) = {
     sub_08064B44,
     sub_08064B88,
     sub_08064C2C,
@@ -28,102 +40,103 @@ extern const u16 gUnk_0810FA54[];
 // };
 extern u32 gUnk_0810FA5A; // TODO second parameter of sub_0806EE04
 
-void Sturgeon_MakeInteractable(Entity* this);
+void Sturgeon_MakeInteractable(SturgeonEntity* this);
 void sub_08064C9C(Entity* this);
 void sub_08064CD8(Entity* this);
 
-void Sturgeon(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) == 0) {
-        gUnk_0810FA44[this->action](this);
-        sub_0806ED78(this);
+void Sturgeon(SturgeonEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) == 0) {
+        gUnk_0810FA44[super->action](this);
+        sub_0806ED78(super);
     } else {
-        if (this->action == 0) {
-            if (LoadExtraSpriteData(this, gUnk_0810FA38)) {
-                this->action = 1;
-                this->timer = 0;
-                sub_0807DD50(this);
+        if (super->action == 0) {
+            if (LoadExtraSpriteData(super, gUnk_0810FA38)) {
+                super->action = 1;
+                super->timer = 0;
+                InitScriptForNPC(super);
             }
         } else {
-            u32 tmp = this->action & 0x80;
+            u32 tmp = super->action & 0x80;
             if (tmp) {
-                if (UpdateFuseInteraction(this)) {
-                    this->action = 1;
+                if (UpdateFuseInteraction(super)) {
+                    super->action = 1;
                 }
             } else {
-                if (this->interactType == 2) {
-                    this->action = this->action | 0xff;
-                    this->interactType = 0;
-                    InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                    sub_0806F118(this);
+                if (super->interactType == 2) {
+                    super->action = super->action | 0xff;
+                    super->interactType = 0;
+                    InitAnimationForceUpdate(super,
+                                             GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                    InitializeNPCFusion(super);
                 } else {
-                    sub_0807DD94(this, NULL);
-                    sub_08064C9C(this);
+                    ExecuteScriptAndHandleAnimation(super, NULL);
+                    sub_08064C9C(super);
                 }
             }
         }
     }
 }
 
-void sub_08064B44(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810FA38)) {
-        InitializeAnimation(this, 2);
-        sub_0806EE04(this, &gUnk_0810FA5A, 0);
+void sub_08064B44(SturgeonEntity* this) {
+    if (LoadExtraSpriteData(super, gUnk_0810FA38)) {
+        InitializeAnimation(super, 2);
+        sub_0806EE04(super, &gUnk_0810FA5A, 0);
         Sturgeon_MakeInteractable(this);
-        this->action = 1;
-        this->subAction = 0;
-        this->spriteSettings.draw = 1;
+        super->action = 1;
+        super->subAction = 0;
+        super->spriteSettings.draw = 1;
     }
 }
 
-void sub_08064B88(Entity* this) {
+void sub_08064B88(SturgeonEntity* this) {
     s32 temp;
     s32 temp2;
 
-    switch (this->interactType) {
+    switch (super->interactType) {
         case 0:
-            temp = sub_0806EE20(this);
-            this->animationState = this->knockbackDirection;
+            temp = sub_0806EE20(super);
+            super->animationState = super->knockbackDirection;
             if (temp != 0) {
-                InitializeAnimation(this, temp & 0x7f);
+                InitializeAnimation(super, temp & 0x7f);
             }
-            GetNextFrame(this);
+            GetNextFrame(super);
             break;
         case 2:
-            this->action = 3;
-            temp2 = GetAnimationState(this);
+            super->action = 3;
+            temp2 = GetAnimationState(super);
             if (temp2 < 0) {
-                temp2 = this->animationState;
+                temp2 = super->animationState;
             }
-            this->subtimer = this->animIndex;
-            InitializeAnimation(this, temp2);
-            this->interactType = 0;
-            sub_0806F118(this);
+            super->subtimer = super->animIndex;
+            InitializeAnimation(super, temp2);
+            super->interactType = 0;
+            InitializeNPCFusion(super);
             break;
         case 1:
         default:
-            this->action = 2;
-            temp2 = GetAnimationState(this);
+            super->action = 2;
+            temp2 = GetAnimationState(super);
             if (temp2 < 0) {
-                temp2 = this->animationState;
+                temp2 = super->animationState;
             }
-            this->subtimer = this->animIndex;
-            InitializeAnimation(this, temp2);
-            this->interactType = 0;
-            sub_08064CD8(this);
+            super->subtimer = super->animIndex;
+            InitializeAnimation(super, temp2);
+            super->interactType = 0;
+            sub_08064CD8(super);
     }
 }
 
-void sub_08064C2C(Entity* this) {
+void sub_08064C2C(SturgeonEntity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->action = 1;
-        InitializeAnimation(this, (u32)this->subtimer);
+        super->action = 1;
+        InitializeAnimation(super, (u32)super->subtimer);
     }
 }
 
-void sub_08064C50(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
-        InitializeAnimation(this, this->subtimer);
+void sub_08064C50(SturgeonEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
+        InitializeAnimation(super, super->subtimer);
     }
 }
 
@@ -140,9 +153,9 @@ void sub_08064C9C(Entity* this) {
     }
 }
 
-void Sturgeon_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Sturgeon_MakeInteractable(SturgeonEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void sub_08064CD8(Entity* this) {

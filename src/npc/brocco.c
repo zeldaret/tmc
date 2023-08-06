@@ -1,19 +1,32 @@
+/**
+ * @file brocco.c
+ * @ingroup NPCs
+ *
+ * @brief Brocco NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "message.h"
-#include "save.h"
 #include "npc.h"
+#include "save.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+} BroccoEntity;
 
 void sub_08063544(Entity*);
-void sub_0806362C(Entity*);
+void sub_0806362C(BroccoEntity*);
 void sub_0806355C(Entity*);
 void sub_08063584(Entity*);
 void sub_08063608(Entity*);
 
-void Brocco(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
+void Brocco(BroccoEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
         sub_0806362C(this);
     } else {
-        sub_08063544(this);
+        sub_08063544(super);
     }
 }
 
@@ -67,32 +80,33 @@ void sub_08063608(Entity* this) {
     }
 }
 
-void sub_0806362C(Entity* this) {
-    switch (this->action) {
+void sub_0806362C(BroccoEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->field_0x68.HALF.HI = 0;
-            sub_0807DD64(this);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            this->animIndex = 0;
+            sub_0807DD64(super);
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitAnimationForceUpdate(super,
+                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, NULL);
-                HandleEntity0x82Actions(this);
-                UpdateAnimationSingleFrame(this);
+                ExecuteScriptForEntity(super, NULL);
+                HandleEntity0x82Actions(super);
+                UpdateAnimationSingleFrame(super);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this) == 0) {
+            if (UpdateFuseInteraction(super) == 0) {
                 return;
             }
-            this->action = 1;
-            InitAnimationForceUpdate(this, this->field_0x68.HALF.HI);
+            super->action = 1;
+            InitAnimationForceUpdate(super, this->animIndex);
             break;
     }
 }
@@ -114,9 +128,9 @@ void sub_080636D8(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810CAAC[gSave.global_progress]);
 }
 
-void Brocco_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Brocco_MakeInteractable(BroccoEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Brocco_Fusion(Entity* this) {

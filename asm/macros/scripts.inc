@@ -462,7 +462,7 @@
 	.2byte \s
 .endm
 
-.macro _0807E9F0
+.macro UpdateFusion
 	.2byte 0x0456
 .endm
 

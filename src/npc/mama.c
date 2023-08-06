@@ -1,7 +1,20 @@
+/**
+ * @file mama.c
+ * @ingroup NPCs
+ *
+ * @brief Mama NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "save.h"
 #include "npc.h"
+#include "save.h"
+#include "script.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+} MamaEntity;
 
 static const SpriteLoadData gUnk_08113754[] = {
     { 0x101, 0x4e, 0x4 },
@@ -11,35 +24,35 @@ static const SpriteLoadData gUnk_08113754[] = {
 
 bool32 sub_0806C454(Entity* this);
 
-void Mama(Entity* this) {
-    switch (this->action) {
+void Mama(MamaEntity* this) {
+    switch (super->action) {
         case 0:
-            if (sub_0806C454(this) != 0) {
-                this->action = 1;
-                this->spriteSettings.draw = 1;
-                this->animationState = this->timer;
-                this->field_0x68.HALF.HI = 0;
-                sub_0807DD50(this);
+            if (sub_0806C454(super) != 0) {
+                super->action = 1;
+                super->spriteSettings.draw = 1;
+                super->animationState = super->timer;
+                this->animIndex = 0;
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, NULL);
-                HandleEntity0x82Actions(this);
-                GetNextFrame(this);
+                ExecuteScriptForEntity(super, NULL);
+                HandleEntity0x82Actions(super);
+                GetNextFrame(super);
             }
             break;
 
         case 2:
-            if (UpdateFuseInteraction(this) != 0) {
-                this->action = 1;
-                InitializeAnimation(this, this->field_0x68.HALF.HI);
+            if (UpdateFuseInteraction(super) != 0) {
+                super->action = 1;
+                InitializeAnimation(super, this->animIndex);
             }
             break;
     }
@@ -92,9 +105,9 @@ void sub_0806C4DC(Entity* this) {
     ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
 
-void Mama_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Mama_MakeInteractable(MamaEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Mama_Fusion(Entity* this) {

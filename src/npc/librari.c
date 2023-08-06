@@ -1,33 +1,44 @@
-#include "global.h"
+/**
+ * @file librari.c
+ * @ingroup NPCs
+ *
+ * @brief Librari NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
 
-void Librari(Entity* this) {
-    switch (this->action) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} LibrariEntity;
+
+void Librari(LibrariEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = TRUE;
-            this->animationState = this->timer;
-            this->field_0x68.HALF.LO = GetFusionToOffer(this);
-            AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-            SetDefaultPriority(this, PRIO_MESSAGE);
-            sub_0807DD50(this);
+            super->action = 1;
+            super->spriteSettings.draw = TRUE;
+            super->animationState = super->timer;
+            this->fusionOffer = GetFusionToOffer(super);
+            AddInteractableWhenBigFuser(super, this->fusionOffer);
+            SetDefaultPriority(super, PRIO_MESSAGE);
+            InitScriptForNPC(super);
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, NULL);
-                HandleEntity0x82Actions(this);
-                UpdateAnimationSingleFrame(this);
+                ExecuteScriptForEntity(super, NULL);
+                HandleEntity0x82Actions(super);
+                UpdateAnimationSingleFrame(super);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
             }
     }
 }

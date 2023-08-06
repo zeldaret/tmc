@@ -1,93 +1,105 @@
+/**
+ * @file kingDaltus.c
+ * @ingroup NPCs
+ *
+ * @brief King Daltus NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
 #include "functions.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "script.h"
 
-void sub_08066654(Entity*);
-void sub_08066688(Entity*);
-void sub_080666DC(Entity*);
-void sub_080666E4(Entity*);
-void sub_0806670C(Entity*);
-void sub_08066718(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} KingDaltusEntity;
 
-void KingDaltus(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void sub_08066654(KingDaltusEntity*);
+void sub_08066688(KingDaltusEntity*);
+void sub_080666DC(KingDaltusEntity*);
+void sub_080666E4(KingDaltusEntity*);
+void sub_0806670C(KingDaltusEntity*);
+void sub_08066718(KingDaltusEntity*);
+
+void KingDaltus(KingDaltusEntity* this) {
+    static void (*const actionFuncs[])(KingDaltusEntity*) = {
         sub_08066654,
         sub_08066688,
         sub_080666DC,
     };
-    static void (*const scriptedActionFuncs[])(Entity*) = {
+    static void (*const scriptedActionFuncs[])(KingDaltusEntity*) = {
         sub_080666E4,
         sub_0806670C,
         sub_08066718,
     };
-    if ((this->flags & ENT_SCRIPTED) != 0) {
-        if (this->interactType == 2) {
-            this->interactType = 0;
-            this->action = 2;
-            InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-            sub_0806F118(this);
+    if ((super->flags & ENT_SCRIPTED) != 0) {
+        if (super->interactType == 2) {
+            super->interactType = 0;
+            super->action = 2;
+            InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+            InitializeNPCFusion(super);
         }
-        scriptedActionFuncs[this->action](this);
+        scriptedActionFuncs[super->action](this);
     } else {
-        actionFuncs[this->action](this);
-        sub_0806ED78(this);
+        actionFuncs[super->action](this);
+        sub_0806ED78(super);
     }
 }
 
-void sub_08066654(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-    InitAnimationForceUpdate(this, 2);
+void sub_08066654(KingDaltusEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
+    InitAnimationForceUpdate(super, 2);
 }
 
-void sub_08066688(Entity* this) {
-    s32 tmp = GetAnimationStateInRectRadius(this, 0x28, 0x28);
+void sub_08066688(KingDaltusEntity* this) {
+    s32 tmp = GetAnimationStateInRectRadius(super, 0x28, 0x28);
     if (tmp < 0) {
         tmp = 2;
     } else {
-        if (this->subtimer == 0) {
-            this->subtimer = 16;
+        if (super->subtimer == 0) {
+            super->subtimer = 16;
         } else {
-            this->subtimer--;
-            tmp = this->animIndex;
+            super->subtimer--;
+            tmp = super->animIndex;
         }
     }
-    if (sub_0806F078(this, tmp) == 0) {
-        UpdateAnimationSingleFrame(this);
+    if (sub_0806F078(super, tmp) == 0) {
+        UpdateAnimationSingleFrame(super);
     }
-    if (this->interactType != 0) {
-        this->action = 2;
-        this->interactType = 0;
-    }
-}
-
-void sub_080666DC(Entity* this) {
-    this->action = 1;
-}
-
-void sub_080666E4(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    sub_0807DD50(this);
-}
-
-void sub_0806670C(Entity* this) {
-    sub_0807DD94(this, NULL);
-}
-
-void sub_08066718(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
+    if (super->interactType != 0) {
+        super->action = 2;
+        super->interactType = 0;
     }
 }
 
-void KingDaltus_MakeInteractable(Entity* this) {
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void sub_080666DC(KingDaltusEntity* this) {
+    super->action = 1;
+}
+
+void sub_080666E4(KingDaltusEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    this->fusionOffer = GetFusionToOffer(super);
+    InitScriptForNPC(super);
+}
+
+void sub_0806670C(KingDaltusEntity* this) {
+    ExecuteScriptAndHandleAnimation(super, NULL);
+}
+
+void sub_08066718(KingDaltusEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
+    }
+}
+
+void KingDaltus_MakeInteractable(KingDaltusEntity* this) {
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void sub_0806673C(Entity* this) {

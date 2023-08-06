@@ -1,13 +1,28 @@
-#include "global.h"
+/**
+ * @file guard.c
+ * @ingroup NPCs
+ *
+ * @brief Guard NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "flags.h"
+#include "functions.h"
 #include "message.h"
+#include "npc.h"
+#include "player.h"
+#include "projectile.h"
 #include "room.h"
 #include "script.h"
-#include "functions.h"
-#include "npc.h"
-#include "projectile.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16 unk_68;
+    /*0x6a*/ u16 unk_6a;
+    /*0x6c*/ u8 unused[4];
+    /*0x70*/ s8 unk_70;
+    /*0x71*/ u8 unk_71;
+} GuardEntity;
 
 typedef struct {
     u32 unk;
@@ -22,7 +37,6 @@ typedef struct {
 extern void sub_08063D24(Entity*);
 extern void sub_08064428(Entity*);
 void sub_08063DC8(Entity*);
-void sub_08063F20(Entity*);
 
 // TODO guardWithSpear rodata before this
 const Dialog gUnk_0810CF4C[] = {
@@ -240,10 +254,10 @@ const SpriteLoadData gUnk_0810F524[] = {
     { 55, 43, 4 }, { 6199, 43, 4 },  { 22583, 43, 4 }, { 0, 0, 0 },
     { 4, 43, 4 },  { 16388, 43, 4 }, { 8196, 43, 4 },  { 0, 0, 0 },
 };
-void sub_08063E90(Entity*);
-void sub_08063F20(Entity*);
-void sub_08063F78(Entity*);
-void (*const gUnk_0810F544[])(Entity*) = {
+void sub_08063E90(GuardEntity*);
+void sub_08063F20(GuardEntity*);
+void sub_08063F78(GuardEntity*);
+void (*const gUnk_0810F544[])(GuardEntity*) = {
     sub_08063E90,
     sub_08063F20,
     sub_08063F78,
@@ -261,11 +275,11 @@ void (*const gUnk_0810F550[])(Entity*) = {
 
 extern void* gUnk_0810F6BC[]; // TODO find out type of second param for sub_0806EE04
 
-void Guard(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
-        gUnk_0810F544[this->action](this);
+void Guard(GuardEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
+        gUnk_0810F544[super->action](this);
     } else {
-        sub_08063D24(this);
+        sub_08063D24(super);
     }
 }
 
@@ -306,7 +320,7 @@ void sub_08063DC8(Entity* this) {
     if (this->type == 0xff) {
         this->action = 2;
         this->timer = 30;
-        this->animationState = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
+        this->animationState = GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity));
         InitAnimationForceUpdate(this, this->animationState + 4);
     } else {
         sub_0806EE20(this);
@@ -319,7 +333,7 @@ void sub_08063DC8(Entity* this) {
         if (this->interactType != 0) {
             this->action = 3;
             this->interactType = 0;
-            InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+            InitializeAnimation(this, GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)));
             sub_08064428(this);
         }
     }
@@ -338,53 +352,54 @@ void sub_08063E6C(Entity* this) {
     }
 }
 
-void sub_08063E90(Entity* this) {
+void sub_08063E90(GuardEntity* this) {
     u32 idx;
     u32 unk;
 
-    idx = (this->id ^ 0x15) ? 1 : 0;
-    if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx * 4]))
+    idx = (super->id ^ 0x15) ? 1 : 0;
+    if (!LoadExtraSpriteData(super, &gUnk_0810F524[idx * 4]))
         return;
 
-    this->action++;
-    if (this->timer) {
-        this->field_0x70.BYTES.byte0 = 8;
+    super->action++;
+    if (super->timer) {
+        this->unk_70 = 8;
     } else {
-        this->field_0x70.BYTES.byte0 = 0;
+        this->unk_70 = 0;
     }
-    this->timer = 0;
+    super->timer = 0;
 
-    unk = sub_0805ACC0(this);
+    unk = sub_0805ACC0(super);
     if (unk == 0) {
-        this->field_0x68.HWORD = this->x.HALF.HI;
-        this->field_0x6a.HWORD = this->y.HALF.HI;
+        this->unk_68 = super->x.HALF.HI;
+        this->unk_6a = super->y.HALF.HI;
     } else {
-        this->field_0x68.HWORD = unk >> 0x10;
-        this->field_0x6a.HWORD = unk;
+        this->unk_68 = unk >> 0x10;
+        this->unk_6a = unk;
     }
-    this->field_0x70.BYTES.byte1 = 0;
-    this->collisionLayer = 1;
-    UpdateSpriteForCollisionLayer(this);
-    sub_0807DD64(this);
+    this->unk_71 = 0;
+    super->collisionLayer = 1;
+    UpdateSpriteForCollisionLayer(super);
+    sub_0807DD64(super);
     sub_08063F20(this);
 }
 
-void sub_08063F20(Entity* this) {
-    ExecuteScriptForEntity(this, 0);
-    HandleEntity0x82Actions(this);
-    GetNextFrame(this);
-    if (this->interactType != 0) {
-        this->action++;
-        this->interactType = 0;
-        InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + *(s8*)&this->field_0x70);
-        sub_08064428(this);
+void sub_08063F20(GuardEntity* this) {
+    ExecuteScriptForEntity(super, 0);
+    HandleEntity0x82Actions(super);
+    GetNextFrame(super);
+    if (super->interactType != 0) {
+        super->action++;
+        super->interactType = 0;
+        InitializeAnimation(super,
+                            GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + this->unk_70);
+        sub_08064428(super);
     }
 }
 
-void sub_08063F78(Entity* this) {
+void sub_08063F78(GuardEntity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->action = this->action - 1;
-        InitializeAnimation(this, (this->animationState >> 1) + 4 + *(s8*)&this->field_0x70);
+        super->action = super->action - 1;
+        InitializeAnimation(super, (super->animationState >> 1) + 4 + this->unk_70);
     }
 }
 

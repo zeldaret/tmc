@@ -1,16 +1,29 @@
+/**
+ * @file stockwell.c
+ * @ingroup NPCs
+ *
+ * @brief Stockwell NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "room.h"
-#include "message.h"
 #include "functions.h"
+#include "game.h"
+#include "item.h"
+#include "message.h"
 #include "npc.h"
 #include "object.h"
-#include "item.h"
-#include "game.h"
+#include "room.h"
+#include "script.h"
 
 #ifndef EU
 static const Rect gUnk_0810FDA0 = { 0, 8, 10, 16 };
 #endif
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[28];
+    /*0x84*/ ScriptExecutionContext* context;
+} StockwellEntity;
 
 extern u16 script_StockwellBuy[];
 extern u16 script_StockwellDogFood[];
@@ -18,11 +31,11 @@ extern u16 script_StockwellDogFood[];
 extern void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
 extern u16 script_Stockwell;
 
-void sub_08065080(Entity*);
-void sub_080650CC(Entity*);
-void sub_080651AC(Entity*);
-void sub_080651D8(Entity*);
-void sub_08065368(Entity*);
+void sub_08065080(StockwellEntity*);
+void sub_080650CC(StockwellEntity*);
+void sub_080651AC(StockwellEntity*);
+void sub_080651D8(StockwellEntity*);
+void sub_08065368(StockwellEntity*);
 void sub_080651F8(Entity*);
 void sub_0806522C(Entity*);
 void sub_08065250(Entity*);
@@ -32,82 +45,82 @@ void sub_080652E4(Entity*);
 void sub_08065314(Entity*);
 void sub_08065338(Entity*);
 
-void Stockwell(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void Stockwell(StockwellEntity* this) {
+    static void (*const actionFuncs[])(StockwellEntity*) = {
         sub_08065080, sub_080650CC, sub_080651AC, sub_080651D8, sub_08065368,
     };
-    actionFuncs[this->action](this);
-    ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-    sub_0806ED78(this);
+    actionFuncs[super->action](this);
+    ExecuteScript(super, this->context);
+    sub_0806ED78(super);
 }
 
-void sub_08065080(Entity* this) {
+void sub_08065080(StockwellEntity* this) {
     ScriptExecutionContext* context;
 
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    SetDefaultPriority(this, PRIO_MESSAGE);
-    InitializeAnimation(this, 4);
-    AddInteractableWhenBigObject(this);
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    SetDefaultPriority(super, PRIO_MESSAGE);
+    InitializeAnimation(super, 4);
+    AddInteractableWhenBigObject(super);
 #ifndef EU
-    SetInteractableObjectCollision(this, 0, 0, &gUnk_0810FDA0);
+    SetInteractableObjectCollision(super, 0, 0, &gUnk_0810FDA0);
 #endif
-    context = StartCutscene(this, &script_Stockwell);
-    *(ScriptExecutionContext**)&this->cutsceneBeh = context;
+    context = StartCutscene(super, &script_Stockwell);
+    this->context = context;
 }
 
-void sub_080650CC(Entity* this) {
+void sub_080650CC(StockwellEntity* this) {
     static const u8 gUnk_0810FDB8[] = { 4, 6, 6, 5, 6, 6, 6, 5, 6, 6, 6, 5, 6, 6, 6, 5 };
     u32 bVar2;
     u32 confirmMsgId;
     u32 itemPrice;
 
     if ((gRoomVars.animFlags & 1)) {
-        this->action = 4;
-        this->subAction = 0;
-        InitScriptExecutionContext(*(ScriptExecutionContext**)&this->cutsceneBeh, script_StockwellDogFood);
+        super->action = 4;
+        super->subAction = 0;
+        InitScriptExecutionContext(this->context, script_StockwellDogFood);
     } else {
-        bVar2 = this->frame & 0x20;
-        if ((bVar2 == 0) && (this->interactType != 0)) {
-            this->interactType = bVar2;
-            this->action++;
-            InitializeAnimation(this, 7);
+        bVar2 = super->frame & 0x20;
+        if ((bVar2 == 0) && (super->interactType != 0)) {
+            super->interactType = bVar2;
+            super->action++;
+            InitializeAnimation(super, 7);
             if (gRoomVars.shopItemType == 0) {
                 confirmMsgId = TEXT_INDEX(TEXT_STOCKWELL, 0x1);
             } else {
                 confirmMsgId = GetSaleItemConfirmMessageID(gRoomVars.shopItemType);
                 itemPrice = GetItemPrice(gRoomVars.shopItemType);
-                this->action = 4;
-                this->subAction = bVar2;
-                InitScriptExecutionContext(*(ScriptExecutionContext**)&this->cutsceneBeh, script_StockwellBuy);
+                super->action = 4;
+                super->subAction = bVar2;
+                InitScriptExecutionContext(this->context, script_StockwellBuy);
             }
-            MessageNoOverlap(confirmMsgId, this);
+            MessageNoOverlap(confirmMsgId, super);
 
             //! @bug itemPrice (r8) is not initialized if gRoomVars.shopItemType == 0
             gMessage.rupees = (u16)itemPrice;
-        } else if ((this->frame & 0x40)) {
-            InitializeAnimation(this, gUnk_0810FDB8[Random() & 0xf]);
+        } else if ((super->frame & 0x40)) {
+            InitializeAnimation(super, gUnk_0810FDB8[Random() & 0xf]);
         } else {
-            GetNextFrame(this);
+            GetNextFrame(super);
         }
     }
 }
 
-void sub_080651AC(Entity* this) {
-    GetNextFrame(this);
+void sub_080651AC(StockwellEntity* this) {
+    GetNextFrame(super);
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->interactType = gMessage.doTextBox & 0x7f;
-        this->action = 1;
-        InitializeAnimation(this, 4);
+        super->interactType = gMessage.doTextBox & 0x7f;
+        super->action = 1;
+        InitializeAnimation(super, 4);
     }
 }
 
-void sub_080651D8(Entity* this) {
+void sub_080651D8(StockwellEntity* this) {
     static void (*const subActionFuncs[])(Entity*) = {
         sub_080651F8, sub_0806522C, sub_08065250, sub_0806528C, sub_080652B0, sub_080652E4, sub_08065314, sub_08065338,
     };
-    GetNextFrame(this);
-    subActionFuncs[this->subAction](this);
+    GetNextFrame(super);
+    subActionFuncs[super->subAction](super);
 }
 
 void sub_080651F8(Entity* this) {
@@ -186,8 +199,8 @@ void sub_08065338(Entity* this) {
     }
 }
 
-void sub_08065368(Entity* this) {
-    GetNextFrame(this);
+void sub_08065368(StockwellEntity* this) {
+    GetNextFrame(super);
 }
 
 void sub_08065370(Entity* this, ScriptExecutionContext* context) {

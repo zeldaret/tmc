@@ -1,3 +1,9 @@
+/**
+ * @file picolyteBottle.c
+ * @ingroup NPCs
+ *
+ * @brief Picolyte Bottle NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
@@ -11,12 +17,12 @@
 #include "structures.h"
 
 typedef struct {
-    Entity base;
-    Entity* ent1;
-    Entity* ent2;
-    Entity* ent3;
-    u16 unk74;
-    u16 unk76;
+    /*0x00*/ Entity base;
+    /*0x68*/ Entity* ent1;
+    /*0x6c*/ Entity* ent2;
+    /*0x70*/ Entity* ent3;
+    /*0x74*/ u16 unk74;
+    /*0x76*/ u16 unk76;
 } PicolyteBottleEntity;
 
 void sub_0806E014(PicolyteBottleEntity* this);
@@ -60,7 +66,7 @@ void PicolyteBottle_Init(PicolyteBottleEntity* this) {
         this->unk76 = 10;
         gRoomTransition.field_0x6 = 10;
         sub_0806E014(this);
-        sub_0807DD50(super);
+        InitScriptForNPC(super);
     } else {
         super->hitbox = (Hitbox*)&gHitbox_0;
         super->collisionLayer = 1;
@@ -69,7 +75,7 @@ void PicolyteBottle_Init(PicolyteBottleEntity* this) {
 }
 
 void PicolyteBottle_Action1(PicolyteBottleEntity* this) {
-    sub_0807DD94(super, 0);
+    ExecuteScriptAndHandleAnimation(super, NULL);
     if (super->timer != 0xff) {
         if (super->damage != 0) {
             this->ent3->timer++;

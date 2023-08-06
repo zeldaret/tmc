@@ -1,12 +1,18 @@
+/**
+ * @file castleMaid.c
+ * @ingroup NPCs
+ *
+ * @brief Castle Maid NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "save.h"
 #include "flags.h"
+#include "functions.h"
+#include "manager.h"
 #include "message.h"
 #include "npc.h"
-#include "manager.h"
-#include "functions.h"
+#include "save.h"
+#include "script.h"
 
 typedef struct {
     Entity base;
@@ -80,13 +86,13 @@ void sub_08064570(CastleMaidEntity* this) {
                 this->field_0x6e = tmp2;
             }
             this->dialogFunc = NULL;
-            sub_0807DD50(super);
+            InitScriptForNPC(super);
         case 1:
-            sub_0807DD94(super, NULL);
+            ExecuteScriptAndHandleAnimation(super, NULL);
             if (super->interactType != 0) {
                 super->action++;
                 super->interactType = 0;
-                InitializeAnimation(super, sub_0806F5A4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                 if (this->dialogFunc != NULL) {
                     this->dialogFunc();
                 }
@@ -172,7 +178,7 @@ void sub_080646A4(CastleMaidEntity* this, ScriptExecutionContext* context) {
                 break;
         }
         super->direction = dir;
-        super->animationState = sub_0806F5B0(dir);
+        super->animationState = GetAnimationStateForDirection8(dir);
         super->speed = 0x80;
     }
 

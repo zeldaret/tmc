@@ -1,6 +1,22 @@
-#include "npc.h"
+/**
+ * @file talon.c
+ * @ingroup NPCs
+ *
+ * @brief Talon NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unk_69;
+    /*0x6a*/ u8 unk_6a;
+    /*0x6b*/ u8 unused[25];
+    /*0x84*/ u32 unk_84;
+} TalonEntity;
 
 static const SpriteLoadData gUnk_0810FEB0[] = {
     { 0x4b, 0x8b, 0 },
@@ -10,27 +26,27 @@ static const SpriteLoadData gUnk_0810FEB0[] = {
 
 extern u8 script_TalonGotKey;
 
-void sub_0806574C(Entity* this);
+void sub_0806574C(TalonEntity* this);
 void sub_08065570(Entity* this);
 void sub_0806559C(Entity* this);
-void sub_08065608(Entity* this);
-void sub_08065648(Entity* this);
-void sub_080656D4(Entity* this);
-void sub_080656A4(Entity* this);
-void sub_08065680(Entity* this);
+void sub_08065608(TalonEntity* this);
+void sub_08065648(TalonEntity* this);
+void sub_080656D4(TalonEntity* this);
+void sub_080656A4(TalonEntity* this);
+void sub_08065680(TalonEntity* this);
 
-void Talon(Entity* this) {
-    static void (*const actionFuncs[])(Entity * this) = {
+void Talon(TalonEntity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
         sub_08065570,
         sub_0806559C,
     };
-    static void (*const scriptedActionFuncs[])(Entity * this) = {
+    static void (*const scriptedActionFuncs[])(TalonEntity*) = {
         sub_08065608, sub_08065648, sub_080656D4, sub_080656A4, sub_08065680,
     };
-    if (this->flags & ENT_SCRIPTED) {
-        scriptedActionFuncs[this->action](this);
+    if (super->flags & ENT_SCRIPTED) {
+        scriptedActionFuncs[super->action](this);
     } else {
-        actionFuncs[this->action](this);
+        actionFuncs[super->action](super);
     }
 }
 
@@ -74,74 +90,74 @@ void sub_0806559C(Entity* this) {
     }
 }
 
-void sub_08065608(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810FEB0)) {
-        this->action = 1;
-        this->spriteSettings.draw = 1;
-        this->field_0x68.HALF.LO = GetFusionToOffer(this);
-        AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-        sub_0807DD50(this);
+void sub_08065608(TalonEntity* this) {
+    if (LoadExtraSpriteData(super, gUnk_0810FEB0)) {
+        super->action = 1;
+        super->spriteSettings.draw = 1;
+        this->fusionOffer = GetFusionToOffer(super);
+        AddInteractableWhenBigFuser(super, this->fusionOffer);
+        InitScriptForNPC(super);
     }
 }
 
-void sub_08065648(Entity* this) {
-    if (this->interactType == 2) {
-        this->field_0x68.HALF.HI = this->action;
-        this->action = 4;
-        this->interactType = 0;
-        sub_0806F118(this);
+void sub_08065648(TalonEntity* this) {
+    if (super->interactType == 2) {
+        this->unk_69 = super->action;
+        super->action = 4;
+        super->interactType = 0;
+        InitializeNPCFusion(super);
     } else {
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(super, NULL);
     }
 }
 
-void sub_08065680(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = this->field_0x68.HALF.HI;
-        InitAnimationForceUpdate(this, this->field_0x6a.HALF.LO);
+void sub_08065680(TalonEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = this->unk_69;
+        InitAnimationForceUpdate(super, this->unk_6a);
     }
 }
 
-void sub_080656A4(Entity* this) {
+void sub_080656A4(TalonEntity* this) {
     if ((gMessage.doTextBox & 0x7F) == 0) {
-        this->action = this->field_0x68.HALF.HI;
-        InitAnimationForceUpdate(this, this->field_0x6a.HALF.LO);
+        super->action = this->unk_69;
+        InitAnimationForceUpdate(super, this->unk_6a);
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_080656D4(Entity* this) {
-    if (this->interactType == 2) {
-        this->field_0x68.HALF.HI = this->action;
-        this->action = 4;
-        this->interactType = 0;
-        sub_0806F118(this);
+void sub_080656D4(TalonEntity* this) {
+    if (super->interactType == 2) {
+        this->unk_69 = super->action;
+        super->action = 4;
+        super->interactType = 0;
+        InitializeNPCFusion(super);
         sub_0806574C(this);
     } else {
-        if (this->interactType != 0) {
+        if (super->interactType != 0) {
             if (GetInventoryValue(ITEM_QST_LONLON_KEY) != 0) {
-                StartCutscene(this, (u16*)&script_TalonGotKey);
+                StartCutscene(super, (u16*)&script_TalonGotKey);
             } else {
-                this->field_0x68.HALF.HI = this->action;
-                this->action = 3;
-                this->interactType = 0;
-                MessageNoOverlap(*(u32*)(*(u32*)&this->cutsceneBeh.HWORD + 4), this);
+                this->unk_69 = super->action;
+                super->action = 3;
+                super->interactType = 0;
+                MessageNoOverlap(*(u32*)(*(u32*)&this->unk_84 + 4), super);
                 sub_0806574C(this);
                 return;
             }
         }
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(super, NULL);
     }
 }
 
-void sub_0806574C(Entity* this) {
+void sub_0806574C(TalonEntity* this) {
     u32 j;
 
-    j = (this->animIndex & ~3) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
-    if (this->animIndex != j) {
-        InitAnimationForceUpdate(this, j);
+    j = (super->animIndex & ~3) + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+    if (super->animIndex != j) {
+        InitAnimationForceUpdate(super, j);
     }
-    this->field_0x6a.HALF.LO = this->animIndex;
+    this->unk_6a = super->animIndex;
 }
 
 void sub_08065780(Entity* this, ScriptExecutionContext* context) {

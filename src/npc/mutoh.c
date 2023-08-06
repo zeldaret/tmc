@@ -1,10 +1,24 @@
-#include "global.h"
+
+/**
+ * @file mutoh.c
+ * @ingroup NPCs
+ *
+ * @brief Mutoh NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "flags.h"
+#include "item.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
+#include "player.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unused[27];
+    /*0x84*/ ScriptExecutionContext* context;
+} MutohEntity;
 
 static const SpriteLoadData gUnk_08110C00[] = {
     { 0x51, 0x3e, 0x4 },
@@ -12,33 +26,34 @@ static const SpriteLoadData gUnk_08110C00[] = {
     { 0, 0, 0 },
 };
 
-void Mutoh(Entity* this) {
-    if (*(u32*)&this->cutsceneBeh == 0) {
+void Mutoh(MutohEntity* this) {
+    if (this->context == NULL) {
         DeleteThisEntity();
     }
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_08110C00)) {
-                this->action = 1;
-                this->spriteSettings.draw = TRUE;
-                SetDefaultPriority(this, PRIO_MESSAGE);
-                sub_0807DD50(this);
+            if (LoadExtraSpriteData(super, gUnk_08110C00)) {
+                super->action = 1;
+                super->spriteSettings.draw = TRUE;
+                SetDefaultPriority(super, PRIO_MESSAGE);
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitAnimationForceUpdate(super,
+                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                InitializeNPCFusion(super);
             } else {
-                sub_0807DD94(this, NULL);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
             }
     }
 }
@@ -82,9 +97,9 @@ void sub_080670E4(Entity* this) {
     ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
 
-void Mutoh_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Mutoh_MakeInteractable(MutohEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Mutoh_Fusion(Entity* this) {

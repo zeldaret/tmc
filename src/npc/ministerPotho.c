@@ -1,25 +1,37 @@
+/**
+ * @file ministerPotho.c
+ * @ingroup NPCs
+ *
+ * @brief Minister Potho NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
+#include "item.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
 
-void sub_08066864(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} MinisterPothoEntity;
+
+void sub_08066864(MinisterPothoEntity*);
 void sub_080667E4(Entity*);
 void sub_08066808(Entity*);
 void sub_0806685C(Entity*);
 
-void MinisterPotho(Entity* this) {
+void MinisterPotho(MinisterPothoEntity* this) {
     static void (*const actionFuncs[])(Entity*) = {
         sub_080667E4,
         sub_08066808,
         sub_0806685C,
     };
-    if ((this->flags & ENT_SCRIPTED) != 0) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
         sub_08066864(this);
     } else {
-        actionFuncs[this->action](this);
-        sub_0806ED78(this);
+        actionFuncs[super->action](super);
+        sub_0806ED78(super);
     }
 }
 
@@ -55,27 +67,28 @@ void sub_0806685C(Entity* this) {
     this->action = 1;
 }
 
-void sub_08066864(Entity* this) {
-    switch (this->action) {
+void sub_08066864(MinisterPothoEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->field_0x68.HALF.LO = GetFusionToOffer(this);
-            sub_0807DD50(this);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            this->fusionOffer = GetFusionToOffer(super);
+            InitScriptForNPC(super);
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitAnimationForceUpdate(super,
+                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
             } else {
-                sub_0807DD94(this, NULL);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this) != 0) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super) != 0) {
+                super->action = 1;
             }
             break;
     }

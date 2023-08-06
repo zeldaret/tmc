@@ -1,8 +1,27 @@
+/**
+ * @file npc5.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 5
+ */
+#define NENT_DEPRECATED
+#include "collision.h"
 #include "functions.h"
+#include "hitbox.h"
 #include "message.h"
 #include "npc.h"
-#include "hitbox.h"
-#include "collision.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16* unk_68;
+    /*0x6c*/ u8 unk_6c;
+    /*0x6d*/ u8 unused1;
+    /*0x6e*/ u16 unk_6e;
+    /*0x70*/ u8 unused2[4];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u8 unused3[2];
+    /*0x78*/ Entity* unk_78;
+} NPC5Entity;
 
 typedef struct {
     u8 unk_0;  // u8
@@ -17,34 +36,34 @@ typedef struct {
     u16 unk_8; // u16
 } UnkHeap;
 
-void sub_08060E70(Entity*, u32);
+void sub_08060E70(NPC5Entity*, u32);
 
-u32 sub_08061230(Entity*);
+u32 sub_08061230(NPC5Entity*);
 u32 sub_08060F80(Entity*);
-void sub_08060EDC(Entity*);
-void sub_08061090(Entity*, u32, u32);
+void sub_08060EDC(NPC5Entity*);
+void sub_08061090(NPC5Entity*, u32, u32);
 
 bool32 sub_08060FD0(Entity*, u32, u32);
-void sub_08061464(Entity*, u32, u32);
-void sub_08061120(Entity*, u32, u32, u32);
-bool32 sub_08061170(Entity*);
+void sub_08061464(NPC5Entity*, u32, u32);
+void sub_08061120(NPC5Entity*, u32, u32, u32);
+bool32 sub_08061170(NPC5Entity*);
 
-void sub_08061358(Entity*);
+void sub_08061358(NPC5Entity*);
 void sub_08060E94(Entity*);
-void sub_08060A00(Entity*);
-void sub_08061AA0(Entity*);
-void sub_08061AA8(Entity*);
-void sub_08061B58(Entity*);
-void sub_08060AE0(Entity*);
-void sub_08060B5C(Entity*);
-void sub_08060BA0(Entity*);
-void sub_08060D78(Entity*);
-void sub_08060DD0(Entity*);
-void sub_08060DF4(Entity*);
-void sub_08060DFC(Entity*);
-void sub_08060E34(Entity*);
-void sub_08061ACC(Entity*);
-void sub_08061B18(Entity*);
+void sub_08060A00(NPC5Entity*);
+void sub_08061AA0(NPC5Entity*);
+void sub_08061AA8(NPC5Entity*);
+void sub_08061B58(NPC5Entity*);
+void sub_08060AE0(NPC5Entity*);
+void sub_08060B5C(NPC5Entity*);
+void sub_08060BA0(NPC5Entity*);
+void sub_08060D78(NPC5Entity*);
+void sub_08060DD0(NPC5Entity*);
+void sub_08060DF4(NPC5Entity*);
+void sub_08060DFC(NPC5Entity*);
+void sub_08060E34(NPC5Entity*);
+void sub_08061ACC(NPC5Entity*);
+void sub_08061B18(NPC5Entity*);
 
 u32 PointInsideRadius(s32, s32, s32);
 
@@ -52,14 +71,14 @@ u32 sub_080611D4(Entity*);
 extern u32 sub_08079FD4(Entity*, u32);
 extern void sub_08016AD2(Entity*);
 
-bool32 sub_08061630(Entity*, s32, s32, s32);
-bool32 sub_08061720(Entity*, s32, s32, s32);
-bool32 sub_080616A8(Entity*, s32, s32, s32);
-bool32 sub_08061798(Entity*, s32, s32, s32);
-bool32 sub_08061888(Entity*, s32, s32, s32);
-bool32 sub_08061978(Entity*, s32, s32, s32);
-bool32 sub_08061810(Entity*, s32, s32, s32);
-bool32 sub_08061900(Entity*, s32, s32, s32);
+bool32 sub_08061630(NPC5Entity*, s32, s32, s32);
+bool32 sub_08061720(NPC5Entity*, s32, s32, s32);
+bool32 sub_080616A8(NPC5Entity*, s32, s32, s32);
+bool32 sub_08061798(NPC5Entity*, s32, s32, s32);
+bool32 sub_08061888(NPC5Entity*, s32, s32, s32);
+bool32 sub_08061978(NPC5Entity*, s32, s32, s32);
+bool32 sub_08061810(NPC5Entity*, s32, s32, s32);
+bool32 sub_08061900(NPC5Entity*, s32, s32, s32);
 
 bool32 sub_08061A74(u8*, s32, s32, s32);
 
@@ -69,7 +88,7 @@ bool32 sub_080619F0(u8*, s32, s32, s32);
 
 bool32 sub_08061A48(u8*, s32, s32, s32);
 
-void sub_08061AFC(Entity*);
+void sub_08061AFC(NPC5Entity*);
 
 extern u16* gUnk_0810B660[8];
 
@@ -86,119 +105,120 @@ void CreateZeldaFollower(void) {
 }
 
 // UNUSED zelda follower, probably because it was too resource heavy
-void NPC5(Entity* this) {
-    static void (*const gUnk_0810AC1C[])(Entity*) = {
+void NPC5(NPC5Entity* this) {
+    static void (*const gUnk_0810AC1C[])(NPC5Entity*) = {
         sub_08060A00,
         sub_08061AA0,
         sub_08061AA8,
         sub_08061B58,
     };
-    gUnk_0810AC1C[this->type](this);
+    gUnk_0810AC1C[super->type](this);
 }
 
-void sub_08060A00(Entity* this) {
-    static void (*const Npc5_Actions[])(Entity*) = {
+void sub_08060A00(NPC5Entity* this) {
+    static void (*const Npc5_Actions[])(NPC5Entity*) = {
         sub_08060AE0, sub_08060B5C, sub_08060BA0, sub_08060D78, sub_08060DD0, sub_08060DF4, sub_08060DFC, sub_08060E34,
     };
     u32 tmp;
 
     if ((gPlayerState.jump_status & 0x80) != 0) {
-        if (this->action != 0) {
-            if (((((UnkHeap*)this->myHeap)->unk_0) & 4) == 0) {
-                ((UnkHeap*)this->myHeap)->unk_0 |= 4;
-                ((UnkHeap*)this->myHeap)->unk_5 = (gPlayerEntity.x.HALF.HI & 0xfff0) + 8;
-                ((UnkHeap*)this->myHeap)->unk_6 = (gPlayerEntity.y.HALF.HI & 0xfff0) + 8;
+        if (super->action != 0) {
+            if (((((UnkHeap*)super->myHeap)->unk_0) & 4) == 0) {
+                ((UnkHeap*)super->myHeap)->unk_0 |= 4;
+                ((UnkHeap*)super->myHeap)->unk_5 = (gPlayerEntity.x.HALF.HI & 0xfff0) + 8;
+                ((UnkHeap*)super->myHeap)->unk_6 = (gPlayerEntity.y.HALF.HI & 0xfff0) + 8;
             }
         }
     }
 
-    if ((this->action == 0) || (this->spriteSettings.draw != 0)) {
-        Npc5_Actions[this->action](this);
+    if ((super->action == 0) || (super->spriteSettings.draw != 0)) {
+        Npc5_Actions[super->action](this);
     }
 
-    if (this->action != 0) {
-        ((UnkHeap*)this->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
-        ((UnkHeap*)this->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
+    if (super->action != 0) {
+        ((UnkHeap*)super->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
+        ((UnkHeap*)super->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
     }
-    if (this->field_0x74.HWORD != gRoomControls.room) {
-        this->field_0x74.HWORD = gRoomControls.room;
-        CopyPosition(&gPlayerEntity, this);
-        this->action = 1;
-        this->spriteSettings.draw = 1;
-        this->speed = 0x120;
+    if (this->unk_74 != gRoomControls.room) {
+        this->unk_74 = gRoomControls.room;
+        CopyPosition(&gPlayerEntity, super);
+        super->action = 1;
+        super->spriteSettings.draw = 1;
+        super->speed = 0x120;
         tmp = gRoomControls.scroll_direction;
-        this->animationState = tmp * 2;
-        InitAnimationForceUpdate(this, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
-        this->frameDuration = (Random() & 0x7f) + 0x80;
-        ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
+        super->animationState = tmp * 2;
+        InitAnimationForceUpdate(super, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
+        super->frameDuration = (Random() & 0x7f) + 0x80;
+        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfb;
     }
 }
 
-void sub_08060AE0(Entity* this) {
+void sub_08060AE0(NPC5Entity* this) {
     UnkHeap* heapObj;
     Entity* otherNpc;
 
     heapObj = (UnkHeap*)zMalloc(0x14); // TODO UnkHeap struct should have size 0x14?
     if (heapObj != NULL) {
-        this->myHeap = (u32*)heapObj;
+        super->myHeap = (u32*)heapObj;
         heapObj->unk_0b = 0x20;
-        this->action = 1;
-        COLLISION_ON(this);
-        this->animationState &= 3;
-        this->collisionFlags = 7;
-        this->hurtType = 0x48;
-        this->hitType = 0x49;
-        this->flags2 = 3;
-        this->hitbox = (Hitbox*)&gHitbox_0;
-        this->followerFlag &= 0xfe;
-        this->field_0x6c.HALF.LO = 0xff;
-        sub_08060E70(this, this->animationState);
+        super->action = 1;
+        COLLISION_ON(super);
+        super->animationState &= 3;
+        super->collisionFlags = 7;
+        super->hurtType = 0x48;
+        super->hitType = 0x49;
+        super->flags2 = 3;
+        super->hitbox = (Hitbox*)&gHitbox_0;
+        super->followerFlag &= 0xfe;
+        this->unk_6c = 0xff;
+        sub_08060E70(this, super->animationState);
         otherNpc = CreateNPC(NPC_UNK_5, 2, 0);
         if (otherNpc != NULL) {
-            otherNpc->parent = this;
-            *(Entity**)&this->field_0x78 = otherNpc;
+            otherNpc->parent = super;
+            this->unk_78 = otherNpc;
         }
     }
 }
 
-void sub_08060B5C(Entity* this) {
+void sub_08060B5C(NPC5Entity* this) {
     if (sub_08061230(this) == 0) {
-        if ((sub_08060F80(this) == 0) &&
-            (((GetFacingDirection(this, &gPlayerEntity) + (this->animationState * -4) + 4) & 0x1f)) < 9) {
-            this->action = 2;
-            this->subtimer = 0;
+        if ((sub_08060F80(super) == 0) &&
+            (((GetFacingDirection(super, &gPlayerEntity) + (super->animationState * -4) + 4) & 0x1f)) < 9) {
+            super->action = 2;
+            super->subtimer = 0;
             return;
         }
         sub_08060EDC(this);
     }
 }
 
-void sub_08060BA0(Entity* this) {
+void sub_08060BA0(NPC5Entity* this) {
     Entity* r5;
     //! @bug: r5 is uninitialized
 
     if (sub_08061230(this) != 0) {
         return;
     }
-    if ((((UnkHeap*)this->myHeap)->unk_0 & 4) != 0) {
-        if ((((UnkHeap*)this->myHeap)->unk_0 & 8) != 0) {
-            this->speed = 0x1e0;
-            sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 0xc);
+    if ((((UnkHeap*)super->myHeap)->unk_0 & 4) != 0) {
+        if ((((UnkHeap*)super->myHeap)->unk_0 & 8) != 0) {
+            super->speed = 0x1e0;
+            sub_08061120(this, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8, 0xc);
             sub_08061170(this);
-            if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) != 0) {
-                ((UnkHeap*)this->myHeap)->unk_0 &= 0xf7;
+            if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8, 4) !=
+                0) {
+                ((UnkHeap*)super->myHeap)->unk_0 &= 0xf7;
             }
         } else {
-            if (sub_08060FD0(this, ((UnkHeap*)this->myHeap)->unk_5, ((UnkHeap*)this->myHeap)->unk_6) != 0) {
-                if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_5, ((UnkHeap*)this->myHeap)->unk_6, 4) !=
-                    0) {
-                    ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
-                    this->action = 5;
-                    this->direction = r5->direction;
-                    this->speed = 0x160;
+            if (sub_08060FD0(super, ((UnkHeap*)super->myHeap)->unk_5, ((UnkHeap*)super->myHeap)->unk_6) != 0) {
+                if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_5, ((UnkHeap*)super->myHeap)->unk_6,
+                                         4) != 0) {
+                    ((UnkHeap*)super->myHeap)->unk_0 &= 0xfb;
+                    super->action = 5;
+                    super->direction = r5->direction;
+                    super->speed = 0x160;
                     sub_08060E70(this, 8);
                 } else {
-                    this->speed = 0x1e0;
+                    super->speed = 0x1e0;
                     sub_08061120(this, r5->x.HALF.HI, r5->y.HALF.HI, 0xc);
                     sub_08061170(this);
                 }
@@ -208,104 +228,104 @@ void sub_08060BA0(Entity* this) {
         }
 
     } else {
-        if (sub_08060FD0(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI) != 0) {
+        if (sub_08060FD0(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI) != 0) {
             sub_08061090(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
             sub_08061170(this);
-            ((UnkHeap*)this->myHeap)->unk_0 &= 0xf5;
+            ((UnkHeap*)super->myHeap)->unk_0 &= 0xf5;
         } else {
-            ((UnkHeap*)this->myHeap) = (UnkHeap*)this->myHeap;
-            if ((((UnkHeap*)this->myHeap)->unk_0 & 8) != 0) {
-                this->speed = 0x1e0;
-                sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 0xc);
+            ((UnkHeap*)super->myHeap) = (UnkHeap*)super->myHeap;
+            if ((((UnkHeap*)super->myHeap)->unk_0 & 8) != 0) {
+                super->speed = 0x1e0;
+                sub_08061120(this, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8, 0xc);
                 sub_08061170(this);
-                if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) !=
-                    0) {
-                    ((UnkHeap*)this->myHeap)->unk_0 &= 0xf7;
+                if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8,
+                                         4) != 0) {
+                    ((UnkHeap*)super->myHeap)->unk_0 &= 0xf7;
                 }
             } else {
-                if ((((UnkHeap*)this->myHeap)->unk_0 & 2) == 0) {
-                    ((UnkHeap*)this->myHeap)->unk_0 |= 2;
-                    ((UnkHeap*)this->myHeap)->unk_3 = ((UnkHeap*)this->myHeap)->unk_1;
-                    ((UnkHeap*)this->myHeap)->unk_4 = ((UnkHeap*)this->myHeap)->unk_2;
+                if ((((UnkHeap*)super->myHeap)->unk_0 & 2) == 0) {
+                    ((UnkHeap*)super->myHeap)->unk_0 |= 2;
+                    ((UnkHeap*)super->myHeap)->unk_3 = ((UnkHeap*)super->myHeap)->unk_1;
+                    ((UnkHeap*)super->myHeap)->unk_4 = ((UnkHeap*)super->myHeap)->unk_2;
                 }
-                if (sub_08060FD0(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4) != 0) {
-                    this->speed = 0x1e0;
-                    sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4, 0xc);
+                if (sub_08060FD0(super, ((UnkHeap*)super->myHeap)->unk_3, ((UnkHeap*)super->myHeap)->unk_4) != 0) {
+                    super->speed = 0x1e0;
+                    sub_08061120(this, ((UnkHeap*)super->myHeap)->unk_3, ((UnkHeap*)super->myHeap)->unk_4, 0xc);
                     sub_08061170(this);
-                    if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4,
+                    if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_3, ((UnkHeap*)super->myHeap)->unk_4,
                                              4) != 0) {
-                        ((UnkHeap*)this->myHeap)->unk_0 &= 0xfd;
+                        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfd;
                     }
                 } else {
-                    ((UnkHeap*)this->myHeap)->unk_0 &= 0xfd;
+                    ((UnkHeap*)super->myHeap)->unk_0 &= 0xfd;
                     sub_08061464(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
                 }
             }
         }
     }
-    if (sub_08060F80(this) != 0) {
-        this->action = 1;
-        ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
+    if (sub_08060F80(super) != 0) {
+        super->action = 1;
+        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfb;
         sub_08060E70(this, 0);
     }
 }
 
-void sub_08060D78(Entity* this) {
+void sub_08060D78(NPC5Entity* this) {
     sub_08061358(this);
-    if (sub_08060F80(this) != 0) {
-        if ((u32)this->animIndex - 0x20 < 0x10) {
-            if ((this->frame & 7) != 0) {
-                this->frameDuration = 1;
-                UpdateAnimationSingleFrame(this);
+    if (sub_08060F80(super) != 0) {
+        if ((u32)super->animIndex - 0x20 < 0x10) {
+            if ((super->frame & 7) != 0) {
+                super->frameDuration = 1;
+                UpdateAnimationSingleFrame(super);
             }
-            this->animationState = this->frame & 0x18;
-            this->field_0x6c.HALF.LO = 0xff;
+            super->animationState = super->frame & 0x18;
+            this->unk_6c = 0xff;
         }
-        this->action = 1;
+        super->action = 1;
         sub_08060E70(this, 0);
     }
 }
 
-void sub_08060DD0(Entity* this) {
-    UpdateAnimationSingleFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 1;
+void sub_08060DD0(NPC5Entity* this) {
+    UpdateAnimationSingleFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 1;
         sub_08060E70(this, 0);
     }
 }
 
-void sub_08060DF4(Entity* this) {
+void sub_08060DF4(NPC5Entity* this) {
     sub_08061170(this);
 }
 
-void sub_08060DFC(Entity* this) {
+void sub_08060DFC(NPC5Entity* this) {
     u32 uVar1;
 
-    LinearMoveUpdate(this);
-    sub_08060E94(this);
-    uVar1 = GravityUpdate(this, Q_8_8(32.0));
+    LinearMoveUpdate(super);
+    sub_08060E94(super);
+    uVar1 = GravityUpdate(super, Q_8_8(32.0));
     if (uVar1 == 0) {
-        this->action = 7;
-        this->collisionLayer = 1;
-        UpdateSpriteForCollisionLayer(this);
+        super->action = 7;
+        super->collisionLayer = 1;
+        UpdateSpriteForCollisionLayer(super);
         sub_08060E70(this, 0x1c);
     }
 }
 
-void sub_08060E34(Entity* this) {
-    UpdateAnimationSingleFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 2;
-        this->animationState = DirectionToAnimationState(GetFacingDirection(this, &gPlayerEntity)) * 2;
+void sub_08060E34(NPC5Entity* this) {
+    UpdateAnimationSingleFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 2;
+        super->animationState = DirectionToAnimationState(GetFacingDirection(super, &gPlayerEntity)) * 2;
         sub_08060E70(this, 8);
     }
 }
 
-void sub_08060E70(Entity* this, u32 param) {
-    u32 tmp = param + this->animationState / 2;
-    if (tmp != this->animIndex) {
-        this->field_0x6c.HALF.LO = param;
-        InitAnimationForceUpdate(this, tmp);
+void sub_08060E70(NPC5Entity* this, u32 param) {
+    u32 tmp = param + super->animationState / 2;
+    if (tmp != super->animIndex) {
+        this->unk_6c = param;
+        InitAnimationForceUpdate(super, tmp);
     }
 }
 
@@ -318,27 +338,27 @@ void sub_08060E94(Entity* this) {
     }
 }
 
-void sub_08060EDC(Entity* this) {
+void sub_08060EDC(NPC5Entity* this) {
     s32 tmp;
 
-    if (((u32)this->animIndex - 0x20 < 0x10) && ((this->frame & ANIM_DONE) == 0)) {
-        UpdateAnimationSingleFrame(this);
+    if (((u32)super->animIndex - 0x20 < 0x10) && ((super->frame & ANIM_DONE) == 0)) {
+        UpdateAnimationSingleFrame(super);
     } else {
-        tmp = GetFacingDirection(this, &gPlayerEntity) + this->animationState * -4;
+        tmp = GetFacingDirection(super, &gPlayerEntity) + super->animationState * -4;
         if (((tmp + 3) & 0x1f) >= 7) {
             if ((tmp & 0x1f) < 0x10) {
-                InitAnimationForceUpdate(this, this->animationState + 0x20);
-                this->animationState = (this->animationState + 1) & 7;
+                InitAnimationForceUpdate(super, super->animationState + 0x20);
+                super->animationState = (super->animationState + 1) & 7;
             } else {
-                InitAnimationForceUpdate(this, this->animationState + 0x28);
-                this->animationState = (this->animationState - 1) & 7;
+                InitAnimationForceUpdate(super, super->animationState + 0x28);
+                super->animationState = (super->animationState - 1) & 7;
             }
         } else {
-            if ((this->animationState & 1) == 0) {
-                if (((this->frame & ANIM_DONE) != 0) && (0xf >= (u32)this->animIndex - 0x20)) {
+            if ((super->animationState & 1) == 0) {
+                if (((super->frame & ANIM_DONE) != 0) && (0xf >= (u32)super->animIndex - 0x20)) {
                     sub_08060E70(this, 0);
                 } else {
-                    sub_08060E94(this);
+                    sub_08060E94(super);
                 }
             }
         }
@@ -391,27 +411,27 @@ bool32 sub_08060FD0(Entity* this, u32 a, u32 b) {
     }
 }
 
-void sub_08061090(Entity* this, u32 a, u32 b) {
+void sub_08061090(NPC5Entity* this, u32 a, u32 b) {
     s32 xDist;
     s32 yDist;
     s32 sqrDist;
     u32 tmp;
 
-    xDist = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
-    yDist = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+    xDist = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
+    yDist = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
     sqrDist = (xDist * xDist) + (yDist * yDist);
     if (sqrDist < 0x900) {
-        this->speed = 0x120;
+        super->speed = 0x120;
     } else {
         if (sqrDist < 0x1900) {
-            this->speed = ((sqrDist - 0x900) >> 4) + 0x120;
+            super->speed = ((sqrDist - 0x900) >> 4) + 0x120;
         } else {
-            this->speed = 0x220;
+            super->speed = 0x220;
         }
     }
-    if (this->speed == 0x120) {
+    if (super->speed == 0x120) {
         tmp = 4;
-    } else if (this->speed < 0x160) {
+    } else if (super->speed < 0x160) {
         tmp = 8;
     } else {
         tmp = 0xc;
@@ -419,31 +439,31 @@ void sub_08061090(Entity* this, u32 a, u32 b) {
     sub_08061120(this, a, b, tmp);
 }
 
-void sub_08061120(Entity* this, u32 param_a, u32 param_b, u32 param_c) {
-    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b);
-    if ((param_c != this->field_0x6c.HALF.LO) || (10 < ((this->direction + this->animationState * -4 + 5) & 0x1f))) {
-        this->animationState = DirectionRoundUp(this->direction) >> 2;
+void sub_08061120(NPC5Entity* this, u32 param_a, u32 param_b, u32 param_c) {
+    super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, param_a, param_b);
+    if ((param_c != this->unk_6c) || (10 < ((super->direction + super->animationState * -4 + 5) & 0x1f))) {
+        super->animationState = DirectionRoundUp(super->direction) >> 2;
         sub_08060E70(this, param_c);
     }
 }
 
-bool32 sub_08061170(Entity* this) {
+bool32 sub_08061170(NPC5Entity* this) {
     u32 direction;
     u32 tmp;
 
-    UpdateAnimationSingleFrame(this);
-    if (ProcessMovement6(this) == 0) {
-        direction = sub_080611D4(this);
+    UpdateAnimationSingleFrame(super);
+    if (ProcessMovement6(super) == 0) {
+        direction = sub_080611D4(super);
         if (direction != 0xff) {
-            this->action = 6;
-            tmp = (sub_08079FD4(this, 1));
+            super->action = 6;
+            tmp = (sub_08079FD4(super, 1));
             tmp <<= 4;
             tmp -= 4;
             tmp = tmp << 0xc;
-            this->zVelocity = tmp;
-            this->speed = 0x100;
-            this->direction = direction;
-            this->animationState = direction >> 2;
+            super->zVelocity = tmp;
+            super->speed = 0x100;
+            super->direction = direction;
+            super->animationState = direction >> 2;
             if (tmp >> 0x10 != 0) {
                 sub_08060E70(this, 0x14);
             } else {
@@ -452,7 +472,7 @@ bool32 sub_08061170(Entity* this) {
         }
         return FALSE;
     } else {
-        sub_08016AD2(this);
+        sub_08016AD2(super);
         return TRUE;
     }
 }
@@ -504,10 +524,10 @@ u32 sub_080611D4(Entity* this) {
     return 0xff;
 }
 
-u32 sub_08061230(Entity* this) {
-    if ((((UnkHeap*)this->myHeap)->unk_0 & 1) == 0) {
-        if ((this->contactFlags & 0x80) != 0) {
-            switch (this->contactFlags & 0x7f) {
+u32 sub_08061230(NPC5Entity* this) {
+    if ((((UnkHeap*)super->myHeap)->unk_0 & 1) == 0) {
+        if ((super->contactFlags & 0x80) != 0) {
+            switch (super->contactFlags & 0x7f) {
                 case 0:
                 case 1:
                 case 2:
@@ -519,176 +539,176 @@ u32 sub_08061230(Entity* this) {
                 case 0x1f:
                     break;
                 default:
-                    ((UnkHeap*)this->myHeap)->unk_0 = ((UnkHeap*)this->myHeap)->unk_0 | 1;
-                    InitAnimationForceUpdate(this, (this->animationState >> 1) + 0x40);
+                    ((UnkHeap*)super->myHeap)->unk_0 = ((UnkHeap*)super->myHeap)->unk_0 | 1;
+                    InitAnimationForceUpdate(super, (super->animationState >> 1) + 0x40);
                     return 1;
             }
         }
     } else {
-        UpdateAnimationSingleFrame(this);
-        if ((this->frame & ANIM_DONE) == 0) {
+        UpdateAnimationSingleFrame(super);
+        if ((super->frame & ANIM_DONE) == 0) {
             return 1;
         }
-        ((UnkHeap*)this->myHeap)->unk_0 &= 0xfe;
-        InitAnimationForceUpdate(this, this->field_0x6c.HALF.LO + (this->animationState >> 1));
+        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfe;
+        InitAnimationForceUpdate(super, this->unk_6c + (super->animationState >> 1));
     }
-    this->contactFlags = this->contactFlags & 0x7f;
-    if (this->iframes != 0) {
-        this->iframes++;
+    super->contactFlags = super->contactFlags & 0x7f;
+    if (super->iframes != 0) {
+        super->iframes++;
     }
     return 0;
 }
 
-void sub_08061358(Entity* this) {
+void sub_08061358(NPC5Entity* this) {
     static const u8 gUnk_0810AC5D[] = {
         0x30, 0x31, 0x38, 0x39, 0x32, 0x33, 0x3a, 0x3b, 0x34, 0x35, 0x3c, 0x3d, 0x36, 0x37, 0x3e, 0x3f, 0x0, 0x0, 0x0,
     };
     u32 uVar2;
     u32 bVar4;
 
-    switch (this->subAction) {
+    switch (super->subAction) {
         case 0:
-            UpdateAnimationSingleFrame(this);
-            if ((this->frame & ANIM_DONE) == 0) {
+            UpdateAnimationSingleFrame(super);
+            if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
-            this->subAction = 1;
-            this->timer = 15;
+            super->subAction = 1;
+            super->timer = 15;
             sub_08060E70(this, 0);
             break;
         case 1:
-            this->timer--;
-            if (this->timer != 0) {
+            super->timer--;
+            if (super->timer != 0) {
                 return;
             }
             uVar2 = Random();
             bVar4 = uVar2;
             if ((uVar2 & 1) == 0) {
-                this->subAction = 3;
-                this->timer = (bVar4 & 0x18) + 30;
+                super->subAction = 3;
+                super->timer = (bVar4 & 0x18) + 30;
                 sub_08060E70(this, 4);
                 return;
             }
-            this->subAction = 2;
-            InitAnimationForceUpdate(this, gUnk_0810AC5D[(u32)this->animationState * 2 + ((uVar2 >> 4) & 3)]);
+            super->subAction = 2;
+            InitAnimationForceUpdate(super, gUnk_0810AC5D[(u32)super->animationState * 2 + ((uVar2 >> 4) & 3)]);
             break;
         case 2:
-            UpdateAnimationSingleFrame(this);
-            if ((this->frame & ANIM_DONE) == 0) {
+            UpdateAnimationSingleFrame(super);
+            if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
-            this->animationState = ((this->frame & 0x18) >> 2);
+            super->animationState = ((super->frame & 0x18) >> 2);
             if ((Random() & 1)) {
-                this->subAction = 3;
-                this->timer = (bVar4 & 0x18) + 30;
+                super->subAction = 3;
+                super->timer = (bVar4 & 0x18) + 30;
                 sub_08060E70(this, 4);
                 return;
             }
-            this->subAction = 0;
+            super->subAction = 0;
             sub_08060E70(this, 0x10);
             break;
         case 3:
             if (sub_08061170(this) == 0) {
-                this->subAction = 2;
+                super->subAction = 2;
 
                 //! @bug bVar4 (r6) is uninitialized.
-                InitAnimationForceUpdate(this, gUnk_0810AC5D[this->animationState * 2 + (bVar4 >> 4 & 3)]);
+                InitAnimationForceUpdate(super, gUnk_0810AC5D[super->animationState * 2 + (bVar4 >> 4 & 3)]);
                 return;
             }
-            if (--this->timer != 0) {
+            if (--super->timer != 0) {
                 return;
             }
-            this->subAction = 0;
+            super->subAction = 0;
             sub_08060E70(this, 0x10);
             break;
     }
 }
 
-void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
+void sub_08061464(NPC5Entity* this, u32 param_a, u32 param_b) {
     s32 iVar10;
     s32 iVar9;
     u32 bVar1;
 
-    iVar10 = this->x.HALF.HI;
-    iVar9 = this->y.HALF.HI;
+    iVar10 = super->x.HALF.HI;
+    iVar9 = super->y.HALF.HI;
 
-    switch (((CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
+    switch (((CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
         case 0:
-            this->field_0x6e.HWORD = param_b;
-            if (this->x.HALF.HI > (s32)param_a) {
+            this->unk_6e = param_b;
+            if (super->x.HALF.HI > (s32)param_a) {
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
                 break;
             }
             sub_080616A8(this, iVar10, iVar9 + -8, param_a);
             break;
         case 1:
-            this->field_0x6e.HWORD = param_a;
+            this->unk_6e = param_a;
             if (sub_08061720(this, iVar10 + 8, iVar9, param_b) != 0)
                 break;
-            this->field_0x6e.HWORD = param_b;
+            this->unk_6e = param_b;
             sub_080616A8(this, iVar10, iVar9 + -8, param_a);
             break;
         case 2:
-            this->field_0x6e.HWORD = param_a;
-            if (this->y.HALF.HI > (s32)param_b) {
+            this->unk_6e = param_a;
+            if (super->y.HALF.HI > (s32)param_b) {
                 sub_08061720(this, iVar10 + 8, iVar9, param_b);
             } else {
                 sub_08061798(this, iVar10 + 8, iVar9, param_b);
             }
             break;
         case 3:
-            this->field_0x6e.HWORD = param_a;
+            this->unk_6e = param_a;
             if (sub_08061798(this, iVar10 + 8, iVar9, param_b) != 0)
                 break;
-            this->field_0x6e.HWORD = param_b;
+            this->unk_6e = param_b;
             sub_08061888(this, iVar10, iVar9 + 8, param_a);
             break;
         case 4:
-            this->field_0x6e.HWORD = param_b;
-            if (this->x.HALF.HI > (s32)param_a) {
+            this->unk_6e = param_b;
+            if (super->x.HALF.HI > (s32)param_a) {
                 sub_08061810(this, iVar10, iVar9 + 8, param_a);
                 break;
             }
             sub_08061888(this, iVar10, iVar9 + 8, param_a);
             break;
         case 5:
-            this->field_0x6e.HWORD = param_a;
+            this->unk_6e = param_a;
             if (sub_08061978(this, iVar10 + -8, iVar9, param_b) != 0)
                 break;
-            this->field_0x6e.HWORD = param_b;
+            this->unk_6e = param_b;
             sub_08061810(this, iVar10, iVar9 + 8, param_a);
             break;
         case 6:
-            this->field_0x6e.HWORD = param_a;
-            if (this->y.HALF.HI > (s32)param_b) {
+            this->unk_6e = param_a;
+            if (super->y.HALF.HI > (s32)param_b) {
                 sub_08061900(this, iVar10 + -8, iVar9, param_b);
             } else {
                 sub_08061978(this, iVar10 + -8, iVar9, param_b);
             }
             break;
         case 7:
-            this->field_0x6e.HWORD = param_a;
+            this->unk_6e = param_a;
             if (sub_08061900(this, iVar10 + -8, iVar9, param_b) == 0) {
-                this->field_0x6e.HWORD = param_b;
+                this->unk_6e = param_b;
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
             }
     }
-    bVar1 = ((UnkHeap*)this->myHeap)->unk_0 & 8;
+    bVar1 = ((UnkHeap*)super->myHeap)->unk_0 & 8;
     if (bVar1 == 0) {
-        this->action = 3;
-        this->subAction = bVar1;
+        super->action = 3;
+        super->subAction = bVar1;
     }
 }
 
-bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061630(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A74(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = x;
-            ((UnkHeap*)this->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD >= y) {
+            ((UnkHeap*)super->myHeap)->unk_7 = x;
+            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e >= y) {
                 return TRUE;
             }
         }
@@ -697,15 +717,15 @@ bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_080616A8(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_080616A8(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A1C(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = x;
-            ((UnkHeap*)this->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD >= y) {
+            ((UnkHeap*)super->myHeap)->unk_7 = x;
+            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e >= y) {
                 return TRUE;
             }
         }
@@ -714,15 +734,15 @@ bool32 sub_080616A8(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061720(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061720(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_080619F0(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)this->myHeap)->unk_8 = y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD <= x) {
+            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
+            ((UnkHeap*)super->myHeap)->unk_8 = y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e <= x) {
                 return TRUE;
             }
         }
@@ -731,15 +751,15 @@ bool32 sub_08061720(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061798(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061798(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A48(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)this->myHeap)->unk_8 = y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD <= x) {
+            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
+            ((UnkHeap*)super->myHeap)->unk_8 = y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e <= x) {
                 return TRUE;
             }
         }
@@ -748,15 +768,15 @@ bool32 sub_08061798(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061810(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061810(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A74(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = x;
-            ((UnkHeap*)this->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD <= y) {
+            ((UnkHeap*)super->myHeap)->unk_7 = x;
+            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e <= y) {
                 return TRUE;
             }
         }
@@ -765,15 +785,15 @@ bool32 sub_08061810(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061888(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061888(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A1C(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = x;
-            ((UnkHeap*)this->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD <= y) {
+            ((UnkHeap*)super->myHeap)->unk_7 = x;
+            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e <= y) {
                 return TRUE;
             }
         }
@@ -782,15 +802,15 @@ bool32 sub_08061888(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061900(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061900(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_080619F0(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)this->myHeap)->unk_8 = y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD >= x) {
+            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
+            ((UnkHeap*)super->myHeap)->unk_8 = y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e >= x) {
                 return TRUE;
             }
         }
@@ -799,15 +819,15 @@ bool32 sub_08061900(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061978(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061978(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    u8* layer = (this->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
+    u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
         if (sub_08061A48(layer, x, y, param)) {
-            ((UnkHeap*)this->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)this->myHeap)->unk_8 = y;
-            ((UnkHeap*)this->myHeap)->unk_0 |= 8;
-            if (this->field_0x6e.HWORD >= x) {
+            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
+            ((UnkHeap*)super->myHeap)->unk_8 = y;
+            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
+            if (this->unk_6e >= x) {
                 return TRUE;
             }
         }
@@ -856,64 +876,64 @@ bool32 sub_08061A74(u8* layer, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0(Entity* this) {
+void sub_08061AA0(NPC5Entity* this) {
     DeleteThisEntity();
 }
 
-void sub_08061AA8(Entity* this) {
-    static void (*const gUnk_0810AC70[])(Entity*) = {
+void sub_08061AA8(NPC5Entity* this) {
+    static void (*const gUnk_0810AC70[])(NPC5Entity*) = {
         sub_08061ACC,
         sub_08061B18,
     };
-    gUnk_0810AC70[this->action](this);
-    CopyPosition(this->parent, this);
+    gUnk_0810AC70[super->action](this);
+    CopyPosition(super->parent, super);
 }
 
-void sub_08061ACC(Entity* this) {
-    this->flags = this->flags | ENT_PERSIST;
-    this->action = 1;
-    this->subAction = 0xff;
-    this->timer = 0;
-    this->followerFlag = this->followerFlag & 0xfe;
-    AddInteractableWhenBigObject(this);
+void sub_08061ACC(NPC5Entity* this) {
+    super->flags = super->flags | ENT_PERSIST;
+    super->action = 1;
+    super->subAction = 0xff;
+    super->timer = 0;
+    super->followerFlag = super->followerFlag & 0xfe;
+    AddInteractableWhenBigObject(super);
     sub_08061AFC(this);
 }
 
-void sub_08061AFC(Entity* this) {
+void sub_08061AFC(NPC5Entity* this) {
     u32 tmp = 0;
-    if (this->subAction != 0) {
-        this->subAction = tmp;
-        *((u16**)&this->field_0x68) = gUnk_0810B660[0];
-        this->timer = 0;
+    if (super->subAction != 0) {
+        super->subAction = tmp;
+        this->unk_68 = gUnk_0810B660[0];
+        super->timer = 0;
     }
 }
 
-void sub_08061B18(Entity* this) {
+void sub_08061B18(NPC5Entity* this) {
     u16* puVar2;
 
-    switch (this->interactType) {
+    switch (super->interactType) {
         case 0:
             break;
         case 1:
-            this->interactType = 0;
+            super->interactType = 0;
             sub_08061AFC(this);
-            puVar2 = *(u16**)&this->field_0x68;
-            puVar2 += (this->timer++);
+            puVar2 = this->unk_68;
+            puVar2 += (super->timer++);
             if (puVar2[1] == 0) {
-                this->timer = 0;
+                super->timer = 0;
             }
-            MessageNoOverlap(puVar2[0], this);
+            MessageNoOverlap(puVar2[0], super);
             break;
     }
 }
 
-void sub_08061B58(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        InitAnimationForceUpdate(this, 2);
+void sub_08061B58(NPC5Entity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        InitAnimationForceUpdate(super, 2);
     }
     if (gRoomTransition.entity_update_type == 2) {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
-    sub_0806FD3C(this);
+    sub_0806FD3C(super);
 }

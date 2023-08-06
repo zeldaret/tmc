@@ -1,18 +1,37 @@
-#include "entity.h"
+/**
+ * @file dog.c
+ * @ingroup NPCs
+ *
+ * @brief Dog NPC
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
+#include "entity.h"
 #include "functions.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
 
-void sub_08069FE8(Entity*);
-bool32 sub_08069EF0(Entity*);
-bool32 sub_08069F90(Entity*);
-void sub_08069F6C(Entity*);
-void sub_08069D00(Entity*);
-void sub_08069CB8(Entity*);
-void sub_0806A028(Entity*);
-void sub_08069FBC(Entity*);
-void sub_0806A080(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16 unk_68;
+    /*0x6a*/ u8 unk_6a;
+    /*0x6b*/ u8 unk_6b;
+    /*0x6c*/ u16 unk_6c;
+    /*0x6e*/ u16 unk_6e;
+    /*0x70*/ u16 unk_70;
+    /*0x72*/ u16 unk_72;
+    /*0x74*/ u8 unk_74;
+} DogEntity;
+
+void sub_08069FE8(DogEntity*);
+bool32 sub_08069EF0(DogEntity*);
+bool32 sub_08069F90(DogEntity*);
+void sub_08069F6C(DogEntity*);
+void sub_08069D00(DogEntity*);
+void sub_08069CB8(DogEntity*);
+void sub_0806A028(DogEntity*);
+void sub_08069FBC(DogEntity*);
+void sub_0806A080(DogEntity*);
 
 const SpriteLoadData gUnk_08111D58[] = {
 #ifdef EU
@@ -23,15 +42,15 @@ const SpriteLoadData gUnk_08111D58[] = {
     { 4, 68, 4 },  { 7172, 68, 4 }, { 0, 0, 0 }, { 83, 69, 4 }, { 7251, 69, 4 }, { 0, 0, 0 },
 };
 
-void sub_08069B44(Entity*);
-void sub_08069C40(Entity*);
-void sub_08069D54(Entity*);
-void sub_08069DF8(Entity*);
-void sub_08069E44(Entity*);
-void sub_08069E50(Entity*);
-void sub_08069ECC(Entity*);
-void sub_08069EE0(Entity*);
-void (*const gUnk_08111D88[])(Entity*) = {
+void sub_08069B44(DogEntity*);
+void sub_08069C40(DogEntity*);
+void sub_08069D54(DogEntity*);
+void sub_08069DF8(DogEntity*);
+void sub_08069E44(DogEntity*);
+void sub_08069E50(DogEntity*);
+void sub_08069ECC(DogEntity*);
+void sub_08069EE0(DogEntity*);
+void (*const gUnk_08111D88[])(DogEntity*) = {
     sub_08069B44, sub_08069C40, sub_08069D54, sub_08069DF8, sub_08069E44, sub_08069E50, sub_08069ECC, sub_08069EE0,
 };
 
@@ -175,254 +194,254 @@ const u16 gUnk_08111FD8[] = {
     TEXT_INDEX(TEXT_TOWN8, 0x7),  TEXT_INDEX(TEXT_TOWN8, 0x8), TEXT_INDEX(TEXT_TOWN8, 0x9),
     TEXT_INDEX(TEXT_TOWN8, 0x11), TEXT_INDEX(TEXT_TOWN8, 0x3),
 };
-void Dog(Entity* this) {
-    gUnk_08111D88[this->action](this);
-    sub_0806ED78(this);
+void Dog(DogEntity* this) {
+    gUnk_08111D88[super->action](this);
+    sub_0806ED78(super);
     sub_08069FE8(this);
 }
 
-void sub_08069B44(Entity* this) {
+void sub_08069B44(DogEntity* this) {
     u32 uVar2;
     u32 sVar3;
     u32 uVar4;
     u32 uVar5;
     if (sub_08069EF0(this)) {
-        uVar5 = sub_0805ACC0(this);
+        uVar5 = sub_0805ACC0(super);
         if (uVar5 == 0) {
-            sVar3 = this->x.HALF.HI;
-            uVar2 = this->y.HALF.HI;
+            sVar3 = super->x.HALF.HI;
+            uVar2 = super->y.HALF.HI;
         } else {
             sVar3 = uVar5 >> 0x10;
             uVar2 = uVar5;
         }
 
-        uVar4 = this->timer == 0 ? 0x20 : this->timer;
+        uVar4 = super->timer == 0 ? 0x20 : super->timer;
 
-        this->field_0x6e.HWORD = sVar3 - uVar4;
-        this->field_0x6c.HWORD = sVar3 + uVar4;
-        this->field_0x70.HALF.LO = uVar2 - 8;
-        this->field_0x70.HALF.HI = uVar2 + 8;
-        this->speed = 0x100;
-        this->timer = 30;
-        this->animationState = 2;
-        this->field_0x6a.HALF.LO = 0xff;
-        this->field_0x74.HALF.LO = GetFusionToOffer(this);
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        InitAnimationForceUpdate(this, 10);
-        if ((this->flags & ENT_SCRIPTED) != 0) {
-            sub_0807DD50(this);
+        this->unk_6e = sVar3 - uVar4;
+        this->unk_6c = sVar3 + uVar4;
+        this->unk_70 = uVar2 - 8;
+        this->unk_72 = uVar2 + 8;
+        super->speed = 0x100;
+        super->timer = 30;
+        super->animationState = 2;
+        this->unk_6a = 0xff;
+        this->unk_74 = GetFusionToOffer(super);
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        InitAnimationForceUpdate(super, 10);
+        if ((super->flags & ENT_SCRIPTED) != 0) {
+            InitScriptForNPC(super);
         }
-        if (((this->type == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) &&
+        if (((super->type == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) &&
             (GetInventoryValue(ITEM_QST_DOGFOOD) != 2)) {
-            this->action = 4;
+            super->action = 4;
         }
-        if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
-            SetTile(0x4072, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
+        if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
+            SetTile(0x4072, TILE(super->x.HALF.HI, super->y.HALF.HI - 8), super->collisionLayer);
         }
     }
 }
 
-void sub_08069C40(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_08069C40(DogEntity* this) {
+    UpdateAnimationSingleFrame(super);
     if (sub_08069F90(this)) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             sub_08069CB8(this);
         } else {
-            this->animationState = GetAnimationState(this);
+            super->animationState = GetAnimationState(super);
             sub_08069D00(this);
         }
-        this->timer = 30;
+        super->timer = 30;
     } else {
-        this->timer--;
-        if (this->timer == 0) {
-            this->action = 2;
-            this->timer = (Random() & 0x1f) + 30;
-            this->direction = gUnk_08111DA8[Random() & 7];
+        super->timer--;
+        if (super->timer == 0) {
+            super->action = 2;
+            super->timer = (Random() & 0x1f) + 30;
+            super->direction = gUnk_08111DA8[Random() & 7];
             sub_08069F6C(this);
         }
     }
 }
 
-void sub_08069CB8(Entity* this) {
+void sub_08069CB8(DogEntity* this) {
     u32 direction;
     u32 animState;
 
-    direction = GetFacingDirection(this, &gPlayerEntity);
-    animState = gUnk_08111DB0[direction + this->animationState * 0x20];
-    this->animationState = animState >> 6;
-    this->field_0x6a.HALF.HI = animState & 0x3f;
+    direction = GetFacingDirection(super, &gPlayerEntity);
+    animState = gUnk_08111DB0[direction + super->animationState * 0x20];
+    super->animationState = animState >> 6;
+    this->unk_6b = animState & 0x3f;
     sub_0806A028(this);
-    if (this->animIndex != this->field_0x6a.HALF.HI) {
-        InitAnimationForceUpdate(this, this->field_0x6a.HALF.HI);
+    if (super->animIndex != this->unk_6b) {
+        InitAnimationForceUpdate(super, this->unk_6b);
     }
 }
 
-void sub_08069D00(Entity* this) {
-    this->field_0x6a.HALF.HI = 8;
+void sub_08069D00(DogEntity* this) {
+    this->unk_6b = 8;
     sub_0806A028(this);
-    if (0x1f < this->animIndex) {
-        if ((this->frame & ANIM_DONE) == 0) {
+    if (0x1f < super->animIndex) {
+        if ((super->frame & ANIM_DONE) == 0) {
             return;
         }
-        this->field_0x6a.HALF.HI = 8;
+        this->unk_6b = 8;
     }
     if ((Random() & 0x1ff) < 3) {
         sub_08069FBC(this);
     }
-    if (this->animIndex != this->field_0x6a.HALF.HI + this->animationState) {
-        InitAnimationForceUpdate(this, this->field_0x6a.HALF.HI + this->animationState);
+    if (super->animIndex != this->unk_6b + super->animationState) {
+        InitAnimationForceUpdate(super, this->unk_6b + super->animationState);
     }
 }
 
-void sub_08069D54(Entity* this) {
+void sub_08069D54(DogEntity* this) {
     u16 collisions;
     if (!sub_08069F90(this)) {
-        this->timer--;
-        if (this->timer != 0) {
-            UpdateAnimationSingleFrame(this);
-            ProcessMovement0(this);
-            collisions = this->collisions;
+        super->timer--;
+        if (super->timer != 0) {
+            UpdateAnimationSingleFrame(super);
+            ProcessMovement0(super);
+            collisions = super->collisions;
 
-            if (this->x.HALF.HI < this->field_0x6e.HWORD) {
-                this->x.HALF.HI = this->field_0x6e.HWORD + 1;
+            if (super->x.HALF.HI < this->unk_6e) {
+                super->x.HALF.HI = this->unk_6e + 1;
                 collisions = COL_WEST_ANY;
-            } else if (this->x.HALF.HI > this->field_0x6c.HWORD) {
-                this->x.HALF.HI = this->field_0x6c.HWORD - 1;
+            } else if (super->x.HALF.HI > this->unk_6c) {
+                super->x.HALF.HI = this->unk_6c - 1;
                 collisions = COL_EAST_ANY;
             }
-            if (this->y.HALF.HI < this->field_0x70.HALF_U.LO) {
-                this->y.HALF.HI = this->field_0x70.HALF_U.LO + 1;
+            if (super->y.HALF.HI < this->unk_70) {
+                super->y.HALF.HI = this->unk_70 + 1;
                 collisions = COL_NORTH_ANY;
-            } else if (this->y.HALF.HI > this->field_0x70.HALF_U.HI) {
-                this->y.HALF.HI = this->field_0x70.HALF_U.HI - 1;
+            } else if (super->y.HALF.HI > this->unk_72) {
+                super->y.HALF.HI = this->unk_72 - 1;
                 collisions = COL_SOUTH_ANY;
             }
-            sub_0800417E(this, collisions);
+            sub_0800417E(super, collisions);
             sub_08069F6C(this);
             return;
         }
     }
     if (sub_08069F90(this)) {
-        this->action = 1;
+        super->action = 1;
     } else {
-        this->action = 3;
+        super->action = 3;
     }
-    this->timer = (Random() & 0x1f) + 30;
+    super->timer = (Random() & 0x1f) + 30;
 }
 
-void sub_08069DF8(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_08069DF8(DogEntity* this) {
+    UpdateAnimationSingleFrame(super);
     if (sub_08069F90(this)) {
-        this->action = 1;
+        super->action = 1;
     } else {
-        this->timer--;
-        if (this->timer != 0) {
+        super->timer--;
+        if (super->timer != 0) {
             sub_08069D00(this);
             return;
         }
         if ((Random() & 0xff) < 0x30) {
-            this->action = 2;
+            super->action = 2;
         } else {
-            this->action = 3;
+            super->action = 3;
         }
     }
-    this->timer = (Random() & 0x1f) + 30;
+    super->timer = (Random() & 0x1f) + 30;
 }
 
-void sub_08069E44(Entity* this) {
-    sub_0807DD94(this, NULL);
+void sub_08069E44(DogEntity* this) {
+    ExecuteScriptAndHandleAnimation(super, NULL);
 }
 
-void sub_08069E50(Entity* this) {
-    this->animationState = GetAnimationState(this);
-    this->field_0x6a.HALF.HI = 8;
+void sub_08069E50(DogEntity* this) {
+    super->animationState = GetAnimationState(super);
+    this->unk_6b = 8;
     sub_0806A028(this);
-    UpdateAnimationSingleFrame(this);
-    if (this->animIndex > 0x1f) {
-        if ((this->frame & ANIM_DONE) == 0) {
+    UpdateAnimationSingleFrame(super);
+    if (super->animIndex > 0x1f) {
+        if ((super->frame & ANIM_DONE) == 0) {
             return;
         }
-        this->field_0x6a.HALF.HI = 8;
+        this->unk_6b = 8;
     }
     sub_08069FBC(this);
-    if (this->animIndex != this->field_0x6a.HALF.HI + this->animationState) {
-        InitAnimationForceUpdate(this, this->field_0x6a.HALF.HI + this->animationState);
+    if (super->animIndex != this->unk_6b + super->animationState) {
+        InitAnimationForceUpdate(super, this->unk_6b + super->animationState);
     }
     if (GetInventoryValue(ITEM_QST_DOGFOOD) == 2) {
-        this->action = 7;
-        InitAnimationForceUpdate(this, 0x29);
-        RemoveInteractableObject(this);
+        super->action = 7;
+        InitAnimationForceUpdate(super, 0x29);
+        RemoveInteractableObject(super);
         EnqueueSFX(SFX_VO_DOG);
         EnqueueSFX(SFX_TASK_COMPLETE);
     }
 }
 
-void sub_08069ECC(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
+void sub_08069ECC(DogEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
 #ifdef EU
         if (GetInventoryValue(ITEM_QST_DOGFOOD) != 2) {
-            this->action = 5;
+            super->action = 5;
         } else {
-            this->action = 1;
+            super->action = 1;
         }
 #else
-        this->action = 1;
+        super->action = 1;
 #endif
     }
 }
 
-void sub_08069EE0(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_08069EE0(DogEntity* this) {
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_08069EE8(Entity* this) {
-    this->action = 5;
+void sub_08069EE8(DogEntity* this) {
+    super->action = 5;
 }
 
-bool32 sub_08069EF0(Entity* this) {
-    if (!LoadExtraSpriteData(this, &gUnk_08111D58[this->type * 3])) {
+bool32 sub_08069EF0(DogEntity* this) {
+    if (!LoadExtraSpriteData(super, &gUnk_08111D58[super->type * 3])) {
         return FALSE;
     }
-    this->action = 1;
-    this->field_0x68.HWORD = gUnk_08111E30[this->type];
+    super->action = 1;
+    this->unk_68 = gUnk_08111E30[super->type];
     return TRUE;
 }
 
-void Dog_Head(Entity* this) {
+void Dog_Head(DogEntity* this) {
     u32 frame;
-    frame = this->frame & ~ANIM_DONE;
+    frame = super->frame & ~ANIM_DONE;
     if (frame != 0) {
-        frame += this->field_0x68.HWORD;
+        frame += this->unk_68;
     }
-    SetExtraSpriteFrame(this, 0, frame - 1);
-    SetExtraSpriteFrame(this, 1, this->frameIndex);
-    SetSpriteSubEntryOffsetData1(this, 1, 0);
-    sub_0807000C(this);
+    SetExtraSpriteFrame(super, 0, frame - 1);
+    SetExtraSpriteFrame(super, 1, super->frameIndex);
+    SetSpriteSubEntryOffsetData1(super, 1, 0);
+    sub_0807000C(super);
 }
 
-void sub_08069F6C(Entity* this) {
-    this->animationState = sub_0806F5A4(this->direction);
-    if (this->animationState + 4 != this->animIndex) {
-        InitAnimationForceUpdate(this, this->animationState + 4);
+void sub_08069F6C(DogEntity* this) {
+    super->animationState = GetAnimationStateForDirection4(super->direction);
+    if (super->animationState + 4 != super->animIndex) {
+        InitAnimationForceUpdate(super, super->animationState + 4);
     }
 }
 
-bool32 sub_08069F90(Entity* this) {
-    if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
+bool32 sub_08069F90(DogEntity* this) {
+    if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
         return TRUE;
     } else {
-        return EntityInRectRadius(this, &gPlayerEntity, 0x14, 0x14);
+        return EntityInRectRadius(super, &gPlayerEntity, 0x14, 0x14);
     }
 }
 
-void sub_08069FBC(Entity* this) {
+void sub_08069FBC(DogEntity* this) {
     u32 tmp = (gPlayerState.flags & PL_MINISH) != 0 ? 0x24 : 0x20;
-    if ((this->animationState == 1) || (this->animationState == 3)) {
-        this->field_0x6a.HALF.HI = tmp;
+    if ((super->animationState == 1) || (super->animationState == 3)) {
+        this->unk_6b = tmp;
     }
 }
 
-void sub_08069FE8(Entity* this) {
+void sub_08069FE8(DogEntity* this) {
     u32 tmp;
     if ((gPlayerState.flags & PL_MINISH) != 0) {
         tmp = TRUE;
@@ -430,22 +449,22 @@ void sub_08069FE8(Entity* this) {
         tmp = FALSE;
     }
 
-    if (tmp != this->field_0x6a.HALF.LO) {
+    if (tmp != this->unk_6a) {
         if (tmp == 0) {
-            AddInteractableWhenBigObject(this);
+            AddInteractableWhenBigObject(super);
         } else {
-            AddInteractableAsMinishFuser(this, this->field_0x74.HALF.LO);
+            AddInteractableAsMinishFuser(super, this->unk_74);
         }
     }
-    this->field_0x6a.HALF.LO = tmp;
+    this->unk_6a = tmp;
 }
 
-void sub_0806A028(Entity* this) {
-    if (this->interactType != 0) {
+void sub_0806A028(DogEntity* this) {
+    if (super->interactType != 0) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
-            if (this->interactType == 2) {
-                this->action = 6;
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 6;
+                InitializeNPCFusion(super);
             } else {
                 sub_0806A080(this);
             }
@@ -455,12 +474,12 @@ void sub_0806A028(Entity* this) {
             SoundReq(SFX_VO_DOG);
             ResetPlayerAnimationAndAction();
         }
-        this->interactType = 0;
+        super->interactType = 0;
     }
 }
 
-void sub_0806A080(Entity* this) {
-    ShowNPCDialogue(this, &(gUnk_08111E34[this->type2][gSave.global_progress]));
+void sub_0806A080(DogEntity* this) {
+    ShowNPCDialogue(super, &(gUnk_08111E34[super->type2][gSave.global_progress]));
 }
 
 void sub_0806A0A4(Entity* this) {
@@ -501,15 +520,15 @@ void sub_0806A144(Entity* this) {
     MessageNoOverlap(gUnk_08111FD8[dialog], this);
 }
 
-void Dog_Fusion(Entity* this) {
-    if (this->action == 0) {
+void Dog_Fusion(DogEntity* this) {
+    if (super->action == 0) {
         if (sub_08069EF0(this)) {
-            this->action++;
-            this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
-            InitializeAnimation(this, 0x23);
+            super->action++;
+            super->spriteSettings.draw = 1;
+            SetDefaultPriority(super, PRIO_MESSAGE);
+            InitializeAnimation(super, 0x23);
         }
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }

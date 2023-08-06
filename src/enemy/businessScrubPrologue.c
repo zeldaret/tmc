@@ -75,7 +75,7 @@ void sub_08045C3C(BusinessScrubPrologueEntity* this) {
     sub_08046030(this, 0);
     sub_08095C48(super);
     StartCutscene(super, script_BusinessScrubIntro);
-    sub_0807DD50(super);
+    InitScriptForNPC(super);
 }
 
 void sub_08045CA4(BusinessScrubPrologueEntity* this) {
@@ -200,7 +200,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
 }
 
 void sub_08045EC8(BusinessScrubPrologueEntity* this) {
-    sub_0807DD94(super, 0);
+    ExecuteScriptAndHandleAnimation(super, NULL);
 }
 
 void sub_08045ED4(BusinessScrubPrologueEntity* this) {

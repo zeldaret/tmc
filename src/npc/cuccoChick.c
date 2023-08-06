@@ -1,44 +1,56 @@
-#include "npc.h"
+/**
+ * @file cuccoChick.c
+ * @ingroup NPCs
+ *
+ * @brief Cucco Chick NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
+#include "npc.h"
 
-void CuccoChick_Init(Entity*);
-void sub_0806E764(Entity*);
-void CuccoChick_Fly(Entity*);
-void sub_0806E824(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} CuccoChickEntity;
 
-void sub_0806E838(Entity* this);
+void CuccoChick_Init(CuccoChickEntity*);
+void sub_0806E764(CuccoChickEntity*);
+void CuccoChick_Fly(CuccoChickEntity*);
+void sub_0806E824(CuccoChickEntity*);
 
-void sub_0806E884(Entity* this);
+void sub_0806E838(CuccoChickEntity* this);
 
-void CuccoChick(Entity* this) {
-    static void (*const CuccoChick_Actions[])(Entity*) = {
+void sub_0806E884(CuccoChickEntity* this);
+
+void CuccoChick(CuccoChickEntity* this) {
+    static void (*const CuccoChick_Actions[])(CuccoChickEntity*) = {
         CuccoChick_Init,
         sub_0806E764,
         CuccoChick_Fly,
         sub_0806E824,
     };
-    CuccoChick_Actions[this->action](this);
-    sub_0806ED78(this);
+    CuccoChick_Actions[super->action](this);
+    sub_0806ED78(super);
 }
 
-void CuccoChick_Init(Entity* this) {
-    this->action++;
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableAsMinishFuser(this, this->field_0x68.HALF.LO);
-    SetDefaultPriority(this, PRIO_MESSAGE);
-    this->subAction = 0;
+void CuccoChick_Init(CuccoChickEntity* this) {
+    super->action++;
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableAsMinishFuser(super, this->fusionOffer);
+    SetDefaultPriority(super, PRIO_MESSAGE);
+    super->subAction = 0;
     sub_0806E764(this);
 }
 
-void sub_0806E764(Entity* this) {
-    if (this->subAction == 0) {
-        this->subAction++;
-        this->timer = (Random() & 0x1f) + 30;
-        this->frameIndex = 0;
+void sub_0806E764(CuccoChickEntity* this) {
+    if (super->subAction == 0) {
+        super->subAction++;
+        super->timer = (Random() & 0x1f) + 30;
+        super->frameIndex = 0;
     }
-    if (--this->timer == 0) {
-        this->action = 2;
-        this->subAction = 0;
+    if (--super->timer == 0) {
+        super->action = 2;
+        super->subAction = 0;
         if ((Random() & 1) != 0) {
             EnqueueSFX(SFX_VO_CHEEP);
         }
@@ -46,39 +58,39 @@ void sub_0806E764(Entity* this) {
     sub_0806E838(this);
 }
 
-void CuccoChick_Fly(Entity* this) {
-    if (this->subAction == 0) {
-        this->subAction++;
+void CuccoChick_Fly(CuccoChickEntity* this) {
+    if (super->subAction == 0) {
+        super->subAction++;
         if ((Random() & 1) != 0) {
-            this->spriteSettings.flipX ^= 1;
+            super->spriteSettings.flipX ^= 1;
         }
-        this->timer = (Random() & 3) + 1;
-        this->zVelocity = Q_16_16(1.0);
-        this->frameIndex = 1;
+        super->timer = (Random() & 3) + 1;
+        super->zVelocity = Q_16_16(1.0);
+        super->frameIndex = 1;
     }
-    if (GravityUpdate(this, Q_8_8(48.0)) == 0) {
-        if (--this->timer == 0) {
-            this->action = 1;
-            this->subAction = 0;
+    if (GravityUpdate(super, Q_8_8(48.0)) == 0) {
+        if (--super->timer == 0) {
+            super->action = 1;
+            super->subAction = 0;
         } else {
-            this->zVelocity = Q_16_16(1.0);
+            super->zVelocity = Q_16_16(1.0);
         }
     }
     sub_0806E838(this);
 }
 
-void sub_0806E824(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
+void sub_0806E824(CuccoChickEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
     }
 }
 
-void sub_0806E838(Entity* this) {
-    if (this->interactType != 0) {
+void sub_0806E838(CuccoChickEntity* this) {
+    if (super->interactType != 0) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
-            if (this->interactType == 2) {
-                this->action = 3;
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 3;
+                InitializeNPCFusion(super);
             } else {
                 sub_0806E884(this);
             }
@@ -86,22 +98,22 @@ void sub_0806E838(Entity* this) {
             ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_CHEEP);
-        this->interactType = 0;
+        super->interactType = 0;
     }
 }
 
-void sub_0806E884(Entity* this) {
-    MessageNoOverlap(TEXT_INDEX(TEXT_MINISH, 0Xb6), this);
+void sub_0806E884(CuccoChickEntity* this) {
+    MessageNoOverlap(TEXT_INDEX(TEXT_MINISH, 0xB6), super);
 }
 
-void CuccoChick_Fusion(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = 1;
-        this->frameIndex = 1;
+void CuccoChick_Fusion(CuccoChickEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = 1;
+        super->frameIndex = 1;
     } else {
-        if (GravityUpdate(this, Q_8_8(48.0)) == 0) {
-            this->zVelocity = Q_16_16(1.0);
+        if (GravityUpdate(super, Q_8_8(48.0)) == 0) {
+            super->zVelocity = Q_16_16(1.0);
         }
     }
 }

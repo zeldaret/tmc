@@ -1,11 +1,22 @@
-#include "global.h"
+/**
+ * @file dampe.c
+ * @ingroup NPCs
+ *
+ * @brief Dampe NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
-#include "room.h"
 #include "flags.h"
+#include "item.h"
 #include "message.h"
 #include "npc.h"
-#include "item.h"
+#include "player.h"
+#include "room.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} DampeEntity;
 
 void Dampe(Entity* this) {
     switch (this->action) {
@@ -13,16 +24,17 @@ void Dampe(Entity* this) {
             this->action = 1;
             this->spriteSettings.draw = 1;
             SetDefaultPriority(this, PRIO_MESSAGE);
-            sub_0807DD50(this);
+            InitScriptForNPC(this);
             return;
         case 1:
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
-                sub_0806F118(this);
+                InitAnimationForceUpdate(this,
+                                         GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)) + 4);
+                InitializeNPCFusion(this);
             } else {
-                sub_0807DD94(this, 0);
+                ExecuteScriptAndHandleAnimation(this, NULL);
             }
             return;
         case 2:
@@ -33,9 +45,9 @@ void Dampe(Entity* this) {
     }
 }
 
-void Dampe_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Dampe_MakeInteractable(DampeEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Dampe_Fusion(Entity* this) {

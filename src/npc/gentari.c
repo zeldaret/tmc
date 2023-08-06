@@ -1,30 +1,42 @@
-#include "global.h"
+/**
+ * @file gentari.c
+ * @ingroup NPCs
+ *
+ * @brief Gentari NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 
-void Gentari(Entity* this) {
-    switch (this->action) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} GentariEntity;
+
+void Gentari(GentariEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = TRUE;
-            SetDefaultPriority(this, PRIO_MESSAGE);
-            this->field_0x68.HALF.LO = GetFusionToOffer(this);
-            AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-            sub_0807DD50(this);
+            super->action = 1;
+            super->spriteSettings.draw = TRUE;
+            SetDefaultPriority(super, PRIO_MESSAGE);
+            this->fusionOffer = GetFusionToOffer(super);
+            AddInteractableWhenBigFuser(super, this->fusionOffer);
+            InitScriptForNPC(super);
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitAnimationForceUpdate(super,
+                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
             } else {
-                sub_0807DD94(this, 0);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
             }
     }
 }

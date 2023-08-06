@@ -1,12 +1,18 @@
-#include "global.h"
+/**
+ * @file beedle.c
+ * @ingroup NPCs
+ *
+ * @brief Beedle NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
+#include "functions.h"
+#include "game.h"
+#include "item.h"
 #include "message.h"
+#include "npc.h"
 #include "room.h"
 #include "script.h"
-#include "npc.h"
-#include "game.h"
-#include "functions.h"
-#include "item.h"
 
 typedef struct {
     Rect customHitbox;
@@ -14,10 +20,10 @@ typedef struct {
     u8 unused[3];
 } InteractCollisionData;
 
-void sub_080632E0(Entity* this);
-void sub_08063314(Entity* this);
-void sub_0806336C(Entity* this);
-void sub_08063390(Entity* this);
+void Beedle_Init(Entity* this);
+void Beedle_Action1(Entity* this);
+void Beedle_Action2(Entity* this);
+void Beedle_Action3(Entity* this);
 
 static const u8 gBeedleItems[] = {
     ITEM_NONE,
@@ -41,30 +47,30 @@ static const SpriteLoadData gUnk_0810C8D4[] = {
     { 0, 0, 0 },
 };
 
-void sub_080632C8(Entity* this);
+void Beedle_Update(Entity* this);
 void sub_08063410(Entity* this);
-s32 sub_080633C8(Entity* this);
+s32 Beedle_GetAnimIndexFacingPlayer(Entity* this);
 void sub_0806346C(Entity* this);
 
 void Beedle(Entity* this) {
     if (this->flags & ENT_SCRIPTED) {
         sub_08063410(this);
     } else {
-        sub_080632C8(this);
+        Beedle_Update(this);
     }
 }
 
-void sub_080632C8(Entity* this) {
-    static void (*const gUnk_0810C8E0[])(Entity*) = {
-        sub_080632E0,
-        sub_08063314,
-        sub_0806336C,
-        sub_08063390,
+void Beedle_Update(Entity* this) {
+    static void (*const beedleActions[])(Entity*) = {
+        Beedle_Init,
+        Beedle_Action1,
+        Beedle_Action2,
+        Beedle_Action3,
     };
-    gUnk_0810C8E0[this->action](this);
+    beedleActions[this->action](this);
 }
 
-void sub_080632E0(Entity* this) {
+void Beedle_Init(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_0810C8D4)) {
         InitializeAnimation(this, 0);
         AddInteractableWhenBigObject(this);
@@ -73,11 +79,12 @@ void sub_080632E0(Entity* this) {
     }
 }
 
-void sub_08063314(Entity* this) {
-    u32 offset;
+void Beedle_Action1(Entity* this) {
+    u32 animIndex;
 
-    if (((++this->subtimer & 0xF) == 0) && (offset = sub_080633C8(this), this->animIndex != offset)) {
-        InitializeAnimation(this, offset);
+    if (((++this->subtimer & 0xF) == 0) &&
+        (animIndex = Beedle_GetAnimIndexFacingPlayer(this), this->animIndex != animIndex)) {
+        InitializeAnimation(this, animIndex);
     }
     if (this->interactType != 0) {
         MessageFromTarget(this->timer + TEXT_INDEX(TEXT_EMPTY, 0x01));
@@ -86,14 +93,14 @@ void sub_08063314(Entity* this) {
     sub_0806ED78(this);
 }
 
-void sub_0806336C(Entity* this) {
+void Beedle_Action2(Entity* this) {
     if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action++;
         InitializeAnimation(this, 8);
     }
 }
 
-void sub_08063390(Entity* this) {
+void Beedle_Action3(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 1;
@@ -103,14 +110,13 @@ void sub_08063390(Entity* this) {
     sub_0806ED78(this);
 }
 
-s32 sub_080633C8(Entity* this) {
-    s32 uVar1;
-
-    uVar1 = GetAnimationStateInRectRadius(this, 0x20, 0x20);
-    if (uVar1 < 0) {
-        uVar1 = this->animIndex;
+// If the player is inside a 32x32 rect, face the player. Otherwise keep facing the same direction.
+s32 Beedle_GetAnimIndexFacingPlayer(Entity* this) {
+    s32 animationState = GetAnimationStateInRectRadius(this, 32, 32);
+    if (animationState < 0) {
+        animationState = this->animIndex;
     }
-    return uVar1;
+    return animationState;
 }
 
 void Beedle_Head(Entity* this) {

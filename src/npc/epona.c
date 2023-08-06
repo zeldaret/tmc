@@ -1,68 +1,80 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file epona.c
+ * @ingroup NPCs
+ *
+ * @brief Epona NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
+#include "functions.h"
 #include "message.h"
 #include "npc.h"
-#include "functions.h"
+#include "sound.h"
 
-void sub_08065A64(Entity* this);
-void sub_08065AA4(Entity*);
-void sub_080659B8(Entity*);
-void sub_080659F0(Entity*);
-void sub_08065A00(Entity*);
-void sub_08065A10(Entity*);
-void sub_08065A34(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unk_69;
+} EponaEntity;
 
-void Epona(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void sub_08065A64(EponaEntity* this);
+void sub_08065AA4(EponaEntity* this);
+void sub_080659B8(EponaEntity* this);
+void sub_080659F0(EponaEntity* this);
+void sub_08065A00(EponaEntity* this);
+void sub_08065A10(EponaEntity* this);
+void sub_08065A34(EponaEntity* this);
+
+void Epona(EponaEntity* this) {
+    static void (*const actionFuncs[])(EponaEntity*) = {
         sub_080659B8, sub_080659F0, sub_08065A00, sub_08065A10, sub_08065A34,
     };
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
     sub_08065A64(this);
-    sub_0806ED78(this);
+    sub_0806ED78(super);
 }
 
-void sub_080659B8(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->animationState = 6;
-    this->field_0x68.HALF.HI = -1;
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    InitAnimationForceUpdate(this, this->animationState / 2);
+void sub_080659B8(EponaEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    super->animationState = 6;
+    this->unk_69 = -1;
+    this->fusionOffer = GetFusionToOffer(super);
+    InitAnimationForceUpdate(super, super->animationState / 2);
 }
 
-void sub_080659F0(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_080659F0(EponaEntity* this) {
+    UpdateAnimationSingleFrame(super);
     sub_08065AA4(this);
 }
 
-void sub_08065A00(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void sub_08065A00(EponaEntity* this) {
+    UpdateAnimationSingleFrame(super);
     sub_08065AA4(this);
 }
 
-void sub_08065A10(Entity* this) {
+void sub_08065A10(EponaEntity* this) {
     if ((gMessage.doTextBox & 0x7F) == 0) {
-        this->action = 1;
-        InitAnimationForceUpdate(this, this->animationState / 2);
+        super->action = 1;
+        InitAnimationForceUpdate(super, super->animationState / 2);
     }
 }
 
-void sub_08065A34(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
-        InitAnimationForceUpdate(this, this->animationState / 2);
+void sub_08065A34(EponaEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
+        InitAnimationForceUpdate(super, super->animationState / 2);
     }
 }
 
-void sub_08065A50(Entity* this) {
+void sub_08065A50(EponaEntity* this) {
     static const Dialog typeDialogs[] = {
         { 0, 0, DIALOG_MINISH, 1, { TEXT_INDEX(TEXT_LON_LON, 0X17), TEXT_INDEX(TEXT_TINGLE, 0x3c) } },
     };
-    ShowNPCDialogue(this, &typeDialogs[this->type]);
+    ShowNPCDialogue(super, &typeDialogs[super->type]);
 }
 
-void sub_08065A64(Entity* this) {
+void sub_08065A64(EponaEntity* this) {
     u32 uVar2;
 
     if ((gPlayerState.flags & PL_MINISH) != 0) {
@@ -71,43 +83,43 @@ void sub_08065A64(Entity* this) {
         uVar2 = FALSE;
     }
 
-    if (uVar2 != this->field_0x68.HALF.HI) {
+    if (uVar2 != this->unk_69) {
         if (uVar2 == 0) {
-            AddInteractableWhenBigObject(this);
+            AddInteractableWhenBigObject(super);
         } else {
-            AddInteractableAsMinishFuser(this, this->field_0x68.HALF.LO);
+            AddInteractableAsMinishFuser(super, this->fusionOffer);
         }
     }
-    this->field_0x68.HALF.HI = uVar2;
+    this->unk_69 = uVar2;
 }
 
-void sub_08065AA4(Entity* this) {
-    if (this->interactType != 0) {
+void sub_08065AA4(EponaEntity* this) {
+    if (super->interactType != 0) {
         if (gPlayerState.flags & PL_MINISH) {
-            if (this->interactType == 2) {
-                this->action = 4;
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 4;
+                InitializeNPCFusion(super);
             } else {
-                this->action = 3;
-                SetDefaultPriority(this, PRIO_MESSAGE);
+                super->action = 3;
+                SetDefaultPriority(super, PRIO_MESSAGE);
                 sub_08065A50(this);
             }
-            InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+            InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
         } else {
             sub_08065A50(this);
             ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_EPONA);
-        this->interactType = 0;
+        super->interactType = 0;
     }
 }
 
-void Epona_Fusion(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = 1;
-        InitAnimationForceUpdate(this, 7);
+void Epona_Fusion(EponaEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = 1;
+        InitAnimationForceUpdate(super, 7);
     } else {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
 }

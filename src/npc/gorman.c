@@ -1,8 +1,21 @@
+/**
+ * @file gorman.c
+ * @ingroup NPCs
+ *
+ * @brief Gorman NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x69*/ s8 unk_69;
+} GormanEntity;
+
 void sub_080697A4(Entity* this);
-void sub_08069838(Entity* this);
+void sub_08069838(GormanEntity* this);
 void sub_08069888(Entity* this);
 
 const SpriteLoadData gUnk_08111C3C[] = {
@@ -53,11 +66,11 @@ const u8 gUnk_08111CB8[] = {
     0,
 };
 
-void Gorman(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
+void Gorman(GormanEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
         sub_08069838(this);
     } else {
-        sub_080697A4(this);
+        sub_080697A4(super);
     }
 }
 
@@ -94,20 +107,20 @@ void sub_080697EC(Entity* this) {
     }
 }
 
-void sub_08069838(Entity* this) {
-    if (this->action == 0) {
-        if (!LoadExtraSpriteData(this, gUnk_08111C3C)) {
+void sub_08069838(GormanEntity* this) {
+    if (super->action == 0) {
+        if (!LoadExtraSpriteData(super, gUnk_08111C3C)) {
             return;
         }
-        this->action++;
-        this->field_0x68.HALF.LO = 0;
-        this->field_0x68.HALF.HI = 0;
-        sub_0807DD64(this);
+        super->action++;
+        this->unk_68 = 0;
+        this->unk_69 = 0;
+        sub_0807DD64(super);
     }
-    sub_0807DD94(this, NULL);
-    if (this->interactType != 0) {
-        this->interactType = 0;
-        sub_08069888(this);
+    ExecuteScriptAndHandleAnimation(super, NULL);
+    if (super->interactType != 0) {
+        super->interactType = 0;
+        sub_08069888(super);
     }
 }
 
@@ -132,56 +145,56 @@ void sub_08069888(Entity* this) {
     MessageNoOverlap(gUnk_08111C50[index], this);
 }
 
-void sub_0806991C(Entity* this, ScriptExecutionContext* context) {
+void sub_0806991C(GormanEntity* this, ScriptExecutionContext* context) {
     u32 tmp;
     const Coords* ptr;
-    this->field_0x68.HALF.LO = (Random() & 0x1f) + 0x3c;
-    ptr = &gUnk_08111C5C[*(s8*)&this->field_0x68.HALF.HI];
+    this->unk_68 = (Random() & 0x1f) + 0x3c;
+    ptr = &gUnk_08111C5C[this->unk_69];
     context->x.HALF.HI = gRoomControls.origin_x + ptr->HALF.x;
     context->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y;
     context->unk_19 = 8;
     context->postScriptActions |= 2;
     context->condition = 0;
-    tmp = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
-    this->direction = tmp;
-    this->animationState = (this->animationState & 0x80) | gUnk_08111C74[(tmp << 0x18) >> 0x1c];
+    tmp = sub_080045DA(context->x.HALF.HI - super->x.HALF.HI, context->y.HALF.HI - super->y.HALF.HI);
+    super->direction = tmp;
+    super->animationState = (super->animationState & 0x80) | gUnk_08111C74[(tmp << 0x18) >> 0x1c];
     gActiveScriptInfo.flags |= 1;
 }
 
-void sub_080699AC(Entity* this, ScriptExecutionContext* context) {
+void sub_080699AC(GormanEntity* this, ScriptExecutionContext* context) {
     u32 tmp;
     const Coords* ptr;
-    this->field_0x68.HALF.LO = (Random() & 0x1f) + 0x3c;
-    ptr = &gUnk_08111C84[*(s8*)&this->field_0x68.HALF.HI];
+    this->unk_68 = (Random() & 0x1f) + 0x3c;
+    ptr = &gUnk_08111C84[this->unk_69];
     context->x.HALF.HI = gRoomControls.origin_x + ptr->HALF.x;
     context->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y;
     context->unk_19 = 8;
     context->postScriptActions |= 2;
     context->condition = 0;
-    tmp = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
-    this->direction = tmp;
-    this->animationState = (this->animationState & 0x80) | gUnk_08111C8C[(tmp << 0x18) >> 0x1c];
+    tmp = sub_080045DA(context->x.HALF.HI - super->x.HALF.HI, context->y.HALF.HI - super->y.HALF.HI);
+    super->direction = tmp;
+    super->animationState = (super->animationState & 0x80) | gUnk_08111C8C[(tmp << 0x18) >> 0x1c];
     gActiveScriptInfo.flags |= 1;
 }
 
-void sub_08069A3C(Entity* this) {
-    this->field_0x68.HALF.HI = gUnk_08111C9C[(Random() & 1) + (s8)this->field_0x68.HALF.HI * 2];
+void sub_08069A3C(GormanEntity* this) {
+    this->unk_69 = gUnk_08111C9C[(Random() & 1) + this->unk_69 * 2];
 }
 
-void sub_08069A60(Entity* this) {
-    this->field_0x68.HALF.HI = gUnk_08111CA8[(Random() & 1) + (s8)this->field_0x68.HALF.HI * 2];
+void sub_08069A60(GormanEntity* this) {
+    this->unk_69 = gUnk_08111CA8[(Random() & 1) + this->unk_69 * 2];
 }
 
-void sub_08069A84(Entity* this) {
-    this->field_0x68.HALF.HI = gUnk_08111CB4[(Random() & 1) + (s8)this->field_0x68.HALF.HI * 2];
+void sub_08069A84(GormanEntity* this) {
+    this->unk_69 = gUnk_08111CB4[(Random() & 1) + this->unk_69 * 2];
 }
 
-void sub_08069AA8(Entity* this) {
-    this->field_0x68.HALF.HI = gUnk_08111CB8[(Random() & 1) + (s8)this->field_0x68.HALF.HI * 2];
+void sub_08069AA8(GormanEntity* this) {
+    this->unk_69 = gUnk_08111CB8[(Random() & 1) + this->unk_69 * 2];
 }
 
-void sub_08069ACC(Entity* this, ScriptExecutionContext* context) {
-    if (--this->field_0x68.HALF.LO * 0x1000000 < 1) {
+void sub_08069ACC(GormanEntity* this, ScriptExecutionContext* context) {
+    if (--this->unk_68 * 0x1000000 < 1) {
         context->condition = 1;
     } else {
         context->condition = 0;

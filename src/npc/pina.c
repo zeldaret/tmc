@@ -1,21 +1,34 @@
+/**
+ * @file pina.c
+ * @ingroup NPCs
+ *
+ * @brief Pina NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "message.h"
-#include "save.h"
 #include "npc.h"
 #include "object.h"
+#include "save.h"
 
-void sub_08063B68(Entity* this);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+} PinaEntity;
+
+void sub_08063B68(PinaEntity* this);
 void sub_08063A80(Entity* this);
 void sub_08063A98(Entity* this);
 void sub_08063AC0(Entity* this);
 void sub_08063B44(Entity* this);
 
-void Pina(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
+void Pina(PinaEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
         sub_08063B68(this);
     } else {
-        sub_08063A80(this);
+        sub_08063A80(super);
     }
 }
 
@@ -69,32 +82,33 @@ void sub_08063B44(Entity* this) {
     }
 }
 
-void sub_08063B68(Entity* this) {
-    switch (this->action) {
+void sub_08063B68(PinaEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->field_0x68.HALF.HI = 0;
-            sub_0807DD64(this);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            this->animIndex = 0;
+            sub_0807DD64(super);
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitAnimationForceUpdate(super,
+                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, NULL);
-                HandleEntity0x82Actions(this);
-                UpdateAnimationSingleFrame(this);
+                ExecuteScriptForEntity(super, NULL);
+                HandleEntity0x82Actions(super);
+                UpdateAnimationSingleFrame(super);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this) == 0) {
+            if (UpdateFuseInteraction(super) == 0) {
                 return;
             }
-            this->action = 1;
-            InitAnimationForceUpdate(this, this->field_0x68.HALF.HI);
+            super->action = 1;
+            InitAnimationForceUpdate(super, this->animIndex);
             break;
     }
 }
@@ -150,9 +164,9 @@ void sub_08063C90(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810CE04[gSave.global_progress]);
 }
 
-void Pina_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Pina_MakeInteractable(PinaEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Pina_Fusion(Entity* this) {

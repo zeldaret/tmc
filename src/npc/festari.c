@@ -1,79 +1,94 @@
-#include "global.h"
+/**
+ * @file festari.c
+ * @ingroup NPCs
+ *
+ * @brief Festari NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
 
-void sub_0805FF2C(Entity*, ScriptExecutionContext*);
-void sub_0805FE10(Entity* this);
-void sub_0805FE48(Entity* this);
-void sub_0805FF18(Entity* this);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unused[23];
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u16 unk_82;
+    /*0x84*/ ScriptExecutionContext* context;
+} FestariEntity;
 
-void Festari(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void sub_0805FF2C(FestariEntity* this, ScriptExecutionContext* context);
+void sub_0805FE10(FestariEntity* this);
+void sub_0805FE48(FestariEntity* this);
+void sub_0805FF18(FestariEntity* this);
+
+void Festari(FestariEntity* this) {
+    static void (*const actionFuncs[])(FestariEntity*) = {
         sub_0805FE10,
         sub_0805FE48,
         sub_0805FF18,
     };
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
 }
 
-void sub_0805FE10(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = TRUE;
-    SetDefaultPriority(this, PRIO_MESSAGE);
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-    sub_0807DD50(this);
+void sub_0805FE10(FestariEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = TRUE;
+    SetDefaultPriority(super, PRIO_MESSAGE);
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
+    InitScriptForNPC(super);
 }
 
-void sub_0805FE48(Entity* this) {
+void sub_0805FE48(FestariEntity* this) {
     u32 uVar4;
 
-    if (this->interactType == 2) {
-        this->action = 2;
-        this->interactType = 0;
-        InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-        sub_0806F118(this);
+    if (super->interactType == 2) {
+        super->action = 2;
+        super->interactType = 0;
+        InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+        InitializeNPCFusion(super);
     } else {
-        ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-        sub_0805FF2C(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-        uVar4 = this->field_0x80.HWORD;
+        ExecuteScript(super, this->context);
+        sub_0805FF2C(this, this->context);
+        uVar4 = this->unk_80;
         if (uVar4 < 8) {
-            if ((this->field_0x82.HWORD & 1) != 0) {
-                uVar4 = (uVar4 & 0xfc) + (this->subtimer >> 1);
+            if ((this->unk_82 & 1) != 0) {
+                uVar4 = (uVar4 & 0xfc) + (super->subtimer >> 1);
             } else {
-                uVar4 = (uVar4 & 0xfc) + (this->animationState >> 1);
-                this->subtimer = this->animationState;
+                uVar4 = (uVar4 & 0xfc) + (super->animationState >> 1);
+                super->subtimer = super->animationState;
             }
         }
-        if (uVar4 != this->animIndex) {
-            InitAnimationForceUpdate(this, uVar4);
+        if (uVar4 != super->animIndex) {
+            InitAnimationForceUpdate(super, uVar4);
         }
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
 
-        if (this->frame & ANIM_DONE) {
-            switch (this->animIndex) {
+        if (super->frame & ANIM_DONE) {
+            switch (super->animIndex) {
                 case 8:
                 case 10:
                 case 11:
                 case 12:
-                    this->field_0x80.HWORD = 0;
+                    this->unk_80 = 0;
                     break;
             }
         }
-        if ((this->field_0x82.HWORD & (~this->field_0x82.HWORD + 1)) == 2) {
-            sub_0806ED78(this);
+        if ((this->unk_82 & (~this->unk_82 + 1)) == 2) {
+            sub_0806ED78(super);
         }
     }
 }
 
-void sub_0805FF18(Entity* this) {
-    if (UpdateFuseInteraction(this)) {
-        this->action = 1;
+void sub_0805FF18(FestariEntity* this) {
+    if (UpdateFuseInteraction(super)) {
+        super->action = 1;
     }
 }
 
-void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
+void sub_0805FF2C(FestariEntity* this, ScriptExecutionContext* context) {
     u32 actions;
     u32 bit;
 
@@ -86,35 +101,35 @@ void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
             actions ^= bit;
             switch (bit) {
                 case 4:
-                    this->field_0x80.HWORD = 9;
+                    this->unk_80 = 9;
                     break;
 
                 case 0x200000:
-                    this->field_0x80.HWORD = 10;
+                    this->unk_80 = 10;
                     break;
                 case 0x400000:
-                    if (this->animationState == 2) {
-                        this->field_0x80.HWORD = 0xb;
+                    if (super->animationState == 2) {
+                        this->unk_80 = 0xb;
                     } else {
-                        this->field_0x80.HWORD = 0xc;
+                        this->unk_80 = 0xc;
                     }
                     break;
                 case 0x100000:
-                    this->field_0x80.HWORD = 8;
+                    this->unk_80 = 8;
                     break;
             }
         }
     }
-    HandlePostScriptActions(this, context);
+    HandlePostScriptActions(super, context);
 }
 
-void Festari_Fusion(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = 1;
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        InitAnimationForceUpdate(this, 8);
+void Festari_Fusion(FestariEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = 1;
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        InitAnimationForceUpdate(super, 8);
     } else {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
 }

@@ -13,9 +13,9 @@ void CutsceneOrchestrator(Entity* this) {
         if (this->action == 0) {
             this->action = 1;
             this->hitbox = (Hitbox*)&gHitbox_2;
-            sub_0807DD50(this);
+            InitScriptForNPC(this);
         } else {
-            sub_0807DD94(this, NULL);
+            ExecuteScriptAndHandleAnimation(this, NULL);
         }
     } else {
         this->action = 1;

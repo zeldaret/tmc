@@ -1,3 +1,10 @@
+/**
+ * @file wheaton.c
+ * @ingroup NPCs
+ *
+ * @brief Wheaton NPC
+ */
+#define NENT_DEPRECATED
 #include "npc.h"
 
 void Wheaton(Entity* this) {
@@ -11,5 +18,5 @@ void Wheaton(Entity* this) {
         this->spriteOffsetY = 0xfe;
         sub_0807DD64(this);
     }
-    sub_0807DD94(this, 0);
+    ExecuteScriptAndHandleAnimation(this, NULL);
 }

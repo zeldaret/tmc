@@ -1,10 +1,22 @@
-#include "sound.h"
-#include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "flags.h"
+/**
+ * @file castorWildsStatue.c
+ * @ingroup NPCs
+ *
+ * @brief Castor Wilds Statue NPC
+ */
+#define NENT_DEPRECATED
 #include "effects.h"
+#include "entity.h"
+#include "flags.h"
+#include "functions.h"
 #include "npc.h"
+#include "script.h"
+#include "sound.h"
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[12];
+    /*0x74*/ u16 tilePos;
+} CastorWildsStatueEntity;
 
 static const Hitbox gUnk_08110E94;
 
@@ -17,25 +29,25 @@ void sub_080673C0(Entity*);
 void sub_080673F4(Entity*);
 void sub_08067410(Entity*);
 void sub_0806752C(Entity*);
-void sub_08067418(Entity*);
-void sub_08067514(Entity*);
+void sub_08067418(CastorWildsStatueEntity*);
+void sub_08067514(CastorWildsStatueEntity*);
 
-void CastorWildsStatue(Entity* this) {
+void CastorWildsStatue(CastorWildsStatueEntity* this) {
     static void (*const actionFuncs[])(Entity*) = {
         sub_080673C0,
         sub_080673F4,
         sub_08067410,
         sub_0806752C,
     };
-    static void (*const scriptedActionFuncs[])(Entity*) = {
+    static void (*const scriptedActionFuncs[])(CastorWildsStatueEntity*) = {
         sub_08067418,
         sub_08067514,
     };
-    if ((this->flags & ENT_SCRIPTED) != 0) {
-        scriptedActionFuncs[this->action](this);
+    if ((super->flags & ENT_SCRIPTED) != 0) {
+        scriptedActionFuncs[super->action](this);
     } else {
-        actionFuncs[this->action](this);
-        sub_0806ED78(this);
+        actionFuncs[super->action](super);
+        sub_0806ED78(super);
     }
 }
 
@@ -62,20 +74,20 @@ void sub_08067410(Entity* this) {
     this->action = 1;
 }
 
-void sub_08067418(Entity* this) {
-    this->action = 1;
-    this->field_0x74.HWORD = COORD_TO_TILE(this);
-    if (this->type == 0) {
-        this->hitbox = (Hitbox*)&gUnk_08110E94;
-        SetTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
-        SetTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
-        SetTile(0x4022, this->field_0x74.HWORD + 0x3f, this->collisionLayer);
-        SetTile(0x4022, this->field_0x74.HWORD + 0x40, this->collisionLayer);
+void sub_08067418(CastorWildsStatueEntity* this) {
+    super->action = 1;
+    this->tilePos = COORD_TO_TILE(super);
+    if (super->type == 0) {
+        super->hitbox = (Hitbox*)&gUnk_08110E94;
+        SetTile(0x4022, this->tilePos - 1, super->collisionLayer);
+        SetTile(0x4022, this->tilePos, super->collisionLayer);
+        SetTile(0x4022, this->tilePos + 0x3f, super->collisionLayer);
+        SetTile(0x4022, this->tilePos + 0x40, super->collisionLayer);
     } else {
-        this->collisionLayer = 3;
-        this->spriteOrientation.flipY = 1;
-        this->spriteRendering.b3 = 1;
-        this->spritePriority.b0 = 2;
+        super->collisionLayer = 3;
+        super->spriteOrientation.flipY = 1;
+        super->spriteRendering.b3 = 1;
+        super->spritePriority.b0 = 2;
         if (CheckLocalFlag(HIKYOU_00_SEKIZOU) == 0) {
             SetTile(0x4022, 0xe81, 1);
             SetTile(0x4022, 0xe82, 1);
@@ -83,13 +95,13 @@ void sub_08067418(Entity* this) {
             SetTile(0x4022, 0xec3, 1);
         }
     }
-    sub_0807DD50(this);
+    InitScriptForNPC(super);
 }
 
-void sub_08067514(Entity* this) {
-    sub_0807DD94(this, NULL);
-    if (this->type == 0) {
-        sub_0806ED78(this);
+void sub_08067514(CastorWildsStatueEntity* this) {
+    ExecuteScriptAndHandleAnimation(super, NULL);
+    if (super->type == 0) {
+        sub_0806ED78(super);
     }
 }
 

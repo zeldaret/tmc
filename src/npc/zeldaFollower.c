@@ -1,3 +1,11 @@
+/**
+ * @file zeldaFollower.c
+ * @ingroup NPCs
+ *
+ * @brief Zelda Follower NPC
+ */
+#define NENT_DEPRECATED
+#include "npc/zelda.h"
 #include "common.h"
 #include "entity.h"
 #include "functions.h"
@@ -18,8 +26,8 @@ typedef union {
 
 #define ZELDA_FOLLOWER_HEAP_LEN 20
 
-#define ZELDA_FOLLOWER_HEAP ((ZeldaFollowerItem*)this->myHeap)
-#define ZELDA_FOLLOWER_HEAP_END ((ZeldaFollowerItem*)this->myHeap + (ZELDA_FOLLOWER_HEAP_LEN - 1))
+#define ZELDA_FOLLOWER_HEAP ((ZeldaFollowerItem*)super->myHeap)
+#define ZELDA_FOLLOWER_HEAP_END ((ZeldaFollowerItem*)super->myHeap + (ZELDA_FOLLOWER_HEAP_LEN - 1))
 
 #define ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr)        \
     do {                                                      \
@@ -32,29 +40,29 @@ typedef union {
         }                                                     \
     } while (0)
 
-void sub_08068318(Entity*);
-void sub_0806854C(Entity*, u32*);
+void sub_08068318(ZeldaFollowerEntity*);
+void sub_0806854C(ZeldaFollowerEntity*, u32*);
 void sub_08068578(Entity* this);
 
-void ZeldaFollower(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = TRUE;
-        this->animationState = 4;
-        this->field_0x68.HALF.LO = 0;
-        this->field_0x68.HALF.HI = 0;
-        SetDefaultPriority(this, PRIO_MESSAGE);
-        InitAnimationForceUpdate(this, 0);
+void ZeldaFollower(ZeldaFollowerEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = TRUE;
+        super->animationState = 4;
+        this->unk_68 = 0;
+        this->unk_69 = 0;
+        SetDefaultPriority(super, PRIO_MESSAGE);
+        InitAnimationForceUpdate(super, 0);
         sub_0806854C(this, NULL);
     }
-    if ((s8)this->field_0x68.HALF.LO != 0) {
+    if ((s8)this->unk_68 != 0) {
         sub_08068318(this);
     } else {
-        this->spriteSettings.draw = FALSE;
+        super->spriteSettings.draw = FALSE;
     }
 }
 
-void sub_08068318(Entity* this) {
+void sub_08068318(ZeldaFollowerEntity* this) {
     s32 dist;
     s16 z;
 
@@ -71,39 +79,39 @@ void sub_08068318(Entity* this) {
     item.FIELDS.animationState = gPlayerEntity.animationState;
     item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
 
-    heapPtr = this->myHeap;
+    heapPtr = super->myHeap;
 
     if ((heapPtr->FIELDS.framestate == 0xa && item.FIELDS.framestate != 0xa) ||
         (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16)) {
-        this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-        this->y.HALF.HI = gPlayerEntity.y.HALF.HI;
-        this->spriteSettings.draw = 1;
-        sub_08068578(this);
+        super->x.HALF.HI = gPlayerEntity.x.HALF.HI;
+        super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
+        super->spriteSettings.draw = 1;
+        sub_08068578(super);
     }
 
     animIndex = 0;
     if (item.DWORD != heapPtr->DWORD || item.FIELDS.framestate == 0x16 || item.FIELDS.framestate == 0xa) {
-        ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr);
+        ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(super, heapPtr);
         heapPtr = ZELDA_FOLLOWER_HEAP;
         heapPtr[0] = item;
         animIndex = 0x4;
 
-        if ((s8)this->field_0x68.HALF.HI > 0) {
-            this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+        if ((s8)this->unk_69 > 0) {
+            this->unk_69 = this->unk_69 - 1;
         }
     } else {
         heapPtr += ZELDA_FOLLOWER_HEAP_LEN - 1;
         z = heapPtr->FIELDS.z;
 
         if (z < 0) {
-            ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr);
+            ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(super, heapPtr);
             animIndex = 0x4;
         } else {
             dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
                                 (u16)heapPtr->FIELDS.y);
             dist = ((u32)dist) >> 0x4;
             if (dist > 0x18) {
-                ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(this, heapPtr);
+                ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(super, heapPtr);
                 animIndex = 0x4;
             }
         }
@@ -111,43 +119,43 @@ void sub_08068318(Entity* this) {
 
     heapPtr = ZELDA_FOLLOWER_HEAP;
     heapPtr += ZELDA_FOLLOWER_HEAP_LEN - 1;
-    this->x.HALF.HI = heapPtr->FIELDS.x;
-    this->y.HALF.HI = heapPtr->FIELDS.y;
-    this->z.HALF.HI = heapPtr->FIELDS.z;
-    this->animationState = heapPtr->FIELDS.animationState;
-    this->collisionLayer = heapPtr->FIELDS.collisionLayer;
+    super->x.HALF.HI = heapPtr->FIELDS.x;
+    super->y.HALF.HI = heapPtr->FIELDS.y;
+    super->z.HALF.HI = heapPtr->FIELDS.z;
+    super->animationState = heapPtr->FIELDS.animationState;
+    super->collisionLayer = heapPtr->FIELDS.collisionLayer;
 
     if (heapPtr->FIELDS.framestate == 0x16 || heapPtr->FIELDS.framestate == 0xa) {
-        this->spriteSettings.draw = 0;
+        super->spriteSettings.draw = 0;
     }
 
-    if (((s8)this->field_0x68.HALF.HI) > 0) {
-        this->field_0x68.HALF.HI = this->field_0x68.HALF.HI - 1;
+    if (((s8)this->unk_69) > 0) {
+        this->unk_69 = this->unk_69 - 1;
     }
 
     animIndexTmp = animIndex;
-    animIndex += this->animationState >> 1;
+    animIndex += super->animationState >> 1;
 
-    if (!(animIndex == this->animIndex || (animIndexTmp == 0 && ((s8)this->field_0x68.HALF.HI) > 0))) {
-        InitAnimationForceUpdate(this, animIndex);
-        this->field_0x68.HALF.HI = 0x1e;
+    if (!(animIndex == super->animIndex || (animIndexTmp == 0 && ((s8)this->unk_69) > 0))) {
+        InitAnimationForceUpdate(super, animIndex);
+        this->unk_69 = 0x1e;
     } else {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
 
-    sub_0800451C(this);
-    if (this->z.HALF.HI < 0) {
-        sub_0806F854(this, 0x0, -0xc);
+    sub_0800451C(super);
+    if (super->z.HALF.HI < 0) {
+        sub_0806F854(super, 0x0, -0xc);
     }
 }
 
-void sub_0806854C(Entity* this, u32* none) {
-    this->myHeap = zMalloc(sizeof(ZeldaFollowerItem[ZELDA_FOLLOWER_HEAP_LEN]));
-    if (this->myHeap != NULL) {
-        this->field_0x68.HALF.LO = 1;
-        RemoveInteractableObject(this);
-        this->hitbox = NULL;
-        sub_08068578(this);
+void sub_0806854C(ZeldaFollowerEntity* this, u32* none) {
+    super->myHeap = zMalloc(sizeof(ZeldaFollowerItem[ZELDA_FOLLOWER_HEAP_LEN]));
+    if (super->myHeap != NULL) {
+        this->unk_68 = 1;
+        RemoveInteractableObject(super);
+        super->hitbox = NULL;
+        sub_08068578(super);
     }
 }
 
@@ -272,17 +280,17 @@ void sub_08068578(Entity* this) {
     }
 }
 
-void ZeldaFollower_Hide(Entity* zelda, Entity* follower) {
-    follower->field_0x68.HALF.LO = 0;
-    follower->spriteSettings.draw = 0;
+void ZeldaFollower_Hide(Entity* zelda, ZeldaFollowerEntity* follower) {
+    follower->unk_68 = 0;
+    follower->base.spriteSettings.draw = 0;
 }
 
-void ZeldaFollower_Show(Entity* zelda, Entity* follower) {
-    follower->field_0x68.HALF.LO = 1;
-    follower->spriteSettings.draw = 1;
-    follower->animationState = zelda->animationState;
-    sub_08068578(follower);
-    InitAnimationForceUpdate(follower, follower->animationState / 2);
+void ZeldaFollower_Show(Entity* zelda, ZeldaFollowerEntity* follower) {
+    follower->unk_68 = 1;
+    follower->base.spriteSettings.draw = 1;
+    follower->base.animationState = zelda->animationState;
+    sub_08068578(&follower->base);
+    InitAnimationForceUpdate(&follower->base, follower->base.animationState / 2);
 }
 
 void sub_080686C4(Entity* zelda, Entity* follower) {

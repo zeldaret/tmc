@@ -1,30 +1,41 @@
-#include "global.h"
+/**
+ * @file malon.c
+ * @ingroup NPCs
+ *
+ * @brief Malon NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
 #include "npc.h"
+#include "script.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} MalonEntity;
 
 void sub_08065864(Entity* this);
 void sub_08065880(Entity* this);
-void sub_08065888(Entity* this);
-void sub_080658BC(Entity* this);
-void sub_08065900(Entity* this);
+void sub_08065888(MalonEntity* this);
+void sub_080658BC(MalonEntity* this);
+void sub_08065900(MalonEntity* this);
 
-void Malon(Entity* this) {
+void Malon(MalonEntity* this) {
     static void (*const actionFuncs[])(Entity * this) = {
         sub_08065864,
         sub_08065880,
     };
-    static void (*const scriptedActionFuncs[])(Entity * this) = {
+    static void (*const scriptedActionFuncs[])(MalonEntity * this) = {
         sub_08065888,
         sub_080658BC,
         sub_08065900,
     };
-    if (this->flags & ENT_SCRIPTED) {
-        scriptedActionFuncs[this->action](this);
+    if (super->flags & ENT_SCRIPTED) {
+        scriptedActionFuncs[super->action](this);
     } else {
-        actionFuncs[this->action](this);
-        if (this->action != 0) {
-            sub_0806ED78(this);
+        actionFuncs[super->action](super);
+        if (super->action != 0) {
+            sub_0806ED78(super);
         }
     }
 }
@@ -39,29 +50,29 @@ void sub_08065880(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08065888(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->animationState = 4;
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-    sub_0807DD50(this);
+void sub_08065888(MalonEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    super->animationState = 4;
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
+    InitScriptForNPC(super);
 }
 
-void sub_080658BC(Entity* this) {
-    if (this->interactType == 2) {
-        this->action = 2;
-        this->interactType = 0;
-        InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-        sub_0806F118(this);
+void sub_080658BC(MalonEntity* this) {
+    if (super->interactType == 2) {
+        super->action = 2;
+        super->interactType = 0;
+        InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+        InitializeNPCFusion(super);
     } else {
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(super, NULL);
     }
 }
 
-void sub_08065900(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
+void sub_08065900(MalonEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
     }
 }
 

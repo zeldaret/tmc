@@ -1,30 +1,42 @@
-#include "global.h"
+/**
+ * @file nayru.c
+ * @ingroup NPCs
+ *
+ * @brief Nayru NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "npc.h"
 #include "kinstone.h"
+#include "npc.h"
 
-void Nayru(Entity* this) {
-    switch (this->action) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 animIndex;
+} NayruEntity;
+
+void Nayru(NayruEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            sub_0807DD50(this);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            InitScriptForNPC(super);
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                sub_0806F118(this);
-                this->field_0x68.HALF.LO = this->animIndex;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitializeNPCFusion(super);
+                this->animIndex = super->animIndex;
+                InitAnimationForceUpdate(super,
+                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
             } else {
-                sub_0807DD94(this, NULL);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this) != 0) {
-                this->action = 1;
-                InitAnimationForceUpdate(this, this->field_0x68.HALF.LO);
+            if (UpdateFuseInteraction(super) != 0) {
+                super->action = 1;
+                InitAnimationForceUpdate(super, this->animIndex);
             }
             break;
     }

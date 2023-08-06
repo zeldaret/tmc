@@ -1,50 +1,62 @@
-#include "global.h"
+/**
+ * @file teachers.c
+ * @ingroup NPCs
+ *
+ * @brief Teachers NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
+#include "npc.h"
 #include "player.h"
 #include "save.h"
 #include "script.h"
-#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+} TeachersEntity;
 
 static const SpriteLoadData gUnk_08113910[] = {
     { 0x103, 0x4f, 0x4 }, { 0x2103, 0x4f, 0x4 }, { 0, 0, 0 },           { 0, 0, 0 },
     { 0, 0x50, 0x4 },     { 0x2002, 0x50, 0x4 }, { 0x4000, 0x50, 0x4 }, { 0, 0, 0 },
 };
 
-void Teachers(Entity* this) {
-    switch (this->action) {
+void Teachers(TeachersEntity* this) {
+    switch (super->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08113910[this->type * 4])) {
-                this->action = 1;
-                this->spriteSettings.draw = TRUE;
-                this->animationState = this->timer;
-                this->field_0x68.HALF.HI = 0;
-                SetDefaultPriority(this, PRIO_MESSAGE);
-                sub_0807DD50(this);
+            if (LoadExtraSpriteData(super, &gUnk_08113910[super->type * 4])) {
+                super->action = 1;
+                super->spriteSettings.draw = TRUE;
+                super->animationState = super->timer;
+                this->animIndex = 0;
+                SetDefaultPriority(super, PRIO_MESSAGE);
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this,
-                                    (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
+                                                                         GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
             } else {
-                sub_0807DD94(this, NULL);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
-                InitializeAnimation(this, this->field_0x68.HALF.HI);
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
+                InitializeAnimation(super, this->animIndex);
             }
     }
 }
 
-void Teachers_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Teachers_MakeInteractable(TeachersEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Teachers_Head(Entity* this) {

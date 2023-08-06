@@ -1,11 +1,17 @@
-#include "global.h"
+/**
+ * @file goronMerchant.c
+ * @ingroup NPCs
+ *
+ * @brief Goron Merchant NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "functions.h"
-#include "message.h"
 #include "flags.h"
-#include "save.h"
-#include "npc.h"
+#include "functions.h"
 #include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "save.h"
 
 static u32 GoronMerchant_GetSalePrice(Entity*);
 
@@ -69,11 +75,11 @@ void sub_0806961C(Entity* this) {
 void sub_0806963C(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = TRUE;
-    sub_0807DD50(this);
+    InitScriptForNPC(this);
 }
 
 void sub_08069654(Entity* this) {
-    sub_0807DD94(this, NULL);
+    ExecuteScriptAndHandleAnimation(this, NULL);
 }
 
 void sub_08069660(Entity* this) {

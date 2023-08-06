@@ -1,15 +1,31 @@
-#include "global.h"
+/**
+ * @file townMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Town Minish NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "npc.h"
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unk_69;
+    /*0x6a*/ u8 unk_6a;
+    /*0x6b*/ u8 unused[23];
+    /*0x82*/ u16 unk_82;
+    /*0x84*/ ScriptExecutionContext* context;
+} TownMinishEntity;
 
 extern u32 sub_080B1AC8(u32, u32, u32);
-void sub_0806ACC4(Entity*);
-void sub_0806ABFC(Entity*);
-void sub_0806AC3C(Entity*);
-void sub_0806AEA8(Entity*);
-void sub_0806AEE4(Entity*);
+void sub_0806ACC4(TownMinishEntity*);
+void sub_0806ABFC(TownMinishEntity*);
+void sub_0806AC3C(TownMinishEntity*);
+void sub_0806AEA8(TownMinishEntity*);
+void sub_0806AEE4(TownMinishEntity*);
 void sub_0806AFE8(Entity*, ScriptExecutionContext*);
 void sub_0806B004(Entity*, ScriptExecutionContext*);
 void sub_0806B098(Entity*, ScriptExecutionContext*);
@@ -137,98 +153,99 @@ static const Rect gUnk_081126D4[4] = {
 };
 static const u8 gUnk_081126E4[4] = { 0x0e, 0x0d, 0x0b, 0x07 };
 
-void TownMinish(Entity* this) {
-    static void (*const scriptedActionFuncs[])(Entity*) = {
+void TownMinish(TownMinishEntity* this) {
+    static void (*const scriptedActionFuncs[])(TownMinishEntity*) = {
         sub_0806ABFC,
         sub_0806AC3C,
     };
-    if ((this->flags & ENT_SCRIPTED) == 0) {
-        scriptedActionFuncs[this->action](this);
-        sub_0806ED78(this);
+    if ((super->flags & ENT_SCRIPTED) == 0) {
+        scriptedActionFuncs[super->action](this);
+        sub_0806ED78(super);
     } else {
         sub_0806ACC4(this);
     }
 }
 
-void sub_0806ABFC(Entity* this) {
-    const SpriteLoadData* SpriteLoadData = gUnk_08112674[this->type];
-    if (!LoadExtraSpriteData(this, SpriteLoadData)) {
+void sub_0806ABFC(TownMinishEntity* this) {
+    const SpriteLoadData* SpriteLoadData = gUnk_08112674[super->type];
+    if (!LoadExtraSpriteData(super, SpriteLoadData)) {
         return;
     }
 
-    InitializeAnimation(this, 2);
-    this->action = 1;
-    this->field_0x6a.HALF.LO = this->timer;
+    InitializeAnimation(super, 2);
+    super->action = 1;
+    this->unk_6a = super->timer;
 
-    this->animationState = this->field_0x6a.HALF.LO << 1;
-    this->field_0x68.HALF.HI = this->animationState * 4;
+    super->animationState = this->unk_6a << 1;
+    this->unk_69 = super->animationState * 4;
 
-    this->timer = 0;
+    super->timer = 0;
 }
 
-void sub_0806AC3C(Entity* this) {
-    if (this->animIndex <= 3) {
+void sub_0806AC3C(TownMinishEntity* this) {
+    if (super->animIndex <= 3) {
         s32 unk;
         Entity* link = &gPlayerEntity;
-        if (EntityInRectRadius(this, link, 0x18, 0x18)) {
-            unk = GetFacingDirection(this, link) & 0x1e;
+        if (EntityInRectRadius(super, link, 0x18, 0x18)) {
+            unk = GetFacingDirection(super, link) & 0x1e;
         } else {
-            unk = this->animationState * 4;
+            unk = super->animationState * 4;
         }
 
-        if (unk != this->field_0x68.HALF.HI) {
-            if (((unk - this->field_0x68.HALF.HI) & 0x1f) <= 0xf) {
-                this->field_0x68.HALF.HI--;
+        if (unk != this->unk_69) {
+            if (((unk - this->unk_69) & 0x1f) <= 0xf) {
+                this->unk_69--;
             } else {
-                this->field_0x68.HALF.HI++;
+                this->unk_69++;
             }
 
-            this->field_0x68.HALF.HI &= 0x1f;
+            this->unk_69 &= 0x1f;
         }
 
-        if (!(this->field_0x68.HALF.HI & 7)) {
-            this->animationState = sub_0806F5B0(this->field_0x68.HALF.HI);
-            InitializeAnimation(this, AnimationStateFlip90(this->animationState / 2));
+        if (!(this->unk_69 & 7)) {
+            super->animationState = GetAnimationStateForDirection8(this->unk_69);
+            InitializeAnimation(super, AnimationStateFlip90(super->animationState / 2));
         }
     }
 
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_0806ACC4(Entity* this) {
+void sub_0806ACC4(TownMinishEntity* this) {
     u8 delay;
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (!LoadExtraSpriteData(this, gUnk_08112674[this->type]))
+            if (!LoadExtraSpriteData(super, gUnk_08112674[super->type]))
                 return;
 
-            this->action = 1;
-            delay = this->timer;
-            this->field_0x6a.HALF.LO = delay;
-            this->animationState = delay * 2;
-            this->timer = 0;
+            super->action = 1;
+            delay = super->timer;
+            this->unk_6a = delay;
+            super->animationState = delay * 2;
+            super->timer = 0;
 
-            this->field_0x68.HALF.LO = GetFusionToOffer(this);
-            sub_0807DD50(this);
-            InitializeAnimation(this, (this->animationState / 2) + 8);
+            this->fusionOffer = GetFusionToOffer(super);
+            InitScriptForNPC(super);
+            InitializeAnimation(super, (super->animationState / 2) + 8);
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 3;
-                this->interactType = 0;
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 3;
+                super->interactType = 0;
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, NULL);
+                ExecuteScriptForEntity(super, NULL);
                 sub_0806AEA8(this);
-                if (this->type2 == 10 && this->interactType) {
-                    this->action = 2;
-                    this->interactType = 0;
-                    InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 8);
-                    sub_0806AFE8(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+                if (super->type2 == 10 && super->interactType) {
+                    super->action = 2;
+                    super->interactType = 0;
+                    InitializeAnimation(super,
+                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 8);
+                    sub_0806AFE8(super, this->context);
                 }
-                if (this->type == 1) {
+                if (super->type == 1) {
                     u8 idx = gPlayerEntity.animationState >> 1;
-                    SetInteractableObjectCollision(this, 1, gUnk_081126E4[idx], &gUnk_081126D4[idx]);
+                    SetInteractableObjectCollision(super, 1, gUnk_081126E4[idx], &gUnk_081126D4[idx]);
                 }
             }
             break;
@@ -236,96 +253,96 @@ void sub_0806ACC4(Entity* this) {
             if (gMessage.doTextBox & 0x7f)
                 break;
 
-            this->action = 1;
-            InitializeAnimation(this, this->animationState / 2 + 4);
+            super->action = 1;
+            InitializeAnimation(super, super->animationState / 2 + 4);
             break;
         case 3:
-            if (UpdateFuseInteraction(this))
-                this->action = 1;
+            if (UpdateFuseInteraction(super))
+                super->action = 1;
             break;
     }
 
-    if (this->frameDuration != 0xff) {
-        GetNextFrame(this);
+    if (super->frameDuration != 0xff) {
+        GetNextFrame(super);
     }
 }
 
-void TownMinish_MakeInteractable(Entity* this) {
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void TownMinish_MakeInteractable(TownMinishEntity* this) {
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
-void TownMinish_Head(Entity* this) {
+void TownMinish_Head(TownMinishEntity* this) {
     u32 frames;
 
-    if ((this->flags & ENT_SCRIPTED) == 0) {
-        frames = this->field_0x68.HALF.HI / 2;
-        if ((this->frameSpriteSettings & 1)) {
-            SetExtraSpriteFrame(this, 0, frames + 0x1c);
+    if ((super->flags & ENT_SCRIPTED) == 0) {
+        frames = this->unk_69 / 2;
+        if ((super->frameSpriteSettings & 1)) {
+            SetExtraSpriteFrame(super, 0, frames + 0x1c);
         } else {
-            SetExtraSpriteFrame(this, 0, 0xff);
+            SetExtraSpriteFrame(super, 0, 0xff);
         }
-        SetExtraSpriteFrame(this, 1, this->frameIndex);
-        SetSpriteSubEntryOffsetData1(this, 1, 0);
-        sub_0807000C(this);
+        SetExtraSpriteFrame(super, 1, super->frameIndex);
+        SetSpriteSubEntryOffsetData1(super, 1, 0);
+        sub_0807000C(super);
     } else {
-        frames = this->frame;
+        frames = super->frame;
         if (frames != 0xff) {
             frames &= ~0x80;
         }
-        if ((this->frameSpriteSettings & 1) == 0) {
+        if ((super->frameSpriteSettings & 1) == 0) {
             frames = 0xff;
         }
-        SetExtraSpriteFrame(this, 0, frames);
-        SetExtraSpriteFrame(this, 1, this->frameIndex);
-        SetSpriteSubEntryOffsetData1(this, 1, 0);
-        sub_0807000C(this);
+        SetExtraSpriteFrame(super, 0, frames);
+        SetExtraSpriteFrame(super, 1, super->frameIndex);
+        SetSpriteSubEntryOffsetData1(super, 1, 0);
+        sub_0807000C(super);
     }
 }
 
-void sub_0806AEA8(Entity* this) {
-    int old = this->field_0x82.HWORD;
-    this->field_0x82.HWORD &= ~0x20;
+void sub_0806AEA8(TownMinishEntity* this) {
+    int old = this->unk_82;
+    this->unk_82 &= ~0x20;
     if (old & 0x20) {
-        GravityUpdate(this, Q_8_8(64.0));
+        GravityUpdate(super, Q_8_8(64.0));
     }
-    HandleEntity0x82Actions(this);
-    this->field_0x82.HWORD = old;
+    HandleEntity0x82Actions(super);
+    this->unk_82 = old;
 }
 
-void sub_0806AED8(Entity* this) {
-    this->timer = 0;
+void sub_0806AED8(TownMinishEntity* this) {
+    super->timer = 0;
     sub_0806AEE4(this);
 }
 
-void sub_0806AEE4(Entity* this) {
+void sub_0806AEE4(TownMinishEntity* this) {
     int index;
     const u8* idx3;
     u8 tmp1, tmp2;
 
-    if (this->timer) {
-        this->timer--;
+    if (super->timer) {
+        super->timer--;
     } else {
-        this->timer = 2;
-        index = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
+        super->timer = 2;
+        index = GetFacingDirectionInRectRadius(super, 0x20, 0x20);
         if (index < 0) {
-            int state = this->field_0x6a.HALF.LO;
-            this->animationState = state * 2;
+            int state = this->unk_6a;
+            super->animationState = state * 2;
             index = state * 8;
         }
 
-        idx3 = gUnk_081125F4[this->animationState / 2][index >> 1];
+        idx3 = gUnk_081125F4[super->animationState / 2][index >> 1];
         tmp1 = idx3[0];
         tmp2 = idx3[1];
 
         if (tmp2 & 0x80) {
-            this->animationState = sub_0806F5B0(index);
+            super->animationState = GetAnimationStateForDirection8(index);
         }
         tmp2 &= ~0x80;
-        this->frame = tmp1;
-        this->frameIndex = tmp2;
-        this->frameSpriteSettings = 1;
-        this->animIndex = 0;
-        this->frameDuration = 0xff;
+        super->frame = tmp1;
+        super->frameIndex = tmp2;
+        super->frameSpriteSettings = 1;
+        super->animIndex = 0;
+        super->frameDuration = 0xff;
     }
 }
 

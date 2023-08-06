@@ -1,10 +1,23 @@
+/**
+ * @file mountainMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Mountain Minish NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "message.h"
 #include "flags.h"
-#include "npc.h"
+#include "functions.h"
 #include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "script.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+} MountainMinishEntity;
 
 const u8 gUnk_08111284[][0x20] = {
     { 0x8, 0x1,  0x9, 0x1,  0xa, 0x1,  0xb, 0x83, 0xc, 0x83, 0xd, 0x83, 0xe, 0x83, 0xf, 0x80,
@@ -34,21 +47,21 @@ const SpriteLoadData gUnk_08111358[] = {
     { 0x0, 0x0, 0x0 },
 };
 
-void sub_08067EF0(Entity*);
+void sub_08067EF0(MountainMinishEntity*);
 void sub_08068190(Entity*);
 void sub_08067E60(Entity*);
 void sub_08067E88(Entity*);
 void sub_08067EE8(Entity*);
 
-void MountainMinish(Entity* this) {
+void MountainMinish(MountainMinishEntity* this) {
     static void (*const MountainMinish_Actions[])(Entity*) = {
         sub_08067E60,
         sub_08067E88,
         sub_08067EE8,
     };
-    if ((this->flags & ENT_SCRIPTED) == 0) {
-        MountainMinish_Actions[this->action](this);
-        sub_0806ED78(this);
+    if ((super->flags & ENT_SCRIPTED) == 0) {
+        MountainMinish_Actions[super->action](super);
+        sub_0806ED78(super);
     } else {
         sub_08067EF0(this);
     }
@@ -90,7 +103,7 @@ void sub_08067EE8(Entity* this) {
     this->action = 1;
 }
 
-void sub_08067EF0(Entity* this) {
+void sub_08067EF0(MountainMinishEntity* this) {
     static const u16 gUnk_08111374[] = {
         SFX_HAMMER1,
         SFX_HAMMER2,
@@ -104,84 +117,85 @@ void sub_08067EF0(Entity* this) {
     };
     Entity* fxEnt;
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (!LoadExtraSpriteData(this, gUnk_08111358)) {
+            if (!LoadExtraSpriteData(super, gUnk_08111358)) {
                 return;
             }
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->animationState = this->type;
-            this->field_0x68.HALF.HI = 0;
-            SetDefaultPriority(this, 2);
-            sub_0807DD50(this);
-            InitializeAnimation(this, gUnk_08111304[this->type2]);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            super->animationState = super->type;
+            this->animIndex = 0;
+            SetDefaultPriority(super, 2);
+            InitScriptForNPC(super);
+            InitializeAnimation(super, gUnk_08111304[super->type2]);
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 3;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 3;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, 0);
-                HandleEntity0x82Actions(this);
-                if ((this->type2 == 3) && (this->interactType != 0)) {
-                    this->action = 2;
-                    this->interactType = 0;
-                    InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                    sub_08068190(this);
+                ExecuteScriptForEntity(super, 0);
+                HandleEntity0x82Actions(super);
+                if ((super->type2 == 3) && (super->interactType != 0)) {
+                    super->action = 2;
+                    super->interactType = 0;
+                    InitializeAnimation(super,
+                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                    sub_08068190(super);
                 }
             }
             break;
         case 2:
             if ((gMessage.doTextBox & 0x7f) != 0)
                 break;
-            this->action = 1;
-            InitializeAnimation(this, (this->animationState >> 1) + 4);
+            super->action = 1;
+            InitializeAnimation(super, (super->animationState >> 1) + 4);
             break;
         case 3:
-            if (UpdateFuseInteraction(this) != 0) {
-                this->action = 1;
-                InitializeAnimation(this, this->field_0x68.HALF.HI);
+            if (UpdateFuseInteraction(super) != 0) {
+                super->action = 1;
+                InitializeAnimation(super, this->animIndex);
             }
     }
 
-    if (this->frameDuration != 0xff) {
-        GetNextFrame(this);
+    if (super->frameDuration != 0xff) {
+        GetNextFrame(super);
     }
-    if ((this->frameSpriteSettings & 1) != 0) {
-        this->frameSpriteSettings &= 0xfe;
-        if (CheckOnScreen(this) == 0) {
+    if ((super->frameSpriteSettings & 1) != 0) {
+        super->frameSpriteSettings &= 0xfe;
+        if (CheckOnScreen(super) == 0) {
             SoundReq(gUnk_0811137A[((s32)Random()) % 3]);
         } else {
             EnqueueSFX(gUnk_08111374[((s32)Random()) % 3]);
         }
     }
-    if ((this->frameSpriteSettings & 2) != 0) {
-        this->frameSpriteSettings &= ~2;
-        fxEnt = CreateFx(this, FX_ROCK, 0);
+    if ((super->frameSpriteSettings & 2) != 0) {
+        super->frameSpriteSettings &= ~2;
+        fxEnt = CreateFx(super, FX_ROCK, 0);
         if (fxEnt != NULL) {
-            PositionRelative(this, fxEnt, 0, Q_16_16(-24));
+            PositionRelative(super, fxEnt, 0, Q_16_16(-24));
         }
     }
-    if ((this->frameSpriteSettings & 4) != 0) {
-        this->frameSpriteSettings &= 0xfb;
-        fxEnt = CreateFx(this, FX_STARS2, 0x20);
+    if ((super->frameSpriteSettings & 4) != 0) {
+        super->frameSpriteSettings &= 0xfb;
+        fxEnt = CreateFx(super, FX_STARS2, 0x20);
         if (fxEnt != NULL) {
-            PositionRelative(this, fxEnt, Q_16_16(-20), Q_16_16(-10));
+            PositionRelative(super, fxEnt, Q_16_16(-20), Q_16_16(-10));
         }
     }
-    if ((this->frameSpriteSettings & 8) != 0) {
-        this->frameSpriteSettings &= 0xf7;
-        this->frameDuration += Random() & 0x1f;
+    if ((super->frameSpriteSettings & 8) != 0) {
+        super->frameSpriteSettings &= 0xf7;
+        super->frameDuration += Random() & 0x1f;
     }
 }
 
-void MountainMinish_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void MountainMinish_MakeInteractable(MountainMinishEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void sub_0806811C(Entity* this) {
@@ -205,7 +219,7 @@ void sub_0806811C(Entity* this) {
         bVar1 = ptr[0];
         bVar2 = ptr[1];
         if ((bVar2 & 0x80) != 0) {
-            this->animationState = sub_0806F5B0(iVar4);
+            this->animationState = GetAnimationStateForDirection8(iVar4);
         }
         this->frame = bVar1 | 0x40;
         this->frameIndex = bVar2 & 0x7f;

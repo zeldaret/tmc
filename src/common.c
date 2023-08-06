@@ -28,7 +28,7 @@ extern u8 gzHeap[0x1000];
 extern u32 gUnk_0201AEE0[0x800];
 extern s16 gUnk_02018EE0[];
 
-extern void (*const gUnk_080C9CAC[])(void);
+extern void (*const gFuseActions[])(void);
 
 static void StoreKeyInput(Input* input, u32 keyInput);
 void ClearOAM(void);
@@ -619,69 +619,71 @@ bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank) {
     return FALSE;
 }
 
-void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
+void InitializeFuseInfo(Entity* entity, u32 textIndex, u32 cancelledTextIndex, u32 fusingTextIndex) {
     MemClear(&gFuseInfo, sizeof(gFuseInfo));
     gFuseInfo.textIndex = textIndex;
-    gFuseInfo._8 = a3;
-    gFuseInfo._a = a4;
-    gFuseInfo.ent = entity;
+    gFuseInfo.cancelledTextIndex = cancelledTextIndex;
+    gFuseInfo.fusingTextIndex = fusingTextIndex;
+    gFuseInfo.entity = entity;
     gFuseInfo.kinstoneId = gPossibleInteraction.kinstoneId;
     if (entity != NULL) {
         gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
     }
-    gFuseInfo._0 = 0;
+    gFuseInfo.fusionState = FUSION_STATE_0;
 }
 
-u32 sub_0801E00C(void) {
-    gUnk_080C9CAC[gFuseInfo.action]();
-    return gFuseInfo._0;
+// returns the fusion state
+u32 PerformFuseAction(void) {
+    gFuseActions[gFuseInfo.action]();
+    return gFuseInfo.fusionState;
 }
 
-void sub_0801E02C(void) {
+void Fuse_Action0(void) {
     MessageFromFusionTarget(gFuseInfo.textIndex);
-    gFuseInfo._0 = 3;
+    gFuseInfo.fusionState = FUSION_STATE_3;
     gFuseInfo.action = 1;
 }
 
-void sub_0801E044(void) {
+void Fuse_Action1(void) {
     if ((gMessage.doTextBox & 0x7F) == 0) {
         MenuFadeIn(4, 0);
-        gFuseInfo._0 = 4;
+        gFuseInfo.fusionState = FUSION_STATE_4;
         gFuseInfo.action = 2;
         SoundReq(SFX_6B);
     }
 }
 
-void sub_0801E074(void) {
-    u32 tmp;
-    switch (gFuseInfo._0) {
-        case 5:
-            tmp = gFuseInfo._8;
+// Waits until FUSION_STATE_5 or FUSION_STATE_6 is reached and displays the corresponding message.
+void Fuse_Action2(void) {
+    u32 textIndex;
+    switch (gFuseInfo.fusionState) {
+        case FUSION_STATE_5:
+            textIndex = gFuseInfo.cancelledTextIndex;
             break;
-        case 6:
-            tmp = gFuseInfo._a;
+        case FUSION_STATE_6:
+            textIndex = gFuseInfo.fusingTextIndex;
             break;
         default:
             return;
     }
-    MessageFromFusionTarget(tmp);
+    MessageFromFusionTarget(textIndex);
     gFuseInfo.action = 3;
 }
 
-void sub_0801E0A0(void) {
+void Fuse_Action3(void) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        if (gFuseInfo.ent != NULL) {
-            gFuseInfo.ent->updatePriority = gFuseInfo.prevUpdatePriority;
+        if (gFuseInfo.entity != NULL) {
+            gFuseInfo.entity->updatePriority = gFuseInfo.prevUpdatePriority;
         }
-        gFuseInfo._0 = gFuseInfo._0 == 6 ? 2 : 1;
+        gFuseInfo.fusionState = gFuseInfo.fusionState == FUSION_STATE_6 ? FUSION_STATE_2 : FUSION_STATE_1;
     }
 }
 
 void MessageFromFusionTarget(u32 textIndex) {
     if (textIndex != 0) {
-        if (gFuseInfo.ent != NULL) {
-            MessageNoOverlap(textIndex, gFuseInfo.ent);
+        if (gFuseInfo.entity != NULL) {
+            MessageNoOverlap(textIndex, gFuseInfo.entity);
         } else {
             MessageFromTarget(textIndex);
         }
@@ -841,7 +843,7 @@ void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
                 gSave.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
-        tmp = GetFuserId(gFuseInfo.ent);
+        tmp = GetFuserId(gFuseInfo.entity);
         if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
             gSave.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
         }
@@ -1118,11 +1120,11 @@ const struct_080C9C6C gUnk_080C9C6C[] = {
     { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 },
 };
 
-void (*const gUnk_080C9CAC[])(void) = {
-    sub_0801E02C,
-    sub_0801E044,
-    sub_0801E074,
-    sub_0801E0A0,
+void (*const gFuseActions[])(void) = {
+    Fuse_Action0,
+    Fuse_Action1,
+    Fuse_Action2,
+    Fuse_Action3,
 };
 
 // TODO merge

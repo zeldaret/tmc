@@ -1128,7 +1128,7 @@ void sub_0802E300(GleerokEntity* this) {
 
         this->unk_79 &= ~0x80;
         heap = this->unk_84;
-        dir = sub_0806F5A4(GetFacingDirection(super, &gPlayerEntity)) << 3;
+        dir = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) << 3;
         index = 0;
         ptr2 = &this->unk_80;
         tmp = 0;

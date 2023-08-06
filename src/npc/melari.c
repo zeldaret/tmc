@@ -1,5 +1,17 @@
-#include "npc.h"
+/**
+ * @file melari.c
+ * @ingroup NPCs
+ *
+ * @brief Melari NPC
+ */
+#define NENT_DEPRECATED
 #include "item.h"
+#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} MelariEntity;
 
 void sub_08068780(Entity*);
 void sub_08068708(Entity*);
@@ -67,13 +79,13 @@ void sub_08068780(Entity* this) {
             this->spriteSettings.draw = TRUE;
             this->animationState = this->type;
             SetDefaultPriority(this, PRIO_MESSAGE);
-            sub_0807DD50(this);
+            InitScriptForNPC(this);
             break;
         case 1:
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                sub_0806F118(this);
+                InitializeNPCFusion(this);
             } else {
                 ExecuteScriptForEntity(this, NULL);
                 HandleEntity0x82Actions(this);
@@ -100,9 +112,9 @@ void sub_08068780(Entity* this) {
     }
 }
 
-void Melari_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Melari_MakeInteractable(MelariEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Melari_Head(Entity* this) {
@@ -136,7 +148,7 @@ void sub_08068910(Entity* this) {
                 iVar1 = 0x10;
             } else {
             }
-            iVar1 = sub_0806F5A4(iVar1);
+            iVar1 = GetAnimationStateForDirection4(iVar1);
             InitializeAnimation(this, (this->animIndex & -0x4) + iVar1);
         }
     }

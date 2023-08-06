@@ -49,10 +49,10 @@ void CameraTarget(Entity* this) {
 
     u32 uVar2 = gPlayerState.field_0x27[0] > 0;
 
-    switch (gFuseInfo._0) {
-        case 0:
-        case 1:
-        case 2:
+    switch (gFuseInfo.fusionState) {
+        case FUSION_STATE_0:
+        case FUSION_STATE_1:
+        case FUSION_STATE_2:
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 break;
             }

@@ -1,6 +1,21 @@
-#include "npc.h"
+/**
+ * @file townsperson.c
+ * @ingroup NPCs
+ *
+ * @brief Townsperson NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
+#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unk_69;
+    /*0x6a*/ s16 unk_6a;
+    /*0x6c*/ s16 unk_6c;
+} TownspersonEntity;
 
 typedef struct {
     u8 frame1;
@@ -10,7 +25,7 @@ typedef struct {
 } struct_0810B680;
 
 extern void sub_08061CB4(Entity*, u32);
-extern void sub_08061D64(Entity*);
+extern void sub_08061D64(TownspersonEntity*);
 extern void sub_08062048(Entity*);
 
 extern struct_0810B680 gUnk_0810B680[];
@@ -88,77 +103,79 @@ void sub_08061CB4(Entity* this, u32 arg1) {
     }
 }
 
-void sub_08061CEC(Entity* this) {
+void sub_08061CEC(TownspersonEntity* this) {
     u32 uVar2;
 
-    if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
-        this->action = 1;
-        this->spriteSettings.draw = TRUE;
-        this->animationState = this->timer;
-        this->field_0x68.HALF.HI = 0xff;
-        uVar2 = sub_0805ACC0(this);
+    if (LoadExtraSpriteData(super, gUnk_0810B6EC[super->type])) {
+        super->action = 1;
+        super->spriteSettings.draw = TRUE;
+        super->animationState = super->timer;
+        this->unk_69 = 0xff;
+        uVar2 = sub_0805ACC0(super);
         if (uVar2 == 0) {
-            this->field_0x6a.HWORD = this->x.HALF.HI;
-            uVar2 = (u16)this->y.HALF.HI;
+            this->unk_6a = super->x.HALF.HI;
+            uVar2 = (u16)super->y.HALF.HI;
         } else {
-            this->field_0x6a.HWORD = (uVar2 >> 0x10);
+            this->unk_6a = (uVar2 >> 0x10);
         }
-        *(u16*)&this->field_0x6c = uVar2;
-        this->field_0x68.HALF.LO = GetFusionToOffer(this);
-        sub_0807DD64(this);
+        this->unk_6c = uVar2;
+        this->fusionOffer = GetFusionToOffer(super);
+        sub_0807DD64(super);
         sub_08061D64(this);
     }
 }
 
-void sub_08061D64(Entity* this) {
-    if (this->interactType == 2) {
-        this->action = 3;
-        this->interactType = 0;
-        sub_0806F118(this);
-        this->field_0x68.HALF.HI = this->animIndex;
-        InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+void sub_08061D64(TownspersonEntity* this) {
+    if (super->interactType == 2) {
+        super->action = 3;
+        super->interactType = 0;
+        InitializeNPCFusion(super);
+        this->unk_69 = super->animIndex;
+        InitializeAnimation(super, (super->animIndex & -4) +
+                                       GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
     } else {
-        ExecuteScriptForEntity(this, NULL);
-        HandleEntity0x82Actions(this);
-        if (this->frameDuration == 0xff) {
-            this->frameDuration = gUnk_0810B680[this->type].unk2;
+        ExecuteScriptForEntity(super, NULL);
+        HandleEntity0x82Actions(super);
+        if (super->frameDuration == 0xff) {
+            super->frameDuration = gUnk_0810B680[super->type].unk2;
         }
-        GetNextFrame(this);
-        if (this->interactType != 0) {
-            this->action = 2;
-            this->interactType = 0;
-            sub_08062048(this);
-            this->field_0x68.HALF.HI = this->animIndex;
-            InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+        GetNextFrame(super);
+        if (super->interactType != 0) {
+            super->action = 2;
+            super->interactType = 0;
+            sub_08062048(super);
+            this->unk_69 = super->animIndex;
+            InitializeAnimation(super, (super->animIndex & -4) +
+                                           GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
         }
     }
 }
 
-void sub_08061E24(Entity* this) {
-    GetNextFrame(this);
+void sub_08061E24(TownspersonEntity* this) {
+    GetNextFrame(super);
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->action = 1;
-        InitializeAnimation(this, this->field_0x68.HALF.HI);
+        super->action = 1;
+        InitializeAnimation(super, this->unk_69);
     }
 }
 
-void sub_08061E50(Entity* this) {
+void sub_08061E50(TownspersonEntity* this) {
 
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
-        InitializeAnimation(this, this->field_0x68.HALF.HI);
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
+        InitializeAnimation(super, this->unk_69);
     }
 }
 
-void Townsperson_MakeInteractable(Entity* this) {
-    if (this->id == 6) {
-        AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Townsperson_MakeInteractable(TownspersonEntity* this) {
+    if (super->id == 6) {
+        AddInteractableWhenBigFuser(super, this->fusionOffer);
     } else {
-        AddInteractableWhenBigObject(this);
+        AddInteractableWhenBigObject(super);
     }
 }
 
-void sub_08061E90(Entity* this, ScriptExecutionContext* context) {
+void sub_08061E90(TownspersonEntity* this, ScriptExecutionContext* context) {
     u32 animIndex;
     s32 iVar4;
 
@@ -166,7 +183,7 @@ void sub_08061E90(Entity* this, ScriptExecutionContext* context) {
         context->unk_18++;
         context->unk_12 = (Random() & 0x3f) + 0x20;
         animIndex = DirectionRound(Random());
-        switch (this->direction) {
+        switch (super->direction) {
             case 0x0:
                 if (animIndex == 0x10) {
                     animIndex = 0x8;
@@ -187,32 +204,32 @@ void sub_08061E90(Entity* this, ScriptExecutionContext* context) {
                     animIndex = 0;
                 }
         }
-        this->direction = (u8)animIndex;
-        this->animationState = sub_0806F5B0(animIndex);
-        this->speed = gUnk_0810B74A[this->type];
+        super->direction = (u8)animIndex;
+        super->animationState = GetAnimationStateForDirection8(animIndex);
+        super->speed = gUnk_0810B74A[super->type];
     }
-    animIndex = (this->animationState >> 1) + 4;
-    if (animIndex != this->animIndex) {
-        InitializeAnimation(this, animIndex);
+    animIndex = (super->animationState >> 1) + 4;
+    if (animIndex != super->animIndex) {
+        InitializeAnimation(super, animIndex);
     }
-    ProcessMovement0(this);
-    iVar4 = this->x.HALF.HI - *(s16*)&this->field_0x6a.HWORD;
+    ProcessMovement0(super);
+    iVar4 = super->x.HALF.HI - this->unk_6a;
     if (0x10 < iVar4) {
-        this->x.HALF.HI = this->field_0x6a.HWORD + 0x10;
+        super->x.HALF.HI = this->unk_6a + 0x10;
         context->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
-        this->x.HALF.HI = *(s16*)&this->field_0x6a.HWORD - 0x10;
+        super->x.HALF.HI = this->unk_6a - 0x10;
         context->unk_12 = 1;
     }
 
-    iVar4 = this->y.HALF.HI - *(s16*)&this->field_0x6c;
+    iVar4 = super->y.HALF.HI - this->unk_6c;
     if (0x10 < iVar4) {
-        this->y.HALF.HI = *(s16*)&this->field_0x6c + 0x10;
+        super->y.HALF.HI = this->unk_6c + 0x10;
         context->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
-        this->y.HALF.HI = *(s16*)&this->field_0x6c - 0x10;
+        super->y.HALF.HI = this->unk_6c - 0x10;
         context->unk_12 = 1;
     }
     if (--context->unk_12 != 0) {

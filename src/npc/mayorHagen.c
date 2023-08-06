@@ -1,38 +1,51 @@
-#include "global.h"
+/**
+ * @file mayorHagen.c
+ * @ingroup NPCs
+ *
+ * @brief Mayor Hagen NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "flags.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "player.h"
 
-void MayorHagen(Entity* this) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+} MayorHagenEntity;
+
+void MayorHagen(MayorHagenEntity* this) {
     u32 v;
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->field_0x68.HALF.HI = 0;
-            this->field_0x68.HALF.LO = GetFusionToOffer(this);
-            SetDefaultPriority(this, PRIO_MESSAGE);
-            sub_0807DD50(this);
+            super->action = 1;
+            this->animIndex = 0;
+            this->fusionOffer = GetFusionToOffer(super);
+            SetDefaultPriority(super, PRIO_MESSAGE);
+            InitScriptForNPC(super);
             break;
         case 1:
-            v = this->interactType;
+            v = super->interactType;
             if (v == 2) {
-                this->action = v;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitAnimationForceUpdate(this, 4 + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+                super->action = v;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitAnimationForceUpdate(super,
+                                         4 + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
                 break;
             }
-            ExecuteScriptForEntity(this, NULL);
-            HandleEntity0x82Actions(this);
-            UpdateAnimationSingleFrame(this);
+            ExecuteScriptForEntity(super, NULL);
+            HandleEntity0x82Actions(super);
+            UpdateAnimationSingleFrame(super);
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
-                InitAnimationForceUpdate(this, this->field_0x68.HALF.HI);
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
+                InitAnimationForceUpdate(super, this->animIndex);
             }
     }
 }

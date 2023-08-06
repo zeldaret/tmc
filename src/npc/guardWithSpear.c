@@ -1,20 +1,26 @@
+/**
+ * @file guardWithSpear.c
+ * @ingroup NPCs
+ *
+ * @brief Guard with Spear NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
-#include "player.h"
-#include "npc.h"
 #include "functions.h"
-#include "object.h"
 #include "item.h"
+#include "npc.h"
+#include "object.h"
+#include "player.h"
+#include "script.h"
 
 typedef struct {
-    Entity base;
-    s16 unk68;
-    s16 unk6a;
-    s16 unk6c;
-    s16 unk6e;
-    s8 unk70;
-    s8 unk71;
+    /*0x00*/ Entity base;
+    /*0x68*/ s16 unk_68;
+    /*0x6a*/ s16 unk_6a;
+    /*0x6c*/ s16 unk_6c;
+    /*0x6e*/ s16 unk_6e;
+    /*0x70*/ s8 unk_70;
+    /*0x71*/ s8 unk_71;
 } GuardWithSpearEntity;
 
 extern Dialog gUnk_0810CF4C[];
@@ -53,34 +59,34 @@ void sub_0806407C(GuardWithSpearEntity* this, ScriptExecutionContext* context) {
         }
 
         super->direction = dir;
-        super->animationState = sub_0806F5B0(dir);
+        super->animationState = GetAnimationStateForDirection8(dir);
         super->speed = 0x80;
     }
 
     uVar7 = super->animationState >> 1;
     if (uVar7 + 4 != super->animIndex) {
-        InitializeAnimation(super, uVar7 + 4 + this->unk70);
+        InitializeAnimation(super, uVar7 + 4 + this->unk_70);
     }
     ProcessMovement0(super);
 
-    x = super->x.HALF.HI - this->unk68;
+    x = super->x.HALF.HI - this->unk_68;
     if (0x10 < x) {
-        super->x.HALF.HI = this->unk68 + 0x10;
+        super->x.HALF.HI = this->unk_68 + 0x10;
         context->unk_12 = 1;
     }
     if (x < -0x10) {
-        super->x.HALF.HI = this->unk68 + -0x10;
+        super->x.HALF.HI = this->unk_68 + -0x10;
         context->unk_12 = 1;
     }
 
-    y = super->y.HALF.HI - this->unk6a;
+    y = super->y.HALF.HI - this->unk_6a;
     if (0x10 < y) {
-        super->y.HALF.HI = this->unk6a + 0x10;
+        super->y.HALF.HI = this->unk_6a + 0x10;
         context->unk_12 = 1;
     }
 
     if (y < -0x10) {
-        super->y.HALF.HI = this->unk6a + -0x10;
+        super->y.HALF.HI = this->unk_6a + -0x10;
         context->unk_12 = 1;
     }
 
@@ -102,8 +108,8 @@ void sub_08064198(GuardWithSpearEntity* this) {
     u32 animIndex;
     u32 animationState;
 
-    if (this->unk71 > 0) {
-        this->unk71--;
+    if (this->unk_71 > 0) {
+        this->unk_71--;
     }
 
     yDiff = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
@@ -129,17 +135,18 @@ void sub_08064198(GuardWithSpearEntity* this) {
             if (0x140 < gPlayerEntity.speed && gRoomTransition.frameCount % 6 == 0) {
                 CreateDustSmall(super);
             }
-            this->unk71 = 10;
-            animationState = super->animationState = sub_0806F5B0(super->direction);
-            animIndex = (animationState >> 1) + 4 + this->unk70;
+            this->unk_71 = 10;
+            animationState = super->animationState = GetAnimationStateForDirection8(super->direction);
+            animIndex = (animationState >> 1) + 4 + this->unk_70;
             if (animIndex != super->animIndex) {
                 InitializeAnimation(super, animIndex);
             }
         }
     }
-    if (this->unk71 == 0) {
-        animationState = super->animationState = sub_0806F5B0(GetFacingDirection(super, &gPlayerEntity));
-        animIndex = (animationState >> 1) + this->unk70;
+    if (this->unk_71 == 0) {
+        animationState = super->animationState =
+            GetAnimationStateForDirection8(GetFacingDirection(super, &gPlayerEntity));
+        animIndex = (animationState >> 1) + this->unk_70;
         if (animIndex != super->animIndex) {
             InitializeAnimation(super, animIndex);
         }
@@ -158,8 +165,8 @@ void sub_080642B8(GuardWithSpearEntity* this) {
     u32 animIndex;
     u32 animationState;
 
-    if (this->unk71 > 0) {
-        this->unk71--;
+    if (this->unk_71 > 0) {
+        this->unk_71--;
     }
 
     yDiff = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
@@ -185,17 +192,18 @@ void sub_080642B8(GuardWithSpearEntity* this) {
             if (0x140 < gPlayerEntity.speed && gRoomTransition.frameCount % 6 == 0) {
                 CreateDustSmall(super);
             }
-            this->unk71 = 10;
-            animationState = super->animationState = sub_0806F5B0(super->direction);
-            animIndex = (animationState >> 1) + 4 + this->unk70;
+            this->unk_71 = 10;
+            animationState = super->animationState = GetAnimationStateForDirection8(super->direction);
+            animIndex = (animationState >> 1) + 4 + this->unk_70;
             if (animIndex != super->animIndex) {
                 InitializeAnimation(super, animIndex);
             }
         }
     }
-    if (this->unk71 == 0) {
-        animationState = super->animationState = sub_0806F5B0(GetFacingDirection(super, &gPlayerEntity));
-        animIndex = (animationState >> 1) + this->unk70;
+    if (this->unk_71 == 0) {
+        animationState = super->animationState =
+            GetAnimationStateForDirection8(GetFacingDirection(super, &gPlayerEntity));
+        animIndex = (animationState >> 1) + this->unk_70;
         if (animIndex != super->animIndex) {
             InitializeAnimation(super, animIndex);
         }

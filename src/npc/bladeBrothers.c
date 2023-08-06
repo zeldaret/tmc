@@ -1,15 +1,28 @@
-#include "global.h"
+/**
+ * @file bladeBrothers.c
+ * @ingroup NPCs
+ *
+ * @brief Blade Brothers NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
-#include "player.h"
-#include "room.h"
-#include "message.h"
-#include "save.h"
-#include "script.h"
-#include "npc.h"
 #include "functions.h"
 #include "game.h"
 #include "item.h"
+#include "message.h"
+#include "npc.h"
+#include "player.h"
+#include "room.h"
+#include "save.h"
+#include "script.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 itemSlotA;
+    /*0x6a*/ u8 itemSlotB;
+} BladeBrothersEntity;
 
 void sub_08068A1C(Entity*);
 void sub_08068A4C(Entity*);
@@ -21,10 +34,10 @@ void (*const gUnk_081115C0[])(Entity*) = {
     sub_08068AA4,
     sub_08068ADC,
 };
-void sub_08068AFC(Entity*);
-void sub_08068b2c(Entity*);
-void sub_08068B70(Entity*);
-void (*const gUnk_081115D0[])(Entity*) = {
+void sub_08068AFC(BladeBrothersEntity*);
+void sub_08068b2c(BladeBrothersEntity*);
+void sub_08068B70(BladeBrothersEntity*);
+void (*const gUnk_081115D0[])(BladeBrothersEntity*) = {
     sub_08068AFC,
     sub_08068b2c,
     sub_08068B70,
@@ -212,16 +225,16 @@ extern EntityData gUnk_080F3494;
 
 static void sub_08068BEC(Entity* this, u32 unused);
 
-void BladeBrothers(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
-        gUnk_081115D0[this->action](this);
+void BladeBrothers(BladeBrothersEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
+        gUnk_081115D0[super->action](this);
     } else {
-        gUnk_081115C0[this->action](this);
-        sub_0806ED78(this);
+        gUnk_081115C0[super->action](super);
+        sub_0806ED78(super);
     }
-    if ((this->frame & 1) != 0) {
-        this->frame &= 0xfe;
-        sub_08068BEC(this, 0);
+    if ((super->frame & 1) != 0) {
+        super->frame &= 0xfe;
+        sub_08068BEC(super, 0);
     }
 }
 
@@ -288,31 +301,30 @@ void sub_08068ADC(Entity* this) {
     sub_0806FD3C(this);
 }
 
-void sub_08068AFC(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
-    sub_0807DD50(this);
+void sub_08068AFC(BladeBrothersEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
+    InitScriptForNPC(super);
 }
 
-void sub_08068b2c(Entity* this) {
-    u32 uVar1;
-
-    if (this->interactType == '\x02') {
-        this->action = 2;
-        this->interactType = 0;
-        uVar1 = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
-        InitAnimationForceUpdate(this, uVar1);
-        sub_0806F118(this);
+void sub_08068b2c(BladeBrothersEntity* this) {
+    u32 animationState;
+    if (super->interactType == 2) {
+        super->action = 2;
+        super->interactType = 0;
+        animationState = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+        InitAnimationForceUpdate(super, animationState);
+        InitializeNPCFusion(super);
     } else {
-        sub_0807DD94(this, NULL);
+        ExecuteScriptAndHandleAnimation(super, NULL);
     }
 }
 
-void sub_08068B70(Entity* this) {
-    if (UpdateFuseInteraction(this)) {
-        this->action = 1;
+void sub_08068B70(BladeBrothersEntity* this) {
+    if (UpdateFuseInteraction(super)) {
+        super->action = 1;
     }
 }
 
@@ -326,18 +338,18 @@ void BladeBrothers_StartPlayerDemonstration(Entity* this, ScriptExecutionContext
     InitPlayerMacro((PlayerMacroEntry*)BladeBrothers_PlayerMacros[this->timer]);
 }
 
-void sub_08068BB4(Entity* this) {
+void sub_08068BB4(BladeBrothersEntity* this) {
     u32 item = gSave.stats.itemButtons[SLOT_A];
 
-    this->field_0x68.HALF.HI = item;
+    this->itemSlotA = item;
     item = gSave.stats.itemButtons[SLOT_B];
-    *(&this->field_0x68.HALF.HI + 1) = item;
+    this->itemSlotB = item;
 }
 
 // Restore previous equipped items.
-void sub_08068BD0(Entity* this) {
-    ForceEquipItem(this->field_0x68.HALF.HI, EQUIP_SLOT_A);
-    ForceEquipItem(*(u8*)(&this->field_0x68.HALF.HI + 1), EQUIP_SLOT_B);
+void sub_08068BD0(BladeBrothersEntity* this) {
+    ForceEquipItem(this->itemSlotA, EQUIP_SLOT_A);
+    ForceEquipItem(this->itemSlotB, EQUIP_SLOT_B);
 }
 
 static void sub_08068BEC(Entity* this, u32 unused) {

@@ -25,7 +25,6 @@ bool32 EntityWithinDistance(Entity*, s32, s32, s32);
 u32 sub_0806FCA0(Entity*, Entity*);
 u32 sub_0806F58C(Entity*, Entity*);
 u32 PointInsideRadius(s32 x, s32 y, s32 radius);
-u32 sub_0806F5A4(u32 idx);
 bool32 sub_0806F3E4(Entity*);
 void LinearMoveUpdate(Entity*);
 bool32 sub_0806FD54(Entity*);
@@ -35,7 +34,10 @@ u32 sub_0806F730(Entity*);
 bool32 sub_0806F520(Entity*);
 void sub_0806F4E8(Entity*);
 bool32 sub_0806FC80(Entity*, Entity*, s32);
-u32 sub_0806F5B0(u32);
+/** Maps the direction to an animation state 0 to 3. */
+u32 GetAnimationStateForDirection4(u32 direction);
+/** Maps the direction to an animation state 0 to 8. */
+u32 GetAnimationStateForDirection8(u32 direction);
 u32 sub_0806F824(Entity*, Entity*, s32, s32);
 u32 sub_0806F948(Entity*);
 void sub_0806FBB4(Entity*);

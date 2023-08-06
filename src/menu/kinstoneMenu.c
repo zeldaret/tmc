@@ -229,7 +229,7 @@ void KinstoneMenu_Type1(void) {
 void KinstoneMenu_Type2(void) {
     const KinstoneWorldEvent* ptr;
     if (gMenu.column_idx == 6) {
-        gFuseInfo._0 = 6;
+        gFuseInfo.fusionState = FUSION_STATE_6;
         ptr = &gKinstoneWorldEvents[gFuseInfo.kinstoneId];
         if (ptr->subtask != 0) {
             MenuFadeIn(ptr->subtask, ptr->worldEventId);
@@ -237,7 +237,7 @@ void KinstoneMenu_Type2(void) {
             Subtask_Exit();
         }
     } else {
-        gFuseInfo._0 = 5;
+        gFuseInfo.fusionState = FUSION_STATE_5;
         Subtask_Exit();
     }
 }
@@ -625,9 +625,9 @@ u32 KinstoneMenu_080A4494(void) {
         psVar1->unk1 = 0;
         sub_080A44E0(psVar1, gSave.name, 0x80);
 #if NON_MATCHING
-        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.ent) >> 0x20, 0xa0);
+        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.entity) >> 0x20, 0xa0);
 #else
-        GetFuserId(gFuseInfo.ent);
+        GetFuserId(gFuseInfo.entity);
         asm("" : "=r"(r1));
         ret = sub_080A44E0(psVar1, r1, 0xa0);
 #endif
@@ -652,13 +652,13 @@ u32 sub_080A44E0(WStruct* param_1, u8* param_2, u32 param_3) {
 void KinstoneMenu_080A4528(void) {
     Entity* entity;
 
-    if (gFuseInfo.ent->kind == NPC) {
-        entity = CreateNPC(gFuseInfo.ent->id, gFuseInfo.ent->type, gFuseInfo.ent->type2);
+    if (gFuseInfo.entity->kind == NPC) {
+        entity = CreateNPC(gFuseInfo.entity->id, gFuseInfo.entity->type, gFuseInfo.entity->type2);
     } else {
-        if (gFuseInfo.ent->kind != ENEMY) {
+        if (gFuseInfo.entity->kind != ENEMY) {
             return;
         }
-        entity = CreateEnemy(gFuseInfo.ent->id, gFuseInfo.ent->type);
+        entity = CreateEnemy(gFuseInfo.entity->id, gFuseInfo.entity->type);
     }
     if (entity != NULL) {
         if (entity->kind == NPC) {

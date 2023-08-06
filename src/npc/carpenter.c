@@ -1,8 +1,22 @@
-#include "global.h"
+/**
+ * @file carpenter.c
+ * @ingroup NPCs
+ *
+ * @brief Carpenter NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
-#include "npc.h"
 #include "item.h"
+#include "npc.h"
+#include "player.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+    /*0x6a*/ u8 unused[26];
+    /*0x84*/ ScriptExecutionContext* context;
+} CarpenterEntity;
 
 static const SpriteLoadData gUnk_08110CA8[] = {
     { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0x4001, 0x3f, 0x4 }, { 0, 0, 0 },
@@ -11,38 +25,38 @@ static const SpriteLoadData gUnk_08110CA8[] = {
     { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0, 0, 0 },           { 0, 0, 0 },
 };
 
-void Carpenter(Entity* this) {
-    if (*(u32*)&this->cutsceneBeh == 0) {
+void Carpenter(CarpenterEntity* this) {
+    if (this->context == NULL) {
         DeleteThisEntity();
     }
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (!LoadExtraSpriteData(this, gUnk_08110CA8 + this->type * 4))
+            if (!LoadExtraSpriteData(super, gUnk_08110CA8 + super->type * 4))
                 break;
-            this->action = 1;
-            this->field_0x68.HALF.HI = 0;
-            SetDefaultPriority(this, PRIO_MESSAGE);
-            sub_0807DD64(this);
+            super->action = 1;
+            this->animIndex = 0;
+            SetDefaultPriority(super, PRIO_MESSAGE);
+            sub_0807DD64(super);
 
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this,
-                                    sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4 + (this->type * 8));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                this->animIndex = super->animIndex;
+                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) +
+                                               4 + (super->type * 8));
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, 0);
-                HandleEntity0x82Actions(this);
-                GetNextFrame(this);
+                ExecuteScriptForEntity(super, 0);
+                HandleEntity0x82Actions(super);
+                GetNextFrame(super);
             }
             break;
         case 2:
-            if (!UpdateFuseInteraction(this))
+            if (!UpdateFuseInteraction(super))
                 break;
-            this->action = 1;
-            InitializeAnimation(this, this->field_0x68.HALF.HI);
+            super->action = 1;
+            InitializeAnimation(super, this->animIndex);
             break;
     }
 }
@@ -91,15 +105,15 @@ void sub_08067304(Entity* this) {
     ShowNPCDialogue(this, &dialog);
 }
 
-void Carpenter_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Carpenter_MakeInteractable(CarpenterEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Carpenter_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type * 4])) {
-            this->action = this->action + 1;
+            this->action++;
             this->spriteSettings.draw = 1;
             SetDefaultPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, (u32)this->type * 8 + 2);

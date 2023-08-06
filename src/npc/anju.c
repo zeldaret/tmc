@@ -1,44 +1,56 @@
+/**
+ * @file anju.c
+ * @ingroup NPCs
+ *
+ * @brief Anju NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "npc.h"
+#include "player.h"
 
-void Anju(Entity* this) {
-    switch (this->action) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+} AnjuEntity;
+
+void Anju(AnjuEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->animationState = this->timer;
-            sub_0807DD50(this);
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            super->animationState = super->timer;
+            InitScriptForNPC(super);
             return;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                InitializeAnimation(this,
-                                    (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                sub_0806F118(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
+                                                                         GetFacingDirection(super, &gPlayerEntity)));
+                InitializeNPCFusion(super);
             } else {
-                sub_0807DD94(this, 0);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             return;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
             }
     }
 }
 
-void Anju_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Anju_MakeInteractable(AnjuEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
-void Anju_Fusion(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = 1;
-        InitAnimationForceUpdate(this, 6);
+void Anju_Fusion(AnjuEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = 1;
+        InitAnimationForceUpdate(super, 6);
     } else {
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
     }
 }

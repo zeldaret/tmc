@@ -1,47 +1,60 @@
+/**
+ * @file hurdyGurdyMan.c
+ * @ingroup NPCs
+ *
+ * @brief Hurdy Gurdy Man NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
-#include "save.h"
 #include "npc.h"
+#include "save.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unk_69;
+} HurdyGurdyManEntity;
 
 static const SpriteLoadData gUnk_081144F0[] = { { 0x163, 0x59, 0x4 }, { 0x4163, 0x59, 0x4 }, { 0, 0, 0 } };
 
 extern u16* gUnk_08001A7C[];
 
-void HurdyGurdyMan(Entity* this) {
+void HurdyGurdyMan(HurdyGurdyManEntity* this) {
     u32 index;
     u16* pointerToArray;
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_081144F0)) {
-                this->action = 1;
-                this->field_0x68.HALF.HI = 0;
-                SetDefaultPriority(this, PRIO_MESSAGE);
-                sub_0807DD50(this);
+            if (LoadExtraSpriteData(super, gUnk_081144F0)) {
+                super->action = 1;
+                this->unk_69 = 0;
+                SetDefaultPriority(super, PRIO_MESSAGE);
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                index = GetFuserId(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                this->unk_69 = super->animIndex;
+                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                index = GetFuserId(super);
                 pointerToArray = gUnk_08001A7C[index];
-                if (this->field_0x68.HALF.LO == 0x32) {
+                if (this->fusionOffer == 0x32) {
                     pointerToArray = pointerToArray + 3;
                 }
-                sub_0801DFB4(this, *pointerToArray, pointerToArray[1], (u32)pointerToArray[2]);
+                InitializeFuseInfo(super, *pointerToArray, pointerToArray[1], (u32)pointerToArray[2]);
                 gPlayerState.controlMode = CONTROL_DISABLED;
             } else {
-                sub_0807DD94(this, NULL);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
 
             break;
         case 2:
-            if ((UpdateFuseInteraction(this) != 0)) {
-                this->action = 1;
-                InitializeAnimation(this, this->field_0x68.HALF.HI);
+            if ((UpdateFuseInteraction(super) != 0)) {
+                super->action = 1;
+                InitializeAnimation(super, this->unk_69);
             }
             break;
     }
@@ -100,9 +113,9 @@ void sub_0806E418(Entity* this) {
     ShowNPCDialogue(this, &dialogs[tmp]);
 }
 
-void HurdyGurdyMan_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void HurdyGurdyMan_MakeInteractable(HurdyGurdyManEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void HurdyGurdyMan_Fusion(Entity* this) {

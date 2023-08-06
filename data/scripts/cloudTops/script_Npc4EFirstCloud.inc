@@ -12,7 +12,7 @@ SCRIPT_START script_Npc4EFirstCloud
 	EndBlock
 script_0800D636:
 	_0807EA4C
-	_0807E9F0
+	UpdateFusion
 	Call NPC4E_IsKinstoneFused
 	JumpIf script_0800D650
 	Call EnablePauseMenu

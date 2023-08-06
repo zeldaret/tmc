@@ -1,10 +1,16 @@
-#include "global.h"
-#include "entity.h"
-#include "message.h"
-#include "functions.h"
+/**
+ * @file stamp.c
+ * @ingroup NPCs
+ *
+ * @brief Stamp NPC
+ */
+#define NENT_DEPRECATED
 #include "effects.h"
-#include "npc.h"
+#include "entity.h"
+#include "functions.h"
 #include "kinstone.h"
+#include "message.h"
+#include "npc.h"
 
 void sub_08062CA4(Entity*);
 void sub_08062BD4(Entity*);
@@ -13,7 +19,7 @@ void sub_08062C24(Entity*);
 void sub_08062C54(Entity*);
 void sub_08062C7C(Entity*);
 
-void Stamp(Entity* ent) {
+void Stamp(Entity* this) {
     static void (*const actionFuncs[4])(Entity*) = {
         sub_08062BD4,
         sub_08062BF8,
@@ -24,62 +30,62 @@ void Stamp(Entity* ent) {
         sub_08062C7C,
         sub_08062CA4,
     };
-    if ((ent->flags & ENT_SCRIPTED) != 0) {
-        scriptedActionFuncs[ent->action](ent);
+    if ((this->flags & ENT_SCRIPTED) != 0) {
+        scriptedActionFuncs[this->action](this);
     } else {
-        actionFuncs[ent->action](ent);
+        actionFuncs[this->action](this);
     }
 }
 
-void sub_08062BD4(Entity* ent) {
-    ent->action = 1;
-    ent->spriteSettings.draw = 1;
-    InitializeAnimation(ent, 0);
-    AddInteractableWhenBigObject(ent);
+void sub_08062BD4(Entity* this) {
+    this->action = 1;
+    this->spriteSettings.draw = 1;
+    InitializeAnimation(this, 0);
+    AddInteractableWhenBigObject(this);
 }
 
-void sub_08062BF8(Entity* ent) {
-    GetNextFrame(ent);
-    if (ent->interactType != 0) {
-        ent->interactType = 0;
-        ent->action++;
-        RequestPriority(ent);
+void sub_08062BF8(Entity* this) {
+    GetNextFrame(this);
+    if (this->interactType != 0) {
+        this->interactType = 0;
+        this->action++;
+        RequestPriority(this);
     }
-    sub_0806ED78(ent);
+    sub_0806ED78(this);
 }
 
-void sub_08062C24(Entity* ent) {
-    GetNextFrame(ent);
-    if ((ent->frame & 128) != 0) {
-        InitializeAnimation(ent, 4);
+void sub_08062C24(Entity* this) {
+    GetNextFrame(this);
+    if ((this->frame & 128) != 0) {
+        InitializeAnimation(this, 4);
         MessageFromTarget(TEXT_INDEX(TEXT_EMPTY, 0x01));
-        ent->action++;
+        this->action++;
     }
 }
 
-void sub_08062C54(Entity* ent) {
+void sub_08062C54(Entity* this) {
     if ((gMessage.doTextBox & 127) == 0) {
-        ent->action = 1;
-        InitializeAnimation(ent, 0);
-        RevokePriority(ent);
+        this->action = 1;
+        InitializeAnimation(this, 0);
+        RevokePriority(this);
     }
 }
 
-void sub_08062C7C(Entity* ent) {
-    ent->action = 1;
-    sub_0807DD64(ent);
-    InitializeAnimation(ent, 0);
-    CreateFx(ent, FX_SWEAT, 0);
-    sub_08062CA4(ent);
+void sub_08062C7C(Entity* this) {
+    this->action = 1;
+    sub_0807DD64(this);
+    InitializeAnimation(this, 0);
+    CreateFx(this, FX_SWEAT, 0);
+    sub_08062CA4(this);
 }
 
-void sub_08062CA4(Entity* ent) {
-    ExecuteScriptForEntity(ent, NULL);
-    HandleEntity0x82Actions(ent);
-    GetNextFrame(ent);
+void sub_08062CA4(Entity* this) {
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
+    GetNextFrame(this);
 }
 
-void sub_08062CBC(Entity* ent) {
+void sub_08062CBC(Entity* this) {
     static const Dialog gUnk_0810C2E4[2] = {
         { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_POST, 0x1), TEXT_INDEX(TEXT_POST, 0x0) } },
         { 0, DIALOG_ROOM_FLAG, DIALOG_TOGGLE_FLAG, 1, { TEXT_INDEX(TEXT_POST, 0x3), TEXT_INDEX(TEXT_POST, 0x2) } },
@@ -90,11 +96,11 @@ void sub_08062CBC(Entity* ent) {
     } else {
         uVar1 = 0;
     }
-    ShowNPCDialogue(ent, &gUnk_0810C2E4[uVar1]);
+    ShowNPCDialogue(this, &gUnk_0810C2E4[uVar1]);
 }
 
-void sub_08062CE0(Entity* ent) {
-    if (ent->action == 0) {
-        ent->action = 1;
+void sub_08062CE0(Entity* this) {
+    if (this->action == 0) {
+        this->action = 1;
     }
 }

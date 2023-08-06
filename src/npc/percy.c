@@ -1,9 +1,22 @@
-#include "global.h"
+/**
+ * @file percy.c
+ * @ingroup NPCs
+ *
+ * @brief Percy NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "npc.h"
 #include "functions.h"
-#include "kinstone.h"
 #include "item.h"
+#include "kinstone.h"
+#include "npc.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 unused[27];
+    /*0x84*/ ScriptExecutionContext* context;
+} PercyEntity;
 
 static const SpriteLoadData gUnk_08112E1C[] = {
     { 0x30f6, 0x47, 0x4 },
@@ -11,7 +24,7 @@ static const SpriteLoadData gUnk_08112E1C[] = {
     { 0x1cf6, 0x47, 0x4 },
     { 0, 0, 0 },
 };
-void sub_0806B41C(Entity*);
+void sub_0806B41C(PercyEntity*);
 void sub_0806B3CC(Entity*);
 void sub_0806B504(Entity*);
 void sub_0806B540(Entity*);
@@ -27,11 +40,11 @@ void Percy_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-void Percy(Entity* this) {
-    if ((this->flags & ENT_SCRIPTED) != 0) {
+void Percy(PercyEntity* this) {
+    if ((super->flags & ENT_SCRIPTED) != 0) {
         sub_0806B41C(this);
     } else {
-        sub_0806B3CC(this);
+        sub_0806B3CC(super);
     }
 }
 
@@ -52,39 +65,40 @@ void sub_0806B3CC(Entity* this) {
     sub_0806ED78(this);
 }
 
-void sub_0806B41C(Entity* this) {
+void sub_0806B41C(PercyEntity* this) {
     u16* tmp;
     u32 idx;
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_08112E1C)) {
-                this->action = 1;
-                this->spriteSettings.draw = 1;
-                if (this->type2 == 2) {
-                    CreateFx(this, FX_SWEAT, 0);
+            if (LoadExtraSpriteData(super, gUnk_08112E1C)) {
+                super->action = 1;
+                super->spriteSettings.draw = 1;
+                if (super->type2 == 2) {
+                    CreateFx(super, FX_SWEAT, 0);
                 }
-                sub_0807DD50(this);
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
-                idx = GetFuserId(this);
+            if (super->interactType == 2) {
+                super->action = 2;
+                super->interactType = 0;
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                idx = GetFuserId(super);
                 tmp = gUnk_08001A7C[idx];
-                if (this->field_0x68.HALF.LO == 33)
+                if (this->fusionOffer == 33)
                     tmp += 3;
-                sub_0801DFB4(this, tmp[0], tmp[1], tmp[2]);
+                InitializeFuseInfo(super, tmp[0], tmp[1], tmp[2]);
                 gPlayerState.controlMode = CONTROL_DISABLED;
             } else {
-                sub_0807DD94(this, NULL);
+                ExecuteScriptAndHandleAnimation(super, NULL);
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
             }
             break;
     }
@@ -124,7 +138,7 @@ void sub_0806B504(Entity* this) {
 void sub_0806B540(Entity* this) {
     ScriptExecutionContext* context;
 
-    context = *(ScriptExecutionContext**)&this->cutsceneBeh;
+    context = ((PercyEntity*)this)->context;
     switch (context->unk_18) {
         case 0:
             MessageNoOverlap(TEXT_INDEX(TEXT_PERCY, 0x12), this);
@@ -162,9 +176,9 @@ void sub_0806B540(Entity* this) {
     gActiveScriptInfo.commandSize = 0;
 }
 
-void Percy_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void Percy_MakeInteractable(PercyEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void Percy_Fusion(Entity* this) {
