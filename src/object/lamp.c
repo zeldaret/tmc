@@ -4,6 +4,7 @@
  *
  * @brief Lamp object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 
 void Lamp_Init(Entity* this);

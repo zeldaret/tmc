@@ -4,13 +4,12 @@
  *
  * @brief Figurine Device object
  */
-
 #define NENT_DEPRECATED
 #include "figurineMenu.h"
 #include "fileselect.h"
 #include "functions.h"
-#include "kinstone.h"
 #include "item.h"
+#include "kinstone.h"
 #include "message.h"
 #include "object.h"
 #include "screen.h"

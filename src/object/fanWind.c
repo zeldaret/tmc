@@ -4,10 +4,10 @@
  *
  * @brief Fan Wind object
  */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "functions.h"
-#include "global.h"
 
 void FanWind(Entity* this) {
     u8* collisionData;

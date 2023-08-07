@@ -30,13 +30,13 @@ void sub_0809A9D4(MacroBookEntity*);
 void sub_0809AA9C(MacroBookEntity*, Entity*, u32);
 
 void MacroBook(Entity* this) {
-    static void (*const actionFuncs[])(MacroBookEntity*) = {
+    static void (*const MacroBook_Actions[])(MacroBookEntity*) = {
         MacroBook_Init,
         MacroBook_Action1,
         MacroBook_Action2,
         MacroBook_Action3,
     };
-    actionFuncs[this->action]((MacroBookEntity*)this);
+    MacroBook_Actions[this->action]((MacroBookEntity*)this);
 }
 
 void MacroBook_Init(MacroBookEntity* this) {

@@ -4,53 +4,60 @@
  *
  * @brief Fireplace object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
-void Fireplace_Action1(Entity* this);
-void sub_0809B7DC(Entity* this);
-void sub_0809B7C0(Entity* this);
-void Fireplace_Init(Entity* this);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[30];
+    /*0x86*/ u16 unk_86;
+} FireplaceEntity;
 
-void Fireplace(Entity* e) {
-    static void (*const Fireplace_Actions[])(Entity*) = {
+void Fireplace_Action1(FireplaceEntity* this);
+void sub_0809B7DC(FireplaceEntity* this);
+void sub_0809B7C0(FireplaceEntity* this);
+void Fireplace_Init(FireplaceEntity* this);
+
+void Fireplace(FireplaceEntity* this) {
+    static void (*const Fireplace_Actions[])(FireplaceEntity*) = {
         Fireplace_Init,
         Fireplace_Action1,
     };
-    Fireplace_Actions[e->action](e);
+    Fireplace_Actions[super->action](this);
 }
 
-void Fireplace_Init(Entity* this) {
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->speed = 0x80;
-    if (CheckFlags(this->field_0x86.HWORD)) {
+void Fireplace_Init(FireplaceEntity* this) {
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    super->speed = 0x80;
+    if (CheckFlags(this->unk_86)) {
         sub_0809B7DC(this);
         DeleteThisEntity();
     } else {
-        sub_0807B7D8(0x30b, TILE(this->x.HALF.HI, this->y.HALF.HI), 2);
-        SetTile(0x4061, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+        sub_0807B7D8(0x30b, TILE(super->x.HALF.HI, super->y.HALF.HI), 2);
+        SetTile(0x4061, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
     Fireplace_Action1(this);
 }
 
-void Fireplace_Action1(Entity* this) {
+void Fireplace_Action1(FireplaceEntity* this) {
     sub_0809B7C0(this);
-    if (this->timer) {
-        SetFlag(this->field_0x86.HWORD);
+    if (super->timer) {
+        SetFlag(this->unk_86);
         DeleteThisEntity();
     }
 }
 
-void sub_0809B7C0(Entity* this) {
-    u32 tileType = GetTileTypeByEntity(this);
+void sub_0809B7C0(FireplaceEntity* this) {
+    u32 tileType = GetTileTypeByEntity(super);
     if (tileType != 0x4061 && tileType != 0x4062) {
         sub_0809B7DC(this);
     }
 }
 
-void sub_0809B7DC(Entity* this) {
-    sub_0807B7D8(0xc3 << 2, TILE(this->x.HALF.HI, this->y.HALF.HI), 2);
-    SetTile(0x4062, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
-    this->timer = 1;
+void sub_0809B7DC(FireplaceEntity* this) {
+    sub_0807B7D8(0xc3 << 2, TILE(super->x.HALF.HI, super->y.HALF.HI), 2);
+    SetTile(0x4062, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    super->timer = 1;
 }

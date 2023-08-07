@@ -4,10 +4,8 @@
  *
  * @brief Pushable Grave object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 

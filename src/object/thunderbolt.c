@@ -1,23 +1,21 @@
 /**
- * @file thunderbold.c
+ * @file thunderbolt.c
  * @ingroup Objects
  *
- * @brief Thunderbold object
+ * @brief Thunderbolt object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;
-} ThunderboldEntity;
+} ThunderboltEntity;
 
-void Thunderbold_Init(ThunderboldEntity*);
-void Thunderbold_Action1(ThunderboldEntity*);
-void sub_08093ED0(ThunderboldEntity*);
-void sub_08093EF0(ThunderboldEntity*);
+void Thunderbolt_Init(ThunderboltEntity*);
+void Thunderbolt_Action1(ThunderboltEntity*);
+void sub_08093ED0(ThunderboltEntity*);
+void sub_08093EF0(ThunderboltEntity*);
 
 typedef struct {
     u16 sfx;
@@ -31,15 +29,15 @@ const struct_08122950 gUnk_08122950[] = {
     { 0, 31, 0 },
 };
 
-void Thunderbold(ThunderboldEntity* this) {
-    static void (*const Thunderbold_Actions[])(ThunderboldEntity*) = {
-        Thunderbold_Init,
-        Thunderbold_Action1,
+void Thunderbolt(ThunderboltEntity* this) {
+    static void (*const Thunderbolt_Actions[])(ThunderboltEntity*) = {
+        Thunderbolt_Init,
+        Thunderbolt_Action1,
     };
-    Thunderbold_Actions[super->action](this);
+    Thunderbolt_Actions[super->action](this);
 }
 
-void Thunderbold_Init(ThunderboldEntity* this) {
+void Thunderbolt_Init(ThunderboltEntity* this) {
     const struct_08122950* ptr;
     super->action = 1;
     super->flags &= ~0x80;
@@ -57,22 +55,22 @@ void Thunderbold_Init(ThunderboldEntity* this) {
     }
 }
 
-void Thunderbold_Action1(ThunderboldEntity* this) {
-    static void (*const gUnk_08122964[])(ThunderboldEntity*) = {
+void Thunderbolt_Action1(ThunderboltEntity* this) {
+    static void (*const gUnk_08122964[])(ThunderboltEntity*) = {
         sub_08093ED0,
         sub_08093EF0,
     };
     gUnk_08122964[gUnk_08122950[super->type].unk_2 >> 4](this);
 }
 
-void sub_08093ED0(ThunderboldEntity* this) {
+void sub_08093ED0(ThunderboltEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         DeleteEntity(super);
     }
 }
 
-void sub_08093EF0(ThunderboldEntity* this) {
+void sub_08093EF0(ThunderboltEntity* this) {
     Entity* object;
     switch (super->type) {
         case 0:
@@ -83,7 +81,7 @@ void sub_08093EF0(ThunderboldEntity* this) {
             if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
-            object = CreateObject(THUNDERBOLD, 1, 0);
+            object = CreateObject(THUNDERBOLT, 1, 0);
             if (object != NULL) {
                 object->parent = super->parent;
                 CopyPosition(super, object);
@@ -94,7 +92,7 @@ void sub_08093EF0(ThunderboldEntity* this) {
             GetNextFrame(super);
             if ((super->frame & 1) != 0) {
                 super->frame = 0;
-                object = CreateObject(THUNDERBOLD, 2, 0);
+                object = CreateObject(THUNDERBOLT, 2, 0);
                 if (object != NULL) {
                     object->parent = super->parent;
                     CopyPosition(super, object);

@@ -15,15 +15,15 @@ typedef struct {
     u16 tile;
 } GiantRock2Entity;
 
-void GiantRock2_Init(GiantRock2Entity*);
-void GiantRock2_Idle(GiantRock2Entity*);
+void GiantRock2_Init(GiantRock2Entity* this);
+void GiantRock2_Idle(GiantRock2Entity* this);
 
 void GiantRock2(Entity* this) {
-    static void (*const actionFuncs[])(GiantRock2Entity*) = {
+    static void (*const GiantRock2_Action[])(GiantRock2Entity*) = {
         GiantRock2_Init,
         GiantRock2_Idle,
     };
-    actionFuncs[this->action]((GiantRock2Entity*)this);
+    GiantRock2_Action[this->action]((GiantRock2Entity*)this);
 }
 
 void GiantRock2_Init(GiantRock2Entity* this) {

@@ -59,9 +59,7 @@ void PressurePlate_Init(PressurePlateEntity* this) {
 }
 
 void PressurePlate_Action1(PressurePlateEntity* this) {
-    u8 weight;
-
-    weight = sub_08088938(this) + get_standing_count(this);
+    u8 weight = sub_08088938(this) + get_standing_count(this);
     if (super->type + 2 <= weight) {
         super->action = 2;
         super->subtimer = 0;
@@ -87,10 +85,8 @@ void PressurePlate_Action1(PressurePlateEntity* this) {
 }
 
 void PressurePlate_Action2(PressurePlateEntity* this) {
-    u8 weight;
-
     if (this->canToggle) {
-        weight = sub_08088938(this) + get_standing_count(this);
+        u8 weight = sub_08088938(this) + get_standing_count(this);
         if (super->type + 2 > weight) {
             super->action = 1;
             super->animationState = weight;

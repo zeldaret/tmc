@@ -11,7 +11,7 @@
 #include "projectile.h"
 #include "projectile/winder.h"
 
-void FireballChain(Entity* thisx) {
+void FireballChain(Entity* this) {
     WinderEntity* newSegment;
     Entity* parent;
     Entity* child;
@@ -33,11 +33,11 @@ void FireballChain(Entity* thisx) {
         newSegment->base.type = i;
         newSegment->base.parent = parent;
         newSegment->base.child = child;
-        CopyPosition(thisx, &newSegment->base);
+        CopyPosition(this, &newSegment->base);
 
         for (j = 0, tmp = newSegment->positions; j < WINDER_NUM_SEGMENTS; j++) {
-            *tmp++ = thisx->x.HALF.HI;
-            *tmp++ = thisx->y.HALF.HI;
+            *tmp++ = this->x.HALF.HI;
+            *tmp++ = this->y.HALF.HI;
         }
 
         child = &newSegment->base;

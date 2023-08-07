@@ -4,8 +4,8 @@
  *
  * @brief Thought Bubble object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "global.h"
 #include "sound.h"
 
 void ThoughtBubble_Init(Entity*);
@@ -19,11 +19,11 @@ static const u16 ThoughtBubble_SFX[] = {
 };
 
 void ThoughtBubble(Entity* this) {
-    static void (*const ThoughtBubble_Behaviors[])(Entity*) = {
+    static void (*const ThoughtBubble_Actions[])(Entity*) = {
         ThoughtBubble_Init,
         ThoughtBubble_Update,
     };
-    ThoughtBubble_Behaviors[this->action](this);
+    ThoughtBubble_Actions[this->action](this);
 }
 
 void ThoughtBubble_Init(Entity* this) {

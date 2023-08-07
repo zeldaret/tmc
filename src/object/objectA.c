@@ -4,42 +4,50 @@
  *
  * @brief ObjectA object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "room.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[8];
+    /*0x70*/ u16 unk_70;
+    /*0x72*/ u8 unused2[20];
+    /*0x86*/ u16 unk_86;
+} ObjectAEntity;
+
 extern u8 gUpdateVisibleTiles;
 
-void ObjectA(Entity* this) {
+void ObjectA(ObjectAEntity* this) {
     u32 uVar2;
 
-    if (this->action == 0) {
-        this->action = 1;
-        this->hitbox = (Hitbox*)&gHitbox_2;
-        if (this->collisionLayer == 1) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->hitbox = (Hitbox*)&gHitbox_2;
+        if (super->collisionLayer == 1) {
             uVar2 = 0x26;
         } else {
             uVar2 = 0x34;
         }
-        this->field_0x70.HALF.LO = uVar2;
-        if (CheckFlags(this->field_0x86.HWORD) != 0) {
-            SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+        this->unk_70 = uVar2;
+        if (CheckFlags(this->unk_86) != 0) {
+            SetTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
             if ((gRoomControls.reload_flags & 1) != 0) {
                 gUpdateVisibleTiles = 0;
             }
             DeleteThisEntity();
         } else {
-            AddInteractableSmallKeyLock(this);
+            AddInteractableSmallKeyLock(super);
         }
-    } else if (this->interactType != 0) {
-        SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-        SetFlag(this->field_0x86.HWORD);
-        CreateDust(this);
+    } else if (super->interactType != 0) {
+        SetTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetFlag(this->unk_86);
+        CreateDust(super);
         ModDungeonKeys(-1);
         DeleteThisEntity();
     }

@@ -4,10 +4,8 @@
  *
  * @brief Big Ice Block object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "item.h"
 #include "object.h"

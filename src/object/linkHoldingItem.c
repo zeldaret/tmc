@@ -7,7 +7,6 @@
 #define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "item.h"
 #include "itemMetaData.h"
 #include "message.h"

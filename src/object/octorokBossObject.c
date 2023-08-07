@@ -4,25 +4,18 @@
  *
  * @brief Octorok Boss Object object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
 #include "object.h"
 
-extern void (*const OctorokBossObject_Actions[])(Entity*);
-extern const u16 gUnk_0812384C[];
-extern const u16 gUnk_0812388C[];
-extern const u16 gUnk_081238A0[];
-
-bool32 sub_0809A6F8(u32, u32, u32, u32);
-bool32 sub_0809A758(u32, u32);
-
 typedef struct HelperStruct {
-    u8 field_0x0; // [0,1,2,4]  is later stored in this->subtimer
+    u8 field_0x0; // [0,1,2,4]  is later stored in super->subtimer
     u8 tailCount;
     u8 field_0x2; // [0,1]
-    u8 field_0x3; // relates to this->field_0x7a.HALF.HI
+    u8 field_0x3; // relates to super->field_0x7a.HALF.HI
     u8 field_0x4; // [0,1,0xff]
-    u8 field_0x5; // [0-4], sets this->field_0x80.HALF.HI
+    u8 field_0x5; // [0-4], sets super->field_0x80.HALF.HI
     u8 fallingStonesTimer;
     u8 field_0x7; // some sort of counter that is only set when hit for the first time?
     Entity* mouthObject;
@@ -30,9 +23,29 @@ typedef struct HelperStruct {
     Entity* legObjects[4];
 } HelperStruct;
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u16 unk_76;
+    /*0x78*/ union SplitWord unk_78;
+    /*0x7c*/ union SplitWord unk_7c;
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u16 unk_82;
+    /*0x84*/ HelperStruct* helper;
+} OctorokBossObjectEntity;
+
+extern void (*const OctorokBossObject_Actions[])(OctorokBossObjectEntity*);
+extern const u16 gUnk_0812384C[];
+extern const u16 gUnk_0812388C[];
+extern const u16 gUnk_081238A0[];
+
+bool32 sub_0809A6F8(u32, u32, u32, u32);
+bool32 sub_0809A758(u32, u32);
+
 enum OctorokBossObjectType {
     TYPE0,             // OctorokBoss_Action1 / TAIL_END
-    TYPE_FIRE,         // this->OctorokBossObject_Action1
+    TYPE_FIRE,         // super->OctorokBossObject_Action1
     TYPE_SUCKING,      // OctorokBoss_ExecuteAttackVacuum
     TYPE_SMOKE,        // OctorokBoss_ExecuteAttackSmoke
     TYPE4,             // OctorokBoss_Action1_Attack_Type2_2
@@ -42,164 +55,162 @@ enum OctorokBossObjectType {
     TYPE8, // OctorokBoss_Hit_SubAction1
     TYPE9  // OctorokBoss_Hit_SubAction4
 };
-#define GET_HELPER(this) (*(HelperStruct**)&(this)->cutsceneBeh)
 
-void OctorokBossObject(Entity* this) {
-    OctorokBossObject_Actions[this->action](this);
+void OctorokBossObject(OctorokBossObjectEntity* this) {
+    OctorokBossObject_Actions[super->action](this);
 }
 
-void OctorokBossObject_Init(Entity* this) {
-    this->action = 1;
-    this->speed = 0x200;
-    switch (this->type) {
+void OctorokBossObject_Init(OctorokBossObjectEntity* this) {
+    super->action = 1;
+    super->speed = 0x200;
+    switch (super->type) {
         case 0:
-            this->field_0x78.HALF.HI = 0x96;
-            this->timer = 0;
-            this->subtimer = 30;
+            this->unk_78.BYTES.byte1 = 0x96;
+            super->timer = 0;
+            super->subtimer = 30;
         case 1:
-            InitializeAnimation(this, 0);
+            InitializeAnimation(super, 0);
             EnqueueSFX(SFX_124);
             break;
         case 2:
-            this->direction = -(this->parent->field_0x7a.HALF.HI + -0x80);
+            super->direction = -(((OctorokBossObjectEntity*)super->parent)->unk_78.BYTES.byte3 + -0x80);
             if ((Random() & 1) != 0) {
                 switch (Random() & 3) {
                     case 0:
-                        this->direction = this->direction - 0x10;
+                        super->direction = super->direction - 0x10;
                         break;
                     case 1:
-                        this->direction = this->direction + 0x10;
+                        super->direction = super->direction + 0x10;
                         break;
                     case 2:
-                        this->direction = this->direction - 8;
+                        super->direction = super->direction - 8;
                         break;
                     case 3:
-                        this->direction = this->direction + 8;
+                        super->direction = super->direction + 8;
                         break;
                 }
             }
 
-            this->speed = DISPLAY_WIDTH - (Random() & 0x3f);
-            LinearMoveAngle(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
-            LinearMoveAngle(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
-            InitializeAnimation(this, 5);
+            super->speed = DISPLAY_WIDTH - (Random() & 0x3f);
+            LinearMoveAngle(super, ((s16)super->speed >> 1) << 8, (u32)super->direction);
+            LinearMoveAngle(super, ((s16)super->speed >> 1) << 8, (u32)super->direction);
+            InitializeAnimation(super, 5);
             SoundReq(SFX_14C);
             break;
         case 3:
-            this->direction = -(this->parent->field_0x7a.HALF.HI + -0x80);
-            LinearMoveAngle(this, 0x4800, (u32)this->direction);
+            super->direction = -(((OctorokBossObjectEntity*)super->parent)->unk_78.BYTES.byte3 + -0x80);
+            LinearMoveAngle(super, 0x4800, (u32)super->direction);
             if ((Random() & 1) != 0) {
-                this->direction = (Random() & 0x3f) + this->direction;
+                super->direction = (Random() & 0x3f) + super->direction;
             } else {
-                this->direction = this->direction - (Random() & 0x3f);
+                super->direction = super->direction - (Random() & 0x3f);
             }
-            InitializeAnimation(this, 6);
+            InitializeAnimation(super, 6);
             break;
         case 6:
-            LinearMoveAngle(this, (0x30 - (Random() & 0x2f)) * 0x100, Random() & 0xff);
+            LinearMoveAngle(super, (0x30 - (Random() & 0x2f)) * 0x100, Random() & 0xff);
             if ((Random() & 1) != 0) {
-                this->direction = (Random() & 0x3f) + this->direction;
+                super->direction = (Random() & 0x3f) + super->direction;
             } else {
-                this->direction = this->direction - (Random() & 0x3f);
+                super->direction = super->direction - (Random() & 0x3f);
             }
-            InitializeAnimation(this, 5);
+            InitializeAnimation(super, 5);
             break;
         case 4:
-            *(u32*)&this->field_0x78 = 0x30c;
+            this->unk_78.WORD = 0x30c;
             break;
         case 5:
-            this->spritePriority.b0 = 0;
-            *(u32*)&this->field_0x78 = 0x18;
-            this->field_0x76.HWORD = 0x400;
-            this->field_0x74.HWORD = 0x400;
-            this->field_0x7a.HWORD = 0;
-            LinearMoveAngle(this,
-                            ((-(u32)this->parent->field_0x7a.HALF.HI << 0x18) >> 0x18) +
-                                (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
-                            (u32)gUnk_0812388C[(u32)this->type2 * 2]);
-            SetAffineInfo(this, this->field_0x76.HWORD, this->field_0x74.HWORD, this->field_0x7a.HWORD);
-            InitializeAnimation(this, 7);
+            super->spritePriority.b0 = 0;
+            this->unk_78.WORD = 0x18;
+            this->unk_76 = 0x400;
+            this->unk_74 = 0x400;
+            this->unk_78.HALF_U.HI = 0;
+            LinearMoveAngle(super,
+                            ((-(u32)((OctorokBossObjectEntity*)super->parent)->unk_78.BYTES.byte3 << 0x18) >> 0x18) +
+                                (u32)gUnk_0812388C[(u32)super->type2 * 2 + 1],
+                            (u32)gUnk_0812388C[(u32)super->type2 * 2]);
+            SetAffineInfo(super, this->unk_76, this->unk_74, this->unk_78.HALF_U.HI);
+            InitializeAnimation(super, 7);
             break;
         case 7:
-            this->timer = 0;
-            InitializeAnimation(this, 8);
-            CopyPosition(this->parent, this);
+            super->timer = 0;
+            InitializeAnimation(super, 8);
+            CopyPosition(super->parent, super);
             break;
         case 8:
-            this->type2 = this->parent->field_0x7c.BYTES.byte0;
-            this->timer = 4;
-            this->subtimer = 0;
-            this->field_0x82.HWORD = (this->x.HALF.HI - (gRoomControls.origin_x)) & 0x1f0;
-            this->field_0x80.HWORD = (this->y.HALF.HI - ((u32)gRoomControls.origin_y)) & 0x1f0;
-            *(int*)&this->cutsceneBeh =
-                ((s32)(this->field_0x82.HWORD - 0x10) >> 4) + (this->field_0x80.HWORD >> 4) * 0x1f;
-            sub_0809A6F8(this->field_0x82.HWORD, this->field_0x80.HWORD, *(int*)&this->cutsceneBeh, this->type2);
-            if ((this->parent->field_0x7c.BYTES.byte0 & 1) != 0) {
+            super->type2 = ((OctorokBossObjectEntity*)super->parent)->unk_7c.BYTES.byte0;
+            super->timer = 4;
+            super->subtimer = 0;
+            this->unk_82 = (super->x.HALF.HI - (gRoomControls.origin_x)) & 0x1f0;
+            this->unk_80 = (super->y.HALF.HI - ((u32)gRoomControls.origin_y)) & 0x1f0;
+            *(s32*)&this->helper = ((s32)(this->unk_82 - 0x10) >> 4) + (this->unk_80 >> 4) * 0x1f;
+            sub_0809A6F8(this->unk_82, this->unk_80, *(s32*)&this->helper, super->type2);
+            if ((((OctorokBossObjectEntity*)super->parent)->unk_7c.BYTES.byte0 & 1) != 0) {
                 SoundReq(SFX_1A3);
             } else {
                 SoundReq(SFX_WIND2);
             }
             break;
         case 9:
-            *(u32*)&this->field_0x78 = 0x1e0;
+            this->unk_78.WORD = 0x1e0;
             break;
     }
 }
 
-void OctorokBossObject_Action1(Entity* this) {
+void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
     s32 tmp_c;
     u32 loop_var;
 
     s32 t1, t2;
 
-    GetNextFrame(this);
+    GetNextFrame(super);
 
-    switch (this->type) {
+    switch (super->type) {
         case 0:
-            if (this->field_0x78.HALF.HI != 0) {
-                this->field_0x78.HALF.HI--;
-                if (this->subtimer-- == 0) {
-                    this->subtimer = 5;
-                    this->child = CreateObjectWithParent(this, OCTOROK_BOSS_OBJECT, 1, this->type2);
-                    if (this->child != NULL) {
-                        this->child->parent = this->parent;
-                        GET_HELPER(this->child) = GET_HELPER(this);
+            if (this->unk_78.BYTES.byte1 != 0) {
+                this->unk_78.BYTES.byte1--;
+                if (super->subtimer-- == 0) {
+                    super->subtimer = 5;
+                    super->child = CreateObjectWithParent(super, OCTOROK_BOSS_OBJECT, 1, super->type2);
+                    if (super->child != NULL) {
+                        super->child->parent = super->parent;
+                        ((OctorokBossObjectEntity*)super->child)->helper = this->helper;
                     }
-                    this->type2++;
+                    super->type2++;
                 }
-                CopyPosition(GET_HELPER(this)->tailObjects[0], this);
+                CopyPosition(this->helper->tailObjects[0], super);
                 return;
             }
         case 1:
-            this->direction = sub_080045DA(GET_HELPER(this)->tailObjects[this->timer]->x.WORD - this->x.WORD,
-                                           GET_HELPER(this)->tailObjects[this->timer]->y.WORD - this->y.WORD);
-            LinearMoveAngle(this, this->speed, this->direction);
-            if (EntityInRectRadius(this, GET_HELPER(this)->tailObjects[this->timer], 2, 2) == 0) {
+            super->direction = sub_080045DA(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
+                                            this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
+            LinearMoveAngle(super, super->speed, super->direction);
+            if (EntityInRectRadius(super, this->helper->tailObjects[super->timer], 2, 2) == 0) {
                 return;
             }
-            if (this->type == 0) {
-                GET_HELPER(this)->tailObjects[this->timer]->spriteSettings.draw &= -2;
+            if (super->type == 0) {
+                this->helper->tailObjects[super->timer]->spriteSettings.draw &= -2;
             }
-            if ((u32)this->timer == GET_HELPER(this)->tailCount - 1) {
-                this->action = 2;
-                this->timer = 240;
-                this->direction = gUnk_0812384C[(u8)((this->type2 & 0xf) * 2)] + ((u8)Random() & 0xf);
-                this->speed = gUnk_0812384C[(this->type2 & 0xf) * 2 + 1] + ((u16)Random() & 0x1ff);
-                if (this->type != 0) {
+            if ((u32)super->timer == this->helper->tailCount - 1) {
+                super->action = 2;
+                super->timer = 240;
+                super->direction = gUnk_0812384C[(u8)((super->type2 & 0xf) * 2)] + ((u8)Random() & 0xf);
+                super->speed = gUnk_0812384C[(super->type2 & 0xf) * 2 + 1] + ((u16)Random() & 0x1ff);
+                if (super->type != 0) {
                     return;
                 }
-                this->parent->action = 4;
-                this->parent->subAction = 0;
+                super->parent->action = 4;
+                super->parent->subAction = 0;
                 return;
             }
-            this->timer++;
+            super->timer++;
             return;
         case 2:
-            if (this->parent->type2 == 3) {
-                Entity* object = GET_HELPER(this->parent)->mouthObject;
-                this->direction = sub_080045DA(object->x.WORD - this->x.WORD, object->y.WORD - this->y.WORD);
-                LinearMoveAngle(this, 0x280, this->direction);
-                if (sub_0806FC80(this, this->parent, 0x48) == 0) {
+            if (super->parent->type2 == 3) {
+                Entity* object = ((OctorokBossObjectEntity*)super->parent)->helper->mouthObject;
+                super->direction = sub_080045DA(object->x.WORD - super->x.WORD, object->y.WORD - super->y.WORD);
+                LinearMoveAngle(super, 0x280, super->direction);
+                if (sub_0806FC80(super, super->parent, 0x48) == 0) {
                     return;
                 }
             }
@@ -207,99 +218,98 @@ void OctorokBossObject_Action1(Entity* this) {
             break;
         case 3:
         case 6:
-            LinearMoveAngle(this, 0x80, this->direction);
-            if (this->frame != 0) {
+            LinearMoveAngle(super, 0x80, super->direction);
+            if (super->frame != 0) {
                 DeleteThisEntity();
             }
             break;
         case 4:
-            if (*(u32*)&this->field_0x78 == 0) {
+            if (this->unk_78.WORD == 0) {
                 if ((s16)gRoomVars.lightLevel != 0x100) {
                     ChangeLightLevel(8);
                     return;
                 } else {
                 }
             } else {
-                if (this->parent->health == 0) {
-                    this->subAction = 1;
-                    *(u32*)&this->field_0x78 = 0;
+                if (super->parent->health == 0) {
+                    super->subAction = 1;
+                    this->unk_78.WORD = 0;
                     return;
                 }
-                if ((this->subAction == 0) && (this->parent->type2 != 0)) {
+                if ((super->subAction == 0) && (super->parent->type2 != 0)) {
                     return;
                 }
-                this->subAction = 1;
-                *(int*)&this->field_0x78 += -1;
+                super->subAction = 1;
+                this->unk_78.WORD--;
                 return;
             }
-            GET_HELPER(this)->tailObjects[this->timer]->x = GET_HELPER(this)->tailObjects[this->timer]->x;
+            this->helper->tailObjects[super->timer]->x = this->helper->tailObjects[super->timer]->x;
             DeleteThisEntity();
             break;
         case 5:
-            if (*(int*)&this->field_0x78 == 0) {
-                if (this->field_0x76.HWORD == 0x100) {
-                    if ((*(u8*)&this->parent->field_0x7c & 1) != 0) {
+            if (this->unk_78.WORD == 0) {
+                if (this->unk_76 == 0x100) {
+                    if ((((OctorokBossObjectEntity*)super->parent)->unk_7c.BYTES.byte0 & 1) != 0) {
                         DeleteThisEntity();
                     }
                 } else {
-                    this->field_0x76.HWORD -= 0x20;
-                    this->field_0x74.HWORD -= 0x20;
+                    this->unk_76 -= 0x20;
+                    this->unk_74 -= 0x20;
                 }
 
-                SetAffineInfo(this, (u32)this->field_0x76.HWORD, (u32)(u16)this->field_0x74.HWORD,
-                              (u32)(u16)this->field_0x7a.HWORD);
+                SetAffineInfo(super, (u32)this->unk_76, (u32)(u16)this->unk_74, (u32)(u16)this->unk_78.HALF_U.HI);
             } else {
-                (*(int*)&this->field_0x78)--;
+                (this->unk_78.WORD)--;
             }
-            CopyPosition(this->parent, this);
-            LinearMoveAngle(this, (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
-                            ((u8) - this->parent->field_0x7a.HALF.HI & 0xff) +
-                                (u32)gUnk_0812388C[(u32)this->type2 * 2]);
+            CopyPosition(super->parent, super);
+            LinearMoveAngle(super, (u32)gUnk_0812388C[(u32)super->type2 * 2 + 1],
+                            ((u8) - ((OctorokBossObjectEntity*)super->parent)->unk_78.BYTES.byte3 & 0xff) +
+                                (u32)gUnk_0812388C[(u32)super->type2 * 2]);
             return;
         case 7:
-            if (this->timer == 0) {
-                CopyPosition(this->parent, this);
+            if (super->timer == 0) {
+                CopyPosition(super->parent, super);
                 return;
             }
             DeleteThisEntity();
             break;
         case 8:
-            if (this->timer-- != 0) {
+            if (super->timer-- != 0) {
                 return;
             }
-            this->timer = 4;
-            this->subtimer++;
-            t2 = t1 = (*(int*)&this->cutsceneBeh) - this->subtimer * 0x1f;
-            this->field_0x7c.HALF_U.HI = this->field_0x82.HWORD;
-            this->field_0x7a.HWORD = this->field_0x82.HWORD;
-            this->field_0x7c.HALF_U.LO = this->field_0x80.HWORD - this->subtimer * 0x10;
-            this->field_0x78.HWORD = this->field_0x7c.HALF.LO;
-            tmp_c = sub_0809A6F8(this->field_0x7a.HWORD, this->field_0x78.HWORD, t1, this->type2);
-            for (loop_var = this->subtimer; loop_var != 0; loop_var--) {
-                this->field_0x7a.HWORD -= 0x10;
-                this->field_0x78.HWORD += 0x10;
+            super->timer = 4;
+            super->subtimer++;
+            t2 = t1 = (*(s32*)&this->helper) - super->subtimer * 0x1f;
+            this->unk_7c.HALF_U.HI = this->unk_82;
+            this->unk_78.HALF_U.HI = this->unk_82;
+            this->unk_7c.HALF_U.LO = this->unk_80 - super->subtimer * 0x10;
+            this->unk_78.HALF_U.LO = this->unk_7c.HALF.LO;
+            tmp_c = sub_0809A6F8(this->unk_78.HALF_U.HI, this->unk_78.HALF_U.LO, t1, super->type2);
+            for (loop_var = super->subtimer; loop_var != 0; loop_var--) {
+                this->unk_78.HALF_U.HI -= 0x10;
+                this->unk_78.HALF_U.LO += 0x10;
                 t1 += 0x1e;
-                tmp_c += sub_0809A6F8(this->field_0x7a.HWORD, this->field_0x78.HWORD, t1, this->type2);
-                this->field_0x7c.HALF.HI += 0x10;
-                this->field_0x7c.HALF.LO += 0x10;
+                tmp_c += sub_0809A6F8(this->unk_78.HALF_U.HI, this->unk_78.HALF_U.LO, t1, super->type2);
+                this->unk_7c.HALF.HI += 0x10;
+                this->unk_7c.HALF.LO += 0x10;
                 t2 += 0x20;
-                tmp_c += sub_0809A6F8(this->field_0x7c.HALF_U.HI, this->field_0x7c.HALF_U.LO, t2, this->type2);
+                tmp_c += sub_0809A6F8(this->unk_7c.HALF_U.HI, this->unk_7c.HALF_U.LO, t2, super->type2);
             }
-            t2 = t1 = (*(int*)&this->cutsceneBeh) + this->subtimer * 0x1f;
-            this->field_0x7c.HALF.HI = this->field_0x82.HWORD;
-            this->field_0x7a.HWORD = this->field_0x82.HWORD;
-            this->field_0x7c.HALF.LO = this->subtimer * 0x10 + this->field_0x80.HWORD;
-            this->field_0x78.HWORD = this->field_0x7c.HALF.LO;
-            tmp_c += sub_0809A6F8(this->field_0x7a.HWORD, this->field_0x78.HWORD, t1, this->type2);
-            for (loop_var = this->subtimer - 1; loop_var != 0; loop_var--) {
-                this->field_0x7a.HWORD -= 0x10;
-                this->field_0x78.HWORD -= 0x10;
+            t2 = t1 = (*(s32*)&this->helper) + super->subtimer * 0x1f;
+            this->unk_7c.HALF.HI = this->unk_82;
+            this->unk_78.HALF_U.HI = this->unk_82;
+            this->unk_7c.HALF.LO = super->subtimer * 0x10 + this->unk_80;
+            this->unk_78.HALF_U.LO = this->unk_7c.HALF.LO;
+            tmp_c += sub_0809A6F8(this->unk_78.HALF_U.HI, this->unk_78.HALF_U.LO, t1, super->type2);
+            for (loop_var = super->subtimer - 1; loop_var != 0; loop_var--) {
+                this->unk_78.HALF_U.HI -= 0x10;
+                this->unk_78.HALF_U.LO -= 0x10;
                 t1 -= 0x20;
-                tmp_c += sub_0809A6F8(this->field_0x7a.HWORD, this->field_0x78.HWORD, t1, this->type2);
-                this->field_0x7c.HALF_U.HI += 0x10;
-                this->field_0x7c.HALF_U.LO -= 0x10;
+                tmp_c += sub_0809A6F8(this->unk_78.HALF_U.HI, this->unk_78.HALF_U.LO, t1, super->type2);
+                this->unk_7c.HALF_U.HI += 0x10;
+                this->unk_7c.HALF_U.LO -= 0x10;
                 t2 -= 0x1e;
-                tmp_c += sub_0809A6F8(this->field_0x7c.HALF_U.HI, this->field_0x7c.HALF_U.LO, t2, this->type2);
+                tmp_c += sub_0809A6F8(this->unk_7c.HALF_U.HI, this->unk_7c.HALF_U.LO, t2, super->type2);
             }
             if (tmp_c == 0) {
                 DeleteThisEntity();
@@ -307,7 +317,7 @@ void OctorokBossObject_Action1(Entity* this) {
             break;
         case 9:
             sub_08078B48();
-            if ((*(int*)&this->field_0x78)-- == 0) {
+            if ((this->unk_78.WORD_U)-- == 0) {
                 gRoomControls.camera_target = &gPlayerEntity;
                 DeleteThisEntity();
             }
@@ -315,22 +325,22 @@ void OctorokBossObject_Action1(Entity* this) {
     }
 }
 
-void OctorokBossObject_Action2(Entity* this) {
+void OctorokBossObject_Action2(OctorokBossObjectEntity* this) {
     s32 tmp;
     s32 radius;
 
-    GetNextFrame(this);
-    if (this->timer-- != 0) {
-        tmp = (0x10000 / this->parent->field_0x74.HWORD);
-        radius = (this->speed * tmp) >> 8;
-        this->field_0x7a.HALF.HI = -this->parent->field_0x7a.HALF.HI + this->direction;
+    GetNextFrame(super);
+    if (super->timer-- != 0) {
+        tmp = (0x10000 / ((OctorokBossObjectEntity*)super->parent)->unk_74);
+        radius = (super->speed * tmp) >> 8;
+        this->unk_78.BYTES.byte3 = -((OctorokBossObjectEntity*)super->parent)->unk_78.BYTES.byte3 + super->direction;
 
-        tmp = FixedMul(gSineTable[this->field_0x7a.HALF.HI], radius);
+        tmp = FixedMul(gSineTable[this->unk_78.BYTES.byte3], radius);
         tmp = FixedDiv(tmp, 0x100);
-        this->x.WORD = this->parent->x.WORD + ((tmp << 0x10) >> 8);
-        tmp = FixedMul(gSineTable[this->field_0x7a.HALF.HI + 0x40], radius);
+        super->x.WORD = super->parent->x.WORD + ((tmp << 0x10) >> 8);
+        tmp = FixedMul(gSineTable[this->unk_78.BYTES.byte3 + 0x40], radius);
         tmp = FixedDiv(tmp, 0x100);
-        this->y.WORD = this->parent->y.WORD - ((tmp << 0x10) >> 8);
+        super->y.WORD = super->parent->y.WORD - ((tmp << 0x10) >> 8);
     } else {
         DeleteThisEntity();
     }
@@ -360,7 +370,7 @@ bool32 sub_0809A758(u32 param_1, u32 param_2) {
     return FALSE;
 }
 
-void (*const OctorokBossObject_Actions[])(Entity*) = {
+void (*const OctorokBossObject_Actions[])(OctorokBossObjectEntity*) = {
     OctorokBossObject_Init,
     OctorokBossObject_Action1,
     OctorokBossObject_Action2,

@@ -4,6 +4,7 @@
  *
  * @brief MinishSizedEntrance object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
 #include "object.h"

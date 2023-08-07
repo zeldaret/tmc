@@ -4,11 +4,9 @@
  *
  * @brief ObjectA8 object
  */
-
 #define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "item.h"
 #include "object.h"
@@ -34,6 +32,8 @@ void ObjectA8_Action6(ObjectA8Entity*);
 void ObjectA8_Action2Subaction0(ObjectA8Entity*);
 void ObjectA8_Action2Subaction1(ObjectA8Entity*);
 void ObjectA8_Action2Subaction2(ObjectA8Entity*);
+
+extern void sub_08081404(Entity*, u32);
 
 void ObjectA8(ObjectA8Entity* this) {
     static void (*const ObjectA8_Actions[])(ObjectA8Entity*) = {

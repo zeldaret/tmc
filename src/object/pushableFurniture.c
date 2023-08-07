@@ -4,10 +4,8 @@
  *
  * @brief Pushable Furniture object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 typedef struct {
@@ -58,7 +56,7 @@ void PushableFurniture(PushableFurnitureEntity* this) {
     }
 }
 
-void sub_0808F990(PushableFurnitureEntity* this) {
+void PushableFurniture_Init(PushableFurnitureEntity* this) {
     bool32 condition;
 
     super->action = 1;
@@ -632,7 +630,7 @@ void sub_08090514(PushableFurnitureEntity* this) {
 }
 
 void (*const PushableFurniture_Actions[])(PushableFurnitureEntity*) = {
-    sub_0808F990,
+    PushableFurniture_Init,
     PushableFurniture_Action1,
     PushableFurniture_Action2,
 };

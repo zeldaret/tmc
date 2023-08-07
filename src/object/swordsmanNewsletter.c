@@ -4,8 +4,8 @@
  *
  * @brief Swordsman Newsletter object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "global.h"
 #include "message.h"
 
 extern void AddInteractableCheckableObject(Entity*);

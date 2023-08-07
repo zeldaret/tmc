@@ -16,8 +16,8 @@ typedef struct {
     u16 tilePos;
 } BenchEntity;
 
-void Bench_Init(BenchEntity*);
-void Bench_Action1(BenchEntity*);
+void Bench_Init(BenchEntity* this);
+void Bench_Action1(BenchEntity* this);
 
 void Bench(Entity* this) {
     static void (*const Bench_Actions[])(BenchEntity*) = {

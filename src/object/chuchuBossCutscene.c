@@ -4,114 +4,108 @@
  *
  * @brief Chuchu Boss Cutscene object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "menu.h"
 #include "object.h"
 
-typedef struct {
-    /*0x00*/ Entity base;
-} ChuchuBossCutsceneEntity;
+void ChuchuBossCutscene_Init(Entity*);
+void ChuchuBossCutscene_Action1(Entity*);
+void ChuchuBossCutscene_Action2(Entity*);
+void ChuchuBossCutscene_Action3(Entity*);
+void ChuchuBossCutscene_Action4(Entity*);
+void ChuchuBossCutscene_Action5(Entity*);
+void ChuchuBossCutscene_Action6(Entity*);
+void ChuchuBossCutscene_Action7(Entity*);
 
-void ChuchuBossCutscene_Init(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action1(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action2(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action3(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action4(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action5(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action6(ChuchuBossCutsceneEntity*);
-void ChuchuBossCutscene_Action7(ChuchuBossCutsceneEntity*);
-
-void ChuchuBossCutscene(ChuchuBossCutsceneEntity* this) {
-    static void (*const ChuchuBossCutscene_Actions[])(ChuchuBossCutsceneEntity*) = {
+void ChuchuBossCutscene(Entity* this) {
+    static void (*const ChuchuBossCutscene_Actions[])(Entity*) = {
         ChuchuBossCutscene_Init,    ChuchuBossCutscene_Action1, ChuchuBossCutscene_Action2, ChuchuBossCutscene_Action3,
         ChuchuBossCutscene_Action4, ChuchuBossCutscene_Action5, ChuchuBossCutscene_Action6, ChuchuBossCutscene_Action7,
     };
-    ChuchuBossCutscene_Actions[super->action](this);
+    ChuchuBossCutscene_Actions[this->action](this);
 }
 
-void ChuchuBossCutscene_Init(ChuchuBossCutsceneEntity* this) {
-    super->action = 1;
-    super->timer = 60;
-    InitializeAnimation(super, 0);
+void ChuchuBossCutscene_Init(Entity* this) {
+    this->action = 1;
+    this->timer = 60;
+    InitializeAnimation(this, 0);
 }
 
-void ChuchuBossCutscene_Action1(ChuchuBossCutsceneEntity* this) {
-    if (--super->timer == 0) {
-        super->timer = 120;
-        super->action++;
-        super->spriteSettings.draw = 1;
+void ChuchuBossCutscene_Action1(Entity* this) {
+    if (--this->timer == 0) {
+        this->timer = 120;
+        this->action++;
+        this->spriteSettings.draw = 1;
     }
 }
 
-void ChuchuBossCutscene_Action2(ChuchuBossCutsceneEntity* this) {
-    GetNextFrame(super);
-    if ((super->frame & ANIM_DONE) != 0) {
-        super->action++;
-        super->spritePriority.b1 = 3;
-        InitializeAnimation(super, 2);
+void ChuchuBossCutscene_Action2(Entity* this) {
+    GetNextFrame(this);
+    if ((this->frame & ANIM_DONE) != 0) {
+        this->action++;
+        this->spritePriority.b1 = 3;
+        InitializeAnimation(this, 2);
     }
 }
 
-void ChuchuBossCutscene_Action3(ChuchuBossCutsceneEntity* this) {
-    GetNextFrame(super);
-    if (--super->timer == 0) {
-        super->action++;
-        super->direction = 0;
-        super->speed = 0x100;
-        super->zVelocity = Q_16_16(2.0);
-        super->spriteOrientation.flipY = 0;
-        super->timer = 0;
-        InitializeAnimation(super, 3);
+void ChuchuBossCutscene_Action3(Entity* this) {
+    GetNextFrame(this);
+    if (--this->timer == 0) {
+        this->action++;
+        this->direction = 0;
+        this->speed = 0x100;
+        this->zVelocity = Q_16_16(2.0);
+        this->spriteOrientation.flipY = 0;
+        this->timer = 0;
+        InitializeAnimation(this, 3);
         SoundReq(SFX_12B);
     }
 }
 
-void ChuchuBossCutscene_Action4(ChuchuBossCutsceneEntity* this) {
-    if ((super->frame & 0x10) != 0) {
-        LinearMoveUpdate(super);
-        if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
-            GetNextFrame(super);
+void ChuchuBossCutscene_Action4(Entity* this) {
+    if ((this->frame & 0x10) != 0) {
+        LinearMoveUpdate(this);
+        if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
+            GetNextFrame(this);
         }
     } else {
-        GetNextFrame(super);
+        GetNextFrame(this);
     }
-    if ((super->y.HALF.HI - gRoomControls.origin_y) < 0x231) {
-        super->y.HALF.HI = gRoomControls.origin_y + 0x230;
-        if ((super->frame & ANIM_DONE) != 0) {
-            super->action++;
-            super->timer = 120;
-            InitializeAnimation(super, 2);
+    if ((this->y.HALF.HI - gRoomControls.origin_y) < 0x231) {
+        this->y.HALF.HI = gRoomControls.origin_y + 0x230;
+        if ((this->frame & ANIM_DONE) != 0) {
+            this->action++;
+            this->timer = 120;
+            InitializeAnimation(this, 2);
         }
-    } else if ((super->frame & ANIM_DONE) != 0) {
-        super->zVelocity = Q_16_16(2.0);
-        InitializeAnimation(super, 3);
+    } else if ((this->frame & ANIM_DONE) != 0) {
+        this->zVelocity = Q_16_16(2.0);
+        InitializeAnimation(this, 3);
         SoundReq(SFX_12B);
     }
 }
 
-void ChuchuBossCutscene_Action5(ChuchuBossCutsceneEntity* this) {
-    GetNextFrame(super);
-    if (--super->timer == 0) {
-        super->action++;
-        InitializeAnimation(super, 5);
+void ChuchuBossCutscene_Action5(Entity* this) {
+    GetNextFrame(this);
+    if (--this->timer == 0) {
+        this->action++;
+        InitializeAnimation(this, 5);
     }
 }
 
-void ChuchuBossCutscene_Action6(ChuchuBossCutsceneEntity* this) {
-    GetNextFrame(super);
-    if ((super->frame & ANIM_DONE) != 0) {
-        super->action++;
-        super->timer = 60;
-        InitializeAnimation(super, 1);
+void ChuchuBossCutscene_Action6(Entity* this) {
+    GetNextFrame(this);
+    if ((this->frame & ANIM_DONE) != 0) {
+        this->action++;
+        this->timer = 60;
+        InitializeAnimation(this, 1);
     }
 }
 
-void ChuchuBossCutscene_Action7(ChuchuBossCutsceneEntity* this) {
-    GetNextFrame(super);
-    if (--super->timer == 0) {
+void ChuchuBossCutscene_Action7(Entity* this) {
+    GetNextFrame(this);
+    if (--this->timer == 0) {
         gMenu.overlayType++;
         DeleteThisEntity();
     }

@@ -4,8 +4,8 @@
  *
  * @brief Mazaal Object object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "global.h"
 #include "physics.h"
 
 void MazaalObject(Entity* this) {

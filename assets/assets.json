@@ -22883,19 +22883,19 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Thunderbold_0.bin",
+    "path": "animations/gSpriteAnimations_Thunderbolt_0.bin",
     "start": 1190252,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Thunderbold_1.bin",
+    "path": "animations/gSpriteAnimations_Thunderbolt_1.bin",
     "start": 1190268,
     "size": 12,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Thunderbold_2.bin",
+    "path": "animations/gSpriteAnimations_Thunderbolt_2.bin",
     "start": 1190280,
     "size": 28,
     "type": "animation"

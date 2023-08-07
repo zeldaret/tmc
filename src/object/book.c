@@ -4,6 +4,7 @@
  *
  * @brief Book object
  */
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "item.h"
@@ -11,19 +12,27 @@
 #include "npc.h"
 #include "object.h"
 
-extern void (*const Book_Actions[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[24];
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unused2[5];
+    /*0x86*/ u16 unk_86;
+} BookEntity;
+
+extern void (*const Book_Actions[])(BookEntity*);
 extern s8 const gUnk_08123D94[];
 
 u32 sub_0809B688(Entity*);
 void sub_0809B6B0(Entity*, Entity*);
 
-void Book(Entity* this) {
-    Book_Actions[this->action](this);
+void Book(BookEntity* this) {
+    Book_Actions[super->action](this);
 }
 
-void Book_Init(Entity* this) {
-    u32 obtained = GetInventoryValue(this->type + ITEM_QST_BOOK1);
-    if (this->type2 != 3) {
+void Book_Init(BookEntity* this) {
+    u32 obtained = GetInventoryValue(super->type + ITEM_QST_BOOK1);
+    if (super->type2 != 3) {
         if (obtained != 0) {
             DeleteThisEntity();
         }
@@ -33,70 +42,70 @@ void Book_Init(Entity* this) {
         }
 
         if (obtained != 2) {
-            this->spriteSettings.draw = 0;
+            super->spriteSettings.draw = 0;
         }
     }
 
-    this->spriteOffsetY = 3;
-    if (CheckFlags(this->field_0x86.HWORD)) {
-        if (this->type2 == 0) {
-            this->y.HALF.HI += 48;
+    super->spriteOffsetY = 3;
+    if (CheckFlags(this->unk_86)) {
+        if (super->type2 == 0) {
+            super->y.HALF.HI += 48;
         }
 
-        this->type2 = 2;
+        super->type2 = 2;
     }
 
-    UpdateSpriteForCollisionLayer(this);
-    InitAnimationForceUpdate(this, this->type + ITEM_QST_BOOK1);
+    UpdateSpriteForCollisionLayer(super);
+    InitAnimationForceUpdate(super, super->type + ITEM_QST_BOOK1);
 
-    switch (this->type2) {
+    switch (super->type2) {
         case 0:
-            this->action = 1;
-            this->timer = 22;
-            this->subtimer = 2;
-            this->field_0x80.HALF.LO = 0;
-            this->spritePriority.b0 = 3;
+            super->action = 1;
+            super->timer = 22;
+            super->subtimer = 2;
+            this->unk_80 = 0;
+            super->spritePriority.b0 = 3;
             break;
         case 1: {
             u32 scroll;
             u32 height;
 
-            this->action = 3;
+            super->action = 3;
             scroll = (u16)gRoomControls.scroll_y - 0x10;
-            height = (u16)this->y.HALF.HI - scroll;
-            this->z.HALF.HI -= height;
+            height = (u16)super->y.HALF.HI - scroll;
+            super->z.HALF.HI -= height;
             break;
         }
         case 2:
-            this->action = 4;
+            super->action = 4;
             break;
         case 3:
-            this->action = 5;
-            this->subAction = 0;
-            this->spritePriority.b0 = 3;
+            super->action = 5;
+            super->subAction = 0;
+            super->spritePriority.b0 = 3;
             break;
         default:
             break;
     }
 }
 
-void Book_Action1(Entity* this) {
-    sub_0800445C(this);
+void Book_Action1(BookEntity* this) {
+    sub_0800445C(super);
 
-    if (this->field_0x80.HALF.LO != 0) {
-        this->field_0x80.HALF.LO--;
+    if (this->unk_80 != 0) {
+        this->unk_80--;
         return;
     }
 
-    if (sub_0809B688(this)) {
-        if (--this->timer) {
+    if (sub_0809B688(super)) {
+        if (--super->timer) {
             return;
         }
 
-        this->action = 2;
-        this->timer = 30;
-        this->speed = 0x40;
-        this->direction = 0x10;
+        super->action = 2;
+        super->timer = 30;
+        super->speed = 0x40;
+        super->direction = 0x10;
 
         gPlayerState.pushedObject = TREE_THORNS;
         gPlayerState.queued_action = PLAYER_PUSH;
@@ -107,79 +116,79 @@ void Book_Action1(Entity* this) {
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
         EnqueueSFX(SFX_10F);
     } else {
-        this->timer = 22;
+        super->timer = 22;
     }
 }
 
-void Book_Action2(Entity* this) {
-    if (--this->timer == 0) {
-        if (--this->subtimer == 0) {
-            this->action = 3;
-            this->y.HALF.HI += 0x20;
-            this->z.HALF.HI -= 0x20;
+void Book_Action2(BookEntity* this) {
+    if (--super->timer == 0) {
+        if (--super->subtimer == 0) {
+            super->action = 3;
+            super->y.HALF.HI += 0x20;
+            super->z.HALF.HI -= 0x20;
         } else {
-            this->action = 1;
-            this->timer = 22;
-            this->field_0x80.HALF.LO = 0x18;
+            super->action = 1;
+            super->timer = 22;
+            this->unk_80 = 0x18;
         }
     }
 
-    LinearMoveUpdate(this);
+    LinearMoveUpdate(super);
 }
 
-void Book_Action3(Entity* this) {
+void Book_Action3(BookEntity* this) {
     Entity* fx;
 
-    if (sub_080044EC(this, 0x2800) != 1) {
+    if (sub_080044EC(super, 0x2800) != 1) {
         return;
     }
 
-    this->action = 4;
-    this->spritePriority.b0 = 4;
+    super->action = 4;
+    super->spritePriority.b0 = 4;
 
-    SetFlag(this->field_0x86.HWORD);
+    SetFlag(this->unk_86);
 
-    fx = CreateFx(this, FX_DEATH, 0);
+    fx = CreateFx(super, FX_DEATH, 0);
     if (fx != NULL) {
-        SortEntityAbove(this, fx);
+        SortEntityAbove(super, fx);
     }
 }
 
-void Book_Action4(Entity* this) {
+void Book_Action4(BookEntity* this) {
     if (gPlayerState.flags & PL_MINISH) {
-        sub_0800445C(this);
-    } else if (IsCollidingPlayer(this)) {
-        CreateItemEntity(this->type + ITEM_QST_BOOK1, 0, 0);
+        sub_0800445C(super);
+    } else if (IsCollidingPlayer(super)) {
+        CreateItemEntity(super->type + ITEM_QST_BOOK1, 0, 0);
         DeleteThisEntity();
     }
 }
 
-void Book_Action5(Entity* this) {
-    if (this->spriteSettings.draw == 1) {
-        switch (this->subAction) {
+void Book_Action5(BookEntity* this) {
+    if (super->spriteSettings.draw == 1) {
+        switch (super->subAction) {
             case 0: {
                 Entity* parent = FindEntityByID(NPC, STURGEON, 7);
                 if (parent == NULL) {
                     return;
                 }
-                if (parent->x.HALF.HI < this->x.HALF.HI) {
+                if (parent->x.HALF.HI < super->x.HALF.HI) {
                     return;
                 }
                 if (parent->animationState != 4) {
                     return;
                 }
 
-                this->parent = parent;
-                this->subAction = 1;
-                sub_0809B6B0(this->parent, this);
+                super->parent = parent;
+                super->subAction = 1;
+                sub_0809B6B0(super->parent, super);
                 break;
             }
             case 1: {
-                if ((this->parent == NULL) || (this->parent->next == NULL)) {
+                if ((super->parent == NULL) || (super->parent->next == NULL)) {
                     DeleteThisEntity();
                     return;
                 }
-                sub_0809B6B0(this->parent, this);
+                sub_0809B6B0(super->parent, super);
                 break;
             }
             default:
@@ -187,22 +196,22 @@ void Book_Action5(Entity* this) {
         }
 
     } else {
-        switch (this->subAction) {
+        switch (super->subAction) {
             default: {
                 DeleteThisEntity();
                 break;
             }
             case 0: {
-                if (GetInventoryValue(this->type + ITEM_QST_BOOK1) == 2) {
-                    this->subAction = 1;
+                if (GetInventoryValue(super->type + ITEM_QST_BOOK1) == 2) {
+                    super->subAction = 1;
                 }
                 break;
             }
             case 1: {
                 u8 doTextBox = gMessage.doTextBox & 0x7f;
                 if (!doTextBox) {
-                    this->spriteSettings.draw = 1;
-                    this->subAction = doTextBox;
+                    super->spriteSettings.draw = 1;
+                    super->subAction = doTextBox;
                 }
                 break;
             }
@@ -229,7 +238,7 @@ void sub_0809B6B0(Entity* parent, Entity* this) {
     this->spritePriority.b0 = 3 - this->type;
 }
 
-void (*const Book_Actions[])(Entity*) = {
+void (*const Book_Actions[])(BookEntity*) = {
     Book_Init, Book_Action1, Book_Action2, Book_Action3, Book_Action4, Book_Action5,
 };
 

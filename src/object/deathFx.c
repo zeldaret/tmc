@@ -5,11 +5,11 @@
  * @brief Death Fx object
  */
 #define NENT_DEPRECATED
+#include "object/deathFx.h"
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
 #include "global.h"
-#include "object/deathFx.h"
 #include "sound.h"
 
 void sub_08081790(DeathFxObject* this);
