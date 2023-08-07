@@ -353,20 +353,21 @@ typedef struct {
     /*0x05*/ u8 arrowCount;
     /*0x06*/ u8 bombBagType;
     /*0x07*/ u8 quiverType;
-    /*0x08*/ u8 filler[2];
+    /*0x08*/ u8 figurineCount;
+    /*0x09*/ u8 _hasAllFigurines;
     /*0x0a*/ u8 charm;
     /*0x0b*/ u8 picolyteType;
     /*0x0c*/ u8 itemButtons[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
     /*0x13*/ u8 hasAllFigurines;
-    /*0x14*/ u8 filler3[4];
+    /*0x14*/ u8 filler14[4];
     /*0x18*/ u16 rupees;
     /*0x1a*/ u16 shells;
     /*0x1c*/ u16 charmTimer;
     /*0x1e*/ u16 picolyteTimer;
     /*0x20*/ u16 effectTimer;
-    /*0x22*/ u8 filler4[6];
+    /*0x22*/ u8 filler22[2];
 } Stats;
 
 #define SLOT_A 0

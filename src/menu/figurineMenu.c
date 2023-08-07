@@ -147,7 +147,7 @@ void FigurineMenu0_Type2(void) {
         gFigurineMenu.unk20++;
         switch (gFigurineMenu.unk20) {
             case 0x40:
-                gFigurineMenu.duplicate = WriteBit(&gSave.stats.filler4[4], gFigurineMenu.figure_idx);
+                gFigurineMenu.duplicate = WriteBit(gSave.figurines, gFigurineMenu.figure_idx);
                 gMenu.column_idx = 1;
             default:
                 bVar1 = gFigurineMenu.unk20 >> 2;
@@ -285,7 +285,7 @@ u32 sub_080A4948(s32 param_1) {
     uVar2 = 0;
     iVar1 = !gSave.saw_staffroll ? 0x82 : 0x88;
     if ((0 < param_1) || (iVar1 >= param_1)) {
-        if (ReadBit((u32*)&gSave.stats.filler4[4], param_1)) {
+        if (ReadBit((u32*)gSave.figurines, param_1)) {
             uVar2 = 1;
         }
     }

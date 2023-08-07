@@ -54,7 +54,7 @@ void sub_0801D000(u32 a1) {
         tmp = 0;
     }
 
-    roomTransition->field_0x2c[2] = tmp;
+    roomTransition->field2f = tmp;
     if (a1) {
         CleanUpObjPalettes();
         sub_0801CFD0(0xf);

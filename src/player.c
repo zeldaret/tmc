@@ -282,7 +282,7 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 bool32 CheckInitPauseMenu(void) {
     u32 framestate;
     if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gPauseMenuOptions.disabled ||
-         (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
+         (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.inventory[0] ||
          gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
         return FALSE;
     }

@@ -197,7 +197,7 @@ void sub_0806387C(Entity* this) {
         if (CheckLocalFlag(SHOP05_OPEN) == 0) {
             r5 = 0;
             for (r4 = 1; r4 <= 0x82; r4++) {
-                if (ReadBit(&gSave.stats.filler4[4], r4)) {
+                if (ReadBit(gSave.figurines, r4)) {
                     r5++;
                 }
             }

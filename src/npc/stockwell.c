@@ -264,11 +264,11 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
             if (localFlag) {
                 SetLocalFlag(localFlag);
             }
-            if (gSave.unk5C <= ~1u) {
-                gSave.unk5C++;
+            if (gSave.items_bought <= ~1u) {
+                gSave.items_bought++;
             }
 
-            if (gSave.unk5C >= 10) {
+            if (gSave.items_bought >= 10) {
                 context->intVariable = TEXT_INDEX(TEXT_STOCKWELL, 0x11);
             } else {
                 if (itemPrice >= 100) {

@@ -998,8 +998,8 @@ void sub_0804235C(Entity* this) {
 void VaatiWrathType0PreAction(Entity* this) {
     int temp;
     if ((gRoomTransition.field_0x38 & 2) == 0) {
-        if (gSave.timers[3] != 0) {
-            gSave.timers[3]--;
+        if (gSave.vaati_timer != 0) {
+            gSave.vaati_timer--;
         } else {
             temp = gPlayerState.framestate_last;
             switch (temp) {

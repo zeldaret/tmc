@@ -1288,12 +1288,7 @@ void SetPlayerControl(PlayerControlMode mode) {
 void CreateEzloHint(u32 hintId, u32 hintHeight) {
     gPlayerState.queued_action = PLAYER_TALKEZLO;
     gRoomTransition.hint_idx = hintId;
-#if defined(EU) || defined(JP)
-    // TODO what fields of the room transition are switched in these variants?
-    gRoomTransition.field_0x2c[7] = hintHeight;
-#else
     gRoomTransition.hint_height = hintHeight;
-#endif
 }
 
 void sub_08078AC0(u32 param_1, u32 param_2, u32 param_3) {
@@ -3509,10 +3504,10 @@ void LoadRoomGfx(void) {
         MemClear(gMapBottom.mapData, sizeof(gMapBottom.mapData));
         tmp = TRUE;
     }
-    if (gRoomTransition.field_0x2c[0] == 0) {
+    if (gRoomTransition.field2d == 0) {
         MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
         MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapBottom.mapData));
-    } else if (gRoomTransition.field_0x2c[0] == 2) {
+    } else if (gRoomTransition.field2d == 2) {
         MemCopy(gMapBottom.mapData, gMapBottom.unkData3, 0x1000);
         MemCopy(gMapBottom.mapDataClone, gMapBottom.mapData, 0x1000);
         MemCopy(gMapBottom.unkData3, gMapBottom.mapDataClone, 0x1000);
@@ -3844,15 +3839,15 @@ void sub_0807C810(void) {
  * This function is used to create a copy of the map data for temporary cutscene changes.
  */
 void CloneMapData(void) {
-    gRoomTransition.field_0x2c[0] = 1;
+    gRoomTransition.field2d = 1;
     MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);
     MemCopy(&gMapTop.mapData, &gMapTop.mapDataClone, 0x2000);
 }
 
 void sub_0807C898(void) {
-    gRoomTransition.field_0x2c[0] = 2;
+    gRoomTransition.field2d = 2;
     LoadRoomGfx();
-    gRoomTransition.field_0x2c[0] = 0;
+    gRoomTransition.field2d = 0;
 }
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0(u16* a, u32 b, u32 c))

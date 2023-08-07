@@ -53,9 +53,9 @@ void BigBarrel_Type0(BigBarrelEntity* this) {
         super->spriteSettings.draw = 3;
         super->updatePriority = 3;
         if (CheckGlobalFlag(LV1TARU_OPEN)) {
-            super->frameIndex = gSave.unk7 + 1;
+            super->frameIndex = gSave.dws_barrel_state + 1;
         } else {
-            super->frameIndex = gSave.unk7;
+            super->frameIndex = gSave.dws_barrel_state;
         }
         sub_08088BE0(this);
         if (CheckPlayerInRegion(super->x.HALF.HI - gRoomControls.origin_x, super->y.HALF.HI - gRoomControls.origin_y,

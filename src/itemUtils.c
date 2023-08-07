@@ -385,7 +385,7 @@ void sub_08054524(void) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gRoomTransition.player_status.field_0x24[0xa];
+        bVar1 = gRoomTransition.location;
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;

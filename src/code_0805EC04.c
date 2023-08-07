@@ -183,7 +183,7 @@ u32 ConvInputToState(u32 keys) {
 }
 
 void sub_0805EE88(void) {
-    if ((gRoomTransition.field_0x2c[2] != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
+    if ((gRoomTransition.field2f != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
         LoadPaletteGroup((((u32)gRoomTransition.frameCount & 0xc) >> 2) + 0x2f);
     }
 }

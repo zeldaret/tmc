@@ -473,13 +473,13 @@ void sub_080880D8(FigurineDeviceEntity* this) {
         it++;
     }
     if (++this->unk_7b == 4) {
-        if (gSave.field_0x9[0] != this->unk_80) {
-            if (gSave.field_0x9[0] != 0) {
+        if (gSave.available_figurines != this->unk_80) {
+            if (gSave.available_figurines != 0) {
                 SetRoomFlag(6);
             }
-            gSave.field_0x9[0] = this->unk_80;
+            gSave.available_figurines = this->unk_80;
         }
-        if (CheckLocalFlag(SHOP07_COMPLETE) && (this->unk_80 != gSave.stats.filler[0])) {
+        if (CheckLocalFlag(SHOP07_COMPLETE) && (this->unk_80 != gSave.stats.figurineCount)) {
             ClearLocalFlag(SHOP07_COMPLETE);
         }
     }
@@ -563,7 +563,7 @@ END_NONMATCH
 
 void sub_0808826C(FigurineDeviceEntity* this) {
     s32 tmp = 0x64;
-    tmp *= ((this->unk_80 - gSave.stats.filler[0]));
+    tmp *= ((this->unk_80 - gSave.stats.figurineCount));
     tmp = tmp / this->unk_80;
     if (tmp == 0 && !CheckLocalFlag(SHOP07_COMPLETE)) {
         tmp = 1;
@@ -625,7 +625,7 @@ void sub_08088328(FigurineDeviceEntity* this) {
             if (uVar6 > 0x88) {
                 uVar6 = 1;
             }
-            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) == 0) {
+            if (sub_08088160(this, uVar6) && ReadBit(gSave.figurines, uVar6) == 0) {
                 uVar2 = TRUE;
             } else {
                 uVar6++;
@@ -639,7 +639,7 @@ void sub_08088328(FigurineDeviceEntity* this) {
             if (uVar6 > 0x88) {
                 uVar6 = 1;
             }
-            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) != 0) {
+            if (sub_08088160(this, uVar6) && ReadBit(gSave.figurines, uVar6) != 0) {
                 uVar2 = FALSE;
             } else {
                 uVar6++;
@@ -647,8 +647,8 @@ void sub_08088328(FigurineDeviceEntity* this) {
         } while (uVar5 != uVar6);
     }
     if (uVar2) {
-        gSave.stats.filler[0]++;
-        if (gSave.stats.filler[0] != this->unk_80) {
+        gSave.stats.figurineCount++;
+        if (gSave.stats.figurineCount != this->unk_80) {
             SetRoomFlag(7);
         } else {
             SetLocalFlag(SHOP07_COMPLETE);
@@ -660,15 +660,15 @@ void sub_08088328(FigurineDeviceEntity* this) {
 }
 
 void sub_08088424(FigurineDeviceEntity* this) {
-    if (gSave.stats.filler[0] < 0x32) {
+    if (gSave.stats.figurineCount < 50) {
         if (this->unk_83 < 0x0f) {
             this->unk_83 = 0x0f;
         }
-    } else if (gSave.stats.filler[0] < 0x50) {
+    } else if (gSave.stats.figurineCount < 80) {
         if (this->unk_83 < 0xc) {
             this->unk_83 = 0xc;
         }
-    } else if (gSave.stats.filler[0] < 0x6e) {
+    } else if (gSave.stats.figurineCount < 110) {
         if (this->unk_83 < 9) {
             this->unk_83 = 9;
         }
@@ -690,12 +690,12 @@ void sub_08088478(void) {
             messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x25);
         }
     } else {
-        switch (gSave.stats.filler[0]) {
-            case 0x88:
-                gSave.stats.filler[1] = 0xff;
+        switch (gSave.stats.figurineCount) {
+            case 136:
+                gSave.stats._hasAllFigurines = 0xff;
                 messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x29);
                 break;
-            case 0x82:
+            case 130:
                 if (gSave.saw_staffroll) {
                     messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x27);
                 } else {
@@ -719,11 +719,11 @@ void sub_08088478(void) {
 
 void sub_08088504(void) {
     u32 index;
-    switch (gSave.stats.filler[0]) {
-        case 0x88:
+    switch (gSave.stats.figurineCount) {
+        case 136:
             index = TEXT_INDEX(TEXT_CARLOV, 0x2f);
             break;
-        case 0x82:
+        case 130:
             index = TEXT_INDEX(TEXT_CARLOV, 0x14);
             break;
         default:
@@ -737,7 +737,7 @@ void sub_08088504(void) {
 
 void sub_08088544(void) {
     u32 index;
-    if (gSave.stats.filler[0] != 0x82) {
+    if (gSave.stats.figurineCount != 130) {
         index = TEXT_INDEX(TEXT_CARLOV, 0xe);
     } else {
         index = TEXT_INDEX(TEXT_CARLOV, 0x15);
@@ -775,7 +775,7 @@ void sub_080885B0(void) {
             gMessage.textWindowPosX = 1;
             gMessage.textWindowPosY = 0xc;
         }
-    } else if (gSave.stats.filler[1] != 0) {
+    } else if (gSave.stats._hasAllFigurines != 0) {
         // GOT ALL THEM FIGURINES (:
         gSave.stats.hasAllFigurines = 1;
         CreateItemEntity(ITEM_QST_CARLOV_MEDAL, 0, 0);

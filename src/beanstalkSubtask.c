@@ -1024,7 +1024,7 @@ void sub_0801AE44(bool32 loadGfx) {
     }
     sub_080809D4();
     UpdateIsDiggingCave();
-    if (gRoomTransition.field_0x2c[0] != 0) {
+    if (gRoomTransition.field2d != 0) {
         sub_0807C898();
     }
     if (gArea.lightType != 0) {
@@ -1061,7 +1061,7 @@ void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer) {
 // Add a new entry at the end of gUnk_0200B240
 void sub_0801AF48(u32 data, u32 position, u32 layer) {
     u32 index;
-    if ((data < 0x4000) && (gRoomTransition.field_0x2c[3] == 0)) {
+    if ((data < 0x4000) && (gRoomTransition.field30 == 0)) {
         index = gRoomVars.unk_0e;
         if (index < 0x100) {
             gUnk_0200B240[index].data = data;

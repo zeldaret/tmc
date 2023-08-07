@@ -24,30 +24,30 @@ void sub_08077534(ItemBehavior* this, u32 index) {
     sub_08077BB8(this);
     this->priority |= 0xf;
     tmp = this->behaviorId;
-    this->timer = gSave.filler86[tmp + 0x14];
+    this->timer = gSave.stats.bottles[tmp - ITEM_BOTTLE1];
     switch (this->timer) {
-        case 0x20:
+        case ITEM_BOTTLE_EMPTY:
             SetItemAnim(this, 0x614);
             return;
-        case 0x21:
-        case 0x22:
-        case 0x23:
-        case 0x24:
-        case 0x25:
-        case 0x29:
-        case 0x2a:
-        case 0x2b:
-        case 0x2c:
-        case 0x2d:
-        case 0x2e:
+        case ITEM_BOTTLE_BUTTER:
+        case ITEM_BOTTLE_MILK:
+        case ITEM_BOTTLE_HALF_MILK:
+        case ITEM_BOTTLE_RED_POTION:
+        case ITEM_BOTTLE_BLUE_POTION:
+        case ITEM_BOTTLE_PICOLYTE_RED:
+        case ITEM_BOTTLE_PICOLYTE_ORANGE:
+        case ITEM_BOTTLE_PICOLYTE_YELLOW:
+        case ITEM_BOTTLE_PICOLYTE_GREEN:
+        case ITEM_BOTTLE_PICOLYTE_BLUE:
+        case ITEM_BOTTLE_PICOLYTE_WHITE:
             this->stateID = 3;
             gPlayerEntity.animationState = 4;
             gPlayerEntity.spriteSettings.flipX = 0;
             SetItemAnim(this, 0x2df);
             break;
-        case 0x2f:
-        case 0x30:
-        case 0x31:
+        case BOTTLE_CHARM_NAYRU:
+        case BOTTLE_CHARM_FARORE:
+        case BOTTLE_CHARM_DIN:
         default:
             this->stateID = 3;
             SetItemAnim(this, 0x610);
