@@ -552,21 +552,21 @@ u32 sub_080A4CBC(u32 param_1) {
 }
 
 void sub_080A4D34(void) {
-    s32 maxFigurines;
+    s32 iVar1;
 
     LoadGfxGroups();
     LoadPaletteGroup(0xb5);
     if (gSave.stats.health <= 8) {
-        maxFigurines = 2;
+        iVar1 = 2;
     } else {
         s32 missingHealth = gSave.stats.maxHealth - gSave.stats.health;
         if (missingHealth < 9) {
-            maxFigurines = 0;
+            iVar1 = 0;
         } else {
-            maxFigurines = 1;
+            iVar1 = 1;
         }
     }
-    LoadGfxGroup(maxFigurines + 0x56);
+    LoadGfxGroup(iVar1 + 0x56);
     gScreen.bg3.xOffset = 0;
     gScreen.bg3.yOffset = 0;
     gScreen.bg3.control = 0x1e0b;
