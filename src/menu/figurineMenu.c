@@ -278,18 +278,18 @@ void FigurineMenu1_ExitMenu(void) {
     FigurineMenu_ExitMenu();
 }
 
-u32 sub_080A4948(s32 figurineIndex) {
+u32 FigurineMenu_isFigurineOwned(s32 figurineIndex) {
     s32 maxFigurines;
-    u32 retVal;
+    u32 hasFigurine;
 
-    retVal = 0;
+    hasFigurine = 0;
     maxFigurines = !gSave.saw_staffroll ? 130 : 136;
     if ((0 < figurineIndex) || (maxFigurines >= figurineIndex)) {
-        if (ReadBit((u32*)gSave.figurines, figurineIndex)) {
-            retVal = 1;
+        if (ReadBit(gSave.figurines, figurineIndex)) {
+            hasFigurine = 1;
         }
     }
-    return retVal;
+    return hasFigurine;
 }
 
 typedef struct {
@@ -367,7 +367,7 @@ void FigurineMenu_080A4978(void) {
         }
     }
     if (gMenu.column_idx & 1) {
-        if (sub_080A4948(gFigurineMenu.figure_idx)) {
+        if (FigurineMenu_isFigurineOwned(gFigurineMenu.figure_idx)) {
             gOamCmd.x = 0x2c;
             gOamCmd.y = 0x48;
             gOamCmd._8 = 0xd4 << 7;
@@ -471,7 +471,7 @@ void sub_080A4BA0(u32 arg1, u32 arg2) {
         r5 = -1;
     } else {
         sub_08057044(r5, gUnk_020227E8, 0x303030);
-        if (sub_080A4948(r5) == 0) {
+        if (FigurineMenu_isFigurineOwned(r5) == 0) {
             r5 += 0x8000;
         } else {
             r5 += 0x800;
@@ -526,18 +526,18 @@ const struct_0812816C gUnk_08128190 = {
     0x5u,
 };
 
-u32 sub_080A4CBC(u32 param_1) {
-    s32 maxFigurines;
+u32 sub_080A4CBC(u32 figurineIndex) {
+    s32 ownsFigurine;
     const u16* psVar2;
     u32 uVar3;
 
-    if (gFigurineMenu.unk1a != param_1) {
-        gFigurineMenu.unk1a = param_1;
+    if (gFigurineMenu.unk1a != figurineIndex) {
+        gFigurineMenu.unk1a = figurineIndex;
         MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
         MemCopy(&gBG1Buffer, (void*)0x600e000, sizeof(gBG1Buffer));
-        maxFigurines = sub_080A4948(param_1);
-        if (maxFigurines != 0) {
-            ShowTextBox(param_1 + 0x900, &gUnk_08128190);
+        ownsFigurine = FigurineMenu_isFigurineOwned(figurineIndex);
+        if (ownsFigurine != 0) {
+            ShowTextBox(figurineIndex + 0x900, &gUnk_08128190);
         }
         gScreen.bg1.updated = 1;
     }
