@@ -50,8 +50,8 @@ void sub_08088328(FigurineDeviceEntity*);
 void sub_0808826C(FigurineDeviceEntity*);
 void sub_080882A8(FigurineDeviceEntity*);
 void sub_080880D8(FigurineDeviceEntity*);
-void sub_08087F94(FigurineDeviceEntity*, s32);
-void sub_08088034(FigurineDeviceEntity*);
+void FigurineDevice_ChangeShellAmount(FigurineDeviceEntity*, s32);
+void FigurineDevice_PlayErrorSound(FigurineDeviceEntity*);
 bool32 sub_08088160(FigurineDeviceEntity*, s32);
 void sub_08088424(FigurineDeviceEntity*);
 void FigurineDevice_Init(FigurineDeviceEntity*);
@@ -245,7 +245,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             if (super->timer != 0) {
                 super->timer--;
             }
-            if ((gInput.newKeys & 1) != 0) {
+            if ((gInput.newKeys & A_BUTTON) != 0) {
                 SoundReq(SFX_TEXTBOX_SELECT);
                 this->unk_7a = 2;
                 super->timer = 60;
@@ -254,7 +254,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             }
             old_81 = this->unk_81;
 #ifndef EU
-            if ((gInput.heldKeys & 0x100) != 0) {
+            if ((gInput.heldKeys & R_BUTTON) != 0) {
                 tmp = 10;
             } else {
                 tmp = 1;
@@ -264,11 +264,11 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
 #else
             switch (gInput.unk4 & 0xfffffeff) {
 #endif
-                case 0x40:
-                    sub_08087F94(this, tmp);
+                case DPAD_UP:
+                    FigurineDevice_ChangeShellAmount(this, tmp);
                     break;
-                case 0x80:
-                    sub_08087F94(this, -tmp);
+                case DPAD_DOWN:
+                    FigurineDevice_ChangeShellAmount(this, -tmp);
                     break;
             }
             if (old_81 != this->unk_81) {
@@ -276,11 +276,11 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             }
 #else
             switch (gInput.unk4) {
-                case 0x40:
-                    sub_08087F94(this, 1);
+                case DPAD_UP:
+                    FigurineDevice_ChangeShellAmount(this, 1);
                     break;
-                case 0x80:
-                    sub_08087F94(this, -1);
+                case DPAD_DOWN:
+                    FigurineDevice_ChangeShellAmount(this, -1);
                     break;
             }
             if (old_81 != this->unk_81) {
@@ -313,124 +313,124 @@ void sub_08087F58(FigurineDeviceEntity* this) {
     }
 }
 
-void sub_08087F94(FigurineDeviceEntity* this, s32 param_2) {
+void FigurineDevice_ChangeShellAmount(FigurineDeviceEntity* this, s32 shellDifference) {
 #ifdef EU
-    u32 uVar8;
-    u32 iVar9;
+    u32 newAmount2;
+    u32 newAmount;
 
-    iVar9 = this->unk_83 + param_2;
+    newAmount = this->unk_83 + shellDifference;
     if (CheckLocalFlag(SHOP07_COMPLETE)) {
-        sub_08088034(this);
+        FigurineDevice_PlayErrorSound(this);
         return;
     }
 
-    if (param_2 < 0) {
-        if (iVar9 < this->unk_82) {
+    if (shellDifference < 0) {
+        if (newAmount < this->unk_82) {
             if (this->unk_83 != this->unk_82) {
                 this->unk_83 = this->unk_82;
                 this->unk_81 = 1;
                 SoundReq(SFX_TEXTBOX_CHOICE);
             } else {
-                sub_08088034(this);
+                FigurineDevice_PlayErrorSound(this);
             }
         } else {
-            this->unk_83 = iVar9;
-            this->unk_81 += param_2;
+            this->unk_83 = newAmount;
+            this->unk_81 += shellDifference;
             SoundReq(SFX_TEXTBOX_CHOICE);
         }
         return;
     }
-    uVar8 = this->unk_81 + param_2;
-    if (uVar8 > (s32)gSave.stats.shells) {
+    newAmount2 = this->unk_81 + shellDifference;
+    if (newAmount2 > (s32)gSave.stats.shells) {
         if (gSave.stats.shells != this->unk_81) {
-            uVar8 = gSave.stats.shells;
-            param_2 = (gSave.stats.shells - this->unk_81);
-            iVar9 = this->unk_83 + param_2;
+            newAmount2 = gSave.stats.shells;
+            shellDifference = (gSave.stats.shells - this->unk_81);
+            newAmount = this->unk_83 + shellDifference;
         } else {
-            sub_08088034(this);
+            FigurineDevice_PlayErrorSound(this);
             return;
         }
-    } else if (iVar9 > 100) {
+    } else if (newAmount > 100) {
         if (this->unk_83 == 100) {
-            sub_08088034(this);
+            FigurineDevice_PlayErrorSound(this);
             return;
         } else {
-            iVar9 = 100;
-            param_2 = (iVar9 - this->unk_83);
-            uVar8 = this->unk_81 + param_2;
+            newAmount = 100;
+            shellDifference = (newAmount - this->unk_83);
+            newAmount2 = this->unk_81 + shellDifference;
         }
     }
 
 #else
-    s32 uVar8;
-    s32 iVar9;
-    s32 t1, t2;
+    s32 newAmount2;
+    s32 newAmount;
+    s32 prevAmount, prevAmount2;
 
     if (CheckLocalFlag(SHOP07_COMPLETE)) {
-        sub_08088034(this);
+        FigurineDevice_PlayErrorSound(this);
         return;
     }
 
-    // This could probably be done without t1 and t2
-    t1 = this->unk_83;
-    iVar9 = t1 + param_2;
-    if (param_2 < 0) {
-        if (iVar9 < this->unk_82) {
+    // This could probably be done without prevAmount and prevAmount2
+    prevAmount = this->unk_83;
+    newAmount = prevAmount + shellDifference;
+    if (shellDifference < 0) {
+        if (newAmount < this->unk_82) {
             if (this->unk_83 != this->unk_82) {
                 this->unk_83 = this->unk_82;
                 this->unk_81 = 1;
                 SoundReq(SFX_TEXTBOX_CHOICE);
             } else {
-                sub_08088034(this);
+                FigurineDevice_PlayErrorSound(this);
             }
         } else {
-            this->unk_83 = iVar9;
-            this->unk_81 += param_2;
+            this->unk_83 = newAmount;
+            this->unk_81 += shellDifference;
             SoundReq(SFX_TEXTBOX_CHOICE);
         }
         return;
     }
-    t2 = this->unk_81;
-    uVar8 = t2 + param_2;
-    if (uVar8 > gSave.stats.shells) {
+    prevAmount2 = this->unk_81;
+    newAmount2 = prevAmount2 + shellDifference;
+    if (newAmount2 > gSave.stats.shells) {
         if (gSave.stats.shells != this->unk_81) {
-            uVar8 = gSave.stats.shells;
-            param_2 = (gSave.stats.shells - this->unk_81);
-            iVar9 = t1 + param_2;
+            newAmount2 = gSave.stats.shells;
+            shellDifference = (gSave.stats.shells - this->unk_81);
+            newAmount = prevAmount + shellDifference;
 #ifdef JP
-            if (iVar9 > 100) {
-                iVar9 = 100;
-                param_2 = (iVar9 - t1);
-                uVar8 = t2 + param_2;
+            if (newAmount > 100) {
+                newAmount = 100;
+                shellDifference = (newAmount - prevAmount);
+                newAmount2 = prevAmount2 + shellDifference;
             }
 #endif
         } else {
-            sub_08088034(this);
+            FigurineDevice_PlayErrorSound(this);
             return;
         }
     }
 #ifdef JP
-    else if (iVar9 > 100) {
+    else if (newAmount > 100) {
 #else
-    if (iVar9 > 100) {
+    if (newAmount > 100) {
 #endif
         if (this->unk_83 == 100) {
-            sub_08088034(this);
+            FigurineDevice_PlayErrorSound(this);
             return;
         } else {
-            iVar9 = 100;
-            param_2 = (iVar9 - t1);
-            uVar8 = t2 + param_2;
+            newAmount = 100;
+            shellDifference = (newAmount - prevAmount);
+            newAmount2 = prevAmount2 + shellDifference;
         }
     }
 #endif
 
-    this->unk_83 = iVar9;
-    this->unk_81 = uVar8;
+    this->unk_83 = newAmount;
+    this->unk_81 = newAmount2;
     SoundReq(SFX_TEXTBOX_CHOICE);
 }
 
-void sub_08088034(FigurineDeviceEntity* this) {
+void FigurineDevice_PlayErrorSound(FigurineDeviceEntity* this) {
     if (super->timer == 0) {
         super->timer = 20;
         SoundReq(SFX_MENU_ERROR);
