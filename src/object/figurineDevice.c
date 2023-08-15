@@ -245,7 +245,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             if (super->timer != 0) {
                 super->timer--;
             }
-            if ((gInput.newKeys & 1) != 0) {
+            if ((gInput.newKeys & A_BUTTON) != 0) {
                 SoundReq(SFX_TEXTBOX_SELECT);
                 this->unk_7a = 2;
                 super->timer = 60;
@@ -254,7 +254,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             }
             old_81 = this->unk_81;
 #ifndef EU
-            if ((gInput.heldKeys & 0x100) != 0) {
+            if ((gInput.heldKeys & R_BUTTON) != 0) {
                 tmp = 10;
             } else {
                 tmp = 1;
@@ -264,10 +264,10 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
 #else
             switch (gInput.unk4 & 0xfffffeff) {
 #endif
-                case 0x40:
+                case DPAD_UP:
                     sub_08087F94(this, tmp);
                     break;
-                case 0x80:
+                case DPAD_DOWN:
                     sub_08087F94(this, -tmp);
                     break;
             }
@@ -276,10 +276,10 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             }
 #else
             switch (gInput.unk4) {
-                case 0x40:
+                case DPAD_UP:
                     sub_08087F94(this, 1);
                     break;
-                case 0x80:
+                case DPAD_DOWN:
                     sub_08087F94(this, -1);
                     break;
             }

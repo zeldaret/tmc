@@ -181,14 +181,14 @@ void FigurineMenu0_Type3(void) {
 
     uVar1 = gFigurineMenu.unk1f;
     switch (gInput.unk4) {
-        case 2:
-        case 8:
+        case B_BUTTON:
+        case START_BUTTON:
             FigurineMenu_080A46C0();
             break;
-        case 0x10:
+        case DPAD_RIGHT:
             uVar1 += 8;
             break;
-        case 0x20:
+        case DPAD_LEFT:
             uVar1 -= 8;
             break;
     }
