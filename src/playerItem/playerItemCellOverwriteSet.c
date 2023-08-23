@@ -35,7 +35,7 @@ void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
     gPlayerState.mobility |= 0x80;
     tmp = gInput.heldKeys & R_BUTTON;
     if ((gInput.heldKeys & A_BUTTON) != 0) {
-        if ((R_BUTTON & gInput.newKeys) != 0) {
+        if ((gInput.newKeys & R_BUTTON) != 0) {
             this->tileType = GetTileType(TILE(player->x.HALF.HI + gUnk_080B7B6C[player->animationState & 0xe],
                                               player->y.HALF.HI + gUnk_080B7B6C[(player->animationState & 0xe) + 1]),
                                          super->collisionLayer);

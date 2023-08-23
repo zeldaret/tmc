@@ -116,7 +116,7 @@ void sub_08019764(void) {
     UpdateEntities();
     DrawEntities();
     CopyOAM();
-    if ((--gUnk_02018EB0.unk_4 == 0) || ((gInput.newKeys & 10) != 0)) {
+    if ((--gUnk_02018EB0.unk_4 == 0) || ((gInput.newKeys & (B_BUTTON | START_BUTTON)) != 0)) {
         gUnk_02018EB0.unk_0++;
     }
 }

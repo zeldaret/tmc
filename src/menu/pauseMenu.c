@@ -398,7 +398,7 @@ void PauseMenu_ItemMenu_Update(void) {
                 }
             case B_BUTTON:
                 if (gPauseMenu.items[menuSlot] != 0) {
-                    u32 slot = !!(gInput.newKeys ^ 1);
+                    u32 slot = !!(gInput.newKeys ^ A_BUTTON);
                     ForceEquipItem(gPauseMenu.items[menuSlot], slot);
                     SoundReq(SFX_TEXTBOX_SELECT);
                 }
