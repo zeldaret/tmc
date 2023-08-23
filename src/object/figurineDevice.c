@@ -787,7 +787,8 @@ void FigurineDevice_LostOrFinishedMessage(void) {
 
 #ifndef EU
 void sub_0808861C(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
-    context->condition = CheckPlayerInRegion(168, 84, 12, 8); // If I understand this correctly then it checks if the player is at the lever
+    // If I understand this correctly then it checks if the player is at the lever
+    context->condition = CheckPlayerInRegion(168, 84, 12, 8);
 #ifdef JP
     if ((gPlayerEntity.animationState != 0)) {
 #else
