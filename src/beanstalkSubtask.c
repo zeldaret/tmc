@@ -170,7 +170,7 @@ u32 UpdatePlayerCollision(void) {
     u32 index;
     const s16* ptr1;
     const s16* ptr2;
-    s32 tmp1;
+    s32 framestate;
     u32 tmp2;
     u32 tmp3;
     // There are some weird assignment necessary to access gPlayerEntity.animationState correctly.
@@ -178,18 +178,18 @@ u32 UpdatePlayerCollision(void) {
     u32 animationState2;
     u32 animationState3;
 
-    if (gPlayerState.framestate == 0) {
-        tmp1 = gPlayerState.framestate_last;
+    if (gPlayerState.framestate == PL_STATE_IDLE) {
+        framestate = gPlayerState.framestate_last;
     } else {
-        tmp1 = gPlayerState.framestate;
+        framestate = gPlayerState.framestate;
     }
 
-    switch (tmp1) {
-        case 3:
+    switch (framestate) {
+        case PL_STATE_GUSTJAR:
             return 0;
-        case 0x12:
+        case PL_STATE_DIE:
             return 0;
-        case 0x16:
+        case PL_STATE_DROWN:
             return 0;
     }
 

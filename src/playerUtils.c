@@ -1043,15 +1043,15 @@ void DetermineRButtonInteraction(void) {
 }
 
 bool32 sub_080782C0(void) {
-    u8 tmp;
+    u8 framestate;
     Entity* entity;
 
     if (gPlayerState.framestate == PL_STATE_IDLE) {
-        tmp = gPlayerState.framestate_last;
+        framestate = gPlayerState.framestate_last;
     } else {
-        tmp = gPlayerState.framestate;
+        framestate = gPlayerState.framestate;
     }
-    switch (tmp) {
+    switch (framestate) {
         case PL_STATE_SWORD:
         case PL_STATE_GUSTJAR:
         case PL_STATE_C:
@@ -1877,8 +1877,8 @@ void sub_080797EC(void) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
                 } else if (gPlayerState.sword_state == 0) {
-                    if (gPlayerState.framestate == 0) {
-                        gPlayerState.framestate = 1;
+                    if (gPlayerState.framestate == PL_STATE_IDLE) {
+                        gPlayerState.framestate = PL_STATE_WALK;
                     }
                     animation = 0x404;
                 } else {
@@ -1924,8 +1924,8 @@ void sub_080797EC(void) {
                         }
                     }
                 } else {
-                    if (gPlayerState.framestate == 0) {
-                        gPlayerState.framestate = 1;
+                    if (gPlayerState.framestate == PL_STATE_IDLE) {
+                        gPlayerState.framestate = PL_STATE_WALK;
                     }
                     if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
                         animation = 0x608;

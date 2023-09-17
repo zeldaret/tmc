@@ -125,6 +125,8 @@ typedef enum {
     PL_SWORD_THRUST = 0x8000000,
     PL_USE_OCARINA = 0x10000000,
     PL_CLIMBING = 0x20000000,
+    PL_FLAGS40000000 = 0x40000000,
+    PL_FLAGS80000000 = 0x80000000,
 } PlayerFlags;
 
 enum PlayerItemId {
