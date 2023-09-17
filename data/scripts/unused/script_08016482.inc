@@ -14,7 +14,7 @@ SCRIPT_START script_08016482
 	DisablePlayerControl
 	SetPlayerAction 0x00005408
 	StartPlayerScript script_08016384
-	SetPlayerAnimation FALL_ON_BACK
+	SetPlayerAnimation ANIM_FALL_ON_BACK
 	_0807E8E4_0
 	_0807E8E4_1
 	_0807E8E4_2

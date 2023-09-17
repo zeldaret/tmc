@@ -6,6 +6,10 @@
 
 #define MAX_ROOMS 64
 
+typedef enum {
+    PT_POT = 4,
+} PortalTypes;
+
 typedef struct {
     u16 pixel_width;
     u16 pixel_height;

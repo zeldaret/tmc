@@ -31,7 +31,7 @@ void sub_08075338(ItemBehavior* this, u32 index) {
     if (gPlayerState.flags & PL_MINISH) {
         this->priority |= 0x80;
         sub_08077D38(this, index);
-        gPlayerState.animation = 0xc00;
+        gPlayerState.animation = ANIM_SWORD_MINISH;
         SoundReq(SFX_PLY_VO1);
         return;
     }

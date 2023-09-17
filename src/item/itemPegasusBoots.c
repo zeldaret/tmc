@@ -71,7 +71,7 @@ void sub_080768F8(ItemBehavior* this, u32 index) {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             this->timer = 0x10;
         } else {
-            gPlayerState.animation = 0xc14;
+            gPlayerState.animation = ANIM_C14;
         }
         sub_08077D38(this, index);
         sub_08076964(this, index);
@@ -119,7 +119,7 @@ void sub_08076964(ItemBehavior* this, u32 index) {
                 SetItemAnim(this, 0x104);
                 return;
             } else {
-                gPlayerState.animation = 0xc10;
+                gPlayerState.animation = ANIM_C10;
                 return;
             }
         } else {

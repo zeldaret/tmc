@@ -258,7 +258,7 @@ bool32 sub_0804AD18(void) {
         case 6:
             return FALSE;
         case 3:
-        case 4:
+        case PT_POT:
         case 5:
         default:
             return FALSE;

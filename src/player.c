@@ -1049,7 +1049,7 @@ static void PortalJumpOnUpdate(Entity* this) {
         this->subAction = 1;
         this->animationState = IdleSouth;
         this->spriteSettings.flipX = FALSE;
-        if (gArea.portal_type == 4) {
+        if (gArea.portal_type == PT_POT) {
             gPlayerState.animation = ANIM_ENTER_POT;
         }
     }
@@ -1090,7 +1090,7 @@ static void PortalStandUpdate(Entity* this) {
         this->timer = 8;
     }
 
-    if (gArea.portal_type == 4) {
+    if (gArea.portal_type == PT_POT) {
         if (this->frame == 0) {
             UpdateAnimationSingleFrame(this);
             return;
@@ -2049,7 +2049,7 @@ static void PlayerRollInit(Entity* this) {
         if (playerFlags & PL_NO_CAP) {
             gPlayerState.animation = ANIM_ROLL_NOCAP;
         } else {
-            gPlayerState.animation = 0x3a0;
+            gPlayerState.animation = ANIM_ROLL;
         }
     }
     gPlayerState.flags |= PL_ROLLING;

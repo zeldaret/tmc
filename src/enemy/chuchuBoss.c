@@ -554,7 +554,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
     super->timer = 1;
     sub_080276F4(super, 6, 1);
     if (super->type2 == 0) {
-        gPlayerState.animation = 0x104;
+        gPlayerState.animation = ANIM_DOOR;
         this->unk_84->unk_03 = 1;
     } else {
         this->unk_7c = 0;

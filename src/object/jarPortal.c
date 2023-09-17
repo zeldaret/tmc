@@ -122,7 +122,7 @@ void sub_0808C01C(JarPortalEntity* this, u32 r1) {
         gArea.portal_x = super->x.HALF.HI;
         gArea.portal_y = super->y.HALF.HI;
         gArea.portal_exit_dir = 2;
-        type = 4;
+        type = PT_POT;
         if (r1 != 0)
             type = 2;
         gArea.portal_type = type;
