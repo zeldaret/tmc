@@ -1972,10 +1972,10 @@ void ResolvePlayerAnimation(void) {
                     }
                     if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
                         switch (gArea.portal_type) {
-                            case 5:
+                            case PT_5:
                                 anim = ANIM_DEFAULT_NOCAP;
                                 break;
-                            case PT_POT:
+                            case PT_JAR:
                                 anim = ANIM_DEFAULT;
                                 break;
                             default:
@@ -2016,7 +2016,7 @@ void ResolvePlayerAnimation(void) {
                     return;
                 }
                 if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
-                    anim = (gArea.portal_type == PT_POT) ? ANIM_IN_POT : ANIM_PORTAL;
+                    anim = (gArea.portal_type == PT_JAR) ? ANIM_IN_POT : ANIM_PORTAL;
                 } else {
                     if (gPlayerState.sword_state != 0) {
                         anim = ANIM_SWORD_CHARGE_END;

@@ -1015,7 +1015,7 @@ static void PlayerUsePortal(Entity* this) {
     if ((gInput.newKeys & (B_BUTTON | R_BUTTON)) == 0)
         return;
 
-    if (AreaIsDungeon() || gArea.portal_type == 3) {
+    if (AreaIsDungeon() || gArea.portal_type == PT_DUNGEON) {
         this->subAction = 7;
         this->timer = 30;
         SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 16);
@@ -1031,7 +1031,6 @@ static void PortalJumpOnUpdate(Entity* this) {
 
     COLLISION_OFF(this);
     this->knockbackDuration = 0;
-
     x = gArea.portal_x;
     y = gArea.portal_y;
 
@@ -1049,22 +1048,22 @@ static void PortalJumpOnUpdate(Entity* this) {
         this->subAction = 1;
         this->animationState = IdleSouth;
         this->spriteSettings.flipX = FALSE;
-        if (gArea.portal_type == PT_POT) {
+        if (gArea.portal_type == PT_JAR) {
             gPlayerState.animation = ANIM_ENTER_POT;
         }
     }
 
     this->timer = 8;
 
-    if (gArea.portal_type != 3) {
+    if (gArea.portal_type != PT_DUNGEON) {
         this->spritePriority.b0 = 3;
     }
 }
 
 static void PortalStandUpdate(Entity* this) {
     switch (gArea.portal_type) {
-        case 4:
-        case 5:
+        case PT_JAR:
+        case PT_5:
             sub_0806F948(&gPlayerEntity);
             break;
     }
@@ -1090,7 +1089,7 @@ static void PortalStandUpdate(Entity* this) {
         this->timer = 8;
     }
 
-    if (gArea.portal_type == PT_POT) {
+    if (gArea.portal_type == PT_JAR) {
         if (this->frame == 0) {
             UpdateAnimationSingleFrame(this);
             return;
@@ -1217,12 +1216,12 @@ static void PortalEnterUpdate(Entity* this) {
 
         this->spriteSettings.draw = FALSE;
 
-        if (gArea.portal_type == 3) {
+        if (gArea.portal_type == PT_DUNGEON) {
             if (--this->subtimer == 0)
                 sub_080717F8(this);
             return;
         }
-        if (gArea.portal_type == 6)
+        if (gArea.portal_type == PT_TOD)
             DoExitTransition(&gUnk_0813AB58);
         else
             gArea.portal_in_use = TRUE;

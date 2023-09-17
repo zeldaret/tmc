@@ -122,9 +122,9 @@ void sub_0808C01C(JarPortalEntity* this, u32 r1) {
         gArea.portal_x = super->x.HALF.HI;
         gArea.portal_y = super->y.HALF.HI;
         gArea.portal_exit_dir = 2;
-        type = PT_POT;
+        type = PT_JAR;
         if (r1 != 0)
-            type = 2;
+            type = PT_2;
         gArea.portal_type = type;
         if (r1 == 1) {
             if ((gPlayerState.flags & PL_USE_PORTAL) && (gPlayerState.jump_status == 0)) {

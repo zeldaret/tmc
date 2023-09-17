@@ -7,7 +7,13 @@
 #define MAX_ROOMS 64
 
 typedef enum {
-    PT_POT = 4,
+    PT_TREESTUMP,
+    PT_ROCK,
+    PT_2,
+    PT_DUNGEON,
+    PT_JAR,
+    PT_5,
+    PT_TOD,
 } PortalTypes;
 
 typedef struct {
