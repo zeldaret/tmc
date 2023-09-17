@@ -1576,9 +1576,9 @@ void sub_08079064(Entity* this) {
         if (gPlayerState.itemAnimPriority < maxAnimPriority) {
             gPlayerState.animation = animIndex;
         } else if ((gPlayerState.swim_state & 0x80) != 0) {
-            gPlayerState.animation = 0x2be;
+            gPlayerState.animation = ANIM_DIVE;
         } else {
-            if (gPlayerState.animation == 0x608 || gPlayerState.animation == 0x104 || gPlayerState.animation == 0x404) {
+            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_DOOR || gPlayerState.animation == ANIM_DOOR_NOCAP) {
                 sub_080790E4(this);
             }
         }
@@ -1616,9 +1616,9 @@ void sub_080790E4(Entity* this) {
     gPlayerState.field_0x35 = this->animationState;
     gPlayerState.framestate = PL_STATE_PUSH;
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-        gPlayerState.animation = 0x93c;
+        gPlayerState.animation = ANIM_PUSH_NOCAP;
     } else {
-        gPlayerState.animation = 0x33c;
+        gPlayerState.animation = ANIM_PUSH;
     }
 }
 
@@ -1672,7 +1672,7 @@ void PlayerMinishSetNormalAndCollide(void) {
     gPlayerEntity.action = PLAYER_MINISH;
     gPlayerEntity.subAction = 1;
     gPlayerEntity.collisionFlags &= 0xfb;
-    gPlayerState.animation = 0xc18;
+    gPlayerState.animation = ANIM_BOUNCE_MINISH;
     gPlayerState.flags &=
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     gPlayerState.swim_state = 0;
@@ -1865,14 +1865,14 @@ void sub_080797EC(void) {
 
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         if (gPlayerState.heldObject != 0) {
-            animation = 0x934;
+            animation = ANIM_CARRY_NOCAP;
         } else if (gPlayerState.shield_status != 0) {
-            animation = 0x410;
+            animation = ANIM_SHIELD_NOCAP;
         } else if (gPlayerState.field_0x1f[2] == 0) {
             if (gPlayerState.swim_state != 0) {
-                animation = 0x290;
+                animation = ANIM_SWIM;
             } else {
-                animation = 0x16c;
+                animation = ANIM_SWORD_CHARGE;
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
@@ -1880,47 +1880,47 @@ void sub_080797EC(void) {
                     if (gPlayerState.framestate == PL_STATE_IDLE) {
                         gPlayerState.framestate = PL_STATE_WALK;
                     }
-                    animation = 0x404;
+                    animation = ANIM_DOOR_NOCAP;
                 } else {
-                    animation = 0x16c;
+                    animation = ANIM_SWORD_CHARGE;
                     if (sub_080793E4(0)) {
                         if (sub_080B1B44(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
-                            animation = 0x170;
+                            animation = ANIM_SWORD_CHARGE_BUMP;
                         }
                     }
                 }
             }
         } else {
-            animation = 0x284;
+            animation = ANIM_BOW;
         }
     } else {
         if (gPlayerState.field_0x1c != 0) {
             return;
         } else if (gPlayerState.heldObject != 0) {
-            animation = 0x348;
+            animation = ANIM_CARRY;
         } else if (gPlayerState.dash_state != 0) {
-            animation = 0x298;
+            animation = ANIM_DASH;
         } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-            animation = 0x710;
+            animation = ANIM_MINECART;
         } else if (gPlayerState.shield_status != 0) {
-            animation = 0x160;
+            animation = ANIM_SHIELD;
         } else if (gPlayerState.field_0x1f[2] != 0) {
-            animation = 0x284;
+            animation = ANIM_BOW;
         } else {
             if (gPlayerState.swim_state != 0) {
-                animation = 0x290;
+                animation = ANIM_SWIM;
             } else {
-                animation = 0x16c;
+                animation = ANIM_SWORD_CHARGE;
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
                 } else if (gPlayerState.sword_state != 0) {
-                    animation = 0x16c;
+                    animation = ANIM_SWORD_CHARGE;
                     if (sub_080793E4(0)) {
                         if (sub_080B1B44(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
-                            animation = 0x170;
+                            animation = ANIM_SWORD_CHARGE_BUMP;
                         }
                     }
                 } else {
@@ -1928,9 +1928,9 @@ void sub_080797EC(void) {
                         gPlayerState.framestate = PL_STATE_WALK;
                     }
                     if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
-                        animation = 0x608;
+                        animation = ANIM_LANTERN;
                     } else {
-                        animation = 0x104;
+                        animation = ANIM_DOOR;
                     }
                 }
             }
@@ -1949,19 +1949,19 @@ void ResolvePlayerAnimation(void) {
     u32 anim;
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         if (gPlayerState.heldObject != 0) {
-            anim = 0x92c;
+            anim = ANIM_CARRY_END_NOCAP;
         } else {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
             if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
-                anim = 0x810;
+                anim = ANIM_JUMP;
             } else if (gPlayerState.shield_status != 0) {
-                anim = 0x414;
+                anim = ANIM_SHIELD_END_NOCAP;
             } else if (gPlayerState.field_0x1f[2] != 0) {
-                anim = 0x280;
+                anim = ANIM_BOW_END;
             } else if (gPlayerState.swim_state != 0) {
-                anim = 0x28c;
+                anim = ANIM_SWIM_END;
             } else {
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     return;
@@ -1973,44 +1973,44 @@ void ResolvePlayerAnimation(void) {
                     if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
                         switch (gArea.portal_type) {
                             case 5:
-                                anim = 0x400;
+                                anim = ANIM_DEFAULT_NOCAP;
                                 break;
                             case 4:
-                                anim = 0x100;
+                                anim = ANIM_DEFAULT;
                                 break;
                             default:
-                                anim = 0x2c2;
+                                anim = ANIM_PORTAL;
                                 break;
                         }
                     } else {
-                        anim = 0x400;
+                        anim = ANIM_DEFAULT_NOCAP;
                     }
                 } else {
-                    anim = 0x168;
+                    anim = ANIM_SWORD_CHARGE_END;
                 }
             }
         }
     } else {
         if (gPlayerState.heldObject != 0) {
-            anim = 0x350;
+            anim = ANIM_CARRY_END;
         } else {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
             if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
-                anim = 0x8b0;
+                anim = ANIM_MOLDWORM_CAPTURED;
             } else if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
-                anim = 0x810;
+                anim = ANIM_JUMP;
             } else if (gPlayerState.dash_state != 0) {
-                anim = 0x298;
+                anim = ANIM_DASH;
             } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-                anim = 0x70c;
+                anim = ANIM_MINECART_END;
             } else if (gPlayerState.shield_status != 0) {
-                anim = 0x164;
+                anim = ANIM_SHIELD_END;
             } else if (gPlayerState.field_0x1f[2] != 0) {
-                anim = 0x280;
+                anim = ANIM_BOW_END;
             } else if (gPlayerState.swim_state != 0) {
-                anim = 0x28c;
+                anim = ANIM_SWIM_END;
             } else {
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     return;
@@ -2019,7 +2019,7 @@ void ResolvePlayerAnimation(void) {
                     anim = (gArea.portal_type == 4) ? 0x530 : 0x2c2;
                 } else {
                     if (gPlayerState.sword_state != 0) {
-                        anim = 0x168;
+                        anim = ANIM_SWORD_CHARGE_END;
                     } else {
                         if (gPlayerState.attack_status != 0) {
                             return;
@@ -2028,9 +2028,9 @@ void ResolvePlayerAnimation(void) {
                             if (gActiveItems[ACTIVE_ITEM_LANTERN].animPriority != 0) {
                                 return;
                             }
-                            anim = 0x604;
+                            anim = ANIM_LANTERN_END;
                         } else {
-                            anim = 0x100;
+                            anim = ANIM_DEFAULT;
                         }
                     }
                 }
@@ -2659,7 +2659,7 @@ bool32 sub_0807AC54(Entity* this) {
             this->action = 0x1d;
             this->subAction = 0;
             this->y.HALF.LO = 0;
-            gPlayerState.animation = 0x2cf;
+            gPlayerState.animation = ANIM_CLIMB;
             return TRUE;
         case SURFACE_AUTO_LADDER:
             this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
@@ -2827,18 +2827,18 @@ void sub_0807B068(Entity* entity) {
     if ((gPlayerState.dash_state | gPlayerState.attack_status) == 0) {
         if (gPlayerState.swim_state != 0) {
             if ((gPlayerState.swim_state & 0x80) != 0) {
-                gPlayerState.animation = 0xc1c;
+                gPlayerState.animation = ANIM_C1C;
             } else {
-                gPlayerState.animation = 0xc0c;
+                gPlayerState.animation = ANIM_SWIM_MINISH;
             }
         } else {
             if ((gPlayerState.direction & 0x80) != 0) {
-                if (gPlayerState.animation != 0xc18) {
-                    gPlayerState.animation = 0xc18;
+                if (gPlayerState.animation != ANIM_BOUNCE_MINISH) {
+                    gPlayerState.animation = ANIM_BOUNCE_MINISH;
                 }
             } else {
-                if (gPlayerState.animation != 0xc04) {
-                    gPlayerState.animation = 0xc04;
+                if (gPlayerState.animation != ANIM_WALK_MINISH) {
+                    gPlayerState.animation = ANIM_WALK_MINISH;
                 }
             }
         }
@@ -2902,7 +2902,7 @@ void sub_0807B1EC(PlayerEntity* this) {
     if (--super->timer == 0) {
         this->unk_6e++;
         super->zVelocity = Q_16_16(1.0);
-        gPlayerState.animation = 0x2c2;
+        gPlayerState.animation = ANIM_PORTAL;
     }
 }
 

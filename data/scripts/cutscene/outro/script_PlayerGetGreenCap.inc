@@ -2,7 +2,7 @@
 SCRIPT_START script_PlayerGetGreenCap
 	BeginBlock
 	Call sub_08094BE0
-	CallWithArg SetPlayerAnimation2, 0x0000045b
+	CallWithArg SetPlayerAnimation2, ANIM_GET_ITEM_BIG_NOCAP
 	PlaySound SFX_ITEM_GET
 	EndBlock
 	Call WaitForPlayerAnim
@@ -10,7 +10,7 @@ SCRIPT_START script_PlayerGetGreenCap
 	SetSyncFlag 0x00000008
 	BeginBlock
 	CallWithArg ResetPlayerFlag, PL_NO_CAP
-	CallWithArg SetPlayerAnimation2, 0x000008e4
+	CallWithArg SetPlayerAnimation2, ANIM_GET_NEWCAP
 	EndBlock
 	Call WaitForPlayerAnim
 	SetAnimationState 0x0004

@@ -1582,25 +1582,25 @@ void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F1C4(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = 0x459;
+        gPlayerState.animation = ANIM_DIE1_NOCAP;
     } else {
-        gPlayerState.animation = 0x1bc;
+        gPlayerState.animation = ANIM_DIE1;
     }
 }
 
 void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = 0x45a;
+        gPlayerState.animation = ANIM_DIE2_NOCAP;
     } else {
-        gPlayerState.animation = 0x2bd;
+        gPlayerState.animation = ANIM_DIE2;
     }
 }
 
 void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = 0x41c;
+        gPlayerState.animation = ANIM_PORTAL_LEAVE_NOCAP;
     } else {
-        gPlayerState.animation = 0x80c;
+        gPlayerState.animation = ANIM_PORTAL_LEAVE;
     }
 }
 
