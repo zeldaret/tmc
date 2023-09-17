@@ -1578,7 +1578,8 @@ void sub_08079064(Entity* this) {
         } else if ((gPlayerState.swim_state & 0x80) != 0) {
             gPlayerState.animation = ANIM_DIVE;
         } else {
-            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_DOOR || gPlayerState.animation == ANIM_DOOR_NOCAP) {
+            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_DOOR ||
+                gPlayerState.animation == ANIM_DOOR_NOCAP) {
                 sub_080790E4(this);
             }
         }
