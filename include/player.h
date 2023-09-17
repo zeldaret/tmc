@@ -424,7 +424,8 @@ typedef struct {
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 gustJarSpeed;
     /*0x1e*/ u8 dash_state;
-    /*0x1f*/ u8 field_0x1f[3];
+    /*0x1f*/ u8 field_0x1f[2];
+    /*0x21*/ u8 bow_state;
     /*0x22*/ u16 tilePosition;
     /*0x24*/ u16 tileType;
     /*0x26*/ u8 swim_state; /**< Is the player swimming? 0x80 for diving */

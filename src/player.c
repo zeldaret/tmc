@@ -418,7 +418,7 @@ static void PlayerNormal(Entity* this) {
         return;
     }
     if (!gPlayerState.swim_state && (gPlayerState.jump_status & 0xC0) == 0) {
-        if (gPlayerState.shield_status || gPlayerState.field_0x1f[2]) {
+        if (gPlayerState.shield_status || gPlayerState.bow_state) {
             this->speed = SHIELDING_SPEED;
         } else {
             if (gPlayerState.sword_state) {

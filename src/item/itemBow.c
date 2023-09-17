@@ -22,14 +22,14 @@ void sub_08075DF4(ItemBehavior* this, u32 index) {
         sub_0806F948(&gPlayerEntity);
         sub_08077BB8(this);
         sub_08077D38(this, index);
-        gPlayerState.field_0x1f[2] = 1;
+        gPlayerState.bow_state = 1;
     } else {
         DeleteItemBehavior(this, index);
     }
 }
 
 void sub_08075E40(ItemBehavior* this, u32 index) {
-    if (gPlayerState.field_0x1f[2] != 0) {
+    if (gPlayerState.bow_state != 0) {
         if ((gPlayerState.attack_status & 0x80) == 0) {
             UpdateItemAnim(this);
             if ((this->playerFrame & 0x80) != 0) {
@@ -43,7 +43,7 @@ void sub_08075E40(ItemBehavior* this, u32 index) {
             return;
         }
     }
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     DeleteItemBehavior(this, index);
 }
 
@@ -54,8 +54,8 @@ void sub_08075EC0(ItemBehavior* this, u32 index) {
     arrowCount = gSave.stats.arrowCount;
     iVar2 = IsItemActive(this);
     if (iVar2 != 0 && arrowCount != 0) {
-        if (((gPlayerState.attack_status & 0x80) != 0) || (gPlayerState.field_0x1f[2] == 0)) {
-            gPlayerState.field_0x1f[2] = 0;
+        if (((gPlayerState.attack_status & 0x80) != 0) || (gPlayerState.bow_state == 0)) {
+            gPlayerState.bow_state = 0;
             DeleteItemBehavior(this, index);
         }
     } else {
@@ -68,19 +68,19 @@ void sub_08075EC0(ItemBehavior* this, u32 index) {
 }
 
 void sub_08075F38(ItemBehavior* this, u32 index) {
-    if (((gPlayerState.attack_status & 0x80) == 0) && (gPlayerState.field_0x1f[2] != 0)) {
+    if (((gPlayerState.attack_status & 0x80) == 0) && (gPlayerState.bow_state != 0)) {
         UpdateItemAnim(this);
         if ((this->playerFrame & 1) != 0) {
             this->stateID = 4;
         }
     } else {
-        gPlayerState.field_0x1f[2] = 0;
+        gPlayerState.bow_state = 0;
         DeleteItemBehavior(this, index);
     }
 }
 
 void sub_08075F84(ItemBehavior* this, u32 index) {
-    if (((gPlayerState.attack_status & 0x80) == 0) && (gPlayerState.field_0x1f[2] != 0)) {
+    if (((gPlayerState.attack_status & 0x80) == 0) && (gPlayerState.bow_state != 0)) {
         if (GetInventoryValue(ITEM_ARROW_BUTTERFLY) == 1) {
             sub_08077E3C(this, 5);
         } else {
@@ -90,6 +90,6 @@ void sub_08075F84(ItemBehavior* this, u32 index) {
             return;
         }
     }
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     DeleteItemBehavior(this, index);
 }

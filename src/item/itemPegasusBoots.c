@@ -67,7 +67,7 @@ void sub_080768F8(ItemBehavior* this, u32 index) {
     bVar1 |= bVar2;
     if (bVar1 == 0) {
         gPlayerState.dash_state = 1;
-        gPlayerState.field_0x1f[2] = bVar1;
+        gPlayerState.bow_state = bVar1;
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             this->timer = 0x10;
         } else {

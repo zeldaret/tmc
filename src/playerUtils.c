@@ -378,7 +378,7 @@ void ResetActiveItems() {
 
     gPlayerState.moleMittsState = 0;
     gPlayerState.field_0x1c = 0;
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     gPlayerState.grab_status = 0;
     gPlayerState.itemAnimPriority = 0;
     gPlayerState.dash_state = 0;
@@ -1363,7 +1363,7 @@ void ClearPlayerState(void) {
     gPlayerState.dash_state = 0;
     gPlayerState.field_0x1f[0] = 0;
     gPlayerState.field_0x1f[1] = 0;
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     gPlayerState.tilePosition = 0;
     gPlayerState.tileType = 0;
     gPlayerState.swim_state = 0;
@@ -1868,7 +1868,7 @@ void sub_080797EC(void) {
             animation = ANIM_CARRY_NOCAP;
         } else if (gPlayerState.shield_status != 0) {
             animation = ANIM_SHIELD_NOCAP;
-        } else if (gPlayerState.field_0x1f[2] == 0) {
+        } else if (gPlayerState.bow_state == 0) {
             if (gPlayerState.swim_state != 0) {
                 animation = ANIM_SWIM;
             } else {
@@ -1905,7 +1905,7 @@ void sub_080797EC(void) {
             animation = ANIM_MINECART;
         } else if (gPlayerState.shield_status != 0) {
             animation = ANIM_SHIELD;
-        } else if (gPlayerState.field_0x1f[2] != 0) {
+        } else if (gPlayerState.bow_state != 0) {
             animation = ANIM_BOW;
         } else {
             if (gPlayerState.swim_state != 0) {
@@ -1958,7 +1958,7 @@ void ResolvePlayerAnimation(void) {
                 anim = ANIM_JUMP;
             } else if (gPlayerState.shield_status != 0) {
                 anim = ANIM_SHIELD_END_NOCAP;
-            } else if (gPlayerState.field_0x1f[2] != 0) {
+            } else if (gPlayerState.bow_state != 0) {
                 anim = ANIM_BOW_END;
             } else if (gPlayerState.swim_state != 0) {
                 anim = ANIM_SWIM_END;
@@ -2007,7 +2007,7 @@ void ResolvePlayerAnimation(void) {
                 anim = ANIM_MINECART_END;
             } else if (gPlayerState.shield_status != 0) {
                 anim = ANIM_SHIELD_END;
-            } else if (gPlayerState.field_0x1f[2] != 0) {
+            } else if (gPlayerState.bow_state != 0) {
                 anim = ANIM_BOW_END;
             } else if (gPlayerState.swim_state != 0) {
                 anim = ANIM_SWIM_END;

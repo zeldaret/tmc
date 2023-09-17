@@ -69,15 +69,15 @@ void SwordParticle_Action1(SwordParticleEntity* this) {
     u32 tmp2;
 
     if (super->type2 != 0) {
-        if ((gPlayerState.field_0x1f[2] == 0) || ((gPlayerState.attack_status & 0x80) != 0)) {
+        if ((gPlayerState.bow_state == 0) || ((gPlayerState.attack_status & 0x80) != 0)) {
             DeleteThisEntity();
         }
-        if (gPlayerState.field_0x1f[2] >= 0x50) {
+        if (gPlayerState.bow_state >= 0x50) {
             super->spriteSettings.draw = 1;
-            tmp1 = gPlayerState.field_0x1f[2];
+            tmp1 = gPlayerState.bow_state;
             ptr = gUnk_081217D8;
         } else {
-            if (gPlayerState.field_0x1f[2] != 0) {
+            if (gPlayerState.bow_state != 0) {
                 super->spriteSettings.draw = 0;
                 return;
             }
