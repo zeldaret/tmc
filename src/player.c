@@ -2645,7 +2645,8 @@ static void sub_0807332C(Entity* this) {
                 LinearMoveUpdate(this);
                 return;
             }
-            this->direction = (this->direction - 1) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
+            this->direction = (this->direction - 1) &
+                              (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
         }
         LinearMoveUpdate(this);
         return;

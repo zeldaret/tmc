@@ -158,8 +158,8 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
         if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.heldInput) == 0) {
             this->direction = (this->playerAnimationState & 0xe) * 4;
             if ((gPlayerState.direction != DIR_NONE) && (gPlayerState.direction != this->direction)) {
-                if (((gPlayerState.direction - this->direction) &
-                     (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)) < DirectionSouth) {
+                if (((gPlayerState.direction - this->direction) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast |
+                                                                   DirectionSouth | DirectionWest)) < DirectionSouth) {
                     this->direction = this->direction + 2;
                 }
                 this->direction--;

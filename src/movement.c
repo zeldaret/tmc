@@ -2165,37 +2165,29 @@ bool32 sub_080AF0C8(Entity* this) {
     u32 tileType = GetTileTypeByEntity(this);
     switch (tileType) {
         case 0x87:
-            if ((
-                (this->direction + 7) &
-                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
-                ) < DirectionSouth) {
+            if (((this->direction + 7) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth |
+                                          DirectionWest)) < DirectionSouth) {
                 this->collisions = COL_NORTH_ANY;
                 return TRUE;
             }
             break;
         case 0x8a:
-            if ((
-                (this->direction - 1) &
-                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
-                ) < DirectionSouth) {
+            if (((this->direction - 1) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth |
+                                          DirectionWest)) < DirectionSouth) {
                 this->collisions = COL_EAST_ANY;
                 return TRUE;
             }
             break;
         case 0x88:
-            if ((
-                (this->direction - 9) &
-                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
-                ) < DirectionSouth) {
+            if (((this->direction - 9) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth |
+                                          DirectionWest)) < DirectionSouth) {
                 this->collisions = COL_SOUTH_ANY;
                 return TRUE;
             }
             break;
         case 0x89:
-            if ((
-                (this->direction - 0x11) &
-                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
-                ) < DirectionSouth) {
+            if (((this->direction - 0x11) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth |
+                                             DirectionWest)) < DirectionSouth) {
                 this->collisions = COL_WEST_ANY;
                 return TRUE;
             }

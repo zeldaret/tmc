@@ -254,7 +254,8 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.field_0xa != 0) {
                 return 0;
             }
-            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction != DirectionNorth) {
+            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction !=
+                DirectionNorth) {
                 return 0;
             }
             if ((gPlayerEntity.direction & DIR_NOT_MOVING_CHECK) != 0) {
@@ -356,7 +357,8 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
 #endif
-            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction != DirectionNorth) {
+            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction !=
+                DirectionNorth) {
                 return 0;
             }
             if ((gPlayerEntity.direction & 0x80) != 0) {
@@ -595,7 +597,8 @@ bool32 sub_0801A2B0(LayerStruct* layer, u32 position, u32 collisionType) {
     u16 temp4;
 
     uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
-    if ((((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
+    if ((((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) == 0) &&
+        ((gPlayerEntity.frame & 1) != 0)) {
         position = (u16)(position - (-uVar1)); // necessary for match
         temp4 = sub_080B1B54(GetTileType(position, gPlayerEntity.collisionLayer));
         switch (temp4) {

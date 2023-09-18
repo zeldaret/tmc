@@ -182,7 +182,8 @@ void Peahat_ChargeStart(Entity* this) {
             this->action = 3;
             this->timer = 120;
             this->speed = 192;
-            this->direction = (GetFacingDirection(this, gUnk_020000B0) + gUnk_080CA5D4[Random() & 1]) & (0x3 | DirectionNorthWest);
+            this->direction =
+                (GetFacingDirection(this, gUnk_020000B0) + gUnk_080CA5D4[Random() & 1]) & (0x3 | DirectionNorthWest);
         }
     } else {
         sub_080205F8(this);
