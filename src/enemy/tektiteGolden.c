@@ -136,7 +136,7 @@ void sub_08038048(Entity* this) {
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
     } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
-        this->direction = (this->direction + 0x10) & 0x1f;
+        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 
     if (--this->timer == 0) {
@@ -185,6 +185,6 @@ void sub_08038168(Entity* this) {
         this->direction = sub_08049F84(this, 1);
     } else {
         temp = (Random() & 0xf) + 0x18;
-        this->direction = (temp + this->direction) & 0x1f;
+        this->direction = (temp + this->direction) & (0x3 | DirectionNorthWest);
     }
 }

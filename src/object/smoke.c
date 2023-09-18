@@ -52,7 +52,7 @@ void sub_0808A484(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = TRUE;
     this->speed = 0x40;
-    this->direction = 6;
+    this->direction = DirectionNorthEast | 0x2;
     this->spriteRendering.b3 = 1;
     this->spritePriority.b0 = 0;
     this->spriteOrientation.flipY = 1;

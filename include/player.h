@@ -96,6 +96,12 @@ typedef enum {
 } PlayerControlMode;
 
 typedef enum {
+    DIR_DIAGONAL = 0x4,
+    DIR_NOT_MOVING_CHECK = 0x80,
+    DIR_NONE = 0xff,
+} PlayerDirections;
+
+typedef enum {
     PL_BUSY = 0x1,
     PL_FLAGS2 = 0x2,
     PL_DROWNING = 0x4,
@@ -306,11 +312,10 @@ typedef enum {
     ANIM_PORTAL = 0x2c2,
     ANIM_PORTAL_SHRINK = 0x2c3,
     ANIM_DROWN_END = 0x2ce,
-    // I literally can't tell the difference in the following
-    ANIM_CLIMB = 0x2cf,
-    ANIM_CLIMB2 = 0x2d0,
-    ANIM_CLIMB3 = 0x2d1,
-    ANIM_CLIMB4 = 0x2d2,
+    ANIM_CLIMB1_UP = 0x2cf,
+    ANIM_CLIMB2_UP = 0x2d0,
+    ANIM_CLIMB1_DOWN = 0x2d1,
+    ANIM_CLIMB2_DOWN = 0x2d2,
     ANIM_CLIMB_FROM_TOP = 0x2d3,
     ANIM_CLIMB_LEFT = 0x2d4,
     ANIM_CLIMB_RIGHT = 0x2d5,
@@ -392,7 +397,7 @@ typedef enum {
     ANIM_DROWN_MINISH = 0xc19,
     ANIM_DIE1_MINISH = 0xc1a,
     ANIM_DIE2_MINISH = 0xc1b,
-    ANIM_C1C = 0xc1c,
+    ANIM_DIVE_MINISH = 0xc1c,
 } PlayerAnimation;
 
 typedef struct {

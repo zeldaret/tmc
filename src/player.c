@@ -503,7 +503,7 @@ static void PlayerNormal(Entity* this) {
                 this->speed = gPlayerState.jump_status & 0x20;
                 sub_08008926(this);
             } else {
-                this->direction = 0xff;
+                this->direction = DIR_NONE;
             }
         }
         UpdatePlayerMovement();
@@ -535,14 +535,14 @@ static void PlayerNormal(Entity* this) {
                 this->direction = gPlayerState.direction;
                 if (gPlayerState.flags & PL_BURNING) {
                     this->speed = BURNING_SPEED;
-                    if ((gPlayerState.direction & 0x80) != 0)
+                    if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) != 0)
                         this->direction = 4 * (this->animationState & 0xE);
                     DeleteClones();
                 }
             }
         }
         v13 = 0;
-        if ((((gPlayerState.field_0x7 | this->direction) & 0x80) | gPlayerState.field_0xa) == 0 &&
+        if ((((gPlayerState.field_0x7 | this->direction) & DIR_NOT_MOVING_CHECK) | gPlayerState.field_0xa) == 0 &&
             (gPlayerState.field_0x7 & 0x10) == 0) {
             v13 = 1;
             if (this->knockbackDuration == 0 &&
@@ -578,7 +578,7 @@ static void PlayerFall(Entity* this) {
         PlayerFallUpdate,
     };
 
-    gPlayerState.direction = 0xFF;
+    gPlayerState.direction = DIR_NONE;
     gPlayerState.pushedObject = 0x80;
     gPlayerState.framestate = PL_STATE_FALL;
 
@@ -1068,7 +1068,7 @@ static void PortalStandUpdate(Entity* this) {
             break;
     }
 
-    if ((gPlayerState.direction & 0x84) == 0) {
+    if ((gPlayerState.direction & (DIR_NOT_MOVING_CHECK | DIR_DIAGONAL)) == 0) {
         if (this->direction != gPlayerState.direction) {
             this->timer = 8;
         }
@@ -1557,7 +1557,7 @@ static void sub_08071D04(Entity* this) {
         ModHealth(deltaHealth);
         this->subAction = 3;
         gPlayerState.field_0x3c = 0;
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
         this->speed = 0;
         this->zVelocity = Q_16_16(1.5);
         gPlayerState.jump_status = 1;
@@ -1787,7 +1787,7 @@ static void sub_08072100(Entity* this) {
     this->subAction = 1;
     COLLISION_OFF(this);
     if (gPlayerState.field_0x39)
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
 
     if (gPlayerState.flags & PL_NO_CAP) {
         gPlayerState.animation = ANIM_DOOR_NOCAP;
@@ -2218,7 +2218,7 @@ static void PlayerInHoleUpdate(Entity* this) {
 }
 
 static void sub_08072ACC(Entity* this) {
-    if (gPlayerState.direction == 0xff) {
+    if (gPlayerState.direction == DIR_NONE) {
         this->subtimer = 0;
     } else if (this->subtimer > 7) {
         COLLISION_ON(this);
@@ -2448,14 +2448,14 @@ static void PlayerClimb(Entity* this) {
                 this->action = PLAYER_CLIMB;
                 this->subAction = 0;
                 this->y.HALF.LO = 0;
-                gPlayerState.animation = ANIM_CLIMB;
+                gPlayerState.animation = ANIM_CLIMB1_UP;
             }
         }
     }
 }
 
 static void sub_08072F94(Entity* this) {
-    u32 bVar1;
+    u32 direction;
 
     switch (gPlayerState.floor_type) {
         default:
@@ -2466,10 +2466,10 @@ static void sub_08072F94(Entity* this) {
         case SURFACE_CLIMB_WALL:
         case SURFACE_2C:
             this->spritePriority.b1 = 0;
-            bVar1 = gPlayerState.direction;
-            if ((gPlayerState.direction & 0x80) == 0) {
+            direction = gPlayerState.direction;
+            if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) == 0) {
                 this->direction = gPlayerState.direction;
-                if ((gPlayerState.direction == 8) || (gPlayerState.direction == 0x18)) {
+                if ((gPlayerState.direction == DirectionEast) || (gPlayerState.direction == DirectionWest)) {
                     if (gPlayerState.floor_type == SURFACE_LADDER) {
                         return;
                     }
@@ -2480,20 +2480,20 @@ static void sub_08072F94(Entity* this) {
                     }
                     sub_08073094(this);
                 } else {
-                    if ((gPlayerState.floor_type == SURFACE_LADDER) && ((bVar1 & 7) != 0)) {
-                        this->direction = (bVar1 + 8) & 0x10;
+                    if ((gPlayerState.floor_type == SURFACE_LADDER) && ((direction & (DIR_DIAGONAL | 0x3)) != 0)) {
+                        this->direction = (direction + 8) & DirectionSouth;
                     }
-                    if (this->direction & 0x10) {
+                    if (this->direction & DirectionSouth) {
                         if (this->frame & 0x10) {
-                            gPlayerState.animation = ANIM_CLIMB3;
+                            gPlayerState.animation = ANIM_CLIMB1_DOWN;
                         } else {
-                            gPlayerState.animation = ANIM_CLIMB4;
+                            gPlayerState.animation = ANIM_CLIMB2_DOWN;
                         }
                     } else {
                         if (this->frame & 0x10) {
-                            gPlayerState.animation = ANIM_CLIMB;
+                            gPlayerState.animation = ANIM_CLIMB1_UP;
                         } else {
-                            gPlayerState.animation = ANIM_CLIMB2;
+                            gPlayerState.animation = ANIM_CLIMB2_UP;
                         }
                     }
                 }
@@ -2633,19 +2633,19 @@ static void sub_0807332C(Entity* this) {
     if (gPlayerState.field_0x39 == 7) {
         this->direction = IdleNorth;
     } else {
-        this->direction = 28;
+        this->direction = DirectionNorthWest;
     }
     if ((this->x.HALF.HI & 0xF) != 0xF) {
         if (gPlayerState.field_0x39 == 7) {
             this->animationState = IdleEast;
-            this->direction = 4;
+            this->direction = DIR_DIAGONAL;
         } else {
-            this->animationState = 6;
+            this->animationState = IdleWest;
             if (this->direction <= DirectionWest) {
                 LinearMoveUpdate(this);
                 return;
             }
-            this->direction = (this->direction - 1) & 0x1F;
+            this->direction = (this->direction - 1) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
         }
         LinearMoveUpdate(this);
         return;
@@ -2756,7 +2756,7 @@ static void sub_08073584(Entity* this) {
     gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
     if (sub_0807A2F8(0)) {
         this->subAction++;
-        this->direction = 4 * (this->animationState & 6);
+        this->direction = 4 * (this->animationState & IdleWest);
         COLLISION_OFF(this);
         return;
     }
@@ -2766,21 +2766,23 @@ static void sub_08073584(Entity* this) {
     else
         this->speed = 0x80;
 
-    if ((gPlayerState.direction & 0x80) == 0) {
+    if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) == 0) {
         if (this->direction != gPlayerState.direction) {
-            if (((this->direction - gPlayerState.direction) & 0x1F) < 0x10)
+            if (((this->direction - gPlayerState.direction) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast |
+                                                               DirectionSouth | DirectionWest)) < DirectionSouth)
                 *(u32*)&this->field_0x80 -= 0x20;
             else
                 *(u32*)&this->field_0x80 += 0x20;
         }
     }
-    this->direction = (*(u32*)&this->field_0x80 >> 8) & 0x1F;
+    this->direction = (*(u32*)&this->field_0x80 >> 8) &
+                      (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
     UpdatePlayerMovement();
     state = 4 * this->animationState;
     dir = this->direction;
     if (this->animationState == 0) {
         state = (state + 8) & 0x1F;
-        dir = (dir + 8) & 0x1F;
+        dir = (dir + 8) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
     }
 
     if (state - 7 > dir) {
@@ -2798,7 +2800,8 @@ static void sub_08073584(Entity* this) {
     this->animationState = state;
     idx = 0;
     state = gPlayerState.direction >> 2;
-    if (!this->field_0x86.HALF.HI || ((gPlayerState.direction & 0x80) == 0 && this->animationState != state)) {
+    if (!this->field_0x86.HALF.HI ||
+        ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) == 0 && this->animationState != state)) {
         static const u16 sAnims1[] = {
             0x0708,
             0x071C,
@@ -2806,7 +2809,7 @@ static void sub_08073584(Entity* this) {
             0x0714,
         };
 
-        if ((gPlayerState.direction & 0x80) == 0) {
+        if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) == 0) {
             if (this->animationState != state) {
                 if (this->animationState == (state ^ 4)) {
                     idx = 2;
@@ -2890,7 +2893,7 @@ static void sub_0807380C(Entity* this) {
     };
 
     if ((gRoomTransition.frameCount & 3) == 0) {
-        u32 tmp = (this->animationState + 2) & 6;
+        u32 tmp = (this->animationState + 2) & IdleWest;
         this->animationState = tmp;
         this->direction = 4 * tmp;
     }
@@ -2916,7 +2919,7 @@ void sub_08073884(Entity* this) {
     };
 
     if ((gRoomTransition.frameCount & 1) == 0) {
-        u32 tmp = (this->animationState + 2) & 6;
+        u32 tmp = (this->animationState + 2) & IdleWest;
         this->animationState = tmp;
         this->direction = 4 * tmp;
     }
@@ -2940,10 +2943,10 @@ static void DoJump(Entity* this) {
 }
 
 static void sub_08073924(Entity* this) {
-    if ((gPlayerState.flags & PL_ROLLING) == 0 && (this->z.HALF.HI & 0x8000) && !gPlayerState.field_0xa) {
+    if (!(gPlayerState.flags & PL_ROLLING) && (this->z.HALF.HI & 0x8000) && !gPlayerState.field_0xa) {
         gPlayerState.jump_status = 0x40;
-        gPlayerState.direction = 0xff;
-        this->direction = 0xff;
+        gPlayerState.direction = DIR_NONE;
+        this->direction = DIR_NONE;
         PutAwayItems();
         sub_08073968(this);
     }
@@ -2996,7 +2999,7 @@ static void sub_080739EC(Entity* this) {
         if ((gPlayerState.jump_status & 0x20) && this->zVelocity == 0) {
             this->zVelocity = Q_16_16(2.5);
             this->timer = 10;
-            this->direction = 0xff;
+            this->direction = DIR_NONE;
             gPlayerState.jump_status += 2;
             gPlayerState.animation = ANIM_DOWN_THRUST;
             ResetPlayerVelocity();
@@ -3171,7 +3174,7 @@ static void sub_08073D20(Entity* this) {
                             UpdatePlayerMovement();
                         } else {
                             this->direction = gPlayerState.direction;
-                            if ((gPlayerState.direction & 0x80) == 0) {
+                            if (!(gPlayerState.direction & DIR_NOT_MOVING_CHECK)) {
                                 gPlayerState.framestate = PL_STATE_WALK;
                                 UpdatePlayerMovement();
                             }
@@ -3427,7 +3430,7 @@ void SurfaceAction_14(Entity* this) {
             sub_08074808(this);
             spd = this->speed;
             this->speed = 0x300;
-            this->direction = 16;
+            this->direction = DirectionSouth;
             gPlayerState.field_0xa |= 0x80;
             LinearMoveUpdate(this);
             this->speed = spd;

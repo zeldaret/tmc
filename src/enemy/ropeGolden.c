@@ -131,7 +131,7 @@ void sub_08038304(Entity* this) {
                 }
                 this->field_0x7a.HALF.LO = this->field_0x78.HALF.HI;
                 this->field_0x78.HALF.HI = cVar2;
-                this->direction = (this->direction + cVar2) & 0x18;
+                this->direction = (this->direction + cVar2) & DirectionWest;
             } else {
                 this->direction = this->field_0x78.HALF.LO;
             }

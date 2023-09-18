@@ -15,7 +15,7 @@ extern u16 gUnk_0800275C[];
 extern u8 gUnk_0811BE38[];
 
 void ItemPegasusBoots(ItemBehavior* this, u32 index) {
-    static void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior * beh, u32) = {
+    static void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior* beh, u32) = {
         sub_080768F8,
         sub_08076964,
         sub_08076A88,
@@ -136,7 +136,7 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
     u8* ptr;
 
     if ((IsItemActive(this) != 0) && (gPlayerState.dash_state != 0)) {
-        if ((gPlayerState.flags & PL_MINISH) == 0) {
+        if (!(gPlayerState.flags & PL_MINISH)) {
             gPlayerEntity.speed = 0x300;
         } else {
             gPlayerEntity.speed = 0x280;
@@ -148,7 +148,7 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
                 gPlayerEntity.subAction = 0;
                 COLLISION_OFF(&gPlayerEntity);
                 gPlayerState.field_0x38 = 0;
-                gPlayerState.direction = 0xff;
+                gPlayerState.direction = DIR_NONE;
                 return;
             }
             this->subtimer = 1;
@@ -157,12 +157,13 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
         ptr = gUnk_0811BE38;
         if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.heldInput) == 0) {
             this->direction = (this->playerAnimationState & 0xe) * 4;
-            if ((gPlayerState.direction != 0xff) && (gPlayerState.direction != this->direction)) {
-                if (((gPlayerState.direction - this->direction) & 0x1f) < 0x10) {
+            if ((gPlayerState.direction != DIR_NONE) && (gPlayerState.direction != this->direction)) {
+                if (((gPlayerState.direction - this->direction) &
+                     (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)) < DirectionSouth) {
                     this->direction = this->direction + 2;
                 }
                 this->direction--;
-                this->direction &= 0x1f;
+                this->direction &= 0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest;
             }
             gPlayerState.direction = this->direction;
             UpdateItemAnim(this);

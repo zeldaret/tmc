@@ -66,7 +66,7 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
         if (gPlayerEntity.subAction == 0x1b) {
             animIndex = 0x524;
         } else {
-            if (gPlayerState.direction & 0x80) {
+            if (gPlayerState.direction & DIR_NOT_MOVING_CHECK) {
                 animIndex = 0x504;
             } else {
                 animIndex = 0x518;

@@ -53,7 +53,7 @@ void ChuchuBossCutscene_Action3(Entity* this) {
     GetNextFrame(this);
     if (--this->timer == 0) {
         this->action++;
-        this->direction = 0;
+        this->direction = DirectionNorth;
         this->speed = 0x100;
         this->zVelocity = Q_16_16(2.0);
         this->spriteOrientation.flipY = 0;

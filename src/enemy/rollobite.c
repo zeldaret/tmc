@@ -39,7 +39,7 @@ void Rollobite_OnCollision(Entity* this) {
     if (this->hitType == 34 && this->health != 0xff) {
         this->action = 4;
         this->zVelocity = Q_16_16(2.0);
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
         this->health = 0xff;
         this->hitType = 35;
         InitializeAnimation(this, this->animationState + 8);
@@ -49,7 +49,7 @@ void Rollobite_OnCollision(Entity* this) {
         if (this->action == 4 || this->action == 5) {
             this->action = 4;
             this->timer = 180;
-            this->direction = 0xff;
+            this->direction = DIR_NONE;
             InitializeAnimation(this, this->animationState + 0x10);
         }
     }
@@ -74,7 +74,7 @@ void Rollobite_OnGrabbed(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 4;
         COLLISION_ON(this);
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
         InitializeAnimation(this, this->animationState + 0x10);
     } else {
         gUnk_080CA6A4[this->subAction](this);
@@ -107,7 +107,7 @@ void sub_080207A8(Entity* this) {
     COLLISION_ON(this);
     this->spritePriority.b0 = 4;
     this->gustJarState &= 0xfb;
-    this->direction ^= 0x10;
+    this->direction ^= DirectionSouth;
     this->zVelocity = Q_16_16(1.5);
     this->speed = 0x80;
     InitializeAnimation(this, this->animationState + 0x10);
@@ -193,7 +193,7 @@ void Rollobite_RolledUp(Entity* this) {
         if (unk == 1)
             EnqueueSFX(SFX_PLACE_OBJ);
 
-        if ((this->direction & 0x80) == 0)
+        if (!(this->direction & DIR_NOT_MOVING_CHECK))
             ProcessMovement2(this);
     }
 }
@@ -248,8 +248,8 @@ void sub_08020A7C(Entity* this) {
 
     if (sub_08049FA0(this) == 0) {
         int tmp = DirectionRoundUp(sub_08049EE4(this));
-        if ((state ^ 0x10) == tmp)
-            state ^= 0x10;
+        if ((state ^ DirectionSouth) == tmp)
+            state ^= DirectionSouth;
     }
 
     this->direction = state;

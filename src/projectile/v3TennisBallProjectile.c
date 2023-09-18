@@ -36,7 +36,7 @@ void V3TennisBallProjectile_OnCollision(Entity* this) {
             this->speed += 0x80 * 2;
             this->child = this->contactedEntity;
             if (sub_080ACB40(this)) {
-                this->direction = 0;
+                this->direction = DirectionNorth;
             } else {
                 this->direction = this->knockbackDirection;
             }
@@ -53,7 +53,7 @@ void V3TennisBallProjectile_OnCollision(Entity* this) {
 
 void V3TennisBallProjectile_Init(Entity* this) {
     this->action = 1;
-    this->direction = 0x10;
+    this->direction = DirectionSouth;
     this->z.HALF.HI = -4;
     this->child = NULL;
     InitializeAnimation(this, 7);

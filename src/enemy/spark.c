@@ -60,7 +60,7 @@ void sub_0802B35C(Entity* this) {
         if (--this->subtimer == 0) {
             this->subtimer = 120;
 
-            this->direction += is_head ? 0x08 : 0x18;
+            this->direction += is_head ? DirectionEast : DirectionWest;
             this->direction = DirectionRound(this->direction);
         }
     } else {

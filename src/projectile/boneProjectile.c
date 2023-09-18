@@ -88,7 +88,7 @@ void sub_080A82D8(Entity* this) {
     this->action = 4;
     COLLISION_OFF(this);
     this->zVelocity = Q_16_16(1.0);
-    this->direction ^= 0x10;
+    this->direction ^= DirectionSouth;
     this->speed = 0x80;
 }
 

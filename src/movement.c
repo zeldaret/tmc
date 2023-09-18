@@ -2080,7 +2080,7 @@ bool32 MoveNorthWest(Entity* this, s32 radius, s32 angle, u32 collisionType) {
 bool32 ProcessMovement0(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 0);
         result = ProcessMovementInternal(this, this->speed, this->direction, 0);
     } else {
@@ -2092,7 +2092,7 @@ bool32 ProcessMovement0(Entity* this) {
 bool32 ProcessMovement1(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 1);
         result = ProcessMovementInternal(this, this->speed, this->direction, 1);
     } else {
@@ -2104,7 +2104,7 @@ bool32 ProcessMovement1(Entity* this) {
 bool32 ProcessMovement2(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 2);
         result = ProcessMovementInternal(this, this->speed, this->direction, 2);
     } else {
@@ -2116,7 +2116,7 @@ bool32 ProcessMovement2(Entity* this) {
 bool32 ProcessMovement10(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 10);
         result = ProcessMovementInternal(this, this->speed, this->direction, 10);
     } else {
@@ -2128,7 +2128,7 @@ bool32 ProcessMovement10(Entity* this) {
 bool32 ProcessMovement12(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 12);
         result = ProcessMovementInternal(this, this->speed, this->direction, 12);
     } else {
@@ -2140,7 +2140,7 @@ bool32 ProcessMovement12(Entity* this) {
 bool32 ProcessMovement0_custom(Entity* this, u32 direction, u32 speed) {
     bool32 result;
 
-    if ((direction & 0x80) == 0) {
+    if (!(direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, direction, 0);
         result = ProcessMovementInternal(this, speed, direction, 0);
     } else {
@@ -2152,7 +2152,7 @@ bool32 ProcessMovement0_custom(Entity* this, u32 direction, u32 speed) {
 bool32 ProcessMovement3(Entity* this) {
     bool32 result;
 
-    if (((this->direction & 0x80) == 0) && (sub_080AF0C8(this) == 0)) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK) && !sub_080AF0C8(this)) {
         CalculateEntityTileCollisions(this, this->direction, 3);
         result = ProcessMovementInternal(this, this->speed, this->direction, 3);
     } else {
@@ -2165,25 +2165,37 @@ bool32 sub_080AF0C8(Entity* this) {
     u32 tileType = GetTileTypeByEntity(this);
     switch (tileType) {
         case 0x87:
-            if (((this->direction + 7) & 0x1f) < 0x10) {
+            if ((
+                (this->direction + 7) &
+                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
+                ) < DirectionSouth) {
                 this->collisions = COL_NORTH_ANY;
                 return TRUE;
             }
             break;
         case 0x8a:
-            if (((this->direction - 1) & 0x1f) < 0x10) {
+            if ((
+                (this->direction - 1) &
+                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
+                ) < DirectionSouth) {
                 this->collisions = COL_EAST_ANY;
                 return TRUE;
             }
             break;
         case 0x88:
-            if (((this->direction - 9) & 0x1f) < 0x10) {
+            if ((
+                (this->direction - 9) &
+                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
+                ) < DirectionSouth) {
                 this->collisions = COL_SOUTH_ANY;
                 return TRUE;
             }
             break;
         case 0x89:
-            if (((this->direction - 0x11) & 0x1f) < 0x10) {
+            if ((
+                (this->direction - 0x11) &
+                    (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)
+                ) < DirectionSouth) {
                 this->collisions = COL_WEST_ANY;
                 return TRUE;
             }
@@ -2195,7 +2207,7 @@ bool32 sub_080AF0C8(Entity* this) {
 bool32 ProcessMovement4(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 4);
         result = ProcessMovementInternal(this, this->speed, this->direction, 4);
     } else {
@@ -2207,7 +2219,7 @@ bool32 ProcessMovement4(Entity* this) {
 bool32 ProcessMovement5(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 5);
         result = ProcessMovementInternal(this, this->speed, this->direction, 5);
     } else {
@@ -2231,7 +2243,7 @@ void Knockback2(Entity* this) {
 bool32 ProcessMovement6(Entity* this) {
     bool32 result;
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, this->direction, 6);
         result = ProcessMovementInternal(this, this->speed, this->direction, 6);
     } else {
@@ -2243,7 +2255,7 @@ bool32 ProcessMovement6(Entity* this) {
 bool32 ProcessMovement6_custom(Entity* this, u32 direction, u32 speed) {
     bool32 result;
 
-    if ((direction & 0x80) == 0) {
+    if (!(direction & DIR_NOT_MOVING_CHECK)) {
         CalculateEntityTileCollisions(this, direction, 6);
         result = ProcessMovementInternal(this, speed, direction, 6);
     } else {

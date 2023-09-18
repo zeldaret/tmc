@@ -232,7 +232,7 @@ void sub_0802EFB8(Entity* this) {
     }
     iVar4 = sub_080B1B44(TILE(this->x.HALF.HI, this->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
     if (iVar4 != 0) {
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
     } else {
         this->timer = (rand & 3) + 1;
         this->direction = (uVar1 & 0x18);
@@ -251,7 +251,7 @@ void sub_0802F04C(Entity* this) {
         return;
     }
     switch (this->direction >> 3) {
-        case 0:
+        case 0: // UP
             if (((oldY & 0xf) > 8) && ((this->y.HALF.HI & 0xf) < 9)) {
                 this->timer--;
                 oldY = (this->y.HALF.HI & 0xfff0) + 8;
@@ -263,7 +263,7 @@ void sub_0802F04C(Entity* this) {
                 return;
             }
             break;
-        case 1:
+        case 1: // RIGHT
             if (((oldX & 0xf) < 8) && ((this->x.HALF.HI & 0xf) >= 8)) {
                 this->timer--;
                 oldX = (this->x.HALF.HI & 0xfff0) + 8;
@@ -275,7 +275,7 @@ void sub_0802F04C(Entity* this) {
                 return;
             }
             break;
-        case 2:
+        case 2: // DOWN
             if (((oldY & 0xf) < 8) && ((this->y.HALF.HI & 0xf) >= 8)) {
                 this->timer--;
                 oldY = (this->y.HALF.HI & 0xfff0) + 8;
@@ -287,7 +287,7 @@ void sub_0802F04C(Entity* this) {
                 return;
             }
             break;
-        default:
+        default: // LEFT
             if (((oldX & 0xf) >= 9) && ((this->x.HALF.HI & 0xf) < 9)) {
                 this->timer--;
                 oldX = (this->x.HALF.HI & 0xfff0) + 8;

@@ -117,7 +117,7 @@ void sub_08045524(Entity* this) {
 
     this->zVelocity = Q_16_16(1.75);
     tmp = sub_0804A024(this, 1, 8);
-    if (tmp != 0xff && (Random() & 3) == 0) {
+    if (tmp != DIR_NONE && (Random() & 3) == 0) {
         this->timer = Random() & 3;
         this->direction = DirectionRound(tmp);
     } else {

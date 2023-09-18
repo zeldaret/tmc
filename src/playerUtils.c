@@ -1490,7 +1490,7 @@ bool32 CheckQueuedAction(void) {
 // this doesnt seem to have any real function where its used
 void CheckPlayerVelocity(void) {
     u32 angle = gPlayerState.direction;
-    if ((angle & 0x80) != 0) {
+    if ((angle & DIR_NOT_MOVING_CHECK) != 0) {
         ResetPlayerVelocity();
     } else {
         gPlayerState.vel_x = gSineTable[angle * 8];
@@ -1753,7 +1753,7 @@ code_3:
 
 void sub_08079520(Entity* this) {
     s32 tmp = gPlayerState.direction;
-    if (tmp < 0x80) {
+    if (tmp < DIR_NOT_MOVING_CHECK) {
         this->direction = gPlayerState.direction;
     } else {
         this->direction = (this->animationState >> 1) << 3;
@@ -1774,7 +1774,7 @@ bool32 sub_08079550(void) {
     if (gDiggingCaveEntranceTransition.isDiggingCave == 0) {
         if ((gPlayerState.dash_state == 0 || (gPlayerState.flags & PL_BURNING)) &&
             (gPlayerState.swim_state != 0 || (gPlayerState.sword_state & 0x40) ||
-             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & 0x80))) {
+             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & DIR_NOT_MOVING_CHECK))) {
             gPlayerEntity.subtimer = 0;
             return FALSE;
         }
@@ -2072,8 +2072,8 @@ bool32 sub_08079B24(void) {
                         }
                         if ((gPlayerState.jump_status & 0x41) == 0) {
                             gPlayerState.jump_status = 0x41;
-                            gPlayerEntity.direction = 0xff;
-                            gPlayerState.direction = 0xff;
+                            gPlayerEntity.direction = DIR_NONE;
+                            gPlayerState.direction = DIR_NONE;
                             return TRUE;
                         } else {
                             return TRUE;
@@ -2660,7 +2660,7 @@ bool32 sub_0807AC54(Entity* this) {
             this->action = 0x1d;
             this->subAction = 0;
             this->y.HALF.LO = 0;
-            gPlayerState.animation = ANIM_CLIMB;
+            gPlayerState.animation = ANIM_CLIMB1_UP;
             return TRUE;
         case SURFACE_AUTO_LADDER:
             this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
@@ -2750,7 +2750,7 @@ void PlayerUpdateSwimming(Entity* this) {
         ModHealth(-2);
         SoundReq(SFX_PLY_VO6);
     }
-    if ((this->direction & 0x80) != 0) {
+    if (this->direction & DIR_NOT_MOVING_CHECK) {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
             CreateRandomWaterTrace(this, 4);
         }
@@ -2825,15 +2825,15 @@ u32 GetSwordBeam(void) {
 }
 
 void sub_0807B068(Entity* entity) {
-    if ((gPlayerState.dash_state | gPlayerState.attack_status) == 0) {
-        if (gPlayerState.swim_state != 0) {
-            if ((gPlayerState.swim_state & 0x80) != 0) {
-                gPlayerState.animation = ANIM_C1C;
+    if (!(gPlayerState.dash_state | gPlayerState.attack_status)) {
+        if (gPlayerState.swim_state) {
+            if (gPlayerState.swim_state & 0x80) {
+                gPlayerState.animation = ANIM_DIVE_MINISH;
             } else {
                 gPlayerState.animation = ANIM_SWIM_MINISH;
             }
         } else {
-            if ((gPlayerState.direction & 0x80) != 0) {
+            if (gPlayerState.direction & DIR_NOT_MOVING_CHECK) {
                 if (gPlayerState.animation != ANIM_BOUNCE_MINISH) {
                     gPlayerState.animation = ANIM_BOUNCE_MINISH;
                 }

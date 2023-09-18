@@ -220,7 +220,7 @@ void sub_08075738(ItemBehavior* this, u32 index) {
         }
 
         if ((gPlayerState.sword_state & 0x10) != 0) {
-            if ((gPlayerState.direction & 0x80) == 0) {
+            if (!(gPlayerState.direction & DIR_NOT_MOVING_CHECK)) {
                 this->direction = gPlayerState.direction;
             }
             gPlayerEntity.direction = this->direction;

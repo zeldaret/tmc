@@ -509,7 +509,7 @@ void sub_0803A8B8(Entity* this) {
 
     this->action = 0x10;
     this->timer = 30;
-    this->direction = 0;
+    this->direction = DirectionNorth;
     this->speed = 0x80;
 
     ptr = gUnk_080CED6C;
@@ -553,7 +553,7 @@ void sub_0803A978(Entity* this) {
         sub_08004596(this, 0x10);
     }
     LinearMoveUpdate(this);
-    if (this->direction == 0x10) {
+    if (this->direction == DirectionSouth) {
         this->action = 0x12;
         this->timer = 3;
         COLLISION_OFF(this);

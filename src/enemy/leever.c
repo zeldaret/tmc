@@ -73,7 +73,7 @@ void Leever_Idle(Entity* this) {
         if (Leever_PlayerInRange(this, Random() & 0x1f)) {
             this->action = 2;
             this->spriteSettings.draw = TRUE;
-            this->direction = (GetFacingDirection(this, gUnk_020000B0) + gLeeverDrift[Random() & 1]) & 0x1f;
+            this->direction = (GetFacingDirection(this, gUnk_020000B0) + gLeeverDrift[Random() & 1]) & (0x3 | DirectionNorthWest);
             InitializeAnimation(this, LeeverAnimation_DigUp);
             UpdateSpriteForCollisionLayer(this);
         } else {

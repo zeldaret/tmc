@@ -271,7 +271,7 @@ void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     SetTile(0x4022, unk_1, this->collisionLayer);
     this->timer = 7;
     this->spriteSettings.draw = 1;
-    this->direction = (unk_0 << 3) ^ 0x10;
+    this->direction = (unk_0 << 3) ^ DirectionSouth;
     tmp = &gUnk_0811F688[unk_0];
     if (this->type2 != 2) {
         this->x.HALF.HI += tmp->x;
