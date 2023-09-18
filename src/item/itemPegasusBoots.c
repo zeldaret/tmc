@@ -14,7 +14,7 @@ void sub_08076A88(ItemBehavior*, u32);
 extern u16 gUnk_0800275C[];
 extern u8 gUnk_0811BE38[];
 
-void ItemPegasusBoots(ItemBehavior* this, u32 index) {
+void ItemPegasusBoots(ItemBehavior * this, u32 index) {
     static void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior* beh, u32) = {
         sub_080768F8,
         sub_08076964,
