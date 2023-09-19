@@ -1461,7 +1461,7 @@ static void PlayerPushEnd(Entity* this) {
     // Final push?
     this->subtimer = 6;
     if ((gPlayerState.flags & PL_MINISH) == 0) {
-        gPlayerState.animation = ANIM_DOOR;
+        gPlayerState.animation = ANIM_WALK;
         this->spriteIndex = 3;
         InitAnimationForceUpdate(this, (this->animationState >> 1) + 0x3c);
     }
@@ -1790,9 +1790,9 @@ static void sub_08072100(Entity* this) {
         this->direction = DIR_NONE;
 
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = ANIM_DOOR_NOCAP;
+        gPlayerState.animation = ANIM_WALK_NOCAP;
     } else {
-        gPlayerState.animation = ANIM_DOOR;
+        gPlayerState.animation = ANIM_WALK;
     }
     ResetActiveItems();
     sub_08072168(this);
@@ -1988,7 +1988,7 @@ static void sub_080724DC(Entity* this) {
             if (gPlayerState.flags & PL_MINISH) {
                 gPlayerState.animation = ANIM_BOUNCE_MINISH;
             } else {
-                gPlayerState.animation = ANIM_DOOR;
+                gPlayerState.animation = ANIM_WALK;
             }
             this->direction = Direction8FromAnimationState(this->animationState);
         }
@@ -2602,9 +2602,9 @@ static void sub_080731D8(Entity* this) {
         SetZeldaFollowTarget(this);
     }
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = ANIM_DOOR_NOCAP;
+        gPlayerState.animation = ANIM_WALK_NOCAP;
     } else {
-        gPlayerState.animation = ANIM_DOOR;
+        gPlayerState.animation = ANIM_WALK;
     }
     gRoomControls.camera_target = NULL;
     DeleteClones();
@@ -3851,9 +3851,9 @@ void sub_08074D34(Entity* this, ScriptExecutionContext* ctx) {
                 break;
             case 0x2:
                 if (gPlayerState.flags & PL_NO_CAP)
-                    gPlayerState.animation = ANIM_DOOR_NOCAP;
+                    gPlayerState.animation = ANIM_WALK_NOCAP;
                 else
-                    gPlayerState.animation = ANIM_DOOR;
+                    gPlayerState.animation = ANIM_WALK;
                 break;
             case 0x4:
                 break;

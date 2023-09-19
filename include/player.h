@@ -284,7 +284,7 @@ typedef enum {
 
 typedef enum {
     ANIM_DEFAULT = 0x100,
-    ANIM_DOOR = 0x104,
+    ANIM_WALK = 0x104,
     ANIM_BOUNCE = 0x114,
     ANIM_SHIELD = 0x160,
     ANIM_SHIELD_END = 0x164,
@@ -337,7 +337,7 @@ typedef enum {
     ANIM_EZLO_EYES_MIDDLE = 0x3cc,
     ANIM_EZLO_LEAVE_RIGHT = 0x3cd,
     ANIM_DEFAULT_NOCAP = 0x400,
-    ANIM_DOOR_NOCAP = 0x404,
+    ANIM_WALK_NOCAP = 0x404,
     ANIM_SHIELD_NOCAP = 0x410,
     ANIM_SHIELD_END_NOCAP = 0x414,
     ANIM_PORTAL_LEAVE_NOCAP = 0x41c,

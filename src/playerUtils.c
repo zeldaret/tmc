@@ -1578,8 +1578,8 @@ void sub_08079064(Entity* this) {
         } else if ((gPlayerState.swim_state & 0x80) != 0) {
             gPlayerState.animation = ANIM_DIVE;
         } else {
-            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_DOOR ||
-                gPlayerState.animation == ANIM_DOOR_NOCAP) {
+            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_WALK ||
+                gPlayerState.animation == ANIM_WALK_NOCAP) {
                 sub_080790E4(this);
             }
         }
@@ -1881,7 +1881,7 @@ void sub_080797EC(void) {
                     if (gPlayerState.framestate == PL_STATE_IDLE) {
                         gPlayerState.framestate = PL_STATE_WALK;
                     }
-                    animation = ANIM_DOOR_NOCAP;
+                    animation = ANIM_WALK_NOCAP;
                 } else {
                     animation = ANIM_SWORD_CHARGE;
                     if (sub_080793E4(0)) {
@@ -1931,7 +1931,7 @@ void sub_080797EC(void) {
                     if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
                         animation = ANIM_LANTERN;
                     } else {
-                        animation = ANIM_DOOR;
+                        animation = ANIM_WALK;
                     }
                 }
             }
