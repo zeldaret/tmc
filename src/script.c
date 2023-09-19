@@ -1598,9 +1598,9 @@ void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = ANIM_PORTAL_LEAVE_NOCAP;
+        gPlayerState.animation = ANIM_HOP_NOCAP;
     } else {
-        gPlayerState.animation = ANIM_PORTAL_LEAVE;
+        gPlayerState.animation = ANIM_HOP;
     }
 }
 

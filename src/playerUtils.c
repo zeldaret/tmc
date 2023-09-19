@@ -495,7 +495,7 @@ Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
 }
 
 void sub_08077D38(ItemBehavior* this, u32 index) {
-    u32 r6;
+    u32 anim;
     ItemDefinition* ptr;
 
     gPlayerState.field_0xa |= 8 >> index;
@@ -510,16 +510,16 @@ void sub_08077D38(ItemBehavior* this, u32 index) {
         if ((gPlayerState.flags & PL_NO_CAP)) {
             switch (this->behaviorId) {
                 case 0x1b:
-                    r6 = 0x948;
+                    anim = ANIM_GRAB_NOCAP;
                     break;
                 case 1:
-                    r6 = 0x408;
+                    anim = ANIM_SWORD_NOCAP;
                     break;
                 case 0xd:
-                    r6 = 0x40c;
+                    anim = ANIM_SHIELD_PULLOUT_NOCAP;
                     break;
             }
-            SetItemAnim(this, r6);
+            SetItemAnim(this, anim);
         } else {
             SetItemAnim(this, ptr->frameIndex);
         }
@@ -588,8 +588,8 @@ void DeleteItemBehavior(ItemBehavior* this, u32 index) {
 }
 
 bool32 sub_08077EC8(ItemBehavior* this) {
-    if ((gPlayerState.sword_state & 8) != 0) {
-        SetItemAnim(this, 0x170);
+    if (gPlayerState.sword_state & 8) {
+        SetItemAnim(this, ANIM_SWORD_CHARGE_BUMP);
         this->timer = 0x28;
         this->stateID = 7;
         this->animPriority = 6;
@@ -1868,12 +1868,12 @@ void sub_080797EC(void) {
         if (gPlayerState.heldObject != 0) {
             animation = ANIM_CARRY_NOCAP;
         } else if (gPlayerState.shield_status != 0) {
-            animation = ANIM_SHIELD_NOCAP;
+            animation = ANIM_SHIELD_WALK_NOCAP;
         } else if (gPlayerState.bow_state == 0) {
             if (gPlayerState.swim_state != 0) {
-                animation = ANIM_SWIM;
+                animation = ANIM_SWIM_MOVE;
             } else {
-                animation = ANIM_SWORD_CHARGE;
+                animation = ANIM_SWORD_CHARGE_WALK;
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
@@ -1883,7 +1883,7 @@ void sub_080797EC(void) {
                     }
                     animation = ANIM_WALK_NOCAP;
                 } else {
-                    animation = ANIM_SWORD_CHARGE;
+                    animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
                         if (sub_080B1B44(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
@@ -1893,7 +1893,7 @@ void sub_080797EC(void) {
                 }
             }
         } else {
-            animation = ANIM_BOW;
+            animation = ANIM_BOW_WALK;
         }
     } else {
         if (gPlayerState.field_0x1c != 0) {
@@ -1905,19 +1905,19 @@ void sub_080797EC(void) {
         } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
             animation = ANIM_MINECART;
         } else if (gPlayerState.shield_status != 0) {
-            animation = ANIM_SHIELD;
+            animation = ANIM_SHIELD_WALK;
         } else if (gPlayerState.bow_state != 0) {
-            animation = ANIM_BOW;
+            animation = ANIM_BOW_WALK;
         } else {
             if (gPlayerState.swim_state != 0) {
-                animation = ANIM_SWIM;
+                animation = ANIM_SWIM_MOVE;
             } else {
-                animation = ANIM_SWORD_CHARGE;
+                animation = ANIM_SWORD_CHARGE_WALK;
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
                 } else if (gPlayerState.sword_state != 0) {
-                    animation = ANIM_SWORD_CHARGE;
+                    animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
                         if (sub_080B1B44(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
@@ -1931,6 +1931,7 @@ void sub_080797EC(void) {
                     if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
                         animation = ANIM_LANTERN;
                     } else {
+                        // Change to test animations I guess
                         animation = ANIM_WALK;
                     }
                 }
@@ -1950,7 +1951,7 @@ void ResolvePlayerAnimation(void) {
     u32 anim;
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         if (gPlayerState.heldObject != 0) {
-            anim = ANIM_CARRY_END_NOCAP;
+            anim = ANIM_CARRY_STAND_NOCAP;
         } else {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
@@ -1958,11 +1959,11 @@ void ResolvePlayerAnimation(void) {
             if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
                 anim = ANIM_JUMP;
             } else if (gPlayerState.shield_status != 0) {
-                anim = ANIM_SHIELD_END_NOCAP;
+                anim = ANIM_SHIELD_NOCAP;
             } else if (gPlayerState.bow_state != 0) {
-                anim = ANIM_BOW_END;
+                anim = ANIM_BOW_CHARGE;
             } else if (gPlayerState.swim_state != 0) {
-                anim = ANIM_SWIM_END;
+                anim = ANIM_SWIM_STILL;
             } else {
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     return;
@@ -1987,13 +1988,13 @@ void ResolvePlayerAnimation(void) {
                         anim = ANIM_DEFAULT_NOCAP;
                     }
                 } else {
-                    anim = ANIM_SWORD_CHARGE_END;
+                    anim = ANIM_SWORD_CHARGE;
                 }
             }
         }
     } else {
         if (gPlayerState.heldObject != 0) {
-            anim = ANIM_CARRY_END;
+            anim = ANIM_CARRY_STAND;
         } else {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
@@ -2005,13 +2006,13 @@ void ResolvePlayerAnimation(void) {
             } else if (gPlayerState.dash_state != 0) {
                 anim = ANIM_DASH;
             } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-                anim = ANIM_MINECART_END;
+                anim = ANIM_MINECART_PAUSE;
             } else if (gPlayerState.shield_status != 0) {
-                anim = ANIM_SHIELD_END;
+                anim = ANIM_SHIELD;
             } else if (gPlayerState.bow_state != 0) {
-                anim = ANIM_BOW_END;
+                anim = ANIM_BOW_CHARGE;
             } else if (gPlayerState.swim_state != 0) {
-                anim = ANIM_SWIM_END;
+                anim = ANIM_SWIM_STILL;
             } else {
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     return;
@@ -2020,7 +2021,7 @@ void ResolvePlayerAnimation(void) {
                     anim = (gArea.portal_type == PT_JAR) ? ANIM_IN_POT : ANIM_PORTAL;
                 } else {
                     if (gPlayerState.sword_state != 0) {
-                        anim = ANIM_SWORD_CHARGE_END;
+                        anim = ANIM_SWORD_CHARGE;
                     } else {
                         if (gPlayerState.attack_status != 0) {
                             return;
@@ -2029,7 +2030,7 @@ void ResolvePlayerAnimation(void) {
                             if (gActiveItems[ACTIVE_ITEM_LANTERN].animPriority != 0) {
                                 return;
                             }
-                            anim = ANIM_LANTERN_END;
+                            anim = ANIM_LANTERN_ON;
                         } else {
                             anim = ANIM_DEFAULT;
                         }

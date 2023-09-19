@@ -27,7 +27,7 @@ void sub_08077534(ItemBehavior* this, u32 index) {
     this->timer = gSave.stats.bottles[tmp - ITEM_BOTTLE1];
     switch (this->timer) {
         case ITEM_BOTTLE_EMPTY:
-            SetItemAnim(this, 0x614);
+            SetItemAnim(this, ANIM_BOTTLE_SWING);
             return;
         case ITEM_BOTTLE_BUTTER:
         case ITEM_BOTTLE_MILK:
@@ -43,22 +43,22 @@ void sub_08077534(ItemBehavior* this, u32 index) {
             this->stateID = 3;
             gPlayerEntity.animationState = 4;
             gPlayerEntity.spriteSettings.flipX = 0;
-            SetItemAnim(this, 0x2df);
+            SetItemAnim(this, ANIM_BOTTLE_DRINK);
             break;
         case BOTTLE_CHARM_NAYRU:
         case BOTTLE_CHARM_FARORE:
         case BOTTLE_CHARM_DIN:
         default:
             this->stateID = 3;
-            SetItemAnim(this, 0x610);
+            SetItemAnim(this, ANIM_BOTTLE_POUR);
             break;
     }
     gPlayerEntity.flags &= ~ENT_COLLIDE;
 }
 
 void sub_08077618(ItemBehavior* this, u32 index) {
-    if ((this->playerFrame & 0x80) != 0) {
-        SetItemAnim(this, 0x618);
+    if (this->playerFrame & 0x80) {
+        SetItemAnim(this, ANIM_BOTTLE_SWING_END);
         this->stateID++;
     } else {
         UpdateItemAnim(this);

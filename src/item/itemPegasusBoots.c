@@ -104,7 +104,7 @@ void sub_08076964(ItemBehavior* this, u32 index) {
             if (HasSwordEquipped() && (gPlayerState.flags & PL_MINISH) == 0 &&
                 (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
                 gPlayerState.lastSwordMove = SWORD_MOVE_DASH;
-                SetItemAnim(this, 0x298);
+                SetItemAnim(this, ANIM_DASH);
                 entity = CreatePlayerItemWithParent(this, PLAYER_ITEM_DASH_SWORD);
                 if (entity != NULL) {
                     if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != 0) {
@@ -115,8 +115,8 @@ void sub_08076964(ItemBehavior* this, u32 index) {
                     entity->field_0x68.HALF.LO = uVar3;
                     return;
                 }
-            } else if ((gPlayerState.flags & PL_MINISH) == 0) {
-                SetItemAnim(this, 0x104);
+            } else if (!(gPlayerState.flags & PL_MINISH)) {
+                SetItemAnim(this, ANIM_WALK);
                 return;
             } else {
                 gPlayerState.animation = ANIM_C10;

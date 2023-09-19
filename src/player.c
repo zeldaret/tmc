@@ -196,7 +196,7 @@ static EntityAction sub_08072F94;
 static EntityAction sub_08073094;
 
 // PLAYER_USEENTRANCE
-static EntityAction sub_080731D8;
+static EntityAction PlayerUseStairs;
 static EntityAction sub_080732D0;
 static EntityAction sub_0807332C;
 static EntityAction sub_080733BC;
@@ -396,7 +396,7 @@ static void PlayerNormal(Entity* this) {
         if ((this->animationState >> 1) + 92 == this->animIndex && (u16)this->spriteIndex == 2)
             UpdateAnimationSingleFrame(&gPlayerEntity);
         else
-            gPlayerState.animation = ANIM_TRAPPED_BY_GHINI;
+            gPlayerState.animation = ANIM_TRAPPED;
         sub_0806F948(&gPlayerEntity);
         ResetActiveItems();
         UpdateActiveItems(this);
@@ -981,7 +981,7 @@ static void sub_080712F0(Entity* this) {
             temp = TRUE;
     } else if ((this->frame & ANIM_DONE) != 0) {
         if (this->animIndex != 0xce)
-            gPlayerState.animation = ANIM_DROWN_END;
+            gPlayerState.animation = ANIM_DROWN_RESPAWN;
         else
             temp = TRUE;
     }
@@ -1080,7 +1080,7 @@ static void PortalStandUpdate(Entity* this) {
             this->action = PLAYER_MINISH;
             this->subAction = 7;
             this->subtimer = 0;
-            gPlayerState.animation = (gPlayerState.flags & PL_NO_CAP) ? ANIM_PORTAL_LEAVE_NOCAP : ANIM_PORTAL_LEAVE;
+            gPlayerState.animation = (gPlayerState.flags & PL_NO_CAP) ? ANIM_HOP_NOCAP : ANIM_HOP;
             gPlayerState.flags &= ~PL_USE_PORTAL;
             return;
         }
@@ -1460,7 +1460,7 @@ static void PlayerPushEnd(Entity* this) {
     PlayerWaitForScroll(this);
     // Final push?
     this->subtimer = 6;
-    if ((gPlayerState.flags & PL_MINISH) == 0) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
         gPlayerState.animation = ANIM_WALK;
         this->spriteIndex = 3;
         InitAnimationForceUpdate(this, (this->animationState >> 1) + 0x3c);
@@ -1664,7 +1664,7 @@ static void PlayerEmptyBottleInit(Entity* this) {
                 gPlayerState.animation = ANIM_BOTTLE_DRINK;
                 break;
             default:
-                gPlayerState.animation = ANIM_BOTTLE_EMPTY;
+                gPlayerState.animation = ANIM_BOTTLE_POUR;
                 SetInventoryValue(gPlayerState.field_0x38, 2);
                 break;
         }
@@ -1836,7 +1836,7 @@ static void sub_08072214(Entity* this) {
     this->timer = gPlayerState.field_0x38;
     this->direction = Direction8FromAnimationState(AnimationStateFlip180(this->animationState));
     if ((gPlayerState.flags & PL_NO_CAP) == 0) {
-        gPlayerState.animation = ANIM_PULL;
+        gPlayerState.animation = ANIM_PULL2;
     } else {
         gPlayerState.animation = ANIM_PULL_NOCAP;
     }
@@ -1851,7 +1851,7 @@ static void sub_08072260(Entity* this) {
     if (--this->timer == 0) {
         gPlayerState.flags &= ~PL_BUSY;
         if ((gPlayerState.flags & PL_NO_CAP) == 0) {
-            gPlayerState.animation = ANIM_PULL;
+            gPlayerState.animation = ANIM_PULL2;
         } else {
             gPlayerState.animation = ANIM_PULL_NOCAP;
         }
@@ -1945,7 +1945,7 @@ static void sub_08072454(Entity* this) {
 static void sub_0807246C(Entity* this) {
     this->subAction = 1;
     this->timer = gPlayerState.field_0x38;
-    gPlayerState.animation = ANIM_3C0;
+    gPlayerState.animation = ANIM_LAUNCHED;
     SoundReq(SFX_PLY_VO7);
 }
 
@@ -2202,7 +2202,7 @@ static void PlayerInHoleUpdate(Entity* this) {
             this->subAction = 3;
             this->timer = 40;
             this->spritePriority.b1 = 1;
-            gPlayerState.animation = ANIM_ROLL_IN_HOLE;
+            gPlayerState.animation = ANIM_SPRING_JUMP;
             return;
         }
 
@@ -2310,7 +2310,7 @@ static void sub_08072CC0(Entity* this) {
     this->subtimer = (gPlayerState.field_0x3a >> 2) + 1;
     this->direction = gPlayerState.field_0x39;
     this->speed = 0x400;
-    gPlayerState.animation = ANIM_524;
+    gPlayerState.animation = ANIM_GUSTJAR_524;
     gPlayerState.heldObject = 0;
 }
 
@@ -2561,7 +2561,7 @@ static void sub_08073094(Entity* this) {
 
 static void PlayerUseEntrance(Entity* this) {
     static EntityAction* const sPlayerUseEntranceStates[] = {
-        sub_080731D8,
+        PlayerUseStairs,
         sub_080732D0,
         sub_0807332C,
         sub_080733BC,
@@ -2572,7 +2572,7 @@ static void PlayerUseEntrance(Entity* this) {
     sPlayerUseEntranceStates[this->subAction](this);
 }
 
-static void sub_080731D8(Entity* this) {
+static void PlayerUseStairs(Entity* this) {
     COLLISION_OFF(this);
     this->speed = 0x40;
     this->animationState = IdleNorth;
@@ -2700,7 +2700,7 @@ static void PlayerParachute(Entity* this) {
 }
 
 static void sub_08073468(Entity* this) {
-    gPlayerState.animation = ANIM_PARACHUTE;
+    gPlayerState.animation = ANIM_PARACHUTE_ACTIVATE;
     gPlayerState.jump_status = 0;
     this->zVelocity = Q_16_16(-1.0);
     this->subAction++;
@@ -2730,7 +2730,7 @@ static void sub_08073504(Entity* this) {
         *((u32*)&this->field_0x80.HWORD) = this->direction << 8;
         this->field_0x86.HALF.HI = 0;
         this->field_0x86.HALF.LO = 0;
-        gPlayerState.animation = ANIM_PARACHUTE2;
+        gPlayerState.animation = ANIM_PARACHUTE;
         if (gPlayerState.field_0x38 == 1) {
             COLLISION_OFF(this);
             this->subAction = 6;
@@ -2960,13 +2960,13 @@ static void sub_08073968(Entity* this) {
     CheckPlayerVelocity();
     if ((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) {
         if (gPlayerState.flags & PL_NO_CAP) {
-            gPlayerState.animation = ANIM_PORTAL_LEAVE_NOCAP;
+            gPlayerState.animation = ANIM_HOP_NOCAP;
         } else {
             if ((gPlayerState.flags & PL_MINISH) == 0) {
                 if (gPlayerState.flags & PL_ENTER_MINECART) {
                     gPlayerState.animation = ANIM_JUMP;
                 } else {
-                    gPlayerState.animation = ANIM_PORTAL_LEAVE;
+                    gPlayerState.animation = ANIM_HOP;
                 }
             }
         }
@@ -3229,7 +3229,7 @@ static void sub_08073F4C(Entity* this) {
         *(u32*)&this->cutsceneBeh.HWORD = 1152;
         this->spriteRendering.b0 = 3;
         sub_08074018(this);
-        gPlayerState.animation = ANIM_73C;
+        gPlayerState.animation = ANIM_GROW;
     }
 }
 
@@ -3272,7 +3272,7 @@ static void sub_08074060(Entity* this) {
         this->subtimer = 0;
         this->subAction++;
         this->zVelocity = Q_16_16(2.0);
-        gPlayerState.animation = ANIM_PORTAL_LEAVE;
+        gPlayerState.animation = ANIM_HOP;
         sub_0805EC60(this);
     } else {
         UpdateAnimationSingleFrame(this);
@@ -3859,9 +3859,9 @@ void sub_08074D34(Entity* this, ScriptExecutionContext* ctx) {
                 break;
             case 0x8:
                 if (gPlayerState.flags & PL_NO_CAP)
-                    gPlayerState.animation = ANIM_PORTAL_LEAVE_NOCAP;
+                    gPlayerState.animation = ANIM_HOP_NOCAP;
                 else
-                    gPlayerState.animation = ANIM_PORTAL_LEAVE;
+                    gPlayerState.animation = ANIM_HOP;
                 this->zVelocity = Q_16_16(1.5);
                 break;
             case 0x10:
@@ -3972,9 +3972,9 @@ void sub_0807501C(Entity* this) {
     if (--this->timer == 0) {
         this->animationState = gPlayerState.field_0x3a;
         if (!gPlayerState.field_0x39) {
-            gPlayerState.animation = ANIM_PORTAL_LEAVE_NOCAP;
+            gPlayerState.animation = ANIM_HOP_NOCAP;
         } else {
-            gPlayerState.animation = ANIM_PORTAL_LEAVE;
+            gPlayerState.animation = ANIM_HOP;
         }
         this->spritePriority.b1 = 1;
         this->direction = Direction8FromAnimationState(this->animationState);
