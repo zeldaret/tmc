@@ -369,16 +369,16 @@ void sub_08029EEC(Entity* this) {
 
 void sub_08029F0C(Entity* this) {
     switch (this->direction >> 3) {
-        case 0:
+        case 0: // UP
             this->field_0x78.HWORD = this->y.HALF.HI - 0x10;
             break;
-        case 1:
+        case 1: // RIGHT
             this->field_0x78.HWORD = this->x.HALF.HI + 0x10;
             break;
-        case 2:
+        case 2: // DOWN
             this->field_0x78.HWORD = this->y.HALF.HI + 0x10;
             break;
-        case 3:
+        case 3: // LEFT
             this->field_0x78.HWORD = this->x.HALF.HI - 0x10;
             break;
     }
@@ -386,25 +386,25 @@ void sub_08029F0C(Entity* this) {
 
 bool32 sub_08029F48(Entity* this) {
     switch (this->direction >> 3) {
-        case 0:
+        case 0: // UP
             if (this->y.HALF.HI <= this->field_0x78.HWORD) {
                 this->y.HALF.HI = this->field_0x78.HWORD;
                 return TRUE;
             }
             break;
-        case 1:
+        case 1: // RIGHT
             if (this->x.HALF.HI >= this->field_0x78.HWORD) {
                 this->x.HALF.HI = this->field_0x78.HWORD;
                 return TRUE;
             }
             break;
-        case 2:
+        case 2: // DOWN
             if (this->y.HALF.HI >= this->field_0x78.HWORD) {
                 this->y.HALF.HI = this->field_0x78.HWORD;
                 return TRUE;
             }
             break;
-        case 3:
+        case 3: // LEFT
             if (this->x.HALF.HI <= this->field_0x78.HWORD) {
                 this->x.HALF.HI = this->field_0x78.HWORD;
                 return TRUE;

@@ -104,7 +104,7 @@ void sub_08075B54(ItemBehavior* this, u32 index) {
                         object->x.HALF.HI = tmp[0] + object->x.HALF.HI;
                         object->y.HALF.HI = tmp[1] + object->y.HALF.HI;
                     }
-                    SetItemAnim(this, 0x60c);
+                    SetItemAnim(this, ANIM_LANTERN_BURN);
                     bVar1 = (8 >> (index));
                     gPlayerState.field_0xa |= bVar1;
                     gPlayerState.keepFacing |= bVar1;

@@ -321,7 +321,7 @@ void UpdateRailMovement(Entity* this, u16** param_2, u16* param_3) {
             ptr = ptr + (u32)ptr[1] * -3;
         }
         if (*ptr == 0xff) {
-            this->direction = 0xff;
+            this->direction = DIR_NONE;
             this->speed = 0;
         } else {
             this->direction = (u8)*ptr;

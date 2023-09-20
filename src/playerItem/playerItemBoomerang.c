@@ -148,8 +148,9 @@ void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this) {
     bool32 uVar6;
 
     sub_0801B804(this);
-    if ((this->unk_68 == 12) && (this->unk_80 == 0) && ((gPlayerState.direction & 0x80) == 0)) {
-        if (((this->unk_82.HALF.HI - gPlayerState.direction) & 0x1f) > 0x10) {
+    if ((this->unk_68 == 12) && (this->unk_80 == 0) && !(gPlayerState.direction & DIR_NOT_MOVING_CHECK)) {
+        if (((this->unk_82.HALF.HI - gPlayerState.direction) &
+             (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest)) > DirectionSouth) {
             this->unk_82.HWORD += 0x40;
             this->unk_82.HALF.HI &= 0x1f;
             super->direction = this->unk_82.HALF.HI;

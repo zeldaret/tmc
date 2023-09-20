@@ -11,7 +11,7 @@
 
 typedef struct {
     Entity base;
-    u8 filler[0x1C];
+    u8 filler[28];
     MinecartData* minecartData;
 } MinecartEntity;
 

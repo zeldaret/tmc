@@ -561,7 +561,7 @@ void sub_0803473C(Entity* this) {
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
         }
-        this->direction = 8;
+        this->direction = DirectionEast;
     } else {
         if (playerX + 4 >= this->x.HALF.HI) {
             return;
@@ -569,7 +569,7 @@ void sub_0803473C(Entity* this) {
         if (roomX + 0x90 > this->x.HALF.HI) {
             return;
         }
-        this->direction = 0x18;
+        this->direction = DirectionWest;
     }
     LinearMoveUpdate(this);
 }
@@ -581,7 +581,7 @@ void sub_080347B4(Entity* this) {
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
         }
-        this->direction = 8;
+        this->direction = DirectionEast;
     } else {
         if (playerX + 4 >= this->x.HALF.HI) {
             return;
@@ -589,7 +589,7 @@ void sub_080347B4(Entity* this) {
         if (roomX + 0x90 > this->x.HALF.HI) {
             return;
         }
-        this->direction = 0x18;
+        this->direction = DirectionWest;
     }
     LinearMoveUpdate(this);
 }

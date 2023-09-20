@@ -888,7 +888,7 @@ void sub_080406A0(Entity* this) {
             this->direction = tmp + 0x1f;
         }
     }
-    this->direction &= 0x1f;
+    this->direction &= 0x3 | DirectionNorthWest;
     this->field_0x86.HALF.LO = uVar5;
 }
 
@@ -974,7 +974,7 @@ void sub_08040770(Entity* this) {
             this->direction = tmp3 + 0x1F;
         }
     }
-    this->direction &= 0x1F;
+    this->direction &= 0x3 | DirectionNorthWest;
     this->field_0x86.HALF.LO = tmp2;
 }
 

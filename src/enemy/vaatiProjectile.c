@@ -187,7 +187,7 @@ void VaatiProjectileFunction0Action5(Entity* this) {
 void VaatiProjectileFunction0Action6(Entity* this) {
     if (--this->timer == 0) {
         this->action = 7;
-        this->direction = 0x10;
+        this->direction = DirectionSouth;
         this->speed = 0x300;
     }
     sub_0803E444(this);

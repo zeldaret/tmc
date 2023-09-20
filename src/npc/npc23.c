@@ -206,12 +206,12 @@ void sub_08066570(Entity* this) {
     direction = GetFacingDirection(this, &gPlayerEntity);
     cond = TRUE;
 
-    dir2 = (direction & 0x18);
-    dir1 = (this->direction & 0x18);
-    tmp = 0x18;
+    dir2 = (direction & DirectionWest);
+    dir1 = (this->direction & DirectionWest);
+    tmp = DirectionWest;
     if (dir1 == dir2) {
-        dir1 = (direction + 5) & 7;
-        dir2 = (this->direction + 5) & 7;
+        dir1 = (direction + 5) & (0x3 | DirectionNorthEast);
+        dir2 = (this->direction + 5) & (0x3 | DirectionNorthEast);
         if (dir2 < 3 && dir1 < 3) {
             cond = FALSE;
         }

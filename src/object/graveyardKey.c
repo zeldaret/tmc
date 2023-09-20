@@ -90,10 +90,10 @@ void GraveyardKey_Init(Entity* this, const struct_gUnk_08123FB0* param_2) {
     this->y.HALF.HI -= param_2->y;
     this->z.WORD = 0;
     this->timer = param_2->timer;
-    if ((this->direction & 0x80)) {
+    if ((this->direction & DIR_NOT_MOVING_CHECK)) {
         dir = this->direction;
-        if (dir == 0x81) {
-            this->direction = (((gPlayerEntity.animationState * 4 + (Random() & 3)) - 2) & 0x1f) ^ 0x10;
+        if (dir == (DIR_NOT_MOVING_CHECK | 0x1)) {
+            this->direction = (((gPlayerEntity.animationState * 4 + (Random() & 3)) - 2) & 0x1f) ^ DirectionSouth;
         }
     }
     UpdateSpriteForCollisionLayer(this);

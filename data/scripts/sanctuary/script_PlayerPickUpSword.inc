@@ -1,7 +1,7 @@
 @ Player at Sanctuary pick up sword
 SCRIPT_START script_PlayerPickUpSword
 	PlaySound SFX_1D3
-	CallWithArg SetPlayerAnimation2, 0x000008bf
+	CallWithArg SetPlayerAnimation2, ANIM_GET_NEW_SWORD
 	Call sub_08096028
 	Wait 0x003c
 	SetSyncFlag 0x00020000

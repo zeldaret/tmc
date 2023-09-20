@@ -36,7 +36,7 @@ void sub_08076E60(ItemBehavior* this, u32 index) {
     }
     if ((this->playerFrame & 0x80) != 0) {
         this->stateID = 2;
-        SetItemAnim(this, 0x504);
+        SetItemAnim(this, ANIM_GUSTJAR_SUCK);
         gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> index);
         playerItem = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
         if (playerItem != NULL) {
@@ -64,12 +64,12 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
         }
 
         if (gPlayerEntity.subAction == 0x1b) {
-            animIndex = 0x524;
+            animIndex = ANIM_GUSTJAR_524;
         } else {
-            if (gPlayerState.direction & 0x80) {
-                animIndex = 0x504;
+            if (gPlayerState.direction & DIR_NOT_MOVING_CHECK) {
+                animIndex = ANIM_GUSTJAR_SUCK;
             } else {
-                animIndex = 0x518;
+                animIndex = ANIM_GUSTJAR_WALK;
             }
         }
 
@@ -100,7 +100,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                     gPlayerState.field_0x1c = 1;
                     gPlayerState.field_0xa &= ~(8 >> index);
                     this->stateID = 2;
-                    SetItemAnim(this, 0x504);
+                    SetItemAnim(this, ANIM_GUSTJAR_SUCK);
                     item = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
                     if (item) {
                         item->parent = player;
@@ -108,7 +108,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                     return;
                 } else {
                     gPlayerState.field_0x1c = 6;
-                    SetItemAnim(this, 0x510);
+                    SetItemAnim(this, ANIM_GUSTJAR_END);
                     return;
                 }
             } else {
@@ -155,7 +155,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                 return;
             break;
         case 7:
-            SetItemAnim(this, 0x514);
+            SetItemAnim(this, ANIM_GUSTJAR_BLOW);
             gPlayerState.field_0x1c = 3;
             gPlayerState.gustJarSpeed = 0;
             return;
@@ -163,7 +163,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
         case 2:
         default:
             gPlayerState.field_0x1c = 3;
-            SetItemAnim(this, 0x514);
+            SetItemAnim(this, ANIM_GUSTJAR_BLOW);
             return;
         case 0:
             break;

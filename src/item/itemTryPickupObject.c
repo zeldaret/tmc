@@ -25,9 +25,9 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
 
     this->field_0x18 = param_2;
     if ((gPlayerState.flags & PL_NO_CAP)) {
-        SetItemAnim(this, 0x928);
+        SetItemAnim(this, ANIM_PICKUP_NOCAP);
     } else {
-        SetItemAnim(this, 0x338);
+        SetItemAnim(this, ANIM_PICKUP);
     }
     gPlayerState.heldObject = 3;
     gPlayerState.framestate = 4;
@@ -108,12 +108,12 @@ void ItemPickupCheck(ItemBehavior* this, u32 index) {
                 this->animPriority = 6;
                 gPlayerState.field_0xa = (8 >> index) | gPlayerState.field_0xa;
                 gPlayerState.keepFacing = (8 >> index) | gPlayerState.keepFacing;
-                if ((gPlayerState.flags & PL_NO_CAP) == 0) {
-                    SetItemAnim(this, 0x378);
+                if (!(gPlayerState.flags & PL_NO_CAP)) {
+                    SetItemAnim(this, ANIM_GRAB);
                 } else {
-                    SetItemAnim(this, 0x948);
+                    SetItemAnim(this, ANIM_GRAB_NOCAP);
                 }
-                SoundReq(SFX_88);
+                SoundReq(SFX_GRAB);
                 break;
             default:
                 break;
@@ -172,10 +172,10 @@ void sub_08076518(ItemBehavior* this, u32 index) {
                     this->field_0x18 = NULL;
                     this->stateID++;
                     this->animPriority = 0x0f;
-                    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-                        SetItemAnim(this, 0x930);
+                    if (gPlayerState.flags & PL_NO_CAP) {
+                        SetItemAnim(this, ANIM_THROW_NOCAP);
                     } else {
-                        SetItemAnim(this, 0x344);
+                        SetItemAnim(this, ANIM_THROW);
                     }
                     gPlayerState.field_0xa |= 8 >> index;
                     gPlayerState.keepFacing |= 8 >> index;

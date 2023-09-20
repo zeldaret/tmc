@@ -264,7 +264,7 @@ void sub_080AC6F0(Entity* this) {
     u32 uVar4;
     u32 tmp;
 
-    uVar4 = this->direction & 0x1f;
+    uVar4 = this->direction & (0x3 | DirectionNorthWest);
     uVar1 = this->direction >> 5;
     iVar3 = uVar1 * 3;
     tmp = gUnk_0812A9C0[this->animationState] - uVar1 * 3;

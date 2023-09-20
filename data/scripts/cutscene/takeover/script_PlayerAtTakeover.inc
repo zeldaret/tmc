@@ -7,11 +7,11 @@ SCRIPT_START script_PlayerAtTakeover
 	_0807EDD4 0x0168, 0x0058
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
-	CallWithArg SetPlayerAnimation2, 0x000003c5
+	CallWithArg SetPlayerAnimation2, ANIM_EZLO_SEARCH
 	Call WaitForPlayerAnim
 	MessageFromTargetPos TEXT_VAATI, 0x18, 0x000c
 	WaitUntilTextboxCloses
-	CallWithArg SetPlayerAnimation2, 0x000003c9
+	CallWithArg SetPlayerAnimation2, ANIM_EZLO_LEAVE_LEFT
 	Call WaitForPlayerAnim
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000

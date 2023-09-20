@@ -74,7 +74,7 @@ void sub_0804468C(Entity* this) {
         case 0:
             this->action = 1;
             this->timer = 1;
-            this->direction = (this->field_0x78.HALF.HI * 8) & 0x1f;
+            this->direction = (this->field_0x78.HALF.HI * 8) & (0x3 | DirectionNorthWest);
             this->field_0x78.HALF.LO = 0;
             this->field_0x82.HALF.HI = 0;
             this->spriteSettings.draw = 0;
@@ -123,7 +123,7 @@ void sub_0804474C(Entity* this) {
         if (--this->timer == 0) {
             this->timer = 2;
             this->direction++;
-            this->direction &= 0x1f;
+            this->direction &= 0x3 | DirectionNorthWest;
         }
         LinearMoveUpdate(this);
         UpdateAnimationSingleFrame(this);
@@ -253,7 +253,7 @@ void sub_080449F8(Entity* this) {
 
             this->timer = 4;
             this->direction++;
-            this->direction &= 0x1f;
+            this->direction &= 0x3 | DirectionNorthWest;
             if (vaati->field_0x80.HALF.LO == 0)
                 vaati->field_0x74.HALF.LO = 1;
             break;
@@ -266,9 +266,9 @@ void sub_080449F8(Entity* this) {
                     }
                     break;
                 case 1:
-                    this->direction = (this->direction + 0x10) & 0x1f;
+                    this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
                     LinearMoveUpdate(this);
-                    this->direction = (this->direction + 0x10) & 0x1f;
+                    this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
                     this->timer = 2;
                     break;
                 case 3:
@@ -324,7 +324,7 @@ void sub_08044B04(Entity* this) {
                     if (--this->timer == 0) {
                         this->timer = this->field_0x78.HALF.LO ? 4 : 2;
                         this->direction++;
-                        this->direction &= 0x1f;
+                        this->direction &= 0x3 | DirectionNorthWest;
                     }
                     if (--this->subtimer == 0) {
                         if (this->timer != 2) {
@@ -346,11 +346,11 @@ void sub_08044B04(Entity* this) {
                 case 1:
                     if (--this->timer == 0) {
                         this->timer = 6;
-                        this->direction = (this->direction + 1) & 0x1f;
+                        this->direction = (this->direction + 1) & (0x3 | DirectionNorthWest);
                         if (++this->subtimer == 0x30) {
                             u32 direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                             this->speed = 0;
-                            this->direction = (direction + 16) & 0x1f;
+                            this->direction = (direction + 16) & (0x3 | DirectionNorthWest);
                             this->timer = 16;
                             this->subtimer = 16;
                             this->field_0x74.HALF.LO++;
@@ -485,18 +485,18 @@ void sub_08044E74(Entity* this, u32 state) {
     switch (state) {
         case 2:
             this->action = 2;
-            this->direction += 0x18;
-            this->direction &= 0x1f;
+            this->direction += DirectionWest;
+            this->direction &= 0x3 | DirectionNorthWest;
             PositionRelative(this->parent, this, 0, Q_16_16(-16.0));
             this->speed = 12288;
             LinearMoveUpdate(this);
-            this->direction += 0x8;
-            this->direction &= 0x1f;
+            this->direction += DirectionEast;
+            this->direction &= 0x3 | DirectionNorthWest;
             this->speed = 1280;
             LinearMoveUpdate(this);
             break;
         case 1:
-            this->direction = (this->direction + 8) & 0x1f;
+            this->direction = (this->direction + 8) & (0x3 | DirectionNorthWest);
             break;
         case 0:
             if (this->field_0x78.HALF.LO) {
@@ -507,9 +507,9 @@ void sub_08044E74(Entity* this, u32 state) {
                         } while (this->timer-- != 3);
                         break;
                     case 1:
-                        this->direction = (this->direction + 0x10) & 0x1f;
+                        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
                         LinearMoveUpdate(this);
-                        this->direction = (this->direction + 0x10) & 0x1f;
+                        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
                         break;
                 }
             } else {

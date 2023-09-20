@@ -103,7 +103,7 @@ void VaatiRebornEnemyType0Action0(Entity* this) {
         this->timer = 0;
         this->field_0x76.HALF.LO = 0;
         this->spriteSettings.draw = 1;
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
         this->spritePriority.b0 = 4;
         this->z.WORD = 0;
         this->field_0x80.HALF.LO = 2;
@@ -149,12 +149,12 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                         this->action = 2;
                         this->field_0x74.HALF.LO = 0;
                         this->timer = 16;
-                        this->direction = 0xff;
+                        this->direction = DIR_NONE;
                     } else {
                         if ((this->field_0x86.HALF.LO != 0) || (this->field_0x80.HALF.LO != 0)) {
-                            this->direction = ((Random() & 0x80) >> 3) | 8;
+                            this->direction = ((Random() & 0x80) >> 3) | DirectionEast;
                         } else {
-                            this->direction = 0xff;
+                            this->direction = DIR_NONE;
                         }
                     }
                 } else {
@@ -165,7 +165,7 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                 this->field_0x74.HALF.HI = this->field_0x74.HALF.LO & 0x80;
                 this->field_0x74.HALF.LO = 0;
                 this->timer = 192;
-                this->direction = 0xff;
+                this->direction = DIR_NONE;
                 this->spriteSettings.draw = 1;
                 InitAnimationForceUpdate(this, 0);
             }
@@ -176,7 +176,7 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                 case 0:
                     this->action = 4;
                     this->timer = 160;
-                    this->direction = 0xff;
+                    this->direction = DIR_NONE;
                     this->cutsceneBeh.HALF.LO = 0xff;
                     InitAnimationForceUpdate(this, 1);
                     break;
@@ -184,21 +184,21 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                     this->action = 6;
                     this->field_0x74.HALF.LO = 0;
                     this->timer = 0;
-                    this->direction = 0xff;
+                    this->direction = DIR_NONE;
                     break;
                 case 3:
                     this->action = 5;
                     this->field_0x74.HALF.LO = 0;
                     this->subtimer = 32;
-                    this->direction = 0xff;
+                    this->direction = DIR_NONE;
                     break;
                 case 2:
                     this->field_0x74.HALF.LO = 0;
                     this->timer = 32;
                     if ((this->field_0x86.HALF.LO != 0) || (this->field_0x80.HALF.LO != 0)) {
-                        this->direction = ((Random() & 0x80) >> 3) | 8;
+                        this->direction = ((Random() & 0x80) >> 3) | DirectionEast;
                     } else {
-                        this->direction = 0xff;
+                        this->direction = DIR_NONE;
                     }
                     break;
             }
@@ -340,7 +340,7 @@ void VaatiRebornEnemyType0Action4(Entity* this) {
         this->action = 1;
         this->cutsceneBeh.HALF.LO = 0xff;
         this->timer = 1;
-        this->direction = (this->direction + 0x10) & 0x1f;
+        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
         InitAnimationForceUpdate(this, 0);
     } else {
         if ((this->frame & 0x10) != 0) {
@@ -369,7 +369,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
     if (this->field_0x80.HALF.LO == 0) {
         this->action = 1;
         this->timer = 1;
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
         InitAnimationForceUpdate(this, 0);
         return;
     }
@@ -394,7 +394,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
                     this->field_0x86.HALF.HI++;
                     this->subtimer = (Random() & 0x3f) + 64;
                     uVar3 = GetFacingDirection(this, &gPlayerEntity);
-                    this->direction = (uVar3 & 0x10) | 8;
+                    this->direction = (uVar3 & 0x10) | DirectionEast;
                 } else {
                     this->field_0x74.HALF.LO++;
                     this->field_0x86.HALF.HI = 0;
@@ -408,7 +408,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
                 this->action = 1;
                 this->field_0x74.HALF.LO = 0;
                 this->timer = 1;
-                this->direction = 0xff;
+                this->direction = DIR_NONE;
             }
             break;
     }
@@ -557,7 +557,7 @@ void VaatiRebornEnemyType2Action0(Entity* this) {
     this->field_0x74.HALF.LO = 1;
     this->field_0x74.HALF.HI = 0;
     this->spriteOffsetY = -2;
-    this->direction = 0xff;
+    this->direction = DIR_NONE;
     PositionRelative(source, this, 0, Q_16_16(2.0));
     InitAnimationForceUpdate(this, 2);
 }
@@ -601,7 +601,7 @@ void VaatiRebornEnemyType2Action1(Entity* this) {
 void VaatiRebornEnemyType3Action0(Entity* this) {
     this->action = 1;
     this->field_0x74.HALF.LO = 0;
-    this->direction = 0xff;
+    this->direction = DIR_NONE;
     this->spriteOffsetY = -1;
     InitAnimationForceUpdate(this, this->field_0x74.HALF.LO);
     sub_0803DC0C(this);
@@ -621,7 +621,7 @@ void VaatiRebornEnemyType3Action1(Entity* this) {
     } else {
         if (this->field_0x74.HALF.LO != 0) {
             this->field_0x74.HALF.LO = 0;
-            this->direction = 0xff;
+            this->direction = DIR_NONE;
             InitAnimationForceUpdate(this, 2);
         }
     }
@@ -855,7 +855,7 @@ void VaatiRebornEnemyType0PreAction(Entity* this) {
         this->field_0x7c = this->y;
     }
     if (this->field_0x76.HALF.LO == 0) {
-        if ((this->direction == 0xff) || sub_08049FA0(this)) {
+        if ((this->direction == DIR_NONE) || sub_08049FA0(this)) {
             if (this->field_0x80.HALF.LO == 0) {
                 this->animationState = (this->animationState + 1) & 3;
                 this->spriteOffsetX = gUnk_080D04D3[this->animationState];
@@ -863,7 +863,7 @@ void VaatiRebornEnemyType0PreAction(Entity* this) {
             return;
         }
         bVar1 = sub_08049EE4(this);
-        this->direction = (bVar1 & 0x10) | 8;
+        this->direction = (bVar1 & 0x10) | DirectionEast;
         this->field_0x76.HALF.LO = 0x10;
     } else {
         this->field_0x76.HALF.LO--;

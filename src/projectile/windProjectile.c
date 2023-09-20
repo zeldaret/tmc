@@ -24,7 +24,7 @@ void WindProjectile_Init(Entity* this) {
         InitializeAnimation(this, this->direction >> 3);
     } else {
         this->action = 2;
-        InitializeAnimation(this, this->direction >> 3 | 4);
+        InitializeAnimation(this, this->direction >> 3 | IdleSouth);
         EnqueueSFX(SFX_15F);
     }
 }
@@ -40,7 +40,7 @@ void WindProjectile_Action1(Entity* this) {
         } else {
             if (this->spriteSettings.draw == 1) {
                 CopyPosition(parent, this);
-                direction = (parent->direction + 4) & 0x18;
+                direction = (parent->direction + 4) & DirectionWest;
                 if (this->timer != 0) {
                     this->direction = direction;
                     this->animationState = direction >> 2;

@@ -79,7 +79,7 @@ void BusinessScrub_Action0(Entity* this) {
     this->field_0x78.HWORD = this->x.HALF.HI;
     this->field_0x7a.HWORD = this->y.HALF.HI;
     this->animationState = 0;
-    this->direction = 0x10;
+    this->direction = DirectionSouth;
     sub_08028E9C(this);
     if ((*(u8*)this->field_0x7c.WORD & 1) || CheckFlags(this->field_0x86.HWORD)) {
         this->action = 4;
@@ -455,8 +455,8 @@ void sub_080290FC(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
         if ((this->timer < 16) && ((this->timer & 1) == 0)) {
-            s32 sVar3 = ((this->direction & 0x10) != 0) ? -1 : 1;
-            if ((this->direction & 8) != 0) {
+            s32 sVar3 = (this->direction & DirectionSouth) ? -1 : 1;
+            if (this->direction & DirectionEast) {
                 this->x.HALF.HI += ((this->timer & 8) != 0) ? -sVar3 : sVar3;
             } else {
                 this->y.HALF.HI += ((this->timer & 8) != 0) ? sVar3 : -sVar3;

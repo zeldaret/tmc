@@ -383,7 +383,7 @@ void VaatiWrathType0Action7(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (gRoomControls.origin_y + 0x48 != this->y.HALF.HI) {
         this->speed = 0x100;
-        this->direction = ((gRoomControls.origin_y + 0x48) >= this->y.HALF.HI) ? 0x10 : 0;
+        this->direction = ((gRoomControls.origin_y + 0x48) >= this->y.HALF.HI) ? DirectionSouth : DirectionNorth;
         LinearMoveUpdate(this);
     } else {
         if (--this->timer == 0) {
@@ -398,7 +398,7 @@ void VaatiWrathType0Action8(Entity* this) {
     LinearMoveUpdate(this);
     if (((gRoomControls.origin_x + 0x20) > this->x.HALF.HI) || ((gRoomControls.origin_x + 0x140) < this->x.HALF.HI)) {
         if (0x3f < this->speed) {
-            this->direction ^= 0x10;
+            this->direction ^= DirectionSouth;
         }
     }
     if (--this->timer == 0) {
@@ -451,7 +451,7 @@ void VaatiWrathType0ActionA(Entity* this) {
         if (this->field_0x7a.HALF.HI == 0xf0) {
             this->action = 0xb;
             this->subAction = 0;
-            this->direction = 0;
+            this->direction = DirectionNorth;
             this->speed = 0x100;
             this->zVelocity = Q_16_16(1.125);
             ChangeObjPalette(this, 0x16b);
@@ -521,7 +521,7 @@ void VaatiWrathType0ActionC(Entity* this) {
             if (this->z.HALF.HI < -4) {
                 this->subAction = 1;
                 this->timer = 120;
-                this->direction = 0x10;
+                this->direction = DirectionSouth;
                 this->speed = 0x80;
             }
             break;

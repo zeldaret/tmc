@@ -378,7 +378,7 @@ void ResetActiveItems() {
 
     gPlayerState.moleMittsState = 0;
     gPlayerState.field_0x1c = 0;
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     gPlayerState.grab_status = 0;
     gPlayerState.itemAnimPriority = 0;
     gPlayerState.dash_state = 0;
@@ -495,7 +495,7 @@ Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
 }
 
 void sub_08077D38(ItemBehavior* this, u32 index) {
-    u32 r6;
+    u32 anim;
     ItemDefinition* ptr;
 
     gPlayerState.field_0xa |= 8 >> index;
@@ -510,16 +510,16 @@ void sub_08077D38(ItemBehavior* this, u32 index) {
         if ((gPlayerState.flags & PL_NO_CAP)) {
             switch (this->behaviorId) {
                 case 0x1b:
-                    r6 = 0x948;
+                    anim = ANIM_GRAB_NOCAP;
                     break;
                 case 1:
-                    r6 = 0x408;
+                    anim = ANIM_SWORD_NOCAP;
                     break;
                 case 0xd:
-                    r6 = 0x40c;
+                    anim = ANIM_SHIELD_PULLOUT_NOCAP;
                     break;
             }
-            SetItemAnim(this, r6);
+            SetItemAnim(this, anim);
         } else {
             SetItemAnim(this, ptr->frameIndex);
         }
@@ -588,8 +588,8 @@ void DeleteItemBehavior(ItemBehavior* this, u32 index) {
 }
 
 bool32 sub_08077EC8(ItemBehavior* this) {
-    if ((gPlayerState.sword_state & 8) != 0) {
-        SetItemAnim(this, 0x170);
+    if (gPlayerState.sword_state & 8) {
+        SetItemAnim(this, ANIM_SWORD_CHARGE_BUMP);
         this->timer = 0x28;
         this->stateID = 7;
         this->animPriority = 6;
@@ -1043,15 +1043,15 @@ void DetermineRButtonInteraction(void) {
 }
 
 bool32 sub_080782C0(void) {
-    u8 tmp;
+    u8 framestate;
     Entity* entity;
 
     if (gPlayerState.framestate == PL_STATE_IDLE) {
-        tmp = gPlayerState.framestate_last;
+        framestate = gPlayerState.framestate_last;
     } else {
-        tmp = gPlayerState.framestate;
+        framestate = gPlayerState.framestate;
     }
-    switch (tmp) {
+    switch (framestate) {
         case PL_STATE_SWORD:
         case PL_STATE_GUSTJAR:
         case PL_STATE_C:
@@ -1363,7 +1363,7 @@ void ClearPlayerState(void) {
     gPlayerState.dash_state = 0;
     gPlayerState.field_0x1f[0] = 0;
     gPlayerState.field_0x1f[1] = 0;
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     gPlayerState.tilePosition = 0;
     gPlayerState.tileType = 0;
     gPlayerState.swim_state = 0;
@@ -1490,7 +1490,7 @@ bool32 CheckQueuedAction(void) {
 // this doesnt seem to have any real function where its used
 void CheckPlayerVelocity(void) {
     u32 angle = gPlayerState.direction;
-    if ((angle & 0x80) != 0) {
+    if ((angle & DIR_NOT_MOVING_CHECK) != 0) {
         ResetPlayerVelocity();
     } else {
         gPlayerState.vel_x = gSineTable[angle * 8];
@@ -1576,9 +1576,10 @@ void sub_08079064(Entity* this) {
         if (gPlayerState.itemAnimPriority < maxAnimPriority) {
             gPlayerState.animation = animIndex;
         } else if ((gPlayerState.swim_state & 0x80) != 0) {
-            gPlayerState.animation = 0x2be;
+            gPlayerState.animation = ANIM_DIVE;
         } else {
-            if (gPlayerState.animation == 0x608 || gPlayerState.animation == 0x104 || gPlayerState.animation == 0x404) {
+            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_WALK ||
+                gPlayerState.animation == ANIM_WALK_NOCAP) {
                 sub_080790E4(this);
             }
         }
@@ -1616,9 +1617,9 @@ void sub_080790E4(Entity* this) {
     gPlayerState.field_0x35 = this->animationState;
     gPlayerState.framestate = PL_STATE_PUSH;
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-        gPlayerState.animation = 0x93c;
+        gPlayerState.animation = ANIM_PUSH_NOCAP;
     } else {
-        gPlayerState.animation = 0x33c;
+        gPlayerState.animation = ANIM_PUSH;
     }
 }
 
@@ -1672,7 +1673,7 @@ void PlayerMinishSetNormalAndCollide(void) {
     gPlayerEntity.action = PLAYER_MINISH;
     gPlayerEntity.subAction = 1;
     gPlayerEntity.collisionFlags &= 0xfb;
-    gPlayerState.animation = 0xc18;
+    gPlayerState.animation = ANIM_BOUNCE_MINISH;
     gPlayerState.flags &=
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     gPlayerState.swim_state = 0;
@@ -1752,7 +1753,7 @@ code_3:
 
 void sub_08079520(Entity* this) {
     s32 tmp = gPlayerState.direction;
-    if (tmp < 0x80) {
+    if (tmp < DIR_NOT_MOVING_CHECK) {
         this->direction = gPlayerState.direction;
     } else {
         this->direction = (this->animationState >> 1) << 3;
@@ -1773,7 +1774,7 @@ bool32 sub_08079550(void) {
     if (gDiggingCaveEntranceTransition.isDiggingCave == 0) {
         if ((gPlayerState.dash_state == 0 || (gPlayerState.flags & PL_BURNING)) &&
             (gPlayerState.swim_state != 0 || (gPlayerState.sword_state & 0x40) ||
-             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & 0x80))) {
+             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & DIR_NOT_MOVING_CHECK))) {
             gPlayerEntity.subtimer = 0;
             return FALSE;
         }
@@ -1865,72 +1866,74 @@ void sub_080797EC(void) {
 
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         if (gPlayerState.heldObject != 0) {
-            animation = 0x934;
+            animation = ANIM_CARRY_NOCAP;
         } else if (gPlayerState.shield_status != 0) {
-            animation = 0x410;
-        } else if (gPlayerState.field_0x1f[2] == 0) {
+            animation = ANIM_SHIELD_WALK_NOCAP;
+        } else if (gPlayerState.bow_state == 0) {
             if (gPlayerState.swim_state != 0) {
-                animation = 0x290;
+                animation = ANIM_SWIM_MOVE;
             } else {
-                animation = 0x16c;
+                animation = ANIM_SWORD_CHARGE_WALK;
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
                 } else if (gPlayerState.sword_state == 0) {
-                    if (gPlayerState.framestate == 0) {
-                        gPlayerState.framestate = 1;
+                    if (gPlayerState.framestate == PL_STATE_IDLE) {
+                        gPlayerState.framestate = PL_STATE_WALK;
                     }
-                    animation = 0x404;
+                    animation = ANIM_WALK_NOCAP;
                 } else {
-                    animation = 0x16c;
+                    animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
                         if (sub_080B1B44(GetPlayerTilePos(), gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
-                            animation = 0x170;
+                            animation = ANIM_SWORD_CHARGE_BUMP;
                         }
                     }
                 }
             }
         } else {
-            animation = 0x284;
+            animation = ANIM_BOW_WALK;
         }
     } else {
         if (gPlayerState.field_0x1c != 0) {
             return;
         } else if (gPlayerState.heldObject != 0) {
-            animation = 0x348;
+            animation = ANIM_CARRY;
         } else if (gPlayerState.dash_state != 0) {
-            animation = 0x298;
+            animation = ANIM_DASH;
         } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-            animation = 0x710;
+            animation = ANIM_MINECART;
         } else if (gPlayerState.shield_status != 0) {
-            animation = 0x160;
-        } else if (gPlayerState.field_0x1f[2] != 0) {
-            animation = 0x284;
+            animation = ANIM_SHIELD_WALK;
+        } else if (gPlayerState.bow_state != 0) {
+            animation = ANIM_BOW_WALK;
         } else {
             if (gPlayerState.swim_state != 0) {
-                animation = 0x290;
+                animation = ANIM_SWIM_MOVE;
             } else {
-                animation = 0x16c;
+                animation = ANIM_SWORD_CHARGE_WALK;
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
                 } else if (gPlayerState.sword_state != 0) {
-                    animation = 0x16c;
+                    animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
                         if (sub_080B1B44(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) != 0xff) {
                             gPlayerState.sword_state &= ~8;
-                            animation = 0x170;
+                            animation = ANIM_SWORD_CHARGE_BUMP;
                         }
                     }
                 } else {
-                    if (gPlayerState.framestate == 0) {
-                        gPlayerState.framestate = 1;
+                    if (gPlayerState.framestate == PL_STATE_IDLE) {
+                        gPlayerState.framestate = PL_STATE_WALK;
                     }
                     if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
-                        animation = 0x608;
+                        animation = ANIM_LANTERN;
                     } else {
-                        animation = 0x104;
+                        // Change to test animations I guess
+                        animation = ANIM_WALK;
+                        // animation = 12;
                     }
                 }
             }
@@ -1949,19 +1952,19 @@ void ResolvePlayerAnimation(void) {
     u32 anim;
     if ((gPlayerState.flags & PL_NO_CAP) != 0) {
         if (gPlayerState.heldObject != 0) {
-            anim = 0x92c;
+            anim = ANIM_CARRY_STAND_NOCAP;
         } else {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
             if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
-                anim = 0x810;
+                anim = ANIM_JUMP;
             } else if (gPlayerState.shield_status != 0) {
-                anim = 0x414;
-            } else if (gPlayerState.field_0x1f[2] != 0) {
-                anim = 0x280;
+                anim = ANIM_SHIELD_NOCAP;
+            } else if (gPlayerState.bow_state != 0) {
+                anim = ANIM_BOW_CHARGE;
             } else if (gPlayerState.swim_state != 0) {
-                anim = 0x28c;
+                anim = ANIM_SWIM_STILL;
             } else {
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     return;
@@ -1972,54 +1975,54 @@ void ResolvePlayerAnimation(void) {
                     }
                     if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
                         switch (gArea.portal_type) {
-                            case 5:
-                                anim = 0x400;
+                            case PT_5:
+                                anim = ANIM_DEFAULT_NOCAP;
                                 break;
-                            case 4:
-                                anim = 0x100;
+                            case PT_JAR:
+                                anim = ANIM_DEFAULT;
                                 break;
                             default:
-                                anim = 0x2c2;
+                                anim = ANIM_PORTAL;
                                 break;
                         }
                     } else {
-                        anim = 0x400;
+                        anim = ANIM_DEFAULT_NOCAP;
                     }
                 } else {
-                    anim = 0x168;
+                    anim = ANIM_SWORD_CHARGE;
                 }
             }
         }
     } else {
         if (gPlayerState.heldObject != 0) {
-            anim = 0x350;
+            anim = ANIM_CARRY_STAND;
         } else {
             if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
                 return;
             }
             if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
-                anim = 0x8b0;
+                anim = ANIM_MOLDWORM_CAPTURED;
             } else if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
-                anim = 0x810;
+                anim = ANIM_JUMP;
             } else if (gPlayerState.dash_state != 0) {
-                anim = 0x298;
+                anim = ANIM_DASH;
             } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-                anim = 0x70c;
+                anim = ANIM_MINECART_PAUSE;
             } else if (gPlayerState.shield_status != 0) {
-                anim = 0x164;
-            } else if (gPlayerState.field_0x1f[2] != 0) {
-                anim = 0x280;
+                anim = ANIM_SHIELD;
+            } else if (gPlayerState.bow_state != 0) {
+                anim = ANIM_BOW_CHARGE;
             } else if (gPlayerState.swim_state != 0) {
-                anim = 0x28c;
+                anim = ANIM_SWIM_STILL;
             } else {
                 if ((gPlayerState.sword_state & 0x48) != 0) {
                     return;
                 }
                 if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
-                    anim = (gArea.portal_type == 4) ? 0x530 : 0x2c2;
+                    anim = (gArea.portal_type == PT_JAR) ? ANIM_IN_POT : ANIM_PORTAL;
                 } else {
                     if (gPlayerState.sword_state != 0) {
-                        anim = 0x168;
+                        anim = ANIM_SWORD_CHARGE;
                     } else {
                         if (gPlayerState.attack_status != 0) {
                             return;
@@ -2028,9 +2031,9 @@ void ResolvePlayerAnimation(void) {
                             if (gActiveItems[ACTIVE_ITEM_LANTERN].animPriority != 0) {
                                 return;
                             }
-                            anim = 0x604;
+                            anim = ANIM_LANTERN_ON;
                         } else {
-                            anim = 0x100;
+                            anim = ANIM_DEFAULT;
                         }
                     }
                 }
@@ -2071,8 +2074,8 @@ bool32 sub_08079B24(void) {
                         }
                         if ((gPlayerState.jump_status & 0x41) == 0) {
                             gPlayerState.jump_status = 0x41;
-                            gPlayerEntity.direction = 0xff;
-                            gPlayerState.direction = 0xff;
+                            gPlayerEntity.direction = DIR_NONE;
+                            gPlayerState.direction = DIR_NONE;
                             return TRUE;
                         } else {
                             return TRUE;
@@ -2659,7 +2662,7 @@ bool32 sub_0807AC54(Entity* this) {
             this->action = 0x1d;
             this->subAction = 0;
             this->y.HALF.LO = 0;
-            gPlayerState.animation = 0x2cf;
+            gPlayerState.animation = ANIM_CLIMB1_UP;
             return TRUE;
         case SURFACE_AUTO_LADDER:
             this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
@@ -2749,7 +2752,7 @@ void PlayerUpdateSwimming(Entity* this) {
         ModHealth(-2);
         SoundReq(SFX_PLY_VO6);
     }
-    if ((this->direction & 0x80) != 0) {
+    if (this->direction & DIR_NOT_MOVING_CHECK) {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
             CreateRandomWaterTrace(this, 4);
         }
@@ -2824,21 +2827,21 @@ u32 GetSwordBeam(void) {
 }
 
 void sub_0807B068(Entity* entity) {
-    if ((gPlayerState.dash_state | gPlayerState.attack_status) == 0) {
-        if (gPlayerState.swim_state != 0) {
-            if ((gPlayerState.swim_state & 0x80) != 0) {
-                gPlayerState.animation = 0xc1c;
+    if (!(gPlayerState.dash_state | gPlayerState.attack_status)) {
+        if (gPlayerState.swim_state) {
+            if (gPlayerState.swim_state & 0x80) {
+                gPlayerState.animation = ANIM_DIVE_MINISH;
             } else {
-                gPlayerState.animation = 0xc0c;
+                gPlayerState.animation = ANIM_SWIM_MINISH;
             }
         } else {
-            if ((gPlayerState.direction & 0x80) != 0) {
-                if (gPlayerState.animation != 0xc18) {
-                    gPlayerState.animation = 0xc18;
+            if (gPlayerState.direction & DIR_NOT_MOVING_CHECK) {
+                if (gPlayerState.animation != ANIM_BOUNCE_MINISH) {
+                    gPlayerState.animation = ANIM_BOUNCE_MINISH;
                 }
             } else {
-                if (gPlayerState.animation != 0xc04) {
-                    gPlayerState.animation = 0xc04;
+                if (gPlayerState.animation != ANIM_WALK_MINISH) {
+                    gPlayerState.animation = ANIM_WALK_MINISH;
                 }
             }
         }
@@ -2902,7 +2905,7 @@ void sub_0807B1EC(PlayerEntity* this) {
     if (--super->timer == 0) {
         this->unk_6e++;
         super->zVelocity = Q_16_16(1.0);
-        gPlayerState.animation = 0x2c2;
+        gPlayerState.animation = ANIM_PORTAL;
     }
 }
 

@@ -245,17 +245,21 @@ bool32 sub_0806F8DC(Entity* ent) {
     return TRUE;
 }
 
+#define CDIR_DIAGONAL 1
+#define CDirectionSouth 4
+#define CDirectionWest 6
+
 u32 sub_0806F948(Entity* ent) {
-    u32 v1;
-    if (gPlayerState.direction == 0xFF)
+    u32 direction;
+    if (gPlayerState.direction == DIR_NONE)
         return ent->animationState;
 
-    v1 = gPlayerState.direction / 4;
-    if ((v1 & 1) && !(((v1 + 1) - ent->animationState) & 4)) {
+    direction = gPlayerState.direction / 4;
+    if ((direction & CDIR_DIAGONAL) && !(((direction + 1) - ent->animationState) & CDirectionSouth)) {
         return ent->animationState;
     } else {
-        ent->spriteSettings.flipX = v1 > 4;
-        ent->animationState = v1 & 6;
+        ent->spriteSettings.flipX = direction > CDirectionSouth;
+        ent->animationState = direction & CDirectionWest;
     }
     return ent->animationState;
 }

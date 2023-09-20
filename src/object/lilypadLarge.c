@@ -551,7 +551,7 @@ void sub_08085E74(LilypadLargeEntity* this) {
     gPlayerEntity.x.HALF.LO = 0;
     gPlayerEntity.y.HALF.LO = 0;
     gPlayerEntity.direction = super->direction;
-    gPlayerState.animation = 0x100;
+    gPlayerState.animation = ANIM_DEFAULT;
     gRoomControls.camera_target = super;
     if (gPlayerState.item != NULL) {
         DeleteEntity(gPlayerState.item);

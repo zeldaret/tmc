@@ -66,7 +66,7 @@ void sub_08045C3C(BusinessScrubPrologueEntity* this) {
     super->subtimer = 0;
     this->unk_78 = super->x.HALF.HI;
     this->unk_7a = super->y.HALF.HI;
-    super->animationState = 0;
+    super->animationState = IdleNorth;
     super->direction = 0x10;
     super->action = 5;
     super->timer = 120;
