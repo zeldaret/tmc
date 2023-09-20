@@ -68,10 +68,10 @@ void sub_080768F8(ItemBehavior* this, u32 index) {
     if (bVar1 == 0) {
         gPlayerState.dash_state = 1;
         gPlayerState.bow_state = bVar1;
-        if ((gPlayerState.flags & PL_MINISH) == 0) {
+        if (!(gPlayerState.flags & PL_MINISH)) {
             this->timer = 0x10;
         } else {
-            gPlayerState.animation = ANIM_C14;
+            gPlayerState.animation = ANIM_DASH_CHARGE_MINISH;
         }
         sub_08077D38(this, index);
         sub_08076964(this, index);
@@ -119,7 +119,7 @@ void sub_08076964(ItemBehavior* this, u32 index) {
                 SetItemAnim(this, ANIM_WALK);
                 return;
             } else {
-                gPlayerState.animation = ANIM_C10;
+                gPlayerState.animation = ANIM_DASH_MINISH;
                 return;
             }
         } else {
