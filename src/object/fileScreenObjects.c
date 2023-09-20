@@ -43,7 +43,7 @@ static void FileScreenObjects_Type15(FileScreenObjectsEntity*);
 static void FileScreenObjects_Type18(FileScreenObjectsEntity*);
 static void FileScreenObjects_Type19(FileScreenObjectsEntity*);
 static void FileScreenObjects_Type21(FileScreenObjectsEntity*);
-static void FileScreenObjects_Type23_Action1(FileScreenObjectsEntity*);
+static void FileScreenObjects_Type23_LinkPreview(FileScreenObjectsEntity*);
 static void FileScreenObjects_Type23_Init(FileScreenObjectsEntity*);
 
 typedef struct {
@@ -86,7 +86,7 @@ void FileScreenObjects(FileScreenObjectsEntity* this) {
 void FileScreenObjects_Type23(FileScreenObjectsEntity* this) {
     static void (*const FileScreenObjects_Type23_Actions[])(FileScreenObjectsEntity*) = {
         FileScreenObjects_Type23_Init,
-        FileScreenObjects_Type23_Action1,
+        FileScreenObjects_Type23_LinkPreview,
     };
     FileScreenObjects_Type23_Actions[super->action](this);
 }
@@ -99,7 +99,7 @@ void FileScreenObjects_Type23_Init(FileScreenObjectsEntity* this) {
     super->action = 1;
 }
 
-void FileScreenObjects_Type23_Action1(FileScreenObjectsEntity* this) {
+void FileScreenObjects_Type23_LinkPreview(FileScreenObjectsEntity* this) {
     u32 var0;
     u32 offset;
 
@@ -114,9 +114,9 @@ void FileScreenObjects_Type23_Action1(FileScreenObjectsEntity* this) {
 
     if (super->type2 != gMapDataBottomSpecial.unk6) {
         super->type2 = gMapDataBottomSpecial.unk6;
-        this->unk_68 = CheckGlobalFlag(EZERO_1ST) == 0 ? 0x400 : 0x100;
+        this->unk_68 = CheckGlobalFlag(EZERO_1ST) == 0 ? ANIM_DEFAULT_NOCAP : ANIM_DEFAULT;
         this->unk_70 = 4;
-        super->animationState = 2;
+        super->animationState = PAS_SOUTH;
         offset = gUnk_08133368[GetPlayerPalette(TRUE) - 22] & 0xFFFFFF;
         LoadPalettes(&gGlobalGfxAndPalettes[offset], 31, 1);
     }
@@ -125,16 +125,16 @@ void FileScreenObjects_Type23_Action1(FileScreenObjectsEntity* this) {
         if (gInput.heldKeys & L_BUTTON) {
             switch (gInput.newKeys) {
                 case DPAD_UP:
-                    super->animationState = 0;
+                    super->animationState = PAS_NORTH;
                     break;
                 case DPAD_RIGHT:
-                    super->animationState = 1;
+                    super->animationState = PAS_EAST;
                     break;
                 case DPAD_DOWN:
-                    super->animationState = 2;
+                    super->animationState = PAS_SOUTH;
                     break;
                 case DPAD_LEFT:
-                    super->animationState = 3;
+                    super->animationState = PAS_WEST;
                     break;
                 case B_BUTTON:
                     this->unk_70 = this->unk_70 ? 0 : 4;

@@ -108,7 +108,7 @@ void Enemy4D_Init(Enemy4DEntity* this) {
         super->child = projectile;
         COLLISION_ON(super);
         super->spriteSettings.draw = TRUE;
-        super->animationState = 2;
+        super->animationState = IdleEast;
         this->unk_7b = 0;
         this->unk_7c = 0;
         this->unk_7e = 0x28;

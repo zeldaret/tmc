@@ -146,7 +146,7 @@ void Eyegore_OnGrabbed(EyegoreEntity* this) {
 void Eyegore_Init(EyegoreEntity* this) {
     sub_0804A720(super);
     super->action = 1;
-    super->animationState = 2;
+    super->animationState = IdleEast;
     super->x.HALF.HI &= 0xfff0;
     super->y.HALF.HI = (super->y.HALF.HI & 0xfff0) + 0xc;
     this->unk_6d |= 8;
@@ -198,7 +198,7 @@ void Eyegore_Action3(EyegoreEntity* this) {
         GetNextFrame(super);
         if ((super->frame & ANIM_DONE) != 0) {
             super->flags |= ENT_COLLIDE;
-            super->animationState = 2;
+            super->animationState = IdleEast;
             sub_08030E58(this);
             InitializeAnimation(super, 2);
             sub_08030FB4(this);
@@ -242,7 +242,7 @@ void Eyegore_Action5(EyegoreEntity* this) {
     GetNextFrame(super);
     switch (super->frame & 7) {
         case 1:
-            if (super->animationState != 2) {
+            if (super->animationState != IdleEast) {
                 if (super->animationState >= 3) {
                     this->unk_7f = (super->animationState - 1) & 3;
                 } else {
@@ -266,7 +266,7 @@ void Eyegore_Action5(EyegoreEntity* this) {
                 if (sub_08049FDC(super, 1)) {
                     sub_08030E58(this);
                 } else {
-                    if (super->animationState == 2) {
+                    if (super->animationState == IdleEast) {
                         super->action = 6;
                         super->flags &= ~ENT_COLLIDE;
                         InitializeAnimation(super, 0xe);

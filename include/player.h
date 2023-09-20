@@ -436,6 +436,13 @@ typedef enum {
     ANIM_DIVE_MINISH = 0xc1c,
 } PlayerAnimation;
 
+typedef enum {
+    PAS_NORTH,
+    PAS_EAST,
+    PAS_SOUTH,
+    PAS_WEST,
+} PlayerAnimationState;
+
 typedef struct {
     /*0x00*/ u8 prevAnim;
     /*0x01*/ u8 grab_status;

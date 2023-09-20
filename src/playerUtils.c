@@ -1933,6 +1933,7 @@ void sub_080797EC(void) {
                     } else {
                         // Change to test animations I guess
                         animation = ANIM_WALK;
+                        // animation = 12;
                     }
                 }
             }

@@ -2781,7 +2781,7 @@ static void sub_08073584(Entity* this) {
     UpdatePlayerMovement();
     state = 4 * this->animationState;
     dir = this->direction;
-    if (this->animationState == 0) {
+    if (this->animationState == IdleNorth) {
         state = (state + 8) & 0x1F;
         dir = (dir + 8) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
     }
@@ -3811,7 +3811,7 @@ static void sub_08074C68(Entity* this) {
         }
     } else {
         this->spriteSettings.draw = 1;
-        this->animationState = 0;
+        this->animationState = IdleNorth;
         this->spritePriority.b1 = 0;
         this->subAction = 2;
         this->field_0x68.HALF.LO = 1;
@@ -4019,7 +4019,7 @@ void sub_080750F4(Entity* this) {
 void sub_08075110(Entity* this) {
     this->field_0x68.HALF.LO++;
     this->subtimer = this->animationState;
-    this->animationState = 0;
+    this->animationState = IdleNorth;
     gPlayerState.animation = ANIM_PUT_ON_EZLO;
     gPlayerState.flags &= ~PL_NO_CAP;
 }
