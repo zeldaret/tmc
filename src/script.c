@@ -1548,11 +1548,12 @@ void sub_0807F100(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F128(Entity* entity, ScriptExecutionContext* context) {
-    static const u8 sAnimations[] = { 6, 2, 6, 2, 4, 6, 4, 2 };
+    static const u8 sAnimationStates[] = { IdleWest,  IdleEast, IdleWest,  IdleEast,
+                                           IdleSouth, IdleWest, IdleSouth, IdleEast };
     static const u8 sValues[] = { 0xa, 0x14, 0x1e, 0x12, 0x1c, 0x26, 0xc, 0x18 };
 
     u32 rand = Random();
-    entity->animationState = sAnimations[rand & 7];
+    entity->animationState = sAnimationStates[rand & 7];
     context->unk_1A = sValues[(rand >> 8) % 8];
 }
 

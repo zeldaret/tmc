@@ -306,10 +306,10 @@ u32 UpdatePlayerCollision(void) {
         case 0x3a:
         case 0x5b:
         case 0x4051:
-            if ((gPlayerState.flags & PL_MINISH) != 0) {
+            if (gPlayerState.flags & PL_MINISH) {
                 return 0;
             }
-            if (gPlayerEntity.animationState != 0) {
+            if (gPlayerEntity.animationState != IdleNorth) {
                 return 0;
             }
             gUnk_0200AF00.rActionInteractTile = R_ACTION_READ;
