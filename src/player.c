@@ -2804,13 +2804,13 @@ static void sub_08073584(Entity* this) {
     if (!this->field_0x86.HALF.HI ||
         ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) == 0 && this->animationState != state)) {
         static const u16 sAnims1[] = {
-            0x0708,
-            0x071C,
-            0x0718,
-            0x0714,
+            ANIM_PARACHUTE,
+            ANIM_PARACHUTE_TURN_LEFT,
+            ANIM_PARACHUTE_TURN_OPPOSITE,
+            ANIM_PARACHUTE_TURN_RIGHT,
         };
 
-        if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) == 0) {
+        if (!(gPlayerState.direction & DIR_NOT_MOVING_CHECK)) {
             if (this->animationState != state) {
                 if (this->animationState == (state ^ 4)) {
                     idx = 2;
@@ -2836,10 +2836,10 @@ static void sub_08073584(Entity* this) {
         this->field_0x86.HALF.LO = idx;
     } else {
         static const u16 sAnims2[] = {
-            0x0708,
-            0x0728,
-            0x0724,
-            0x0720,
+            ANIM_PARACHUTE,
+            ANIM_PARACHUTE_TURN2_LEFT,
+            ANIM_PARACHUTE_TURN2_OPPOSITE,
+            ANIM_PARACHUTE_TURN2_RIGHT,
         };
 
         this->field_0x86.HALF.HI--;
@@ -2887,10 +2887,10 @@ static void sub_080737BC(Entity* this) {
 
 static void sub_0807380C(Entity* this) {
     static const u16 sAnims[] = {
-        0x0708,
-        0x071C,
-        0x0718,
-        0x0714,
+        ANIM_PARACHUTE,
+        ANIM_PARACHUTE_TURN_LEFT,
+        ANIM_PARACHUTE_TURN_OPPOSITE,
+        ANIM_PARACHUTE_TURN_RIGHT,
     };
 
     if ((gRoomTransition.frameCount & 3) == 0) {
@@ -2913,10 +2913,10 @@ static void sub_0807380C(Entity* this) {
 
 void sub_08073884(Entity* this) {
     static const u16 sAnims[] = {
-        0x0708,
-        0x071C,
-        0x0718,
-        0x0714,
+        ANIM_PARACHUTE,
+        ANIM_PARACHUTE_TURN_LEFT,
+        ANIM_PARACHUTE_TURN_OPPOSITE,
+        ANIM_PARACHUTE_TURN_RIGHT,
     };
 
     if ((gRoomTransition.frameCount & 1) == 0) {
