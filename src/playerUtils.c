@@ -1528,7 +1528,7 @@ void sub_08078FB0(Entity* this) {
         if (gPlayerState.flags & PL_MINISH) {
             animIndex = 0x18;
         } else {
-            if (gPlayerState.animation >> 8 == 7) {
+            if (gPlayerState.animation >> 8 == (ANIM_PORTAL_ACTIVATE >> 8)) {
                 animIndex = 0x34;
             } else {
                 animIndex = 0xb8;
@@ -1688,7 +1688,43 @@ void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
     gPlayerEntity.direction = direction;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080792D8.inc", void sub_080792D8())
+void sub_080792D8(void) {
+    Entity* playerEntity = &gPlayerEntity;
+
+    if (playerEntity->knockbackDuration == 0)
+        return;
+
+    if (playerEntity->action == PLAYER_08071DB8 || gPlayerState.dash_state || (u8)(gPlayerState.heldObject - 1) < 4 ||
+        gPlayerState.jump_status || gPlayerState.floor_type == SURFACE_FF || gPlayerState.field_0x7 & 0x80 ||
+        0 < (gPlayerState.swim_state & 0xf) - 1 || playerEntity->action == PLAYER_FALL ||
+        gPlayerState.flags & PL_ROLLING) {
+        playerEntity->knockbackDuration = 0;
+    } else if (playerEntity->action == PLAYER_CLIMB && playerEntity->knockbackDirection != DirectionSouth) {
+        playerEntity->knockbackDuration = 0;
+    } else {
+        if ((s8)playerEntity->knockbackDuration >= 1) {
+            playerEntity->knockbackDuration--;
+        } else {
+            playerEntity->knockbackDuration++;
+        }
+
+        if (playerEntity->knockbackDuration == 0)
+            return;
+
+        gPlayerState.field_0x7 &= 0xdf;
+        if (0 < playerEntity->iframes && !gPlayerState.swim_state && !(gPlayerState.flags & PL_MINISH) &&
+            !gPlayerState.jump_status) {
+            ResetActiveItems();
+            if (!(gPlayerState.flags & PL_NO_CAP)) {
+                gPlayerState.animation = ANIM_BOUNCE;
+            } else {
+                gPlayerState.animation = ANIM_BOUNCE_NOCAP;
+            }
+        }
+        sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
+        sub_0807A5B8(playerEntity->knockbackDirection);
+    }
+}
 
 bool32 sub_080793E4(u32 param_1) {
     u32 tmp;
