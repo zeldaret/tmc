@@ -1277,7 +1277,48 @@ void FreeCarryEntity(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080789A8.inc", u32 sub_080789A8())
+u32 sub_080789A8(void) {
+    u32 uVar2;
+    Entity* entity;
+    u32 uVar4;
+    const u8* ptr;
+    const u8* ptr2;
+    Entity** tmp1;
+
+    if (gCarriedEntity.unk_0) return (u32)gCarriedEntity.unk_1;
+    
+    if (!FlagSet(PL_MINISH)) {
+        uVar4 = sub_080B1B0C(&gPlayerEntity);
+        if (uVar4 >= 0x10 && (gUnk_080084BC[uVar4 - 0x10] == 0xf)) return 0; 
+        if (gPlayerState.floor_type == 0x12) return 0;
+        
+        gCarriedEntity.unk_0 = 1;
+        uVar4 = (u32)gCarriedEntity.count;
+        
+        if (uVar4 > 0) {
+            ptr2 = &gUnk_0811BFE0[gPlayerEntity.animationState & 6];
+            while (uVar4 > 0) {
+                tmp1 = &gCarriedEntity.unk_8 +uVar4;
+                entity = *tmp1;
+                if ((entity != NULL) && (sub_0807A180(&gPlayerEntity, entity, ptr2[0], ptr2[1]) != 0)) {
+                    gCarriedEntity.unk_8 = *tmp1;
+                    gCarriedEntity.unk_1 = 2;
+                    return 2;
+                }
+                uVar4 --;
+            }
+        }
+        
+        ptr = &gUnk_08007DF4[gPlayerEntity.animationState & 6];
+        gCarriedEntity.unk_4 = uVar2 = sub_080B1A0C(&gPlayerEntity, (s8)ptr[0], (s8)ptr[1]);
+        
+        if (!sub_0806FC24(uVar2, 6)) return 0;
+
+    } else return 0;
+    
+    gCarriedEntity.unk_1 = 1;
+    return 1;
+}
 
 void SetPlayerControl(PlayerControlMode mode) {
     if (gPlayerState.controlMode != CONTROL_DISABLED) {
@@ -3522,8 +3563,54 @@ void sub_0807BFA8(void) {
     gRoomControls.height = (gArea.pCurrentRoomInfo)->pixel_height;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BFD0.inc", void sub_0807BFD0())
+void sub_0807BFD0(void) {
+    s32 index;
+    u16* puVar2;
+    u16* puVar3;
+    u16* ptr;
+    typeof(gMapTop)* newptr;
 
+    ClearBgAnimations();
+    sub_0807BFA8();
+    MemFill16(0xffff, gMapBottom.metatileTypes, 0x1000);
+    gMapBottom.metatileTypes[0] = 0;
+    MemFill16(0xffff, gMapTop.metatileTypes, 0x1000);
+    gMapTop.metatileTypes[0] = 0;
+    
+    if ((void*)gRoomControls.unk_34 != (gArea.pCurrentRoomInfo)->tileset) {
+        gRoomControls.unk_34 = (u32)(gArea.pCurrentRoomInfo)->tileset;
+        sub_080197D4((gArea.pCurrentRoomInfo)->tileset);
+    }
+
+    sub_080197D4((gArea.pCurrentRoomInfo)->metatiles);
+    ptr = gPaletteBuffer;
+    MemCopy(&ptr[0x30], &ptr[0x150], 0x20);
+    gUsedPalettes |= 0x200000;
+    
+    if ((gArea.pCurrentRoomInfo)->bg_anim != NULL) {
+        LoadBgAnimations((gArea.pCurrentRoomInfo)->bg_anim);
+    }
+
+    puVar2 = gMapBottom.metatileTypes;
+    puVar3 = gMapBottom.unkData2;
+    MemFill16(0xffff, puVar3, 0x1000);
+    
+    for (index = 0; index < 0x800; index++, puVar2++) {
+        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
+            puVar3[*puVar2] = index;
+        }
+    }
+    
+    puVar2 = gMapTop.metatileTypes;
+    puVar3 = gMapTop.unkData2;
+    MemFill16(0xffff, puVar3, 0x1000);
+    
+    for (index = 0; index < 0x800; index++, puVar2++){
+        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
+            puVar3[*puVar2] = index;
+        }
+    }
+}
 void LoadRoomGfx(void) {
     RoomControls* roomControls;
     bool32 tmp;
@@ -3890,7 +3977,44 @@ void sub_0807C898(void) {
     gRoomTransition.field2d = 0;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0(u16* a, u32 b, u32 c))
+void sub_0807C8B0(u16* data, u32 width, u32 height) {
+    u16* dst_ptr;
+    u16* src_ptr;
+    u16* dst_ptr_cpy;
+    u16* src_ptr_cpy;
+    u32 innerIndex;
+    u32 index;
+    u16* prev_line;
+    u32 diff;
+
+    src_ptr = data + width * height - 1;
+    dst_ptr = data + (height - 1) * 0x40 + (width - 1);
+
+    for (index = 0; index < height; index++){
+        src_ptr_cpy = src_ptr;
+        dst_ptr_cpy = dst_ptr;
+        for (innerIndex = 0; innerIndex < width; innerIndex++){
+            dst_ptr_cpy[-innerIndex] = src_ptr_cpy[-innerIndex];
+        }
+        dst_ptr -= 0x40;
+        src_ptr -= width;
+    }
+    
+
+    diff = 0x40 - width;
+    for (index = 0; index < 0x40; index++){
+        dst_ptr = data + width - index * -0x40;
+        for (innerIndex = 0; innerIndex < diff; innerIndex++){
+            dst_ptr[innerIndex] = 0;
+        }
+    }
+
+    diff = 0x40 - height;
+    dst_ptr = data + height * 0x40;
+    for (index = 0; index < diff; index++){
+        MemClear(&dst_ptr[index*0x40], 0x80);
+    }
+}
 
 void LoadCompressedMapData(void* dest, u32 offset) {
     void* src;
