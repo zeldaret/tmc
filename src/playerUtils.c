@@ -1287,7 +1287,7 @@ u32 sub_080789A8(void) {
 
     if (gCarriedEntity.unk_0) return (u32)gCarriedEntity.unk_1;
     
-    if (!FlagSet(PL_MINISH)) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
         uVar4 = sub_080B1B0C(&gPlayerEntity);
         if (uVar4 >= 0x10 && (gUnk_080084BC[uVar4 - 0x10] == 0xf)) return 0; 
         if (gPlayerState.floor_type == 0x12) return 0;
