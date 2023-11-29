@@ -1723,7 +1723,7 @@ void sub_080792D8(void) {
         }
         sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
         sub_0807A5B8(playerEntity->knockbackDirection);
-    }
+   }
 }
 
 bool32 sub_080793E4(u32 param_1) {
