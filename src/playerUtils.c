@@ -26,7 +26,7 @@ extern void sub_0800857C(Entity*);
 extern void SetDefaultPriorityForKind(Entity*);
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
-extern void sub_08003FDE(Entity*, u32, u32, u32);
+extern u32 sub_08003FDE(Entity*, Entity*, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
 extern void sub_08080BC4(void);
 void sub_080790E4(Entity* this);
@@ -2446,11 +2446,11 @@ bool32 HasSwordEquipped(void) {
     }
 }
 
-void sub_0807A180(Entity* param_1, u32 param_2, u32 param_3, u32 param_4) {
+u32 sub_0807A180(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4) {
     GenericEntity stackEntity;
     PositionRelative(param_1, &stackEntity.base, 0, -0x40000);
     stackEntity.base.animationState = param_1->animationState;
-    sub_08003FDE(&stackEntity.base, param_2, param_3, param_4);
+    return sub_08003FDE(&stackEntity.base, param_2, param_3, param_4);
 }
 
 void UpdateFloorType(void) {
