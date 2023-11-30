@@ -148,6 +148,15 @@ extern u32 sub_08004202(Entity*, u8*, u32);
 extern u32 gUnk_02022830[];
 extern u16* gUnk_0800823C[];
 
+extern bool32 sub_0806FC24(u32, u32);
+
+extern const u8 gUnk_0800845C[];
+extern const u8 gUnk_0811BFE0[];
+extern const u8 gUnk_08007DF4[];
+extern const u8 gUnk_080084BC[];
+
+u32 sub_0807A180(Entity*, Entity*, u32, u32);
+
 void UpdateActiveItems(PlayerEntity* this) {
     u32 index;
 
@@ -1277,7 +1286,53 @@ void FreeCarryEntity(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080789A8.inc", u32 sub_080789A8())
+u32 sub_080789A8(void) {
+    u32 uVar2;
+    Entity* entity;
+    u32 uVar4;
+    const u8* ptr;
+    const u8* ptr2;
+    Entity** tmp1;
+
+    if (gCarriedEntity.unk_0)
+        return (u32)gCarriedEntity.unk_1;
+
+    if (!(gPlayerState.flags & PL_MINISH)) {
+        uVar4 = sub_080B1B0C(&gPlayerEntity);
+        if (uVar4 >= 0x10 && (gUnk_080084BC[uVar4 - 0x10] == 0xf))
+            return 0;
+        if (gPlayerState.floor_type == 0x12)
+            return 0;
+
+        gCarriedEntity.unk_0 = 1;
+        uVar4 = (u32)gCarriedEntity.count;
+
+        if (uVar4 > 0) {
+            ptr2 = &gUnk_0811BFE0[gPlayerEntity.animationState & 6];
+            while (uVar4 > 0) {
+                tmp1 = &gCarriedEntity.unk_8 + uVar4;
+                entity = *tmp1;
+                if ((entity != NULL) && (sub_0807A180(&gPlayerEntity, entity, ptr2[0], ptr2[1]) != 0)) {
+                    gCarriedEntity.unk_8 = *tmp1;
+                    gCarriedEntity.unk_1 = 2;
+                    return 2;
+                }
+                uVar4--;
+            }
+        }
+
+        ptr = &gUnk_08007DF4[gPlayerEntity.animationState & 6];
+        gCarriedEntity.unk_4 = uVar2 = sub_080B1A0C(&gPlayerEntity, (s8)ptr[0], (s8)ptr[1]);
+
+        if (!sub_0806FC24(uVar2, 6))
+            return 0;
+
+    } else
+        return 0;
+
+    gCarriedEntity.unk_1 = 1;
+    return 1;
+}
 
 void SetPlayerControl(PlayerControlMode mode) {
     if (gPlayerState.controlMode != CONTROL_DISABLED) {
