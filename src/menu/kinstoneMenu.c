@@ -462,7 +462,7 @@ void KinstoneMenu_080A414C(void) {
         OamCmd->x = ((ptr[((uVar1 & tmp1) + 0x40) & tmp1] * 0x42) / 0x100) - 0x10;
         iVar2 = gKinstoneMenu.unk10.WORD / 0x10000 + i;
         if (iVar2 >= 0) {
-            uVar3 = gSave.unk12B[iVar2];
+            uVar3 = gSave.kinstoneAmounts[iVar2];
             if (i == 0) {
                 switch (gMenu.column_idx) {
                     case 3:
@@ -474,7 +474,7 @@ void KinstoneMenu_080A414C(void) {
                 }
             }
             if (uVar3 > 0) {
-                sub_080A42E0(gSave.unk118[iVar2], uVar3);
+                sub_080A42E0(gSave.kinstoneTypes[iVar2], uVar3);
             }
         }
         uVar1 += 0x17;
