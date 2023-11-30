@@ -4001,7 +4001,45 @@ void sub_0807C898(void) {
     gRoomTransition.field2d = 0;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0(u16* a, u32 b, u32 c))
+void sub_0807C8B0(u16* data, u32 width, u32 height) {
+    u16* dst_ptr;
+    u16* src_ptr;
+    u16* dst_ptr_cpy;
+    u16* src_ptr_cpy;
+    u32 innerIndex;
+    u32 index;
+    u16* prev_line;
+    u32 diff;
+
+    src_ptr = data + width * height - 1;
+    dst_ptr = data + (height - 1) * 0x40 + (width - 1);
+
+    for (index = 0; index < height; index++) {
+        src_ptr_cpy = src_ptr; //[index * -width];
+        dst_ptr_cpy = dst_ptr; //[index * -0x40];
+        for (innerIndex = 0; innerIndex < width; innerIndex++) {
+            dst_ptr_cpy[-innerIndex] = src_ptr_cpy[-innerIndex];
+        }
+        dst_ptr -= 0x40;
+        src_ptr -= width;
+    }
+
+    diff = 0x40 - width;
+    for (index = 0; index < 0x40; index++) {
+        dst_ptr = data + width - index * -0x40;
+
+        for (innerIndex = 0; innerIndex < diff; innerIndex++) {
+            dst_ptr[innerIndex] = 0;
+        }
+    }
+
+    diff = 0x40 - height;
+    dst_ptr = data + height * 0x40;
+    for (index = 0; index < diff; index++) {
+        MemClear(&dst_ptr[index * 0x40], 0x80);
+        // dst_ptr += 0x40;
+    }
+}
 
 void LoadCompressedMapData(void* dest, u32 offset) {
     void* src;
