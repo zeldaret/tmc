@@ -433,22 +433,36 @@ void KinstoneMenu_080A4080(void) {
     }
 }
 
-NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void KinstoneMenu_080A414C(void)) {
+void KinstoneMenu_080A414C(void) {
     s32 uVar1;
     s32 iVar2;
     s32 uVar3;
+    s32 tmp1;
+    s32 tmp2;
+    s32 tmp3;
+    s32 tmp4;
+    const s16* ptr;
+    OAMCommand* OamCmd;
+    u16 tmp5;
 
     s32 i;
 
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
-    uVar1 = gKinstoneMenu.unk10.HALF.LO / 0xb21;
-    for (i = -3, uVar1 = -uVar1 - 0x45; i < 4; uVar1 += 0x17, i++) {
-        gOamCmd.y = ((gSineTable[uVar1 & 0xff] * 0x44) / 0x100) + 0x4f;
-        gOamCmd.x = ((gSineTable[(uVar1 + 0x40) & 0xff] * 0x42) / 0x100) - 0x10;
+    tmp3 = (s32)(gKinstoneMenu.unk10.HALF_U.LO);
+    tmp2 = 0xb21;
+    tmp5 = (tmp3 / tmp2);
+    i = -3;
+    tmp1 = 0xff;
+    OamCmd = &gOamCmd;
+    ptr = gSineTable;
+    uVar1 = -tmp5 - 0x45;
+    while (i < 4) {
+        OamCmd->y = ((ptr[uVar1 & tmp1] * 0x44) / 0x100) + 0x4f;
+        OamCmd->x = ((ptr[((uVar1 & tmp1) + 0x40) & tmp1] * 0x42) / 0x100) - 0x10;
         iVar2 = gKinstoneMenu.unk10.WORD / 0x10000 + i;
         if (iVar2 >= 0) {
-            uVar3 = gSave.kinstoneAmounts[iVar2];
+            uVar3 = gSave.unk12B[iVar2];
             if (i == 0) {
                 switch (gMenu.column_idx) {
                     case 3:
@@ -459,13 +473,14 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
                         break;
                 }
             }
-            if (0 < uVar3) {
-                sub_080A42E0(gSave.kinstoneTypes[iVar2], uVar3);
+            if (uVar3 > 0) {
+                sub_080A42E0(gSave.unk118[iVar2], uVar3);
             }
         }
+        uVar1 += 0x17;
+        i++;
     }
 }
-END_NONMATCH
 
 void KinstoneMenu_080A422C(void) {
     static const s8 gUnk_08128120[] = {
