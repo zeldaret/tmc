@@ -1528,7 +1528,7 @@ void sub_08078FB0(Entity* this) {
         if (gPlayerState.flags & PL_MINISH) {
             animIndex = 0x18;
         } else {
-            if (gPlayerState.animation >> 8 == 7) {
+            if (gPlayerState.animation >> 8 == (ANIM_PORTAL_ACTIVATE >> 8)) {
                 animIndex = 0x34;
             } else {
                 animIndex = 0xb8;
@@ -1691,40 +1691,38 @@ void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
 void sub_080792D8(void) {
     Entity* playerEntity = &gPlayerEntity;
 
-    if (playerEntity->knockbackDuration != 0) {
-        if (((((playerEntity->action == 0xb) || (gPlayerState.dash_state != 0)) ||
-              ((u8)(gPlayerState.heldObject - 1) < 4)) ||
-             (((gPlayerState.jump_status != 0 || (gPlayerState.floor_type == 0xff)) ||
-               (((gPlayerState.field_0x7 & 0x80) != 0 ||
-                 ((0 < (s32)((gPlayerState.swim_state & 0xf) - 1) || (playerEntity->action == 3)))))))) ||
-            ((gPlayerState.flags & 0x40000) != 0)) {
-            playerEntity->knockbackDuration = 0;
-        } else if ((playerEntity->action == 0x1d) && (playerEntity->knockbackDirection != 0x10)) {
-            playerEntity->knockbackDuration = 0;
+    if (playerEntity->knockbackDuration == 0)
+        return;
+
+    if (playerEntity->action == PLAYER_08071DB8 || gPlayerState.dash_state || (u8)(gPlayerState.heldObject - 1) < 4 ||
+        gPlayerState.jump_status || gPlayerState.floor_type == SURFACE_FF || gPlayerState.field_0x7 & 0x80 ||
+        0 < (gPlayerState.swim_state & 0xf) - 1 || playerEntity->action == PLAYER_FALL ||
+        gPlayerState.flags & PL_ROLLING) {
+        playerEntity->knockbackDuration = 0;
+    } else if (playerEntity->action == PLAYER_CLIMB && playerEntity->knockbackDirection != DirectionSouth) {
+        playerEntity->knockbackDuration = 0;
+    } else {
+        if ((s8)playerEntity->knockbackDuration >= 1) {
+            playerEntity->knockbackDuration--;
         } else {
+            playerEntity->knockbackDuration++;
+        }
 
-            if ((s8)(playerEntity->knockbackDuration) >= 1) {
-                playerEntity->knockbackDuration--;
+        if (playerEntity->knockbackDuration == 0)
+            return;
 
+        gPlayerState.field_0x7 &= 0xdf;
+        if (0 < playerEntity->iframes && !gPlayerState.swim_state && !(gPlayerState.flags & PL_MINISH) &&
+            !gPlayerState.jump_status) {
+            ResetActiveItems();
+            if (!(gPlayerState.flags & PL_NO_CAP)) {
+                gPlayerState.animation = ANIM_BOUNCE;
             } else {
-                playerEntity->knockbackDuration++;
-            }
-            if (playerEntity->knockbackDuration != 0) {
-                gPlayerState.field_0x7 &= 0xdf;
-                if ((((0 < playerEntity->iframes) && (gPlayerState.swim_state == 0)) &&
-                     ((gPlayerState.flags & 0x80) == 0)) &&
-                    gPlayerState.jump_status == 0) {
-                    ResetActiveItems();
-                    if ((gPlayerState.flags & 8) == 0) {
-                        gPlayerState.animation = 0x114;
-                    } else {
-                        gPlayerState.animation = 0x418;
-                    }
-                }
-                sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
-                sub_0807A5B8(playerEntity->knockbackDirection);
+                gPlayerState.animation = ANIM_BOUNCE_NOCAP;
             }
         }
+        sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
+        sub_0807A5B8(playerEntity->knockbackDirection);
     }
 }
 

@@ -209,6 +209,7 @@ typedef enum {
     SURFACE_AUTO_LADDER,
     SURFACE_CLIMB_WALL,
     SURFACE_2C,
+    SURFACE_FF = 0xff,
 } SurfaceType;
 
 typedef enum {
