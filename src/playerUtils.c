@@ -18,6 +18,7 @@
 #include "save.h"
 #include "screen.h"
 #include "screenTransitions.h"
+#include "main.h"
 
 static void sub_08077E54(ItemBehavior* beh);
 
@@ -156,6 +157,14 @@ extern const u8 gUnk_08007DF4[];
 extern const u8 gUnk_080084BC[];
 
 u32 sub_0807A180(Entity*, Entity*, u32, u32);
+
+extern u32 gUsedPalettes;
+
+extern void ClearBgAnimations(void);
+extern void sub_080197D4(const void*);
+extern void LoadBgAnimations(u16*);
+
+void sub_0807BFA8(void);
 
 void UpdateActiveItems(PlayerEntity* this) {
     u32 index;
@@ -3577,7 +3586,54 @@ void sub_0807BFA8(void) {
     gRoomControls.height = (gArea.pCurrentRoomInfo)->pixel_height;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BFD0.inc", void sub_0807BFD0())
+void sub_0807BFD0(void) {
+    s32 index;
+    u16* puVar2;
+    u16* puVar3;
+    u16* ptr;
+    typeof(gMapTop)* newptr;
+
+    ClearBgAnimations();
+    sub_0807BFA8();
+    MemFill16(0xffff, gMapBottom.metatileTypes, 0x1000);
+    gMapBottom.metatileTypes[0] = 0;
+    MemFill16(0xffff, gMapTop.metatileTypes, 0x1000);
+    gMapTop.metatileTypes[0] = 0;
+
+    if ((void*)gRoomControls.unk_34 != (gArea.pCurrentRoomInfo)->tileset) {
+        gRoomControls.unk_34 = (u32)(gArea.pCurrentRoomInfo)->tileset;
+        sub_080197D4((gArea.pCurrentRoomInfo)->tileset);
+    }
+
+    sub_080197D4((gArea.pCurrentRoomInfo)->metatiles);
+    ptr = gPaletteBuffer;
+    MemCopy(&ptr[0x30], &ptr[0x150], 0x20);
+    gUsedPalettes |= 0x200000;
+
+    if ((gArea.pCurrentRoomInfo)->bg_anim != NULL) {
+        LoadBgAnimations((gArea.pCurrentRoomInfo)->bg_anim);
+    }
+
+    puVar2 = gMapBottom.metatileTypes;
+    puVar3 = gMapBottom.unkData2;
+    MemFill16(0xffff, puVar3, 0x1000);
+
+    for (index = 0; index < 0x800; index++, puVar2++) {
+        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
+            puVar3[*puVar2] = index;
+        }
+    }
+
+    puVar2 = gMapTop.metatileTypes;
+    puVar3 = gMapTop.unkData2;
+    MemFill16(0xffff, puVar3, 0x1000);
+
+    for (index = 0; index < 0x800; index++, puVar2++) {
+        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
+            puVar3[*puVar2] = index;
+        }
+    }
+}
 
 void LoadRoomGfx(void) {
     RoomControls* roomControls;
