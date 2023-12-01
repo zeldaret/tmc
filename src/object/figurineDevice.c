@@ -498,17 +498,17 @@ bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
         switch (ptr->unk_6) {
             case 0x8:
             case 0x40:
-                if (CheckLocalFlagByBank(ptr->unk_0, ptr->unk_4))
+                if (CheckLocalFlagByBank(ptr->bank, ptr->flag))
                     result = TRUE;
                 break;
             case 0x10:
-                if (CheckKinstoneFused(ptr->unk_4))
+                if (CheckKinstoneFused(ptr->flag))
                     result = TRUE;
                 break;
             default:
                 break;
             case 0x20:
-                switch (ptr->unk_4) {
+                switch (ptr->flag) {
                     case 0:
                         if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10)) {
                             result = TRUE;
