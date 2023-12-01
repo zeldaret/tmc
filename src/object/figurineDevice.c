@@ -488,7 +488,9 @@ void sub_080880D8(FigurineDeviceEntity* this) {
 bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
     bool32 result;
     const struct_080FC3E4* ptr;
+#if !defined(JP) && !defined(EU)
     u8 kinstoneId;
+#endif
 
     ptr = &gUnk_080FC3E4[param_2];
     result = FALSE;
@@ -498,17 +500,28 @@ bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
         switch (ptr->unk_6) {
             case 0x8:
             case 0x40:
-                if (CheckLocalFlagByBank(ptr->bank, ptr->flag))
+                if (CheckLocalFlagByBank(ptr->unk_0, ptr->unk_4))
                     result = TRUE;
                 break;
             case 0x10:
-                if (CheckKinstoneFused(ptr->flag))
+                if (CheckKinstoneFused(ptr->unk_4))
                     result = TRUE;
                 break;
             default:
                 break;
             case 0x20:
-                switch (ptr->flag) {
+                switch (ptr->unk_4) {
+#if defined(JP) || defined(EU)
+                    case 0:
+                        if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10) ||
+                            CheckKinstoneFused(KINSTONE_19))
+                            result = TRUE;
+                        break;
+                    case 1:
+                        if (this->unk_7c >= 5 && CheckKinstoneFused(KINSTONE_28))
+                            result = TRUE;
+                        break;
+#else
                     case 0:
                         if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10)) {
                             result = TRUE;
@@ -525,6 +538,7 @@ bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
                             goto backward_tail_merge;
                         }
                         break;
+#endif
                     case 2:
                         if (CheckKinstoneFused(KINSTONE_54) || CheckKinstoneFused(KINSTONE_56) ||
                             CheckKinstoneFused(KINSTONE_3D))
@@ -540,10 +554,12 @@ bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
                             CheckKinstoneFused(KINSTONE_3C))
                             result = TRUE;
                         break;
+#if !defined(JP) && !defined(EU)
                     case 5:
                         if (this->unk_7c >= 2 && CheckGlobalFlag(MACHI_MACHIHOKORI))
                             result = TRUE;
                         break;
+#endif
                 }
         }
     }
