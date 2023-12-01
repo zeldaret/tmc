@@ -485,14 +485,150 @@ void sub_080880D8(FigurineDeviceEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
-         bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2)) {
-    u8 bVar1;
-    bool32 condition;
-    u32 uVar3;
+/**
+ * @file figurineDevice.c
+ * @ingroup Objects
+ *
+ * @brief Figurine Device object
+ */
+
+#define NENT_DEPRECATED
+#include "fileselect.h"
+#include "functions.h"
+#include "kinstone.h"
+#include "item.h"
+#include "message.h"
+#include "object.h"
+#include "screen.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68[0x10];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+#ifdef EU
+    /*0x7c*/ u8 unk_80;
+    /*0x7d*/ u8 unk_7c;
+    /*0x7e*/ u8 unk_7d;
+    /*0x7f*/ u8 unk_7e[2];
+#else
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u8 unk_7e[2];
+    /*0x80*/ u8 unk_80;
+#endif
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ s8 unk_82;
+#ifdef EU
+    /*0x83*/ u8 unk_83;
+#else
+    /*0x83*/ s8 unk_83;
+#endif
+} FigurineDeviceEntity;
+
+extern void ModShells(s32);
+extern u8 gUnk_020227F0;
+typedef struct {
+    u32 unk_0;
+    u16 unk_4;
+    u8 unk_6;
+    u8 unk_7;
+} struct_080FC3E4;
+extern const struct_080FC3E4 gUnk_080FC3E4[];
+
+void sub_0808804C(FigurineDeviceEntity*);
+void sub_08087F58(FigurineDeviceEntity*);
+void sub_08088328(FigurineDeviceEntity*);
+void sub_0808826C(FigurineDeviceEntity*);
+void sub_080882A8(FigurineDeviceEntity*);
+void sub_080880D8(FigurineDeviceEntity*);
+void sub_08087F94(FigurineDeviceEntity*, s32);
+void sub_08088034(FigurineDeviceEntity*);
+bool32 sub_08088160(FigurineDeviceEntity*, s32);
+void sub_08088424(FigurineDeviceEntity*);
+void FigurineDevice_Init(FigurineDeviceEntity*);
+void FigurineDevice_Action1(FigurineDeviceEntity*);
+void FigurineDevice_Action2(FigurineDeviceEntity*);
+void FigurineDevice_Action3(FigurineDeviceEntity*);
+void FigurineDevice_Action4(FigurineDeviceEntity*);
+
+// end of existing headers
+
+/**
+ * @file figurineDevice.c
+ * @ingroup Objects
+ *
+ * @brief Figurine Device object
+ */
+
+#define NENT_DEPRECATED
+#include "fileselect.h"
+#include "functions.h"
+#include "kinstone.h"
+#include "item.h"
+#include "message.h"
+#include "object.h"
+#include "screen.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68[0x10];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+#ifdef EU
+    /*0x7c*/ u8 unk_80;
+    /*0x7d*/ u8 unk_7c;
+    /*0x7e*/ u8 unk_7d;
+    /*0x7f*/ u8 unk_7e[2];
+#else
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u8 unk_7e[2];
+    /*0x80*/ u8 unk_80;
+#endif
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ s8 unk_82;
+#ifdef EU
+    /*0x83*/ u8 unk_83;
+#else
+    /*0x83*/ s8 unk_83;
+#endif
+} FigurineDeviceEntity;
+
+extern void ModShells(s32);
+extern u8 gUnk_020227F0;
+typedef struct {
+    u32 unk_0;
+    u16 unk_4;
+    u8 unk_6;
+    u8 unk_7;
+} struct_080FC3E4;
+extern const struct_080FC3E4 gUnk_080FC3E4[];
+
+void sub_0808804C(FigurineDeviceEntity*);
+void sub_08087F58(FigurineDeviceEntity*);
+void sub_08088328(FigurineDeviceEntity*);
+void sub_0808826C(FigurineDeviceEntity*);
+void sub_080882A8(FigurineDeviceEntity*);
+void sub_080880D8(FigurineDeviceEntity*);
+void sub_08087F94(FigurineDeviceEntity*, s32);
+void sub_08088034(FigurineDeviceEntity*);
+bool32 sub_08088160(FigurineDeviceEntity*, s32);
+void sub_08088424(FigurineDeviceEntity*);
+void FigurineDevice_Init(FigurineDeviceEntity*);
+void FigurineDevice_Action1(FigurineDeviceEntity*);
+void FigurineDevice_Action2(FigurineDeviceEntity*);
+void FigurineDevice_Action3(FigurineDeviceEntity*);
+void FigurineDevice_Action4(FigurineDeviceEntity*);
+
+// end of existing headers
+
+bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
     bool32 result;
     const struct_080FC3E4* ptr;
-    u32 tmp;
+    u8 kinstoneId;
 
     ptr = &gUnk_080FC3E4[param_2];
     result = FALSE;
@@ -502,64 +638,57 @@ NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
         switch (ptr->unk_6) {
             case 0x8:
             case 0x40:
-                if (CheckLocalFlagByBank(ptr->bank, ptr->flag)) {
+                if (CheckLocalFlagByBank(ptr->unk_0, ptr->unk_4))
                     result = TRUE;
-                }
-                return result;
                 break;
             case 0x10:
-                if (CheckKinstoneFused(gUnk_080FC3E4[param_2].flag)) {
+                if (CheckKinstoneFused(ptr->unk_4))
                     result = TRUE;
-                }
-                return result;
                 break;
             default:
-                return result;
+                break;
             case 0x20:
-                switch (gUnk_080FC3E4[param_2].flag) {
+                switch (ptr->unk_4) {
                     case 0:
-                        if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10) ||
-                            CheckKinstoneFused(KINSTONE_19)) {
+                        if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10)) {
                             result = TRUE;
+                            break;
                         }
+                        kinstoneId = KINSTONE_19;
+                    backward_tail_merge:
+                        if (CheckKinstoneFused(kinstoneId))
+                            result = TRUE;
                         break;
                     case 1:
-                        if ((u8)this->unk_7c >= 5 && CheckKinstoneFused(KINSTONE_28)) {
-                            result = TRUE;
+                        if (this->unk_7c >= 5) {
+                            kinstoneId = KINSTONE_28;
+                            goto backward_tail_merge;
                         }
-
                         break;
                     case 2:
                         if (CheckKinstoneFused(KINSTONE_54) || CheckKinstoneFused(KINSTONE_56) ||
-                            CheckKinstoneFused(KINSTONE_3D)) {
+                            CheckKinstoneFused(KINSTONE_3D))
                             result = TRUE;
-                        }
                         break;
                     case 3:
                         if (CheckKinstoneFused(KINSTONE_3B) || CheckKinstoneFused(KINSTONE_4A) ||
-                            CheckKinstoneFused(KINSTONE_D)) {
+                            CheckKinstoneFused(KINSTONE_D))
                             result = TRUE;
-                        }
                         break;
                     case 4:
                         if (CheckKinstoneFused(KINSTONE_49) || CheckKinstoneFused(KINSTONE_55) ||
-                            CheckKinstoneFused(KINSTONE_3C)) {
+                            CheckKinstoneFused(KINSTONE_3C))
                             result = TRUE;
-                        }
                         break;
                     case 5:
-                        if (this->unk_7c >= 2 && CheckGlobalFlag(MACHI_MACHIHOKORI)) {
+                        if (this->unk_7c >= 2 && CheckGlobalFlag(MACHI_MACHIHOKORI))
                             result = TRUE;
-                        }
-                    default:
-                        return result;
+                        break;
                 }
-                break;
         }
     }
     return result;
 }
-END_NONMATCH
 
 void sub_0808826C(FigurineDeviceEntity* this) {
     s32 tmp = 100;
