@@ -815,7 +815,7 @@ void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
     sub_0801E64C(x1, y1, x3, y3, 1);
     sub_0801E64C(x2, y2, x3, y3, 2);
     MemClear(gUnk_02017AA0[gUnk_03003DE4[0]].filler, 0xa00);
-    ptr1 = (u32 *)gUnk_02018EE0;
+    ptr1 = (u32*)gUnk_02018EE0;
     ptr2 = gUnk_02017AA0[gUnk_03003DE4[0]].filler;
     for (y1 = 0xa0; y1 > 0; y1--, ptr2 += 2) {
         x1 = ptr1[0];
