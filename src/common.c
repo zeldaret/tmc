@@ -794,10 +794,10 @@ void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
 
 ASM_FUNC("asm/non_matching/common/sub_0801E31C.inc", void sub_0801E31C(u32 a1, u32 a2, u32 a3, u32 a4));
 
-void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, s32 baseAngle) {
+void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
     u8* ptr2;
     u32* ptr1;
-    s32 angle;
+    u32 angle;
     s32 x1, x2, x3, y1, y2, y3;
 
     MemFill16(0xffff, gUnk_02018EE0, 0x780);
