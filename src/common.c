@@ -794,7 +794,61 @@ void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
 
 ASM_FUNC("asm/non_matching/common/sub_0801E31C.inc", void sub_0801E31C(u32 a1, u32 a2, u32 a3, u32 a4));
 
-ASM_FUNC("asm/non_matching/common/sub_0801E49C.inc", void sub_0801E49C(u32 a1, u32 a2, u32 a3, u32 a4));
+void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, s32 baseAngle) {
+    u8* ptr2;
+    u32* ptr1;
+    s32 angle;
+    s32 x1, x2, x3, y1, y2, y3;
+
+    MemFill16(0xffff, gUnk_02018EE0, 0x780);
+    angle = (baseAngle - 0x40) & 0xff;
+    x1 = baseX + (gSineTable[angle + 0x40] * radius >> 8);
+    y1 = baseY + (gSineTable[angle] * radius >> 8);
+    angle = (baseAngle + 0x68) & 0xff;
+    x2 = baseX + (gSineTable[angle + 0x40] * radius >> 8);
+    y2 = baseY + (gSineTable[angle] * radius >> 8);
+    angle = (baseAngle - 0xe8) & 0xff;
+    x3 = baseX + (gSineTable[angle + 0x40] * radius >> 8);
+    y3 = baseY + (gSineTable[angle] * radius >> 8);
+    sub_0801E64C(x1, y1, x2, y2, 0);
+    sub_0801E64C(x1, y1, x3, y3, 1);
+    sub_0801E64C(x2, y2, x3, y3, 2);
+    MemClear(gUnk_02017AA0[gUnk_03003DE4[0]].filler, 0xa00);
+    ptr1 = gUnk_02018EE0;
+    ptr2 = gUnk_02017AA0[gUnk_03003DE4[0]].filler;
+    for (y1 = 0xa0; y1 > 0; y1--, ptr2 += 2) {
+        x1 = ptr1[0];
+        x2 = ptr1[1];
+        x3 = ptr1[2];
+        ptr1 += 3;
+        if (x1 > x2) {
+            SWAP(x1, x2, y2);
+        }
+        if (x1 > x3) {
+            SWAP(x1, x3, y2);
+        }
+        if (x2 > x3) {
+            SWAP(x2, x3, y2);
+        }
+        if (x1 != 0xffffffff) {
+            ptr2[0] = x3;
+            ptr2[1] = x1;
+        } else {
+            if (x2 != x1) {
+                ptr2[0] = x3;
+                ptr2[1] = x2;
+            } else {
+                if (x3 != x1) {
+                    ptr2[1] = x1;
+                    ptr2[0] = x1;
+                }
+            }
+        }
+    }
+    SetVBlankDMA((u16*)(gUnk_02017AA0[gUnk_03003DE4[0]].filler), (u16*)REG_ADDR_WIN0H,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
+}
 
 void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_5) {
     s32 sVar1;
