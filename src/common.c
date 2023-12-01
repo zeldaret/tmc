@@ -84,6 +84,7 @@ bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank);
 u32 sub_0801DF60(u32 a1, u8* p);
 u32 sub_0801DF78(u32 a1, u32 a2);
 void sub_0801DF28(u32 x, u32 y, s32 color);
+void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_5);
 
 extern void* GetRoomProperty(u32, u32, u32);
 
@@ -814,7 +815,7 @@ void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
     sub_0801E64C(x1, y1, x3, y3, 1);
     sub_0801E64C(x2, y2, x3, y3, 2);
     MemClear(gUnk_02017AA0[gUnk_03003DE4[0]].filler, 0xa00);
-    ptr1 = gUnk_02018EE0;
+    ptr1 = (u32 *)gUnk_02018EE0;
     ptr2 = gUnk_02017AA0[gUnk_03003DE4[0]].filler;
     for (y1 = 0xa0; y1 > 0; y1--, ptr2 += 2) {
         x1 = ptr1[0];
