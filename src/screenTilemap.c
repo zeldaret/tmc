@@ -5,7 +5,6 @@ void sub_0807D280(u16* mapspecial, u16* bgbuffer) {
     u32 unk_18;
     s32 tmp1, tmp2, tmp3, tmp4, tmp5, tmp6;
     s32 xdiff, ydiff;
-    u16 *src, *dst;
     s32 i, j, index_hack;
 
     xdiff = (gRoomControls.scroll_x - gRoomControls.origin_x);
