@@ -157,7 +157,7 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
         }
 
         gPlayerState.framestate = 5;
-        gUnk_0200AF00.unk_2e = 8;
+        gUnk_0200AF00.rActionPlayerState = 8;
     } else {
         if (this->field_0x18 != NULL) {
             this->field_0x18->subAction = 6;
