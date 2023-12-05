@@ -1158,7 +1158,132 @@ void ResetPossibleInteraction(void) {
 }
 
 // determines which (if any) object the player is currently able to interact with
-ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", InteractableObject* sub_080784E4(void))
+InteractableObject* sub_080784E4(void) {
+    u8 uVar1;
+    PlayerFlags r7;
+    s32 r3;
+    PlayerFlags PVar4;
+    u8* puVar5;
+    u8* hitbox;
+    s8* interactOffsets;
+    Entity* entity;
+    s32 r4;
+    InteractableObject* iObject;
+    u32 index;
+    s32 interactX;
+    s32 interactY;
+
+    if (gPossibleInteraction.isUpdated != 0) {
+        return gPossibleInteraction.currentObject;
+    }
+    if ((gPlayerState.field_0x27[0] | gPlayerState.swim_state) != 0) {
+        goto l;
+    }
+
+    if (gPlayerState.framestate == 0) {
+        uVar1 = gPlayerState.framestate_last;
+    } else {
+        uVar1 = gPlayerState.framestate;
+    }
+    switch (uVar1) {
+        case 2:
+        case 3:
+        case 0x12:
+        case 0x15:
+        case 0x16:
+        l:
+            gPossibleInteraction.currentIndex = 0xFF;
+            gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
+            gPossibleInteraction.isUpdated = 1;
+            return gPossibleInteraction.currentObject;
+    }
+
+    if ((gPlayerState.flags & PL_MINISH) == 0) {
+        r7 = HasDungeonSmallKey() ? PL_BUSY : 0;
+        if (HasDungeonBigKey()) {
+            r7 |= PL_FLAGS2;
+        }
+        interactOffsets = gPlayerInteractHitboxOffsetNormal + (gPlayerEntity.animationState & 6);
+    } else {
+        interactOffsets = gPlayerInteractHitboxOffsetMinish + (gPlayerEntity.animationState & 6);
+        r7 = 0;
+    }
+
+    interactX = gPlayerEntity.x.HALF.HI + interactOffsets[0];
+    interactY = gPlayerEntity.y.HALF.HI + interactOffsets[1];
+
+    for (index = 0; index < 0x20; index++) {
+        iObject = gInteractableObjects + index;
+        entity = iObject->entity;
+        if (entity == NULL)
+            continue;
+        if (entity->interactType < 0)
+            break;
+        if ((((iObject->ignoreLayer & 1) == 0) && ((gPlayerEntity.collisionLayer & entity->collisionLayer) == 0)) ||
+            ((iObject->interactDirections >> (gPlayerEntity.animationState >> 1) & 1) != 0))
+            continue;
+        switch (iObject->type) {
+            case 0:
+                continue;
+            case 1:
+            case 3:
+            case 4:
+            case 8:
+            case 9:
+                if ((gPlayerState.flags & PL_MINISH) != 0)
+                    continue;
+                break;
+            case 7:
+                PVar4 = gPlayerState.flags & PL_MINISH;
+                if (PVar4 == 0)
+                    continue;
+                break;
+            case 2:
+                PVar4 = (PlayerFlags)iObject->kinstoneId;
+                if (PVar4 == 0)
+                    continue;
+                break;
+            case 5:
+                PVar4 = PL_BUSY & r7;
+                if (PVar4 == 0)
+                    continue;
+                break;
+            case 6:
+                PVar4 = PL_FLAGS2 & r7;
+                if (PVar4 == 0)
+                    continue;
+                break;
+            case 10:
+            default:
+                break;
+        }
+
+        r3 = iObject->entity->x.HALF.HI;
+        r4 = iObject->entity->y.HALF.HI;
+        hitbox = (u8*)iObject->customHitbox;
+        if (hitbox != NULL) {
+            r3 += (s8)hitbox[0];
+            r4 += (s8)hitbox[1];
+            puVar5 = hitbox + 2;
+        } else {
+            puVar5 = &iObject->entity->hitbox->width;
+        }
+        if (((puVar5[0] + interactX) - r3 < (u32)puVar5[0] << 1) &&
+            ((puVar5[1] + interactY) - r4 < (u32)puVar5[1] << 1)) {
+            break;
+        }
+    }
+    if (index < 0x20) {
+        gPossibleInteraction.currentIndex = (u8)index;
+        gPossibleInteraction.currentObject = &gPossibleInteraction.candidates[index];
+
+    } else {
+        gPossibleInteraction.currentIndex = 0xFF;
+        gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
+    }
+    gPossibleInteraction.isUpdated = 1;
+    return gPossibleInteraction.currentObject;
+}
 
 void AddInteractableWhenBigObject(Entity* ent) {
     AddInteractableObject(ent, 1, 0);
@@ -2496,7 +2621,86 @@ bool32 sub_0807A2B8(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", u32 sub_0807A2F8(u32 a1))
+u32 sub_0807A2F8(u32 param_1) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 iVar4;
+    u32 uVar5;
+    u8 auStack36[4];
+    Entity* player;
+
+    if ((gRoomControls.area == 8) || (sub_08079778() | param_1) == 0)
+        return 0;
+    if ((gPlayerEntity.animationState & 2) != 0) {
+
+        uVar2 = COORD_TO_TILE_OFFSET(&gPlayerEntity, 0, -gPlayerEntity.hitbox->unk2[3]) << 1;
+        uVar1 = COORD_TO_TILE_OFFSET(&gPlayerEntity, 0, gPlayerEntity.hitbox->unk2[3]) << 1;
+
+    } else {
+        uVar2 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -gPlayerEntity.hitbox->unk2[0], 0) << 1;
+        uVar1 = COORD_TO_TILE_OFFSET(&gPlayerEntity, gPlayerEntity.hitbox->unk2[0], 0) << 1;
+    }
+
+    for (uVar5 = 0; uVar5 < 2; uVar5++) {
+        iVar4 = 0;
+        uVar2 = sub_08004202(&gPlayerEntity, auStack36, uVar2);
+        if (sub_080B1B44(uVar2 >> 1, 1)) {
+            if (!sub_08007DD6((u16)sub_080B1AE0((u16)(uVar2 >> 1), gPlayerEntity.collisionLayer),
+                              gUnk_0811C1D8[gPlayerEntity.animationState >> 1])) {
+                break;
+            }
+        } else {
+            iVar4 = 1;
+        }
+
+        uVar1 = sub_08004202(&gPlayerEntity, auStack36, uVar1);
+        if (sub_080B1B44(uVar1 >> 1, 1)) {
+            if (!sub_08007DD6((u16)sub_080B1AE0((uVar1 >> 1), gPlayerEntity.collisionLayer),
+                              gUnk_0811C1D8[gPlayerEntity.animationState >> 1])) {
+                break;
+            }
+        } else {
+            iVar4++;
+        }
+
+        if (iVar4 == 2) {
+            if (uVar5 != 0) {
+                break;
+            }
+            return 0;
+        }
+    }
+    if (uVar5 != 0) {
+        if (AreaIsDungeon()) {
+            uVar2 = sub_08004202(&gPlayerEntity, auStack36, uVar2);
+            if (!sub_080B1B44(uVar2 >> 1, 2)) {
+                uVar1 = sub_08004202(&gPlayerEntity, auStack36, uVar1);
+                if (sub_080B1B44(uVar1 >> 1, 2)) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+        } else {
+            if (uVar5 == 2) {
+                uVar2 = sub_08004202(&gPlayerEntity, auStack36, uVar2);
+            }
+            if (sub_080B1B44(uVar2 >> 1, 1) == 0) {
+                if (uVar5 == 2) {
+                    uVar1 = sub_08004202(&gPlayerEntity, auStack36, uVar1);
+                }
+                if (sub_080B1B44(uVar1 >> 1, 1)) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+        }
+        return uVar5 + 1;
+    }
+
+    return 0;
+}
 
 u32 GetPlayerTilePos(void) {
     switch (gPlayerEntity.animationState >> 1) {
