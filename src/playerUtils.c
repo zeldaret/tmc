@@ -156,6 +156,8 @@ extern const u8 gUnk_0811BFE0[];
 extern const u8 gUnk_08007DF4[];
 extern const u8 gUnk_080084BC[];
 
+extern InteractableObject gInteractableObjects[];
+
 u32 sub_0807A180(Entity*, Entity*, u32, u32);
 
 extern u32 gUsedPalettes;
@@ -1203,9 +1205,9 @@ InteractableObject* sub_080784E4(void) {
         if (HasDungeonBigKey()) {
             r7 |= PL_FLAGS2;
         }
-        interactOffsets = gPlayerInteractHitboxOffsetNormal + (gPlayerEntity.animationState & 6);
+        interactOffsets = (s8*)gPlayerInteractHitboxOffsetNormal + (gPlayerEntity.animationState & 6);
     } else {
-        interactOffsets = gPlayerInteractHitboxOffsetMinish + (gPlayerEntity.animationState & 6);
+        interactOffsets = (s8*)gPlayerInteractHitboxOffsetMinish + (gPlayerEntity.animationState & 6);
         r7 = 0;
     }
 
