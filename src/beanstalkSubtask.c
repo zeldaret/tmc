@@ -736,7 +736,185 @@ bool32 sub_0801A4F8(void) {
     return TRUE;
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", u32 sub_0801A570(Entity* a, u32 b))
+u32 sub_0801A570(Entity* this, s32 param_2) {
+    LayerStruct* layer;
+    u32 tileType;
+    u32 position;
+    s32 index1;
+    u32 index2;
+    u16* metatileTypes;
+    u8* collisionData;
+
+    if (this == NULL) {
+        return 0xffff;
+    }
+    
+    layer = GetLayerByIndex(this->collisionLayer);
+    metatileTypes = layer->metatileTypes;
+    index1 = 4;
+    index2 = 2;
+    switch (this->animationState >> 1) {
+        case 0:
+        default:
+            position = COORD_TO_TILE_OFFSET(this, 0, 10);
+            do {
+                if (metatileTypes[layer->mapData[position]] == 0x370)
+                    break;
+                position--;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 0x40;
+            do {
+                if (metatileTypes[layer->mapData[(position)]] != 0x374)
+                    break;
+                index2++;
+                position -= 0x40;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetTileType(position, this->collisionLayer);
+            if ((u32)(index1 - 0x369) <= 1) {
+                collisionData = layer->collisionData - 0x40 + position;
+                index1 = 0;
+
+                if (index1 < index2) {
+                    while (collisionData[index1] == 0) {
+                        if (++index1 >= index2)
+                            goto end;
+                    }
+                } else {
+                    goto end;
+                }
+            }
+            break;
+        case 1:
+            position = COORD_TO_TILE_OFFSET(this, -10, 0);
+            do {
+                if (layer->metatileTypes[layer->mapData[position]] == 0x370)
+                    break;
+                position += 0x40;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 0x40;
+            do {
+                if (metatileTypes[layer->mapData[(position)]] != 0x374)
+                    break;
+                index2++;
+                position -= 0x40;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+            index1 = GetTileType(position, this->collisionLayer);
+
+            if ((index1 == 0x369) || (index1 == 0x36d)) {
+                collisionData = layer->collisionData + (position + index2);
+                index1 = 0;
+
+                if (index1 < index2) {
+                    u8* flagPtr = collisionData + index1;
+                    while (*flagPtr == 0) {
+                        if (++index1 >= index2)
+                            goto end;
+                        flagPtr = (u8*)((index1 << 6) + (u32)collisionData);
+                    }
+                } else {
+                    goto end;
+                }
+            }
+            break;
+        case 2:
+            position = COORD_TO_TILE_OFFSET(this, 0, -10);
+            do {
+                if (layer->metatileTypes[layer->mapData[position]] == 0x36f)
+                    break;
+                position++;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 1;
+            do {
+                if (metatileTypes[layer->mapData[position]] != 0x372)
+                    break;
+                index2++;
+                position--;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetTileType(position, this->collisionLayer);
+            if ((index1 == 0x369) || (index1 == 0x36b)) {
+                collisionData = layer->collisionData + (position + (index2 * 0x40));
+                index1 = 0;
+                if (index1 < index2) {
+                    while (collisionData[index1] == 0) {
+                        if (++index1 >= index2)
+                            goto end;
+                    }
+                } else {
+                    goto end;
+                }
+            }
+            break;
+        case 3:
+            position = COORD_TO_TILE_OFFSET(this, 10, 0);
+            do {
+                if (layer->metatileTypes[layer->mapData[position]] == 0x36f)
+                    break;
+                position -= 0x40;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 1;
+            do {
+                if (metatileTypes[layer->mapData[position]] != 0x372)
+                    break;
+                index2++;
+                position--;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetTileType(position, this->collisionLayer);
+            if ((index1 == 0x369) || (index1 == 0x36c)) {
+                collisionData = layer->collisionData - 1 + position;
+                index1 = 0;
+
+                if (index1 < index2) {
+                    u32 flag;
+                    flag = collisionData[index1];
+                    goto case3_flag_check;
+                case3_loop_back:
+                    if (++index1 >= index2)
+                        goto end;
+                    flag = *(u8*)((index1 << 6) + (u32)collisionData);
+                case3_flag_check:
+                    if (flag != 0)
+                        break;
+                    goto case3_loop_back;
+                } else {
+                    goto end;
+                }
+            }
+            break;
+    }
+    position = 0xffff;
+end:
+    if (param_2 != 0) {
+        position |= index2 << 0xc;
+    }
+    return position;
+}
 
 u32 sub_0801A8D0(Entity* this, u32 param_2) {
     u16* mapData;
