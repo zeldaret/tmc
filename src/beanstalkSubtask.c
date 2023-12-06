@@ -736,7 +736,7 @@ bool32 sub_0801A4F8(void) {
     return TRUE;
 }
 
-u32 sub_0801A570(Entity* this, s32 param_2) {
+u32 sub_0801A570(Entity* this, u32 param_2) {
     LayerStruct* layer;
     u32 tileType;
     u32 position;
