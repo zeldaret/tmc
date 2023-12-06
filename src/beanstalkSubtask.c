@@ -748,7 +748,6 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
     if (this == NULL) {
         return 0xffff;
     }
-    
     layer = GetLayerByIndex(this->collisionLayer);
     metatileTypes = layer->metatileTypes;
     index1 = 4;
@@ -888,8 +887,9 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
             index1 = GetTileType(position, this->collisionLayer);
             if ((index1 == 0x369) || (index1 == 0x36c)) {
                 collisionData = layer->collisionData - 1 + position;
-                index1 = 0;
 
+                // This loop is functionally equivalent to the one present in case 1
+                index1 = 0;
                 if (index1 < index2) {
                     u32 flag;
                     flag = collisionData[index1];
