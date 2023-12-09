@@ -372,7 +372,7 @@ void sub_080AE218(u32 param1, u32 param2) {
             if ((r3 <= r0) && (r7 > r0)) {
                 r0 = (r0 - r3);
                 r1 = r0 + r12;
-                ent->spriteVramOffset = r0 + r12;
+                ent->spriteVramOffset = r1;
             }
         }
     }
