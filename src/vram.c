@@ -2,6 +2,7 @@
 #include "common.h"
 #include "structures.h"
 #include "fileselect.h"
+#include "new_player.h"
 
 extern u32 gFixedTypeGfxData[];
 
@@ -352,7 +353,54 @@ void CleanUpGFXSlots(void) {
 }
 
 // Swap gfx
-ASM_FUNC("asm/non_matching/vram/sub_080AE218.inc", void sub_080AE218(u32 a, u32 b))
+void sub_080AE218(u32 param1, u32 param2) {
+    struct_gUnk_020000C0_1* psVar6;
+    u32 r0, r1, r3, r7, r12;
+    u32 index1, index2;
+
+    r12 = (param2 << 4) + 0x140;
+    r3 = (param1 << 4) + 0x140;
+    r7 = r3 + ((u32)gGFXSlots.slots[param1].slotCount << 4);
+
+    for (index1 = 0; index1 < 0x50; index1++) {
+        Entity* ent = &(&gPlayerEntity)[index1];
+        if (ent->next != NULL) {
+            if (param1 == ent->spriteAnimation[0]) {
+                ent->spriteAnimation[0] = param2;
+            }
+            r0 = ent->spriteVramOffset;
+            if ((r3 <= r0) && (r7 > r0)) {
+                r0 = (r0 - r3);
+                r1 = r0 + r12;
+                ent->spriteVramOffset = r0 + r12;
+            }
+        }
+    }
+
+    for (index2 = 0; index2 < ARRAY_COUNT(gUnk_020000C0); index2++) {
+        for (index1 = 0; index1 < 4; index1++) {
+            psVar6 = gUnk_020000C0[index2].unk_00 + index1;
+            if ((((*(u8*)&psVar6->unk_00) & 1) != 0) && (((*(u8*)&psVar6->unk_00) & 2) == 0)) {
+                r1 = psVar6->unk_08.HALF_U.HI;
+                if ((r3 <= r1) && (r7 > r1)) {
+                    r0 = (r1 - r3);
+                    r1 = r0 + r12;
+                    psVar6->unk_08.HALF_U.HI = r1;
+                }
+            }
+        }
+    }
+
+    for (index1 = 0; index1 < 0x80; index1++) {
+        r1 = gOAMControls.oam[index1].tileNum;
+        if ((r3 <= r1) && (r7 > r1)) {
+            r0 = (r1 - r3);
+            r1 = r0 + r12;
+            gOAMControls.oam[index1].tileNum = r1;
+            gOAMControls.field_0x0 = 1;
+        }
+    }
+}
 
 void MoveGFXSlots(u32 srcIndex, u32 targetIndex) {
     s32 index;
