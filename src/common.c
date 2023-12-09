@@ -25,6 +25,7 @@ typedef struct {
 
 extern u8 gUnk_03003DE0;
 extern u8 gzHeap[0x1000];
+extern u8 gUnk_02035542[];
 extern u32 gUnk_0201AEE0[0x800];
 extern s16 gUnk_02018EE0[];
 
@@ -348,7 +349,111 @@ void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
     } while (--size);
 }
 
-ASM_FUNC("asm/non_matching/common/zMalloc.inc", void* zMalloc(u32 size));
+void* zMalloc(u32 size) {
+
+    FORCE_REGISTER(u32 slotFound, r5);
+    u16* heapStartOffset;
+    u8* allocatedEntryStartOffset;
+    u8* allocatedEntryEndOffset;
+    u8* candidateSlotEndOffset;
+    u8* candidateSlotStartOffset;
+    u16 index1, index2;
+    u16 numEntries;
+    // align to 4
+    size = (size + 3) & ~3;
+
+    heapStartOffset = (u16*)(gzHeap);
+    numEntries = heapStartOffset[0];
+    slotFound = TRUE;
+
+    // Check for a candidate slot at the tail-end of heap buffer
+    candidateSlotEndOffset = (u8*)heapStartOffset + sizeof(gzHeap);
+    candidateSlotStartOffset = candidateSlotEndOffset - size;
+    for (index2 = 0; index2 < numEntries; index2++) {
+
+        // Overlap checks with already allocated slots
+        allocatedEntryStartOffset = gzHeap + heapStartOffset[(index2 * 2) + 1];
+        allocatedEntryEndOffset = gzHeap + heapStartOffset[(index2 * 2) + 2];
+
+        if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+             candidateSlotStartOffset <= allocatedEntryEndOffset)) {
+            goto other_search;
+        }
+
+        if ((allocatedEntryStartOffset <= candidateSlotEndOffset &&
+             candidateSlotEndOffset <= allocatedEntryEndOffset)) {
+            slotFound = FALSE;
+            break;
+        }
+
+        if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+             candidateSlotEndOffset <= allocatedEntryEndOffset) ||
+            (candidateSlotStartOffset <= allocatedEntryStartOffset &&
+             allocatedEntryEndOffset <= candidateSlotEndOffset)) {
+            goto other_search;
+        }
+    }
+
+    if (!slotFound) {
+    other_search:
+
+        index1 = 0;
+        // Start search for candidate slot from the left side for the heap buffer.
+        do {
+
+            candidateSlotEndOffset = gzHeap + heapStartOffset[(index1 * 2) + 1];
+            candidateSlotStartOffset = candidateSlotEndOffset - size;
+            slotFound = FALSE;
+
+            // Ensure that the candidate slot doesn't collide with heap offsets section
+            if (candidateSlotStartOffset >= (u8*)(2 + (u32)heapStartOffset + (numEntries << 2) + 4)) {
+                slotFound = TRUE;
+
+                // Check if there is overlap with already allocated slots
+                for (index2 = 0; index2 < numEntries; index2++) {
+
+                    allocatedEntryStartOffset = gzHeap + heapStartOffset[(index2 * 2) + 1];
+                    allocatedEntryEndOffset = gzHeap + heapStartOffset[(index2 * 2) + 2];
+
+                    if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+                         candidateSlotStartOffset < allocatedEntryEndOffset)) {
+                        goto iter_end;
+                    }
+
+                    if ((allocatedEntryStartOffset < candidateSlotEndOffset &&
+                         candidateSlotEndOffset <= allocatedEntryEndOffset)) {
+                        slotFound = FALSE;
+                        break;
+                    }
+
+                    if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+                         candidateSlotEndOffset <= allocatedEntryEndOffset) ||
+                        (candidateSlotStartOffset <= allocatedEntryStartOffset &&
+                         allocatedEntryEndOffset <= candidateSlotEndOffset)) {
+                        goto iter_end;
+                    }
+                }
+                if (slotFound) {
+                    break;
+                } else {
+                    continue;
+                }
+
+            iter_end:
+                slotFound = FALSE;
+            }
+        } while ((index1 = (u16)(index1 + 1)) < numEntries);
+    }
+    if (!slotFound)
+        return 0;
+
+    // Register successful allocation
+    *(u16*)(gUnk_02035542 + (numEntries << 2)) = candidateSlotStartOffset - (gUnk_02035542 - 2);
+    *(u16*)(gUnk_02035542 + (numEntries << 2) + 2) = candidateSlotStartOffset - (gUnk_02035542 - 2) + size;
+    *(u16*)(gUnk_02035542 - 2) = numEntries + 1;
+    MemClear(candidateSlotStartOffset, size);
+    return candidateSlotStartOffset;
+}
 
 void zFree(void* ptr) {
     u32 uVar1;
