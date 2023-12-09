@@ -366,12 +366,12 @@ void* zMalloc(u32 size) {
     numEntries = heapStartOffset[0];
     slotFound = TRUE;
 
-    // Check for a candidate slot at the tail-end of heap buffer
+    // Check for a candidate slot at the tail-end of the heap buffer
     candidateSlotEndOffset = (u8*)heapStartOffset + sizeof(gzHeap);
     candidateSlotStartOffset = candidateSlotEndOffset - size;
     for (index2 = 0; index2 < numEntries; index2++) {
 
-        // Overlap checks with already allocated slots
+        // Check if there is overlap with already allocated slots
         allocatedEntryStartOffset = gzHeap + heapStartOffset[(index2 * 2) + 1];
         allocatedEntryEndOffset = gzHeap + heapStartOffset[(index2 * 2) + 2];
 
@@ -398,7 +398,7 @@ void* zMalloc(u32 size) {
     other_search:
 
         index1 = 0;
-        // Start search for candidate slot from the left side for the heap buffer.
+        // Start searching for candidate slot from the left side of the heap buffer.
         do {
 
             candidateSlotEndOffset = gzHeap + heapStartOffset[(index1 * 2) + 1];
