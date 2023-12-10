@@ -138,15 +138,15 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
     u32 animIndex;
 
     gPlayerState.heldObject &= 0xcf;
-    if (PlayerTryDropObject(this, index) == 0) {
+    if (!PlayerTryDropObject(this, index)) {
         return;
     }
 
-    if (((gPlayerEntity.iframes < 9) && (gPlayerEntity.knockbackDuration == 0))) {
+    if (gPlayerEntity.iframes < 9 && gPlayerEntity.knockbackDuration == 0) {
         if (this->field_0x18 != NULL) {
             if (this->field_0x18->action == 2 && this->field_0x18->subAction == 5) {
-                if ((gPlayerState.playerInput.heldInput & 0x80) == 0) {
-                    this->field_0x18->subAction = 6; //
+                if (!(gPlayerState.playerInput.heldInput & PLAYER_INPUT_80)) { // Pressing R
+                    this->field_0x18->subAction = 6;
                     PlayerCancelHoldItem(this, index);
                     return;
                 }
@@ -156,7 +156,7 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
             }
         }
 
-        gPlayerState.framestate = 5;
+        gPlayerState.framestate = PL_STATE_THROW;
         gUnk_0200AF00.rActionGrabbing = 8;
     } else {
         if (this->field_0x18 != NULL) {
@@ -166,18 +166,18 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
         return;
     }
 
-    if (gPlayerState.jump_status == 0) {
+    if (!gPlayerState.jump_status) {
 
-        if ((gPlayerState.heldObject == 1) && (sub_0800875A(&gPlayerEntity, 6, this) != 0)) {
+        if (gPlayerState.heldObject == 1 && sub_0800875A(&gPlayerEntity, 6, this) != 0) {
             sub_08076088(this, NULL, index);
             return;
-        } else if ((gUnk_0811BE38[(gPlayerEntity.animationState >> 1)] & gPlayerState.playerInput.heldInput) != 0) {
+        } else if (gUnk_0811BE38[gPlayerEntity.animationState >> 1] & gPlayerState.playerInput.heldInput) {
             UpdateItemAnim(this);
 
-            if ((gPlayerState.flags & 8) == 0) {
-                animIndex = 0x340;
+            if (!(gPlayerState.flags & PL_NO_CAP)) {
+                animIndex = ANIM_PULL;
             } else {
-                animIndex = 0x940;
+                animIndex = ANIM_PULL_START_NOCAP;
             }
 
             if (animIndex != this->animIndex) {
@@ -185,7 +185,7 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
             }
 
             gPlayerState.heldObject |= 0x10;
-            gPlayerState.framestate = 0x1a;
+            gPlayerState.framestate = PL_STATE_PULL;
 
             if (gPlayerState.heldObject == 1) {
                 return;
@@ -193,7 +193,7 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
 
             sub_08076088(this, this->field_0x18, index);
         } else {
-            if ((gPlayerState.playerInput.heldInput & gUnk_0811BE40[(gPlayerEntity.animationState >> 1)]) != 0) {
+            if (gPlayerState.playerInput.heldInput & gUnk_0811BE40[gPlayerEntity.animationState >> 1]) {
                 if (gPlayerEntity.subtimer < 6) {
                     gPlayerEntity.subtimer++;
                     return;
@@ -202,12 +202,12 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
                 gPlayerState.field_0x35 = this->playerAnimationState;
                 gPlayerState.pushedObject |= 0x80;
                 gPlayerState.heldObject |= 0x20;
-                gPlayerState.framestate = 0x19;
+                gPlayerState.framestate = PL_STATE_PUSH;
 
-                if ((gPlayerState.flags & 8) == 0) {
-                    animIndex = 0x33c;
+                if (!(gPlayerState.flags & PL_NO_CAP)) {
+                    animIndex = ANIM_PUSH;
                 } else {
-                    animIndex = 0x93c;
+                    animIndex = ANIM_PUSH_NOCAP;
                 }
 
                 if (animIndex == this->animIndex) {
@@ -218,10 +218,10 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
             } else {
                 gPlayerEntity.subtimer = 0;
 
-                if ((gPlayerState.flags & 8) == 0) {
-                    SetItemAnim(this, 0x340);
+                if (!(gPlayerState.flags & PL_NO_CAP)) {
+                    SetItemAnim(this, ANIM_PULL);
                 } else {
-                    SetItemAnim(this, 0x940);
+                    SetItemAnim(this, ANIM_PULL_START_NOCAP);
                 }
             }
         }
