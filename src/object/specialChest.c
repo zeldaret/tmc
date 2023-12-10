@@ -7,6 +7,7 @@
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
+#include "player.h"
 #include "room.h"
 
 extern void AddInteractableChest(Entity*);
