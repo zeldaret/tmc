@@ -29,9 +29,9 @@ void MayorHagen(MayorHagenEntity* this) {
             break;
         case 1:
             v = super->interactType;
-            if (v == 2) {
+            if (v == INTERACTION_FUSE) {
                 super->action = v;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
                 InitAnimationForceUpdate(super,
                                          4 + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));

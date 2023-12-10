@@ -1012,7 +1012,7 @@ void DetermineRButtonInteraction(void) {
                 rAction = gUnk_0200AF00.rActionInteractTile;
             } else {
                 interaction = sub_080784E4();
-                if (interaction->entity->interactType == 0) {
+                if (interaction->entity->interactType == INTERACTION_NONE) {
 
                     switch (interaction->type) {
                         case INTERACTION_TALK:
@@ -1115,10 +1115,10 @@ bool32 sub_080782C0(void) {
         AddKinstoneToBag(KINSTONE_NONE);
         if (gSave.kinstoneAmounts[0] != 0) {
             gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;
-            gPossibleInteraction.currentObject->entity->interactType = 2;
+            gPossibleInteraction.currentObject->entity->interactType = INTERACTION_FUSE;
             gPlayerState.queued_action = PLAYER_08070E9C;
         } else {
-            CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0);
+            CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0); // "Hey, you don't have any Kinstone Pieces! ..."
         }
         ForceSetPlayerState(PL_STATE_TALKEZLO);
         return TRUE;
@@ -1139,12 +1139,12 @@ bool32 sub_080782C0(void) {
         case INTERACTION_OPEN_CHEST:
         case INTERACTION_USE_SMALL_KEY:
         case INTERACTION_TALK_MINISH:
-            entity->interactType = 1;
+            entity->interactType = INTERACTION_TALK;
             gPossibleInteraction.kinstoneId = KINSTONE_NONE;
             return TRUE;
         case INTERACTION_LIFT_SHOP_ITEM:
             if (gRoomVars.shopItemType == 0) {
-                entity->interactType = 1;
+                entity->interactType = INTERACTION_TALK;
                 gRoomVars.shopItemType = entity->type;
                 gRoomVars.shopItemType2 = entity->type2;
                 return TRUE;
@@ -1161,7 +1161,7 @@ void ResetPossibleInteraction(void) {
 
 // determines which (if any) object the player is currently able to interact with
 InteractableObject* sub_080784E4(void) {
-    u8 uVar1;
+    u8 frameState;
     PlayerFlags r7;
     s32 r3;
     PlayerFlags PVar4;
@@ -1183,16 +1183,16 @@ InteractableObject* sub_080784E4(void) {
     }
 
     if (gPlayerState.framestate == 0) {
-        uVar1 = gPlayerState.framestate_last;
+        frameState = gPlayerState.framestate_last;
     } else {
-        uVar1 = gPlayerState.framestate;
+        frameState = gPlayerState.framestate;
     }
-    switch (uVar1) {
-        case 2:
-        case 3:
-        case 0x12:
-        case 0x15:
-        case 0x16:
+    switch (frameState) {
+        case PL_STATE_SWORD:
+        case PL_STATE_GUSTJAR:
+        case PL_STATE_DIE:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
         l:
             gPossibleInteraction.currentIndex = 0xFF;
             gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
@@ -1200,7 +1200,7 @@ InteractableObject* sub_080784E4(void) {
             return gPossibleInteraction.currentObject;
     }
 
-    if ((gPlayerState.flags & PL_MINISH) == 0) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
         r7 = HasDungeonSmallKey() ? PL_BUSY : 0;
         if (HasDungeonBigKey()) {
             r7 |= PL_FLAGS2;
@@ -1221,41 +1221,41 @@ InteractableObject* sub_080784E4(void) {
             continue;
         if (entity->interactType < 0)
             break;
-        if ((((iObject->ignoreLayer & 1) == 0) && ((gPlayerEntity.collisionLayer & entity->collisionLayer) == 0)) ||
-            ((iObject->interactDirections >> (gPlayerEntity.animationState >> 1) & 1) != 0))
+        if (((iObject->ignoreLayer & 1) == 0 && (gPlayerEntity.collisionLayer & entity->collisionLayer) == 0) ||
+            (iObject->interactDirections >> (gPlayerEntity.animationState >> 1) & 1) != 0)
             continue;
         switch (iObject->type) {
-            case 0:
+            case INTERACTION_NONE:
                 continue;
-            case 1:
-            case 3:
-            case 4:
-            case 8:
-            case 9:
-                if ((gPlayerState.flags & PL_MINISH) != 0)
+            case INTERACTION_TALK:
+            case INTERACTION_OPEN_CHEST:
+            case INTERACTION_UNUSED:
+            case INTERACTION_LIFT_SHOP_ITEM:
+            case INTERACTION_CHECK:
+                if (gPlayerState.flags & PL_MINISH)
                     continue;
                 break;
-            case 7:
+            case INTERACTION_TALK_MINISH:
                 PVar4 = gPlayerState.flags & PL_MINISH;
-                if (PVar4 == 0)
+                if (!PVar4)
                     continue;
                 break;
-            case 2:
+            case INTERACTION_FUSE:
                 PVar4 = (PlayerFlags)iObject->kinstoneId;
                 if (PVar4 == 0)
                     continue;
                 break;
-            case 5:
+            case INTERACTION_USE_SMALL_KEY:
                 PVar4 = PL_BUSY & r7;
-                if (PVar4 == 0)
+                if (!PVar4)
                     continue;
                 break;
-            case 6:
+            case INTERACTION_USE_BIG_KEY:
                 PVar4 = PL_FLAGS2 & r7;
-                if (PVar4 == 0)
+                if (!PVar4)
                     continue;
                 break;
-            case 10:
+            case INTERACTION_DROP_PEDESTAL:
             default:
                 break;
         }
@@ -1364,7 +1364,7 @@ void SetInteractableObjectCollision(Entity* arg0, u32 ignoreLayer, u32 interactD
 
 s32 AddInteractableObject(Entity* entity, InteractionType type, KinstoneId kinstoneId) {
     s32 index;
-    entity->interactType = 0;
+    entity->interactType = INTERACTION_NONE;
     index = GetInteractableObjectIndex(entity);
     if (index < 0) {
         index = GetInteractableObjectIndex(0);

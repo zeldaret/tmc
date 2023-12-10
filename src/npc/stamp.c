@@ -46,8 +46,8 @@ void sub_08062BD4(Entity* this) {
 
 void sub_08062BF8(Entity* this) {
     GetNextFrame(this);
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         this->action++;
         RequestPriority(this);
     }

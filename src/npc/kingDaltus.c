@@ -35,8 +35,8 @@ void KingDaltus(KingDaltusEntity* this) {
         sub_08066718,
     };
     if ((super->flags & ENT_SCRIPTED) != 0) {
-        if (super->interactType == 2) {
-            super->interactType = 0;
+        if (super->interactType == INTERACTION_FUSE) {
+            super->interactType = INTERACTION_NONE;
             super->action = 2;
             InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
             InitializeNPCFusion(super);
@@ -71,9 +71,9 @@ void sub_08066688(KingDaltusEntity* this) {
     if (sub_0806F078(super, tmp) == 0) {
         UpdateAnimationSingleFrame(super);
     }
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         super->action = 2;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
     }
 }
 

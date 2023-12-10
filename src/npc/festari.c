@@ -44,9 +44,9 @@ void sub_0805FE10(FestariEntity* this) {
 void sub_0805FE48(FestariEntity* this) {
     u32 uVar4;
 
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         super->action = 2;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
         InitializeNPCFusion(super);
     } else {

@@ -330,9 +330,9 @@ void sub_08063DC8(Entity* this) {
         } else {
             GetNextFrame(this);
         }
-        if (this->interactType != 0) {
+        if (this->interactType != INTERACTION_NONE) {
             this->action = 3;
-            this->interactType = 0;
+            this->interactType = INTERACTION_NONE;
             InitializeAnimation(this, GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)));
             sub_08064428(this);
         }
@@ -387,9 +387,9 @@ void sub_08063F20(GuardEntity* this) {
     ExecuteScriptForEntity(super, 0);
     HandleEntity0x82Actions(super);
     GetNextFrame(super);
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         super->action++;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         InitializeAnimation(super,
                             GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + this->unk_70);
         sub_08064428(super);

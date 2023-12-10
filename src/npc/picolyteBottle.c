@@ -90,8 +90,8 @@ void PicolyteBottle_Action1(PicolyteBottleEntity* this) {
 void PicolyteBottle_Action2(PicolyteBottleEntity* this) {
     Entity* obj;
 
-    if (super->interactType != 0) {
-        super->interactType = 0;
+    if (super->interactType != INTERACTION_NONE) {
+        super->interactType = INTERACTION_NONE;
         super->parent->timer = super->type2;
         super->parent->type2 = super->subtimer;
     } else {

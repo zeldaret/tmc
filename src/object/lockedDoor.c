@@ -230,7 +230,7 @@ void LockedDoor_Action7(LockedDoorEntity* this) {
 }
 
 void LockedDoor_Action8(LockedDoorEntity* this) {
-    if (super->interactType == 0 && !CheckFlags(this->unk_86))
+    if (super->interactType == INTERACTION_NONE && !CheckFlags(this->unk_86))
         return;
     super->action = 1;
     super->timer = 20;

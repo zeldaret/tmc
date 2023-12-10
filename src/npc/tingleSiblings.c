@@ -43,7 +43,7 @@ void sub_08064D90(Entity* this) {
 
 void sub_08064DA0(Entity* this) {
     sub_08064EE8(this);
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
         InitAnimationForceUpdate(this, 6);
         MessageFromTarget(0);
@@ -67,9 +67,9 @@ void sub_08064DE4(Entity* this) {
             InitScriptForNPC(this);
             break;
         case 1:
-            if (this->interactType == 2) {
+            if (this->interactType == INTERACTION_FUSE) {
                 this->action = 2;
-                this->interactType = 0;
+                this->interactType = INTERACTION_NONE;
                 InitAnimationForceUpdate(this,
                                          GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)));
                 InitializeNPCFusion(this);

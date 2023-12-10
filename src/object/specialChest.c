@@ -21,7 +21,7 @@ void SpecialChest(Entity* this) {
         this->collisionLayer = 1;
         AddInteractableChest(this);
     }
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         OpenSmallChest(COORD_TO_TILE(this), 2);
         DeleteThisEntity();
     }

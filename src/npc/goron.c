@@ -62,7 +62,7 @@ void sub_08069328(Entity* this) {
     if (this->animIndex != this->animationState) {
         InitAnimationForceUpdate(this, this->animationState);
     }
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
         RequestPriority(this);
         InitAnimationForceUpdate(this, 8);
@@ -74,7 +74,7 @@ void sub_08069390(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action = 1;
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
         RevokePriority(this);
         InitAnimationForceUpdate(this, this->animationState);
     }

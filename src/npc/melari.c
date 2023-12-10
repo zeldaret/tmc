@@ -59,8 +59,8 @@ void sub_08068730(Entity* this) {
             this->subtimer--;
         }
     }
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         MessageFromTarget(this->timer + TEXT_INDEX(TEXT_MINISH2, 0x0));
     }
 }
@@ -82,9 +82,9 @@ void sub_08068780(Entity* this) {
             InitScriptForNPC(this);
             break;
         case 1:
-            if (this->interactType == 2) {
+            if (this->interactType == INTERACTION_FUSE) {
                 this->action = 2;
-                this->interactType = 0;
+                this->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(this);
             } else {
                 ExecuteScriptForEntity(this, NULL);

@@ -22,9 +22,9 @@ void Din(DinEntity* this) {
             InitScriptForNPC(super);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
                 this->animIndex = super->animIndex;
                 InitAnimationForceUpdate(super,

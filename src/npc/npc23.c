@@ -59,8 +59,8 @@ void sub_080662F8(NPC23Entity* this) {
 }
 
 void sub_08066358(NPC23Entity* this) {
-    if (super->interactType != 0) {
-        super->interactType = 0;
+    if (super->interactType != INTERACTION_NONE) {
+        super->interactType = INTERACTION_NONE;
         MessageFromTarget(0);
         if ((super->type2 & 0x10) != 0) {
             super->action = 3;

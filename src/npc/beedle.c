@@ -86,7 +86,7 @@ void Beedle_Action1(Entity* this) {
         (animIndex = Beedle_GetAnimIndexFacingPlayer(this), this->animIndex != animIndex)) {
         InitializeAnimation(this, animIndex);
     }
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         MessageFromTarget(this->timer + TEXT_INDEX(TEXT_EMPTY, 0x01));
         this->action++;
     }

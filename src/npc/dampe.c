@@ -27,9 +27,9 @@ void Dampe(Entity* this) {
             InitScriptForNPC(this);
             return;
         case 1:
-            if (this->interactType == 2) {
+            if (this->interactType == INTERACTION_FUSE) {
                 this->action = 2;
-                this->interactType = 0;
+                this->interactType = INTERACTION_NONE;
                 InitAnimationForceUpdate(this,
                                          GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)) + 4);
                 InitializeNPCFusion(this);

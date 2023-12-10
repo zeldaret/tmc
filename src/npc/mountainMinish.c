@@ -92,8 +92,8 @@ void sub_08067E88(Entity* this) {
     if (sub_0806F078(this, tmp) == 0) {
         GetNextFrame(this);
     }
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         this->action = 2;
         MessageFromTarget(this->timer + TEXT_INDEX(TEXT_MINISH2, 0x0));
     }
@@ -131,18 +131,18 @@ void sub_08067EF0(MountainMinishEntity* this) {
             InitializeAnimation(super, gUnk_08111304[super->type2]);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 3;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
                 InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, 0);
                 HandleEntity0x82Actions(super);
-                if ((super->type2 == 3) && (super->interactType != 0)) {
+                if ((super->type2 == 3) && (super->interactType != INTERACTION_NONE)) {
                     super->action = 2;
-                    super->interactType = 0;
+                    super->interactType = INTERACTION_NONE;
                     InitializeAnimation(super,
                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                     sub_08068190(super);

@@ -148,9 +148,9 @@ void SittingPersion_Init(SittingPersonEntity* this) {
 void sub_080637B8(SittingPersonEntity* this) {
     u32 tmp;
 
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         super->action = 2;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         this->animIndex = super->animIndex;
         tmp = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
         tmp += super->spriteSettings.flipX ? 4 : 0;

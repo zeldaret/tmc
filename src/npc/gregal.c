@@ -99,9 +99,9 @@ void sub_0806CC08(GregalEntity* this) {
             SetDefaultPriority(super, PRIO_MESSAGE);
             sub_0807DD64(super);
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
                 InitAnimationForceUpdate(super,
                                          GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 8);

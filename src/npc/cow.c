@@ -235,9 +235,9 @@ void sub_0806920C(CowEntity* this) {
 // Check if player interacting
 void sub_0806924C(CowEntity* this) {
     s8 itype = super->interactType;
-    if (itype != 0) {
-        if ((gPlayerState.flags & PL_MINISH) != 0) {
-            if (itype == 2) {
+    if (itype != INTERACTION_NONE) {
+        if (gPlayerState.flags & PL_MINISH) {
+            if (itype == INTERACTION_FUSE) {
                 super->action = 4;
                 InitializeNPCFusion(super);
             } else {
@@ -248,7 +248,7 @@ void sub_0806924C(CowEntity* this) {
             ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_COW);
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
     }
 }
 

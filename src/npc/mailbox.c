@@ -38,7 +38,7 @@ void sub_08063210(Entity* this) {
 void sub_08063220(Entity* this) {
     u8 bVar1;
 
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
         bVar1 = 8;
     } else {

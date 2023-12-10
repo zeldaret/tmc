@@ -73,8 +73,8 @@ void sub_08061C00(Entity* this) {
     }
     sub_08061CB4(this, uVar1);
     sub_0806ED78(this);
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         MessageFromTarget(this->type2 + TEXT_INDEX(TEXT_EMPTY, 0x01));
     }
 }
@@ -126,9 +126,9 @@ void sub_08061CEC(TownspersonEntity* this) {
 }
 
 void sub_08061D64(TownspersonEntity* this) {
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         super->action = 3;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         InitializeNPCFusion(super);
         this->unk_69 = super->animIndex;
         InitializeAnimation(super, (super->animIndex & -4) +
@@ -140,9 +140,9 @@ void sub_08061D64(TownspersonEntity* this) {
             super->frameDuration = gUnk_0810B680[super->type].unk2;
         }
         GetNextFrame(super);
-        if (super->interactType != 0) {
+        if (super->interactType != INTERACTION_NONE) {
             super->action = 2;
-            super->interactType = 0;
+            super->interactType = INTERACTION_NONE;
             sub_08062048(super);
             this->unk_69 = super->animIndex;
             InitializeAnimation(super, (super->animIndex & -4) +

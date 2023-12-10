@@ -395,8 +395,8 @@ void CutsceneMiscObject_Type6(CutsceneMiscObjectEntity* this) {
             AddInteractableCheckableObject(super);
             break;
         case 1:
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 super->action = 2;
                 RemoveInteractableObject(super);
                 gPlayerState.queued_action = PLAYER_EMPTYBOTTLE;
@@ -449,8 +449,8 @@ void CutsceneMiscObject_Type7(CutsceneMiscObjectEntity* this) {
             AddInteractableCheckableObject(super);
             break;
         case 1:
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 super->action = 2;
                 RemoveInteractableObject(super);
                 CreateEzloHint(TEXT_INDEX(TEXT_BELARI, 0x1F), 0);
