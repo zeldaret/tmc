@@ -122,7 +122,7 @@ void sub_08066474(NPC23Entity* this) {
     }
 }
 
-void sub_08066490(NPC23Entity* this, Entity* entity)) {
+void sub_08066490(NPC23Entity* this, Entity* entity) {
     u32 uVar1;
     u32 uVar2;
     u32 uVar3;
