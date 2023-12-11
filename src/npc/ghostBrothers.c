@@ -78,9 +78,9 @@ void sub_08065C0C(GhostBrothersEntity* this) {
             InitScriptForNPC(super);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitAnimationForceUpdate(super,
                                          GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                 InitializeNPCFusion(super);
@@ -240,8 +240,8 @@ void sub_08065EDC(GhostBrothersEntity* this) {
 
 void sub_08065F20(GhostBrothersEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if (super->interactType != 0) {
-        super->interactType = 0;
+    if (super->interactType != INTERACTION_NONE) {
+        super->interactType = INTERACTION_NONE;
         MessageFromTarget(0);
         super->animIndex++;
         if (gSpriteAnimations_GhostBrothers[super->animIndex] == 0) {

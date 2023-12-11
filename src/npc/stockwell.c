@@ -81,7 +81,7 @@ void sub_080650CC(StockwellEntity* this) {
         InitScriptExecutionContext(this->context, script_StockwellDogFood);
     } else {
         bVar2 = super->frame & 0x20;
-        if ((bVar2 == 0) && (super->interactType != 0)) {
+        if ((bVar2 == 0) && (super->interactType != INTERACTION_NONE)) {
             super->interactType = bVar2;
             super->action++;
             InitializeAnimation(super, 7);

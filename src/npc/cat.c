@@ -373,7 +373,7 @@ void sub_08067C44(CatEntity* this) {
 
     this->unk_69 = uVar5;
 
-    if (super->interactType == 0) {
+    if (super->interactType == INTERACTION_NONE) {
         return;
     }
 
@@ -403,7 +403,7 @@ void sub_08067C44(CatEntity* this) {
             break;
     }
 
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         super->action = 8;
         InitializeNPCFusion(super);
     } else {
@@ -411,7 +411,7 @@ void sub_08067C44(CatEntity* this) {
         sub_08067790(super);
         SetDefaultPriority(super, PRIO_MESSAGE);
     }
-    super->interactType = 0;
+    super->interactType = INTERACTION_NONE;
     SoundReq(SFX_VO_CAT);
 }
 

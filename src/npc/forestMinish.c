@@ -532,9 +532,9 @@ void ForestMinish(ForestMinishEntity* this) {
             }
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, NULL);

@@ -25,9 +25,9 @@ void Gina(GinaEntity* this) {
             InitScriptForNPC(super);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitAnimationForceUpdate(super,
                                          GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                 InitializeNPCFusion(super);

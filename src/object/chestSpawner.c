@@ -148,7 +148,7 @@ void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
     sub_0800445C(super);
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         super->action = 4;
         super->subtimer = 30;
         RemoveInteractableObject(super);

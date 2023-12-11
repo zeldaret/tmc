@@ -101,8 +101,8 @@ void sub_080697EC(Entity* this) {
             this->subtimer--;
         }
     }
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         sub_08069888(this);
     }
 }
@@ -118,8 +118,8 @@ void sub_08069838(GormanEntity* this) {
         sub_0807DD64(super);
     }
     ExecuteScriptAndHandleAnimation(super, NULL);
-    if (super->interactType != 0) {
-        super->interactType = 0;
+    if (super->interactType != INTERACTION_NONE) {
+        super->interactType = INTERACTION_NONE;
         sub_08069888(super);
     }
 }

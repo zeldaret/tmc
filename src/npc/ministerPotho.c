@@ -57,9 +57,9 @@ void sub_08066808(Entity* this) {
     if (sub_0806F078(this, tmp) == 0) {
         UpdateAnimationSingleFrame(this);
     }
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
     }
 }
 
@@ -76,9 +76,9 @@ void sub_08066864(MinisterPothoEntity* this) {
             InitScriptForNPC(super);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitAnimationForceUpdate(super,
                                          GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                 InitializeNPCFusion(super);

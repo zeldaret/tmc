@@ -195,8 +195,8 @@ void sub_0806045C(Entity* this) {
     UpdateAnimationSingleFrame(this);
     sub_080604DC(this);
     switch (this->interactType) {
-        case 1:
-        case 2:
+        case INTERACTION_TALK:
+        case INTERACTION_FUSE:
             this->action = 2;
             MessageFromTarget(0);
             break;
@@ -253,16 +253,16 @@ void sub_08060528(PostmanEntity* this) {
             InitScriptForNPC(super);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 3;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
                 InitAnimationForceUpdate(super,
                                          GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
             } else {
-                if (super->interactType != 0) {
+                if (super->interactType != INTERACTION_NONE) {
                     super->action = 2;
-                    super->interactType = 0;
+                    super->interactType = INTERACTION_NONE;
                     sub_080606D8(super);
                     InitAnimationForceUpdate(super,
                                              GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));

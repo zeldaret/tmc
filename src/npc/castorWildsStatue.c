@@ -64,9 +64,9 @@ void sub_080673C0(Entity* this) {
 }
 
 void sub_080673F4(Entity* this) {
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
     }
 }
 

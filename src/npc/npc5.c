@@ -912,10 +912,10 @@ void sub_08061B18(NPC5Entity* this) {
     u16* puVar2;
 
     switch (super->interactType) {
-        case 0:
+        case INTERACTION_NONE:
             break;
-        case 1:
-            super->interactType = 0;
+        case INTERACTION_TALK:
+            super->interactType = INTERACTION_NONE;
             sub_08061AFC(this);
             puVar2 = this->unk_68;
             puVar2 += (super->timer++);

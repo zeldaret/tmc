@@ -62,9 +62,9 @@ void Sturgeon(SturgeonEntity* this) {
                     super->action = 1;
                 }
             } else {
-                if (super->interactType == 2) {
+                if (super->interactType == INTERACTION_FUSE) {
                     super->action = super->action | 0xff;
-                    super->interactType = 0;
+                    super->interactType = INTERACTION_NONE;
                     InitAnimationForceUpdate(super,
                                              GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                     InitializeNPCFusion(super);
@@ -93,7 +93,7 @@ void sub_08064B88(SturgeonEntity* this) {
     s32 temp2;
 
     switch (super->interactType) {
-        case 0:
+        case INTERACTION_NONE:
             temp = sub_0806EE20(super);
             super->animationState = super->knockbackDirection;
             if (temp != 0) {
@@ -101,7 +101,7 @@ void sub_08064B88(SturgeonEntity* this) {
             }
             GetNextFrame(super);
             break;
-        case 2:
+        case INTERACTION_FUSE:
             super->action = 3;
             temp2 = GetAnimationState(super);
             if (temp2 < 0) {
@@ -109,10 +109,10 @@ void sub_08064B88(SturgeonEntity* this) {
             }
             super->subtimer = super->animIndex;
             InitializeAnimation(super, temp2);
-            super->interactType = 0;
+            super->interactType = INTERACTION_NONE;
             InitializeNPCFusion(super);
             break;
-        case 1:
+        case INTERACTION_TALK:
         default:
             super->action = 2;
             temp2 = GetAnimationState(super);
@@ -121,7 +121,7 @@ void sub_08064B88(SturgeonEntity* this) {
             }
             super->subtimer = super->animIndex;
             InitializeAnimation(super, temp2);
-            super->interactType = 0;
+            super->interactType = INTERACTION_NONE;
             sub_08064CD8(super);
     }
 }

@@ -275,8 +275,8 @@ void sub_08068A4C(Entity* this) {
     if (iVar2 == 0) {
         GetNextFrame(this);
     }
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         this->action = 2;
         MessageFromTarget(0);
     }
@@ -311,9 +311,9 @@ void sub_08068AFC(BladeBrothersEntity* this) {
 
 void sub_08068b2c(BladeBrothersEntity* this) {
     u32 animationState;
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         super->action = 2;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         animationState = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
         InitAnimationForceUpdate(super, animationState);
         InitializeNPCFusion(super);

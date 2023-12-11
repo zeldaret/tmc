@@ -107,9 +107,9 @@ void sub_0806E648(CuccoEntity* this) {
 }
 
 void sub_0806E65C(Entity* this) {
-    if (this->interactType != 0) {
-        if ((gPlayerState.flags & PL_MINISH) != 0) {
-            if (this->interactType == 2) {
+    if (this->interactType != INTERACTION_NONE) {
+        if (gPlayerState.flags & PL_MINISH) {
+            if (this->interactType == INTERACTION_FUSE) {
                 this->action = 4;
                 InitializeNPCFusion(this);
             } else {
@@ -119,7 +119,7 @@ void sub_0806E65C(Entity* this) {
             ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_CUCCO_CALL);
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
     }
 }
 
