@@ -122,7 +122,7 @@ void sub_08066474(NPC23Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(NPC23Entity* this, Entity* entity)) {
+void sub_08066490(NPC23Entity* this, Entity* entity) {
     u32 uVar1;
     u32 uVar2;
     u32 uVar3;
@@ -134,7 +134,7 @@ NONMATCH("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(NPC23Entit
         uVar3 = uVar2 + this->unk_82;
         uVar4 = uVar2 - this->unk_82;
         if (((entity->x.HALF.HI < (int)uVar3) && (entity->x.HALF.HI > (int)uVar4))) {
-            uVar2 = entity->x.HALF.HI;
+            uVar2 += (entity->x.HALF.HI - uVar2);
         } else {
             if (entity->x.HALF.HI >= (int)uVar3) {
                 uVar2 = uVar3;
@@ -157,7 +157,6 @@ NONMATCH("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(NPC23Entit
         }
     }
 }
-END_NONMATCH
 
 bool32 sub_0806650C(NPC23Entity* this) {
     u32 dir = 0;
