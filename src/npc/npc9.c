@@ -33,8 +33,8 @@ void sub_08062AF0(Entity* this) {
 
 void sub_08062B14(Entity* this) {
     GetNextFrame(this);
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         this->action++;
         InitializeAnimation(this, 1);
         RequestPriority(this);

@@ -125,8 +125,8 @@ void FigurineDevice_Action1(FigurineDeviceEntity* this) {
             AddInteractableCheckableObject(super);
             break;
         case 1:
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 ResetPlayerAnimationAndAction();
                 if (CheckLocalFlag(SHOP07_TANA)) {
                     this->unk_7a = 2;

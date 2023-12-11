@@ -358,15 +358,15 @@ void sub_08028EDC(Entity* this) {
 }
 
 void sub_08028F0C(Entity* this) {
-    if (this->interactType == 2) {
+    if (this->interactType == INTERACTION_FUSE) {
         this->action = 8;
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
         InitializeNPCFusion(this);
-    } else if (this->interactType != 0) {
+    } else if (this->interactType != INTERACTION_NONE) {
         u16 dialog;
         const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
         sub_0804AA1C(this);
         this->direction = (GetAnimationState(this) << 3);
         sub_080290E0(this, 3);

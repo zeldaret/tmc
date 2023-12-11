@@ -89,9 +89,9 @@ void sub_08064570(CastleMaidEntity* this) {
             InitScriptForNPC(super);
         case 1:
             ExecuteScriptAndHandleAnimation(super, NULL);
-            if (super->interactType != 0) {
+            if (super->interactType != INTERACTION_NONE) {
                 super->action++;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
                 if (this->dialogFunc != NULL) {
                     this->dialogFunc();

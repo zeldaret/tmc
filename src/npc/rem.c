@@ -360,13 +360,13 @@ void sub_0806A958(Entity* this) {
 
 void sub_0806A96C(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         if (this->action != 3) {
             this->action = 3;
             this->subAction = 0;
         } else {
             if (this->subAction > 1) {
-                this->interactType = 0;
+                this->interactType = INTERACTION_NONE;
                 context->condition = 1;
                 gActiveScriptInfo.flags |= 1;
             }

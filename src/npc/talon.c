@@ -84,8 +84,8 @@ void sub_0806559C(Entity* this) {
         GetNextFrame(this);
     }
     sub_0806ED78(this);
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         ResetPlayerAnimationAndAction();
     }
 }
@@ -101,10 +101,10 @@ void sub_08065608(TalonEntity* this) {
 }
 
 void sub_08065648(TalonEntity* this) {
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         this->unk_69 = super->action;
         super->action = 4;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         InitializeNPCFusion(super);
     } else {
         ExecuteScriptAndHandleAnimation(super, NULL);
@@ -127,20 +127,20 @@ void sub_080656A4(TalonEntity* this) {
 }
 
 void sub_080656D4(TalonEntity* this) {
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         this->unk_69 = super->action;
         super->action = 4;
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         InitializeNPCFusion(super);
         sub_0806574C(this);
     } else {
-        if (super->interactType != 0) {
+        if (super->interactType != INTERACTION_NONE) {
             if (GetInventoryValue(ITEM_QST_LONLON_KEY) != 0) {
                 StartCutscene(super, (u16*)&script_TalonGotKey);
             } else {
                 this->unk_69 = super->action;
                 super->action = 3;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 MessageNoOverlap(*(u32*)(*(u32*)&this->unk_84 + 4), super);
                 sub_0806574C(this);
                 return;

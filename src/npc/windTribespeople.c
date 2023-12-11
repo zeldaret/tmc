@@ -63,9 +63,9 @@ void sub_0806C7D4(Entity* this) {
     u32 iVar1;
     u32 uVar2;
 
-    if (this->interactType == 2) {
+    if (this->interactType == INTERACTION_FUSE) {
         this->action = 3;
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
         InitializeNPCFusion(this);
     } else {
         ExecuteScriptAndHandleAnimation(this, NULL);

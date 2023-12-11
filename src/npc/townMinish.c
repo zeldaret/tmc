@@ -229,16 +229,16 @@ void sub_0806ACC4(TownMinishEntity* this) {
             InitializeAnimation(super, (super->animationState / 2) + 8);
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 3;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, NULL);
                 sub_0806AEA8(this);
                 if (super->type2 == 10 && super->interactType) {
                     super->action = 2;
-                    super->interactType = 0;
+                    super->interactType = INTERACTION_NONE;
                     InitializeAnimation(super,
                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 8);
                     sub_0806AFE8(super, this->context);

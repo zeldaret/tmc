@@ -238,7 +238,7 @@ void sub_080620F4(KidEntity* this) {
 }
 
 void sub_08062130(KidEntity* this) {
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         super->action = 2;
         InitAnimationForceUpdate(super, GetAnimationState(super));
     }
@@ -258,7 +258,7 @@ void sub_08062130(KidEntity* this) {
 void sub_08062194(KidEntity* this) {
     MessageFromTarget(0);
     super->action = 1;
-    super->interactType = 0;
+    super->interactType = INTERACTION_NONE;
 }
 
 void sub_080621AC(KidEntity* this) {
@@ -285,24 +285,24 @@ void sub_080621AC(KidEntity* this) {
             }
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 3;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
             } else {
                 if ((s8)this->unk_68 != 0) {
-                    if (super->interactType != 0) {
+                    if (super->interactType != INTERACTION_NONE) {
                         super->action = 2;
-                        super->interactType = 0;
+                        super->interactType = INTERACTION_NONE;
                     } else {
                         sub_080622F4(this);
                         return;
                     }
                 } else {
                     ExecuteScriptAndHandleAnimation(super, NULL);
-                    if (super->interactType != 0) {
+                    if (super->interactType != INTERACTION_NONE) {
                         super->action = 2;
-                        super->interactType = 0;
+                        super->interactType = INTERACTION_NONE;
                     } else {
                         return;
                     }

@@ -65,7 +65,7 @@ void sub_08063AC0(Entity* this) {
         }
     }
 
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
         InitAnimationForceUpdate(this, GetAnimationState(this) + 4);
         MessageFromTarget(this->timer + TEXT_INDEX(TEXT_EMPTY, 0x01));
@@ -90,9 +90,9 @@ void sub_08063B68(PinaEntity* this) {
             this->animIndex = 0;
             sub_0807DD64(super);
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
                 InitAnimationForceUpdate(super,
                                          GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);

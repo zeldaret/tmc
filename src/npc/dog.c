@@ -460,9 +460,9 @@ void sub_08069FE8(DogEntity* this) {
 }
 
 void sub_0806A028(DogEntity* this) {
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 6;
                 InitializeNPCFusion(super);
             } else {
@@ -474,7 +474,7 @@ void sub_0806A028(DogEntity* this) {
             SoundReq(SFX_VO_DOG);
             ResetPlayerAnimationAndAction();
         }
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
     }
 }
 

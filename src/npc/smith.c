@@ -45,9 +45,9 @@ void Smith(SmithEntity* this) {
     u32 index;
 
     if ((super->flags & ENT_SCRIPTED) != 0) {
-        if (super->interactType == 2) {
+        if (super->interactType == INTERACTION_FUSE) {
             super->action = 4;
-            super->interactType = 0;
+            super->interactType = INTERACTION_NONE;
             index = (super->animIndex == 0xc) ? 8 : 0;
             index += GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
             InitAnimationForceUpdate(super, index);
@@ -109,7 +109,7 @@ void sub_08066118(SmithEntity* this) {
     if (sub_0806F078(super, uVar1) == 0) {
         UpdateAnimationSingleFrame(super);
     }
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         super->action = 2;
         MessageFromTarget(0);
     }

@@ -46,9 +46,9 @@ static void sub_080669DC(Entity* this) {
     if (sVar2 == 0) {
         UpdateAnimationSingleFrame(this);
     }
-    if (this->interactType != 0) {
+    if (this->interactType != INTERACTION_NONE) {
         this->action = 2;
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
     }
 }
 

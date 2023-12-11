@@ -44,7 +44,7 @@ void ObjectA(ObjectAEntity* this) {
         } else {
             AddInteractableSmallKeyLock(super);
         }
-    } else if (super->interactType != 0) {
+    } else if (super->interactType != INTERACTION_NONE) {
         SetTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
         SetFlag(this->unk_86);
         CreateDust(super);

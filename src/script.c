@@ -792,7 +792,7 @@ void ScriptCommand_CheckPlayerInRegion2(Entity* entity, ScriptExecutionContext* 
 
 void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType) {
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -807,7 +807,7 @@ void ScriptCommand_FacePlayerAndCheckDist(Entity* entity, ScriptExecutionContext
     }
     context->unk_1A++;
     if (entity->interactType) {
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         context->condition = 1;
         entity->animationState = GetAnimationStateForDirection8(GetFacingDirection(entity, &gPlayerEntity));
     } else {
@@ -1108,7 +1108,7 @@ void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context)
 
 void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType) {
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1124,7 +1124,7 @@ void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
         case 0:
             if (!entity->interactType)
                 break;
-            entity->interactType = 0;
+            entity->interactType = INTERACTION_NONE;
             context->unk_18++;
             MessageFromTarget(context->scriptInstructionPointer[1]);
             break;
@@ -1177,9 +1177,9 @@ void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context)
 }
 
 void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context) {
-    if (entity->interactType == 2) {
+    if (entity->interactType == INTERACTION_FUSE) {
         InitializeFuseInfo(entity, 0, 0, 0);
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1719,12 +1719,12 @@ void LoadMenu(Entity* entity, ScriptExecutionContext* context) {
 
 void CheckInteractType(Entity* entity, ScriptExecutionContext* context) {
     switch (entity->interactType) {
-        case 1:
-            entity->interactType = 0;
+        case INTERACTION_TALK:
+            entity->interactType = INTERACTION_NONE;
             context->intVariable = 1;
             break;
-        case 2:
-            entity->interactType = 0;
+        case INTERACTION_FUSE:
+            entity->interactType = INTERACTION_NONE;
             context->intVariable = 2;
             break;
         default:

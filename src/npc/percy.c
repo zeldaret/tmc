@@ -58,8 +58,8 @@ void sub_0806B3CC(Entity* this) {
         AddInteractableWhenBigObject(this);
     }
     GetNextFrame(this);
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         MessageFromTarget(0);
     }
     sub_0806ED78(this);
@@ -81,9 +81,9 @@ void sub_0806B41C(PercyEntity* this) {
             }
             break;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeAnimation(super,
                                     GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
                 idx = GetFuserId(super);

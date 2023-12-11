@@ -454,7 +454,7 @@ void sub_0806D638(Entity* this) {
 
 void sub_0806D640(Entity* this) {
     this->y.HALF.HI += 0x20;
-    this->interactType = 0;
+    this->interactType = INTERACTION_NONE;
 }
 
 void sub_0806D650(Entity* this) {

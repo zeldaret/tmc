@@ -23,9 +23,9 @@ void Anju(AnjuEntity* this) {
             InitScriptForNPC(super);
             return;
         case 1:
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
-                super->interactType = 0;
+                super->interactType = INTERACTION_NONE;
                 InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
                                                                          GetFacingDirection(super, &gPlayerEntity)));
                 InitializeNPCFusion(super);

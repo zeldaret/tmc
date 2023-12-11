@@ -94,9 +94,9 @@ void sub_08065A64(EponaEntity* this) {
 }
 
 void sub_08065AA4(EponaEntity* this) {
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         if (gPlayerState.flags & PL_MINISH) {
-            if (super->interactType == 2) {
+            if (super->interactType == INTERACTION_FUSE) {
                 super->action = 4;
                 InitializeNPCFusion(super);
             } else {
@@ -110,7 +110,7 @@ void sub_08065AA4(EponaEntity* this) {
             ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_EPONA);
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
     }
 }
 
