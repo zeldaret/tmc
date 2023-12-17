@@ -404,14 +404,11 @@ bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
 }
 
 bool32 sub_0806FC24(u32 param_1, u32 param_2) {
-    register u32 rv asm("r0");
     u32 val = sub_08007DD6(param_1, gUnk_080046A4);
-    if (val) {
-        rv = (*(gUnk_080047F6 + (val << 2)) >> param_2) & 0x1;
-    } else {
-        rv = 0;
-    }
-    return rv;
+    if (!val)
+        return 0;
+
+    return (*(gUnk_080047F6 + (val << 2)) >> param_2) & 0x1;
 }
 
 const u16* sub_0806FC50(u32 param_1, u32 param_2) {
