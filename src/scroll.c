@@ -502,7 +502,91 @@ void sub_08080368(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/scroll/sub_080803D0.inc", u32 sub_080803D0())
+u32 sub_080803D0(void) {
+    s32 sp00, sp04, sp08, sp0c, sp10, sp14, sp18, sp1c;
+    s32 r2, r4, r7, r8, r9, r10;
+
+    sp18 = gRoomControls.scroll_x - gRoomControls.origin_x;
+    sp10 = gRoomControls.camera_target->x.HALF.HI - gRoomControls.origin_x;
+    sp1c = gRoomControls.scroll_y - gRoomControls.origin_y;
+    sp14 = gRoomControls.camera_target->y.HALF.HI - gRoomControls.origin_y;
+    sp08 = 0x3c;
+    do {
+        r7 = 0;
+        sp08 += 6;
+        r10 = sp08 * sp08;
+        sp0c = sp08 * 2 / 3;
+        r9 = sp0c * sp0c;
+
+        sp00 = sp08;
+        sp04 = 0;
+        r4 = (-(sp08 * 2) + 1) * r9 + r10 * 2;
+        r2 = sp00 * r9 / r10;
+        while (sp04 <= r2) {
+
+            if ((sp1c + 0xa8) > sp14 + sp04) {
+                if (sp18 + 0xf8 > sp00 + sp10) {
+                    r7 |= 1;
+                }
+                if (sp18 < sp10 - sp00 + 8) {
+                    r7 |= 2;
+                }
+            }
+            if (sp1c < (sp14 - sp04) + 8) {
+                if (sp18 + 0xf8 > sp00 + sp10) {
+                    r7 |= 4;
+                }
+                if (sp18 < sp10 - sp00 + 8) {
+                    r7 |= 8;
+                }
+            }
+
+            if (r4 > 0) {
+                r4 += ((-(sp00 << 0x2) + 4) * r9) + (r10 * (6 + 4 * sp04));
+                sp00--;
+                r2 = sp00 * r9 / r10;
+            } else {
+                r4 += (r10 * (6 + 4 * sp04));
+            }
+
+            sp04++;
+        }
+
+        sp00 = 0;
+        sp04 = sp0c;
+        r4 = r9 * 2 + (sp04 * -2 + 1) * r10;
+        r2 = sp04 * r10 / r9;
+        while (sp00 <= r2) {
+            if (sp1c + 0xa8 > sp14 + sp04) {
+                if (sp18 + 0xf8 > sp10 + sp00) {
+                    r7 |= 0x10;
+                }
+                if (sp18 < sp10 + 8 - sp00) {
+                    r7 |= 0x20;
+                }
+            }
+            if (sp1c < (sp14 - sp04) + 8) {
+                if (sp18 + 0xf8 > sp10 + sp00) {
+                    r7 |= 0x40;
+                }
+                if (sp18 < sp10 + 8 - sp00) {
+                    r7 |= 0x80;
+                }
+            }
+
+            if (r4 > 0) {
+                r4 += r9 * (6 + (4 * sp00)) + (sp04 * -4 + 4) * r10;
+                sp04--;
+                r2 = sp04 * r10 / r9;
+            } else {
+                r4 += r9 * (6 + (4 * sp00));
+            }
+            sp00++;
+        }
+    } while (r7 != 0);
+
+    return sp08;
+}
 
 void UpdateIsDiggingCave(void) {
     switch (gRoomControls.area) {
