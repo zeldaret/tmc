@@ -82,4 +82,130 @@ void sub_0807D280(u16* mapspecial, u16* bgbuffer) {
 
 ASM_FUNC("asm/non_matching/code_0807CC3C/sub_0807D46C.inc", void sub_0807D46C(u32 unk_1, u32 unk_2))
 
-ASM_FUNC("asm/non_matching/code_0807CC3C/sub_0807D6D8.inc", void sub_0807D6D8(u32 unk_1, u32 unk_2))
+void sub_0807D6D8(u16* mapSpecial, u16* bgBuffer) {
+    s32 Unk1a;
+    s32 SquaredUnk18;
+    s32 SquaredUnk1a;
+    s32 RelativeCameraTargetX;
+    s32 RelativeCameraTargetY;
+    s32 CameraOffsetFromTargetX;
+    s32 CameraOffsetFromTargetY;
+    s32 RelativeScrollX;
+    s32 RelativeScrollY;
+    s32 r0, r4, r9, r7, r12;
+    u16 *r2, *r3;
+
+    if ((gRoomControls.unk_18 == 0) || (gRoomControls.unk_1a == 0))
+        return;
+
+    RelativeScrollX = (gRoomControls.scroll_x - gRoomControls.origin_x) & 0xfffffff0;
+    RelativeCameraTargetX = ((gRoomControls.camera_target)->x.HALF.HI - gRoomControls.origin_x) & 0xfffffff8;
+    CameraOffsetFromTargetX = RelativeCameraTargetX - RelativeScrollX;
+
+    RelativeScrollY = (gRoomControls.scroll_y - gRoomControls.origin_y) & 0xfffffff0;
+    RelativeCameraTargetY = (gRoomControls.camera_target->y.HALF.HI - gRoomControls.origin_y) & 0xfffffff8;
+    CameraOffsetFromTargetY = RelativeCameraTargetY - RelativeScrollY;
+
+    SquaredUnk18 = gRoomControls.unk_18 * gRoomControls.unk_18;
+    Unk1a = gRoomControls.unk_1a;
+    SquaredUnk1a = Unk1a * Unk1a;
+
+    r4 = gRoomControls.unk_18;
+    r9 = 0;
+    r7 = (-(r4 << 1) + 1) * SquaredUnk1a + (SquaredUnk18 << 1);
+    r12 = (r4 * SquaredUnk1a) / SquaredUnk18;
+
+    while (r9 <= r12) {
+        if ((RelativeScrollY + 0xb0) > (RelativeCameraTargetY + r9)) {
+            r0 = ((CameraOffsetFromTargetY + r9) >> 3) & 0x1f;
+            if (r0 != 0x1f) {
+                r2 = bgBuffer + (r0 << 5);
+                r3 = mapSpecial + (((RelativeCameraTargetY + r9) >> 3) << 7);
+
+                if ((RelativeScrollX + 0x100) > (RelativeCameraTargetX + r4)) {
+                    r2[((CameraOffsetFromTargetX + r4) >> 3 & 0x1f)] = r3[((RelativeCameraTargetX + r4) >> 3)];
+                    gRoomControls.unk_1c |= 1 << 0;
+                }
+                if (RelativeScrollX < (RelativeCameraTargetX - r4)) {
+                    r2[((CameraOffsetFromTargetX - r4) >> 3 & 0x1f)] = r3[((RelativeCameraTargetX - r4) >> 3)];
+                    gRoomControls.unk_1c |= 1 << 1;
+                }
+            }
+        }
+
+        if ((RelativeScrollY < (RelativeCameraTargetY - r9 + 8))) {
+            r0 = ((CameraOffsetFromTargetY - r9) >> 3) & 0x1f;
+            if (r0 != 0x1f) {
+                r2 = bgBuffer + (r0 << 5);
+                r3 = mapSpecial + (((RelativeCameraTargetY - r9) >> 3) << 7);
+                if ((RelativeScrollX + 0x100) > (RelativeCameraTargetX + r4)) {
+                    r2[((CameraOffsetFromTargetX + r4) >> 3 & 0x1f)] = r3[((RelativeCameraTargetX + r4) >> 3)];
+                    gRoomControls.unk_1c |= 1 << 2;
+                }
+                if (RelativeScrollX < (RelativeCameraTargetX - r4)) {
+                    r2[((CameraOffsetFromTargetX - r4) >> 3 & 0x1f)] = r3[((RelativeCameraTargetX - r4) >> 3)];
+                    gRoomControls.unk_1c |= 1 << 3;
+                }
+            }
+        }
+
+        if (r7 > 0) {
+            r7 += ((-(r4 << 0x2) + 4) * SquaredUnk1a) + (SquaredUnk18 * (6 + (4 * r9)));
+            r4--;
+            r12 = (r4 * SquaredUnk1a) / SquaredUnk18;
+        } else
+            r7 += (SquaredUnk18 * (6 + (4 * r9)));
+
+        r9++;
+    }
+
+    r4 = 0;
+    r9 = Unk1a;
+    r7 = (SquaredUnk1a << 1) + SquaredUnk18 * (Unk1a * -2 + 1);
+    r12 = r9 * SquaredUnk18 / SquaredUnk1a;
+
+    while (r4 <= r12) {
+        if ((RelativeScrollY + 0xb0) > (RelativeCameraTargetY + r9)) {
+            r0 = (CameraOffsetFromTargetY + r9) >> 3 & 0x1f;
+            if (r0 != 0x1f) {
+                r2 = bgBuffer + (r0 << 5);
+                r3 = mapSpecial + (((RelativeCameraTargetY + r9) >> 3) << 7);
+                if ((RelativeScrollX + 0x100) > (RelativeCameraTargetX + r4)) {
+                    r2[(((CameraOffsetFromTargetX + r4) >> 3) & 0x1f)] = r3[((RelativeCameraTargetX + r4) >> 3)];
+                    gRoomControls.unk_1c |= 0x10;
+                }
+                if (RelativeScrollX < (RelativeCameraTargetX - r4)) {
+                    r2[(((CameraOffsetFromTargetX - r4) >> 3) & 0x1f)] = r3[((RelativeCameraTargetX - r4) >> 3)];
+                    gRoomControls.unk_1c |= 0x20;
+                }
+            }
+        }
+
+        if (RelativeScrollY < ((RelativeCameraTargetY - r9) + 8)) {
+            r0 = (CameraOffsetFromTargetY - r9) >> 3 & 0x1f;
+            if (r0 != 0x1f) {
+                r2 = bgBuffer + (r0 << 5);
+                r3 = mapSpecial + (((RelativeCameraTargetY - r9) >> 3) << 7);
+                if ((RelativeScrollX + 0x100) > (RelativeCameraTargetX + r4)) {
+                    r2[(((CameraOffsetFromTargetX + r4) >> 3) & 0x1f)] = r3[((RelativeCameraTargetX + r4) >> 3)];
+                    gRoomControls.unk_1c |= 0x40;
+                }
+                if (RelativeScrollX < (RelativeCameraTargetX - r4)) {
+                    r2[(((CameraOffsetFromTargetX - r4) >> 3) & 0x1f)] = r3[((RelativeCameraTargetX - r4) >> 3)];
+                    gRoomControls.unk_1c |= 0x80;
+                }
+            }
+        }
+
+        if (r7 > 0) {
+            r7 += (((SquaredUnk1a * 6)) + (r4 * SquaredUnk1a << 2)) + ((-(r9 << 0x2) + 4) * SquaredUnk18);
+            r9--;
+            r12 = (r9 * SquaredUnk18) / SquaredUnk1a;
+
+        } else {
+            r7 += (((SquaredUnk1a * 6)) + (r4 * SquaredUnk1a << 2));
+        }
+
+        r4++;
+    }
+}
