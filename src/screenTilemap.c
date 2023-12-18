@@ -80,7 +80,136 @@ void sub_0807D280(u16* mapspecial, u16* bgbuffer) {
     }
 }
 
-ASM_FUNC("asm/non_matching/code_0807CC3C/sub_0807D46C.inc", void sub_0807D46C(u32 unk_1, u32 unk_2))
+void sub_0807D46C(u16* mapSpecial, u16* bgBuffer) {
+    s32 index, r0, r1, r2, r5, r8, r12;
+    u16 *r4, *r6;
+
+    switch (gRoomControls.scroll_direction) {
+        case 0:
+        case 2:
+            r5 = gRoomControls.scroll_x - gRoomControls.origin_x;
+            if (r5 > 7) {
+                r5 -= 8;
+            }
+
+            r8 = (gRoomControls.camera_target)->x.HALF.HI - gRoomControls.origin_x - 4;
+            if (r8 > 7) {
+                r8 = r8 - 8;
+            }
+
+            r12 = gRoomControls.scroll_y - gRoomControls.origin_y;
+            if (r12 > 7) {
+                r12 -= 8;
+            }
+
+            r0 = r8 - (gRoomControls.unk_18 * 8);
+            if (r0 >= r5) {
+                r4 = mapSpecial + ((r12 >> 3) * 0x80) + (r0 >> 3);
+                r6 = bgBuffer + ((r0 >> 3) & 0x1f);
+                r2 = ((r12 >> 3) & 0x1f) << 5;
+
+                if (gRoomControls.height < 0xb0) {
+                    index = gRoomControls.height >> 0x3;
+                } else {
+                    index = 0x16;
+                }
+
+                while (index > 0) {
+                    // TODO r4 index with index
+                    r6[r2] = *r4;
+                    r4 += 0x80;
+                    r2 = (r2 + 0x20) & 0x3ff;
+                    index--;
+                }
+            }
+
+            r0 = (gRoomControls.unk_18 + 1) * 8 + r8;
+            if (r5 + 0xf8 >= gRoomControls.width) {
+                r1 = r5 + 0xf8;
+            } else {
+                r1 = r5 + 0x100;
+            }
+            if (r0 < r1) {
+                r4 = mapSpecial + ((r12 >> 3) * 0x80) + (r0 >> 3);
+                r6 = bgBuffer + ((r0 >> 3) & 0x1f);
+                r2 = (r12 >> 3 & 0x1f) << 5;
+
+                if (gRoomControls.height < 0xb0) {
+                    index = gRoomControls.height >> 3;
+                } else {
+                    index = 0x16;
+                }
+
+                while (index > 0) {
+                    r6[r2] = *r4;
+                    r4 += 0x80;
+                    r2 = (r2 + 0x20) & 0x3ff;
+                    index--;
+                }
+            }
+            break;
+        case 1:
+        case 3:
+            r5 = gRoomControls.scroll_y - gRoomControls.origin_y;
+            if (r5 > 7) {
+                r5 -= 8;
+            }
+
+            r8 = gRoomControls.scroll_x - gRoomControls.origin_x;
+            if (r8 > 7) {
+                r8 -= 8;
+            }
+
+            r12 = (gRoomControls.camera_target)->y.HALF.HI - gRoomControls.origin_y - 4;
+            if (r12 > 7) {
+                r12 = r12 - 8;
+            }
+
+            r0 = r12 + gRoomControls.unk_18 * -8;
+            if (r0 >= r5) {
+                r4 = mapSpecial + ((r0 >> 3) * 0x80) + (r8 >> 3);
+                r6 = bgBuffer + (((r0 >> 3) & 0x1f) << 5);
+                r2 = ((r8 >> 3) & 0x1f);
+
+                if (gRoomControls.width < 0x100) {
+                    index = gRoomControls.width >> 3;
+                } else {
+                    index = 0x20;
+                }
+
+                while (index > 0) {
+                    r6[r2] = *r4;
+                    r4 += 1;
+                    r2 = (r2 + 1) & 0x1f;
+                    index--;
+                }
+            }
+
+            r0 = (gRoomControls.unk_18 + 1) * 8 + r12;
+            if (r5 + 0xa8 >= gRoomControls.height) {
+                r2 = r5 + 0xa8;
+            } else {
+                r2 = r5 + 0xb0;
+            }
+            if (r0 < r2) {
+                r4 = mapSpecial + ((r0 >> 3) * 0x80) + (r8 >> 3);
+                r6 = bgBuffer + (((r0 >> 3) & 0x1f) << 5);
+                r2 = ((r8 >> 3) & 0x1f);
+                if (gRoomControls.width < 0x100) {
+                    index = gRoomControls.width >> 3;
+                } else {
+                    index = 0x20;
+                }
+                while (index > 0) {
+                    r6[r2] = *r4;
+                    r4 += 0x1;
+                    r2 = (r2 + 0x1) & 0x1f;
+                    index--;
+                }
+            }
+            break;
+    }
+}
 
 void sub_0807D6D8(u16* mapSpecial, u16* bgBuffer) {
     s32 Unk1a;
