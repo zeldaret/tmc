@@ -21810,11 +21810,6 @@
     "type": "animation"
   },
   {
-    "path": "evilSpirit/gUnk_08120678.bin",
-    "start": 1181304,
-    "size": 10
-  },
-  {
     "path": "animations/gSpriteAnimations_EvilSpirit_0.bin",
     "start": 1181314,
     "size": 4,
