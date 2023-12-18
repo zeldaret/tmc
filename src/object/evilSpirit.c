@@ -30,8 +30,8 @@ void EvilSpirit(Entity* this) {
         EvilSpirit_Action3,
     };
     EvilSpirit_Actions[this->action]((EvilSpiritEntity*)this);
-    this->bitfield = 0;
-    sub_0805EC9C(this, ((EvilSpiritEntity*)this)->unk76, ((EvilSpiritEntity*)this)->unk7a, 0);
+    this->contactFlags = 0;
+    SetAffineInfo(this, ((EvilSpiritEntity*)this)->unk76, ((EvilSpiritEntity*)this)->unk7a, 0);
 }
 
 void EvilSpirit_Init(EvilSpiritEntity* this) {
@@ -54,7 +54,7 @@ void EvilSpirit_Init(EvilSpiritEntity* this) {
         super->spriteRendering.b3 = 0;
         super->parent = super;
         COLLISION_ON(super);
-        super->field_0x3c = 7;
+        super->collisionFlags = 7;
         super->hitType = 1;
         super->flags2 = 4;
         for (index = 0; index < 4; index++) {
@@ -109,9 +109,9 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
         return;
     }
 
-    if ((super->bitfield & 0x7f) == 0x13) {
+    if ((super->contactFlags & 0x7f) == 0x13) {
         super->direction++;
-        super->field_0x1d--;
+        super->gustJarTolerance--;
         this->unk7f = 1;
         if ((gPlayerEntity.animationState & 2) == 0) {
             this->unk76 = this->unk7c + 0x10;
@@ -121,13 +121,13 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
         }
     } else {
         super->direction = super->direction + 2;
-        super->field_0x1d = 0xf0;
+        super->gustJarTolerance = 0xf0;
         this->unk7f = 0;
         this->unk76 = this->unk7c;
         this->unk7a = this->unk7c;
     }
 
-    if (super->field_0x1d == 0) {
+    if (super->gustJarTolerance == 0) {
         super->action = 2;
         this->unk7f = 0;
         return;
@@ -156,7 +156,7 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
 void EvilSpirit_Action2(EvilSpiritEntity* this) {
     u32 index;
 
-    if ((super->bitfield & 0x7f) != 0x13) {
+    if ((super->contactFlags & 0x7f) != 0x13) {
         super->action = 3;
     } else {
         if (sub_0806F3E4(super)) {
@@ -179,9 +179,9 @@ void EvilSpirit_Action3(EvilSpiritEntity* this) {
     int iVar6;
 
     super->direction = sub_080045DA(this->x - super->x.WORD, this->y - super->y.WORD);
-    if ((super->bitfield & 0x7f) == 0x13) {
+    if ((super->contactFlags & 0x7f) == 0x13) {
         super->speed = 0x100;
-        super->field_0x1d--;
+        super->gustJarTolerance--;
         this->unk7f = 1;
 
         if ((gPlayerEntity.animationState & 2) == 0) {
@@ -192,13 +192,13 @@ void EvilSpirit_Action3(EvilSpiritEntity* this) {
         }
     } else {
         super->speed = 0x200;
-        super->field_0x1d = 0xf0;
+        super->gustJarTolerance = 0xf0;
         this->unk7f = 0;
         this->unk76 = this->unk7c;
         this->unk7a = this->unk7c;
     }
 
-    if (super->field_0x1d == 0) {
+    if (super->gustJarTolerance == 0) {
         super->action = 2;
         this->unk7f = 0;
     } else {
