@@ -834,7 +834,7 @@ static void PlayerJump(Entity* this) {
 }
 
 static void PlayerJumpInit(Entity* this) {
-    u32 temp;
+    s32 temp;
 
     this->subAction++;
 
@@ -858,8 +858,11 @@ static void PlayerJumpInit(Entity* this) {
     this->direction = Direction8FromAnimationState(AnimationStateWalk(this->animationState));
 
     temp = sub_08079FC4(1);
-    asm("lsl r0, r0, #0x4");
-    this->zVelocity = (temp - 4) * 64 * 64;
+
+    temp <<= 4;
+    temp -= 4;
+    temp <<= 12;
+    this->zVelocity = temp;
 
     this->speed = JUMP_SPEED_FWD;
     DeleteClones();
@@ -2265,11 +2268,13 @@ static void sub_08072B5C(Entity* this) {
         sub_08004542(this);
     }
     this->subAction++;
+
     temp <<= 4;
     temp -= 4;
     temp <<= 12;
     this->zVelocity = temp;
-    this->speed = Q_8_8(1.0);
+
+    this->speed = JUMP_SPEED_FWD;
     gPlayerState.animation = ANIM_JUMP;
     SoundReq(SFX_PLY_JUMP);
 }
