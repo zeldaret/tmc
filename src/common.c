@@ -914,9 +914,9 @@ void sub_0801E31C(u32 sp00, u32 sp04, s32 r10, s32 r9) {
         r5 = 3 - r8 * 2;
 
         while (r6 <= r7) {
-            sp1c = (u16)Div(r9 * r6, r10);
+            sp1c = Div(r9 * r6, r10);
             kk = Div(r9 * r7, r10);
-            // TODO: Maybe fix data type of gUnk_02018EE0
+            // TODO: Fix data type in declaration. There shouldn't be a need to cast this.
             ((u32*)gUnk_02018EE0)[r6] = kk;
             ((u32*)gUnk_02018EE0)[r7] = sp1c;
             if (r5 < 0) {
@@ -934,8 +934,9 @@ void sub_0801E31C(u32 sp00, u32 sp04, s32 r10, s32 r9) {
         r5 = 3 - r8 * 2;
 
         while (r6 <= r7) {
-            sp1c2 = (u16)Div(r10 * r6, r9);
+            sp1c2 = Div(r10 * r6, r9);
             kk2 = Div(r10 * r7, r9);
+            // TODO: Fix data type in declaration. There shouldn't be a need to cast this.
             ((u32*)gUnk_02018EE0)[r6] = kk2;
             ((u32*)gUnk_02018EE0)[r7] = sp1c2;
             if (r5 < 0) {
