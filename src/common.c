@@ -898,7 +898,62 @@ void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
     }
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801E31C.inc", void sub_0801E31C(u32 a1, u32 a2, u32 a3, u32 a4));
+void sub_0801E31C(u32 sp00, u32 sp04, s32 r10, s32 r9) {
+    u16 sp1c, sp1c2;
+    u16 kk, kk2;
+    u16 uVar2;
+    s32 r5;
+    s32 r6;
+    s32 r7;
+    s32 r8; // the lower one of param3 and param4
+
+    MemClear(&gUnk_02017AA0[gUnk_03003DE4[0]], 0xa00);
+    if (r10 < r9) {
+        r6 = 0;
+        r7 = r8 = r10;
+        r5 = 3 - r8 * 2;
+
+        while (r6 <= r7) {
+            sp1c = Div(r9 * r6, r10);
+            kk = Div(r9 * r7, r10);
+            // TODO: Fix data type in declaration. There shouldn't be a need to cast this.
+            ((u32*)gUnk_02018EE0)[r6] = kk;
+            ((u32*)gUnk_02018EE0)[r7] = sp1c;
+            if (r5 < 0) {
+                r5 += 6 + r6 * 4;
+                r6++;
+            } else {
+                r5 += 10 + (r6 - r7) * 4;
+                r7--;
+                r6++;
+            }
+        }
+    } else {
+        r6 = 0;
+        r7 = r8 = r9;
+        r5 = 3 - r8 * 2;
+
+        while (r6 <= r7) {
+            sp1c2 = Div(r10 * r6, r9);
+            kk2 = Div(r10 * r7, r9);
+            // TODO: Fix data type in declaration. There shouldn't be a need to cast this.
+            ((u32*)gUnk_02018EE0)[r6] = kk2;
+            ((u32*)gUnk_02018EE0)[r7] = sp1c2;
+            if (r5 < 0) {
+                r5 += 6 + r6 * 4;
+                r6++;
+            } else {
+                r5 += 10 + (r6 - r7) * 4;
+                r7--;
+                r6++;
+            }
+        }
+    }
+    sub_0801E290(sp00, sp04, r8);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0]], (u16*)REG_ADDR_WIN0H,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
+}
 
 void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
     u8* ptr2;
