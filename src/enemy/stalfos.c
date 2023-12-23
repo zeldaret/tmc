@@ -453,24 +453,23 @@ u32 sub_08039B28(StalfosEntity* this) {
     const u16* ptr;
     const s8* ptr2;
 
-    if (super->child == NULL) {
-        ptr2 = &gUnk_080CF930[super->animationState * 2];
-        pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
-
-        tileType = GetTileType(pos, (u32)super->collisionLayer);
-        ptr = gUnk_080CF938;
-        do {
-            if (ptr[0] != tileType) {
-                ptr += 2;
-            } else {
-                goto found;
-            }
-        } while (ptr[0] != 0);
+    if (super->child != NULL) {
+        return (u16)-1;
     }
-    return 0xffff;
-found:
-    super->type2 = ptr[1];
-    return pos;
+    ptr2 = &gUnk_080CF930[super->animationState * 2];
+    pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
+    tileType = GetTileType(pos, (u32)super->collisionLayer);
+    ptr = gUnk_080CF938;
+
+    do {
+        if (ptr[0] == tileType) {
+            super->type2 = ptr[1];
+            return pos;
+        }
+        ptr += 2;
+    } while (ptr[0] != 0);
+
+    return (u16)-1;
 }
 
 void (*const Stalfos_Functions[])(StalfosEntity*) = {
