@@ -350,9 +350,8 @@ void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
 }
 
 void* zMalloc(u32 size) {
-
-    FORCE_REGISTER(u32 slotFound, r5);
     u16* heapStartOffset;
+    u32 slotFound;
     u8* allocatedEntryStartOffset;
     u8* allocatedEntryEndOffset;
     u8* candidateSlotEndOffset;
@@ -377,7 +376,8 @@ void* zMalloc(u32 size) {
 
         if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
              candidateSlotStartOffset <= allocatedEntryEndOffset)) {
-            goto other_search;
+            slotFound = FALSE;
+            break;
         }
 
         if ((allocatedEntryStartOffset <= candidateSlotEndOffset &&
@@ -390,13 +390,12 @@ void* zMalloc(u32 size) {
              candidateSlotEndOffset <= allocatedEntryEndOffset) ||
             (candidateSlotStartOffset <= allocatedEntryStartOffset &&
              allocatedEntryEndOffset <= candidateSlotEndOffset)) {
-            goto other_search;
+            slotFound = FALSE;
+            break;
         }
     }
 
     if (!slotFound) {
-    other_search:
-
         index1 = 0;
         // Start searching for candidate slot from the left side of the heap buffer.
         do {
@@ -417,7 +416,8 @@ void* zMalloc(u32 size) {
 
                     if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
                          candidateSlotStartOffset < allocatedEntryEndOffset)) {
-                        goto iter_end;
+                        slotFound = FALSE;
+                        break;
                     }
 
                     if ((allocatedEntryStartOffset < candidateSlotEndOffset &&
@@ -430,7 +430,8 @@ void* zMalloc(u32 size) {
                          candidateSlotEndOffset <= allocatedEntryEndOffset) ||
                         (candidateSlotStartOffset <= allocatedEntryStartOffset &&
                          allocatedEntryEndOffset <= candidateSlotEndOffset)) {
-                        goto iter_end;
+                        slotFound = FALSE;
+                        break;
                     }
                 }
                 if (slotFound) {
@@ -438,9 +439,6 @@ void* zMalloc(u32 size) {
                 } else {
                     continue;
                 }
-
-            iter_end:
-                slotFound = FALSE;
             }
         } while ((index1 = (u16)(index1 + 1)) < numEntries);
     }
