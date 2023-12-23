@@ -740,7 +740,7 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
     LayerStruct* layer;
     u32 tileType;
     u32 position;
-    s32 index1;
+    u32 index1;
     u32 index2;
     u16* metatileTypes;
     u8* collisionData;
@@ -776,17 +776,15 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
             }
 
             index1 = GetTileType(position, this->collisionLayer);
-            if ((u32)(index1 - 0x369) <= 1) {
+            if ((index1 - 0x369) > 1) {
+                position = 0xffff;
+            } else {
                 collisionData = layer->collisionData - 0x40 + position;
-                index1 = 0;
-
-                if (index1 < index2) {
-                    while (collisionData[index1] == 0) {
-                        if (++index1 >= index2)
-                            goto end;
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1] != 0) {
+                        position = 0xffff;
+                        break;
                     }
-                } else {
-                    goto end;
                 }
             }
             break;
@@ -810,21 +808,17 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
             if (param_2 == 0) {
                 return position;
             }
+
             index1 = GetTileType(position, this->collisionLayer);
-
-            if ((index1 == 0x369) || (index1 == 0x36d)) {
+            if (!(index1 == 0x369) && !(index1 == 0x36d))
+                position = 0xffff;
+            else {
                 collisionData = layer->collisionData + (position + index2);
-                index1 = 0;
-
-                if (index1 < index2) {
-                    u8* flagPtr = collisionData + index1;
-                    while (*flagPtr == 0) {
-                        if (++index1 >= index2)
-                            goto end;
-                        flagPtr = (u8*)((index1 << 6) + (u32)collisionData);
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1 * 0x40] != 0) {
+                        position = 0xffff;
+                        break;
                     }
-                } else {
-                    goto end;
                 }
             }
             break;
@@ -850,16 +844,15 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
             }
 
             index1 = GetTileType(position, this->collisionLayer);
-            if ((index1 == 0x369) || (index1 == 0x36b)) {
+            if (!(index1 == 0x369) && !(index1 == 0x36b))
+                position = 0xffff;
+            else {
                 collisionData = layer->collisionData + (position + (index2 * 0x40));
-                index1 = 0;
-                if (index1 < index2) {
-                    while (collisionData[index1] == 0) {
-                        if (++index1 >= index2)
-                            goto end;
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1] != 0) {
+                        position = 0xffff;
+                        break;
                     }
-                } else {
-                    goto end;
                 }
             }
             break;
@@ -885,31 +878,18 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
             }
 
             index1 = GetTileType(position, this->collisionLayer);
-            if ((index1 == 0x369) || (index1 == 0x36c)) {
+            if (!(index1 == 0x369) && !(index1 == 0x36c))
+                position = 0xffff;
+            else {
                 collisionData = layer->collisionData - 1 + position;
-
-                // This loop is functionally equivalent to the one present in case 1
-                index1 = 0;
-                if (index1 < index2) {
-                    u32 flag;
-                    flag = collisionData[index1];
-                    goto case3_flag_check;
-                case3_loop_back:
-                    if (++index1 >= index2)
-                        goto end;
-                    flag = *(u8*)((index1 << 6) + (u32)collisionData);
-                case3_flag_check:
-                    if (flag != 0)
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1 * 0x40] != 0) {
+                        position = 0xffff;
                         break;
-                    goto case3_loop_back;
-                } else {
-                    goto end;
+                    }
                 }
             }
-            break;
     }
-    position = 0xffff;
-end:
     if (param_2 != 0) {
         position |= index2 << 0xc;
     }
