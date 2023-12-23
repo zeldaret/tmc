@@ -399,7 +399,6 @@ void* zMalloc(u32 size) {
         index1 = 0;
         // Start searching for candidate slot from the left side of the heap buffer.
         do {
-
             candidateSlotEndOffset = gzHeap + heapStartOffset[(index1 * 2) + 1];
             candidateSlotStartOffset = candidateSlotEndOffset - size;
             slotFound = FALSE;
@@ -436,8 +435,6 @@ void* zMalloc(u32 size) {
                 }
                 if (slotFound) {
                     break;
-                } else {
-                    continue;
                 }
             }
         } while ((index1 = (u16)(index1 + 1)) < numEntries);
