@@ -77,42 +77,36 @@ void UpdatePlayerInput(void) {
     u32 prevState;
     PlayerInput* playerInput;
     PlayerMacroEntry* playerMacro;
-    u32 zero;
 
     if (gPlayerState.playerInput.playerMacro != NULL) {
         // Player is controlled by macro.
         playerInput = &gPlayerState.playerInput;
         playerMacro = playerInput->playerMacro;
         if (playerInput->playerMacroWaiting == 0) { // Execute next macro entry.
-            zero = 0;
-            goto code_2;
-        code_0:
-            if (flags != 2) {
-                playerInput->playerMacroWaiting = playerMacro->flags;
-                playerInput->playerMacroHeldKeys = playerMacro->keys;
-            }
-            playerMacro++;
-            playerInput->playerMacro = playerMacro;
-            goto code_4;
-        code_2:
             do {
                 flags = playerMacro->flags >> 0xe;
-                if (flags != 1) {
-                    break;
+                if (flags == 1)
+                    (u8*)playerMacro += ((s16)playerMacro->keys);
+                else {
+                    if (flags == 3) {
+                        playerInput->playerMacroWaiting = 0;
+                        playerInput->playerMacroHeldKeys = 0;
+                        playerMacro = NULL;
+                        playerInput->playerMacro = playerMacro;
+                        break;
+                    } else {
+                        if (flags != 2) {
+                            playerInput->playerMacroWaiting = playerMacro->flags;
+                            playerInput->playerMacroHeldKeys = playerMacro->keys;
+                        }
+                        playerMacro++;
+                        playerInput->playerMacro = playerMacro;
+                        break;
+                    }
                 }
-                (u8*)playerMacro += ((s16)playerMacro->keys);
-            } while (TRUE);
 
-            if (flags == 3) {
-                playerInput->playerMacroWaiting = zero;
-                playerInput->playerMacroHeldKeys = zero;
-                playerMacro = NULL;
-                playerInput->playerMacro = playerMacro;
-            } else {
-                goto code_0;
-            }
+            } while (TRUE);
         }
-    code_4:
         playerInput->playerMacroWaiting--;
         keys = playerInput->playerMacroHeldKeys;
     } else {
