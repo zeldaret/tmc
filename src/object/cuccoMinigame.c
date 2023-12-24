@@ -214,7 +214,7 @@ void CuccoMinigame_WinItem(CuccoMinigameEntity* this) {
             }
             break;
         case ITEM_KINSTONE:
-            if (gSave.didAllFusions) {
+            if (gSave.kinstones.didAllFusions) {
                 skipItem = 1;
             }
             break;

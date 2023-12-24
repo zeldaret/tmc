@@ -356,7 +356,7 @@ u32 UpdateFuseInteraction(Entity* entity) {
 void MarkFuserDone(Entity* entity) {
     u32 fuserId = GetFuserId(entity);
     if (fuserId != 0)
-        gSave.fuserOffers[fuserId] = KINSTONE_FUSER_DONE;
+        gSave.kinstones.fuserOffers[fuserId] = KINSTONE_FUSER_DONE;
 }
 
 void ShowNPCDialogue(Entity* ent, const Dialog* dia) {

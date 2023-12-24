@@ -126,7 +126,7 @@ void sub_0806E65C(Entity* this) {
 void Cucco_ShowMessage(Entity* this) {
     u32 val = 0;
     u32 index = GetFuserId(this);
-    if (gSave.fuserOffers[index] == KINSTONE_FUSER_DONE) {
+    if (gSave.kinstones.fuserOffers[index] == KINSTONE_FUSER_DONE) {
         val = 1;
     }
 

@@ -1049,13 +1049,13 @@ void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
     u32 index;
     if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
-            if (kinstoneId == gSave.fuserOffers[index]) {
-                gSave.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
+            if (kinstoneId == gSave.kinstones.fuserOffers[index]) {
+                gSave.kinstones.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
         tmp = GetFuserId(gFuseInfo.entity);
-        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
-            gSave.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
+        if ((tmp - 1 < 0x7f) && (gSave.kinstones.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
+            gSave.kinstones.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
         }
         for (index = 0; index < 0x20; index++) {
             if (kinstoneId == gPossibleInteraction.candidates[index].kinstoneId) {
@@ -1074,17 +1074,17 @@ void AddKinstoneToBag(KinstoneId kinstoneId) {
         index = GetIndexInKinstoneBag(kinstoneId);
         if (index < 0) {
             index = 0;
-            while (gSave.kinstoneTypes[index] != KINSTONE_NONE) {
+            while (gSave.kinstones.types[index] != KINSTONE_NONE) {
                 index++;
             }
         }
         if ((u32)index < 0x12) {
-            gSave.kinstoneTypes[index] = kinstoneId;
-            tmp = gSave.kinstoneAmounts[index] + 1;
+            gSave.kinstones.types[index] = kinstoneId;
+            tmp = gSave.kinstones.amounts[index] + 1;
             if (tmp > 99) {
                 tmp = 99;
             }
-            gSave.kinstoneAmounts[index] = tmp;
+            gSave.kinstones.amounts[index] = tmp;
         }
     }
 }
@@ -1092,12 +1092,12 @@ void AddKinstoneToBag(KinstoneId kinstoneId) {
 void RemoveKinstoneFromBag(KinstoneId kinstoneId) {
     s32 idx = GetIndexInKinstoneBag(kinstoneId);
     if (idx >= 0) {
-        s32 next = gSave.kinstoneAmounts[idx] - 1;
+        s32 next = gSave.kinstones.amounts[idx] - 1;
         if (next <= 0) {
-            gSave.kinstoneTypes[idx] = KINSTONE_NONE;
+            gSave.kinstones.types[idx] = KINSTONE_NONE;
             next = 0;
         }
-        gSave.kinstoneAmounts[idx] = next;
+        gSave.kinstones.amounts[idx] = next;
     }
 }
 
@@ -1106,92 +1106,50 @@ u32 GetAmountInKinstoneBag(KinstoneId kinstoneId) {
     if (index < 0) {
         return 0;
     }
-    return gSave.kinstoneAmounts[index];
+    return gSave.kinstones.amounts[index];
 }
 
 u32 CheckKinstoneFused(KinstoneId kinstoneId) {
     if (kinstoneId - 1 >= 100) {
         return 0;
     }
-    return ReadBit(&gSave.fusedKinstones, kinstoneId);
+    return ReadBit(&gSave.kinstones.fusedKinstones, kinstoneId);
 }
 
 bool32 CheckFusionMapMarkerDisabled(KinstoneId kinstoneId) {
     if (kinstoneId - 1 >= 100) {
         return FALSE;
     }
-    return ReadBit(&gSave.fusionUnmarked, kinstoneId);
+    return ReadBit(&gSave.kinstones.fusionUnmarked, kinstoneId);
 }
 
 void SortKinstoneBag(void) {
-#ifdef NON_MATCHING
-    u32 r5;
+    u32 i;
 
-    for (r5 = 0; r5 < 0x13; r5++) {
-        if (gSave.kinstoneAmounts[r5] == 0) {
-            gSave.kinstoneTypes[r5] = gSave.kinstoneAmounts[r5];
+    KinstoneSave* ptr = &gSave.kinstones;
+
+    for (i = 0; i < 19; i++) {
+        if (ptr->amounts[i] == 0) {
+            ptr->types[i] = 0;
         }
     }
 
-    gSave.kinstoneTypes[0x12] = 0;
-    gSave.kinstoneAmounts[0x12] = 0;
+    ptr->types[18] = 0;
+    ptr->amounts[18] = 0;
 
-    for (r5 = 0; r5 < 0x12; r5++) {
-        if ((gSave.kinstoneTypes[r5] - 0x65) > 0x10) {
-            MemCopy(&gSave.kinstoneTypes[r5 + 1], &gSave.kinstoneTypes[r5], 0x12 - r5);
-            MemCopy(&gSave.kinstoneAmounts[r5 + 1], &gSave.kinstoneAmounts[r5], 0x12 - r5);
+    for (i = 0; i < 18; i++) {
+        u32 t = ptr->types[i];
+        if (t < 0x65 || t > 0x75) {
+            MemCopy(&ptr->types[i + 1], &ptr->types[i], 0x12 - i);
+            MemCopy(&ptr->amounts[i + 1], &ptr->amounts[i], 0x12 - i);
         }
     }
-#else
-    u32 r0, r4, r5;
-    u32 new_var;
-    u8 *r1, *r2, *r3, *r6, *r7, *r8, *r9, *r10;
-
-    new_var = 4;
-    r1 = &gSave.inventory[34];
-    r5 = 0;
-    r2 = gSave.kinstoneTypes;
-code0_0:
-    r0 = r2[0x13];
-    r3 = &r1[4];
-    r10 = r3;
-    if (r0 == 0) {
-        *r2 = r0;
-    }
-    r2++;
-    r5++;
-    if (r5 <= 0x12)
-        goto code0_0;
-
-    r1[0x16] = 0;
-    r1[0x29] = 0;
-    r5 = 0;
-    r9 = &r1[0x17];
-    r3 = &r1[0x18];
-    r8 = r3;
-    r7 = &r1[new_var];
-    r6 = &r1[5];
-code0_2:
-    r0 = r10[r5] - 0x65;
-    if (r0 > 0x10) {
-        MemCopy(r6, r7, 0x12 - r5);
-        MemCopy(r8, r9, 0x12 - r5);
-    }
-    r9++;
-    r8++;
-    r7++;
-    r6++;
-    r5++;
-    if (r5 <= 0x11)
-        goto code0_2;
-#endif
 }
-
 s32 GetIndexInKinstoneBag(KinstoneId kinstoneId) {
     u32 i;
 
     for (i = 0; i < 0x12; ++i) {
-        if (kinstoneId == gSave.kinstoneTypes[i])
+        if (kinstoneId == gSave.kinstones.types[i])
             return i;
     }
     return -1;
@@ -1259,7 +1217,7 @@ void UpdateVisibleFusionMapMarkers(void) {
 #else
             if (sub_0807CB24(tmp, s->flag)) {
 #endif
-                WriteBit(&gSave.fusionUnmarked, kinstoneId);
+                WriteBit(&gSave.kinstones.fusionUnmarked, kinstoneId);
             }
         }
     }
@@ -1280,8 +1238,8 @@ KinstoneId GetFusionToOffer(Entity* entity) {
     if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
         return KINSTONE_NONE;
     }
-    offeredFusion = gSave.fuserOffers[fuserId];
-    fuserProgress = gSave.fuserProgress[fuserId];
+    offeredFusion = gSave.kinstones.fuserOffers[fuserId];
+    fuserProgress = gSave.kinstones.fuserProgress[fuserId];
     fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
@@ -1312,8 +1270,8 @@ KinstoneId GetFusionToOffer(Entity* entity) {
         }
         offeredFusion = KINSTONE_NEEDS_REPLACEMENT; // already completed, try next fusion in the list
     }
-    gSave.fuserOffers[fuserId] = offeredFusion;
-    gSave.fuserProgress[fuserId] = fuserProgress;
+    gSave.kinstones.fuserOffers[fuserId] = offeredFusion;
+    gSave.kinstones.fuserProgress[fuserId] = fuserProgress;
     randomMood = Random();
     fuserStability = fuserData[1];
     if (fuserStability <= randomMood % 100) {
