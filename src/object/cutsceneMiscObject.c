@@ -718,24 +718,21 @@ void CutsceneMiscObject_Type15(CutsceneMiscObjectEntity* this) {
     Entity* p;
     u16* p1;
     u16* p2;
-    Type15Vars* tmp;
+    u16* tmp;
 
     if (super->action == 0) {
         s32 i;
-        u16* p;
         u32 x;
         u32 y;
 
         super->action++;
         InitializeAnimation(super, 0);
-        // p = this->v.arr;
-        asm("mov r4, r5");
-        asm("add r4, #0x68");
+        tmp = ((CutsceneMiscObjectEntityType15*)this)->vars.arr;
         x = super->x.HALF_U.HI;
         y = super->y.HALF_U.HI;
         for (i = 0; i < 8; i++) {
-            *p++ = x;
-            *p++ = y;
+            *tmp++ = x;
+            *tmp++ = y;
         }
     }
     GetNextFrame(super);
@@ -750,13 +747,13 @@ void CutsceneMiscObject_Type15(CutsceneMiscObjectEntity* this) {
     } else {
         DeleteThisEntity();
     }
-    tmp = &((CutsceneMiscObjectEntityType15*)this)->vars;
-    MemCopy(&tmp->arr[2], &tmp->arr[0], 0x1C);
-    super->x.HALF.HI = tmp->my_x;
-    super->y.HALF.HI = tmp->my_y;
+    tmp = ((CutsceneMiscObjectEntityType15*)this)->vars.arr;
+    MemCopy(&tmp[2], &tmp[0], 0x1C);
+    super->x.HALF.HI = tmp[10];
+    super->y.HALF.HI = tmp[11];
     super->z.HALF.HI = p->z.HALF.HI;
-    tmp->parent_x = p->x.HALF.HI;
-    tmp->parent_y = p->y.HALF.HI;
+    tmp[14] = p->x.HALF.HI;
+    tmp[15] = p->y.HALF.HI;
 }
 
 void sub_08095754(CutsceneMiscObjectEntity* this) {
