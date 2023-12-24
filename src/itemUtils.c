@@ -480,7 +480,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 ptr2 = &gDroptableModifiers[DROPTABLE_NO_SHELLS];
             }
             // don't drop kinstones anymore
-            if (gSave.didAllFusions != 0) {
+            if (gSave.kinstones.didAllFusions != 0) {
                 ptr3 = &gDroptableModifiers[DROPTABLE_NO_KINSTONES];
             }
             // vector addition, s0 = s0 + ptr2 + ptr3

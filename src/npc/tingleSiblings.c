@@ -146,7 +146,7 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     roomFlag = gUnk_0810FC50[this->type];
     if (CheckRoomFlag(roomFlag) == 0) {
-        bVar2 = gSave.fuserProgress[GetFuserId(this)];
+        bVar2 = gSave.kinstones.fuserProgress[GetFuserId(this)];
         if (bVar2 >= 2) {
             uVar5 = 3;
         } else {
@@ -163,7 +163,7 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
         remainingFusions = -1;
     } else {
         if (CheckGlobalFlag(KAKERA_COMPLETE) == 0) {
-            remainingFusions = 100 - gSave.fusedKinstoneCount;
+            remainingFusions = 100 - gSave.kinstones.fusedCount;
             if (remainingFusions < 1) {
                 uVar5 = 8;
                 remainingFusions = 0;

@@ -44,7 +44,7 @@ void Farore(FaroreEntity* this) {
 
 void Farore_MakeInteractable(Entity* this) {
     u32 kinstoneId = GetFusionToOffer(this);
-    if ((gSave.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
+    if ((gSave.kinstones.fuserProgress[GetFuserId(this)] != 0) && (gSave.global_progress < 7)) {
         kinstoneId = KINSTONE_NONE;
     }
     AddInteractableWhenBigFuser(this, kinstoneId);

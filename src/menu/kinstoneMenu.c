@@ -86,7 +86,7 @@ const ScreenTransitionData gUnk_08128024[] = {
 u32 sub_080A3B48(void) {
     u32 index;
     for (index = 0; index <= 0x12; index++) {
-        if (gSave.kinstoneAmounts[index] == 0) {
+        if (gSave.kinstones.amounts[index] == 0) {
             break;
         }
     }
@@ -206,7 +206,7 @@ void KinstoneMenu_Type1(void) {
         case A_BUTTON:
             if (gMenu.column_idx == 2) {
                 tmp3 = gGenericMenu.unk10.i / 0x10000;
-                gGenericMenu.unk2a = gSave.kinstoneTypes[tmp3];
+                gGenericMenu.unk2a = gSave.kinstones.types[tmp3];
                 SetMenuType(3);
             }
             break;
@@ -319,9 +319,9 @@ void KinstoneMenu_Type5(void) {
 
 void KinstoneMenu_Type5_Overlay0(void) {
     gMenu.column_idx = 5;
-    WriteBit(gSave.fusedKinstones, gFuseInfo.kinstoneId);
-    if (++gSave.fusedKinstoneCount > 99) {
-        gSave.didAllFusions = 1;
+    WriteBit(gSave.kinstones.fusedKinstones, gFuseInfo.kinstoneId);
+    if (++gSave.kinstones.fusedCount > 99) {
+        gSave.kinstones.didAllFusions = 1;
     }
     KinstoneMenu_080A4468();
     SoundReq(SFX_TASK_COMPLETE);
@@ -462,7 +462,7 @@ void KinstoneMenu_080A414C(void) {
         OamCmd->x = ((ptr[((uVar1 & tmp1) + 0x40) & tmp1] * 0x42) / 0x100) - 0x10;
         iVar2 = gKinstoneMenu.unk10.WORD / 0x10000 + i;
         if (iVar2 >= 0) {
-            uVar3 = gSave.kinstoneAmounts[iVar2];
+            uVar3 = gSave.kinstones.amounts[iVar2];
             if (i == 0) {
                 switch (gMenu.column_idx) {
                     case 3:
@@ -474,7 +474,7 @@ void KinstoneMenu_080A414C(void) {
                 }
             }
             if (uVar3 > 0) {
-                sub_080A42E0(gSave.kinstoneTypes[iVar2], uVar3);
+                sub_080A42E0(gSave.kinstones.types[iVar2], uVar3);
             }
         }
         uVar1 += 0x17;

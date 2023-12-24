@@ -1113,7 +1113,7 @@ bool32 sub_080782C0(void) {
     if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) &&
         ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
         AddKinstoneToBag(KINSTONE_NONE);
-        if (gSave.kinstoneAmounts[0] != 0) {
+        if (gSave.kinstones.amounts[0] != 0) {
             gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;
             gPossibleInteraction.currentObject->entity->interactType = INTERACTION_FUSE;
             gPlayerState.queued_action = PLAYER_08070E9C;

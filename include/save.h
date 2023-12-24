@@ -29,6 +29,24 @@ typedef enum {
 extern SaveResult HandleSave(u32 idx);
 
 /**
+ * Contains save data regarding kinstones
+ */
+typedef struct {
+    u8 unused[2];          /**< unused */
+    u8 didAllFusions;      /**< completed all 100 kinstone fusions */
+    u8 fusedCount;         /**< number of kinstones fused */
+    u8 types[19];          /**< item id for each kinstone type present in kinstone bag */
+    u8 amounts[19];        /**< amount of each kinstone type above */
+    u8 filler[3];          /**< unused filler */
+    u8 fuserProgress[128]; /**< indexed by fuser id, incremented after fusion */
+    u8 fuserOffers[128];   /**< available kinstone fusion for each fuser */
+    u8 fusedKinstones[13]; /**< bitfield for fused kinstones
+                            * @see CheckKinstoneFused */
+    u8 fusionUnmarked[13]; /**< bitfield for disabled fusion map markers
+                            * @see CheckFusionMapMarkerDisabled */
+} KinstoneSave;
+
+/**
  * Contains all information about a save file.
  * The contents of this structure are read from and written to EEPROM.
  */
@@ -58,19 +76,8 @@ typedef struct {
     /*0x0A8*/ Stats stats;                   /**< Player stats. */
     /*0x0CC*/ u8 fillerCC[2];                /**< unused filler */
     /*0x0D0*/ u8 figurines[36];              /**< figurine bitset */
-    /*0x0F2*/ u8 inventory[36];              /**< 2 bit per item @see Item */
-    /*0x116*/ u8 didAllFusions;              /**< completed all 100 kinstone fusions */
-    /*0x117*/ u8 fusedKinstoneCount;         /**< number of kinstones fused */
-    /*0x118*/ u8 kinstoneTypes[19];          /**< item id for each kinstone type present in kinstone bag */
-    /*0x12B*/ u8 kinstoneAmounts[19];        /**< amount of each kinstone type above */
-    /*0x13E*/ u8 filler13E[3];               /**< unused filler */
-    /*0x141*/ u8 fuserProgress[128];         /**< indexed by fuser id, incremented after fusion */
-    /*0x1C1*/ u8 fuserOffers[128];           /**< available kinstone fusion for each fuser */
-    /*0x241*/ u8 fusedKinstones[13];         /**< bitfield for fused kinstones
-                                              * @see CheckKinstoneFused */
-    /*0x24E*/ u8 fusionUnmarked[13];         /**< bitfield for disabled fusion map markers
-                                              * @see CheckFusionMapMarkerDisabled */
-    /*0x25B*/ u8 filler25B;                  /**< unused filler */
+    /*0x0F2*/ u8 inventory[34];              /**< 2 bit per item @see Item */
+    /*0x114*/ KinstoneSave kinstones;        /**< save data for kinstones @see KinstoneSave */
     /*0x25C*/ u8 flags[0x200];               /**< flags */
     /*0x45C*/ u8 dungeonKeys[0x10];          /**< indexed by dungeon id, keys per dungeon */
     /*0x46C*/ u8 dungeonItems[0x10];         /**< dungeon items 4: compass, 2: big key, 1: small key */
