@@ -85,7 +85,7 @@ bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank);
 u32 sub_0801DF60(u32 a1, u8* p);
 u32 sub_0801DF78(u32 a1, u32 a2);
 void sub_0801DF28(u32 x, u32 y, s32 color);
-void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_5);
+void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset);
 
 extern void* GetRoomProperty(u32, u32, u32);
 
@@ -1006,42 +1006,45 @@ void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
                      0x1);
 }
 
-void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_5) {
-    s32 sVar1;
-    s32* ptr = (s32*)gUnk_02018EE0;
-    register s32 tmp asm("r1");
+// GBA Resolutions
+#define MAX_X_COORD 240
+#define MAX_Y_COORD 160
+void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset) {
+    s32 slope, preciseX, tmp;
+    s32* drawPtr = (s32*)gUnk_02018EE0;
 
-    if ((0 <= param_2 || 0 <= param_4) && (param_2 < 0xa0 || (param_4 < 0xa0))) {
-        if (param_2 > param_4) {
-            SWAP(param_2, param_4, tmp);
-            SWAP(param_1, param_3, tmp);
-        }
-        if (param_2 != param_4) {
-            sVar1 = Div((param_3 - param_1) * 0x10000, param_4 - param_2);
-            if (param_2 < 0) {
-                param_1 += (sVar1 * -param_2) >> 0x10;
-                param_2 = 0;
-            }
-            if (0x9f < param_4) {
-                param_4 = 0x9f;
-            }
-            param_3 = param_1 << 0x10;
-            ptr += param_2 * 3 + param_5;
-            do {
-                if (param_1 < 0) {
-                    param_1 = 0;
-                }
-                if (0xf0 < param_1) {
-                    param_1 = 0xf0;
-                }
-                *ptr = param_1;
-                param_3 += sVar1;
-                param_1 = param_3 >> 0x10;
-                param_2++;
-                ptr += 3;
-            } while (param_2 <= param_4);
-        }
+    if ((y1 < 0 && y2 < 0) || (y1 >= MAX_Y_COORD && y2 >= MAX_Y_COORD))
+        return;
+
+    if (y1 > y2) {
+        SWAP(y1, y2, tmp);
+        SWAP(x1, x2, tmp);
     }
+
+    if (y1 == y2)
+        return;
+
+    slope = Div((x2 - x1) * 0x10000, y2 - y1);
+    if (y1 < 0) {
+        x1 += (slope * -y1) >> 0x10;
+        y1 = 0;
+    }
+    if (y2 >= MAX_Y_COORD) {
+        y2 = MAX_Y_COORD - 1;
+    }
+    preciseX = x1 << 0x10;
+    drawPtr += y1 * 3 + offset;
+    do {
+        //Clamp x1 in range
+        x1 = x1 < 0 ? 0 : x1;
+        x1 = x1 < MAX_X_COORD ? x1 : MAX_X_COORD;
+        
+        *drawPtr = x1;
+        preciseX += slope;
+        x1 = preciseX >> 0x10;
+        y1++;
+        drawPtr += 3;
+    } while (y1 <= y2);
 }
 
 void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
