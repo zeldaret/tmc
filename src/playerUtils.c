@@ -1936,11 +1936,8 @@ bool32 sub_080793E4(u32 param_1) {
     }
 }
 
-void RespawnPlayer(void) {
-    u32* ptr1;
-    u32 index;
+void RespawnPlayer(void) {   
     Entity* player = &gPlayerEntity;
-
     player->action = PLAYER_080728AC;
     player->z.WORD = 0;
     player->zVelocity = 0;
@@ -1951,30 +1948,18 @@ void RespawnPlayer(void) {
             player->x.HALF.HI = gPlayerState.lilypad->x.HALF.HI;
             player->y.HALF.HI = gPlayerState.lilypad->y.HALF.HI;
         } else {
-            goto code_1;
-        code_0:
-            gPlayerEntity.collisionLayer = *ptr1 >> 0x1e;
-            gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + (*ptr1 & 0x3f) * 16 + 8;
-            gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + (*ptr1 & 0xfc0) / 4 + 8;
-            COLLISION_ON(&gPlayerEntity);
-            goto code_3;
-        code_1:
-            index = 0;
-            if (gPlayerState.path_memory[0] != 0xffffffff) {
-                ptr1 = gPlayerState.path_memory;
-                while (sub_080B1B44((u16)*ptr1, *ptr1 >> 0x1e) == 0xf) {
-                    ptr1++;
-                    index++;
-                    if ((index > 0xf) || (*ptr1 == -1)) {
-                        goto code_3;
-                        break;
-                    }
+            u32 i;
+            for (i = 0; i <= 0xf && gPlayerState.path_memory[i] != -1; i++) {
+                if (sub_080B1B44((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) != 0xf) {
+                    gPlayerEntity.collisionLayer = gPlayerState.path_memory[i] >> 0x1e;
+                    gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + (gPlayerState.path_memory[i] & 0x3f) * 16 + 8;
+                    gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + (gPlayerState.path_memory[i] & 0xfc0) / 4 + 8;
+                    COLLISION_ON(&gPlayerEntity);
+                    break;
                 }
-                goto code_0;
             }
         }
     }
-code_3:
     UpdateSpriteForCollisionLayer(&gPlayerEntity);
 }
 
