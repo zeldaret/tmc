@@ -1936,7 +1936,7 @@ bool32 sub_080793E4(u32 param_1) {
     }
 }
 
-void RespawnPlayer(void) {   
+void RespawnPlayer(void) {
     Entity* player = &gPlayerEntity;
     player->action = PLAYER_080728AC;
     player->z.WORD = 0;
