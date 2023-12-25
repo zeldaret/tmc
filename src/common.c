@@ -1007,7 +1007,7 @@ void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
 }
 
 void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset) {
-	// GBA Resolutions
+    // GBA Resolutions
     const s32 MAX_X_COORD = 240;
     const s32 MAX_Y_COORD = 160;
 
