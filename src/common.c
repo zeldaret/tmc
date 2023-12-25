@@ -1006,10 +1006,11 @@ void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
                      0x1);
 }
 
-// GBA Resolutions
-#define MAX_X_COORD 240
-#define MAX_Y_COORD 160
 void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset) {
+	// GBA Resolutions
+    const s32 MAX_X_COORD = 240;
+    const s32 MAX_Y_COORD = 160;
+
     s32 slope, preciseX, tmp;
     s32* drawPtr = (s32*)gUnk_02018EE0;
 
@@ -1035,10 +1036,10 @@ void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset) {
     preciseX = x1 << 0x10;
     drawPtr += y1 * 3 + offset;
     do {
-        //Clamp x1 in range
+        // Clamp x1 in range
         x1 = x1 < 0 ? 0 : x1;
         x1 = x1 < MAX_X_COORD ? x1 : MAX_X_COORD;
-        
+
         *drawPtr = x1;
         preciseX += slope;
         x1 = preciseX >> 0x10;
