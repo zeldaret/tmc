@@ -268,8 +268,8 @@ void CreateSparkle(Entity* entity) {
 
 void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
     s16 oldValue1, oldValue2;
+    s32 newValue1, newValue2, newValue3, newValue4;
     s16 diff;
-    s32 newValue;
 
     if ((this->direction & 0x80) != 0)
         return;
@@ -278,8 +278,8 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
         case 0:
             oldValue1 = this->y.HALF_U.HI;
             LinearMoveUpdate(this);
-            newValue = this->y.HALF_U.HI;
-            diff = ((oldValue1 - newValue));
+            newValue1 = this->y.HALF_U.HI;
+            diff = ((oldValue1 - newValue1));
             if ((diff != 0) && (param_2 != 0)) {
                 sub_080044AE(&gPlayerEntity, diff << 8, 0);
             }
@@ -287,7 +287,8 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
         case 1:
             oldValue2 = this->x.HALF_U.HI;
             LinearMoveUpdate(this);
-            diff = ((this->x.HALF_U.HI - oldValue2) * 0x10000) >> 0x10;
+            newValue2 = this->x.HALF_U.HI;
+            diff = (newValue2 - oldValue2);
             if ((diff != 0) && (param_2 != 0)) {
                 sub_080044AE(&gPlayerEntity, diff << 8, 8);
             }
@@ -295,7 +296,8 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
         case 2:
             oldValue2 = this->y.HALF_U.HI;
             LinearMoveUpdate(this);
-            diff = ((this->y.HALF_U.HI - oldValue2) * 0x10000) >> 0x10;
+            newValue3 = this->y.HALF_U.HI;
+            diff = (newValue3 - oldValue2);
             if ((diff != 0) && (param_2 != 0)) {
                 sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
             }
@@ -303,8 +305,8 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
         case 3:
             oldValue1 = this->x.HALF_U.HI;
             LinearMoveUpdate(this);
-            newValue = this->x.HALF_U.HI;
-            diff = ((oldValue1 - newValue));
+            newValue4 = this->x.HALF_U.HI;
+            diff = ((oldValue1 - newValue4));
             if ((diff != 0) && (param_2 != 0)) {
                 sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
             }
