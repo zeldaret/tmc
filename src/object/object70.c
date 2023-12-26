@@ -35,23 +35,19 @@ void Object70_Init(Entity* this) {
 }
 
 void Object70_Action1(Entity* this) {
-    u8 bVar1;
 
     if (this->type == 0) {
-        if (gPlayerEntity.z.WORD == 0) {
-            if ((((gPlayerState.dash_state & 0x40) == 0) && (gPlayerState.floor_type == SURFACE_SWAMP)) &&
-                ((gPlayerEntity.action == PLAYER_NORMAL ||
-                  ((gPlayerEntity.action == PLAYER_ROLL || (gPlayerEntity.action == PLAYER_JUMP)))))) {
-                goto _080974FA;
-            } else {
-                if (gPlayerEntity.z.WORD == 0) {
-                    CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
-                }
+        if (gPlayerEntity.z.WORD != 0 || (gPlayerState.dash_state & 0x40) != 0 ||
+            gPlayerState.floor_type != SURFACE_SWAMP ||
+            (gPlayerEntity.action != PLAYER_NORMAL && gPlayerEntity.action != PLAYER_ROLL &&
+             gPlayerEntity.action != PLAYER_JUMP)) {
+            if (gPlayerEntity.z.WORD == 0) {
+                CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
             }
+
+            gPlayerEntity.spriteOrientation.flipY = 2;
+            DeleteThisEntity();
         }
-        gPlayerEntity.spriteOrientation.flipY = 2;
-        DeleteThisEntity();
-    _080974FA:
         this->x = gPlayerEntity.x;
         this->y = gPlayerEntity.y;
         if (gPlayerState.jump_status == 0) {
@@ -62,15 +58,15 @@ void Object70_Action1(Entity* this) {
                 this->spritePriority.b0 = 7;
             }
         }
+        return;
+    }
 
-    } else {
-        if (gPlayerEntity.action != PLAYER_USEENTRANCE) {
-            if (this->collisionLayer == 1) {
-                gPlayerEntity.spriteOrientation.flipY = 2;
-            } else {
-                gPlayerEntity.spriteOrientation.flipY = 1;
-            }
-            DeleteThisEntity();
+    if (gPlayerEntity.action != PLAYER_USEENTRANCE) {
+        if (this->collisionLayer == 1) {
+            gPlayerEntity.spriteOrientation.flipY = 2;
+        } else {
+            gPlayerEntity.spriteOrientation.flipY = 1;
         }
+        DeleteThisEntity();
     }
 }
