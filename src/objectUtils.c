@@ -267,50 +267,50 @@ void CreateSparkle(Entity* entity) {
 }
 
 void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
-    s16 oldValue;
-    s32 diff;
-    u16 newValue;
-    FORCE_REGISTER(Entity * that, r4) = this;
-    FORCE_REGISTER(bool32 p2, r6) = param_2;
-    u16 dir = that->direction;
+    s16 oldValue1, oldValue2;
+    s32 newValue1, newValue2, newValue3, newValue4;
+    s16 diff;
 
-    if ((dir & 0x80) == 0) {
-        switch (dir >> 3) {
-            case 0:
-                oldValue = that->y.HALF_U.HI;
-                LinearMoveUpdate(that);
-                newValue = that->y.HALF_U.HI;
-                diff = ((oldValue - newValue) << 0x10) >> 0x10;
-                if ((diff != 0) && (p2 != 0)) {
-                    sub_080044AE(&gPlayerEntity, diff << 8, 0);
-                }
-                break;
-            case 1:
-                oldValue = that->x.HALF_U.HI;
-                LinearMoveUpdate(that);
-                diff = ((that->x.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
-                if ((diff != 0) && (p2 != 0)) {
-                    sub_080044AE(&gPlayerEntity, diff << 8, 8);
-                }
-                break;
-            case 2:
-                oldValue = that->y.HALF_U.HI;
-                LinearMoveUpdate(that);
-                diff = ((that->y.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
-                if ((diff != 0) && (p2 != 0)) {
-                    sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
-                }
-                break;
-            case 3:
-                oldValue = that->x.HALF_U.HI;
-                LinearMoveUpdate(that);
-                newValue = that->x.HALF_U.HI;
-                diff = ((oldValue - newValue) << 0x10) >> 0x10;
-                if ((diff != 0) && (p2 != 0)) {
-                    sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
-                }
-                break;
-        }
+    if ((this->direction & 0x80) != 0)
+        return;
+
+    switch (this->direction >> 3) {
+        case 0:
+            oldValue1 = this->y.HALF_U.HI;
+            LinearMoveUpdate(this);
+            newValue1 = this->y.HALF_U.HI;
+            diff = ((oldValue1 - newValue1));
+            if ((diff != 0) && (param_2 != 0)) {
+                sub_080044AE(&gPlayerEntity, diff << 8, 0);
+            }
+            break;
+        case 1:
+            oldValue2 = this->x.HALF_U.HI;
+            LinearMoveUpdate(this);
+            newValue2 = this->x.HALF_U.HI;
+            diff = (newValue2 - oldValue2);
+            if ((diff != 0) && (param_2 != 0)) {
+                sub_080044AE(&gPlayerEntity, diff << 8, 8);
+            }
+            break;
+        case 2:
+            oldValue2 = this->y.HALF_U.HI;
+            LinearMoveUpdate(this);
+            newValue3 = this->y.HALF_U.HI;
+            diff = (newValue3 - oldValue2);
+            if ((diff != 0) && (param_2 != 0)) {
+                sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
+            }
+            break;
+        case 3:
+            oldValue1 = this->x.HALF_U.HI;
+            LinearMoveUpdate(this);
+            newValue4 = this->x.HALF_U.HI;
+            diff = ((oldValue1 - newValue4));
+            if ((diff != 0) && (param_2 != 0)) {
+                sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
+            }
+            break;
     }
 }
 
