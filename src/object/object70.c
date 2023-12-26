@@ -70,4 +70,3 @@ void Object70_Action1(Entity* this) {
         DeleteThisEntity();
     }
 }
-
