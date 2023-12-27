@@ -419,7 +419,7 @@ void sub_080801BC(RoomControls* controls) {
 }
 
 u32 sub_08080278(void) {
-    u16* ptr1 = gUnk_02022830;
+    u16* ptr1 = (u16*)gUnk_02022830;
     u16* mapBottomData = gMapBottom.mapData;
     u16* mapTopData = gMapTop.mapData;
     u16* mapBottomDataClone = gMapBottom.mapDataClone;
