@@ -162,7 +162,7 @@ u32 FindFreeObjPalette(u32 paletteCount) {
 void SetEntityObjPalette(Entity* entity, s32 palette) {
     u32 uVar1;
     u32 mask;
-    FORCE_REGISTER(u32 tmp, r1);
+    u32 tmp;
     Palette2* pPVar1;
 
     if (palette < 0) {
