@@ -421,16 +421,9 @@ void sub_0809CB70(FrozenOctorokEntity* this, s32 angle, s32 radius) {
 }
 
 void sub_0809CBE4(FrozenOctorokEntity* this) {
-    u16 tmp1;
-    FORCE_REGISTER(u8 tmp4, r4);
-    u8* tmp3 = &this->unk_79;
-    tmp1 = super->subtimer;
-    tmp4 = *tmp3;
-    tmp1 += tmp4;
-    this->unk_79 = tmp1;
+    this->unk_79 += super->subtimer;
     if ((s8)super->subtimer < 0) {
-        u8 tmp_r0 = super->timer;
-        if (tmp1 << 0x18 < -tmp_r0 << 0x18) {
+        if ((s8)this->unk_79 < (s8)-super->timer) {
             super->subtimer = -super->subtimer;
             SoundReq(SFX_19E);
         }
