@@ -5,11 +5,11 @@
  * @brief Gust Jar Particle object
  */
 #define NENT_DEPRECATED
-#include "entity.h"
-#include "player.h"
 #include "asm.h"
-#include "room.h"
+#include "entity.h"
 #include "physics.h"
+#include "player.h"
+#include "room.h"
 
 void GustJarParticle_Init(Entity*);
 void GustJarParticle_Action1(Entity*);

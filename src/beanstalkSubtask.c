@@ -116,7 +116,7 @@ void sub_08019764(void) {
     UpdateEntities();
     DrawEntities();
     CopyOAM();
-    if ((--gUnk_02018EB0.unk_4 == 0) || ((gInput.newKeys & 10) != 0)) {
+    if ((--gUnk_02018EB0.unk_4 == 0) || ((gInput.newKeys & (B_BUTTON | START_BUTTON)) != 0)) {
         gUnk_02018EB0.unk_0++;
     }
 }
@@ -170,7 +170,7 @@ u32 UpdatePlayerCollision(void) {
     u32 index;
     const s16* ptr1;
     const s16* ptr2;
-    s32 tmp1;
+    s32 framestate;
     u32 tmp2;
     u32 tmp3;
     // There are some weird assignment necessary to access gPlayerEntity.animationState correctly.
@@ -178,18 +178,18 @@ u32 UpdatePlayerCollision(void) {
     u32 animationState2;
     u32 animationState3;
 
-    if (gPlayerState.framestate == 0) {
-        tmp1 = gPlayerState.framestate_last;
+    if (gPlayerState.framestate == PL_STATE_IDLE) {
+        framestate = gPlayerState.framestate_last;
     } else {
-        tmp1 = gPlayerState.framestate;
+        framestate = gPlayerState.framestate;
     }
 
-    switch (tmp1) {
-        case 3:
+    switch (framestate) {
+        case PL_STATE_GUSTJAR:
             return 0;
-        case 0x12:
+        case PL_STATE_DIE:
             return 0;
-        case 0x16:
+        case PL_STATE_DROWN:
             return 0;
     }
 
@@ -198,7 +198,7 @@ u32 UpdatePlayerCollision(void) {
     } else {
         direction = gPlayerState.direction;
     }
-    if (((direction & 0x83) == 0) && (gPlayerState.field_0xa == 0)) {
+    if (((direction & (DIR_NOT_MOVING_CHECK | 0x3)) == 0) && (gPlayerState.field_0xa == 0)) {
         index = sub_0807BDB8(&gPlayerEntity, direction >> 2);
         if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
             ptr1 = &gUnk_080B4490[index * 2];
@@ -254,10 +254,11 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.field_0xa != 0) {
                 return 0;
             }
-            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction != 0) {
+            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction !=
+                DirectionNorth) {
                 return 0;
             }
-            if ((gPlayerEntity.direction & 0x80) != 0) {
+            if ((gPlayerEntity.direction & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
             if (GetCollisionDataAtMetaTilePos(position, gPlayerEntity.collisionLayer) != COLLISION_DATA_15) {
@@ -306,10 +307,10 @@ u32 UpdatePlayerCollision(void) {
         case VVV_58:
         case VVV_91:
         case SPECIAL_META_TILE_81:
-            if ((gPlayerState.flags & PL_MINISH) != 0) {
+            if (gPlayerState.flags & PL_MINISH) {
                 return 0;
             }
-            if (gPlayerEntity.animationState != 0) {
+            if (gPlayerEntity.animationState != IdleNorth) {
                 return 0;
             }
             gHUD.rActionInteractTile = R_ACTION_READ;
@@ -357,7 +358,8 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
 #endif
-            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction != 0) {
+            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction !=
+                DirectionNorth) {
                 return 0;
             }
             if ((gPlayerEntity.direction & 0x80) != 0) {
@@ -417,7 +419,7 @@ u32 UpdatePlayerCollision(void) {
             if ((animationState1 & 0xff) != 0) {
                 return 0;
             }
-            if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+            if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
             if ((gPlayerEntity.frame & 2) == 0) {
@@ -557,7 +559,7 @@ u32 UpdatePlayerCollision(void) {
             if (animationState3 == 0) {
                 return 0;
             }
-            if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+            if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
             if ((gPlayerEntity.frame & 1) == 0) {
@@ -576,7 +578,7 @@ u32 UpdatePlayerCollision(void) {
             if ((animationState2) != 4) {
                 return 0;
             }
-            if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+            if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
             if ((gPlayerEntity.frame & 1) == 0) {
@@ -597,7 +599,8 @@ bool32 sub_0801A2B0(MapLayer* mapLayer, u32 position, u32 collisionType) {
     u16 temp4;
 
     uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
-    if ((((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) == 0) && ((gPlayerEntity.frame & 1) != 0)) {
+    if ((((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) == 0) &&
+        ((gPlayerEntity.frame & 1) != 0)) {
         position = (u16)(position - (-uVar1)); // necessary for match
         temp4 = GetVvvForMetaTileType(GetMetaTileType(position, gPlayerEntity.collisionLayer));
         switch (temp4) {
@@ -714,18 +717,18 @@ bool32 sub_0801A4F8(void) {
         if (GetInventoryValue(ITEM_POWER_BRACELETS) != 1) {
             return FALSE;
         }
-        if ((gPlayerState.direction & 0x80) != 0) {
+        if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) != 0) {
             return FALSE;
         }
         if (gPlayerState.direction != gPlayerEntity.direction) {
             return FALSE;
         }
-        tmp = (((gPlayerEntity.direction + 4) & 0x18) >> 3);
+        tmp = (((gPlayerEntity.direction + 4) & DirectionWest) >> 3);
         if ((gUnk_080B44A0[tmp] & gPlayerEntity.collisions) == 0) {
             return FALSE;
         }
     } else {
-        if (((gPlayerState.field_0x35 | gPlayerState.direction) & 0x80) != 0) {
+        if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
             return FALSE;
         }
         if ((gPlayerEntity.frame & 1) == 0) {
@@ -735,7 +738,165 @@ bool32 sub_0801A4F8(void) {
     return TRUE;
 }
 
-ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", u32 sub_0801A570(Entity* a, u32 b))
+u32 sub_0801A570(Entity* this, u32 param_2) {
+    MapLayer* layer;
+    u32 tileType;
+    u32 position;
+    u32 index1;
+    u32 index2;
+    u16* metatileTypes;
+    u8* collisionData;
+
+    if (this == NULL) {
+        return 0xffff;
+    }
+    layer = GetLayerByIndex(this->collisionLayer);
+    metatileTypes = layer->metatileTypes;
+    index1 = 4;
+    index2 = 2;
+    switch (this->animationState >> 1) {
+        case 0:
+        default:
+            position = COORD_TO_TILE_OFFSET(this, 0, 10);
+            do {
+                if (metatileTypes[layer->mapData[position]] == 0x370)
+                    break;
+                position--;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 0x40;
+            do {
+                if (metatileTypes[layer->mapData[(position)]] != 0x374)
+                    break;
+                index2++;
+                position -= 0x40;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetMetaTileType(position, this->collisionLayer);
+            if ((index1 - 0x369) > 1) {
+                position = 0xffff;
+            } else {
+                collisionData = layer->collisionData - 0x40 + position;
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1] != 0) {
+                        position = 0xffff;
+                        break;
+                    }
+                }
+            }
+            break;
+        case 1:
+            position = COORD_TO_TILE_OFFSET(this, -10, 0);
+            do {
+                if (layer->metatileTypes[layer->mapData[position]] == 0x370)
+                    break;
+                position += 0x40;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 0x40;
+            do {
+                if (metatileTypes[layer->mapData[(position)]] != 0x374)
+                    break;
+                index2++;
+                position -= 0x40;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetMetaTileType(position, this->collisionLayer);
+            if (!(index1 == 0x369) && !(index1 == 0x36d))
+                position = 0xffff;
+            else {
+                collisionData = layer->collisionData + (position + index2);
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1 * 0x40] != 0) {
+                        position = 0xffff;
+                        break;
+                    }
+                }
+            }
+            break;
+        case 2:
+            position = COORD_TO_TILE_OFFSET(this, 0, -10);
+            do {
+                if (layer->metatileTypes[layer->mapData[position]] == 0x36f)
+                    break;
+                position++;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 1;
+            do {
+                if (metatileTypes[layer->mapData[position]] != 0x372)
+                    break;
+                index2++;
+                position--;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetMetaTileType(position, this->collisionLayer);
+            if (!(index1 == 0x369) && !(index1 == 0x36b))
+                position = 0xffff;
+            else {
+                collisionData = layer->collisionData + (position + (index2 * 0x40));
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1] != 0) {
+                        position = 0xffff;
+                        break;
+                    }
+                }
+            }
+            break;
+        case 3:
+            position = COORD_TO_TILE_OFFSET(this, 10, 0);
+            do {
+                if (layer->metatileTypes[layer->mapData[position]] == 0x36f)
+                    break;
+                position -= 0x40;
+                index1--;
+            } while (index1 != 0);
+
+            position = position - 1;
+            do {
+                if (metatileTypes[layer->mapData[position]] != 0x372)
+                    break;
+                index2++;
+                position--;
+            } while (index2 < 4);
+
+            if (param_2 == 0) {
+                return position;
+            }
+
+            index1 = GetMetaTileType(position, this->collisionLayer);
+            if (!(index1 == 0x369) && !(index1 == 0x36c))
+                position = 0xffff;
+            else {
+                collisionData = layer->collisionData - 1 + position;
+                for (index1 = 0; index1 < index2; index1++) {
+                    if (collisionData[index1 * 0x40] != 0) {
+                        position = 0xffff;
+                        break;
+                    }
+                }
+            }
+    }
+    if (param_2 != 0) {
+        position |= index2 << 0xc;
+    }
+    return position;
+}
 
 u32 sub_0801A8D0(Entity* this, u32 param_2) {
     u16* mapData;
@@ -1032,7 +1193,7 @@ void sub_0801AE44(bool32 loadGfx) {
     }
     sub_080809D4();
     UpdateIsDiggingCave();
-    if (gRoomTransition.field_0x2c[0] != 0) {
+    if (gRoomTransition.field2d != 0) {
         sub_0807C898();
     }
     if (gArea.lightType != 0) {
@@ -1069,7 +1230,7 @@ void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer) {
 // Add a new entry at the end of gMetaTilesForSpecialTiles
 void StoreMetaTileForSpecialTile(u32 metaTileIndex, u32 metaTilePos, u32 layer) {
     u32 index;
-    if ((metaTileIndex < 0x4000) && (gRoomTransition.field_0x2c[3] == 0)) {
+    if ((metaTileIndex < 0x4000) && (gRoomTransition.field30 == 0)) {
         index = gRoomVars.specialTileCount;
         if (index < 0x100) {
             gMetaTilesForSpecialTiles[index].metaTileIndex = metaTileIndex;

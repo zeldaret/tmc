@@ -55,7 +55,7 @@ script_08009FB6:
 	Jump script_08009F86
 script_08009FD2:
 	EndBlock
-	CheckLocalFlag 0x00b0
+	CheckLocalFlag KHOUSE26_REMOCON
 	JumpIf script_0800A024
 script_08009FDC:
 	EndBlock

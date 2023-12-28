@@ -96,6 +96,12 @@ typedef enum {
 } PlayerControlMode;
 
 typedef enum {
+    DIR_DIAGONAL = 0x4,
+    DIR_NOT_MOVING_CHECK = 0x80,
+    DIR_NONE = 0xff,
+} PlayerDirections;
+
+typedef enum {
     PL_BUSY = 0x1,
     PL_FLAGS2 = 0x2,
     PL_DROWNING = 0x4,
@@ -125,6 +131,8 @@ typedef enum {
     PL_SWORD_THRUST = 0x8000000,
     PL_USE_OCARINA = 0x10000000,
     PL_CLIMBING = 0x20000000,
+    PL_FLAGS40000000 = 0x40000000,
+    PL_FLAGS80000000 = 0x80000000,
 } PlayerFlags;
 
 enum PlayerItemId {
@@ -201,7 +209,8 @@ typedef enum {
     SURFACE_AUTO_LADDER,
     SURFACE_CLIMB_WALL,
     SURFACE_2C,
-    SURFACE_2D // reuses SurfaceAction_Dust
+    SURFACE_2D, // reuses SurfaceAction_Dust
+    SURFACE_FF = 0xff,
 } SurfaceType;
 
 typedef enum {
@@ -275,6 +284,174 @@ typedef enum {
     SWORD_MOVE_LOW_BEAM,
 } SwordMove;
 
+typedef enum {
+    ANIM_DEFAULT = 0x100,
+    ANIM_WALK = 0x104,
+    ANIM_SWORD = 0x108,
+    ANIM_BOUNCE = 0x114,
+    ANIM_SPINATTACK = 0x124,
+    ANIM_GREATSPIN = 0x128,
+    ANIM_ROLLATTACK_SPIN = 0x12c,
+    ANIM_ROLLATTACK_SLIDE = 0x130,
+    ANIM_ROLLATTACK_END = 0x134,
+    ANIM_SHIELD_PULLOUT = 0x158,
+    ANIM_SHIELD_WALK = 0x160,
+    ANIM_SHIELD = 0x164,
+    ANIM_SWORD_CHARGE = 0x168,
+    ANIM_SWORD_CHARGE_WALK = 0x16c,
+    ANIM_SWORD_CHARGE_BUMP = 0x170,
+    ANIM_DOWN_THRUST = 0x174,
+    ANIM_FALL = 0x1b8,
+    ANIM_GET_ITEM_BIG = 0x1b9,
+    ANIM_FALL_MINISH = 0x1ba,
+    ANIM_DIE1 = 0x1bc,
+    ANIM_GET_WHITE_SWORD = 0x1e2,
+    ANIM_BOW_PULLOUT = 0x21c,
+    ANIM_TRAPPED = 0x25c,
+    ANIM_BOW_SHOOT = 0x27c,
+    ANIM_BOW_CHARGE = 0x280,
+    ANIM_BOW_WALK = 0x284,
+    ANIM_ROCS_CAPE = 0x288,
+    ANIM_SWIM_STILL = 0x28c,
+    ANIM_SWIM_MOVE = 0x290,
+    ANIM_FROZEN = 0x294,
+    ANIM_DASH = 0x298,
+    ANIM_ELECTROCUTED = 0x29c,
+    ANIM_ROLL = 0x2ac,
+    ANIM_DIE2 = 0x2bd,
+    ANIM_DIVE = 0x2be,
+    ANIM_IN_LAVA = 0x2c1,
+    ANIM_PORTAL = 0x2c2,
+    ANIM_PORTAL_SHRINK = 0x2c3,
+    ANIM_DROWN_RESPAWN = 0x2ce,
+    ANIM_CLIMB1_UP = 0x2cf,
+    ANIM_CLIMB2_UP = 0x2d0,
+    ANIM_CLIMB1_DOWN = 0x2d1,
+    ANIM_CLIMB2_DOWN = 0x2d2,
+    ANIM_CLIMB_FROM_TOP = 0x2d3,
+    ANIM_CLIMB_LEFT = 0x2d4,
+    ANIM_CLIMB_RIGHT = 0x2d5,
+    ANIM_CLIMB_TO_TOP = 0x2d6,
+    ANIM_BOTTLE_DRINK = 0x2df,
+    ANIM_GET_ITEM_SMALL = 0x2e0,
+    ANIM_PICKUP = 0x338,
+    ANIM_PUSH = 0x33c,
+    ANIM_PULL = 0x340,
+    ANIM_THROW = 0x344,
+    ANIM_CARRY = 0x348,
+    ANIM_PULL2 = 0x34c,
+    ANIM_CARRY_STAND = 0x350,
+    ANIM_GRAB = 0x378,
+    ANIM_FALL_ON_BACK = 0x3a0,
+    ANIM_LAUNCHED = 0x3c0,
+    ANIM_EZLO_SEARCH = 0x3c5,
+    ANIM_EZLO_APPEAR_LEFT = 0x3c6,
+    ANIM_EZLO_EYES_UP = 0x3c7,
+    ANIM_EZLO_HEAD_DOWN = 0x3c8,
+    ANIM_EZLO_LEAVE_LEFT = 0x3c9,
+    ANIM_EZLO_APPEAR_RIGHT = 0x3ca,
+    ANIM_EZLO_EYES_MIDDLE = 0x3cc,
+    ANIM_EZLO_LEAVE_RIGHT = 0x3cd,
+    ANIM_DEFAULT_NOCAP = 0x400,
+    ANIM_WALK_NOCAP = 0x404,
+    ANIM_SWORD_NOCAP = 0x408,
+    ANIM_SHIELD_PULLOUT_NOCAP = 0x40c,
+    ANIM_SHIELD_WALK_NOCAP = 0x410,
+    ANIM_SHIELD_NOCAP = 0x414,
+    ANIM_BOUNCE_NOCAP = 0x418,
+    ANIM_HOP_NOCAP = 0x41c,
+    ANIM_JUMP_NOCAP = 0x420,
+    ANIM_LAND_NOCAP = 0x424,
+    ANIM_ROLL_NOCAP = 0x438,
+    ANIM_DROWN_NOCAP = 0x44c,
+    ANIM_FALL_NOCAP = 0x458,
+    ANIM_DIE1_NOCAP = 0x459,
+    ANIM_DIE2_NOCAP = 0x45a,
+    ANIM_GET_ITEM_BIG_NOCAP = 0x45b,
+    ANIM_GET_ITEM_SMALL_NOCAP = 0x45e,
+    ANIM_GET_ITEM_SWORD = 0x45f,
+    ANIM_GUSTJAR_PULLOUT = 0x500,
+    ANIM_GUSTJAR_SUCK = 0x504,
+    ANIM_MOLEMITTS_FLOOR = 0x508,
+    ANIM_MOLEMITTS_DIG = 0x50c,
+    ANIM_GUSTJAR_END = 0x510,
+    ANIM_GUSTJAR_BLOW = 0x514,
+    ANIM_GUSTJAR_WALK = 0x518,
+    ANIM_MOLEMITTS_CLANG = 0x51c,
+    ANIM_MOLEMITTS_MISS = 0x520,
+    ANIM_GUSTJAR_524 = 0x524,
+    ANIM_ENTER_POT = 0x52c,
+    ANIM_IN_POT = 0x530,
+    ANIM_LANTERN_LIGHT = 0x600,
+    ANIM_LANTERN_ON = 0x604,
+    ANIM_LANTERN = 0x608,
+    ANIM_LANTERN_BURN = 0x60c,
+    ANIM_BOTTLE_POUR = 0x610,
+    ANIM_BOTTLE_SWING = 0x614,
+    ANIM_BOTTLE_SWING_END = 0x618,
+    ANIM_FALL_IN_HOLE = 0x61c,
+    ANIM_IN_HOLE = 0x620,
+    ANIM_SPRING_JUMP = 0x624,
+    ANIM_CANE = 0x628,
+    ANIM_PARACHUTE_ACTIVATE = 0x700,
+    ANIM_BOOMERANG_MAGIC = 0x704,
+    ANIM_PARACHUTE = 0x708,
+    ANIM_MINECART_PAUSE = 0x70c,
+    ANIM_MINECART = 0x710,
+    ANIM_PARACHUTE_TURN_RIGHT = 0x714,
+    ANIM_PARACHUTE_TURN_OPPOSITE = 0x718,
+    ANIM_PARACHUTE_TURN_LEFT = 0x71c,
+    ANIM_PARACHUTE_TURN2_RIGHT = 0x720,
+    ANIM_PARACHUTE_TURN2_OPPOSITE = 0x724,
+    ANIM_PARACHUTE_TURN2_LEFT = 0x728,
+    ANIM_DROWN = 0x72c,
+    ANIM_PARACHUTE_FALL = 0x730,
+    ANIM_PUT_ON_EZLO = 0x734,
+    ANIM_SLEEP = 0x736,
+    ANIM_WAKEUP = 0x737,
+    ANIM_PORTAL_ACTIVATE = 0x738,
+    ANIM_SLEEP_NOCAP = 0x73a,
+    ANIM_WAKEUP_NOCAP = 0x73b,
+    ANIM_GROW = 0x73c,
+    ANIM_HOP = 0x80c,
+    ANIM_JUMP = 0x810,
+    ANIM_BOOMERANG = 0x818,
+    ANIM_LAND = 0x820,
+    ANIM_MOLDWORM_CAPTURED = 0x8b0,
+    ANIM_GET_NEW_SWORD = 0x8bf,
+    ANIM_OCARINA = 0x8e1,
+    ANIM_GET_LAST_SWORD = 0x8e3,
+    ANIM_GET_NEWCAP = 0x8e4,
+    ANIM_PICKUP_NOCAP = 0x928,
+    ANIM_CARRY_STAND_NOCAP = 0x92c,
+    ANIM_THROW_NOCAP = 0x930,
+    ANIM_CARRY_NOCAP = 0x934,
+    ANIM_PUSH_NOCAP = 0x93c,
+    ANIM_PULL_START_NOCAP = 0x940,
+    ANIM_PULL_NOCAP = 0x944,
+    ANIM_GRAB_NOCAP = 0x948,
+    ANIM_FALL_IN_HOLE_NOCAP = 0x950,
+    ANIM_IN_HOLE_NOCAP = 0x954,
+    ANIM_SWORD_MINISH = 0xc00,
+    ANIM_WALK_MINISH = 0xc04,
+    ANIM_ROLL_MINISH = 0xc08,
+    ANIM_SWIM_MINISH = 0xc0c,
+    ANIM_DASH_MINISH = 0xc10,
+    ANIM_DASH_CHARGE_MINISH = 0xc14,
+    ANIM_BOUNCE_MINISH = 0xc18,
+    ANIM_DROWN_MINISH = 0xc19,
+    ANIM_DIE1_MINISH = 0xc1a,
+    ANIM_DIE2_MINISH = 0xc1b,
+    ANIM_DIVE_MINISH = 0xc1c,
+} PlayerAnimation;
+
+typedef enum {
+    PAS_NORTH,
+    PAS_EAST,
+    PAS_SOUTH,
+    PAS_WEST,
+} PlayerAnimationState;
+
 typedef struct {
     /*0x00*/ u8 prevAnim;
     /*0x01*/ u8 grab_status;
@@ -304,7 +481,8 @@ typedef struct {
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 gustJarSpeed;
     /*0x1e*/ u8 dash_state;
-    /*0x1f*/ u8 field_0x1f[3];
+    /*0x1f*/ u8 field_0x1f[2];
+    /*0x21*/ u8 bow_state;
     /*0x22*/ u16 tilePosition;
     /*0x24*/ u16 tileType;
     /*0x26*/ u8 swim_state; /**< Is the player swimming? 0x80 for diving */
@@ -354,20 +532,21 @@ typedef struct {
     /*0x05*/ u8 arrowCount;
     /*0x06*/ u8 bombBagType;
     /*0x07*/ u8 quiverType;
-    /*0x08*/ u8 filler[2];
+    /*0x08*/ u8 figurineCount;
+    /*0x09*/ u8 _hasAllFigurines;
     /*0x0a*/ u8 charm;
     /*0x0b*/ u8 picolyteType;
     /*0x0c*/ u8 itemButtons[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
     /*0x13*/ u8 hasAllFigurines;
-    /*0x14*/ u8 filler3[4];
+    /*0x14*/ u8 filler14[4];
     /*0x18*/ u16 rupees;
     /*0x1a*/ u16 shells;
     /*0x1c*/ u16 charmTimer;
     /*0x1e*/ u16 picolyteTimer;
     /*0x20*/ u16 effectTimer;
-    /*0x22*/ u8 filler4[6];
+    /*0x22*/ u8 filler22[2];
 } Stats;
 
 #define SLOT_A 0

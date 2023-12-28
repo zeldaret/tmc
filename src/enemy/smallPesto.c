@@ -91,8 +91,8 @@ void sub_08031714(Entity* this) {
         if (sub_08049FA0(this) == 0 && (this->subtimer & 1) != 0) {
             this->direction = sub_08049EE4(this);
         } else {
-            this->direction += 0x18;
-            this->direction = ((Random() & 0xe) + this->direction) & 0x1f;
+            this->direction += DirectionWest;
+            this->direction = ((Random() & 0xe) + this->direction) & (0x3 | DirectionNorthWest);
         }
         sub_080317E0(this);
     }

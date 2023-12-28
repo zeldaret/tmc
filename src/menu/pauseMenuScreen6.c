@@ -196,7 +196,7 @@ void sub_080A68D4(void) {
     sub_080A698C(gRoomTransition.player_status.overworld_map_x, gRoomTransition.player_status.overworld_map_y,
                  DRAW_DIRECT_SPRITE_INDEX, iVar6 + 0x100);
     uVar1 = sub_080A6F40();
-    uVar1 &= gSave.field_0x20;
+    uVar1 &= gSave.map_hints;
 
     for (pcVar4 = gUnk_08128F58, i = 0; pcVar4->frameIndex != 0; i++, pcVar4++) {
         if (((1 << i) & uVar1) != 0) {

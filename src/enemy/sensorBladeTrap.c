@@ -42,16 +42,16 @@ void sub_0802BA18(Entity* this) {
     this->direction = direction;
 
     switch (direction >> 3) {
-        case 0:
+        case 0: // UP
             this->field_0x7a.HWORD = this->y.HALF.HI - this->field_0x7c.HALF.HI;
             break;
-        case 1:
+        case 1: // RIGHT
             this->field_0x7a.HWORD = this->x.HALF.HI + this->field_0x7c.HALF.LO;
             break;
-        case 2:
+        case 2: // DOWN
             this->field_0x7a.HWORD = this->y.HALF.HI + this->field_0x7c.HALF.HI;
             break;
-        case 3:
+        case 3: // LEFT
             this->field_0x7a.HWORD = this->x.HALF.HI - this->field_0x7c.HALF.LO;
             break;
     }
@@ -62,19 +62,19 @@ void sub_0802BA8C(Entity* this) {
         sub_0802BB10(this);
     } else {
         switch (this->direction >> 3) {
-            case 0:
+            case 0: // UP
                 if (this->field_0x7a.HWORD >= this->y.HALF.HI)
                     sub_0802BB10(this);
                 break;
-            case 1:
+            case 1: // RIGHT
                 if (this->field_0x7a.HWORD <= this->x.HALF.HI)
                     sub_0802BB10(this);
                 break;
-            case 2:
+            case 2: // DOWN
                 if (this->field_0x7a.HWORD <= this->y.HALF.HI)
                     sub_0802BB10(this);
                 break;
-            case 3:
+            case 3: // LEFT
                 if (this->field_0x7a.HWORD >= this->x.HALF.HI)
                     sub_0802BB10(this);
                 break;
@@ -91,7 +91,7 @@ void sub_0802BAFC(Entity* this) {
 void sub_0802BB10(Entity* this) {
     this->action = 3;
     this->speed = 0xc0;
-    this->direction = this->direction ^ 0x10;
+    this->direction = this->direction ^ DirectionSouth;
     EnqueueSFX(SFX_METAL_CLINK);
 }
 

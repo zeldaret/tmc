@@ -6,7 +6,6 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "new_player.h"
 #include "object.h"
 

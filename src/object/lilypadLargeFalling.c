@@ -4,9 +4,10 @@
  *
  * @brief LilypadLargeFalling object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
-#include "global.h"
+#include "object/lilypadLarge.h"
 
 void LilypadLargeFalling(Entity* this) {
     Entity* parent;
@@ -22,7 +23,7 @@ void LilypadLargeFalling(Entity* this) {
     if (parent->z.WORD == 0) {
         DeleteThisEntity();
     } else {
-        int position = 0x120 - parent->z.HALF.HI;
-        SetAffineInfo(this, position, position, parent->field_0x7c.HALF_U.HI);
+        s32 position = 0x120 - parent->z.HALF.HI;
+        SetAffineInfo(this, position, position, ((LilypadLargeEntity*)parent)->unk_7c.HALF_U.HI);
     }
 }

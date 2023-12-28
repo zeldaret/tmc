@@ -97,7 +97,7 @@ void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_RemoveInteractableObject(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_AddInteractableFuser(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context);
@@ -313,9 +313,10 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807DD50(Entity* entity) {
+// Init some script related variables, execute the script and do something regarding the animation.
+void InitScriptForNPC(Entity* entity) {
     sub_0807DD64(entity);
-    sub_0807DD94(entity, 0);
+    ExecuteScriptAndHandleAnimation(entity, NULL);
 }
 
 void sub_0807DD64(Entity* entity) {
@@ -330,8 +331,8 @@ void sub_0807DD80(Entity* entity, Script* script) {
     sub_0807DD64(entity);
 }
 
-void sub_0807DD94(Entity* entity, void (*function)(Entity*, ScriptExecutionContext*)) {
-    ExecuteScriptForEntity(entity, function);
+void ExecuteScriptAndHandleAnimation(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*)) {
+    ExecuteScriptForEntity(entity, postScriptCallback);
     HandleEntity0x82Actions(entity);
     sub_0807DE80(entity);
 }
@@ -390,6 +391,7 @@ void HandleEntity0x82Actions(Entity* entity) {
     }
 }
 
+// Handles animation for NPCs? Uses u16 0x80 and 0x82 of the entity.
 void sub_0807DE80(Entity* entity) {
     u32 local1;
     u16 local2;
@@ -546,7 +548,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_AddInteractableWhenBigObject,
         ScriptCommand_RemoveInteractableObject,
         ScriptCommand_AddInteractableWhenBigFuser,
-        ScriptCommand_0807E9F0,
+        ScriptCommand_UpdateFusion,
         ScriptCommand_0807EA4C,
         ScriptCommand_AddInteractableFuser,
         ScriptCommand_WaitUntilTextboxCloses,
@@ -790,7 +792,7 @@ void ScriptCommand_CheckPlayerInRegion2(Entity* entity, ScriptExecutionContext* 
 
 void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType) {
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -801,13 +803,13 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
 void ScriptCommand_FacePlayerAndCheckDist(Entity* entity, ScriptExecutionContext* context) {
     if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & PL_MINISH) == 0 &&
         EntityInRectRadius(entity, &gPlayerEntity, 40, 40)) {
-        entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
+        entity->animationState = GetAnimationStateForDirection8(GetFacingDirection(entity, &gPlayerEntity));
     }
     context->unk_1A++;
     if (entity->interactType) {
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         context->condition = 1;
-        entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
+        entity->animationState = GetAnimationStateForDirection8(GetFacingDirection(entity, &gPlayerEntity));
     } else {
         context->condition = 0;
     }
@@ -1106,7 +1108,7 @@ void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context)
 
 void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType) {
-        entity->interactType = 0;
+        entity->interactType = INTERACTION_NONE;
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1122,7 +1124,7 @@ void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
         case 0:
             if (!entity->interactType)
                 break;
-            entity->interactType = 0;
+            entity->interactType = INTERACTION_NONE;
             context->unk_18++;
             MessageFromTarget(context->scriptInstructionPointer[1]);
             break;
@@ -1148,25 +1150,25 @@ void ScriptCommand_AddInteractableWhenBigFuser(Entity* entity, ScriptExecutionCo
     AddInteractableWhenBigFuser(entity, context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
-    bool32 tmp;
-    sub_0801E00C();
-    tmp = TRUE;
-    switch (gFuseInfo._0) {
+void ScriptCommand_UpdateFusion(Entity* entity, ScriptExecutionContext* context) {
+    bool32 isFusionSuccessful;
+    PerformFuseAction();
+    isFusionSuccessful = TRUE;
+    switch (gFuseInfo.fusionState) {
         default:
-            tmp = FALSE;
+            isFusionSuccessful = FALSE;
             break;
-        case 2:
+        case FUSION_STATE_2:
             gPlayerState.controlMode = CONTROL_DISABLED;
-            gPauseMenuOptions.disabled = tmp;
-            context->condition = tmp;
+            gPauseMenuOptions.disabled = isFusionSuccessful;
+            context->condition = isFusionSuccessful;
             break;
-        case 1:
+        case FUSION_STATE_1:
             context->condition = 0;
             break;
     }
 
-    if (tmp) {
+    if (isFusionSuccessful) {
         PlayerResetStateFromFusion();
         gPlayerState.controlMode = CONTROL_1;
     } else {
@@ -1175,9 +1177,9 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context) {
-    if (entity->interactType == 2) {
-        sub_0801DFB4(entity, 0, 0, 0);
-        entity->interactType = 0;
+    if (entity->interactType == INTERACTION_FUSE) {
+        InitializeFuseInfo(entity, 0, 0, 0);
+        entity->interactType = INTERACTION_NONE;
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1234,17 +1236,17 @@ void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* con
 }
 
 void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context) {
-    entity->animationState =
-        sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
-                                  context->scriptInstructionPointer[2] + gRoomControls.origin_y));
+    entity->animationState = GetAnimationStateForDirection8(
+        sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
+                     context->scriptInstructionPointer[2] + gRoomControls.origin_y));
 }
 
 void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context) {
-    entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
+    entity->animationState = GetAnimationStateForDirection8(GetFacingDirection(entity, &gPlayerEntity));
 }
 
 void ScriptCommand_FaceAwayFromPlayer(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerEntity.animationState = sub_0806F5B0(GetFacingDirection(&gPlayerEntity, entity)) & ~1;
+    gPlayerEntity.animationState = GetAnimationStateForDirection8(GetFacingDirection(&gPlayerEntity, entity)) & ~1;
 }
 
 void ScriptCommand_SetEntityDirection(Entity* entity, ScriptExecutionContext* context) {
@@ -1352,9 +1354,9 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
         tmp = context->scriptInstructionPointer[2];
         tmp3 = entity->y.HALF.HI - gRoomControls.origin_y;
         context->y.WORD = ((tmp - tmp3) << 0x10) / context->unk_12;
-        entity->animationState =
-            sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
-                                      context->scriptInstructionPointer[2] + gRoomControls.origin_y));
+        entity->animationState = GetAnimationStateForDirection8(
+            sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
+                         context->scriptInstructionPointer[2] + gRoomControls.origin_y));
         context->postScriptActions |= 2;
     } else {
         if (!--context->unk_12) {
@@ -1368,6 +1370,7 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 
+// player movement?
 void ScriptCommand_MoveTo(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
@@ -1488,7 +1491,7 @@ void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* con
 
 void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = 0;
-    if (context->scriptInstructionPointer[1] == 0x3F) {
+    if (context->scriptInstructionPointer[1] == ITEM_SHELLS) {
         tmp = context->intVariable;
     }
     InitItemGetSequence(context->scriptInstructionPointer[1], tmp, 0);
@@ -1548,11 +1551,12 @@ void sub_0807F100(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F128(Entity* entity, ScriptExecutionContext* context) {
-    static const u8 sAnimations[] = { 6, 2, 6, 2, 4, 6, 4, 2 };
+    static const u8 sAnimationStates[] = { IdleWest,  IdleEast, IdleWest,  IdleEast,
+                                           IdleSouth, IdleWest, IdleSouth, IdleEast };
     static const u8 sValues[] = { 0xa, 0x14, 0x1e, 0x12, 0x1c, 0x26, 0xc, 0x18 };
 
     u32 rand = Random();
-    entity->animationState = sAnimations[rand & 7];
+    entity->animationState = sAnimationStates[rand & 7];
     context->unk_1A = sValues[(rand >> 8) % 8];
 }
 
@@ -1582,25 +1586,25 @@ void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F1C4(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = 0x459;
+        gPlayerState.animation = ANIM_DIE1_NOCAP;
     } else {
-        gPlayerState.animation = 0x1bc;
+        gPlayerState.animation = ANIM_DIE1;
     }
 }
 
 void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = 0x45a;
+        gPlayerState.animation = ANIM_DIE2_NOCAP;
     } else {
-        gPlayerState.animation = 0x2bd;
+        gPlayerState.animation = ANIM_DIE2;
     }
 }
 
 void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.flags & PL_NO_CAP) {
-        gPlayerState.animation = 0x41c;
+        gPlayerState.animation = ANIM_HOP_NOCAP;
     } else {
-        gPlayerState.animation = 0x80c;
+        gPlayerState.animation = ANIM_HOP;
     }
 }
 
@@ -1718,12 +1722,12 @@ void LoadMenu(Entity* entity, ScriptExecutionContext* context) {
 
 void CheckInteractType(Entity* entity, ScriptExecutionContext* context) {
     switch (entity->interactType) {
-        case 1:
-            entity->interactType = 0;
+        case INTERACTION_TALK:
+            entity->interactType = INTERACTION_NONE;
             context->intVariable = 1;
             break;
-        case 2:
-            entity->interactType = 0;
+        case INTERACTION_FUSE:
+            entity->interactType = INTERACTION_NONE;
             context->intVariable = 2;
             break;
         default:
@@ -1819,14 +1823,14 @@ void WaitForCameraTouchRoomBorder(Entity* entity, ScriptExecutionContext* contex
 }
 
 void sub_0807F634(Entity* entity, ScriptExecutionContext* context) {
-    u16* p = (u16*)context->intVariable;
-    sub_0801DFB4(entity, p[0], p[1], p[2]);
+    u16* textIndices = (u16*)context->intVariable;
+    InitializeFuseInfo(entity, textIndices[0], textIndices[1], textIndices[2]);
     gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
 void sub_0807F650(Entity* entity, ScriptExecutionContext* context) {
-    u32 p = GetFuserId(entity);
-    sub_0801DFB4(entity, gUnk_08001A7C[p][0], gUnk_08001A7C[p][1], gUnk_08001A7C[p][2]);
+    u32 fuserId = GetFuserId(entity);
+    InitializeFuseInfo(entity, gUnk_08001A7C[fuserId][0], gUnk_08001A7C[fuserId][1], gUnk_08001A7C[fuserId][2]);
     gPlayerState.controlMode = CONTROL_DISABLED;
 }
 

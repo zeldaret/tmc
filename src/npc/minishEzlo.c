@@ -1,16 +1,22 @@
+/**
+ * @file minishEzlo.c
+ * @ingroup NPCs
+ *
+ * @brief Minish Ezlo NPC
+ */
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "sound.h"
-#include "script.h"
 #include "npc.h"
+#include "script.h"
+#include "sound.h"
 
 typedef struct {
-    Entity base;
-    u32 filler;
-    union SplitWord field_0x6c;
-    u32 field_0x70;
-    u8 filler2[0xC];
-    s16 field_0x80;
+    /*0x00*/ Entity base;
+    /*0x68*/ u32 filler;
+    /*0x6c*/ union SplitWord field_0x6c;
+    /*0x70*/ u32 field_0x70;
+    /*0x74*/ u8 filler2[0xC];
+    /*0x80*/ s16 field_0x80;
 } MinishEzloEntity;
 
 extern void sub_0806FF10(Entity* this, u32 param_2, u32 param_3);
@@ -28,7 +34,7 @@ void MinishEzlo(Entity* this) {
         this->action++;
         this->animationState = this->timer * 2;
         SetDefaultPriority(this, PRIO_MESSAGE);
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
     }
     ExecuteScriptForEntity(this, NULL);
     HandleEntity0x82Actions(this);

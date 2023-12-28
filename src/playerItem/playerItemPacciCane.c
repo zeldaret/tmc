@@ -1,9 +1,16 @@
-#include "entity.h"
-#include "sound.h"
-#include "functions.h"
+/**
+ * @file playerItemPacciCane.c
+ * @ingroup Items
+ *
+ * @brief Pacci Cane Player Item
+ */
+#define NENT_DEPRECATED
 #include "common.h"
+#include "entity.h"
+#include "functions.h"
 #include "message.h"
 #include "save.h"
+#include "sound.h"
 #include "structures.h"
 
 void PlayerItemPacciCane_Action1(Entity*);

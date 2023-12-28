@@ -4,10 +4,8 @@
  *
  * @brief Item for Sale object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "kinstone.h"
 #include "message.h"
@@ -88,15 +86,15 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
         gHUD.rActionPlayerState = 2;
     } else {
         if (super->type == 0x36) {
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 super->action = 3;
                 gRoomVars.animFlags = 1;
                 gPlayerState.queued_action = PLAYER_08070E9C;
             }
         } else {
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 super->subAction = 1;
                 sub_08078B48();
                 ResetActiveItems();

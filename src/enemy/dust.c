@@ -37,9 +37,9 @@ typedef struct {
 #define DUST_SPRITE_INDEX 0x1eb
 #endif
 
-void sub_08044134(DustEntity*);
-void sub_0804414C(DustEntity*);
-void sub_0804415C(DustEntity*);
+void Dust_OnTick(DustEntity*);
+void Dust_OnCollision(DustEntity*);
+void Dust_OnGrabbed(DustEntity*);
 void sub_080441E0(DustEntity*);
 void sub_080442A0(DustEntity*);
 void sub_080441CC(DustEntity*);
@@ -56,15 +56,15 @@ extern void* sub_080AD8F0(u32, u32);
 extern const s8 gUnk_08126EE4[];
 
 void (*const Dust_Functions[])(Entity*) = {
-    (EntityActionPtr)sub_08044134, (EntityActionPtr)sub_0804414C, GenericKnockback, GenericDeath, GenericConfused,
-    (EntityActionPtr)sub_0804415C,
+    (EntityActionPtr)Dust_OnTick,    (EntityActionPtr)Dust_OnCollision, GenericKnockback, GenericDeath, GenericConfused,
+    (EntityActionPtr)Dust_OnGrabbed,
 };
 
 void Dust(Entity* this) {
     Dust_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08044134(DustEntity* this) {
+void Dust_OnTick(DustEntity* this) {
     static void (*const Dust_Actions[])(DustEntity*) = {
         sub_080441E0,
         sub_080442A0,
@@ -72,11 +72,11 @@ void sub_08044134(DustEntity* this) {
     Dust_Actions[super->action](this);
 }
 
-void sub_0804414C(DustEntity* this) {
+void Dust_OnCollision(DustEntity* this) {
     EnemyFunctionHandlerAfterCollision(super, Dust_Functions);
 }
 
-void sub_0804415C(DustEntity* this) {
+void Dust_OnGrabbed(DustEntity* this) {
     static void (*const Dust_SubActions[])(DustEntity*) = {
         sub_080441BC,
         sub_080441C4,

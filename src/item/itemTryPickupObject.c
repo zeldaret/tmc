@@ -14,6 +14,11 @@ void sub_08076518(ItemBehavior*, u32);
 void sub_080765E0(ItemBehavior*, u32);
 void sub_0807660C(ItemBehavior*, u32);
 
+extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
+
+extern const u16 gUnk_0811BE38[];
+extern const u16 gUnk_0811BE40[];
+
 void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
     if (param_2 != NULL) {
         if ((param_2->carryFlags & 1) != 0) {
@@ -25,9 +30,9 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
 
     this->field_0x18 = param_2;
     if ((gPlayerState.flags & PL_NO_CAP)) {
-        SetItemAnim(this, 0x928);
+        SetItemAnim(this, ANIM_PICKUP_NOCAP);
     } else {
-        SetItemAnim(this, 0x338);
+        SetItemAnim(this, ANIM_PICKUP);
     }
     gPlayerState.heldObject = 3;
     gPlayerState.framestate = 4;
@@ -108,12 +113,12 @@ void ItemPickupCheck(ItemBehavior* this, u32 index) {
                 this->animPriority = 6;
                 gPlayerState.field_0xa = (8 >> index) | gPlayerState.field_0xa;
                 gPlayerState.keepFacing = (8 >> index) | gPlayerState.keepFacing;
-                if ((gPlayerState.flags & PL_NO_CAP) == 0) {
-                    SetItemAnim(this, 0x378);
+                if (!(gPlayerState.flags & PL_NO_CAP)) {
+                    SetItemAnim(this, ANIM_GRAB);
                 } else {
-                    SetItemAnim(this, 0x948);
+                    SetItemAnim(this, ANIM_GRAB_NOCAP);
                 }
-                SoundReq(SFX_88);
+                SoundReq(SFX_GRAB);
                 break;
             default:
                 break;
@@ -129,7 +134,101 @@ void sub_080762C4(ItemBehavior* this, Entity* arg1, u8 arg2, u32 arg3) {
     sub_08077D38(this, arg3);
 }
 
-ASM_FUNC("asm/non_matching/itemTryPickupObject/sub_080762D8.inc", void sub_080762D8(ItemBehavior* this, u32 index))
+void sub_080762D8(ItemBehavior* this, u32 index) {
+    u32 animIndex;
+
+    gPlayerState.heldObject &= 0xcf;
+    if (!PlayerTryDropObject(this, index)) {
+        return;
+    }
+
+    if (gPlayerEntity.iframes < 9 && gPlayerEntity.knockbackDuration == 0) {
+        if (this->field_0x18 != NULL) {
+            if (this->field_0x18->action == 2 && this->field_0x18->subAction == 5) {
+                if (!(gPlayerState.playerInput.heldInput & PLAYER_INPUT_80)) { // Pressing R
+                    this->field_0x18->subAction = 6;
+                    PlayerCancelHoldItem(this, index);
+                    return;
+                }
+            } else {
+                PlayerCancelHoldItem(this, index);
+                return;
+            }
+        }
+
+        gPlayerState.framestate = PL_STATE_THROW;
+        gHUD.rActionGrabbing = 8;
+    } else {
+        if (this->field_0x18 != NULL) {
+            this->field_0x18->subAction = 6;
+        }
+        PlayerCancelHoldItem(this, index);
+        return;
+    }
+
+    if (!gPlayerState.jump_status) {
+
+        if (gPlayerState.heldObject == 1 && sub_0800875A(&gPlayerEntity, 6, this) != 0) {
+            sub_08076088(this, NULL, index);
+            return;
+        } else if (gUnk_0811BE38[gPlayerEntity.animationState >> 1] & gPlayerState.playerInput.heldInput) {
+            UpdateItemAnim(this);
+
+            if (!(gPlayerState.flags & PL_NO_CAP)) {
+                animIndex = ANIM_PULL;
+            } else {
+                animIndex = ANIM_PULL_START_NOCAP;
+            }
+
+            if (animIndex != this->animIndex) {
+                SetItemAnim(this, animIndex);
+            }
+
+            gPlayerState.heldObject |= 0x10;
+            gPlayerState.framestate = PL_STATE_PULL;
+
+            if (gPlayerState.heldObject == 1) {
+                return;
+            }
+
+            sub_08076088(this, this->field_0x18, index);
+        } else {
+            if (gPlayerState.playerInput.heldInput & gUnk_0811BE40[gPlayerEntity.animationState >> 1]) {
+                if (gPlayerEntity.subtimer < 6) {
+                    gPlayerEntity.subtimer++;
+                    return;
+                }
+
+                gPlayerState.field_0x35 = this->playerAnimationState;
+                gPlayerState.pushedObject |= 0x80;
+                gPlayerState.heldObject |= 0x20;
+                gPlayerState.framestate = PL_STATE_PUSH;
+
+                if (!(gPlayerState.flags & PL_NO_CAP)) {
+                    animIndex = ANIM_PUSH;
+                } else {
+                    animIndex = ANIM_PUSH_NOCAP;
+                }
+
+                if (animIndex == this->animIndex) {
+                    UpdateItemAnim(this);
+                } else {
+                    SetItemAnim(this, animIndex);
+                }
+            } else {
+                gPlayerEntity.subtimer = 0;
+
+                if (!(gPlayerState.flags & PL_NO_CAP)) {
+                    SetItemAnim(this, ANIM_PULL);
+                } else {
+                    SetItemAnim(this, ANIM_PULL_START_NOCAP);
+                }
+            }
+        }
+    } else {
+        PlayerCancelHoldItem(this, index);
+    }
+}
 
 void sub_08076488(ItemBehavior* this, u32 index) {
     u32 bVar1;
@@ -172,10 +271,10 @@ void sub_08076518(ItemBehavior* this, u32 index) {
                     this->field_0x18 = NULL;
                     this->stateID++;
                     this->animPriority = 0x0f;
-                    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-                        SetItemAnim(this, 0x930);
+                    if (gPlayerState.flags & PL_NO_CAP) {
+                        SetItemAnim(this, ANIM_THROW_NOCAP);
                     } else {
-                        SetItemAnim(this, 0x344);
+                        SetItemAnim(this, ANIM_THROW);
                     }
                     gPlayerState.field_0xa |= 8 >> index;
                     gPlayerState.keepFacing |= 8 >> index;

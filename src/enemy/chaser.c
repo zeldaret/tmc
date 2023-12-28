@@ -34,7 +34,7 @@ void sub_0802B540(Entity* this) {
         this->timer--;
     } else {
         u32 direction = sub_0804A024(this, 1, 0xc);
-        if (direction != 0xff) {
+        if (direction != DIR_NONE) {
             this->action = 2;
             this->speed = 0x40;
             this->direction = direction;

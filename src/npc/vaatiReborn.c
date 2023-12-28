@@ -1,6 +1,12 @@
-#include "global.h"
-#include "npc.h"
+/**
+ * @file vaatiReborn.c
+ * @ingroup NPCs
+ *
+ * @brief Vaati Reborn NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
+#include "npc.h"
 
 void VaatiRebornAction0(Entity* this);
 void VaatiRebornAction1(Entity* this);

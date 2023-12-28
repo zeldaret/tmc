@@ -434,6 +434,6 @@ void MiscManager_TypeF(MiscManager* this) {
     if (gPlayerEntity.action == PLAYER_TALKEZLO) {
         DeleteThisEntity();
     }
-    gInput.heldKeys |= 0x4;
+    gInput.heldKeys |= SELECT_BUTTON;
 }
 #endif

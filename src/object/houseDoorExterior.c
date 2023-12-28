@@ -4,15 +4,24 @@
  *
  * @brief House Door Exterior object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "npc.h"
 #include "object.h"
 #include "room.h"
 #include "script.h"
 #include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16 unk_68;
+    /*0x6a*/ u16 unk_6a;
+    /*0x6c*/ u8 unk_6c;
+    /*0x6d*/ u8 unused1[23];
+    /*0x84*/ ScriptExecutionContext* context;
+} HouseDoorExteriorEntity;
 
 typedef struct {
     /*0x00*/ u16 unk0;
@@ -24,62 +33,57 @@ typedef struct {
     /*0x08*/ u8* unk8;
 } unk_DoorProperty;
 
-typedef struct {
-    /*0x00*/ u8 filler0[0x8];
-    /*0x08*/ u32 unk8;
-} unk_80868EC;
-
-static void sub_080868EC(Entity* entity, unk_80868EC* arg1);
+static void sub_080868EC(Entity* entity, ScriptExecutionContext* context);
 static bool32 sub_080867CC(u32);
-void sub_0808681C(Entity*);
-void sub_080866D8(Entity*);
-void sub_080867E4(Entity*);
-void sub_080868B0(Entity*);
-static u8 sub_08086954(Entity*);
+void HouseDoorExterior_Type2(HouseDoorExteriorEntity* this);
+void HouseDoorExterior_Type0(HouseDoorExteriorEntity* this);
+void HouseDoorExterior_Type1(HouseDoorExteriorEntity* this);
+void HouseDoorExterior_Type3(HouseDoorExteriorEntity* this);
+static u8 sub_08086954(HouseDoorExteriorEntity* this);
 
 static const Hitbox gUnk_081206AC = { 0, -5, { 5, 3, 3, 5 }, 10, 4 };
 
-void HouseDoorExterior(Entity* this) {
-    static void (*const typeFuncs[])(Entity*) = {
-        sub_080866D8,
-        sub_080867E4,
-        sub_0808681C,
-        sub_080868B0,
+void HouseDoorExterior(HouseDoorExteriorEntity* this) {
+    static void (*const HouseDoorExterior_Types[])(HouseDoorExteriorEntity*) = {
+        HouseDoorExterior_Type0,
+        HouseDoorExterior_Type1,
+        HouseDoorExterior_Type2,
+        HouseDoorExterior_Type3,
     };
-    typeFuncs[this->type2](this);
+    HouseDoorExterior_Types[super->type2](this);
 }
 
-void sub_080866D8(Entity* this) {
+void HouseDoorExterior_Type0(HouseDoorExteriorEntity* this) {
     unk_DoorProperty* prop;
-    Entity* entity;
+    HouseDoorExteriorEntity* entity;
     u32 i;
 
-    if (this->action == 0) {
-        this->action = 1;
-        *((u32*)(&this->field_0x68)) = 0;
-        this->field_0x6c.HALF.LO = this->timer;
-        SetDefaultPriority(this, PRIO_PLAYER_EVENT);
+    if (super->action == 0) {
+        super->action = 1;
+        *((u32*)(&this->unk_68)) = 0;
+        this->unk_6c = super->timer;
+        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
     }
 
-    prop = GetCurrentRoomProperty(this->field_0x6c.HALF.LO);
+    prop = GetCurrentRoomProperty(this->unk_6c);
     for (i = 0; prop->unk0 != 0xFFFF && i < 32; prop++, i++) {
         int mask = 1 << i;
-        if ((*((u32*)(&this->field_0x68)) & mask) == 0 && sub_080867CC(prop->unk5) &&
+        if ((*((u32*)(&this->unk_68)) & mask) == 0 && sub_080867CC(prop->unk5) &&
             CheckRegionOnScreen(prop->unk0, prop->unk2, 32, 32)) {
-            entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
+            entity = (HouseDoorExteriorEntity*)CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
             if (entity != NULL) {
-                entity->field_0x6c.HALF.LO = i;
-                entity->x.HALF.HI = gRoomControls.origin_x + prop->unk0 + 16;
-                entity->y.HALF.HI = gRoomControls.origin_y + prop->unk2 + 32;
-                entity->parent = this;
-                entity->field_0x68.HWORD = prop->unk0;
-                entity->field_0x6a.HWORD = prop->unk2;
-                entity->collisionLayer = prop->unk4;
-                entity->subAction = prop->unk5;
-                UpdateSpriteForCollisionLayer(entity);
-                *((u32*)(&this->field_0x68)) |= mask;
+                entity->unk_6c = i;
+                entity->base.x.HALF.HI = gRoomControls.origin_x + prop->unk0 + 16;
+                entity->base.y.HALF.HI = gRoomControls.origin_y + prop->unk2 + 32;
+                entity->base.parent = super;
+                entity->unk_68 = prop->unk0;
+                entity->unk_6a = prop->unk2;
+                entity->base.collisionLayer = prop->unk4;
+                entity->base.subAction = prop->unk5;
+                UpdateSpriteForCollisionLayer(&entity->base);
+                *((u32*)(&this->unk_68)) |= mask;
                 if (prop->unk8) {
-                    *((ScriptExecutionContext**)(&entity->cutsceneBeh)) = StartCutscene(entity, (u16*)prop->unk8);
+                    entity->context = StartCutscene(&entity->base, (u16*)prop->unk8);
                 }
             }
         }
@@ -96,63 +100,64 @@ static bool32 sub_080867CC(u32 arg0) {
     return CheckGlobalFlag(TATEKAKE_HOUSE);
 }
 
-void sub_080867E4(Entity* this) {
-    if (!CheckRegionOnScreen(this->field_0x68.HWORD, this->field_0x6a.HWORD, 32, 32)) {
-        *((u32*)(&this->parent->field_0x68)) = *((u32*)(&this->parent->field_0x68)) & ~(1 << this->field_0x6c.HALF.LO);
+void HouseDoorExterior_Type1(HouseDoorExteriorEntity* this) {
+    if (!CheckRegionOnScreen(this->unk_68, this->unk_6a, 32, 32)) {
+        *((u32*)(&((HouseDoorExteriorEntity*)super->parent)->unk_68)) =
+            *((u32*)(&((HouseDoorExteriorEntity*)super->parent)->unk_68)) & ~(1 << this->unk_6c);
         DeleteThisEntity();
     }
-    sub_0808681C(this);
+    HouseDoorExterior_Type2(this);
 }
 
-void sub_0808681C(Entity* this) {
-    switch (this->action) {
+void HouseDoorExterior_Type2(HouseDoorExteriorEntity* this) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->timer = 8;
-            this->spriteSettings.draw = 1;
-            this->frameIndex = 0;
-            this->hitbox = (Hitbox*)&gUnk_081206AC;
-            if (this->subAction == 1) {
-                this->action = 2;
-                this->frameIndex = 1;
+            super->action = 1;
+            super->timer = 8;
+            super->spriteSettings.draw = 1;
+            super->frameIndex = 0;
+            super->hitbox = (Hitbox*)&gUnk_081206AC;
+            if (super->subAction == 1) {
+                super->action = 2;
+                super->frameIndex = 1;
             }
-            if (this->flags & ENT_SCRIPTED) {
-                this->action = 2;
+            if (super->flags & ENT_SCRIPTED) {
+                super->action = 2;
             }
             break;
         case 1:
             if (!sub_08086954(this)) {
-                this->action++;
-                this->frameIndex = 1;
+                super->action++;
+                super->frameIndex = 1;
                 sub_08078AC0(16, 0, 1);
                 SoundReq(SFX_111);
             }
             break;
     }
 
-    if (this->flags & ENT_SCRIPTED) {
-        ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-        sub_080868EC(this, *(void**)&this->cutsceneBeh);
+    if (super->flags & ENT_SCRIPTED) {
+        ExecuteScript(super, this->context);
+        sub_080868EC(super, this->context);
     }
 }
 
-void sub_080868B0(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        this->spriteSettings.draw = 1;
-        this->hitbox = (Hitbox*)&gUnk_081206AC;
-        this->timer = 8;
+void HouseDoorExterior_Type3(HouseDoorExteriorEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->spriteSettings.draw = 1;
+        super->hitbox = (Hitbox*)&gUnk_081206AC;
+        super->timer = 8;
     }
-    ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-    sub_080868EC(this, *(void**)&this->cutsceneBeh);
+    ExecuteScript(super, this->context);
+    sub_080868EC(super, this->context);
 }
 
-static void sub_080868EC(Entity* entity, unk_80868EC* arg1) {
-    u32 var0 = arg1->unk8;
-    arg1->unk8 = 0;
-    while (var0 != 0) {
-        u32 rightMostSetBit = var0 & (~var0 + 1);
-        var0 ^= rightMostSetBit;
+static void sub_080868EC(Entity* entity, ScriptExecutionContext* context) {
+    u32 postScriptActions = context->postScriptActions;
+    context->postScriptActions = 0;
+    while (postScriptActions != 0) {
+        u32 rightMostSetBit = postScriptActions & (~postScriptActions + 1);
+        postScriptActions ^= rightMostSetBit;
         switch (rightMostSetBit) {
             case 0x80:
                 entity->frameIndex = 0;
@@ -168,30 +173,30 @@ static void sub_080868EC(Entity* entity, unk_80868EC* arg1) {
     }
 }
 
-void sub_0808692C(Entity* this) {
-    this->flags &= ~ENT_SCRIPTED;
-    this->type2 = 2;
-    this->action = (this->frameIndex == 0) ? 1 : 2;
-    this->subAction = 0;
-    this->timer = 8;
+void sub_0808692C(HouseDoorExteriorEntity* this) {
+    super->flags &= ~ENT_SCRIPTED;
+    super->type2 = 2;
+    super->action = (super->frameIndex == 0) ? 1 : 2;
+    super->subAction = 0;
+    super->timer = 8;
 }
 
-static u8 sub_08086954(Entity* this) {
-    if (sub_0800445C(this)) {
-        if (GetAnimationStateInRectRadius(this, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
+static u8 sub_08086954(HouseDoorExteriorEntity* this) {
+    if (sub_0800445C(super)) {
+        if (GetAnimationStateInRectRadius(super, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
             (u16)gPlayerState.playerInput.heldInput == PLAYER_INPUT_UP && gPlayerState.jump_status == 0) {
-            this->timer--;
+            super->timer--;
         }
     } else {
-        this->timer = 8;
+        super->timer = 8;
     }
-    return this->timer;
+    return super->timer;
 }
 
-void sub_080869A4(Entity* this, ScriptExecutionContext* context) {
+void sub_080869A4(HouseDoorExteriorEntity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     if (!sub_08086954(this)) {
-        this->timer = 8;
+        super->timer = 8;
         context->condition = 1;
     }
 }

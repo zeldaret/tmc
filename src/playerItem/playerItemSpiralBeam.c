@@ -1,60 +1,71 @@
-#include "entity.h"
-#include "sound.h"
-#include "functions.h"
-#include "effects.h"
+/**
+ * @file playerItemSpiral Beam.c
+ * @ingroup Items
+ *
+ * @brief Spiral Beam Player Item
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
+#include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[4];
+    /*0x6c*/ u32 unk_6c;
+} PlayerItemSpiralBeamEntity;
 
 extern u8 gUnk_08003E44;
 
-void sub_0805FBE8(Entity*);
-void sub_0805FC74(Entity*);
+void PlayerItemSpiralBeam_Init(PlayerItemSpiralBeamEntity*);
+void PlayerItemSpiralBeam_Action1(PlayerItemSpiralBeamEntity*);
 
-void PlayerItemSpiralBeam(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_0805FBE8,
-        sub_0805FC74,
+void PlayerItemSpiralBeam(PlayerItemSpiralBeamEntity* this) {
+    static void (*const PlayerItemSpiralBeam_Actions[])(PlayerItemSpiralBeamEntity*) = {
+        PlayerItemSpiralBeam_Init,
+        PlayerItemSpiralBeam_Action1,
     };
-    actionFuncs[this->action](this);
+    PlayerItemSpiralBeam_Actions[super->action](this);
 }
 
-void sub_0805FBE8(Entity* this) {
+void PlayerItemSpiralBeam_Init(PlayerItemSpiralBeamEntity* this) {
     static const Hitbox gUnk_08109AD0 = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
-    CopyPosition(&gPlayerEntity, this);
-    this->action++;
-    this->spriteSettings.draw = TRUE;
-    this->collisionFlags = gPlayerEntity.collisionFlags + 1;
-    this->hitbox = (Hitbox*)&gUnk_08109AD0;
-    this->speed = 0x380;
-    this->animationState = this->animationState & 0x7f;
-    if (this->collisionLayer == 2) {
-        this->type2 = 1;
+    CopyPosition(&gPlayerEntity, super);
+    super->action++;
+    super->spriteSettings.draw = TRUE;
+    super->collisionFlags = gPlayerEntity.collisionFlags + 1;
+    super->hitbox = (Hitbox*)&gUnk_08109AD0;
+    super->speed = 0x380;
+    super->animationState = super->animationState & 0x7f;
+    if (super->collisionLayer == 2) {
+        super->type2 = 1;
     }
-    this->direction = this->animationState << 2;
-    *(u32*)&this->field_0x6c = 0x3c;
-    InitializeAnimation(this, (this->animationState >> 1) + 0xc);
-    sub_0801766C(this);
-    LinearMoveUpdate(this);
-    sub_0805FC74(this);
+    super->direction = super->animationState << 2;
+    this->unk_6c = 60;
+    InitializeAnimation(super, (super->animationState >> 1) + 0xc);
+    sub_0801766C(super);
+    LinearMoveUpdate(super);
+    PlayerItemSpiralBeam_Action1(this);
     SoundReq(SFX_ITEM_SWORD_BEAM);
 }
 
-void sub_0805FC74(Entity* this) {
-    int iVar1;
-
-    if (--*(int*)&this->field_0x6c != -1) {
-        GetNextFrame(this);
-        LinearMoveUpdate(this);
-        this->timer++;
-        if (this->type2 == 0) {
-            sub_0800451C(this);
+void PlayerItemSpiralBeam_Action1(PlayerItemSpiralBeamEntity* this) {
+    if (this->unk_6c-- != 0) {
+        GetNextFrame(super);
+        LinearMoveUpdate(super);
+        super->timer++;
+        if (super->type2 == 0) {
+            sub_0800451C(super);
         }
-        if (!sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) &&
-            sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI)) {
-            CreateFx(this, FX_SWORD_MAGIC, 0);
+        if (!sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) &&
+            sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI)) {
+            CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
-        if (this->contactFlags != 0) {
-            CreateFx(this, FX_SWORD_MAGIC, 0);
+        if (super->contactFlags != 0) {
+            CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
     } else {

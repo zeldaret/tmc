@@ -4,6 +4,7 @@
  *
  * @brief Rupee object
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
@@ -14,56 +15,55 @@ void Rupee_Action_1(Entity*);
 void Rupee_Action_2(Entity*);
 
 // Main
-void Rupee(Entity* ent) {
+void Rupee(Entity* this) {
     static void (*const Rupee_Actions[])(Entity*) = {
         Rupee_Init,
         Rupee_Action_1,
         Rupee_Action_2,
     };
 
-    Rupee_Actions[ent->action](ent);
+    Rupee_Actions[this->action](this);
 }
 
-void Rupee_Init(Entity* ent) {
+void Rupee_Init(Entity* this) {
     Entity* itemEntity;
 
-    ent->action = 1;
-    ent->spriteSettings.draw = 0;
-    ent->hitbox = (Hitbox*)&gUnk_080FD1A8;
-    ent->collisionFlags |= 16;
-    itemEntity = CreateObject(GROUND_ITEM, ent->type, 0);
+    this->action = 1;
+    this->spriteSettings.draw = 0;
+    this->hitbox = (Hitbox*)&gUnk_080FD1A8;
+    this->collisionFlags |= 16;
+    itemEntity = CreateObject(GROUND_ITEM, this->type, 0);
     if (itemEntity != NULL) {
         itemEntity->timer = 10;
-        itemEntity->parent = ent;
-        ent->child = itemEntity;
-        CopyPosition(ent, itemEntity);
-        sub_08086A6C(ent);
+        itemEntity->parent = this;
+        this->child = itemEntity;
+        CopyPosition(this, itemEntity);
+        sub_08086A6C(this);
     }
 }
 
-void Rupee_Action_1(Entity* ent) {
-    if (ent->child->next == NULL) {
-        ent->action = 2;
+void Rupee_Action_1(Entity* this) {
+    if (this->child->next == NULL) {
+        this->action = 2;
     } else {
-        u32 iVar1 = sub_080044EC(ent, 10240);
-        if (iVar1 == 0) {
-            ent->action = 2;
+        if (sub_080044EC(this, 10240) == 0) {
+            this->action = 2;
         }
-        ProcessMovement0(ent);
-        CopyPosition(ent, ent->child);
+        ProcessMovement0(this);
+        CopyPosition(this, this->child);
     }
 }
 
-void Rupee_Action_2(Entity* ent) {
-    ent->child->parent = NULL;
+void Rupee_Action_2(Entity* this) {
+    this->child->parent = NULL;
     DeleteThisEntity();
 }
 
-void sub_08086A6C(Entity* ent) {
+void sub_08086A6C(Entity* this) {
     u32 uVar1;
 
     uVar1 = Random();
-    ent->zVelocity = Q_16_16(2.5);
-    ent->direction = DirectionNormalize(uVar1 >> 16);
-    ent->speed = uVar1 & 480;
+    this->zVelocity = Q_16_16(2.5);
+    this->direction = DirectionNormalize(uVar1 >> 16);
+    this->speed = uVar1 & 480;
 }

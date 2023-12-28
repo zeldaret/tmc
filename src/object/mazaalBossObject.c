@@ -8,7 +8,6 @@
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
-#include "global.h"
 #include "item.h"
 #include "new_player.h"
 #include "object.h"
@@ -49,14 +48,14 @@ void MazaalBossObject_Action8(MazaalBossObjectEntity* this); // 0809ACE8
 void sub_0809AD68(MazaalBossObjectEntity* this);             // 0809AD68
 void sub_0809AD8C(MazaalBossObjectEntity* this);             // 0809AD8C
 
-void MazaalBossObject(Entity* thisx) {
+void MazaalBossObject(Entity* this) {
     static void (*const MazaalBossObject_Actions[])(MazaalBossObjectEntity*) = {
         MazaalBossObject_Action0, MazaalBossObject_Action1, MazaalBossObject_Action2,
         MazaalBossObject_Action3, MazaalBossObject_Action4, MazaalBossObject_Action5,
         MazaalBossObject_Action6, MazaalBossObject_Action7, MazaalBossObject_Action8,
     };
 
-    MazaalBossObject_Actions[thisx->action]((MazaalBossObjectEntity*)thisx);
+    MazaalBossObject_Actions[this->action]((MazaalBossObjectEntity*)this);
 }
 
 void MazaalBossObject_Action0(MazaalBossObjectEntity* this) {

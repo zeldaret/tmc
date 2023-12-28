@@ -4,8 +4,8 @@
  *
  * @brief Swordsman Newsletter object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "global.h"
 #include "message.h"
 
 extern void AddInteractableCheckableObject(Entity*);
@@ -36,8 +36,8 @@ void SwordsmanNewsletter_Action1(Entity* this) {
         TEXT_INDEX(TEXT_NEWSLETTER, 4), TEXT_INDEX(TEXT_NEWSLETTER, 5), TEXT_INDEX(TEXT_NEWSLETTER, 6),
         TEXT_INDEX(TEXT_NEWSLETTER, 7), TEXT_INDEX(TEXT_NEWSLETTER, 8),
     };
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         MessageNoOverlap(messageIndices[this->type], this);
     }
 }

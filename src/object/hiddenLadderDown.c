@@ -4,52 +4,61 @@
  *
  * @brief Hidden Ladder Down object
  */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
 #include "tiles.h"
 
-void HiddenLadderDown_Init(Entity*);
-void HiddenLadderDown_Action1(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[8];
+    /*0x70*/ u16 unk_70;
+    /*0x72*/ u8 unused2[20];
+    /*0x86*/ u16 unk_86;
+} HiddenLadderDownEntity;
 
-void HiddenLadderDown(Entity* this) {
-    static void (*const HiddenLadderDown_Actions[])(Entity*) = {
+void HiddenLadderDown_Init(HiddenLadderDownEntity* this);
+void HiddenLadderDown_Action1(HiddenLadderDownEntity* this);
+
+void HiddenLadderDown(HiddenLadderDownEntity* this) {
+    static void (*const HiddenLadderDown_Actions[])(HiddenLadderDownEntity*) = {
         HiddenLadderDown_Init,
         HiddenLadderDown_Action1,
     };
-    if (this->action < 2) {
-        HiddenLadderDown_Actions[this->action](this);
+    if (super->action < 2) {
+        HiddenLadderDown_Actions[super->action](this);
     }
 }
 
-void HiddenLadderDown_Init(Entity* this) {
+void HiddenLadderDown_Init(HiddenLadderDownEntity* this) {
     u16* puVar3;
 
-    this->action = 1;
-    this->spritePriority.b0 = 7;
-    this->animIndex = 0;
-    this->field_0x70.HALF.LO = COORD_TO_TILE(this);
-    puVar3 = &this->field_0x70.HALF.LO;
-    if (CheckFlags(this->field_0x86.HWORD) != 0) {
-        this->action = 2;
-        this->spriteSettings.draw = TRUE;
-        SetMetaTileType(META_TILE_TYPE_418, *puVar3 + TILE_POS(-1, -1), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_419, *puVar3 + TILE_POS(0, -1), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_420, *puVar3 + TILE_POS(1, -1), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_421, *puVar3 + TILE_POS(-1, 0), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_422, *puVar3 + TILE_POS(0, 0), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_423, *puVar3 + TILE_POS(1, 0), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_424, *puVar3 + TILE_POS(-1, 1), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_425, *puVar3 + TILE_POS(0, 1), this->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_426, *puVar3 + TILE_POS(1, 1), this->collisionLayer);
+    super->action = 1;
+    super->spritePriority.b0 = 7;
+    super->animIndex = 0;
+    this->unk_70 = COORD_TO_TILE(super);
+    puVar3 = &this->unk_70;
+    if (CheckFlags(this->unk_86) != 0) {
+        super->action = 2;
+        super->spriteSettings.draw = TRUE;
+        SetMetaTileType(META_TILE_TYPE_418, *puVar3 + TILE_POS(-1, -1), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_419, *puVar3 + TILE_POS(0, -1), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_420, *puVar3 + TILE_POS(1, -1), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_421, *puVar3 + TILE_POS(-1, 0), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_422, *puVar3 + TILE_POS(0, 0), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_423, *puVar3 + TILE_POS(1, 0), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_424, *puVar3 + TILE_POS(-1, 1), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_425, *puVar3 + TILE_POS(0, 1), super->collisionLayer);
+        SetMetaTileType(META_TILE_TYPE_426, *puVar3 + TILE_POS(1, 1), super->collisionLayer);
     }
 }
 
-void HiddenLadderDown_Action1(Entity* this) {
-    if (GetMetaTileType(*(u16*)&this->field_0x70.HALF.LO, this->collisionLayer) == 0x1a6) {
-        this->action = 2;
-        this->spriteSettings.draw = TRUE;
-        SetFlag(this->field_0x86.HWORD);
+void HiddenLadderDown_Action1(HiddenLadderDownEntity* this) {
+    if (GetMetaTileType(this->unk_70, super->collisionLayer) == 0x1a6) {
+        super->action = 2;
+        super->spriteSettings.draw = TRUE;
+        SetFlag(this->unk_86);
     }
 }

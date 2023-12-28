@@ -25,14 +25,14 @@ void sub_08029078(Entity*);
 void sub_080290E0(Entity*, u32);
 void sub_080290FC(Entity*);
 bool32 sub_0802915C(Entity*);
-bool32 sub_080291DC(Entity*);
+bool32 BusinessScrub_CheckRefillFitsBag(Entity*);
 void sub_0802922C(Entity*);
 void sub_0802925C(Entity*);
 
 extern const struct SalesOffering gUnk_080CC954[];
 extern const u8 kinstoneTypes[];
 extern void (*const BusinessScrub_Functions[])(Entity*);
-extern void (*const gUnk_080CC9E0[])(Entity*);
+extern void (*const BusinessScrub_Actions[])(Entity*);
 extern const u8 gUnk_080CCA04[];
 
 struct SalesOffering {
@@ -42,8 +42,8 @@ struct SalesOffering {
     u16 field_0x4;
     u16 field_0x6;
     u8 offeredItem; /**< @see Item */
-    u8 field_0x9;
-    u16 field_0xa;
+    u8 item_subtype;
+    u16 local_flag;
 };
 
 void BusinessScrub(Entity* this) {
@@ -51,7 +51,7 @@ void BusinessScrub(Entity* this) {
 }
 
 void BusinessScrub_OnTick(Entity* this) {
-    gUnk_080CC9E0[this->action](this);
+    BusinessScrub_Actions[this->action](this);
 }
 
 void BusinessScrub_OnCollision(Entity* this) {
@@ -75,12 +75,12 @@ void BusinessScrub_OnGrabbed(Entity* this) {
     /* ... */
 }
 
-void sub_08028994(Entity* this) {
+void BusinessScrub_Action0(Entity* this) {
     this->subtimer = 0;
     this->field_0x78.HWORD = this->x.HALF.HI;
     this->field_0x7a.HWORD = this->y.HALF.HI;
     this->animationState = 0;
-    this->direction = 0x10;
+    this->direction = DirectionSouth;
     sub_08028E9C(this);
     if ((*(u8*)this->field_0x7c.WORD & 1) || CheckFlags(this->field_0x86.HWORD)) {
         this->action = 4;
@@ -97,7 +97,7 @@ void sub_08028994(Entity* this) {
     }
 }
 
-void sub_08028A48(Entity* this) {
+void BusinessScrub_Action1(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
     } else if (sub_08028F98(this, 0)) {
@@ -107,7 +107,7 @@ void sub_08028A48(Entity* this) {
     }
 }
 
-void sub_08028A74(Entity* this) {
+void BusinessScrub_Action2(Entity* this) {
     u32 unk;
 
     GetNextFrame(this);
@@ -185,7 +185,7 @@ void sub_08028A74(Entity* this) {
     }
 }
 
-void sub_08028BC4(Entity* this) {
+void BusinessScrub_Action3(Entity* this) {
     Entity* iVar1;
 
     switch (this->subAction) {
@@ -227,7 +227,7 @@ void sub_08028BC4(Entity* this) {
 extern void sub_0804AA1C(Entity*);
 void sub_08028F0C(Entity*);
 
-void sub_08028C84(Entity* this) {
+void BusinessScrub_Action4(Entity* this) {
     if (--this->timer == 0) {
         this->timer = 48;
         if (this->subtimer) {
@@ -244,21 +244,21 @@ void sub_08028C84(Entity* this) {
     sub_08028F0C(this);
 }
 
-void sub_08028CE8(Entity* this) {
+void BusinessScrub_Action5(Entity* this) {
     struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
     u32 subtype;
 
     if ((gMessage.doTextBox & 0x7f) == 0 && sub_0802915C(this) && !sub_08056338()) {
         if (offer->price <= gSave.stats.rupees) {
-            if (sub_080291DC(this)) {
+            if (BusinessScrub_CheckRefillFitsBag(this)) {
                 /* Bag full. */
                 MessageFromTarget(TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x04));
                 SetPlayerControl(0);
             } else {
                 ModRupees(-offer->price);
                 switch (offer->field_0x0 >> 2) {
-                    case 0:
-                        subtype = offer->field_0x9;
+                    case 0: // random kinstone
+                        subtype = offer->item_subtype;
                         if (subtype == KINSTONE_RANDOM) {
                             subtype = kinstoneTypes[Random() & 7];
                         }
@@ -273,13 +273,13 @@ void sub_08028CE8(Entity* this) {
                         SetLocalFlag(KS_B06);
 #endif
                         return;
-                    case 1:
-                        CreateItemEntity(offer->offeredItem, offer->field_0x9, 0);
+                    case 1: // refill, bottle, specific kinstone
+                        CreateItemEntity(offer->offeredItem, offer->item_subtype, 0);
                         this->timer = 4;
                         sub_0802922C(this);
                         return;
-                    case 2:
-                        CreateItemEntity(offer->offeredItem, offer->field_0x9, 0);
+                    case 2: // grip ring
+                        CreateItemEntity(offer->offeredItem, offer->item_subtype, 0);
                         this->timer = 8;
                         sub_0802922C(this);
                         return;
@@ -298,7 +298,7 @@ void sub_08028CE8(Entity* this) {
     sub_080290E0(this, 0);
 }
 
-void sub_08028DE8(Entity* this) {
+void BusinessScrub_Action6(Entity* this) {
     if (gPlayerEntity.action == PLAYER_ITEMGET) {
         if (this->field_0x80.HALF.HI == 0) {
             SetPlayerControl(1);
@@ -316,15 +316,15 @@ void sub_08028DE8(Entity* this) {
     }
 }
 
-void sub_08028E40(Entity* this) {
+void BusinessScrub_Action7(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
 
         this->action = 4;
         this->subAction = gMessage.doTextBox & 0x7f;
         this->timer = 1;
-        if (CheckLocalFlag(offer->field_0xa) == 0) {
-            SetLocalFlag(offer->field_0xa);
+        if (!CheckLocalFlag(offer->local_flag)) {
+            SetLocalFlag(offer->local_flag);
         }
         SetPlayerControl(0);
     }
@@ -332,7 +332,7 @@ void sub_08028E40(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_08028E84(Entity* this) {
+void BusinessScrub_Action8(Entity* this) {
     if (UpdateFuseInteraction(this)) {
         this->action = 4;
         this->timer = 1;
@@ -344,7 +344,7 @@ bool32 sub_08029198(const struct SalesOffering*);
 void sub_08028E9C(Entity* this) {
     const struct SalesOffering* offer = &gUnk_080CC954[this->type];
     if (sub_08029198(offer) && (offer->field_0x0 & 2)) {
-        offer = &gUnk_080CC954[offer->field_0xa];
+        offer = &gUnk_080CC954[offer->local_flag];
     }
     this->field_0x7c.WORD = (u32)offer;
     this->field_0x80.HALF.LO = 0;
@@ -353,21 +353,21 @@ void sub_08028E9C(Entity* this) {
 void sub_08028EDC(Entity* this) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
     if (sub_08029198(offer) && (offer->field_0x0 & 2)) {
-        offer = &gUnk_080CC954[offer->field_0xa];
+        offer = &gUnk_080CC954[offer->local_flag];
         this->field_0x7c.WORD = (u32)offer;
     }
 }
 
 void sub_08028F0C(Entity* this) {
-    if (this->interactType == 2) {
+    if (this->interactType == INTERACTION_FUSE) {
         this->action = 8;
-        this->interactType = 0;
-        sub_0806F118(this);
-    } else if (this->interactType != 0) {
+        this->interactType = INTERACTION_NONE;
+        InitializeNPCFusion(this);
+    } else if (this->interactType != INTERACTION_NONE) {
         u16 dialog;
         const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
-        this->interactType = 0;
+        this->interactType = INTERACTION_NONE;
         sub_0804AA1C(this);
         this->direction = (GetAnimationState(this) << 3);
         sub_080290E0(this, 3);
@@ -456,8 +456,8 @@ void sub_080290FC(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
         if ((this->timer < 16) && ((this->timer & 1) == 0)) {
-            s32 sVar3 = ((this->direction & 0x10) != 0) ? -1 : 1;
-            if ((this->direction & 8) != 0) {
+            s32 sVar3 = (this->direction & DirectionSouth) ? -1 : 1;
+            if (this->direction & DirectionEast) {
                 this->x.HALF.HI += ((this->timer & 8) != 0) ? -sVar3 : sVar3;
             } else {
                 this->y.HALF.HI += ((this->timer & 8) != 0) ? sVar3 : -sVar3;
@@ -502,7 +502,7 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
                 return 0;
         }
     } else {
-        tmp = CheckLocalFlag(offer->field_0xa);
+        tmp = CheckLocalFlag(offer->local_flag);
     }
 
     if (tmp == 0) {
@@ -512,7 +512,7 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
     return TRUE;
 }
 
-bool32 sub_080291DC(Entity* this) {
+bool32 BusinessScrub_CheckRefillFitsBag(Entity* this) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
     switch (offer->offeredItem) {
@@ -540,7 +540,7 @@ void sub_0802922C(Entity* this) {
             SetGlobalFlag(AKINDO_BOTTLE_SELL);
         // It only matters here that ITEM_BOMBS10 is here and some item that is higher
         // Not sure about the original code
-        case ITEM_ARROWS10:
+        case ITEM_ARROWS30:
         case ITEM_BOMBS10:
         default:
             sub_080290E0(this, 3);
@@ -564,18 +564,18 @@ void sub_08029270(Entity* this) {
 
 // clang-format off
 const struct SalesOffering gUnk_080CC954[] = {
-    {0x06, 0x00, 0xffff, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0f), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x09, 0xff, 0x0001},
-    {0x04, 0x00, 0x001e, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0e), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x6f, 0xff, 0xffff},
-    {0x04, 0x00, 0x001e, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0b), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x6c, 0xff, 0xffff},
-    {0x08, 0x00, 0x0028, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0c), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x11), 0x44, 0xff, 0xffff},
-    {0x00, 0x00, 0x0064, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0d), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x5c, 0xff, 0xffff},
-    {0x04, 0x00, 0x0014, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x10), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x11), 0x1c, 0xff, 0xffff},
+    {0x06, 0x00, 0xffff, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0f), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_BOW, 0xff, 0x0001},
+    {0x04, 0x00,     30, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0e), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_ARROWS30, 0xff, 0xffff},
+    {0x04, 0x00,     30, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0b), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_BOMBS10, 0xff, 0xffff},
+    {0x08, 0x00,     40, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0c), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x11), ITEM_GRIP_RING, 0xff, 0xffff},
+    {0x00, 0x00,    100, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0d), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_KINSTONE, 0xff, 0xffff},
+    {0x04, 0x00,     20, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x10), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x11), ITEM_BOTTLE1, 0xff, 0xffff},
     {0x0c, 0x00, 0xffff, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x12), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x13), 0xff, 0xff, 0x0046},
-    {0x04, 0x00, 0x0064, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x13), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x5c, 0x75, 0xffff},
+    {0x04, 0x00,    100, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x13), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_KINSTONE, 0x75, 0xffff},
 #ifdef EU
-    {0x00, 0x00, 0x0064, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0d), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x5c, 0xff, 0xffff},
+    {0x00, 0x00,    100, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0d), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_KINSTONE, 0xff, 0xffff},
 #else
-    {0x00, 0x00, 0x00C8, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0d), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), 0x5c, 0xff, 0xffff},
+    {0x00, 0x00,    200, TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x0d), TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02), ITEM_KINSTONE, 0xff, 0xffff},
 #endif
 };
 
@@ -590,16 +590,16 @@ void (*const BusinessScrub_Functions[])(Entity*) = {
     BusinessScrub_OnGrabbed,
 };
 
-void (*const gUnk_080CC9E0[])(Entity*) = {
-    sub_08028994,
-    sub_08028A48,
-    sub_08028A74,
-    sub_08028BC4,
-    sub_08028C84,
-    sub_08028CE8,
-    sub_08028DE8,
-    sub_08028E40,
-    sub_08028E84,
+void (*const BusinessScrub_Actions[])(Entity*) = {
+    BusinessScrub_Action0,
+    BusinessScrub_Action1,
+    BusinessScrub_Action2,
+    BusinessScrub_Action3,
+    BusinessScrub_Action4,
+    BusinessScrub_Action5,
+    BusinessScrub_Action6,
+    BusinessScrub_Action7,
+    BusinessScrub_Action8,
 };
 
 const u8 gUnk_080CCA04[] = {

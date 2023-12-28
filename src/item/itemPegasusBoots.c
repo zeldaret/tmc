@@ -67,11 +67,11 @@ void sub_080768F8(ItemBehavior* this, u32 index) {
     bVar1 |= bVar2;
     if (bVar1 == 0) {
         gPlayerState.dash_state = 1;
-        gPlayerState.field_0x1f[2] = bVar1;
-        if ((gPlayerState.flags & PL_MINISH) == 0) {
+        gPlayerState.bow_state = bVar1;
+        if (!(gPlayerState.flags & PL_MINISH)) {
             this->timer = 0x10;
         } else {
-            gPlayerState.animation = 0xc14;
+            gPlayerState.animation = ANIM_DASH_CHARGE_MINISH;
         }
         sub_08077D38(this, index);
         sub_08076964(this, index);
@@ -104,7 +104,7 @@ void sub_08076964(ItemBehavior* this, u32 index) {
             if (HasSwordEquipped() && (gPlayerState.flags & PL_MINISH) == 0 &&
                 (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
                 gPlayerState.lastSwordMove = SWORD_MOVE_DASH;
-                SetItemAnim(this, 0x298);
+                SetItemAnim(this, ANIM_DASH);
                 entity = CreatePlayerItemWithParent(this, PLAYER_ITEM_DASH_SWORD);
                 if (entity != NULL) {
                     if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != 0) {
@@ -115,11 +115,11 @@ void sub_08076964(ItemBehavior* this, u32 index) {
                     entity->field_0x68.HALF.LO = uVar3;
                     return;
                 }
-            } else if ((gPlayerState.flags & PL_MINISH) == 0) {
-                SetItemAnim(this, 0x104);
+            } else if (!(gPlayerState.flags & PL_MINISH)) {
+                SetItemAnim(this, ANIM_WALK);
                 return;
             } else {
-                gPlayerState.animation = 0xc10;
+                gPlayerState.animation = ANIM_DASH_MINISH;
                 return;
             }
         } else {
@@ -136,7 +136,7 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
     u8* ptr;
 
     if ((IsItemActive(this) != 0) && (gPlayerState.dash_state != 0)) {
-        if ((gPlayerState.flags & PL_MINISH) == 0) {
+        if (!(gPlayerState.flags & PL_MINISH)) {
             gPlayerEntity.speed = 0x300;
         } else {
             gPlayerEntity.speed = 0x280;
@@ -148,7 +148,7 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
                 gPlayerEntity.subAction = 0;
                 COLLISION_OFF(&gPlayerEntity);
                 gPlayerState.field_0x38 = 0;
-                gPlayerState.direction = 0xff;
+                gPlayerState.direction = DIR_NONE;
                 return;
             }
             this->subtimer = 1;
@@ -157,12 +157,13 @@ void sub_08076A88(ItemBehavior* this, u32 index) {
         ptr = gUnk_0811BE38;
         if ((*(u16*)&ptr[(gPlayerEntity.animationState & 0xfe)] & gPlayerState.playerInput.heldInput) == 0) {
             this->direction = (this->playerAnimationState & 0xe) * 4;
-            if ((gPlayerState.direction != 0xff) && (gPlayerState.direction != this->direction)) {
-                if (((gPlayerState.direction - this->direction) & 0x1f) < 0x10) {
+            if ((gPlayerState.direction != DIR_NONE) && (gPlayerState.direction != this->direction)) {
+                if (((gPlayerState.direction - this->direction) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast |
+                                                                   DirectionSouth | DirectionWest)) < DirectionSouth) {
                     this->direction = this->direction + 2;
                 }
                 this->direction--;
-                this->direction &= 0x1f;
+                this->direction &= 0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest;
             }
             gPlayerState.direction = this->direction;
             UpdateItemAnim(this);

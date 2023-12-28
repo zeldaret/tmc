@@ -68,49 +68,41 @@ typedef struct {
 
 typedef void(CutsceneMiscObjectTypeAction)(CutsceneMiscObjectEntity*);
 
-CutsceneMiscObjectTypeAction sub_08094A5C;
-CutsceneMiscObjectTypeAction sub_08094A90;
-CutsceneMiscObjectTypeAction sub_08094C30;
-CutsceneMiscObjectTypeAction sub_08094C88;
-CutsceneMiscObjectTypeAction sub_08094D94;
-CutsceneMiscObjectTypeAction sub_08094E30;
-CutsceneMiscObjectTypeAction sub_08094FA8;
-CutsceneMiscObjectTypeAction sub_08095088;
-CutsceneMiscObjectTypeAction sub_08095120;
-CutsceneMiscObjectTypeAction sub_08095188;
-CutsceneMiscObjectTypeAction sub_080951C4;
-CutsceneMiscObjectTypeAction sub_08095288;
-CutsceneMiscObjectTypeAction sub_080953A4;
-CutsceneMiscObjectTypeAction sub_080953A4;
-CutsceneMiscObjectTypeAction sub_080954DC;
-CutsceneMiscObjectTypeAction sub_080956B4;
-CutsceneMiscObjectTypeAction sub_0809577C;
-CutsceneMiscObjectTypeAction sub_080957DC;
-CutsceneMiscObjectTypeAction sub_0809584C;
-CutsceneMiscObjectTypeAction sub_080958D8;
-CutsceneMiscObjectTypeAction sub_08095918;
-CutsceneMiscObjectTypeAction sub_08094C88;
-CutsceneMiscObjectTypeAction sub_080959CC;
-CutsceneMiscObjectTypeAction sub_08095A8C;
-CutsceneMiscObjectTypeAction sub_08095B48;
-CutsceneMiscObjectTypeAction sub_08095C00;
-CutsceneMiscObjectTypeAction sub_080953A4;
-CutsceneMiscObjectTypeAction sub_08095C68;
-CutsceneMiscObjectTypeAction sub_08095CE0;
-CutsceneMiscObjectTypeAction sub_08095CE0;
-CutsceneMiscObjectTypeAction sub_08095DBC;
-CutsceneMiscObjectTypeAction sub_08095F38;
-CutsceneMiscObjectTypeAction sub_08096058;
-CutsceneMiscObjectTypeAction sub_08096058;
-CutsceneMiscObjectTypeAction sub_08094A90;
-CutsceneMiscObjectTypeAction sub_08096084;
-CutsceneMiscObjectTypeAction sub_08096084;
-CutsceneMiscObjectTypeAction sub_08096168;
-CutsceneMiscObjectTypeAction sub_080961F4;
-CutsceneMiscObjectTypeAction sub_080961F4;
-CutsceneMiscObjectTypeAction sub_080961F4;
-CutsceneMiscObjectTypeAction sub_08096284;
-CutsceneMiscObjectTypeAction sub_08096290;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type0;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type1;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type2;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type3;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type4;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type5;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type6;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type7;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type8;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type9;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type10;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type11;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type12;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type14;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type15;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type16;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type17;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type18;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type19;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type20;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type22;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type23;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type24;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type25;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type27;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type28;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type30;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type31;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type32;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type35;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type35;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type37;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type38;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type41;
+CutsceneMiscObjectTypeAction CutsceneMiscObject_Type42;
 
 void sub_08095754(CutsceneMiscObjectEntity*);
 void sub_080957B4(CutsceneMiscObjectEntity*);
@@ -120,18 +112,23 @@ void sub_08095D30(CutsceneMiscObjectEntity*, u32);
 static void sub_0809629C(CutsceneMiscObjectEntity*, u32);
 
 void CutsceneMiscObject(Entity* this) {
-    static CutsceneMiscObjectTypeAction* const sTypeTable[] = {
-        sub_08094A5C, sub_08094A90, sub_08094C30, sub_08094C88, sub_08094D94, sub_08094E30, sub_08094FA8, sub_08095088,
-        sub_08095120, sub_08095188, sub_080951C4, sub_08095288, sub_080953A4, sub_080953A4, sub_080954DC, sub_080956B4,
-        sub_0809577C, sub_080957DC, sub_0809584C, sub_080958D8, sub_08095918, sub_08094C88, sub_080959CC, sub_08095A8C,
-        sub_08095B48, sub_08095C00, sub_080953A4, sub_08095C68, sub_08095CE0, sub_08095CE0, sub_08095DBC, sub_08095F38,
-        sub_08096058, sub_08096058, sub_08094A90, sub_08096084, sub_08096084, sub_08096168, sub_080961F4, sub_080961F4,
-        sub_080961F4, sub_08096284, sub_08096290,
+    static CutsceneMiscObjectTypeAction* const CutsceneMiscObject_Types[] = {
+        CutsceneMiscObject_Type0,  CutsceneMiscObject_Type1,  CutsceneMiscObject_Type2,  CutsceneMiscObject_Type3,
+        CutsceneMiscObject_Type4,  CutsceneMiscObject_Type5,  CutsceneMiscObject_Type6,  CutsceneMiscObject_Type7,
+        CutsceneMiscObject_Type8,  CutsceneMiscObject_Type9,  CutsceneMiscObject_Type10, CutsceneMiscObject_Type11,
+        CutsceneMiscObject_Type12, CutsceneMiscObject_Type12, CutsceneMiscObject_Type14, CutsceneMiscObject_Type15,
+        CutsceneMiscObject_Type16, CutsceneMiscObject_Type17, CutsceneMiscObject_Type18, CutsceneMiscObject_Type19,
+        CutsceneMiscObject_Type20, CutsceneMiscObject_Type3,  CutsceneMiscObject_Type22, CutsceneMiscObject_Type23,
+        CutsceneMiscObject_Type24, CutsceneMiscObject_Type25, CutsceneMiscObject_Type12, CutsceneMiscObject_Type27,
+        CutsceneMiscObject_Type28, CutsceneMiscObject_Type28, CutsceneMiscObject_Type30, CutsceneMiscObject_Type31,
+        CutsceneMiscObject_Type32, CutsceneMiscObject_Type32, CutsceneMiscObject_Type1,  CutsceneMiscObject_Type35,
+        CutsceneMiscObject_Type35, CutsceneMiscObject_Type37, CutsceneMiscObject_Type38, CutsceneMiscObject_Type38,
+        CutsceneMiscObject_Type38, CutsceneMiscObject_Type41, CutsceneMiscObject_Type42,
     };
-    sTypeTable[this->type]((CutsceneMiscObjectEntity*)this);
+    CutsceneMiscObject_Types[this->type]((CutsceneMiscObjectEntity*)this);
 }
 
-void sub_08094A5C(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type0(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         sub_0807DD64(super);
@@ -142,7 +139,7 @@ void sub_08094A5C(CutsceneMiscObjectEntity* this) {
     GetNextFrame(super);
 }
 
-void sub_08094A90(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type1(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->collisionLayer = 2;
@@ -210,7 +207,7 @@ void sub_08094BE0(Entity* this) {
     }
 }
 
-void sub_08094C30(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type2(CutsceneMiscObjectEntity* this) {
     Entity* p = super->parent;
     if (p == NULL || p->next == NULL)
         DeleteThisEntity();
@@ -224,7 +221,7 @@ void sub_08094C30(CutsceneMiscObjectEntity* this) {
     UpdateAnimationSingleFrame(super);
 }
 
-void sub_08094C88(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type3(CutsceneMiscObjectEntity* this) {
     u32 tmp;
 
     if (super->action != 0) {
@@ -283,7 +280,7 @@ void sub_08094D70(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08094D94(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type4(CutsceneMiscObjectEntity* this) {
     u32 tmp;
 
     if (super->action != 0) {
@@ -316,7 +313,7 @@ void sub_08094E0C(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08094E30(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type5(CutsceneMiscObjectEntity* this) {
     if (super->type2 == 0) {
         if ((gRoomTransition.frameCount % 32) == 0) {
             Entity* e = CreateObject(0x6A, 5, 1);
@@ -390,7 +387,7 @@ void sub_08094F98(CutsceneMiscObjectEntity* this) {
     CreateObject(CUTSCENE_MISC_OBJECT, 5, 0);
 }
 
-void sub_08094FA8(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type6(CutsceneMiscObjectEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
@@ -399,8 +396,8 @@ void sub_08094FA8(CutsceneMiscObjectEntity* this) {
             AddInteractableCheckableObject(super);
             break;
         case 1:
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 super->action = 2;
                 RemoveInteractableObject(super);
                 gPlayerState.queued_action = PLAYER_EMPTYBOTTLE;
@@ -441,7 +438,7 @@ void sub_08094FA8(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08095088(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type7(CutsceneMiscObjectEntity* this) {
     u32 tmp;
 
     switch (super->action) {
@@ -453,8 +450,8 @@ void sub_08095088(CutsceneMiscObjectEntity* this) {
             AddInteractableCheckableObject(super);
             break;
         case 1:
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 super->action = 2;
                 RemoveInteractableObject(super);
                 CreateEzloHint(TEXT_INDEX(TEXT_BELARI, 0x1F), 0);
@@ -473,7 +470,7 @@ void sub_08095088(CutsceneMiscObjectEntity* this) {
     super->type = tmp;
 }
 
-void sub_08095120(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type8(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         SetDefaultPriority(super, PRIO_NO_BLOCK);
@@ -493,7 +490,7 @@ void sub_08095164(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08095188(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type9(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         SetDefaultPriority(super, PRIO_NO_BLOCK);
@@ -505,7 +502,7 @@ void sub_08095188(CutsceneMiscObjectEntity* this) {
     HandleEntity0x82Actions(super);
 }
 
-void sub_080951C4(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type10(CutsceneMiscObjectEntity* this) {
     Entity* p;
 
     if (super->action == 0) {
@@ -545,7 +542,7 @@ void sub_08095244(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08095288(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type11(CutsceneMiscObjectEntity* this) {
     Entity* p;
 
     if (super->action == 0) {
@@ -607,7 +604,7 @@ void sub_08095364(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_080953A4(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type12(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->z.HALF.HI = -16;
@@ -659,7 +656,7 @@ void sub_080954AC(CutsceneMiscObjectEntity* this, u32 arg2) {
     }
 }
 
-void sub_080954DC(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type14(CutsceneMiscObjectEntity* this) {
     switch (super->action) {
         case 0:
             if (super->timer != 0) {
@@ -719,28 +716,25 @@ void sub_0809567C(CutsceneMiscObjectEntity* this) {
         CalculateDirectionFromOffsets(super->x.WORD - ((s16)this->px << 16), super->y.WORD - ((s16)this->py << 16));
 }
 
-void sub_080956B4(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type15(CutsceneMiscObjectEntity* this) {
     Entity* p;
     u16* p1;
     u16* p2;
-    Type15Vars* tmp;
+    u16* tmp;
 
     if (super->action == 0) {
         s32 i;
-        u16* p;
         u32 x;
         u32 y;
 
         super->action++;
         InitializeAnimation(super, 0);
-        // p = this->v.arr;
-        asm("mov r4, r5");
-        asm("add r4, #0x68");
+        tmp = ((CutsceneMiscObjectEntityType15*)this)->vars.arr;
         x = super->x.HALF_U.HI;
         y = super->y.HALF_U.HI;
         for (i = 0; i < 8; i++) {
-            *p++ = x;
-            *p++ = y;
+            *tmp++ = x;
+            *tmp++ = y;
         }
     }
     GetNextFrame(super);
@@ -755,13 +749,13 @@ void sub_080956B4(CutsceneMiscObjectEntity* this) {
     } else {
         DeleteThisEntity();
     }
-    tmp = &((CutsceneMiscObjectEntityType15*)this)->vars;
-    MemCopy(&tmp->arr[2], &tmp->arr[0], 0x1C);
-    super->x.HALF.HI = tmp->my_x;
-    super->y.HALF.HI = tmp->my_y;
+    tmp = ((CutsceneMiscObjectEntityType15*)this)->vars.arr;
+    MemCopy(&tmp[2], &tmp[0], 0x1C);
+    super->x.HALF.HI = tmp[10];
+    super->y.HALF.HI = tmp[11];
     super->z.HALF.HI = p->z.HALF.HI;
-    tmp->parent_x = p->x.HALF.HI;
-    tmp->parent_y = p->y.HALF.HI;
+    tmp[14] = p->x.HALF.HI;
+    tmp[15] = p->y.HALF.HI;
 }
 
 void sub_08095754(CutsceneMiscObjectEntity* this) {
@@ -773,7 +767,7 @@ void sub_08095754(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_0809577C(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type16(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->z.HALF.HI = -16;
@@ -793,7 +787,7 @@ void sub_080957B4(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_080957DC(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type17(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         sub_0807DD64(super);
@@ -814,7 +808,7 @@ void sub_08095810(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_0809584C(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type18(CutsceneMiscObjectEntity* this) {
     u32 tmp, idx;
 
     idx = super->health;
@@ -837,7 +831,7 @@ void sub_0809584C(CutsceneMiscObjectEntity* this) {
     super->type = tmp;
 }
 
-void sub_080958D8(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type19(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         sub_0807DD64(super);
@@ -849,7 +843,7 @@ void sub_080958D8(CutsceneMiscObjectEntity* this) {
         sub_08095954(this);
 }
 
-void sub_08095918(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type20(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         SetDefaultPriority(super, PRIO_PLAYER_EVENT);
@@ -883,7 +877,7 @@ void sub_08095954(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_080959CC(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type22(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
@@ -914,7 +908,7 @@ void sub_08095A68(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08095A8C(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type23(CutsceneMiscObjectEntity* this) {
     switch (super->action) {
         case 0:
             super->action++;
@@ -947,7 +941,7 @@ void sub_08095A8C(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08095B48(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type24(CutsceneMiscObjectEntity* this) {
     Entity* p;
     u32 tmp;
 
@@ -987,7 +981,7 @@ void sub_08095BE0(CutsceneMiscObjectEntity* this, u32 val) {
     }
 }
 
-void sub_08095C00(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type25(CutsceneMiscObjectEntity* this) {
     if (super->action & 0x80) {
         DeleteThisEntity();
     } else {
@@ -1011,7 +1005,7 @@ void sub_08095C48(Entity* this) {
     }
 }
 
-void sub_08095C68(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type27(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         sub_080042D0(super, super->frameIndex, (u16)super->spriteIndex);
@@ -1039,7 +1033,7 @@ void sub_08095CB0(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08095CE0(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type28(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
@@ -1074,7 +1068,7 @@ void sub_08095D8C(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx) {
     }
 }
 
-void sub_08095DBC(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type30(CutsceneMiscObjectEntity* this) {
     if (gActiveScriptInfo.syncFlags & 0x10)
         DeleteThisEntity();
     if (super->type2 == 0) {
@@ -1141,7 +1135,7 @@ void sub_08095EAC(Entity* this, ScriptExecutionContext* ctx) {
 }
 
 #define local ((Type1F*)this)
-void sub_08095F38(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type31(CutsceneMiscObjectEntity* this) {
     u32 tmp;
 
     if (super->action == 0) {
@@ -1195,7 +1189,7 @@ void sub_08096028(CutsceneMiscObjectEntity* this) {
     CreateObject(CUTSCENE_MISC_OBJECT, 0x1F, type2);
 }
 
-void sub_08096058(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type32(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         sub_0807DD64(super);
@@ -1205,7 +1199,7 @@ void sub_08096058(CutsceneMiscObjectEntity* this) {
     GetNextFrame(super);
 }
 
-void sub_08096084(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type35(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         sub_0807DD64(super);
@@ -1239,7 +1233,7 @@ void sub_080960C4(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx) {
     }
 }
 
-void sub_08096168(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type37(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 1;
@@ -1263,7 +1257,7 @@ void sub_080961B0(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_080961F4(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type38(CutsceneMiscObjectEntity* this) {
     super->spriteSettings.draw = 1;
     super->frameIndex = 0;
 }
@@ -1290,11 +1284,11 @@ void sub_08096260(CutsceneMiscObjectEntity* this) {
     }
 }
 
-void sub_08096284(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type41(CutsceneMiscObjectEntity* this) {
     sub_0809629C(this, 0xd);
 }
 
-void sub_08096290(CutsceneMiscObjectEntity* this) {
+void CutsceneMiscObject_Type42(CutsceneMiscObjectEntity* this) {
     sub_0809629C(this, 0xe);
 }
 

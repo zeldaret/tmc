@@ -107,7 +107,7 @@ void sub_0802B7A4(Entity* this) {
         this->timer = gUnk_080CD314[Random() & 3];
         this->speed = 0x60;
         sub_0802B960(this);
-        if (this->direction != 0xff) {
+        if (this->direction != DIR_NONE) {
             u32 animation = this->direction >> 3;
             if (animation != this->animationState) {
                 this->animationState = animation & 3;

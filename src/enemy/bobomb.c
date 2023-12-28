@@ -62,7 +62,7 @@ void Bobomb_OnCollision(Entity* this) {
                 this->zVelocity = Q_16_16(1.5);
                 this->speed = 0;
                 this->field_0x80.HALF.HI = 1;
-                InitializeAnimation(this, this->direction >> 4 | 6);
+                InitializeAnimation(this, this->direction >> 4 | IdleWest);
                 break;
         }
     }
@@ -123,7 +123,7 @@ void sub_0802C83C(Entity* this) {
     } else {
         this->field_0x82.HALF.LO = 2;
         this->timer = 120;
-        InitializeAnimation(this, (this->direction >> 4) | 6);
+        InitializeAnimation(this, (this->direction >> 4) | IdleWest);
         COLLISION_OFF(this);
         this->hitType = 0x6e;
     }
@@ -147,7 +147,7 @@ void sub_0802C8D8(Entity* this) {
     this->action = 1;
     this->timer = 60;
     this->subtimer = 0;
-    this->direction = (Random() & 0x18) | 4;
+    this->direction = (Random() & 0x18) | DIR_DIAGONAL;
     this->carryFlags = 0;
     this->gustJarFlags = 0x12;
     this->field_0x82.HALF.LO = 0;
@@ -163,7 +163,7 @@ void sub_0802C91C(Entity* this) {
     if (this->field_0x82.HALF.LO) {
         if (this->collisions != COL_NONE) {
             sub_0800417E(this, this->collisions);
-            InitializeAnimation(this, (this->direction >> 4) | 2);
+            InitializeAnimation(this, (this->direction >> 4) | IdleEast);
         }
         if (--this->timer == 0) {
             sub_0802CBC4(this);
@@ -180,7 +180,7 @@ void sub_0802C91C(Entity* this) {
         }
         if (--this->timer == 0) {
             this->timer = 60;
-            this->direction = (this->direction + 8) & 0x1c;
+            this->direction = (this->direction + 8) & (DirectionWest | DIR_DIAGONAL);
             InitializeAnimation(this, this->direction >> 4);
         }
     }
@@ -196,7 +196,7 @@ void sub_0802C9D0(Entity* this) {
     this->spritePriority.b1 = 0;
     this->field_0x82.HALF.HI = 1;
     sub_0802CC18(this);
-    InitializeAnimation(this, (this->direction >> 4) | 6);
+    InitializeAnimation(this, (this->direction >> 4) | IdleWest);
     GetNextFrame(this);
 }
 
@@ -210,7 +210,7 @@ void sub_0802CA10(Entity* this) {
         }
     } else {
         this->field_0x82.HALF.HI = 2;
-        this->direction = (((gPlayerEntity.animationState) << 2) | 4) & 0x1c;
+        this->direction = (((gPlayerEntity.animationState) << 2) | IdleSouth) & (DIR_DIAGONAL | DirectionWest);
         sub_0802CC18(this);
         GetNextFrame(this);
     }
@@ -234,8 +234,8 @@ void sub_0802CA94(Entity* this) {
     this->speed = 0;
     this->field_0x82.HALF.HI = 0;
     this->field_0x80.HALF.HI = 0;
-    this->direction = ((gPlayerEntity.animationState << 2) | 4) & 0x1c;
-    InitializeAnimation(this, (this->direction >> 4) | 6);
+    this->direction = ((gPlayerEntity.animationState << 2) | IdleSouth) & (DirectionWest | DIR_DIAGONAL);
+    InitializeAnimation(this, (this->direction >> 4) | IdleWest);
 }
 
 void sub_0802CAF8(Entity* this) {
@@ -264,7 +264,7 @@ void sub_0802CB68(Entity* this) {
     this->action = 1;
     this->subAction = 0;
     this->direction = Random() & 0x18;
-    this->direction |= 4;
+    this->direction |= IdleSouth;
     COLLISION_ON(this);
     if (this->field_0x82.HALF.LO) {
         this->timer = 200;

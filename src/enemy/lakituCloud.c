@@ -89,7 +89,7 @@ void sub_0803CD6C(Entity* this) {
 void sub_0803CDA8(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if ((this->direction & 0x80) == 0) {
+    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
         LinearMoveUpdate(this);
     }
 
@@ -123,7 +123,7 @@ void sub_0803CE14(Entity* this) {
     UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
 
     direction = this->direction;
-    if (direction & 0x80) {
+    if (direction & DIR_NOT_MOVING_CHECK) {
         return;
     }
 

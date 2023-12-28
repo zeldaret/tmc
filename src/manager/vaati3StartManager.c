@@ -54,7 +54,7 @@ void Vaati3StartManager_Type0_Init(Vaati3StartManager* this) {
     *(u8*)&gRoomTransition.field_0x3a = 0x20;
     *((u8*)&gRoomTransition.field_0x3a + 1) = 0x20;
 #if !defined(EU) && !defined(JP)
-    gSave.timers[3] = 0x1194;
+    gSave.vaati_timer = 0x1194;
 #endif
 }
 
@@ -71,7 +71,7 @@ void Vaati3StartManager_Type0_Action1(Vaati3StartManager* this) {
         super->timer = 120;
         SetPlayerControl(2);
         sub_08078B48();
-        object = CreateObject(THUNDERBOLD, 0, 0);
+        object = CreateObject(THUNDERBOLT, 0, 0);
         if (object != NULL) {
             object->x.HALF.HI = gRoomControls.origin_x + 0x88;
             object->y.HALF.HI = gRoomControls.origin_y + 0x48;

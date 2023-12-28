@@ -8,7 +8,7 @@ SCRIPT_START script_Melari
 	EndBlock
 	CheckInventory1 ITEM_FIRE_ELEMENT
 	JumpIf script_0800CFD2
-	CheckLocalFlag 0x007e
+	CheckLocalFlag OYAKATA_DEMO
 	JumpIfNot script_0800CFD2
 	SetAnimation 0x0008
 script_0800CFD2:
@@ -19,7 +19,7 @@ script_0800CFD2:
 	SetSyncFlag 0x00000020
 	Jump script_0800CFFA
 script_0800CFEC:
-	CheckLocalFlag 0x007e
+	CheckLocalFlag OYAKATA_DEMO
 	JumpIfNot script_0800CFFA
 	SetSyncFlag 0x00000010
 script_0800CFFA:
@@ -60,7 +60,7 @@ script_0800D032:
 	MessageFromTargetPos TEXT_MINISH2, 0x5d, 0x0002
 	Jump script_0800D17C
 script_0800D098:
-	CheckLocalFlag 0x007e
+	CheckLocalFlag OYAKATA_DEMO
 	JumpIfNot script_0800D0A8
 	MessageFromTarget TEXT_MINISH2, 0x3e
 	Jump script_0800D17C
@@ -88,7 +88,7 @@ script_0800D108:
 	JumpIf script_0800D108
 	PlaySound SFX_F8
 	SetSyncFlag 0x00000010
-	SetLocalFlag 0x007e
+	SetLocalFlag OYAKATA_DEMO
 	MessageFromTargetPos TEXT_MINISH2, 0x3e, 0x0002
 	WaitUntilTextboxCloses
 	Wait 0x000f

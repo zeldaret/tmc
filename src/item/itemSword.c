@@ -31,7 +31,7 @@ void sub_08075338(ItemBehavior* this, u32 index) {
     if (gPlayerState.flags & PL_MINISH) {
         this->priority |= 0x80;
         sub_08077D38(this, index);
-        gPlayerState.animation = 0xc00;
+        gPlayerState.animation = ANIM_SWORD_MINISH;
         SoundReq(SFX_PLY_VO1);
         return;
     }
@@ -80,7 +80,7 @@ void sub_08075338(ItemBehavior* this, u32 index) {
         this->priority |= 0x80;
         gPlayerState.lastSwordMove = SWORD_MOVE_ROLL;
         gPlayerState.flags |= PL_SWORD_THRUST;
-        SetItemAnim(this, 0x130);
+        SetItemAnim(this, ANIM_ROLLATTACK_SLIDE);
         SoundReq(SFX_PLY_VO3);
         return;
     }
@@ -150,7 +150,7 @@ void sub_08075580(ItemBehavior* this, u32 index) {
         } else {
             this->timer = 0x50;
         }
-        SetItemAnim(this, 0x168);
+        SetItemAnim(this, ANIM_SWORD_CHARGE);
         CreateObject(SWORD_PARTICLE, 0, 0);
         return;
     }
@@ -190,10 +190,10 @@ void sub_08075694(ItemBehavior* this, u32 index) {
     if (gPlayerState.flags & PL_SWORD_THRUST) {
         gPlayerState.flags &= ~PL_SWORD_THRUST;
         gPlayerState.flags &= ~PL_ROLLING;
-        SetItemAnim(this, 300);
+        SetItemAnim(this, ANIM_ROLLATTACK_SPIN);
     } else {
         gPlayerState.lastSwordMove = SWORD_MOVE_SPIN;
-        SetItemAnim(this, 0x124);
+        SetItemAnim(this, ANIM_SPINATTACK);
     }
     gPlayerState.field_0xa = (8 >> index) | gPlayerState.field_0xa;
     this->stateID = 4;
@@ -220,7 +220,7 @@ void sub_08075738(ItemBehavior* this, u32 index) {
         }
 
         if ((gPlayerState.sword_state & 0x10) != 0) {
-            if ((gPlayerState.direction & 0x80) == 0) {
+            if (!(gPlayerState.direction & DIR_NOT_MOVING_CHECK)) {
                 this->direction = gPlayerState.direction;
             }
             gPlayerEntity.direction = this->direction;
@@ -252,7 +252,7 @@ void sub_08075738(ItemBehavior* this, u32 index) {
                 this->timer = 1;
                 this->subtimer = 1;
                 gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> index);
-                SetItemAnim(this, 0x128);
+                SetItemAnim(this, ANIM_GREATSPIN);
             }
 
             if ((this->playerFrame & 0x80) != 0) {
@@ -298,7 +298,7 @@ void sub_08075900(ItemBehavior* this, u32 index) {
         } else {
             if (this->timer != 0) {
                 if (--this->timer == 0) {
-                    SetItemAnim(this, 0x134);
+                    SetItemAnim(this, ANIM_ROLLATTACK_END);
                 }
                 gPlayerEntity.direction = (gPlayerEntity.animationState >> 1) << 3;
                 gPlayerEntity.speed = 0x300;

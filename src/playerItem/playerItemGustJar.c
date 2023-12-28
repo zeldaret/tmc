@@ -1,6 +1,13 @@
+/**
+ * @file playerItemGustJar.c
+ * @ingroup Items
+ *
+ * @brief Gust Jar Player Item
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "player.h"
 #include "functions.h"
+#include "player.h"
 #include "sound.h"
 
 extern const u8* gUnk_08132714[]; // Anim index lists?
@@ -18,7 +25,7 @@ void sub_080ADCDC(Entity*, u32);
 void sub_080ADCA0(Entity*, u32);
 
 void PlayerItemGustJar(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+    static void (*const PlayerItemGustJar_Actions[])(Entity*) = {
         PlayerItemGustJar_Init,    PlayerItemGustJar_Action1, PlayerItemGustJar_Action2,
         PlayerItemGustJar_Action3, PlayerItemGustJar_Action4,
     };
@@ -26,7 +33,7 @@ void PlayerItemGustJar(Entity* this) {
     if (((Entity*)gPlayerState.item != this) || (gPlayerState.field_0x1c == 0)) {
         DeleteThisEntity();
     }
-    actionFuncs[this->action](this);
+    PlayerItemGustJar_Actions[this->action](this);
     sub_08078E84(this, &gPlayerEntity);
 }
 

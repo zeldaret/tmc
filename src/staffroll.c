@@ -269,13 +269,13 @@ void StaffrollTask_State2(void) {
                 } else {
                     choice = gStaffrollMenu.base.field_0x3;
                     switch (gInput.newKeys) {
-                        case 0x40:
+                        case DPAD_UP:
                             choice = 0;
                             break;
-                        case 0x80:
+                        case DPAD_DOWN:
                             choice = 1;
                             break;
-                        case 1:
+                        case A_BUTTON:
                             if (choice != 0) {
                                 tmp = 4;
                             } else {
@@ -313,7 +313,7 @@ void StaffrollTask_State2(void) {
             if (gStaffrollMenu.base.transitionTimer != 0) {
                 gStaffrollMenu.base.transitionTimer--;
             } else {
-                if ((gInput.newKeys & 0xb) != 0) {
+                if ((gInput.newKeys & (A_BUTTON | B_BUTTON | START_BUTTON)) != 0) {
                     gStaffrollMenu.base.overlayType = 1;
                 }
             }

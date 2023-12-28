@@ -7,6 +7,7 @@
 
 #include "collision.h"
 #include "enemy.h"
+#include "item.h"
 #include "functions.h"
 
 void sub_08038168(Entity*);
@@ -70,9 +71,9 @@ void TektiteGolden_OnDeath(Entity* this) {
         SetGlobalFlag(this->type2);
     }
     if (this->type != 0) {
-        uVar1 = 0x59;
+        uVar1 = ITEM_RUPEE200;
     } else {
-        uVar1 = 0x58;
+        uVar1 = ITEM_RUPEE100;
     }
     CreateDeathFx(this, 0xff, uVar1);
 }
@@ -135,7 +136,7 @@ void sub_08038048(Entity* this) {
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
     } else if ((GetVvvAtEntity(this) & 0xf0) == 0x50) { // VVV_240 and VVV_241?
-        this->direction = (this->direction + 0x10) & 0x1f;
+        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 
     if (--this->timer == 0) {
@@ -184,6 +185,6 @@ void sub_08038168(Entity* this) {
         this->direction = sub_08049F84(this, 1);
     } else {
         temp = (Random() & 0xf) + 0x18;
-        this->direction = (temp + this->direction) & 0x1f;
+        this->direction = (temp + this->direction) & (0x3 | DirectionNorthWest);
     }
 }

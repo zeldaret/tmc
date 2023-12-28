@@ -1146,16 +1146,16 @@ void sub_080610B8(void) {
             uVar6 = 0;
             tmp4 = 0;
             switch (gInput.unk4) {
-                case 0x40:
+                case DPAD_UP:
                     tmp4 = -1;
                     break;
-                case 0x80:
+                case DPAD_DOWN:
                     tmp4 = 1;
                     break;
-                case 0x20:
+                case DPAD_LEFT:
                     uVar6 = -1;
                     break;
-                case 0x10:
+                case DPAD_RIGHT:
                     uVar6 = 1;
                     break;
             }

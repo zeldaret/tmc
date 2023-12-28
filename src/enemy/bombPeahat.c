@@ -141,10 +141,10 @@ void sub_0802A9A8(Entity* this) {
             this->field_0x82.HWORD = 1;
             if (this->field_0x80.HALF.LO) {
                 this->x.HALF.HI = gRoomControls.scroll_x - 0x10;
-                this->direction = 8;
+                this->direction = DirectionEast;
             } else {
                 this->x.HALF.HI = gRoomControls.scroll_x + 0x100;
-                this->direction = 0x18;
+                this->direction = DirectionWest;
             }
             this->y.HALF.HI = gRoomControls.scroll_y + 0x40;
             this->timer = 128;
@@ -221,7 +221,7 @@ void sub_0802AAC0(Entity* this) {
 #ifndef EU
         this->field_0x78.HALF.LO = 0;
         this->field_0x78.HALF.HI = 4;
-        this->direction = 0xff;
+        this->direction = DIR_NONE;
 #endif
         InitializeAnimation(this, 0);
     }

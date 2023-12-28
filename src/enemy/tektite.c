@@ -159,7 +159,7 @@ void sub_0802F300(Entity* this) {
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
     } else if ((GetVvvAtEntity(this) & 0xf0) == 0x50) { // VVV_240 and VVV_241?
-        this->direction = (this->direction + 0x10) & 0x1f;
+        this->direction = (this->direction + 0x10) &  (0x3 | DirectionNorthWest);
     }
 
     if (--this->timer == 0) {
@@ -214,6 +214,6 @@ static void sub_0802F45C(Entity* this) {
         this->direction = sub_08049F84(this, 1);
     } else {
         temp = (Random() & 0xf) + 0x18;
-        this->direction = (temp + this->direction) & 0x1f;
+        this->direction = (temp + this->direction) & (0x3 | DirectionNorthWest);
     }
 }

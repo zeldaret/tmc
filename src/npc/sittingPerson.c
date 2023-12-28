@@ -1,5 +1,20 @@
+/**
+ * @file sittingPerson.c
+ * @ingroup NPCs
+ *
+ * @brief Sitting Person NPC
+ */
+#define NENT_DEPRECATED
 #include "npc.h"
 #include "functions.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+    /*0x6a*/ u8 unused[26];
+    /*0x84*/ u32* unk_84;
+} SittingPersonEntity;
 
 const SpriteLoadData gUnk_0810CB78[] = {
     { 63, 61, 4 }, { 8255, 61, 4 }, { 0, 0, 0 }, { 62, 61, 4 }, { 8255, 61, 4 }, { 0, 0, 0 },
@@ -10,10 +25,10 @@ const FrameStruct gUnk_0810CBC0[] = {
     { 4, 0 },  { 0, 0 }, { 12, 0 }, { 0, 0 }, { 20, 0 }, { 0, 0 },
     { 28, 1 }, { 0, 0 }, { 36, 1 }, { 0, 0 }, { 44, 0 }, { 0, 0 },
 };
-void SittingPersion_Init(Entity*);
-void sub_080637B8(Entity*);
-void sub_08063830(Entity*);
-void (*const SittingPersion_Actions[])(Entity*) = {
+void SittingPersion_Init(SittingPersonEntity*);
+void sub_080637B8(SittingPersonEntity*);
+void sub_08063830(SittingPersonEntity*);
+void (*const SittingPersion_Actions[])(SittingPersonEntity*) = {
     SittingPersion_Init,
     sub_080637B8,
     sub_08063830,
@@ -106,55 +121,55 @@ const u8 gUnk_0810CD88[][4] = {
 };
 
 extern void sub_08096208(Entity*, u32);
-void sub_080637B8(Entity* this);
+void sub_080637B8(SittingPersonEntity* this);
 
-void SittingPerson(Entity* this) {
-    SittingPersion_Actions[this->action](this);
+void SittingPerson(SittingPersonEntity* this) {
+    SittingPersion_Actions[super->action](this);
 }
 
-void SittingPersion_Init(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_0810CB78[this->type * 3])) {
-        this->action = 1;
-        this->spriteSettings.flipX = this->timer;
+void SittingPersion_Init(SittingPersonEntity* this) {
+    if (LoadExtraSpriteData(super, &gUnk_0810CB78[super->type * 3])) {
+        super->action = 1;
+        super->spriteSettings.flipX = super->timer;
 
-        if (this->spriteSettings.flipX == 0) {
-            this->animationState = 6;
+        if (super->spriteSettings.flipX == 0) {
+            super->animationState = 6;
         } else {
-            this->animationState = 2;
+            super->animationState = 2;
         }
 
-        this->timer = this->animationState;
-        this->field_0x68.HALF.HI = 0;
-        sub_0807DD50(this);
+        super->timer = super->animationState;
+        this->animIndex = 0;
+        InitScriptForNPC(super);
         sub_080637B8(this);
     }
 }
 
-void sub_080637B8(Entity* this) {
+void sub_080637B8(SittingPersonEntity* this) {
     u32 tmp;
 
-    if (this->interactType == 2) {
-        this->action = 2;
-        this->interactType = 0;
-        this->field_0x68.HALF.HI = this->animIndex;
-        tmp = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
-        tmp += this->spriteSettings.flipX ? 4 : 0;
-        InitializeAnimation(this, tmp);
-        sub_0806F118(this);
+    if (super->interactType == INTERACTION_FUSE) {
+        super->action = 2;
+        super->interactType = INTERACTION_NONE;
+        this->animIndex = super->animIndex;
+        tmp = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+        tmp += super->spriteSettings.flipX ? 4 : 0;
+        InitializeAnimation(super, tmp);
+        InitializeNPCFusion(super);
     } else {
-        ExecuteScriptForEntity(this, NULL);
-        HandleEntity0x82Actions(this);
-        if (this->frameDuration == 0xfe) {
-            this->frameDuration = (Random() & 0x1f) + 0x1e;
+        ExecuteScriptForEntity(super, NULL);
+        HandleEntity0x82Actions(super);
+        if (super->frameDuration == 0xfe) {
+            super->frameDuration = (Random() & 0x1f) + 0x1e;
         }
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
-void sub_08063830(Entity* this) {
-    if (UpdateFuseInteraction(this) != 0) {
-        this->action = 1;
-        InitializeAnimation(this, this->field_0x68.HALF.HI);
+void sub_08063830(SittingPersonEntity* this) {
+    if (UpdateFuseInteraction(super) != 0) {
+        super->action = 1;
+        InitializeAnimation(super, this->animIndex);
     }
 }
 
@@ -182,7 +197,7 @@ void sub_0806387C(Entity* this) {
         if (CheckLocalFlag(SHOP05_OPEN) == 0) {
             r5 = 0;
             for (r4 = 1; r4 <= 0x82; r4++) {
-                if (ReadBit(&gSave.stats.filler4[4], r4)) {
+                if (ReadBit(gSave.figurines, r4)) {
                     r5++;
                 }
             }
@@ -210,7 +225,7 @@ void sub_0806390C(Entity* this) {
     if (CheckLocalFlag(MACHI_MES_60) == 0) {
         r5 = 0;
         SetLocalFlag(MACHI_MES_60);
-        (*(u32**)&this->cutsceneBeh)[0x5] = 1;
+        ((SittingPersonEntity*)this)->unk_84[5] = 1;
     }
 
     MessageNoOverlap(gUnk_0810CC04[r5], this);
@@ -235,9 +250,9 @@ void SittingPerson_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-void SittingPerson_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void SittingPerson_MakeInteractable(SittingPersonEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void SittingPerson_Fusion(Entity* this) {

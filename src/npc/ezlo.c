@@ -1,3 +1,10 @@
+/**
+ * @file ezlo.c
+ * @ingroup NPCs
+ *
+ * @brief Ezlo NPC
+ */
+#define NENT_DEPRECATED
 #include "npc.h"
 
 const u8 gUnk_08114134[];
@@ -8,7 +15,7 @@ void Ezlo(Entity* this) {
     if (this->action == 0) {
         this->action++;
         SetDefaultPriority(this, PRIO_MESSAGE);
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
     }
     ExecuteScriptForEntity(this, NULL);
     HandleEntity0x82Actions(this);

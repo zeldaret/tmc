@@ -57,24 +57,24 @@ extern const struct_08128AD8 gUnk_08128AD8[];
 Subtask FigurineMenu0_Type0;
 Subtask FigurineMenu0_Type1;
 Subtask FigurineMenu0_Type2;
-Subtask FigurineMenu0_Type3;
+Subtask FigurineMenu0_ViewFigurineAfterDrawing;
 Subtask FigurineMenu1_Type0;
-Subtask FigurineMenu1_Type1;
+Subtask FigurineMenu1_ViewAllFigurines;
 Subtask FigurineMenu1_Type2;
-Subtask FigurineMenu1_Type3;
+Subtask FigurineMenu1_ExitMenu;
 
 void Subtask_FigurineMenu(void) {
     static Subtask* const figurineMenu1_Types[] = {
         FigurineMenu0_Type0,
         FigurineMenu0_Type1,
         FigurineMenu0_Type2,
-        FigurineMenu0_Type3,
+        FigurineMenu0_ViewFigurineAfterDrawing,
     };
     static Subtask* const figurineMenu0_Types[] = {
         FigurineMenu1_Type0,
-        FigurineMenu1_Type1,
+        FigurineMenu1_ViewAllFigurines,
         FigurineMenu1_Type2,
-        FigurineMenu1_Type3,
+        FigurineMenu1_ExitMenu,
     };
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
     FlushSprites();
@@ -94,7 +94,7 @@ void Subtask_FigurineMenu(void) {
 }
 
 void FigurineMenu_080A4608(void) {
-    s32 iVar2, r1, r2;
+    s32 iVar2, r1, maxFigurines;
 
     SetBgmVolume(0x80);
     sub_080A4DA8(3);
@@ -112,15 +112,15 @@ void FigurineMenu_080A4608(void) {
     }
 
     r1 = gUI.field_0x3;
-    r2 = !gSave.saw_staffroll ? 0x82 : 0x88;
-    if (r2 < r1) {
+    maxFigurines = !gSave.saw_staffroll ? 130 : 136;
+    if (maxFigurines < r1) {
         r1 = 1;
     }
     gFigurineMenu.figure_idx = r1;
     SetFade(FADE_INSTANT, 8);
 }
 
-void FigurineMenu_080A46C0(void) {
+void FigurineMenu_ExitMenu(void) {
     SetBgmVolume(0x100);
     SoundReq(SFX_MENU_CANCEL);
     ClearRoomFlag(2);
@@ -147,7 +147,7 @@ void FigurineMenu0_Type2(void) {
         gFigurineMenu.unk20++;
         switch (gFigurineMenu.unk20) {
             case 0x40:
-                gFigurineMenu.duplicate = WriteBit(&gSave.stats.filler4[4], gFigurineMenu.figure_idx);
+                gFigurineMenu.duplicate = WriteBit(gSave.figurines, gFigurineMenu.figure_idx);
                 gMenu.column_idx = 1;
             default:
                 bVar1 = gFigurineMenu.unk20 >> 2;
@@ -175,32 +175,32 @@ void FigurineMenu0_Type2(void) {
     }
 }
 
-void FigurineMenu0_Type3(void) {
-    s32 uVar1;
+void FigurineMenu0_ViewFigurineAfterDrawing(void) {
+    s32 infoY;
     s32 t;
 
-    uVar1 = gFigurineMenu.unk1f;
+    infoY = gFigurineMenu.unk1f;
     switch (gInput.unk4) {
-        case 2:
-        case 8:
-            FigurineMenu_080A46C0();
+        case B_BUTTON:
+        case START_BUTTON:
+            FigurineMenu_ExitMenu();
             break;
-        case 0x10:
-            uVar1 += 8;
+        case DPAD_RIGHT:
+            infoY += 8;
             break;
-        case 0x20:
-            uVar1 -= 8;
+        case DPAD_LEFT:
+            infoY -= 8;
             break;
     }
     t = gFigurineMenu.unk1e;
-    if (uVar1 < 0) {
-        uVar1 = 0;
+    if (infoY < 0) {
+        infoY = 0;
     }
-    if (t < uVar1) {
-        uVar1 = t;
+    if (t < infoY) {
+        infoY = t;
     }
-    gFigurineMenu.unk1f = uVar1;
-    gScreen.bg1.yOffset = uVar1 - 0x70;
+    gFigurineMenu.unk1f = infoY;
+    gScreen.bg1.yOffset = infoY - 112;
 }
 
 void FigurineMenu1_Type0(void) {
@@ -211,85 +211,85 @@ void FigurineMenu1_Type0(void) {
     SetMenuType(1);
 }
 
-void FigurineMenu1_Type1(void) {
-    int r0, r1, r4, r5;
+void FigurineMenu1_ViewAllFigurines(void) {
+    int prevFigurineIndex, maxFigurines, figurineIndex, infoY;
 
     if (gFadeControl.active)
         return;
 
-    r5 = gFigurineMenu.unk1f;
-    r4 = gFigurineMenu.figure_idx;
+    infoY = gFigurineMenu.unk1f;
+    figurineIndex = gFigurineMenu.figure_idx;
     switch (gInput.unk4) {
         case B_BUTTON:
         case START_BUTTON:
             SetMenuType(3);
             break;
         case L_BUTTON:
-            r4 -= 5;
+            figurineIndex -= 5;
             break;
         case R_BUTTON:
-            r4 += 5;
+            figurineIndex += 5;
             break;
         case DPAD_UP:
-            r4--;
+            figurineIndex--;
             break;
         case DPAD_DOWN:
-            r4++;
+            figurineIndex++;
             break;
         case DPAD_RIGHT:
-            r5 += 8;
+            infoY += 8;
             break;
         case DPAD_LEFT:
-            r5 -= 8;
+            infoY -= 8;
             break;
         case A_BUTTON:
             break;
     }
-    r1 = !gSave.saw_staffroll ? 0x82 : 0x88;
-    if (r4 <= 0) {
-        r4 = 1;
+    maxFigurines = !gSave.saw_staffroll ? 130 : 136;
+    if (figurineIndex <= 0) {
+        figurineIndex = 1;
     }
-    if (r1 < r4) {
-        r4 = r1;
+    if (maxFigurines < figurineIndex) {
+        figurineIndex = maxFigurines;
     }
-    r0 = gFigurineMenu.figure_idx;
-    if (r0 != r4) {
-        gFigurineMenu.figure_idx = r4;
+    prevFigurineIndex = gFigurineMenu.figure_idx;
+    if (prevFigurineIndex != figurineIndex) {
+        gFigurineMenu.figure_idx = figurineIndex;
         SoundReq(SFX_TEXTBOX_CHOICE);
         SetMenuType(2);
-        r5 = 0;
+        infoY = 0;
     }
-    r0 = gFigurineMenu.unk1e;
-    if (r5 < 0) {
-        r5 = 0;
+    prevFigurineIndex = gFigurineMenu.unk1e;
+    if (infoY < 0) {
+        infoY = 0;
     }
-    if (r0 < r5) {
-        r5 = r0;
+    if (prevFigurineIndex < infoY) {
+        infoY = prevFigurineIndex;
     }
-    gFigurineMenu.unk1f = r5;
-    gScreen.bg1.yOffset = r5 - 0x70;
+    gFigurineMenu.unk1f = infoY;
+    gScreen.bg1.yOffset = infoY - 112;
 }
 
 void FigurineMenu1_Type2(void) {
     SetMenuType(1);
 }
 
-void FigurineMenu1_Type3(void) {
-    FigurineMenu_080A46C0();
+void FigurineMenu1_ExitMenu(void) {
+    FigurineMenu_ExitMenu();
 }
 
-u32 sub_080A4948(s32 param_1) {
-    s32 iVar1;
-    u32 uVar2;
+u32 FigurineMenu_isFigurineOwned(s32 figurineIndex) {
+    s32 maxFigurines;
+    u32 hasFigurine;
 
-    uVar2 = 0;
-    iVar1 = !gSave.saw_staffroll ? 0x82 : 0x88;
-    if ((0 < param_1) || (iVar1 >= param_1)) {
-        if (ReadBit((u32*)&gSave.stats.filler4[4], param_1)) {
-            uVar2 = 1;
+    hasFigurine = 0;
+    maxFigurines = !gSave.saw_staffroll ? 130 : 136;
+    if ((0 < figurineIndex) || (maxFigurines >= figurineIndex)) {
+        if (ReadBit(gSave.figurines, figurineIndex)) {
+            hasFigurine = 1;
         }
     }
-    return uVar2;
+    return hasFigurine;
 }
 
 typedef struct {
@@ -307,7 +307,7 @@ extern const Figurine gFigurines[];
 #define sub_080A4978_draw_constant 0x1fc
 #endif
 void FigurineMenu_080A4978(void) {
-    int r0, r2, r4, r6;
+    int r0, maxFigurines, r4, r6;
 
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
@@ -315,11 +315,11 @@ void FigurineMenu_080A4978(void) {
     gOamCmd.x = 0x9c;
     gOamCmd.y = 0x48;
     DrawDirect(sub_080A4978_draw_constant, 0);
-    r2 = !gSave.saw_staffroll ? 0x82 : 0x88;
+    maxFigurines = !gSave.saw_staffroll ? 130 : 136;
     if ((gMenu.column_idx & 2) != 0) {
-        if (r2 >= (gFigurineMenu.figure_idx)) {
+        if (maxFigurines >= (gFigurineMenu.figure_idx)) {
             gOamCmd.x = 0xe8;
-            r0 = (0x5000 / r2) * (gFigurineMenu.figure_idx - 1);
+            r0 = (0x5000 / maxFigurines) * (gFigurineMenu.figure_idx - 1);
             if (r0 < 0) {
                 r0 += 0xff;
             }
@@ -367,7 +367,7 @@ void FigurineMenu_080A4978(void) {
         }
     }
     if (gMenu.column_idx & 1) {
-        if (sub_080A4948(gFigurineMenu.figure_idx)) {
+        if (FigurineMenu_isFigurineOwned(gFigurineMenu.figure_idx)) {
             gOamCmd.x = 0x2c;
             gOamCmd.y = 0x48;
             gOamCmd._8 = 0xd4 << 7;
@@ -447,7 +447,7 @@ extern void ShowTextBox(u32, const struct_0812816C*);
 
 void sub_080A4BA0(u32 arg1, u32 arg2) {
     int r0, r5, r6;
-    int tmp;
+    int maxFigurines;
 
     struct_0812816C s0;
     u8 buffer[0x30];
@@ -465,13 +465,13 @@ void sub_080A4BA0(u32 arg1, u32 arg2) {
         s0.unk14 = arg2;
     }
 
-    tmp = !gSave.saw_staffroll ? 0x82 : 0x88;
+    maxFigurines = !gSave.saw_staffroll ? 130 : 136;
 
-    if (r5 <= 0 || tmp < r5) {
+    if (r5 <= 0 || maxFigurines < r5) {
         r5 = -1;
     } else {
         sub_08057044(r5, gUnk_020227E8, 0x303030);
-        if (sub_080A4948(r5) == 0) {
+        if (FigurineMenu_isFigurineOwned(r5) == 0) {
             r5 += 0x8000;
         } else {
             r5 += 0x800;
@@ -526,18 +526,18 @@ const struct_0812816C gUnk_08128190 = {
     0x5u,
 };
 
-u32 sub_080A4CBC(u32 param_1) {
-    s32 iVar1;
+u32 sub_080A4CBC(u32 figurineIndex) {
+    s32 ownsFigurine;
     const u16* psVar2;
     u32 uVar3;
 
-    if (gFigurineMenu.unk1a != param_1) {
-        gFigurineMenu.unk1a = param_1;
+    if (gFigurineMenu.unk1a != figurineIndex) {
+        gFigurineMenu.unk1a = figurineIndex;
         MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
         MemCopy(&gBG1Buffer, (void*)0x600e000, sizeof(gBG1Buffer));
-        iVar1 = sub_080A4948(param_1);
-        if (iVar1 != 0) {
-            ShowTextBox(param_1 + 0x900, &gUnk_08128190);
+        ownsFigurine = FigurineMenu_isFigurineOwned(figurineIndex);
+        if (ownsFigurine != 0) {
+            ShowTextBox(figurineIndex + 0x900, &gUnk_08128190);
         }
         gScreen.bg1.updated = 1;
     }

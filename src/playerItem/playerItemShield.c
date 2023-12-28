@@ -1,29 +1,35 @@
+/**
+ * @file playerItemShield.c
+ * @ingroup Items
+ *
+ * @brief Shield Player Item
+ */
 #define NENT_DEPRECATED
-
-#include "entity.h"
-#include "player.h"
-#include "functions.h"
-#include "sound.h"
 #include "collision.h"
+#include "entity.h"
+#include "functions.h"
+#include "player.h"
 #include "playeritem.h"
+#include "sound.h"
 
 const Hitbox gUnk_081271CC = { 0, 0, { 1, 0, 0, 1 }, 8, 8 };
 
 typedef struct {
-    Entity base;
-    u8 unk_68;
-    u8 unk_69[3];
-    u32 bounceTimer;
-    u32 unk_70;
-    u32 unk_74;
-    u32 unk_78;
-    u8* unk_7c;
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x69*/ u8 unk_69[3];
+    /*0x6c*/ u32 bounceTimer;
+    /*0x70*/ u32 unk_70;
+    /*0x74*/ u32 unk_74;
+    /*0x78*/ u32 unk_78;
+    /*0x7c*/ u8* unk_7c;
 } PlayerItemShieldEntity;
-void sub_080A2D98(PlayerItemShieldEntity*);
-void sub_080A2E00(PlayerItemShieldEntity*);
-void (*const gUnk_081271D4[])(PlayerItemShieldEntity*) = {
-    sub_080A2D98,
-    sub_080A2E00,
+
+void PlayerItemShield_Init(PlayerItemShieldEntity* this);
+void PlayerItemShield_Action1(PlayerItemShieldEntity* this);
+void (*const PlayerItemShield_Actions[])(PlayerItemShieldEntity*) = {
+    PlayerItemShield_Init,
+    PlayerItemShield_Action1,
 };
 const u8 gUnk_081271DC[] = {
     7, 60, 0, 0, 0, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 0, 3, 2, 0, 0, 4, 2, 0, 0, 5, 2, 0, 0, 6, 2, 0,   0, 7, 20,
@@ -48,16 +54,16 @@ const Hitbox gUnk_08127258 = { 5, -4, { 0, 0, 0, 0 }, 5, 7 };
 const Hitbox gUnk_08127260 = { 0, 0, { 0, 0, 0, 0 }, 6, 7 };
 const Hitbox gUnk_08127268 = { -5, -4, { 0, 0, 0, 0 }, 5, 7 };
 
-void sub_080A2E00(PlayerItemShieldEntity* this);
+void PlayerItemShield_Action1(PlayerItemShieldEntity* this);
 
 void PlayerItemShield(PlayerItemShieldEntity* this) {
     if (this->bounceTimer != 0) {
         this->bounceTimer--;
     }
-    gUnk_081271D4[super->action](this);
+    PlayerItemShield_Actions[super->action](this);
 }
 
-void sub_080A2D98(PlayerItemShieldEntity* this) {
+void PlayerItemShield_Init(PlayerItemShieldEntity* this) {
     gPlayerState.item = super;
     super->action = 1;
     super->updatePriority = 6;
@@ -73,10 +79,10 @@ void sub_080A2D98(PlayerItemShieldEntity* this) {
     super->animationState = gPlayerEntity.animationState & 0xe;
     sub_08079BD8(super);
     LoadSwapGFX(super, 1, 3);
-    sub_080A2E00(this);
+    PlayerItemShield_Action1(this);
 }
 
-void sub_080A2E00(PlayerItemShieldEntity* this) {
+void PlayerItemShield_Action1(PlayerItemShieldEntity* this) {
     Entity* playerItem;
     u8* pbVar3;
     u32 tmp2;

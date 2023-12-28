@@ -105,7 +105,8 @@ void sub_080218CC(Entity* this) {
     if (this->subAction == 0) {
         this->subAction = 1;
         this->spriteSettings.draw = 1;
-        this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
+        this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) &
+                          (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
         this->speed = 0x100;
         this->zVelocity = Q_16_16(1.125);
     }
@@ -244,9 +245,9 @@ void sub_08021B64(Entity* this) {
             this->zVelocity = Q_16_16(1.0);
             ((u8*)&this->field_0x86)[1] = 0;
             if (gPlayerEntity.direction != 0xff) {
-                this->direction = 0x10 ^ gPlayerEntity.direction;
+                this->direction = DirectionSouth ^ gPlayerEntity.direction;
             } else {
-                this->direction = (gPlayerEntity.animationState << 2) ^ 0x10;
+                this->direction = (gPlayerEntity.animationState << 2) ^ DirectionSouth;
             }
             InitializeAnimation(this, 5);
         } else {

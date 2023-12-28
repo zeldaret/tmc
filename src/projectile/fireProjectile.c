@@ -1,6 +1,12 @@
-
-#include "entity.h"
+/**
+ * @file fireProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Fire Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const FireProjectile_Actions[])(Entity*);
@@ -18,7 +24,7 @@ void FireProjectile_Init(Entity* this) {
         InitializeAnimation(this, this->direction >> 3);
     } else {
         this->action = 2;
-        InitializeAnimation(this, this->direction >> 3 | 4);
+        InitializeAnimation(this, this->direction >> 3 | IdleSouth);
         EnqueueSFX(SFX_15E);
     }
 }
@@ -35,7 +41,7 @@ void FireProjectile_Action1(Entity* this) {
             if (this->spriteSettings.draw == 1) {
                 CopyPosition(parent, this);
                 if (this->timer != 0) {
-                    direction = parent->direction & 0x18;
+                    direction = parent->direction & DirectionWest;
                     this->direction = direction;
                     this->timer = 0;
                     InitializeAnimation(this, direction >> 3);

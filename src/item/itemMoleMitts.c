@@ -35,7 +35,7 @@ void sub_08077130(ItemBehavior* this, u32 index) {
         iVar1 = sub_080774A0();
         if (iVar1 != 0) {
             if (this->timer == 0) {
-                SetItemAnim(this, 0x50c);
+                SetItemAnim(this, ANIM_MOLEMITTS_DIG);
                 this->stateID = 2;
                 if (iVar1 == 0x56) {
                     if ((gPlayerEntity.animationState & 2) != 0) {
@@ -46,7 +46,7 @@ void sub_08077130(ItemBehavior* this, u32 index) {
                 }
             }
         } else {
-            SetItemAnim(this, 0x508);
+            SetItemAnim(this, ANIM_MOLEMITTS_FLOOR);
             this->stateID = 1;
         }
     } else {
@@ -72,9 +72,9 @@ void sub_080771C8(ItemBehavior* this, u32 index) {
         }
         if ((this->playerFrame & 0x10) != 0) {
             if (sub_0800875A(&gPlayerEntity, 0xd, this) == 0) {
-                SetItemAnim(this, 0x520);
+                SetItemAnim(this, ANIM_MOLEMITTS_MISS);
                 this->stateID = 3;
-                SoundReq(SFX_107);
+                SoundReq(SFX_ITEM_GLOVES_AIR);
             } else {
                 if (this->subtimer != 0xff) {
                     object = CreateObjectWithParent(&gPlayerEntity, OBJECT_1F, 0, this->field_0x2[1]);
@@ -141,7 +141,7 @@ void sub_080772A8(ItemBehavior* this, u32 index) {
                 SoundReq(SFX_108);
                 CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->playerFrame, 0);
             } else {
-                SetItemAnim(this, 0x51c);
+                SetItemAnim(this, ANIM_MOLEMITTS_CLANG);
                 effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
                 if (effect != NULL) {
                     effect->animationState = this->playerAnimationState;

@@ -218,7 +218,7 @@ void sub_08029688(Entity* this) {
 void sub_0802969C(Entity* this) {
     u32 bVar1;
 
-    if ((this->direction & 0xf) != 0) {
+    if (this->direction & (0x3 | DIR_DIAGONAL | DirectionEast)) {
 
         bVar1 = this->direction >> 4;
         if (bVar1 != this->animationState) {

@@ -19,10 +19,11 @@
 
 extern u8 gUnk_03003DE0;
 extern u8 gzHeap[0x1000];
+extern u8 gUnk_02035542[];
 extern u32 gDungeonMap[0x800];
 extern s16 gUnk_02018EE0[];
 
-extern void (*const gUnk_080C9CAC[])(void);
+extern void (*const gFuseActions[])(void);
 
 static void StoreKeyInput(Input* input, u32 keyInput);
 void ClearOAM(void);
@@ -78,6 +79,7 @@ bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank);
 u32 sub_0801DF60(u32 a1, u8* p);
 u32 sub_0801DF78(u32 a1, u32 a2);
 void DrawMapPixel(u32 x, u32 y, s32 color);
+void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset);
 
 extern void* GetRoomProperty(u32, u32, u32);
 
@@ -341,20 +343,106 @@ void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
     } while (--size);
 }
 
-ASM_FUNC("asm/non_matching/common/zMalloc.inc", void* zMalloc(u32 size));
+void* zMalloc(u32 size) {
+    u16* heapStartOffset;
+    u32 slotFound;
+    u8* allocatedEntryStartOffset;
+    u8* allocatedEntryEndOffset;
+    u8* candidateSlotEndOffset;
+    u8* candidateSlotStartOffset;
+    u16 index1, index2;
+    u16 numEntries;
+    // align to 4
+    size = (size + 3) & ~3;
 
-typedef struct {
-    u16 start; // chunk start (offset from gzHeap)
-    u16 end;   // chunk end (offset from gzHeap)
-} HEAP_ENTRY;
+    heapStartOffset = (u16*)(gzHeap);
+    numEntries = heapStartOffset[0];
+    slotFound = TRUE;
 
-typedef struct {
-    u16 num_entries; // allocated HEAP_ENTRYs in entries
+    // Check for a candidate slot at the tail-end of the heap buffer
+    candidateSlotEndOffset = (u8*)heapStartOffset + sizeof(gzHeap);
+    candidateSlotStartOffset = candidateSlotEndOffset - size;
+    for (index2 = 0; index2 < numEntries; index2++) {
 
-    // maybe union, HEAP_ENTRY and heap space share the same space
-    HEAP_ENTRY entries[0];
-    u8 buf[4096 - 4]; // pads to 0x1000
-} HEAP;
+        // Check if there is overlap with already allocated slots
+        allocatedEntryStartOffset = gzHeap + heapStartOffset[(index2 * 2) + 1];
+        allocatedEntryEndOffset = gzHeap + heapStartOffset[(index2 * 2) + 2];
+
+        if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+             candidateSlotStartOffset <= allocatedEntryEndOffset)) {
+            slotFound = FALSE;
+            break;
+        }
+
+        if ((allocatedEntryStartOffset <= candidateSlotEndOffset &&
+             candidateSlotEndOffset <= allocatedEntryEndOffset)) {
+            slotFound = FALSE;
+            break;
+        }
+
+        if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+             candidateSlotEndOffset <= allocatedEntryEndOffset) ||
+            (candidateSlotStartOffset <= allocatedEntryStartOffset &&
+             allocatedEntryEndOffset <= candidateSlotEndOffset)) {
+            slotFound = FALSE;
+            break;
+        }
+    }
+
+    if (!slotFound) {
+        index1 = 0;
+        // Start searching for candidate slot from the left side of the heap buffer.
+        do {
+            candidateSlotEndOffset = gzHeap + heapStartOffset[(index1 * 2) + 1];
+            candidateSlotStartOffset = candidateSlotEndOffset - size;
+            slotFound = FALSE;
+
+            // Ensure that the candidate slot doesn't collide with heap offsets section
+            if (candidateSlotStartOffset >= (u8*)(2 + (u32)heapStartOffset + (numEntries << 2) + 4)) {
+                slotFound = TRUE;
+
+                // Check if there is overlap with already allocated slots
+                for (index2 = 0; index2 < numEntries; index2++) {
+
+                    allocatedEntryStartOffset = gzHeap + heapStartOffset[(index2 * 2) + 1];
+                    allocatedEntryEndOffset = gzHeap + heapStartOffset[(index2 * 2) + 2];
+
+                    if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+                         candidateSlotStartOffset < allocatedEntryEndOffset)) {
+                        slotFound = FALSE;
+                        break;
+                    }
+
+                    if ((allocatedEntryStartOffset < candidateSlotEndOffset &&
+                         candidateSlotEndOffset <= allocatedEntryEndOffset)) {
+                        slotFound = FALSE;
+                        break;
+                    }
+
+                    if ((allocatedEntryStartOffset <= candidateSlotStartOffset &&
+                         candidateSlotEndOffset <= allocatedEntryEndOffset) ||
+                        (candidateSlotStartOffset <= allocatedEntryStartOffset &&
+                         allocatedEntryEndOffset <= candidateSlotEndOffset)) {
+                        slotFound = FALSE;
+                        break;
+                    }
+                }
+                if (slotFound) {
+                    break;
+                }
+            }
+        } while ((index1 = (u16)(index1 + 1)) < numEntries);
+    }
+    if (!slotFound)
+        return 0;
+
+    // Register successful allocation
+    *(u16*)(gUnk_02035542 + (numEntries << 2)) = candidateSlotStartOffset - (gUnk_02035542 - 2);
+    *(u16*)(gUnk_02035542 + (numEntries << 2) + 2) = candidateSlotStartOffset - (gUnk_02035542 - 2) + size;
+    *(u16*)(gUnk_02035542 - 2) = numEntries + 1;
+    MemClear(candidateSlotStartOffset, size);
+    return candidateSlotStartOffset;
+}
 
 void zFree(void* ptr) {
     u32 uVar1;
@@ -627,69 +715,71 @@ bool32 IsRoomVisited(TileEntity* tileEntity, u32 bank) {
     return FALSE;
 }
 
-void sub_0801DFB4(Entity* entity, u32 textIndex, u32 a3, u32 a4) {
+void InitializeFuseInfo(Entity* entity, u32 textIndex, u32 cancelledTextIndex, u32 fusingTextIndex) {
     MemClear(&gFuseInfo, sizeof(gFuseInfo));
     gFuseInfo.textIndex = textIndex;
-    gFuseInfo._8 = a3;
-    gFuseInfo._a = a4;
-    gFuseInfo.ent = entity;
+    gFuseInfo.cancelledTextIndex = cancelledTextIndex;
+    gFuseInfo.fusingTextIndex = fusingTextIndex;
+    gFuseInfo.entity = entity;
     gFuseInfo.kinstoneId = gPossibleInteraction.kinstoneId;
     if (entity != NULL) {
         gFuseInfo.prevUpdatePriority = entity->updatePriority;
         entity->updatePriority = 2;
     }
-    gFuseInfo._0 = 0;
+    gFuseInfo.fusionState = FUSION_STATE_0;
 }
 
-u32 sub_0801E00C(void) {
-    gUnk_080C9CAC[gFuseInfo.action]();
-    return gFuseInfo._0;
+// returns the fusion state
+u32 PerformFuseAction(void) {
+    gFuseActions[gFuseInfo.action]();
+    return gFuseInfo.fusionState;
 }
 
-void sub_0801E02C(void) {
+void Fuse_Action0(void) {
     MessageFromFusionTarget(gFuseInfo.textIndex);
-    gFuseInfo._0 = 3;
+    gFuseInfo.fusionState = FUSION_STATE_3;
     gFuseInfo.action = 1;
 }
 
-void sub_0801E044(void) {
+void Fuse_Action1(void) {
     if ((gMessage.doTextBox & 0x7F) == 0) {
         MenuFadeIn(4, 0);
-        gFuseInfo._0 = 4;
+        gFuseInfo.fusionState = FUSION_STATE_4;
         gFuseInfo.action = 2;
         SoundReq(SFX_6B);
     }
 }
 
-void sub_0801E074(void) {
-    u32 tmp;
-    switch (gFuseInfo._0) {
-        case 5:
-            tmp = gFuseInfo._8;
+// Waits until FUSION_STATE_5 or FUSION_STATE_6 is reached and displays the corresponding message.
+void Fuse_Action2(void) {
+    u32 textIndex;
+    switch (gFuseInfo.fusionState) {
+        case FUSION_STATE_5:
+            textIndex = gFuseInfo.cancelledTextIndex;
             break;
-        case 6:
-            tmp = gFuseInfo._a;
+        case FUSION_STATE_6:
+            textIndex = gFuseInfo.fusingTextIndex;
             break;
         default:
             return;
     }
-    MessageFromFusionTarget(tmp);
+    MessageFromFusionTarget(textIndex);
     gFuseInfo.action = 3;
 }
 
-void sub_0801E0A0(void) {
+void Fuse_Action3(void) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        if (gFuseInfo.ent != NULL) {
-            gFuseInfo.ent->updatePriority = gFuseInfo.prevUpdatePriority;
+        if (gFuseInfo.entity != NULL) {
+            gFuseInfo.entity->updatePriority = gFuseInfo.prevUpdatePriority;
         }
-        gFuseInfo._0 = gFuseInfo._0 == 6 ? 2 : 1;
+        gFuseInfo.fusionState = gFuseInfo.fusionState == FUSION_STATE_6 ? FUSION_STATE_2 : FUSION_STATE_1;
     }
 }
 
 void MessageFromFusionTarget(u32 textIndex) {
     if (textIndex != 0) {
-        if (gFuseInfo.ent != NULL) {
-            MessageNoOverlap(textIndex, gFuseInfo.ent);
+        if (gFuseInfo.entity != NULL) {
+            MessageNoOverlap(textIndex, gFuseInfo.entity);
         } else {
             MessageFromTarget(textIndex);
         }
@@ -798,46 +888,159 @@ void sub_0801E290(u32 param_1, u32 param_2, u32 count) {
     }
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801E31C.inc", void sub_0801E31C(u32 a1, u32 a2, u32 a3, u32 a4));
+void sub_0801E31C(u32 sp00, u32 sp04, s32 r10, s32 r9) {
+    u16 sp1c, sp1c2;
+    u16 kk, kk2;
+    u16 uVar2;
+    s32 r5;
+    s32 r6;
+    s32 r7;
+    s32 r8; // the lower one of param3 and param4
 
-ASM_FUNC("asm/non_matching/common/sub_0801E49C.inc", void sub_0801E49C(u32 a1, u32 a2, u32 a3, u32 a4));
+    MemClear(&gUnk_02017AA0[gUnk_03003DE4[0]], 0xa00);
+    if (r10 < r9) {
+        r6 = 0;
+        r7 = r8 = r10;
+        r5 = 3 - r8 * 2;
 
-void sub_0801E64C(s32 param_1, s32 param_2, s32 param_3, s32 param_4, s32 param_5) {
-    s32 sVar1;
-    s32* ptr = (s32*)gUnk_02018EE0;
-    FORCE_REGISTER(s32 tmp, r1);
-
-    if ((0 <= param_2 || 0 <= param_4) && (param_2 < 0xa0 || (param_4 < 0xa0))) {
-        if (param_2 > param_4) {
-            SWAP(param_2, param_4, tmp);
-            SWAP(param_1, param_3, tmp);
+        while (r6 <= r7) {
+            sp1c = Div(r9 * r6, r10);
+            kk = Div(r9 * r7, r10);
+            // TODO: Fix data type in declaration. There shouldn't be a need to cast this.
+            ((u32*)gUnk_02018EE0)[r6] = kk;
+            ((u32*)gUnk_02018EE0)[r7] = sp1c;
+            if (r5 < 0) {
+                r5 += 6 + r6 * 4;
+                r6++;
+            } else {
+                r5 += 10 + (r6 - r7) * 4;
+                r7--;
+                r6++;
+            }
         }
-        if (param_2 != param_4) {
-            sVar1 = Div((param_3 - param_1) * 0x10000, param_4 - param_2);
-            if (param_2 < 0) {
-                param_1 += (sVar1 * -param_2) >> 0x10;
-                param_2 = 0;
+    } else {
+        r6 = 0;
+        r7 = r8 = r9;
+        r5 = 3 - r8 * 2;
+
+        while (r6 <= r7) {
+            sp1c2 = Div(r10 * r6, r9);
+            kk2 = Div(r10 * r7, r9);
+            // TODO: Fix data type in declaration. There shouldn't be a need to cast this.
+            ((u32*)gUnk_02018EE0)[r6] = kk2;
+            ((u32*)gUnk_02018EE0)[r7] = sp1c2;
+            if (r5 < 0) {
+                r5 += 6 + r6 * 4;
+                r6++;
+            } else {
+                r5 += 10 + (r6 - r7) * 4;
+                r7--;
+                r6++;
             }
-            if (0x9f < param_4) {
-                param_4 = 0x9f;
-            }
-            param_3 = param_1 << 0x10;
-            ptr += param_2 * 3 + param_5;
-            do {
-                if (param_1 < 0) {
-                    param_1 = 0;
-                }
-                if (0xf0 < param_1) {
-                    param_1 = 0xf0;
-                }
-                *ptr = param_1;
-                param_3 += sVar1;
-                param_1 = param_3 >> 0x10;
-                param_2++;
-                ptr += 3;
-            } while (param_2 <= param_4);
         }
     }
+    sub_0801E290(sp00, sp04, r8);
+    SetVBlankDMA((u16*)&gUnk_02017AA0[gUnk_03003DE4[0]], (u16*)REG_ADDR_WIN0H,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
+}
+
+void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle) {
+    u8* ptr2;
+    u32* ptr1;
+    u32 angle;
+    s32 x1, x2, x3, y1, y2, y3;
+
+    MemFill16(0xffff, gUnk_02018EE0, 0x780);
+    angle = (baseAngle - 0x40) & 0xff;
+    x1 = baseX + (gSineTable[angle + 0x40] * radius >> 8);
+    y1 = baseY + (gSineTable[angle] * radius >> 8);
+    angle = (baseAngle + 0x68) & 0xff;
+    x2 = baseX + (gSineTable[angle + 0x40] * radius >> 8);
+    y2 = baseY + (gSineTable[angle] * radius >> 8);
+    angle = (baseAngle - 0xe8) & 0xff;
+    x3 = baseX + (gSineTable[angle + 0x40] * radius >> 8);
+    y3 = baseY + (gSineTable[angle] * radius >> 8);
+    sub_0801E64C(x1, y1, x2, y2, 0);
+    sub_0801E64C(x1, y1, x3, y3, 1);
+    sub_0801E64C(x2, y2, x3, y3, 2);
+    MemClear(gUnk_02017AA0[gUnk_03003DE4[0]].filler, 0xa00);
+    ptr1 = (u32*)gUnk_02018EE0;
+    ptr2 = gUnk_02017AA0[gUnk_03003DE4[0]].filler;
+    for (y1 = 0xa0; y1 > 0; y1--, ptr2 += 2) {
+        x1 = ptr1[0];
+        x2 = ptr1[1];
+        x3 = ptr1[2];
+        ptr1 += 3;
+        if (x1 > x2) {
+            SWAP(x1, x2, y2);
+        }
+        if (x1 > x3) {
+            SWAP(x1, x3, y2);
+        }
+        if (x2 > x3) {
+            SWAP(x2, x3, y2);
+        }
+        if (x1 != 0xffffffff) {
+            ptr2[0] = x3;
+            ptr2[1] = x1;
+        } else {
+            if (x2 != x1) {
+                ptr2[0] = x3;
+                ptr2[1] = x2;
+            } else {
+                if (x3 != x1) {
+                    ptr2[1] = x1;
+                    ptr2[0] = x1;
+                }
+            }
+        }
+    }
+    SetVBlankDMA((u16*)(gUnk_02017AA0[gUnk_03003DE4[0]].filler), (u16*)REG_ADDR_WIN0H,
+                 ((DMA_ENABLE | DMA_START_HBLANK | DMA_16BIT | DMA_REPEAT | DMA_SRC_INC | DMA_DEST_RELOAD) << 16) +
+                     0x1);
+}
+
+void sub_0801E64C(s32 x1, s32 y1, s32 x2, s32 y2, s32 offset) {
+    // GBA Resolutions
+    const s32 MAX_X_COORD = 240;
+    const s32 MAX_Y_COORD = 160;
+
+    s32 slope, preciseX, tmp;
+    s32* drawPtr = (s32*)gUnk_02018EE0;
+
+    if ((y1 < 0 && y2 < 0) || (y1 >= MAX_Y_COORD && y2 >= MAX_Y_COORD))
+        return;
+
+    if (y1 > y2) {
+        SWAP(y1, y2, tmp);
+        SWAP(x1, x2, tmp);
+    }
+
+    if (y1 == y2)
+        return;
+
+    slope = Div((x2 - x1) * 0x10000, y2 - y1);
+    if (y1 < 0) {
+        x1 += (slope * -y1) >> 0x10;
+        y1 = 0;
+    }
+    if (y2 >= MAX_Y_COORD) {
+        y2 = MAX_Y_COORD - 1;
+    }
+    preciseX = x1 << 0x10;
+    drawPtr += y1 * 3 + offset;
+    do {
+        // Clamp x1 in range
+        x1 = x1 < 0 ? 0 : x1;
+        x1 = x1 < MAX_X_COORD ? x1 : MAX_X_COORD;
+
+        *drawPtr = x1;
+        preciseX += slope;
+        x1 = preciseX >> 0x10;
+        y1++;
+        drawPtr += 3;
+    } while (y1 <= y2);
 }
 
 void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
@@ -845,13 +1048,13 @@ void NotifyFusersOnFusionDone(KinstoneId kinstoneId) {
     u32 index;
     if (kinstoneId - 1 < 100) {
         for (index = 0; index < 0x80; index++) {
-            if (kinstoneId == gSave.fuserOffers[index]) {
-                gSave.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
+            if (kinstoneId == gSave.kinstones.fuserOffers[index]) {
+                gSave.kinstones.fuserOffers[index] = KINSTONE_NEEDS_REPLACEMENT;
             }
         }
-        tmp = GetFuserId(gFuseInfo.ent);
-        if ((tmp - 1 < 0x7f) && (gSave.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
-            gSave.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
+        tmp = GetFuserId(gFuseInfo.entity);
+        if ((tmp - 1 < 0x7f) && (gSave.kinstones.fuserOffers[tmp] == KINSTONE_NEEDS_REPLACEMENT)) {
+            gSave.kinstones.fuserOffers[tmp] = KINSTONE_JUST_FUSED;
         }
         for (index = 0; index < 0x20; index++) {
             if (kinstoneId == gPossibleInteraction.candidates[index].kinstoneId) {
@@ -870,17 +1073,17 @@ void AddKinstoneToBag(KinstoneId kinstoneId) {
         index = GetIndexInKinstoneBag(kinstoneId);
         if (index < 0) {
             index = 0;
-            while (gSave.kinstoneTypes[index] != KINSTONE_NONE) {
+            while (gSave.kinstones.types[index] != KINSTONE_NONE) {
                 index++;
             }
         }
         if ((u32)index < 0x12) {
-            gSave.kinstoneTypes[index] = kinstoneId;
-            tmp = gSave.kinstoneAmounts[index] + 1;
+            gSave.kinstones.types[index] = kinstoneId;
+            tmp = gSave.kinstones.amounts[index] + 1;
             if (tmp > 99) {
                 tmp = 99;
             }
-            gSave.kinstoneAmounts[index] = tmp;
+            gSave.kinstones.amounts[index] = tmp;
         }
     }
 }
@@ -888,12 +1091,12 @@ void AddKinstoneToBag(KinstoneId kinstoneId) {
 void RemoveKinstoneFromBag(KinstoneId kinstoneId) {
     s32 idx = GetIndexInKinstoneBag(kinstoneId);
     if (idx >= 0) {
-        s32 next = gSave.kinstoneAmounts[idx] - 1;
+        s32 next = gSave.kinstones.amounts[idx] - 1;
         if (next <= 0) {
-            gSave.kinstoneTypes[idx] = KINSTONE_NONE;
+            gSave.kinstones.types[idx] = KINSTONE_NONE;
             next = 0;
         }
-        gSave.kinstoneAmounts[idx] = next;
+        gSave.kinstones.amounts[idx] = next;
     }
 }
 
@@ -902,92 +1105,50 @@ u32 GetAmountInKinstoneBag(KinstoneId kinstoneId) {
     if (index < 0) {
         return 0;
     }
-    return gSave.kinstoneAmounts[index];
+    return gSave.kinstones.amounts[index];
 }
 
 u32 CheckKinstoneFused(KinstoneId kinstoneId) {
     if (kinstoneId - 1 >= 100) {
         return 0;
     }
-    return ReadBit(&gSave.fusedKinstones, kinstoneId);
+    return ReadBit(&gSave.kinstones.fusedKinstones, kinstoneId);
 }
 
 bool32 CheckFusionMapMarkerDisabled(KinstoneId kinstoneId) {
     if (kinstoneId - 1 >= 100) {
         return FALSE;
     }
-    return ReadBit(&gSave.fusionUnmarked, kinstoneId);
+    return ReadBit(&gSave.kinstones.fusionUnmarked, kinstoneId);
 }
 
 void SortKinstoneBag(void) {
-#ifdef NON_MATCHING
-    u32 r5;
+    u32 i;
 
-    for (r5 = 0; r5 < 0x13; r5++) {
-        if (gSave.kinstoneAmounts[r5] == 0) {
-            gSave.kinstoneTypes[r5] = gSave.kinstoneAmounts[r5];
+    KinstoneSave* ptr = &gSave.kinstones;
+
+    for (i = 0; i < 19; i++) {
+        if (ptr->amounts[i] == 0) {
+            ptr->types[i] = 0;
         }
     }
 
-    gSave.kinstoneTypes[0x12] = 0;
-    gSave.kinstoneAmounts[0x12] = 0;
+    ptr->types[18] = 0;
+    ptr->amounts[18] = 0;
 
-    for (r5 = 0; r5 < 0x12; r5++) {
-        if ((gSave.kinstoneTypes[r5] - 0x65) > 0x10) {
-            MemCopy(&gSave.kinstoneTypes[r5 + 1], &gSave.kinstoneTypes[r5], 0x12 - r5);
-            MemCopy(&gSave.kinstoneAmounts[r5 + 1], &gSave.kinstoneAmounts[r5], 0x12 - r5);
+    for (i = 0; i < 18; i++) {
+        u32 t = ptr->types[i];
+        if (t < 0x65 || t > 0x75) {
+            MemCopy(&ptr->types[i + 1], &ptr->types[i], 0x12 - i);
+            MemCopy(&ptr->amounts[i + 1], &ptr->amounts[i], 0x12 - i);
         }
     }
-#else
-    u32 r0, r4, r5;
-    u32 new_var;
-    u8 *r1, *r2, *r3, *r6, *r7, *r8, *r9, *r10;
-
-    new_var = 4;
-    r1 = &gSave.inventory[34];
-    r5 = 0;
-    r2 = gSave.kinstoneTypes;
-code0_0:
-    r0 = r2[0x13];
-    r3 = &r1[4];
-    r10 = r3;
-    if (r0 == 0) {
-        *r2 = r0;
-    }
-    r2++;
-    r5++;
-    if (r5 <= 0x12)
-        goto code0_0;
-
-    r1[0x16] = 0;
-    r1[0x29] = 0;
-    r5 = 0;
-    r9 = &r1[0x17];
-    r3 = &r1[0x18];
-    r8 = r3;
-    r7 = &r1[new_var];
-    r6 = &r1[5];
-code0_2:
-    r0 = r10[r5] - 0x65;
-    if (r0 > 0x10) {
-        MemCopy(r6, r7, 0x12 - r5);
-        MemCopy(r8, r9, 0x12 - r5);
-    }
-    r9++;
-    r8++;
-    r7++;
-    r6++;
-    r5++;
-    if (r5 <= 0x11)
-        goto code0_2;
-#endif
 }
-
 s32 GetIndexInKinstoneBag(KinstoneId kinstoneId) {
     u32 i;
 
     for (i = 0; i < 0x12; ++i) {
-        if (kinstoneId == gSave.kinstoneTypes[i])
+        if (kinstoneId == gSave.kinstones.types[i])
             return i;
     }
     return -1;
@@ -1055,7 +1216,7 @@ void UpdateVisibleFusionMapMarkers(void) {
 #else
             if (sub_0807CB24(tmp, s->flag)) {
 #endif
-                WriteBit(&gSave.fusionUnmarked, kinstoneId);
+                WriteBit(&gSave.kinstones.fusionUnmarked, kinstoneId);
             }
         }
     }
@@ -1076,8 +1237,8 @@ KinstoneId GetFusionToOffer(Entity* entity) {
     if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0 || fuserData[0] > gSave.global_progress) {
         return KINSTONE_NONE;
     }
-    offeredFusion = gSave.fuserOffers[fuserId];
-    fuserProgress = gSave.fuserProgress[fuserId];
+    offeredFusion = gSave.kinstones.fuserOffers[fuserId];
+    fuserProgress = gSave.kinstones.fuserProgress[fuserId];
     fuserFusionData = (u8*)(fuserProgress + (u32)fuserData);
     while (TRUE) { // loop through fusions for this fuser
         switch (offeredFusion) {
@@ -1108,8 +1269,8 @@ KinstoneId GetFusionToOffer(Entity* entity) {
         }
         offeredFusion = KINSTONE_NEEDS_REPLACEMENT; // already completed, try next fusion in the list
     }
-    gSave.fuserOffers[fuserId] = offeredFusion;
-    gSave.fuserProgress[fuserId] = fuserProgress;
+    gSave.kinstones.fuserOffers[fuserId] = offeredFusion;
+    gSave.kinstones.fuserProgress[fuserId] = fuserProgress;
     randomMood = Random();
     fuserStability = fuserData[1];
     if (fuserStability <= randomMood % 100) {
@@ -1619,11 +1780,11 @@ const DungeonFloorMetadata gDungeonFloorMetadatas[] = {
     { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 }, { 1, 3, 3 },
 };
 
-void (*const gUnk_080C9CAC[])(void) = {
-    sub_0801E02C,
-    sub_0801E044,
-    sub_0801E074,
-    sub_0801E0A0,
+void (*const gFuseActions[])(void) = {
+    Fuse_Action0,
+    Fuse_Action1,
+    Fuse_Action2,
+    Fuse_Action3,
 };
 
 // TODO merge

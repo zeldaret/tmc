@@ -1,46 +1,52 @@
+/**
+ * @file playerItemFireRodProjectile.c
+ * @ingroup Items
+ *
+ * @brief Fire Rod Projectile Player Item
+ */
 #define NENT_DEPRECATED
 #include "asm.h"
-#include "entity.h"
-#include "sound.h"
-#include "physics.h"
-#include "functions.h"
 #include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "physics.h"
 #include "playeritem.h"
+#include "sound.h"
 
 typedef struct {
-    Entity base;
-    u8 unk68;
-    u16 unk6a;
-    u32 unk6c;
-} FireRodProjectileEntity;
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x6a*/ u8 unused[2];
+    /*0x6c*/ u32 unk_6c;
+} PlayerItemFireRodProjectileEntity;
 
 extern u8 gUnk_08003E44;
 
-void sub_080A3084(FireRodProjectileEntity*);
-void sub_080A310C(FireRodProjectileEntity*);
+void PlayerItemFireRodProjectile_Init(PlayerItemFireRodProjectileEntity* this);
+void PlayerItemFireRodProjectile_Action1(PlayerItemFireRodProjectileEntity* this);
 
 void PlayerItemFireRodProjectile(Entity* this) {
-    static void (*const actionFuncs[])(FireRodProjectileEntity*) = {
-        sub_080A3084,
-        sub_080A310C,
+    static void (*const PlayerItemFireRodProjectile_Actions[])(PlayerItemFireRodProjectileEntity*) = {
+        PlayerItemFireRodProjectile_Init,
+        PlayerItemFireRodProjectile_Action1,
     };
-    actionFuncs[this->action]((FireRodProjectileEntity*)this);
+    PlayerItemFireRodProjectile_Actions[this->action]((PlayerItemFireRodProjectileEntity*)this);
 }
 
-void sub_080A3084(FireRodProjectileEntity* this) {
+void PlayerItemFireRodProjectile_Init(PlayerItemFireRodProjectileEntity* this) {
     static const Hitbox gUnk_08127278 = { 0, 0, { 4, 2, 2, 4 }, 6, 6 };
     super->spriteSettings.draw = 1;
-    super->action = 0x01;
+    super->action = 1;
     CopyPosition(super->parent, super);
     if (super->type == 0) {
         super->collisionFlags = gPlayerEntity.collisionFlags + 1;
         super->hitbox = (Hitbox*)&gUnk_08127278;
         super->speed = 0x400;
-        if (super->collisionLayer == 0x02) {
-            super->type2 = 0x01;
+        if (super->collisionLayer == 2) {
+            super->type2 = 1;
         }
         super->direction = Direction8FromAnimationState(super->animationState);
-        this->unk6c = 60;
+        this->unk_6c = 60;
         sub_0801766C(super);
         LinearMoveUpdate(super);
         SoundReq(SFX_ITEM_SWORD_BEAM);
@@ -48,17 +54,17 @@ void sub_080A3084(FireRodProjectileEntity* this) {
         super->timer = 6;
     }
     InitializeAnimation(super, 0x18);
-    sub_080A310C(this);
+    PlayerItemFireRodProjectile_Action1(this);
 }
 
-void sub_080A310C(FireRodProjectileEntity* this) {
+void PlayerItemFireRodProjectile_Action1(PlayerItemFireRodProjectileEntity* this) {
     if (super->type != 0) {
         if (super->timer-- == 0) {
             DeleteThisEntity();
         }
     } else {
         GetNextFrame(super);
-        if (this->unk6c-- != 0) {
+        if (this->unk_6c-- != 0) {
             GetNextFrame(super);
             LinearMoveUpdate(super);
             super->timer++;
@@ -77,7 +83,7 @@ void sub_080A310C(FireRodProjectileEntity* this) {
             if (sub_08008790(super, 0xc)) {
                 DeleteThisEntity();
             }
-            super->child = CreatePlayerItem(PLAYER_ITEM_FIRE_ROD_PROJECTILE, 1, 0, this->unk68);
+            super->child = CreatePlayerItem(PLAYER_ITEM_FIRE_ROD_PROJECTILE, 1, 0, this->unk_68);
             if (super->child != NULL) {
                 super->child->parent = super;
             }

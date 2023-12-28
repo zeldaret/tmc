@@ -4,7 +4,6 @@
  *
  * @brief Figurine Device object
  */
-
 #define NENT_DEPRECATED
 #include "figurineMenu.h"
 #include "fileselect.h"
@@ -33,13 +32,13 @@ typedef struct {
     /*0x7e*/ u8 unk_7e[2];
     /*0x80*/ u8 unk_80;
 #endif
-    /*0x81*/ u8 unk_81;
+    /*0x81*/ u8 shells;
 #ifdef EU
-    /*0x82*/ u8 unk_82;
-    /*0x83*/ u8 unk_83;
+    /*0x82*/ u8 prevChance;
+    /*0x83*/ u8 chance;
 #else
-    /*0x82*/ s8 unk_82;
-    /*0x83*/ s8 unk_83;
+    /*0x82*/ s8 prevChance;
+    /*0x83*/ s8 chance;
 #endif
 } FigurineDeviceEntity;
 
@@ -48,14 +47,14 @@ extern u8 gUnk_020227F0;
 
 void sub_0808804C(FigurineDeviceEntity*);
 void sub_08087F58(FigurineDeviceEntity*);
-void sub_08088328(FigurineDeviceEntity*);
+void FigurineDevice_Draw(FigurineDeviceEntity*);
 void sub_0808826C(FigurineDeviceEntity*);
 void sub_080882A8(FigurineDeviceEntity*);
 void sub_080880D8(FigurineDeviceEntity*);
-void sub_08087F94(FigurineDeviceEntity*, s32);
-void sub_08088034(FigurineDeviceEntity*);
+void FigurineDevice_ChangeShellAmount(FigurineDeviceEntity*, s32);
+void FigurineDevice_PlayErrorSound(FigurineDeviceEntity*);
 bool32 sub_08088160(FigurineDeviceEntity*, s32);
-void sub_08088424(FigurineDeviceEntity*);
+void FigurineDevice_GetChanceBasedOffFigurineCount(FigurineDeviceEntity*);
 void FigurineDevice_Init(FigurineDeviceEntity*);
 void FigurineDevice_Action1(FigurineDeviceEntity*);
 void FigurineDevice_Action2(FigurineDeviceEntity*);
@@ -110,7 +109,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
         case 3:
             super->timer = 30;
             super->subtimer = 0;
-            this->unk_81 = 1;
+            this->shells = 1;
             this->unk_7a = 0;
             this->unk_7b = 0;
             this->unk_80 = 0;
@@ -127,8 +126,8 @@ void FigurineDevice_Action1(FigurineDeviceEntity* this) {
             AddInteractableCheckableObject(super);
             break;
         case 1:
-            if (super->interactType != 0) {
-                super->interactType = 0;
+            if (super->interactType != INTERACTION_NONE) {
+                super->interactType = INTERACTION_NONE;
                 ResetPlayerAnimationAndAction();
                 if (CheckLocalFlag(SHOP07_TANA)) {
                     this->unk_7a = 2;
@@ -167,7 +166,7 @@ void FigurineDevice_Action2(FigurineDeviceEntity* this) {
             SetLocalFlag(SHOP07_TANA);
         case 1:
             this->unk_7a = 0;
-            sub_08088328((FigurineDeviceEntity*)super->child);
+            FigurineDevice_Draw((FigurineDeviceEntity*)super->child);
             ClearRoomFlag(0);
             entity = CreateObject(FIGURINE_DEVICE, 2, 0);
             if (entity != NULL) {
@@ -235,7 +234,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
                     return;
                 }
                 this->unk_7a = 1;
-                this->unk_81 = 1;
+                this->shells = 1;
                 ClearRoomFlag(1);
                 sub_0808826C(this);
                 sub_080882A8(this);
@@ -247,16 +246,16 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             if (super->timer != 0) {
                 super->timer--;
             }
-            if ((gInput.newKeys & 1) != 0) {
+            if ((gInput.newKeys & A_BUTTON) != 0) {
                 SoundReq(SFX_TEXTBOX_SELECT);
                 this->unk_7a = 2;
                 super->timer = 60;
                 sub_08050384();
                 return;
             }
-            old_81 = this->unk_81;
+            old_81 = this->shells;
 #ifndef EU
-            if ((gInput.heldKeys & 0x100) != 0) {
+            if ((gInput.heldKeys & R_BUTTON) != 0) {
                 tmp = 10;
             } else {
                 tmp = 1;
@@ -266,26 +265,26 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
 #else
             switch (gInput.unk4 & 0xfffffeff) {
 #endif
-                case 0x40:
-                    sub_08087F94(this, tmp);
+                case DPAD_UP:
+                    FigurineDevice_ChangeShellAmount(this, tmp);
                     break;
-                case 0x80:
-                    sub_08087F94(this, -tmp);
+                case DPAD_DOWN:
+                    FigurineDevice_ChangeShellAmount(this, -tmp);
                     break;
             }
-            if (old_81 != this->unk_81) {
+            if (old_81 != this->shells) {
                 sub_080882A8(this);
             }
 #else
             switch (gInput.unk4) {
-                case 0x40:
-                    sub_08087F94(this, 1);
+                case DPAD_UP:
+                    FigurineDevice_ChangeShellAmount(this, 1);
                     break;
-                case 0x80:
-                    sub_08087F94(this, -1);
+                case DPAD_DOWN:
+                    FigurineDevice_ChangeShellAmount(this, -1);
                     break;
             }
-            if (old_81 != this->unk_81) {
+            if (old_81 != this->shells) {
                 sub_080882A8(this);
             }
 #endif
@@ -299,7 +298,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             gMessage.textWindowPosX = 1;
             gMessage.textWindowPosY = 0xc;
 #endif
-            gMessage.rupees = this->unk_81;
+            gMessage.rupees = this->shells;
             break;
     }
 }
@@ -315,124 +314,124 @@ void sub_08087F58(FigurineDeviceEntity* this) {
     }
 }
 
-void sub_08087F94(FigurineDeviceEntity* this, s32 param_2) {
+void FigurineDevice_ChangeShellAmount(FigurineDeviceEntity* this, s32 shellDifference) {
 #ifdef EU
-    u32 uVar8;
-    u32 iVar9;
+    u32 newAmount;
+    u32 newChance;
 
-    iVar9 = this->unk_83 + param_2;
+    newChance = this->chance + shellDifference;
     if (CheckLocalFlag(SHOP07_COMPLETE)) {
-        sub_08088034(this);
+        FigurineDevice_PlayErrorSound(this);
         return;
     }
 
-    if (param_2 < 0) {
-        if (iVar9 < this->unk_82) {
-            if (this->unk_83 != this->unk_82) {
-                this->unk_83 = this->unk_82;
-                this->unk_81 = 1;
+    if (shellDifference < 0) {
+        if (newChance < this->prevChance) {
+            if (this->chance != this->prevChance) {
+                this->chance = this->prevChance;
+                this->shells = 1;
                 SoundReq(SFX_TEXTBOX_CHOICE);
             } else {
-                sub_08088034(this);
+                FigurineDevice_PlayErrorSound(this);
             }
         } else {
-            this->unk_83 = iVar9;
-            this->unk_81 += param_2;
+            this->chance = newChance;
+            this->shells += shellDifference;
             SoundReq(SFX_TEXTBOX_CHOICE);
         }
         return;
     }
-    uVar8 = this->unk_81 + param_2;
-    if (uVar8 > (s32)gSave.stats.shells) {
-        if (gSave.stats.shells != this->unk_81) {
-            uVar8 = gSave.stats.shells;
-            param_2 = (gSave.stats.shells - this->unk_81);
-            iVar9 = this->unk_83 + param_2;
+    newAmount = this->shells + shellDifference;
+    if (newAmount > gSave.stats.shells) {
+        if (gSave.stats.shells != this->shells) {
+            newAmount = gSave.stats.shells;
+            shellDifference = (gSave.stats.shells - this->shells);
+            newChance = this->chance + shellDifference;
         } else {
-            sub_08088034(this);
+            FigurineDevice_PlayErrorSound(this);
             return;
         }
-    } else if (iVar9 > 100) {
-        if (this->unk_83 == 100) {
-            sub_08088034(this);
+    } else if (newChance > 100) {
+        if (this->chance == 100) {
+            FigurineDevice_PlayErrorSound(this);
             return;
         } else {
-            iVar9 = 100;
-            param_2 = (iVar9 - this->unk_83);
-            uVar8 = this->unk_81 + param_2;
+            newChance = 100;
+            shellDifference = (newChance - this->chance);
+            newAmount = this->shells + shellDifference;
         }
     }
 
 #else
-    s32 uVar8;
-    s32 iVar9;
-    s32 t1, t2;
+    s32 newAmount;
+    s32 newChance;
+    s32 prevChance, prevShells;
 
     if (CheckLocalFlag(SHOP07_COMPLETE)) {
-        sub_08088034(this);
+        FigurineDevice_PlayErrorSound(this);
         return;
     }
 
-    // This could probably be done without t1 and t2
-    t1 = this->unk_83;
-    iVar9 = t1 + param_2;
-    if (param_2 < 0) {
-        if (iVar9 < this->unk_82) {
-            if (this->unk_83 != this->unk_82) {
-                this->unk_83 = this->unk_82;
-                this->unk_81 = 1;
+    // This could probably be done without prevChance and prevShells
+    prevChance = this->chance;
+    newChance = prevChance + shellDifference;
+    if (shellDifference < 0) {
+        if (newChance < this->prevChance) {
+            if (this->chance != this->prevChance) {
+                this->chance = this->prevChance;
+                this->shells = 1;
                 SoundReq(SFX_TEXTBOX_CHOICE);
             } else {
-                sub_08088034(this);
+                FigurineDevice_PlayErrorSound(this);
             }
         } else {
-            this->unk_83 = iVar9;
-            this->unk_81 += param_2;
+            this->chance = newChance;
+            this->shells += shellDifference;
             SoundReq(SFX_TEXTBOX_CHOICE);
         }
         return;
     }
-    t2 = this->unk_81;
-    uVar8 = t2 + param_2;
-    if (uVar8 > gSave.stats.shells) {
-        if (gSave.stats.shells != this->unk_81) {
-            uVar8 = gSave.stats.shells;
-            param_2 = (gSave.stats.shells - this->unk_81);
-            iVar9 = t1 + param_2;
+    prevShells = this->shells;
+    newAmount = prevShells + shellDifference;
+    if (newAmount > gSave.stats.shells) {
+        if (gSave.stats.shells != this->shells) {
+            newAmount = gSave.stats.shells;
+            shellDifference = (gSave.stats.shells - this->shells);
+            newChance = prevChance + shellDifference;
 #ifdef JP
-            if (iVar9 > 100) {
-                iVar9 = 100;
-                param_2 = (iVar9 - t1);
-                uVar8 = t2 + param_2;
+            if (newChance > 100) {
+                newChance = 100;
+                shellDifference = (newChance - prevChance);
+                newAmount = prevShells + shellDifference;
             }
 #endif
         } else {
-            sub_08088034(this);
+            FigurineDevice_PlayErrorSound(this);
             return;
         }
     }
 #ifdef JP
-    else if (iVar9 > 100) {
+    else if (newChance > 100) {
 #else
-    if (iVar9 > 100) {
+    if (newChance > 100) {
 #endif
-        if (this->unk_83 == 100) {
-            sub_08088034(this);
+        if (this->chance == 100) {
+            FigurineDevice_PlayErrorSound(this);
             return;
         } else {
-            iVar9 = 100;
-            param_2 = (iVar9 - t1);
-            uVar8 = t2 + param_2;
+            newChance = 100;
+            shellDifference = (newChance - prevChance);
+            newAmount = prevShells + shellDifference;
         }
     }
 #endif
 
-    this->unk_83 = iVar9;
-    this->unk_81 = uVar8;
+    this->chance = newChance;
+    this->shells = newAmount;
     SoundReq(SFX_TEXTBOX_CHOICE);
 }
 
-void sub_08088034(FigurineDeviceEntity* this) {
+void FigurineDevice_PlayErrorSound(FigurineDeviceEntity* this) {
     if (super->timer == 0) {
         super->timer = 20;
         SoundReq(SFX_MENU_ERROR);
@@ -475,26 +474,24 @@ void sub_080880D8(FigurineDeviceEntity* this) {
         it++;
     }
     if (++this->unk_7b == 4) {
-        if (gSave.field_0x9[0] != this->unk_80) {
-            if (gSave.field_0x9[0] != 0) {
+        if (gSave.available_figurines != this->unk_80) {
+            if (gSave.available_figurines != 0) {
                 SetRoomFlag(6);
             }
-            gSave.field_0x9[0] = this->unk_80;
+            gSave.available_figurines = this->unk_80;
         }
-        if (CheckLocalFlag(SHOP07_COMPLETE) && (this->unk_80 != gSave.stats.filler[0])) {
+        if (CheckLocalFlag(SHOP07_COMPLETE) && (this->unk_80 != gSave.stats.figurineCount)) {
             ClearLocalFlag(SHOP07_COMPLETE);
         }
     }
 }
 
-NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
-         bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2)) {
-    u8 bVar1;
-    bool32 condition;
-    u32 uVar3;
+bool32 sub_08088160(FigurineDeviceEntity* this, s32 param_2) {
     bool32 result;
     const struct_080FC3E4* ptr;
-    u32 tmp;
+#if !defined(JP) && !defined(EU)
+    u8 kinstoneId;
+#endif
 
     ptr = &gUnk_080FC3E4[param_2];
     result = FALSE;
@@ -504,74 +501,81 @@ NONMATCH("asm/non_matching/figurineDevice/sub_08088160.inc",
         switch (ptr->unk_6) {
             case 0x8:
             case 0x40:
-                if (CheckLocalFlagByBank(ptr->bank, ptr->flag)) {
+                if (CheckLocalFlagByBank(ptr->bank, ptr->flag))
                     result = TRUE;
-                }
-                return result;
                 break;
             case 0x10:
-                if (CheckKinstoneFused(gUnk_080FC3E4[param_2].flag)) {
+                if (CheckKinstoneFused(ptr->flag))
                     result = TRUE;
-                }
-                return result;
                 break;
             default:
-                return result;
+                break;
             case 0x20:
-                switch (gUnk_080FC3E4[param_2].flag) {
+                switch (ptr->flag) {
+#if defined(JP) || defined(EU)
                     case 0:
                         if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10) ||
-                            CheckKinstoneFused(KINSTONE_19)) {
+                            CheckKinstoneFused(KINSTONE_19))
                             result = TRUE;
-                        }
                         break;
                     case 1:
-                        if ((u8)this->unk_7c >= 5 && CheckKinstoneFused(KINSTONE_28)) {
+                        if (this->unk_7c >= 5 && CheckKinstoneFused(KINSTONE_28))
                             result = TRUE;
-                        }
-
                         break;
+#else
+                    case 0:
+                        if (CheckKinstoneFused(KINSTONE_20) || CheckKinstoneFused(KINSTONE_10)) {
+                            result = TRUE;
+                            break;
+                        }
+                        kinstoneId = KINSTONE_19;
+                    backward_tail_merge:
+                        if (CheckKinstoneFused(kinstoneId))
+                            result = TRUE;
+                        break;
+                    case 1:
+                        if (this->unk_7c >= 5) {
+                            kinstoneId = KINSTONE_28;
+                            goto backward_tail_merge;
+                        }
+                        break;
+#endif
                     case 2:
                         if (CheckKinstoneFused(KINSTONE_54) || CheckKinstoneFused(KINSTONE_56) ||
-                            CheckKinstoneFused(KINSTONE_3D)) {
+                            CheckKinstoneFused(KINSTONE_3D))
                             result = TRUE;
-                        }
                         break;
                     case 3:
                         if (CheckKinstoneFused(KINSTONE_3B) || CheckKinstoneFused(KINSTONE_4A) ||
-                            CheckKinstoneFused(KINSTONE_D)) {
+                            CheckKinstoneFused(KINSTONE_D))
                             result = TRUE;
-                        }
                         break;
                     case 4:
                         if (CheckKinstoneFused(KINSTONE_49) || CheckKinstoneFused(KINSTONE_55) ||
-                            CheckKinstoneFused(KINSTONE_3C)) {
+                            CheckKinstoneFused(KINSTONE_3C))
                             result = TRUE;
-                        }
                         break;
+#if !defined(JP) && !defined(EU)
                     case 5:
-                        if (this->unk_7c >= 2 && CheckGlobalFlag(MACHI_MACHIHOKORI)) {
+                        if (this->unk_7c >= 2 && CheckGlobalFlag(MACHI_MACHIHOKORI))
                             result = TRUE;
-                        }
-                    default:
-                        return result;
+                        break;
+#endif
                 }
-                break;
         }
     }
     return result;
 }
-END_NONMATCH
 
 void sub_0808826C(FigurineDeviceEntity* this) {
-    s32 tmp = 0x64;
-    tmp *= ((this->unk_80 - gSave.stats.filler[0]));
-    tmp = tmp / this->unk_80;
+    s32 tmp = 100;
+    tmp *= this->unk_80 - gSave.stats.figurineCount;
+    tmp /= this->unk_80;
     if (tmp == 0 && !CheckLocalFlag(SHOP07_COMPLETE)) {
         tmp = 1;
     }
-    this->unk_83 = tmp;
-    this->unk_82 = this->unk_83;
+    this->chance = tmp;
+    this->prevChance = this->chance;
 }
 
 void sub_080882A8(FigurineDeviceEntity* this) {
@@ -593,8 +597,8 @@ void sub_080882A8(FigurineDeviceEntity* this) {
     static const u16 gUnk_08120AE4[] = { TEXT_INDEX(TEXT_CARLOV, 0x18), TEXT_INDEX(TEXT_CARLOV, 0x19) };
     u8* ptr;
     sub_08050384();
-    sub_08057044(this->unk_81, gUnk_020227E8, 0x202020);
-    sub_08057044(this->unk_83, &gUnk_020227E8[1], 0x202020);
+    sub_08057044(this->shells, gUnk_020227E8, 0x202020);
+    sub_08057044(this->chance, &gUnk_020227E8[1], 0x202020);
     ptr = (u8*)0x02000000;
     if (ptr[7] == 0) {
         ShowTextBox(gUnk_08120AE4[super->type2], (Font*)&gUnk_08120AB4); // TODO convert data
@@ -604,114 +608,114 @@ void sub_080882A8(FigurineDeviceEntity* this) {
     gScreen.bg0.updated = 1;
 }
 
-void sub_08088328(FigurineDeviceEntity* this) {
-    u32 uVar2;
-    u32 uVar3;
-    u32 uVar5;
-    u32 uVar6;
+void FigurineDevice_Draw(FigurineDeviceEntity* this) {
+    u32 isLucky;
+    u32 rand;
+    u32 prevFigurineIndex;
+    u32 figurineIndex;
 
     do {
-        uVar2 = Random();
-        uVar2 &= 0x7f;
-    } while (uVar2 >= 100);
-    ModShells(-this->unk_81);
-    uVar3 = Random();
-    uVar6 = (uVar3 & 0x7f) + 1;
-    uVar5 = uVar6;
-    sub_08088424(this);
-    if (uVar2 < this->unk_83) {
-        uVar2 = FALSE;
+        isLucky = Random();
+        isLucky &= 0x7f;
+    } while (isLucky >= 100);
+    ModShells(-this->shells);
+    rand = Random();
+    figurineIndex = (rand & 0x7f) + 1;
+    prevFigurineIndex = figurineIndex;
+    FigurineDevice_GetChanceBasedOffFigurineCount(this);
+    if (isLucky < this->chance) {
+        isLucky = FALSE;
         do {
-            if (uVar2)
+            if (isLucky)
                 break;
-            if (uVar6 > 0x88) {
-                uVar6 = 1;
+            if (figurineIndex > 136) {
+                figurineIndex = 1;
             }
-            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) == 0) {
-                uVar2 = TRUE;
+            if (sub_08088160(this, figurineIndex) && ReadBit(gSave.figurines, figurineIndex) == 0) {
+                isLucky = TRUE;
             } else {
-                uVar6++;
+                figurineIndex++;
             }
-        } while (uVar5 != uVar6);
+        } while (prevFigurineIndex != figurineIndex);
     } else {
-        uVar2 = TRUE;
+        isLucky = TRUE;
         do {
-            if (!uVar2)
+            if (!isLucky)
                 break;
-            if (uVar6 > 0x88) {
-                uVar6 = 1;
+            if (figurineIndex > 136) {
+                figurineIndex = 1;
             }
-            if (sub_08088160(this, uVar6) && ReadBit(&gSave.stats.filler4[4], uVar6) != 0) {
-                uVar2 = FALSE;
+            if (sub_08088160(this, figurineIndex) && ReadBit(gSave.figurines, figurineIndex) != 0) {
+                isLucky = FALSE;
             } else {
-                uVar6++;
+                figurineIndex++;
             }
-        } while (uVar5 != uVar6);
+        } while (prevFigurineIndex != figurineIndex);
     }
-    if (uVar2) {
-        gSave.stats.filler[0]++;
-        if (gSave.stats.filler[0] != this->unk_80) {
+    if (isLucky) {
+        gSave.stats.figurineCount++;
+        if (gSave.stats.figurineCount != this->unk_80) {
             SetRoomFlag(7);
         } else {
             SetLocalFlag(SHOP07_COMPLETE);
             SetRoomFlag(8);
         }
     }
-    this->unk_7d = uVar6;
-    ((FigurineDeviceEntity*)super->parent)->unk_7d = uVar6;
+    this->unk_7d = figurineIndex;
+    ((FigurineDeviceEntity*)super->parent)->unk_7d = figurineIndex;
 }
 
-void sub_08088424(FigurineDeviceEntity* this) {
-    if (gSave.stats.filler[0] < 0x32) {
-        if (this->unk_83 < 0x0f) {
-            this->unk_83 = 0x0f;
+void FigurineDevice_GetChanceBasedOffFigurineCount(FigurineDeviceEntity* this) {
+    if (gSave.stats.figurineCount < 50) {
+        if (this->chance < 15) {
+            this->chance = 15;
         }
-    } else if (gSave.stats.filler[0] < 0x50) {
-        if (this->unk_83 < 0xc) {
-            this->unk_83 = 0xc;
+    } else if (gSave.stats.figurineCount < 80) {
+        if (this->chance < 12) {
+            this->chance = 12;
         }
-    } else if (gSave.stats.filler[0] < 0x6e) {
-        if (this->unk_83 < 9) {
-            this->unk_83 = 9;
+    } else if (gSave.stats.figurineCount < 110) {
+        if (this->chance < 9) {
+            this->chance = 9;
         }
     } else {
-        if (this->unk_83 < 6) {
-            this->unk_83 = 6;
+        if (this->chance < 6) {
+            this->chance = 6;
         }
     }
 }
 
-void sub_08088478(void) {
+void FigurineDevice_NoFigurinesLeftMessage(void) {
     u32 messageIndex;
-    bool32 set0x10 = FALSE;
+    bool32 isUnlucky = FALSE;
     if (!CheckRoomFlag(8)) {
         if (!CheckRoomFlag(7)) {
-            messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x22);
-            set0x10 = TRUE;
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 34); // Oh! Looks like you've already got that...
+            isUnlucky = TRUE;
         } else {
-            messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x25);
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 37); // Congratulations! I'll keep the figurine...
         }
     } else {
-        switch (gSave.stats.filler[0]) {
-            case 0x88:
-                gSave.stats.filler[1] = 0xff;
-                messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x29);
+        switch (gSave.stats.figurineCount) {
+            case 136:
+                gSave.stats._hasAllFigurines = 0xff;
+                messageIndex = TEXT_INDEX(TEXT_CARLOV, 41); // No way! Congratulations! You've collected every...
                 break;
-            case 0x82:
+            case 130:
                 if (gSave.saw_staffroll) {
-                    messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x27);
+                    messageIndex = TEXT_INDEX(TEXT_CARLOV, 39); // ...just gotten the last ... I'll make some more...
                 } else {
-                    messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x28);
+                    messageIndex = TEXT_INDEX(TEXT_CARLOV, 40); // ...You've now collected all of the figurines...
                 }
                 break;
             default:
-                messageIndex = TEXT_INDEX(TEXT_CARLOV, 0x27);
+                messageIndex = TEXT_INDEX(TEXT_CARLOV, 39); // ...you've just gotten the last figurine...
         }
     }
     MessageFromTarget(messageIndex);
     gMessage.textWindowPosX = 1;
-    gMessage.textWindowPosY = 0xc;
-    if (set0x10) {
+    gMessage.textWindowPosY = 12;
+    if (isUnlucky) {
         gMessage.rupees = 5;
     }
 #ifndef EU
@@ -719,65 +723,65 @@ void sub_08088478(void) {
 #endif
 }
 
-void sub_08088504(void) {
-    u32 index;
-    switch (gSave.stats.filler[0]) {
-        case 0x88:
-            index = TEXT_INDEX(TEXT_CARLOV, 0x2f);
+void FigurineDevice_NothingNewToDrawMessage(void) {
+    u32 messageIndex;
+    switch (gSave.stats.figurineCount) {
+        case 136:
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 47); // How do you like that Carlov Medal...
             break;
-        case 0x82:
-            index = TEXT_INDEX(TEXT_CARLOV, 0x14);
+        case 130:
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 20); // ...won all the figurines I made so far. ... draw anyway?
             break;
         default:
-            index = TEXT_INDEX(TEXT_CARLOV, 0x11);
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 17); // ...don't have any new figurines yet ... draw anyway?
             break;
     }
-    MessageFromTarget(index);
+    MessageFromTarget(messageIndex);
     gMessage.textWindowPosX = 1;
-    gMessage.textWindowPosY = 0xc;
+    gMessage.textWindowPosY = 12;
 }
 
-void sub_08088544(void) {
-    u32 index;
-    if (gSave.stats.filler[0] != 0x82) {
-        index = TEXT_INDEX(TEXT_CARLOV, 0xe);
+void FigurineDevice_NewFigurinesMessage(void) {
+    u32 messageIndex;
+    if (gSave.stats.figurineCount != 130) {
+        messageIndex = TEXT_INDEX(TEXT_CARLOV, 14); // ...I made a new figurine...
     } else {
-        index = TEXT_INDEX(TEXT_CARLOV, 0x15);
+        messageIndex = TEXT_INDEX(TEXT_CARLOV, 21); // ...I've got something new ... final series...
     }
-    MessageFromTarget(index);
+    MessageFromTarget(messageIndex);
     gMessage.textWindowPosX = 1;
-    gMessage.textWindowPosY = 0xc;
+    gMessage.textWindowPosY = 12;
 }
 
-void sub_08088574(void) {
-    u32 index;
+void FigurineDevice_TryAgainMessage(void) {
+    u32 messageIndex;
 #ifdef EU
-    if (CheckRoomFlag(0xa)) {
+    if (CheckRoomFlag(10)) {
 #else
     if (CheckRoomFlag(9)) {
 #endif
         if (CheckLocalFlag(SHOP07_COMPLETE)) {
-            index = TEXT_INDEX(TEXT_CARLOV, 0x13);
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 19); // ...already have all ... still want to have a try?
         } else {
-            index = TEXT_INDEX(TEXT_CARLOV, 0x0c);
+            messageIndex = TEXT_INDEX(TEXT_CARLOV, 12); // Want to try another drawing?
         }
     } else {
-        index = TEXT_INDEX(TEXT_CARLOV, 0x0b);
+        messageIndex = TEXT_INDEX(TEXT_CARLOV, 11); // ...Do you want to try for another one?
     }
-    MessageFromTarget(index);
+    MessageFromTarget(messageIndex);
     gMessage.textWindowPosX = 1;
-    gMessage.textWindowPosY = 0xc;
+    gMessage.textWindowPosY = 12;
 }
 
-void sub_080885B0(void) {
+void FigurineDevice_LostOrFinishedMessage(void) {
     if (!CheckRoomFlag(8)) {
         if (!CheckRoomFlag(7)) {
             ModRupees(5);
-            MessageFromTarget(TEXT_INDEX(TEXT_CARLOV, 0x26));
+            MessageFromTarget(TEXT_INDEX(TEXT_CARLOV, 38)); // I hope you keep collecting ... come back again!
             gMessage.textWindowPosX = 1;
-            gMessage.textWindowPosY = 0xc;
+            gMessage.textWindowPosY = 12;
         }
-    } else if (gSave.stats.filler[1] != 0) {
+    } else if (gSave.stats._hasAllFigurines != 0) {
         // GOT ALL THEM FIGURINES (:
         gSave.stats.hasAllFigurines = 1;
         CreateItemEntity(ITEM_QST_CARLOV_MEDAL, 0, 0);
@@ -789,7 +793,8 @@ void sub_080885B0(void) {
 
 #ifndef EU
 void sub_0808861C(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
-    context->condition = CheckPlayerInRegion(0xa8, 0x54, 0xc, 8);
+    // If I understand this correctly then it checks if the player is at the lever
+    context->condition = CheckPlayerInRegion(168, 84, 12, 8);
 #ifdef JP
     if ((gPlayerEntity.animationState != 0)) {
 #else
@@ -802,7 +807,7 @@ void sub_0808861C(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
 
 #if !defined(JP)
 void sub_08088658(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
-    context->condition = CheckPlayerInRegion(0x78, 0x78, 0x10, 8);
+    context->condition = CheckPlayerInRegion(120, 120, 16, 8); // And this is if the player is at the door
     if (gPlayerEntity.z.HALF.HI != 0) {
         context->condition = 0;
     }

@@ -4,6 +4,7 @@
  *
  * @brief Well object
  */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"
@@ -11,32 +12,38 @@
 #include "room.h"
 #include "tiles.h"
 
-void Well_Init(Entity*);
-void Well_Action1(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[24];
+    /*0x80*/ u16 unk_80;
+} WellEntity;
 
-void Well(Entity* this) {
-    static void (*const Well_Actions[])(Entity*) = {
+void Well_Init(WellEntity* this);
+void Well_Action1(WellEntity* this);
+
+void Well(WellEntity* this) {
+    static void (*const Well_Actions[])(WellEntity*) = {
         Well_Init,
         Well_Action1,
     };
-    Well_Actions[this->action](this);
+    Well_Actions[super->action](this);
 }
 
-void Well_Init(Entity* this) {
+void Well_Init(WellEntity* this) {
     u32 tilePos;
 
-    this->action = 1;
-    tilePos = COORD_TO_TILE(this);
-    this->field_0x80.HWORD = tilePos;
-    SetMetaTile(SPECIAL_META_TILE_125, this->field_0x80.HWORD, LAYER_BOTTOM);
+    super->action = 1;
+    tilePos = COORD_TO_TILE(super);
+    this->unk_80 = tilePos;
+    SetMetaTile(SPECIAL_META_TILE_125, this->unk_80, LAYER_BOTTOM);
 }
 
-void Well_Action1(Entity* this) {
-    s32 tileIndex = GetMetaTileType(this->field_0x80.HWORD, LAYER_BOTTOM);
+void Well_Action1(WellEntity* this) {
+    u32 tileIndex = GetMetaTileType(this->unk_80, LAYER_BOTTOM);
     if (tileIndex != SPECIAL_META_TILE_125) {
         sub_08078B48();
-        gPlayerEntity.x.WORD = this->x.WORD;
-        gPlayerEntity.y.HALF.HI = this->y.HALF.HI + 4;
+        gPlayerEntity.x.WORD = super->x.WORD;
+        gPlayerEntity.y.HALF.HI = super->y.HALF.HI + 4;
         DeleteThisEntity();
     }
 }

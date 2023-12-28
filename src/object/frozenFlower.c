@@ -4,6 +4,7 @@
  *
  * @brief Frozen Flower object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
 void FrozenFlower_Init(Entity*);

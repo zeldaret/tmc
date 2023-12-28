@@ -4,6 +4,7 @@
  *
  * @brief Minish Sized Archway object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "game.h"
 

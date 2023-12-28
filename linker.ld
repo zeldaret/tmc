@@ -628,7 +628,7 @@ SECTIONS {
         src/object/chuchuBossParticle.o(.text);
         src/object/floatingPlatform.o(.text);
         src/object/gustJarParticle.o(.text);
-        asm/object/evilSpirit.o(.text);
+        src/object/evilSpirit.o(.text);
         src/object/houseDoorExterior.o(.text);
         src/object/rupee.o(.text);
         src/object/greatFairy.o(.text);
@@ -704,7 +704,7 @@ SECTIONS {
         src/object/ezloCapFlying.o(.text);
         src/object/giantTwig.o(.text);
         src/object/object63.o(.text);
-        src/object/thunderbold.o(.text);
+        src/object/thunderbolt.o(.text);
         src/object/ladderHoleInBookshelf.o(.text);
         src/object/waterDropObject.o(.text);
         src/object/gleerokParticle.o(.text);
@@ -1386,7 +1386,7 @@ SECTIONS {
         src/object/chuchuBossParticle.o(.rodata);
         src/object/floatingPlatform.o(.rodata);
         src/object/gustJarParticle.o(.rodata);
-        data/const/object/evilSpirit.o(.rodata);
+        src/object/evilSpirit.o(.rodata);
         data/animations/object/evilSpirit.o(.rodata);
         src/object/houseDoorExterior.o(.rodata);
         src/object/rupee.o(.rodata);
@@ -1483,8 +1483,8 @@ SECTIONS {
         src/object/ezloCapFlying.o(.rodata);
         src/object/giantTwig.o(.rodata);
         src/object/object63.o(.rodata);
-        src/object/thunderbold.o(.rodata);
-        data/animations/object/thunderbold.o(.rodata);
+        src/object/thunderbolt.o(.rodata);
+        data/animations/object/thunderbolt.o(.rodata);
         src/object/ladderHoleInBookshelf.o(.rodata);
         src/object/gleerokParticle.o(.rodata);
         src/object/linkEmptyingBottle.o(.rodata);

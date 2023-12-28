@@ -1,109 +1,120 @@
-#include "entity.h"
-#include "player.h"
-#include "physics.h"
-#include "functions.h"
-#include "sound.h"
-#include "effects.h"
-#include "common.h"
+/**
+ * @file playerItemSwordBeam.c
+ * @ingroup Items
+ *
+ * @brief Sword Beam Player Item
+ */
+#define NENT_DEPRECATED
 #include "asm.h"
+#include "common.h"
+#include "effects.h"
+#include "entity.h"
+#include "functions.h"
+#include "physics.h"
+#include "player.h"
+#include "sound.h"
 
-void sub_08019498(Entity*);
-void sub_08019580(Entity*);
-void sub_08019644(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused[4];
+    /*0x6c*/ u32 unk_6c;
+    /*0x70*/ u32 unk_70;
+    /*0x74*/ u32 unk_74;
+} PlayerItemSwordBeamEntity;
+
+void PlayerItemSwordBeam_Init(PlayerItemSwordBeamEntity* this);
+void PlayerItemSwordBeam_Action1(PlayerItemSwordBeamEntity* this);
+void PlayerItemSwordBeam_CyclePalettes(PlayerItemSwordBeamEntity* this);
 
 extern u8 gUnk_08003E44;
 
-void PlayerItemSwordBeam(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
-        sub_08019498,
-        sub_08019580,
+void PlayerItemSwordBeam(PlayerItemSwordBeamEntity* this) {
+    static void (*const PlayerItemSwordBeam_Actions[])(PlayerItemSwordBeamEntity*) = {
+        PlayerItemSwordBeam_Init,
+        PlayerItemSwordBeam_Action1,
     };
-    actionFuncs[this->action](this);
+    PlayerItemSwordBeam_Actions[super->action](this);
 }
 
-static const u8 gUnk_080B43FC[] = { 30, 29, 30, 29 };
-static const u8 gUnk_080B4400[] = { 0, 4, 1, 2, -1, 0, 0, 0 };
+static const u8 PlayerItemSwordBeam_AnimIndices[] = { 30, 29, 30, 29 };
+static const u8 PlayerItemSwordBeam_Palettes[] = { 0, 4, 1, 2, 0xff };
 
-void sub_08019498(Entity* this) {
-    static const Hitbox gUnk_080B4408 = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
-    CopyPosition(&gPlayerEntity, this);
-    this->action += 0x01;
-    this->spriteSettings.draw = 1;
-    this->collisionFlags = gPlayerEntity.collisionFlags + 1;
-    this->hitbox = (Hitbox*)&gUnk_080B4408;
-    this->speed = 0x380;
-    *(u32*)&this->field_0x74 = 2;
-    this->field_0x70.WORD = 0;
-    if (this->collisionLayer == 0x02) {
-        this->type2 = 0x01;
+void PlayerItemSwordBeam_Init(PlayerItemSwordBeamEntity* this) {
+    static const Hitbox hitbox = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
+    CopyPosition(&gPlayerEntity, super);
+    super->action++;
+    super->spriteSettings.draw = 1;
+    super->collisionFlags = gPlayerEntity.collisionFlags + 1;
+    super->hitbox = (Hitbox*)&hitbox;
+    super->speed = 0x380;
+    this->unk_74 = 2;
+    this->unk_70 = 0;
+    if (super->collisionLayer == 2) {
+        super->type2 = 1;
     }
-    this->direction = this->animationState << 2;
-    *(u32*)&this->field_0x6c = 0x3c;
-    switch (this->animationState) {
+    super->direction = super->animationState << 2;
+    this->unk_6c = 60;
+    switch (super->animationState) {
         case 0:
-            this->x.HALF.HI += -3;
-            this->y.HALF.HI += -8;
-            this->spriteSettings.flipY = 1;
+            super->x.HALF.HI -= 3;
+            super->y.HALF.HI -= 8;
+            super->spriteSettings.flipY = 1;
             break;
         case 4:
-            this->x.HALF.HI += 2;
+            super->x.HALF.HI += 2;
             break;
         case 2:
-            this->spriteSettings.flipX = 1;
-            this->x.HALF.HI++;
-            this->y.HALF.HI += -4;
+            super->spriteSettings.flipX = 1;
+            super->x.HALF.HI++;
+            super->y.HALF.HI -= 4;
             break;
         case 6:
-            this->x.HALF.HI--;
-            this->y.HALF.HI += -4;
+            super->x.HALF.HI--;
+            super->y.HALF.HI -= 4;
             break;
     }
 
-    InitializeAnimation(this, gUnk_080B43FC[this->animationState >> 1]);
-    sub_0801766C(this);
-    LinearMoveUpdate(this);
-    sub_08019580(this);
+    InitializeAnimation(super, PlayerItemSwordBeam_AnimIndices[super->animationState >> 1]);
+    sub_0801766C(super);
+    LinearMoveUpdate(super);
+    PlayerItemSwordBeam_Action1(this);
     SoundReq(SFX_ITEM_SWORD_BEAM);
 }
 
-void sub_08019580(Entity* this) {
-    if (--*(int*)&this->field_0x6c != -1) {
-        GetNextFrame(this);
-        LinearMoveUpdate(this);
-        this->timer++;
-        if (this->type2 == 0) {
-            sub_0800451C(this);
+void PlayerItemSwordBeam_Action1(PlayerItemSwordBeamEntity* this) {
+    if (this->unk_6c-- != 0) {
+        GetNextFrame(super);
+        LinearMoveUpdate(super);
+        super->timer++;
+        if (super->type2 == 0) {
+            sub_0800451C(super);
         }
-        if ((sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) &&
-            (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) != 0)) {
-            CreateFx(this, FX_SWORD_MAGIC, 0);
+        if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) &&
+            (sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) != 0)) {
+            CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
-        if (this->contactFlags != 0) {
-            CreateFx(this, FX_SWORD_MAGIC, 0);
+        if (super->contactFlags != 0) {
+            CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
-        if (sub_08008790(this, 0xc) != NULL) {
+        if (sub_08008790(super, 0xc) != NULL) {
             DeleteThisEntity();
         }
     } else {
         DeleteThisEntity();
     }
 
-    sub_08019644(this);
+    PlayerItemSwordBeam_CyclePalettes(this);
 }
 
-void sub_08019644(Entity* this) {
-    s32 iVar1;
-
-    iVar1 = *(int*)&this->field_0x74 + -1;
-    *(int*)&this->field_0x74 = iVar1;
-    if (iVar1 == 0) {
-        *(int*)&this->field_0x74 = 2;
-        this->field_0x70.WORD++;
-        if (gUnk_080B4400[this->field_0x70.WORD] == 0xff) {
-            this->field_0x70.WORD = iVar1;
+void PlayerItemSwordBeam_CyclePalettes(PlayerItemSwordBeamEntity* this) {
+    if (--this->unk_74 == 0) {
+        this->unk_74 = 2;
+        this->unk_70++;
+        if (PlayerItemSwordBeam_Palettes[this->unk_70] == 0xff) {
+            this->unk_70 = 0;
         }
-        ChangeObjPalette(this, (u32)gUnk_080B4400[this->field_0x70.WORD]);
+        ChangeObjPalette(super, PlayerItemSwordBeam_Palettes[this->unk_70]);
     }
 }

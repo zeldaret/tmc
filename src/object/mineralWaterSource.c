@@ -4,6 +4,7 @@
  *
  * @brief Mineral Water Source object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
 void MineralWaterSource_Init(Entity*);
@@ -17,11 +18,11 @@ typedef struct {
 } UnkStruct_MineralWater;
 
 void MineralWaterSource(Entity* this) {
-    static void (*const MineralWaterSourceActionFuncs[])(Entity*) = {
+    static void (*const MineralWaterSource_Actions[])(Entity*) = {
         MineralWaterSource_Init,
         MineralWaterSource_Action1,
     };
-    MineralWaterSourceActionFuncs[this->action](this);
+    MineralWaterSource_Actions[this->action](this);
 }
 
 void MineralWaterSource_Init(Entity* this) {

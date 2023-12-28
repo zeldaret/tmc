@@ -138,16 +138,16 @@ void VaatiAppearingManager_Action2(VaatiAppearingManager* this) {
 }
 
 void VaatiAppearingManager_Action3(VaatiAppearingManager* this) {
-    if ((gInput.heldKeys & 0x40) != 0) {
+    if ((gInput.heldKeys & DPAD_UP) != 0) {
         this->field_0x20--;
     }
-    if ((gInput.heldKeys & 0x80) != 0) {
+    if ((gInput.heldKeys & DPAD_DOWN) != 0) {
         this->field_0x20++;
     }
-    if ((gInput.heldKeys & 0x20) != 0) {
+    if ((gInput.heldKeys & DPAD_LEFT) != 0) {
         this->field_0x28--;
     }
-    if ((gInput.heldKeys & 0x10) != 0) {
+    if ((gInput.heldKeys & DPAD_RIGHT) != 0) {
         this->field_0x28++;
     }
 }

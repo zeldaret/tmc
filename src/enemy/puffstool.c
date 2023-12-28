@@ -339,7 +339,7 @@ void sub_080255AC(Entity* this) {
             }
             tmp -= 7;
 
-            this->direction = (GetFacingDirection(ent, this) + tmp) & 0x1f;
+            this->direction = (GetFacingDirection(ent, this) + tmp) & (0x3 | DirectionNorthWest);
         }
 
         if (this->field_0x78.HWORD == 0) {
@@ -379,7 +379,7 @@ void sub_080256B4(Entity* this) {
     this->action = 1;
     this->timer = (Random() & 3) + 4;
     this->subtimer = 30;
-    this->direction = (this->direction + 7 + ((s32)Random() % 7) * 4) & 0x1c;
+    this->direction = (this->direction + 7 + ((s32)Random() % 7) * 4) & DirectionNorthWest;
     this->field_0x78.HWORD = gUnk_080CC000[Random() & 0xf];
     this->field_0x7a.HALF.LO = ((s32)Random() % 0x18) << 1;
     this->field_0x7a.HALF.HI = 0;

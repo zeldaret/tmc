@@ -229,7 +229,7 @@ static void GameMain_ChangeRoom(void) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
-    if (gRoomTransition.field_0x2c[4])
+    if (gRoomTransition.field31)
         CheckAreaDiscovery();
     if (gArea.unk28.textBaseIndex != 0xff) {
         sub_0801855C();

@@ -4,6 +4,7 @@
  *
  * @brief Floating Block object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
 void FloatingBlock(Entity* this) {

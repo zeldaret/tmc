@@ -6,7 +6,6 @@
 #include "player.h"
 
 void CreateItemEntity(u32, u32, u32);
-void sub_08081404(Entity*, u32);
 extern void ExecuteItemFunction(ItemBehavior* this, u32 index);
 
 extern void ItemDebug(ItemBehavior*, u32);

@@ -12,11 +12,11 @@
 #include "tiles.h"
 
 extern const struct_gUnk_080B3D20 gUnk_080B3D20[];
-extern EntityData gUnk_080FEC28[];
-extern EntityData gUnk_080FEBE8[];
-extern EntityData gUnk_080FECC8[];
-extern EntityData gUnk_080FEE78[];
-extern EntityData gUnk_080FED58[];
+extern const EntityData gUnk_080FEC28[];
+extern const EntityData gUnk_080FEBE8[];
+extern const EntityData gUnk_080FECC8[];
+extern const EntityData gUnk_080FEE78[];
+extern const EntityData gUnk_080FED58[];
 extern const EntityData gUnk_080FED18[];
 extern const EntityData gUnk_080FEE38[];
 extern const EntityData gUnk_080FEE18[];
@@ -179,12 +179,7 @@ void GenerateAreaHint(void) {
     struct_area_28* ptr;
 
     gPlayerState.queued_action = PLAYER_TALKEZLO;
-#if defined(EU) || defined(JP)
-    // TODO what fields of the room transition are switched in these variants?
-    gRoomTransition.field_0x2c[7] = 0;
-#else
     gRoomTransition.hint_height = 0;
-#endif
     ptr = &gArea.unk28;
     if (ptr->textBaseIndex == 0xff) {
         gRoomTransition.hint_idx = ptr->ezloHintTexts[0];
@@ -505,7 +500,7 @@ void sub_08018BB4(u32 worldEventId) {
     MemCopy(gUnk_080FEAC8 + worldEventId, &tile, sizeof(TileEntity));
     ptr = &gWorldEvents[worldEventId];
     tile.tilePos = (ptr->x >> 4 & 0x3f) | (((ptr->y) >> 4 & 0x3f) << 6);
-    sub_0804B3C4(&tile);
+    LoadSmallChestTile2(&tile);
     if (CheckLocalFlag(tile.localFlag) == 0) {
         position = tile.tilePos;
         if ((tile._6 & 1) == 0) {

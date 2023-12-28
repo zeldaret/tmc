@@ -135,7 +135,7 @@ typedef struct {
     /* 0x04 */ s16 start_pos_x;
     /* 0x06 */ s16 start_pos_y;
     /* 0x08 */ u8 layer;
-    /* 0x09 */ u8 field_0x15;
+    /* 0x09 */ u8 filler9;
     /* 0x0a */ u8 dungeon_area;
     /* 0x0b */ u8 dungeon_room;
     /* 0x0c */ s16 dungeon_x;
@@ -144,7 +144,7 @@ typedef struct {
     /* 0x12 */ u16 dungeon_map_y;
     /* 0x14 */ u16 overworld_map_x;
     /* 0x16 */ u16 overworld_map_y;
-    /* 0x18 */ u8 field_0x24[8];
+    /* 0x18 */ u8 filler18[8];
 } PlayerRoomStatus;
 static_assert(sizeof(PlayerRoomStatus) == 0x20);
 
@@ -157,8 +157,20 @@ typedef struct {
     /* 0x0a */ u16 stairs_idx; // seems to be a tile type @see MetaTileType, set in UpdateDoorTransition()
     /* 0x0c */ PlayerRoomStatus player_status;
     /* 0x2c */ u8 entity_update_type; // differentiates entity priority on kinstone menu?
-    /* 0x2d */ u8 field_0x2c[0x8];
+    /* 0x2d */ u8 field2d;
+    /* 0x2e */ u8 location;
+    /* 0x2f */ u8 field2f;
+    /* 0x30 */ u8 field30;
+    /* 0x31 */ u8 field31;
+    /* 0x32 */ u8 field32;
+    /* 0x33 */ u8 field33;
+#if defined(JP) || defined(EU)
+    /* 0x34 */ u8 hint_height;
+    /* 0x35 */ u8 field35;
+#else
+    /* 0x34 */ u8 field35;
     /* 0x35 */ u8 hint_height;
+#endif
     /* 0x36 */ u16 hint_idx;
     /* 0x38 */ u8 field_0x38;
     /* 0x39 */ u8 field_0x39;
@@ -239,7 +251,7 @@ void* GetRoomProperty(u32 area, u32 room, u32 property);
 
 bool32 LoadFixedGFX(Entity*, u32);
 void UnloadGFXSlots(Entity*);
-void sub_0804B3C4(TileEntity*);
+void LoadSmallChestTile2(TileEntity*);
 void sub_0804B0B0(u32 arg0, u32 arg1);
 
 void DoExitTransition(const ScreenTransitionData* data);

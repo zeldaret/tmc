@@ -33,7 +33,7 @@ void MinishPortalManager_Main(MinishPortalManager* this) {
         gArea.portal_type = super->type;
         if (!CheckGlobalFlag(EZERO_1ST)) {
             gArea.portal_mode = 1;
-            gArea.portal_type = 5;
+            gArea.portal_type = PT_5;
         } else {
             if ((gPlayerState.flags & PL_USE_PORTAL) && gPlayerState.jump_status == 0) {
                 gArea.portal_mode = 2;
@@ -82,7 +82,7 @@ void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
 }
 
 bool32 PortalReadyForMinish(void) {
-    if ((gPlayerState.flags & PL_MINISH) && gPlayerState.attachedBeetleCount == 0 && (gArea.portal_type != 0x6) &&
+    if ((gPlayerState.flags & PL_MINISH) && gPlayerState.attachedBeetleCount == 0 && (gArea.portal_type != PT_TOD) &&
         (gPlayerState.heldObject == 0)) {
         switch (gPlayerState.framestate) {
             case PL_STATE_IDLE:

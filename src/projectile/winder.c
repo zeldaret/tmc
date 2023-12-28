@@ -1,11 +1,17 @@
+/**
+ * @file winder.c
+ * @ingroup Projectiles
+ *
+ * @brief Winder Projectile
+ */
 #define NENT_DEPRECATED
-#include "collision.h"
-#include "entity.h"
-#include "asm.h"
-#include "functions.h"
-#include "common.h"
-#include "projectile.h"
 #include "projectile/winder.h"
+#include "asm.h"
+#include "collision.h"
+#include "common.h"
+#include "entity.h"
+#include "functions.h"
+#include "projectile.h"
 
 extern s16 gUnk_080B4488[];
 

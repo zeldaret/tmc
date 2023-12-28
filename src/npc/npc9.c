@@ -1,4 +1,10 @@
-#include "global.h"
+/**
+ * @file npc9.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 9
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "message.h"
 #include "npc.h"
@@ -27,8 +33,8 @@ void sub_08062AF0(Entity* this) {
 
 void sub_08062B14(Entity* this) {
     GetNextFrame(this);
-    if (this->interactType != 0) {
-        this->interactType = 0;
+    if (this->interactType != INTERACTION_NONE) {
+        this->interactType = INTERACTION_NONE;
         this->action++;
         InitializeAnimation(this, 1);
         RequestPriority(this);

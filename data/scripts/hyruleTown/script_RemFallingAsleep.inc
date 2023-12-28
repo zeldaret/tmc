@@ -84,7 +84,7 @@ script_0801309E:
 	SetAction 0x0001
 	Jump script_0801308A
 script_080130B6:
-	CheckLocalFlag 0x0062
+	CheckLocalFlag NPC37_REM_SLEEP
 	JumpIfNot script_080130C4
 	Call sub_0806A9B0
 script_080130C4:

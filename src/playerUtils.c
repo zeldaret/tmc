@@ -20,6 +20,7 @@
 #include "save.h"
 #include "screen.h"
 #include "screenTransitions.h"
+#include "main.h"
 #include "tilemap.h"
 #include "tiles.h"
 
@@ -29,7 +30,7 @@ extern void sub_0800857C(Entity*);
 extern void SetDefaultPriorityForKind(Entity*);
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
-extern void sub_08003FDE(Entity*, u32, u32, u32);
+extern u32 sub_08003FDE(Entity*, Entity*, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
 extern void UpdateScreenShake(void);
 void sub_080790E4(Entity* this);
@@ -143,6 +144,24 @@ extern u32 sub_08004202(Entity*, u8*, u32);
 // This just reuses the first 12 bytes of gUnk_02022830 to store a MapDataDefinition there temporarily.
 extern MapDataDefinition gUnk_02022830;
 extern u16* gUnk_0800823C[];
+
+extern bool32 sub_0806FC24(u32, u32);
+
+extern const u8 gUnk_0800845C[];
+extern const u8 gUnk_0811BFE0[];
+extern const u8 gUnk_08007DF4[];
+extern const u8 gUnk_080084BC[];
+
+extern InteractableObject gInteractableObjects[];
+
+u32 sub_0807A180(Entity*, Entity*, u32, u32);
+
+extern u32 gUsedPalettes;
+
+extern void ClearBgAnimations(void);
+extern void LoadBgAnimations(u16*);
+
+void sub_0807BFA8(void);
 
 void UpdateActiveItems(PlayerEntity* this) {
     u32 index;
@@ -374,7 +393,7 @@ void ResetActiveItems() {
 
     gPlayerState.moleMittsState = 0;
     gPlayerState.field_0x1c = 0;
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     gPlayerState.grab_status = 0;
     gPlayerState.itemAnimPriority = 0;
     gPlayerState.dash_state = 0;
@@ -491,7 +510,7 @@ Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
 }
 
 void sub_08077D38(ItemBehavior* this, u32 index) {
-    u32 r6;
+    u32 anim;
     ItemDefinition* ptr;
 
     gPlayerState.field_0xa |= 8 >> index;
@@ -506,16 +525,16 @@ void sub_08077D38(ItemBehavior* this, u32 index) {
         if ((gPlayerState.flags & PL_NO_CAP)) {
             switch (this->behaviorId) {
                 case 0x1b:
-                    r6 = 0x948;
+                    anim = ANIM_GRAB_NOCAP;
                     break;
                 case 1:
-                    r6 = 0x408;
+                    anim = ANIM_SWORD_NOCAP;
                     break;
                 case 0xd:
-                    r6 = 0x40c;
+                    anim = ANIM_SHIELD_PULLOUT_NOCAP;
                     break;
             }
-            SetItemAnim(this, r6);
+            SetItemAnim(this, anim);
         } else {
             SetItemAnim(this, ptr->frameIndex);
         }
@@ -584,8 +603,8 @@ void DeleteItemBehavior(ItemBehavior* this, u32 index) {
 }
 
 bool32 sub_08077EC8(ItemBehavior* this) {
-    if ((gPlayerState.sword_state & 8) != 0) {
-        SetItemAnim(this, 0x170);
+    if (gPlayerState.sword_state & 8) {
+        SetItemAnim(this, ANIM_SWORD_CHARGE_BUMP);
         this->timer = 0x28;
         this->stateID = 7;
         this->animPriority = 6;
@@ -1014,7 +1033,7 @@ void DetermineRButtonInteraction(void) {
                 rAction = gHUD.rActionInteractTile;
             } else {
                 interaction = sub_080784E4();
-                if (interaction->entity->interactType == 0) {
+                if (interaction->entity->interactType == INTERACTION_NONE) {
 
                     switch (interaction->type) {
                         case INTERACTION_TALK:
@@ -1065,15 +1084,15 @@ void DetermineRButtonInteraction(void) {
 }
 
 bool32 sub_080782C0(void) {
-    u8 tmp;
+    u8 framestate;
     Entity* entity;
 
     if (gPlayerState.framestate == PL_STATE_IDLE) {
-        tmp = gPlayerState.framestate_last;
+        framestate = gPlayerState.framestate_last;
     } else {
-        tmp = gPlayerState.framestate;
+        framestate = gPlayerState.framestate;
     }
-    switch (tmp) {
+    switch (framestate) {
         case PL_STATE_SWORD:
         case PL_STATE_GUSTJAR:
         case PL_STATE_C:
@@ -1115,12 +1134,12 @@ bool32 sub_080782C0(void) {
     if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) &&
         ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
         AddKinstoneToBag(KINSTONE_NONE);
-        if (gSave.kinstoneAmounts[0] != 0) {
+        if (gSave.kinstones.amounts[0] != 0) {
             gPossibleInteraction.kinstoneId = gPossibleInteraction.currentObject->kinstoneId;
-            gPossibleInteraction.currentObject->entity->interactType = 2;
+            gPossibleInteraction.currentObject->entity->interactType = INTERACTION_FUSE;
             gPlayerState.queued_action = PLAYER_08070E9C;
         } else {
-            CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0);
+            CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x65), 0); // "Hey, you don't have any Kinstone Pieces! ..."
         }
         ForceSetPlayerState(PL_STATE_TALKEZLO);
         return TRUE;
@@ -1141,12 +1160,12 @@ bool32 sub_080782C0(void) {
         case INTERACTION_OPEN_CHEST:
         case INTERACTION_USE_SMALL_KEY:
         case INTERACTION_TALK_MINISH:
-            entity->interactType = 1;
+            entity->interactType = INTERACTION_TALK;
             gPossibleInteraction.kinstoneId = KINSTONE_NONE;
             return TRUE;
         case INTERACTION_LIFT_SHOP_ITEM:
             if (gRoomVars.shopItemType == 0) {
-                entity->interactType = 1;
+                entity->interactType = INTERACTION_TALK;
                 gRoomVars.shopItemType = entity->type;
                 gRoomVars.shopItemType2 = entity->type2;
                 return TRUE;
@@ -1162,7 +1181,132 @@ void ResetPossibleInteraction(void) {
 }
 
 // determines which (if any) object the player is currently able to interact with
-ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", InteractableObject* sub_080784E4(void))
+InteractableObject* sub_080784E4(void) {
+    u8 frameState;
+    PlayerFlags r7;
+    s32 r3;
+    PlayerFlags PVar4;
+    u8* puVar5;
+    u8* hitbox;
+    s8* interactOffsets;
+    Entity* entity;
+    s32 r4;
+    InteractableObject* iObject;
+    u32 index;
+    s32 interactX;
+    s32 interactY;
+
+    if (gPossibleInteraction.isUpdated != 0) {
+        return gPossibleInteraction.currentObject;
+    }
+    if ((gPlayerState.field_0x27[0] | gPlayerState.swim_state) != 0) {
+        goto l;
+    }
+
+    if (gPlayerState.framestate == 0) {
+        frameState = gPlayerState.framestate_last;
+    } else {
+        frameState = gPlayerState.framestate;
+    }
+    switch (frameState) {
+        case PL_STATE_SWORD:
+        case PL_STATE_GUSTJAR:
+        case PL_STATE_DIE:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+        l:
+            gPossibleInteraction.currentIndex = 0xFF;
+            gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
+            gPossibleInteraction.isUpdated = 1;
+            return gPossibleInteraction.currentObject;
+    }
+
+    if (!(gPlayerState.flags & PL_MINISH)) {
+        r7 = HasDungeonSmallKey() ? PL_BUSY : 0;
+        if (HasDungeonBigKey()) {
+            r7 |= PL_FLAGS2;
+        }
+        interactOffsets = (s8*)gPlayerInteractHitboxOffsetNormal + (gPlayerEntity.animationState & 6);
+    } else {
+        interactOffsets = (s8*)gPlayerInteractHitboxOffsetMinish + (gPlayerEntity.animationState & 6);
+        r7 = 0;
+    }
+
+    interactX = gPlayerEntity.x.HALF.HI + interactOffsets[0];
+    interactY = gPlayerEntity.y.HALF.HI + interactOffsets[1];
+
+    for (index = 0; index < 0x20; index++) {
+        iObject = gInteractableObjects + index;
+        entity = iObject->entity;
+        if (entity == NULL)
+            continue;
+        if (entity->interactType < 0)
+            break;
+        if (((iObject->ignoreLayer & 1) == 0 && (gPlayerEntity.collisionLayer & entity->collisionLayer) == 0) ||
+            (iObject->interactDirections >> (gPlayerEntity.animationState >> 1) & 1) != 0)
+            continue;
+        switch (iObject->type) {
+            case INTERACTION_NONE:
+                continue;
+            case INTERACTION_TALK:
+            case INTERACTION_OPEN_CHEST:
+            case INTERACTION_UNUSED:
+            case INTERACTION_LIFT_SHOP_ITEM:
+            case INTERACTION_CHECK:
+                if (gPlayerState.flags & PL_MINISH)
+                    continue;
+                break;
+            case INTERACTION_TALK_MINISH:
+                PVar4 = gPlayerState.flags & PL_MINISH;
+                if (!PVar4)
+                    continue;
+                break;
+            case INTERACTION_FUSE:
+                PVar4 = (PlayerFlags)iObject->kinstoneId;
+                if (PVar4 == 0)
+                    continue;
+                break;
+            case INTERACTION_USE_SMALL_KEY:
+                PVar4 = PL_BUSY & r7;
+                if (!PVar4)
+                    continue;
+                break;
+            case INTERACTION_USE_BIG_KEY:
+                PVar4 = PL_FLAGS2 & r7;
+                if (!PVar4)
+                    continue;
+                break;
+            case INTERACTION_DROP_PEDESTAL:
+            default:
+                break;
+        }
+
+        r3 = iObject->entity->x.HALF.HI;
+        r4 = iObject->entity->y.HALF.HI;
+        hitbox = (u8*)iObject->customHitbox;
+        if (hitbox != NULL) {
+            r3 += (s8)hitbox[0];
+            r4 += (s8)hitbox[1];
+            puVar5 = hitbox + 2;
+        } else {
+            puVar5 = &iObject->entity->hitbox->width;
+        }
+        if (((puVar5[0] + interactX) - r3 < (u32)puVar5[0] << 1) &&
+            ((puVar5[1] + interactY) - r4 < (u32)puVar5[1] << 1)) {
+            break;
+        }
+    }
+    if (index < 0x20) {
+        gPossibleInteraction.currentIndex = (u8)index;
+        gPossibleInteraction.currentObject = &gPossibleInteraction.candidates[index];
+
+    } else {
+        gPossibleInteraction.currentIndex = 0xFF;
+        gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
+    }
+    gPossibleInteraction.isUpdated = 1;
+    return gPossibleInteraction.currentObject;
+}
 
 void AddInteractableWhenBigObject(Entity* ent) {
     AddInteractableObject(ent, 1, 0);
@@ -1241,7 +1385,7 @@ void SetInteractableObjectCollision(Entity* arg0, u32 ignoreLayer, u32 interactD
 
 s32 AddInteractableObject(Entity* entity, InteractionType type, KinstoneId kinstoneId) {
     s32 index;
-    entity->interactType = 0;
+    entity->interactType = INTERACTION_NONE;
     index = GetInteractableObjectIndex(entity);
     if (index < 0) {
         index = GetInteractableObjectIndex(0);
@@ -1299,7 +1443,53 @@ void FreeCarryEntity(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080789A8.inc", u32 sub_080789A8())
+u32 sub_080789A8(void) {
+    u32 uVar2;
+    Entity* entity;
+    u32 uVar4;
+    const u8* ptr;
+    const u8* ptr2;
+    Entity** tmp1;
+
+    if (gCarriedEntity.unk_0)
+        return (u32)gCarriedEntity.unk_1;
+
+    if (!(gPlayerState.flags & PL_MINISH)) {
+        uVar4 = GetCollisionDataAtEntity(&gPlayerEntity);
+        if (uVar4 >= 0x10 && (gUnk_080084BC[uVar4 - 0x10] == 0xf))
+            return 0;
+        if (gPlayerState.floor_type == 0x12)
+            return 0;
+
+        gCarriedEntity.unk_0 = 1;
+        uVar4 = (u32)gCarriedEntity.count;
+
+        if (uVar4 > 0) {
+            ptr2 = &gUnk_0811BFE0[gPlayerEntity.animationState & 6];
+            while (uVar4 > 0) {
+                tmp1 = &gCarriedEntity.unk_8 + uVar4;
+                entity = *tmp1;
+                if ((entity != NULL) && (sub_0807A180(&gPlayerEntity, entity, ptr2[0], ptr2[1]) != 0)) {
+                    gCarriedEntity.unk_8 = *tmp1;
+                    gCarriedEntity.unk_1 = 2;
+                    return 2;
+                }
+                uVar4--;
+            }
+        }
+
+        ptr = &gUnk_08007DF4[gPlayerEntity.animationState & 6];
+        gCarriedEntity.unk_4 = uVar2 = sub_080B1A0C(&gPlayerEntity, (s8)ptr[0], (s8)ptr[1]);
+
+        if (!sub_0806FC24(uVar2, 6))
+            return 0;
+
+    } else
+        return 0;
+
+    gCarriedEntity.unk_1 = 1;
+    return 1;
+}
 
 void SetPlayerControl(PlayerControlMode mode) {
     if (gPlayerState.controlMode != CONTROL_DISABLED) {
@@ -1310,12 +1500,7 @@ void SetPlayerControl(PlayerControlMode mode) {
 void CreateEzloHint(u32 hintId, u32 hintHeight) {
     gPlayerState.queued_action = PLAYER_TALKEZLO;
     gRoomTransition.hint_idx = hintId;
-#if defined(EU) || defined(JP)
-    // TODO what fields of the room transition are switched in these variants?
-    gRoomTransition.field_0x2c[7] = hintHeight;
-#else
     gRoomTransition.hint_height = hintHeight;
-#endif
 }
 
 void sub_08078AC0(u32 param_1, u32 param_2, u32 param_3) {
@@ -1390,7 +1575,7 @@ void ClearPlayerState(void) {
     gPlayerState.dash_state = 0;
     gPlayerState.field_0x1f[0] = 0;
     gPlayerState.field_0x1f[1] = 0;
-    gPlayerState.field_0x1f[2] = 0;
+    gPlayerState.bow_state = 0;
     gPlayerState.tilePosition = 0;
     gPlayerState.tileType = 0;
     gPlayerState.swim_state = 0;
@@ -1517,7 +1702,7 @@ bool32 CheckQueuedAction(void) {
 // this doesnt seem to have any real function where its used
 void CheckPlayerVelocity(void) {
     u32 angle = gPlayerState.direction;
-    if ((angle & 0x80) != 0) {
+    if (angle & DIR_NOT_MOVING_CHECK) {
         ResetPlayerVelocity();
     } else {
         gPlayerState.vel_x = gSineTable[angle * 8];
@@ -1545,17 +1730,17 @@ bool32 sub_08078F74(Entity* this) {
 void sub_08078FB0(Entity* this) {
     u32 animIndex;
 
-    if ((gPlayerState.pushedObject & 0x80) == 0) {
+    if (!(gPlayerState.pushedObject & 0x80)) {
         gPlayerState.field_0x35 = 0xff;
     }
     sub_08079064(this);
-    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+    if (gPlayerState.flags & PL_NO_CAP) {
         animIndex = 0x58;
     } else {
-        if ((gPlayerState.flags & PL_MINISH) != 0) {
+        if (gPlayerState.flags & PL_MINISH) {
             animIndex = 0x18;
         } else {
-            if (gPlayerState.animation >> 8 == 7) {
+            if (gPlayerState.animation >> 8 == (ANIM_PORTAL_ACTIVATE >> 8)) {
                 animIndex = 0x34;
             } else {
                 animIndex = 0xb8;
@@ -1570,7 +1755,7 @@ void sub_08078FB0(Entity* this) {
             this->spriteSettings.flipX = 0;
         }
 
-        if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
+        if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             animIndex = gPlayerState.animation + this->animationState;
         } else {
             animIndex = (this->animationState >> 1) + gPlayerState.animation;
@@ -1591,7 +1776,7 @@ void sub_08079064(Entity* this) {
     u32 maxAnimPriority;
     u32 animIndex;
 
-    if ((gPlayerState.flags & (PL_IN_HOLE | PL_MINISH)) == 0) {
+    if (!(gPlayerState.flags & (PL_IN_HOLE | PL_MINISH))) {
         maxAnimPriority = 0;
         for (i = 0; i < 4; i++) {
             if (gActiveItems[i].animPriority > maxAnimPriority) {
@@ -1603,9 +1788,10 @@ void sub_08079064(Entity* this) {
         if (gPlayerState.itemAnimPriority < maxAnimPriority) {
             gPlayerState.animation = animIndex;
         } else if ((gPlayerState.swim_state & 0x80) != 0) {
-            gPlayerState.animation = 0x2be;
+            gPlayerState.animation = ANIM_DIVE;
         } else {
-            if (gPlayerState.animation == 0x608 || gPlayerState.animation == 0x104 || gPlayerState.animation == 0x404) {
+            if (gPlayerState.animation == ANIM_LANTERN || gPlayerState.animation == ANIM_WALK ||
+                gPlayerState.animation == ANIM_WALK_NOCAP) {
                 sub_080790E4(this);
             }
         }
@@ -1627,7 +1813,7 @@ void sub_080790E4(Entity* this) {
     if ((gPlayerState.pushedObject & 0x80) != 0) {
         return;
     }
-    if (gPlayerState.pushedObject == 0) {
+    if (!gPlayerState.pushedObject) {
         if (sub_080793E4(1)) {
             if (this->subtimer <= 5) {
                 this->subtimer++;
@@ -1642,10 +1828,10 @@ void sub_080790E4(Entity* this) {
     }
     gPlayerState.field_0x35 = this->animationState;
     gPlayerState.framestate = PL_STATE_PUSH;
-    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-        gPlayerState.animation = 0x93c;
+    if (gPlayerState.flags & PL_NO_CAP) {
+        gPlayerState.animation = ANIM_PUSH_NOCAP;
     } else {
-        gPlayerState.animation = 0x33c;
+        gPlayerState.animation = ANIM_PUSH;
     }
 }
 
@@ -1670,10 +1856,10 @@ void SetPlayerActionNormal(void) {
 }
 
 void ResetPlayerAnimationAndAction(void) {
-    if ((gPlayerState.flags & PL_HIDDEN) == 0) {
+    if (!(gPlayerState.flags & PL_HIDDEN)) {
         gPlayerEntity.spriteSettings.draw = 3;
     }
-    if ((gPlayerState.flags & PL_MINISH) == 0) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
         gPlayerEntity.spritePriority.b1 = 1;
         PlayerSetNormalAndCollide();
     } else {
@@ -1692,14 +1878,14 @@ void PlayerSetNormalAndCollide(void) {
 }
 
 void PlayerMinishSetNormalAndCollide(void) {
-    if ((gPlayerState.flags & PL_HIDDEN) == 0) {
+    if (!(gPlayerState.flags & PL_HIDDEN)) {
         gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 3;
     }
     gPlayerEntity.action = PLAYER_MINISH;
     gPlayerEntity.subAction = 1;
     gPlayerEntity.collisionFlags &= 0xfb;
-    gPlayerState.animation = 0xc18;
+    gPlayerState.animation = ANIM_BOUNCE_MINISH;
     gPlayerState.flags &=
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     gPlayerState.swim_state = 0;
@@ -1714,16 +1900,52 @@ void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
     gPlayerEntity.direction = direction;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080792D8.inc", void sub_080792D8())
+void sub_080792D8(void) {
+    Entity* playerEntity = &gPlayerEntity;
+
+    if (playerEntity->knockbackDuration == 0)
+        return;
+
+    if (playerEntity->action == PLAYER_08071DB8 || gPlayerState.dash_state || (u8)(gPlayerState.heldObject - 1) < 4 ||
+        gPlayerState.jump_status || gPlayerState.floor_type == SURFACE_FF || gPlayerState.field_0x7 & 0x80 ||
+        0 < (gPlayerState.swim_state & 0xf) - 1 || playerEntity->action == PLAYER_FALL ||
+        gPlayerState.flags & PL_ROLLING) {
+        playerEntity->knockbackDuration = 0;
+    } else if (playerEntity->action == PLAYER_CLIMB && playerEntity->knockbackDirection != DirectionSouth) {
+        playerEntity->knockbackDuration = 0;
+    } else {
+        if ((s8)playerEntity->knockbackDuration >= 1) {
+            playerEntity->knockbackDuration--;
+        } else {
+            playerEntity->knockbackDuration++;
+        }
+
+        if (playerEntity->knockbackDuration == 0)
+            return;
+
+        gPlayerState.field_0x7 &= 0xdf;
+        if (0 < playerEntity->iframes && !gPlayerState.swim_state && !(gPlayerState.flags & PL_MINISH) &&
+            !gPlayerState.jump_status) {
+            ResetActiveItems();
+            if (!(gPlayerState.flags & PL_NO_CAP)) {
+                gPlayerState.animation = ANIM_BOUNCE;
+            } else {
+                gPlayerState.animation = ANIM_BOUNCE_NOCAP;
+            }
+        }
+        sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
+        sub_0807A5B8(playerEntity->knockbackDirection);
+    }
+}
 
 bool32 sub_080793E4(u32 param_1) {
     u32 tmp;
-    if (gPlayerState.swim_state == 0) {
+    if (!gPlayerState.swim_state) {
         tmp = gUnk_0811C0F8[gPlayerEntity.animationState >> 1];
     } else {
         tmp = gUnk_0811C0F8[gPlayerEntity.direction >> 2];
     }
-    if (sub_08079778() && ((gPlayerState.playerInput.heldInput & tmp) != 0)) {
+    if (sub_08079778() && (gPlayerState.playerInput.heldInput & tmp)) {
         if (param_1 != 0) {
             if (!sub_080B1BA4(GetPlayerTilePos(), gPlayerEntity.collisionLayer, param_1)) {
                 return FALSE;
@@ -1736,50 +1958,35 @@ bool32 sub_080793E4(u32 param_1) {
 }
 
 void RespawnPlayer(void) {
-    u32* ptr1;
-    u32 index;
     Entity* player = &gPlayerEntity;
-
     player->action = PLAYER_080728AC;
     player->z.WORD = 0;
     player->zVelocity = 0;
     player->knockbackDuration = 0;
     ResetPlayerPosition();
-    if ((gPlayerState.flags & PL_GYORG_FIGHT) == 0) {
-        if ((gPlayerState.flags & PL_FLAGS10000) != 0) {
+    if (!(gPlayerState.flags & PL_GYORG_FIGHT)) {
+        if (gPlayerState.flags & PL_FLAGS10000) {
             player->x.HALF.HI = gPlayerState.lilypad->x.HALF.HI;
             player->y.HALF.HI = gPlayerState.lilypad->y.HALF.HI;
         } else {
-            goto code_1;
-        code_0:
-            gPlayerEntity.collisionLayer = *ptr1 >> 0x1e;
-            gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + (*ptr1 & 0x3f) * 16 + 8;
-            gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + (*ptr1 & 0xfc0) / 4 + 8;
-            COLLISION_ON(&gPlayerEntity);
-            goto code_3;
-        code_1:
-            index = 0;
-            if (gPlayerState.path_memory[0] != 0xffffffff) {
-                ptr1 = gPlayerState.path_memory;
-                while (GetCollisionDataAtMetaTilePos((u16)*ptr1, *ptr1 >> 0x1e) == COLLISION_DATA_15) {
-                    ptr1++;
-                    index++;
-                    if ((index > 0xf) || (*ptr1 == -1)) {
-                        goto code_3;
-                        break;
-                    }
+            u32 i;
+            for (i = 0; i <= 0xf && gPlayerState.path_memory[i] != -1; i++) {
+                if (GetCollisionDataAtMetaTilePos((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) != COLLISION_DATA_15) {
+                    gPlayerEntity.collisionLayer = gPlayerState.path_memory[i] >> 0x1e;
+                    gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + (gPlayerState.path_memory[i] & 0x3f) * 16 + 8;
+                    gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + (gPlayerState.path_memory[i] & 0xfc0) / 4 + 8;
+                    COLLISION_ON(&gPlayerEntity);
+                    break;
                 }
-                goto code_0;
             }
         }
     }
-code_3:
     UpdateSpriteForCollisionLayer(&gPlayerEntity);
 }
 
 void sub_08079520(Entity* this) {
     s32 tmp = gPlayerState.direction;
-    if (tmp < 0x80) {
+    if (tmp < DIR_NOT_MOVING_CHECK) {
         this->direction = gPlayerState.direction;
     } else {
         this->direction = (this->animationState >> 1) << 3;
@@ -1797,10 +2004,10 @@ bool32 sub_08079550(void) {
     u32 tilePos2;
     u32 tilePos1;
 
-    if (gDiggingCaveEntranceTransition.isDiggingCave == 0) {
-        if ((gPlayerState.dash_state == 0 || (gPlayerState.flags & PL_BURNING)) &&
-            (gPlayerState.swim_state != 0 || (gPlayerState.sword_state & 0x40) ||
-             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & 0x80))) {
+    if (!gDiggingCaveEntranceTransition.isDiggingCave) {
+        if ((!gPlayerState.dash_state || (gPlayerState.flags & PL_BURNING)) &&
+            (gPlayerState.swim_state || (gPlayerState.sword_state & 0x40) ||
+             gPlayerEntity.direction != gPlayerState.direction || (gPlayerEntity.direction & DIR_NOT_MOVING_CHECK))) {
             gPlayerEntity.subtimer = 0;
             return FALSE;
         }
@@ -1847,7 +2054,7 @@ void sub_08079708(Entity* this) {
     this->action = PLAYER_MINISHDIE;
     this->subAction = 0;
     sub_080085B0(this);
-    if ((gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS)) == 0) {
+    if (!(gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS))) {
         SetPlayerEventPriority();
     }
 }
@@ -1874,7 +2081,7 @@ void sub_08079744(Entity* this) {
 
 bool32 sub_08079778(void) {
     u32 tmp;
-    if (gPlayerState.swim_state == 0) {
+    if (!gPlayerState.swim_state) {
         tmp = gUnk_0811C108[gPlayerEntity.animationState >> 1];
     } else {
         tmp = gUnk_0811C108[gPlayerEntity.direction >> 2];
@@ -1890,76 +2097,77 @@ u32 sub_080797C4(void) {
 void sub_080797EC(void) {
     u32 animation;
 
-    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-        if (gPlayerState.heldObject != 0) {
-            animation = 0x934;
-        } else if (gPlayerState.shield_status != 0) {
-            animation = 0x410;
-        } else if (gPlayerState.field_0x1f[2] == 0) {
-            if (gPlayerState.swim_state != 0) {
-                animation = 0x290;
+    if (gPlayerState.flags & PL_NO_CAP) {
+        if (gPlayerState.heldObject) {
+            animation = ANIM_CARRY_NOCAP;
+        } else if (gPlayerState.shield_status) {
+            animation = ANIM_SHIELD_WALK_NOCAP;
+        } else if (!gPlayerState.bow_state) {
+            if (gPlayerState.swim_state) {
+                animation = ANIM_SWIM_MOVE;
             } else {
-                animation = 0x16c;
-                if ((gPlayerState.sword_state & 0x48) != 0) {
+                animation = ANIM_SWORD_CHARGE_WALK;
+                if (gPlayerState.sword_state & 0x48) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
-                } else if (gPlayerState.sword_state == 0) {
-                    if (gPlayerState.framestate == 0) {
-                        gPlayerState.framestate = 1;
+                } else if (!gPlayerState.sword_state) {
+                    if (gPlayerState.framestate == PL_STATE_IDLE) {
+                        gPlayerState.framestate = PL_STATE_WALK;
                     }
-                    animation = 0x404;
+                    animation = ANIM_WALK_NOCAP;
                 } else {
-                    animation = 0x16c;
+                    animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
                         if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), gPlayerEntity.collisionLayer) !=
                             COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
-                            animation = 0x170;
+                            animation = ANIM_SWORD_CHARGE_BUMP;
                         }
                     }
                 }
             }
         } else {
-            animation = 0x284;
+            animation = ANIM_BOW_WALK;
         }
     } else {
-        if (gPlayerState.field_0x1c != 0) {
+        if (gPlayerState.field_0x1c) {
             return;
-        } else if (gPlayerState.heldObject != 0) {
-            animation = 0x348;
-        } else if (gPlayerState.dash_state != 0) {
-            animation = 0x298;
-        } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-            animation = 0x710;
-        } else if (gPlayerState.shield_status != 0) {
-            animation = 0x160;
-        } else if (gPlayerState.field_0x1f[2] != 0) {
-            animation = 0x284;
+        } else if (gPlayerState.heldObject) {
+            animation = ANIM_CARRY;
+        } else if (gPlayerState.dash_state) {
+            animation = ANIM_DASH;
+        } else if (gPlayerState.flags & PL_IN_MINECART) {
+            animation = ANIM_MINECART;
+        } else if (gPlayerState.shield_status) {
+            animation = ANIM_SHIELD_WALK;
+        } else if (gPlayerState.bow_state) {
+            animation = ANIM_BOW_WALK;
         } else {
-            if (gPlayerState.swim_state != 0) {
-                animation = 0x290;
+            if (gPlayerState.swim_state) {
+                animation = ANIM_SWIM_MOVE;
             } else {
-                animation = 0x16c;
-                if ((gPlayerState.sword_state & 0x48) != 0) {
+                animation = ANIM_SWORD_CHARGE_WALK;
+                if (gPlayerState.sword_state & 0x48) {
                     gPlayerState.prevAnim = 0x6c;
                     return;
-                } else if (gPlayerState.sword_state != 0) {
-                    animation = 0x16c;
+                } else if (gPlayerState.sword_state) {
+                    animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
                         if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), (u32)gPlayerEntity.collisionLayer) !=
                             COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
-                            animation = 0x170;
+                            animation = ANIM_SWORD_CHARGE_BUMP;
                         }
                     }
                 } else {
-                    if (gPlayerState.framestate == 0) {
-                        gPlayerState.framestate = 1;
+                    if (gPlayerState.framestate == PL_STATE_IDLE) {
+                        gPlayerState.framestate = PL_STATE_WALK;
                     }
                     if ((gPlayerState.flags & PL_USE_LANTERN) != 0) {
-                        animation = 0x608;
+                        animation = ANIM_LANTERN;
                     } else {
-                        animation = 0x104;
+                        // Change to test animations I guess
+                        animation = ANIM_WALK;
                     }
                 }
             }
@@ -1967,7 +2175,7 @@ void sub_080797EC(void) {
     }
     gPlayerState.animation = animation;
 
-    if (gPlayerState.shield_status == 0) {
+    if (!gPlayerState.shield_status) {
         UpdateAnimationSingleFrame(&gPlayerEntity);
     }
 }
@@ -1976,90 +2184,90 @@ void ResolvePlayerAnimation(void) {
     u32 index;
     u32 maxAnimPriority;
     u32 anim;
-    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
-        if (gPlayerState.heldObject != 0) {
-            anim = 0x92c;
+    if (gPlayerState.flags & PL_NO_CAP) {
+        if (gPlayerState.heldObject) {
+            anim = ANIM_CARRY_STAND_NOCAP;
         } else {
-            if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
+            if (gPlayerState.field_0x1c | gPlayerState.moleMittsState) {
                 return;
             }
-            if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
-                anim = 0x810;
-            } else if (gPlayerState.shield_status != 0) {
-                anim = 0x414;
-            } else if (gPlayerState.field_0x1f[2] != 0) {
-                anim = 0x280;
-            } else if (gPlayerState.swim_state != 0) {
-                anim = 0x28c;
+            if (gPlayerState.flags & PL_CONVEYOR_PUSHED) {
+                anim = ANIM_JUMP;
+            } else if (gPlayerState.shield_status) {
+                anim = ANIM_SHIELD_NOCAP;
+            } else if (gPlayerState.bow_state) {
+                anim = ANIM_BOW_CHARGE;
+            } else if (gPlayerState.swim_state) {
+                anim = ANIM_SWIM_STILL;
             } else {
-                if ((gPlayerState.sword_state & 0x48) != 0) {
+                if (gPlayerState.sword_state & 0x48) {
                     return;
                 }
-                if (gPlayerState.sword_state == 0) {
-                    if (gPlayerState.attack_status != 0) {
+                if (!gPlayerState.sword_state) {
+                    if (gPlayerState.attack_status) {
                         return;
                     }
-                    if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
+                    if (gPlayerState.flags & PL_USE_PORTAL) {
                         switch (gArea.portal_type) {
-                            case 5:
-                                anim = 0x400;
+                            case PT_5:
+                                anim = ANIM_DEFAULT_NOCAP;
                                 break;
-                            case 4:
-                                anim = 0x100;
+                            case PT_JAR:
+                                anim = ANIM_DEFAULT;
                                 break;
                             default:
-                                anim = 0x2c2;
+                                anim = ANIM_PORTAL;
                                 break;
                         }
                     } else {
-                        anim = 0x400;
+                        anim = ANIM_DEFAULT_NOCAP;
                     }
                 } else {
-                    anim = 0x168;
+                    anim = ANIM_SWORD_CHARGE;
                 }
             }
         }
     } else {
-        if (gPlayerState.heldObject != 0) {
-            anim = 0x350;
+        if (gPlayerState.heldObject) {
+            anim = ANIM_CARRY_STAND;
         } else {
-            if ((gPlayerState.field_0x1c | gPlayerState.moleMittsState) != 0) {
+            if (gPlayerState.field_0x1c | gPlayerState.moleMittsState) {
                 return;
             }
-            if ((gPlayerState.flags & PL_MOLDWORM_CAPTURED) != 0) {
-                anim = 0x8b0;
-            } else if ((gPlayerState.flags & PL_CONVEYOR_PUSHED) != 0) {
-                anim = 0x810;
-            } else if (gPlayerState.dash_state != 0) {
-                anim = 0x298;
-            } else if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-                anim = 0x70c;
-            } else if (gPlayerState.shield_status != 0) {
-                anim = 0x164;
-            } else if (gPlayerState.field_0x1f[2] != 0) {
-                anim = 0x280;
-            } else if (gPlayerState.swim_state != 0) {
-                anim = 0x28c;
+            if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
+                anim = ANIM_MOLDWORM_CAPTURED;
+            } else if (gPlayerState.flags & PL_CONVEYOR_PUSHED) {
+                anim = ANIM_JUMP;
+            } else if (gPlayerState.dash_state) {
+                anim = ANIM_DASH;
+            } else if (gPlayerState.flags & PL_IN_MINECART) {
+                anim = ANIM_MINECART_PAUSE;
+            } else if (gPlayerState.shield_status) {
+                anim = ANIM_SHIELD;
+            } else if (gPlayerState.bow_state) {
+                anim = ANIM_BOW_CHARGE;
+            } else if (gPlayerState.swim_state) {
+                anim = ANIM_SWIM_STILL;
             } else {
-                if ((gPlayerState.sword_state & 0x48) != 0) {
+                if (gPlayerState.sword_state & 0x48) {
                     return;
                 }
-                if ((gPlayerState.flags & PL_USE_PORTAL) != 0) {
-                    anim = (gArea.portal_type == 4) ? 0x530 : 0x2c2;
+                if (gPlayerState.flags & PL_USE_PORTAL) {
+                    anim = (gArea.portal_type == PT_JAR) ? ANIM_IN_POT : ANIM_PORTAL;
                 } else {
-                    if (gPlayerState.sword_state != 0) {
-                        anim = 0x168;
+                    if (gPlayerState.sword_state) {
+                        anim = ANIM_SWORD_CHARGE;
                     } else {
-                        if (gPlayerState.attack_status != 0) {
+                        if (gPlayerState.attack_status) {
                             return;
                         }
                         if (gPlayerState.flags & PL_USE_LANTERN) {
-                            if (gActiveItems[ACTIVE_ITEM_LANTERN].animPriority != 0) {
+                            if (gActiveItems[ACTIVE_ITEM_LANTERN].animPriority) {
                                 return;
                             }
-                            anim = 0x604;
+                            anim = ANIM_LANTERN_ON;
                         } else {
-                            anim = 0x100;
+                            anim = ANIM_DEFAULT;
                         }
                     }
                 }
@@ -2068,7 +2276,7 @@ void ResolvePlayerAnimation(void) {
     }
 
     gPlayerState.animation = anim;
-    if (gPlayerState.heldObject == 0) {
+    if (!gPlayerState.heldObject) {
         maxAnimPriority = 0;
         for (index = 0; index < 4; index++) {
             if (gActiveItems[index].animPriority > maxAnimPriority) {
@@ -2100,8 +2308,8 @@ bool32 sub_08079B24(void) {
                         }
                         if ((gPlayerState.jump_status & 0x41) == 0) {
                             gPlayerState.jump_status = 0x41;
-                            gPlayerEntity.direction = 0xff;
-                            gPlayerState.direction = 0xff;
+                            gPlayerEntity.direction = DIR_NONE;
+                            gPlayerState.direction = DIR_NONE;
                             return TRUE;
                         } else {
                             return TRUE;
@@ -2371,11 +2579,11 @@ bool32 HasSwordEquipped(void) {
     }
 }
 
-void sub_0807A180(Entity* param_1, u32 param_2, u32 param_3, u32 param_4) {
+u32 sub_0807A180(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4) {
     GenericEntity stackEntity;
     PositionRelative(param_1, &stackEntity.base, 0, -0x40000);
     stackEntity.base.animationState = param_1->animationState;
-    sub_08003FDE(&stackEntity.base, param_2, param_3, param_4);
+    return sub_08003FDE(&stackEntity.base, param_2, param_3, param_4);
 }
 
 void UpdateFloorType(void) {
@@ -2423,7 +2631,86 @@ bool32 sub_0807A2B8(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", u32 sub_0807A2F8(u32 a1))
+u32 sub_0807A2F8(u32 param_1) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 iVar4;
+    u32 uVar5;
+    u8 auStack36[4];
+    Entity* player;
+
+    if ((gRoomControls.area == 8) || (sub_08079778() | param_1) == 0)
+        return 0;
+    if ((gPlayerEntity.animationState & 2) != 0) {
+
+        uVar2 = COORD_TO_TILE_OFFSET(&gPlayerEntity, 0, -gPlayerEntity.hitbox->unk2[3]) << 1;
+        uVar1 = COORD_TO_TILE_OFFSET(&gPlayerEntity, 0, gPlayerEntity.hitbox->unk2[3]) << 1;
+
+    } else {
+        uVar2 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -gPlayerEntity.hitbox->unk2[0], 0) << 1;
+        uVar1 = COORD_TO_TILE_OFFSET(&gPlayerEntity, gPlayerEntity.hitbox->unk2[0], 0) << 1;
+    }
+
+    for (uVar5 = 0; uVar5 < 2; uVar5++) {
+        iVar4 = 0;
+        uVar2 = sub_08004202(&gPlayerEntity, auStack36, uVar2);
+        if (GetCollisionDataAtMetaTilePos(uVar2 >> 1, LAYER_BOTTOM)) {
+            if (!FindValueForKey((u16)GetVvvAtMetaTilePos((u16)(uVar2 >> 1), gPlayerEntity.collisionLayer),
+                              gUnk_0811C1D8[gPlayerEntity.animationState >> 1])) {
+                break;
+            }
+        } else {
+            iVar4 = 1;
+        }
+
+        uVar1 = sub_08004202(&gPlayerEntity, auStack36, uVar1);
+        if (GetCollisionDataAtMetaTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
+            if (!FindValueForKey((u16)GetVvvAtMetaTilePos((uVar1 >> 1), gPlayerEntity.collisionLayer),
+                              gUnk_0811C1D8[gPlayerEntity.animationState >> 1])) {
+                break;
+            }
+        } else {
+            iVar4++;
+        }
+
+        if (iVar4 == 2) {
+            if (uVar5 != 0) {
+                break;
+            }
+            return 0;
+        }
+    }
+    if (uVar5 != 0) {
+        if (AreaIsDungeon()) {
+            uVar2 = sub_08004202(&gPlayerEntity, auStack36, uVar2);
+            if (!GetCollisionDataAtMetaTilePos(uVar2 >> 1, LAYER_TOP)) {
+                uVar1 = sub_08004202(&gPlayerEntity, auStack36, uVar1);
+                if (GetCollisionDataAtMetaTilePos(uVar1 >> 1, LAYER_TOP)) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+        } else {
+            if (uVar5 == 2) {
+                uVar2 = sub_08004202(&gPlayerEntity, auStack36, uVar2);
+            }
+            if (GetCollisionDataAtMetaTilePos(uVar2 >> 1, LAYER_BOTTOM) == 0) {
+                if (uVar5 == 2) {
+                    uVar1 = sub_08004202(&gPlayerEntity, auStack36, uVar1);
+                }
+                if (GetCollisionDataAtMetaTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+        }
+        return uVar5 + 1;
+    }
+
+    return 0;
+}
 
 u32 GetPlayerTilePos(void) {
     switch (gPlayerEntity.animationState >> 1) {
@@ -2690,7 +2977,7 @@ bool32 sub_0807AC54(Entity* this) {
             this->action = PLAYER_CLIMB;
             this->subAction = 0;
             this->y.HALF.LO = 0;
-            gPlayerState.animation = 0x2cf;
+            gPlayerState.animation = ANIM_CLIMB1_UP;
             return TRUE;
         case SURFACE_AUTO_LADDER:
             this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
@@ -2781,7 +3068,7 @@ void PlayerUpdateSwimming(Entity* this) {
         ModHealth(-2);
         SoundReq(SFX_PLY_VO6);
     }
-    if ((this->direction & 0x80) != 0) {
+    if (this->direction & DIR_NOT_MOVING_CHECK) {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
             CreateRandomWaterTrace(this, 4);
         }
@@ -2856,21 +3143,21 @@ u32 GetSwordBeam(void) {
 }
 
 void sub_0807B068(Entity* entity) {
-    if ((gPlayerState.dash_state | gPlayerState.attack_status) == 0) {
-        if (gPlayerState.swim_state != 0) {
-            if ((gPlayerState.swim_state & 0x80) != 0) {
-                gPlayerState.animation = 0xc1c;
+    if (!(gPlayerState.dash_state | gPlayerState.attack_status)) {
+        if (gPlayerState.swim_state) {
+            if (gPlayerState.swim_state & 0x80) {
+                gPlayerState.animation = ANIM_DIVE_MINISH;
             } else {
-                gPlayerState.animation = 0xc0c;
+                gPlayerState.animation = ANIM_SWIM_MINISH;
             }
         } else {
-            if ((gPlayerState.direction & 0x80) != 0) {
-                if (gPlayerState.animation != 0xc18) {
-                    gPlayerState.animation = 0xc18;
+            if (gPlayerState.direction & DIR_NOT_MOVING_CHECK) {
+                if (gPlayerState.animation != ANIM_BOUNCE_MINISH) {
+                    gPlayerState.animation = ANIM_BOUNCE_MINISH;
                 }
             } else {
-                if (gPlayerState.animation != 0xc04) {
-                    gPlayerState.animation = 0xc04;
+                if (gPlayerState.animation != ANIM_WALK_MINISH) {
+                    gPlayerState.animation = ANIM_WALK_MINISH;
                 }
             }
         }
@@ -2934,7 +3221,7 @@ void sub_0807B1EC(PlayerEntity* this) {
     if (--super->timer == 0) {
         this->unk_6e++;
         super->zVelocity = Q_16_16(1.0);
-        gPlayerState.animation = 0x2c2;
+        gPlayerState.animation = ANIM_PORTAL;
     }
 }
 
@@ -3519,7 +3806,54 @@ void sub_0807BFA8(void) {
     gRoomControls.height = (gArea.pCurrentRoomInfo)->pixel_height;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BFD0.inc", void sub_0807BFD0())
+void sub_0807BFD0(void) {
+    s32 index;
+    u16* puVar2;
+    u16* puVar3;
+    u16* ptr;
+    typeof(gMapTop)* newptr;
+
+    ClearBgAnimations();
+    sub_0807BFA8();
+    MemFill16(0xffff, gMapBottom.metatileTypes, 0x1000);
+    gMapBottom.metatileTypes[0] = 0;
+    MemFill16(0xffff, gMapTop.metatileTypes, 0x1000);
+    gMapTop.metatileTypes[0] = 0;
+
+    if ((void*)gRoomControls.unk_34 != (gArea.pCurrentRoomInfo)->tileset) {
+        gRoomControls.unk_34 = (u32)(gArea.pCurrentRoomInfo)->tileset;
+        LoadMapData((gArea.pCurrentRoomInfo)->tileset);
+    }
+
+    LoadMapData((gArea.pCurrentRoomInfo)->metatiles);
+    ptr = gPaletteBuffer;
+    MemCopy(&ptr[0x30], &ptr[0x150], 0x20);
+    gUsedPalettes |= 0x200000;
+
+    if ((gArea.pCurrentRoomInfo)->bg_anim != NULL) {
+        LoadBgAnimations((gArea.pCurrentRoomInfo)->bg_anim);
+    }
+
+    puVar2 = gMapBottom.metatileTypes;
+    puVar3 = gMapBottom.unkData2;
+    MemFill16(0xffff, puVar3, 0x1000);
+
+    for (index = 0; index < 0x800; index++, puVar2++) {
+        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
+            puVar3[*puVar2] = index;
+        }
+    }
+
+    puVar2 = gMapTop.metatileTypes;
+    puVar3 = gMapTop.unkData2;
+    MemFill16(0xffff, puVar3, 0x1000);
+
+    for (index = 0; index < 0x800; index++, puVar2++) {
+        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
+            puVar3[*puVar2] = index;
+        }
+    }
+}
 
 void LoadRoomGfx(void) {
     RoomControls* roomControls;
@@ -3544,10 +3878,10 @@ void LoadRoomGfx(void) {
         MemClear(gMapBottom.mapData, sizeof(gMapBottom.mapData));
         clearBottomMap = TRUE;
     }
-    if (gRoomTransition.field_0x2c[0] == 0) {
+    if (gRoomTransition.field2d == 0) {
         MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
         MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapBottom.mapData));
-    } else if (gRoomTransition.field_0x2c[0] == 2) {
+    } else if (gRoomTransition.field2d == 2) {
         MemCopy(gMapBottom.mapData, gMapBottom.vvv, 0x1000);
         MemCopy(gMapBottom.mapDataClone, gMapBottom.mapData, 0x1000);
         MemCopy(gMapBottom.vvv, gMapBottom.mapDataClone, 0x1000);
@@ -3886,18 +4220,56 @@ void sub_0807C810(void) {
  * This function is used to create a copy of the map data for temporary cutscene changes.
  */
 void CloneMapData(void) {
-    gRoomTransition.field_0x2c[0] = 1;
+    gRoomTransition.field2d = 1;
     MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);
     MemCopy(&gMapTop.mapData, &gMapTop.mapDataClone, 0x2000);
 }
 
 void sub_0807C898(void) {
-    gRoomTransition.field_0x2c[0] = 2;
+    gRoomTransition.field2d = 2;
     LoadRoomGfx();
-    gRoomTransition.field_0x2c[0] = 0;
+    gRoomTransition.field2d = 0;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0(u16* a, u32 b, u32 c))
+void sub_0807C8B0(u16* data, u32 width, u32 height) {
+    u16* dst_ptr;
+    u16* src_ptr;
+    u16* dst_ptr_cpy;
+    u16* src_ptr_cpy;
+    u32 innerIndex;
+    u32 index;
+    u16* prev_line;
+    u32 diff;
+
+    src_ptr = data + width * height - 1;
+    dst_ptr = data + (height - 1) * 0x40 + (width - 1);
+
+    for (index = 0; index < height; index++) {
+        src_ptr_cpy = src_ptr; //[index * -width];
+        dst_ptr_cpy = dst_ptr; //[index * -0x40];
+        for (innerIndex = 0; innerIndex < width; innerIndex++) {
+            dst_ptr_cpy[-innerIndex] = src_ptr_cpy[-innerIndex];
+        }
+        dst_ptr -= 0x40;
+        src_ptr -= width;
+    }
+
+    diff = 0x40 - width;
+    for (index = 0; index < 0x40; index++) {
+        dst_ptr = data + width - index * -0x40;
+
+        for (innerIndex = 0; innerIndex < diff; innerIndex++) {
+            dst_ptr[innerIndex] = 0;
+        }
+    }
+
+    diff = 0x40 - height;
+    dst_ptr = data + height * 0x40;
+    for (index = 0; index < diff; index++) {
+        MemClear(&dst_ptr[index * 0x40], 0x80);
+        // dst_ptr += 0x40;
+    }
+}
 
 void LoadCompressedMapData(void* dest, u32 offset) {
     void* src;

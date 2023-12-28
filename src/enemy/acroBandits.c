@@ -445,7 +445,7 @@ void AcroBandit_Type1Action4(Entity* this) {
                 }
             }
 
-            if (this->direction & 0xf)
+            if (this->direction & (0x3 | DirectionEast | DIR_DIAGONAL))
                 this->spriteSettings.flipX = (this->direction >> 4 ^ 1);
 
             ProcessMovement0(this);
@@ -486,7 +486,7 @@ void AcroBandit_Type1Action6(Entity* this) {
         this->action = 7;
         dir = fallDirections[this->field_0x74.HALF.LO * 5 + this->type2];
         this->direction = dir;
-        if (dir >= 0x10) {
+        if (dir >= DirectionSouth) {
             this->spriteSettings.flipX = 1;
         } else {
             this->spriteSettings.flipX = 0;
@@ -570,7 +570,7 @@ static void sub_080322E8(Entity* this) {
         }
     } else {
         u8 tmp = this->direction;
-        if (tmp & 0xF) {
+        if (tmp & (0x3 | DirectionEast | DIR_DIAGONAL)) {
             tmp >>= 4;
             tmp ^= 1;
             if (tmp != this->spriteSettings.flipX) {

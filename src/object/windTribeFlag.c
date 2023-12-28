@@ -4,6 +4,7 @@
  *
  * @brief Wind Tribe Flag object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
 void WindTribeFlag(Entity* this) {

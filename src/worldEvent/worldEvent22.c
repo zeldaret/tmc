@@ -1,5 +1,5 @@
 /**
- * @file worldEvent.c
+ * @file worldEvent22.c
  * @ingroup WorldEvents
  *
  * @brief World Event 22

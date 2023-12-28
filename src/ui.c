@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "game.h"
 #include "global.h"
+#include "item.h"
 #include "message.h"
 #include "player.h"
 #include "save.h"
@@ -667,7 +668,7 @@ u32 sub_0801CC80(UIElement* element) {
     u32 buttonId = (type ^ 3) != 0;
     u32 itemId = gSave.stats.itemButtons[buttonId];
     if (ItemIsBottle(itemId)) {
-        itemId = gSave.saved_status.field_0x24[itemId - 6];
+        itemId = gSave.stats.bottles[itemId - ITEM_BOTTLE1];
     }
     return itemId;
 }

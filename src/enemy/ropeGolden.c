@@ -10,6 +10,7 @@
 #include "enemy.h"
 #include "physics.h"
 #include "player.h"
+#include "item.h"
 
 void RopeGolden_OnTick(Entity*);
 void RopeGolden_OnCollision(Entity*);
@@ -58,7 +59,7 @@ void RopeGolden_OnDeath(Entity* this) {
     if ((this->gustJarState & 2) == 0) {
         SetGlobalFlag(this->type2);
     }
-    CreateDeathFx(this, 0xff, 0x58);
+    CreateDeathFx(this, 0xff, ITEM_RUPEE100);
 }
 
 void sub_08038258(Entity* this) {
@@ -130,7 +131,7 @@ void sub_08038304(Entity* this) {
                 }
                 this->field_0x7a.HALF.LO = this->field_0x78.HALF.HI;
                 this->field_0x78.HALF.HI = cVar2;
-                this->direction = (this->direction + cVar2) & 0x18;
+                this->direction = (this->direction + cVar2) & DirectionWest;
             } else {
                 this->direction = this->field_0x78.HALF.LO;
             }

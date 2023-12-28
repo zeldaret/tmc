@@ -143,4 +143,11 @@ union SplitHWord {
 /* forward decls */
 struct Entity_;
 
+/**
+ * bitset macros
+ */
+
+#define BIT(bit) (1 << (bit))
+#define IS_BIT_SET(value, bit) ((value)&BIT(bit))
+
 #endif // GLOBAL_H

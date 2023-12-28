@@ -4,10 +4,10 @@
  *
  * @brief Windcrest object
  */
+#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"
-#include "global.h"
 #include "save.h"
 #include "script.h"
 #include "sound.h"

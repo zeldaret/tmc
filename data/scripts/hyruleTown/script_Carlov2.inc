@@ -47,7 +47,7 @@ script_080146E2:
 	JumpIf script_0801472E
 	CheckLocalFlag 0x005f
 	JumpIf script_08014720
-	Call sub_08088574
+	Call FigurineDevice_TryAgainMessage
 	SetRoomFlag 0x000a
 	Jump script_0801473C
 script_0801472E_2:
@@ -104,7 +104,7 @@ script_080146C6:
 	JumpIf script_0801472E
 	CheckLocalFlag 0x005f
 	JumpIf script_08014720
-	Call sub_08088574
+	Call FigurineDevice_TryAgainMessage
 	SetRoomFlag 0x0009
 	Jump script_0801473C
 .endif
@@ -135,7 +135,7 @@ script_08014720:
 .else
 	SetRoomFlag 0x0009
 .endif
-	Call sub_08088504
+	Call FigurineDevice_NothingNewToDrawMessage
 	Jump script_0801473C
 script_0801472E:
 .ifdef EU
@@ -144,7 +144,7 @@ script_0801472E:
 	SetRoomFlag 0x0009
 .endif
 	ClearRoomFlag 0x0006
-	Call sub_08088544
+	Call FigurineDevice_NewFigurinesMessage
 script_0801473C:
 	CheckTextboxResult
 	JumpIfNot script_08014770
@@ -179,9 +179,9 @@ script_0801477A:
 	CheckRoomFlag 0x0007
 	JumpIf script_080147A4
 script_0801478A:
-	Call sub_08088478
+	Call FigurineDevice_NoFigurinesLeftMessage
 	WaitUntilTextboxCloses
-	Call sub_080885B0
+	Call FigurineDevice_LostOrFinishedMessage
 	WaitPlayerGetItem
 	SetSyncFlag 0x00000008
 	Jump script_080147CE

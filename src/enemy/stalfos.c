@@ -73,7 +73,7 @@ void Stalfos_OnTick(StalfosEntity* this) {
     }
 }
 
-void sub_0803933C(StalfosEntity* this) {
+void Stalfos_OnCollision(StalfosEntity* this) {
     Entity* r0;
     Entity* r1;
     u32 r2;
@@ -120,7 +120,7 @@ void sub_0803933C(StalfosEntity* this) {
     EnemyFunctionHandlerAfterCollision(super, Stalfos_Functions);
 }
 
-void sub_08039418(StalfosEntity* this) {
+void Stalfos_OnDeath(StalfosEntity* this) {
     if (super->type == 0) {
         CreateDeathFx(super, 0xf3, 0);
     } else {
@@ -128,7 +128,7 @@ void sub_08039418(StalfosEntity* this) {
     }
 }
 
-void sub_08039438(StalfosEntity* this) {
+void Stalfos_OnGrabbed(StalfosEntity* this) {
     if (sub_0806F520(super)) {
         Stalfos_SubActions[super->subAction](this);
     }
@@ -453,33 +453,32 @@ u32 sub_08039B28(StalfosEntity* this) {
     const u16* ptr;
     const s8* ptr2;
 
-    if (super->child == NULL) {
-        ptr2 = &gUnk_080CF930[super->animationState * 2];
-        pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
-
-        tileType = GetMetaTileType(pos, (u32)super->collisionLayer);
-        ptr = gUnk_080CF938;
-        do {
-            if (ptr[0] != tileType) {
-                ptr += 2;
-            } else {
-                goto found;
-            }
-        } while (ptr[0] != 0);
+    if (super->child != NULL) {
+        return (u16)-1;
     }
-    return 0xffff;
-found:
-    super->type2 = ptr[1];
-    return pos;
+    ptr2 = &gUnk_080CF930[super->animationState * 2];
+    pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
+    tileType = GetMetaTileType(pos, (u32)super->collisionLayer);
+    ptr = gUnk_080CF938;
+
+    do {
+        if (ptr[0] == tileType) {
+            super->type2 = ptr[1];
+            return pos;
+        }
+        ptr += 2;
+    } while (ptr[0] != 0);
+
+    return (u16)-1;
 }
 
 void (*const Stalfos_Functions[])(StalfosEntity*) = {
     Stalfos_OnTick,
-    sub_0803933C,
+    Stalfos_OnCollision,
     (void (*)(StalfosEntity*))GenericKnockback,
-    sub_08039418,
+    Stalfos_OnDeath,
     (void (*)(StalfosEntity*))GenericConfused,
-    sub_08039438,
+    Stalfos_OnGrabbed,
 };
 void (*const Stalfos_Actions[])(StalfosEntity*) = {
     Stalfos_Init,    Stalfos_Action1, Stalfos_Action2, Stalfos_Action3, Stalfos_Action4,  Stalfos_Action5,

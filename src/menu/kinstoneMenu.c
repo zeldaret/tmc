@@ -86,7 +86,7 @@ const ScreenTransitionData gUnk_08128024[] = {
 u32 sub_080A3B48(void) {
     u32 index;
     for (index = 0; index <= 0x12; index++) {
-        if (gSave.kinstoneAmounts[index] == 0) {
+        if (gSave.kinstones.amounts[index] == 0) {
             break;
         }
     }
@@ -206,7 +206,7 @@ void KinstoneMenu_Type1(void) {
         case A_BUTTON:
             if (gMenu.column_idx == 2) {
                 tmp3 = gGenericMenu.unk10.i / 0x10000;
-                gGenericMenu.unk2a = gSave.kinstoneTypes[tmp3];
+                gGenericMenu.unk2a = gSave.kinstones.types[tmp3];
                 SetMenuType(3);
             }
             break;
@@ -229,7 +229,7 @@ void KinstoneMenu_Type1(void) {
 void KinstoneMenu_Type2(void) {
     const KinstoneWorldEvent* ptr;
     if (gMenu.column_idx == 6) {
-        gFuseInfo._0 = 6;
+        gFuseInfo.fusionState = FUSION_STATE_6;
         ptr = &gKinstoneWorldEvents[gFuseInfo.kinstoneId];
         if (ptr->subtask != 0) {
             MenuFadeIn(ptr->subtask, ptr->worldEventId);
@@ -237,7 +237,7 @@ void KinstoneMenu_Type2(void) {
             Subtask_Exit();
         }
     } else {
-        gFuseInfo._0 = 5;
+        gFuseInfo.fusionState = FUSION_STATE_5;
         Subtask_Exit();
     }
 }
@@ -319,9 +319,9 @@ void KinstoneMenu_Type5(void) {
 
 void KinstoneMenu_Type5_Overlay0(void) {
     gMenu.column_idx = 5;
-    WriteBit(gSave.fusedKinstones, gFuseInfo.kinstoneId);
-    if (++gSave.fusedKinstoneCount > 99) {
-        gSave.didAllFusions = 1;
+    WriteBit(gSave.kinstones.fusedKinstones, gFuseInfo.kinstoneId);
+    if (++gSave.kinstones.fusedCount > 99) {
+        gSave.kinstones.didAllFusions = 1;
     }
     KinstoneMenu_080A4468();
     SoundReq(SFX_TASK_COMPLETE);
@@ -433,22 +433,36 @@ void KinstoneMenu_080A4080(void) {
     }
 }
 
-NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void KinstoneMenu_080A414C(void)) {
+void KinstoneMenu_080A414C(void) {
     s32 uVar1;
     s32 iVar2;
     s32 uVar3;
+    s32 tmp1;
+    s32 tmp2;
+    s32 tmp3;
+    s32 tmp4;
+    const s16* ptr;
+    OAMCommand* OamCmd;
+    u16 tmp5;
 
     s32 i;
 
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
-    uVar1 = gKinstoneMenu.unk10.HALF.LO / 0xb21;
-    for (i = -3, uVar1 = -uVar1 - 0x45; i < 4; uVar1 += 0x17, i++) {
-        gOamCmd.y = ((gSineTable[uVar1 & 0xff] * 0x44) / 0x100) + 0x4f;
-        gOamCmd.x = ((gSineTable[(uVar1 + 0x40) & 0xff] * 0x42) / 0x100) - 0x10;
+    tmp3 = (s32)(gKinstoneMenu.unk10.HALF_U.LO);
+    tmp2 = 0xb21;
+    tmp5 = (tmp3 / tmp2);
+    i = -3;
+    tmp1 = 0xff;
+    OamCmd = &gOamCmd;
+    ptr = gSineTable;
+    uVar1 = -tmp5 - 0x45;
+    while (i < 4) {
+        OamCmd->y = ((ptr[uVar1 & tmp1] * 0x44) / 0x100) + 0x4f;
+        OamCmd->x = ((ptr[((uVar1 & tmp1) + 0x40) & tmp1] * 0x42) / 0x100) - 0x10;
         iVar2 = gKinstoneMenu.unk10.WORD / 0x10000 + i;
         if (iVar2 >= 0) {
-            uVar3 = gSave.kinstoneAmounts[iVar2];
+            uVar3 = gSave.kinstones.amounts[iVar2];
             if (i == 0) {
                 switch (gMenu.column_idx) {
                     case 3:
@@ -459,13 +473,14 @@ NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void K
                         break;
                 }
             }
-            if (0 < uVar3) {
-                sub_080A42E0(gSave.kinstoneTypes[iVar2], uVar3);
+            if (uVar3 > 0) {
+                sub_080A42E0(gSave.kinstones.types[iVar2], uVar3);
             }
         }
+        uVar1 += 0x17;
+        i++;
     }
 }
-END_NONMATCH
 
 void KinstoneMenu_080A422C(void) {
     static const s8 gUnk_08128120[] = {
@@ -625,9 +640,9 @@ u32 KinstoneMenu_080A4494(void) {
         psVar1->unk1 = 0;
         sub_080A44E0(psVar1, gSave.name, 0x80);
 #if NON_MATCHING
-        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.ent) >> 0x20, 0xa0);
+        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.entity) >> 0x20, 0xa0);
 #else
-        GetFuserId(gFuseInfo.ent);
+        GetFuserId(gFuseInfo.entity);
         asm("" : "=r"(r1));
         ret = sub_080A44E0(psVar1, r1, 0xa0);
 #endif
@@ -652,13 +667,13 @@ u32 sub_080A44E0(WStruct* param_1, u8* param_2, u32 param_3) {
 void KinstoneMenu_080A4528(void) {
     Entity* entity;
 
-    if (gFuseInfo.ent->kind == NPC) {
-        entity = CreateNPC(gFuseInfo.ent->id, gFuseInfo.ent->type, gFuseInfo.ent->type2);
+    if (gFuseInfo.entity->kind == NPC) {
+        entity = CreateNPC(gFuseInfo.entity->id, gFuseInfo.entity->type, gFuseInfo.entity->type2);
     } else {
-        if (gFuseInfo.ent->kind != ENEMY) {
+        if (gFuseInfo.entity->kind != ENEMY) {
             return;
         }
-        entity = CreateEnemy(gFuseInfo.ent->id, gFuseInfo.ent->type);
+        entity = CreateEnemy(gFuseInfo.entity->id, gFuseInfo.entity->type);
     }
     if (entity != NULL) {
         if (entity->kind == NPC) {

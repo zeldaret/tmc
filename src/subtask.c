@@ -13,6 +13,7 @@
 #include "screen.h"
 #include "subtask.h"
 #include "ui.h"
+#include "windcrest.h"
 
 extern Screen gUnk_03001020;
 extern u8 gPaletteBufferBackup[];
@@ -67,7 +68,7 @@ param_2:    0: visited overworld area name
             2: overworld area name
             1: dungeon name
 */
-void ShowAreaName(u32 id, u32 type) {
+void ShowAreaName(WindcrestID windcrest, u32 type) {
     extern u16 gDungeonNames[];
     extern Font gUnk_08128FD8;
     extern Font gUnk_08128FC0;
@@ -77,15 +78,17 @@ void ShowAreaName(u32 id, u32 type) {
     textIndexOrPtr = 0;
     switch (type) {
         case 0:
-            if ((gSave.windcrests & (1 << id)) == 0)
+            if (!IS_BIT_SET(gSave.windcrests, windcrest))
                 break;
         case 2:
-            textIndexOrPtr = gOverworldLocations[id].textIndex;
+            textIndexOrPtr = gOverworldLocations[windcrest].textIndex;
             font = &gUnk_08128FC0;
             break;
         case 1:
-            textIndexOrPtr = gDungeonNames[id];
+            textIndexOrPtr = gDungeonNames[windcrest];
             font = &gUnk_08128FD8;
+            break;
+        default:
             break;
     }
 
@@ -217,7 +220,7 @@ void Subtask_FadeIn(void) {
         MemCopy(gUnk_03000420, gUI.unk_2a8, sizeof(gUI.unk_2a8));
         MemCopy(&gActiveScriptInfo, &gUI.activeScriptInfo, sizeof(ActiveScriptInfo));
         sub_0805E958();
-        gUI.unk_d = gRoomTransition.field_0x2c[2];
+        gUI.unk_d = gRoomTransition.field2f;
         gUI.controlMode = gPlayerState.controlMode;
         gUI.currentRoomProperties = gCurrentRoomProperties;
         gUI.mapBottomBgSettings = gMapBottom.bgSettings;
@@ -240,7 +243,7 @@ void Subtask_Init(void) {
         ResetPaletteTable(0);
         gGFXSlots.unk0 = 1;
         gUI.nextToLoad = 2; // Subtask_Update
-        gRoomTransition.field_0x2c[3] = 1;
+        gRoomTransition.field30 = 1;
     }
 }
 
@@ -269,7 +272,7 @@ void Subtask_FadeOut(void) {
             SetFadeInverted(gUI.fadeInTime);
         }
         gUI.nextToLoad = 4; // Subtask_Die
-        gRoomTransition.field_0x2c[3] = 0;
+        gRoomTransition.field30 = 0;
     }
 }
 

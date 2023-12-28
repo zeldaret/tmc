@@ -1,7 +1,14 @@
-#include "entity.h"
-#include "enemy.h"
-#include "functions.h"
+/**
+ * @file dekuSeedProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Deku Seed Projectile
+ */
+#define NENT_DEPRECATED
 #include "collision.h"
+#include "enemy.h"
+#include "entity.h"
+#include "functions.h"
 
 extern void (*const DekuSeedProjectile_Functions[])(Entity*);
 extern void (*const DekuSeedProjectile_Actions[])(Entity*);
@@ -17,7 +24,7 @@ void DekuSeedProjectile_OnTick(Entity* this) {
     DekuSeedProjectile_Actions[this->action](this);
 }
 
-void sub_080A8470(Entity* this) {
+void DekuSeedProjectile_OnCollision(Entity* this) {
     if (this->contactFlags == 0x80) {
         if (this->hitType == 0x68) {
             EnqueueSFX(SFX_86);
@@ -140,7 +147,7 @@ void sub_080A86A0(Entity* this) {
 }
 
 void (*const DekuSeedProjectile_Functions[])(Entity*) = {
-    DekuSeedProjectile_OnTick, sub_080A8470, DeleteEntity, DeleteEntity, DeleteEntity,
+    DekuSeedProjectile_OnTick, DekuSeedProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
 };
 void (*const DekuSeedProjectile_Actions[])(Entity*) = {
     DekuSeedProjectile_Init,    DekuSeedProjectile_Action1, DekuSeedProjectile_Action2,

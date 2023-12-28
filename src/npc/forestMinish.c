@@ -1,3 +1,10 @@
+/**
+ * @file forestMinish.c
+ * @ingroup NPCs
+ *
+ * @brief Forest Minish NPC
+ */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "kinstone.h"
@@ -5,6 +12,15 @@
 #include "object.h"
 #include "playeritem.h"
 #include "structures.h"
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 fusionOffer;
+    /*0x69*/ u8 animIndex;
+    /*0x6a*/ u8 unused[22];
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u16 unk_82;
+    /*0x84*/ ScriptExecutionContext* context;
+} ForestMinishEntity;
 
 const FrameStruct gUnk_08109C98[] = {
     { 36, 26 },  { 37, 26 },  { 38, 26 },  { 39, 155 }, { 40, 155 }, { 41, 155 }, { 42, 155 }, { 43, 152 },
@@ -499,44 +515,45 @@ const u16 gUnk_0810A362[] = {
     TEXT_INDEX(TEXT_BELARI, 0x8),
 };
 
-static void sub_080600F0(Entity* this);
+static void sub_080600F0(ForestMinishEntity* this);
+extern void sub_08060158(ForestMinishEntity* this);
 
-void ForestMinish(Entity* this) {
-    switch (this->action) {
+void ForestMinish(ForestMinishEntity* this) {
+    switch (super->action) {
         case 0:
-            if (LoadExtraSpriteData(this, gUnk_0810A348)) {
-                this->action = 1;
-                this->spriteSettings.draw = TRUE;
-                this->field_0x68.HALF.HI = this->animationState = this->timer << 1;
-                this->timer = 0;
-                SetDefaultPriority(this, PRIO_MESSAGE);
-                StartCutscene(this, (u16*)gUnk_08109D18[this->type2]);
-                sub_0807DD50(this);
+            if (LoadExtraSpriteData(super, gUnk_0810A348)) {
+                super->action = 1;
+                super->spriteSettings.draw = TRUE;
+                this->animIndex = super->animationState = super->timer << 1;
+                super->timer = 0;
+                SetDefaultPriority(super, PRIO_MESSAGE);
+                StartCutscene(super, (u16*)gUnk_08109D18[super->type2]);
+                InitScriptForNPC(super);
             }
             break;
         case 1:
-            if (this->interactType == 2) {
-                this->action = 2;
-                this->interactType = 0;
-                sub_0806F118(this);
+            if (super->interactType == INTERACTION_FUSE) {
+                super->action = 2;
+                super->interactType = INTERACTION_NONE;
+                InitializeNPCFusion(super);
             } else {
-                ExecuteScriptForEntity(this, NULL);
-                HandleEntity0x82Actions(this);
-                if (this->frameDuration != 0xf0) {
+                ExecuteScriptForEntity(super, NULL);
+                HandleEntity0x82Actions(super);
+                if (super->frameDuration != 0xf0) {
                     sub_080600F0(this);
                 }
             }
             break;
         case 2:
-            if (UpdateFuseInteraction(this)) {
-                this->action = 1;
+            if (UpdateFuseInteraction(super)) {
+                super->action = 1;
             }
     }
 }
 
-void ForestMinish_MakeInteractable(Entity* this) {
-    this->field_0x68.HALF.LO = GetFusionToOffer(this);
-    AddInteractableWhenBigFuser(this, this->field_0x68.HALF.LO);
+void ForestMinish_MakeInteractable(ForestMinishEntity* this) {
+    this->fusionOffer = GetFusionToOffer(super);
+    AddInteractableWhenBigFuser(super, this->fusionOffer);
 }
 
 void ForestMinish_Head(Entity* this) {
@@ -555,64 +572,64 @@ void ForestMinish_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-static void sub_080600F0(Entity* this) {
+static void sub_080600F0(ForestMinishEntity* this) {
     u32 uVar1;
     u32 uVar2;
 
-    uVar2 = this->field_0x80.HWORD;
-    if (this->field_0x80.HWORD < 8) {
-        if ((this->field_0x82.HWORD & 1) != 0) {
-            uVar2 = (uVar2 & 0xfc) + (this->subtimer >> 1);
+    uVar2 = this->unk_80;
+    if (this->unk_80 < 8) {
+        if ((this->unk_82 & 1) != 0) {
+            uVar2 = (uVar2 & 0xfc) + (super->subtimer >> 1);
         } else {
-            uVar2 = (uVar2 & 0xfc) + (this->animationState >> 1);
-            this->subtimer = this->animationState;
+            uVar2 = (uVar2 & 0xfc) + (super->animationState >> 1);
+            super->subtimer = super->animationState;
         }
     }
-    if (uVar2 != this->animIndex) {
-        InitAnimationForceUpdate(this, uVar2);
+    if (uVar2 != super->animIndex) {
+        InitAnimationForceUpdate(super, uVar2);
     }
-    if ((this->field_0x82.HWORD & 4) != 0) {
+    if ((this->unk_82 & 4) != 0) {
         uVar1 = 2;
     } else {
         uVar1 = 1;
     }
-    sub_080042BA(this, uVar1);
+    sub_080042BA(super, uVar1);
 }
 
-void sub_0806014C(Entity* this) {
-    this->timer = 0;
+void sub_0806014C(ForestMinishEntity* this) {
+    super->timer = 0;
     sub_08060158(this);
 }
 
-void sub_08060158(Entity* this) {
+void sub_08060158(ForestMinishEntity* this) {
     int index;
     const FrameStruct* idx3;
     u8 tmp1, tmp2;
 
-    if (this->timer) {
-        this->timer--;
+    if (super->timer) {
+        super->timer--;
     } else {
-        this->timer = 2;
-        index = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
+        super->timer = 2;
+        index = GetFacingDirectionInRectRadius(super, 0x20, 0x20);
         if (index < 0) {
-            int state = this->field_0x68.HALF.HI;
-            this->animationState = state;
+            int state = this->animIndex;
+            super->animationState = state;
             index = state * 4;
         }
 
-        idx3 = gUnk_08109C98 + (this->animationState / 2) * 0x10 + (index >> 1);
+        idx3 = gUnk_08109C98 + (super->animationState / 2) * 0x10 + (index >> 1);
         tmp1 = idx3->frame;
         tmp2 = idx3->frameIndex;
 
         if (tmp2 & 0x80) {
-            this->animationState = sub_0806F5B0(index);
+            super->animationState = GetAnimationStateForDirection8(index);
         }
         tmp2 &= ~0x80;
-        this->frame = tmp1;
-        this->frameIndex = tmp2;
-        this->frameSpriteSettings = 1;
-        this->animIndex = 0;
-        this->frameDuration = 0xf0;
+        super->frame = tmp1;
+        super->frameIndex = tmp2;
+        super->frameSpriteSettings = 1;
+        super->animIndex = 0;
+        super->frameDuration = 0xf0;
     }
 }
 
@@ -706,13 +723,13 @@ void sub_08060318(void) {
 }
 
 void sub_08060340(void) {
-    gSave.timers[1] = gSave.unk50;
+    gSave.drug_kill_count = gSave.enemies_killed;
 }
 
 u32 sub_08060354(void) {
     s32 iVar2;
 
-    iVar2 = gSave.unk50 - gSave.timers[1];
+    iVar2 = gSave.enemies_killed - gSave.drug_kill_count;
     if (CheckGlobalFlag(DRUG_1) == 0) {
         if (4 < iVar2) {
             return 0x8444;

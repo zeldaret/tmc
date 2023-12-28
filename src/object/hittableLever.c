@@ -4,11 +4,9 @@
  *
  * @brief Hittable Lever object
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;

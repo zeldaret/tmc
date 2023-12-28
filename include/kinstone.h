@@ -6,17 +6,27 @@
 
 extern void sub_08018C58(u32);
 
+typedef enum {
+    FUSION_STATE_0, // fusion was not yet started
+    FUSION_STATE_1, // failed?
+    FUSION_STATE_2, // successful?
+    FUSION_STATE_3, // fusion is being performed
+    FUSION_STATE_4, // player has closed the first messagebox
+    FUSION_STATE_5, // fusion declined by the player
+    FUSION_STATE_6, // Successful, but not yet finished?
+} FusionState;
+
 typedef struct {
-    u8 _0;
+    u8 fusionState; /** @see FusionState */
     u8 action;
     u8 _2;
     u8 kinstoneId;
     u8 prevUpdatePriority;
     u8 _5;
     u16 textIndex;
-    u16 _8;
-    u16 _a;
-    Entity* ent;
+    u16 cancelledTextIndex;
+    u16 fusingTextIndex;
+    Entity* entity;
 } FuseInfo;
 static_assert(sizeof(FuseInfo) == 0x10);
 extern FuseInfo gFuseInfo;

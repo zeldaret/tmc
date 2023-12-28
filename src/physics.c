@@ -13,8 +13,8 @@
 
 const u8 gSpriteSortAboveTable[];
 const u8 gSpriteSortBelowTable[];
-const u8 gUnk_08114F58[];
-const u8 gUnk_08114F38[];
+const u8 gMapDirectionToAnimationState8[];
+const u8 gMapDirectionToAnimationState4[];
 
 extern u16 gExtraFrameOffsets[];
 extern s8 gUnk_08126EE4[];
@@ -132,19 +132,19 @@ u32 sub_0806F548(Entity* a, Entity* b, u32 x, u32 y) {
 
 u32 sub_0806F564(Entity* ent, u32 b, u32 c) {
     u32 tmp = CalculateDirectionTo(ent->x.HALF.HI, ent->y.HALF.HI, b, c);
-    return ent->animationState == sub_0806F5A4(tmp);
+    return ent->animationState == GetAnimationStateForDirection4(tmp);
 }
 
 u32 sub_0806F58C(Entity* a, Entity* b) {
     return a->animationState >> 1 == sub_0806FCA0(a, b);
 }
 
-u32 sub_0806F5A4(u32 idx) {
-    return gUnk_08114F38[idx];
+u32 GetAnimationStateForDirection4(u32 direction) {
+    return gMapDirectionToAnimationState4[direction];
 }
 
-u32 sub_0806F5B0(u32 idx) {
-    return gUnk_08114F58[idx];
+u32 GetAnimationStateForDirection8(u32 idx) {
+    return gMapDirectionToAnimationState8[idx];
 }
 
 void LinearMoveDirection(Entity* ent, u32 a, u32 b) {
@@ -246,17 +246,21 @@ bool32 sub_0806F8DC(Entity* ent) {
     return TRUE;
 }
 
+#define CDIR_DIAGONAL 1
+#define CDirectionSouth 4
+#define CDirectionWest 6
+
 u32 sub_0806F948(Entity* ent) {
-    u32 v1;
-    if (gPlayerState.direction == 0xFF)
+    u32 direction;
+    if (gPlayerState.direction == DIR_NONE)
         return ent->animationState;
 
-    v1 = gPlayerState.direction / 4;
-    if ((v1 & 1) && !(((v1 + 1) - ent->animationState) & 4)) {
+    direction = gPlayerState.direction / 4;
+    if ((direction & CDIR_DIAGONAL) && !(((direction + 1) - ent->animationState) & CDirectionSouth)) {
         return ent->animationState;
     } else {
-        ent->spriteSettings.flipX = v1 > 4;
-        ent->animationState = v1 & 6;
+        ent->spriteSettings.flipX = direction > CDirectionSouth;
+        ent->animationState = direction & CDirectionWest;
     }
     return ent->animationState;
 }
@@ -401,14 +405,11 @@ bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
 }
 
 bool32 sub_0806FC24(u32 param_1, u32 param_2) {
-    register u32 rv asm("r0");
     u32 val = FindValueForKey(param_1, gUnk_080046A4);
-    if (val) {
-        rv = (*(gUnk_080047F6 + (val << 2)) >> param_2) & 0x1;
-    } else {
-        rv = 0;
-    }
-    return rv;
+    if (!val)
+        return 0;
+
+    return (*(gUnk_080047F6 + (val << 2)) >> param_2) & 0x1;
 }
 
 const u16* sub_0806FC50(u32 param_1, u32 param_2) {
@@ -435,11 +436,11 @@ bool32 sub_0806FC80(Entity* ent, Entity* ent2, s32 param_3) {
 }
 
 u32 sub_0806FCA0(Entity* this, Entity* other) {
-    return sub_0806F5A4(GetFacingDirection(this, other));
+    return GetAnimationStateForDirection4(GetFacingDirection(this, other));
 }
 
 u32 sub_0806FCAC(Entity* this, Entity* other) {
-    return sub_0806F5B0(GetFacingDirection(this, other));
+    return GetAnimationStateForDirection8(GetFacingDirection(this, other));
 }
 
 bool32 EntityWithinDistance(Entity* entity, s32 x, s32 y, s32 distance) {
@@ -680,11 +681,11 @@ u8* GetSpriteSubEntryOffsetDataPointer(u32 param_1, u32 param_2) {
     return (u8*)val;
 }
 
-const u8 gUnk_08114F38[] = {
+const u8 gMapDirectionToAnimationState4[] = {
     0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0,
 };
 
-const u8 gUnk_08114F58[] = {
+const u8 gMapDirectionToAnimationState8[] = {
     0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 0, 0,
 };
 

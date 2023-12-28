@@ -4,111 +4,124 @@
  *
  * @brief Railtrack object
  */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "room.h"
 #include "sound.h"
 #include "tiles.h"
 
-void sub_08085394(Entity*);
-void sub_0808543C(Entity*);
-void Railtrack_Init(Entity*);
-void Railtrack_Action1(Entity*);
-void Railtrack_Action2(Entity*);
-void Railtrack_Action3(Entity*);
-u32 sub_080854A8(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[8];
+    /*0x70*/ u16* unk_70;
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u16 unk_76;
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ union SplitHWord unk_7c;
+    /*0x7e*/ u8 unused2[8];
+    /*0x86*/ u16 unk_86;
+} RailtrackEntity;
+
+void sub_08085394(RailtrackEntity* this);
+void sub_0808543C(RailtrackEntity* this);
+void Railtrack_Init(RailtrackEntity* this);
+void Railtrack_Action1(RailtrackEntity* this);
+void Railtrack_Action2(RailtrackEntity* this);
+void Railtrack_Action3(RailtrackEntity* this);
+u32 sub_080854A8(RailtrackEntity* this);
 
 extern s8 gUnk_080B4488[][2];
 
-void Railtrack(Entity* this) {
-    static void (*const Railtrack_Actions[])(Entity*) = {
+void Railtrack(RailtrackEntity* this) {
+    static void (*const Railtrack_Actions[])(RailtrackEntity*) = {
         Railtrack_Init,
         Railtrack_Action1,
         Railtrack_Action2,
         Railtrack_Action3,
     };
-    Railtrack_Actions[this->action](this);
+    Railtrack_Actions[super->action](this);
 }
 
-void Railtrack_Init(Entity* this) {
+void Railtrack_Init(RailtrackEntity* this) {
     u32 uVar1;
 
-    this->action = 1;
-    this->spriteSettings.draw = 1;
-    this->spritePriority.b0 = 7;
-    if ((this->type2 & 1) != 0) {
-        this->field_0x7c.HALF.LO = -1;
+    super->action = 1;
+    super->spriteSettings.draw = 1;
+    super->spritePriority.b0 = 7;
+    if ((super->type2 & 1) != 0) {
+        this->unk_7c.HWORD = -1;
     } else {
-        this->field_0x7c.HALF.LO = 1;
+        this->unk_7c.HWORD = 1;
     }
-    this->animationState = this->type2 & 2;
-    if (this->type == 3) {
-        uVar1 = CheckFlags(this->field_0x86.HWORD);
-        this->field_0x7a.HWORD = uVar1;
+    super->animationState = super->type2 & 2;
+    if (super->type == 3) {
+        uVar1 = CheckFlags(this->unk_86);
+        this->unk_7a = uVar1;
         if ((u16)(uVar1 & -1) != 0) {
-            this->animationState = (this->animationState + 2) & 3;
-            this->action = 3;
+            super->animationState = (super->animationState + 2) & 3;
+            super->action = 3;
         }
     }
-    InitializeAnimation(this, this->animationState);
-    this->field_0x70.WORD = (u32)&GetLayerByIndex(this->collisionLayer)->mapData[COORD_TO_TILE(this)];
+    InitializeAnimation(super, super->animationState);
+    this->unk_70 = &GetLayerByIndex(super->collisionLayer)->mapData[COORD_TO_TILE(super)];
     sub_08085394(this);
 }
 
-void Railtrack_Action1(Entity* this) {
-    if (CheckFlags(this->field_0x86.HWORD)) {
-        this->action = 2;
-        this->subtimer = 8;
-        if (this->type == 1) {
-            ClearFlag(this->field_0x86.HWORD);
+void Railtrack_Action1(RailtrackEntity* this) {
+    if (CheckFlags(this->unk_86)) {
+        super->action = 2;
+        super->subtimer = 8;
+        if (super->type == 1) {
+            ClearFlag(this->unk_86);
         }
-        this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
-        InitializeAnimation(this, this->animationState);
+        super->animationState = (super->animationState + this->unk_7c.HALF.LO) & 3;
+        InitializeAnimation(super, super->animationState);
         sub_0808543C(this);
         EnqueueSFX(SFX_151);
     }
 }
 
-void Railtrack_Action2(Entity* this) {
-    if (--this->subtimer == 0) {
-        this->action = 3;
-        this->subtimer = this->timer;
-        this->field_0x7a.HWORD = CheckFlags(this->field_0x86.HWORD);
-        this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
-        InitializeAnimation(this, this->animationState);
+void Railtrack_Action2(RailtrackEntity* this) {
+    if (--super->subtimer == 0) {
+        super->action = 3;
+        super->subtimer = super->timer;
+        this->unk_7a = CheckFlags(this->unk_86);
+        super->animationState = (super->animationState + this->unk_7c.HALF.LO) & 3;
+        InitializeAnimation(super, super->animationState);
         sub_08085394(this);
         EnqueueSFX(SFX_151);
     }
 }
 
-void Railtrack_Action3(Entity* this) {
+void Railtrack_Action3(RailtrackEntity* this) {
     if (sub_080854A8(this) == 0) {
-        switch (this->type) {
+        switch (super->type) {
             case 0:
             case 1:
                 break;
             case 2:
-                if (CheckFlags(this->field_0x86.HWORD) == 0) {
-                    this->action = 1;
+                if (CheckFlags(this->unk_86) == 0) {
+                    super->action = 1;
                     return;
                 }
                 break;
             case 3:
-                if (CheckFlags(this->field_0x86.HWORD) == *(u16*)&this->field_0x7a) {
-                    this->subtimer = 255;
+                if (CheckFlags(this->unk_86) == this->unk_7a) {
+                    super->subtimer = 255;
                 } else {
-                    this->subtimer = 1;
+                    super->subtimer = 1;
                 }
         }
 
-        if (--this->subtimer == 0) {
-            this->action = 2;
-            this->subtimer = 8;
-            this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
-            InitializeAnimation(this, this->animationState);
+        if (--super->subtimer == 0) {
+            super->action = 2;
+            super->subtimer = 8;
+            super->animationState = (super->animationState + this->unk_7c.HALF.LO) & 3;
+            InitializeAnimation(super, super->animationState);
             sub_0808543C(this);
             EnqueueSFX(SFX_151);
         }
@@ -117,47 +130,47 @@ void Railtrack_Action3(Entity* this) {
 
 static const u16 gUnk_081205E0[] = { SPECIAL_META_TILE_24, SPECIAL_META_TILE_25 };
 
-void sub_08085394(Entity* this) {
+void sub_08085394(RailtrackEntity* this) {
     u32 specialTile;
     u16* layerData;
     u32 tilePos;
-    s8 offset;
+    s8 offsetset;
 
-    specialTile = gUnk_081205E0[this->animationState / 2];
-    offset = gUnk_080B4488[this->animationState / 2][0];
-    layerData = (u16*)this->field_0x70.WORD;
-    tilePos = COORD_TO_TILE(this);
+    specialTile = gUnk_081205E0[super->animationState / 2];
+    offsetset = gUnk_080B4488[super->animationState / 2][0];
+    layerData = this->unk_70;
+    tilePos = COORD_TO_TILE(super);
 
-    this->field_0x74.HWORD = *(layerData - offset);
-    SetMetaTile(specialTile, tilePos - offset, this->collisionLayer);
+    this->unk_74 = *(layerData - offsetset);
+    SetMetaTile(specialTile, tilePos - offsetset, super->collisionLayer);
 
-    this->field_0x76.HWORD = layerData[0x0];
-    SetMetaTile(specialTile, tilePos, this->collisionLayer);
+    this->unk_76 = layerData[0x0];
+    SetMetaTile(specialTile, tilePos, super->collisionLayer);
 
-    this->field_0x78.HWORD = layerData[offset];
-    SetMetaTile(specialTile, tilePos + offset, this->collisionLayer);
+    this->unk_78 = layerData[offsetset];
+    SetMetaTile(specialTile, tilePos + offsetset, super->collisionLayer);
 }
 
-void sub_0808543C(Entity* this) {
+void sub_0808543C(RailtrackEntity* this) {
     s8* cVar1;
     u32 metaTilePos;
     s8 offset;
 
-    offset = gUnk_080B4488[this->animationState / 2][0];
-    metaTilePos = COORD_TO_TILE(this);
-    SetMetaTile(this->field_0x74.HWORD, metaTilePos - offset, this->collisionLayer);
-    SetMetaTile(this->field_0x76.HWORD, metaTilePos, this->collisionLayer);
-    SetMetaTile(this->field_0x78.HWORD, metaTilePos + offset, this->collisionLayer);
+    offset = gUnk_080B4488[super->animationState / 2][0];
+    metaTilePos = COORD_TO_TILE(super);
+    SetMetaTile(this->unk_74, metaTilePos - offset, super->collisionLayer);
+    SetMetaTile(this->unk_76, metaTilePos, super->collisionLayer);
+    SetMetaTile(this->unk_78, metaTilePos + offset, super->collisionLayer);
 }
 
-u32 sub_080854A8(Entity* this) {
+u32 sub_080854A8(RailtrackEntity* this) {
     u16 var0;
     u16* var1;
     s8* var2;
 
-    var0 = gUnk_081205E0[this->animationState / 2];
-    var2 = gUnk_080B4488[this->animationState / 2];
-    var1 = (u16*)this->field_0x70.WORD;
+    var0 = gUnk_081205E0[super->animationState / 2];
+    var2 = gUnk_080B4488[super->animationState / 2];
+    var1 = this->unk_70;
     if (var0 != *(var1 - var2[0])) {
         return TRUE;
     }

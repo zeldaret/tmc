@@ -1,5 +1,12 @@
-#include "entity.h"
+/**
+ * @file stalfosProjectile.c
+ * @ingroup Projectiles
+ *
+ * @brief Stalfos Projectile
+ */
+#define NENT_DEPRECATED
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const StalfosProjectile_Functions[])(Entity*);
@@ -28,7 +35,7 @@ void StalfosProjectile_OnTick(Entity* this) {
     StalfosProjectile_Actions[this->action](this);
 }
 
-void sub_080A9A34(Entity* this) {
+void StalfosProjectile_OnCollision(Entity* this) {
     if (this->contactFlags == 0x9d) {
         this->action = 3;
         COLLISION_OFF(this);
@@ -37,7 +44,7 @@ void sub_080A9A34(Entity* this) {
     }
 }
 
-void sub_080A9A64(Entity* this) {
+void StalfosProjectile_OnGrabbed(Entity* this) {
     if ((this->subAction < 3) && !sub_0806F520(this)) {
         sub_080A9BA8(this);
     }
@@ -185,7 +192,8 @@ void sub_080A9C50(Entity* this) {
 }
 
 void (*const StalfosProjectile_Functions[])(Entity*) = {
-    StalfosProjectile_OnTick, sub_080A9A34, DeleteEntity, DeleteEntity, DeleteEntity, sub_080A9A64,
+    StalfosProjectile_OnTick,    StalfosProjectile_OnCollision, DeleteEntity, DeleteEntity, DeleteEntity,
+    StalfosProjectile_OnGrabbed,
 };
 void (*const StalfosProjectile_Actions[])(Entity*) = {
     StalfosProjectile_Init,

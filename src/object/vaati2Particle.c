@@ -40,7 +40,6 @@ void sub_0809E7FC(Entity* this) {
     static const s8 gUnk_081242D8[] = {
         0, -24, 16, -16, 24, 0, 16, 16, 0, 24, -16, 16, -24, 0, -16, -16,
     };
-    int iVar1;
     const s8* ptr;
 
     ptr = &gUnk_081242D8[this->type2 * 2];

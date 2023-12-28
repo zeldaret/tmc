@@ -9,7 +9,6 @@
 #include "enemy/gyorg.h"
 #include "entity.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 #include "room.h"
 #include "screen.h"
