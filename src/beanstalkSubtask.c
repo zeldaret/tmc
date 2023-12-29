@@ -312,7 +312,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             gUnk_0200AF00.rActionInteractTile = R_ACTION_READ;
-            if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
+            if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_40)) == 0) {
                 return 0;
             }
             gPlayerState.mobility = 1;
@@ -326,7 +326,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             gUnk_0200AF00.rActionInteractTile = R_ACTION_OPEN;
-            if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
+            if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_INTERACT)) == 0) {
                 return 0;
             }
             gPlayerState.mobility = 1;
@@ -337,7 +337,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             gUnk_0200AF00.rActionInteractTile = R_ACTION_OPEN;
-            if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
+            if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_INTERACT)) == 0) {
                 return 0;
             }
             gPlayerState.mobility = 1;

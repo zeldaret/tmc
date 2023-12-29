@@ -123,8 +123,8 @@ void LinkHoldingItem_Action2(LinkHoldingItemEntity* this) {
 }
 
 void LinkHoldingItem_Action3(LinkHoldingItemEntity* this) {
-    u32 tmp;
-    if ((super->parent)->action == 8) {
+    u32 bottle_no;
+    if (super->parent->action == PLAYER_ITEMGET) {
         return;
     }
     switch (super->timer) {
@@ -149,9 +149,9 @@ void LinkHoldingItem_Action3(LinkHoldingItemEntity* this) {
             ModHealth(160);
             break;
         case 3:
-            tmp = GetBottleContaining(super->type);
-            if (tmp != 0) {
-                gSave.stats.itemButtons[tmp + 1] = ITEM_BOTTLE_EMPTY;
+            bottle_no = GetBottleContaining(super->type);
+            if (bottle_no != 0) {
+                gSave.stats.bottles[bottle_no - 1] = ITEM_BOTTLE_EMPTY;
             } else {
                 SetInventoryValue(super->type, ITEM_GREEN_SWORD);
             }

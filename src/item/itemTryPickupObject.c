@@ -164,7 +164,7 @@ void sub_08076518(ItemBehavior* this, u32 index) {
             if (gPlayerEntity.knockbackDuration != 0) {
                 PlayerCancelHoldItem(this, index);
             } else {
-                if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_8000 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0) {
+                if ((gPlayerState.playerInput.newInput & (INPUT_LIFT_THROW | INPUT_CANCEL | INPUT_INTERACT)) != 0) {
                     sub_0806F948(&gPlayerEntity);
                     gPlayerState.heldObject = 5;
                     this->field_0x18->subAction = 2;
