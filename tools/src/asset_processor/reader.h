@@ -13,7 +13,7 @@ class Reader {
 
     [[nodiscard]] s8 read_s8() {
         // TODO range check
-        return data[static_cast<unsigned long>(cursor++)];
+        return static_cast<s8>(data[static_cast<unsigned long>(cursor++)]);
     }
 
     [[nodiscard]] u8 read_u8() {
