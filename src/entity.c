@@ -6,6 +6,12 @@
 #include "npc.h"
 #include "manager/diggingCaveEntranceManager.h"
 
+typedef struct Temp {
+    void* prev;
+    void* next;
+    u8 _0[0x38];
+} Temp;
+
 extern u8 gUpdateVisibleTiles;
 extern Manager gUnk_02033290;
 void UpdatePlayerInput(void);
@@ -241,8 +247,6 @@ void EraseAllEntities(void) {
     gOAMControls.unk[1].unk6 = 1;
 }
 
-extern Entity gUnk_030015A0[0x48];
-
 Entity* GetEmptyEntity() {
     u8 flags_ip;
     Entity* end;
@@ -253,9 +257,9 @@ Entity* GetEmptyEntity() {
     LinkedList* listPtr;
     LinkedList* endListPtr;
 
-    if (gEntCount <= 0x46) {
-        currentEnt = gUnk_030015A0;
-        end = currentEnt + ARRAY_COUNT(gUnk_030015A0);
+    if (gEntCount < MAX_ENTITIES - 1) {
+        currentEnt = gEntities;
+        end = currentEnt + ARRAY_COUNT(gEntities);
 
         do {
             if (currentEnt->prev == 0) {
@@ -267,7 +271,8 @@ Entity* GetEmptyEntity() {
     currentEnt = &gPlayerEntity;
 
     do {
-        if ((s32)currentEnt->prev < 0 && (currentEnt->flags & 0xc) && currentEnt != gUpdateContext.current_entity) {
+        if ((s32)currentEnt->prev < 0 && (currentEnt->flags & (ENT_UNUSED1 | ENT_UNUSED2)) &&
+            currentEnt != gUpdateContext.current_entity) {
             ClearDeletedEntity(currentEnt);
             return currentEnt;
         }
@@ -282,9 +287,10 @@ Entity* GetEmptyEntity() {
         currentEnt = listPtr->first;
         nextList = listPtr + 1;
         while ((u32)currentEnt != (u32)listPtr) {
-            if (currentEnt->kind != MANAGER && flags_ip < (currentEnt->flags & 0x1c) &&
+            if (currentEnt->kind != MANAGER &&
+                flags_ip < (currentEnt->flags & (ENT_UNUSED1 | ENT_UNUSED2 | ENT_DELETED)) &&
                 gUpdateContext.current_entity != currentEnt) {
-                flags_ip = currentEnt->flags & 0x1c;
+                flags_ip = currentEnt->flags & (ENT_UNUSED1 | ENT_UNUSED2 | ENT_DELETED);
                 rv = currentEnt;
             }
             currentEnt = currentEnt->next;
@@ -301,16 +307,16 @@ Entity* GetEmptyEntity() {
     return rv;
 }
 
-extern Entity gItemGetEntities[7];
+extern Entity gAuxPlayerEntities[7];
 
-Entity* CreateItemGetEntity(void) {
-    Entity* ent = gItemGetEntities;
+Entity* CreateAuxPlayerEntity(void) {
+    Entity* ent = gAuxPlayerEntities;
 
     do {
         if (ent->prev == NULL) {
             return ent;
         }
-    } while (++ent < &gItemGetEntities[7]);
+    } while (++ent < &gAuxPlayerEntities[7]);
 
     return NULL;
 }
@@ -406,12 +412,6 @@ void DeleteAllEntities(void) {
         ClearAllDeletedEntities();
     }
 }
-
-typedef struct Temp {
-    void* prev;
-    void* next;
-    u8 _0[0x38];
-} Temp;
 
 // fix this
 Manager* GetEmptyManager(void) {

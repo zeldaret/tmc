@@ -462,7 +462,7 @@ Entity* CreatePlayerItemWithParent(ItemBehavior* this, u32 id) {
 }
 
 void* CreateItemGetPlayerItemWithParent(ItemBehavior* this) {
-    GenericEntity* playerItem = (GenericEntity*)CreateItemGetEntity();
+    GenericEntity* playerItem = (GenericEntity*)CreateAuxPlayerEntity();
     if (playerItem != NULL) {
         playerItem->base.id = gItemDefinitions[this->behaviorId].playerItemId;
         playerItem->base.kind = PLAYER_ITEM;
@@ -501,7 +501,7 @@ Entity* CreatePlayerItem(u32 id, u32 type, u32 type2, u32 unk) {
 Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
     GenericEntity* ent;
 
-    ent = (GenericEntity*)CreateItemGetEntity();
+    ent = (GenericEntity*)CreateAuxPlayerEntity();
     if (ent != NULL) {
         ent->base.flags = ENT_COLLIDE;
         ent->base.kind = PLAYER_ITEM;

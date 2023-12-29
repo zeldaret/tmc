@@ -31,7 +31,7 @@ const s8 gUnk_08126EEC[] = {
 };
 
 Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
-    Entity* e = CreateItemGetEntity();
+    Entity* e = CreateAuxPlayerEntity();
     if (e != NULL) {
         LinkAnimationEntity* this = (LinkAnimationEntity*)e;
         e->id = LINK_ANIMATION;

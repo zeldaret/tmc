@@ -36,7 +36,7 @@ static Entity* GiveItemWithCutscene(u32 item, u32 type2, u32 delay) {
         item = ITEM_RUPEE50;
         type2 = 0;
     }
-    e = CreateItemGetEntity();
+    e = CreateAuxPlayerEntity();
     if (e != NULL) {
         e->type = item;
         e->type2 = type2;
