@@ -96,7 +96,7 @@ void CameraTarget_Init(Entity* this) {
     }
     this->action = 1;
     this->flags |= ENT_PERSIST;
-    SetDefaultPriority(this, 6);
+    SetEntityPriority(this, 6);
 }
 
 void CameraTarget_Action1(Entity* this) {

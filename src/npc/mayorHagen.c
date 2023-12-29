@@ -24,7 +24,7 @@ void MayorHagen(MayorHagenEntity* this) {
             super->action = 1;
             this->animIndex = 0;
             this->fusionOffer = GetFusionToOffer(super);
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             InitScriptForNPC(super);
             break;
         case 1:

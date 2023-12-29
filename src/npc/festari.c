@@ -35,7 +35,7 @@ void Festari(FestariEntity* this) {
 void sub_0805FE10(FestariEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = TRUE;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     this->fusionOffer = GetFusionToOffer(super);
     AddInteractableWhenBigFuser(super, this->fusionOffer);
     InitScriptForNPC(super);
@@ -127,7 +127,7 @@ void Festari_Fusion(FestariEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         InitAnimationForceUpdate(super, 8);
     } else {
         UpdateAnimationSingleFrame(super);

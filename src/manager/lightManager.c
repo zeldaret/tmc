@@ -37,7 +37,7 @@ void LightManager_Main(LightManager* this) {
         super->flags |= ENT_PERSIST;
         super->timer = 17;
         this->unk20 = 0;
-        SetDefaultPriority((Entity*)this, 6);
+        SetEntityPriority((Entity*)this, 6);
         sub_0801E120();
         sub_0801E154(super->timer);
     }

@@ -22,7 +22,7 @@ void Vaati3BackgroundManager_Main(Vaati3BackgroundManager* this) {
         if (super->action == 0) {
             super->action = 1;
             super->flags |= ENT_PERSIST;
-            SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+            SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
             if (gArea.onEnter == NULL) {
                 RegisterTransitionManager(this, sub_0805D470, NULL);
             } else {

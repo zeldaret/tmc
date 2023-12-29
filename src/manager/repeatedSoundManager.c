@@ -37,7 +37,7 @@ void CreateRepeatedSoundManager(Entity* entity, ScriptExecutionContext* context)
         manager->id = REPEATED_SOUND_MANAGER;
         manager->type = context->intVariable;
         AppendEntityToList((Entity*)manager, 6);
-        SetDefaultPriority((Entity*)manager, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)manager, PRIO_PLAYER_EVENT);
     }
 }
 

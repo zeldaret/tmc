@@ -73,7 +73,7 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
 
 void LikeLike_OnDeath(LikeLikeEntity* this) {
     if (super->timer == 2 && this->stolenItem != 0xff) {
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         LikeLike_ReturnStolenItem(this->stolenItem);
     }
     GenericDeath(super);

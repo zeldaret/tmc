@@ -200,7 +200,7 @@ u32 getItemMetaDataGetTextIndex(s32 itemIndex) {
     return ptr[2];
 }
 
-u32 sub_080542AC(u32 param_1) {
+u32 IsMinishItem(u32 param_1) {
     const ItemMetaData* ptr1 = gItemMetaData;
     u8* ptr = (u8*)&((ptr1)[param_1]);
     return ptr[3] & 1;

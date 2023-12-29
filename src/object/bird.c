@@ -214,7 +214,7 @@ void Bird_Type8(BirdEntity* this) {
             super->x.HALF.HI = gRoomControls.scroll_x;
             super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
             super->child = NULL;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             InitAnimationForceUpdate(super, 0);
             SoundReq(0x123);
             break;
@@ -307,7 +307,7 @@ void Bird_Type9(BirdEntity* this) {
         super->spritePriority.b0 = 0;
         super->spriteRendering.b3 = 0;
         super->spriteOrientation.flipY = 1;
-        SetDefaultPriority(super, 6);
+        SetEntityPriority(super, 6);
         super->x.HALF.HI = gRoomControls.scroll_x;
         super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
         SoundReq(SFX_123);
@@ -364,7 +364,7 @@ void Bird_Type10(BirdEntity* this) {
             super->spritePriority.b0 = 0;
             super->spriteRendering.b3 = 0;
             super->spriteOrientation.flipY = 1;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             InitAnimationForceUpdate(super, 0xe0);
         case 1:
             UpdateAnimationSingleFrame(super);
@@ -400,7 +400,7 @@ void sub_0809D738(void) {
     pEVar1 = CreateObject(BIRD, 9, 0);
     if (pEVar1 != NULL) {
         gRoomControls.camera_target = NULL;
-        SetDefaultPriority(pEVar1, 6);
+        SetEntityPriority(pEVar1, 6);
         SetPlayerEventPriority();
         pEVar2 = CreateObject(BIRD, 10, 0);
         if (pEVar2 != NULL) {

@@ -62,7 +62,7 @@ bool32 sub_0806C454(Entity* this) {
     if (!LoadExtraSpriteData(this, gUnk_08113754)) {
         return FALSE;
     } else {
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         return TRUE;
     }
 }

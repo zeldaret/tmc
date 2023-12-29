@@ -57,7 +57,7 @@ void sub_0805B328(HoleManager*);
 void sub_0805B048(HoleManager* this) {
     struct_08108764* tmp;
     Entity* obj;
-    SetDefaultPriority((Entity*)super, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)super, PRIO_PLAYER_EVENT);
     MemClear(&this->unk_20, 0x20);
     super->action = 1;
     this->unk_3f = gRoomControls.room;

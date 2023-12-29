@@ -101,7 +101,7 @@ void sub_08065AA4(EponaEntity* this) {
                 InitializeNPCFusion(super);
             } else {
                 super->action = 3;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 sub_08065A50(this);
             }
             InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));

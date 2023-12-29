@@ -1671,15 +1671,15 @@ void DeleteHitbox(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void SetPriorityMessage(Entity* entity, ScriptExecutionContext* context) {
-    SetDefaultPriority(entity, PRIO_MESSAGE);
+    SetEntityPriority(entity, PRIO_MESSAGE);
 }
 
 void SetPriorityPlayerEvent(Entity* entity, ScriptExecutionContext* context) {
-    SetDefaultPriority(entity, PRIO_PLAYER_EVENT);
+    SetEntityPriority(entity, PRIO_PLAYER_EVENT);
 }
 
 void SetPriorityHighest(Entity* entity, ScriptExecutionContext* context) {
-    SetDefaultPriority(entity, PRIO_NO_BLOCK);
+    SetEntityPriority(entity, PRIO_NO_BLOCK);
 }
 
 void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {

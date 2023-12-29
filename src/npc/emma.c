@@ -13,7 +13,7 @@
 void Emma(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         InitScriptForNPC(this);
     } else {
         ExecuteScriptAndHandleAnimation(this, NULL);

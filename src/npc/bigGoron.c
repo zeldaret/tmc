@@ -81,7 +81,7 @@ void sub_0806CF30(BigGoronEntity* this) {
         super->action = 1;
         super->subAction = 1;
         this->originalX = super->x.HALF.HI;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         sub_0806D0B0(super);
         sub_0807DD64(super);
     } else {
@@ -215,7 +215,7 @@ void sub_0806D1D0(BigGoronEntity* this) {
         super->spriteSettings.draw = 3;
         super->frameIndex = 0;
         super->timer = 30;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
 
     switch (super->subAction) {
@@ -256,7 +256,7 @@ void sub_0806D274(BigGoronEntity* this) {
         super->spritePriority.b0 = 7;
         super->frameIndex = 2;
         super->timer = 8;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         npc = CreateNPC(BIG_GORON, 3, 0);
         if (npc != NULL) {
             npc->child = super;
@@ -303,7 +303,7 @@ void sub_0806D348(BigGoronEntity* this) {
         super->spritePriority.b0 = 6;
         super->spriteSettings.draw = 0;
         super->frameIndex = 5;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     if (super->child->frameIndex == 4) {
         super->spriteSettings.draw = 3;
@@ -321,7 +321,7 @@ void sub_0806D3C0(BigGoronEntity* this) {
         }
         super->action = 1;
         super->hitbox = (Hitbox*)&gHitbox_3;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         sub_0807DD64(super);
     } else {
         super->x.HALF.HI = super->parent->x.HALF.HI;
@@ -344,7 +344,7 @@ void sub_0806D41C(BigGoronEntity* this) {
         sub_0806D4C0(this, 1);
         sub_0806D4C0(this, 2);
         sub_0806D4C0(this, 3);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     } else {
         ExecuteScriptForEntity(super, NULL);
         HandleEntity0x82Actions(super);
@@ -368,7 +368,7 @@ void sub_0806D4C0(BigGoronEntity* this, u32 type) {
         npc->parent = super;
         CopyPosition(super, npc);
         SortEntityAbove(super, npc);
-        SetDefaultPriority(npc, PRIO_MESSAGE);
+        SetEntityPriority(npc, PRIO_MESSAGE);
     }
 }
 

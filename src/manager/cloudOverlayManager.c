@@ -27,7 +27,7 @@ void CloudOverlayManager_Main(CloudOverlayManager* this) {
             super->timer = 0;
             super->subtimer = 8;
             this->field_0x20 = gUnk_0810865C[0];
-            SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+            SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
             if (gArea.onEnter == NULL) {
                 RegisterTransitionManager(this, sub_0805AEDC, sub_0805AF3C);
             } else {

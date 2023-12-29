@@ -1,3 +1,5 @@
+#define NENT_DEPRECATED
+
 #include "global.h"
 #include "entity.h"
 #include "physics.h"
@@ -5,6 +7,8 @@
 #include "object.h"
 #include "functions.h"
 #include "definitions.h"
+#include "object/linkAnimation.h"
+#include "object/itemOnGround.h"
 
 extern const Hitbox* const gObjectHitboxes[];
 
@@ -29,6 +33,7 @@ const s8 gUnk_08126EEC[] = {
 Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
     Entity* e = CreateItemGetEntity();
     if (e != NULL) {
+        LinkAnimationEntity* this = (LinkAnimationEntity*)e;
         e->id = LINK_ANIMATION;
         e->kind = OBJECT;
         e->type = type;
@@ -39,16 +44,20 @@ Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
         CopyPosition(&gPlayerEntity, e);
         gPriorityHandler.sys_priority = 6;
         gPauseMenuOptions.disabled = 1;
-        e->field_0x68.HALF.HI = gPlayerEntity.flags;
-        e->field_0x68.HALF.LO = gPlayerEntity.spriteSettings.draw;
-        e->field_0x6a.HALF.LO = gPlayerEntity.iframes;
-        e->field_0x6a.HALF.HI = gPlayerState.field_0x7;
-        e->field_0x6c.HALF.LO = gPlayerState.keepFacing;
-        e->field_0x6c.HALF.HI = gPlayerState.field_0xa;
-        e->field_0x6e.HALF.LO = gPlayerState.field_0x27[0];
-        e->field_0x6e.HALF.HI = gPlayerState.mobility;
-        e->field_0x70.WORD = gPlayerState.flags;
-        e->field_0x74.HALF.LO = gPlayerState.field_0x8a;
+
+        // store player state
+        this->storeFlags = gPlayerEntity.flags;
+        this->storeDrawFlags = gPlayerEntity.spriteSettings.draw;
+        this->storeIFrames = gPlayerEntity.iframes;
+        this->storeField7 = gPlayerState.field_0x7;
+        this->storeKeepFacing = gPlayerState.keepFacing;
+        this->storeFieldA = gPlayerState.field_0xa;
+        this->storeField27 = gPlayerState.field_0x27[0];
+        this->storeMobility = gPlayerState.mobility;
+        this->storeStateFlags = gPlayerState.flags;
+        this->store8A = gPlayerState.field_0x8a;
+
+        // redundant, this is done by the LinkAnimation object
         gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 0;
     }
@@ -179,8 +188,9 @@ Entity* CreateGroundItemWithFlags(Entity* parent, u32 form, u32 subtype, u32 fla
 
     ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
+        ItemOnGroundEntity* this = (ItemOnGroundEntity*)ent;
         ent->timer = 5;
-        ent->field_0x86.HWORD = flags;
+        this->unk_86 = flags;
     }
     return ent;
 }
@@ -352,7 +362,7 @@ static Entity* CreateSpeechBubble(Entity* parent, u32 type2, s32 xOffset, s32 yO
         obj->parent = parent;
         obj->spriteOffsetX = xOffset;
         obj->spriteOffsetY = yOffset;
-        SetDefaultPriority(obj, parent->updatePriority);
+        SetEntityPriority(obj, parent->updatePriority);
     }
     return obj;
 }

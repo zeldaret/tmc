@@ -51,7 +51,7 @@ void SecretManager_Type0_Init(SecretManager* this) {
     if (super->timer == 0) {
         super->timer = 30;
     }
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
 }
 
 void SecretManager_Type0_Action1(SecretManager* this) {
@@ -94,7 +94,7 @@ void SecretManager_Type1_Init(SecretManager* this) {
         super->timer = 30;
     }
     super->subtimer = super->timer;
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
 }
 
 void SecretManager_Type1_Action1(SecretManager* this) {

@@ -208,7 +208,7 @@ void BigBarrel_Type2(BigBarrelEntity* this) {
             super->spriteSettings.draw = 1;
             super->frameIndex = super->type2 * 4 + 6;
             super->collisionLayer = 2;
-            SetDefaultPriority(super, 3);
+            SetEntityPriority(super, 3);
             super->type2 = super->type2 == 0 ? 0x15 : 0x16;
             UpdateSpriteForCollisionLayer(super);
             break;
@@ -346,7 +346,7 @@ void sub_08089094(BigBarrelEntity* this) {
 void sub_080890EC(BigBarrelEntity* this, const s16* offsets, s32 yOffset) {
     Entity* pEVar1 = CreateObject(BIG_BARREL, 3, 0);
     if (pEVar1) {
-        SetDefaultPriority(pEVar1, 3);
+        SetEntityPriority(pEVar1, 3);
         pEVar1->x.HALF.HI = super->x.HALF.HI;
         pEVar1->y.HALF.HI = super->y.HALF.HI + yOffset;
         pEVar1->parent = super;

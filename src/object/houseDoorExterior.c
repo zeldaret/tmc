@@ -62,7 +62,7 @@ void HouseDoorExterior_Type0(HouseDoorExteriorEntity* this) {
         super->action = 1;
         *((u32*)(&this->unk_68)) = 0;
         this->unk_6c = super->timer;
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
     }
 
     prop = GetCurrentRoomProperty(this->unk_6c);

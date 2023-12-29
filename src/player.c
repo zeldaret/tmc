@@ -778,13 +778,13 @@ static void PlayerItemGetInit(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         u32 anim;
         if (gPlayerState.flags & PL_NO_CAP) {
-            if (sub_080542AC(gPlayerState.field_0x38)) {
+            if (IsMinishItem(gPlayerState.field_0x38)) {
                 anim = ANIM_GET_ITEM_SMALL_NOCAP;
             } else {
                 anim = ANIM_GET_ITEM_BIG_NOCAP;
             }
         } else {
-            if (sub_080542AC(gPlayerState.field_0x38)) {
+            if (IsMinishItem(gPlayerState.field_0x38)) {
                 anim = ANIM_GET_ITEM_SMALL;
             } else {
                 anim = ANIM_GET_ITEM_BIG;
@@ -4094,7 +4094,7 @@ void sub_080751E8(u32 a1, u32 a2, void* script) {
     e2 = CreateSpeechBubbleSleep(&gPlayerEntity, -14, -28);
     *(Entity**)&gPlayerEntity.field_0x6c.HWORD = e2;
     if (e2 != NULL) {
-        SetDefaultPriority(e2, PRIO_NO_BLOCK);
+        SetEntityPriority(e2, PRIO_NO_BLOCK);
     }
 }
 

@@ -30,7 +30,7 @@ void Teachers(TeachersEntity* this) {
                 super->spriteSettings.draw = TRUE;
                 super->animationState = super->timer;
                 this->animIndex = 0;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 InitScriptForNPC(super);
             }
             break;

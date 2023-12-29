@@ -136,7 +136,7 @@ void sub_08065D18(GhostBrothersEntity* this) {
     super->spriteSettings.draw = 1;
     super->spriteRendering.alphaBlend = 1;
     this->unk_6c = gUnk_08110188;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     InitAnimationForceUpdate(super, 2);
     gScreen.controls.layerFXControl = 0x3f40;
     gScreen.controls.alphaBlend = 0x1000;

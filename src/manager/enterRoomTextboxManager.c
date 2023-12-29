@@ -45,7 +45,7 @@ void sub_0805E140(EnterRoomTextboxManager* this) {
     this->unk_20 = gRoomControls.room;
     super->timer = 120;
     super->subtimer = 60;
-    SetDefaultPriority((Entity*)this, PRIO_HIGHEST);
+    SetEntityPriority((Entity*)this, PRIO_HIGHEST);
     sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], AreaIsDungeon());
 }
 

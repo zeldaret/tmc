@@ -64,7 +64,7 @@ void FrozenOctorok_Init(FrozenOctorokEntity* this) {
     super->action = 1;
     switch (super->type) {
         case 0:
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             this->unk_7e = 0;
         case 6:
             super->timer = 1;

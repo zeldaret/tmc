@@ -497,7 +497,7 @@ void GreatFairy_InitializeAnimation(GreatFairyEntity* this) {
     super->type2 = super->type % temp;
     super->collisionLayer = 2;
     InitializeAnimation(super, super->type2);
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
 }
 
 Entity* GreatFairy_CreateForm(GreatFairyEntity* this, u32 curForm, u32 parameter) {
@@ -544,7 +544,7 @@ void sub_08087424(GreatFairyEntity* this, ScriptExecutionContext* context) {
     if (ent != NULL) {
         ent->parent = &gPlayerEntity;
         CopyPosition(&gPlayerEntity, ent);
-        SetDefaultPriority(ent, PRIO_MESSAGE);
+        SetEntityPriority(ent, PRIO_MESSAGE);
     }
 
     switch (context->intVariable) {

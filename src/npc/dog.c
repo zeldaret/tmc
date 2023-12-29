@@ -226,7 +226,7 @@ void sub_08069B44(DogEntity* this) {
         super->animationState = 2;
         this->unk_6a = 0xff;
         this->unk_74 = GetFusionToOffer(super);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         InitAnimationForceUpdate(super, 10);
         if ((super->flags & ENT_SCRIPTED) != 0) {
             InitScriptForNPC(super);
@@ -525,7 +525,7 @@ void Dog_Fusion(DogEntity* this) {
         if (sub_08069EF0(this)) {
             super->action++;
             super->spriteSettings.draw = 1;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             InitializeAnimation(super, 0x23);
         }
     } else {

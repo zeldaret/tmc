@@ -106,6 +106,6 @@ void sub_0808A968(Object30Entity* this) {
     super->spriteSettings.shadow = 0;
     super->collisionFlags |= 0x10;
     super->hitbox = (Hitbox*)&gUnk_08121C58;
-    SetDefaultPriority(super, 2);
+    SetEntityPriority(super, 2);
     this->gravity = Q_8_8(40.0);
 }

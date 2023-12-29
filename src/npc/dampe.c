@@ -23,7 +23,7 @@ void Dampe(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitScriptForNPC(this);
             return;
         case 1:
