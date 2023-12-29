@@ -243,23 +243,21 @@ typedef struct {
 } PlayerMacroEntry;
 
 typedef enum {
-    PLAYER_INPUT_1 = 0x1,   // A
-    PLAYER_INPUT_2 = 0x2,   // B
-    PLAYER_INPUT_8 = 0x8,   // A sub_080782C0, sub_0807953C, PlayerUpdateSwimming, sub_08076518. ItemForSale_Action2
-    PLAYER_INPUT_10 = 0x10, // B sub_0807953C, ToggleDiving, sub_08076518, ItemForSale_Action2
-    PLAYER_INPUT_20 = 0x20, // R sub_0807953C
-    PLAYER_INPUT_40 = 0x40, // A CrenelBeanSprout_Action1
-    PLAYER_INPUT_80 =
+    INPUT_USE_ITEM1 = 0x1, // A
+    INPUT_USE_ITEM2 = 0x2, // B
+    INPUT_INTERACT = 0x8,  // A sub_080782C0, sub_0807953C, PlayerUpdateSwimming, sub_08076518. ItemForSale_Action2
+    INPUT_CANCEL = 0x10,   // B sub_0807953C, ToggleDiving, sub_08076518, ItemForSale_Action2
+    INPUT_CONTEXT = 0x20,  // R sub_0807953C
+    INPUT_40 = 0x40,       // A CrenelBeanSprout_Action1
+    INPUT_ACTION =
         0x80, // R sub_08073584, IsPreventedFromUsingItem, sub_080782C0, CrenelBeanSprout_Action1, ItemForSale_Action2
-    PLAYER_INPUT_RIGHT = 0x100,
-    PLAYER_INPUT_LEFT = 0x200,
-    PLAYER_INPUT_UP = 0x400,
-    PLAYER_INPUT_DOWN = 0x800,
-    PLAYER_INPUT_ANY_DIRECTION = 0xf00,
-    PLAYER_INPUT_1000 = 0x1000, // L, where is it set? sub_080782C0
-    PLAYER_INPUT_8000 = 0x8000, // R, IsTryingToPickupObject, sub_08076518
-
-    // TODO What is the result of u32 result = (s32) - (keys & 0x200) >> 0x1f & 0x1000;?
+    INPUT_RIGHT = 0x100,
+    INPUT_LEFT = 0x200,
+    INPUT_UP = 0x400,
+    INPUT_DOWN = 0x800,
+    INPUT_ANY_DIRECTION = 0xf00,
+    INPUT_FUSE = 0x1000,       // L, where is it set? sub_080782C0
+    INPUT_LIFT_THROW = 0x8000, // R, IsTryingToPickupObject, sub_08076518
 } PlayerInputState;
 
 typedef struct {
@@ -535,7 +533,7 @@ typedef struct {
     /*0x09*/ u8 _hasAllFigurines;
     /*0x0a*/ u8 charm;
     /*0x0b*/ u8 picolyteType;
-    /*0x0c*/ u8 itemButtons[2];
+    /*0x0c*/ u8 equipped[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
     /*0x13*/ u8 hasAllFigurines;

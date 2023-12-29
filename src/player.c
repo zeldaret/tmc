@@ -2750,7 +2750,7 @@ static void sub_08073504(Entity* this) {
 static void sub_08073584(Entity* this) {
     u32 state, dir, idx;
 
-    if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_80) || this->iframes > 0 || gPlayerState.field_0x3c ||
+    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) || this->iframes > 0 || gPlayerState.field_0x3c ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
@@ -3447,10 +3447,10 @@ void SurfaceAction_14(Entity* this) {
 void SurfaceAction_CloneTile(Entity* this) {
     if (gPlayerState.chargeState.action == 4) {
         u32 item, n, i;
-        if (ItemIsSword(gSave.stats.itemButtons[SLOT_A])) {
-            item = gSave.stats.itemButtons[SLOT_A];
+        if (ItemIsSword(gSave.stats.equipped[SLOT_A])) {
+            item = gSave.stats.equipped[SLOT_A];
         } else {
-            item = gSave.stats.itemButtons[SLOT_B];
+            item = gSave.stats.equipped[SLOT_B];
         }
         switch (item) {
             case 1:
@@ -3523,8 +3523,7 @@ void SurfaceAction_ShallowWater(Entity* this) {
                 this->spritePriority.b0 = 4;
                 gPlayerState.swim_state = 0;
             }
-            if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_ANY_DIRECTION) ||
-                gPlayerState.surfacePositionSameTimer == 1)
+            if ((gPlayerState.playerInput.newInput & INPUT_ANY_DIRECTION) || gPlayerState.surfacePositionSameTimer == 1)
                 SoundReq(SFX_WATER_WALK);
         }
     }
@@ -3567,7 +3566,7 @@ void SurfaceAction_Swamp(Entity* this) {
                 CreateObjectWithParent(this, OBJECT_70, 0, 0);
                 CreateFx(this, FX_GREEN_SPLASH, 0);
                 SoundReq(SFX_161);
-            } else if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_ANY_DIRECTION) != 0) {
+            } else if ((gPlayerState.playerInput.newInput & INPUT_ANY_DIRECTION) != 0) {
                 SoundReq(SFX_161);
             } else if ((gRoomTransition.frameCount & 0xf) == 0) {
                 SoundReq(SFX_161);
@@ -3723,7 +3722,7 @@ void SurfaceAction_Dust(Entity* this) {
     if (!sub_080741C4()) {
         gPlayerState.speed_modifier -= 128;
         if (gPlayerState.surfacePositionSameTimer == 1 ||
-            (gPlayerState.playerInput.newInput & PLAYER_INPUT_ANY_DIRECTION) != 0) {
+            (gPlayerState.playerInput.newInput & INPUT_ANY_DIRECTION) != 0) {
             if (gPlayerState.floor_type == SURFACE_DUST)
                 CreateObjectWithParent(this, DIRT_PARTICLE, 1, 0);
             else

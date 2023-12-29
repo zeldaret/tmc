@@ -138,40 +138,40 @@ void UpdatePlayerInput(void) {
     gPlayerState.playerInput.heldInput = state;
     gPlayerState.playerInput.newInput = state & prevState;
     // Calculate the direction from the currently held input.
-    gPlayerState.direction = gUnk_08109202[(state & PLAYER_INPUT_ANY_DIRECTION) >> 8];
+    gPlayerState.direction = gUnk_08109202[(state & INPUT_ANY_DIRECTION) >> 8];
 }
 
 u32 ConvInputToState(u32 keys) {
     u32 result;
     if (keys & L_BUTTON) {
-        result = 0x1000;
+        result = INPUT_FUSE;
     } else {
         result = 0;
     }
     if (keys & R_BUTTON) {
-        result |= PLAYER_INPUT_20;
-        result |= PLAYER_INPUT_8000;
-        result |= PLAYER_INPUT_80;
+        result |= INPUT_CONTEXT;
+        result |= INPUT_LIFT_THROW;
+        result |= INPUT_ACTION;
     }
     if (keys & A_BUTTON) {
-        result |= PLAYER_INPUT_8;
-        result |= PLAYER_INPUT_40 | PLAYER_INPUT_1;
+        result |= INPUT_INTERACT;
+        result |= INPUT_40 | INPUT_USE_ITEM1;
     }
     if (keys & B_BUTTON) {
-        result |= PLAYER_INPUT_10;
-        result |= PLAYER_INPUT_2;
+        result |= INPUT_CANCEL;
+        result |= INPUT_USE_ITEM2;
     }
     if (keys & DPAD_RIGHT) {
-        result |= PLAYER_INPUT_RIGHT;
+        result |= INPUT_RIGHT;
     }
     if (keys & DPAD_LEFT) {
-        result |= PLAYER_INPUT_LEFT;
+        result |= INPUT_LEFT;
     }
     if (keys & DPAD_UP) {
-        result |= PLAYER_INPUT_UP;
+        result |= INPUT_UP;
     }
     if (keys & DPAD_DOWN) {
-        result |= PLAYER_INPUT_DOWN;
+        result |= INPUT_DOWN;
     }
     return result;
 }

@@ -186,8 +186,8 @@ Item NPC4E_GetItemWithSwordUpgraded(Item itemId) {
 }
 
 void NPC4E_SaveEquippedItems(NPC4EEntity* this) {
-    this->unk_68 = gSave.stats.itemButtons[SLOT_A];
-    this->unk_69 = gSave.stats.itemButtons[SLOT_B];
+    this->unk_68 = gSave.stats.equipped[SLOT_A];
+    this->unk_69 = gSave.stats.equipped[SLOT_B];
 }
 
 void NPC4E_RestoreEquippedItems(NPC4EEntity* this) {

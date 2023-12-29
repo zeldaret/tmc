@@ -260,12 +260,12 @@ void sub_080281A0(LikeLikeEntity* this) {
 bool32 LikeLike_StealItem(u32 item) {
     bool32 ret = FALSE;
     if (GetInventoryValue(item) == 1) {
-        if (ItemIsShield(gSave.stats.itemButtons[SLOT_A])) {
-            gSave.stats.itemButtons[SLOT_A] = ITEM_NONE;
+        if (ItemIsShield(gSave.stats.equipped[SLOT_A])) {
+            gSave.stats.equipped[SLOT_A] = ITEM_NONE;
         }
 
-        if (ItemIsShield(gSave.stats.itemButtons[SLOT_B])) {
-            gSave.stats.itemButtons[SLOT_B] = ITEM_NONE;
+        if (ItemIsShield(gSave.stats.equipped[SLOT_B])) {
+            gSave.stats.equipped[SLOT_B] = ITEM_NONE;
         }
 
         SetInventoryValue(item, 0);

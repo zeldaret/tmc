@@ -107,10 +107,10 @@ void sub_08076964(ItemBehavior* this, u32 index) {
                 SetItemAnim(this, ANIM_DASH);
                 entity = CreatePlayerItemWithParent(this, PLAYER_ITEM_DASH_SWORD);
                 if (entity != NULL) {
-                    if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != 0) {
-                        uVar3 = gSave.stats.itemButtons[SLOT_A];
+                    if (ItemIsSword(gSave.stats.equipped[SLOT_A]) != 0) {
+                        uVar3 = gSave.stats.equipped[SLOT_A];
                     } else {
-                        uVar3 = gSave.stats.itemButtons[SLOT_B];
+                        uVar3 = gSave.stats.equipped[SLOT_B];
                     }
                     entity->field_0x68.HALF.LO = uVar3;
                     return;
