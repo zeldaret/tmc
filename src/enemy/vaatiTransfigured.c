@@ -547,7 +547,7 @@ void VaatiTransfiguredType0Action7(Entity* this) {
     Entity* pEVar3;
     u32 uVar4;
 
-    sub_08078B48();
+    PausePlayer();
     if (this->timer) {
         if (--this->timer == 0) {
             SetRoomFlag(2);

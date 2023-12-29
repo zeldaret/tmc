@@ -266,7 +266,7 @@ void sub_0806D274(BigGoronEntity* this) {
         case 0:
         case 1:
         default:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 super->frameIndex = 2;
                 break;
             }

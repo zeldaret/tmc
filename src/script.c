@@ -1054,7 +1054,7 @@ void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.controlMode = CONTROL_DISABLED;
-    sub_08078B48();
+    PausePlayer();
 }
 
 void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context) {
@@ -1129,7 +1129,7 @@ void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
             MessageFromTarget(context->scriptInstructionPointer[1]);
             break;
         case 1:
-            if (gMessage.doTextBox & 0x7F)
+            if (gMessage.state & MESSAGE_ACTIVE)
                 break;
             context->unk_18 = 2;
             context->unk_19 = 0xF;
@@ -1191,7 +1191,7 @@ void ScriptCommand_AddInteractableFuser(Entity* entity, ScriptExecutionContext* 
 }
 
 void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context) {
-    if (gMessage.doTextBox & 0x7F) {
+    if (gMessage.state & MESSAGE_ACTIVE) {
         gActiveScriptInfo.commandSize = 0;
     }
 }

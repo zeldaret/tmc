@@ -38,7 +38,7 @@ void Bush(BushEntity* this) {
         Bush_Action1,
         Bush_Action2,
     };
-    if (!EntityIsDeleted(super)) {
+    if (!EntityDisabled(super)) {
         Bush_Actions[super->action](this);
     }
 }

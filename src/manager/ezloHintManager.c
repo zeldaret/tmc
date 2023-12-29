@@ -69,7 +69,7 @@ static void EzloHintManager_Action2(EzloHintManager* this) {
             if (!PlayerStateValid(this))
                 return;
             SetPlayerControl(3);
-            sub_08078B48();
+            PausePlayer();
             SetPlayerEventPriority();
             super->action = 3;
             super->subAction = 0;

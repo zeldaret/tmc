@@ -93,7 +93,7 @@ void StaffrollTask_State0(void) {
     gScreen.bg1.control = 0x1e4d;
     gScreen.bg2.control = 0x1dc3;
     InitSoundPlayingInfo();
-    ResetSystemPriority();
+    ClearEventPriority();
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 

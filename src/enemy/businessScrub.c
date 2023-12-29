@@ -247,7 +247,7 @@ void BusinessScrub_Action5(Entity* this) {
     struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
     u32 subtype;
 
-    if ((gMessage.doTextBox & 0x7f) == 0 && sub_0802915C(this) && !sub_08056338()) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0 && sub_0802915C(this) && !sub_08056338()) {
         if (offer->price <= gSave.stats.rupees) {
             if (BusinessScrub_CheckRefillFitsBag(this)) {
                 /* Bag full. */
@@ -316,11 +316,11 @@ void BusinessScrub_Action6(Entity* this) {
 }
 
 void BusinessScrub_Action7(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
 
         this->action = 4;
-        this->subAction = gMessage.doTextBox & 0x7f;
+        this->subAction = gMessage.state & MESSAGE_ACTIVE;
         this->timer = 1;
         if (!CheckLocalFlag(offer->local_flag)) {
             SetLocalFlag(offer->local_flag);

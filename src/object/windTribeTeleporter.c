@@ -21,7 +21,7 @@ void WindTribeTeleporter_Action1(WindTribeTeleporterEntity*);
 void WindTribeTeleporter_Action2(WindTribeTeleporterEntity*);
 void WindTribeTeleporter_Action3(WindTribeTeleporterEntity*);
 void sub_080A11E0(WindTribeTeleporterEntity*);
-bool32 sub_080A11C0(WindTribeTeleporterEntity*);
+static bool32 PlayerCollidingTeleporter(WindTribeTeleporterEntity*);
 
 void WindTribeTeleporter(WindTribeTeleporterEntity* this) {
     static void (*const WindTribeTeleporter_Actions[])(WindTribeTeleporterEntity*) = {
@@ -40,11 +40,11 @@ void WindTribeTeleporter_Init(WindTribeTeleporterEntity* this) {
     super->spritePriority.b0 = 7;
     super->hitbox = (Hitbox*)&gHitbox_22;
     SetEntityPriority(super, 6);
-    if (sub_080A11C0(this)) {
+    if (PlayerCollidingTeleporter(this)) {
         gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
         SetPlayerControl(CONTROL_DISABLED);
-        sub_08078B48();
+        PausePlayer();
         SetPlayerEventPriority();
         SoundReq(SFX_112);
         super->action = 3;
@@ -54,12 +54,12 @@ void WindTribeTeleporter_Init(WindTribeTeleporterEntity* this) {
 }
 
 void WindTribeTeleporter_Action1(WindTribeTeleporterEntity* this) {
-    if (sub_080A11C0(this)) {
+    if (PlayerCollidingTeleporter(this)) {
         if (this->unk_68 == 0) {
             gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
             SetPlayerControl(CONTROL_DISABLED);
-            sub_08078B48();
+            PausePlayer();
             SetPlayerEventPriority();
             SoundReq(SFX_112);
             super->action = 2;
@@ -177,7 +177,7 @@ void WindTribeTeleporter_Action3(WindTribeTeleporterEntity* this) {
     }
 }
 
-bool32 sub_080A11C0(WindTribeTeleporterEntity* this) {
+static bool32 PlayerCollidingTeleporter(WindTribeTeleporterEntity* this) {
     if (gPlayerEntity.z.HALF.HI != 0) {
         return FALSE;
     } else {

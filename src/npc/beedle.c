@@ -94,7 +94,7 @@ void Beedle_Action1(Entity* this) {
 }
 
 void Beedle_Action2(Entity* this) {
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action++;
         InitializeAnimation(this, 8);
     }

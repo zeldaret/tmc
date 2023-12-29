@@ -626,7 +626,8 @@ void ButtonUIElement_Action1(UIElement* element) {
 
     MAX_MOVEMENT = (!element->type2) ? 4 : 8;
 
-    if (element->type2 == 0 && (((gUnk_0200AF00.unk_1 >> element->type) & 1) || (gMessage.doTextBox & 0x7f) != 0)) {
+    if (element->type2 == 0 &&
+        (((gUnk_0200AF00.unk_1 >> element->type) & 1) || (gMessage.state & MESSAGE_ACTIVE) != 0)) {
         y = (s16)gUnk_0200AF00.buttonY[element->type] - 0x28;
     } else {
         y = (s16)gUnk_0200AF00.buttonY[element->type];
@@ -792,7 +793,7 @@ void HeartUIElement(UIElement* element) {
     u32 health;
     u32 frameIndex;
     element->unk_0_1 = 0;
-    if (((gUnk_0200AF00.unk_1 & 0x10) == 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
+    if (((gUnk_0200AF00.unk_1 & 0x10) == 0) && ((gMessage.state & MESSAGE_ACTIVE) == 0)) {
         health = gUnk_0200AF00.health;
         if (health != 0) {
             element->unk_0_1 = 1;
@@ -845,7 +846,7 @@ void EzloNagUIElement_Action1(UIElement* element) {
 }
 
 void EzloNagUIElement_Action2(UIElement* element) {
-    if (gUnk_0200AF00.ezloNagFuncIndex >= 5 || (gMessage.doTextBox & 0x7f)) {
+    if (gUnk_0200AF00.ezloNagFuncIndex >= 5 || (gMessage.state & MESSAGE_ACTIVE)) {
         element->action = 0;
         element->unk_0_1 = 0;
         return;

@@ -31,7 +31,7 @@ const s8 gUnk_08126EEC[] = {
 };
 
 Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
-    Entity* e = CreateItemGetEntity();
+    Entity* e = CreateAuxPlayerEntity();
     if (e != NULL) {
         LinkAnimationEntity* this = (LinkAnimationEntity*)e;
         e->id = LINK_ANIMATION;
@@ -42,7 +42,7 @@ Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
         AppendEntityToList(e, 6);
         PrependEntityToList(e, 6);
         CopyPosition(&gPlayerEntity, e);
-        gPriorityHandler.sys_priority = 6;
+        gPriorityHandler.event_priority = 6;
         gPauseMenuOptions.disabled = 1;
 
         // store player state

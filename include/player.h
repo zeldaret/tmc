@@ -720,7 +720,7 @@ s32 AddInteractableObject(Entity*, u32, u32);
 void RemoveInteractableObject(Entity*);
 s32 GetInteractableObjectIndex();
 void sub_08078AC0(u32, u32, u32);
-void sub_08078B48(void);
+void PausePlayer(void);
 void sub_08078E84(Entity*, Entity*);
 void sub_08078FB0(Entity*);
 void sub_080792BC(s32, u32, u32);

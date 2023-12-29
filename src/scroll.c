@@ -268,7 +268,7 @@ void sub_0807FF1C(RoomControls* controls) {
         gUpdateVisibleTiles = 3;
         if (++controls->unk_18 > 0x13) {
             controls->scrollAction = 0;
-            ResetSystemPriority();
+            ClearEventPriority();
         }
     }
 }
@@ -408,7 +408,7 @@ void sub_080801BC(RoomControls* controls) {
     if (controls->unk_1c == 0) {
         controls->scrollAction = 0;
         controls->reload_flags = 0;
-        ResetSystemPriority();
+        ClearEventPriority();
         gScreen.lcd.displayControl &= ~DISPCNT_WIN1_ON;
         gScreen.controls.windowInsideControl &= 0xff;
         gScreen.controls.windowOutsideControl &= 0xff00;

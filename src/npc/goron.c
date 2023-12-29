@@ -72,7 +72,7 @@ void sub_08069328(Entity* this) {
 
 void sub_08069390(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
         this->interactType = INTERACTION_NONE;
         RevokePriority(this);

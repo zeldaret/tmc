@@ -462,7 +462,7 @@ Entity* CreatePlayerItemWithParent(ItemBehavior* this, u32 id) {
 }
 
 void* CreateItemGetPlayerItemWithParent(ItemBehavior* this) {
-    GenericEntity* playerItem = (GenericEntity*)CreateItemGetEntity();
+    GenericEntity* playerItem = (GenericEntity*)CreateAuxPlayerEntity();
     if (playerItem != NULL) {
         playerItem->base.id = gItemDefinitions[this->behaviorId].playerItemId;
         playerItem->base.kind = PLAYER_ITEM;
@@ -501,7 +501,7 @@ Entity* CreatePlayerItem(u32 id, u32 type, u32 type2, u32 unk) {
 Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
     GenericEntity* ent;
 
-    ent = (GenericEntity*)CreateItemGetEntity();
+    ent = (GenericEntity*)CreateAuxPlayerEntity();
     if (ent != NULL) {
         ent->base.flags = ENT_COLLIDE;
         ent->base.kind = PLAYER_ITEM;
@@ -988,7 +988,7 @@ bool32 sub_08078140(ChargeState* info) {
 void ForceSetPlayerState(u32 framestate) {
     gPlayerState.framestate = framestate;
     gPlayerEntity.flags &= ~ENT_COLLIDE;
-    sub_08078B48();
+    PausePlayer();
 }
 
 void DetermineRButtonInteraction(void) {
@@ -1504,7 +1504,7 @@ void SetPlayerItemGetState(Entity* item, u8 param_2, u8 param_3) {
     DeleteClones();
 }
 
-void sub_08078B48(void) {
+void PausePlayer(void) {
     gPlayerState.field_0x7 |= 0x80;
     gPlayerState.keepFacing |= 0x80;
     gPlayerState.field_0xa |= 0x80;
@@ -2494,7 +2494,7 @@ u32 sub_08079FD4(Entity* this, u32 param_2) {
 
 void UpdatePlayerPalette(void) {
     u32 palette;
-    if ((gPlayerState.hurtBlinkSpeed != 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
+    if ((gPlayerState.hurtBlinkSpeed != 0) && ((gMessage.state & MESSAGE_ACTIVE) == 0)) {
         gPlayerState.hurtBlinkSpeed--;
     }
     palette = GetPlayerPalette(FALSE);

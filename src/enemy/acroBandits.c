@@ -240,7 +240,7 @@ void AcroBandit_Type0Action5(Entity* this) {
 
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
-        if (gEntCount < MAX_ENTITIES - 4) {
+        if (gEntCount < MAX_ENTITIES - 5) {
             u32 tmp = Random();
             tmp &= 3;
 

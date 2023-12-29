@@ -78,7 +78,7 @@ void sub_0806C7D4(Entity* this) {
 }
 
 void sub_0806C834(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         --this->action;
         InitializeAnimation(this, (this->animationState / 2) + 4);
     }

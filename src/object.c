@@ -205,7 +205,7 @@ void ObjectUpdate(Entity* this) {
         ObjectInit(this);
     if (this->iframes != 0)
         this->iframes++;
-    if (!EntityIsDeleted(this)) {
+    if (!EntityDisabled(this)) {
         gObjectFunctions[this->id](this);
         this->contactFlags &= ~0x80;
     }

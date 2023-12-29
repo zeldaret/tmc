@@ -150,7 +150,7 @@ void sub_08067EF0(MountainMinishEntity* this) {
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7f) != 0)
+            if ((gMessage.state & MESSAGE_ACTIVE) != 0)
                 break;
             super->action = 1;
             InitializeAnimation(super, (super->animationState >> 1) + 4);

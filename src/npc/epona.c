@@ -54,7 +54,7 @@ void sub_08065A00(EponaEntity* this) {
 }
 
 void sub_08065A10(EponaEntity* this) {
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = 1;
         InitAnimationForceUpdate(super, super->animationState / 2);
     }

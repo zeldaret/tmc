@@ -149,13 +149,13 @@ void sub_0806B540(Entity* this) {
             SetLocalFlag(0x3f);
             break;
         case 1:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 context->unk_18 = 2;
                 MessageNoOverlap(TEXT_INDEX(TEXT_PERCY, 0x15), this);
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 context->unk_18 = 3;
                 if (gSave.stats.hasAllFigurines != 0) {
                     InitItemGetSequence(ITEM_RUPEE100, 0, 0);

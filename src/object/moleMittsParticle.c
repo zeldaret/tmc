@@ -18,7 +18,7 @@ void MoleMittsParticle(Entity* this) {
         MoleMittsParticle_Init,
         MoleMittsParticle_Action1,
     };
-    if (!EntityIsDeleted(this)) {
+    if (!EntityDisabled(this)) {
         MoleMittsParticle_Actions[this->action](this);
     }
 }

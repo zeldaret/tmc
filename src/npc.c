@@ -14,7 +14,7 @@ void NPCUpdate(Entity* this) {
         DeleteThisEntity();
     if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
         NPCInit(this);
-    if (!EntityIsDeleted(this))
+    if (!EntityDisabled(this))
         gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {
         if (gNPCFunctions[this->id][1] != NULL)

@@ -138,7 +138,7 @@ void FourElements_Action5(FourElementsEntity* this) {
 
 void FourElements_Action6(FourElementsEntity* this) {
     RequestPriorityDuration(NULL, 10);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         SetPriorityTimer(90);
         gPlayerState.controlMode = 1;
         EnablePauseMenu();

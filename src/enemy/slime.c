@@ -105,7 +105,7 @@ void sub_080450A8(Entity* this) {
 
     /* Can we create enough new entities? */
     count = typeEntityCount[this->type];
-    if (MAX_ENTITIES + 1 - count <= gEntCount)
+    if (MAX_ENTITIES - count <= gEntCount)
         return;
 
     /* Create 2-4 new MiniSlime */

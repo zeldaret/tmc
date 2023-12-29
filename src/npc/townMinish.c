@@ -250,7 +250,7 @@ void sub_0806ACC4(TownMinishEntity* this) {
             }
             break;
         case 2:
-            if (gMessage.doTextBox & 0x7f)
+            if (gMessage.state & MESSAGE_ACTIVE)
                 break;
 
             super->action = 1;

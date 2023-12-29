@@ -331,7 +331,7 @@ void KinstoneMenu_Type5_Overlay0(void) {
 }
 
 void KinstoneMenu_Type5_Overlay1(void) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         gMenu.overlayType = 2;
         SoundReq(SFX_147);
     }

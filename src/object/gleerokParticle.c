@@ -82,7 +82,7 @@ void GleerokParticle_Init(GleerokParticleEntity* this) {
                     DeleteThisEntity();
                 }
             }
-            sub_08078B48();
+            PausePlayer();
             return;
         case 0:
             super->direction = gUnk_081229D0[super->type2].direction;

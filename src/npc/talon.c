@@ -119,7 +119,7 @@ void sub_08065680(TalonEntity* this) {
 }
 
 void sub_080656A4(TalonEntity* this) {
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = this->unk_69;
         InitAnimationForceUpdate(super, this->unk_6a);
     }

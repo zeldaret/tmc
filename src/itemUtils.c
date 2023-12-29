@@ -403,8 +403,8 @@ void EnableRandomDrops(void) {
     gRoomVars.randomDropsDisabled = FALSE;
 }
 
-extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
-extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
+extern void SumDropProbabilities(s16*, const s16*, const s16*, const s16*);
+extern u32 SumDropProbabilities2(s16*, const s16*, const s16*, const s16*);
 u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter);
 u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     extern const u8 gUnk_080FE1B4[] /* = {
@@ -459,7 +459,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
 #endif
             }
             // vector addition, s0 = ptr4 + ptr2 + ptr3
-            sub_08000F14(droptable.a, ptr4->a, ptr2->a, ptr3->a);
+            SumDropProbabilities(droptable.a, ptr4->a, ptr2->a, ptr3->a);
             if (gSave.stats.health <= 8) {
                 droptable.s.hearts += 5;
             }
@@ -486,7 +486,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
             // vector addition, s0 = s0 + ptr2 + ptr3
             // resulting values are clamped to be >= 0
             // returns sum over s0
-            summOdds = sub_08000F2C(droptable.a, droptable.a, ptr2->a, ptr3->a);
+            summOdds = SumDropProbabilities2(droptable.a, droptable.a, ptr2->a, ptr3->a);
             rand = Random();
             item = (rand >> 0x18);
             item &= 0xF;

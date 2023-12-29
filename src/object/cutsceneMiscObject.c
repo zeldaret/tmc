@@ -457,7 +457,7 @@ void CutsceneMiscObject_Type7(CutsceneMiscObjectEntity* this) {
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7F) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 CreateItemEntity(ITEM_JABBERNUT, 0, 0);
                 DeleteThisEntity();
             }
