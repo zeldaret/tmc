@@ -364,7 +364,7 @@ void MiscManager_TypeB(MiscManager* this) {
 
 bool32 sub_080593CC(MiscManager* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) == PLAYER_INPUT_UP) {
+        (gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) == INPUT_UP) {
         return EntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return FALSE;

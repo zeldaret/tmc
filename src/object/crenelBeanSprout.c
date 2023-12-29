@@ -179,7 +179,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
-        if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
+        if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_40)) == 0) {
             return;
         }
         if (gUnk_0200AF00.rActionPlayerState != R_ACTION_THROW) {
