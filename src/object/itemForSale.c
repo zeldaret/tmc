@@ -96,7 +96,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
             if (super->interactType != INTERACTION_NONE) {
                 super->interactType = INTERACTION_NONE;
                 super->subAction = 1;
-                sub_08078B48();
+                PausePlayer();
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;

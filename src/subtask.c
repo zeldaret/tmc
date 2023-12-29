@@ -278,7 +278,7 @@ void Subtask_Die(void) {
         gMain.substate = gUI.pauseFadeIn;
         gUI.nextToLoad = gFadeControl.active;
         gUI.lastState = gFadeControl.active;
-        ResetSystemPriority();
+        ClearEventPriority();
     }
 }
 

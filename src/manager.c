@@ -61,6 +61,6 @@ void (*const gMiscManagerunctions[])() = { NULL,
                                            EnterRoomTextboxManager_Main };
 
 void ManagerUpdate(Entity* this) {
-    if (!EntityIsDeleted(this))
+    if (!EntityDisabled(this))
         gMiscManagerunctions[this->id](this);
 }

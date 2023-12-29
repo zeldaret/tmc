@@ -219,7 +219,7 @@ void sub_0806797C(CatEntity* this) {
 
 void sub_0806799C(CatEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         sub_08067B08(this);
         SetEntityPriority(super, PRIO_PLAYER);
     }

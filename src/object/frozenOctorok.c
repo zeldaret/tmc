@@ -267,7 +267,7 @@ void FrozenOctorok_Action1SubAction0(FrozenOctorokEntity* this) {
 
 void FrozenOctorok_Action1SubAction1(FrozenOctorokEntity* this) {
     Entity* obj;
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         if (this->unk_79-- == 0) {
             obj = CreateObjectWithParent(super, FROZEN_OCTOROK, 7, 0);
             if (obj != NULL) {

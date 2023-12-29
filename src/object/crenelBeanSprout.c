@@ -266,7 +266,7 @@ void CrenelBeanSprout_Action6(CrenelBeanSproutEntity* this) {
         CrenelBeanSprout_Action6SubAction2,
     };
     if (super->subAction != 2) {
-        sub_08078B48();
+        PausePlayer();
     }
     CrenelBeanSprout_Action6SubActions[super->subAction](this);
 }

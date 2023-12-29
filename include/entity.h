@@ -389,9 +389,12 @@ Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
 void SetEntityPriority(Entity* entity, u32 prio);
 
 /**
- * Check if entity will be deleted next frame.
+ * Check if entity is disabled. Entities are disabled if:
+ * - They are deleted.
+ * - There is an event and the entity doesn't have priority
+ *   (n/a if entity is in action 0).
  */
-bool32 EntityIsDeleted(Entity* entity);
+bool32 EntityDisabled(Entity* entity);
 
 /**
  * Check if system or entity is blocking updates.
@@ -477,7 +480,7 @@ void SetInitializationPriority(void);
 /**
  * Reset the system update priority.
  */
-void ResetSystemPriority(void);
+void ClearEventPriority(void);
 
 void sub_0805E958(void);
 

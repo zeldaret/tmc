@@ -153,7 +153,7 @@ void sub_08061D64(TownspersonEntity* this) {
 
 void sub_08061E24(TownspersonEntity* this) {
     GetNextFrame(super);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = 1;
         InitializeAnimation(super, this->unk_69);
     }

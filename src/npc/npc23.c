@@ -101,7 +101,7 @@ void sub_080663D4(NPC23Entity* this) {
         }
         ProcessMovement0(super);
     }
-    sub_08078B48();
+    PausePlayer();
     GetNextFrame(super);
 }
 

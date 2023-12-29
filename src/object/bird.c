@@ -225,7 +225,7 @@ void Bird_Type8(BirdEntity* this) {
                 super->speed = 0x300;
             }
 
-            if ((gPlayerEntity.flags & ENT_COLLIDE) && (gMessage.doTextBox & 0x7f) == 0 &&
+            if ((gPlayerEntity.flags & ENT_COLLIDE) && (gMessage.state & MESSAGE_ACTIVE) == 0 &&
                 gPlayerEntity.action != PLAYER_SLEEP && gPlayerEntity.action != PLAYER_BOUNCE &&
                 gPlayerEntity.action != PLAYER_MINISH && gPlayerState.framestate != PL_STATE_CLIMB &&
                 gPlayerState.framestate != PL_STATE_JUMP && gPlayerState.framestate != PL_STATE_PARACHUTE &&
@@ -240,21 +240,21 @@ void Bird_Type8(BirdEntity* this) {
                         super->speed = 0x300;
                         this->gravity = Q_8_8(-32.0);
                         PlayerDropHeldObject();
-                        sub_08078B48();
+                        PausePlayer();
                         ResetPlayerAnimationAndAction();
                         PutAwayItems();
                         gPlayerState.swim_state = 0;
                         gPlayerState.jump_status = 0;
                         gPlayerEntity.flags &= ~0x80;
                         gPlayerEntity.spriteSettings.draw = 0;
-                        gPriorityHandler.sys_priority = 6;
+                        gPriorityHandler.event_priority = 6;
                         gPauseMenuOptions.disabled = 1;
                     }
                 }
             }
             break;
         default:
-            sub_08078B48();
+            PausePlayer();
             gPlayerEntity.spriteSettings.draw = 0;
             break;
     }
@@ -313,7 +313,7 @@ void Bird_Type9(BirdEntity* this) {
         SoundReq(SFX_123);
         super->spritePriority.b1 = 2;
         InitAnimationForceUpdate(super, 0);
-        sub_08078B48();
+        PausePlayer();
     } else if (super->action == 1) {
         gPlayerEntity.spriteSettings.draw = 0;
         child = super->child;
@@ -324,7 +324,7 @@ void Bird_Type9(BirdEntity* this) {
             child->spriteRendering.b3 = super->spriteRendering.b3;
             child->spriteOrientation.flipY = super->spriteOrientation.flipY;
         }
-        sub_08078B48();
+        PausePlayer();
         if (gRoomControls.scroll_x + 0x78 < super->x.HALF.HI) {
             super->action++;
             super->spritePriority.b1 = 1;

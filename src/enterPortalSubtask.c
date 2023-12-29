@@ -189,7 +189,7 @@ void Subtask_PortalCutscene_0(void) {
     gUsedPalettes |= 0x200000;
     EraseAllEntities();
     LoadRoomEntityList(gUnk_080D4110[portalId]);
-    ResetSystemPriority();
+    ClearEventPriority();
     gArea.filler3[0]++;
     SetFade(FADE_INSTANT, 8);
 }

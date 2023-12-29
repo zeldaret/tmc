@@ -89,7 +89,7 @@ void SetEntityPriority(Entity* ent, u32 prio) {
     ent->updatePriority = prio;
 }
 
-bool32 EntityIsDeleted(Entity* this) {
+bool32 EntityDisabled(Entity* this) {
     u32 value;
 
     if (this->flags & ENT_DELETED)
@@ -98,19 +98,19 @@ bool32 EntityIsDeleted(Entity* this) {
         return FALSE;
 
     // pick highest
-    if (gPriorityHandler.sys_priority > gPriorityHandler.ent_priority)
-        value = gPriorityHandler.sys_priority;
+    if (gPriorityHandler.event_priority > gPriorityHandler.ent_priority)
+        value = gPriorityHandler.event_priority;
     else
         value = gPriorityHandler.ent_priority;
 
-    if (gMessage.doTextBox & 0x7F)
+    if (gMessage.state & MESSAGE_ACTIVE)
         value = max(value, PRIO_MESSAGE);
     return value > this->updatePriority;
 }
 
 bool32 AnyPrioritySet(void) {
-    u32 prio = gPriorityHandler.sys_priority;
-    if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
+    u32 prio = gPriorityHandler.event_priority;
+    if (gPriorityHandler.event_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
     return prio != PRIO_MIN;
 }
@@ -180,12 +180,12 @@ static void UpdatePriorityTimer(void) {
 }
 
 void SetPlayerEventPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
+    gPriorityHandler.event_priority = PRIO_PLAYER_EVENT;
     gPlayerEntity.updatePriority = PRIO_PLAYER_EVENT;
 }
 
 void ResetPlayerEventPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_MIN;
+    gPriorityHandler.event_priority = PRIO_MIN;
     gPlayerEntity.updatePriority = PRIO_PLAYER;
 }
 
@@ -195,15 +195,15 @@ void RevokePriority(Entity* e) {
 }
 
 void SetRoomReloadPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
+    gPriorityHandler.event_priority = PRIO_PLAYER_EVENT;
 }
 
 void SetInitializationPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_HIGHEST;
+    gPriorityHandler.event_priority = PRIO_HIGHEST;
 }
 
-void ResetSystemPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_MIN;
+void ClearEventPriority(void) {
+    gPriorityHandler.event_priority = PRIO_MIN;
 }
 
 void UpdateEntities(void) {

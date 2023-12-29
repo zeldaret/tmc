@@ -280,7 +280,7 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 bool32 CheckInitPauseMenu(void) {
     u32 framestate;
     if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gPauseMenuOptions.disabled ||
-         (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.inventory[0] ||
+         (gMessage.state & MESSAGE_ACTIVE) || gSave.stats.health == 0 || !gSave.inventory[0] ||
          gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
         return FALSE;
     }
@@ -728,7 +728,7 @@ static void sub_08070E9C(Entity* this) {
 static void sub_08070EDC(Entity* this) {
     this->updatePriority = PRIO_MESSAGE;
 
-    if ((gMessage.doTextBox & 0x7f) != 0)
+    if (gMessage.state & MESSAGE_ACTIVE)
         this->subAction = 1;
 
     if ((gPlayerState.flags & PL_MINISH) == 0)
@@ -739,7 +739,7 @@ static void sub_08070EDC(Entity* this) {
 
 static void sub_08070f24(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->updatePriority = this->updatePriorityPrev;
         ResetPlayerAnimationAndAction();
     }
@@ -808,7 +808,7 @@ static void sub_08071038(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
     // player is still reading message
-    if (CheckQueuedAction() || (gMessage.doTextBox & 0x7f))
+    if (CheckQueuedAction() || (gMessage.state & MESSAGE_ACTIVE))
         return;
 
     if (this->frame & ANIM_DONE) {
@@ -1286,7 +1286,7 @@ static void PlayerTalkEzlo_Init(Entity* this) {
     ResetActiveItems();
     gActiveItems[ACTIVE_ITEM_LANTERN].animPriority = 0;
     this->iframes = 0;
-    gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
+    gPriorityHandler.event_priority = PRIO_PLAYER_EVENT;
     this->updatePriority = PRIO_PLAYER_EVENT;
 
     if (gPlayerState.flags & PL_MINISH) {
@@ -1335,7 +1335,7 @@ static void PlayerTalkEzlo_CreateMessage(Entity* this) {
 static void PlayerTalkEzlo_MessageIdle(Entity* this) {
     u32 rightOrLeft;
 
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->subAction++;
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             if (this->animationState == IdleEast)
@@ -1380,7 +1380,7 @@ static void PlayerTalkEzlo_Leave(Entity* this) {
 }
 
 static void reset_priority(void) {
-    gPriorityHandler.sys_priority = PRIO_MIN;
+    gPriorityHandler.event_priority = PRIO_MIN;
     gPlayerEntity.updatePriority = gPlayerEntity.updatePriorityPrev;
 }
 

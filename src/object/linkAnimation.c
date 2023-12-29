@@ -93,7 +93,7 @@ void LinkAnimation_ItemGet(LinkAnimationEntity* this) {
             break;
         case ITEMGET_WAIT:
             UpdateAnimationSingleFrame(super);
-            if ((gMessage.doTextBox & 0x7f) != 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) != 0) {
                 return;
             }
             if (super->frame & ANIM_DONE) {

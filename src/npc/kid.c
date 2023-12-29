@@ -319,7 +319,7 @@ void sub_080621AC(KidEntity* this) {
             break;
         case 2:
             GetNextFrame(super);
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 super->action = 1;
             }
             break;

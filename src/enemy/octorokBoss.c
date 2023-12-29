@@ -113,17 +113,17 @@ void OctorokBoss_Hit(OctorokBossEntity* this) {
         if (super->subAction != 3) {
             gRoomControls.camera_target = &this->heap->tailObjects[0]->base;
             this->heap->field_0x7 = 0x5a;
-            sub_08078B48();
+            PausePlayer();
         }
     } else {
         if (this->heap->field_0x7 != 0) {
             this->heap->field_0x7--;
-            sub_08078B48();
+            PausePlayer();
         }
     }
     OctorokBoss_Hit_SubActions[super->subAction](this);
     if (super->subAction > 3) {
-        sub_08078B48();
+        PausePlayer();
     }
     sub_0800445C(super);
     SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
@@ -136,7 +136,7 @@ void OctorokBoss_Hit_SubAction0(OctorokBossEntity* this) {
     if (this->bossPhase == 4) {
         super->subAction = 4;
         gPauseMenuOptions.disabled = 1;
-        sub_08078B48();
+        PausePlayer();
         SoundReq(SFX_BOSS_DIE);
     } else {
         if (IS_FROZEN(this) == FALSE) {
@@ -442,7 +442,7 @@ void OctorokBoss_Intro(OctorokBossEntity* this) {
         OctorokBoss_Intro_SubAction0, OctorokBoss_Intro_SubAction1, OctorokBoss_Intro_SubAction2,
         OctorokBoss_Intro_SubAction3, OctorokBoss_Intro_SubAction4, OctorokBoss_Intro_SubAction5,
     };
-    sub_08078B48();
+    PausePlayer();
     gPauseMenuOptions.disabled = 1;
     sub_08036F60(this);
     OctorokBoss_Intro_SubActions[super->subAction](this);
@@ -796,7 +796,7 @@ void OctorokBoss_Action1_Attack(OctorokBossEntity* this) {
         gPlayerEntity.spriteSettings.draw = 0;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.collisionLayer = 2;
-        sub_08078B48();
+        PausePlayer();
         PutAwayItems();
         gPlayerEntity.parent = super;
         sub_08036914(&gPlayerEntity, (u8) - (this->angle.HALF.HI + 0x80), 0x3800);

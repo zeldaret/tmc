@@ -34,7 +34,7 @@ void sub_0805E1F8(u32, bool32);
 
 void EnterRoomTextboxManager_Main(EnterRoomTextboxManager* this) {
     EnterRoomTextboxManager_Actions[super->action](this);
-    if ((gRoomControls.room != this->unk_20) || (gMessage.doTextBox & 0x7F)) {
+    if ((gRoomControls.room != this->unk_20) || (gMessage.state & MESSAGE_ACTIVE)) {
         sub_0805E1D8(this);
     }
 }
@@ -56,7 +56,7 @@ void sub_0805E18C(EnterRoomTextboxManager* this) {
         if (--super->subtimer == 0) {
             super->type2 = 0;
             gPlayerState.controlMode = CONTROL_1;
-            ResetSystemPriority();
+            ClearEventPriority();
         }
     }
     if (--super->timer == 0) {

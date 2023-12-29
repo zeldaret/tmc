@@ -346,7 +346,7 @@ void sub_08063E54(Entity* this) {
 }
 
 void sub_08063E6C(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
         InitializeAnimation(this, this->animationState + 4);
     }
@@ -397,7 +397,7 @@ void sub_08063F20(GuardEntity* this) {
 }
 
 void sub_08063F78(GuardEntity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = super->action - 1;
         InitializeAnimation(super, (super->animationState >> 1) + 4 + this->unk_70);
     }

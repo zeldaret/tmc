@@ -53,7 +53,7 @@ void CameraTarget(Entity* this) {
         case FUSION_STATE_0:
         case FUSION_STATE_1:
         case FUSION_STATE_2:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 break;
             }
         default:

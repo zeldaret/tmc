@@ -325,7 +325,7 @@ void LilypadLarge_Action2(LilypadLargeEntity* this) {
     };
     subActionFuncs[super->subAction](this);
     gPlayerState.flags |= PL_FLAGS2;
-    sub_08078B48();
+    PausePlayer();
 }
 
 void sub_08085A44(LilypadLargeEntity* this) {
@@ -460,7 +460,7 @@ void sub_08085D28(LilypadLargeEntity* this) {
         (GetRelativeCollisionTile(super, 0, 0x18) == 0x11)) {
         super->action = 2;
         super->subAction = 0;
-        sub_08078B48();
+        PausePlayer();
     }
 }
 
