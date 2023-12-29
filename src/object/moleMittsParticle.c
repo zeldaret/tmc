@@ -7,7 +7,6 @@
 #define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 void MoleMittsParticle_Init(Entity*);

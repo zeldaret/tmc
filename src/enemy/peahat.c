@@ -191,7 +191,8 @@ void Peahat_ChargeStart(PeahatEntity* this) {
             super->action = 3;
             super->timer = 120;
             super->speed = 192;
-            super->direction = (GetFacingDirection(super, gUnk_020000B0) + gUnk_080CA5D4[Random() & 1]) & 0x1f;
+            super->direction =
+                (GetFacingDirection(super, gUnk_020000B0) + gUnk_080CA5D4[Random() & 1]) & (0x3 | DirectionNorthWest);
         }
     } else {
         sub_080205F8(this);
@@ -235,6 +236,8 @@ void Peahat_ChargeEnd(PeahatEntity* this) {
     }
 }
 
+#define DIR_NONE 0xff
+
 void Peahat_Stunned(PeahatEntity* this) {
     switch (super->animationState) {
         default:
@@ -245,7 +248,7 @@ void Peahat_Stunned(PeahatEntity* this) {
                 super->hitType = 0x71;
             }
 
-            if (super->direction == 0xff)
+            if (super->direction == DIR_NONE)
                 super->direction = super->knockbackDirection;
 
             ProcessMovement0(super);
@@ -373,7 +376,7 @@ void sub_08020604(PeahatEntity* this) {
         super->direction = sub_08049EE4(super);
     } else {
         super->direction += this->unk_80;
-        super->direction &= 0x1f;
+        super->direction &= (0x3 | DirectionNorthWest);
     }
 }
 

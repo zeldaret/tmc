@@ -123,7 +123,7 @@ void sub_08045524(FireballGuyEntity* this) {
 
     super->zVelocity = Q_16_16(1.75);
     tmp = sub_0804A024(super, 1, 8);
-    if (tmp != 0xff && (Random() & 3) == 0) {
+    if (tmp != DIR_NONE && (Random() & 3) == 0) {
         super->timer = Random() & 3;
         super->direction = DirectionRound(tmp);
     } else {

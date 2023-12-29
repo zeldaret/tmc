@@ -55,16 +55,16 @@ void sub_0802BA18(SensorBladeTrapEntity* this) {
     super->direction = direction;
 
     switch (direction >> 3) {
-        case 0:
+        case 0: // UP
             this->unk_7a = super->y.HALF.HI - this->unk_7e;
             break;
-        case 1:
+        case 1: // RIGHT
             this->unk_7a = super->x.HALF.HI + this->unk_7c;
             break;
-        case 2:
+        case 2: // DOWN
             this->unk_7a = super->y.HALF.HI + this->unk_7e;
             break;
-        case 3:
+        case 3: // LEFT
             this->unk_7a = super->x.HALF.HI - this->unk_7c;
             break;
     }
@@ -75,19 +75,19 @@ void sub_0802BA8C(SensorBladeTrapEntity* this) {
         sub_0802BB10(this);
     } else {
         switch (super->direction >> 3) {
-            case 0:
+            case 0: // UP
                 if (this->unk_7a >= super->y.HALF.HI)
                     sub_0802BB10(this);
                 break;
-            case 1:
+            case 1: // RIGHT
                 if (this->unk_7a <= super->x.HALF.HI)
                     sub_0802BB10(this);
                 break;
-            case 2:
+            case 2: // DOWN
                 if (this->unk_7a <= super->y.HALF.HI)
                     sub_0802BB10(this);
                 break;
-            case 3:
+            case 3: // LEFT
                 if (this->unk_7a >= super->x.HALF.HI)
                     sub_0802BB10(this);
                 break;
@@ -104,7 +104,7 @@ void sub_0802BAFC(SensorBladeTrapEntity* this) {
 void sub_0802BB10(SensorBladeTrapEntity* this) {
     super->action = 3;
     super->speed = 0xc0;
-    super->direction = super->direction ^ 0x10;
+    super->direction = super->direction ^ DirectionSouth;
     EnqueueSFX(SFX_METAL_CLINK);
 }
 

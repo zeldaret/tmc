@@ -71,7 +71,7 @@ void Bobomb_OnCollision(BobombEntity* this) {
                 super->zVelocity = Q_16_16(1.5);
                 super->speed = 0;
                 this->unk_81 = 1;
-                InitializeAnimation(super, super->direction >> 4 | 6);
+                InitializeAnimation(super, super->direction >> 4 | IdleWest);
                 break;
         }
     }
@@ -132,7 +132,7 @@ void sub_0802C83C(BobombEntity* this) {
     } else {
         this->unk_82 = 2;
         super->timer = 120;
-        InitializeAnimation(super, (super->direction >> 4) | 6);
+        InitializeAnimation(super, (super->direction >> 4) | IdleWest);
         COLLISION_OFF(super);
         super->hitType = 0x6e;
     }
@@ -156,7 +156,7 @@ void sub_0802C8D8(BobombEntity* this) {
     super->action = 1;
     super->timer = 60;
     super->subtimer = 0;
-    super->direction = (Random() & 0x18) | 4;
+    super->direction = (Random() & 0x18) | DIR_DIAGONAL;
     super->carryFlags = 0;
     super->gustJarFlags = 0x12;
     this->unk_82 = 0;
@@ -172,7 +172,7 @@ void sub_0802C91C(BobombEntity* this) {
     if (this->unk_82) {
         if (super->collisions != COL_NONE) {
             sub_0800417E(super, super->collisions);
-            InitializeAnimation(super, (super->direction >> 4) | 2);
+            InitializeAnimation(super, (super->direction >> 4) | IdleEast);
         }
         if (--super->timer == 0) {
             sub_0802CBC4(this);
@@ -189,7 +189,7 @@ void sub_0802C91C(BobombEntity* this) {
         }
         if (--super->timer == 0) {
             super->timer = 60;
-            super->direction = (super->direction + 8) & 0x1c;
+            super->direction = (super->direction + 8) & (DirectionWest | DIR_DIAGONAL);
             InitializeAnimation(super, super->direction >> 4);
         }
     }
@@ -205,7 +205,7 @@ void sub_0802C9D0(BobombEntity* this) {
     super->spritePriority.b1 = 0;
     this->unk_83 = 1;
     sub_0802CC18(this);
-    InitializeAnimation(super, (super->direction >> 4) | 6);
+    InitializeAnimation(super, (super->direction >> 4) | IdleWest);
     GetNextFrame(super);
 }
 
@@ -219,7 +219,7 @@ void sub_0802CA10(BobombEntity* this) {
         }
     } else {
         this->unk_83 = 2;
-        super->direction = (((gPlayerEntity.animationState) << 2) | 4) & 0x1c;
+        super->direction = (((gPlayerEntity.animationState) << 2) | IdleSouth) & (DIR_DIAGONAL | DirectionWest);
         sub_0802CC18(this);
         GetNextFrame(super);
     }
@@ -243,8 +243,8 @@ void sub_0802CA94(BobombEntity* this) {
     super->speed = 0;
     this->unk_83 = 0;
     this->unk_81 = 0;
-    super->direction = ((gPlayerEntity.animationState << 2) | 4) & 0x1c;
-    InitializeAnimation(super, (super->direction >> 4) | 6);
+    super->direction = ((gPlayerEntity.animationState << 2) | IdleSouth) & (DirectionWest | DIR_DIAGONAL);
+    InitializeAnimation(super, (super->direction >> 4) | IdleWest);
 }
 
 void sub_0802CAF8(BobombEntity* this) {
@@ -273,7 +273,7 @@ void sub_0802CB68(BobombEntity* this) {
     super->action = 1;
     super->subAction = 0;
     super->direction = Random() & 0x18;
-    super->direction |= 4;
+    super->direction |= IdleSouth;
     COLLISION_ON(super);
     if (this->unk_82) {
         super->timer = 200;

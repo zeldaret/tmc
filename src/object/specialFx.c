@@ -1,13 +1,12 @@
-#define NENT_DEPRECATED
 /**
  * @file specialFx.c
  * @ingroup Objects
  *
  * @brief Special FX object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 typedef struct {
@@ -49,7 +48,7 @@ const struct_0811F960 gUnk_0811F960[] = {
     {0x5, 0x1, 0x00, SFX_NONE},
     {0x0, 0x0, 0x00, SFX_164},
     {0x0, 0x1, 0x14, SFX_1A8},
-    {0x0, 0x1, 0x10, SFX_88},
+    {0x0, 0x1, 0x10, SFX_GRAB},
     {0x0, 0x0, 0x00, SFX_NONE},
     {0x0, 0x0, 0x00, SFX_NONE},
     {0x0, 0x0, 0x00, SFX_NONE},
@@ -88,9 +87,9 @@ const struct_0811F960 gUnk_0811F960[] = {
     {0x0, 0x1, 0x00, SFX_1B4},
     {0x0, 0x1, 0x13, SFX_164},
     {0x0, 0x1, 0x00, SFX_NONE},
-    {0x0, 0x1, 0x10, SFX_88},
-    {0x0, 0x1, 0x10, SFX_88},
-    {0x0, 0x1, 0x10, SFX_88},
+    {0x0, 0x1, 0x10, SFX_GRAB},
+    {0x0, 0x1, 0x10, SFX_GRAB},
+    {0x0, 0x1, 0x10, SFX_GRAB},
     {0x0, 0x1, 0x00, SFX_NONE},
     {0x0, 0x1, 0x00, SFX_NONE},
     {0x0, 0x0, 0x00, SFX_11D},
@@ -122,8 +121,8 @@ const struct_0811F960 gUnk_0811F960[] = {
 // clang-format on
 
 void SpecialFx(Entity*);
-void sub_080844E0(SpecialFxObject*);
-void sub_080845B8(SpecialFxObject*);
+void SpecialFx_Init(SpecialFxObject*);
+void SpecialFx_Action1(SpecialFxObject*);
 void sub_080845DC(SpecialFxObject*);
 void sub_080845F8(SpecialFxObject*);
 void sub_08084630(SpecialFxObject*);
@@ -139,14 +138,14 @@ void sub_080847D0(SpecialFxObject*);
 void sub_080847E0(SpecialFxObject*);
 
 void SpecialFx(Entity* this) {
-    static void (*const gUnk_0811FAC0[])(SpecialFxObject*) = {
-        sub_080844E0,
-        sub_080845B8,
+    static void (*const SpecialFx_Actions[])(SpecialFxObject*) = {
+        SpecialFx_Init,
+        SpecialFx_Action1,
     };
-    gUnk_0811FAC0[this->action]((SpecialFxObject*)this);
+    SpecialFx_Actions[this->action]((SpecialFxObject*)this);
 }
 
-void sub_080844E0(SpecialFxObject* this) {
+void SpecialFx_Init(SpecialFxObject* this) {
     static const u8 gUnk_0811FAC8[] = { 0x03, 0x37, 0x38, 0x39 };
     static const u8 gUnk_0811FACC[] = { 0x17, 0x3e, 0x3f, 0x40 };
     const struct_0811F960* ptr;
@@ -183,7 +182,7 @@ void sub_080844E0(SpecialFxObject* this) {
     }
 }
 
-void sub_080845B8(SpecialFxObject* this) {
+void SpecialFx_Action1(SpecialFxObject* this) {
     static void (*const gUnk_0811FAD0[])(SpecialFxObject*) = {
         sub_080845DC, sub_080845F8, sub_08084630, sub_08084694, (void (*)(SpecialFxObject*))DeleteEntity,
         sub_08084680, sub_080846B0, sub_0808471C, sub_08084770, sub_08084798,

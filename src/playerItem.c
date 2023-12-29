@@ -105,7 +105,7 @@ void ItemInit(Entity* this) {
     } else {
         this->spriteVramOffset = definition->gfx & 0x3ff;
     }
-    if (this->animationState == 0) {
+    if (this->animationState == IdleNorth) {
         this->animationState = gPlayerEntity.animationState & 6;
     }
 

@@ -419,64 +419,43 @@ void sub_080801BC(RoomControls* controls) {
 }
 
 u32 sub_08080278(void) {
-    u32 width;
-    u32 height;
-    u32 tilePos;
-    u16* bottomMapDataPtr;
-    u16* topMapDataPtr;
-    u32 result;
-    u16* bottomMapDataClonePtr;
-    u16* topMapDataClonePtr;
-    u32 indexX;
-    FORCE_REGISTER(u32 indexY, r10);
-    int iVar10;
-    u16* ptr1;
-    u32 tmp;
+    u16* ptr1 = (u16*)gUnk_02022830;
+    u16* mapBottomData = gMapBottom.mapData;
+    u16* mapTopData = gMapTop.mapData;
+    u16* mapBottomDataClone = gMapBottom.mapDataClone;
+    u16* mapTopDataClone = gMapTop.mapDataClone;
+    u32 width = gRoomControls.width >> 4;
+    u32 height = (gRoomControls.height >> 4) << 6;
 
-    ptr1 = (u16*)gUnk_02022830;
-    width = gRoomControls.width >> 4;
-    height = (gRoomControls.height >> 4) << 6;
-    result = 0;
-    indexY = 0;
-    if (result < height) {
-        iVar10 = 0;
-        do {
-            indexX = 0;
-            if (indexX < width) {
-                topMapDataPtr = (u16*)((int)gMapTop.mapData + iVar10);
-                topMapDataClonePtr = (u16*)((int)gMapTop.mapDataClone + iVar10);
-                bottomMapDataPtr = (u16*)((int)gMapBottom.mapData + iVar10);
-                bottomMapDataClonePtr = (u16*)((int)gMapBottom.mapDataClone + iVar10);
-                while (indexX < width) {
-                    tilePos = indexY + indexX;
-                    if ((bottomMapDataClonePtr[0] != bottomMapDataPtr[0]) && (bottomMapDataPtr[0] < 0x4000)) {
-                        ptr1[0] = tilePos | 0x4000;
-                        ptr1[1] = bottomMapDataPtr[0];
-                        ptr1 += 2;
-                        result++;
-                        if (result >= 0x600) {
-                            return result;
-                        }
+    u32 result;
+    u32 y, x;
+
+    for (result = 0, y = 0; y < height; y += 0x40) {
+        for (x = 0; x < width; x++) {
+            u32 tilePos = y + x;
+            if (mapBottomDataClone[tilePos] != mapBottomData[tilePos]) {
+                if (mapBottomData[tilePos] < 0x4000) {
+                    ptr1[0] = tilePos | 0x4000;
+                    ptr1[1] = mapBottomData[tilePos];
+                    ptr1 += 2;
+                    result++;
+                    if (result >= 0x600) {
+                        return result;
                     }
-                    if ((topMapDataClonePtr[0] != topMapDataPtr[0]) && (topMapDataPtr[0] < 0x4000)) {
-                        ptr1[0] = tilePos | 0x8000;
-                        ptr1[1] = topMapDataPtr[0];
-                        ptr1 += 2;
-                        result++;
-                        if (result >= 0x800) {
-                            return result;
-                        }
-                    }
-                    topMapDataPtr++;
-                    topMapDataClonePtr++;
-                    bottomMapDataPtr++;
-                    bottomMapDataClonePtr++;
-                    indexX++;
                 }
             }
-            iVar10 += 0x80;
-            indexY += 0x40;
-        } while (indexY < height);
+            if (mapTopDataClone[tilePos] != mapTopData[tilePos]) {
+                if (mapTopData[tilePos] < 0x4000) {
+                    ptr1[0] = tilePos | 0x8000;
+                    ptr1[1] = mapTopData[tilePos];
+                    ptr1 += 2;
+                    result++;
+                    if (result >= 0x800) {
+                        return result;
+                    }
+                }
+            }
+        }
     }
     return result;
 }
@@ -502,7 +481,91 @@ void sub_08080368(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/scroll/sub_080803D0.inc", u32 sub_080803D0())
+u32 sub_080803D0(void) {
+    s32 sp00, sp04, sp08, sp0c, sp10, sp14, sp18, sp1c;
+    s32 r2, r4, r7, r8, r9, r10;
+
+    sp18 = gRoomControls.scroll_x - gRoomControls.origin_x;
+    sp10 = gRoomControls.camera_target->x.HALF.HI - gRoomControls.origin_x;
+    sp1c = gRoomControls.scroll_y - gRoomControls.origin_y;
+    sp14 = gRoomControls.camera_target->y.HALF.HI - gRoomControls.origin_y;
+    sp08 = 0x3c;
+    do {
+        r7 = 0;
+        sp08 += 6;
+        r10 = sp08 * sp08;
+        sp0c = sp08 * 2 / 3;
+        r9 = sp0c * sp0c;
+
+        sp00 = sp08;
+        sp04 = 0;
+        r4 = (-(sp08 * 2) + 1) * r9 + r10 * 2;
+        r2 = sp00 * r9 / r10;
+        while (sp04 <= r2) {
+
+            if ((sp1c + 0xa8) > sp14 + sp04) {
+                if (sp18 + 0xf8 > sp00 + sp10) {
+                    r7 |= 1;
+                }
+                if (sp18 < sp10 - sp00 + 8) {
+                    r7 |= 2;
+                }
+            }
+            if (sp1c < (sp14 - sp04) + 8) {
+                if (sp18 + 0xf8 > sp00 + sp10) {
+                    r7 |= 4;
+                }
+                if (sp18 < sp10 - sp00 + 8) {
+                    r7 |= 8;
+                }
+            }
+
+            if (r4 > 0) {
+                r4 += ((-(sp00 << 0x2) + 4) * r9) + (r10 * (6 + 4 * sp04));
+                sp00--;
+                r2 = sp00 * r9 / r10;
+            } else {
+                r4 += (r10 * (6 + 4 * sp04));
+            }
+
+            sp04++;
+        }
+
+        sp00 = 0;
+        sp04 = sp0c;
+        r4 = r9 * 2 + (sp04 * -2 + 1) * r10;
+        r2 = sp04 * r10 / r9;
+        while (sp00 <= r2) {
+            if (sp1c + 0xa8 > sp14 + sp04) {
+                if (sp18 + 0xf8 > sp10 + sp00) {
+                    r7 |= 0x10;
+                }
+                if (sp18 < sp10 + 8 - sp00) {
+                    r7 |= 0x20;
+                }
+            }
+            if (sp1c < (sp14 - sp04) + 8) {
+                if (sp18 + 0xf8 > sp10 + sp00) {
+                    r7 |= 0x40;
+                }
+                if (sp18 < sp10 + 8 - sp00) {
+                    r7 |= 0x80;
+                }
+            }
+
+            if (r4 > 0) {
+                r4 += r9 * (6 + (4 * sp00)) + (sp04 * -4 + 4) * r10;
+                sp04--;
+                r2 = sp04 * r10 / r9;
+            } else {
+                r4 += r9 * (6 + (4 * sp00));
+            }
+            sp00++;
+        }
+    } while (r7 != 0);
+
+    return sp08;
+}
 
 void UpdateIsDiggingCave(void) {
     switch (gRoomControls.area) {

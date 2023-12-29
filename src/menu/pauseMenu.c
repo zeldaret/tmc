@@ -398,7 +398,7 @@ void PauseMenu_ItemMenu_Update(void) {
                 }
             case B_BUTTON:
                 if (gPauseMenu.items[menuSlot] != 0) {
-                    u32 slot = !!(gInput.newKeys ^ 1);
+                    u32 slot = !!(gInput.newKeys ^ A_BUTTON);
                     ForceEquipItem(gPauseMenu.items[menuSlot], slot);
                     SoundReq(SFX_TEXTBOX_SELECT);
                 }
@@ -431,7 +431,7 @@ void PauseMenu_ItemMenu_Update(void) {
             case MENU_SLOT_BOTTLE2:
             case MENU_SLOT_BOTTLE3:
                 if (item != 0) {
-                    item = gSave.saved_status.field_0x24[item - 6];
+                    item = gSave.stats.bottles[item - ITEM_BOTTLE1];
                 }
                 break;
             case MENU_SLOT_SAVE_BUTTON:
@@ -666,7 +666,7 @@ void sub_080A5594(void) {
         iVar5 = 0;
         if (GetInventoryValue(ITEM_KINSTONE_BAG) != 0) {
             for (i = 0; i < 0x13; i++) {
-                iVar5 += gSave.kinstoneAmounts[i];
+                iVar5 += gSave.kinstones.amounts[i];
             }
 
             if (iVar5 >= 0x50) {
@@ -1232,7 +1232,7 @@ bool32 sub_080A5F24(void) {
     return result;
 }
 
-void sub_080A5F48(u32 param_1, u32 param_2) {
+void sub_080A5F48(Item item, u32 param_2) {
     extern u32 gSprite_082E68F4[];
     u32 ammoCount;
     u32 tensDigit;
@@ -1242,19 +1242,24 @@ void sub_080A5F48(u32 param_1, u32 param_2) {
     u32 temp3;
     register u32 rem asm("r1");
 
-    switch (param_1) {
-        case 0x1c ... 0x1f:
-            param_1 = (u32)gSave.saved_status.field_0x24[param_1 - 6];
+    switch (item) {
+        case ITEM_BOTTLE1:
+        case ITEM_BOTTLE2:
+        case ITEM_BOTTLE3:
+        case ITEM_BOTTLE4:
+            item = gSave.stats.bottles[item - ITEM_BOTTLE1];
+            break;
+        default:
             break;
     }
 
     temp1 = param_2 * 0x20 + 0x6010000;
-    temp3 = gSpriteAnimations_322[param_1]->index;
+    temp3 = gSpriteAnimations_322[item]->index;
     temp2 = &gMoreSpritePtrs[1][temp3 * 2];
     DmaCopy32(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], temp1, 0x40 * 4);
     ammoCount = -1;
 
-    switch (param_1) {
+    switch (item) {
         case 7:
         case 8:
             ammoCount = gSave.stats.bombCount;
@@ -1267,12 +1272,12 @@ void sub_080A5F48(u32 param_1, u32 param_2) {
 
     if (-1 < (int)ammoCount) {
         tensDigit = Div(ammoCount, 10);
-        param_1 = rem;
+        item = rem;
         if ((int)tensDigit >= 10) {
             tensDigit = 9;
         }
         DmaCopy32(3, gUnk_085C4620 + tensDigit * 0x8, temp1, 0x8 * 4);
-        DmaCopy32(3, gUnk_085C4620 + (param_1 + 10) * 0x8, temp1 + 0x20, 0x8 * 4);
+        DmaCopy32(3, gUnk_085C4620 + (item + 10) * 0x8, temp1 + 0x20, 0x8 * 4);
     }
 }
 
@@ -1300,11 +1305,11 @@ void sub_080A6044(void) {
         gOamCmd._6 = 0;
         uVar4 = 0;
         uVar2 = 0;
-        uVar1 = gSave.kinstoneTypes[0];
+        uVar1 = gSave.kinstones.types[0];
         while (uVar1 != 0) {
             gOamCmd.x = (uVar4 & 3) * 0x30 + 0x2b;
             gOamCmd.y = (uVar4 >> 2) * 0x24 + 0x34;
-            uVar3 = gSave.kinstoneAmounts[uVar2];
+            uVar3 = gSave.kinstones.amounts[uVar2];
             gMenu.column_idx = 0;
             sub_080A42E0(uVar1, uVar3);
             uVar4++;
@@ -1315,7 +1320,7 @@ void sub_080A6044(void) {
             if (0x11 < uVar2) {
                 return;
             }
-            uVar1 = gSave.kinstoneTypes[uVar2];
+            uVar1 = gSave.kinstones.types[uVar2];
         }
     }
 }
@@ -1431,7 +1436,7 @@ void sub_080A62E0(void) {
 
     switch (gInput.newKeys) {
         case A_BUTTON:
-            if ((gSave.windcrests & (1 << gMenu.field_0x3)) != 0) {
+            if (IS_BIT_SET(gSave.windcrests, gMenu.field_0x3)) {
                 SoundReq(SFX_TEXTBOX_SELECT);
                 sub_080A4E84(6);
                 windcrest = -1;
@@ -1495,7 +1500,7 @@ void sub_080A6438(void) {
     gOamCmd._4 = 0x400;
     gOamCmd._6 = 0;
     gOamCmd._8 = 0;
-    uVar1 = gSave.field_0x20 & gGenericMenu.unk10.h[0];
+    uVar1 = gSave.map_hints & gGenericMenu.unk10.h[0];
     for (pcVar2 = gUnk_08128F58, uVar3 = 0; pcVar2->frameIndex != 0; uVar3++, pcVar2++) {
         if ((1 << uVar3 & uVar1) != 0) {
             gOamCmd.x = pcVar2->unk1;
@@ -1512,7 +1517,7 @@ void sub_080A6498(void) {
     gOamCmd._6 = 0;
     gOamCmd._8 = 0;
     for (i = 0; i <= 0x10; i++) {
-        if ((gSave.windcrests & (1 << i)) == 0) {
+        if (!IS_BIT_SET(gSave.windcrests, i)) {
             gUnk_08128DE8_struct* ptr = &gUnk_08128DE8[i];
             gOamCmd.x = ptr->unk6;
             gOamCmd.y = ptr->unk7;

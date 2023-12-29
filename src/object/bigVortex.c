@@ -4,92 +4,98 @@
  *
  * @brief Big Vortex object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
-#include "global.h"
 #include "object.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[30];
+    /*0x86*/ u16 unk_86;
+} BigVortexEntity;
 
 void sub_08098E3C(Entity*);
 void sub_08098E88(Entity*);
-void BigVortex_Init(Entity*);
-void BigVortex_Action1(Entity*);
-void BigVortex_Action2(Entity*);
-void BigVortex_Action3(Entity*);
-void BigVortex_Action4(Entity*);
+void BigVortex_Init(BigVortexEntity* this);
+void BigVortex_Action1(BigVortexEntity* this);
+void BigVortex_Action2(BigVortexEntity* this);
+void BigVortex_Action3(BigVortexEntity* this);
+void BigVortex_Action4(BigVortexEntity* this);
 
-void BigVortex(Entity* this) {
-    static void (*const BigVortex_Actions[])(Entity*) = {
+void BigVortex(BigVortexEntity* this) {
+    static void (*const BigVortex_Actions[])(BigVortexEntity*) = {
         BigVortex_Init, BigVortex_Action1, BigVortex_Action2, BigVortex_Action3, BigVortex_Action4,
     };
-    if (this->type == 0) {
-        BigVortex_Actions[this->action](this);
+    if (super->type == 0) {
+        BigVortex_Actions[super->action](this);
     } else {
-        sub_08098E3C(this);
+        sub_08098E3C(super);
     }
 }
 
-void BigVortex_Init(Entity* this) {
+void BigVortex_Init(BigVortexEntity* this) {
     u32 temp;
-    this->action = 1;
-    this->z.HALF.HI = -0x10;
+    super->action = 1;
+    super->z.HALF.HI = -0x10;
 
-    temp = this->field_0x86.HWORD;
+    temp = this->unk_86;
 
     if ((temp != 0) && !CheckFlags(temp)) {
-        this->action = 1;
+        super->action = 1;
     } else {
-        this->action = 3;
-        this->spriteSettings.draw = TRUE;
-        sub_08098E88(this);
+        super->action = 3;
+        super->spriteSettings.draw = TRUE;
+        sub_08098E88(super);
     }
-    SetDefaultPriority(this, PRIO_PLAYER_EVENT);
-    InitAnimationForceUpdate(this, 0);
+    SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+    InitAnimationForceUpdate(super, 0);
 }
 
-void BigVortex_Action1(Entity* this) {
-    Entity* ent;
+void BigVortex_Action1(BigVortexEntity* this) {
+    Entity* fx;
 
-    if (CheckFlags(this->field_0x86.HWORD)) {
-        this->action = 2;
-        this->timer = 45;
-        ent = CreateFx(this, FX_BIG_EXPLOSION2, 0);
-        if (ent != NULL) {
-            ent->y.HALF.HI += 8;
+    if (CheckFlags(this->unk_86)) {
+        super->action = 2;
+        super->timer = 45;
+        fx = CreateFx(super, FX_BIG_EXPLOSION2, 0);
+        if (fx != NULL) {
+            fx->y.HALF.HI += 8;
         }
     }
 }
 
-void BigVortex_Action2(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 3;
-        this->spriteSettings.draw = TRUE;
-        sub_08098E88(this);
+void BigVortex_Action2(BigVortexEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 3;
+        super->spriteSettings.draw = TRUE;
+        sub_08098E88(super);
     }
 }
 
-void BigVortex_Action3(Entity* this) {
+void BigVortex_Action3(BigVortexEntity* this) {
 
-    if (sub_0800419C(this, &gPlayerEntity, 8, 8) != 0) {
-        CopyPosition(this, &gPlayerEntity);
-        sub_08004542(this);
+    if (sub_0800419C(super, &gPlayerEntity, 8, 8) != 0) {
+        CopyPosition(super, &gPlayerEntity);
+        sub_08004542(super);
         sub_08004542(&gPlayerEntity);
         gPlayerEntity.collisionLayer = 1;
-        SortEntityAbove(this, &gPlayerEntity);
+        SortEntityAbove(super, &gPlayerEntity);
         gPlayerState.queued_action = PLAYER_PARACHUTE;
         gPlayerState.field_0x38 = 1;
-        gPlayerState.field_0x39 = this->type2;
-        this->action = 4;
-        if (this->type2 == 1) {
+        gPlayerState.field_0x39 = super->type2;
+        super->action = 4;
+        if (super->type2 == 1) {
             SetGlobalFlag(TATSUMAKI);
         }
         PutAwayItems();
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void BigVortex_Action4(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void BigVortex_Action4(BigVortexEntity* this) {
+    UpdateAnimationSingleFrame(super);
 }
 
 void sub_08098E3C(Entity* this) {

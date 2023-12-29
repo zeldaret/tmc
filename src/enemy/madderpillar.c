@@ -391,16 +391,16 @@ void sub_08029EEC(MadderpillarEntity* this) {
 
 void sub_08029F0C(MadderpillarEntity* this) {
     switch (super->direction >> 3) {
-        case 0:
+        case 0: // UP
             this->unk_78.HWORD = super->y.HALF.HI - 0x10;
             break;
-        case 1:
+        case 1: // RIGHT
             this->unk_78.HWORD = super->x.HALF.HI + 0x10;
             break;
-        case 2:
+        case 2: // DOWN
             this->unk_78.HWORD = super->y.HALF.HI + 0x10;
             break;
-        case 3:
+        case 3: // LEFT
             this->unk_78.HWORD = super->x.HALF.HI - 0x10;
             break;
     }
@@ -408,25 +408,25 @@ void sub_08029F0C(MadderpillarEntity* this) {
 
 bool32 sub_08029F48(MadderpillarEntity* this) {
     switch (super->direction >> 3) {
-        case 0:
+        case 0: // UP
             if (super->y.HALF.HI <= this->unk_78.HWORD) {
                 super->y.HALF.HI = this->unk_78.HWORD;
                 return TRUE;
             }
             break;
-        case 1:
+        case 1: // RIGHT
             if (super->x.HALF.HI >= this->unk_78.HWORD) {
                 super->x.HALF.HI = this->unk_78.HWORD;
                 return TRUE;
             }
             break;
-        case 2:
+        case 2: // DOWN
             if (super->y.HALF.HI >= this->unk_78.HWORD) {
                 super->y.HALF.HI = this->unk_78.HWORD;
                 return TRUE;
             }
             break;
-        case 3:
+        case 3: // LEFT
             if (super->x.HALF.HI <= this->unk_78.HWORD) {
                 super->x.HALF.HI = this->unk_78.HWORD;
                 return TRUE;

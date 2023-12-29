@@ -162,8 +162,8 @@ void sub_08046930(GyorgMaleEntity* this) {
         return;
     super->subAction = 1;
     super->timer = 1;
-    super->animationState = 0;
-    super->direction = 0;
+    super->animationState = IdleNorth;
+    super->direction = IdleNorth;
 #ifdef EU
     super->speed = 0x200;
 #else

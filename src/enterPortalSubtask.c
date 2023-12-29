@@ -179,8 +179,8 @@ void Subtask_PortalCutscene_0(void) {
     gScreen.bg1.yOffset = 0;
     controls->scroll_y = 0;
     portalId = gArea.portal_type;
-    if ((portalId == 2) && (gUI.roomControls.area != 2)) {
-        portalId = 3;
+    if ((portalId == PT_2) && (gUI.roomControls.area != 2)) {
+        portalId = PT_DUNGEON;
     }
     ptr = &gUnk_080D4138[portalId];
     LoadPaletteGroup(ptr->paletteGroup);
@@ -247,19 +247,19 @@ void RespawnAsMinish(void) {
 
 bool32 sub_0804AD18(void) {
     switch (gArea.portal_type) {
-        case 0:
-        case 1:
-        case 2:
+        case PT_TREESTUMP:
+        case PT_ROCK:
+        case PT_2:
             if (!CheckGlobalFlag(ENTRANCE_0 + gArea.portal_type)) {
                 return FALSE;
             }
             // else: return TRUE implicitely, because it's stored in r0. But does not match if returning explicitely.
             break;
-        case 6:
+        case PT_TOD:
             return FALSE;
-        case 3:
-        case 4:
-        case 5:
+        case PT_DUNGEON:
+        case PT_JAR:
+        case PT_5:
         default:
             return FALSE;
     }

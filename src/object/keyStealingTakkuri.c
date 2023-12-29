@@ -4,10 +4,8 @@
  *
  * @brief Key Stealing Takkuri object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 typedef struct {
@@ -478,8 +476,8 @@ void sub_0809E1F0(KeyStealingTakkuriEntity* this) {
 }
 
 void sub_0809E210(KeyStealingTakkuriEntity* this) {
-    gPlayerEntity.animationState = sub_0806F5B0(GetFacingDirection(&gPlayerEntity, super)) & 0xfe;
-    gPlayerState.animation = 0x100;
+    gPlayerEntity.animationState = GetAnimationStateForDirection8(GetFacingDirection(&gPlayerEntity, super)) & 0xfe;
+    gPlayerState.animation = ANIM_DEFAULT;
 }
 
 void sub_0809E238(KeyStealingTakkuriEntity* this) {

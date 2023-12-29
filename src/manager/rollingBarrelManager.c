@@ -192,7 +192,7 @@ void sub_08058B5C(RollingBarrelManager* this, u32 unk1) {
     gRoomTransition.player_status.start_anim = unk1 & 1 ? 4 : 0;
     gRoomTransition.player_status.start_pos_x = gUnk_081082E8[unk1 * 3];
     gRoomTransition.player_status.start_pos_y = gUnk_081082E8[unk1 * 3 + 1];
-    gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
+    gSave.dws_barrel_state = gUnk_081082E8[unk1 * 3 + 2];
     SoundReq(SFX_STAIRS);
 }
 

@@ -16,18 +16,20 @@ typedef struct {
     /*0x74*/ u16 unk_74;
 } BladeTrapEntity;
 
+#define DIR_NOT_MOVING_CHECK 0x80
+
 void BladeTrap(BladeTrapEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         super->child = GetCurrentRoomProperty(super->type);
         UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
     }
-    if (!(super->direction & 0x80)) {
+    if (!(super->direction & DIR_NOT_MOVING_CHECK)) {
         LinearMoveUpdate(super);
     }
 
     if (!(--this->unk_74)) {
-        if (!(super->direction & 0x80)) {
+        if (!(super->direction & DIR_NOT_MOVING_CHECK)) {
             EnqueueSFX(SFX_METAL_CLINK);
         }
         UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);

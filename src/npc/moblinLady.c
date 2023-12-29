@@ -1,11 +1,18 @@
+/**
+ * @file moblinLady.c
+ * @ingroup NPCs
+ *
+ * @brief Moblin Lady NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 
 void MoblinLady(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
     } else {
-        sub_0807DD94(this, 0);
+        ExecuteScriptAndHandleAnimation(this, NULL);
     }
 }

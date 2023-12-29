@@ -4,46 +4,55 @@
  *
  * @brief Lit Area object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
 #include "room.h"
 #include "screen.h"
 
-void LitArea(Entity* this) {
-    if (this->action == 0) {
-        if (this->field_0x86.HWORD != 0 && CheckFlags(this->field_0x86.HWORD) == 0) {
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u16 unk_68;
+    /*0x6a*/ u16 unk_6a;
+    /*0x6c*/ u8 unused1[26];
+    /*0x86*/ u16 unk_86;
+} LitAreaEntity;
+
+void LitArea(LitAreaEntity* this) {
+    if (super->action == 0) {
+        if (this->unk_86 != 0 && CheckFlags(this->unk_86) == 0) {
             return;
         }
-        this->spriteSettings.draw = 1;
-        this->action = 1;
-        this->spriteRendering.alphaBlend = 2;
-        this->spriteRendering.b0 = 3;
-        this->frameIndex = 3;
-        this->flags |= ENT_PERSIST;
-        this->subtimer = gRoomControls.room;
-        this->timer = 2;
-        this->field_0x68.HWORD = -2;
-        this->field_0x6a.HWORD = 0x80;
-        SetAffineInfo(this, 0x80, 0x80, 0);
+        super->spriteSettings.draw = 1;
+        super->action = 1;
+        super->spriteRendering.alphaBlend = 2;
+        super->spriteRendering.b0 = 3;
+        super->frameIndex = 3;
+        super->flags |= ENT_PERSIST;
+        super->subtimer = gRoomControls.room;
+        super->timer = 2;
+        this->unk_68 = -2;
+        this->unk_6a = 0x80;
+        SetAffineInfo(super, 0x80, 0x80, 0);
     } else {
-        if (--this->timer == 0) {
-            this->timer = 2;
-            this->field_0x6a.HWORD += this->field_0x68.HWORD;
-            if (this->field_0x6a.HWORD < 0x78) {
-                this->field_0x68.HWORD = 1;
+        if (--super->timer == 0) {
+            super->timer = 2;
+            this->unk_6a += this->unk_68;
+            if (this->unk_6a < 0x78) {
+                this->unk_68 = 1;
             }
-            if (0x88 < this->field_0x6a.HWORD) {
-                this->field_0x68.HWORD = -1;
+            if (this->unk_6a > 0x88) {
+                this->unk_68 = -1;
             }
-            SetAffineInfo(this, this->field_0x6a.HWORD, this->field_0x6a.HWORD, 0);
+            SetAffineInfo(super, this->unk_6a, this->unk_6a, 0);
         }
     }
     gScreen.lcd.displayControl |= DISPCNT_OBJWIN_ON;
     gScreen.controls.windowOutsideControl = (gScreen.controls.windowOutsideControl & 0xff) | WINOUT_WINOBJ_BG0 |
                                             WINOUT_WINOBJ_BG1 | WINOUT_WINOBJ_BG2 | WINOUT_WINOBJ_OBJ |
                                             WINOUT_WINOBJ_CLR;
-    if ((gRoomControls.room != this->subtimer) && (gRoomControls.reload_flags == 0)) {
+    if ((gRoomControls.room != super->subtimer) && (gRoomControls.reload_flags == 0)) {
         DeleteThisEntity();
     }
 }

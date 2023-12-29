@@ -32,7 +32,6 @@ void MacroDecoration(Entity* this) {
 
 void MacroDecoration_Init(MacroDecorationEntity* this) {
     u32 bVar1;
-    u32 uVar2;
 
     super->action = 1;
     UpdateSpriteForCollisionLayer(super);

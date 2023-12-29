@@ -8,7 +8,7 @@ SCRIPT_START script_CastorWildsStatueRight
 	EndBlock
 script_0800B2C8:
 	_0807EA4C
-	_0807E9F0
+	UpdateFusion
 	SetPlayerIdle
 	CheckKinstoneFused KINSTONE_CASTOR_WILDS_STATUE_RIGHT
 	JumpIf script_0800B2E2

@@ -4,11 +4,9 @@
  *
  * @brief Pullable Mushroom object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 
@@ -198,7 +196,7 @@ void sub_0808ACEC(PullableMushroomEntity* this) {
         case 0x14:
         case 0x16:
             COLLISION_OFF(super);
-            super->animationState = sub_0806F5A4(super->knockbackDirection);
+            super->animationState = GetAnimationStateForDirection4(super->knockbackDirection);
             super->subAction = 2;
             super->timer = 2;
             break;

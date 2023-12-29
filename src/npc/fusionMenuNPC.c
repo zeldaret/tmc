@@ -1,4 +1,12 @@
-#include "global.h"
+/**
+ * @file fusionMenuNPC.c
+ * @ingroup NPCs
+ *
+ * @brief Fusion Menu NPC
+ *
+ * Representation for the NPCs in the fusion menu.
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 

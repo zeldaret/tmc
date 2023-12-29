@@ -112,7 +112,8 @@ void sub_080218CC(BeetleEntity* this) {
     if (super->subAction == 0) {
         super->subAction = 1;
         super->spriteSettings.draw = 1;
-        super->direction = ((sub_08049F84(super, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
+        super->direction = ((sub_08049F84(super, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) &
+                          (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
         super->speed = 0x100;
         super->zVelocity = Q_16_16(1.125);
     }
@@ -251,9 +252,9 @@ void sub_08021B64(BeetleEntity* this) {
             super->zVelocity = Q_16_16(1.0);
             this->unk_87 = 0;
             if (gPlayerEntity.direction != 0xff) {
-                super->direction = 0x10 ^ gPlayerEntity.direction;
+                super->direction = DirectionSouth ^ gPlayerEntity.direction;
             } else {
-                super->direction = (gPlayerEntity.animationState << 2) ^ 0x10;
+                super->direction = (gPlayerEntity.animationState << 2) ^ DirectionSouth;
             }
             InitializeAnimation(super, 5);
         } else {

@@ -1,9 +1,16 @@
-#include "global.h"
-#include "sound.h"
+/**
+ * @file zelda.c
+ * @ingroup NPCs
+ *
+ * @brief Zelda NPC
+ */
+#define NENT_DEPRECATED
+#include "npc/zelda.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
+#include "functions.h"
 #include "npc.h"
+#include "sound.h"
 
 void ZeldaFollower_Hide(Entity*, Entity*);
 void ZeldaFollower_Show(Entity*, Entity*);
@@ -25,11 +32,11 @@ void sub_08066CCC(Entity* this) {
     this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
     SetDefaultPriority(this, PRIO_MESSAGE);
-    sub_0807DD50(this);
+    InitScriptForNPC(this);
 }
 
 void sub_08066CF8(Entity* this) {
-    sub_0807DD94(this, NULL);
+    ExecuteScriptAndHandleAnimation(this, NULL);
 }
 
 void sub_08066D04(Entity* this) {
@@ -68,17 +75,17 @@ void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
 
 void sub_08066D94(Entity* this) {
     u32 room;
-    Entity* npc;
+    ZeldaFollowerEntity* npc;
 
     SetGlobalFlag(ZELDA_CHASE);
-    npc = CreateNPC(ZELDA_FOLLOWER, 0, 0);
+    npc = (ZeldaFollowerEntity*)CreateNPC(ZELDA_FOLLOWER, 0, 0);
     if (npc != NULL) {
-        npc->animationState = gPlayerEntity.animationState;
-        npc->flags |= ENT_PERSIST;
-        npc->animationState = GetAnimationState(this);
+        npc->base.animationState = gPlayerEntity.animationState;
+        npc->base.flags |= ENT_PERSIST;
+        npc->base.animationState = GetAnimationState(this);
         room = gRoomControls.room;
-        npc->field_0x74.HWORD = room;
-        CopyPosition(this, npc);
+        npc->unk_74 = room;
+        CopyPosition(this, &npc->base);
     }
     DeleteThisEntity();
 }
@@ -91,29 +98,29 @@ void SetZeldaFollowTarget(Entity* target) {
     }
 }
 
-void sub_08066E08(Entity* this) {
-    InitAnimationForceUpdate(this, 0x50);
-    this->field_0x80.HWORD = this->animIndex;
+void sub_08066E08(ZeldaEntity* this) {
+    InitAnimationForceUpdate(super, 0x50);
+    this->unk_80 = super->animIndex;
 }
 
-void sub_08066E20(Entity* this) {
-    InitAnimationForceUpdate(this, 0x44);
-    this->field_0x80.HWORD = this->animIndex;
+void sub_08066E20(ZeldaEntity* this) {
+    InitAnimationForceUpdate(super, 0x44);
+    this->unk_80 = super->animIndex;
 }
 
-void sub_08066E38(Entity* this) {
-    InitAnimationForceUpdate(this, 0x48);
-    this->field_0x80.HWORD = this->animIndex;
+void sub_08066E38(ZeldaEntity* this) {
+    InitAnimationForceUpdate(super, 0x48);
+    this->unk_80 = super->animIndex;
 }
 
-void sub_08066E50(Entity* this) {
-    InitAnimationForceUpdate(this, 0x4C);
-    this->field_0x80.HWORD = this->animIndex;
+void sub_08066E50(ZeldaEntity* this) {
+    InitAnimationForceUpdate(super, 0x4C);
+    this->unk_80 = super->animIndex;
 }
 
-void sub_08066E68(Entity* this) {
-    InitAnimationForceUpdate(this, 0x54);
-    this->field_0x80.HWORD = this->animIndex;
+void sub_08066E68(ZeldaEntity* this) {
+    InitAnimationForceUpdate(super, 0x54);
+    this->unk_80 = super->animIndex;
 }
 
 void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
@@ -156,7 +163,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
                 return;
             }
     }
-    this->field_0x80.HWORD = this->animIndex;
+    ((ZeldaEntity*)this)->unk_80 = this->animIndex;
     gActiveScriptInfo.commandSize = 0;
 }
 

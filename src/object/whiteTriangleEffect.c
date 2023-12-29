@@ -4,10 +4,8 @@
  *
  * @brief White Triangle Effect object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 #include "screen.h"
 
@@ -37,7 +35,7 @@ typedef struct {
     u16 unk_9;
 } struct_081215E8;
 
-extern void sub_0801E49C(u32, u32, u32, u32);
+extern void sub_0801E49C(s32 baseX, s32 baseY, s32 radius, u32 baseAngle);
 extern bool32 gUnk_02036BB8;
 
 void sub_0808C6D4(WhiteTriangleEffectEntity*);

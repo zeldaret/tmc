@@ -10,10 +10,10 @@
 #include "entity.h"
 #include "fileselect.h"
 #include "functions.h"
+#include "item.h"
 #include "npc.h"
 #include "object.h"
 #include "script.h"
-#include "item.h"
 
 typedef struct {
     Entity base;
@@ -108,60 +108,65 @@ void CuccoMinigame(CuccoMinigameEntity* this) {
         sub_0807DD64(super);
         sub_0806EC20(super);
     }
-    sub_0807DD94(super, 0);
+    ExecuteScriptAndHandleAnimation(super, NULL);
 }
 
-NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(CuccoMinigameEntity* this)) {
-    s32 iVar1;
-    int iVar2;
-    s32 iVar4;
-    s32 sVar6;
-    int iVar7;
-    s8* ptr;
-    s32 val;
+void sub_080A1270(CuccoMinigameEntity* this) {
+    s32 numReturnedCuccos;
+    FORCE_REGISTER(int index, r10);
+    s8* returnedArray;
+
     Entity* pEnt;
     Entity** entArray;
+    u16 cageX, cageY;
+    s32 castedCageX, castedCageY;
 
-    sVar6 = 0;
+    s32 one;
+    FORCE_REGISTER(s16 minusOne, r5);
+
+    numReturnedCuccos = 0;
+
     entArray = ((Entity**)super->myHeap);
-    ptr = this->returnedCuccoTypes;
-    iVar1 = (gRoomControls.origin_x + 0x360);
-    iVar4 = (gRoomControls.origin_y + 0x350);
-    iVar1 = (iVar1 << 16) >> 16;
-    iVar4 = (iVar4 << 16) >> 16;
-    val = -1;
+    returnedArray = this->returnedCuccoTypes;
 
-    for (iVar7 = 0; iVar7 < 9; iVar7++) {
-        pEnt = entArray[iVar7];
-        if (((s8*)ptr)[iVar7] == 0) {
+    cageX = (gRoomControls.origin_x + 0x360);
+    cageY = (gRoomControls.origin_y + 0x350);
+    castedCageX = (s16)cageX;
+    castedCageY = (s16)cageY;
+    index = 9;
+    one = 1;
+    minusOne = -one;
+    do {
+        pEnt = *entArray;
+        if (*returnedArray == 0) { // this cucco not saved
             if (pEnt->next != NULL && pEnt != NULL) {
-                if ((iVar1 <= pEnt->x.HALF.HI) && (iVar4 <= pEnt->y.HALF.HI)) {
-                    ptr[iVar7] = pEnt->type + 1;
+                if ((castedCageX <= pEnt->x.HALF.HI) && (castedCageY <= pEnt->y.HALF.HI)) {
+                    returnedArray[0] = pEnt->type + one;
                     pEnt->type2 = 1;
-                    sVar6++;
+
+                    numReturnedCuccos++;
                     SoundReq(CuccoMinigame_Sounds[pEnt->type]);
                 }
             } else {
-                ((s8*)ptr)[iVar7] = val;
+                *returnedArray = minusOne;
             }
-        } else if (0 < (s8)ptr[iVar7]) {
-            sVar6++;
+        } else if (*returnedArray > 0) { // this cucco saved
+            numReturnedCuccos++;
             if (pEnt->next != NULL && pEnt != NULL) {
-                iVar2 = iVar1 + 4;
-                if (iVar2 > pEnt->x.HALF.HI) {
-                    pEnt->x.HALF.HI = iVar2;
+                if (castedCageX + 4 > pEnt->x.HALF.HI) {
+                    pEnt->x.HALF.HI = castedCageX + 4;
                 }
-                iVar2 = iVar4 + 4;
-                if (iVar2 > pEnt->y.HALF.HI) {
-                    pEnt->y.HALF.HI = iVar2;
+                if (castedCageY + 4 > pEnt->y.HALF.HI) {
+                    pEnt->y.HALF.HI = castedCageY + 4;
                 }
             } else {
-                ((s8*)ptr)[iVar7] = val;
+                *returnedArray = minusOne;
             }
         }
-    }
+        index--, returnedArray++, entArray++;
+    } while (index >= 0);
 
-    this->currentCuccos = sVar6;
+    this->currentCuccos = numReturnedCuccos;
     gPlayerState.field_0x27[0] = 0xff;
     if (--this->timer < 1) {
         SoundReq(SFX_CUCCO_MINIGAME_BELL);
@@ -170,7 +175,6 @@ NONMATCH("asm/non_matching/objectB9/sub_080A1270.inc", void sub_080A1270(CuccoMi
         gActiveScriptInfo.commandSize = 0;
     }
 }
-END_NONMATCH
 
 void CuccoMinigame_Cleanup(CuccoMinigameEntity* this) {
     Entity** puVar1;
@@ -210,7 +214,7 @@ void CuccoMinigame_WinItem(CuccoMinigameEntity* this) {
             }
             break;
         case ITEM_KINSTONE:
-            if (gSave.didAllFusions) {
+            if (gSave.kinstones.didAllFusions) {
                 skipItem = 1;
             }
             break;

@@ -138,7 +138,7 @@ void sub_08038304(RopeGoldenEntity* this) {
                 }
                 this->unk_7a = this->unk_79;
                 this->unk_79 = cVar2;
-                super->direction = (super->direction + cVar2) & 0x18;
+                super->direction = (super->direction + cVar2) & DirectionWest;
             } else {
                 super->direction = this->unk_78;
             }

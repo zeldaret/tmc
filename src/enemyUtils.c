@@ -192,7 +192,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
         int tmp = parent->base.gustJarState & 2;
         if (tmp == 0) {
             sub_08049CF4(&(parent->base));
-            gSave.unk50++;
+            gSave.enemies_killed++;
             parent->base.gustJarState |= 2;
             parent->base.timer = 255;
             SetDefaultPriority(&(parent->base), 3);

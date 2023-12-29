@@ -210,16 +210,16 @@ void PlayerItemBow_Action1(PlayerItemBowEntity* this) {
         }
 
     } else {
-        if ((PlayerItemBowEntity*)gPlayerState.item != this || (gPlayerState.field_0x1f[2] == 0)) {
+        if ((PlayerItemBowEntity*)gPlayerState.item != this || (gPlayerState.bow_state == 0)) {
             if ((PlayerItemBowEntity*)gPlayerState.item == this) {
                 gPlayerState.item = 0;
             }
-            gPlayerState.field_0x1f[2] = 0;
+            gPlayerState.bow_state = 0;
             DeleteThisEntity();
         }
-        if ((this->unk_68 == 0xa) && (gPlayerState.field_0x1f[2] != 0)) {
-            if (gPlayerState.field_0x1f[2] < 0x78) {
-                gPlayerState.field_0x1f[2]++;
+        if ((this->unk_68 == 0xa) && (gPlayerState.bow_state != 0)) {
+            if (gPlayerState.bow_state < 0x78) {
+                gPlayerState.bow_state++;
             } else {
                 super->hurtType = 0x0e;
             }

@@ -6,7 +6,6 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "object.h"
 
 void WaterElement_Init(Entity*);

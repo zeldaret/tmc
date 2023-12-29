@@ -97,7 +97,7 @@ void sub_0803CD6C(LakituCloudEntity* this) {
 void sub_0803CDA8(LakituCloudEntity* this) {
     UpdateAnimationSingleFrame(super);
 
-    if ((super->direction & 0x80) == 0) {
+    if (!(super->direction & DIR_NOT_MOVING_CHECK)) {
         LinearMoveUpdate(super);
     }
 
@@ -131,7 +131,7 @@ void sub_0803CE14(LakituCloudEntity* this) {
     UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
     direction = super->direction;
-    if (direction & 0x80) {
+    if (direction & DIR_NOT_MOVING_CHECK) {
         return;
     }
 

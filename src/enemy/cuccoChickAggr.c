@@ -119,10 +119,11 @@ void sub_08022AA4(Entity* this) {
     if (!sub_08049FA0(this) && (rand >> 8) & 3) {
         this->direction = sub_08049EE4(this);
     } else {
-        this->direction = (rand >> 0x10) & 0x1f;
+        this->direction =
+            (rand >> 0x10) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
     }
 
-    if (this->direction & 0xf)
+    if (this->direction & (0x3 | DirectionEast | DIR_DIAGONAL))
         this->spriteSettings.flipX = (this->direction >> 4) ^ 1;
 }
 
@@ -144,7 +145,7 @@ void sub_08022B44(Entity* this) {
     this->zVelocity = Q_16_16(0.75);
     this->direction = GetFacingDirection(this, &gPlayerEntity);
 
-    if (this->direction & 0xf)
+    if (this->direction & (0x3 | DIR_DIAGONAL | DirectionEast))
         this->spriteSettings.flipX = (this->direction >> 4) ^ 1;
 
     EnqueueSFX(SFX_VO_CHEEP);

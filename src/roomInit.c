@@ -13,6 +13,7 @@
 #include "screen.h"
 #include "screenTransitions.h"
 #include "sound.h"
+#include "windcrest.h"
 
 extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
@@ -1219,7 +1220,7 @@ void sub_StateChange_CastorWilds_Main(void) {
     if (CheckKinstoneFused(KINSTONE_5B))
         LoadRoomEntityList(&gUnk_080D9CC8);
 
-    if ((gSave.windcrests & 0x20000000) == 0)
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_CASTOR_WILDS))
         LoadRoomEntityList(&gUnk_080D9CE8);
 
     if (!GetInventoryValue(ITEM_PEGASUS_BOOTS))
@@ -1227,7 +1228,7 @@ void sub_StateChange_CastorWilds_Main(void) {
 }
 
 void sub_unk1_CastorWilds_Main(void) {
-    if ((gSave.windcrests & 0x20000000) == 0)
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_CASTOR_WILDS))
         LoadRoomEntityList(&gUnk_080D9CE8);
 }
 
@@ -2003,13 +2004,13 @@ u32 sub_unk3_CloudTops_House(void) {
 extern EntityData gUnk_080DD364;
 
 void sub_StateChange_CloudTops_House(void) {
-    if (!(gSave.windcrests & 0x4000000)) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_CLOUD_TOPS)) {
         LoadRoomEntityList(&gUnk_080DD364);
     }
 }
 
 void sub_unk1_CloudTops_House(void) {
-    if (!(gSave.windcrests & 0x4000000)) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_CLOUD_TOPS)) {
         LoadRoomEntityList(&gUnk_080DD364);
     }
 }
@@ -2187,7 +2188,7 @@ u32 sub_unk3_DeepwoodShrine_Barrel(void) {
 }
 
 void sub_StateChange_DeepwoodShrine_Barrel(void) {
-    switch (gSave.unk7) {
+    switch (gSave.dws_barrel_state) {
         case 0:
         default:
             SetTileType(0x90, 0x20b, 1);
@@ -4420,7 +4421,7 @@ void sub_StateChange_HyruleTown_0(void) {
         if ((gSave.global_progress < 6) && !CheckGlobalFlag(MIZUKAKI_START)) {
             LoadRoomEntityList(&gUnk_080EEA9C);
         }
-        if ((gSave.windcrests & 0x8000000) == 0) {
+        if (!IS_BIT_SET(gSave.windcrests, WINDCREST_HYRULE_TOWN)) {
             LoadRoomEntityList(&gUnk_080EEBAC);
         }
         sub_0804E150();
@@ -4428,7 +4429,7 @@ void sub_StateChange_HyruleTown_0(void) {
 }
 
 void sub_unk1_HyruleTown_8(void) {
-    if ((gSave.windcrests & 0x8000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_HYRULE_TOWN)) {
         LoadRoomEntityList(&gUnk_080EEBAC);
     }
 }
@@ -5207,7 +5208,7 @@ void sub_StateChange_MinishWoods_Main(void) {
     if (CheckKinstoneFused(KINSTONE_4E)) {
         LoadRoomEntityList(&gUnk_080F4F10);
     }
-    if ((s32)gSave.windcrests > -1) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_MINISH_WOODS)) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
 #ifdef DEMO_USA
@@ -5217,7 +5218,7 @@ void sub_StateChange_MinishWoods_Main(void) {
 }
 
 void sub_unk1_MinishWoods_Main(void) {
-    if ((s32)gSave.windcrests > -1) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_MINISH_WOODS)) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
 }
@@ -5652,7 +5653,7 @@ void sub_StateChange_HyruleField_SouthHyruleField(void) {
     if (!CheckGlobalFlag(TABIDACHI)) {
         gArea.queued_bgm = BGM_FESTIVAL_APPROACH;
     }
-    if ((gSave.windcrests & 0x40000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_SOUTH_HYRULE_FIELD)) {
         LoadRoomEntityList(&gUnk_080F70D8);
     }
     if (gSave.global_progress > 3) {
@@ -5661,7 +5662,7 @@ void sub_StateChange_HyruleField_SouthHyruleField(void) {
 }
 
 void sub_unk1_HyruleField_SouthHyruleField(void) {
-    if ((gSave.windcrests & 0x40000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_SOUTH_HYRULE_FIELD)) {
         LoadRoomEntityList(&gUnk_080F70D8);
     }
 }
@@ -6169,13 +6170,13 @@ u32 sub_unk3_VeilFalls_Main(void) {
 extern EntityData gUnk_080F9304;
 
 void sub_StateChange_VeilFalls_Main(void) {
-    if ((gSave.windcrests & 0x2000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_VEIL_FALLS)) {
         LoadRoomEntityList(&gUnk_080F9304);
     }
 }
 
 void sub_unk1_VeilFalls_Main(void) {
-    if ((gSave.windcrests & 0x2000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_VEIL_FALLS)) {
         LoadRoomEntityList(&gUnk_080F9304);
     }
 }
@@ -6581,7 +6582,7 @@ void sub_StateChange_MtCrenel_CaveOfFlamesEntrance(void) {
     if (CheckGlobalFlag(LV2_CLEAR) && !CheckLocalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080FAFE4);
     }
-    if ((gSave.windcrests & 0x1000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_MT_CRENEL)) {
         LoadRoomEntityList(&gUnk_080FB004);
     }
     if (GetInventoryValue(ITEM_GREEN_SWORD)) {
@@ -6590,7 +6591,7 @@ void sub_StateChange_MtCrenel_CaveOfFlamesEntrance(void) {
 }
 
 void sub_unk1_MtCrenel_CaveOfFlamesEntrance(void) {
-    if ((gSave.windcrests & 0x1000000) == 0) {
+    if (!IS_BIT_SET(gSave.windcrests, WINDCREST_MT_CRENEL)) {
         LoadRoomEntityList(&gUnk_080FB004);
     }
 }

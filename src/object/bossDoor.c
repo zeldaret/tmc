@@ -4,10 +4,8 @@
  *
  * @brief Boss Door object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 
@@ -85,7 +83,7 @@ void BossDoor_Init(BossDoorEntity* this) {
 }
 
 void BossDoor_Action1(BossDoorEntity* this) {
-    if (super->interactType != 0) {
+    if (super->interactType != INTERACTION_NONE) {
         super->action = 2;
         RemoveInteractableObject(super);
         SetFlag(this->unk_86);

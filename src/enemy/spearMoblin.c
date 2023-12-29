@@ -176,7 +176,7 @@ void sub_08028488(Entity* this) {
                 this->timer = (Random() & 7) * 3 + 64;
                 break;
             case 4:
-                this->direction = (this->direction + 0x10) & 0x18;
+                this->direction = (this->direction + 0x10) & DirectionWest;
                 /* fallthrough */
             case 1:
             default:
@@ -265,7 +265,7 @@ void sub_08028604(Entity* this) {
                 this->timer = this->timer + 0x10;
                 this->field_0x82.HALF.HI--;
             }
-            this->direction = (iVar3 + 4U) & 0x18;
+            this->direction = (iVar3 + 4U) & DirectionWest;
             iVar3 = Direction8ToAnimationState(this->direction);
         }
     } else {

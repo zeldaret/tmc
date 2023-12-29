@@ -4,10 +4,8 @@
  *
  * @brief Crenel Bean Sprout object
  */
-
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 
@@ -140,7 +138,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             if (super->parent->action == 2) {
                 switch (super->parent->subAction) {
                     case 1:
-                        if ((gPlayerState.direction & 0x80) != 0) {
+                        if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) != 0) {
                             InitializeAnimation(super, 4);
                         } else {
                             GetNextFrame(super);
@@ -163,7 +161,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
     } else {
         gPlayerState.mobility |= 0x80;
         gPlayerState.heldObject = 5;
-        if ((gPlayerState.direction & 0x80) != 0) {
+        if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) != 0) {
             InitializeAnimation(super, (super->type >> 1) + 3);
         } else {
             GetNextFrame(super);

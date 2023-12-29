@@ -4,11 +4,9 @@
  *
  * @brief Minish Portal Closeup object
  */
-
 #define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
-#include "global.h"
 #include "main.h"
 #include "object.h"
 #include "screen.h"

@@ -227,7 +227,7 @@ void sub_08029688(RupeeLikeEntity* this) {
 void sub_0802969C(RupeeLikeEntity* this) {
     u32 bVar1;
 
-    if ((super->direction & 0xf) != 0) {
+    if (super->direction & (0x3 | DIR_DIAGONAL | DirectionEast)) {
 
         bVar1 = super->direction >> 4;
         if (bVar1 != super->animationState) {

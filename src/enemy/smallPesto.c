@@ -97,8 +97,8 @@ void sub_08031714(SmallPestoEntity* this) {
         if (sub_08049FA0(super) == 0 && (super->subtimer & 1) != 0) {
             super->direction = sub_08049EE4(super);
         } else {
-            super->direction += 0x18;
-            super->direction = ((Random() & 0xe) + super->direction) & 0x1f;
+            super->direction += DirectionWest;
+            super->direction = ((Random() & 0xe) + super->direction) & (0x3 | DirectionNorthWest);
         }
         sub_080317E0(this);
     }

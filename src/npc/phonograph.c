@@ -1,29 +1,43 @@
-#include "entity.h"
-#include "script.h"
-#include "functions.h"
-#include "fileselect.h"
-#include "screen.h"
+/**
+ * @file phonograph.c
+ * @ingroup NPCs
+ *
+ * @brief Phonograph NPC
+ */
+#define NENT_DEPRECATED
 #include "common.h"
+#include "entity.h"
+#include "fileselect.h"
 #include "flags.h"
+#include "functions.h"
 #include "message.h"
+#include "screen.h"
+#include "script.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ s16 unk_68;
+    /*0x6a*/ s16 unk_6a;
+    /*0x6c*/ s16 unk_6c;
+} PhonographEntity;
 
 #ifdef EU
-void sub_0806EABC(Entity* this);
+void sub_0806EABC(PhonographEntity* this);
 #else
 void sub_0806EABC(Entity* this, u32 param);
 #endif
 
-void Phonograph(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = 1;
-        this->field_0x68.HWORD = 1;
-        this->field_0x6a.HWORD = -1;
-        sub_0807DD64(this);
-        this->frameIndex = 0;
+void Phonograph(PhonographEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = 1;
+        this->unk_68 = 1;
+        this->unk_6a = -1;
+        sub_0807DD64(super);
+        super->frameIndex = 0;
     }
-    ExecuteScriptForEntity(this, NULL);
-    HandleEntity0x82Actions(this);
+    ExecuteScriptForEntity(super, NULL);
+    HandleEntity0x82Actions(super);
 }
 
 static const s16 gUnk_081145E4[] = {
@@ -36,7 +50,7 @@ static const s16 gUnk_081145E4[] = {
 };
 
 #ifdef EU
-void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
+void sub_0806E964(PhonographEntity* this, ScriptExecutionContext* context) {
     if (gInput.newKeys & B_BUTTON) {
         sub_08050384();
         return;
@@ -44,14 +58,14 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
 
     if (context->unk_18 == 0) {
         context->unk_18++;
-        this->field_0x6c.HWORD = 0;
+        this->unk_6c = 0;
         sub_0806EABC(this);
     }
 
-    if (gInput.unk4 & 0xc0) {
+    if (gInput.unk4 & (DPAD_UP | DPAD_DOWN)) {
         s32 val2, val3;
-        s32 val = (s16)this->field_0x68.HWORD;
-        if (gInput.unk4 & 0x40) {
+        s32 val = this->unk_68;
+        if (gInput.unk4 & DPAD_UP) {
             val++;
         } else {
             val--;
@@ -70,39 +84,39 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
             val = val2;
         }
 
-        this->field_0x68.HWORD = val;
+        this->unk_68 = val;
         sub_0806EABC(this);
-        if ((s16)this->field_0x6c.HWORD > 0) {
-            this->field_0x6c.HWORD--;
+        if (this->unk_6c > 0) {
+            this->unk_6c--;
         }
     }
 
     if (gInput.newKeys & A_BUTTON) {
-        if ((s16)this->field_0x68.HWORD != (s16)this->field_0x6a.HWORD || (s16)this->field_0x6c.HWORD == 0) {
+        if (this->unk_68 != this->unk_6a || this->unk_6c == 0) {
             const s16* ptr2 = gUnk_081145E4;
             s32 field_0x68;
-            SoundReq(*(ptr2 + (s16)this->field_0x68.HWORD * 2));
-            this->field_0x6a.HWORD = this->field_0x68.HWORD;
-            field_0x68 = (s16)this->field_0x68.HWORD * 4;
+            SoundReq(*(ptr2 + this->unk_68 * 2));
+            this->unk_6a = this->unk_68;
+            field_0x68 = this->unk_68 * 4;
             ptr2++;
-            this->field_0x6c.HWORD = *(s16*)((((s32)ptr2 + field_0x68)));
+            this->unk_6c = *(s16*)((((s32)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
-            this->field_0x6a.HWORD = 0;
+            this->unk_6a = 0;
         }
     }
 
-    if ((s16)this->field_0x6c.HWORD > 0) {
-        if ((s16)-- this->field_0x6c.HWORD <= 0) {
-            this->field_0x6a.HWORD = 0;
-            this->field_0x6c.HWORD = 0;
+    if (this->unk_6c > 0) {
+        if (--this->unk_6c <= 0) {
+            this->unk_6a = 0;
+            this->unk_6c = 0;
         }
     }
 
     gActiveScriptInfo.commandSize = 0;
 }
 #else
-void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
+void sub_0806E964(PhonographEntity* this, ScriptExecutionContext* context) {
     s32 val, val2, val3;
     if (gInput.newKeys & B_BUTTON) {
         sub_08050384();
@@ -111,17 +125,17 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
 
     if (context->unk_18 == 0) {
         context->unk_18++;
-        this->field_0x6c.HWORD = 0;
-        sub_0806EABC(this, (s16)this->field_0x68.HWORD);
+        this->unk_6c = 0;
+        sub_0806EABC(super, this->unk_68);
     }
 
     val2 = 0x1c;
     if (CheckGlobalFlag(GAMECLEAR)) {
         val2 = 0x34;
     }
-    val = (s16)this->field_0x68.HWORD;
-    if (gInput.newKeys & 0xc0) {
-        if (gInput.newKeys & 0x40) {
+    val = this->unk_68;
+    if (gInput.newKeys & (DPAD_UP | DPAD_DOWN)) {
+        if (gInput.newKeys & DPAD_UP) {
             val++;
         } else {
             val--;
@@ -134,8 +148,8 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
         if (val > val2) {
             val = 1;
         }
-    } else if (gInput.unk4 & 0xc0) {
-        if (gInput.unk4 & 0x40) {
+    } else if (gInput.unk4 & (DPAD_UP | DPAD_DOWN)) {
+        if (gInput.unk4 & DPAD_UP) {
             val++;
         } else {
             val--;
@@ -150,34 +164,34 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
         }
     }
 
-    if (val != (s16)this->field_0x68.HWORD) {
-        sub_0806EABC(this, val);
-        if ((s16)this->field_0x6c.HWORD > 0) {
-            this->field_0x6c.HWORD--;
+    if (val != this->unk_68) {
+        sub_0806EABC(super, val);
+        if (this->unk_6c > 0) {
+            this->unk_6c--;
         }
     }
 
-    this->field_0x68.HWORD = val;
+    this->unk_68 = val;
 
     if (gInput.newKeys & A_BUTTON) {
-        if ((s16)this->field_0x68.HWORD != (s16)this->field_0x6a.HWORD || (s16)this->field_0x6c.HWORD == 0) {
+        if (this->unk_68 != this->unk_6a || this->unk_6c == 0) {
             const s16* ptr2 = gUnk_081145E4;
             s32 field_0x68;
-            SoundReq(*(ptr2 + (s16)this->field_0x68.HWORD * 2));
-            this->field_0x6a.HWORD = this->field_0x68.HWORD;
-            field_0x68 = (s16)this->field_0x68.HWORD * 4;
+            SoundReq(*(ptr2 + this->unk_68 * 2));
+            this->unk_6a = this->unk_68;
+            field_0x68 = this->unk_68 * 4;
             ptr2++;
-            this->field_0x6c.HWORD = *(s16*)((((s32)ptr2 + field_0x68)));
+            this->unk_6c = *(s16*)((((s32)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
-            this->field_0x6a.HWORD = 0;
+            this->unk_6a = 0;
         }
     }
 
-    if ((s16)this->field_0x6c.HWORD > 0) {
-        if ((s16)-- this->field_0x6c.HWORD <= 0) {
-            this->field_0x6a.HWORD = 0;
-            this->field_0x6c.HWORD = 0;
+    if (this->unk_6c > 0) {
+        if (--this->unk_6c <= 0) {
+            this->unk_6a = 0;
+            this->unk_6c = 0;
         }
     }
 
@@ -190,9 +204,9 @@ const static Font gUnk_081146B8 = {
 };
 
 #ifdef EU
-void sub_0806EABC(Entity* this) {
+void sub_0806EABC(PhonographEntity* this) {
     sub_08050384();
-    sub_08057044((s16)this->field_0x68.HWORD, gUnk_020227E8, 0x202020);
+    sub_08057044(this->unk_68, gUnk_020227E8, 0x202020);
     ShowTextBox(0x3302, &gUnk_081146B8);
     gScreen.bg0.updated = 1;
 }

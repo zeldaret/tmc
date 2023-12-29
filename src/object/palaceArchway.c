@@ -4,6 +4,7 @@
  *
  * @brief Palace Archway object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
 void PalaceArchway_Init(Entity*);

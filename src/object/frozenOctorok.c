@@ -7,7 +7,6 @@
 #define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
 #include "functions.h"
-#include "global.h"
 #include "message.h"
 #include "object.h"
 

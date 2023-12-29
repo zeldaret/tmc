@@ -38,7 +38,7 @@ void Subtask_MapHint_0(void) {
     gScreen.lcd.displayControl = gScreen.lcd.displayControl & 0xf7ff;
     SetColor(0, gPaletteBuffer[0x51]);
     val = gUnk_08128F4C[gUI.field_0x3];
-    gSave.field_0x20 |= val;
+    gSave.map_hints |= val;
     gGenericMenu.unk10.h[1] = val & gGenericMenu.unk10.h[0];
     gGenericMenu.unk10.h[0] = 0;
     gMenu.transitionTimer = 60;

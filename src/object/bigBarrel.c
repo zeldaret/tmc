@@ -16,17 +16,17 @@
 
 typedef struct {
     Entity base;
-    const u8* unk68;
+    const u8* unk_68;
 } BigBarrelEntity;
 
-void sub_08088A68(BigBarrelEntity*);
-void sub_08088C9C(BigBarrelEntity*);
-void sub_08088DB4(BigBarrelEntity*);
-void sub_08088E74(BigBarrelEntity*);
-void sub_08088F20(BigBarrelEntity*);
-void sub_08088BE0(BigBarrelEntity*);
-void sub_08089094(BigBarrelEntity*);
-void sub_080890EC(BigBarrelEntity*, const s16*, s32);
+void BigBarrel_Type0(BigBarrelEntity* this);
+void BigBarrel_Type1(BigBarrelEntity* this);
+void BigBarrel_Type2(BigBarrelEntity* this);
+void BigBarrel_Type3(BigBarrelEntity* this);
+void BigBarrel_Type4(BigBarrelEntity* this);
+void sub_08088BE0(BigBarrelEntity* this);
+void sub_08089094(BigBarrelEntity* this);
+void sub_080890EC(BigBarrelEntity* this, const s16*, s32);
 
 Entity* sub_08088C78(BigBarrelEntity*, u32, u32, u32);
 
@@ -38,13 +38,13 @@ const s8 gUnk_08120C25[] = { 5, 0, 4, 0, 4, 0, 2, 0, -1 };
 const s8 gUnk_08120C2E[] = { 3, 0, -1, 0, 0, 0 };
 
 void BigBarrel(Entity* this) {
-    static void (*const typeFuncs[])(BigBarrelEntity*) = {
-        sub_08088A68, sub_08088C9C, sub_08088DB4, sub_08088E74, sub_08088F20,
+    static void (*const BigBarrel_Types[])(BigBarrelEntity*) = {
+        BigBarrel_Type0, BigBarrel_Type1, BigBarrel_Type2, BigBarrel_Type3, BigBarrel_Type4,
     };
-    typeFuncs[this->type]((BigBarrelEntity*)this);
+    BigBarrel_Types[this->type]((BigBarrelEntity*)this);
 }
 
-void sub_08088A68(BigBarrelEntity* this) {
+void BigBarrel_Type0(BigBarrelEntity* this) {
     u32 uVar3;
     const u8* pcVar3;
 
@@ -53,9 +53,9 @@ void sub_08088A68(BigBarrelEntity* this) {
         super->spriteSettings.draw = 3;
         super->updatePriority = 3;
         if (CheckGlobalFlag(LV1TARU_OPEN)) {
-            super->frameIndex = gSave.unk7 + 1;
+            super->frameIndex = gSave.dws_barrel_state + 1;
         } else {
-            super->frameIndex = gSave.unk7;
+            super->frameIndex = gSave.dws_barrel_state;
         }
         sub_08088BE0(this);
         if (CheckPlayerInRegion(super->x.HALF.HI - gRoomControls.origin_x, super->y.HALF.HI - gRoomControls.origin_y,
@@ -66,30 +66,30 @@ void sub_08088A68(BigBarrelEntity* this) {
         if (gRoomVars.animFlags & 1) {
             gRoomVars.animFlags &= ~1;
             super->timer = 1;
-            this->unk68 = gUnk_08120C1C;
+            this->unk_68 = gUnk_08120C1C;
             SoundReq(SFX_BARREL_ENTER);
         }
         if (gRoomVars.animFlags & 2) {
             gRoomVars.animFlags &= ~2;
             super->timer = 1;
-            this->unk68 = gUnk_08120C25;
+            this->unk_68 = gUnk_08120C25;
             SoundReq(SFX_BARREL_RELEASE);
         }
         if (gRoomVars.animFlags & 4) {
             gRoomVars.animFlags &= ~4;
             super->timer = 1;
-            this->unk68 = gUnk_08120C2E;
+            this->unk_68 = gUnk_08120C2E;
             SoundReq(SFX_BARREL_ENTER);
         }
         if (super->timer) {
             if (super->timer-- == 1) {
-                pcVar3 = this->unk68;
+                pcVar3 = this->unk_68;
                 uVar3 = pcVar3[0];
                 *(u8*)&super->spriteOffsetY = uVar3;
                 pcVar3++;
                 if (*pcVar3 != 0xff) {
                     super->timer = 8;
-                    this->unk68 = pcVar3;
+                    this->unk_68 = pcVar3;
                 } else {
                     super->spriteOffsetY = 0;
                 }
@@ -141,7 +141,7 @@ Entity* sub_08088C78(BigBarrelEntity* this, u32 type, u32 type2, u32 xOffset) {
     return pEVar1;
 }
 
-void sub_08088C9C(BigBarrelEntity* this) {
+void BigBarrel_Type1(BigBarrelEntity* this) {
     static const u8 gUnk_08120C48[] = { 2, 3, 4, 5, 6, 7, 7, 7 };
     static const s8 gUnk_08120C50[] = { 8, -8 };
     u32 localFlag;
@@ -201,7 +201,7 @@ void sub_08088C9C(BigBarrelEntity* this) {
     }
 }
 
-void sub_08088DB4(BigBarrelEntity* this) {
+void BigBarrel_Type2(BigBarrelEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
@@ -240,7 +240,7 @@ void sub_08088DB4(BigBarrelEntity* this) {
     }
 }
 
-void sub_08088E74(BigBarrelEntity* this) {
+void BigBarrel_Type3(BigBarrelEntity* this) {
     static const s8 gUnk_08120C52[] = { -2, 0, 2, 0 };
     Entity* ent;
 
@@ -266,8 +266,8 @@ void sub_08088E74(BigBarrelEntity* this) {
     }
 }
 
-void sub_08088F20(BigBarrelEntity* this) {
-    Entity* pEVar3;
+void BigBarrel_Type4(BigBarrelEntity* this) {
+    Entity* flame;
 
     switch (super->action) {
         case 0:
@@ -285,13 +285,13 @@ void sub_08088F20(BigBarrelEntity* this) {
             super->action = 2;
             super->timer = 30;
             RequestPriorityDuration(super, 270);
-            pEVar3 = CreateObject(FLAME, 1, 0);
-            if (pEVar3 != NULL) {
-                pEVar3->updatePriority = 3;
-                pEVar3->x.HALF.HI = super->x.HALF.HI;
-                pEVar3->y.HALF.HI = super->y.HALF.HI;
-                pEVar3->collisionLayer = 2;
-                pEVar3->spritePriority.b0 = 2;
+            flame = CreateObject(FLAME, 1, 0);
+            if (flame != NULL) {
+                flame->updatePriority = 3;
+                flame->x.HALF.HI = super->x.HALF.HI;
+                flame->y.HALF.HI = super->y.HALF.HI;
+                flame->collisionLayer = 2;
+                flame->spritePriority.b0 = 2;
             }
             SetTileType(0x76, COORD_TO_TILE(super), 2);
             break;

@@ -4,11 +4,9 @@
  *
  * @brief Four Elements object
  */
-
 #define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
-#include "global.h"
 #include "hitbox.h"
 #include "message.h"
 #include "object.h"

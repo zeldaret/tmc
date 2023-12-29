@@ -4,6 +4,7 @@
  *
  * @brief Ladder Hole In Bookshelf object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "player.h"
 

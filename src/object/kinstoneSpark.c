@@ -6,7 +6,6 @@
  */
 #define NENT_DEPRECATED
 #include "functions.h"
-#include "global.h"
 #include "kinstone.h"
 #include "object.h"
 

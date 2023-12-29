@@ -72,7 +72,7 @@ void sub_08045C3C(BusinessScrubPrologueEntity* this) {
     super->subtimer = 0;
     this->unk_78 = super->x.HALF.HI;
     this->unk_7a = super->y.HALF.HI;
-    super->animationState = 0;
+    super->animationState = IdleNorth;
     super->direction = 0x10;
     super->action = 5;
     super->timer = 120;
@@ -81,7 +81,7 @@ void sub_08045C3C(BusinessScrubPrologueEntity* this) {
     sub_08046030(this, 0);
     sub_08095C48(super);
     StartCutscene(super, script_BusinessScrubIntro);
-    sub_0807DD50(super);
+    InitScriptForNPC(super);
 }
 
 void sub_08045CA4(BusinessScrubPrologueEntity* this) {
@@ -206,7 +206,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
 }
 
 void sub_08045EC8(BusinessScrubPrologueEntity* this) {
-    sub_0807DD94(super, 0);
+    ExecuteScriptAndHandleAnimation(super, NULL);
 }
 
 void sub_08045ED4(BusinessScrubPrologueEntity* this) {

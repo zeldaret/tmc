@@ -194,12 +194,12 @@ static void sub_08090E4C(FurnitureEntity*);
 static void sub_08090CDC(u32, u32, u32);
 
 void Furniture(Entity* this) {
-    static FurnitureAction* const sFurnitureActions[] = {
+    static FurnitureAction* const Furniture_Actions[] = {
         FurnitureInit,
         FurnitureUpdate,
     };
 
-    sFurnitureActions[this->action]((FurnitureEntity*)this);
+    Furniture_Actions[this->action]((FurnitureEntity*)this);
 }
 
 static void FurnitureInit(FurnitureEntity* this) {

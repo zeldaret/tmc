@@ -54,7 +54,7 @@ void sub_0801D000(u32 a1) {
         tmp = 0;
     }
 
-    roomTransition->field_0x2c[2] = tmp;
+    roomTransition->field2f = tmp;
     if (a1) {
         CleanUpObjPalettes();
         sub_0801CFD0(0xf);
@@ -162,7 +162,7 @@ u32 FindFreeObjPalette(u32 paletteCount) {
 void SetEntityObjPalette(Entity* entity, s32 palette) {
     u32 uVar1;
     u32 mask;
-    FORCE_REGISTER(u32 tmp, r1);
+    u32 tmp;
     Palette2* pPVar1;
 
     if (palette < 0) {

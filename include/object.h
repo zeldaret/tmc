@@ -134,7 +134,7 @@ typedef enum {
     EZLO_CAP_FLYING,
     GIANT_TWIG,
     OBJECT_63,
-    THUNDERBOLD,
+    THUNDERBOLT,
     LADDER_HOLE,
     WATER_DROP_OBJECT,
     GLEEROK_PARTICLE,
@@ -330,7 +330,7 @@ void SwordsmanNewsletter();
 void EzloCapFlying();
 void GiantTwig();
 void Object63();
-void Thunderbold();
+void Thunderbolt();
 void LadderHoleInBookshelf();
 void WaterDropObject();
 void GleerokParticle();

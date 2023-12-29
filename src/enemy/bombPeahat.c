@@ -154,10 +154,10 @@ void sub_0802A9A8(BombPeahatEntity* this) {
             this->unk_82 = 1;
             if (this->unk_80) {
                 super->x.HALF.HI = gRoomControls.scroll_x - 0x10;
-                super->direction = 8;
+                super->direction = DirectionEast;
             } else {
                 super->x.HALF.HI = gRoomControls.scroll_x + 0x100;
-                super->direction = 0x18;
+                super->direction = DirectionWest;
             }
             super->y.HALF.HI = gRoomControls.scroll_y + 0x40;
             super->timer = 128;
@@ -234,7 +234,7 @@ void sub_0802AAC0(BombPeahatEntity* this) {
 #ifndef EU
         this->unk_78 = 0;
         this->unk_79 = 4;
-        super->direction = 0xff;
+        super->direction = DIR_NONE;
 #endif
         InitializeAnimation(super, 0);
     }

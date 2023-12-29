@@ -25,8 +25,8 @@
 u32 StairsAreValid(void);
 void ClearFlagArray(const u16*);
 void DummyHandler(u32* a1);
-void sub_08053434(u32* a1);
-void sub_080534E4(u32* a1);
+void DarknutTimerHandler(u32* a1);
+void BiggoronTimerHandler(u32* a1);
 void InitAllRoomResInfo(void);
 void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 void sub_080532E4(void);
@@ -207,7 +207,7 @@ s32 ModHealth(s32 delta) {
         newHealth = 0;
     }
     if (stats->maxHealth < newHealth) {
-        newHealth = (u32)stats->maxHealth;
+        newHealth = stats->maxHealth;
     }
     stats->health = newHealth;
     gPlayerEntity.health = newHealth;
@@ -448,16 +448,10 @@ bool32 CanDispEzloMessage(void) {
 void DisplayEzloMessage(void) {
     u32 height;
     u32 idx;
-#if defined(JP) || defined(EU)
-    idx = 0x10;
-#else
-    idx = 0x11;
-#endif
-
-    if (gRoomTransition.player_status.field_0x24[idx] == 0) {
+    if (gRoomTransition.hint_height == 0) {
         height = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y > 96 ? 1 : 13;
     } else {
-        height = gRoomTransition.player_status.field_0x24[idx];
+        height = gRoomTransition.hint_height;
     }
     MessageAtHeight(gRoomTransition.hint_idx, height);
 }
@@ -466,11 +460,11 @@ void DisplayEzloMessage(void) {
 void CreateMiscManager(void) {
     Entity* e = NULL;
 
-    if (gRoomTransition.player_status.field_0x24[13])
+    if (gRoomTransition.field31)
         return;
-    gRoomTransition.player_status.field_0x24[13] = 1;
+    gRoomTransition.field31 = 1;
 #ifndef DEMO_JP
-    gRoomTransition.player_status.field_0x24[10] = gArea.locationIndex;
+    gRoomTransition.location = gArea.locationIndex;
 #endif
     e = (Entity*)GetEmptyManager();
     if (e == NULL)
@@ -714,7 +708,7 @@ u32 sub_08053144(void) {
         return 0;
     ret = 0;
     if (gArea.locationIndex != 0)
-        ret = !!(gRoomTransition.player_status.field_0x24[10] ^ gArea.locationIndex);
+        ret = !!(gRoomTransition.location ^ gArea.locationIndex);
     return ret;
 }
 
@@ -722,7 +716,7 @@ void CheckAreaDiscovery(void) {
     if (!sub_08053144())
         return;
 
-    gRoomTransition.player_status.field_0x24[10] = gArea.locationIndex;
+    gRoomTransition.location = gArea.locationIndex;
 
     if (!CheckGlobalFlag(TABIDACHI))
         return;
@@ -772,7 +766,7 @@ void sub_0805329C(void) {
     if (sub_08053144()) {
         switch (gRoomControls.area) {
             case AREA_DEEPWOOD_SHRINE:
-                gSave.unk7 = 0;
+                gSave.dws_barrel_state = 0;
                 break;
             case AREA_CAVE_OF_FLAMES:
                 sub_080530B0();
@@ -837,24 +831,25 @@ void sub_080533CC(void) {
 
 void UpdateTimerCallbacks(void) {
     static void (*const sHandlers[])(u32*) = {
-        sub_08053434, DummyHandler, sub_080534E4, DummyHandler, DummyHandler, DummyHandler, DummyHandler, DummyHandler,
+        DarknutTimerHandler, DummyHandler, BiggoronTimerHandler, DummyHandler,
+        DummyHandler,        DummyHandler, DummyHandler,         DummyHandler,
     };
 
     u32* p;
     u32 i;
 
-    p = gSave.timers;
+    p = &gSave.darknut_timer;
     for (i = 0; i < 8; i++, p++) {
         (sHandlers[i])(p);
     }
 }
 
-void DummyHandler(u32* a1) {
+void DummyHandler(u32* timer) {
 }
 
-void sub_08053434(u32* a1) {
-    if (gArea.locationIndex == 29 && *a1) {
-        if (!--*a1) {
+void DarknutTimerHandler(u32* timer) {
+    if (gArea.locationIndex == 29 && *timer) {
+        if (!--*timer) {
             ResetTimerFlags();
             MenuFadeIn(5, 6);
         }
@@ -876,33 +871,31 @@ void ResetTimerFlags(void) {
         0xFFFF,
     };
 
-    gSave.timers[0] = 0;
+    gSave.darknut_timer = 0;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_ZELDA_DISCURSE))
         ClearGlobalFlag(ZELDA_CHASE);
     ClearFlagArray(sClearFlags);
 }
 
 void StartDarkNutTimer(void) {
-    gSave.timers[0] = 10800;
+    gSave.darknut_timer = 10800;
 }
 
 void sub_080534AC(void) {
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
         ClearLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START);
-        gSave.timers[0] = 0;
+        gSave.darknut_timer = 0;
         SoundReq(SONG_STOP_BGM);
     }
 }
 
-void sub_080534E4(u32* a1) {
-    if (gRoomControls.area != AREA_VEIL_FALLS_TOP) {
-        if (*a1)
-            --*a1;
-    }
+void BiggoronTimerHandler(u32* timer) {
+    if (gRoomControls.area != AREA_VEIL_FALLS_TOP && *timer)
+        --*timer;
 }
 
 void InitBiggoronTimer(void) {
-    gSave.timers[2] = 36000;
+    gSave.biggoron_timer = 36000;
 }
 
 void ResetTmpFlags(void) {

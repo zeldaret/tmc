@@ -4,6 +4,7 @@
  *
  * @brief Macro Mushroom Stalk object
  */
+#define NENT_DEPRECATED
 #include "area.h"
 #include "entity.h"
 #include "main.h"

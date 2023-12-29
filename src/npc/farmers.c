@@ -1,7 +1,14 @@
+/**
+ * @file farmers.c
+ * @ingroup NPCs
+ *
+ * @brief Farmers NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "script.h"
 #include "functions.h"
 #include "npc.h"
+#include "script.h"
 
 static const SpriteLoadData gUnk_08113140[] = {
     { 0xf7, 0x48, 0x4 }, { 0x40f7, 0x48, 0x4 }, { 0, 0, 0 }, { 0xf8, 0x49, 0x4 }, { 0x40f8, 0x49, 0x4 }, { 0, 0, 0 },

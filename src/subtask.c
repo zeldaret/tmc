@@ -13,6 +13,7 @@
 #include "screen.h"
 #include "subtask.h"
 #include "ui.h"
+#include "windcrest.h"
 
 extern Screen gUnk_03001020;
 extern u8 gPaletteBufferBackup[];
@@ -61,7 +62,7 @@ void sub_080A6F6C(u32 textIndexOrPtr) {
     gScreen.bg0.yOffset = 2;
 }
 
-void sub_080A6FB4(u32 param_1, u32 param_2) {
+void sub_080A6FB4(WindcrestID windcrest, u32 param_2) {
     extern u16 gUnk_08128FF0[];
     extern Font gUnk_08128FD8;
     extern Font gUnk_08128FC0;
@@ -71,15 +72,19 @@ void sub_080A6FB4(u32 param_1, u32 param_2) {
     textIndexOrPtr = 0;
     switch (param_2) {
         case 0:
-            if ((gSave.windcrests & (1 << param_1)) == 0)
+            if (!IS_BIT_SET(gSave.windcrests, windcrest))
                 break;
         case 2:
-            textIndexOrPtr = gUnk_08127F94[param_1]._6;
+            // TODO this probably references later data with index param_1-24
+            textIndexOrPtr = gUnk_08127F94[windcrest]._6;
             font = &gUnk_08128FC0;
             break;
         case 1:
-            textIndexOrPtr = gUnk_08128FF0[param_1];
+            // TODO this probably references later data with index param_1-24
+            textIndexOrPtr = gUnk_08128FF0[windcrest];
             font = &gUnk_08128FD8;
+            break;
+        default:
             break;
     }
 
@@ -211,7 +216,7 @@ void Subtask_FadeIn(void) {
         MemCopy(gUnk_03000420, gUI.unk_2a8, sizeof(gUI.unk_2a8));
         MemCopy(&gActiveScriptInfo, &gUI.activeScriptInfo, sizeof(ActiveScriptInfo));
         sub_0805E958();
-        gUI.unk_d = gRoomTransition.field_0x2c[2];
+        gUI.unk_d = gRoomTransition.field2f;
         gUI.controlMode = gPlayerState.controlMode;
         gUI.currentRoomProperties = gCurrentRoomProperties;
         gUI.mapBottomBgSettings = gMapBottom.bgSettings;
@@ -234,7 +239,7 @@ void Subtask_Init(void) {
         ResetPaletteTable(0);
         gGFXSlots.unk0 = 1;
         gUI.nextToLoad = 2; // Subtask_Update
-        gRoomTransition.field_0x2c[3] = 1;
+        gRoomTransition.field30 = 1;
     }
 }
 
@@ -263,7 +268,7 @@ void Subtask_FadeOut(void) {
             SetFadeInverted(gUI.fadeInTime);
         }
         gUI.nextToLoad = 4; // Subtask_Die
-        gRoomTransition.field_0x2c[3] = 0;
+        gRoomTransition.field30 = 0;
     }
 }
 

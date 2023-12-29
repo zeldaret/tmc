@@ -94,7 +94,7 @@ void BusinessScrub_Action0(BusinessScrubEntity* this) {
     this->unk_78 = super->x.HALF.HI;
     this->unk_7a = super->y.HALF.HI;
     super->animationState = 0;
-    super->direction = 0x10;
+    super->direction = DirectionSouth;
     sub_08028E9C(this);
     if ((*(u8*)this->unk_7c & 1) || CheckFlags(this->unk_86)) {
         super->action = 4;
@@ -373,15 +373,15 @@ void sub_08028EDC(BusinessScrubEntity* this) {
 }
 
 void sub_08028F0C(BusinessScrubEntity* this) {
-    if (super->interactType == 2) {
+    if (super->interactType == INTERACTION_FUSE) {
         super->action = 8;
-        super->interactType = 0;
-        sub_0806F118(super);
-    } else if (super->interactType != 0) {
+        super->interactType = INTERACTION_NONE;
+        InitializeNPCFusion(super);
+    } else if (super->interactType != INTERACTION_NONE) {
         u16 dialog;
         const struct SalesOffering* offer = (const struct SalesOffering*)this->unk_7c;
 
-        super->interactType = 0;
+        super->interactType = INTERACTION_NONE;
         sub_0804AA1C(super);
         super->direction = (GetAnimationState(super) << 3);
         sub_080290E0(this, 3);
@@ -470,8 +470,8 @@ void sub_080290FC(BusinessScrubEntity* this) {
     if (super->timer != 0) {
         super->timer--;
         if ((super->timer < 16) && ((super->timer & 1) == 0)) {
-            s32 sVar3 = ((super->direction & 0x10) != 0) ? -1 : 1;
-            if ((super->direction & 8) != 0) {
+            s32 sVar3 = (super->direction & DirectionSouth) ? -1 : 1;
+            if (super->direction & DirectionEast) {
                 super->x.HALF.HI += ((super->timer & 8) != 0) ? -sVar3 : sVar3;
             } else {
                 super->y.HALF.HI += ((super->timer & 8) != 0) ? sVar3 : -sVar3;

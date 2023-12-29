@@ -387,7 +387,7 @@ void sub_080244E8(Entity* this) {
                         if (tmp == 0) {
                             this->field_0x80.HALF.LO++;
                             this->timer = 12;
-                            this->direction = 0x10;
+                            this->direction = DirectionSouth;
                             this->speed = tmp;
                             this->cutsceneBeh.HALF.LO = 0;
                             this->flags2 &= 0xfc;
@@ -554,13 +554,13 @@ void sub_08024940(Entity* this) {
 }
 
 void sub_080249DC(Entity* this) {
-    u8 direction = ((this->direction + 2) & 0x1c) >> 2;
+    u8 direction = ((this->direction + 2) & DirectionNorthWest) >> 2;
     this->animationState = direction;
     InitializeAnimation(this, this->animationState);
 }
 
 void sub_080249F4(Entity* this) {
-    u32 direction = ((this->direction + 2) & 0x1f);
+    u32 direction = ((this->direction + 2) & (0x3 | DirectionNorthWest));
     direction >>= 2;
     if (direction != this->animationState) {
         this->animationState = direction;
@@ -770,8 +770,8 @@ void sub_08024D00(Entity* this) {
                     this->field_0x80.HALF.LO++;
                     this->timer = (Random() & 0xf) + 32;
 
-                    this->direction += this->field_0x80.HALF.HI ? 4 : 0x1c;
-                    this->direction &= 0x1f;
+                    this->direction += this->field_0x80.HALF.HI ? DirectionNorthEast : DirectionNorthWest;
+                    this->direction &= 0x3 | DirectionNorthWest;
 
                     this->field_0x80.HALF.HI ^= 0x40;
                     sub_08024A14(this, 3, 0x10);
@@ -783,8 +783,8 @@ void sub_08024D00(Entity* this) {
                     this->timer = (Random() & 0x1f) + 32;
                 } else {
                     if (--this->subtimer == 0) {
-                        this->direction += this->field_0x80.HALF.HI ? 1 : 0x1f;
-                        this->direction &= 0x1f;
+                        this->direction += this->field_0x80.HALF.HI ? 1 : (0x3 | DirectionNorthWest);
+                        this->direction &= 0x3 | DirectionNorthWest;
 
                         this->subtimer = 16;
                         sub_080249DC(this);

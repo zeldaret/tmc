@@ -4,8 +4,8 @@
  *
  * @brief Vaati3 Arm object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "global.h"
 #include "physics.h"
 
 void sub_080A0640(Entity*);

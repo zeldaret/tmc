@@ -1,3 +1,10 @@
+/**
+ * @file emma.c
+ * @ingroup NPCs
+ *
+ * @brief Emma NPC
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "screenTransitions.h"
@@ -7,9 +14,9 @@ void Emma(Entity* this) {
     if (this->action == 0) {
         this->action++;
         SetDefaultPriority(this, PRIO_MESSAGE);
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
     } else {
-        sub_0807DD94(this, 0);
+        ExecuteScriptAndHandleAnimation(this, NULL);
     }
 }
 

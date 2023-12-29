@@ -531,7 +531,7 @@ void sub_0803A8B8(Entity* this) {
 
     this->action = 0x10;
     this->timer = 30;
-    this->direction = 0;
+    this->direction = DirectionNorth;
     this->speed = 0x80;
 
     ptr = gUnk_080CED6C;
@@ -575,7 +575,7 @@ void sub_0803A978(Entity* this) {
         sub_08004596(this, 0x10);
     }
     LinearMoveUpdate(this);
-    if (this->direction == 0x10) {
+    if (this->direction == DirectionSouth) {
         this->action = 0x12;
         this->timer = 3;
         COLLISION_OFF(this);
@@ -1247,7 +1247,10 @@ void sub_0803B724(Entity* param_1) {
 void sub_0803B798(void) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= ~(0xffff0000 | PL_CAPTURED);
+    gPlayerState.flags &=
+        ~(PL_CAPTURED | PL_FLAGS10000 | PL_GYORG_FIGHT | PL_ROLLING | PL_MOLDWORM_CAPTURED | PL_IN_HOLE |
+          PL_MOLDWORM_RELEASED | PL_CLONING | PL_USE_LANTERN | PL_PARACHUTE | PL_CONVEYOR_PUSHED | PL_ENTER_MINECART |
+          PL_SWORD_THRUST | PL_USE_OCARINA | PL_CLIMBING | PL_FLAGS40000000 | PL_FLAGS80000000);
     gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.z.HALF.HI = -10;

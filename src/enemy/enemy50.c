@@ -80,40 +80,38 @@ void Enemy50_OnCollision(Enemy50Entity* this) {
         sub_08041134(this);
         sub_0803F6EC(this);
     }
-    if (super->hitType == 0x25) {
+    if (super->hitType == 0x25 && super->contactFlags == 0x80) {
+        super->action = 8;
+        InitializeAnimation(super, 3);
+    } else {
         if (super->contactFlags == 0x80) {
-            super->action = 8;
-            InitializeAnimation(super, 3);
-            goto _08040C9C;
+            this->unk_7c = 0x78;
+            sub_08041128(this);
         }
-    } else if (super->contactFlags == 0x80) {
-        this->unk_7c = 0x78;
-        sub_08041128(this);
-    }
-    if (super->contactFlags == 0x9d) {
-        super->zVelocity = Q_16_16(1.5);
-    }
-    if (super->confusedTime != 0) {
-        super->animationState = super->knockbackDirection >> 4;
-        InitializeAnimation(super, super->animationState + 7);
-        Create0x68FX(super, FX_STARS);
-    }
-    if (super->health != this->unk_7a) {
-        if (super->type == 0) {
+        if (super->contactFlags == 0x9d) {
+            super->zVelocity = Q_16_16(1.5);
+        }
+        if (super->confusedTime != 0) {
             super->animationState = super->knockbackDirection >> 4;
             InitializeAnimation(super, super->animationState + 7);
-        } else {
-            if (super->iframes > 0) {
-                *((u8*)&super->iframes) |= 0x80;
-            }
-            super->flags |= 0x80;
-            super->health = 0xff;
-            super->action = 0xa;
-            super->timer = 60;
+            Create0x68FX(super, FX_STARS);
         }
-        this->unk_7a = super->health;
+        if (super->health != this->unk_7a) {
+            if (super->type == 0) {
+                super->animationState = super->knockbackDirection >> 4;
+                InitializeAnimation(super, super->animationState + 7);
+            } else {
+                if (super->iframes > 0) {
+                    *((u8*)&super->iframes) |= 0x80;
+                }
+                super->flags |= 0x80;
+                super->health = 0xff;
+                super->action = 0xa;
+                super->timer = 60;
+            }
+            this->unk_7a = super->health;
+        }
     }
-_08040C9C:
     EnemyFunctionHandlerAfterCollision(super, Enemy50_Functions);
 }
 

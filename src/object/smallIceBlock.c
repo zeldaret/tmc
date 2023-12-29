@@ -4,14 +4,12 @@
  *
  * @brief Small Ice Block object
  */
-
 #define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
 #include "item.h"
+#include "object.h"
 
 typedef struct {
     /*0x00*/ Entity base;

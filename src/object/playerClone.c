@@ -1,10 +1,10 @@
-#define NENT_DEPRECATED
 /**
  * @file playerClone.c
  * @ingroup Objects
  *
  * @brief Player Clone object
  */
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
 #include "effects.h"
@@ -35,13 +35,13 @@ void sub_08084B1C(PlayerCloneEntity*);
 void sub_08084CAC(PlayerCloneEntity*);
 
 void PlayerClone(Entity* this) {
-    static void (*const actionFuncs[])(PlayerCloneEntity*) = {
+    static void (*const PlayerClone_Actions[])(PlayerCloneEntity*) = {
         PlayerClone_Init,
         PlayerClone_Action1,
         PlayerClone_Action2,
     };
 
-    actionFuncs[this->action]((PlayerCloneEntity*)this);
+    PlayerClone_Actions[this->action]((PlayerCloneEntity*)this);
 }
 
 void PlayerClone_Init(PlayerCloneEntity* this) {

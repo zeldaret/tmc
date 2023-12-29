@@ -4,22 +4,23 @@
  *
  * @brief Smoke object
  */
+#define NENT_DEPRECATED
 #include "object.h"
 
-void sub_0808A40C(Entity*);
-void sub_0808A46C(Entity*);
+void Smoke_Type0(Entity*);
+void Smoke_Type1(Entity*);
 void sub_0808A484(Entity*);
 void sub_0808A4D0(Entity*);
 
 void Smoke(Entity* this) {
-    static void (*const typeFuncs[])(Entity*) = {
-        sub_0808A40C,
-        sub_0808A46C,
+    static void (*const Smoke_Types[])(Entity*) = {
+        Smoke_Type0,
+        Smoke_Type1,
     };
-    typeFuncs[this->type](this);
+    Smoke_Types[this->type](this);
 }
 
-void sub_0808A40C(Entity* this) {
+void Smoke_Type0(Entity* this) {
     static const s8 gUnk_08121068[] = {
         -1, 1, -2, 2, 0, 0, 0, 0,
     };
@@ -39,7 +40,7 @@ void sub_0808A40C(Entity* this) {
     }
 }
 
-void sub_0808A46C(Entity* this) {
+void Smoke_Type1(Entity* this) {
     static void (*const actionFuncs[])(Entity*) = {
         sub_0808A484,
         sub_0808A4D0,
@@ -51,7 +52,7 @@ void sub_0808A484(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = TRUE;
     this->speed = 0x40;
-    this->direction = 6;
+    this->direction = DirectionNorthEast | 0x2;
     this->spriteRendering.b3 = 1;
     this->spritePriority.b0 = 0;
     this->spriteOrientation.flipY = 1;

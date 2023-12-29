@@ -4,8 +4,8 @@
  *
  * @brief Three Thorns object
  */
+#define NENT_DEPRECATED
 #include "entity.h"
-#include "global.h"
 #include "hitbox.h"
 #include "object.h"
 #include "physics.h"

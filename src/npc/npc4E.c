@@ -1,3 +1,10 @@
+/**
+ * @file npc4E.c
+ * @ingroup NPCs
+ *
+ * @brief NPC 4E
+ */
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -10,6 +17,12 @@
 #include "save.h"
 #include "screenTransitions.h"
 #include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+    /*0x69*/ u8 unk_69;
+} NPC4EEntity;
 
 typedef struct {
     Rect customHitbox;
@@ -37,9 +50,9 @@ void NPC4E(Entity* this) {
         this->action = 1;
         this->spriteSettings.draw = 4;
         this->hitbox = (Hitbox*)&gHitbox_2;
-        sub_0807DD50(this);
+        InitScriptForNPC(this);
     } else {
-        sub_0807DD94(this, 0);
+        ExecuteScriptAndHandleAnimation(this, NULL);
     }
 }
 
@@ -131,17 +144,19 @@ void NPC4E_IsEveryPinwheelActivated(Entity* this, ScriptExecutionContext* contex
 }
 
 void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
-    Entity* ent;
+    GenericEntity* ent;
     this->hitbox = (Hitbox*)&gUnk_08114154;
-    ent = CreateObject(MINISH_VILLAGE_OBJECT, 4, 0);
+    ent = (GenericEntity*)CreateObject(MINISH_VILLAGE_OBJECT, 4, 0);
     if (ent != NULL) {
-        PositionRelative(this, ent, Q_16_16(-8.0), 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_MinishVillageObjectLeftStoneOpening);
+        PositionRelative(this, &ent->base, Q_16_16(-8.0), 0);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh =
+            StartCutscene(&ent->base, &script_MinishVillageObjectLeftStoneOpening);
     }
-    ent = CreateObject(MINISH_VILLAGE_OBJECT, 5, 0);
+    ent = (GenericEntity*)CreateObject(MINISH_VILLAGE_OBJECT, 5, 0);
     if (ent != NULL) {
-        PositionRelative(this, ent, Q_16_16(8.0), 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_MinishVillageObjectRightStoneOpening);
+        PositionRelative(this, &ent->base, Q_16_16(8.0), 0);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh =
+            StartCutscene(&ent->base, &script_MinishVillageObjectRightStoneOpening);
     }
 }
 
@@ -170,14 +185,14 @@ Item NPC4E_GetItemWithSwordUpgraded(Item itemId) {
     return itemId;
 }
 
-void NPC4E_SaveEquippedItems(Entity* this) {
-    this->field_0x68.HALF.LO = gSave.stats.itemButtons[SLOT_A];
-    this->field_0x68.HALF.HI = gSave.stats.itemButtons[SLOT_B];
+void NPC4E_SaveEquippedItems(NPC4EEntity* this) {
+    this->unk_68 = gSave.stats.itemButtons[SLOT_A];
+    this->unk_69 = gSave.stats.itemButtons[SLOT_B];
 }
 
-void NPC4E_RestoreEquippedItems(Entity* this) {
-    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->field_0x68.HALF.LO), EQUIP_SLOT_A);
-    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->field_0x68.HALF.HI), EQUIP_SLOT_B);
+void NPC4E_RestoreEquippedItems(NPC4EEntity* this) {
+    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->unk_68), EQUIP_SLOT_A);
+    ForceEquipItem(NPC4E_GetItemWithSwordUpgraded(this->unk_69), EQUIP_SLOT_B);
 }
 
 void sub_0806DC7C(void) {

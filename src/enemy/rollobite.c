@@ -46,7 +46,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
     if (super->hitType == 34 && super->health != 0xff) {
         super->action = 4;
         super->zVelocity = Q_16_16(2.0);
-        super->direction = 0xff;
+        super->direction = DIR_NONE;
         super->health = 0xff;
         super->hitType = 35;
         InitializeAnimation(super, super->animationState + 8);
@@ -56,7 +56,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         if (super->action == 4 || super->action == 5) {
             super->action = 4;
             super->timer = 180;
-            super->direction = 0xff;
+            super->direction = DIR_NONE;
             InitializeAnimation(super, super->animationState + 0x10);
         }
     }
@@ -81,7 +81,7 @@ void Rollobite_OnGrabbed(RollobiteEntity* this) {
     if (super->subAction < 3 && !sub_0806F520(super)) {
         super->action = 4;
         COLLISION_ON(super);
-        super->direction = 0xff;
+        super->direction = DIR_NONE;
         InitializeAnimation(super, super->animationState + 0x10);
     } else {
         gUnk_080CA6A4[super->subAction](this);
@@ -114,7 +114,7 @@ void sub_080207A8(RollobiteEntity* this) {
     COLLISION_ON(super);
     super->spritePriority.b0 = 4;
     super->gustJarState &= 0xfb;
-    super->direction ^= 0x10;
+    super->direction ^= DirectionSouth;
     super->zVelocity = Q_16_16(1.5);
     super->speed = 0x80;
     InitializeAnimation(super, super->animationState + 0x10);
@@ -200,7 +200,7 @@ void Rollobite_RolledUp(RollobiteEntity* this) {
         if (unk == 1)
             EnqueueSFX(SFX_PLACE_OBJ);
 
-        if ((super->direction & 0x80) == 0)
+        if (!(super->direction & DIR_NOT_MOVING_CHECK))
             ProcessMovement2(super);
     }
 }
@@ -255,8 +255,8 @@ void sub_08020A7C(RollobiteEntity* this) {
 
     if (sub_08049FA0(super) == 0) {
         int tmp = DirectionRoundUp(sub_08049EE4(super));
-        if ((state ^ 0x10) == tmp)
-            state ^= 0x10;
+        if ((state ^ DirectionSouth) == tmp)
+            state ^= DirectionSouth;
     }
 
     super->direction = state;
