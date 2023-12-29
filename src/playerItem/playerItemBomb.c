@@ -113,10 +113,10 @@ void PlayerItemBomb_Action1(PlayerItemBombEntity* this) {
     }
     switch (IsItemEquipped(ITEM_REMOTE_BOMBS)) {
         case EQUIP_SLOT_A:
-            input = PLAYER_INPUT_1;
+            input = INPUT_USE_ITEM1;
             break;
         case EQUIP_SLOT_B:
-            input = PLAYER_INPUT_2;
+            input = INPUT_USE_ITEM2;
             break;
         case EQUIP_SLOT_NONE:
             input = 0;

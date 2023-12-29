@@ -66,7 +66,7 @@ void HyruleTownTilesetManager_Main(HyruleTownTilesetManager* this) {
         this->field_0x21 = 0xff;
         this->field_0x20 = 0xff;
         RegisterTransitionManager(this, sub_08059A2C, NULL);
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     sub_08059A58(this);
 }

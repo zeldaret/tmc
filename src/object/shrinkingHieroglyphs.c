@@ -52,7 +52,7 @@ void ShrinkingHieroglyphs_Init(ShrinkingHieroglyphsEntity* this) {
     super->subtimer = 30;
     this->objDir.HALF.HI = ShrinkingHieroglyphs_Directions[super->type];
     this->unk74 = 0x2000;
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
     if (super->type == 0) {
         this->unk7e = 0x40;
         LoadSwapGFX(super, 1, 0);

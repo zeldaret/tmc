@@ -208,10 +208,10 @@ void Book_Action5(BookEntity* this) {
                 break;
             }
             case 1: {
-                u8 doTextBox = gMessage.doTextBox & 0x7f;
-                if (!doTextBox) {
+                u8 status = gMessage.state & MESSAGE_ACTIVE;
+                if (!status) {
                     super->spriteSettings.draw = 1;
-                    super->subAction = doTextBox;
+                    super->subAction = status;
                 }
                 break;
             }

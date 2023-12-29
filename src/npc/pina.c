@@ -74,7 +74,7 @@ void sub_08063AC0(Entity* this) {
 }
 
 void sub_08063B44(Entity* this) {
-    u8 tmp = gMessage.doTextBox & 0x7f;
+    u8 tmp = gMessage.state & MESSAGE_ACTIVE;
     if (tmp == 0) {
         this->action = 1;
         this->subtimer = tmp;

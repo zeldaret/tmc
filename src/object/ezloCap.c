@@ -81,11 +81,11 @@ void EzloCap_Type0Action1(EzloCapEntity* this) {
     static const u8 gUnk_0811F16C[] = { 4, 0, 2, 6, 10, 8, 9, 5, 1, 0, 0, 0 };
     u32 tmp = gPlayerEntity.palette.b.b0;
     super->palette.b.b0 = tmp;
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         DeleteEntity(super);
         return;
     }
-    if ((gMessage.doTextBox & 0x7f) != 5) {
+    if ((gMessage.state & MESSAGE_ACTIVE) != 5) {
         if (((gMessage.unk == 0xa) || (gMessage.unk == 0)) || ((gMessage.unk & 0xf) > 9)) {
             if (super->animIndex != (super->subtimer | 3)) {
                 InitAnimationForceUpdate(super, super->subtimer | 3);

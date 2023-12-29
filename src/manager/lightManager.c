@@ -20,8 +20,8 @@ extern void sub_0801E120(void);
 extern void sub_0801E154(u32);
 extern void sub_0801E160(u32, u32, u32);
 
-bool32 sub_0805BA78();
-void sub_0805BAD4();
+bool32 LerpLightLevel();
+void UpdateLightAlpha();
 
 void LightManager_Main(LightManager* this) {
     s32 sVar1;
@@ -37,14 +37,14 @@ void LightManager_Main(LightManager* this) {
         super->flags |= ENT_PERSIST;
         super->timer = 17;
         this->unk20 = 0;
-        SetDefaultPriority((Entity*)this, 6);
+        SetEntityPriority((Entity*)this, 6);
         sub_0801E120();
         sub_0801E154(super->timer);
     }
     if (gMain.substate == GAMEMAIN_UPDATE) {
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
-        sub_0805BA78();
-        sub_0805BAD4();
+        LerpLightLevel();
+        UpdateLightAlpha();
     }
     if (gArea.lightType == 2) {
         gScreen.lcd.displayControl &= ~DISPCNT_WIN0_ON;
@@ -87,44 +87,33 @@ void LightManager_Main(LightManager* this) {
 
 #define ABS(x) ((unsigned)(x < 0 ? -(x) : x))
 
-bool32 sub_0805BA78() {
-    u32 uVar1;
-    s32 iVar1;
-    s32 iVar2;
+bool32 LerpLightLevel() {
+    s32 tgt;
+    s32 cur;
 
-    iVar2 = (short)gArea.lightLevel;
-    iVar1 = gRoomVars.lightLevel;
+    cur = (short)gArea.lightLevel;
+    tgt = gRoomVars.lightLevel;
 
-    if (iVar1 < 0) {
-        iVar1 = 0;
-    }
+    tgt = max(tgt, 0);
+    tgt = min(tgt, 0x100);
 
-    if (0x100 < iVar1) {
-        iVar1 = 0x100;
-    }
-
-    if (iVar2 != iVar1) {
-        if (ABS(iVar1 - iVar2) <= 4) {
-            iVar2 = iVar1;
-        } else {
-            if (iVar1 < iVar2) {
-                iVar2 = iVar2 - 4;
-            } else {
-                if (iVar1 > iVar2) {
-                    iVar2 = iVar2 + 4;
-                }
-            }
+    if (cur != tgt) {
+        if (ABS(tgt - cur) <= 4) {
+            cur = tgt;
+        } else if (tgt < cur) {
+            cur -= 4;
+        } else if (tgt > cur) {
+            cur += 4;
         }
-        gArea.lightLevel = iVar2;
-    } else {
-        return FALSE;
+        gArea.lightLevel = cur;
+        return TRUE;
     }
-    return TRUE;
+    return FALSE;
 }
 
 extern u16 gUnk_08108CA8[];
 
-void sub_0805BAD4() {
+void UpdateLightAlpha() {
     static const u16 gUnk_08108CA8[] = { 0x10,  0x10f, 0x20e, 0x30d, 0x40c, 0x50b, 0x60a, 0x709,  0x808,
                                          0x907, 0xa06, 0xb05, 0xc04, 0xd03, 0xe02, 0xf01, 0x1000, 0x00 };
     if (gArea.lightType != 0) {
@@ -164,8 +153,8 @@ void sub_0805BB74(s32 lightLevel) {
     if (manager) {
         LightManager_Main(manager);
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
-        sub_0805BA78();
-        sub_0805BAD4();
+        LerpLightLevel();
+        UpdateLightAlpha();
     }
 }
 
@@ -175,9 +164,9 @@ bool32 UpdateLightLevel() {
     iVar1 = FALSE;
     if (gArea.lightType && gRoomVars.lightLevel < (s16)gArea.lightLevel) {
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
-        iVar1 = sub_0805BA78();
+        iVar1 = LerpLightLevel();
         if (iVar1) {
-            sub_0805BAD4();
+            UpdateLightAlpha();
         }
     }
     return iVar1;
@@ -189,9 +178,9 @@ s32 sub_0805BC04(void) {
     iVar1 = 0;
     if (gArea.lightType && gRoomVars.lightLevel > (short)gArea.lightLevel) {
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
-        iVar1 = sub_0805BA78();
+        iVar1 = LerpLightLevel();
         if (iVar1) {
-            sub_0805BAD4();
+            UpdateLightAlpha();
         }
     }
     return iVar1;

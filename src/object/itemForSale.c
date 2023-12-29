@@ -66,7 +66,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
     super->spritePriority.b1 = 0;
     super->carryFlags = 0;
 #ifdef EU
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
 #endif
     super->child = super;
     ItemForSale_MakeInteractable(this);
@@ -96,7 +96,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
             if (super->interactType != INTERACTION_NONE) {
                 super->interactType = INTERACTION_NONE;
                 super->subAction = 1;
-                sub_08078B48();
+                PausePlayer();
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;
@@ -118,8 +118,8 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
         ptr = sub_080784E4();
         if (((*(int*)(ptr + 8) == 0) || ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = R_ACTION_SPEAK,
                                                                    (gPlayerState.playerInput.newInput &
-                                                                    (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0)))) &&
-            ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0)) {
+                                                                    (INPUT_ACTION | INPUT_INTERACT)) == 0)))) &&
+            ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_CANCEL | INPUT_INTERACT)) != 0)) {
             sub_080819B4(this);
         }
     }

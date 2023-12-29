@@ -269,7 +269,7 @@ void ChuchuBoss_OnDeath(ChuchuBossEntity* this) {
     Entity* child;
     Entity* parent;
 
-    sub_08078B48();
+    PausePlayer();
     if (super->type == 0) {
         if (super->subAction != 12) {
             super->subAction = 12;
@@ -463,7 +463,7 @@ void sub_08026090(ChuchuBossEntity* this) {
         }
         CopyPosition(super->child, super);
     } else {
-        sub_08078B48();
+        PausePlayer();
         if (super->timer-- == 0) {
             gRoomControls.camera_target = &gPlayerEntity;
             DeleteThisEntity();
@@ -542,7 +542,7 @@ void sub_0802626C(ChuchuBossEntity* this) {
     gPauseMenuOptions.disabled = 1;
     gUnk_080CC20C[this->unk_84->unk_03](this);
     if (gPlayerEntity.action != PLAYER_ROOMTRANSITION && gPlayerEntity.action != PLAYER_ROOM_EXIT) {
-        sub_08078B48();
+        PausePlayer();
     }
 }
 
@@ -1126,7 +1126,7 @@ void sub_08026E1C(ChuchuBossEntity* this) {
     }
     if ((sub_08027C54(this)) && this->unk_84->unk_04 == 2) {
         sub_08027C7C(this, 0x3f);
-        sub_08078B48();
+        PausePlayer();
     }
 }
 
@@ -1155,7 +1155,7 @@ void sub_08026FA4(ChuchuBossEntity* this) {
     ChuchuBossEntity* pEVar3;
     ChuchuBossEntity* pEVar4;
 
-    sub_08078B48();
+    PausePlayer();
     COLLISION_OFF(super);
     pEVar4 = (ChuchuBossEntity*)super->child;
     pEVar3 = (ChuchuBossEntity*)super->parent;
@@ -1361,7 +1361,7 @@ void sub_080272D4(ChuchuBossEntity* this) {
                     if (sub_08027C54(super->child) == 0 || ((ChuchuBossEntity*)super->child)->unk_84->unk_04 != 2) {
                         SoundReq(SFX_BOSS_HIT);
                     } else {
-                        sub_08078B48();
+                        PausePlayer();
                         gRoomControls.camera_target = super->child;
                         gPauseMenuOptions.disabled = 1;
                         gRoomControls.camera_target->subAction = 9;

@@ -104,7 +104,7 @@ void sub_0809F5F0(CloudEntity* this) {
         super->action = 2;
         super->timer = 120;
         SetPlayerControl(3);
-        sub_08078B48();
+        PausePlayer();
         gRoomControls.camera_target = super;
     }
 }

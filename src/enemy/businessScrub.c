@@ -226,7 +226,7 @@ void BusinessScrub_Action3(BusinessScrubEntity* this) {
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
-                    SetDefaultPriority(iVar1, PRIO_MESSAGE);
+                    SetEntityPriority(iVar1, PRIO_MESSAGE);
                 }
                 SetFlag(this->unk_86);
                 sub_0802925C(this);
@@ -262,7 +262,7 @@ void BusinessScrub_Action5(BusinessScrubEntity* this) {
     struct SalesOffering* offer = (struct SalesOffering*)this->unk_7c;
     u32 subtype;
 
-    if ((gMessage.doTextBox & 0x7f) == 0 && sub_0802915C(this) && !sub_08056338()) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0 && sub_0802915C(this) && !sub_08056338()) {
         if (offer->price <= gSave.stats.rupees) {
             if (BusinessScrub_CheckRefillFitsBag(this)) {
                 /* Bag full. */
@@ -331,11 +331,11 @@ void BusinessScrub_Action6(BusinessScrubEntity* this) {
 }
 
 void BusinessScrub_Action7(BusinessScrubEntity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         struct SalesOffering* offer = (struct SalesOffering*)this->unk_7c;
 
         super->action = 4;
-        super->subAction = gMessage.doTextBox & 0x7f;
+        super->subAction = gMessage.state & MESSAGE_ACTIVE;
         super->timer = 1;
         if (!CheckLocalFlag(offer->local_flag)) {
             SetLocalFlag(offer->local_flag);

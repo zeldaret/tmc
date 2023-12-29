@@ -6,6 +6,12 @@
 #include "npc.h"
 #include "manager/diggingCaveEntranceManager.h"
 
+typedef struct Temp {
+    void* prev;
+    void* next;
+    u8 _0[0x38];
+} Temp;
+
 extern u8 gUpdateVisibleTiles;
 extern Manager gUnk_02033290;
 void UpdatePlayerInput(void);
@@ -74,22 +80,22 @@ const u8 gUnk_081091F8[] = {
     0, 3, 0, 3, 3, 0, 3, 3, 3, 3,
 };
 
-void SetDefaultPriorityForKind(Entity* e) {
+void SetEntityPriorityForKind(Entity* e) {
     u8 r3 = gRoomTransition.entity_update_type;
     const u8* array = gUnk_081091F8;
 
     if (r3 != 2) {
         array = gUnk_081091EE;
     }
-    SetDefaultPriority(e, array[e->kind]);
+    SetEntityPriority(e, array[e->kind]);
 }
 
-void SetDefaultPriority(Entity* ent, u32 prio) {
+void SetEntityPriority(Entity* ent, u32 prio) {
     ent->updatePriorityPrev = prio;
     ent->updatePriority = prio;
 }
 
-bool32 EntityIsDeleted(Entity* this) {
+bool32 EntityDisabled(Entity* this) {
     u32 value;
 
     if (this->flags & ENT_DELETED)
@@ -98,19 +104,19 @@ bool32 EntityIsDeleted(Entity* this) {
         return FALSE;
 
     // pick highest
-    if (gPriorityHandler.sys_priority > gPriorityHandler.ent_priority)
-        value = gPriorityHandler.sys_priority;
+    if (gPriorityHandler.event_priority > gPriorityHandler.ent_priority)
+        value = gPriorityHandler.event_priority;
     else
         value = gPriorityHandler.ent_priority;
 
-    if (gMessage.doTextBox & 0x7F)
+    if (gMessage.state & MESSAGE_ACTIVE)
         value = max(value, PRIO_MESSAGE);
     return value > this->updatePriority;
 }
 
 bool32 AnyPrioritySet(void) {
-    u32 prio = gPriorityHandler.sys_priority;
-    if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
+    u32 prio = gPriorityHandler.event_priority;
+    if (gPriorityHandler.event_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
     return prio != PRIO_MIN;
 }
@@ -180,12 +186,12 @@ static void UpdatePriorityTimer(void) {
 }
 
 void SetPlayerEventPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
+    gPriorityHandler.event_priority = PRIO_PLAYER_EVENT;
     gPlayerEntity.updatePriority = PRIO_PLAYER_EVENT;
 }
 
 void ResetPlayerEventPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_MIN;
+    gPriorityHandler.event_priority = PRIO_MIN;
     gPlayerEntity.updatePriority = PRIO_PLAYER;
 }
 
@@ -195,15 +201,15 @@ void RevokePriority(Entity* e) {
 }
 
 void SetRoomReloadPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
+    gPriorityHandler.event_priority = PRIO_PLAYER_EVENT;
 }
 
 void SetInitializationPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_HIGHEST;
+    gPriorityHandler.event_priority = PRIO_HIGHEST;
 }
 
-void ResetSystemPriority(void) {
-    gPriorityHandler.sys_priority = PRIO_MIN;
+void ClearEventPriority(void) {
+    gPriorityHandler.event_priority = PRIO_MIN;
 }
 
 void UpdateEntities(void) {
@@ -241,8 +247,6 @@ void EraseAllEntities(void) {
     gOAMControls.unk[1].unk6 = 1;
 }
 
-extern Entity gUnk_030015A0[0x48];
-
 Entity* GetEmptyEntity() {
     u8 flags_ip;
     Entity* end;
@@ -253,9 +257,9 @@ Entity* GetEmptyEntity() {
     LinkedList* listPtr;
     LinkedList* endListPtr;
 
-    if (gEntCount <= 0x46) {
-        currentEnt = gUnk_030015A0;
-        end = currentEnt + ARRAY_COUNT(gUnk_030015A0);
+    if (gEntCount < MAX_ENTITIES - 1) {
+        currentEnt = gEntities;
+        end = currentEnt + ARRAY_COUNT(gEntities);
 
         do {
             if (currentEnt->prev == 0) {
@@ -267,7 +271,8 @@ Entity* GetEmptyEntity() {
     currentEnt = &gPlayerEntity;
 
     do {
-        if ((s32)currentEnt->prev < 0 && (currentEnt->flags & 0xc) && currentEnt != gUpdateContext.current_entity) {
+        if ((s32)currentEnt->prev < 0 && (currentEnt->flags & (ENT_UNUSED1 | ENT_UNUSED2)) &&
+            currentEnt != gUpdateContext.current_entity) {
             ClearDeletedEntity(currentEnt);
             return currentEnt;
         }
@@ -282,9 +287,10 @@ Entity* GetEmptyEntity() {
         currentEnt = listPtr->first;
         nextList = listPtr + 1;
         while ((u32)currentEnt != (u32)listPtr) {
-            if (currentEnt->kind != MANAGER && flags_ip < (currentEnt->flags & 0x1c) &&
+            if (currentEnt->kind != MANAGER &&
+                flags_ip < (currentEnt->flags & (ENT_UNUSED1 | ENT_UNUSED2 | ENT_DELETED)) &&
                 gUpdateContext.current_entity != currentEnt) {
-                flags_ip = currentEnt->flags & 0x1c;
+                flags_ip = currentEnt->flags & (ENT_UNUSED1 | ENT_UNUSED2 | ENT_DELETED);
                 rv = currentEnt;
             }
             currentEnt = currentEnt->next;
@@ -301,16 +307,16 @@ Entity* GetEmptyEntity() {
     return rv;
 }
 
-extern Entity gItemGetEntities[7];
+extern Entity gAuxPlayerEntities[7];
 
-Entity* CreateItemGetEntity(void) {
-    Entity* ent = gItemGetEntities;
+Entity* CreateAuxPlayerEntity(void) {
+    Entity* ent = gAuxPlayerEntities;
 
     do {
         if (ent->prev == NULL) {
             return ent;
         }
-    } while (++ent < &gItemGetEntities[7]);
+    } while (++ent < &gAuxPlayerEntities[7]);
 
     return NULL;
 }
@@ -407,12 +413,6 @@ void DeleteAllEntities(void) {
     }
 }
 
-typedef struct Temp {
-    void* prev;
-    void* next;
-    u8 _0[0x38];
-} Temp;
-
 // fix this
 Manager* GetEmptyManager(void) {
     Temp* it;
@@ -508,7 +508,7 @@ void AppendEntityToList(Entity* entity, u32 listIndex) {
     } else {
         gManagerCount++;
     }
-    SetDefaultPriorityForKind(entity);
+    SetEntityPriorityForKind(entity);
 }
 
 void PrependEntityToList(Entity* entity, u32 listIndex) {

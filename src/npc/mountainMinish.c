@@ -126,7 +126,7 @@ void sub_08067EF0(MountainMinishEntity* this) {
             super->spriteSettings.draw = 1;
             super->animationState = super->type;
             this->animIndex = 0;
-            SetDefaultPriority(super, 2);
+            SetEntityPriority(super, 2);
             InitScriptForNPC(super);
             InitializeAnimation(super, gUnk_08111304[super->type2]);
             break;
@@ -150,7 +150,7 @@ void sub_08067EF0(MountainMinishEntity* this) {
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7f) != 0)
+            if ((gMessage.state & MESSAGE_ACTIVE) != 0)
                 break;
             super->action = 1;
             InitializeAnimation(super, (super->animationState >> 1) + 4);

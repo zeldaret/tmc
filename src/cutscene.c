@@ -52,7 +52,7 @@ void sub_080535AC(void) {
 
 void sub_080535F4(void) {
     if (gFadeControl.active == 0) {
-        ResetSystemPriority();
+        ClearEventPriority();
         gMenu.overlayType = 2;
     }
 }
@@ -234,7 +234,7 @@ void sub_08053758(void) {
     gScreen.bg1.control = 0x1c4e;
     gScreen.bg2.control = 0x1dc1;
     SoundReq(BGM_STORY);
-    ResetSystemPriority();
+    ClearEventPriority();
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
@@ -344,7 +344,7 @@ void sub_08053A1C(void) {
 }
 
 void sub_08053A5C(void) {
-    if (((gMessage.doTextBox & 0x7f) == 0) && --gMenu.transitionTimer == 0) {
+    if (((gMessage.state & MESSAGE_ACTIVE) == 0) && --gMenu.transitionTimer == 0) {
         gMenu.overlayType++;
         SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     }
@@ -451,7 +451,7 @@ void sub_08053B74(void) {
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
     LoadRoomEntityList(gUnk_080FCDE0);
-    ResetSystemPriority();
+    ClearEventPriority();
     ResetEntityPriority();
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }

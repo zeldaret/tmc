@@ -200,7 +200,7 @@ u32 getItemMetaDataGetTextIndex(s32 itemIndex) {
     return ptr[2];
 }
 
-u32 sub_080542AC(u32 param_1) {
+u32 IsMinishItem(u32 param_1) {
     const ItemMetaData* ptr1 = gItemMetaData;
     u8* ptr = (u8*)&((ptr1)[param_1]);
     return ptr[3] & 1;
@@ -255,9 +255,9 @@ void ModArrows(s32 arrows) {
 EquipSlot IsItemEquipped(u32 itemId) {
     EquipSlot equipSlot;
 
-    if (itemId == gSave.stats.itemButtons[SLOT_A]) {
+    if (itemId == gSave.stats.equipped[SLOT_A]) {
         equipSlot = EQUIP_SLOT_A;
-    } else if (itemId == gSave.stats.itemButtons[SLOT_B]) {
+    } else if (itemId == gSave.stats.equipped[SLOT_B]) {
         equipSlot = EQUIP_SLOT_B;
     } else {
         equipSlot = EQUIP_SLOT_NONE;
@@ -273,17 +273,17 @@ void PutItemOnSlot(u32 itemId) {
     }
     if (itemId2 - 1 < 0x1f) {
         equipSlot = EQUIP_SLOT_NONE;
-        if (gSave.stats.itemButtons[SLOT_A] == ITEM_NONE) {
+        if (gSave.stats.equipped[SLOT_A] == ITEM_NONE) {
             equipSlot = EQUIP_SLOT_A;
-        } else if (gSave.stats.itemButtons[SLOT_B] == ITEM_NONE) {
+        } else if (gSave.stats.equipped[SLOT_B] == ITEM_NONE) {
             equipSlot = EQUIP_SLOT_B;
         }
         if (equipSlot == EQUIP_SLOT_NONE) {
             u32 temp = gItemMetaData[itemId2].menuSlot;
-            if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_A]].menuSlot) {
+            if (temp == gItemMetaData[gSave.stats.equipped[SLOT_A]].menuSlot) {
                 equipSlot = EQUIP_SLOT_A;
             } else {
-                if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_B]].menuSlot) {
+                if (temp == gItemMetaData[gSave.stats.equipped[SLOT_B]].menuSlot) {
                     equipSlot = EQUIP_SLOT_B;
                 }
             }
@@ -302,13 +302,13 @@ void ForceEquipItem(u32 itemId, u32 equipSlot) {
 
     if ((itemId - 1 < 0x1f) && (equipSlot < EQUIP_SLOT_NONE)) {
         otherItemSlot = equipSlot == EQUIP_SLOT_A;
-        replacedItem = gSave.stats.itemButtons[equipSlot];
-        otherItem = gSave.stats.itemButtons[otherItemSlot];
+        replacedItem = gSave.stats.equipped[equipSlot];
+        otherItem = gSave.stats.equipped[otherItemSlot];
         if (gItemMetaData[otherItem].menuSlot == gItemMetaData[itemId].menuSlot) {
             otherItem = replacedItem;
         }
-        gSave.stats.itemButtons[equipSlot] = itemId;
-        gSave.stats.itemButtons[otherItemSlot] = otherItem;
+        gSave.stats.equipped[equipSlot] = itemId;
+        gSave.stats.equipped[otherItemSlot] = otherItem;
         gUnk_0200AF00.unk_13 = 0x7f;
         gUnk_0200AF00.unk_14 = 0x7f;
     }
@@ -403,8 +403,8 @@ void EnableRandomDrops(void) {
     gRoomVars.randomDropsDisabled = FALSE;
 }
 
-extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
-extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
+extern void SumDropProbabilities(s16*, const s16*, const s16*, const s16*);
+extern u32 SumDropProbabilities2(s16*, const s16*, const s16*, const s16*);
 u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter);
 u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     extern const u8 gUnk_080FE1B4[] /* = {
@@ -459,7 +459,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
 #endif
             }
             // vector addition, s0 = ptr4 + ptr2 + ptr3
-            sub_08000F14(droptable.a, ptr4->a, ptr2->a, ptr3->a);
+            SumDropProbabilities(droptable.a, ptr4->a, ptr2->a, ptr3->a);
             if (gSave.stats.health <= 8) {
                 droptable.s.hearts += 5;
             }
@@ -486,7 +486,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
             // vector addition, s0 = s0 + ptr2 + ptr3
             // resulting values are clamped to be >= 0
             // returns sum over s0
-            summOdds = sub_08000F2C(droptable.a, droptable.a, ptr2->a, ptr3->a);
+            summOdds = SumDropProbabilities2(droptable.a, droptable.a, ptr2->a, ptr3->a);
             rand = Random();
             item = (rand >> 0x18);
             item &= 0xF;

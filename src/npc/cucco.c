@@ -30,7 +30,7 @@ void Cucco_Init(CuccoEntity* this) {
     super->action++;
     this->fusionOffer = GetFusionToOffer(super);
     AddInteractableAsMinishFuser(super, this->fusionOffer);
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     super->subAction = 0;
     sub_0806E4EC(this);
 }

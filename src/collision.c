@@ -63,8 +63,8 @@ void CollisionMain(void) {
     u32 prio;
 
     // pick highest priority
-    prio = gPriorityHandler.sys_priority;
-    if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
+    prio = gPriorityHandler.event_priority;
+    if (gPriorityHandler.event_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
 
     // if any priority is set, dont do collision

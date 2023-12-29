@@ -102,7 +102,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
 
         case 2:
             this->unk_7a = 0;
-            SetDefaultPriority(super, 7);
+            SetEntityPriority(super, 7);
             InitializeAnimation(super, 1);
             break;
         case 3:
@@ -113,7 +113,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
             this->unk_7b = 0;
             this->unk_80 = 0;
             sub_0808804C(this);
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             break;
     }
 }

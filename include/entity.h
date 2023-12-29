@@ -6,7 +6,9 @@
 #include "color.h"
 #include "sprite.h"
 
-#define MAX_ENTITIES 71
+#define MAX_ENTITIES 72
+#define MAX_MANAGERS 32
+#define MAX_AUX_PLAYER_ENTITIES 7
 
 /** Kinds of Entity's supported by the game. */
 typedef enum {
@@ -38,6 +40,8 @@ typedef enum {
 typedef enum {
     ENT_DID_INIT = 0x1, /**< Graphics and other data loaded. */
     ENT_SCRIPTED = 0x2, /**< Execute in a scripted environment. */
+    ENT_UNUSED1 = 0x4,  /**< Unused delete flag. */
+    ENT_UNUSED2 = 0x8,  /**< Unused delete flag. */
     ENT_DELETED = 0x10, /**< Queue deletion next frame. */
     ENT_PERSIST = 0x20, /**< Persist between rooms. */
     ENT_COLLIDE = 0x80, /**< Collide with other Entity's. */
@@ -238,6 +242,15 @@ typedef struct LinkedList {
     Entity* first;
 } LinkedList;
 
+/**
+ * LinkedList's which point to allocate Entities.
+ * These work together with Entity.prev and Entity.next fields
+ * to allow the iteration of all Entity's.
+ */
+extern LinkedList gEntityLists[9];
+extern Entity gAuxPlayerEntities[MAX_AUX_PLAYER_ENTITIES];
+extern Entity gEntities[MAX_ENTITIES];
+
 typedef void(EntityAction)(Entity*);
 typedef void (*EntityActionPtr)(Entity*);
 typedef void (*const* EntityActionArray)(Entity*);
@@ -283,7 +296,7 @@ Entity* CreateEnemy(u32 id, u32 type);
 Entity* CreateNPC(u32 id, u32 type, u32 type2);
 Entity* CreateObject(u32 id, u32 type, u32 type2);
 Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
-Entity* CreateItemGetEntity(void);
+Entity* CreateAuxPlayerEntity(void);
 Entity* CreateFx(Entity* parent, u32 type, u32 type2);
 /// @}
 
@@ -386,12 +399,15 @@ Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
  * @param entity Entity to set the priority of.
  * @param prio #Priority level.
  */
-void SetDefaultPriority(Entity* entity, u32 prio);
+void SetEntityPriority(Entity* entity, u32 prio);
 
 /**
- * Check if entity will be deleted next frame.
+ * Check if entity is disabled. Entities are disabled if:
+ * - They are deleted.
+ * - There is an event and the entity doesn't have priority
+ *   (n/a if entity is in action 0).
  */
-bool32 EntityIsDeleted(Entity* entity);
+bool32 EntityDisabled(Entity* entity);
 
 /**
  * Check if system or entity is blocking updates.
@@ -477,17 +493,9 @@ void SetInitializationPriority(void);
 /**
  * Reset the system update priority.
  */
-void ResetSystemPriority(void);
+void ClearEventPriority(void);
 
 void sub_0805E958(void);
-
-/**
- * LinkedList's which point to allocate Entities.
- * These work together with Entity.prev and Entity.next fields
- * to allow the iteration of all Entity's.
- */
-extern LinkedList gEntityLists[9];
-extern Entity gItemGetEntities[7];
 
 typedef struct {
     u8 unk_0;

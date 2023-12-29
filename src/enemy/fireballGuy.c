@@ -87,7 +87,7 @@ void FireballGuy_Action2(FireballGuyEntity* this) {
 
     /* Can we create enough new entities? */
     count = typeEntityCount[super->type];
-    if (MAX_ENTITIES + 1 - count <= gEntCount)
+    if (MAX_ENTITIES - count <= gEntCount)
         return;
 
     /* Create 2-5 new MiniFireballGuy */

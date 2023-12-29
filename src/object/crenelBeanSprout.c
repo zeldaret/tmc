@@ -100,7 +100,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             break;
         case 1:
             super->spriteRendering.b0 = 3;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             break;
         case 2:
             if (CheckLocalFlag((u32)super->type2) == 0) {
@@ -179,7 +179,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
-        if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
+        if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_40)) == 0) {
             return;
         }
         if (gUnk_0200AF00.rActionPlayerState != R_ACTION_THROW) {
@@ -266,7 +266,7 @@ void CrenelBeanSprout_Action6(CrenelBeanSproutEntity* this) {
         CrenelBeanSprout_Action6SubAction2,
     };
     if (super->subAction != 2) {
-        sub_08078B48();
+        PausePlayer();
     }
     CrenelBeanSprout_Action6SubActions[super->subAction](this);
 }

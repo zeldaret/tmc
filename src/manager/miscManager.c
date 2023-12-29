@@ -212,7 +212,7 @@ void MiscManager_Type3(MiscManager* this) {
 void MiscManager_Type4(MiscManager* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     if (CheckLocalFlag(0x6c)) {
         if (CheckLocalFlag(0x4b)) {
@@ -364,7 +364,7 @@ void MiscManager_TypeB(MiscManager* this) {
 
 bool32 sub_080593CC(MiscManager* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) == PLAYER_INPUT_UP) {
+        (gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) == INPUT_UP) {
         return EntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return FALSE;
@@ -430,7 +430,7 @@ void MiscManager_TypeE(MiscManager* this) {
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void MiscManager_TypeF(MiscManager* this) {
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     if (gPlayerEntity.action == PLAYER_TALKEZLO) {
         DeleteThisEntity();
     }

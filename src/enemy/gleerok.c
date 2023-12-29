@@ -151,7 +151,7 @@ void Gleerok(GleerokEntity* this) {
 }
 
 void Gleerok_OnDeath(GleerokEntity* this) {
-    sub_08078B48();
+    PausePlayer();
 
     switch (super->type) {
         case 2:
@@ -426,7 +426,7 @@ void sub_0802D3B8(GleerokEntity* this) {
 
 void sub_0802D650(GleerokEntity* this) {
 #ifdef EU
-    sub_08078B48();
+    PausePlayer();
 #endif
 
     gUnk_080CD7E4[super->subAction](this);
@@ -1020,7 +1020,7 @@ void sub_0802E0B8(GleerokEntity* this) {
         if (this->unk_79 > 1) {
             super->health = 0;
             super->action = 0;
-            sub_08078B48();
+            PausePlayer();
             SoundReq(SFX_BOSS_DIE);
             return;
         } else {

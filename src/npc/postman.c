@@ -234,7 +234,7 @@ void sub_080604DC(Entity* this) {
             ent = CreateFx(this, FX_DASH, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
-                SetDefaultPriority(ent, 3);
+                SetEntityPriority(ent, 3);
             }
         }
     }
@@ -273,7 +273,7 @@ void sub_08060528(PostmanEntity* this) {
             break;
         case 2:
             UpdateAnimationSingleFrame(super);
-            if ((gMessage.doTextBox & 0x7f) != 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) != 0) {
                 break;
             }
             super->action = 1;

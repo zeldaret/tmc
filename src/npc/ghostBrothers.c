@@ -136,7 +136,7 @@ void sub_08065D18(GhostBrothersEntity* this) {
     super->spriteSettings.draw = 1;
     super->spriteRendering.alphaBlend = 1;
     this->unk_6c = gUnk_08110188;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     InitAnimationForceUpdate(super, 2);
     gScreen.controls.layerFXControl = 0x3f40;
     gScreen.controls.alphaBlend = 0x1000;
@@ -162,7 +162,7 @@ void sub_08065D74(GhostBrothersEntity* this) {
 void sub_08065DB8(GhostBrothersEntity* this) {
     switch (super->subAction) {
         case 0: {
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 super->subAction++;
                 super->timer = 60;
                 InitAnimationForceUpdate(super, 4);
@@ -188,7 +188,7 @@ void sub_08065DB8(GhostBrothersEntity* this) {
             break;
         }
         case 4: {
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 super->subAction++;
                 super->timer = 30;
                 this->unk_6c = gUnk_0811022E;

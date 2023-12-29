@@ -26,7 +26,7 @@ void EntitySpawnManager_Main(EntitySpawnManager* this) {
     if (super->type2 != 0) {
         super->type2 = 0;
         SetPlayerControl(0xff);
-        sub_08078B48();
+        PausePlayer();
     }
     if (this->spawnTimer == 0) {
         if (this->sound != 0) {

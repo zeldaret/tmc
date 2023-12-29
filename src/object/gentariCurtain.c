@@ -96,7 +96,7 @@ void sub_080921BC(GentariCurtainEntity* this) {
     GenericEntity* pEVar1;
     GenericEntity* end;
 
-    pEVar1 = (GenericEntity*)gItemGetEntities;
+    pEVar1 = (GenericEntity*)gAuxPlayerEntities;
     end = pEVar1 + 0x4f;
 
     do {

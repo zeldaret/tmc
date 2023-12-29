@@ -208,7 +208,7 @@ static void GameMain_ChangeRoom(void) {
         return;
 
     UpdatePlayerMapCoords();
-    ResetSystemPriority();
+    ClearEventPriority();
     UpdateWindcrests();
     sub_080300C4();
     gMain.substate = GAMEMAIN_UPDATE;
@@ -252,8 +252,8 @@ static void GameMain_Update(void) {
         return;
     }
 
-    if ((gMessage.doTextBox & 0x7f) || gPriorityHandler.priority_timer != 0)
-        sub_08078B48();
+    if ((gMessage.state & MESSAGE_ACTIVE) || gPriorityHandler.priority_timer != 0)
+        PausePlayer();
 
     FlushSprites();
     UpdateEntities();
@@ -305,7 +305,7 @@ static void GameMain_BarrelUpdate(void) {
     CheckGameOver();
     CopyOAM();
     if (!gFadeControl.active)
-        ResetSystemPriority();
+        ClearEventPriority();
 }
 
 static void GameMain_ChangeArea(void) {

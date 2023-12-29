@@ -60,7 +60,7 @@ void BusinessScrubPrologue_OnCollision(BusinessScrubPrologueEntity* this) {
 
             gPlayerState.field_0x27[0] = 0xff;
             EnqueueSFX(SFX_EM_DEKUSCRUB_HIT);
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
         }
     }
 }
@@ -195,7 +195,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
                 if (entity != NULL) {
                     entity->spritePriority.b0 = 3;
                     entity->z.HALF.HI -= 0xc;
-                    SetDefaultPriority(entity, PRIO_MESSAGE);
+                    SetEntityPriority(entity, PRIO_MESSAGE);
                 }
             }
             break;

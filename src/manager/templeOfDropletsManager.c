@@ -370,7 +370,7 @@ void TempleOfDropletsManager_Type7(TempleOfDropletsManager* this) {
             }
             super->subAction = 1;
             super->flags |= ENT_PERSIST;
-            SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+            SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
             break;
         case 1:
             if (CheckLocalFlag(this->unk_3e))
@@ -402,7 +402,7 @@ void TempleOfDropletsManager_Type7(TempleOfDropletsManager* this) {
 void sub_0805AAC8(TempleOfDropletsManager*);
 
 void sub_0805A89C(TempleOfDropletsManager* this) {
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     super->action = 1;
     super->flags |= ENT_PERSIST;
     super->timer = 8;

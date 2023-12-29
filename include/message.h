@@ -5,8 +5,10 @@
 #include "entity.h"
 #include "structures.h"
 
+#define MESSAGE_ACTIVE 0x7f
+
 typedef struct {
-    u8 doTextBox;
+    u8 state;
     u8 unk;
     u8 textSpeed;
     u8 unk3; // HI?

@@ -55,7 +55,7 @@ void FightManager_Init(FightManager* this) {
         if (!this->fightStartFlag) {
             FightManager_LoadFight(this);
         }
-        SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
+        SetEntityPriority((Entity*)this, PRIO_NO_BLOCK);
     } else {
         DeleteThisEntity();
     }
@@ -157,7 +157,7 @@ void FightManagerHelper_Main(FightManagerHelper* this) {
 
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
+        SetEntityPriority((Entity*)this, PRIO_NO_BLOCK);
     }
     // go through and check all monitored enemies.
     anyRemaining = FALSE;

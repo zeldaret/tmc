@@ -31,7 +31,7 @@ void sub_08066CCC(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
-    SetDefaultPriority(this, PRIO_MESSAGE);
+    SetEntityPriority(this, PRIO_MESSAGE);
     InitScriptForNPC(this);
 }
 

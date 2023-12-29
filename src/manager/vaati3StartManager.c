@@ -70,7 +70,7 @@ void Vaati3StartManager_Type0_Action1(Vaati3StartManager* this) {
         super->subAction = 0;
         super->timer = 120;
         SetPlayerControl(2);
-        sub_08078B48();
+        PausePlayer();
         object = CreateObject(THUNDERBOLT, 0, 0);
         if (object != NULL) {
             object->x.HALF.HI = gRoomControls.origin_x + 0x88;
@@ -100,7 +100,7 @@ void Vaati3StartManager_Type0_Action2(Vaati3StartManager* this) {
 }
 
 void Vaati3StartManager_Type0_Action3(Vaati3StartManager* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         if (super->timer != 0) {
             super->timer--;
         } else {

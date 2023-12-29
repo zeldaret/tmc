@@ -204,7 +204,7 @@ void PlayerUpdate(Entity* this) {
     else
         gPlayerState.flags &= ~PL_DRUGGED;
 
-    if (!EntityIsDeleted(this)) {
+    if (!EntityDisabled(this)) {
         if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             PutAwayItems();
             if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {
@@ -258,7 +258,7 @@ static void HandlePlayerLife(Entity* this) {
         return;
     }
 
-    if ((gPlayerState.controlMode != CONTROL_ENABLED) || (gMessage.doTextBox & 0x7f))
+    if ((gPlayerState.controlMode != CONTROL_ENABLED) || (gMessage.state & 0x7f))
         return;
 
 #ifdef EU
@@ -274,7 +274,7 @@ static void HandlePlayerLife(Entity* this) {
         }
     }
 #else
-    gRoomVars.unk2 = gMessage.doTextBox & 0x7f;
+    gRoomVars.unk2 = gMessage.state & MESSAGE_ACTIVE;
     temp = gSave.stats.maxHealth / 4;
     if (temp > 24)
         temp = 24;

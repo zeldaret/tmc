@@ -111,7 +111,7 @@ void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
         super->timer = 8;
         this->unk_20 = 0xFF;
 
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
         RegisterTransitionManager(this, sub_08057E30, 0);
     }
     if (sub_08057E40(this)) {

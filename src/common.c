@@ -747,7 +747,7 @@ void Fuse_Action0(void) {
 }
 
 void Fuse_Action1(void) {
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         MenuFadeIn(4, 0);
         gFuseInfo.fusionState = FUSION_STATE_4;
         gFuseInfo.action = 2;
@@ -773,7 +773,7 @@ void Fuse_Action2(void) {
 }
 
 void Fuse_Action3(void) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         if (gFuseInfo.entity != NULL) {
             gFuseInfo.entity->updatePriority = gFuseInfo.prevUpdatePriority;
         }

@@ -110,7 +110,7 @@ void Fairy_Init(FairyEntity* this) {
     super->gustJarFlags = 1;
     this->unk_74 = super->x.HALF.HI;
     this->unk_76 = super->y.HALF.HI;
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
     EnqueueSFX(SFX_136);
 
     switch (super->type2) {

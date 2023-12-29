@@ -38,7 +38,7 @@ void Farmers(Entity* this) {
 }
 
 void sub_0806BC58(Entity* this) {
-    SetDefaultPriority(this, PRIO_MESSAGE);
+    SetEntityPriority(this, PRIO_MESSAGE);
 }
 
 void Farmers_Head(Entity* this) {

@@ -153,7 +153,7 @@ void SpecialFx_Init(SpecialFxObject* this) {
     super->action = 1;
     super->flags &= ~0x80;
     super->spriteSettings.draw = 1;
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
     if (super->collisionLayer == 0) {
         ResolveCollisionLayer(super);
     }

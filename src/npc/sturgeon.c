@@ -127,7 +127,7 @@ void sub_08064B88(SturgeonEntity* this) {
 }
 
 void sub_08064C2C(SturgeonEntity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = 1;
         InitializeAnimation(super, (u32)super->subtimer);
     }

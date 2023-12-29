@@ -22,7 +22,7 @@ void Librari(LibrariEntity* this) {
             super->animationState = super->timer;
             this->fusionOffer = GetFusionToOffer(super);
             AddInteractableWhenBigFuser(super, this->fusionOffer);
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             InitScriptForNPC(super);
             break;
         case 1:

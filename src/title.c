@@ -89,7 +89,7 @@ static const SaveFile gDemoSave = {
     .stats = {
         .health = 40,
         .maxHealth = 40,
-        .itemButtons = { ITEM_SHIELD, ITEM_SMITH_SWORD },
+        .equipped = { ITEM_SHIELD, ITEM_SMITH_SWORD },
         .rupees = 5,
     },
     .inventory = {

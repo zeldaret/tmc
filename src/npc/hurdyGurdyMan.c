@@ -29,7 +29,7 @@ void HurdyGurdyMan(HurdyGurdyManEntity* this) {
             if (LoadExtraSpriteData(super, gUnk_081144F0)) {
                 super->action = 1;
                 this->unk_69 = 0;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 InitScriptForNPC(super);
             }
             break;
@@ -123,7 +123,7 @@ void HurdyGurdyMan_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, gUnk_081144F0)) {
             this->action++;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 10);
         }
     } else {

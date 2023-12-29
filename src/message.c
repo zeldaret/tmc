@@ -49,7 +49,7 @@ static void StatusUpdate(u32 status);
 static void SwitchChoice(u32 to, u32 from);
 
 static void MsgChangeLine(u32 lineNo);
-static void SetDoTextBox(u32 doTextbox);
+static void SetState(u32 status);
 
 static void DeleteWindow(void);
 static u32 ChangeWindowSize(u32 delta);
@@ -122,14 +122,14 @@ s32 sub_08056338(void) {
     s32 result;
 
     result = -1;
-    if (((gMessage.doTextBox & 0x7f) == 0) && (gUnk_02000040.unk_00 == 3))
+    if (((gMessage.state & MESSAGE_ACTIVE) == 0) && (gUnk_02000040.unk_00 == 3))
         result = gUnk_02000040.unk_01;
     return result;
 }
 
 void MessageClose(void) {
-    if ((gMessage.doTextBox & 0x7f) != 0) {
-        gMessage.doTextBox = 0x88;
+    if (gMessage.state & MESSAGE_ACTIVE) {
+        gMessage.state = 0x88;
     }
 }
 
@@ -173,7 +173,7 @@ void MessageRequest(u32 index) {
     gMessage.textWindowHeight = 4;
     gMessage.textWindowPosX = 1;
     gMessage.textWindowPosY = 12;
-    gMessage.doTextBox = 1;
+    gMessage.state = 1;
 }
 
 void MessageInitialize(void) {
@@ -190,7 +190,7 @@ void MessageMain(void) {
         [MSG_OPEN] = MsgOpen, [MSG_CLOSE] = MsgClose, [MSG_DIE] = MsgDie,
     };
 
-    if (gMessage.doTextBox == 1) {
+    if (gMessage.state == 1) {
         MemClear((u32*)&gTextRender, sizeof(gTextRender));
         StatusUpdate(MSG_INIT);
     }
@@ -258,7 +258,7 @@ u32 MsgInit(void) {
     gTextRender.curToken._c = &gUnk_08107BE0;
     gTextRender._50.unk8 = gTextGfxBuffer;
     gTextRender._50.unk4 = 0xd0;
-    SetDoTextBox(2);
+    SetState(2);
     MsgChangeLine(0);
     StatusUpdate(MSG_UPDATE);
     return 1;
@@ -295,7 +295,7 @@ static u32 MsgClose(void) {
 }
 
 static u32 MsgDie(void) {
-    SetDoTextBox(0);
+    SetState(0);
     StatusUpdate(MSG_IDLE);
     return 0;
 }
@@ -306,7 +306,7 @@ static u32 MsgUpdate(void) {
         [RENDER_WAIT] = TextDispWait, [RENDER_ROLL] = TextDispRoll,     [RENDER_ENQUIRY] = TextDispEnquiry,
     };
 
-    SetDoTextBox(4);
+    SetState(4);
     gTextDispFunctions[gTextRender.renderStatus](&gTextRender);
     ChangeWindowSize(0);
     return 0;
@@ -604,7 +604,7 @@ static void TextDispRoll(TextRender* this) {
 
 static void TextDispDie(TextRender* this) {
     gMessage.unk = 0;
-    SetDoTextBox(7);
+    SetState(7);
     if ((this->_8e != 1) && (this->_8e == 2 || MESSAGE_PRESS_ANY_ADVANCE_KEYS)) {
         StatusUpdate(MSG_CLOSE);
     }
@@ -628,8 +628,8 @@ static void MsgChangeLine(u32 lineNo) {
     PaletteChange(&gTextRender, gTextRender._8f | 0x40);
 }
 
-static void SetDoTextBox(u32 doTextbox) {
-    gMessage.doTextBox = gTextRender.message.doTextBox = doTextbox;
+static void SetState(u32 status) {
+    gMessage.state = gTextRender.message.state = status;
 }
 
 static void DeleteWindow(void) {

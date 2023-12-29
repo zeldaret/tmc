@@ -99,7 +99,7 @@ void sub_08064570(CastleMaidEntity* this) {
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7f) != 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) != 0) {
                 return;
             }
             super->action = 1;

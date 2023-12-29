@@ -35,7 +35,7 @@ static void EzloHintManager_Init(EzloHintManager* this) {
     this->ry = this->ry_raw << 3;
     this->x = this->rx + (this->x_raw << 4);
     this->y = this->ry + (this->y_raw << 4);
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     if (this->flag2 == 0) {
         super->action = 2;
     } else {
@@ -69,7 +69,7 @@ static void EzloHintManager_Action2(EzloHintManager* this) {
             if (!PlayerStateValid(this))
                 return;
             SetPlayerControl(3);
-            sub_08078B48();
+            PausePlayer();
             SetPlayerEventPriority();
             super->action = 3;
             super->subAction = 0;

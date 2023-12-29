@@ -634,7 +634,7 @@ void sub_08041D14(Entity* this) {
     Entity* pEVar1;
 
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         if (this->timer != 0) {
             this->timer--;
         } else {

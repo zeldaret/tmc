@@ -23,7 +23,7 @@
 static void sub_08077E54(ItemBehavior* beh);
 
 extern void sub_0800857C(Entity*);
-extern void SetDefaultPriorityForKind(Entity*);
+extern void SetEntityPriorityForKind(Entity*);
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern u32 sub_08003FDE(Entity*, Entity*, u32, u32);
@@ -175,8 +175,8 @@ void UpdateActiveItems(PlayerEntity* this) {
     gPlayerState.attack_status &= 0xf;
     if (((gPlayerState.field_0x7 | gPlayerState.jump_status) & 0x80) == 0 && (gPlayerState.jump_status & 0x40) == 0 &&
         gPlayerState.swim_state == 0 && IsAbleToUseItem(this) && !IsPreventedFromUsingItem()) {
-        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_A], PLAYER_INPUT_1, FALSE);
-        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_B], PLAYER_INPUT_2, FALSE);
+        CreateItemIfInputMatches(gSave.stats.equipped[SLOT_A], INPUT_USE_ITEM1, FALSE);
+        CreateItemIfInputMatches(gSave.stats.equipped[SLOT_B], INPUT_USE_ITEM2, FALSE);
         IsTryingToPickupObject();
     }
 
@@ -189,9 +189,9 @@ void UpdateActiveItems(PlayerEntity* this) {
 
 void CreateItemEquippedAtSlot(EquipSlot equipSlot) {
     if (equipSlot == EQUIP_SLOT_A) {
-        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_A], PLAYER_INPUT_1, TRUE);
+        CreateItemIfInputMatches(gSave.stats.equipped[SLOT_A], INPUT_USE_ITEM1, TRUE);
     } else {
-        CreateItemIfInputMatches(gSave.stats.itemButtons[SLOT_B], PLAYER_INPUT_2, TRUE);
+        CreateItemIfInputMatches(gSave.stats.equipped[SLOT_B], INPUT_USE_ITEM2, TRUE);
     }
 }
 
@@ -210,7 +210,7 @@ bool32 IsAbleToUseItem(PlayerEntity* this) {
 }
 
 bool32 IsPreventedFromUsingItem(void) {
-    if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_80) != 0) {
+    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) != 0) {
         if ((gPlayerState.flags & PL_CLONING) != 0) {
             gPlayerState.chargeState.action = 1;
             DeleteClones();
@@ -233,7 +233,7 @@ bool32 IsPreventedFromUsingItem(void) {
                 default:
                     if ((((gUnk_0200AF00.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.field_0x1c == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
-                        ((((gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) != 0 &&
+                        ((((gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
                           ((gPlayerState.jump_status == 0 && (gPlayerState.attack_status == 0)))))) {
                         gPlayerState.queued_action = PLAYER_ROLL;
@@ -274,9 +274,9 @@ bool32 IsTryingToPickupObject(void) {
 
     if (!((((gPlayerState.flags & (PL_USE_PORTAL | PL_MINISH | PL_ROLLING)) == 0) &&
            (((gNewPlayerEntity.unk_79 != 0 || (gPlayerState.heldObject != 0)) ||
-             ((gPlayerState.playerInput.newInput & PLAYER_INPUT_8000) != 0)))) &&
+             ((gPlayerState.playerInput.newInput & INPUT_LIFT_THROW) != 0)))) &&
           (((sub_080789A8() != 0 || ((gPlayerState.playerInput.heldInput &
-                                      (PLAYER_INPUT_ANY_DIRECTION | PLAYER_INPUT_1 | PLAYER_INPUT_2)) == 0)))))) {
+                                      (INPUT_ANY_DIRECTION | INPUT_USE_ITEM1 | INPUT_USE_ITEM2)) == 0)))))) {
         return FALSE;
     }
     item = CreateItem(ITEM_TRY_PICKUP_OBJECT);
@@ -462,7 +462,7 @@ Entity* CreatePlayerItemWithParent(ItemBehavior* this, u32 id) {
 }
 
 void* CreateItemGetPlayerItemWithParent(ItemBehavior* this) {
-    GenericEntity* playerItem = (GenericEntity*)CreateItemGetEntity();
+    GenericEntity* playerItem = (GenericEntity*)CreateAuxPlayerEntity();
     if (playerItem != NULL) {
         playerItem->base.id = gItemDefinitions[this->behaviorId].playerItemId;
         playerItem->base.kind = PLAYER_ITEM;
@@ -501,7 +501,7 @@ Entity* CreatePlayerItem(u32 id, u32 type, u32 type2, u32 unk) {
 Entity* sub_08077CF8(u32 id, u32 type, u32 type2, u32 unk) {
     GenericEntity* ent;
 
-    ent = (GenericEntity*)CreateItemGetEntity();
+    ent = (GenericEntity*)CreateAuxPlayerEntity();
     if (ent != NULL) {
         ent->base.flags = ENT_COLLIDE;
         ent->base.kind = PLAYER_ITEM;
@@ -631,10 +631,10 @@ bool32 IsItemActiveByInput(ItemBehavior* this, PlayerInputState input) {
     u32 val;
     Stats* stats = &gSave.stats;
     u32 id = this->behaviorId;
-    if (stats->itemButtons[SLOT_A] == id) {
-        val = PLAYER_INPUT_1;
-    } else if (stats->itemButtons[SLOT_B] == id) {
-        val = PLAYER_INPUT_2;
+    if (stats->equipped[SLOT_A] == id) {
+        val = INPUT_USE_ITEM1;
+    } else if (stats->equipped[SLOT_B] == id) {
+        val = INPUT_USE_ITEM2;
     } else {
         val = 0;
     }
@@ -901,10 +901,10 @@ bool32 sub_08077FEC(u32 action) {
 
 bool32 sub_08078008(ChargeState* state) {
     Item swordType;
-    if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != ITEM_NONE) {
-        swordType = gSave.stats.itemButtons[SLOT_A];
-    } else if (ItemIsSword(gSave.stats.itemButtons[SLOT_B]) != ITEM_NONE) {
-        swordType = gSave.stats.itemButtons[SLOT_B];
+    if (ItemIsSword(gSave.stats.equipped[SLOT_A]) != ITEM_NONE) {
+        swordType = gSave.stats.equipped[SLOT_A];
+    } else if (ItemIsSword(gSave.stats.equipped[SLOT_B]) != ITEM_NONE) {
+        swordType = gSave.stats.equipped[SLOT_B];
     } else {
         swordType = ITEM_NONE;
     }
@@ -988,7 +988,7 @@ bool32 sub_08078140(ChargeState* info) {
 void ForceSetPlayerState(u32 framestate) {
     gPlayerState.framestate = framestate;
     gPlayerEntity.flags &= ~ENT_COLLIDE;
-    sub_08078B48();
+    PausePlayer();
 }
 
 void DetermineRButtonInteraction(void) {
@@ -1110,7 +1110,7 @@ bool32 sub_080782C0(void) {
             return FALSE;
         }
     }
-    if (((gPlayerState.playerInput.newInput & PLAYER_INPUT_1000) != 0) &&
+    if (((gPlayerState.playerInput.newInput & INPUT_FUSE) != 0) &&
         ((u8)(gPossibleInteraction.currentObject->kinstoneId - 1) < 100)) {
         AddKinstoneToBag(KINSTONE_NONE);
         if (gSave.kinstones.amounts[0] != 0) {
@@ -1123,7 +1123,7 @@ bool32 sub_080782C0(void) {
         ForceSetPlayerState(PL_STATE_TALKEZLO);
         return TRUE;
     }
-    if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_8)) == 0) {
+    if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_INTERACT)) == 0) {
         return FALSE;
     }
     switch (gPossibleInteraction.currentObject->type) {
@@ -1504,7 +1504,7 @@ void SetPlayerItemGetState(Entity* item, u8 param_2, u8 param_3) {
     DeleteClones();
 }
 
-void sub_08078B48(void) {
+void PausePlayer(void) {
     gPlayerState.field_0x7 |= 0x80;
     gPlayerState.keepFacing |= 0x80;
     gPlayerState.field_0xa |= 0x80;
@@ -1853,7 +1853,7 @@ void PlayerSetNormalAndCollide(void) {
                             PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     ResolvePlayerAnimation();
     SetPlayerActionNormal();
-    SetDefaultPriorityForKind(&gPlayerEntity);
+    SetEntityPriorityForKind(&gPlayerEntity);
 }
 
 void PlayerMinishSetNormalAndCollide(void) {
@@ -1869,7 +1869,7 @@ void PlayerMinishSetNormalAndCollide(void) {
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     gPlayerState.swim_state = 0;
     gPlayerState.queued_action = PLAYER_INIT;
-    SetDefaultPriorityForKind(&gPlayerEntity);
+    SetEntityPriorityForKind(&gPlayerEntity);
 }
 
 void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
@@ -1973,7 +1973,7 @@ void sub_08079520(Entity* this) {
 }
 
 u32 sub_0807953C(void) {
-    u32 tmp = PLAYER_INPUT_ANY_DIRECTION | PLAYER_INPUT_20 | PLAYER_INPUT_10 | PLAYER_INPUT_8;
+    u32 tmp = INPUT_ANY_DIRECTION | INPUT_CONTEXT | INPUT_CANCEL | INPUT_INTERACT;
     return gPlayerState.playerInput.newInput & tmp;
 }
 
@@ -2494,7 +2494,7 @@ u32 sub_08079FD4(Entity* this, u32 param_2) {
 
 void UpdatePlayerPalette(void) {
     u32 palette;
-    if ((gPlayerState.hurtBlinkSpeed != 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
+    if ((gPlayerState.hurtBlinkSpeed != 0) && ((gMessage.state & MESSAGE_ACTIVE) == 0)) {
         gPlayerState.hurtBlinkSpeed--;
     }
     palette = GetPlayerPalette(FALSE);
@@ -2549,10 +2549,10 @@ void DeleteClones(void) {
 }
 
 bool32 HasSwordEquipped(void) {
-    if (ItemIsSword((u32)gSave.stats.itemButtons[SLOT_A]) != 0) {
+    if (ItemIsSword((u32)gSave.stats.equipped[SLOT_A]) != 0) {
         return TRUE;
     } else {
-        return ItemIsSword((u32)gSave.stats.itemButtons[SLOT_B]);
+        return ItemIsSword((u32)gSave.stats.equipped[SLOT_B]);
     }
 }
 
@@ -3009,7 +3009,7 @@ void PlayerSwimming(Entity* this) {
 }
 
 bool32 ToggleDiving(Entity* this) {
-    if (gPlayerState.playerInput.newInput & PLAYER_INPUT_10) {
+    if (gPlayerState.playerInput.newInput & INPUT_CANCEL) {
         gPlayerState.swim_state ^= 0x80;
         if (gPlayerState.swim_state & 0x80) {
             gPlayerState.remainingDiveTime = 0x78;
@@ -3026,7 +3026,7 @@ bool32 ToggleDiving(Entity* this) {
 
 void PlayerUpdateSwimming(Entity* this) {
     if ((((this->action != 0x17) || (gPlayerState.field_0xa == 0)) && (gRoomControls.reload_flags == 0)) &&
-        ((gPlayerState.playerInput.newInput & PLAYER_INPUT_8) != 0)) {
+        ((gPlayerState.playerInput.newInput & INPUT_INTERACT) != 0)) {
         if (GetInventoryValue(ITEM_SWIM_BUTTERFLY) == 1) {
             this->speed = 0x1c0;
         } else {

@@ -15,7 +15,7 @@ void DrLeft(Entity* this) {
     if (this->type == 0) {
         if (this->action == 0) {
             this->action++;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitScriptForNPC(this);
         }
         ExecuteScriptForEntity(this, NULL);

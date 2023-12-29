@@ -83,7 +83,7 @@ extern void sub_08030118(u32);
 extern void sub_0803C0AC(Entity*);
 extern void sub_08049CF4(Entity*);
 extern u32 sub_0804A024(Entity*, u32, u32);
-extern u32 sub_080542AC(u32);
+extern u32 IsMinishItem(u32);
 extern void DisableRandomDrops();
 extern void EnableRandomDrops(void);
 extern s32 sub_08056338(void);

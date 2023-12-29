@@ -83,7 +83,7 @@ void ObjectA8_Init(ObjectA8Entity* this) {
     super->gustJarFlags = 1;
     this->unk_74 = super->x.HALF.HI;
     this->unk_76 = super->y.HALF.HI;
-    SetDefaultPriority(super, 3);
+    SetEntityPriority(super, 3);
     EnqueueSFX(SFX_136);
 }
 

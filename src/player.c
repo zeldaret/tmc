@@ -280,7 +280,7 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 bool32 CheckInitPauseMenu(void) {
     u32 framestate;
     if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gPauseMenuOptions.disabled ||
-         (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.inventory[0] ||
+         (gMessage.state & MESSAGE_ACTIVE) || gSave.stats.health == 0 || !gSave.inventory[0] ||
          gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
         return FALSE;
     }
@@ -728,7 +728,7 @@ static void sub_08070E9C(Entity* this) {
 static void sub_08070EDC(Entity* this) {
     this->updatePriority = PRIO_MESSAGE;
 
-    if ((gMessage.doTextBox & 0x7f) != 0)
+    if (gMessage.state & MESSAGE_ACTIVE)
         this->subAction = 1;
 
     if ((gPlayerState.flags & PL_MINISH) == 0)
@@ -739,7 +739,7 @@ static void sub_08070EDC(Entity* this) {
 
 static void sub_08070f24(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->updatePriority = this->updatePriorityPrev;
         ResetPlayerAnimationAndAction();
     }
@@ -778,13 +778,13 @@ static void PlayerItemGetInit(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         u32 anim;
         if (gPlayerState.flags & PL_NO_CAP) {
-            if (sub_080542AC(gPlayerState.field_0x38)) {
+            if (IsMinishItem(gPlayerState.field_0x38)) {
                 anim = ANIM_GET_ITEM_SMALL_NOCAP;
             } else {
                 anim = ANIM_GET_ITEM_BIG_NOCAP;
             }
         } else {
-            if (sub_080542AC(gPlayerState.field_0x38)) {
+            if (IsMinishItem(gPlayerState.field_0x38)) {
                 anim = ANIM_GET_ITEM_SMALL;
             } else {
                 anim = ANIM_GET_ITEM_BIG;
@@ -808,7 +808,7 @@ static void sub_08071038(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
     // player is still reading message
-    if (CheckQueuedAction() || (gMessage.doTextBox & 0x7f))
+    if (CheckQueuedAction() || (gMessage.state & MESSAGE_ACTIVE))
         return;
 
     if (this->frame & ANIM_DONE) {
@@ -1286,7 +1286,7 @@ static void PlayerTalkEzlo_Init(Entity* this) {
     ResetActiveItems();
     gActiveItems[ACTIVE_ITEM_LANTERN].animPriority = 0;
     this->iframes = 0;
-    gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
+    gPriorityHandler.event_priority = PRIO_PLAYER_EVENT;
     this->updatePriority = PRIO_PLAYER_EVENT;
 
     if (gPlayerState.flags & PL_MINISH) {
@@ -1335,7 +1335,7 @@ static void PlayerTalkEzlo_CreateMessage(Entity* this) {
 static void PlayerTalkEzlo_MessageIdle(Entity* this) {
     u32 rightOrLeft;
 
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->subAction++;
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             if (this->animationState == IdleEast)
@@ -1380,7 +1380,7 @@ static void PlayerTalkEzlo_Leave(Entity* this) {
 }
 
 static void reset_priority(void) {
-    gPriorityHandler.sys_priority = PRIO_MIN;
+    gPriorityHandler.event_priority = PRIO_MIN;
     gPlayerEntity.updatePriority = gPlayerEntity.updatePriorityPrev;
 }
 
@@ -2750,7 +2750,7 @@ static void sub_08073504(Entity* this) {
 static void sub_08073584(Entity* this) {
     u32 state, dir, idx;
 
-    if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_80) || this->iframes > 0 || gPlayerState.field_0x3c ||
+    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) || this->iframes > 0 || gPlayerState.field_0x3c ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
@@ -3447,10 +3447,10 @@ void SurfaceAction_14(Entity* this) {
 void SurfaceAction_CloneTile(Entity* this) {
     if (gPlayerState.chargeState.action == 4) {
         u32 item, n, i;
-        if (ItemIsSword(gSave.stats.itemButtons[SLOT_A])) {
-            item = gSave.stats.itemButtons[SLOT_A];
+        if (ItemIsSword(gSave.stats.equipped[SLOT_A])) {
+            item = gSave.stats.equipped[SLOT_A];
         } else {
-            item = gSave.stats.itemButtons[SLOT_B];
+            item = gSave.stats.equipped[SLOT_B];
         }
         switch (item) {
             case 1:
@@ -3523,8 +3523,7 @@ void SurfaceAction_ShallowWater(Entity* this) {
                 this->spritePriority.b0 = 4;
                 gPlayerState.swim_state = 0;
             }
-            if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_ANY_DIRECTION) ||
-                gPlayerState.surfacePositionSameTimer == 1)
+            if ((gPlayerState.playerInput.newInput & INPUT_ANY_DIRECTION) || gPlayerState.surfacePositionSameTimer == 1)
                 SoundReq(SFX_WATER_WALK);
         }
     }
@@ -3567,7 +3566,7 @@ void SurfaceAction_Swamp(Entity* this) {
                 CreateObjectWithParent(this, OBJECT_70, 0, 0);
                 CreateFx(this, FX_GREEN_SPLASH, 0);
                 SoundReq(SFX_161);
-            } else if ((gPlayerState.playerInput.newInput & PLAYER_INPUT_ANY_DIRECTION) != 0) {
+            } else if ((gPlayerState.playerInput.newInput & INPUT_ANY_DIRECTION) != 0) {
                 SoundReq(SFX_161);
             } else if ((gRoomTransition.frameCount & 0xf) == 0) {
                 SoundReq(SFX_161);
@@ -3723,7 +3722,7 @@ void SurfaceAction_Dust(Entity* this) {
     if (!sub_080741C4()) {
         gPlayerState.speed_modifier -= 128;
         if (gPlayerState.surfacePositionSameTimer == 1 ||
-            (gPlayerState.playerInput.newInput & PLAYER_INPUT_ANY_DIRECTION) != 0) {
+            (gPlayerState.playerInput.newInput & INPUT_ANY_DIRECTION) != 0) {
             if (gPlayerState.floor_type == SURFACE_DUST)
                 CreateObjectWithParent(this, DIRT_PARTICLE, 1, 0);
             else
@@ -4095,7 +4094,7 @@ void sub_080751E8(u32 a1, u32 a2, void* script) {
     e2 = CreateSpeechBubbleSleep(&gPlayerEntity, -14, -28);
     *(Entity**)&gPlayerEntity.field_0x6c.HWORD = e2;
     if (e2 != NULL) {
-        SetDefaultPriority(e2, PRIO_NO_BLOCK);
+        SetEntityPriority(e2, PRIO_NO_BLOCK);
     }
 }
 
