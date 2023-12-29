@@ -263,7 +263,7 @@ typedef enum {
 typedef struct {
     /*0x0*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
     /*0x2*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
-    /*0x4*/ u32 field_0x94;
+    /*0x4*/ u32 unused;
     /*0x8*/ u16 playerMacroWaiting;
     /*0xa*/ u16 playerMacroHeldKeys;
     /*0xc*/ PlayerMacroEntry* playerMacro;

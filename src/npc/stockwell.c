@@ -59,7 +59,7 @@ void sub_08065080(StockwellEntity* this) {
 
     super->action = 1;
     super->spriteSettings.draw = 1;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     InitializeAnimation(super, 4);
     AddInteractableWhenBigObject(super);
 #ifndef EU

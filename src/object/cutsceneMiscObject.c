@@ -212,7 +212,7 @@ void CutsceneMiscObject_Type2(CutsceneMiscObjectEntity* this) {
         DeleteThisEntity();
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         super->spriteRendering.b3 = gUnk_08114F30[p->spriteRendering.b3];
         InitAnimationForceUpdate(super, 1);
     }
@@ -231,7 +231,7 @@ void CutsceneMiscObject_Type3(CutsceneMiscObjectEntity* this) {
     } else {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         switch (super->type2) {
             case 0x40:
             case 0x41:
@@ -290,7 +290,7 @@ void CutsceneMiscObject_Type4(CutsceneMiscObjectEntity* this) {
     } else {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         InitAnimationForceUpdate(super, 0);
     }
     UpdateAnimationSingleFrame(super);
@@ -330,7 +330,7 @@ void CutsceneMiscObject_Type5(CutsceneMiscObjectEntity* this) {
                 super->action++;
                 super->z.WORD = Q_16_16(-160.0);
                 super->zVelocity = 0;
-                SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+                SetEntityPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
                 if (GetTileUnderEntity(super) == 13) {
                     super->action = 3;
@@ -472,7 +472,7 @@ void CutsceneMiscObject_Type7(CutsceneMiscObjectEntity* this) {
 void CutsceneMiscObject_Type8(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 2);
@@ -492,7 +492,7 @@ void sub_08095164(CutsceneMiscObjectEntity* this) {
 void CutsceneMiscObject_Type9(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 0);
@@ -547,7 +547,7 @@ void CutsceneMiscObject_Type11(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->subAction = 0;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         InitAnimationForceUpdate(super, 0);
     }
     if (super->subAction != 0) {
@@ -607,7 +607,7 @@ void CutsceneMiscObject_Type12(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->z.HALF.HI = -16;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         super->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
         SortEntityAbove(super, super);
         sub_0807DD64(super);
@@ -844,7 +844,7 @@ void CutsceneMiscObject_Type19(CutsceneMiscObjectEntity* this) {
 void CutsceneMiscObject_Type20(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
         sub_0807DD64(super);
         InitializeAnimation(super, 0);
     }
@@ -879,7 +879,7 @@ void CutsceneMiscObject_Type22(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);
@@ -1035,7 +1035,7 @@ void CutsceneMiscObject_Type28(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);

@@ -195,7 +195,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
             gSave.enemies_killed++;
             parent->base.gustJarState |= 2;
             parent->base.timer = 255;
-            SetDefaultPriority(&(parent->base), 3);
+            SetEntityPriority(&(parent->base), 3);
             deathFx2 = (DeathFxObject*)CreateObject(DEATH_FX, parent->base.id, 0);
             if (deathFx2 != NULL) {
                 deathFx2->unk6c = tmp;
@@ -232,7 +232,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
         } else {
             if (--parent->base.timer == 0) {
                 parent->base.spriteSettings.draw = 0;
-                SetDefaultPriority(&(parent->base), 0);
+                SetEntityPriority(&(parent->base), 0);
             } else {
                 if (parent->base.timer < 9) {
                     if (parent->base.spriteSettings.draw) {

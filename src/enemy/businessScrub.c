@@ -211,7 +211,7 @@ void BusinessScrub_Action3(Entity* this) {
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
-                    SetDefaultPriority(iVar1, PRIO_MESSAGE);
+                    SetEntityPriority(iVar1, PRIO_MESSAGE);
                 }
                 SetFlag(this->field_0x86.HWORD);
                 sub_0802925C(this);

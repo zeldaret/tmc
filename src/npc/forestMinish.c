@@ -526,7 +526,7 @@ void ForestMinish(ForestMinishEntity* this) {
                 super->spriteSettings.draw = TRUE;
                 this->animIndex = super->animationState = super->timer << 1;
                 super->timer = 0;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 StartCutscene(super, (u16*)gUnk_08109D18[super->type2]);
                 InitScriptForNPC(super);
             }
@@ -755,7 +755,7 @@ void ForestMinish_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, gUnk_0810A348)) {
             this->action++;
             this->spriteSettings.draw = TRUE;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 6);
         }
     } else {

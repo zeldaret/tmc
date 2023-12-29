@@ -18,7 +18,7 @@ void Gentari(GentariEntity* this) {
         case 0:
             super->action = 1;
             super->spriteSettings.draw = TRUE;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             this->fusionOffer = GetFusionToOffer(super);
             AddInteractableWhenBigFuser(super, this->fusionOffer);
             InitScriptForNPC(super);
@@ -45,7 +45,7 @@ void Gentari_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.draw = TRUE;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
     } else {
         UpdateAnimationSingleFrame(this);

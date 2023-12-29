@@ -234,7 +234,7 @@ void sub_080604DC(Entity* this) {
             ent = CreateFx(this, FX_DASH, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
-                SetDefaultPriority(ent, 3);
+                SetEntityPriority(ent, 3);
             }
         }
     }

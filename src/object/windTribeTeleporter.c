@@ -39,7 +39,7 @@ void WindTribeTeleporter_Init(WindTribeTeleporterEntity* this) {
     super->frameDuration = 8;
     super->spritePriority.b0 = 7;
     super->hitbox = (Hitbox*)&gHitbox_22;
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
     if (sub_080A11C0(this)) {
         gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = super->y.HALF.HI;

@@ -100,7 +100,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             break;
         case 1:
             super->spriteRendering.b0 = 3;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             break;
         case 2:
             if (CheckLocalFlag((u32)super->type2) == 0) {

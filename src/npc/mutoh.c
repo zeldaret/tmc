@@ -36,7 +36,7 @@ void Mutoh(MutohEntity* this) {
             if (LoadExtraSpriteData(super, gUnk_08110C00)) {
                 super->action = 1;
                 super->spriteSettings.draw = TRUE;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 InitScriptForNPC(super);
             }
             break;

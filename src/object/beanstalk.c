@@ -67,7 +67,7 @@ void Beanstalk_Init(BeanstalkEntity* this) {
 
     super->spriteRendering.b3 = 2;
     super->spriteOrientation.flipY = 1;
-    SetDefaultPriority(super, 4);
+    SetEntityPriority(super, 4);
     if (super->type == 7) {
 #ifndef EU
         if ((super->flags & ENT_DID_INIT) == 0) {

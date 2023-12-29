@@ -49,7 +49,7 @@ void BigVortex_Init(BigVortexEntity* this) {
         super->spriteSettings.draw = TRUE;
         sub_08098E88(super);
     }
-    SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+    SetEntityPriority(super, PRIO_PLAYER_EVENT);
     InitAnimationForceUpdate(super, 0);
 }
 

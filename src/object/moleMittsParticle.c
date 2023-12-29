@@ -63,7 +63,7 @@ void MoleMittsParticle_Init(Entity* this) {
                 break;
         }
     }
-    SetDefaultPriority(this, 3);
+    SetEntityPriority(this, 3);
     InitializeAnimation(this, this->type2 * 4 + this->animationState);
 }
 

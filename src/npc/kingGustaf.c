@@ -16,7 +16,7 @@ void KingGustaf(Entity* this) {
         this->action++;
         this->spriteRendering.alphaBlend = 1;
         this->collisionLayer = 2;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         InitScriptForNPC(this);
         gScreen.controls.layerFXControl = 0x3f40;
         gScreen.controls.alphaBlend = 0x1000;

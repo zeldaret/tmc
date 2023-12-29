@@ -51,7 +51,7 @@ void ZeldaFollower(ZeldaFollowerEntity* this) {
         super->animationState = 4;
         this->unk_68 = 0;
         this->unk_69 = 0;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         InitAnimationForceUpdate(super, 0);
         sub_0806854C(this, NULL);
     }

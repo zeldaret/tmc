@@ -221,7 +221,7 @@ void sub_0806799C(CatEntity* this) {
     UpdateAnimationSingleFrame(super);
     if ((gMessage.doTextBox & 0x7f) == 0) {
         sub_08067B08(this);
-        SetDefaultPriority(super, PRIO_PLAYER);
+        SetEntityPriority(super, PRIO_PLAYER);
     }
 }
 
@@ -409,7 +409,7 @@ void sub_08067C44(CatEntity* this) {
     } else {
         super->action = 4;
         sub_08067790(super);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     super->interactType = INTERACTION_NONE;
     SoundReq(SFX_VO_CAT);

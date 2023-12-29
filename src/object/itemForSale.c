@@ -66,7 +66,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
     super->spritePriority.b1 = 0;
     super->carryFlags = 0;
 #ifdef EU
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
 #endif
     super->child = super;
     ItemForSale_MakeInteractable(this);

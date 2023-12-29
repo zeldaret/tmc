@@ -38,7 +38,7 @@ void LinkHoldingItem(LinkHoldingItemEntity* this) {
 }
 
 void LinkHoldingItem_Init(LinkHoldingItemEntity* this) {
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
     super->action = 1;
 }
 

@@ -143,7 +143,7 @@ void ItemOnGround_Init(ItemOnGroundEntity* this) {
         this->unk_6c = 0;
         this->unk_68 = 0;
         super->timer = 0;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         super->gustJarFlags = sub_0808147C(super->type);
         gUnk_0811E7E8[this->unk_69](this);
     } else {
@@ -370,7 +370,7 @@ void sub_08081404(ItemOnGroundEntity* this, u32 arg1) {
 
 bool32 sub_08081420(ItemOnGroundEntity* this) {
     if (CheckShouldPlayItemGetCutscene(this)) {
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
         CreateItemEntity(super->type, super->type2, 0);
         return TRUE;
     } else {

@@ -35,7 +35,7 @@ void Carpenter(CarpenterEntity* this) {
                 break;
             super->action = 1;
             this->animIndex = 0;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             sub_0807DD64(super);
 
         case 1:
@@ -115,7 +115,7 @@ void Carpenter_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type * 4])) {
             this->action++;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, (u32)this->type * 8 + 2);
         }
     } else {

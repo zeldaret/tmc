@@ -108,7 +108,7 @@ void FourElements_Action3(FourElementsEntity* this) {
     if (super->timer != 0) {
         sub_080A0424(this);
         if (--super->timer == 0) {
-            SetDefaultPriority(&gPlayerEntity, 0);
+            SetEntityPriority(&gPlayerEntity, 0);
         }
     } else {
         RequestPriorityDuration(NULL, 60);

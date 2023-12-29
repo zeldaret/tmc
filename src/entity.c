@@ -74,17 +74,17 @@ const u8 gUnk_081091F8[] = {
     0, 3, 0, 3, 3, 0, 3, 3, 3, 3,
 };
 
-void SetDefaultPriorityForKind(Entity* e) {
+void SetEntityPriorityForKind(Entity* e) {
     u8 r3 = gRoomTransition.entity_update_type;
     const u8* array = gUnk_081091F8;
 
     if (r3 != 2) {
         array = gUnk_081091EE;
     }
-    SetDefaultPriority(e, array[e->kind]);
+    SetEntityPriority(e, array[e->kind]);
 }
 
-void SetDefaultPriority(Entity* ent, u32 prio) {
+void SetEntityPriority(Entity* ent, u32 prio) {
     ent->updatePriorityPrev = prio;
     ent->updatePriority = prio;
 }
@@ -508,7 +508,7 @@ void AppendEntityToList(Entity* entity, u32 listIndex) {
     } else {
         gManagerCount++;
     }
-    SetDefaultPriorityForKind(entity);
+    SetEntityPriorityForKind(entity);
 }
 
 void PrependEntityToList(Entity* entity, u32 listIndex) {

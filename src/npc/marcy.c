@@ -14,7 +14,7 @@
 void Marcy(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         sub_0807DD64(this);
     }
     ExecuteScriptAndHandleAnimation(this, NULL);

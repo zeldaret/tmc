@@ -386,7 +386,7 @@ Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
  * @param entity Entity to set the priority of.
  * @param prio #Priority level.
  */
-void SetDefaultPriority(Entity* entity, u32 prio);
+void SetEntityPriority(Entity* entity, u32 prio);
 
 /**
  * Check if entity will be deleted next frame.

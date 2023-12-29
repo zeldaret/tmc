@@ -76,7 +76,7 @@ void sub_0806a370(RemEntity* this) {
 void sub_0806A3D8(RemEntity* this) {
     super->action = 1;
     super->timer = 180;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     sub_0806A8C8(super);
     this->context = StartCutscene(super, &script_Rem);
     ExecuteScriptAndHandleAnimation(super, NULL);
@@ -297,7 +297,7 @@ void sub_0806A830(RemEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         InitializeAnimation(super, 0x14);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     if ((gActiveScriptInfo.syncFlags & 0x200) != 0) {
         DeleteThisEntity();
@@ -316,7 +316,7 @@ void sub_0806A890(RemEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         InitializeAnimation(super, 0x15);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
