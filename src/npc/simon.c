@@ -4,7 +4,6 @@
  *
  * @brief Simon NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"

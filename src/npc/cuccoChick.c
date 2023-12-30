@@ -4,7 +4,6 @@
  *
  * @brief Cucco Chick NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 

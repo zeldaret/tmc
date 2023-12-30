@@ -1,6 +1,11 @@
-#define NENT_DEPRECATED
-#include "entity.h"
+/**
+ * @file crow.c
+ * @ingroup Enemies
+ *
+ * @brief Crow enemy
+ */
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {

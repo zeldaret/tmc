@@ -5,7 +5,6 @@
  * @brief Link Animation object. This is used during "item get" sequences and
  * replaces the player entity for the duration.
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "message.h"
 #include "object.h"
@@ -53,19 +52,19 @@ void LinkAnimation_ItemGet(LinkAnimationEntity* this) {
     u8* ptr;
 
     // hide player entity
-    gPlayerEntity.flags &= ~ENT_COLLIDE;
-    gPlayerEntity.spriteSettings.draw = 0;
+    gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+    gPlayerEntity.base.spriteSettings.draw = 0;
 
-    super->palette.b.b0 = gPlayerEntity.palette.b.b0;
+    super->palette.b.b0 = gPlayerEntity.base.palette.b.b0;
     switch (super->subAction) {
         case ITEMGET_INIT:
             one = 1;
             super->subAction = one;
             super->spriteSettings.draw = one;
-            super->collisionLayer = gPlayerEntity.collisionLayer;
-            super->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
-            super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-            super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+            super->collisionLayer = gPlayerEntity.base.collisionLayer;
+            super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
+            super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
+            super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
             super->spriteSettings.flipX = 0;
             super->animationState = 4;
             SetEntityPriority(super, PRIO_PLAYER_EVENT);
@@ -99,9 +98,9 @@ void LinkAnimation_ItemGet(LinkAnimationEntity* this) {
             if (super->frame & ANIM_DONE) {
                 super->action = PLAYER_NORMAL;
                 // restore player state
-                gPlayerEntity.flags = this->storeFlags;
-                gPlayerEntity.spriteSettings.draw = this->storeDrawFlags;
-                gPlayerEntity.iframes = this->storeIFrames;
+                gPlayerEntity.base.flags = this->storeFlags;
+                gPlayerEntity.base.spriteSettings.draw = this->storeDrawFlags;
+                gPlayerEntity.base.iframes = this->storeIFrames;
                 gPlayerState.field_0x7 = this->storeField7;
                 gPlayerState.keepFacing = this->storeKeepFacing;
                 gPlayerState.field_0xa = this->storeFieldA;

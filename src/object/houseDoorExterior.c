@@ -4,7 +4,6 @@
  *
  * @brief House Door Exterior object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -183,7 +182,7 @@ void sub_0808692C(HouseDoorExteriorEntity* this) {
 
 static u8 sub_08086954(HouseDoorExteriorEntity* this) {
     if (sub_0800445C(super)) {
-        if (GetAnimationStateInRectRadius(super, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
+        if (GetAnimationStateInRectRadius(super, 6, 20) >= 0 && gPlayerEntity.base.animationState == 0 &&
             (u16)gPlayerState.playerInput.heldInput == INPUT_UP && gPlayerState.jump_status == 0) {
             super->timer--;
         }

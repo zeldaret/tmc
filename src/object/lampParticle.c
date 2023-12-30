@@ -4,7 +4,6 @@
  *
  * @brief LampParticle object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "item.h"
 #include "player.h"

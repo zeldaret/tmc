@@ -15,7 +15,7 @@ void CloudStaircaseTransitionManager_Main(CloudStaircaseTransitionManager* this)
         this->y = 0;
     }
     if (((CheckPlayerInRegion(this->x, this->y, 0x14, 0x40) != 0) &&
-         (((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) + gPlayerEntity.z.HALF.HI) < 0)) &&
+         (((gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) + gPlayerEntity.base.z.HALF.HI) < 0)) &&
         (gRoomControls.scroll_y == gRoomControls.origin_y)) {
         MemClear(&gRoomTransition.player_status, sizeof(PlayerRoomStatus));
         gRoomTransition.transitioningOut = 1;

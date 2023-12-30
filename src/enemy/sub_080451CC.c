@@ -1,12 +1,12 @@
 #include "entity.h"
 
-void sub_080451CC(Entity* this, Entity* other) {
+void sub_080451CC(GenericEntity* this, GenericEntity* other) {
     u8* pThis;
     u8* pOther;
-    other->flags = this->flags & ~ENT_DID_INIT;
-    other->x.WORD = this->x.WORD;
-    other->y.WORD = this->y.WORD;
-    other->z.WORD = this->z.WORD;
+    other->base.flags = this->base.flags & ~ENT_DID_INIT;
+    other->base.x.WORD = this->base.x.WORD;
+    other->base.y.WORD = this->base.y.WORD;
+    other->base.z.WORD = this->base.z.WORD;
 
     pThis = (u8*)&this->field_0x68;
     pOther = (u8*)&other->field_0x68;

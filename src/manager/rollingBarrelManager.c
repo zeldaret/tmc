@@ -93,7 +93,7 @@ void sub_080588F8(RollingBarrelManager* this) {
         }
     }
     if (super->timer) {
-        s32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
+        s32 tmp = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y;
         u32 tmp2;
         tmp2 = (((unsigned)(tmp - 0x50 < 0 ? 0x50 - tmp : tmp - 0x50) >> 3) * 0x3000) + 0x4000;
         if (super->subtimer == 0) {
@@ -134,14 +134,14 @@ void sub_08058A04(RollingBarrelManager* this) {
                                                       { 0x9C, 0x78, 0x1A, 0x16 }, { 0x9A, 0x70, 0x1A, 0x18 },
                                                       { 0x98, 0x64, 0x1E, 0x1E }, { 0x98, 0x6A, 0x1C, 0x10 } };
 
-    s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
-    s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
+    s32 tmp = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x;
+    s32 tmp2 = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y;
     if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(LV1TARU_OPEN) && (tmp - 0x6d < 0x17u) &&
-        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.z.HALF.HI == 0)) {
+        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.base.z.HALF.HI == 0)) {
         gPlayerState.queued_action = PLAYER_FALL;
         gPlayerState.field_0x38 = 0;
-        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x78;
-        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x50;
+        gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0x78;
+        gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x50;
         return;
     }
     if (tmp < 0x78) {
@@ -176,8 +176,8 @@ u32 sub_08058B08(RollingBarrelManager* this, u32 unk1, u32 unk2, const struct_08
         tmp -= unk1;
         tmp >>= 3;
         unk3 += tmp;
-        tmp2 = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x - unk3->unk_0);
-        tmp3 = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y - unk3->unk_2);
+        tmp2 = (gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x - unk3->unk_0);
+        tmp3 = (gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y - unk3->unk_2);
         return ((tmp2 < unk3->unk_4) && (tmp3 < unk3->unk_6));
     }
 }
@@ -230,8 +230,8 @@ void sub_08058BC8(RollingBarrelManager* this) {
 
 void sub_08058CB0(RollingBarrelManager* this) {
     static const u16 gUnk_08108300[4] = { 0xA4, 0x4C, 0xF4, 0x9C };
-    u32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
-    u32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
+    u32 tmp = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x;
+    u32 tmp2 = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y;
     u32 tmp3;
     if (tmp < 0x78) {
         tmp3 = 1;
@@ -248,12 +248,12 @@ void sub_08058CB0(RollingBarrelManager* this) {
 }
 
 void sub_08058CFC(void) {
-    u32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y;
+    u32 tmp = gPlayerEntity.base.y.HALF.HI - gRoomControls.scroll_y;
     if (tmp < 0x4C) {
-        sub_080044AE(&gPlayerEntity, 0xC0, 0x10);
+        sub_080044AE(&gPlayerEntity.base, 0xC0, 0x10);
     }
     if (tmp > 0x54) {
-        sub_080044AE(&gPlayerEntity, 0xC0, 0);
+        sub_080044AE(&gPlayerEntity.base, 0xC0, 0);
     }
 }
 

@@ -4,7 +4,6 @@
  *
  * @brief Fairy object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -182,7 +181,7 @@ void Fairy_Action3(FairyEntity* this) {
     } else {
         CopyPosition(super->child, super);
         super->z.HALF.HI--;
-        if (IsColliding(super, &gPlayerEntity)) {
+        if (IsColliding(super, &gPlayerEntity.base)) {
             sub_0808DB2C(this);
         }
     }
@@ -246,8 +245,8 @@ void sub_0808DAD0(FairyEntity* this) {
     super->spriteSettings.draw = 1;
     super->spritePriority.b1 = 2;
     super->spriteOffsetY = -5;
-    super->child = &gPlayerEntity;
-    CopyPosition(&gPlayerEntity, super);
+    super->child = &gPlayerEntity.base;
+    CopyPosition(&gPlayerEntity.base, super);
 }
 
 void sub_0808DB2C(FairyEntity* this) {
@@ -255,5 +254,5 @@ void sub_0808DB2C(FairyEntity* this) {
     super->subAction = 0;
     super->flags |= ENT_COLLIDE;
     super->flags2 = 1;
-    CopyPosition(&gPlayerEntity, super);
+    CopyPosition(&gPlayerEntity.base, super);
 }

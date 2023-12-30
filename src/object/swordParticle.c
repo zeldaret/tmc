@@ -4,7 +4,6 @@
  *
  * @brief Sword Particle object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "object.h"
@@ -34,8 +33,8 @@ void SwordParticle_Init(SwordParticleEntity* this) {
     super->action = 1;
     super->flags |= ENT_PERSIST;
     super->spritePriority.b0 = 0;
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    super->animationState = gPlayerEntity.animationState >> 1;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
+    super->animationState = gPlayerEntity.base.animationState >> 1;
     super->direction = (((super->animationState + 1) & 3) << 3);
     super->subtimer = 6;
     super->speed = 0x140;
@@ -122,12 +121,12 @@ void SwordParticle_Action1(SwordParticleEntity* this) {
             }
         }
 
-        super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+        super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
         ptr2 = &ptr[super->animationState * 2];
-        super->x.HALF.HI = ptr2[0] + gPlayerEntity.x.HALF.HI;
-        super->y.HALF.HI = ptr[super->animationState * 2 + 1] + gPlayerEntity.y.HALF.HI;
-        super->z.HALF.HI = gPlayerEntity.z.HALF.HI;
-        super->collisionLayer = gPlayerEntity.collisionLayer;
+        super->x.HALF.HI = ptr2[0] + gPlayerEntity.base.x.HALF.HI;
+        super->y.HALF.HI = ptr[super->animationState * 2 + 1] + gPlayerEntity.base.y.HALF.HI;
+        super->z.HALF.HI = gPlayerEntity.base.z.HALF.HI;
+        super->collisionLayer = gPlayerEntity.base.collisionLayer;
         switch (super->animationState) {
             default:
                 super->y.HALF.HI -= this->unk_6c;
@@ -169,7 +168,7 @@ void SwordParticle_Action2(SwordParticleEntity* this) {
     sub_08079BD8(super);
     super->action++;
     super->spriteSettings.draw = 1;
-    super->animationState = gPlayerEntity.animationState;
+    super->animationState = gPlayerEntity.base.animationState;
     super->spriteVramOffset = 0;
     super->palette.b.b0 = 4;
     super->spriteIndex = 0xaf;

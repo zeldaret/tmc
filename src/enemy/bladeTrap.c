@@ -4,28 +4,33 @@
  *
  * @brief Blade Trap enemy
  */
-
-#include "sound.h"
 #include "entity.h"
-#include "room.h"
 #include "object.h"
+#include "room.h"
+#include "sound.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+} BladeTrapEntity;
 
 #define DIR_NOT_MOVING_CHECK 0x80
 
-void BladeTrap(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        this->child = GetCurrentRoomProperty(this->type);
-        UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
+void BladeTrap(BladeTrapEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->child = GetCurrentRoomProperty(super->type);
+        UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
     }
-    if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
-        LinearMoveUpdate(this);
+    if (!(super->direction & DIR_NOT_MOVING_CHECK)) {
+        LinearMoveUpdate(super);
     }
 
-    if (!(--this->field_0x74.HWORD)) {
-        if (!(this->direction & DIR_NOT_MOVING_CHECK)) {
+    if (!(--this->unk_74)) {
+        if (!(super->direction & DIR_NOT_MOVING_CHECK)) {
             EnqueueSFX(SFX_METAL_CLINK);
         }
-        UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
+        UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
     }
 }

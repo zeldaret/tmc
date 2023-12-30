@@ -4,10 +4,9 @@
  *
  * @brief Water Drop enemy
  */
-
 #include "enemy.h"
-#include "screen.h"
 #include "object.h"
+#include "screen.h"
 #include "structures.h"
 
 void sub_0802A39C(Entity*);
@@ -22,7 +21,7 @@ void WaterDrop(Entity* this) {
 }
 
 void sub_0802A250(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     this->action = 1;
     this->timer = 0;
@@ -33,9 +32,9 @@ void sub_0802A250(Entity* this) {
     InitializeAnimation(this, 0);
     UpdateSpriteForCollisionLayer(this);
 
-    ent = CreateObject(WATER_DROP_OBJECT, 0, 0);
-    if (ent != NULL) {
-        ent->parent = this;
+    entity = CreateObject(WATER_DROP_OBJECT, 0, 0);
+    if (entity != NULL) {
+        entity->parent = this;
     }
 }
 
@@ -77,8 +76,8 @@ void sub_0802A334(Entity* this) {
 }
 
 void sub_0802A39C(Entity* this) {
-    u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.scroll_x + gScreen.bg1.xOffset) >> 3;
-    u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y + gScreen.bg1.yOffset - 10) >> 3;
+    u32 x = (gPlayerEntity.base.x.HALF.HI - gRoomControls.scroll_x + gScreen.bg1.xOffset) >> 3;
+    u32 y = (gPlayerEntity.base.y.HALF.HI - gRoomControls.scroll_y + gScreen.bg1.yOffset - 10) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         COLLISION_OFF(this);
     } else {

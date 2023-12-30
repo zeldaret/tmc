@@ -4,35 +4,15 @@
  *
  * @brief Business Scrub enemy
  */
-
 #include "asm.h"
 #include "enemy.h"
-#include "message.h"
-#include "save.h"
-#include "npc.h"
 #include "functions.h"
 #include "game.h"
 #include "item.h"
 #include "kinstone.h"
-
-void sub_08028E9C(Entity*);
-void sub_08028EDC(Entity*);
-bool32 sub_08028F98(Entity*, u32);
-bool32 sub_08028FDC(Entity*);
-void sub_08028FFC(Entity*);
-void sub_08029078(Entity*);
-void sub_080290E0(Entity*, u32);
-void sub_080290FC(Entity*);
-bool32 sub_0802915C(Entity*);
-bool32 BusinessScrub_CheckRefillFitsBag(Entity*);
-void sub_0802922C(Entity*);
-void sub_0802925C(Entity*);
-
-extern const struct SalesOffering gUnk_080CC954[];
-extern const u8 kinstoneTypes[];
-extern void (*const BusinessScrub_Functions[])(Entity*);
-extern void (*const BusinessScrub_Actions[])(Entity*);
-extern const u8 gUnk_080CCA04[];
+#include "message.h"
+#include "npc.h"
+#include "save.h"
 
 struct SalesOffering {
     u8 field_0x0;
@@ -45,131 +25,164 @@ struct SalesOffering {
     u16 local_flag;
 };
 
-void BusinessScrub(Entity* this) {
-    EnemyFunctionHandler(this, BusinessScrub_Functions);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u16 unk_76;
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ const struct SalesOffering* unk_7c;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unused2[4];
+    /*0x86*/ u16 unk_86;
+} BusinessScrubEntity;
+
+void sub_08028E9C(BusinessScrubEntity*);
+void sub_08028EDC(BusinessScrubEntity*);
+bool32 sub_08028F98(BusinessScrubEntity*, u32);
+bool32 sub_08028FDC(BusinessScrubEntity*);
+void sub_08028FFC(BusinessScrubEntity*);
+void sub_08029078(BusinessScrubEntity*);
+void sub_080290E0(BusinessScrubEntity*, u32);
+void sub_080290FC(BusinessScrubEntity*);
+bool32 sub_0802915C(BusinessScrubEntity*);
+bool32 BusinessScrub_CheckRefillFitsBag(BusinessScrubEntity*);
+void sub_0802922C(BusinessScrubEntity*);
+void sub_0802925C(BusinessScrubEntity*);
+
+extern const struct SalesOffering gUnk_080CC954[];
+extern const u8 kinstoneTypes[];
+extern void (*const BusinessScrub_Functions[])(BusinessScrubEntity*);
+extern void (*const BusinessScrub_Actions[])(BusinessScrubEntity*);
+extern const u8 gUnk_080CCA04[];
+
+void BusinessScrub(BusinessScrubEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)BusinessScrub_Functions);
 }
 
-void BusinessScrub_OnTick(Entity* this) {
-    BusinessScrub_Actions[this->action](this);
+void BusinessScrub_OnTick(BusinessScrubEntity* this) {
+    BusinessScrub_Actions[super->action](this);
 }
 
-void BusinessScrub_OnCollision(Entity* this) {
-    Entity* pEVar1;
+void BusinessScrub_OnCollision(BusinessScrubEntity* this) {
+    Entity* fx;
 
-    if (this->hitType == 1 && (this->contactFlags & 0x7f) == 0x42) {
-        this->action = 3;
-        this->subAction = 0;
-        this->timer = 40;
-        COLLISION_OFF(this);
+    if (super->hitType == 1 && (super->contactFlags & 0x7f) == 0x42) {
+        super->action = 3;
+        super->subAction = 0;
+        super->timer = 40;
+        COLLISION_OFF(super);
         sub_080290E0(this, 4);
-        pEVar1 = CreateFx(this, FX_BUSH, 0);
-        if (pEVar1 != NULL) {
-            pEVar1->z.HALF.HI -= 8;
+        fx = CreateFx(super, FX_BUSH, 0);
+        if (fx != NULL) {
+            fx->z.HALF.HI -= 8;
         }
         EnqueueSFX(SFX_EM_DEKUSCRUB_HIT);
     }
 }
 
-void BusinessScrub_OnGrabbed(Entity* this) {
+void BusinessScrub_OnGrabbed(BusinessScrubEntity* this) {
     /* ... */
 }
 
-void BusinessScrub_Action0(Entity* this) {
-    this->subtimer = 0;
-    this->field_0x78.HWORD = this->x.HALF.HI;
-    this->field_0x7a.HWORD = this->y.HALF.HI;
-    this->animationState = 0;
-    this->direction = DirectionSouth;
+void BusinessScrub_Action0(BusinessScrubEntity* this) {
+    super->subtimer = 0;
+    this->unk_78 = super->x.HALF.HI;
+    this->unk_7a = super->y.HALF.HI;
+    super->animationState = 0;
+    super->direction = DirectionSouth;
     sub_08028E9C(this);
-    if ((*(u8*)this->field_0x7c.WORD & 1) || CheckFlags(this->field_0x86.HWORD)) {
-        this->action = 4;
-        this->timer = 120;
-        this->spritePriority.b1 = 1;
+    if ((*(u8*)this->unk_7c & 1) || CheckFlags(this->unk_86)) {
+        super->action = 4;
+        super->timer = 120;
+        super->spritePriority.b1 = 1;
         sub_0802925C(this);
         sub_080290E0(this, 0);
     } else {
-        this->timer = 0;
-        this->field_0x76.HWORD = COORD_TO_TILE(this);
-        this->field_0x74.HWORD = GetTileIndex(this->field_0x76.HWORD, this->collisionLayer);
-        this->hurtType = 0x41;
+        super->timer = 0;
+        this->unk_76 = COORD_TO_TILE(super);
+        this->unk_74 = GetTileIndex(this->unk_76, super->collisionLayer);
+        super->hurtType = 0x41;
         sub_08028FFC(this);
     }
 }
 
-void BusinessScrub_Action1(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
+void BusinessScrub_Action1(BusinessScrubEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
     } else if (sub_08028F98(this, 0)) {
         sub_08029078(this);
-        this->subAction = 0;
-        this->subtimer = 1;
+        super->subAction = 0;
+        super->subtimer = 1;
     }
 }
 
-void BusinessScrub_Action2(Entity* this) {
+void BusinessScrub_Action2(BusinessScrubEntity* this) {
     u32 unk;
 
-    GetNextFrame(this);
-    switch (this->subAction) {
+    GetNextFrame(super);
+    switch (super->subAction) {
         case 0:
             unk = 1;
-            if (this->frame & ANIM_DONE) {
-                this->subAction = 1;
-                this->timer = 60;
-                this->subtimer = 16;
+            if (super->frame & ANIM_DONE) {
+                super->subAction = 1;
+                super->timer = 60;
+                super->subtimer = 16;
                 sub_08028FDC(this);
                 sub_080290E0(this, 1);
             }
             break;
         case 1:
             unk = 1;
-            if (--this->timer == 0) {
-                this->subAction = 2;
-                this->timer = 32;
-                this->subtimer = 0;
+            if (--super->timer == 0) {
+                super->subAction = 2;
+                super->timer = 32;
+                super->subtimer = 0;
                 sub_08028FDC(this);
                 sub_080290E0(this, 2);
-            } else if (--this->subtimer == 0) {
+            } else if (--super->subtimer == 0) {
                 if (sub_08028FDC(this)) {
                     sub_080290E0(this, 1);
                 }
-                this->subtimer = 16;
+                super->subtimer = 16;
             }
             break;
         case 2:
             unk = 1;
             sub_080290FC(this);
-            if (this->frame & 1) {
-                Entity* ent = CreateProjectileWithParent(this, DEKU_SEED_PROJECTILE, 0);
-                if (ent != NULL) {
-                    ent->parent = this;
-                    ent->direction = this->direction;
-                    this->frame &= ~1;
-                    this->subAction = 3;
+            if (super->frame & 1) {
+                Entity* entity = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
+                if (entity != NULL) {
+                    entity->parent = super;
+                    entity->direction = super->direction;
+                    super->frame &= ~1;
+                    super->subAction = 3;
                 }
             }
             break;
         case 3:
             unk = 2;
-            if (this->frame & ANIM_DONE) {
-                this->subAction = 4;
-                this->timer = 80;
+            if (super->frame & ANIM_DONE) {
+                super->subAction = 4;
+                super->timer = 80;
                 sub_080290E0(this, 1);
             }
             break;
         case 4:
             unk = 2;
-            if (--this->timer == 0) {
+            if (--super->timer == 0) {
                 if (sub_08028F98(this, 0)) {
-                    this->subAction = 1;
-                    this->timer = 60;
-                    this->subtimer = 16;
+                    super->subAction = 1;
+                    super->timer = 60;
+                    super->subtimer = 16;
                     sub_08028FDC(this);
                 } else {
                     sub_08028FFC(this);
-                    this->subAction = 0;
-                    this->timer = 80;
-                    this->subtimer = 0;
+                    super->subAction = 0;
+                    super->timer = 80;
+                    super->subtimer = 0;
                 }
                 return;
             }
@@ -178,73 +191,73 @@ void BusinessScrub_Action2(Entity* this) {
 
     if (!sub_08028F98(this, unk)) {
         sub_08028FFC(this);
-        this->subAction = 0;
-        this->timer = 80;
-        this->subtimer = 0;
+        super->subAction = 0;
+        super->timer = 80;
+        super->subtimer = 0;
     }
 }
 
-void BusinessScrub_Action3(Entity* this) {
+void BusinessScrub_Action3(BusinessScrubEntity* this) {
     Entity* iVar1;
 
-    switch (this->subAction) {
+    switch (super->subAction) {
         case 0:
-            if (this->timer == 0) {
-                if (this->frame & ANIM_DONE) {
-                    this->subAction = 1;
+            if (super->timer == 0) {
+                if (super->frame & ANIM_DONE) {
+                    super->subAction = 1;
                     sub_08028FDC(this);
                     sub_080290E0(this, 5);
-                    this->spritePriority.b1 = 1;
+                    super->spritePriority.b1 = 1;
                 }
             } else {
-                this->timer--;
+                super->timer--;
             }
             break;
         case 1:
-            if (this->frame & ANIM_DONE) {
-                this->action = 4;
-                this->subAction = 0;
-                this->timer = 30;
-                this->subtimer = 5;
+            if (super->frame & ANIM_DONE) {
+                super->action = 4;
+                super->subAction = 0;
+                super->timer = 30;
+                super->subtimer = 5;
                 sub_080290E0(this, 0);
-                iVar1 = Create0x68FX(this, FX_STARS);
+                iVar1 = Create0x68FX(super, FX_STARS);
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
                     SetEntityPriority(iVar1, PRIO_MESSAGE);
                 }
-                SetFlag(this->field_0x86.HWORD);
+                SetFlag(this->unk_86);
                 sub_0802925C(this);
             }
             break;
     }
 
-    GetNextFrame(this);
-    sub_0800445C(this);
+    GetNextFrame(super);
+    sub_0800445C(super);
 }
 
 extern void sub_0804AA1C(Entity*);
-void sub_08028F0C(Entity*);
+void sub_08028F0C(BusinessScrubEntity*);
 
-void BusinessScrub_Action4(Entity* this) {
-    if (--this->timer == 0) {
-        this->timer = 48;
-        if (this->subtimer) {
-            if (--this->subtimer == 0) {
-                sub_0804AA1C(this);
+void BusinessScrub_Action4(BusinessScrubEntity* this) {
+    if (--super->timer == 0) {
+        super->timer = 48;
+        if (super->subtimer) {
+            if (--super->subtimer == 0) {
+                sub_0804AA1C(super);
             }
-        } else if (sub_08028FDC(this) || this->field_0x80.HALF.LO) {
-            this->field_0x80.HALF.LO = 0;
+        } else if (sub_08028FDC(this) || this->unk_80) {
+            this->unk_80 = 0;
             sub_080290E0(this, 0);
         }
     }
-    GetNextFrame(this);
-    sub_0800445C(this);
+    GetNextFrame(super);
+    sub_0800445C(super);
     sub_08028F0C(this);
 }
 
-void BusinessScrub_Action5(Entity* this) {
-    struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
+void BusinessScrub_Action5(BusinessScrubEntity* this) {
+    struct SalesOffering* offer = (struct SalesOffering*)this->unk_7c;
     u32 subtype;
 
     if ((gMessage.state & MESSAGE_ACTIVE) == 0 && sub_0802915C(this) && !sub_08056338()) {
@@ -264,9 +277,9 @@ void BusinessScrub_Action5(Entity* this) {
 
                         CreateItemEntity(offer->offeredItem, subtype, 0);
 
-                        this->action = 6;
-                        this->timer = 4;
-                        this->field_0x80.HALF.HI = 0;
+                        super->action = 6;
+                        super->timer = 4;
+                        this->unk_81 = 0;
                         sub_080290E0(this, 3);
 #if defined(USA) || defined(DEMO_USA)
                         SetLocalFlag(KS_B06);
@@ -274,12 +287,12 @@ void BusinessScrub_Action5(Entity* this) {
                         return;
                     case 1: // refill, bottle, specific kinstone
                         CreateItemEntity(offer->offeredItem, offer->item_subtype, 0);
-                        this->timer = 4;
+                        super->timer = 4;
                         sub_0802922C(this);
                         return;
                     case 2: // grip ring
                         CreateItemEntity(offer->offeredItem, offer->item_subtype, 0);
-                        this->timer = 8;
+                        super->timer = 8;
                         sub_0802922C(this);
                         return;
                 }
@@ -291,95 +304,95 @@ void BusinessScrub_Action5(Entity* this) {
         }
     }
 
-    sub_0800445C(this);
-    this->action = 4;
-    this->timer = 48;
+    sub_0800445C(super);
+    super->action = 4;
+    super->timer = 48;
     sub_080290E0(this, 0);
 }
 
-void BusinessScrub_Action6(Entity* this) {
-    if (gPlayerEntity.action == PLAYER_ITEMGET) {
-        if (this->field_0x80.HALF.HI == 0) {
+void BusinessScrub_Action6(BusinessScrubEntity* this) {
+    if (gPlayerEntity.base.action == PLAYER_ITEMGET) {
+        if (this->unk_81 == 0) {
             SetPlayerControl(1);
-            this->field_0x80.HALF.HI = 1;
+            this->unk_81 = 1;
         }
     } else {
         MessageFromTarget(TEXT_INDEX(TEXT_BUSINESS_SCRUB, 0x02));
-        this->action = 4;
-        this->field_0x80.HALF.HI = 0;
-        this->timer = 1;
+        super->action = 4;
+        this->unk_81 = 0;
+        super->timer = 1;
         sub_08028EDC(this);
         SetPlayerControl(0);
-        sub_0800445C(this);
-        GetNextFrame(this);
+        sub_0800445C(super);
+        GetNextFrame(super);
     }
 }
 
-void BusinessScrub_Action7(Entity* this) {
+void BusinessScrub_Action7(BusinessScrubEntity* this) {
     if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
-        struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
+        struct SalesOffering* offer = (struct SalesOffering*)this->unk_7c;
 
-        this->action = 4;
-        this->subAction = gMessage.state & MESSAGE_ACTIVE;
-        this->timer = 1;
+        super->action = 4;
+        super->subAction = gMessage.state & MESSAGE_ACTIVE;
+        super->timer = 1;
         if (!CheckLocalFlag(offer->local_flag)) {
             SetLocalFlag(offer->local_flag);
         }
         SetPlayerControl(0);
     }
-    sub_0800445C(this);
-    GetNextFrame(this);
+    sub_0800445C(super);
+    GetNextFrame(super);
 }
 
-void BusinessScrub_Action8(Entity* this) {
-    if (UpdateFuseInteraction(this)) {
-        this->action = 4;
-        this->timer = 1;
+void BusinessScrub_Action8(BusinessScrubEntity* this) {
+    if (UpdateFuseInteraction(super)) {
+        super->action = 4;
+        super->timer = 1;
     }
 }
 
 bool32 sub_08029198(const struct SalesOffering*);
 
-void sub_08028E9C(Entity* this) {
-    const struct SalesOffering* offer = &gUnk_080CC954[this->type];
+void sub_08028E9C(BusinessScrubEntity* this) {
+    const struct SalesOffering* offer = &gUnk_080CC954[super->type];
     if (sub_08029198(offer) && (offer->field_0x0 & 2)) {
         offer = &gUnk_080CC954[offer->local_flag];
     }
-    this->field_0x7c.WORD = (u32)offer;
-    this->field_0x80.HALF.LO = 0;
+    this->unk_7c = offer;
+    this->unk_80 = 0;
 }
 
-void sub_08028EDC(Entity* this) {
-    const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
+void sub_08028EDC(BusinessScrubEntity* this) {
+    const struct SalesOffering* offer = this->unk_7c;
     if (sub_08029198(offer) && (offer->field_0x0 & 2)) {
         offer = &gUnk_080CC954[offer->local_flag];
-        this->field_0x7c.WORD = (u32)offer;
+        this->unk_7c = offer;
     }
 }
 
-void sub_08028F0C(Entity* this) {
-    if (this->interactType == INTERACTION_FUSE) {
-        this->action = 8;
-        this->interactType = INTERACTION_NONE;
-        InitializeNPCFusion(this);
-    } else if (this->interactType != INTERACTION_NONE) {
+void sub_08028F0C(BusinessScrubEntity* this) {
+    if (super->interactType == INTERACTION_FUSE) {
+        super->action = 8;
+        super->interactType = INTERACTION_NONE;
+        InitializeNPCFusion(super);
+    } else if (super->interactType != INTERACTION_NONE) {
         u16 dialog;
-        const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
+        const struct SalesOffering* offer = (const struct SalesOffering*)this->unk_7c;
 
-        this->interactType = INTERACTION_NONE;
-        sub_0804AA1C(this);
-        this->direction = (GetAnimationState(this) << 3);
+        super->interactType = INTERACTION_NONE;
+        sub_0804AA1C(super);
+        super->direction = (GetAnimationState(super) << 3);
         sub_080290E0(this, 3);
-        this->field_0x80.HALF.LO = 1;
-        this->timer = 32;
-        this->subtimer = 0;
+        this->unk_80 = 1;
+        super->timer = 32;
+        super->subtimer = 0;
         if (sub_08029198(offer)) {
             dialog = offer->field_0x6;
         } else {
             if ((offer->field_0x0 & 0xfc) != 0xc) {
-                this->action = 5;
+                super->action = 5;
             } else {
-                this->action = 7;
+                super->action = 7;
             }
             dialog = offer->field_0x4;
             SetPlayerControl(1);
@@ -389,16 +402,16 @@ void sub_08028F0C(Entity* this) {
     }
 }
 
-bool32 sub_08028F98(Entity* this, u32 param_2) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL || EntityInRectRadius(this, ent, 0x28, 0x28)) {
+bool32 sub_08028F98(BusinessScrubEntity* this, u32 param_2) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL || EntityInRectRadius(super, entity, 0x28, 0x28)) {
         return FALSE;
     }
 
     if (param_2 != 2) {
         u32 distance = param_2 ? 0x58 : 0x50;
 
-        if (!EntityInRectRadius(this, ent, distance, distance)) {
+        if (!EntityInRectRadius(super, entity, distance, distance)) {
             return FALSE;
         }
     }
@@ -406,67 +419,67 @@ bool32 sub_08028F98(Entity* this, u32 param_2) {
     return TRUE;
 }
 
-bool32 sub_08028FDC(Entity* this) {
-    u32 direction = DirectionRoundUp(sub_08049F84(this, 1));
-    if (direction == this->direction) {
+bool32 sub_08028FDC(BusinessScrubEntity* this) {
+    u32 direction = DirectionRoundUp(sub_08049F84(super, 1));
+    if (direction == super->direction) {
         return FALSE;
     } else {
-        this->direction = direction;
+        super->direction = direction;
         return TRUE;
     }
 }
 
-void sub_08028FFC(Entity* this) {
-    this->action = 1;
-    COLLISION_OFF(this);
-    this->spritePriority.b1 = 0;
-    UnloadGFXSlots(this);
-    UnloadOBJPalette(this);
-    this->spriteVramOffset = 0xe8;
-    this->palette.b.b0 = 2;
-    this->palette.b.b4 = 2;
-    this->spriteIndex = 0xa7;
-    this->x.HALF.HI = this->field_0x78.HWORD;
-    this->y.HALF.HI = this->field_0x7a.HWORD;
-    InitializeAnimation(this, 0);
-    SetTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
+void sub_08028FFC(BusinessScrubEntity* this) {
+    super->action = 1;
+    COLLISION_OFF(super);
+    super->spritePriority.b1 = 0;
+    UnloadGFXSlots(super);
+    UnloadOBJPalette(super);
+    super->spriteVramOffset = 0xe8;
+    super->palette.b.b0 = 2;
+    super->palette.b.b4 = 2;
+    super->spriteIndex = 0xa7;
+    super->x.HALF.HI = this->unk_78;
+    super->y.HALF.HI = this->unk_7a;
+    InitializeAnimation(super, 0);
+    SetTile(0x4022, this->unk_76, super->collisionLayer);
 }
 
-void sub_08029078(Entity* this) {
-    this->action = 2;
-    COLLISION_ON(this);
-    this->spritePriority.b1 = 1;
-    if (LoadFixedGFX(this, 0x72) == 0) {
-        DeleteEntity(this);
+void sub_08029078(BusinessScrubEntity* this) {
+    super->action = 2;
+    COLLISION_ON(super);
+    super->spritePriority.b1 = 1;
+    if (LoadFixedGFX(super, 0x72) == 0) {
+        DeleteEntity(super);
     } else {
-        LoadObjPalette(this, 0x6e);
-        this->spriteIndex = 0xd0;
+        LoadObjPalette(super, 0x6e);
+        super->spriteIndex = 0xd0;
         sub_08028FDC(this);
         sub_080290E0(this, 1);
-        SetTile(this->field_0x74.HWORD, this->field_0x76.HWORD, this->collisionLayer);
+        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
     }
 }
 
-void sub_080290E0(Entity* this, u32 param_2) {
-    InitializeAnimation(this, this->direction >> 3 | gUnk_080CCA04[param_2]);
+void sub_080290E0(BusinessScrubEntity* this, u32 param_2) {
+    InitializeAnimation(super, super->direction >> 3 | gUnk_080CCA04[param_2]);
 }
 
-void sub_080290FC(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
-        if ((this->timer < 16) && ((this->timer & 1) == 0)) {
-            s32 sVar3 = (this->direction & DirectionSouth) ? -1 : 1;
-            if (this->direction & DirectionEast) {
-                this->x.HALF.HI += ((this->timer & 8) != 0) ? -sVar3 : sVar3;
+void sub_080290FC(BusinessScrubEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
+        if ((super->timer < 16) && ((super->timer & 1) == 0)) {
+            s32 sVar3 = (super->direction & DirectionSouth) ? -1 : 1;
+            if (super->direction & DirectionEast) {
+                super->x.HALF.HI += ((super->timer & 8) != 0) ? -sVar3 : sVar3;
             } else {
-                this->y.HALF.HI += ((this->timer & 8) != 0) ? sVar3 : -sVar3;
+                super->y.HALF.HI += ((super->timer & 8) != 0) ? sVar3 : -sVar3;
             }
         }
     }
 }
 
-bool32 sub_0802915C(Entity* this) {
-    const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
+bool32 sub_0802915C(BusinessScrubEntity* this) {
+    const struct SalesOffering* offer = (const struct SalesOffering*)this->unk_7c;
 
     switch (offer->offeredItem) {
         case ITEM_GRIP_RING:
@@ -511,8 +524,8 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
     return TRUE;
 }
 
-bool32 BusinessScrub_CheckRefillFitsBag(Entity* this) {
-    const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
+bool32 BusinessScrub_CheckRefillFitsBag(BusinessScrubEntity* this) {
+    const struct SalesOffering* offer = (const struct SalesOffering*)this->unk_7c;
 
     switch (offer->offeredItem) {
         case ITEM_BOMBS10:
@@ -528,11 +541,11 @@ bool32 BusinessScrub_CheckRefillFitsBag(Entity* this) {
     return FALSE;
 }
 
-void sub_0802922C(Entity* this) {
+void sub_0802922C(BusinessScrubEntity* this) {
     const struct SalesOffering* offer;
-    this->action = 6;
-    this->field_0x80.HALF.HI = 0;
-    offer = (const struct SalesOffering*)this->field_0x7c.WORD;
+    super->action = 6;
+    this->unk_81 = 0;
+    offer = (const struct SalesOffering*)this->unk_7c;
 
     switch (offer->offeredItem) {
         case ITEM_BOTTLE1:
@@ -547,17 +560,17 @@ void sub_0802922C(Entity* this) {
     }
 }
 
-void sub_0802925C(Entity* this) {
-    AddInteractableWhenBigFuser(this, GetFusionToOffer(this));
+void sub_0802925C(BusinessScrubEntity* this) {
+    AddInteractableWhenBigFuser(super, GetFusionToOffer(super));
 }
 
-void sub_08029270(Entity* this) {
-    if (this->action == 0) {
-        this->action++;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 0xe);
+void sub_08029270(BusinessScrubEntity* this) {
+    if (super->action == 0) {
+        super->action++;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 0xe);
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
@@ -580,16 +593,16 @@ const struct SalesOffering gUnk_080CC954[] = {
 
 const u8 kinstoneTypes[] = { 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75 };
 
-void (*const BusinessScrub_Functions[])(Entity*) = {
+void (*const BusinessScrub_Functions[])(BusinessScrubEntity*) = {
     BusinessScrub_OnTick,
     BusinessScrub_OnCollision,
-    GenericKnockback,
-    GenericDeath,
-    GenericConfused,
+    (void (*)(BusinessScrubEntity*))GenericKnockback,
+    (void (*)(BusinessScrubEntity*))GenericDeath,
+    (void (*)(BusinessScrubEntity*))GenericConfused,
     BusinessScrub_OnGrabbed,
 };
 
-void (*const BusinessScrub_Actions[])(Entity*) = {
+void (*const BusinessScrub_Actions[])(BusinessScrubEntity*) = {
     BusinessScrub_Action0,
     BusinessScrub_Action1,
     BusinessScrub_Action2,

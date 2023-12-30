@@ -4,7 +4,6 @@
  *
  * @brief Epona NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "message.h"
@@ -104,7 +103,8 @@ void sub_08065AA4(EponaEntity* this) {
                 SetEntityPriority(super, PRIO_MESSAGE);
                 sub_08065A50(this);
             }
-            InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+            InitAnimationForceUpdate(super,
+                                     GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
         } else {
             sub_08065A50(this);
             ResetPlayerAnimationAndAction();

@@ -4,11 +4,8 @@
  *
  * @brief Wizzrobe Ice enemy
  */
-
-#define NENT_DEPRECATED
-#include "global.h"
-#include "enemy.h"
 #include "enemy/wizzrobe.h"
+#include "enemy.h"
 #include "functions.h"
 #include "object.h"
 
@@ -105,7 +102,7 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
                     super->child->spriteSettings.draw = 0;
                     break;
                 case 0xa:
-                    if (EntityInRectRadius(super, &gPlayerEntity, 0xa0, 0xa0) && CheckOnScreen(super)) {
+                    if (EntityInRectRadius(super, &gPlayerEntity.base, 0xa0, 0xa0) && CheckOnScreen(super)) {
                         Entity* projectile = CreateProjectileWithParent(super, ICE_PROJECTILE, 1);
                         if (projectile != NULL) {
                             projectile->direction = super->direction & 0x18;

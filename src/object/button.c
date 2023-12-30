@@ -4,7 +4,6 @@
  *
  * @brief Button object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -172,7 +171,7 @@ Entity* sub_08081D74(ButtonEntity* this) {
     ent = 0;
     if (sub_08081E0C(super)) {
         if ((gPlayerState.flags & PL_CAPTURED) == 0 && (gPlayerState.flags & PL_MINISH) == 0) {
-            ent = &gPlayerEntity;
+            ent = &gPlayerEntity.base;
         }
     } else {
         if (gPlayerState.flags & PL_CLONING) {
@@ -190,7 +189,7 @@ Entity* sub_08081D74(ButtonEntity* this) {
 }
 
 u32 sub_08081E0C(Entity* this) {
-    Entity* tmp = &gPlayerEntity;
+    Entity* tmp = &gPlayerEntity.base;
     if (tmp->z.HALF.HI != 0 || !PlayerCanBeMoved()) {
         return 0;
     } else {
@@ -290,7 +289,7 @@ bool32 sub_08081F7C(ButtonEntity* this, u32 r7) {
 void sub_08081FF8(Entity* this) {
     u32 direction;
     u32 i;
-    if (this->child != &gPlayerEntity)
+    if (this->child != &gPlayerEntity.base)
         return;
     direction = GetFacingDirection(this->child, this);
     sub_080044AE(this->child, 0x200, direction);

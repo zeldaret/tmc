@@ -1,9 +1,13 @@
-#define NENT_DEPRECATED
-#include "global.h"
-#include "room.h"
+/**
+ * @file gyorgChild.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Child enemy
+ */
 #include "asm.h"
-#include "functions.h"
 #include "enemy/gyorg.h"
+#include "functions.h"
+#include "room.h"
 
 void GyorgChild_OnTick(GyorgChildEntity*);
 void GyorgChild_OnCollision(GyorgChildEntity*);
@@ -155,13 +159,13 @@ void GyorgChild_Action2(GyorgChildEntity* this) {
         switch (super->animationState >> 1) {
             case 0:
             case 2:
-                super->x.HALF.HI = gPlayerEntity.x.HALF.HI + this->attackOffsetX;
+                super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->attackOffsetX;
                 super->y.HALF.HI = gRoomControls.scroll_y + this->attackOffsetY;
                 break;
             case 1:
             default:
                 super->x.HALF.HI = gRoomControls.scroll_x + this->attackOffsetX;
-                super->y.HALF.HI = gPlayerEntity.y.HALF.HI + this->attackOffsetY;
+                super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->attackOffsetY;
                 break;
         }
         if (super->type2 == 0) {

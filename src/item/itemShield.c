@@ -20,7 +20,7 @@ void ItemShield(ItemBehavior* this, u32 index) {
 void sub_08076D04(ItemBehavior* this, u32 index) {
     gPlayerState.shield_status = 0x81;
     this->priority = 2;
-    sub_0806F948(&gPlayerEntity);
+    sub_0806F948(&gPlayerEntity.base);
     sub_08077D38(this, index);
     sub_08077BB8(this);
 }

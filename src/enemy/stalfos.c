@@ -4,9 +4,6 @@
  *
  * @brief Stalfos enemy
  */
-
-#define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"
@@ -173,7 +170,7 @@ void Stalfos_Init(StalfosEntity* this) {
     } else {
         super->action = 4;
         super->direction = 0xff;
-        super->animationState = (((GetFacingDirection(super, &gPlayerEntity) + 4) & 0x18) >> 3);
+        super->animationState = (((GetFacingDirection(super, &gPlayerEntity.base) + 4) & 0x18) >> 3);
         sub_0803981C(this);
     }
 }
@@ -350,7 +347,7 @@ u32 sub_080398C0(StalfosEntity* this) {
     u32 rand = Random();
     if ((super->type == 0) && sub_08049FDC(super, 1) &&
         (EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x58) != 0)) {
-        return GetFacingDirection(super, &gPlayerEntity);
+        return GetFacingDirection(super, &gPlayerEntity.base);
     } else {
         if ((sub_08049FA0(super) == 0) && ((rand & 7) != 0)) {
             return sub_08049EE4(super);

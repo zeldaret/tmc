@@ -1,7 +1,12 @@
-#define NENT_DEPRECATED
+/**
+ * @file scissorsBeetle.c
+ * @ingroup Enemies
+ *
+ * @brief Scissors Beetle enemy
+ */
 #include "collision.h"
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 
 typedef struct {
     Entity base;
@@ -62,22 +67,22 @@ void ScissorsBeetle_OnGrabbed(ScissorsBeetleEntity* this) {
 }
 
 void ScissorsBeetle_Init(ScissorsBeetleEntity* this) {
-    Entity* ent = CreateProjectile(MANDIBLES_PROJECTILE);
-    if (ent == NULL)
+    Entity* entity = CreateProjectile(MANDIBLES_PROJECTILE);
+    if (entity == NULL)
         return;
 
     sub_0804A720(super);
     super->action = 1;
     super->spriteSettings.draw = 1;
     COLLISION_ON(super);
-    super->child = ent;
+    super->child = entity;
     super->animationState = Random() & 6;
     this->unk_80 = 0;
     this->unk_7a = 0;
-    ent->parent = super;
-    ent->type = 0;
-    ent->animationState = 0xff;
-    ent->collisionLayer = super->collisionLayer;
+    entity->parent = super;
+    entity->type = 0;
+    entity->animationState = 0xff;
+    entity->collisionLayer = super->collisionLayer;
     sub_08038BA8(this);
 }
 

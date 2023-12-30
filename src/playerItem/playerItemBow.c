@@ -4,7 +4,6 @@
  *
  * @brief Bow Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -87,17 +86,17 @@ void PlayerItemBow_Init(PlayerItemBowEntity* this) {
             super->speed = 0x300;
         }
         super->direction = super->animationState << 2;
-        super->collisionFlags = gPlayerEntity.collisionFlags + 1;
-        super->flags2 = gPlayerEntity.flags2;
+        super->collisionFlags = gPlayerEntity.base.collisionFlags + 1;
+        super->flags2 = gPlayerEntity.base.flags2;
         if (super->collisionLayer == 2) {
             super->type2 = 1;
         } else {
             super->type2 = 0;
         }
-        super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+        super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
         ptr = &gUnk_080B3E40[super->animationState >> 1];
-        super->x.HALF.HI = gPlayerEntity.x.HALF.HI + ptr->x;
-        super->y.HALF.HI = gPlayerEntity.y.HALF.HI + ptr->y;
+        super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + ptr->x;
+        super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + ptr->y;
         super->spriteSettings.flipX = ptr->spriteSettings;
         super->spriteSettings.flipY = ptr->unk_3;
         super->animIndex = ptr->animIndex;
@@ -164,7 +163,7 @@ void PlayerItemBow_Action1(PlayerItemBowEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) && (!tmp2) &&
+        if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0) && (!tmp2) &&
             sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) != 0) {
             super->timer = 30;
             super->action++;
@@ -225,21 +224,21 @@ void PlayerItemBow_Action1(PlayerItemBowEntity* this) {
             }
         }
         arrowCount = gSave.stats.arrowCount;
-        if (super->frameIndex - this->unk_78 != gPlayerEntity.frameIndex) {
-            super->frameIndex = gPlayerEntity.frameIndex + this->unk_78;
+        if (super->frameIndex - this->unk_78 != gPlayerEntity.base.frameIndex) {
+            super->frameIndex = gPlayerEntity.base.frameIndex + this->unk_78;
             if (arrowCount == 0) {
                 super->frameIndex += 0x2a;
             }
             sub_080042D0(super, super->frameIndex, super->spriteIndex);
         }
-        if ((gPlayerEntity.frame & 1) != 0 && arrowCount != 0) {
+        if ((gPlayerEntity.base.frame & 1) != 0 && arrowCount != 0) {
             entity = CreatePlayerItem(PLAYER_ITEM_BOW, 1, super->hurtType, 9);
             if (entity != NULL) {
                 gPlayerState.attack_status |= 0x80;
                 ModArrows(-1);
             }
         }
-        sub_08078E84(super, &gPlayerEntity);
+        sub_08078E84(super, &gPlayerEntity.base);
     }
 }
 

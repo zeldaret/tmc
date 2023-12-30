@@ -4,7 +4,6 @@
  *
  * @brief Dash Sword Player Item
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "player.h"
@@ -68,13 +67,13 @@ void sub_0801B938(Entity* this) {
     const s8* ptr;
 
     if ((this->animationState & 2)) {
-        this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX ^ 1;
+        this->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX ^ 1;
     } else {
-        this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
+        this->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
     }
 
-    if ((u8)(gPlayerEntity.animIndex + 0x68) < 4) {
-        this->frameIndex = gPlayerEntity.frameIndex + 0x2e;
+    if ((u8)(gPlayerEntity.base.animIndex + 0x68) < 4) {
+        this->frameIndex = gPlayerEntity.base.frameIndex + 0x2e;
         sub_080042D0(this, this->frameIndex, this->spriteIndex);
     } else {
         this->frameIndex = 0xff;
@@ -83,7 +82,7 @@ void sub_0801B938(Entity* this) {
     this->hitbox = (Hitbox*)&gUnk_080B7850[this->animationState >> 1];
     ptr = &gUnk_080B7848[(this->animationState >> 1) * 2];
     sub_08008782(this, -(gPlayerState.skills & SKILL_ROCK_BREAKER) != 0, ptr[0], ptr[1]);
-    sub_08078E84(this, &gPlayerEntity);
+    sub_08078E84(this, &gPlayerEntity.base);
 }
 
 void sub_0801B9F0(Entity* this) {

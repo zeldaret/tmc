@@ -4,7 +4,6 @@
  *
  * @brief Cucco NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "kinstone.h"
 #include "npc.h"

@@ -4,7 +4,6 @@
  *
  * @brief Thought Bubble object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "sound.h"
 

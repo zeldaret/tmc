@@ -4,7 +4,6 @@
  *
  * @brief Sitting Person NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 #include "functions.h"
 
@@ -152,7 +151,7 @@ void sub_080637B8(SittingPersonEntity* this) {
         super->action = 2;
         super->interactType = INTERACTION_NONE;
         this->animIndex = super->animIndex;
-        tmp = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+        tmp = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base));
         tmp += super->spriteSettings.flipX ? 4 : 0;
         InitializeAnimation(super, tmp);
         InitializeNPCFusion(super);

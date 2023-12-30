@@ -4,7 +4,6 @@
  *
  * @brief Spiked Rollers Projectile
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 

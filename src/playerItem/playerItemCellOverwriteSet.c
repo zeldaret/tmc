@@ -4,7 +4,6 @@
  *
  * @brief Cell Overwrite Set Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "common.h"
 #include "entity.h"
@@ -24,7 +23,7 @@ extern const u8 gUnk_080B7A3E[]; // TODO figure out type from arm_sub_080B1B84 a
 void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
     static const s8 gUnk_080B7B6C[] = { 0x0, -0x10, 0x10, 0x0, 0x0, 0x10, -0x10, 0x0 };
     u32 tmp;
-    Entity* player = &gPlayerEntity;
+    Entity* player = &gPlayerEntity.base;
 
     if (super->action == 0) {
         this->tileType = GetTileType(TILE(player->x.HALF.HI + gUnk_080B7B6C[player->animationState & 0xe],

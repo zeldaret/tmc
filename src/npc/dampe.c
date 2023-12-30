@@ -4,7 +4,6 @@
  *
  * @brief Dampe NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "item.h"
@@ -30,8 +29,8 @@ void Dampe(Entity* this) {
             if (this->interactType == INTERACTION_FUSE) {
                 this->action = 2;
                 this->interactType = INTERACTION_NONE;
-                InitAnimationForceUpdate(this,
-                                         GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)) + 4);
+                InitAnimationForceUpdate(
+                    this, GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity.base)) + 4);
                 InitializeNPCFusion(this);
             } else {
                 ExecuteScriptAndHandleAnimation(this, NULL);

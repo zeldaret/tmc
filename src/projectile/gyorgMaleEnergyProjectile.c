@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Male Energy Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -71,7 +70,7 @@ void GyorgMaleEnergyProjectile_Action1(Entity* this) {
     if (--this->timer == 0) {
         this->action = 2;
         COLLISION_ON(this);
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
+        this->direction = GetFacingDirection(this, &gPlayerEntity.base);
         SoundReq(SFX_12E);
     }
 }

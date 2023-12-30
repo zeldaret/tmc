@@ -4,7 +4,6 @@
  *
  * @brief Large Lilypad object
  */
-#define NENT_DEPRECATED
 #include "object/lilypadLarge.h"
 #include "area.h"
 #include "functions.h"
@@ -101,19 +100,19 @@ void LilypadLarge_Action1(LilypadLargeEntity* this) {
     u32 uVar4;
 
     super->flags |= 0x20;
-    if (sub_0806FC80(super, &gPlayerEntity, 0x18) != 0) {
+    if (sub_0806FC80(super, &gPlayerEntity.base, 0x18) != 0) {
 
         gPlayerState.flags |= PL_FLAGS2;
-        if (gPlayerEntity.z.WORD == 0) {
+        if (gPlayerEntity.base.z.WORD == 0) {
             if (gPlayerState.swim_state != 0) {
-                gPlayerEntity.collisionFlags &= 0xfb;
+                gPlayerEntity.base.collisionFlags &= 0xfb;
                 gPlayerState.swim_state = 0;
             }
             gPlayerState.lilypad = super;
             if (super->collisionLayer == 1) {
-                ResetCollisionLayer(&gPlayerEntity);
+                ResetCollisionLayer(&gPlayerEntity.base);
             } else {
-                sub_08004542(&gPlayerEntity);
+                sub_08004542(&gPlayerEntity.base);
             }
             if (super->subtimer == 0) {
                 super->subtimer = 4;
@@ -128,7 +127,7 @@ void LilypadLarge_Action1(LilypadLargeEntity* this) {
             }
             if (gPlayerState.field_0x1c == 3) {
                 tmp = gUnk_08120620[gPlayerState.gustJarSpeed - 1];
-                switch (gPlayerEntity.animationState & 6) {
+                switch (gPlayerEntity.base.animationState & 6) {
                     case 4:
                         this->unk_70 -= tmp;
                         break;
@@ -151,8 +150,8 @@ void LilypadLarge_Action1(LilypadLargeEntity* this) {
             SoundReq(SFX_WATER_WALK);
         }
         if ((super->contactFlags & 0x7f) == 0x13) {
-            sVar10 = gPlayerEntity.x.HALF.HI + gUnk_08126EE4[gPlayerEntity.animationState & 0xe];
-            uVar4 = gPlayerEntity.y.HALF.HI + gUnk_08126EE4[gPlayerEntity.animationState | 1];
+            sVar10 = gPlayerEntity.base.x.HALF.HI + gUnk_08126EE4[gPlayerEntity.base.animationState & 0xe];
+            uVar4 = gPlayerEntity.base.y.HALF.HI + gUnk_08126EE4[gPlayerEntity.base.animationState | 1];
             super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, sVar10, uVar4);
 
             switch (gPlayerState.gustJarSpeed) {
@@ -378,26 +377,26 @@ void sub_08085B40(LilypadLargeEntity* this) {
                 this->unk_78.WORD += 0x100000;
                 SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
             }
-            gPlayerEntity.y.HALF.HI = (super->y.HALF.HI + super->z.HALF.HI) - this->unk_74;
+            gPlayerEntity.base.y.HALF.HI = (super->y.HALF.HI + super->z.HALF.HI) - this->unk_74;
             if (gArea.locationIndex == 0x1b) {
-                gPlayerEntity.z.HALF.HI = super->y.HALF.HI - this->unk_74 - 0xd0 - gPlayerEntity.y.HALF.HI;
+                gPlayerEntity.base.z.HALF.HI = super->y.HALF.HI - this->unk_74 - 0xd0 - gPlayerEntity.base.y.HALF.HI;
             } else {
-                gPlayerEntity.z.HALF.HI = super->y.HALF.HI - this->unk_74 - 0x40 - gPlayerEntity.y.HALF.HI;
+                gPlayerEntity.base.z.HALF.HI = super->y.HALF.HI - this->unk_74 - 0x40 - gPlayerEntity.base.y.HALF.HI;
             }
         }
     } else {
         ResetCollisionLayer(super);
         if (GetTileUnderEntity(super) == 0xd) {
-            ResetCollisionLayer(&gPlayerEntity);
+            ResetCollisionLayer(&gPlayerEntity.base);
             LilypadLarge_Action4(this);
-            super->direction = GetFacingDirection(&gPlayerEntity, super);
-            LinearMoveDirection(&gPlayerEntity, 0x100, super->direction);
+            super->direction = GetFacingDirection(&gPlayerEntity.base, super);
+            LinearMoveDirection(&gPlayerEntity.base, 0x100, super->direction);
         }
     }
 
     if (this->unk_82 == 0) {
-        if (GravityUpdate(&gPlayerEntity, Q_8_8(32.0)) == 0) {
-            ResetCollisionLayer(&gPlayerEntity);
+        if (GravityUpdate(&gPlayerEntity.base, Q_8_8(32.0)) == 0) {
+            ResetCollisionLayer(&gPlayerEntity.base);
             sub_08085F1C(this);
             super->action = 1;
             super->subtimer = 4;
@@ -419,23 +418,23 @@ void sub_08085B40(LilypadLargeEntity* this) {
 }
 
 void LilypadLarge_Action3(LilypadLargeEntity* this) {
-    if (sub_0806FC80(super, &gPlayerEntity, 0x18) != 0) {
+    if (sub_0806FC80(super, &gPlayerEntity.base, 0x18) != 0) {
         LinearMoveUpdate(super);
-        gPlayerEntity.speed = super->speed;
-        gPlayerEntity.direction = super->direction;
-        LinearMoveUpdate(&gPlayerEntity);
+        gPlayerEntity.base.speed = super->speed;
+        gPlayerEntity.base.direction = super->direction;
+        LinearMoveUpdate(&gPlayerEntity.base);
         gPlayerState.flags |= PL_FLAGS2;
         if (super->collisionLayer == 1) {
-            ResetCollisionLayer(&gPlayerEntity);
+            ResetCollisionLayer(&gPlayerEntity.base);
         } else {
-            sub_08004542(&gPlayerEntity);
+            sub_08004542(&gPlayerEntity.base);
         }
     }
     if (gRoomControls.reload_flags == 0) {
         super->flags &= ~ENT_PERSIST;
         super->action = 1;
         super->updatePriority = super->updatePriorityPrev;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
     }
 }
 
@@ -499,7 +498,7 @@ void sub_08085D60(LilypadLargeEntity* this) {
 
                         if (sub_080806BC((super->x.HALF.HI - gRoomControls.origin_x) + tmpX,
                                          (super->y.HALF.HI - gRoomControls.origin_y) + tmpY, r4, 5) == 0) {
-                            if (sub_0807BD14(&gPlayerEntity, r4 >> 3) != 0) {
+                            if (sub_0807BD14(&gPlayerEntity.base, r4 >> 3) != 0) {
                                 super->direction = r4;
                                 sub_08085E74(this);
                                 return;
@@ -515,7 +514,7 @@ void sub_08085D60(LilypadLargeEntity* this) {
                     tmpX2 = gUnk_08120638[tmp];
                     tmpY2 = gUnk_08120638[tmp + 1];
                     if (sub_080B1AF0(super, tmpX2, tmpY2) == 0xff) {
-                        if (sub_0807BD14(&gPlayerEntity, r6 >> 3) != 0) {
+                        if (sub_0807BD14(&gPlayerEntity.base, r6 >> 3) != 0) {
                             super->direction = (u8)r6;
                             sub_08085E74(this);
                         }
@@ -548,9 +547,9 @@ void sub_08085E74(LilypadLargeEntity* this) {
     this->unk_6c = 0;
     super->x.HALF.LO = 0;
     super->y.HALF.LO = 0;
-    gPlayerEntity.x.HALF.LO = 0;
-    gPlayerEntity.y.HALF.LO = 0;
-    gPlayerEntity.direction = super->direction;
+    gPlayerEntity.base.x.HALF.LO = 0;
+    gPlayerEntity.base.y.HALF.LO = 0;
+    gPlayerEntity.base.direction = super->direction;
     gPlayerState.animation = ANIM_DEFAULT;
     gRoomControls.camera_target = super;
     if (gPlayerState.item != NULL) {
@@ -560,13 +559,13 @@ void sub_08085E74(LilypadLargeEntity* this) {
 }
 
 void sub_08085EFC(LilypadLargeEntity* this) {
-    this->unk_76 = super->x.HALF.HI - gPlayerEntity.x.HALF.HI;
-    this->unk_74 = super->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+    this->unk_76 = super->x.HALF.HI - gPlayerEntity.base.x.HALF.HI;
+    this->unk_74 = super->y.HALF.HI - gPlayerEntity.base.y.HALF.HI;
 }
 
 void sub_08085F1C(LilypadLargeEntity* this) {
-    gPlayerEntity.x.HALF.HI = super->x.HALF.HI - this->unk_76;
-    gPlayerEntity.y.HALF.HI = super->y.HALF.HI - this->unk_74;
+    gPlayerEntity.base.x.HALF.HI = super->x.HALF.HI - this->unk_76;
+    gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI - this->unk_74;
     sub_0807A5B8(super->direction);
 }
 

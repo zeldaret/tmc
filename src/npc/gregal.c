@@ -4,7 +4,6 @@
  *
  * @brief Gregal NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
@@ -103,8 +102,8 @@ void sub_0806CC08(GregalEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 8);
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 8);
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, NULL);

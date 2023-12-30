@@ -4,7 +4,6 @@
  *
  * @brief Item On Ground object
  */
-#define NENT_DEPRECATED
 #include "object/itemOnGround.h"
 #include "collision.h"
 #include "entity.h"
@@ -188,7 +187,7 @@ void sub_080810FC(ItemOnGroundEntity* this) {
         super->subAction = 0;
         COLLISION_ON(super);
         super->flags2 = 0x11;
-        CopyPosition(&gPlayerEntity, super);
+        CopyPosition(&gPlayerEntity.base, super);
     }
 }
 
@@ -296,10 +295,10 @@ void sub_080812A8(ItemOnGroundEntity* this) {
 void sub_080812E8(ItemOnGroundEntity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
-    if ((playerState->swim_state & 0x80) && IsColliding(super, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && IsColliding(super, &gPlayerEntity.base)) {
 #else
     if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
-        IsColliding(super, &gPlayerEntity)) {
+        IsColliding(super, &gPlayerEntity.base)) {
 #endif
         sub_080810FC(this);
     }
@@ -315,7 +314,7 @@ void ItemOnGround_Action3(ItemOnGroundEntity* this) {
     } else {
         CopyPosition(other, super);
         super->z.HALF.HI--;
-        other = &gPlayerEntity;
+        other = &gPlayerEntity.base;
         if (IsColliding(super, other)) {
             sub_080810FC(this);
         }
@@ -482,7 +481,7 @@ void sub_08081598(ItemOnGroundEntity* this) {
     super->spriteSettings.draw = 1;
     super->spritePriority.b1 = 2;
     super->spritePriority.b0 = 3;
-    super->child = &gPlayerEntity;
+    super->child = &gPlayerEntity.base;
     CopyPosition(super->child, super);
     super->z.HALF.HI -= 4;
     if (super->type != 0x5F && sub_08081420(this)) {

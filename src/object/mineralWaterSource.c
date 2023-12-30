@@ -4,7 +4,6 @@
  *
  * @brief Mineral Water Source object
  */
-#define NENT_DEPRECATED
 #include "object.h"
 
 void MineralWaterSource_Init(Entity*);

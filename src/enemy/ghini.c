@@ -4,12 +4,9 @@
  *
  * @brief Ghini enemy
  */
-
-#define NENT_DEPRECATED
-#include "global.h"
+#include "area.h"
 #include "enemy.h"
 #include "functions.h"
-#include "area.h"
 #include "physics.h"
 
 typedef struct {
@@ -124,7 +121,7 @@ void Ghini_OnGrabbed(GhiniEntity* this) {
 void Ghini_SubAction0(GhiniEntity* this) {
     super->subAction = 1;
     super->gustJarTolerance = 0x3c;
-    InitializeAnimation(super, (gPlayerEntity.animationState >> 2) + 5);
+    InitializeAnimation(super, (gPlayerEntity.base.animationState >> 2) + 5);
 }
 
 void Ghini_SubAction1(GhiniEntity* this) {
@@ -262,7 +259,7 @@ void Ghini_Action9(GhiniEntity* this) {
     if (sub_0807953C() != 0) {
         this->unk_78 += 0xc;
     }
-    if (gPlayerEntity.health == 0) {
+    if (gPlayerEntity.base.health == 0) {
         this->unk_78 = 0xe0;
     }
     if (++this->unk_78 >= 0xe0) {
@@ -271,7 +268,7 @@ void Ghini_Action9(GhiniEntity* this) {
         super->iframes = -0xc;
         super->knockbackDuration = 0x14;
         super->knockbackSpeed = 0x180;
-        super->knockbackDirection = gPlayerEntity.animationState << 2 ^ 0x10;
+        super->knockbackDirection = gPlayerEntity.base.animationState << 2 ^ 0x10;
         sub_0803F51C(this);
         sub_0803F6EC(this);
     } else {
@@ -366,18 +363,18 @@ void sub_0803F694(GhiniEntity* this) {
 
 void sub_0803F6C0(GhiniEntity* this) {
     super->frame &= ~1;
-    gPlayerEntity.iframes = 0xc;
+    gPlayerEntity.base.iframes = 0xc;
     ModHealth(-4);
-    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+    SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
 }
 
 void sub_0803F6EC(GhiniEntity* this) {
-    if (gPlayerEntity.health != 0) {
-        gPlayerEntity.flags |= ENT_COLLIDE;
-        gPlayerEntity.zVelocity = Q_16_16(1.5);
-        gPlayerEntity.z.HALF.HI = -2;
-        gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-        gPlayerEntity.iframes = -0x3c;
+    if (gPlayerEntity.base.health != 0) {
+        gPlayerEntity.base.flags |= ENT_COLLIDE;
+        gPlayerEntity.base.zVelocity = Q_16_16(1.5);
+        gPlayerEntity.base.z.HALF.HI = -2;
+        gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2;
+        gPlayerEntity.base.iframes = -0x3c;
         gPlayerState.jump_status = 0x41;
     }
     gPlayerState.flags &= ~PL_CAPTURED;
@@ -387,7 +384,7 @@ void sub_0803F738(GhiniEntity* this) {
     ResetActiveItems();
     gPlayerState.mobility |= 0x80;
     gPlayerState.field_0xa |= 0x80;
-    sub_0806FA90(&gPlayerEntity, super, 0, 1);
+    sub_0806FA90(&gPlayerEntity.base, super, 0, 1);
     super->spriteOffsetY -= 2;
 }
 

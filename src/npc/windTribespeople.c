@@ -4,7 +4,6 @@
  *
  * @brief Wind Tribespeople NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "sound.h"

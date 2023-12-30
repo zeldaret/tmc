@@ -4,12 +4,9 @@
  *
  * @brief GyorgMaleEye enemy
  */
-
-#define NENT_DEPRECATED
-#include "global.h"
 #include "enemy.h"
-#include "functions.h"
 #include "fade.h"
+#include "functions.h"
 
 typedef struct {
     /*0x00*/ Entity base;

@@ -4,7 +4,6 @@
  *
  * @brief NPC 23
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "message.h"
@@ -52,7 +51,7 @@ void sub_080662F8(NPC23Entity* this) {
     this->unk_80 = super->y.HALF.HI;
     this->unk_86 = 0;
     this->unk_82 = super->timer;
-    super->parent = &gPlayerEntity;
+    super->parent = &gPlayerEntity.base;
     this->unk_84 = 0;
     sub_08066490(this, super->parent);
     AddInteractableWhenBigObject(super);
@@ -87,7 +86,7 @@ void nullsub_110(NPC23Entity* this) {
 
 void sub_080663D4(NPC23Entity* this) {
     if (super->x.HALF.HI == this->unk_7e - 8) {
-        if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
+        if (gPlayerEntity.base.action != PLAYER_ROOM_EXIT) {
             super->action = 4;
             super->direction = 0;
             super->speed = 0;
@@ -110,14 +109,14 @@ void sub_0806643C(NPC23Entity* this) {
         super->action = 5;
         gRoomControls.camera_target = NULL;
         sub_08078AC0(0x40, 0, 0);
-        gPlayerEntity.animationState = 0;
-        gPlayerEntity.direction = 0;
+        gPlayerEntity.base.animationState = 0;
+        gPlayerEntity.base.direction = 0;
     }
     GetNextFrame(super);
 }
 
 void sub_08066474(NPC23Entity* this) {
-    if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
+    if (gPlayerEntity.base.action != PLAYER_ROOM_EXIT) {
         gPauseMenuOptions.disabled = 0;
     }
 }
@@ -160,9 +159,9 @@ void sub_08066490(NPC23Entity* this, Entity* entity) {
 
 bool32 sub_0806650C(NPC23Entity* this) {
     u32 dir = 0;
-    s32 px = gPlayerEntity.x.HALF_U.HI;
+    s32 px = gPlayerEntity.base.x.HALF_U.HI;
     s32 px2 = px;
-    s32 py = gPlayerEntity.y.HALF_U.HI;
+    s32 py = gPlayerEntity.base.y.HALF_U.HI;
 
     if (py < this->unk_80 + 16) {
         dir = 4;
@@ -174,17 +173,17 @@ bool32 sub_0806650C(NPC23Entity* this) {
             dir = 6;
         }
         if (dir == 0) {
-            gPlayerEntity.speed = 0;
+            gPlayerEntity.base.speed = 0;
         }
     }
 
-    if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
+    if (gPlayerEntity.base.action != PLAYER_ROOM_EXIT) {
         if (dir == 0) {
             return 0;
         }
         sub_08078AC0(8, 0, 0);
-        gPlayerEntity.animationState = dir;
-        gPlayerEntity.direction = Direction8FromAnimationState(dir);
+        gPlayerEntity.base.animationState = dir;
+        gPlayerEntity.base.direction = Direction8FromAnimationState(dir);
     }
     return 1;
 }
@@ -198,11 +197,11 @@ void sub_08066570(Entity* this) {
         return;
     }
 
-    if (this->action == 3 || !sub_0806FC80(this, &gPlayerEntity, 0x50)) {
+    if (this->action == 3 || !sub_0806FC80(this, &gPlayerEntity.base, 0x50)) {
         return;
     }
 
-    direction = GetFacingDirection(this, &gPlayerEntity);
+    direction = GetFacingDirection(this, &gPlayerEntity.base);
     cond = TRUE;
 
     dir2 = (direction & DirectionWest);

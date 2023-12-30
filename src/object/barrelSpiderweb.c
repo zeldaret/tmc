@@ -4,7 +4,6 @@
  *
  * @brief Barrel Spiderweb object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
@@ -44,7 +43,7 @@ void BarrelSpiderweb_Init(Entity* this) {
         this->flags2 = 4;
         this->hitbox = (Hitbox*)&gHitbox_0;
         this->frameIndex = 2;
-        this->collisionLayer = gPlayerEntity.collisionLayer;
+        this->collisionLayer = gPlayerEntity.base.collisionLayer;
         sub_0808BDB0(this);
         this->y.HALF.HI = 0x170 - (this->parent)->zVelocity;
         sub_0808BBE0(this);
@@ -116,9 +115,9 @@ void BarrelSpiderweb_Action2(Entity* this) {
         SetAffineInfo(this, 0x200 - this->subtimer, 0x200 - this->subtimer, 0);
     }
     if (this->contactFlags == 0x93) {
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
+        this->direction = GetFacingDirection(this, &gPlayerEntity.base);
         LinearMoveUpdate(this);
-        if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 6, 0x1c)) {
+        if (EntityWithinDistance(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 6, 0x1c)) {
             sub_0808BD00(this);
         }
     } else {

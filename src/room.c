@@ -109,7 +109,7 @@ void RegisterRoomEntity(Entity* ent, const EntityData* dat) {
             AppendEntityToList(ent, list);
         }
     }
-    offset = &ent->field_0x78;
+    offset = &((GenericEntity*)ent)->field_0x78;
     if (kind == MANAGER)
         offset = &ent->y;
     MemCopy(dat, offset, sizeof(EntityData));
@@ -124,7 +124,7 @@ void sub_0804AF0C(Entity* ent, const EntityData* dat) {
         case 0x20:
             // TODO: for enemies, I think this is for delayed spawn
             //  see mulldozerSpawnPoint.c
-            ent->field_0x6c.HALF.HI |= 0x20;
+            ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x20;
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
@@ -199,7 +199,7 @@ static void sub_0804B058(EntityData* dat) {
                 if (sub_08049D1C(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ent->field_0x6c.HALF.LO = uVar2 | 0x80;
+                        ((GenericEntity*)ent)->field_0x6c.HALF.LO = uVar2 | 0x80;
                     }
                 }
             } else {

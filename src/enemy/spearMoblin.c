@@ -4,24 +4,35 @@
  *
  * @brief Spear Moblin enemy
  */
-
 #include "enemy.h"
 #include "functions.h"
 
-void sub_08028604(Entity*);
-void sub_08028754(Entity*);
-void sub_08028784(Entity*);
-void sub_080287E0(Entity*);
-void sub_08028728(Entity*);
-bool32 sub_080286CC(Entity*);
-bool32 sub_080288A4(Entity*);
-void sub_08028858(Entity*);
-void sub_080288C0(Entity*);
-bool32 sub_08028828(u32, u32);
-void sub_080287B4(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[18];
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+    /*0x7c*/ u8 unused2[4];
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unk_83;
+} SpearMoblinEntity;
 
-extern void (*const SpearMoblin_Functions[])(Entity*);
-extern void (*const gUnk_080CC7A8[])(Entity*);
+void sub_08028604(SpearMoblinEntity*);
+void sub_08028754(SpearMoblinEntity*);
+void sub_08028784(SpearMoblinEntity*);
+void sub_080287E0(SpearMoblinEntity*);
+void sub_08028728(SpearMoblinEntity*);
+bool32 sub_080286CC(SpearMoblinEntity*);
+bool32 sub_080288A4(SpearMoblinEntity*);
+void sub_08028858(SpearMoblinEntity*);
+void sub_080288C0(SpearMoblinEntity*);
+bool32 sub_08028828(u32, u32);
+void sub_080287B4(SpearMoblinEntity*);
+
+extern void (*const SpearMoblin_Functions[])(SpearMoblinEntity*);
+extern void (*const gUnk_080CC7A8[])(SpearMoblinEntity*);
 extern const u8 gUnk_080CC7BC[];
 extern const s8 gUnk_080CC7C0[];
 extern const s8 gUnk_080CC7D0[];
@@ -29,266 +40,266 @@ extern const u16 gUnk_080CC7D8[];
 
 extern const Hitbox* const gUnk_080CC944[];
 
-void SpearMoblin(Entity* this) {
-    EnemyFunctionHandler(this, SpearMoblin_Functions);
-    SetChildOffset(this, 0, 1, -0x20);
-    if (this->child && this->child->next) {
-        CopyPosition(this, this->child);
+void SpearMoblin(SpearMoblinEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)SpearMoblin_Functions);
+    SetChildOffset(super, 0, 1, -0x20);
+    if (super->child && super->child->next) {
+        CopyPosition(super, super->child);
     }
 }
 
-void SpearMoblin_OnTick(Entity* this) {
-    gUnk_080CC7A8[this->action](this);
+void SpearMoblin_OnTick(SpearMoblinEntity* this) {
+    gUnk_080CC7A8[super->action](this);
 }
 
-void SpearMoblin_OnCollision(Entity* this) {
-    if (this->confusedTime != 0)
-        Create0x68FX(this, FX_STARS);
+void SpearMoblin_OnCollision(SpearMoblinEntity* this) {
+    if (super->confusedTime != 0)
+        Create0x68FX(super, FX_STARS);
 
-    EnemyFunctionHandlerAfterCollision(this, SpearMoblin_Functions);
-    if (this->contactFlags & 0x80) {
-        if (this->action != 4) {
+    EnemyFunctionHandlerAfterCollision(super, SpearMoblin_Functions);
+    if (super->contactFlags & 0x80) {
+        if (super->action != 4) {
             sub_08028754(this);
         } else {
-            if ((this->contactFlags & 0x3f) == 0) {
-                this->field_0x7a.HALF.LO++;
-                this->field_0x80.HALF.HI = 0x16;
+            if ((super->contactFlags & 0x3f) == 0) {
+                this->unk_7a++;
+                this->unk_81 = 0x16;
                 sub_08028784(this);
             }
         }
     }
 
-    this->child->iframes = this->iframes;
-    if (this->health == 0) {
-        this->speed = 0;
-        this->field_0x82.HALF.LO = 0;
+    super->child->iframes = super->iframes;
+    if (super->health == 0) {
+        super->speed = 0;
+        this->unk_82 = 0;
         sub_080287E0(this);
-        DeleteEntity(this->child);
-        this->child = NULL;
+        DeleteEntity(super->child);
+        super->child = NULL;
     }
 }
 
-void SpearMoblin_OnGrabbed(Entity* this) {
+void SpearMoblin_OnGrabbed(SpearMoblinEntity* this) {
     /* ... */
 }
 
-void sub_08028314(Entity* this) {
+void sub_08028314(SpearMoblinEntity* this) {
     Entity* pEVar2;
 
-    sub_0804A720(this);
-    this->action = 1;
-    this->animationState = 0;
-    this->field_0x7a.HALF.HI = 0;
-    this->field_0x80.HALF.LO = 0;
-    this->field_0x82.HALF.HI = 0;
-    this->field_0x80.HALF.HI = 0;
-    this->field_0x7a.HALF.LO = 0;
-    this->field_0x82.HALF.LO = 1;
+    sub_0804A720(super);
+    super->action = 1;
+    super->animationState = 0;
+    this->unk_7b = 0;
+    this->unk_80 = 0;
+    this->unk_83 = 0;
+    this->unk_81 = 0;
+    this->unk_7a = 0;
+    this->unk_82 = 1;
 
-    if (this->timer) {
-        this->animationState = this->type2 << 1;
-        this->timer = 30;
-        this->speed = 0x80;
-        this->direction = this->animationState << 2;
+    if (super->timer) {
+        super->animationState = super->type2 << 1;
+        super->timer = 30;
+        super->speed = 0x80;
+        super->direction = super->animationState << 2;
         sub_080287E0(this);
     } else {
-        this->animationState = 0x10;
+        super->animationState = 0x10;
         sub_08028604(this);
     }
 
     pEVar2 = CreateProjectile(MOBLIN_SPEAR);
     if (pEVar2 != NULL) {
-        pEVar2->parent = this;
-        this->child = pEVar2;
+        pEVar2->parent = super;
+        super->child = pEVar2;
     }
 }
 
-void sub_08028378(Entity* this) {
-    if (this->field_0x80.HALF.HI != 0) {
-        this->field_0x80.HALF.HI--;
+void sub_08028378(SpearMoblinEntity* this) {
+    if (this->unk_81 != 0) {
+        this->unk_81--;
     }
 
-    if (--this->timer == 0) {
-        if (++this->field_0x80.HALF.LO >= 0x10) {
+    if (--super->timer == 0) {
+        if (++this->unk_80 >= 0x10) {
             sub_08028728(this);
         } else {
             sub_08028604(this);
         }
     } else {
         if (sub_080286CC(this)) {
-            this->field_0x7a.HALF.HI |= 1;
+            this->unk_7b |= 1;
         }
         if (sub_080288A4(this)) {
-            sub_0800417E(this, this->collisions);
-            this->animationState = DirectionRoundUp(this->direction) >> 2;
-            this->field_0x82.HALF.HI++;
+            sub_0800417E(super, super->collisions);
+            super->animationState = DirectionRoundUp(super->direction) >> 2;
+            this->unk_83++;
             sub_080287E0(this);
         }
     }
 
-    if (this->subtimer >= 0xc) {
-        if (this->field_0x7a.HALF.HI != 0) {
+    if (super->subtimer >= 0xc) {
+        if (this->unk_7b != 0) {
             sub_08028754(this);
         }
     } else {
-        this->subtimer++;
+        super->subtimer++;
     }
 
     sub_08028858(this);
 }
 
-void sub_08028420(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 3;
-        this->field_0x82.HALF.LO = 0;
-        this->field_0x80.HALF.LO = 0;
-        this->animationState = 0x10;
+void sub_08028420(SpearMoblinEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 3;
+        this->unk_82 = 0;
+        this->unk_80 = 0;
+        super->animationState = 0x10;
         sub_08028604(this);
     } else {
         if (sub_080286CC(this)) {
-            this->field_0x7a.HALF.HI |= 1;
+            this->unk_7b |= 1;
         }
     }
 
-    if (this->subtimer >= 0xc) {
-        if (this->field_0x7a.HALF.HI != 0) {
+    if (super->subtimer >= 0xc) {
+        if (this->unk_7b != 0) {
             sub_08028754(this);
         }
     } else {
-        this->subtimer++;
+        super->subtimer++;
     }
 
     sub_08028858(this);
 }
 
-void sub_08028488(Entity* this) {
-    if (--this->timer == 0) {
-        switch (this->field_0x82.HALF.LO) {
+void sub_08028488(SpearMoblinEntity* this) {
+    if (--super->timer == 0) {
+        switch (this->unk_82) {
             case 3:
-                this->action = 4;
-                this->speed = 0x180;
-                this->direction = sub_08049F84(this, 1);
+                super->action = 4;
+                super->speed = 0x180;
+                super->direction = sub_08049F84(super, 1);
                 EnqueueSFX(SFX_EM_MOBLIN_SPEAR);
                 break;
             case 2:
-                this->action = 2;
-                this->speed = 0;
-                this->timer = (Random() & 7) * 3 + 64;
+                super->action = 2;
+                super->speed = 0;
+                super->timer = (Random() & 7) * 3 + 64;
                 break;
             case 4:
-                this->direction = (this->direction + 0x10) & DirectionWest;
+                super->direction = (super->direction + 0x10) & DirectionWest;
                 /* fallthrough */
             case 1:
             default:
-                this->action = 1;
-                this->field_0x82.HALF.LO = 1;
-                this->speed = 0x80;
-                this->timer = (Random() & 7) * 3 + 0x22;
+                super->action = 1;
+                this->unk_82 = 1;
+                super->speed = 0x80;
+                super->timer = (Random() & 7) * 3 + 0x22;
                 break;
         }
 
-        this->subtimer = 0;
-        this->animationState = DirectionRoundUp(this->direction) >> 2;
+        super->subtimer = 0;
+        super->animationState = DirectionRoundUp(super->direction) >> 2;
         sub_080287E0(this);
     }
 
     sub_08028858(this);
 }
 
-void sub_08028528(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
+void sub_08028528(SpearMoblinEntity* this) {
+    Entity* entity = sub_08049DF4(1);
     const Hitbox* box;
 
-    if (ent == NULL) {
-        this->subtimer = 0;
+    if (entity == NULL) {
+        super->subtimer = 0;
         sub_08028728(this);
     } else {
         sub_080288C0(this);
-        box = gUnk_080CC944[this->animationState >> 1];
-        this->hitbox->offset_x = box->offset_x;
-        this->hitbox->offset_y = box->offset_y;
-        this->hitbox->width = box->width;
-        this->hitbox->height = box->height;
+        box = gUnk_080CC944[super->animationState >> 1];
+        super->hitbox->offset_x = box->offset_x;
+        super->hitbox->offset_y = box->offset_y;
+        super->hitbox->width = box->width;
+        super->hitbox->height = box->height;
 
-        if (this->field_0x7a.HALF.LO != 0) {
-            this->field_0x7a.HALF.LO = 0;
-            this->field_0x80.HALF.HI = 0x16;
+        if (this->unk_7a != 0) {
+            this->unk_7a = 0;
+            this->unk_81 = 0x16;
             sub_08028784(this);
         } else {
-            if (++this->timer == 0x20) {
+            if (++super->timer == 0x20) {
                 u32 direction;
-                this->timer = 0;
-                direction = GetFacingDirection(this, ent);
-                if (sub_08028828(this->direction, direction)) {
-                    this->direction = direction;
+                super->timer = 0;
+                direction = GetFacingDirection(super, entity);
+                if (sub_08028828(super->direction, direction)) {
+                    super->direction = direction;
                 }
             }
 
-            if ((this->timer & 7) == 0) {
+            if ((super->timer & 7) == 0) {
                 EnqueueSFX(SFX_F0);
-                CreateFx(this, FX_DEATH, 0x40);
+                CreateFx(super, FX_DEATH, 0x40);
             }
 
-            if (++this->field_0x7a.HALF.HI == 0x80) {
-                this->field_0x7a.HALF.LO++;
+            if (++this->unk_7b == 0x80) {
+                this->unk_7a++;
             }
         }
 
-        if (0x20 < this->field_0x7a.HALF.HI) {
-            ProcessMovement0(this);
+        if (0x20 < this->unk_7b) {
+            ProcessMovement0(super);
         }
 
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
-void sub_08028604(Entity* this) {
+void sub_08028604(SpearMoblinEntity* this) {
     u32 iVar3;
-    this->subtimer = 0;
-    if (this->field_0x82.HALF.LO == 1) {
-        this->timer = gUnk_080CC7BC[Random() & 3];
-        this->speed = 0x80;
-        if (sub_08049FA0(this) != 0) {
+    super->subtimer = 0;
+    if (this->unk_82 == 1) {
+        super->timer = gUnk_080CC7BC[Random() & 3];
+        super->speed = 0x80;
+        if (sub_08049FA0(super) != 0) {
             u32 rand = Random();
             u32 tmp;
             tmp = gUnk_080CC7D0[rand & 7] + 0x18;
-            this->direction = DirectionRound(tmp + this->direction);
-            iVar3 = Direction8ToAnimationState(this->direction);
+            super->direction = DirectionRound(tmp + super->direction);
+            iVar3 = Direction8ToAnimationState(super->direction);
         } else {
-            iVar3 = sub_08049EE4(this);
-            if (this->field_0x82.HALF.HI == 0) {
+            iVar3 = sub_08049EE4(super);
+            if (this->unk_83 == 0) {
                 u32 rand = Random();
                 iVar3 += gUnk_080CC7C0[rand & 0xf];
             } else {
                 u32 rand = Random();
                 iVar3 += gUnk_080CC7C0[rand & 7];
-                this->timer = this->timer + 0x10;
-                this->field_0x82.HALF.HI--;
+                super->timer = super->timer + 0x10;
+                this->unk_83--;
             }
-            this->direction = (iVar3 + 4U) & DirectionWest;
-            iVar3 = Direction8ToAnimationState(this->direction);
+            super->direction = (iVar3 + 4U) & DirectionWest;
+            iVar3 = Direction8ToAnimationState(super->direction);
         }
     } else {
-        this->timer = 12;
-        this->speed = 0;
-        iVar3 = Direction8ToAnimationState(this->direction);
+        super->timer = 12;
+        super->speed = 0;
+        iVar3 = Direction8ToAnimationState(super->direction);
     }
 
-    if (iVar3 != this->animationState) {
-        this->animationState = iVar3;
+    if (iVar3 != super->animationState) {
+        super->animationState = iVar3;
         sub_080287E0(this);
     }
 }
 
-bool32 sub_080286CC(Entity* this) {
-    if (this->field_0x80.HALF.HI == 0) {
-        Entity* ent = sub_08049DF4(1);
-        if (ent != NULL) {
-            if (this->field_0x82.HALF.LO == 2 && sub_0806FC80(this, ent, 0x30))
+bool32 sub_080286CC(SpearMoblinEntity* this) {
+    if (this->unk_81 == 0) {
+        Entity* entity = sub_08049DF4(1);
+        if (entity != NULL) {
+            if (this->unk_82 == 2 && sub_0806FC80(super, entity, 0x30))
                 return TRUE;
 
-            if (sub_0806FC80(this, ent, 0x40) &&
-                DirectionRoundUp(GetFacingDirection(this, ent)) >> 2 == this->animationState)
+            if (sub_0806FC80(super, entity, 0x40) &&
+                DirectionRoundUp(GetFacingDirection(super, entity)) >> 2 == super->animationState)
                 return TRUE;
         }
     }
@@ -296,45 +307,45 @@ bool32 sub_080286CC(Entity* this) {
     return FALSE;
 }
 
-void sub_08028728(Entity* this) {
-    this->animationState = DirectionRoundUp(this->direction) >> 2;
-    this->direction = this->animationState << 2;
-    this->field_0x82.HALF.HI >>= 1;
+void sub_08028728(SpearMoblinEntity* this) {
+    super->animationState = DirectionRoundUp(super->direction) >> 2;
+    super->direction = super->animationState << 2;
+    this->unk_83 >>= 1;
     sub_080287B4(this);
-    this->field_0x82.HALF.LO = 2;
+    this->unk_82 = 2;
 }
 
-void sub_08028754(Entity* this) {
-    this->direction = sub_08049F84(this, 1);
-    this->animationState = DirectionRoundUp(this->direction) >> 2;
-    this->field_0x82.HALF.HI = 0;
+void sub_08028754(SpearMoblinEntity* this) {
+    super->direction = sub_08049F84(super, 1);
+    super->animationState = DirectionRoundUp(super->direction) >> 2;
+    this->unk_83 = 0;
     sub_080287B4(this);
-    this->field_0x82.HALF.LO = 3;
+    this->unk_82 = 3;
 }
 
-void sub_08028784(Entity* this) {
-    this->animationState = DirectionRoundUp(this->direction) >> 2;
-    this->direction = this->animationState << 2;
-    this->field_0x82.HALF.HI = 0;
+void sub_08028784(SpearMoblinEntity* this) {
+    super->animationState = DirectionRoundUp(super->direction) >> 2;
+    super->direction = super->animationState << 2;
+    this->unk_83 = 0;
     sub_080287B4(this);
-    this->timer <<= 1;
-    this->field_0x82.HALF.LO = 4;
+    super->timer <<= 1;
+    this->unk_82 = 4;
 }
 
-void sub_080287B4(Entity* this) {
-    this->action = 3;
-    this->timer = 32;
-    this->subtimer = 0;
-    this->field_0x80.HALF.LO = 0;
-    this->field_0x7a.HALF.HI = 0;
-    this->speed = 0;
-    this->field_0x82.HALF.LO = 0;
+void sub_080287B4(SpearMoblinEntity* this) {
+    super->action = 3;
+    super->timer = 32;
+    super->subtimer = 0;
+    this->unk_80 = 0;
+    this->unk_7b = 0;
+    super->speed = 0;
+    this->unk_82 = 0;
     sub_080287E0(this);
 }
 
-void sub_080287E0(Entity* this) {
-    u32 sprite = this->animationState >> 1;
-    switch (this->field_0x82.HALF.LO) {
+void sub_080287E0(SpearMoblinEntity* this) {
+    u32 sprite = super->animationState >> 1;
+    switch (this->unk_82) {
         case 0:
             /* ... */
             break;
@@ -349,7 +360,7 @@ void sub_080287E0(Entity* this) {
             sprite += 0xc;
             break;
     }
-    InitializeAnimation(this, sprite);
+    InitializeAnimation(super, sprite);
 }
 
 bool32 sub_08028828(u32 arg0, u32 arg1) {
@@ -363,50 +374,50 @@ bool32 sub_08028828(u32 arg0, u32 arg1) {
     return FALSE;
 }
 
-void sub_08028858(Entity* this) {
+void sub_08028858(SpearMoblinEntity* this) {
     const Hitbox* box;
 
     sub_080288C0(this);
-    box = gUnk_080CC944[this->animationState >> 1];
-    this->hitbox->offset_x = box->offset_x;
-    this->hitbox->offset_y = box->offset_y;
-    this->hitbox->width = box->width;
-    this->hitbox->height = box->height;
+    box = gUnk_080CC944[super->animationState >> 1];
+    super->hitbox->offset_x = box->offset_x;
+    super->hitbox->offset_y = box->offset_y;
+    super->hitbox->width = box->width;
+    super->hitbox->height = box->height;
 
-    if (this->field_0x82.HALF.LO == 0) {
-        this->speed = 0;
+    if (this->unk_82 == 0) {
+        super->speed = 0;
     }
 
-    ProcessMovement0(this);
-    GetNextFrame(this);
+    ProcessMovement0(super);
+    GetNextFrame(super);
 }
 
-bool32 sub_080288A4(Entity* this) {
-    return (this->collisions & gUnk_080CC7D8[this->animationState >> 1]) != 0;
+bool32 sub_080288A4(SpearMoblinEntity* this) {
+    return (super->collisions & gUnk_080CC7D8[super->animationState >> 1]) != 0;
 }
 
-void sub_080288C0(Entity* this) {
-    Entity* ent = this->child;
-    if ((ent != NULL) && (ent->contactFlags & 0x80)) {
-        this->knockbackDirection = ent->knockbackDirection;
-        this->iframes = -ent->iframes;
-        this->knockbackSpeed = ent->knockbackSpeed;
-        this->knockbackDuration = ent->knockbackDuration;
-        ent->knockbackDuration = 0;
+void sub_080288C0(SpearMoblinEntity* this) {
+    Entity* entity = super->child;
+    if ((entity != NULL) && (entity->contactFlags & 0x80)) {
+        super->knockbackDirection = entity->knockbackDirection;
+        super->iframes = -entity->iframes;
+        super->knockbackSpeed = entity->knockbackSpeed;
+        super->knockbackDuration = entity->knockbackDuration;
+        entity->knockbackDuration = 0;
     }
 }
 
 // clang-format off
-void (*const SpearMoblin_Functions[])(Entity*) = {
+void (*const SpearMoblin_Functions[])(SpearMoblinEntity*) = {
     SpearMoblin_OnTick,
     SpearMoblin_OnCollision,
-    GenericKnockback,
-    GenericDeath,
-    GenericConfused,
+    (void (*)(SpearMoblinEntity*))GenericKnockback,
+    (void (*)(SpearMoblinEntity*))GenericDeath,
+    (void (*)(SpearMoblinEntity*))GenericConfused,
     SpearMoblin_OnGrabbed,
 };
 
-void (*const gUnk_080CC7A8[])(Entity*) = {
+void (*const gUnk_080CC7A8[])(SpearMoblinEntity*) = {
     sub_08028314,
     sub_08028378,
     sub_08028420,

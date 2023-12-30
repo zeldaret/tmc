@@ -4,7 +4,6 @@
  *
  * @brief Vaati2 Particle object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "physics.h"
 

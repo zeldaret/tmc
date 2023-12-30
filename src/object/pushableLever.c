@@ -4,7 +4,6 @@
  *
  * @brief Pushable Lever object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -58,9 +57,9 @@ void PushableLever_Idle(PushableLeverEntity* this) {
             gPlayerState.pushedObject = 0x90;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = gPlayerEntity.animationState << 2;
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2;
         }
     }
 }

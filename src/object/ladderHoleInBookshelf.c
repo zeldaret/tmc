@@ -4,7 +4,6 @@
  *
  * @brief Ladder Hole In Bookshelf object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "player.h"
 
@@ -30,7 +29,7 @@ void LadderHoleInBookshelf_Init(Entity* this) {
 void LadderHoleInBookshelf_Action1(Entity* this) {
     if (sub_08094064(this)) {
         if (this->collisionLayer == 2) {
-            switch (gPlayerEntity.action) {
+            switch (gPlayerEntity.base.action) {
                 case PLAYER_CLIMB:
                 case PLAYER_USEENTRANCE:
                     return;
@@ -39,7 +38,7 @@ void LadderHoleInBookshelf_Action1(Entity* this) {
             UpdateSpriteForCollisionLayer(this);
             this->spritePriority.b0 = 5;
         } else {
-            switch (gPlayerEntity.action) {
+            switch (gPlayerEntity.base.action) {
                 case PLAYER_CLIMB:
                 case PLAYER_USEENTRANCE:
                     this->collisionLayer = 2;
@@ -47,10 +46,10 @@ void LadderHoleInBookshelf_Action1(Entity* this) {
                     this->spritePriority.b0 = 1;
                     break;
                 default:
-                    if ((gPlayerEntity.collisionLayer & 2) == 0) {
+                    if ((gPlayerEntity.base.collisionLayer & 2) == 0) {
                         break;
                     }
-                    gPlayerEntity.collisionLayer = 1;
+                    gPlayerEntity.base.collisionLayer = 1;
                     break;
             }
         }
@@ -59,7 +58,7 @@ void LadderHoleInBookshelf_Action1(Entity* this) {
 
 bool32 sub_08094064(Entity* this) {
     bool32 rv = 1;
-    if (gPlayerEntity.x.HALF.HI - this->x.HALF.HI + 0x1cU >= 0x39) {
+    if (gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI + 0x1cU >= 0x39) {
         rv = 0;
     }
 

@@ -4,7 +4,6 @@
  *
  * @brief Mazaal Hand enemy
  */
-
 #include "entity.h"
 #include "hitbox.h"
 

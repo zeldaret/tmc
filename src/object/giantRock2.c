@@ -4,7 +4,6 @@
  *
  * @brief Giant Rock 2 object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "room.h"

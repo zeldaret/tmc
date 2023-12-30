@@ -4,31 +4,46 @@
  *
  * @brief Puffstool enemy
  */
-
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+    /*0x7c*/ u16 unk_7c;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unused2[1];
+    /*0x84*/ u16 unk_84;
+    /*0x86*/ u16 unk_86;
+} PuffstoolEntity;
+
 extern u8 gUnk_080B3E80[];
 
-bool32 sub_080258C4(Entity*);
-void sub_08025B18(Entity*);
-void sub_08025C2C(Entity*);
-void sub_08025BD4(Entity*);
-void sub_080256B4(Entity*);
-bool32 sub_08025C44(Entity*);
-u32 sub_08025C60(Entity*);
-bool32 sub_0802571C(Entity*);
-void sub_08025A54(Entity*);
-void sub_08025AE8(Entity*);
-bool32 sub_0802594C(Entity*, u32);
-bool32 sub_080257EC(Entity*, u32, u32);
+bool32 sub_080258C4(PuffstoolEntity*);
+void sub_08025B18(PuffstoolEntity*);
+void sub_08025C2C(PuffstoolEntity*);
+void sub_08025BD4(PuffstoolEntity*);
+void sub_080256B4(PuffstoolEntity*);
+bool32 sub_08025C44(PuffstoolEntity*);
+u32 sub_08025C60(PuffstoolEntity*);
+bool32 sub_0802571C(PuffstoolEntity*);
+void sub_08025A54(PuffstoolEntity*);
+void sub_08025AE8(PuffstoolEntity*);
+bool32 sub_0802594C(PuffstoolEntity*, u32);
+bool32 sub_080257EC(PuffstoolEntity*, u32, u32);
 bool32 sub_08025AB8(u32, u32);
 
-extern void (*const Puffstool_Functions[])(Entity*);
-extern void (*const gUnk_080CBFB4[])(Entity*);
+extern void (*const Puffstool_Functions[])(PuffstoolEntity*);
+extern void (*const gUnk_080CBFB4[])(PuffstoolEntity*);
 extern const u8 gUnk_080CBFE8[];
-extern void (*const gUnk_080CBFEC[])(Entity*);
+extern void (*const gUnk_080CBFEC[])(PuffstoolEntity*);
 extern const u8 gUnk_080CBFF8[];
 extern const u16 gUnk_080CC000[];
 extern const s8 gUnk_080CC020[];
@@ -39,277 +54,276 @@ extern const s8 gUnk_080CC0A8[];
 extern const s8 gUnk_080CC0BA[];
 extern const s8 gUnk_080CC0C2[];
 
-void Puffstool(Entity* this) {
-    EnemyFunctionHandler(this, Puffstool_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+void Puffstool(PuffstoolEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)Puffstool_Functions);
+    SetChildOffset(super, 0, 1, -0x10);
 }
 
-void Puffstool_OnTick(Entity* this) {
-    gUnk_080CBFB4[this->action](this);
+void Puffstool_OnTick(PuffstoolEntity* this) {
+    gUnk_080CBFB4[super->action](this);
 }
 
-void Puffstool_OnCollide(Entity* this) {
+void Puffstool_OnCollide(PuffstoolEntity* this) {
     u8 tmp;
 
-    switch (this->contactFlags & 0x7f) {
+    switch (super->contactFlags & 0x7f) {
         case 0 ... 3:
             /* ... */
             break;
         case 0x1b:
-            sub_0804AA1C(this);
+            sub_0804AA1C(super);
 
-            tmp = gUnk_080CBFE8[(*(Entity**)&this->contactedEntity)->type];
-            if (tmp < this->field_0x82.HALF.LO) {
-                this->field_0x82.HALF.LO -= gUnk_080CBFE8[(*(Entity**)&this->contactedEntity)->type];
+            tmp = gUnk_080CBFE8[(*(Entity**)&super->contactedEntity)->type];
+            if (tmp < this->unk_82) {
+                this->unk_82 -= gUnk_080CBFE8[(*(Entity**)&super->contactedEntity)->type];
             } else {
-                this->cutsceneBeh.HWORD = 0x294;
-                this->hitType = 0x83;
-                this->field_0x82.HALF.LO = 0;
-                ChangeObjPalette(this, 0x7c);
+                this->unk_84 = 0x294;
+                super->hitType = 0x83;
+                this->unk_82 = 0;
+                ChangeObjPalette(super, 0x7c);
             }
-            this->action = 7;
-            this->timer = 60;
-            if (0 < this->zVelocity) {
-                this->zVelocity = 0;
+            super->action = 7;
+            super->timer = 60;
+            if (0 < super->zVelocity) {
+                super->zVelocity = 0;
             }
-            this->iframes = -0xc;
-            this->knockbackDuration = 0;
-            if (this->field_0x80.HALF.LO == 0) {
-                this->animationState = (*(Entity**)&this->contactedEntity)->direction >> 3;
-                InitializeAnimation(this, this->animationState + 4);
-                this->frameDuration = 6;
-                this->field_0x80.HALF.LO = 1;
+            super->iframes = -0xc;
+            super->knockbackDuration = 0;
+            if (this->unk_80 == 0) {
+                super->animationState = (*(Entity**)&super->contactedEntity)->direction >> 3;
+                InitializeAnimation(super, super->animationState + 4);
+                super->frameDuration = 6;
+                this->unk_80 = 1;
             }
             break;
         default:
-            if (this->hitType == 0x82 && this->iframes < 0) {
-                Entity* ent = CreateObject(DIRT_PARTICLE, 2, 0);
-                if (ent != NULL) {
-                    ent->spritePriority.b0 = 3;
-                    CopyPosition(this, ent);
+            if (super->hitType == 0x82 && super->iframes < 0) {
+                Entity* entity = CreateObject(DIRT_PARTICLE, 2, 0);
+                if (entity != NULL) {
+                    entity->spritePriority.b0 = 3;
+                    CopyPosition(super, entity);
                 }
                 EnqueueSFX(SFX_186);
             }
             break;
     }
 
-    EnemyFunctionHandlerAfterCollision(this, Puffstool_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Puffstool_Functions);
 }
 
-void Puffstool_OnDeath(Entity* this) {
-    if ((this->gustJarState & 2) && this->timer == 1 && this->field_0x82.HALF.LO) {
+void Puffstool_OnDeath(PuffstoolEntity* this) {
+    if ((super->gustJarState & 2) && super->timer == 1 && this->unk_82) {
         sub_08025B18(this);
     }
-    GenericDeath(this);
+    GenericDeath(super);
 }
 
-void Puffstool_OnGrabbed(Entity* this) {
-    GravityUpdate(this, Q_8_8(32.0));
-    if (sub_0806F520(this)) {
-        gUnk_080CBFEC[this->subAction](this);
+void Puffstool_OnGrabbed(PuffstoolEntity* this) {
+    GravityUpdate(super, Q_8_8(32.0));
+    if (sub_0806F520(super)) {
+        gUnk_080CBFEC[super->subAction](this);
     } else {
         sub_08025C2C(this);
     }
 }
 
-void sub_08025180(Entity* this) {
-    this->subAction = 1;
-    this->timer = Random();
-    this->animationState = (((*(Entity**)&this->contactedEntity)->direction ^ 0x10) >> 3);
-    InitializeAnimation(this, this->animationState + 4);
-    sub_0804AA1C(this);
+void sub_08025180(PuffstoolEntity* this) {
+    super->subAction = 1;
+    super->timer = Random();
+    super->animationState = (((*(Entity**)&super->contactedEntity)->direction ^ 0x10) >> 3);
+    InitializeAnimation(super, super->animationState + 4);
+    sub_0804AA1C(super);
 }
 
-void sub_080251AC(Entity* this) {
-    if (this->field_0x82.HALF.LO >= 4) {
-        this->field_0x82.HALF.LO -= 3;
-        if ((--this->timer & 3) == 0) {
+void sub_080251AC(PuffstoolEntity* this) {
+    if (this->unk_82 >= 4) {
+        this->unk_82 -= 3;
+        if ((--super->timer & 3) == 0) {
             sub_08025BD4(this);
         }
     } else {
-        this->cutsceneBeh.HWORD = 0x294;
-        this->hitType = 0x83;
-        this->field_0x82.HALF.LO = 0;
-        ChangeObjPalette(this, 0x7c);
+        this->unk_84 = 0x294;
+        super->hitType = 0x83;
+        this->unk_82 = 0;
+        ChangeObjPalette(super, 0x7c);
     }
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void sub_080251FC(Entity* this) {
-    sub_0804A720(this);
-    this->field_0x82.HALF.LO = 240;
-    this->direction = Random() & 0x1c;
-    this->field_0x80.HALF.LO = 0;
+void sub_080251FC(PuffstoolEntity* this) {
+    sub_0804A720(super);
+    this->unk_82 = 240;
+    super->direction = Random() & 0x1c;
+    this->unk_80 = 0;
     sub_080256B4(this);
-    InitializeAnimation(this, 0);
+    InitializeAnimation(super, 0);
 }
 
-void sub_08025230(Entity* this) {
-    if (this->field_0x80.HALF.HI)
-        this->field_0x80.HALF.HI--;
+void sub_08025230(PuffstoolEntity* this) {
+    if (this->unk_81)
+        this->unk_81--;
 
     sub_08025C44(this);
-    GetNextFrame(this);
-    if (--this->timer == 0) {
-        this->timer = (Random() & 3) + 4;
-        this->direction = sub_08025C60(this);
+    GetNextFrame(super);
+    if (--super->timer == 0) {
+        super->timer = (Random() & 3) + 4;
+        super->direction = sub_08025C60(this);
     }
 
-    if (this->collisions != COL_NONE) {
-        if (--this->subtimer == 0) {
-            sub_0800417E(this, this->collisions);
+    if (super->collisions != COL_NONE) {
+        if (--super->subtimer == 0) {
+            sub_0800417E(super, super->collisions);
         }
     } else {
-        this->subtimer = 30;
+        super->subtimer = 30;
     }
 
-    if (this->field_0x78.HWORD == 0) {
+    if (this->unk_78 == 0) {
         if (sub_0802571C(this)) {
-            this->action = 2;
-            this->timer = 240;
-            this->field_0x86.HWORD = COORD_TO_TILE(this);
+            super->action = 2;
+            super->timer = 240;
+            this->unk_86 = COORD_TO_TILE(super);
         }
     } else {
-        this->field_0x78.HWORD--;
+        this->unk_78--;
     }
 }
 
-void sub_080252E0(Entity* this) {
+void sub_080252E0(PuffstoolEntity* this) {
     u32 tile;
 
-    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, (u16)this->field_0x7c.HALF.LO,
-                                           (u16)this->field_0x7c.HALF.HI);
+    super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_7c, this->unk_7e);
 
     sub_08025C44(this);
-    GetNextFrame(this);
+    GetNextFrame(super);
 
-    tile = COORD_TO_TILE(this);
-    if (tile == this->field_0x86.HWORD) {
-        if (--this->timer == 0) {
+    tile = COORD_TO_TILE(super);
+    if (tile == this->unk_86) {
+        if (--super->timer == 0) {
             sub_080256B4(this);
         }
     } else {
-        this->field_0x86.HWORD = tile;
-        this->timer = 240;
+        this->unk_86 = tile;
+        super->timer = 240;
     }
 
-    if (this->x.HALF.HI == (u16)this->field_0x7c.HALF.LO && this->y.HALF.HI == (u16)this->field_0x7c.HALF.HI) {
-        this->action = 3;
-        this->timer = 30;
-        this->subtimer = 0;
-        this->zVelocity = Q_16_16(1.5);
-        InitializeAnimation(this, 1);
+    if (super->x.HALF.HI == this->unk_7c && super->y.HALF.HI == this->unk_7e) {
+        super->action = 3;
+        super->timer = 30;
+        super->subtimer = 0;
+        super->zVelocity = Q_16_16(1.5);
+        InitializeAnimation(super, 1);
     }
 }
 
-void sub_0802538C(Entity* this) {
-    if (this->timer) {
-        this->timer--;
+void sub_0802538C(PuffstoolEntity* this) {
+    if (super->timer) {
+        super->timer--;
     } else {
-        if (this->frame == 0) {
-            GetNextFrame(this);
+        if (super->frame == 0) {
+            GetNextFrame(super);
         } else {
-            GravityUpdate(this, Q_8_8(32.0));
-            if (this->zVelocity < Q_16_16(0.125)) {
-                this->action = 4;
-                InitializeAnimation(this, 2);
+            GravityUpdate(super, Q_8_8(32.0));
+            if (super->zVelocity < Q_16_16(0.125)) {
+                super->action = 4;
+                InitializeAnimation(super, 2);
             }
         }
     }
 }
 
-void sub_080253D4(Entity* this) {
-    GetNextFrame(this);
-    if (!GravityUpdate(this, Q_8_8(32.0))) {
-        if (this->subtimer == 0) {
-            this->action = 5;
-            InitializeAnimation(this, 3);
+void sub_080253D4(PuffstoolEntity* this) {
+    GetNextFrame(super);
+    if (!GravityUpdate(super, Q_8_8(32.0))) {
+        if (super->subtimer == 0) {
+            super->action = 5;
+            InitializeAnimation(super, 3);
         } else {
-            this->action = 6;
-            this->timer = 30;
-            InitializeAnimation(this, 3);
+            super->action = 6;
+            super->timer = 30;
+            InitializeAnimation(super, 3);
             sub_08025A54(this);
             sub_08025AE8(this);
         }
     }
 }
 
-void sub_0802541C(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 3;
-        this->subtimer = 1;
-        this->zVelocity = Q_16_16(2.0);
-        InitializeAnimation(this, 1);
+void sub_0802541C(PuffstoolEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 3;
+        super->subtimer = 1;
+        super->zVelocity = Q_16_16(2.0);
+        InitializeAnimation(super, 1);
     }
 }
 
-void sub_0802544C(Entity* this) {
-    if (this->frame == 0) {
-        GetNextFrame(this);
+void sub_0802544C(PuffstoolEntity* this) {
+    if (super->frame == 0) {
+        GetNextFrame(super);
     } else {
-        if (--this->timer == 0) {
+        if (--super->timer == 0) {
             sub_080256B4(this);
-            InitializeAnimation(this, 0);
+            InitializeAnimation(super, 0);
         }
     }
 }
 
-void sub_0802547C(Entity* this) {
-    GravityUpdate(this, Q_8_8(32.0));
-    GetNextFrame(this);
-    if ((this->timer & 7) == 0) {
+void sub_0802547C(PuffstoolEntity* this) {
+    GravityUpdate(super, Q_8_8(32.0));
+    GetNextFrame(super);
+    if ((super->timer & 7) == 0) {
         sub_08025BD4(this);
     }
 
-    if (--this->timer == 0) {
+    if (--super->timer == 0) {
         sub_08025C2C(this);
     }
 }
 
-void sub_080254B4(Entity* this) {
-    GravityUpdate(this, Q_8_8(32.0));
-    if (this->frame & ANIM_DONE) {
-        if (this->z.HALF.HI == 0) {
-            if (this->cutsceneBeh.HWORD == 0) {
-                this->hitType = 0x82;
-                this->field_0x82.HALF.LO = -0x10;
+void sub_080254B4(PuffstoolEntity* this) {
+    GravityUpdate(super, Q_8_8(32.0));
+    if (super->frame & ANIM_DONE) {
+        if (super->z.HALF.HI == 0) {
+            if (this->unk_84 == 0) {
+                super->hitType = 0x82;
+                this->unk_82 = -0x10;
                 sub_080256B4(this);
             } else {
-                this->action = 0xc;
-                Create0x68FX(this, FX_STARS);
+                super->action = 0xc;
+                Create0x68FX(super, FX_STARS);
             }
-            InitializeAnimation(this, 0);
+            InitializeAnimation(super, 0);
         }
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
-void sub_08025514(Entity* this) {
-    GetNextFrame(this);
-    if (sub_0802594C(this, this->timer++)) {
-        this->action = 2;
-        this->timer = 240;
-        this->field_0x80.HALF.HI = 120;
-    } else if (3 < this->timer) {
-        this->action = 10;
-        this->timer = 32;
+void sub_08025514(PuffstoolEntity* this) {
+    GetNextFrame(super);
+    if (sub_0802594C(this, super->timer++)) {
+        super->action = 2;
+        super->timer = 240;
+        this->unk_81 = 120;
+    } else if (3 < super->timer) {
+        super->action = 10;
+        super->timer = 32;
     }
 }
 
-void sub_08025554(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL) {
+void sub_08025554(PuffstoolEntity* this) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL) {
         sub_080256B4(this);
     } else {
-        if ((this->timer & 3) == 0) {
-            this->direction = GetFacingDirection(ent, this);
+        if ((super->timer & 3) == 0) {
+            super->direction = GetFacingDirection(entity, super);
         }
         sub_08025C44(this);
-        GetNextFrame(this);
-        if (this->timer != 0) {
-            this->timer--;
+        GetNextFrame(super);
+        if (super->timer != 0) {
+            super->timer--;
         } else {
             if (!sub_080258C4(this)) {
                 sub_080256B4(this);
@@ -318,19 +332,19 @@ void sub_08025554(Entity* this) {
     }
 }
 
-void sub_080255AC(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL) {
+void sub_080255AC(PuffstoolEntity* this) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL) {
         sub_080256B4(this);
     } else {
-        if (this->field_0x80.HALF.HI != 0) {
-            this->field_0x80.HALF.HI--;
+        if (this->unk_81 != 0) {
+            this->unk_81--;
         }
 
-        if (--this->timer == 0) {
+        if (--super->timer == 0) {
             s32 tmp;
 
-            this->timer = (Random() & 3) + 4;
+            super->timer = (Random() & 3) + 4;
 
             tmp = Random() & 0xf;
             if (tmp < 8) {
@@ -338,57 +352,57 @@ void sub_080255AC(Entity* this) {
             }
             tmp -= 7;
 
-            this->direction = (GetFacingDirection(ent, this) + tmp) & (0x3 | DirectionNorthWest);
+            super->direction = (GetFacingDirection(entity, super) + tmp) & (0x3 | DirectionNorthWest);
         }
 
-        if (this->field_0x78.HWORD == 0) {
+        if (this->unk_78 == 0) {
             if (sub_080258C4(this) == 0) {
                 sub_080256B4(this);
             }
         } else {
-            this->field_0x78.HWORD--;
+            this->unk_78--;
         }
         sub_08025C44(this);
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
-void sub_0802563C(Entity* this) {
-    GetNextFrame(this);
+void sub_0802563C(PuffstoolEntity* this) {
+    GetNextFrame(super);
 
-    if (--this->cutsceneBeh.HWORD == 0) {
-        ChangeObjPalette(this, 0x28);
-        this->hitType = 0x82;
-        this->field_0x82.HALF.LO = 240;
+    if (--this->unk_84 == 0) {
+        ChangeObjPalette(super, 0x28);
+        super->hitType = 0x82;
+        this->unk_82 = 240;
         sub_080256B4(this);
-        sub_0804AA1C(this);
-    } else if (this->cutsceneBeh.HWORD < 120) {
-        u32 tmp3 = gUnk_080CBFF8[this->cutsceneBeh.HWORD >> 4];
-        if ((this->cutsceneBeh.HWORD & tmp3) == 0) {
-            if (this->cutsceneBeh.HWORD & (tmp3 + 1)) {
-                ChangeObjPalette(this, 124);
+        sub_0804AA1C(super);
+    } else if (this->unk_84 < 120) {
+        u32 tmp3 = gUnk_080CBFF8[this->unk_84 >> 4];
+        if ((this->unk_84 & tmp3) == 0) {
+            if (this->unk_84 & (tmp3 + 1)) {
+                ChangeObjPalette(super, 124);
             } else {
-                ChangeObjPalette(this, 40);
+                ChangeObjPalette(super, 40);
             }
         }
     }
 }
 
-void sub_080256B4(Entity* this) {
-    this->action = 1;
-    this->timer = (Random() & 3) + 4;
-    this->subtimer = 30;
-    this->direction = (this->direction + 7 + ((s32)Random() % 7) * 4) & DirectionNorthWest;
-    this->field_0x78.HWORD = gUnk_080CC000[Random() & 0xf];
-    this->field_0x7a.HALF.LO = ((s32)Random() % 0x18) << 1;
-    this->field_0x7a.HALF.HI = 0;
+void sub_080256B4(PuffstoolEntity* this) {
+    super->action = 1;
+    super->timer = (Random() & 3) + 4;
+    super->subtimer = 30;
+    super->direction = (super->direction + 7 + ((s32)Random() % 7) * 4) & DirectionNorthWest;
+    this->unk_78 = gUnk_080CC000[Random() & 0xf];
+    this->unk_7a = ((s32)Random() % 0x18) << 1;
+    this->unk_7b = 0;
 }
 
-bool32 sub_0802571C(Entity* this) {
+bool32 sub_0802571C(PuffstoolEntity* this) {
     RoomControls* ctrl = &gRoomControls;
-    u16 xDiff = (this->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
-    u16 yDiff = (this->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
-    u16 unk = this->field_0x7a.HALF.LO;
+    u16 xDiff = (super->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
+    u16 yDiff = (super->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
+    u16 unk = this->unk_7a;
     u16 i;
 
     for (i = 0; i < 4; i++) {
@@ -396,8 +410,8 @@ bool32 sub_0802571C(Entity* this) {
         u16 sVar4 = yDiff + gUnk_080CC020[unk + 1];
 
         if (sub_080257EC(this, sVar3, sVar4)) {
-            this->field_0x7c.HALF.LO = sVar3 + ctrl->origin_x;
-            this->field_0x7c.HALF.HI = sVar4 + ctrl->origin_y;
+            this->unk_7c = sVar3 + ctrl->origin_x;
+            this->unk_7e = sVar4 + ctrl->origin_y;
             return TRUE;
         }
 
@@ -407,28 +421,28 @@ bool32 sub_0802571C(Entity* this) {
         }
     }
 
-    this->field_0x7a.HALF.LO = unk;
-    this->field_0x7a.HALF.HI++;
+    this->unk_7a = unk;
+    this->unk_7b++;
     return FALSE;
 }
 
-bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
-    u16 tileType = sub_080B1A48(x - 0x00, y - 0x00, this->collisionLayer);
+bool32 sub_080257EC(PuffstoolEntity* this, u32 x, u32 y) {
+    u16 tileType = sub_080B1A48(x - 0x00, y - 0x00, super->collisionLayer);
     if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x10, y - 0x00, this->collisionLayer);
+    tileType = sub_080B1A48(x - 0x10, y - 0x00, super->collisionLayer);
     if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x00, y - 0x10, this->collisionLayer);
+    tileType = sub_080B1A48(x - 0x00, y - 0x10, super->collisionLayer);
     if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x10, y - 0x10, this->collisionLayer);
+    tileType = sub_080B1A48(x - 0x10, y - 0x10, super->collisionLayer);
     if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
         return TRUE;
     }
@@ -436,26 +450,26 @@ bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
     return FALSE;
 }
 
-bool32 sub_080258C4(Entity* this) {
-    Entity* ent = sub_08049DF4(1);
-    if (ent == NULL) {
+bool32 sub_080258C4(PuffstoolEntity* this) {
+    Entity* entity = sub_08049DF4(1);
+    if (entity == NULL) {
         return FALSE;
     } else {
         s32 iVar4;
         s32 iVar1;
-        iVar4 = ent->x.HALF.HI - this->x.HALF.HI;
+        iVar4 = entity->x.HALF.HI - super->x.HALF.HI;
         iVar4 = iVar4 * iVar4;
-        iVar1 = ent->y.HALF.HI - this->y.HALF.HI;
+        iVar1 = entity->y.HALF.HI - super->y.HALF.HI;
         iVar1 = iVar1 * iVar1;
         iVar4 = iVar4 + iVar1;
-        if (this->cutsceneBeh.HWORD == 0 && this->field_0x80.HALF.HI == 0 && 0x400 >= iVar4) {
-            this->action = 9;
-            this->timer = 0;
+        if (this->unk_84 == 0 && this->unk_81 == 0 && 0x400 >= iVar4) {
+            super->action = 9;
+            super->timer = 0;
             return TRUE;
         } else if (0x900 >= iVar4) {
-            this->action = 11;
-            this->timer = 1;
-            this->field_0x78.HWORD = gUnk_080CC050[Random() & 0xf];
+            super->action = 11;
+            super->timer = 1;
+            this->unk_78 = gUnk_080CC050[Random() & 0xf];
             return TRUE;
         } else {
             return FALSE;
@@ -464,15 +478,15 @@ bool32 sub_080258C4(Entity* this) {
 }
 
 // regalloc
-bool32 sub_0802594C(Entity* this, u32 param_2) {
+bool32 sub_0802594C(PuffstoolEntity* this, u32 param_2) {
     s16 xDiff;
     s16 yDiff;
     s16 iVar9;
     u32 uVar1;
     const s8* unk = gUnk_080CC090[param_2];
-    uVar1 = this->collisionLayer;
-    xDiff = (this->x.HALF.HI - gRoomControls.origin_x + 8) & -0x10;
-    yDiff = (this->y.HALF.HI - gRoomControls.origin_y + 8) & -0x10;
+    uVar1 = super->collisionLayer;
+    xDiff = (super->x.HALF.HI - gRoomControls.origin_x + 8) & -0x10;
+    yDiff = (super->y.HALF.HI - gRoomControls.origin_y + 8) & -0x10;
     do {
         u8 bVar7;
         u8 bVar4;
@@ -486,8 +500,8 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
         bVar6 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x10, uVar1);
         bVar7 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x10, uVar1);
         if ((bVar4 | bVar5 | bVar6 | bVar7) == 0) {
-            this->field_0x7c.HALF.LO = gRoomControls.origin_x + iVar9;
-            this->field_0x7c.HALF.HI = gRoomControls.origin_y + iVar11;
+            this->unk_7c = gRoomControls.origin_x + iVar9;
+            this->unk_7e = gRoomControls.origin_y + iVar11;
             return TRUE;
         }
         unk += 2;
@@ -496,10 +510,10 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
     return 0;
 }
 
-void sub_08025A54(Entity* this) {
-    u32 layer = this->collisionLayer;
-    s16 x = this->x.HALF.HI - gRoomControls.origin_x;
-    s16 y = this->y.HALF.HI - gRoomControls.origin_y;
+void sub_08025A54(PuffstoolEntity* this) {
+    u32 layer = super->collisionLayer;
+    s16 x = super->x.HALF.HI - gRoomControls.origin_x;
+    s16 y = super->y.HALF.HI - gRoomControls.origin_y;
 
     const s8* offset = gUnk_080CC0A0;
     u32 i = 0;
@@ -521,26 +535,26 @@ bool32 sub_08025AB8(u32 tile, u32 layer) {
     return FALSE;
 }
 
-void sub_08025AE8(Entity* this) {
-    Entity* ent;
+void sub_08025AE8(PuffstoolEntity* this) {
+    Entity* entity;
 
-    ent = CreateFx(this, FX_BROWN_SMOKE, 0);
-    if (ent != NULL) {
-        ent->y.WORD--;
+    entity = CreateFx(super, FX_BROWN_SMOKE, 0);
+    if (entity != NULL) {
+        entity->y.WORD--;
     }
 
-    ent = CreateFx(this, FX_BROWN_SMOKE_LARGE, 0);
-    if (ent != NULL) {
-        ent->y.WORD++;
+    entity = CreateFx(super, FX_BROWN_SMOKE_LARGE, 0);
+    if (entity != NULL) {
+        entity->y.WORD++;
     }
 }
 
-void sub_08025B18(Entity* this) {
-    Entity* ent;
+void sub_08025B18(PuffstoolEntity* this) {
+    Entity* entity;
 
-    s32 x = this->x.HALF.HI - gRoomControls.origin_x;
-    s32 y = this->y.HALF.HI - gRoomControls.origin_y;
-    u32 layer = this->collisionLayer;
+    s32 x = super->x.HALF.HI - gRoomControls.origin_x;
+    s32 y = super->y.HALF.HI - gRoomControls.origin_y;
+    u32 layer = super->collisionLayer;
 
     const s8* offset = gUnk_080CC0A8;
     u32 i = 0;
@@ -548,62 +562,62 @@ void sub_08025B18(Entity* this) {
     for (; i < 9; i++, offset += 2) {
         sub_08025AB8((((x + offset[0]) >> 4) & 0x3fU) | ((((y + offset[1]) >> 4) & 0x3fU) << 6), layer);
 
-        ent = CreateObject(DIRT_PARTICLE, 2, 0);
-        if (ent != NULL) {
-            PositionRelative(this, ent, Q_16_16(offset[0]), Q_16_16(offset[1]));
-            ent->x.HALF.HI &= -0x10;
-            ent->x.HALF.HI += 8;
-            ent->y.HALF.HI &= -0x10;
-            ent->y.HALF.HI += 8;
-            ent->z.HALF.HI = -1;
+        entity = CreateObject(DIRT_PARTICLE, 2, 0);
+        if (entity != NULL) {
+            PositionRelative(super, entity, Q_16_16(offset[0]), Q_16_16(offset[1]));
+            entity->x.HALF.HI &= -0x10;
+            entity->x.HALF.HI += 8;
+            entity->y.HALF.HI &= -0x10;
+            entity->y.HALF.HI += 8;
+            entity->z.HALF.HI = -1;
         }
     }
 }
 
-void sub_08025BD4(Entity* this) {
-    if (this->field_0x82.HALF.LO && (this->frame & 1) == 0) {
-        Entity* ent = CreateObject(DIRT_PARTICLE, 0, 0);
-        if (ent != NULL) {
-            PositionRelative(this, ent, Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 0]),
-                             Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 1]));
-            ent->z.HALF.HI = -10;
+void sub_08025BD4(PuffstoolEntity* this) {
+    if (this->unk_82 && (super->frame & 1) == 0) {
+        Entity* entity = CreateObject(DIRT_PARTICLE, 0, 0);
+        if (entity != NULL) {
+            PositionRelative(super, entity, Q_16_16(gUnk_080CC0BA[super->animationState * 2 + 0]),
+                             Q_16_16(gUnk_080CC0BA[super->animationState * 2 + 1]));
+            entity->z.HALF.HI = -10;
         }
     }
 }
 
-void sub_08025C2C(Entity* this) {
-    this->action = 8;
-    this->field_0x80.HALF.LO = 0;
-    InitializeAnimation(this, 8);
+void sub_08025C2C(PuffstoolEntity* this) {
+    super->action = 8;
+    this->unk_80 = 0;
+    InitializeAnimation(super, 8);
 }
 
-bool32 sub_08025C44(Entity* this) {
-    if ((this->frame & 1) == 0) {
-        return ProcessMovement0(this);
+bool32 sub_08025C44(PuffstoolEntity* this) {
+    if ((super->frame & 1) == 0) {
+        return ProcessMovement0(super);
     } else {
         return FALSE;
     }
 }
 
-u32 sub_08025C60(Entity* this) {
-    if (!sub_08049FA0(this) && (Random() & 1)) {
-        return sub_08049EE4(this);
+u32 sub_08025C60(PuffstoolEntity* this) {
+    if (!sub_08049FA0(super) && (Random() & 1)) {
+        return sub_08049EE4(super);
     }
 
-    return (gUnk_080CC0C2[Random() & 7] + this->direction) & 0x1f;
+    return (gUnk_080CC0C2[Random() & 7] + super->direction) & 0x1f;
 }
 
 // clang-format off
-void (*const Puffstool_Functions[])(Entity*) = {
+void (*const Puffstool_Functions[])(PuffstoolEntity*) = {
     Puffstool_OnTick,
     Puffstool_OnCollide,
-    GenericKnockback,
+    (void (*)(PuffstoolEntity*))GenericKnockback,
     Puffstool_OnDeath,
-    GenericConfused,
+    (void (*)(PuffstoolEntity*))GenericConfused,
     Puffstool_OnGrabbed,
 };
 
-void (*const gUnk_080CBFB4[])(Entity*) = {
+void (*const gUnk_080CBFB4[])(PuffstoolEntity*) = {
     sub_080251FC,
     sub_08025230,
     sub_080252E0,
@@ -623,7 +637,7 @@ const u8 gUnk_080CBFE8[] = {
     40, 120, 240,  0x0
 };
 
-void (*const gUnk_080CBFEC[])(Entity*) = {
+void (*const gUnk_080CBFEC[])(PuffstoolEntity*) = {
     sub_08025180,
     sub_080251AC,
     sub_080251AC,

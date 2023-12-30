@@ -4,7 +4,6 @@
  *
  * @brief Cutscene Misc object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
 #include "item.h"
@@ -185,7 +184,7 @@ void sub_08094B80(CutsceneMiscObjectEntity* this) {
 void sub_08094B94(CutsceneMiscObjectEntity* this) {
     Entity* e = CreateObject(CUTSCENE_MISC_OBJECT, 0x22, 0);
     if (e != NULL) {
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         e->z.HALF.HI = -48;
         ((CutsceneMiscObjectEntity*)e)->ctx = StartCutscene(e, &script_CutsceneMiscObjectTheLittleHat);
         CreateDust(e);
@@ -197,7 +196,7 @@ void sub_08094B94(CutsceneMiscObjectEntity* this) {
 void sub_08094BE0(Entity* this) {
     Entity* e = FindEntity(OBJECT, CUTSCENE_MISC_OBJECT, 6, 0x22, 0);
     if (e != NULL) {
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         e->z.HALF.HI = -12;
         e->y.HALF.HI++;
         e->collisionLayer = 2;
@@ -413,7 +412,7 @@ void CutsceneMiscObject_Type6(CutsceneMiscObjectEntity* this) {
             }
             break;
         case 3:
-            if (gPlayerEntity.action != PLAYER_EMPTYBOTTLE) {
+            if (gPlayerEntity.base.action != PLAYER_EMPTYBOTTLE) {
                 super->action = 4;
 #ifndef EU
                 if (!CheckGlobalFlag(BIN_DOGFOOD)) {
@@ -1052,7 +1051,7 @@ void sub_08095D30(CutsceneMiscObjectEntity* this, u32 a2) {
 void sub_08095D54(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx) {
     Entity* e = CreateObject(CUTSCENE_MISC_OBJECT, 0x1C, 0);
     if (e != NULL) {
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         e->collisionLayer = 2;
         ((CutsceneMiscObjectEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
     }
@@ -1153,7 +1152,7 @@ void CutsceneMiscObject_Type31(CutsceneMiscObjectEntity* this) {
                 break;
         }
         ChangeObjPalette(super, pal);
-        if ((gPlayerEntity.frame & 1) == 0) {
+        if ((gPlayerEntity.base.frame & 1) == 0) {
             local->anim = 0x8BF;
             super->timer = 52;
             super->subtimer = -75;
@@ -1162,16 +1161,16 @@ void CutsceneMiscObject_Type31(CutsceneMiscObjectEntity* this) {
             super->timer = 85;
             super->subtimer = -42;
         }
-        CopyPosition(&gPlayerEntity, super);
+        CopyPosition(&gPlayerEntity.base, super);
         super->spritePriority.b0 = 3;
     }
-    if (gPlayerEntity.frame & 0x10) {
-        gPlayerEntity.frame &= ~0x10;
+    if (gPlayerEntity.base.frame & 0x10) {
+        gPlayerEntity.base.frame &= ~0x10;
         SoundReq(468);
     }
-    if ((u16)gPlayerEntity.spriteIndex != local->anim >> 8 || gPlayerEntity.animIndex != (u8)local->anim)
+    if ((u16)gPlayerEntity.base.spriteIndex != local->anim >> 8 || gPlayerEntity.base.animIndex != (u8)local->anim)
         DeleteThisEntity();
-    tmp = gPlayerEntity.frameIndex - super->timer + super->subtimer;
+    tmp = gPlayerEntity.base.frameIndex - super->timer + super->subtimer;
     if (tmp != super->frameIndex) {
         super->frameIndex = tmp;
         sub_080042D0(super, super->frameIndex, (u16)super->spriteIndex);

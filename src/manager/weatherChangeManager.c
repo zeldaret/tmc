@@ -153,11 +153,11 @@ void sub_080596E0(WeatherChangeManager* this) {
 }
 
 u32 sub_08059844(void) {
-    return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > gRoomControls.width >> 1;
+    return gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x > gRoomControls.width >> 1;
 }
 
 u32 sub_0805986C(void) {
-    return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > 0x200;
+    return gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x > 0x200;
 }
 
 void sub_08059894(const u16* unk1, const u16* unk2, u32 unk3) {

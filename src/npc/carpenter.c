@@ -4,7 +4,6 @@
  *
  * @brief Carpenter NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "item.h"
 #include "npc.h"
@@ -43,8 +42,9 @@ void Carpenter(CarpenterEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) +
-                                               4 + (super->type * 8));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 4 +
+                                        (super->type * 8));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, 0);

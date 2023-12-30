@@ -5,8 +5,10 @@
  * @brief Creates pushable furniture based on a room property list.
  */
 #include "manager/pushableFurnitureManager.h"
+
 #include "flags.h"
 #include "object.h"
+#include "object/pushableFurniture.h"
 #include "room.h"
 
 void PushableFurnitureManager_Init(PushableFurnitureManager*);
@@ -35,16 +37,16 @@ void PushableFurnitureManager_Init(PushableFurnitureManager* this) {
     this->unk_28 = 0;
     this->unk_29 = 0;
     while (tmp->unk_00 != 0xFF && super->timer < 0x20) {
-        Entity* obj;
-        obj = CreateObject(PUSHABLE_FURNITURE, tmp->unk_01, tmp->unk_02);
-        if (obj) {
-            obj->timer = tmp->unk_03;
-            obj->x.HALF.HI = gRoomControls.origin_x + tmp->unk_04;
-            obj->y.HALF.HI = gRoomControls.origin_y + tmp->unk_06;
-            obj->parent = (Entity*)this;
-            obj->collisionLayer = 1;
-            obj->field_0x82.HALF.HI = super->timer;
-            obj->field_0x82.HALF.LO = tmp->unk_00;
+        PushableFurnitureEntity* furniture =
+            (PushableFurnitureEntity*)CreateObject(PUSHABLE_FURNITURE, tmp->unk_01, tmp->unk_02);
+        if (furniture) {
+            furniture->base.timer = tmp->unk_03;
+            furniture->base.x.HALF.HI = gRoomControls.origin_x + tmp->unk_04;
+            furniture->base.y.HALF.HI = gRoomControls.origin_y + tmp->unk_06;
+            furniture->base.parent = (Entity*)this;
+            furniture->base.collisionLayer = 1;
+            furniture->unk_83 = super->timer;
+            furniture->unk_82 = tmp->unk_00;
             this->unk_29 |= 1 << super->timer;
         }
         tmp++;
@@ -75,13 +77,13 @@ void PushableFurnitureManager_Action2(PushableFurnitureManager* this) {
 
 void sub_0805C7CC(PushableFurnitureManager* this) {
     if (gPlayerState.flags & PL_MINISH) {
-        if (gPlayerEntity.y.HALF.HI < this->unk_2a + 0x10) {
+        if (gPlayerEntity.base.y.HALF.HI < this->unk_2a + 0x10) {
             super->subAction = 1;
         } else {
             super->subAction = 0;
         }
     } else {
-        if (gPlayerEntity.y.HALF.HI < this->unk_2a + 0x28) {
+        if (gPlayerEntity.base.y.HALF.HI < this->unk_2a + 0x28) {
             super->subAction = 3;
         } else {
             super->subAction = 2;

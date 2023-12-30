@@ -4,6 +4,23 @@
 #include "global.h"
 #include "entity.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ union SplitWord unk_68;
+    /*0x6c*/ u8 unk_6c;
+    /*0x6d*/ u8 unk_6d;
+    /*0x6e*/ u8 unk_6e;
+    /*0x6f*/ u8 unk_6f;
+    /*0x70*/ Entity* unk_70;
+    /*0x74*/ Entity* unk_74;
+    /*0x78*/ u8 unk_78;
+    /*0x79*/ u8 unk_79;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ union SplitWord unk_7c;
+    /*0x80*/ union SplitWord unk_80;
+    /*0x84*/ union SplitWord unk_84;
+} PlayerEntity;
+
 enum PlayerActions {
     PLAYER_INIT,
     PLAYER_NORMAL,
@@ -585,9 +602,9 @@ extern const u8 gQuiverSizes[];
 extern Entity* gPlayerClones[];
 
 extern PlayerState gPlayerState;
-extern Entity gPlayerEntity;
+extern PlayerEntity gPlayerEntity;
 
-void DoPlayerAction(Entity*);
+void DoPlayerAction(PlayerEntity*);
 bool32 CheckInitPauseMenu(void);
 void SetPlayerControl(PlayerControlMode mode);
 void ResetActiveItems(void);

@@ -4,7 +4,6 @@
  *
  * @brief Lantern Player Item
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -31,7 +30,7 @@ void PlayerItemLantern_Init(Entity* this) {
     this->updatePriority = 6;
     this->collisionFlags = 7;
     this->flags2 = -0x80;
-    this->animationState = gPlayerEntity.animationState & 0xe;
+    this->animationState = gPlayerEntity.base.animationState & 0xe;
     if (AllocMutableHitbox(this) == NULL) {
         DeleteThisEntity();
     }
@@ -43,27 +42,27 @@ void PlayerItemLantern_Init(Entity* this) {
 void PlayerItemLantern_Action1(Entity* this) {
     Entity* object;
     static const s8 offsets[] = { 6, -6, 7, -3, -5, 2, -7, -3 };
-    this->animationState = gPlayerEntity.animationState & 0xe;
+    this->animationState = gPlayerEntity.base.animationState & 0xe;
     this->hitbox->offset_x = offsets[this->animationState];
     this->hitbox->offset_y = offsets[this->animationState + 1];
     this->hitbox->width = 4;
     this->hitbox->height = 4;
-    if (!((gPlayerEntity.frameIndex < 0x37) && ((u32)gPlayerEntity.spriteIndex == 6))) {
+    if (!((gPlayerEntity.base.frameIndex < 0x37) && ((u32)gPlayerEntity.base.spriteIndex == 6))) {
         this->frameIndex = 0xff;
         this->flags &= ~ENT_COLLIDE;
     } else {
         this->flags |= ENT_COLLIDE;
-        this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
-        this->spriteSettings.flipY = gPlayerEntity.spriteSettings.flipY;
-        if (gPlayerEntity.frameIndex != this->frameIndex) {
-            this->frameIndex = gPlayerEntity.frameIndex;
+        this->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
+        this->spriteSettings.flipY = gPlayerEntity.base.spriteSettings.flipY;
+        if (gPlayerEntity.base.frameIndex != this->frameIndex) {
+            this->frameIndex = gPlayerEntity.base.frameIndex;
             sub_080042D0(this, this->frameIndex, this->spriteIndex);
         }
-        this->frame = gPlayerEntity.frame;
-        this->frameSpriteSettings = gPlayerEntity.frameSpriteSettings;
+        this->frame = gPlayerEntity.base.frame;
+        this->frameSpriteSettings = gPlayerEntity.base.frameSpriteSettings;
     }
     if (IsItemEquipped(ITEM_LANTERN_ON) < EQUIP_SLOT_NONE) {
-        if (((this->frameIndex != 0xff) && (gPlayerEntity.spriteSettings.draw != 0)) && (this->timer-- == 0)) {
+        if (((this->frameIndex != 0xff) && (gPlayerEntity.base.spriteSettings.draw != 0)) && (this->timer-- == 0)) {
             this->timer = 4;
             object = CreateObject(LAMP_PARTICLE, 0, 0x10);
             if (object != NULL) {
@@ -73,7 +72,7 @@ void PlayerItemLantern_Action1(Entity* this) {
                 object->spriteOffsetY = offsets[this->animationState + 1];
             }
         }
-        sub_08078E84(this, &gPlayerEntity);
+        sub_08078E84(this, &gPlayerEntity.base);
     } else {
         DeleteThisEntity();
     }

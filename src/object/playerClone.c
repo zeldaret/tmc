@@ -4,7 +4,6 @@
  *
  * @brief Player Clone object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
 #include "effects.h"
@@ -73,8 +72,8 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
         super->updatePriority = 6;
         super->hitbox = (Hitbox*)&PlayerCloneHitbox;
         super->subtimer = (super->type + 1) * 15;
-        this->unk78 = super->x.HALF.HI - gPlayerEntity.x.HALF.HI;
-        this->unk7a = super->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+        this->unk78 = super->x.HALF.HI - gPlayerEntity.base.x.HALF.HI;
+        this->unk7a = super->y.HALF.HI - gPlayerEntity.base.y.HALF.HI;
         if ((this->unk78 != 0) && (this->unk7a != 0)) {
             ((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 = 1;
         }
@@ -107,13 +106,13 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
 
     if (gPlayerState.chargeState.action == 5 && gPlayerClones[super->type] != NULL &&
         gPlayerState.framestate != PL_STATE_TALKEZLO && super->health != 0) {
-        if (gPlayerEntity.iframes >= 1) {
+        if (gPlayerEntity.base.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {
             GetTileUnderEntity(super);
             sub_08084B1C(this);
-            super->x.HALF.HI = gPlayerEntity.x.HALF.HI + this->unk78;
-            super->y.HALF.HI = gPlayerEntity.y.HALF.HI + this->unk7a;
+            super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->unk78;
+            super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->unk7a;
             sub_08084CAC(this);
             sub_080085B0(super);
             if ((super->collisions & (COL_NORTH_FULL | COL_SOUTH_FULL | COL_EAST_FULL | COL_WEST_FULL)) !=
@@ -152,22 +151,22 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
 }
 
 void sub_08084B1C(PlayerCloneEntity* this) {
-    super->flags = gPlayerEntity.flags;
-    super->spriteVramOffset = gPlayerEntity.spriteVramOffset;
-    super->frameIndex = gPlayerEntity.frameIndex;
-    super->frameSpriteSettings = gPlayerEntity.frameSpriteSettings;
-    super->spriteIndex = gPlayerEntity.spriteIndex;
-    super->direction = gPlayerEntity.direction;
-    super->animationState = gPlayerEntity.animationState;
-    super->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
-    super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-    super->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
-    super->flags2 = gPlayerEntity.flags2;
-    super->hitType = gPlayerEntity.hitType;
-    super->collisionFlags = gPlayerEntity.collisionFlags;
-    super->hurtType = gPlayerEntity.hurtType;
+    super->flags = gPlayerEntity.base.flags;
+    super->spriteVramOffset = gPlayerEntity.base.spriteVramOffset;
+    super->frameIndex = gPlayerEntity.base.frameIndex;
+    super->frameSpriteSettings = gPlayerEntity.base.frameSpriteSettings;
+    super->spriteIndex = gPlayerEntity.base.spriteIndex;
+    super->direction = gPlayerEntity.base.direction;
+    super->animationState = gPlayerEntity.base.animationState;
+    super->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
+    super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
+    super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
+    super->flags2 = gPlayerEntity.base.flags2;
+    super->hitType = gPlayerEntity.base.hitType;
+    super->collisionFlags = gPlayerEntity.base.collisionFlags;
+    super->hurtType = gPlayerEntity.base.hurtType;
     CopyPosition(super, super->child);
     if (gPlayerState.attack_status != 0) {
         super->child->damage = gPlayerState.item->damage;

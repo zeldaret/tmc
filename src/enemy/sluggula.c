@@ -4,7 +4,6 @@
  *
  * @brief Sluggula enemy
  */
-
 #include "enemy.h"
 #include "physics.h"
 
@@ -129,9 +128,9 @@ void sub_08023CE0(Entity* this) {
             GetNextFrame(this);
             if (this->frame) {
                 if (this->frame & ANIM_DONE) {
-                    Entity* ent = CreateEnemy(SLUGGULA, 1);
-                    if (ent != NULL) {
-                        sub_0804A4E4(this, ent);
+                    Entity* entity = CreateEnemy(SLUGGULA, 1);
+                    if (entity != NULL) {
+                        sub_0804A4E4(this, entity);
                         DeleteThisEntity();
                     }
                 } else {
@@ -156,14 +155,14 @@ void sub_08023E10(Entity* this) {
 }
 
 void sub_08023E54(Entity* this) {
-    Entity* ent;
+    Entity* entity;
 
     if (this->subtimer++ > 27) {
         this->subtimer = 0;
-        ent = CreateEnemy(SLUGGULA, 2);
-        if (ent != NULL) {
+        entity = CreateEnemy(SLUGGULA, 2);
+        if (entity != NULL) {
             const s8* ptr = &gUnk_080CBDF7[this->animationState * 2];
-            PositionRelative(this, ent, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
+            PositionRelative(this, entity, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
         }
     }
 }

@@ -4,7 +4,6 @@
  *
  * @brief Mask object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -81,21 +80,21 @@ void Mask_Init(MaskEntity* this) {
 // Probably related to knocking it down
 void Mask_Action1(MaskEntity* this) {
     // Check for the first frame of bonking animation
-    if (gPlayerEntity.action != PLAYER_BOUNCE) {
+    if (gPlayerEntity.base.action != PLAYER_BOUNCE) {
         return;
     }
 
-    if (gPlayerEntity.animationState != 0) {
+    if (gPlayerEntity.base.animationState != 0) {
         return;
     }
 
     // Check if link is close enough to the mask
-    if (super->y.HALF.HI + 40 < gPlayerEntity.y.HALF.HI) {
+    if (super->y.HALF.HI + 40 < gPlayerEntity.base.y.HALF.HI) {
         return;
     }
 
-    if (super->x.HALF.HI - gPlayerEntity.x.HALF.HI >= super->subtimer ||
-        super->x.HALF.HI - gPlayerEntity.x.HALF.HI <= -super->subtimer) {
+    if (super->x.HALF.HI - gPlayerEntity.base.x.HALF.HI >= super->subtimer ||
+        super->x.HALF.HI - gPlayerEntity.base.x.HALF.HI <= -super->subtimer) {
         return;
     }
 

@@ -4,7 +4,6 @@
  *
  * @brief Minecart object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
@@ -85,9 +84,9 @@ void Minecart_Action1(MinecartEntity* this) {
                 super->action++;
                 gPlayerState.jump_status = 0x81;
                 gPlayerState.flags |= PL_ENTER_MINECART;
-                gPlayerEntity.zVelocity = Q_16_16(2.0);
-                gPlayerEntity.speed = 0x100;
-                gPlayerEntity.flags &= ~PL_MINISH;
+                gPlayerEntity.base.zVelocity = Q_16_16(2.0);
+                gPlayerEntity.base.speed = 0x100;
+                gPlayerEntity.base.flags &= ~PL_MINISH;
                 ResetActiveItems();
                 DeleteClones();
                 SoundReq(SFX_PLY_JUMP);
@@ -99,21 +98,21 @@ void Minecart_Action1(MinecartEntity* this) {
 }
 
 void Minecart_Action2(MinecartEntity* this) {
-    if (EntityInRectRadius(super, &gPlayerEntity, 2, 2) != 0) {
-        gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
-        gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
-        if (gPlayerEntity.z.HALF.HI > -0x10) {
-            if (gPlayerEntity.zVelocity >= 0) {
+    if (EntityInRectRadius(super, &gPlayerEntity.base, 2, 2) != 0) {
+        gPlayerEntity.base.x.HALF.HI = super->x.HALF.HI;
+        gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI;
+        if (gPlayerEntity.base.z.HALF.HI > -0x10) {
+            if (gPlayerEntity.base.zVelocity >= 0) {
                 return;
             }
-            gPlayerEntity.animationState = super->animationState << 1;
+            gPlayerEntity.base.animationState = super->animationState << 1;
             gPlayerState.flags = (gPlayerState.flags ^ PL_ENTER_MINECART) | PL_IN_MINECART;
             super->action++;
             super->subtimer = 1;
             super->flags |= ENT_PERSIST;
             super->hitType = 0x97;
-            super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
-            super->flags2 = gPlayerEntity.flags2;
+            super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
+            super->flags2 = gPlayerEntity.base.flags2;
             super->hurtType = 0x18;
             super->damage = 8;
             sub_0801766C(super);
@@ -121,10 +120,10 @@ void Minecart_Action2(MinecartEntity* this) {
             SoundReq(SFX_137);
         }
     } else {
-        gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, super);
+        gPlayerEntity.base.direction = GetFacingDirection(&gPlayerEntity.base, super);
     }
-    if (gPlayerEntity.zVelocity < 0) {
-        gPlayerEntity.spritePriority.b0 = super->spritePriority.b0 - 1;
+    if (gPlayerEntity.base.zVelocity < 0) {
+        gPlayerEntity.base.spritePriority.b0 = super->spritePriority.b0 - 1;
     }
 }
 
@@ -140,20 +139,20 @@ void Minecart_Action3(MinecartEntity* this) {
         return;
     }
 
-    if ((gPlayerEntity.frame & 0xf) == 0) {
+    if ((gPlayerEntity.base.frame & 0xf) == 0) {
         COLLISION_OFF(super);
-        CopyPosition(super, &gPlayerEntity);
-        if ((gPlayerEntity.frame & 0xf0) == 0x10) {
+        CopyPosition(super, &gPlayerEntity.base);
+        if ((gPlayerEntity.base.frame & 0xf0) == 0x10) {
             super->spriteOffsetY = 1;
         } else {
             super->spriteOffsetY = 0;
         }
     } else {
         COLLISION_ON(super);
-        gPlayerEntity.speed = 0;
+        gPlayerEntity.base.speed = 0;
         LinearMoveUpdate(super);
-        CopyPosition(super, &gPlayerEntity);
-        gPlayerEntity.spritePriority.b0 = super->spritePriority.b0 - 1;
+        CopyPosition(super, &gPlayerEntity.base);
+        gPlayerEntity.base.spritePriority.b0 = super->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
             if ((gRoomTransition.frameCount & 0xf) == 0) {
                 SoundReq(SFX_138);
@@ -182,11 +181,11 @@ void Minecart_Action3(MinecartEntity* this) {
                         sub_08017744(super);
                         gPlayerState.jump_status = 0x41;
                         gPlayerState.flags = (gPlayerState.flags ^ PL_IN_MINECART) | PL_ENTER_MINECART;
-                        gPlayerEntity.zVelocity = Q_16_16(2.0);
-                        gPlayerEntity.speed = 0x200;
-                        gPlayerEntity.animationState = super->animationState << 1;
-                        gPlayerEntity.direction = super->direction;
-                        gPlayerEntity.flags |= PL_MINISH;
+                        gPlayerEntity.base.zVelocity = Q_16_16(2.0);
+                        gPlayerEntity.base.speed = 0x200;
+                        gPlayerEntity.base.animationState = super->animationState << 1;
+                        gPlayerEntity.base.direction = super->direction;
+                        gPlayerEntity.base.flags |= PL_MINISH;
                         sub_08004168(super);
                         InitAnimationForceUpdate(super, super->animationState + 0xc);
                         SoundReq(SFX_PLY_VO4);
@@ -202,14 +201,14 @@ void Minecart_Action3(MinecartEntity* this) {
                     case 0x6f:
                         if (uVar3 == GetTileUnderEntity(super)) {
                             Minecart_Action4(this);
-                            gPlayerEntity.animationState = super->animationState << 1;
+                            gPlayerEntity.base.animationState = super->animationState << 1;
                             return;
                         }
                         break;
                 }
             }
 
-            gPlayerEntity.animationState = super->animationState << 1;
+            gPlayerEntity.base.animationState = super->animationState << 1;
             if (super->animIndex == super->animationState) {
                 UpdateAnimationSingleFrame(super);
             } else {
@@ -221,7 +220,7 @@ void Minecart_Action3(MinecartEntity* this) {
 
 void Minecart_Action4(MinecartEntity* this) {
     sub_08004168(super);
-    CopyPosition(super, &gPlayerEntity);
+    CopyPosition(super, &gPlayerEntity.base);
     switch (GetTileUnderEntity(super)) {
         case 0x67:
             if (super->direction == DirectionWest) {
@@ -265,16 +264,16 @@ void Minecart_Action4(MinecartEntity* this) {
     }
 
     super->action = 3;
-    gPlayerEntity.animationState = super->animationState << 1;
+    gPlayerEntity.base.animationState = super->animationState << 1;
 }
 
 void Minecart_Action5(MinecartEntity* this) {
     LinearMoveUpdate(super);
-    CopyPosition(super, &gPlayerEntity);
+    CopyPosition(super, &gPlayerEntity.base);
     if (gRoomControls.reload_flags == 0) {
         super->action = 3;
         super->speed = 0x700;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
     }
 }
 
@@ -294,7 +293,7 @@ void Minecart_Action6(MinecartEntity* this) {
         SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
     } else {
         UpdateAnimationSingleFrame(super);
-        gPlayerEntity.spritePriority.b0 = super->spritePriority.b0 - 1;
+        gPlayerEntity.base.spritePriority.b0 = super->spritePriority.b0 - 1;
     }
 }
 
@@ -314,7 +313,7 @@ bool32 sub_08091DDC(MinecartEntity* this) {
     static const s8 gUnk_081223D0[] = { 0, -8, 8, 0, 0, 8, -8, 0 };
     if ((sub_080B1AF0(super, gUnk_081223D0[super->animationState * 2], gUnk_081223D0[super->animationState * 2 + 1]) ==
          0xff) &&
-        (sub_0807BD14(&gPlayerEntity, super->animationState))) {
+        (sub_0807BD14(&gPlayerEntity.base, super->animationState))) {
         super->updatePriority = 6;
         super->action = 5;
         switch (super->direction) {
@@ -325,7 +324,7 @@ bool32 sub_08091DDC(MinecartEntity* this) {
                 super->speed = 0xa0;
                 break;
         }
-        gPlayerEntity.direction = super->direction;
+        gPlayerEntity.base.direction = super->direction;
         gRoomControls.camera_target = super;
         return 1;
     } else {

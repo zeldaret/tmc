@@ -4,7 +4,6 @@
  *
  * @brief NPC 5
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -97,7 +96,7 @@ void CreateZeldaFollower(void) {
     if (CheckGlobalFlag(ZELDA_CHASE) != 0) {
         npc = CreateNPC(ZELDA_FOLLOWER, 0, 0);
         if (npc != NULL) {
-            CopyPosition(&gPlayerEntity, npc);
+            CopyPosition(&gPlayerEntity.base, npc);
             npc->flags |= ENT_PERSIST;
             npc->animationState = GetAnimationState(npc);
         }
@@ -125,8 +124,8 @@ void sub_08060A00(NPC5Entity* this) {
         if (super->action != 0) {
             if (((((UnkHeap*)super->myHeap)->unk_0) & 4) == 0) {
                 ((UnkHeap*)super->myHeap)->unk_0 |= 4;
-                ((UnkHeap*)super->myHeap)->unk_5 = (gPlayerEntity.x.HALF.HI & 0xfff0) + 8;
-                ((UnkHeap*)super->myHeap)->unk_6 = (gPlayerEntity.y.HALF.HI & 0xfff0) + 8;
+                ((UnkHeap*)super->myHeap)->unk_5 = (gPlayerEntity.base.x.HALF.HI & 0xfff0) + 8;
+                ((UnkHeap*)super->myHeap)->unk_6 = (gPlayerEntity.base.y.HALF.HI & 0xfff0) + 8;
             }
         }
     }
@@ -136,12 +135,12 @@ void sub_08060A00(NPC5Entity* this) {
     }
 
     if (super->action != 0) {
-        ((UnkHeap*)super->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
-        ((UnkHeap*)super->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
+        ((UnkHeap*)super->myHeap)->unk_1 = gPlayerEntity.base.x.HALF.HI;
+        ((UnkHeap*)super->myHeap)->unk_2 = gPlayerEntity.base.y.HALF.HI;
     }
     if (this->unk_74 != gRoomControls.room) {
         this->unk_74 = gRoomControls.room;
-        CopyPosition(&gPlayerEntity, super);
+        CopyPosition(&gPlayerEntity.base, super);
         super->action = 1;
         super->spriteSettings.draw = 1;
         super->speed = 0x120;
@@ -183,7 +182,7 @@ void sub_08060AE0(NPC5Entity* this) {
 void sub_08060B5C(NPC5Entity* this) {
     if (sub_08061230(this) == 0) {
         if ((sub_08060F80(super) == 0) &&
-            (((GetFacingDirection(super, &gPlayerEntity) + (super->animationState * -4) + 4) & 0x1f)) < 9) {
+            (((GetFacingDirection(super, &gPlayerEntity.base) + (super->animationState * -4) + 4) & 0x1f)) < 9) {
             super->action = 2;
             super->subtimer = 0;
             return;
@@ -228,8 +227,8 @@ void sub_08060BA0(NPC5Entity* this) {
         }
 
     } else {
-        if (sub_08060FD0(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI) != 0) {
-            sub_08061090(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+        if (sub_08060FD0(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI) != 0) {
+            sub_08061090(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
             sub_08061170(this);
             ((UnkHeap*)super->myHeap)->unk_0 &= 0xf5;
         } else {
@@ -258,7 +257,7 @@ void sub_08060BA0(NPC5Entity* this) {
                     }
                 } else {
                     ((UnkHeap*)super->myHeap)->unk_0 &= 0xfd;
-                    sub_08061464(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+                    sub_08061464(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
                 }
             }
         }
@@ -316,7 +315,7 @@ void sub_08060E34(NPC5Entity* this) {
     UpdateAnimationSingleFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 2;
-        super->animationState = DirectionToAnimationState(GetFacingDirection(super, &gPlayerEntity)) * 2;
+        super->animationState = DirectionToAnimationState(GetFacingDirection(super, &gPlayerEntity.base)) * 2;
         sub_08060E70(this, 8);
     }
 }
@@ -344,7 +343,7 @@ void sub_08060EDC(NPC5Entity* this) {
     if (((u32)super->animIndex - 0x20 < 0x10) && ((super->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(super);
     } else {
-        tmp = GetFacingDirection(super, &gPlayerEntity) + super->animationState * -4;
+        tmp = GetFacingDirection(super, &gPlayerEntity.base) + super->animationState * -4;
         if (((tmp + 3) & 0x1f) >= 7) {
             if ((tmp & 0x1f) < 0x10) {
                 InitAnimationForceUpdate(super, super->animationState + 0x20);
@@ -365,12 +364,12 @@ void sub_08060EDC(NPC5Entity* this) {
     }
 }
 u32 sub_08060F80(Entity* this) {
-    if (sub_08060FD0(this, (s32)gPlayerEntity.x.HALF.HI, (s32)gPlayerEntity.y.HALF.HI) == 0) {
+    if (sub_08060FD0(this, (s32)gPlayerEntity.base.x.HALF.HI, (s32)gPlayerEntity.base.y.HALF.HI) == 0) {
         return 0;
     }
     ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
-    if (PointInsideRadius(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, gPlayerEntity.y.HALF.HI - this->y.HALF.HI,
-                          ((UnkHeap*)this->myHeap)->unk_0b) != 0) {
+    if (PointInsideRadius(gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI,
+                          gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI, ((UnkHeap*)this->myHeap)->unk_0b) != 0) {
         return 1;
     }
     return 0;
@@ -417,8 +416,8 @@ void sub_08061090(NPC5Entity* this, u32 a, u32 b) {
     s32 sqrDist;
     u32 tmp;
 
-    xDist = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
-    yDist = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
+    xDist = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
+    yDist = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
     sqrDist = (xDist * xDist) + (yDist * yDist);
     if (sqrDist < 0x900) {
         super->speed = 0x120;

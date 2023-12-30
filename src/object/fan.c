@@ -4,7 +4,6 @@
  *
  * @brief Fan object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "flags.h"
@@ -115,7 +114,7 @@ void sub_0809EE44(FanEntity* this) {
     uVar4 = (super->frame & 7);
     super->speed = this->unk7e << uVar4;
     if (uVar4 != 0) {
-        pEVar1 = &gPlayerEntity;
+        pEVar1 = &gPlayerEntity.base;
         if (sub_0809EF78(this, pEVar1)) {
             if (PlayerCanBeMoved()) {
                 sub_08079E58(super->speed, super->direction);
@@ -136,8 +135,8 @@ void sub_0809EE44(FanEntity* this) {
                         bVar3 = 1;
                         break;
                     case 0x3:
-                        if (pEVar1->x.HALF.HI != gPlayerEntity.x.HALF.HI ||
-                            pEVar1->y.HALF.HI != gPlayerEntity.y.HALF.HI)
+                        if (pEVar1->x.HALF.HI != gPlayerEntity.base.x.HALF.HI ||
+                            pEVar1->y.HALF.HI != gPlayerEntity.base.y.HALF.HI)
                             bVar3 = 1;
                         break;
                         break;

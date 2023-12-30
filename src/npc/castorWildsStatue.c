@@ -4,7 +4,6 @@
  *
  * @brief Castor Wilds Statue NPC
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "flags.h"

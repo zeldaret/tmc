@@ -2,12 +2,10 @@
  * @file enemy4D.c
  * @ingroup Enemies
  *
- * @brief enemy 4D
+ * @brief Enemy4D enemy
  */
-#define NENT_DEPRECATED
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {

@@ -4,7 +4,6 @@
  *
  * @brief Light Ray object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "screen.h"
@@ -42,12 +41,12 @@ void LightRay_Type0(LightRayEntity* this) {
             super->subtimer = 0;
             gRoomControls.camera_target = super;
             gRoomControls.scrollSpeed = 1;
-            if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+            if (super->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
                 tmp = 2;
             } else {
                 tmp = 6;
             }
-            gPlayerEntity.animationState = tmp;
+            gPlayerEntity.base.animationState = tmp;
             gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0xbfff) | 0x2800;
             gScreen.controls.window0HorizontalDimensions = 0;
             gScreen.controls.window0VerticalDimensions = 0xa0;
@@ -67,7 +66,7 @@ void LightRay_Type0(LightRayEntity* this) {
                     super->action = 2;
                     super->timer = 60;
                     gScreen.lcd.displayControl &= 0xdfff;
-                    gRoomControls.camera_target = &gPlayerEntity;
+                    gRoomControls.camera_target = &gPlayerEntity.base;
                     SoundReq(SFX_134);
                 }
             }
@@ -116,12 +115,12 @@ void LightRay_Type1(LightRayEntity* this) {
             super->subtimer = 32;
             gRoomControls.camera_target = super;
             gRoomControls.scrollSpeed = 1;
-            if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+            if (super->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
                 tmp = 2;
             } else {
                 tmp = 6;
             }
-            gPlayerEntity.animationState = tmp;
+            gPlayerEntity.base.animationState = tmp;
             gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0xbfff) | 0x2000;
             gScreen.controls.window0HorizontalDimensions = DISPLAY_WIDTH;
             gScreen.controls.window0VerticalDimensions = DISPLAY_HEIGHT;
@@ -140,7 +139,7 @@ void LightRay_Type1(LightRayEntity* this) {
                 } else {
                     super->action = 2;
                     super->timer = 60;
-                    gRoomControls.camera_target = &gPlayerEntity;
+                    gRoomControls.camera_target = &gPlayerEntity.base;
                     SoundReq(SFX_134);
                 }
             }
@@ -167,12 +166,12 @@ void LightRay_Type2(LightRayEntity* this) {
             super->subtimer = 0;
             gRoomControls.camera_target = super;
             gRoomControls.scrollSpeed = 1;
-            if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+            if (super->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
                 tmp = 2;
             } else {
                 tmp = 6;
             }
-            gPlayerEntity.animationState = tmp;
+            gPlayerEntity.base.animationState = tmp;
             gScreen.controls.window0HorizontalDimensions = 0x60;
             gScreen.controls.window0VerticalDimensions = 0xa0;
             break;
@@ -212,7 +211,7 @@ void LightRay_Type2(LightRayEntity* this) {
         case 3:
             if (--super->timer == 0) {
                 super->action = 4;
-                gRoomControls.camera_target = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity.base;
                 gRoomControls.scrollSpeed = 2;
             }
             break;
@@ -237,12 +236,12 @@ void LightRay_Type3(LightRayEntity* this) {
             super->subtimer = 0;
             gRoomControls.camera_target = super;
             gRoomControls.scrollSpeed = 1;
-            if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+            if (super->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
                 tmp = 2;
             } else {
                 tmp = 6;
             }
-            gPlayerEntity.animationState = tmp;
+            gPlayerEntity.base.animationState = tmp;
             gScreen.controls.window0HorizontalDimensions = 0x80f0;
             gScreen.controls.window0VerticalDimensions = 0xa0;
             super->subAction = 0x80;
@@ -293,12 +292,12 @@ void LightRay_Type4(LightRayEntity* this) {
             super->subtimer = 128;
             gRoomControls.camera_target = super;
             gRoomControls.scrollSpeed = 1;
-            if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+            if (super->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
                 tmp = 2;
             } else {
                 tmp = 6;
             }
-            gPlayerEntity.animationState = tmp;
+            gPlayerEntity.base.animationState = tmp;
             break;
         case 1:
             if (super->timer != 0) {
@@ -311,7 +310,7 @@ void LightRay_Type4(LightRayEntity* this) {
                 } else {
                     super->action = 2;
                     super->timer = 60;
-                    gRoomControls.camera_target = &gPlayerEntity;
+                    gRoomControls.camera_target = &gPlayerEntity.base;
                     SoundReq(SFX_134);
                 }
             }

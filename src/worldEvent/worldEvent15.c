@@ -33,7 +33,7 @@ void WorldEvent_15_0(void) {
     entity = LoadRoomEntity((EntityData*)gUnk_080FEE48);
     if (entity != NULL) {
         entity->type2 = 2;
-        entity->field_0x86.HWORD = 0x80ff;
+        ((GenericEntity*)entity)->field_0x86.HWORD = 0x80ff;
     }
     sub_08054A14(gMenu.field_0x4);
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);

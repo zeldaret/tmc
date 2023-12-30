@@ -20,7 +20,7 @@ void ItemJarEmpty(ItemBehavior* this, u32 index) {
 void sub_08077534(ItemBehavior* this, u32 index) {
     u32 tmp;
     sub_08077D38(this, index);
-    sub_0806F948(&gPlayerEntity);
+    sub_0806F948(&gPlayerEntity.base);
     sub_08077BB8(this);
     this->priority |= 0xf;
     tmp = this->behaviorId;
@@ -41,8 +41,8 @@ void sub_08077534(ItemBehavior* this, u32 index) {
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
             this->stateID = 3;
-            gPlayerEntity.animationState = 4;
-            gPlayerEntity.spriteSettings.flipX = 0;
+            gPlayerEntity.base.animationState = 4;
+            gPlayerEntity.base.spriteSettings.flipX = 0;
             SetItemAnim(this, ANIM_BOTTLE_DRINK);
             break;
         case BOTTLE_CHARM_NAYRU:
@@ -53,7 +53,7 @@ void sub_08077534(ItemBehavior* this, u32 index) {
             SetItemAnim(this, ANIM_BOTTLE_POUR);
             break;
     }
-    gPlayerEntity.flags &= ~ENT_COLLIDE;
+    gPlayerEntity.base.flags &= ~ENT_COLLIDE;
 }
 
 void sub_08077618(ItemBehavior* this, u32 index) {
@@ -68,7 +68,7 @@ void sub_08077618(ItemBehavior* this, u32 index) {
 void sub_08077640(ItemBehavior* this, u32 index) {
     UpdateItemAnim(this);
     if ((this->playerFrame & 0x80) != 0) {
-        gPlayerEntity.flags |= ENT_COLLIDE;
+        gPlayerEntity.base.flags |= ENT_COLLIDE;
         DeleteItemBehavior(this, index);
     }
 }
@@ -76,7 +76,7 @@ void sub_08077640(ItemBehavior* this, u32 index) {
 void sub_0807766C(ItemBehavior* this, u32 index) {
     UpdateItemAnim(this);
     if ((this->playerFrame & 0x80) != 0) {
-        gPlayerEntity.flags |= ENT_COLLIDE;
+        gPlayerEntity.base.flags |= ENT_COLLIDE;
         DeleteItemBehavior(this, index);
     }
 }

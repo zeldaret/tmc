@@ -1,8 +1,12 @@
-#define NENT_DEPRECATED
-#include "global.h"
+/**
+ * @file gyorgFemaleMouth.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Female Mouth enemy
+ */
+#include "enemy/gyorg.h"
 #include "player.h"
 #include "room.h"
-#include "enemy/gyorg.h"
 
 extern const Hitbox gUnk_080D28DC;
 extern const Hitbox gUnk_080D28E4;
@@ -54,11 +58,11 @@ void GyorgFemaleMouth(Entity* this) {
         GetNextFrame(this);
     }
     if (tmp & 2) {
-        if (this->y.HALF.HI < gPlayerEntity.y.HALF.HI) {
+        if (this->y.HALF.HI < gPlayerEntity.base.y.HALF.HI) {
             tmp++;
         }
     } else {
-        if (this->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
+        if (this->x.HALF.HI < gPlayerEntity.base.x.HALF.HI) {
             tmp++;
         }
     }

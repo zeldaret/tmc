@@ -4,7 +4,6 @@
  *
  * @brief V1 Dark Magic Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -50,7 +49,7 @@ void V1DarkMagicProjectile_OnCollision(V1DarkMagicProjectileEntity* this) {
                 super->action = 2;
                 COLLISION_OFF(super);
                 if (super->type == 0) {
-                    SortEntityAbove(&gPlayerEntity, super);
+                    SortEntityAbove(&gPlayerEntity.base, super);
                 } else {
                     SortEntityAbove(super->parent, super);
                 }
@@ -58,7 +57,7 @@ void V1DarkMagicProjectile_OnCollision(V1DarkMagicProjectileEntity* this) {
                 gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
             }
-            if (gPlayerEntity.health == 0) {
+            if (gPlayerEntity.base.health == 0) {
                 super->health = 0;
             }
         } else {
@@ -145,7 +144,7 @@ void V1DarkMagicProjectile_Init(V1DarkMagicProjectileEntity* this) {
         super->spriteOrientation.flipY = 1;
         super->spriteRendering.b3 = 1;
         super->spritePriority.b0 = 4;
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
         this->unk_86 = 0;
         this->unk_84 = 300;
         entity = CreateProjectile(V1_DARK_MAGIC_PROJECTILE);
@@ -170,7 +169,7 @@ void V1DarkMagicProjectile_Action1(V1DarkMagicProjectileEntity* this) {
         case 0:
             if (--super->subtimer == 0) {
                 super->subtimer = 4;
-                uVar2 = GetFacingDirection(super, &gPlayerEntity);
+                uVar2 = GetFacingDirection(super, &gPlayerEntity.base);
                 sub_08004596(super, uVar2);
             }
             LinearMoveUpdate(super);
@@ -220,25 +219,25 @@ void sub_080AAF74(V1DarkMagicProjectileEntity* this) {
     }
     if (++super->timer == 0x3c) {
         super->timer = 30;
-        gPlayerEntity.iframes = 8;
+        gPlayerEntity.base.iframes = 8;
         ModHealth(-4);
-        SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
-        if (gPlayerEntity.health == 0) {
+        SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
+        if (gPlayerEntity.base.health == 0) {
             super->health = 0;
         }
     }
     if (!((this->unk_80 < 0x31) && (this->unk_81 != 0x10))) {
         super->action = 1;
         this->unk_80 = 0;
-        gPlayerEntity.iframes = 0xf0;
+        gPlayerEntity.base.iframes = 0xf0;
         gPlayerState.mobility = 0;
         super->health = 0;
     } else {
         ResetActiveItems();
         gPlayerState.mobility |= 0x80;
         gPlayerState.field_0xa |= 0x80;
-        CopyPosition(&gPlayerEntity, super);
-        super->z.HALF.HI = gPlayerEntity.z.HALF.HI - 4;
+        CopyPosition(&gPlayerEntity.base, super);
+        super->z.HALF.HI = gPlayerEntity.base.z.HALF.HI - 4;
     }
 }
 

@@ -4,7 +4,6 @@
  *
  * @brief Pinwheel object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "object.h"

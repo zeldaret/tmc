@@ -1,3 +1,9 @@
+/**
+ * @file enemy66.c
+ * @ingroup Enemies
+ *
+ * @brief Enemy66 enemy
+ */
 #include "entity.h"
 
 void (*const gUnk_080D2ABC[])(Entity*);

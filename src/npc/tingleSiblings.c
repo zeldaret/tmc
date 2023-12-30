@@ -4,7 +4,6 @@
  *
  * @brief Tingle Siblings NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -71,7 +70,7 @@ void sub_08064DE4(Entity* this) {
                 this->action = 2;
                 this->interactType = INTERACTION_NONE;
                 InitAnimationForceUpdate(this,
-                                         GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)));
+                                         GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity.base)));
                 InitializeNPCFusion(this);
             } else {
                 ExecuteScriptAndHandleAnimation(this, NULL);

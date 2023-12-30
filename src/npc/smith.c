@@ -4,7 +4,6 @@
  *
  * @brief Smith NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 
@@ -49,7 +48,7 @@ void Smith(SmithEntity* this) {
             super->action = 4;
             super->interactType = INTERACTION_NONE;
             index = (super->animIndex == 0xc) ? 8 : 0;
-            index += GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+            index += GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base));
             InitAnimationForceUpdate(super, index);
             InitializeNPCFusion(super);
         }

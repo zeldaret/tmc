@@ -4,7 +4,6 @@
  *
  * @brief Big Vortex object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -76,12 +75,12 @@ void BigVortex_Action2(BigVortexEntity* this) {
 
 void BigVortex_Action3(BigVortexEntity* this) {
 
-    if (sub_0800419C(super, &gPlayerEntity, 8, 8) != 0) {
-        CopyPosition(super, &gPlayerEntity);
+    if (sub_0800419C(super, &gPlayerEntity.base, 8, 8) != 0) {
+        CopyPosition(super, &gPlayerEntity.base);
         sub_08004542(super);
-        sub_08004542(&gPlayerEntity);
-        gPlayerEntity.collisionLayer = 1;
-        SortEntityAbove(super, &gPlayerEntity);
+        sub_08004542(&gPlayerEntity.base);
+        gPlayerEntity.base.collisionLayer = 1;
+        SortEntityAbove(super, &gPlayerEntity.base);
         gPlayerState.queued_action = PLAYER_PARACHUTE;
         gPlayerState.field_0x38 = 1;
         gPlayerState.field_0x39 = super->type2;

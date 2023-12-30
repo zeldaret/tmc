@@ -4,7 +4,6 @@
  *
  * @brief Frozen Octorok object
  */
-#define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
 #include "functions.h"
 #include "message.h"
@@ -387,7 +386,7 @@ void FrozenOctorok_Action1SubAction6(FrozenOctorokEntity* this) {
     LinearMoveUpdate(super);
     if ((gRoomControls.origin_y + 0x1c8) < super->y.HALF.HI) {
         gRoomControls.scrollSpeed = 4;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
         SetLocalFlag(0x9b);
         DeleteEntity(super->parent);
         DeleteEntity(&this->heap->mouthObject->base);

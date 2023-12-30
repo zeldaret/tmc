@@ -1,6 +1,11 @@
-#define NENT_DEPRECATED
-#include "entity.h"
+/**
+ * @file businessScrubPrologue.c
+ * @ingroup Enemies
+ *
+ * @brief Business Scrub Prologue enemy
+ */
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {
@@ -39,7 +44,7 @@ void BusinessScrubPrologue_OnTick(BusinessScrubPrologueEntity* this) {
 }
 
 void BusinessScrubPrologue_OnCollision(BusinessScrubPrologueEntity* this) {
-    Entity* ent;
+    Entity* entity;
     if (super->hitType == 1) {
         if ((super->contactFlags & 0x7f) == 0x42) {
             super->action = 4;
@@ -47,9 +52,9 @@ void BusinessScrubPrologue_OnCollision(BusinessScrubPrologueEntity* this) {
             super->timer = 40;
             super->flags &= ~ENT_COLLIDE;
             sub_08046030(this, 4);
-            ent = CreateFx(super, FX_BUSH, 0);
-            if (ent != NULL) {
-                ent->z.HALF.HI -= 8;
+            entity = CreateFx(super, FX_BUSH, 0);
+            if (entity != NULL) {
+                entity->z.HALF.HI -= 8;
             }
 
             gPlayerState.field_0x27[0] = 0xff;
@@ -93,7 +98,7 @@ void nullsub_24(BusinessScrubPrologueEntity* this) {
 }
 
 void sub_08045CE0(BusinessScrubPrologueEntity* this) {
-    Entity* ent;
+    Entity* entity;
     u32 r6;
     GetNextFrame(super);
 
@@ -122,10 +127,10 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             r6 = 1;
             sub_0804604C(this);
             if (super->frame & 1) {
-                ent = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
-                if (ent != NULL) {
-                    ent->parent = super;
-                    ent->direction = super->direction;
+                entity = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
+                if (entity != NULL) {
+                    entity->parent = super;
+                    entity->direction = super->direction;
                     super->frame &= 0xfe;
                     super->subAction = 3;
                 }
@@ -165,7 +170,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
 }
 
 void sub_08045E14(BusinessScrubPrologueEntity* this) {
-    Entity* ent;
+    Entity* entity;
     gPlayerState.field_0x27[0] = 0xff;
     switch (super->subAction) {
         case 0:
@@ -185,11 +190,11 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
                 super->action = 5;
                 super->subAction = 0;
                 sub_08046030(this, 0);
-                ent = Create0x68FX(super, FX_STARS);
-                if (ent != NULL) {
-                    ent->spritePriority.b0 = 3;
-                    ent->z.HALF.HI -= 0xc;
-                    SetEntityPriority(ent, PRIO_MESSAGE);
+                entity = Create0x68FX(super, FX_STARS);
+                if (entity != NULL) {
+                    entity->spritePriority.b0 = 3;
+                    entity->z.HALF.HI -= 0xc;
+                    SetEntityPriority(entity, PRIO_MESSAGE);
                 }
             }
             break;
@@ -233,12 +238,12 @@ void nullsub_25(BusinessScrubPrologueEntity* this) {
 }
 
 bool32 sub_08045F54(BusinessScrubPrologueEntity* this, u32 arg2) {
-    Entity* ent = sub_08049DF4(1);
+    Entity* entity = sub_08049DF4(1);
     u32 r3;
-    if (ent == NULL)
+    if (entity == NULL)
         return 0;
 
-    if (EntityInRectRadius(super, ent, 0x20, 0x20))
+    if (EntityInRectRadius(super, entity, 0x20, 0x20))
         return 0;
     if (arg2 == 2)
         return 1;
@@ -247,7 +252,7 @@ bool32 sub_08045F54(BusinessScrubPrologueEntity* this, u32 arg2) {
         r3 = 0x58;
     }
 
-    if (EntityInRectRadius(super, ent, r3, r3))
+    if (EntityInRectRadius(super, entity, r3, r3))
         return 1;
     return 0;
 }
@@ -292,17 +297,17 @@ void sub_0804604C(BusinessScrubPrologueEntity* this) {
 
 void sub_08046078(BusinessScrubPrologueEntity* this) {
     s32 index;
-    Entity* ent;
+    Entity* entity;
     const u16* ptr;
     gPlayerState.field_0x27[0] = 0;
     ptr = gUnk_080D1A4E;
     for (index = 0; index <= 4; index++) {
-        ent = CreateFx(super, FX_DEATH, 0x40);
+        entity = CreateFx(super, FX_DEATH, 0x40);
 
-        if (ent != NULL) {
-            ent->x.HALF.HI = gRoomControls.origin_x + *ptr;
+        if (entity != NULL) {
+            entity->x.HALF.HI = gRoomControls.origin_x + *ptr;
             ptr++;
-            ent->y.HALF.HI = gRoomControls.origin_y + *ptr;
+            entity->y.HALF.HI = gRoomControls.origin_y + *ptr;
             ptr++;
         }
     }
@@ -314,9 +319,9 @@ void sub_08046078(BusinessScrubPrologueEntity* this) {
     RestorePrevTileEntity(0x7a6, 1);
     RestorePrevTileEntity(0x7a7, 1);
 
-    ent = CreateFx(super, FX_BIG_EXPLOSION2, 0x40);
-    if (ent != NULL) {
-        CopyPosition(super, ent);
+    entity = CreateFx(super, FX_BIG_EXPLOSION2, 0x40);
+    if (entity != NULL) {
+        CopyPosition(super, entity);
         EnqueueSFX(SFX_184);
     }
 
