@@ -19,7 +19,7 @@ void sub_08066CCC(Entity*);
 void sub_08066CF8(Entity*);
 
 void Zelda(Entity* this) {
-    static void (*const gUnk_08110BD8[])(Entity* ent) = {
+    static void (*const gUnk_08110BD8[])(Entity * ent) = {
         sub_08066CCC,
         sub_08066CF8,
     };
