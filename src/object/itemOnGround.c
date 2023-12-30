@@ -95,7 +95,7 @@ void ItemOnGround(ItemOnGroundEntity* this) {
     }
 
     if (super->type == 0x5C) {
-        gRoomVars.field_0x4++;
+        gRoomVars.numKinstoneDrops++;
     }
 
     sub_08080CB4(super);

@@ -75,45 +75,42 @@ void sub_0802C318(FallingBoulderEntity* this) {
 }
 
 void sub_0802C334(FallingBoulderEntity* this) {
-    register Entity* entity asm("r2");
-    u32 diff;
-    u16 tmp;
+    Entity* entity;
+    u32 roomOriginY, tmp;
+    s32 y, i;
     if (this->unk_7c == 0) {
-        u32 tmp = gRoomControls.origin_y;
+        roomOriginY = gRoomControls.origin_y;
         entity = &gPlayerEntity.base;
         if (entity == NULL)
             return;
-        if (entity->y.HALF.HI - tmp <= 0x38) {
+        tmp = entity->y.HALF.HI;
+        if (0x38 >= tmp - roomOriginY)
             return;
-        }
         this->unk_7c = 1;
         super->spriteSettings.draw = 1;
     }
+
     GetNextFrame(super);
     this->unk_7e = COORD_TO_TILE(super);
+
     if (sub_080044EC(super, this->unk_84) == 1) {
         EnqueueSFX(0x14c);
         COLLISION_ON(super);
-        this->unk_7a = 0xc;
+        this->unk_7a = 12;
         sub_0802C4B0(this);
     } else {
-        s32 y;
-
         if (this->unk_7a) {
-            tmp = --this->unk_7a;
-            switch (tmp) {
+            switch (--this->unk_7a) {
                 case 0:
                     COLLISION_OFF(super);
                     break;
                 case 8:
                     if (super->type2 != 0 && !sub_08049FA0(super)) {
-                        diff = 0;
-                        for (y = 1; y > -1; y--) {
+                        for (i = 0; i < 2; i++) {
                             entity = CreateFx(super, FX_ROCK2, 0);
                             if (entity) {
-                                entity->x.HALF.HI = entity->x.HALF.HI + 12 - diff;
+                                entity->x.HALF.HI += 12 - i * 0x18;
                             }
-                            diff += 0x18;
                         }
                         sub_0802C62C(this);
                         this->unk_7a = (Random() & 0xff) | 0x100;
@@ -122,11 +119,9 @@ void sub_0802C334(FallingBoulderEntity* this) {
                     break;
             }
         }
-
-        {
-            FORCE_REGISTER(RoomControls * tmp, r0) = &gRoomControls;
-            y = tmp->origin_y + tmp->height - super->y.HALF.HI;
-        }
+        roomOriginY = gRoomControls.origin_y;
+        tmp = gRoomControls.height;
+        y = roomOriginY + tmp - super->y.HALF.HI;
 
         if (y >= 5) {
             ProcessMovement1(super);
@@ -141,6 +136,7 @@ void sub_0802C334(FallingBoulderEntity* this) {
             }
         }
     }
+
     super->collisionLayer = 3;
     super->spritePriority.b0 = 1;
     UpdateSpriteForCollisionLayer(super);

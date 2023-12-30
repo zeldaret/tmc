@@ -1613,7 +1613,7 @@ Entities_CrenelMinishPaths_CrenelBean_1:: @ 080D58A8
 	object_raw subtype=0x62, x=0x88, y=0x158
 	object_raw subtype=0x62, x=0x68, y=0x1f8, paramA=0x1, paramB=0x1
 	object_raw subtype=0x62, x=0x68, y=0x288
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Enemies_CrenelMinishPaths_CrenelBean:: @ 080D5908
@@ -1648,7 +1648,7 @@ Entities_CrenelMinishPaths_CrenelWater_1:: @ 080D5978
 	object_raw subtype=0x62, x=0x98, y=0x238, paramA=0x2
 	object_raw subtype=0x62, x=0x58, y=0x2d8, paramA=0x2, paramB=0x1
 	object_raw subtype=0x6e, x=0x78, y=0x40
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Enemies_CrenelMinishPaths_CrenelWater:: @ 080D5A28
@@ -1685,7 +1685,7 @@ Entities_CrenelMinishPaths_Rainfall_0:: @ 080D5AC8
 
 Entities_CrenelMinishPaths_Rainfall_1:: @ 080D5AE8
 	manager subtype=0x1c
-	manager subtype=0x8, unknown=0x18
+	manager subtype=0x8, pool=0x18
 	entity_list_end
 
 Enemies_CrenelMinishPaths_Rainfall:: @ 080D5B18
@@ -1710,7 +1710,7 @@ Entities_CrenelMinishPaths_MelarisMine_0:: @ 080D5B58
 
 Entities_CrenelMinishPaths_MelarisMine_1:: @ 080D5B68
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramA=0x12, paramB=0xb
-	manager subtype=0x8, unknown=0x18
+	manager subtype=0x8, pool=0x18
 	entity_list_end
 
 Enemies_CrenelMinishPaths_MelarisMine:: @ 080D5B98
@@ -1749,7 +1749,7 @@ Entities_MinishPaths_ToMinishVillage_1:: @ 080D5C68
 	object_raw subtype=0x3f, x=0x68, y=0x108, collision=1, paramA=0x1
 	object_raw subtype=0x3f, x=0x78, y=0x1b8, collision=1
 	object_raw subtype=0x3f, x=0xa8, y=0x2f8, collision=1, paramA=0x1
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Enemies_MinishPaths_ToMinishVillage:: @ 080D5CF8
@@ -1778,7 +1778,7 @@ Entities_MinishPaths_CastorWilds_1:: @ 080D5D68
 	object_raw subtype=0x78, x=0xa0, y=0x90, collision=1, paramB=0x1
 	object_raw subtype=0x78, x=0x70, y=0x190, collision=1
 	object_raw subtype=0x78, x=0xa0, y=0x220, collision=1, paramB=0x2
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Enemies_MinishPaths_CastorWilds:: @ 080D5DB8
@@ -1818,7 +1818,7 @@ Entities_MinishPaths_HyruleTown_1:: @ 080D5E18
 	object_raw subtype=0x78, x=0x20, y=0x280, collision=2, paramA=0x1, paramB=0x5
 	object_raw subtype=0x78, x=0xd0, y=0x298, collision=2, paramA=0x1, paramB=0x4
 	object_raw subtype=0x78, x=0x18, y=0x2d8, collision=2, paramA=0x1, paramB=0x1
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Enemies_MinishPaths_HyruleTown:: @ 080D5F28
@@ -1851,7 +1851,7 @@ Entities_MinishPaths_LonLonRanch_1:: @ 080D5FB0
 	object_raw subtype=0x78, x=0xe0, y=0x128, collision=2, paramA=0x2, paramB=0x3
 	object_raw subtype=0x78, x=0x10, y=0x1e8, collision=2, paramA=0x2, paramB=0x1
 	object_raw subtype=0x78, x=0xe0, y=0x288, collision=2, paramA=0x2, paramB=0x2
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Enemies_MinishPaths_LonLonRanch:: @ 080D6010
@@ -1886,7 +1886,7 @@ Entities_MinishPaths_MayorsCabin_1:: @ 080D60C8
 	object_raw subtype=0x78, x=0x28, y=0x148, collision=2, paramA=0x3, paramB=0x3
 	object_raw subtype=0x78, x=0xc8, y=0x188, collision=2, paramA=0x3, paramB=0x1
 	object_raw subtype=0x78, x=0x28, y=0x298, collision=2, paramA=0x3
-	manager subtype=0x2, unknown=0x18
+	manager subtype=0x2, pool=0x18
 	entity_list_end
 
 Entities_MinishPaths_MayorsCabin_gUnk_080D6138:: @ 080D6138
@@ -1930,7 +1930,7 @@ Entities_HouseInteriors1_Mayor_1:: @ 080D6260
 	object_raw subtype=0x4e, x=0x38, y=0x28, collision=1, paramB=0x800
 	object_raw subtype=0x4d, x=0x88, y=0x68, collision=1, paramA=0x1b
 	object_raw subtype=0x4d, x=0x88, y=0x58, collision=1, paramA=0x1b, paramB=0x1
-	object_raw subtype=0x38, x=0x30, y=0x6e, unknown=0x0, paramA=0x1a
+	object_raw subtype=0x38, x=0x30, y=0x6e, pool=0x0, paramA=0x1a
 	entity_list_end
 
 Enemies_HouseInteriors1_Mayor:: @ 080D62D0
@@ -2030,7 +2030,7 @@ Entities_HouseInteriors1_Library2F_0:: @ 080D6538
 	entity_list_end
 
 gUnk_080D6558:: @ 080D6558
-	npc_raw subtype=0x1a, x=0xa8, y=0x48, unknown=0xf, script=0x0
+	npc_raw subtype=0x1a, x=0xa8, y=0x48, pool=0xf, script=0x0
 	entity_list_end
 
 gUnk_080D6578:: @ 080D6578
@@ -2104,7 +2104,7 @@ gUnk_additional_9_HouseInteriors1_Library1F:: @ 080D6734
 	entity_list_end
 
 gUnk_080D6784:: @ 080D6784
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorAllBooksCollected
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorAllBooksCollected
 	npc_raw subtype=0x1a, x=0x68, y=0x18, paramA=0x1, script=script_SturgeonAllBooksCollected
 	entity_list_end
 
@@ -2374,7 +2374,7 @@ Entities_HouseInteriors1_InnEast2F_1:: @ 080D6E6C
 	object_raw subtype=0x5, x=0xc8, y=0xe8, collision=1, paramA=0x5c, paramB=0x7002, paramC=0x270000
 	manager subtype=0x23, x=0x28, y=0x198, paramA=0x2, paramB=0x2, paramC=0x9a0000
 	manager subtype=0x23, x=0xc8, y=0x198, paramA=0x2, paramB=0x2, paramC=0x9b0000
-	manager subtype=0x2e, unknown=0x0, paramC=0x49a0000
+	manager subtype=0x2e, pool=0x0, paramC=0x49a0000
 	object_raw subtype=0x5d, x=0x48, y=0x1a8, paramB=0x102, paramC=0x49a0000
 	entity_list_end
 
@@ -2401,7 +2401,7 @@ Entities_HouseInteriors1_InnMinishHeartPiece_0:: @ 080D6F78
 
 Entities_HouseInteriors1_InnMinishHeartPiece_1:: @ 080D6F98
 	object_raw subtype=0x4e, x=0x98, y=0x20, collision=1, paramB=0x800
-	object_raw subtype=0x38, x=0xc0, y=0x2e, unknown=0x0, paramA=0x28, paramB=0x1
+	object_raw subtype=0x38, x=0xc0, y=0x2e, pool=0x0, paramA=0x28, paramB=0x1
 	entity_list_end
 
 Enemies_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FC8
@@ -2460,7 +2460,7 @@ Room_HouseInteriors1_SchoolWest:: @ 080D7100
 	.4byte sub_StateChange_HouseInteriors1_SchoolWest
 
 Entities_HouseInteriors1_SchoolEast_0:: @ 080D7120
-	object_raw subtype=0x38, x=0xe0, y=0x2e, unknown=0x0, paramA=0x2a
+	object_raw subtype=0x38, x=0xe0, y=0x2e, pool=0x0, paramA=0x2a
 	entity_list_end
 
 gUnk_080D7140:: @ 080D7140
@@ -2560,8 +2560,8 @@ gUnk_080D73B0:: @ 080D73B0
 	entity_list_end
 
 gUnk_080D73E0:: @ 080D73E0
-	npc_raw subtype=0x15, x=0xb8, y=0x58, unknown=0xf, collision=1, paramA=0x4, paramB=0x26, script=0x0
-	npc_raw subtype=0x15, x=0xb8, y=0x1b8, unknown=0xf, collision=1, paramA=0x5, paramB=0x27, script=0x0
+	npc_raw subtype=0x15, x=0xb8, y=0x58, pool=0xf, collision=1, paramA=0x4, paramB=0x26, script=0x0
+	npc_raw subtype=0x15, x=0xb8, y=0x1b8, pool=0xf, collision=1, paramA=0x5, paramB=0x27, script=0x0
 	entity_list_end
 
 gUnk_080D7410:: @ 080D7410
@@ -3145,7 +3145,7 @@ Entities_Dojos_Grimblade_0:: @ 080D824C
 gUnk_080D827C:: @ 080D827C
 	manager subtype=0x23, x=0x28, y=0x28, paramA=0x2, paramB=0x4002, paramC=0x80000000
 	manager subtype=0x23, x=0xc8, y=0x28, paramA=0x2, paramB=0x4002, paramC=0x80010000
-	manager subtype=0x2e, unknown=0x0, paramB=0x100, paramC=0x84000000
+	manager subtype=0x2e, pool=0x0, paramB=0x100, paramC=0x84000000
 	manager subtype=0x11, paramC=0x84000003
 	entity_list_end
 
@@ -3557,7 +3557,7 @@ Entities_RoyalValley_Main_0:: @ 080D8FB8
 .else
 	manager subtype=0x11, paramC=0x88000056
 .endif
-	object_raw subtype=0x19, x=0x1a0, y=0x1a2, unknown=0x4f, collision=1, paramA=0x1, paramB=0x3, paramC=script_GraveyardHouseDoor
+	object_raw subtype=0x19, x=0x1a0, y=0x1a2, pool=0x4f, collision=1, paramA=0x1, paramB=0x3, paramC=script_GraveyardHouseDoor
 	npc_raw subtype=0x21, x=0x88, y=0x118, script=script_GhostBrothers
 .ifdef EU_JP
 	ezlo_hint x=0x38, y=0x4a, rx=0x1, ry=0x4, msg=0xb1d, flag=0x58
@@ -3572,13 +3572,13 @@ gUnk_080D9048:: @ 080D9048
 
 gUnk_080D9098:: @ 080D9098
 	npc_raw subtype=0x40, x=0xd8, y=0x188, paramA=0x1, script=script_DampeOuside
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorGetKeyBack
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorGetKeyBack
 	entity_list_end
 
 gUnk_080D90C8:: @ 080D90C8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorCrowStealingKey
-	object_raw subtype=0x97, x=0x1f0, y=0x1a0, unknown=0x4f, paramA=0x4, paramC=script_CameraTarget7FirstCrow
-	object_raw subtype=0x97, x=0x1f0, y=0x1b0, unknown=0x4f, paramA=0x4, paramC=script_CameraTarget7SecondCrow
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorCrowStealingKey
+	object_raw subtype=0x97, x=0x1f0, y=0x1a0, pool=0x4f, paramA=0x4, paramC=script_CameraTarget7FirstCrow
+	object_raw subtype=0x97, x=0x1f0, y=0x1b0, pool=0x4f, paramA=0x4, paramC=script_CameraTarget7SecondCrow
 	entity_list_end
 
 gUnk_080D9108:: @ 080D9108
@@ -3730,9 +3730,9 @@ Entities_MinishRafters_Cafe_0:: @ 080D9440
 	npc_raw subtype=0x38, x=0xd8, y=0x30, paramA=0x1, paramB=0x202, script=script_TownMinish2
 	npc_raw subtype=0x38, x=0x38, y=0xa8, paramB=0x103, script=script_TownMinish1
 	npc_raw subtype=0x38, x=0x5c, y=0xdc, paramB=0x104, script=script_TownMinish1
-	npc_raw subtype=0x3, x=0x78, y=0xd6, unknown=0xf, paramB=0x324, script=0x0
-	npc_raw subtype=0x3, x=0x128, y=0xa8, unknown=0xf, paramB=0x125, script=0x0
-	npc_raw subtype=0x3, x=0x158, y=0xb4, unknown=0xf, paramB=0x226, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0xd6, pool=0xf, paramB=0x324, script=0x0
+	npc_raw subtype=0x3, x=0x128, y=0xa8, pool=0xf, paramB=0x125, script=0x0
+	npc_raw subtype=0x3, x=0x158, y=0xb4, pool=0xf, paramB=0x226, script=0x0
 	entity_list_end
 
 Entities_MinishRafters_Cafe_1:: @ 080D94B0
@@ -3750,7 +3750,7 @@ Entities_MinishRafters_Cafe_1:: @ 080D94B0
 	object_raw subtype=0xbc, x=0x10, y=0x88
 	object_raw subtype=0xbc, x=0xb8, y=0x88
 	object_raw subtype=0xbc, x=0x174, y=0x18
-	manager subtype=0x1a, unknown=0x8, paramA=0x38
+	manager subtype=0x1a, pool=0x8, paramA=0x38
 	entity_list_end
 
 Enemies_MinishRafters_Cafe:: @ 080D95B0
@@ -3789,7 +3789,7 @@ Entities_MinishRafters_Stockwell_1:: @ 080D9600
 	manager subtype=0x9, paramA=0x1
 	object_raw subtype=0xbc, x=0x64, y=0x78
 	object_raw subtype=0xbc, x=0x104, y=0xd8
-	manager subtype=0x1a, unknown=0x8, paramA=0x39
+	manager subtype=0x1a, pool=0x8, paramA=0x39
 	entity_list_end
 
 Enemies_MinishRafters_Stockwell:: @ 080D9710
@@ -3843,7 +3843,7 @@ Entities_MinishRafters_DrLeft_1:: @ 080D9830
 	object_raw subtype=0x4d, x=0x90, y=0xee, collision=1, paramA=0x2a
 	object_raw subtype=0x4d, x=0xa0, y=0xde, collision=1, paramA=0x2a, paramB=0x1
 	manager subtype=0x9, paramA=0x2
-	manager subtype=0x1a, unknown=0x8, paramA=0x3a
+	manager subtype=0x1a, pool=0x8, paramA=0x3a
 	entity_list_end
 
 Enemies_MinishRafters_DrLeft:: @ 080D9930
@@ -3882,7 +3882,7 @@ Entities_MinishRafters_Bakery_1:: @ 080D99B8
 	object_raw subtype=0x4d, x=0x78, y=0xa8, collision=1, paramA=0x45
 	object_raw subtype=0x4d, x=0x1b8, y=0xb8, collision=1, paramA=0x45, paramB=0x1
 	manager subtype=0x9, paramA=0x3
-	manager subtype=0x1a, unknown=0x8, paramA=0x3b
+	manager subtype=0x1a, pool=0x8, paramA=0x3b
 	entity_list_end
 
 Enemies_MinishRafters_Bakery:: @ 080D9A98
@@ -3908,7 +3908,7 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 .ifdef EU_JP
 	manager subtype=0x20, x=0x218, y=0x328, paramB=0x12182e00, paramC=0x161318
 	manager subtype=0x20, x=0x2b8, y=0x398, paramB=0x12a82e00, paramC=0x171398
-	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_CutsceneOrchestrator
+	object_raw subtype=0x69, x=0x68, y=0x380, pool=0x4f, paramC=script_CutsceneOrchestrator
 	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_CastorWildsStatueRock
 	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_CastorWildsStatueLeft
 	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_CastorWildsStatueMiddle
@@ -3916,7 +3916,7 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 	object_raw subtype=0x71, x=0x38, y=0x2d8, paramA=0x1, paramB=0x1, paramC=0x200000
 	manager subtype=0x4
 	manager subtype=0x20, x=0x2b8, y=0x148, paramB=0x12b82e00, paramC=0x1f1158
-	manager subtype=0xe, unknown=0x1f, paramA=0x10, paramC=0xc0000
+	manager subtype=0xe, pool=0x1f, paramA=0x10, paramC=0xc0000
 	ezlo_hint x=0x72, y=0x36, rx=0x2, ry=0xa, msg=0xb2e, flag=0x1b
 	ezlo_hint x=0x74, y=0x2a, rx=0x4, ry=0x5, msg=0xb2f, flag=0x1d
 	ezlo_hint x=0x2a, y=0x54, rx=0x4, ry=0x2, msg=0xb2f, flag=0x1d
@@ -3930,7 +3930,7 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 .else
 	manager subtype=0x20, x=0x218, y=0x328, paramB=0x12182e00, paramC=0x151318
 	manager subtype=0x20, x=0x2b8, y=0x398, paramB=0x12a82e00, paramC=0x161398
-	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_CutsceneOrchestrator
+	object_raw subtype=0x69, x=0x68, y=0x380, pool=0x4f, paramC=script_CutsceneOrchestrator
 	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_CastorWildsStatueRock
 	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_CastorWildsStatueLeft
 	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_CastorWildsStatueMiddle
@@ -3938,7 +3938,7 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 	object_raw subtype=0x71, x=0x38, y=0x2d8, paramA=0x1, paramB=0x1, paramC=0x1f0000
 	manager subtype=0x4
 	manager subtype=0x20, x=0x2b8, y=0x148, paramB=0x12b82e00, paramC=0x1e1158
-	manager subtype=0xe, unknown=0x1f, paramA=0x10, paramC=0x230000
+	manager subtype=0xe, pool=0x1f, paramA=0x10, paramC=0x230000
 	ezlo_hint x=0x72, y=0x36, rx=0x2, ry=0xa, msg=0xb2e, flag=0x1a
 	ezlo_hint x=0x74, y=0x2a, rx=0x4, ry=0x5, msg=0xb2f, flag=0x1c
 	ezlo_hint x=0x2a, y=0x54, rx=0x4, ry=0x2, msg=0xb2f, flag=0x1c
@@ -3956,7 +3956,7 @@ gUnk_080D9C38:: @ 080D9C38
 	manager subtype=0x1e, x=0x380, y=0x1d0, paramB=0x100010, paramC=0x80000000
 	manager subtype=0x1e, x=0x3c0, y=0x1d0, paramB=0x100010, paramC=0x80000000
 	manager subtype=0x1e, x=0x330, y=0x1c0, paramB=0xa00050, paramC=0x80000000
-	manager subtype=0xe, unknown=0x1f, paramA=0x13, paramC=0x80000000
+	manager subtype=0xe, pool=0x1f, paramA=0x13, paramC=0x80000000
 	entity_list_end
 
 gUnk_additional_13_CastorWilds_Main:: @ 080D9CA8
@@ -3972,12 +3972,12 @@ gUnk_080D9CC8:: @ 080D9CC8
 	entity_list_end
 
 gUnk_080D9CE8:: @ 080D9CE8
-	object_raw subtype=0xbb, x=0x228, y=0x398, unknown=0x4f, paramB=0x5, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x228, y=0x398, pool=0x4f, paramB=0x5, paramC=script_Windcrest
 	entity_list_end
 
 Entities_CastorWilds_Main_1:: @ 080D9D08
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x98, y=0xc0, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x98, y=0xc0, pool=0x0, paramB=0x102
 	entity_list_end
 
 Enemies_CastorWilds_Main:: @ 080D9D38
@@ -4196,13 +4196,13 @@ Entities_CastorDarknut_Main_0:: @ 080DA210
 	entity_list_end
 
 gUnk_080DA230:: @ 080DA230
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorDarknutFight
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorDarknutFight
 	object_raw subtype=0xc, x=0x88, y=0x68, paramA=0x1, paramC=0x390000
 	entity_list_end
 
 gUnk_080DA260:: @ 080DA260
 	object_raw subtype=0x8, x=0x88, y=0xb8, paramA=0x12, paramC=0x39ffff
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x398000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x398000
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb10, flag=0x39, flag2=0x8000
 	entity_list_end
 
@@ -4218,7 +4218,7 @@ TileEntities_CastorDarknut_Main:: @ 080DA2C0
 	tile_entity_list_end
 
 gUnk_additional_8_CastorDarknut_Main:: @ 080DA2D8
-	enemy_raw subtype=0x5, x=0x88, y=0x50, unknown=0x2f
+	enemy_raw subtype=0x5, x=0x88, y=0x50, pool=0x2f
 	entity_list_end
 
 Room_CastorDarknut_Main:: @ 080DA2F8
@@ -4258,7 +4258,7 @@ Room_CastorDarknut_Hall:: @ 080DA384
 	.4byte sub_StateChange_CastorDarknut_Hall
 
 Entities_GreatFairies_Graveyard_0:: @ 080DA3A4
-	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_GreatFairyArrows
+	object_raw subtype=0x69, x=0x78, y=0x48, pool=0x4f, paramC=script_GreatFairyArrows
 	object_raw subtype=0x1b, x=0x78, y=0x48, collision=2, paramA=0x16
 	entity_list_end
 
@@ -4279,7 +4279,7 @@ Room_GreatFairies_Graveyard:: @ 080DA3EC
 	.4byte sub_StateChange_GreatFairies_Graveyard
 
 Entities_GreatFairies_MinishWoods_0:: @ 080DA40C
-	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_GreatFairyRupees
+	object_raw subtype=0x69, x=0x78, y=0x48, pool=0x4f, paramC=script_GreatFairyRupees
 	object_raw subtype=0x1b, x=0x78, y=0x48, collision=2, paramA=0xb
 	entity_list_end
 
@@ -4300,7 +4300,7 @@ Room_GreatFairies_MinishWoods:: @ 080DA454
 	.4byte sub_StateChange_GreatFairies_MinishWoods
 
 Entities_GreatFairies_MtCrenel_0:: @ 080DA474
-	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_GreatFairyBombs
+	object_raw subtype=0x69, x=0x78, y=0x48, pool=0x4f, paramC=script_GreatFairyBombs
 	object_raw subtype=0x1b, x=0x78, y=0x48, collision=2
 	entity_list_end
 
@@ -4464,7 +4464,7 @@ Room_MinishHouseInteriors_Festari:: @ 080DA7B8
 	.4byte gUnk_additional_a_MinishHouseInteriors_Festari
 
 Entities_MinishHouseInteriors_Red_0:: @ 080DA7E4
-	npc_raw subtype=0x3, x=0x80, y=0x58, unknown=0xf, paramB=0x21c, script=0x0
+	npc_raw subtype=0x3, x=0x80, y=0x58, pool=0xf, paramB=0x21c, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_Red_1:: @ 080DA804
@@ -4488,7 +4488,7 @@ Room_MinishHouseInteriors_Red:: @ 080DA83C
 	.4byte sub_StateChange_MinishHouseInteriors_Red
 
 Entities_MinishHouseInteriors_Green_0:: @ 080DA85C
-	npc_raw subtype=0x3, x=0x80, y=0x58, unknown=0xf, paramB=0x21d, script=0x0
+	npc_raw subtype=0x3, x=0x80, y=0x58, pool=0xf, paramB=0x21d, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_Green_1:: @ 080DA87C
@@ -4512,7 +4512,7 @@ Room_MinishHouseInteriors_Green:: @ 080DA8B4
 	.4byte sub_StateChange_MinishHouseInteriors_Green
 
 Entities_MinishHouseInteriors_Blue_0:: @ 080DA8D4
-	npc_raw subtype=0x3, x=0x80, y=0x58, unknown=0xf, paramB=0x21e, script=0x0
+	npc_raw subtype=0x3, x=0x80, y=0x58, pool=0xf, paramB=0x21e, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_Blue_1:: @ 080DA8F4
@@ -4536,7 +4536,7 @@ Room_MinishHouseInteriors_Blue:: @ 080DA92C
 	.4byte sub_StateChange_MinishHouseInteriors_Blue
 
 Entities_MinishHouseInteriors_SideArea_0:: @ 080DA94C
-	npc_raw subtype=0x3, x=0x80, y=0x58, unknown=0xf, paramB=0x218, script=0x0
+	npc_raw subtype=0x3, x=0x80, y=0x58, pool=0xf, paramB=0x218, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_SideArea_1:: @ 080DA96C
@@ -4560,7 +4560,7 @@ Room_MinishHouseInteriors_SideArea:: @ 080DA9A4
 	.4byte sub_StateChange_MinishHouseInteriors_SideArea
 
 Entities_MinishHouseInteriors_ShoeMinish_0:: @ 080DA9C4
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x21a, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x21a, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_ShoeMinish_1:: @ 080DA9E4
@@ -4584,7 +4584,7 @@ Room_MinishHouseInteriors_ShoeMinish:: @ 080DAA1C
 	.4byte sub_StateChange_MinishHouseInteriors_ShoeMinish
 
 Entities_MinishHouseInteriors_PotMinish_0:: @ 080DAA3C
-	npc_raw subtype=0x3, x=0x78, y=0x38, unknown=0xf, paramB=0x21b, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x38, pool=0xf, paramB=0x21b, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_PotMinish_1:: @ 080DAA5C
@@ -4610,7 +4610,7 @@ Room_MinishHouseInteriors_PotMinish:: @ 080DAAB4
 	.4byte sub_StateChange_MinishHouseInteriors_PotMinish
 
 Entities_MinishHouseInteriors_BarrelMinish_0:: @ 080DAAD4
-	npc_raw subtype=0x3, x=0x38, y=0xf8, unknown=0xf, paramB=0x217, script=0x0
+	npc_raw subtype=0x3, x=0x38, y=0xf8, pool=0xf, paramB=0x217, script=0x0
 	object_raw subtype=0x4c, x=0x68, y=0x58, collision=1, paramA=0x1
 	object_raw subtype=0x4c, x=0x68, y=0x68, collision=1, paramA=0x1
 	object_raw subtype=0x4c, x=0x78, y=0x78, collision=1, paramA=0x1
@@ -4623,7 +4623,7 @@ gUnk_080DAB44:: @ 080DAB44
 	entity_list_end
 
 gUnk_080DAB64:: @ 080DAB64
-	npc_raw subtype=0x3, x=0xc0, y=0x48, unknown=0xf, paramB=0x216, script=0x0
+	npc_raw subtype=0x3, x=0xc0, y=0x48, pool=0xf, paramB=0x216, script=0x0
 	entity_list_end
 
 gUnk_080DAB84:: @ 080DAB84
@@ -4692,7 +4692,7 @@ Entities_MinishHouseInteriors_BarrelMinish_1:: @ 080DADF4
 	object_raw subtype=0x7f, x=0x50, y=0x58
 	object_raw subtype=0x7f, x=0x50, y=0x78, paramA=0x3
 	object_raw subtype=0x7f, x=0x50, y=0x98, paramA=0x2
-	manager subtype=0x1, unknown=0x18, paramA=0x8
+	manager subtype=0x1, pool=0x18, paramA=0x8
 	entity_list_end
 
 Enemies_MinishHouseInteriors_BarrelMinish:: @ 080DAE94
@@ -4802,7 +4802,7 @@ Room_MinishHouseInteriors_MelariMinesEast:: @ 080DB0A0
 	.4byte sub_StateChange_MinishHouseInteriors_MelariMinesEast
 
 Entities_MinishHouseInteriors_HyruleFieldSouthwest_0:: @ 080DB0C0
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x20c, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x20c, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_HyruleFieldSouthwest_1:: @ 080DB0E0
@@ -4826,7 +4826,7 @@ Room_MinishHouseInteriors_HyruleFieldSouthwest:: @ 080DB118
 	.4byte sub_StateChange_MinishHouseInteriors_HyruleFieldSouthwest
 
 Entities_MinishHouseInteriors_SouthHyruleField_0:: @ 080DB138
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x20d, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x20d, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_SouthHyruleField_1:: @ 080DB158
@@ -4850,7 +4850,7 @@ Room_MinishHouseInteriors_SouthHyruleField:: @ 080DB190
 	.4byte sub_StateChange_MinishHouseInteriors_SouthHyruleField
 
 Entities_MinishHouseInteriors_NextToKnuckle_0:: @ 080DB1B0
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x20e, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x20e, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_NextToKnuckle_1:: @ 080DB1D0
@@ -4901,7 +4901,7 @@ Room_MinishHouseInteriors_Librari:: @ 080DB290
 	.4byte sub_StateChange_MinishHouseInteriors_Librari
 
 Entities_MinishHouseInteriors_HyruleFieldExit_0:: @ 080DB2B0
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x20f, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x20f, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_HyruleFieldExit_1:: @ 080DB2D0
@@ -4949,7 +4949,7 @@ Room_MinishHouseInteriors_HyruleTown:: @ 080DB380
 	.4byte sub_StateChange_MinishHouseInteriors_HyruleTown
 
 Entities_MinishHouseInteriors_MinishWoodsBomb_0:: @ 080DB3A0
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x200, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x200, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_MinishWoodsBomb_1:: @ 080DB3C0
@@ -4973,7 +4973,7 @@ Room_MinishHouseInteriors_MinishWoodsBomb:: @ 080DB3F8
 	.4byte sub_StateChange_MinishHouseInteriors_MinishWoodsBomb
 
 Entities_MinishHouseInteriors_LakeHyliaOcarina_0:: @ 080DB418
-	npc_raw subtype=0x3, x=0x78, y=0x40, unknown=0xf, paramB=0x210, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x40, pool=0xf, paramB=0x210, script=0x0
 	entity_list_end
 
 Entities_MinishHouseInteriors_LakeHyliaOcarina_1:: @ 080DB438
@@ -5264,7 +5264,7 @@ gUnk_080DBB70:: @ 080DBB70
 	entity_list_end
 
 gUnk_080DBB90:: @ 080DBB90
-	object_raw subtype=0x69, unknown=0x48, paramC=script_CutsceneOrchestratorRem
+	object_raw subtype=0x69, pool=0x48, paramC=script_CutsceneOrchestratorRem
 	entity_list_end
 
 Enemies_TownMinishHoles_RemShoeShop:: @ 080DBBB0
@@ -5333,7 +5333,7 @@ Entities_MinishCaves_SoutheastWater2_0:: @ 080DBCB8
 Enemies_MinishCaves_SoutheastWater2:: @ 080DBCD8
 	enemy_raw subtype=0x40, x=0xb8, y=0xd8
 	enemy_raw subtype=0x40, x=0x48, y=0xd8
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x32, x=0x50, y=0x70, paramA=0x1
 	enemy_raw subtype=0x32, x=0xa0, y=0x70, paramA=0x1
 	enemy_raw subtype=0x32, x=0x50, y=0xa0, paramA=0x1
@@ -5489,8 +5489,8 @@ Entities_MinishCaves_LakeHyliaLibrari_1:: @ 080DC0D8
 	entity_list_end
 
 Enemies_MinishCaves_LakeHyliaLibrari:: @ 080DC108
-	projectile_raw subtype=0x1e, x=0x1d0, y=0x18, unknown=0x3, paramA=0x6, paramC=0x100fea0
-	projectile_raw subtype=0x1e, x=0x1e0, y=0x18, unknown=0x3, paramA=0x6, paramC=0x1000160
+	projectile_raw subtype=0x1e, x=0x1d0, y=0x18, pool=0x3, paramA=0x6, paramC=0x100fea0
+	projectile_raw subtype=0x1e, x=0x1e0, y=0x18, pool=0x3, paramA=0x6, paramC=0x1000160
 	enemy_raw subtype=0x11, x=0x1f8, y=0x58, paramB=0xc120000, paramC=0x2001b0
 	enemy_raw subtype=0x11, x=0x278, y=0x58, paramB=0xc120000, paramC=0x200230
 	entity_list_end
@@ -5541,7 +5541,7 @@ Room_MinishCaves_MinishWoodsSouthwest:: @ 080DC260
 	.4byte sub_StateChange_MinishCaves_MinishWoodsSouthwest
 
 Entities_MinishVillage_Main_0:: @ 080DC280
-	manager subtype=0x7, unknown=0x18, paramA=0x8
+	manager subtype=0x7, pool=0x18, paramA=0x8
 	enemy_raw subtype=0x6, x=0x118, y=0x268, collision=1
 	enemy_raw subtype=0x6, x=0x268, y=0x118, collision=1
 	enemy_raw subtype=0x6, x=0x178, y=0x108, collision=1, paramA=0x1
@@ -5560,43 +5560,43 @@ Entities_MinishVillage_Main_0:: @ 080DC280
 	entity_list_end
 
 gUnk_080DC390:: @ 080DC390
-	npc_raw subtype=0x3, x=0x1e8, y=0x2e8, unknown=0xf, collision=1, paramB=0x21a, script=0x0
-	npc_raw subtype=0x3, x=0x48, y=0x258, unknown=0xf, collision=1, paramB=0x21b, script=0x0
-	npc_raw subtype=0x3, x=0x128, y=0x238, unknown=0xf, collision=1, paramB=0x21c, script=0x0
-	npc_raw subtype=0x3, x=0x168, y=0x1e8, unknown=0xf, collision=1, paramB=0x21d, script=0x0
-	npc_raw subtype=0x3, x=0x1a8, y=0x21a, unknown=0xf, collision=1, paramB=0x21e, script=0x0
+	npc_raw subtype=0x3, x=0x1e8, y=0x2e8, pool=0xf, collision=1, paramB=0x21a, script=0x0
+	npc_raw subtype=0x3, x=0x48, y=0x258, pool=0xf, collision=1, paramB=0x21b, script=0x0
+	npc_raw subtype=0x3, x=0x128, y=0x238, pool=0xf, collision=1, paramB=0x21c, script=0x0
+	npc_raw subtype=0x3, x=0x168, y=0x1e8, pool=0xf, collision=1, paramB=0x21d, script=0x0
+	npc_raw subtype=0x3, x=0x1a8, y=0x21a, pool=0xf, collision=1, paramB=0x21e, script=0x0
 	entity_list_end
 
 gUnk_080DC3F0:: @ 080DC3F0
-	npc_raw subtype=0x3, x=0x340, y=0x1e8, unknown=0xf, collision=1, paramB=0x316, script=0x0
-	npc_raw subtype=0x3, x=0x340, y=0x1f8, unknown=0xf, collision=1, paramB=0x317, script=0x0
-	npc_raw subtype=0x3, x=0x378, y=0x298, unknown=0xf, collision=1, paramB=0x221, script=0x0
+	npc_raw subtype=0x3, x=0x340, y=0x1e8, pool=0xf, collision=1, paramB=0x316, script=0x0
+	npc_raw subtype=0x3, x=0x340, y=0x1f8, pool=0xf, collision=1, paramB=0x317, script=0x0
+	npc_raw subtype=0x3, x=0x378, y=0x298, pool=0xf, collision=1, paramB=0x221, script=0x0
 	entity_list_end
 
 gUnk_080DC430:: @ 080DC430
-	npc_raw subtype=0x3, x=0x378, y=0x1f8, unknown=0xf, collision=1, paramB=0x219, script=0x0
-	npc_raw subtype=0x3, x=0x238, y=0xf8, unknown=0xf, collision=1, paramB=0x11f, script=0x0
-	npc_raw subtype=0x3, x=0x258, y=0xf8, unknown=0xf, collision=1, paramB=0x320, script=0x0
+	npc_raw subtype=0x3, x=0x378, y=0x1f8, pool=0xf, collision=1, paramB=0x219, script=0x0
+	npc_raw subtype=0x3, x=0x238, y=0xf8, pool=0xf, collision=1, paramB=0x11f, script=0x0
+	npc_raw subtype=0x3, x=0x258, y=0xf8, pool=0xf, collision=1, paramB=0x320, script=0x0
 	entity_list_end
 
 gUnk_080DC470:: @ 080DC470
-	npc_raw subtype=0x3, x=0x218, y=0x348, unknown=0xf, collision=1, paramB=0x222, script=0x0
+	npc_raw subtype=0x3, x=0x218, y=0x348, pool=0xf, collision=1, paramB=0x222, script=0x0
 	object_raw subtype=0x4d, x=0x1fc, y=0x338, collision=1, paramA=0x18
 	object_raw subtype=0x4d, x=0x1f4, y=0x368, collision=1, paramA=0x18
 	object_raw subtype=0x4d, x=0x21c, y=0x368, collision=1, paramA=0x18
 	entity_list_end
 
 gUnk_080DC4C0:: @ 080DC4C0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorVillageIntro
-	npc_raw subtype=0x3, x=0x208, y=0x2f0, unknown=0xf, collision=1, paramB=0x227, script=0x0
-	npc_raw subtype=0x3, x=0x198, y=0x330, unknown=0xf, collision=1, paramB=0x128, script=0x0
-	npc_raw subtype=0x3, x=0x278, y=0x330, unknown=0xf, collision=1, paramB=0x329, script=0x0
-	npc_raw subtype=0x3, x=0x198, y=0x330, unknown=0xf, collision=1, paramB=0x12a, script=0x0
-	npc_raw subtype=0x3, x=0x278, y=0x330, unknown=0xf, collision=1, paramB=0x32b, script=0x0
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorVillageIntro
+	npc_raw subtype=0x3, x=0x208, y=0x2f0, pool=0xf, collision=1, paramB=0x227, script=0x0
+	npc_raw subtype=0x3, x=0x198, y=0x330, pool=0xf, collision=1, paramB=0x128, script=0x0
+	npc_raw subtype=0x3, x=0x278, y=0x330, pool=0xf, collision=1, paramB=0x329, script=0x0
+	npc_raw subtype=0x3, x=0x198, y=0x330, pool=0xf, collision=1, paramB=0x12a, script=0x0
+	npc_raw subtype=0x3, x=0x278, y=0x330, pool=0xf, collision=1, paramB=0x32b, script=0x0
 	entity_list_end
 
 gUnk_080DC530:: @ 080DC530
-	npc_raw subtype=0x3, x=0x278, y=0xd8, unknown=0xf, collision=1, paramB=0x223, script=0x0
+	npc_raw subtype=0x3, x=0x278, y=0xd8, pool=0xf, collision=1, paramB=0x223, script=0x0
 	entity_list_end
 
 Enemies_MinishVillage_Main:: @ 080DC550
@@ -5742,7 +5742,7 @@ Room_MinishCracks_LonLonRanchNorth:: @ 080DC790
 	.4byte sub_StateChange_MinishCracks_LonLonRanchNorth
 
 Entities_MinishCracks_LakeHyliaEast_0:: @ 080DC7B0
-	npc_raw subtype=0x3, x=0x48, y=0x58, unknown=0xf, paramB=0x212, script=0x0
+	npc_raw subtype=0x3, x=0x48, y=0x58, pool=0xf, paramB=0x212, script=0x0
 	entity_list_end
 
 Entities_MinishCracks_LakeHyliaEast_1:: @ 080DC7D0
@@ -5770,7 +5770,7 @@ Room_MinishCracks_LakeHyliaEast:: @ 080DC848
 	.4byte sub_StateChange_MinishCracks_LakeHyliaEast
 
 Entities_MinishCracks_HyruleCastleGarden_0:: @ 080DC868
-	npc_raw subtype=0x3, x=0xa8, y=0x58, unknown=0xf, paramB=0x214, script=0x0
+	npc_raw subtype=0x3, x=0xa8, y=0x58, pool=0xf, paramB=0x214, script=0x0
 	entity_list_end
 
 Entities_MinishCracks_HyruleCastleGarden_1:: @ 080DC888
@@ -5797,7 +5797,7 @@ Room_MinishCracks_HyruleCastleGarden:: @ 080DC8F0
 	.4byte sub_StateChange_MinishCracks_HyruleCastleGarden
 
 Entities_MinishCracks_MtCrenel_0:: @ 080DC910
-	npc_raw subtype=0x3, x=0x38, y=0x38, unknown=0xf, paramB=0x211, script=0x0
+	npc_raw subtype=0x3, x=0x38, y=0x38, pool=0xf, paramB=0x211, script=0x0
 	entity_list_end
 
 Entities_MinishCracks_MtCrenel_1:: @ 080DC930
@@ -5825,7 +5825,7 @@ Room_MinishCracks_MtCrenel:: @ 080DC9A0
 	.4byte sub_StateChange_MinishCracks_MtCrenel
 
 Entities_MinishCracks_EastHyruleCastle_0:: @ 080DC9C0
-	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x213, script=0x0
+	npc_raw subtype=0x3, x=0x78, y=0x48, pool=0xf, paramB=0x213, script=0x0
 	entity_list_end
 
 Entities_MinishCracks_EastHyruleCastle_1:: @ 080DC9E0
@@ -5882,7 +5882,7 @@ Entities_MinishCracks_CastorWildsBow_0:: @ 080DCAF0
 
 gUnk_080DCB10:: @ 080DCB10
 	manager subtype=0x1e, paramB=0xa000f0, paramC=0x80010000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80008001
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80008001
 	entity_list_end
 
 Entities_MinishCracks_CastorWildsBow_1:: @ 080DCB40
@@ -5914,7 +5914,7 @@ Room_MinishCracks_CastorWildsBow:: @ 080DCBD8
 	.4byte gUnk_additional_8_MinishCracks_CastorWildsBow
 
 Entities_MinishCracks_RuinsEntrance_0:: @ 080DCBFC
-	npc_raw subtype=0x3, x=0xa8, y=0x48, unknown=0xf, paramB=0x215, script=0x0
+	npc_raw subtype=0x3, x=0xa8, y=0x48, pool=0xf, paramB=0x215, script=0x0
 	entity_list_end
 
 Entities_MinishCracks_RuinsEntrance_1:: @ 080DCC1C
@@ -6204,8 +6204,8 @@ gUnk_additional_8_MelarisMine_Main:: @ 080DD214
 	npc_raw subtype=0x2d, x=0x1ba, y=0x138, paramA=0x6, paramB=0x5, script=script_MountainMinish3
 	npc_raw subtype=0x2d, x=0x1ba, y=0x148, paramA=0x6, paramB=0x6, script=script_MountainMinish3
 	npc_raw subtype=0x2f, x=0x190, y=0x140, script=script_Melari
-	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x8, paramC=script_CutsceneMiscObjectBrokenSword
-	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x9, paramC=script_CutsceneMiscObjectRepairedSword
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, pool=0x4f, paramA=0x8, paramC=script_CutsceneMiscObjectBrokenSword
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, pool=0x4f, paramA=0x9, paramC=script_CutsceneMiscObjectRepairedSword
 	entity_list_end
 
 gUnk_additional_9_MelarisMine_Main:: @ 080DD274
@@ -6250,12 +6250,12 @@ Entities_CloudTops_House_0:: @ 080DD344
 	entity_list_end
 
 gUnk_080DD364:: @ 080DD364
-	object_raw subtype=0xbb, x=0x1e8, y=0x1a8, unknown=0x4f, paramB=0x2, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x1e8, y=0x1a8, pool=0x4f, paramB=0x2, paramC=script_Windcrest
 	entity_list_end
 
 Entities_CloudTops_House_1:: @ 080DD384
-	manager subtype=0x1d, unknown=0x8, paramA=0x1
-	manager subtype=0x1a, unknown=0x8, paramA=0xe
+	manager subtype=0x1d, pool=0x8, paramA=0x1
+	manager subtype=0x1a, pool=0x8, paramA=0xe
 	object_raw subtype=0x94, x=0x1b0, y=0x141
 	object_raw subtype=0x94, x=0x220, y=0x141, paramA=0x1
 	entity_list_end
@@ -6299,24 +6299,24 @@ Entities_CloudTops_Middle_0:: @ 080DD40C
 	entity_list_end
 
 Entities_CloudTops_Middle_1:: @ 080DD49C
-	manager subtype=0x1d, unknown=0x8, paramA=0x1
+	manager subtype=0x1d, pool=0x8, paramA=0x1
 	manager subtype=0x16, paramA=0x8, paramB=0x100
-	manager subtype=0x1a, unknown=0x8, paramA=0xf
-	manager subtype=0x1a, unknown=0x8, paramA=0x10
-	manager subtype=0x1a, unknown=0x8, paramA=0x11
-	manager subtype=0x1a, unknown=0x8, paramA=0x12
-	manager subtype=0x1a, unknown=0x8, paramA=0x13
-	manager subtype=0x1a, unknown=0x8, paramA=0x14
-	manager subtype=0x1a, unknown=0x8, paramA=0x15
-	manager subtype=0x1a, unknown=0x8, paramA=0x16
-	manager subtype=0x1a, unknown=0x8, paramA=0x17
-	manager subtype=0x1a, unknown=0x8, paramA=0x18
-	manager subtype=0x1a, unknown=0x8, paramA=0x19
-	manager subtype=0x1a, unknown=0x8, paramA=0x1a
-	manager subtype=0x1a, unknown=0x8, paramA=0x1b
-	manager subtype=0x1a, unknown=0x8, paramA=0x1c
-	manager subtype=0x1a, unknown=0x8, paramA=0x1d
-	manager subtype=0x1a, unknown=0x8, paramA=0x1e
+	manager subtype=0x1a, pool=0x8, paramA=0xf
+	manager subtype=0x1a, pool=0x8, paramA=0x10
+	manager subtype=0x1a, pool=0x8, paramA=0x11
+	manager subtype=0x1a, pool=0x8, paramA=0x12
+	manager subtype=0x1a, pool=0x8, paramA=0x13
+	manager subtype=0x1a, pool=0x8, paramA=0x14
+	manager subtype=0x1a, pool=0x8, paramA=0x15
+	manager subtype=0x1a, pool=0x8, paramA=0x16
+	manager subtype=0x1a, pool=0x8, paramA=0x17
+	manager subtype=0x1a, pool=0x8, paramA=0x18
+	manager subtype=0x1a, pool=0x8, paramA=0x19
+	manager subtype=0x1a, pool=0x8, paramA=0x1a
+	manager subtype=0x1a, pool=0x8, paramA=0x1b
+	manager subtype=0x1a, pool=0x8, paramA=0x1c
+	manager subtype=0x1a, pool=0x8, paramA=0x1d
+	manager subtype=0x1a, pool=0x8, paramA=0x1e
 	entity_list_end
 
 gUnk_additional_8_CloudTops_Middle:: @ 080DD5CC
@@ -6375,7 +6375,7 @@ gUnk_080DD730:: @ 080DD730
 	entity_list_end
 
 gUnk_080DD750:: @ 080DD750
-	object_raw subtype=0x69, x=0x1e8, y=0x1b8, unknown=0x4f, paramC=script_CutsceneOrchestratorGreatWhirlwindRevealed
+	object_raw subtype=0x69, x=0x1e8, y=0x1b8, pool=0x4f, paramC=script_CutsceneOrchestratorGreatWhirlwindRevealed
 	npc_raw subtype=0x49, x=0x268, y=0x1d8, paramA=0x1, paramB=0x60b, script=script_WindTribespeopleGreatWhirlwindRevealed2
 	npc_raw subtype=0x49, x=0x1a8, y=0x1f8, paramA=0x3, paramB=0x40a, script=script_WindTribespeopleGreatWhirlwindRevealed1
 	entity_list_end
@@ -6394,13 +6394,13 @@ Entities_CloudTops_Bottom_0:: @ 080DD790
 	entity_list_end
 
 gUnk_080DD7E0:: @ 080DD7E0
-	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x80000000
+	manager subtype=0xb, pool=0x0, paramB=0xa, paramC=0x80000000
 .ifdef EU_JP
 	object_raw subtype=0xa3, x=0x208, y=0x38, paramB=0xf0
-	manager subtype=0xe, unknown=0x1f, paramA=0xc, paramC=0xf00000
+	manager subtype=0xe, pool=0x1f, paramA=0xc, paramC=0xf00000
 .else
 	object_raw subtype=0xa3, x=0x208, y=0x38, paramB=0xf3
-	manager subtype=0xe, unknown=0x1f, paramA=0xc, paramC=0xf30000
+	manager subtype=0xe, pool=0x1f, paramA=0xc, paramC=0xf30000
 .endif
 	entity_list_end
 
@@ -6410,14 +6410,14 @@ gUnk_additional_c_CloudTops_Bottom:: @ 080DD820
 
 gUnk_080DD840:: @ 080DD840
 .ifdef EU_JP
-	manager subtype=0xb, unknown=0x0, paramB=0xb, paramC=0x80080000
+	manager subtype=0xb, pool=0x0, paramB=0xb, paramC=0x80080000
 	object_raw subtype=0xa3, x=0x238, y=0x2e8, paramB=0x8f2
-	manager subtype=0xe, unknown=0x1f, paramA=0xd, paramC=0xf00000
+	manager subtype=0xe, pool=0x1f, paramA=0xd, paramC=0xf00000
 	entity_list_end
 .else
-	manager subtype=0xb, unknown=0x0, paramB=0xb, paramC=0x80080000
+	manager subtype=0xb, pool=0x0, paramB=0xb, paramC=0x80080000
 	object_raw subtype=0xa3, x=0x238, y=0x2e8, paramB=0x8f5
-	manager subtype=0xe, unknown=0x1f, paramA=0xd, paramC=0xf30000
+	manager subtype=0xe, pool=0x1f, paramA=0xd, paramC=0xf30000
 	entity_list_end
 .endif
 
@@ -6426,9 +6426,9 @@ gUnk_additional_d_CloudTops_Bottom:: @ 080DD880
 	entity_list_end
 
 Entities_CloudTops_Bottom_1:: @ 080DD8A0
-	manager subtype=0x1d, unknown=0x8, paramA=0x1
+	manager subtype=0x1d, pool=0x8, paramA=0x1
 	manager subtype=0x16, paramA=0x8, paramB=0x100
-	manager subtype=0x1a, unknown=0x8, paramA=0x1f
+	manager subtype=0x1a, pool=0x8, paramA=0x1f
 	object_raw subtype=0x82, x=0x1e8, y=0x1b8, paramB=0x2, paramC=0x40240000
 	entity_list_end
 
@@ -6543,7 +6543,7 @@ Entities_Ruins_Entrance_0:: @ 080DDC00
 
 Entities_Ruins_Entrance_1:: @ 080DDC20
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x38, y=0x1e0, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x38, y=0x1e0, pool=0x0, paramB=0x102
 	entity_list_end
 
 Enemies_Ruins_Entrance:: @ 080DDC50
@@ -6637,12 +6637,12 @@ Room_Ruins_Beanstalk:: @ 080DDE20
 
 Entities_Ruins_TripleTektites_0:: @ 080DDE48
 .ifdef EU_JP
-	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x280000
-	manager subtype=0x2e, unknown=0x0, paramC=0x280000
+	manager subtype=0xb, pool=0x0, paramB=0xa, paramC=0x280000
+	manager subtype=0x2e, pool=0x0, paramC=0x280000
 	manager subtype=0xf, x=0x58, y=0x28, paramA=0x9, paramC=0x280000
 .else
-	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x270000
-	manager subtype=0x2e, unknown=0x0, paramC=0x270000
+	manager subtype=0xb, pool=0x0, paramB=0xa, paramC=0x270000
+	manager subtype=0x2e, pool=0x0, paramC=0x270000
 	manager subtype=0xf, x=0x58, y=0x28, paramA=0x9, paramC=0x270000
 .endif
 	entity_list_end
@@ -6720,11 +6720,11 @@ Entities_Ruins_FortressEntrance_0:: @ 080DDFE8
 	entity_list_end
 
 gUnk_080DE008:: @ 080DE008
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkFoW
+	object_raw subtype=0x69, pool=0x4f, paramC=script_EzloTalkFoW
 	entity_list_end
 
 Entities_Ruins_FortressEntrance_1:: @ 080DE028
-	manager subtype=0x3, x=0x48, y=0x40, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x48, y=0x40, pool=0x0, paramB=0x102
 	entity_list_end
 
 Enemies_Ruins_FortressEntrance:: @ 080DE048
@@ -6771,20 +6771,20 @@ Room_Ruins_FortressEntrance:: @ 080DE12C
 
 Entities_Ruins_Armos_0:: @ 080DE150
 .ifdef EU_JP
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x800000f9
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x800000f9
 	manager subtype=0x35, x=0x160, y=0x48, paramB=0x781400, paramC=0xf90031
 	manager subtype=0xf, x=0x158, y=0x48, paramA=0x9, paramC=0x310000
 	manager subtype=0xf, x=0x168, y=0x48, paramA=0x9, paramC=0x310000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x800100fa
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x800100fa
 	manager subtype=0x35, x=0x1c0, y=0x18, paramB=0x781400, paramC=0xfa0032
 	manager subtype=0xf, x=0x1b8, y=0x18, paramA=0x9, paramC=0x320000
 	manager subtype=0xf, x=0x1c8, y=0x18, paramA=0x9, paramC=0x320000
 .else
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x80000032
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x80000032
 	manager subtype=0x35, x=0x160, y=0x48, paramB=0x781400, paramC=0x320030
 	manager subtype=0xf, x=0x158, y=0x48, paramA=0x9, paramC=0x300000
 	manager subtype=0xf, x=0x168, y=0x48, paramA=0x9, paramC=0x300000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x80010033
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x80010033
 	manager subtype=0x35, x=0x1c0, y=0x18, paramB=0x781400, paramC=0x330031
 	manager subtype=0xf, x=0x1b8, y=0x18, paramA=0x9, paramC=0x310000
 	manager subtype=0xf, x=0x1c8, y=0x18, paramA=0x9, paramC=0x310000
@@ -6792,15 +6792,15 @@ Entities_Ruins_Armos_0:: @ 080DE150
 	entity_list_end
 
 gUnk_080DE1E0:: @ 080DE1E0
-	manager subtype=0xb, unknown=0x0, paramB=0xd, paramC=0x80000000
+	manager subtype=0xb, pool=0x0, paramB=0xd, paramC=0x80000000
 	entity_list_end
 
 gUnk_080DE200:: @ 080DE200
-	manager subtype=0xb, unknown=0x0, paramB=0xe, paramC=0x80010000
+	manager subtype=0xb, pool=0x0, paramB=0xe, paramC=0x80010000
 	entity_list_end
 
 Entities_Ruins_Armos_1:: @ 080DE220
-	manager subtype=0x3, x=0xa8, y=0x30, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0xa8, y=0x30, pool=0x0, paramB=0x102
 	entity_list_end
 
 Enemies_Ruins_Armos:: @ 080DE240
@@ -6811,13 +6811,13 @@ gUnk_additional_d_Ruins_Armos:: @ 080DE260
 	enemy_raw subtype=0x2a, x=0x88, y=0x58, paramB=0x122c0309, paramC=0x100010
 	enemy_raw subtype=0x2a, x=0xc8, y=0x58, paramB=0x122c040a, paramC=0x100010
 	enemy_raw subtype=0x2a, x=0x108, y=0x58, paramB=0x122c050b, paramC=0x100010
-	manager subtype=0x28, unknown=0x3, paramB=0xd
+	manager subtype=0x28, pool=0x3, paramB=0xd
 	entity_list_end
 
 gUnk_additional_e_Ruins_Armos:: @ 080DE2B0
 	enemy_raw subtype=0x35, x=0x1c8, y=0x58, paramA=0x1
 	enemy_raw subtype=0x35, x=0x1b8, y=0x98, paramA=0x1
-	manager subtype=0x28, unknown=0x3, paramB=0xe
+	manager subtype=0x28, pool=0x3, paramB=0xe
 	enemy_raw subtype=0x2c, x=0x58, y=0xc8, paramB=0x83c0000, paramC=0xb00010
 	enemy_raw subtype=0x2c, x=0x1c8, y=0x78, paramB=0x1c0c0000, paramC=0x100190
 	enemy_raw subtype=0x2c, x=0x1c8, y=0xd8, paramB=0x1c0c0000, paramC=0x100190
@@ -6871,28 +6871,28 @@ Room_Ruins_Armos:: @ 080DE39C
 
 Entities_DeepwoodShrine_Madderpillar_0:: @ 080DE3D8
 	manager subtype=0x1e, x=0x40, y=0x40, paramB=0x70009d, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x170000
-	manager subtype=0x2e, x=0x25, unknown=0x0, paramB=0x100, paramC=0x170000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x170000
+	manager subtype=0x2e, x=0x25, pool=0x0, paramB=0x100, paramC=0x170000
 	object_raw subtype=0xc, x=0x90, y=0x78, paramA=0x2, paramB=0x1b, paramC=0x170000
 	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x1, paramC=0x1effff
-	projectile_raw subtype=0x15, x=0xe8, y=0x98, unknown=0xf, paramA=0x1, paramC=0x190000
-	projectile_raw subtype=0x15, x=0xc8, y=0xb8, unknown=0xf, paramA=0x2, paramC=0x1a0000
-	projectile_raw subtype=0x15, x=0x58, y=0x38, unknown=0xf
-	projectile_raw subtype=0x15, x=0x78, y=0x38, unknown=0xf
-	projectile_raw subtype=0x15, x=0xa8, y=0x38, unknown=0xf
-	projectile_raw subtype=0x15, x=0x68, y=0xb8, unknown=0xf, paramA=0x2
-	projectile_raw subtype=0x15, x=0x88, y=0xb8, unknown=0xf, paramA=0x2
-	projectile_raw subtype=0x15, x=0x38, y=0x78, unknown=0xf, paramA=0x3
-	projectile_raw subtype=0x15, x=0x38, y=0x98, unknown=0xf, paramA=0x3
+	projectile_raw subtype=0x15, x=0xe8, y=0x98, pool=0xf, paramA=0x1, paramC=0x190000
+	projectile_raw subtype=0x15, x=0xc8, y=0xb8, pool=0xf, paramA=0x2, paramC=0x1a0000
+	projectile_raw subtype=0x15, x=0x58, y=0x38, pool=0xf
+	projectile_raw subtype=0x15, x=0x78, y=0x38, pool=0xf
+	projectile_raw subtype=0x15, x=0xa8, y=0x38, pool=0xf
+	projectile_raw subtype=0x15, x=0x68, y=0xb8, pool=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0x88, y=0xb8, pool=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0x38, y=0x78, pool=0xf, paramA=0x3
+	projectile_raw subtype=0x15, x=0x38, y=0x98, pool=0xf, paramA=0x3
 	entity_list_end
 
 gUnk_080DE4C8:: @ 080DE4C8
-	manager subtype=0xf, unknown=0x0, paramA=0xd, paramC=0x170000
+	manager subtype=0xf, pool=0x0, paramA=0xd, paramC=0x170000
 	entity_list_end
 
 gUnk_additional_8_DeepwoodShrine_Madderpillar:: @ 080DE4E8
 	enemy_raw subtype=0x18, x=0x98, y=0x88
-	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x2d, pool=0x0, paramB=0x100, paramC=0x80000000
 	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x5, paramC=0x8000ffff
 	ezlo_hint type=0x3, x=0x8, y=0x8, rx=0xa, ry=0x7, msg=0xb00, flag=0x17, flag2=0x8000
 	entity_list_end
@@ -6917,7 +6917,7 @@ Entities_DeepwoodShrine_BluePortal_0:: @ 080DE574
 	object_raw subtype=0x3, x=0x108, y=0x98, paramC=0x1c0000
 	object_raw subtype=0x8, x=0xe8, y=0xc8, paramA=0x2, paramC=0x1cffff
 	object_raw subtype=0x3, x=0xc8, y=0x98, paramC=0x1d0000
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x1d0054
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x1d0054
 	object_raw subtype=0x34, x=0xe8, y=0x58, paramB=0xb48, paramC=0x540209
 	object_raw subtype=0x3, x=0x58, y=0x68, paramC=0x1f0000
 	object_raw subtype=0xc, x=0x68, y=0x38, paramA=0x1, paramC=0x1f0000
@@ -7171,17 +7171,17 @@ Room_DeepwoodShrine_Button:: @ 080DED6C
 
 Entities_DeepwoodShrine_Mulldozer_0:: @ 080DED8C
 	manager subtype=0x1e, x=0x30, y=0x60, paramB=0x2000b0, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x2f8000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x2f8000
 	object_raw subtype=0x8, x=0x88, y=0x98, paramA=0x12, paramC=0xffff
 	object_raw subtype=0x8, x=0x28, y=0x48, paramA=0x83, paramC=0x53ffff
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x2f0053
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x2f0053
 	manager subtype=0x17, x=0x88, y=0x58, paramA=0x53, paramB=0x10200, paramC=0x530030
 	entity_list_end
 
 gUnk_additional_8_DeepwoodShrine_Mulldozer:: @ 080DEDFC
-	enemy_raw subtype=0x32, x=0x58, y=0x78, unknown=0x2f
-	enemy_raw subtype=0x32, x=0xb8, y=0x78, unknown=0x2f
-	enemy_raw subtype=0x32, x=0x88, y=0x38, unknown=0x2f
+	enemy_raw subtype=0x32, x=0x58, y=0x78, pool=0x2f
+	enemy_raw subtype=0x32, x=0xb8, y=0x78, pool=0x2f
+	enemy_raw subtype=0x32, x=0x88, y=0x38, pool=0x2f
 	entity_list_end
 
 Enemies_DeepwoodShrine_Mulldozer:: @ 080DEE3C
@@ -7205,7 +7205,7 @@ Room_DeepwoodShrine_Mulldozer:: @ 080DEE5C
 Entities_DeepwoodShrine_Pillars_0:: @ 080DEE80
 	object_raw subtype=0x3, x=0x98, y=0x48, paramA=0x1, paramC=0x80000000
 	object_raw subtype=0x8, x=0x88, y=0x18, paramA=0x80, paramC=0x8000002f
-	manager subtype=0x2e, unknown=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
+	manager subtype=0x2e, pool=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
 	object_raw subtype=0x27, x=0x48, y=0x48
 	object_raw subtype=0x27, x=0x78, y=0x48
 	entity_list_end
@@ -7269,8 +7269,8 @@ Room_DeepwoodShrine_Lever:: @ 080DF090
 
 Entities_DeepwoodShrine_Entrance_0:: @ 080DF0B0
 	ezlo_hint x=0x6, y=0x16, rx=0xf, ry=0x3, msg=0xb12, flag=0x37
-	projectile_raw subtype=0x15, x=0x48, y=0x68, unknown=0xf, paramC=0x340000
-	projectile_raw subtype=0x15, x=0x108, y=0x68, unknown=0xf, paramC=0x350000
+	projectile_raw subtype=0x15, x=0x48, y=0x68, pool=0xf, paramC=0x340000
+	projectile_raw subtype=0x15, x=0x108, y=0x68, pool=0xf, paramC=0x350000
 	object_raw subtype=0x34, x=0x98, y=0x88, paramB=0x148, paramC=0x36014e
 	object_raw subtype=0x34, x=0xb8, y=0x88, paramA=0x1, paramB=0x1148, paramC=0x3602d4
 	object_raw subtype=0x27, x=0x98, y=0x38
@@ -7494,7 +7494,7 @@ Entities_DeepwoodShrine_LilyPadEast_0:: @ 080DF72C
 	object_raw subtype=0x33, x=0xc8, y=0x48, paramC=0x80000000
 	object_raw subtype=0x33, x=0xd8, y=0x48, paramC=0x80000000
 	object_raw subtype=0x33, x=0xe8, y=0x48, paramC=0x80000000
-	manager subtype=0x2e, unknown=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
+	manager subtype=0x2e, pool=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
 	object_raw subtype=0x5, x=0x18, y=0x18, paramA=0x5f
 	object_raw subtype=0x5, x=0x18, y=0x28, paramA=0x5f
 	object_raw subtype=0x5, x=0x18, y=0x38
@@ -7513,7 +7513,7 @@ Entities_DeepwoodShrine_LilyPadEast_0:: @ 080DF72C
 	object_raw subtype=0x33, x=0xc8, y=0x48, paramC=0x80000000
 	object_raw subtype=0x33, x=0xd8, y=0x48, paramC=0x80000000
 	object_raw subtype=0x33, x=0xe8, y=0x48, paramC=0x80000000
-	manager subtype=0x2e, unknown=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
+	manager subtype=0x2e, pool=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
 	object_raw subtype=0x5, x=0x18, y=0x18, paramA=0x5f
 	object_raw subtype=0x5, x=0x18, y=0x28, paramA=0x5f
 	object_raw subtype=0x5, x=0x18, y=0x38
@@ -7546,7 +7546,7 @@ Room_DeepwoodShrine_LilyPadEast:: @ 080DF86C
 
 Entities_DeepwoodShrineBoss_Main_0:: @ 080DF88C
 	object_raw subtype=0x39, x=0x88, y=0xc8, paramA=0x6, paramC=0xffff
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x40020000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x40020000
 	manager subtype=0xe, y=0x3c, paramA=0x9, paramB=0x1, paramC=0x40020000
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb01, flag=0x4002
 	object_raw subtype=0x5, x=0x38, y=0x38, paramA=0x5f
@@ -7557,7 +7557,7 @@ Entities_DeepwoodShrineBoss_Main_0:: @ 080DF88C
 
 gUnk_additional_9_DeepwoodShrineBoss_Main:: @ 080DF91C
 	object_raw subtype=0xac, x=0x88, y=0x68, paramA=0x40
-	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0xa, paramC=0x80000000
+	manager subtype=0xe, y=0x3c, pool=0x1f, paramA=0xa, paramC=0x80000000
 	entity_list_end
 
 gUnk_additional_a_DeepwoodShrineBoss_Main:: @ 080DF94C
@@ -7621,7 +7621,7 @@ Entities_DeepwoodShrine_InsideBarrel_0:: @ 080DFA90
 	object_raw subtype=0x26, x=0x50, y=0x50, paramA=0x3
 	object_raw subtype=0x26, x=0x78, y=0x50, paramA=0x4
 	object_raw subtype=0x26, x=0xa0, y=0x50, paramA=0x5
-	manager subtype=0x1a, unknown=0x8
+	manager subtype=0x1a, pool=0x8
 	ezlo_hint x=0x4, y=0xa, rx=0xc, ry=0x1, msg=0xb35, flag=0x4e, flag2=0x415
 	entity_list_end
 
@@ -7645,7 +7645,7 @@ Entities_DeepwoodShrineEntry_Main_0:: @ 080DFB68
 	entity_list_end
 
 gUnk_080DFB78:: @ 080DFB78
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkDWS
+	object_raw subtype=0x69, pool=0x4f, paramC=script_EzloTalkDWS
 	entity_list_end
 
 Enemies_DeepwoodShrineEntry_Main:: @ 080DFB98
@@ -7677,7 +7677,7 @@ Entities_CaveOfFlames_AfterCane_0:: @ 080DFBD0
 	entity_list_end
 
 Entities_CaveOfFlames_AfterCane_1:: @ 080DFC70
-	manager subtype=0x14, unknown=0x8
+	manager subtype=0x14, pool=0x8
 	object_raw subtype=0x4f, x=0x88, y=0x100, paramA=0xd, paramB=0x2
 	entity_list_end
 
@@ -7707,7 +7707,7 @@ Entities_CaveOfFlames_SpinyChus_0:: @ 080DFD14
 	object_raw subtype=0x6c, x=0x128, y=0xe8, paramA=0x2
 	object_raw subtype=0x6d, x=0x118, y=0x98, paramA=0x1, paramB=0x20382108, paramC=0x170017
 	manager subtype=0x1e, x=0x70, y=0x60, paramB=0x300020, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x168000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x168000
 	object_raw subtype=0xc, x=0x80, y=0x78, paramA=0x2, paramB=0x19, paramC=0x160000
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb02, flag=0x16, flag2=0x8000
 	object_raw subtype=0x8, x=0x38, y=0x78, paramA=0x3, paramC=0x160000
@@ -7981,9 +7981,9 @@ Room_CaveOfFlames_CartWest:: @ 080E0770
 	.4byte sub_StateChange_CaveOfFlames_CartWest
 
 Entities_CaveOfFlames_Helmasaur_0:: @ 080E0790
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x220000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x220000
 	object_raw subtype=0x74, x=0x78, y=0x88, collision=2, paramC=0x220000
-	manager subtype=0x3, x=0x78, y=0x88, unknown=0x0, paramA=0x3, paramB=0x200
+	manager subtype=0x3, x=0x78, y=0x88, pool=0x0, paramA=0x3, paramB=0x200
 	ezlo_hint x=0x6, y=0x6, rx=0x9, ry=0xb, msg=0xb3b, flag=0x23, flag2=0x4063
 	entity_list_end
 
@@ -8030,7 +8030,7 @@ Entities_CaveOfFlames_Rollobite_0:: @ 080E089C
 	entity_list_end
 
 Entities_CaveOfFlames_Rollobite_1:: @ 080E093C
-	manager subtype=0x14, unknown=0x8
+	manager subtype=0x14, pool=0x8
 	object_raw subtype=0x4f, x=0xb8, y=0x10, paramA=0xd
 	entity_list_end
 
@@ -8068,7 +8068,7 @@ Room_CaveOfFlames_Rollobite:: @ 080E0A20
 Entities_CaveOfFlames_MinishLava_0:: @ 080E0A44
 	object_raw subtype=0xc, x=0x120, y=0x38, paramA=0x4, paramB=0x2a
 	object_raw subtype=0x74, x=0xf8, y=0xa8, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0xf8, y=0xa8, unknown=0x0, paramA=0x3, paramB=0x103
+	manager subtype=0x3, x=0xf8, y=0xa8, pool=0x0, paramA=0x3, paramB=0x103
 	object_raw subtype=0x3, x=0x58, y=0x138, paramC=0x280000
 	object_raw subtype=0x8, x=0x48, y=0x178, paramA=0x3, paramC=0x280000
 	object_raw subtype=0x59, paramB=0x8
@@ -8080,7 +8080,7 @@ Entities_CaveOfFlames_MinishLava_0:: @ 080E0A44
 	entity_list_end
 
 Entities_CaveOfFlames_MinishLava_1:: @ 080E0B04
-	manager subtype=0x14, unknown=0x8
+	manager subtype=0x14, pool=0x8
 	entity_list_end
 
 Enemies_CaveOfFlames_MinishLava:: @ 080E0B24
@@ -8112,9 +8112,9 @@ Room_CaveOfFlames_MinishLava:: @ 080E0C14
 Entities_CaveOfFlames_MinishSpikes_0:: @ 080E0C38
 	object_raw subtype=0x55, x=0xf8, y=0x78, paramB=0x201
 	object_raw subtype=0x74, x=0x248, y=0x98, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x248, y=0x98, unknown=0x0, paramA=0x3, paramB=0x100
+	manager subtype=0x3, x=0x248, y=0x98, pool=0x0, paramA=0x3, paramB=0x100
 	object_raw subtype=0x74, x=0x48, y=0x48, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x48, y=0x48, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x48, y=0x48, pool=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x2f, x=0x238, y=0x68, paramC=0x2b0000
 	object_raw subtype=0x13, x=0x218, y=0x68, paramA=0x3, paramB=0xff02, paramC=0x2b0000
 	manager subtype=0x1f, x=0x218, y=0x48, paramA=0x1, paramB=0x10000, paramC=0x2b0000
@@ -8169,7 +8169,7 @@ Entities_CaveOfFlames_RollobiteSwitch_0:: @ 080E0E5C
 	object_raw subtype=0x55, x=0x248, y=0x68, paramB=0x200
 	object_raw subtype=0x6c, x=0x248, y=0x28
 	object_raw subtype=0x6d, x=0x268, y=0xa8, paramA=0x2, paramB=0x104811d8, paramC=0x2f002e
-	manager subtype=0x2e, unknown=0x0, paramB=0xa00, paramC=0x2e003d
+	manager subtype=0x2e, pool=0x0, paramB=0xa00, paramC=0x2e003d
 	object_raw subtype=0x33, x=0x1c8, y=0x98, paramA=0x1, paramC=0x3d0000
 	object_raw subtype=0x33, x=0x1d8, y=0x98, paramA=0x1, paramC=0x3d0000
 	object_raw subtype=0x33, x=0x1e8, y=0x98, paramA=0x1, paramC=0x3d0000
@@ -8213,7 +8213,7 @@ Entities_CaveOfFlames_BeforeGleerok_0:: @ 080E0F6C
 	entity_list_end
 
 Entities_CaveOfFlames_BeforeGleerok_1:: @ 080E101C
-	manager subtype=0x1a, unknown=0x8, paramA=0x1
+	manager subtype=0x1a, pool=0x8, paramA=0x1
 	entity_list_end
 
 gUnk_080E103C:: @ 080E103C
@@ -8299,7 +8299,7 @@ Room_CaveOfFlames_PathBossKey2:: @ 080E11F0
 	.4byte gUnk_additional_9_CaveOfFlames_PathBossKey2
 
 Entities_CaveOfFlames_Compass_0:: @ 080E1218
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x310000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x310000
 	ezlo_hint x=0x6, y=0xa, rx=0x9, ry=0x2, msg=0xb27, flag=0x33
 	object_raw subtype=0xc, x=0x78, y=0x68, paramA=0x2, paramB=0x32, paramC=0x310000
 	object_raw subtype=0x8, x=0x28, y=0x58, paramA=0x3, paramC=0x31ffff
@@ -8392,7 +8392,7 @@ Entities_CaveOfFlames_BossDoor_0:: @ 080E143C
 	entity_list_end
 
 Entities_CaveOfFlames_BossDoor_1:: @ 080E156C
-	manager subtype=0x14, unknown=0x8
+	manager subtype=0x14, pool=0x8
 	entity_list_end
 
 Enemies_CaveOfFlames_BossDoor:: @ 080E158C
@@ -8473,14 +8473,14 @@ Room_CaveOfFlames_18:: @ 080E1784
 	.4byte sub_StateChange_CaveOfFlames_18
 
 Entities_CaveOfFlamesBoss_Main_0:: @ 080E17A4
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x40030000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x40030000
 	manager subtype=0xe, y=0x168, paramA=0x9, paramB=0x1, paramC=0x40030000
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb03, flag=0x4003
 	entity_list_end
 
 gUnk_additional_9_CaveOfFlamesBoss_Main:: @ 080E17E4
 	object_raw subtype=0xac, x=0xc0, y=0x90, paramA=0x41
-	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0xa, paramC=0x80000000
+	manager subtype=0xe, y=0x3c, pool=0x1f, paramA=0xa, paramC=0x80000000
 	entity_list_end
 
 gUnk_additional_a_CaveOfFlamesBoss_Main:: @ 080E1814
@@ -8512,7 +8512,7 @@ Room_CaveOfFlamesBoss_Main:: @ 080E1874
 Entities_FortressOfWinds_Eyegore_0:: @ 080E18A0
 	object_raw subtype=0x3, x=0x58, y=0x88, paramA=0x1, paramC=0x80000000
 	object_raw subtype=0x3, x=0x98, y=0x88, paramA=0x1, paramC=0x80010000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x1b0000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x1b0000
 	object_raw subtype=0xc, x=0x80, y=0x68, paramA=0x2, paramB=0x1c, paramC=0x1b0000
 	enemy_raw subtype=0x43, x=0xd8, y=0x38
 	enemy_raw subtype=0x43, x=0x28, y=0x98
@@ -8531,7 +8531,7 @@ TileEntities_FortressOfWinds_Eyegore:: @ 080E1940
 gUnk_additional_8_FortressOfWinds_Eyegore:: @ 080E1958
 	enemy_raw subtype=0x2b, x=0x60, y=0x50, paramB=0xe188400, paramC=0x300020
 	enemy_raw subtype=0x2b, x=0xa0, y=0x50, paramB=0xe188400, paramC=0x300020
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	entity_list_end
 
 Room_FortressOfWinds_Eyegore:: @ 080E1998
@@ -8586,15 +8586,15 @@ Entities_FortressOfWinds_EastKeyLever_0:: @ 080E1AEC
 	object_raw subtype=0x8, x=0x188, y=0xb8, paramA=0x2, paramC=0x1effff
 	object_raw subtype=0x8, x=0x188, y=0xf8, paramC=0x1effff
 	object_raw subtype=0x74, x=0x188, y=0x68, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x188, y=0x68, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x188, y=0x68, pool=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x74, x=0x38, y=0x118, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x38, y=0x118, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x38, y=0x118, pool=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x8, x=0x1f8, y=0xf8, paramA=0x8, paramC=0x1dffff
 	object_raw subtype=0x8, x=0x1f8, y=0xb8, paramA=0xa, paramC=0x1dffff
 	object_raw subtype=0x54, x=0x88, y=0xf4, paramB=0x200000, paramC=0x80020000
 	manager subtype=0x11, paramC=0x80020020
 	manager subtype=0xf, x=0xa8, y=0x148, paramA=0x2, paramC=0x200000
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x20001f
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x20001f
 	ezlo_hint x=0xc, y=0x20, rx=0x4, ry=0x7, msg=0xb3d, flag=0x46, flag2=0x1f
 	enemy_raw subtype=0x43, x=0x1d8, y=0x108
 	enemy_raw subtype=0x43, x=0x1d8, y=0x118
@@ -8614,8 +8614,8 @@ Entities_FortressOfWinds_EastKeyLever_0:: @ 080E1AEC
 	entity_list_end
 
 Entities_FortressOfWinds_EastKeyLever_1:: @ 080E1CEC
-	manager subtype=0x1a, unknown=0x8, paramA=0x2
-	manager subtype=0x1a, unknown=0x8, paramA=0x3
+	manager subtype=0x1a, pool=0x8, paramA=0x2
+	manager subtype=0x1a, pool=0x8, paramA=0x3
 	entity_list_end
 
 Enemies_FortressOfWinds_EastKeyLever:: @ 080E1D1C
@@ -8695,11 +8695,11 @@ Room_FortressOfWinds_PitPlatforms:: @ 080E1F48
 	.4byte gUnk_additional_a_FortressOfWinds_PitPlatforms
 
 Entities_FortressOfWinds_WestKeyLever_0:: @ 080E1F74
-	manager subtype=0x1a, unknown=0x8, paramA=0x4
+	manager subtype=0x1a, pool=0x8, paramA=0x4
 	object_raw subtype=0x54, x=0xd8, y=0x24, paramB=0x200000, paramC=0x80000000
 	manager subtype=0x11, paramC=0x80000024
 	manager subtype=0xf, x=0x98, y=0x68, paramA=0x1, paramC=0x240000
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x240023
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x240023
 	ezlo_hint x=0x18, y=0x6, rx=0x3, ry=0x5, msg=0xb3d, flag=0x46, flag2=0x23
 	enemy_raw subtype=0x43, x=0x48, y=0x48
 	enemy_raw subtype=0x43, x=0x38, y=0x88
@@ -8748,8 +8748,8 @@ Room_FortressOfWinds_WestKeyLever:: @ 080E212C
 
 Entities_FortressOfWinds_Darknut_0:: @ 080E2158
 	manager subtype=0x1e, x=0x70, y=0x80, paramB=0x200030, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x278000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x270048
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x278000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x270048
 	object_raw subtype=0x34, x=0x88, y=0x68, paramB=0x2158, paramC=0x480186
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb04, flag=0x27, flag2=0x8000
 	enemy_raw subtype=0x43, x=0x48, y=0x28
@@ -8780,7 +8780,7 @@ TileEntities_FortressOfWinds_Darknut:: @ 080E22B8
 	tile_entity_list_end
 
 gUnk_additional_8_FortressOfWinds_Darknut:: @ 080E22D0
-	enemy_raw subtype=0x5, x=0x88, y=0x58, unknown=0x2f, paramA=0x1, paramB=0x10160000, paramC=0x200030
+	enemy_raw subtype=0x5, x=0x88, y=0x58, pool=0x2f, paramA=0x1, paramB=0x10160000, paramC=0x200030
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x2, paramC=0x48ffff
 	object_raw subtype=0x8, x=0xe8, y=0x78, paramA=0x1, paramC=0x48ffff
 	entity_list_end
@@ -8868,9 +8868,9 @@ Room_FortressOfWinds_Pit:: @ 080E2564
 	.4byte gUnk_additional_8_FortressOfWinds_Pit
 
 Entities_FortressOfWinds_Wallmaster_0:: @ 080E2588
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x2a0000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x2a0000
 	object_raw subtype=0x74, x=0x88, y=0x68, collision=2, paramC=0x2a0000
-	manager subtype=0x3, x=0x88, y=0x68, unknown=0x0, paramA=0x3, paramB=0x201
+	manager subtype=0x3, x=0x88, y=0x68, pool=0x0, paramA=0x3, paramB=0x201
 	enemy_raw subtype=0x43, x=0x38, y=0x28
 	enemy_raw subtype=0x43, x=0xc8, y=0x28
 	enemy_raw subtype=0x43, x=0xd8, y=0x28
@@ -8919,7 +8919,7 @@ Entities_FortressOfWinds_Clone_0:: @ 080E271C
 	object_raw subtype=0x3, x=0xc8, y=0x108, paramA=0x1, paramC=0x80030002
 	manager subtype=0x11, paramC=0x8c00002b
 	manager subtype=0x17, x=0xb8, y=0xe8, paramA=0x53, paramB=0x20200, paramC=0x2d002e
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x2b002d
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x2b002d
 	object_raw subtype=0x27, x=0x98, y=0xe8
 	object_raw subtype=0x27, x=0xd8, y=0xe8
 	object_raw subtype=0x8, x=0x38, y=0x178, paramA=0xa, paramC=0x2cffff
@@ -8940,8 +8940,8 @@ Entities_FortressOfWinds_Clone_1:: @ 080E282C
 Enemies_FortressOfWinds_Clone:: @ 080E286C
 	enemy_raw subtype=0x2c, x=0xa8, y=0x48, paramB=0xc0a0000, paramC=0x2000a0
 	enemy_raw subtype=0x2c, x=0xc8, y=0x68, paramB=0xc0a0000, paramC=0x2000a0
-	projectile_raw subtype=0x1e, x=0xa8, y=0x130, unknown=0x3, paramA=0x3, paramC=0x80ff7f
-	projectile_raw subtype=0x1e, x=0xd0, y=0x130, unknown=0x3, paramA=0x3, paramC=0x80ff7f
+	projectile_raw subtype=0x1e, x=0xa8, y=0x130, pool=0x3, paramA=0x3, paramC=0x80ff7f
+	projectile_raw subtype=0x1e, x=0xd0, y=0x130, pool=0x3, paramA=0x3, paramC=0x80ff7f
 	entity_list_end
 
 TileEntities_FortressOfWinds_Clone:: @ 080E28BC
@@ -9016,9 +9016,9 @@ Entities_FortressOfWinds_Mazaal_0:: @ 080E2AD8
 	object_raw subtype=0x5, x=0x138, y=0xa8, paramA=0x5e
 	object_raw subtype=0x5, x=0x148, y=0xa8, paramA=0x5e
 	object_raw subtype=0x74, x=0x38, y=0x38, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x38, y=0x38, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x38, y=0x38, pool=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x74, x=0x138, y=0x38, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x138, y=0x38, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x138, y=0x38, pool=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x8, x=0xb8, y=0xb8, paramA=0x12, paramC=0x8000ffff
 	object_raw subtype=0x8, x=0xb8, y=0x18, paramC=0x31ffff
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb05, flag=0x31
@@ -9054,8 +9054,8 @@ Entities_FortressOfWinds_Stalfos_0:: @ 080E2C30
 	object_raw subtype=0x8, x=0x88, y=0xb8, paramA=0x2, paramC=0x490000
 	object_raw subtype=0x8, x=0x98, y=0x18, paramC=0x2f
 	manager subtype=0x1e, x=0x70, y=0x60, paramB=0x500030, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x308000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x300049
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x308000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x300049
 	enemy_raw subtype=0x43, x=0x68, y=0x28, paramB=0x5f
 	enemy_raw subtype=0x43, x=0x78, y=0x28, paramB=0x5d
 	entity_list_end
@@ -9072,11 +9072,11 @@ TileEntities_FortressOfWinds_Stalfos:: @ 080E2CF0
 	tile_entity_list_end
 
 gUnk_additional_8_FortressOfWinds_Stalfos:: @ 080E2D00
-	enemy_raw subtype=0x42, x=0x68, y=0x68, unknown=0x2f, paramB=0xa120000, paramC=0x600040
-	enemy_raw subtype=0x42, x=0xa8, y=0x68, unknown=0x2f, paramB=0xa120000, paramC=0x600040
-	enemy_raw subtype=0x42, x=0x68, y=0xa8, unknown=0x2f, paramB=0xa120000, paramC=0x600040
-	enemy_raw subtype=0x42, x=0xa8, y=0xa8, unknown=0x2f, paramB=0xa120000, paramC=0x600040
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	enemy_raw subtype=0x42, x=0x68, y=0x68, pool=0x2f, paramB=0xa120000, paramC=0x600040
+	enemy_raw subtype=0x42, x=0xa8, y=0x68, pool=0x2f, paramB=0xa120000, paramC=0x600040
+	enemy_raw subtype=0x42, x=0x68, y=0xa8, pool=0x2f, paramB=0xa120000, paramC=0x600040
+	enemy_raw subtype=0x42, x=0xa8, y=0xa8, pool=0x2f, paramB=0xa120000, paramC=0x600040
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	entity_list_end
 
 Room_FortressOfWinds_Stalfos:: @ 080E2D60
@@ -9137,8 +9137,8 @@ Entities_FortressOfWinds_Main2F_0:: @ 080E2E7C
 	enemy_raw subtype=0x43, x=0x28, y=0x38
 	enemy_raw subtype=0x43, x=0xe8, y=0x28
 	enemy_raw subtype=0x43, x=0xe8, y=0x38
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x350000
-	manager subtype=0xb, unknown=0x0, paramB=0x9, paramC=0x380000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x350000
+	manager subtype=0xb, pool=0x0, paramB=0x9, paramC=0x380000
 	entity_list_end
 
 Enemies_FortressOfWinds_Main2F:: @ 080E2F7C
@@ -9146,7 +9146,7 @@ Enemies_FortressOfWinds_Main2F:: @ 080E2F7C
 	enemy_raw subtype=0x42, x=0x38, y=0x148, paramB=0xe1a0000, paramC=0x1000020
 	enemy_raw subtype=0x42, x=0xd8, y=0x118, paramB=0xe1a0000, paramC=0x1000020
 	enemy_raw subtype=0x42, x=0xd8, y=0x148, paramB=0xe1a0000, paramC=0x1000020
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x1f, x=0x28, y=0x68, paramA=0x2, paramC=0x100058
 	enemy_raw subtype=0x1f, x=0xe8, y=0x68, paramA=0x2, paramC=0x100058
 	entity_list_end
@@ -9179,7 +9179,7 @@ Room_FortressOfWinds_Main2F:: @ 080E3054
 Entities_FortressOfWinds_MinishHole_0:: @ 080E307C
 	object_raw subtype=0x4e, x=0x78, y=0x20, collision=2, paramB=0x800
 	object_raw subtype=0x74, x=0x48, y=0x78, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x48, y=0x78, unknown=0x0, paramA=0x3, paramB=0x101
+	manager subtype=0x3, x=0x48, y=0x78, pool=0x0, paramA=0x3, paramB=0x101
 	enemy_raw subtype=0x43, x=0xc8, y=0x98
 	enemy_raw subtype=0x43, x=0xc8, y=0xa8
 	entity_list_end
@@ -9237,7 +9237,7 @@ Entities_FortressOfWinds_WestStairs2F_0:: @ 080E31DC
 	entity_list_end
 
 Entities_FortressOfWinds_WestStairs2F_1:: @ 080E31EC
-	manager subtype=0x1a, unknown=0x8, paramA=0x5
+	manager subtype=0x1a, pool=0x8, paramA=0x5
 	entity_list_end
 
 Enemies_FortressOfWinds_WestStairs2F:: @ 080E320C
@@ -9271,7 +9271,7 @@ Entities_FortressOfWinds_EastStairs2F_1:: @ 080E32BC
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x2, paramC=0x3b0000
 	object_raw subtype=0x54, x=0xd0, y=0xac, paramB=0x200002, paramC=0x80010000
 	object_raw subtype=0xc, x=0xc8, y=0x38, paramA=0x1, paramC=0x3c0000
-	manager subtype=0x1a, unknown=0x8, paramA=0x6
+	manager subtype=0x1a, pool=0x8, paramA=0x6
 	enemy_raw subtype=0x43, x=0x58, y=0x58
 	enemy_raw subtype=0x43, x=0x58, y=0x68
 	enemy_raw subtype=0x43, x=0x58, y=0x78
@@ -9379,7 +9379,7 @@ Room_FortressOfWinds_EastStairs1F:: @ 080E358C
 Entities_FortressOfWinds_Wizzrobe_0:: @ 080E35AC
 	object_raw subtype=0x8, x=0x78, y=0xb8, paramA=0x12, paramC=0x42ffff
 	manager subtype=0x1e, x=0x30, y=0x70, paramB=0x200090, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x428000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x428000
 	object_raw subtype=0xc, x=0x78, y=0x68, paramA=0x1, paramC=0x420000
 	entity_list_end
 
@@ -9413,7 +9413,7 @@ Room_FortressOfWinds_Wizzrobe:: @ 080E3694
 
 Entities_FortressOfWinds_HeartPiece_0:: @ 080E36B8
 	object_raw subtype=0x74, x=0xb8, y=0x48, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0xb8, y=0x48, unknown=0x0, paramA=0x3, paramB=0x103
+	manager subtype=0x3, x=0xb8, y=0x48, pool=0x0, paramA=0x3, paramB=0x103
 	object_raw subtype=0x0, x=0x58, y=0x44, collision=1, paramA=0x63, paramB=0x400, paramC=0x470000
 	entity_list_end
 
@@ -9475,7 +9475,7 @@ gUnk_080E3850:: @ 080E3850
 
 Entities_FortressOfWindsTop_Main_1:: @ 080E3870
 	object_raw subtype=0x72, x=0xa0, y=0x58
-	manager subtype=0x1b, unknown=0x8, paramA=0x3
+	manager subtype=0x1b, pool=0x8, paramA=0x3
 	entity_list_end
 
 Enemies_FortressOfWindsTop_Main:: @ 080E38A0
@@ -9497,8 +9497,8 @@ Room_FortressOfWindsTop_Main:: @ 080E38C0
 
 Entities_TempleOfDroplets_WestHole_0:: @ 080E38E0
 	object_raw subtype=0x12, x=0x88, y=0x68, paramC=0x4e0000
-	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramB=0xfff8, paramC=0x4e0000
-	manager subtype=0x1a, unknown=0x8, paramA=0x8
+	manager subtype=0x15, x=0x88, y=0x68, pool=0x8, paramB=0xfff8, paramC=0x4e0000
+	manager subtype=0x1a, pool=0x8, paramA=0x8
 	entity_list_end
 
 Enemies_TempleOfDroplets_WestHole:: @ 080E3920
@@ -9556,8 +9556,8 @@ Room_TempleOfDroplets_NorthSplit:: @ 080E3A90
 
 Entities_TempleOfDroplets_EastHole_0:: @ 080E3AB0
 	object_raw subtype=0x12, x=0x88, y=0x68, paramC=0x510000
-	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramB=0xfff8, paramC=0x510000
-	manager subtype=0x1a, unknown=0x8, paramA=0x9
+	manager subtype=0x15, x=0x88, y=0x68, pool=0x8, paramB=0xfff8, paramC=0x510000
+	manager subtype=0x1a, pool=0x8, paramA=0x9
 	entity_list_end
 
 Enemies_TempleOfDroplets_EastHole:: @ 080E3AF0
@@ -9596,7 +9596,7 @@ Entities_TempleOfDroplets_Entrance_0:: @ 080E3B60
 	object_raw subtype=0x39, x=0x108, y=0x178, paramA=0x2, paramC=0x2cffff
 	object_raw subtype=0x34, x=0xd8, y=0xe8, paramB=0x560, paramC=0x9c0148
 	object_raw subtype=0x34, x=0x138, y=0xe8, paramA=0x1, paramB=0x3060, paramC=0x7001c7
-	manager subtype=0x15, x=0x108, y=0xc8, unknown=0x8, paramA=0x6, paramB=0x10ff78
+	manager subtype=0x15, x=0x108, y=0xc8, pool=0x8, paramA=0x6, paramB=0x10ff78
 	entity_list_end
 
 Enemies_TempleOfDroplets_Entrance:: @ 080E3C70
@@ -9644,8 +9644,8 @@ Room_TempleOfDroplets_NorthwestStairs:: @ 080E3D20
 
 Entities_TempleOfDroplets_ScissorsMiniboss_0:: @ 080E3D40
 	manager subtype=0x1e, x=0xb0, y=0x20, paramB=0x200030, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x2e8000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x2e009c
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x2e8000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x2e009c
 	object_raw subtype=0x8, x=0xc8, y=0x18, paramA=0x10, paramC=0x9cffff
 	object_raw subtype=0x8, x=0x58, y=0x98, paramA=0x2, paramC=0x9cffff
 	object_raw subtype=0x34, x=0x88, y=0x58, paramB=0x360, paramC=0x9c038d
@@ -9665,10 +9665,10 @@ TileEntities_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E00
 	tile_entity_list_end
 
 gUnk_additional_8_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E10
-	enemy_raw subtype=0x40, x=0x58, y=0x58, unknown=0x2f
-	enemy_raw subtype=0x40, x=0xb8, y=0x58, unknown=0x2f
-	enemy_raw subtype=0x40, x=0x88, y=0x88, unknown=0x2f
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	enemy_raw subtype=0x40, x=0x58, y=0x58, pool=0x2f
+	enemy_raw subtype=0x40, x=0xb8, y=0x58, pool=0x2f
+	enemy_raw subtype=0x40, x=0x88, y=0x88, pool=0x2f
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	entity_list_end
 
 Room_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E60
@@ -9730,7 +9730,7 @@ Entities_TempleOfDroplets_WaterfallNortheast_1:: @ 080E3FC4
 Enemies_TempleOfDroplets_WaterfallNortheast:: @ 080E4004
 	enemy_raw subtype=0x11, x=0x58, y=0x128, paramB=0x12080000, paramC=0x1000020
 	enemy_raw subtype=0x11, x=0x38, y=0x138, paramB=0x12080000, paramC=0x1000020
-	projectile_raw subtype=0x1e, x=0xa0, y=0x108, unknown=0x3, paramA=0x8, paramC=0x64ff90
+	projectile_raw subtype=0x1e, x=0xa0, y=0x108, pool=0x3, paramA=0x8, paramC=0x64ff90
 	entity_list_end
 
 TileEntities_TempleOfDroplets_WaterfallNortheast:: @ 080E4044
@@ -9749,7 +9749,7 @@ Room_TempleOfDroplets_WaterfallNortheast:: @ 080E4054
 
 Entities_TempleOfDroplets_Element_0:: @ 080E4074
 	ezlo_hint x=0x14, y=0x14, rx=0xd, ry=0x2, msg=0xb41, flag=0x80
-	manager subtype=0x15, x=0x108, y=0x118, unknown=0x8, paramA=0x4, paramB=0xff78, paramC=0x340000
+	manager subtype=0x15, x=0x108, y=0x118, pool=0x8, paramA=0x4, paramB=0xff78, paramC=0x340000
 	object_raw subtype=0x8f, x=0x108, y=0xd8
 	object_raw subtype=0x83, x=0x58, y=0x58, paramC=0x360000
 	object_raw subtype=0x83, x=0x1b8, y=0x58, paramC=0x340000
@@ -9933,8 +9933,8 @@ Room_TempleOfDroplets_IcePitMaze:: @ 080E4668
 
 Entities_TempleOfDroplets_HoleToBlueChuchu_0:: @ 080E46BC
 	object_raw subtype=0x12, x=0xb8, y=0x68, paramC=0x6c0000
-	manager subtype=0x15, x=0xb8, y=0x68, unknown=0x8, paramB=0xffc8, paramC=0x6c0000
-	manager subtype=0x1a, unknown=0x8, paramA=0xa
+	manager subtype=0x15, x=0xb8, y=0x68, pool=0x8, paramB=0xffc8, paramC=0x6c0000
+	manager subtype=0x1a, pool=0x8, paramA=0xa
 	entity_list_end
 
 Enemies_TempleOfDroplets_HoleToBlueChuchu:: @ 080E46FC
@@ -9984,12 +9984,12 @@ Room_TempleOfDroplets_WaterfallSoutheast:: @ 080E47EC
 
 Entities_TempleOfDroplets_WaterfallSouthwest_0:: @ 080E480C
 	object_raw subtype=0x3, x=0xc8, y=0x78, paramC=0x3c0002
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x3c003d
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x3c003d
 	object_raw subtype=0x33, x=0x68, y=0xb8, paramA=0x3, paramC=0x3d0000
 	object_raw subtype=0x33, x=0x78, y=0xb8, paramA=0x3, paramC=0x3d0000
 	object_raw subtype=0x33, x=0x88, y=0xb8, paramA=0x3, paramC=0x3d0000
 	object_raw subtype=0x32, x=0xa8, y=0x98
-	manager subtype=0x1a, unknown=0x8, paramA=0xc
+	manager subtype=0x1a, pool=0x8, paramA=0xc
 	object_raw subtype=0xc, x=0xe8, y=0xe8, paramA=0x4, paramB=0x3f
 	object_raw subtype=0x0, x=0xb8, y=0x38, collision=1, paramA=0x54, paramB=0x400, paramC=0x850000
 	object_raw subtype=0x0, x=0xb8, y=0x58, collision=1, paramA=0x54, paramB=0x400, paramC=0x860000
@@ -10018,7 +10018,7 @@ Room_TempleOfDroplets_WaterfallSouthwest:: @ 080E4924
 	.4byte sub_StateChange_TempleOfDroplets_WaterfallSouthwest
 
 Entities_TempleOfDroplets_BigOcto_0:: @ 080E4944
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x40050000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x40050000
 	manager subtype=0x1e, x=0xd0, y=0x20, paramB=0x200070, paramC=0x80010000
 	object_raw subtype=0x33, x=0xf8, y=0x18, paramA=0x4, paramB=0x1, paramC=0x80010000
 	object_raw subtype=0x33, x=0x108, y=0x18, paramA=0x4, paramB=0x1, paramC=0x80010000
@@ -10029,7 +10029,7 @@ Entities_TempleOfDroplets_BigOcto_0:: @ 080E4944
 
 gUnk_additional_9_TempleOfDroplets_BigOcto:: @ 080E49C4
 	object_raw subtype=0xac, x=0x108, y=0x78, collision=1, paramA=0x42
-	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0xa, paramC=0x80000000
+	manager subtype=0xe, y=0x3c, pool=0x1f, paramA=0xa, paramC=0x80000000
 	entity_list_end
 
 gUnk_additional_a_TempleOfDroplets_BigOcto:: @ 080E49F4
@@ -10090,7 +10090,7 @@ Room_TempleOfDroplets_ToBigBlueChuchu:: @ 080E4B48
 
 Entities_TempleOfDroplets_BigBlueChuchu_0:: @ 080E4B68
 	object_raw subtype=0xc, x=0x88, y=0x70, paramA=0x2, paramB=0x47, paramC=0x480000
-	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramA=0x1, paramB=0xfff8, paramC=0x460000
+	manager subtype=0x15, x=0x88, y=0x68, pool=0x8, paramA=0x1, paramB=0xfff8, paramC=0x460000
 	object_raw subtype=0x7b, x=0x98, y=0xb8, paramC=0x460000
 	object_raw subtype=0x33, x=0xb8, y=0x18, paramA=0x4, paramB=0x1, paramC=0x80000000
 	object_raw subtype=0x33, x=0xc8, y=0x18, paramA=0x4, paramB=0x1, paramC=0x80000000
@@ -10128,17 +10128,17 @@ Room_TempleOfDroplets_BigBlueChuchu:: @ 080E4C68
 
 Entities_TempleOfDroplets_BigBlueChuchuKey_0:: @ 080E4C88
 	object_raw subtype=0x7b, x=0x78, y=0x98, paramC=0x4b0000
-	manager subtype=0x2e, unknown=0x0, paramB=0x1400, paramC=0x4a0049
-	manager subtype=0xf, unknown=0x8, paramA=0x4
+	manager subtype=0x2e, pool=0x0, paramB=0x1400, paramC=0x4a0049
+	manager subtype=0xf, pool=0x8, paramA=0x4
 	object_raw subtype=0x85, x=0x78, y=0x68, paramA=0x1, paramB=0x8, paramC=0x4c0000
 	entity_list_end
 
 gUnk_080E4CD8:: @ 080E4CD8
-	manager subtype=0x15, x=0x78, y=0x68, unknown=0x8, paramA=0x2, paramB=0x80008, paramC=0x4b0000
+	manager subtype=0x15, x=0x78, y=0x68, pool=0x8, paramA=0x2, paramB=0x80008, paramC=0x4b0000
 	entity_list_end
 
 gUnk_080E4CF8:: @ 080E4CF8
-	manager subtype=0x15, x=0x78, y=0x68, unknown=0x8, paramA=0x7, paramB=0x80008, paramC=0x4b0000
+	manager subtype=0x15, x=0x78, y=0x68, pool=0x8, paramA=0x7, paramB=0x80008, paramC=0x4b0000
 	entity_list_end
 
 Enemies_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D18
@@ -10164,7 +10164,7 @@ Room_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D4C
 	.4byte gUnk_additional_8_TempleOfDroplets_BigBlueChuchuKey
 
 Entities_TempleOfDroplets_BossKey_0:: @ 080E4D70
-	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramA=0x2, paramB=0xfff8, paramC=0x4e00a2
+	manager subtype=0x15, x=0x88, y=0x68, pool=0x8, paramA=0x2, paramB=0xfff8, paramC=0x4e00a2
 	object_raw subtype=0x7b, x=0x58, y=0x58, paramC=0x4e0000
 	object_raw subtype=0x84, x=0x118, y=0x48, paramB=0x8
 	object_raw subtype=0x84, x=0x128, y=0x68, paramA=0x2, paramB=0x8, paramC=0x4f0000
@@ -10195,8 +10195,8 @@ Room_TempleOfDroplets_BossKey:: @ 080E4E0C
 
 Entities_TempleOfDroplets_NorthSmallKey_0:: @ 080E4E30
 	object_raw subtype=0x7b, x=0xd8, y=0x68, paramC=0x510000
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x510050
-	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramA=0x2, paramB=0xfff8, paramC=0x5100a3
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x510050
+	manager subtype=0x15, x=0x88, y=0x68, pool=0x8, paramA=0x2, paramB=0xfff8, paramC=0x5100a3
 	object_raw subtype=0x84, x=0x48, y=0x48, paramA=0x1, paramB=0x8, paramC=0x520000
 	ezlo_hint x=0x16, y=0x6, rx=0x3, ry=0x5, msg=0xb40, flag=0x53, flag2=0x50
 	ezlo_hint x=0x6, y=0x6, rx=0x4, ry=0x5, msg=0xb3f, flag=0x84
@@ -10369,11 +10369,11 @@ Enemies_TempleOfDroplets_SpikeBar:: @ 080E5280
 	enemy_raw subtype=0x40, x=0x28, y=0x1a8, paramB=0x10100000, paramC=0x1700020
 	enemy_raw subtype=0x40, x=0x88, y=0x1b8, paramB=0x10100000, paramC=0x1700020
 	enemy_raw subtype=0x40, x=0x78, y=0x1e8, paramB=0x10100000, paramC=0x1700020
-	manager subtype=0x28, unknown=0x3, paramB=0x2
-	projectile_raw subtype=0x1e, x=0x98, y=0x48, unknown=0x3, paramA=0x2, paramC=0x100ffa0
-	projectile_raw subtype=0x1e, x=0x28, y=0x88, unknown=0x3, paramA=0x2, paramC=0x1000060
-	projectile_raw subtype=0x1e, x=0x98, y=0xc8, unknown=0x3, paramA=0x2, paramC=0x100ffa0
-	projectile_raw subtype=0x1e, x=0x28, y=0x108, unknown=0x3, paramA=0x2, paramC=0x1000060
+	manager subtype=0x28, pool=0x3, paramB=0x2
+	projectile_raw subtype=0x1e, x=0x98, y=0x48, pool=0x3, paramA=0x2, paramC=0x100ffa0
+	projectile_raw subtype=0x1e, x=0x28, y=0x88, pool=0x3, paramA=0x2, paramC=0x1000060
+	projectile_raw subtype=0x1e, x=0x98, y=0xc8, pool=0x3, paramA=0x2, paramC=0x100ffa0
+	projectile_raw subtype=0x1e, x=0x28, y=0x108, pool=0x3, paramA=0x2, paramC=0x1000060
 	entity_list_end
 
 TileEntities_TempleOfDroplets_SpikeBar:: @ 080E5320
@@ -10401,7 +10401,7 @@ Entities_TempleOfDroplets_Lanterns_0:: @ 080E5350
 	manager subtype=0x23, x=0xa8, y=0x68, paramA=0x3, paramB=0xc0002, paramC=0x80070057
 	manager subtype=0x23, x=0xa8, y=0x98, paramA=0x3, paramB=0xc0002, paramC=0x80080057
 	manager subtype=0x11, paramC=0xa0000057
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0xa0000057
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0xa0000057
 	object_raw subtype=0x8, x=0x28, y=0x78, paramA=0x3, paramC=0x57ffff
 	entity_list_end
 
@@ -10429,9 +10429,9 @@ Room_TempleOfDroplets_Lanterns:: @ 080E5460
 Entities_TempleOfDroplets_LilypadIceBlocks_0:: @ 080E5480
 	object_raw subtype=0x14, x=0x1a8, y=0x68
 	object_raw subtype=0x3, x=0x1c8, y=0x1b8, paramC=0x580001
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x58009d
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x58009d
 	object_raw subtype=0x3, x=0x98, y=0x188, paramA=0x1, paramC=0x80000001
-	manager subtype=0x2e, unknown=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
+	manager subtype=0x2e, pool=0x0, paramA=0x1, paramB=0xa00, paramC=0x80000000
 	object_raw subtype=0x33, x=0x178, y=0x1c8, paramA=0x3, paramC=0x9d0000
 	object_raw subtype=0x33, x=0x188, y=0x1c8, paramA=0x3, paramC=0x9d0000
 	object_raw subtype=0x33, x=0x198, y=0x1c8, paramA=0x3, paramC=0x9d0000
@@ -10526,8 +10526,8 @@ Entities_TempleOfDroplets_FireBars_0:: @ 080E5848
 	entity_list_end
 
 Enemies_TempleOfDroplets_FireBars:: @ 080E5858
-	projectile_raw subtype=0x1d, x=0x38, y=0x38, unknown=0x3
-	projectile_raw subtype=0x1d, x=0x88, y=0x98, unknown=0x3
+	projectile_raw subtype=0x1d, x=0x38, y=0x38, pool=0x3
+	projectile_raw subtype=0x1d, x=0x88, y=0x98, pool=0x3
 	enemy_raw subtype=0x32, x=0x68, y=0x58
 	enemy_raw subtype=0x32, x=0x98, y=0x78
 	entity_list_end
@@ -10605,20 +10605,20 @@ Room_TempleOfDroplets_LanternMaze:: @ 080E5B38
 	.4byte sub_StateChange_Dojos_83
 
 Entities_TempleOfDroplets_Madderpillars_0:: @ 080E5B58
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x660000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x66009e
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x660000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x66009e
 	object_raw subtype=0x8, x=0xd8, y=0x68, paramA=0x1, paramC=0x9effff
-	projectile_raw subtype=0x15, x=0x78, y=0xa8, unknown=0xf, paramA=0x2, paramC=0x670000
-	projectile_raw subtype=0x15, x=0x38, y=0xa8, unknown=0xf, paramA=0x2
-	projectile_raw subtype=0x15, x=0xa8, y=0xa8, unknown=0xf, paramA=0x2
-	projectile_raw subtype=0x15, x=0x38, y=0x28, unknown=0xf
-	projectile_raw subtype=0x15, x=0x58, y=0x28, unknown=0xf
-	projectile_raw subtype=0x15, x=0x78, y=0x28, unknown=0xf
-	projectile_raw subtype=0x15, x=0xa8, y=0x28, unknown=0xf
-	projectile_raw subtype=0x15, x=0x28, y=0x58, unknown=0xf, paramA=0x3
-	projectile_raw subtype=0x15, x=0x28, y=0x88, unknown=0xf, paramA=0x3
-	projectile_raw subtype=0x15, x=0xd8, y=0x48, unknown=0xf, paramA=0x1
-	projectile_raw subtype=0x15, x=0xd8, y=0x88, unknown=0xf, paramA=0x1
+	projectile_raw subtype=0x15, x=0x78, y=0xa8, pool=0xf, paramA=0x2, paramC=0x670000
+	projectile_raw subtype=0x15, x=0x38, y=0xa8, pool=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0xa8, y=0xa8, pool=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0x38, y=0x28, pool=0xf
+	projectile_raw subtype=0x15, x=0x58, y=0x28, pool=0xf
+	projectile_raw subtype=0x15, x=0x78, y=0x28, pool=0xf
+	projectile_raw subtype=0x15, x=0xa8, y=0x28, pool=0xf
+	projectile_raw subtype=0x15, x=0x28, y=0x58, pool=0xf, paramA=0x3
+	projectile_raw subtype=0x15, x=0x28, y=0x88, pool=0xf, paramA=0x3
+	projectile_raw subtype=0x15, x=0xd8, y=0x48, pool=0xf, paramA=0x1
+	projectile_raw subtype=0x15, x=0xd8, y=0x88, pool=0xf, paramA=0x1
 	object_raw subtype=0xbc, x=0xbc, y=0x58
 	object_raw subtype=0xbc, x=0xbc, y=0x78
 	entity_list_end
@@ -10684,18 +10684,18 @@ Room_TempleOfDroplets_AfterMadderpillars:: @ 080E5DAC
 Entities_TempleOfDroplets_BlueChuchuKeyLever_0:: @ 080E5DCC
 	object_raw subtype=0x12, x=0xb8, y=0x68, paramC=0x4b0000
 	object_raw subtype=0x7b, x=0xb8, y=0x98, paramC=0x6c0000
-	manager subtype=0x1a, unknown=0x8, paramA=0xb
+	manager subtype=0x1a, pool=0x8, paramA=0xb
 	object_raw subtype=0x5, x=0x58, y=0x28
 	object_raw subtype=0x5, x=0x58, y=0x38
 	object_raw subtype=0x5, x=0x58, y=0x48
 	entity_list_end
 
 gUnk_080E5E3C:: @ 080E5E3C
-	manager subtype=0x15, x=0xb8, y=0x68, unknown=0x8, paramA=0x2, paramB=0xffc8, paramC=0x6c0000
+	manager subtype=0x15, x=0xb8, y=0x68, pool=0x8, paramA=0x2, paramB=0xffc8, paramC=0x6c0000
 	entity_list_end
 
 gUnk_080E5E5C:: @ 080E5E5C
-	manager subtype=0x15, x=0xb8, y=0x68, unknown=0x8, paramA=0x3, paramB=0xffc8, paramC=0x6c0000
+	manager subtype=0x15, x=0xb8, y=0x68, pool=0x8, paramA=0x3, paramB=0xffc8, paramC=0x6c0000
 	entity_list_end
 
 Enemies_TempleOfDroplets_BlueChuchuKeyLever:: @ 080E5E7C
@@ -10716,9 +10716,9 @@ Room_TempleOfDroplets_BlueChuchuKeyLever:: @ 080E5E9C
 	.4byte sub_StateChange_TempleOfDroplets_BlueChuchuKeyLever
 
 Entities_TempleOfDroplets_MulldozerKey_0:: @ 080E5EBC
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x6d0000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x6d0000
 	manager subtype=0x17, x=0x78, y=0x68, paramA=0x53, paramB=0x10200, paramC=0x6e006f
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x6d006e
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x6d006e
 	object_raw subtype=0xbc, x=0x68, y=0x68
 	object_raw subtype=0xbc, x=0x88, y=0x68
 	entity_list_end
@@ -10793,9 +10793,9 @@ Room_TempleOfDroplets_BombWall:: @ 080E6130
 	.4byte sub_StateChange_Dojos_87
 
 Entities_TempleOfDroplets_LilypadWestB2_0:: @ 080E6150
-	entity_raw type=0x5, subtype=0x0, x=0x600, unknown=0x0, paramB=0x543
+	entity_raw type=0x5, subtype=0x0, x=0x600, pool=0x0, paramB=0x543
 	object_raw subtype=0x3, x=0x38, y=0x188, paramC=0x720001
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x7200a0
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x7200a0
 	object_raw subtype=0x33, x=0xb8, y=0x148, paramA=0x3, paramC=0xa00000
 	object_raw subtype=0x33, x=0xb8, y=0x158, paramA=0x3, paramC=0xa00000
 	object_raw subtype=0x33, x=0xb8, y=0x168, paramA=0x3, paramC=0xa00000
@@ -10811,7 +10811,7 @@ Entities_TempleOfDroplets_LilypadWestB2_0:: @ 080E6150
 	entity_list_end
 
 Enemies_TempleOfDroplets_LilypadWestB2:: @ 080E6250
-	projectile_raw subtype=0x1e, x=0x78, y=0xe0, unknown=0x3, paramA=0x8, paramC=0xc000a8
+	projectile_raw subtype=0x1e, x=0x78, y=0xe0, pool=0x3, paramA=0x8, paramC=0xc000a8
 	entity_list_end
 
 TileEntities_TempleOfDroplets_LilypadWestB2:: @ 080E6270
@@ -10868,8 +10868,8 @@ Entities_TempleOfDroplets_LanternScissors_0:: @ 080E639C
 	manager subtype=0x23, x=0xa8, y=0x68, paramA=0x3, paramB=0x54001, paramC=0x80020000
 	manager subtype=0x23, x=0x78, y=0x98, paramA=0x3, paramB=0x54001, paramC=0x80030000
 	manager subtype=0x1e, x=0x36, y=0x20, paramB=0x900020, paramC=0x80050000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x788005
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x78009f
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x788005
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x78009f
 	object_raw subtype=0x8, x=0x28, y=0x38, paramA=0x13, paramC=0x9fffff
 	object_raw subtype=0x8, x=0xc8, y=0x78, paramA=0x1, paramC=0x9fffff
 
@@ -10883,10 +10883,10 @@ TileEntities_TempleOfDroplets_LanternScissors:: @ 080E643C
 	tile_entity_list_end
 
 gUnk_additional_8_TempleOfDroplets_LanternScissors:: @ 080E6454
-	enemy_raw subtype=0x40, x=0x68, y=0x58, unknown=0x2f
-	enemy_raw subtype=0x40, x=0x78, y=0x88, unknown=0x2f
-	enemy_raw subtype=0x40, x=0x88, y=0x68, unknown=0x2f
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	enemy_raw subtype=0x40, x=0x68, y=0x58, pool=0x2f
+	enemy_raw subtype=0x40, x=0x78, y=0x88, pool=0x2f
+	enemy_raw subtype=0x40, x=0x88, y=0x68, pool=0x2f
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	entity_list_end
 
 Room_TempleOfDroplets_LanternScissors:: @ 080E64A4
@@ -10903,7 +10903,7 @@ Room_TempleOfDroplets_LanternScissors:: @ 080E64A4
 Entities_TempleOfDroplets_LilypadMiddleB2_0:: @ 080E64C8
 	object_raw subtype=0x0, x=0x98, y=0x98, collision=1, paramA=0x53, paramB=0x800, paramC=0x7a0000
 	object_raw subtype=0x3, x=0x128, y=0x68, paramC=0x790001
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x7900a1
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x7900a1
 	object_raw subtype=0x33, x=0x138, y=0x28, paramA=0x3, paramC=0xa10000
 	object_raw subtype=0x33, x=0x138, y=0x38, paramA=0x3, paramC=0xa10000
 	object_raw subtype=0x33, x=0x138, y=0x48, paramA=0x3, paramC=0xa10000
@@ -10933,17 +10933,17 @@ Room_TempleOfDroplets_LilypadMiddleB2:: @ 080E65B8
 	.4byte sub_StateChange_Dojos_91
 
 Entities_TempleOfDroplets_LilypadEastB2_0:: @ 080E65D8
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x7b0000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x7b007c
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x7b0000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x7b007c
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x7cffff
-	projectile_raw subtype=0x15, x=0x80, y=0x28, unknown=0xf
-	projectile_raw subtype=0x15, x=0xd0, y=0x28, unknown=0xf
-	projectile_raw subtype=0x15, x=0xf8, y=0x58, unknown=0xf, paramA=0x1
-	projectile_raw subtype=0x15, x=0xf8, y=0x78, unknown=0xf, paramA=0x1
-	projectile_raw subtype=0x15, x=0xf8, y=0x98, unknown=0xf, paramA=0x1
-	projectile_raw subtype=0x15, x=0x78, y=0xc8, unknown=0xf, paramA=0x2
-	projectile_raw subtype=0x15, x=0x98, y=0xc8, unknown=0xf, paramA=0x2
-	projectile_raw subtype=0x15, x=0xc8, y=0xc8, unknown=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0x80, y=0x28, pool=0xf
+	projectile_raw subtype=0x15, x=0xd0, y=0x28, pool=0xf
+	projectile_raw subtype=0x15, x=0xf8, y=0x58, pool=0xf, paramA=0x1
+	projectile_raw subtype=0x15, x=0xf8, y=0x78, pool=0xf, paramA=0x1
+	projectile_raw subtype=0x15, x=0xf8, y=0x98, pool=0xf, paramA=0x1
+	projectile_raw subtype=0x15, x=0x78, y=0xc8, pool=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0x98, y=0xc8, pool=0xf, paramA=0x2
+	projectile_raw subtype=0x15, x=0xc8, y=0xc8, pool=0xf, paramA=0x2
 	entity_list_end
 
 Enemies_TempleOfDroplets_LilypadEastB2:: @ 080E6698
@@ -10975,8 +10975,8 @@ Entities_TempleOfDroplets_FlameBarBlockPuzzle_0:: @ 080E66FC
 	entity_list_end
 
 Enemies_TempleOfDroplets_FlameBarBlockPuzzle:: @ 080E673C
-	projectile_raw subtype=0x1d, x=0x58, y=0x38, unknown=0x3
-	projectile_raw subtype=0x1d, x=0x98, y=0x88, unknown=0x3
+	projectile_raw subtype=0x1d, x=0x58, y=0x38, pool=0x3
+	projectile_raw subtype=0x1d, x=0x98, y=0x88, pool=0x3
 	entity_list_end
 
 TileEntities_TempleOfDroplets_FlameBarBlockPuzzle:: @ 080E676C
@@ -11024,7 +11024,7 @@ Entities_RoyalCrypt_KingGustaf_0:: @ 080E67AC
 
 gUnk_080E693C:: @ 080E693C
 	npc_raw subtype=0x42, x=0x118, y=0x48, script=script_KingGustav
-	object_raw subtype=0x6a, x=0x118, y=0x28, unknown=0x4f, paramA=0x12, paramB=0x9, paramC=script_CutsceneMiscObjectKingsGravestone
+	object_raw subtype=0x6a, x=0x118, y=0x28, pool=0x4f, paramA=0x12, paramB=0x9, paramC=script_CutsceneMiscObjectKingsGravestone
 	entity_list_end
 
 Enemies_RoyalCrypt_KingGustaf:: @ 080E696C
@@ -11053,7 +11053,7 @@ Entities_RoyalCrypt_WaterRope_0:: @ 080E69AC
 	enemy_raw subtype=0x49, x=0x19, y=0xf10e, collision=1, paramA=0x64, paramB=0x101a8c00, paramC=0x403020
 	enemy_raw subtype=0x49, x=0x19, y=0xf2c2, collision=1, paramA=0x6e, paramB=0x101a8c00, paramC=0x403020
 	enemy_raw subtype=0x49, x=0x19, y=0xf2ce, collision=1, paramA=0x78, paramB=0x101a8c00, paramC=0x403020
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x198c00
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x198c00
 	manager subtype=0xf, x=0x58, y=0x78, paramA=0xc, paramC=0x198c00
 	manager subtype=0xf, x=0xb8, y=0x78, paramA=0xc, paramC=0x198c00
 	object_raw subtype=0x39, x=0x88, y=0x38, paramA=0x4, paramC=0x19ffff
@@ -11067,8 +11067,8 @@ TileEntities_RoyalCrypt_WaterRope:: @ 080E6A8C
 
 gUnk_additional_8_RoyalCrypt_WaterRope:: @ 080E6A94
 	object_raw subtype=0x8, x=0x88, y=0xc8, paramA=0x12, paramC=0x19ffff
-	enemy_raw subtype=0x3b, x=0x58, y=0x78, unknown=0x2f
-	enemy_raw subtype=0x3b, x=0xb8, y=0x78, unknown=0x2f
+	enemy_raw subtype=0x3b, x=0x58, y=0x78, pool=0x2f
+	enemy_raw subtype=0x3b, x=0xb8, y=0x78, pool=0x2f
 	entity_list_end
 
 Room_RoyalCrypt_WaterRope:: @ 080E6AD4
@@ -11289,8 +11289,8 @@ gUnk_080E71AC:: @ 080E71AC
 	entity_list_end
 
 Enemies_RoyalCrypt_Entrance:: @ 080E71CC
-	enemy_raw subtype=0x3b, x=0x58, y=0x48, unknown=0x2f, paramA=0x1
-	enemy_raw subtype=0x3b, x=0xb8, y=0x48, unknown=0x2f, paramA=0x1
+	enemy_raw subtype=0x3b, x=0x58, y=0x48, pool=0x2f, paramA=0x1
+	enemy_raw subtype=0x3b, x=0xb8, y=0x48, pool=0x2f, paramA=0x1
 	entity_list_end
 
 TileEntities_RoyalCrypt_Entrance:: @ 080E71FC
@@ -11307,7 +11307,7 @@ Room_RoyalCrypt_Entrance:: @ 080E7204
 	.4byte sub_StateChange_RoyalCrypt_Entrance
 
 Entities_PalaceOfWinds_GyorgTornado_0:: @ 080E7224
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	enemy_raw subtype=0x43, x=0x198, y=0x108
 	enemy_raw subtype=0x43, x=0x218, y=0x108
 	enemy_raw subtype=0x43, x=0x1a8, y=0x178
@@ -11324,7 +11324,7 @@ gUnk_080E72C4:: @ 080E72C4
 
 gUnk_additional_8_PalaceOfWinds_GyorgTornado:: @ 080E72E4
 	object_raw subtype=0xac, x=0x1d8, y=0xc8, paramA=0x43
-	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0x9, paramC=0x80000000
+	manager subtype=0xe, y=0x3c, pool=0x1f, paramA=0x9, paramC=0x80000000
 	entity_list_end
 
 gUnk_additional_9_PalaceOfWinds_GyorgTornado:: @ 080E7314
@@ -11352,7 +11352,7 @@ Room_PalaceOfWinds_GyorgTornado:: @ 080E7364
 	.4byte gUnk_additional_9_PalaceOfWinds_GyorgTornado
 
 Entities_PalaceOfWinds_BossKey_0:: @ 080E738C
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_BossKey:: @ 080E73AC
@@ -11375,8 +11375,8 @@ Room_PalaceOfWinds_BossKey:: @ 080E73E4
 	.4byte sub_StateChange_PalaceOfWinds_BossKey
 
 Entities_PalaceOfWinds_BeforeBallAndChainSoldiers_0:: @ 080E7404
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x20
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x20
 	object_raw subtype=0x29, x=0xa0, y=0x50, paramA=0x80
 	enemy_raw subtype=0x43, x=0x38, y=0xa8
 	enemy_raw subtype=0x43, x=0x38, y=0xb8
@@ -11404,9 +11404,9 @@ Room_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74C4
 	.4byte sub_StateChange_PalaceOfWinds_BeforeBallAndChainSoldiers
 
 Entities_PalaceOfWinds_GyorgBossDoor_0:: @ 080E74E4
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x21
-	manager subtype=0x1a, unknown=0x8, paramA=0x22
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x21
+	manager subtype=0x1a, pool=0x8, paramA=0x22
 	object_raw subtype=0x29, x=0x168, y=0x70, paramA=0x80
 	object_raw subtype=0x29, x=0x230, y=0x70, paramA=0x80
 	object_raw subtype=0x39, x=0x168, y=0x28, paramC=0x36ffff
@@ -11443,7 +11443,7 @@ Room_PalaceOfWinds_GyorgBossDoor:: @ 080E763C
 	.4byte sub_StateChange_PalaceOfWinds_GyorgBossDoor
 
 Entities_PalaceOfWinds_EastChestFromGyorgBossDoor_0:: @ 080E765C
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E767C
@@ -11465,14 +11465,14 @@ Room_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E76A4
 	.4byte sub_StateChange_PalaceOfWinds_EastChestFromGyorgBossDoor
 
 Entities_PalaceOfWinds_MoblinAndWizzrobeFight_0:: @ 080E76C4
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x3, x=0x48, y=0x38, paramC=0x380001
 	object_raw subtype=0x9f, x=0x80, y=0x68, paramB=0xc0000, paramC=0x38
 	object_raw subtype=0x5, x=0xc8, y=0x38
 	object_raw subtype=0x5, x=0xb8, y=0x38, paramA=0x5f
 	manager subtype=0x1e, x=0xb0, y=0x150, paramB=0x700020, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x3a8000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x3a0081
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x3a8000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x3a0081
 	entity_list_end
 
 Enemies_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7754
@@ -11485,8 +11485,8 @@ TileEntities_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7764
 gUnk_additional_8_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7774
 	enemy_raw subtype=0x29, x=0x78, y=0x158, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x29, x=0x78, y=0x1b8, paramB=0xe140000, paramC=0x1500030
-	enemy_raw subtype=0x15, x=0x48, y=0x188, unknown=0x2f, paramB=0xe140000, paramC=0x1500030
-	enemy_raw subtype=0x15, x=0x78, y=0x188, unknown=0x2f, paramB=0xe140000, paramC=0x1500030
+	enemy_raw subtype=0x15, x=0x48, y=0x188, pool=0x2f, paramB=0xe140000, paramC=0x1500030
+	enemy_raw subtype=0x15, x=0x78, y=0x188, pool=0x2f, paramB=0xe140000, paramC=0x1500030
 	object_raw subtype=0x8, x=0xd8, y=0x198, paramA=0x11, paramC=0x810000
 	entity_list_end
 
@@ -11502,7 +11502,7 @@ Room_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E77D4
 	.4byte gUnk_additional_8_PalaceOfWinds_MoblinAndWizzrobeFight
 
 Entities_PalaceOfWinds_FourButtonStalfos_0:: @ 080E77F8
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x3, x=0x48, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x68, y=0x48, paramA=0x1, paramC=0x80010001
 	object_raw subtype=0x3, x=0x48, y=0x68, paramA=0x1, paramC=0x80020001
@@ -11540,7 +11540,7 @@ Room_PalaceOfWinds_FourButtonStalfos:: @ 080E7948
 	.4byte sub_StateChange_PalaceOfWinds_FourButtonStalfos
 
 Entities_PalaceOfWinds_FanAndKeyToBossKey_0:: @ 080E7968
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x8, x=0x78, y=0x28, paramA=0x8, paramC=0x3cffff
 	object_raw subtype=0x3, x=0xb8, y=0x1b8, paramC=0x3d0001
 	object_raw subtype=0x9f, x=0x80, y=0x188, paramA=0x2, paramB=0xc0000, paramC=0x3d
@@ -11570,11 +11570,11 @@ Room_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E7A30
 	.4byte sub_StateChange_PalaceOfWinds_FanAndKeyToBossKey
 
 Entities_PalaceOfWinds_BallAndChainSoldiers_0:: @ 080E7A50
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x39, x=0x78, y=0x118, paramA=0x2, paramC=0x42ffff
 	object_raw subtype=0x8, x=0x28, y=0x58, paramA=0xb, paramC=0x3fffff
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x400000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x400082
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x400000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x400082
 	manager subtype=0x17, x=0x78, y=0xa8, paramA=0x53, paramB=0x10200, paramC=0x820041
 	entity_list_end
 
@@ -11602,7 +11602,7 @@ Room_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7B10
 	.4byte gUnk_additional_8_PalaceOfWinds_BallAndChainSoldiers
 
 Entities_PalaceOfWinds_BombarossaPath_0:: @ 080E7B34
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x9d, x=0x78, y=0x58, paramA=0x1, paramC=0x80008000
 	object_raw subtype=0x8, x=0x38, y=0x18, paramA=0x4, paramC=0x8000ffff
 	entity_list_end
@@ -11640,8 +11640,8 @@ Room_PalaceOfWinds_BombarossaPath:: @ 080E7C84
 	.4byte sub_StateChange_PalaceOfWinds_BombarossaPath
 
 Entities_PalaceOfWinds_HoleToDarknut_0:: @ 080E7CA4
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x23
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x23
 	enemy_raw subtype=0x43, x=0x48, y=0x38, paramB=0x5f
 	enemy_raw subtype=0x43, x=0xa8, y=0x38, paramB=0x5f
 	enemy_raw subtype=0x43, x=0x58, y=0x38, paramB=0x5f
@@ -11667,8 +11667,8 @@ Room_PalaceOfWinds_HoleToDarknut:: @ 080E7D44
 	.4byte sub_StateChange_PalaceOfWinds_HoleToDarknut
 
 Entities_PalaceOfWinds_ToBombarossaPath_0:: @ 080E7D64
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x24
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x24
 	enemy_raw subtype=0x43, x=0x98, y=0x78
 	enemy_raw subtype=0x43, x=0xa8, y=0x78, paramB=0x5d
 	entity_list_end
@@ -11695,11 +11695,11 @@ Room_PalaceOfWinds_ToBombarossaPath:: @ 080E7DEC
 
 Entities_PalaceOfWinds_DarknutMiniboss_0:: @ 080E7E0C
 	manager subtype=0x1e, x=0x20, y=0x60, paramB=0x2000b0, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x7e8000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x7e8000
 	manager subtype=0x35, x=0x78, y=0x48, paramB=0x781e00, paramC=0x7e0084
 	manager subtype=0x5, x=0x7, y=0x4, paramB=0x8c, paramC=0x840001
 	object_raw subtype=0x34, x=0x78, y=0x88, paramB=0x3170, paramC=0x840160
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_DarknutMiniboss:: @ 080E7E7C
@@ -11711,7 +11711,7 @@ TileEntities_PalaceOfWinds_DarknutMiniboss:: @ 080E7E8C
 	tile_entity_list_end
 
 gUnk_additional_8_PalaceOfWinds_DarknutMiniboss:: @ 080E7EA4
-	enemy_raw subtype=0x5, x=0x78, y=0x58, unknown=0x2f, paramA=0x2
+	enemy_raw subtype=0x5, x=0x78, y=0x58, pool=0x2f, paramA=0x2
 	entity_list_end
 
 Room_PalaceOfWinds_DarknutMiniboss:: @ 080E7EC4
@@ -11726,7 +11726,7 @@ Room_PalaceOfWinds_DarknutMiniboss:: @ 080E7EC4
 	.4byte gUnk_additional_8_PalaceOfWinds_DarknutMiniboss
 
 Entities_PalaceOfWinds_BombWallInside_0:: @ 080E7EE8
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_BombWallInside:: @ 080E7F08
@@ -11750,7 +11750,7 @@ Room_PalaceOfWinds_BombWallInside:: @ 080E7F50
 	.4byte sub_StateChange_PalaceOfWinds_BombWallInside
 
 Entities_PalaceOfWinds_BombWallOutside_0:: @ 080E7F70
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	enemy_raw subtype=0x43, x=0x28, y=0x58, paramA=0x2
 	enemy_raw subtype=0x43, x=0x68, y=0x78, paramA=0x2
 	enemy_raw subtype=0x43, x=0x88, y=0xa8, paramA=0x2
@@ -11780,7 +11780,7 @@ Room_PalaceOfWinds_BombWallOutside:: @ 080E8038
 	.4byte sub_StateChange_PalaceOfWinds_BombWallOutside
 
 Entities_PalaceOfWinds_CloudJumps_0:: @ 080E8058
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x29, x=0x30, y=0x90, paramA=0x3
 	object_raw subtype=0x29, x=0x190, y=0xc0, paramA=0x4
 	object_raw subtype=0x29, x=0x280, y=0xc0, paramA=0x8
@@ -11809,7 +11809,7 @@ Room_PalaceOfWinds_CloudJumps:: @ 080E8110
 	.4byte sub_StateChange_PalaceOfWinds_CloudJumps
 
 Entities_PalaceOfWinds_BlockMazeToBossDoor_0:: @ 080E8130
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x29, x=0x168, y=0x100, paramA=0x8
 	object_raw subtype=0x29, x=0x228, y=0x100, paramA=0x8
 	manager subtype=0x2c, x=0x168, paramB=0x4010370, paramC=0x700168
@@ -11860,7 +11860,7 @@ Room_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8348
 	.4byte sub_StateChange_PalaceOfWinds_BlockMazeToBossDoor
 
 Entities_PalaceOfWinds_CrackedFloorLakitu_0:: @ 080E8368
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_CrackedFloorLakitu:: @ 080E8388
@@ -11884,7 +11884,7 @@ Room_PalaceOfWinds_CrackedFloorLakitu:: @ 080E83D8
 	.4byte sub_StateChange_PalaceOfWinds_CrackedFloorLakitu
 
 Entities_PalaceOfWinds_HeartPieceBridge_0:: @ 080E83F8
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_HeartPieceBridge:: @ 080E8418
@@ -11905,7 +11905,7 @@ Room_PalaceOfWinds_HeartPieceBridge:: @ 080E8438
 	.4byte sub_StateChange_PalaceOfWinds_HeartPieceBridge
 
 Entities_PalaceOfWinds_FanBridge_0:: @ 080E8458
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x9f, x=0x100, y=0x18, paramB=0x1e101e01
 	object_raw subtype=0x9f, x=0x120, y=0x78, paramA=0x2, paramB=0x1e100f01
 	object_raw subtype=0x9f, x=0x180, y=0x18, paramB=0x1e101e01
@@ -11933,8 +11933,8 @@ Room_PalaceOfWinds_FanBridge:: @ 080E8508
 	.4byte sub_StateChange_PalaceOfWinds_FanBridge
 
 Entities_PalaceOfWinds_ToFanBridge_0:: @ 080E8528
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x25
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x25
 	object_raw subtype=0x29, x=0x70, y=0xa0, paramA=0x80
 	enemy_raw subtype=0x43, x=0x58, y=0x58
 	enemy_raw subtype=0x43, x=0x68, y=0x68
@@ -11964,9 +11964,9 @@ Room_PalaceOfWinds_ToFanBridge:: @ 080E8608
 	.4byte sub_StateChange_PalaceOfWinds_ToFanBridge
 
 Entities_PalaceOfWinds_RedWarpHall_0:: @ 080E8628
-	manager subtype=0x1a, unknown=0x8, paramA=0x26
-	manager subtype=0x1a, unknown=0x8, paramA=0x27
-	manager subtype=0x1a, unknown=0x8, paramA=0x28
+	manager subtype=0x1a, pool=0x8, paramA=0x26
+	manager subtype=0x1a, pool=0x8, paramA=0x27
+	manager subtype=0x1a, pool=0x8, paramA=0x28
 	object_raw subtype=0x8, x=0x218, y=0x18, paramA=0x8, paramC=0x4affff
 	object_raw subtype=0x8, x=0x218, y=0xd8, paramA=0x8, paramC=0x4bffff
 	object_raw subtype=0x9d, x=0x1b8, y=0x38, paramA=0x1, paramC=0x8000004c
@@ -11975,7 +11975,7 @@ Entities_PalaceOfWinds_RedWarpHall_0:: @ 080E8628
 	object_raw subtype=0x8, x=0x198, y=0x48, paramA=0x3, paramC=0x4cffff
 	manager subtype=0x23, x=0x268, y=0x48, paramA=0x2, paramB=0x1, paramC=0x4d0000
 	manager subtype=0x23, x=0x2a8, y=0x48, paramA=0x2, paramB=0x1, paramC=0x4e0000
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x44d0086
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x44d0086
 	object_raw subtype=0x34, x=0x288, y=0x48, paramA=0x1, paramB=0x3170, paramC=0x86015d
 	enemy_raw subtype=0x43, x=0x88, y=0xe8, paramA=0x2
 	enemy_raw subtype=0x43, x=0xf8, y=0xe8, paramA=0x2
@@ -12016,8 +12016,8 @@ Room_PalaceOfWinds_RedWarpHall:: @ 080E8824
 	.4byte gUnk_additional_8_PalaceOfWinds_RedWarpHall
 
 Entities_PalaceOfWinds_PlatformCloneRide_0:: @ 080E8848
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x29
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x29
 	object_raw subtype=0x29, x=0x80, y=0x50, paramA=0x80
 	object_raw subtype=0x16, x=0xf8, y=0x58, paramA=0x3, paramB=0x8
 	object_raw subtype=0xae, x=0x198, y=0xa8, paramA=0x4
@@ -12052,7 +12052,7 @@ Room_PalaceOfWinds_PlatformCloneRide:: @ 080E8988
 	.4byte gUnk_additional_8_PalaceOfWinds_PlatformCloneRide
 
 Entities_PalaceOfWinds_PitCornerAfterKey_0:: @ 080E89AC
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x8, x=0x18, y=0xd8, paramA=0x3, paramC=0x58ffff
 	entity_list_end
 
@@ -12074,7 +12074,7 @@ Room_PalaceOfWinds_PitCornerAfterKey:: @ 080E89FC
 	.4byte sub_StateChange_PalaceOfWinds_PitCornerAfterKey
 
 Entities_PalaceOfWinds_CrowRide_0:: @ 080E8A1C
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0xae, x=0x88, y=0xc8, paramA=0x3
 	object_raw subtype=0xae, x=0xb8, y=0xc8, paramA=0x3
 	object_raw subtype=0xae, x=0x58, y=0x128, paramA=0x3
@@ -12125,7 +12125,7 @@ Room_PalaceOfWinds_CrowRide:: @ 080E8BC0
 	.4byte gUnk_additional_a_PalaceOfWinds_CrowRide
 
 Entities_PalaceOfWinds_GratePlatformRide_0:: @ 080E8BEC
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x29, x=0x160, y=0x98, paramA=0x7
 	manager subtype=0x2c, x=0x160, paramB=0x4011470, paramC=0xa00070
 	object_raw subtype=0x8, x=0x1b8, y=0x48, paramA=0x9, paramC=0x53ffff
@@ -12156,14 +12156,14 @@ Room_PalaceOfWinds_GratePlatformRide:: @ 080E8CB0
 	.4byte gUnk_additional_8_PalaceOfWinds_GratePlatformRide
 
 Entities_PalaceOfWinds_PotPush_0:: @ 080E8CD4
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x8, x=0x18, y=0x48, paramA=0xb, paramC=0x53ffff
 	object_raw subtype=0x9d, x=0x118, y=0x28, paramA=0x1, paramC=0x80000052
 	object_raw subtype=0x9d, x=0x118, y=0x68, paramA=0x1, paramC=0x80010052
 	object_raw subtype=0x9d, x=0x158, y=0x68, paramA=0x1, paramC=0x80020052
 	manager subtype=0x11, paramC=0x88000052
 	object_raw subtype=0x74, x=0x188, y=0x48, collision=1, paramC=0x520000
-	manager subtype=0x3, x=0x188, y=0x48, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x188, y=0x48, pool=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x5, x=0x118, y=0xd8
 	object_raw subtype=0x5, x=0x118, y=0xf8
 	object_raw subtype=0x5, x=0x128, y=0xc8
@@ -12188,7 +12188,7 @@ Entities_PalaceOfWinds_PotPush_0:: @ 080E8CD4
 	entity_list_end
 
 Enemies_PalaceOfWinds_PotPush:: @ 080E8EB4
-	projectile_raw subtype=0x1e, x=0x88, y=0x20, unknown=0x3, paramA=0x4, paramC=0x80ff9f
+	projectile_raw subtype=0x1e, x=0x88, y=0x20, pool=0x3, paramA=0x4, paramC=0x80ff9f
 	entity_list_end
 
 TileEntities_PalaceOfWinds_PotPush:: @ 080E8ED4
@@ -12231,8 +12231,8 @@ Room_PalaceOfWinds_FloormasterLever:: @ 080E8F84
 	.4byte sub_StateChange_PalaceOfWinds_FloormasterLever
 
 Entities_PalaceOfWinds_Map_0:: @ 080E8FA4
-	manager subtype=0x1a, unknown=0x8, paramA=0x2a
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x560000
+	manager subtype=0x1a, pool=0x8, paramA=0x2a
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x560000
 	object_raw subtype=0xc, x=0x78, y=0x28, paramA=0x2, paramB=0x57, paramC=0x560000
 	entity_list_end
 
@@ -12263,7 +12263,7 @@ Room_PalaceOfWinds_Map:: @ 080E904C
 
 Entities_PalaceOfWinds_CornerToMap_0:: @ 080E9070
 	object_raw subtype=0x74, x=0xb8, y=0x78, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0xb8, y=0x78, unknown=0x0, paramA=0x3, paramB=0x103
+	manager subtype=0x3, x=0xb8, y=0x78, pool=0x0, paramA=0x3, paramB=0x103
 	entity_list_end
 
 Enemies_PalaceOfWinds_CornerToMap:: @ 080E90A0
@@ -12291,7 +12291,7 @@ Entities_PalaceOfWinds_StairsAfterFloormaster_0:: @ 080E9100
 	entity_list_end
 
 Enemies_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9130
-	projectile_raw subtype=0x1d, x=0x28, y=0x58, unknown=0x3
+	projectile_raw subtype=0x1d, x=0x28, y=0x58, pool=0x3
 	enemy_raw subtype=0x42, x=0x58, y=0x48, paramB=0xc160000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0x78, y=0x68, paramB=0xc160000, paramC=0x200020
 	entity_list_end
@@ -12311,7 +12311,7 @@ Room_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9180
 	.4byte sub_StateChange_PalaceOfWinds_StairsAfterFloormaster
 
 Entities_PalaceOfWinds_HoleToKinstoneWizzrobe_0:: @ 080E91A0
-	manager subtype=0x1a, unknown=0x8, paramA=0x2b
+	manager subtype=0x1a, pool=0x8, paramA=0x2b
 	object_raw subtype=0x5, x=0x48, y=0x48
 	object_raw subtype=0x5, x=0x58, y=0x48
 	object_raw subtype=0x5, x=0x98, y=0x48
@@ -12337,7 +12337,7 @@ Room_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9220
 
 Entities_PalaceOfWinds_KeyArrowButton_0:: @ 080E9240
 	object_raw subtype=0x9d, x=0x68, y=0x48, paramA=0x1, paramC=0x580058
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x580087
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x580087
 	object_raw subtype=0x8, x=0xd8, y=0x38, paramA=0x1, paramC=0x87ffff
 	manager subtype=0x17, x=0xc8, y=0x38, paramA=0x53, paramB=0x10200, paramC=0x870059
 	enemy_raw subtype=0x43, x=0xc8, y=0x28
@@ -12366,8 +12366,8 @@ Room_PalaceOfWinds_KeyArrowButton:: @ 080E9310
 	.4byte sub_StateChange_PalaceOfWinds_KeyArrowButton
 
 Entities_PalaceOfWinds_GratesTo3F_0:: @ 080E9330
-	manager subtype=0x19, unknown=0x8
-	manager subtype=0x1a, unknown=0x8, paramA=0x2c
+	manager subtype=0x19, pool=0x8
+	manager subtype=0x1a, pool=0x8, paramA=0x2c
 	object_raw subtype=0x29, x=0x80, y=0xe0, paramA=0x8
 	object_raw subtype=0x29, x=0x140, y=0xe0, paramA=0x80
 	manager subtype=0x2c, x=0x80, paramB=0x4011670, paramC=0x500080
@@ -12421,14 +12421,14 @@ Room_PalaceOfWinds_GratesTo3F:: @ 080E9518
 	.4byte gUnk_additional_a_PalaceOfWinds_GratesTo3F
 
 Entities_PalaceOfWinds_SpinyFight_0:: @ 080E9544
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x9d, x=0x38, y=0x158, paramA=0x1, paramC=0x80008004
 	object_raw subtype=0x9d, x=0x58, y=0x158, paramA=0x1, paramC=0x80018004
 	object_raw subtype=0x9d, x=0x78, y=0x158, paramA=0x1, paramC=0x80028004
 	object_raw subtype=0x9d, x=0x98, y=0x158, paramA=0x1, paramC=0x80038004
 	manager subtype=0x11, paramC=0x8c008004
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x678004
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x670085
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x678004
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x670085
 	object_raw subtype=0x33, x=0x58, y=0xf8, paramA=0x5, paramB=0x1, paramC=0x80040000
 	object_raw subtype=0x33, x=0x78, y=0xf8, paramA=0x5, paramB=0x1, paramC=0x80040000
 	object_raw subtype=0x33, x=0x98, y=0xf8, paramA=0x5, paramB=0x1, paramC=0x80040000
@@ -12450,8 +12450,8 @@ TileEntities_PalaceOfWinds_SpinyFight:: @ 080E9694
 	tile_entity_list_end
 
 gUnk_additional_8_PalaceOfWinds_SpinyFight:: @ 080E96A4
-	enemy_raw subtype=0x1e, x=0x38, y=0x118, unknown=0x2f
-	enemy_raw subtype=0x1e, x=0xb8, y=0x118, unknown=0x2f
+	enemy_raw subtype=0x1e, x=0x38, y=0x118, pool=0x2f
+	enemy_raw subtype=0x1e, x=0xb8, y=0x118, pool=0x2f
 	entity_list_end
 
 Room_PalaceOfWinds_SpinyFight:: @ 080E96D4
@@ -12466,7 +12466,7 @@ Room_PalaceOfWinds_SpinyFight:: @ 080E96D4
 	.4byte gUnk_additional_8_PalaceOfWinds_SpinyFight
 
 Entities_PalaceOfWinds_PeahatSwitch_0:: @ 080E96F8
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x8, x=0xd8, y=0x48, paramA=0x9, paramC=0x6affff
 	object_raw subtype=0x9d, x=0x38, y=0xd8, paramA=0x1, paramC=0x80000069
 	object_raw subtype=0x9d, x=0x58, y=0xd8, paramA=0x1, paramC=0x80010069
@@ -12502,7 +12502,7 @@ Room_PalaceOfWinds_PeahatSwitch:: @ 080E9828
 	.4byte sub_StateChange_PalaceOfWinds_PeahatSwitch
 
 Entities_PalaceOfWinds_WhirlwindBombarossa_0:: @ 080E9848
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x8, x=0x28, y=0x48, paramA=0xb, paramC=0x6affff
 	object_raw subtype=0x5e, x=0x58, y=0xd0
 	object_raw subtype=0x5e, x=0x88, y=0xf8
@@ -12550,7 +12550,7 @@ Room_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9A10
 	.4byte gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa
 
 Entities_PalaceOfWinds_DoorToStalfosFirebar_0:: @ 080E9A40
-	manager subtype=0x1a, unknown=0x8, paramA=0x2d
+	manager subtype=0x1a, pool=0x8, paramA=0x2d
 	entity_list_end
 
 Enemies_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9A60
@@ -12576,15 +12576,15 @@ Room_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9AD0
 	.4byte sub_StateChange_PalaceOfWinds_DoorToStalfosFirebar
 
 Entities_PalaceOfWinds_StalfosFireborHole_0:: @ 080E9AF0
-	manager subtype=0x1a, unknown=0x8, paramA=0x2f
-	manager subtype=0x1a, unknown=0x8, paramA=0x2e
+	manager subtype=0x1a, pool=0x8, paramA=0x2f
+	manager subtype=0x1a, pool=0x8, paramA=0x2e
 	object_raw subtype=0x8, x=0xd8, y=0x48, paramA=0x1, paramC=0x6bffff
 	entity_list_end
 
 Enemies_PalaceOfWinds_StalfosFireborHole:: @ 080E9B30
 	enemy_raw subtype=0x42, x=0x58, y=0x48, paramA=0x1, paramB=0xc160000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0xa8, y=0x48, paramA=0x1, paramB=0xc160000, paramC=0x200020
-	projectile_raw subtype=0x1d, x=0x68, y=0x28, unknown=0x3
+	projectile_raw subtype=0x1d, x=0x68, y=0x28, pool=0x3
 	entity_list_end
 
 TileEntities_PalaceOfWinds_StalfosFireborHole:: @ 080E9B70
@@ -12602,7 +12602,7 @@ Room_PalaceOfWinds_StalfosFireborHole:: @ 080E9B80
 	.4byte sub_StateChange_PalaceOfWinds_StalfosFireborHole
 
 Entities_PalaceOfWinds_ShortcutDoorButtons_0:: @ 080E9BA0
-	manager subtype=0x1a, unknown=0x8, paramA=0x30
+	manager subtype=0x1a, pool=0x8, paramA=0x30
 	object_raw subtype=0x9d, x=0x48, y=0x28, paramA=0x1, paramC=0x8000006b
 	object_raw subtype=0x9d, x=0x78, y=0x28, paramA=0x1, paramC=0x8001006b
 	manager subtype=0x11, paramC=0x8400006b
@@ -12629,7 +12629,7 @@ Room_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C40
 	.4byte sub_StateChange_PalaceOfWinds_ShortcutDoorButtons
 
 Entities_PalaceOfWinds_ToPeahatSwitch_0:: @ 080E9C60
-	manager subtype=0x1a, unknown=0x8, paramA=0x31
+	manager subtype=0x1a, pool=0x8, paramA=0x31
 	object_raw subtype=0x8, x=0xd8, y=0x68, paramA=0x1, paramC=0x6dffff
 	entity_list_end
 
@@ -12654,7 +12654,7 @@ Room_PalaceOfWinds_ToPeahatSwitch:: @ 080E9CD0
 
 Entities_PalaceOfWinds_KinstoneWizzrobeFight_0:: @ 080E9CF0
 	manager subtype=0x1e, x=0x60, y=0x30, paramB=0x300030, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x6d8000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x6d8000
 	object_raw subtype=0xc, x=0x78, y=0x38, paramA=0x1, paramC=0x6d0000
 	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x3, paramC=0x6dffff
 	object_raw subtype=0x8, x=0xc8, y=0x68, paramA=0x1, paramC=0x6dffff
@@ -12708,13 +12708,13 @@ Room_PalaceOfWinds_GibdoStairs:: @ 080E9E2C
 	.4byte sub_StateChange_PalaceOfWinds_GibdoStairs
 
 Entities_PalaceOfWinds_SpikeBarSmallKey_0:: @ 080E9E4C
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9E6C
-	projectile_raw subtype=0x1e, x=0x38, y=0xa0, unknown=0x3, paramA=0x2, paramC=0x800090
-	projectile_raw subtype=0x1e, x=0x78, y=0x60, unknown=0x3, paramA=0x2, paramC=0x80ffc0
-	projectile_raw subtype=0x1e, x=0x88, y=0x60, unknown=0x3, paramA=0x2, paramC=0x800040
+	projectile_raw subtype=0x1e, x=0x38, y=0xa0, pool=0x3, paramA=0x2, paramC=0x800090
+	projectile_raw subtype=0x1e, x=0x78, y=0x60, pool=0x3, paramA=0x2, paramC=0x80ffc0
+	projectile_raw subtype=0x1e, x=0x88, y=0x60, pool=0x3, paramA=0x2, paramC=0x800040
 	entity_list_end
 
 TileEntities_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EAC
@@ -12746,7 +12746,7 @@ Room_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9F20
 
 Entities_PalaceOfWinds_RocCape_0:: @ 080E9F4C
 .ifdef EU
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x9d, x=0x128, y=0x168, paramC=0x800a0000
 	manager subtype=0x5, x=0x7, y=0x15, paramB=0x8, paramC=0x800a0001
 	manager subtype=0x5, x=0x17, y=0x12, paramB=0xe, paramC=0x800a0001
@@ -12761,7 +12761,7 @@ Entities_PalaceOfWinds_RocCape_0:: @ 080E9F4C
 .else
 	object_raw subtype=0x29, x=0x140, y=0xe0, paramA=0x8
 	manager subtype=0x2c, x=0x140, paramB=0x4012170, paramC=0xe00140
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x9d, x=0x128, y=0x168, paramC=0x800a0000
 	manager subtype=0x5, x=0x7, y=0x15, paramB=0x8, paramC=0x800a0001
 	manager subtype=0x5, x=0x17, y=0x12, paramB=0xe, paramC=0x800a0001
@@ -12784,13 +12784,13 @@ Entities_PalaceOfWinds_RocCape_0:: @ 080E9F4C
 
 gUnk_080EA09C:: @ 080EA09C
 	manager subtype=0x1e, x=0x28, y=0xd8, paramB=0x2000c0, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80018000
-	manager subtype=0xb, unknown=0x0, paramB=0x9, paramC=0x80028001
-	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x708002
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80018000
+	manager subtype=0xb, pool=0x0, paramB=0x9, paramC=0x80028001
+	manager subtype=0xb, pool=0x0, paramB=0xa, paramC=0x708002
 	entity_list_end
 
 Enemies_PalaceOfWinds_RocCape:: @ 080EA0EC
-	projectile_raw subtype=0x1e, x=0x118, y=0x180, unknown=0x3, paramA=0x2, paramC=0x800080
+	projectile_raw subtype=0x1e, x=0x118, y=0x180, pool=0x3, paramA=0x2, paramC=0x800080
 	entity_list_end
 
 TileEntities_PalaceOfWinds_RocCape:: @ 080EA10C
@@ -12833,7 +12833,7 @@ Room_PalaceOfWinds_RocCape:: @ 080EA214
 	.4byte gUnk_additional_a_PalaceOfWinds_RocCape
 
 Entities_PalaceOfWinds_FireBarGrates_0:: @ 080EA240
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_FireBarGrates:: @ 080EA260
@@ -12842,8 +12842,8 @@ Enemies_PalaceOfWinds_FireBarGrates:: @ 080EA260
 	enemy_raw subtype=0x22, x=0x68, y=0x148
 	enemy_raw subtype=0x22, x=0xd8, y=0x128
 	enemy_raw subtype=0x22, x=0xc8, y=0x178
-	projectile_raw subtype=0x1d, x=0x58, y=0x178, unknown=0x3
-	projectile_raw subtype=0x1d, x=0xb8, y=0xd8, unknown=0x3
+	projectile_raw subtype=0x1d, x=0x58, y=0x178, pool=0x3
+	projectile_raw subtype=0x1d, x=0xb8, y=0xd8, pool=0x3
 	entity_list_end
 
 TileEntities_PalaceOfWinds_FireBarGrates:: @ 080EA2E0
@@ -12862,7 +12862,7 @@ Room_PalaceOfWinds_FireBarGrates:: @ 080EA2F8
 	.4byte sub_StateChange_PalaceOfWinds_FireBarGrates
 
 Entities_PalaceOfWinds_PlatformRideBombarossas_0:: @ 080EA318
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	manager subtype=0x38, paramA=0x8
 	object_raw subtype=0xae, x=0x68, y=0xc8, paramA=0x3
 	object_raw subtype=0xae, x=0x78, y=0xd8
@@ -12912,7 +12912,7 @@ Room_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA4BC
 	.4byte gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas
 
 Entities_PalaceOfWinds_BridgeAfterDarknut_0:: @ 080EA4E8
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0xa1, x=0x78, y=0x18
 	entity_list_end
 
@@ -12934,7 +12934,7 @@ Room_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA538
 	.4byte sub_StateChange_PalaceOfWinds_BridgeAfterDarknut
 
 Entities_PalaceOfWinds_BridgeSwitchesCloneBlock_0:: @ 080EA558
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	object_raw subtype=0x9d, x=0x48, y=0xa8, paramC=0x80000000
 	object_raw subtype=0x9d, x=0xf8, y=0x118, paramC=0x80000000
 	object_raw subtype=0x9d, x=0x118, y=0x98, paramC=0x80000000
@@ -12977,14 +12977,14 @@ Room_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA6E8
 
 Entities_PalaceOfWinds_EntranceRoom_0:: @ 080EA708
 	ezlo_hint x=0x44, y=0x4, rx=0x3, ry=0x7, msg=0xb19, flag=0x77
-	manager subtype=0x1a, unknown=0x8, paramA=0x32
+	manager subtype=0x1a, pool=0x8, paramA=0x32
 	object_raw subtype=0x34, x=0x208, y=0x58, paramB=0xc70, paramC=0x840207
 	object_raw subtype=0x34, x=0x1d8, y=0x58, paramA=0x1, paramB=0x1570, paramC=0x860128
 	object_raw subtype=0x5, x=0x218, y=0x28
 	object_raw subtype=0x5, x=0x218, y=0x88
 	object_raw subtype=0x5, x=0x228, y=0x28, paramA=0x5f
 	object_raw subtype=0x5, x=0x228, y=0x88, paramA=0x5f
-	manager subtype=0x19, unknown=0x8
+	manager subtype=0x19, pool=0x8
 	entity_list_end
 
 Enemies_PalaceOfWinds_EntranceRoom:: @ 080EA7A8
@@ -13079,13 +13079,13 @@ Room_PalaceOfWindsBoss_Main:: @ 080EAA58
 	.4byte sub_StateChange_PalaceOfWindsBoss_Main
 
 Entities_Vaati2_Main_0:: @ 080EAA78
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorV2Intro
-	npc_raw subtype=0x3b, x=0xb0, y=0x88, unknown=0xf, script=0x0
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorV2Intro
+	npc_raw subtype=0x3b, x=0xb0, y=0x88, pool=0xf, script=0x0
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0c, flag=0x7b
 	entity_list_end
 
 Entities_Vaati2_Main_1:: @ 080EAAB8
-	manager subtype=0x1d, unknown=0x8, paramA=0x1
+	manager subtype=0x1d, pool=0x8, paramA=0x1
 	entity_list_end
 
 Enemies_Vaati2_Main:: @ 080EAAD8
@@ -13106,11 +13106,11 @@ Room_Vaati2_Main:: @ 080EAB00
 	.4byte sub_StateChange_Vaati2_Main
 
 Entities_Vaati3_Main_0:: @ 080EAB20
-	manager subtype=0x2f, unknown=0x8
+	manager subtype=0x2f, pool=0x8
 	manager subtype=0x37, paramA=0x1
 	npc_raw subtype=0x4e, script=script_Npc4EV3Defeated
 	object_raw subtype=0x74, x=0xb0, y=0x28, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0xb0, y=0x28, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0xb0, y=0x28, pool=0x0, paramA=0x3, paramB=0x102
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0d, flag=0x4051
 	entity_list_end
 
@@ -13131,12 +13131,12 @@ Room_Vaati3_Main:: @ 080EABA8
 	.4byte sub_StateChange_Vaati3_Main
 
 Entities_DarkHyruleCastleBridge_Main_0:: @ 080EABC8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorBallAndChainSoldierRoom
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorBallAndChainSoldierRoom
 	object_raw subtype=0x39, x=0x88, y=0x118, paramA=0x6, paramC=0xffff
 	entity_list_end
 
 Entities_DarkHyruleCastleBridge_Main_1:: @ 080EABF8
-	manager subtype=0x1b, unknown=0x8, paramA=0x6
+	manager subtype=0x1b, pool=0x8, paramA=0x6
 	entity_list_end
 
 Enemies_DarkHyruleCastleBridge_Main:: @ 080EAC18
@@ -13207,11 +13207,11 @@ Entities_DarkHyruleCastleOutside_ZeldaStatuePlatform_0:: @ 080EAD38
 	entity_list_end
 
 Entities_DarkHyruleCastleOutside_ZeldaStatuePlatform_1:: @ 080EAD48
-	manager subtype=0x1b, unknown=0x8, paramA=0x4
+	manager subtype=0x1b, pool=0x8, paramA=0x4
 	entity_list_end
 
 gUnk_080EAD68:: @ 080EAD68
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorVaatiWithZelda
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorVaatiWithZelda
 	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_ZeldaStoneInDHC
 	npc_raw subtype=0x27, x=0x78, y=0x96, paramA=0x1, script=script_VaatiWithZelda
 	object_raw subtype=0xab, x=0x78, y=0x138
@@ -13260,7 +13260,7 @@ gUnk_080EAEC0:: @ 080EAEC0
 	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_MinishEzloOutro
 	npc_raw subtype=0x28, x=0x58, y=0x88, script=script_ZeldaOutro
 	npc_raw subtype=0x4d, x=0x88, y=0x88, script=script_EzloCapOutro
-	object_raw subtype=0x6a, x=0x88, y=0xa8, unknown=0x4f, paramA=0x1, paramC=script_CutsceneMiscObjectMinishCapOutro
+	object_raw subtype=0x6a, x=0x88, y=0xa8, pool=0x4f, paramA=0x1, paramC=script_CutsceneMiscObjectMinishCapOutro
 	entity_list_end
 
 gUnk_080EAF20:: @ 080EAF20
@@ -13503,7 +13503,7 @@ Entities_DarkHyruleCastle_1FEntrance_0:: @ 080EB594
 	entity_list_end
 
 gUnk_080EB5D4:: @ 080EB5D4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorCastleEscape
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorCastleEscape
 	npc_raw subtype=0x28, x=0xd8, y=0x178, script=script_ZeldaCastleEscape
 	entity_list_end
 
@@ -13627,7 +13627,7 @@ Room_DarkHyruleCastle_3FBottomRightTower:: @ 080EB864
 	.4byte sub_StateChange_Dojos_ToSplitblade0
 
 Entities_DarkHyruleCastle_3FKeatonHallToVaati_0:: @ 080EB884
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorKeatonsRoom
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorKeatonsRoom
 	object_raw subtype=0x3, x=0x78, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x98, y=0x48, paramA=0x1, paramC=0x80010001
 	object_raw subtype=0x3, x=0xb8, y=0x48, paramA=0x1, paramC=0x80020001
@@ -13667,10 +13667,10 @@ Entities_DarkHyruleCastle_3FTripleDarknut_0:: @ 080EB9E4
 	entity_list_end
 
 gUnk_080EB9F4:: @ 080EB9F4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorDarkNutsRoom
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorDarkNutsRoom
 	manager subtype=0x1e, x=0x30, y=0xa0, paramB=0x2000f0, paramC=0x80000000
 	manager subtype=0x35, x=0xa8, y=0x58, paramB=0x3c1e00, paramC=0x80008001
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80028001
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80028001
 	manager subtype=0x35, x=0xa8, y=0x28, paramB=0x3c1e00, paramC=0x80028003
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x8003ffff
 .ifndef EU
@@ -13683,13 +13683,13 @@ gUnk_080EB9F4:: @ 080EB9F4
 
 gUnk_080EBAA4:: @ 080EBAA4
 	npc_raw subtype=0x27, x=0xa8, y=0x58, paramA=0x1, script=script_Vaati1Intro
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorV1Defeated
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorV1Defeated
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0xffff
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
 	entity_list_end
 
 gUnk_080EBAF4:: @ 080EBAF4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorV2Defeated
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorV2Defeated
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x80000000
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0x80000000
 	entity_list_end
@@ -13710,10 +13710,10 @@ TileEntities_DarkHyruleCastle_3FTripleDarknut:: @ 080EBBA4
 	tile_entity_list_end
 
 gUnk_additional_8_DarkHyruleCastle_3FTripleDarknut:: @ 080EBBB4
-	enemy_raw subtype=0x5, x=0x88, y=0x58, unknown=0x2f, paramA=0x2
-	enemy_raw subtype=0x5, x=0xa8, y=0x58, unknown=0x2f, paramA=0x3
-	enemy_raw subtype=0x5, x=0xc8, y=0x58, unknown=0x2f, paramA=0x2
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	enemy_raw subtype=0x5, x=0x88, y=0x58, pool=0x2f, paramA=0x2
+	enemy_raw subtype=0x5, x=0xa8, y=0x58, pool=0x2f, paramA=0x3
+	enemy_raw subtype=0x5, x=0xc8, y=0x58, pool=0x2f, paramA=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
 	entity_list_end
 
@@ -13729,7 +13729,7 @@ Room_DarkHyruleCastle_3FTripleDarknut:: @ 080EBC14
 	.4byte gUnk_additional_8_DarkHyruleCastle_3FTripleDarknut
 
 Entities_DarkHyruleCastle_2FTopLeftTower_0:: @ 080EBC38
-	manager subtype=0x1a, unknown=0x8, paramA=0x34
+	manager subtype=0x1a, pool=0x8, paramA=0x34
 	object_raw subtype=0x3, x=0x58, y=0x78, paramC=0x420001
 	object_raw subtype=0x8, x=0x88, y=0xb8, paramA=0x2, paramC=0x42ffff
 	entity_list_end
@@ -13757,10 +13757,10 @@ Entities_DarkHyruleCastle_2FTopLeftCorner_0:: @ 080EBCB8
 	object_raw subtype=0x23, x=0x98, y=0x28, paramB=0xaa00, paramC=0x80020080
 	object_raw subtype=0x23, x=0xb8, y=0x28, paramB=0xaa00, paramC=0x80030080
 	manager subtype=0x11, paramC=0x8c000080
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x800092
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x800092
 	object_raw subtype=0x8, x=0x28, y=0x58, paramA=0x3, paramC=0x92ffff
-	object_raw subtype=0x98, x=0x88, y=0xa8, unknown=0x3, paramB=0x10702
-	object_raw subtype=0x98, x=0x88, y=0xa8, unknown=0x3, paramB=0x30702
+	object_raw subtype=0x98, x=0x88, y=0xa8, pool=0x3, paramB=0x10702
+	object_raw subtype=0x98, x=0x88, y=0xa8, pool=0x3, paramB=0x30702
 	object_raw subtype=0x5, x=0x38, y=0xf8, paramA=0x5e
 	object_raw subtype=0x5, x=0x38, y=0x128, paramA=0x5e
 	object_raw subtype=0x5, x=0x38, y=0x158, paramA=0x5e
@@ -13828,8 +13828,8 @@ Room_DarkHyruleCastle_2FBossKey:: @ 080EBF40
 
 Entities_DarkHyruleCastle_2FBlueWarp_0:: @ 080EBF60
 	manager subtype=0x1e, x=0x30, y=0x50, paramB=0x2000b0, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x488000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x480086
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x488000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x480086
 	object_raw subtype=0x34, x=0x88, y=0x68, paramB=0x88, paramC=0x480716
 	entity_list_end
 
@@ -13842,10 +13842,10 @@ TileEntities_DarkHyruleCastle_2FBlueWarp:: @ 080EBFC0
 	tile_entity_list_end
 
 gUnk_additional_8_DarkHyruleCastle_2FBlueWarp:: @ 080EBFD8
-	enemy_raw subtype=0x5, x=0x88, y=0x38, unknown=0x2f, paramA=0x3, paramB=0xe160000, paramC=0x300030
+	enemy_raw subtype=0x5, x=0x88, y=0x38, pool=0x2f, paramA=0x3, paramB=0xe160000, paramC=0x300030
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x86ffff
 	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x86ffff
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorDHC
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorDHC
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0a, flag=0x86
 	entity_list_end
 
@@ -13861,8 +13861,8 @@ Room_DarkHyruleCastle_2FBlueWarp:: @ 080EC038
 	.4byte gUnk_additional_8_DarkHyruleCastle_2FBlueWarp
 
 Entities_DarkHyruleCastle_2FTopRightCornerGhini_0:: @ 080EC05C
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x490000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x490087
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x490000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x490087
 	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x1, paramC=0x87ffff
 	entity_list_end
 
@@ -13903,9 +13903,9 @@ Entities_DarkHyruleCastle_2FTopRightCornerTorches_0:: @ 080EC114
 	manager subtype=0x23, x=0xc8, y=0x78, paramA=0x3, paramB=0x71001, paramC=0x8006004a
 	manager subtype=0x23, x=0xb8, y=0x98, paramA=0x3, paramB=0x71001, paramC=0x8007004a
 	manager subtype=0x11, paramC=0x9c00004a
-	manager subtype=0x2e, unknown=0x0, paramB=0xa00, paramC=0x4a004b
-	object_raw subtype=0x98, x=0x88, y=0x68, unknown=0x3, paramB=0x10402
-	object_raw subtype=0x98, x=0x88, y=0x68, unknown=0x3, paramB=0x30402
+	manager subtype=0x2e, pool=0x0, paramB=0xa00, paramC=0x4a004b
+	object_raw subtype=0x98, x=0x88, y=0x68, pool=0x3, paramB=0x10402
+	object_raw subtype=0x98, x=0x88, y=0x68, pool=0x3, paramB=0x30402
 	entity_list_end
 
 Enemies_DarkHyruleCastle_2FTopRightCornerTorches:: @ 080EC1F4
@@ -13953,12 +13953,12 @@ Entities_DarkHyruleCastle_2FTopLeftDarknut_0:: @ 080EC2AC
 	entity_list_end
 
 gUnk_080EC2CC:: @ 080EC2CC
-	manager subtype=0xf, unknown=0x0, paramA=0xd
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0xf, pool=0x0, paramA=0xd
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80010000
 	manager subtype=0x1e, x=0x30, y=0x30, paramB=0x7000a8, paramC=0x80000000
-	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
-	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x8001004c
+	manager subtype=0x2e, x=0x2d, pool=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, pool=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x8001004c
 	manager subtype=0x35, x=0x88, y=0x28, paramB=0x3c1e00, paramC=0x4c0088
 	entity_list_end
 
@@ -14022,12 +14022,12 @@ Entities_DarkHyruleCastle_2FTopRightDarknuts_0:: @ 080EC4C8
 	entity_list_end
 
 gUnk_080EC4E8:: @ 080EC4E8
-	manager subtype=0xf, unknown=0x0, paramA=0xd
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0xf, pool=0x0, paramA=0xd
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80010000
 	manager subtype=0x1e, x=0x38, y=0x30, paramB=0x7000a8, paramC=0x80000000
-	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
-	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x8001004d
+	manager subtype=0x2e, x=0x2d, pool=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, pool=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x8001004d
 	manager subtype=0x35, x=0x88, y=0x28, paramB=0x3c1e00, paramC=0x4d0089
 	entity_list_end
 
@@ -14042,7 +14042,7 @@ TileEntities_DarkHyruleCastle_2FTopRightDarknuts:: @ 080EC578
 gUnk_additional_8_DarkHyruleCastle_2FTopRightDarknuts:: @ 080EC590
 	enemy_raw subtype=0x5, x=0x70, y=0x68, paramA=0x1
 	enemy_raw subtype=0x5, x=0xa0, y=0x68
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x4dffff
 	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x13, paramC=0x4dffff
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4d
@@ -14099,7 +14099,7 @@ Room_DarkHyruleCastle_2FLeft:: @ 080EC77C
 	.4byte gUnk_additional_8_DarkHyruleCastle_2FLeft
 
 Entities_DarkHyruleCastle_2FRight_0:: @ 080EC7A0
-	object_raw subtype=0x98, x=0x78, y=0x88, unknown=0x3, paramB=0x10302
+	object_raw subtype=0x98, x=0x78, y=0x88, pool=0x3, paramB=0x10302
 	entity_list_end
 
 Enemies_DarkHyruleCastle_2FRight:: @ 080EC7C0
@@ -14124,12 +14124,12 @@ Entities_DarkHyruleCastle_2FBottomLeftDarknuts_0:: @ 080EC800
 	entity_list_end
 
 gUnk_080EC820:: @ 080EC820
-	manager subtype=0xf, unknown=0x0, paramA=0xd
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0xf, pool=0x0, paramA=0xd
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80010000
 	manager subtype=0x1e, x=0x38, y=0x30, paramB=0x7000a8, paramC=0x80000000
-	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
-	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x80010053
+	manager subtype=0x2e, x=0x2d, pool=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, pool=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x80010053
 	manager subtype=0x35, x=0x88, y=0xa8, paramB=0x3c1e00, paramC=0x53008a
 	entity_list_end
 
@@ -14144,7 +14144,7 @@ TileEntities_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC8B0
 gUnk_additional_8_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC8C8
 	enemy_raw subtype=0x5, x=0x70, y=0x68
 	enemy_raw subtype=0x5, x=0xa0, y=0x68, paramA=0x1
-	manager subtype=0x28, unknown=0x3, paramB=0x8
+	manager subtype=0x28, pool=0x3, paramB=0x8
 	object_raw subtype=0x8, x=0x88, y=0x28, paramA=0x10, paramC=0x53ffff
 	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x11, paramC=0x53ffff
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x53
@@ -14163,8 +14163,8 @@ Room_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC938
 
 Entities_DarkHyruleCastle_2FBossDoor_0:: @ 080EC95C
 	object_raw subtype=0x39, x=0x88, y=0x28, paramC=0x55ffff
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x540000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x54008b
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x540000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x54008b
 	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x3, paramC=0x8bffff
 	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x1, paramC=0x8bffff
 	object_raw subtype=0x34, x=0x88, y=0x68, paramA=0x1, paramB=0x88, paramC=0x8b071c
@@ -14198,12 +14198,12 @@ Entities_DarkHyruleCastle_2FBottomRightDarknut_0:: @ 080ECA40
 	entity_list_end
 
 gUnk_080ECA60:: @ 080ECA60
-	manager subtype=0xf, unknown=0x0, paramA=0xd
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0xf, pool=0x0, paramA=0xd
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x80010000
 	manager subtype=0x1e, x=0x38, y=0x30, paramB=0x7000a8, paramC=0x80000000
-	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
-	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x80010056
+	manager subtype=0x2e, x=0x2d, pool=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, pool=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x80010056
 	manager subtype=0x35, x=0x88, y=0xa8, paramB=0x3c1e00, paramC=0x56008c
 	entity_list_end
 
@@ -14268,7 +14268,7 @@ Entities_DarkHyruleCastle_2FEntrance_0:: @ 080ECC64
 	object_raw subtype=0x9d, x=0x68, y=0x88, paramA=0x1, paramC=0x80020058
 	object_raw subtype=0x9d, x=0xa8, y=0x88, paramA=0x1, paramC=0x80030058
 	manager subtype=0x11, paramC=0x8c000058
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x580090
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x580090
 	manager subtype=0x35, x=0x88, y=0x38, paramB=0x5a1e00, paramC=0x900059
 	object_raw subtype=0x39, x=0x88, y=0x38, paramA=0x4, paramC=0x59ffff
 	entity_list_end
@@ -14296,12 +14296,12 @@ Entities_DarkHyruleCastle_2FBottomLeftCorner_0:: @ 080ECD34
 	object_raw subtype=0x9d, x=0x88, y=0x148, paramA=0x1, paramC=0x8002005a
 	object_raw subtype=0x9d, x=0xa8, y=0x128, paramA=0x1, paramC=0x8003005a
 	manager subtype=0x11, paramC=0x8c00005a
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x5a0091
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x5a0091
 	object_raw subtype=0x8, x=0xe8, y=0x128, paramA=0x1, paramC=0x91ffff
-	object_raw subtype=0x98, x=0x58, y=0xa8, unknown=0x3, paramB=0x30302
-	object_raw subtype=0x98, x=0x58, y=0xa8, unknown=0x3, paramB=0x10302
-	object_raw subtype=0x98, x=0xb8, y=0xa8, unknown=0x3, paramB=0x30302
-	object_raw subtype=0x98, x=0xb8, y=0xa8, unknown=0x3, paramB=0x10302
+	object_raw subtype=0x98, x=0x58, y=0xa8, pool=0x3, paramB=0x30302
+	object_raw subtype=0x98, x=0x58, y=0xa8, pool=0x3, paramB=0x10302
+	object_raw subtype=0x98, x=0xb8, y=0xa8, pool=0x3, paramB=0x30302
+	object_raw subtype=0x98, x=0xb8, y=0xa8, pool=0x3, paramB=0x10302
 	entity_list_end
 
 Enemies_DarkHyruleCastle_2FBottomLeftCorner:: @ 080ECDF4
@@ -14342,8 +14342,8 @@ Room_DarkHyruleCastle_2FBottomLeftTower:: @ 080ECE64
 	.4byte sub_StateChange_Dojos_ToGreatblade6
 
 Entities_DarkHyruleCastle_2FBottomLeftGhini_0:: @ 080ECE84
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x5b0000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x5b008d
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x5b0000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x5b008d
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x2, paramC=0x8dffff
 	entity_list_end
 
@@ -14427,7 +14427,7 @@ Entities_DarkHyruleCastle_2FBottomRightTower_0:: @ 080ED02C
 	object_raw subtype=0x5, x=0x68, y=0x168, paramA=0x5e
 	object_raw subtype=0x5, x=0xa8, y=0x168
 	object_raw subtype=0x5, x=0xb8, y=0x168
-	manager subtype=0x1a, unknown=0x8, paramA=0x35
+	manager subtype=0x1a, pool=0x8, paramA=0x35
 	entity_list_end
 
 Enemies_DarkHyruleCastle_2FBottomRightTower:: @ 080ED0AC
@@ -14491,8 +14491,8 @@ Room_DarkHyruleCastle_1FTopLeftTower:: @ 080ED174
 
 Entities_DarkHyruleCastle_1FThroneRoom_0:: @ 080ED194
 	manager subtype=0x1e, x=0x20, y=0x70, paramB=0x2000d0, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x5e8000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x5e008e
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x5e8000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x5e008e
 	object_raw subtype=0x8, x=0xe8, y=0x88, paramA=0x1, paramC=0x8effff
 	entity_list_end
 
@@ -14516,7 +14516,7 @@ TileEntities_DarkHyruleCastle_1FThroneRoom:: @ 080ED264
 	tile_entity_list_end
 
 gUnk_additional_8_DarkHyruleCastle_1FThroneRoom:: @ 080ED27C
-	enemy_raw subtype=0x5, x=0x88, y=0x68, unknown=0x2f, paramA=0x2
+	enemy_raw subtype=0x5, x=0x88, y=0x68, pool=0x2f, paramA=0x2
 	object_raw subtype=0x39, x=0x88, y=0xa8, paramA=0x6, paramC=0x8effff
 	entity_list_end
 
@@ -14980,7 +14980,7 @@ Room_DarkHyruleCastle_B1ToPrison:: @ 080EDE60
 
 Entities_DarkHyruleCastle_B1BombWall_0:: @ 080EDE80
 	object_raw subtype=0x74, x=0x48, y=0x48, collision=2, paramC=0xffff0000
-	manager subtype=0x3, x=0x48, y=0x48, unknown=0x0, paramA=0x3, paramB=0x202
+	manager subtype=0x3, x=0x48, y=0x48, pool=0x0, paramA=0x3, paramB=0x202
 	entity_list_end
 
 Entities_DarkHyruleCastle_B1BombWall_1:: @ 080EDEB0
@@ -14990,8 +14990,8 @@ Entities_DarkHyruleCastle_B1BombWall_1:: @ 080EDEB0
 	entity_list_end
 
 Enemies_DarkHyruleCastle_B1BombWall:: @ 080EDEF0
-	projectile_raw subtype=0x1d, x=0x78, y=0x88, unknown=0x3
-	projectile_raw subtype=0x1d, x=0xd8, y=0x48, unknown=0x3
+	projectile_raw subtype=0x1d, x=0x78, y=0x88, pool=0x3
+	projectile_raw subtype=0x1d, x=0xd8, y=0x48, pool=0x3
 	entity_list_end
 
 TileEntities_DarkHyruleCastle_B1BombWall:: @ 080EDF20
@@ -15048,15 +15048,15 @@ Room_DarkHyruleCastle_B1Keatons:: @ 080EE078
 	.4byte sub_StateChange_GoronCave_Stairs9
 
 Entities_DarkHyruleCastle_B1ToPrisonFirebar_0:: @ 080EE098
-	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x602
-	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x20602
-	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x10602
-	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x30602
-	object_raw subtype=0x98, x=0x88, y=0xf8, unknown=0x3, paramB=0x302
-	object_raw subtype=0x98, x=0x88, y=0xf8, unknown=0x3, paramB=0x20302
-	object_raw subtype=0x98, x=0xc8, y=0xf8, unknown=0x3, paramB=0x10302
-	object_raw subtype=0x98, x=0xc8, y=0xf8, unknown=0x3, paramB=0x30302
-	manager subtype=0x1a, unknown=0x8, paramA=0x36
+	object_raw subtype=0x98, x=0xa8, y=0x78, pool=0x3, paramB=0x602
+	object_raw subtype=0x98, x=0xa8, y=0x78, pool=0x3, paramB=0x20602
+	object_raw subtype=0x98, x=0xa8, y=0x78, pool=0x3, paramB=0x10602
+	object_raw subtype=0x98, x=0xa8, y=0x78, pool=0x3, paramB=0x30602
+	object_raw subtype=0x98, x=0x88, y=0xf8, pool=0x3, paramB=0x302
+	object_raw subtype=0x98, x=0x88, y=0xf8, pool=0x3, paramB=0x20302
+	object_raw subtype=0x98, x=0xc8, y=0xf8, pool=0x3, paramB=0x10302
+	object_raw subtype=0x98, x=0xc8, y=0xf8, pool=0x3, paramB=0x30302
+	manager subtype=0x1a, pool=0x8, paramA=0x36
 	entity_list_end
 
 Enemies_DarkHyruleCastle_B1ToPrisonFirebar:: @ 080EE138
@@ -15247,9 +15247,9 @@ Room_DarkHyruleCastle_B2ToPrison:: @ 080EE66C
 
 Entities_DarkHyruleCastle_B2Prison_0:: @ 080EE68C
 	object_raw subtype=0x74, x=0x88, y=0x38, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x88, y=0x38, unknown=0x0, paramA=0x3, paramB=0x103
+	manager subtype=0x3, x=0x88, y=0x38, pool=0x0, paramA=0x3, paramB=0x103
 	object_raw subtype=0x3, x=0xa8, y=0x28, paramC=0x6d0001
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x6d008f
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x6d008f
 	manager subtype=0x35, x=0xe0, y=0x68, paramB=0x3c1e00, paramC=0x8f0081
 	object_raw subtype=0xb1, x=0x80, y=0x78, paramC=0x810000
 	object_raw subtype=0xb1, x=0x140, y=0x78, paramC=0x810000
@@ -15326,7 +15326,7 @@ Entities_HyruleTown_0_0:: @ 080EE80C
 .endif
 	enemy_raw subtype=0x41, x=0x388, y=0x3a8
 	object_raw subtype=0xb7, x=0x2f8, y=0x278
-	manager subtype=0x1a, unknown=0x8, paramA=0x3c
+	manager subtype=0x1a, pool=0x8, paramA=0x3c
 	manager subtype=0x16, paramA=0xf
 	npc_raw subtype=0x4, x=0x1f8, y=0x1d8, script=script_Postman
 	entity_list_end
@@ -15410,11 +15410,11 @@ Entities_HyruleTown_0_1:: @ 080EEADC
 	manager subtype=0x21, paramA=0xe
 	object_raw subtype=0x19, paramB=0xc00
 .ifdef EU_JP
-	object_raw subtype=0x38, x=0x170, y=0x3e, unknown=0x0, paramA=0xc5
-	object_raw subtype=0x38, x=0x2b0, y=0x3e, unknown=0x0, paramA=0xc6, paramB=0x1
+	object_raw subtype=0x38, x=0x170, y=0x3e, pool=0x0, paramA=0xc5
+	object_raw subtype=0x38, x=0x2b0, y=0x3e, pool=0x0, paramA=0xc6, paramB=0x1
 .else
-	object_raw subtype=0x38, x=0x170, y=0x3e, unknown=0x0, paramA=0xc8
-	object_raw subtype=0x38, x=0x2b0, y=0x3e, unknown=0x0, paramA=0xc9, paramB=0x1
+	object_raw subtype=0x38, x=0x170, y=0x3e, pool=0x0, paramA=0xc8
+	object_raw subtype=0x38, x=0x2b0, y=0x3e, pool=0x0, paramA=0xc9, paramB=0x1
 .endif
 	entity_list_end
 
@@ -15427,17 +15427,17 @@ gUnk_080EEB8C:: @ 080EEB8C
 	entity_list_end
 
 gUnk_080EEBAC:: @ 080EEBAC
-	object_raw subtype=0xbb, x=0x278, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x278, y=0x58, pool=0x4f, paramB=0x3, paramC=script_Windcrest
 	entity_list_end
 
 Entities_HyruleTown_1_0:: @ 080EEBCC
 	manager subtype=0x16, paramA=0x9
 	npc_raw subtype=0x4e, script=script_Npc4EIntroTown
 	npc_raw subtype=0x28, x=0xc8, y=0x3c8, script=script_ZeldaIntroTown
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorIntroTown
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorIntroTown
 	object_raw subtype=0x95, x=0x144, y=0x4c, collision=2, paramA=0x4
 	object_raw subtype=0x95, x=0x178, y=0xa8, collision=2, paramA=0x7
-	object_raw subtype=0xbb, x=0x148, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x148, y=0x58, pool=0x4f, paramB=0x3, paramC=script_Windcrest
 	entity_list_end
 
 Entities_HyruleTown_1_1:: @ 080EEC4C
@@ -15446,11 +15446,11 @@ Entities_HyruleTown_1_1:: @ 080EEC4C
 	object_raw subtype=0x19, paramB=0x800
 	object_raw subtype=0x77, x=0xc8, y=0x128
 .ifdef EU_JP
-	object_raw subtype=0x38, x=0x40, y=0x3e, unknown=0x0, paramA=0xc5
-	object_raw subtype=0x38, x=0x180, y=0x3e, unknown=0x0, paramA=0xc6, paramB=0x1
+	object_raw subtype=0x38, x=0x40, y=0x3e, pool=0x0, paramA=0xc5
+	object_raw subtype=0x38, x=0x180, y=0x3e, pool=0x0, paramA=0xc6, paramB=0x1
 .else
-	object_raw subtype=0x38, x=0x40, y=0x3e, unknown=0x0, paramA=0xc8
-	object_raw subtype=0x38, x=0x180, y=0x3e, unknown=0x0, paramA=0xc9, paramB=0x1
+	object_raw subtype=0x38, x=0x40, y=0x3e, pool=0x0, paramA=0xc8
+	object_raw subtype=0x38, x=0x180, y=0x3e, pool=0x0, paramA=0xc9, paramB=0x1
 .endif
 	entity_list_end 
 gUnk_080EECBC:: @ 080EECBC
@@ -16034,7 +16034,7 @@ Entities_HyruleTownMinishCaves_MulldozerFight_0:: @ 080EFFA0
 	object_raw subtype=0x8, x=0x28, y=0x88, paramA=0x3, paramC=0xeffff
 	object_raw subtype=0x8, x=0x88, y=0xc8, paramA=0x12, paramC=0xeffff
 	manager subtype=0x1e, x=0x60, y=0x50, paramB=0x400050, paramC=0x80000000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0xe8000
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0xe8000
 	object_raw subtype=0xc, x=0x88, y=0x68, paramA=0x2, paramB=0xf, paramC=0xe0000
 	entity_list_end
 
@@ -16095,7 +16095,7 @@ Room_HyruleTownMinishCaves_WestChest:: @ 080F00F4
 Entities_HyruleTownMinishCaves_Flippers_0:: @ 080F0114
 	object_raw subtype=0x8, x=0xd8, y=0xb8, paramA=0x12, paramC=0xffff
 	manager subtype=0x1e, x=0x90, y=0x70, paramB=0x400090, paramC=0x110000
-	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x120011
+	manager subtype=0xb, pool=0x0, paramB=0x8, paramC=0x120011
 	object_raw subtype=0xc, x=0xd8, y=0x28, paramA=0x2, paramB=0x14, paramC=0x120000
 .ifndef EU
 	ezlo_hint x=0x12, y=0xa, rx=0x9, ry=0x4, msg=0xb6d, flag=0xc7, flag2=0x14
@@ -16111,8 +16111,8 @@ TileEntities_HyruleTownMinishCaves_Flippers:: @ 080F0194
 	tile_entity_list_end
 
 gUnk_additional_8_HyruleTownMinishCaves_Flippers:: @ 080F01A4
-	enemy_raw subtype=0x40, x=0xc8, y=0x48, unknown=0x2f, paramB=0xe0e0000, paramC=0x3000a0
-	enemy_raw subtype=0x40, x=0xe8, y=0x48, unknown=0x2f, paramB=0xe0e0000, paramC=0x3000a0
+	enemy_raw subtype=0x40, x=0xc8, y=0x48, pool=0x2f, paramB=0xe0e0000, paramC=0x3000a0
+	enemy_raw subtype=0x40, x=0xe8, y=0x48, pool=0x2f, paramB=0xe0e0000, paramC=0x3000a0
 	entity_list_end
 
 Room_HyruleTownMinishCaves_Flippers:: @ 080F01D4
@@ -16331,14 +16331,14 @@ gUnk_080F06E0:: @ 080F06E0
 	entity_list_end
 
 gUnk_080F0770:: @ 080F0770
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x1001, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x2002, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x3003, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x4004, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x5005, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x6006, paramC=script_CutsceneMiscObjectMonsterFromChest
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x7007, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x1001, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x2002, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x3003, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x4004, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x5005, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x6006, paramC=script_CutsceneMiscObjectMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, pool=0x4f, paramA=0xe, paramB=0x7007, paramC=script_CutsceneMiscObjectMonsterFromChest
 	entity_list_end
 
 gUnk_080F0800:: @ 080F0800
@@ -16357,10 +16357,10 @@ gUnk_080F0870:: @ 080F0870
 	entity_list_end
 
 gUnk_080F0890:: @ 080F0890
-	npc_raw subtype=0x15, x=0x128, y=0x198, unknown=0xf, collision=1, paramB=0x1e, script=0x0
-	npc_raw subtype=0x15, x=0x98, y=0xc8, unknown=0xf, collision=1, paramA=0x1, paramB=0x1f, script=0x0
-	npc_raw subtype=0x15, x=0x68, y=0x168, unknown=0xf, collision=1, paramA=0x2, paramB=0x20, script=0x0
-	npc_raw subtype=0x15, x=0x48, y=0x168, unknown=0xf, collision=1, paramA=0x3, paramB=0x21, script=0x0
+	npc_raw subtype=0x15, x=0x128, y=0x198, pool=0xf, collision=1, paramB=0x1e, script=0x0
+	npc_raw subtype=0x15, x=0x98, y=0xc8, pool=0xf, collision=1, paramA=0x1, paramB=0x1f, script=0x0
+	npc_raw subtype=0x15, x=0x68, y=0x168, pool=0xf, collision=1, paramA=0x2, paramB=0x20, script=0x0
+	npc_raw subtype=0x15, x=0x48, y=0x168, pool=0xf, collision=1, paramA=0x3, paramB=0x21, script=0x0
 	npc_raw subtype=0x4e, script=script_GuardGarden7
 	entity_list_end
 
@@ -16384,7 +16384,7 @@ Entities_CastleGarden_Main_1:: @ 080F0940
 	object_raw subtype=0x57, x=0x3a8, y=0x178, paramC=0xe0000
 	object_raw subtype=0x9c, x=0x348, y=0xe0, paramC=0xf0000
 .endif
-	manager subtype=0x3, x=0x348, y=0xf0, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x348, y=0xf0, pool=0x0, paramB=0x102
 	entity_list_end
 
 gUnk_080F09A0:: @ 080F09A0
@@ -16465,7 +16465,7 @@ Room_CastleGarden_Main:: @ 080F0AE8
 	.4byte gUnk_additional_f_CastleGarden_Main
 
 Entities_SimonsSimulation_Main_0:: @ 080F0B28
-	object_raw subtype=0x69, x=0x98, y=0x88, unknown=0x4f, paramC=script_CutsceneOrchestratorSimonsSimulation
+	object_raw subtype=0x69, x=0x98, y=0x88, pool=0x4f, paramC=script_CutsceneOrchestratorSimonsSimulation
 	entity_list_end
 
 gUnk_080F0B48:: @ 080F0B48
@@ -16804,7 +16804,7 @@ Entities_HouseInteriors2_DrLeft_0:: @ 080F2134
 	entity_list_end
 
 gUnk_080F2174:: @ 080F2174
-	npc_raw subtype=0x41, x=0x78, y=0x6c, unknown=0xf, paramA=0x1, script=0x0
+	npc_raw subtype=0x41, x=0x78, y=0x6c, pool=0xf, paramA=0x1, script=0x0
 	entity_list_end
 
 gUnk_080F2194:: @ 080F2194
@@ -16868,7 +16868,7 @@ Room_HouseInteriors2_DrLeft:: @ 080F22F4
 	.4byte gUnk_additional_d_HouseInteriors2_DrLeft
 
 Entities_HouseInteriors2_Romio_0:: @ 080F232C
-	npc_raw subtype=0x35, x=0x48, y=0x68, unknown=0xf, paramA=0x3, paramB=0x3, script=0x0
+	npc_raw subtype=0x35, x=0x48, y=0x68, pool=0xf, paramA=0x3, paramB=0x3, script=0x0
 	object_raw subtype=0x8d, x=0x98, y=0x28, paramC=0x850000
 	ezlo_hint type=0x2, x=0x16, y=0xa, rx=0x2, ry=0x2, msg=0xb24, flag=0xc3
 	entity_list_end
@@ -16893,7 +16893,7 @@ Entities_HouseInteriors2_Romio_1:: @ 080F23DC
 	object_raw subtype=0x5, x=0x68, y=0x28
 	object_raw subtype=0x5, x=0x78, y=0x28
 	manager subtype=0x6, paramA=0x9
-	object_raw subtype=0x38, x=0xc0, y=0x4e, unknown=0x0, paramA=0x3c
+	object_raw subtype=0x38, x=0xc0, y=0x4e, pool=0x0, paramA=0x3c
 	entity_list_end
 
 Enemies_HouseInteriors2_Romio:: @ 080F245C
@@ -16936,7 +16936,7 @@ Room_HouseInteriors2_Romio:: @ 080F24D8
 	.4byte gUnk_additional_d_HouseInteriors2_Romio
 
 Entities_HouseInteriors2_Julietta_0:: @ 080F2510
-	npc_raw subtype=0x2c, x=0x38, y=0x78, unknown=0xf, collision=1, paramA=0x4, paramB=0x4000, script=0x0
+	npc_raw subtype=0x2c, x=0x38, y=0x78, pool=0xf, collision=1, paramA=0x4, paramB=0x4000, script=0x0
 	manager subtype=0x26, paramA=0xa, paramB=0x28ff
 	object_raw subtype=0x8b, x=0x68, y=0x48, collision=1, paramB=0x1, paramC=0x3e0000
 	ezlo_hint type=0x2, x=0x10, y=0xc, rx=0x5, ry=0x1, msg=0xb5a, flag=0xc6
@@ -17040,7 +17040,7 @@ TileEntities_HouseInteriors2_Percy:: @ 080F2858
 	tile_entity_list_end
 
 gUnk_080F2860:: @ 080F2860
-	manager subtype=0x0, unknown=0x0, paramA=0x80
+	manager subtype=0x0, pool=0x0, paramA=0x80
 
 
 gUnk_additional_8_HouseInteriors2_Percy:: @ 080F2870
@@ -17348,7 +17348,7 @@ Entities_HouseInteriors2_StockwellLakeHouse_1:: @ 080F30EC
 	object_raw subtype=0x4d, x=0x4c, y=0x28, collision=1, paramA=0x3
 	object_raw subtype=0x4d, x=0x78, y=0x28, collision=1, paramA=0x1
 	object_raw subtype=0x4d, x=0x88, y=0x28, collision=1, paramA=0x1
-	object_raw subtype=0x38, x=0xc0, y=0x3e, unknown=0x0, paramA=0x45
+	object_raw subtype=0x38, x=0xc0, y=0x3e, pool=0x0, paramA=0x45
 	entity_list_end
 
 Enemies_HouseInteriors2_StockwellLakeHouse:: @ 080F314C
@@ -17378,7 +17378,7 @@ Entities_HouseInteriors2_LinksHouseBedroom_0:: @ 080F3198
 	entity_list_end
 
 gUnk_080F31D8:: @ 080F31D8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorLinksHouseBed
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorLinksHouseBed
 	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseBedroom_1:: @ 080F31F8
@@ -17419,7 +17419,7 @@ Entities_HouseInteriors4_Carpenter_1:: @ 080F32D0
 	object_raw subtype=0x4d, x=0xa0, y=0x48, collision=1, paramA=0x17
 	object_raw subtype=0x4e, x=0x8, y=0x68, collision=1, paramB=0x803
 	object_raw subtype=0x4e, x=0x68, y=0x40, collision=1, paramB=0x900
-	object_raw subtype=0x38, x=0xc0, y=0x6e, unknown=0x0, paramA=0x49, paramB=0x1
+	object_raw subtype=0x38, x=0xc0, y=0x6e, pool=0x0, paramA=0x49, paramB=0x1
 	object_raw subtype=0x5, x=0xb8, y=0x98
 	object_raw subtype=0x5, x=0xc8, y=0x98
 	entity_list_end
@@ -17499,7 +17499,7 @@ Entities_HouseInteriors4_RanchHouseWest_1:: @ 080F3624
 	object_raw subtype=0x4f, x=0xc8, y=0x58, paramA=0x11, paramB=0x1
 	object_raw subtype=0x4f, x=0xe0, y=0x58, paramA=0xf
 	object_raw subtype=0x4e, x=0x38, y=0x80, collision=1, paramB=0x802
-	object_raw subtype=0x38, x=0x30, y=0x5e, unknown=0x0, paramA=0x4c, paramB=0x1
+	object_raw subtype=0x38, x=0x30, y=0x5e, pool=0x0, paramA=0x4c, paramB=0x1
 	object_raw subtype=0x5, x=0xa8, y=0x38, paramA=0x37, paramB=0x2, paramC=0x4d0000
 	object_raw subtype=0x5, x=0xa8, y=0x38
 	object_raw subtype=0x5, x=0xa8, y=0x28
@@ -17538,7 +17538,7 @@ Room_HouseInteriors4_RanchHouseWest:: @ 080F3758
 	.4byte gUnk_additional_9_HouseInteriors4_RanchHouseWest
 
 Entities_HouseInteriors4_RanchHouseEast_0:: @ 080F3780
-	npc_raw subtype=0x31, x=0xb0, y=0x48, unknown=0xf, paramB=0x101, script=0x0
+	npc_raw subtype=0x31, x=0xb0, y=0x48, pool=0xf, paramB=0x101, script=0x0
 	manager subtype=0x26, paramA=0x9, paramB=0xff
 	entity_list_end
 	npc_raw subtype=0x1d, x=0x48, y=0x38, script=script_TalonInside
@@ -17691,7 +17691,7 @@ gUnk_080F3C44:: @ 080F3C44
 	entity_list_end
 
 gUnk_080F3C64:: @ 080F3C64
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorAfterToD
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorAfterToD
 	npc_raw subtype=0x42, x=0x128, y=0x180, script=script_KingGustafHologram
 	entity_list_end
 
@@ -17701,10 +17701,10 @@ gUnk_080F3C94:: @ 080F3C94
 
 Entities_LakeHylia_Main_1:: @ 080F3CB4
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0xb8, y=0x1f0, unknown=0x0, paramB=0x102
-	manager subtype=0x3, x=0x128, y=0x188, unknown=0x0, paramA=0x6, paramB=0x102
+	manager subtype=0x3, x=0xb8, y=0x1f0, pool=0x0, paramB=0x102
+	manager subtype=0x3, x=0x128, y=0x188, pool=0x0, paramA=0x6, paramB=0x102
 	object_raw subtype=0x9c, x=0x2a8, y=0x2d0, paramC=0x60000
-	manager subtype=0x3, x=0x2a8, y=0x2e0, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x2a8, y=0x2e0, pool=0x0, paramB=0x102
 	object_raw subtype=0x19, x=0x120, y=0x44, collision=1, paramA=0x6, paramB=0x2
 	object_raw subtype=0x19, x=0x2a0, y=0x384, collision=1, paramA=0x7, paramB=0x2
 	manager subtype=0x20, x=0x28, y=0x218, paramB=0x10282e00, paramC=0x71208
@@ -18197,9 +18197,9 @@ Entities_OuterFortressOfWinds_SmallKey_0:: @ 080F4BF8
 	object_raw subtype=0x4e, x=0x58, y=0xd0, collision=1, paramB=0x800
 	object_raw subtype=0x3, x=0x28, y=0x78, paramC=0x630000
 	manager subtype=0x17, x=0xb8, y=0x5a, paramA=0x53, paramB=0x10200, paramC=0x650064
-	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x630065
+	manager subtype=0x2e, pool=0x0, paramB=0x1e00, paramC=0x630065
 	object_raw subtype=0x74, x=0x28, y=0x48, collision=1, paramC=0xffff0000
-	manager subtype=0x3, x=0x28, y=0x48, unknown=0x0, paramA=0x3, paramB=0x102
+	manager subtype=0x3, x=0x28, y=0x48, pool=0x0, paramA=0x3, paramB=0x102
 	entity_list_end
 
 Enemies_OuterFortressOfWinds_SmallKey:: @ 080F4C78
@@ -18256,31 +18256,31 @@ gUnk_080F4D50:: @ 080F4D50
 
 gUnk_080F4D70:: @080F4D70
 	npc_raw subtype=0x4d, x=0x388, y=0x168, script=script_EzloCap
-	object_raw subtype=0x6a, x=0x358, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectLeftBullyingOctorok
-	object_raw subtype=0x6a, x=0x3b8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectRightBullyingOctorok
+	object_raw subtype=0x6a, x=0x358, y=0x168, pool=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectLeftBullyingOctorok
+	object_raw subtype=0x6a, x=0x3b8, y=0x168, pool=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectRightBullyingOctorok
 	entity_list_end
 
 gUnk_080F4DB0:: @ 080F4DB0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012C98
+	object_raw subtype=0x69, pool=0x4f, paramC=script_08012C98
 	entity_list_end
 
 gUnk_080F4DD0:: @ 080F4DD0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkMinishPortal
+	object_raw subtype=0x69, pool=0x4f, paramC=script_EzloTalkMinishPortal
 	entity_list_end
 
 gUnk_080F4DF0:: @ 080F4DF0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012D18
+	object_raw subtype=0x69, pool=0x4f, paramC=script_08012D18
 	entity_list_end
 
 gUnk_080F4E10:: @ 080F4E10
-	object_raw subtype=0xbb, x=0x128, y=0x2a8, unknown=0x4f, paramB=0x7, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x128, y=0x2a8, pool=0x4f, paramB=0x7, paramC=script_Windcrest
 	entity_list_end
 
 Entities_MinishWoods_Main_1:: @ 080F4E30
-	manager subtype=0x1, unknown=0x18, paramA=0x11
+	manager subtype=0x1, pool=0x18, paramA=0x11
 	manager subtype=0x4
-	manager subtype=0x3, x=0x128, y=0x370, unknown=0x0, paramB=0x103
-	manager subtype=0x3, x=0x398, y=0x3b0, unknown=0x0, paramB=0x103
+	manager subtype=0x3, x=0x128, y=0x370, pool=0x0, paramB=0x103
+	manager subtype=0x3, x=0x398, y=0x3b0, pool=0x0, paramB=0x103
 	manager subtype=0x6, paramA=0x8
 	object_raw subtype=0x3e, x=0x1d8, y=0x35a, collision=1
 	object_raw subtype=0x19, x=0x2c0, y=0x50, collision=1, paramA=0x8, paramB=0x2
@@ -18288,10 +18288,10 @@ Entities_MinishWoods_Main_1:: @ 080F4E30
 
 gUnk_080F4EB0:: @ 080F4EB0
 	npc_raw subtype=0x4e, script=script_Npc4EMinishWoods
-	object_raw subtype=0x6a, x=0x398, y=0x148, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok1
-	object_raw subtype=0x6a, x=0x378, y=0x158, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok2
-	object_raw subtype=0x6a, x=0x3a8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok3
-	object_raw subtype=0x6a, x=0x388, y=0x188, unknown=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok4
+	object_raw subtype=0x6a, x=0x398, y=0x148, pool=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok1
+	object_raw subtype=0x6a, x=0x378, y=0x158, pool=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok2
+	object_raw subtype=0x6a, x=0x3a8, y=0x168, pool=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok3
+	object_raw subtype=0x6a, x=0x388, y=0x188, pool=0x4f, paramA=0x13, paramC=script_CutsceneMiscObjectOctorok4
 	entity_list_end
 
 gUnk_080F4F10:: @ 080F4F10
@@ -18434,7 +18434,7 @@ Entities_SanctuaryEntrance_Main_0:: @ 080F52F8
 	entity_list_end
 
 gUnk_080F5308:: @ 080F5308
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorSanctuaryEntrance
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorSanctuaryEntrance
 	entity_list_end
 
 gUnk_080F5328:: @ 080F5328
@@ -18491,7 +18491,7 @@ Room_Sanctuary_Hall:: @ 080F5428
 	.4byte sub_StateChange_Sanctuary_Hall
 
 Entities_Sanctuary_Main_0:: @ 080F5448
-	object_raw subtype=0x6a, x=0xe8, y=0x90, unknown=0x4f, paramA=0x17, paramC=script_CutsceneMiscObjectTextBoard
+	object_raw subtype=0x6a, x=0xe8, y=0x90, pool=0x4f, paramA=0x17, paramC=script_CutsceneMiscObjectTextBoard
 	npc_raw subtype=0x4e, script=script_08013F94
 	npc_raw subtype=0x4e, script=script_NPC4EPreventPlayerLeave
 	npc_raw subtype=0x4e, script=script_Npc4EPreventPlayerLeaving
@@ -18513,8 +18513,8 @@ gUnk_080F5508:: @ 080F5508
 	entity_list_end
 
 gUnk_080F5528:: @ 080F5528
-	object_raw subtype=0x6a, x=0xb0, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectEarthElement
-	object_raw subtype=0x6a, x=0x120, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectFireElement
+	object_raw subtype=0x6a, x=0xb0, y=0xf8, pool=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectEarthElement
+	object_raw subtype=0x6a, x=0x120, y=0xf8, pool=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectFireElement
 	entity_list_end
 
 gUnk_080F5558:: @ 080F5558
@@ -18522,7 +18522,7 @@ gUnk_080F5558:: @ 080F5558
 	entity_list_end
 
 gUnk_080F5578:: @ 080F5578
-	object_raw subtype=0x6a, x=0x120, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectWaterElement
+	object_raw subtype=0x6a, x=0x120, y=0x168, pool=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectWaterElement
 	entity_list_end
 
 gUnk_080F5598:: @ 080F5598
@@ -18530,7 +18530,7 @@ gUnk_080F5598:: @ 080F5598
 	entity_list_end
 
 gUnk_080F55B8:: @ 080F55B8
-	object_raw subtype=0x6a, x=0xb0, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectWindElement
+	object_raw subtype=0x6a, x=0xb0, y=0x168, pool=0x4f, paramA=0x1c, paramC=script_CutsceneMiscObjectWindElement
 	entity_list_end
 
 gUnk_080F55D8:: @ 080F55D8
@@ -18561,7 +18561,7 @@ Entities_Sanctuary_StainedGlass_0:: @ 080F5630
 	entity_list_end
 
 gUnk_080F5660:: @ 080F5660
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_MinishVillageObjectPictureBackRoom
+	object_raw subtype=0x69, pool=0x4f, paramC=script_MinishVillageObjectPictureBackRoom
 	entity_list_end
 
 gUnk_080F5680:: @ 080F5680
@@ -18593,7 +18593,7 @@ Room_Sanctuary_StainedGlass:: @ 080F5718
 	.4byte sub_StateChange_Sanctuary_StainedGlass
 
 Entities_HouseInteriors3_StockwellShop_0:: @ 080F5738
-	npc_raw subtype=0x1c, x=0x98, y=0x78, unknown=0xf, script=0x0
+	npc_raw subtype=0x1c, x=0x98, y=0x78, pool=0xf, script=0x0
 	entity_list_end
 
 gUnk_080F5758:: @ 080F5758
@@ -18644,7 +18644,7 @@ gUnk_080F58A8:: @ 080F58A8
 Entities_HouseInteriors3_StockwellShop_1:: @ 080F58C8
 	object_raw subtype=0x4f, x=0x78, y=0xc8, paramA=0x2, paramB=0x2
 	object_raw subtype=0x4e, x=0xac, y=0x28, collision=1, paramB=0x800
-	object_raw subtype=0x38, x=0xc0, y=0x4e, unknown=0x0, paramA=0x51, paramB=0x1
+	object_raw subtype=0x38, x=0xc0, y=0x4e, pool=0x0, paramA=0x51, paramB=0x1
 	entity_list_end
 
 Enemies_HouseInteriors3_StockwellShop:: @ 080F5908
@@ -18686,7 +18686,7 @@ Entities_HouseInteriors3_Cafe_1:: @ 080F59E8
 	object_raw subtype=0x4e, x=0x48, y=0x28, collision=1, paramB=0x800
 	object_raw subtype=0x4e, x=0x38, y=0xb0, collision=1, paramB=0x902
 	object_raw subtype=0x4e, x=0xd0, y=0x48, collision=1, paramB=0xa01
-	object_raw subtype=0x38, x=0xc0, y=0x8e, unknown=0x0, paramA=0x58
+	object_raw subtype=0x38, x=0xc0, y=0x8e, pool=0x0, paramA=0x58
 	entity_list_end
 
 Enemies_HouseInteriors3_Cafe:: @ 080F5A78
@@ -18722,7 +18722,7 @@ Room_HouseInteriors3_Cafe:: @ 080F5ADC
 	.4byte gUnk_additional_b_HouseInteriors3_Cafe
 
 Entities_HouseInteriors3_RemShoeShop_0:: @ 080F5B0C
-	npc_raw subtype=0x37, x=0x68, y=0x41, unknown=0xf, script=0x0
+	npc_raw subtype=0x37, x=0x68, y=0x41, pool=0xf, script=0x0
 	ezlo_hint type=0x2, x=0x4, y=0x8, rx=0x2, ry=0x2, msg=0xb24, flag=0xc3
 	entity_list_end
 
@@ -18735,7 +18735,7 @@ gUnk_080F5B3C:: @ 080F5B3C
 Entities_HouseInteriors3_RemShoeShop_1:: @ 080F5B5C
 	object_raw subtype=0x4f, x=0xe8, y=0x58, paramA=0x2, paramB=0x1
 	object_raw subtype=0x4d, x=0x68, y=0x48, collision=1, paramA=0x1e
-	object_raw subtype=0x38, x=0x30, y=0x2e, unknown=0x0, paramA=0x4b, paramB=0x1
+	object_raw subtype=0x38, x=0x30, y=0x2e, pool=0x0, paramA=0x4b, paramB=0x1
 	manager subtype=0x6, paramA=0x8
 	entity_list_end
 
@@ -18884,7 +18884,7 @@ Room_HouseInteriors3_FigurineHouse:: @ 080F5EF8
 	.4byte sub_StateChange_HouseInteriors3_FigurineHouse
 
 Entities_HouseInteriors3_BorlovEntrance_0:: @ 080F5F18
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneMiscObjectPreventPlayerLeaveCarlov
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneMiscObjectPreventPlayerLeaveCarlov
 	entity_list_end
 
 gUnk_additional_8_HouseInteriors3_BorlovEntrance:: @ 080F5F38
@@ -18926,8 +18926,8 @@ Room_HouseInteriors3_BorlovEntrance:: @ 080F5FF0
 
 Entities_HouseInteriors3_Carlov_0:: @ 080F601C
 	npc_raw subtype=0x3f, x=0x78, y=0x39, script=script_Carlov2
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneMiscObjectCarlov
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneMiscObjectCarlov2
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneMiscObjectCarlov
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneMiscObjectCarlov2
 	object_raw subtype=0x54, x=0xa8, y=0x3e, paramA=0x1, paramB=0x80000, paramC=0x80000000
 	entity_list_end
 
@@ -19145,11 +19145,11 @@ Entities_WindTribeTowerRoof_Main_0:: @ 080F664C
 	entity_list_end
 
 gUnk_080F66AC:: @ 080F66AC
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkPoW
+	object_raw subtype=0x69, pool=0x4f, paramC=script_EzloTalkPoW
 	entity_list_end
 
 Entities_WindTribeTowerRoof_Main_1:: @ 080F66CC
-	manager subtype=0x1b, unknown=0x8, paramA=0x5
+	manager subtype=0x1b, pool=0x8, paramA=0x5
 	object_raw subtype=0x4f, x=0xb8, y=0x128, paramA=0x17
 	object_raw subtype=0x4d, x=0x28, y=0x78, collision=1, paramA=0x20
 	object_raw subtype=0x4d, x=0xc8, y=0x78, collision=1, paramA=0x20
@@ -19489,7 +19489,7 @@ Entities_HyruleField_WesternWoodSouth_1:: @ 080F6F2C
 	object_raw subtype=0x2c, x=0x38, y=0x38, paramA=0x7, paramB=0xb300
 .endif
 	manager subtype=0x18
-	manager subtype=0x3, x=0x78, y=0x80, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x78, y=0x80, pool=0x0, paramB=0x102
 	manager subtype=0x6, paramA=0x8
 	entity_list_end
 
@@ -19545,7 +19545,7 @@ gUnk_080F70A8:: @ 080F70A8
 	entity_list_end
 
 gUnk_080F70D8:: @ 080F70D8
-	object_raw subtype=0xbb, x=0x2c8, y=0x128, unknown=0x4f, paramB=0x6, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x2c8, y=0x128, pool=0x4f, paramB=0x6, paramC=script_Windcrest
 	entity_list_end
 
 Entities_HyruleField_SouthHyruleField_1:: @ 080F70F8
@@ -19555,7 +19555,7 @@ Entities_HyruleField_SouthHyruleField_1:: @ 080F70F8
 .else	
 	object_raw subtype=0x9c, x=0x58, y=0x210, paramC=0x6c0000
 .endif
-	manager subtype=0x3, x=0x58, y=0x220, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x58, y=0x220, pool=0x0, paramB=0x102
 	manager subtype=0x18
 	object_raw subtype=0x2d, x=0x2d0, y=0x148
 	entity_list_end
@@ -19634,14 +19634,14 @@ Entities_HyruleField_EasternHillsSouth_0:: @ 080F72EC
 	entity_list_end
 
 Entities_HyruleField_EasternHillsSouth_1:: @ 080F731C
-	manager subtype=0x3, x=0x48, y=0x80, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x48, y=0x80, pool=0x0, paramB=0x102
 	manager subtype=0x18
 	entity_list_end
 
 Enemies_HyruleField_EasternHillsSouth:: @ 080F734C
 	enemy_raw subtype=0x35, x=0x188, y=0x58, paramB=0xb0d0000, paramC=0x480148
 	enemy_raw subtype=0x35, x=0x128, y=0x28, paramB=0x70f0000, paramC=0x180128
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	entity_list_end
 
 TileEntities_HyruleField_EasternHillsSouth:: @ 080F738C
@@ -19682,7 +19682,7 @@ Enemies_HyruleField_EasternHillsCenter:: @ 080F741C
 	enemy_raw subtype=0x35, x=0x28, y=0xb8, paramB=0x4140000, paramC=0xa00020
 	enemy_raw subtype=0x35, x=0x198, y=0xb8, paramB=0x6100000, paramC=0xa00130
 	enemy_raw subtype=0x35, x=0x178, y=0x58, paramB=0xa160000, paramC=0x2000d0
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x3, x=0x88, y=0x38, paramB=0xa260000, paramC=0x200060
 	enemy_raw subtype=0x3, x=0x128, y=0x58, paramB=0xa260000, paramC=0x200060
 	entity_list_end
@@ -19852,8 +19852,8 @@ Entities_HyruleField_LonLonRanch_1:: @ 080F78E0
 	manager subtype=0x6, paramA=0x8
 	object_raw subtype=0x4e, x=0x13c, y=0x278, collision=1, paramB=0xa00
 	object_raw subtype=0x4e, x=0x1b4, y=0x278, collision=1, paramB=0x1000
-	manager subtype=0x3, x=0x158, y=0x220, unknown=0x0, paramB=0x103
-	manager subtype=0x3, x=0x118, y=0x30, unknown=0x0, paramB=0x101
+	manager subtype=0x3, x=0x158, y=0x220, pool=0x0, paramB=0x103
+	manager subtype=0x3, x=0x118, y=0x30, pool=0x0, paramB=0x101
 	object_raw subtype=0x9c, x=0x138, y=0x160, paramC=0x7b0000
 .else
 	manager subtype=0x20, x=0xb8, y=0xc8, paramB=0x10a82e00, paramC=0x7a10c8
@@ -19862,11 +19862,11 @@ Entities_HyruleField_LonLonRanch_1:: @ 080F78E0
 	manager subtype=0x6, paramA=0x8
 	object_raw subtype=0x4e, x=0x13c, y=0x278, collision=1, paramB=0xa00
 	object_raw subtype=0x4e, x=0x1b4, y=0x278, collision=1, paramB=0x1000
-	manager subtype=0x3, x=0x158, y=0x220, unknown=0x0, paramB=0x103
-	manager subtype=0x3, x=0x118, y=0x30, unknown=0x0, paramB=0x101
+	manager subtype=0x3, x=0x158, y=0x220, pool=0x0, paramB=0x103
+	manager subtype=0x3, x=0x118, y=0x30, pool=0x0, paramB=0x101
 	object_raw subtype=0x9c, x=0x138, y=0x160, paramC=0x7d0000
 .endif
-	manager subtype=0x3, x=0x138, y=0x170, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x138, y=0x170, pool=0x0, paramB=0x102
 	object_raw subtype=0x19, paramB=0x1100
 	manager subtype=0x4
 	manager subtype=0x18
@@ -19964,13 +19964,13 @@ Entities_HyruleField_OutsideCastle_1:: @ 080F7C00
 	object_raw subtype=0x2f, x=0x38, y=0x1c8, paramC=0x80640000
 .ifdef EU_JP
 	object_raw subtype=0x9c, x=0x328, y=0x200, paramC=0x8b0000
-	manager subtype=0x3, x=0x328, y=0x210, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x328, y=0x210, pool=0x0, paramB=0x102
 	manager subtype=0x18
 	object_raw subtype=0x57, x=0x1f8, y=0x148, paramC=0x40570000
 	object_raw subtype=0x0, x=0x178, y=0x1d8, collision=1, paramA=0x57, paramB=0x700, paramC=0x8d0000
 .else
 	object_raw subtype=0x9c, x=0x328, y=0x200, paramC=0x8d0000
-	manager subtype=0x3, x=0x328, y=0x210, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x328, y=0x210, pool=0x0, paramB=0x102
 	manager subtype=0x18
 	object_raw subtype=0x57, x=0x1f8, y=0x148, paramC=0x40570000
 	object_raw subtype=0x0, x=0x178, y=0x1d8, collision=1, paramA=0x57, paramB=0x700, paramC=0x8f0000
@@ -19978,7 +19978,7 @@ Entities_HyruleField_OutsideCastle_1:: @ 080F7C00
 	entity_list_end
 
 gUnk_080F7C80:: @ 080F7C80
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorVaatiAppears
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorVaatiAppears
 	npc_raw subtype=0x27, x=0x1f8, y=0x108, paramA=0x1, script=script_VaatiAppearsAgain
 	entity_list_end
 
@@ -20001,18 +20001,18 @@ gUnk_additional_e_HyruleField_OutsideCastle:: @ 080F7CF0
 	entity_list_end
 
 gUnk_080F7D70:: @ 080F7D70
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_080157AC
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015B34
+	object_raw subtype=0x69, pool=0x4f, paramC=script_080157AC
+	object_raw subtype=0x69, pool=0x4f, paramC=script_08015B34
 	npc_raw subtype=0x28, x=0x1e8, y=0x168, script=script_ZeldaIntroBusinessScrub
 	enemy_raw subtype=0x5b, x=0x248, y=0x1eb
 	entity_list_end
 
 gUnk_080F7DC0:: @ 080F7DC0
-	manager subtype=0xe, unknown=0x1f, paramA=0xd, paramC=0x80640000
+	manager subtype=0xe, pool=0x1f, paramA=0xd, paramC=0x80640000
 	entity_list_end
 
 gUnk_additional_d_HyruleField_OutsideCastle:: @ 080F7DE0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorFixBridge
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorFixBridge
 	manager subtype=0x5, x=0x9, y=0x25, paramB=0x89, paramC=0x80650001
 	manager subtype=0x5, x=0x9, y=0x26, paramB=0x89, paramC=0x80650001
 	entity_list_end
@@ -20113,14 +20113,14 @@ Entities_HyruleField_OutsideCastle_1West:: @ 080F808C
 	manager subtype=0x18
 	manager subtype=0x4
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x38, y=0xa0, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x38, y=0xa0, pool=0x0, paramB=0x102
 	manager subtype=0x20, x=0x158, y=0x298, paramB=0x11582e00, paramC=0x901288
 	entity_list_end
 .else
 	manager subtype=0x18
 	manager subtype=0x4
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x38, y=0xa0, unknown=0x0, paramB=0x102
+	manager subtype=0x3, x=0x38, y=0xa0, pool=0x0, paramB=0x102
 	manager subtype=0x20, x=0x158, y=0x298, paramB=0x11582e00, paramC=0x921288
 	entity_list_end
 .endif
@@ -20202,7 +20202,7 @@ Entities_HyruleField_WesternWoodsNorth_0:: @ 080F8210
 .endif
 
 gUnk_080F82E0:: @ 080F82E0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_CutsceneOrchestratorTakeover
+	object_raw subtype=0x69, pool=0x4f, paramC=script_CutsceneOrchestratorTakeover
 	entity_list_end
 
 Entities_HyruleField_WesternWoodsNorth_1:: @ 080F8300
@@ -20307,7 +20307,7 @@ gUnk_080F85D8:: @ 080F85D8
 
 gUnk_080F85F8:: @ 080F85F8
 	manager subtype=0x35, x=0xa8, y=0xc8, paramB=0xf01e00, paramC=0xc098000
-	manager subtype=0xe, unknown=0x1f, paramA=0x8, paramC=0x80000000
+	manager subtype=0xe, pool=0x1f, paramA=0x8, paramC=0x80000000
 	entity_list_end
 
 gUnk_additional_8_Caves_Boomerang:: @ 080F8628
@@ -20943,7 +20943,7 @@ Entities_VeilFalls_Main_0:: @ 080F9264
 .endif
 
 gUnk_080F9304:: @ 080F9304
-	object_raw subtype=0xbb, x=0xf8, y=0xf8, unknown=0x4f, paramB=0x1, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0xf8, y=0xf8, pool=0x4f, paramB=0x1, paramC=script_Windcrest
 	entity_list_end
 
 Entities_VeilFalls_Main_1:: @ 080F9324
@@ -20957,7 +20957,7 @@ Enemies_VeilFalls_Main:: @ 080F9354
 	enemy_raw subtype=0x35, x=0x198, y=0x98, paramA=0x1
 	enemy_raw subtype=0x35, x=0x158, y=0x1f8, paramA=0x1
 	enemy_raw subtype=0x35, x=0x168, y=0x1f8, paramA=0x1
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x2, x=0xb8, y=0x378, paramA=0x1, paramB=0xa280000, paramC=0x3700060
 	enemy_raw subtype=0x2, x=0xf8, y=0x3a8, paramA=0x1, paramB=0xa280000, paramC=0x3700060
 	enemy_raw subtype=0x0, x=0x48, y=0x3a8, paramB=0xa2e0000, paramC=0x3700030
@@ -21260,8 +21260,8 @@ Entities_VeilFallsTop_Main_0:: @ 080F9B78
 	npc_raw subtype=0x4c, x=0xd0, y=0x68, paramA=0x5, script=script_BigGoron2
 	npc_raw subtype=0x4c, x=0x1b0, y=0x68, paramA=0xa, script=script_BigGoron2
 	npc_raw subtype=0x4c, y=0x78, paramA=0x4, script=script_BigGoron3
-	npc_raw subtype=0x4c, x=0x108, y=0x88, unknown=0xf, paramA=0x1, script=0x0
-	npc_raw subtype=0x4c, x=0x108, y=0x88, unknown=0xf, paramA=0x2, script=0x0
+	npc_raw subtype=0x4c, x=0x108, y=0x88, pool=0xf, paramA=0x1, script=0x0
+	npc_raw subtype=0x4c, x=0x108, y=0x88, pool=0xf, paramA=0x2, script=0x0
 	entity_list_end
 
 gUnk_080F9BF8:: @ 080F9BF8
@@ -21278,15 +21278,15 @@ gUnk_080F9BF8:: @ 080F9BF8
 .endif
 
 gUnk_080F9C38:: @ 080F9C38
-	object_raw subtype=0x6a, x=0x108, y=0x88, unknown=0x4f, paramA=0x29, paramC=script_CutsceneMiscObjectVeilFallsTop
+	object_raw subtype=0x6a, x=0x108, y=0x88, pool=0x4f, paramA=0x29, paramC=script_CutsceneMiscObjectVeilFallsTop
 	entity_list_end
 
 gUnk_080F9C58:: @ 080F9C58
-	object_raw subtype=0x6a, x=0x118, y=0x88, unknown=0x4f, paramA=0x2a, paramC=script_CutsceneMiscObjectMirrorShield
+	object_raw subtype=0x6a, x=0x118, y=0x88, pool=0x4f, paramA=0x2a, paramC=script_CutsceneMiscObjectMirrorShield
 	entity_list_end
 
 Entities_VeilFallsTop_Main_1:: @ 080F9C78
-	manager subtype=0x1b, unknown=0x8, paramA=0x2
+	manager subtype=0x1b, pool=0x8, paramA=0x2
 	entity_list_end
 
 Enemies_VeilFallsTop_Main:: @ 080F9C98
@@ -21417,7 +21417,7 @@ Room_47_4:: @ 080F9F08
 
 Entities_TreeInteriors_WitchHut_0:: @ 080F9F28
 	npc_raw subtype=0x36, x=0x78, y=0x30, script=script_Syrup
-	object_raw subtype=0x69, x=0x58, y=0x48, unknown=0x4f, paramC=script_CutsceneOrchestratorPotionBlue
+	object_raw subtype=0x69, x=0x58, y=0x48, pool=0x4f, paramC=script_CutsceneOrchestratorPotionBlue
 	entity_list_end
 
 Entities_TreeInteriors_WitchHut_1:: @ 080F9F58
@@ -21431,7 +21431,7 @@ gUnk_080F9F88:: @ 080F9F88
 
 gUnk_080F9FA8:: @ 080F9FA8
 	object_raw subtype=0x4d, x=0x98, y=0x48, collision=1, paramA=0x8
-	object_raw subtype=0x69, x=0x98, y=0x48, unknown=0x4f, paramC=script_CutsceneOrchestratorPotionRed
+	object_raw subtype=0x69, x=0x98, y=0x48, pool=0x4f, paramC=script_CutsceneOrchestratorPotionRed
 	entity_list_end
 
 Enemies_TreeInteriors_WitchHut:: @ 080F9FD8
@@ -22113,19 +22113,19 @@ Entities_MtCrenel_MountainTop_0:: @ 080FAC28
 Entities_MtCrenel_MountainTop_1:: @ 080FAC88
 .ifdef EU_JP
 	object_raw subtype=0x2c, x=0x98, y=0x28, paramA=0x7, paramB=0xad00
-	manager subtype=0x1b, unknown=0x8
+	manager subtype=0x1b, pool=0x8
 	entity_list_end
 .else
 	object_raw subtype=0x2c, x=0x98, y=0x28, paramA=0x7, paramB=0xaf00
-	manager subtype=0x1b, unknown=0x8
+	manager subtype=0x1b, pool=0x8
 	entity_list_end
 .endif
 
 gUnk_080FACB8:: @ 080FACB8
 	manager subtype=0x10
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x288, y=0x28, unknown=0x0, paramA=0x1, paramB=0x102
-	manager subtype=0x3, x=0x388, y=0x28, unknown=0x0, paramA=0x1, paramB=0x102
+	manager subtype=0x3, x=0x288, y=0x28, pool=0x0, paramA=0x1, paramB=0x102
+	manager subtype=0x3, x=0x388, y=0x28, pool=0x0, paramA=0x1, paramB=0x102
 	object_raw subtype=0x7a, x=0x1d8, y=0xb8, paramA=0x1
 	object_raw subtype=0x7a, x=0x1e8, y=0xa8, paramA=0x1
 	object_raw subtype=0x7a, x=0x1f8, y=0xa0, paramA=0x1
@@ -22134,10 +22134,10 @@ gUnk_080FACB8:: @ 080FACB8
 
 gUnk_080FAD48:: @ 080FAD48
 	npc_raw subtype=0x4e, script=script_Npc4EMtCrenel
-	object_raw subtype=0x6a, x=0xf8, y=0x38, unknown=0x4f, paramA=0x20, paramC=script_CutsceneMiscObjectTektite1
-	object_raw subtype=0x6a, x=0x168, y=0x48, unknown=0x4f, paramA=0x20, paramC=script_CutsceneMiscObjectTektite2
-	object_raw subtype=0x6a, x=0x138, y=0x68, unknown=0x4f, paramA=0x21, paramC=script_CutsceneMiscObjectTektite3
-	object_raw subtype=0x6a, x=0xe8, y=0x88, unknown=0x4f, paramA=0x21, paramC=script_CutsceneMiscObjectTektite4
+	object_raw subtype=0x6a, x=0xf8, y=0x38, pool=0x4f, paramA=0x20, paramC=script_CutsceneMiscObjectTektite1
+	object_raw subtype=0x6a, x=0x168, y=0x48, pool=0x4f, paramA=0x20, paramC=script_CutsceneMiscObjectTektite2
+	object_raw subtype=0x6a, x=0x138, y=0x68, pool=0x4f, paramA=0x21, paramC=script_CutsceneMiscObjectTektite3
+	object_raw subtype=0x6a, x=0xe8, y=0x88, pool=0x4f, paramA=0x21, paramC=script_CutsceneMiscObjectTektite4
 	entity_list_end
 
 Enemies_MtCrenel_MountainTop:: @ 080FADA8
@@ -22187,7 +22187,7 @@ Entities_MtCrenel_WallClimb_0:: @ 080FAE9C
 Enemies_MtCrenel_WallClimb:: @ 080FAEBC
 	enemy_raw subtype=0x35, x=0x58, y=0xa8, paramA=0x1
 	enemy_raw subtype=0x35, x=0x78, y=0xa8, paramA=0x1
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x21, x=0x28, y=0x8, paramB=0x4a2e0000
 	enemy_raw subtype=0x21, x=0xa8, y=0x8, paramA=0x1, paramB=0x4a2e0000
 	enemy_raw subtype=0x21, x=0x148, y=0x8, paramB=0x4a2e0000
@@ -22225,18 +22225,18 @@ Entities_MtCrenel_CaveOfFlamesEntrance_0:: @ 080FAFD4
 	entity_list_end
 
 gUnk_080FAFE4:: @ 080FAFE4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkCoF
+	object_raw subtype=0x69, pool=0x4f, paramC=script_EzloTalkCoF
 	entity_list_end
 
 gUnk_080FB004:: @ 080FB004
-	object_raw subtype=0xbb, x=0x98, y=0xf8, unknown=0x4f, paramC=script_Windcrest
+	object_raw subtype=0xbb, x=0x98, y=0xf8, pool=0x4f, paramC=script_Windcrest
 	entity_list_end
 
 Entities_MtCrenel_CaveOfFlamesEntrance_1:: @ 080FB024
-	manager subtype=0x1b, unknown=0x8, paramA=0x1
+	manager subtype=0x1b, pool=0x8, paramA=0x1
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x38, y=0x108, unknown=0x0, paramA=0x1, paramB=0x102
-	manager subtype=0x3, x=0x138, y=0x128, unknown=0x0, paramA=0x1, paramB=0x102
+	manager subtype=0x3, x=0x38, y=0x108, pool=0x0, paramA=0x1, paramB=0x102
+	manager subtype=0x3, x=0x138, y=0x128, pool=0x0, paramA=0x1, paramB=0x102
 	object_raw subtype=0x7a, x=0x48, y=0x38, collision=2
 	object_raw subtype=0x7a, x=0x50, y=0x30, collision=2
 	object_raw subtype=0x7a, x=0x58, y=0x3c, collision=2
@@ -22253,7 +22253,7 @@ Enemies_MtCrenel_CaveOfFlamesEntrance:: @ 080FB104
 	enemy_raw subtype=0x35, x=0x1c8, y=0x28, paramA=0x1
 	enemy_raw subtype=0x35, x=0x118, y=0x198, paramA=0x1
 	enemy_raw subtype=0x35, x=0x128, y=0x198, paramA=0x1
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x3, x=0x158, y=0x58, paramB=0x8240000, paramC=0x300110
 	enemy_raw subtype=0x3, x=0x1f8, y=0x58, paramB=0x8240000, paramC=0x300110
 	enemy_raw subtype=0x3, x=0x1f8, y=0xe8, paramB=0x6120000, paramC=0xd001c0
@@ -22316,7 +22316,7 @@ Entities_MtCrenel_GustJarShortcut_0:: @ 080FB2A0
 Enemies_MtCrenel_GustJarShortcut:: @ 080FB2E0
 	enemy_raw subtype=0x35, x=0x1b8, y=0xe8, paramA=0x1
 	enemy_raw subtype=0x35, x=0x1c8, y=0xe8, paramA=0x1
-	manager subtype=0x28, unknown=0x3, paramB=0x2
+	manager subtype=0x28, pool=0x3, paramB=0x2
 	enemy_raw subtype=0x21, x=0x38, y=0x1, paramB=0x112e0001
 	enemy_raw subtype=0x21, x=0x88, y=0x1, paramA=0x2, paramB=0x112e0001
 	enemy_raw subtype=0x26, x=0x48, y=0x78
@@ -22373,18 +22373,18 @@ Entities_MtCrenel_Entrance_0:: @ 080FB480
 .ifdef EU_JP
 	object_raw subtype=0x6b, x=0x118, y=0x28, paramB=0x4c
 	object_raw subtype=0x6b, x=0x388, y=0x178, paramA=0x2, paramB=0x4d
-	projectile_raw subtype=0x14, x=0x108, y=0xb8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x118, y=0xb8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x128, y=0xb8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x108, y=0xc8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x118, y=0xc8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x128, y=0xc8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x108, y=0xd8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x118, y=0xd8, unknown=0xf, paramC=0x510000
-	projectile_raw subtype=0x14, x=0x128, y=0xd8, unknown=0xf, paramC=0x510000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x510051
-	projectile_raw subtype=0x14, x=0x158, y=0x58, unknown=0xf, paramC=0x520000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x520052
+	projectile_raw subtype=0x14, x=0x108, y=0xb8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x118, y=0xb8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x128, y=0xb8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x108, y=0xc8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x118, y=0xc8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x128, y=0xc8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x108, y=0xd8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x118, y=0xd8, pool=0xf, paramC=0x510000
+	projectile_raw subtype=0x14, x=0x128, y=0xd8, pool=0xf, paramC=0x510000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x510051
+	projectile_raw subtype=0x14, x=0x158, y=0x58, pool=0xf, paramC=0x520000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x520052
 	object_raw subtype=0x5e, x=0x178, y=0x178
 	object_raw subtype=0x5e, x=0x128, y=0x160
 	object_raw subtype=0x0, x=0x318, y=0x164, collision=1, paramA=0x56, paramB=0x400, paramC=0x490000
@@ -22395,18 +22395,18 @@ Entities_MtCrenel_Entrance_0:: @ 080FB480
 .else
 	object_raw subtype=0x6b, x=0x118, y=0x28, paramB=0x4e
 	object_raw subtype=0x6b, x=0x388, y=0x178, paramA=0x2, paramB=0x4f
-	projectile_raw subtype=0x14, x=0x108, y=0xb8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x118, y=0xb8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x128, y=0xb8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x108, y=0xc8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x118, y=0xc8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x128, y=0xc8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x108, y=0xd8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x118, y=0xd8, unknown=0xf, paramC=0x530000
-	projectile_raw subtype=0x14, x=0x128, y=0xd8, unknown=0xf, paramC=0x530000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x530053
-	projectile_raw subtype=0x14, x=0x158, y=0x58, unknown=0xf, paramC=0x540000
-	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x540054
+	projectile_raw subtype=0x14, x=0x108, y=0xb8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x118, y=0xb8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x128, y=0xb8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x108, y=0xc8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x118, y=0xc8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x128, y=0xc8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x108, y=0xd8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x118, y=0xd8, pool=0xf, paramC=0x530000
+	projectile_raw subtype=0x14, x=0x128, y=0xd8, pool=0xf, paramC=0x530000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x530053
+	projectile_raw subtype=0x14, x=0x158, y=0x58, pool=0xf, paramC=0x540000
+	manager subtype=0x2e, pool=0x0, paramB=0x3c00, paramC=0x540054
 	object_raw subtype=0x5e, x=0x178, y=0x178
 	object_raw subtype=0x5e, x=0x128, y=0x160
 	object_raw subtype=0x0, x=0x318, y=0x164, collision=1, paramA=0x56, paramB=0x400, paramC=0x4b0000
@@ -22418,7 +22418,7 @@ Entities_MtCrenel_Entrance_0:: @ 080FB480
 
 Entities_MtCrenel_Entrance_1:: @ 080FB5D0
 	manager subtype=0x6, paramA=0x8
-	manager subtype=0x3, x=0x2f8, y=0xd8, unknown=0x0, paramA=0x1, paramB=0x102
+	manager subtype=0x3, x=0x2f8, y=0xd8, pool=0x0, paramA=0x1, paramB=0x102
 	entity_list_end
 
 Enemies_MtCrenel_Entrance:: @ 080FB600

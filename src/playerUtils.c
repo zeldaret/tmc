@@ -21,7 +21,7 @@
 static void sub_08077E54(ItemBehavior* beh);
 
 extern void sub_0800857C(Entity*);
-extern void SetEntityPriorityForKind(Entity*);
+extern void InitDefaultPriority(Entity*);
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern u32 sub_08003FDE(Entity*, Entity*, u32, u32);
@@ -1671,7 +1671,7 @@ bool32 CheckQueuedAction(void) {
         gPlayerEntity.base.action = gPlayerState.queued_action;
         gPlayerEntity.base.subAction = 0;
         gPlayerState.queued_action = PLAYER_INIT;
-        DoPlayerAction(&gPlayerEntity.base);
+        DoPlayerAction(&gPlayerEntity);
         return TRUE;
     }
 }
@@ -1851,7 +1851,7 @@ void PlayerSetNormalAndCollide(void) {
                             PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     ResolvePlayerAnimation();
     SetPlayerActionNormal();
-    SetEntityPriorityForKind(&gPlayerEntity.base);
+    InitDefaultPriority(&gPlayerEntity.base);
 }
 
 void PlayerMinishSetNormalAndCollide(void) {
@@ -1867,7 +1867,7 @@ void PlayerMinishSetNormalAndCollide(void) {
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     gPlayerState.swim_state = 0;
     gPlayerState.queued_action = PLAYER_INIT;
-    SetEntityPriorityForKind(&gPlayerEntity.base);
+    InitDefaultPriority(&gPlayerEntity.base);
 }
 
 void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
@@ -2018,7 +2018,7 @@ bool32 sub_08079550(void) {
                     gPlayerEntity.base.subAction = 0;
                     COLLISION_OFF(&gPlayerEntity.base);
                     gPlayerState.jump_status = 0x81;
-                    DoPlayerAction(&gPlayerEntity.base);
+                    DoPlayerAction(&gPlayerEntity);
                     return TRUE;
                 }
             }

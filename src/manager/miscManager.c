@@ -392,7 +392,7 @@ void MiscManager_TypeD(MiscManager* this) {
         SetPlayerControl(3);
         if (gRoomControls.reload_flags)
             return;
-        if (gRoomVars.field_0x0) {
+        if (gRoomVars.didEnterScrolling) {
             StartPlayerScript(gUnk_08108380[gRoomControls.scroll_direction]);
         } else {
             StartPlayerScript(gUnk_08108380[gPlayerEntity.base.animationState >> 1]);

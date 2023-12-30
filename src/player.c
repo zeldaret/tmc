@@ -1989,7 +1989,7 @@ static void sub_080724DC(PlayerEntity* this) {
     } else {
         super->spriteSettings.draw = 3;
         super->subAction = 1;
-        if (gRoomVars.field_0x0 == 0) {
+        if (!gRoomVars.didEnterScrolling) {
             if (gPlayerState.flags & PL_MINISH) {
                 gPlayerState.animation = ANIM_BOUNCE_MINISH;
             } else {

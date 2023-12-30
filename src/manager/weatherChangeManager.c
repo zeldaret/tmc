@@ -46,7 +46,7 @@ void WeatherChangeManager_Main(WeatherChangeManager* this) {
             this->unk_20 = 0x1F;
             this->unk_22 = 5;
         }
-        gRoomVars.unk_10[0] = 0xFF;
+        gRoomVars.graphicsGroups[0] = 0xFF;
         RegisterTransitionManager(this, sub_080595E4, 0);
     }
     sub_08059608(this);
@@ -55,7 +55,7 @@ void WeatherChangeManager_Main(WeatherChangeManager* this) {
 }
 
 void sub_080595E4(WeatherChangeManager* this) {
-    gRoomVars.unk_10[0] = 0xFF;
+    gRoomVars.graphicsGroups[0] = 0xFF;
     sub_08059690(this);
     sub_080596E0(this);
     LoadStaticBackground(0);
@@ -134,8 +134,8 @@ void sub_080596E0(WeatherChangeManager* this) {
             }
             break;
     }
-    if (gRoomVars.unk_10[0] != this->unk_22) {
-        gRoomVars.unk_10[0] = this->unk_22;
+    if (gRoomVars.graphicsGroups[0] != this->unk_22) {
+        gRoomVars.graphicsGroups[0] = this->unk_22;
         switch (this->unk_22) {
             case 0 ... 3:
                 LoadGfxGroup(this->unk_22 + 0x2B);

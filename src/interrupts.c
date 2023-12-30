@@ -198,39 +198,39 @@ void WaitForNextFrame(void) {
     FadeVBlank();
 }
 
-void PlayerUpdate(Entity* this) {
+void PlayerUpdate(PlayerEntity* this) {
     if (gSave.stats.effect != 0)
         gPlayerState.flags |= PL_DRUGGED;
     else
         gPlayerState.flags &= ~PL_DRUGGED;
 
-    if (!EntityDisabled(this)) {
+    if (!EntityDisabled(super)) {
         if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             PutAwayItems();
             if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {
                 gPlayerState.queued_action = PLAYER_ROLL;
                 gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
                 gPlayerState.hurtBlinkSpeed = 240;
-                COLLISION_ON(this);
+                COLLISION_ON(super);
             } else {
-                COLLISION_OFF(this);
+                COLLISION_OFF(super);
                 gPlayerState.framestate = PL_STATE_F;
             }
         }
-        HandlePlayerLife(this);
+        HandlePlayerLife(super);
         DoPlayerAction(this);
-        if ((this->z.WORD == 0) && (this->action == 1 || this->action == 9))
-            sub_08008790(this, 8);
+        if ((super->z.WORD == 0) && (super->action == 1 || super->action == 9))
+            sub_08008790(super, 8);
         sub_080171F0();
     }
-    sub_08078FB0(this);
-    DrawEntity(this);
+    sub_08078FB0(super);
+    DrawEntity(super);
     UpdatePlayerPalette();
 }
 
 // Responsible for some life things like low health beep and initiating the death sequence
 static void HandlePlayerLife(Entity* this) {
-    u32 temp;
+    u32 threshold;
 
     gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
     gUnk_0200AF00.rActionInteractTile = R_ACTION_NONE;
@@ -263,26 +263,27 @@ static void HandlePlayerLife(Entity* this) {
 
 #ifdef EU
     if ((gUnk_0200AF00.unk_1 == 0) && gRoomTransition.frameCount % 90 == 0) {
-        temp = gSave.stats.maxHealth / 4;
-        if (temp > 24)
-            temp = 24;
-        if (temp < 8)
-            temp = 8;
+        threshold = gSave.stats.maxHealth / 4;
+        if (threshold > 24)
+            threshold = 24;
+        if (threshold < 8)
+            threshold = 8;
 
-        if (gSave.stats.health <= temp) {
+        if (gSave.stats.health <= threshold) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }
 #else
-    gRoomVars.unk2 = gMessage.state & MESSAGE_ACTIVE;
-    temp = gSave.stats.maxHealth / 4;
-    if (temp > 24)
-        temp = 24;
-    if (temp < 8)
-        temp = 8;
+    // TODO: why does message state affect health drops in US/JP?
+    gRoomVars.needHealthDrop = gMessage.state & MESSAGE_ACTIVE;
+    threshold = gSave.stats.maxHealth / 4;
+    if (threshold > 24)
+        threshold = 24;
+    if (threshold < 8)
+        threshold = 8;
 
-    if (gSave.stats.health <= temp) {
-        gRoomVars.unk2 = 1;
+    if (gSave.stats.health <= threshold) {
+        gRoomVars.needHealthDrop = TRUE;
         if ((gUnk_0200AF00.unk_1 == 0) && gRoomTransition.frameCount % 90 == 0) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
