@@ -59,7 +59,6 @@ extern void (*const BusinessScrub_Functions[])(BusinessScrubEntity*);
 extern void (*const BusinessScrub_Actions[])(BusinessScrubEntity*);
 extern const u8 gUnk_080CCA04[];
 
-
 void BusinessScrub(BusinessScrubEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)BusinessScrub_Functions);
 }

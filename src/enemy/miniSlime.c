@@ -27,7 +27,12 @@ void sub_080452FC(MiniSlimeEntity* this);
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
 static void (*const MiniSlime_Functions[])(MiniSlimeEntity*) = {
-    MiniSlime_OnTick, MiniSlime_OnCollision, (void (*)(MiniSlimeEntity*))GenericKnockback, MiniSlime_OnDeath, (void (*)(MiniSlimeEntity*))GenericConfused, MiniSlime_OnGrabbed,
+    MiniSlime_OnTick,
+    MiniSlime_OnCollision,
+    (void (*)(MiniSlimeEntity*))GenericKnockback,
+    MiniSlime_OnDeath,
+    (void (*)(MiniSlimeEntity*))GenericConfused,
+    MiniSlime_OnGrabbed,
 };
 
 void MiniSlime(MiniSlimeEntity* this) {

@@ -4,207 +4,219 @@
  *
  * @brief Wall Master enemy
  */
-//#define NENT_DEPRECATED
+#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy.h"
 #include "functions.h"
 #include "screenTransitions.h"
 
-void sub_0802A78C(Entity*);
-void sub_0802A7D0(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u16 unk_80;
+    /*0x82*/ u16 unk_82;
+} WallMasterEntity;
 
-extern void (*const WallMaster_Functions[])(Entity*);
-extern void (*const gUnk_080CD094[])(Entity*);
+void sub_0802A78C(WallMasterEntity*);
+void sub_0802A7D0(WallMasterEntity*);
+
+extern void (*const WallMaster_Functions[])(WallMasterEntity*);
+extern void (*const gUnk_080CD094[])(WallMasterEntity*);
 extern const s8 gUnk_080CD0B0[];
 
-void WallMaster(Entity* this) {
-    WallMaster_Functions[GetNextFunction(this)](this);
-    SetChildOffset(this, 0, 1, -0x10);
+void WallMaster(WallMasterEntity* this) {
+    WallMaster_Functions[GetNextFunction(super)](this);
+    SetChildOffset(super, 0, 1, -0x10);
 }
 
-void WallMaster_OnTick(Entity* this) {
+void WallMaster_OnTick(WallMasterEntity* this) {
     sub_0802A78C(this);
-    gUnk_080CD094[this->action](this);
+    gUnk_080CD094[super->action](this);
 }
 
-void WallMaster_OnCollision(Entity* this) {
-    if (this->hitType != 0x75 && ((this->contactFlags & 0x7f) == 0 || (this->contactFlags & 0x7f) == 0x1e)) {
-        this->action = 5;
-        COLLISION_OFF(this);
-        this->field_0x7c.HALF.HI = gPlayerEntity.x.HALF.HI;
-        this->field_0x80.HWORD = gPlayerEntity.y.HALF.HI;
-        this->field_0x82.HWORD = gPlayerEntity.z.HALF.HI;
-        if (this->action != 3) {
-            InitializeAnimation(this, 1);
+void WallMaster_OnCollision(WallMasterEntity* this) {
+    if (super->hitType != 0x75 && ((super->contactFlags & 0x7f) == 0 || (super->contactFlags & 0x7f) == 0x1e)) {
+        super->action = 5;
+        COLLISION_OFF(super);
+        this->unk_7e = gPlayerEntity.x.HALF.HI;
+        this->unk_80 = gPlayerEntity.y.HALF.HI;
+        this->unk_82 = gPlayerEntity.z.HALF.HI;
+        if (super->action != 3) {
+            InitializeAnimation(super, 1);
         }
     }
 
-    if (this->knockbackDuration != 0)
-        if (this->knockbackDuration > 4)
-            this->knockbackDuration -= 4;
+    if (super->knockbackDuration != 0)
+        if (super->knockbackDuration > 4)
+            super->knockbackDuration -= 4;
 
-    if (this->confusedTime != 0) {
-        Create0x68FX(this, FX_STARS);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    EnemyFunctionHandlerAfterCollision(this, WallMaster_Functions);
+    EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)WallMaster_Functions);
 }
 
-void WallMaster_OnGrabbed(Entity* this) {
+void WallMaster_OnGrabbed(WallMasterEntity* this) {
     /* ... */
 }
 
-void sub_0802A4E4(Entity* this) {
-    sub_0804A720(this);
-    this->action = 1;
-    this->collisionLayer = 3;
-    this->field_0x7c.BYTES.byte1 = Random();
-    this->field_0x7a.HWORD = this->type2 * 0x3c;
-    this->field_0x7c.BYTES.byte0 = this->timer;
-    this->field_0x78.HWORD = this->timer * 0x3c;
-    UpdateSpriteForCollisionLayer(this);
+void sub_0802A4E4(WallMasterEntity* this) {
+    sub_0804A720(super);
+    super->action = 1;
+    super->collisionLayer = 3;
+    this->unk_7d = Random();
+    this->unk_7a = super->type2 * 0x3c;
+    this->unk_7c = super->timer;
+    this->unk_78 = super->timer * 0x3c;
+    UpdateSpriteForCollisionLayer(super);
     sub_0802A7D0(this);
 }
 
-void sub_0802A534(Entity* this) {
-    if (this->field_0x78.HWORD) {
-        this->field_0x78.HWORD--;
-    } else if (this->field_0x7a.HWORD == 0) {
+void sub_0802A534(WallMasterEntity* this) {
+    if (this->unk_78) {
+        this->unk_78--;
+    } else if (this->unk_7a == 0) {
         Entity* entity = sub_08049DF4(1);
         if (entity != NULL) {
-            this->action = 2;
-            this->timer = 90;
-            COLLISION_ON(this);
-            this->spriteSettings.draw = 3;
-            this->x.HALF.HI = entity->x.HALF.HI;
-            this->y.HALF.HI = entity->y.HALF.HI;
-            this->z.HALF.HI = -0x80;
-            this->spritePriority.b1 = 1;
-            this->spriteSettings.shadow = 2;
-            InitializeAnimation(this, 2);
+            super->action = 2;
+            super->timer = 90;
+            COLLISION_ON(super);
+            super->spriteSettings.draw = 3;
+            super->x.HALF.HI = entity->x.HALF.HI;
+            super->y.HALF.HI = entity->y.HALF.HI;
+            super->z.HALF.HI = -0x80;
+            super->spritePriority.b1 = 1;
+            super->spriteSettings.shadow = 2;
+            InitializeAnimation(super, 2);
             sub_0802A7D0(this);
         }
     }
 }
 
-void sub_0802A5B8(Entity* this) {
+void sub_0802A5B8(WallMasterEntity* this) {
     sub_0802A7D0(this);
-    if (this->timer) {
-        if (--this->timer == 0) {
+    if (super->timer) {
+        if (--super->timer == 0) {
             EnqueueSFX(SFX_12D);
-            InitializeAnimation(this, 0);
+            InitializeAnimation(super, 0);
         }
     } else {
-        this->z.HALF.HI += 3;
-        if (-1 < this->z.HALF.HI) {
-            this->action = 3;
-            this->spriteSettings.draw = 1;
-            this->z.HALF.HI = 0;
-            InitializeAnimation(this, 1);
+        super->z.HALF.HI += 3;
+        if (-1 < super->z.HALF.HI) {
+            super->action = 3;
+            super->spriteSettings.draw = 1;
+            super->z.HALF.HI = 0;
+            InitializeAnimation(super, 1);
         }
     }
 }
 
-/* Kids... don't try to optimize code like this... */
-void sub_0802A610(Entity* this) {
+/* Kids... don't try to optimize code like super... */
+void sub_0802A610(WallMasterEntity* this) {
     u32 flags;
 
-    GetNextFrame(this);
+    GetNextFrame(super);
     sub_0802A7D0(this);
-    flags = this->frame & ANIM_DONE;
+    flags = super->frame & ANIM_DONE;
     if (flags) {
-        this->action = 4;
-        this->timer = 30;
-    } else if (this->frame & 1) {
-        this->frame = flags;
-        this->hitType = 0x75;
+        super->action = 4;
+        super->timer = 30;
+    } else if (super->frame & 1) {
+        super->frame = flags;
+        super->hitType = 0x75;
     }
 }
 
-void sub_0802A650(Entity* this) {
+void sub_0802A650(WallMasterEntity* this) {
     sub_0802A7D0(this);
-    this->z.HALF.HI -= 2;
-    if (-0xa0 > this->z.HALF.HI) {
-        this->action = 1;
-        COLLISION_OFF(this);
-        this->spriteSettings.draw = 0;
-        this->hitType = 0x74;
-        this->field_0x78.HWORD = this->field_0x7c.BYTES.byte0 * 0x3c;
+    super->z.HALF.HI -= 2;
+    if (-0xa0 > super->z.HALF.HI) {
+        super->action = 1;
+        COLLISION_OFF(super);
+        super->spriteSettings.draw = 0;
+        super->hitType = 0x74;
+        this->unk_78 = this->unk_7c * 0x3c;
     }
 }
 
-void sub_0802A69C(Entity* this) {
+void sub_0802A69C(WallMasterEntity* this) {
     u32 flags;
 
     sub_0802A7D0(this);
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
-    gPlayerEntity.x.HALF.HI = this->field_0x7c.HALF.HI;
-    gPlayerEntity.y.HALF.HI = this->field_0x80.HWORD;
-    gPlayerEntity.z.HALF.HI = this->field_0x82.HWORD;
+    gPlayerEntity.x.HALF.HI = this->unk_7e;
+    gPlayerEntity.y.HALF.HI = this->unk_80;
+    gPlayerEntity.z.HALF.HI = this->unk_82;
 
-    if (gPlayerEntity.z.HALF.HI != this->z.HALF.HI) {
-        if (gPlayerEntity.z.HALF.HI < this->z.HALF.HI) {
-            this->z.HALF.HI--;
+    if (gPlayerEntity.z.HALF.HI != super->z.HALF.HI) {
+        if (gPlayerEntity.z.HALF.HI < super->z.HALF.HI) {
+            super->z.HALF.HI--;
         } else {
-            this->z.HALF.HI++;
+            super->z.HALF.HI++;
         }
     }
 
     /* sigh... */
-    GetNextFrame(this);
-    flags = this->frame & ANIM_DONE;
+    GetNextFrame(super);
+    flags = super->frame & ANIM_DONE;
     if (flags) {
-        this->action = 6;
-        this->timer = 30;
-    } else if (this->frame & 0x1) {
-        this->frame = flags;
-        this->spriteOffsetY = 3;
+        super->action = 6;
+        super->timer = 30;
+    } else if (super->frame & 0x1) {
+        super->frame = flags;
+        super->spriteOffsetY = 3;
         gPlayerEntity.spriteSettings.draw = 0;
     }
 }
 
-void sub_0802A734(Entity* this) {
+void sub_0802A734(WallMasterEntity* this) {
     sub_0802A7D0(this);
-    if (--this->timer == 0) {
+    if (--super->timer == 0) {
         SetInitializationPriority();
         DoExitTransition(gWallMasterScreenTransitions[gArea.dungeon_idx]);
     } else {
-        this->z.WORD -= Q_16_16(2);
+        super->z.WORD -= Q_16_16(2);
         gPlayerState.field_0xa |= 0x80;
         gPlayerState.mobility |= 0x80;
     }
 }
 
-void sub_0802A78C(Entity* this) {
-    if (this->action != 0) {
-        if (sub_08049FDC(this, 1)) {
-            if (this->field_0x78.HWORD == 0) {
-                if (this->field_0x7a.HWORD) {
-                    this->field_0x7a.HWORD--;
+void sub_0802A78C(WallMasterEntity* this) {
+    if (super->action != 0) {
+        if (sub_08049FDC(super, 1)) {
+            if (this->unk_78 == 0) {
+                if (this->unk_7a) {
+                    this->unk_7a--;
                 }
             }
         } else {
-            this->field_0x7a.HWORD = this->type2 * 0x3c + 1;
+            this->unk_7a = super->type2 * 0x3c + 1;
         }
     }
 }
 
-void sub_0802A7D0(Entity* this) {
-    u32 unk = gUnk_080CD0B0[(this->field_0x7c.BYTES.byte1++ >> 3) & 7] + 0x100;
-    SetAffineInfo(this, unk, unk, 0);
+void sub_0802A7D0(WallMasterEntity* this) {
+    u32 unk = gUnk_080CD0B0[(this->unk_7d++ >> 3) & 7] + 0x100;
+    SetAffineInfo(super, unk, unk, 0);
 }
 // clang-format off
-void (*const WallMaster_Functions[])(Entity*) = {
+void (*const WallMaster_Functions[])(WallMasterEntity*) = {
     WallMaster_OnTick,
     WallMaster_OnCollision,
-    GenericKnockback2,
-    GenericDeath,
-    GenericConfused,
+    (void (*)(WallMasterEntity*))GenericKnockback2,
+    (void (*)(WallMasterEntity*))GenericDeath,
+    (void (*)(WallMasterEntity*))GenericConfused,
     WallMaster_OnGrabbed,
 };
 
-void (*const gUnk_080CD094[])(Entity*) = {
+void (*const gUnk_080CD094[])(WallMasterEntity*) = {
     sub_0802A4E4,
     sub_0802A534,
     sub_0802A5B8,

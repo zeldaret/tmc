@@ -488,7 +488,9 @@ void sub_0805A9CC(TempleOfDropletsManager* this) {
     gScreen.bg3.updated = 1;
 }
 
-extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
+extern struct {
+    u8 unk_00[0x20];
+} gUnk_085A97A0[];
 
 void sub_0805AA58(TempleOfDropletsManager* this) {
     if (--super->timer == 0) {

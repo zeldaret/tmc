@@ -31,7 +31,12 @@ void sub_080450A8(SlimeEntity* this);
 void sub_08045178(SlimeEntity* this, Entity*, int, int);
 
 static void (*const Slime_Functions[])(SlimeEntity*) = {
-    Slime_OnTick, Slime_OnCollision, (void (*)(SlimeEntity*))GenericKnockback, (void (*)(SlimeEntity*))GenericDeath, (void (*)(SlimeEntity*))GenericConfused, Slime_OnGrabbed,
+    Slime_OnTick,
+    Slime_OnCollision,
+    (void (*)(SlimeEntity*))GenericKnockback,
+    (void (*)(SlimeEntity*))GenericDeath,
+    (void (*)(SlimeEntity*))GenericConfused,
+    Slime_OnGrabbed,
 };
 
 void Slime(SlimeEntity* this) {

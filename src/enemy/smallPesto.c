@@ -26,7 +26,12 @@ void sub_080316E8(SmallPestoEntity* this);
 void sub_080316F0(SmallPestoEntity* this);
 
 static void (*const SmallPesto_Functions[])(SmallPestoEntity*) = {
-    SmallPesto_OnTick, SmallPesto_OnCollision, (void (*)(SmallPestoEntity*))GenericKnockback, (void (*)(SmallPestoEntity*))GenericDeath, (void (*)(SmallPestoEntity*))GenericConfused, SmallPesto_OnGrabbed,
+    SmallPesto_OnTick,
+    SmallPesto_OnCollision,
+    (void (*)(SmallPestoEntity*))GenericKnockback,
+    (void (*)(SmallPestoEntity*))GenericDeath,
+    (void (*)(SmallPestoEntity*))GenericConfused,
+    SmallPesto_OnGrabbed,
 };
 
 void sub_080317B4(SmallPestoEntity* this);

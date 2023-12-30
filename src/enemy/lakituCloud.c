@@ -159,10 +159,12 @@ void sub_0803CE3C(LakituCloudEntity* this) {
 }
 
 void (*const LakituCloud_Functions[])(LakituCloudEntity*) = {
-    LakituCloud_OnTick, LakituCloud_OnTick, LakituCloud_OnKnockback,
-    (void (*)(LakituCloudEntity*))
-GenericDeath,       (void (*)(LakituCloudEntity*))
-GenericConfused,    LakituCloud_OnGrabbed,
+    LakituCloud_OnTick,
+    LakituCloud_OnTick,
+    LakituCloud_OnKnockback,
+    (void (*)(LakituCloudEntity*))GenericDeath,
+    (void (*)(LakituCloudEntity*))GenericConfused,
+    LakituCloud_OnGrabbed,
 };
 
 void (*const gUnk_080D0430[])(LakituCloudEntity*) = {

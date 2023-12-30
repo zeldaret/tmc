@@ -4,12 +4,17 @@
  *
  * @brief Tree Item enemy
  */
-//#define NENT_DEPRECATED
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "item.h"
 #include "object.h"
 
-static bool32 ShouldSpawnTreeItem(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68;
+} TreeItemEntity;
+
+static bool32 ShouldSpawnTreeItem(TreeItemEntity*);
 
 extern void sub_08049CF4(Entity*);
 
@@ -32,17 +37,17 @@ const u8 gTreeItemDrops[] = { 0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x
 
 #define FAIRY_INDEX 8
 
-void TreeItem(Entity* this) {
+void TreeItem(TreeItemEntity* this) {
     Entity* itemEntity;
 
-    if (this->action == 0) {
-        this->action++;
-        this->field_0x68.HALF.LO = GetRandomByWeight(gTreeItemDropTables[this->type]);
-        if (this->field_0x68.HALF.LO > FAIRY_INDEX) {
+    if (super->action == 0) {
+        super->action++;
+        this->unk_68 = GetRandomByWeight(gTreeItemDropTables[super->type]);
+        if (this->unk_68 > FAIRY_INDEX) {
             DeleteThisEntity();
         }
-        if (this->field_0x68.HALF.LO < FAIRY_INDEX && GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
-            this->field_0x68.HALF.LO = FAIRY_INDEX;
+        if (this->unk_68 < FAIRY_INDEX && GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
+            this->unk_68 = FAIRY_INDEX;
         }
     }
 
@@ -50,18 +55,18 @@ void TreeItem(Entity* this) {
         return;
     }
 
-    switch (this->field_0x68.HALF.LO) {
+    switch (this->unk_68) {
         case FAIRY_INDEX:
             itemEntity = CreateObject(FAIRY, 0x60, 0);
             if (itemEntity) {
                 itemEntity->timer = 0;
-                CopyPosition(this, itemEntity);
+                CopyPosition(super, itemEntity);
             }
             break;
         case 0 ...(FAIRY_INDEX - 1):
-            itemEntity = CreateObject(GRAVEYARD_KEY, 0x7, gTreeItemDrops[this->field_0x68.HALF.LO]);
+            itemEntity = CreateObject(GRAVEYARD_KEY, 0x7, gTreeItemDrops[this->unk_68]);
             if (itemEntity) {
-                CopyPosition(this, itemEntity);
+                CopyPosition(super, itemEntity);
                 itemEntity->y.HALF.HI += 16;
                 itemEntity->z.HALF.HI = -32;
             }
@@ -70,20 +75,20 @@ void TreeItem(Entity* this) {
             break;
     }
 
-    sub_08049CF4(this);
+    sub_08049CF4(super);
     DeleteThisEntity();
 }
 
-static bool32 ShouldSpawnTreeItem(Entity* this) {
-    int diff;
-    int expectedStateX, expectedStateY;
-    int playerState;
+static bool32 ShouldSpawnTreeItem(TreeItemEntity* this) {
+    s32 diff;
+    s32 expectedStateX, expectedStateY;
+    s32 playerState;
 
     if (gPlayerEntity.action != PLAYER_BOUNCE) {
         return FALSE;
     }
 
-    diff = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
+    diff = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
     expectedStateX = 6;
     if (diff & 0x8000) {
         expectedStateX = 2;
@@ -94,7 +99,7 @@ static bool32 ShouldSpawnTreeItem(Entity* this) {
         return FALSE;
     }
 
-    diff = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+    diff = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
     expectedStateY = 0;
     if (diff & 0x8000) {
         expectedStateY = 4;

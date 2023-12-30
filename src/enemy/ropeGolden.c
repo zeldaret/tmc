@@ -28,7 +28,12 @@ void sub_080382EC(RopeGoldenEntity* this);
 void sub_08038304(RopeGoldenEntity* this);
 
 static void (*const RopeGolden_Functions[6])(RopeGoldenEntity*) = {
-    RopeGolden_OnTick, RopeGolden_OnCollision, (void (*)(RopeGoldenEntity*))GenericKnockback, RopeGolden_OnDeath, (void (*)(RopeGoldenEntity*))GenericConfused, RopeGolden_OnTick,
+    RopeGolden_OnTick,
+    RopeGolden_OnCollision,
+    (void (*)(RopeGoldenEntity*))GenericKnockback,
+    RopeGolden_OnDeath,
+    (void (*)(RopeGoldenEntity*))GenericConfused,
+    RopeGolden_OnTick,
 };
 
 void sub_080383AC(RopeGoldenEntity* this);

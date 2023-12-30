@@ -113,7 +113,7 @@ void sub_080218CC(BeetleEntity* this) {
         super->subAction = 1;
         super->spriteSettings.draw = 1;
         super->direction = ((sub_08049F84(super, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) &
-                          (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
+                           (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth | DirectionWest);
         super->speed = 0x100;
         super->zVelocity = Q_16_16(1.125);
     }

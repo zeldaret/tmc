@@ -4,42 +4,53 @@
  *
  * @brief Vaati Eyes Macro enemy
  */
-//#define NENT_DEPRECATED
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u8 unk_78;
+    /*0x79*/ u8 unk_79;
+} VaatiEyesMacroEntity;
+
 extern s16 gUnk_080B4488[];
 
-void VaatiEyesMacro_OnTick(Entity*);
-void VaatiEyesMacro_OnCollision(Entity*);
-void VaatiEyesMacroFunction0Type0(Entity*);
-void VaatiEyesMacroFunction0Type1(Entity*);
-void VaatiEyesMacroFunction0Type2(Entity*);
-void VaatiEyesMacroFunction0Type3(Entity*);
-void VaatiEyesMacroFunction0Type0Action0(Entity*);
-void VaatiEyesMacroFunction0Type0Action1(Entity*);
-void VaatiEyesMacroFunction0Type1Action0(Entity*);
-void VaatiEyesMacroFunction0Type1Action1(Entity*);
-void sub_0802EF90(Entity*);
-void sub_0802EFB8(Entity*);
-void sub_0802EF58(Entity*);
-void sub_0802F04C(Entity*);
+void VaatiEyesMacro_OnTick(VaatiEyesMacroEntity*);
+void VaatiEyesMacro_OnCollision(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type0(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type1(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type2(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type3(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type0Action0(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type0Action1(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type1Action0(VaatiEyesMacroEntity*);
+void VaatiEyesMacroFunction0Type1Action1(VaatiEyesMacroEntity*);
+void sub_0802EF90(VaatiEyesMacroEntity*);
+void sub_0802EFB8(VaatiEyesMacroEntity*);
+void sub_0802EF58(VaatiEyesMacroEntity*);
+void sub_0802F04C(VaatiEyesMacroEntity*);
 
-void (*const VaatiEyesMacro_Functions[])(Entity*) = {
-    VaatiEyesMacro_OnTick, VaatiEyesMacro_OnCollision, GenericKnockback, GenericDeath,
-    GenericConfused,       VaatiEyesMacro_OnTick,
+void (*const VaatiEyesMacro_Functions[])(VaatiEyesMacroEntity*) = {
+    VaatiEyesMacro_OnTick,
+    VaatiEyesMacro_OnCollision,
+    (void (*)(VaatiEyesMacroEntity*))GenericKnockback,
+    (void (*)(VaatiEyesMacroEntity*))GenericDeath,
+    (void (*)(VaatiEyesMacroEntity*))GenericConfused,
+    VaatiEyesMacro_OnTick,
 };
-void (*const vaatiEyesMacroFunction0Types[])(Entity*) = {
+void (*const vaatiEyesMacroFunction0Types[])(VaatiEyesMacroEntity*) = {
     VaatiEyesMacroFunction0Type0,
     VaatiEyesMacroFunction0Type1,
     VaatiEyesMacroFunction0Type2,
     VaatiEyesMacroFunction0Type3,
 };
-void (*const vaatiEyesMacroFunction0Type0Actions[])(Entity*) = {
+void (*const vaatiEyesMacroFunction0Type0Actions[])(VaatiEyesMacroEntity*) = {
     VaatiEyesMacroFunction0Type0Action0,
     VaatiEyesMacroFunction0Type0Action1,
 };
-void (*const vaatiEyesMacroFunction0Type1Actions[])(Entity*) = {
+void (*const vaatiEyesMacroFunction0Type1Actions[])(VaatiEyesMacroEntity*) = {
     VaatiEyesMacroFunction0Type1Action0,
     VaatiEyesMacroFunction0Type1Action1,
 };
@@ -50,109 +61,109 @@ const u8 gUnk_080CDE70[] = {
 const s8 gUnk_080CDE90[] = { -2, -3, -4, -5, -6, -5, -4, -3 };
 const u16 gUnk_080CDE98[] = { 0xc0, 0x100, 0x140, 0x180 };
 
-void VaatiEyesMacro(Entity* this) {
-    VaatiEyesMacro_Functions[GetNextFunction(this)](this);
-    SetChildOffset(this, 0, 1, -0x10);
+void VaatiEyesMacro(VaatiEyesMacroEntity* this) {
+    VaatiEyesMacro_Functions[GetNextFunction(super)](this);
+    SetChildOffset(super, 0, 1, -0x10);
 }
 
-void VaatiEyesMacro_OnTick(Entity* this) {
-    vaatiEyesMacroFunction0Types[this->type](this);
-    if (this->type < 2) {
+void VaatiEyesMacro_OnTick(VaatiEyesMacroEntity* this) {
+    vaatiEyesMacroFunction0Types[super->type](this);
+    if (super->type < 2) {
         sub_0802EF90(this);
     }
 }
 
-void VaatiEyesMacro_OnCollision(Entity* this) {
-    if (this->type == 0) {
-        if (this->health == 0) {
+void VaatiEyesMacro_OnCollision(VaatiEyesMacroEntity* this) {
+    if (super->type == 0) {
+        if (super->health == 0) {
             gRoomTransition.field_0x39 &= ~(1 << (gRoomTransition.field_0x3c + 2));
         }
         if (gRoomControls.room == 0) {
-            gRoomTransition.field_0x3a = this->health;
+            gRoomTransition.field_0x3a = super->health;
         } else {
-            gRoomTransition.field_0x3b = this->health;
+            gRoomTransition.field_0x3b = super->health;
         }
-        if (this->field_0x78.HALF.HI != this->health) {
+        if (this->unk_79 != super->health) {
             EnqueueSFX(SFX_17A);
         }
-        this->field_0x78.HALF.HI = this->health;
+        this->unk_79 = super->health;
     } else {
-        if (this->type == 1) {
-            if (0 < this->iframes) {
-                this->iframes *= -1;
+        if (super->type == 1) {
+            if (0 < super->iframes) {
+                super->iframes *= -1;
             }
-            if (this->health != 0xff) {
+            if (super->health != 0xff) {
                 EnqueueSFX(SFX_BUTTON_DEPRESS);
             }
-            this->health = 0xff;
+            super->health = 0xff;
         }
     }
-    if (this->confusedTime != 0) {
-        Create0x68FX(this, FX_STARS);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    EnemyFunctionHandlerAfterCollision(this, VaatiEyesMacro_Functions);
+    EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)VaatiEyesMacro_Functions);
 }
 
-void VaatiEyesMacroFunction0Type0(Entity* this) {
-    vaatiEyesMacroFunction0Type0Actions[this->action](this);
+void VaatiEyesMacroFunction0Type0(VaatiEyesMacroEntity* this) {
+    vaatiEyesMacroFunction0Type0Actions[super->action](this);
 }
 
-void VaatiEyesMacroFunction0Type0Action0(Entity* this) {
+void VaatiEyesMacroFunction0Type0Action0(VaatiEyesMacroEntity* this) {
     Manager* manager;
     Entity* enemy;
 
     if ((gEntCount < 0x47) && (manager = GetEmptyManager(), manager != NULL)) {
         manager->kind = MANAGER;
         manager->id = VAATI3_INSIDE_ARM_MANAGER;
-        manager->parent = (Entity*)this;
+        manager->parent = (Entity*)super;
         AppendEntityToList((Entity*)manager, 8);
         enemy = CreateEnemy(VAATI_EYES_MACRO, 2);
-        enemy->parent = this;
-        this->action = 1;
+        enemy->parent = super;
+        super->action = 1;
         if (gRoomControls.room == 0) {
-            this->field_0x78.HALF.HI = this->health = gRoomTransition.field_0x3a;
+            this->unk_79 = super->health = gRoomTransition.field_0x3a;
         } else {
-            this->field_0x78.HALF.HI = this->health = gRoomTransition.field_0x3b;
+            this->unk_79 = super->health = gRoomTransition.field_0x3b;
         }
-        this->field_0x78.HALF.LO = Random();
+        this->unk_78 = Random();
         sub_0802EFB8(this);
-        InitializeAnimation(this, 0);
+        InitializeAnimation(super, 0);
         sub_0802EF58(this);
     }
 }
 
-void VaatiEyesMacroFunction0Type0Action1(Entity* this) {
+void VaatiEyesMacroFunction0Type0Action1(VaatiEyesMacroEntity* this) {
     sub_0802F04C(this);
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void VaatiEyesMacroFunction0Type1(Entity* this) {
-    vaatiEyesMacroFunction0Type1Actions[this->action](this);
+void VaatiEyesMacroFunction0Type1(VaatiEyesMacroEntity* this) {
+    vaatiEyesMacroFunction0Type1Actions[super->action](this);
 }
 
-void VaatiEyesMacroFunction0Type1Action0(Entity* this) {
+void VaatiEyesMacroFunction0Type1Action0(VaatiEyesMacroEntity* this) {
     Entity* entity;
     u32 rand;
 
     if (gEntCount < 0x47) {
         entity = CreateEnemy(VAATI_EYES_MACRO, 3);
-        entity->parent = this;
-        this->action = 1;
+        entity->parent = super;
+        super->action = 1;
         rand = Random();
-        this->timer = (rand & 3) + 1;
-        this->field_0x78.HALF.LO = Random() >> 8;
-        this->direction = gUnk_080CDE6C[rand >> 0x10 & 3];
-        InitializeAnimation(this, 1);
+        super->timer = (rand & 3) + 1;
+        this->unk_78 = Random() >> 8;
+        super->direction = gUnk_080CDE6C[rand >> 0x10 & 3];
+        InitializeAnimation(super, 1);
     }
 }
 
-void VaatiEyesMacroFunction0Type1Action1(Entity* this) {
-    if (this->parent->next == NULL) {
-        COLLISION_OFF(this);
-        this->health = 0;
+void VaatiEyesMacroFunction0Type1Action1(VaatiEyesMacroEntity* this) {
+    if (super->parent->next == NULL) {
+        COLLISION_OFF(super);
+        super->health = 0;
     } else {
         sub_0802F04C(this);
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
@@ -161,43 +172,43 @@ typedef struct xy {
     u8 y;
 } xy;
 
-void VaatiEyesMacroFunction0Type2(Entity* this) {
+void VaatiEyesMacroFunction0Type2(VaatiEyesMacroEntity* this) {
     u32 uVar2;
     xy* temp;
 
-    if (this->parent->next == NULL) {
+    if (super->parent->next == NULL) {
         DeleteThisEntity();
     }
-    if (this->action == 0) {
-        this->action = 1;
-        this->animationState = 0xff;
+    if (super->action == 0) {
+        super->action = 1;
+        super->animationState = 0xff;
     }
-    CopyPositionAndSpriteOffset(this->parent, this);
-    uVar2 = (GetFacingDirection(this, &gPlayerEntity) + 1) & 0x1e;
+    CopyPositionAndSpriteOffset(super->parent, super);
+    uVar2 = (GetFacingDirection(super, &gPlayerEntity) + 1) & 0x1e;
     temp = (xy*)&gUnk_080CDE70[uVar2];
-    if (temp->x != this->frameIndex) {
-        if (temp->y != this->frameIndex) {
-            this->frameIndex = temp->x;
+    if (temp->x != super->frameIndex) {
+        if (temp->y != super->frameIndex) {
+            super->frameIndex = temp->x;
         }
     }
-    this->y.HALF.HI++;
-    this->spriteOffsetY--;
+    super->y.HALF.HI++;
+    super->spriteOffsetY--;
 }
 
-void VaatiEyesMacroFunction0Type3(Entity* this) {
-    if (this->parent->next == NULL) {
+void VaatiEyesMacroFunction0Type3(VaatiEyesMacroEntity* this) {
+    if (super->parent->next == NULL) {
         DeleteThisEntity();
     }
-    if (this->action == 0) {
-        this->action = 1;
-        this->frameIndex = 0x11;
-        this->spritePriority.b0 = 6;
+    if (super->action == 0) {
+        super->action = 1;
+        super->frameIndex = 0x11;
+        super->spritePriority.b0 = 6;
     }
-    CopyPositionAndSpriteOffset(this->parent, this);
-    this->z.HALF.HI = 0;
+    CopyPositionAndSpriteOffset(super->parent, super);
+    super->z.HALF.HI = 0;
 }
 
-void sub_0802EF58(Entity* this) {
+void sub_0802EF58(VaatiEyesMacroEntity* this) {
     Entity* entity;
     u32 i;
 
@@ -206,18 +217,18 @@ void sub_0802EF58(Entity* this) {
         if (entity != NULL) {
             entity->type2 = i;
             entity->collisionLayer = 1;
-            entity->parent = this;
+            entity->parent = super;
             UpdateSpriteForCollisionLayer(entity);
-            CopyPosition(this, entity);
+            CopyPosition(super, entity);
         }
     }
 }
 
-void sub_0802EF90(Entity* this) {
-    this->z.HALF.HI = gUnk_080CDE90[this->field_0x78.HALF.LO++ >> 3 & 7];
+void sub_0802EF90(VaatiEyesMacroEntity* this) {
+    super->z.HALF.HI = gUnk_080CDE90[this->unk_78++ >> 3 & 7];
 }
 
-void sub_0802EFB8(Entity* this) {
+void sub_0802EFB8(VaatiEyesMacroEntity* this) {
     u32 uVar1;
     u32 rand;
     u32 uVar3;
@@ -227,74 +238,74 @@ void sub_0802EFB8(Entity* this) {
     if ((rand >> 0x10 & 3) != 0) {
         uVar1 = rand & 0x18;
     } else {
-        uVar3 = GetFacingDirection(&gPlayerEntity, this);
+        uVar3 = GetFacingDirection(&gPlayerEntity, super);
         uVar1 = (uVar3 + 4) & 0x18;
     }
-    iVar4 = sub_080B1B44(TILE(this->x.HALF.HI, this->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
+    iVar4 = sub_080B1B44(TILE(super->x.HALF.HI, super->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
     if (iVar4 != 0) {
-        this->direction = DIR_NONE;
+        super->direction = DIR_NONE;
     } else {
-        this->timer = (rand & 3) + 1;
-        this->direction = (uVar1 & 0x18);
-        this->speed = gUnk_080CDE98[rand >> 0x18 & 3];
+        super->timer = (rand & 3) + 1;
+        super->direction = (uVar1 & 0x18);
+        super->speed = gUnk_080CDE98[rand >> 0x18 & 3];
     }
 }
 
-void sub_0802F04C(Entity* this) {
+void sub_0802F04C(VaatiEyesMacroEntity* this) {
     s32 oldX;
     s32 oldY;
 
-    oldX = this->x.HALF.HI;
-    oldY = this->y.HALF.HI;
-    if (ProcessMovement0(this) == 0) {
+    oldX = super->x.HALF.HI;
+    oldY = super->y.HALF.HI;
+    if (ProcessMovement0(super) == 0) {
         sub_0802EFB8(this);
         return;
     }
-    switch (this->direction >> 3) {
+    switch (super->direction >> 3) {
         case 0: // UP
-            if (((oldY & 0xf) > 8) && ((this->y.HALF.HI & 0xf) < 9)) {
-                this->timer--;
-                oldY = (this->y.HALF.HI & 0xfff0) + 8;
+            if (((oldY & 0xf) > 8) && ((super->y.HALF.HI & 0xf) < 9)) {
+                super->timer--;
+                oldY = (super->y.HALF.HI & 0xfff0) + 8;
             }
-            if (this->timer == 0) {
-                this->x.HALF.HI = oldX;
-                this->y.HALF.HI = oldY;
+            if (super->timer == 0) {
+                super->x.HALF.HI = oldX;
+                super->y.HALF.HI = oldY;
             } else {
                 return;
             }
             break;
         case 1: // RIGHT
-            if (((oldX & 0xf) < 8) && ((this->x.HALF.HI & 0xf) >= 8)) {
-                this->timer--;
-                oldX = (this->x.HALF.HI & 0xfff0) + 8;
+            if (((oldX & 0xf) < 8) && ((super->x.HALF.HI & 0xf) >= 8)) {
+                super->timer--;
+                oldX = (super->x.HALF.HI & 0xfff0) + 8;
             }
-            if (this->timer == 0) {
-                this->x.HALF.HI = oldX;
-                this->y.HALF.HI = oldY;
+            if (super->timer == 0) {
+                super->x.HALF.HI = oldX;
+                super->y.HALF.HI = oldY;
             } else {
                 return;
             }
             break;
         case 2: // DOWN
-            if (((oldY & 0xf) < 8) && ((this->y.HALF.HI & 0xf) >= 8)) {
-                this->timer--;
-                oldY = (this->y.HALF.HI & 0xfff0) + 8;
+            if (((oldY & 0xf) < 8) && ((super->y.HALF.HI & 0xf) >= 8)) {
+                super->timer--;
+                oldY = (super->y.HALF.HI & 0xfff0) + 8;
             }
-            if (this->timer == 0) {
-                this->x.HALF.HI = oldX;
-                this->y.HALF.HI = oldY;
+            if (super->timer == 0) {
+                super->x.HALF.HI = oldX;
+                super->y.HALF.HI = oldY;
             } else {
                 return;
             }
             break;
         default: // LEFT
-            if (((oldX & 0xf) >= 9) && ((this->x.HALF.HI & 0xf) < 9)) {
-                this->timer--;
-                oldX = (this->x.HALF.HI & 0xfff0) + 8;
+            if (((oldX & 0xf) >= 9) && ((super->x.HALF.HI & 0xf) < 9)) {
+                super->timer--;
+                oldX = (super->x.HALF.HI & 0xfff0) + 8;
             }
-            if (this->timer == 0) {
-                this->x.HALF.HI = oldX;
-                this->y.HALF.HI = oldY;
+            if (super->timer == 0) {
+                super->x.HALF.HI = oldX;
+                super->y.HALF.HI = oldY;
             } else {
                 return;
             }

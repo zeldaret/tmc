@@ -4,86 +4,115 @@
  *
  * @brief Moldworm enemy
  */
-//#define NENT_DEPRECATED
+#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ Entity* unk_74;
+    union {
+        /*0x78*/ u16 HWORD;
+        struct {
+            /*0x78*/ u8 unk_78;
+            /*0x79*/ u8 unk_79;
+        } PACKED split;
+    } PACKED unk_78;
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u8 unk_7e;
+    /*0x7f*/ u8 unk_7f;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unk_83;
+    /*0x84*/ u8 unk_84;
+    /*0x85*/ u8 unk_85;
+    /*0x86*/ u8 unk_86;
+    /*0x87*/ u8 unk_87;
+} MoldwormEntity;
+
 extern void SoundReqClipped(Entity*, u32);
 extern bool32 sub_08023A38(u32);
-extern void sub_08023990(Entity*, u32, u32);
-extern void sub_08023A88(Entity*, u32);
 
-void sub_080235BC(Entity*);
-void sub_08023644(Entity*);
-void sub_08023730(Entity*);
-void sub_080237D8(Entity*);
-void sub_0802390C(Entity*);
-void sub_080239F0(Entity*);
-bool32 sub_08023B38(Entity*);
+void sub_08023990(MoldwormEntity*, u32, u32);
+void sub_08023A88(MoldwormEntity*, u32);
+void sub_080235BC(MoldwormEntity*);
+void sub_08023644(MoldwormEntity*);
+void sub_08023730(MoldwormEntity*);
+void sub_080237D8(MoldwormEntity*);
+void sub_0802390C(MoldwormEntity*);
+void sub_080239F0(MoldwormEntity*);
+bool32 sub_08023B38(MoldwormEntity*);
+void sub_08023A68(MoldwormEntity*);
+void sub_08023AB0(MoldwormEntity*);
 
-extern void (*const Moldworm_Functions[])(Entity*);
-extern void (*const gUnk_080CBC50[])(Entity*);
+extern void (*const Moldworm_Functions[])(MoldwormEntity*);
+extern void (*const gUnk_080CBC50[])(MoldwormEntity*);
 extern const s8 gUnk_080CBC70[];
 extern const s8 gUnk_080CBC90[];
-extern void (*const gUnk_080CBC98[])(Entity*);
-extern void (*const gUnk_080CBCA8[])(Entity*);
+extern void (*const gUnk_080CBC98[])(MoldwormEntity*);
+extern void (*const gUnk_080CBCA8[])(MoldwormEntity*);
 extern const s8 gUnk_080CBCB8[];
 
-void Moldworm(Entity* this) {
-    u16 prevX = this->x.HALF.HI;
-    u16 prevY = this->y.HALF.HI;
+void Moldworm(MoldwormEntity* this) {
+    u16 prevX = super->x.HALF.HI;
+    u16 prevY = super->y.HALF.HI;
 
-    if (this->type == 0) {
-        if (this->action != 0) {
+    if (super->type == 0) {
+        if (super->action != 0) {
             sub_0802390C(this);
         }
-        this->field_0x7c.BYTES.byte1 = this->field_0x7c.BYTES.byte0;
-        EnemyFunctionHandler(this, Moldworm_Functions);
+        this->unk_7d = this->unk_7c;
+        EnemyFunctionHandler(super, (EntityActionArray)Moldworm_Functions);
     } else {
-        if (this->parent->next != NULL) {
-            if (this->type != 8) {
+        if (super->parent->next != NULL) {
+            if (super->type != 8) {
                 sub_080235BC(this);
             } else {
                 sub_08023730(this);
             }
         } else {
-            DeleteEntity(this);
+            DeleteEntity(super);
             return;
         }
     }
 
-    if (this->parent->field_0x7c.BYTES.byte0 != this->parent->field_0x7c.BYTES.byte1 && this->child) {
-        u32 temp = (this->parent->field_0x7c.BYTES.byte0 - 1) & 0xf;
-        u8* ptr = (u8*)&this->child->field_0x78 + temp;
-        *ptr = (((this->x.HALF.HI - prevX + 8) & 0xf) << 4) | ((this->y.HALF.HI - prevY + 8U) & 0xf);
+    if (((MoldwormEntity*)super->parent)->unk_7c != ((MoldwormEntity*)super->parent)->unk_7d && super->child) {
+        u32 temp = (((MoldwormEntity*)super->parent)->unk_7c - 1) & 0xf;
+        u8* ptr = (u8*)&((MoldwormEntity*)super->child)->unk_78.split.unk_78 + temp;
+        *ptr = (((super->x.HALF.HI - prevX + 8) & 0xf) << 4) | ((super->y.HALF.HI - prevY + 8U) & 0xf);
     }
 }
 
-void Moldworm_OnTick(Entity* this) {
-    gUnk_080CBC50[this->action](this);
+void Moldworm_OnTick(MoldwormEntity* this) {
+    gUnk_080CBC50[super->action](this);
 }
 
-void Moldworm_OnCollision(Entity* this) {
-    if (this->subAction == 0xff) {
-        this->action = 7;
-        this->timer = 1;
-        this->subAction = 0;
-        this->hitType = 0x85;
-        this->iframes = -8;
-        this->field_0x7c.BYTES.byte3 = 0;
-        this->field_0x7a.HALF.HI = 0;
-        if (this->contactFlags == 0x80 || this->contactFlags == 0x9e) {
-            this->type2 = 0;
-            this->field_0x80.HALF.LO = 0x14;
+void Moldworm_OnCollision(MoldwormEntity* this) {
+    if (super->subAction == 0xff) {
+        super->action = 7;
+        super->timer = 1;
+        super->subAction = 0;
+        super->hitType = 0x85;
+        super->iframes = -8;
+        this->unk_7f = 0;
+        this->unk_7b = 0;
+        if (super->contactFlags == 0x80 || super->contactFlags == 0x9e) {
+            super->type2 = 0;
+            this->unk_80 = 0x14;
         } else {
-            this->type2 = 1;
-            this->field_0x80.HALF.LO = 8;
+            super->type2 = 1;
+            this->unk_80 = 8;
         }
     }
 
-    if (this->health == 0 && this->field_0x7c.BYTES.byte3 == 0 && this->action == 7) {
-        CopyPosition(this, &gPlayerEntity);
+    if (super->health == 0 && this->unk_7f == 0 && super->action == 7) {
+        CopyPosition(super, &gPlayerEntity);
         gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 1;
         gPlayerEntity.zVelocity = Q_16_16(1.5);
@@ -93,64 +122,64 @@ void Moldworm_OnCollision(Entity* this) {
         gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
     }
 
-    EnemyFunctionHandlerAfterCollision(this, Moldworm_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Moldworm_Functions);
 }
 
-void Moldworm_OnKnockback(Entity* this) {
-    this->field_0x7c.BYTES.byte0++;
-    GenericKnockback(this);
+void Moldworm_OnKnockback(MoldwormEntity* this) {
+    this->unk_7c++;
+    GenericKnockback(super);
 }
 
-void Moldworm_OnGrabbed(Entity* this) {
+void Moldworm_OnGrabbed(MoldwormEntity* this) {
 }
 
-void sub_080231BC(Entity* this) {
+void sub_080231BC(MoldwormEntity* this) {
     if (gEntCount < 0x40) {
         Entity* ent;
 
-        ent = this->child = CreateEnemy(MOLDWORM, 1);
-        ent->parent = this;
+        ent = super->child = CreateEnemy(MOLDWORM, 1);
+        ent->parent = super;
 
         ent = ent->child = CreateEnemy(MOLDWORM, 2);
-        ent->parent = this;
+        ent->parent = super;
 
         ent = ent->child = CreateEnemy(MOLDWORM, 3);
-        ent->parent = this;
+        ent->parent = super;
 
         ent = ent->child = CreateEnemy(MOLDWORM, 4);
-        ent->parent = this;
+        ent->parent = super;
 
         ent = ent->child = CreateEnemy(MOLDWORM, 5);
-        ent->parent = this;
+        ent->parent = super;
 
         ent = ent->child = CreateEnemy(MOLDWORM, 6);
-        ent->parent = this;
+        ent->parent = super;
 
         ent = ent->child = CreateEnemy(MOLDWORM, 7);
-        ent->parent = this;
+        ent->parent = super;
 
         ent->child = CreateEnemy(MOLDWORM, 8);
-        *(Entity**)&ent->child->field_0x74 = ent;
+        ((MoldwormEntity*)ent->child)->unk_74 = ent;
         ent = ent->child;
-        ent->parent = this;
+        ent->parent = super;
         ent->child = NULL;
-        sub_0804A720(this);
-        this->action = 6;
-        this->timer = 30;
-        this->parent = this;
-        this->field_0x78.HWORD = 0x1e;
-        this->palette.b.b0 = 5;
-        this->direction = Random() & 0x1f;
-        this->animationState = Direction8ToAnimationState(Direction8RoundUp(this->direction));
-        InitializeAnimation(this, this->animationState);
+        sub_0804A720(super);
+        super->action = 6;
+        super->timer = 30;
+        super->parent = super;
+        this->unk_78.HWORD = 0x1e;
+        super->palette.b.b0 = 5;
+        super->direction = Random() & 0x1f;
+        super->animationState = Direction8ToAnimationState(Direction8RoundUp(super->direction));
+        InitializeAnimation(super, super->animationState);
     }
 }
 
-void nullsub_136(Entity* this) {
+void nullsub_136(MoldwormEntity* this) {
 }
 
-void sub_08023288(Entity* this) {
-    if (sub_08049FDC(this, 1) && (this->timer++ & 0xf) == 0) {
+void sub_08023288(MoldwormEntity* this) {
+    if (sub_08049FDC(super, 1) && (super->timer++ & 0xf) == 0) {
         u32 idx = Random() & 0x1e;
         u32 i;
 
@@ -167,246 +196,243 @@ void sub_08023288(Entity* this) {
     }
 }
 
-void sub_08023330(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 4;
-        this->timer = 25;
-        COLLISION_ON(this);
-        this->field_0x78.HWORD = 600;
-        this->direction = Random() & 0x1c;
-        this->animationState = this->direction >> 2;
-        this->field_0x7a.HALF.HI = 0;
-        this->field_0x7c.BYTES.byte3 = 0;
-        sub_08023A88(this, this->animationState);
-        CopyPosition(this, this->child);
-        CreateFx(this, FX_ROCK, 0);
+void sub_08023330(MoldwormEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 4;
+        super->timer = 25;
+        COLLISION_ON(super);
+        this->unk_78.HWORD = 600;
+        super->direction = Random() & 0x1c;
+        super->animationState = super->direction >> 2;
+        this->unk_7b = 0;
+        this->unk_7f = 0;
+        sub_08023A88(this, super->animationState);
+        CopyPosition(super, super->child);
+        CreateFx(super, FX_ROCK, 0);
     }
 }
 
-void sub_08023A68(Entity*);
-void sub_08023AB0(Entity*);
+void sub_08023398(MoldwormEntity* this) {
+    this->unk_7c++;
 
-void sub_08023398(Entity* this) {
-    this->field_0x7c.BYTES.byte0++;
-
-    if (this->field_0x7c.BYTES.byte3 && !sub_08049FDC(this, 1)) {
-        this->field_0x78.HWORD = 1;
+    if (this->unk_7f && !sub_08049FDC(super, 1)) {
+        this->unk_78.HWORD = 1;
     }
 
-    if (--this->field_0x78.HWORD == 0) {
-        if (sub_08023A38(GetTileTypeByEntity(this))) {
-            this->action = 5;
-            this->field_0x7c.BYTES.byte3 = 0;
-            COLLISION_OFF(this);
-            this->hitType = 0x85;
-            this->child->timer = 1;
+    if (--this->unk_78.HWORD == 0) {
+        if (sub_08023A38(GetTileTypeByEntity(super))) {
+            super->action = 5;
+            this->unk_7f = 0;
+            COLLISION_OFF(super);
+            super->hitType = 0x85;
+            super->child->timer = 1;
             sub_08023A68(this);
-            CreateFx(this, FX_ROCK, 0);
+            CreateFx(super, FX_ROCK, 0);
             return;
         }
-        this->field_0x78.HWORD = 0x28;
+        this->unk_78.HWORD = 0x28;
     }
 
-    if (this->field_0x7c.BYTES.byte3) {
+    if (this->unk_7f) {
         sub_08023AB0(this);
     }
 
-    if (--this->timer < 3) {
-        if (this->timer == 0)
-            this->timer = 25;
+    if (--super->timer < 3) {
+        if (super->timer == 0)
+            super->timer = 25;
     } else {
-        int prevX = this->x.WORD;
-        int prevY = this->y.WORD;
-        ProcessMovement0(this);
-        if (this->x.WORD == prevX && this->y.WORD == prevY) {
-            this->field_0x7c.BYTES.byte0--;
+        int prevX = super->x.WORD;
+        int prevY = super->y.WORD;
+        ProcessMovement0(super);
+        if (super->x.WORD == prevX && super->y.WORD == prevY) {
+            this->unk_7c--;
         }
 
         if ((gRoomTransition.frameCount & 7) == 0) {
             u32 uVar4;
 
-            sub_08004596(this, sub_08049F84(this, 1));
-            uVar4 = Direction8ToAnimationState(Direction8RoundUp(this->direction));
-            if (uVar4 != this->animationState) {
-                this->animationState = uVar4;
-                InitializeAnimation(this, uVar4 + this->field_0x7a.HALF.HI);
+            sub_08004596(super, sub_08049F84(super, 1));
+            uVar4 = Direction8ToAnimationState(Direction8RoundUp(super->direction));
+            if (uVar4 != super->animationState) {
+                super->animationState = uVar4;
+                InitializeAnimation(super, uVar4 + this->unk_7b);
             }
         }
     }
 }
 
-void sub_080234A4(Entity* this) {
-    this->field_0x7c.BYTES.byte0++;
-    GetNextFrame(this);
-    if (this->field_0x7c.BYTES.byte3) {
-        this->action = 6;
-        this->spriteSettings.draw = 0;
-        this->field_0x78.HWORD = 300;
+void sub_080234A4(MoldwormEntity* this) {
+    this->unk_7c++;
+    GetNextFrame(super);
+    if (this->unk_7f) {
+        super->action = 6;
+        super->spriteSettings.draw = 0;
+        this->unk_78.HWORD = 300;
     }
 }
 
-void sub_080234D8(Entity* this) {
-    if (--this->field_0x78.HWORD == 0) {
-        this->action = 2;
-        this->palette.b.b0 = 5;
-        this->direction = Random() & 0x1f;
-        this->animationState = Direction8ToAnimationState(Direction8RoundUp(this->direction));
-        sub_08023A88(this, this->animationState);
+void sub_080234D8(MoldwormEntity* this) {
+    if (--this->unk_78.HWORD == 0) {
+        super->action = 2;
+        super->palette.b.b0 = 5;
+        super->direction = Random() & 0x1f;
+        super->animationState = Direction8ToAnimationState(Direction8RoundUp(super->direction));
+        sub_08023A88(this, super->animationState);
     }
 }
 
-void sub_0802351C(Entity* this) {
-    if ((this->timer != 0) && ((this->type2 == 1) || (gPlayerEntity.frameIndex == 0xff))) {
-        this->timer = 0;
-        this->child->action = 3;
-        this->child->subtimer = this->field_0x80.HALF.LO;
-        InitializeAnimation(this->child, this->child->animationState + 1);
-        InitializeAnimation(this, this->animationState);
+void sub_0802351C(MoldwormEntity* this) {
+    if ((super->timer != 0) && ((super->type2 == 1) || (gPlayerEntity.frameIndex == 0xff))) {
+        super->timer = 0;
+        super->child->action = 3;
+        super->child->subtimer = this->unk_80;
+        InitializeAnimation(super->child, super->child->animationState + 1);
+        InitializeAnimation(super, super->animationState);
     }
 
-    if (this->field_0x7c.BYTES.byte3 == 0) {
-        if (this->type2 == 0) {
-            gPlayerEntity.animationState = this->animationState & 7;
+    if (this->unk_7f == 0) {
+        if (super->type2 == 0) {
+            gPlayerEntity.animationState = super->animationState & 7;
             gPlayerState.flags |= PL_MOLDWORM_CAPTURED;
-            PositionRelative(this, &gPlayerEntity, 0, Q_16_16(gUnk_080CBC90[this->animationState & 7]));
-            gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[this->animationState & 7];
+            PositionRelative(super, &gPlayerEntity, 0, Q_16_16(gUnk_080CBC90[super->animationState & 7]));
+            gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[super->animationState & 7];
         }
     } else {
-        this->action = 4;
+        super->action = 4;
     }
 }
 
-void sub_080235BC(Entity* this) {
-    gUnk_080CBC98[this->action](this);
+void sub_080235BC(MoldwormEntity* this) {
+    gUnk_080CBC98[super->action](this);
 }
 
-void sub_080235D4(Entity* this) {
+void sub_080235D4(MoldwormEntity* this) {
     Entity* parent;
 
-    this->action = 1;
-    parent = this->parent;
-    this->x.HALF.HI = parent->x.HALF.HI;
-    this->y.HALF.HI = parent->y.HALF.HI;
+    super->action = 1;
+    parent = super->parent;
+    super->x.HALF.HI = parent->x.HALF.HI;
+    super->y.HALF.HI = parent->y.HALF.HI;
     sub_080239F0(this);
-    if (this->type == 1) {
-        this->animationState = 0x10;
+    if (super->type == 1) {
+        super->animationState = 0x10;
     } else {
-        this->animationState = 0x12;
+        super->animationState = 0x12;
     }
-    InitializeAnimation(this, this->animationState);
+    InitializeAnimation(super, super->animationState);
 }
 
-void sub_08023604(Entity* this) {
-    if (((u8*)&this->field_0x78)[this->parent->field_0x7c.BYTES.byte0 & 0xf] != 0x88) {
-        this->action = 2;
-        this->timer = 0;
-        COLLISION_ON(this);
-        this->spriteSettings.draw = 1;
+void sub_08023604(MoldwormEntity* this) {
+    if (((u8*)&this->unk_78.split.unk_78)[((MoldwormEntity*)super->parent)->unk_7c & 0xf] != 0x88) {
+        super->action = 2;
+        super->timer = 0;
+        COLLISION_ON(super);
+        super->spriteSettings.draw = 1;
         sub_08023644(this);
     }
 }
 
-void sub_08023644(Entity* this) {
-    Entity* parent = this->parent;
+void sub_08023644(MoldwormEntity* this) {
+    Entity* parent = super->parent;
 
-    if (parent->animIndex == 0x17 && this->timer != 0 && this->x.HALF.HI == parent->x.HALF.HI &&
-        this->y.HALF.HI == parent->y.HALF.HI) {
-        this->action = 1;
-        COLLISION_OFF(this);
-        this->spriteSettings.draw = 0;
-        this->child->timer = 1;
+    if (parent->animIndex == 0x17 && super->timer != 0 && super->x.HALF.HI == parent->x.HALF.HI &&
+        super->y.HALF.HI == parent->y.HALF.HI) {
+        super->action = 1;
+        COLLISION_OFF(super);
+        super->spriteSettings.draw = 0;
+        super->child->timer = 1;
         sub_080239F0(this);
     }
 
-    if (parent->field_0x7c.BYTES.byte0 != parent->field_0x7c.BYTES.byte1) {
-        u8* tmp = &((u8*)&this->field_0x78)[parent->field_0x7c.BYTES.byte0 & 0xf];
-        this->x.HALF.HI += (*tmp >> 4) - 8;
-        this->y.HALF.HI += (*tmp & 0xf) - 8;
-        this->spriteOrientation.flipY = parent->spriteOrientation.flipY;
-        this->spriteRendering.b3 = parent->spriteRendering.b3;
-        this->collisionLayer = parent->collisionLayer;
+    if (((MoldwormEntity*)parent)->unk_7c != ((MoldwormEntity*)parent)->unk_7d) {
+        u8* tmp = &((u8*)&this->unk_78.split.unk_78)[((MoldwormEntity*)parent)->unk_7c & 0xf];
+        super->x.HALF.HI += (*tmp >> 4) - 8;
+        super->y.HALF.HI += (*tmp & 0xf) - 8;
+        super->spriteOrientation.flipY = parent->spriteOrientation.flipY;
+        super->spriteRendering.b3 = parent->spriteRendering.b3;
+        super->collisionLayer = parent->collisionLayer;
     }
 }
 
-void sub_080236F8(Entity* parent) {
-    if (--parent->subtimer == 0) {
-        parent->action = 2;
-        parent->child->action = 3;
-        parent->child->subtimer = parent->parent->field_0x80.HALF.LO;
-        InitializeAnimation(parent->child, parent->child->animationState + 1);
-        InitializeAnimation(parent, parent->animationState);
+void sub_080236F8(MoldwormEntity* this) {
+    if (--super->subtimer == 0) {
+        super->action = 2;
+        super->child->action = 3;
+        super->child->subtimer = ((MoldwormEntity*)super->parent)->unk_80;
+        InitializeAnimation(super->child, super->child->animationState + 1);
+        InitializeAnimation(super, super->animationState);
     }
 }
 
-void sub_08023730(Entity* this) {
-    gUnk_080CBCA8[this->action](this);
+void sub_08023730(MoldwormEntity* this) {
+    gUnk_080CBCA8[super->action](this);
 }
 
-void sub_08023748(Entity* this) {
+void sub_08023748(MoldwormEntity* this) {
     Entity* parent;
 
-    this->action = 1;
-    this->animationState = 20;
-    parent = this->parent;
-    this->x.HALF.HI = parent->x.HALF.HI;
-    this->y.HALF.HI = parent->y.HALF.HI;
+    super->action = 1;
+    super->animationState = 20;
+    parent = super->parent;
+    super->x.HALF.HI = parent->x.HALF.HI;
+    super->y.HALF.HI = parent->y.HALF.HI;
     sub_080239F0(this);
     sub_08023A68(this);
 }
 
-void sub_0802376C(Entity* this) {
-    Entity* parent = this->parent;
+void sub_0802376C(MoldwormEntity* this) {
+    Entity* parent = super->parent;
 
     if (parent->spriteSettings.draw == 1 && parent->animIndex < 0x10) {
-        this->spriteSettings.draw = 1;
-        GetNextFrame(this);
+        super->spriteSettings.draw = 1;
+        GetNextFrame(super);
     }
 
-    if (((u8*)&this->field_0x78)[parent->field_0x7c.BYTES.byte0 & 0xf] != 0x88) {
-        this->action = 2;
-        this->timer = 0;
-        COLLISION_ON(this);
-        this->parent->field_0x7c.BYTES.byte3 = 1;
+    if (((u8*)&this->unk_78.split.unk_78)[((MoldwormEntity*)parent)->unk_7c & 0xf] != 0x88) {
+        super->action = 2;
+        super->timer = 0;
+        COLLISION_ON(super);
+        ((MoldwormEntity*)super->parent)->unk_7f = 1;
         sub_08023A88(this, 20);
         sub_080237D8(this);
     }
 }
 
-void sub_080237D8(Entity* this) {
-    Entity* parent = this->parent;
+void sub_080237D8(MoldwormEntity* this) {
+    Entity* parent = super->parent;
 
-    if ((parent->animIndex == 0x17) && (this->timer != 0) && (this->x.HALF.HI == parent->x.HALF.HI) &&
-        (this->y.HALF.HI == parent->y.HALF.HI)) {
-        this->action = 1;
-        COLLISION_OFF(this);
-        this->spriteSettings.draw = 0;
-        parent->field_0x7c.BYTES.byte3 = 1;
+    if ((parent->animIndex == 0x17) && (super->timer != 0) && (super->x.HALF.HI == parent->x.HALF.HI) &&
+        (super->y.HALF.HI == parent->y.HALF.HI)) {
+        super->action = 1;
+        COLLISION_OFF(super);
+        super->spriteSettings.draw = 0;
+        ((MoldwormEntity*)parent)->unk_7f = 1;
         sub_080239F0(this);
         sub_08023A68(this);
     }
 
-    if (parent->field_0x7c.BYTES.byte0 != parent->field_0x7c.BYTES.byte1) {
-        u8* tmp = &((u8*)&this->field_0x78)[parent->field_0x7c.BYTES.byte0 & 0xf];
-        this->x.HALF.HI += (*tmp >> 4) - 8;
-        this->y.HALF.HI += (*tmp & 0xf) - 8;
+    if (((MoldwormEntity*)parent)->unk_7c != ((MoldwormEntity*)parent)->unk_7d) {
+        u8* tmp = &((u8*)&this->unk_78.split.unk_78)[((MoldwormEntity*)parent)->unk_7c & 0xf];
+        super->x.HALF.HI += (*tmp >> 4) - 8;
+        super->y.HALF.HI += (*tmp & 0xf) - 8;
 
-        this->spriteOrientation.flipY = parent->spriteOrientation.flipY;
-        this->spriteRendering.b3 = parent->spriteRendering.b3;
-        this->collisionLayer = parent->collisionLayer;
+        super->spriteOrientation.flipY = parent->spriteOrientation.flipY;
+        super->spriteRendering.b3 = parent->spriteRendering.b3;
+        super->collisionLayer = parent->collisionLayer;
     }
 }
 
-void sub_08023894(Entity* this) {
-    if (--this->subtimer == 0) {
-        this->action = 2;
-        this->parent->field_0x7c.BYTES.byte3 = 1;
-        InitializeAnimation(this, this->animationState);
-        if (this->parent->type2 == 0) {
+void sub_08023894(MoldwormEntity* this) {
+    if (--super->subtimer == 0) {
+        super->action = 2;
+        ((MoldwormEntity*)super->parent)->unk_7f = 1;
+        InitializeAnimation(super, super->animationState);
+        if (super->parent->type2 == 0) {
             gPlayerState.flags |= PL_MOLDWORM_RELEASED;
-            gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
-            gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
-            gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(*(Entity**)&this->field_0x74, this));
+            gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
+            gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
+            gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(this->unk_74, super));
             gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
             gPlayerEntity.iframes = 12;
             ModHealth(-0x10);
@@ -415,14 +441,14 @@ void sub_08023894(Entity* this) {
     }
 }
 
-void sub_0802390C(Entity* this) {
-    if (this->contactFlags & 0x80) {
-        Entity* ent = this->child;
+void sub_0802390C(MoldwormEntity* this) {
+    if (super->contactFlags & 0x80) {
+        Entity* ent = super->child;
         do {
-            ent->iframes = this->iframes;
+            ent->iframes = super->iframes;
         } while (ent = ent->child, ent != NULL);
     } else {
-        Entity* ent = this->child;
+        Entity* ent = super->child;
         do {
             if (ent->contactFlags & 0x80) {
                 u8 bVar2 = 0xff - ent->health;
@@ -430,13 +456,13 @@ void sub_0802390C(Entity* this) {
                     u32 tmp;
                     ent->health = 0xff;
                     tmp = (u8)ent->iframes;
-                    if (this->health >= bVar2) {
-                        this->health -= bVar2;
+                    if (super->health >= bVar2) {
+                        super->health -= bVar2;
                     } else {
-                        this->health = 0;
+                        super->health = 0;
                     }
 
-                    ent = this;
+                    ent = super;
                     do {
                         ent->iframes = tmp;
                     } while (ent = ent->child, ent != NULL);
@@ -447,44 +473,44 @@ void sub_0802390C(Entity* this) {
     }
 }
 
-void sub_08023990(Entity* this, u32 param_2, u32 param_3) {
+void sub_08023990(MoldwormEntity* this, u32 param_2, u32 param_3) {
     Entity* ent;
 
-    this->action = 3;
-    this->spriteSettings.draw = 1;
-    this->palette.b.b0 = 0x5;
-    this->palette.b.b4 = 0x5;
-    this->spritePriority.b0 = 7;
-    this->x.HALF.HI = param_2;
-    this->y.HALF.HI = param_3;
-    this->collisionLayer = gPlayerEntity.collisionLayer;
-    UpdateSpriteForCollisionLayer(this);
-    InitializeAnimation(this, 0x16);
+    super->action = 3;
+    super->spriteSettings.draw = 1;
+    super->palette.b.b0 = 0x5;
+    super->palette.b.b4 = 0x5;
+    super->spritePriority.b0 = 7;
+    super->x.HALF.HI = param_2;
+    super->y.HALF.HI = param_3;
+    super->collisionLayer = gPlayerEntity.collisionLayer;
+    UpdateSpriteForCollisionLayer(super);
+    InitializeAnimation(super, 0x16);
 
-    ent = this->child;
+    ent = super->child;
     do {
-        sub_080239F0(ent);
-        CopyPosition(this, ent);
+        sub_080239F0((MoldwormEntity*)ent);
+        CopyPosition(super, ent);
     } while (ent = ent->child, ent != NULL);
 }
 
-void sub_080239F0(Entity* this) {
-    *(u8*)&this->field_0x78 = 0x88;
-    *(u8*)((int)&this->field_0x78 + 1) = 0x88;
-    *(u8*)&this->field_0x7a = 0x88;
-    *(u8*)((int)&this->field_0x7a + 1) = 0x88;
-    *(u8*)&this->field_0x7c = 0x88;
-    *(u8*)((int)&this->field_0x7c + 1) = 0x88;
-    *(u8*)((int)&this->field_0x7c + 2) = 0x88;
-    *(u8*)((int)&this->field_0x7c + 3) = 0x88;
-    *(u8*)&this->field_0x80 = 0x88;
-    *(u8*)((int)&this->field_0x80 + 1) = 0x88;
-    *(u8*)&this->field_0x82 = 0x88;
-    *(u8*)((int)&this->field_0x82 + 1) = 0x88;
-    *(u8*)&this->cutsceneBeh = 0x88;
-    *(u8*)((int)&this->cutsceneBeh + 1) = 0x88;
-    *(u8*)&this->field_0x86 = 0x88;
-    *(u8*)((int)&this->field_0x86 + 1) = 0x88;
+void sub_080239F0(MoldwormEntity* this) {
+    this->unk_78.split.unk_78 = 0x88;
+    this->unk_78.split.unk_79 = 0x88;
+    this->unk_7a = 0x88;
+    this->unk_7b = 0x88;
+    this->unk_7c = 0x88;
+    this->unk_7d = 0x88;
+    this->unk_7e = 0x88;
+    this->unk_7f = 0x88;
+    this->unk_80 = 0x88;
+    this->unk_81 = 0x88;
+    this->unk_82 = 0x88;
+    this->unk_83 = 0x88;
+    this->unk_84 = 0x88;
+    this->unk_85 = 0x88;
+    this->unk_86 = 0x88;
+    this->unk_87 = 0x88;
 }
 
 bool32 sub_08023A38(u32 tileType) {
@@ -500,39 +526,39 @@ bool32 sub_08023A38(u32 tileType) {
     }
 }
 
-void sub_08023A68(Entity* this) {
-    ChangeObjPalette(this, 5);
-    this->spritePriority.b0 = 7;
-    InitializeAnimation(this, 0x17);
+void sub_08023A68(MoldwormEntity* this) {
+    ChangeObjPalette(super, 5);
+    super->spritePriority.b0 = 7;
+    InitializeAnimation(super, 0x17);
 }
 
-void sub_08023A88(Entity* this, u32 unk) {
-    ChangeObjPalette(this, 0x22);
-    this->spritePriority.b0 = 4;
-    InitializeAnimation(this, unk);
+void sub_08023A88(MoldwormEntity* this, u32 unk) {
+    ChangeObjPalette(super, 0x22);
+    super->spritePriority.b0 = 4;
+    InitializeAnimation(super, unk);
 }
 
-void sub_08023AB0(Entity* this) {
-    if (this->field_0x7a.HALF.HI == 8) {
-        if (this->field_0x7c.BYTES.byte2) {
-            this->field_0x7c.BYTES.byte2--;
-        } else if (!sub_08023B38(this) || (this->field_0x78.HWORD <= 0x1D)) {
-            this->hitType = 0x85;
-            this->field_0x7a.HALF.HI = 0;
-            this->field_0x7c.BYTES.byte2 = 30;
-            InitializeAnimation(this, this->animationState);
+void sub_08023AB0(MoldwormEntity* this) {
+    if (this->unk_7b == 8) {
+        if (this->unk_7e) {
+            this->unk_7e--;
+        } else if (!sub_08023B38(this) || (this->unk_78.HWORD <= 0x1d)) {
+            super->hitType = 0x85;
+            this->unk_7b = 0;
+            this->unk_7e = 30;
+            InitializeAnimation(super, super->animationState);
         }
-    } else if (this->field_0x7c.BYTES.byte2) {
-        this->field_0x7c.BYTES.byte2--;
-    } else if (this->field_0x78.HWORD >= 90 && sub_08023B38(this)) {
-        this->hitType = 0x87;
-        this->field_0x7a.HALF.HI = 8;
-        this->field_0x7c.BYTES.byte2 = 10;
-        InitializeAnimation(this, this->animationState + 8);
+    } else if (this->unk_7e) {
+        this->unk_7e--;
+    } else if (this->unk_78.HWORD >= 90 && sub_08023B38(this)) {
+        super->hitType = 0x87;
+        this->unk_7b = 8;
+        this->unk_7e = 10;
+        InitializeAnimation(super, super->animationState + 8);
     }
 }
 
-bool32 sub_08023B38(Entity* this) {
+bool32 sub_08023B38(MoldwormEntity* this) {
     Entity* entity;
     bool32 result;
     s32 iVar2;
@@ -544,8 +570,8 @@ bool32 sub_08023B38(Entity* this) {
     if (entity == NULL) {
         return FALSE;
     } else {
-        tmp1 = (this->x.HALF.HI + (gUnk_080CBCB8[this->animationState * 2 + 0]));
-        tmp2 = (this->y.HALF.HI + (gUnk_080CBCB8[this->animationState * 2 + 1]));
+        tmp1 = (super->x.HALF.HI + (gUnk_080CBCB8[super->animationState * 2 + 0]));
+        tmp2 = (super->y.HALF.HI + (gUnk_080CBCB8[super->animationState * 2 + 1]));
         result = FALSE;
         if ((entity->x.HALF.HI - tmp1 + 0x14U < 0x29) && (entity->y.HALF.HI - tmp2 + 0x14U < 0x29)) {
             result = TRUE;
@@ -555,16 +581,16 @@ bool32 sub_08023B38(Entity* this) {
 }
 
 // clang-format off
-void (*const Moldworm_Functions[])(Entity*) = {
+void (*const Moldworm_Functions[])(MoldwormEntity*) = {
     Moldworm_OnTick,
     Moldworm_OnCollision,
     Moldworm_OnKnockback,
-    GenericDeath,
-    GenericConfused,
+    (void (*)(MoldwormEntity*))GenericDeath,
+    (void (*)(MoldwormEntity*))GenericConfused,
     Moldworm_OnGrabbed,
 };
 
-void (*const gUnk_080CBC50[])(Entity*) = {
+void (*const gUnk_080CBC50[])(MoldwormEntity*) = {
     sub_080231BC,
     nullsub_136,
     sub_08023288,
@@ -587,17 +613,17 @@ const s8 gUnk_080CBC70[] = {
 };
 
 const s8 gUnk_080CBC90[] = {
-    0xff, 0xff, 0x01, 0x01, 0x01, 0x01, 0x01, 0xff, 
+    0xff, 0xff, 0x01, 0x01, 0x01, 0x01, 0x01, 0xff,
 };
 
-void (*const gUnk_080CBC98[])(Entity*) = {
+void (*const gUnk_080CBC98[])(MoldwormEntity*) = {
     sub_080235D4,
     sub_08023604,
     sub_08023644,
     sub_080236F8,
 };
 
-void (*const gUnk_080CBCA8[])(Entity*) = {
+void (*const gUnk_080CBCA8[])(MoldwormEntity*) = {
     sub_08023748,
     sub_0802376C,
     sub_080237D8,

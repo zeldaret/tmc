@@ -46,7 +46,11 @@ void sub_08034EE4(MazaalMacroEntity* this);
 void sub_08034F58(MazaalMacroEntity* this);
 
 void (*const MazaalMacro_Functions[])(MazaalMacroEntity*) = {
-    MazaalMacro_OnTick, MazaalMacro_OnCollision, (void (*)(MazaalMacroEntity*))GenericKnockback, MazaalMacro_OnDeath, (void (*)(MazaalMacroEntity*))GenericConfused,
+    MazaalMacro_OnTick,
+    MazaalMacro_OnCollision,
+    (void (*)(MazaalMacroEntity*))GenericKnockback,
+    MazaalMacro_OnDeath,
+    (void (*)(MazaalMacroEntity*))GenericConfused,
 };
 void (*const gUnk_080CEEA4[])(MazaalMacroEntity*) = {
     sub_08034CC4,

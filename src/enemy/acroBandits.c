@@ -62,8 +62,12 @@ void AcroBandit_Type1Action8(AcroBanditEntity* this);
 void AcroBandit_Type1Action9(AcroBanditEntity* this);
 
 static void (*const AcroBandit_Functions[])(AcroBanditEntity*) = {
-    AcroBandit_OnTick, AcroBandit_OnCollision, AcroBandit_OnKnockback,
-    (void (*)(AcroBanditEntity*))GenericDeath,      (void (*)(AcroBanditEntity*))GenericConfused,        AcroBandit_OnGrabbed,
+    AcroBandit_OnTick,
+    AcroBandit_OnCollision,
+    AcroBandit_OnKnockback,
+    (void (*)(AcroBanditEntity*))GenericDeath,
+    (void (*)(AcroBanditEntity*))GenericConfused,
+    AcroBandit_OnGrabbed,
 };
 
 void AcroBandit(AcroBanditEntity* this) {
@@ -260,35 +264,35 @@ void AcroBandit_Type0Action5(AcroBanditEntity* this) {
             u32 tmp = Random();
             tmp &= 3;
 
-            a = (AcroBanditEntity*) CreateEnemy(ACRO_BANDIT, 1);
+            a = (AcroBanditEntity*)CreateEnemy(ACRO_BANDIT, 1);
             a->base.type2 = 0;
             a->base.parent = NULL;
             a->unk_74.HALF.LO = tmp;
             sub_08031E48(this, a);
             a->base.child = CreateEnemy(ACRO_BANDIT, 1);
 
-            b = (AcroBanditEntity*) a->base.child;
+            b = (AcroBanditEntity*)a->base.child;
             b->base.type2 = 1;
             b->base.parent = &a->base;
             b->unk_74.HALF.LO = tmp;
             sub_08031E48(this, b);
             b->base.child = CreateEnemy(ACRO_BANDIT, 1);
 
-            a = (AcroBanditEntity*) b->base.child;
+            a = (AcroBanditEntity*)b->base.child;
             a->base.type2 = 2;
             a->base.parent = &b->base;
             a->unk_74.HALF.LO = tmp;
             sub_08031E48(this, a);
             a->base.child = CreateEnemy(ACRO_BANDIT, 1);
 
-            b = (AcroBanditEntity*) a->base.child;
+            b = (AcroBanditEntity*)a->base.child;
             b->base.type2 = 3;
             b->base.parent = &a->base;
             b->unk_74.HALF.LO = tmp;
             sub_08031E48(this, b);
             b->base.child = CreateEnemy(ACRO_BANDIT, 1);
 
-            a = (AcroBanditEntity*) b->base.child;
+            a = (AcroBanditEntity*)b->base.child;
             a->base.type2 = 4;
             a->base.parent = &b->base;
             a->base.child = NULL;

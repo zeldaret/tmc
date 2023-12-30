@@ -23,8 +23,12 @@ void sub_08045618(MiniFireballGuyEntity* this);
 void sub_08045654(MiniFireballGuyEntity* this);
 
 static void (*const MiniFireballGuy_Functions[])(MiniFireballGuyEntity*) = {
-    MiniFireballGuy_OnTick, MiniFireballGuy_OnCollision, (void (*)(MiniFireballGuyEntity*))GenericKnockback, MiniFireballGuy_OnDeath,
-    (void (*)(MiniFireballGuyEntity*))GenericConfused,        MiniFireballGuy_OnGrabbed,
+    MiniFireballGuy_OnTick,
+    MiniFireballGuy_OnCollision,
+    (void (*)(MiniFireballGuyEntity*))GenericKnockback,
+    MiniFireballGuy_OnDeath,
+    (void (*)(MiniFireballGuyEntity*))GenericConfused,
+    MiniFireballGuy_OnGrabbed,
 };
 
 void MiniFireballGuy(MiniFireballGuyEntity* this) {

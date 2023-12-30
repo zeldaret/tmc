@@ -4,8 +4,8 @@
  *
  * @brief Vaati Wrath Eye enemy
  */
-//#define NENT_DEPRECATED
-#include "enemy.h"
+#define NENT_DEPRECATED
+#include "enemy/vaatiWrath.h"
 #include "functions.h"
 
 void sub_080485D8(Entity*);
@@ -80,7 +80,7 @@ void VaatiWrathEyeAction3(Entity* this) {
     const s8* ptr;
 
     parent = this->parent;
-    if (parent->field_0x78.HALF.HI != 0) {
+    if (((VaatiWrathEntity*)parent)->unk_79 != 0) {
         sub_080485D8(this);
     } else {
         ptr = &gUnk_080D1D98[this->type * 2];
@@ -164,14 +164,14 @@ void VaatiWrathEyeAction7(Entity* this) {
         COLLISION_OFF(this);
         this->spriteSettings.draw = 0;
         CreateFx(this, FX_REFLECT2, 0x40);
-        this->parent->field_0x7a.HALF.HI |= 0x10 << this->type;
+        ((VaatiWrathEntity*)this->parent)->unk_7b |= 0x10 << this->type;
     } else {
         if (--this->timer != 0) {
             return;
         }
         this->action = 5;
         this->timer = 0;
-        this->parent->field_0x7a.HALF.HI |= 1 << this->type;
+        ((VaatiWrathEntity*)this->parent)->unk_7b |= 1 << this->type;
     }
 }
 
@@ -196,7 +196,8 @@ void VaatiWrathEyeAction9(Entity* this) {
     if ((this->frame & ANIM_DONE) != 0) {
         this->action = 4;
         this->timer = 1;
-        this->parent->field_0x7a.HALF.HI = (this->parent->field_0x7a.HALF.HI & 0xf) | (1 << this->type);
+        ((VaatiWrathEntity*)this->parent)->unk_7b =
+            (((VaatiWrathEntity*)this->parent)->unk_7b & 0xf) | (1 << this->type);
     }
 }
 
@@ -212,5 +213,5 @@ void sub_080485FC(Entity* this) {
 
     ptr = &gUnk_080D1D98[this->type * 2];
     sub_0806FA90(this->parent, this, ptr[0], ptr[1]);
-    this->z.HALF.HI = gUnk_080D1D78[this->type * 8 + (this->parent->field_0x78.HALF.LO >> 4 & 7)];
+    this->z.HALF.HI = gUnk_080D1D78[this->type * 8 + (((VaatiWrathEntity*)this->parent)->unk_78 >> 4 & 7)];
 }

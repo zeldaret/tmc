@@ -28,7 +28,12 @@ void FireballGuy_Action1(FireballGuyEntity*);
 void FireballGuy_Action2(FireballGuyEntity*);
 
 static void (*const FireballGuy_Functions[])(FireballGuyEntity*) = {
-    FireballGuy_OnTick, FireballGuy_OnCollision, (void (*)(FireballGuyEntity*))GenericKnockback, (void (*)(FireballGuyEntity*))GenericDeath, (void (*)(FireballGuyEntity*))GenericConfused, FireballGuy_OnGrabbed,
+    FireballGuy_OnTick,
+    FireballGuy_OnCollision,
+    (void (*)(FireballGuyEntity*))GenericKnockback,
+    (void (*)(FireballGuyEntity*))GenericDeath,
+    (void (*)(FireballGuyEntity*))GenericConfused,
+    FireballGuy_OnGrabbed,
 };
 
 void FireballGuy(FireballGuyEntity* this) {

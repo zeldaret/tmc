@@ -242,7 +242,7 @@ void sub_0802AAC0(BombPeahatEntity* this) {
 
 #ifdef EU
 void sub_0802AB40(BombPeahatEntity* this) {
-    sub_0802AC40(super);
+    sub_0802AC40(this);
     if (--super->timer == 0) {
         if (this->unk_7a <= 4) {
             super->action = 5;
@@ -254,7 +254,7 @@ void sub_0802AB40(BombPeahatEntity* this) {
             this->unk_80 ^= 1;
         }
     } else if (--super->subtimer == 0) {
-        sub_0802ACDC(super, 4);
+        sub_0802ACDC(this, 4);
     }
 }
 #else
@@ -432,7 +432,7 @@ void sub_0802AE68(BombPeahatEntity* this) {
         this->unk_80 = 1;
     }
 
-    if (entity->field_0x80.HALF.HI) {
+    if (((BombPeahatEntity*)entity)->unk_81) {
         CopyPosition(entity, super);
         super->z.HALF.HI += 8;
         super->spriteSettings.draw = 0;
@@ -440,7 +440,7 @@ void sub_0802AE68(BombPeahatEntity* this) {
         super->action = 3;
         this->unk_80 = 1;
         super->spriteSettings.draw = 1;
-        if (sub_0802B234(super)) {
+        if (sub_0802B234(this)) {
             super->spritePriority.b1 = 3;
         } else {
             super->spritePriority.b1 = 0;
@@ -635,13 +635,13 @@ void sub_0802B1BC(BombPeahatEntity* this) {
         super->spriteSettings.draw = 1;
     }
 
-    if (entity->field_0x80.HALF.HI) {
+    if (((BombPeahatEntity*)entity)->unk_81) {
         CopyPosition(entity, super);
         super->z.HALF.HI += 8;
     } else {
         super->action = 2;
         super->spriteSettings.draw = 1;
-        if (sub_0802B234(super)) {
+        if (sub_0802B234(this)) {
             super->spritePriority.b1 = 3;
         } else {
             super->spritePriority.b1 = 0;

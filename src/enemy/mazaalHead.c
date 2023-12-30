@@ -4,7 +4,7 @@
  *
  * @brief Mazaal Head enemy
  */
-//#define NENT_DEPRECATED
+#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy.h"
 #include "functions.h"
@@ -12,70 +12,89 @@
 #include "roomid.h"
 #include "screen.h"
 
+typedef struct MazaalHeadEntity_ {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[5];
+    /*0x6d*/ u8 unk_6d;
+    /*0x6e*/ u8 unused2[6];
+    /*0x74*/ struct MazaalHeadEntity_* unk_74;
+    /*0x78*/ struct MazaalHeadEntity_* unk_78;
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+} MazaalHeadEntity;
+
 extern void UnloadOBJPalette(Entity*);
 
-void sub_0803499C(Entity*);
-void sub_08034420(Entity*);
-void sub_08034830(Entity*);
-u32 sub_080349D8(Entity*);
-void sub_0803442C(Entity*, u32);
-void sub_0803443C(Entity*);
-void sub_080347B4(Entity*);
-void sub_0803473C(Entity*);
-u32 sub_08034A10(Entity*);
-void sub_080347FC(Entity*);
-void sub_080344BC(Entity*);
-void sub_08034498(Entity*);
-void sub_08034474(Entity*);
-void sub_080345A0(Entity*);
-void sub_080345B8(Entity*);
-void sub_08034638(Entity*);
-void sub_08034618(Entity*);
-void sub_08034658(Entity*);
-void sub_0803467C(Entity*);
-u32 sub_080348A4(Entity*, Entity*, u32);
-void sub_08034C00(Entity*);
+void sub_0803499C(MazaalHeadEntity*);
+void sub_08034420(MazaalHeadEntity*);
+void sub_08034830(MazaalHeadEntity*);
+bool32 sub_080349D8(MazaalHeadEntity*);
+void sub_0803442C(MazaalHeadEntity*, u32);
+void sub_0803443C(MazaalHeadEntity*);
+void sub_080347B4(MazaalHeadEntity*);
+void sub_0803473C(MazaalHeadEntity*);
+u32 sub_08034A10(MazaalHeadEntity*);
+void sub_080347FC(MazaalHeadEntity*);
+void sub_080344BC(MazaalHeadEntity*);
+void sub_08034498(MazaalHeadEntity*);
+void sub_08034474(MazaalHeadEntity*);
+void sub_080345A0(MazaalHeadEntity*);
+void sub_080345B8(MazaalHeadEntity*);
+void sub_08034638(MazaalHeadEntity*);
+void sub_08034618(MazaalHeadEntity*);
+void sub_08034658(MazaalHeadEntity*);
+void sub_0803467C(MazaalHeadEntity*);
+u32 sub_080348A4(MazaalHeadEntity*, MazaalHeadEntity*, u32);
+void sub_08034C00(MazaalHeadEntity*);
 
-void MazaalHead_OnTick(Entity* this);
-void MazaalHead_OnCollision(Entity* this);
-void MazaalHead_OnGrabbed(Entity* this);
-void sub_08033F1C(Entity* this);
-void sub_08034A84(Entity* this);
-void sub_08034AC4(Entity* this);
-void sub_08034BC8(Entity* this);
-void sub_08033F3C(Entity* this);
-void sub_08033FFC(Entity* this);
-void sub_0803414C(Entity* this);
-void sub_080341B8(Entity* this);
-void sub_080341D0(Entity* this);
-void sub_080341F4(Entity* this);
-void sub_08034210(Entity* this);
-void sub_08034240(Entity* this);
-void sub_08034274(Entity* this);
-void sub_080342A0(Entity* this);
-void sub_080342B4(Entity* this);
-void sub_080342C8(Entity* this);
-void sub_08034348(Entity* this);
-void sub_0803438C(Entity* this);
-void sub_08034578(Entity* this);
-void sub_080344E0(Entity* this);
-void sub_0803451C(Entity* this);
-void sub_08034558(Entity* this);
-void sub_080346A0(Entity* this);
-void sub_080345D0(Entity* this);
-void sub_080346C8(Entity* this);
-void sub_08034AEC(Entity* this);
-void sub_08034B0C(Entity* this);
-void sub_08034B38(Entity* this);
-void sub_08034BA0(Entity* this);
+void MazaalHead_OnTick(MazaalHeadEntity* this);
+void MazaalHead_OnCollision(MazaalHeadEntity* this);
+void MazaalHead_OnGrabbed(MazaalHeadEntity* this);
+void sub_08033F1C(MazaalHeadEntity* this);
+void sub_08034A84(MazaalHeadEntity* this);
+void sub_08034AC4(MazaalHeadEntity* this);
+void sub_08034BC8(MazaalHeadEntity* this);
+void sub_08033F3C(MazaalHeadEntity* this);
+void sub_08033FFC(MazaalHeadEntity* this);
+void sub_0803414C(MazaalHeadEntity* this);
+void sub_080341B8(MazaalHeadEntity* this);
+void sub_080341D0(MazaalHeadEntity* this);
+void sub_080341F4(MazaalHeadEntity* this);
+void sub_08034210(MazaalHeadEntity* this);
+void sub_08034240(MazaalHeadEntity* this);
+void sub_08034274(MazaalHeadEntity* this);
+void sub_080342A0(MazaalHeadEntity* this);
+void sub_080342B4(MazaalHeadEntity* this);
+void sub_080342C8(MazaalHeadEntity* this);
+void sub_08034348(MazaalHeadEntity* this);
+void sub_0803438C(MazaalHeadEntity* this);
+void sub_08034578(MazaalHeadEntity* this);
+void sub_080344E0(MazaalHeadEntity* this);
+void sub_0803451C(MazaalHeadEntity* this);
+void sub_08034558(MazaalHeadEntity* this);
+void sub_080346A0(MazaalHeadEntity* this);
+void sub_080345D0(MazaalHeadEntity* this);
+void sub_080346C8(MazaalHeadEntity* this);
+void sub_08034AEC(MazaalHeadEntity* this);
+void sub_08034B0C(MazaalHeadEntity* this);
+void sub_08034B38(MazaalHeadEntity* this);
+void sub_08034BA0(MazaalHeadEntity* this);
 
-void (*const MazaalHead_Functions[])(Entity*) = {
-    MazaalHead_OnTick, MazaalHead_OnCollision, GenericKnockback, GenericDeath, GenericConfused, MazaalHead_OnGrabbed,
+void (*const MazaalHead_Functions[])(MazaalHeadEntity*) = {
+    MazaalHead_OnTick,
+    MazaalHead_OnCollision,
+    (void (*)(MazaalHeadEntity*))GenericKnockback,
+    (void (*)(MazaalHeadEntity*))GenericDeath,
+    (void (*)(MazaalHeadEntity*))GenericConfused,
+    MazaalHead_OnGrabbed,
 };
-void (*const gUnk_080CECA0[])(Entity*) = {
+void (*const gUnk_080CECA0[])(MazaalHeadEntity*) = {
     sub_08033F1C, sub_08034A84, sub_08034AC4, sub_08034AC4, sub_08034BC8,
 };
-void (*const gUnk_080CECB4[])(Entity*) = {
+void (*const gUnk_080CECB4[])(MazaalHeadEntity*) = {
     sub_08033F3C, sub_08033FFC, sub_0803414C, sub_080341B8, sub_080341D0, sub_080341F4, sub_08034210,
     sub_08034240, sub_08034274, sub_080342A0, sub_080342B4, sub_080342C8, sub_08034348, sub_0803438C,
 };
@@ -83,17 +102,17 @@ const u8 gUnk_080CECEC[] = { 0xff, 0xfe, 0xff, 0x00, 0x01, 0x02, 0x01, 0x00 };
 const s8 gUnk_080CECF4[] = { -2, 0x01, -8, -4, -0x14, 0x08, 0x0e, -0x10, -6, 0x0c, 0x12, -2, 0x00, 0x00 };
 const u8 gUnk_080CED02[] = { FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION2, FX_GIANT_EXPLOSION3 };
 const u8 gUnk_080CED06[] = { 0xff, 0x00, 0x01, 0x00, 0x00, 0x00 };
-void (*const gUnk_080CED0C[])(Entity*) = {
+void (*const gUnk_080CED0C[])(MazaalHeadEntity*) = {
     sub_08034578, sub_080344E0, sub_0803451C, sub_080344E0, sub_08034558, sub_080344E0, sub_0803451C, sub_080346A0,
 };
-void (*const gUnk_080CED2C[])(Entity*) = {
+void (*const gUnk_080CED2C[])(MazaalHeadEntity*) = {
     sub_08034578, sub_080345D0, sub_0803451C, sub_080346A0, sub_08034558, sub_080345D0, sub_08034558, sub_080346A0,
 };
-void (*const gUnk_080CED4C[])(Entity*) = {
+void (*const gUnk_080CED4C[])(MazaalHeadEntity*) = {
     sub_08034578, sub_080345D0, sub_080346C8, sub_080346A0, sub_08034558, sub_080346C8, sub_080346A0, sub_080346C8,
 };
 const s8 gUnk_080CED6C[] = { -0xa, -0xb, -0xc, -0xb, -0xa, -0x9, -0x8, -0x9 };
-void (*const gUnk_080CED74[])(Entity*) = {
+void (*const gUnk_080CED74[])(MazaalHeadEntity*) = {
     sub_08034AEC,
     sub_08034B0C,
     sub_08034B38,
@@ -107,127 +126,127 @@ const ScreenTransitionData gUnk_080CED9C = {
     1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, AREA_INNER_MAZAAL, ROOM_INNER_MAZAAL_MAIN, 1, 0, 0, 0
 };
 
-void MazaalHead(Entity* this) {
-    MazaalHead_Functions[GetNextFunction(this)](this);
+void MazaalHead(MazaalHeadEntity* this) {
+    MazaalHead_Functions[GetNextFunction(super)](this);
 }
 
-void MazaalHead_OnTick(Entity* this) {
-    gUnk_080CECA0[this->type](this);
+void MazaalHead_OnTick(MazaalHeadEntity* this) {
+    gUnk_080CECA0[super->type](this);
 }
 
-void MazaalHead_OnCollision(Entity* this) {
-    EnemyFunctionHandlerAfterCollision(this, MazaalHead_Functions);
+void MazaalHead_OnCollision(MazaalHeadEntity* this) {
+    EnemyFunctionHandlerAfterCollision(super, MazaalHead_Functions);
 }
 
-void MazaalHead_OnGrabbed(Entity* this) {
+void MazaalHead_OnGrabbed(MazaalHeadEntity* this) {
 }
 
-void sub_08033F1C(Entity* this) {
-    gUnk_080CECB4[this->action](this);
+void sub_08033F1C(MazaalHeadEntity* this) {
+    gUnk_080CECB4[super->action](this);
     sub_0803499C(this);
 }
 
-void sub_08033F3C(Entity* this) {
+void sub_08033F3C(MazaalHeadEntity* this) {
     Entity* pEVar1;
     Entity* pEVar2;
 
     if (gEntCount < 0x43) {
         if (gRoomTransition.field_0x38 != 0) {
             sub_08034420(this);
-            this->field_0x80.HALF.HI = 1;
+            this->unk_81 = 1;
         } else {
-            this->action = 1;
+            super->action = 1;
         }
-        this->spriteSettings.draw = 1;
-        this->field_0x6c.HALF.HI |= 1;
-        this->field_0x80.HALF.LO = 0;
-        InitializeAnimation(this, 0);
+        super->spriteSettings.draw = 1;
+        this->unk_6d |= 1;
+        this->unk_80 = 0;
+        InitializeAnimation(super, 0);
         pEVar1 = CreateEnemy(MAZAAL_HEAD, 1);
-        pEVar1->parent = this;
+        pEVar1->parent = super;
         pEVar2 = CreateObject(MAZAAL_OBJECT, 0, 0);
-        pEVar2->parent = this;
+        pEVar2->parent = super;
         if (gRoomTransition.field_0x39 == 0) {
-            this->action = 0xd;
-            this->subAction = 0;
-            this->timer = 252;
-            COLLISION_OFF(this);
+            super->action = 0xd;
+            super->subAction = 0;
+            super->timer = 252;
+            COLLISION_OFF(super);
         } else {
             pEVar2 = CreateEnemy(MAZAAL_BRACELET, 0);
-            pEVar2->parent = this;
-            *(Entity**)&pEVar2->field_0x78 = this;
-            *(Entity**)&this->field_0x74 = pEVar2;
+            pEVar2->parent = super;
+            ((MazaalHeadEntity*)pEVar2)->unk_78 = this;
+            this->unk_74 = (MazaalHeadEntity*)pEVar2;
             pEVar2 = CreateEnemy(MAZAAL_BRACELET, 1);
-            pEVar2->parent = this;
-            *(Entity**)&pEVar2->field_0x78 = pEVar1;
-            *(Entity**)&this->field_0x78 = pEVar2;
-            CreateEnemy(MAZAAL_HEAD, 4)->parent = this;
+            pEVar2->parent = super;
+            ((MazaalHeadEntity*)pEVar2)->unk_78 = (MazaalHeadEntity*)pEVar1;
+            this->unk_78 = (MazaalHeadEntity*)pEVar2;
+            CreateEnemy(MAZAAL_HEAD, 4)->parent = super;
         }
     }
 }
 
-void sub_08033FFC(Entity* this) {
+void sub_08033FFC(MazaalHeadEntity* this) {
     u16 temp;
-    Entity* entity;
+    MazaalHeadEntity* entity;
 
-    switch (this->subAction) {
+    switch (super->subAction) {
         case 0:
         case 2:
         case 5:
             break;
         case 1:
-            this->subAction = 2;
-            this->timer = 30;
-            entity = *(Entity**)&(*(Entity**)&this->field_0x74)->field_0x74;
-            entity->subAction = 1;
-            entity = *(Entity**)&(*(Entity**)&this->field_0x78)->field_0x74;
-            entity->subAction = 1;
-            UnloadOBJPalette(this);
+            super->subAction = 2;
+            super->timer = 30;
+            entity = this->unk_74->unk_74;
+            entity->base.subAction = 1;
+            entity = this->unk_78->unk_74;
+            entity->base.subAction = 1;
+            UnloadOBJPalette(super);
             break;
         case 3:
-            if (--this->timer == 0) {
-                this->subAction = 4;
+            if (--super->timer == 0) {
+                super->subAction = 4;
             }
             break;
         case 4:
-            this->z.WORD -= Q_16_16(0.5);
-            if (this->z.HALF.HI == -10) {
-                this->subAction = 5;
-                this->field_0x80.HALF.HI = 1;
+            super->z.WORD -= Q_16_16(0.5);
+            if (super->z.HALF.HI == -10) {
+                super->subAction = 5;
+                this->unk_81 = 1;
             }
             break;
         case 6:
-            this->subAction = 7;
-            this->timer = 0;
-            entity = *(Entity**)&this->field_0x74;
-            entity->subAction = 1;
-            entity = *(Entity**)&entity->field_0x74;
-            entity->subAction = 4;
-            entity = *(Entity**)&this->field_0x78;
-            entity->subAction = 1;
-            entity = *(Entity**)&entity->field_0x74;
-            entity->subAction = 4;
+            super->subAction = 7;
+            super->timer = 0;
+            entity = this->unk_74;
+            entity->base.subAction = 1;
+            entity = entity->unk_74;
+            entity->base.subAction = 4;
+            entity = this->unk_78;
+            entity->base.subAction = 1;
+            entity = entity->unk_74;
+            entity->base.subAction = 4;
             gScreen.controls.layerFXControl = 0xf40;
             gScreen.controls.alphaBlend = 0x1000;
             break;
         case 7:
-            temp = ++this->timer >> 1;
+            temp = ++super->timer >> 1;
             gScreen.controls.alphaBlend = (temp) | (0x10 - (temp)) * 0x100;
-            if (this->timer > 31) {
-                this->subAction = 8;
-                entity = *(Entity**)&this->field_0x74;
-                entity->subAction = 3;
-                entity = *(Entity**)&entity->field_0x74;
-                entity->subAction = 6;
-                entity = *(Entity**)&this->field_0x78;
-                entity->subAction = 3;
-                entity = *(Entity**)&entity->field_0x74;
-                entity->subAction = 6;
-                this->spriteRendering.alphaBlend = 0;
+            if (super->timer > 31) {
+                super->subAction = 8;
+                entity = this->unk_74;
+                entity->base.subAction = 3;
+                entity = entity->unk_74;
+                entity->base.subAction = 6;
+                entity = this->unk_78;
+                entity->base.subAction = 3;
+                entity = entity->unk_74;
+                entity->base.subAction = 6;
+                super->spriteRendering.alphaBlend = 0;
                 gScreen.controls.layerFXControl = 0;
             }
             break;
         default:
-            if (((*(Entity**)&this->field_0x74)->flags & ENT_COLLIDE) != 0) {
+            if (((this->unk_74)->base.flags & ENT_COLLIDE) != 0) {
                 gRoomControls.camera_target = &gPlayerEntity;
                 sub_08034420(this);
                 gPlayerState.controlMode = CONTROL_1;
@@ -237,66 +256,66 @@ void sub_08033FFC(Entity* this) {
     }
 }
 
-void sub_0803414C(Entity* this) {
+void sub_0803414C(MazaalHeadEntity* this) {
     u32 x, y;
 
     x = gRoomControls.origin_x + 0xb8;
     y = gRoomControls.origin_y + 0x48;
 
-    if (this->x.HALF.HI - x + 1 < 3 && this->y.HALF.HI - y + 1 < 3) {
+    if (super->x.HALF.HI - x + 1 < 3 && super->y.HALF.HI - y + 1 < 3) {
         if (sub_080349D8(this)) {
-            if (this->subAction != 0) {
-                this->subAction = 0;
+            if (super->subAction != 0) {
+                super->subAction = 0;
                 sub_0803442C(this, 0x1e);
             } else {
                 sub_0803442C(this, 0x5a);
             }
         }
     } else {
-        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
-        LinearMoveUpdate(this);
+        super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, x, y);
+        LinearMoveUpdate(super);
     }
 }
 
-void sub_080341B8(Entity* this) {
-    if (sub_080349D8(this) != 0) {
+void sub_080341B8(MazaalHeadEntity* this) {
+    if (sub_080349D8(this)) {
         sub_0803442C(this, 0x2d);
     }
 }
 
-void sub_080341D0(Entity* this) {
-    if (((this->field_0x80.HALF.LO & 3) != 3) && (--this->timer == 0)) {
+void sub_080341D0(MazaalHeadEntity* this) {
+    if (((this->unk_80 & 3) != 3) && (--super->timer == 0)) {
         sub_0803443C(this);
     }
 }
 
-void sub_080341F4(Entity* this) {
+void sub_080341F4(MazaalHeadEntity* this) {
     sub_080347B4(this);
-    if (sub_080349D8(this) != 0) {
+    if (sub_080349D8(this)) {
         sub_08034420(this);
     }
 }
 
-void sub_08034210(Entity* this) {
+void sub_08034210(MazaalHeadEntity* this) {
     sub_080347B4(this);
-    if ((this->field_0x7c.BYTES.byte1 & 0x80) != 0 && sub_080349D8(this) != 0) {
+    if ((this->unk_7d & 0x80) != 0 && sub_080349D8(this)) {
         sub_08034420(this);
     } else {
         sub_08034830(this);
     }
 }
 
-void sub_08034240(Entity* this) {
-    if ((this->field_0x7c.HALF_U.HI != 0) && (--this->field_0x7c.HALF_U.HI < 0x96)) {
+void sub_08034240(MazaalHeadEntity* this) {
+    if ((this->unk_7e != 0) && (--this->unk_7e < 0x96)) {
         sub_0803473C(this);
     }
-    if (sub_080349D8(this) != 0) {
+    if (sub_080349D8(this)) {
         sub_08034420(this);
     }
 }
 
-void sub_08034274(Entity* this) {
-    if (sub_080349D8(this) != 0) {
+void sub_08034274(MazaalHeadEntity* this) {
+    if (sub_080349D8(this)) {
         sub_08034420(this);
     } else {
         sub_0803473C(this);
@@ -306,67 +325,67 @@ void sub_08034274(Entity* this) {
     }
 }
 
-void sub_080342A0(Entity* this) {
-    if (sub_080349D8(this) != 0) {
+void sub_080342A0(MazaalHeadEntity* this) {
+    if (sub_080349D8(this)) {
         sub_08034420(this);
     }
 }
 
-void sub_080342B4(Entity* this) {
-    if (this->field_0x7c.HALF_U.HI == 0xff) {
+void sub_080342B4(MazaalHeadEntity* this) {
+    if (this->unk_7e == 0xff) {
         sub_08034420(this);
     }
 }
 
-void sub_080342C8(Entity* this) {
-    if (this->timer != 0) {
-        if (--this->timer == 0) {
+void sub_080342C8(MazaalHeadEntity* this) {
+    if (super->timer != 0) {
+        if (--super->timer == 0) {
             SoundReq(SFX_115);
         }
-        this->spriteOffsetX = gUnk_080CECEC[this->timer >> 1 & 7];
+        super->spriteOffsetX = gUnk_080CECEC[super->timer >> 1 & 7];
     } else {
-        this->spriteOffsetX = 0;
-        if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
-            this->action = 0xc;
-            this->field_0x7c.HALF.HI = 0x708;
-            this->field_0x7c.BYTES.byte1 = 0;
-            this->field_0x80.HALF.HI = 0;
+        super->spriteOffsetX = 0;
+        if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
+            super->action = 0xc;
+            this->unk_7e = 0x708;
+            this->unk_7d = 0;
+            this->unk_81 = 0;
             InitScreenShake(30, 0);
             SoundReq(SFX_1A1);
         }
     }
 }
 
-void sub_08034348(Entity* this) {
-    if (this->field_0x7c.HALF_U.HI != 0) {
-        this->field_0x7c.HALF.HI--;
+void sub_08034348(MazaalHeadEntity* this) {
+    if (this->unk_7e != 0) {
+        this->unk_7e--;
     } else {
-        if (this->z.HALF.HI > -10) {
-            this->z.HALF.HI--;
+        if (super->z.HALF.HI > -10) {
+            super->z.HALF.HI--;
         } else {
-            if (sub_080349D8(this) != 0) {
-                this->field_0x80.HALF.HI = 1;
+            if (sub_080349D8(this)) {
+                this->unk_81 = 1;
                 sub_08034420(this);
             }
         }
     }
 }
 
-void sub_0803438C(Entity* this) {
+void sub_0803438C(MazaalHeadEntity* this) {
     Entity* pEVar3;
     const s8* pVar;
 
-    if (this->timer == 0) {
-        this->health = 0;
+    if (super->timer == 0) {
+        super->health = 0;
     } else {
-        this->timer--;
-        if (this->timer > 192) {
-            this->spriteOffsetX = gUnk_080CED06[this->timer & 3];
+        super->timer--;
+        if (super->timer > 192) {
+            super->spriteOffsetX = gUnk_080CED06[super->timer & 3];
         } else {
-            if ((this->timer & 0x1f) == 0) {
-                pEVar3 = CreateFx(this, gUnk_080CED02[Random() & 3], 0);
+            if ((super->timer & 0x1f) == 0) {
+                pEVar3 = CreateFx(super, gUnk_080CED02[Random() & 3], 0);
                 if (pEVar3 != NULL) {
-                    pVar = &gUnk_080CECF4[this->timer >> 4];
+                    pVar = &gUnk_080CECF4[super->timer >> 4];
                     pEVar3->x.HALF.HI = *pVar + pEVar3->x.HALF.HI;
                     pVar++;
                     pEVar3->y.HALF.HI = *pVar + pEVar3->y.HALF.HI;
@@ -377,19 +396,19 @@ void sub_0803438C(Entity* this) {
     }
 }
 
-void sub_08034420(Entity* this) {
-    this->action = 2;
-    this->field_0x7c.BYTES.byte1 = 3;
+void sub_08034420(MazaalHeadEntity* this) {
+    super->action = 2;
+    this->unk_7d = 3;
 }
 
-void sub_0803442C(Entity* this, u32 unk) {
-    this->action = 4;
-    this->timer = unk;
-    this->field_0x7c.BYTES.byte1 = 3;
+void sub_0803442C(MazaalHeadEntity* this, u32 unk) {
+    super->action = 4;
+    super->timer = unk;
+    this->unk_7d = 3;
 }
 
-void sub_0803443C(Entity* this) {
-    this->field_0x7c.BYTES.byte1 = 0;
+void sub_0803443C(MazaalHeadEntity* this) {
+    this->unk_7d = 0;
     if (gRoomTransition.field_0x39 < 0x1f) {
         sub_080344BC(this);
     } else {
@@ -401,26 +420,26 @@ void sub_0803443C(Entity* this) {
     }
 }
 
-void sub_08034474(Entity* this) {
-    gUnk_080CED0C[this->field_0x7c.BYTES.byte0](this);
-    this->field_0x7c.BYTES.byte0 = (this->field_0x7c.BYTES.byte0 + 1) & 7;
+void sub_08034474(MazaalHeadEntity* this) {
+    gUnk_080CED0C[this->unk_7c](this);
+    this->unk_7c = (this->unk_7c + 1) & 7;
 }
 
-void sub_08034498(Entity* this) {
-    gUnk_080CED2C[this->field_0x7c.BYTES.byte0](this);
-    this->field_0x7c.BYTES.byte0 = (this->field_0x7c.BYTES.byte0 + 1) & 7;
+void sub_08034498(MazaalHeadEntity* this) {
+    gUnk_080CED2C[this->unk_7c](this);
+    this->unk_7c = (this->unk_7c + 1) & 7;
 }
 
-void sub_080344BC(Entity* this) {
-    gUnk_080CED4C[this->field_0x7c.BYTES.byte0](this);
-    this->field_0x7c.BYTES.byte0 = (this->field_0x7c.BYTES.byte0 + 1) & 7;
+void sub_080344BC(MazaalHeadEntity* this) {
+    gUnk_080CED4C[this->unk_7c](this);
+    this->unk_7c = (this->unk_7c + 1) & 7;
 }
 
-void sub_080344E0(Entity* this) {
-    if ((this->field_0x80.HALF.LO & 5) != 0) {
+void sub_080344E0(MazaalHeadEntity* this) {
+    if ((this->unk_80 & 5) != 0) {
         sub_080345A0(this);
     } else {
-        if ((this->field_0x80.HALF.LO & 10) != 0 || (Random() & 1) != 0) {
+        if ((this->unk_80 & 10) != 0 || (Random() & 1) != 0) {
             sub_080345B8(this);
         } else {
             sub_080345A0(this);
@@ -428,10 +447,10 @@ void sub_080344E0(Entity* this) {
     }
 }
 
-void sub_0803451C(Entity* this) {
-    if ((this->field_0x80.HALF.LO & 5) != 0) {
+void sub_0803451C(MazaalHeadEntity* this) {
+    if ((this->unk_80 & 5) != 0) {
         sub_08034618(this);
-    } else if ((this->field_0x80.HALF.LO & 10) != 0) {
+    } else if ((this->unk_80 & 10) != 0) {
         sub_08034638(this);
     } else if ((Random() & 1) != 0) {
         sub_08034618(this);
@@ -440,7 +459,7 @@ void sub_0803451C(Entity* this) {
     }
 }
 
-void sub_08034558(Entity* this) {
+void sub_08034558(MazaalHeadEntity* this) {
     if ((Random() & 1) != 0) {
         sub_08034658(this);
     } else {
@@ -448,231 +467,231 @@ void sub_08034558(Entity* this) {
     }
 }
 
-void sub_08034578(Entity* this) {
-    this->action = 3;
-    this->field_0x7c.BYTES.byte1 = 0;
-    sub_080348A4(this, *(Entity**)&this->field_0x74, 0);
-    sub_080348A4(this, *(Entity**)&this->field_0x78, 0);
+void sub_08034578(MazaalHeadEntity* this) {
+    super->action = 3;
+    this->unk_7d = 0;
+    sub_080348A4(this, this->unk_74, 0);
+    sub_080348A4(this, this->unk_78, 0);
 }
 
-void sub_080345A0(Entity* this) {
-    this->action = 5;
-    this->field_0x7c.BYTES.byte1 = 1;
-    sub_080348A4(this, *(Entity**)&this->field_0x78, 1);
+void sub_080345A0(MazaalHeadEntity* this) {
+    super->action = 5;
+    this->unk_7d = 1;
+    sub_080348A4(this, this->unk_78, 1);
 }
 
-void sub_080345B8(Entity* this) {
-    this->action = 5;
-    this->field_0x7c.BYTES.byte1 = 2;
-    sub_080348A4(this, *(Entity**)&this->field_0x74, 1);
+void sub_080345B8(MazaalHeadEntity* this) {
+    super->action = 5;
+    this->unk_7d = 2;
+    sub_080348A4(this, this->unk_74, 1);
 }
 
-void sub_080345D0(Entity* this) {
-    this->action = 6;
+void sub_080345D0(MazaalHeadEntity* this) {
+    super->action = 6;
     if ((Random() & 1) != 0) {
-        if (sub_080348A4(this, *(Entity**)&this->field_0x74, 2) == 0) {
-            sub_080348A4(this, *(Entity**)&this->field_0x78, 2);
+        if (sub_080348A4(this, this->unk_74, 2) == 0) {
+            sub_080348A4(this, this->unk_78, 2);
         }
     } else {
-        if (sub_080348A4(this, *(Entity**)&this->field_0x78, 2) == 0) {
-            sub_080348A4(this, *(Entity**)&this->field_0x74, 2);
+        if (sub_080348A4(this, this->unk_78, 2) == 0) {
+            sub_080348A4(this, this->unk_74, 2);
         }
     }
 }
 
-void sub_08034618(Entity* this) {
-    this->action = 7;
-    this->field_0x7c.BYTES.byte1 = 1;
-    this->field_0x7c.HALF.HI = 0xb4;
-    sub_080348A4(this, *(Entity**)&this->field_0x78, 3);
+void sub_08034618(MazaalHeadEntity* this) {
+    super->action = 7;
+    this->unk_7d = 1;
+    this->unk_7e = 0xb4;
+    sub_080348A4(this, this->unk_78, 3);
 }
 
-void sub_08034638(Entity* this) {
-    this->action = 7;
-    this->field_0x7c.BYTES.byte1 = 2;
-    this->field_0x7c.HALF.HI = 0xb4;
-    sub_080348A4(this, *(Entity**)&this->field_0x74, 3);
+void sub_08034638(MazaalHeadEntity* this) {
+    super->action = 7;
+    this->unk_7d = 2;
+    this->unk_7e = 0xb4;
+    sub_080348A4(this, this->unk_74, 3);
 }
 
-void sub_08034658(Entity* this) {
-    this->action = 8;
-    this->field_0x7c.BYTES.byte1 = 0;
-    if (sub_080348A4(this, *(Entity**)&this->field_0x78, 4) == 0) {
-        this->field_0x7c.BYTES.byte1 |= 0x40;
+void sub_08034658(MazaalHeadEntity* this) {
+    super->action = 8;
+    this->unk_7d = 0;
+    if (sub_080348A4(this, this->unk_78, 4) == 0) {
+        this->unk_7d |= 0x40;
     }
 }
 
-void sub_0803467C(Entity* this) {
-    this->action = 8;
-    this->field_0x7c.BYTES.byte1 = 0;
-    if (sub_080348A4(this, *(Entity**)&this->field_0x74, 4) == 0) {
-        this->field_0x7c.BYTES.byte1 |= 0x40;
+void sub_0803467C(MazaalHeadEntity* this) {
+    super->action = 8;
+    this->unk_7d = 0;
+    if (sub_080348A4(this, this->unk_74, 4) == 0) {
+        this->unk_7d |= 0x40;
     }
 }
 
-void sub_080346A0(Entity* this) {
-    this->action = 9;
-    this->field_0x7c.BYTES.byte1 = 0;
-    sub_080348A4(this, *(Entity**)&this->field_0x74, 6);
-    sub_080348A4(this, *(Entity**)&this->field_0x78, 6);
+void sub_080346A0(MazaalHeadEntity* this) {
+    super->action = 9;
+    this->unk_7d = 0;
+    sub_080348A4(this, this->unk_74, 6);
+    sub_080348A4(this, this->unk_78, 6);
 }
 
-void sub_080346C8(Entity* this) {
-    Entity* hand;
+void sub_080346C8(MazaalHeadEntity* this) {
+    MazaalHeadEntity* hand;
 
-    this->action = 10;
-    this->field_0x7c.HALF.HI = 0;
+    super->action = 10;
+    this->unk_7e = 0;
     if ((Random() & 1) != 0) {
-        if (sub_080348A4(this, *(Entity**)&this->field_0x74, 8) != 0) {
-            hand = *(Entity**)&this->field_0x78;
+        if (sub_080348A4(this, this->unk_74, 8) != 0) {
+            hand = this->unk_78;
             sub_080348A4(this, hand, 7);
         } else {
-            sub_080348A4(this, *(Entity**)&this->field_0x74, 7);
-            sub_080348A4(this, *(Entity**)&this->field_0x78, 8);
+            sub_080348A4(this, this->unk_74, 7);
+            sub_080348A4(this, this->unk_78, 8);
         }
     } else {
-        if (sub_080348A4(this, *(Entity**)&this->field_0x78, 8) != 0) {
-            hand = *(Entity**)&this->field_0x74;
+        if (sub_080348A4(this, this->unk_78, 8) != 0) {
+            hand = this->unk_74;
             sub_080348A4(this, hand, 7);
         } else {
-            sub_080348A4(this, *(Entity**)&this->field_0x74, 8);
-            sub_080348A4(this, *(Entity**)&this->field_0x78, 7);
+            sub_080348A4(this, this->unk_74, 8);
+            sub_080348A4(this, this->unk_78, 7);
         }
     }
 }
 
-void sub_0803473C(Entity* this) {
+void sub_0803473C(MazaalHeadEntity* this) {
     u32 playerX;
     u32 roomX;
 
-    if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
-        if (0x28 < (*(Entity**)&this->field_0x74)->action) {
+    if ((this->unk_7d & 0x10) != 0) {
+        if (0x28 < (this->unk_74)->base.action) {
             return;
         }
         playerX = gPlayerEntity.x.HALF.HI - 0x60;
     } else {
-        if (0x28 < (*(Entity**)&this->field_0x78)->action) {
+        if (0x28 < (this->unk_78)->base.action) {
             return;
         }
         playerX = gPlayerEntity.x.HALF.HI + 0x60;
     }
     roomX = gRoomControls.origin_x;
-    if (playerX - 4 > this->x.HALF.HI) {
-        if (roomX + 0xe0 < this->x.HALF.HI) {
+    if (playerX - 4 > super->x.HALF.HI) {
+        if (roomX + 0xe0 < super->x.HALF.HI) {
             return;
         }
-        this->direction = DirectionEast;
+        super->direction = DirectionEast;
     } else {
-        if (playerX + 4 >= this->x.HALF.HI) {
+        if (playerX + 4 >= super->x.HALF.HI) {
             return;
         }
-        if (roomX + 0x90 > this->x.HALF.HI) {
+        if (roomX + 0x90 > super->x.HALF.HI) {
             return;
         }
-        this->direction = DirectionWest;
+        super->direction = DirectionWest;
     }
-    LinearMoveUpdate(this);
+    LinearMoveUpdate(super);
 }
 
-void sub_080347B4(Entity* this) {
+void sub_080347B4(MazaalHeadEntity* this) {
     u32 playerX = gPlayerEntity.x.HALF.HI;
     u32 roomX = gRoomControls.origin_x;
-    if (playerX - 4 > this->x.HALF.HI) {
-        if (roomX + 0xe0 < this->x.HALF.HI) {
+    if (playerX - 4 > super->x.HALF.HI) {
+        if (roomX + 0xe0 < super->x.HALF.HI) {
             return;
         }
-        this->direction = DirectionEast;
+        super->direction = DirectionEast;
     } else {
-        if (playerX + 4 >= this->x.HALF.HI) {
+        if (playerX + 4 >= super->x.HALF.HI) {
             return;
         }
-        if (roomX + 0x90 > this->x.HALF.HI) {
+        if (roomX + 0x90 > super->x.HALF.HI) {
             return;
         }
-        this->direction = DirectionWest;
+        super->direction = DirectionWest;
     }
-    LinearMoveUpdate(this);
+    LinearMoveUpdate(super);
 }
 
-void sub_080347FC(Entity* this) {
-    if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
-        sub_080348A4(this, *(Entity**)&this->field_0x78, 5);
+void sub_080347FC(MazaalHeadEntity* this) {
+    if ((this->unk_7d & 0x10) != 0) {
+        sub_080348A4(this, this->unk_78, 5);
     } else {
-        sub_080348A4(this, *(Entity**)&this->field_0x74, 5);
+        sub_080348A4(this, this->unk_74, 5);
     }
-    this->field_0x7c.BYTES.byte1 |= 0x20;
+    this->unk_7d |= 0x20;
 }
 
-void sub_08034830(Entity* this) {
-    if (sub_080349D8(this) != 0) {
-        this->field_0x7c.BYTES.byte1 = 0x80;
+void sub_08034830(MazaalHeadEntity* this) {
+    if (sub_080349D8(this)) {
+        this->unk_7d = 0x80;
         sub_080345D0(this);
     } else {
         if (sub_08034A10(this) != 0) {
-            if ((this->field_0x80.HALF.LO & 0xf) != 0) {
-                if (sub_080349D8(this) != 0) {
+            if ((this->unk_80 & 0xf) != 0) {
+                if (sub_080349D8(this)) {
                     sub_08034420(this);
                 }
             } else {
-                this->field_0x7c.BYTES.byte1 |= 0x20;
-                if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
-                    sub_080348A4(this, *(Entity**)&this->field_0x78, 2);
+                this->unk_7d |= 0x20;
+                if ((this->unk_7d & 0x10) != 0) {
+                    sub_080348A4(this, this->unk_78, 2);
                 } else {
-                    sub_080348A4(this, *(Entity**)&this->field_0x74, 2);
+                    sub_080348A4(this, this->unk_74, 2);
                 }
             }
         }
     }
 }
 
-u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
+u32 sub_080348A4(MazaalHeadEntity* this, MazaalHeadEntity* hand_, u32 unk) {
     u32 bVar1;
 
-    if (hand_->type == 0) {
+    if (hand_->base.type == 0) {
         bVar1 = 5;
-        this->field_0x7c.BYTES.byte1 |= 0x10;
+        this->unk_7d |= 0x10;
     } else {
         bVar1 = 10;
     }
 
-    if (this->field_0x80.HALF.LO & bVar1) {
-        this->field_0x7c.BYTES.byte1 |= (hand_->type == 0) ? 1 : 2;
+    if (this->unk_80 & bVar1) {
+        this->unk_7d |= (hand_->base.type == 0) ? 1 : 2;
         return 0;
     } else {
         switch (unk) {
             case 0:
-                hand_->action = 3;
+                hand_->base.action = 3;
                 break;
             case 1:
-                hand_->action = 4;
-                hand_->field_0x7c.BYTES.byte0 = 3;
+                hand_->base.action = 4;
+                hand_->unk_7c = 3;
                 break;
             case 2:
             case 4:
-                hand_->action = 4;
-                hand_->field_0x7c.BYTES.byte0 = 1;
+                hand_->base.action = 4;
+                hand_->unk_7c = 1;
                 break;
             case 3:
-                hand_->action = 0xf;
-                hand_->field_0x7c.HALF.HI = 0xb4;
+                hand_->base.action = 0xf;
+                hand_->unk_7e = 0xb4;
                 break;
             case 5:
-                hand_->action = 0xf;
-                hand_->field_0x7c.HALF.HI = 1;
+                hand_->base.action = 0xf;
+                hand_->unk_7e = 1;
                 break;
             case 6:
-                hand_->action = 0x1e;
+                hand_->base.action = 0x1e;
                 break;
             case 7:
-                hand_->action = 0x1b;
-                hand_->flags = hand_->flags & ~ENT_COLLIDE;
-                InitializeAnimation(hand_, 5);
+                hand_->base.action = 0x1b;
+                hand_->base.flags = hand_->base.flags & ~ENT_COLLIDE;
+                InitializeAnimation(&hand_->base, 5);
                 break;
             case 8:
-                bVar1 = hand_->type + 2;
-                hand_ = CreateEnemy(MAZAAL_HEAD, bVar1);
+                bVar1 = hand_->base.type + 2;
+                hand_ = (MazaalHeadEntity*)CreateEnemy(MAZAAL_HEAD, bVar1);
                 if (hand_ != NULL) {
-                    hand_->parent = this;
+                    hand_->base.parent = super;
                 }
                 break;
             default:
@@ -682,47 +701,47 @@ u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
     }
 }
 
-void sub_0803499C(Entity* this) {
-    if (((this->field_0x80.HALF.LO & 0xc) != 0xc) && (this->field_0x80.HALF.HI != 0)) {
-        this->z.HALF.HI = gUnk_080CED6C[(++this->subtimer >> 4) & 7];
+void sub_0803499C(MazaalHeadEntity* this) {
+    if (((this->unk_80 & 0xc) != 0xc) && (this->unk_81 != 0)) {
+        super->z.HALF.HI = gUnk_080CED6C[(++super->subtimer >> 4) & 7];
     }
 }
 
-u32 sub_080349D8(Entity* this) {
-    // this feels like a switch, but I couldn't get it to match as one
-    if ((this->field_0x7c.BYTES.byte1 & 3) == 3) {
-        return 1;
+bool32 sub_080349D8(MazaalHeadEntity* this) {
+    // super feels like a switch, but I couldn't get it to match as one
+    if ((this->unk_7d & 3) == 3) {
+        return TRUE;
     } else {
-        if ((this->field_0x7c.BYTES.byte1 & 3) == 1) {
-            if (this->field_0x80.HALF.LO & 10)
-                return 1;
+        if ((this->unk_7d & 3) == 1) {
+            if (this->unk_80 & 10)
+                return TRUE;
         } else {
-            if ((this->field_0x7c.BYTES.byte1 & 3) == 2) {
-                if (this->field_0x80.HALF.LO & 5)
-                    return 1;
+            if ((this->unk_7d & 3) == 2) {
+                if (this->unk_80 & 5)
+                    return TRUE;
             }
         }
-        return 0;
+        return FALSE;
     }
 }
 
-u32 sub_08034A10(Entity* this) {
-    if ((this->field_0x7c.BYTES.byte1 & 0x60) != 0x40) {
-        if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
-            if ((this->field_0x80.HALF.LO & 5) != 0) {
-                this->field_0x7c.BYTES.byte1 |= 0x40;
+u32 sub_08034A10(MazaalHeadEntity* this) {
+    if ((this->unk_7d & 0x60) != 0x40) {
+        if ((this->unk_7d & 0x10) != 0) {
+            if ((this->unk_80 & 5) != 0) {
+                this->unk_7d |= 0x40;
             }
-            if (((this->field_0x80.HALF.LO & 10) != 0) && ((this->field_0x7c.BYTES.byte1 & 3) == 1)) {
+            if (((this->unk_80 & 10) != 0) && ((this->unk_7d & 3) == 1)) {
                 return 1;
             }
         } else {
-            if ((this->field_0x80.HALF.LO & 10) != 0) {
-                this->field_0x7c.BYTES.byte1 |= 0x40;
+            if ((this->unk_80 & 10) != 0) {
+                this->unk_7d |= 0x40;
             }
-            if ((this->field_0x80.HALF.LO & 5) == 0) {
+            if ((this->unk_80 & 5) == 0) {
                 return 0;
             }
-            if ((this->field_0x7c.BYTES.byte1 & 3) == 2) {
+            if ((this->unk_7d & 3) == 2) {
                 return 1;
             }
         }
@@ -732,91 +751,91 @@ u32 sub_08034A10(Entity* this) {
     return 0;
 }
 
-void sub_08034A84(Entity* this) {
-    if (this->parent->next == NULL) {
-        DeleteEntity(this);
+void sub_08034A84(MazaalHeadEntity* this) {
+    if (super->parent->next == NULL) {
+        DeleteEntity(super);
     } else {
-        if (this->action == 0) {
-            this->action = 1;
-            this->spriteSettings.draw = 1;
-            this->spriteSettings.flipX = 1;
-            InitializeAnimation(this, 0);
+        if (super->action == 0) {
+            super->action = 1;
+            super->spriteSettings.draw = 1;
+            super->spriteSettings.flipX = 1;
+            InitializeAnimation(super, 0);
         }
-        CopyPositionAndSpriteOffset(this->parent, this);
+        CopyPositionAndSpriteOffset(super->parent, super);
     }
 }
 
-void sub_08034AC4(Entity* this) {
-    PositionRelative(this->parent, this, 0, Q_16_16(1.0));
-    gUnk_080CED74[this->action](this);
+void sub_08034AC4(MazaalHeadEntity* this) {
+    PositionRelative(super->parent, super, 0, Q_16_16(1.0));
+    gUnk_080CED74[super->action](this);
 }
 
-void sub_08034AEC(Entity* this) {
-    this->action = 1;
-    this->timer = 30;
-    InitializeAnimation(this, this->type + 1);
+void sub_08034AEC(MazaalHeadEntity* this) {
+    super->action = 1;
+    super->timer = 30;
+    InitializeAnimation(super, super->type + 1);
     SoundReq(SFX_151);
 }
 
-void sub_08034B0C(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
+void sub_08034B0C(MazaalHeadEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
     } else {
-        GetNextFrame(this);
-        if ((this->frame & ANIM_DONE) == 0) {
+        GetNextFrame(super);
+        if ((super->frame & ANIM_DONE) == 0) {
             return;
         }
-        this->action = 2;
-        this->timer = 80;
+        super->action = 2;
+        super->timer = 80;
     }
 }
 
-void sub_08034B38(Entity* this) {
+void sub_08034B38(MazaalHeadEntity* this) {
     Entity* target;
     const s8* ptr;
 
-    if (--this->timer == 0) {
-        this->action = 3;
-        InitializeAnimation(this, this->type + 3);
+    if (--super->timer == 0) {
+        super->action = 3;
+        InitializeAnimation(super, super->type + 3);
     } else {
         target = CreateProjectile(MAZAAL_ENERGY_BEAM);
         if (target != NULL) {
-            target->type = this->type - 2;
+            target->type = super->type - 2;
             if (target->type == 0) {
-                target->direction = 0xa8 - this->timer;
+                target->direction = 0xa8 - super->timer;
             } else {
-                target->direction = this->timer + 0x58;
+                target->direction = super->timer + 0x58;
             }
             ptr = &gUnk_080CED84[target->type * 2];
-            PositionRelative(this, target, Q_16_16(*(ptr++)), Q_16_16(*ptr));
+            PositionRelative(super, target, Q_16_16(*(ptr++)), Q_16_16(*ptr));
         }
     }
 }
 
-void sub_08034BA0(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->parent->field_0x7c.HALF.HI = 0xff;
-        DeleteEntity(this);
+void sub_08034BA0(MazaalHeadEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        ((MazaalHeadEntity*)super->parent)->unk_7e = 0xff;
+        DeleteEntity(super);
     }
 }
 
-void sub_08034BC8(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        InitializeAnimation(this, 1);
+void sub_08034BC8(MazaalHeadEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        InitializeAnimation(super, 1);
     }
-    sub_0806FA90(this->parent, this, 0, 1);
-    sub_0800445C(this);
-    if (this->z.HALF.HI == 0) {
+    sub_0806FA90(super->parent, super, 0, 1);
+    sub_0800445C(super);
+    if (super->z.HALF.HI == 0) {
         sub_08034C00(this);
     }
 }
 
-void sub_08034C00(Entity* this) {
+void sub_08034C00(MazaalHeadEntity* this) {
     if (((gPlayerState.flags & PL_MINISH) != 0) &&
-        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.origin_x, this->y.HALF.HI - gRoomControls.origin_y + 0xd, 3,
-                            3) != 0) {
+        CheckPlayerInRegion(super->x.HALF.HI - gRoomControls.origin_x, super->y.HALF.HI - gRoomControls.origin_y + 0xd,
+                            3, 3) != 0) {
         if (gRoomTransition.field_0x39 >= 0x3d) {
             DoExitTransition(&gUnk_080CED88);
         } else {

@@ -21,11 +21,11 @@ void sub_080658BC(MalonEntity* this);
 void sub_08065900(MalonEntity* this);
 
 void Malon(MalonEntity* this) {
-    static void (*const actionFuncs[])(Entity * this) = {
+    static void (*const actionFuncs[])(Entity* this) = {
         sub_08065864,
         sub_08065880,
     };
-    static void (*const scriptedActionFuncs[])(MalonEntity * this) = {
+    static void (*const scriptedActionFuncs[])(MalonEntity* this) = {
         sub_08065888,
         sub_080658BC,
         sub_08065900,

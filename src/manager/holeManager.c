@@ -37,14 +37,14 @@ typedef struct struct_08108764 {
         u16 unk_06;
         u16 unk_08;
         u16 unk_0a;
-    } * unk_0c;
+    }* unk_0c;
     struct {
         u8 unk_00;
         u8 unk_01;
         u8 unk_02[2];
         u16 unk_04;
         u16 unk_06;
-    } * unk_10;
+    }* unk_10;
 } struct_08108764;
 
 extern struct_08108764 gUnk_08108764[];

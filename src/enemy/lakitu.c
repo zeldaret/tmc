@@ -277,8 +277,7 @@ void sub_0803CA84(LakituEntity* this, u32 unkParameter) {
 
 void sub_0803CAD0(LakituEntity* this) {
     if (!EntityWithinDistance(super, this->unk_74, this->unk_76, 1)) {
-        super->direction =
-            CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_74, this->unk_76);
+        super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_74, this->unk_76);
 
         ProcessMovement2(super);
     }
@@ -403,7 +402,12 @@ void sub_0803CC08(LakituEntity* this) {
 }
 
 void (*const Lakitu_Functions[])(LakituEntity*) = {
-    Lakitu_OnTick, Lakitu_OnCollision, (void (*)(LakituEntity*))GenericKnockback, (void (*)(LakituEntity*))GenericDeath, (void (*)(LakituEntity*))GenericConfused, Lakitu_OnGrabbed,
+    Lakitu_OnTick,
+    Lakitu_OnCollision,
+    (void (*)(LakituEntity*))GenericKnockback,
+    (void (*)(LakituEntity*))GenericDeath,
+    (void (*)(LakituEntity*))GenericConfused,
+    Lakitu_OnGrabbed,
 };
 
 void (*const LakituActionFuncs[])(LakituEntity*) = {

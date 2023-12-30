@@ -28,7 +28,12 @@ void sub_08031418(RopeEntity* this);
 void sub_08031420(RopeEntity* this);
 
 static void (*const Rope_Functions[6])(RopeEntity*) = {
-    Rope_OnTick, Rope_OnCollision, (void (*)(RopeEntity*))GenericKnockback, (void (*)(RopeEntity*))GenericDeath, (void (*)(RopeEntity*))GenericConfused, Rope_OnGrabbed,
+    Rope_OnTick,
+    Rope_OnCollision,
+    (void (*)(RopeEntity*))GenericKnockback,
+    (void (*)(RopeEntity*))GenericDeath,
+    (void (*)(RopeEntity*))GenericConfused,
+    Rope_OnGrabbed,
 };
 
 extern Entity* gUnk_020000B0;
