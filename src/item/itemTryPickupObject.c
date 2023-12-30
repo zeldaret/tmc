@@ -1,6 +1,6 @@
-#define ENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
+#include "new_player.h"
 #include "playeritem.h"
 #include "sound.h"
 
@@ -39,8 +39,8 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
     gPlayerState.framestate = 4;
     this->stateID = 2;
     this->animPriority = 0xf;
-    if ((gPlayerEntity.field_0x78.HALF.HI & 0x80)) {
-        gPlayerEntity.field_0x78.HALF.HI = 0;
+    if ((gNewPlayerEntity.unk_79 & 0x80)) {
+        gNewPlayerEntity.unk_79 = 0;
         COLLISION_ON(&gPlayerEntity);
         gPlayerState.heldObject = 4;
         gPlayerState.keepFacing = ~(8 >> param_3) & gPlayerState.keepFacing;
@@ -56,11 +56,11 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
     if (param_2 == NULL) {
         PlayerCancelHoldItem(this, param_3);
     } else {
-        Entity* playerEnt = &gPlayerEntity;
-        *(Entity**)&playerEnt->field_0x74 = param_2;
-        playerEnt->subtimer = 0;
+        PlayerEntity* playerEnt = &gNewPlayerEntity;
+        playerEnt->unk_74 = param_2;
+        playerEnt->base.subtimer = 0;
         param_2->child = this->field_0x18;
-        param_2->carryFlags = playerEnt->carryFlags;
+        param_2->carryFlags = playerEnt->base.carryFlags;
         param_2->parent = (Entity*)this;
         this->field_0x18 = param_2;
         param_2->type2 = this->field_0x2[1];

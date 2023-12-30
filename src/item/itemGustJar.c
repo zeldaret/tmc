@@ -1,7 +1,7 @@
-#define ENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
+#include "new_player.h"
 #include "playeritem.h"
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* this, u32);
@@ -20,7 +20,7 @@ void sub_08076DF4(ItemBehavior* this, u32 index) {
         this->priority |= 0x80;
         this->priority++;
         gPlayerState.gustJarSpeed = 1;
-        *(u32*)&gPlayerEntity.field_0x74 = 0;
+        gNewPlayerEntity.unk_74 = NULL;
         gPlayerState.field_0x1c = 1;
         sub_08077BB8(this);
     } else {
@@ -87,7 +87,7 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
 
 void sub_08076F64(ItemBehavior* this, u32 index) {
     Entity* item;
-    Entity* player;
+    PlayerEntity* player;
     switch (gPlayerState.field_0x1c & 0xf) {
         case 5:
             if (this->playerFrame & 0x80) {
@@ -95,15 +95,15 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                     this->subtimer = 0;
                     this->timer = 0;
                     gPlayerState.gustJarSpeed = 1;
-                    player = &gPlayerEntity;
-                    *(u32*)&player->field_0x74 = 0;
+                    player = &gNewPlayerEntity;
+                    player->unk_74 = NULL;
                     gPlayerState.field_0x1c = 1;
                     gPlayerState.field_0xa &= ~(8 >> index);
                     this->stateID = 2;
                     SetItemAnim(this, ANIM_GUSTJAR_SUCK);
                     item = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
                     if (item) {
-                        item->parent = player;
+                        item->parent = &player->base;
                     }
                     return;
                 } else {
@@ -137,7 +137,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
             UpdateItemAnim(this);
             if (this->playerFrame & 1) {
                 gPlayerState.field_0x1c = 5;
-                gPlayerEntity.field_0x70.WORD = 0;
+                gNewPlayerEntity.unk_70 = NULL;
                 if (gPlayerState.gustJarSpeed) {
                     CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
                 }
@@ -169,7 +169,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
             break;
     }
     gPlayerState.field_0x1c = 0;
-    gPlayerEntity.field_0x70.WORD = 0;
+    gNewPlayerEntity.unk_70 = NULL;
     DeleteItemBehavior(this, index);
 }
 

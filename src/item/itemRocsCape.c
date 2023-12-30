@@ -1,7 +1,7 @@
-#define ENT_DEPRECATED
-#include "item.h"
-#include "sound.h"
 #include "functions.h"
+#include "item.h"
+#include "new_player.h"
+#include "sound.h"
 
 void sub_08076758(ItemBehavior*, u32);
 extern void sub_08077F84(void);
@@ -67,18 +67,18 @@ void sub_08076758(ItemBehavior* this, u32 index) {
             if (this->stateID < 2) {
                 if ((gPlayerEntity.zVelocity <= 0) && ((gPlayerState.jump_status & 0x10) == 0)) {
                     this->stateID = 2;
-                    gPlayerEntity.field_0x7a.HWORD = 2;
+                    gNewPlayerEntity.unk_7a = 2;
                     gPlayerEntity.zVelocity = Q_16_16(2.0);
                     gPlayerState.jump_status |= 0x10;
                     gPlayerState.animation = ANIM_ROCS_CAPE;
                     SoundReq(SFX_172);
                 }
             } else {
-                gPlayerEntity.field_0x7a.HWORD++;
+                gNewPlayerEntity.unk_7a++;
             }
         } else {
             if (this->stateID > 1) {
-                gPlayerEntity.field_0x7a.HWORD++;
+                gNewPlayerEntity.unk_7a++;
                 gPlayerState.jump_status &= 0xef;
             }
         }

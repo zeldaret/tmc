@@ -4,19 +4,13 @@
  *
  * @brief Item for Sale object
  */
+#include "object/itemForSale.h"
+
 #include "functions.h"
 #include "hitbox.h"
 #include "kinstone.h"
 #include "message.h"
 #include "new_player.h"
-#include "object.h"
-
-typedef struct {
-    /*0x00*/ Entity base;
-    /*0x68*/ u8 unk_68[0x18];
-    /*0x80*/ u16 unk_80;
-    /*0x82*/ u16 unk_82;
-} ItemForSaleEntity;
 
 typedef struct {
     u8 before[0x20];

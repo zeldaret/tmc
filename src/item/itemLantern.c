@@ -1,9 +1,9 @@
-#define ENT_DEPRECATED
-#include "item.h"
 #include "functions.h"
-#include "sound.h"
-#include "object.h"
 #include "game.h"
+#include "item.h"
+#include "new_player.h"
+#include "object.h"
+#include "sound.h"
 
 extern s8 gUnk_08126EEC[];
 extern Entity* CreatePlayerItemForItemIfNotExists(ItemBehavior*);
@@ -98,7 +98,7 @@ void sub_08075B54(ItemBehavior* this, u32 index) {
                                   gPlayerEntity.collisionLayer, 0x40) != 0)) {
                     this->animPriority = 0xf;
                     this->stateID++;
-                    gPlayerEntity.field_0x7a.HWORD = 2;
+                    gNewPlayerEntity.unk_7a = 2;
                     object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
                     if (object != NULL) {
                         object->spriteVramOffset = gPlayerEntity.spriteVramOffset;
@@ -129,6 +129,6 @@ void sub_08075C9C(ItemBehavior* this, u32 index) {
         gPlayerState.field_0xa = (~(8 >> index)) & gPlayerState.field_0xa;
         gPlayerState.keepFacing = (~(8 >> index)) & gPlayerState.keepFacing;
     } else {
-        gPlayerEntity.field_0x7a.HWORD++;
+        gNewPlayerEntity.unk_7a++;
     }
 }

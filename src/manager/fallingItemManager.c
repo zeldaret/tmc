@@ -6,10 +6,11 @@
  *
  * If you leave the room without picking the item up and enter again, the item falls from the sky again.
  */
-#define ENT_DEPRECATED
 #include "manager/fallingItemManager.h"
+
 #include "flags.h"
 #include "object.h"
+#include "object/itemOnGround.h"
 #include "room.h"
 
 void FallingItemManager_Init(FallingItemManager*);
@@ -33,13 +34,13 @@ void FallingItemManager_Init(FallingItemManager* this) {
 
 void FallingItemManager_Action1(FallingItemManager* this) {
     if (CheckFlags(this->field_0x3e)) {
-        Entity* object = CreateObject(GROUND_ITEM, super->type, super->type2);
+        ItemOnGroundEntity* object = (ItemOnGroundEntity*)CreateObject(GROUND_ITEM, super->type, super->type2);
         if (object != NULL) {
-            object->timer = this->field_0x35;
-            object->collisionLayer = this->field_0x36;
-            object->x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;
-            object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
-            object->field_0x86.HWORD = this->field_0x3c;
+            object->base.timer = this->field_0x35;
+            object->base.collisionLayer = this->field_0x36;
+            object->base.x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;
+            object->base.y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
+            object->unk_86 = this->field_0x3c;
         }
         DeleteThisEntity();
     }

@@ -7,12 +7,13 @@
  * Spawns HOUSE_SIGN objects that check this and unsets the value in the bitfield.
  * Creates the signs on the houses in hyrule town.
  */
-#define ENT_DEPRECATED
 #include "manager/houseSignManager.h"
+
 #include "area.h"
-#include "object.h"
-#include "room.h"
 #include "asm.h"
+#include "object.h"
+#include "object/houseSign.h"
+#include "room.h"
 
 typedef struct {
     u16 x;
@@ -57,15 +58,15 @@ void HouseSignManager_Main(HouseSignManager* this) {
         u32 bitfieldFlag = 1 << type2;
         if ((((this->bitfield & bitfieldFlag) == 0) &&
              (CheckRectOnScreen(spawnData->x, spawnData->y, 0x10, 0x10) != 0))) {
-            Entity* object = CreateObject(HOUSE_SIGN, spawnData->type, type2);
+            HouseSignEntity* object = (HouseSignEntity*)CreateObject(HOUSE_SIGN, spawnData->type, type2);
             if (object != NULL) {
-                object->frameIndex = spawnData->frameIndex;
-                object->x.HALF.HI = gRoomControls.origin_x + spawnData->x;
-                object->y.HALF.HI = gRoomControls.origin_y + spawnData->y;
-                object->parent = (Entity*)this;
-                object->field_0x80.HWORD = spawnData->x;
-                object->field_0x82.HWORD = spawnData->y;
-                object->collisionLayer = spawnData->collisionLayer;
+                object->base.frameIndex = spawnData->frameIndex;
+                object->base.x.HALF.HI = gRoomControls.origin_x + spawnData->x;
+                object->base.y.HALF.HI = gRoomControls.origin_y + spawnData->y;
+                object->base.parent = (Entity*)this;
+                object->unk_80 = spawnData->x;
+                object->unk_82 = spawnData->y;
+                object->base.collisionLayer = spawnData->collisionLayer;
                 this->bitfield |= bitfieldFlag;
             }
         }

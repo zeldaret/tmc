@@ -4,15 +4,9 @@
  *
  * @brief HouseSign object
  */
-#include "asm.h"
-#include "entity.h"
+#include "object/houseSign.h"
 
-typedef struct {
-    /*0x00*/ Entity base;
-    /*0x68*/ u8 unused1[24];
-    /*0x80*/ s16 unk_80;
-    /*0x82*/ s16 unk_82;
-} HouseSignEntity;
+#include "asm.h"
 
 /*
 This object is created by HouseSignManager.

@@ -1,6 +1,6 @@
-#define ENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
+#include "new_player.h"
 #include "sound.h"
 
 extern void ResetPlayerVelocity(void);
@@ -14,7 +14,7 @@ void ItemOcarina(ItemBehavior* this, u32 index) {
         OcarinaUpdate,
     };
     gOcarinaStates[this->stateID](this, index);
-    gPlayerEntity.field_0x7a.HWORD++;
+    gNewPlayerEntity.unk_7a++;
 }
 
 void OcarinaUse(ItemBehavior* this, u32 index) {
@@ -25,7 +25,7 @@ void OcarinaUse(ItemBehavior* this, u32 index) {
         gPlayerEntity.animationState = 0x04;
         gPlayerEntity.spriteSettings.flipX = 0;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.field_0x7a.HWORD = 2;
+        gNewPlayerEntity.unk_7a = 2;
         gPlayerState.flags |= PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = -1;
         gPauseMenuOptions.disabled = 1;
