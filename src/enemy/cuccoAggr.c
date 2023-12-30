@@ -173,7 +173,7 @@ void sub_08038F20(CuccoAggrEntity* this) {
 }
 
 void sub_08038F44(CuccoAggrEntity* this) {
-    super->direction = GetFacingDirection(&gPlayerEntity, super);
+    super->direction = GetFacingDirection(&gPlayerEntity.base, super);
     sub_080390F8(this);
     ProcessMovement0(super);
     sub_080044EC(super, 0x1800);
@@ -193,7 +193,7 @@ void sub_08038FA0(CuccoAggrEntity* this) {
 
     if (this->unk_78) {
         if ((this->unk_78-- & 0x7) == 0) {
-            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity.base));
         }
 
         sub_080390F8(this);
@@ -278,7 +278,7 @@ void sub_08039120(CuccoAggrEntity* this) {
 void sub_08039140(CuccoAggrEntity* this) {
     super->action = 6;
     super->timer = Random();
-    super->direction = GetFacingDirection(super, &gPlayerEntity);
+    super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     super->z.HALF.HI = -4;
     this->unk_78 = 0xb4;
     sub_080390F8(this);

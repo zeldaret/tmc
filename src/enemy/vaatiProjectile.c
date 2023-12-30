@@ -73,9 +73,9 @@ void VaatiProjectile_OnCollision(VaatiProjectileEntity* this) {
             super->action = 5;
             COLLISION_OFF(super);
             super->spritePriority.b1 = 0;
-            gPlayerEntity.flags &= ~ENT_COLLIDE;
-            gPlayerEntity.spriteOrientation.flipY = super->spriteOrientation.flipY;
-            gPlayerEntity.spriteRendering.b3 = super->spriteRendering.b3;
+            gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+            gPlayerEntity.base.spriteOrientation.flipY = super->spriteOrientation.flipY;
+            gPlayerEntity.base.spriteRendering.b3 = super->spriteRendering.b3;
             sub_0803E444(this);
 #ifndef EU
             SetPlayerControl(2);
@@ -85,8 +85,8 @@ void VaatiProjectile_OnCollision(VaatiProjectileEntity* this) {
             }
         } else {
             gPlayerState.flags &= ~PL_DISABLE_ITEMS;
-            entity = &gPlayerEntity;
-            entity->flags = gPlayerEntity.flags | ENT_COLLIDE;
+            entity = &gPlayerEntity.base;
+            entity->flags = gPlayerEntity.base.flags | ENT_COLLIDE;
         }
 #endif
     }
@@ -174,7 +174,7 @@ void VaatiProjectileFunction0Action3(VaatiProjectileEntity* this) {
 void VaatiProjectileFunction0Action4(VaatiProjectileEntity* this) {
     if (--super->timer == 0) {
         super->action = 1;
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     }
     GetNextFrame(super);
 }
@@ -221,8 +221,8 @@ void VaatiProjectileFunction0Action8(VaatiProjectileEntity* this) {
 }
 
 void VaatiProjectileFunction0Action9(VaatiProjectileEntity* this) {
-    super->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-    super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
+    super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
+    super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
     if (super->z.HALF.HI < -8) {
         if (super->animIndex != 2) {
             super->timer = 0;
@@ -239,7 +239,7 @@ void sub_0803E444(VaatiProjectileEntity* this) {
     gPlayerState.mobility |= 0x80;
     gPlayerState.field_0xa |= 0x80;
     sub_0806FA90(super, super->contactedEntity, 0, -2);
-    gPlayerEntity.spriteOffsetY += 0xe;
+    gPlayerEntity.base.spriteOffsetY += 0xe;
 }
 
 void sub_0803E480(VaatiProjectileEntity* this) {
@@ -284,7 +284,7 @@ void sub_0803E4D8(VaatiProjectileEntity* this) {
     u32 tile;
 
     tile = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
-    if (sub_080B1B44(tile, gPlayerEntity.collisionLayer) != 0xff) {
-        SetTile(0x4074, tile, gPlayerEntity.collisionLayer);
+    if (sub_080B1B44(tile, gPlayerEntity.base.collisionLayer) != 0xff) {
+        SetTile(0x4074, tile, gPlayerEntity.base.collisionLayer);
     }
 }

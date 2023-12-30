@@ -213,7 +213,7 @@ void sub_0802AAC0(BombPeahatEntity* this) {
 #ifdef EU
         } else if (entity->timer == 0) {
             if (sub_080B1B44(COORD_TO_TILE(super), 1) == 0) {
-                if (EntityInRectRadius(super, &gPlayerEntity, 0x10, 0x10) && entity->subtimer <= 0x50) {
+                if (EntityInRectRadius(super, &gPlayerEntity.base, 0x10, 0x10) && entity->subtimer <= 0x50) {
                     this->unk_81 = 0;
                 }
             } else if (entity->subtimer <= 0x13) {

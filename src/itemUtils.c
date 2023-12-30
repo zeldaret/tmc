@@ -566,7 +566,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
         if (itemId != ITEM_ENEMY_BEETLE) {
             itemEntity = CreateObject(GROUND_ITEM, itemId, adjustedParam);
             if (itemEntity != NULL) {
-                if (arg0 == &gPlayerEntity) {
+                if (arg0 == &gPlayerEntity.base) {
                     itemEntity->timer = 1;
                 } else {
                     itemEntity->timer = 0;

@@ -4,27 +4,9 @@
  *
  * @brief Pushable Furniture object
  */
-#include "functions.h"
-#include "object.h"
+#include "object/pushableFurniture.h"
 
-typedef struct {
-    /*0x00*/ Entity base;
-    /*0x68*/ u8 unk_68[0x8];
-    /*0x70*/ u16 unk_70;
-    /*0x72*/ u16 unk_72;
-    /*0x74*/ u16 unk_74;
-    /*0x76*/ u16 unk_76;
-    /*0x78*/ u8 unk_78[0x2];
-    /*0x7a*/ u16 unk_7a;
-    /*0x7c*/ u16 unk_7c;
-    /*0x7e*/ u16 unk_7e;
-    /*0x80*/ u8 unk_80;
-    /*0x81*/ u8 unk_81;
-    /*0x82*/ u8 unk_82;
-    /*0x83*/ u8 unk_83;
-    /*0x84*/ u8 unk_84[0x2];
-    /*0x86*/ u16 unk_86;
-} PushableFurnitureEntity;
+#include "functions.h"
 
 extern const s16 gUnk_080B4488[];
 
@@ -339,9 +321,10 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
 bool32 sub_0808FECC(PushableFurnitureEntity* this) {
     bool32 result = TRUE;
 
-    if (!((gPlayerState.flags & PL_MINISH) == 0 && (gPlayerEntity.action == PLAYER_BOUNCE) &&
-          (gPlayerEntity.animationState == 0) && (gPlayerEntity.y.HALF.HI - super->y.HALF.HI < 0x14) &&
-          (super->x.HALF.HI + 0xc > gPlayerEntity.x.HALF.HI) && (super->x.HALF.HI - 12 < gPlayerEntity.x.HALF.HI))) {
+    if (!((gPlayerState.flags & PL_MINISH) == 0 && (gPlayerEntity.base.action == PLAYER_BOUNCE) &&
+          (gPlayerEntity.base.animationState == 0) && (gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI < 0x14) &&
+          (super->x.HALF.HI + 0xc > gPlayerEntity.base.x.HALF.HI) &&
+          (super->x.HALF.HI - 12 < gPlayerEntity.base.x.HALF.HI))) {
         result = FALSE;
     }
     return result;

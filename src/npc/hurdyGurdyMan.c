@@ -37,7 +37,8 @@ void HurdyGurdyMan(HurdyGurdyManEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->unk_69 = super->animIndex;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 index = GetFuserId(super);
                 pointerToArray = gUnk_08001A7C[index];
                 if (this->fusionOffer == 0x32) {

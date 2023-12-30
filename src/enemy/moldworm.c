@@ -111,12 +111,12 @@ void Moldworm_OnCollision(MoldwormEntity* this) {
     }
 
     if (super->health == 0 && this->unk_7f == 0 && super->action == 7) {
-        CopyPosition(super, &gPlayerEntity);
-        gPlayerEntity.flags |= ENT_COLLIDE;
-        gPlayerEntity.spriteSettings.draw = 1;
-        gPlayerEntity.zVelocity = Q_16_16(1.5);
-        gPlayerEntity.direction = 0xff;
-        gPlayerEntity.iframes = -0x14;
+        CopyPosition(super, &gPlayerEntity.base);
+        gPlayerEntity.base.flags |= ENT_COLLIDE;
+        gPlayerEntity.base.spriteSettings.draw = 1;
+        gPlayerEntity.base.zVelocity = Q_16_16(1.5);
+        gPlayerEntity.base.direction = 0xff;
+        gPlayerEntity.base.iframes = -0x14;
         gPlayerState.jump_status = 0x41;
         gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
     }
@@ -183,9 +183,9 @@ void sub_08023288(MoldwormEntity* this) {
         u32 i;
 
         for (i = 0; i < 0x10; i++) {
-            u32 x = gPlayerEntity.x.HALF.HI + gUnk_080CBC70[idx + 0];
-            u32 y = gPlayerEntity.y.HALF.HI + gUnk_080CBC70[idx + 1];
-            if (sub_08023A38(GetTileTypeByPos(x, y, gPlayerEntity.collisionLayer))) {
+            u32 x = gPlayerEntity.base.x.HALF.HI + gUnk_080CBC70[idx + 0];
+            u32 y = gPlayerEntity.base.y.HALF.HI + gUnk_080CBC70[idx + 1];
+            if (sub_08023A38(GetTileTypeByPos(x, y, gPlayerEntity.base.collisionLayer))) {
                 sub_08023990(this, x, y);
                 return;
             }
@@ -282,7 +282,7 @@ void sub_080234D8(MoldwormEntity* this) {
 }
 
 void sub_0802351C(MoldwormEntity* this) {
-    if ((super->timer != 0) && ((super->type2 == 1) || (gPlayerEntity.frameIndex == 0xff))) {
+    if ((super->timer != 0) && ((super->type2 == 1) || (gPlayerEntity.base.frameIndex == 0xff))) {
         super->timer = 0;
         super->child->action = 3;
         super->child->subtimer = this->unk_80;
@@ -292,10 +292,10 @@ void sub_0802351C(MoldwormEntity* this) {
 
     if (this->unk_7f == 0) {
         if (super->type2 == 0) {
-            gPlayerEntity.animationState = super->animationState & 7;
+            gPlayerEntity.base.animationState = super->animationState & 7;
             gPlayerState.flags |= PL_MOLDWORM_CAPTURED;
-            PositionRelative(super, &gPlayerEntity, 0, Q_16_16(gUnk_080CBC90[super->animationState & 7]));
-            gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[super->animationState & 7];
+            PositionRelative(super, &gPlayerEntity.base, 0, Q_16_16(gUnk_080CBC90[super->animationState & 7]));
+            gPlayerEntity.base.spriteOffsetY = -gUnk_080CBC90[super->animationState & 7];
         }
     } else {
         super->action = 4;
@@ -429,13 +429,13 @@ void sub_08023894(MoldwormEntity* this) {
         InitializeAnimation(super, super->animationState);
         if (super->parent->type2 == 0) {
             gPlayerState.flags |= PL_MOLDWORM_RELEASED;
-            gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
-            gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
-            gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(this->unk_74, super));
-            gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
-            gPlayerEntity.iframes = 12;
+            gPlayerEntity.base.x.HALF.HI = super->x.HALF.HI;
+            gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI;
+            gPlayerEntity.base.direction = DirectionRoundUp(GetFacingDirection(this->unk_74, super));
+            gPlayerEntity.base.animationState = gPlayerEntity.base.direction >> 2;
+            gPlayerEntity.base.iframes = 12;
             ModHealth(-0x10);
-            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+            SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
         }
     }
 }
@@ -482,7 +482,7 @@ void sub_08023990(MoldwormEntity* this, u32 param_2, u32 param_3) {
     super->spritePriority.b0 = 7;
     super->x.HALF.HI = param_2;
     super->y.HALF.HI = param_3;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     UpdateSpriteForCollisionLayer(super);
     InitializeAnimation(super, 0x16);
 

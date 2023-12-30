@@ -131,7 +131,7 @@ void sub_08061D64(TownspersonEntity* this) {
         InitializeNPCFusion(super);
         this->unk_69 = super->animIndex;
         InitializeAnimation(super, (super->animIndex & -4) +
-                                       GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                                       GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
     } else {
         ExecuteScriptForEntity(super, NULL);
         HandleEntity0x82Actions(super);
@@ -144,8 +144,8 @@ void sub_08061D64(TownspersonEntity* this) {
             super->interactType = INTERACTION_NONE;
             sub_08062048(super);
             this->unk_69 = super->animIndex;
-            InitializeAnimation(super, (super->animIndex & -4) +
-                                           GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+            InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
+                                                                     GetFacingDirection(super, &gPlayerEntity.base)));
         }
     }
 }

@@ -313,7 +313,7 @@ void sub_08068b2c(BladeBrothersEntity* this) {
     if (super->interactType == INTERACTION_FUSE) {
         super->action = 2;
         super->interactType = INTERACTION_NONE;
-        animationState = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+        animationState = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base));
         InitAnimationForceUpdate(super, animationState);
         InitializeNPCFusion(super);
     } else {

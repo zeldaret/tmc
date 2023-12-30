@@ -15,7 +15,7 @@ void ItemBoomerang(ItemBehavior* this, u32 index) {
 void sub_08075D2C(ItemBehavior* this, u32 index) {
     if (((gPlayerState.attack_status & 8) == 0) && (FindPlayerItemForItem(this, this->behaviorId) == NULL)) {
         this->priority |= 0xf;
-        sub_0806F948(&gPlayerEntity);
+        sub_0806F948(&gPlayerEntity.base);
         CreatePlayerItemIfNotExists(this, ITEM_BOOMERANG);
         sub_08077D38(this, index);
         gPlayerState.attack_status |= 8;

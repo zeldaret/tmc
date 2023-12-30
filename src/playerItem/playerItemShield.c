@@ -75,7 +75,7 @@ void PlayerItemShield_Init(PlayerItemShieldEntity* this) {
     } else {
         this->unk_70 = 0;
     }
-    super->animationState = gPlayerEntity.animationState & 0xe;
+    super->animationState = gPlayerEntity.base.animationState & 0xe;
     sub_08079BD8(super);
     LoadSwapGFX(super, 1, 3);
     PlayerItemShield_Action1(this);
@@ -86,10 +86,10 @@ void PlayerItemShield_Action1(PlayerItemShieldEntity* this) {
     u8* pbVar3;
     u32 tmp2;
 
-    if ((gPlayerEntity.iframes == 0) || ((u8)gPlayerEntity.iframes == 0x81)) {
-        gPlayerEntity.iframes = super->iframes;
-        gPlayerEntity.knockbackDirection = super->knockbackDirection;
-        gPlayerEntity.knockbackDuration = super->knockbackDuration;
+    if ((gPlayerEntity.base.iframes == 0) || ((u8)gPlayerEntity.base.iframes == 0x81)) {
+        gPlayerEntity.base.iframes = super->iframes;
+        gPlayerEntity.base.knockbackDirection = super->knockbackDirection;
+        gPlayerEntity.base.knockbackDuration = super->knockbackDuration;
         super->knockbackDuration = 0;
         super->iframes = 0;
     }
@@ -97,7 +97,7 @@ void PlayerItemShield_Action1(PlayerItemShieldEntity* this) {
     if ((gPlayerState.shield_status != 0) && (super == gPlayerState.item)) {
         if ((gPlayerState.shield_status & 0x80) != 0) {
             super->hitbox = (Hitbox*)gUnk_08127240[super->animationState >> 1];
-            super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
+            super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
             COLLISION_ON(super);
             gPlayerState.shield_status &= ~0x80;
             sub_080176E4(super);
@@ -131,16 +131,16 @@ void PlayerItemShield_Action1(PlayerItemShieldEntity* this) {
         DeleteThisEntity();
     }
 
-    if (((gPlayerEntity.spriteIndex == 1u) || (gPlayerEntity.spriteIndex == 4u)) &&
-        ((u8)(gPlayerEntity.frameIndex - 0x25) < 0x3f)) {
-        super->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
-        super->spriteSettings.flipY = gPlayerEntity.spriteSettings.flipY;
-        if ((gPlayerEntity.frameIndex - 0x25 + this->unk_70 != super->frameIndex) &&
-            ((super->frameIndex = gPlayerEntity.frameIndex - 0x25 + this->unk_70,
-              this->unk_68 != 0xe || ((gPlayerEntity.frame & 0x7f) == 0)))) {
+    if (((gPlayerEntity.base.spriteIndex == 1u) || (gPlayerEntity.base.spriteIndex == 4u)) &&
+        ((u8)(gPlayerEntity.base.frameIndex - 0x25) < 0x3f)) {
+        super->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
+        super->spriteSettings.flipY = gPlayerEntity.base.spriteSettings.flipY;
+        if ((gPlayerEntity.base.frameIndex - 0x25 + this->unk_70 != super->frameIndex) &&
+            ((super->frameIndex = gPlayerEntity.base.frameIndex - 0x25 + this->unk_70,
+              this->unk_68 != 0xe || ((gPlayerEntity.base.frame & 0x7f) == 0)))) {
             sub_080042D0(super, super->frameIndex, super->spriteIndex);
         }
-        if (((this->unk_68 == 0xe) && ((gPlayerEntity.frame & 0x7f) != 0))) {
+        if (((this->unk_68 == 0xe) && ((gPlayerEntity.base.frame & 0x7f) != 0))) {
             if (--this->unk_78 == 0) {
                 this->unk_74++;
                 tmp2 = this->unk_74 * 4;
@@ -155,16 +155,16 @@ void PlayerItemShield_Action1(PlayerItemShieldEntity* this) {
                 pbVar3 = &this->unk_7c[this->unk_74 * 4];
                 this->unk_78 = pbVar3[1];
                 if ((gPlayerState.shield_status & 0x40) != 0) {
-                    u32 temp = (gPlayerEntity.frame & 0x7f) + 8;
+                    u32 temp = (gPlayerEntity.base.frame & 0x7f) + 8;
                     sub_080042D0(super, temp + pbVar3[0], super->spriteIndex);
                 } else {
-                    sub_080042D0(super, (gPlayerEntity.frame & 0x7f) + pbVar3[0], super->spriteIndex);
+                    sub_080042D0(super, (gPlayerEntity.base.frame & 0x7f) + pbVar3[0], super->spriteIndex);
                 }
             }
         }
-        super->frame = gPlayerEntity.frame;
-        super->frameSpriteSettings = gPlayerEntity.frameSpriteSettings;
-        sub_08078E84(super, &gPlayerEntity);
+        super->frame = gPlayerEntity.base.frame;
+        super->frameSpriteSettings = gPlayerEntity.base.frameSpriteSettings;
+        sub_08078E84(super, &gPlayerEntity.base);
     } else {
         super->frameIndex = 0xff;
     }

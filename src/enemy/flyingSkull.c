@@ -137,7 +137,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
         RegisterCarryEntity(super);
     } else {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
-            Entity* player = &gPlayerEntity;
+            Entity* player = &gPlayerEntity.base;
             if (EntityWithinDistance(super, player->x.HALF.HI, player->y.HALF.HI, 0x30)) {
                 if (super->type == 1) {
                     super->action = 3;
@@ -165,15 +165,15 @@ void sub_08039EE4(FlyingSkullEntity* this) {
     COLLISION_OFF(super);
     super->collisions = COL_NONE;
     super->hitbox = (Hitbox*)&gUnk_080FD340;
-    gPlayerEntity.animationState;
-    this->unk_0x76 = gPlayerEntity.animationState;
+    gPlayerEntity.base.animationState;
+    this->unk_0x76 = gPlayerEntity.base.animationState;
     SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 void sub_08039F4C(FlyingSkullEntity* this) {
-    if (gPlayerEntity.animationState != this->unk_0x76) {
-        super->frameIndex = AnimationStateIdle(gPlayerEntity.animationState - this->unk_0x76 + super->frameIndex);
-        this->unk_0x76 = gPlayerEntity.animationState;
+    if (gPlayerEntity.base.animationState != this->unk_0x76) {
+        super->frameIndex = AnimationStateIdle(gPlayerEntity.base.animationState - this->unk_0x76 + super->frameIndex);
+        this->unk_0x76 = gPlayerEntity.base.animationState;
     }
 }
 
@@ -210,7 +210,7 @@ void sub_0803A048(FlyingSkullEntity* this) {
     if (super->z.HALF.HI <= -6) {
         super->action = 5;
         super->timer = 10;
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     }
 }
 

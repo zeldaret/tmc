@@ -69,9 +69,9 @@ void WarpPoint_Init(WarpPointEntity* this) {
         return;
     super->action = 4;
     super->subtimer = 96;
-    gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
-    gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
-    gPlayerEntity.animationState = 4;
+    gPlayerEntity.base.x.HALF.HI = super->x.HALF.HI;
+    gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI;
+    gPlayerEntity.base.animationState = 4;
     EnqueueSFX(SFX_112);
     RequestPriorityDuration(super, super->subtimer + 16);
 }
@@ -104,10 +104,10 @@ void WarpPoint_Action3(WarpPointEntity* this) {
         super->action = 5;
         super->subtimer = 96;
         PutAwayItems();
-        gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
-        gPlayerEntity.y.HALF.HI = super->y.HALF.HI;
-        gPlayerEntity.animationState = 4;
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.base.x.HALF.HI = super->x.HALF.HI;
+        gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI;
+        gPlayerEntity.base.animationState = 4;
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
         RequestPriorityDuration(super, super->subtimer + 16);
         SoundReq(SFX_113);
     } else {
@@ -120,8 +120,8 @@ void WarpPoint_Action4(WarpPointEntity* this) {
     if (!--super->subtimer) {
         super->action = 3;
         super->timer = 1;
-        gPlayerEntity.animationState = 4;
-        gPlayerEntity.direction = DirectionSouth;
+        gPlayerEntity.base.animationState = 4;
+        gPlayerEntity.base.direction = DirectionSouth;
         return;
     }
     tmp = 0;
@@ -141,7 +141,7 @@ void WarpPoint_Action4(WarpPointEntity* this) {
             break;
         case 0:
             if (!(super->subtimer & 7)) {
-                if (gPlayerEntity.animationState == 4) {
+                if (gPlayerEntity.base.animationState == 4) {
                     if (super->subtimer > 0x18) {
                         tmp = 1;
                     }
@@ -152,8 +152,8 @@ void WarpPoint_Action4(WarpPointEntity* this) {
             break;
     }
     if (tmp) {
-        gPlayerEntity.animationState += 2;
-        gPlayerEntity.animationState &= 6;
+        gPlayerEntity.base.animationState += 2;
+        gPlayerEntity.base.animationState &= 6;
     }
 }
 
@@ -192,13 +192,13 @@ void WarpPoint_Action5(WarpPointEntity* this) {
                     tmp = 1;
                 }
             } else {
-                gPlayerEntity.spriteSettings.draw = 0;
+                gPlayerEntity.base.spriteSettings.draw = 0;
             }
             break;
     }
     if (tmp) {
-        gPlayerEntity.animationState += 2;
-        gPlayerEntity.animationState &= 6;
+        gPlayerEntity.base.animationState += 2;
+        gPlayerEntity.base.animationState &= 6;
     }
 }
 
@@ -208,10 +208,10 @@ void sub_0808B73C(WarpPointEntity* this) {
         super->palette.b.b0 = super->parent->palette.b.b0;
         InitializeAnimation(super, 1);
     }
-    if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28)) {
+    if (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x28)) {
         super->spriteSettings.draw = 1;
     } else {
-        if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x2e)) {
+        if (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x2e)) {
             super->spriteSettings.draw ^= 1;
         } else {
             super->spriteSettings.draw = 0;
@@ -221,9 +221,10 @@ void sub_0808B73C(WarpPointEntity* this) {
 }
 
 u32 sub_0808B7C8(WarpPointEntity* this) {
-    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.framestate != PL_STATE_DIE && gPlayerEntity.health != 0 &&
-        PlayerCanBeMoved() && EntityInRectRadius(super, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
-        if (super->timer == 0 && gPlayerEntity.action == PLAYER_08072C9C) {
+    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.framestate != PL_STATE_DIE &&
+        gPlayerEntity.base.health != 0 && PlayerCanBeMoved() && EntityInRectRadius(super, &gPlayerEntity.base, 5, 5) &&
+        gPlayerEntity.base.z.HALF.HI == 0) {
+        if (super->timer == 0 && gPlayerEntity.base.action == PLAYER_08072C9C) {
             ResetPlayerAnimationAndAction();
         }
         return 1;

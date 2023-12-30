@@ -676,7 +676,7 @@ void VaatiTransfiguredType2Action1(VaatiTransfiguredEntity* this) {
     CopyPosition(super->parent, super);
     switch (super->type2) {
         case 2:
-            uVar3 = GetFacingDirection(super, &gPlayerEntity);
+            uVar3 = GetFacingDirection(super, &gPlayerEntity.base);
             t = &gUnk_080D0B18[uVar3];
             super->x.HALF.HI += t->x;
             super->y.HALF.HI += t->y;

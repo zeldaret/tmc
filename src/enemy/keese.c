@@ -139,7 +139,7 @@ void Keese_Sleep(KeeseEntity* this) {
     if (super->timer != 0) {
         super->timer--;
     } else {
-        if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))
+        if (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x70))
             Keese_StartFly(this);
     }
 }
@@ -165,7 +165,7 @@ void sub_08021F24(KeeseEntity* this) {
         super->timer = gKeeseRestDurations[Random() & 0xF];
         InitializeAnimation(super, KeeseAnimation_Rest);
     } else if ((this->sleepTimer == 0) &&
-               !(EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
+               !(EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x70))) {
         super->action = KEESE_ACTION_SLEEP;
         super->timer = 30;
         InitializeAnimation(super, KeeseAnimation_Rest);

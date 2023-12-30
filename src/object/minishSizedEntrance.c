@@ -45,8 +45,9 @@ void MinishSizedEntrance_Action1(Entity* this) {
             DeleteThisEntity();
         }
     }
-    if ((gPlayerState.flags & PL_MINISH) && EntityInRectRadius(this, &gPlayerEntity, 4, 4) &&
-        (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.playerInput.heldInput) & gUnk_0812225C[this->type2])) {
+    if ((gPlayerState.flags & PL_MINISH) && EntityInRectRadius(this, &gPlayerEntity.base, 4, 4) &&
+        (gPlayerEntity.base.z.HALF.HI == 0) &&
+        (((u16)gPlayerState.playerInput.heldInput) & gUnk_0812225C[this->type2])) {
         DoExitTransition(GetCurrentRoomProperty(this->timer));
     }
 }

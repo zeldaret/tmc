@@ -5,9 +5,9 @@
  * @brief Vaati Wrath enemy
  */
 #include "enemy/vaatiWrath.h"
+
 #include "functions.h"
 #include "message.h"
-#include "new_player.h"
 #include "object.h"
 #include "save.h"
 #include "screen.h"
@@ -217,7 +217,7 @@ void VaatiWrathType0Action1(VaatiWrathEntity* this) {
             super->subAction = 6;
             super->timer = 30;
             gRoomTransition.field_0x38 |= 1;
-            gRoomControls.camera_target = &gPlayerEntity;
+            gRoomControls.camera_target = &gPlayerEntity.base;
             gPlayerState.controlMode = CONTROL_1;
             break;
         default:
@@ -421,7 +421,7 @@ void VaatiWrathType0Action9(VaatiWrathEntity* this) {
         sub_08042214(this);
     } else {
         if (--super->timer == 0) {
-            if ((gPlayerEntity.x.HALF.HI - super->x.HALF.HI) + 0x40u < 0x81) {
+            if ((gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI) + 0x40u < 0x81) {
                 super->action = 10;
                 this->unk_7b = 0;
                 ((VaatiWrathHeapStruct*)super->myHeap)->eyes[0]->timer = 1;
@@ -588,7 +588,7 @@ void sub_08041BE8(VaatiWrathEntity* this) {
         DeleteEntity(entity);
         ((VaatiWrathHeapStruct*)super->myHeap)->object5b = NULL;
 
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
 #endif
         entity = ((VaatiWrathHeapStruct*)super->myHeap)->eyes[0];
         entity->myHeap = NULL;
@@ -834,13 +834,13 @@ u32 sub_0804207C(VaatiWrathEntity* this) {
         if (((arm != NULL) && (arm->action >= 5)) && EntityWithinDistance(arm, x, y, 0x30)) {
             return CalculateDirectionTo(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
         } else {
-            if (gPlayerEntity.y.HALF.HI < 0x40) {
+            if (gPlayerEntity.base.y.HALF.HI < 0x40) {
                 tmp = gRoomControls.origin_y + 0x18;
 
             } else {
-                tmp = gPlayerEntity.y.HALF.HI - 0x28;
+                tmp = gPlayerEntity.base.y.HALF.HI - 0x28;
             }
-            return CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, gPlayerEntity.x.HALF.HI, tmp);
+            return CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, gPlayerEntity.base.x.HALF.HI, tmp);
         }
     }
 }
@@ -860,12 +860,12 @@ void sub_0804212C(VaatiWrathEntity* this) {
     }
     arm = NULL;
     y = super->y.HALF.HI - 0x44;
-    if (gPlayerEntity.y.HALF.HI - y < 0x61u) {
+    if (gPlayerEntity.base.y.HALF.HI - y < 0x61u) {
         x = super->x.HALF.HI - 0x38;
-        if (gPlayerEntity.x.HALF.HI - x < 0x39u) {
+        if (gPlayerEntity.base.x.HALF.HI - x < 0x39u) {
             arm = ((VaatiWrathHeapStruct*)super->myHeap)->arms[1];
         } else {
-            if ((gPlayerEntity.x.HALF.HI - super->x.HALF.HI) < 0x39u) {
+            if ((gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI) < 0x39u) {
                 arm = ((VaatiWrathHeapStruct*)super->myHeap)->arms[0];
             }
         }
@@ -1005,8 +1005,8 @@ void VaatiWrathType0PreAction(VaatiWrathEntity* this) {
                 case PL_STATE_IDLE:
                 case PL_STATE_WALK:
                     if (gPlayerState.item == NULL) {
-                        if (gNewPlayerEntity.unk_7a == 0) {
-                            if ((gPlayerEntity.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
+                        if (gPlayerEntity.unk_7a == 0) {
+                            if ((gPlayerEntity.base.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
                                 CreateEzloHint(TEXT_INDEX(TEXT_EZLO, 0x70), 0);
                                 gRoomTransition.field_0x38 |= 2;
                             }
@@ -1054,7 +1054,7 @@ void VaatiWrathType2(VaatiWrathEntity* this) {
     sub_0806FA90(((VaatiWrathHeapStruct*)super->myHeap)->type0, super, 0, -1);
     super->spriteOffsetY++;
     if (super->animIndex == 0x12) {
-        uVar1 = GetFacingDirection(super, &gPlayerEntity);
+        uVar1 = GetFacingDirection(super, &gPlayerEntity.base);
         super->x.HALF.HI = gUnk_080D0EB0[uVar1] + super->x.HALF.HI;
     }
 }

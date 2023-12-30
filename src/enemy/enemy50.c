@@ -160,7 +160,7 @@ void Enemy50_OnGrabbed(Enemy50Entity* this) {
 void Enemy50_SubAction0(Enemy50Entity* this) {
     super->subAction = 1;
     super->gustJarTolerance = 0x3c;
-    InitializeAnimation(super, (gPlayerEntity.animationState >> 2) + 5);
+    InitializeAnimation(super, (gPlayerEntity.base.animationState >> 2) + 5);
 }
 
 void Enemy50_SubAction1(Enemy50Entity* this) {
@@ -302,7 +302,7 @@ void Enemy50_Action9(Enemy50Entity* this) {
     if (sub_0807953C()) {
         this->unk_78 += 8;
     }
-    if (gPlayerEntity.health == 0) {
+    if (gPlayerEntity.base.health == 0) {
         this->unk_78 = 0xe0;
     }
     this->unk_78++;
@@ -312,7 +312,7 @@ void Enemy50_Action9(Enemy50Entity* this) {
         super->iframes = -0xc;
         super->knockbackDuration = 0x14;
         super->knockbackSpeed = 0x180;
-        super->knockbackDirection = gPlayerEntity.animationState << 2 ^ 0x10;
+        super->knockbackDirection = gPlayerEntity.base.animationState << 2 ^ 0x10;
         sub_08041128(this);
         sub_0803F6EC(this);
     } else {

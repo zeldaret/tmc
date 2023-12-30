@@ -105,7 +105,7 @@ void BossDoor_Action3(BossDoorEntity* this) {
     if (--super->timer == 0) {
         if (super->type < 4) {
             sub_08078AC0(0x40, 0, 1);
-            gPlayerEntity.direction = super->type << 3;
+            gPlayerEntity.base.direction = super->type << 3;
         }
         DeleteThisEntity();
     }

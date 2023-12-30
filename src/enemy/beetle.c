@@ -44,7 +44,7 @@ void Beetle_OnCollision(BeetleEntity* this) {
                 super->subtimer = 0;
                 COLLISION_OFF(super);
                 super->spritePriority.b0 = 3;
-                CopyPositionAndSpriteOffset(&gPlayerEntity, super);
+                CopyPositionAndSpriteOffset(&gPlayerEntity.base, super);
                 super->z.HALF.HI = -1;
                 this->unk_87 = 1;
                 InitializeAnimation(super, 6);
@@ -159,7 +159,7 @@ void sub_08021984(BeetleEntity* this) {
 
 void sub_08021A10(BeetleEntity* this) {
     GetNextFrame(super);
-    if (EntityInRectRadius(super, &gPlayerEntity, 120, 80) && sub_08021D00(this) == 0) {
+    if (EntityInRectRadius(super, &gPlayerEntity.base, 120, 80) && sub_08021D00(this) == 0) {
         if (--super->timer == 0) {
             super->action = 3;
             super->timer = (Random() & 0x3f) + 30;
@@ -250,17 +250,17 @@ void sub_08021B64(BeetleEntity* this) {
             super->action = 6;
             super->zVelocity = Q_16_16(1.0);
             this->unk_87 = 0;
-            if (gPlayerEntity.direction != 0xff) {
-                super->direction = DirectionSouth ^ gPlayerEntity.direction;
+            if (gPlayerEntity.base.direction != 0xff) {
+                super->direction = DirectionSouth ^ gPlayerEntity.base.direction;
             } else {
-                super->direction = (gPlayerEntity.animationState << 2) ^ DirectionSouth;
+                super->direction = (gPlayerEntity.base.animationState << 2) ^ DirectionSouth;
             }
             InitializeAnimation(super, 5);
         } else {
             gPlayerState.mobility |= 0x80;
             gPlayerState.speed_modifier -= 0x50;
             gPlayerState.attachedBeetleCount++;
-            CopyPositionAndSpriteOffset(&gPlayerEntity, super);
+            CopyPositionAndSpriteOffset(&gPlayerEntity.base, super);
             super->x.HALF.HI += gUnk_080CB5E4[(super->subtimer++ & 0xe) >> 1];
             super->z.HALF.HI--;
             GetNextFrame(super);

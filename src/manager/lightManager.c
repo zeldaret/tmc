@@ -49,8 +49,8 @@ void LightManager_Main(LightManager* this) {
     if (gArea.lightType == 2) {
         gScreen.lcd.displayControl &= ~DISPCNT_WIN0_ON;
     } else {
-        if (CheckRectOnScreen(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
-                              gPlayerEntity.y.HALF.HI - gRoomControls.origin_y, 0, 0)) {
+        if (CheckRectOnScreen(gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x,
+                              gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y, 0, 0)) {
             gScreen.lcd.displayControl |= DISPCNT_WIN0_ON;
         } else {
             gScreen.lcd.displayControl &= ~DISPCNT_WIN0_ON;
@@ -79,8 +79,8 @@ void LightManager_Main(LightManager* this) {
         }
 
         super->timer = uVar3;
-        sub_0801E160(gPlayerEntity.x.HALF.HI - gRoomControls.scroll_x,
-                     gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y - 9 + gPlayerEntity.z.HALF.HI,
+        sub_0801E160(gPlayerEntity.base.x.HALF.HI - gRoomControls.scroll_x,
+                     gPlayerEntity.base.y.HALF.HI - gRoomControls.scroll_y - 9 + gPlayerEntity.base.z.HALF.HI,
                      uVar3 + this->unk20);
     }
 }

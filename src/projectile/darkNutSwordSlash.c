@@ -30,7 +30,7 @@ void DarkNutSwordSlash(Entity* this) {
     if ((this->parent == NULL) || (this->parent->health == 0)) {
         DeleteThisEntity();
     }
-    if (((this->contactFlags & 0x80) != 0) && (this->contactedEntity == &gPlayerEntity)) {
+    if (((this->contactFlags & 0x80) != 0) && (this->contactedEntity == &gPlayerEntity.base)) {
         this->iframes = -0x2d;
     }
     this->contactFlags = 0;

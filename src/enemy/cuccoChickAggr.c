@@ -137,12 +137,12 @@ u32 sub_08022B20(Entity* this) {
     if (!sub_08049DF4(2))
         return 0;
 
-    return EntityInRectRadius(this, &gPlayerEntity, 36, 36);
+    return EntityInRectRadius(this, &gPlayerEntity.base, 36, 36);
 }
 
 void sub_08022B44(Entity* this) {
     this->zVelocity = Q_16_16(0.75);
-    this->direction = GetFacingDirection(this, &gPlayerEntity);
+    this->direction = GetFacingDirection(this, &gPlayerEntity.base);
 
     if (this->direction & (0x3 | DIR_DIAGONAL | DirectionEast))
         this->spriteSettings.flipX = (this->direction >> 4) ^ 1;

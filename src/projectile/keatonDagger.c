@@ -20,7 +20,7 @@ void KeatonDagger(Entity* this) {
     }
     parent = this->parent;
     if (((parent == NULL) || (parent->health == 0)) || (parent->next == NULL)) {
-        if (((this->contactFlags & 0x80) != 0) && (this->contactedEntity == &gPlayerEntity)) {
+        if (((this->contactFlags & 0x80) != 0) && (this->contactedEntity == &gPlayerEntity.base)) {
             sub_0803C0AC(this);
         }
         DeleteEntity(this);

@@ -102,7 +102,7 @@ void GiantTwig_Type0Init(GiantTwigEntity* this) {
 
 void GiantTwig_Type0Idle(GiantTwigEntity* this) {
     if (super->type == 0) {
-        if (gPlayerEntity.y.HALF.HI < super->y.HALF.HI + 0x20) {
+        if (gPlayerEntity.base.y.HALF.HI < super->y.HALF.HI + 0x20) {
             super->spriteRendering.b3 = 1;
         } else {
             super->spriteRendering.b3 = 2;

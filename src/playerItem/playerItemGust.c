@@ -70,7 +70,7 @@ void PlayerItemGust(Entity* this) {
 
 static void PlayerItemGust_Init(PlayerItemGustEntity* this) {
     super->action = GUST_UPDATE;
-    super->flags2 = gPlayerEntity.flags2;
+    super->flags2 = gPlayerEntity.base.flags2;
     super->direction = super->animationState << 2;
     super->speed = 0x200;
     super->flags |= ENT_COLLIDE | ENT_PERSIST;
@@ -166,8 +166,8 @@ bool32 sub_080ACDB0(PlayerItemGustEntity* this) {
     u32 tmp;
 
     if (super->type == 0) {
-        super->x.HALF.HI = gPlayerEntity.x.HALF.HI + gUnk_08126EE4[super->animationState];
-        super->y.HALF.HI = gPlayerEntity.y.HALF.HI + gUnk_08126EE4[super->animationState + 1];
+        super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + gUnk_08126EE4[super->animationState];
+        super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + gUnk_08126EE4[super->animationState + 1];
     } else {
         if ((super->animationState & 2) != 0) {
             super->y.HALF.HI = super->parent->y.HALF.HI - 3;
@@ -219,7 +219,7 @@ bool32 sub_080ACDB0(PlayerItemGustEntity* this) {
             }
         }
     }
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     return 0;
 }
 

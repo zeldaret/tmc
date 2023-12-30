@@ -110,9 +110,9 @@ void Book_Action1(BookEntity* this) {
         gPlayerState.queued_action = PLAYER_PUSH;
         gPlayerState.flags |= PL_BUSY;
 
-        gPlayerEntity.x.HALF.LO = 0;
-        gPlayerEntity.y.HALF.LO = 0;
-        gPlayerEntity.direction = gPlayerEntity.animationState << 2;
+        gPlayerEntity.base.x.HALF.LO = 0;
+        gPlayerEntity.base.y.HALF.LO = 0;
+        gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2;
         EnqueueSFX(SFX_10F);
     } else {
         super->timer = 22;
@@ -219,7 +219,7 @@ void Book_Action5(BookEntity* this) {
 }
 
 u32 sub_0809B688(Entity* this) {
-    u32 ret = EntityInRectRadius(this, &gPlayerEntity, 6, 12);
+    u32 ret = EntityInRectRadius(this, &gPlayerEntity.base, 6, 12);
 
     if (ret == 1 && gPlayerState.direction != DirectionSouth) {
         ret = 0;

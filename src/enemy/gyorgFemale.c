@@ -93,8 +93,8 @@ void GyorgFemale_Setup(GyorgFemaleEntity* this) {
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_0804660C(this, 0);
     sub_080464C0(this);
-    gPlayerEntity.collisionLayer = 2;
-    UpdateSpriteForCollisionLayer(&gPlayerEntity);
+    gPlayerEntity.base.collisionLayer = 2;
+    UpdateSpriteForCollisionLayer(&gPlayerEntity.base);
 #ifndef EU
     RegisterTransitionManager(this, sub_08046498, 0);
 #else
@@ -272,8 +272,8 @@ void sub_08046518(void) {
 
 void sub_080465C8(void) {
     s32 x, y;
-    x = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3;
-    y = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3;
+    x = (gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x) >> 3;
+    y = (gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) >> 3;
     if (gMapDataBottomSpecial[(y << 7) + x]) {
         gPlayerState.field_0x14 = 1;
     }
@@ -435,7 +435,7 @@ void GyorgFemale_ProcessEyeHit(GyorgFemaleEntity* this) {
 #ifndef EU
         if (((GyorgHeap*)super->myHeap)->unk_3c != 0xFF) {
 #endif
-            tmp = &gPlayerEntity;
+            tmp = &gPlayerEntity.base;
             tmp->knockbackDirection = ((GyorgHeap*)super->myHeap)->unk_3c;
             tmp->iframes = 0xF4;
             tmp->knockbackDuration = 0xA;

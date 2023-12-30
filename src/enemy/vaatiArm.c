@@ -555,8 +555,8 @@ static void sub_08042C34(VaatiArmEntity* this) {
         super->subAction = 1;
         random = Random() & 6;
         temp = &gUnk_080D12F8[random];
-        x = gPlayerEntity.x.HALF.HI + *temp;
-        y = gPlayerEntity.y.HALF.HI + *(temp + 1);
+        x = gPlayerEntity.base.x.HALF.HI + *temp;
+        y = gPlayerEntity.base.y.HALF.HI + *(temp + 1);
         if ((gRoomControls.origin_x + 0x20) > x) {
             x = gRoomControls.origin_x + 0x20;
         }
@@ -693,7 +693,7 @@ static void sub_08042EF4(VaatiArmEntity* this) {
     UpdateAnimationSingleFrame(super);
     if (!sub_08043C98(this)) {
         if (--super->timer == 0) {
-            if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x50)) {
+            if (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x50)) {
                 super->subAction = 6;
                 super->timer = 40;
             } else {

@@ -52,7 +52,7 @@ void TreeHidingPortal_Init(TreeHidingPortalEntity* this) {
 
 void TreeHidingPortal_Action1(TreeHidingPortalEntity* this) {
 
-    if (sub_0800419C(super, &gPlayerEntity, 0x30, 0x30)) {
+    if (sub_0800419C(super, &gPlayerEntity.base, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
             if (((gRoomTransition.frameCount & 3) == 0)) {
                 CreateSparkle(super);
@@ -112,11 +112,11 @@ static u32 sub_0809E9A0(void) {
     u32 rv;
     const s16* ptr;
 
-    if (gPlayerEntity.action != PLAYER_BOUNCE) {
+    if (gPlayerEntity.base.action != PLAYER_BOUNCE) {
         rv = 0;
     } else {
-        ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
-        rv = sub_080B1AE0(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), 1);
+        ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
+        rv = sub_080B1AE0(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
     }
 
     return rv;

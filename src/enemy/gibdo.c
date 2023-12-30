@@ -166,7 +166,7 @@ void sub_080376D0(GibdoEntity* this) {
         ResetActiveItems();
         gPlayerState.mobility |= 0x80;
         gPlayerState.field_0xa |= 0x80;
-        CopyPositionAndSpriteOffset(&gPlayerEntity, super);
+        CopyPositionAndSpriteOffset(&gPlayerEntity.base, super);
         UpdateAnimationSingleFrame(super);
         if ((super->frame & 1) != 0) {
             if (--this->field_0x7c == 0) {
@@ -352,19 +352,19 @@ void sub_08037A58(GibdoEntity* this) {
 
 void sub_08037ACC(GibdoEntity* this) {
     gPlayerState.flags &= ~PL_DISABLE_ITEMS;
-    COLLISION_ON(&gPlayerEntity);
-    gPlayerEntity.iframes = 30;
-    gPlayerEntity.knockbackDirection = DirectionFromAnimationState(super->animationState);
-    gPlayerEntity.knockbackDuration = 4;
-    gPlayerEntity.knockbackSpeed = 0x180;
+    COLLISION_ON(&gPlayerEntity.base);
+    gPlayerEntity.base.iframes = 30;
+    gPlayerEntity.base.knockbackDirection = DirectionFromAnimationState(super->animationState);
+    gPlayerEntity.base.knockbackDuration = 4;
+    gPlayerEntity.base.knockbackSpeed = 0x180;
 }
 
 // Damage player maybe?
 void sub_08037B10(GibdoEntity* this) {
     u32 health;
-    gPlayerEntity.iframes = 0xc;
+    gPlayerEntity.base.iframes = 0xc;
     health = ModHealth(-8);
-    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+    SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
     if (health == 0) {
         sub_08037A58(this);
         this->field_0x76 = 240;

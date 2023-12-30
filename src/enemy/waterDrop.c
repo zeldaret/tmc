@@ -76,8 +76,8 @@ void sub_0802A334(Entity* this) {
 }
 
 void sub_0802A39C(Entity* this) {
-    u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.scroll_x + gScreen.bg1.xOffset) >> 3;
-    u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y + gScreen.bg1.yOffset - 10) >> 3;
+    u32 x = (gPlayerEntity.base.x.HALF.HI - gRoomControls.scroll_x + gScreen.bg1.xOffset) >> 3;
+    u32 y = (gPlayerEntity.base.y.HALF.HI - gRoomControls.scroll_y + gScreen.bg1.yOffset - 10) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         COLLISION_OFF(this);
     } else {

@@ -9,7 +9,6 @@
  * (There is also a part about changing the music and setting it back when the fight is done, which is song 0x33 (a
  * fight theme) by default but can be overridden through room data)
  */
-#define ENT_DEPRECATED
 #include "manager/fightManager.h"
 #include "area.h"
 #include "common.h"
@@ -113,7 +112,7 @@ void FightManager_LoadFight(FightManager* this) {
         while (prop->kind != 0xFF) {
             ent = LoadRoomEntity(prop++);
             if ((ent != NULL) && (ent->kind == ENEMY)) {
-                ent->field_0x6c.HALF.HI |= 0x40;
+                ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x40;
                 FightManagerHelper_Monitor(monitor, ent, counter++);
             }
             if (counter >= 7) {

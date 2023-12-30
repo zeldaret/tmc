@@ -283,19 +283,19 @@ u32 sub_08083734(Entity* this, u32 unk0) {
     // struct?
     switch (unk0) {
         case 0:
-            if (((LockedDoorEntity*)this)->unk_72 + 0xd - gPlayerEntity.y.HALF.HI < 0)
+            if (((LockedDoorEntity*)this)->unk_72 + 0xd - gPlayerEntity.base.y.HALF.HI < 0)
                 return 1;
             break;
         case 1:
-            if (gPlayerEntity.x.HALF.HI - (((LockedDoorEntity*)this)->unk_70 - 0xb) < 0)
+            if (gPlayerEntity.base.x.HALF.HI - (((LockedDoorEntity*)this)->unk_70 - 0xb) < 0)
                 return 1;
             break;
         case 2:
-            if (gPlayerEntity.y.HALF.HI - (((LockedDoorEntity*)this)->unk_72 - 0x8) < 0)
+            if (gPlayerEntity.base.y.HALF.HI - (((LockedDoorEntity*)this)->unk_72 - 0x8) < 0)
                 return 1;
             break;
         case 3:
-            if (((LockedDoorEntity*)this)->unk_70 + 0xa - gPlayerEntity.x.HALF.HI < 0)
+            if (((LockedDoorEntity*)this)->unk_70 + 0xa - gPlayerEntity.base.x.HALF.HI < 0)
                 return 1;
             break;
     }

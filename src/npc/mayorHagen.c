@@ -32,8 +32,8 @@ void MayorHagen(MayorHagenEntity* this) {
                 super->action = v;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         4 + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, 4 + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
                 break;
             }

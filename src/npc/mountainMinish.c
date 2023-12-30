@@ -134,7 +134,8 @@ void sub_08067EF0(MountainMinishEntity* this) {
                 super->action = 3;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, 0);
@@ -143,7 +144,7 @@ void sub_08067EF0(MountainMinishEntity* this) {
                     super->action = 2;
                     super->interactType = INTERACTION_NONE;
                     InitializeAnimation(super,
-                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                     sub_08068190(super);
                 }
             }

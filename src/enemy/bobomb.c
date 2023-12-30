@@ -44,7 +44,7 @@ void Bobomb_OnCollision(BobombEntity* this) {
             case 1:
                 if (this->unk_82) {
                     super->knockbackDuration = 0;
-                    gPlayerEntity.knockbackDuration = 4;
+                    gPlayerEntity.base.knockbackDuration = 4;
                 }
                 return;
             case 0xe:
@@ -114,7 +114,7 @@ void sub_0802C83C(BobombEntity* this) {
     if (this->unk_82) {
         if (--super->timer == 0) {
             super->action = 3;
-            switch (gPlayerEntity.animationState & 6) {
+            switch (gPlayerEntity.base.animationState & 6) {
                 case 2:
                     super->x.HALF.HI -= 6;
                     break;
@@ -218,7 +218,7 @@ void sub_0802CA10(BobombEntity* this) {
         }
     } else {
         this->unk_83 = 2;
-        super->direction = (((gPlayerEntity.animationState) << 2) | IdleSouth) & (DIR_DIAGONAL | DirectionWest);
+        super->direction = (((gPlayerEntity.base.animationState) << 2) | IdleSouth) & (DIR_DIAGONAL | DirectionWest);
         sub_0802CC18(this);
         GetNextFrame(super);
     }
@@ -242,7 +242,7 @@ void sub_0802CA94(BobombEntity* this) {
     super->speed = 0;
     this->unk_83 = 0;
     this->unk_81 = 0;
-    super->direction = ((gPlayerEntity.animationState << 2) | IdleSouth) & (DirectionWest | DIR_DIAGONAL);
+    super->direction = ((gPlayerEntity.base.animationState << 2) | IdleSouth) & (DirectionWest | DIR_DIAGONAL);
     InitializeAnimation(super, (super->direction >> 4) | IdleWest);
 }
 

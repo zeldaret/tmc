@@ -1,9 +1,6 @@
 #ifndef LINKANIMATION_H
 #define LINKANIMATION_H
 
-#ifdef ENT_DEPRECATED
-#error "linkAnimtion.h requires new entities"
-#endif
 #include "entity.h"
 
 typedef struct {

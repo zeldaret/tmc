@@ -83,11 +83,11 @@ static bool32 ShouldSpawnTreeItem(TreeItemEntity* this) {
     s32 expectedStateX, expectedStateY;
     s32 playerState;
 
-    if (gPlayerEntity.action != PLAYER_BOUNCE) {
+    if (gPlayerEntity.base.action != PLAYER_BOUNCE) {
         return FALSE;
     }
 
-    diff = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
+    diff = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
     expectedStateX = 6;
     if (diff & 0x8000) {
         expectedStateX = 2;
@@ -98,7 +98,7 @@ static bool32 ShouldSpawnTreeItem(TreeItemEntity* this) {
         return FALSE;
     }
 
-    diff = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
+    diff = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
     expectedStateY = 0;
     if (diff & 0x8000) {
         expectedStateY = 4;
@@ -109,7 +109,7 @@ static bool32 ShouldSpawnTreeItem(TreeItemEntity* this) {
         return FALSE;
     }
 
-    playerState = gPlayerEntity.animationState;
+    playerState = gPlayerEntity.base.animationState;
     if ((playerState == 0 && expectedStateY == 0) || (playerState == 4 && expectedStateY == 4) ||
         (playerState == 6 && expectedStateX == 6) || (playerState == 2 && expectedStateX == 2)) {
         return TRUE;

@@ -92,7 +92,7 @@ void GraveyardKey_Init(Entity* this, const struct_gUnk_08123FB0* param_2) {
     if ((this->direction & DIR_NOT_MOVING_CHECK)) {
         dir = this->direction;
         if (dir == (DIR_NOT_MOVING_CHECK | 0x1)) {
-            this->direction = (((gPlayerEntity.animationState * 4 + (Random() & 3)) - 2) & 0x1f) ^ DirectionSouth;
+            this->direction = (((gPlayerEntity.base.animationState * 4 + (Random() & 3)) - 2) & 0x1f) ^ DirectionSouth;
         }
     }
     UpdateSpriteForCollisionLayer(this);
@@ -130,7 +130,7 @@ void GraveyardKey_Action2(Entity* this, const struct_gUnk_08123FB0* param_2) {
             this->zVelocity = param_2->unk14 << 3;
         } else {
             this->action++;
-            this->collisionLayer = gPlayerEntity.collisionLayer;
+            this->collisionLayer = gPlayerEntity.base.collisionLayer;
             UpdateSpriteForCollisionLayer(this);
             if (param_2->funcEnt != NULL) {
                 param_2->funcEnt(this);
@@ -177,13 +177,14 @@ void sub_0809D91C(Entity* this) {
 bool32 sub_0809D93C(Entity* this, const struct_gUnk_08123FB0* param_2) {
     u32 uVar1;
 
-    if (gPlayerEntity.action == PLAYER_BOUNCE && ((param_2->unk0c >> gPlayerEntity.animationState & 1) != 0)) {
-        uVar1 = (gPlayerEntity.x.HALF.HI - this->x.HALF.HI) + param_2->unk08 + param_2->unk0a;
+    if (gPlayerEntity.base.action == PLAYER_BOUNCE &&
+        ((param_2->unk0c >> gPlayerEntity.base.animationState & 1) != 0)) {
+        uVar1 = (gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI) + param_2->unk08 + param_2->unk0a;
         if (param_2->unk0a * 2 <= (u16)uVar1) {
             return 0;
         }
 
-        uVar1 = (gPlayerEntity.y.HALF.HI - (this->y.HALF.HI + param_2->y)) + param_2->unk09 + param_2->unk0b;
+        uVar1 = (gPlayerEntity.base.y.HALF.HI - (this->y.HALF.HI + param_2->y)) + param_2->unk09 + param_2->unk0b;
         if (param_2->unk0b * 2 > (u16)uVar1) {
             return 1;
         }

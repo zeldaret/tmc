@@ -60,7 +60,7 @@ void Bush_Init(BushEntity* this) {
     super->gustJarTolerance = gUnk_08120588[super->type].unk_1;
     super->gustJarFlags = gUnk_08120588[super->type].unk_2;
     super->speed = 0x80;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     super->health = 1;
     super->collisionFlags = 7;
     super->hitType = 0x6e;

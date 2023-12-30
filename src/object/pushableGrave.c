@@ -118,7 +118,7 @@ void PushableGrave_Action3(PushableGraveEntity* this) {
             EnqueueSFX(SFX_SECRET);
             sub_080977F4(this);
             if (super->type == 0) {
-                gRoomControls.camera_target = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity.base;
                 gRoomControls.scrollSpeed = 4;
             }
         }

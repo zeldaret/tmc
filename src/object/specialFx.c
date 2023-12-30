@@ -307,8 +307,8 @@ void sub_080847E0(SpecialFxObject* this) {
     if (gRoomControls.reload_flags == 1) {
         DeleteThisEntity();
     }
-    PositionRelative(&gPlayerEntity, super, 0, -0x30000);
+    PositionRelative(&gPlayerEntity.base, super, 0, -0x30000);
     super->z.HALF.HI = -3;
-    SortEntityAbove(&gPlayerEntity, super);
+    SortEntityAbove(&gPlayerEntity.base, super);
     sub_080845DC(this);
 }

@@ -246,7 +246,7 @@ void sub_08033FFC(MazaalHeadEntity* this) {
             break;
         default:
             if (((this->unk_74)->base.flags & ENT_COLLIDE) != 0) {
-                gRoomControls.camera_target = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity.base;
                 sub_08034420(this);
                 gPlayerState.controlMode = CONTROL_1;
                 ResetPlayerAnimationAndAction();
@@ -567,12 +567,12 @@ void sub_0803473C(MazaalHeadEntity* this) {
         if (0x28 < (this->unk_74)->base.action) {
             return;
         }
-        playerX = gPlayerEntity.x.HALF.HI - 0x60;
+        playerX = gPlayerEntity.base.x.HALF.HI - 0x60;
     } else {
         if (0x28 < (this->unk_78)->base.action) {
             return;
         }
-        playerX = gPlayerEntity.x.HALF.HI + 0x60;
+        playerX = gPlayerEntity.base.x.HALF.HI + 0x60;
     }
     roomX = gRoomControls.origin_x;
     if (playerX - 4 > super->x.HALF.HI) {
@@ -593,7 +593,7 @@ void sub_0803473C(MazaalHeadEntity* this) {
 }
 
 void sub_080347B4(MazaalHeadEntity* this) {
-    u32 playerX = gPlayerEntity.x.HALF.HI;
+    u32 playerX = gPlayerEntity.base.x.HALF.HI;
     u32 roomX = gRoomControls.origin_x;
     if (playerX - 4 > super->x.HALF.HI) {
         if (roomX + 0xe0 < super->x.HALF.HI) {

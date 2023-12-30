@@ -150,7 +150,7 @@ void sub_08083A40(Entity* this) {
 
     this->spriteSettings.draw = 1;
     this->action = 2;
-    if (this->child->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+    if (this->child->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
         bVar1 = 0;
         this->spriteOffsetX = 8;
     } else {

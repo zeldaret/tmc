@@ -102,7 +102,7 @@ static void sub_08037D54(Entity* this) {
             this->animationState |= 0xff;
             sub_08037E14(this);
         } else {
-            u32 dir = GetFacingDirection(this, &gPlayerEntity);
+            u32 dir = GetFacingDirection(this, &gPlayerEntity.base);
             this->direction = (dir + 4) & 0x18;
             this->animationState = this->direction >> 3;
             InitializeAnimation(this, this->animationState + 4);
@@ -116,7 +116,7 @@ void sub_08037E14(Entity* this) {
     const s8* ptr;
     s32 x, y;
     this->timer = 8;
-    dir = (GetFacingDirection(this, &gPlayerEntity) + 4) & 0x18;
+    dir = (GetFacingDirection(this, &gPlayerEntity.base) + 4) & 0x18;
     layer = (u8*)GetLayerByIndex(this->collisionLayer)->collisionData;
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
@@ -135,7 +135,7 @@ void sub_08037E14(Entity* this) {
 }
 
 bool32 sub_08037E90(Entity* this) {
-    u32 dir = sub_0804A044(this, &gPlayerEntity, 8);
+    u32 dir = sub_0804A044(this, &gPlayerEntity.base, 8);
     if (dir != 0xff) {
         this->action = 2;
         this->timer = 3;

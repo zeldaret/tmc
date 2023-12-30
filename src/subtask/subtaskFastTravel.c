@@ -138,7 +138,7 @@ void Subtask_FastTravel_3(void) {
         SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     } else {
         ResetPlayerAnimationAndAction();
-        sub_080042D0(&gPlayerEntity, (u32)gPlayerEntity.animIndex, gPlayerEntity.spriteIndex);
+        sub_080042D0(&gPlayerEntity.base, (u32)gPlayerEntity.base.animIndex, gPlayerEntity.base.spriteIndex);
         Subtask_Exit();
         gPauseMenuOptions.disabled = 0;
         SoundReq(SFX_MENU_CANCEL);

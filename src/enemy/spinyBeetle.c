@@ -134,19 +134,19 @@ void sub_08033958(SpinyBeetleEntity* this) {
         case 0:
             if (this->unk_78 == 0)
                 return;
-            if (super->y.HALF.HI - gPlayerEntity.y.HALF.HI > 0x30)
+            if (super->y.HALF.HI - gPlayerEntity.base.y.HALF.HI > 0x30)
                 return;
             break;
         case 0x10:
-            if (gPlayerEntity.y.HALF.HI - super->y.HALF.HI > 0x30)
+            if (gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI > 0x30)
                 return;
             break;
         case 8:
-            if (gPlayerEntity.x.HALF.HI - super->x.HALF.HI > 0x30)
+            if (gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI > 0x30)
                 return;
             break;
         case 0x18:
-            if (super->x.HALF.HI - gPlayerEntity.x.HALF.HI > 0x30)
+            if (super->x.HALF.HI - gPlayerEntity.base.x.HALF.HI > 0x30)
                 return;
             break;
     }

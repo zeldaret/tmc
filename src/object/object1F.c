@@ -58,7 +58,7 @@ void Object1F_Init(Object1FEntity* this) {
     temp = gUnk_08120A18[super->subtimer].unk1;
     super->palette.b.b0 = temp;
     this->unk6c = gUnk_08120A18[super->subtimer].unk2;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     super->speed = 0x100;
     InitializeAnimation(super, gUnk_08120A18[super->subtimer].animationState);
 }

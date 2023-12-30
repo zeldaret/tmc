@@ -238,7 +238,7 @@ void sub_StateChange_MinishPaths_MayorsCabin(void) {
 
     sub_080575C8(0x20);
 
-    if (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y > 0x40)
+    if (gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y > 0x40)
         LoadRoomEntityList(&Entities_MinishPaths_MayorsCabin_gUnk_080D6138);
 }
 
@@ -409,8 +409,8 @@ void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
         SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x50;
-        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
+        gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0x50;
+        gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
@@ -435,8 +435,8 @@ void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN) != 0) {
         ClearLocalFlag(YADO_CHECKIN);
         SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x50;
-        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
+        gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0x50;
+        gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
@@ -461,8 +461,8 @@ void sub_StateChange_HouseInteriors1_InnEastRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
         SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x60;
-        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
+        gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0x60;
+        gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
@@ -681,8 +681,8 @@ extern u32 script_PlayerWakingUpInHyruleCastle;
 void sub_StateChange_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
         SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0xb0;
-        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x40;
+        gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0xb0;
+        gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x40;
         sub_080751E8(0, 6, &script_PlayerWakingUpInHyruleCastle);
 #ifdef EU
         SoundReq(SONG_STOP_ALL);
@@ -2125,7 +2125,7 @@ u32 sub_unk3_DeepwoodShrine_Madderpillar(void) {
 extern EntityData gUnk_080DE4C8;
 
 void sub_StateChange_DeepwoodShrine_Madderpillar(void) {
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < (gRoomControls.height >> 1)) {
+    if ((gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) < (gRoomControls.height >> 1)) {
         if (!CheckLocalFlag(0x17)) {
             LoadRoomEntityList(&gUnk_080DE4C8);
         }
@@ -2517,7 +2517,7 @@ void sub_StateChange_CaveOfFlamesBoss_Main(void) {
     if (CheckGlobalFlag(LV2_CLEAR)) {
         gMapTop.bgSettings = 0;
         gScreen.lcd.displayControl &= ~DISPCNT_BG1_ON;
-        sub_0807AABC(&gPlayerEntity);
+        sub_0807AABC(&gPlayerEntity.base);
         LoadRoomEntityList(&gUnk_additional_a_CaveOfFlamesBoss_Main);
     } else {
         SoundReq(SONG_STOP_BGM);
@@ -3593,14 +3593,14 @@ void sub_StateChange_Vaati3_Main(void) {
 
     if ((gRoomTransition.field_0x38 & 1) && gRoomTransition.field_0x39) {
         if (gRoomTransition.field_0x3c == 1) {
-            gPlayerEntity.x.HALF.HI = gRoomTransition.field_0x48;
-            gPlayerEntity.y.HALF.HI = gRoomTransition.field_0x4a + 8;
+            gPlayerEntity.base.x.HALF.HI = gRoomTransition.field_0x48;
+            gPlayerEntity.base.y.HALF.HI = gRoomTransition.field_0x4a + 8;
         } else {
             if (gRoomTransition.field_0x3c) {
                 return;
             }
-            gPlayerEntity.x.HALF.HI = gRoomTransition.field_0x44;
-            gPlayerEntity.y.HALF.HI = gRoomTransition.field_0x46 + 8;
+            gPlayerEntity.base.x.HALF.HI = gRoomTransition.field_0x44;
+            gPlayerEntity.base.y.HALF.HI = gRoomTransition.field_0x46 + 8;
         }
     }
 }
@@ -4939,8 +4939,8 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
 extern u32 script_PlayerWakeAfterRest;
 
 void sub_0804E864(void) {
-    gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x90;
-    gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
+    gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0x90;
+    gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x38;
     sub_080751E8(1, 6, &script_PlayerWakeAfterRest);
     ModHealth(0xa0);
 }

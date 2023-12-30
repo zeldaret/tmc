@@ -63,9 +63,9 @@ bool32 sub_08086168(FloatingPlatformEntity* this) {
     const u8* ptr;
 
     ptr = gUnk_08120658 + super->type * 2;
-    if (((EntityInRectRadius(super, &gPlayerEntity, ptr[0], ptr[1])) && PlayerCanBeMoved())) {
+    if (((EntityInRectRadius(super, &gPlayerEntity.base, ptr[0], ptr[1])) && PlayerCanBeMoved())) {
         gPlayerState.field_0x14 = 1;
-        if (gPlayerEntity.z.HALF.HI == 0) {
+        if (gPlayerEntity.base.z.HALF.HI == 0) {
             return TRUE;
         } else {
             return FALSE;

@@ -91,7 +91,8 @@ void sub_08064570(CastleMaidEntity* this) {
             if (super->interactType != INTERACTION_NONE) {
                 super->action++;
                 super->interactType = INTERACTION_NONE;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 if (this->dialogFunc != NULL) {
                     this->dialogFunc();
                 }

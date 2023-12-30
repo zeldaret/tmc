@@ -80,7 +80,7 @@ void sub_0802C334(FallingBoulderEntity* this) {
     u16 tmp;
     if (this->unk_7c == 0) {
         u32 tmp = gRoomControls.origin_y;
-        entity = &gPlayerEntity;
+        entity = &gPlayerEntity.base;
         if (entity == NULL)
             return;
         if (entity->y.HALF.HI - tmp <= 0x38) {

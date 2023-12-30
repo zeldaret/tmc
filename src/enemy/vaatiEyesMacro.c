@@ -183,7 +183,7 @@ void VaatiEyesMacroFunction0Type2(VaatiEyesMacroEntity* this) {
         super->animationState = 0xff;
     }
     CopyPositionAndSpriteOffset(super->parent, super);
-    uVar2 = (GetFacingDirection(super, &gPlayerEntity) + 1) & 0x1e;
+    uVar2 = (GetFacingDirection(super, &gPlayerEntity.base) + 1) & 0x1e;
     temp = (xy*)&gUnk_080CDE70[uVar2];
     if (temp->x != super->frameIndex) {
         if (temp->y != super->frameIndex) {
@@ -237,7 +237,7 @@ void sub_0802EFB8(VaatiEyesMacroEntity* this) {
     if ((rand >> 0x10 & 3) != 0) {
         uVar1 = rand & 0x18;
     } else {
-        uVar3 = GetFacingDirection(&gPlayerEntity, super);
+        uVar3 = GetFacingDirection(&gPlayerEntity.base, super);
         uVar1 = (uVar3 + 4) & 0x18;
     }
     iVar4 = sub_080B1B44(TILE(super->x.HALF.HI, super->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);

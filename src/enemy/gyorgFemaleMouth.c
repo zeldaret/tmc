@@ -58,11 +58,11 @@ void GyorgFemaleMouth(Entity* this) {
         GetNextFrame(this);
     }
     if (tmp & 2) {
-        if (this->y.HALF.HI < gPlayerEntity.y.HALF.HI) {
+        if (this->y.HALF.HI < gPlayerEntity.base.y.HALF.HI) {
             tmp++;
         }
     } else {
-        if (this->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
+        if (this->x.HALF.HI < gPlayerEntity.base.x.HALF.HI) {
             tmp++;
         }
     }

@@ -69,7 +69,7 @@ void ShrinkingHieroglyphs_Action1(ShrinkingHieroglyphsEntity* this) {
     if (super->type == 0) {
         UpdateAnimationSingleFrame(super);
         if (super->type2 != 0) {
-            gPlayerEntity.subtimer = 0;
+            gPlayerEntity.base.subtimer = 0;
             super->action++;
             InitAnimationForceUpdate(super, 1);
             SoundReq(SFX_178);
@@ -109,7 +109,7 @@ void ShrinkingHieroglyphs_Action2(ShrinkingHieroglyphsEntity* this) {
 }
 
 void sub_08098130(ShrinkingHieroglyphsEntity* this) {
-    CopyPosition(&gPlayerEntity, super);
+    CopyPosition(&gPlayerEntity.base, super);
     super->direction = this->objDir.HALF.HI;
     super->speed = this->unk7a;
     LinearMoveUpdate(super);

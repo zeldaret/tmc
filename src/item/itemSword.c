@@ -38,8 +38,8 @@ void sub_08075338(ItemBehavior* this, u32 index) {
 
     if (gPlayerState.jump_status) {
         if ((gPlayerState.jump_status & 7) != 3) {
-            if ((gPlayerState.jump_status & 0x78) == 0 && (u32)gPlayerEntity.zVelocity < Q_16_16(1.5) &&
-                (gPlayerState.skills & SKILL_DOWN_THRUST) && gPlayerEntity.z.WORD != 0) {
+            if ((gPlayerState.jump_status & 0x78) == 0 && (u32)gPlayerEntity.base.zVelocity < Q_16_16(1.5) &&
+                (gPlayerState.skills & SKILL_DOWN_THRUST) && gPlayerEntity.base.z.WORD != 0) {
                 gPlayerState.jump_status |= 0x20;
                 gPlayerState.lastSwordMove = SWORD_MOVE_DOWN_THRUST;
                 gPlayerState.attack_status |= (8 >> index) | ((8 >> index) << 4);
@@ -52,7 +52,7 @@ void sub_08075338(ItemBehavior* this, u32 index) {
 #ifndef EU
         sub_080759B8(this, index);
         return;
-    } else if (gPlayerEntity.z.WORD) {
+    } else if (gPlayerEntity.base.z.WORD) {
 #endif
         sub_080759B8(this, index);
         return;
@@ -87,7 +87,7 @@ void sub_08075338(ItemBehavior* this, u32 index) {
 
     if ((gPlayerState.sword_state & 0x80) == 0) {
         gPlayerState.sword_state = 0;
-        sub_0806F948(&gPlayerEntity);
+        sub_0806F948(&gPlayerEntity.base);
     }
 
     if (gPlayerState.item) {
@@ -112,7 +112,7 @@ void sub_080754B8(ItemBehavior* this, u32 index) {
             this->priority &= ~0x80;
         }
 
-        if (gPlayerEntity.frameSpriteSettings & 1) {
+        if (gPlayerEntity.base.frameSpriteSettings & 1) {
             swordBeam = GetSwordBeam();
             if (swordBeam && FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_SWORD_BEAM1, 2) == 0) {
                 CreatePlayerItemWithParent(this, PLAYER_ITEM_SWORD_BEAM1);
@@ -198,7 +198,7 @@ void sub_08075694(ItemBehavior* this, u32 index) {
     gPlayerState.field_0xa = (8 >> index) | gPlayerState.field_0xa;
     this->stateID = 4;
     this->animPriority = 6;
-    gPlayerEntity.hurtType = 0x1e;
+    gPlayerEntity.base.hurtType = 0x1e;
     gPlayerState.sword_state |= 0x40;
     gPlayerState.sword_state &= 0xdf;
     if ((gPlayerState.chargeState.action == 4) && ((gPlayerState.flags & PL_CLONING) == 0)) {
@@ -223,8 +223,8 @@ void sub_08075738(ItemBehavior* this, u32 index) {
             if (!(gPlayerState.direction & DIR_NOT_MOVING_CHECK)) {
                 this->direction = gPlayerState.direction;
             }
-            gPlayerEntity.direction = this->direction;
-            gPlayerEntity.speed = 0x180;
+            gPlayerEntity.base.direction = this->direction;
+            gPlayerEntity.base.speed = 0x180;
             if ((this->playerFrame & 0x80) != 0) {
                 bVar6 = 10;
                 if ((gPlayerState.skills & SKILL_LONG_SPIN) != 0) {
@@ -236,19 +236,19 @@ void sub_08075738(ItemBehavior* this, u32 index) {
                 }
             }
         } else {
-            if (((((gPlayerEntity.frameSpriteSettings & 1) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
+            if (((((gPlayerEntity.base.frameSpriteSettings & 1) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
                  ((gPlayerState.skills & SKILL_FOURSWORD) != 0))) {
                 Entity* bombEnt = CreatePlayerItemWithParent(this, PLAYER_ITEM_SPIRAL_BEAM);
                 if (bombEnt) {
-                    bombEnt->animationState = (gPlayerEntity.animationState & 6) | 0x80;
+                    bombEnt->animationState = (gPlayerEntity.base.animationState & 6) | 0x80;
                 }
             }
 
-            if ((((gPlayerEntity.frameSpriteSettings & 2) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
+            if ((((gPlayerEntity.base.frameSpriteSettings & 2) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
                 (((gPlayerState.skills & SKILL_GREAT_SPIN) != 0 && (--this->timer != 0)))) {
                 gPlayerState.sword_state |= 0x10;
                 gPlayerState.lastSwordMove = SWORD_MOVE_GREAT_SPIN;
-                this->direction = gPlayerEntity.animationState << 2;
+                this->direction = gPlayerEntity.base.animationState << 2;
                 this->timer = 1;
                 this->subtimer = 1;
                 gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> index);
@@ -300,11 +300,11 @@ void sub_08075900(ItemBehavior* this, u32 index) {
                 if (--this->timer == 0) {
                     SetItemAnim(this, ANIM_ROLLATTACK_END);
                 }
-                gPlayerEntity.direction = (gPlayerEntity.animationState >> 1) << 3;
-                gPlayerEntity.speed = 0x300;
+                gPlayerEntity.base.direction = (gPlayerEntity.base.animationState >> 1) << 3;
+                gPlayerEntity.base.speed = 0x300;
                 UpdatePlayerMovement();
                 if ((gRoomTransition.frameCount & 3) == 0) {
-                    CreateFx(&gPlayerEntity, FX_DASH, 0x40);
+                    CreateFx(&gPlayerEntity.base, FX_DASH, 0x40);
                 }
             } else {
                 if ((this->playerFrame & 0x80) != 0) {
@@ -318,7 +318,7 @@ void sub_08075900(ItemBehavior* this, u32 index) {
 
 void sub_080759B8(ItemBehavior* this, u32 index) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
-        gPlayerEntity.hurtType = 0;
+        gPlayerEntity.base.hurtType = 0;
     }
     gPlayerState.flags &= ~PL_SWORD_THRUST;
     gPlayerState.sword_state = 0;

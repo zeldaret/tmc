@@ -6,7 +6,6 @@
  *
  * E.g. for pushable rock.
  */
-#define ENT_DEPRECATED
 #include "manager/moveableObjectManager.h"
 #include "flags.h"
 #include "room.h"
@@ -15,7 +14,7 @@ void MoveableObjectManager_Main(MoveableObjectManager* this) {
     Entity* object = CreateObject(super->timer, super->type, super->type2);
     if (!object)
         return;
-    object->field_0x86.HWORD = this->flags;
+    ((GenericEntity*)object)->field_0x86.HWORD = this->flags;
     if (CheckFlags(this->flags)) {
         object->x.HALF.HI = this->unk_36 | (this->unk_37 & 0xF) << 8; // r1
         object->y.HALF.HI = this->unk_3c & 0xFFF;

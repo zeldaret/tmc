@@ -71,19 +71,19 @@ void sub_08068318(ZeldaFollowerEntity* this) {
     ZeldaFollowerItem* heapPtr;
     ZeldaFollowerItem item;
 
-    item.FIELDS.x = gPlayerEntity.x.HALF_U.HI;
-    item.FIELDS.y = gPlayerEntity.y.HALF_U.HI;
-    item.FIELDS.z = gPlayerEntity.z.HALF_U.HI;
+    item.FIELDS.x = gPlayerEntity.base.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.base.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.base.z.HALF_U.HI;
     item.FIELDS.framestate = gPlayerState.framestate;
-    item.FIELDS.animationState = gPlayerEntity.animationState;
-    item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
+    item.FIELDS.animationState = gPlayerEntity.base.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.base.collisionLayer;
 
     heapPtr = super->myHeap;
 
     if ((heapPtr->FIELDS.framestate == 0xa && item.FIELDS.framestate != 0xa) ||
         (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16)) {
-        super->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-        super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
+        super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
+        super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
         super->spriteSettings.draw = 1;
         sub_08068578(super);
     }
@@ -106,7 +106,7 @@ void sub_08068318(ZeldaFollowerEntity* this) {
             ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(super, heapPtr);
             animIndex = 0x4;
         } else {
-            dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
+            dist = sub_080041E8(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, (u16)heapPtr->FIELDS.x,
                                 (u16)heapPtr->FIELDS.y);
             dist = ((u32)dist) >> 0x4;
             if (dist > 0x18) {
@@ -187,17 +187,17 @@ void sub_08068578(Entity* this) {
 
     // first u32 (r5)
 #ifdef REWRITE_CODE
-    r0 = gPlayerEntity.x.HALF_U.HI | (r5 & 0xffff0000);
-    r5 = (gPlayerEntity.y.HALF_U.HI << 0x10) | (r0 & 0x0000ffff);
+    r0 = gPlayerEntity.base.x.HALF_U.HI | (r5 & 0xffff0000);
+    r5 = (gPlayerEntity.base.y.HALF_U.HI << 0x10) | (r0 & 0x0000ffff);
 #else
-    r1 = gPlayerEntity.x.HALF_U.HI;
+    r1 = gPlayerEntity.base.x.HALF_U.HI;
 
     r3 = 0xffff0000;
     r0 = r3;
     r0 &= r5;
     r0 |= r1;
 
-    r1 = gPlayerEntity.y.HALF_U.HI;
+    r1 = gPlayerEntity.base.y.HALF_U.HI;
     r1 <<= 0x10;
     r2 = 0xffff;
     r0 &= r2;
@@ -207,12 +207,12 @@ void sub_08068578(Entity* this) {
 
     // second u32 (r6)
 #ifdef REWRITE_CODE
-    r3 = gPlayerEntity.z.HALF_U.HI | (r6 & 0xffff0000);
+    r3 = gPlayerEntity.base.z.HALF_U.HI | (r6 & 0xffff0000);
     r2 = (gPlayerState.framestate << 0x10) | (r3 & 0xff00ffff);
-    r0 = ((gPlayerEntity.animationState & 0x3f) << 0x18) | (r2 & 0xc0ffffff);
-    r6 = (gPlayerEntity.collisionLayer << 0x1e) | (r0 & 0x3fffffff);
+    r0 = ((gPlayerEntity.base.animationState & 0x3f) << 0x18) | (r2 & 0xc0ffffff);
+    r6 = (gPlayerEntity.base.collisionLayer << 0x1e) | (r0 & 0x3fffffff);
 #else
-    r0 = gPlayerEntity.z.HALF_U.HI;
+    r0 = gPlayerEntity.base.z.HALF_U.HI;
     r3 &= r6;
     r3 |= r0;
 
@@ -222,7 +222,7 @@ void sub_08068578(Entity* this) {
     r2 &= r3;
     r2 |= r0;
 
-    r1 = gPlayerEntity.animationState;
+    r1 = gPlayerEntity.base.animationState;
     r0 = 0x3f;
     r1 &= r0;
     r1 <<= 0x18;
@@ -230,8 +230,8 @@ void sub_08068578(Entity* this) {
     r0 &= r2;
     r0 |= r1;
 
-    // gPlayerEntity is now at r1
-    r1 = gPlayerEntity.collisionLayer;
+    // gPlayerEntity.base.is now at r1
+    r1 = gPlayerEntity.base.collisionLayer;
     r1 <<= 0x1e;
     r2 = 0x3fffffff;
     r0 &= r2;
@@ -240,18 +240,18 @@ void sub_08068578(Entity* this) {
 #endif
 
 #ifdef REWRITE_CODE
-    r10 = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
+    r10 = gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI;
 #else
-    r1 = gPlayerEntity.x.HALF.HI;
+    r1 = gPlayerEntity.base.x.HALF.HI;
     r0 = this->x.HALF.HI;
     r0 = r1 - r0;
     r10 = r0;
 #endif
 
 #ifdef REWRITE_CODE
-    r8 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+    r8 = gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI;
 #else
-    r1 = gPlayerEntity.y.HALF.HI;
+    r1 = gPlayerEntity.base.y.HALF.HI;
     r0 = this->y.HALF.HI;
     r0 = r1 - r0;
     r8 = r0;

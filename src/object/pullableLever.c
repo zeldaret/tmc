@@ -105,7 +105,7 @@ void PullableLever_HandleAction2(PullableLeverEntity* this) {
 void PullableLever_HandleSubAction0(PullableLeverEntity* this) {
     u16 y;
     u16 x;
-    Entity* player = &gPlayerEntity;
+    Entity* player = &gPlayerEntity.base;
 
     if (this->unk_75 == 0) {
         if (-player->animationState + super->type2 * 2 == 0) {
@@ -122,7 +122,7 @@ void PullableLever_HandleSubAction0(PullableLeverEntity* this) {
     if (player->animationState >> 1 == super->type2) {
         if (gPlayerState.framestate == PL_STATE_PULL) {
             if (gPlayerState.heldObject & 2) {
-                if (gPlayerEntity.frame & 2) {
+                if (gPlayerEntity.base.frame & 2) {
                     sub_0809153C(this);
                     if (this->unk_75 == 1) {
                         this->unk_75 = 2;
@@ -191,15 +191,15 @@ void sub_0809153C(PullableLeverEntity* this) {
     s16 diff;
     s32 radius;
 
-    Entity* player = &gPlayerEntity;
+    Entity* player = &gPlayerEntity.base;
     dir = gUnk_081222C0[super->type2];
     if (this->necessaryPullLength <= this->pullLength) {
         return;
     }
     prevX = player->x.HALF.HI;
     prevY = player->y.HALF.HI;
-    sub_080044AE(&gPlayerEntity, super->speed, dir);
-    if ((prevX == gPlayerEntity.x.HALF.HI) && (prevY == gPlayerEntity.y.HALF.HI)) {
+    sub_080044AE(&gPlayerEntity.base, super->speed, dir);
+    if ((prevX == gPlayerEntity.base.x.HALF.HI) && (prevY == gPlayerEntity.base.y.HALF.HI)) {
         return;
     }
 
@@ -208,13 +208,13 @@ void sub_0809153C(PullableLeverEntity* this) {
             diff = player->y.HALF.HI - prevY;
             break;
         case 1:
-            diff = prevX - gPlayerEntity.x.HALF.HI;
+            diff = prevX - gPlayerEntity.base.x.HALF.HI;
             break;
         case 2:
-            diff = prevY - gPlayerEntity.y.HALF.HI;
+            diff = prevY - gPlayerEntity.base.y.HALF.HI;
             break;
         case 3:
-            diff = gPlayerEntity.x.HALF.HI - prevX;
+            diff = gPlayerEntity.base.x.HALF.HI - prevX;
             break;
     }
     radius = (diff << 0x18);

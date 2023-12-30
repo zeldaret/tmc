@@ -54,7 +54,7 @@ void ObjectA8(ObjectA8Entity* this) {
             case 0x1e:
             case 0x1f:
                 super->action = 5;
-                super->child = &gPlayerEntity;
+                super->child = &gPlayerEntity.base;
                 CreateItemEntity(super->type, 0, 0);
                 DeleteThisEntity();
         }
@@ -130,7 +130,7 @@ void ObjectA8_Action2Subaction2(ObjectA8Entity* this) {
         if (sub_0806F3E4(super)) {
             super->flags &= ~ENT_COLLIDE;
             super->action = 5;
-            super->child = &gPlayerEntity;
+            super->child = &gPlayerEntity.base;
             GiveItem(super->type, 0);
         }
     }
@@ -174,7 +174,7 @@ void ObjectA8_Action4(ObjectA8Entity* this) {
     } else {
         CopyPosition(super->child, super);
         super->z.HALF.HI--;
-        if (IsColliding(super, &gPlayerEntity)) {
+        if (IsColliding(super, &gPlayerEntity.base)) {
             sub_0809FECC(this);
             GiveItem(super->type, 0);
         }
@@ -238,7 +238,7 @@ bool32 sub_0809FE9C(ObjectA8Entity* this) {
 }
 
 void sub_0809FECC(ObjectA8Entity* this) {
-    super->child = &gPlayerEntity;
+    super->child = &gPlayerEntity.base;
     super->action = 5;
     super->subAction = 0;
 }

@@ -717,7 +717,7 @@ void FigurineDevice_NoFigurinesLeftMessage(void) {
         gMessage.rupees = 5;
     }
 #ifndef EU
-    gPlayerEntity.animationState = 6;
+    gPlayerEntity.base.animationState = 6;
 #endif
 }
 
@@ -794,9 +794,9 @@ void sub_0808861C(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
     // If I understand this correctly then it checks if the player is at the lever
     context->condition = CheckPlayerInRegion(168, 84, 12, 8);
 #ifdef JP
-    if ((gPlayerEntity.animationState != 0)) {
+    if ((gPlayerEntity.base.animationState != 0)) {
 #else
-    if ((gPlayerEntity.animationState != 0) || (gPlayerEntity.z.HALF.HI != 0)) {
+    if ((gPlayerEntity.base.animationState != 0) || (gPlayerEntity.base.z.HALF.HI != 0)) {
 #endif
         context->condition = 0;
     }
@@ -806,7 +806,7 @@ void sub_0808861C(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
 #if !defined(JP)
 void sub_08088658(FigurineDeviceEntity* this, ScriptExecutionContext* context) {
     context->condition = CheckPlayerInRegion(120, 120, 16, 8); // And this is if the player is at the door
-    if (gPlayerEntity.z.HALF.HI != 0) {
+    if (gPlayerEntity.base.z.HALF.HI != 0) {
         context->condition = 0;
     }
     gActiveScriptInfo.flags |= 1;

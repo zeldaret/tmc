@@ -16,5 +16,5 @@ void Vaati3PlayerObject(Entity* this) {
 #ifndef EU
     gRoomControls.camera_target = this;
 #endif
-    PositionRelative(&gPlayerEntity, this, 0, Q_16_16(-40.0));
+    PositionRelative(&gPlayerEntity.base, this, 0, Q_16_16(-40.0));
 }

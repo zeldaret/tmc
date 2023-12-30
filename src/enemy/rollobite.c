@@ -152,17 +152,17 @@ void sub_08020874(RollobiteEntity* this) {
 void sub_0802088C(RollobiteEntity* this) {
     super->subAction = 1;
     COLLISION_OFF(super);
-    this->unk_85 = gPlayerEntity.animationState;
+    this->unk_85 = gPlayerEntity.base.animationState;
     super->spritePriority.b1 = 0;
 }
 
 void sub_080208B4(RollobiteEntity* this) {
-    s8 uVar1 = (this->unk_85 - gPlayerEntity.animationState) / 2;
+    s8 uVar1 = (this->unk_85 - gPlayerEntity.base.animationState) / 2;
     if (uVar1) {
         super->animationState = (super->animationState + uVar1) & 3;
         InitializeAnimation(super, super->animationState + 0x10);
     }
-    this->unk_85 = gPlayerEntity.animationState;
+    this->unk_85 = gPlayerEntity.base.animationState;
 }
 
 void sub_080208F0(RollobiteEntity* this) {

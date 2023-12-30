@@ -311,7 +311,7 @@ void BusinessScrub_Action5(BusinessScrubEntity* this) {
 }
 
 void BusinessScrub_Action6(BusinessScrubEntity* this) {
-    if (gPlayerEntity.action == PLAYER_ITEMGET) {
+    if (gPlayerEntity.base.action == PLAYER_ITEMGET) {
         if (this->unk_81 == 0) {
             SetPlayerControl(1);
             this->unk_81 = 1;

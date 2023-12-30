@@ -281,8 +281,8 @@ void VaatiRebornEnemyType0Action2(VaatiRebornEnemyEntity* this) {
             if ((super->frame & ANIM_DONE) != 0) {
                 super->spriteSettings.draw = 1;
                 if (4 < this->unk_81) {
-                    super->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-                    super->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0x18;
+                    super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
+                    super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI - 0x18;
                 }
                 if (--this->unk_77 == 0) {
                     super->action = 1;
@@ -364,7 +364,7 @@ void VaatiRebornEnemyType0Action4(VaatiRebornEnemyEntity* this) {
         if ((super->frame & 0x10) != 0) {
             super->frame &= 0xef;
             if (this->unk_84 == 0xff) {
-                index = Direction8RoundUp(GetFacingDirection(super, &gPlayerEntity));
+                index = Direction8RoundUp(GetFacingDirection(super, &gPlayerEntity.base));
                 this->unk_84 = gUnk_080D04C0[index >> 2];
                 super->subtimer = 0;
             }
@@ -410,7 +410,7 @@ void VaatiRebornEnemyType0Action5(VaatiRebornEnemyEntity* this) {
                 if (!((this->unk_86 < 2) || (3 < this->unk_87)) && (Random() & 0x10) != 0) {
                     this->unk_87++;
                     super->subtimer = (Random() & 0x3f) + 64;
-                    uVar3 = GetFacingDirection(super, &gPlayerEntity);
+                    uVar3 = GetFacingDirection(super, &gPlayerEntity.base);
                     super->direction = (uVar3 & 0x10) | DirectionEast;
                 } else {
                     this->unk_74++;
@@ -903,15 +903,15 @@ u32 sub_0803E028(VaatiRebornEnemyEntity* this) {
         return ret;
     }
     tmp = gRoomControls.origin_x + 0x58;
-    if (tmp > gPlayerEntity.x.HALF.HI) {
+    if (tmp > gPlayerEntity.base.x.HALF.HI) {
         return ret;
     }
     tmp = gRoomControls.origin_y + 0x58;
-    if (tmp > gPlayerEntity.x.HALF.HI) {
+    if (tmp > gPlayerEntity.base.x.HALF.HI) {
         return ret;
     }
     tmp = gRoomControls.origin_y + 0xf8;
-    if (tmp >= gPlayerEntity.x.HALF.HI) {
+    if (tmp >= gPlayerEntity.base.x.HALF.HI) {
         this->unk_81 += 5;
         ret = 1;
     }

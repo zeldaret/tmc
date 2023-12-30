@@ -83,7 +83,7 @@ void sub_0802BC74(HelmasaurEntity* this) {
     sub_0802C1C0(this);
     super->subAction = 1;
     super->gustJarTolerance = 60;
-    super->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
+    super->animationState = AnimationStateFlip90(gPlayerEntity.base.animationState >> 1);
     InitializeAnimation(super, super->animationState);
 }
 

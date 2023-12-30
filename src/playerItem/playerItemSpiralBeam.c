@@ -31,10 +31,10 @@ void PlayerItemSpiralBeam(PlayerItemSpiralBeamEntity* this) {
 
 void PlayerItemSpiralBeam_Init(PlayerItemSpiralBeamEntity* this) {
     static const Hitbox gUnk_08109AD0 = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
-    CopyPosition(&gPlayerEntity, super);
+    CopyPosition(&gPlayerEntity.base, super);
     super->action++;
     super->spriteSettings.draw = TRUE;
-    super->collisionFlags = gPlayerEntity.collisionFlags + 1;
+    super->collisionFlags = gPlayerEntity.base.collisionFlags + 1;
     super->hitbox = (Hitbox*)&gUnk_08109AD0;
     super->speed = 0x380;
     super->animationState = super->animationState & 0x7f;
@@ -58,7 +58,7 @@ void PlayerItemSpiralBeam_Action1(PlayerItemSpiralBeamEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if (!sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) &&
+        if (!sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) &&
             sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI)) {
             CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();

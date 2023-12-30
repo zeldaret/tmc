@@ -33,7 +33,7 @@ void PlayerItemGustJar(Entity* this) {
         DeleteThisEntity();
     }
     PlayerItemGustJar_Actions[this->action](this);
-    sub_08078E84(this, &gPlayerEntity);
+    sub_08078E84(this, &gPlayerEntity.base);
 }
 
 void PlayerItemGustJar_Init(Entity* this) {
@@ -65,10 +65,10 @@ void PlayerItemGustJar_Action2(Entity* this) {
 
     if (gPlayerState.field_0x1c == 3) {
         this->action++;
-        InitAnimationForceUpdate(this, (gPlayerEntity.animationState >> 1) + 8);
+        InitAnimationForceUpdate(this, (gPlayerEntity.base.animationState >> 1) + 8);
     } else if (gPlayerState.field_0x1c == 6) {
         this->action = 4;
-        InitAnimationForceUpdate(this, (gPlayerEntity.animationState >> 1) + 4);
+        InitAnimationForceUpdate(this, (gPlayerEntity.base.animationState >> 1) + 4);
     } else {
         windSound = 0;
         if (this->type != 0) {
@@ -121,7 +121,7 @@ void PlayerItemGustJar_Action2(Entity* this) {
             }
             this->subtimer = 15;
         }
-        this->frameIndex = gPlayerEntity.frameIndex - (gPlayerEntity.frame & 0x7f);
+        this->frameIndex = gPlayerEntity.base.frameIndex - (gPlayerEntity.base.frame & 0x7f);
     }
 }
 
@@ -129,7 +129,7 @@ void PlayerItemGustJar_Action3(Entity* this) {
     switch (gPlayerState.field_0x1c & 0xf) {
         case 6:
             this->action++;
-            InitAnimationForceUpdate(this, (gPlayerEntity.animationState >> 1) + 4);
+            InitAnimationForceUpdate(this, (gPlayerEntity.base.animationState >> 1) + 4);
             break;
         case 1:
             sub_080ADCA0(this, 0);
@@ -150,11 +150,11 @@ void PlayerItemGustJar_Action4(Entity* this) {
 }
 
 void sub_080ADC84(Entity* this) {
-    this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
+    this->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
 }
 
 void sub_080ADCA0(Entity* this, u32 param_2) {
-    const u8* pFVar1 = gUnk_08132714[(param_2 + (gPlayerEntity.animationState >> 1))];
+    const u8* pFVar1 = gUnk_08132714[(param_2 + (gPlayerEntity.base.animationState >> 1))];
     const u8* pFVar2;
 
     this->animPtr = (void*)pFVar1;

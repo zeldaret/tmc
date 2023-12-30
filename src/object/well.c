@@ -40,8 +40,8 @@ void Well_Action1(WellEntity* this) {
     u32 tileIndex = GetTileType(this->unk_80, 1);
     if (tileIndex != 0x407D) {
         PausePlayer();
-        gPlayerEntity.x.WORD = super->x.WORD;
-        gPlayerEntity.y.HALF.HI = super->y.HALF.HI + 4;
+        gPlayerEntity.base.x.WORD = super->x.WORD;
+        gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI + 4;
         DeleteThisEntity();
     }
 }

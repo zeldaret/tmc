@@ -250,8 +250,8 @@ void Lakitu_Cloudless(LakituEntity* this) {
 }
 
 bool32 sub_0803CA4C(LakituEntity* this) {
-    if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
-        if (EntityInRectRadius(super, &gPlayerEntity, 0x70, 0x50)) {
+    if (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x28) == 0) {
+        if (EntityInRectRadius(super, &gPlayerEntity.base, 0x70, 0x50)) {
             return TRUE;
         }
     }
@@ -260,7 +260,7 @@ bool32 sub_0803CA4C(LakituEntity* this) {
 }
 
 void sub_0803CA84(LakituEntity* this, u32 unkParameter) {
-    u32 altAnimState = GetFacingDirection(super, &gPlayerEntity);
+    u32 altAnimState = GetFacingDirection(super, &gPlayerEntity.base);
 
     if (((altAnimState - 3) & 7) > 2 || ((super->animationState - (altAnimState >> 3)) & 3) > 1) {
         altAnimState = DirectionRoundUp(altAnimState) >> 3;
@@ -304,7 +304,7 @@ void sub_0803CB34(LakituEntity* this) {
     super->action = LIGHTNING_THROW;
     super->hitType = 0xa6;
 
-    this->unk_78 = GetFacingDirection(super, &gPlayerEntity);
+    this->unk_78 = GetFacingDirection(super, &gPlayerEntity.base);
 
     InitAnimationForceUpdate(super, super->animationState + 8);
 }

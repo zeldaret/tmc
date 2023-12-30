@@ -42,13 +42,13 @@ void LilypadSmall(LilypadSmallEntity* this) {
 static bool32 CheckMovePlayer(LilypadSmallEntity* this) {
     if (!(gPlayerState.flags & PL_MINISH)) {
         return FALSE;
-    } else if (EntityInRectRadius(super, &gPlayerEntity, 8, 8) == 0) {
+    } else if (EntityInRectRadius(super, &gPlayerEntity.base, 8, 8) == 0) {
         return FALSE;
     } else if (!PlayerCanBeMoved()) {
         return FALSE;
     } else {
         gPlayerState.field_0x14 = 1;
-        if (gPlayerEntity.z.HALF.HI != 0) {
+        if (gPlayerEntity.base.z.HALF.HI != 0) {
             return FALSE;
         } else {
             return TRUE;

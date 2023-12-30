@@ -1,4 +1,3 @@
-#define ENT_DEPRECATED
 #include "beanstalkSubtask.h"
 
 #include "backgroundAnimations.h"
@@ -174,7 +173,7 @@ u32 UpdatePlayerCollision(void) {
     s32 framestate;
     u32 tmp2;
     u32 tmp3;
-    // There are some weird assignment necessary to access gPlayerEntity.animationState correctly.
+    // There are some weird assignment necessary to access gPlayerEntity.base.animationState correctly.
     u32 animationState1;
     u32 animationState2;
     u32 animationState3;
@@ -194,40 +193,40 @@ u32 UpdatePlayerCollision(void) {
             return 0;
     }
 
-    if (gPlayerState.dash_state != 0 || gPlayerEntity.action == PLAYER_CLIMB) {
-        direction = gPlayerEntity.direction;
+    if (gPlayerState.dash_state != 0 || gPlayerEntity.base.action == PLAYER_CLIMB) {
+        direction = gPlayerEntity.base.direction;
     } else {
         direction = gPlayerState.direction;
     }
     if (((direction & (DIR_NOT_MOVING_CHECK | 0x3)) == 0) && (gPlayerState.field_0xa == 0)) {
-        index = sub_0807BDB8(&gPlayerEntity, direction >> 2);
+        index = sub_0807BDB8(&gPlayerEntity.base, direction >> 2);
         if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
             ptr1 = &gUnk_080B4490[index * 2];
-            if (sub_080B1B44(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]), gPlayerEntity.collisionLayer) ==
-                0xff) {
+            if (sub_080B1B44(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr1[0], -ptr1[1]),
+                             gPlayerEntity.base.collisionLayer) == 0xff) {
                 if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) ||
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
-                    ((sub_080806BC(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
-                                   gPlayerEntity.y.HALF.HI - gRoomControls.origin_y, index, 5) == 0 &&
+                    ((sub_080806BC(gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x,
+                                   gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y, index, 5) == 0 &&
                       (((gPlayerState.heldObject != 0 || ((gPlayerState.field_0x1c & 0xf) != 0)) ||
-                        (sub_0807BD14(&gPlayerEntity, index) == 0)))))) {
+                        (sub_0807BD14(&gPlayerEntity.base, index) == 0)))))) {
                     return 3;
                 }
-                gPlayerEntity.direction = (index << 3);
+                gPlayerEntity.base.direction = (index << 3);
                 return 0xf;
             }
         }
     }
-    layer = GetLayerByIndex(gPlayerEntity.collisionLayer);
-    ptr1 = &gUnk_080B4468[gPlayerEntity.animationState & 6];
-    position = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr1[0], -ptr1[1]);
-    tileType = GetTileType(position, gPlayerEntity.collisionLayer);
+    layer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
+    ptr1 = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
+    position = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr1[0], -ptr1[1]);
+    tileType = GetTileType(position, gPlayerEntity.base.collisionLayer);
     if (tileType < 0x4000) {
         direction = sub_080B1B54(tileType);
     } else {
         direction = tileType;
     }
-    animationState1 = gPlayerEntity.animationState;
+    animationState1 = gPlayerEntity.base.animationState;
     animationState2 = animationState1 & 0xff;
 
     switch (direction) {
@@ -235,7 +234,7 @@ u32 UpdatePlayerCollision(void) {
             if (sub_0801A458(layer, position, 2) == 0) {
                 return 0;
             }
-            layer->mapData[position] = 0x4001 + (gPlayerEntity.animationState >> 1);
+            layer->mapData[position] = 0x4001 + (gPlayerEntity.base.animationState >> 1);
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 gPlayerState.pushedObject = 0xc0;
             } else {
@@ -243,42 +242,42 @@ u32 UpdatePlayerCollision(void) {
             }
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x28:
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 return 0;
             }
-            gPlayerEntity.action = gPlayerEntity.action;
+            gPlayerEntity.base.action = gPlayerEntity.base.action;
             if (gPlayerState.field_0xa != 0) {
                 return 0;
             }
-            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction !=
+            if ((Direction8FromAnimationState(gPlayerEntity.base.animationState)) - gPlayerState.direction !=
                 DirectionNorth) {
                 return 0;
             }
-            if ((gPlayerEntity.direction & DIR_NOT_MOVING_CHECK) != 0) {
+            if ((gPlayerEntity.base.direction & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
-            if (sub_080B1B44(position, gPlayerEntity.collisionLayer) != 0xf) {
+            if (sub_080B1B44(position, gPlayerEntity.base.collisionLayer) != 0xf) {
                 return 0;
             }
             if (sub_08079778() == 0) {
                 return 0;
             }
 
-            ptr1 = &gUnk_080B4478[gPlayerEntity.animationState & 6];
-            transition = sub_08080734((gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) + ptr1[0],
-                                      (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) + ptr1[1]);
+            ptr1 = &gUnk_080B4478[gPlayerEntity.base.animationState & 6];
+            transition = sub_08080734((gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x) + ptr1[0],
+                                      (gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) + ptr1[1]);
             if (transition == NULL) {
                 return 0;
             }
-            if ((gPlayerEntity.animationState & 2) != 0) {
-                gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + transition->startY + 6;
+            if ((gPlayerEntity.base.animationState & 2) != 0) {
+                gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + transition->startY + 6;
             } else {
-                gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + transition->startX;
+                gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + transition->startX;
             }
             sub_08078AC0(4, 0, 1);
             return 0;
@@ -286,18 +285,18 @@ u32 UpdatePlayerCollision(void) {
             if (sub_0801A2B0(layer, position, 0xb) == 0) {
                 return 0;
             }
-            layer->mapData[position] = 0x401c + (gPlayerEntity.animationState >> 1);
+            layer->mapData[position] = 0x401c + (gPlayerEntity.base.animationState >> 1);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
-            gPlayerEntity.type = 1;
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
+            gPlayerEntity.base.type = 1;
             return 1;
         case 0x70:
             if ((gPlayerState.field_0x35 & 0x80) == 0) {
-                if ((gPlayerEntity.frame & 1) != 0) {
+                if ((gPlayerEntity.base.frame & 1) != 0) {
                     if (sub_0801A9F0(gPlayerState.field_0x35 << 2, tileType, position) != 0) {
                         return 1;
                     }
@@ -310,7 +309,7 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.flags & PL_MINISH) {
                 return 0;
             }
-            if (gPlayerEntity.animationState != IdleNorth) {
+            if (gPlayerEntity.base.animationState != IdleNorth) {
                 return 0;
             }
             gUnk_0200AF00.rActionInteractTile = R_ACTION_READ;
@@ -318,7 +317,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             gPlayerState.mobility = 1;
-            sub_080A7CFC(position, gPlayerEntity.collisionLayer);
+            sub_080A7CFC(position, gPlayerEntity.base.collisionLayer);
             return 1;
         case 0x1a:
             if ((animationState1 & 0xff) != 0) {
@@ -332,7 +331,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             gPlayerState.mobility = 1;
-            OpenSmallChest(position, gPlayerEntity.collisionLayer);
+            OpenSmallChest(position, gPlayerEntity.base.collisionLayer);
             return 2;
         case 0x71:
             if (HasDungeonSmallKey() == 0) {
@@ -343,7 +342,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             gPlayerState.mobility = 1;
-            sub_0804B388(position, gPlayerEntity.collisionLayer);
+            sub_0804B388(position, gPlayerEntity.base.collisionLayer);
             return 2;
         case 0x3d:
         case 0x4040 ... 0x4048:
@@ -358,61 +357,61 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
 #endif
-            if ((Direction8FromAnimationState(gPlayerEntity.animationState)) - gPlayerState.direction !=
+            if ((Direction8FromAnimationState(gPlayerEntity.base.animationState)) - gPlayerState.direction !=
                 DirectionNorth) {
                 return 0;
             }
-            if ((gPlayerEntity.direction & 0x80) != 0) {
+            if ((gPlayerEntity.base.direction & 0x80) != 0) {
                 return 0;
             }
-            if (gPlayerEntity.subtimer < 6) {
+            if (gPlayerEntity.base.subtimer < 6) {
                 return 0;
             }
             gPlayerState.jump_status = 0x81;
             gPlayerState.flags |= PL_USE_PORTAL;
             gPlayerState.queued_action = PLAYER_USEPORTAL;
-            gPlayerEntity.zVelocity = 0x20000;
-            COLLISION_OFF(&gPlayerEntity);
+            gPlayerEntity.base.zVelocity = 0x20000;
+            COLLISION_OFF(&gPlayerEntity.base);
             return 1;
         case 0x400b:
             if (sub_0801A2B0(layer, position, 8) == 0) {
                 return 0;
             }
-            if ((gPlayerEntity.collisionLayer == 3) && (gMapTop.mapData[position] == 0x400b)) {
-                gMapTop.mapData[position] = 0x400c + (gPlayerEntity.animationState >> 1);
+            if ((gPlayerEntity.base.collisionLayer == 3) && (gMapTop.mapData[position] == 0x400b)) {
+                gMapTop.mapData[position] = 0x400c + (gPlayerEntity.base.animationState >> 1);
             } else {
-                layer->mapData[position] = 0x400c + (gPlayerEntity.animationState >> 1);
+                layer->mapData[position] = 0x400c + (gPlayerEntity.base.animationState >> 1);
             }
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x405a:
             if (sub_0801A2B0(layer, position, 2) == 0) {
                 return 0;
             }
-            layer->mapData[position] = 0x405b + (gPlayerEntity.animationState >> 1);
+            layer->mapData[position] = 0x405b + (gPlayerEntity.base.animationState >> 1);
             gPlayerState.pushedObject = 0x98;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x4036:
             if (sub_0801A2B0(layer, position, 0xb) == 0) {
                 return 0;
             }
-            layer->mapData[position] = 0x4037 + (gPlayerEntity.animationState >> 1);
+            layer->mapData[position] = 0x4037 + (gPlayerEntity.base.animationState >> 1);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x403e:
             if ((animationState1 & 0xff) != 0) {
@@ -421,25 +420,25 @@ u32 UpdatePlayerCollision(void) {
             if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
-            if ((gPlayerEntity.frame & 2) == 0) {
+            if ((gPlayerEntity.base.frame & 2) == 0) {
                 return 0;
             }
             layer->mapData[position] = 0x403f;
             gPlayerState.pushedObject = 0x82;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x72:
             if ((gPlayerState.field_0x35 & 0x80) != 0) {
                 return 0;
             }
-            if ((gPlayerEntity.frame & 1) == 0) {
+            if ((gPlayerEntity.base.frame & 1) == 0) {
                 return 0;
             }
-            position = sub_0801A570(&gPlayerEntity, 1);
+            position = sub_0801A570(&gPlayerEntity.base, 1);
             if (position == 0xffff) {
                 return 0;
             }
@@ -449,7 +448,7 @@ u32 UpdatePlayerCollision(void) {
             index = 0;
             tmp3 = 0;
             while (index < 3) {
-                if ((((*(u32*)(&(gPlayerClones[0])->field_0x6c)) & (1 << index)) != 0) &&
+                if ((((*(u32*)(&(((GenericEntity*)gPlayerClones[0]))->field_0x6c)) & (1 << index)) != 0) &&
                     (sub_0801A570(gPlayerClones[index], 0) == position)) {
                     tmp3++;
                 }
@@ -462,20 +461,20 @@ u32 UpdatePlayerCollision(void) {
             if (pushedBlock == NULL) {
                 return 0;
             }
-            pushedBlock->direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            pushedBlock->direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             pushedBlock->x.HALF.HI = ((position & 0xfff & 0x3f) << 4) + 8 + gRoomControls.origin_x;
             pushedBlock->y.HALF.HI = ((position & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
-            pushedBlock->collisionLayer = gPlayerEntity.collisionLayer;
+            pushedBlock->collisionLayer = gPlayerEntity.base.collisionLayer;
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = pushedBlock->direction;
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = pushedBlock->direction;
             return 1;
         case 0x402b ... 0x402d:
             if (sub_0801A370(layer, position) != 0) {
-                layer->mapData[position] = 0x4030 + ((gPlayerEntity.animationState & 4) >> 2);
+                layer->mapData[position] = 0x4030 + ((gPlayerEntity.base.animationState & 4) >> 2);
                 if ((gPlayerState.flags & PL_MINISH) != 0) {
                     gPlayerState.pushedObject = 0xa0;
                 } else {
@@ -483,9 +482,9 @@ u32 UpdatePlayerCollision(void) {
                 }
                 gPlayerState.queued_action = PLAYER_PUSH;
                 gPlayerState.flags |= PL_BUSY;
-                gPlayerEntity.x.HALF.LO = 0;
-                gPlayerEntity.y.HALF.LO = 0;
-                gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+                gPlayerEntity.base.x.HALF.LO = 0;
+                gPlayerEntity.base.y.HALF.LO = 0;
+                gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
                 return 1;
             } else {
                 return 0;
@@ -494,7 +493,7 @@ u32 UpdatePlayerCollision(void) {
             if (sub_0801A458(layer, position, 8) == 0) {
                 return 0;
             }
-            layer->mapData[position] = 0x404b + (gPlayerEntity.animationState >> 1);
+            layer->mapData[position] = 0x404b + (gPlayerEntity.base.animationState >> 1);
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 gPlayerState.pushedObject = 0xc0;
             } else {
@@ -502,21 +501,21 @@ u32 UpdatePlayerCollision(void) {
             }
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x4052:
             if (gPlayerState.field_0x35 != 0) {
                 return 0;
             }
-            SetTile(0x4054, position, gPlayerEntity.collisionLayer);
+            SetTile(0x4054, position, gPlayerEntity.base.collisionLayer);
             return 4;
         case 0x4053:
             if (gPlayerState.field_0x35 != 6) {
                 return 0;
             }
-            SetTile(0x4054, position, gPlayerEntity.collisionLayer);
+            SetTile(0x4054, position, gPlayerEntity.base.collisionLayer);
             return 4;
         case 0x4055:
             position--;
@@ -525,12 +524,12 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.field_0x35 != 0) {
                 return 0;
             }
-            if ((gPlayerEntity.y.HALF.HI & 0xf) < 10) {
+            if ((gPlayerEntity.base.y.HALF.HI & 0xf) < 10) {
                 return 0;
             }
             for (index = 0; index < 3; index++) {
                 if (sub_0801A8D0(gPlayerClones[index], 0) == position) {
-                    SetTile(0x4059, position, gPlayerEntity.collisionLayer);
+                    SetTile(0x4059, position, gPlayerEntity.base.collisionLayer);
                     return 4;
                 }
             }
@@ -542,12 +541,12 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.field_0x35 != 6) {
                 return 0;
             }
-            if ((gPlayerEntity.x.HALF.HI & 0xf) < 10) {
+            if ((gPlayerEntity.base.x.HALF.HI & 0xf) < 10) {
                 return 0;
             }
             for (index = 0; index < 3; index++) {
                 if (sub_0801A8D0(gPlayerClones[index], 6) == position) {
-                    SetTile(0x4059, position, gPlayerEntity.collisionLayer);
+                    SetTile(0x4059, position, gPlayerEntity.base.collisionLayer);
                     return 4;
                 }
             }
@@ -561,30 +560,30 @@ u32 UpdatePlayerCollision(void) {
             if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
-            if ((gPlayerEntity.frame & 1) == 0) {
+            if ((gPlayerEntity.base.frame & 1) == 0) {
                 return 0;
             }
-            SetTile(0x4074, position, gPlayerEntity.collisionLayer);
+            SetTile(0x4074, position, gPlayerEntity.base.collisionLayer);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
-            gPlayerEntity.x.HALF.LO = 0;
-            gPlayerEntity.y.HALF.LO = 0;
-            gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            gPlayerEntity.base.x.HALF.LO = 0;
+            gPlayerEntity.base.y.HALF.LO = 0;
+            gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
         case 0x407d:
-            animationState3 = gPlayerEntity.animationState;
+            animationState3 = gPlayerEntity.base.animationState;
             if ((animationState2) != 4) {
                 return 0;
             }
             if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
                 return 0;
             }
-            if ((gPlayerEntity.frame & 1) == 0) {
+            if ((gPlayerEntity.base.frame & 1) == 0) {
                 return 0;
             }
-            SetTile(0x4074, position, gPlayerEntity.collisionLayer);
-            sub_080001D0(0xd, position, gPlayerEntity.collisionLayer);
+            SetTile(0x4074, position, gPlayerEntity.base.collisionLayer);
+            sub_080001D0(0xd, position, gPlayerEntity.base.collisionLayer);
             return 1;
         default:
             return 0;
@@ -597,11 +596,11 @@ bool32 sub_0801A2B0(LayerStruct* layer, u32 position, u32 collisionType) {
     s16 y;
     u16 temp4;
 
-    uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
+    uVar1 = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     if ((((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) == 0) &&
-        ((gPlayerEntity.frame & 1) != 0)) {
+        ((gPlayerEntity.base.frame & 1) != 0)) {
         position = (u16)(position - (-uVar1)); // necessary for match
-        temp4 = sub_080B1B54(GetTileType(position, gPlayerEntity.collisionLayer));
+        temp4 = sub_080B1B54(GetTileType(position, gPlayerEntity.base.collisionLayer));
         switch (temp4) {
             case 0x52:
                 break;
@@ -633,16 +632,16 @@ bool32 sub_0801A370(LayerStruct* layer, u32 position) {
     s32 offset;
     s32 temp;
 
-    if ((gPlayerEntity.animationState & 2) == 0) {
+    if ((gPlayerEntity.base.animationState & 2) == 0) {
         return FALSE;
     }
     if (!sub_0801A4F8()) {
         return FALSE;
     }
     topLayer = GetLayerByIndex(2);
-    offset = gUnk_080B4488[gPlayerEntity.animationState >> 1];
+    offset = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     pos = position + offset;
-    tileType = GetTileType(pos, gPlayerEntity.collisionLayer);
+    tileType = GetTileType(pos, gPlayerEntity.base.collisionLayer);
     switch (tileType) {
         case 0x402b:
             pos += offset;
@@ -653,7 +652,7 @@ bool32 sub_0801A370(LayerStruct* layer, u32 position) {
     if (topLayer->collisionData[pos - 0x80] == 0x46) {
         return FALSE;
     }
-    switch ((u16)sub_080B1B54(GetTileType(pos, gPlayerEntity.collisionLayer))) {
+    switch ((u16)sub_080B1B54(GetTileType(pos, gPlayerEntity.base.collisionLayer))) {
         case 0x52:
             return FALSE;
         case 0x26:
@@ -686,10 +685,10 @@ bool32 sub_0801A370(LayerStruct* layer, u32 position) {
 bool32 sub_0801A458(LayerStruct* layer, u32 position, u32 collisionType) {
     u32 tileType;
     u32 pos;
-    s32 offset = gUnk_080B4488[gPlayerEntity.animationState >> 1];
+    s32 offset = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     if (sub_0801A4F8()) {
         pos = position + offset;
-        tileType = GetTileType(pos, gPlayerEntity.collisionLayer);
+        tileType = GetTileType(pos, gPlayerEntity.base.collisionLayer);
         switch (sub_080B1B54(tileType)) {
             case 0x52:
             case 0x26:
@@ -719,18 +718,18 @@ bool32 sub_0801A4F8(void) {
         if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) != 0) {
             return FALSE;
         }
-        if (gPlayerState.direction != gPlayerEntity.direction) {
+        if (gPlayerState.direction != gPlayerEntity.base.direction) {
             return FALSE;
         }
-        tmp = (((gPlayerEntity.direction + 4) & DirectionWest) >> 3);
-        if ((gUnk_080B44A0[tmp] & gPlayerEntity.collisions) == 0) {
+        tmp = (((gPlayerEntity.base.direction + 4) & DirectionWest) >> 3);
+        if ((gUnk_080B44A0[tmp] & gPlayerEntity.base.collisions) == 0) {
             return FALSE;
         }
     } else {
         if (((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) != 0) {
             return FALSE;
         }
-        if ((gPlayerEntity.frame & 1) == 0) {
+        if ((gPlayerEntity.base.frame & 1) == 0) {
             return FALSE;
         }
     }
@@ -931,9 +930,10 @@ u32 sub_0801A8D0(Entity* this, u32 param_2) {
 bool32 sub_0801A980(void) {
     u16 tileType;
     const s16* ptr;
-    GetLayerByIndex(gPlayerEntity.collisionLayer);
-    ptr = &gUnk_080B44A8[gPlayerEntity.animationState & 6];
-    tileType = GetTileType(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), gPlayerEntity.collisionLayer);
+    GetLayerByIndex(gPlayerEntity.base.collisionLayer);
+    ptr = &gUnk_080B44A8[gPlayerEntity.base.animationState & 6];
+    tileType =
+        GetTileType(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), gPlayerEntity.base.collisionLayer);
     if (tileType < 0x4000) {
         sub_080B1B54(tileType);
     }
@@ -971,7 +971,7 @@ bool32 sub_0801A9F0(u32 param_1, u32 param_2, u32 param_3) {
     }
 
     if (cond) {
-        return sub_0801AA58(&gPlayerEntity, param_3, param_1);
+        return sub_0801AA58(&gPlayerEntity.base, param_3, param_1);
     }
 
     return FALSE;

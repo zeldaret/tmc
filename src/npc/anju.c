@@ -25,8 +25,8 @@ void Anju(AnjuEntity* this) {
             if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
-                InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
-                                                                         GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(GetFacingDirection(
+                                                                         super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);

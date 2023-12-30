@@ -24,9 +24,9 @@ void Object70_Init(Entity* this) {
     this->frameIndex = this->type + 0xb;
     if (this->type != 0) {
         sub_08004168(this);
-        gPlayerEntity.spriteOrientation.flipY = 3;
-        if ((gPlayerEntity.spritePriority.b0) != 7) {
-            this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 + 1;
+        gPlayerEntity.base.spriteOrientation.flipY = 3;
+        if ((gPlayerEntity.base.spritePriority.b0) != 7) {
+            this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 + 1;
         } else {
             this->spritePriority.b0 = 7;
         }
@@ -36,23 +36,23 @@ void Object70_Init(Entity* this) {
 void Object70_Action1(Entity* this) {
 
     if (this->type == 0) {
-        if (gPlayerEntity.z.WORD != 0 || (gPlayerState.dash_state & 0x40) != 0 ||
+        if (gPlayerEntity.base.z.WORD != 0 || (gPlayerState.dash_state & 0x40) != 0 ||
             gPlayerState.floor_type != SURFACE_SWAMP ||
-            (gPlayerEntity.action != PLAYER_NORMAL && gPlayerEntity.action != PLAYER_ROLL &&
-             gPlayerEntity.action != PLAYER_JUMP)) {
-            if (gPlayerEntity.z.WORD == 0) {
-                CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
+            (gPlayerEntity.base.action != PLAYER_NORMAL && gPlayerEntity.base.action != PLAYER_ROLL &&
+             gPlayerEntity.base.action != PLAYER_JUMP)) {
+            if (gPlayerEntity.base.z.WORD == 0) {
+                CreateFx(&gPlayerEntity.base, FX_GREEN_SPLASH, 0);
             }
 
-            gPlayerEntity.spriteOrientation.flipY = 2;
+            gPlayerEntity.base.spriteOrientation.flipY = 2;
             DeleteThisEntity();
         }
-        this->x = gPlayerEntity.x;
-        this->y = gPlayerEntity.y;
+        this->x = gPlayerEntity.base.x;
+        this->y = gPlayerEntity.base.y;
         if (gPlayerState.jump_status == 0) {
-            gPlayerEntity.spriteOrientation.flipY = 3;
-            if (gPlayerEntity.spritePriority.b0 != 7) {
-                this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 + 1;
+            gPlayerEntity.base.spriteOrientation.flipY = 3;
+            if (gPlayerEntity.base.spritePriority.b0 != 7) {
+                this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 + 1;
             } else {
                 this->spritePriority.b0 = 7;
             }
@@ -60,11 +60,11 @@ void Object70_Action1(Entity* this) {
         return;
     }
 
-    if (gPlayerEntity.action != PLAYER_USEENTRANCE) {
+    if (gPlayerEntity.base.action != PLAYER_USEENTRANCE) {
         if (this->collisionLayer == 1) {
-            gPlayerEntity.spriteOrientation.flipY = 2;
+            gPlayerEntity.base.spriteOrientation.flipY = 2;
         } else {
-            gPlayerEntity.spriteOrientation.flipY = 1;
+            gPlayerEntity.base.spriteOrientation.flipY = 1;
         }
         DeleteThisEntity();
     }

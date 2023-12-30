@@ -1,4 +1,3 @@
-#define ENT_DEPRECATED
 #include "functions.h"
 #include "gba/m4a.h"
 #include "global.h"
@@ -237,7 +236,7 @@ static void HandlePlayerLife(Entity* this) {
     gUnk_0200AF00.rActionInteractTile = R_ACTION_NONE;
     gUnk_0200AF00.rActionGrabbing = R_ACTION_NONE;
 
-    if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
+    if ((gPlayerEntity.base.contactFlags & 0x80) && (gPlayerEntity.base.iframes > 0))
         SoundReq(SFX_86);
 
     gPlayerState.flags &= ~(PL_FALLING | PL_CONVEYOR_PUSHED);
@@ -320,15 +319,15 @@ static void sub_080171F0(void) {
         ResetActiveItems();
     if (gPlayerState.field_0x14 != 0)
         gPlayerState.field_0x14--;
-    if (gPlayerEntity.field_0x7a.HWORD != 0)
-        gPlayerEntity.field_0x7a.HWORD--;
+    if (gPlayerEntity.unk_7a != 0)
+        gPlayerEntity.unk_7a--;
 
-    gPlayerEntity.contactFlags &= ~0x80;
-    if (gPlayerEntity.action != PLAYER_DROWN)
+    gPlayerEntity.base.contactFlags &= ~0x80;
+    if (gPlayerEntity.base.action != PLAYER_DROWN)
         COPY_FLAG_FROM_TO(gPlayerState.flags, 0x2, 0x10000);
 
     gPlayerState.flags &= ~PL_FLAGS2;
-    sub_080028E0(&gPlayerEntity);
+    sub_080028E0(&gPlayerEntity.base);
 
     if (gPlayerState.flags & PL_CLONING)
         gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
@@ -341,23 +340,23 @@ static void sub_080171F0(void) {
     gPlayerState.speed_modifier = 0;
     gPlayerState.attachedBeetleCount = 0;
     MemClear(&gCarriedEntity, sizeof(gCarriedEntity));
-    gPlayerEntity.spriteOffsetY = gPlayerState.spriteOffsetY;
+    gPlayerEntity.base.spriteOffsetY = gPlayerState.spriteOffsetY;
     gPlayerState.spriteOffsetY = 0;
     sub_0807B0C8();
 
     if (gPlayerState.flags & PL_CLONING)
         gPlayerClones[0]->spriteOffsetY = gPlayerClones[1]->spriteOffsetY = gPlayerClones[2]->spriteOffsetY = 0;
 
-    if (gPlayerEntity.action == PLAYER_CLIMB)
+    if (gPlayerEntity.base.action == PLAYER_CLIMB)
         gPlayerState.flags |= PL_CLIMBING;
     else
         gPlayerState.flags &= ~PL_CLIMBING;
 
-    sub_0807A8D8(&gPlayerEntity);
+    sub_0807A8D8(&gPlayerEntity.base);
     if (gPlayerState.jump_status & 0xc0)
-        gPlayerEntity.iframes = 0xfe;
+        gPlayerEntity.base.iframes = 0xfe;
 
-    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {
-        sub_08077FEC(gPlayerEntity.action);
+    if (gPlayerEntity.base.action != PLAYER_ROOMTRANSITION) {
+        sub_08077FEC(gPlayerEntity.base.action);
     }
 }

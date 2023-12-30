@@ -8,7 +8,6 @@
 #include "entity.h"
 #include "functions.h"
 #include "global.h"
-#include "new_player.h"
 #include "player.h"
 #include "sound.h"
 
@@ -67,14 +66,14 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
     u8 uVar2;
     Entity* pEVar3;
 
-    this->unk_84 = super->x.WORD = gPlayerEntity.x.WORD;
-    this->unk_80 = super->y.WORD = gPlayerEntity.y.WORD;
-    uVar2 = super->animationState = gPlayerEntity.animationState & 0xe;
+    this->unk_84 = super->x.WORD = gPlayerEntity.base.x.WORD;
+    this->unk_80 = super->y.WORD = gPlayerEntity.base.y.WORD;
+    uVar2 = super->animationState = gPlayerEntity.base.animationState & 0xe;
     super->direction = (u8)(uVar2 << 2);
     super->speed = 0x400;
     super->hitType = 0x96;
-    super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x80;
-    super->flags2 = gPlayerEntity.flags2;
+    super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x80;
+    super->flags2 = gPlayerEntity.base.flags2;
     pEVar3 = super->child;
     if (pEVar3 != NULL) {
         super->action = 1;
@@ -99,9 +98,9 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
         super->damage = gUnk_080B3DE0[super->type * 2 + 1];
         super->hurtType = 0x1b;
         super->hitbox = (Hitbox*)gUnk_080B3DE8[super->type];
-        gNewPlayerEntity.unk_70 = super;
-        sub_08078CD0(&gPlayerEntity);
-        gNewPlayerEntity.unk_70 = pEVar3;
+        gPlayerEntity.unk_70 = super;
+        sub_08078CD0(&gPlayerEntity.base);
+        gPlayerEntity.unk_70 = pEVar3;
         InitializeAnimation(super, super->type + 10);
         sub_08018FA0(super);
     }
@@ -129,7 +128,7 @@ void PlayerItemGustBig_Action1(PlayerItemGustBigEntity* this) {
             sub_08018FA0(super);
             break;
     }
-    sub_08078CD0(&gPlayerEntity);
+    sub_08078CD0(&gPlayerEntity.base);
 }
 
 void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
@@ -207,7 +206,7 @@ void PlayerItemGustBig_Action3(PlayerItemGustBigEntity* this) {
 }
 
 void sub_08018FA0(Entity* this) {
-    this->collisionLayer = gPlayerEntity.collisionLayer;
+    this->collisionLayer = gPlayerEntity.base.collisionLayer;
     if (this->collisionLayer == 2) {
         this->type2 = 1;
     }

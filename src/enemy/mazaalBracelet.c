@@ -424,7 +424,7 @@ void sub_0803A660(MazaalBraceletEntity* this) {
         } else {
             super->action = 7;
             super->timer = 0;
-            uVar2 = GetFacingDirection(super, &gPlayerEntity);
+            uVar2 = GetFacingDirection(super, &gPlayerEntity.base);
             super->direction = (u8)uVar2;
             super->speed = 0x280;
             return;
@@ -615,11 +615,11 @@ void sub_0803AA00(MazaalBraceletEntity* this) {
             sub_08004596(super, direction);
         }
         LinearMoveUpdate(super);
-        if ((super->direction == direction) || (super->y.HALF.HI >= gPlayerEntity.y.HALF.HI)) {
+        if ((super->direction == direction) || (super->y.HALF.HI >= gPlayerEntity.base.y.HALF.HI)) {
             super->action = 0x13;
             super->spriteSettings.draw = 0;
             super->direction = direction;
-            this->unk_80.HWORD = gPlayerEntity.x.HALF.HI;
+            this->unk_80.HWORD = gPlayerEntity.base.x.HALF.HI;
             InitAnimationForceUpdate(super->child, 4);
         }
     }
@@ -1184,7 +1184,7 @@ void sub_0803B5C0(MazaalBraceletEntity* this) {
     u32 direction;
     u32 temp;
 
-    direction = GetFacingDirection(super, &gPlayerEntity);
+    direction = GetFacingDirection(super, &gPlayerEntity.base);
     if (direction < 10) {
         direction = 10;
     }
@@ -1202,8 +1202,8 @@ void sub_0803B5C0(MazaalBraceletEntity* this) {
 }
 
 u32 sub_0803B610(MazaalBraceletEntity* this) {
-    return EntityWithinDistance(super, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[super->type],
-                                gPlayerEntity.y.HALF.HI - 0xc, 8);
+    return EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI + gUnk_080CFD19[super->type],
+                                gPlayerEntity.base.y.HALF.HI - 0xc, 8);
 }
 
 // sub_0803B698 was the tail of super function
@@ -1211,9 +1211,9 @@ void sub_0803B63C(MazaalBraceletEntity* this) {
     int y;
     int x;
 
-    x = gPlayerEntity.x.HALF.HI;
+    x = gPlayerEntity.base.x.HALF.HI;
     x += gUnk_080CFD19[super->type];
-    y = gPlayerEntity.y.HALF.HI - 0xc;
+    y = gPlayerEntity.base.y.HALF.HI - 0xc;
     if (super->timer++ > 180) {
         super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, x, y);
     } else {
@@ -1270,29 +1270,29 @@ void sub_0803B798(void) {
         ~(PL_CAPTURED | PL_FLAGS10000 | PL_GYORG_FIGHT | PL_ROLLING | PL_MOLDWORM_CAPTURED | PL_IN_HOLE |
           PL_MOLDWORM_RELEASED | PL_CLONING | PL_USE_LANTERN | PL_PARACHUTE | PL_CONVEYOR_PUSHED | PL_ENTER_MINECART |
           PL_SWORD_THRUST | PL_USE_OCARINA | PL_CLIMBING | PL_FLAGS40000000 | PL_FLAGS80000000);
-    gPlayerEntity.flags |= ENT_COLLIDE;
-    gPlayerEntity.zVelocity = Q_16_16(1.5);
-    gPlayerEntity.z.HALF.HI = -10;
-    gPlayerEntity.direction = 0x10;
-    gPlayerEntity.animationState = 4;
-    gPlayerEntity.spritePriority.b1 = 1;
-    gPlayerEntity.spriteOffsetY = 0;
-    gPlayerEntity.speed = 0x140;
-    gPlayerEntity.iframes = -0x1e;
+    gPlayerEntity.base.flags |= ENT_COLLIDE;
+    gPlayerEntity.base.zVelocity = Q_16_16(1.5);
+    gPlayerEntity.base.z.HALF.HI = -10;
+    gPlayerEntity.base.direction = 0x10;
+    gPlayerEntity.base.animationState = 4;
+    gPlayerEntity.base.spritePriority.b1 = 1;
+    gPlayerEntity.base.spriteOffsetY = 0;
+    gPlayerEntity.base.speed = 0x140;
+    gPlayerEntity.base.iframes = -0x1e;
 }
 
 void sub_0803B804(MazaalBraceletEntity* this) {
-    gPlayerEntity.iframes = 30;
+    gPlayerEntity.base.iframes = 30;
     ModHealth(-4);
-    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+    SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
 }
 
 void sub_0803B824(MazaalBraceletEntity* this) {
     ResetActiveItems();
     gPlayerState.mobility |= 0x80;
-    sub_0806FA90(super, &gPlayerEntity, gUnk_080CFD1D[super->type], 1);
-    gPlayerEntity.spriteOffsetY = -6;
-    gPlayerEntity.spritePriority.b1 = 0;
+    sub_0806FA90(super, &gPlayerEntity.base, gUnk_080CFD1D[super->type], 1);
+    gPlayerEntity.base.spriteOffsetY = -6;
+    gPlayerEntity.base.spritePriority.b1 = 0;
 }
 
 u32 sub_0803B870(MazaalBraceletEntity* this) {
@@ -1303,8 +1303,8 @@ u32 sub_0803B870(MazaalBraceletEntity* this) {
         super->action = 0x18;
         super->timer = 68;
         super->spriteSettings.draw = 0;
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.iframes = -0x10;
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.base.iframes = -0x10;
         sub_0803B824(this);
         entity->hitType = 0x13;
         InitAnimationForceUpdate(entity, 7);

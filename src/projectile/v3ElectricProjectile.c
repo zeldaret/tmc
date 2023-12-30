@@ -90,7 +90,7 @@ void V3ElectricProjectile_Action1(V3ElectricProjectileEntity* this) {
     if ((super->frame & 1) != 0) {
         if (super->type == 0) {
             super->action = 2;
-            super->direction = GetFacingDirection(super, &gPlayerEntity);
+            super->direction = GetFacingDirection(super, &gPlayerEntity.base);
             super->speed = 0x180;
             SoundReq(SFX_193);
         } else {
@@ -119,7 +119,7 @@ void V3ElectricProjectile_Action2(V3ElectricProjectileEntity* this) {
     }
     if (super->timer < 0x1e) {
         if (((++super->timer) & super->subtimer) == 0) {
-            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity.base));
         }
     }
 }
@@ -136,7 +136,7 @@ void V3ElectricProjectile_Action3(V3ElectricProjectileEntity* this) {
         super->timer = 4;
         rand = Random() & 0x7;
         super->subtimer = gUnk_0812A982[rand];
-        dir = GetFacingDirection(super, &gPlayerEntity);
+        dir = GetFacingDirection(super, &gPlayerEntity.base);
         if (((V3ElectricProjectileEntity*)super->parent)->unk_84 == 3) {
             dir -= projectileDirections[rand];
             super->type2 = 0;

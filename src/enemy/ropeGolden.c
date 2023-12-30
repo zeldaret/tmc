@@ -86,8 +86,8 @@ void sub_0803827C(RopeGoldenEntity* this) {
     if (super->subtimer != 0) {
         super->subtimer--;
     } else {
-        if ((sub_0804A044(super, &gPlayerEntity, 0x8) != 0xff) ||
-            (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x24) != 0)) {
+        if ((sub_0804A044(super, &gPlayerEntity.base, 0x8) != 0xff) ||
+            (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x24) != 0)) {
             sub_080383E4(this);
             return;
         }
@@ -157,7 +157,7 @@ void sub_080383AC(RopeGoldenEntity* this) {
     super->action = 1;
     super->timer = 8;
     super->speed = 0x100;
-    super->direction = DirectionRoundUp(GetFacingDirection(super, &gPlayerEntity));
+    super->direction = DirectionRoundUp(GetFacingDirection(super, &gPlayerEntity.base));
     v = super->direction >> 3;
     if (v != super->animationState) {
         super->animationState = v;
@@ -170,7 +170,7 @@ void sub_080383E4(RopeGoldenEntity* this) {
     super->action = 2;
     super->timer = 8;
     super->speed = 0x280;
-    v = DirectionRoundUp(GetFacingDirection(super, &gPlayerEntity));
+    v = DirectionRoundUp(GetFacingDirection(super, &gPlayerEntity.base));
     super->direction = v;
     this->unk_78 = v;
     super->animationState = super->direction >> 3;

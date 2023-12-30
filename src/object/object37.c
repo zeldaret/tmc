@@ -46,7 +46,7 @@ void Object37_Action1(Object37Entity* this) {
     if ((gSave.kinstones.fusionUnmarked[0] != 0) && (this->unk70 != *this->unk78)) {
         item = CreateGroundItem(super, ITEM_RUPEE100, 0);
         if (item != 0) {
-            item->direction = gPlayerEntity.animationState << 2;
+            item->direction = gPlayerEntity.base.animationState << 2;
             item->speed = 0x80;
             item->zVelocity = Q_16_16(2.0);
         }

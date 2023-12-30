@@ -59,22 +59,22 @@ void sub_0808DDE8(LinkFireEntity* this) {
         gPlayerState.flags &= ~PL_BURNING;
         DeleteThisEntity();
     }
-    player = &gPlayerEntity;
-    super->x.HALF.HI = (s8)gUnk_081217B8[gPlayerEntity.animationState >> 1] + player->x.HALF.HI;
-    super->y.HALF.HI = gPlayerEntity.y.HALF.HI + -6;
-    super->z = gPlayerEntity.z;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
-    super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    player = &gPlayerEntity.base;
+    super->x.HALF.HI = (s8)gUnk_081217B8[gPlayerEntity.base.animationState >> 1] + player->x.HALF.HI;
+    super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + -6;
+    super->z = gPlayerEntity.base.z;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
+    super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     if ((gPlayerState.flags & PL_BURNING) != 0) {
         GetNextFrame(super);
     } else {
         DeleteThisEntity();
     }
-    if (gPlayerEntity.animationState >> 1 == 2) {
-        sub_0806FEBC(&gPlayerEntity, 3, super);
+    if (gPlayerEntity.base.animationState >> 1 == 2) {
+        sub_0806FEBC(&gPlayerEntity.base, 3, super);
         super->y.HALF.HI -= 5;
     } else {
-        sub_0806FEBC(&gPlayerEntity, 0, super);
+        sub_0806FEBC(&gPlayerEntity.base, 0, super);
     }
 }

@@ -76,7 +76,7 @@ void RupeeLike_OnCollision(RupeeLikeEntity* this) {
             super->subtimer = 0;
             this->unk_83 = 0x41;
             super->flags2 &= 0xfc;
-            this->unk_80 = gPlayerEntity.spritePriority.b1;
+            this->unk_80 = gPlayerEntity.base.spritePriority.b1;
             EnqueueSFX(SFX_PLACE_OBJ);
         } else {
             if (super->confusedTime != 0) {
@@ -131,7 +131,7 @@ void sub_08029474(RupeeLikeEntity* this) {
     if (super->frame & ANIM_DONE) {
         super->action = 3;
         super->timer = 8;
-        bVar1 = GetFacingDirection(super, &gPlayerEntity);
+        bVar1 = GetFacingDirection(super, &gPlayerEntity.base);
         super->direction = bVar1;
         super->animationState = (bVar1 << 0x18) >> 0x1c;
         InitializeAnimation(super, super->animationState);
@@ -148,7 +148,7 @@ void sub_080294D4(RupeeLikeEntity* this) {
     if (sub_08049FDC(super, 1) != 0) {
         if (--super->timer == 0) {
             super->timer = 8;
-            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity.base));
             sub_0802969C(this);
         }
         ProcessMovement0(super);
@@ -177,11 +177,11 @@ void sub_0802953C(RupeeLikeEntity* this) {
     } else {
         ResetActiveItems();
         gPlayerState.mobility |= 0x80;
-        PositionRelative(super, &gPlayerEntity, 0, Q_16_16(1.0));
+        PositionRelative(super, &gPlayerEntity.base, 0, Q_16_16(1.0));
         pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)super->spriteIndex, super->frameIndex);
-        gPlayerEntity.spriteOffsetX = pbVar3[0];
-        gPlayerEntity.spriteOffsetY = pbVar3[1] - 1;
-        gPlayerEntity.spritePriority.b1 = 0;
+        gPlayerEntity.base.spriteOffsetX = pbVar3[0];
+        gPlayerEntity.base.spriteOffsetY = pbVar3[1] - 1;
+        gPlayerEntity.base.spritePriority.b1 = 0;
         if (--this->unk_83 == 0) {
             this->unk_83 = 0x41;
             if (gSave.stats.rupees != 0) {
@@ -245,14 +245,14 @@ void sub_080296C8(RupeeLikeEntity* this) {
 void sub_080296D8(RupeeLikeEntity* this) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.flags &= ~PL_CAPTURED;
-    gPlayerEntity.flags |= ENT_COLLIDE;
-    gPlayerEntity.zVelocity = Q_16_16(1.5);
-    gPlayerEntity.iframes = 0xa6;
-    gPlayerEntity.z.HALF.HI = -2;
-    gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-    gPlayerEntity.spritePriority.b1 = this->unk_80;
-    gPlayerEntity.spriteOffsetY = 0;
-    gPlayerEntity.speed = 0x140;
+    gPlayerEntity.base.flags |= ENT_COLLIDE;
+    gPlayerEntity.base.zVelocity = Q_16_16(1.5);
+    gPlayerEntity.base.iframes = 0xa6;
+    gPlayerEntity.base.z.HALF.HI = -2;
+    gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2;
+    gPlayerEntity.base.spritePriority.b1 = this->unk_80;
+    gPlayerEntity.base.spriteOffsetY = 0;
+    gPlayerEntity.base.speed = 0x140;
     super->action = 5;
     super->subtimer = 60;
     super->flags2 |= 3;

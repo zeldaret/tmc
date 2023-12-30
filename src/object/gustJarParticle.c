@@ -25,10 +25,10 @@ void GustJarParticle(Entity* this) {
 void GustJarParticle_Init(Entity* this) {
     this->action = 1;
     this->speed = 0x80;
-    this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-    this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
-    this->collisionLayer = gPlayerEntity.collisionLayer;
-    this->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    this->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
+    this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
+    this->collisionLayer = gPlayerEntity.base.collisionLayer;
+    this->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     this->type = Random() & 1;
     InitializeAnimation(this, 0x11);
 }

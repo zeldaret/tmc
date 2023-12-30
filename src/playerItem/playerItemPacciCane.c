@@ -35,30 +35,30 @@ void PlayerItemPacciCane_Action1(Entity* this) {
     u32 playerFrame;
     u32 frameIndex;
     u32 flipX;
-    if (((gPlayerEntity.frame & ANIM_DONE) != 0) || (this != gPlayerState.item)) {
+    if (((gPlayerEntity.base.frame & ANIM_DONE) != 0) || (this != gPlayerState.item)) {
         if (this == gPlayerState.item) {
             gPlayerState.item = NULL;
         }
         DeleteEntity(this);
     } else {
-        playerFrame = gPlayerEntity.frame & 0xf;
+        playerFrame = gPlayerEntity.base.frame & 0xf;
         if (playerFrame != 0xf) {
-            frameIndex = gPlayerEntity.frameIndex;
+            frameIndex = gPlayerEntity.base.frameIndex;
             playerFrame += 0x91;
             if (frameIndex - playerFrame != this->frameIndex) {
                 this->frameIndex = frameIndex + 0x6f;
                 sub_080042D0(this, this->frameIndex, this->spriteIndex);
             }
-            sub_08078E84(this, &gPlayerEntity);
+            sub_08078E84(this, &gPlayerEntity.base);
         } else {
             this->frameIndex = -1;
         }
     }
 
-    if ((gPlayerEntity.animationState & 2)) {
-        flipX = gPlayerEntity.spriteSettings.flipX ^ 1;
+    if ((gPlayerEntity.base.animationState & 2)) {
+        flipX = gPlayerEntity.base.spriteSettings.flipX ^ 1;
     } else {
-        flipX = gPlayerEntity.spriteSettings.flipX;
+        flipX = gPlayerEntity.base.spriteSettings.flipX;
     }
     this->spriteSettings.flipX = flipX;
 }

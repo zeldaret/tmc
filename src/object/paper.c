@@ -66,7 +66,8 @@ void Paper_Type2(Entity* this) {
 
 void Paper_Action1(Entity* this) {
     if (this->type == 0) {
-        if ((gPlayerEntity.y.HALF.HI < this->y.HALF.HI) || (gPlayerEntity.y.HALF.HI) > this->y.HALF.HI + 0x18) {
+        if ((gPlayerEntity.base.y.HALF.HI < this->y.HALF.HI) ||
+            (gPlayerEntity.base.y.HALF.HI) > this->y.HALF.HI + 0x18) {
             this->spriteRendering.b3 = 1;
         } else {
             this->spriteRendering.b3 = 2;

@@ -43,7 +43,7 @@ void Steam(Entity* _this) {
     type = super->type;
     ptr = &this->unk_0x68;
     if (type != 0) {
-        if (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > (0xf8 << 1)) {
+        if (gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x > (0xf8 << 1)) {
             if (*ptr < 0x40) {
                 (*ptr)++;
             }

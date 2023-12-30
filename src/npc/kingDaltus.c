@@ -37,7 +37,8 @@ void KingDaltus(KingDaltusEntity* this) {
         if (super->interactType == INTERACTION_FUSE) {
             super->interactType = INTERACTION_NONE;
             super->action = 2;
-            InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+            InitAnimationForceUpdate(super,
+                                     GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
             InitializeNPCFusion(super);
         }
         scriptedActionFuncs[super->action](this);

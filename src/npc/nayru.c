@@ -26,8 +26,8 @@ void Nayru(NayruEntity* this) {
                 super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);
             }

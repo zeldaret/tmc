@@ -40,10 +40,10 @@ static const u8 PlayerItemSwordBeam_Palettes[] = { 0, 4, 1, 2, 0xff };
 
 void PlayerItemSwordBeam_Init(PlayerItemSwordBeamEntity* this) {
     static const Hitbox hitbox = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
-    CopyPosition(&gPlayerEntity, super);
+    CopyPosition(&gPlayerEntity.base, super);
     super->action++;
     super->spriteSettings.draw = 1;
-    super->collisionFlags = gPlayerEntity.collisionFlags + 1;
+    super->collisionFlags = gPlayerEntity.base.collisionFlags + 1;
     super->hitbox = (Hitbox*)&hitbox;
     super->speed = 0x380;
     this->unk_74 = 2;
@@ -88,7 +88,7 @@ void PlayerItemSwordBeam_Action1(PlayerItemSwordBeamEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) &&
+        if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0) &&
             (sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) != 0)) {
             CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();

@@ -121,20 +121,20 @@ u32 sub_0806ED78(Entity* ent) {
 
 s32 GetAnimationStateInRectRadius(Entity* ent, u32 x, u32 y) {
     s32 anim = -1;
-    if (EntityInRectRadius(ent, &gPlayerEntity, x, y))
+    if (EntityInRectRadius(ent, &gPlayerEntity.base, x, y))
         anim = GetAnimationState(ent);
     return anim;
 }
 
 u32 GetAnimationState(Entity* ent) {
-    u32 direction = GetFacingDirection(ent, &gPlayerEntity);
+    u32 direction = GetFacingDirection(ent, &gPlayerEntity.base);
     return GetAnimationStateForDirection4(direction);
 }
 
 s32 GetFacingDirectionInRectRadius(Entity* ent, u32 x, u32 y) {
     s32 dir = -1;
-    if (EntityInRectRadius(ent, &gPlayerEntity, x, y))
-        dir = GetFacingDirection(ent, &gPlayerEntity);
+    if (EntityInRectRadius(ent, &gPlayerEntity.base, x, y))
+        dir = GetFacingDirection(ent, &gPlayerEntity.base);
     return dir;
 }
 
@@ -160,7 +160,7 @@ u32 sub_0806EE20(Entity* ent) {
             return gUnk_08114EFC[ent->carryFlags](ent);
     } else {
         ent->knockbackSpeed = 8;
-        v3 = GetFacingDirection(ent, &gPlayerEntity);
+        v3 = GetFacingDirection(ent, &gPlayerEntity.base);
         ent->knockbackDirection = GetAnimationStateForDirection4(v3);
     }
     return 0;

@@ -84,7 +84,7 @@ void sub_0806B41C(PercyEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 InitializeAnimation(super,
-                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 4);
                 idx = GetFuserId(super);
                 tmp = gUnk_08001A7C[idx];
                 if (this->fusionOffer == 33)
@@ -165,7 +165,7 @@ void sub_0806B540(Entity* this) {
             }
             break;
         case 3:
-            if ((gPlayerEntity.action != PLAYER_ITEMGET)) {
+            if ((gPlayerEntity.base.action != PLAYER_ITEMGET)) {
                 context->wait = 0x2d;
                 return;
             }

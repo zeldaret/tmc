@@ -83,9 +83,9 @@ void GyorgFemaleEye_OnCollision(GyorgFemaleEyeEntity* this) {
 #endif
                     (*(((GyorgHeap**)&parent->base.myHeap)))->unk_18[super->type] = super->contactedEntity;
                     (*(((GyorgHeap**)&parent->base.myHeap)))->reflectFxPos.HALF.x =
-                        (gPlayerEntity.x.HALF.HI + super->x.HALF.HI) / 2;
+                        (gPlayerEntity.base.x.HALF.HI + super->x.HALF.HI) / 2;
                     (*(((GyorgHeap**)&parent->base.myHeap)))->reflectFxPos.HALF.y =
-                        (gPlayerEntity.y.HALF.HI + super->y.HALF.HI) / 2;
+                        (gPlayerEntity.base.y.HALF.HI + super->y.HALF.HI) / 2;
                     (*(((GyorgHeap**)&parent->base.myHeap)))->unk_3c = (super->knockbackDirection ^= 0x10);
 #ifndef EU
                     break;

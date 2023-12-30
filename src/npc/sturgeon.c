@@ -64,8 +64,8 @@ void Sturgeon(SturgeonEntity* this) {
                 if (super->interactType == INTERACTION_FUSE) {
                     super->action = super->action | 0xff;
                     super->interactType = INTERACTION_NONE;
-                    InitAnimationForceUpdate(super,
-                                             GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                    InitAnimationForceUpdate(
+                        super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                     InitializeNPCFusion(super);
                 } else {
                     ExecuteScriptAndHandleAnimation(super, NULL);

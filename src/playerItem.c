@@ -1,4 +1,3 @@
-#define ENT_DEPRECATED
 #include "global.h"
 #include "functions.h"
 #include "player.h"
@@ -92,7 +91,7 @@ void ItemInit(Entity* this) {
     if (definition->bitfield == 0xff) {
         u32 tmp = definition->firstItemIndex;
         definition = gAdditionalPlayerItemDefinitions[definition->index];
-        definition = &definition[this->field_0x68.HALF.LO - tmp];
+        definition = &definition[((GenericEntity*)this)->field_0x68.HALF.LO - tmp];
     }
     tmp3 = definition->bitfield;
     tmp2 = tmp3 & 0xf;
@@ -102,18 +101,18 @@ void ItemInit(Entity* this) {
     this->hitType = definition->hitType;
     this->spriteIndex = definition->spriteIndex;
     if (definition->gfx == 0) {
-        this->spriteVramOffset = gPlayerEntity.spriteVramOffset;
+        this->spriteVramOffset = gPlayerEntity.base.spriteVramOffset;
     } else {
         this->spriteVramOffset = definition->gfx & 0x3ff;
     }
     if (this->animationState == IdleNorth) {
-        this->animationState = gPlayerEntity.animationState & 6;
+        this->animationState = gPlayerEntity.base.animationState & 6;
     }
 
-    this->collisionLayer = gPlayerEntity.collisionLayer;
-    this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-    this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
-    this->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    this->collisionLayer = gPlayerEntity.base.collisionLayer;
+    this->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
+    this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
+    this->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     this->health = 1;
     this->flags |= ENT_DID_INIT;
 }

@@ -63,10 +63,10 @@ void Board_Action1(BoardEntity* this) {
 }
 
 void sub_08098BE8(BoardEntity* this) {
-    if ((gPlayerState.flags & PL_MINISH) && sub_08098C30(this, &gPlayerEntity) && PlayerCanBeMoved() &&
-        gPlayerEntity.z.HALF.HI == 0) {
+    if ((gPlayerState.flags & PL_MINISH) && sub_08098C30(this, &gPlayerEntity.base) && PlayerCanBeMoved() &&
+        gPlayerEntity.base.z.HALF.HI == 0) {
         gPlayerState.field_0x14 = 1;
-        sub_0807AAF8(&gPlayerEntity, this->tile);
+        sub_0807AAF8(&gPlayerEntity.base, this->tile);
     }
 }
 

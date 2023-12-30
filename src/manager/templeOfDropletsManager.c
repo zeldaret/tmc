@@ -334,14 +334,14 @@ void TempleOfDropletsManager_Type6_Action1(TempleOfDropletsManager* this) {
 }
 
 void TempleOfDropletsManager_Type6_Action2(TempleOfDropletsManager* this) {
-    if ((gPlayerEntity.health != 0) && (gPlayerEntity.z.HALF.HI == 0) && (!gPlayerState.item)) {
+    if ((gPlayerEntity.base.health != 0) && (gPlayerEntity.base.z.HALF.HI == 0) && (!gPlayerState.item)) {
         switch (gPlayerState.framestate_last) {
             case PL_STATE_IDLE:
             case PL_STATE_WALK:
                 if (sub_0805A73C(this)) {
                     super->action++;
-                    sub_08004168(&gPlayerEntity);
-                    gPlayerEntity.animationState = 4;
+                    sub_08004168(&gPlayerEntity.base);
+                    gPlayerEntity.base.animationState = 4;
                     RequestPriorityDuration((Entity*)this, 600);
                     SetPlayerControl(0xFF);
                     gPauseMenuOptions.disabled = 1;

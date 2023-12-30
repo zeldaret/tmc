@@ -67,13 +67,13 @@ void PlayerItemBoomerang_Init(PlayerItemBoomerangEntity* this) {
     super->frameIndex = 0xff;
     this->unk_80 = 0;
 #ifdef EU
-    super->spriteVramOffset = gPlayerEntity.spriteVramOffset;
+    super->spriteVramOffset = gPlayerEntity.base.spriteVramOffset;
 #endif
     super->animIndex = 11;
-    super->parent = &gPlayerEntity;
+    super->parent = &gPlayerEntity.base;
     this->unk_86 = 0;
     if ((super->animationState & 2) != 0) {
-        super->spriteSettings.flipX = ~gPlayerEntity.spriteSettings.flipX;
+        super->spriteSettings.flipX = ~gPlayerEntity.base.spriteSettings.flipX;
     }
     if (this->unk_68 == 12) {
         super->speed = 0x280;
@@ -104,31 +104,31 @@ void PlayerItemBoomerang_Action1(PlayerItemBoomerangEntity* this) {
 
     sub_0801B804(this);
     if ((gPlayerState.attack_status == 0) || (gPlayerState.mobility != 0) || gPlayerState.item != super ||
-        (gPlayerState.item == super && gPlayerEntity.action != PLAYER_NORMAL)) {
+        (gPlayerState.item == super && gPlayerEntity.base.action != PLAYER_NORMAL)) {
         if (gPlayerState.item == super) {
             gPlayerState.item = NULL;
         }
         DeleteThisEntity();
     }
 
-    if ((gPlayerEntity.frame & 1) == 0) {
+    if ((gPlayerEntity.base.frame & 1) == 0) {
         if (this->unk_68 == 12) {
             cVar3 = 6;
         } else {
             cVar3 = 0;
         }
-        frameIndex = (gPlayerEntity.frame >> 4) + cVar3;
+        frameIndex = (gPlayerEntity.base.frame >> 4) + cVar3;
         if (super->frameIndex != frameIndex) {
             super->frameIndex = frameIndex;
             sub_080042D0(super, super->frameIndex, super->spriteIndex);
         }
-        sub_08078E84(super, &gPlayerEntity);
+        sub_08078E84(super, &gPlayerEntity.base);
     } else {
         super->action = 2;
         super->spriteVramOffset = 0xd5;
         COLLISION_ON(super);
         super->collisionFlags |= 1;
-        super->flags2 = gPlayerEntity.flags2;
+        super->flags2 = gPlayerEntity.base.flags2;
         super->spriteIndex = 0xa6;
         super->spriteSettings.flipX = 0;
         super->spriteSettings.draw = 1;
@@ -171,7 +171,7 @@ void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this) {
         }
     }
 
-    if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) {
+    if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0) {
         if (!uVar6) {
             uVar6 = sub_080040E2(super, &gUnk_08003E44);
         }
@@ -214,9 +214,9 @@ void PlayerItemBoomerang_Action3(PlayerItemBoomerangEntity* this) {
         if (super->speed < 0x280) {
             super->speed += 8;
         }
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
         LinearMoveUpdate(super);
-        if (sub_0800419C(super, &gPlayerEntity, 2, 2) != 0) {
+        if (sub_0800419C(super, &gPlayerEntity.base, 2, 2) != 0) {
             DeleteThisEntity();
         }
     }

@@ -68,7 +68,7 @@ void sub_0803CD40(LakituCloudEntity* this) {
 
     ModHealth(-2);
 
-    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+    SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
     sub_08079D84();
 
     sub_0803CE3C(this);

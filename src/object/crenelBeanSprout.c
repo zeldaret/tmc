@@ -53,7 +53,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
         case 0:
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
-                    PositionRelative(&gPlayerEntity, super, 0, 0x10000);
+                    PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
                     SetTile(0x4022, 0xdc, super->collisionLayer);
                 } else {
                     if (CheckLocalFlag(super->type2) == 0) {
@@ -79,9 +79,9 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
         case 3:
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
-                    super->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
-                    *(((u8*)&gPlayerEntity) + 0x79) = tmp;
-                    PositionRelative(&gPlayerEntity, super, 0, -0x180000);
+                    super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
+                    *(((u8*)&gPlayerEntity.base) + 0x79) = tmp;
+                    PositionRelative(&gPlayerEntity.base, super, 0, -0x180000);
                 } else {
                     DeleteThisEntity();
                 }
@@ -165,7 +165,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         } else {
             GetNextFrame(super);
         }
-        tmp = gPlayerEntity.animationState & 6;
+        tmp = gPlayerEntity.base.animationState & 6;
         this->unk_70 = ((super->x.HALF.HI + (s8)gUnk_08123184[tmp]) & -0x10) | 8;
         this->unk_72 = ((super->y.HALF.HI + (s8)gUnk_08123184[(tmp) + 1]) & -0x10) | 8;
         if (sub_080B1AB4(this->unk_70, this->unk_72, super->collisionLayer) == 0x19) {
@@ -173,7 +173,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         } else {
             gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
         }
-        PositionRelative(&gPlayerEntity, super, 0, 0x10000);
+        PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
         if (GetTileUnderEntity(super) == 0x19) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);

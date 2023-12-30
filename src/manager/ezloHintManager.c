@@ -121,7 +121,7 @@ static void EzloHintManager_Action3(EzloHintManager* this) {
             if (gPlayerState.flags &
                 (PL_BUSY | PL_DROWNING | PL_USE_PORTAL | PL_FALLING | PL_IN_MINECART | PL_CAPTURED))
                 return;
-            if (gPlayerEntity.z.HALF.HI != 0)
+            if (gPlayerEntity.base.z.HALF.HI != 0)
                 return;
             gPlayerState.jump_status = 0;
             CreateEzloHint(this->msg_idx, this->msg_height);
@@ -136,7 +136,7 @@ static void EzloHintManager_Action3(EzloHintManager* this) {
             return;
         case 3:
             /* wait for player to finish talking */
-            if (gPlayerEntity.action == PLAYER_NORMAL || gPlayerEntity.action == PLAYER_MINISH) {
+            if (gPlayerEntity.base.action == PLAYER_NORMAL || gPlayerEntity.base.action == PLAYER_MINISH) {
                 gPlayerState.controlMode = CONTROL_1;
                 ResetPlayerEventPriority();
                 SetFlag(this->flag1);

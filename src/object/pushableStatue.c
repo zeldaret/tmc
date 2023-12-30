@@ -104,9 +104,9 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
 
     if (this->unk_83 == 0) {
         this->unk_83 = 1;
-        index = gPlayerEntity.animationState;
+        index = gPlayerEntity.base.animationState;
         ptr = &gUnk_08120CB4[index];
-        PositionRelative(super, &gPlayerEntity, *(ptr) << 0x10, *(ptr + 1) << 0x10);
+        PositionRelative(super, &gPlayerEntity.base, *(ptr) << 0x10, *(ptr + 1) << 0x10);
     }
     tileType = GetTileType(this->unk_84, super->collisionLayer);
     if (tileType != 0x400b) {
@@ -131,9 +131,9 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         gPlayerState.queued_action = PLAYER_PULL;
         gPlayerState.field_0x38 = 0x20;
         gPlayerState.flags |= PL_BUSY;
-        gPlayerEntity.x.HALF.LO = 0;
-        gPlayerEntity.y.HALF.LO = 0;
-        super->direction = (gPlayerEntity.animationState ^ 4) << 2;
+        gPlayerEntity.base.x.HALF.LO = 0;
+        gPlayerEntity.base.y.HALF.LO = 0;
+        super->direction = (gPlayerEntity.base.animationState ^ 4) << 2;
         sub_08089538(this);
     }
 }
@@ -258,13 +258,13 @@ bool32 sub_080896B0(void) {
     u32 tmp2;
     u32 val;
 
-    if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.frame & 1) != 0)) {
-        ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
-        uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
-        uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]) - uVar1;
-        val = sub_080B1AE0(uVar4, gPlayerEntity.collisionLayer);
+    if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.base.frame & 1) != 0)) {
+        ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
+        uVar1 = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
+        uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]) - uVar1;
+        val = sub_080B1AE0(uVar4, gPlayerEntity.base.collisionLayer);
         if ((val - 0x26 > 1) && (val != 0x29)) {
-            layer = GetLayerByIndex(gPlayerEntity.collisionLayer);
+            layer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
             tmp1 = layer->collisionData[iVar2];
             tmp2 = layer->collisionData[(iVar2 - uVar1)];

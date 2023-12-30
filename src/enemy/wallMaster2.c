@@ -49,7 +49,7 @@ void WallMaster2_OnCollision(WallMaster2Entity* this) {
             super->action = 3;
             COLLISION_OFF(super);
             InitializeAnimation(super, 1);
-            gPlayerEntity.flags &= ~ENT_COLLIDE;
+            gPlayerEntity.base.flags &= ~ENT_COLLIDE;
             break;
     }
     if (super->confusedTime != 0) {
@@ -133,8 +133,8 @@ void sub_0802CE68(WallMaster2Entity* this) {
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
     gPlayerState.flags |= PL_DISABLE_ITEMS;
-    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+    if (!EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 4)) {
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
         LinearMoveUpdate(super);
     }
     sub_0802CFD8(this);
@@ -145,7 +145,7 @@ void sub_0802CE68(WallMaster2Entity* this) {
         super->timer = 30;
     } else if (super->frame & 1) {
         super->frame = frames;
-        gPlayerEntity.spriteSettings.draw = 0;
+        gPlayerEntity.base.spriteSettings.draw = 0;
     }
 }
 

@@ -152,7 +152,7 @@ void sub_080656D4(TalonEntity* this) {
 void sub_0806574C(TalonEntity* this) {
     u32 j;
 
-    j = (super->animIndex & ~3) + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+    j = (super->animIndex & ~3) + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base));
     if (super->animIndex != j) {
         InitAnimationForceUpdate(super, j);
     }

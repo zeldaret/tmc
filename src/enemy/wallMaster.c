@@ -42,9 +42,9 @@ void WallMaster_OnCollision(WallMasterEntity* this) {
     if (super->hitType != 0x75 && ((super->contactFlags & 0x7f) == 0 || (super->contactFlags & 0x7f) == 0x1e)) {
         super->action = 5;
         COLLISION_OFF(super);
-        this->unk_7e = gPlayerEntity.x.HALF.HI;
-        this->unk_80 = gPlayerEntity.y.HALF.HI;
-        this->unk_82 = gPlayerEntity.z.HALF.HI;
+        this->unk_7e = gPlayerEntity.base.x.HALF.HI;
+        this->unk_80 = gPlayerEntity.base.y.HALF.HI;
+        this->unk_82 = gPlayerEntity.base.z.HALF.HI;
         if (super->action != 3) {
             InitializeAnimation(super, 1);
         }
@@ -150,12 +150,12 @@ void sub_0802A69C(WallMasterEntity* this) {
     sub_0802A7D0(this);
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
-    gPlayerEntity.x.HALF.HI = this->unk_7e;
-    gPlayerEntity.y.HALF.HI = this->unk_80;
-    gPlayerEntity.z.HALF.HI = this->unk_82;
+    gPlayerEntity.base.x.HALF.HI = this->unk_7e;
+    gPlayerEntity.base.y.HALF.HI = this->unk_80;
+    gPlayerEntity.base.z.HALF.HI = this->unk_82;
 
-    if (gPlayerEntity.z.HALF.HI != super->z.HALF.HI) {
-        if (gPlayerEntity.z.HALF.HI < super->z.HALF.HI) {
+    if (gPlayerEntity.base.z.HALF.HI != super->z.HALF.HI) {
+        if (gPlayerEntity.base.z.HALF.HI < super->z.HALF.HI) {
             super->z.HALF.HI--;
         } else {
             super->z.HALF.HI++;
@@ -171,7 +171,7 @@ void sub_0802A69C(WallMasterEntity* this) {
     } else if (super->frame & 0x1) {
         super->frame = flags;
         super->spriteOffsetY = 3;
-        gPlayerEntity.spriteSettings.draw = 0;
+        gPlayerEntity.base.spriteSettings.draw = 0;
     }
 }
 

@@ -75,15 +75,15 @@ void BakerOven_Action1(BakerOvenEntity* this) {
         }
 
         /* Damage minish link if he touches a steam cloud */
-        if (super->subtimer == 0 && gPlayerEntity.iframes == 0 && super->frameIndex &&
-            sub_0806FC80(super, &gPlayerEntity, 4)) {
+        if (super->subtimer == 0 && gPlayerEntity.base.iframes == 0 && super->frameIndex &&
+            sub_0806FC80(super, &gPlayerEntity.base, 4)) {
             super->subtimer++;
             ModHealth(-2);
-            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
-            gPlayerEntity.iframes = 16;
-            gPlayerEntity.knockbackDirection = 16;
-            gPlayerEntity.knockbackDuration = 12;
-            gPlayerEntity.knockbackSpeed = 16;
+            SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
+            gPlayerEntity.base.iframes = 16;
+            gPlayerEntity.base.knockbackDirection = 16;
+            gPlayerEntity.base.knockbackDuration = 12;
+            gPlayerEntity.base.knockbackSpeed = 16;
         }
     }
 }

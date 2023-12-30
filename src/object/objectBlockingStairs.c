@@ -86,7 +86,7 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     int xDist;
     Entity* ent;
 
-    xDist = (int)gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
+    xDist = (int)gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
 
     if (this->objFlags) {
         if (!CheckFlags(this->objFlags)) {
@@ -116,7 +116,7 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
         case 0x4030:
         case 0x4031:
             super->action = 3;
-            super->direction = Direction8FromAnimationState(gPlayerEntity.animationState);
+            super->direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             super->speed = 0x80;
             super->timer = 64;
             RequestPriorityDuration(super, 80);
@@ -125,7 +125,7 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
             return;
     }
 
-    if ((gPlayerEntity.animationState & 2) == 0) {
+    if ((gPlayerEntity.base.animationState & 2) == 0) {
         return;
     }
     RegisterCarryEntity(super);
@@ -159,13 +159,13 @@ void ObjectBlockingStairs_Action2(ObjectBlockingStairsEntity* this) {
         sub_08093280(this);
     } else {
         if (gPlayerState.heldObject == 0x12) {
-            if ((gPlayerEntity.frame & 2) != 0 && ++super->subtimer > 8) {
+            if ((gPlayerEntity.base.frame & 2) != 0 && ++super->subtimer > 8) {
                 gPlayerState.queued_action = PLAYER_PULL;
                 gPlayerState.field_0x38 = 0x40;
                 gPlayerState.flags |= PL_BUSY;
-                gPlayerEntity.x.HALF.LO = 0;
-                gPlayerEntity.y.HALF.LO = 0;
-                super->direction = (gPlayerEntity.animationState ^ 4) << 2;
+                gPlayerEntity.base.x.HALF.LO = 0;
+                gPlayerEntity.base.y.HALF.LO = 0;
+                super->direction = (gPlayerEntity.base.animationState ^ 4) << 2;
                 super->timer = 64;
                 EnqueueSFX(SFX_10F);
                 sub_08093248(this);

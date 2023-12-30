@@ -388,12 +388,12 @@ static void UpdateWindcrests(void) {
         u32 hi_x, hi_y;
         s32 x, y;
 
-        x = gPlayerEntity.x.HALF.HI;
+        x = gPlayerEntity.base.x.HALF.HI;
         if (x < 0)
             x += 0xf;
         hi_x = x >> 4;
 
-        y = gPlayerEntity.y.HALF.HI;
+        y = gPlayerEntity.base.y.HALF.HI;
         if (y < 0)
             y += 0xf;
         hi_y = y >> 4;

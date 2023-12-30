@@ -79,7 +79,7 @@ void sub_08066D94(Entity* this) {
     SetGlobalFlag(ZELDA_CHASE);
     npc = (ZeldaFollowerEntity*)CreateNPC(ZELDA_FOLLOWER, 0, 0);
     if (npc != NULL) {
-        npc->base.animationState = gPlayerEntity.animationState;
+        npc->base.animationState = gPlayerEntity.base.animationState;
         npc->base.flags |= ENT_PERSIST;
         npc->base.animationState = GetAnimationState(this);
         room = gRoomControls.room;

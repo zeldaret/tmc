@@ -55,12 +55,12 @@ void EzloCap(EzloCapEntity* this) {
 
 void EzloCap_Type0Init(EzloCapEntity* this) {
     super->updatePriority = 6;
-    super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-    super->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
-    super->palette.b.b0 = gPlayerEntity.palette.b.b0;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
+    super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
+    super->palette.b.b0 = gPlayerEntity.base.palette.b.b0;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     super->action = 1;
-    if (gPlayerEntity.animationState == 2) {
+    if (gPlayerEntity.base.animationState == 2) {
         super->spriteSettings.flipX = 1;
     }
     LoadSwapGFX(super, 1, 3);
@@ -78,7 +78,7 @@ void EzloCap_Type0Init(EzloCapEntity* this) {
 
 void EzloCap_Type0Action1(EzloCapEntity* this) {
     static const u8 gUnk_0811F16C[] = { 4, 0, 2, 6, 10, 8, 9, 5, 1, 0, 0, 0 };
-    u32 tmp = gPlayerEntity.palette.b.b0;
+    u32 tmp = gPlayerEntity.base.palette.b.b0;
     super->palette.b.b0 = tmp;
     if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         DeleteEntity(super);
@@ -160,8 +160,8 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
 
 void EzloCap_ScriptedInit(EzloCapEntity* this) {
     super->updatePriority = 2;
-    super->palette.b.b0 = gPlayerEntity.palette.b.b0;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->palette.b.b0 = gPlayerEntity.base.palette.b.b0;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     super->spritePriority.b1 = 3;
     super->spriteSettings.shadow = 1;
     super->action = 1;
@@ -170,7 +170,7 @@ void EzloCap_ScriptedInit(EzloCapEntity* this) {
     this->unk_82 = 0;
     ExecuteScript(super, this->unk_84);
     sub_08082D20(this, this->unk_84);
-    if (gPlayerEntity.animationState == 2) {
+    if (gPlayerEntity.base.animationState == 2) {
         super->spriteSettings.flipX = 1;
     }
     sub_08082C5C(this);

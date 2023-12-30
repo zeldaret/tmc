@@ -220,9 +220,6 @@ typedef struct Entity_ {
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;
     /*0x64*/ void* myHeap; /**< Heap data allocated with #zMalloc. */
-#ifdef ENT_DEPRECATED
-    GENERIC_ENTITY_FIELDS
-#endif
 } Entity;
 
 typedef struct {
@@ -248,8 +245,8 @@ typedef struct LinkedList {
  * to allow the iteration of all Entity's.
  */
 extern LinkedList gEntityLists[9];
-extern Entity gAuxPlayerEntities[MAX_AUX_PLAYER_ENTITIES];
-extern Entity gEntities[MAX_ENTITIES];
+extern GenericEntity gAuxPlayerEntities[MAX_AUX_PLAYER_ENTITIES];
+extern GenericEntity gEntities[MAX_ENTITIES];
 
 typedef void(EntityAction)(Entity*);
 typedef void (*EntityActionPtr)(Entity*);

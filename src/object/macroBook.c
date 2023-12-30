@@ -125,7 +125,7 @@ void MacroBook_Action3(MacroBookEntity* this) {
         SetAffineInfo(super, this->unk80, this->unk80, 0);
     } else {
         sub_0809AA9C(this, super->child, 0);
-        sub_0809AA9C(this, &gPlayerEntity, 1);
+        sub_0809AA9C(this, &gPlayerEntity.base, 1);
         if (gPlayerClones[0] != NULL) {
             sub_0809AA9C(this, gPlayerClones[0], 1);
         }
@@ -182,7 +182,7 @@ void sub_0809AA00(MacroBookEntity* this) {
     } else {
         sub_0809AA9C(this, super->child, 0);
     }
-    ent = &gPlayerEntity;
+    ent = &gPlayerEntity.base;
     this->playerWithinRect = EntityInRectRadius(super, ent, 0x20, 0x22);
     if (this->playerWithinRect != 0) {
         sub_0809AA9C(this, ent, 1);

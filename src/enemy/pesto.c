@@ -126,7 +126,7 @@ void sub_08024060(PestoEntity* this) {
     if (super->hitType != 0x6e) {
         COLLISION_OFF(super);
         super->hitType = 0x6e;
-        super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+        super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
     }
 
     GetNextFrame(super);
@@ -199,7 +199,7 @@ void sub_080241C0(PestoEntity* this) {
     switch (this->unk_80) {
         case 0:
             if (PlayerInRange(super, 3, (gPlayerState.hurtBlinkSpeed != 0) ? 0xa0 : 0x40) && sub_08049FDC(super, 3) &&
-                gPlayerEntity.action != PLAYER_USEENTRANCE) {
+                gPlayerEntity.base.action != PLAYER_USEENTRANCE) {
                 this->unk_80++;
                 super->speed = 0;
                 sub_08024A14(this, 3, 10);
@@ -408,8 +408,8 @@ void sub_080244E8(PestoEntity* this) {
                             this->unk_84 = 0;
                             super->flags2 &= 0xfc;
                             sub_080249DC(this);
-                            this->unk_85 = gPlayerEntity.spritePriority.b1;
-                            gPlayerEntity.flags &= ~ENT_COLLIDE;
+                            this->unk_85 = gPlayerEntity.base.spritePriority.b1;
+                            gPlayerEntity.base.flags &= ~ENT_COLLIDE;
                             gPlayerState.flags |= PL_DISABLE_ITEMS;
                             gPlayerState.field_0xa |= 0x80;
                             if (gPlayerState.swim_state != 0) {
@@ -526,7 +526,7 @@ void sub_080244E8(PestoEntity* this) {
             }
             break;
         case 7:
-            if (gPlayerEntity.z.HALF.HI == 0) {
+            if (gPlayerEntity.base.z.HALF.HI == 0) {
                 this->unk_80 = 0;
                 super->speed = 0x80;
                 sub_08024B38(this);
@@ -843,7 +843,7 @@ void sub_08024E4C(PestoEntity* this) {
             super->subtimer = 8;
             sub_08024A14(this, 0, 8);
         } else {
-            Entity* player = &gPlayerEntity;
+            Entity* player = &gPlayerEntity.base;
             ResetActiveItems();
             gPlayerState.flags |= PL_DISABLE_ITEMS;
             gPlayerState.field_0xa |= 0x80;
@@ -868,15 +868,15 @@ void sub_08024E4C(PestoEntity* this) {
 void sub_08024F50(PestoEntity* this) {
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~PL_DISABLE_ITEMS;
-    CopyPosition(super, &gPlayerEntity);
-    gPlayerEntity.action = PLAYER_NORMAL;
-    COLLISION_ON(&gPlayerEntity);
-    gPlayerEntity.iframes = -0x3c;
-    gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-    gPlayerEntity.speed = 0;
-    gPlayerEntity.spritePriority.b1 = this->unk_85;
-    gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
-    gPlayerEntity.spriteOffsetY = 0;
+    CopyPosition(super, &gPlayerEntity.base);
+    gPlayerEntity.base.action = PLAYER_NORMAL;
+    COLLISION_ON(&gPlayerEntity.base);
+    gPlayerEntity.base.iframes = -0x3c;
+    gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2;
+    gPlayerEntity.base.speed = 0;
+    gPlayerEntity.base.spritePriority.b1 = this->unk_85;
+    gPlayerEntity.base.z.HALF.HI = gPlayerEntity.base.spriteOffsetY;
+    gPlayerEntity.base.spriteOffsetY = 0;
     super->flags2 |= 3;
     this->unk_83 = 0xc0;
     this->unk_80 += 2;

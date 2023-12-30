@@ -8,7 +8,6 @@
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
-#include "new_player.h"
 #include "object.h"
 #include "player.h"
 #include "room.h"
@@ -186,7 +185,7 @@ void MazaalBossObject_Action8(MazaalBossObjectEntity* this) {
             break;
         case 2:
             if (--super->timer == 0) {
-                gRoomControls.camera_target = &gNewPlayerEntity.base;
+                gRoomControls.camera_target = &gPlayerEntity.base;
                 gPlayerState.controlMode = CONTROL_1;
                 DeleteThisEntity();
             }
