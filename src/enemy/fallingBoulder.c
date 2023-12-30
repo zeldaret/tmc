@@ -65,45 +65,42 @@ void sub_0802C318(Entity* this) {
 }
 
 void sub_0802C334(Entity* this) {
-    register Entity* ent asm("r2");
-    u32 diff;
-    u16 tmp;
+    Entity* ent;
+    u32 roomOriginY, tmp;
+    s32 y, i;
     if (this->field_0x7c.HALF_U.LO == 0) {
-        u32 tmp = gRoomControls.origin_y;
+        roomOriginY = gRoomControls.origin_y;
         ent = &gPlayerEntity;
         if (ent == NULL)
             return;
-        if (ent->y.HALF.HI - tmp <= 0x38) {
+        tmp = ent->y.HALF.HI;
+        if (0x38 >= tmp - roomOriginY)
             return;
-        }
         this->field_0x7c.HALF_U.LO = 1;
         this->spriteSettings.draw = 1;
     }
+
     GetNextFrame(this);
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
+
     if (sub_080044EC(this, *(u32*)&this->cutsceneBeh) == 1) {
         EnqueueSFX(0x14c);
         COLLISION_ON(this);
-        this->field_0x7a.HWORD = 0xc;
+        this->field_0x7a.HWORD = 12;
         sub_0802C4B0(this);
     } else {
-        s32 y;
-
         if (this->field_0x7a.HWORD) {
-            tmp = --this->field_0x7a.HWORD;
-            switch (tmp) {
+            switch (--this->field_0x7a.HWORD) {
                 case 0:
                     COLLISION_OFF(this);
                     break;
                 case 8:
                     if (this->type2 != 0 && !sub_08049FA0(this)) {
-                        diff = 0;
-                        for (y = 1; y > -1; y--) {
+                        for (i = 0; i < 2; i++) {
                             ent = CreateFx(this, FX_ROCK2, 0);
                             if (ent) {
-                                ent->x.HALF.HI = ent->x.HALF.HI + 12 - diff;
+                                ent->x.HALF.HI += 12 - i * 0x18;
                             }
-                            diff += 0x18;
                         }
                         sub_0802C62C(this);
                         this->field_0x7a.HWORD = (Random() & 0xff) | 0x100;
@@ -112,11 +109,9 @@ void sub_0802C334(Entity* this) {
                     break;
             }
         }
-
-        {
-            FORCE_REGISTER(RoomControls * tmp, r0) = &gRoomControls;
-            y = tmp->origin_y + tmp->height - this->y.HALF.HI;
-        }
+        roomOriginY = gRoomControls.origin_y;
+        tmp = gRoomControls.height;
+        y = roomOriginY + tmp - this->y.HALF.HI;
 
         if (y >= 5) {
             ProcessMovement1(this);
@@ -131,6 +126,7 @@ void sub_0802C334(Entity* this) {
             }
         }
     }
+
     this->collisionLayer = 3;
     this->spritePriority.b0 = 1;
     UpdateSpriteForCollisionLayer(this);
