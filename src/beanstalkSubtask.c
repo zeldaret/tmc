@@ -27,7 +27,7 @@ extern u8 gUpdateVisibleTiles;
 extern u16 gMapDataTopSpecial[];
 extern u16 gMapDataBottomSpecial[];
 extern const u8 gGlobalGfxAndPalettes[];
-extern const u8 gUnk_081091E4[];
+extern const u8 gEntityListLUT[];
 
 typedef struct {
     u16 tileType;
@@ -1083,7 +1083,7 @@ u32 sub_0801AC68(u32 position, u32 data) {
     u32 end;
 
     ptr = gUnk_0200B240;
-    end = gRoomVars.unk_0e;
+    end = gRoomVars.tileEntityCount;
     for (index = 0; index < end; ptr++, index++) {
         if (position == ptr->position) {
             return ptr->data << 2;
@@ -1149,7 +1149,7 @@ void sub_0801AD6C(const Data* param_1, u32 tilePosition) {
             entity->y.HALF.HI = tmpY1 + gRoomControls.origin_y;
             entity->collisionLayer = 0;
             ResolveCollisionLayer(entity);
-            AppendEntityToList(entity, gUnk_081091E4[entity->kind]);
+            AppendEntityToList(entity, gEntityListLUT[entity->kind]);
         }
     } else {
         manager = GetEmptyManager();
@@ -1163,7 +1163,7 @@ void sub_0801AD6C(const Data* param_1, u32 tilePosition) {
             *(u16*)(&manager[1].timer + 10) = tmpX2 + gRoomControls.origin_x;
             tmpY2 = (s16)((tilePosition & 0xfc0) >> 2) + 8;
             *(u16*)(&manager[1].timer + 12) = tmpY2 + gRoomControls.origin_y;
-            AppendEntityToList((Entity*)manager, gUnk_081091E4[manager->kind]);
+            AppendEntityToList((Entity*)manager, gEntityListLUT[manager->kind]);
         }
     }
 }
@@ -1223,11 +1223,11 @@ void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer) {
 void sub_0801AF48(u32 data, u32 position, u32 layer) {
     u32 index;
     if ((data < 0x4000) && (gRoomTransition.field30 == 0)) {
-        index = gRoomVars.unk_0e;
+        index = gRoomVars.tileEntityCount;
         if (index < 0x100) {
             gUnk_0200B240[index].data = data;
             gUnk_0200B240[index].position = (layer << 0xc) | position;
-            gRoomVars.unk_0e = index + 1;
+            gRoomVars.tileEntityCount = index + 1;
         }
     }
 }
@@ -1241,7 +1241,7 @@ void DeleteLoadedTileEntity(u32 position, s32 layer) {
     layer = layer << 12;
     positionLayer = position | layer;
     ptr = gUnk_0200B240;
-    count = gRoomVars.unk_0e;
+    count = gRoomVars.tileEntityCount;
     t = 0;
 
     if (t >= count) {
@@ -1250,7 +1250,7 @@ void DeleteLoadedTileEntity(u32 position, s32 layer) {
 
     if (positionLayer == ptr->position) {
         count--;
-        gRoomVars.unk_0e = count;
+        gRoomVars.tileEntityCount = count;
         ptr[0] = ptr[count];
         return;
     }
@@ -1262,7 +1262,7 @@ void DeleteLoadedTileEntity(u32 position, s32 layer) {
         }
     }
     count--;
-    gRoomVars.unk_0e = count;
+    gRoomVars.tileEntityCount = count;
     ptr = gUnk_0200B240;
     ptr[t] = ptr[count];
 }

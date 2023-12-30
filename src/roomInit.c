@@ -399,7 +399,7 @@ u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
         index = 0;
         SetLocalFlag(BILL05_YADO1F_MATSU_T0);
     }
-    gRoomVars.field_0x6c[3] = gUnk_080D6A74[index];
+    gRoomVars.properties[3] = gUnk_080D6A74[index];
     return 1;
 }
 
@@ -427,7 +427,7 @@ u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
         index = 0;
         SetLocalFlag(BILL06_YADO1F_TAKE_T0);
     }
-    gRoomVars.field_0x6c[3] = gUnk_080D6B18[index];
+    gRoomVars.properties[3] = gUnk_080D6B18[index];
     return 1;
 }
 
@@ -453,7 +453,7 @@ u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
         index = 0;
         SetLocalFlag(BILL07_YADO1F_UME_T0);
     }
-    gRoomVars.field_0x6c[3] = gUnk_080D6BB8[index];
+    gRoomVars.properties[3] = gUnk_080D6BB8[index];
     return 1;
 }
 
@@ -533,7 +533,7 @@ void sub_StateChange_HouseInteriors1_SchoolWest(void) {
     if (gSave.global_progress < 8) {
         LoadRoomEntityList(&gUnk_080D7038);
     }
-    if (gRoomVars.field_0x0 == 0) {
+    if (!gRoomVars.didEnterScrolling) {
         SetWorldMapPos(2, 0, 0x2c8, 0xa8);
     }
 }
@@ -566,8 +566,8 @@ extern u32 gUnk_080D7348;
 
 u32 sub_unk3_HyruleCastle_0(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080D7348;
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[0] = &gUnk_080D7348;
+        gRoomVars.properties[2] = 0;
     }
     return 1;
 }
@@ -600,8 +600,8 @@ extern u32 gUnk_080D7410;
 
 u32 sub_unk3_HyruleCastle_1(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080D7410;
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[0] = &gUnk_080D7410;
+        gRoomVars.properties[2] = 0;
     }
     return 1;
 }
@@ -1077,7 +1077,7 @@ extern TileEntity gUnk_080D9328[];
 
 static void sub_0804C128(void) {
     sub_080AF250(0);
-    if (gRoomVars.field_0x0 != 0) {
+    if (gRoomVars.didEnterScrolling) {
         if ((gArea.unk_0c_1) == 0) {
             if ((gArea.unk_0c_4) == 0) {
                 gArea.unk_0c_1 = 1;
@@ -1271,7 +1271,7 @@ extern u32 gUnk_080DA230;
 
 u32 sub_unk3_CastorDarknut_Main(void) {
     if (!CheckLocalFlag(LV4_0a_TSUBO))
-        gRoomVars.field_0x6c[0] = &gUnk_080DA230;
+        gRoomVars.properties[0] = &gUnk_080DA230;
 
     return 1;
 }
@@ -1633,7 +1633,7 @@ extern u32 gUnk_080DB910;
 
 u32 sub_unk3_TownMinishHoles_LibraryBookshelf(void) {
     if (CheckGlobalFlag(MIZUKAKI_START) && !CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK)) {
-        gRoomVars.field_0x6c[1] = &gUnk_080DB910;
+        gRoomVars.properties[1] = &gUnk_080DB910;
     }
     return 1;
 }
@@ -2456,7 +2456,7 @@ extern u32 gUnk_080E103C;
 
 u32 sub_unk3_CaveOfFlames_BeforeGleerok(void) {
     if (CheckGlobalFlag(LV2_CLEAR)) {
-        gRoomVars.field_0x6c[1] = &gUnk_080E103C;
+        gRoomVars.properties[1] = &gUnk_080E103C;
     }
     return 1;
 }
@@ -3758,16 +3758,16 @@ extern u32 gUnk_080EB5D4;
 
 u32 sub_unk3_DarkHyruleCastle_1FEntrance(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080EB604;
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[0] = &gUnk_080EB604;
+        gRoomVars.properties[2] = 0;
         gArea.bgm = gArea.queued_bgm = BGM_BEAT_VAATI;
     } else if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x6c[0] = NULL;
+        gRoomVars.properties[0] = NULL;
         if (!CheckLocalFlag(0x7a)) {
             SetGlobalFlag(ZELDA_CHASE);
-            gRoomVars.field_0x6c[0] = &gUnk_080EB5D4;
-            gRoomVars.field_0x6c[7] = sub_0804D9B0;
-            gRoomVars.field_0x6c[2] = 0;
+            gRoomVars.properties[0] = &gUnk_080EB5D4;
+            gRoomVars.properties[7] = sub_0804D9B0;
+            gRoomVars.properties[2] = 0;
         }
     }
     return 1;
@@ -3830,8 +3830,8 @@ void sub_StateChange_Dojos_ToSplitblade1(void) {
 
 u32 sub_unk3_DarkHyruleCastle_3FTripleDarknut(void) {
     if (!CheckLocalFlag(0x77)) {
-        gRoomVars.field_0x6c[0] = 0;
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[0] = 0;
+        gRoomVars.properties[2] = 0;
     }
     return 1;
 }
@@ -4023,7 +4023,7 @@ void sub_StateChange_Dojos_ToGreatblade8(void) {
 
 u32 sub_unk3_DarkHyruleCastle_B1Entrance(void) {
     if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[2] = 0;
     }
     return 1;
 }
@@ -4056,8 +4056,8 @@ extern u32 gUnk_080ED1E4;
 
 u32 sub_unk3_DarkHyruleCastle_1FThroneRoom(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080ED1E4;
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[0] = &gUnk_080ED1E4;
+        gRoomVars.properties[2] = 0;
     }
     return 1;
 }
@@ -4217,8 +4217,8 @@ void sub_StateChange_Ruins_Beanstalk1(void) {
 
 u32 sub_unk3_DarkHyruleCastle_B1Left(void) {
     if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x6c[2] = 0;
-        gRoomVars.field_0x6c[0] = 0;
+        gRoomVars.properties[2] = 0;
+        gRoomVars.properties[0] = 0;
     }
     return 1;
 }
@@ -4242,7 +4242,7 @@ void sub_StateChange_Ruins_Beanstalk2(void) {
 
 u32 sub_unk3_DarkHyruleCastle_B1Map(void) {
     if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.properties[2] = 0;
     }
     return 1;
 }
@@ -4564,7 +4564,7 @@ extern u32 gUnk_080F09A0;
 
 u32 sub_unk3_CastleGarden_Main(void) {
     if (GetInventoryValue(ITEM_FOURSWORD)) {
-        gRoomVars.field_0x6c[1] = &gUnk_080F09A0;
+        gRoomVars.properties[1] = &gUnk_080F09A0;
     }
     return 1;
 }
@@ -5022,9 +5022,9 @@ extern u32 gUnk_080F3EA4;
 
 u32 sub_unk3_LakeHylia_Main(void) {
     if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
-        gRoomVars.field_0x6c[2] = &gUnk_080F3EA4;
+        gRoomVars.properties[2] = &gUnk_080F3EA4;
     } else {
-        gRoomVars.field_0x6c[2] = &Enemies_LakeHylia_Main;
+        gRoomVars.properties[2] = &Enemies_LakeHylia_Main;
     }
     return 1;
 }
@@ -5177,8 +5177,8 @@ extern u32 gUnk_080F4EB0;
 
 u32 sub_unk3_MinishWoods_Main(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080F4EB0;
-        gRoomVars.field_0x6c[2] = NULL;
+        gRoomVars.properties[0] = &gUnk_080F4EB0;
+        gRoomVars.properties[2] = NULL;
     }
     return 1;
 }
@@ -5234,9 +5234,9 @@ extern u32 gUnk_080F5348;
 
 u32 sub_unk3_SanctuaryEntrance_Main(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080F5348;
-        gRoomVars.field_0x6c[7] = sub_0804ED18;
-        gRoomVars.field_0x6c[2] = NULL;
+        gRoomVars.properties[0] = &gUnk_080F5348;
+        gRoomVars.properties[7] = sub_0804ED18;
+        gRoomVars.properties[2] = NULL;
     }
     return 1;
 }
@@ -5687,7 +5687,7 @@ extern u32 gUnk_080F7680;
 
 u32 sub_unk3_HyruleField_EasternHillsNorth(void) {
     if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
-        gRoomVars.field_0x6c[2] = &gUnk_080F7680;
+        gRoomVars.properties[2] = &gUnk_080F7680;
     }
     return 1;
 }
@@ -5748,13 +5748,13 @@ extern void sub_0804F4E4(void);
 
 u32 sub_unk3_HyruleField_OutsideCastle(void) {
     if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(ITEM_GUST_JAR)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080F7CD0;
-        gRoomVars.field_0x6c[7] = sub_0804F5E8;
+        gRoomVars.properties[0] = &gUnk_080F7CD0;
+        gRoomVars.properties[7] = sub_0804F5E8;
     }
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(SOUGEN_06_SAIKAI)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080F7C80;
-        gRoomVars.field_0x6c[7] = sub_0804F4E4;
-        gRoomVars.field_0x6c[2] = NULL;
+        gRoomVars.properties[0] = &gUnk_080F7C80;
+        gRoomVars.properties[7] = sub_0804F4E4;
+        gRoomVars.properties[2] = NULL;
     }
 #ifndef EU
     if (CheckGlobalFlag(TABIDACHI)) {
@@ -6255,7 +6255,7 @@ extern u32 gUnk_080F9BF8;
 
 u32 sub_unk3_VeilFallsTop_Main(void) {
     if (!CheckKinstoneFused(KINSTONE_E)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080F9BF8;
+        gRoomVars.properties[0] = &gUnk_080F9BF8;
     }
     return 1;
 }
@@ -6541,8 +6541,8 @@ extern u32 gUnk_080FAD48;
 
 u32 sub_unk3_MtCrenel_MountainTop(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c[0] = &gUnk_080FAD48;
-        gRoomVars.field_0x6c[2] = NULL;
+        gRoomVars.properties[0] = &gUnk_080FAD48;
+        gRoomVars.properties[2] = NULL;
     }
     return 1;
 }

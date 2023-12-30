@@ -428,7 +428,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
 #ifndef EU
             case 24:
             case 25:
-                r0 = gRoomVars.unk2;
+                r0 = gRoomVars.needHealthDrop;
                 ptr4 = &gUnk_0800191C[0];
                 if (r0) {
                     ptr4++;
@@ -545,7 +545,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemId, u32 itemParameter) {
             if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
                 return ITEM_NONE;
             }
-            if (3 < gRoomVars.filler1[0]) {
+            if (3 < gRoomVars.numKinstoneDropsPrevFrame) {
                 return ITEM_NONE;
             }
 

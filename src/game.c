@@ -236,7 +236,7 @@ static void GameMain_ChangeRoom(void) {
     }
     CreateMiscManager();
 #endif
-    if (!gRoomVars.field_0x0) {
+    if (!gRoomVars.didEnterScrolling) {
         RequestPriorityDuration(NULL, 1);
     }
 }
@@ -355,7 +355,7 @@ static void InitializeEntities(void) {
 
 static void sub_08051D98(void) {
     sub_08052EA0();
-    gRoomVars.field_0x0 = 1;
+    gRoomVars.didEnterScrolling = TRUE;
 
     // remove old entities, unless persistent
     RecycleEntities();

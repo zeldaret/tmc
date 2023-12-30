@@ -22,7 +22,7 @@ extern const EntityData gUnk_080FEE38[];
 extern const EntityData gUnk_080FEE18[];
 extern const EntityData gUnk_080FEE48[];
 extern const EntityData gUnk_080FEE58[];
-extern const void* gUnk_080FED98[];
+extern const void* gLilypadRails[];
 
 void sub_08018AB4(int);
 void sub_08018BB4(u32 worldEventId);
@@ -339,8 +339,9 @@ void sub_0801876C(u32 worldEventId, bool32 isKinstoneFused) {
             break;
         case WORLD_EVENT_TYPE_11:
             if (isKinstoneFused != 0) {
+                // lilypad rails
                 LoadRoomEntity(&gUnk_080FED58[ptr->entity_idx]);
-                gRoomVars.field_0x8c[ptr->entity_idx] = (void*)gUnk_080FED98[ptr->entity_idx];
+                gRoomVars.entityRails[ptr->entity_idx] = (void*)gLilypadRails[ptr->entity_idx];
             }
             break;
         case WORLD_EVENT_TYPE_9:

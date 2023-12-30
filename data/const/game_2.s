@@ -59,7 +59,7 @@ gUnk_080FED58:: @ 080FED58
 	.incbin "data_080FC8A4/gUnk_080FED58.bin"
 
 @ kinstone.c
-gUnk_080FED98:: @ 080FED98
+gLilypadRails:: @ 080FED98
 	.4byte gUnk_080FEDA4
 	.4byte gUnk_080FEDDA
 	.4byte gUnk_080FEDF8

@@ -197,7 +197,7 @@ typedef enum {
     WORLD_EVENT_TYPE_8, // set a tile type
     WORLD_EVENT_TYPE_9, // LoadRoomEntity and set some tile type
     WORLD_EVENT_TYPE_BEANSTALK,
-    WORLD_EVENT_TYPE_11, // LoadRoomEntity and set gRoomVars.field_0x8c
+    WORLD_EVENT_TYPE_11, // LoadRoomEntity and set gRoomVars.entityRails
     WORLD_EVENT_TYPE_12,
     WORLD_EVENT_TYPE_13,
     WORLD_EVENT_TYPE_14,

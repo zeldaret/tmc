@@ -571,10 +571,10 @@ RoomResInfo* GetCurrentRoomInfo(void) {
 
 void sub_08052EA0(void) {
     MemClear(&gRoomVars, sizeof gRoomVars);
-    gRoomVars.unk_10[0] = -1;
-    gRoomVars.unk_10[1] = gRoomVars.unk_10[0];
-    gRoomVars.unk_10[2] = gRoomVars.unk_10[0];
-    gRoomVars.unk_10[3] = gRoomVars.unk_10[0];
+    gRoomVars.graphicsGroups[0] = -1;
+    gRoomVars.graphicsGroups[1] = gRoomVars.graphicsGroups[0];
+    gRoomVars.graphicsGroups[2] = gRoomVars.graphicsGroups[0];
+    gRoomVars.graphicsGroups[3] = gRoomVars.graphicsGroups[0];
     gRoomVars.lightLevel = 256;
     gArea.locationIndex = gAreaMetadata[gRoomControls.area].location;
     UpdateRoomTracker();
@@ -601,7 +601,7 @@ void UpdateFakeScroll(void) {
     LinkedList* ll;
     Entity* e;
 
-    if (gArea.unk_0c_0 == 0 || !gRoomVars.field_0x0)
+    if (gArea.unk_0c_0 == 0 || !gRoomVars.didEnterScrolling)
         return;
 
     y = 0;
@@ -727,7 +727,7 @@ void CheckAreaDiscovery(void) {
             e->kind = MANAGER;
             e->id = ENTER_ROOM_TEXTBOX_MANAGER;
             AppendEntityToList(e, 8);
-            if (!gRoomVars.field_0x0 && !ReadBit(gSave.areaVisitFlags, gArea.locationIndex)) {
+            if (!gRoomVars.didEnterScrolling && !ReadBit(gSave.areaVisitFlags, gArea.locationIndex)) {
                 e->type2 = 1;
                 SetPlayerControl(3);
                 SetInitializationPriority();
