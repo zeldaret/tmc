@@ -51,7 +51,7 @@ void sub_080575C8(u32 param) {
     gMapTop.bgSettings = 0;
     REG_DISPCNT = 0;
     LoadGfxGroup(param);
-    gRoomVars.unk_10[0] = param;
+    gRoomVars.graphicsGroups[0] = param;
 
     bgOffset = (gRoomControls.scroll_y - gRoomControls.origin_y);
     bgOffset += bgOffset >> 3;
@@ -80,7 +80,7 @@ void sub_08057688(void) {
 }
 
 void sub_080576A0(void* this) {
-    LoadGfxGroup(gRoomVars.unk_10[0]);
+    LoadGfxGroup(gRoomVars.graphicsGroups[0]);
     ((VerticalMinishPathBackgroundManager*)this)->field_0x38 = NULL;
     ((VerticalMinishPathBackgroundManager*)this)->field_0x3c = NULL;
     sub_0805754C((VerticalMinishPathBackgroundManager*)this);

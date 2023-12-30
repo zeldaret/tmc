@@ -14,7 +14,7 @@ extern u32 sub_08049D1C(u32);
 
 extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
-extern u8 gUnk_081091E4[];
+extern u8 gEntityListLUT[];
 
 extern void sub_080186EC(void);
 extern void sub_0804B16C(void);
@@ -102,7 +102,7 @@ void RegisterRoomEntity(Entity* ent, const EntityData* dat) {
     kind = dat->kind & 0xF;
     if (ent->prev == NULL) {
         if (list == 0xF) {
-            AppendEntityToList(ent, gUnk_081091E4[kind]);
+            AppendEntityToList(ent, gEntityListLUT[kind]);
         } else if (list == 8) {
             AppendEntityToList(ent, 8);
         } else {
@@ -122,6 +122,8 @@ void sub_0804AF0C(Entity* ent, const EntityData* dat) {
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
+            // TODO: for enemies, I think this is for delayed spawn
+            //  see mulldozerSpawnPoint.c
             ent->field_0x6c.HALF.HI |= 0x20;
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
@@ -145,7 +147,7 @@ void sub_0804AFB0(void** properties) {
 
     gCurrentRoomProperties = properties;
     for (i = 0; i < 8; ++i) {
-        gRoomVars.field_0x6c[i] = gCurrentRoomProperties[i];
+        gRoomVars.properties[i] = gCurrentRoomProperties[i];
     }
 }
 
@@ -247,9 +249,9 @@ void* GetCurrentRoomProperty(u32 idx) {
         return NULL;
 
     if (idx >= 0x80) {
-        return gRoomVars.field_0x8c[idx & 7];
+        return gRoomVars.entityRails[idx & 7];
     } else if (idx <= 7) {
-        return gRoomVars.field_0x6c[idx];
+        return gRoomVars.properties[idx];
     } else {
         return gCurrentRoomProperties[idx];
     }
@@ -353,9 +355,9 @@ static void LoadDarknessTile(TileEntity* tile) {
 static void LoadDestructibleTile(TileEntity* tile) {
     if (CheckLocalFlag(*(u16*)&tile->_2)) {
         SetTileType(*(u16*)&tile->_6, tile->tilePos, tile->localFlag);
-    } else if (!gRoomVars.filler_0x1) {
+    } else if (!gRoomVars.destructableManagerLoaded) {
         Manager* mgr;
-        gRoomVars.filler_0x1 = 1;
+        gRoomVars.destructableManagerLoaded = TRUE;
         mgr = GetEmptyManager();
         if (mgr != NULL) {
             mgr->kind = MANAGER;

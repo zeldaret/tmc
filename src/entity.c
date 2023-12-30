@@ -41,51 +41,54 @@ typedef struct {
 extern UpdateContext gUpdateContext;
 
 // List by entity kind.
-const u8 gUnk_081091E4[] = {
+const u8 gEntityListLUT[] = {
     8, 1, 8, 4, 5, 8, 6, 7, 2, 6,
 };
 
+// TODO: wrong file, maybe an "enter.c" according to lexicographical order
 void sub_0805E248(void) {
-    s32 v0;
+    s32 idx;
 
-    v0 = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
+    idx = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
     if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
-        SetTileType(0x27c, v0 + TILE_POS(-1, -1), 1);
-        SetTileType(0x283, v0 + TILE_POS(-1, -1), 2);
-        SetTileType(0x27d, v0 + TILE_POS(0, -1), 1);
-        SetTileType(0x284, v0 + TILE_POS(0, -1), 2);
-        SetTileType(0x27e, v0 + TILE_POS(1, -1), 1);
-        SetTileType(0x285, v0 + TILE_POS(1, -1), 2);
-        SetTileType(0x27f, v0 + TILE_POS(-1, 0), 1);
-        SetTileType(0x280, v0 + TILE_POS(0, 0), 1);
-        SetTileType(0x282, v0 + TILE_POS(1, 0), 1);
+        SetTileType(0x27c, idx + TILE_POS(-1, -1), 1);
+        SetTileType(0x283, idx + TILE_POS(-1, -1), 2);
+        SetTileType(0x27d, idx + TILE_POS(0, -1), 1);
+        SetTileType(0x284, idx + TILE_POS(0, -1), 2);
+        SetTileType(0x27e, idx + TILE_POS(1, -1), 1);
+        SetTileType(0x285, idx + TILE_POS(1, -1), 2);
+        SetTileType(0x27f, idx + TILE_POS(-1, 0), 1);
+        SetTileType(0x280, idx + TILE_POS(0, 0), 1);
+        SetTileType(0x282, idx + TILE_POS(1, 0), 1);
     } else {
-        SetTileType(0x26c, v0 + TILE_POS(-1, -1), 1);
-        SetTileType(0x273, v0 + TILE_POS(-1, -1), 2);
-        SetTileType(0x26d, v0 + TILE_POS(0, -1), 1);
-        SetTileType(0x274, v0 + TILE_POS(0, -1), 2);
-        SetTileType(0x26e, v0 + TILE_POS(1, -1), 1);
-        SetTileType(0x275, v0 + TILE_POS(1, -1), 2);
-        SetTileType(0x26f, v0 + TILE_POS(-1, 0), 1);
-        SetTileType(0x270, v0 + TILE_POS(0, 0), 1);
-        SetTileType(0x272, v0 + TILE_POS(1, 0), 1);
+        SetTileType(0x26c, idx + TILE_POS(-1, -1), 1);
+        SetTileType(0x273, idx + TILE_POS(-1, -1), 2);
+        SetTileType(0x26d, idx + TILE_POS(0, -1), 1);
+        SetTileType(0x274, idx + TILE_POS(0, -1), 2);
+        SetTileType(0x26e, idx + TILE_POS(1, -1), 1);
+        SetTileType(0x275, idx + TILE_POS(1, -1), 2);
+        SetTileType(0x26f, idx + TILE_POS(-1, 0), 1);
+        SetTileType(0x270, idx + TILE_POS(0, 0), 1);
+        SetTileType(0x272, idx + TILE_POS(1, 0), 1);
     }
     gUpdateVisibleTiles = 0;
 }
 
-const u8 gUnk_081091EE[] = {
-    0, 1, 0, 0, 0, 0, 1, 1, 1, 1,
+const u8 gPrioritiesDefault[] = {
+    [0] = 0, [PLAYER] = 1, [2] = 0,   [ENEMY] = 0,       [PROJECTILE] = 0,
+    [5] = 0, [OBJECT] = 1, [NPC] = 1, [PLAYER_ITEM] = 1, [MANAGER] = 1,
 };
-const u8 gUnk_081091F8[] = {
-    0, 3, 0, 3, 3, 0, 3, 3, 3, 3,
+const u8 gPrioritiesKinstoneMenu[] = {
+    [0] = 0, [PLAYER] = 3, [2] = 0,   [ENEMY] = 3,       [PROJECTILE] = 3,
+    [5] = 0, [OBJECT] = 3, [NPC] = 3, [PLAYER_ITEM] = 3, [MANAGER] = 3,
 };
 
-void SetEntityPriorityForKind(Entity* e) {
+void InitDefaultPriority(Entity* e) {
     u8 r3 = gRoomTransition.entity_update_type;
-    const u8* array = gUnk_081091F8;
+    const u8* array = gPrioritiesKinstoneMenu;
 
     if (r3 != 2) {
-        array = gUnk_081091EE;
+        array = gPrioritiesDefault;
     }
     SetEntityPriority(e, array[e->kind]);
 }
@@ -215,8 +218,10 @@ void ClearEventPriority(void) {
 void UpdateEntities(void) {
     void (*f)(u32);
 
-    gRoomVars.filler1[0] = gRoomVars.field_0x4;
-    gRoomVars.field_0x4 = 0;
+    // TODO: why is this needed? Does this avoid a bug?
+    gRoomVars.numKinstoneDropsPrevFrame = gRoomVars.numKinstoneDrops;
+    gRoomVars.numKinstoneDrops = 0;
+
     UpdatePlayerInput();
     UpdatePriority();
     ClearHitboxList();
@@ -508,7 +513,7 @@ void AppendEntityToList(Entity* entity, u32 listIndex) {
     } else {
         gManagerCount++;
     }
-    SetEntityPriorityForKind(entity);
+    InitDefaultPriority(entity);
 }
 
 void PrependEntityToList(Entity* entity, u32 listIndex) {

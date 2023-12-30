@@ -435,18 +435,18 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             MessageNoOverlap(messageIndex, this);
             switch (context->intVariable) {
                 case 0:
-                    gRoomVars.entities[0] = this;
+                    gRoomVars.puzzleEntities[0] = this;
                     PrependEntityToList(this, NPC);
                     this->zVelocity = Q_16_16(1.5);
                     break;
                 case 1:
-                    pEnt = FindNextDuplicateID(gRoomVars.entities[0], NPC);
-                    gRoomVars.entities[1] = pEnt;
+                    pEnt = FindNextDuplicateID(gRoomVars.puzzleEntities[0], NPC);
+                    gRoomVars.puzzleEntities[1] = pEnt;
                     pEnt->zVelocity = Q_16_16(1.5);
                     break;
                 case 2:
-                    pEnt = FindNextDuplicateID(gRoomVars.entities[1], NPC);
-                    gRoomVars.entities[2] = pEnt;
+                    pEnt = FindNextDuplicateID(gRoomVars.puzzleEntities[1], NPC);
+                    gRoomVars.puzzleEntities[2] = pEnt;
                     pEnt->zVelocity = Q_16_16(1.5);
                     break;
             }
@@ -457,7 +457,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             context->unk_18 = 1;
             break;
         case 1:
-            pEnt = gRoomVars.entities[context->intVariable];
+            pEnt = gRoomVars.puzzleEntities[context->intVariable];
             if (pEnt->z.HALF.HI < 0) {
                 break;
             }
@@ -475,7 +475,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AB74(Entity* this) {
-    gRoomVars.field_0x3 = 1;
+    gRoomVars.remFlagUnused = TRUE;
     if ((s32)(this->y.HALF.HI - (u32)gRoomControls.origin_y) < 0xa8) {
         this->y.HALF.HI = gRoomControls.origin_y + 0xa8;
     }

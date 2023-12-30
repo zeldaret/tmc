@@ -29,7 +29,7 @@ void HorizontalMinishPathBackgroundManager_Main(HorizontalMinishPathBackgroundMa
 }
 
 void sub_08057EFC(void* this) {
-    LoadGfxGroup((u32)gRoomVars.unk_10[0]);
+    LoadGfxGroup((u32)gRoomVars.graphicsGroups[0]);
     sub_08058034();
     ((HorizontalMinishPathBackgroundManager*)this)->unk_3c = 0;
     ((HorizontalMinishPathBackgroundManager*)this)->unk_38 = 0;
@@ -103,7 +103,7 @@ void sub_080580B0(u32 unk1) {
     gMapTop.bgSettings = 0;
     REG_DISPCNT = 0;
     LoadGfxGroup(unk1);
-    gRoomVars.unk_10[0] = unk1;
+    gRoomVars.graphicsGroups[0] = unk1;
     sub_08058034();
     tmp = gRoomControls.scroll_x - gRoomControls.origin_x;
     tmp = tmp + (tmp >> 3) + (0x400 - gRoomControls.width) / 2;
