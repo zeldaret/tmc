@@ -4,7 +4,6 @@
  *
  * @brief Water Drop enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "object.h"
 #include "screen.h"

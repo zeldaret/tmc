@@ -4,7 +4,6 @@
  *
  * @brief Cucco Chick Aggr enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 

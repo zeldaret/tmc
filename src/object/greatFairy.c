@@ -4,7 +4,6 @@
  *
  * @brief Great Fairy object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "save.h"

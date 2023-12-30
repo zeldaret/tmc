@@ -1,7 +1,7 @@
 #ifndef LINKANIMATION_H
 #define LINKANIMATION_H
 
-#ifndef NENT_DEPRECATED
+#ifdef ENT_DEPRECATED
 #error "linkAnimtion.h requires new entities"
 #endif
 #include "entity.h"

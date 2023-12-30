@@ -6,6 +6,7 @@
  *
  * If you leave the room without picking the item up and enter again, the item falls from the sky again.
  */
+#define ENT_DEPRECATED
 #include "manager/fallingItemManager.h"
 #include "flags.h"
 #include "object.h"

@@ -4,7 +4,6 @@
  *
  * @brief Small Pesto enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "physics.h"
 

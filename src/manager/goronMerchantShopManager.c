@@ -4,6 +4,7 @@
  *
  * @brief Spawns the shop items for the kinstones for the goron merchant.
  */
+#define ENT_DEPRECATED
 #include "manager/goronMerchantShopManager.h"
 #include "asm.h"
 #include "flags.h"

@@ -4,7 +4,6 @@
  *
  * @brief Looked Door object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "common.h"
 #include "effects.h"

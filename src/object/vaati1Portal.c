@@ -4,7 +4,6 @@
  *
  * @brief Vaati1 Portal object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "flags.h"

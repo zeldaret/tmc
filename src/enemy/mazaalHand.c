@@ -4,7 +4,6 @@
  *
  * @brief Mazaal Hand enemy
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "hitbox.h"
 

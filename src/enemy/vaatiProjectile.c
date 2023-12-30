@@ -4,7 +4,6 @@
  *
  * @brief Vaati Projectile enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 #include "screenTransitions.h"

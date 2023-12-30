@@ -4,7 +4,6 @@
  *
  * @brief Scissors Beetle enemy
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "entity.h"

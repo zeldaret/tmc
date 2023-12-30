@@ -4,7 +4,6 @@
  *
  * @brief Rupee Like enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "hitbox.h"

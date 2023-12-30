@@ -4,7 +4,6 @@
  *
  * @brief Ghost Brothers NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "message.h"

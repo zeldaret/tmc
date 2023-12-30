@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Female Eye enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "enemy/gyorg.h"
 #include "entity.h"

@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "entity.h"
 
 void sub_080451CC(Entity* this, Entity* other) {

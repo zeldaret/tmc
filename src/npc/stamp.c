@@ -4,7 +4,6 @@
  *
  * @brief Stamp NPC
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"

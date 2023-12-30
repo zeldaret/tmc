@@ -4,7 +4,6 @@
  *
  * @brief Blade Trap enemy
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "object.h"
 #include "room.h"

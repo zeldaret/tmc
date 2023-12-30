@@ -1,10 +1,10 @@
-#include "global.h"
+#define ENT_DEPRECATED
+#include "area.h"
 #include "common.h"
 #include "functions.h"
-#include "area.h"
+#include "manager/diggingCaveEntranceManager.h"
 #include "message.h"
 #include "npc.h"
-#include "manager/diggingCaveEntranceManager.h"
 
 typedef struct Temp {
     void* prev;

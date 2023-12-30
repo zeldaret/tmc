@@ -4,7 +4,6 @@
  *
  * @brief Warp Point object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
 #include "hitbox.h"

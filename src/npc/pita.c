@@ -4,7 +4,6 @@
  *
  * @brief Pita NPC
  */
-#define NENT_DEPRECATED
 #include "item.h"
 #include "npc.h"
 

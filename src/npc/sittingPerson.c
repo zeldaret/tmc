@@ -4,7 +4,6 @@
  *
  * @brief Sitting Person NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 #include "functions.h"
 

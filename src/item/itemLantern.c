@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "item.h"
 #include "functions.h"
 #include "sound.h"

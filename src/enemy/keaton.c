@@ -4,7 +4,6 @@
  *
  * @brief keaton enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 

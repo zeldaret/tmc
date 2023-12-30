@@ -5,7 +5,6 @@
  * @brief Link Animation object. This is used during "item get" sequences and
  * replaces the player entity for the duration.
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "message.h"
 #include "object.h"

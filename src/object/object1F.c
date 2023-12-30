@@ -4,7 +4,6 @@
  *
  * @brief Object1F object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"

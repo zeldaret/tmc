@@ -4,6 +4,7 @@
  *
  * @brief World Event 15
  */
+#define ENT_DEPRECATED
 #include "fade.h"
 #include "flags.h"
 #include "menu.h"

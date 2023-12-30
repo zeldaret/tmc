@@ -4,7 +4,6 @@
  *
  * @brief Figurine Device object
  */
-#define NENT_DEPRECATED
 #include "figurineMenu.h"
 #include "fileselect.h"
 #include "functions.h"

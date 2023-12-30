@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "beanstalkSubtask.h"
 
 #include "backgroundAnimations.h"

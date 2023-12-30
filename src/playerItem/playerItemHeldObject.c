@@ -4,7 +4,6 @@
  *
  * @brief Held Object Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"

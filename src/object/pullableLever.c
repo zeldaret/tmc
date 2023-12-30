@@ -4,7 +4,6 @@
  *
  * @brief Pullable Lever object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"

@@ -4,7 +4,6 @@
  *
  * @brief Giant Leaf object
  */
-#define NENT_DEPRECATED
 #include "object.h"
 
 void sub_0808D618(Entity* this);

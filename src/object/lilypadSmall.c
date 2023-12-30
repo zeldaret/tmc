@@ -4,7 +4,6 @@
  *
  * @brief Lilypad Small object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 

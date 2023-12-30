@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "functions.h"
 #include "gba/m4a.h"
 #include "global.h"

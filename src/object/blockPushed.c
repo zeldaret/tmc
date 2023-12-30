@@ -4,7 +4,6 @@
  *
  * @brief Block Pushed object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 

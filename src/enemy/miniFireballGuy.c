@@ -4,7 +4,6 @@
  *
  * @brief Mini Fireball Guy enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 

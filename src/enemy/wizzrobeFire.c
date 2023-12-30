@@ -4,7 +4,6 @@
  *
  * @brief Wizzrobe Fire enemy
  */
-#define NENT_DEPRECATED
 #include "enemy/wizzrobe.h"
 #include "enemy.h"
 #include "functions.h"

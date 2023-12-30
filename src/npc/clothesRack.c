@@ -5,7 +5,6 @@
  * @brief Clothes Rack NPC
  */
 #include "npc.h"
-#define NENT_DEPRECATED
 
 void sub_0806DD90(Entity*);
 void sub_0806DEC8(Entity*);

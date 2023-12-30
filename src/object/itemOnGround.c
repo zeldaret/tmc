@@ -4,7 +4,6 @@
  *
  * @brief Item On Ground object
  */
-#define NENT_DEPRECATED
 #include "object/itemOnGround.h"
 #include "collision.h"
 #include "entity.h"

@@ -4,7 +4,6 @@
  *
  * @brief Swordsman Newsletter object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "message.h"
 

@@ -4,7 +4,6 @@
  *
  * @brief Dog NPC
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "functions.h"

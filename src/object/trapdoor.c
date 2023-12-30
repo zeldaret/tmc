@@ -4,7 +4,6 @@
  *
  * @brief Trapdoor object
  */
-#define NENT_DEPRECATED
 #include "item.h"
 #include "object.h"
 

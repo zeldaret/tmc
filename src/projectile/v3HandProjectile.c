@@ -4,7 +4,6 @@
  *
  * @brief V3 Hand Projectile
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "entity.h"

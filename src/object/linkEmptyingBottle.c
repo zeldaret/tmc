@@ -5,7 +5,6 @@
  * @brief Link Emptying Bottle object
  * Handles effects of using water, mineral water or a fairy in a bottle in PlayerItemBottle_UseOther.
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "object.h"

@@ -4,7 +4,6 @@
  *
  * @brief Carpenter NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "item.h"
 #include "npc.h"

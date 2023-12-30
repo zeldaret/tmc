@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Female Mouth enemy
  */
-#define NENT_DEPRECATED
 #include "enemy/gyorg.h"
 #include "player.h"
 #include "room.h"

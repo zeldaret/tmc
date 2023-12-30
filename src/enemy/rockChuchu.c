@@ -4,7 +4,6 @@
  *
  * @brief Rock Chuchu enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "player.h"
 

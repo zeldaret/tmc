@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 #include "area.h"
 #include "asm.h"
 #include "common.h"

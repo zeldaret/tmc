@@ -4,7 +4,6 @@
  *
  * @brief Ezlo Cap object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "message.h"
 #include "object.h"

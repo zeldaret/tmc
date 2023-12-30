@@ -9,6 +9,7 @@
  * (There is also a part about changing the music and setting it back when the fight is done, which is song 0x33 (a
  * fight theme) by default but can be overridden through room data)
  */
+#define ENT_DEPRECATED
 #include "manager/fightManager.h"
 #include "area.h"
 #include "common.h"

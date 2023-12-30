@@ -1,11 +1,12 @@
+#define ENT_DEPRECATED
 #include "asm.h"
-#include "item.h"
-#include "sound.h"
-#include "functions.h"
 #include "effects.h"
+#include "functions.h"
 #include "game.h"
-#include "save.h"
+#include "item.h"
 #include "playeritem.h"
+#include "save.h"
+#include "sound.h"
 
 void sub_08076964(ItemBehavior*, u32);
 void sub_080768F8(ItemBehavior*, u32);

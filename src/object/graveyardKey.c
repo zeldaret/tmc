@@ -4,7 +4,6 @@
  *
  * @brief Graveyard Key object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
 #include "effects.h"

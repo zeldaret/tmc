@@ -4,7 +4,6 @@
  *
  * @brief Bomb Peahat enemy
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "enemy.h"
 #include "entity.h"

@@ -4,7 +4,6 @@
  *
  * @brief HouseSign object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 

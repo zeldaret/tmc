@@ -4,7 +4,6 @@
  *
  * @brief Bobomb enemy
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
 #include "enemy.h"

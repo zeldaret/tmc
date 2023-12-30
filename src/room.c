@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "area.h"
 #include "common.h"
 #include "flags.h"

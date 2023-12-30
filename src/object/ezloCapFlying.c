@@ -4,7 +4,6 @@
  *
  * @brief Ezlo Cap Flying object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "new_player.h"
 #include "object.h"

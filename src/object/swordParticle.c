@@ -4,7 +4,6 @@
  *
  * @brief Sword Particle object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "object.h"

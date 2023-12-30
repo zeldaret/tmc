@@ -4,7 +4,6 @@
  *
  * @brief Chuchu enemy
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "enemy.h"
 #include "functions.h"

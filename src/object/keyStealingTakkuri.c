@@ -4,7 +4,6 @@
  *
  * @brief Key Stealing Takkuri object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 

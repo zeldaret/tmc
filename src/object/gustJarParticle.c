@@ -4,7 +4,6 @@
  *
  * @brief Gust Jar Particle object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "physics.h"

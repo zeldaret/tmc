@@ -4,7 +4,6 @@
  *
  * @brief Zelda NPC
  */
-#define NENT_DEPRECATED
 #include "npc/zelda.h"
 #include "entity.h"
 #include "flags.h"

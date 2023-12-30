@@ -1,7 +1,8 @@
-#include "item.h"
+#define ENT_DEPRECATED
 #include "functions.h"
-#include "sound.h"
+#include "item.h"
 #include "playeritem.h"
+#include "sound.h"
 
 u32 sub_08077F64(ItemBehavior* arg0, u32 index);
 u32 sub_080789A8(void);

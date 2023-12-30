@@ -4,7 +4,6 @@
  *
  * @brief Tingle Siblings NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"

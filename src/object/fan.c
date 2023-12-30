@@ -4,7 +4,6 @@
  *
  * @brief Fan object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "flags.h"

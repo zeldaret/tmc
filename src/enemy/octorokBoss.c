@@ -4,7 +4,6 @@
  *
  * @brief Octorok boss enemy
  */
-#define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
 #include "collision.h"
 #include "functions.h"

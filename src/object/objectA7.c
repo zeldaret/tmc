@@ -4,7 +4,6 @@
  *
  * @brief Object A7 object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 
 void ObjectA7(Entity* this) {

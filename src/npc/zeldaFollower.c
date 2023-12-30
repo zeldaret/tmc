@@ -4,7 +4,6 @@
  *
  * @brief Zelda Follower NPC
  */
-#define NENT_DEPRECATED
 #include "npc/zelda.h"
 #include "common.h"
 #include "entity.h"

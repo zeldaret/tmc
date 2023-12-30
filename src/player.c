@@ -4,7 +4,7 @@
  *
  * @brief Player entity
  */
-
+#define ENT_DEPRECATED
 #include "area.h"
 #include "asm.h"
 #include "collision.h"

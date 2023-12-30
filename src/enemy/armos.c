@@ -4,7 +4,6 @@
  *
  * @brief Armos enemy
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "common.h"
 #include "enemy.h"

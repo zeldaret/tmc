@@ -1,7 +1,7 @@
-#include "global.h"
+#define ENT_DEPRECATED
 #include "entity.h"
-#include "item.h"
 #include "functions.h"
+#include "item.h"
 #include "playeritem.h"
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* this, u32);

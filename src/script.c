@@ -1,13 +1,14 @@
-#include "script.h"
-#include "main.h"
-#include "screen.h"
+#define ENT_DEPRECATED
 #include "area.h"
-#include "game.h"
-#include "object.h"
-#include "npc.h"
-#include "kinstone.h"
 #include "functions.h"
+#include "game.h"
 #include "item.h"
+#include "kinstone.h"
+#include "main.h"
+#include "npc.h"
+#include "object.h"
+#include "screen.h"
+#include "script.h"
 #include "ui.h"
 
 void InitScriptExecutionContext(ScriptExecutionContext* context, Script* script);

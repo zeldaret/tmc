@@ -4,7 +4,6 @@
  *
  * @brief Door Mimic enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 #include "sound.h"

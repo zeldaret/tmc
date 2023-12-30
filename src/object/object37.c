@@ -4,7 +4,6 @@
  *
  * @brief Object37 object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"

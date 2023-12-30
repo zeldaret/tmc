@@ -4,7 +4,6 @@
  *
  * @brief NPC 5
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"

@@ -4,7 +4,6 @@
  *
  * @brief Vaati Wrath Eye enemy
  */
-#define NENT_DEPRECATED
 #include "enemy/vaatiWrath.h"
 #include "functions.h"
 

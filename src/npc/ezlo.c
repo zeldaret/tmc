@@ -4,7 +4,6 @@
  *
  * @brief Ezlo NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 
 const u8 gUnk_08114134[];

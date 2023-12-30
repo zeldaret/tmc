@@ -4,7 +4,6 @@
  *
  * @brief Keaton Dagger Projectile
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "player.h"
 #include "physics.h"

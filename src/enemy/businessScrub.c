@@ -4,7 +4,6 @@
  *
  * @brief Business Scrub enemy
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "enemy.h"
 #include "functions.h"

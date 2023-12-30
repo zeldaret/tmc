@@ -220,7 +220,7 @@ typedef struct Entity_ {
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;
     /*0x64*/ void* myHeap; /**< Heap data allocated with #zMalloc. */
-#ifndef NENT_DEPRECATED
+#ifdef ENT_DEPRECATED
     GENERIC_ENTITY_FIELDS
 #endif
 } Entity;

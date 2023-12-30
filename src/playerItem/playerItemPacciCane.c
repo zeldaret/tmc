@@ -4,7 +4,6 @@
  *
  * @brief Pacci Cane Player Item
  */
-#define NENT_DEPRECATED
 #include "common.h"
 #include "entity.h"
 #include "functions.h"

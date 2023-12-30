@@ -4,7 +4,6 @@
  *
  * @brief Minish Emoticon object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 

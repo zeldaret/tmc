@@ -3,6 +3,7 @@
  *
  * @brief Game Utils
  */
+#define ENT_DEPRECATED
 #include "backgroundAnimations.h"
 #include "enemy.h"
 #include "entity.h"

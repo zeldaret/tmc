@@ -4,6 +4,7 @@
  *
  * @brief Creates pushable furniture based on a room property list.
  */
+#define ENT_DEPRECATED
 #include "manager/pushableFurnitureManager.h"
 #include "flags.h"
 #include "object.h"

@@ -4,7 +4,6 @@
  *
  * @brief Large Lilypad object
  */
-#define NENT_DEPRECATED
 #include "object/lilypadLarge.h"
 #include "area.h"
 #include "functions.h"

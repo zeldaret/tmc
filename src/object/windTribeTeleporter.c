@@ -4,7 +4,6 @@
  *
  * @brief Wind Tribe Teleporter object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"

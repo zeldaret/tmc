@@ -4,7 +4,6 @@
  *
  * @brief Minish Portal Stone object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "screen.h"

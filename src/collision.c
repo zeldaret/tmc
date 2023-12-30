@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
 #include "common.h"

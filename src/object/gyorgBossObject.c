@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Boss object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy/gyorg.h"
 #include "entity.h"

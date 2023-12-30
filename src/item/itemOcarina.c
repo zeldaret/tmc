@@ -1,6 +1,7 @@
+#define ENT_DEPRECATED
+#include "functions.h"
 #include "item.h"
 #include "sound.h"
-#include "functions.h"
 
 extern void ResetPlayerVelocity(void);
 extern void CreateBird(Entity*);

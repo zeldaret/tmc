@@ -4,7 +4,6 @@
  *
  * @brief BigGoron NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "item.h"

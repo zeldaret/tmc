@@ -4,7 +4,6 @@
  *
  * @brief Item for Sale object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "kinstone.h"

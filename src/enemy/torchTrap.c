@@ -4,7 +4,6 @@
  *
  * @brief Torch Trap enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "physics.h"

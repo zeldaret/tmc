@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "global.h"
 #include "entity.h"

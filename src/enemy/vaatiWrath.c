@@ -4,7 +4,6 @@
  *
  * @brief Vaati Wrath enemy
  */
-#define NENT_DEPRECATED
 #include "enemy/vaatiWrath.h"
 #include "functions.h"
 #include "message.h"

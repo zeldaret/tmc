@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Male enemy
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "enemy.h"
 #include "enemy/gyorg.h"

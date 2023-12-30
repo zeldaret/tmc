@@ -4,7 +4,6 @@
  *
  * @brief Shield Player Item
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "functions.h"

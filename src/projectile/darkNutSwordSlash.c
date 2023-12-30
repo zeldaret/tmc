@@ -4,7 +4,6 @@
  *
  * @brief Dark Nut Sword Slash Projectile
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "physics.h"
 #include "player.h"

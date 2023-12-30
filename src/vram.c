@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED // Due to sub_080AE218 indexing with gPlayerEntity
 #include "global.h"
 #include "common.h"
 #include "structures.h"

@@ -4,7 +4,6 @@
  *
  * @brief Sword Beam Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "common.h"
 #include "effects.h"

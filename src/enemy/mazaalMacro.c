@@ -4,7 +4,6 @@
  *
  * @brief Mazaal Macro enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "functions.h"
 #include "screenTransitions.h"

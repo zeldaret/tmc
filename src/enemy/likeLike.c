@@ -4,7 +4,6 @@
  *
  * @brief Like Like enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "item.h"
 #include "message.h"

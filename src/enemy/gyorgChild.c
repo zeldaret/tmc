@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Child enemy
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "enemy/gyorg.h"
 #include "functions.h"

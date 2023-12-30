@@ -4,7 +4,6 @@
  *
  * @brief Gina NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "player.h"

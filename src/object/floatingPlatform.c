@@ -4,7 +4,6 @@
  *
  * @brief Floating Platform object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "object.h"

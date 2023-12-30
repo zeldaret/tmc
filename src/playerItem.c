@@ -1,3 +1,4 @@
+#define ENT_DEPRECATED
 #include "global.h"
 #include "functions.h"
 #include "player.h"

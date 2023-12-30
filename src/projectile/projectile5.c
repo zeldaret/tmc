@@ -4,7 +4,6 @@
  *
  * @brief Projectile 5
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "physics.h"

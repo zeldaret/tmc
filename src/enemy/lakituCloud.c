@@ -4,7 +4,6 @@
  *
  * @brief Lakitu Cloud enemy
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "enemy.h"

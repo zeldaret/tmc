@@ -4,7 +4,6 @@
  *
  * @brief Enemy64 enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "fade.h"
 #include "functions.h"

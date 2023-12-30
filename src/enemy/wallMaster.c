@@ -4,7 +4,6 @@
  *
  * @brief Wall Master enemy
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy.h"
 #include "functions.h"

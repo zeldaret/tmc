@@ -4,7 +4,6 @@
  *
  * @brief Spark enemy
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"

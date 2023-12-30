@@ -4,7 +4,6 @@
  *
  * @brief Book object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "item.h"

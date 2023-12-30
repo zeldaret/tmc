@@ -4,7 +4,6 @@
  *
  * @brief Spider Web Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"

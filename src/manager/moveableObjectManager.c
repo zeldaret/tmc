@@ -6,6 +6,7 @@
  *
  * E.g. for pushable rock.
  */
+#define ENT_DEPRECATED
 #include "manager/moveableObjectManager.h"
 #include "flags.h"
 #include "room.h"

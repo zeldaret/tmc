@@ -4,7 +4,6 @@
  *
  * @brief Frozen Octorok object
  */
-#define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
 #include "functions.h"
 #include "message.h"

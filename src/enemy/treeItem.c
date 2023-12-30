@@ -4,7 +4,6 @@
  *
  * @brief Tree Item enemy
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "item.h"
 #include "object.h"

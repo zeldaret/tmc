@@ -4,7 +4,6 @@
  *
  * @brief Nayru NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "kinstone.h"
 #include "npc.h"

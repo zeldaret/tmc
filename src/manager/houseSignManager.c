@@ -7,6 +7,7 @@
  * Spawns HOUSE_SIGN objects that check this and unsets the value in the bitfield.
  * Creates the signs on the houses in hyrule town.
  */
+#define ENT_DEPRECATED
 #include "manager/houseSignManager.h"
 #include "area.h"
 #include "object.h"
