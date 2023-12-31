@@ -84,7 +84,7 @@ void sub_08068318(ZeldaFollowerEntity* this) {
         super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
         super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
         super->spriteSettings.draw = 1;
-        sub_08068578(super);
+        sub_08068578(this);
     }
 
     animIndex = 0;
@@ -152,7 +152,7 @@ void sub_0806854C(ZeldaFollowerEntity* this, u32* none) {
         this->unk_68 = 1;
         RemoveInteractableObject(super);
         super->hitbox = NULL;
-        sub_08068578(super);
+        sub_08068578(this);
     }
 }
 
@@ -175,11 +175,11 @@ void sub_08068578(ZeldaFollowerEntity* this) {
     dy = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
 
     // Divide it into KID_HEAP_COUNT increments.
-    dx = FixedDiv(dx, ZELDA_FOLLOWER_HEAP_COUNT);
-    dy = FixedDiv(dy, ZELDA_FOLLOWER_HEAP_COUNT);
+    dx = FixedDiv(dx, ZELDA_FOLLOWER_HEAP_LEN);
+    dy = FixedDiv(dy, ZELDA_FOLLOWER_HEAP_LEN);
 
     heapPtr = ZELDA_FOLLOWER_HEAP;
-    for (i = 0; i < ZELDA_FOLLOWER_HEAP_COUNT; i++) {
+    for (i = 0; i < ZELDA_FOLLOWER_HEAP_LEN; i++) {
         heapPtr->FIELDS.x = item.FIELDS.x - ((i * dx) >> 8);
         heapPtr->FIELDS.y = item.FIELDS.y - ((i * dy) >> 8);
         heapPtr->FIELDS.z = item.FIELDS.z;
@@ -190,20 +190,20 @@ void sub_08068578(ZeldaFollowerEntity* this) {
     }
 }
 
-void ZeldaFollower_Hide(ZeldaFollowerEntity* zelda, ZeldaFollowerEntity* follower) {
+void ZeldaFollower_Hide(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower) {
     follower->unk_68 = 0;
     follower->base.spriteSettings.draw = 0;
 }
 
-void ZeldaFollower_Show(ZeldaFollowerEntity* zelda, ZeldaFollowerEntity* follower) {
+void ZeldaFollower_Show(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower) {
     follower->unk_68 = 1;
     follower->base.spriteSettings.draw = 1;
     follower->base.animationState = super->animationState;
-    sub_08068578(&follower->base);
+    sub_08068578(follower);
     InitAnimationForceUpdate(&follower->base, follower->base.animationState / 2);
 }
 
-void sub_080686C4(ZeldaFollowerEntity* zelda, Entity* follower) {
+void sub_080686C4(ZeldaFollowerEntity* this, Entity* follower) {
     follower->y.HALF.HI -= 0x10;
     sub_08068578(follower);
 }
