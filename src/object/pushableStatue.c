@@ -106,13 +106,13 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         this->unk_83 = 1;
         index = gPlayerEntity.base.animationState;
         ptr = &gUnk_08120CB4[index];
-        PositionRelative(super, &gPlayerEntity.base, *(ptr) << 0x10, *(ptr + 1) << 0x10);
+        PositionRelative(super, &gPlayerEntity.base, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
     }
     tileType = GetTileType(this->unk_84, super->collisionLayer);
     if (tileType != 0x400b) {
         switch (sub_0808968C(tileType)) {
             case 1:
-                super->direction = (((tileType - 0xc) & 3) << 3);
+                super->direction = DirectionFromAnimationState((tileType - 0xc) & 3);
                 sub_08089538(this);
                 break;
             case 0:
@@ -133,7 +133,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         gPlayerState.flags |= PL_BUSY;
         gPlayerEntity.base.x.HALF.LO = 0;
         gPlayerEntity.base.y.HALF.LO = 0;
-        super->direction = (gPlayerEntity.base.animationState ^ 4) << 2;
+        super->direction = Direction8FromAnimationState(AnimationStateFlip180(gPlayerEntity.base.animationState));
         sub_08089538(this);
     }
 }
@@ -181,7 +181,7 @@ void sub_080894C8(PushableStatueEntity* this) {
 
 void sub_080894FC(PushableStatueEntity* this) {
     u32 index;
-    for (index = 0; index <= 7; index++) {
+    for (index = 0; index < 8; index++) {
         if (super == gRoomVars.puzzleEntities[index]) {
             gRoomVars.puzzleEntities[index] = NULL;
             break;

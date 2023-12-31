@@ -157,7 +157,7 @@ void sub_080ABE04(Entity* this) {
     }
     this->x.HALF.HI = newX + ((0xe0 & rand) >> 1);
     this->y.HALF.HI += ((0xf & rand) << 4);
-    sub_08004168(this);
+    SnapToTile(this);
     InitializeAnimation(this, 0);
     SoundReq(SFX_12D);
 }

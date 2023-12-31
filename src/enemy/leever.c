@@ -39,7 +39,7 @@ enum {
 
 void Leever(LeeverEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Leever_Functions);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Leever_OnTick(LeeverEntity* this) {
@@ -53,7 +53,7 @@ void Leever_OnCollision(LeeverEntity* this) {
         }
     } else {
         if (super->confusedTime != 0) {
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
         }
     }
     EnemyFunctionHandlerAfterCollision(super, Leever_Functions);
@@ -63,7 +63,7 @@ void Leever_OnDeath(LeeverEntity* this) {
     if (super->type == LeeverForm_Red) {
         GenericDeath(super);
     } else {
-        CreateDeathFx(super, 0xf1, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf1, 0);
     }
 }
 

@@ -41,7 +41,7 @@ void (*const gUnk_080CF4F0[])(CloudPiranhaEntity*) = {
 
 void CloudPiranha(CloudPiranhaEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)&gUnk_080CF4F0);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void CloudPiranha_OnTick(CloudPiranhaEntity* this) {
@@ -55,7 +55,7 @@ void CloudPiranha_OnTick(CloudPiranhaEntity* this) {
 
 void CloudPiranha_OnCollision(CloudPiranhaEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, gUnk_080CF4F0);
     if ((super->contactFlags & 0x80) != 0) {

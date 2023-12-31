@@ -88,10 +88,10 @@ typedef struct {
     u8 area;
     u8 room;
     u16 unk_02;
-    u32 unk_04;
+    u32 enemyBits;
 } RoomMemory;
 
-extern RoomMemory* gUnk_020354B0;
+extern RoomMemory* gCurrentRoomMemory;
 extern RoomMemory gRoomMemory[];
 
 // Packets used to store which entities to load in a room

@@ -27,7 +27,7 @@ extern Entity* gUnk_020000B0;
 
 void SpinyChuchu(SpinyChuchuEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)SpinyChuchu_Functions);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void SpinyChuchu_OnTick(SpinyChuchuEntity* this) {
@@ -55,13 +55,13 @@ void SpinyChuchu_OnCollision(SpinyChuchuEntity* this) {
                 case 0x18:
                 case 0x19:
                 case 0x1a:
-                    Create0x68FX(super, FX_STARS);
+                    EnemyCreateFX(super, FX_STARS);
                     super->action = 5;
                     super->hitType = 0x5c;
                     InitializeAnimation(super, 1);
             }
         } else if (super->contactFlags == 0x94) {
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
             super->action = 5;
             InitializeAnimation(super, 1);
         }
@@ -216,7 +216,7 @@ void sub_0802281C(SpinyChuchuEntity* this) {
         super->action = 2;
         super->speed = 0x20;
         InitializeAnimation(super, 0);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 

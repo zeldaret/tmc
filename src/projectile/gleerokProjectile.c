@@ -86,7 +86,7 @@ void GleerokProjectile_Init(GleerokProjectileEntity* this) {
                 super->x.HALF.HI += gUnk_08129980[Random() & 7];
                 super->y.HALF.HI += gUnk_08129988[Random() & 0xf];
             }
-            sub_08004168(super);
+            SnapToTile(super);
             InitializeAnimation(super, 0);
             break;
     }

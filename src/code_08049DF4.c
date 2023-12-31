@@ -10,8 +10,6 @@
 extern Entity* gUnk_020000B0;
 extern Entity* (*const gUnk_080D3BE8[])(void);
 
-extern void ReplaceMonitoredEntity(Entity*, Entity*);
-
 Entity* sub_08049DF4(u32 arg0) {
     if (gUnk_020000B0 != NULL) {
         return gUnk_020000B0;
@@ -310,22 +308,4 @@ bool32 sub_0804A4BC(u8* arg0, u8* arg1, s32 arg2, u32 arg3) {
     }
 
     return TRUE;
-}
-
-void sub_0804A4E4(Entity* entA, Entity* entB) {
-    GenericEntity* r5 = (GenericEntity*)entA;
-    GenericEntity* r6 = (GenericEntity*)entB;
-
-    r6->field_0x6c.HALF.HI = (r5->field_0x6c.HALF.HI & 0x40) | 4;
-    r6->field_0x6c.HALF.LO = r5->field_0x6c.HALF.LO;
-    r6->field_0x70.HALF.LO = r5->field_0x70.HALF.LO;
-    r6->field_0x70.HALF.HI = r5->field_0x70.HALF.HI;
-    r6->field_0x6e.HALF.LO = r5->field_0x6e.HALF.LO;
-    r6->field_0x6e.HALF.HI = r5->field_0x6e.HALF.HI;
-
-    CopyPositionAndSpriteOffset(&r5->base, &r6->base);
-
-    if (r5->field_0x6c.HALF.HI & 0x40) {
-        ReplaceMonitoredEntity(&r5->base, &r6->base);
-    }
 }

@@ -340,7 +340,7 @@ void TempleOfDropletsManager_Type6_Action2(TempleOfDropletsManager* this) {
             case PL_STATE_WALK:
                 if (sub_0805A73C(this)) {
                     super->action++;
-                    sub_08004168(&gPlayerEntity.base);
+                    SnapToTile(&gPlayerEntity.base);
                     gPlayerEntity.base.animationState = 4;
                     RequestPriorityDuration((Entity*)this, 600);
                     SetPlayerControl(0xFF);

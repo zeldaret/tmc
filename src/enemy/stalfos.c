@@ -48,7 +48,7 @@ u32 sub_08039B28(StalfosEntity*);
 
 void Stalfos(StalfosEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)&Stalfos_Functions);
-    SetChildOffset(super, 0, 1, -0x12);
+    EnemySetFXOffset(super, 0, 1, -0x12);
 }
 
 void Stalfos_OnTick(StalfosEntity* this) {
@@ -92,7 +92,7 @@ void Stalfos_OnCollision(StalfosEntity* this) {
         r1 = super->child;
         if (r1 == NULL) {
             if (super->action < 9) {
-                r1 = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
+                r1 = EnemyCreateProjectile(super, STALFOS_PROJECTILE, 1);
                 if (r1 != NULL) {
                     r1->frameIndex = super->animationState << 1;
                     r1->type2 = 2;
@@ -112,14 +112,14 @@ void Stalfos_OnCollision(StalfosEntity* this) {
         super->flags2 &= 0xfb;
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Stalfos_Functions);
 }
 
 void Stalfos_OnDeath(StalfosEntity* this) {
     if (super->type == 0) {
-        CreateDeathFx(super, 0xf3, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf3, 0);
     } else {
         GenericDeath(super);
     }
@@ -143,7 +143,7 @@ void Stalfos_SubAction1(StalfosEntity* this) {
 void Stalfos_SubAction2(StalfosEntity* this) {
     Entity* projectile = super->child;
     if (projectile == NULL) {
-        projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
+        projectile = EnemyCreateProjectile(super, STALFOS_PROJECTILE, 1);
         if (projectile != NULL) {
             projectile->frameIndex = super->animationState << 1;
             projectile->type2 = 1;
@@ -396,7 +396,7 @@ void sub_08039A00(StalfosEntity* this, u32 param_2) {
 }
 
 void sub_08039A20(StalfosEntity* this) {
-    Entity* projectile = CreateProjectileWithParent(super, BONE_PROJECTILE, 0);
+    Entity* projectile = EnemyCreateProjectile(super, BONE_PROJECTILE, 0);
     if (projectile != NULL) {
         projectile->direction = super->direction;
         this->unk_7c = 0x3c;
@@ -431,7 +431,7 @@ void sub_08039A70(StalfosEntity* this) {
 void sub_08039AD4(StalfosEntity* this) {
     u32 position = sub_08039B28(this);
     if (position != 0xffff) {
-        Entity* projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, super->type2);
+        Entity* projectile = EnemyCreateProjectile(super, STALFOS_PROJECTILE, super->type2);
         if (projectile != NULL) {
             projectile->parent = super;
             super->action = 0xb;

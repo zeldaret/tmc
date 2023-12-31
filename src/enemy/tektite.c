@@ -38,7 +38,7 @@ static void (*const Tektite_Functions[])(TektiteEntity*) = {
 
 void Tektite(TektiteEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Tektite_Functions);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Tektite_OnTick(TektiteEntity* this) {
@@ -60,7 +60,7 @@ static const u8 gUnk_080CDEF8[] = {
 
 void Tektite_OnCollision(TektiteEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Tektite_Functions);
     if ((super->contactFlags & 0x80) != 0) {

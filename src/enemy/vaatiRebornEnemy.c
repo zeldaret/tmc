@@ -369,7 +369,7 @@ void VaatiRebornEnemyType0Action4(VaatiRebornEnemyEntity* this) {
                 super->subtimer = 0;
             }
             if ((super->subtimer < 0x10) &&
-                (entity = CreateProjectileWithParent(super, V1_FIRE_PROJECTILE, this->unk_84), entity != NULL)) {
+                (entity = EnemyCreateProjectile(super, V1_FIRE_PROJECTILE, this->unk_84), entity != NULL)) {
                 entity->subtimer = super->subtimer;
                 entity->parent = super;
                 entity->z.HALF.HI = super->z.HALF.HI;
@@ -456,7 +456,7 @@ void VaatiRebornEnemyType0Action6(VaatiRebornEnemyEntity* this) {
             if (--super->timer == 0) {
                 this->unk_74++;
                 SoundReq(SFX_150);
-                target = CreateProjectileWithParent(super, V1_DARK_MAGIC_PROJECTILE, 0);
+                target = EnemyCreateProjectile(super, V1_DARK_MAGIC_PROJECTILE, 0);
                 if (target != NULL) {
                     PositionRelative(super, target, 0, Q_16_16(-16.0));
                     target->parent = super;

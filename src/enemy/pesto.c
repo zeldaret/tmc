@@ -185,7 +185,7 @@ void sub_080240B8(PestoEntity* this) {
         Entity* entity;
 
         this->unk_83 = 0;
-        entity = CreateProjectileWithParent(super, DIRT_BALL_PROJECTILE, this->unk_83);
+        entity = EnemyCreateProjectile(super, DIRT_BALL_PROJECTILE, this->unk_83);
         if (entity != NULL) {
             super->child = entity;
             entity->parent = super;
@@ -428,7 +428,7 @@ void sub_080244E8(PestoEntity* this) {
                             super->z.HALF.HI -= 0xe;
                             this->unk_78 -= 0xe;
 
-                            entity = CreateProjectileWithParent(super, DIRT_BALL_PROJECTILE, this->unk_83);
+                            entity = EnemyCreateProjectile(super, DIRT_BALL_PROJECTILE, this->unk_83);
                             if (entity != NULL) {
                                 entity->parent = super;
                                 entity->z.HALF.HI += 0xe;
@@ -451,7 +451,7 @@ void sub_080244E8(PestoEntity* this) {
                             super->z.HALF.HI -= 0xe;
                             this->unk_78 -= 0xe;
 
-                            entity = CreateProjectileWithParent(super, DIRT_BALL_PROJECTILE, this->unk_83);
+                            entity = EnemyCreateProjectile(super, DIRT_BALL_PROJECTILE, this->unk_83);
                             if (entity != NULL) {
                                 entity->parent = super;
                                 entity->z.HALF.HI += 0xe;

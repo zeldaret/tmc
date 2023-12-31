@@ -41,7 +41,7 @@ void Object53_Init(Entity* this) {
     this->spriteRendering.b3 = 2;
     this->zVelocity = Q_16_16(2.625);
     InitializeAnimation(this, gUnk_08122288[this->type].animationState);
-    sub_08004168(this);
+    SnapToTile(this);
 }
 
 void Object53_Action1(Entity* this) {

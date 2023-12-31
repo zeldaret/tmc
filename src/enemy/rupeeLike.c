@@ -48,7 +48,7 @@ void RupeeLike(RupeeLikeEntity* this) {
             sub_08001290(super, uVar1);
         } else {
             RupeeLike_Functions[GetNextFunction(super)](this);
-            SetChildOffset(super, 0, 1, -0x10);
+            EnemySetFXOffset(super, 0, 1, -0x10);
         }
     } else {
         sub_080293DC(this);
@@ -80,7 +80,7 @@ void RupeeLike_OnCollision(RupeeLikeEntity* this) {
             EnqueueSFX(SFX_PLACE_OBJ);
         } else {
             if (super->confusedTime != 0) {
-                Create0x68FX(super, FX_STARS);
+                EnemyCreateFX(super, FX_STARS);
             }
         }
     }
@@ -88,7 +88,7 @@ void RupeeLike_OnCollision(RupeeLikeEntity* this) {
 }
 
 void RupeeLike_OnDeath(RupeeLikeEntity* this) {
-    CreateDeathFx(super, 0xff, gUnk_080CCC34[this->unk_84 * 3 + super->type]);
+    EnemyCreateDeathFX((Enemy*)super, 0xff, gUnk_080CCC34[this->unk_84 * 3 + super->type]);
 }
 
 void RupeeLike_OnGrabbed(RupeeLikeEntity* this) {

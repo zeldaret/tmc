@@ -681,7 +681,7 @@ void KinstoneMenu_080A4528(void) {
             entity->subtimer = entity->id;
             entity->id = 0x56;
         } else {
-            EnemyInit(entity);
+            EnemyInit((Enemy*)entity);
             entity->subtimer = entity->id;
             entity->id = 0x66;
         }

@@ -42,7 +42,7 @@ const s8 gUnk_080CFFC4[8];
 
 void BowMoblin(Entity* this) {
     EnemyFunctionHandler(this, BowMoblin_Functions);
-    SetChildOffset(this, 0, 1, -0x18);
+    EnemySetFXOffset(this, 0, 1, -0x18);
 }
 
 void BowMoblin_OnTick(BowMoblinEntity* this) {
@@ -53,7 +53,7 @@ void BowMoblin_OnCollision(BowMoblinEntity* this) {
     Entity* pEVar1;
 
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)BowMoblin_Functions);
     if ((super->contactFlags & 0x80) != 0) {
@@ -213,7 +213,7 @@ void sub_0803C400(BowMoblinEntity* this) {
         switch (++super->timer) {
             case 1:
                 super->direction = super->animationState << 2;
-                projectile = CreateProjectileWithParent(super, ARROW_PROJECTILE, super->animationState >> 1);
+                projectile = EnemyCreateProjectile(super, ARROW_PROJECTILE, super->animationState >> 1);
                 if (projectile) {
                     super->child = projectile;
                     projectile->direction = (super->direction + 4) & 0x18;

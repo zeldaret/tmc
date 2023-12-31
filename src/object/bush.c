@@ -50,7 +50,7 @@ void Bush_Init(BushEntity* this) {
     if (super->type == 3) {
         Bush_Action2SubAction5(this);
     }
-    sub_08004168(super);
+    SnapToTile(super);
     if (super->type == 4) {
         Bush_Action2SubAction5(this);
     }

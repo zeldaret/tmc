@@ -22,7 +22,7 @@ extern const s8 gUnk_080CD318[];
 
 void SpikedBeetle(Entity* this) {
     EnemyFunctionHandler(this, SpikedBeetle_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+    EnemySetFXOffset(this, 0, 1, -0x10);
 }
 
 void SpikedBeetle_OnTick(Entity* this) {
@@ -63,7 +63,7 @@ void SpikedBeetle_OnCollision(Entity* this) {
             }
     }
     if (this->confusedTime) {
-        Create0x68FX(this, FX_STARS);
+        EnemyCreateFX(this, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(this, SpikedBeetle_Functions);
 }

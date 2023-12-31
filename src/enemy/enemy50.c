@@ -65,7 +65,7 @@ void Enemy50(Enemy50Entity* this) {
         DeleteThisEntity();
     }
     Enemy50_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Enemy50_OnTick(Enemy50Entity* this) {
@@ -93,7 +93,7 @@ void Enemy50_OnCollision(Enemy50Entity* this) {
         if (super->confusedTime != 0) {
             super->animationState = super->knockbackDirection >> 4;
             InitializeAnimation(super, super->animationState + 7);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
         }
         if (super->health != this->unk_7a) {
             if (super->type == 0) {

@@ -55,7 +55,7 @@ void BallChainSoldier_OnKnockback(BallChainSoldierEntity* this) {
 }
 
 void BallChainSoldier_OnDeath(BallChainSoldierEntity* this) {
-    CreateDeathFx(super, 0xff, 0x57);
+    EnemyCreateDeathFX((Enemy*)super, 0xff, 0x57);
 }
 
 void BallChainSoldier_OnGrabbed(BallChainSoldierEntity* this) {
@@ -64,7 +64,7 @@ void BallChainSoldier_OnGrabbed(BallChainSoldierEntity* this) {
 void BallChainSoldier_Init(BallChainSoldierEntity* this) {
     Entity* entity;
     sub_0804A720(super);
-    entity = CreateProjectileWithParent(super, BALL_AND_CHAIN, 0);
+    entity = EnemyCreateProjectile(super, BALL_AND_CHAIN, 0);
     if (entity == NULL)
         return;
 

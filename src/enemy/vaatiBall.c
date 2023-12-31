@@ -213,7 +213,7 @@ void sub_08044868(VaatiBallEntity* this) {
             if (vaati->unk_86 > 1) {
                 u8 draw = super->spriteSettings.draw;
                 if (draw == 1 && this->unk_84 == 0) {
-                    vaati = (VaatiBallEntity*)CreateProjectileWithParent(super, V1_DARK_MAGIC_PROJECTILE, 0);
+                    vaati = (VaatiBallEntity*)EnemyCreateProjectile(super, V1_DARK_MAGIC_PROJECTILE, 0);
                     if (vaati) {
                         vaati->base.type2 = 1;
                         vaati->base.parent = super;
@@ -303,7 +303,7 @@ void sub_080449F8(VaatiBallEntity* this) {
                 this->unk_74++;
                 draw = super->spriteSettings.draw;
                 if (draw) {
-                    vaati = (VaatiBallEntity*)CreateProjectileWithParent(super, V1_EYE_LASER, 0);
+                    vaati = (VaatiBallEntity*)EnemyCreateProjectile(super, V1_EYE_LASER, 0);
                     if (vaati) {
                         vaati->base.y.HALF.HI += 4;
                         vaati->base.parent = super;

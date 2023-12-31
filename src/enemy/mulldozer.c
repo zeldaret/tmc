@@ -43,7 +43,7 @@ void sub_080332E8(MulldozerEntity*, s32);
 
 void Mulldozer(MulldozerEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Mulldozer_Functions);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Mulldozer_OnInit(MulldozerEntity* this) {
@@ -52,7 +52,7 @@ void Mulldozer_OnInit(MulldozerEntity* this) {
 
 void Mulldozer_OnCollision(MulldozerEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, 0x1c);
+        EnemyCreateFX(super, 0x1c);
     }
     EnemyFunctionHandlerAfterCollision(super, Mulldozer_Functions);
     if ((super->contactFlags & 0x80) != 0) {

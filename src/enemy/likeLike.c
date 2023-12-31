@@ -31,7 +31,7 @@ extern void (*const gUnk_080CC714[])(LikeLikeEntity*);
 
 void LikeLike(Entity* this) {
     EnemyFunctionHandler(this, LikeLike_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+    EnemySetFXOffset(this, 0, 1, -0x10);
 }
 
 void LikeLike_OnTick(LikeLikeEntity* this) {
@@ -63,7 +63,7 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
     }
 
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, LikeLike_Functions);

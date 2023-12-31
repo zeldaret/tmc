@@ -14,7 +14,7 @@ extern void (*const WizzrobeIce_Actions[])(WizzrobeEntity*);
 
 void WizzrobeIce(WizzrobeEntity* this) {
     WizzrobeIce_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void WizzrobeIce_OnTick(WizzrobeEntity* this) {
@@ -23,7 +23,7 @@ void WizzrobeIce_OnTick(WizzrobeEntity* this) {
 
 void WizzrobeIce_OnCollision(WizzrobeEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeIce_Functions);
     if (super->contactFlags == 0x87) {
@@ -49,7 +49,7 @@ void WizzrobeIce_Init(WizzrobeEntity* this) {
     super->timer = 40;
     super->subtimer = 96;
     sub_0802F888(this);
-    projectile = CreateProjectileWithParent(super, ICE_PROJECTILE, 0);
+    projectile = EnemyCreateProjectile(super, ICE_PROJECTILE, 0);
     if (projectile != NULL) {
         super->child = projectile;
         projectile->parent = super;
@@ -103,7 +103,7 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
                     break;
                 case 0xa:
                     if (EntityInRectRadius(super, &gPlayerEntity.base, 0xa0, 0xa0) && CheckOnScreen(super)) {
-                        Entity* projectile = CreateProjectileWithParent(super, ICE_PROJECTILE, 1);
+                        Entity* projectile = EnemyCreateProjectile(super, ICE_PROJECTILE, 1);
                         if (projectile != NULL) {
                             projectile->direction = super->direction & 0x18;
                         }

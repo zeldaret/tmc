@@ -50,7 +50,7 @@ void DoorMimic_OnCollision(DoorMimicEntity* this) {
 void DoorMimic_OnDeath(DoorMimicEntity* this) {
     SetTile(this->unk_7c, this->unk_7e, super->collisionLayer);
     CreateFx(super, FX_POT_SHATTER, 0);
-    sub_08049CF4(super);
+    EnemyDisableRespawn(super);
     DeleteThisEntity();
 }
 

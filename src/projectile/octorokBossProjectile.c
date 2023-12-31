@@ -150,7 +150,7 @@ void OctorokBossProjectile_Action1(OctorokBossProjectileEntity* this) {
                 return;
             }
             for (index = 0; index < 3; ++index) {
-                super->child = CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 1);
+                super->child = EnemyCreateProjectile(super, OCTOROK_BOSS_PROJECTILE, 1);
                 if (super->child != NULL) {
                     super->child->parent = super->parent;
                     super->child->direction = super->direction + gUnk_08129ADC[index];

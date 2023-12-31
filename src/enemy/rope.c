@@ -42,7 +42,7 @@ u32 sub_0803163C(RopeEntity* this);
 
 void Rope(RopeEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Rope_Functions);
-    SetChildOffset(super, 0, 1, -16);
+    EnemySetFXOffset(super, 0, 1, -16);
 }
 
 void Rope_OnTick(RopeEntity* this) {
@@ -62,7 +62,7 @@ void Rope_OnCollision(RopeEntity* this) {
         sub_08031600(this);
     }
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Rope_Functions);
 }

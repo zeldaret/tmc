@@ -44,7 +44,7 @@ void sub_0803F528(GhiniEntity*);
 
 void Ghini(GhiniEntity* this) {
     Ghini_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Ghini_OnTick(GhiniEntity* this) {
@@ -69,7 +69,7 @@ void Ghini_OnCollision(GhiniEntity* this) {
         if (super->confusedTime != 0) {
             super->animationState = super->knockbackDirection >> 4;
             InitializeAnimation(super, super->animationState + 7);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
         }
         if (super->health != this->unk_7a) {
             this->unk_7a = super->health;
