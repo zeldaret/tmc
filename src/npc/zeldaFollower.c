@@ -190,20 +190,20 @@ void sub_08068578(ZeldaFollowerEntity* this) {
     }
 }
 
-void ZeldaFollower_Hide(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower) {
+void ZeldaFollower_Hide(Entity* zelda, ZeldaFollowerEntity* follower) {
     follower->unk_68 = 0;
     follower->base.spriteSettings.draw = 0;
 }
 
-void ZeldaFollower_Show(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower) {
+void ZeldaFollower_Show(Entity* zelda, ZeldaFollowerEntity* follower) {
     follower->unk_68 = 1;
     follower->base.spriteSettings.draw = 1;
-    follower->base.animationState = super->animationState;
+    follower->base.animationState = zelda->animationState;
     sub_08068578(follower);
     InitAnimationForceUpdate(&follower->base, follower->base.animationState / 2);
 }
 
-void sub_080686C4(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower) {
-    follower->y.HALF.HI -= 0x10;
+void sub_080686C4(Entity* zelda, ZeldaFollowerEntity* follower) {
+    follower->base.y.HALF.HI -= 0x10;
     sub_08068578(follower);
 }
