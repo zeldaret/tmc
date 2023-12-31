@@ -170,11 +170,11 @@ void sub_08068578(ZeldaFollowerEntity* this) {
     item.FIELDS.animationState = gPlayerEntity.base.animationState;
     item.FIELDS.collisionLayer = gPlayerEntity.base.collisionLayer;
 
-    // Compute the distance between the kid and the player.
+    // Compute the distance between zelda and the player.
     dx = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
     dy = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
 
-    // Divide it into KID_HEAP_COUNT increments.
+    // Divide it into ZELDA_FOLLOWER_HEAP_LEN increments.
     dx = FixedDiv(dx, ZELDA_FOLLOWER_HEAP_LEN);
     dy = FixedDiv(dy, ZELDA_FOLLOWER_HEAP_LEN);
 
