@@ -200,7 +200,7 @@ void Minecart_Action3(MinecartEntity* this) {
                     case 0x6d:
                     case 0x6e:
                     case 0x6f:
-                        if (uVar3 == GetTileUnderEntity(super)) {
+                        if (uVar3 == GetActTile(super)) {
                             Minecart_Action4(this);
                             gPlayerEntity.animationState = super->animationState << 1;
                             return;
@@ -222,7 +222,7 @@ void Minecart_Action3(MinecartEntity* this) {
 void Minecart_Action4(MinecartEntity* this) {
     sub_08004168(super);
     CopyPosition(super, &gPlayerEntity);
-    switch (GetTileUnderEntity(super)) {
+    switch (GetActTile(super)) {
         case 0x67:
             if (super->direction == DirectionWest) {
                 super->direction = DirectionNorth;

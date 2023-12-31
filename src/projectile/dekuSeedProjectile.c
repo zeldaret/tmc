@@ -116,11 +116,11 @@ void DekuSeedProjectile_Action3(Entity* this) {
 void DekuSeedProjectile_Action4(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    switch (sub_080044EC(this, 0x2800)) {
-        case 0:
+    switch (BounceUpdate(this, Q_8_8(40.0))) {
+        case BOUNCE_DONE_ALL:
             DeleteThisEntity();
             return;
-        case 1:
+        case BOUNCE_INIT_NEXT:
             COLLISION_OFF(this);
             this->speed = 0x120;
 

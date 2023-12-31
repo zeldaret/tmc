@@ -127,7 +127,7 @@ void sub_08038048(Entity* this) {
     temp = this->z.HALF.HI;
     rand = Random() & 0xf;
 
-    if (sub_080044EC(this, 0x3000) == 1) {
+    if (BounceUpdate(this, Q_8_8(48.0)) == BOUNCE_INIT_NEXT) {
         this->action = 3;
         this->subAction = 0;
         this->timer = 20;
@@ -135,7 +135,7 @@ void sub_08038048(Entity* this) {
         return;
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
-    } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
+    } else if ((GetActTile(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 

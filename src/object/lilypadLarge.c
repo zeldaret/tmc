@@ -387,7 +387,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
         }
     } else {
         ResetCollisionLayer(super);
-        if (GetTileUnderEntity(super) == 0xd) {
+        if (GetActTile(super) == 0xd) {
             ResetCollisionLayer(&gPlayerEntity);
             LilypadLarge_Action4(this);
             super->direction = GetFacingDirection(&gPlayerEntity, super);
@@ -409,7 +409,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
             super->timer |= 0x80;
             this->unk_70 = 0;
             this->unk_6c = 0;
-            if (GetTileUnderEntity(super) == 0xd) {
+            if (GetActTile(super) == 0xd) {
                 super->action = 4;
             }
         }

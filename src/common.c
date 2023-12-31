@@ -216,15 +216,15 @@ static void StoreKeyInput(Input* input, u32 keyInput) {
     u32 difference = keyInput & ~heldKeys;
     input->newKeys = difference;
     if (keyInput == heldKeys) {
-        if (--input->unk7 == 0) {
-            input->unk7 = 4;
-            input->unk4 = keyInput;
+        if (--input->menuScrollTimer == 0) {
+            input->menuScrollTimer = 4;
+            input->menuScrollKeys = keyInput;
         } else {
-            input->unk4 = 0;
+            input->menuScrollKeys = 0;
         }
     } else {
-        input->unk7 = 20;
-        input->unk4 = difference;
+        input->menuScrollTimer = 20;
+        input->menuScrollKeys = difference;
     }
     input->heldKeys = keyInput;
 }

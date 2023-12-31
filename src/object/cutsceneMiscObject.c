@@ -332,7 +332,7 @@ void CutsceneMiscObject_Type5(CutsceneMiscObjectEntity* this) {
                 super->zVelocity = 0;
                 SetEntityPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
-                if (GetTileUnderEntity(super) == 13) {
+                if (GetActTile(super) == 13) {
                     super->action = 3;
                 }
                 break;
@@ -551,7 +551,7 @@ void CutsceneMiscObject_Type11(CutsceneMiscObjectEntity* this) {
         InitAnimationForceUpdate(super, 0);
     }
     if (super->subAction != 0) {
-        if ((u32)sub_080044EC(super, 0x1800) <= 1) {
+        if ((u32)BounceUpdate(super, Q_8_8(24.0)) <= BOUNCE_INIT_NEXT) {
             super->subAction = 0;
             SetAffineInfo(super, 0x100, 0x100, 0xC000);
         } else {

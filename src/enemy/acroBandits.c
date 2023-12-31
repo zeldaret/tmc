@@ -509,7 +509,7 @@ void AcroBandit_Type1Action6(Entity* this) {
 void AcroBandit_Type1Action7(Entity* this) {
     ProcessMovement2(this);
 
-    if (sub_080044EC(this, 0x2000) == 0)
+    if (BounceUpdate(this, Q_8_8(32.0)) == BOUNCE_DONE_ALL)
         this->action = 8;
 }
 

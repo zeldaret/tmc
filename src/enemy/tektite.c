@@ -141,7 +141,7 @@ void sub_0802F300(Entity* this) {
     temp = this->z.HALF.HI;
     rand = Random() & 0xf;
 
-    if (sub_080044EC(this, this->field_0x80.HWORD) == 1) {
+    if (BounceUpdate(this, this->field_0x80.HWORD) == BOUNCE_INIT_NEXT) {
         this->action = 3;
         this->subAction = 0;
         if (this->type != 0) {
@@ -158,7 +158,7 @@ void sub_0802F300(Entity* this) {
         return;
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
-    } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
+    } else if ((GetActTile(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 

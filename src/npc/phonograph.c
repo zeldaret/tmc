@@ -62,10 +62,10 @@ void sub_0806E964(PhonographEntity* this, ScriptExecutionContext* context) {
         sub_0806EABC(this);
     }
 
-    if (gInput.unk4 & (DPAD_UP | DPAD_DOWN)) {
+    if (gInput.menuScrollKeys & (DPAD_UP | DPAD_DOWN)) {
         s32 val2, val3;
         s32 val = this->unk_68;
-        if (gInput.unk4 & DPAD_UP) {
+        if (gInput.menuScrollKeys & DPAD_UP) {
             val++;
         } else {
             val--;
@@ -148,8 +148,8 @@ void sub_0806E964(PhonographEntity* this, ScriptExecutionContext* context) {
         if (val > val2) {
             val = 1;
         }
-    } else if (gInput.unk4 & (DPAD_UP | DPAD_DOWN)) {
-        if (gInput.unk4 & DPAD_UP) {
+    } else if (gInput.menuScrollKeys & (DPAD_UP | DPAD_DOWN)) {
+        if (gInput.menuScrollKeys & DPAD_UP) {
             val++;
         } else {
             val--;

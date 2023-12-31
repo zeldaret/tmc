@@ -704,7 +704,7 @@ void sub_0801FB68(Entity* this) {
 }
 
 u32 sub_0801FBD0(Entity* this) {
-    if (GetTileUnderEntity(this) == 0x10) {
+    if (GetActTile(this) == 0x10) {
         return 1;
     } else {
         return 0;

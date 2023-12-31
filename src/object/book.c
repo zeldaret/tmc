@@ -139,7 +139,7 @@ void Book_Action2(BookEntity* this) {
 void Book_Action3(BookEntity* this) {
     Entity* fx;
 
-    if (sub_080044EC(super, 0x2800) != 1) {
+    if (BounceUpdate(super, Q_8_8(40.0)) != BOUNCE_INIT_NEXT) {
         return;
     }
 

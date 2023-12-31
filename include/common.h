@@ -11,9 +11,9 @@ struct Entity_;
 typedef struct {
     u16 heldKeys; /**< Keys held since last frame. */
     u16 newKeys;  /** Keys newly pressed this frame. */
-    u16 unk4;
+    u16 menuScrollKeys;
     u8 unk6;
-    u8 unk7;
+    u8 menuScrollTimer;
 } Input;
 extern Input gInput; /**< Input instance. */
 

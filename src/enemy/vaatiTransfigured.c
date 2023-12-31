@@ -265,8 +265,8 @@ void VaatiTransfiguredType0Action3(Entity* this) {
 
     switch (this->field_0x80.HALF.LO) {
         case 0:
-            uVar4 = sub_080044EC(this, 0x2800);
-            if (uVar4 != 1)
+            uVar4 = BounceUpdate(this, Q_8_8(40.0));
+            if (uVar4 != BOUNCE_INIT_NEXT)
                 break;
             this->field_0x80.HALF.LO = 1;
             this->timer = 192;

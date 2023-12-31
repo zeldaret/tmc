@@ -2349,7 +2349,7 @@ bool32 sub_08079D48(void) {
         return TRUE;
     } else {
         if (!PlayerCheckNEastTile()) {
-            if (!sub_08007DD6((u16)GetTileUnderEntity(&gPlayerEntity), gUnk_0811C268)) {
+            if (!sub_08007DD6((u16)GetActTile(&gPlayerEntity), gUnk_0811C268)) {
                 return TRUE;
             }
         }

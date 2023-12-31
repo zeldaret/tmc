@@ -81,7 +81,7 @@ void sub_0802C334(Entity* this) {
     }
     GetNextFrame(this);
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
-    if (sub_080044EC(this, *(u32*)&this->cutsceneBeh) == 1) {
+    if (BounceUpdate(this, *(u32*)&this->cutsceneBeh) == BOUNCE_INIT_NEXT) {
         EnqueueSFX(0x14c);
         COLLISION_ON(this);
         this->field_0x7a.HWORD = 0xc;

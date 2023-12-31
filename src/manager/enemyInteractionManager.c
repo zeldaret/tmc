@@ -66,14 +66,14 @@ void EnemyInteractionManager_Action1(EnemyInteractionManager* this) {
         for (i = 0; i < n; i++) {
             tmp = this->d.enemies[i];
             for (j = i + 1; j < super->timer; j++) {
-                sub_08004484(tmp, this->d.enemies[j]);
+                CalcCollisionStaticEntity(tmp, this->d.enemies[j]);
             }
         }
     } else {
         for (i = 0; i < n; i++) {
             tmp = this->d.enemies[i];
             for (j = i + 1; j < super->timer; j++) {
-                sub_08004484(this->d.enemies[j], tmp);
+                CalcCollisionStaticEntity(this->d.enemies[j], tmp);
             }
         }
     }

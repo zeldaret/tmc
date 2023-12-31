@@ -171,7 +171,7 @@ void sub_08038F44(CuccoAggrEntity* this) {
     super->direction = GetFacingDirection(&gPlayerEntity, super);
     sub_080390F8(this);
     ProcessMovement0(super);
-    sub_080044EC(super, 0x1800);
+    BounceUpdate(super, Q_8_8(24.0));
     GetNextFrame(super);
     sub_08039298(this);
     if (--this->unk_78 == 0) {

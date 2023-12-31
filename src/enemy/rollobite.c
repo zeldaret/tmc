@@ -181,16 +181,16 @@ void Rollobite_RolledUp(Entity* this) {
     if ((this->frame & ANIM_DONE) == 0)
         GetNextFrame(this);
 
-    unk = sub_080044EC(this, 0x2800);
+    unk = BounceUpdate(this, Q_8_8(40.0));
 
-    if (unk == 0) {
+    if (unk == BOUNCE_DONE_ALL) {
         if (--this->timer == 0) {
             this->action = 5;
             InitializeAnimation(this, this->animationState + 12);
         }
         RegisterCarryEntity(this);
     } else {
-        if (unk == 1)
+        if (unk == BOUNCE_INIT_NEXT)
             EnqueueSFX(SFX_PLACE_OBJ);
 
         if (!(this->direction & DIR_NOT_MOVING_CHECK))

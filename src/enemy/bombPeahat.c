@@ -462,7 +462,7 @@ void sub_0802AEBC(Entity* this) {
 void sub_0802AED4(Entity* this) {
     GetNextFrame(this);
     if (this->field_0x80.HALF.HI < 2) {
-        if (sub_080044EC(this, 0x2800) == 1) {
+        if (BounceUpdate(this, Q_8_8(40.0)) == BOUNCE_INIT_NEXT) {
             this->field_0x80.HALF.HI++;
         }
     } else {
@@ -661,7 +661,7 @@ void sub_0802B1BC(Entity* this) {
 #endif
 
 void sub_0802B204(Entity* this) {
-    if (sub_080044EC(this, 0x2800) == 1) {
+    if (BounceUpdate(this, Q_8_8(40.0)) == BOUNCE_INIT_NEXT) {
         Entity* ent = CreateEnemy(BOBOMB, 1);
         if (ent != NULL) {
             CopyPosition(this, ent);

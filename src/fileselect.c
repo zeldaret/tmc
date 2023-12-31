@@ -1145,7 +1145,7 @@ void sub_080610B8(void) {
         default:
             uVar6 = 0;
             tmp4 = 0;
-            switch (gInput.unk4) {
+            switch (gInput.menuScrollKeys) {
                 case DPAD_UP:
                     tmp4 = -1;
                     break;

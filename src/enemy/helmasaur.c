@@ -218,7 +218,7 @@ void sub_0802BEBC(Entity* this) {
     this->direction ^= DirectionSouth;
     ProcessMovement2(this);
     this->direction ^= DirectionSouth;
-    if (!sub_080044EC(this, Q_16_16(0.125))) {
+    if (BounceUpdate(this, Q_16_16(0.125)) == BOUNCE_DONE_ALL) {
         sub_0802C1C0(this);
     }
 }

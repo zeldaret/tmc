@@ -18,11 +18,11 @@ typedef struct {
     u8 textWindowPosY;
     u16 textIndex;
     u16 unk2; // HI?
-    u32 field_0xc;
-    u32 rupees;
-    u32 field_0x14;
-    u32 field_0x18;
-    u32 field_0x1c;
+    u32 flags;
+    u32 rupees; // item price, shells, minigame timer
+    u32 field_0x14; // number of cuccos
+    u32 field_0x18; // unused
+    u32 field_0x1c; // unused
 } Message;
 extern Message gMessage;
 
