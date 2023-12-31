@@ -22,7 +22,7 @@ void RockProjectile_OnTick(Entity* this) {
 }
 
 void RockProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == 0x80) {
+    if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
         DeleteEntity(this);
     } else {
         this->direction = this->knockbackDirection;

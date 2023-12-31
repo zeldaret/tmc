@@ -65,7 +65,7 @@ void Pesto_OnTick(PestoEntity* this) {
 
 void Pesto_OnCollision(PestoEntity* this) {
     if (super->hitType != 0x6e) {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
             this->unk_86 = 0x30;
 
             if ((this->unk_83 & 0xf) == 3 && super->action == 6) {

@@ -47,7 +47,7 @@ void Leever_OnTick(LeeverEntity* this) {
 }
 
 void Leever_OnCollision(LeeverEntity* this) {
-    if (super->contactFlags == 0x80) {
+    if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
         if (super->action == 3) {
             this->unk_74 = 1;
         }

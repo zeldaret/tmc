@@ -184,7 +184,7 @@ void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this) {
         if (super->timer == 0) {
             uVar6 = TRUE;
         }
-        if (super->contactFlags & 0x80) {
+        if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
             uVar6 = TRUE;
         }
         if (!uVar6) {

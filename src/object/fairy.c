@@ -40,7 +40,7 @@ void Fairy(FairyEntity* this) {
         Fairy_Init, Fairy_Action1, Fairy_Action2, Fairy_Action3, Fairy_Action4,
     };
 
-    if (((super->contactFlags & 0x80) != 0)) {
+    if (((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0)) {
         switch (super->contactFlags & 0x7f) {
             case 0x14:
                 super->action = 3;

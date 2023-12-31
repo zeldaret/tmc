@@ -49,7 +49,7 @@ void UnusedSkull_Init(UnusedSkullEntity* this) {
 }
 
 void UnusedSkull_Action1(UnusedSkullEntity* this) {
-    if (super->contactFlags == 0x9c) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1c)) {
         super->action = 2;
         super->flags &= ~0x80;
         CreateFx(super, FX_ICE, 0);

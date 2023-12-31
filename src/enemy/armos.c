@@ -337,7 +337,7 @@ bool32 sub_080305BC(ArmosEntity* this) {
 
 bool32 sub_08030650(ArmosEntity* this) {
     if (super->type == 0) {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
             return 1;
         }
     } else if (this->unk_80 != 2) {

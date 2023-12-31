@@ -45,7 +45,7 @@ void FlyingSkull_OnTick(FlyingSkullEntity* this) {
 void FlyingSkull_OnCollision(FlyingSkullEntity* this) {
     sub_0803A100(this);
 
-    if (super->contactFlags == 0x9d) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
         super->action = 7;
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);

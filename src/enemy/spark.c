@@ -22,7 +22,7 @@ void Spark_OnTick(Entity* this) {
 void Spark_OnCollision(Entity* this) {
     Entity* entity;
 
-    if (this->contactFlags & 0x80) {
+    if (this->contactFlags & CONTACT_TAKE_DAMAGE) {
         if ((this->contactFlags & 0x7f) == 0x14) {
             COLLISION_OFF(this);
             this->iframes = 0;

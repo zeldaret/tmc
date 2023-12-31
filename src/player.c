@@ -2067,7 +2067,8 @@ static void PlayerRollInit(PlayerEntity* this) {
 
 static void PlayerRollUpdate(PlayerEntity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | PL_MOLDWORM_CAPTURED)) != PL_ROLLING) ||
-        (!(gPlayerState.flags & PL_MOLDWORM_RELEASED) && (super->iframes != 0) && (super->contactFlags & 0x80))) {
+        (!(gPlayerState.flags & PL_MOLDWORM_RELEASED) && (super->iframes != 0) &&
+         (super->contactFlags & CONTACT_TAKE_DAMAGE))) {
         gPlayerState.flags &= ~PL_ROLLING;
         if (CheckQueuedAction())
             return;

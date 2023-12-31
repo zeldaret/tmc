@@ -1097,11 +1097,11 @@ void sub_080409B0(VaatiTransfiguredEntity* this) {
             Knockback1(super);
         }
     } else {
-        if (((super->contactFlags & 0x80) != 0) && (0 < super->iframes)) {
+        if (((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) && (0 < super->iframes)) {
             InitScreenShake(12, 1);
             SoundReq(SFX_BOSS_HIT);
         }
-        if ((super->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {
+        if ((super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xa)) && (gPlayerState.chargeState.action == 5)) {
             super->health = 0xc0;
         }
     }

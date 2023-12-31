@@ -52,7 +52,7 @@ void Gibdo_OnTick(GibdoEntity* this) {
 }
 
 void Gibdo_OnCollision(GibdoEntity* this) {
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
         if (super->action == 0x6) {
             sub_08037ACC(this);
         }
@@ -62,7 +62,7 @@ void Gibdo_OnCollision(GibdoEntity* this) {
         Gibdo_CreateObjects(this);
     } else {
         if (super->action != 0x6) {
-            if (super->hitType == 0x27 && super->contactFlags == 0x80) {
+            if (super->hitType == 0x27 && super->contactFlags == CONTACT_TAKE_DAMAGE) {
                 sub_08037A14(this);
             } else {
                 if ((u8)(super->action - 1) < 2) {

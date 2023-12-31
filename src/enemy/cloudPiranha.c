@@ -58,7 +58,7 @@ void CloudPiranha_OnCollision(CloudPiranhaEntity* this) {
         EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, gUnk_080CF4F0);
-    if ((super->contactFlags & 0x80) != 0) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         if (super->hitType == 0x5a) {
             switch (super->contactFlags & 0x3f) {
                 case 0x14:

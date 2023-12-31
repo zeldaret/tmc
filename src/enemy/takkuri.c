@@ -46,7 +46,7 @@ void Takkuri_OnTick(TakkuriEntity* this) {
 }
 
 void Takkuri_OnCollision(TakkuriEntity* this) {
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         if ((super->contactFlags & 0x7f) == 0) {
             u32 direction;
             sub_0803C0AC(super);

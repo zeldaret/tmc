@@ -72,7 +72,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
             sub_080989C0(this);
             return;
         }
-        if ((super->contactFlags & 0x80) != 0) {
+        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
             switch (super->contactFlags & 0x3f) {
                 case 0x13:
                     super->action = 3;

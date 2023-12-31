@@ -24,7 +24,7 @@ void DekuSeedProjectile_OnTick(Entity* this) {
 }
 
 void DekuSeedProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == 0x80) {
+    if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
         if (this->hitType == 0x68) {
             EnqueueSFX(SFX_86);
         }
@@ -75,7 +75,7 @@ void DekuSeedProjectile_Action1(Entity* this) {
         if ((parent->next != NULL) && (IsColliding(this, parent) != 0)) {
             this->iframes = 0x10;
             this->knockbackDirection = -this->direction;
-            this->contactFlags = 0x80;
+            this->contactFlags = CONTACT_TAKE_DAMAGE;
             this->knockbackDuration = 0xc;
             this->knockbackSpeed = 0;
             parent->iframes = 0x10;

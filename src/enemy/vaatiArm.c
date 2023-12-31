@@ -1401,7 +1401,7 @@ static void sub_08043C40(VaatiArmEntity* this, VaatiArm_HeapStruct1* heapStruct)
 static bool32 sub_08043C98(VaatiArmEntity* this) {
 #if defined EU || defined JP
     Entity* e1 = &((VaatiArm_HeapStruct*)super->myHeap)->entities[3]->base;
-    if ((e1->contactFlags == 0x9d)) {
+    if ((e1->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d))) {
         sub_08043D08(this);
         return TRUE;
     } else {
@@ -1410,7 +1410,7 @@ static bool32 sub_08043C98(VaatiArmEntity* this) {
 #else
     Entity* e1 = &((VaatiArm_HeapStruct*)super->myHeap)->entities[2]->base;
     Entity* e2 = &((VaatiArm_HeapStruct*)super->myHeap)->entities[3]->base;
-    if ((e1->contactFlags == 0x9d) || (e2->contactFlags == 0x9d)) {
+    if ((e1->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) || (e2->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d))) {
         sub_08043D08(this);
         gRoomTransition.field_0x38 |= 2;
         return TRUE;
@@ -1423,7 +1423,7 @@ static bool32 sub_08043C98(VaatiArmEntity* this) {
 static void sub_08043CD4(VaatiArmEntity* this) {
     u32 i;
     for (i = 0; i < 5; i++) {
-        if (((VaatiArm_HeapStruct*)super->myHeap)->entities[i]->base.contactFlags == 0x9d) {
+        if (((VaatiArm_HeapStruct*)super->myHeap)->entities[i]->base.contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
             this->unk_7c = 0x78;
             this->unk_7d = i;
             return;

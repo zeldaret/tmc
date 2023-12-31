@@ -170,7 +170,7 @@ void JarPortal_Action4(JarPortalEntity* this) {
 }
 
 u32 sub_0808C128(JarPortalEntity* this) {
-    return super->contactFlags == 157;
+    return super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d);
 }
 
 void sub_0808C13C(JarPortalEntity* this) {

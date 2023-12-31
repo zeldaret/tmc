@@ -49,7 +49,7 @@ void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
     }
 
     EnemyFunctionHandlerAfterCollision(super, SpinyBeetle_Functions);
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         if (super->iframes > 0 && super->child) {
             sub_08033E1C(this);
         }

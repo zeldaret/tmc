@@ -63,7 +63,7 @@ void Tektite_OnCollision(TektiteEntity* this) {
         EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Tektite_Functions);
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         switch (super->contactFlags & 0x3f) {
             case 0x14:
                 super->action = 1;

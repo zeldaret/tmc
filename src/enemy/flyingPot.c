@@ -93,7 +93,7 @@ void FlyingPot_OnTick(FlyingPotEntity* this) {
 void FlyingPot_OnCollision(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (super->contactFlags == 0x9D) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
         super->action = FLYING_POT_ACTION_6;
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);

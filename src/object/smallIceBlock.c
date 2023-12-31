@@ -281,7 +281,7 @@ bool32 sub_0809963C(SmallIceBlockEntity* this) {
             }
         }
     }
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
         return TRUE;
     }
     return FALSE;

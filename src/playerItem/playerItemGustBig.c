@@ -141,7 +141,7 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
         if ((super->child->gustJarState & 4) == 0) {
             DeleteThisEntity();
         }
-        if ((super->contactFlags & 0x80) != 0) {
+        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
             PlayerItemGustBig_Action3(this);
             return;
         }

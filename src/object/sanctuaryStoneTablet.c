@@ -44,7 +44,7 @@ void SanctuaryStoneTablet_Init(SanctuaryStoneTabletEntity* this) {
 void SanctuaryStoneTablet_Action1(SanctuaryStoneTabletEntity* this) {
     Entity* fxEnt;
 
-    if (super->contactFlags == 0xa1) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x21)) {
         fxEnt = CreateFx(super, FX_MAGIC_STORM, 0);
         if (fxEnt != NULL) {
             fxEnt->spritePriority.b0 = 3;

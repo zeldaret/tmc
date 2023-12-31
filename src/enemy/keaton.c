@@ -143,7 +143,7 @@ void Keaton_Action3(KeatonEntity* this) {
 }
 
 void Keaton_Action4(KeatonEntity* this) {
-    if (super->child && (super->child->contactFlags & 0x80)) {
+    if (super->child && (super->child->contactFlags & CONTACT_TAKE_DAMAGE)) {
         sub_0803275C(this);
         return;
     }

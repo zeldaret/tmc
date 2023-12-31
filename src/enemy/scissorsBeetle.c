@@ -44,7 +44,7 @@ void ScissorsBeetle_OnCollision(ScissorsBeetleEntity* this) {
     }
 
     EnemyFunctionHandlerAfterCollision(super, ScissorsBeetle_Functions);
-    if ((super->contactFlags & 0x80) && super->action != 4) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) && super->action != 4) {
         u32 knockbackDir;
         child = super->child;
         child->iframes = super->iframes;

@@ -66,7 +66,7 @@ void VaatiProjectile_OnTick(VaatiProjectileEntity* this) {
 void VaatiProjectile_OnCollision(VaatiProjectileEntity* this) {
     Entity* entity;
 
-    if (super->contactFlags == 0x80) {
+    if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
 #ifndef EU
         if (super->health != 0) {
 #endif

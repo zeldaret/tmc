@@ -285,7 +285,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
         }
         super->spriteSettings.flipX = flipX;
     }
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         if ((param_2->iframes == 0) || ((u8)param_2->iframes == 0x81)) {
             param_2->iframes = super->iframes;
             param_2->knockbackDirection = super->knockbackDirection;

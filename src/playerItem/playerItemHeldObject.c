@@ -112,7 +112,7 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
     if ((child->base).action != 2) {
         DeleteThisEntity();
     }
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         super->z.WORD = 0;
     }
     if (super->speed != 0) {

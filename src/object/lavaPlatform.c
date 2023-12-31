@@ -131,7 +131,7 @@ void LavaPlatform_Type1Action1(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type1Action2(LavaPlatformEntity* this) {
-    if (super->contactFlags == 0x9d) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
         sub_08092620(this);
     } else {
         if (LavaPlatform_IsPlayerOnPlatform(this)) {
@@ -223,7 +223,7 @@ void LavaPlatform_Type1Action6(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type1Action7(LavaPlatformEntity* this) {
-    if (super->contactFlags == 0x9d) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
         sub_08092620(this);
     }
 }
