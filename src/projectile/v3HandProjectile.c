@@ -4,7 +4,6 @@
  *
  * @brief V3 Hand Projectile
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "entity.h"
@@ -20,7 +19,7 @@ void V3HandProjectile(Entity* this) {
 void V3HandProjectile_OnTick(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
+        this->direction = GetFacingDirection(this, &gPlayerEntity.base);
         InitializeAnimation(this, 0);
         SoundReq(SFX_199);
     }

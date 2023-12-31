@@ -4,7 +4,6 @@
  *
  * @brief V2 Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -93,7 +92,7 @@ void nullsub_542(Entity* this) {
 void sub_080ABC90(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
         ModHealth(-2);
-        SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+        SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
         sub_08079D84();
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();

@@ -4,7 +4,6 @@
  *
  * @brief Pot object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -158,7 +157,7 @@ void sub_08082510(PotEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_080FD340;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = gPlayerEntity.flags2;
+    super->flags2 = gPlayerEntity.base.flags2;
     super->spriteOffsetY = 0;
     SetMetaTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     super->subAction++;
@@ -183,7 +182,7 @@ void sub_0808259C(PotEntity* this) {
             CreateFx(super, FX_LAVA_SPLASH, 0);
             break;
         default:
-            sub_08082850(this, &gPlayerEntity);
+            sub_08082850(this, &gPlayerEntity.base);
             return;
     }
 

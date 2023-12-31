@@ -4,7 +4,6 @@
  *
  * @brief Sturgeon NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -65,8 +64,8 @@ void Sturgeon(SturgeonEntity* this) {
                 if (super->interactType == INTERACTION_FUSE) {
                     super->action = super->action | 0xff;
                     super->interactType = INTERACTION_NONE;
-                    InitAnimationForceUpdate(super,
-                                             GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                    InitAnimationForceUpdate(
+                        super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                     InitializeNPCFusion(super);
                 } else {
                     ExecuteScriptAndHandleAnimation(super, NULL);
@@ -127,7 +126,7 @@ void sub_08064B88(SturgeonEntity* this) {
 }
 
 void sub_08064C2C(SturgeonEntity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = 1;
         InitializeAnimation(super, (u32)super->subtimer);
     }

@@ -4,7 +4,6 @@
  *
  * @brief Great Fairy object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "save.h"
@@ -66,12 +65,12 @@ void GreatFairy(GreatFairyEntity* this) {
 void GreatFairy_CallBehavior(GreatFairyEntity* this) {
     GreatFairy_Behaviors[super->action](this);
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < 168) {
+    if ((gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) < 168) {
 
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 2;
     } else {
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
         gRoomControls.scrollSpeed = 2;
     }
 }
@@ -497,7 +496,7 @@ void GreatFairy_InitializeAnimation(GreatFairyEntity* this) {
     super->type2 = super->type % temp;
     super->collisionLayer = 2;
     InitializeAnimation(super, super->type2);
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
 }
 
 Entity* GreatFairy_CreateForm(GreatFairyEntity* this, u32 curForm, u32 parameter) {
@@ -542,9 +541,9 @@ void sub_08087424(GreatFairyEntity* this, ScriptExecutionContext* context) {
     ResetPlayerAnimationAndAction();
     ent = CreateObject(THUNDERBOLT, 0, 0);
     if (ent != NULL) {
-        ent->parent = &gPlayerEntity;
-        CopyPosition(&gPlayerEntity, ent);
-        SetDefaultPriority(ent, PRIO_MESSAGE);
+        ent->parent = &gPlayerEntity.base;
+        CopyPosition(&gPlayerEntity.base, ent);
+        SetEntityPriority(ent, PRIO_MESSAGE);
     }
 
     switch (context->intVariable) {

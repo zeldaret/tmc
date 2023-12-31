@@ -4,13 +4,11 @@
  *
  * @brief Eyegore enemy
  */
-
-#define NENT_DEPRECATED
 #include "enemy.h"
-#include "functions.h"
 #include "fade.h"
-#include "object.h"
+#include "functions.h"
 #include "hitbox.h"
+#include "object.h"
 #include "tiles.h"
 
 typedef struct {

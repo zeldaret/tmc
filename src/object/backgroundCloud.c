@@ -4,7 +4,6 @@
  *
  * @brief BackgroundCloud object
  */
-#define NENT_DEPRECATED
 #include "object.h"
 
 typedef struct {

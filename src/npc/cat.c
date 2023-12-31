@@ -4,7 +4,6 @@
  *
  * @brief Cat NPC
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -143,7 +142,7 @@ void sub_080677EC(CatEntity* this) {
     super->hitType = -0x58;
     super->flags2 = 1;
     this->unk_69 = 0xff;
-    if (super->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
+    if (super->x.HALF.HI < gPlayerEntity.base.x.HALF.HI) {
         super->spriteSettings.flipX = 1;
     } else {
         super->spriteSettings.flipX = 0;
@@ -219,9 +218,9 @@ void sub_0806797C(CatEntity* this) {
 
 void sub_0806799C(CatEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         sub_08067B08(this);
-        SetDefaultPriority(super, PRIO_PLAYER);
+        SetEntityPriority(super, PRIO_PLAYER);
     }
 }
 
@@ -322,7 +321,7 @@ void sub_08067B80(CatEntity* this, u32 animIndex) {
     this->unk_74 = (Random() & 0x7f) + 0x1e;
     InitAnimationForceUpdate(super, animIndex);
     sub_08067DDC(super);
-    if (super->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
+    if (super->x.HALF.HI < gPlayerEntity.base.x.HALF.HI) {
         super->spriteSettings.flipX = 1;
     } else {
         super->spriteSettings.flipX = 0;
@@ -331,11 +330,11 @@ void sub_08067B80(CatEntity* this, u32 animIndex) {
 
 void sub_08067BD4(Entity* this) {
     if (this->spriteSettings.flipX > 0) {
-        if (this->x.HALF.HI - 4 > gPlayerEntity.x.HALF.HI) {
+        if (this->x.HALF.HI - 4 > gPlayerEntity.base.x.HALF.HI) {
             this->spriteSettings.flipX = 0;
         }
     } else {
-        if (this->x.HALF.HI + 4 < gPlayerEntity.x.HALF.HI) {
+        if (this->x.HALF.HI + 4 < gPlayerEntity.base.x.HALF.HI) {
             this->spriteSettings.flipX = 1;
         }
     }
@@ -377,7 +376,7 @@ void sub_08067C44(CatEntity* this) {
         return;
     }
 
-    iVar4 = sub_0806FCA0(super, &gPlayerEntity);
+    iVar4 = sub_0806FCA0(super, &gPlayerEntity.base);
     switch (super->animIndex) {
         case 0:
         default:
@@ -409,7 +408,7 @@ void sub_08067C44(CatEntity* this) {
     } else {
         super->action = 4;
         sub_08067790(super);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     super->interactType = INTERACTION_NONE;
     SoundReq(SFX_VO_CAT);

@@ -4,7 +4,6 @@
  *
  * @brief Ezlo NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 
 const u8 gUnk_08114134[];
@@ -14,7 +13,7 @@ const u8 gUnk_08114144[];
 void Ezlo(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         InitScriptForNPC(this);
     }
     ExecuteScriptForEntity(this, NULL);
@@ -33,8 +32,8 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
     if (this->spriteSettings.flipX) {
         xOffset = -xOffset;
     }
-    xOffset += gPlayerEntity.x.HALF.HI;
-    yOffset = gPlayerEntity.y.HALF.HI + 2;
+    xOffset += gPlayerEntity.base.x.HALF.HI;
+    yOffset = gPlayerEntity.base.y.HALF.HI + 2;
     context->x.HALF.HI = xOffset;
     context->y.HALF.HI = yOffset;
 
@@ -44,15 +43,15 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806D908(Entity* this) {
-    this->direction =
-        CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.base.x.HALF.HI,
+                                           gPlayerEntity.base.y.HALF.HI);
     this->animationState = (this->animationState & 0x80) | gUnk_08114144[this->direction >> 0x1];
 }
 
 // called when talk to ezlo, also when ezlo moves after you
 void sub_0806D944(Entity* this) {
     this->spriteSettings.flipX = 0;
-    if (this->x.WORD <= gPlayerEntity.x.WORD) {
+    if (this->x.WORD <= gPlayerEntity.base.x.WORD) {
         this->spriteSettings.flipX = 1;
     }
 }
@@ -67,12 +66,12 @@ void sub_0806D96C(Entity* this) {
 }
 
 void sub_0806D9A4(Entity* this) {
-    if (this->x.WORD <= gPlayerEntity.x.WORD) {
-        gPlayerEntity.spriteSettings.flipX = 0;
+    if (this->x.WORD <= gPlayerEntity.base.x.WORD) {
+        gPlayerEntity.base.spriteSettings.flipX = 0;
     } else {
-        gPlayerEntity.spriteSettings.flipX = 1;
+        gPlayerEntity.base.spriteSettings.flipX = 1;
     }
-    gPlayerEntity.animationState = 4;
+    gPlayerEntity.base.animationState = 4;
 }
 
 // animation states

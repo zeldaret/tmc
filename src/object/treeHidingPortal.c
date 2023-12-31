@@ -4,7 +4,6 @@
  *
  * @brief Tree Hiding Portal object
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "flags.h"
@@ -54,7 +53,7 @@ void TreeHidingPortal_Init(TreeHidingPortalEntity* this) {
 
 void TreeHidingPortal_Action1(TreeHidingPortalEntity* this) {
 
-    if (sub_0800419C(super, &gPlayerEntity, 0x30, 0x30)) {
+    if (sub_0800419C(super, &gPlayerEntity.base, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
             if (((gRoomTransition.frameCount & 3) == 0)) {
                 CreateSparkle(super);
@@ -114,11 +113,11 @@ static u32 sub_0809E9A0(void) {
     u32 vvv;
     const s16* ptr;
 
-    if (gPlayerEntity.action != PLAYER_BOUNCE) {
+    if (gPlayerEntity.base.action != PLAYER_BOUNCE) {
         vvv = VVV_0;
     } else {
-        ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
-        vvv = GetVvvAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), 1);
+        ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
+        vvv = GetVvvAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
     }
 
     return vvv;

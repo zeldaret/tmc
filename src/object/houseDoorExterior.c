@@ -4,7 +4,6 @@
  *
  * @brief House Door Exterior object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -62,7 +61,7 @@ void HouseDoorExterior_Type0(HouseDoorExteriorEntity* this) {
         super->action = 1;
         *((u32*)(&this->unk_68)) = 0;
         this->unk_6c = super->timer;
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
     }
 
     prop = GetCurrentRoomProperty(this->unk_6c);
@@ -183,8 +182,8 @@ void sub_0808692C(HouseDoorExteriorEntity* this) {
 
 static u8 sub_08086954(HouseDoorExteriorEntity* this) {
     if (sub_0800445C(super)) {
-        if (GetAnimationStateInRectRadius(super, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
-            (u16)gPlayerState.playerInput.heldInput == PLAYER_INPUT_UP && gPlayerState.jump_status == 0) {
+        if (GetAnimationStateInRectRadius(super, 6, 20) >= 0 && gPlayerEntity.base.animationState == 0 &&
+            (u16)gPlayerState.playerInput.heldInput == INPUT_UP && gPlayerState.jump_status == 0) {
             super->timer--;
         }
     } else {

@@ -334,14 +334,14 @@ void TempleOfDropletsManager_Type6_Action1(TempleOfDropletsManager* this) {
 }
 
 void TempleOfDropletsManager_Type6_Action2(TempleOfDropletsManager* this) {
-    if ((gPlayerEntity.health != 0) && (gPlayerEntity.z.HALF.HI == 0) && (!gPlayerState.item)) {
+    if ((gPlayerEntity.base.health != 0) && (gPlayerEntity.base.z.HALF.HI == 0) && (!gPlayerState.item)) {
         switch (gPlayerState.framestate_last) {
             case PL_STATE_IDLE:
             case PL_STATE_WALK:
                 if (sub_0805A73C(this)) {
                     super->action++;
-                    sub_08004168(&gPlayerEntity);
-                    gPlayerEntity.animationState = 4;
+                    sub_08004168(&gPlayerEntity.base);
+                    gPlayerEntity.base.animationState = 4;
                     RequestPriorityDuration((Entity*)this, 600);
                     SetPlayerControl(0xFF);
                     gPauseMenuOptions.disabled = 1;
@@ -370,7 +370,7 @@ void TempleOfDropletsManager_Type7(TempleOfDropletsManager* this) {
             }
             super->subAction = 1;
             super->flags |= ENT_PERSIST;
-            SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+            SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
             break;
         case 1:
             if (CheckLocalFlag(this->unk_3e))
@@ -402,7 +402,7 @@ void TempleOfDropletsManager_Type7(TempleOfDropletsManager* this) {
 void sub_0805AAC8(TempleOfDropletsManager*);
 
 void sub_0805A89C(TempleOfDropletsManager* this) {
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     super->action = 1;
     super->flags |= ENT_PERSIST;
     super->timer = 8;

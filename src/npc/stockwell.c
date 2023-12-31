@@ -4,7 +4,6 @@
  *
  * @brief Stockwell NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "game.h"
@@ -59,7 +58,7 @@ void sub_08065080(StockwellEntity* this) {
 
     super->action = 1;
     super->spriteSettings.draw = 1;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     InitializeAnimation(super, 4);
     AddInteractableWhenBigObject(super);
 #ifndef EU
@@ -108,8 +107,8 @@ void sub_080650CC(StockwellEntity* this) {
 
 void sub_080651AC(StockwellEntity* this) {
     GetNextFrame(super);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
-        super->interactType = gMessage.doTextBox & 0x7f;
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
+        super->interactType = gMessage.state & MESSAGE_ACTIVE;
         super->action = 1;
         InitializeAnimation(super, 4);
     }
@@ -164,7 +163,7 @@ void sub_0806528C(Entity* this) {
 }
 
 void sub_080652B0(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->subAction++;
         this->timer = 10;
         gRoomVars.animFlags = this->subtimer;
@@ -176,7 +175,7 @@ void sub_080652E4(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
     } else {
-        if (gPlayerEntity.action != PLAYER_ITEMGET) {
+        if (gPlayerEntity.base.action != PLAYER_ITEMGET) {
             this->subAction++;
             MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x19), this);
         }
@@ -184,16 +183,16 @@ void sub_080652E4(Entity* this) {
 }
 
 void sub_08065314(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->subAction++;
         MenuFadeIn(3, 3);
     }
 }
 
 void sub_08065338(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
-        this->subAction = gMessage.doTextBox & 0x7f;
+        this->subAction = gMessage.state & MESSAGE_ACTIVE;
         gRoomVars.animFlags = this->subtimer;
         InitializeAnimation(this, 4);
     }

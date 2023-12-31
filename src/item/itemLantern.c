@@ -1,8 +1,8 @@
-#include "item.h"
 #include "functions.h"
-#include "sound.h"
-#include "object.h"
 #include "game.h"
+#include "item.h"
+#include "object.h"
+#include "sound.h"
 
 extern s8 gUnk_08126EEC[];
 extern Entity* CreatePlayerItemForItemIfNotExists(ItemBehavior*);
@@ -37,13 +37,13 @@ void sub_08075A0C(ItemBehavior* this, u32 index) {
         this->priority |= 0x80;
         sub_08077D38(this, index);
         CreatePlayerItemForItemIfNotExists(this);
-        sub_0806F948(&gPlayerEntity);
+        sub_0806F948(&gPlayerEntity.base);
         this->behaviorId = 0x10;
         ForceEquipItem(ITEM_LANTERN_ON, equipSlot);
-        tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
-        object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
+        tmp = &gUnk_08126EEC[gPlayerEntity.base.animationState & 6];
+        object = CreateObjectWithParent(&gPlayerEntity.base, LAMP_PARTICLE, 1, 0);
         if (object != NULL) {
-            object->spriteVramOffset = gPlayerEntity.spriteVramOffset;
+            object->spriteVramOffset = gPlayerEntity.base.spriteVramOffset;
             object->x.HALF.HI = tmp[0] + object->x.HALF.HI;
             object->y.HALF.HI = tmp[1] + object->y.HALF.HI;
         }
@@ -88,19 +88,19 @@ void sub_08075B54(ItemBehavior* this, u32 index) {
             DeleteItemBehavior(this, index);
             SoundReq(SFX_ITEM_LANTERN_OFF);
         } else {
-            if (((gPlayerState.queued_action != PLAYER_ROLL) && (gPlayerEntity.frameIndex < 0x37)) &&
-                ((u16)gPlayerEntity.spriteIndex == 6)) {
-                tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
+            if (((gPlayerState.queued_action != PLAYER_ROLL) && (gPlayerEntity.base.frameIndex < 0x37)) &&
+                ((u16)gPlayerEntity.base.spriteIndex == 6)) {
+                tmp = &gUnk_08126EEC[gPlayerEntity.base.animationState & 6];
 
                 if ((gPlayerState.jump_status == 0) &&
-                    (sub_080B1BA4(TILE(gPlayerEntity.x.HALF.HI + tmp[0], gPlayerEntity.y.HALF.HI + tmp[1]),
-                                  gPlayerEntity.collisionLayer, 0x40) != 0)) {
+                    (sub_080B1BA4(TILE(gPlayerEntity.base.x.HALF.HI + tmp[0], gPlayerEntity.base.y.HALF.HI + tmp[1]),
+                                  gPlayerEntity.base.collisionLayer, 0x40) != 0)) {
                     this->animPriority = 0xf;
                     this->stateID++;
-                    gPlayerEntity.field_0x7a.HWORD = 2;
-                    object = CreateObjectWithParent(&gPlayerEntity, LAMP_PARTICLE, 1, 0);
+                    gPlayerEntity.unk_7a = 2;
+                    object = CreateObjectWithParent(&gPlayerEntity.base, LAMP_PARTICLE, 1, 0);
                     if (object != NULL) {
-                        object->spriteVramOffset = gPlayerEntity.spriteVramOffset;
+                        object->spriteVramOffset = gPlayerEntity.base.spriteVramOffset;
                         object->x.HALF.HI = tmp[0] + object->x.HALF.HI;
                         object->y.HALF.HI = tmp[1] + object->y.HALF.HI;
                     }
@@ -119,8 +119,8 @@ void sub_08075C9C(ItemBehavior* this, u32 index) {
 
     UpdateItemAnim(this);
     if ((this->playerFrame & 0x10) != 0) {
-        tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
-        sub_0807AB44(&gPlayerEntity, tmp[0], tmp[1]);
+        tmp = &gUnk_08126EEC[gPlayerEntity.base.animationState & 6];
+        sub_0807AB44(&gPlayerEntity.base, tmp[0], tmp[1]);
     }
     if ((this->playerFrame & 0x80) != 0) {
         this->animPriority = 0;
@@ -128,6 +128,6 @@ void sub_08075C9C(ItemBehavior* this, u32 index) {
         gPlayerState.field_0xa = (~(8 >> index)) & gPlayerState.field_0xa;
         gPlayerState.keepFacing = (~(8 >> index)) & gPlayerState.keepFacing;
     } else {
-        gPlayerEntity.field_0x7a.HWORD++;
+        gPlayerEntity.unk_7a++;
     }
 }

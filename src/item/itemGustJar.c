@@ -1,6 +1,6 @@
 #include "entity.h"
-#include "item.h"
 #include "functions.h"
+#include "item.h"
 #include "playeritem.h"
 #include "tiles.h"
 
@@ -12,15 +12,15 @@ void ItemGustJar(ItemBehavior* this, u32 index) {
 }
 
 void sub_08076DF4(ItemBehavior* this, u32 index) {
-    if (GetVvvInFront(&gPlayerEntity) != VVV_41 && gPlayerState.floor_type != SURFACE_DOOR &&
+    if (GetVvvInFront(&gPlayerEntity.base) != VVV_41 && gPlayerState.floor_type != SURFACE_DOOR &&
         gPlayerState.floor_type != SURFACE_DOOR_13 && gPlayerState.jump_status == 0) {
         sub_08077D38(this, index);
         this->timer = 0;
-        this->playerAnimationState = gPlayerEntity.animationState;
+        this->playerAnimationState = gPlayerEntity.base.animationState;
         this->priority |= 0x80;
         this->priority++;
         gPlayerState.gustJarSpeed = 1;
-        *(u32*)&gPlayerEntity.field_0x74 = 0;
+        gPlayerEntity.unk_74 = NULL;
         gPlayerState.field_0x1c = 1;
         sub_08077BB8(this);
     } else {
@@ -40,7 +40,7 @@ void sub_08076E60(ItemBehavior* this, u32 index) {
         gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> index);
         playerItem = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
         if (playerItem != NULL) {
-            playerItem->parent = &gPlayerEntity;
+            playerItem->parent = &gPlayerEntity.base;
         }
     } else {
         UpdateItemAnim(this);
@@ -63,7 +63,7 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
             gPlayerState.gustJarSpeed = 1;
         }
 
-        if (gPlayerEntity.subAction == 0x1b) {
+        if (gPlayerEntity.base.subAction == 0x1b) {
             animIndex = ANIM_GUSTJAR_524;
         } else {
             if (gPlayerState.direction & DIR_NOT_MOVING_CHECK) {
@@ -87,7 +87,7 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
 
 void sub_08076F64(ItemBehavior* this, u32 index) {
     Entity* item;
-    Entity* player;
+    PlayerEntity* player;
     switch (gPlayerState.field_0x1c & 0xf) {
         case 5:
             if (this->playerFrame & 0x80) {
@@ -96,14 +96,14 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                     this->timer = 0;
                     gPlayerState.gustJarSpeed = 1;
                     player = &gPlayerEntity;
-                    *(u32*)&player->field_0x74 = 0;
+                    player->unk_74 = NULL;
                     gPlayerState.field_0x1c = 1;
                     gPlayerState.field_0xa &= ~(8 >> index);
                     this->stateID = 2;
                     SetItemAnim(this, ANIM_GUSTJAR_SUCK);
                     item = CreatePlayerItem(PLAYER_ITEM_GUST, 0, 0, 0);
                     if (item) {
-                        item->parent = player;
+                        item->parent = &player->base;
                     }
                     return;
                 } else {
@@ -119,9 +119,9 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                 UpdateItemAnim(this);
                 if ((gPlayerState.flags & PL_FLAGS2))
                     return;
-                gPlayerEntity.direction =
-                    DirectionTurnAround(Direction8FromAnimationState(gPlayerEntity.animationState));
-                gPlayerEntity.speed = 0x80;
+                gPlayerEntity.base.direction =
+                    DirectionTurnAround(Direction8FromAnimationState(gPlayerEntity.base.animationState));
+                gPlayerEntity.base.speed = 0x80;
                 UpdatePlayerMovement();
 
                 return;
@@ -137,7 +137,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
             UpdateItemAnim(this);
             if (this->playerFrame & 1) {
                 gPlayerState.field_0x1c = 5;
-                gPlayerEntity.field_0x70.WORD = 0;
+                gPlayerEntity.unk_70 = NULL;
                 if (gPlayerState.gustJarSpeed) {
                     CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
                 }
@@ -145,8 +145,9 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
 
             if (gPlayerState.flags & PL_FLAGS2)
                 return;
-            gPlayerEntity.direction = DirectionTurnAround(Direction8FromAnimationState(gPlayerEntity.animationState));
-            gPlayerEntity.speed = 0x80;
+            gPlayerEntity.base.direction =
+                DirectionTurnAround(Direction8FromAnimationState(gPlayerEntity.base.animationState));
+            gPlayerEntity.base.speed = 0x80;
             UpdatePlayerMovement();
             return;
         case 6:
@@ -169,7 +170,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
             break;
     }
     gPlayerState.field_0x1c = 0;
-    gPlayerEntity.field_0x70.WORD = 0;
+    gPlayerEntity.unk_70 = NULL;
     DeleteItemBehavior(this, index);
 }
 

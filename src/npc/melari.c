@@ -4,7 +4,6 @@
  *
  * @brief Melari NPC
  */
-#define NENT_DEPRECATED
 #include "item.h"
 #include "npc.h"
 
@@ -78,7 +77,7 @@ void sub_08068780(Entity* this) {
             this->action = 1;
             this->spriteSettings.draw = TRUE;
             this->animationState = this->type;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitScriptForNPC(this);
             break;
         case 1:

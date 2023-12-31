@@ -4,7 +4,6 @@
  *
  * @brief Mayor Hagen NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "item.h"
@@ -24,7 +23,7 @@ void MayorHagen(MayorHagenEntity* this) {
             super->action = 1;
             this->animIndex = 0;
             this->fusionOffer = GetFusionToOffer(super);
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             InitScriptForNPC(super);
             break;
         case 1:
@@ -33,8 +32,8 @@ void MayorHagen(MayorHagenEntity* this) {
                 super->action = v;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         4 + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, 4 + GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
                 break;
             }

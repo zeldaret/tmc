@@ -1,6 +1,11 @@
-#define NENT_DEPRECATED
-#include "entity.h"
+/**
+ * @file cuccoAggr.c
+ * @ingroup Enemies
+ *
+ * @brief Cucco Aggr enemy
+ */
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {
@@ -168,7 +173,7 @@ void sub_08038F20(CuccoAggrEntity* this) {
 }
 
 void sub_08038F44(CuccoAggrEntity* this) {
-    super->direction = GetFacingDirection(&gPlayerEntity, super);
+    super->direction = GetFacingDirection(&gPlayerEntity.base, super);
     sub_080390F8(this);
     ProcessMovement0(super);
     sub_080044EC(super, 0x1800);
@@ -188,7 +193,7 @@ void sub_08038FA0(CuccoAggrEntity* this) {
 
     if (this->unk_78) {
         if ((this->unk_78-- & 0x7) == 0) {
-            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity.base));
         }
 
         sub_080390F8(this);
@@ -273,7 +278,7 @@ void sub_08039120(CuccoAggrEntity* this) {
 void sub_08039140(CuccoAggrEntity* this) {
     super->action = 6;
     super->timer = Random();
-    super->direction = GetFacingDirection(super, &gPlayerEntity);
+    super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     super->z.HALF.HI = -4;
     this->unk_78 = 0xb4;
     sub_080390F8(this);
@@ -292,13 +297,13 @@ bool32 CuccoAggr_IsOutsideScroll(CuccoAggrEntity* this) {
 void sub_080391B4(CuccoAggrEntity* this) {
     if (this->unk_7a) {
         if ((this->unk_7b++ & 0x1f) == 0) {
-            Entity* ent = CreateEnemy(CUCCO_AGGR, 2);
-            if (ent != NULL) {
+            Entity* entity = CreateEnemy(CUCCO_AGGR, 2);
+            if (entity != NULL) {
                 u32 rand = (Random() & 0x17);
                 const PosOffset* ptr = &gCuccoAggrSpawnPoints[rand];
-                ent->x.HALF.HI = gRoomControls.scroll_x + ptr->x;
-                ent->y.HALF.HI = gRoomControls.scroll_y + ptr->y;
-                ent->collisionLayer = super->collisionLayer;
+                entity->x.HALF.HI = gRoomControls.scroll_x + ptr->x;
+                entity->y.HALF.HI = gRoomControls.scroll_y + ptr->y;
+                entity->collisionLayer = super->collisionLayer;
             }
         }
     }
@@ -317,10 +322,10 @@ void sub_08039218(CuccoAggrEntity* this) {
 }
 
 void CuccoAggr_CreateFx(CuccoAggrEntity* this) {
-    Entity* ent = CreateFx(super, gCuccoAggrFx[super->type], 0);
+    Entity* entity = CreateFx(super, gCuccoAggrFx[super->type], 0);
 
-    if (ent != NULL) {
-        ent->x.HALF.HI += gCuccoAggrFxHorizontalOffsets[super->spriteSettings.flipX];
+    if (entity != NULL) {
+        entity->x.HALF.HI += gCuccoAggrFxHorizontalOffsets[super->spriteSettings.flipX];
     }
 }
 

@@ -4,7 +4,6 @@
  *
  * @brief Fire Rod Projectile Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -39,7 +38,7 @@ void PlayerItemFireRodProjectile_Init(PlayerItemFireRodProjectileEntity* this) {
     super->action = 1;
     CopyPosition(super->parent, super);
     if (super->type == 0) {
-        super->collisionFlags = gPlayerEntity.collisionFlags + 1;
+        super->collisionFlags = gPlayerEntity.base.collisionFlags + 1;
         super->hitbox = (Hitbox*)&gUnk_08127278;
         super->speed = 0x400;
         if (super->collisionLayer == 2) {
@@ -71,7 +70,7 @@ void PlayerItemFireRodProjectile_Action1(PlayerItemFireRodProjectileEntity* this
             if (super->type2 == 0) {
                 sub_0800451C(super);
             }
-            if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0 &&
+            if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0 &&
                 sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI)) {
                 CreateFx(super, FX_SWORD_MAGIC, 0);
                 DeleteThisEntity();

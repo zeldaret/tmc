@@ -4,7 +4,6 @@
  *
  * @brief Crenel Bean Sprout object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -54,7 +53,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
         case 0:
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
-                    PositionRelative(&gPlayerEntity, super, 0, 0x10000);
+                    PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
                     SetMetaTile(SPECIAL_META_TILE_34, 0xdc, super->collisionLayer);
                 } else {
                     if (CheckLocalFlag(super->type2) == 0) {
@@ -80,9 +79,9 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
         case 3:
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
-                    super->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
-                    *(((u8*)&gPlayerEntity) + 0x79) = tmp;
-                    PositionRelative(&gPlayerEntity, super, 0, -0x180000);
+                    super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
+                    *(((u8*)&gPlayerEntity.base) + 0x79) = tmp;
+                    PositionRelative(&gPlayerEntity.base, super, 0, -0x180000);
                 } else {
                     DeleteThisEntity();
                 }
@@ -100,7 +99,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             break;
         case 1:
             super->spriteRendering.b0 = 3;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             break;
         case 2:
             if (CheckLocalFlag((u32)super->type2) == 0) {
@@ -166,7 +165,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         } else {
             GetNextFrame(super);
         }
-        tmp = gPlayerEntity.animationState & 6;
+        tmp = gPlayerEntity.base.animationState & 6;
         this->unk_70 = ((super->x.HALF.HI + (s8)gUnk_08123184[tmp]) & -0x10) | 8;
         this->unk_72 = ((super->y.HALF.HI + (s8)gUnk_08123184[(tmp) + 1]) & -0x10) | 8;
         if (GetVvvAtWorldCoords(this->unk_70, this->unk_72, super->collisionLayer) == VVV_25) {
@@ -174,12 +173,12 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         } else {
             gHUD.rActionPlayerState = R_ACTION_NONE;
         }
-        PositionRelative(&gPlayerEntity, super, 0, 0x10000);
+        PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
         if (GetVvvAtEntity(super) == VVV_25) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
-        if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_80 | PLAYER_INPUT_40)) == 0) {
+        if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_40)) == 0) {
             return;
         }
         if (gHUD.rActionPlayerState != R_ACTION_THROW) {
@@ -266,7 +265,7 @@ void CrenelBeanSprout_Action6(CrenelBeanSproutEntity* this) {
         CrenelBeanSprout_Action6SubAction2,
     };
     if (super->subAction != 2) {
-        sub_08078B48();
+        PausePlayer();
     }
     CrenelBeanSprout_Action6SubActions[super->subAction](this);
 }

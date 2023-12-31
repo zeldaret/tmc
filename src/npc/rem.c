@@ -4,7 +4,6 @@
  *
  * @brief Rem NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "npc.h"
@@ -76,7 +75,7 @@ void sub_0806a370(RemEntity* this) {
 void sub_0806A3D8(RemEntity* this) {
     super->action = 1;
     super->timer = 180;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     sub_0806A8C8(super);
     this->context = StartCutscene(super, &script_Rem);
     ExecuteScriptAndHandleAnimation(super, NULL);
@@ -297,7 +296,7 @@ void sub_0806A830(RemEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         InitializeAnimation(super, 0x14);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     if ((gActiveScriptInfo.syncFlags & 0x200) != 0) {
         DeleteThisEntity();
@@ -316,7 +315,7 @@ void sub_0806A890(RemEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         InitializeAnimation(super, 0x15);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
@@ -435,18 +434,18 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             MessageNoOverlap(messageIndex, this);
             switch (context->intVariable) {
                 case 0:
-                    gRoomVars.entities[0] = this;
+                    gRoomVars.puzzleEntities[0] = this;
                     PrependEntityToList(this, NPC);
                     this->zVelocity = Q_16_16(1.5);
                     break;
                 case 1:
-                    pEnt = FindNextDuplicateID(gRoomVars.entities[0], NPC);
-                    gRoomVars.entities[1] = pEnt;
+                    pEnt = FindNextDuplicateID(gRoomVars.puzzleEntities[0], NPC);
+                    gRoomVars.puzzleEntities[1] = pEnt;
                     pEnt->zVelocity = Q_16_16(1.5);
                     break;
                 case 2:
-                    pEnt = FindNextDuplicateID(gRoomVars.entities[1], NPC);
-                    gRoomVars.entities[2] = pEnt;
+                    pEnt = FindNextDuplicateID(gRoomVars.puzzleEntities[1], NPC);
+                    gRoomVars.puzzleEntities[2] = pEnt;
                     pEnt->zVelocity = Q_16_16(1.5);
                     break;
             }
@@ -457,7 +456,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             context->unk_18 = 1;
             break;
         case 1:
-            pEnt = gRoomVars.entities[context->intVariable];
+            pEnt = gRoomVars.puzzleEntities[context->intVariable];
             if (pEnt->z.HALF.HI < 0) {
                 break;
             }
@@ -475,7 +474,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AB74(Entity* this) {
-    gRoomVars.field_0x3 = 1;
+    gRoomVars.remFlagUnused = TRUE;
     if ((s32)(this->y.HALF.HI - (u32)gRoomControls.origin_y) < 0xa8) {
         this->y.HALF.HI = gRoomControls.origin_y + 0xa8;
     }

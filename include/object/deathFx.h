@@ -1,9 +1,6 @@
 #ifndef DEATHFX_H
 #define DEATHFX_H
 
-#ifndef NENT_DEPRECATED
-#error "deathFx.h requires new entities"
-#endif
 #include "entity.h"
 
 typedef struct {

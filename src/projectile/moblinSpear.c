@@ -4,7 +4,6 @@
  *
  * @brief Moblin Spear Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "physics.h"

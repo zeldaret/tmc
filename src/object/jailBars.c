@@ -4,7 +4,6 @@
  *
  * @brief Jail Bars object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"

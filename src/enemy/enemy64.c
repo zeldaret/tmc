@@ -4,11 +4,9 @@
  *
  * @brief Enemy64 enemy
  */
-
-#define NENT_DEPRECATED
 #include "enemy.h"
-#include "functions.h"
 #include "fade.h"
+#include "functions.h"
 #include "tiles.h"
 
 typedef struct {
@@ -351,7 +349,7 @@ void Enemy64_Action4(Enemy64Entity* this) {
 
 void Enemy64_Action4_SubAction0(Enemy64Entity* this) {
     SoundReq(SFX_BOSS_DIE);
-    if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
+    if (PlayerCanBeMoved() && gPlayerEntity.base.z.HALF.HI == 0) {
         SetPlayerControl(CONTROL_2);
         super->subAction = 2;
         super->timer = 30;
@@ -362,7 +360,7 @@ void Enemy64_Action4_SubAction0(Enemy64Entity* this) {
 }
 
 void Enemy64_Action4_SubAction1(Enemy64Entity* this) {
-    if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
+    if (PlayerCanBeMoved() && gPlayerEntity.base.z.HALF.HI == 0) {
         SetPlayerControl(CONTROL_2);
         super->subAction = 2;
         super->timer = 1;
@@ -419,7 +417,7 @@ void Enemy64_Action4_SubAction5(Enemy64Entity* this) {
         entity = entity->child;
         entity->flags &= ~0x80;
         entity->spriteSettings.draw = 0;
-        entity = &gPlayerEntity;
+        entity = &gPlayerEntity.base;
         entity->x.HALF.HI = gRoomControls.origin_x + 0xa8;
         entity->y.HALF.HI = gRoomControls.origin_y + 0x80;
         entity->animationState = 0;
@@ -462,9 +460,9 @@ void Enemy64_Action4_SubAction7(Enemy64Entity* this) {
 
 void sub_08049944(Enemy64Entity* this) {
     this->unk_7c = (this->unk_7c << 1 & 0x7f) | (this->unk_7c & 0x80);
-    if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20)) {
+    if (EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x20)) {
         gPlayerState.field_0x14 = 1;
-        if (gPlayerEntity.z.HALF.HI == 0) {
+        if (gPlayerEntity.base.z.HALF.HI == 0) {
             gPlayerState.flags |= PL_FLAGS2;
             this->unk_7c |= 1;
         }
@@ -481,22 +479,22 @@ void sub_08049998(Enemy64Entity* this, u32 param_2) {
     tmpY = super->y.HALF.HI;
     LinearMoveAngle(super, super->speed, super->direction);
     if (((this->unk_7c & 1) != 0) && PlayerCanBeMoved()) {
-        gPlayerEntity.x.HALF.HI = (super->x.HALF.HI - tmpX) + gPlayerEntity.x.HALF.HI;
-        gPlayerEntity.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.y.HALF.HI;
+        gPlayerEntity.base.x.HALF.HI = (super->x.HALF.HI - tmpX) + gPlayerEntity.base.x.HALF.HI;
+        gPlayerEntity.base.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.base.y.HALF.HI;
     }
 }
 
 void sub_080499F0(Enemy64Entity* this) {
     u32 tmp;
 
-    if ((((super->action != 0) && (gPlayerEntity.z.HALF.HI == 0)) && (PlayerCanBeMoved())) &&
+    if ((((super->action != 0) && (gPlayerEntity.base.z.HALF.HI == 0)) && (PlayerCanBeMoved())) &&
         ((this->unk_7c & 1) == 0)) {
-        if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
+        if (EntityWithinDistance(&gPlayerEntity.base, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
             ((this->unk_7c & 2) == 0)) {
-            tmp = CalculateDirectionFromOffsets((s32)gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
-                                                (s32)gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
-            gPlayerEntity.x.WORD = super->x.WORD + gSineTable[tmp] * 0x2400;
-            gPlayerEntity.y.WORD = super->y.WORD + gSineTable[tmp + 0x40] * -0x2400;
+            tmp = CalculateDirectionFromOffsets((s32)gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
+                                                (s32)gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+            gPlayerEntity.base.x.WORD = super->x.WORD + gSineTable[tmp] * 0x2400;
+            gPlayerEntity.base.y.WORD = super->y.WORD + gSineTable[tmp + 0x40] * -0x2400;
         }
         this->unk_7c = 0;
     }
@@ -535,7 +533,7 @@ void sub_08049B20(Enemy64Entity* this) {
     tmpY = super->y.HALF.HI;
     LinearMoveAngle(super, super->speed, super->direction);
     if (((this->unk_7c & 1) != 0) && PlayerCanBeMoved()) {
-        gPlayerEntity.x.HALF.HI = (super->x.HALF.HI - tmpX) + gPlayerEntity.x.HALF.HI;
-        gPlayerEntity.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.y.HALF.HI;
+        gPlayerEntity.base.x.HALF.HI = (super->x.HALF.HI - tmpX) + gPlayerEntity.base.x.HALF.HI;
+        gPlayerEntity.base.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.base.y.HALF.HI;
     }
 }

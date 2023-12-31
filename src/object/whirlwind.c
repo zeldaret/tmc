@@ -4,7 +4,6 @@
  *
  * @brief Whirlwind object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -60,24 +59,25 @@ void Whirlwind_Action1(Entity* this) {
     if (this->spriteSettings.draw != 0) {
         GetNextFrame(this);
         if ((((((gPlayerState.flags & PL_MINISH) == 0)) && (gPlayerState.field_0x3c == 0)) &&
-             ((gPlayerEntity.action == PLAYER_JUMP || ((gPlayerEntity.flags & ENT_COLLIDE) != 0)))) &&
-            ((gPlayerEntity.action != PLAYER_BOUNCE && (sub_0800419C(this, &gPlayerEntity, 0xc, 0xc) != 0)))) {
-            if (((gPlayerState.flags & PL_PARACHUTE) == 0) && (gPlayerEntity.action != PLAYER_JUMP)) {
-                if ((this->type2 != 1) && (-0x10 < gPlayerEntity.z.HALF.HI)) {
+             ((gPlayerEntity.base.action == PLAYER_JUMP || ((gPlayerEntity.base.flags & ENT_COLLIDE) != 0)))) &&
+            ((gPlayerEntity.base.action != PLAYER_BOUNCE &&
+              (sub_0800419C(this, &gPlayerEntity.base, 0xc, 0xc) != 0)))) {
+            if (((gPlayerState.flags & PL_PARACHUTE) == 0) && (gPlayerEntity.base.action != PLAYER_JUMP)) {
+                if ((this->type2 != 1) && (-0x10 < gPlayerEntity.base.z.HALF.HI)) {
                     return;
                 }
-            } else if (gPlayerEntity.z.HALF.HI == 0) {
+            } else if (gPlayerEntity.base.z.HALF.HI == 0) {
                 return;
             }
-            CopyPosition(this, &gPlayerEntity);
+            CopyPosition(this, &gPlayerEntity.base);
             sub_08004542(this);
-            sub_08004542(&gPlayerEntity);
-            gPlayerEntity.collisionLayer = 1;
-            gPlayerEntity.flags |= ENT_COLLIDE;
+            sub_08004542(&gPlayerEntity.base);
+            gPlayerEntity.base.collisionLayer = 1;
+            gPlayerEntity.base.flags |= ENT_COLLIDE;
             gPlayerState.queued_action = PLAYER_PARACHUTE;
             gPlayerState.field_0x38 = this->type2;
             gPlayerState.field_0x39 = 0xff;
-            this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
+            this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
             this->action++;
             PutAwayItems();
             SoundReq(SFX_153);
@@ -88,7 +88,7 @@ void Whirlwind_Action1(Entity* this) {
 
 void Whirlwind_Action2(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (sub_0800419C(this, &gPlayerEntity, 0xc, 0xc) == 0) {
+    if (sub_0800419C(this, &gPlayerEntity.base, 0xc, 0xc) == 0) {
         ResetCollisionLayer(this);
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;

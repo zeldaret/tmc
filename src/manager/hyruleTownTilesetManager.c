@@ -67,15 +67,15 @@ void HyruleTownTilesetManager_Main(HyruleTownTilesetManager* this) {
         this->field_0x21 = 0xff;
         this->field_0x20 = 0xff;
         RegisterTransitionManager(this, sub_08059A2C, NULL);
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     sub_08059A58(this);
 }
 
 void sub_08059A2C(HyruleTownTilesetManager* this) {
-    gRoomVars.unk_10[2] = 0xff;
-    gRoomVars.unk_10[1] = 0xff;
-    gRoomVars.unk_10[0] = 0xff;
+    gRoomVars.graphicsGroups[2] = 0xff;
+    gRoomVars.graphicsGroups[1] = 0xff;
+    gRoomVars.graphicsGroups[0] = 0xff;
     this->field_0x22 = 0xff;
     this->field_0x21 = 0xff;
     this->field_0x20 = 0xff;
@@ -148,8 +148,8 @@ bool32 sub_08059C8C(HyruleTownTilesetManager* this, u32 param_2, u8* param_3, co
     bool32 bVar2;
 
     *param_3 = CheckRegionsOnScreen(param_4);
-    if ((*param_3 != 0xff) && (gRoomVars.unk_10[param_2] != *param_3)) {
-        gRoomVars.unk_10[param_2] = *param_3;
+    if ((*param_3 != 0xff) && (gRoomVars.graphicsGroups[param_2] != *param_3)) {
+        gRoomVars.graphicsGroups[param_2] = *param_3;
         return TRUE;
     } else {
         return FALSE;
@@ -159,7 +159,7 @@ bool32 sub_08059C8C(HyruleTownTilesetManager* this, u32 param_2, u8* param_3, co
 void sub_08059CC0(u32 param_1, u32 param_2) {
     const Unknown* unknown;
 
-    gRoomVars.unk_10[param_1] = param_2;
+    gRoomVars.graphicsGroups[param_1] = param_2;
     if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
         unknown = &gUnk_08108408[param_2];
     } else {

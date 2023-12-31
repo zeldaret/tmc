@@ -5,10 +5,12 @@
  * @brief Spawns the shop items for the kinstones for the goron merchant.
  */
 #include "manager/goronMerchantShopManager.h"
+
 #include "asm.h"
 #include "flags.h"
-#include "object.h"
 #include "item.h"
+#include "object.h"
+#include "object/itemForSale.h"
 
 typedef struct {
     u16 minType;
@@ -59,17 +61,17 @@ void GoronMerchantShopManager_Main(GoronMerchantShopManager* this) {
         count = 0;
         for (count = 0; count < 3;) {
             if (CheckGlobalFlag(GORON_KAKERA_L + count) == 0) {
-                Entity* object =
-                    CreateObject(SHOP_ITEM, ITEM_KINSTONE, ((s32)Random() % spawnData->numTypes) + spawnData->minType);
+                ItemForSaleEntity* object = (ItemForSaleEntity*)CreateObject(
+                    SHOP_ITEM, ITEM_KINSTONE, ((s32)Random() % spawnData->numTypes) + spawnData->minType);
                 if (object != NULL) {
-                    object->timer = 1;
-                    object->subtimer = count;
-                    object->x.HALF.HI = spawnData->x + gRoomControls.origin_x;
-                    object->y.HALF.HI = spawnData->y + gRoomControls.origin_y;
-                    object->field_0x80.HWORD = spawnData->x;
-                    object->field_0x82.HWORD = spawnData->y;
-                    object->collisionLayer = 1;
-                    object->parent = (Entity*)this;
+                    object->base.timer = 1;
+                    object->base.subtimer = count;
+                    object->base.x.HALF.HI = spawnData->x + gRoomControls.origin_x;
+                    object->base.y.HALF.HI = spawnData->y + gRoomControls.origin_y;
+                    object->unk_80 = spawnData->x;
+                    object->unk_82 = spawnData->y;
+                    object->base.collisionLayer = 1;
+                    object->base.parent = (Entity*)this;
                     this->itemActive[count] = 1;
                 }
             }

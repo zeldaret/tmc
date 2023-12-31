@@ -1,8 +1,6 @@
-#include "global.h"
 #include "common.h"
-#include "structures.h"
 #include "fileselect.h"
-#include "new_player.h"
+#include "structures.h"
 
 extern u32 gFixedTypeGfxData[];
 
@@ -363,7 +361,7 @@ void sub_080AE218(u32 param1, u32 param2) {
     r7 = r3 + ((u32)gGFXSlots.slots[param1].slotCount << 4);
 
     for (index1 = 0; index1 < 0x50; index1++) {
-        Entity* ent = &(&gPlayerEntity)[index1];
+        Entity* ent = (Entity*)&(&gPlayerEntity)[index1];
         if (ent->next != NULL) {
             if (param1 == ent->spriteAnimation[0]) {
                 ent->spriteAnimation[0] = param2;

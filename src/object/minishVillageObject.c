@@ -4,7 +4,6 @@
  *
  * @brief Minish Village Object object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "screen.h"
@@ -132,7 +131,7 @@ void sub_0808D2CC(void) {
     Entity* obj = FindEntity(6, MINISH_VILLAGE_OBJECT, 6, 1, 0);
     if (obj != NULL) {
         obj->type = 9;
-        SetDefaultPriority(obj, 2);
+        SetEntityPriority(obj, 2);
     }
 }
 

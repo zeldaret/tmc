@@ -1,7 +1,7 @@
-#include "item.h"
 #include "functions.h"
-#include "sound.h"
+#include "item.h"
 #include "playeritem.h"
+#include "sound.h"
 
 u32 sub_08077F64(ItemBehavior* arg0, u32 index);
 u32 sub_080789A8(void);
@@ -38,9 +38,9 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
     gPlayerState.framestate = 4;
     this->stateID = 2;
     this->animPriority = 0xf;
-    if ((gPlayerEntity.field_0x78.HALF.HI & 0x80)) {
-        gPlayerEntity.field_0x78.HALF.HI = 0;
-        COLLISION_ON(&gPlayerEntity);
+    if ((gPlayerEntity.unk_79 & 0x80)) {
+        gPlayerEntity.unk_79 = 0;
+        COLLISION_ON(&gPlayerEntity.base);
         gPlayerState.heldObject = 4;
         gPlayerState.keepFacing = ~(8 >> param_3) & gPlayerState.keepFacing;
         gPlayerState.field_0xa = ~(8 >> param_3) & gPlayerState.field_0xa;
@@ -55,11 +55,11 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
     if (param_2 == NULL) {
         PlayerCancelHoldItem(this, param_3);
     } else {
-        Entity* playerEnt = &gPlayerEntity;
-        *(Entity**)&playerEnt->field_0x74 = param_2;
-        playerEnt->subtimer = 0;
+        PlayerEntity* playerEnt = &gPlayerEntity;
+        playerEnt->unk_74 = param_2;
+        playerEnt->base.subtimer = 0;
         param_2->child = this->field_0x18;
-        param_2->carryFlags = playerEnt->carryFlags;
+        param_2->carryFlags = playerEnt->base.carryFlags;
         param_2->parent = (Entity*)this;
         this->field_0x18 = param_2;
         param_2->type2 = this->field_0x2[1];
@@ -86,7 +86,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 index) {
 
     if (gPlayerState.attack_status == 0 &&
         (gPlayerState.jump_status == 0 || (gPlayerState.flags & (PL_BUSY | PL_FALLING | PL_IN_MINECART)) != 0) &&
-        (gPlayerState.grab_status = gPlayerEntity.animationState | 0x80, gPlayerEntity.iframes <= 8)) {
+        (gPlayerState.grab_status = gPlayerEntity.base.animationState | 0x80, gPlayerEntity.base.iframes <= 8)) {
 
         switch (sub_080789A8()) {
             case 2:
@@ -142,10 +142,10 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
         return;
     }
 
-    if (gPlayerEntity.iframes < 9 && gPlayerEntity.knockbackDuration == 0) {
+    if (gPlayerEntity.base.iframes < 9 && gPlayerEntity.base.knockbackDuration == 0) {
         if (this->field_0x18 != NULL) {
             if (this->field_0x18->action == 2 && this->field_0x18->subAction == 5) {
-                if (!(gPlayerState.playerInput.heldInput & PLAYER_INPUT_80)) { // Pressing R
+                if (!(gPlayerState.playerInput.heldInput & INPUT_ACTION)) { // Pressing R
                     this->field_0x18->subAction = 6;
                     PlayerCancelHoldItem(this, index);
                     return;
@@ -168,10 +168,10 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
 
     if (!gPlayerState.jump_status) {
 
-        if (gPlayerState.heldObject == 1 && sub_0800875A(&gPlayerEntity, 6, this) != 0) {
+        if (gPlayerState.heldObject == 1 && sub_0800875A(&gPlayerEntity.base, 6, this) != 0) {
             sub_08076088(this, NULL, index);
             return;
-        } else if (gUnk_0811BE38[gPlayerEntity.animationState >> 1] & gPlayerState.playerInput.heldInput) {
+        } else if (gUnk_0811BE38[gPlayerEntity.base.animationState >> 1] & gPlayerState.playerInput.heldInput) {
             UpdateItemAnim(this);
 
             if (!(gPlayerState.flags & PL_NO_CAP)) {
@@ -193,9 +193,9 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
 
             sub_08076088(this, this->field_0x18, index);
         } else {
-            if (gPlayerState.playerInput.heldInput & gUnk_0811BE40[gPlayerEntity.animationState >> 1]) {
-                if (gPlayerEntity.subtimer < 6) {
-                    gPlayerEntity.subtimer++;
+            if (gPlayerState.playerInput.heldInput & gUnk_0811BE40[gPlayerEntity.base.animationState >> 1]) {
+                if (gPlayerEntity.base.subtimer < 6) {
+                    gPlayerEntity.base.subtimer++;
                     return;
                 }
 
@@ -216,7 +216,7 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
                     SetItemAnim(this, animIndex);
                 }
             } else {
-                gPlayerEntity.subtimer = 0;
+                gPlayerEntity.base.subtimer = 0;
 
                 if (!(gPlayerState.flags & PL_NO_CAP)) {
                     SetItemAnim(this, ANIM_PULL);
@@ -241,7 +241,7 @@ void sub_08076488(ItemBehavior* this, u32 index) {
             }
             UpdateItemAnim(this);
             if ((this->playerFrame & 0x80) != 0) {
-                gPlayerEntity.flags |= ENT_COLLIDE;
+                gPlayerEntity.base.flags |= ENT_COLLIDE;
                 gPlayerState.heldObject = 4;
                 bVar1 = ~(8 >> index);
                 gPlayerState.keepFacing = bVar1 & gPlayerState.keepFacing;
@@ -260,14 +260,14 @@ void sub_08076518(ItemBehavior* this, u32 index) {
     if (PlayerTryDropObject(this, index)) {
         gPlayerState.framestate = PL_STATE_HOLD;
         if ((gPlayerState.jump_status & 0x80) == 0 && gPlayerState.field_0x1f[0] == 0) {
-            if (gPlayerEntity.knockbackDuration != 0) {
+            if (gPlayerEntity.base.knockbackDuration != 0) {
                 PlayerCancelHoldItem(this, index);
             } else {
-                if ((gPlayerState.playerInput.newInput & (PLAYER_INPUT_8000 | PLAYER_INPUT_10 | PLAYER_INPUT_8)) != 0) {
-                    sub_0806F948(&gPlayerEntity);
+                if ((gPlayerState.playerInput.newInput & (INPUT_LIFT_THROW | INPUT_CANCEL | INPUT_INTERACT)) != 0) {
+                    sub_0806F948(&gPlayerEntity.base);
                     gPlayerState.heldObject = 5;
                     this->field_0x18->subAction = 2;
-                    this->field_0x18->direction = (gPlayerEntity.animationState & 0xe) << 2;
+                    this->field_0x18->direction = (gPlayerEntity.base.animationState & 0xe) << 2;
                     this->field_0x18 = NULL;
                     this->stateID++;
                     this->animPriority = 0x0f;

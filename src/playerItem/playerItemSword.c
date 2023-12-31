@@ -4,7 +4,6 @@
  *
  * @brief Sword Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -35,7 +34,7 @@ void PlayerItemSword(Entity* this) {
     };
     PlayerItemSword_Actions[this->action]((PlayerItemSwordEntity*)this);
     if (this->type == 0) {
-        sub_08078E84(this, &gPlayerEntity);
+        sub_08078E84(this, &gPlayerEntity.base);
         this->hitbox->offset_x += this->spriteOffsetX;
         this->hitbox->offset_y += this->spriteOffsetY;
     }
@@ -60,8 +59,8 @@ void PlayerItemSword_Init(PlayerItemSwordEntity* this) {
         DeleteThisEntity();
     }
     LoadSwapGFX(super, 1, 3);
-    super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
-    super->flags2 = gPlayerEntity.flags2;
+    super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
+    super->flags2 = gPlayerEntity.base.flags2;
     super->updatePriority = 6;
     super->contactFlags = 0;
     super->iframes = 0;
@@ -184,7 +183,7 @@ void PlayerItemSword_Action1(PlayerItemSwordEntity* this) {
                         break;
                 }
             }
-            if ((gPlayerEntity.frame & 0x20) != 0) {
+            if ((gPlayerEntity.base.frame & 0x20) != 0) {
                 SoundReq(SFX_116);
             }
         } else {
@@ -196,7 +195,7 @@ void PlayerItemSword_Action1(PlayerItemSwordEntity* this) {
                     super->hurtType = 0xb;
                 }
             }
-            if (((gPlayerState.swordDamage) != 0) && ((gPlayerEntity.frame & 0x40) != 0)) {
+            if (((gPlayerState.swordDamage) != 0) && ((gPlayerEntity.base.frame & 0x40) != 0)) {
                 type = FX_BLUE_SPARKLE;
                 if ((gPlayerState.swordDamage) == 1) {
                     type = FX_SPARKLE2;
@@ -213,7 +212,7 @@ void PlayerItemSword_Action1(PlayerItemSwordEntity* this) {
                 }
             }
         }
-        sub_080A78B8(this, &gPlayerEntity);
+        sub_080A78B8(this, &gPlayerEntity.base);
         sub_080A7A84(this);
     } else {
         if (!((gPlayerState.attack_status == 0) || (gPlayerState.item->hurtType == 0))) {
@@ -237,18 +236,18 @@ void PlayerItemSword_Action2(PlayerItemSwordEntity* this) {
             gPlayerState.item = NULL;
             DeleteThisEntity();
         }
-        if ((gPlayerEntity.frame & 0x80) != 0) {
+        if ((gPlayerEntity.base.frame & 0x80) != 0) {
             gPlayerState.item = NULL;
             DeleteThisEntity();
         } else {
-            sub_080A78B8(this, &gPlayerEntity);
-            if ((gPlayerEntity.frame & 0x20) != 0) {
+            sub_080A78B8(this, &gPlayerEntity.base);
+            if ((gPlayerEntity.base.frame & 0x20) != 0) {
                 SoundReq(SFX_PLY_VO3);
             }
             if (super->frameIndex > 0x8a) {
                 super->frameIndex = 0xff;
             }
-            if ((gPlayerEntity.frame & 8) != 0) {
+            if ((gPlayerEntity.base.frame & 8) != 0) {
                 super->flags |= ENT_COLLIDE;
                 sub_080A7B98(this);
             } else {
@@ -337,7 +336,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
 void sub_080A7A54(PlayerItemSwordEntity* this) {
     const u8* tmp;
 
-    tmp = &gUnk_08129096[(gPlayerEntity.frameIndex - 0x6a) * 4];
+    tmp = &gUnk_08129096[(gPlayerEntity.base.frameIndex - 0x6a) * 4];
     super->hitbox->offset_x = tmp[0];
     super->hitbox->offset_y = tmp[1];
     super->hitbox->width = tmp[2];
@@ -355,11 +354,11 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
     u32 tmp2;
     u32 yOffset;
 
-    if ((gPlayerEntity.frame & 0xf) != 0) {
-        uVar3 = gUnk_08129072[((gPlayerEntity.frame & 0xf) - 1)][0];
+    if ((gPlayerEntity.base.frame & 0xf) != 0) {
+        uVar3 = gUnk_08129072[((gPlayerEntity.base.frame & 0xf) - 1)][0];
         one = 1;
-        yOffset = gUnk_08129072[(gPlayerEntity.frame & 0xf) - 1][one];
-        if (((gPlayerState.sword_state & 0xc0) == 0) && (gPlayerEntity.spriteSettings.flipX == 1)) {
+        yOffset = gUnk_08129072[(gPlayerEntity.base.frame & 0xf) - 1][one];
+        if (((gPlayerState.sword_state & 0xc0) == 0) && (gPlayerEntity.base.spriteSettings.flipX == 1)) {
             uVar3 = -uVar3;
         }
         if (super->type != 0) {
@@ -376,9 +375,9 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
                 entity = super;
                 if (GetVvvRelativeToEntity(entity, xOffset, yOffset) == VVV_46) {
-                    SoundReqClipped(&gPlayerEntity, SFX_ITEM_GLOVES_KNOCKBACK);
+                    SoundReqClipped(&gPlayerEntity.base, SFX_ITEM_GLOVES_KNOCKBACK);
                 } else {
-                    SoundReqClipped(&gPlayerEntity, SFX_METAL_CLINK);
+                    SoundReqClipped(&gPlayerEntity.base, SFX_METAL_CLINK);
                 }
                 effect = CreateObject(SPECIAL_FX, FX_LIGHTNING, 0);
                 if (effect != NULL) {

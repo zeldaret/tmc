@@ -4,7 +4,6 @@
  *
  * @brief Goron Merchant NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -57,9 +56,9 @@ void sub_080695AC(Entity* this) {
 
 void sub_080695E8(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
-        this->interactType = gMessage.doTextBox & 0x7f;
+        this->interactType = gMessage.state & MESSAGE_ACTIVE;
         RevokePriority(this);
         InitAnimationForceUpdate(this, this->animationState);
     }

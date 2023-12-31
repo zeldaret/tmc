@@ -4,7 +4,6 @@
  *
  * @brief Ladder Up object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -66,7 +65,7 @@ void LadderUp(Entity* this) {
 #endif
         default:
             if (this->type2 == 0) {
-                if (gPlayerEntity.y.HALF.HI < this->y.HALF.HI) {
+                if (gPlayerEntity.base.y.HALF.HI < this->y.HALF.HI) {
                     if (gPlayerState.floor_type != SURFACE_LADDER &&
                         (GetMetaTileTypeByEntity(this) == SPECIAL_META_TILE_23)) {
                         SetMetaTile(SPECIAL_META_TILE_35, COORD_TO_TILE(this), this->collisionLayer);

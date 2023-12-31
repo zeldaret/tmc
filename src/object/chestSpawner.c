@@ -4,7 +4,6 @@
  *
  * @brief Chest Spawner object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "object.h"
@@ -115,14 +114,14 @@ void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
     SetPriorityTimer(30);
     switch (super->subAction) {
         case 0:
-            if (EntityInRectRadius(super, &gPlayerEntity, 0x10, 8)) {
+            if (EntityInRectRadius(super, &gPlayerEntity.base, 0x10, 8)) {
                 sub_08078AC0(0x10, 0, 0);
-                gPlayerEntity.direction = 0x10;
+                gPlayerEntity.base.direction = 0x10;
             }
             super->subAction = 1;
             break;
         case 1:
-            if ((super->type == 5) || (gPlayerEntity.action == PLAYER_NORMAL)) {
+            if ((super->type == 5) || (gPlayerEntity.base.action == PLAYER_NORMAL)) {
                 super->subAction = 2;
                 super->timer = 8;
                 super->subtimer = 0;

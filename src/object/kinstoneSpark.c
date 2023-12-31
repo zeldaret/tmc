@@ -4,7 +4,6 @@
  *
  * @brief Kinstone Fusion Particle object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "kinstone.h"
 #include "object.h"

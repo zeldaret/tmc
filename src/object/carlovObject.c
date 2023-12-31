@@ -4,7 +4,6 @@
  *
  * @brief Carlov Object object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "tiles.h"

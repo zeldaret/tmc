@@ -4,7 +4,6 @@
  *
  * @brief Object on Spiny Beetle object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -139,7 +138,7 @@ void ObjectOnSpinyBeetle_Action2Subaction0(ObjectOnSpinyBeetleEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = gPlayerEntity.flags2;
+    super->flags2 = gPlayerEntity.base.flags2;
     super->spriteOffsetY = 0;
     (super->parent)->child = NULL;
     super->subAction++;

@@ -4,7 +4,6 @@
  *
  * @brief Giant Leaf object
  */
-#define NENT_DEPRECATED
 #include "map.h"
 #include "object.h"
 

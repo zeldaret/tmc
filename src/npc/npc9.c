@@ -4,7 +4,6 @@
  *
  * @brief NPC 9
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "message.h"
 #include "npc.h"
@@ -51,7 +50,7 @@ void sub_08062B48(Entity* this) {
 }
 
 void sub_08062B70(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         InitializeAnimation(this, 2);
         this->action = 1;
         RevokePriority(this);

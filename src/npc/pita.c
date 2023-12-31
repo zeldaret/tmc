@@ -4,7 +4,6 @@
  *
  * @brief Pita NPC
  */
-#define NENT_DEPRECATED
 #include "item.h"
 #include "npc.h"
 
@@ -28,7 +27,7 @@ void Pita(PitaEntity* this) {
     };
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         SortEntityAbove(super, super);
         super->hitbox = (Hitbox*)&gUnk_0810C428;
         sub_0807DD64(super);

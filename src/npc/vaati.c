@@ -4,7 +4,6 @@
  *
  * @brief Vaati NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "script.h"
@@ -42,7 +41,7 @@ void VaatiAction0(VaatiEntity* this) {
     super->spriteSettings.draw = 1;
     this->unk_68 = 0;
     this->unk_69 = 0;
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     sub_0807DD64(super);
     VaatiAction1(this);
 }

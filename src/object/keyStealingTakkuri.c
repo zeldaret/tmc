@@ -4,7 +4,6 @@
  *
  * @brief Key Stealing Takkuri object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -170,7 +169,7 @@ void KeyStealingTakkuri_Type5_Action1(KeyStealingTakkuriEntity* this) {
             super->zVelocity = Q_16_16(1.0);
         } else {
             super->action++;
-            super->collisionLayer = gPlayerEntity.collisionLayer;
+            super->collisionLayer = gPlayerEntity.base.collisionLayer;
             UpdateSpriteForCollisionLayer(super);
         }
         SoundReq(SFX_RUPEE_BOUNCE);
@@ -393,7 +392,7 @@ void sub_0809E0A0(KeyStealingTakkuriEntity* this) {
         obj->parent = super;
         super->child = obj;
         super->subtimer = 0;
-        CopyPosition(&gPlayerEntity, obj);
+        CopyPosition(&gPlayerEntity.base, obj);
         obj->z.HALF.HI = -8;
     }
 }
@@ -415,7 +414,7 @@ void sub_0809E0D4(KeyStealingTakkuriEntity* this, ScriptExecutionContext* contex
                 return;
             }
         } else {
-            entity = &gPlayerEntity;
+            entity = &gPlayerEntity.base;
         }
         context->unk_18++;
         LookAt(super, context, entity->x.HALF.HI, entity->y.HALF.HI);
@@ -476,7 +475,8 @@ void sub_0809E1F0(KeyStealingTakkuriEntity* this) {
 }
 
 void sub_0809E210(KeyStealingTakkuriEntity* this) {
-    gPlayerEntity.animationState = GetAnimationStateForDirection8(GetFacingDirection(&gPlayerEntity, super)) & 0xfe;
+    gPlayerEntity.base.animationState =
+        GetAnimationStateForDirection8(GetFacingDirection(&gPlayerEntity.base, super)) & 0xfe;
     gPlayerState.animation = ANIM_DEFAULT;
 }
 
@@ -505,8 +505,8 @@ u32 sub_0809E2C4(KeyStealingTakkuriEntity* this, u32 param_2) {
     s32 roomY;
 
     ptr = &gUnk_08124178[param_2 * 2];
-    roomX = gPlayerEntity.x.HALF.HI - (gRoomControls.origin_x + ptr[0]);
-    roomY = gPlayerEntity.y.HALF.HI - (gRoomControls.origin_y + ptr[1]);
+    roomX = gPlayerEntity.base.x.HALF.HI - (gRoomControls.origin_x + ptr[0]);
+    roomY = gPlayerEntity.base.y.HALF.HI - (gRoomControls.origin_y + ptr[1]);
     tmp = gUnk_08124158;
     counter = 0;
     while (counter < 4) {
@@ -516,7 +516,7 @@ u32 sub_0809E2C4(KeyStealingTakkuriEntity* this, u32 param_2) {
             uVar1 = roomY - tmp->unk_2 + tmp->unk_5;
             uVar2 = tmp->unk_5 * 2;
             if (uVar2 > (u16)uVar1) {
-                if (tmp->unk_6 == gPlayerEntity.animationState && gPlayerEntity.action == PLAYER_BOUNCE) {
+                if (tmp->unk_6 == gPlayerEntity.base.animationState && gPlayerEntity.base.action == PLAYER_BOUNCE) {
                     return 1;
                 }
                 return 2;

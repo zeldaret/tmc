@@ -4,202 +4,213 @@
  *
  * @brief Chuchu enemy
  */
-
 #include "asm.h"
 #include "enemy.h"
 #include "functions.h"
 #include "tiles.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ Entity* unk_68;
+    /*0x6c*/ u8 unused1[6];
+    /*0x72*/ u8 unk_72;
+    /*0x73*/ u8 unused2[13];
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unk_83;
+} ChuchuEntity;
+
 extern Entity* gUnk_020000B0;
 
-void sub_0801F328(Entity*);
-void sub_0801F340(Entity*);
-void sub_0801F360(Entity*);
-void sub_0801F3AC(Entity*);
-void sub_0801F730(Entity*);
-void sub_0801F748(Entity*);
-void sub_0801F764(Entity*);
-void sub_0801FAE0(Entity*);
-void sub_0801FAF8(Entity*);
-void sub_0801FB14(Entity*);
-void sub_0801FB34(Entity*);
-void sub_0801FB68(Entity*);
-u32 sub_0801FBD0(Entity*);
-void Chuchu_JumpAtPlayer(Entity*);
+void sub_0801F328(ChuchuEntity* this);
+void sub_0801F340(ChuchuEntity* this);
+void sub_0801F360(ChuchuEntity* this);
+void sub_0801F3AC(ChuchuEntity* this);
+void sub_0801F730(ChuchuEntity* this);
+void sub_0801F748(ChuchuEntity* this);
+void sub_0801F764(ChuchuEntity* this);
+void sub_0801FAE0(ChuchuEntity* this);
+void sub_0801FAF8(ChuchuEntity* this);
+void sub_0801FB14(ChuchuEntity* this);
+void sub_0801FB34(ChuchuEntity* this);
+void sub_0801FB68(ChuchuEntity* this);
+u32 sub_0801FBD0(ChuchuEntity* this);
+void Chuchu_JumpAtPlayer(ChuchuEntity* this);
 
-extern void (*const Chuchu_Functions[])(Entity*);
-extern void (*const gUnk_080CA234[])(Entity*);
-extern void (*const gUnk_080CA25C[])(Entity*);
-extern void (*const gUnk_080CA288[])(Entity*);
+extern void (*const Chuchu_Functions[])(ChuchuEntity*);
+extern void (*const gUnk_080CA234[])(ChuchuEntity*);
+extern void (*const gUnk_080CA25C[])(ChuchuEntity*);
+extern void (*const gUnk_080CA288[])(ChuchuEntity*);
 
 extern const s8 gUnk_080CA2B4[];
 
-void Chuchu(Entity* this) {
-    int index;
+void Chuchu(ChuchuEntity* this) {
+    s32 index;
 
-    index = sub_080012DC(this);
+    index = sub_080012DC(super);
     switch (index) {
         default:
-            gUnk_080012C8[index](this);
+            gUnk_080012C8[index](super);
             return;
         case 0:
             /* ... */
             break;
         case 2:
-            this->gustJarState &= 0xfe;
-            if (index != this->field_0x80.HALF.HI) {
-                switch (this->type) {
+            super->gustJarState &= 0xfe;
+            if (index != this->unk_81) {
+                switch (super->type) {
                     case 0:
-                        if (this->flags & ENT_COLLIDE) {
-                            this->action = 6;
-                            COLLISION_OFF(this);
-                            this->speed = 0x20;
-                            this->hitType = 0x5c;
-                            InitializeAnimation(this, 5);
+                        if (super->flags & ENT_COLLIDE) {
+                            super->action = 6;
+                            COLLISION_OFF(super);
+                            super->speed = 0x20;
+                            super->hitType = 0x5c;
+                            InitializeAnimation(super, 5);
                         }
                         break;
                     case 1:
                         /* ... */
                         break;
                     case 2:
-                        sub_080043A8(this);
+                        sub_080043A8(super);
                         return;
                 }
             }
             break;
     }
-    this->field_0x80.HALF.HI = index;
-    Chuchu_Functions[GetNextFunction(this)](this);
-    if (*(char*)(*(int*)&this->field_0x68 + 10) == 0x1c) {
-        SetChildOffset(this, 0, 1, -0x10);
-    } else if (this->type == 2) {
+    this->unk_81 = index;
+    Chuchu_Functions[GetNextFunction(super)](this);
+    if (this->unk_68->type == 0x1c) {
+        SetChildOffset(super, 0, 1, -0x10);
+    } else if (super->type == 2) {
         sub_0801FB34(this);
     }
 }
 
-void Chuchu_OnTick(Entity* this) {
-    switch (this->type) {
+void Chuchu_OnTick(ChuchuEntity* this) {
+    switch (super->type) {
         case 0:
             sub_0801F3AC(this);
-            gUnk_080CA234[this->action](this);
+            gUnk_080CA234[super->action](this);
             break;
         case 1:
             sub_0801F764(this);
-            gUnk_080CA25C[this->action](this);
+            gUnk_080CA25C[super->action](this);
             break;
         case 2:
-            gUnk_080CA288[this->action](this);
+            gUnk_080CA288[super->action](this);
             break;
     }
 }
 
-void Chuchu_OnCollision(Entity* this) {
+void Chuchu_OnCollision(ChuchuEntity* this) {
     u8 health;
 
-    if (this->type == 2) {
-        if (this->contactFlags == 0x8e || this->contactFlags == 0x95) {
-            COLLISION_OFF(this);
-            this->health = 0;
+    if (super->type == 2) {
+        if (super->contactFlags == 0x8e || super->contactFlags == 0x95) {
+            COLLISION_OFF(super);
+            super->health = 0;
         }
     }
 
-    health = this->health;
+    health = super->health;
     if (health) {
-        if (this->contactFlags == 0x94) {
+        if (super->contactFlags == 0x94) {
             sub_0801FB68(this);
-            Create0x68FX(this, FX_STARS);
-            InitializeAnimation(this, 6);
-        } else if (this->field_0x80.HALF.LO != health) {
+            Create0x68FX(super, FX_STARS);
+            InitializeAnimation(super, 6);
+        } else if (this->unk_80 != health) {
             sub_0801FB68(this);
-            InitializeAnimation(this, 6);
+            InitializeAnimation(super, 6);
         }
     } else {
-        sub_0804AA1C(this);
-        this->zVelocity = 0;
-        InitializeAnimation(this, 9);
+        sub_0804AA1C(super);
+        super->zVelocity = 0;
+        InitializeAnimation(super, 9);
     }
-    this->field_0x80.HALF.LO = this->health;
-    EnemyFunctionHandlerAfterCollision(this, Chuchu_Functions);
+    this->unk_80 = super->health;
+    EnemyFunctionHandlerAfterCollision(super, Chuchu_Functions);
 }
 
-void Chuchu_OnGrabbed(Entity* this) {
-    if (!sub_0806F520(this) && this->confusedTime) {
-        Create0x68FX(this, FX_STARS);
-        InitializeAnimation(this, 6);
+void Chuchu_OnGrabbed(ChuchuEntity* this) {
+    if (!sub_0806F520(super) && super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
+        InitializeAnimation(super, 6);
     } else {
-        if (this->animIndex != 8) {
+        if (super->animIndex != 8) {
             sub_0801FB68(this);
-            InitializeAnimation(this, 8);
+            InitializeAnimation(super, 8);
         }
-        GravityUpdate(this, Q_8_8(24.0));
-        GetNextFrame(this);
+        GravityUpdate(super, Q_8_8(24.0));
+        GetNextFrame(super);
     }
 }
 
-void Chuchu_OnKnockback(Entity* this) {
-    if (this->animIndex == 6)
-        GetNextFrame(this);
-    sub_08001318(this);
+void Chuchu_OnKnockback(ChuchuEntity* this) {
+    if (super->animIndex == 6)
+        GetNextFrame(super);
+    sub_08001318(super);
 }
 
-void Chuchu_OnDeath(Entity* this) {
-    GravityUpdate(this, Q_8_8(24.0));
-    GetNextFrame(this);
-    if (this->type == 0) {
-        GenericDeath(this);
-    } else if (this->type == 1) {
-        CreateDeathFx(this, 0xf2, 0);
+void Chuchu_OnDeath(ChuchuEntity* this) {
+    GravityUpdate(super, Q_8_8(24.0));
+    GetNextFrame(super);
+    if (super->type == 0) {
+        GenericDeath(super);
+    } else if (super->type == 1) {
+        CreateDeathFx(super, 0xf2, 0);
     } else {
-        CreateDeathFx(this, 0xf1, 0);
+        CreateDeathFx(super, 0xf1, 0);
     }
 }
 
-void Chuchu_OnConfused(Entity* this) {
-    if ((this->frame & ANIM_DONE) == 0)
-        GetNextFrame(this);
-    GenericConfused(this);
+void Chuchu_OnConfused(ChuchuEntity* this) {
+    if ((super->frame & ANIM_DONE) == 0)
+        GetNextFrame(super);
+    GenericConfused(super);
 }
 
-void sub_0801F0A4(Entity* this) {
-    sub_0804A720(this);
-    this->action = 1;
-    this->field_0x80.HALF.LO = this->health;
-    this->field_0x82.HALF.LO = 0;
+void sub_0801F0A4(ChuchuEntity* this) {
+    sub_0804A720(super);
+    super->action = 1;
+    this->unk_80 = super->health;
+    this->unk_82 = 0;
 }
 
-void nullsub_4(Entity* this) {
-    (void)this;
+void nullsub_4(ChuchuEntity* this) {
+    (void)super;
 }
 
-void sub_0801F0C8(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 3;
-        this->timer = (Random() & 3) + 12;
-        this->subtimer = Random();
-        this->direction = sub_08049F84(this, 1);
-        COLLISION_ON(this);
-        this->spritePriority.b0 = 4;
-        this->spritePriority.b1 = 3;
-        InitializeAnimation(this, 2);
+void sub_0801F0C8(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 3;
+        super->timer = (Random() & 3) + 12;
+        super->subtimer = Random();
+        super->direction = sub_08049F84(super, 1);
+        COLLISION_ON(super);
+        super->spritePriority.b0 = 4;
+        super->spritePriority.b1 = 3;
+        InitializeAnimation(super, 2);
     }
 }
 
-void sub_0801F12C(Entity* this) {
+void sub_0801F12C(ChuchuEntity* this) {
     if (sub_0801FBD0(this)) {
         sub_0801F328(this);
     } else {
-        if ((this->subtimer++ & 7) == 0) {
-            this->direction = sub_08049F84(this, 1);
+        if ((super->subtimer++ & 7) == 0) {
+            super->direction = sub_08049F84(super, 1);
         }
-        ProcessMovement0(this);
-        GetNextFrame(this);
-        if (--this->timer == 0) {
-            if (PlayerInRange(this, 1, 0x38)) {
-                this->action = 4;
+        ProcessMovement0(super);
+        GetNextFrame(super);
+        if (--super->timer == 0) {
+            if (PlayerInRange(super, 1, 0x38)) {
+                super->action = 4;
                 Chuchu_JumpAtPlayer(this);
-            } else if (PlayerInRange(this, 1, 0x48)) {
-                this->timer = (Random() & 3) + 12;
+            } else if (PlayerInRange(super, 1, 0x48)) {
+                super->timer = (Random() & 3) + 12;
             } else {
                 sub_0801F328(this);
             }
@@ -207,21 +218,21 @@ void sub_0801F12C(Entity* this) {
     }
 }
 
-void sub_0801F1B0(Entity* this) {
-    if (this->frame & 0x10) {
-        if (this->frame & 1) {
-            this->frame ^= 1;
-            this->hitType = 90;
+void sub_0801F1B0(ChuchuEntity* this) {
+    if (super->frame & 0x10) {
+        if (super->frame & 1) {
+            super->frame ^= 1;
+            super->hitType = 90;
             EnqueueSFX(SFX_12B);
         }
-        ProcessMovement2(this);
-        if (GravityUpdate(this, Q_8_8(64.0)) == 0)
-            GetNextFrame(this);
+        ProcessMovement2(super);
+        if (GravityUpdate(super, Q_8_8(64.0)) == 0)
+            GetNextFrame(super);
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 
-    if (this->frame & ANIM_DONE) {
+    if (super->frame & ANIM_DONE) {
         if (sub_0801FBD0(this)) {
             sub_0801F328(this);
         } else {
@@ -230,497 +241,497 @@ void sub_0801F1B0(Entity* this) {
     }
 }
 
-void sub_0801F228(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 3;
-        this->direction = sub_08049F84(this, 1);
+void sub_0801F228(ChuchuEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 3;
+        super->direction = sub_08049F84(super, 1);
     }
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void sub_0801F250(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE)
+void sub_0801F250(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE)
         sub_0801F360(this);
 }
 
-void sub_0801F270(Entity* this) {
-    if ((this->subtimer++ & 7) == 0) {
-        this->direction = sub_08049F84(this, 1);
+void sub_0801F270(ChuchuEntity* this) {
+    if ((super->subtimer++ & 7) == 0) {
+        super->direction = sub_08049F84(super, 1);
     }
 
-    ProcessMovement5(this);
-    GetNextFrame(this);
+    ProcessMovement5(super);
+    GetNextFrame(super);
     if (sub_0801FBD0(this))
         return;
 
-    if (--this->timer != 0)
+    if (--super->timer != 0)
         return;
 
-    if (this->field_0x80.HALF.HI == 0) {
-        this->action = 2;
-        InitializeAnimation(this, 4);
+    if (this->unk_81 == 0) {
+        super->action = 2;
+        InitializeAnimation(super, 4);
     } else {
-        this->timer = 8;
+        super->timer = 8;
     }
 }
 
-void sub_0801F2CC(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 1;
-        this->spriteSettings.draw = 0;
-        InitializeAnimation(this, 4);
+void sub_0801F2CC(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 1;
+        super->spriteSettings.draw = 0;
+        InitializeAnimation(super, 4);
     }
 }
 
-void sub_0801F2F8(Entity* this) {
-    GravityUpdate(this, Q_8_8(24.0));
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
+void sub_0801F2F8(ChuchuEntity* this) {
+    GravityUpdate(super, Q_8_8(24.0));
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
         sub_0801F340(this);
-        sub_0804AA1C(this);
+        sub_0804AA1C(super);
     }
 }
 
-void sub_0801F328(Entity* this) {
-    this->action = 6;
-    COLLISION_OFF(this);
-    InitializeAnimation(this, 5);
+void sub_0801F328(ChuchuEntity* this) {
+    super->action = 6;
+    COLLISION_OFF(super);
+    InitializeAnimation(super, 5);
 }
 
-void sub_0801F340(Entity* this) {
-    this->action = 5;
-    this->timer = 60;
-    this->speed = 0x20;
-    this->hitType = 92;
-    InitializeAnimation(this, 2);
+void sub_0801F340(ChuchuEntity* this) {
+    super->action = 5;
+    super->timer = 60;
+    super->speed = 0x20;
+    super->hitType = 92;
+    InitializeAnimation(super, 2);
 }
 
-void sub_0801F360(Entity* this) {
-    this->action = 7;
-    this->timer = (Random() & 0x38) + 180;
-    this->subtimer = Random();
-    this->direction = sub_08049F84(this, 1);
-    this->spritePriority.b1 = 2;
-    this->spritePriority.b0 = 6;
-    InitializeAnimation(this, 1);
+void sub_0801F360(ChuchuEntity* this) {
+    super->action = 7;
+    super->timer = (Random() & 0x38) + 180;
+    super->subtimer = Random();
+    super->direction = sub_08049F84(super, 1);
+    super->spritePriority.b1 = 2;
+    super->spritePriority.b0 = 6;
+    InitializeAnimation(super, 1);
 }
 
-void sub_0801F3AC(Entity* this) {
-    if (this->action == 9 || this->action == 0)
+void sub_0801F3AC(ChuchuEntity* this) {
+    if (super->action == 9 || super->action == 0)
         return;
 
-    if (sub_08049FDC(this, 1)) {
-        if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
-            if (this->action == 1) {
-                this->action = 2;
-                this->spriteSettings.draw = 1;
-                this->field_0x82.HALF.LO = 1;
-                InitializeAnimation(this, 0);
+    if (sub_08049FDC(super, 1)) {
+        if (this->unk_82 || PlayerInRange(super, 1, 0x48)) {
+            if (super->action == 1) {
+                super->action = 2;
+                super->spriteSettings.draw = 1;
+                this->unk_82 = 1;
+                InitializeAnimation(super, 0);
             }
-        } else if (this->action == 3) {
+        } else if (super->action == 3) {
             sub_0801F328(this);
         }
-    } else if (this->action == 3) {
+    } else if (super->action == 3) {
         sub_0801F328(this);
-    } else if (this->action == 7) {
-        this->action = 8;
-        InitializeAnimation(this, 7);
+    } else if (super->action == 7) {
+        super->action = 8;
+        InitializeAnimation(super, 7);
     }
 }
 
-void sub_0801F428(Entity* this) {
-    sub_0804A720(this);
-    this->action = 1;
-    this->timer = Random();
-    this->field_0x80.HALF.LO = this->health;
-    this->field_0x82.HALF.LO = 0;
-    if (this->type2 == 0)
+void sub_0801F428(ChuchuEntity* this) {
+    sub_0804A720(super);
+    super->action = 1;
+    super->timer = Random();
+    this->unk_80 = super->health;
+    this->unk_82 = 0;
+    if (super->type2 == 0)
         return;
 
-    this->action = 3;
-    this->subtimer = 30;
+    super->action = 3;
+    super->subtimer = 30;
 
 #ifdef EU
-    this->direction = sub_08049F84(this, 1);
+    super->direction = sub_08049F84(super, 1);
 #endif
 
-    COLLISION_ON(this);
-    this->spritePriority.b1 = 3;
+    COLLISION_ON(super);
+    super->spritePriority.b1 = 3;
 
 #ifndef EU
-    this->spriteSettings.draw = 1;
+    super->spriteSettings.draw = 1;
 #endif
 
-    InitializeAnimation(this, 2);
+    InitializeAnimation(super, 2);
 }
 
-void sub_0801F48C(Entity* this) {
-    GetNextFrame(this);
+void sub_0801F48C(ChuchuEntity* this) {
+    GetNextFrame(super);
 }
 
-void sub_0801F494(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 3;
-        this->subtimer = 30;
-        this->direction = sub_08049F84(this, 1);
-        COLLISION_ON(this);
-        this->spritePriority.b0 = 4;
-        this->spritePriority.b1 = 3;
-        InitializeAnimation(this, 2);
+void sub_0801F494(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 3;
+        super->subtimer = 30;
+        super->direction = sub_08049F84(super, 1);
+        COLLISION_ON(super);
+        super->spritePriority.b0 = 4;
+        super->spritePriority.b1 = 3;
+        InitializeAnimation(super, 2);
     }
 }
 
-void sub_0801F4EC(Entity* this) {
-    GetNextFrame(this);
-    if (--this->subtimer == 0)
-        this->action = 4;
+void sub_0801F4EC(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (--super->subtimer == 0)
+        super->action = 4;
 }
 
-void sub_0801F508(Entity* this) {
+void sub_0801F508(ChuchuEntity* this) {
     if (sub_0801FBD0(this)) {
-        this->field_0x82.HALF.HI = 0;
+        this->unk_83 = 0;
         sub_0801F730(this);
     } else {
-        u8 tmp = ++this->timer & 7;
-        if (tmp == 0 && PlayerInRange(this, 1, 0x38)) {
+        u8 tmp = ++super->timer & 7;
+        if (tmp == 0 && PlayerInRange(super, 1, 0x38)) {
             if (Random() & 1) {
-                this->action = 5;
+                super->action = 5;
                 Chuchu_JumpAtPlayer(this);
             } else {
-                this->field_0x82.HALF.HI = 120;
+                this->unk_83 = 120;
                 sub_0801F730(this);
             }
         } else {
             if (tmp == 4) {
-                this->direction = sub_08049F84(this, 1);
+                super->direction = sub_08049F84(super, 1);
             }
-            ProcessMovement0(this);
-            GetNextFrame(this);
+            ProcessMovement0(super);
+            GetNextFrame(super);
         }
     }
 }
 
-void sub_0801F584(Entity* this) {
-    if (this->frame & 0x10) {
-        if (this->frame & 0x1) {
-            this->frame ^= 1;
-            this->hitType = 91;
+void sub_0801F584(ChuchuEntity* this) {
+    if (super->frame & 0x10) {
+        if (super->frame & 0x1) {
+            super->frame ^= 1;
+            super->hitType = 91;
             EnqueueSFX(SFX_12B);
         }
-        ProcessMovement2(this);
-        if (GravityUpdate(this, Q_8_8(64.0)) == 0)
-            GetNextFrame(this);
+        ProcessMovement2(super);
+        if (GravityUpdate(super, Q_8_8(64.0)) == 0)
+            GetNextFrame(super);
 
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 
-    if (this->frame & ANIM_DONE) {
+    if (super->frame & ANIM_DONE) {
         if (sub_0801FBD0(this)) {
-            this->field_0x82.HALF.HI = 0;
+            this->unk_83 = 0;
             sub_0801F730(this);
         } else {
-            this->action = 6;
-            this->subtimer = 60;
-            this->speed = 0x20;
-            this->hitType = 92;
-            InitializeAnimation(this, 2);
+            super->action = 6;
+            super->subtimer = 60;
+            super->speed = 0x20;
+            super->hitType = 92;
+            InitializeAnimation(super, 2);
         }
     }
 }
 
-void sub_0801F61C(Entity* this) {
-    if (--this->subtimer == 0)
-        this->action = 4;
-    GetNextFrame(this);
+void sub_0801F61C(ChuchuEntity* this) {
+    if (--super->subtimer == 0)
+        super->action = 4;
+    GetNextFrame(super);
 }
 
-void sub_0801F638(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 8;
-        this->subtimer = 30;
-        this->direction = sub_08049F84(this, 1);
-        this->spritePriority.b1 = 2;
-        this->spritePriority.b0 = 6;
-        InitializeAnimation(this, 1);
+void sub_0801F638(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 8;
+        super->subtimer = 30;
+        super->direction = sub_08049F84(super, 1);
+        super->spritePriority.b1 = 2;
+        super->spritePriority.b0 = 6;
+        InitializeAnimation(super, 1);
     }
 }
 
-void sub_0801F688(Entity* this) {
-    if (this->field_0x82.HALF.HI)
-        this->field_0x82.HALF.HI--;
+void sub_0801F688(ChuchuEntity* this) {
+    if (this->unk_83)
+        this->unk_83--;
 
-    if (sub_0801FBD0(this) || this->field_0x82.HALF.HI) {
-        this->direction = sub_08049F84(this, 1);
-        ProcessMovement5(this);
-        GetNextFrame(this);
+    if (sub_0801FBD0(this) || this->unk_83) {
+        super->direction = sub_08049F84(super, 1);
+        ProcessMovement5(super);
+        GetNextFrame(super);
     } else {
         sub_0801F748(this);
     }
 }
 
-void sub_0801F6CC(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 1;
-        this->spriteSettings.draw = 0;
-        InitializeAnimation(this, 4);
+void sub_0801F6CC(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 1;
+        super->spriteSettings.draw = 0;
+        InitializeAnimation(super, 4);
     }
 }
 
-void sub_0801F6F8(Entity* this) {
-    GravityUpdate(this, Q_8_8(24.0));
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 4;
-        this->speed = 0x20;
-        sub_0804AA1C(this);
-        InitializeAnimation(this, 2);
+void sub_0801F6F8(ChuchuEntity* this) {
+    GravityUpdate(super, Q_8_8(24.0));
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 4;
+        super->speed = 0x20;
+        sub_0804AA1C(super);
+        InitializeAnimation(super, 2);
     }
 }
 
-void sub_0801F730(Entity* this) {
-    this->action = 7;
-    COLLISION_OFF(this);
-    InitializeAnimation(this, 5);
+void sub_0801F730(ChuchuEntity* this) {
+    super->action = 7;
+    COLLISION_OFF(super);
+    InitializeAnimation(super, 5);
 }
 
-void sub_0801F748(Entity* this) {
-    this->action = 2;
-    this->spriteSettings.draw = 1;
-    InitializeAnimation(this, 4);
+void sub_0801F748(ChuchuEntity* this) {
+    super->action = 2;
+    super->spriteSettings.draw = 1;
+    InitializeAnimation(super, 4);
 }
 
-void sub_0801F764(Entity* this) {
-    if (this->action == 10 || this->action == 0)
+void sub_0801F764(ChuchuEntity* this) {
+    if (super->action == 10 || super->action == 0)
         return;
 
-    if (sub_08049FDC(this, 1)) {
-        if (this->action == 1) {
-            if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
-                this->action = 2;
-                this->spriteSettings.draw = 1;
-                this->field_0x82.HALF.LO = 1;
-                InitializeAnimation(this, 0);
+    if (sub_08049FDC(super, 1)) {
+        if (super->action == 1) {
+            if (this->unk_82 || PlayerInRange(super, 1, 0x48)) {
+                super->action = 2;
+                super->spriteSettings.draw = 1;
+                this->unk_82 = 1;
+                InitializeAnimation(super, 0);
             }
         }
-    } else if (this->action == 4) {
+    } else if (super->action == 4) {
         sub_0801F730(this);
-    } else if (this->action == 8) {
-        this->action = 9;
-        InitializeAnimation(this, 7);
+    } else if (super->action == 8) {
+        super->action = 9;
+        InitializeAnimation(super, 7);
     }
 }
 
-void sub_0801F7D8(Entity* this) {
-    sub_0804A720(this);
-    this->action = 1;
-    this->timer = Random();
-    this->field_0x80.HALF.LO = this->health;
-    this->field_0x82.HALF.LO = 0;
+void sub_0801F7D8(ChuchuEntity* this) {
+    sub_0804A720(super);
+    super->action = 1;
+    super->timer = Random();
+    this->unk_80 = super->health;
+    this->unk_82 = 0;
 }
 
-void sub_0801F7FC(Entity* this) {
-    if (sub_08049FDC(this, 1) == 0)
+void sub_0801F7FC(ChuchuEntity* this) {
+    if (sub_08049FDC(super, 1) == 0)
         return;
 
-    if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
-        this->action = 2;
-        this->spriteSettings.draw = 1;
-        this->field_0x82.HALF.LO = 1;
-        InitializeAnimation(this, 0);
+    if (this->unk_82 || PlayerInRange(super, 1, 0x48)) {
+        super->action = 2;
+        super->spriteSettings.draw = 1;
+        this->unk_82 = 1;
+        InitializeAnimation(super, 0);
     }
 }
 
-void sub_0801F840(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
+void sub_0801F840(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
         sub_0801FB14(this);
-        COLLISION_ON(this);
-        this->spritePriority.b0 = 4;
-        this->spritePriority.b1 = 3;
+        COLLISION_ON(super);
+        super->spritePriority.b0 = 4;
+        super->spritePriority.b1 = 3;
     }
 }
 
-void sub_0801F884(Entity* this) {
-    GetNextFrame(this);
-    if (this->subtimer) {
-        this->subtimer--;
+void sub_0801F884(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->subtimer) {
+        super->subtimer--;
     } else {
-        Entity* ent = Create0x68FX(this, FX_LIGHTNING_STRIKE);
-        if (ent != NULL) {
-            ent->type2 = 64;
-            this->action = 4;
-            this->hitType = 165;
+        Entity* entity = Create0x68FX(super, FX_LIGHTNING_STRIKE);
+        if (entity != NULL) {
+            entity->type2 = 64;
+            super->action = 4;
+            super->hitType = 165;
             EnqueueSFX(SFX_193);
         }
     }
 }
 
-void sub_0801F8C0(Entity* this) {
+void sub_0801F8C0(ChuchuEntity* this) {
     if (sub_0801FBD0(this)) {
         sub_0801FAE0(this);
-    } else if (sub_08049FDC(this, 1) == 0) {
+    } else if (sub_08049FDC(super, 1) == 0) {
         sub_0801F730(this);
     } else {
-        u8 tmp = ++this->timer & 7;
-        if (tmp == 0 && sub_08049F1C(this, gUnk_020000B0, 0x38)) {
-            this->action = 5;
+        u8 tmp = ++super->timer & 7;
+        if (tmp == 0 && sub_08049F1C(super, gUnk_020000B0, 0x38)) {
+            super->action = 5;
             Chuchu_JumpAtPlayer(this);
         } else {
             if (tmp == 4) {
-                this->direction = GetFacingDirection(this, gUnk_020000B0);
+                super->direction = GetFacingDirection(super, gUnk_020000B0);
             }
-            ProcessMovement0(this);
-            GetNextFrame(this);
+            ProcessMovement0(super);
+            GetNextFrame(super);
         }
     }
 }
 
-void sub_0801F940(Entity* this) {
-    if (this->frame & 0x10) {
-        if (this->frame & 1) {
-            this->frame ^= 1;
+void sub_0801F940(ChuchuEntity* this) {
+    if (super->frame & 0x10) {
+        if (super->frame & 1) {
+            super->frame ^= 1;
             EnqueueSFX(SFX_12B);
         }
-        ProcessMovement2(this);
-        if (GravityUpdate(this, Q_8_8(64.0)) == 0)
-            GetNextFrame(this);
+        ProcessMovement2(super);
+        if (GravityUpdate(super, Q_8_8(64.0)) == 0)
+            GetNextFrame(super);
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 
-    if (this->frame & ANIM_DONE) {
+    if (super->frame & ANIM_DONE) {
         if (sub_0801FBD0(this)) {
             sub_0801FAE0(this);
         } else {
-            this->action = 6;
-            this->subtimer = 60;
-            this->speed = 0x20;
-            InitializeAnimation(this, 2);
+            super->action = 6;
+            super->subtimer = 60;
+            super->speed = 0x20;
+            InitializeAnimation(super, 2);
         }
     }
 }
 
-void sub_0801F9C4(Entity* this) {
-    if (--this->subtimer == 0)
-        this->action = 4;
-    GetNextFrame(this);
+void sub_0801F9C4(ChuchuEntity* this) {
+    if (--super->subtimer == 0)
+        super->action = 4;
+    GetNextFrame(super);
 }
 
-void sub_0801F9E0(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 8;
-        this->subtimer = 30;
-        this->direction = sub_08049F84(this, 1);
-        this->spritePriority.b1 = 2;
-        this->spritePriority.b0 = 6;
-        InitializeAnimation(this, 1);
+void sub_0801F9E0(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 8;
+        super->subtimer = 30;
+        super->direction = sub_08049F84(super, 1);
+        super->spritePriority.b1 = 2;
+        super->spritePriority.b0 = 6;
+        InitializeAnimation(super, 1);
     }
 }
 
-void sub_0801FA30(Entity* this) {
+void sub_0801FA30(ChuchuEntity* this) {
     if (sub_0801FBD0(this)) {
-        this->direction = sub_08049F84(this, 1);
-        ProcessMovement5(this);
-        GetNextFrame(this);
-    } else if (sub_08049FDC(this, 1) == 0) {
-        this->action = 9;
-        InitializeAnimation(this, 7);
+        super->direction = sub_08049F84(super, 1);
+        ProcessMovement5(super);
+        GetNextFrame(super);
+    } else if (sub_08049FDC(super, 1) == 0) {
+        super->action = 9;
+        InitializeAnimation(super, 7);
     } else {
         sub_0801FAF8(this);
     }
 }
 
-void sub_0801FA78(Entity* this) {
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 1;
-        this->spriteSettings.draw = 0;
-        InitializeAnimation(this, 4);
-        sub_0804AA1C(this);
+void sub_0801FA78(ChuchuEntity* this) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 1;
+        super->spriteSettings.draw = 0;
+        InitializeAnimation(super, 4);
+        sub_0804AA1C(super);
     }
 }
 
-void sub_0801FAAC(Entity* this) {
-    GravityUpdate(this, Q_8_8(24.0));
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
+void sub_0801FAAC(ChuchuEntity* this) {
+    GravityUpdate(super, Q_8_8(24.0));
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
         sub_0801FB14(this);
-        this->speed = 0x20;
-        sub_0804AA1C(this);
+        super->speed = 0x20;
+        sub_0804AA1C(super);
     }
 }
 
-void sub_0801FAE0(Entity* this) {
-    this->action = 7;
-    COLLISION_OFF(this);
-    InitializeAnimation(this, 5);
+void sub_0801FAE0(ChuchuEntity* this) {
+    super->action = 7;
+    COLLISION_OFF(super);
+    InitializeAnimation(super, 5);
 }
 
-void sub_0801FAF8(Entity* this) {
-    this->action = 2;
-    this->spriteSettings.draw = 1;
-    InitializeAnimation(this, 4);
+void sub_0801FAF8(ChuchuEntity* this) {
+    super->action = 2;
+    super->spriteSettings.draw = 1;
+    InitializeAnimation(super, 4);
 }
 
-void sub_0801FB14(Entity* this) {
-    this->action = 3;
-    this->subtimer = 30;
-    this->direction = sub_08049F84(this, 1);
-    InitializeAnimation(this, 2);
+void sub_0801FB14(ChuchuEntity* this) {
+    super->action = 3;
+    super->subtimer = 30;
+    super->direction = sub_08049F84(super, 1);
+    InitializeAnimation(super, 2);
 }
 
-void sub_0801FB34(Entity* this) {
-    if (*(Entity**)&this->field_0x68) {
-        sub_0806FA90(this, *(Entity**)&this->field_0x68, gUnk_080CA2B4[this->frame & 0xf], 1);
-        (*(Entity**)&this->field_0x68)->spriteOffsetY--;
+void sub_0801FB34(ChuchuEntity* this) {
+    if (this->unk_68) {
+        sub_0806FA90(super, this->unk_68, gUnk_080CA2B4[super->frame & 0xf], 1);
+        (this->unk_68)->spriteOffsetY--;
     }
 }
 
-void sub_0801FB68(Entity* this) {
-    switch (this->type) {
+void sub_0801FB68(ChuchuEntity* this) {
+    switch (super->type) {
         case 0:
-            this->action = 9;
+            super->action = 9;
             break;
         case 1:
-            this->action = 10;
-            COLLISION_ON(this);
-            this->spriteSettings.draw = 1;
-            this->spritePriority.b1 = 3;
+            super->action = 10;
+            COLLISION_ON(super);
+            super->spriteSettings.draw = 1;
+            super->spritePriority.b1 = 3;
             break;
         case 2:
-            this->action = 10;
-            this->hitType = 92;
-            sub_0804AA1C(this);
+            super->action = 10;
+            super->hitType = 92;
+            sub_0804AA1C(super);
             break;
     }
 
-    this->zVelocity = 0;
+    super->zVelocity = 0;
 }
 
-bool32 sub_0801FBD0(Entity* this) {
-    if (GetVvvAtEntity(this) == VVV_16) {
+bool32 sub_0801FBD0(ChuchuEntity* this) {
+    if (GetVvvAtEntity(super) == VVV_16) {
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-void Chuchu_JumpAtPlayer(Entity* this) {
-    this->speed = 0x180;
-    this->zVelocity = Q_16_16(2.0);
-    this->direction = sub_08049F84(this, 1);
-    InitializeAnimation(this, 3);
+void Chuchu_JumpAtPlayer(ChuchuEntity* this) {
+    super->speed = 0x180;
+    super->zVelocity = Q_16_16(2.0);
+    super->direction = sub_08049F84(super, 1);
+    InitializeAnimation(super, 3);
 }
 
 // clang-format off
-void (*const Chuchu_Functions[])(Entity*) = {
+void (*const Chuchu_Functions[])(ChuchuEntity*) = {
     Chuchu_OnTick,
     Chuchu_OnCollision,
     Chuchu_OnKnockback,
@@ -729,7 +740,7 @@ void (*const Chuchu_Functions[])(Entity*) = {
     Chuchu_OnGrabbed,
 };
 
-void (*const gUnk_080CA234[])(Entity*) = {
+void (*const gUnk_080CA234[])(ChuchuEntity*) = {
     sub_0801F0A4,
     nullsub_4,
     sub_0801F0C8,
@@ -742,7 +753,7 @@ void (*const gUnk_080CA234[])(Entity*) = {
     sub_0801F2F8,
 };
 
-void (*const gUnk_080CA25C[])(Entity*) = {
+void (*const gUnk_080CA25C[])(ChuchuEntity*) = {
     sub_0801F428,
     sub_0801F48C,
     sub_0801F494,
@@ -756,7 +767,7 @@ void (*const gUnk_080CA25C[])(Entity*) = {
     sub_0801F6F8,
 };
 
-void (*const gUnk_080CA288[])(Entity*) = {
+void (*const gUnk_080CA288[])(ChuchuEntity*) = {
     sub_0801F7D8,
     sub_0801F7FC,
     sub_0801F840,

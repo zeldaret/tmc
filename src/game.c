@@ -208,7 +208,7 @@ static void GameMain_ChangeRoom(void) {
         return;
 
     UpdatePlayerMapCoords();
-    ResetSystemPriority();
+    ClearEventPriority();
     UpdateWindcrests();
     sub_080300C4();
     gMain.substate = GAMEMAIN_UPDATE;
@@ -236,7 +236,7 @@ static void GameMain_ChangeRoom(void) {
     }
     CreateMiscManager();
 #endif
-    if (!gRoomVars.field_0x0) {
+    if (!gRoomVars.didEnterScrolling) {
         RequestPriorityDuration(NULL, 1);
     }
 }
@@ -252,8 +252,8 @@ static void GameMain_Update(void) {
         return;
     }
 
-    if ((gMessage.doTextBox & 0x7f) || gPriorityHandler.priority_timer != 0)
-        sub_08078B48();
+    if ((gMessage.state & MESSAGE_ACTIVE) || gPriorityHandler.priority_timer != 0)
+        PausePlayer();
 
     FlushSprites();
     UpdateEntities();
@@ -305,7 +305,7 @@ static void GameMain_BarrelUpdate(void) {
     CheckGameOver();
     CopyOAM();
     if (!gFadeControl.active)
-        ResetSystemPriority();
+        ClearEventPriority();
 }
 
 static void GameMain_ChangeArea(void) {
@@ -355,7 +355,7 @@ static void InitializeEntities(void) {
 
 static void sub_08051D98(void) {
     sub_08052EA0();
-    gRoomVars.field_0x0 = 1;
+    gRoomVars.didEnterScrolling = TRUE;
 
     // remove old entities, unless persistent
     RecycleEntities();
@@ -388,12 +388,12 @@ static void UpdateWindcrests(void) {
         u32 hi_x, hi_y;
         s32 x, y;
 
-        x = gPlayerEntity.x.HALF.HI;
+        x = gPlayerEntity.base.x.HALF.HI;
         if (x < 0)
             x += 0xf;
         hi_x = x >> 4;
 
-        y = gPlayerEntity.y.HALF.HI;
+        y = gPlayerEntity.base.y.HALF.HI;
         if (y < 0)
             y += 0xf;
         hi_y = y >> 4;

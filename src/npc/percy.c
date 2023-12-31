@@ -4,7 +4,6 @@
  *
  * @brief Percy NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -85,7 +84,7 @@ void sub_0806B41C(PercyEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 InitializeAnimation(super,
-                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 4);
                 idx = GetFuserId(super);
                 tmp = gUnk_08001A7C[idx];
                 if (this->fusionOffer == 33)
@@ -149,13 +148,13 @@ void sub_0806B540(Entity* this) {
             SetLocalFlag(0x3f);
             break;
         case 1:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 context->unk_18 = 2;
                 MessageNoOverlap(TEXT_INDEX(TEXT_PERCY, 0x15), this);
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 context->unk_18 = 3;
                 if (gSave.stats.hasAllFigurines != 0) {
                     InitItemGetSequence(ITEM_RUPEE100, 0, 0);
@@ -166,7 +165,7 @@ void sub_0806B540(Entity* this) {
             }
             break;
         case 3:
-            if ((gPlayerEntity.action != PLAYER_ITEMGET)) {
+            if ((gPlayerEntity.base.action != PLAYER_ITEMGET)) {
                 context->wait = 0x2d;
                 return;
             }

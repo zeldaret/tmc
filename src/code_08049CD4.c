@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 #include "global.h"
 #include "room.h"
 

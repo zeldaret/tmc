@@ -4,7 +4,6 @@
  *
  * @brief Wheaton NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 
 void Wheaton(Entity* this) {
@@ -12,7 +11,7 @@ void Wheaton(Entity* this) {
     if (this->action == 0) {
         this->action++;
 
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         SortEntityAbove(this, this);
         this->hitbox = (Hitbox*)&gUnk_0810C3C0;
         this->spriteOffsetY = 0xfe;

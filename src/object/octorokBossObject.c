@@ -4,7 +4,6 @@
  *
  * @brief Octorok Boss Object object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
 #include "object.h"
@@ -318,9 +317,9 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
             }
             break;
         case 9:
-            sub_08078B48();
+            PausePlayer();
             if ((this->unk_78.WORD_U)-- == 0) {
-                gRoomControls.camera_target = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity.base;
                 DeleteThisEntity();
             }
             break;

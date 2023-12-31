@@ -25,10 +25,10 @@ void TilePuzzleManager_Main(TilePuzzleManager* this) {
             super->action = IN_PROGRESS;
             super->subtimer = super->timer;
             this->own_tile = (((this->x >> 4) & 0x3fU) | ((this->y >> 4) & 0x3fU) << 6);
-            this->player_previous_tile = this->player_current_tile = COORD_TO_TILE((&gPlayerEntity));
+            this->player_previous_tile = this->player_current_tile = COORD_TO_TILE((&gPlayerEntity.base));
             break;
         case 1:
-            this->player_current_tile = COORD_TO_TILE((&gPlayerEntity));
+            this->player_current_tile = COORD_TO_TILE((&gPlayerEntity.base));
             if (this->player_current_tile != this->player_previous_tile) {
                 this->player_previous_tile = this->player_current_tile;
                 switch (GetMetaTileType(this->player_current_tile, super->type2)) {

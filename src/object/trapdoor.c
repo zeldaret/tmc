@@ -4,7 +4,6 @@
  *
  * @brief Trapdoor object
  */
-#define NENT_DEPRECATED
 #include "item.h"
 #include "object.h"
 
@@ -64,7 +63,7 @@ void Trapdoor_Action2(Entity* this) {
 }
 
 void Trapdoor_Action3(Entity* this) {
-    if (EntityInRectRadius(this, &gPlayerEntity, 0xc, 0xc)) {
+    if (EntityInRectRadius(this, &gPlayerEntity.base, 0xc, 0xc)) {
         if (this->subAction == 0) {
             sub_08099ECC(this);
             RequestPriorityDuration(this, 30);
@@ -80,7 +79,7 @@ void Trapdoor_Action4(Entity* this) {
 
 void sub_08099ECC(Entity* this) {
     this->subAction = 1;
-    CopyPosition(this, &gPlayerEntity);
+    CopyPosition(this, &gPlayerEntity.base);
     gPlayerState.queued_action = PLAYER_FALL;
     gPlayerState.field_0x38 = 0;
     gPlayerState.flags |= PL_PIT_IS_EXIT;

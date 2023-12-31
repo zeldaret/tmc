@@ -25,7 +25,7 @@ void CreateItemEntity(u32 type, u32 type2, u32 delay) {
 void InitItemGetSequence(u32 type, u32 type2, u32 delay) {
     Entity* e = GiveItemWithCutscene(type, type2, delay);
     if (e != NULL) {
-        e->parent = &gPlayerEntity;
+        e->parent = &gPlayerEntity.base;
         SetPlayerItemGetState(e, e->type, 0);
     }
 }
@@ -36,7 +36,7 @@ static Entity* GiveItemWithCutscene(u32 item, u32 type2, u32 delay) {
         item = ITEM_RUPEE50;
         type2 = 0;
     }
-    e = CreateItemGetEntity();
+    e = CreateAuxPlayerEntity();
     if (e != NULL) {
         e->type = item;
         e->type2 = type2;

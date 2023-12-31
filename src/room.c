@@ -15,7 +15,7 @@ extern bool32 IsRoomTrackerFlagSet(u32);
 
 extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
-extern u8 gUnk_081091E4[];
+extern u8 gEntityListLUT[];
 
 extern void sub_080186EC(void);
 extern void sub_0804B16C(void);
@@ -103,14 +103,14 @@ void RegisterRoomEntity(Entity* ent, const EntityData* dat) {
     kind = dat->kind & 0xF;
     if (ent->prev == NULL) {
         if (list == 0xF) {
-            AppendEntityToList(ent, gUnk_081091E4[kind]);
+            AppendEntityToList(ent, gEntityListLUT[kind]);
         } else if (list == 8) {
             AppendEntityToList(ent, 8);
         } else {
             AppendEntityToList(ent, list);
         }
     }
-    offset = &ent->field_0x78;
+    offset = &((GenericEntity*)ent)->field_0x78;
     if (kind == MANAGER)
         offset = &ent->y;
     MemCopy(dat, offset, sizeof(EntityData));
@@ -123,7 +123,9 @@ void sub_0804AF0C(Entity* ent, const EntityData* dat) {
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
-            ent->field_0x6c.HALF.HI |= 0x20;
+            // TODO: for enemies, I think this is for delayed spawn
+            //  see mulldozerSpawnPoint.c
+            ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x20;
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
@@ -146,7 +148,7 @@ void sub_0804AFB0(void** properties) {
 
     gCurrentRoomProperties = properties;
     for (i = 0; i < 8; ++i) {
-        gRoomVars.field_0x6c[i] = gCurrentRoomProperties[i];
+        gRoomVars.properties[i] = gCurrentRoomProperties[i];
     }
 }
 
@@ -198,7 +200,7 @@ static void sub_0804B058(EntityData* dat) {
                 if (IsRoomTrackerFlagSet(uVar2)) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ent->field_0x6c.HALF.LO =
+                        ((GenericEntity*)ent)->field_0x6c.HALF.LO =
                             uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the enemy so it does not
                                           // appear next time the room is visited?
                     }
@@ -250,9 +252,9 @@ void* GetCurrentRoomProperty(u32 idx) {
         return NULL;
 
     if (idx >= 0x80) { // TODO different kind of room properties?
-        return gRoomVars.field_0x8c[idx & 7];
+        return gRoomVars.entityRails[idx & 7];
     } else if (idx <= 7) {
-        return gRoomVars.field_0x6c[idx];
+        return gRoomVars.properties[idx];
     } else {
         return gCurrentRoomProperties[idx];
     }
@@ -356,9 +358,9 @@ static void LoadDarknessTile(TileEntity* tile) {
 static void LoadDestructibleTile(TileEntity* tile) {
     if (CheckLocalFlag(*(u16*)&tile->_2)) {
         SetMetaTileType(*(u16*)&tile->_6, tile->tilePos, tile->localFlag);
-    } else if (!gRoomVars.filler_0x1) {
+    } else if (!gRoomVars.destructableManagerLoaded) {
         Manager* mgr;
-        gRoomVars.filler_0x1 = 1;
+        gRoomVars.destructableManagerLoaded = TRUE;
         mgr = GetEmptyManager();
         if (mgr != NULL) {
             mgr->kind = MANAGER;

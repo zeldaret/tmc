@@ -4,7 +4,6 @@
  *
  * @brief Pico Bloom object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "sound.h"

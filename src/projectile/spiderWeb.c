@@ -4,7 +4,6 @@
  *
  * @brief Spider Web Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -97,7 +96,7 @@ void SpiderWeb_OnGrabbed(SpiderWebEntity* this) {
     u32 animationState;
 
     if (super->subAction == 0) {
-        animationState = (gPlayerEntity.animationState >> 1);
+        animationState = (gPlayerEntity.base.animationState >> 1);
         if (animationState != super->type) {
             super->gustJarState &= ~4;
             if (AnimationStateFlip90(animationState) != super->type) {
@@ -172,7 +171,7 @@ void SpiderWeb_SubAction0(SpiderWebEntity* this) {
     u16 y;
     Entity* entity;
 
-    entity = &gPlayerEntity;
+    entity = &gPlayerEntity.base;
 
     if (this->unk_84 == 0) {
         tmp = super->type;
@@ -189,7 +188,8 @@ void SpiderWeb_SubAction0(SpiderWebEntity* this) {
         InitAnimationForceUpdate(super, super->type + 4);
     }
     if ((entity->animationState >> 1 == super->type) && (gPlayerState.framestate == PL_STATE_PULL) &&
-        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((super->frame & ANIM_DONE) == 0)) {
+        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.base.frame & 2) != 0) &&
+        ((super->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(super);
         if ((super->frame & 1) != 0) {
             entity->x.HALF.HI = gUnk_0812A06C[entity->animationState] + entity->x.HALF.HI;
@@ -218,8 +218,8 @@ void sub_080AA9E0(Entity* this) {
     s32 diff;
     const Struct_0812A074* ptr;
 
-    diff =
-        (this->type & 0x1) ? (gPlayerEntity.x.HALF.HI - this->x.HALF.HI) : (gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
+    diff = (this->type & 0x1) ? (gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI)
+                              : (gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI);
     ptr = gUnk_0812A074 + (this->type << 1);
     switch (this->type) {
         case 0:

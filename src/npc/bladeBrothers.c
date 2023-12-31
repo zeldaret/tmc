@@ -4,7 +4,6 @@
  *
  * @brief Blade Brothers NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -322,7 +321,7 @@ void sub_08068b2c(BladeBrothersEntity* this) {
     if (super->interactType == INTERACTION_FUSE) {
         super->action = 2;
         super->interactType = INTERACTION_NONE;
-        animationState = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity));
+        animationState = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base));
         InitAnimationForceUpdate(super, animationState);
         InitializeNPCFusion(super);
     } else {
@@ -347,10 +346,10 @@ void BladeBrothers_StartPlayerDemonstration(Entity* this, ScriptExecutionContext
 }
 
 void sub_08068BB4(BladeBrothersEntity* this) {
-    u32 item = gSave.stats.itemButtons[SLOT_A];
+    u32 item = gSave.stats.equipped[SLOT_A];
 
     this->itemSlotA = item;
-    item = gSave.stats.itemButtons[SLOT_B];
+    item = gSave.stats.equipped[SLOT_B];
     this->itemSlotB = item;
 }
 

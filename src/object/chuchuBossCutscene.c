@@ -4,7 +4,6 @@
  *
  * @brief Chuchu Boss Cutscene object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "menu.h"
 #include "object.h"

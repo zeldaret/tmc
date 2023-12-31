@@ -38,10 +38,10 @@ void sub_08077130(ItemBehavior* this, u32 index) {
                 SetItemAnim(this, ANIM_MOLEMITTS_DIG);
                 this->stateID = 2;
                 if (iVar1 == 0x56) {
-                    if ((gPlayerEntity.animationState & 2) != 0) {
-                        gPlayerEntity.y.HALF.HI = (gPlayerEntity.y.HALF.HI & 0xfff0) | 6;
+                    if ((gPlayerEntity.base.animationState & 2) != 0) {
+                        gPlayerEntity.base.y.HALF.HI = (gPlayerEntity.base.y.HALF.HI & 0xfff0) | 6;
                     } else {
-                        gPlayerEntity.x.HALF.HI = (gPlayerEntity.x.HALF.HI & 0xfff0) | 8;
+                        gPlayerEntity.base.x.HALF.HI = (gPlayerEntity.base.x.HALF.HI & 0xfff0) | 8;
                     }
                 }
             }
@@ -68,22 +68,22 @@ void sub_080771C8(ItemBehavior* this, u32 index) {
         gPlayerState.moleMittsState = 0;
     } else {
         if (((this->playerFrame & 0x20) != 0) && (this->subtimer == 0xff)) {
-            CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->playerFrame, 1);
+            CreateObjectWithParent(&gPlayerEntity.base, MOLE_MITTS_PARTICLE, this->playerFrame, 1);
         }
         if ((this->playerFrame & 0x10) != 0) {
-            if (sub_0800875A(&gPlayerEntity, 0xd, this) == 0) {
+            if (sub_0800875A(&gPlayerEntity.base, 0xd, this) == 0) {
                 SetItemAnim(this, ANIM_MOLEMITTS_MISS);
                 this->stateID = 3;
                 SoundReq(SFX_ITEM_GLOVES_AIR);
             } else {
                 if (this->subtimer != 0xff) {
-                    object = CreateObjectWithParent(&gPlayerEntity, OBJECT_1F, 0, this->field_0x2[1]);
+                    object = CreateObjectWithParent(&gPlayerEntity.base, OBJECT_1F, 0, this->field_0x2[1]);
                     if (object != NULL) {
                         object->timer = this->timer;
                         object->subtimer = this->subtimer;
-                        object->animationState = gPlayerEntity.animationState & 6;
-                        gPlayerEntity.frame = 0;
-                        gPlayerEntity.frameDuration = gUnk_0811BE14[this->subtimer];
+                        object->animationState = gPlayerEntity.base.animationState & 6;
+                        gPlayerEntity.base.frame = 0;
+                        gPlayerEntity.base.frameDuration = gUnk_0811BE14[this->subtimer];
                     }
                 } else {
                     if ((this->field_0x2[1] == 0x0f) && (this->timer == 0x17)) {
@@ -111,22 +111,22 @@ void sub_080772A8(ItemBehavior* this, u32 index) {
     if (GetInventoryValue(ITEM_DIG_BUTTERFLY) == 1) {
         if ((this->playerFrame & 7) != 3) {
             sub_08077E3C(this, 2);
-            gPlayerEntity.speed = gUnk_0811BE16[this->playerFrame & 7] << 1;
+            gPlayerEntity.base.speed = gUnk_0811BE16[this->playerFrame & 7] << 1;
         } else {
             UpdateItemAnim(this);
-            gPlayerEntity.speed = gUnk_0811BE16[this->playerFrame & 7];
+            gPlayerEntity.base.speed = gUnk_0811BE16[this->playerFrame & 7];
         }
     } else {
         UpdateItemAnim(this);
-        gPlayerEntity.speed = gUnk_0811BE16[this->playerFrame & 7];
+        gPlayerEntity.base.speed = gUnk_0811BE16[this->playerFrame & 7];
     }
-    gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-    if (gPlayerEntity.speed != 0) {
+    gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2;
+    if (gPlayerEntity.base.speed != 0) {
         UpdatePlayerMovement();
     }
     if ((this->playerFrame & 0x10) != 0) {
         if (this->timer != 0) {
-            gPlayerEntity.frameDuration = 1;
+            gPlayerEntity.base.frameDuration = 1;
             if (sub_080774A0()) {
                 this->timer = 0;
                 return;
@@ -136,21 +136,21 @@ void sub_080772A8(ItemBehavior* this, u32 index) {
         gPlayerState.moleMittsState = 0;
     } else {
         if ((this->playerFrame & 0x60) != 0) {
-            gPlayerEntity.frameDuration = 1;
-            if (sub_0807B5B0(&gPlayerEntity)) {
+            gPlayerEntity.base.frameDuration = 1;
+            if (sub_0807B5B0(&gPlayerEntity.base)) {
                 SoundReq(SFX_108);
-                CreateObjectWithParent(&gPlayerEntity, MOLE_MITTS_PARTICLE, this->playerFrame, 0);
+                CreateObjectWithParent(&gPlayerEntity.base, MOLE_MITTS_PARTICLE, this->playerFrame, 0);
             } else {
                 SetItemAnim(this, ANIM_MOLEMITTS_CLANG);
-                effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
+                effect = CreateFx(&gPlayerEntity.base, FX_STARS_STRIKE, 0);
                 if (effect != NULL) {
                     effect->animationState = this->playerAnimationState;
-                    effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
+                    effect->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
                 }
-                effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
+                effect = CreateFx(&gPlayerEntity.base, FX_STARS_STRIKE, 0);
                 if (effect != NULL) {
                     effect->animationState = this->playerAnimationState;
-                    effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
+                    effect->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
                     effect->subtimer = 1;
                 }
                 this->stateID = 3;
@@ -162,8 +162,8 @@ void sub_080772A8(ItemBehavior* this, u32 index) {
 }
 
 void sub_08077448(ItemBehavior* this, u32 index) {
-    gPlayerEntity.direction = gPlayerEntity.animationState << 2 ^ 0x10;
-    gPlayerEntity.speed = 0x100;
+    gPlayerEntity.base.direction = gPlayerEntity.base.animationState << 2 ^ 0x10;
+    gPlayerEntity.base.speed = 0x100;
     if (((this->playerFrame & 1) != 0) && (this->field_0x5 != 0)) {
         UpdatePlayerMovement();
     }
@@ -179,16 +179,16 @@ s32 sub_080774A0(void) {
     u32 collisionData;
     u32 metaTilePos;
 
-    metaTilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity), -gUnk_0811BE1E[gPlayerEntity.animationState & 6],
-                                       -gUnk_0811BE1E[(gPlayerEntity.animationState & 6) + 1]);
+    metaTilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity.base), -gUnk_0811BE1E[gPlayerEntity.base.animationState & 6],
+                                       -gUnk_0811BE1E[(gPlayerEntity.base.animationState & 6) + 1]);
 
-    collisionData = GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer);
+    collisionData = GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.base.collisionLayer);
 
     if (collisionData > 0x16)
         return 0;
     if (collisionData < 0xf)
         return 0;
-    if (GetVvvAtMetaTilePos(metaTilePos, gPlayerEntity.collisionLayer) != VVV_86) {
+    if (GetVvvAtMetaTilePos(metaTilePos, gPlayerEntity.base.collisionLayer) != VVV_86) {
         return 1;
     } else {
         return 0x56;

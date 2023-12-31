@@ -4,7 +4,6 @@
  *
  * @brief Minecart Door object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "tiles.h"
@@ -100,7 +99,7 @@ void MinecartDoor_Action3(MinecartDoorEntity* this) {
         return;
     }
     if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-        if (super->type * 2 - (u32)gPlayerEntity.animationState == 0) {
+        if (super->type * 2 - (u32)gPlayerEntity.base.animationState == 0) {
             if (sub_08083734(super, super->type) == 0) {
                 return;
             }
@@ -133,15 +132,15 @@ bool32 sub_08096CEC(MinecartDoorEntity* this) {
         return TRUE;
     } else {
         if ((gPlayerState.flags & PL_IN_MINECART) != 0) {
-            Entity* player = &gPlayerEntity;
+            Entity* player = &gPlayerEntity.base;
             if ((((super->type << 1) ^ player->animationState) & 2) == 0) {
                 if ((super->type & 1) != 0) {
-                    if (sub_08096D68(gPlayerEntity.y.HALF.HI, super->y.HALF.HI, gPlayerEntity.x.HALF.HI,
+                    if (sub_08096D68(gPlayerEntity.base.y.HALF.HI, super->y.HALF.HI, gPlayerEntity.base.x.HALF.HI,
                                      super->x.HALF.HI)) {
                         return TRUE;
                     }
                 } else {
-                    if (sub_08096D68(gPlayerEntity.x.HALF.HI, super->x.HALF.HI, gPlayerEntity.y.HALF.HI,
+                    if (sub_08096D68(gPlayerEntity.base.x.HALF.HI, super->x.HALF.HI, gPlayerEntity.base.y.HALF.HI,
                                      super->y.HALF.HI)) {
                         return TRUE;
                     }
@@ -163,22 +162,22 @@ bool32 sub_08096D68(s32 param_1, s32 param_2, s32 param_3, s32 param_4) {
 bool32 sub_08096D84(MinecartDoorEntity* this) {
     switch (super->type) {
         case 0:
-            if (((super->y.HALF.HI + 10) - (gPlayerEntity.y.HALF.HI)) < 0x65U) {
+            if (((super->y.HALF.HI + 10) - (gPlayerEntity.base.y.HALF.HI)) < 0x65U) {
                 return TRUE;
             }
             break;
         case 1:
-            if (((gPlayerEntity.x.HALF.HI) - (super->x.HALF.HI - 10)) < 0x65U) {
+            if (((gPlayerEntity.base.x.HALF.HI) - (super->x.HALF.HI - 10)) < 0x65U) {
                 return TRUE;
             }
             break;
         case 2:
-            if (((gPlayerEntity.y.HALF.HI) - (super->y.HALF.HI - 10)) < 0x65U) {
+            if (((gPlayerEntity.base.y.HALF.HI) - (super->y.HALF.HI - 10)) < 0x65U) {
                 return TRUE;
             }
             break;
         case 3:
-            if (((super->x.HALF.HI + 10) - (gPlayerEntity.x.HALF.HI)) < 0x65U) {
+            if (((super->x.HALF.HI + 10) - (gPlayerEntity.base.x.HALF.HI)) < 0x65U) {
                 return TRUE;
             }
             break;

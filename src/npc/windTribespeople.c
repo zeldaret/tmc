@@ -4,7 +4,6 @@
  *
  * @brief Wind Tribespeople NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "sound.h"
@@ -78,7 +77,7 @@ void sub_0806C7D4(Entity* this) {
 }
 
 void sub_0806C834(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         --this->action;
         InitializeAnimation(this, (this->animationState / 2) + 4);
     }

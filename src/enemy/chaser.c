@@ -4,7 +4,6 @@
  *
  * @brief Chaser enemy
  */
-
 #include "enemy.h"
 #include "functions.h"
 

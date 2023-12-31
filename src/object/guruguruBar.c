@@ -4,7 +4,6 @@
  *
  * @brief Guruguru Bar object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "object.h"
@@ -52,7 +51,7 @@ void GuruguruBar_Init(GuruguruBarEntity* this) {
         bVar1 = this->unk7e;
         this->unk76 = bVar1 << 8;
         super->animationState = bVar1 << 6;
-        SetDefaultPriority(super, 0);
+        SetEntityPriority(super, 0);
         if (super->type != 0) {
             super->child = (Entity*)GetCurrentRoomProperty(super->type);
             UpdateRailMovement(super, (u16**)&super->child, &this->unk74);

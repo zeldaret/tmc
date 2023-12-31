@@ -4,7 +4,6 @@
  *
  * @brief Death Fx object
  */
-#define NENT_DEPRECATED
 #include "object/deathFx.h"
 #include "enemy.h"
 #include "entity.h"
@@ -81,7 +80,7 @@ void DeathFx_Action0(DeathFxObject* this) {
         super->action = 1;
         EnqueueSFX(SFX_FF);
     }
-    SetDefaultPriority(super, 3);
+    SetEntityPriority(super, 3);
 }
 
 void DeathFx_Action1(DeathFxObject* this) {

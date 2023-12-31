@@ -629,7 +629,8 @@ void ButtonUIElement_Action1(UIElement* element) {
 
     MAX_MOVEMENT = (!element->type2) ? 4 : 8;
 
-    if (element->type2 == 0 && (((gHUD.hideFlags >> element->type) & 1) || (gMessage.doTextBox & 0x7f) != 0)) {
+    if (element->type2 == 0 &&
+        (((gHUD.hideFlags >> element->type) & 1) || (gMessage.state & MESSAGE_ACTIVE) != 0)) {
         y = (s16)gHUD.buttonY[element->type] - 0x28;
     } else {
         y = (s16)gHUD.buttonY[element->type];
@@ -666,7 +667,7 @@ void ButtonUIElement_Action1(UIElement* element) {
 u32 sub_0801CC80(UIElement* element) {
     u8 type = element->type;
     u32 buttonId = (type ^ 3) != 0;
-    u32 itemId = gSave.stats.itemButtons[buttonId];
+    u32 itemId = gSave.stats.equipped[buttonId];
     if (ItemIsBottle(itemId)) {
         itemId = gSave.stats.bottles[itemId - ITEM_BOTTLE1];
     }
@@ -795,7 +796,7 @@ void HeartUIElement(UIElement* element) {
     u32 health;
     u32 frameIndex;
     element->unk_0_1 = 0;
-    if (((gHUD.hideFlags & HUD_HIDE_HEARTS) == 0) && ((gMessage.doTextBox & 0x7f) == 0)) {
+    if (((gHUD.hideFlags & HUD_HIDE_HEARTS) == 0) && ((gMessage.state & MESSAGE_ACTIVE) == 0)) {
         health = gHUD.health;
         if (health != 0) {
             element->unk_0_1 = 1;
@@ -848,7 +849,7 @@ void EzloNagUIElement_Action1(UIElement* element) {
 }
 
 void EzloNagUIElement_Action2(UIElement* element) {
-    if (gHUD.ezloNagFuncIndex >= 5 || (gMessage.doTextBox & 0x7f)) {
+    if (gHUD.ezloNagFuncIndex >= 5 || (gMessage.state & MESSAGE_ACTIVE)) {
         element->action = 0;
         element->unk_0_1 = 0;
         return;

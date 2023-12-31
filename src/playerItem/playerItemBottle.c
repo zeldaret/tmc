@@ -4,21 +4,14 @@
  *
  * @brief Bottle Player Item
  */
-#define NENT_DEPRECATED
-#include "entity.h"
+#include "playerItem/playerItemBottle.h"
+
 #include "functions.h"
 #include "item.h"
 #include "object.h"
 #include "save.h"
 #include "sound.h"
 #include "tiles.h"
-
-typedef struct {
-    /*0x00*/ Entity base;
-    /*0x68*/ u8 bottleIndex; /**< @see Item */
-    /*0x69*/ u8 unused[6];
-    /*0x6f*/ u8 bottleContent; /**< @see Item */
-} PlayerItemBottleEntity;
 
 void PlayerItemBottle_UseEmptyBottle(Entity*);
 void PlayerItemBottle_Action1(PlayerItemBottleEntity*);
@@ -55,8 +48,8 @@ void PlayerItemBottle_Init(PlayerItemBottleEntity* this) {
                 return;
             }
             COLLISION_ON(super);
-            super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
-            super->flags2 = gPlayerEntity.flags2;
+            super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
+            super->flags2 = gPlayerEntity.base.flags2;
             super->hurtType = 0x1f;
             super->type = 1;
             super->type2 = ITEM_BOTTLE_EMPTY;
@@ -109,7 +102,7 @@ void PlayerItemBottle_Action1(PlayerItemBottleEntity* this) {
         }
         DeleteThisEntity();
     }
-    sub_0801BDE8(super, &gPlayerEntity);
+    sub_0801BDE8(super, &gPlayerEntity.base);
     switch (this->bottleContent) {
         case ITEM_BOTTLE_EMPTY:
             PlayerItemBottle_UseEmptyBottle2(super);
@@ -125,8 +118,8 @@ void PlayerItemBottle_Action1(PlayerItemBottleEntity* this) {
         case ITEM_BOTTLE_PICOLYTE_GREEN:
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
-            if (gPlayerEntity.frame == 1) {
-                gPlayerEntity.frame = 0;
+            if (gPlayerEntity.base.frame == 1) {
+                gPlayerEntity.base.frame = 0;
                 PlayerItemBottle_UsePotionOrPicolyte(this);
             }
             break;
@@ -177,7 +170,7 @@ void PlayerItemBottle_UsePotionOrPicolyte(PlayerItemBottleEntity* this) {
 }
 
 void PlayerItemBottle_UseOther(PlayerItemBottleEntity* this) {
-    if (gPlayerEntity.frame == 1) {
+    if (gPlayerEntity.base.frame == 1) {
         if (this->bottleContent != ITEM_QST_DOGFOOD) {
             SetBottleContents(ITEM_BOTTLE_EMPTY, this->bottleIndex - 0x1c);
         }
@@ -200,7 +193,7 @@ void PlayerItemBottle_UseOther(PlayerItemBottleEntity* this) {
                 SoundReq(SFX_ELEMENT_CHARGE);
         }
     }
-    if (gPlayerEntity.frame == 2) {
+    if (gPlayerEntity.base.frame == 2) {
         switch (this->bottleContent) {
             case ITEM_BOTTLE_WATER:
                 CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 0, 0);
@@ -210,7 +203,7 @@ void PlayerItemBottle_UseOther(PlayerItemBottleEntity* this) {
                 break;
         }
     }
-    if (gPlayerEntity.frame == 3) {
+    if (gPlayerEntity.base.frame == 3) {
         switch (this->bottleContent) {
             case ITEM_BOTTLE_WATER:
                 CreateObjectWithParent(super, LINK_EMPTYING_BOTTLE, 0, 0);
@@ -235,7 +228,7 @@ void sub_0801BDE8(Entity* this, Entity* ent2) {
     flipX = ent2->spriteSettings.flipX;
     animationState = (ent2->animationState >> 1);
     this->spriteSettings.flipX = flipX ^ (animationState & 1);
-    sub_08078E84(this, &gPlayerEntity);
+    sub_08078E84(this, &gPlayerEntity.base);
 }
 
 void PlayerItemBottle_UseEmptyBottle(Entity* this) {
@@ -280,9 +273,9 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
     this->hitbox->offset_y = ptr[1];
     this->hitbox->width = ptr[2];
     this->hitbox->height = ptr[3];
-    if ((gPlayerEntity.frame & 0xf) != 0) {
+    if ((gPlayerEntity.base.frame & 0xf) != 0) {
         if (this->type2 == ITEM_BOTTLE_EMPTY) {
-            ptr2 = &gUnk_080B7878[((gPlayerEntity.frame & 0xf) - 1) * 2];
+            ptr2 = &gUnk_080B7878[((gPlayerEntity.base.frame & 0xf) - 1) * 2];
             iVar2 = ptr2[0];
             if (this->spriteSettings.flipX != 0) {
                 iVar2 = -iVar2;
@@ -294,6 +287,6 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
     }
 
     if (this->type2 != ITEM_BOTTLE_EMPTY) {
-        COLLISION_OFF(&gPlayerEntity);
+        COLLISION_OFF(&gPlayerEntity.base);
     }
 }

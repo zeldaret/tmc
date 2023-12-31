@@ -55,7 +55,7 @@ void FightManager_Init(FightManager* this) {
         if (!this->fightStartFlag) {
             FightManager_LoadFight(this);
         }
-        SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
+        SetEntityPriority((Entity*)this, PRIO_NO_BLOCK);
     } else {
         DeleteThisEntity();
     }
@@ -112,7 +112,7 @@ void FightManager_LoadFight(FightManager* this) {
         while (prop->kind != 0xFF) {
             ent = LoadRoomEntity(prop++);
             if ((ent != NULL) && (ent->kind == ENEMY)) {
-                ent->field_0x6c.HALF.HI |= 0x40;
+                ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x40;
                 FightManagerHelper_Monitor(monitor, ent, counter++);
             }
             if (counter >= 7) {
@@ -157,7 +157,7 @@ void FightManagerHelper_Main(FightManagerHelper* this) {
 
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
+        SetEntityPriority((Entity*)this, PRIO_NO_BLOCK);
     }
     // go through and check all monitored enemies.
     anyRemaining = FALSE;

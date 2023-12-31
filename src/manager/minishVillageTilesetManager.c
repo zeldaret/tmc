@@ -69,7 +69,7 @@ void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
         return;
 
     if (sub_08057E40(this)) {
-        tmp = (u32)gRoomVars.unk_10[0];
+        tmp = (u32)gRoomVars.graphicsGroups[0];
         if (this->unk_20 != tmp) {
             this->unk_20 = tmp;
             super->timer = 0;
@@ -111,11 +111,11 @@ void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
         super->timer = 8;
         this->unk_20 = 0xFF;
 
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
         RegisterTransitionManager(this, sub_08057E30, 0);
     }
     if (sub_08057E40(this)) {
-        tmp = (u32)gRoomVars.unk_10[0];
+        tmp = (u32)gRoomVars.graphicsGroups[0];
         if (this->unk_20 != tmp) {
             this->unk_20 = tmp;
             super->timer = 0;
@@ -153,13 +153,13 @@ void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
 #endif
 
 void sub_08057E30(void* this) {
-    sub_08057E7C(gRoomVars.unk_10[0]);
+    sub_08057E7C(gRoomVars.graphicsGroups[0]);
 }
 
 bool32 sub_08057E40(MinishVillageTilesetManager* this) {
     u32 tmp = CheckRegionsOnScreen(gUnk_08108050);
     if (tmp != 0xFF) {
-        gRoomVars.unk_10[0] = tmp;
+        gRoomVars.graphicsGroups[0] = tmp;
         return TRUE;
     } else {
         return FALSE;
@@ -187,5 +187,5 @@ void sub_08057E7C(u32 unk1) {
     for (tmp = 0; tmp < 8; tmp++, tmp2 += 2) {
         DmaCopy32(3, &gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x400 * 4);
     }
-    gRoomVars.unk_10[0] = unk1;
+    gRoomVars.graphicsGroups[0] = unk1;
 }

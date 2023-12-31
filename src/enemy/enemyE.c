@@ -2,9 +2,8 @@
  * @file enemyE.c
  * @ingroup Enemies
  *
- * @brief enemy E
+ * @brief EnemyE enemy
  */
-
 #include "enemy.h"
 #include "functions.h"
 

@@ -4,7 +4,6 @@
  *
  * @brief Cutscene Misc object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
 #include "item.h"
@@ -186,7 +185,7 @@ void sub_08094B80(CutsceneMiscObjectEntity* this) {
 void sub_08094B94(CutsceneMiscObjectEntity* this) {
     Entity* e = CreateObject(CUTSCENE_MISC_OBJECT, 0x22, 0);
     if (e != NULL) {
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         e->z.HALF.HI = -48;
         ((CutsceneMiscObjectEntity*)e)->ctx = StartCutscene(e, &script_CutsceneMiscObjectTheLittleHat);
         CreateDust(e);
@@ -198,7 +197,7 @@ void sub_08094B94(CutsceneMiscObjectEntity* this) {
 void sub_08094BE0(Entity* this) {
     Entity* e = FindEntity(OBJECT, CUTSCENE_MISC_OBJECT, 6, 0x22, 0);
     if (e != NULL) {
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         e->z.HALF.HI = -12;
         e->y.HALF.HI++;
         e->collisionLayer = 2;
@@ -213,7 +212,7 @@ void CutsceneMiscObject_Type2(CutsceneMiscObjectEntity* this) {
         DeleteThisEntity();
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         super->spriteRendering.b3 = gUnk_08114F30[p->spriteRendering.b3];
         InitAnimationForceUpdate(super, 1);
     }
@@ -232,7 +231,7 @@ void CutsceneMiscObject_Type3(CutsceneMiscObjectEntity* this) {
     } else {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         switch (super->type2) {
             case 0x40:
             case 0x41:
@@ -291,7 +290,7 @@ void CutsceneMiscObject_Type4(CutsceneMiscObjectEntity* this) {
     } else {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         InitAnimationForceUpdate(super, 0);
     }
     UpdateAnimationSingleFrame(super);
@@ -331,7 +330,7 @@ void CutsceneMiscObject_Type5(CutsceneMiscObjectEntity* this) {
                 super->action++;
                 super->z.WORD = Q_16_16(-160.0);
                 super->zVelocity = 0;
-                SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+                SetEntityPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
                 if (GetVvvAtEntity(super) == VVV_13) {
                     super->action = 3;
@@ -414,7 +413,7 @@ void CutsceneMiscObject_Type6(CutsceneMiscObjectEntity* this) {
             }
             break;
         case 3:
-            if (gPlayerEntity.action != PLAYER_EMPTYBOTTLE) {
+            if (gPlayerEntity.base.action != PLAYER_EMPTYBOTTLE) {
                 super->action = 4;
 #ifndef EU
                 if (!CheckGlobalFlag(BIN_DOGFOOD)) {
@@ -458,7 +457,7 @@ void CutsceneMiscObject_Type7(CutsceneMiscObjectEntity* this) {
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7F) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 CreateItemEntity(ITEM_JABBERNUT, 0, 0);
                 DeleteThisEntity();
             }
@@ -473,7 +472,7 @@ void CutsceneMiscObject_Type7(CutsceneMiscObjectEntity* this) {
 void CutsceneMiscObject_Type8(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 2);
@@ -493,7 +492,7 @@ void sub_08095164(CutsceneMiscObjectEntity* this) {
 void CutsceneMiscObject_Type9(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 0);
@@ -548,7 +547,7 @@ void CutsceneMiscObject_Type11(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->subAction = 0;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         InitAnimationForceUpdate(super, 0);
     }
     if (super->subAction != 0) {
@@ -608,7 +607,7 @@ void CutsceneMiscObject_Type12(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->z.HALF.HI = -16;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         super->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
         SortEntityAbove(super, super);
         sub_0807DD64(super);
@@ -846,7 +845,7 @@ void CutsceneMiscObject_Type19(CutsceneMiscObjectEntity* this) {
 void CutsceneMiscObject_Type20(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
         sub_0807DD64(super);
         InitializeAnimation(super, 0);
     }
@@ -881,7 +880,7 @@ void CutsceneMiscObject_Type22(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);
@@ -1037,7 +1036,7 @@ void CutsceneMiscObject_Type28(CutsceneMiscObjectEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
-        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
+        SetEntityPriority(super, PRIO_PLAYER_EVENT);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);
@@ -1054,7 +1053,7 @@ void sub_08095D30(CutsceneMiscObjectEntity* this, u32 a2) {
 void sub_08095D54(CutsceneMiscObjectEntity* this, ScriptExecutionContext* ctx) {
     Entity* e = CreateObject(CUTSCENE_MISC_OBJECT, 0x1C, 0);
     if (e != NULL) {
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         e->collisionLayer = 2;
         ((CutsceneMiscObjectEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
     }
@@ -1155,7 +1154,7 @@ void CutsceneMiscObject_Type31(CutsceneMiscObjectEntity* this) {
                 break;
         }
         ChangeObjPalette(super, pal);
-        if ((gPlayerEntity.frame & 1) == 0) {
+        if ((gPlayerEntity.base.frame & 1) == 0) {
             local->anim = 0x8BF;
             super->timer = 52;
             super->subtimer = -75;
@@ -1164,16 +1163,16 @@ void CutsceneMiscObject_Type31(CutsceneMiscObjectEntity* this) {
             super->timer = 85;
             super->subtimer = -42;
         }
-        CopyPosition(&gPlayerEntity, super);
+        CopyPosition(&gPlayerEntity.base, super);
         super->spritePriority.b0 = 3;
     }
-    if (gPlayerEntity.frame & 0x10) {
-        gPlayerEntity.frame &= ~0x10;
+    if (gPlayerEntity.base.frame & 0x10) {
+        gPlayerEntity.base.frame &= ~0x10;
         SoundReq(468);
     }
-    if ((u16)gPlayerEntity.spriteIndex != local->anim >> 8 || gPlayerEntity.animIndex != (u8)local->anim)
+    if ((u16)gPlayerEntity.base.spriteIndex != local->anim >> 8 || gPlayerEntity.base.animIndex != (u8)local->anim)
         DeleteThisEntity();
-    tmp = gPlayerEntity.frameIndex - super->timer + super->subtimer;
+    tmp = gPlayerEntity.base.frameIndex - super->timer + super->subtimer;
     if (tmp != super->frameIndex) {
         super->frameIndex = tmp;
         sub_080042D0(super, super->frameIndex, (u16)super->spriteIndex);

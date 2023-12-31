@@ -4,7 +4,6 @@
  *
  * @brief Angry Statue object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "hitbox.h"

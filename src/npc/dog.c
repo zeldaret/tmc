@@ -4,7 +4,6 @@
  *
  * @brief Dog NPC
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "functions.h"
@@ -227,7 +226,7 @@ void sub_08069B44(DogEntity* this) {
         super->animationState = 2;
         this->unk_6a = 0xff;
         this->unk_74 = GetFusionToOffer(super);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         InitAnimationForceUpdate(super, 10);
         if ((super->flags & ENT_SCRIPTED) != 0) {
             InitScriptForNPC(super);
@@ -267,7 +266,7 @@ void sub_08069CB8(DogEntity* this) {
     u32 direction;
     u32 animState;
 
-    direction = GetFacingDirection(super, &gPlayerEntity);
+    direction = GetFacingDirection(super, &gPlayerEntity.base);
     animState = gUnk_08111DB0[direction + super->animationState * 0x20];
     super->animationState = animState >> 6;
     this->unk_6b = animState & 0x3f;
@@ -431,7 +430,7 @@ bool32 sub_08069F90(DogEntity* this) {
     if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
         return TRUE;
     } else {
-        return EntityInRectRadius(super, &gPlayerEntity, 0x14, 0x14);
+        return EntityInRectRadius(super, &gPlayerEntity.base, 0x14, 0x14);
     }
 }
 
@@ -526,7 +525,7 @@ void Dog_Fusion(DogEntity* this) {
         if (sub_08069EF0(this)) {
             super->action++;
             super->spriteSettings.draw = 1;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             InitializeAnimation(super, 0x23);
         }
     } else {

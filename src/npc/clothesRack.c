@@ -4,7 +4,6 @@
  *
  * @brief Clothes Rack NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 #include "tiles.h"
 

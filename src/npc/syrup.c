@@ -4,7 +4,6 @@
  *
  * @brief Syrup NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 #include "object.h"
@@ -48,7 +47,7 @@ void sub_0806A1F8(SyrupEntity* this) {
 
     if (LoadExtraSpriteData(super, paVar2)) {
         super->action = 1;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         InitScriptForNPC(super);
         InitializeAnimation(super, 0);
     }

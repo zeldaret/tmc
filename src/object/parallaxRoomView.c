@@ -4,7 +4,6 @@
  *
  * @brief Parallax Room View object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "room.h"
 
@@ -34,7 +33,7 @@ void ParallaxRoomView(ParallaxRoomViewEntity* this) {
         }
         this->unk_68 = super->x.HALF.HI;
         this->unk_6a = super->y.HALF.HI;
-        SetDefaultPriority(super, 6);
+        SetEntityPriority(super, 6);
     }
     if ((super->flags & 0x10) == 0) {
         iVar4 = super->x.HALF.HI - gRoomControls.scroll_x;

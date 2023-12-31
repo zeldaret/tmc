@@ -4,7 +4,6 @@
  *
  * @brief Japanese Subtitle object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "menu.h"
 #include "object.h"

@@ -4,7 +4,6 @@
  *
  * @brief Shrinking Hieroglyphs object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "player.h"
@@ -52,7 +51,7 @@ void ShrinkingHieroglyphs_Init(ShrinkingHieroglyphsEntity* this) {
     super->subtimer = 30;
     this->objDir.HALF.HI = ShrinkingHieroglyphs_Directions[super->type];
     this->unk74 = 0x2000;
-    SetDefaultPriority(super, 6);
+    SetEntityPriority(super, 6);
     if (super->type == 0) {
         this->unk7e = 0x40;
         LoadSwapGFX(super, 1, 0);
@@ -70,7 +69,7 @@ void ShrinkingHieroglyphs_Action1(ShrinkingHieroglyphsEntity* this) {
     if (super->type == 0) {
         UpdateAnimationSingleFrame(super);
         if (super->type2 != 0) {
-            gPlayerEntity.subtimer = 0;
+            gPlayerEntity.base.subtimer = 0;
             super->action++;
             InitAnimationForceUpdate(super, 1);
             SoundReq(SFX_178);
@@ -110,7 +109,7 @@ void ShrinkingHieroglyphs_Action2(ShrinkingHieroglyphsEntity* this) {
 }
 
 void sub_08098130(ShrinkingHieroglyphsEntity* this) {
-    CopyPosition(&gPlayerEntity, super);
+    CopyPosition(&gPlayerEntity.base, super);
     super->direction = this->objDir.HALF.HI;
     super->speed = this->unk7a;
     LinearMoveUpdate(super);

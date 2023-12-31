@@ -4,7 +4,6 @@
  *
  * @brief Giant Book Ladder object
  */
-#define NENT_DEPRECATED
 #include "manager.h"
 #include "map.h"
 #include "object.h"

@@ -4,7 +4,6 @@
  *
  * @brief Mailbox NPC
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "message.h"

@@ -4,11 +4,10 @@
  *
  * @brief Wizzrobe Wind enemy
  */
+#include "enemy/wizzrobe.h"
 
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
-#include "enemy/wizzrobe.h"
 #include "functions.h"
 #include "object.h"
 #include "tiles.h"
@@ -121,7 +120,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                     super->parent->spriteSettings.draw = 0;
                     break;
                 case 8:
-                    if (EntityInRectRadius(super, &gPlayerEntity, 0xa0, 0xa0) && CheckOnScreen(super)) {
+                    if (EntityInRectRadius(super, &gPlayerEntity.base, 0xa0, 0xa0) && CheckOnScreen(super)) {
                         Entity* projectile = CreateProjectileWithParent(super, WIND_PROJECTILE, 1);
                         if (projectile != NULL) {
                             projectile->direction = super->direction & 0x18;

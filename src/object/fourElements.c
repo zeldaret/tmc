@@ -4,7 +4,6 @@
  *
  * @brief Four Elements object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -108,7 +107,7 @@ void FourElements_Action3(FourElementsEntity* this) {
     if (super->timer != 0) {
         sub_080A0424(this);
         if (--super->timer == 0) {
-            SetDefaultPriority(&gPlayerEntity, 0);
+            SetEntityPriority(&gPlayerEntity.base, 0);
         }
     } else {
         RequestPriorityDuration(NULL, 60);
@@ -138,7 +137,7 @@ void FourElements_Action5(FourElementsEntity* this) {
 
 void FourElements_Action6(FourElementsEntity* this) {
     RequestPriorityDuration(NULL, 10);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         SetPriorityTimer(90);
         gPlayerState.controlMode = 1;
         EnablePauseMenu();

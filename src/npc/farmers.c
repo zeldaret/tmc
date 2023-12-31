@@ -4,7 +4,6 @@
  *
  * @brief Farmers NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
@@ -38,7 +37,7 @@ void Farmers(Entity* this) {
 }
 
 void sub_0806BC58(Entity* this) {
-    SetDefaultPriority(this, PRIO_MESSAGE);
+    SetEntityPriority(this, PRIO_MESSAGE);
 }
 
 void Farmers_Head(Entity* this) {

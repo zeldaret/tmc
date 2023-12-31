@@ -35,7 +35,7 @@ void StaticBackgroundManager_Main(StaticBackgroundManager* this) {
     if (super->action == 0) {
         super->action = 1;
         super->flags |= ENT_PERSIST;
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
         if (super->type != 0) {
             RegisterTransitionManager(this, sub_0805B4B4, NULL);
         }

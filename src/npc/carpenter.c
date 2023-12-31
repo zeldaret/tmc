@@ -4,7 +4,6 @@
  *
  * @brief Carpenter NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "item.h"
 #include "npc.h"
@@ -35,7 +34,7 @@ void Carpenter(CarpenterEntity* this) {
                 break;
             super->action = 1;
             this->animIndex = 0;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             sub_0807DD64(super);
 
         case 1:
@@ -43,8 +42,9 @@ void Carpenter(CarpenterEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) +
-                                               4 + (super->type * 8));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 4 +
+                                        (super->type * 8));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, 0);
@@ -115,7 +115,7 @@ void Carpenter_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type * 4])) {
             this->action++;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, (u32)this->type * 8 + 2);
         }
     } else {

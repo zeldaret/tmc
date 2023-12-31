@@ -4,7 +4,6 @@
  *
  * @brief Gregal NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
@@ -41,7 +40,7 @@ void sub_0806CAF4(GregalEntity* this) {
 
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         npc = CreateNPC(GREGAL, 1, 0);
         if (npc != NULL) {
             npc->parent = super;
@@ -68,7 +67,7 @@ void sub_0806CB80(GregalEntity* this) {
         super->action++;
         super->animationState = 2;
         super->frameIndex = 0;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     if (super->parent != NULL) {
         super->frameIndex = (super->parent->frame & 3) + 0x21;
@@ -79,7 +78,7 @@ void sub_0806CBB4(GregalEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->animationState = 2;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         InitializeAnimation(super, 0x11);
     }
     GetNextFrame(super);
@@ -96,15 +95,15 @@ void sub_0806CC08(GregalEntity* this) {
         case 0:
             super->action = 1;
             super->spriteSettings.draw = 1;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             sub_0807DD64(super);
         case 1:
             if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 8);
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 8);
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, NULL);
@@ -177,7 +176,7 @@ void Gregal_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.draw = 1;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 6);
     } else {
         UpdateAnimationSingleFrame(this);

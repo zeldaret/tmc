@@ -1,12 +1,17 @@
-#define NENT_DEPRECATED
-#include "entity.h"
-#include "enemy.h"
-#include "hitbox.h"
-#include "player.h"
-#include "physics.h"
-#include "room.h"
+/**
+ * @file dust.c
+ * @ingroup Enemies
+ *
+ * @brief Dust enemy
+ */
 #include "asm.h"
+#include "enemy.h"
+#include "entity.h"
+#include "hitbox.h"
 #include "object.h"
+#include "physics.h"
+#include "player.h"
+#include "room.h"
 
 typedef struct {
     Entity base;
@@ -197,7 +202,7 @@ void sub_08044310(DustEntity* this) {
     uVar7 = 0xff;
     tmp = 0xff;
 
-    switch (gPlayerEntity.animationState / 2 & 3) {
+    switch (gPlayerEntity.base.animationState / 2 & 3) {
         case 0:
             for (i = 0; i < this->unk_74; i++) {
                 if ((((Hitbox3D*)&super->hitbox[i])[1].unknown[2] == 0) &&
@@ -271,15 +276,15 @@ void sub_08044498(DustEntity* this) {
     u32 tmp;
     u32 xdiff, ydiff;
 
-    uVar4 = COORD_TO_TILE(&gPlayerEntity);
+    uVar4 = COORD_TO_TILE(&gPlayerEntity.base);
     tmp = (gPlayerState.playerInput.newInput & 0xf00);
     if (tmp != this->unk_75 || uVar4 != this->unk_76) {
         this->unk_75 = tmp;
         this->unk_76 = uVar4;
         pbVar2 = HEAP->items;
         uVar4 = HEAP->unk_0;
-        xdiff = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
-        ydiff = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
+        xdiff = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
+        ydiff = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
 
         for (i = 0; i < uVar4; i++) {
             if (xdiff - pbVar2[i].unk_0 < 0x10 && ydiff - pbVar2[i].unk_1 < 0x10) {
@@ -287,7 +292,7 @@ void sub_08044498(DustEntity* this) {
                 if (pEVar1 == NULL) {
                     return;
                 }
-                CopyPosition(&gPlayerEntity, pEVar1);
+                CopyPosition(&gPlayerEntity.base, pEVar1);
                 return;
             }
         }
@@ -302,9 +307,10 @@ void sub_08044550(DustEntity* this) {
         if (super->speed < 0x100) {
             super->speed += 0x10;
         }
-        ptr = &gUnk_08126EE4[gPlayerEntity.animationState & 0xe];
-        super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, gPlayerEntity.x.HALF.HI + ptr[0],
-                                                gPlayerEntity.y.HALF.HI + ptr[1]);
+        ptr = &gUnk_08126EE4[gPlayerEntity.base.animationState & 0xe];
+        super->direction =
+            CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, gPlayerEntity.base.x.HALF.HI + ptr[0],
+                                 gPlayerEntity.base.y.HALF.HI + ptr[1]);
         LinearMoveUpdate(super);
     } else {
         sub_080445C0(this);

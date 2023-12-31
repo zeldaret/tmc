@@ -4,7 +4,6 @@
  *
  * @brief Vaati3 Death object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "physics.h"
 

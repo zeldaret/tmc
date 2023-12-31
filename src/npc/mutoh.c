@@ -5,7 +5,6 @@
  *
  * @brief Mutoh NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "item.h"
@@ -36,7 +35,7 @@ void Mutoh(MutohEntity* this) {
             if (LoadExtraSpriteData(super, gUnk_08110C00)) {
                 super->action = 1;
                 super->spriteSettings.draw = TRUE;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 InitScriptForNPC(super);
             }
             break;
@@ -44,8 +43,8 @@ void Mutoh(MutohEntity* this) {
             if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 4);
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);

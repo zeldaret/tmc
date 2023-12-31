@@ -1,10 +1,15 @@
-#define NENT_DEPRECATED
-#include "entity.h"
+/**
+ * @file gleerok.c
+ * @ingroup Enemies
+ *
+ * @brief Gleerok enemy
+ */
 #include "enemy.h"
-#include "player.h"
-#include "screen.h"
+#include "entity.h"
 #include "functions.h"
 #include "object.h"
+#include "player.h"
+#include "screen.h"
 
 typedef struct {
     union SplitHWord unk0;
@@ -19,7 +24,7 @@ typedef struct {
     /*0x2e*/ u16 filler_2e;
     /*0x30*/ u8 unk_30[6];
     /*0x36*/ u8 filler_36[0x2];
-    /*0x38*/ Entity* ent;
+    /*0x38*/ Entity* entity1;
     /*0x3c*/ Entity* entities[5];
     /*0x50*/ Entity* ent2;
 } Gleerok_HeapStruct;
@@ -145,7 +150,7 @@ void Gleerok(GleerokEntity* this) {
 }
 
 void Gleerok_OnDeath(GleerokEntity* this) {
-    sub_08078B48();
+    PausePlayer();
 
     switch (super->type) {
         case 2:
@@ -165,7 +170,7 @@ void Gleerok_OnDeath(GleerokEntity* this) {
                     this->unk_74--;
                     gScreen.controls.alphaBlend = this->unk_74 | (this->unk_75 << 8);
                     if (gScreen.controls.alphaBlend == 0x1000) {
-                        sub_0807AABC(&gPlayerEntity);
+                        sub_0807AABC(&gPlayerEntity.base);
                         DeleteThisEntity();
                     }
                 }
@@ -184,7 +189,7 @@ void Gleerok_OnDeath(GleerokEntity* this) {
         case 0:
             gPlayerState.field_0x14 = 1;
 
-            if (sub_0806FC80(super, &gPlayerEntity, super->frame & 0x3f)) {
+            if (sub_0806FC80(super, &gPlayerEntity.base, super->frame & 0x3f)) {
                 gPlayerState.spriteOffsetY = -6;
             }
 
@@ -210,10 +215,10 @@ void sub_0802D170(GleerokEntity* this) {
         this->unk_84->filler2[0].unk0.HALF.HI = 0x10;
         if (sub_0802EB08(this->unk_84, 0x40, 2) == 0 && sub_0802EA88(this->unk_84) == 0) {
             super->action = 2;
-            gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x98;
-            gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0xd8;
-            gPlayerEntity.animationState = 0;
-            RestorePrevTileEntity(COORD_TO_TILE(&gPlayerEntity), 2);
+            gPlayerEntity.base.x.HALF.HI = gRoomControls.origin_x + 0x98;
+            gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0xd8;
+            gPlayerEntity.base.animationState = 0;
+            RestorePrevTileEntity(COORD_TO_TILE(&gPlayerEntity.base), 2);
             gRoomControls.camera_target = super;
             SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
         }
@@ -313,7 +318,7 @@ void sub_0802D3B8(GleerokEntity* this) {
 
     if (CheckGlobalFlag(LV2_CLEAR)) {
         gScreen.lcd.displayControl &= 0xfdff;
-        sub_0807AABC(&gPlayerEntity);
+        sub_0807AABC(&gPlayerEntity.base);
         DeleteThisEntity();
     }
 
@@ -420,7 +425,7 @@ void sub_0802D3B8(GleerokEntity* this) {
 
 void sub_0802D650(GleerokEntity* this) {
 #ifdef EU
-    sub_08078B48();
+    PausePlayer();
 #endif
 
     gUnk_080CD7E4[super->subAction](this);
@@ -431,7 +436,7 @@ void sub_0802D674(GleerokEntity* this) {
     u32 val;
     gPauseMenuOptions.disabled = 1;
 
-    if (gPlayerEntity.z.WORD != 0)
+    if (gPlayerEntity.base.z.WORD != 0)
         return;
     if (this->unk_7c.WORD == 0x96) {
         SoundReq(SFX_BOSS_HIT);
@@ -445,13 +450,13 @@ void sub_0802D674(GleerokEntity* this) {
         SoundReq(SFX_BOSS_HIT);
     } else if (val <= 0x3c) {
         if (val == 0x3c) {
-            CreateSpeechBubbleExclamationMark(&gPlayerEntity, 0xc, -0x18);
+            CreateSpeechBubbleExclamationMark(&gPlayerEntity.base, 0xc, -0x18);
         }
-        gPlayerEntity.animationState = 0;
+        gPlayerEntity.base.animationState = 0;
     } else if (val <= 0x59) {
-        gPlayerEntity.animationState = 2;
+        gPlayerEntity.base.animationState = 2;
     } else if (val <= 0x77) {
-        gPlayerEntity.animationState = 6;
+        gPlayerEntity.base.animationState = 6;
     }
 }
 
@@ -485,7 +490,7 @@ void sub_0802D714(GleerokEntity* this) {
     super->child = enemy;
     if (enemy) {
         enemy->parent = super;
-        heap->ent = super->child;
+        heap->entity1 = super->child;
         ((GleerokEntity*)(super->child))->unk_84 = heap;
     }
 
@@ -515,7 +520,7 @@ void sub_0802D7B4(GleerokEntity* this) {
             super->action = 1;
             super->subAction = 0;
             this->unk_84->ent2->timer = 24;
-            gRoomControls.camera_target = &gPlayerEntity;
+            gRoomControls.camera_target = &gPlayerEntity.base;
 #ifndef EU
             gPlayerState.controlMode = CONTROL_1;
 #endif
@@ -572,7 +577,7 @@ void sub_0802D86C(GleerokEntity* this) {
 
             if (((GleerokEntity*)(super->parent))->unk_80 == 0)
                 return;
-            if (!EntityInRectRadius(super, &gPlayerEntity, 8, 8))
+            if (!EntityInRectRadius(super, &gPlayerEntity.base, 8, 8))
                 return;
 
             gPlayerState.field_0x14 = 1;
@@ -612,7 +617,7 @@ void sub_0802D86C(GleerokEntity* this) {
             super->child = enemy;
             if (enemy) {
                 enemy->parent = super->parent;
-                this->unk_84->ent = super->child;
+                this->unk_84->entity1 = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
 
@@ -633,7 +638,7 @@ void sub_0802D86C(GleerokEntity* this) {
             if (enemy) {
                 enemy->parent = super->parent;
                 super->timer = this->unk_84->filler[0].unk0.HALF.HI;
-                this->unk_84->ent = super->child;
+                this->unk_84->entity1 = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
 
@@ -689,7 +694,7 @@ void sub_0802D86C(GleerokEntity* this) {
             super->child = CreateEnemy(GLEEROK, 4);
             if (super->child) {
                 super->child->parent = super->parent;
-                this->unk_84->ent = super->child;
+                this->unk_84->entity1 = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
                 CopyPosition(super, ((volatile Entity*)super)->child);
                 DeleteThisEntity();
@@ -705,7 +710,7 @@ void sub_0802D86C(GleerokEntity* this) {
 
 void sub_0802DB84(GleerokEntity* this) {
     u32 timer;
-    super->direction = GetFacingDirection(super, &gPlayerEntity);
+    super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     if (this->unk_84->filler[0].unk0.HALF.HI == super->direction) {
         super->subAction = 1;
         this->unk_78 = 0;
@@ -739,7 +744,7 @@ void sub_0802DB84(GleerokEntity* this) {
 }
 
 void sub_0802DC1C(GleerokEntity* this) {
-    u32 diff = GetFacingDirection(super, &gPlayerEntity);
+    u32 diff = GetFacingDirection(super, &gPlayerEntity.base);
     diff = (this->unk_84->filler[0].unk0.HALF.HI - diff) & 0x1f;
 
     if (diff > 0x10) {
@@ -783,7 +788,7 @@ void sub_0802DC1C(GleerokEntity* this) {
 
 void sub_0802DCE0(GleerokEntity* this) {
     if (this->unk_84->ent2->timer != 12) {
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
         if (this->unk_84->filler[5].unk0.HALF.HI == super->direction) {
             this->unk_84->ent2->timer = 12;
             this->unk_82 = 4;
@@ -1004,7 +1009,7 @@ void sub_0802E0B8(GleerokEntity* this) {
 
     val = super->frame & 0x3f;
     if (val) {
-        if (sub_0806FC80(super, &gPlayerEntity, val)) {
+        if (sub_0806FC80(super, &gPlayerEntity.base, val)) {
             gPlayerState.field_0x14 = 1;
             gPlayerState.spriteOffsetY = -6;
         }
@@ -1014,7 +1019,7 @@ void sub_0802E0B8(GleerokEntity* this) {
         if (this->unk_79 > 1) {
             super->health = 0;
             super->action = 0;
-            sub_08078B48();
+            PausePlayer();
             SoundReq(SFX_BOSS_DIE);
             return;
         } else {
@@ -1054,7 +1059,7 @@ void sub_0802E1D0(GleerokEntity* this) {
         GetNextFrame(super);
     }
     if (super->frame & 0x3f) {
-        if (sub_0806FC80(super, &gPlayerEntity, super->frame & 0x3f)) {
+        if (sub_0806FC80(super, &gPlayerEntity.base, super->frame & 0x3f)) {
             gPlayerState.field_0x14 = 1;
             gPlayerState.spriteOffsetY = -6;
         }
@@ -1097,7 +1102,7 @@ void sub_0802E300(GleerokEntity* this) {
     u32 index;
     Gleerok_HeapStruct2* ptr;
     u8* ptr2;
-    Entity* ent;
+    Entity* entity;
     Gleerok_HeapStruct* heap;
     if ((this->unk_79 & 0x80) == 0) {
         this->unk_7c.HALF.LO--;
@@ -1128,7 +1133,7 @@ void sub_0802E300(GleerokEntity* this) {
 
         this->unk_79 &= ~0x80;
         heap = this->unk_84;
-        dir = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) << 3;
+        dir = GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) << 3;
         index = 0;
         ptr2 = &this->unk_80;
         tmp = 0;
@@ -1144,11 +1149,11 @@ void sub_0802E300(GleerokEntity* this) {
         super->type2 = 0;
         *ptr2 = 0;
         InitializeAnimation(super, 0x4d);
-        ent = CreateEnemy(GLEEROK, 5);
-        super->child = ent;
+        entity = CreateEnemy(GLEEROK, 5);
+        super->child = entity;
         if (super->child != NULL) {
             super->child->parent = super;
-            heap->ent = super->child;
+            heap->entity1 = super->child;
             ((GleerokEntity*)super->child)->unk_84 = heap;
         }
 
@@ -1368,7 +1373,7 @@ void sub_0802E7E4(Gleerok_HeapStruct* this) {
                 this->entities[i + 1]->spritePriority.b0 = bVar6;
             }
         }
-        this->ent->spritePriority.b0 = 0;
+        this->entity1->spritePriority.b0 = 0;
     } else {
         bVar6 = 5;
 
@@ -1388,7 +1393,7 @@ void sub_0802E7E4(Gleerok_HeapStruct* this) {
                 this->entities[i + 1]->spritePriority.b0 = bVar6;
             }
         }
-        this->ent->spritePriority.b0 = 6;
+        this->entity1->spritePriority.b0 = 6;
     }
 }
 
@@ -1398,7 +1403,7 @@ void sub_0802E9B0(GleerokEntity* this) {
     s32 uVar4;
     Gleerok_HeapStruct* heap;
 
-    iVar2 = sub_080041DC(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI) >> 4;
+    iVar2 = sub_080041DC(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI) >> 4;
     if (iVar2 < 0x60) {
         iVar2 = 10;
     } else {

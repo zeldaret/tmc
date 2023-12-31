@@ -4,7 +4,6 @@
  *
  * @brief Beanstalk object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "tiles.h"
@@ -68,7 +67,7 @@ void Beanstalk_Init(BeanstalkEntity* this) {
 
     super->spriteRendering.b3 = 2;
     super->spriteOrientation.flipY = 1;
-    SetDefaultPriority(super, 4);
+    SetEntityPriority(super, 4);
     if (super->type == 7) {
 #ifndef EU
         if ((super->flags & ENT_DID_INIT) == 0) {
@@ -277,7 +276,7 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
         case 3:
         case 4:
             if (gPlayerState.floor_type == SURFACE_LADDER) {
-                if (EntityInRectRadius(super, &gPlayerEntity, 0, 8)) {
+                if (EntityInRectRadius(super, &gPlayerEntity.base, 0, 8)) {
                     if ((super->animIndex == (super->type2 - 1) * 3 + 1) && (super->timer == 0)) {
                         super->timer = 1;
                         InitializeAnimation(super, super->animIndex + 1);
@@ -336,8 +335,8 @@ void Beanstalk_Action1Type9(BeanstalkEntity* this) {
         super->y.HALF.HI += 0x28;
         this->unk_72 = sub_080B1A0C(super, 0, -24);
     }
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
+    super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
     if (gPlayerState.floor_type == SURFACE_LADDER) {
         super->spritePriority.b0 = 0;
         if (sub_080B1A0C(super, 0, -24) != SPECIAL_META_TILE_20) {

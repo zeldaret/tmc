@@ -4,7 +4,6 @@
  *
  * @brief Frozen Octorok object
  */
-#define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
 #include "functions.h"
 #include "message.h"
@@ -64,7 +63,7 @@ void FrozenOctorok_Init(FrozenOctorokEntity* this) {
     super->action = 1;
     switch (super->type) {
         case 0:
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             this->unk_7e = 0;
         case 6:
             super->timer = 1;
@@ -267,7 +266,7 @@ void FrozenOctorok_Action1SubAction0(FrozenOctorokEntity* this) {
 
 void FrozenOctorok_Action1SubAction1(FrozenOctorokEntity* this) {
     Entity* obj;
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         if (this->unk_79-- == 0) {
             obj = CreateObjectWithParent(super, FROZEN_OCTOROK, 7, 0);
             if (obj != NULL) {
@@ -387,7 +386,7 @@ void FrozenOctorok_Action1SubAction6(FrozenOctorokEntity* this) {
     LinearMoveUpdate(super);
     if ((gRoomControls.origin_y + 0x1c8) < super->y.HALF.HI) {
         gRoomControls.scrollSpeed = 4;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
         SetLocalFlag(0x9b);
         DeleteEntity(super->parent);
         DeleteEntity(&this->heap->mouthObject->base);
@@ -421,16 +420,9 @@ void sub_0809CB70(FrozenOctorokEntity* this, s32 angle, s32 radius) {
 }
 
 void sub_0809CBE4(FrozenOctorokEntity* this) {
-    u16 tmp1;
-    FORCE_REGISTER(u8 tmp4, r4);
-    u8* tmp3 = &this->unk_79;
-    tmp1 = super->subtimer;
-    tmp4 = *tmp3;
-    tmp1 += tmp4;
-    this->unk_79 = tmp1;
+    this->unk_79 += super->subtimer;
     if ((s8)super->subtimer < 0) {
-        u8 tmp_r0 = super->timer;
-        if (tmp1 << 0x18 < -tmp_r0 << 0x18) {
+        if ((s8)this->unk_79 < (s8)-super->timer) {
             super->subtimer = -super->subtimer;
             SoundReq(SFX_19E);
         }

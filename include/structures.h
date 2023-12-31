@@ -205,8 +205,8 @@ extern ItemBehavior gActiveItems[MAX_ACTIVE_ITEMS];
 static_assert(sizeof(gActiveItems) == 0x70);
 
 typedef struct {
-    u8 sys_priority; // system requested priority
-    u8 ent_priority; // entity requested priority
+    u8 event_priority; // system requested priority
+    u8 ent_priority;   // entity requested priority
     u8 queued_priority;
     u8 queued_priority_reset;
     Entity* requester;

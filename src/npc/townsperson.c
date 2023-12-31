@@ -4,7 +4,6 @@
  *
  * @brief Townsperson NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "npc.h"
@@ -132,7 +131,7 @@ void sub_08061D64(TownspersonEntity* this) {
         InitializeNPCFusion(super);
         this->unk_69 = super->animIndex;
         InitializeAnimation(super, (super->animIndex & -4) +
-                                       GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                                       GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
     } else {
         ExecuteScriptForEntity(super, NULL);
         HandleEntity0x82Actions(super);
@@ -145,15 +144,15 @@ void sub_08061D64(TownspersonEntity* this) {
             super->interactType = INTERACTION_NONE;
             sub_08062048(super);
             this->unk_69 = super->animIndex;
-            InitializeAnimation(super, (super->animIndex & -4) +
-                                           GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+            InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
+                                                                     GetFacingDirection(super, &gPlayerEntity.base)));
         }
     }
 }
 
 void sub_08061E24(TownspersonEntity* this) {
     GetNextFrame(super);
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = 1;
         InitializeAnimation(super, this->unk_69);
     }

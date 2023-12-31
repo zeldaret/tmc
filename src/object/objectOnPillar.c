@@ -4,7 +4,6 @@
  *
  * @brief Object on Pillar object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
@@ -118,17 +117,17 @@ void ObjectOnPillar_SubAction0(ObjectOnPillarEntity* this) {
     const s8* ptr;
     if (this->unk_72 == 0) {
         this->unk_72 = 1;
-        ptr = &gUnk_08123274[gPlayerEntity.animationState];
-        PositionRelative(super, &gPlayerEntity, ptr[0] << 0x10, ptr[1] << 0x10);
+        ptr = &gUnk_08123274[gPlayerEntity.base.animationState];
+        PositionRelative(super, &gPlayerEntity.base, ptr[0] << 0x10, ptr[1] << 0x10);
     }
     sub_08097008(this);
     if (sub_080896B0()) {
         gPlayerState.queued_action = PLAYER_PULL;
         gPlayerState.field_0x38 = 0x20;
         gPlayerState.flags |= PL_BUSY;
-        gPlayerEntity.x.HALF.LO = 0;
-        gPlayerEntity.y.HALF.LO = 0;
-        super->direction = ((gPlayerEntity.animationState ^ 4) << 2);
+        gPlayerEntity.base.x.HALF.LO = 0;
+        gPlayerEntity.base.y.HALF.LO = 0;
+        super->direction = ((gPlayerEntity.base.animationState ^ 4) << 2);
         sub_08097098(this);
     }
 }

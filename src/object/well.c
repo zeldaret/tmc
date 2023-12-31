@@ -4,7 +4,6 @@
  *
  * @brief Well object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"
@@ -41,9 +40,9 @@ void Well_Init(WellEntity* this) {
 void Well_Action1(WellEntity* this) {
     u32 tileIndex = GetMetaTileType(this->unk_80, LAYER_BOTTOM);
     if (tileIndex != SPECIAL_META_TILE_125) {
-        sub_08078B48();
-        gPlayerEntity.x.WORD = super->x.WORD;
-        gPlayerEntity.y.HALF.HI = super->y.HALF.HI + 4;
+        PausePlayer();
+        gPlayerEntity.base.x.WORD = super->x.WORD;
+        gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI + 4;
         DeleteThisEntity();
     }
 }

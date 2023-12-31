@@ -4,7 +4,6 @@
  *
  * @brief Bird object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "game.h"
@@ -212,26 +211,26 @@ void Bird_Type8(BirdEntity* this) {
             super->spriteRendering.b3 = 0;
             super->spriteOrientation.flipY = 1;
             super->x.HALF.HI = gRoomControls.scroll_x;
-            super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
+            super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
             super->child = NULL;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             InitAnimationForceUpdate(super, 0);
             SoundReq(0x123);
             break;
         case 1:
-            super->collisionLayer = gPlayerEntity.collisionLayer;
+            super->collisionLayer = gPlayerEntity.base.collisionLayer;
             super->speed += 8;
             if (super->speed > 0x300) {
                 super->speed = 0x300;
             }
 
-            if ((gPlayerEntity.flags & ENT_COLLIDE) && (gMessage.doTextBox & 0x7f) == 0 &&
-                gPlayerEntity.action != PLAYER_SLEEP && gPlayerEntity.action != PLAYER_BOUNCE &&
-                gPlayerEntity.action != PLAYER_MINISH && gPlayerState.framestate != PL_STATE_CLIMB &&
+            if ((gPlayerEntity.base.flags & ENT_COLLIDE) && (gMessage.state & MESSAGE_ACTIVE) == 0 &&
+                gPlayerEntity.base.action != PLAYER_SLEEP && gPlayerEntity.base.action != PLAYER_BOUNCE &&
+                gPlayerEntity.base.action != PLAYER_MINISH && gPlayerState.framestate != PL_STATE_CLIMB &&
                 gPlayerState.framestate != PL_STATE_JUMP && gPlayerState.framestate != PL_STATE_PARACHUTE &&
-                PlayerCanBeMoved() && (EntityInRectRadius(super, &gPlayerEntity, 0xe, 0xe))) {
-                s32 z = gPlayerEntity.z.HALF.HI - super->z.HALF.HI - 8;
-                if ((u16)z < 0x20 && gPlayerEntity.health != 0) {
+                PlayerCanBeMoved() && (EntityInRectRadius(super, &gPlayerEntity.base, 0xe, 0xe))) {
+                s32 z = gPlayerEntity.base.z.HALF.HI - super->z.HALF.HI - 8;
+                if ((u16)z < 0x20 && gPlayerEntity.base.health != 0) {
                     pEVar5 = CreateObject(BIRD, 10, 0);
                     if (pEVar5 != NULL) {
                         super->child = pEVar5;
@@ -240,22 +239,22 @@ void Bird_Type8(BirdEntity* this) {
                         super->speed = 0x300;
                         this->gravity = Q_8_8(-32.0);
                         PlayerDropHeldObject();
-                        sub_08078B48();
+                        PausePlayer();
                         ResetPlayerAnimationAndAction();
                         PutAwayItems();
                         gPlayerState.swim_state = 0;
                         gPlayerState.jump_status = 0;
-                        gPlayerEntity.flags &= ~0x80;
-                        gPlayerEntity.spriteSettings.draw = 0;
-                        gPriorityHandler.sys_priority = 6;
+                        gPlayerEntity.base.flags &= ~0x80;
+                        gPlayerEntity.base.spriteSettings.draw = 0;
+                        gPriorityHandler.event_priority = 6;
                         gPauseMenuOptions.disabled = 1;
                     }
                 }
             }
             break;
         default:
-            sub_08078B48();
-            gPlayerEntity.spriteSettings.draw = 0;
+            PausePlayer();
+            gPlayerEntity.base.spriteSettings.draw = 0;
             break;
     }
     LinearMoveUpdate(super);
@@ -263,7 +262,7 @@ void Bird_Type8(BirdEntity* this) {
     UpdateAnimationSingleFrame(super);
     pEVar5 = super->child;
     if (pEVar5 != NULL) {
-        if (gPlayerEntity.x.HALF.HI < super->x.HALF.HI - 8) {
+        if (gPlayerEntity.base.x.HALF.HI < super->x.HALF.HI - 8) {
             super->timer = 0;
         }
 
@@ -275,7 +274,7 @@ void Bird_Type8(BirdEntity* this) {
             pEVar5->spriteOrientation.flipY = super->spriteOrientation.flipY;
         } else {
             super->timer--;
-            CopyPosition(&gPlayerEntity, pEVar5);
+            CopyPosition(&gPlayerEntity.base, pEVar5);
         }
     }
 
@@ -307,15 +306,15 @@ void Bird_Type9(BirdEntity* this) {
         super->spritePriority.b0 = 0;
         super->spriteRendering.b3 = 0;
         super->spriteOrientation.flipY = 1;
-        SetDefaultPriority(super, 6);
+        SetEntityPriority(super, 6);
         super->x.HALF.HI = gRoomControls.scroll_x;
-        super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
+        super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
         SoundReq(SFX_123);
         super->spritePriority.b1 = 2;
         InitAnimationForceUpdate(super, 0);
-        sub_08078B48();
+        PausePlayer();
     } else if (super->action == 1) {
-        gPlayerEntity.spriteSettings.draw = 0;
+        gPlayerEntity.base.spriteSettings.draw = 0;
         child = super->child;
         if (child != NULL) {
             PositionRelative(super, child, Q_16_16(-8), 0);
@@ -324,15 +323,15 @@ void Bird_Type9(BirdEntity* this) {
             child->spriteRendering.b3 = super->spriteRendering.b3;
             child->spriteOrientation.flipY = super->spriteOrientation.flipY;
         }
-        sub_08078B48();
+        PausePlayer();
         if (gRoomControls.scroll_x + 0x78 < super->x.HALF.HI) {
             super->action++;
             super->spritePriority.b1 = 1;
             if (child != NULL) {
                 child->action++;
             }
-            gRoomControls.camera_target = &gPlayerEntity;
-            gPlayerEntity.spriteSettings.draw = 1;
+            gRoomControls.camera_target = &gPlayerEntity.base;
+            gPlayerEntity.base.spriteSettings.draw = 1;
             ResetPlayerAnimationAndAction();
             ResetPlayerEventPriority();
             gPauseMenuOptions.disabled = 0;
@@ -355,7 +354,7 @@ void Bird_Type9(BirdEntity* this) {
 }
 
 void Bird_Type10(BirdEntity* this) {
-    super->palette.b.b0 = gPlayerEntity.palette.b.b0;
+    super->palette.b.b0 = gPlayerEntity.base.palette.b.b0;
     switch (super->action) {
         case 0:
             super->action = 1;
@@ -364,7 +363,7 @@ void Bird_Type10(BirdEntity* this) {
             super->spritePriority.b0 = 0;
             super->spriteRendering.b3 = 0;
             super->spriteOrientation.flipY = 1;
-            SetDefaultPriority(super, 6);
+            SetEntityPriority(super, 6);
             InitAnimationForceUpdate(super, 0xe0);
         case 1:
             UpdateAnimationSingleFrame(super);
@@ -401,7 +400,7 @@ void sub_0809D738(void) {
     pEVar1 = CreateObject(BIRD, 9, 0);
     if (pEVar1 != NULL) {
         gRoomControls.camera_target = NULL;
-        SetDefaultPriority(pEVar1, 6);
+        SetEntityPriority(pEVar1, 6);
         SetPlayerEventPriority();
         pEVar2 = CreateObject(BIRD, 10, 0);
         if (pEVar2 != NULL) {

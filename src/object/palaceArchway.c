@@ -4,7 +4,6 @@
  *
  * @brief Palace Archway object
  */
-#define NENT_DEPRECATED
 #include "object.h"
 #include "tiles.h"
 

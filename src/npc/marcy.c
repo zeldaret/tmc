@@ -4,7 +4,6 @@
  *
  * @brief Marcy NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -14,7 +13,7 @@
 void Marcy(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         sub_0807DD64(this);
     }
     ExecuteScriptAndHandleAnimation(this, NULL);

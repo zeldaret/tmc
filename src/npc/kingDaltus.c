@@ -4,7 +4,6 @@
  *
  * @brief King Daltus NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -38,7 +37,8 @@ void KingDaltus(KingDaltusEntity* this) {
         if (super->interactType == INTERACTION_FUSE) {
             super->interactType = INTERACTION_NONE;
             super->action = 2;
-            InitAnimationForceUpdate(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+            InitAnimationForceUpdate(super,
+                                     GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
             InitializeNPCFusion(super);
         }
         scriptedActionFuncs[super->action](this);

@@ -4,7 +4,6 @@
  *
  * @brief Dirt Particle object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -91,7 +90,7 @@ void DirtParticle_Init(DirtParticleEntity* this) {
             }
             super->x.HALF.HI += tmp;
             super->y.HALF.HI += tmp;
-            super->collisionLayer = gPlayerEntity.collisionLayer;
+            super->collisionLayer = gPlayerEntity.base.collisionLayer;
             InitializeAnimation(super, 10);
             return;
         case 1:

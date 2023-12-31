@@ -4,15 +4,12 @@
  *
  * @brief Gyorg Male enemy
  */
-
-#define NENT_DEPRECATED
-#include "global.h"
+#include "effects.h"
 #include "enemy.h"
-#include "player.h"
+#include "enemy/gyorg.h"
 #include "fileselect.h"
 #include "functions.h"
-#include "effects.h"
-#include "enemy/gyorg.h"
+#include "player.h"
 
 // todo: wrong types
 extern void sub_080A1D70(Entity*, u32);
@@ -114,8 +111,8 @@ void GyorgMale(GyorgMaleEntity* this) {
     if (super->spriteSettings.draw == 1 && (super->y.HALF.HI - gRoomControls.scroll_y + 0x30) > 0x100u) {
         super->spriteSettings.draw = 0;
     }
-    this->unk_84 = gPlayerEntity.x.HALF.HI;
-    this->unk_86 = gPlayerEntity.y.HALF.HI;
+    this->unk_84 = gPlayerEntity.base.x.HALF.HI;
+    this->unk_86 = gPlayerEntity.base.y.HALF.HI;
 }
 
 void sub_08046898(GyorgMaleEntity* this) {
@@ -799,7 +796,7 @@ void sub_080477F0(GyorgMaleEntity* this) {
     }
     super->direction = CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     sub_08047E48(this);
-    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
+    if (!EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x80)) {
         super->action = 2;
         super->subAction = 0;
         super->spriteOrientation.flipY = 2;
@@ -864,7 +861,7 @@ void sub_08047978(GyorgMaleEntity* this) {
             tmp->parent = super;
         }
     }
-    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
+    if (!EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x80)) {
         super->action = 2;
         super->subAction = 0;
         super->spriteOrientation.flipY = 2;
@@ -1022,10 +1019,10 @@ void sub_08047D88(GyorgMaleEntity* this) {
         return;
     if (super->animIndex == 1)
         return;
-    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
+    if (!EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x20))
         return;
     gPlayerState.field_0x14 = 1;
-    if (gPlayerEntity.z.HALF.HI != 0)
+    if (gPlayerEntity.base.z.HALF.HI != 0)
         return;
     this->unk_7c |= 1;
 }
@@ -1039,8 +1036,8 @@ void sub_08047DF0(GyorgMaleEntity* this, u32 unk1) {
     LinearMoveAngle(super, super->speed, super->direction);
     if (this->unk_7c & 1) {
         if (PlayerCanBeMoved()) {
-            gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
-            gPlayerEntity.y.HALF.HI += super->y.HALF.HI - oldY;
+            gPlayerEntity.base.x.HALF.HI += super->x.HALF.HI - oldX;
+            gPlayerEntity.base.y.HALF.HI += super->y.HALF.HI - oldY;
         }
     }
 }
@@ -1057,8 +1054,8 @@ void sub_08047E58(GyorgMaleEntity* this) {
     LinearMoveAngle(super, super->speed, super->direction);
     if (this->unk_7c & 1) {
         if (PlayerCanBeMoved()) {
-            gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
-            gPlayerEntity.y.HALF.HI += super->y.HALF.HI - oldY;
+            gPlayerEntity.base.x.HALF.HI += super->x.HALF.HI - oldX;
+            gPlayerEntity.base.y.HALF.HI += super->y.HALF.HI - oldY;
         }
     }
 }
@@ -1072,12 +1069,13 @@ void sub_08047EA4(GyorgMaleEntity* this, u32 unk1) {
         return;
     if (this->unk_7c & 1) {
         tmp2 = sub_08047F68(this) << 8;
-        dir = CalculateDirectionFromOffsets(gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
-                                            gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
+        dir = CalculateDirectionFromOffsets(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
+                                           
+                           gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
         tmp = dir - (tmp / 256);
         tmp &= 0xFF;
-        gPlayerEntity.x.WORD += (gSineTable[tmp] - gSineTable[dir]) * tmp2;
-        gPlayerEntity.y.WORD -= (gSineTable[tmp + 0x40] - gSineTable[dir + 0x40]) * tmp2;
+        gPlayerEntity.base.x.WORD += (gSineTable[tmp] - gSineTable[dir]) * tmp2;
+        gPlayerEntity.base.y.WORD -= (gSineTable[tmp + 0x40] - gSineTable[dir + 0x40]) * tmp2;
     }
     this->unk_7a = this->unk_78;
 }
@@ -1088,8 +1086,8 @@ const u16 gUnk_080D1C04[0x20] = { 0,   1,   4,   9,   16,  25,  36,  49,  64,  8
 u32 sub_08047F68(GyorgMaleEntity* this) {
     s32 diffX, diffY;
     s32 distSquared, approx;
-    diffX = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
-    diffY = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
+    diffX = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
+    diffY = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
     distSquared = (diffX * diffX) + (diffY * diffY);
     if (distSquared == 0x400)
         return 0x20;
@@ -1128,15 +1126,15 @@ void sub_08048004(GyorgMaleEntity* this) {
         return;
     if (super->animIndex == 0) {
         COLLISION_OFF(super);
-        if (gPlayerEntity.z.HALF.HI != 0)
+        if (gPlayerEntity.base.z.HALF.HI != 0)
             return;
         if (!PlayerCanBeMoved())
             return;
         if (this->unk_7c & 1) {
             u32 b = super->spriteRendering.b3;
             if (b == 3) {
-                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3);
-                s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3);
+                s32 posX = ((gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x) >> 3);
+                s32 posY = ((gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) >> 3);
                 u16* tmp = (u16*)&gMapDataBottomSpecial;
                 if (tmp[(posY << 7) + posX]) {
                     if (!(this->unk_7c & 2)) {
@@ -1144,8 +1142,8 @@ void sub_08048004(GyorgMaleEntity* this) {
                     }
                     if ((this->unk_7c & 0x80))
                         return;
-                    gPlayerEntity.x.HALF.HI = this->unk_84;
-                    gPlayerEntity.y.HALF.HI = this->unk_86;
+                    gPlayerEntity.base.x.HALF.HI = this->unk_84;
+                    gPlayerEntity.base.y.HALF.HI = this->unk_86;
                     return;
                 }
             }
@@ -1153,12 +1151,12 @@ void sub_08048004(GyorgMaleEntity* this) {
         } else {
             u32 b = super->spriteRendering.b3;
             if (b != 3) {
-                if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
+                if (EntityWithinDistance(&gPlayerEntity.base, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
                     if (!(this->unk_7c & 2)) {
-                        u32 tmp = CalculateDirectionFromOffsets(gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
-                                                                gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
-                        gPlayerEntity.x.WORD = super->x.WORD + (gSineTable[tmp] * 9216);
-                        gPlayerEntity.y.WORD = super->y.WORD - (gSineTable[tmp + 0x40] * 9216);
+                        u32 tmp = CalculateDirectionFromOffsets(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
+                                                                gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+                        gPlayerEntity.base.x.WORD = super->x.WORD + (gSineTable[tmp] * 9216);
+                        gPlayerEntity.base.y.WORD = super->y.WORD - (gSineTable[tmp + 0x40] * 9216);
                     }
                 }
             }

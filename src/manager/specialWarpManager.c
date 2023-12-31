@@ -22,10 +22,10 @@ void SpecialWarpManager_Main(SpecialWarpManager* this) {
     if (super->timer == 0 || gPlayerState.floor_type == SURFACE_LADDER) {
         for (data = this->warpList; data->posX != 0xffff; data++) {
             collisionLayer = (data->unk_07.all & 0x3);
-            if ((collisionLayer & gPlayerEntity.collisionLayer) != 0) {
+            if ((collisionLayer & gPlayerEntity.base.collisionLayer) != 0) {
                 if ((gPlayerState.flags & PL_MINISH) != 0 || data->unk_07.b.unk2 != 0) {
                     if (CheckPlayerInRegion(data->posX, data->posY, data->width, data->height) &&
-                        gPlayerEntity.z.HALF.HI == 0) {
+                        gPlayerEntity.base.z.HALF.HI == 0) {
                         DoExitTransition(GetCurrentRoomProperty(data->roomProperty));
                     }
                 }

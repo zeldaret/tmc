@@ -1,6 +1,11 @@
-#define NENT_DEPRECATED
-#include "entity.h"
+/**
+ * @file ballChainSoldier.c
+ * @ingroup Enemies
+ *
+ * @brief Ball Chain Soldier enemy
+ */
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 typedef struct {
@@ -57,14 +62,14 @@ void BallChainSoldier_OnGrabbed(BallChainSoldierEntity* this) {
 }
 
 void BallChainSoldier_Init(BallChainSoldierEntity* this) {
-    Entity* ent;
+    Entity* entity;
     sub_0804A720(super);
-    ent = CreateProjectileWithParent(super, BALL_AND_CHAIN, 0);
-    if (ent == NULL)
+    entity = CreateProjectileWithParent(super, BALL_AND_CHAIN, 0);
+    if (entity == NULL)
         return;
 
-    ent->parent = super;
-    super->child = ent;
+    entity->parent = super;
+    super->child = entity;
     COLLISION_ON(super);
     super->spriteSettings.draw = 1;
     super->animationState = Random() & 3;

@@ -4,7 +4,6 @@
  *
  * @brief Dirt Ball Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -108,7 +107,7 @@ void DirtBallProjectile_Action1(Entity* this) {
             break;
         case 2:
             this->z.HALF.HI += Q_8_8(1.0 / 16.0 - 1.0 / 128.0);
-            if (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe) != 0) {
+            if (EntityInRectRadius(this, &gPlayerEntity.base, 0xe, 0xe) != 0) {
                 this->action = 2;
                 ((DirtBallProjectileEntity*)parent)->unk_83 = 0xc0;
             }

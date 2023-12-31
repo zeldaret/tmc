@@ -4,7 +4,6 @@
  *
  * @brief Dampe NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "item.h"
@@ -25,15 +24,15 @@ void Dampe(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitScriptForNPC(this);
             return;
         case 1:
             if (this->interactType == INTERACTION_FUSE) {
                 this->action = 2;
                 this->interactType = INTERACTION_NONE;
-                InitAnimationForceUpdate(this,
-                                         GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)) + 4);
+                InitAnimationForceUpdate(
+                    this, GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity.base)) + 4);
                 InitializeNPCFusion(this);
             } else {
                 ExecuteScriptAndHandleAnimation(this, NULL);

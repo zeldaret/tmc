@@ -4,8 +4,6 @@
  *
  * @brief Armos enemy
  */
-
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "common.h"
 #include "enemy.h"
@@ -64,8 +62,8 @@ void sub_080300C4(void) {
 void sub_080300E8(void) {
     if (gRoomTransition.armos_data.field_0xae != 0xff) {
         const u16* ptr = &gRoomTransition.armos_data.data[gRoomTransition.armos_data.field_0xae * 2];
-        gPlayerEntity.x.HALF.HI = ptr[0];
-        gPlayerEntity.y.HALF.HI = ptr[1] + 0xc;
+        gPlayerEntity.base.x.HALF.HI = ptr[0];
+        gPlayerEntity.base.y.HALF.HI = ptr[1] + 0xc;
         gRoomTransition.armos_data.field_0xae = 0xff;
     }
 }
@@ -96,7 +94,7 @@ void sub_080301BC(ArmosEntity* this) {
 }
 
 void sub_080301D4(ArmosEntity* this) {
-    if ((super->action == 1) && (super->contactedEntity == &gPlayerEntity)) {
+    if ((super->action == 1) && (super->contactedEntity == &gPlayerEntity.base)) {
         super->iframes = -0x1e;
     }
     if ((super->health != 0) && (super->health != this->unk_81)) {
@@ -432,7 +430,7 @@ bool32 sub_0803086C(ArmosEntity* this) {
             if (GetMetaTileType(metaTilePos, super->collisionLayer) == SPECIAL_META_TILE_73) {
                 if (CheckPlayerInRegion(centerX, centerY, 2, 0xc) != 0) {
                     if (CheckPlayerInRegion(centerX, centerY - 4, 2, 4) != 0) {
-                        gPlayerEntity.spritePriority.b0 = 3;
+                        gPlayerEntity.base.spritePriority.b0 = 3;
                         DoExitTransition(this->unk_7c);
                         gRoomTransition.armos_data.field_0xae = this->unk_80;
                         return TRUE;

@@ -4,7 +4,6 @@
  *
  * @brief Pacci Cane Projectile Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"
@@ -73,8 +72,8 @@ void PlayerItemPacciCaneProjectile_Init(PlayerItemPacciCaneProjectileEntity* thi
     super->speed = 0x200;
     this->unk_74 = 0x40;
     this->unk_78 = 0x1e0;
-    super->x.HALF.HI = gPlayerEntity.x.HALF.HI + gUnk_0811B9A0[super->animationState];
-    super->y.HALF.HI = gPlayerEntity.y.HALF.HI + gUnk_0811B9A0[super->animationState + 1];
+    super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + gUnk_0811B9A0[super->animationState];
+    super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + gUnk_0811B9A0[super->animationState + 1];
     super->collisionFlags = 7;
     super->flags2 = 0x8a;
     super->hitbox = (Hitbox*)&gUnk_0811B9D0;
@@ -83,7 +82,7 @@ void PlayerItemPacciCaneProjectile_Init(PlayerItemPacciCaneProjectileEntity* thi
     } else {
         super->type = 0;
     }
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     ptr = &gUnk_0811B9A8[(super->animationState >> 1)];
     super->spriteSettings.flipX = ptr->flipX;
     super->spriteSettings.flipY = ptr->flipY;
@@ -127,7 +126,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
         if (super->type == 0) {
             sub_0800451C(super);
         }
-        if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) {
+        if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0) {
             if (sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) == 0) {
                 if (GetVvvAtEntity(super) == VVV_25) {
                     super->action = 4;

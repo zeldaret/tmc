@@ -4,7 +4,6 @@
  *
  * @brief Bush object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
@@ -39,7 +38,7 @@ void Bush(BushEntity* this) {
         Bush_Action1,
         Bush_Action2,
     };
-    if (!EntityIsDeleted(super)) {
+    if (!EntityDisabled(super)) {
         Bush_Actions[super->action](this);
     }
 }
@@ -62,7 +61,7 @@ void Bush_Init(BushEntity* this) {
     super->gustJarTolerance = gUnk_08120588[super->type].unk_1;
     super->gustJarFlags = gUnk_08120588[super->type].unk_2;
     super->speed = 0x80;
-    super->collisionLayer = gPlayerEntity.collisionLayer;
+    super->collisionLayer = gPlayerEntity.base.collisionLayer;
     super->health = 1;
     super->collisionFlags = 7;
     super->hitType = 0x6e;

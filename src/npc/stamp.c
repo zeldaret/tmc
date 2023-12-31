@@ -4,7 +4,6 @@
  *
  * @brief Stamp NPC
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"
@@ -64,7 +63,7 @@ void sub_08062C24(Entity* this) {
 }
 
 void sub_08062C54(Entity* this) {
-    if ((gMessage.doTextBox & 127) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
         InitializeAnimation(this, 0);
         RevokePriority(this);

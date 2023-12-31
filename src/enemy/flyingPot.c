@@ -4,10 +4,9 @@
  *
  * @brief Flying pot enemy
  */
-#define NENT_DEPRECATED
 #include "collision.h"
-#include "functions.h"
 #include "enemy.h"
+#include "functions.h"
 #include "player.h"
 #include "room.h"
 #include "tiles.h"
@@ -222,7 +221,7 @@ void FlyingPot_Action3(FlyingPotEntity* this) {
     if (super->z.HALF.HI <= -6) {
         super->action = FLYING_POT_ACTION_4;
         super->timer = 10;
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     }
 }
 

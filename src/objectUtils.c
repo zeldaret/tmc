@@ -1,3 +1,4 @@
+
 #include "global.h"
 #include "entity.h"
 #include "physics.h"
@@ -5,6 +6,8 @@
 #include "object.h"
 #include "functions.h"
 #include "definitions.h"
+#include "object/linkAnimation.h"
+#include "object/itemOnGround.h"
 
 extern const Hitbox* const gObjectHitboxes[];
 
@@ -27,8 +30,9 @@ const s8 gUnk_08126EEC[] = {
 };
 
 Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
-    Entity* e = CreateItemGetEntity();
+    Entity* e = CreateAuxPlayerEntity();
     if (e != NULL) {
+        LinkAnimationEntity* this = (LinkAnimationEntity*)e;
         e->id = LINK_ANIMATION;
         e->kind = OBJECT;
         e->type = type;
@@ -36,21 +40,25 @@ Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
         e->parent = parent;
         AppendEntityToList(e, 6);
         PrependEntityToList(e, 6);
-        CopyPosition(&gPlayerEntity, e);
-        gPriorityHandler.sys_priority = 6;
+        CopyPosition(&gPlayerEntity.base, e);
+        gPriorityHandler.event_priority = 6;
         gPauseMenuOptions.disabled = 1;
-        e->field_0x68.HALF.HI = gPlayerEntity.flags;
-        e->field_0x68.HALF.LO = gPlayerEntity.spriteSettings.draw;
-        e->field_0x6a.HALF.LO = gPlayerEntity.iframes;
-        e->field_0x6a.HALF.HI = gPlayerState.field_0x7;
-        e->field_0x6c.HALF.LO = gPlayerState.keepFacing;
-        e->field_0x6c.HALF.HI = gPlayerState.field_0xa;
-        e->field_0x6e.HALF.LO = gPlayerState.field_0x27[0];
-        e->field_0x6e.HALF.HI = gPlayerState.mobility;
-        e->field_0x70.WORD = gPlayerState.flags;
-        e->field_0x74.HALF.LO = gPlayerState.field_0x8a;
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.spriteSettings.draw = 0;
+
+        // store player state
+        this->storeFlags = gPlayerEntity.base.flags;
+        this->storeDrawFlags = gPlayerEntity.base.spriteSettings.draw;
+        this->storeIFrames = gPlayerEntity.base.iframes;
+        this->storeField7 = gPlayerState.field_0x7;
+        this->storeKeepFacing = gPlayerState.keepFacing;
+        this->storeFieldA = gPlayerState.field_0xa;
+        this->storeField27 = gPlayerState.field_0x27[0];
+        this->storeMobility = gPlayerState.mobility;
+        this->storeStateFlags = gPlayerState.flags;
+        this->store8A = gPlayerState.field_0x8a;
+
+        // redundant, this is done by the LinkAnimation object
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.base.spriteSettings.draw = 0;
     }
     return e;
 }
@@ -179,8 +187,9 @@ Entity* CreateGroundItemWithFlags(Entity* parent, u32 form, u32 subtype, u32 fla
 
     ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
+        ItemOnGroundEntity* this = (ItemOnGroundEntity*)ent;
         ent->timer = 5;
-        ent->field_0x86.HWORD = flags;
+        this->unk_86 = flags;
     }
     return ent;
 }
@@ -281,7 +290,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue1 = this->y.HALF_U.HI;
             diff = ((oldValue1 - newValue1));
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 0);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 0);
             }
             break;
         case 1:
@@ -290,7 +299,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue2 = this->x.HALF_U.HI;
             diff = (newValue2 - oldValue2);
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 8);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 8);
             }
             break;
         case 2:
@@ -299,7 +308,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue3 = this->y.HALF_U.HI;
             diff = (newValue3 - oldValue2);
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 0x10);
             }
             break;
         case 3:
@@ -308,7 +317,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue4 = this->x.HALF_U.HI;
             diff = ((oldValue1 - newValue4));
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 0x18);
             }
             break;
     }
@@ -352,7 +361,7 @@ static Entity* CreateSpeechBubble(Entity* parent, u32 type2, s32 xOffset, s32 yO
         obj->parent = parent;
         obj->spriteOffsetX = xOffset;
         obj->spriteOffsetY = yOffset;
-        SetDefaultPriority(obj, parent->updatePriority);
+        SetEntityPriority(obj, parent->updatePriority);
     }
     return obj;
 }

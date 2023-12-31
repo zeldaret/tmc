@@ -164,7 +164,7 @@ void MiscManager_Type1(MiscManager* this) {
                 PutAwayItems();
             }
             if (super->timer == 60) {
-                gPlayerEntity.animationState = super->subtimer;
+                gPlayerEntity.base.animationState = super->subtimer;
             }
             if (!--super->timer) {
                 super->action = 3;
@@ -212,7 +212,7 @@ void MiscManager_Type3(MiscManager* this) {
 void MiscManager_Type4(MiscManager* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+        SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     if (CheckLocalFlag(0x6c)) {
         if (CheckLocalFlag(0x4b)) {
@@ -298,7 +298,7 @@ void sub_08059278(void) {
 
 void MiscManager_Type8(MiscManager* this) {
     super->action = 1;
-    gRoomControls.camera_target = &gPlayerEntity;
+    gRoomControls.camera_target = &gPlayerEntity.base;
 }
 
 void MiscManager_Type9(MiscManager* this) {
@@ -363,9 +363,9 @@ void MiscManager_TypeB(MiscManager* this) {
 }
 
 bool32 sub_080593CC(MiscManager* this) {
-    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.playerInput.heldInput & PLAYER_INPUT_ANY_DIRECTION) == PLAYER_INPUT_UP) {
-        return EntityWithinDistance(&gPlayerEntity, this->x, this->y + 12, 6);
+    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.base.animationState == 0 &&
+        (gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) == INPUT_UP) {
+        return EntityWithinDistance(&gPlayerEntity.base, this->x, this->y + 12, 6);
     }
     return FALSE;
 }
@@ -392,10 +392,10 @@ void MiscManager_TypeD(MiscManager* this) {
         SetPlayerControl(3);
         if (gRoomControls.reload_flags)
             return;
-        if (gRoomVars.field_0x0) {
+        if (gRoomVars.didEnterScrolling) {
             StartPlayerScript(gUnk_08108380[gRoomControls.scroll_direction]);
         } else {
-            StartPlayerScript(gUnk_08108380[gPlayerEntity.animationState >> 1]);
+            StartPlayerScript(gUnk_08108380[gPlayerEntity.base.animationState >> 1]);
         }
     }
     DeleteThisEntity();
@@ -430,8 +430,8 @@ void MiscManager_TypeE(MiscManager* this) {
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void MiscManager_TypeF(MiscManager* this) {
-    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
-    if (gPlayerEntity.action == PLAYER_TALKEZLO) {
+    SetEntityPriority((Entity*)this, PRIO_PLAYER_EVENT);
+    if (gPlayerEntity.base.action == PLAYER_TALKEZLO) {
         DeleteThisEntity();
     }
     gInput.heldKeys |= SELECT_BUTTON;

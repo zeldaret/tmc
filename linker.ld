@@ -128,8 +128,8 @@ SECTIONS {
         . = 0x000010A0; gRoomTransition = .;
         . = 0x00001150; gRand = .;
         . = 0x00001160; gPlayerEntity = .;
-        . = 0x000011E8; gItemGetEntities = .;
-        . = 0x000015A0; gUnk_030015A0 = .;
+        . = 0x000011E8; gAuxPlayerEntities = .;
+        . = 0x000015A0; gEntities = .;
         . = 0x00003BE0; gCarriedEntity = .;
         . = 0x00003C70; gUnk_03003C70 = .;
         . = 0x00003D70; gEntityLists = .;

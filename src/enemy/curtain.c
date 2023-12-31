@@ -1,3 +1,9 @@
+/**
+ * @file curtain.c
+ * @ingroup Enemies
+ *
+ * @brief Curtain enemy
+ */
 #include "enemy.h"
 #include "entity.h"
 

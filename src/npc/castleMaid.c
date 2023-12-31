@@ -4,7 +4,6 @@
  *
  * @brief Castle Maid NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -92,14 +91,15 @@ void sub_08064570(CastleMaidEntity* this) {
             if (super->interactType != INTERACTION_NONE) {
                 super->action++;
                 super->interactType = INTERACTION_NONE;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 if (this->dialogFunc != NULL) {
                     this->dialogFunc();
                 }
             }
             break;
         case 2:
-            if ((gMessage.doTextBox & 0x7f) != 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) != 0) {
                 return;
             }
             super->action = 1;

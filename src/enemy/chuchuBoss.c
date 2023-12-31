@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 /**
  * @file chuchuBoss.c
  * @ingroup Enemies
@@ -6,8 +5,8 @@
  * @brief Chuchu Boss enemy
  */
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 #include "tiles.h"
 
 typedef struct {
@@ -270,7 +269,7 @@ void ChuchuBoss_OnDeath(ChuchuBossEntity* this) {
     Entity* child;
     Entity* parent;
 
-    sub_08078B48();
+    PausePlayer();
     if (super->type == 0) {
         if (super->subAction != 12) {
             super->subAction = 12;
@@ -464,9 +463,9 @@ void sub_08026090(ChuchuBossEntity* this) {
         }
         CopyPosition(super->child, super);
     } else {
-        sub_08078B48();
+        PausePlayer();
         if (super->timer-- == 0) {
-            gRoomControls.camera_target = &gPlayerEntity;
+            gRoomControls.camera_target = &gPlayerEntity.base;
             DeleteThisEntity();
         }
     }
@@ -542,8 +541,8 @@ void sub_08026110(ChuchuBossEntity* this) {
 void sub_0802626C(ChuchuBossEntity* this) {
     gPauseMenuOptions.disabled = 1;
     gUnk_080CC20C[this->unk_84->unk_03](this);
-    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION && gPlayerEntity.action != PLAYER_ROOM_EXIT) {
-        sub_08078B48();
+    if (gPlayerEntity.base.action != PLAYER_ROOMTRANSITION && gPlayerEntity.base.action != PLAYER_ROOM_EXIT) {
+        PausePlayer();
     }
 }
 
@@ -560,7 +559,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
         this->unk_7c = 0;
         this->unk_7d = 0x1e;
         this->unk_84->unk_03 = 3;
-        gPlayerEntity.animationState = 0;
+        gPlayerEntity.base.animationState = 0;
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 1;
         SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(8, 11), LAYER_BOTTOM);
@@ -568,7 +567,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
 }
 
 void sub_08026328(ChuchuBossEntity* this) {
-    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {
+    if (gPlayerEntity.base.action != PLAYER_ROOMTRANSITION) {
         this->unk_7d = 0x78;
         this->unk_84->unk_03++;
         sub_08078AC0(10, 0, 0);
@@ -578,20 +577,20 @@ void sub_08026328(ChuchuBossEntity* this) {
 void sub_08026358(ChuchuBossEntity* this) {
     u32 bVar1;
 
-    if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
+    if (gPlayerEntity.base.action != PLAYER_ROOM_EXIT) {
         bVar1 = --this->unk_7d;
         if (bVar1 == 0) {
             this->unk_7c = 0;
             this->unk_7d = 0x1e;
             this->unk_84->unk_03++;
-            gPlayerEntity.animationState = 0;
+            gPlayerEntity.base.animationState = 0;
             gRoomControls.camera_target = super;
             gRoomControls.scrollSpeed = 1;
         } else if (bVar1 < 0x61) {
             if (bVar1 < 0x5c) {
-                gPlayerEntity.animationState = 4;
+                gPlayerEntity.base.animationState = 4;
             } else {
-                gPlayerEntity.animationState = 2;
+                gPlayerEntity.base.animationState = 2;
             }
         }
     }
@@ -657,7 +656,7 @@ void sub_080264D4(ChuchuBossEntity* this) {
 void sub_0802650C(ChuchuBossEntity* this) {
     if (((ChuchuBossEntity*)super->child)->unk_81 == 0) {
         this->unk_84->unk_03++;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
     }
     sub_08027870(this);
 }
@@ -683,7 +682,7 @@ void sub_08026580(ChuchuBossEntity* this) {
             super->speed = 0;
             super->subAction = 2;
             this->unk_7c = 0x3c;
-            super->direction = GetFacingDirection(super, &gPlayerEntity);
+            super->direction = GetFacingDirection(super, &gPlayerEntity.base);
             if (this->unk_84->unk_04 == 2) {
                 this->unk_80 = 0x48;
                 this->unk_81 += 16;
@@ -733,7 +732,7 @@ void sub_08026634(ChuchuBossEntity* this) {
         super->speed = 0x180;
     } else {
         if ((gRoomTransition.frameCount & 0x7f) == 0) {
-            super->direction = GetFacingDirection(super, &gPlayerEntity);
+            super->direction = GetFacingDirection(super, &gPlayerEntity.base);
         }
         if (this->unk_84->unk_04 == 2) {
             super->speed = 0x100;
@@ -795,7 +794,7 @@ void sub_08026808(ChuchuBossEntity* this) {
     if (pEVar4->unk_78.HALF_U.HI > 0xb0) {
         pEVar4->unk_78.HALF_U.HI -= 8;
     } else {
-        super->direction = GetFacingDirection(super, &gPlayerEntity);
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
         super->subAction = 4;
         pEVar4->unk_78.HALF_U.HI = 0xa0;
         pEVar5->unk_78.HALF_U.HI = 0xa0;
@@ -1127,7 +1126,7 @@ void sub_08026E1C(ChuchuBossEntity* this) {
     }
     if ((sub_08027C54(this)) && this->unk_84->unk_04 == 2) {
         sub_08027C7C(this, 0x3f);
-        sub_08078B48();
+        PausePlayer();
     }
 }
 
@@ -1156,7 +1155,7 @@ void sub_08026FA4(ChuchuBossEntity* this) {
     ChuchuBossEntity* pEVar3;
     ChuchuBossEntity* pEVar4;
 
-    sub_08078B48();
+    PausePlayer();
     COLLISION_OFF(super);
     pEVar4 = (ChuchuBossEntity*)super->child;
     pEVar3 = (ChuchuBossEntity*)super->parent;
@@ -1203,9 +1202,9 @@ void sub_08027064(ChuchuBossEntity* this) {
         SoundReq(SFX_PLY_JUMP);
     }
     if (this->unk_84->unk_03 != 0) {
-        if (super->y.HALF.HI != gPlayerEntity.y.HALF.HI) {
+        if (super->y.HALF.HI != gPlayerEntity.base.y.HALF.HI) {
             if ((gRoomTransition.frameCount & 0xf) == 0) {
-                if (super->y.HALF.HI > gPlayerEntity.y.HALF.HI) {
+                if (super->y.HALF.HI > gPlayerEntity.base.y.HALF.HI) {
                     this->unk_84->unk_0c = 0;
                 } else {
                     this->unk_84->unk_0c = 0x10;
@@ -1245,7 +1244,7 @@ void sub_08027064(ChuchuBossEntity* this) {
             *(char*)((int)pEVar10 + 0x84) = 1;
             uVar2 = 0;
             if (this->unk_84->unk_03 > 1) {
-                if (super->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+                if (super->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
                     uVar2 = 24;
                 } else {
                     uVar2 = 8;
@@ -1362,7 +1361,7 @@ void sub_080272D4(ChuchuBossEntity* this) {
                     if (sub_08027C54(super->child) == 0 || ((ChuchuBossEntity*)super->child)->unk_84->unk_04 != 2) {
                         SoundReq(SFX_BOSS_HIT);
                     } else {
-                        sub_08078B48();
+                        PausePlayer();
                         gRoomControls.camera_target = super->child;
                         gPauseMenuOptions.disabled = 1;
                         gRoomControls.camera_target->subAction = 9;
@@ -1787,8 +1786,8 @@ void sub_08027BBC(ChuchuBossEntity* this) {
         *(u8*)((int)pEVar6 + 0x85) = 1;
     }
     super->animationState = super->direction >> 2;
-    if (super->y.HALF.HI != gPlayerEntity.y.HALF.HI) {
-        if (super->y.HALF.HI > gPlayerEntity.y.HALF.HI) {
+    if (super->y.HALF.HI != gPlayerEntity.base.y.HALF.HI) {
+        if (super->y.HALF.HI > gPlayerEntity.base.y.HALF.HI) {
             this->unk_84->unk_0c = 0;
         } else {
             this->unk_84->unk_0c = 0x10;

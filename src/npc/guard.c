@@ -4,7 +4,6 @@
  *
  * @brief Guard NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -320,7 +319,7 @@ void sub_08063DC8(Entity* this) {
     if (this->type == 0xff) {
         this->action = 2;
         this->timer = 30;
-        this->animationState = GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity));
+        this->animationState = GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity.base));
         InitAnimationForceUpdate(this, this->animationState + 4);
     } else {
         sub_0806EE20(this);
@@ -333,7 +332,7 @@ void sub_08063DC8(Entity* this) {
         if (this->interactType != INTERACTION_NONE) {
             this->action = 3;
             this->interactType = INTERACTION_NONE;
-            InitializeAnimation(this, GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity)));
+            InitializeAnimation(this, GetAnimationStateForDirection4(GetFacingDirection(this, &gPlayerEntity.base)));
             sub_08064428(this);
         }
     }
@@ -346,7 +345,7 @@ void sub_08063E54(Entity* this) {
 }
 
 void sub_08063E6C(Entity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
         InitializeAnimation(this, this->animationState + 4);
     }
@@ -390,14 +389,14 @@ void sub_08063F20(GuardEntity* this) {
     if (super->interactType != INTERACTION_NONE) {
         super->action++;
         super->interactType = INTERACTION_NONE;
-        InitializeAnimation(super,
-                            GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + this->unk_70);
+        InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) +
+                                       this->unk_70);
         sub_08064428(super);
     }
 }
 
 void sub_08063F78(GuardEntity* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         super->action = super->action - 1;
         InitializeAnimation(super, (super->animationState >> 1) + 4 + this->unk_70);
     }

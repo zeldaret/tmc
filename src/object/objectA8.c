@@ -4,7 +4,6 @@
  *
  * @brief ObjectA8 object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -55,7 +54,7 @@ void ObjectA8(ObjectA8Entity* this) {
             case 0x1e:
             case 0x1f:
                 super->action = 5;
-                super->child = &gPlayerEntity;
+                super->child = &gPlayerEntity.base;
                 CreateItemEntity(super->type, 0, 0);
                 DeleteThisEntity();
         }
@@ -83,7 +82,7 @@ void ObjectA8_Init(ObjectA8Entity* this) {
     super->gustJarFlags = 1;
     this->unk_74 = super->x.HALF.HI;
     this->unk_76 = super->y.HALF.HI;
-    SetDefaultPriority(super, 3);
+    SetEntityPriority(super, 3);
     EnqueueSFX(SFX_136);
 }
 
@@ -131,7 +130,7 @@ void ObjectA8_Action2Subaction2(ObjectA8Entity* this) {
         if (sub_0806F3E4(super)) {
             super->flags &= ~ENT_COLLIDE;
             super->action = 5;
-            super->child = &gPlayerEntity;
+            super->child = &gPlayerEntity.base;
             GiveItem(super->type, 0);
         }
     }
@@ -175,7 +174,7 @@ void ObjectA8_Action4(ObjectA8Entity* this) {
     } else {
         CopyPosition(super->child, super);
         super->z.HALF.HI--;
-        if (IsColliding(super, &gPlayerEntity)) {
+        if (IsColliding(super, &gPlayerEntity.base)) {
             sub_0809FECC(this);
             GiveItem(super->type, 0);
         }
@@ -239,7 +238,7 @@ bool32 sub_0809FE9C(ObjectA8Entity* this) {
 }
 
 void sub_0809FECC(ObjectA8Entity* this) {
-    super->child = &gPlayerEntity;
+    super->child = &gPlayerEntity.base;
     super->action = 5;
     super->subAction = 0;
 }

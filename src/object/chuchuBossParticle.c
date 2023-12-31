@@ -4,7 +4,6 @@
  *
  * @brief Chuchu Boss Particle object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 
 void ChuchuBossParticle_Init(Entity*);

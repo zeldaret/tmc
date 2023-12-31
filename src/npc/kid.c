@@ -4,7 +4,6 @@
  *
  * @brief Kid NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "message.h"
 #include "npc.h"
@@ -315,12 +314,12 @@ void sub_080621AC(KidEntity* this) {
             if (super->animIndex < 8) {
                 InitializeAnimation(super,
                                     (super->animIndex & 0xfffffffc) +
-                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
             }
             break;
         case 2:
             GetNextFrame(super);
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 super->action = 1;
             }
             break;
@@ -355,17 +354,17 @@ void sub_080622F4(KidEntity* this) {
     KidHeapItem item;
 
     // Prepended heap item is initialized from player's current state.
-    item.FIELDS.x = gPlayerEntity.x.HALF_U.HI;
-    item.FIELDS.y = gPlayerEntity.y.HALF_U.HI;
-    item.FIELDS.z = gPlayerEntity.z.HALF_U.HI;
+    item.FIELDS.x = gPlayerEntity.base.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.base.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.base.z.HALF_U.HI;
     item.FIELDS.framestate = gPlayerState.framestate;
-    item.FIELDS.animationState = gPlayerEntity.animationState;
-    item.FIELDS.collisionLayer = gPlayerEntity.collisionLayer;
+    item.FIELDS.animationState = gPlayerEntity.base.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.base.collisionLayer;
 
     heapPtr = super->myHeap;
     if (heapPtr->FIELDS.framestate == 0x16 && item.FIELDS.framestate != 0x16) {
-        dx = super->x.HALF.HI - gPlayerEntity.x.HALF.HI;
-        dy = super->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+        dx = super->x.HALF.HI - gPlayerEntity.base.x.HALF.HI;
+        dy = super->y.HALF.HI - gPlayerEntity.base.y.HALF.HI;
 
         if (dx < 0)
             dx = -dx;
@@ -397,7 +396,7 @@ void sub_080622F4(KidEntity* this) {
             KID_HEAP_SHIFT_RIGHT;
             animIndex = 0x4;
         } else {
-            dist = sub_080041E8(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, (u16)heapPtr->FIELDS.x,
+            dist = sub_080041E8(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, (u16)heapPtr->FIELDS.x,
                                 (u16)heapPtr->FIELDS.y);
             dist = ((u32)dist) >> 0x4;
             if (dist > 0x18) {
@@ -467,20 +466,20 @@ void sub_0806252C(Entity* this) {
     s32 r10;
     FORCE_REGISTER(s32 x, r12);
 
-    r1 = gPlayerEntity.x.HALF_U.HI;
+    r1 = gPlayerEntity.base.x.HALF_U.HI;
     r3 = 0xffff0000;
     r0 = r3;
     r0 &= r5;
     r0 |= r1;
 
-    r1 = gPlayerEntity.y.HALF_U.HI;
+    r1 = gPlayerEntity.base.y.HALF_U.HI;
     r1 <<= 0x10;
     r2 = 0x0000ffff;
     r0 &= r2;
     r0 |= r1;
     r5 = r0;
 
-    r0 = gPlayerEntity.z.HALF_U.HI;
+    r0 = gPlayerEntity.base.z.HALF_U.HI;
     r3 &= r6;
     r3 |= r0;
 
@@ -490,7 +489,7 @@ void sub_0806252C(Entity* this) {
     r2 &= r3;
     r2 |= r0;
 
-    r1 = gPlayerEntity.animationState;
+    r1 = gPlayerEntity.base.animationState;
     r0 = 0x3f;
     r1 &= r0;
     r1 <<= 0x18;
@@ -498,15 +497,15 @@ void sub_0806252C(Entity* this) {
     r0 &= r2;
     r0 |= r1;
 
-    r1 = gPlayerEntity.collisionLayer;
+    r1 = gPlayerEntity.base.collisionLayer;
     r1 <<= 0x1e;
     r2 = 0x3fffffff;
     r0 &= r2;
     r0 |= r1;
     r6 = r0;
 
-    r10 = r0 = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
-    r8 = r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+    r10 = r0 = gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI;
+    r8 = r0 = gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI;
 
     r10 = FixedDiv(r10, KID_HEAP_COUNT);
     r8 = FixedDiv(r8, KID_HEAP_COUNT);

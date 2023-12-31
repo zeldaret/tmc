@@ -4,7 +4,6 @@
  *
  * @brief Mole Mitts Particle object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
 #include "object.h"
@@ -18,7 +17,7 @@ void MoleMittsParticle(Entity* this) {
         MoleMittsParticle_Init,
         MoleMittsParticle_Action1,
     };
-    if (!EntityIsDeleted(this)) {
+    if (!EntityDisabled(this)) {
         MoleMittsParticle_Actions[this->action](this);
     }
 }
@@ -27,7 +26,7 @@ void MoleMittsParticle_Init(Entity* this) {
     u32 palette;
 
     this->action = 1;
-    this->animationState = gPlayerEntity.animationState >> 1;
+    this->animationState = gPlayerEntity.base.animationState >> 1;
     this->spriteRendering.b3 = 2;
     this->spritePriority.b0 = 3;
     this->spriteOrientation.flipY--;
@@ -63,7 +62,7 @@ void MoleMittsParticle_Init(Entity* this) {
                 break;
         }
     }
-    SetDefaultPriority(this, 3);
+    SetEntityPriority(this, 3);
     InitializeAnimation(this, this->type2 * 4 + this->animationState);
 }
 
@@ -73,7 +72,7 @@ void MoleMittsParticle_Action1(Entity* this) {
         DeleteThisEntity();
     }
     if (this->type2 != 0) {
-        this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 + 1 - this->frame;
+        this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 + 1 - this->frame;
     }
 }
 

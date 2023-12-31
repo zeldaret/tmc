@@ -4,7 +4,6 @@
  *
  * @brief Jar Portal object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
 #include "object.h"

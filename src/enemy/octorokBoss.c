@@ -4,7 +4,6 @@
  *
  * @brief Octorok boss enemy
  */
-#define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
 #include "collision.h"
 #include "functions.h"
@@ -113,17 +112,17 @@ void OctorokBoss_Hit(OctorokBossEntity* this) {
         if (super->subAction != 3) {
             gRoomControls.camera_target = &this->heap->tailObjects[0]->base;
             this->heap->field_0x7 = 0x5a;
-            sub_08078B48();
+            PausePlayer();
         }
     } else {
         if (this->heap->field_0x7 != 0) {
             this->heap->field_0x7--;
-            sub_08078B48();
+            PausePlayer();
         }
     }
     OctorokBoss_Hit_SubActions[super->subAction](this);
     if (super->subAction > 3) {
-        sub_08078B48();
+        PausePlayer();
     }
     sub_0800445C(super);
     SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
@@ -136,7 +135,7 @@ void OctorokBoss_Hit_SubAction0(OctorokBossEntity* this) {
     if (this->bossPhase == 4) {
         super->subAction = 4;
         gPauseMenuOptions.disabled = 1;
-        sub_08078B48();
+        PausePlayer();
         SoundReq(SFX_BOSS_DIE);
     } else {
         if (IS_FROZEN(this) == FALSE) {
@@ -230,7 +229,7 @@ void OctorokBoss_Hit_SubAction2(OctorokBossEntity* this) {
     } else {
         super->subAction = 3;
         this->timer = 150;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
     }
 }
 
@@ -391,9 +390,9 @@ void OctorokBoss_Init(OctorokBossEntity* this) {
             super->action = INTRO;
             super->subAction = 0;
             this->timer = 0x3c;
-            gPlayerEntity.spriteSettings.draw = 0;
-            gPlayerEntity.x.HALF.HI = super->x.HALF.HI;
-            gPlayerEntity.y.HALF.HI = super->y.HALF.HI - 0xa0;
+            gPlayerEntity.base.spriteSettings.draw = 0;
+            gPlayerEntity.base.x.HALF.HI = super->x.HALF.HI;
+            gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI - 0xa0;
             gRoomControls.camera_target = super;
             break;
         case LEG_BR:
@@ -443,7 +442,7 @@ void OctorokBoss_Intro(OctorokBossEntity* this) {
         OctorokBoss_Intro_SubAction0, OctorokBoss_Intro_SubAction1, OctorokBoss_Intro_SubAction2,
         OctorokBoss_Intro_SubAction3, OctorokBoss_Intro_SubAction4, OctorokBoss_Intro_SubAction5,
     };
-    sub_08078B48();
+    PausePlayer();
     gPauseMenuOptions.disabled = 1;
     sub_08036F60(this);
     OctorokBoss_Intro_SubActions[super->subAction](this);
@@ -478,8 +477,8 @@ void OctorokBoss_Intro_SubAction2(OctorokBossEntity* this) {
     if (this->timer-- == 0) {
         super->subAction = 3;
         this->timer = 60;
-        gPlayerEntity.spriteSettings.draw |= 1;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gPlayerEntity.base.spriteSettings.draw |= 1;
+        gRoomControls.camera_target = &gPlayerEntity.base;
         gRoomControls.scrollSpeed = 1;
     }
 }
@@ -488,8 +487,8 @@ void OctorokBoss_Intro_SubAction3(OctorokBossEntity* this) {
     // Move the camera to the player
     if (this->timer-- == 0) {
         // Move the player inside the arena
-        gPlayerEntity.direction = 0x10;
-        gPlayerEntity.animationState = 4;
+        gPlayerEntity.base.direction = 0x10;
+        gPlayerEntity.base.animationState = 4;
         sub_08078AC0(0x1e, 0, 0);
         this->timer = 60;
         super->subAction = 4;
@@ -501,22 +500,22 @@ void OctorokBoss_Intro_SubAction4(OctorokBossEntity* this) {
         super->subAction = 5;
         this->timer = 45;
         // Make the player look towards the exit
-        gPlayerEntity.animationState = 0;
+        gPlayerEntity.base.animationState = 0;
     } else {
         // Spawn exclamation bubble at a certain time
         if (this->timer == 0x1e) {
-            CreateSpeechBubbleExclamationMark(&gPlayerEntity, 0xc, -0x18);
+            CreateSpeechBubbleExclamationMark(&gPlayerEntity.base, 0xc, -0x18);
         }
     }
 }
 
 void OctorokBoss_Intro_SubAction5(OctorokBossEntity* this) {
-    if (gPlayerEntity.animationState == 4) {
+    if (gPlayerEntity.base.animationState == 4) {
         if (this->timer++ > 0x1e) {
             // Play boss theme, enable control and switch to main action
             super->action = ACTION1;
             super->subAction = 0;
-            gRoomControls.scrollSpeed = gPlayerEntity.animationState;
+            gRoomControls.scrollSpeed = gPlayerEntity.base.animationState;
             OctorokBoss_SetAttackTimer(this);
             gPauseMenuOptions.disabled = 0;
             SoundReq(BGM_BOSS_THEME);
@@ -524,7 +523,7 @@ void OctorokBoss_Intro_SubAction5(OctorokBossEntity* this) {
     } else {
         if (this->timer-- == 0) {
             // Player looks back towards Octorok
-            gPlayerEntity.animationState = 4;
+            gPlayerEntity.base.animationState = 4;
         }
     }
 }
@@ -692,7 +691,7 @@ void OctorokBoss_Action1_AimTowardsPlayer(OctorokBossEntity* this) {
     s32 tmp2;
 
     tmp1 =
-        (u8)(CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD) -
+        (u8)(CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD) -
              (((u8)(-this->angle.HALF.HI) ^ 0x80)));
     if (IS_FROZEN(this) == FALSE) {
         tmp2 = 8;
@@ -795,13 +794,13 @@ void OctorokBoss_Action1_Attack(OctorokBossEntity* this) {
     sub_08036FE4(this);
 
     if (this->unk_80 != 0) {
-        gPlayerEntity.spriteSettings.draw = 0;
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.collisionLayer = 2;
-        sub_08078B48();
+        gPlayerEntity.base.spriteSettings.draw = 0;
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.base.collisionLayer = 2;
+        PausePlayer();
         PutAwayItems();
-        gPlayerEntity.parent = super;
-        sub_08036914(&gPlayerEntity, (u8) - (this->angle.HALF.HI + 0x80), 0x3800);
+        gPlayerEntity.base.parent = super;
+        sub_08036914(&gPlayerEntity.base, (u8) - (this->angle.HALF.HI + 0x80), 0x3800);
     }
 }
 
@@ -901,17 +900,18 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
 
     if (this->unk_80 == 0) {
         super->direction =
-            CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD);
+           
+            CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD);
         tmp = ((u8) - (this->angle.HALF.HI + 0x80)) - super->direction;
         if (tmp < 0) {
             tmp = -tmp;
         }
         if (tmp < 0x10) {
-            if (sub_0806FC80(super, &gPlayerEntity, 0xf0) != 0) {
+            if (sub_0806FC80(super, &gPlayerEntity.base, 0xf0) != 0) {
                 if ((gPlayerState.flags & PL_FROZEN) == 0) {
-                    if ((gPlayerEntity.flags & PL_MINISH) != 0) {
-                        LinearMoveAngle(&gPlayerEntity, 0x280, -this->angle.HALF.HI);
-                        if (sub_0806FC80(super, &gPlayerEntity, 0x48) != 0) {
+                    if ((gPlayerEntity.base.flags & PL_MINISH) != 0) {
+                        LinearMoveAngle(&gPlayerEntity.base, 0x280, -this->angle.HALF.HI);
+                        if (sub_0806FC80(super, &gPlayerEntity.base, 0x48) != 0) {
                             this->unk_80 = 1;
                             this->timer = 2;
                             this->heap->targetAngle = CalculateDirectionFromOffsets(
@@ -942,9 +942,9 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
             this->unk_80 = 0;
             this->angularSpeed.HWORD = 0x100;
             this->heap->mouthObject->timer++;
-            gPlayerEntity.spriteSettings.draw = 1;
-            gPlayerEntity.flags &= ~ENT_COLLIDE;
-            gPlayerEntity.collisionLayer = 1;
+            gPlayerEntity.base.spriteSettings.draw = 1;
+            gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+            gPlayerEntity.base.collisionLayer = 1;
             sub_080792BC(0x400, (u32)(-(this->angle.HALF.HI + 0x80) * 0x1000000) >> 0x1b, 0x30);
             OctorokBoss_SetAttackTimer(this);
             SoundReq(SFX_EF);
@@ -959,8 +959,8 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
     } else {
         this->timer--;
         if ((gPlayerState.flags == PL_FROZEN) && (this->timer == 0x3c)) {
-            tmp = CalculateDirectionFromOffsets(gPlayerEntity.x.WORD - super->x.WORD,
-                                                gPlayerEntity.y.WORD - super->y.WORD);
+            tmp = CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD,
+                                                gPlayerEntity.base.y.WORD - super->y.WORD);
             if ((u8)((tmp - ((u8) - this->angle.HALF.HI ^ 0x80))) > 0x80) {
                 this->heap->targetAngle = this->angle.HALF.HI + 0x30;
             } else {
@@ -1088,9 +1088,9 @@ void OctorokBoss_Burning_SubAction2(OctorokBossEntity* this) {
 
 void sub_080368D8(OctorokBossEntity* this) {
     if (this->unk_80 != 0) {
-        gPlayerEntity.spriteSettings.draw = 1;
-        gPlayerEntity.flags |= ENT_COLLIDE;
-        gPlayerEntity.collisionLayer = 1;
+        gPlayerEntity.base.spriteSettings.draw = 1;
+        gPlayerEntity.base.flags |= ENT_COLLIDE;
+        gPlayerEntity.base.collisionLayer = 1;
     }
     this->unk_76 = 0xa0;
     this->unk_74 = 0xa0;

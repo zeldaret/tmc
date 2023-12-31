@@ -9,13 +9,19 @@
 #include "physics.h"
 #include "tiles.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u16 unk_74;
+} LeeverEntity;
+
 extern Entity* gUnk_020000B0;
 
 bool32 Leever_PlayerInRange(Entity*, s32);
-void Leever_Move(Entity*);
+void Leever_Move(LeeverEntity*);
 
-extern void (*const Leever_Functions[])(Entity*);
-extern void (*const gLeeverActions[])(Entity*);
+extern void (*const Leever_Functions[])(LeeverEntity*);
+extern void (*const gLeeverActions[])(LeeverEntity*);
 extern const s8 gLeeverDrift[];
 extern const u16 gUnk_080CA4CA[];
 
@@ -30,96 +36,96 @@ enum {
     LeeverForm_Blue,
 };
 
-void Leever(Entity* this) {
-    EnemyFunctionHandler(this, Leever_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+void Leever(LeeverEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)Leever_Functions);
+    SetChildOffset(super, 0, 1, -0x10);
 }
 
-void Leever_OnTick(Entity* this) {
-    gLeeverActions[this->action](this);
+void Leever_OnTick(LeeverEntity* this) {
+    gLeeverActions[super->action](this);
 }
 
-void Leever_OnCollision(Entity* this) {
-    if (this->contactFlags == 0x80) {
-        if (this->action == 3) {
-            this->field_0x74.HWORD = 1;
+void Leever_OnCollision(LeeverEntity* this) {
+    if (super->contactFlags == 0x80) {
+        if (super->action == 3) {
+            this->unk_74 = 1;
         }
     } else {
-        if (this->confusedTime != 0) {
-            Create0x68FX(this, FX_STARS);
+        if (super->confusedTime != 0) {
+            Create0x68FX(super, FX_STARS);
         }
     }
-    EnemyFunctionHandlerAfterCollision(this, Leever_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Leever_Functions);
 }
 
-void Leever_OnDeath(Entity* this) {
-    if (this->type == LeeverForm_Red) {
-        GenericDeath(this);
+void Leever_OnDeath(LeeverEntity* this) {
+    if (super->type == LeeverForm_Red) {
+        GenericDeath(super);
     } else {
-        CreateDeathFx(this, 0xf1, 0);
+        CreateDeathFx(super, 0xf1, 0);
     }
 }
 
-void Leever_Initialize(Entity* this) {
-    sub_0804A720(this);
-    this->action = 1;
-    this->timer = Random();
+void Leever_Initialize(LeeverEntity* this) {
+    sub_0804A720(super);
+    super->action = 1;
+    super->timer = Random();
 }
 
-void Leever_Idle(Entity* this) {
-    if (--this->timer == 0) {
-        if (Leever_PlayerInRange(this, Random() & 0x1f)) {
-            this->action = 2;
-            this->spriteSettings.draw = TRUE;
-            this->direction =
-                (GetFacingDirection(this, gUnk_020000B0) + gLeeverDrift[Random() & 1]) & (0x3 | DirectionNorthWest);
-            InitializeAnimation(this, LeeverAnimation_DigUp);
-            UpdateSpriteForCollisionLayer(this);
+void Leever_Idle(LeeverEntity* this) {
+    if (--super->timer == 0) {
+        if (Leever_PlayerInRange(super, Random() & 0x1f)) {
+            super->action = 2;
+            super->spriteSettings.draw = TRUE;
+            super->direction =
+                (GetFacingDirection(super, gUnk_020000B0) + gLeeverDrift[Random() & 1]) & (0x3 | DirectionNorthWest);
+            InitializeAnimation(super, LeeverAnimation_DigUp);
+            UpdateSpriteForCollisionLayer(super);
         } else {
-            this->timer = DirectionRound(Random()) + 8;
+            super->timer = DirectionRound(Random()) + 8;
         }
     }
 }
 
-void Leever_DigUp(Entity* this) {
-    GetNextFrame(this);
+void Leever_DigUp(LeeverEntity* this) {
+    GetNextFrame(super);
 
-    if (this->frame & ANIM_DONE) {
-        this->action = 3;
-        if (this->type == LeeverForm_Red) {
-            this->field_0x74.HWORD = 180;
+    if (super->frame & ANIM_DONE) {
+        super->action = 3;
+        if (super->type == LeeverForm_Red) {
+            this->unk_74 = 180;
         } else {
-            this->field_0x74.HWORD = 110;
+            this->unk_74 = 110;
         }
-        InitializeAnimation(this, LeeverAnimation_Attack);
-    } else if ((this->frame & 1) != 0) {
-        this->frame &= 0xfe;
-        COLLISION_ON(this);
+        InitializeAnimation(super, LeeverAnimation_Attack);
+    } else if ((super->frame & 1) != 0) {
+        super->frame &= 0xfe;
+        COLLISION_ON(super);
     }
 }
 
-void Leever_Attack(Entity* this) {
+void Leever_Attack(LeeverEntity* this) {
     Leever_Move(this);
-    GetNextFrame(this);
+    GetNextFrame(super);
 
-    if (--this->field_0x74.HWORD == 0) {
-        this->action = 4;
-        COLLISION_OFF(this);
-        InitializeAnimation(this, LeeverAnimation_DigDown);
+    if (--this->unk_74 == 0) {
+        super->action = 4;
+        COLLISION_OFF(super);
+        InitializeAnimation(super, LeeverAnimation_DigDown);
     }
 }
 
-void Leever_DigDown(Entity* this) {
+void Leever_DigDown(LeeverEntity* this) {
     Leever_Move(this);
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
-        this->action = 1;
-        this->timer = 240;
-        this->spriteSettings.draw = FALSE;
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
+        super->action = 1;
+        super->timer = 240;
+        super->spriteSettings.draw = FALSE;
     }
 }
 
-bool32 sub_0801FDE4(Entity* ent, s32 x, s32 y) {
+bool32 sub_0801FDE4(Entity* entity, s32 x, s32 y) {
     u32 vvv;
     const u16* puVar4;
 
@@ -129,9 +135,9 @@ bool32 sub_0801FDE4(Entity* ent, s32 x, s32 y) {
         vvv = GetVvvAtWorldCoords(x, y, gUnk_020000B0->collisionLayer);
         for (puVar4 = gUnk_080CA4CA; *puVar4 != (u16)-1;) {
             if (*puVar4++ == vvv) {
-                ent->x.HALF.HI = (x & 0xfff0) + 8;
-                ent->y.HALF.HI = (y & 0xfff0) + 8;
-                ent->collisionLayer = gUnk_020000B0->collisionLayer;
+                entity->x.HALF.HI = (x & 0xfff0) + 8;
+                entity->y.HALF.HI = (y & 0xfff0) + 8;
+                entity->collisionLayer = gUnk_020000B0->collisionLayer;
                 return TRUE;
             }
         }
@@ -139,12 +145,12 @@ bool32 sub_0801FDE4(Entity* ent, s32 x, s32 y) {
     }
 }
 
-bool32 Leever_PlayerInRange(Entity* ent, s32 arg2) {
+bool32 Leever_PlayerInRange(Entity* entity, s32 arg2) {
     s32 sin, cos;
     s32 x, y;
     u32 i;
 
-    if (sub_08049FDC(ent, 1) == 0) {
+    if (sub_08049FDC(entity, 1) == 0) {
         return 0;
     } else {
         x = gUnk_020000B0->x.WORD;
@@ -154,7 +160,7 @@ bool32 Leever_PlayerInRange(Entity* ent, s32 arg2) {
         for (i = 0; i < 8; i++) {
             x += sin;
             y += -cos;
-            if (sub_0801FDE4(ent, x >> 0x10, y >> 0x10) == 0) {
+            if (sub_0801FDE4(entity, x >> 0x10, y >> 0x10) == 0) {
                 return 0;
             }
         }
@@ -162,37 +168,37 @@ bool32 Leever_PlayerInRange(Entity* ent, s32 arg2) {
     }
 }
 
-void Leever_Move(Entity* this) {
-    if (sub_08049FDC(this, 1) == 0) {
-        this->field_0x74.HWORD = 1;
+void Leever_Move(LeeverEntity* this) {
+    if (sub_08049FDC(super, 1) == 0) {
+        this->unk_74 = 1;
     }
 
-    this->speed = (this->frame & 0xf) * 0x20;
-    if (this->type == LeeverForm_Red) {
-        if ((this->subtimer++ & 0xf) == 0) {
-            sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
+    super->speed = (super->frame & 0xf) * 0x20;
+    if (super->type == LeeverForm_Red) {
+        if ((super->subtimer++ & 0xf) == 0) {
+            sub_08004596(super, sub_0800132C(super, gUnk_020000B0));
         }
     } else {
-        this->speed += 0x40;
-        if ((this->subtimer++ & 0x7) == 0) {
-            sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
+        super->speed += 0x40;
+        if ((super->subtimer++ & 0x7) == 0) {
+            sub_08004596(super, sub_0800132C(super, gUnk_020000B0));
         }
     }
 
-    ProcessMovement0(this);
+    ProcessMovement0(super);
 }
 
 // clang-format off
-void (*const Leever_Functions[])(Entity*) = {
+void (*const Leever_Functions[])(LeeverEntity*) = {
     Leever_OnTick,
     Leever_OnCollision,
-    GenericKnockback,
+    (void (*)(LeeverEntity*))GenericKnockback,
     Leever_OnDeath,
-    GenericConfused,
+    (void (*)(LeeverEntity*))GenericConfused,
     Leever_OnTick,
 };
 
-void (*const gLeeverActions[])(Entity*) = {
+void (*const gLeeverActions[])(LeeverEntity*) = {
     Leever_Initialize,
     Leever_Idle,
     Leever_DigUp,

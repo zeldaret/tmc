@@ -4,7 +4,6 @@
  *
  * @brief Pushable Statue object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -107,9 +106,9 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
 
     if (this->unk_83 == 0) {
         this->unk_83 = 1;
-        index = gPlayerEntity.animationState;
+        index = gPlayerEntity.base.animationState;
         ptr = &gUnk_08120CB4[index];
-        PositionRelative(super, &gPlayerEntity, *(ptr) << 0x10, *(ptr + 1) << 0x10);
+        PositionRelative(super, &gPlayerEntity.base, *(ptr) << 0x10, *(ptr + 1) << 0x10);
     }
     metaTileType = GetMetaTileType(this->unk_84, super->collisionLayer);
     if (metaTileType != SPECIAL_META_TILE_11) {
@@ -134,9 +133,9 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         gPlayerState.queued_action = PLAYER_PULL;
         gPlayerState.field_0x38 = 0x20;
         gPlayerState.flags |= PL_BUSY;
-        gPlayerEntity.x.HALF.LO = 0;
-        gPlayerEntity.y.HALF.LO = 0;
-        super->direction = (gPlayerEntity.animationState ^ 4) << 2;
+        gPlayerEntity.base.x.HALF.LO = 0;
+        gPlayerEntity.base.y.HALF.LO = 0;
+        super->direction = (gPlayerEntity.base.animationState ^ 4) << 2;
         sub_08089538(this);
     }
 }
@@ -175,8 +174,8 @@ void sub_08089454(PushableStatueEntity* this) {
 void sub_080894C8(PushableStatueEntity* this) {
     u32 index;
     for (index = 0; index < 8; index++) {
-        if (gRoomVars.entities[index] == NULL) {
-            gRoomVars.entities[index] = super;
+        if (gRoomVars.puzzleEntities[index] == NULL) {
+            gRoomVars.puzzleEntities[index] = super;
             break;
         }
     }
@@ -185,8 +184,8 @@ void sub_080894C8(PushableStatueEntity* this) {
 void sub_080894FC(PushableStatueEntity* this) {
     u32 index;
     for (index = 0; index <= 7; index++) {
-        if (super == gRoomVars.entities[index]) {
-            gRoomVars.entities[index] = NULL;
+        if (super == gRoomVars.puzzleEntities[index]) {
+            gRoomVars.puzzleEntities[index] = NULL;
             break;
         }
     }
@@ -261,13 +260,13 @@ bool32 sub_080896B0(void) {
     u32 tmp2;
     u32 vvv;
 
-    if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.frame & 1) != 0)) {
-        ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
-        uVar1 = gUnk_080B4488[gPlayerEntity.animationState >> 1];
-        uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]) - uVar1;
-        vvv = GetVvvAtMetaTilePos(uVar4, gPlayerEntity.collisionLayer);
+    if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.base.frame & 1) != 0)) {
+        ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
+        uVar1 = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
+        uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]) - uVar1;
+        vvv = GetVvvAtMetaTilePos(uVar4, gPlayerEntity.base.collisionLayer);
         if ((vvv - 0x26 > 1) && (vvv != VVV_41)) {
-            mapLayer = GetLayerByIndex(gPlayerEntity.collisionLayer);
+            mapLayer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
             tmp1 = mapLayer->collisionData[iVar2];
             tmp2 = mapLayer->collisionData[(iVar2 - uVar1)];

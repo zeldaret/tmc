@@ -5,7 +5,6 @@
  *
  * @brief Cucco Minigame object
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "fileselect.h"

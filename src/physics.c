@@ -1,15 +1,13 @@
-#define NENT_DEPRECATED
-#include "asm.h"
 #include "area.h"
-#include "player.h"
-#include "new_player.h"
-#include "physics.h"
-#include "common.h"
-#include "sound.h"
-#include "room.h"
-#include "functions.h"
+#include "asm.h"
 #include "color.h"
+#include "common.h"
+#include "functions.h"
+#include "physics.h"
+#include "player.h"
 #include "playeritem.h"
+#include "room.h"
+#include "sound.h"
 
 const u8 gSpriteSortAboveTable[];
 const u8 gSpriteSortBelowTable[];
@@ -37,17 +35,17 @@ void sub_0806F38C(void) {
 u32 sub_0806F39C(Entity* ent) {
     s32 dist;
 
-    if (gNewPlayerEntity.base.animationState & 2) {
-        dist = ent->x.HALF.HI - gPlayerEntity.x.HALF.HI;
+    if (gPlayerEntity.base.animationState & 2) {
+        dist = ent->x.HALF.HI - gPlayerEntity.base.x.HALF.HI;
     } else {
-        dist = ent->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+        dist = ent->y.HALF.HI - gPlayerEntity.base.y.HALF.HI;
     }
     if (dist < 0) {
         dist = -dist;
     }
 
     if (dist > 64) {
-        sub_080027EA(&gPlayerEntity, ent->speed, ent->direction);
+        sub_080027EA(&gPlayerEntity.base, ent->speed, ent->direction);
         return 1;
     }
     return 0;
@@ -72,16 +70,16 @@ bool32 sub_0806F3E4(Entity* ent) {
     }
     if (ent->knockbackSpeed > 0x500)
         ent->knockbackSpeed = 0x500;
-    p = &gUnk_08126EE4[gPlayerEntity.animationState & 0xE];
-    tmp_ent.base.x.HALF.HI = p[0] + gPlayerEntity.x.HALF.HI;
-    tmp_ent.base.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
+    p = &gUnk_08126EE4[gPlayerEntity.base.animationState & 0xE];
+    tmp_ent.base.x.HALF.HI = p[0] + gPlayerEntity.base.x.HALF.HI;
+    tmp_ent.base.y.HALF.HI = p[1] + gPlayerEntity.base.y.HALF.HI;
     LinearMoveDirection(ent, ent->knockbackSpeed, GetFacingDirection(ent, &tmp_ent.base));
     if (sub_0800419C(&tmp_ent.base, ent, 4, 4)) {
         u32 state = ent->gustJarFlags & 0xF;
         if (state == 2) {
             Entity* item;
             ent->subAction = 3;
-            gNewPlayerEntity.unk_70 = ent;
+            gPlayerEntity.unk_70 = ent;
             gPlayerState.field_0x1c = 7;
             item = CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
             if (item != NULL) {
@@ -395,8 +393,8 @@ void UnloadHitbox(Entity* ent) {
 }
 
 bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
-    s32 diffx = gPlayerEntity.x.HALF.HI - x;
-    s32 diffy = gPlayerEntity.y.HALF.HI - y;
+    s32 diffx = gPlayerEntity.base.x.HALF.HI - x;
+    s32 diffy = gPlayerEntity.base.y.HALF.HI - y;
     u32 rv = 0;
     if (diffx < distX && diffy < DistY) {
         rv = 1;
@@ -484,7 +482,7 @@ bool32 sub_0806FD54(Entity* this) {
     if ((gPlayerState.flags & PL_USE_LANTERN) == 0) {
         rv = 0;
     } else {
-        rv = EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 9, 0x48);
+        rv = EntityWithinDistance(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 9, 0x48);
     }
 
     return rv;

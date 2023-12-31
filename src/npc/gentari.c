@@ -4,7 +4,6 @@
  *
  * @brief Gentari NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 
@@ -18,7 +17,7 @@ void Gentari(GentariEntity* this) {
         case 0:
             super->action = 1;
             super->spriteSettings.draw = TRUE;
-            SetDefaultPriority(super, PRIO_MESSAGE);
+            SetEntityPriority(super, PRIO_MESSAGE);
             this->fusionOffer = GetFusionToOffer(super);
             AddInteractableWhenBigFuser(super, this->fusionOffer);
             InitScriptForNPC(super);
@@ -27,8 +26,8 @@ void Gentari(GentariEntity* this) {
             if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);
@@ -45,7 +44,7 @@ void Gentari_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.draw = TRUE;
-        SetDefaultPriority(this, PRIO_MESSAGE);
+        SetEntityPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
     } else {
         UpdateAnimationSingleFrame(this);

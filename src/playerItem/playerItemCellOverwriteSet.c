@@ -4,7 +4,6 @@
  *
  * @brief Cell Overwrite Set Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "common.h"
 #include "entity.h"
@@ -340,7 +339,7 @@ const u16 gUnk_080B7A3E[] = {
 void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
     static const s8 offsetByDirection[] = { 0, -16, 16, 0, 0, 16, -16, 0 };
     u32 tmp;
-    Entity* player = &gPlayerEntity;
+    Entity* player = &gPlayerEntity.base;
 
     if (super->action == 0) {
         this->tileType = GetMetaTileType(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],

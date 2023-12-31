@@ -63,20 +63,20 @@ void Vaati3StartManager_Type0_Action1(Vaati3StartManager* this) {
     s32 distY;
     Entity* object;
 
-    distX = gPlayerEntity.x.HALF.HI - (gRoomControls.origin_x + 0x88);
-    distY = gPlayerEntity.y.HALF.HI - (gRoomControls.origin_y + 0x40);
+    distX = gPlayerEntity.base.x.HALF.HI - (gRoomControls.origin_x + 0x88);
+    distY = gPlayerEntity.base.y.HALF.HI - (gRoomControls.origin_y + 0x40);
     if (distX * distX + distY * distY < 0x901) {
         super->action = 2;
         super->subAction = 0;
         super->timer = 120;
         SetPlayerControl(2);
-        sub_08078B48();
+        PausePlayer();
         object = CreateObject(THUNDERBOLT, 0, 0);
         if (object != NULL) {
             object->x.HALF.HI = gRoomControls.origin_x + 0x88;
             object->y.HALF.HI = gRoomControls.origin_y + 0x48;
         }
-        object = CreateSpeechBubbleExclamationMark(&gPlayerEntity, 8, 0xfffffff0);
+        object = CreateSpeechBubbleExclamationMark(&gPlayerEntity.base, 8, 0xfffffff0);
         if (object != NULL) {
             object->spritePriority.b0 = 3;
         }
@@ -85,10 +85,10 @@ void Vaati3StartManager_Type0_Action1(Vaati3StartManager* this) {
 }
 
 void Vaati3StartManager_Type0_Action2(Vaati3StartManager* this) {
-    gPlayerEntity.animationState = 0;
-    if (gPlayerEntity.z.HALF.HI != 0) {
-        if (gPlayerEntity.y.HALF.HI < (gRoomControls.origin_y + 0x48)) {
-            gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x48;
+    gPlayerEntity.base.animationState = 0;
+    if (gPlayerEntity.base.z.HALF.HI != 0) {
+        if (gPlayerEntity.base.y.HALF.HI < (gRoomControls.origin_y + 0x48)) {
+            gPlayerEntity.base.y.HALF.HI = gRoomControls.origin_y + 0x48;
         }
     } else {
         if (--super->timer == 0) {
@@ -100,7 +100,7 @@ void Vaati3StartManager_Type0_Action2(Vaati3StartManager* this) {
 }
 
 void Vaati3StartManager_Type0_Action3(Vaati3StartManager* this) {
-    if ((gMessage.doTextBox & 0x7f) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         if (super->timer != 0) {
             super->timer--;
         } else {

@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Tail Projectile
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"

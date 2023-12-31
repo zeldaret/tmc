@@ -4,7 +4,6 @@
  *
  * @brief Cucco Chick NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 
@@ -37,7 +36,7 @@ void CuccoChick_Init(CuccoChickEntity* this) {
     super->action++;
     this->fusionOffer = GetFusionToOffer(super);
     AddInteractableAsMinishFuser(super, this->fusionOffer);
-    SetDefaultPriority(super, PRIO_MESSAGE);
+    SetEntityPriority(super, PRIO_MESSAGE);
     super->subAction = 0;
     sub_0806E764(this);
 }

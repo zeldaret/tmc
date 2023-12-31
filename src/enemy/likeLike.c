@@ -4,13 +4,11 @@
  *
  * @brief Like Like enemy
  */
-
-#define NENT_DEPRECATED
 #include "enemy.h"
-#include "message.h"
-#include "save.h"
-#include "object.h"
 #include "item.h"
+#include "message.h"
+#include "object.h"
+#include "save.h"
 
 typedef struct {
     Entity base;
@@ -55,7 +53,7 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
                 super->timer = 95;
                 super->subtimer = tmp;
                 super->flags2 &= 0xfc;
-                this->prevSpritePriority = gPlayerEntity.spritePriority.b1;
+                this->prevSpritePriority = gPlayerEntity.base.spritePriority.b1;
             }
         }
     }
@@ -73,7 +71,7 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
 
 void LikeLike_OnDeath(LikeLikeEntity* this) {
     if (super->timer == 2 && this->stolenItem != 0xff) {
-        SetDefaultPriority(super, PRIO_NO_BLOCK);
+        SetEntityPriority(super, PRIO_NO_BLOCK);
         LikeLike_ReturnStolenItem(this->stolenItem);
     }
     GenericDeath(super);
@@ -200,12 +198,12 @@ void sub_0802805C(LikeLikeEntity* this) {
     } else {
         ResetActiveItems();
         gPlayerState.mobility |= 0x80;
-        PositionRelative(super, &gPlayerEntity, 0, Q_16_16(1.0));
+        PositionRelative(super, &gPlayerEntity.base, 0, Q_16_16(1.0));
 
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)super->spriteIndex, super->frameIndex);
-        gPlayerEntity.spriteOffsetX = tmp[0];
-        gPlayerEntity.spriteOffsetY = tmp[1];
-        gPlayerEntity.spritePriority.b1 = 0;
+        gPlayerEntity.base.spriteOffsetX = tmp[0];
+        gPlayerEntity.base.spriteOffsetY = tmp[1];
+        gPlayerEntity.base.spritePriority.b1 = 0;
 
         if (--super->timer == 0) {
             sub_080281A0(this);
@@ -227,14 +225,14 @@ void LikeLike_ReleasePlayer(LikeLikeEntity* this) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~PL_CAPTURED;
-    gPlayerEntity.flags |= ENT_COLLIDE;
-    gPlayerEntity.zVelocity = Q_16_16(1.5);
-    gPlayerEntity.iframes = -60;
+    gPlayerEntity.base.flags |= ENT_COLLIDE;
+    gPlayerEntity.base.zVelocity = Q_16_16(1.5);
+    gPlayerEntity.base.iframes = -60;
     tmp = 0;
-    gPlayerEntity.direction = Direction8FromAnimationState(gPlayerEntity.animationState);
-    gPlayerEntity.spritePriority.b1 = this->prevSpritePriority;
-    gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
-    gPlayerEntity.spriteOffsetY = tmp;
+    gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
+    gPlayerEntity.base.spritePriority.b1 = this->prevSpritePriority;
+    gPlayerEntity.base.z.HALF.HI = gPlayerEntity.base.spriteOffsetY;
+    gPlayerEntity.base.spriteOffsetY = tmp;
     super->action = 4;
     super->timer = 80;
     super->subtimer = tmp;
@@ -260,12 +258,12 @@ void sub_080281A0(LikeLikeEntity* this) {
 bool32 LikeLike_StealItem(u32 item) {
     bool32 ret = FALSE;
     if (GetInventoryValue(item) == 1) {
-        if (ItemIsShield(gSave.stats.itemButtons[SLOT_A])) {
-            gSave.stats.itemButtons[SLOT_A] = ITEM_NONE;
+        if (ItemIsShield(gSave.stats.equipped[SLOT_A])) {
+            gSave.stats.equipped[SLOT_A] = ITEM_NONE;
         }
 
-        if (ItemIsShield(gSave.stats.itemButtons[SLOT_B])) {
-            gSave.stats.itemButtons[SLOT_B] = ITEM_NONE;
+        if (ItemIsShield(gSave.stats.equipped[SLOT_B])) {
+            gSave.stats.equipped[SLOT_B] = ITEM_NONE;
         }
 
         SetInventoryValue(item, 0);

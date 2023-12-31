@@ -4,7 +4,6 @@
  *
  * @brief White Triangle Effect object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "screen.h"

@@ -4,7 +4,6 @@
  *
  * @brief Pina NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "message.h"
@@ -74,7 +73,7 @@ void sub_08063AC0(Entity* this) {
 }
 
 void sub_08063B44(Entity* this) {
-    u8 tmp = gMessage.doTextBox & 0x7f;
+    u8 tmp = gMessage.state & MESSAGE_ACTIVE;
     if (tmp == 0) {
         this->action = 1;
         this->subtimer = tmp;
@@ -94,8 +93,8 @@ void sub_08063B68(PinaEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 4);
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 4);
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, NULL);

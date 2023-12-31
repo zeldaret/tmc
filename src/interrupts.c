@@ -198,45 +198,45 @@ void WaitForNextFrame(void) {
     FadeVBlank();
 }
 
-void PlayerUpdate(Entity* this) {
+void PlayerUpdate(PlayerEntity* this) {
     if (gSave.stats.effect != 0)
         gPlayerState.flags |= PL_DRUGGED;
     else
         gPlayerState.flags &= ~PL_DRUGGED;
 
-    if (!EntityIsDeleted(this)) {
+    if (!EntityDisabled(super)) {
         if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             PutAwayItems();
             if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {
                 gPlayerState.queued_action = PLAYER_ROLL;
                 gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
                 gPlayerState.hurtBlinkSpeed = 240;
-                COLLISION_ON(this);
+                COLLISION_ON(super);
             } else {
-                COLLISION_OFF(this);
+                COLLISION_OFF(super);
                 gPlayerState.framestate = PL_STATE_F;
             }
         }
-        HandlePlayerLife(this);
+        HandlePlayerLife(super);
         DoPlayerAction(this);
-        if ((this->z.WORD == 0) && (this->action == 1 || this->action == 9))
-            sub_08008790(this, 8);
+        if ((super->z.WORD == 0) && (super->action == 1 || super->action == 9))
+            sub_08008790(super, 8);
         sub_080171F0();
     }
-    sub_08078FB0(this);
-    DrawEntity(this);
+    sub_08078FB0(super);
+    DrawEntity(super);
     UpdatePlayerPalette();
 }
 
 // Responsible for some life things like low health beep and initiating the death sequence
 static void HandlePlayerLife(Entity* this) {
-    u32 temp;
+    u32 threshold;
 
     gHUD.rActionPlayerState = R_ACTION_NONE;
     gHUD.rActionInteractTile = R_ACTION_NONE;
     gHUD.rActionGrabbing = R_ACTION_NONE;
 
-    if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
+    if ((gPlayerEntity.base.contactFlags & 0x80) && (gPlayerEntity.base.iframes > 0))
         SoundReq(SFX_86);
 
     gPlayerState.flags &= ~(PL_FALLING | PL_CONVEYOR_PUSHED);
@@ -258,31 +258,32 @@ static void HandlePlayerLife(Entity* this) {
         return;
     }
 
-    if ((gPlayerState.controlMode != CONTROL_ENABLED) || (gMessage.doTextBox & 0x7f))
+    if ((gPlayerState.controlMode != CONTROL_ENABLED) || (gMessage.state & 0x7f))
         return;
 
 #ifdef EU
     if ((gHUD.hideFlags == HUD_HIDE_NONE) && gRoomTransition.frameCount % 90 == 0) {
-        temp = gSave.stats.maxHealth / 4;
-        if (temp > 24)
-            temp = 24;
-        if (temp < 8)
-            temp = 8;
+        threshold = gSave.stats.maxHealth / 4;
+        if (threshold > 24)
+            threshold = 24;
+        if (threshold < 8)
+            threshold = 8;
 
-        if (gSave.stats.health <= temp) {
+        if (gSave.stats.health <= threshold) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }
 #else
-    gRoomVars.unk2 = gMessage.doTextBox & 0x7f;
-    temp = gSave.stats.maxHealth / 4;
-    if (temp > 24)
-        temp = 24;
-    if (temp < 8)
-        temp = 8;
+    // TODO: why does message state affect health drops in US/JP?
+    gRoomVars.needHealthDrop = gMessage.state & MESSAGE_ACTIVE;
+    threshold = gSave.stats.maxHealth / 4;
+    if (threshold > 24)
+        threshold = 24;
+    if (threshold < 8)
+        threshold = 8;
 
-    if (gSave.stats.health <= temp) {
-        gRoomVars.unk2 = 1;
+    if (gSave.stats.health <= threshold) {
+        gRoomVars.needHealthDrop = TRUE;
         if ((gHUD.hideFlags == HUD_HIDE_NONE) && gRoomTransition.frameCount % 90 == 0) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
@@ -319,15 +320,15 @@ static void sub_080171F0(void) {
         ResetActiveItems();
     if (gPlayerState.field_0x14 != 0)
         gPlayerState.field_0x14--;
-    if (gPlayerEntity.field_0x7a.HWORD != 0)
-        gPlayerEntity.field_0x7a.HWORD--;
+    if (gPlayerEntity.unk_7a != 0)
+        gPlayerEntity.unk_7a--;
 
-    gPlayerEntity.contactFlags &= ~0x80;
-    if (gPlayerEntity.action != PLAYER_DROWN)
+    gPlayerEntity.base.contactFlags &= ~0x80;
+    if (gPlayerEntity.base.action != PLAYER_DROWN)
         COPY_FLAG_FROM_TO(gPlayerState.flags, 0x2, 0x10000);
 
     gPlayerState.flags &= ~PL_FLAGS2;
-    sub_080028E0(&gPlayerEntity);
+    sub_080028E0(&gPlayerEntity.base);
 
     if (gPlayerState.flags & PL_CLONING)
         gHUD.rActionPlayerState = R_ACTION_CANCEL;
@@ -340,23 +341,23 @@ static void sub_080171F0(void) {
     gPlayerState.speed_modifier = 0;
     gPlayerState.attachedBeetleCount = 0;
     MemClear(&gCarriedEntity, sizeof(gCarriedEntity));
-    gPlayerEntity.spriteOffsetY = gPlayerState.spriteOffsetY;
+    gPlayerEntity.base.spriteOffsetY = gPlayerState.spriteOffsetY;
     gPlayerState.spriteOffsetY = 0;
     sub_0807B0C8();
 
     if (gPlayerState.flags & PL_CLONING)
         gPlayerClones[0]->spriteOffsetY = gPlayerClones[1]->spriteOffsetY = gPlayerClones[2]->spriteOffsetY = 0;
 
-    if (gPlayerEntity.action == PLAYER_CLIMB)
+    if (gPlayerEntity.base.action == PLAYER_CLIMB)
         gPlayerState.flags |= PL_CLIMBING;
     else
         gPlayerState.flags &= ~PL_CLIMBING;
 
-    sub_0807A8D8(&gPlayerEntity);
+    sub_0807A8D8(&gPlayerEntity.base);
     if (gPlayerState.jump_status & 0xc0)
-        gPlayerEntity.iframes = 0xfe;
+        gPlayerEntity.base.iframes = 0xfe;
 
-    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {
-        sub_08077FEC(gPlayerEntity.action);
+    if (gPlayerEntity.base.action != PLAYER_ROOMTRANSITION) {
+        sub_08077FEC(gPlayerEntity.base.action);
     }
 }

@@ -4,7 +4,6 @@
  *
  * @brief Hurdy Gurdy Man NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
@@ -29,7 +28,7 @@ void HurdyGurdyMan(HurdyGurdyManEntity* this) {
             if (LoadExtraSpriteData(super, gUnk_081144F0)) {
                 super->action = 1;
                 this->unk_69 = 0;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 InitScriptForNPC(super);
             }
             break;
@@ -38,7 +37,8 @@ void HurdyGurdyMan(HurdyGurdyManEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->unk_69 = super->animIndex;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 index = GetFuserId(super);
                 pointerToArray = gUnk_08001A7C[index];
                 if (this->fusionOffer == 0x32) {
@@ -123,7 +123,7 @@ void HurdyGurdyMan_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, gUnk_081144F0)) {
             this->action++;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, PRIO_MESSAGE);
+            SetEntityPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 10);
         }
     } else {

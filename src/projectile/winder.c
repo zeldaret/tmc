@@ -4,7 +4,6 @@
  *
  * @brief Winder Projectile
  */
-#define NENT_DEPRECATED
 #include "projectile/winder.h"
 #include "asm.h"
 #include "collision.h"

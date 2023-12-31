@@ -4,7 +4,6 @@
  *
  * @brief BigGoron NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "item.h"
@@ -81,7 +80,7 @@ void sub_0806CF30(BigGoronEntity* this) {
         super->action = 1;
         super->subAction = 1;
         this->originalX = super->x.HALF.HI;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         sub_0806D0B0(super);
         sub_0807DD64(super);
     } else {
@@ -93,10 +92,10 @@ void sub_0806CF30(BigGoronEntity* this) {
         case 0:
         case 1:
             if (gRoomTransition.frameCount % 4 == 0) {
-                if (gPlayerEntity.x.HALF.HI < super->x.HALF.HI && this->originalX - 32 < super->x.HALF.HI) {
+                if (gPlayerEntity.base.x.HALF.HI < super->x.HALF.HI && this->originalX - 32 < super->x.HALF.HI) {
                     super->x.HALF.HI--;
                 }
-                if (gPlayerEntity.x.HALF.HI > super->x.HALF.HI && this->originalX + 32 > super->x.HALF.HI) {
+                if (gPlayerEntity.base.x.HALF.HI > super->x.HALF.HI && this->originalX + 32 > super->x.HALF.HI) {
                     super->x.HALF.HI++;
                 }
             }
@@ -215,7 +214,7 @@ void sub_0806D1D0(BigGoronEntity* this) {
         super->spriteSettings.draw = 3;
         super->frameIndex = 0;
         super->timer = 30;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
 
     switch (super->subAction) {
@@ -256,7 +255,7 @@ void sub_0806D274(BigGoronEntity* this) {
         super->spritePriority.b0 = 7;
         super->frameIndex = 2;
         super->timer = 8;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         npc = CreateNPC(BIG_GORON, 3, 0);
         if (npc != NULL) {
             npc->child = super;
@@ -266,7 +265,7 @@ void sub_0806D274(BigGoronEntity* this) {
         case 0:
         case 1:
         default:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 super->frameIndex = 2;
                 break;
             }
@@ -303,7 +302,7 @@ void sub_0806D348(BigGoronEntity* this) {
         super->spritePriority.b0 = 6;
         super->spriteSettings.draw = 0;
         super->frameIndex = 5;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     }
     if (super->child->frameIndex == 4) {
         super->spriteSettings.draw = 3;
@@ -321,7 +320,7 @@ void sub_0806D3C0(BigGoronEntity* this) {
         }
         super->action = 1;
         super->hitbox = (Hitbox*)&gHitbox_3;
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
         sub_0807DD64(super);
     } else {
         super->x.HALF.HI = super->parent->x.HALF.HI;
@@ -344,7 +343,7 @@ void sub_0806D41C(BigGoronEntity* this) {
         sub_0806D4C0(this, 1);
         sub_0806D4C0(this, 2);
         sub_0806D4C0(this, 3);
-        SetDefaultPriority(super, PRIO_MESSAGE);
+        SetEntityPriority(super, PRIO_MESSAGE);
     } else {
         ExecuteScriptForEntity(super, NULL);
         HandleEntity0x82Actions(super);
@@ -368,7 +367,7 @@ void sub_0806D4C0(BigGoronEntity* this, u32 type) {
         npc->parent = super;
         CopyPosition(super, npc);
         SortEntityAbove(super, npc);
-        SetDefaultPriority(npc, PRIO_MESSAGE);
+        SetEntityPriority(npc, PRIO_MESSAGE);
     }
 }
 
@@ -434,7 +433,7 @@ void sub_0806D5D4(void) {
     InitBiggoronTimer();
     equipSlot = IsItemEquipped(ITEM_SHIELD);
     if (equipSlot != EQUIP_SLOT_NONE) {
-        gSave.stats.itemButtons[equipSlot] = ITEM_NONE;
+        gSave.stats.equipped[equipSlot] = ITEM_NONE;
     }
     SetInventoryValue(ITEM_SHIELD, 0);
 }
@@ -543,8 +542,8 @@ void sub_0806D788(void) {
 void sub_0806D7C4(Entity* this, ScriptExecutionContext* context) {
     Entity* entity;
 
-    this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-    this->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0x18;
+    this->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
+    this->y.HALF.HI = gPlayerEntity.base.y.HALF.HI - 0x18;
     entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         LookAt(this, context, entity->x.HALF.HI, entity->y.HALF.HI);
@@ -558,7 +557,7 @@ void sub_0806D804(Entity* this, ScriptExecutionContext* context) {
         this->y.HALF.HI = entity->y.HALF.HI - 0x10;
         this->spritePriority.b1 = 0;
     }
-    LookAt(this, context, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0x10);
+    LookAt(this, context, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 0x10);
 }
 
 void sub_0806D858(Entity* this) {

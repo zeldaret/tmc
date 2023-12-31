@@ -4,7 +4,6 @@
  *
  * @brief Giant Rock object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 
 void GiantRock(Entity* this) {

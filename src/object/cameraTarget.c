@@ -4,7 +4,6 @@
  *
  * @brief Camera Target object
  */
-#define NENT_DEPRECATED
 #include "common.h"
 #include "entity.h"
 #include "functions.h"
@@ -53,7 +52,7 @@ void CameraTarget(Entity* this) {
         case FUSION_STATE_0:
         case FUSION_STATE_1:
         case FUSION_STATE_2:
-            if ((gMessage.doTextBox & 0x7f) == 0) {
+            if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
                 break;
             }
         default:
@@ -96,7 +95,7 @@ void CameraTarget_Init(Entity* this) {
     }
     this->action = 1;
     this->flags |= ENT_PERSIST;
-    SetDefaultPriority(this, 6);
+    SetEntityPriority(this, 6);
 }
 
 void CameraTarget_Action1(Entity* this) {
@@ -151,7 +150,7 @@ void sub_08083A40(Entity* this) {
 
     this->spriteSettings.draw = 1;
     this->action = 2;
-    if (this->child->x.HALF.HI > gPlayerEntity.x.HALF.HI) {
+    if (this->child->x.HALF.HI > gPlayerEntity.base.x.HALF.HI) {
         bVar1 = 0;
         this->spriteOffsetX = 8;
     } else {

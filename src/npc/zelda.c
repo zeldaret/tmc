@@ -4,7 +4,6 @@
  *
  * @brief Zelda NPC
  */
-#define NENT_DEPRECATED
 #include "npc/zelda.h"
 #include "entity.h"
 #include "flags.h"
@@ -32,7 +31,7 @@ void sub_08066CCC(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
-    SetDefaultPriority(this, PRIO_MESSAGE);
+    SetEntityPriority(this, PRIO_MESSAGE);
     InitScriptForNPC(this);
 }
 
@@ -81,7 +80,7 @@ void sub_08066D94(Entity* this) {
     SetGlobalFlag(ZELDA_CHASE);
     npc = (ZeldaFollowerEntity*)CreateNPC(ZELDA_FOLLOWER, 0, 0);
     if (npc != NULL) {
-        npc->base.animationState = gPlayerEntity.animationState;
+        npc->base.animationState = gPlayerEntity.base.animationState;
         npc->base.flags |= ENT_PERSIST;
         npc->base.animationState = GetAnimationState(this);
         room = gRoomControls.room;

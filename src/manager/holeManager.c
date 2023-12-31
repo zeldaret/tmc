@@ -55,7 +55,7 @@ void sub_0805B328(HoleManager*);
 void sub_0805B048(HoleManager* this) {
     struct_08108764* tmp;
     Entity* obj;
-    SetDefaultPriority((Entity*)super, PRIO_PLAYER_EVENT);
+    SetEntityPriority((Entity*)super, PRIO_PLAYER_EVENT);
     MemClear(&this->unk_20, 0x20);
     super->action = 1;
     this->unk_3f = gRoomControls.room;
@@ -153,8 +153,10 @@ void sub_0805B210(HoleManager* this) {
             gRoomTransition.player_status.start_pos_y = tmp->unk_06;
             break;
         case 1:
-            gRoomTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x + tmp->unk_04;
-            gRoomTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y + tmp->unk_06;
+            gRoomTransition.player_status.start_pos_x =
+                gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x + tmp->unk_04;
+            gRoomTransition.player_status.start_pos_y =
+                gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y + tmp->unk_06;
             break;
         case 2:
             gRoomTransition.player_status.start_pos_x = tmp->unk_04;

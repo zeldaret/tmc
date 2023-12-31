@@ -4,7 +4,6 @@
  *
  * @brief Goron NPC
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"
@@ -72,7 +71,7 @@ void sub_08069328(Entity* this) {
 
 void sub_08069390(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action = 1;
         this->interactType = INTERACTION_NONE;
         RevokePriority(this);

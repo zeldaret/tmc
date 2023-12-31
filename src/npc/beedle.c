@@ -4,7 +4,6 @@
  *
  * @brief Beedle NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "game.h"
@@ -94,7 +93,7 @@ void Beedle_Action1(Entity* this) {
 }
 
 void Beedle_Action2(Entity* this) {
-    if ((gMessage.doTextBox & 0x7F) == 0) {
+    if ((gMessage.state & MESSAGE_ACTIVE) == 0) {
         this->action++;
         InitializeAnimation(this, 8);
     }
@@ -196,8 +195,8 @@ void sub_0806346C(Entity* this) {
     s32 iVar2;
     s32 iVar3;
 
-    iVar3 = (gPlayerEntity.x.HALF.HI - this->x.HALF.HI);
-    iVar2 = (gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
+    iVar3 = (gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI);
+    iVar2 = (gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI);
 
     iVar3 += 0x30;
     iVar2 += 0x18;
@@ -217,7 +216,7 @@ void sub_0806346C(Entity* this) {
     iVar3 >>= 4;
     iVar2 >>= 4;
 
-    bVar1 = gUnk_0810C8F0[iVar2][iVar3][gPlayerEntity.animationState >> 1];
+    bVar1 = gUnk_0810C8F0[iVar2][iVar3][gPlayerEntity.base.animationState >> 1];
     if (bVar1 != this->type2) {
         const InteractCollisionData* data = &gBeedleCollisionData[bVar1];
         SetInteractableObjectCollision(this, 1, data->interactDirections, data);

@@ -527,14 +527,14 @@ void PauseMenu_ItemMenu_Draw(void) {
         gOamCmd._8 = 0x800;
         DrawDirect(sub_080A5384_draw_constant0, 0x22);
     }
-    i = GetMenuSlotForItem(gSave.stats.itemButtons[SLOT_A]);
+    i = GetMenuSlotForItem(gSave.stats.equipped[SLOT_A]);
     if (i < MENU_SLOT_COUNT) {
         entry = &gItemMenuTable[i];
         gOamCmd.x = entry->x;
         gOamCmd.y = entry->y;
         DrawDirect(sub_080A5384_draw_constant0, 3);
     }
-    i = GetMenuSlotForItem(gSave.stats.itemButtons[SLOT_B]);
+    i = GetMenuSlotForItem(gSave.stats.equipped[SLOT_B]);
     if (i < MENU_SLOT_COUNT) {
         entry = &gItemMenuTable[i];
         gOamCmd.x = entry->x;

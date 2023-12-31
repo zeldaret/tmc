@@ -4,7 +4,6 @@
  *
  * @brief Farore NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "kinstone.h"
@@ -27,8 +26,8 @@ void Farore(FaroreEntity* this) {
                 super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
                 this->animIndex = super->animIndex;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);
             }

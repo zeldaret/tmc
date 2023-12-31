@@ -4,7 +4,6 @@
  *
  * @brief Teachers NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "player.h"
@@ -30,7 +29,7 @@ void Teachers(TeachersEntity* this) {
                 super->spriteSettings.draw = TRUE;
                 super->animationState = super->timer;
                 this->animIndex = 0;
-                SetDefaultPriority(super, PRIO_MESSAGE);
+                SetEntityPriority(super, PRIO_MESSAGE);
                 InitScriptForNPC(super);
             }
             break;
@@ -39,8 +38,8 @@ void Teachers(TeachersEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(
-                                                                         GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super, (super->animIndex & -4) + GetAnimationStateForDirection4(GetFacingDirection(
+                                                                         super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);

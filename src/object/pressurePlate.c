@@ -4,7 +4,6 @@
  *
  * @brief Pressure Plate object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -105,7 +104,7 @@ static u32 sub_08088938(PressurePlateEntity* this) {
     x = super->x.HALF.HI - 8;
     y = super->y.HALF.HI - 8;
     for (i = 0; i < 8; ++i) {
-        Entity* e = gRoomVars.entities[i];
+        Entity* e = gRoomVars.puzzleEntities[i];
         if (e != NULL) {
             if ((u16)(e->x.HALF.HI - x) < 0x11 && ((u16)(e->y.HALF_U.HI - y) < 0x11)) {
                 e->spriteOffsetY = sSpriteOffsets[this->dir];
@@ -121,7 +120,7 @@ static u32 get_standing_count(PressurePlateEntity* this) {
 
     num = 0;
     if (IsCollidingPlayer(super) != 0) {
-        gPlayerEntity.spriteOffsetY = sSpriteOffsets[this->dir];
+        gPlayerEntity.base.spriteOffsetY = sSpriteOffsets[this->dir];
         num = 1;
     }
     if ((gPlayerState.flags & PL_CLONING) != 0) {

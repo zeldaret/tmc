@@ -4,7 +4,6 @@
  *
  * @brief Bell object
  */
-#define NENT_DEPRECATED
 #include "object.h"
 
 void Bell_Init(Entity* this);

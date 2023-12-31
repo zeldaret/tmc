@@ -4,7 +4,6 @@
  *
  * @brief Water Drop object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 

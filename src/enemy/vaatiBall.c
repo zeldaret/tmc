@@ -4,416 +4,430 @@
  *
  * @brief Vaati Ball enemy
  */
-
-#include "entity.h"
 #include "enemy.h"
-#include "player.h"
-#include "object.h"
+#include "entity.h"
 #include "functions.h"
+#include "object.h"
+#include "player.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    /*0x74*/ u8 unk_74;
+    /*0x75*/ u8 unused2[2];
+    /*0x77*/ u8 unk_77;
+    /*0x78*/ u8 unk_78;
+    /*0x79*/ u8 unk_79;
+    /*0x7a*/ u8 unused3[2];
+    /*0x7c*/ u32 unk_7c;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unused4[2];
+    /*0x83*/ u8 unk_83;
+    /*0x84*/ u8 unk_84;
+    /*0x85*/ u8 unused5[1];
+    /*0x86*/ u8 unk_86;
+} VaatiBallEntity;
 
 typedef struct {
     s8 h, v;
 } PACKED PosOffset;
 
-void sub_0804468C(Entity*);
-void sub_080447E0(Entity*);
-void sub_08044868(Entity*);
-void sub_0804474C(Entity*);
-void sub_080449F8(Entity*);
-void sub_08044B04(Entity*);
+void sub_0804468C(VaatiBallEntity*);
+void sub_080447E0(VaatiBallEntity*);
+void sub_08044868(VaatiBallEntity*);
+void sub_0804474C(VaatiBallEntity*);
+void sub_080449F8(VaatiBallEntity*);
+void sub_08044B04(VaatiBallEntity*);
+void sub_08044DEC(VaatiBallEntity*);
 
-extern void sub_08044E74(Entity*, u32);
+extern void sub_08044E74(VaatiBallEntity*, u32);
 
-void VaatiBall(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void VaatiBall(VaatiBallEntity* this) {
+    static void (*const actionFuncs[])(VaatiBallEntity*) = {
         sub_0804468C, sub_0804474C, sub_080447E0, sub_08044868, sub_0804474C, sub_080449F8, sub_08044B04,
     };
-    Entity* parent;
-
-    parent = this->parent;
-    if (this->action && this->action != 3) {
-        this->x.WORD += parent->x.WORD - *(int*)&parent->field_0x78;
-        this->y.WORD += parent->y.WORD - parent->field_0x7c.WORD;
+    Entity* parent = super->parent;
+    if (super->action && super->action != 3) {
+        super->x.WORD += parent->x.WORD - *(int*)&((VaatiBallEntity*)parent)->unk_78;
+        super->y.WORD += parent->y.WORD - ((VaatiBallEntity*)parent)->unk_7c;
     }
 
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
 
-    if (this->cutsceneBeh.HALF.LO) {
-        this->health = -1;
+    if (this->unk_84) {
+        super->health = -1;
     }
 
-    if (this->contactFlags & 0x80) {
-        if ((this->contactFlags & 0x3f) == 0 && this->action == 6) {
+    if (super->contactFlags & 0x80) {
+        if ((super->contactFlags & 0x3f) == 0 && super->action == 6) {
             ModHealth(-2);
         }
 
 #ifdef EU
-        if (this->health < 0xfa) {
+        if (super->health < 0xfa) {
 #else
-        if (this->health < 0xfd) {
+        if (super->health < 0xfd) {
 #endif
-            this->spriteSettings.draw = 0;
-            COLLISION_OFF(this);
-            this->health = -1;
-            parent->field_0x80.HALF.LO--;
-            CreateDust(this);
+            super->spriteSettings.draw = 0;
+            COLLISION_OFF(super);
+            super->health = -1;
+            ((VaatiBallEntity*)parent)->unk_80--;
+            CreateDust(super);
             SoundReq(SFX_1C3);
         }
     }
 }
 
-void sub_0804468C(Entity* this) {
+void sub_0804468C(VaatiBallEntity* this) {
     const PosOffset* off;
     static const PosOffset gUnk_080D1620[4] = { { -48, 0 }, { 0, -48 }, { 48, 0 }, { 0, 48 } };
 
-    this->collisionLayer = 3;
-    this->spriteRendering.b3 = 2;
-    this->spritePriority.b0 = 5;
-    this->cutsceneBeh.HALF.LO = 0;
-    switch (this->type) {
+    super->collisionLayer = 3;
+    super->spriteRendering.b3 = 2;
+    super->spritePriority.b0 = 5;
+    this->unk_84 = 0;
+    switch (super->type) {
         case 0:
-            this->action = 1;
-            this->timer = 1;
-            this->direction = (this->field_0x78.HALF.HI * 8) & (0x3 | DirectionNorthWest);
-            this->field_0x78.HALF.LO = 0;
-            this->field_0x82.HALF.HI = 0;
-            this->spriteSettings.draw = 0;
-            off = &gUnk_080D1620[this->field_0x78.HALF.HI & 3];
-            PositionRelative(this->parent, this, Q_16_16(off->h), Q_16_16(off->v - 0x10));
-            this->z.HALF.HI = this->parent->z.HALF.HI;
-            InitAnimationForceUpdate(this, 0);
+            super->action = 1;
+            super->timer = 1;
+            super->direction = (this->unk_79 * 8) & (0x3 | DirectionNorthWest);
+            this->unk_78 = 0;
+            this->unk_83 = 0;
+            super->spriteSettings.draw = 0;
+            off = &gUnk_080D1620[this->unk_79 & 3];
+            PositionRelative(super->parent, super, Q_16_16(off->h), Q_16_16(off->v - 0x10));
+            super->z.HALF.HI = super->parent->z.HALF.HI;
+            InitAnimationForceUpdate(super, 0);
             break;
         case 1:
-            this->action = 3;
-            this->field_0x74.HALF.LO = 0;
-            this->field_0x82.HALF.HI = 1;
-            this->spriteSettings.draw = 1;
-            InitAnimationForceUpdate(this, 1);
+            super->action = 3;
+            this->unk_74 = 0;
+            this->unk_83 = 1;
+            super->spriteSettings.draw = 1;
+            InitAnimationForceUpdate(super, 1);
             break;
     }
 }
 
-void sub_0804474C(Entity* this) {
-    switch (this->parent->action) {
+void sub_0804474C(VaatiBallEntity* this) {
+    switch (super->parent->action) {
         case 3:
-            this->action = 3;
-            this->field_0x74.HALF.LO = 0;
-            this->timer = 0;
+            super->action = 3;
+            this->unk_74 = 0;
+            super->timer = 0;
             break;
         case 5:
-            this->action = 5;
-            this->field_0x74.HALF.LO = 0;
-            this->subtimer = 1;
+            super->action = 5;
+            this->unk_74 = 0;
+            super->subtimer = 1;
             break;
         case 6:
-            this->action = 6;
-            this->field_0x74.HALF.LO = 0;
-            this->subtimer = 32;
+            super->action = 6;
+            this->unk_74 = 0;
+            super->subtimer = 32;
             break;
         case 2:
-            this->action = 2;
-            this->field_0x74.HALF.LO = 0;
-            this->hitType = 0;
+            super->action = 2;
+            this->unk_74 = 0;
+            super->hitType = 0;
             break;
     }
 
-    if (this->action != 1) {
-        UpdateAnimationSingleFrame(this);
+    if (super->action != 1) {
+        UpdateAnimationSingleFrame(super);
     } else {
-        if (--this->timer == 0) {
-            this->timer = 2;
-            this->direction++;
-            this->direction &= 0x3 | DirectionNorthWest;
+        if (--super->timer == 0) {
+            super->timer = 2;
+            super->direction++;
+            super->direction &= 0x3 | DirectionNorthWest;
         }
-        LinearMoveUpdate(this);
-        UpdateAnimationSingleFrame(this);
+        LinearMoveUpdate(super);
+        UpdateAnimationSingleFrame(super);
     }
 }
 
-void sub_080447E0(Entity* this) {
-    Entity* vaati = this->parent;
+void sub_080447E0(VaatiBallEntity* this) {
+    VaatiBallEntity* vaati = (VaatiBallEntity*)super->parent;
 
-    if (vaati->action == 1) {
-        this->action = 1;
-        this->hitType = 43;
+    if (vaati->base.action == 1) {
+        super->action = 1;
+        super->hitType = 43;
         sub_08044E74(this, 0);
-        if (this->flags & ENT_COLLIDE)
-            this->spriteSettings.draw = 1;
+        if (super->flags & ENT_COLLIDE)
+            super->spriteSettings.draw = 1;
     } else {
-        this->field_0x76.HALF.HI++;
-        this->field_0x76.HALF.HI &= 7;
-        if (this->flags & ENT_COLLIDE) {
-            if (this->field_0x76.HALF.HI & 1) {
-                this->spriteSettings.draw = 1;
+        this->unk_77++;
+        this->unk_77 &= 7;
+        if (super->flags & ENT_COLLIDE) {
+            if (this->unk_77 & 1) {
+                super->spriteSettings.draw = 1;
             } else {
-                this->spriteSettings.draw = 0;
+                super->spriteSettings.draw = 0;
             }
         }
 
-        if (vaati->field_0x74.HALF.LO == 2) {
+        if (vaati->unk_74 == 2) {
             sub_08044E74(this, 2);
         }
     }
 }
 
-extern void sub_08044DEC(Entity*);
+void sub_08044868(VaatiBallEntity* this) {
+    VaatiBallEntity* vaati = (VaatiBallEntity*)super->parent;
 
-void sub_08044868(Entity* this) {
-    Entity* vaati = this->parent;
-
-    switch (vaati->field_0x74.HALF.LO) {
+    switch (vaati->unk_74) {
         case 0xfe:
-            if (this->field_0x82.HALF.HI && this->field_0x74.HALF.LO == 2)
+            if (this->unk_83 && this->unk_74 == 2)
                 DeleteThisEntity();
             break;
         case 0xff:
-            if (this->field_0x82.HALF.HI) {
-                switch (this->field_0x74.HALF.LO) {
+            if (this->unk_83) {
+                switch (this->unk_74) {
                     case 0:
-                        if (this->frame & ANIM_DONE) {
-                            this->field_0x74.HALF.LO = 1;
-                            this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
-                            this->speed = 0x180;
+                        if (super->frame & ANIM_DONE) {
+                            this->unk_74 = 1;
+                            super->direction = sub_080045B4(super, vaati->base.x.HALF.HI, vaati->base.y.HALF.HI - 0x10);
+                            super->speed = 0x180;
                         }
                         break;
                     case 1:
-                        LinearMoveUpdate(this);
-                        if (EntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc)) {
-                            this->field_0x74.HALF.LO++;
-                            this->x.HALF.HI = vaati->x.HALF.HI;
-                            this->y.HALF.HI = vaati->y.HALF.HI - 0x10;
-                            vaati->timer++;
+                        LinearMoveUpdate(super);
+                        if (EntityWithinDistance(super, vaati->base.x.HALF.HI, vaati->base.y.HALF.HI - 0x10, 0xc)) {
+                            this->unk_74++;
+                            super->x.HALF.HI = vaati->base.x.HALF.HI;
+                            super->y.HALF.HI = vaati->base.y.HALF.HI - 0x10;
+                            vaati->base.timer++;
                         } else {
-                            this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
+                            super->direction = sub_080045B4(super, vaati->base.x.HALF.HI, vaati->base.y.HALF.HI - 0x10);
                         }
                         break;
                 }
             }
             break;
         case 1:
-            if (this->field_0x82.HALF.HI == 0) {
-                this->field_0x82.HALF.HI++;
-                this->spriteSettings.draw = 1;
+            if (this->unk_83 == 0) {
+                this->unk_83++;
+                super->spriteSettings.draw = 1;
             }
             sub_08044DEC(this);
-            if (*(u8*)&vaati->field_0x86 > 1) {
-                u8 draw = this->spriteSettings.draw;
-                if (draw == 1 && this->cutsceneBeh.HALF.LO == 0) {
-                    vaati = CreateProjectileWithParent(this, V1_DARK_MAGIC_PROJECTILE, 0);
+            if (vaati->unk_86 > 1) {
+                u8 draw = super->spriteSettings.draw;
+                if (draw == 1 && this->unk_84 == 0) {
+                    vaati = (VaatiBallEntity*)CreateProjectileWithParent(super, V1_DARK_MAGIC_PROJECTILE, 0);
                     if (vaati) {
-                        vaati->type2 = 1;
-                        vaati->parent = this;
-                        this->cutsceneBeh.HALF.LO = 1;
-                        this->hitType = 0;
+                        vaati->base.type2 = 1;
+                        vaati->base.parent = super;
+                        this->unk_84 = 1;
+                        super->hitType = 0;
                     }
                 }
             }
-            this->timer = 32;
+            super->timer = 32;
             break;
         case 2:
-            if (this->timer)
-                if (--this->timer < 0x11)
-                    LinearMoveUpdate(this);
+            if (super->timer)
+                if (--super->timer < 0x11)
+                    LinearMoveUpdate(super);
             break;
         case 3: {
             u8 draw;
 
             sub_08044E74(this, 1);
-            draw = this->spriteSettings.draw;
+            draw = super->spriteSettings.draw;
             if (draw == 1) {
-                COLLISION_ON(this);
+                COLLISION_ON(super);
             } else {
-                COLLISION_OFF(this);
+                COLLISION_OFF(super);
             }
             break;
         }
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_080449F8(Entity* this) {
-    Entity* vaati = this->parent;
+void sub_080449F8(VaatiBallEntity* this) {
+    VaatiBallEntity* vaati = (VaatiBallEntity*)super->parent;
 
-    UpdateAnimationSingleFrame(this);
-    if (vaati->action == 1) {
+    UpdateAnimationSingleFrame(super);
+    if (vaati->base.action == 1) {
         sub_08044E74(this, 0);
         return;
     }
 
-    switch (vaati->field_0x74.HALF.LO) {
+    switch (vaati->unk_74) {
         case 0:
-            LinearMoveUpdate(this);
-            if (--this->timer)
+            LinearMoveUpdate(super);
+            if (--super->timer)
                 break;
 
-            if (this->field_0x78.HALF.LO == 0) {
-                this->field_0x78.HALF.LO++;
-                this->speed = 640;
+            if (this->unk_78 == 0) {
+                this->unk_78++;
+                super->speed = 640;
             }
 
-            this->timer = 4;
-            this->direction++;
-            this->direction &= 0x3 | DirectionNorthWest;
-            if (vaati->field_0x80.HALF.LO == 0)
-                vaati->field_0x74.HALF.LO = 1;
+            super->timer = 4;
+            super->direction++;
+            super->direction &= 0x3 | DirectionNorthWest;
+            if (vaati->unk_80 == 0)
+                vaati->unk_74 = 1;
             break;
         case 1:
-            switch (this->timer) {
+            switch (super->timer) {
                 case 2:
-                    if (vaati->field_0x80.HALF.LO == 0) {
-                        this->subtimer = 0;
+                    if (vaati->unk_80 == 0) {
+                        super->subtimer = 0;
                         sub_08044E74(this, 0);
                     }
                     break;
                 case 1:
-                    this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
-                    LinearMoveUpdate(this);
-                    this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
-                    this->timer = 2;
+                    super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
+                    LinearMoveUpdate(super);
+                    super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
+                    super->timer = 2;
                     break;
                 case 3:
-                    LinearMoveUpdate(this);
-                    this->timer = 2;
+                    LinearMoveUpdate(super);
+                    super->timer = 2;
                     break;
                 case 4:
-                    LinearMoveUpdate(this);
-                    LinearMoveUpdate(this);
-                    this->timer = 2;
+                    LinearMoveUpdate(super);
+                    LinearMoveUpdate(super);
+                    super->timer = 2;
                     break;
             }
             break;
         case 2:
-            if (this->field_0x74.HALF.LO == 0) {
+            if (this->unk_74 == 0) {
                 u8 draw;
 
-                this->field_0x74.HALF.LO++;
-                draw = this->spriteSettings.draw;
+                this->unk_74++;
+                draw = super->spriteSettings.draw;
                 if (draw) {
-                    vaati = CreateProjectileWithParent(this, V1_EYE_LASER, 0);
+                    vaati = (VaatiBallEntity*)CreateProjectileWithParent(super, V1_EYE_LASER, 0);
                     if (vaati) {
-                        vaati->y.HALF.HI += 4;
-                        vaati->parent = this;
-                        this->child = vaati;
+                        vaati->base.y.HALF.HI += 4;
+                        vaati->base.parent = super;
+                        super->child = &vaati->base;
                     }
                 }
             }
             break;
         case 3:
-            if (this->subtimer) {
-                this->subtimer = 0;
+            if (super->subtimer) {
+                super->subtimer = 0;
             }
             break;
     }
 }
 
-void sub_08044B04(Entity* this) {
-    Entity* vaati = this->parent;
+void sub_08044B04(VaatiBallEntity* this) {
+    Entity* vaati = super->parent;
 
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
     if (vaati->action == 1) {
         sub_08044E74(this, 0);
-        this->timer = 32;
+        super->timer = 32;
         return;
     }
 
-    switch (vaati->field_0x74.HALF.LO) {
+    switch (((VaatiBallEntity*)vaati)->unk_74) {
         case 0:
-            LinearMoveUpdate(this);
-            switch (this->field_0x74.HALF.LO) {
+            LinearMoveUpdate(super);
+            switch (this->unk_74) {
                 case 0:
-                    if (--this->timer == 0) {
-                        this->timer = this->field_0x78.HALF.LO ? 4 : 2;
-                        this->direction++;
-                        this->direction &= 0x3 | DirectionNorthWest;
+                    if (--super->timer == 0) {
+                        super->timer = this->unk_78 ? 4 : 2;
+                        super->direction++;
+                        super->direction &= 0x3 | DirectionNorthWest;
                     }
-                    if (--this->subtimer == 0) {
-                        if (this->timer != 2) {
-                            this->subtimer = 1;
+                    if (--super->subtimer == 0) {
+                        if (super->timer != 2) {
+                            super->subtimer = 1;
                         } else {
-                            if (++this->field_0x78.HALF.LO > 2) {
-                                this->field_0x74.HALF.LO++;
-                                this->field_0x78.HALF.LO = 1;
-                                this->timer = 4;
-                                this->subtimer = 0;
+                            if (++this->unk_78 > 2) {
+                                this->unk_74++;
+                                this->unk_78 = 1;
+                                super->timer = 4;
+                                super->subtimer = 0;
                             } else {
-                                this->subtimer = 32;
+                                super->subtimer = 32;
                             }
 
-                            this->speed = this->field_0x78.HALF.LO ? 640 : 1280;
+                            super->speed = this->unk_78 ? 640 : 1280;
                         }
                     }
                     break;
                 case 1:
-                    if (--this->timer == 0) {
-                        this->timer = 6;
-                        this->direction = (this->direction + 1) & (0x3 | DirectionNorthWest);
-                        if (++this->subtimer == 0x30) {
-                            u32 direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
-                            this->speed = 0;
-                            this->direction = (direction + 16) & (0x3 | DirectionNorthWest);
-                            this->timer = 16;
-                            this->subtimer = 16;
-                            this->field_0x74.HALF.LO++;
+                    if (--super->timer == 0) {
+                        super->timer = 6;
+                        super->direction = (super->direction + 1) & (0x3 | DirectionNorthWest);
+                        if (++super->subtimer == 0x30) {
+                            u32 direction = sub_080045B4(super, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
+                            super->speed = 0;
+                            super->direction = (direction + 16) & (0x3 | DirectionNorthWest);
+                            super->timer = 16;
+                            super->subtimer = 16;
+                            this->unk_74++;
                         }
                     }
                     break;
                 case 2:
-                    if (this->subtimer == 0) {
-                        switch (--this->timer) {
+                    if (super->subtimer == 0) {
+                        switch (--super->timer) {
                             case 12:
-                                this->speed = 1280;
+                                super->speed = 1280;
                                 break;
                             case 0:
-                                this->field_0x74.HALF.LO++;
-                                this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
-                                this->speed = 0;
-                                this->timer = 4;
-                                this->subtimer = 16;
+                                this->unk_74++;
+                                super->direction = sub_080045B4(super, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
+                                super->speed = 0;
+                                super->timer = 4;
+                                super->subtimer = 16;
                                 break;
                             case 4:
-                                this->speed = 640;
+                                super->speed = 640;
                                 break;
                         }
                     } else {
-                        if (--this->subtimer == 0)
-                            this->speed = 640;
+                        if (--super->subtimer == 0)
+                            super->speed = 640;
                     }
                     break;
                 case 3:
-                    if (this->subtimer) {
-                        if (--this->subtimer == 0)
-                            this->speed = 640;
+                    if (super->subtimer) {
+                        if (--super->subtimer == 0)
+                            super->speed = 640;
                     } else {
-                        if (this->timer) {
-                            if (--this->timer == 0) {
-                                this->speed = 1280;
+                        if (super->timer) {
+                            if (--super->timer == 0) {
+                                super->speed = 1280;
                                 SoundReq(SFX_14F);
                             }
                         }
-                        if (this->field_0x78.HALF.HI == 3)
-                            if (EntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
+                        if (this->unk_79 == 3)
+                            if (EntityWithinDistance(super, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
                                 vaati->timer++;
-                        this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
+                        super->direction = sub_080045B4(super, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                         return;
                     }
                     break;
             }
             break;
         case 1:
-            switch (this->field_0x74.HALF.LO) {
+            switch (this->unk_74) {
                 case 3:
-                    this->field_0x74.HALF.LO = 1;
-                    this->timer = 80;
-                    COLLISION_OFF(this);
-                    PositionRelative(vaati, this, 0, Q_16_16(-16.0));
-                    if (this->subtimer)
-                        this->spriteSettings.draw = 0;
+                    this->unk_74 = 1;
+                    super->timer = 80;
+                    COLLISION_OFF(super);
+                    PositionRelative(vaati, super, 0, Q_16_16(-16.0));
+                    if (super->subtimer)
+                        super->spriteSettings.draw = 0;
                     break;
                 case 1:
-                    if (--this->timer == 0) {
-                        this->field_0x74.HALF.LO = 0;
-                        this->timer = 32;
-                        this->subtimer = 4;
+                    if (--super->timer == 0) {
+                        this->unk_74 = 0;
+                        super->timer = 32;
+                        super->subtimer = 4;
                     }
                     break;
             }
@@ -422,30 +436,30 @@ void sub_08044B04(Entity* this) {
             /* ... */
             break;
         case 3:
-            switch (this->field_0x74.HALF.LO) {
+            switch (this->unk_74) {
                 case 0:
-                    if (this->subtimer) {
-                        if (--this->subtimer == 0) {
+                    if (super->subtimer) {
+                        if (--super->subtimer == 0) {
                             sub_08044DEC(this);
-                            this->field_0x74.HALF.LO = 1;
-                            this->timer = 16;
+                            this->unk_74 = 1;
+                            super->timer = 16;
                         }
                     }
                     break;
                 case 1:
-                    LinearMoveUpdate(this);
-                    if (--this->timer == 0)
-                        this->field_0x74.HALF.LO++;
+                    LinearMoveUpdate(super);
+                    if (--super->timer == 0)
+                        this->unk_74++;
                     break;
                 case 2: {
                     u8 draw;
 
                     sub_08044E74(this, 1);
-                    draw = this->spriteSettings.draw;
+                    draw = super->spriteSettings.draw;
                     if (draw == 1) {
-                        COLLISION_ON(this);
+                        COLLISION_ON(super);
                     } else {
-                        COLLISION_OFF(this);
+                        COLLISION_OFF(super);
                     }
                     vaati->timer++;
                     break;
@@ -455,7 +469,7 @@ void sub_08044B04(Entity* this) {
     }
 }
 
-void sub_08044DEC(Entity* this) {
+void sub_08044DEC(VaatiBallEntity* this) {
     u32 off;
     static const u8 gUnk_080D1628[4][4] = {
         { 16, 24, 0, 8 },
@@ -464,62 +478,62 @@ void sub_08044DEC(Entity* this) {
         { 16, 24, 0, 8 },
     };
 
-    if (this->parent->field_0x80.HALF.LO > this->field_0x78.HALF.HI) {
-        this->spriteSettings.draw = 1;
-        this->health = -1;
+    if (((VaatiBallEntity*)super->parent)->unk_80 > this->unk_79) {
+        super->spriteSettings.draw = 1;
+        super->health = -1;
     } else {
-        this->spriteSettings.draw = 0;
+        super->spriteSettings.draw = 0;
     }
-    COLLISION_OFF(this);
-    this->field_0x78.HALF.LO = 0;
-    this->speed = 0x300;
-    off = this->parent->field_0x80.HALF.LO - 1;
-    this->direction = gUnk_080D1628[off][this->field_0x78.HALF.HI];
-    PositionRelative(this->parent, this, 0, Q_16_16(-16.0));
+    COLLISION_OFF(super);
+    this->unk_78 = 0;
+    super->speed = 0x300;
+    off = ((VaatiBallEntity*)super->parent)->unk_80 - 1;
+    super->direction = gUnk_080D1628[off][this->unk_79];
+    PositionRelative(super->parent, super, 0, Q_16_16(-16.0));
 }
 
-void sub_08044E74(Entity* this, u32 state) {
-    this->action = 1;
-    this->field_0x74.HALF.LO = 0;
+void sub_08044E74(VaatiBallEntity* this, u32 state) {
+    super->action = 1;
+    this->unk_74 = 0;
 
     switch (state) {
         case 2:
-            this->action = 2;
-            this->direction += DirectionWest;
-            this->direction &= 0x3 | DirectionNorthWest;
-            PositionRelative(this->parent, this, 0, Q_16_16(-16.0));
-            this->speed = 12288;
-            LinearMoveUpdate(this);
-            this->direction += DirectionEast;
-            this->direction &= 0x3 | DirectionNorthWest;
-            this->speed = 1280;
-            LinearMoveUpdate(this);
+            super->action = 2;
+            super->direction += DirectionWest;
+            super->direction &= 0x3 | DirectionNorthWest;
+            PositionRelative(super->parent, super, 0, Q_16_16(-16.0));
+            super->speed = 12288;
+            LinearMoveUpdate(super);
+            super->direction += DirectionEast;
+            super->direction &= 0x3 | DirectionNorthWest;
+            super->speed = 1280;
+            LinearMoveUpdate(super);
             break;
         case 1:
-            this->direction = (this->direction + 8) & (0x3 | DirectionNorthWest);
+            super->direction = (super->direction + 8) & (0x3 | DirectionNorthWest);
             break;
         case 0:
-            if (this->field_0x78.HALF.LO) {
-                switch (this->timer) {
+            if (this->unk_78) {
+                switch (super->timer) {
                     case 3 ... 4:
                         do {
-                            LinearMoveUpdate(this);
-                        } while (this->timer-- != 3);
+                            LinearMoveUpdate(super);
+                        } while (super->timer-- != 3);
                         break;
                     case 1:
-                        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
-                        LinearMoveUpdate(this);
-                        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
+                        super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
+                        LinearMoveUpdate(super);
+                        super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
                         break;
                 }
             } else {
-                if (this->timer == 2) {
-                    LinearMoveUpdate(this);
+                if (super->timer == 2) {
+                    LinearMoveUpdate(super);
                 }
             }
             break;
     }
-    this->timer = 1;
-    this->field_0x78.HALF.LO = 0;
-    this->speed = Q_8_8(5.0);
+    super->timer = 1;
+    this->unk_78 = 0;
+    super->speed = Q_8_8(5.0);
 }

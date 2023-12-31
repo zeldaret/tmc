@@ -4,6 +4,23 @@
 #include "global.h"
 #include "entity.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ union SplitWord unk_68;
+    /*0x6c*/ u8 unk_6c;
+    /*0x6d*/ u8 unk_6d;
+    /*0x6e*/ u8 unk_6e;
+    /*0x6f*/ u8 unk_6f;
+    /*0x70*/ Entity* unk_70;
+    /*0x74*/ Entity* unk_74;
+    /*0x78*/ u8 unk_78;
+    /*0x79*/ u8 unk_79;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ union SplitWord unk_7c;
+    /*0x80*/ union SplitWord unk_80;
+    /*0x84*/ union SplitWord unk_84;
+} PlayerEntity;
+
 enum PlayerActions {
     PLAYER_INIT,
     PLAYER_NORMAL,
@@ -244,29 +261,27 @@ typedef struct {
 } PlayerMacroEntry ALIGNED(2);
 
 typedef enum {
-    PLAYER_INPUT_1 = 0x1,   // A
-    PLAYER_INPUT_2 = 0x2,   // B
-    PLAYER_INPUT_8 = 0x8,   // A sub_080782C0, sub_0807953C, PlayerUpdateSwimming, sub_08076518. ItemForSale_Action2
-    PLAYER_INPUT_10 = 0x10, // B sub_0807953C, ToggleDiving, sub_08076518, ItemForSale_Action2
-    PLAYER_INPUT_20 = 0x20, // R sub_0807953C
-    PLAYER_INPUT_40 = 0x40, // A CrenelBeanSprout_Action1
-    PLAYER_INPUT_80 =
+    INPUT_USE_ITEM1 = 0x1, // A
+    INPUT_USE_ITEM2 = 0x2, // B
+    INPUT_INTERACT = 0x8,  // A sub_080782C0, sub_0807953C, PlayerUpdateSwimming, sub_08076518. ItemForSale_Action2
+    INPUT_CANCEL = 0x10,   // B sub_0807953C, ToggleDiving, sub_08076518, ItemForSale_Action2
+    INPUT_CONTEXT = 0x20,  // R sub_0807953C
+    INPUT_40 = 0x40,       // A CrenelBeanSprout_Action1
+    INPUT_ACTION =
         0x80, // R sub_08073584, IsPreventedFromUsingItem, sub_080782C0, CrenelBeanSprout_Action1, ItemForSale_Action2
-    PLAYER_INPUT_RIGHT = 0x100,
-    PLAYER_INPUT_LEFT = 0x200,
-    PLAYER_INPUT_UP = 0x400,
-    PLAYER_INPUT_DOWN = 0x800,
-    PLAYER_INPUT_ANY_DIRECTION = 0xf00,
-    PLAYER_INPUT_1000 = 0x1000, // L, where is it set? sub_080782C0
-    PLAYER_INPUT_8000 = 0x8000, // R, IsTryingToPickupObject, sub_08076518
-
-    // TODO What is the result of u32 result = (s32) - (keys & 0x200) >> 0x1f & 0x1000;?
+    INPUT_RIGHT = 0x100,
+    INPUT_LEFT = 0x200,
+    INPUT_UP = 0x400,
+    INPUT_DOWN = 0x800,
+    INPUT_ANY_DIRECTION = 0xf00,
+    INPUT_FUSE = 0x1000,       // L, where is it set? sub_080782C0
+    INPUT_LIFT_THROW = 0x8000, // R, IsTryingToPickupObject, sub_08076518
 } PlayerInputState;
 
 typedef struct {
     /*0x0*/ u16 heldInput; /**< Input currently held @see PlayerInputState */
     /*0x2*/ u16 newInput;  /**< New input this frame @see PlayerInputState */
-    /*0x4*/ u32 field_0x94;
+    /*0x4*/ u32 unused;
     /*0x8*/ u16 playerMacroWaiting;
     /*0xa*/ u16 playerMacroHeldKeys;
     /*0xc*/ PlayerMacroEntry* playerMacro;
@@ -536,7 +551,7 @@ typedef struct {
     /*0x09*/ u8 _hasAllFigurines;
     /*0x0a*/ u8 charm;
     /*0x0b*/ u8 picolyteType;
-    /*0x0c*/ u8 itemButtons[2];
+    /*0x0c*/ u8 equipped[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
     /*0x13*/ u8 hasAllFigurines;
@@ -588,9 +603,9 @@ extern const u8 gQuiverSizes[];
 extern Entity* gPlayerClones[];
 
 extern PlayerState gPlayerState;
-extern Entity gPlayerEntity;
+extern PlayerEntity gPlayerEntity;
 
-void DoPlayerAction(Entity*);
+void DoPlayerAction(PlayerEntity*);
 bool32 CheckInitPauseMenu(void);
 void SetPlayerControl(PlayerControlMode mode);
 void ResetActiveItems(void);
@@ -722,7 +737,7 @@ s32 AddInteractableObject(Entity*, u32, u32);
 void RemoveInteractableObject(Entity*);
 s32 GetInteractableObjectIndex();
 void sub_08078AC0(u32, u32, u32);
-void sub_08078B48(void);
+void PausePlayer(void);
 void sub_08078E84(Entity*, Entity*);
 void sub_08078FB0(Entity*);
 void sub_080792BC(s32, u32, u32);

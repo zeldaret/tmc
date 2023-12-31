@@ -1,4 +1,9 @@
-#define NENT_DEPRECATED
+/**
+ * @file gyorgFemale.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Female enemy
+ */
 #include "asm.h"
 #include "beanstalkSubtask.h"
 #include "collision.h"
@@ -51,32 +56,32 @@ void GyorgFemale(Entity* this) {
 }
 
 void GyorgFemale_Setup(GyorgFemaleEntity* this) {
-    Entity* tmp;
+    Entity* entity;
     if (gEntCount > 0x3d)
         return;
-    tmp = CreateProjectile(GYORG_TAIL);
-    tmp->type = 0;
-    tmp->parent = super;
-    ((GyorgHeap*)super->myHeap)->tail = (GenericEntity*)tmp;
-    tmp = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
-    tmp->parent = super;
-    ((GyorgHeap*)super->myHeap)->mouth = (GyorgFemaleMouthEntity*)tmp;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 0);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 1);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 2);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 3);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 4);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 5);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 6);
-    tmp->parent = super;
-    tmp = CreateEnemy(GYORG_FEMALE_EYE, 7);
-    tmp->parent = super;
+    entity = CreateProjectile(GYORG_TAIL);
+    entity->type = 0;
+    entity->parent = super;
+    ((GyorgHeap*)super->myHeap)->tail = (GenericEntity*)entity;
+    entity = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
+    entity->parent = super;
+    ((GyorgHeap*)super->myHeap)->mouth = (GyorgFemaleMouthEntity*)entity;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 0);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 1);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 2);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 3);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 4);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 5);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 6);
+    entity->parent = super;
+    entity = CreateEnemy(GYORG_FEMALE_EYE, 7);
+    entity->parent = super;
     super->action = 1;
     super->spriteOrientation.flipY = 2;
     super->spriteRendering.b3 = 2;
@@ -88,8 +93,8 @@ void GyorgFemale_Setup(GyorgFemaleEntity* this) {
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_0804660C(this, 0);
     sub_080464C0(this);
-    gPlayerEntity.collisionLayer = 2;
-    UpdateSpriteForCollisionLayer(&gPlayerEntity);
+    gPlayerEntity.base.collisionLayer = 2;
+    UpdateSpriteForCollisionLayer(&gPlayerEntity.base);
 #ifndef EU
     RegisterTransitionManager(this, sub_08046498, 0);
 #else
@@ -267,8 +272,8 @@ void sub_08046518(void) {
 
 void sub_080465C8(void) {
     s32 x, y;
-    x = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3;
-    y = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3;
+    x = (gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x) >> 3;
+    y = (gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) >> 3;
     if (gMapDataBottomSpecial[(y << 7) + x]) {
         gPlayerState.field_0x14 = 1;
     }
@@ -373,7 +378,7 @@ void GyorgFemale_ProcessEyeHit(GyorgFemaleEntity* this) {
 #ifndef EU
         if (((GyorgHeap*)super->myHeap)->unk_3c != 0xFF) {
 #endif
-            tmp = &gPlayerEntity;
+            tmp = &gPlayerEntity.base;
             tmp->knockbackDirection = ((GyorgHeap*)super->myHeap)->unk_3c;
             tmp->iframes = 0xF4;
             tmp->knockbackDuration = 0xA;

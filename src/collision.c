@@ -64,8 +64,8 @@ void CollisionMain(void) {
     u32 prio;
 
     // pick highest priority
-    prio = gPriorityHandler.sys_priority;
-    if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
+    prio = gPriorityHandler.event_priority;
+    if (gPriorityHandler.event_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
 
     // if any priority is set, dont do collision
@@ -75,10 +75,10 @@ void CollisionMain(void) {
     doCollision = &ram_CollideAll;
     // Check to see if we should disable collision this frame
     if (gPlayerState.controlMode != CONTROL_ENABLED) {
-        u32 flags = gPlayerEntity.flags;
-        COLLISION_OFF(&gPlayerEntity);
+        u32 flags = gPlayerEntity.base.flags;
+        COLLISION_OFF(&gPlayerEntity.base);
         doCollision();
-        gPlayerEntity.flags = flags; // reset collision to before
+        gPlayerEntity.base.flags = flags; // reset collision to before
     } else {
         doCollision();
     }
@@ -89,7 +89,7 @@ void RegisterPlayerHitbox(void) {
     gUnk_02018EA0 = (LinkedList2*)&gUnk_03003C70[0].last;
     gUnk_03003C70[0].last = &gUnk_03003C70[0].last;
     gUnk_03003C70[0].first = &gUnk_03003C70[0].last;
-    gUnk_03003C70[0].node = &gPlayerEntity;
+    gUnk_03003C70[0].node = &gPlayerEntity.base;
 }
 
 u32 sub_0801766C(Entity* this) {
@@ -212,7 +212,7 @@ bool32 IsColliding(Entity* this, Entity* that) {
 
 bool32 IsCollidingPlayer(Entity* this) {
     if (PlayerCanBeMoved())
-        return IsColliding(this, &gPlayerEntity);
+        return IsColliding(this, &gPlayerEntity.base);
     return FALSE;
 }
 
@@ -248,7 +248,7 @@ s32 CalculateDamage(Entity* org, Entity* tgt) {
         }
         health = org->health - damage;
         if (org->kind == ENEMY) {
-            if ((org->field_0x6c.HALF.HI & 1) != 0)
+            if ((((GenericEntity*)org)->field_0x6c.HALF.HI & 1) != 0)
                 SoundReqClipped(org, SFX_BOSS_HIT);
             else
                 SoundReqClipped(org, SFX_HIT);
@@ -277,8 +277,8 @@ void sub_08017940(Entity* org, Entity* tgt) {
 
     r1 = 0;
 
-    r1 = (u32)(org == &gPlayerEntity ? gPlayerEntity.knockbackDuration
-                                     : (tgt == &gPlayerEntity ? tgt->knockbackDuration : 0)) >>
+    r1 = (u32)(org == &gPlayerEntity.base ? gPlayerEntity.base.knockbackDuration
+                                          : (tgt == &gPlayerEntity.base ? tgt->knockbackDuration : 0)) >>
          3;
 
     // Anything requiring the evaluation of r1 could be written here.
@@ -464,7 +464,7 @@ CollisionResult sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSetting
 
 CollisionResult sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     gPlayerState.mobility = 1;
-    org->field_0x7a.HWORD = 600;
+    ((GenericEntity*)org)->field_0x7a.HWORD = 600;
     org->knockbackDuration = 12;
     org->iframes = 16;
     org->knockbackSpeed = 640;
@@ -484,7 +484,7 @@ CollisionResult sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSetting
         y = 0xac2;
     } else {
         tgt->contactFlags = 0xcb;
-        tgt->field_0x78.HALF.HI = org->hurtType;
+        ((GenericEntity*)tgt)->field_0x78.HALF.HI = org->hurtType;
         x = org->hurtType;
         y = 0xae4;
     }
@@ -498,17 +498,17 @@ CollisionResult sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSetting
         tgt->damage &= ~0x80;
     else
         tgt->damage = 4;
-    gPlayerEntity.health = CalculateDamage(&gPlayerEntity, tgt);
+    gPlayerEntity.base.health = CalculateDamage(&gPlayerEntity.base, tgt);
     tgt->iframes = -12;
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         sub_08079D84();
         org->iframes = 90;
     } else {
-        gPlayerEntity.contactFlags = tgt->hurtType | 0x80;
-        gPlayerEntity.iframes = 12;
-        gPlayerEntity.knockbackDuration = 16;
-        gPlayerEntity.knockbackDirection = DirectionTurnAround(direction);
-        gPlayerEntity.knockbackSpeed = 640;
+        gPlayerEntity.base.contactFlags = tgt->hurtType | 0x80;
+        gPlayerEntity.base.iframes = 12;
+        gPlayerEntity.base.knockbackDuration = 16;
+        gPlayerEntity.base.knockbackDirection = DirectionTurnAround(direction);
+        gPlayerEntity.base.knockbackSpeed = 640;
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
@@ -526,19 +526,19 @@ CollisionResult sub_08017E88(Entity* org, Entity* tgt, u32 direction, ColSetting
 CollisionResult sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->damage == 0)
         return RESULT_NO_COLLISION;
-    if (org == &gPlayerEntity) {
+    if (org == &gPlayerEntity.base) {
         u32 prevDamage = tgt->damage;
         tgt->damage = 8;
-        gPlayerEntity.health = CalculateDamage(&gPlayerEntity, tgt);
+        gPlayerEntity.base.health = CalculateDamage(&gPlayerEntity.base, tgt);
         tgt->damage = prevDamage;
-        gPlayerEntity.knockbackDuration = 12;
-        gPlayerEntity.iframes = 16;
-        gPlayerEntity.knockbackSpeed = 384;
+        gPlayerEntity.base.knockbackDuration = 12;
+        gPlayerEntity.base.iframes = 16;
+        gPlayerEntity.base.knockbackSpeed = 384;
     } else if (org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) {
         org->knockbackDuration = 8;
         org->iframes = -6;
         org->knockbackSpeed = 384;
-        gPlayerEntity.iframes = 0x80;
+        gPlayerEntity.base.iframes = 0x80;
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
@@ -551,7 +551,7 @@ CollisionResult sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSetting
 
 CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
-        if (org == &gPlayerEntity) {
+        if (org == &gPlayerEntity.base) {
             if (PlayerCanBeMoved() &&
 #ifdef EU
                 (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
@@ -580,7 +580,7 @@ CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSetting
         } else {
             org->health = 0;
         }
-    } else if (tgt->kind == ENEMY && org == &gPlayerEntity) {
+    } else if (tgt->kind == ENEMY && org == &gPlayerEntity.base) {
         sub_08004484(tgt, org);
     }
     return RESULT_NO_COLLISION;
@@ -647,7 +647,7 @@ CollisionResult sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSetting
 
 CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
-        if (org == &gPlayerEntity) {
+        if (org == &gPlayerEntity.base) {
             if (PlayerCanBeMoved() &&
 #ifdef EU
                 (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
@@ -659,10 +659,10 @@ CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSetting
                 gPlayerState.field_0xa |= 0x80;
                 gPlayerState.flags |= PL_DISABLE_ITEMS;
                 gPlayerState.jump_status = 0;
-                COLLISION_OFF(&gPlayerEntity);
-                gPlayerEntity.spriteRendering.b3 = tgt->spriteRendering.b3;
-                gPlayerEntity.spriteOrientation.flipY = tgt->spriteOrientation.flipY;
-                gPlayerEntity.iframes = 0xff;
+                COLLISION_OFF(&gPlayerEntity.base);
+                gPlayerEntity.base.spriteRendering.b3 = tgt->spriteRendering.b3;
+                gPlayerEntity.base.spriteOrientation.flipY = tgt->spriteOrientation.flipY;
+                gPlayerEntity.base.iframes = 0xff;
                 tgt->iframes = -8;
                 PutAwayItems();
                 return RESULT_COLLISION;
@@ -670,14 +670,14 @@ CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSetting
         } else {
             org->health = 0;
         }
-    } else if ((tgt->kind == ENEMY) && (org == &gPlayerEntity)) {
-        sub_08004484(tgt, &gPlayerEntity);
+    } else if ((tgt->kind == ENEMY) && (org == &gPlayerEntity.base)) {
+        sub_08004484(tgt, &gPlayerEntity.base);
     }
     return RESULT_NO_COLLISION;
 }
 
 CollisionResult sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if (org == &gPlayerEntity && PlayerCanBeMoved())
+    if (org == &gPlayerEntity.base && PlayerCanBeMoved())
         sub_08004484(tgt, org);
     return RESULT_NO_COLLISION;
 }
@@ -694,7 +694,7 @@ CollisionResult sub_08018250(Entity* org, Entity* tgt, u32 direction, ColSetting
 }
 
 CollisionResult CollisionMazaalShrinkRay(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if (org == &gPlayerEntity)
+    if (org == &gPlayerEntity.base)
         PlayerShrinkByRay();
     else
         org->health = 0;
@@ -716,12 +716,12 @@ CollisionResult sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSetting
 
 CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 confused = 0;
-    if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity) {
+    if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity.base) {
         sub_08004484(tgt, org);
         confused = 1;
     }
     if ((org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) &&
-        gPlayerEntity.animationState ==
+        gPlayerEntity.base.animationState ==
             AnimationStateFlip180(Direction8ToAnimationState(DirectionRoundUp(direction)))) {
         return RESULT_NO_COLLISION;
     }
@@ -780,11 +780,11 @@ CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSet
                 SoundReqClipped(tgt, SFX_HIT);
             }
         } else if (org->id == PL_ITEM_SHIELD) {
-            gPlayerEntity.iframes = 0x80;
+            gPlayerEntity.base.iframes = 0x80;
         }
     }
     if (tgt->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) {
-        gPlayerEntity.iframes = 0x80;
+        gPlayerEntity.base.iframes = 0x80;
     }
     return RESULT_COLLISION;
 }

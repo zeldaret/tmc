@@ -4,7 +4,6 @@
  *
  * @brief Macro Acorn object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "map.h"
 #include "object.h"
