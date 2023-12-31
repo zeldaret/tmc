@@ -203,7 +203,7 @@ void ZeldaFollower_Show(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower
     InitAnimationForceUpdate(&follower->base, follower->base.animationState / 2);
 }
 
-void sub_080686C4(ZeldaFollowerEntity* this, Entity* follower) {
+void sub_080686C4(ZeldaFollowerEntity* this, ZeldaFollowerEntity* follower) {
     follower->y.HALF.HI -= 0x10;
     sub_08068578(follower);
 }
