@@ -4,7 +4,6 @@
  *
  * @brief Projectile 5
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "physics.h"
@@ -41,7 +40,7 @@ void Projectile5_OnCollision(Entity* this) {
         pbVar2 = &((Projectile5Entity*)this->parent)->unk_83;
         if ((((Projectile5Entity*)this->parent)->unk_83 & 0x3f) == 3) {
             if (gPlayerState.hurtBlinkSpeed != 0) {
-                if (sub_080B1B44(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.collisionLayer) == 0) {
+                if (sub_080B1B44(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.base.collisionLayer) == 0) {
                     if (this->contactFlags == 0x80) {
                         *pbVar2 = *pbVar2 & 0x7f;
                         DeleteThisEntity();

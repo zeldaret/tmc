@@ -4,7 +4,6 @@
  *
  * @brief Great Fairy object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "save.h"
@@ -66,12 +65,12 @@ void GreatFairy(GreatFairyEntity* this) {
 void GreatFairy_CallBehavior(GreatFairyEntity* this) {
     GreatFairy_Behaviors[super->action](this);
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < 168) {
+    if ((gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) < 168) {
 
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 2;
     } else {
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
         gRoomControls.scrollSpeed = 2;
     }
 }
@@ -542,8 +541,8 @@ void sub_08087424(GreatFairyEntity* this, ScriptExecutionContext* context) {
     ResetPlayerAnimationAndAction();
     ent = CreateObject(THUNDERBOLT, 0, 0);
     if (ent != NULL) {
-        ent->parent = &gPlayerEntity;
-        CopyPosition(&gPlayerEntity, ent);
+        ent->parent = &gPlayerEntity.base;
+        CopyPosition(&gPlayerEntity.base, ent);
         SetEntityPriority(ent, PRIO_MESSAGE);
     }
 

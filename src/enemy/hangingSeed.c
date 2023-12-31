@@ -4,9 +4,8 @@
  *
  * @brief Hanging Seed enemy
  */
-
-#include "entity.h"
 #include "enemy.h"
+#include "entity.h"
 #include "functions.h"
 
 extern void (*const HangingSeed_Functions[])(Entity*);

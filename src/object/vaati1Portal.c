@@ -4,7 +4,6 @@
  *
  * @brief Vaati1 Portal object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "flags.h"
@@ -50,7 +49,7 @@ void Vaati1Portal_Action2(Entity* this) {
     if (CheckRoomFlag(1)) {
         sub_080A0190(this);
         RequestPriorityDuration(this, 30);
-        if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10)) {
+        if (EntityInRectRadius(this, &gPlayerEntity.base, 0x10, 0x10)) {
             CreateHoleManager(0x37);
         }
     }
@@ -58,7 +57,7 @@ void Vaati1Portal_Action2(Entity* this) {
 
 void sub_080A0190(Entity* this) {
     this->subAction = 1;
-    CopyPosition(this, &gPlayerEntity);
+    CopyPosition(this, &gPlayerEntity.base);
     gPlayerState.queued_action = PLAYER_FALL;
     gPlayerState.field_0x38 = 0;
     gPlayerState.flags |= PL_PIT_IS_EXIT;

@@ -4,7 +4,6 @@
  *
  * @brief File Screen Objects object
  */
-#define NENT_DEPRECATED
 #include "fileselect.h"
 #include "functions.h"
 #include "main.h"

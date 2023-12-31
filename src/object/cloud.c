@@ -4,7 +4,6 @@
  *
  * @brief Cloud object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 #include "structures.h"
@@ -135,7 +134,7 @@ void sub_0809F69C(CloudEntity* this) {
     if (--super->timer == 0) {
         super->timer = 30;
         super->action = 4;
-        gRoomControls.camera_target = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity.base;
         SoundReq(SFX_SECRET_BIG);
     }
 }

@@ -112,9 +112,9 @@ void InitializePlayer(void) {
     MemClear(&gActiveItems, sizeof(gActiveItems));
     MemClear(&gPlayerState, sizeof(gPlayerState));
     MemFill32(0xffffffff, &gPlayerState.path_memory, sizeof(gPlayerState.path_memory));
-    MemClear(&gPlayerEntity, sizeof(gPlayerEntity));
+    MemClear(&gPlayerEntity.base, sizeof(gPlayerEntity));
 
-    pl = &gPlayerEntity;
+    pl = &gPlayerEntity.base;
 
     gRoomControls.camera_target = pl;
     gPlayerState.queued_action = sPlayerSpawnStates[gRoomTransition.player_status.spawn_type];
@@ -210,7 +210,7 @@ s32 ModHealth(s32 delta) {
         newHealth = stats->maxHealth;
     }
     stats->health = newHealth;
-    gPlayerEntity.health = newHealth;
+    gPlayerEntity.base.health = newHealth;
     return newHealth;
 }
 
@@ -386,8 +386,8 @@ u32 StairsAreValid(void) {
 
 void InitParachuteRoom(void) {
     gRoomTransition.transitioningOut = 1;
-    gRoomTransition.player_status.start_pos_x = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) & 0x3F8;
-    gRoomTransition.player_status.start_pos_y = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) & 0x3F8;
+    gRoomTransition.player_status.start_pos_x = (gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x) & 0x3F8;
+    gRoomTransition.player_status.start_pos_y = (gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y) & 0x3F8;
     gRoomTransition.player_status.start_anim = 4;
     gRoomTransition.player_status.spawn_type = PL_SPAWN_PARACHUTE_FORWARD;
     gRoomTransition.player_status.area_next = gRoomControls.area;
@@ -433,10 +433,10 @@ bool32 CanDispEzloMessage(void) {
         return FALSE;
 
     if ((gPlayerState.flags & (PL_NO_CAP | PL_CAPTURED | PL_DISABLE_ITEMS)) || (gPlayerState.framestate_last > tmp) ||
-        gPlayerState.item || gPlayerEntity.field_0x7a.HWORD)
+        gPlayerState.item || gPlayerEntity.unk_7a)
         return FALSE;
 
-    if ((gPlayerEntity.z.HALF.HI & 0x8000) && !gPlayerState.field_0xa)
+    if ((gPlayerEntity.base.z.HALF.HI & 0x8000) && !gPlayerState.field_0xa)
         return FALSE;
 
     GenerateAreaHint();
@@ -449,7 +449,7 @@ void DisplayEzloMessage(void) {
     u32 height;
     u32 idx;
     if (gRoomTransition.hint_height == 0) {
-        height = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y > 96 ? 1 : 13;
+        height = gPlayerEntity.base.y.HALF.HI - gRoomControls.scroll_y > 96 ? 1 : 13;
     } else {
         height = gRoomTransition.hint_height;
     }
@@ -488,11 +488,11 @@ void DecreasePortalTimer(void) {
 void UpdatePlayerMapCoords(void) {
     if (!AreaHasNoEnemies()) {
         if (AreaIsOverworld()) {
-            gRoomTransition.player_status.overworld_map_x = gPlayerEntity.x.HALF_U.HI;
-            gRoomTransition.player_status.overworld_map_y = gPlayerEntity.y.HALF_U.HI;
+            gRoomTransition.player_status.overworld_map_x = gPlayerEntity.base.x.HALF_U.HI;
+            gRoomTransition.player_status.overworld_map_y = gPlayerEntity.base.y.HALF_U.HI;
         } else if (AreaIsDungeon()) {
-            gRoomTransition.player_status.dungeon_map_x = gPlayerEntity.x.HALF.HI;
-            gRoomTransition.player_status.dungeon_map_y = gPlayerEntity.y.HALF.HI;
+            gRoomTransition.player_status.dungeon_map_x = gPlayerEntity.base.x.HALF.HI;
+            gRoomTransition.player_status.dungeon_map_y = gPlayerEntity.base.y.HALF.HI;
         }
     }
 }
@@ -738,25 +738,25 @@ void CheckAreaDiscovery(void) {
 }
 
 void UpdatePlayerRoomStatus(void) {
-    gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
-    gPlayerState.startPosY = gPlayerEntity.y.HALF.HI;
+    gPlayerState.startPosX = gPlayerEntity.base.x.HALF.HI;
+    gPlayerState.startPosY = gPlayerEntity.base.y.HALF.HI;
     if (sub_08053144()) {
         MemCopy(&gRoomTransition.player_status, &gSave.saved_status, sizeof gRoomTransition.player_status);
         if (AreaIsDungeon()) {
             gRoomTransition.player_status.dungeon_area = gRoomControls.area;
             gRoomTransition.player_status.dungeon_room = gRoomControls.room;
-            gRoomTransition.player_status.dungeon_x = gPlayerEntity.x.HALF.HI;
-            gRoomTransition.player_status.dungeon_y = gPlayerEntity.y.HALF.HI;
+            gRoomTransition.player_status.dungeon_x = gPlayerEntity.base.x.HALF.HI;
+            gRoomTransition.player_status.dungeon_y = gPlayerEntity.base.y.HALF.HI;
         }
     }
 }
 
 void sub_08053250(void) {
     gRoomTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
-    gRoomTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
-    gRoomTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
-    gRoomTransition.player_status.start_anim = gPlayerEntity.animationState;
-    gRoomTransition.player_status.layer = gPlayerEntity.collisionLayer;
+    gRoomTransition.player_status.start_pos_x = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x;
+    gRoomTransition.player_status.start_pos_y = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y;
+    gRoomTransition.player_status.start_anim = gPlayerEntity.base.animationState;
+    gRoomTransition.player_status.layer = gPlayerEntity.base.collisionLayer;
     gRoomTransition.player_status.area_next = gRoomControls.area;
     gRoomTransition.player_status.room_next = gRoomControls.room;
     MemCopy(&gRoomTransition.player_status, &gSave.saved_status, sizeof gRoomTransition.player_status);

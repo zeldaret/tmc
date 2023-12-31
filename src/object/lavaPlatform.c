@@ -4,7 +4,6 @@
  *
  * @brief Lava Platform object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
@@ -279,10 +278,10 @@ void sub_0809264C(LavaPlatformEntity* this) {
 }
 
 bool32 LavaPlatform_IsPlayerOnPlatform(LavaPlatformEntity* this) {
-    if ((gPlayerState.flags & PL_MINISH) == 0 && EntityInRectRadius(super, &gPlayerEntity, 0x10, 0x10) &&
+    if ((gPlayerState.flags & PL_MINISH) == 0 && EntityInRectRadius(super, &gPlayerEntity.base, 0x10, 0x10) &&
         PlayerCanBeMoved()) {
         gPlayerState.field_0x14 = 1;
-        if (gPlayerEntity.z.HALF.HI == 0) {
+        if (gPlayerEntity.base.z.HALF.HI == 0) {
             super->subtimer = 1;
             return TRUE;
         }

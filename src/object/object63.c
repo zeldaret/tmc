@@ -4,7 +4,6 @@
  *
  * @brief Object63 object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"

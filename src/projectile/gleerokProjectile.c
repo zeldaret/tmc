@@ -4,7 +4,6 @@
  *
  * @brief Gleerok Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -55,7 +54,7 @@ void GleerokProjectile_Init(GleerokProjectileEntity* this) {
     switch (super->type) {
         case 0:
         case 1:
-            iVar2 = sub_080041DC(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+            iVar2 = sub_080041DC(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
             if (super->type == 1) {
                 uVar1 = Random() & 0x1ff;
                 if ((gRoomTransition.frameCount & 1U) == 0) {
@@ -105,7 +104,7 @@ void GleerokProjectile_Action1(GleerokProjectileEntity* this) {
         LinearMoveUpdate(super);
         if ((super->type != 2) && (super->subtimer-- == 0)) {
             super->subtimer = 30;
-            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity));
+            sub_08004596(super, GetFacingDirection(super, &gPlayerEntity.base));
         }
         if (GravityUpdate(super, 0) == 0) {
             super->action = 2;

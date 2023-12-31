@@ -4,7 +4,6 @@
  *
  * @brief Mulldozer Spawn Point object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "sound.h"
 

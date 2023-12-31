@@ -4,7 +4,6 @@
  *
  * @brief Furniture object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "object.h"
@@ -310,7 +309,8 @@ static void FurnitureInit(FurnitureEntity* this) {
 static void FurnitureUpdate(FurnitureEntity* this) {
     switch (this->flags & 0x7FFF) {
         case 0x1:
-            if (gPlayerEntity.y.HALF.HI < super->y.HALF.HI || gPlayerEntity.y.HALF.HI > super->y.HALF.HI + 24) {
+            if (gPlayerEntity.base.y.HALF.HI < super->y.HALF.HI ||
+                gPlayerEntity.base.y.HALF.HI > super->y.HALF.HI + 24) {
                 super->spriteRendering.b3 = 2;
             } else {
                 super->spriteRendering.b3 = 3;
@@ -338,16 +338,16 @@ static void FurnitureUpdate(FurnitureEntity* this) {
             }
             break;
         case 0x80:
-            if (gPlayerEntity.y.HALF.HI < super->y.HALF.HI + 8) {
+            if (gPlayerEntity.base.y.HALF.HI < super->y.HALF.HI + 8) {
                 if (gPlayerState.floor_type != SURFACE_LADDER && GetTileTypeByEntity(super) == 0x4017) {
                     SetTile(0x4026, this->tile, super->collisionLayer);
                     SetTile(0x403D, this->tile - 64, super->collisionLayer);
                     SetTile(0x403D, this->tile - 128, super->collisionLayer);
                 }
             } else {
-                if (gPlayerEntity.collisionLayer & 2) {
-                    gPlayerEntity.collisionLayer = 1;
-                    UpdateSpriteForCollisionLayer(&gPlayerEntity);
+                if (gPlayerEntity.base.collisionLayer & 2) {
+                    gPlayerEntity.base.collisionLayer = 1;
+                    UpdateSpriteForCollisionLayer(&gPlayerEntity.base);
                 }
                 if (GetTileTypeByEntity(super) != 0x4017) {
                     SetTile(0x4017, this->tile, super->collisionLayer);

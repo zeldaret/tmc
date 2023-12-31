@@ -5,7 +5,6 @@
  * @brief Link Emptying Bottle object
  * Handles effects of using water, mineral water or a fairy in a bottle in PlayerItemBottle_UseOther.
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "object.h"
@@ -40,8 +39,9 @@ void LinkEmptyingBottle_Init(LinkEmptyingBottleEntity* this) {
             effect = CreateFx(super, FX_WATER_SPLASH, 0);
             super->child = effect;
             if (effect != NULL) {
-                PositionRelative(&gPlayerEntity, effect, gUnk_08122A18[gPlayerEntity.animationState & 6] << 0x10,
-                                 gUnk_08122A18[gPlayerEntity.animationState | 1] << 0x10);
+                PositionRelative(&gPlayerEntity.base, effect,
+                                 gUnk_08122A18[gPlayerEntity.base.animationState & 6] << 0x10,
+                                 gUnk_08122A18[gPlayerEntity.base.animationState | 1] << 0x10);
             }
             CopyPosition(super->child, super);
             sub_08094980(this, 0x4032, 0x4033);
@@ -51,8 +51,9 @@ void LinkEmptyingBottle_Init(LinkEmptyingBottleEntity* this) {
             effect = CreateFx(super, FX_GREEN_SPLASH2, 0);
             super->child = effect;
             if (effect != NULL) {
-                PositionRelative(&gPlayerEntity, effect, gUnk_08122A18[gPlayerEntity.animationState & 6] << 0x10,
-                                 gUnk_08122A18[gPlayerEntity.animationState | 1] << 0x10);
+                PositionRelative(&gPlayerEntity.base, effect,
+                                 gUnk_08122A18[gPlayerEntity.base.animationState & 6] << 0x10,
+                                 gUnk_08122A18[gPlayerEntity.base.animationState | 1] << 0x10);
             }
             if (super->type2 == 0) {
                 CopyPosition(super->child, super);
@@ -65,7 +66,7 @@ void LinkEmptyingBottle_Init(LinkEmptyingBottleEntity* this) {
             }
             break;
         case 2:
-            child = CreateGroundItem(&gPlayerEntity, ITEM_FAIRY, 0);
+            child = CreateGroundItem(&gPlayerEntity.base, ITEM_FAIRY, 0);
             super->child = child;
             if (child != NULL) {
                 child->timer = 1;

@@ -1,10 +1,15 @@
-#define NENT_DEPRECATED
+/**
+ * @file takkuri.c
+ * @ingroup Enemies
+ *
+ * @brief Takkuri enemy
+ */
+#include "enemy.h"
 #include "entity.h"
 #include "functions.h"
-#include "enemy.h"
-#include "save.h"
-#include "object.h"
 #include "item.h"
+#include "object.h"
+#include "save.h"
 
 typedef struct {
     Entity base;
@@ -118,7 +123,7 @@ void sub_0803BCA4(TakkuriEntity* this) {
 }
 
 void sub_0803BD08(TakkuriEntity* this) {
-    Entity* ent;
+    Entity* entity;
 
     if (super->subtimer) {
         if (CheckOnScreen(super) == 0) {
@@ -131,8 +136,8 @@ void sub_0803BD08(TakkuriEntity* this) {
 
     sub_0803BEE8(this);
     GetNextFrame(super);
-    ent = sub_08049DF4(1);
-    if (ent != NULL) {
+    entity = sub_08049DF4(1);
+    if (entity != NULL) {
         if (EntityInRectRadius(super, gUnk_020000B0, 0x88, 0x50)) {
             if (gUnk_020000B0->y.HALF.HI > super->y.HALF.HI + 8) {
                 super->action = 2;
@@ -304,9 +309,9 @@ void sub_0803BF70(TakkuriEntity* this) {
 
 void sub_0803C0AC(Entity* this) {
     u32 index, rupeeType, rupees;
-    Entity* ent;
-    ent = sub_08049DF4(1);
-    if (ent == NULL)
+    Entity* entity;
+    entity = sub_08049DF4(1);
+    if (entity == NULL)
         return;
 
     rupees = gSave.stats.rupees;
@@ -331,7 +336,7 @@ void sub_0803C0AC(Entity* this) {
         Entity* obj = CreateObject(RUPEE_OBJECT, rupeeType, 0);
 
         if (obj) {
-            CopyPosition(ent, obj);
+            CopyPosition(entity, obj);
         }
     }
 }

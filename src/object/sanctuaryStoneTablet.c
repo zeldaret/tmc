@@ -4,7 +4,6 @@
  *
  * @brief Sanctuary Stone Tablet object
  */
-#define NENT_DEPRECATED
 #include "effects.h"
 #include "entity.h"
 #include "flags.h"

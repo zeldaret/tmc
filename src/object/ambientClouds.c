@@ -4,7 +4,6 @@
  *
  * @brief Ambient Clouds object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -83,12 +82,12 @@ void AmbientClouds_Action1(Entity* this) {
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 0;
         if ((this->type2 == 1) || (this->child->action == 2)) {
-            if (gPlayerEntity.z.HALF.HI < -0x24)
+            if (gPlayerEntity.base.z.HALF.HI < -0x24)
                 this->timer = 1;
             else
                 this->timer = 0;
             this->y.HALF.HI += (this->type2 - 1) * -0x24;
-            if (EntityInRectRadius(this, &gPlayerEntity, 15, 15) && (this->timer != 0)) {
+            if (EntityInRectRadius(this, &gPlayerEntity.base, 15, 15) && (this->timer != 0)) {
                 this->action = 2;
                 this->spriteOrientation.flipY = 2;
                 this->spriteRendering.b3 = 3;
@@ -96,23 +95,23 @@ void AmbientClouds_Action1(Entity* this) {
                     this->child->action = 1;
                 }
                 gPlayerState.field_0x14 = 1;
-                gPlayerEntity.y.HALF.HI -= 0x24;
-                gPlayerEntity.z.HALF.HI += 0x24;
-                sub_0807AA80(&gPlayerEntity);
+                gPlayerEntity.base.y.HALF.HI -= 0x24;
+                gPlayerEntity.base.z.HALF.HI += 0x24;
+                sub_0807AA80(&gPlayerEntity.base);
                 if (this->subtimer == 0) {
-                    Entity* fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    Entity* fx = CreateFx(&gPlayerEntity.base, FX_DEATH, 0);
                     if (fx != NULL) {
                         fx->x.HALF.HI += 8;
                     }
-                    fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    fx = CreateFx(&gPlayerEntity.base, FX_DEATH, 0);
                     if (fx != NULL) {
                         fx->x.HALF.HI -= 8;
                     }
-                    fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    fx = CreateFx(&gPlayerEntity.base, FX_DEATH, 0);
                     if (fx != NULL) {
                         fx->y.HALF.HI += 8;
                     }
-                    fx = CreateFx(&gPlayerEntity, FX_DEATH, 0);
+                    fx = CreateFx(&gPlayerEntity.base, FX_DEATH, 0);
                     if (fx != NULL) {
                         fx->y.HALF.HI -= 8;
                     }
@@ -126,20 +125,20 @@ void AmbientClouds_Action1(Entity* this) {
 
 void AmbientClouds_Action2(Entity* this) {
     this->y.HALF.HI += this->type2 * -0x24;
-    if (EntityInRectRadius(this, &gPlayerEntity, 15, 15)) {
+    if (EntityInRectRadius(this, &gPlayerEntity.base, 15, 15)) {
         gPlayerState.field_0x14 = 1;
         gPlayerState.flags |= PL_FLAGS2;
     } else {
         this->action = 1;
-        gPlayerEntity.z.HALF_U.HI += this->z.HALF_U.HI;
-        gPlayerEntity.y.HALF_U.HI -= this->z.HALF_U.HI;
-        gPlayerEntity.collisionLayer = 1;
+        gPlayerEntity.base.z.HALF_U.HI += this->z.HALF_U.HI;
+        gPlayerEntity.base.y.HALF_U.HI -= this->z.HALF_U.HI;
+        gPlayerEntity.base.collisionLayer = 1;
     }
     this->y.HALF.HI += this->type2 * 0x24;
 }
 
 void AmbientClouds_Action3(Entity* this) {
-    if (EntityInRectRadius(this, &gPlayerEntity, 15, 15)) {
+    if (EntityInRectRadius(this, &gPlayerEntity.base, 15, 15)) {
         gPlayerState.field_0x14 = 1;
     }
 }

@@ -4,7 +4,6 @@
  *
  * @brief Guruguru Bar Projectile
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "physics.h"
 

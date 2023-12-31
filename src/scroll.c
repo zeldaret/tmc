@@ -201,8 +201,8 @@ void sub_0807FDF8(RoomControls* controls) {
         case 0:
             controls->scroll_y -= 4;
             pEVar2 = controls->camera_target;
-            if (pEVar2 == &gPlayerEntity) {
-                pEVar2->y.WORD = gPlayerEntity.y.WORD - Q_16_16(0.375);
+            if (pEVar2 == &gPlayerEntity.base) {
+                pEVar2->y.WORD = gPlayerEntity.base.y.WORD - Q_16_16(0.375);
             }
             if (controls->unk_18 == 0x28) {
                 sub_0807FEC8(controls);
@@ -210,8 +210,8 @@ void sub_0807FDF8(RoomControls* controls) {
             break;
         case 1:
             controls->scroll_x = controls->scroll_x + 4;
-            if (controls->camera_target == &gPlayerEntity) {
-                gPlayerEntity.x.WORD += Q_16_16(0.25);
+            if (controls->camera_target == &gPlayerEntity.base) {
+                gPlayerEntity.base.x.WORD += Q_16_16(0.25);
             }
             if (controls->unk_18 == 0x3c) {
                 sub_0807FEC8(controls);
@@ -220,8 +220,8 @@ void sub_0807FDF8(RoomControls* controls) {
         case 2:
             controls->scroll_y = controls->scroll_y + 4;
             pEVar2 = controls->camera_target;
-            if (pEVar2 == &gPlayerEntity) {
-                pEVar2->y.WORD = gPlayerEntity.y.WORD + Q_16_16(0.375);
+            if (pEVar2 == &gPlayerEntity.base) {
+                pEVar2->y.WORD = gPlayerEntity.base.y.WORD + Q_16_16(0.375);
             }
             if (controls->unk_18 == 0x28) {
                 sub_0807FEC8(controls);
@@ -229,8 +229,8 @@ void sub_0807FDF8(RoomControls* controls) {
             break;
         case 3:
             controls->scroll_x -= 4;
-            if (controls->camera_target == &gPlayerEntity) {
-                gPlayerEntity.x.WORD -= Q_16_16(0.25);
+            if (controls->camera_target == &gPlayerEntity.base) {
+                gPlayerEntity.base.x.WORD -= Q_16_16(0.25);
             }
             if (controls->unk_18 == 0x3c) {
                 sub_0807FEC8(controls);
@@ -290,9 +290,9 @@ void sub_0807FF6C(RoomControls* controls) {
     ResetActiveItems();
     ResetPlayerAnimationAndAction();
     if (gDiggingCaveEntranceTransition.isDiggingCave) {
-        gPlayerEntity.animationState = 4;
+        gPlayerEntity.base.animationState = 4;
     } else {
-        gPlayerEntity.animationState = 0;
+        gPlayerEntity.base.animationState = 0;
     }
     sub_080809D4();
 }
@@ -847,7 +847,7 @@ void UpdateDoorTransition() {
     u32 uVar3;
     u32 uVar4;
     RoomControls* controls = &gRoomControls;
-    if (gRoomControls.camera_target != &gPlayerEntity) {
+    if (gRoomControls.camera_target != &gPlayerEntity.base) {
         return;
     }
     if (gPlayerState.jump_status != 0) {
@@ -955,10 +955,10 @@ void sub_08080CB4(Entity* this) {
         if (this->spriteSettings.draw != 0) {
             switch (this->type) {
                 case 0x60:
-                    if (this->field_0x6a.HALF.LO != 0) {
-                        this->field_0x6a.HALF.LO--;
+                    if (((GenericEntity*)this)->field_0x6a.HALF.LO != 0) {
+                        ((GenericEntity*)this)->field_0x6a.HALF.LO--;
                     } else {
-                        this->field_0x6a.HALF.LO = (Random() & 0x1f) + 10;
+                        ((GenericEntity*)this)->field_0x6a.HALF.LO = (Random() & 0x1f) + 10;
                         effect = CreateFx(this, FX_SPARKLE, 0);
                         if (effect != NULL) {
                             effect->spriteOffsetX = this->spriteOffsetX;

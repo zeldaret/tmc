@@ -38,8 +38,8 @@ void sub_08075FF8(ItemBehavior* this, u32 index) {
         if (maxBombs > bombCount) {
             entity = CreatePlayerItemWithParent(this, PLAYER_ITEM_BOMB);
             if (entity != NULL) {
-                pos = &gUnk_0811BDAC[gPlayerEntity.animationState & 6];
-                PositionRelative(&gPlayerEntity, entity, Q_16_16(pos[0]), Q_16_16(pos[1]));
+                pos = &gUnk_0811BDAC[gPlayerEntity.base.animationState & 6];
+                PositionRelative(&gPlayerEntity.base, entity, Q_16_16(pos[0]), Q_16_16(pos[1]));
                 ModBombs(-1);
                 SoundReq(SFX_PLACE_OBJ);
             }

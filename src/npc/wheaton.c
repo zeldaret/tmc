@@ -4,7 +4,6 @@
  *
  * @brief Wheaton NPC
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 
 void Wheaton(Entity* this) {

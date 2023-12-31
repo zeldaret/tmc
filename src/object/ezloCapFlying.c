@@ -4,9 +4,7 @@
  *
  * @brief Ezlo Cap Flying object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
-#include "new_player.h"
 #include "object.h"
 
 typedef struct {
@@ -32,7 +30,7 @@ void EzloCapFlying(EzloCapFlyingEntity* this) {
     };
     if ((gPlayerState.flags & PL_PARACHUTE) == 0) {
         if (super->type == 0) {
-            gRoomControls.camera_target = &gPlayerEntity;
+            gRoomControls.camera_target = &gPlayerEntity.base;
         }
         DeleteThisEntity();
     }
@@ -42,7 +40,7 @@ void EzloCapFlying(EzloCapFlyingEntity* this) {
 void EzloCapFlying_Init(EzloCapFlyingEntity* this) {
     super->action = 1;
     super->lastFrameIndex = 0xff;
-    super->palette.b.b0 = gPlayerEntity.palette.b.b0;
+    super->palette.b.b0 = gPlayerEntity.base.palette.b.b0;
     if (super->type == 0) {
         gRoomControls.camera_target = super;
         super->spriteRendering.b0 = 3;
@@ -66,7 +64,7 @@ void EzloCapFlying_Action1Type0(EzloCapFlyingEntity* this) {
     if ((s16)this->unk_6e < 0) {
         this->unk_6e = -this->unk_6e;
     }
-    switch (gPlayerEntity.subAction) {
+    switch (gPlayerEntity.base.subAction) {
         case 1:
             this->unk_72 -= 4;
             break;
@@ -104,10 +102,10 @@ void EzloCapFlying_Action1Type0(EzloCapFlyingEntity* this) {
             sub_080936C8(this);
             break;
     }
-    tmp = gPlayerEntity.animationState & 2;
+    tmp = gPlayerEntity.base.animationState & 2;
     if (tmp != 0) {
         super->frameIndex = 1;
-        if (gPlayerEntity.animationState == 2) {
+        if (gPlayerEntity.base.animationState == 2) {
             this->unk_6e = -this->unk_6e;
         }
     } else {
@@ -117,32 +115,32 @@ void EzloCapFlying_Action1Type0(EzloCapFlyingEntity* this) {
         super->lastFrameIndex = super->frameIndex;
         sub_080042D0(super, super->frameIndex, super->spriteIndex);
     }
-    CopyPosition(&gPlayerEntity, super);
+    CopyPosition(&gPlayerEntity.base, super);
 
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
+    super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
     sub_0806FCF4(super, this->unk_72, 10, 2);
     SetAffineInfo(super, this->unk_6e, this->unk_72, 0);
-    sub_0806FEBC(&gPlayerEntity, 1, super);
+    sub_0806FEBC(&gPlayerEntity.base, 1, super);
 }
 
 void EzloCapFlying_Action1Type1(EzloCapFlyingEntity* this) {
-    super->frameIndex = ((gPlayerEntity.direction + (gPlayerEntity.direction >> 1)) >> 2) + 2;
+    super->frameIndex = ((gPlayerEntity.base.direction + (gPlayerEntity.base.direction >> 1)) >> 2) + 2;
     if (super->frameIndex != super->lastFrameIndex) {
         super->lastFrameIndex = super->frameIndex;
         sub_080042D0(super, super->frameIndex, super->spriteIndex);
     }
-    CopyPosition(&gPlayerEntity, super);
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+    CopyPosition(&gPlayerEntity.base, super);
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
+    super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
     sub_0806FCF4(super, ((EzloCapFlyingEntity*)super->parent)->unk_72, 0x18, 0);
     super->spriteOffsetY = -super->spriteOffsetY;
-    sub_0806FEBC(&gPlayerEntity, 0, super);
+    sub_0806FEBC(&gPlayerEntity.base, 0, super);
 }
 
 void sub_080936C8(EzloCapFlyingEntity* this) {
-    s32 tmp = gNewPlayerEntity.unk_7c;
-    this->unk_76 = 0x138 - (gNewPlayerEntity.unk_7c >> 2);
+    s32 tmp = gPlayerEntity.unk_7c.WORD_U;
+    this->unk_76 = 0x138 - (gPlayerEntity.unk_7c.WORD_U >> 2);
     this->unk_74 = 8 - (tmp / 0x3c);
     if (super->timer == 0) {
         if (this->unk_76 < this->unk_6e) {

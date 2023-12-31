@@ -4,7 +4,6 @@
  *
  * @brief Guard with Spear NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -112,7 +111,7 @@ void sub_08064198(GuardWithSpearEntity* this) {
         this->unk_71--;
     }
 
-    yDiff = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
+    yDiff = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
     if (2 < yDiff) {
         yDiff = 2;
     }
@@ -132,7 +131,7 @@ void sub_08064198(GuardWithSpearEntity* this) {
         sVar1 = super->y.HALF.HI;
         ProcessMovement0(super);
         if (sVar1 != super->y.HALF.HI) {
-            if (0x140 < gPlayerEntity.speed && gRoomTransition.frameCount % 6 == 0) {
+            if (0x140 < gPlayerEntity.base.speed && gRoomTransition.frameCount % 6 == 0) {
                 CreateDustSmall(super);
             }
             this->unk_71 = 10;
@@ -145,7 +144,7 @@ void sub_08064198(GuardWithSpearEntity* this) {
     }
     if (this->unk_71 == 0) {
         animationState = super->animationState =
-            GetAnimationStateForDirection8(GetFacingDirection(super, &gPlayerEntity));
+            GetAnimationStateForDirection8(GetFacingDirection(super, &gPlayerEntity.base));
         animIndex = (animationState >> 1) + this->unk_70;
         if (animIndex != super->animIndex) {
             InitializeAnimation(super, animIndex);
@@ -153,8 +152,8 @@ void sub_08064198(GuardWithSpearEntity* this) {
     }
     sub_0806ED78(super);
     sVar1 = super->z.HALF.HI;
-    super->z.HALF.HI = gPlayerEntity.z.HALF.HI;
-    if (sVar1 < 0 && gPlayerEntity.z.HALF.HI == 0) {
+    super->z.HALF.HI = gPlayerEntity.base.z.HALF.HI;
+    if (sVar1 < 0 && gPlayerEntity.base.z.HALF.HI == 0) {
         CreateDustSmall(super);
     }
 }
@@ -169,7 +168,7 @@ void sub_080642B8(GuardWithSpearEntity* this) {
         this->unk_71--;
     }
 
-    yDiff = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
+    yDiff = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
     if (2 < yDiff) {
         yDiff = 2;
     }
@@ -189,7 +188,7 @@ void sub_080642B8(GuardWithSpearEntity* this) {
         sVar1 = super->x.HALF.HI;
         ProcessMovement0(super);
         if (sVar1 != super->x.HALF.HI) {
-            if (0x140 < gPlayerEntity.speed && gRoomTransition.frameCount % 6 == 0) {
+            if (0x140 < gPlayerEntity.base.speed && gRoomTransition.frameCount % 6 == 0) {
                 CreateDustSmall(super);
             }
             this->unk_71 = 10;
@@ -202,7 +201,7 @@ void sub_080642B8(GuardWithSpearEntity* this) {
     }
     if (this->unk_71 == 0) {
         animationState = super->animationState =
-            GetAnimationStateForDirection8(GetFacingDirection(super, &gPlayerEntity));
+            GetAnimationStateForDirection8(GetFacingDirection(super, &gPlayerEntity.base));
         animIndex = (animationState >> 1) + this->unk_70;
         if (animIndex != super->animIndex) {
             InitializeAnimation(super, animIndex);
@@ -210,8 +209,8 @@ void sub_080642B8(GuardWithSpearEntity* this) {
     }
     sub_0806ED78(super);
     sVar1 = super->z.HALF.HI;
-    super->z.HALF.HI = gPlayerEntity.z.HALF.HI;
-    if (sVar1 < 0 && gPlayerEntity.z.HALF.HI == 0) {
+    super->z.HALF.HI = gPlayerEntity.base.z.HALF.HI;
+    if (sVar1 < 0 && gPlayerEntity.base.z.HALF.HI == 0) {
         CreateDustSmall(super);
     }
 }

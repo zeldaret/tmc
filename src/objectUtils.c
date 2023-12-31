@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 
 #include "global.h"
 #include "entity.h"
@@ -41,14 +40,14 @@ Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
         e->parent = parent;
         AppendEntityToList(e, 6);
         PrependEntityToList(e, 6);
-        CopyPosition(&gPlayerEntity, e);
+        CopyPosition(&gPlayerEntity.base, e);
         gPriorityHandler.event_priority = 6;
         gPauseMenuOptions.disabled = 1;
 
         // store player state
-        this->storeFlags = gPlayerEntity.flags;
-        this->storeDrawFlags = gPlayerEntity.spriteSettings.draw;
-        this->storeIFrames = gPlayerEntity.iframes;
+        this->storeFlags = gPlayerEntity.base.flags;
+        this->storeDrawFlags = gPlayerEntity.base.spriteSettings.draw;
+        this->storeIFrames = gPlayerEntity.base.iframes;
         this->storeField7 = gPlayerState.field_0x7;
         this->storeKeepFacing = gPlayerState.keepFacing;
         this->storeFieldA = gPlayerState.field_0xa;
@@ -58,8 +57,8 @@ Entity* CreateLinkAnimation(Entity* parent, u32 type, u32 type2) {
         this->store8A = gPlayerState.field_0x8a;
 
         // redundant, this is done by the LinkAnimation object
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.spriteSettings.draw = 0;
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.base.spriteSettings.draw = 0;
     }
     return e;
 }
@@ -291,7 +290,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue1 = this->y.HALF_U.HI;
             diff = ((oldValue1 - newValue1));
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 0);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 0);
             }
             break;
         case 1:
@@ -300,7 +299,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue2 = this->x.HALF_U.HI;
             diff = (newValue2 - oldValue2);
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 8);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 8);
             }
             break;
         case 2:
@@ -309,7 +308,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue3 = this->y.HALF_U.HI;
             diff = (newValue3 - oldValue2);
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 0x10);
             }
             break;
         case 3:
@@ -318,7 +317,7 @@ void SyncPlayerToPlatform(Entity* this, bool32 param_2) {
             newValue4 = this->x.HALF_U.HI;
             diff = ((oldValue1 - newValue4));
             if ((diff != 0) && (param_2 != 0)) {
-                sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
+                sub_080044AE(&gPlayerEntity.base, diff << 8, 0x18);
             }
             break;
     }

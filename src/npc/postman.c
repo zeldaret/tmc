@@ -4,7 +4,6 @@
  *
  * @brief Postman NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
@@ -257,15 +256,15 @@ void sub_08060528(PostmanEntity* this) {
                 super->action = 3;
                 super->interactType = INTERACTION_NONE;
                 InitializeNPCFusion(super);
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
             } else {
                 if (super->interactType != INTERACTION_NONE) {
                     super->action = 2;
                     super->interactType = INTERACTION_NONE;
                     sub_080606D8(super);
-                    InitAnimationForceUpdate(super,
-                                             GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                    InitAnimationForceUpdate(
+                        super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 } else {
                     ExecuteScriptAndHandleAnimation(super, NULL);
                 }
@@ -303,7 +302,7 @@ void sub_08060528(PostmanEntity* this) {
         Postman_MakeInteractable(this);
     }
     if (super->z.WORD >= 0 &&
-        ((gPlayerEntity.collisionLayer == 0 || (super->collisionLayer == gPlayerEntity.collisionLayer)))) {
+        ((gPlayerEntity.base.collisionLayer == 0 || (super->collisionLayer == gPlayerEntity.base.collisionLayer)))) {
         sub_0806ED78(super);
     }
     sub_0800451C(super);
@@ -407,13 +406,13 @@ void sub_0806076C(PostmanEntity* this, ScriptExecutionContext* context) {
 void sub_080608E4(PostmanEntity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     if (super->z.WORD >= 0) {
-        if ((super->collisionLayer != 1 || gPlayerEntity.collisionLayer != 2) &&
-            (super->collisionLayer != 2 || gPlayerEntity.collisionLayer != 1)) {
+        if ((super->collisionLayer != 1 || gPlayerEntity.base.collisionLayer != 2) &&
+            (super->collisionLayer != 2 || gPlayerEntity.base.collisionLayer != 1)) {
             const Rect* ptr = &gUnk_0810AA70[context->intVariable][super->animationState >> 1];
             u32 x = super->x.HALF.HI + ptr->x;
             u32 y = super->y.HALF.HI + ptr->y;
-            x = gPlayerEntity.x.HALF.HI - x;
-            y = gPlayerEntity.y.HALF.HI - y;
+            x = gPlayerEntity.base.x.HALF.HI - x;
+            y = gPlayerEntity.base.y.HALF.HI - y;
             x += ptr->width;
             y += ptr->height;
             if (ptr->width * 2 > x && ptr->height * 2 > y) {

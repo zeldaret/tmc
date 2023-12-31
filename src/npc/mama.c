@@ -4,7 +4,6 @@
  *
  * @brief Mama NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "save.h"
@@ -40,7 +39,8 @@ void Mama(MamaEntity* this) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
                 this->animIndex = super->animIndex;
-                InitializeAnimation(super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitializeAnimation(super,
+                                    GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptForEntity(super, NULL);

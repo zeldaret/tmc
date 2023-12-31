@@ -4,7 +4,6 @@
  *
  * @brief Barrel Inside object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 
 typedef struct {

@@ -4,7 +4,6 @@
  *
  * @brief Lakitu Cloud Projectile
  */
-#define NENT_DEPRECATED
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
@@ -49,7 +48,7 @@ void LakituCloudProjectile_SubAction2(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
         if (this->hitType == 0xa6) {
             ModHealth(-2);
-            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+            SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
             sub_08079D84();
         }
         CreateFx(this, FX_DEATH, 0);

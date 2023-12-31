@@ -4,7 +4,6 @@
  *
  * @brief Macro Player object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "entity.h"
 #include "functions.h"

@@ -4,187 +4,189 @@
  *
  * @brief Golden Tektite enemy
  */
-
 #include "collision.h"
 #include "enemy.h"
-#include "item.h"
 #include "functions.h"
+#include "item.h"
 
-void sub_08038168(Entity*);
-void TektiteGolden_OnTick(Entity*);
-void TektiteGolden_OnCollision(Entity*);
-void TektiteGolden_OnDeath(Entity*);
-void TektiteGolden_OnConfused(Entity*);
-void TektiteGolden_OnTick(Entity*);
-void sub_08037FA0(Entity*);
-void sub_08037Fe0(Entity*);
-void sub_08038048(Entity*);
-void sub_08038110(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[24];
+    /*0x80*/ u8 unk_80;
+} TektiteGoldenEntity;
 
-static void (*const TektiteGolden_Functions[])(Entity*) = {
-    TektiteGolden_OnTick,  TektiteGolden_OnCollision, GenericKnockback,
+void sub_08038168(TektiteGoldenEntity*);
+void TektiteGolden_OnTick(TektiteGoldenEntity*);
+void TektiteGolden_OnCollision(TektiteGoldenEntity*);
+void TektiteGolden_OnDeath(TektiteGoldenEntity*);
+void TektiteGolden_OnConfused(TektiteGoldenEntity*);
+void TektiteGolden_OnTick(TektiteGoldenEntity*);
+void sub_08037FA0(TektiteGoldenEntity*);
+void sub_08037Fe0(TektiteGoldenEntity*);
+void sub_08038048(TektiteGoldenEntity*);
+void sub_08038110(TektiteGoldenEntity*);
+
+static void (*const TektiteGolden_Functions[])(TektiteGoldenEntity*) = {
+    TektiteGolden_OnTick,  TektiteGolden_OnCollision, (void (*)(TektiteGoldenEntity*))GenericKnockback,
     TektiteGolden_OnDeath, TektiteGolden_OnConfused,  TektiteGolden_OnTick,
 };
 
-void TektiteGolden(Entity* this) {
-    EnemyFunctionHandler(this, TektiteGolden_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+void TektiteGolden(TektiteGoldenEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)TektiteGolden_Functions);
+    SetChildOffset(super, 0, 1, -0x10);
 }
 
-void TektiteGolden_OnTick(Entity* this) {
-    static void (*const actionFuncs[])(Entity*) = {
+void TektiteGolden_OnTick(TektiteGoldenEntity* this) {
+    static void (*const actionFuncs[])(TektiteGoldenEntity*) = {
         sub_08037FA0,
         sub_08037Fe0,
         sub_08038048,
         sub_08038110,
     };
-    actionFuncs[this->action](this);
+    actionFuncs[super->action](this);
 }
 
-void TektiteGolden_OnCollision(Entity* this) {
-    u32 uVar1;
-
-    if (this->confusedTime != 0) {
-        Create0x68FX(this, FX_STARS);
+void TektiteGolden_OnCollision(TektiteGoldenEntity* this) {
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    EnemyFunctionHandlerAfterCollision(this, TektiteGolden_Functions);
-    if (this->contactFlags == 0x94) {
-        this->action = 1;
-        this->subAction = 0;
-        this->timer = 20;
-        this->subtimer = 0;
-        this->field_0x80.HALF.LO = 0;
-        if (this->z.HALF.HI != 0) {
-            this->zVelocity >>= 2;
+    EnemyFunctionHandlerAfterCollision(super, TektiteGolden_Functions);
+    if (super->contactFlags == 0x94) {
+        super->action = 1;
+        super->subAction = 0;
+        super->timer = 20;
+        super->subtimer = 0;
+        this->unk_80 = 0;
+        if (super->z.HALF.HI != 0) {
+            super->zVelocity >>= 2;
         } else {
-            this->zVelocity = 0;
+            super->zVelocity = 0;
         }
 
-        InitializeAnimation(this, 0);
+        InitializeAnimation(super, 0);
     }
 }
 
-void TektiteGolden_OnDeath(Entity* this) {
+void TektiteGolden_OnDeath(TektiteGoldenEntity* this) {
     u32 uVar1;
 
-    if ((this->gustJarState & 2) == 0) {
-        SetGlobalFlag(this->type2);
+    if ((super->gustJarState & 2) == 0) {
+        SetGlobalFlag(super->type2);
     }
-    if (this->type != 0) {
+    if (super->type != 0) {
         uVar1 = ITEM_RUPEE200;
     } else {
         uVar1 = ITEM_RUPEE100;
     }
-    CreateDeathFx(this, 0xff, uVar1);
+    CreateDeathFx(super, 0xff, uVar1);
 }
 
-void TektiteGolden_OnConfused(Entity* this) {
-    GenericConfused(this);
-    if (this->z.HALF.HI != 0) {
-        GravityUpdate(this, Q_8_8(48.0));
+void TektiteGolden_OnConfused(TektiteGoldenEntity* this) {
+    GenericConfused(super);
+    if (super->z.HALF.HI != 0) {
+        GravityUpdate(super, Q_8_8(48.0));
     }
 }
 
-void sub_08037FA0(Entity* this) {
-
-    if (CheckGlobalFlag(this->type2)) {
+void sub_08037FA0(TektiteGoldenEntity* this) {
+    if (CheckGlobalFlag(super->type2)) {
         DeleteThisEntity();
     }
-    sub_0804A720(this);
-    this->action = 1;
-    this->subAction = 0;
-    this->timer = (Random() & 0x1f) + 32;
-    this->subtimer = 0;
-    this->field_0x80.HALF.LO = 0;
-    InitializeAnimation(this, 0);
+    sub_0804A720(super);
+    super->action = 1;
+    super->subAction = 0;
+    super->timer = (Random() & 0x1f) + 32;
+    super->subtimer = 0;
+    this->unk_80 = 0;
+    InitializeAnimation(super, 0);
 }
 
-void sub_08037Fe0(Entity* this) {
-    UpdateAnimationVariableFrames(this, 2);
-    if (this->timer != 0) {
-        this->timer--;
-    } else if (this->subtimer != 0) {
-        if (this->frame & ANIM_DONE) {
-            this->action = 2;
-            this->timer = 6;
-            this->subtimer = 0;
-            this->zVelocity = Q_16_16(3.5);
+void sub_08037Fe0(TektiteGoldenEntity* this) {
+    UpdateAnimationVariableFrames(super, 2);
+    if (super->timer != 0) {
+        super->timer--;
+    } else if (super->subtimer != 0) {
+        if (super->frame & ANIM_DONE) {
+            super->action = 2;
+            super->timer = 6;
+            super->subtimer = 0;
+            super->zVelocity = Q_16_16(3.5);
             sub_08038168(this);
-            InitializeAnimation(this, 2);
+            InitializeAnimation(super, 2);
         }
-    } else if (this->frame & ANIM_DONE) {
-        this->subtimer = 64;
-        InitializeAnimation(this, 1);
+    } else if (super->frame & ANIM_DONE) {
+        super->subtimer = 64;
+        InitializeAnimation(super, 1);
     }
 }
 
-void sub_08038048(Entity* this) {
+void sub_08038048(TektiteGoldenEntity* this) {
     s32 temp;
     u32 rand;
 
-    UpdateAnimationVariableFrames(this, 2);
-    ProcessMovement0(this);
-    temp = this->z.HALF.HI;
+    UpdateAnimationVariableFrames(super, 2);
+    ProcessMovement0(super);
+    temp = super->z.HALF.HI;
     rand = Random() & 0xf;
 
-    if (BounceUpdate(this, Q_8_8(48.0)) == BOUNCE_INIT_NEXT) {
-        this->action = 3;
-        this->subAction = 0;
-        this->timer = 20;
-        InitializeAnimation(this, 3);
+    if (BounceUpdate(super, Q_8_8(48.0)) == BOUNCE_INIT_NEXT) {
+        super->action = 3;
+        super->subAction = 0;
+        super->timer = 20;
+        InitializeAnimation(super, 3);
         return;
-    } else if (this->collisions != COL_NONE) {
-        sub_0800417E(this, this->collisions);
-    } else if ((GetActTile(this) & 0xf0) == 0x50) {
-        this->direction = (this->direction + 0x10) & (0x3 | DirectionNorthWest);
+    } else if (super->collisions != COL_NONE) {
+        sub_0800417E(super, super->collisions);
+    } else if ((GetActTile(super) & 0xf0) == 0x50) {
+        super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 
-    if (--this->timer == 0) {
-        this->timer = rand + 16;
+    if (--super->timer == 0) {
+        super->timer = rand + 16;
         sub_08038168(this);
     }
 
-    if ((this->subAction == 0) && (temp < this->z.HALF.HI)) {
-        InitializeAnimation(this, 4);
-        this->subAction = 1;
+    if ((super->subAction == 0) && (temp < super->z.HALF.HI)) {
+        InitializeAnimation(super, 4);
+        super->subAction = 1;
     }
 
     if (temp < -0xc) {
-        this->spriteRendering.b3 = 1;
-        this->spriteOrientation.flipY = 1;
+        super->spriteRendering.b3 = 1;
+        super->spriteOrientation.flipY = 1;
     } else {
-        this->spriteRendering.b3 = 2;
-        this->spriteOrientation.flipY = 2;
+        super->spriteRendering.b3 = 2;
+        super->spriteOrientation.flipY = 2;
     }
 }
 
-void sub_08038110(Entity* this) {
-    UpdateAnimationVariableFrames(this, 2);
-    if (this->frame & ANIM_DONE) {
-        if (this->field_0x80.HALF.LO < 5) {
-            this->action = 2;
-            this->timer = 8;
-            this->zVelocity = Q_16_16(3.5);
+void sub_08038110(TektiteGoldenEntity* this) {
+    UpdateAnimationVariableFrames(super, 2);
+    if (super->frame & ANIM_DONE) {
+        if (this->unk_80 < 5) {
+            super->action = 2;
+            super->timer = 8;
+            super->zVelocity = Q_16_16(3.5);
             sub_08038168(this);
-            InitializeAnimation(this, 2);
+            InitializeAnimation(super, 2);
         } else {
-            this->action = 1;
-            this->field_0x80.HALF.LO = 0;
-            this->timer = 192;
-            InitializeAnimation(this, 0);
+            super->action = 1;
+            this->unk_80 = 0;
+            super->timer = 192;
+            InitializeAnimation(super, 0);
         }
     }
 }
 
-void sub_08038168(Entity* this) {
+void sub_08038168(TektiteGoldenEntity* this) {
     u32 temp;
 
-    if (sub_08049FA0(this) == 0) {
-        this->direction = sub_08049EE4(this);
-    } else if (sub_08049FDC(this, 1) != 0) {
-        this->direction = sub_08049F84(this, 1);
+    if (sub_08049FA0(super) == 0) {
+        super->direction = sub_08049EE4(super);
+    } else if (sub_08049FDC(super, 1) != 0) {
+        super->direction = sub_08049F84(super, 1);
     } else {
         temp = (Random() & 0xf) + 0x18;
-        this->direction = (temp + this->direction) & (0x3 | DirectionNorthWest);
+        super->direction = (temp + super->direction) & (0x3 | DirectionNorthWest);
     }
 }

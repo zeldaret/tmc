@@ -88,8 +88,8 @@ void LightRayManager_Action1(LightRayManager* this) {
     if (prop->unk0 == 0xff)
         return;
 
-    x = gPlayerEntity.x.HALF.HI / 16;
-    y = gPlayerEntity.y.HALF.HI / 16;
+    x = gPlayerEntity.base.x.HALF.HI / 16;
+    y = gPlayerEntity.base.y.HALF.HI / 16;
 
     for (; prop->unk0 != 0xff; prop++) {
         if (prop->unk0 != this->unk_21) {

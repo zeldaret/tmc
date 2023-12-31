@@ -4,20 +4,12 @@
  *
  * @brief Item for Sale object
  */
-#define NENT_DEPRECATED
+#include "object/itemForSale.h"
+
 #include "functions.h"
 #include "hitbox.h"
 #include "kinstone.h"
 #include "message.h"
-#include "new_player.h"
-#include "object.h"
-
-typedef struct {
-    /*0x00*/ Entity base;
-    /*0x68*/ u8 unk_68[0x18];
-    /*0x80*/ u16 unk_80;
-    /*0x82*/ u16 unk_82;
-} ItemForSaleEntity;
 
 typedef struct {
     u8 before[0x20];
@@ -99,7 +91,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 PausePlayer();
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
-                gNewPlayerEntity.unk_74 = super;
+                gPlayerEntity.unk_74 = super;
                 gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
                 MessageClose();
             }
@@ -111,8 +103,8 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
     void* ptr;
 
     gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
-    super->spriteSettings.draw = gPlayerEntity.spriteSettings.draw;
-    if ((gPlayerState.heldObject == 0) || (super != gNewPlayerEntity.unk_74)) {
+    super->spriteSettings.draw = gPlayerEntity.base.spriteSettings.draw;
+    if ((gPlayerState.heldObject == 0) || (super != gPlayerEntity.unk_74)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
@@ -137,7 +129,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
         DeleteThisEntity();
     }
     gPlayerState.heldObject = 0;
-    gNewPlayerEntity.unk_74 = 0;
+    gPlayerEntity.unk_74 = 0;
     ptr = &gUnk_0200AF00;
     gRoomVars.shopItemType = 0;
     ptr->rActionInteractObject = R_ACTION_NONE;
@@ -148,7 +140,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
     super->z.WORD = 0;
     super->action = 1;
     super->subAction = 0;
-    super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     super->collisionLayer = 1;
     super->spritePriority.b0 = 4;
     UpdateSpriteForCollisionLayer(super);

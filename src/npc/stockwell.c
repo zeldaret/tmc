@@ -4,7 +4,6 @@
  *
  * @brief Stockwell NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "game.h"
@@ -176,7 +175,7 @@ void sub_080652E4(Entity* this) {
     if (this->timer != 0) {
         this->timer--;
     } else {
-        if (gPlayerEntity.action != PLAYER_ITEMGET) {
+        if (gPlayerEntity.base.action != PLAYER_ITEMGET) {
             this->subAction++;
             MessageNoOverlap(TEXT_INDEX(TEXT_STOCKWELL, 0x19), this);
         }

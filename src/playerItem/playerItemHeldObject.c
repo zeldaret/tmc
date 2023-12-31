@@ -4,12 +4,10 @@
  *
  * @brief Held Object Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
 #include "functions.h"
-#include "new_player.h"
 #include "player.h"
 #include "sound.h"
 
@@ -88,7 +86,7 @@ void PlayerItemHeldObject_SubAction1(PlayerItemHeldObjectEntity* this) {
             PlayerDropHeldObject();
             DeleteThisEntity();
         } else {
-            if ((gPlayerState.heldObject == 0) || ((gNewPlayerEntity.unk_79 & 0x7f) != 0)) {
+            if ((gPlayerState.heldObject == 0) || ((gPlayerEntity.unk_79 & 0x7f) != 0)) {
                 sub_080AD27C(this);
                 super->subAction++;
                 super->flags &= ~0x80;
@@ -206,13 +204,13 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
         }
 
     } else {
-        tmp = gPlayerEntity.frame & 1;
+        tmp = gPlayerEntity.base.frame & 1;
         if (tmp != 0) {
             SoundReq(SFX_PLY_VO5);
             sub_080AD27C(this);
             return;
         }
-        if ((gPlayerState.heldObject != 0) && ((gNewPlayerEntity.unk_79 & 0x80) == 0)) {
+        if ((gPlayerState.heldObject != 0) && ((gPlayerEntity.unk_79 & 0x80) == 0)) {
             return;
         }
         sub_080AD27C(this);
@@ -237,7 +235,7 @@ void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
     static const u32 gUnk_081320D4[] = { Q_16_16(0), Q_16_16(0.5), Q_16_16(1.25), Q_16_16(1.25) };
     u32 tmp;
     PlayerItemHeldObjectEntity* child = (PlayerItemHeldObjectEntity*)super->child;
-    gNewPlayerEntity.unk_74 = NULL;
+    gPlayerEntity.unk_74 = NULL;
     if ((this->unk_6c == (u16)(child->base).kind) && (this->unk_6e == (u16)(child->base).id)) {
         if (child != this) {
             (child->base).subAction = 2;
@@ -251,9 +249,9 @@ void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
         (child->base).z.HALF.HI += 8;
         super->z.HALF.HI = (child->base).z.HALF.HI;
         super->collisionLayer = (child->base).collisionLayer;
-        super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
-        super->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-        super->collisionFlags = gPlayerEntity.collisionFlags;
+        super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
+        super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
+        super->collisionFlags = gPlayerEntity.base.collisionFlags;
         super->flags |= 0x80;
         sub_0801766C(super);
     } else {

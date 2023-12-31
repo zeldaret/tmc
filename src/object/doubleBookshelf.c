@@ -4,7 +4,6 @@
  *
  * @brief Double Bookshelf object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -146,7 +145,7 @@ void sub_0809B234(DoubleBookshelfEntity* this) {
 }
 
 void sub_0809B274(DoubleBookshelfEntity* this) {
-    Entity* player = &gPlayerEntity;
+    Entity* player = &gPlayerEntity.base;
     switch (this->unk_84) {
         case 0:
             if (player->y.HALF.HI + 0x14 >= super->y.HALF.HI) {

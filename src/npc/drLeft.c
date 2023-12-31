@@ -4,7 +4,6 @@
  *
  * @brief Dr Left NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "item.h"
 #include "npc.h"

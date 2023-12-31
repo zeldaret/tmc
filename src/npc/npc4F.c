@@ -4,7 +4,6 @@
  *
  * @brief NPC 4F
  */
-#define NENT_DEPRECATED
 #include "npc.h"
 
 void NPC4F(Entity* this) {

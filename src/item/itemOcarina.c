@@ -1,6 +1,6 @@
+#include "functions.h"
 #include "item.h"
 #include "sound.h"
-#include "functions.h"
 
 extern void ResetPlayerVelocity(void);
 extern void CreateBird(Entity*);
@@ -13,7 +13,7 @@ void ItemOcarina(ItemBehavior* this, u32 index) {
         OcarinaUpdate,
     };
     gOcarinaStates[this->stateID](this, index);
-    gPlayerEntity.field_0x7a.HWORD++;
+    gPlayerEntity.unk_7a++;
 }
 
 void OcarinaUse(ItemBehavior* this, u32 index) {
@@ -21,10 +21,10 @@ void OcarinaUse(ItemBehavior* this, u32 index) {
         DeleteItemBehavior(this, index);
     } else {
         this->priority |= 0xf;
-        gPlayerEntity.animationState = 0x04;
-        gPlayerEntity.spriteSettings.flipX = 0;
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.field_0x7a.HWORD = 2;
+        gPlayerEntity.base.animationState = 0x04;
+        gPlayerEntity.base.spriteSettings.flipX = 0;
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.unk_7a = 2;
         gPlayerState.flags |= PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = -1;
         gPauseMenuOptions.disabled = 1;
@@ -40,11 +40,11 @@ void OcarinaUse(ItemBehavior* this, u32 index) {
 void OcarinaUpdate(ItemBehavior* this, u32 index) {
     UpdateItemAnim(this);
     if ((this->playerFrame & 0x80) != 0) {
-        gPlayerEntity.flags |= ENT_COLLIDE;
+        gPlayerEntity.base.flags |= ENT_COLLIDE;
         gPlayerState.flags &= ~PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = 0;
         gPauseMenuOptions.disabled = 0;
-        CreateBird(&gPlayerEntity);
+        CreateBird(&gPlayerEntity.base);
         ResetPlayerEventPriority();
         DeleteItemBehavior(this, index);
     }

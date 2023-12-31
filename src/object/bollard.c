@@ -4,7 +4,6 @@
  *
  * @brief Bollard object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "flags.h"

@@ -4,7 +4,6 @@
  *
  * @brief Stone Tablet object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "room.h"

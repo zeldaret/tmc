@@ -4,7 +4,6 @@
  *
  * @brief Bed Cover object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 

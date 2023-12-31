@@ -4,7 +4,6 @@
  *
  * @brief Thunderbolt object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "object.h"
 
@@ -101,7 +100,7 @@ void sub_08093EF0(ThunderboltEntity* this) {
             if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
-            if (super->parent == &gPlayerEntity) {
+            if (super->parent == &gPlayerEntity.base) {
                 SoundReq(SFX_PLY_VO6);
                 sub_08079D84();
             }

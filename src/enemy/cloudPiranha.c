@@ -4,9 +4,6 @@
  *
  * @brief Cloud Piranha enemy
  */
-
-#define NENT_DEPRECATED
-#include "global.h"
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"

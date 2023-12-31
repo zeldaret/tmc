@@ -4,7 +4,6 @@
  *
  * @brief Phonograph NPC
  */
-#define NENT_DEPRECATED
 #include "common.h"
 #include "entity.h"
 #include "fileselect.h"

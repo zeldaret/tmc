@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 #include "enemyUtils.h"
 
 #include "definitions.h"

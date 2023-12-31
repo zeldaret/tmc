@@ -4,7 +4,6 @@
  *
  * @brief Syrup NPC
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "npc.h"
 #include "object.h"

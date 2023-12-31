@@ -4,7 +4,6 @@
  *
  * @brief Dog NPC
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "entity.h"
 #include "functions.h"
@@ -266,7 +265,7 @@ void sub_08069CB8(DogEntity* this) {
     u32 direction;
     u32 animState;
 
-    direction = GetFacingDirection(super, &gPlayerEntity);
+    direction = GetFacingDirection(super, &gPlayerEntity.base);
     animState = gUnk_08111DB0[direction + super->animationState * 0x20];
     super->animationState = animState >> 6;
     this->unk_6b = animState & 0x3f;
@@ -430,7 +429,7 @@ bool32 sub_08069F90(DogEntity* this) {
     if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
         return TRUE;
     } else {
-        return EntityInRectRadius(super, &gPlayerEntity, 0x14, 0x14);
+        return EntityInRectRadius(super, &gPlayerEntity.base, 0x14, 0x14);
     }
 }
 

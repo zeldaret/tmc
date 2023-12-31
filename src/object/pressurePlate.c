@@ -4,7 +4,6 @@
  *
  * @brief Pressure Plate object
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -121,7 +120,7 @@ static u32 get_standing_count(PressurePlateEntity* this) {
 
     num = 0;
     if (IsCollidingPlayer(super) != 0) {
-        gPlayerEntity.spriteOffsetY = sSpriteOffsets[this->dir];
+        gPlayerEntity.base.spriteOffsetY = sSpriteOffsets[this->dir];
         num = 1;
     }
     if ((gPlayerState.flags & PL_CLONING) != 0) {

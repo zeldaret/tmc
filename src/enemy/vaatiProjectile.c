@@ -4,266 +4,274 @@
  *
  * @brief Vaati Projectile enemy
  */
-
 #include "enemy.h"
 #include "functions.h"
 #include "screenTransitions.h"
 
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[16];
+    /*0x78*/ u16 unk_78;
+} VaatiProjectileEntity;
+
 extern Entity* gUnk_020000B0;
 
-bool32 sub_0803E4A0(Entity*);
-void VaatiProjectile_OnTick(Entity*);
-void VaatiProjectile_OnCollision(Entity*);
-void GenericKnockback2(Entity*);
-void VaatiProjectile_OnDeath(Entity*);
-void VaatiProjectile_OnGrabbed(Entity*);
-void VaatiProjectileFunction0Action0(Entity*);
-void VaatiProjectileFunction0Action1(Entity*);
-void VaatiProjectileFunction0Action2(Entity*);
-void VaatiProjectileFunction0Action3(Entity*);
-void VaatiProjectileFunction0Action4(Entity*);
-void VaatiProjectileFunction0Action5(Entity*);
-void VaatiProjectileFunction0Action6(Entity*);
-void VaatiProjectileFunction0Action7(Entity*);
-void VaatiProjectileFunction0Action8(Entity*);
-void VaatiProjectileFunction0Action9(Entity*);
-void sub_0803E444(Entity*);
-void sub_0803E480(Entity*);
-void sub_0803E4D8(Entity*);
+bool32 sub_0803E4A0(VaatiProjectileEntity*);
+void VaatiProjectile_OnTick(VaatiProjectileEntity*);
+void VaatiProjectile_OnCollision(VaatiProjectileEntity*);
+void VaatiProjectile_OnDeath(VaatiProjectileEntity*);
+void VaatiProjectile_OnGrabbed(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action0(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action1(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action2(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action3(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action4(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action5(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action6(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action7(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action8(VaatiProjectileEntity*);
+void VaatiProjectileFunction0Action9(VaatiProjectileEntity*);
+void sub_0803E444(VaatiProjectileEntity*);
+void sub_0803E480(VaatiProjectileEntity*);
+void sub_0803E4D8(VaatiProjectileEntity*);
 
-void (*const VaatiProjectile_Functions[])(Entity*) = {
-    VaatiProjectile_OnTick, VaatiProjectile_OnCollision, GenericKnockback2, VaatiProjectile_OnDeath,
-    GenericConfused,        VaatiProjectile_OnGrabbed,
+void (*const VaatiProjectile_Functions[])(VaatiProjectileEntity*) = {
+    VaatiProjectile_OnTick,
+    VaatiProjectile_OnCollision,
+    (void (*)(VaatiProjectileEntity*))GenericKnockback2,
+    VaatiProjectile_OnDeath,
+    (void (*)(VaatiProjectileEntity*))GenericConfused,
+    VaatiProjectile_OnGrabbed,
 };
-void (*const vaatiProjectileFunction0Actions[])(Entity*) = {
+void (*const vaatiProjectileFunction0Actions[])(VaatiProjectileEntity*) = {
     VaatiProjectileFunction0Action0, VaatiProjectileFunction0Action1, VaatiProjectileFunction0Action2,
     VaatiProjectileFunction0Action3, VaatiProjectileFunction0Action4, VaatiProjectileFunction0Action5,
     VaatiProjectileFunction0Action6, VaatiProjectileFunction0Action7, VaatiProjectileFunction0Action8,
     VaatiProjectileFunction0Action9,
 };
 
-void VaatiProjectile(Entity* this) {
+void VaatiProjectile(VaatiProjectileEntity* this) {
     if (sub_0803E4A0(this)) {
-        COLLISION_OFF(this);
-        this->health = 0;
-        this->parent = NULL;
+        COLLISION_OFF(super);
+        super->health = 0;
+        super->parent = NULL;
     }
-    VaatiProjectile_Functions[GetNextFunction(this)](this);
+    VaatiProjectile_Functions[GetNextFunction(super)](this);
 }
 
-void VaatiProjectile_OnTick(Entity* this) {
-    vaatiProjectileFunction0Actions[this->action](this);
+void VaatiProjectile_OnTick(VaatiProjectileEntity* this) {
+    vaatiProjectileFunction0Actions[super->action](this);
 }
 
-void VaatiProjectile_OnCollision(Entity* this) {
+void VaatiProjectile_OnCollision(VaatiProjectileEntity* this) {
     Entity* entity;
 
-    if (this->contactFlags == 0x80) {
+    if (super->contactFlags == 0x80) {
 #ifndef EU
-        if (this->health != 0) {
+        if (super->health != 0) {
 #endif
-            this->action = 5;
-            COLLISION_OFF(this);
-            this->spritePriority.b1 = 0;
-            gPlayerEntity.flags &= ~ENT_COLLIDE;
-            gPlayerEntity.spriteOrientation.flipY = this->spriteOrientation.flipY;
-            gPlayerEntity.spriteRendering.b3 = this->spriteRendering.b3;
+            super->action = 5;
+            COLLISION_OFF(super);
+            super->spritePriority.b1 = 0;
+            gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+            gPlayerEntity.base.spriteOrientation.flipY = super->spriteOrientation.flipY;
+            gPlayerEntity.base.spriteRendering.b3 = super->spriteRendering.b3;
             sub_0803E444(this);
 #ifndef EU
             SetPlayerControl(2);
-            entity = this->parent;
+            entity = super->parent;
             if (entity != NULL) {
                 entity->flags = entity->flags & ~ENT_COLLIDE;
             }
         } else {
             gPlayerState.flags &= ~PL_DISABLE_ITEMS;
-            entity = &gPlayerEntity;
-            entity->flags = gPlayerEntity.flags | ENT_COLLIDE;
+            entity = &gPlayerEntity.base;
+            entity->flags = gPlayerEntity.base.flags | ENT_COLLIDE;
         }
 #endif
     }
-    EnemyFunctionHandlerAfterCollision(this, VaatiProjectile_Functions);
+    EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)VaatiProjectile_Functions);
 }
 
-void VaatiProjectile_OnDeath(Entity* this) {
-    if (this->parent != NULL) {
-        this->parent->subtimer--;
-        this->parent = NULL;
+void VaatiProjectile_OnDeath(VaatiProjectileEntity* this) {
+    if (super->parent != NULL) {
+        super->parent->subtimer--;
+        super->parent = NULL;
     }
-    GenericDeath(this);
+    GenericDeath(super);
 }
 
-void VaatiProjectile_OnGrabbed(Entity* this) {
+void VaatiProjectile_OnGrabbed(VaatiProjectileEntity* this) {
 }
 
-void VaatiProjectileFunction0Action0(Entity* this) {
+void VaatiProjectileFunction0Action0(VaatiProjectileEntity* this) {
     Entity* entity;
 
-    if (this->type == 0) {
+    if (super->type == 0) {
         entity = CreateEnemy(VAATI_PROJECTILE, 1);
         if (entity != NULL) {
-            entity->parent = this;
-            this->child = entity;
-            if (this->type2 == 0) {
-                this->action = 1;
-                this->z.HALF.HI = -0x18;
+            entity->parent = super;
+            super->child = entity;
+            if (super->type2 == 0) {
+                super->action = 1;
+                super->z.HALF.HI = -0x18;
             } else {
-                this->action = 9;
-                this->z.HALF.HI = -0x80;
-                this->flags2 = 1;
+                super->action = 9;
+                super->z.HALF.HI = -0x80;
+                super->flags2 = 1;
             }
-            InitializeAnimation(this, 0);
+            InitializeAnimation(super, 0);
         }
     } else {
-        this->action = 8;
-        COLLISION_OFF(this);
-        this->spriteOffsetY = 1;
-        this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
-        this->spriteRendering.b3 = this->parent->spriteRendering.b3;
-        this->spritePriority.b1 = 0;
-        PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
-        InitializeAnimation(this, 1);
+        super->action = 8;
+        COLLISION_OFF(super);
+        super->spriteOffsetY = 1;
+        super->spriteOrientation.flipY = super->parent->spriteOrientation.flipY;
+        super->spriteRendering.b3 = super->parent->spriteRendering.b3;
+        super->spritePriority.b1 = 0;
+        PositionRelative(super->parent, super, 0, Q_16_16(-1.0));
+        InitializeAnimation(super, 1);
     }
 }
 
-void VaatiProjectileFunction0Action1(Entity* this) {
+void VaatiProjectileFunction0Action1(VaatiProjectileEntity* this) {
     sub_0803E480(this);
-    if (PlayerInRange(this, 0, 8) != 0) {
-        this->action = 2;
-        this->timer = 10;
-        InitializeAnimation(this->child, 2);
+    if (PlayerInRange(super, 0, 8) != 0) {
+        super->action = 2;
+        super->timer = 10;
+        InitializeAnimation(super->child, 2);
     } else {
         if (gUnk_020000B0 != NULL) {
-            sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
-            LinearMoveUpdate(this);
+            sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
+            LinearMoveUpdate(super);
         }
     }
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void VaatiProjectileFunction0Action2(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
+void VaatiProjectileFunction0Action2(VaatiProjectileEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
     } else {
-        if (++this->z.HALF.HI == 0) {
-            this->action = 3;
+        if (++super->z.HALF.HI == 0) {
+            super->action = 3;
         }
     }
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void VaatiProjectileFunction0Action3(Entity* this) {
-    if (this->child->frame & ANIM_DONE) {
-        if (--this->z.HALF.HI <= -0x18) {
-            this->action = 4;
-            this->timer = (Random() & 0xf) + 15;
-            InitializeAnimation(this->child, 1);
+void VaatiProjectileFunction0Action3(VaatiProjectileEntity* this) {
+    if (super->child->frame & ANIM_DONE) {
+        if (--super->z.HALF.HI <= -0x18) {
+            super->action = 4;
+            super->timer = (Random() & 0xf) + 15;
+            InitializeAnimation(super->child, 1);
         }
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
 }
 
-void VaatiProjectileFunction0Action4(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 1;
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
+void VaatiProjectileFunction0Action4(VaatiProjectileEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 1;
+        super->direction = GetFacingDirection(super, &gPlayerEntity.base);
     }
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void VaatiProjectileFunction0Action5(Entity* this) {
+void VaatiProjectileFunction0Action5(VaatiProjectileEntity* this) {
     sub_0803E444(this);
-    if (this->timer != 0) {
-        this->timer--;
+    if (super->timer != 0) {
+        super->timer--;
     } else {
-        if (-0x18 < --this->z.HALF.HI) {
+        if (-0x18 < --super->z.HALF.HI) {
             return;
         }
-        this->action = 6;
-        this->timer = 20;
+        super->action = 6;
+        super->timer = 20;
     }
 }
 
-void VaatiProjectileFunction0Action6(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 7;
-        this->direction = DirectionSouth;
-        this->speed = 0x300;
+void VaatiProjectileFunction0Action6(VaatiProjectileEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 7;
+        super->direction = DirectionSouth;
+        super->speed = 0x300;
     }
     sub_0803E444(this);
 }
 
-void VaatiProjectileFunction0Action7(Entity* this) {
+void VaatiProjectileFunction0Action7(VaatiProjectileEntity* this) {
     sub_0803E444(this);
-    LinearMoveUpdate(this);
+    LinearMoveUpdate(super);
     sub_0803E4D8(this);
-    if ((gRoomControls.origin_y + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
+    if ((gRoomControls.origin_y + gRoomControls.height + -0x10) <= super->y.HALF.HI) {
         SetInitializationPriority();
-        // TODO this screen transition is to mazaal. Is this also the projectile for Mazaals shrink ray?
+        // TODO super screen transition is to mazaal. Is super also the projectile for Mazaals shrink ray?
         DoExitTransition(&gUnk_0813AB94);
     }
 }
 
-void VaatiProjectileFunction0Action8(Entity* this) {
-    if (this->parent->next == NULL) {
+void VaatiProjectileFunction0Action8(VaatiProjectileEntity* this) {
+    if (super->parent->next == NULL) {
         DeleteThisEntity();
     }
-    PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
-    GetNextFrame(this);
+    PositionRelative(super->parent, super, 0, Q_16_16(-1.0));
+    GetNextFrame(super);
 }
 
-void VaatiProjectileFunction0Action9(Entity* this) {
-    this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-    this->y.HALF.HI = gPlayerEntity.y.HALF.HI;
-    if (this->z.HALF.HI < -8) {
-        if (this->animIndex != 2) {
-            this->timer = 0;
-            InitializeAnimation(this->child, 2);
+void VaatiProjectileFunction0Action9(VaatiProjectileEntity* this) {
+    super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
+    super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
+    if (super->z.HALF.HI < -8) {
+        if (super->animIndex != 2) {
+            super->timer = 0;
+            InitializeAnimation(super->child, 2);
         }
         VaatiProjectileFunction0Action2(this);
     } else {
-        this->z.HALF.HI += 8;
+        super->z.HALF.HI += 8;
     }
 }
 
-void sub_0803E444(Entity* this) {
+void sub_0803E444(VaatiProjectileEntity* this) {
     ResetActiveItems();
     gPlayerState.mobility |= 0x80;
     gPlayerState.field_0xa |= 0x80;
-    sub_0806FA90(this, this->contactedEntity, 0, -2);
-    gPlayerEntity.spriteOffsetY += 0xe;
+    sub_0806FA90(super, super->contactedEntity, 0, -2);
+    gPlayerEntity.base.spriteOffsetY += 0xe;
 }
 
-void sub_0803E480(Entity* this) {
-    if (this->field_0x78.HWORD >= 0x4b1) {
-        this->speed = 0x180;
+void sub_0803E480(VaatiProjectileEntity* this) {
+    if (this->unk_78 >= 0x4b1) {
+        super->speed = 0x180;
     } else {
-        this->field_0x78.HWORD++;
+        this->unk_78++;
     }
 }
 
-bool32 sub_0803E4A0(Entity* this) {
+bool32 sub_0803E4A0(VaatiProjectileEntity* this) {
 #ifdef EU
     bool32 ret;
     if (gRoomTransition.field_0x39 == 0) {
         return TRUE;
     } else {
-        if (this->parent == NULL) {
+        if (super->parent == NULL) {
             return FALSE;
         }
-        ret = this->parent->next == NULL;
+        ret = super->parent->next == NULL;
     }
     return ret;
 #else
     bool32 ret;
     if (gRoomTransition.field_0x39 != 0) {
-        if (this->parent == NULL) {
+        if (super->parent == NULL) {
             return FALSE;
         }
-        if (this->parent->health == 0) {
+        if (super->parent->health == 0) {
             return TRUE;
         } else {
-            ret = this->parent->next == NULL;
+            ret = super->parent->next == NULL;
         }
     } else {
         return TRUE;
@@ -272,11 +280,11 @@ bool32 sub_0803E4A0(Entity* this) {
 #endif
 }
 
-void sub_0803E4D8(Entity* this) {
+void sub_0803E4D8(VaatiProjectileEntity* this) {
     u32 tile;
 
-    tile = TILE(this->x.HALF.HI, this->y.HALF.HI + 8);
-    if (sub_080B1B44(tile, gPlayerEntity.collisionLayer) != 0xff) {
-        SetTile(0x4074, tile, gPlayerEntity.collisionLayer);
+    tile = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
+    if (sub_080B1B44(tile, gPlayerEntity.base.collisionLayer) != 0xff) {
+        SetTile(0x4074, tile, gPlayerEntity.base.collisionLayer);
     }
 }

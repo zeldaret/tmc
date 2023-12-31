@@ -4,7 +4,6 @@
  *
  * @brief Gleerok Particle object
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "effects.h"
 #include "entity.h"
@@ -78,7 +77,7 @@ void GleerokParticle_Init(GleerokParticleEntity* this) {
                 gRoomControls.camera_target = super;
             } else {
                 if (--this->unk78 == -1) {
-                    gRoomControls.camera_target = &gPlayerEntity;
+                    gRoomControls.camera_target = &gPlayerEntity.base;
                     DeleteThisEntity();
                 }
             }

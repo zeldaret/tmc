@@ -4,7 +4,6 @@
  *
  * @brief Hit Switch object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "physics.h"
 

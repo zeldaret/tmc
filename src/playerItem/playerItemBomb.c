@@ -4,7 +4,6 @@
  *
  * @brief Bomb Player Item
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"

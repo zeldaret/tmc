@@ -4,7 +4,6 @@
  *
  * @brief Death Fx object
  */
-#define NENT_DEPRECATED
 #include "object/deathFx.h"
 #include "enemy.h"
 #include "entity.h"

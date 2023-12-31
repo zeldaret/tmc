@@ -4,7 +4,6 @@
  *
  * @brief Emma NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "screenTransitions.h"

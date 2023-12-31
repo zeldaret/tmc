@@ -4,7 +4,6 @@
  *
  * @brief Minish Emoticon object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 
@@ -38,7 +37,7 @@ void MinishEmoticon_Action1(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         DeleteThisEntity();
     }
-    playerEnt = &gPlayerEntity;
+    playerEnt = &gPlayerEntity.base;
     sub_08079BD8(this);
     this->spriteOrientation.flipY = 1;
     this->palette.b.b0 = playerEnt->palette.b.b0;

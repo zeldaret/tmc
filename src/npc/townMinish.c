@@ -4,7 +4,6 @@
  *
  * @brief Town Minish NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "item.h"
@@ -185,7 +184,7 @@ void sub_0806ABFC(TownMinishEntity* this) {
 void sub_0806AC3C(TownMinishEntity* this) {
     if (super->animIndex <= 3) {
         s32 unk;
-        Entity* link = &gPlayerEntity;
+        Entity* link = &gPlayerEntity.base;
         if (EntityInRectRadius(super, link, 0x18, 0x18)) {
             unk = GetFacingDirection(super, link) & 0x1e;
         } else {
@@ -239,12 +238,12 @@ void sub_0806ACC4(TownMinishEntity* this) {
                 if (super->type2 == 10 && super->interactType) {
                     super->action = 2;
                     super->interactType = INTERACTION_NONE;
-                    InitializeAnimation(super,
-                                        GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)) + 8);
+                    InitializeAnimation(
+                        super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)) + 8);
                     sub_0806AFE8(super, this->context);
                 }
                 if (super->type == 1) {
-                    u8 idx = gPlayerEntity.animationState >> 1;
+                    u8 idx = gPlayerEntity.base.animationState >> 1;
                     SetInteractableObjectCollision(super, 1, gUnk_081126E4[idx], &gUnk_081126D4[idx]);
                 }
             }

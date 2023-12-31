@@ -4,7 +4,6 @@
  *
  * @brief Smoke object
  */
-#define NENT_DEPRECATED
 #include "object.h"
 
 void Smoke_Type0(Entity*);

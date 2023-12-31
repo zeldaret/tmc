@@ -4,41 +4,64 @@
  *
  * @brief Vaati Transfigured enemy
  */
-
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
+#include "object.h"
 
-void sub_080409B0(Entity*);
-void sub_080408EC(Entity*);
-void sub_08040AD4(Entity*);
-void sub_08040670(Entity*);
-void sub_080406A0(Entity*);
-void sub_08040770(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[5];
+    /*0x6d*/ u8 unk_6d;
+    /*0x6e*/ u8 unused2[6];
+    /*0x74*/ u8 unk_74;
+    /*0x75*/ u8 unk_75;
+    /*0x76*/ u8 unk_76;
+    /*0x77*/ u8 unk_77;
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u16 unk_7a;
+    /*0x7c*/ u16 unk_7c;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ u8 unk_80;
+    /*0x81*/ u8 unk_81;
+    /*0x82*/ u8 unk_82;
+    /*0x83*/ u8 unused3[1];
+    /*0x84*/ u8 unk_84;
+    /*0x85*/ u8 unused4[1];
+    /*0x86*/ u8 unk_86;
+    /*0x87*/ u8 unk_87;
+} VaatiTransfiguredEntity;
+
 extern void Knockback1(Entity*);
-u32 sub_08040934(Entity*);
-void sub_08040648(Entity*, u32, u32);
 
-void VaatiTransfiguredType0Action0(Entity*);
-void VaatiTransfiguredType0Action1(Entity*);
-void VaatiTransfiguredType0Action2(Entity*);
-void VaatiTransfiguredType0Action3(Entity*);
-void VaatiTransfiguredType0Action4(Entity*);
-void VaatiTransfiguredType0Action5(Entity*);
-void VaatiTransfiguredType0Action6(Entity*);
-void VaatiTransfiguredType0Action7(Entity*);
-void VaatiTransfiguredType1Action0(Entity*);
-void VaatiTransfiguredType1Action1(Entity*);
-void VaatiTransfiguredType2Action0(Entity*);
-void VaatiTransfiguredType2Action1(Entity*);
-void VaatiTransfiguredType2Action2(Entity*);
-void VaatiTransfiguredType3Action0(Entity*);
-void VaatiTransfiguredType3Action1(Entity*);
-void VaatiTransfiguredType4Action0(Entity*);
-void VaatiTransfiguredType4Action1(Entity*);
-void VaatiTransfiguredType5Action0(Entity*);
-void VaatiTransfiguredType5Action1(Entity*);
-void VaatiTransfiguredType5Action2(Entity*);
+void sub_080409B0(VaatiTransfiguredEntity*);
+void sub_080408EC(VaatiTransfiguredEntity*);
+void sub_08040AD4(VaatiTransfiguredEntity*);
+void sub_08040670(VaatiTransfiguredEntity*);
+void sub_080406A0(VaatiTransfiguredEntity*);
+void sub_08040770(VaatiTransfiguredEntity*);
+u32 sub_08040934(VaatiTransfiguredEntity*);
+void sub_08040648(VaatiTransfiguredEntity*, u32, u32);
+
+void VaatiTransfiguredType0Action0(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action1(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action2(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action3(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action4(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action5(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action6(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType0Action7(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType1Action0(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType1Action1(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType2Action0(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType2Action1(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType2Action2(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType3Action0(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType3Action1(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType4Action0(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType4Action1(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType5Action0(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType5Action1(VaatiTransfiguredEntity*);
+void VaatiTransfiguredType5Action2(VaatiTransfiguredEntity*);
 
 typedef struct {
     s8 x;
@@ -51,29 +74,29 @@ const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xb0 };
 const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xc0 };
 #endif
 const u8 gUnk_080D0ABF[] = { 0x3c, 0x3c, 0x1e, 0x14, 0x14, 0x14, 0, 0, 0 };
-void (*const vaatiTransfiguredType0Actions[])(Entity*) = {
+void (*const vaatiTransfiguredType0Actions[])(VaatiTransfiguredEntity*) = {
     VaatiTransfiguredType0Action0, VaatiTransfiguredType0Action1, VaatiTransfiguredType0Action2,
     VaatiTransfiguredType0Action3, VaatiTransfiguredType0Action4, VaatiTransfiguredType0Action5,
     VaatiTransfiguredType0Action6, VaatiTransfiguredType0Action7,
 };
-void (*const vaatiTransfiguredType1Actions[])(Entity*) = {
+void (*const vaatiTransfiguredType1Actions[])(VaatiTransfiguredEntity*) = {
     VaatiTransfiguredType1Action0,
     VaatiTransfiguredType1Action1,
 };
-void (*const vaatiTransfiguredType2Actions[])(Entity*) = {
+void (*const vaatiTransfiguredType2Actions[])(VaatiTransfiguredEntity*) = {
     VaatiTransfiguredType2Action0,
     VaatiTransfiguredType2Action1,
     VaatiTransfiguredType2Action2,
 };
-void (*const vaatiTransfiguredType3Actions[])(Entity*) = {
+void (*const vaatiTransfiguredType3Actions[])(VaatiTransfiguredEntity*) = {
     VaatiTransfiguredType3Action0,
     VaatiTransfiguredType3Action1,
 };
-void (*const vaatiTransfiguredType4Actions[])(Entity*) = {
+void (*const vaatiTransfiguredType4Actions[])(VaatiTransfiguredEntity*) = {
     VaatiTransfiguredType4Action0,
     VaatiTransfiguredType4Action1,
 };
-void (*const vaatiTransfiguredType5Actions[])(Entity*) = {
+void (*const vaatiTransfiguredType5Actions[])(VaatiTransfiguredEntity*) = {
     VaatiTransfiguredType5Action0,
     VaatiTransfiguredType5Action1,
     VaatiTransfiguredType5Action2,
@@ -98,63 +121,63 @@ const u8 gUnk_080D0B84[] = { 0x01, 0x00, 0x01, 0x02, 0x00, 0x01, 0x02, 0x00, 0x0
                              0x01, 0x02, 0x01, 0x00, 0x02, 0x01, 0x02, 0x00, 0x01, 0x02, 0x01,
                              0x02, 0x00, 0x02, 0x01, 0x00, 0x01, 0x01, 0x00, 0x02, 0x00 };
 
-void VaatiTransfigured(Entity* this) {
-    switch (this->type) {
+void VaatiTransfigured(VaatiTransfiguredEntity* this) {
+    switch (super->type) {
         case 0:
-            if (this->action != 0) {
-                this->field_0x7a.HWORD = this->field_0x78.HWORD;
-                this->field_0x78.HWORD = this->x.HALF.HI;
-                this->field_0x7c.HALF.HI = this->field_0x7c.HALF.LO;
-                this->field_0x7c.HALF.LO = this->y.HALF.HI;
+            if (super->action != 0) {
+                this->unk_7a = this->unk_78;
+                this->unk_78 = super->x.HALF.HI;
+                this->unk_7e = this->unk_7c;
+                this->unk_7c = super->y.HALF.HI;
                 sub_080409B0(this);
             }
-            vaatiTransfiguredType0Actions[this->action](this);
+            vaatiTransfiguredType0Actions[super->action](this);
             break;
         case 1:
-            vaatiTransfiguredType1Actions[this->action](this);
+            vaatiTransfiguredType1Actions[super->action](this);
             break;
         case 2:
-            vaatiTransfiguredType2Actions[this->action](this);
+            vaatiTransfiguredType2Actions[super->action](this);
             break;
         case 3:
-            vaatiTransfiguredType3Actions[this->action](this);
+            vaatiTransfiguredType3Actions[super->action](this);
             break;
         case 4:
-            vaatiTransfiguredType4Actions[this->action](this);
+            vaatiTransfiguredType4Actions[super->action](this);
             break;
         case 5:
-            vaatiTransfiguredType5Actions[this->action](this);
+            vaatiTransfiguredType5Actions[super->action](this);
             return;
         default:
             break;
     }
 }
 
-void VaatiTransfiguredType0Action0(Entity* this) {
+void VaatiTransfiguredType0Action0(VaatiTransfiguredEntity* this) {
     Entity* enemy;
     u32 i;
 
-    sub_0804A720(this);
+    sub_0804A720(super);
     if ((CheckRoomFlag(0) != 0) && (gEntCount < 0x51)) {
-        this->action = 1;
-        this->spriteSettings.draw = 1;
-        this->spritePriority.b0 = 5;
-        this->field_0x6c.HALF.HI |= 1;
-        this->direction = (Random() & 0x17) + 4;
-        this->timer = 48;
-        this->subtimer = 12;
-        this->field_0x82.HALF.LO = 4;
-        this->field_0x80.HALF.LO = 0xff;
-        this->field_0x74.HALF.LO = 0;
-        this->field_0x76.HALF.HI = 0;
-        this->cutsceneBeh.HALF.LO = 9;
-        this->animationState = 0;
-        this->field_0x86.HALF.LO = 0;
-        this->field_0x86.HALF.HI = 0;
-        this->field_0x78.HWORD = this->x.HALF.HI;
-        this->field_0x7a.HWORD = this->x.HALF.HI;
-        this->field_0x7c.HALF.LO = this->y.HALF.HI;
-        this->field_0x7c.HALF.HI = this->y.HALF.HI;
+        super->action = 1;
+        super->spriteSettings.draw = 1;
+        super->spritePriority.b0 = 5;
+        this->unk_6d |= 1;
+        super->direction = (Random() & 0x17) + 4;
+        super->timer = 48;
+        super->subtimer = 12;
+        this->unk_82 = 4;
+        this->unk_80 = 0xff;
+        this->unk_74 = 0;
+        this->unk_77 = 0;
+        this->unk_84 = 9;
+        super->animationState = 0;
+        this->unk_86 = 0;
+        this->unk_87 = 0;
+        this->unk_78 = super->x.HALF.HI;
+        this->unk_7a = super->x.HALF.HI;
+        this->unk_7c = super->y.HALF.HI;
+        this->unk_7e = super->y.HALF.HI;
         for (i = 1; i < 6; i++) {
             sub_08040648(this, i, 0);
         }
@@ -162,71 +185,71 @@ void VaatiTransfiguredType0Action0(Entity* this) {
         sub_080408EC(this);
         for (i = 0; i < 8; ++i) {
             enemy = CreateEnemy(VAATI_TRANSFIGURED_EYE, 0);
-            enemy->parent = this;
+            enemy->parent = super;
             enemy->type2 = i;
-            if ((this->field_0x74.HALF.HI >> (i)&1) != 0) {
+            if ((this->unk_75 >> (i)&1) != 0) {
                 enemy->timer = 1;
             } else {
                 enemy->timer = 0;
             }
         }
-        InitAnimationForceUpdate(this, 0);
+        InitAnimationForceUpdate(super, 0);
     }
 }
 
-void VaatiTransfiguredType0Action1(Entity* this) {
+void VaatiTransfiguredType0Action1(VaatiTransfiguredEntity* this) {
     Entity* object;
 
-    switch (this->field_0x80.HALF.LO) {
+    switch (this->unk_80) {
         case 0xff:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO = 0;
-                this->timer = 11;
+            if (--super->timer == 0) {
+                this->unk_80 = 0;
+                super->timer = 11;
             }
             break;
         case 0:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->speed = 0x180;
-                this->timer = 20;
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->speed = 0x180;
+                super->timer = 20;
             }
             break;
         case 1:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->speed = 0xc0;
-                this->timer = 12;
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->speed = 0xc0;
+                super->timer = 12;
             }
             break;
         case 2:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->speed = 0;
-                if (this->animationState < 2) {
-                    this->timer = (Random() & 0x7f) + 64;
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->speed = 0;
+                if (super->animationState < 2) {
+                    super->timer = (Random() & 0x7f) + 64;
                 } else {
-                    this->timer = 8;
+                    super->timer = 8;
                 }
             }
             break;
         case 3:
-            if (--this->timer == 0) {
-                this->z.HALF.HI = 0;
-                this->field_0x80.HALF.LO = 0;
-                this->timer = gUnk_080D0ABF[(u32)this->animationState * 2];
+            if (--super->timer == 0) {
+                super->z.HALF.HI = 0;
+                this->unk_80 = 0;
+                super->timer = gUnk_080D0ABF[(u32)super->animationState * 2];
                 switch (sub_08040934(this)) {
                     case 1:
-                        this->action = 4;
-                        this->field_0x74.HALF.LO = 1;
+                        super->action = 4;
+                        this->unk_74 = 1;
                         break;
                     case 2:
-                        this->action = 5;
+                        super->action = 5;
                         break;
                     case 3:
-                        this->action = 6;
+                        super->action = 6;
                         break;
                     default:
-                        this->field_0x80.HALF.LO = 4;
+                        this->unk_80 = 4;
                         break;
                 }
             } else {
@@ -238,62 +261,62 @@ void VaatiTransfiguredType0Action1(Entity* this) {
             break;
     }
 
-    if (--this->field_0x82.HALF.LO == 0) {
-        this->field_0x82.HALF.LO = 4;
-        object = CreateObject(VAATI2_PARTICLE, 0, ((this->direction + 0x12) & 0x1c) >> 2);
+    if (--this->unk_82 == 0) {
+        this->unk_82 = 4;
+        object = CreateObject(VAATI2_PARTICLE, 0, ((super->direction + 0x12) & 0x1c) >> 2);
         if (object != NULL) {
-            object->parent = this;
+            object->parent = super;
             object->x.HALF.HI += (Random() & 0xf) - 7;
             object->y.HALF.HI += (Random() & 0xf) - 7;
             object->spritePriority.b0 = 6;
         }
     }
-    if (this->field_0x80.HALF.LO != 0xff) {
-        ProcessMovement0(this);
+    if (this->unk_80 != 0xff) {
+        ProcessMovement0(super);
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType0Action2(Entity* this) {
-    UpdateAnimationSingleFrame(this);
+void VaatiTransfiguredType0Action2(VaatiTransfiguredEntity* this) {
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType0Action3(Entity* this) {
+void VaatiTransfiguredType0Action3(VaatiTransfiguredEntity* this) {
     Entity* pEVar3;
     u32 uVar4;
     u32 tmp;
 
-    switch (this->field_0x80.HALF.LO) {
+    switch (this->unk_80) {
         case 0:
-            uVar4 = BounceUpdate(this, Q_8_8(40.0));
-            if (uVar4 != BOUNCE_INIT_NEXT)
+            uVar4 = BounceUpdate(super, Q_8_8(40.0));
+            if (uVar4 != 1)
                 break;
-            this->field_0x80.HALF.LO = 1;
-            this->timer = 192;
-            COLLISION_ON(this);
+            this->unk_80 = 1;
+            super->timer = 192;
+            COLLISION_ON(super);
             SoundReq(SFX_14C);
             InitScreenShake(20, 4);
             break;
         case 1:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO = 2;
-                this->hitType = 0x35;
-                this->spriteOffsetX = 0;
+            if (--super->timer == 0) {
+                this->unk_80 = 2;
+                super->hitType = 0x35;
+                super->spriteOffsetX = 0;
             }
-            if (this->health < gUnk_080D0ABC[this->animationState]) {
+            if (super->health < gUnk_080D0ABC[super->animationState]) {
                 tmp = 1;
-                this->timer = 1;
+                super->timer = 1;
             } else {
                 tmp = 0;
             }
             if (tmp) {
-                this->field_0x80.HALF.LO = 2;
-                this->hitType = 0x35;
-                this->spriteOffsetX = 0;
-                this->animationState++;
-                if (this->animationState > 2) {
-                    this->action = 7;
-                    this->timer = 224;
+                this->unk_80 = 2;
+                super->hitType = 0x35;
+                super->spriteOffsetX = 0;
+                super->animationState++;
+                if (super->animationState > 2) {
+                    super->action = 7;
+                    super->timer = 224;
                     DeleteClones();
                     SoundReq(SFX_BOSS_HIT);
                     return;
@@ -301,39 +324,39 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             break;
         case 2:
-            this->child->field_0x74.HALF.LO = 0x10;
-            if (this->timer) {
-                this->field_0x80.HALF.LO = 3;
-                this->timer = 64;
+            ((VaatiTransfiguredEntity*)super->child)->unk_74 = 0x10;
+            if (super->timer) {
+                this->unk_80 = 3;
+                super->timer = 64;
             } else {
-                this->field_0x80.HALF.LO = 4;
-                this->timer = 80;
+                this->unk_80 = 4;
+                super->timer = 80;
             }
             break;
         case 3:
-            if (this->timer != 0) {
-                if (--this->timer == 0) {
-                    COLLISION_OFF(this);
-                    this->zVelocity = Q_16_16(3.5);
-                    this->subtimer = 16;
+            if (super->timer != 0) {
+                if (--super->timer == 0) {
+                    COLLISION_OFF(super);
+                    super->zVelocity = Q_16_16(3.5);
+                    super->subtimer = 16;
                 }
                 break;
             }
-            if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
-                this->field_0x80.HALF.LO = 5;
-                this->timer = 16;
-                COLLISION_ON(this);
-                this->health = 0xff;
-                this->field_0x86.HALF.LO = 0;
+            if (GravityUpdate(super, Q_8_8(40.0)) == 0) {
+                this->unk_80 = 5;
+                super->timer = 16;
+                COLLISION_ON(super);
+                super->health = 0xff;
+                this->unk_86 = 0;
                 sub_080408EC(this);
                 SoundReq(SFX_14C);
                 InitScreenShake(30, 4);
             } else {
-                if (this->subtimer != 0) {
-                    if (--this->subtimer == 0) {
+                if (super->subtimer != 0) {
+                    if (--super->subtimer == 0) {
                         SoundReq(SFX_1B0);
                     } else {
-                        if ((this->subtimer & 7) == 0) {
+                        if ((super->subtimer & 7) == 0) {
                             SoundReq(SFX_149);
                         }
                     }
@@ -341,15 +364,15 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             break;
         case 4:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO = 5;
-                this->timer = 16;
-                this->field_0x86.HALF.LO = 0;
+            if (--super->timer == 0) {
+                this->unk_80 = 5;
+                super->timer = 16;
+                this->unk_86 = 0;
                 sub_080408EC(this);
             } else {
-                if (((this->timer & 1) != 0) && (pEVar3 = CreateObject(VAATI2_PARTICLE, 1, 0xff), pEVar3 != NULL)) {
-                    pEVar3->parent = this;
-                    CopyPosition(this, pEVar3);
+                if (((super->timer & 1) != 0) && (pEVar3 = CreateObject(VAATI2_PARTICLE, 1, 0xff), pEVar3 != NULL)) {
+                    pEVar3->parent = super;
+                    CopyPosition(super, pEVar3);
                     pEVar3->x.HALF.HI += (Random() & 0xf) - 7;
                     pEVar3->y.HALF.HI += (Random() & 0xf) - 7;
                     pEVar3->spritePriority.b0 = 4;
@@ -358,74 +381,74 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             break;
         case 5:
-            if (--this->timer == 0) {
-                this->action = 1;
-                this->field_0x80.HALF.LO = 0;
-                this->field_0x80.HALF.HI = 0;
-                this->field_0x76.HALF.LO = 0;
+            if (--super->timer == 0) {
+                super->action = 1;
+                this->unk_80 = 0;
+                this->unk_81 = 0;
+                this->unk_76 = 0;
                 sub_08040670(this);
             }
     }
-    if (this->field_0x80.HALF.LO > 2) {
-        this->spriteOffsetX = this->timer & 1;
+    if (this->unk_80 > 2) {
+        super->spriteOffsetX = super->timer & 1;
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType0Action4(Entity* this) {
-    switch (this->field_0x80.HALF.LO) {
+void VaatiTransfiguredType0Action4(VaatiTransfiguredEntity* this) {
+    switch (this->unk_80) {
         case 0:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->field_0x74.HALF.LO = 0;
-                this->timer = 128;
-                this->subtimer = 0;
-                this->zVelocity = Q_16_16(2.25);
+            if (--super->timer == 0) {
+                this->unk_80++;
+                this->unk_74 = 0;
+                super->timer = 128;
+                super->subtimer = 0;
+                super->zVelocity = Q_16_16(2.25);
                 SoundReq(SFX_12B);
             }
             break;
         case 1:
-            if (GravityUpdate(this, Q_8_8(40)) != 0)
+            if (GravityUpdate(super, Q_8_8(40)) != 0)
                 break;
-            this->field_0x80.HALF.LO++;
-            switch (this->cutsceneBeh.HALF.LO) {
+            this->unk_80++;
+            switch (this->unk_84) {
                 case 1:
                 case 3:
-                    this->subtimer = 1;
+                    super->subtimer = 1;
                     break;
                 case 0:
                 case 2:
-                    this->subtimer = 0;
+                    super->subtimer = 0;
                     break;
                 default:
-                    this->subtimer = (Random() & 0x20) >> 5;
+                    super->subtimer = (Random() & 0x20) >> 5;
                     break;
             }
-            if (1 < this->animationState) {
-                this->subtimer = 1;
+            if (1 < super->animationState) {
+                super->subtimer = 1;
             }
             SoundReq(SFX_14C);
             InitScreenShake(30, 4);
             break;
         case 2:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->timer = gUnk_080D0ABF[((u32)this->animationState << 1 | 1)];
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->timer = gUnk_080D0ABF[((u32)super->animationState << 1 | 1)];
             } else {
-                if ((this->timer & 7) == 0) {
-                    CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
+                if ((super->timer & 7) == 0) {
+                    CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
                 }
-                if (((this->subtimer != 0) && (1 < this->animationState)) && (this->timer < 6)) {
-                    this->timer = 128;
-                    this->subtimer = 0;
+                if (((super->subtimer != 0) && (1 < super->animationState)) && (super->timer < 6)) {
+                    super->timer = 128;
+                    super->subtimer = 0;
                 }
             }
             break;
         case 3:
-            if (--this->timer == 0) {
-                this->action = 1;
-                this->field_0x80.HALF.LO = 0;
-                this->z.HALF.HI = 0;
+            if (--super->timer == 0) {
+                super->action = 1;
+                this->unk_80 = 0;
+                super->z.HALF.HI = 0;
                 sub_08040670(this);
             } else {
                 sub_08040AD4(this);
@@ -435,42 +458,42 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             break;
     }
 
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType0Action5(Entity* this) {
+void VaatiTransfiguredType0Action5(VaatiTransfiguredEntity* this) {
     Entity* entity;
 
-    switch (this->field_0x80.HALF.LO) {
+    switch (this->unk_80) {
         case 0:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->timer = 64;
-                if (1 < this->animationState) {
-                    this->timer = 128;
-                    this->subtimer = 1;
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->timer = 64;
+                if (1 < super->animationState) {
+                    super->timer = 128;
+                    super->subtimer = 1;
                 }
             }
             break;
         case 1:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->timer = gUnk_080D0ABF[(this->animationState << 1 | 1)];
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->timer = gUnk_080D0ABF[(super->animationState << 1 | 1)];
             } else {
-                if (this->subtimer) {
-                    if ((this->timer & 7) == 0) {
-                        CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
+                if (super->subtimer) {
+                    if ((super->timer & 7) == 0) {
+                        CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
                     }
-                    if (this->timer < 6) {
-                        this->timer = 64;
-                        this->subtimer = 0;
+                    if (super->timer < 6) {
+                        super->timer = 64;
+                        super->subtimer = 0;
                     }
                 } else {
-                    if ((this->timer & 0xf) == 0) {
-                        entity = CreateProjectileWithParent(this, V2_PROJECTILE, 2);
+                    if ((super->timer & 0xf) == 0) {
+                        entity = CreateProjectileWithParent(super, V2_PROJECTILE, 2);
                         if (entity != NULL) {
                             entity->type2 = 0;
-                            if (this->field_0x80.HALF.HI != 0) {
+                            if (this->unk_81 != 0) {
                                 entity->speed = entity->speed >> 1;
                             }
                         }
@@ -479,51 +502,51 @@ void VaatiTransfiguredType0Action5(Entity* this) {
             }
             break;
         case 2:
-            if (--this->timer == 0) {
-                this->action = 1;
-                this->field_0x80.HALF.LO = 0;
+            if (--super->timer == 0) {
+                super->action = 1;
+                this->unk_80 = 0;
                 sub_08040670(this);
             } else {
                 sub_08040AD4(this);
             }
             break;
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType0Action6(Entity* this) {
+void VaatiTransfiguredType0Action6(VaatiTransfiguredEntity* this) {
     Entity* pEVar2;
 
-    switch (this->field_0x80.HALF.LO) {
+    switch (this->unk_80) {
         case 0:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->timer = 128;
-                if (1 < this->animationState) {
-                    this->subtimer = 1;
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->timer = 128;
+                if (1 < super->animationState) {
+                    super->subtimer = 1;
                 }
             }
             break;
         case 1:
-            if (--this->timer == 0) {
-                this->field_0x80.HALF.LO++;
-                this->timer = gUnk_080D0ABF[(this->animationState << 1) | 1];
+            if (--super->timer == 0) {
+                this->unk_80++;
+                super->timer = gUnk_080D0ABF[(super->animationState << 1) | 1];
             } else {
-                if (this->subtimer) {
-                    if ((this->timer & 7) == 0) {
-                        CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
+                if (super->subtimer) {
+                    if ((super->timer & 7) == 0) {
+                        CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
                     }
-                    if (this->timer < 6) {
-                        this->timer = 128;
-                        this->subtimer = 0;
+                    if (super->timer < 6) {
+                        super->timer = 128;
+                        super->subtimer = 0;
                     }
                 } else {
-                    if ((this->timer & 0x1f) == 0) {
-                        pEVar2 = CreateProjectileWithParent(this, V2_PROJECTILE, 2);
+                    if ((super->timer & 0x1f) == 0) {
+                        pEVar2 = CreateProjectileWithParent(super, V2_PROJECTILE, 2);
                         if (pEVar2 != NULL) {
                             pEVar2->type2 = 1;
                             pEVar2->y.HALF.HI += -0x20;
-                            if (this->field_0x80.HALF.HI != 0) {
+                            if (this->unk_81 != 0) {
                                 pEVar2->speed = pEVar2->speed >> 1;
                             }
                         }
@@ -532,44 +555,44 @@ void VaatiTransfiguredType0Action6(Entity* this) {
             }
             break;
         case 2:
-            if (--this->timer == 0) {
-                this->action = 1;
-                this->field_0x80.HALF.LO = 0;
+            if (--super->timer == 0) {
+                super->action = 1;
+                this->unk_80 = 0;
                 sub_08040670(this);
             } else {
                 sub_08040AD4(this);
             }
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType0Action7(Entity* this) {
+void VaatiTransfiguredType0Action7(VaatiTransfiguredEntity* this) {
     Entity* pEVar3;
     u32 uVar4;
 
     PausePlayer();
-    if (this->timer) {
-        if (--this->timer == 0) {
+    if (super->timer) {
+        if (--super->timer == 0) {
             SetRoomFlag(2);
-            this->subtimer = 8;
-            UpdateAnimationSingleFrame(this);
+            super->subtimer = 8;
+            UpdateAnimationSingleFrame(super);
             return;
         }
     } else {
-        if (this->subtimer != 0) {
-            if (--this->subtimer == 0) {
-                this->health = 0;
-                this->spriteSettings.draw = 0;
+        if (super->subtimer != 0) {
+            if (--super->subtimer == 0) {
+                super->health = 0;
+                super->spriteSettings.draw = 0;
             }
         } else {
-            GenericDeath(this);
+            GenericDeath(super);
         }
-        UpdateAnimationSingleFrame(this);
+        UpdateAnimationSingleFrame(super);
         return;
     }
-    this->subtimer = (this->subtimer + 1) & 7;
-    if (this->subtimer == 0) {
-        pEVar3 = CreateFx(this, FX_AURA_BASE, 0);
+    super->subtimer = (super->subtimer + 1) & 7;
+    if (super->subtimer == 0) {
+        pEVar3 = CreateFx(super, FX_AURA_BASE, 0);
         if (pEVar3 != NULL) {
             uVar4 = Random() & 0x3f3f;
             pEVar3->x.HALF.HI += (uVar4 & 0xff) - 0x20;
@@ -580,279 +603,279 @@ void VaatiTransfiguredType0Action7(Entity* this) {
             SoundReq(SFX_16E);
         }
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType1Action0(Entity* this) {
-    this->action = 1;
-    this->timer = 0;
-    this->field_0x80.HALF.LO = 0;
-    this->spritePriority.b0 = 6;
-    InitAnimationForceUpdate(this, (u32)this->timer);
+void VaatiTransfiguredType1Action0(VaatiTransfiguredEntity* this) {
+    super->action = 1;
+    super->timer = 0;
+    this->unk_80 = 0;
+    super->spritePriority.b0 = 6;
+    InitAnimationForceUpdate(super, (u32)super->timer);
 }
 
-void VaatiTransfiguredType1Action1(Entity* this) {
+void VaatiTransfiguredType1Action1(VaatiTransfiguredEntity* this) {
     Entity* parent;
 
-    parent = this->parent;
+    parent = super->parent;
     if (parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    this->x.HALF.HI = parent->field_0x7a.HWORD;
-    this->y.HALF.HI = parent->field_0x7c.HALF.HI;
-    if (parent->field_0x74.HALF.LO == 0) {
-        UpdateAnimationSingleFrame(this);
+    super->x.HALF.HI = ((VaatiTransfiguredEntity*)parent)->unk_7a;
+    super->y.HALF.HI = ((VaatiTransfiguredEntity*)parent)->unk_7e;
+    if (((VaatiTransfiguredEntity*)parent)->unk_74 == 0) {
+        UpdateAnimationSingleFrame(super);
     } else {
-        sub_080042BA(this, 2);
+        sub_080042BA(super, 2);
     }
     if (parent->action >= 5) {
-        if (this->timer == 0) {
-            this->timer = 1;
-            InitAnimationForceUpdate(this, 1);
+        if (super->timer == 0) {
+            super->timer = 1;
+            InitAnimationForceUpdate(super, 1);
         }
     } else {
-        if (this->timer != 0) {
-            this->timer = 0;
-            InitAnimationForceUpdate(this, 0);
+        if (super->timer != 0) {
+            super->timer = 0;
+            InitAnimationForceUpdate(super, 0);
         }
     }
     if (parent->action != 3) {
-        this->z.HALF.HI = parent->z.HALF.HI;
+        super->z.HALF.HI = parent->z.HALF.HI;
     }
 }
 
-void VaatiTransfiguredType2Action0(Entity* this) {
-    if (this->type2 != 0) {
-        this->action = 1;
-        this->spritePriority.b0 = this->type2 + 1;
-        InitAnimationForceUpdate(this, this->type2 + 4);
+void VaatiTransfiguredType2Action0(VaatiTransfiguredEntity* this) {
+    if (super->type2 != 0) {
+        super->action = 1;
+        super->spritePriority.b0 = super->type2 + 1;
+        InitAnimationForceUpdate(super, super->type2 + 4);
     } else {
-        this->spritePriority.b0 = 4;
+        super->spritePriority.b0 = 4;
         if (gEntCount < 0x46) {
             sub_08040648(this, 2, 1);
             sub_08040648(this, 2, 2);
-            this->action = 1;
-            this->timer = 0;
-            this->subtimer = (Random() & 0x7f) + 23;
-            this->field_0x74.HALF.LO = 0;
-            InitAnimationForceUpdate(this, 0);
+            super->action = 1;
+            super->timer = 0;
+            super->subtimer = (Random() & 0x7f) + 23;
+            this->unk_74 = 0;
+            InitAnimationForceUpdate(super, 0);
         }
     }
 }
 
-void VaatiTransfiguredType2Action1(Entity* this) {
+void VaatiTransfiguredType2Action1(VaatiTransfiguredEntity* this) {
     u32 uVar3;
 
     const xy* t;
 
-    if (this->parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+    if (super->parent->health == 0) {
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    CopyPosition(this->parent, this);
-    switch (this->type2) {
+    CopyPosition(super->parent, super);
+    switch (super->type2) {
         case 2:
-            uVar3 = GetFacingDirection(this, &gPlayerEntity);
+            uVar3 = GetFacingDirection(super, &gPlayerEntity.base);
             t = &gUnk_080D0B18[uVar3];
-            this->x.HALF.HI += t->x;
-            this->y.HALF.HI += t->y;
+            super->x.HALF.HI += t->x;
+            super->y.HALF.HI += t->y;
         case 1:
-            if (this->parent->frameIndex != 2) {
-                this->action = 2;
-                this->spriteSettings.draw = 0;
+            if (super->parent->frameIndex != 2) {
+                super->action = 2;
+                super->spriteSettings.draw = 0;
             }
             break;
         case 0:
-            switch (this->field_0x74.HALF.LO) {
+            switch (this->unk_74) {
                 case 0:
-                    if (--this->subtimer == 0) {
-                        this->subtimer = (Random() & 0x7f) + 39;
-                        if ((this->subtimer & 1) != 0) {
-                            this->field_0x74.HALF.LO = 1;
-                            InitAnimationForceUpdate(this, 8);
+                    if (--super->subtimer == 0) {
+                        super->subtimer = (Random() & 0x7f) + 39;
+                        if ((super->subtimer & 1) != 0) {
+                            this->unk_74 = 1;
+                            InitAnimationForceUpdate(super, 8);
                         }
                     }
                     break;
                 case 1:
-                    if ((this->frame & ANIM_DONE) != 0) {
-                        this->field_0x74.HALF.LO = 0;
-                        this->subtimer = (Random() & 0x7f) + 23;
-                        InitAnimationForceUpdate(this, 0);
+                    if ((super->frame & ANIM_DONE) != 0) {
+                        this->unk_74 = 0;
+                        super->subtimer = (Random() & 0x7f) + 23;
+                        InitAnimationForceUpdate(super, 0);
                     }
                     break;
                 case 0x10:
-                    InitAnimationForceUpdate(this, 7);
-                    this->field_0x74.HALF.LO = 0x11;
-                    this->subtimer = 80;
+                    InitAnimationForceUpdate(super, 7);
+                    this->unk_74 = 0x11;
+                    super->subtimer = 80;
                     break;
                 case 0x11:
-                    if (--this->subtimer == 0) {
-                        this->field_0x74.HALF.LO = 1;
-                        this->subtimer = 48;
-                        InitAnimationForceUpdate(this, 8);
+                    if (--super->subtimer == 0) {
+                        this->unk_74 = 1;
+                        super->subtimer = 48;
+                        InitAnimationForceUpdate(super, 8);
                     }
             }
             break;
     }
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType2Action2(Entity* this) {
-    if (this->parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+void VaatiTransfiguredType2Action2(VaatiTransfiguredEntity* this) {
+    if (super->parent->health == 0) {
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    CopyPosition(this->parent, this);
-    if (this->parent->frameIndex == 2) {
-        this->action = 1;
-        this->spriteSettings.draw = 1;
+    CopyPosition(super->parent, super);
+    if (super->parent->frameIndex == 2) {
+        super->action = 1;
+        super->spriteSettings.draw = 1;
     }
 }
 
-void VaatiTransfiguredType3Action0(Entity* this) {
-    this->action = 1;
-    this->spritePriority.b0 = 4;
-    InitAnimationForceUpdate(this, 0);
+void VaatiTransfiguredType3Action0(VaatiTransfiguredEntity* this) {
+    super->action = 1;
+    super->spritePriority.b0 = 4;
+    InitAnimationForceUpdate(super, 0);
 }
 
-void VaatiTransfiguredType3Action1(Entity* this) {
-    if (this->parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+void VaatiTransfiguredType3Action1(VaatiTransfiguredEntity* this) {
+    if (super->parent->health == 0) {
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    CopyPosition(this->parent, this);
-    UpdateAnimationSingleFrame(this);
+    CopyPosition(super->parent, super);
+    UpdateAnimationSingleFrame(super);
 }
 
-void VaatiTransfiguredType4Action0(Entity* this) {
-    this->action = 1;
-    this->field_0x80.HALF.LO = 0;
-    this->timer = 10;
-    this->spriteSettings.draw = 0;
-    this->spritePriority.b0 = 7;
-    InitializeAnimation(this, 0);
+void VaatiTransfiguredType4Action0(VaatiTransfiguredEntity* this) {
+    super->action = 1;
+    this->unk_80 = 0;
+    super->timer = 10;
+    super->spriteSettings.draw = 0;
+    super->spritePriority.b0 = 7;
+    InitializeAnimation(super, 0);
 }
 
-void VaatiTransfiguredType4Action1(Entity* this) {
-    if (this->parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+void VaatiTransfiguredType4Action1(VaatiTransfiguredEntity* this) {
+    if (super->parent->health == 0) {
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    if (this->parent->action != 5) {
-        if (this->field_0x80.HALF.LO != 0) {
-            this->field_0x80.HALF.LO = 0;
-            this->spriteSettings.draw = 0;
+    if (super->parent->action != 5) {
+        if (this->unk_80 != 0) {
+            this->unk_80 = 0;
+            super->spriteSettings.draw = 0;
         }
     } else {
-        if (this->field_0x80.HALF.LO == 0) {
-            this->field_0x80.HALF.LO++;
-            this->spriteSettings.draw = 1;
+        if (this->unk_80 == 0) {
+            this->unk_80++;
+            super->spriteSettings.draw = 1;
         }
-        if (--this->timer == 0) {
-            this->timer = 10;
+        if (--super->timer == 0) {
+            super->timer = 10;
             SoundReq(SFX_149);
         }
     }
-    CopyPosition(this->parent, this);
-    GetNextFrame(this);
+    CopyPosition(super->parent, super);
+    GetNextFrame(super);
 }
 
-void VaatiTransfiguredType5Action0(Entity* this) {
-    if (this->type2 != 0) {
-        this->action = 2;
-        this->timer = 10;
-        this->spritePriority.b0 = 3;
-        InitializeAnimation(this, 2);
+void VaatiTransfiguredType5Action0(VaatiTransfiguredEntity* this) {
+    if (super->type2 != 0) {
+        super->action = 2;
+        super->timer = 10;
+        super->spritePriority.b0 = 3;
+        InitializeAnimation(super, 2);
     } else {
-        this->action = 1;
-        this->spriteSettings.draw = 0;
-        this->spritePriority.b0 = 4;
+        super->action = 1;
+        super->spriteSettings.draw = 0;
+        super->spritePriority.b0 = 4;
     }
 }
 
-void VaatiTransfiguredType5Action1(Entity* this) {
-    if (this->parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+void VaatiTransfiguredType5Action1(VaatiTransfiguredEntity* this) {
+    if (super->parent->health == 0) {
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    switch (this->field_0x80.HALF.LO) {
+    switch (this->unk_80) {
         case 0:
-            if (this->parent->action != 6) {
+            if (super->parent->action != 6) {
                 return;
             }
-            this->field_0x80.HALF.LO++;
-            this->spriteSettings.draw = 1;
-            InitializeAnimation(this, 1);
+            this->unk_80++;
+            super->spriteSettings.draw = 1;
+            InitializeAnimation(super, 1);
             break;
         case 1:
-            if (this->parent->action != 6) {
-                this->field_0x80.HALF.LO = 0;
-                this->spriteSettings.draw = 0;
+            if (super->parent->action != 6) {
+                this->unk_80 = 0;
+                super->spriteSettings.draw = 0;
             } else {
-                if (this->frame & ANIM_DONE) {
-                    this->frame &= ~0x80;
+                if (super->frame & ANIM_DONE) {
+                    super->frame &= ~0x80;
                     if (gEntCount < 0x47) {
-                        sub_08040648(this, this->type, 1);
+                        sub_08040648(this, super->type, 1);
                     }
                 }
-                if (--this->timer == 0) {
-                    this->timer = 10;
+                if (--super->timer == 0) {
+                    super->timer = 10;
                     SoundReq(SFX_149);
                 }
-                GetNextFrame(this);
+                GetNextFrame(super);
             }
             break;
     }
-    CopyPosition(this->parent, this);
+    CopyPosition(super->parent, super);
 }
 
-void VaatiTransfiguredType5Action2(Entity* this) {
-    if (this->parent->health == 0) {
-        this->field_0x6c.HALF.HI |= 2;
+void VaatiTransfiguredType5Action2(VaatiTransfiguredEntity* this) {
+    if (super->parent->health == 0) {
+        this->unk_6d |= 2;
         DeleteThisEntity();
     }
-    if (this->field_0x80.HALF.LO == 0) {
-        if (this->parent->parent->action != 6) {
-            if ((this->frame & ANIM_DONE) != 0) {
-                this->field_0x80.HALF.LO++;
-                InitializeAnimation(this, 3);
+    if (this->unk_80 == 0) {
+        if (super->parent->parent->action != 6) {
+            if ((super->frame & ANIM_DONE) != 0) {
+                this->unk_80++;
+                InitializeAnimation(super, 3);
             }
         }
     } else {
-        if ((this->frame & ANIM_DONE) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             DeleteThisEntity();
         }
     }
-    CopyPosition(this->parent, this);
-    GetNextFrame(this);
+    CopyPosition(super->parent, super);
+    GetNextFrame(super);
 }
 
-void sub_08040648(Entity* this, u32 type, u32 type2) {
+void sub_08040648(VaatiTransfiguredEntity* this, u32 type, u32 type2) {
     Entity* enemy;
 
     enemy = CreateEnemy(VAATI_TRANSFIGURED, type);
     enemy->type2 = type2;
-    enemy->parent = this;
-    CopyPosition(this, enemy);
+    enemy->parent = super;
+    CopyPosition(super, enemy);
     if ((type == 2) && (type2 == 0)) {
-        this->child = enemy;
+        super->child = enemy;
     }
 }
 
-void sub_08040670(Entity* this) {
-    this->action = 1;
-    this->field_0x80.HALF.LO = 0;
-    this->speed = 0x100;
-    this->timer = 12;
-    if (this->animationState == 0) {
+void sub_08040670(VaatiTransfiguredEntity* this) {
+    super->action = 1;
+    this->unk_80 = 0;
+    super->speed = 0x100;
+    super->timer = 12;
+    if (super->animationState == 0) {
         sub_080406A0(this);
     } else {
         sub_08040770(this);
     }
 }
 
-void sub_080406A0(Entity* this) {
+void sub_080406A0(VaatiTransfiguredEntity* this) {
     u32 uVar2;
     u32 uVar3;
     u32 uVar4;
@@ -860,13 +883,13 @@ void sub_080406A0(Entity* this) {
     u32 uVar6;
 
     uVar2 = Random() & 0x30;
-    uVar5 = this->field_0x86.HALF.LO;
+    uVar5 = this->unk_86;
     {
         u32 tmp;
         uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
         uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
     }
-    if (EntityWithinDistance(this, uVar6, uVar4, 0x1c)) {
+    if (EntityWithinDistance(super, uVar6, uVar4, 0x1c)) {
         if (uVar5 != 0) {
             uVar5 = 0;
         } else {
@@ -878,39 +901,39 @@ void sub_080406A0(Entity* this) {
             uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
         }
     }
-    uVar3 = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, uVar6, uVar4);
-    this->direction = uVar3;
+    uVar3 = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, uVar6, uVar4);
+    super->direction = uVar3;
     if (uVar2 & 0x20) {
-        u32 tmp = this->direction;
+        u32 tmp = super->direction;
         if (uVar2 & 0x10) {
-            this->direction = tmp + 1;
+            super->direction = tmp + 1;
         } else {
-            this->direction = tmp + 0x1f;
+            super->direction = tmp + 0x1f;
         }
     }
-    this->direction &= 0x3 | DirectionNorthWest;
-    this->field_0x86.HALF.LO = uVar5;
+    super->direction &= 0x3 | DirectionNorthWest;
+    this->unk_86 = uVar5;
 }
 
-void sub_08040770(Entity* this) {
+void sub_08040770(VaatiTransfiguredEntity* this) {
     u32 tmp = Random() & 0x38;
-    u32 tmp2 = this->field_0x86.HALF.LO;
+    u32 tmp2 = this->unk_86;
     u32 tmp5, tmp6;
     {
         u32 index;
         tmp5 = gRoomControls.origin_x + gUnk_080D0B64[index = tmp2 * 2];
         tmp6 = gRoomControls.origin_y + gUnk_080D0B64[index + 1];
     }
-    if (EntityWithinDistance(this, tmp5, tmp6, 0x1c)) {
-        if (this->animationState != 2) {
+    if (EntityWithinDistance(super, tmp5, tmp6, 0x1c)) {
+        if (super->animationState != 2) {
             if (tmp & 8) {
                 tmp2++;
             } else {
                 tmp2 += 3;
             }
             tmp2 &= 3;
-            if (this->field_0x80.HALF.HI) {
-                switch (this->field_0x74.HALF.HI) {
+            if (this->unk_81) {
+                switch (this->unk_75) {
                     case 0xf:
                         if (tmp2 == 0) {
                             tmp2 = 2;
@@ -934,23 +957,23 @@ void sub_08040770(Entity* this) {
                 }
             }
         } else {
-            if (this->field_0x86.HALF.HI & 0x7f) {
-                if (this->field_0x86.HALF.HI & 0x80) {
+            if (this->unk_87 & 0x7f) {
+                if (this->unk_87 & 0x80) {
                     tmp2++;
                 } else {
                     tmp2 += 3;
                 }
-                this->field_0x86.HALF.HI--;
+                this->unk_87--;
             } else {
                 u32 tmp3;
-                this->field_0x86.HALF.HI = (Random() & 7) + 4;
-                tmp5 = this->field_0x86.HALF.HI;
+                this->unk_87 = (Random() & 7) + 4;
+                tmp5 = this->unk_87;
                 if (!(Random() & 0x20)) {
                     tmp3 = tmp5 | 0x80;
                 } else {
                     tmp3 = tmp5;
                 }
-                this->field_0x86.HALF.HI = tmp3;
+                this->unk_87 = tmp3;
                 if (tmp3 & 0x80) {
                     tmp2++;
                 } else {
@@ -965,37 +988,37 @@ void sub_08040770(Entity* this) {
             tmp6 = gRoomControls.origin_y + gUnk_080D0B64[tmp3 + 1];
         }
     }
-    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, tmp5, tmp6);
+    super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, tmp5, tmp6);
     if (tmp & 0x20) {
-        u32 tmp3 = this->direction;
+        u32 tmp3 = super->direction;
         if (tmp & 0x10) {
-            this->direction = tmp3 + 1;
+            super->direction = tmp3 + 1;
         } else {
-            this->direction = tmp3 + 0x1F;
+            super->direction = tmp3 + 0x1F;
         }
     }
-    this->direction &= 0x3 | DirectionNorthWest;
-    this->field_0x86.HALF.LO = tmp2;
+    super->direction &= 0x3 | DirectionNorthWest;
+    this->unk_86 = tmp2;
 }
 
-void sub_080408EC(Entity* this) {
+void sub_080408EC(VaatiTransfiguredEntity* this) {
     u32 tmp;
 
-    if (this->animationState == 0) {
+    if (super->animationState == 0) {
         tmp = 0xf0;
     } else {
         do {
             tmp = gUnk_080D0B74[(Random() & 0x3c) >> 2];
-            if (tmp == this->field_0x74.HALF.HI) {
+            if (tmp == this->unk_75) {
                 tmp = 0xff;
             }
         } while (tmp == 0xff);
     }
-    this->field_0x74.HALF.HI = tmp;
-    this->field_0x76.HALF.LO = 0;
+    this->unk_75 = tmp;
+    this->unk_76 = 0;
 }
 
-u32 sub_08040934(Entity* this) {
+u32 sub_08040934(VaatiTransfiguredEntity* this) {
     u32 t;
     u32 r2;
 
@@ -1005,15 +1028,15 @@ u32 sub_08040934(Entity* this) {
     } else {
         r2 = 0;
     }
-    if ((this->field_0x86.HALF.HI & 0x7f) != 0) {
+    if ((this->unk_87 & 0x7f) != 0) {
         r2 = 0;
     }
-    if (this->cutsceneBeh.HALF.LO != 9) {
+    if (this->unk_84 != 9) {
         if (r2 != 0) {
-            this->cutsceneBeh.HALF.LO = (this->cutsceneBeh.HALF.LO + 1) % 5;
+            this->unk_84 = (this->unk_84 + 1) % 5;
             t = (Random() & 0xf8) >> 3;
             r2 = gUnk_080D0B84[t];
-            switch (this->cutsceneBeh.HALF.LO) {
+            switch (this->unk_84) {
                 case 3:
                 case 4:
                     if (r2 == 0) {
@@ -1030,70 +1053,70 @@ u32 sub_08040934(Entity* this) {
             }
         }
     } else {
-        this->cutsceneBeh.HALF.LO = 0;
+        this->unk_84 = 0;
         r2 = 1;
     }
     return r2;
 }
 
-void sub_080409B0(Entity* this) {
-    switch (this->field_0x80.HALF.HI) {
+void sub_080409B0(VaatiTransfiguredEntity* this) {
+    switch (this->unk_81) {
         case 0:
-            if (this->field_0x74.HALF.HI == this->field_0x76.HALF.LO) {
-                this->field_0x80.HALF.HI = 1;
-                this->field_0x76.HALF.LO = 0;
+            if (this->unk_75 == this->unk_76) {
+                this->unk_81 = 1;
+                this->unk_76 = 0;
             }
             break;
         case 1:
-            if (this->field_0x76.HALF.LO != 0) {
-                this->field_0x80.HALF.HI = 2;
-                this->field_0x76.HALF.HI = 0x10;
+            if (this->unk_76 != 0) {
+                this->unk_81 = 2;
+                this->unk_77 = 0x10;
             }
             break;
         case 2:
-            if (--this->field_0x76.HALF.HI == 0) {
-                if (this->field_0x74.HALF.HI != (this->field_0x74.HALF.HI & this->field_0x76.HALF.LO)) {
-                    this->field_0x80.HALF.HI = 1;
-                    this->field_0x76.HALF.LO = 0;
+            if (--this->unk_77 == 0) {
+                if (this->unk_75 != (this->unk_75 & this->unk_76)) {
+                    this->unk_81 = 1;
+                    this->unk_76 = 0;
                     SoundReq(SFX_155);
                 } else {
-                    this->action = 3;
-                    this->field_0x80.HALF.LO = 0;
-                    this->field_0x80.HALF.HI = 3;
-                    COLLISION_OFF(this);
-                    this->hitType = 0x36;
-                    this->zVelocity = Q_16_16(1.5);
+                    super->action = 3;
+                    this->unk_80 = 0;
+                    this->unk_81 = 3;
+                    COLLISION_OFF(super);
+                    super->hitType = 0x36;
+                    super->zVelocity = Q_16_16(1.5);
                     SoundReq(SFX_164);
                 }
             }
             break;
     }
 
-    if (this->field_0x80.HALF.HI < 3) {
-        if (this->knockbackDuration != 0) {
-            Knockback1(this);
+    if (this->unk_81 < 3) {
+        if (super->knockbackDuration != 0) {
+            Knockback1(super);
         }
     } else {
-        if (((this->contactFlags & 0x80) != 0) && (0 < this->iframes)) {
+        if (((super->contactFlags & 0x80) != 0) && (0 < super->iframes)) {
             InitScreenShake(12, 1);
             SoundReq(SFX_BOSS_HIT);
         }
-        if ((this->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {
-            this->health = 0xc0;
+        if ((super->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {
+            super->health = 0xc0;
         }
     }
 }
 
-void sub_08040AD4(Entity* this) {
+void sub_08040AD4(VaatiTransfiguredEntity* this) {
     u32 timer;
 
-    timer = this->timer & 0x3f;
+    timer = super->timer & 0x3f;
     if ((timer & 0x1f) == 0) {
         SoundReq(SFX_1A9);
     }
     if ((timer & 3) == 0) {
         timer >>= 2;
-        this->x.HALF.HI += ((timer + 4) & 8) ? -1 : 1;
-        this->y.HALF.HI += ((timer + 2) & 4) ? -1 : 1;
+        super->x.HALF.HI += ((timer + 4) & 8) ? -1 : 1;
+        super->y.HALF.HI += ((timer + 2) & 4) ? -1 : 1;
     }
 }

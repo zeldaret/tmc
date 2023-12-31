@@ -4,7 +4,6 @@
  *
  * @brief Link Holding Item object
  */
-#define NENT_DEPRECATED
 #include "functions.h"
 #include "game.h"
 #include "item.h"

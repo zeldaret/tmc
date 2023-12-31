@@ -4,102 +4,131 @@
  *
  * @brief Mazaal Bracelet enemy
  */
-
 #include "enemy.h"
-#include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
 
-void sub_0803B538(Entity*);
-u32 sub_0803B4E4(Entity*);
-void sub_0803B55C(Entity*);
-void sub_0803B4D4(Entity*);
-void sub_0803B59C(Entity*);
-void sub_0803B5C0(Entity*);
-u32 sub_0803B610(Entity*);
-void sub_0803B63C(Entity*);
-void sub_0803B6A4(Entity*);
-u32 sub_0803B6F4(Entity*);
-void sub_0803B8E8(Entity*, u32);
-u32 sub_0803B870(Entity*);
-void sub_0803B824(Entity*);
-void sub_0803B804(Entity*);
-void sub_0803B798(void);
-void sub_0803BA8C(Entity*, u32);
+typedef struct MazaalBraceletEntity_ {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unused1[12];
+    union {
+        /*0x74*/ struct MazaalBraceletEntity_* entity;
+        /*0x74*/ u16 u16;
+        struct {
+            /*0x74*/ u8 unk_74;
+            /*0x75*/ u8 unk_75;
+        } split;
+    } unk_74;
+    union {
+        /*0x78*/ struct MazaalBraceletEntity_* entity;
+        struct {
+            /*0x78*/ u16 unk_78;
+        } split;
+    } unk_78;
+    /*0x7c*/ union SplitHWord unk_7c;
+    /*0x7e*/ u16 unk_7e;
+    /*0x80*/ union SplitHWord unk_80;
+    /*0x82*/ u8 unused4[2];
+    /*0x84*/ u8 unk_84;
+} MazaalBraceletEntity;
 
-void sub_0803B724(Entity*);
 extern void SoundReqClipped(Entity*, u32);
 
-void MazaalBracelet_OnTick(Entity*);
-void MazaalBracelet_OnCollision(Entity*);
-void MazaalBracelet_OnGrabbed(Entity*);
-void sub_0803A254(Entity*);
-void sub_0803B8F8(Entity*);
+void sub_0803B538(MazaalBraceletEntity*);
+bool32 sub_0803B4E4(MazaalBraceletEntity*);
+void sub_0803B55C(MazaalBraceletEntity*);
+void sub_0803B4D4(MazaalBraceletEntity*);
+void sub_0803B59C(MazaalBraceletEntity*);
+void sub_0803B5C0(MazaalBraceletEntity*);
+u32 sub_0803B610(MazaalBraceletEntity*);
+void sub_0803B63C(MazaalBraceletEntity*);
+void sub_0803B6A4(MazaalBraceletEntity*);
+bool32 sub_0803B6F4(MazaalBraceletEntity*);
+void sub_0803B8E8(MazaalBraceletEntity*, u32);
+u32 sub_0803B870(MazaalBraceletEntity*);
+void sub_0803B824(MazaalBraceletEntity*);
+void sub_0803B804(MazaalBraceletEntity*);
+void sub_0803B798(void);
+void sub_0803BA8C(MazaalBraceletEntity*, u32);
 
-void sub_0803A274(Entity*);
-void sub_0803A364(Entity*);
-void sub_0803A548(Entity*);
-void sub_0803A58C(Entity*);
-void sub_0803A5D0(Entity*);
-void sub_0803A60C(Entity*);
-void sub_0803A660(Entity*);
-void sub_0803A6E8(Entity*);
-void sub_0803A720(Entity*);
-void sub_0803A740(Entity*);
-void sub_0803A780(Entity*);
-void sub_0803A7AC(Entity*);
-void sub_0803A7CC(Entity*);
-void sub_0803A814(Entity*);
-void sub_0803A86C(Entity*);
-void sub_0803A8B8(Entity*);
-void sub_0803A90C(Entity*);
-void sub_0803A978(Entity*);
-void sub_0803AA00(Entity*);
-void sub_0803AA98(Entity*);
-void sub_0803AB10(Entity*);
-void sub_0803AB5C(Entity*);
-void sub_0803ABB4(Entity*);
-void sub_0803AC1C(Entity*);
-void sub_0803AC60(Entity*);
-void sub_0803ACC0(Entity*);
-void sub_0803ADAC(Entity*);
-void sub_0803ADF4(Entity*);
-void sub_0803AE48(Entity*);
-void sub_0803AEC4(Entity*);
-void sub_0803AF18(Entity*);
-void sub_0803AF50(Entity*);
-void sub_0803AF7C(Entity*);
-void sub_0803AF9C(Entity*);
-void sub_0803AFC8(Entity*);
-void sub_0803AFE0(Entity*);
-void sub_0803B01C(Entity*);
-void sub_0803B04C(Entity*);
-void sub_0803B074(Entity*);
-void sub_0803B0D4(Entity*);
-void sub_0803B100(Entity*);
-void sub_0803B144(Entity*);
-void sub_0803B17C(Entity*);
-void sub_0803B1B8(Entity*);
-void sub_0803B2D0(Entity*);
-void sub_0803B30C(Entity*);
-void sub_0803B338(Entity*);
-void sub_0803B35C(Entity*);
-void sub_0803B398(Entity*);
-void sub_0803B3F4(Entity*);
-void sub_0803B480(Entity*);
+void sub_0803B724(MazaalBraceletEntity*);
 
-void sub_0803B910(Entity*);
-void sub_0803B978(Entity*);
-void sub_0803BA6C(Entity*);
-void sub_0803BA80(Entity*);
+void MazaalBracelet_OnTick(MazaalBraceletEntity*);
+void MazaalBracelet_OnCollision(MazaalBraceletEntity*);
+void MazaalBracelet_OnGrabbed(MazaalBraceletEntity*);
+void sub_0803A254(MazaalBraceletEntity*);
+void sub_0803B8F8(MazaalBraceletEntity*);
 
-void (*const MazaalBracelet_Functions[])(Entity*) = { MazaalBracelet_OnTick, MazaalBracelet_OnCollision,
-                                                      GenericKnockback,      GenericDeath,
-                                                      GenericConfused,       MazaalBracelet_OnGrabbed };
+void sub_0803A274(MazaalBraceletEntity*);
+void sub_0803A364(MazaalBraceletEntity*);
+void sub_0803A548(MazaalBraceletEntity*);
+void sub_0803A58C(MazaalBraceletEntity*);
+void sub_0803A5D0(MazaalBraceletEntity*);
+void sub_0803A60C(MazaalBraceletEntity*);
+void sub_0803A660(MazaalBraceletEntity*);
+void sub_0803A6E8(MazaalBraceletEntity*);
+void sub_0803A720(MazaalBraceletEntity*);
+void sub_0803A740(MazaalBraceletEntity*);
+void sub_0803A780(MazaalBraceletEntity*);
+void sub_0803A7AC(MazaalBraceletEntity*);
+void sub_0803A7CC(MazaalBraceletEntity*);
+void sub_0803A814(MazaalBraceletEntity*);
+void sub_0803A86C(MazaalBraceletEntity*);
+void sub_0803A8B8(MazaalBraceletEntity*);
+void sub_0803A90C(MazaalBraceletEntity*);
+void sub_0803A978(MazaalBraceletEntity*);
+void sub_0803AA00(MazaalBraceletEntity*);
+void sub_0803AA98(MazaalBraceletEntity*);
+void sub_0803AB10(MazaalBraceletEntity*);
+void sub_0803AB5C(MazaalBraceletEntity*);
+void sub_0803ABB4(MazaalBraceletEntity*);
+void sub_0803AC1C(MazaalBraceletEntity*);
+void sub_0803AC60(MazaalBraceletEntity*);
+void sub_0803ACC0(MazaalBraceletEntity*);
+void sub_0803ADAC(MazaalBraceletEntity*);
+void sub_0803ADF4(MazaalBraceletEntity*);
+void sub_0803AE48(MazaalBraceletEntity*);
+void sub_0803AEC4(MazaalBraceletEntity*);
+void sub_0803AF18(MazaalBraceletEntity*);
+void sub_0803AF50(MazaalBraceletEntity*);
+void sub_0803AF7C(MazaalBraceletEntity*);
+void sub_0803AF9C(MazaalBraceletEntity*);
+void sub_0803AFC8(MazaalBraceletEntity*);
+void sub_0803AFE0(MazaalBraceletEntity*);
+void sub_0803B01C(MazaalBraceletEntity*);
+void sub_0803B04C(MazaalBraceletEntity*);
+void sub_0803B074(MazaalBraceletEntity*);
+void sub_0803B0D4(MazaalBraceletEntity*);
+void sub_0803B100(MazaalBraceletEntity*);
+void sub_0803B144(MazaalBraceletEntity*);
+void sub_0803B17C(MazaalBraceletEntity*);
+void sub_0803B1B8(MazaalBraceletEntity*);
+void sub_0803B2D0(MazaalBraceletEntity*);
+void sub_0803B30C(MazaalBraceletEntity*);
+void sub_0803B338(MazaalBraceletEntity*);
+void sub_0803B35C(MazaalBraceletEntity*);
+void sub_0803B398(MazaalBraceletEntity*);
+void sub_0803B3F4(MazaalBraceletEntity*);
+void sub_0803B480(MazaalBraceletEntity*);
 
-void (*const gUnk_080CFC2C[])(Entity*) = { sub_0803A254, sub_0803A254, sub_0803B8F8, sub_0803B8F8 };
+void sub_0803B910(MazaalBraceletEntity*);
+void sub_0803B978(MazaalBraceletEntity*);
+void sub_0803BA6C(MazaalBraceletEntity*);
+void sub_0803BA80(MazaalBraceletEntity*);
 
-void (*const gUnk_080CFC3C[])(Entity*) = {
+void (*const MazaalBracelet_Functions[])(MazaalBraceletEntity*) = {
+    MazaalBracelet_OnTick,
+    MazaalBracelet_OnCollision,
+    (void (*)(MazaalBraceletEntity*))GenericKnockback,
+    (void (*)(MazaalBraceletEntity*))GenericDeath,
+    (void (*)(MazaalBraceletEntity*))GenericConfused,
+    MazaalBracelet_OnGrabbed,
+};
+
+void (*const gUnk_080CFC2C[])(MazaalBraceletEntity*) = { sub_0803A254, sub_0803A254, sub_0803B8F8, sub_0803B8F8 };
+
+void (*const gUnk_080CFC3C[])(MazaalBraceletEntity*) = {
     sub_0803A274, sub_0803A364, sub_0803A548, sub_0803A58C, sub_0803A5D0, sub_0803A60C, sub_0803A660, sub_0803A6E8,
     sub_0803A720, sub_0803A740, sub_0803A780, sub_0803A7AC, sub_0803A7CC, sub_0803A814, sub_0803A86C, sub_0803A8B8,
     sub_0803A90C, sub_0803A978, sub_0803AA00, sub_0803AA98, sub_0803AB10, sub_0803AB5C, sub_0803ABB4, sub_0803AC1C,
@@ -116,7 +145,7 @@ const s8 gUnk_080CFD19[] = { 0x10, -0x10 };
 const s8 gUnk_080CFD1B[] = { -0x38, 0x38 };
 const s8 gUnk_080CFD1D[] = { -0x11, 0x11 };
 
-void (*const gUnk_080CFD20[])(Entity*) = { sub_0803B910, sub_0803B978, sub_0803BA6C, sub_0803BA80 };
+void (*const gUnk_080CFD20[])(MazaalBraceletEntity*) = { sub_0803B910, sub_0803B978, sub_0803BA6C, sub_0803BA80 };
 
 const u16 gUnk_080CFD30[] = { 0xdb, 0xdd, 0xdf, 0xe1, 0xdf, 0xdd, 0xdb, 0xe3, 0xe5, 0xe3 };
 const u16 gUnk_080CFD44[] = { 0xdc, 0xde, 0xe0, 0xe2, 0xe0, 0xde, 0xdc, 0xe4, 0xe6, 0xe4 };
@@ -125,270 +154,279 @@ const u16 gUnk_080CFD5C[] = { 0xe7, 0xe8 };
 
 extern s8 gUnk_080CED6C[8];
 
-void MazaalBracelet(Entity* this) {
-    MazaalBracelet_Functions[GetNextFunction(this)](this);
+void MazaalBracelet(MazaalBraceletEntity* this) {
+    MazaalBracelet_Functions[GetNextFunction(super)](this);
 }
 
-void MazaalBracelet_OnTick(Entity* this) {
-    gUnk_080CFC2C[this->type](this);
+void MazaalBracelet_OnTick(MazaalBraceletEntity* this) {
+    gUnk_080CFC2C[super->type](this);
 }
 
-void MazaalBracelet_OnCollision(Entity* this) {
-    Entity* ent;
+void MazaalBracelet_OnCollision(MazaalBraceletEntity* this) {
+    MazaalBraceletEntity* entity;
 
-    if (this->type < 2) {
-        if (this->action != 0x2b) {
-            if ((0 < this->iframes) && ((this->contactFlags == 0x95 || (this->contactFlags == 0x8e)))) {
-                this->action = 0x28;
-                COLLISION_OFF(this);
-                ent = this->parent;
-                ent->field_0x7c.BYTES.byte1 = ent->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
-                ent->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | ent->field_0x80.HALF.LO;
-                ent = this->child;
-                ent->iframes = this->iframes;
-                ent = (*(Entity**)&this->field_0x74);
-                ent->iframes = this->iframes;
+    if (super->type < 2) {
+        if (super->action != 0x2b) {
+            if ((0 < super->iframes) && ((super->contactFlags == 0x95 || (super->contactFlags == 0x8e)))) {
+                super->action = 0x28;
+                COLLISION_OFF(super);
+                entity = (MazaalBraceletEntity*)super->parent;
+                entity->unk_7c.HALF.HI = entity->unk_7c.HALF.HI | (super->type == 0 ? 1 : 2);
+                entity->unk_80.HALF.LO = (super->type == 0 ? 1 : 2) | entity->unk_80.HALF.LO;
+
+                entity = (MazaalBraceletEntity*)super->child;
+                entity->base.iframes = super->iframes;
+
+                entity = this->unk_74.entity;
+                entity->base.iframes = super->iframes;
                 SoundReq(SFX_BOSS_HIT);
             }
         } else {
-            ent = this->child;
-            ent->iframes = this->iframes;
-            ent = (*(Entity**)&this->field_0x74);
-            ent->iframes = this->iframes;
-            InitializeAnimation(this, 0x18);
-            InitAnimationForceUpdate(this->child, 9);
+            entity = (MazaalBraceletEntity*)super->child;
+            entity->base.iframes = super->iframes;
+
+            entity = this->unk_74.entity;
+            entity->base.iframes = super->iframes;
+            InitializeAnimation(super, 0x18);
+            InitAnimationForceUpdate(super->child, 9);
             SoundReq(SFX_BOSS_HIT);
         }
     }
-    EnemyFunctionHandlerAfterCollision(this, MazaalBracelet_Functions);
+    EnemyFunctionHandlerAfterCollision(super, MazaalBracelet_Functions);
 }
 
-void MazaalBracelet_OnGrabbed(Entity* this) {
+void MazaalBracelet_OnGrabbed(MazaalBraceletEntity* this) {
 }
 
-void sub_0803A254(Entity* this) {
-    gUnk_080CFC3C[this->action](this);
+void sub_0803A254(MazaalBraceletEntity* this) {
+    gUnk_080CFC3C[super->action](this);
     sub_0803B538(this);
 }
 
-void sub_0803A274(Entity* this) {
-    Entity* pEVar1;
+void sub_0803A274(MazaalBraceletEntity* this) {
+    Entity* entity;
 
     if (gEntCount < 0x45) {
-        if (this->type == 0) {
-            pEVar1 = CreateEnemy(MAZAAL_HAND, 0);
-            pEVar1->parent = this;
-            this->child = pEVar1;
-            pEVar1 = CreateEnemy(MAZAAL_BRACELET, 2);
-            pEVar1->parent = this;
-            *(Entity**)&this->field_0x74 = pEVar1;
-            pEVar1 = CreateObject(MAZAAL_OBJECT, 1, 0);
-            pEVar1->parent = this;
-            pEVar1->child = this->child;
-            PositionRelative(this->parent, this, Q_16_16(16.0), Q_16_16(32.0));
+        if (super->type == 0) {
+            entity = CreateEnemy(MAZAAL_HAND, 0);
+            entity->parent = super;
+            super->child = entity;
+
+            entity = CreateEnemy(MAZAAL_BRACELET, 2);
+            entity->parent = super;
+            this->unk_74.entity = (MazaalBraceletEntity*)entity;
+
+            entity = CreateObject(MAZAAL_OBJECT, 1, 0);
+            entity->parent = super;
+            entity->child = super->child;
+
+            PositionRelative(super->parent, super, Q_16_16(16.0), Q_16_16(32.0));
         } else {
-            pEVar1 = CreateEnemy(MAZAAL_HAND, 1);
-            pEVar1->parent = this;
-            this->child = pEVar1;
-            pEVar1 = CreateEnemy(MAZAAL_BRACELET, 3);
-            pEVar1->parent = this;
-            *(Entity**)&this->field_0x74 = pEVar1;
-            pEVar1 = CreateObject(MAZAAL_OBJECT, 2, 0);
-            pEVar1->parent = this;
-            pEVar1->child = this->child;
-            this->spriteSettings.flipX = 1;
-            PositionRelative(this->parent, this, Q_16_16(-16.0), Q_16_16(32.0));
+            entity = CreateEnemy(MAZAAL_HAND, 1);
+            entity->parent = super;
+            super->child = entity;
+
+            entity = CreateEnemy(MAZAAL_BRACELET, 3);
+            entity->parent = super;
+            this->unk_74.entity = (MazaalBraceletEntity*)entity;
+
+            entity = CreateObject(MAZAAL_OBJECT, 2, 0);
+            entity->parent = super;
+            entity->child = super->child;
+
+            super->spriteSettings.flipX = 1;
+            PositionRelative(super->parent, super, Q_16_16(-16.0), Q_16_16(32.0));
         }
         if (gRoomTransition.field_0x38 != 0) {
-            this->action = 3;
-            COLLISION_ON(this);
-            this->spriteSettings.draw = 1;
-            this->child->spriteSettings.draw = 1;
-            InitializeAnimation(this, 0x10);
+            super->action = 3;
+            COLLISION_ON(super);
+            super->spriteSettings.draw = 1;
+            super->child->spriteSettings.draw = 1;
+            InitializeAnimation(super, 0x10);
         } else {
-            this->action = 1;
-            InitializeAnimation(this, 4);
+            super->action = 1;
+            InitializeAnimation(super, 4);
         }
     }
 }
 
-void sub_0803A364(Entity* this) {
+void sub_0803A364(MazaalBraceletEntity* this) {
     u8 uVar1;
-    Entity* pEVar3;
+    Entity* entity;
     u32 index;
     s8* ptr;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    switch (this->subAction & 0x7f) {
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    switch (super->subAction & 0x7f) {
         case 0:
         case 2:
             break;
         case 1:
-            this->subAction = 2;
-            pEVar3 = this->child;
-            pEVar3->spriteSettings.draw = 1;
-            pEVar3->spriteRendering.alphaBlend = 1;
+            super->subAction = 2;
+            entity = super->child;
+            entity->spriteSettings.draw = 1;
+            entity->spriteRendering.alphaBlend = 1;
             break;
         case 3:
-            this->subAction = 4;
-            this->spriteSettings.draw = 1;
-            this->child->spriteRendering.alphaBlend = 0;
+            super->subAction = 4;
+            super->spriteSettings.draw = 1;
+            super->child->spriteRendering.alphaBlend = 0;
             break;
         case 4:
-            GetNextFrame(this);
-            if ((this->frame & ANIM_DONE) != 0) {
-                this->subAction = 5;
+            GetNextFrame(super);
+            if ((super->frame & ANIM_DONE) != 0) {
+                super->subAction = 5;
             }
             break;
         case 5:
-            if (sub_0803B4E4(this) == 0) {
-                LinearMoveUpdate(this);
+            if (!sub_0803B4E4(this)) {
+                LinearMoveUpdate(super);
                 return;
             }
-            this->type2 = 0;
+            super->type2 = 0;
             uVar1 = 6;
-            this->subAction = uVar1;
-            this->timer = 30;
+            super->subAction = uVar1;
+            super->timer = 30;
             break;
         case 6:
-            this->timer--;
-            if (this->timer == 0) {
-                this->subAction = 7;
-                InitializeAnimation(this, 5);
+            super->timer--;
+            if (super->timer == 0) {
+                super->subAction = 7;
+                InitializeAnimation(super, 5);
             }
             break;
         case 7:
-            GetNextFrame(this);
-            if ((this->frame & ANIM_DONE) != 0) {
-                this->subAction = 8;
-                this->spriteSettings.draw = 0;
-                InitAnimationForceUpdate(this->child, 8);
+            GetNextFrame(super);
+            if ((super->frame & ANIM_DONE) != 0) {
+                super->subAction = 8;
+                super->spriteSettings.draw = 0;
+                InitAnimationForceUpdate(super->child, 8);
                 SoundReq(SFX_16E);
             }
             break;
         case 8:
             sub_0803B55C(this);
-            if ((this->child->frame & ANIM_DONE) == 0) {
+            if ((super->child->frame & ANIM_DONE) == 0) {
                 return;
             }
             uVar1 = 9;
-            this->subAction = uVar1;
-            this->timer = 30;
+            super->subAction = uVar1;
+            super->timer = 30;
             break;
         case 9:
-            this->timer--;
-            if (this->timer == 0) {
-                this->subAction = 10;
-                InitAnimationForceUpdate(this->child, 6);
+            super->timer--;
+            if (super->timer == 0) {
+                super->subAction = 10;
+                InitAnimationForceUpdate(super->child, 6);
             }
             break;
         case 10:
             sub_0803B55C(this);
-            if ((this->child->frame & ANIM_DONE) != 0) {
-                this->subAction = 0xb;
-                this->spriteSettings.draw = 1;
-                InitializeAnimation(this, 4);
+            if ((super->child->frame & ANIM_DONE) != 0) {
+                super->subAction = 0xb;
+                super->spriteSettings.draw = 1;
+                InitializeAnimation(super, 4);
             }
             break;
         case 0xb:
-            GetNextFrame(this);
-            if ((this->frame & ANIM_DONE) == 0) {
+            GetNextFrame(super);
+            if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
-            if (this->type2 != 0) {
+            if (super->type2 != 0) {
                 uVar1 = 0xc;
-                this->subAction = uVar1;
-                this->timer = 30;
+                super->subAction = uVar1;
+                super->timer = 30;
             } else {
-                this->type2 = 1;
-                this->subAction = 6;
-                this->timer = 10;
+                super->type2 = 1;
+                super->subAction = 6;
+                super->timer = 10;
             }
             break;
         default:
-            this->timer--;
-            if (this->timer == 0) {
-                COLLISION_ON(this);
+            super->timer--;
+            if (super->timer == 0) {
+                COLLISION_ON(super);
                 sub_0803B4D4(this);
             }
             break;
     }
 }
 
-void sub_0803A548(Entity* this) {
+void sub_0803A548(MazaalBraceletEntity* this) {
     u32 index;
     s8* ptr;
 
     sub_0803B5C0(this);
-    UpdateAnimationSingleFrame(this);
+    UpdateAnimationSingleFrame(super);
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (sub_0803B4E4(this) == 0) {
-        LinearMoveUpdate(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    if (!sub_0803B4E4(this)) {
+        LinearMoveUpdate(super);
     }
 }
 
-void sub_0803A58C(Entity* this) {
+void sub_0803A58C(MazaalBraceletEntity* this) {
     u32 index;
     s8* ptr;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (sub_0803B4E4(this) != 0) {
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    if (sub_0803B4E4(this)) {
         sub_0803B59C(this);
     } else {
-        LinearMoveUpdate(this);
+        LinearMoveUpdate(super);
     }
 }
 
-void sub_0803A5D0(Entity* this) {
+void sub_0803A5D0(MazaalBraceletEntity* this) {
     u32 index;
     s8* ptr;
 
-    this->action = 5;
-    COLLISION_OFF(this);
+    super->action = 5;
+    COLLISION_OFF(super);
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    InitializeAnimation(this, 5);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    InitializeAnimation(super, 5);
 }
 
-void sub_0803A60C(Entity* this) {
+void sub_0803A60C(MazaalBraceletEntity* this) {
     u32 index;
     s8* ptr;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 6;
-        this->spriteSettings.draw = 0;
-        InitAnimationForceUpdate(this->child, 8);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 6;
+        super->spriteSettings.draw = 0;
+        InitAnimationForceUpdate(super->child, 8);
     }
 }
 
-void sub_0803A660(Entity* this) {
+void sub_0803A660(MazaalBraceletEntity* this) {
     u32 uVar2;
     u8* pbVar3;
 
     s8* ptr;
     u32 index;
 
-    pbVar3 = &this->child->frame;
+    pbVar3 = &super->child->frame;
     if ((*pbVar3 & 0x80) != 0) {
-        if (this->z.HALF.HI > -0x50) {
-            this->z.HALF.HI = this->z.HALF.HI - 2;
+        if (super->z.HALF.HI > -0x50) {
+            super->z.HALF.HI = super->z.HALF.HI - 2;
         } else {
-            this->action = 7;
-            this->timer = 0;
-            uVar2 = GetFacingDirection(this, &gPlayerEntity);
-            this->direction = (u8)uVar2;
-            this->speed = 0x280;
+            super->action = 7;
+            super->timer = 0;
+            uVar2 = GetFacingDirection(super, &gPlayerEntity.base);
+            super->direction = (u8)uVar2;
+            super->speed = 0x280;
             return;
         }
     } else {
@@ -397,345 +435,345 @@ void sub_0803A660(Entity* this) {
             SoundReq(SFX_157);
         }
         ptr = gUnk_080CED6C;
-        index = ((this->parent->subtimer >> 4) + 3);
-        this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+        index = ((super->parent->subtimer >> 4) + 3);
+        super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     }
 }
 
-void sub_0803A6E8(Entity* this) {
+void sub_0803A6E8(MazaalBraceletEntity* this) {
     s32 y;
 
     if (sub_0803B610(this)) {
-        this->action = 8;
-        this->timer = 10;
+        super->action = 8;
+        super->timer = 10;
     } else {
         sub_0803B63C(this);
-        LinearMoveUpdate(this);
-        y = this->parent->y.HALF.HI + 8;
-        if (y > this->y.HALF.HI) {
-            this->y.HALF.HI = y;
+        LinearMoveUpdate(super);
+        y = super->parent->y.HALF.HI + 8;
+        if (y > super->y.HALF.HI) {
+            super->y.HALF.HI = y;
         }
     }
 }
 
-void sub_0803A720(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 9;
+void sub_0803A720(MazaalBraceletEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 9;
         sub_0803B8E8(this, 0x16);
     }
 }
 
-void sub_0803A740(Entity* this) {
+void sub_0803A740(MazaalBraceletEntity* this) {
     u16 height;
 
-    height = this->z.HALF.HI + 4;
-    this->z.HALF.HI += 4;
+    height = super->z.HALF.HI + 4;
+    super->z.HALF.HI += 4;
     if (-1 < height * 0x10000) {
-        this->z.HALF.HI = 0;
-        this->action = 10;
-        this->timer = 10;
-        this->parent->field_0x7c.BYTES.byte1 |= 0x40;
+        super->z.HALF.HI = 0;
+        super->action = 10;
+        super->timer = 10;
+        ((MazaalBraceletEntity*)super->parent)->unk_7c.HALF.HI |= 0x40;
         sub_0803B8E8(this, 0x13);
         InitScreenShake(10, 0);
         SoundReq(SFX_158);
     }
 }
 
-void sub_0803A780(Entity* this) {
-    if (--this->timer == 0) {
-        if (--this->field_0x7c.BYTES.byte0) {
-            this->action = 6;
+void sub_0803A780(MazaalBraceletEntity* this) {
+    if (--super->timer == 0) {
+        if (--this->unk_7c.HALF.LO) {
+            super->action = 6;
         } else {
-            this->action = 0xb;
+            super->action = 0xb;
         }
     }
 }
 
-void sub_0803A7AC(Entity* this) {
-    if (this->z.HALF.HI > -6) {
-        this->z.HALF.HI--;
+void sub_0803A7AC(MazaalBraceletEntity* this) {
+    if (super->z.HALF.HI > -6) {
+        super->z.HALF.HI--;
     } else {
-        this->action = 0xc;
+        super->action = 0xc;
     }
 }
 
-void sub_0803A7CC(Entity* this) {
+void sub_0803A7CC(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     if (sub_0803B4E4(this)) {
-        this->action = 0xd;
-        InitAnimationForceUpdate(this->child, 6);
+        super->action = 0xd;
+        InitAnimationForceUpdate(super->child, 6);
     } else {
-        LinearMoveUpdate(this);
+        LinearMoveUpdate(super);
     }
 }
 
-void sub_0803A814(Entity* this) {
+void sub_0803A814(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     sub_0803B55C(this);
-    if ((this->child->frame & ANIM_DONE) != 0) {
-        this->action = 0xe;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 4);
+    if ((super->child->frame & ANIM_DONE) != 0) {
+        super->action = 0xe;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 4);
     }
 }
 
-void sub_0803A86C(Entity* this) {
+void sub_0803A86C(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        COLLISION_ON(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        COLLISION_ON(super);
         sub_0803B59C(this);
     }
 }
 
-void sub_0803A8B8(Entity* this) {
+void sub_0803A8B8(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
-    this->action = 0x10;
-    this->timer = 30;
-    this->direction = DirectionNorth;
-    this->speed = 0x80;
+    super->action = 0x10;
+    super->timer = 30;
+    super->direction = DirectionNorth;
+    super->speed = 0x80;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    InitializeAnimation(this, 6);
-    InitAnimationForceUpdate(this->child, 1);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    InitializeAnimation(super, 6);
+    InitAnimationForceUpdate(super->child, 1);
     SoundReq(SFX_153);
 }
 
-void sub_0803A90C(Entity* this) {
+void sub_0803A90C(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
     sub_0803B55C(this);
-    LinearMoveUpdate(this);
-    this->timer--;
-    if (this->timer == 0) {
-        this->action = 0x11;
-        this->direction = this->type * 0x10 + 8;
-        this->speed = 0x200;
-        InitializeAnimation(this, 7);
-        InitAnimationForceUpdate(this->child, 2);
+    LinearMoveUpdate(super);
+    super->timer--;
+    if (super->timer == 0) {
+        super->action = 0x11;
+        super->direction = super->type * 0x10 + 8;
+        super->speed = 0x200;
+        InitializeAnimation(super, 7);
+        InitAnimationForceUpdate(super->child, 2);
     }
 }
 
-void sub_0803A978(Entity* this) {
+void sub_0803A978(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
     sub_0803B55C(this);
-    if ((++this->timer & 3) == 0) {
-        sub_08004596(this, 0x10);
+    if ((++super->timer & 3) == 0) {
+        sub_08004596(super, 0x10);
     }
-    LinearMoveUpdate(this);
-    if (this->direction == DirectionSouth) {
-        this->action = 0x12;
-        this->timer = 3;
-        COLLISION_OFF(this);
-        *(u8*)(*(int*)&this->field_0x74 + 0x10) &= ~0x80;
-        InitializeAnimation(this, 8);
-        InitAnimationForceUpdate(this->child, 3);
+    LinearMoveUpdate(super);
+    if (super->direction == DirectionSouth) {
+        super->action = 0x12;
+        super->timer = 3;
+        COLLISION_OFF(super);
+        COLLISION_OFF(&this->unk_74.entity->base);
+        InitializeAnimation(super, 8);
+        InitAnimationForceUpdate(super->child, 3);
     }
 }
 
-void sub_0803AA00(Entity* this) {
+void sub_0803AA00(MazaalBraceletEntity* this) {
     u32 direction;
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
-        direction = (this->type ^ 1) * 0x10 + 8;
-        if ((++this->timer & 3) == 0) {
-            sub_08004596(this, direction);
+        direction = (super->type ^ 1) * 0x10 + 8;
+        if ((++super->timer & 3) == 0) {
+            sub_08004596(super, direction);
         }
-        LinearMoveUpdate(this);
-        if ((this->direction == direction) || (this->y.HALF.HI >= gPlayerEntity.y.HALF.HI)) {
-            this->action = 0x13;
-            this->spriteSettings.draw = 0;
-            this->direction = direction;
-            this->field_0x80.HWORD = gPlayerEntity.x.HALF.HI;
-            InitAnimationForceUpdate(this->child, 4);
+        LinearMoveUpdate(super);
+        if ((super->direction == direction) || (super->y.HALF.HI >= gPlayerEntity.base.y.HALF.HI)) {
+            super->action = 0x13;
+            super->spriteSettings.draw = 0;
+            super->direction = direction;
+            this->unk_80.HWORD = gPlayerEntity.base.x.HALF.HI;
+            InitAnimationForceUpdate(super->child, 4);
         }
     }
 }
-void sub_0803AA98(Entity* this) {
-    Entity* temp;
+void sub_0803AA98(MazaalBraceletEntity* this) {
+    MazaalBraceletEntity* entity;
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
-        LinearMoveUpdate(this);
-        if (sub_0803B6F4(this) != 0) {
-            this->action = 0x14;
-            this->speed = 0x40;
-            InitializeAnimation(this, 10);
-            temp = (*(Entity**)&this->field_0x74);
-            temp->flags |= ENT_COLLIDE;
-            temp = this->child;
-            temp->hitType = 0x13;
-            InitAnimationForceUpdate(temp, 5);
+        LinearMoveUpdate(super);
+        if (sub_0803B6F4(this)) {
+            super->action = 0x14;
+            super->speed = 0x40;
+            InitializeAnimation(super, 10);
+            entity = this->unk_74.entity;
+            entity->base.flags |= ENT_COLLIDE;
+            entity = (MazaalBraceletEntity*)super->child;
+            entity->base.hitType = 0x13;
+            InitAnimationForceUpdate(&entity->base, 5);
             SoundReq(SFX_16E);
         }
     }
 }
 
-void sub_0803AB10(Entity* this) {
+void sub_0803AB10(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    LinearMoveUpdate(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    LinearMoveUpdate(super);
     sub_0803B55C(this);
-    if ((this->child->frame & ANIM_DONE) != 0) {
-        this->action = 0x15;
-        this->timer = 15;
+    if ((super->child->frame & ANIM_DONE) != 0) {
+        super->action = 0x15;
+        super->timer = 15;
     }
 }
 
-void sub_0803AB5C(Entity* this) {
+void sub_0803AB5C(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (--this->timer == 0) {
-        this->action = 0x16;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 0xb);
-        InitAnimationForceUpdate(this->child, 6);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    if (--super->timer == 0) {
+        super->action = 0x16;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 0xb);
+        InitAnimationForceUpdate(super->child, 6);
     }
 }
 
-void sub_0803ABB4(Entity* this) {
+void sub_0803ABB4(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
     sub_0803B55C(this);
-    if ((this->child->frame & ANIM_DONE) != 0) {
-        this->action = 0x17;
-        COLLISION_ON(this);
-        this->speed = 0x180;
-        InitializeAnimation(this, 0x10);
-        InitAnimationForceUpdate(this->child, 0);
+    if ((super->child->frame & ANIM_DONE) != 0) {
+        super->action = 0x17;
+        COLLISION_ON(super);
+        super->speed = 0x180;
+        InitializeAnimation(super, 0x10);
+        InitAnimationForceUpdate(super->child, 0);
     }
 }
 
-void sub_0803AC1C(Entity* this) {
+void sub_0803AC1C(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     if (sub_0803B4E4(this)) {
         sub_0803B59C(this);
     } else {
-        LinearMoveUpdate(this);
+        LinearMoveUpdate(super);
     }
 }
 
-void sub_0803AC60(Entity* this) {
+void sub_0803AC60(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
-    if (!this->timer) {
-        if (sub_0803B4E4(this) != 0) {
-            this->action = 0x19;
-            this->subAction = 0;
-            this->timer = 30;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
+    if (!super->timer) {
+        if (sub_0803B4E4(this)) {
+            super->action = 0x19;
+            super->subAction = 0;
+            super->timer = 30;
         } else {
-            LinearMoveUpdate(this);
+            LinearMoveUpdate(super);
         }
     } else {
-        this->timer--;
+        super->timer--;
     }
     sub_0803B824(this);
 }
 
-void sub_0803ACC0(Entity* this) {
+void sub_0803ACC0(MazaalBraceletEntity* this) {
     u16 uVar2;
 
-    switch (this->subAction) {
+    switch (super->subAction) {
         default:
-            if (--this->timer == 0) {
-                this->subAction = 1;
+            if (--super->timer == 0) {
+                super->subAction = 1;
             }
             break;
         case 1:
-            if (--this->z.HALF.HI * 0x10000 >> 0x10 < -0x20) {
-                this->subAction = 2;
+            if (--super->z.HALF.HI * 0x10000 >> 0x10 < -0x20) {
+                super->subAction = 2;
             }
             break;
         case 2:
-            uVar2 = this->z.HALF.HI += 4;
+            uVar2 = super->z.HALF.HI += 4;
             if (-1 < (uVar2 * 0x10000)) {
-                this->z.HALF.HI = 0;
-                this->timer = 12;
-                this->subAction = 3;
+                super->z.HALF.HI = 0;
+                super->timer = 12;
+                super->subAction = 3;
                 InitScreenShake(8, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
             }
             break;
         case 3:
-            if (--this->timer == 0) {
-                this->subAction = 4;
+            if (--super->timer == 0) {
+                super->subAction = 4;
             }
             break;
         case 4:
-            uVar2 = this->z.HALF.HI -= 2;
+            uVar2 = super->z.HALF.HI -= 2;
             if (uVar2 * 0x10000 >> 0x10 < -0x28) {
-                this->subAction = 5;
+                super->subAction = 5;
             }
             break;
         case 5:
-            uVar2 = this->z.HALF.HI += 4;
+            uVar2 = super->z.HALF.HI += 4;
             if (-1 < (uVar2 * 0x10000)) {
-                this->z.HALF.HI = 0;
-                this->action = 0x1a;
-                this->timer = 60;
+                super->z.HALF.HI = 0;
+                super->action = 0x1a;
+                super->timer = 60;
                 InitScreenShake(30, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
@@ -746,479 +784,482 @@ void sub_0803ACC0(Entity* this) {
     sub_0803B824(this);
 }
 
-void sub_0803ADAC(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 0x16;
-        this->spriteSettings.draw = 1;
-        (*(Entity**)&this->field_0x74)->flags |= ENT_COLLIDE;
-        InitializeAnimation(this, 0xb);
-        InitAnimationForceUpdate(this->child, 6);
+void sub_0803ADAC(MazaalBraceletEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 0x16;
+        super->spriteSettings.draw = 1;
+        COLLISION_ON(&this->unk_74.entity->base);
+        InitializeAnimation(super, 0xb);
+        InitAnimationForceUpdate(super->child, 6);
         sub_0803B798();
     } else {
         sub_0803B824(this);
     }
 }
 
-void sub_0803ADF4(Entity* this) {
+void sub_0803ADF4(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    UpdateAnimationSingleFrame(this);
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 0x1c;
-        this->timer = 30;
-        this->spriteSettings.draw = 0;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    UpdateAnimationSingleFrame(super);
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 0x1c;
+        super->timer = 30;
+        super->spriteSettings.draw = 0;
     }
 }
 
-void sub_0803AE48(Entity* this) {
+void sub_0803AE48(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    UpdateAnimationSingleFrame(this);
-    if (((this->timer == 0) || (--this->timer == 0)) && ((this->parent->field_0x7c.BYTES.byte1 & 3) != 0)) {
-        this->action = 0x1d;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 4);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    UpdateAnimationSingleFrame(super);
+    if (((super->timer == 0) || (--super->timer == 0)) &&
+        ((((MazaalBraceletEntity*)super->parent)->unk_7c.HALF.HI & 3) != 0)) {
+        super->action = 0x1d;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 4);
     } else {
-        if (sub_0803B4E4(this) == 0) {
-            LinearMoveUpdate(this);
+        if (!sub_0803B4E4(this)) {
+            LinearMoveUpdate(super);
         }
     }
 }
 
-void sub_0803AEC4(Entity* this) {
+void sub_0803AEC4(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    UpdateAnimationSingleFrame(this);
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        COLLISION_ON(this);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    UpdateAnimationSingleFrame(super);
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        COLLISION_ON(super);
         sub_0803B59C(this);
     }
 }
 
-void sub_0803AF18(Entity* this) {
-    this->action = 0x1f;
-    COLLISION_OFF(this);
-    InitializeAnimation(this, 5);
-    this->z.HALF.HI = gUnk_080CED6C[(this->parent->subtimer >> 4) & 7] + 4;
+void sub_0803AF18(MazaalBraceletEntity* this) {
+    super->action = 0x1f;
+    COLLISION_OFF(super);
+    InitializeAnimation(super, 5);
+    super->z.HALF.HI = gUnk_080CED6C[(super->parent->subtimer >> 4) & 7] + 4;
 }
 
-void sub_0803AF50(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 0x20;
-        this->spriteSettings.draw = 0;
-        InitAnimationForceUpdate(this->child, 8);
+void sub_0803AF50(MazaalBraceletEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 0x20;
+        super->spriteSettings.draw = 0;
+        InitAnimationForceUpdate(super->child, 8);
     }
 }
 
-void sub_0803AF7C(Entity* this) {
+void sub_0803AF7C(MazaalBraceletEntity* this) {
     sub_0803B55C(this);
-    if ((this->child->frame & ANIM_DONE) != 0) {
-        this->action = 0x21;
-        this->timer = 15;
+    if ((super->child->frame & ANIM_DONE) != 0) {
+        super->action = 0x21;
+        super->timer = 15;
     }
 }
 
-void sub_0803AF9C(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
+void sub_0803AF9C(MazaalBraceletEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
     } else {
-        if (-0x20 < this->z.HALF.HI) {
-            this->z.HALF.HI -= 2;
+        if (-0x20 < super->z.HALF.HI) {
+            super->z.HALF.HI -= 2;
         } else {
-            this->action = 0x22;
-            this->timer = 10;
+            super->action = 0x22;
+            super->timer = 10;
         }
     }
 }
 
-void sub_0803AFC8(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 0x23;
+void sub_0803AFC8(MazaalBraceletEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 0x23;
     }
 }
 
-void sub_0803AFE0(Entity* this) {
-    if (this->z.HALF.HI < 0) {
-        this->z.HALF.HI += 4;
+void sub_0803AFE0(MazaalBraceletEntity* this) {
+    if (super->z.HALF.HI < 0) {
+        super->z.HALF.HI += 4;
     } else {
-        this->action = 0x24;
-        this->timer = 240;
-        *(u8*)&this->cutsceneBeh = 3;
-        this->z.HALF.HI = 0;
+        super->action = 0x24;
+        super->timer = 240;
+        this->unk_84 = 3;
+        super->z.HALF.HI = 0;
         InitScreenShake(160, 0);
         SoundReq(SFX_158);
     }
 }
 
-void sub_0803B01C(Entity* this) {
-    if (--this->timer == 0) {
-        this->action = 0x25;
+void sub_0803B01C(MazaalBraceletEntity* this) {
+    if (--super->timer == 0) {
+        super->action = 0x25;
     } else {
-        if ((this->timer > 70) && ((this->timer & 0xF) == 0)) {
+        if ((super->timer > 70) && ((super->timer & 0xF) == 0)) {
             sub_0803B724(this);
         }
     }
 }
 
-void sub_0803B04C(Entity* this) {
-    if (this->z.HALF.HI > -6) {
-        this->z.HALF.HI--;
+void sub_0803B04C(MazaalBraceletEntity* this) {
+    if (super->z.HALF.HI > -6) {
+        super->z.HALF.HI--;
     } else {
-        this->action = 0x26;
-        InitAnimationForceUpdate(this->child, 6);
+        super->action = 0x26;
+        InitAnimationForceUpdate(super->child, 6);
     }
 }
 
-void sub_0803B074(Entity* this) {
+void sub_0803B074(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
     sub_0803B55C(this);
-    if ((this->child->frame & ANIM_DONE) != 0) {
-        this->action = 0x27;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 4);
-        InitAnimationForceUpdate(this->child, 0);
+    if ((super->child->frame & ANIM_DONE) != 0) {
+        super->action = 0x27;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 4);
+        InitAnimationForceUpdate(super->child, 0);
     }
 }
 
-void sub_0803B0D4(Entity* this) {
-    UpdateAnimationSingleFrame(this);
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        COLLISION_ON(this);
+void sub_0803B0D4(MazaalBraceletEntity* this) {
+    UpdateAnimationSingleFrame(super);
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        COLLISION_ON(super);
         sub_0803B59C(this);
     }
 }
 
-void sub_0803B100(Entity* this) {
-    Entity* temp;
+void sub_0803B100(MazaalBraceletEntity* this) {
+    MazaalBraceletEntity* entity;
 
-    this->action = 0x29;
-    this->zVelocity = Q_16_16(1.25);
-    if (this->type == 0) {
-        this->hitbox = (Hitbox*)&gUnk_080FD364;
+    super->action = 0x29;
+    super->zVelocity = Q_16_16(1.25);
+    if (super->type == 0) {
+        super->hitbox = (Hitbox*)&gUnk_080FD364;
     } else {
-        this->hitbox = (Hitbox*)&gUnk_080FD374;
+        super->hitbox = (Hitbox*)&gUnk_080FD374;
     }
-    temp = *(Entity**)&this->field_0x74;
-    temp->action = 3;
-    temp->field_0x74.HALF.LO = 0x20;
-    InitAnimationForceUpdate(this->child, 9);
+    entity = this->unk_74.entity;
+    entity->base.action = 3;
+    entity->unk_74.split.unk_74 = 0x20;
+    InitAnimationForceUpdate(super->child, 9);
     SoundReq(SFX_14F);
 }
 
-void sub_0803B144(Entity* this) {
-    UpdateAnimationSingleFrame(this->child);
-    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
-        this->action = 0x2a;
-        InitializeAnimation(this, 0x16);
+void sub_0803B144(MazaalBraceletEntity* this) {
+    UpdateAnimationSingleFrame(super->child);
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
+        super->action = 0x2a;
+        InitializeAnimation(super, 0x16);
         sub_0803B8E8(this, 0x14);
         InitScreenShake(8, 0);
     }
 }
 
-void sub_0803B17C(Entity* this) {
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 0x2b;
-        COLLISION_ON(this);
-        this->hitType = 0x18;
-        this->health = 0xff;
-        this->field_0x7c.HALF.HI = 600;
+void sub_0803B17C(MazaalBraceletEntity* this) {
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 0x2b;
+        COLLISION_ON(super);
+        super->hitType = 0x18;
+        super->health = 0xff;
+        this->unk_7e = 600;
     }
 }
 
-void sub_0803B1B8(Entity* this) {
-    Entity* temp;
+void sub_0803B1B8(MazaalBraceletEntity* this) {
+    Entity* entity;
     u16 val;
 
-    if ((this->frame & ANIM_DONE) == 0) {
-        GetNextFrame(this);
-        UpdateAnimationSingleFrame(this->child);
+    if ((super->frame & ANIM_DONE) == 0) {
+        GetNextFrame(super);
+        UpdateAnimationSingleFrame(super->child);
     }
-    if (this->health < 0xf5) {
-        this->action = 0x32;
-        this->field_0x7c.HALF.HI = 0x5dc;
-        this->spriteSettings.draw = 0;
-        this->hitType = 0x14;
-        temp = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
-        if (temp != (Entity*)0x0) {
-            temp->x.HALF.HI += this->hitbox->offset_x;
-            temp->y.HALF.HI += this->hitbox->offset_y;
-            temp->spritePriority.b0 = 3;
+    if (super->health < 0xf5) {
+        super->action = 0x32;
+        this->unk_7e = 0x5dc;
+        super->spriteSettings.draw = 0;
+        super->hitType = 0x14;
+        entity = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
+        if (entity != NULL) {
+            entity->x.HALF.HI += super->hitbox->offset_x;
+            entity->y.HALF.HI += super->hitbox->offset_y;
+            entity->spritePriority.b0 = 3;
         }
-        temp = CreateObject(GROUND_ITEM, 0x5e, 0);
-        if (temp != (Entity*)0x0) {
-            temp->timer = 0;
-            temp->direction = 0x90;
-            PositionRelative(this, temp, Q_16_16(this->hitbox->offset_x), Q_16_16(this->hitbox->offset_y));
+
+        entity = CreateObject(GROUND_ITEM, 0x5e, 0);
+        if (entity != NULL) {
+            entity->timer = 0;
+            entity->direction = 0x90;
+            PositionRelative(super, entity, Q_16_16(super->hitbox->offset_x), Q_16_16(super->hitbox->offset_y));
         }
-        temp = *(Entity**)&this->field_0x74;
-        temp->field_0x74.HALF.LO = 0x40;
-        temp = this->parent;
-        temp->field_0x80.HALF.LO |= (this->type == 0) ? 4 : 8;
-        if ((temp->field_0x80.HALF.LO & 0xc) == 0xc) {
-            temp->action = 0xb;
-            temp->timer = 120;
-            temp->zVelocity = 0;
-            (*(Entity**)&temp->field_0x74)->field_0x7c.HALF_U.HI = 0x708;
-            (*(Entity**)&temp->field_0x78)->field_0x7c.HALF_U.HI = 0x708;
+
+        entity = &this->unk_74.entity->base;
+        ((MazaalBraceletEntity*)entity)->unk_74.split.unk_74 = 0x40;
+
+        entity = super->parent;
+        ((MazaalBraceletEntity*)entity)->unk_80.HALF.LO |= (super->type == 0) ? 4 : 8;
+        if ((((MazaalBraceletEntity*)entity)->unk_80.HALF.LO & 0xc) == 0xc) {
+            entity->action = 0xb;
+            entity->timer = 120;
+            entity->zVelocity = 0;
+            ((MazaalBraceletEntity*)entity)->unk_74.entity->unk_7e = 0x708;
+            ((MazaalBraceletEntity*)entity)->unk_78.entity->unk_7e = 0x708;
         }
     } else {
-        if (--this->field_0x7c.HALF.HI == 0) {
+        if (--this->unk_7e == 0) {
             sub_0803B6A4(this);
         }
     }
 }
 
-void sub_0803B2D0(Entity* this) {
-    Entity* entity;
+void sub_0803B2D0(MazaalBraceletEntity* this) {
+    MazaalBraceletEntity* entity;
 
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->action = 0x2d;
-        this->spriteSettings.draw = 0;
-        entity = *(Entity**)&this->field_0x74;
-        entity->action = 2;
-        entity->field_0x74.HALF.LO = 0;
-        entity->field_0x78.HWORD = 0;
-        InitializeAnimation(entity, 3);
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->action = 0x2d;
+        super->spriteSettings.draw = 0;
+        entity = this->unk_74.entity;
+        entity->base.action = 2;
+        entity->unk_74.split.unk_74 = 0;
+        entity->unk_78.split.unk_78 = 0;
+        InitializeAnimation(&entity->base, 3);
     }
 }
 
-void sub_0803B30C(Entity* this) {
+void sub_0803B30C(MazaalBraceletEntity* this) {
     Entity* entity;
 
-    entity = *(Entity**)&this->field_0x74;
+    entity = &this->unk_74.entity->base;
     if ((entity->frame & ANIM_DONE) != 0) {
-        this->action = 0x2e;
+        super->action = 0x2e;
         sub_0803B8E8(this, 0x13);
         InitializeAnimation(entity, 0);
     }
 }
 
-void sub_0803B338(Entity* this) {
-    if (this->z.HALF.HI > -10) {
-        this->z.HALF.HI--;
+void sub_0803B338(MazaalBraceletEntity* this) {
+    if (super->z.HALF.HI > -10) {
+        super->z.HALF.HI--;
     } else {
-        this->action = 0x2f;
-        this->timer = 15;
+        super->action = 0x2f;
+        super->timer = 15;
     }
 }
 
-void sub_0803B35C(Entity* this) {
+void sub_0803B35C(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (--this->timer == 0) {
-        this->action = 0x30;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    if (--super->timer == 0) {
+        super->action = 0x30;
     }
 }
 
-void sub_0803B398(Entity* this) {
+void sub_0803B398(MazaalBraceletEntity* this) {
     s8* ptr;
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (sub_0803B4E4(this) != 0) {
-        this->action = 0x31;
-        this->spriteSettings.draw = 1;
-        InitializeAnimation(this, 4);
-        InitAnimationForceUpdate(this->child, 0);
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    if (sub_0803B4E4(this)) {
+        super->action = 0x31;
+        super->spriteSettings.draw = 1;
+        InitializeAnimation(super, 4);
+        InitAnimationForceUpdate(super->child, 0);
     } else {
-        LinearMoveUpdate(this);
+        LinearMoveUpdate(super);
     }
 }
 
-void sub_0803B3F4(Entity* this) {
+void sub_0803B3F4(MazaalBraceletEntity* this) {
     u8 value;
     s8* ptr;
     u32 index;
-    Entity* temp;
+    MazaalBraceletEntity* entity;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->subtimer >> 4) + 3);
-    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) != 0) {
-        this->hitType = 0x17;
-        if (this->type == 0) {
-            this->hitbox = (Hitbox*)&gUnk_080FD35C;
+    index = ((super->parent->subtimer >> 4) + 3);
+    super->z.HALF.HI = ptr[(index + (u32)super->type * 2) & 7] + 4;
+    GetNextFrame(super);
+    if ((super->frame & ANIM_DONE) != 0) {
+        super->hitType = 0x17;
+        if (super->type == 0) {
+            super->hitbox = (Hitbox*)&gUnk_080FD35C;
         } else {
-            this->hitbox = (Hitbox*)&gUnk_080FD36C;
+            super->hitbox = (Hitbox*)&gUnk_080FD36C;
         }
-        temp = this->parent;
-        value = (this->type == 0) ? 1 : 2;
-        temp->field_0x80.HALF.LO &= ~(((this->type == 0) ? 0x10 : 0x20) | value);
+        entity = (MazaalBraceletEntity*)super->parent;
+        value = (super->type == 0) ? 1 : 2;
+        entity->unk_80.HALF.LO &= ~(((super->type == 0) ? 0x10 : 0x20) | value);
         sub_0803B59C(this);
     }
 }
 
-void sub_0803B480(Entity* this) {
+void sub_0803B480(MazaalBraceletEntity* this) {
     Entity* target;
 
-    if (((this->field_0x7c.HALF.HI & 0x1f) == 0) && (target = CreateObject(SMOKE, 1, 0), target != (Entity*)0x0)) {
-        PositionRelative(this, target, Q_16_16(gUnk_080CFD08[this->type]), 0);
+    if (((this->unk_7e & 0x1f) == 0) && (target = CreateObject(SMOKE, 1, 0), target != NULL)) {
+        PositionRelative(super, target, Q_16_16(gUnk_080CFD08[super->type]), 0);
     }
-    if (--this->field_0x7c.HALF.HI == 0) {
+    if (--this->unk_7e == 0) {
         sub_0803B6A4(this);
     }
 }
 
-void sub_0803B4D4(Entity* this) {
-    this->action = 3;
-    InitializeAnimation(this, 0x10);
+void sub_0803B4D4(MazaalBraceletEntity* this) {
+    super->action = 3;
+    InitializeAnimation(super, 0x10);
 }
 
-u32 sub_0803B4E4(Entity* this) {
+bool32 sub_0803B4E4(MazaalBraceletEntity* this) {
     u32 xoff;
     u32 yoff;
 
-    xoff = this->parent->x.HALF.HI + gUnk_080CFD0A[this->type];
-    yoff = this->parent->y.HALF.HI + 0x10;
-    if (EntityWithinDistance(this, xoff, yoff, 2)) {
-        this->x.HALF.HI = xoff;
-        this->y.HALF.HI = yoff;
-        return 1;
+    xoff = super->parent->x.HALF.HI + gUnk_080CFD0A[super->type];
+    yoff = super->parent->y.HALF.HI + 0x10;
+    if (EntityWithinDistance(super, xoff, yoff, 2)) {
+        super->x.HALF.HI = xoff;
+        super->y.HALF.HI = yoff;
+        return TRUE;
     } else {
-        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, xoff, yoff);
-        return 0;
+        super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, xoff, yoff);
+        return FALSE;
     }
 }
 
-void sub_0803B538(Entity* this) {
-    PositionRelative(this, this->child, 0, Q_16_16(-1.0));
-    PositionRelative(this, *(Entity**)&this->field_0x74, 0, Q_16_16(-2.0));
+void sub_0803B538(MazaalBraceletEntity* this) {
+    PositionRelative(super, super->child, 0, Q_16_16(-1.0));
+    PositionRelative(super, &this->unk_74.entity->base, 0, Q_16_16(-2.0));
 }
 
-void sub_0803B55C(Entity* this) {
-    Entity* entity;
-    Entity* pEVar1;
+void sub_0803B55C(MazaalBraceletEntity* this) {
+    Entity* entity1;
+    Entity* entity2;
 
-    pEVar1 = *(Entity**)&this->field_0x74;
-    entity = this->child;
-    UpdateAnimationSingleFrame(entity);
-    if ((entity->frame & 0x10) != 0) {
-        if (pEVar1->animIndex != 1) {
-            InitializeAnimation(pEVar1, 1);
+    entity2 = &this->unk_74.entity->base;
+    entity1 = super->child;
+    UpdateAnimationSingleFrame(entity1);
+    if ((entity1->frame & 0x10) != 0) {
+        if (entity2->animIndex != 1) {
+            InitializeAnimation(entity2, 1);
         }
     } else {
-        if (pEVar1->animIndex != 0) {
-            InitializeAnimation(pEVar1, 0);
+        if (entity2->animIndex != 0) {
+            InitializeAnimation(entity2, 0);
         }
     }
 }
 
-void sub_0803B59C(Entity* this) {
-    this->action = 2;
-    this->parent->field_0x7c.BYTES.byte1 |= (this->type == 0) ? 1 : 2;
+void sub_0803B59C(MazaalBraceletEntity* this) {
+    super->action = 2;
+    ((MazaalBraceletEntity*)super->parent)->unk_7c.HALF.HI |= (super->type == 0) ? 1 : 2;
 }
 
-void sub_0803B5C0(Entity* this) {
+void sub_0803B5C0(MazaalBraceletEntity* this) {
     u32 direction;
     u32 temp;
 
-    direction = GetFacingDirection(this, &gPlayerEntity);
+    direction = GetFacingDirection(super, &gPlayerEntity.base);
     if (direction < 10) {
         direction = 10;
     }
     if (direction > 0x16) {
         direction = 0x16;
     }
-    if (this->type == 0) {
+    if (super->type == 0) {
         temp = gUnk_080CFD0C[direction - 10];
     } else {
         temp = gUnk_080CFD0C[0x16 - direction];
     }
-    if (this->frame != temp) {
-        InitializeAnimation(this, temp);
+    if (super->frame != temp) {
+        InitializeAnimation(super, temp);
     }
 }
 
-u32 sub_0803B610(Entity* this) {
-    return EntityWithinDistance(this, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[this->type],
-                                gPlayerEntity.y.HALF.HI - 0xc, 8);
+u32 sub_0803B610(MazaalBraceletEntity* this) {
+    return EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI + gUnk_080CFD19[super->type],
+                                gPlayerEntity.base.y.HALF.HI - 0xc, 8);
 }
 
-// sub_0803B698 was the tail of this function
-void sub_0803B63C(Entity* this) {
+// sub_0803B698 was the tail of super function
+void sub_0803B63C(MazaalBraceletEntity* this) {
     int y;
     int x;
 
-    x = gPlayerEntity.x.HALF.HI;
-    x += gUnk_080CFD19[this->type];
-    y = gPlayerEntity.y.HALF.HI - 0xc;
-    if (this->timer++ > 180) {
-        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
+    x = gPlayerEntity.base.x.HALF.HI;
+    x += gUnk_080CFD19[super->type];
+    y = gPlayerEntity.base.y.HALF.HI - 0xc;
+    if (super->timer++ > 180) {
+        super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, x, y);
     } else {
-        sub_08004596(this, CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y));
+        sub_08004596(super, CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, x, y));
     }
 }
 
-void sub_0803B6A4(Entity* this) {
-    Entity* temp;
+void sub_0803B6A4(MazaalBraceletEntity* this) {
+    MazaalBraceletEntity* entity;
 
-    this->action = 0x2c;
-    this->hitType = 0x14;
-    temp = this->parent;
-    temp->field_0x80.HALF.LO |= (this->type == 0) ? 0x10 : 0x20;
-    temp->field_0x80.HALF.LO &= (this->type == 0) ? -5 : -9;
-    InitializeAnimation(this, 0x17);
+    super->action = 0x2c;
+    super->hitType = 0x14;
+    entity = (MazaalBraceletEntity*)super->parent;
+    entity->unk_80.HALF.LO |= (super->type == 0) ? 0x10 : 0x20;
+    entity->unk_80.HALF.LO &= (super->type == 0) ? -5 : -9;
+    InitializeAnimation(super, 0x17);
 }
 
-u32 sub_0803B6F4(Entity* this) {
-    if (this->type == 0) {
-        if (this->field_0x80.HWORD > this->x.HALF.HI) {
-            return 1;
+bool32 sub_0803B6F4(MazaalBraceletEntity* this) {
+    if (super->type == 0) {
+        if (this->unk_80.HWORD > super->x.HALF.HI) {
+            return TRUE;
         }
     } else {
-        if (this->field_0x80.HWORD < this->x.HALF.HI) {
-            return 1;
+        if (this->unk_80.HWORD < super->x.HALF.HI) {
+            return TRUE;
         }
     }
-    return 0;
+    return FALSE;
 }
 
-void sub_0803B724(Entity* param_1) {
-    Entity* pEVar1;
+void sub_0803B724(MazaalBraceletEntity* this) {
+    Entity* beetle;
     u32 random_value;
     u8 temp;
 
-    if (((param_1->subtimer < 3) && (param_1->cutsceneBeh.HALF.LO != 0)) &&
-        (pEVar1 = CreateEnemy(BEETLE, 1), pEVar1 != (Entity*)0x0)) {
-        pEVar1->type2 = 1;
+    if (((super->subtimer < 3) && (this->unk_84 != 0)) && (beetle = CreateEnemy(BEETLE, 1), beetle != NULL)) {
+        beetle->type2 = 1;
         random_value = Random();
-        temp = gUnk_080CFD1B[param_1->type];
-        pEVar1->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.origin_x;
-        pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.origin_y;
-        pEVar1->parent = param_1;
-        ResolveCollisionLayer(pEVar1);
-        param_1->subtimer++;
-        param_1->cutsceneBeh.HALF.LO--;
+        temp = gUnk_080CFD1B[super->type];
+        beetle->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.origin_x;
+        beetle->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.origin_y;
+        beetle->parent = super;
+        ResolveCollisionLayer(beetle);
+        super->subtimer++;
+        this->unk_84--;
     }
 }
 
@@ -1229,41 +1270,41 @@ void sub_0803B798(void) {
         ~(PL_CAPTURED | PL_FLAGS10000 | PL_GYORG_FIGHT | PL_ROLLING | PL_MOLDWORM_CAPTURED | PL_IN_HOLE |
           PL_MOLDWORM_RELEASED | PL_CLONING | PL_USE_LANTERN | PL_PARACHUTE | PL_CONVEYOR_PUSHED | PL_ENTER_MINECART |
           PL_SWORD_THRUST | PL_USE_OCARINA | PL_CLIMBING | PL_FLAGS40000000 | PL_FLAGS80000000);
-    gPlayerEntity.flags |= ENT_COLLIDE;
-    gPlayerEntity.zVelocity = Q_16_16(1.5);
-    gPlayerEntity.z.HALF.HI = -10;
-    gPlayerEntity.direction = 0x10;
-    gPlayerEntity.animationState = 4;
-    gPlayerEntity.spritePriority.b1 = 1;
-    gPlayerEntity.spriteOffsetY = 0;
-    gPlayerEntity.speed = 0x140;
-    gPlayerEntity.iframes = -0x1e;
+    gPlayerEntity.base.flags |= ENT_COLLIDE;
+    gPlayerEntity.base.zVelocity = Q_16_16(1.5);
+    gPlayerEntity.base.z.HALF.HI = -10;
+    gPlayerEntity.base.direction = 0x10;
+    gPlayerEntity.base.animationState = 4;
+    gPlayerEntity.base.spritePriority.b1 = 1;
+    gPlayerEntity.base.spriteOffsetY = 0;
+    gPlayerEntity.base.speed = 0x140;
+    gPlayerEntity.base.iframes = -0x1e;
 }
 
-void sub_0803B804(Entity* this) {
-    gPlayerEntity.iframes = 30;
+void sub_0803B804(MazaalBraceletEntity* this) {
+    gPlayerEntity.base.iframes = 30;
     ModHealth(-4);
-    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
+    SoundReqClipped(&gPlayerEntity.base, SFX_PLY_VO6);
 }
 
-void sub_0803B824(Entity* this) {
+void sub_0803B824(MazaalBraceletEntity* this) {
     ResetActiveItems();
     gPlayerState.mobility |= 0x80;
-    sub_0806FA90(this, &gPlayerEntity, gUnk_080CFD1D[this->type], 1);
-    gPlayerEntity.spriteOffsetY = -6;
-    gPlayerEntity.spritePriority.b1 = 0;
+    sub_0806FA90(super, &gPlayerEntity.base, gUnk_080CFD1D[super->type], 1);
+    gPlayerEntity.base.spriteOffsetY = -6;
+    gPlayerEntity.base.spritePriority.b1 = 0;
 }
 
-u32 sub_0803B870(Entity* this) {
+u32 sub_0803B870(MazaalBraceletEntity* this) {
     Entity* entity;
 
-    entity = this->child;
+    entity = super->child;
     if ((entity->contactFlags & 0x80) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
-        this->action = 0x18;
-        this->timer = 68;
-        this->spriteSettings.draw = 0;
-        gPlayerEntity.flags &= ~ENT_COLLIDE;
-        gPlayerEntity.iframes = -0x10;
+        super->action = 0x18;
+        super->timer = 68;
+        super->spriteSettings.draw = 0;
+        gPlayerEntity.base.flags &= ~ENT_COLLIDE;
+        gPlayerEntity.base.iframes = -0x10;
         sub_0803B824(this);
         entity->hitType = 0x13;
         InitAnimationForceUpdate(entity, 7);
@@ -1275,126 +1316,126 @@ u32 sub_0803B870(Entity* this) {
     }
 }
 
-void sub_0803B8E8(Entity* this, u32 unk) {
+void sub_0803B8E8(MazaalBraceletEntity* this, u32 unk) {
     Entity* entity;
-    entity = this->child;
+    entity = super->child;
     entity->hitType = unk;
-    entity = (*(Entity**)&this->field_0x74);
+    entity = &this->unk_74.entity->base;
     entity->hitType = unk;
 }
 
-void sub_0803B8F8(Entity* this) {
-    gUnk_080CFD20[this->action](this);
+void sub_0803B8F8(MazaalBraceletEntity* this) {
+    gUnk_080CFD20[super->action](this);
 }
 
-void sub_0803B910(Entity* this) {
+void sub_0803B910(MazaalBraceletEntity* this) {
     if (gRoomTransition.field_0x38 != 0) {
-        this->action = 2;
-        this->spriteSettings.draw = 1;
-        *(u8*)&this->field_0x74 = 0;
+        super->action = 2;
+        super->spriteSettings.draw = 1;
+        this->unk_74.split.unk_74 = 0;
         sub_0803BA8C(this, 10);
     } else {
-        this->action = 1;
-        *(u8*)&this->field_0x74 = 0x80;
+        super->action = 1;
+        this->unk_74.split.unk_74 = 0x80;
     }
-    this->spriteSettings.flipX = (this->type - 2);
-    InitializeAnimation(this, 0);
-    CopyPositionAndSpriteOffset(this->parent, this);
+    super->spriteSettings.flipX = (super->type - 2);
+    InitializeAnimation(super, 0);
+    CopyPositionAndSpriteOffset(super->parent, super);
 }
 
-void sub_0803B978(Entity* this) {
-    switch (this->subAction) {
+void sub_0803B978(MazaalBraceletEntity* this) {
+    switch (super->subAction) {
         case 0:
             return;
         case 1:
-            this->subAction = 2;
-            this->timer = 2;
-            this->subtimer = 30;
-            this->field_0x74.HALF.LO = 0;
+            super->subAction = 2;
+            super->timer = 2;
+            super->subtimer = 30;
+            this->unk_74.split.unk_74 = 0;
             SoundReq(SFX_1A9);
         case 2:
-            sub_0803BA8C(this, this->subtimer);
-            if ((this->field_0x74.HALF.HI | this->field_0x74.HALF.LO) == 0) {
+            sub_0803BA8C(this, super->subtimer);
+            if ((this->unk_74.split.unk_75 | this->unk_74.split.unk_74) == 0) {
                 SoundReq(SFX_1A9);
             }
-            if (this->field_0x74.HALF.LO != 0) {
+            if (this->unk_74.split.unk_74 != 0) {
                 return;
             }
-            if (--this->timer != 0) {
+            if (--super->timer != 0) {
                 return;
             }
-            this->timer = 2;
-            this->subtimer -= 4;
-            if (this->subtimer != 10) {
+            super->timer = 2;
+            super->subtimer -= 4;
+            if (super->subtimer != 10) {
                 return;
             }
-            this->parent->parent->subAction = 3;
-            this->subAction = 3;
+            super->parent->parent->subAction = 3;
+            super->subAction = 3;
             return;
         case 3:
             break;
         case 4:
-            this->subAction = 5;
-            this->spriteSettings.draw = 1;
-            this->spriteRendering.alphaBlend = 1;
+            super->subAction = 5;
+            super->spriteSettings.draw = 1;
+            super->spriteRendering.alphaBlend = 1;
             break;
         default:
-            this->action = 2;
-            this->spriteRendering.alphaBlend = 0;
+            super->action = 2;
+            super->spriteRendering.alphaBlend = 0;
         case 5:
-            GetNextFrame(this);
+            GetNextFrame(super);
     }
     sub_0803BA8C(this, 0x10);
-    if ((this->field_0x74.HALF.HI | this->field_0x74.HALF.LO) == 0) {
+    if ((this->unk_74.split.unk_75 | this->unk_74.split.unk_74) == 0) {
         SoundReq(SFX_1A9);
     }
 }
 
-void sub_0803BA6C(Entity* this) {
+void sub_0803BA6C(MazaalBraceletEntity* this) {
     sub_0803BA8C(this, 10);
-    GetNextFrame(this);
+    GetNextFrame(super);
 }
 
-void sub_0803BA80(Entity* this) {
+void sub_0803BA80(MazaalBraceletEntity* this) {
     sub_0803BA8C(this, 10);
 }
 
-void sub_0803BA8C(Entity* this, u32 unk) {
-    u32 sVar2;
+void sub_0803BA8C(MazaalBraceletEntity* this, u32 unk) {
+    u32 palette;
     u32 tmp;
 
-    sVar2 = 0;
-    tmp = this->field_0x74.HALF.LO & 0xe0;
-    if ((this->field_0x74.HALF.LO & 0xe0) == 0) {
-        if (this->field_0x74.HALF.LO == 0) {
-            if (9 < ++this->field_0x74.HALF.HI) {
-                this->field_0x74.HALF.HI = 0;
+    palette = 0;
+    tmp = this->unk_74.split.unk_74 & 0xe0;
+    if ((this->unk_74.split.unk_74 & 0xe0) == 0) {
+        if (this->unk_74.split.unk_74 == 0) {
+            if (9 < ++this->unk_74.split.unk_75) {
+                this->unk_74.split.unk_75 = 0;
             }
-            if (this->type == 2) {
-                sVar2 = gUnk_080CFD30[this->field_0x74.HALF.HI];
+            if (super->type == 2) {
+                palette = gUnk_080CFD30[this->unk_74.split.unk_75];
             } else {
-                sVar2 = gUnk_080CFD44[this->field_0x74.HALF.HI];
+                palette = gUnk_080CFD44[this->unk_74.split.unk_75];
             }
         }
-        this->field_0x74.HALF.LO++;
-        if (unk <= this->field_0x74.HALF.LO) {
-            this->field_0x74.HALF.LO = 0;
+        this->unk_74.split.unk_74++;
+        if (unk <= this->unk_74.split.unk_74) {
+            this->unk_74.split.unk_74 = 0;
         }
     } else {
         if ((tmp & 0x80) == 0) {
-            this->field_0x74.HALF.LO |= 0x80;
+            this->unk_74.split.unk_74 |= 0x80;
             if ((tmp & 0x20) != 0) {
-                sVar2 = gUnk_080CFD58[this->type - 2];
+                palette = gUnk_080CFD58[super->type - 2];
             } else {
-                sVar2 = gUnk_080CFD5C[this->type - 2];
+                palette = gUnk_080CFD5C[super->type - 2];
             }
         }
     }
-    if (sVar2 != 0) {
-        ChangeObjPalette(this, sVar2);
-        (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
-        (*(Entity**)&this->parent->field_0x78)->palette.b.b4 = this->palette.b.b0;
-        this->parent->child->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
-        this->parent->child->palette.b.b4 = this->palette.b.b0;
+    if (palette != 0) {
+        ChangeObjPalette(super, palette);
+        ((MazaalBraceletEntity*)super->parent)->unk_78.entity->base.palette.b.b0 = super->palette.raw << 0x1c >> 0x1c;
+        ((MazaalBraceletEntity*)super->parent)->unk_78.entity->base.palette.b.b4 = super->palette.b.b0;
+        super->parent->child->palette.b.b0 = super->palette.raw << 0x1c >> 0x1c;
+        super->parent->child->palette.b.b4 = super->palette.b.b0;
     }
 }

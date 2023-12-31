@@ -4,7 +4,6 @@
  *
  * @brief Parallax Room View object
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "room.h"
 

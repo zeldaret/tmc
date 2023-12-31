@@ -4,7 +4,6 @@
  *
  * @brief Guard Line of Sight Projectile
  */
-#define NENT_DEPRECATED
 #include "asm.h"
 #include "collision.h"
 #include "entity.h"

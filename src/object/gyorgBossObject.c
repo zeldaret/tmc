@@ -4,7 +4,6 @@
  *
  * @brief Gyorg Boss object
  */
-#define NENT_DEPRECATED
 #include "area.h"
 #include "enemy/gyorg.h"
 #include "entity.h"
@@ -229,7 +228,7 @@ void GyorgBossObject_FemalePhase4(GyorgBossObjectEntity* this) {
         }
         this->unk_6c = 0;
         gRoomTransition.field_0x39 = 0;
-        if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
+        if (PlayerCanBeMoved() && gPlayerEntity.base.z.HALF.HI == 0) {
             super->action = 9;
             super->timer = 0;
             super->subtimer = 240;
@@ -237,7 +236,7 @@ void GyorgBossObject_FemalePhase4(GyorgBossObjectEntity* this) {
             super->direction = 0;
             super->speed = 0x60;
             gPlayerState.flags &= ~PL_GYORG_FIGHT;
-            CopyPosition(&gPlayerEntity, super);
+            CopyPosition(&gPlayerEntity.base, super);
             gRoomControls.camera_target = super;
             SetPlayerControl(2);
         }
@@ -464,7 +463,7 @@ void sub_080A1FF0(GyorgBossObjectEntity* this) {
         }
     }
     if (this->unk_7b) {
-        if (EntityWithinDistance(&gPlayerEntity, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210,
+        if (EntityWithinDistance(&gPlayerEntity.base, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210,
                                  0x100)) {
             if (super->timer == 0) {
                 super->timer = 120;
@@ -483,7 +482,7 @@ u32 sub_080A20B8(GyorgBossObjectEntity* this, GyorgMaleEntity* other) {
     if (other == NULL) {
         return 1;
     }
-    if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
+    if (PlayerCanBeMoved() && gPlayerEntity.base.z.HALF.HI == 0) {
         return other->unk_7c == 0 && gPlayerState.field_0x14 != 0;
     }
     return 0;

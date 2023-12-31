@@ -4,7 +4,6 @@
  *
  * @brief Gina NPC
  */
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "npc.h"
 #include "player.h"
@@ -28,8 +27,8 @@ void Gina(GinaEntity* this) {
             if (super->interactType == INTERACTION_FUSE) {
                 super->action = 2;
                 super->interactType = INTERACTION_NONE;
-                InitAnimationForceUpdate(super,
-                                         GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity)));
+                InitAnimationForceUpdate(
+                    super, GetAnimationStateForDirection4(GetFacingDirection(super, &gPlayerEntity.base)));
                 InitializeNPCFusion(super);
             } else {
                 ExecuteScriptAndHandleAnimation(super, NULL);

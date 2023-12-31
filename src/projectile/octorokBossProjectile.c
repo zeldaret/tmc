@@ -4,7 +4,6 @@
  *
  * @brief Octorock Boss Projectile
  */
-#define NENT_DEPRECATED
 #include "collision.h"
 #include "enemy.h"
 #include "entity.h"
@@ -78,7 +77,7 @@ void OctorokBossProjectile_Init(OctorokBossProjectileEntity* this) {
             InitializeAnimation(super, 5);
             break;
         case 3:
-            CopyPosition(&gPlayerEntity, super);
+            CopyPosition(&gPlayerEntity.base, super);
             super->z.WORD = Q_16_16(-160.0);
             super->x.HALF.HI += 0x60;
             super->y.HALF.HI += 0x40;

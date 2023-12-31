@@ -1,4 +1,3 @@
-#define NENT_DEPRECATED
 #include "entity.h"
 #include "functions.h"
 #include "flags.h"
@@ -87,7 +86,8 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
                 sub_080045DA(super->parent->x.WORD - super->x.WORD, super->parent->y.WORD - super->y.WORD) ^ 0x80;
         } else {
             super->speed = 0x600;
-            dir = sub_080045DA(gPlayerEntity.x.WORD - super->x.WORD, gPlayerEntity.y.WORD - super->y.WORD) ^ 0x80;
+            dir = sub_080045DA(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD) ^
+                  0x80;
             if (dir != super->direction) {
                 if ((u8)(dir - super->direction) > 0x80) {
                     super->direction += 3;
@@ -95,7 +95,7 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
                     super->direction -= 3;
                 }
             }
-            if ((gPlayerEntity.animationState & 2) == 0) {
+            if ((gPlayerEntity.base.animationState & 2) == 0) {
                 this->unk76 = this->unk7c + 0x40;
             } else {
                 this->unk76 = this->unk7c - 0x20;
@@ -113,7 +113,7 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
         super->direction++;
         super->gustJarTolerance--;
         this->unk7f = 1;
-        if ((gPlayerEntity.animationState & 2) == 0) {
+        if ((gPlayerEntity.base.animationState & 2) == 0) {
             this->unk76 = this->unk7c + 0x10;
         } else {
             this->unk76 = this->unk7c - 0x20;
@@ -184,7 +184,7 @@ void EvilSpirit_Action3(EvilSpiritEntity* this) {
         super->gustJarTolerance--;
         this->unk7f = 1;
 
-        if ((gPlayerEntity.animationState & 2) == 0) {
+        if ((gPlayerEntity.base.animationState & 2) == 0) {
             this->unk76 = this->unk7c + 0x10;
         } else {
             this->unk76 = this->unk7c - 0x20;
