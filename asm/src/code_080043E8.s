@@ -67,7 +67,7 @@ sub_0800445C: @ 0x0800445C
 	ldr r5, _080044D8 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08004484
+	bl CalcCollisionStaticEntity
 	cmp r0, #0
 	beq _08004482
 	ldrb r0, [r5, #0xc]
@@ -80,8 +80,8 @@ _08004480:
 _08004482:
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08004484
-sub_08004484: @ 0x08004484
+	thumb_func_start CalcCollisionStaticEntity
+CalcCollisionStaticEntity: @ 0x08004484
 	ldr r2, _080044DC @ =ram_sub_080B227C
 	bx r2
 
@@ -138,30 +138,34 @@ _080044E0: .4byte gUnk_02024048
 _080044E4: .4byte gUnk_02021F20
 _080044E8: .4byte gPlayerEntity
 
-	thumb_func_start sub_080044EC
-sub_080044EC: @ 0x080044EC
+	// BounceUpdate
+	// assumes initial velocity is set
+	// r0: entity*
+	// r1: acceleration
+	thumb_func_start BounceUpdate
+BounceUpdate: @ 0x080044EC
 	ldr r2, [r0, #0x34]
 	ldr r3, [r0, #0x20]
-	subs r2, r2, r3
-	bpl _080044FE
-	str r2, [r0, #0x34]
-	subs r3, r3, r1
-	str r3, [r0, #0x20]
-	movs r0, #2
+	subs r2, r3
+	bpl grounded // if z is positive, entity is grounded
+	str r2, [r0, #0x34] // entity.z = entity.z - entity.zVelocity
+	subs r3, r1
+	str r3, [r0, #0x20] // entity.zVelocity = entity.zVelocity - acceleration
+	movs r0, #2 // return 2
 	bx lr
-_080044FE:
+grounded:
 	movs r2, #1
-	str r2, [r0, #0x34]
-	subs r3, r3, r1
-	rsbs r3, r3, #0
-	lsrs r3, r3, #1
+	str r2, [r0, #0x34] // entity.z = 1 (note: player cant do certain actions at z!=0)
+	subs r3, r1
+	negs r3, r3
+	lsrs r3, #1
 	lsrs r1, r3, #2
-	adds r3, r3, r1
+	adds r3, r1 // calc next bounce velocity
 	lsrs r1, r3, #0xc
 	cmp r1, #0xc
-	bhs _08004516
-	movs r2, #0
-	movs r3, #0
+	bhs _08004516 // return 1 if bouncing
+	movs r2, #0 // return 0 if not bouncing
+	movs r3, #0 // set velocity to 0
 _08004516:
 	str r3, [r0, #0x20]
 	adds r0, r2, #0
@@ -170,7 +174,7 @@ _08004516:
 	thumb_func_start sub_0800451C
 sub_0800451C: @ 0x0800451C
 	push {r0, lr}
-	bl GetTileUnderEntity
+	bl GetActTile
 	adds r1, r0, #0
 	pop {r0, r3}
 	mov lr, r3

@@ -120,7 +120,7 @@ void sub_080218CC(BeetleEntity* this) {
     GetNextFrame(super);
     if (super->frame & 1) {
         ProcessMovement2(super);
-        if (sub_080044EC(super, 0x1c00) == 0)
+        if (BounceUpdate(super, Q_8_8(28.0)) == BOUNCE_DONE_ALL)
             super->frameDuration = 1;
     }
 

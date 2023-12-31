@@ -129,7 +129,7 @@ void Mask_Action2(MaskEntity* this) {
 
         CreateRandomItemDrop(super, 3);
     } else {
-        sub_080044EC(super, this->unk_78);
+        BounceUpdate(super, this->unk_78);
 
         if (super->z.HALF.HI == 0) {
             super->timer++;

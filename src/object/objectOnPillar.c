@@ -208,7 +208,7 @@ void sub_080970F4(ObjectOnPillarEntity* this) {
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (GetTileUnderEntity(super) == 0x19) {
+    if (GetActTile(super) == 0x19) {
         super->spriteOffsetY = 2;
     }
     if ((--this->unk_76 == 0) && sub_08097194(this) == FALSE) {

@@ -1976,7 +1976,7 @@ static void PlayerRoomTransition(PlayerEntity* this) {
 static void sub_080724DC(PlayerEntity* this) {
     super->knockbackDuration = 0;
     DeleteClones();
-    if (GetTileUnderEntity(super) != 0x29) {
+    if (GetActTile(super) != 0x29) {
         if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
             PlayerUpdateSwimming(super);
         }
@@ -2620,7 +2620,7 @@ static void PlayerUseStairs(PlayerEntity* this) {
 
 static void sub_080732D0(PlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if (GetTileUnderEntity(super) != 40) {
+    if (GetActTile(super) != 40) {
         super->direction = DirectionNorth;
         LinearMoveUpdate(super);
     } else {
@@ -4107,7 +4107,7 @@ void sub_0807529C(PlayerEntity* this) {
 void sub_080752AC(PlayerEntity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(super);
     if (!ctx->unk_18) {
-        if (GetTileUnderEntity(super) != 41) {
+        if (GetActTile(super) != 41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

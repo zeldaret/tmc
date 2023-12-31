@@ -147,7 +147,7 @@ void sub_0802F300(TektiteEntity* this) {
     temp = super->z.HALF.HI;
     rand = Random() & 0xf;
 
-    if (sub_080044EC(super, this->unk_80) == 1) {
+    if (BounceUpdate(super, this->unk_80) == BOUNCE_INIT_NEXT) {
         super->action = 3;
         super->subAction = 0;
         if (super->type != 0) {
@@ -164,7 +164,7 @@ void sub_0802F300(TektiteEntity* this) {
         return;
     } else if (super->collisions != COL_NONE) {
         sub_0800417E(super, super->collisions);
-    } else if ((GetTileUnderEntity(super) & 0xf0) == 0x50) {
+    } else if ((GetActTile(super) & 0xf0) == 0x50) {
         super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 

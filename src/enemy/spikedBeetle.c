@@ -152,12 +152,12 @@ void sub_0802B880(Entity* this) {
 
 void sub_0802B8B0(Entity* this) {
     ProcessMovement2(this);
-    switch (sub_080044EC(this, 0x1800)) {
-        case 0:
+    switch (BounceUpdate(this, Q_8_8(24.0))) {
+        case BOUNCE_DONE_ALL:
             this->action = 7;
             this->timer = 150;
             /* fallthrough */
-        case 1:
+        case BOUNCE_INIT_NEXT:
             EnqueueSFX(SFX_12B);
             break;
     }

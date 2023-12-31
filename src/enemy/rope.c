@@ -208,7 +208,7 @@ void sub_08031600(RopeEntity* this) {
 
 u32 sub_0803163C(RopeEntity* this) {
     u32 h;
-    if (GetTileUnderEntity(super) == 0x13) {
+    if (GetActTile(super) == 0x13) {
         h = this->unk_7a / 2;
     } else {
         h = this->unk_7a;

@@ -163,7 +163,7 @@ void KeyStealingTakkuri_Type5_Init(KeyStealingTakkuriEntity* this) {
 
 void KeyStealingTakkuri_Type5_Action1(KeyStealingTakkuriEntity* this) {
     LinearMoveUpdate(super);
-    if (sub_080044EC(super, 0x2000) < 2) {
+    if (BounceUpdate(super, Q_8_8(32.0)) < BOUNCE_AIRBORNE) {
         if (super->timer != 0) {
             super->timer--;
             super->zVelocity = Q_16_16(1.0);

@@ -259,9 +259,9 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
                 tmp = 1;
             }
 #ifdef JP
-            switch (gInput.unk4) {
+            switch (gInput.menuScrollKeys) {
 #else
-            switch (gInput.unk4 & 0xfffffeff) {
+            switch (gInput.menuScrollKeys & ~R_BUTTON) {
 #endif
                 case DPAD_UP:
                     FigurineDevice_ChangeShellAmount(this, tmp);
@@ -274,7 +274,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
                 sub_080882A8(this);
             }
 #else
-            switch (gInput.unk4) {
+            switch (gInput.menuScrollKeys) {
                 case DPAD_UP:
                     FigurineDevice_ChangeShellAmount(this, 1);
                     break;

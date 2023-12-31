@@ -580,7 +580,7 @@ CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSetting
             org->health = 0;
         }
     } else if (tgt->kind == ENEMY && org == &gPlayerEntity.base) {
-        sub_08004484(tgt, org);
+        CalcCollisionStaticEntity(tgt, org);
     }
     return RESULT_NO_COLLISION;
 }
@@ -670,14 +670,14 @@ CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSetting
             org->health = 0;
         }
     } else if ((tgt->kind == ENEMY) && (org == &gPlayerEntity.base)) {
-        sub_08004484(tgt, &gPlayerEntity.base);
+        CalcCollisionStaticEntity(tgt, &gPlayerEntity.base);
     }
     return RESULT_NO_COLLISION;
 }
 
 CollisionResult sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (org == &gPlayerEntity.base && PlayerCanBeMoved())
-        sub_08004484(tgt, org);
+        CalcCollisionStaticEntity(tgt, org);
     return RESULT_NO_COLLISION;
 }
 
@@ -716,7 +716,7 @@ CollisionResult sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSetting
 CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 confused = 0;
     if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity.base) {
-        sub_08004484(tgt, org);
+        CalcCollisionStaticEntity(tgt, org);
         confused = 1;
     }
     if ((org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) &&

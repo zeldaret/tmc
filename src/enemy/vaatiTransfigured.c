@@ -288,7 +288,7 @@ void VaatiTransfiguredType0Action3(VaatiTransfiguredEntity* this) {
 
     switch (this->unk_80) {
         case 0:
-            uVar4 = sub_080044EC(super, 0x2800);
+            uVar4 = BounceUpdate(super, Q_8_8(40.0));
             if (uVar4 != 1)
                 break;
             this->unk_80 = 1;

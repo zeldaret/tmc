@@ -69,7 +69,7 @@ extern void sub_080042D0(Entity*, u32, u16);
 extern void sub_080043A8(Entity*);
 extern u32 sub_0800445C(Entity*);
 extern void sub_080044AE(Entity*, u32, u32);
-extern u32 sub_080044EC(Entity*, u32);
+extern u32 BounceUpdate(Entity*, u32);
 extern void sub_0800451C(Entity*);
 extern void sub_08004542(Entity*);
 extern void sub_080085B0(Entity*);

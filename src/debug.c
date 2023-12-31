@@ -73,7 +73,7 @@ void sub_0805FA98(void) {
             MessageInitialize();
             break;
         default:
-            switch (gInput.unk4) {
+            switch (gInput.menuScrollKeys) {
                 case DPAD_LEFT:
                     iVar1 = -1;
                     break;

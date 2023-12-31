@@ -224,7 +224,7 @@ void sub_0802BEBC(HelmasaurEntity* this) {
     super->direction ^= DirectionSouth;
     ProcessMovement2(super);
     super->direction ^= DirectionSouth;
-    if (!sub_080044EC(super, Q_16_16(0.125))) {
+    if (BounceUpdate(super, Q_16_16(0.125)) == BOUNCE_DONE_ALL) {
         sub_0802C1C0(this);
     }
 }

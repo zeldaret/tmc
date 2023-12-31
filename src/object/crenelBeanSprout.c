@@ -174,7 +174,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
         }
         PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
-        if (GetTileUnderEntity(super) == 0x19) {
+        if (GetActTile(super) == 0x19) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }

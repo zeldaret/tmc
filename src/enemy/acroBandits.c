@@ -528,7 +528,7 @@ void AcroBandit_Type1Action6(AcroBanditEntity* this) {
 void AcroBandit_Type1Action7(AcroBanditEntity* this) {
     ProcessMovement2(super);
 
-    if (sub_080044EC(super, 0x2000) == 0)
+    if (BounceUpdate(super, Q_8_8(32.0)) == BOUNCE_DONE_ALL)
         super->action = 8;
 }
 

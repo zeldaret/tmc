@@ -45,7 +45,7 @@ void Rupee_Action_1(Entity* this) {
     if (this->child->next == NULL) {
         this->action = 2;
     } else {
-        if (sub_080044EC(this, 10240) == 0) {
+        if (BounceUpdate(this, Q_8_8(40.0)) == BOUNCE_DONE_ALL) {
             this->action = 2;
         }
         ProcessMovement0(this);

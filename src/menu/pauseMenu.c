@@ -404,7 +404,7 @@ void PauseMenu_ItemMenu_Update(void) {
                 }
                 break;
             default:
-                switch (gInput.unk4) {
+                switch (gInput.menuScrollKeys) {
                     case DPAD_UP:
                         menuSlot = entry->up;
                         break;
@@ -710,7 +710,7 @@ void sub_080A56A0(void) {
     gMenu.field_0xc = gUnk_08128C00;
     ptr = &gUnk_08128C14[gMenu.field_0x3];
     uVar2 = 0xff;
-    switch (gInput.unk4) {
+    switch (gInput.menuScrollKeys) {
         case DPAD_UP:
             uVar2 = ptr->unk0;
             break;

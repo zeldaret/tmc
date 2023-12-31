@@ -70,7 +70,7 @@ void BoneProjectile_Action3(Entity* this) {
     this->spriteSettings.draw ^= 1;
     LinearMoveUpdate(this);
     GetNextFrame(this);
-    if (sub_080044EC(this, 0x1800) == 0) {
+    if (BounceUpdate(this, Q_8_8(24.0)) == BOUNCE_DONE_ALL) {
         DeleteEntity(this);
     }
 }

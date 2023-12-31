@@ -240,7 +240,7 @@ void Peahat_ChargeEnd(PeahatEntity* this) {
 void Peahat_Stunned(PeahatEntity* this) {
     switch (super->animationState) {
         default:
-            if (sub_080044EC(super, 0x1800) == 0) {
+            if (BounceUpdate(super, Q_8_8(24.0)) == BOUNCE_DONE_ALL) {
                 super->action = 6;
                 super->timer = 240;
                 super->subtimer = 10;

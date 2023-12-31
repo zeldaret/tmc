@@ -109,7 +109,7 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
         if (gPlayerEntity.base.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {
-            GetTileUnderEntity(super);
+            GetActTile(super);
             sub_08084B1C(this);
             super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->unk78;
             super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->unk7a;

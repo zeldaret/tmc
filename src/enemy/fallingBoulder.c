@@ -93,7 +93,7 @@ void sub_0802C334(FallingBoulderEntity* this) {
     GetNextFrame(super);
     this->unk_7e = COORD_TO_TILE(super);
 
-    if (sub_080044EC(super, this->unk_84) == 1) {
+    if (BounceUpdate(super, this->unk_84) == BOUNCE_INIT_NEXT) {
         EnqueueSFX(0x14c);
         COLLISION_ON(super);
         this->unk_7a = 12;

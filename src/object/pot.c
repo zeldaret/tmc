@@ -25,7 +25,7 @@ typedef struct {
 } PotEntity;
 
 void Pot_Action5(PotEntity*);
-static void sub_08082850(PotEntity*, Entity*);
+static void BreakPot(PotEntity*, Entity*);
 void sub_08082608(PotEntity* this);
 void Pot_Init(PotEntity* this);
 void Pot_Action1(PotEntity* this);
@@ -128,13 +128,13 @@ void Pot_Action1(PotEntity* this) {
                         DeleteThisEntity();
                         break;
                     default:
-                        if (GetTileUnderEntity(super) == 13) {
+                        if (GetActTile(super) == 13) {
                             CreateFx(super, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
                             SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         }
-                        sub_08082850(this, NULL);
+                        BreakPot(this, NULL);
                         break;
                 }
             } else {
@@ -181,7 +181,7 @@ void sub_0808259C(PotEntity* this) {
             CreateFx(super, FX_LAVA_SPLASH, 0);
             break;
         default:
-            sub_08082850(this, &gPlayerEntity.base);
+            BreakPot(this, &gPlayerEntity.base);
             return;
     }
 
@@ -227,7 +227,7 @@ void Pot_Action4(PotEntity* this) {
     switch (tileType) {
         case 0x71:
         case 0x72:
-            sub_08082850(this, NULL);
+            BreakPot(this, NULL);
             break;
         default:
             SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
@@ -268,7 +268,7 @@ void sub_08082778(PotEntity* this) {
     }
 
     if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
-        sub_08082850(this, NULL);
+        BreakPot(this, NULL);
     } else {
         sub_0806F3E4(super);
     }
@@ -276,7 +276,7 @@ void sub_08082778(PotEntity* this) {
 
 void sub_080827F8(PotEntity* this) {
     if (gPlayerState.field_0x1c == 0) {
-        sub_08082850(this, NULL);
+        BreakPot(this, NULL);
     }
 }
 
@@ -284,7 +284,7 @@ void nullsub_512(PotEntity* this) {
 }
 
 void sub_08082818(PotEntity* this) {
-    sub_08082850(this, NULL);
+    BreakPot(this, NULL);
 }
 
 void Pot_Action5(PotEntity* this) {
@@ -293,11 +293,11 @@ void Pot_Action5(PotEntity* this) {
     }
 
     if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
-        sub_08082850(this, NULL);
+        BreakPot(this, NULL);
     }
 }
 
-static void sub_08082850(PotEntity* this, Entity* parent) {
+static void BreakPot(PotEntity* this, Entity* parent) {
     u32 parameter = sub_0808288C(super, super->type, this->unk_7d, super->type2);
     Entity* fxEntity = CreateFx(super, FX_POT_SHATTER, parameter);
     if (fxEntity) {

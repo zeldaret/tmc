@@ -436,7 +436,7 @@ u32 sub_080814C0(ItemOnGroundEntity* this) {
 
 void sub_08081500(ItemOnGroundEntity* this) {
     if (this->unk_68 == 0) {
-        u32 var0 = sub_080044EC(super, 0x2800);
+        u32 var0 = BounceUpdate(super, Q_8_8(40.0));
         if (var0 == 0) {
             this->unk_68 = 1;
         } else {

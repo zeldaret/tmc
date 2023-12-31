@@ -107,7 +107,7 @@ _080001CC: .4byte gMapBottom+0x6004
 	thumb_func_start sub_080001D0
 sub_080001D0: @ 0x080001D0
 	lsls r2, r2, #2
-	ldr r3, _08000220 @ =gUnk_08000278
+	ldr r3, _08000220 @ =gUnkDataPtrs
 	ldr r3, [r3, r2]
 	strb r0, [r3, r1]
 	bx lr
@@ -135,37 +135,37 @@ _08000210: .4byte gUnk_080B7910
 _08000214: .4byte gUnk_080B79A7
 _08000218: .4byte gUnk_080B37A0
 _0800021C: .4byte gUnk_080B3E80
-_08000220: .4byte gUnk_08000278
+_08000220: .4byte gUnkDataPtrs
 _08000224: .4byte gUnk_08000228
 gUnk_08000228::
-	.4byte gMapBottom+0x0004
+	.4byte BOTTOM_TILEDATA
 gUnk_0800022C::
-	.4byte gMapBottom+0x5004
-	.4byte gMapBottom+0x0004
-	.4byte gMapBottom+0x5004
-	.4byte gMapTop+0x0004
-	.4byte gMapTop+0x5004
-	.4byte gMapBottom+0x0004
-	.4byte gMapBottom+0x5004
+	.4byte BOTTOM_METATILETYPES
+	.4byte BOTTOM_TILEDATA
+	.4byte BOTTOM_METATILETYPES
+	.4byte TOP_TILEDATA
+	.4byte TOP_METATILETYPES
+	.4byte BOTTOM_TILEDATA
+	.4byte BOTTOM_METATILETYPES
 gUnk_08000248::
-	.4byte gMapBottom+0x2004
-	.4byte gMapBottom+0x2004
-	.4byte gMapTop+0x2004
-	.4byte gMapBottom+0x2004
+	.4byte BOTTOM_COLLISIONDATA
+	.4byte BOTTOM_COLLISIONDATA
+	.4byte TOP_COLLISIONDATA
+	.4byte BOTTOM_COLLISIONDATA
 gUnk_08000258::
-	.4byte gMapBottom+0x3004
-	.4byte gMapBottom+0x5004
-	.4byte gMapBottom+0x3004
-	.4byte gMapBottom+0x5004
-	.4byte gMapTop+0x3004
-	.4byte gMapTop+0x5004
-	.4byte gMapBottom+0x3004
-	.4byte gMapBottom+0x5004
-gUnk_08000278::
-	.4byte gMapBottom+0xb004
-	.4byte gMapBottom+0xb004
-	.4byte gMapTop+0xb004
-	.4byte gMapBottom+0xb004
+	.4byte BOTTOM_TILEDATACLONE
+	.4byte BOTTOM_METATILETYPES
+	.4byte BOTTOM_TILEDATACLONE
+	.4byte BOTTOM_METATILETYPES
+	.4byte TOP_TILEDATACLONE
+	.4byte TOP_METATILETYPES
+	.4byte BOTTOM_TILEDATACLONE
+	.4byte BOTTOM_METATILETYPES
+gUnkDataPtrs::
+	.4byte BOTTOM_UNKDATA3
+	.4byte BOTTOM_UNKDATA3
+	.4byte TOP_UNKDATA3
+	.4byte BOTTOM_UNKDATA3
 
 @ call 0x80B19CC
 @ ========
@@ -277,9 +277,9 @@ GetRelativeCollisionTile: @ 0x080002B4
 @ return: 
 @ ========
 @ Called every frame a pot is thrown, every frame the screen is sliding in a transition, and once when entering stairs.
-	thumb_func_start GetTileUnderEntity
-GetTileUnderEntity: @ 0x080002B8
-	ldr r3, _08000324 @ =ram_GetTileUnderEntity
+	thumb_func_start GetActTile
+GetActTile: @ 0x080002B8
+	ldr r3, _08000324 @ =ram_GetActTile
 	bx r3
 
 @ call 0x080B1AB4
@@ -362,8 +362,6 @@ sub_080B1B3C: @ 0x080002DC
 	bx r3
 
 @ call 0x080B1B44
-@ ========
-@ Unused? Doesn't seem to be called by anything in Ghidra.
 	thumb_func_start sub_080B1B44
 sub_080B1B44: @ 0x080002E0
 	ldr r3, _0800034C @ =ram_sub_080B1B44
@@ -413,7 +411,7 @@ _08000314: .4byte ram_sub_080B1A48
 _08000318: .4byte ram_sub_080B1A58
 _0800031C: .4byte ram_GetTileType
 _08000320: .4byte ram_GetRelativeCollisionTile
-_08000324: .4byte ram_GetTileUnderEntity
+_08000324: .4byte ram_GetActTile
 _08000328: .4byte ram_sub_080B1AB4
 _0800032C: .4byte ram_sub_080B1AC8
 _08000330: .4byte ram_sub_080B1AD8

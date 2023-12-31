@@ -194,7 +194,7 @@ void KinstoneMenu_Type1(void) {
         return;
     }
     tmp3 = menu->unk28;
-    switch (gInput.unk4) {
+    switch (gInput.menuScrollKeys) {
         case DPAD_LEFT:
         case DPAD_UP:
             tmp3--;

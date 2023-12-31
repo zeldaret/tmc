@@ -127,7 +127,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
         }
         if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0) {
             if (sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) == 0) {
-                if (GetTileUnderEntity(super) == 0x19) {
+                if (GetActTile(super) == 0x19) {
                     super->action = 4;
                     COLLISION_OFF(super);
                     super->x.HALF.HI = (super->x.HALF.HI & 0xfff0) | 8;

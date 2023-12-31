@@ -715,7 +715,7 @@ void sub_0801FB68(ChuchuEntity* this) {
 }
 
 u32 sub_0801FBD0(ChuchuEntity* this) {
-    if (GetTileUnderEntity(super) == 0x10) {
+    if (GetActTile(super) == 0x10) {
         return 1;
     } else {
         return 0;

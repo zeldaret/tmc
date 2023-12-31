@@ -43,7 +43,7 @@ bool32 sub_08049F84(Entity*, s32);
 Entity* sub_08049DF4(u32);
 u32 sub_0804A044(Entity*, Entity*, u32);
 s32 sub_080012DC(Entity*);
-u32 sub_080044EC(Entity*, u32);
+
 void sub_0804AA1C(Entity*);
 bool32 sub_08049F1C(Entity*, Entity*, s32);
 bool32 PlayerInRange(Entity*, u32, s32);

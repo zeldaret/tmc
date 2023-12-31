@@ -250,7 +250,7 @@ void sub_0802CAF8(BobombEntity* this) {
     if (--super->timer == 0) {
         sub_0802CBC4(this);
     } else {
-        if (this->unk_81 && sub_080044EC(super, 0x2800) == 1) {
+        if (this->unk_81 && BounceUpdate(super, Q_8_8(40.0)) == BOUNCE_INIT_NEXT) {
             EnqueueSFX(SFX_PLACE_OBJ);
         }
         sub_0802CC18(this);

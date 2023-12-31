@@ -135,7 +135,7 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             (child->base).x = super->x;
             (child->base).y = super->y;
             (child->base).z = super->z;
-            tile = GetTileUnderEntity(super);
+            tile = GetActTile(super);
             switch (tile) {
                 case 0xd:
                 case 0x10:

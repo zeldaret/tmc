@@ -474,7 +474,7 @@ void sub_0802AEBC(BombPeahatEntity* this) {
 void sub_0802AED4(BombPeahatEntity* this) {
     GetNextFrame(super);
     if (this->unk_81 < 2) {
-        if (sub_080044EC(super, 0x2800) == 1) {
+        if (BounceUpdate(super, Q_8_8(40.0)) == BOUNCE_INIT_NEXT) {
             this->unk_81++;
         }
     } else {
@@ -673,7 +673,7 @@ void sub_0802B1BC(BombPeahatEntity* this) {
 #endif
 
 void sub_0802B204(BombPeahatEntity* this) {
-    if (sub_080044EC(super, 0x2800) == 1) {
+    if (BounceUpdate(super, Q_8_8(40.0)) == BOUNCE_INIT_NEXT) {
         Entity* entity = CreateEnemy(BOBOMB, 1);
         if (entity != NULL) {
             CopyPosition(super, entity);
