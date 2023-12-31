@@ -45,7 +45,7 @@ void RopeGolden(RopeGoldenEntity* this) {
         gUnk_080012C8[x](super);
     } else {
         RopeGolden_Functions[GetNextFunction(super)](this);
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     }
 }
 
@@ -61,7 +61,7 @@ void RopeGolden_OnTick(RopeGoldenEntity* this) {
 
 void RopeGolden_OnCollision(RopeGoldenEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, RopeGolden_Functions);
 }
@@ -70,7 +70,7 @@ void RopeGolden_OnDeath(RopeGoldenEntity* this) {
     if ((super->gustJarState & 2) == 0) {
         SetGlobalFlag(super->type2);
     }
-    CreateDeathFx(super, 0xff, ITEM_RUPEE100);
+    EnemyCreateDeathFX((Enemy*)super, 0xff, ITEM_RUPEE100);
 }
 
 void sub_08038258(RopeGoldenEntity* this) {

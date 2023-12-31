@@ -186,7 +186,7 @@ void Minecart_Action3(MinecartEntity* this) {
                         gPlayerEntity.base.animationState = super->animationState << 1;
                         gPlayerEntity.base.direction = super->direction;
                         gPlayerEntity.base.flags |= PL_MINISH;
-                        sub_08004168(super);
+                        SnapToTile(super);
                         InitAnimationForceUpdate(super, super->animationState + 0xc);
                         SoundReq(SFX_PLY_VO4);
                         SoundReq(SFX_139);
@@ -219,7 +219,7 @@ void Minecart_Action3(MinecartEntity* this) {
 }
 
 void Minecart_Action4(MinecartEntity* this) {
-    sub_08004168(super);
+    SnapToTile(super);
     CopyPosition(super, &gPlayerEntity.base);
     switch (GetActTile(super)) {
         case 0x67:

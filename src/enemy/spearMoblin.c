@@ -42,7 +42,7 @@ extern const Hitbox* const gUnk_080CC944[];
 
 void SpearMoblin(SpearMoblinEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)SpearMoblin_Functions);
-    SetChildOffset(super, 0, 1, -0x20);
+    EnemySetFXOffset(super, 0, 1, -0x20);
     if (super->child && super->child->next) {
         CopyPosition(super, super->child);
     }
@@ -54,7 +54,7 @@ void SpearMoblin_OnTick(SpearMoblinEntity* this) {
 
 void SpearMoblin_OnCollision(SpearMoblinEntity* this) {
     if (super->confusedTime != 0)
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, SpearMoblin_Functions);
     if (super->contactFlags & 0x80) {

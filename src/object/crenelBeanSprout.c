@@ -326,7 +326,7 @@ void sub_080969A4(CrenelBeanSproutEntity* this) {
 void sub_08096A78(CrenelBeanSproutEntity* this) {
     SetGlobalFlag(WATERBEAN_PUT);
     InitAnimationForceUpdate(super, (super->type >> 1) + 8);
-    sub_08004168(super);
+    SnapToTile(super);
     super->y.HALF.HI += 4;
     super->action = 3;
     SetTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);

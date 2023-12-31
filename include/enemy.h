@@ -12,7 +12,35 @@
 #include "entity.h"
 #include "projectile.h"
 
-bool32 EnemyInit(Entity* this);
+#define EM_FLAG_BOSS (1 << 0)
+#define EM_FLAG_BOSS_KILLED (1 << 1)
+#define EM_FLAG_HAS_HOME (1 << 2)
+#define EM_FLAG_NO_DEATH_FX (1 << 3)
+#define EM_FLAG_SUPPORT (1 << 4)
+#define EM_FLAG_CAPTAIN (1 << 5)
+#define EM_FLAG_MONITORED (1 << 6)
+
+typedef struct {
+    Entity base;
+    Entity* child;
+    u8 idx;
+    u8 enemyFlags;
+    u8 rangeX;
+    u8 rangeY;
+    s16 homeX;
+    s16 homeY;
+    /*0x74*/ union SplitHWord field_0x74;
+    /*0x76*/ union SplitHWord field_0x76;
+    /*0x78*/ union SplitHWord field_0x78;
+    /*0x7a*/ union SplitHWord field_0x7a;
+    /*0x7c*/ union SplitWord field_0x7c;
+    /*0x80*/ union SplitHWord field_0x80;
+    /*0x82*/ union SplitHWord field_0x82;
+    /*0x84*/ union SplitHWord cutsceneBeh;
+    /*0x86*/ union SplitHWord field_0x86;
+} Enemy;
+
+bool32 EnemyInit(Enemy* this);
 /**
  * 0: _OnTick
  * 1: _OnCollision
@@ -25,13 +53,13 @@ u32 GetNextFunction(Entity*);
 void EnemyFunctionHandler(Entity*, EntityActionArray);
 void EnemyFunctionHandlerAfterCollision(Entity*, void (*const[])());
 void GenericKnockback(Entity*);
-Entity* CreateDeathFx(Entity*, u32, u32);
+void EnemyCreateDeathFX(Enemy*, u32, u32);
 void sub_0804A720(Entity*);
 bool32 sub_08049FDC(Entity*, u32);
 
-Entity* Create0x68FX(Entity*, u32);
-void SetChildOffset(Entity*, s32, s32, s32);
-Entity* CreateProjectileWithParent(Entity*, u8, u8);
+Entity* EnemyCreateFX(Entity*, u32);
+void EnemySetFXOffset(Entity*, s32, s32, s32);
+Entity* EnemyCreateProjectile(Entity*, u32, u32);
 
 void GenericDeath(Entity*);
 void sub_08002724(void*, u8*);
@@ -44,13 +72,13 @@ Entity* sub_08049DF4(u32);
 u32 sub_0804A044(Entity*, Entity*, u32);
 s32 sub_080012DC(Entity*);
 
-void sub_0804AA1C(Entity*);
+void EnemyDetachFX(Entity*);
 bool32 sub_08049F1C(Entity*, Entity*, s32);
 bool32 PlayerInRange(Entity*, u32, s32);
-void sub_0804A4E4(Entity*, Entity*);
+void EnemyCopyParams(Entity*, Entity*);
 void GenericKnockback2(Entity*);
 
-typedef enum {
+enum {
     /*0x00*/ OCTOROK,
     /*0x01*/ CHUCHU,
     /*0x02*/ LEEVER,
@@ -154,7 +182,7 @@ typedef enum {
     /*0x64*/ ENEMY_64,
     /*0x65*/ TREE_ITEM,
     /*0x66*/ ENEMY_66
-} Enemy;
+};
 
 void Octorok();
 void Chuchu();

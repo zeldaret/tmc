@@ -168,7 +168,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
                 x = ((rand >> 0x10) % 9) - 4;
                 y = rand & 0xf;
                 obj->spritePriority.b0 = 3;
-                PositionRelative(super, obj, x * 0x10000, -y * 0x10000);
+                PositionRelative(super, obj, Q_16_16(x), Q_16_16(-y));
             }
         }
     }

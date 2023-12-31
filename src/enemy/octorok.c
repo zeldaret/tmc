@@ -24,7 +24,7 @@ extern const s8 gUnk_080CA17E[2];
 // Main
 void Octorok(Entity* this) {
     EnemyFunctionHandler(this, Octorok_Functions);
-    SetChildOffset(this, 0, 1, -16);
+    EnemySetFXOffset(this, 0, 1, -16);
 }
 
 // Idle
@@ -35,7 +35,7 @@ void Octorok_OnTick(Entity* this) {
 // Touch player
 void Octorok_OnCollision(Entity* this) {
     if (this->confusedTime != 0) {
-        Create0x68FX(this, FX_STARS);
+        EnemyCreateFX(this, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(this, Octorok_Functions);
 }
@@ -45,7 +45,7 @@ void Octorok_OnDeath(Entity* this) {
     if (this->type == 0) {
         GenericDeath(this);
     } else {
-        CreateDeathFx(this, 241, 0);
+        EnemyCreateDeathFX((Enemy*)this, 241, 0);
     }
 }
 
@@ -127,7 +127,7 @@ void Octorok_Move(Entity* this) {
 void Octorok_ShootNut(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        Entity* entity = CreateProjectileWithParent(this, ROCK_PROJECTILE, 0);
+        Entity* entity = EnemyCreateProjectile(this, ROCK_PROJECTILE, 0);
         if (entity != NULL) {
             const s8* off;
             entity->direction = this->direction;

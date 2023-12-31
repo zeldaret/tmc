@@ -81,7 +81,7 @@ void Chuchu(ChuchuEntity* this) {
     this->unk_81 = index;
     Chuchu_Functions[GetNextFunction(super)](this);
     if (this->unk_68->type == 0x1c) {
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     } else if (super->type == 2) {
         sub_0801FB34(this);
     }
@@ -117,14 +117,14 @@ void Chuchu_OnCollision(ChuchuEntity* this) {
     if (health) {
         if (super->contactFlags == 0x94) {
             sub_0801FB68(this);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
             InitializeAnimation(super, 6);
         } else if (this->unk_80 != health) {
             sub_0801FB68(this);
             InitializeAnimation(super, 6);
         }
     } else {
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
         super->zVelocity = 0;
         InitializeAnimation(super, 9);
     }
@@ -134,7 +134,7 @@ void Chuchu_OnCollision(ChuchuEntity* this) {
 
 void Chuchu_OnGrabbed(ChuchuEntity* this) {
     if (!sub_0806F520(super) && super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
         InitializeAnimation(super, 6);
     } else {
         if (super->animIndex != 8) {
@@ -158,9 +158,9 @@ void Chuchu_OnDeath(ChuchuEntity* this) {
     if (super->type == 0) {
         GenericDeath(super);
     } else if (super->type == 1) {
-        CreateDeathFx(super, 0xf2, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf2, 0);
     } else {
-        CreateDeathFx(super, 0xf1, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf1, 0);
     }
 }
 
@@ -289,7 +289,7 @@ void sub_0801F2F8(ChuchuEntity* this) {
     GetNextFrame(super);
     if (super->frame & ANIM_DONE) {
         sub_0801F340(this);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -488,7 +488,7 @@ void sub_0801F6F8(ChuchuEntity* this) {
     if (super->frame & ANIM_DONE) {
         super->action = 4;
         super->speed = 0x20;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
         InitializeAnimation(super, 2);
     }
 }
@@ -561,7 +561,7 @@ void sub_0801F884(ChuchuEntity* this) {
     if (super->subtimer) {
         super->subtimer--;
     } else {
-        Entity* entity = Create0x68FX(super, FX_LIGHTNING_STRIKE);
+        Entity* entity = EnemyCreateFX(super, FX_LIGHTNING_STRIKE);
         if (entity != NULL) {
             entity->type2 = 64;
             super->action = 4;
@@ -653,7 +653,7 @@ void sub_0801FA78(ChuchuEntity* this) {
         super->action = 1;
         super->spriteSettings.draw = 0;
         InitializeAnimation(super, 4);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -663,7 +663,7 @@ void sub_0801FAAC(ChuchuEntity* this) {
     if (super->frame & ANIM_DONE) {
         sub_0801FB14(this);
         super->speed = 0x20;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -707,7 +707,7 @@ void sub_0801FB68(ChuchuEntity* this) {
         case 2:
             super->action = 10;
             super->hitType = 92;
-            sub_0804AA1C(super);
+            EnemyDetachFX(super);
             break;
     }
 

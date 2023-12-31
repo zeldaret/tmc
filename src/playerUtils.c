@@ -2559,7 +2559,7 @@ bool32 HasSwordEquipped(void) {
 
 u32 sub_0807A180(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4) {
     GenericEntity stackEntity;
-    PositionRelative(param_1, &stackEntity.base, 0, -0x40000);
+    PositionRelative(param_1, &stackEntity.base, 0, Q_16_16(-4.0));
     stackEntity.base.animationState = param_1->animationState;
     return sub_08003FDE(&stackEntity.base, param_2, param_3, param_4);
 }
@@ -2933,7 +2933,7 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
             object = CreateObject(FLAME, 1, 0);
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
-                sub_08004168(object);
+                SnapToTile(object);
                 sub_0807B7D8(ptr[3], COORD_TO_TILE(object), object->collisionLayer);
             }
         } else {

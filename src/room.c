@@ -1,3 +1,5 @@
+// TODO: original name is probably floor.c
+
 #include "area.h"
 #include "common.h"
 #include "flags.h"
@@ -7,10 +9,11 @@
 #include "manager/bombableWallManager.h"
 #include "object.h"
 #include "room.h"
+#include "enemy.h"
 
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
-extern u32 sub_08049D1C(u32);
+extern u32 EnemyEnableRespawn(u32);
 
 extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
@@ -122,9 +125,7 @@ void sub_0804AF0C(Entity* ent, const EntityData* dat) {
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
-            // TODO: for enemies, I think this is for delayed spawn
-            //  see mulldozerSpawnPoint.c
-            ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x20;
+            ((Enemy*)ent)->enemyFlags |= EM_FLAG_CAPTAIN;
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
@@ -196,10 +197,10 @@ static void sub_0804B058(EntityData* dat) {
         uVar2 = 0;
         do {
             if ((uVar2 < 0x20) && ((dat->kind & 0xF) == 3)) {
-                if (sub_08049D1C(uVar2) != 0) {
+                if (EnemyEnableRespawn(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ((GenericEntity*)ent)->field_0x6c.HALF.LO = uVar2 | 0x80;
+                        ((Enemy*)ent)->idx = uVar2 | 0x80;
                     }
                 }
             } else {

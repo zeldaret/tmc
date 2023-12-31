@@ -258,17 +258,17 @@ _08004162:
 	ands r2, r4
 	pop {r4, pc}
 
-	thumb_func_start sub_08004168
-sub_08004168: @ 0x08004168
+	thumb_func_start SnapToTile
+SnapToTile: @ 0x08004168
 	ldr r3, _08004384 @ =0x000FFFFF
 	ldr r1, _08004388 @ =0x00080000
-	ldr r2, [r0, #0x2c]
-	bics r2, r3
-	adds r2, r2, r1
+	ldr r2, [r0, #0x2c] // x
+	bics r2, r3 // align to grid
+	adds r2, r1 // add half of a tile
 	str r2, [r0, #0x2c]
-	ldr r2, [r0, #0x30]
+	ldr r2, [r0, #0x30] // y
 	bics r2, r3
-	adds r2, r2, r1
+	adds r2, r1
 	str r2, [r0, #0x30]
 	bx lr
 

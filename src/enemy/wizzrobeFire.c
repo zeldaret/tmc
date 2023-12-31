@@ -13,7 +13,7 @@ extern void (*const WizzrobeFire_Actions[])(WizzrobeEntity*);
 
 void WizzrobeFire(WizzrobeEntity* this) {
     WizzrobeFire_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void WizzrobeFire_OnTick(WizzrobeEntity* this) {
@@ -22,7 +22,7 @@ void WizzrobeFire_OnTick(WizzrobeEntity* this) {
 
 void WizzrobeFire_OnCollision(WizzrobeEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeFire_Functions);
     if (super->health == 0) {
@@ -40,7 +40,7 @@ void WizzrobeFire_Init(WizzrobeEntity* this) {
     super->timer = 40;
     super->subtimer = 96;
     sub_0802F888(this);
-    projectile = CreateProjectileWithParent(super, FIRE_PROJECTILE, 0);
+    projectile = EnemyCreateProjectile(super, FIRE_PROJECTILE, 0);
     if (projectile != NULL) {
         super->child = projectile;
         projectile->parent = super;
@@ -96,7 +96,7 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
                     break;
                 case 6:
                     if (EntityInRectRadius(super, &gPlayerEntity.base, 0xa0, 0xa0) && CheckOnScreen(super)) {
-                        Entity* projectile = CreateProjectileWithParent(super, FIRE_PROJECTILE, 1);
+                        Entity* projectile = EnemyCreateProjectile(super, FIRE_PROJECTILE, 1);
                         if (projectile != NULL) {
                             projectile->direction = super->direction & 0x18;
                         }

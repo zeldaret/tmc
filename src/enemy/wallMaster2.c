@@ -34,7 +34,7 @@ extern const s8 gUnk_080CD740[];
 
 void WallMaster2(WallMaster2Entity* this) {
     WallMaster2_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void WallMaster2_OnTick(WallMaster2Entity* this) {
@@ -53,7 +53,7 @@ void WallMaster2_OnCollision(WallMaster2Entity* this) {
             break;
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)WallMaster2_Functions);
 }

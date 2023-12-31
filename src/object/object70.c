@@ -23,7 +23,7 @@ void Object70_Init(Entity* this) {
     this->spriteSettings.draw = 1;
     this->frameIndex = this->type + 0xb;
     if (this->type != 0) {
-        sub_08004168(this);
+        SnapToTile(this);
         gPlayerEntity.base.spriteOrientation.flipY = 3;
         if ((gPlayerEntity.base.spritePriority.b0) != 7) {
             this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 + 1;

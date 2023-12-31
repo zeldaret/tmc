@@ -33,7 +33,7 @@ static void (*const TektiteGolden_Functions[])(TektiteGoldenEntity*) = {
 
 void TektiteGolden(TektiteGoldenEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)TektiteGolden_Functions);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void TektiteGolden_OnTick(TektiteGoldenEntity* this) {
@@ -48,7 +48,7 @@ void TektiteGolden_OnTick(TektiteGoldenEntity* this) {
 
 void TektiteGolden_OnCollision(TektiteGoldenEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, TektiteGolden_Functions);
     if (super->contactFlags == 0x94) {
@@ -78,7 +78,7 @@ void TektiteGolden_OnDeath(TektiteGoldenEntity* this) {
     } else {
         uVar1 = ITEM_RUPEE100;
     }
-    CreateDeathFx(super, 0xff, uVar1);
+    EnemyCreateDeathFX((Enemy*)super, 0xff, uVar1);
 }
 
 void TektiteGolden_OnConfused(TektiteGoldenEntity* this) {

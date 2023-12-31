@@ -37,7 +37,7 @@ void Flame_Init(FlameEntity* this) {
             break;
         case 2:
             super->timer = 15;
-            sub_08004168(super);
+            SnapToTile(super);
             break;
         case 3:
             CopyPosition(super->parent, super);

@@ -36,7 +36,7 @@ extern u32 sub_0804A024(Entity*, u32, u32);
 
 void SpinyBeetle(Entity* this) {
     EnemyFunctionHandler(this, SpinyBeetle_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+    EnemySetFXOffset(this, 0, 1, -0x10);
 }
 
 void SpinyBeetle_OnTick(SpinyBeetleEntity* this) {
@@ -45,7 +45,7 @@ void SpinyBeetle_OnTick(SpinyBeetleEntity* this) {
 
 void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, SpinyBeetle_Functions);

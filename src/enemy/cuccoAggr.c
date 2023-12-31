@@ -50,7 +50,7 @@ void CuccoAggr(Entity* this) {
         gUnk_080012C8[index](this);
     } else {
         CuccoAggr_Functions[GetNextFunction(this)](this);
-        SetChildOffset(this, 0, 1, -0x10);
+        EnemySetFXOffset(this, 0, 1, -0x10);
         sub_080391B4((CuccoAggrEntity*)this);
     }
 }
@@ -74,7 +74,7 @@ void CuccoAggr_OnCollision(CuccoAggrEntity* this) {
     }
 
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, CuccoAggr_Functions);

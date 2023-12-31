@@ -51,7 +51,7 @@ void sub_080327E0(KeatonEntity* this);
 
 void Keaton(KeatonEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Keaton_Functions);
-    SetChildOffset(super, 0, 1, -18);
+    EnemySetFXOffset(super, 0, 1, -18);
 }
 
 void Keaton_OnTick(KeatonEntity* this) {
@@ -75,7 +75,7 @@ void Keaton_OnCollision(KeatonEntity* this) {
         }
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Keaton_Functions);
 }
@@ -262,7 +262,7 @@ void sub_08032794(KeatonEntity* this) {
 void sub_080327C8(KeatonEntity* this) {
     Entity* child;
 
-    child = CreateProjectileWithParent(super, KEATON_DAGGER, 0);
+    child = EnemyCreateProjectile(super, KEATON_DAGGER, 0);
     if (child != NULL) {
         child->parent = super;
         super->child = child;

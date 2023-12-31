@@ -70,7 +70,7 @@ void Beetle_OnDeath(BeetleEntity* this) {
             entity->subtimer--;
             super->parent = NULL;
         }
-        CreateDeathFx(super, 0xf0, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf0, 0);
     }
 }
 

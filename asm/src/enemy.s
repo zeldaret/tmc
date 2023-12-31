@@ -105,7 +105,7 @@ GenericConfused: @ 0x08001242
 	cmp r2, #0x1c
 	bne _08001282
 	push {r0}
-	bl sub_0804AA1C
+	bl EnemyDetachFX
 	pop {r0}
 _08001282:
 	ldr r1, _08001364 @ =0x00001800

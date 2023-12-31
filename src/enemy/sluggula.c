@@ -23,7 +23,7 @@ void Sluggula(Entity* this) {
     if (this->type == 1) {
         EnemyFunctionHandler(this, Sluggula_Functions);
 
-        SetChildOffset(this, 0, 1, -0x10);
+        EnemySetFXOffset(this, 0, 1, -0x10);
     } else if (this->type == 0) {
         if (this->z.HALF.HI == 0) {
             u32 idx = sub_080012DC(this);
@@ -34,7 +34,7 @@ void Sluggula(Entity* this) {
         }
         gUnk_080CBDD4[GetNextFunction(this)](this);
 
-        SetChildOffset(this, 0, 1, -0x10);
+        EnemySetFXOffset(this, 0, 1, -0x10);
     } else {
         sub_08023E10(this);
     }
@@ -46,7 +46,7 @@ void Sluggula_OnTick(Entity* this) {
 
 void Sluggula_OnCollision(Entity* this) {
     if (this->confusedTime)
-        Create0x68FX(this, FX_STARS);
+        EnemyCreateFX(this, FX_STARS);
 
     if (this->type == 1) {
         EnemyFunctionHandlerAfterCollision(this, Sluggula_Functions);
@@ -130,7 +130,7 @@ void sub_08023CE0(Entity* this) {
                 if (this->frame & ANIM_DONE) {
                     Entity* entity = CreateEnemy(SLUGGULA, 1);
                     if (entity != NULL) {
-                        sub_0804A4E4(this, entity);
+                        EnemyCopyParams(this, entity);
                         DeleteThisEntity();
                     }
                 } else {

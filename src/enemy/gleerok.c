@@ -300,7 +300,7 @@ void sub_0802D33C(GleerokEntity* this) {
     }
 
     unk_84->entities[i]->health = 0;
-    ((GenericEntity*)unk_84->entities[i])->field_0x6c.HALF.HI |= 1;
+    ((Enemy*)(unk_84->entities[i]))->enemyFlags |= EM_FLAG_BOSS;
     unk_84->ent2->health = 0;
     unk_84->ent2->type2 = 0;
     unk_84->ent2->spriteSettings.draw &= ~1;
@@ -815,7 +815,7 @@ void sub_0802DCE0(GleerokEntity* this) {
             }
         } else {
             if (this->unk_84->ent2->subtimer == 0) {
-                super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0);
+                super->child = EnemyCreateProjectile(super, GLEEROK_PROJECTILE, 0);
 
                 if (super->child != NULL) {
                     super->child->direction = this->unk_84->filler[5].unk0.HALF.HI;
@@ -883,7 +883,7 @@ void sub_0802DDD8(GleerokEntity* this) {
                 }
 
                 if (this->unk_84->ent2->subtimer == 1) {
-                    super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, r2);
+                    super->child = EnemyCreateProjectile(super, GLEEROK_PROJECTILE, r2);
                     if (super->child != NULL) {
                         super->child->direction = this->unk_84->filler[5].unk0.HALF.HI;
                         super->child->type2 = this->unk_84->ent2->frame & 0xf;
@@ -1160,7 +1160,7 @@ void sub_0802E300(GleerokEntity* this) {
         heap->ent2->timer = 24;
     } else {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
-            CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0x3);
+            EnemyCreateProjectile(super, GLEEROK_PROJECTILE, 0x3);
         }
     }
 

@@ -247,7 +247,7 @@ s32 CalculateDamage(Entity* org, Entity* tgt) {
         }
         health = org->health - damage;
         if (org->kind == ENEMY) {
-            if ((((GenericEntity*)org)->field_0x6c.HALF.HI & 1) != 0)
+            if (((Enemy*)org)->enemyFlags & EM_FLAG_BOSS)
                 SoundReqClipped(org, SFX_BOSS_HIT);
             else
                 SoundReqClipped(org, SFX_HIT);

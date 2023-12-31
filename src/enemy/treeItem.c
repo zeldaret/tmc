@@ -15,7 +15,7 @@ typedef struct {
 
 static bool32 ShouldSpawnTreeItem(TreeItemEntity*);
 
-extern void sub_08049CF4(Entity*);
+extern void EnemyDisableRespawn(Entity*);
 
 const u8 gTreeItemDropTables[][16] = {
     { 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF },
@@ -74,7 +74,7 @@ void TreeItem(TreeItemEntity* this) {
             break;
     }
 
-    sub_08049CF4(super);
+    EnemyDisableRespawn(super);
     DeleteThisEntity();
 }
 

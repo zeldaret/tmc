@@ -1,5 +1,6 @@
 #include "global.h"
 #include "room.h"
+#include "enemy.h"
 
 extern void MemFill32(u32, void*, u32);
 
@@ -8,35 +9,35 @@ RoomMemory* sub_08049D88(void);
 
 void ClearRoomMemory(void) {
     MemFill32(0xFFFFFFFF, gRoomMemory, 0x40);
-    gUnk_020354B0 = gRoomMemory;
+    gCurrentRoomMemory = gRoomMemory;
 }
 
-void sub_08049CF4(GenericEntity* ent) {
-    u8 field_0x6c = ent->field_0x6c.HALF.LO;
-    if (field_0x6c & 0x80) {
-        gUnk_020354B0->unk_04 |= 1 << (field_0x6c & 0x1f);
+void EnemyDisableRespawn(Enemy* ent) {
+    u8 idx = ent->idx;
+    if (idx & 0x80) {
+        gCurrentRoomMemory->enemyBits |= 1 << (idx & 0x1f);
     }
 }
 
-u32 sub_08049D1C(u32 arg0) {
-    u32 bitmask = gUnk_020354B0->unk_04 >> arg0;
+u32 EnemyEnableRespawn(u32 arg0) {
+    u32 bitmask = gCurrentRoomMemory->enemyBits >> arg0;
     u32 output = 1;
     output &= ~bitmask;
     return output;
 }
 
 void UpdateRoomTracker(void) {
-    gUnk_020354B0 = gRoomMemory;
+    gCurrentRoomMemory = gRoomMemory;
 
     do {
-        if (gUnk_020354B0->area == gRoomControls.area && gUnk_020354B0->room == gRoomControls.room) {
-            sub_08049DCC(gUnk_020354B0);
+        if (gCurrentRoomMemory->area == gRoomControls.area && gCurrentRoomMemory->room == gRoomControls.room) {
+            sub_08049DCC(gCurrentRoomMemory);
             return;
         }
-        gUnk_020354B0++;
+        gCurrentRoomMemory++;
 
-    } while (gUnk_020354B0 < gRoomMemory + 8);
-    gUnk_020354B0 = sub_08049D88();
+    } while (gCurrentRoomMemory < gRoomMemory + 8);
+    gCurrentRoomMemory = sub_08049D88();
 }
 
 RoomMemory* sub_08049D88(void) {
@@ -54,7 +55,7 @@ RoomMemory* sub_08049D88(void) {
     rm->room = gRoomControls.room;
 
     rm->unk_02 = 0xFFFF;
-    rm->unk_04 = 0;
+    rm->enemyBits = 0;
 
     sub_08049DCC(rm);
 

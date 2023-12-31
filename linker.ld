@@ -88,7 +88,7 @@ SECTIONS {
         . = 0x000344A0; gUnk_020344A0 = .;
         . = 0x000344B0; gBG2Buffer = .;
         . = 0x00034CB0; gBG0Buffer = .;
-        . = 0x000354B0; gUnk_020354B0 = .;
+        . = 0x000354B0; gCurrentRoomMemory = .;
         . = 0x000354B4; gManagerCount = .;
         . = 0x000354C0; gUnk_020354C0 = .;
         . = 0x00035540; gzHeap = .;
@@ -386,7 +386,6 @@ SECTIONS {
         src/code_08049CD4.o(.text); /* enemyUtils.c */
         src/code_08049DF4.o(.text);
         src/enemyUtils.o(.text);
-        src/createEnemy.o(.text);
         src/enterPortalSubtask.o(.text);
         src/room.o(.text);
         src/roomInit.o(.text);

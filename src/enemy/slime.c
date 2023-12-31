@@ -40,7 +40,7 @@ static void (*const Slime_Functions[])(SlimeEntity*) = {
 
 void Slime(SlimeEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Slime_Functions);
-    SetChildOffset(super, 0, 1, -12);
+    EnemySetFXOffset(super, 0, 1, -12);
 }
 
 void Slime_OnTick(SlimeEntity* this) {
@@ -58,7 +58,7 @@ void Slime_OnCollision(SlimeEntity* this) {
     }
 
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 }
 
@@ -149,7 +149,7 @@ void sub_08045178(SlimeEntity* this, Entity* child, int h, int v) {
     if (child == NULL)
         return;
 
-    sub_0804A4E4(super, child);
+    EnemyCopyParams(super, child);
     if (sub_080B1AF0(child, h, v))
         return;
 

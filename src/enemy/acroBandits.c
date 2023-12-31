@@ -81,7 +81,7 @@ void AcroBandit(AcroBanditEntity* this) {
         gUnk_080012C8[index](super);
     } else {
         AcroBandit_Functions[GetNextFunction(super)](this);
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     }
 }
 
@@ -150,7 +150,7 @@ void AcroBandit_OnCollision(AcroBanditEntity* this) {
     }
 
     if (super->confusedTime)
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, AcroBandit_Functions);
 }

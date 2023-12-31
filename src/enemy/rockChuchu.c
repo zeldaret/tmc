@@ -49,7 +49,7 @@ void RockChuchu_OnCollision(Entity* this) {
 #ifndef EU
                     entity->iframes = -8;
 #endif
-                    sub_0804A4E4(this, entity);
+                    EnemyCopyParams(this, entity);
                     this->action = 2;
                     COLLISION_OFF(this);
                     this->spriteSettings.draw = 0;

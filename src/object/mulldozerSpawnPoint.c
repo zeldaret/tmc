@@ -6,6 +6,7 @@
  */
 #include "entity.h"
 #include "sound.h"
+#include "enemy.h"
 
 void MulldozerSpawnPoint_Init(Entity*);
 void MulldozerSpawnPoint_Action1(Entity*);
@@ -37,6 +38,6 @@ void MulldozerSpawnPoint_Action1(Entity* this) {
         parent = this->parent;
         parent->flags = this->timer;
         parent->spriteSettings.draw = this->subtimer;
-        ((GenericEntity*)parent)->field_0x6c.HALF.HI &= 0xef;
+        ((Enemy*)parent)->enemyFlags &= ~EM_FLAG_SUPPORT;
     }
 }

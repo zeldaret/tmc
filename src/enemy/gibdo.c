@@ -44,7 +44,7 @@ extern Entity* gUnk_020000B0;
 
 void Gibdo(Entity* this) {
     EnemyFunctionHandler(this, Gibdo_Functions);
-    SetChildOffset(this, 0, 1, -0x15);
+    EnemySetFXOffset(this, 0, 1, -0x15);
 }
 
 void Gibdo_OnTick(GibdoEntity* this) {
@@ -83,7 +83,7 @@ void Gibdo_OnCollision(GibdoEntity* this) {
         }
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, Gibdo_Functions);
 }
@@ -192,7 +192,7 @@ void sub_0803775C(GibdoEntity* this) {
     if (--super->timer == 0) {
         stalfos = CreateEnemy(STALFOS, 0);
         if (stalfos != NULL) {
-            sub_0804A4E4(super, stalfos);
+            EnemyCopyParams(super, stalfos);
             Gibdo_MoveObjectsToStalfos(this, stalfos);
         }
         DeleteEntity(super);

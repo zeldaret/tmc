@@ -36,7 +36,7 @@ static void (*const MiniSlime_Functions[])(MiniSlimeEntity*) = {
 
 void MiniSlime(MiniSlimeEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)MiniSlime_Functions);
-    SetChildOffset(super, 0, 1, -8);
+    EnemySetFXOffset(super, 0, 1, -8);
 }
 
 void MiniSlime_OnTick(MiniSlimeEntity* this) {
@@ -51,7 +51,7 @@ void MiniSlime_OnTick(MiniSlimeEntity* this) {
 
 void MiniSlime_OnCollision(MiniSlimeEntity* this) {
     if (super->confusedTime)
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, MiniSlime_Functions);
 }

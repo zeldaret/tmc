@@ -67,7 +67,7 @@ extern void (*const gUnk_080CAB58[])(DarkNutEntity*);
 
 void DarkNut(DarkNutEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)DarkNut_Functions);
-    SetChildOffset(super, 0, 1, -22);
+    EnemySetFXOffset(super, 0, 1, -22);
 }
 
 void DarkNut_OnTick(DarkNutEntity* this) {
@@ -82,7 +82,7 @@ void DarkNut_OnCollision(DarkNutEntity* this) {
             super->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(super->knockbackDirection ^ 0x10));
             sub_08021588(this);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
             break;
         case 0x16:
             super->action = 11;
@@ -90,7 +90,7 @@ void DarkNut_OnCollision(DarkNutEntity* this) {
             super->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(super->knockbackDirection ^ 0x10));
             sub_08021588(this);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
             break;
         case 0x4b:
             if (super->action == 13 || super->action == 15 || super->action == 19 || super->action == 18)
@@ -128,7 +128,7 @@ void DarkNut_OnCollision(DarkNutEntity* this) {
             if (super->health != this->unk_78) {
                 sub_08021588(this);
                 sub_08021390(this);
-                sub_0804AA1C(super);
+                EnemyDetachFX(super);
             }
             break;
     }
@@ -240,7 +240,7 @@ void sub_08020F48(DarkNutEntity* this) {
 
                 super->action = 14;
                 sub_08021218(this, 13, uVar2 >> 3);
-                pEVar3 = CreateProjectileWithParent(super, DARK_NUT_SWORD_SLASH, 1);
+                pEVar3 = EnemyCreateProjectile(super, DARK_NUT_SWORD_SLASH, 1);
                 if (pEVar3) {
                     pEVar3->parent = super;
                     super->child = pEVar3;
@@ -272,7 +272,7 @@ void sub_08020FE4(DarkNutEntity* this) {
     if (--super->timer == 0) {
         super->action = 12;
         sub_08021218(this, 9, super->animationState);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -286,7 +286,7 @@ void sub_08021010(DarkNutEntity* this) {
 
 void sub_08021038(DarkNutEntity* this) {
     if (super->child == NULL && super->frame) {
-        Entity* pEVar2 = (Entity*)CreateProjectileWithParent(super, DARK_NUT_SWORD_SLASH, 0);
+        Entity* pEVar2 = (Entity*)EnemyCreateProjectile(super, DARK_NUT_SWORD_SLASH, 0);
         if (pEVar2) {
             pEVar2->parent = super;
             super->child = pEVar2;
@@ -325,7 +325,7 @@ void sub_080210E4(DarkNutEntity* this) {
         Entity* entity;
 
         super->frame &= ~1;
-        entity = CreateProjectileWithParent(super, DARK_NUT_SWORD_SLASH, 2);
+        entity = EnemyCreateProjectile(super, DARK_NUT_SWORD_SLASH, 2);
         if (entity != NULL) {
             entity->parent = super;
             super->child = entity;
@@ -594,7 +594,7 @@ void sub_0802159C(DarkNutEntity* this) {
 
         super->frame = 0;
         super->hitType = 0x51;
-        entity = CreateProjectileWithParent(super, DARK_NUT_SWORD_SLASH, 3);
+        entity = EnemyCreateProjectile(super, DARK_NUT_SWORD_SLASH, 3);
         if (entity != NULL) {
             entity->parent = super;
             super->child = entity;
@@ -615,7 +615,7 @@ void sub_08021600(DarkNutEntity* this) {
 
         super->frame = 0;
         super->hitType = 0x51;
-        entity = CreateProjectileWithParent(super, DARK_NUT_SWORD_SLASH, 4);
+        entity = EnemyCreateProjectile(super, DARK_NUT_SWORD_SLASH, 4);
         if (entity != NULL) {
             entity->parent = super;
             super->child = entity;

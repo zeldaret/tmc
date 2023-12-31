@@ -436,7 +436,7 @@ void VaatiTransfiguredType0Action4(VaatiTransfiguredEntity* this) {
                 super->timer = gUnk_080D0ABF[((u32)super->animationState << 1 | 1)];
             } else {
                 if ((super->timer & 7) == 0) {
-                    CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
+                    EnemyCreateProjectile(super, V2_PROJECTILE, super->subtimer);
                 }
                 if (((super->subtimer != 0) && (1 < super->animationState)) && (super->timer < 6)) {
                     super->timer = 128;
@@ -482,7 +482,7 @@ void VaatiTransfiguredType0Action5(VaatiTransfiguredEntity* this) {
             } else {
                 if (super->subtimer) {
                     if ((super->timer & 7) == 0) {
-                        CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
+                        EnemyCreateProjectile(super, V2_PROJECTILE, super->subtimer);
                     }
                     if (super->timer < 6) {
                         super->timer = 64;
@@ -490,7 +490,7 @@ void VaatiTransfiguredType0Action5(VaatiTransfiguredEntity* this) {
                     }
                 } else {
                     if ((super->timer & 0xf) == 0) {
-                        entity = CreateProjectileWithParent(super, V2_PROJECTILE, 2);
+                        entity = EnemyCreateProjectile(super, V2_PROJECTILE, 2);
                         if (entity != NULL) {
                             entity->type2 = 0;
                             if (this->unk_81 != 0) {
@@ -534,7 +534,7 @@ void VaatiTransfiguredType0Action6(VaatiTransfiguredEntity* this) {
             } else {
                 if (super->subtimer) {
                     if ((super->timer & 7) == 0) {
-                        CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
+                        EnemyCreateProjectile(super, V2_PROJECTILE, super->subtimer);
                     }
                     if (super->timer < 6) {
                         super->timer = 128;
@@ -542,7 +542,7 @@ void VaatiTransfiguredType0Action6(VaatiTransfiguredEntity* this) {
                     }
                 } else {
                     if ((super->timer & 0x1f) == 0) {
-                        pEVar2 = CreateProjectileWithParent(super, V2_PROJECTILE, 2);
+                        pEVar2 = EnemyCreateProjectile(super, V2_PROJECTILE, 2);
                         if (pEVar2 != NULL) {
                             pEVar2->type2 = 1;
                             pEVar2->y.HALF.HI += -0x20;

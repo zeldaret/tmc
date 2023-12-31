@@ -39,7 +39,7 @@ extern const s8 gUnk_080CD464[];
 void Helmasaur(HelmasaurEntity* this) {
     if (super->type == 0) {
         EnemyFunctionHandler(super, (EntityActionArray)Helmasaur_Functions);
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     } else {
         gUnk_080CD3FC[super->action](this);
     }
@@ -63,7 +63,7 @@ void Helmasaur_OnCollision(HelmasaurEntity* this) {
         }
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, Helmasaur_Functions);

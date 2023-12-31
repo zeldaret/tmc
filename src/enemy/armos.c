@@ -83,7 +83,7 @@ void sub_08030150(ArmosEntity* this) {
 
 void Armos(ArmosEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)&gUnk_080CE124);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
     sub_08030150(this);
 }
 
@@ -101,7 +101,7 @@ void sub_080301D4(ArmosEntity* this) {
         sub_080309E8(this);
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, 0x1c);
+        EnemyCreateFX(super, 0x1c);
     }
     this->unk_81 = super->health;
     EnemyFunctionHandlerAfterCollision(super, gUnk_080CE124);

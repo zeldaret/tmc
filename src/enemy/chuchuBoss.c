@@ -283,9 +283,9 @@ void ChuchuBoss_OnDeath(ChuchuBossEntity* this) {
                     break;
                 case 1:
                     if (this->unk_7d-- == 0) {
-                        ((GenericEntity*)super->child)->field_0x6c.HALF.HI |= 2;
+                        ((Enemy*)super->child)->enemyFlags |= EM_FLAG_BOSS_KILLED;
                         this->unk_68->unk_6d.unk1 = 1;
-                        ((GenericEntity*)super->parent)->field_0x6c.HALF.HI |= 2;
+                        ((Enemy*)super->parent)->enemyFlags |= EM_FLAG_BOSS_KILLED;
                         parent = super->child;
                         child = super->parent;
                         this->unk_68->base.health = 0;

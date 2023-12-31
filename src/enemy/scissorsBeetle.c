@@ -30,7 +30,7 @@ void sub_08038B90(ScissorsBeetleEntity*);
 
 void ScissorsBeetle(Entity* this) {
     EnemyFunctionHandler(this, ScissorsBeetle_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+    EnemySetFXOffset(this, 0, 1, -0x10);
 }
 
 void ScissorsBeetle_OnTick(ScissorsBeetleEntity* this) {
@@ -40,7 +40,7 @@ void ScissorsBeetle_OnTick(ScissorsBeetleEntity* this) {
 void ScissorsBeetle_OnCollision(ScissorsBeetleEntity* this) {
     Entity* child;
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, ScissorsBeetle_Functions);

@@ -588,7 +588,7 @@ static void PlayerFall(PlayerEntity* this) {
 }
 
 static void PlayerFallInit(PlayerEntity* this) {
-    sub_08004168(super);
+    SnapToTile(super);
 
     gPlayerState.flags |= PL_BUSY | PL_DROWNING;
     gPlayerState.flags &= ~PL_BURNING;
@@ -962,7 +962,7 @@ static void PlayerDrownInit(PlayerEntity* this) {
         SoundReq(SFX_WATER_SPLASH);
     } else {
         if (!(gPlayerState.flags & PL_FLAGS10000))
-            sub_08004168(super);
+            SnapToTile(super);
 
         CreateFx(super, FX_WATER_SPLASH, 0);
 

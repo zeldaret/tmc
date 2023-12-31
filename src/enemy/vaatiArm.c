@@ -43,7 +43,7 @@ typedef struct VaatiArm_HeapStruct {
     VaatiArm_HeapStruct1 s1[5];
 } VaatiArm_HeapStruct;
 
-extern void sub_0804AA1C(Entity*);
+extern void EnemyDetachFX(Entity*);
 
 static u32 sub_080437DC(VaatiArmEntity*);
 static bool32 sub_08043C98(VaatiArmEntity*);
@@ -835,7 +835,7 @@ static void sub_08043130(VaatiArmEntity* this) {
             if (super->spriteSettings.draw == 0) {
                 super->subAction = 9;
                 super->timer = 60;
-                sub_0804AA1C(super);
+                EnemyDetachFX(super);
             }
         }
     }
@@ -913,7 +913,7 @@ void sub_080432A8(VaatiArmEntity* this) {
         super->subAction = 1;
         super->timer = 0x1e;
         ((VaatiArm_HeapStruct*)super->myHeap)->s1[0].unk04.HWORD = 0x4000;
-        sub_0804AA1C(&((VaatiArm_HeapStruct*)super->myHeap)->entities[4]->base);
+        EnemyDetachFX(&((VaatiArm_HeapStruct*)super->myHeap)->entities[4]->base);
     }
 }
 
@@ -1066,7 +1066,7 @@ static void sub_08043580(VaatiArmEntity* this) {
         entity->collisionFlags = entity->collisionFlags | 0x10;
         entity->hitType = 0x39;
         entity->hitbox = (Hitbox*)&gUnk_080FD538;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -1443,7 +1443,7 @@ static void sub_08043D08(VaatiArmEntity* this) {
     entity->flags &= ~ENT_COLLIDE;
     entity->spriteSettings.draw = 0;
     InitializeAnimation(entity, 0x13);
-    sub_0804AA1C(entity);
+    EnemyDetachFX(entity);
     fx = CreateFx(entity, FX_GIANT_EXPLOSION4, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += gUnk_080D13E9[super->type2];
