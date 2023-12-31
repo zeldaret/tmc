@@ -19,7 +19,7 @@ typedef struct {
     u16 textIndex;
     u16 unk2; // HI?
     u32 flags;
-    u32 rupees; // item price, shells, minigame timer
+    u32 rupees;     // item price, shells, minigame timer
     u32 field_0x14; // number of cuccos
     u32 field_0x18; // unused
     u32 field_0x1c; // unused
