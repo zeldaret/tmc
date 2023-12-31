@@ -160,7 +160,7 @@ void sub_08068578(ZeldaFollowerEntity* this) {
     s32 dx, dy;
     s32 i;
 
-    ZeldaFollowerItem* heapPtr, item;
+    ZeldaFollowerItem *heapPtr, item;
 
     // Copy from the player's position/state.
     item.FIELDS.x = gPlayerEntity.base.x.HALF_U.HI;
