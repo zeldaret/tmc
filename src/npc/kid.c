@@ -199,13 +199,13 @@ const FrameStruct gUnk_0810C0A0[] = {
 
 void sub_080621AC(KidEntity* this);
 void sub_080622F4(KidEntity* this);
-void sub_0806265C(Entity* this, ScriptExecutionContext* context);
-void sub_0806252C(Entity* this);
+void sub_0806265C(KidEntity* this, ScriptExecutionContext* context);
+void sub_0806252C(KidEntity* this);
 
 typedef union {
     struct {
-        s16 x;
-        s16 y;
+        u16 x;
+        u16 y;
         s16 z;
         u8 framestate;
         u8 animationState : 6;
@@ -306,7 +306,7 @@ void sub_080621AC(KidEntity* this) {
                         return;
                     }
                 }
-                sub_0806265C(super, this->context);
+                sub_0806265C(this, this->context);
                 tmp = super->animIndex;
             }
             this->unk_6b = super->animIndex;
@@ -375,7 +375,7 @@ void sub_080622F4(KidEntity* this) {
             return;
         }
 
-        sub_0806252C(super);
+        sub_0806252C(this);
     }
 
     animIndex = 0;
@@ -440,88 +440,41 @@ void sub_08062500(KidEntity* this) {
         this->unk_68 = 1;
         RemoveInteractableObject(super);
         super->hitbox = NULL;
-        sub_0806252C(super);
+        sub_0806252C(this);
     }
 }
 
-void sub_0806252C(Entity* this) {
-    s16 sVar1;
-    s16 sVar2;
-    u16 uVar3;
-    u8 uVar4;
-    s16 sVar5;
-    s16 sVar6;
-    u8 bVar7;
-    KidHeapItem* item;
-    s32 loopVar;
-    FORCE_REGISTER(u32 r5, r5);
-    FORCE_REGISTER(u32 r6, r6);
-    FORCE_REGISTER(u32 r0, r0);
-    FORCE_REGISTER(u32 r1, r1);
-    FORCE_REGISTER(u32 r2, r2);
-    u32 r3;
-    FORCE_REGISTER(s32 r8, r8);
-    s32 y;
-    s32 r10;
-    FORCE_REGISTER(s32 x, r12);
+void sub_0806252C(KidEntity* this) {
+    s32 dx, dy;
+    s32 i;
 
-    r1 = gPlayerEntity.base.x.HALF_U.HI;
-    r3 = 0xffff0000;
-    r0 = r3;
-    r0 &= r5;
-    r0 |= r1;
+    KidHeapItem *heapPtr, item;
 
-    r1 = gPlayerEntity.base.y.HALF_U.HI;
-    r1 <<= 0x10;
-    r2 = 0x0000ffff;
-    r0 &= r2;
-    r0 |= r1;
-    r5 = r0;
+    // Copy from the player's position/state.
+    item.FIELDS.x = gPlayerEntity.base.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.base.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.base.z.HALF_U.HI;
+    item.FIELDS.framestate = gPlayerState.framestate;
+    item.FIELDS.animationState = gPlayerEntity.base.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.base.collisionLayer;
 
-    r0 = gPlayerEntity.base.z.HALF_U.HI;
-    r3 &= r6;
-    r3 |= r0;
+    // Compute the distance between the kid and the player.
+    dx = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
+    dy = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
 
-    r0 = gPlayerState.framestate;
-    r0 <<= 0x10;
-    r2 = 0xff00ffff;
-    r2 &= r3;
-    r2 |= r0;
+    // Divide it into KID_HEAP_COUNT increments.
+    dx = FixedDiv(dx, KID_HEAP_COUNT);
+    dy = FixedDiv(dy, KID_HEAP_COUNT);
 
-    r1 = gPlayerEntity.base.animationState;
-    r0 = 0x3f;
-    r1 &= r0;
-    r1 <<= 0x18;
-    r0 = 0xc0ffffff;
-    r0 &= r2;
-    r0 |= r1;
-
-    r1 = gPlayerEntity.base.collisionLayer;
-    r1 <<= 0x1e;
-    r2 = 0x3fffffff;
-    r0 &= r2;
-    r0 |= r1;
-    r6 = r0;
-
-    r10 = r0 = gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI;
-    r8 = r0 = gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI;
-
-    r10 = FixedDiv(r10, KID_HEAP_COUNT);
-    r8 = FixedDiv(r8, KID_HEAP_COUNT);
-    item = (KidHeapItem*)this->myHeap;
-    y = 0;
-    x = 0;
-
-    for (loopVar = KID_HEAP_COUNT - 1; loopVar >= 0; loopVar--) {
-        item->FIELDS.x = r5 - (x >> 8);
-        item->FIELDS.y = (r5 >> 0x10) - (y >> 8);
-        item->FIELDS.z = r6;
-        item->FIELDS.framestate = r6 >> 0x10;
-        item->FIELDS.animationState = this->animationState & 0x3f;
-        item->FIELDS.collisionLayer = this->collisionLayer;
-        item++;
-        y = y + r8;
-        x = x + r10;
+    heapPtr = KID_HEAP;
+    for (i = 0; i < KID_HEAP_COUNT; i++) {
+        heapPtr->FIELDS.x = item.FIELDS.x - ((i * dx) >> 8);
+        heapPtr->FIELDS.y = item.FIELDS.y - ((i * dy) >> 8);
+        heapPtr->FIELDS.z = item.FIELDS.z;
+        heapPtr->FIELDS.framestate = item.FIELDS.framestate;
+        heapPtr->FIELDS.animationState = super->animationState;
+        heapPtr->FIELDS.collisionLayer = super->collisionLayer;
+        heapPtr++;
     }
 }
 
@@ -531,13 +484,13 @@ void sub_08062634(Entity* this) {
     MessageNoOverlap(gUnk_0810BDE8[a][b], this);
 }
 
-void sub_0806265C(Entity* this, ScriptExecutionContext* context) {
+void sub_0806265C(KidEntity* this, ScriptExecutionContext* context) {
     if (gSave.global_progress == 0) {
-        MessageNoOverlap(0, this);
+        MessageNoOverlap(0, super);
     } else {
-        const Dialog* pDialog = &gUnk_0810BE10[this->type * 9 - 1];
+        const Dialog* pDialog = &gUnk_0810BE10[super->type * 9 - 1];
         pDialog += gSave.global_progress;
-        ShowNPCDialogue(this, pDialog);
+        ShowNPCDialogue(super, pDialog);
     }
 }
 
