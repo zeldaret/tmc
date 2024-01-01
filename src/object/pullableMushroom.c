@@ -63,7 +63,7 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
             super->health = 1;
             super->collisionFlags = 7;
             super->hitType = 0x6e;
-            super->flags2 = 0x0e;
+            super->collisionMask = 0x0e;
             super->gustJarFlags = 1;
             super->flags |= 0x80;
             super->spriteOffsetY = 4;
@@ -76,7 +76,7 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
                 super->health = 1;
                 super->collisionFlags = 7;
                 super->hitType = 0x6e;
-                super->flags2 = 4;
+                super->collisionMask = 4;
                 super->gustJarFlags = 1;
                 super->action = 3;
             }

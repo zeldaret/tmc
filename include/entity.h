@@ -79,7 +79,39 @@ typedef enum {
     DirectionNorthWest = 0x1c, /**< North West. */
 } Direction;
 
-#define CONTACT_TAKE_DAMAGE 0x80
+/** Collision layer flags. */
+typedef enum {
+    COL_LAYER_NONE = 0x0,
+    COL_LAYER_BOTTOM = 0x1,
+    COL_LAYER_TOP = 0x2,
+    COL_LAYER_BOTH = 0x3
+} CollisionLayer;
+
+/** 
+ * Collision class flags.
+ * An Entity's collision class is determined by the first 3 bits of #Entity::collisionFlags.
+ * What classes an Entity collides with is determined by the bitfield #Entity::collisionMask.
+*/
+typedef enum {
+    COL_CLASS_NONE = 0x0,
+    COL_CLASS_PLAYER = 0x1,
+    COL_CLASS_ITEM = 0x2,
+    COL_CLASS_FLAMMABLE = 0x3,
+    COL_CLASS_4 = 0x4,
+    COL_CLASS_5 = 0x5,
+    COL_CLASS_6 = 0x6,
+    COL_CLASS_PACCI_OBJ = 0x7,
+} CollisionClass;
+
+/** Collision flags. */
+typedef enum {
+    COL_FLAG_3D = 0x10,
+    COL_FLAG_SOLID = 0x20,
+    COL_FLAG_REFLECT = 0x80,
+} CollisionFlags;
+
+#define COLLISION_MASK(layer) (1 << (layer))
+#define CONTACT_NOW 0x80
 
 typedef struct {
     void* entity1;
@@ -194,11 +226,11 @@ typedef struct Entity_ {
     /*0x2c*/ union SplitWord x; /**< X position, fixed point Q16.16. */
     /*0x30*/ union SplitWord y; /**< Y position, fixed point Q16.16. */
     /*0x34*/ union SplitWord z; /**< Z position, fixed point Q16.16. */
-    /*0x38*/ u8 collisionLayer; /**< Collision layer. */
+    /*0x38*/ u8 collisionLayer; /**< @see CollisionLayer. */
     /*0x39*/ s8 interactType;
     /*0x3a*/ u8 gustJarState;       /**< 4: grabbed by GustJar */
-    /*0x3b*/ u8 flags2;             /**< Debug visualization related? */
-    /*0x3c*/ u8 collisionFlags;     /**< Controls collision modes. */
+    /*0x3b*/ u8 collisionMask;      /**< Bitfield. @see CollisionClass */
+    /*0x3c*/ u8 collisionFlags;     /**< @see CollisionFlags, @see CollisionClass */
     /*0x3d*/ s8 iframes;            /**< Invulnerability frames. */
     /*0x3e*/ u8 knockbackDirection; /**< Direction of knockback. */
     /*0x3f*/ u8 hitType;            /**< Behavior as a collision sender. */

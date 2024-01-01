@@ -109,7 +109,7 @@ void Stalfos_OnCollision(StalfosEntity* this) {
             sub_08039A48(this);
             this->unk_78 += 0x5a;
         }
-        super->flags2 &= 0xfb;
+        super->collisionMask &= 0xfb;
     }
     if (super->confusedTime != 0) {
         EnemyCreateFX(super, FX_STARS);
@@ -153,7 +153,7 @@ void Stalfos_SubAction2(StalfosEntity* this) {
     }
     super->child = NULL;
     super->gustJarState &= 0xfb;
-    super->flags2 &= 0xfb;
+    super->collisionMask &= 0xfb;
     sub_08039A48(this);
     this->unk_78 += 0x5a;
 }
@@ -279,7 +279,7 @@ void Stalfos_Action12(StalfosEntity* this) {
         } else {
             sub_08039A48(this);
         }
-        super->flags2 |= 4;
+        super->collisionMask |= 4;
         this->unk_78 += 0x3c;
     }
 }

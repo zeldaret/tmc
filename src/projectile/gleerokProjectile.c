@@ -28,8 +28,7 @@ void GleerokProjectile(GleerokProjectileEntity* this) {
 }
 
 void GleerokProjectile_OnTick(GleerokProjectileEntity* this) {
-    if (((super->type != 3) && ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0)) &&
-        ((super->contactFlags & 0x7f) != 0x1e)) {
+    if (((super->type != 3) && ((super->contactFlags & CONTACT_NOW) != 0)) && ((super->contactFlags & 0x7f) != 0x1e)) {
         super->action = 3;
         COLLISION_OFF(super);
         InitializeAnimation(super, 0x53);

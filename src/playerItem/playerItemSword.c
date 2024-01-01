@@ -59,7 +59,7 @@ void PlayerItemSword_Init(PlayerItemSwordEntity* this) {
     }
     LoadSwapGFX(super, 1, 3);
     super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->updatePriority = 6;
     super->contactFlags = 0;
     super->iframes = 0;
@@ -285,7 +285,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
         }
         super->spriteSettings.flipX = flipX;
     }
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         if ((param_2->iframes == 0) || ((u8)param_2->iframes == 0x81)) {
             param_2->iframes = super->iframes;
             param_2->knockbackDirection = super->knockbackDirection;

@@ -72,7 +72,7 @@ void Pot_Init(PotEntity* this) {
     super->health = 1;
     super->collisionFlags = 7;
     super->hitType = 0x6E;
-    super->flags2 = 0x84;
+    super->collisionMask = 0x84;
     super->gustJarFlags = 0x12;
     if (super->collisionLayer == 0) {
         ResolveCollisionLayer(super);
@@ -156,7 +156,7 @@ void sub_08082510(PotEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_080FD340;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->spriteOffsetY = 0;
     SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     super->subAction++;

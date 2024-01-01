@@ -38,7 +38,7 @@ void Bobomb_OnTick(BobombEntity* this) {
 }
 
 void Bobomb_OnCollision(BobombEntity* this) {
-    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags & CONTACT_NOW) {
         switch (super->contactFlags & 0x7f) {
             case 0:
             case 1:

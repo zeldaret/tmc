@@ -336,7 +336,7 @@ void sub_080210E4(DarkNutEntity* this) {
 
     sub_08021644(this);
     if ((super->frame & 0x10) &&
-        (!ProcessMovement0(super) || (super->child && (super->child->contactFlags & CONTACT_TAKE_DAMAGE)))) {
+        (!ProcessMovement0(super) || (super->child && (super->child->contactFlags & CONTACT_NOW)))) {
         sub_080213D0(this, 0);
     } else {
         if (--this->unk_76 == 0)

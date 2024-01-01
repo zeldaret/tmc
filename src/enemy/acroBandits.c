@@ -96,7 +96,7 @@ void AcroBandit_OnTick(AcroBanditEntity* this) {
 void AcroBandit_OnCollision(AcroBanditEntity* this) {
     Entity* brother;
 
-    if (super->contactFlags != CONTACT_TAKE_DAMAGE && super->contactFlags != (CONTACT_TAKE_DAMAGE | 0x1)) {
+    if (super->contactFlags != CONTACT_NOW && super->contactFlags != (CONTACT_NOW | 0x1)) {
         if (super->type == 1) {
             if (super->action < 7 && super->knockbackDuration != 0) {
                 brother = super->child;

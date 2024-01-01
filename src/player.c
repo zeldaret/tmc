@@ -349,7 +349,7 @@ static void PlayerInit(PlayerEntity* this) {
     super->spritePriority.b1 = 1;
     super->spriteSettings.shadow = 1;
     super->carryFlags = 0x20;
-    super->flags2 = 8;
+    super->collisionMask = 8;
     super->hitType = 0x79;
     super->hitbox = (Hitbox*)&gPlayerHitbox;
     super->spriteIndex = 1;
@@ -1561,7 +1561,7 @@ static void sub_08071D04(PlayerEntity* this) {
     if (deltaHealth != 0) {
         ModHealth(deltaHealth);
         super->subAction = 3;
-        gPlayerState.field_0x3c = 0;
+        gPlayerState.killed = 0;
         super->direction = DIR_NONE;
         super->speed = 0;
         super->zVelocity = Q_16_16(1.5);
@@ -2068,7 +2068,7 @@ static void PlayerRollInit(PlayerEntity* this) {
 static void PlayerRollUpdate(PlayerEntity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | PL_MOLDWORM_CAPTURED)) != PL_ROLLING) ||
         (!(gPlayerState.flags & PL_MOLDWORM_RELEASED) && (super->iframes != 0) &&
-         (super->contactFlags & CONTACT_TAKE_DAMAGE))) {
+         (super->contactFlags & CONTACT_NOW))) {
         gPlayerState.flags &= ~PL_ROLLING;
         if (CheckQueuedAction())
             return;
@@ -2753,7 +2753,7 @@ static void sub_08073504(PlayerEntity* this) {
 static void sub_08073584(PlayerEntity* this) {
     u32 state, dir, idx;
 
-    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) || super->iframes > 0 || gPlayerState.field_0x3c ||
+    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) || super->iframes > 0 || gPlayerState.killed ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();

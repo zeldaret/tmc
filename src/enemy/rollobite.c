@@ -51,7 +51,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         InitializeAnimation(super, super->animationState + 8);
     }
 
-    if (super->contactFlags != CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags != CONTACT_NOW) {
         if (super->action == 4 || super->action == 5) {
             super->action = 4;
             super->timer = 180;
@@ -60,7 +60,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         }
     }
 
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x13))
+    if (super->contactFlags == (CONTACT_NOW | 0x13))
         Rollobite_OnTick(this);
 }
 

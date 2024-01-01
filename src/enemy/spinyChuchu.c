@@ -60,7 +60,7 @@ void SpinyChuchu_OnCollision(SpinyChuchuEntity* this) {
                     super->hitType = 0x5c;
                     InitializeAnimation(super, 1);
             }
-        } else if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x14)) {
+        } else if (super->contactFlags == (CONTACT_NOW | 0x14)) {
             EnemyCreateFX(super, FX_STARS);
             super->action = 5;
             InitializeAnimation(super, 1);

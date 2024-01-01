@@ -74,7 +74,7 @@ void PlayerItemPacciCaneProjectile_Init(PlayerItemPacciCaneProjectileEntity* thi
     super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + gUnk_0811B9A0[super->animationState];
     super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + gUnk_0811B9A0[super->animationState + 1];
     super->collisionFlags = 7;
-    super->flags2 = 0x8a;
+    super->collisionMask = 0x8a;
     super->hitbox = (Hitbox*)&gUnk_0811B9D0;
     if (super->collisionLayer == 2) {
         super->type = 1;

@@ -46,7 +46,7 @@ void MineralWaterSource_Init(Entity* this) {
 
     this->collisionFlags = 7;
     this->hitType = 145;
-    this->flags2 = 2;
+    this->collisionMask = 2;
 
     this->action = 1;
 }

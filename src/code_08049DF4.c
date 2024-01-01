@@ -18,7 +18,7 @@ Entity* sub_08049DF4(u32 arg0) {
 }
 
 Entity* sub_08049E18(void) {
-    if ((gPlayerState.field_0x3c == 0) &&
+    if ((gPlayerState.killed == 0) &&
         !(gPlayerState.flags &
           (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_DISABLE_ITEMS | PL_FALLING | PL_FROZEN |
            PL_IN_MINECART | PL_PIT_IS_EXIT | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_CONVEYOR_PUSHED | PL_CLIMBING))) {
@@ -29,7 +29,7 @@ Entity* sub_08049E18(void) {
 }
 
 Entity* sub_08049E4C(void) {
-    if ((gPlayerState.field_0x3c == 0) &&
+    if ((gPlayerState.killed == 0) &&
         !(gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_MINISH |
                                 PL_DISABLE_ITEMS | PL_FALLING | PL_FROZEN | PL_IN_MINECART | PL_PIT_IS_EXIT |
                                 PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_CONVEYOR_PUSHED | PL_CLIMBING))) {
@@ -40,7 +40,7 @@ Entity* sub_08049E4C(void) {
 }
 
 Entity* sub_08049E80(void) {
-    if ((gPlayerState.field_0x3c != 0) || !(gPlayerState.flags & PL_MINISH)) {
+    if ((gPlayerState.killed != 0) || !(gPlayerState.flags & PL_MINISH)) {
         return NULL;
     }
     gUnk_020000B0 = &gPlayerEntity.base;
@@ -48,7 +48,7 @@ Entity* sub_08049E80(void) {
 }
 
 Entity* sub_08049EB0(void) {
-    if ((gPlayerState.field_0x3c == 0) &&
+    if ((gPlayerState.killed == 0) &&
         !(gPlayerState.flags & (PL_MOLDWORM_CAPTURED | PL_DISABLE_ITEMS | PL_MINISH | PL_CAPTURED))) {
         gUnk_020000B0 = &gPlayerEntity.base;
         return &gPlayerEntity.base;

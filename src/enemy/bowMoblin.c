@@ -56,7 +56,7 @@ void BowMoblin_OnCollision(BowMoblinEntity* this) {
         EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)BowMoblin_Functions);
-    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags & CONTACT_NOW) {
         sub_0803C5F0(this);
         pEVar1 = super->child;
         if (pEVar1 != NULL) {

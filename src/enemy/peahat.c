@@ -61,7 +61,7 @@ void Peahat_OnTick(PeahatEntity* this) {
 
 void Peahat_OnCollision(PeahatEntity* this) {
     if (this->unk_82) {
-        if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x14)) {
+        if (super->contactFlags == (CONTACT_NOW | 0x14)) {
             Entity* entity = CreateEnemy(PEAHAT, PeahatForm_Propeller);
             if (entity != NULL) {
                 CopyPosition(super, entity);
@@ -74,14 +74,14 @@ void Peahat_OnCollision(PeahatEntity* this) {
             super->iframes = -30;
             this->unk_81 = 0;
             InitializeAnimation(super, super->animationState);
-        } else if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1b)) {
+        } else if (super->contactFlags == (CONTACT_NOW | 0x1b)) {
             super->animationState = PeahatAnimation_BrokenPropeller;
             super->action = 5;
             super->speed = 0x80;
             super->iframes = -30;
             this->unk_81 = 0;
             InitializeAnimation(super, super->animationState);
-        } else if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
+        } else if (super->contactFlags == CONTACT_NOW) {
             if (super->animationState == PeahatAnimation_Flying) {
                 super->action = 1;
                 super->timer = 30;

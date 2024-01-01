@@ -87,7 +87,7 @@ void PlayerItemBow_Init(PlayerItemBowEntity* this) {
         }
         super->direction = super->animationState << 2;
         super->collisionFlags = gPlayerEntity.base.collisionFlags + 1;
-        super->flags2 = gPlayerEntity.base.flags2;
+        super->collisionMask = gPlayerEntity.base.collisionMask;
         if (super->collisionLayer == 2) {
             super->type2 = 1;
         } else {

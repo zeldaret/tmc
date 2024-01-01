@@ -63,7 +63,7 @@ void ItemOnGround(ItemOnGroundEntity* this) {
     static void (*const ItemOnGround_Actions[])(ItemOnGroundEntity*) = {
         ItemOnGround_Init, ItemOnGround_Action1, ItemOnGround_Action2, ItemOnGround_Action3, ItemOnGround_Action4,
     };
-    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags & CONTACT_NOW) {
         switch (super->contactFlags & 0x7F) {
             case 20:
                 super->action = 3;
@@ -130,10 +130,10 @@ void ItemOnGround_Init(ItemOnGroundEntity* this) {
             case ITEM_BOMBS5:
             case ITEM_ARROWS5:
             case ITEM_HEART:
-                super->flags2 = 0x17;
+                super->collisionMask = 0x17;
                 break;
             default:
-                super->flags2 = 0x11;
+                super->collisionMask = 0x11;
                 break;
         }
 
@@ -186,7 +186,7 @@ void sub_080810FC(ItemOnGroundEntity* this) {
         super->action = 2;
         super->subAction = 0;
         COLLISION_ON(super);
-        super->flags2 = 0x11;
+        super->collisionMask = 0x11;
         CopyPosition(&gPlayerEntity.base, super);
     }
 }

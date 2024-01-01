@@ -55,7 +55,7 @@ void Mulldozer_OnCollision(MulldozerEntity* this) {
         EnemyCreateFX(super, 0x1c);
     }
     EnemyFunctionHandlerAfterCollision(super, Mulldozer_Functions);
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         switch (super->contactFlags & 0x3f) {
             case 2:
             case 3:

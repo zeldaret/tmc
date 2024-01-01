@@ -73,7 +73,7 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
     super->speed = 0x400;
     super->hitType = 0x96;
     super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x80;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     pEVar3 = super->child;
     if (pEVar3 != NULL) {
         super->action = 1;
@@ -141,7 +141,7 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
         if ((super->child->gustJarState & 4) == 0) {
             DeleteThisEntity();
         }
-        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+        if ((super->contactFlags & CONTACT_NOW) != 0) {
             PlayerItemGustBig_Action3(this);
             return;
         }

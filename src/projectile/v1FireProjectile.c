@@ -31,7 +31,7 @@ void V1FireProjectile_OnTick(V1FireProjectileEntity* this) {
 }
 
 void V1FireProjectile_OnCollision(V1FireProjectileEntity* this) {
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         super->action = 3;
         COLLISION_OFF(super);
         InitializeAnimation(super, 0x53);

@@ -20,7 +20,7 @@ void HangingSeed_OnTick(Entity* this) {
 }
 
 void HangingSeed_OnCollision(Entity* this) {
-    if (this->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (this->contactFlags & CONTACT_NOW) {
         CreateFx(this, FX_BUSH, 0x80);
         DeleteThisEntity();
     }

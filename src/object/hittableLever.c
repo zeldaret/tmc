@@ -32,7 +32,7 @@ void HittableLever_Init(HittableLeverEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->collisionFlags = 7;
     super->hitType = 0x8f;
-    super->flags2 = 0xa;
+    super->collisionMask = 0xa;
     super->hitbox = (Hitbox*)&HittableLever_Hitbox;
     if (super->type == 0) {
         if (CheckFlags(this->hitFlag)) {
@@ -47,7 +47,7 @@ void HittableLever_Init(HittableLeverEntity* this) {
 }
 
 void HittableLever_Idle(HittableLeverEntity* this) {
-    if (((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) && (this->wasHit == 0)) {
+    if (((super->contactFlags & CONTACT_NOW) != 0) && (this->wasHit == 0)) {
         this->wasHit = 1;
         super->type ^= 1;
         super->iframes = -0x18;

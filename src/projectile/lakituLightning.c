@@ -23,7 +23,7 @@ void LakituLightning_OnTick(Entity* this) {
 }
 
 void LakituLightning_OnCollision(Entity* this) {
-    if ((this->health == 0) || (this->contactFlags == CONTACT_TAKE_DAMAGE)) {
+    if ((this->health == 0) || (this->contactFlags == CONTACT_NOW)) {
         DeleteThisEntity();
     }
     LakituLightning_OnTick(this);

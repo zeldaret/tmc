@@ -75,7 +75,7 @@ void RupeeLike_OnCollision(RupeeLikeEntity* this) {
             super->timer = 60;
             super->subtimer = 0;
             this->unk_83 = 0x41;
-            super->flags2 &= 0xfc;
+            super->collisionMask &= 0xfc;
             this->unk_80 = gPlayerEntity.base.spritePriority.b1;
             EnqueueSFX(SFX_PLACE_OBJ);
         } else {
@@ -255,7 +255,7 @@ void sub_080296D8(RupeeLikeEntity* this) {
     gPlayerEntity.base.speed = 0x140;
     super->action = 5;
     super->subtimer = 60;
-    super->flags2 |= 3;
+    super->collisionMask |= 3;
     if ((s8)super->iframes == 0) {
         super->iframes = 0xf4;
     }

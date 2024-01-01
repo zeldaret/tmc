@@ -55,7 +55,7 @@ void MandiblesProjectile_OnTick(MandiblesProjectileEntity* this) {
 void MandiblesProjectile_OnCollision(MandiblesProjectileEntity* this) {
     Entity* parent;
 
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         switch (super->action) {
             case 4:
                 super->subtimer = 0;

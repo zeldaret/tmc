@@ -29,7 +29,7 @@ void PlayerItemDashSword_Init(Entity* this) {
         gPlayerState.item = this;
         this->flags |= ENT_PERSIST;
         this->action = 1;
-        this->flags2 = 8;
+        this->collisionMask = 8;
         LoadSwapGFX(this, 1, 3);
         sub_08079BD8(this);
         sub_0801766C(this);

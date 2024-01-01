@@ -114,7 +114,7 @@ void sub_0806F4E8(Entity* ent) {
 }
 
 bool32 sub_0806F520(Entity* ent) {
-    if (ent->contactFlags == (CONTACT_TAKE_DAMAGE | 0x13))
+    if (ent->contactFlags == (CONTACT_NOW | 0x13))
         return 1;
     ent->gustJarState &= ~4;
     ent->spriteOffsetY = 0;

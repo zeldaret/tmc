@@ -128,7 +128,7 @@ void PlayerItemBoomerang_Action1(PlayerItemBoomerangEntity* this) {
         super->spriteVramOffset = 0xd5;
         COLLISION_ON(super);
         super->collisionFlags |= 1;
-        super->flags2 = gPlayerEntity.base.flags2;
+        super->collisionMask = gPlayerEntity.base.collisionMask;
         super->spriteIndex = 0xa6;
         super->spriteSettings.flipX = 0;
         super->spriteSettings.draw = 1;
@@ -184,7 +184,7 @@ void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this) {
         if (super->timer == 0) {
             uVar6 = TRUE;
         }
-        if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+        if (super->contactFlags & CONTACT_NOW) {
             uVar6 = TRUE;
         }
         if (!uVar6) {

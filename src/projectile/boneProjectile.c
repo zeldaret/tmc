@@ -23,7 +23,7 @@ void BoneProjectile_OnTick(Entity* this) {
 }
 
 void BoneProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
+    if (this->contactFlags == CONTACT_NOW) {
         DeleteEntity(this);
     } else {
         sub_080A82D8(this);

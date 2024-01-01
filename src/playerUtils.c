@@ -1564,7 +1564,7 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x3a = 0;
     gPlayerState.spriteOffsetY = 0;
-    gPlayerState.field_0x3c = 0;
+    gPlayerState.killed = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, 0x40);
     MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
 }
@@ -2029,9 +2029,9 @@ bool32 sub_08079550(void) {
 
 void sub_08079708(Entity* this) {
     gPlayerState.framestate = PL_STATE_DIE;
-    gPlayerState.field_0x3c = 0xff;
+    gPlayerState.killed = 0xff;
     this->flags &= ~ENT_COLLIDE;
-    this->action = 0xa;
+    this->action = PLAYER_MINISHDIE;
     this->subAction = 0;
     sub_080085B0(this);
     if (!(gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS))) {
@@ -2450,7 +2450,7 @@ bool32 PlayerCanBeMoved(void) {
     if ((gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN |
                                PL_FALLING | PL_DISABLE_ITEMS | PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED |
                                PL_IN_HOLE | PL_CONVEYOR_PUSHED | PL_CLIMBING)) != 0 ||
-        gPlayerState.field_0x3c != 0 || gPlayerEntity.base.action == PLAYER_FALL ||
+        gPlayerState.killed != 0 || gPlayerEntity.base.action == PLAYER_FALL ||
         gPlayerEntity.base.action == PLAYER_08071DB8) {
         return FALSE;
     } else {

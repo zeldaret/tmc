@@ -52,7 +52,7 @@ void Gibdo_OnTick(GibdoEntity* this) {
 }
 
 void Gibdo_OnCollision(GibdoEntity* this) {
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x7)) {
         if (super->action == 0x6) {
             sub_08037ACC(this);
         }
@@ -62,7 +62,7 @@ void Gibdo_OnCollision(GibdoEntity* this) {
         Gibdo_CreateObjects(this);
     } else {
         if (super->action != 0x6) {
-            if (super->hitType == 0x27 && super->contactFlags == CONTACT_TAKE_DAMAGE) {
+            if (super->hitType == 0x27 && super->contactFlags == CONTACT_NOW) {
                 sub_08037A14(this);
             } else {
                 if ((u8)(super->action - 1) < 2) {
@@ -326,7 +326,7 @@ void sub_08037A14(GibdoEntity* this) {
     super->timer = 24;
     super->spritePriority.b0 &= super->timer - 32;
     super->spritePriority.b0 |= 3;
-    super->flags2 &= 0xfe;
+    super->collisionMask &= 0xfe;
     this->field_0x7c = 5;
     CopyPosition(super, super->contactedEntity);
     InitAnimationForceUpdate(super, super->animationState + 0xc);
@@ -341,7 +341,7 @@ void sub_08037A58(GibdoEntity* this) {
         super->iframes = 0xec;
     }
     super->hitType = 0x26;
-    super->flags2 |= 1;
+    super->collisionMask |= 1;
     super->iframes = 0xf4;
     super->knockbackDirection = DirectionFromAnimationState(super->animationState) ^ 0x10;
     super->knockbackDuration = 8;

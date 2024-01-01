@@ -207,7 +207,7 @@ void ObjectUpdate(Entity* this) {
         this->iframes++;
     if (!EntityDisabled(this)) {
         gObjectFunctions[this->id](this);
-        this->contactFlags &= ~CONTACT_TAKE_DAMAGE;
+        this->contactFlags &= ~CONTACT_NOW;
     }
     DrawEntity(this);
 }

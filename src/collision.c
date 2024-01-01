@@ -371,7 +371,7 @@ CollisionResult CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettin
 // target: item
 CollisionResult CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     COLLISION_OFF(tgt);
-    tgt->contactFlags = org->hurtType | CONTACT_TAKE_DAMAGE;
+    tgt->contactFlags = org->hurtType | CONTACT_NOW;
     if ((tgt->type == 0x5F || tgt->type == 0x60) && sub_08081420(tgt))
         tgt->health = 0;
     return RESULT_COLLISION_WITHOUT_SET;
@@ -503,7 +503,7 @@ CollisionResult sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSetting
         sub_08079D84();
         org->iframes = 90;
     } else {
-        gPlayerEntity.base.contactFlags = tgt->hurtType | CONTACT_TAKE_DAMAGE;
+        gPlayerEntity.base.contactFlags = tgt->hurtType | CONTACT_NOW;
         gPlayerEntity.base.iframes = 12;
         gPlayerEntity.base.knockbackDuration = 16;
         gPlayerEntity.base.knockbackDirection = DirectionTurnAround(direction);

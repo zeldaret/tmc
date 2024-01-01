@@ -176,7 +176,7 @@ void sub_08030338(ArmosEntity* this) {
         if (super->frame == 2) {
             super->frame = 0;
             if (this->unk_80 != 2) {
-                super->flags2 = 0xb;
+                super->collisionMask = 0xb;
                 super->hitType = 8;
                 super->hitbox = (Hitbox*)&gUnk_080FD2F0;
             }
@@ -281,7 +281,7 @@ void sub_08030580(ArmosEntity* this) {
 
 void sub_08030590(ArmosEntity* this) {
     super->action = 5;
-    super->flags2 = 1;
+    super->collisionMask = 1;
     super->hitType = 1;
     super->hitbox = (Hitbox*)&gHitbox_15;
     sub_080309C8(this, 5);
@@ -337,7 +337,7 @@ bool32 sub_080305BC(ArmosEntity* this) {
 
 bool32 sub_08030650(ArmosEntity* this) {
     if (super->type == 0) {
-        if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
+        if (super->contactFlags == CONTACT_NOW) {
             return 1;
         }
     } else if (this->unk_80 != 2) {

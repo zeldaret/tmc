@@ -163,7 +163,7 @@ void sub_08084B1C(PlayerCloneEntity* this) {
     super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
     super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     super->collisionLayer = gPlayerEntity.base.collisionLayer;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->hitType = gPlayerEntity.base.hitType;
     super->collisionFlags = gPlayerEntity.base.collisionFlags;
     super->hurtType = gPlayerEntity.base.hurtType;

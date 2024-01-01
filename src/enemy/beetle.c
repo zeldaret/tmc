@@ -35,7 +35,7 @@ void Beetle_OnTick(BeetleEntity* this) {
 
 void Beetle_OnCollision(BeetleEntity* this) {
     switch (super->contactFlags) {
-        case CONTACT_TAKE_DAMAGE:
+        case CONTACT_NOW:
             if (gPlayerState.framestate == PL_STATE_CLIMB) {
                 Beetle_OnTick(this);
             } else {
@@ -50,7 +50,7 @@ void Beetle_OnCollision(BeetleEntity* this) {
                 InitializeAnimation(super, 6);
             }
             break;
-        case CONTACT_TAKE_DAMAGE | 0x13:
+        case CONTACT_NOW | 0x13:
             Beetle_OnTick(this);
             break;
     }

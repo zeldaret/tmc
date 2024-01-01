@@ -51,7 +51,7 @@ void TektiteGolden_OnCollision(TektiteGoldenEntity* this) {
         EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, TektiteGolden_Functions);
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x14)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x14)) {
         super->action = 1;
         super->subAction = 0;
         super->timer = 20;

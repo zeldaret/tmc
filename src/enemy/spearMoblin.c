@@ -57,7 +57,7 @@ void SpearMoblin_OnCollision(SpearMoblinEntity* this) {
         EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, SpearMoblin_Functions);
-    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags & CONTACT_NOW) {
         if (super->action != 4) {
             sub_08028754(this);
         } else {
@@ -398,7 +398,7 @@ bool32 sub_080288A4(SpearMoblinEntity* this) {
 
 void sub_080288C0(SpearMoblinEntity* this) {
     Entity* entity = super->child;
-    if ((entity != NULL) && (entity->contactFlags & CONTACT_TAKE_DAMAGE)) {
+    if ((entity != NULL) && (entity->contactFlags & CONTACT_NOW)) {
         super->knockbackDirection = entity->knockbackDirection;
         super->iframes = -entity->iframes;
         super->knockbackSpeed = entity->knockbackSpeed;

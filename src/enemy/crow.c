@@ -44,7 +44,7 @@ void Crow_OnTick(CrowEntity* this) {
 }
 
 void Crow_OnCollision(CrowEntity* this) {
-    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags & CONTACT_NOW) {
         if ((super->contactFlags & 0x3f) == 0) {
             COLLISION_OFF(super);
             super->subtimer = 16;

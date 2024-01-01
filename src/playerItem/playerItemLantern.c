@@ -29,7 +29,7 @@ void PlayerItemLantern_Init(Entity* this) {
     this->frameIndex = -1;
     this->updatePriority = 6;
     this->collisionFlags = 7;
-    this->flags2 = -0x80;
+    this->collisionMask = -0x80;
     this->animationState = gPlayerEntity.base.animationState & 0xe;
     if (AllocMutableHitbox(this) == NULL) {
         DeleteThisEntity();
