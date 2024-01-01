@@ -162,7 +162,7 @@ void LockedDoor_Action1(LockedDoorEntity* this) {
     if (--super->timer == 0) {
         super->action = 2;
         super->timer = 7;
-        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
+        SetBottomTile(this->unk_74, this->unk_76, super->collisionLayer);
         EnqueueSFX(SFX_10B);
     }
 }
@@ -262,12 +262,12 @@ void sub_080836A0(LockedDoorEntity* this) {
     super->spriteSettings.draw = 1;
     super->x.HALF.HI = this->unk_70;
     super->y.HALF.HI = this->unk_72;
-    SetTile(0x4022, this->unk_76, super->collisionLayer);
+    SetBottomTile(0x4022, this->unk_76, super->collisionLayer);
 }
 
 void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     const struct_0811F680* tmp;
-    SetTile(0x4022, unk_1, this->collisionLayer);
+    SetBottomTile(0x4022, unk_1, this->collisionLayer);
     this->timer = 7;
     this->spriteSettings.draw = 1;
     this->direction = (unk_0 << 3) ^ DirectionSouth;

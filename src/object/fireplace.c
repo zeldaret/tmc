@@ -35,7 +35,7 @@ void Fireplace_Init(FireplaceEntity* this) {
         DeleteThisEntity();
     } else {
         sub_0807B7D8(0x30b, TILE(super->x.HALF.HI, super->y.HALF.HI), 2);
-        SetTile(0x4061, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetBottomTile(0x4061, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
     Fireplace_Action1(this);
 }
@@ -57,6 +57,6 @@ void sub_0809B7C0(FireplaceEntity* this) {
 
 void sub_0809B7DC(FireplaceEntity* this) {
     sub_0807B7D8(0xc3 << 2, TILE(super->x.HALF.HI, super->y.HALF.HI), 2);
-    SetTile(0x4062, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    SetBottomTile(0x4062, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     super->timer = 1;
 }

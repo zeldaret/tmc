@@ -107,12 +107,12 @@ void sub_0809CDF0(BakerOvenEntity* this) {
                    (((super->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
     y = this->unk_80;
-    SetTile(0x402e, y - 0x01, super->collisionLayer);
-    SetTile(0x4022, y - 0x00, super->collisionLayer);
-    SetTile(0x4022, y + 0x01, super->collisionLayer);
-    SetTile(0x4026, y - 0x41, super->collisionLayer);
-    SetTile(0x4026, y - 0x40, super->collisionLayer);
-    SetTile(0x4024, y - 0x3f, super->collisionLayer);
-    SetTile(0x4026, y - 0x81, super->collisionLayer);
-    SetTile(0x4026, y - 0x80, super->collisionLayer);
+    SetBottomTile(0x402e, y - 0x01, super->collisionLayer);
+    SetBottomTile(0x4022, y - 0x00, super->collisionLayer);
+    SetBottomTile(0x4022, y + 0x01, super->collisionLayer);
+    SetBottomTile(0x4026, y - 0x41, super->collisionLayer);
+    SetBottomTile(0x4026, y - 0x40, super->collisionLayer);
+    SetBottomTile(0x4024, y - 0x3f, super->collisionLayer);
+    SetBottomTile(0x4026, y - 0x81, super->collisionLayer);
+    SetBottomTile(0x4026, y - 0x80, super->collisionLayer);
 }

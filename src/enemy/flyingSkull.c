@@ -50,7 +50,7 @@ void FlyingSkull_OnCollision(FlyingSkullEntity* this) {
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);
         super->spritePriority.b1 = 1;
-        SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     } else if (super->z.HALF.HI) {
         sub_0803A0E0(this);
     }
@@ -89,7 +89,7 @@ void sub_08039CE0(FlyingSkullEntity* this) {
         super->timer = 1;
         super->z.HALF.HI = -1;
         super->spriteOffsetX = 0;
-        SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     }
 
     if (sub_0806F520(super)) {
@@ -121,7 +121,7 @@ void sub_08039D74(FlyingSkullEntity* this) {
 
     tmp = COORD_TO_TILE(super);
     this->unk_0x74 = GetTileIndex(tmp, super->collisionLayer);
-    SetTile(0x4060, tmp, super->collisionLayer);
+    SetBottomTile(0x4060, tmp, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
 
@@ -130,7 +130,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
 
     if (super->type == 0) {
         if (GetTileTypeByEntity(super) == 0x4073) {
-            SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+            SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
             sub_0803A0E0(this);
         }
 
@@ -147,7 +147,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
                     if (player != NULL) {
                         player->type2 = 1;
                         CopyPosition(super, player);
-                        SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+                        SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
                         DeleteEntity(super);
                     }
                 }
@@ -167,7 +167,7 @@ void sub_08039EE4(FlyingSkullEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_080FD340;
     gPlayerEntity.base.animationState;
     this->unk_0x76 = gPlayerEntity.base.animationState;
-    SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 void sub_08039F4C(FlyingSkullEntity* this) {
@@ -200,7 +200,7 @@ void sub_08039FAC(FlyingSkullEntity* this) {
         super->hitType = 0xa0;
         super->flags2 = 0xf;
         super->hitbox = (Hitbox*)&gUnk_080FD34C;
-        SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 
@@ -249,7 +249,7 @@ void sub_0803A0E0(FlyingSkullEntity* this) {
 void sub_0803A100(FlyingSkullEntity* this) {
     u32 tile = COORD_TO_TILE(super);
     if (GetTileIndex(tile, super->collisionLayer) == 0x4067) {
-        SetTile(this->unk_0x74, tile, super->collisionLayer);
+        SetBottomTile(this->unk_0x74, tile, super->collisionLayer);
         DeleteThisEntity();
     }
 }

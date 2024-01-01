@@ -38,7 +38,7 @@ void UnusedSkull_Init(UnusedSkullEntity* this) {
     super->hurtType = 0x47;
     super->flags2 = 2;
     super->hitbox = (Hitbox*)&gHitbox_4;
-    SetTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
     if (super->type == 1 || CheckFlags(this->unk_86)) {
         super->action = 3;
         SetFlag(this->unk_86);

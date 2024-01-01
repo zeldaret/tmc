@@ -28,7 +28,8 @@ void GleerokProjectile(GleerokProjectileEntity* this) {
 }
 
 void GleerokProjectile_OnTick(GleerokProjectileEntity* this) {
-    if (((super->type != 3) && ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0)) && ((super->contactFlags & 0x7f) != 0x1e)) {
+    if (((super->type != 3) && ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0)) &&
+        ((super->contactFlags & 0x7f) != 0x1e)) {
         super->action = 3;
         COLLISION_OFF(super);
         InitializeAnimation(super, 0x53);
@@ -95,7 +96,7 @@ void GleerokProjectile_Init(GleerokProjectileEntity* this) {
 void GleerokProjectile_Action1(GleerokProjectileEntity* this) {
     if (super->type == 3) {
         if (GravityUpdate(super, Q_8_8(24.0)) == 0) {
-            sub_08008790(super, 7);
+            DoTileInteractionHere(super, 7);
             CreateFx(super, FX_ROCK, 0);
             DeleteThisEntity();
         }

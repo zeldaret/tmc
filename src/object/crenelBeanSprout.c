@@ -54,13 +54,13 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
                     PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
-                    SetTile(0x4022, 0xdc, super->collisionLayer);
+                    SetBottomTile(0x4022, 0xdc, super->collisionLayer);
                 } else {
                     if (CheckLocalFlag(super->type2) == 0) {
                         InitializeAnimation(super, 10);
                         super->y.HALF.HI += 4;
                         super->action = 4;
-                        SetTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
+                        SetBottomTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
                         return;
                     }
                     super->type2 = 0;
@@ -107,7 +107,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
                 InitializeAnimation(super, 0xb);
                 super->y.HALF.HI += 4;
                 super->action = 4;
-                SetTile(0x4032, COORD_TO_TILE(super), super->collisionLayer);
+                SetBottomTile(0x4032, COORD_TO_TILE(super), super->collisionLayer);
                 return;
             } else {
                 super->type2 = 0;
@@ -329,5 +329,5 @@ void sub_08096A78(CrenelBeanSproutEntity* this) {
     SnapToTile(super);
     super->y.HALF.HI += 4;
     super->action = 3;
-    SetTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
 }

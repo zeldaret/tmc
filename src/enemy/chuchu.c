@@ -34,7 +34,7 @@ void sub_0801FAF8(ChuchuEntity* this);
 void sub_0801FB14(ChuchuEntity* this);
 void sub_0801FB34(ChuchuEntity* this);
 void sub_0801FB68(ChuchuEntity* this);
-u32 sub_0801FBD0(ChuchuEntity* this);
+u32 CheckWaterTile(ChuchuEntity* this);
 void Chuchu_JumpAtPlayer(ChuchuEntity* this);
 
 extern void (*const Chuchu_Functions[])(ChuchuEntity*);
@@ -72,7 +72,7 @@ void Chuchu(ChuchuEntity* this) {
                         /* ... */
                         break;
                     case 2:
-                        sub_080043A8(super);
+                        CreateDrownFX(super);
                         return;
                 }
             }
@@ -196,7 +196,7 @@ void sub_0801F0C8(ChuchuEntity* this) {
 }
 
 void sub_0801F12C(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         sub_0801F328(this);
     } else {
         if ((super->subtimer++ & 7) == 0) {
@@ -232,7 +232,7 @@ void sub_0801F1B0(ChuchuEntity* this) {
     }
 
     if (super->frame & ANIM_DONE) {
-        if (sub_0801FBD0(this)) {
+        if (CheckWaterTile(this)) {
             sub_0801F328(this);
         } else {
             sub_0801F340(this);
@@ -261,7 +261,7 @@ void sub_0801F270(ChuchuEntity* this) {
 
     ProcessMovement5(super);
     GetNextFrame(super);
-    if (sub_0801FBD0(this))
+    if (CheckWaterTile(this))
         return;
 
     if (--super->timer != 0)
@@ -390,7 +390,7 @@ void sub_0801F4EC(ChuchuEntity* this) {
 }
 
 void sub_0801F508(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         this->unk_83 = 0;
         sub_0801F730(this);
     } else {
@@ -429,7 +429,7 @@ void sub_0801F584(ChuchuEntity* this) {
     }
 
     if (super->frame & ANIM_DONE) {
-        if (sub_0801FBD0(this)) {
+        if (CheckWaterTile(this)) {
             this->unk_83 = 0;
             sub_0801F730(this);
         } else {
@@ -464,7 +464,7 @@ void sub_0801F688(ChuchuEntity* this) {
     if (this->unk_83)
         this->unk_83--;
 
-    if (sub_0801FBD0(this) || this->unk_83) {
+    if (CheckWaterTile(this) || this->unk_83) {
         super->direction = sub_08049F84(super, 1);
         ProcessMovement5(super);
         GetNextFrame(super);
@@ -572,7 +572,7 @@ void sub_0801F884(ChuchuEntity* this) {
 }
 
 void sub_0801F8C0(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         sub_0801FAE0(this);
     } else if (sub_08049FDC(super, 1) == 0) {
         sub_0801F730(this);
@@ -605,7 +605,7 @@ void sub_0801F940(ChuchuEntity* this) {
     }
 
     if (super->frame & ANIM_DONE) {
-        if (sub_0801FBD0(this)) {
+        if (CheckWaterTile(this)) {
             sub_0801FAE0(this);
         } else {
             super->action = 6;
@@ -635,7 +635,7 @@ void sub_0801F9E0(ChuchuEntity* this) {
 }
 
 void sub_0801FA30(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         super->direction = sub_08049F84(super, 1);
         ProcessMovement5(super);
         GetNextFrame(super);
@@ -714,7 +714,7 @@ void sub_0801FB68(ChuchuEntity* this) {
     super->zVelocity = 0;
 }
 
-u32 sub_0801FBD0(ChuchuEntity* this) {
+u32 CheckWaterTile(ChuchuEntity* this) {
     if (GetActTile(super) == 0x10) {
         return 1;
     } else {

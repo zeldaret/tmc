@@ -5,57 +5,67 @@
 
 	.text
 
-	thumb_func_start sub_080043E8
-sub_080043E8: @ 0x080043E8
+	.macro hazard_tile tile:req, hazard_type:req
+	.short \tile
+	.short \hazard_type
+	.endm
+
+	thumb_func_start GetTileHazardType
+GetTileHazardType: @ 0x080043E8
 	push {r4, lr}
 	ldrb r1, [r0, #0xc]
 	cmp r1, #0
-	beq _08004414
+	beq no_hazard // action == 0
 	adds r4, r0, #0
-	bl sub_08016AD2
+	bl UpdateCollisionLayer
 	movs r3, #0x36
 	ldrsh r2, [r4, r3]
 	cmp r2, #0
-	bmi _08004414
-	cmp r0, #0
-	beq _08004414
-	add r3, pc, #0x10
-_08004404:
+	bmi no_hazard // collisionLayer is negative
+	cmp r0, #0    // are we on a tile?
+	beq no_hazard
+	adr r3, hazard_list-4
+loop:
 	adds r3, #4
 	ldrh r1, [r3]
 	cmp r1, #0
-	beq _08004414
+	beq no_hazard
 	cmp r0, r1
-	bne _08004404
+	bne loop
 	ldrh r0, [r3, #2]
 	pop {r4, pc}
-_08004414:
+no_hazard:
 	movs r0, #0
 	pop {r4, pc}
-_08004418:
-	.byte 0x0D, 0x00, 0x01, 0x00, 0x10, 0x00, 0x02, 0x00
-	.byte 0x11, 0x00, 0x02, 0x00, 0x5A, 0x00, 0x03, 0x00, 0x13, 0x00, 0x04, 0x00, 0x00, 0x00
+
+hazard_list:
+	hazard_tile 0xD, 0x1
+	hazard_tile 0x10, 0x2
+	hazard_tile 0x11, 0x2
+	hazard_tile 0x5A, 0x3
+	hazard_tile 0x13, 0x4
+	.short 0x0000
 
 	non_word_aligned_thumb_func_start sub_0800442E
 sub_0800442E: @ 0x0800442E
 	push {r0, lr}
-	bl sub_080043E8
+	bl GetTileHazardType
 	cmp r0, #0
-	beq _08004448
-	lsls r0, r0, #2
-	add r1, pc, #0xC
+	beq not_hazard
+	lsls r0, #2
+	adr r1, _0800444C - 4
 	ldr r1, [r1, r0]
 	pop {r0}
 	bl _call_via_r1
 	movs r0, #1
 	pop {pc}
-_08004448:
+not_hazard:
 	movs r0, #0
 	pop {r1, pc}
-_0800444C: .4byte CreateItemOnGround
-_08004450: .4byte sub_080043A8
-_08004454: .4byte CreateChestSpawner
-_08004458: .4byte sub_080043B0
+_0800444C: .4byte CreatePitFallFX
+_08004450: .4byte CreateDrownFX
+_08004454: .4byte CreateLavaDrownFX
+_08004458: .4byte CreateSwampDrownFX
 
 	thumb_func_start sub_0800445C
 sub_0800445C: @ 0x0800445C
@@ -171,6 +181,7 @@ _08004516:
 	adds r0, r2, #0
 	bx lr
 
+	// r0 = Entity*
 	thumb_func_start sub_0800451C
 sub_0800451C: @ 0x0800451C
 	push {r0, lr}
@@ -196,17 +207,17 @@ sub_0800451C: @ 0x0800451C
 sub_08004542: @ 0x08004542
 	movs r1, #0x38
 	movs r2, #2
-	strb r2, [r0, r1]
+	strb r2, [r0, r1] // entity->collisionLayer = 2
 	movs r2, #0xc0
 	ldrb r1, [r0, #0x1b]
 	bics r1, r2
 	adds r1, #0x40
-	strb r1, [r0, #0x1b]
+	strb r1, [r0, #0x1b] // update spriteOrientation
 	movs r2, #0xc0
 	ldrb r1, [r0, #0x19]
 	bics r1, r2
 	adds r1, #0x40
-	strb r1, [r0, #0x19]
+	strb r1, [r0, #0x19] // update spriteRendering
 	bx lr
 
 	non_word_aligned_thumb_func_start ResetCollisionLayer

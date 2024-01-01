@@ -40,7 +40,7 @@ void Object30_Init(Object30Entity* this) {
     const u16* ptr;
     switch (super->type) {
         case 0:
-            data = GetLayerByIndex(super->collisionLayer);
+            data = GetTileBuffer(super->collisionLayer);
             ptr = &data->mapData[sub_0806F798(super)];
             this->unk_6c = (u16*)ptr;
             this->unk_68 = ptr[0];

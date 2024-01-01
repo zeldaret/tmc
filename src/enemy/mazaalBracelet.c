@@ -167,7 +167,8 @@ void MazaalBracelet_OnCollision(MazaalBraceletEntity* this) {
 
     if (super->type < 2) {
         if (super->action != 0x2b) {
-            if ((0 < super->iframes) && ((super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x15) || (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe))))) {
+            if ((0 < super->iframes) && ((super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x15) ||
+                                          (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe))))) {
                 super->action = 0x28;
                 COLLISION_OFF(super);
                 entity = (MazaalBraceletEntity*)super->parent;

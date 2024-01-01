@@ -35,6 +35,6 @@ void sub_0808D618(Entity* this) {
               ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) * 64);
 
     for (i = 0; i < 13; i++) {
-        SetTile(16500, tilePos + arr[i], 1);
+        SetBottomTile(16500, tilePos + arr[i], 1);
     }
 }

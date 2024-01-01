@@ -257,8 +257,8 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
             this->unk_70 = TILE(super->x.HALF.HI, this->unk_6c);
             while (TRUE) {
                 this->unk_70 = TILE(super->x.HALF.HI, this->unk_6c);
-                SetTile(0x4017, this->unk_70, 2);
-                SetTile(0x4017, this->unk_70, 1);
+                SetBottomTile(0x4017, this->unk_70, 2);
+                SetBottomTile(0x4017, this->unk_70, 1);
                 this->unk_6c += 0x10;
                 if (this->unk_6c >= gRoomControls.origin_y + gRoomControls.height)
                     break;
@@ -307,7 +307,7 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
 
     super->spriteOrientation.flipY = 2;
     this->unk_70 = COORD_TO_TILE(super);
-    SetTile(0x4017, this->unk_70, 1);
+    SetBottomTile(0x4017, this->unk_70, 1);
     super->subAction = 1;
     obj = CreateObjectWithParent(super, CHUCHU_BOSS_PARTICLE, 0, 0);
     if (obj != NULL) {
@@ -339,12 +339,12 @@ void Beanstalk_Action1Type9(BeanstalkEntity* this) {
     if (gPlayerState.floor_type == SURFACE_LADDER) {
         super->spritePriority.b0 = 0;
         if (sub_080B1A0C(super, 0, -0x18) != 0x4014) {
-            SetTile(0x4014, COORD_TO_TILE_OFFSET(super, 0, 0x18), 1);
+            SetBottomTile(0x4014, COORD_TO_TILE_OFFSET(super, 0, 0x18), 1);
         }
     } else {
         super->spritePriority.b0 = 5;
         if (this->unk_72 != sub_080B1A0C(super, 0, -0x18)) {
-            SetTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 0x18), 1);
+            SetBottomTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 0x18), 1);
         }
     }
 }

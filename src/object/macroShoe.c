@@ -39,9 +39,9 @@ void MacroShoe_Init(Entity* this) {
     this->action = 1;
     this->hitbox = (Hitbox*)MacroShoe_TypeHitboxes[this->type];
     if (this->type2 == 1) {
-        SetTile(0x4024, 0x410, 1);
-        SetTile(0x4026, 0x411, 1);
-        SetTile(0x4025, 0x412, 1);
+        SetBottomTile(0x4024, 0x410, 1);
+        SetBottomTile(0x4026, 0x411, 1);
+        SetBottomTile(0x4025, 0x412, 1);
     }
 }
 

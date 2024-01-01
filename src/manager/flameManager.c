@@ -16,7 +16,7 @@ void FlameManager_Main(FlameManager* this) {
         this->field_0x38 = TILE(this->field_0x38, this->field_0x3a);
         if (GetTileType(this->field_0x38, 2) == 0x75) {
             super->action = 1;
-            SetTile(0x406a, this->field_0x38, 1);
+            SetBottomTile(0x406a, this->field_0x38, 1);
         } else {
             DeleteThisEntity();
         }
@@ -26,7 +26,7 @@ void FlameManager_Main(FlameManager* this) {
         DeleteThisEntity();
     }
     if (GetTileType(this->field_0x38, 2) == 0x76) {
-        SetTile(0x406b, this->field_0x38, 1);
+        SetBottomTile(0x406b, this->field_0x38, 1);
         DeleteThisEntity();
     }
 }

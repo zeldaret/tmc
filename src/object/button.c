@@ -105,7 +105,7 @@ void Button_Action4(ButtonEntity* this) {
         super->timer--;
         if (super->subtimer != 0) {
             super->subtimer = 0;
-            SetTile(0x4035, this->unk_74, super->collisionLayer);
+            SetBottomTile(0x4035, this->unk_74, super->collisionLayer);
         }
         if (sub_08081CB0(this)) {
             super->action = 3;
@@ -230,7 +230,7 @@ void sub_08081E6C(ButtonEntity* this) {
 
     if (tile < 0x4000)
         return;
-    r1 = GetLayerByIndex(r5);
+    r1 = GetTileBuffer(r5);
     r4 = (super->type == 0 ? 0x7a : 0x78);
     tmp = r1->metatiles;
     tmp = tmp + (r1->unkData2[r4] << 2);
@@ -239,7 +239,7 @@ void sub_08081E6C(ButtonEntity* this) {
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;
     SetTileType(r4, r6, r5);
-    SetTile(tile, r6, r5);
+    SetBottomTile(tile, r6, r5);
 }
 
 u32 sub_08081F00(u32* unk1, u32* unk2) {
@@ -279,7 +279,7 @@ bool32 sub_08081F7C(ButtonEntity* this, u32 r7) {
             sub_08081F24(super);
             SoundReq(SFX_BUTTON_PRESS);
             if (this->unk_70 != 0xFFFF)
-                SetTile(this->unk_70, this->unk_74, super->collisionLayer);
+                SetBottomTile(this->unk_70, this->unk_74, super->collisionLayer);
             return FALSE;
         }
     }

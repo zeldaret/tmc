@@ -361,7 +361,7 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
             uVar3 = -uVar3;
         }
         if (super->type != 0) {
-            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + r5);
+            DoTileInteraction(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + r5);
         } else if (super->z.WORD == 0) {
             if (gPlayerState.skills & SKILL_ROCK_BREAKER) {
                 tmp2 = 1;
@@ -369,11 +369,11 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
                 tmp2 = 0;
             }
             new_var = uVar3;
-            if (((sub_08008796(super, tmp2, super->x.HALF.HI + new_var, super->y.HALF.HI + r5) == NULL) &&
+            if (((DoTileInteraction(super, tmp2, super->x.HALF.HI + new_var, super->y.HALF.HI + r5) == NULL) &&
                  (gPlayerState.sword_state != 0)) &&
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
                 new_var2 = super;
-                if (GetRelativeCollisionTile(new_var2, new_var, r5) == 0x2e) {
+                if (GetActTileRelative(new_var2, new_var, r5) == 0x2e) {
                     SoundReqClipped(&gPlayerEntity.base, SFX_ITEM_GLOVES_KNOCKBACK);
                 } else {
                     SoundReqClipped(&gPlayerEntity.base, SFX_METAL_CLINK);
@@ -406,7 +406,7 @@ void sub_080A7B98(PlayerItemSwordEntity* this) {
     for (i = 0; i < 3; i++) {
         xOffset = -0x10;
         for (j = 0; j < 3; j++) {
-            sub_08008796(super, uVar2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset);
+            DoTileInteraction(super, uVar2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset);
             xOffset += 0x10;
         }
         yOffset += 0x10;

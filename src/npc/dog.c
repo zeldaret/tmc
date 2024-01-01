@@ -235,7 +235,7 @@ void sub_08069B44(DogEntity* this) {
             super->action = 4;
         }
         if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
-            SetTile(0x4072, TILE(super->x.HALF.HI, super->y.HALF.HI - 8), super->collisionLayer);
+            SetBottomTile(0x4072, TILE(super->x.HALF.HI, super->y.HALF.HI - 8), super->collisionLayer);
         }
     }
 }

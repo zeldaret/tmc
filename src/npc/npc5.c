@@ -68,7 +68,7 @@ u32 PointInsideRadius(s32, s32, s32);
 
 u32 sub_080611D4(Entity*);
 extern u32 sub_08079FD4(Entity*, u32);
-extern void sub_08016AD2(Entity*);
+extern void UpdateCollisionLayer(Entity*);
 
 bool32 sub_08061630(NPC5Entity*, s32, s32, s32);
 bool32 sub_08061720(NPC5Entity*, s32, s32, s32);
@@ -471,7 +471,7 @@ bool32 sub_08061170(NPC5Entity* this) {
         }
         return FALSE;
     } else {
-        sub_08016AD2(super);
+        UpdateCollisionLayer(super);
         return TRUE;
     }
 }
@@ -501,7 +501,7 @@ u32 sub_080611D4(Entity* this) {
     ptr = (s8*)gUnk_0810AC4C;
     a = ptr[x];
     b = ptr[x + 1];
-    uVar2 = GetRelativeCollisionTile(this, a, b);
+    uVar2 = GetActTileRelative(this, a, b);
     ptr2 = gUnk_0810AC54;
 
     do {

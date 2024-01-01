@@ -30,7 +30,7 @@ void PlayerItemPacciCaneProjectile_Action4(PlayerItemPacciCaneProjectileEntity* 
 void sub_08070458(PlayerItemPacciCaneProjectileEntity* this);
 
 extern void sub_08017744(Entity*);
-extern u8* sub_08008782(Entity*, u32, u32, u32);
+extern u8* DoTileInteractionOffset(Entity*, u32, u32, u32);
 
 void PlayerItemPacciCaneProjectile(PlayerItemPacciCaneProjectileEntity* this) {
     static void (*const PlayerItemPacciCaneProjectile_Actions[])(PlayerItemPacciCaneProjectileEntity*) = {
@@ -104,7 +104,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
 
     cVar1 = gUnk_0811B9C8[super->animationState];
     cVar2 = gUnk_0811B9C8[super->animationState + 1];
-    iVar3 = sub_08008782(super, 10, cVar1, cVar2);
+    iVar3 = DoTileInteractionOffset(super, 10, cVar1, cVar2);
     if (iVar3) {
         pEVar4 = CreateObject(OBJECT_53, iVar3[5], iVar3[2]);
         if (pEVar4) {
@@ -135,7 +135,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
                     super->spritePriority.b0 = 7;
                     this->unk_7c = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
                     InitializeAnimation(super, 0x14);
-                    SetTile(0x4020, COORD_TO_TILE(super), super->collisionLayer);
+                    SetBottomTile(0x4020, COORD_TO_TILE(super), super->collisionLayer);
                     return;
                 }
             } else {
@@ -197,7 +197,7 @@ void sub_08070458(PlayerItemPacciCaneProjectileEntity* this) {
     COLLISION_OFF(super);
     super->speed = 0;
     if (this->unk_7c != 0) {
-        SetTile(this->unk_7c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetBottomTile(this->unk_7c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
     InitializeAnimation(super, 0x13);
     sub_08017744(super);

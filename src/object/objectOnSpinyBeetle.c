@@ -152,7 +152,7 @@ void ObjectOnSpinyBeetle_Action2Subaction2(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action2Subaction3(ObjectOnSpinyBeetleEntity* this) {
-    switch (sub_080043E8(super)) {
+    switch (GetTileHazardType(super)) {
         case 2:
             CreateFx(super, FX_WATER_SPLASH, 0);
             break;

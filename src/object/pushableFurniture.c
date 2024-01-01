@@ -295,12 +295,12 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
     iVar2 = GetTileIndex(uVar3, 1);
     if (iVar2 == 0x402e) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 5) == 0)) {
-            SetTile(0x402c, uVar3, 1);
+            SetBottomTile(0x402c, uVar3, 1);
         }
     } else {
         iVar2 = sub_080B1B44(uVar3, 1);
         if ((iVar2 == 5) && ((((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)) && ((uVar1 & 5) != 0)))) {
-            SetTile(0x402e, uVar3, 1);
+            SetBottomTile(0x402e, uVar3, 1);
         }
     }
     uVar3 = (u32)this->unk_72;
@@ -308,12 +308,12 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
     iVar2 = GetTileIndex(uVar3, 1);
     if (iVar2 == 0x402f) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 10) == 0)) {
-            SetTile(0x402d, uVar3, 1);
+            SetBottomTile(0x402d, uVar3, 1);
         }
     } else {
         iVar2 = sub_080B1B44(uVar3, 1);
         if (((iVar2 == 10) && (((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)))) && ((uVar1 & 10) != 0)) {
-            SetTile(0x402f, uVar3, 1);
+            SetBottomTile(0x402f, uVar3, 1);
         }
     }
 }
@@ -361,13 +361,13 @@ void sub_0808FF50(PushableFurnitureEntity* this) {
         case 0:
             this->unk_70 = tmp;
             this->unk_74 = GetTileIndex(this->unk_70, 1);
-            SetTile(0x404a, tmp, 1);
+            SetBottomTile(0x404a, tmp, 1);
             break;
         case 1:
             if ((tmp2 & 8) != 0) {
                 this->unk_70 = this->unk_7c;
                 this->unk_74 = GetTileIndex(this->unk_70, 1);
-                SetTile(gUnk_08121EE4[this->unk_81], position, 1);
+                SetBottomTile(gUnk_08121EE4[this->unk_81], position, 1);
                 this->unk_72 = tmp + 1;
                 this->unk_76 = GetTileIndex(this->unk_72, 1);
                 sub_08090094(this, gUnk_08121EE4[this->unk_81 + 4], this->unk_72);
@@ -375,7 +375,7 @@ void sub_0808FF50(PushableFurnitureEntity* this) {
             } else {
                 this->unk_72 = this->unk_7c;
                 this->unk_76 = GetTileIndex(this->unk_72, 1);
-                SetTile(gUnk_08121EE4[this->unk_81], position, 1);
+                SetBottomTile(gUnk_08121EE4[this->unk_81], position, 1);
                 this->unk_70 = tmp - 1;
                 this->unk_74 = GetTileIndex(this->unk_70, 1);
                 sub_08090094(this, gUnk_08121EE4[this->unk_81 + 2], this->unk_70);
@@ -400,14 +400,14 @@ void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
                 if (tmp1 == 5) {
                     index = 0x4022;
                 }
-                SetTile(index, tilePos, 1);
+                SetBottomTile(index, tilePos, 1);
                 return;
             case 0x402d:
             case 0x402f:
                 if (tmp1 == 5) {
                     index = 0x4022;
                 }
-                SetTile(index, tilePos, 1);
+                SetBottomTile(index, tilePos, 1);
                 return;
             case 0x4024:
             case 0x402c:
@@ -415,10 +415,10 @@ void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
                 if (tmp1 == 10) {
                     index = 0x4022;
                 }
-                SetTile(index, tilePos, 1);
+                SetBottomTile(index, tilePos, 1);
                 return;
             default:
-                SetTile(index, tilePos, 1);
+                SetBottomTile(index, tilePos, 1);
                 return;
         }
     }
@@ -470,7 +470,7 @@ void sub_08090094(PushableFurnitureEntity* this, u32 param_2, u32 tilePos) {
             break;
     }
 
-    SetTile(index, tilePos, 1);
+    SetBottomTile(index, tilePos, 1);
 }
 
 void sub_08090254(PushableFurnitureEntity* this) {
@@ -572,7 +572,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
 }
 
 void sub_08090480(u32 param_1, u32 param_2) {
-    SetTile(gUnk_08121EF0[param_1], param_2, 1);
+    SetBottomTile(gUnk_08121EF0[param_1], param_2, 1);
 }
 
 void sub_08090498(PushableFurnitureEntity* this) {

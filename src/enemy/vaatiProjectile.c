@@ -285,6 +285,6 @@ void sub_0803E4D8(VaatiProjectileEntity* this) {
 
     tile = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
     if (sub_080B1B44(tile, gPlayerEntity.base.collisionLayer) != 0xff) {
-        SetTile(0x4074, tile, gPlayerEntity.base.collisionLayer);
+        SetBottomTile(0x4074, tile, gPlayerEntity.base.collisionLayer);
     }
 }

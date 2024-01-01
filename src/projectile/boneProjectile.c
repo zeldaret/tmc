@@ -44,7 +44,7 @@ void BoneProjectile_Action1(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
-            sub_08016AD2(this);
+            UpdateCollisionLayer(this);
             if (--this->timer == 0) {
                 this->action = 2;
                 this->speed = 0x120;

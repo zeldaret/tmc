@@ -183,10 +183,10 @@ void sub_0808C148(JarPortalEntity* this, u32 a2) {
 
     pos = COORD_TO_TILE(super);
     if (!a2) {
-        SetTile(16530, pos - 1, super->collisionLayer);
-        SetTile(16531, pos, super->collisionLayer);
-        SetTile(16532, pos + 63, super->collisionLayer);
-        SetTile(16533, pos + 64, super->collisionLayer);
+        SetBottomTile(16530, pos - 1, super->collisionLayer);
+        SetBottomTile(16531, pos, super->collisionLayer);
+        SetBottomTile(16532, pos + 63, super->collisionLayer);
+        SetBottomTile(16533, pos + 64, super->collisionLayer);
     } else {
         RestorePrevTileEntity(pos - 1, super->collisionLayer);
         RestorePrevTileEntity(pos, super->collisionLayer);

@@ -6,7 +6,7 @@
 #include "object.h"
 
 s32 sub_080774A0(void);
-extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
+extern s32 DoItemTileInteraction(Entity*, u32, ItemBehavior*);
 extern void UpdatePlayerMovement(void);
 extern bool32 sub_0807B5B0(Entity*);
 void sub_08077130(ItemBehavior*, u32);
@@ -70,7 +70,7 @@ void sub_080771C8(ItemBehavior* this, u32 index) {
             CreateObjectWithParent(&gPlayerEntity.base, MOLE_MITTS_PARTICLE, this->playerFrame, 1);
         }
         if ((this->playerFrame & 0x10) != 0) {
-            if (sub_0800875A(&gPlayerEntity.base, 0xd, this) == 0) {
+            if (DoItemTileInteraction(&gPlayerEntity.base, 0xd, this) == 0) {
                 SetItemAnim(this, ANIM_MOLEMITTS_MISS);
                 this->stateID = 3;
                 SoundReq(SFX_ITEM_GLOVES_AIR);

@@ -169,7 +169,7 @@ SECTIONS {
         . = 0x000057BC; ram_sub_080B1A48 = .;
         . = 0x000057CC; ram_sub_080B1A58 = .;
         . = 0x000057D4; ram_GetTileType = .;
-        . = 0x00005800; ram_GetRelativeCollisionTile = .;
+        . = 0x00005800; ram_GetActTileRelative = .;
         . = 0x0000581C; ram_GetActTile = .;
         . = 0x00005828; ram_sub_080B1AB4 = .;
         . = 0x0000583C; ram_sub_080B1AC8 = .;

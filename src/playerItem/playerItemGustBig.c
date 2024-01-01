@@ -25,7 +25,7 @@ extern void PlayerItemGustBig_Action1(PlayerItemGustBigEntity* this);
 extern void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this);
 extern void PlayerItemGustBig_Action3(PlayerItemGustBigEntity* this);
 
-extern u32 sub_08007DD6(u32, const u16*);
+extern u32 ActTileToTile(u32, const u16*);
 
 extern const u8 gUnk_08003E44[];
 
@@ -136,7 +136,7 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
     s32 x;
     if (super->child == NULL) {
         GetNextFrame(super);
-        sub_08008790(super, 5);
+        DoTileInteractionHere(super, 5);
     } else {
         if ((super->child->gustJarState & 4) == 0) {
             DeleteThisEntity();
@@ -174,10 +174,10 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if (sub_08007DD6(sub_080B1A0C(super, x, y), gUnk_080B3DF4) != 0) {
+        if (ActTileToTile(sub_080B1A0C(super, x, y), gUnk_080B3DF4) != 0) {
             return;
         }
-        if (GetRelativeCollisionTile(super, x, y) == 0x74) {
+        if (GetActTileRelative(super, x, y) == 0x74) {
             return;
         }
         if (sub_080040D8(super, (u8*)gUnk_08003E44, super->x.HALF.HI + x, super->y.HALF.HI + y) == 0) {

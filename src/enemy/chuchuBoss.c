@@ -561,7 +561,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
         gPlayerEntity.base.animationState = 0;
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 1;
-        SetTile(0x4022, 0x2c8, 1);
+        SetBottomTile(0x4022, 0x2c8, 1);
     }
 }
 

@@ -155,7 +155,7 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
     } else {
         super->spriteSettings.draw = 1;
         super->action = 1;
-        SetTile(0x400b, this->unk_84, super->collisionLayer);
+        SetBottomTile(0x400b, this->unk_84, super->collisionLayer);
         sub_080894C8(this);
     }
 }
@@ -163,9 +163,9 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
 void sub_08089454(PushableStatueEntity* this) {
     this->unk_84 = COORD_TO_TILE(super);
     this->unk_80 = GetTileIndex(this->unk_84, super->collisionLayer);
-    SetTile(0x400b, this->unk_84, super->collisionLayer);
+    SetBottomTile(0x400b, this->unk_84, super->collisionLayer);
     if (super->collisionLayer == 2 && GetTileType(this->unk_84, 1) == 0x310) {
-        SetTile(0x400b, this->unk_84, 1);
+        SetBottomTile(0x400b, this->unk_84, 1);
     }
 }
 
@@ -194,7 +194,7 @@ void sub_08089538(PushableStatueEntity* this) {
     u16 tileType;
     this->unk_86 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetTile(this->unk_80, this->unk_84, super->collisionLayer);
+    SetBottomTile(this->unk_80, this->unk_84, super->collisionLayer);
     if ((super->collisionLayer == 2) && (GetTileType(this->unk_84, 1) == 0x400b)) {
         CloneTile(0x310, this->unk_84, 1);
     }
@@ -264,7 +264,7 @@ bool32 sub_080896B0(void) {
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]) - uVar1;
         val = sub_080B1AE0(uVar4, gPlayerEntity.base.collisionLayer);
         if ((val - 0x26 > 1) && (val != 0x29)) {
-            layer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
+            layer = GetTileBuffer(gPlayerEntity.base.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
             tmp1 = layer->collisionData[iVar2];
             tmp2 = layer->collisionData[(iVar2 - uVar1)];

@@ -894,7 +894,7 @@ static void sub_08071130(PlayerEntity* this) {
     if (this->unk_74 != NULL)
         ResetCollisionLayer(this->unk_74);
 
-    sub_08008790(super, 7);
+    DoTileInteractionHere(super, 7);
 
     if (gPlayerState.field_0x14)
         return;
@@ -2195,7 +2195,7 @@ static void PlayerInHoleInit(PlayerEntity* this) {
                 super->timer = 1;
             }
         }
-        SetTile(0x4070, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(0x4070, COORD_TO_TILE(super), super->collisionLayer);
         ResetActiveItems();
         PlayerInHoleUpdate(this);
         SoundReq(SFX_81);
@@ -2252,7 +2252,7 @@ static void sub_08072B5C(PlayerEntity* this) {
         return;
     }
 
-    SetTile(0x4021, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(0x4021, COORD_TO_TILE(super), super->collisionLayer);
     super->direction = Direction8FromAnimationState(super->animationState);
     temp = sub_0807A2F8(1);
     if (!temp) {
@@ -2288,7 +2288,7 @@ static void sub_08072C48(PlayerEntity* this) {
     if (GravityUpdate(super, GRAVITY_RATE))
         return;
 
-    sub_08008790(super, 7);
+    DoTileInteractionHere(super, 7);
     if (gPlayerState.field_0x14) {
         if (PlayerCheckNEastTile()) {
             gPlayerState.surfacePositionSameTimer = 7;
@@ -2364,13 +2364,13 @@ static void sub_08072D54(PlayerEntity* this) {
         uVar2 = GetTileType(sub_0806F730(super), super->collisionLayer);
         switch (super->subtimer) {
             case 0:
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
+                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
                     super->timer = 1;
                     super->subtimer = 1;
                 }
                 break;
             case 1:
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
+                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
                     super->timer = 1;
                 } else {
                     super->subtimer = 2;
@@ -2378,7 +2378,7 @@ static void sub_08072D54(PlayerEntity* this) {
                 break;
             case 2:
                 super->animationState ^= 4;
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1]) != 0) {
+                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1]) != 0) {
                     super->timer = 1;
                     super->subtimer = 3;
                 }
@@ -2386,7 +2386,7 @@ static void sub_08072D54(PlayerEntity* this) {
                 break;
             case 3:
                 super->animationState ^= 4;
-                if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
+                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
                     super->timer = 1;
                 } else {
                     super->subtimer = 4;
@@ -2410,7 +2410,7 @@ static void sub_08072D54(PlayerEntity* this) {
         } else {
             sub_08004542(super);
         }
-        sub_08008790(super, 7);
+        DoTileInteractionHere(super, 7);
         if (gPlayerState.field_0x14 != 0) {
             if (PlayerCheckNEastTile()) {
                 gPlayerState.surfacePositionSameTimer = 7;
@@ -3504,7 +3504,7 @@ void SurfaceAction_16(PlayerEntity* this) {
                 (super->x.HALF.HI & 0xFFF0) | 8, (super->y.HALF.HI & 0xFFF0) | 8, super->x.HALF.HI, super->y.HALF.HI);
         }
         if ((gPlayerState.flags & PL_MINISH) == 0)
-            sub_08008790(super, 7);
+            DoTileInteractionHere(super, 7);
     }
 }
 

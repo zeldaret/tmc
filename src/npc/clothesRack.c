@@ -36,12 +36,12 @@ void sub_0806DD90(Entity* this) {
     InitializeAnimation(this, animIndex);
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
-    SetTile(0x4072, TILE(x - 0x18, y - 0x10), this->collisionLayer);
-    SetTile(0x4072, TILE(x - 0x18, y), this->collisionLayer);
-    SetTile(0x4072, TILE(x - 0x18, y + 0x10), this->collisionLayer);
-    SetTile(0x4072, TILE(x + 0x18, y - 0x10), this->collisionLayer);
-    SetTile(0x4072, TILE(x + 0x18, y), this->collisionLayer);
-    SetTile(0x4072, TILE(x + 0x18, y + 0x10), this->collisionLayer);
+    SetBottomTile(0x4072, TILE(x - 0x18, y - 0x10), this->collisionLayer);
+    SetBottomTile(0x4072, TILE(x - 0x18, y), this->collisionLayer);
+    SetBottomTile(0x4072, TILE(x - 0x18, y + 0x10), this->collisionLayer);
+    SetBottomTile(0x4072, TILE(x + 0x18, y - 0x10), this->collisionLayer);
+    SetBottomTile(0x4072, TILE(x + 0x18, y), this->collisionLayer);
+    SetBottomTile(0x4072, TILE(x + 0x18, y + 0x10), this->collisionLayer);
 }
 
 void sub_0806DEC8(Entity* this) {

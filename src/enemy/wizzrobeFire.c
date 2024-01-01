@@ -26,7 +26,7 @@ void WizzrobeFire_OnCollision(WizzrobeEntity* this) {
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeFire_Functions);
     if (super->health == 0) {
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     }
 }
 
@@ -111,7 +111,7 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
                 super->timer = 40;
                 super->subtimer = 0;
                 super->flags &= ~0x80;
-                SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+                SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 EnqueueSFX(SFX_156);
                 InitializeAnimation(super, super->direction >> 3);
             }

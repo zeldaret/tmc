@@ -79,7 +79,7 @@ void PlayerItemFireRodProjectile_Action1(PlayerItemFireRodProjectileEntity* this
                 CreateFx(super, FX_SWORD_MAGIC, 0);
                 DeleteThisEntity();
             }
-            if (sub_08008790(super, 0xc)) {
+            if (DoTileInteractionHere(super, 0xc)) {
                 DeleteThisEntity();
             }
             super->child = CreatePlayerItem(PLAYER_ITEM_FIRE_ROD_PROJECTILE, 1, 0, this->unk_68);

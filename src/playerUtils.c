@@ -59,7 +59,7 @@ extern ItemDefinition gItemDefinitions[];
 
 extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
-extern void DeleteLoadedTileEntity(u32, u32);
+extern void UnregisterInteractTile(u32, u32);
 
 extern const u8 gUnk_080B3E80[]; // collisionData for tileType?
 
@@ -1910,7 +1910,7 @@ void sub_080792D8(void) {
                 gPlayerState.animation = ANIM_BOUNCE_NOCAP;
             }
         }
-        sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
+        LinearMoveDirectionOLD(playerEntity, 0x280, playerEntity->knockbackDirection);
         sub_0807A5B8(playerEntity->knockbackDirection);
     }
 }
@@ -2003,10 +2003,10 @@ bool32 sub_08079550(void) {
             }
 
             uVar3 = sub_080B1AE0(tilePos1, gPlayerEntity.base.collisionLayer);
-            uVar3 = sub_08007DD6(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
+            uVar3 = ActTileToTile(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
             if (uVar3 != 0) {
                 uVar3 = sub_080B1AE0(tilePos2, gPlayerEntity.base.collisionLayer);
-                uVar3 = sub_08007DD6(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
+                uVar3 = ActTileToTile(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
                 if (uVar3 != 0) {
                     gPlayerState.pushedObject |= 0x80;
                     if (gPlayerState.dash_state == 0 && (++gPlayerEntity.base.subtimer <= 5)) {
@@ -2332,13 +2332,13 @@ bool32 sub_08079C30(Entity* param_1) {
                 return TRUE;
         }
 
-        if (gPlayerState.floor_type != sub_08007DD6(GetRelativeCollisionTile(param_1, 0, -1), (u16*)gUnk_08007CAC))
+        if (gPlayerState.floor_type != ActTileToTile(GetActTileRelative(param_1, 0, -1), (u16*)gUnk_08007CAC))
             return FALSE;
 
-        if (gPlayerState.floor_type != sub_08007DD6(GetRelativeCollisionTile(param_1, 2, 0), (u16*)gUnk_08007CAC))
+        if (gPlayerState.floor_type != ActTileToTile(GetActTileRelative(param_1, 2, 0), (u16*)gUnk_08007CAC))
             return FALSE;
 
-        if (gPlayerState.floor_type == sub_08007DD6(GetRelativeCollisionTile(param_1, -2, 0), (u16*)gUnk_08007CAC)) {
+        if (gPlayerState.floor_type == ActTileToTile(GetActTileRelative(param_1, -2, 0), (u16*)gUnk_08007CAC)) {
             return TRUE;
         }
     }
@@ -2350,7 +2350,7 @@ bool32 sub_08079D48(void) {
         return TRUE;
     } else {
         if (!PlayerCheckNEastTile()) {
-            if (!sub_08007DD6((u16)GetActTile(&gPlayerEntity.base), gUnk_0811C268)) {
+            if (!ActTileToTile((u16)GetActTile(&gPlayerEntity.base), gUnk_0811C268)) {
                 return TRUE;
             }
         }
@@ -2397,7 +2397,7 @@ void sub_08079E58(s32 speed, u32 direction) {
         sub_08079E90(direction);
     }
     sub_080085B0(&gPlayerEntity.base);
-    sub_080027EA(&gPlayerEntity.base, (s16)speed, (u8)direction);
+    LinearMoveDirectionOLD(&gPlayerEntity.base, (s16)speed, (u8)direction);
     sub_0807A5B8(direction);
 }
 
@@ -2588,8 +2588,8 @@ SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
         gPlayerState.surfaceTimer++;
     }
     gPlayerState.floor_type_last = gPlayerState.floor_type;
-    tileType = GetRelativeCollisionTile(param_1, x, y);
-    return sub_08007DD6(tileType, (u16*)gUnk_08007CAC);
+    tileType = GetActTileRelative(param_1, x, y);
+    return ActTileToTile(tileType, (u16*)gUnk_08007CAC);
 }
 
 void EnablePlayerDraw(Entity* this) {
@@ -2633,8 +2633,8 @@ u32 sub_0807A2F8(u32 param_1) {
         iVar4 = 0;
         uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
         if (sub_080B1B44(uVar2 >> 1, 1)) {
-            if (!sub_08007DD6((u16)sub_080B1AE0((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
-                              gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
+            if (!ActTileToTile((u16)sub_080B1AE0((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
+                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
         } else {
@@ -2643,8 +2643,8 @@ u32 sub_0807A2F8(u32 param_1) {
 
         uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
         if (sub_080B1B44(uVar1 >> 1, 1)) {
-            if (!sub_08007DD6((u16)sub_080B1AE0((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
-                              gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
+            if (!ActTileToTile((u16)sub_080B1AE0((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
+                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
         } else {
@@ -2857,7 +2857,7 @@ u32 GetCollisionTileInFront(Entity* this) {
             x = 0;
             break;
     }
-    return GetRelativeCollisionTile(this, x, y);
+    return GetActTileRelative(this, x, y);
 }
 
 void nullsub_505(void) {
@@ -2941,7 +2941,7 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
                 object->child = (Entity*)ptr;
-                SetTile(0x404f, COORD_TO_TILE(object), object->collisionLayer);
+                SetBottomTile(0x404f, COORD_TO_TILE(object), object->collisionLayer);
             }
         }
     }
@@ -3263,8 +3263,8 @@ void SetTileType(u32 tileType, u32 position, u32 layer) {
     u16* dest;
 
     if (tileType < 0x800) {
-        DeleteLoadedTileEntity(position, layer);
-        data = GetLayerByIndex(layer);
+        UnregisterInteractTile(position, layer);
+        data = GetTileBuffer(layer);
         metatile = data->unkData2[tileType];
         data->mapData[position] = metatile;
         collisionData = gUnk_080B3E80[tileType];
@@ -3290,7 +3290,7 @@ void SetTileType(u32 tileType, u32 position, u32 layer) {
             }
         }
     } else if (tileType >= 0x4000) { // The tile type actually directly is a tileIndex
-        SetTile(tileType, position, layer);
+        SetBottomTile(tileType, position, layer);
     } else {
         RestorePrevTileEntity(position, layer);
     }
@@ -3426,16 +3426,16 @@ void sub_0807B778(u32 position, u32 layer) {
     }
 }
 
-void sub_0807B7D8(u32 param_1, u32 param_2, u32 param_3) {
-    if (param_1 == 53) {
-        CloneTile(53, param_2, param_3);
-        sub_0807B778(param_2, param_3);
-        sub_0807B778(param_2 + 1, param_3);
-        sub_0807B778(param_2 - 1, param_3);
-        sub_0807B778(param_2 + 64, param_3);
-        sub_0807B778(param_2 - 64, param_3);
+void sub_0807B7D8(u32 type, u32 pos, u32 layer) {
+    if (type == 53) {
+        CloneTile(53, pos, layer);
+        sub_0807B778(pos, layer);
+        sub_0807B778(pos + 1, layer);
+        sub_0807B778(pos - 1, layer);
+        sub_0807B778(pos + 64, layer);
+        sub_0807B778(pos - 64, layer);
     } else {
-        SetTileType(param_1, param_2, param_3);
+        SetTileType(type, pos, layer);
     }
 }
 
@@ -3481,8 +3481,8 @@ void sub_0807B9B8(u32 tileIndex, u32 position, u32 layer) {
     u16* dest;
     u16 tileType;
 
-    DeleteLoadedTileEntity(position, layer);
-    data = GetLayerByIndex(layer);
+    UnregisterInteractTile(position, layer);
+    data = GetTileBuffer(layer);
     data->mapData[position] = tileIndex;
     tileType = data->metatileTypes[tileIndex];
     data->collisionData[position] = gUnk_080B3E80[tileType];
@@ -3512,9 +3512,9 @@ void RestorePrevTileEntity(u32 position, u32 layer) {
     u16* dest;
     u16* src;
 
-    DeleteLoadedTileEntity(position, layer);
-    data = GetLayerByIndex(layer);
-    data->mapData[position] = tileIndex = data->mapDataClone[position];
+    UnregisterInteractTile(position, layer);
+    data = GetTileBuffer(layer);
+    data->mapData[position] = tileIndex = data->mapDataOriginal[position];
     tileType = data->metatileTypes[tileIndex];
     data->collisionData[position] = gUnk_080B3E80[tileType];
     data->unkData3[position] = gUnk_080B37A0[tileType];
@@ -3548,7 +3548,7 @@ void sub_0807BB98(s32 basePosition, u32 layer, u32 width, u32 height) {
     u32 x;
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
-            SetTile(0x4072, basePosition + x, layer);
+            SetBottomTile(0x4072, basePosition + x, layer);
         }
         basePosition += 0x40;
     }
@@ -3853,21 +3853,21 @@ void LoadRoomGfx(void) {
         tmp = TRUE;
     }
     if (gRoomTransition.field2d == 0) {
-        MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
-        MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapBottom.mapData));
+        MemCopy(gMapBottom.mapData, gMapBottom.mapDataOriginal, sizeof(gMapBottom.mapData));
+        MemCopy(gMapTop.mapData, gMapTop.mapDataOriginal, sizeof(gMapBottom.mapData));
     } else if (gRoomTransition.field2d == 2) {
         MemCopy(gMapBottom.mapData, gMapBottom.unkData3, 0x1000);
-        MemCopy(gMapBottom.mapDataClone, gMapBottom.mapData, 0x1000);
-        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataClone, 0x1000);
+        MemCopy(gMapBottom.mapDataOriginal, gMapBottom.mapData, 0x1000);
+        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataOriginal, 0x1000);
         MemCopy(gMapBottom.mapData + 0x800, gMapBottom.unkData3, 0x1000);
-        MemCopy(gMapBottom.mapDataClone + 0x800, gMapBottom.mapData + 0x800, 0x1000);
-        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataClone + 0x800, 0x1000);
+        MemCopy(gMapBottom.mapDataOriginal + 0x800, gMapBottom.mapData + 0x800, 0x1000);
+        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataOriginal + 0x800, 0x1000);
         MemCopy(gMapTop.mapData, gMapTop.unkData3, 0x1000);
-        MemCopy(gMapTop.mapDataClone, gMapTop.mapData, 0x1000);
-        MemCopy(gMapTop.unkData3, gMapTop.mapDataClone, 0x1000);
+        MemCopy(gMapTop.mapDataOriginal, gMapTop.mapData, 0x1000);
+        MemCopy(gMapTop.unkData3, gMapTop.mapDataOriginal, 0x1000);
         MemCopy(gMapTop.mapData + 0x800, gMapTop.unkData3, 0x1000);
-        MemCopy(gMapTop.mapDataClone + 0x800, gMapTop.mapData + 0x800, 0x1000);
-        MemCopy(gMapTop.unkData3, gMapTop.mapDataClone + 0x800, 0x1000);
+        MemCopy(gMapTop.mapDataOriginal + 0x800, gMapTop.mapData + 0x800, 0x1000);
+        MemCopy(gMapTop.unkData3, gMapTop.mapDataOriginal + 0x800, 0x1000);
     }
     if (!tmp) {
         sub_0807BBE4();
@@ -3946,10 +3946,10 @@ void sub_0807C460(void) {
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
             if (*mapBottom > 0x3fff) {
-                SetTile(*mapBottom, position, 1);
+                SetBottomTile(*mapBottom, position, 1);
             }
             if (*mapTop > 0x3fff) {
-                SetTile(*mapTop, position, 2);
+                SetBottomTile(*mapTop, position, 2);
             }
             mapBottom++;
             mapTop++;
@@ -4188,8 +4188,8 @@ void sub_0807C810(void) {
  */
 void CloneMapData(void) {
     gRoomTransition.field2d = 1;
-    MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);
-    MemCopy(&gMapTop.mapData, &gMapTop.mapDataClone, 0x2000);
+    MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataOriginal, 0x2000);
+    MemCopy(&gMapTop.mapData, &gMapTop.mapDataOriginal, 0x2000);
 }
 
 void sub_0807C898(void) {

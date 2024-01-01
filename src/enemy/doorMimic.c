@@ -48,7 +48,7 @@ void DoorMimic_OnCollision(DoorMimicEntity* this) {
 }
 
 void DoorMimic_OnDeath(DoorMimicEntity* this) {
-    SetTile(this->unk_7c, this->unk_7e, super->collisionLayer);
+    SetBottomTile(this->unk_7c, this->unk_7e, super->collisionLayer);
     CreateFx(super, FX_POT_SHATTER, 0);
     EnemyDisableRespawn(super);
     DeleteThisEntity();
@@ -125,7 +125,7 @@ void sub_080221C0(DoorMimicEntity* this) {
     u32 tile = COORD_TO_TILE(super) + gUnk_080B4488[super->type2];
     this->unk_7e = tile;
     this->unk_7c = GetTileIndex(tile, super->collisionLayer);
-    SetTile(gUnk_080CB79C[super->type2], tile, super->collisionLayer);
+    SetBottomTile(gUnk_080CB79C[super->type2], tile, super->collisionLayer);
 }
 
 // clang-format off

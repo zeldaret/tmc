@@ -43,7 +43,7 @@ void RockProjectile_Action1(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
-            sub_08016AD2(this);
+            UpdateCollisionLayer(this);
             if (--this->timer == 0) {
                 this->action = 3;
             }
@@ -51,7 +51,7 @@ void RockProjectile_Action1(Entity* this) {
     } else {
         sub_0800417E(this, this->collisions);
         sub_080A8178(this);
-        sub_08016AD2(this);
+        UpdateCollisionLayer(this);
     }
 }
 

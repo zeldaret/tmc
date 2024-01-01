@@ -35,7 +35,7 @@ void WizzrobeIce_OnCollision(WizzrobeEntity* this) {
         }
     }
     if (super->health == 0) {
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     }
 }
 
@@ -118,7 +118,7 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
                 super->timer = 40;
                 super->subtimer = 0;
                 super->flags &= ~0x80;
-                SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+                SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 EnqueueSFX(SFX_156);
                 InitializeAnimation(super, super->direction >> 3);
             }

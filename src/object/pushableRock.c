@@ -54,7 +54,7 @@ void PushableRock_Action1(PushableRockEntity* this) {
             } else {
                 super->spriteSettings.flipX = 0;
             }
-            SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+            SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
             super->action = 2;
             InitializeAnimation(super, (super->animationState >> 1) + 1);
             EnqueueSFX(SFX_10F);
@@ -92,7 +92,7 @@ void sub_0808A644(PushableRockEntity* this) {
     this->unk_72 = sub_080B1B44(this->tilePosition, super->collisionLayer);
     tmp = sub_080B1AE0(this->tilePosition, super->collisionLayer);
     if ((tmp == 0x19) || (tmp == 0xf0)) {
-        SetTile(0x4015, this->tilePosition, super->collisionLayer);
+        SetBottomTile(0x4015, this->tilePosition, super->collisionLayer);
         super->action = 3;
         if (!CheckFlags(this->pushedFlag)) {
             SetFlag(this->pushedFlag);
@@ -102,7 +102,7 @@ void sub_0808A644(PushableRockEntity* this) {
             InitializeAnimation(super, 6);
         }
     } else {
-        SetTile(0x401b, this->tilePosition, super->collisionLayer);
+        SetBottomTile(0x401b, this->tilePosition, super->collisionLayer);
     }
 }
 

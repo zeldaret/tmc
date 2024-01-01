@@ -14,7 +14,7 @@ void sub_08076518(ItemBehavior*, u32);
 void sub_080765E0(ItemBehavior*, u32);
 void sub_0807660C(ItemBehavior*, u32);
 
-extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
+extern s32 DoItemTileInteraction(Entity*, u32, ItemBehavior*);
 
 extern const u16 gUnk_0811BE38[];
 extern const u16 gUnk_0811BE40[];
@@ -168,7 +168,7 @@ void sub_080762D8(ItemBehavior* this, u32 index) {
 
     if (!gPlayerState.jump_status) {
 
-        if (gPlayerState.heldObject == 1 && sub_0800875A(&gPlayerEntity.base, 6, this) != 0) {
+        if (gPlayerState.heldObject == 1 && DoItemTileInteraction(&gPlayerEntity.base, 6, this) != 0) {
             sub_08076088(this, NULL, index);
             return;
         } else if (gUnk_0811BE38[gPlayerEntity.base.animationState >> 1] & gPlayerState.playerInput.heldInput) {

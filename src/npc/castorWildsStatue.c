@@ -78,20 +78,20 @@ void sub_08067418(CastorWildsStatueEntity* this) {
     this->tilePos = COORD_TO_TILE(super);
     if (super->type == 0) {
         super->hitbox = (Hitbox*)&gUnk_08110E94;
-        SetTile(0x4022, this->tilePos - 1, super->collisionLayer);
-        SetTile(0x4022, this->tilePos, super->collisionLayer);
-        SetTile(0x4022, this->tilePos + 0x3f, super->collisionLayer);
-        SetTile(0x4022, this->tilePos + 0x40, super->collisionLayer);
+        SetBottomTile(0x4022, this->tilePos - 1, super->collisionLayer);
+        SetBottomTile(0x4022, this->tilePos, super->collisionLayer);
+        SetBottomTile(0x4022, this->tilePos + 0x3f, super->collisionLayer);
+        SetBottomTile(0x4022, this->tilePos + 0x40, super->collisionLayer);
     } else {
         super->collisionLayer = 3;
         super->spriteOrientation.flipY = 1;
         super->spriteRendering.b3 = 1;
         super->spritePriority.b0 = 2;
         if (CheckLocalFlag(HIKYOU_00_SEKIZOU) == 0) {
-            SetTile(0x4022, 0xe81, 1);
-            SetTile(0x4022, 0xe82, 1);
-            SetTile(0x4022, 0xe83, 1);
-            SetTile(0x4022, 0xec3, 1);
+            SetBottomTile(0x4022, 0xe81, 1);
+            SetBottomTile(0x4022, 0xe82, 1);
+            SetBottomTile(0x4022, 0xe83, 1);
+            SetBottomTile(0x4022, 0xec3, 1);
         }
     }
     InitScriptForNPC(super);

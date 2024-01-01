@@ -98,39 +98,39 @@ void sub_0809B0B0(DoubleBookshelfEntity* this) {
         case 0:
             this->unk_84 = 0;
             this->unk_82 = position + 2;
-            SetTile(0x4082, position - 1, layer);
-            SetTile(0x4022, position, layer);
-            SetTile(0x4022, position + 1, layer);
-            SetTile(0x4022, position + 2, layer);
+            SetBottomTile(0x4082, position - 1, layer);
+            SetBottomTile(0x4022, position, layer);
+            SetBottomTile(0x4022, position + 1, layer);
+            SetBottomTile(0x4022, position + 2, layer);
             break;
         case 1:
             this->unk_84 = 1;
             this->unk_82 = position;
-            SetTile(0x405f, position, layer);
-            SetTile(0x4022, position + 1, layer);
-            SetTile(0x4022, position + 2, layer);
-            SetTile(0x4082, position + 3, layer);
+            SetBottomTile(0x405f, position, layer);
+            SetBottomTile(0x4022, position + 1, layer);
+            SetBottomTile(0x4022, position + 2, layer);
+            SetBottomTile(0x4082, position + 3, layer);
             break;
         case 2:
             this->unk_84 = 1;
             this->unk_82 = position;
-            SetTile(0x4082, position + 3, layer);
-            SetTile(0x4022, position + 2, layer);
-            SetTile(0x405f, position, layer);
+            SetBottomTile(0x4082, position + 3, layer);
+            SetBottomTile(0x4022, position + 2, layer);
+            SetBottomTile(0x405f, position, layer);
             SetFlag(((DoubleBookshelfEntity*)super->parent)->unk_86);
             break;
         case 3:
             this->unk_84 = 0;
             this->unk_82 = position + 2;
-            SetTile(0x4082, position - 1, layer);
-            SetTile(0x4022, position, layer);
-            SetTile(0x405f, position + 2, layer);
+            SetBottomTile(0x4082, position - 1, layer);
+            SetBottomTile(0x4022, position, layer);
+            SetBottomTile(0x405f, position + 2, layer);
             ClearFlag(((DoubleBookshelfEntity*)super->parent)->unk_86);
             break;
         case 4:
-            SetTile(0x4022, position, layer);
-            SetTile(0x4022, position + 1, layer);
-            SetTile(0x4022, position + 2, layer);
+            SetBottomTile(0x4022, position, layer);
+            SetBottomTile(0x4022, position + 1, layer);
+            SetBottomTile(0x4022, position + 2, layer);
             break;
     }
 }
@@ -157,7 +157,7 @@ void sub_0809B274(DoubleBookshelfEntity* this) {
         case 1:
             if (player->x.HALF.HI + 0x1c > super->x.HALF.HI) {
                 this->unk_84 = 2;
-                SetTile(0x4022, this->unk_80 + 2, 1);
+                SetBottomTile(0x4022, this->unk_80 + 2, 1);
                 sub_0809B358((DoubleBookshelfEntity*)super->child);
                 return;
             }
@@ -182,7 +182,7 @@ void sub_0809B334(DoubleBookshelfEntity* this) {
     s32 index;
     u32 position = this->unk_80 - 0x81;
     for (index = 2; index >= 0; index--, position++) {
-        SetTile(0x4026, position, 1);
+        SetBottomTile(0x4026, position, 1);
     }
 }
 
@@ -194,7 +194,7 @@ void sub_0809B358(DoubleBookshelfEntity* this) {
     const u16* array = &gUnk_08123D68[this->unk_84];
     u32 position = this->unk_80 - 0x82;
     for (index = 4; index >= 0;) {
-        SetTile(*array, position, 1);
+        SetBottomTile(*array, position, 1);
         index--;
         position++;
         array += 2;

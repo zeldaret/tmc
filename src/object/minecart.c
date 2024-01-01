@@ -59,7 +59,7 @@ void Minecart_Init(MinecartEntity* this) {
     super->speed = 0x700;
     super->spritePriority.b1 = 3;
     InitAnimationForceUpdate(super, super->type2 + 4 + super->animationState);
-    SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 void Minecart_Action1(MinecartEntity* this) {
@@ -163,9 +163,9 @@ void Minecart_Action3(MinecartEntity* this) {
                 super->subtimer = 60;
             }
 
-            uVar3 = GetRelativeCollisionTile(super, gUnk_081223C8[super->animationState * 2],
-                                             gUnk_081223C8[super->animationState * 2 + 1]);
-            iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[super->animationState]);
+            uVar3 = GetActTileRelative(super, gUnk_081223C8[super->animationState * 2],
+                                       gUnk_081223C8[super->animationState * 2 + 1]);
+            iVar2 = ActTileToTile(uVar3, gUnk_081223D8[super->animationState]);
             if (iVar2 == 0) {
                 super->direction = DirectionTurnAround(super->direction);
                 super->animationState = AnimationStateFlip90(super->animationState);
@@ -290,7 +290,7 @@ void Minecart_Action6(MinecartEntity* this) {
         minecartData->room = gRoomControls.room;
         minecartData->animationState = super->animationState;
         InitAnimationForceUpdate(super, super->animationState + 0x10);
-        SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
     } else {
         UpdateAnimationSingleFrame(super);
         gPlayerEntity.base.spritePriority.b0 = super->spritePriority.b0 - 1;

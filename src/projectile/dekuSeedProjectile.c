@@ -60,13 +60,13 @@ void DekuSeedProjectile_Action1(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteThisEntity();
         }
-        sub_08016AD2(this);
+        UpdateCollisionLayer(this);
         if (--this->timer == 0) {
             this->action = 4;
         }
     } else {
         sub_0800417E(this, this->collisions);
-        sub_08016AD2(this);
+        UpdateCollisionLayer(this);
         InitializeAnimation(this, 0x19);
         sub_080A86A0(this);
     }
@@ -99,7 +99,7 @@ void DekuSeedProjectile_Action2(Entity* this) {
         }
     } else {
         sub_0800417E(this, this->collisions);
-        sub_08016AD2(this);
+        UpdateCollisionLayer(this);
         InitializeAnimation(this, 0x19);
         sub_080A86A0(this);
     }

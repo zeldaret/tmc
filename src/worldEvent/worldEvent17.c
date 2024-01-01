@@ -34,7 +34,7 @@ void sub_08054EB8(Entity* this, ScriptExecutionContext* context) {
 void sub_08054EFC(Entity* this, ScriptExecutionContext* context) {
     Entity* effect;
     u32 tmp = COORD_TO_TILE(this) - 0x40;
-    SetTile(0x4074, tmp, 1);
+    SetBottomTile(0x4074, tmp, 1);
     this->collisionLayer = 2;
     UpdateSpriteForCollisionLayer(this);
     effect = CreateFx(this, FX_BIG_EXPLOSION, 0);

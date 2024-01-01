@@ -48,7 +48,7 @@ void sub_0808270C(PotEntity* this);
 void sub_080826FC(PotEntity* this);
 
 extern void RegisterCarryEntity(Entity*);
-extern void sub_08016A6C(Entity*);
+extern void CheckOnLayerTransition(Entity*);
 
 void Pot(PotEntity* this) {
     static void (*const Pot_Actions[])(PotEntity*) = {
@@ -83,7 +83,7 @@ void Pot_Init(PotEntity* this) {
         DeleteThisEntity();
     }
 
-    SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
     InitializeAnimation(super, 5);
 }
 
@@ -96,7 +96,7 @@ void Pot_Action1(PotEntity* this) {
             super->subAction = 0;
             break;
         case 0x1D:
-            SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+            SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
             super->action = 5;
             super->zVelocity = Q_16_16(2.625);
             super->spriteOffsetY = 0;
@@ -120,11 +120,11 @@ void Pot_Action1(PotEntity* this) {
                             super->speed >>= 1;
                             super->timer = 64;
                         }
-                        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+                        SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         EnqueueSFX(SFX_10F);
                         break;
                     case 0x4067:
-                        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+                        SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         DeleteThisEntity();
                         break;
                     default:
@@ -132,7 +132,7 @@ void Pot_Action1(PotEntity* this) {
                             CreateFx(super, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
-                            SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+                            SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         }
                         BreakPot(this, NULL);
                         break;
@@ -158,7 +158,7 @@ void sub_08082510(PotEntity* this) {
     super->hitType = 1;
     super->flags2 = gPlayerEntity.base.flags2;
     super->spriteOffsetY = 0;
-    SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     super->subAction++;
 }
 
@@ -170,7 +170,7 @@ void sub_08082588(PotEntity* this) {
 }
 
 void sub_0808259C(PotEntity* this) {
-    switch (sub_080043E8(super)) {
+    switch (GetTileHazardType(super)) {
         case 2:
             CreateFx(super, FX_WATER_SPLASH, 0);
             break;
@@ -209,7 +209,7 @@ void Pot_Action4(PotEntity* this) {
     sub_0800445C(super);
     if (super->timer-- != 0) {
         LinearMoveUpdate(super);
-        sub_08016A6C(super);
+        CheckOnLayerTransition(super);
         return;
     }
 
@@ -230,7 +230,7 @@ void Pot_Action4(PotEntity* this) {
             BreakPot(this, NULL);
             break;
         default:
-            SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+            SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
             RegisterCarryEntity(super);
             break;
     }
@@ -253,7 +253,7 @@ void sub_0808270C(PotEntity* this) {
     if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
         super->spriteOffsetX = 0;
         super->action = 1;
-        SetTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
     } else {
         sub_0806F4E8(super);
     }
@@ -264,7 +264,7 @@ void sub_08082778(PotEntity* this) {
         super->timer = 1;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = -2;
-        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
 
     if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {

@@ -33,7 +33,7 @@ void sub_0805CBD0(Manager29* this) {
     this->unk_38 = (this->unk_38 >> 4 & 0x3fU) | (((this->unk_3a << 0x10) >> 0x14 & 0x3fU) << 6);
     this->unk_3a = (this->unk_3c >> 4 & 0x3f) | (((this->unk_36 + this->unk_37 * 0x100) >> 4 & 0x3fU) << 6);
     this->unk_3c = GetTileType(this->unk_38, this->unk_34);
-    layer = GetLayerByIndex(this->unk_34);
+    layer = GetTileBuffer(this->unk_34);
     this->unk_28 = (u16*)layer->metatileTypes;
     this->unk_2c = &layer->mapData[(s16)this->unk_3a];
 }

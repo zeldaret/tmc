@@ -97,7 +97,7 @@ void PlayerItemSwordBeam_Action1(PlayerItemSwordBeamEntity* this) {
             CreateFx(super, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
-        if (sub_08008790(super, 0xc) != NULL) {
+        if (DoTileInteractionHere(super, 0xc) != NULL) {
             DeleteThisEntity();
         }
     } else {

@@ -85,10 +85,10 @@ void Enemy64_Init(Enemy64Entity* this) {
     Entity* tail;
 
     if (CheckFlags(0x7c)) {
-        SetTile(0x4081, 10, 2);
-        SetTile(0x4081, 0x4a, 2);
-        SetTile(0x4081, 0x8a, 2);
-        SetTile(0x4081, 0xca, 2);
+        SetBottomTile(0x4081, 10, 2);
+        SetBottomTile(0x4081, 0x4a, 2);
+        SetBottomTile(0x4081, 0x8a, 2);
+        SetBottomTile(0x4081, 0xca, 2);
         DeleteThisEntity();
     } else {
         sub_0807B7D8(0x323, 10, 1);
@@ -440,19 +440,19 @@ void Enemy64_Action4_SubAction7(Enemy64Entity* this) {
         DeleteThisEntity();
     } else if (super->timer == 16) {
         sub_0807B7D8(0x36, 0xca, 1);
-        SetTile(0x4081, 0xca, 2);
+        SetBottomTile(0x4081, 0xca, 2);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 24) {
         sub_0807B7D8(0x36, 0x8a, 1);
-        SetTile(0x4081, 0x8a, 2);
+        SetBottomTile(0x4081, 0x8a, 2);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 32) {
         sub_0807B7D8(0x36, 0x4a, 1);
-        SetTile(0x4081, 0x4a, 2);
+        SetBottomTile(0x4081, 0x4a, 2);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 40) {
         sub_0807B7D8(0x36, 10, 1);
-        SetTile(0x4081, 10, 2);
+        SetBottomTile(0x4081, 10, 2);
         SoundReq(SFX_HEART_GET);
     }
 }

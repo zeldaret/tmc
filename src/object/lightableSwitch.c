@@ -99,7 +99,7 @@ static void sub_0809EAD8(LightableSwitchEntity* this) {
         UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
     } else {
-        SetTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 

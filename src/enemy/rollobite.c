@@ -276,7 +276,7 @@ bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
             super->y.HALF.HI += 13;
             super->zVelocity = Q_16_16(2.0);
             InitializeAnimation(super, super->animationState + 0x14);
-            SetTile(0x4034, tile, super->collisionLayer);
+            SetBottomTile(0x4034, tile, super->collisionLayer);
             return TRUE;
         }
     }

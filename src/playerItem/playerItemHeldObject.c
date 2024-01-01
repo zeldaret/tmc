@@ -121,8 +121,8 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             super->direction = super->knockbackDirection;
             super->knockbackDuration = 0;
         }
-        if (GetRelativeCollisionTile(super, gUnk_081320C4[super->direction >> 2],
-                                     gUnk_081320C4[(super->direction >> 2) + 1]) == 0x74) {
+        if (GetActTileRelative(super, gUnk_081320C4[super->direction >> 2],
+                               gUnk_081320C4[(super->direction >> 2) + 1]) == 0x74) {
             LinearMoveUpdate(super);
         } else {
             tile = sub_080B1B0C(super);

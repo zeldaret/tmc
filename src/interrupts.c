@@ -219,8 +219,8 @@ void PlayerUpdate(PlayerEntity* this) {
         }
         HandlePlayerLife(super);
         DoPlayerAction(this);
-        if ((super->z.WORD == 0) && (super->action == 1 || super->action == 9))
-            sub_08008790(super, 8);
+        if ((super->z.WORD == 0) && (super->action == PLAYER_NORMAL || super->action == PLAYER_MINISH))
+            DoTileInteractionHere(super, 8);
         sub_080171F0();
     }
     sub_08078FB0(super);

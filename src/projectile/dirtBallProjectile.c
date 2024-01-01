@@ -136,7 +136,7 @@ void DirtBallProjectile_Action2(Entity* this) {
         return;
     }
 
-    tmp = sub_080043E8(this);
+    tmp = GetTileHazardType(this);
     if (tmp != 0) {
         switch (tmp) {
             case 2:

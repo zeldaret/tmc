@@ -762,7 +762,7 @@ void PlayerShrinkByRay(void);
 
 // player.s
 extern u32 PlayerCheckNEastTile();
-extern u32* sub_08008790(Entity*, u32);
+extern u32* DoTileInteractionHere(Entity*, u32);
 extern void UpdateIcePlayerVelocity(Entity*);
 extern void sub_08008AC6(Entity*);
 extern void sub_08008926(Entity*);

@@ -94,7 +94,7 @@ void SpinyBeetle_Init(SpinyBeetleEntity* this) {
     this->unk_7b = 0;
     this->tile = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
-    SetTile(0x4022, this->tile, super->collisionLayer);
+    SetBottomTile(0x4022, this->tile, super->collisionLayer);
     obj = CreateObject(OBJECT_ON_BEETLE, super->type, 0);
 
     if (obj == NULL) {
@@ -259,7 +259,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         }
     }
 
-    SetTile(0x4022, this->tile, super->collisionLayer);
+    SetBottomTile(0x4022, this->tile, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
 

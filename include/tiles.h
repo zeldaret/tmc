@@ -2,6 +2,23 @@
 #define TILES_H
 
 typedef enum {
+    TILE_ACT_CUT = 0x0,
+    TILE_ACT_ROCKBREAKER = 0x1,
+    TILE_ACT_BOOMERANG = 0x2,
+    TILE_ACT_BOMB = 0x3,
+    TILE_ACT_ARROW = 0x4,
+    TILE_ACT_GUST = 0x5,
+    TILE_ACT_LIFT = 0x6,
+    TILE_ACT_FIRE = 0x7,
+    TILE_ACT_PLAYER_WALK = 0x8,
+    TILE_ACT_ENEMY_WALK = 0x9,
+    TILE_ACT_PACCI = 0xA,
+    TILE_ACT_SWORDBEAM = 0xC,
+    TILE_ACT_DIG = 0xD,
+    TILE_ACT_MINIGUST = 0xE,
+} TileInteraction;
+
+typedef enum {
     CUT_BUSH = 0x1C,
     CUT_GRASS = 0x1D,
     CUT_SIGNPOST = 0x1E,

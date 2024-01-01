@@ -91,7 +91,7 @@ void sub_080AA494(RemovableDustEntity* this) {
     }
     super->type2 = index;
     super->spritePriority.b0 = 7;
-    SetTile(0x4068, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    SetBottomTile(0x4068, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
 }
 
 void sub_080AA534(Entity* this) {

@@ -1612,7 +1612,7 @@ void CalculateEntityTileCollisions(Entity* this, u32 direction, u32 collisionTyp
     u32 hitboxUnkX;
     u32 hitboxUnkY;
 
-    layer = GetLayerByIndex(this->collisionLayer)->collisionData;
+    layer = GetTileBuffer(this->collisionLayer)->collisionData;
     hb = this->hitbox;
     xMin = this->x.HALF.HI + hb->offset_x;
     yMin = this->y.HALF.HI + hb->offset_y;
