@@ -301,8 +301,8 @@ CalculateDirectionTo: @ 0x080045D4
 	ldr r3, _08004694 @ =ram_CalcCollisionDirection
 	bx r3
 
-	non_word_aligned_thumb_func_start sub_080045DA
-sub_080045DA: @ 0x080045DA
+	non_word_aligned_thumb_func_start CalcOffsetAngle
+CalcOffsetAngle: @ 0x080045DA
 	push {r0, r1, r4, r5, r6, lr}
 	movs r6, #0x40
 	cmp r0, #0

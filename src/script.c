@@ -436,7 +436,7 @@ void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y)
     context->y.HALF.HI = y;
     xOffset = context->x.HALF.HI - entity->x.HALF.HI;
     yOffset = context->y.HALF.HI - entity->y.HALF.HI;
-    direction = sub_080045DA(xOffset, yOffset);
+    direction = CalcOffsetAngle(xOffset, yOffset);
     entity->direction = direction;
     entity->animationState = (entity->animationState & 0x80) | sDirectionTable[(u8)direction >> 4];
 }
@@ -1394,7 +1394,7 @@ void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context) {
     if (!--context->unk_19) {
         context->unk_19 = 8;
         entity->direction =
-            sub_080045DA(context->x.HALF.HI - entity->x.HALF.HI, context->y.HALF.HI - entity->y.HALF.HI);
+            CalcOffsetAngle(context->x.HALF.HI - entity->x.HALF.HI, context->y.HALF.HI - entity->y.HALF.HI);
     }
     tmp = entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 = entity->y.HALF.HI - context->y.HALF.HI;

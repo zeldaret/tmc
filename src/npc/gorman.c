@@ -154,7 +154,7 @@ void sub_0806991C(GormanEntity* this, ScriptExecutionContext* context) {
     context->unk_19 = 8;
     context->postScriptActions |= 2;
     context->condition = 0;
-    tmp = sub_080045DA(context->x.HALF.HI - super->x.HALF.HI, context->y.HALF.HI - super->y.HALF.HI);
+    tmp = CalcOffsetAngle(context->x.HALF.HI - super->x.HALF.HI, context->y.HALF.HI - super->y.HALF.HI);
     super->direction = tmp;
     super->animationState = (super->animationState & 0x80) | gUnk_08111C74[(tmp << 0x18) >> 0x1c];
     gActiveScriptInfo.flags |= 1;
@@ -170,7 +170,7 @@ void sub_080699AC(GormanEntity* this, ScriptExecutionContext* context) {
     context->unk_19 = 8;
     context->postScriptActions |= 2;
     context->condition = 0;
-    tmp = sub_080045DA(context->x.HALF.HI - super->x.HALF.HI, context->y.HALF.HI - super->y.HALF.HI);
+    tmp = CalcOffsetAngle(context->x.HALF.HI - super->x.HALF.HI, context->y.HALF.HI - super->y.HALF.HI);
     super->direction = tmp;
     super->animationState = (super->animationState & 0x80) | gUnk_08111C8C[(tmp << 0x18) >> 0x1c];
     gActiveScriptInfo.flags |= 1;

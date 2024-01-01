@@ -83,10 +83,10 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
             this->unk7a = this->unk7c;
             super->speed = 0x300;
             super->direction =
-                sub_080045DA(super->parent->x.WORD - super->x.WORD, super->parent->y.WORD - super->y.WORD) ^ 0x80;
+                CalcOffsetAngle(super->parent->x.WORD - super->x.WORD, super->parent->y.WORD - super->y.WORD) ^ 0x80;
         } else {
             super->speed = 0x600;
-            dir = sub_080045DA(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD) ^
+            dir = CalcOffsetAngle(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD) ^
                   0x80;
             if (dir != super->direction) {
                 if ((u8)(dir - super->direction) > 0x80) {
@@ -178,7 +178,7 @@ void EvilSpirit_Action3(EvilSpiritEntity* this) {
     short iVar4;
     int iVar6;
 
-    super->direction = sub_080045DA(this->x - super->x.WORD, this->y - super->y.WORD);
+    super->direction = CalcOffsetAngle(this->x - super->x.WORD, this->y - super->y.WORD);
     if ((super->contactFlags & 0x7f) == 0x13) {
         super->speed = 0x100;
         super->gustJarTolerance--;

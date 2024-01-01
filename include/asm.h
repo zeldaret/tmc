@@ -39,7 +39,7 @@ extern void ResetCollisionLayer(struct Entity_*);
 extern void sub_08004596(struct Entity_*, u32);
 extern u32 sub_080045B4(struct Entity_*, u32, u32);
 extern u32 CalculateDirectionTo(u32, u32, u32, u32);
-extern u32 sub_080045DA(s32, s32);
+extern u32 CalcOffsetAngle(s32, s32);
 extern u32 sub_080086B4(u32, u32, const u8*);
 extern u32 ResolveCollisionLayer(struct Entity_*);
 extern void sub_0800417E(struct Entity_*, u32);

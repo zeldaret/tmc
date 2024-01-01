@@ -260,7 +260,7 @@ void sub_08046AE8(GyorgMaleEntity* this) {
 }
 
 void sub_08046B18(GyorgMaleEntity* this) {
-    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0xFF) > 0x80) {
             this->unk_76 -= 0x100;
@@ -283,13 +283,13 @@ void sub_08046B8C(GyorgMaleEntity* this) {
         this->unk_82 = gRoomControls.origin_y + 0x210;
         sub_08047D88(this);
     } else {
-        super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        super->direction = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
 
 void sub_08046C04(GyorgMaleEntity* this) {
-    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0xFF) > 0x80) {
             this->unk_76 -= 0x100;
@@ -311,7 +311,7 @@ void sub_08046C88(GyorgMaleEntity* this) {
         sub_08048178(this, sub_08048158(this->unk_70));
         sub_08047D88(this);
     } else {
-        super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        super->direction = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
@@ -348,7 +348,7 @@ void sub_08046D44(GyorgMaleEntity* this) {
 }
 
 void sub_08046D98(GyorgMaleEntity* this) {
-    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0xFF) > 0x80) {
             this->unk_76 -= 0x100;
@@ -369,7 +369,7 @@ void sub_08046E0C(GyorgMaleEntity* this) {
         this->unk_76 = super->direction << 8;
         sub_08047D88(this);
     } else {
-        super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        super->direction = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
@@ -456,7 +456,7 @@ void sub_08046FE8(GyorgMaleEntity* this) {
 }
 
 void sub_0804702C(GyorgMaleEntity* this) {
-    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (((super->direction - tmp + 2) & 0xFF) > 4) {
         if ((tmp - super->direction) & 0x80) {
             super->direction--;
@@ -607,7 +607,7 @@ void sub_080473B8(GyorgMaleEntity* this) {
 }
 
 void sub_080473F0(GyorgMaleEntity* this) {
-    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (((super->direction - tmp + 2) & 0xFF) > 4) {
         s32 tmp2 = tmp - super->direction;
         if (tmp2 & 0x80) {
@@ -791,7 +791,7 @@ void sub_080477F0(GyorgMaleEntity* this) {
     if (super->speed < 0x300) {
         super->speed += 8;
     }
-    super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    super->direction = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     sub_08047E48(this);
     if (!EntityWithinDistance(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI, 0x80)) {
         super->action = 2;
@@ -896,7 +896,7 @@ void sub_08047978(GyorgMaleEntity* this) {
 
 void sub_08047B08(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    super->direction = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     super->speed = 0x200;
     sub_08047E58(this);
     if (!EntityWithinDistance(super, this->unk_80, this->unk_82, 4))
@@ -1066,7 +1066,7 @@ void sub_08047EA4(GyorgMaleEntity* this, u32 unk1) {
         return;
     if (this->unk_7c & 1) {
         tmp2 = sub_08047F68(this) << 8;
-        dir = sub_080045DA(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
+        dir = CalcOffsetAngle(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
                            gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
         tmp = dir - (tmp / 256);
         tmp &= 0xFF;
@@ -1149,7 +1149,7 @@ void sub_08048004(GyorgMaleEntity* this) {
             if (b != 3) {
                 if (EntityWithinDistance(&gPlayerEntity.base, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
                     if (!(this->unk_7c & 2)) {
-                        u32 tmp = sub_080045DA(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
+                        u32 tmp = CalcOffsetAngle(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
                                                gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
                         gPlayerEntity.base.x.WORD = super->x.WORD + (gSineTable[tmp] * 9216);
                         gPlayerEntity.base.y.WORD = super->y.WORD - (gSineTable[tmp + 0x40] * 9216);
