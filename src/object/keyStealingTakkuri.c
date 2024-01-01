@@ -433,7 +433,7 @@ void sub_0809E0D4(KeyStealingTakkuriEntity* this, ScriptExecutionContext* contex
         varY2 = varY;
         if (--context->unk_19 == 0) {
             context->unk_19 = 8;
-            super->direction = sub_080045DA(varX2 - super->x.HALF.HI, varY2 - super->y.HALF.HI);
+            super->direction = CalcOffsetAngle(varX2 - super->x.HALF.HI, varY2 - super->y.HALF.HI);
         }
         varX3 = super->x.HALF.HI - varX2;
         varY3 = super->y.HALF.HI - varY2;

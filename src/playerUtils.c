@@ -229,7 +229,7 @@ bool32 IsPreventedFromUsingItem(void) {
                     }
                     return FALSE;
                 default:
-                    if ((((gUnk_0200AF00.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.field_0x1c == 0)) &&
+                    if ((((gUnk_0200AF00.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.gustJarState == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
@@ -339,7 +339,7 @@ ItemBehavior* CreateItem3(Item itemId) {
             gItemDefinitions[itemId].priority >= gActiveItems[ACTIVE_ITEM_0].priority) {
             DeleteItemBehavior(&gActiveItems[ACTIVE_ITEM_0], 0);
             gPlayerState.grab_status = 0;
-            gPlayerState.field_0x1c = 0;
+            gPlayerState.gustJarState = 0;
             gPlayerState.sword_state = 0;
             return &gActiveItems[ACTIVE_ITEM_0];
         }
@@ -395,7 +395,7 @@ void ResetActiveItems() {
     }
 
     gPlayerState.moleMittsState = 0;
-    gPlayerState.field_0x1c = 0;
+    gPlayerState.gustJarState = PL_JAR_NONE;
     gPlayerState.bow_state = 0;
     gPlayerState.grab_status = 0;
     gPlayerState.itemAnimPriority = 0;
@@ -405,7 +405,7 @@ void ResetActiveItems() {
     gPlayerState.heldObject = 0;
     gPlayerState.flags &= ~(PL_ROLLING | PL_SWORD_THRUST);
 
-    gPlayerEntity.unk_70 = NULL;
+    gPlayerEntity.pulledJarEntity = NULL;
 
     if ((gPlayerState.jump_status & 0xc0) == 0) {
         gPlayerState.jump_status = 0;
@@ -1104,7 +1104,8 @@ bool32 sub_080782C0(void) {
         if (gPlayerState.heldObject != 4) {
             return FALSE;
         }
-        if ((gPlayerEntity.unk_74)->child->kind != OBJECT || (gPlayerEntity.unk_74)->child->id != SHOP_ITEM) {
+        if ((gPlayerEntity.carriedEntity)->child->kind != OBJECT ||
+            (gPlayerEntity.carriedEntity)->child->id != SHOP_ITEM) {
             return FALSE;
         }
     }
@@ -1580,7 +1581,7 @@ void sub_08078CD0(PlayerEntity* this) {
     u32 tmp;
     const s8* ptr;
 
-    entity = this->unk_70;
+    entity = this->pulledJarEntity;
     entity->z.HALF.HI = super->z.HALF.HI - 1;
     entity->spriteOrientation.flipY = super->spriteOrientation.flipY;
     entity->collisionLayer = super->collisionLayer;
@@ -1605,7 +1606,7 @@ void sub_08078D60(void) {
     Entity* player;
 
     player = &gPlayerEntity.base;
-    iVar4 = (*(Entity**)&((GenericEntity*)player)->field_0x74)->child;
+    iVar4 = ((PlayerEntity*)player)->carriedEntity->child;
     if (iVar4->action != 2)
         return;
 
@@ -1815,7 +1816,7 @@ void sub_080790E4(Entity* this) {
 void PlayerDropHeldObject(void) {
     gPlayerState.heldObject = 0;
     gPlayerState.grab_status = 0;
-    gPlayerEntity.unk_74 = NULL;
+    gPlayerEntity.carriedEntity = NULL;
 }
 
 void PlayerResetStateFromFusion(void) {
@@ -2109,7 +2110,7 @@ void sub_080797EC(void) {
             animation = ANIM_BOW_WALK;
         }
     } else {
-        if (gPlayerState.field_0x1c) {
+        if (gPlayerState.gustJarState) {
             return;
         } else if (gPlayerState.heldObject) {
             animation = ANIM_CARRY;
@@ -2166,7 +2167,7 @@ void ResolvePlayerAnimation(void) {
         if (gPlayerState.heldObject) {
             anim = ANIM_CARRY_STAND_NOCAP;
         } else {
-            if (gPlayerState.field_0x1c | gPlayerState.moleMittsState) {
+            if (gPlayerState.gustJarState | gPlayerState.moleMittsState) {
                 return;
             }
             if (gPlayerState.flags & PL_CONVEYOR_PUSHED) {
@@ -2209,7 +2210,7 @@ void ResolvePlayerAnimation(void) {
         if (gPlayerState.heldObject) {
             anim = ANIM_CARRY_STAND;
         } else {
-            if (gPlayerState.field_0x1c | gPlayerState.moleMittsState) {
+            if (gPlayerState.gustJarState | gPlayerState.moleMittsState) {
                 return;
             }
             if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
@@ -2722,7 +2723,7 @@ void sub_0807A5B8(u32 direction) {
             pbVar4 = gUnk_0800833C;
         } else if (((gPlayerState.flags & PL_PARACHUTE) != 0) || gPlayerState.jump_status != 0) {
             pbVar4 = gUnk_0800845C;
-        } else if (gPlayerState.heldObject != 0 || gPlayerState.field_0x1c != 0) {
+        } else if (gPlayerState.heldObject != 0 || gPlayerState.gustJarState != 0) {
             pbVar4 = gUnk_080084BC;
         } else if (gPlayerState.attachedBeetleCount != 0) {
             pbVar4 = gUnk_0800851C;

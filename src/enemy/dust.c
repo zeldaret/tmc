@@ -303,7 +303,7 @@ void sub_08044550(DustEntity* this) {
     u8 uVar1;
     const s8* ptr;
 
-    if ((gPlayerState.field_0x1c & 0xf) == 1) {
+    if ((gPlayerState.gustJarState & 0xf) == 1) {
         if (super->speed < 0x100) {
             super->speed += 0x10;
         }

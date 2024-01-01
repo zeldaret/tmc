@@ -29,7 +29,7 @@ void PlayerItemGustJar(Entity* this) {
         PlayerItemGustJar_Action3, PlayerItemGustJar_Action4,
     };
 
-    if (((Entity*)gPlayerState.item != this) || (gPlayerState.field_0x1c == 0)) {
+    if (((Entity*)gPlayerState.item != this) || (gPlayerState.gustJarState == PL_JAR_NONE)) {
         DeleteThisEntity();
     }
     PlayerItemGustJar_Actions[this->action](this);
@@ -63,10 +63,10 @@ void PlayerItemGustJar_Action2(Entity* this) {
     u32 in_r2;
     int windSound;
 
-    if (gPlayerState.field_0x1c == 3) {
+    if (gPlayerState.gustJarState == PL_JAR_3) {
         this->action++;
         InitAnimationForceUpdate(this, (gPlayerEntity.base.animationState >> 1) + 8);
-    } else if (gPlayerState.field_0x1c == 6) {
+    } else if (gPlayerState.gustJarState == PL_JAR_BLAST_DONE) {
         this->action = 4;
         InitAnimationForceUpdate(this, (gPlayerEntity.base.animationState >> 1) + 4);
     } else {
@@ -84,11 +84,11 @@ void PlayerItemGustJar_Action2(Entity* this) {
                 }
             }
         } else {
-            if ((gPlayerState.field_0x1c & 0xf) == 7) {
+            if ((gPlayerState.gustJarState & 0xf) == PL_JAR_ENT_ATTACHED) {
                 this->frameDuration = 0x7f;
             }
 
-            switch (gPlayerState.gustJarSpeed) {
+            switch (gPlayerState.gustJarCharge) {
                 case 3:
                     sub_080ADCDC(this, 3);
                     this->palette.b.b0 = 0;
@@ -109,7 +109,7 @@ void PlayerItemGustJar_Action2(Entity* this) {
                     break;
             }
 
-            if ((gPlayerState.field_0x1c & 0xf) == 7) {
+            if ((gPlayerState.gustJarState & 0xf) == PL_JAR_ENT_ATTACHED) {
                 windSound = SFX_EE;
                 in_r2 = 1;
             }
@@ -126,12 +126,12 @@ void PlayerItemGustJar_Action2(Entity* this) {
 }
 
 void PlayerItemGustJar_Action3(Entity* this) {
-    switch (gPlayerState.field_0x1c & 0xf) {
-        case 6:
+    switch (gPlayerState.gustJarState & 0xf) {
+        case PL_JAR_BLAST_DONE:
             this->action++;
             InitAnimationForceUpdate(this, (gPlayerEntity.base.animationState >> 1) + 4);
             break;
-        case 1:
+        case PL_JAR_SUCK:
             sub_080ADCA0(this, 0);
             this->action = 2;
             break;

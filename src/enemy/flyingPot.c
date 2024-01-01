@@ -156,7 +156,7 @@ void FlyingPot_SubAction2(FlyingPotEntity* this) {
 }
 
 void FlyingPot_SubAction3(FlyingPotEntity* this) {
-    if (!(gPlayerState.field_0x1c & 0xF)) {
+    if (!(gPlayerState.gustJarState & 0xF)) {
         sub_08037408(this);
     }
 }

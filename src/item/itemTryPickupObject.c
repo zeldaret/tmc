@@ -56,7 +56,7 @@ void sub_08076088(ItemBehavior* this, Entity* param_2, u32 param_3) {
         PlayerCancelHoldItem(this, param_3);
     } else {
         PlayerEntity* playerEnt = &gPlayerEntity;
-        playerEnt->unk_74 = param_2;
+        playerEnt->carriedEntity = param_2;
         playerEnt->base.subtimer = 0;
         param_2->child = this->field_0x18;
         param_2->carryFlags = playerEnt->base.carryFlags;

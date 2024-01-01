@@ -181,8 +181,8 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
                 return;
             }
         case 1:
-            super->direction = sub_080045DA(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
-                                            this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
+            super->direction = CalcOffsetAngle(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
+                                               this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
             LinearMoveAngle(super, super->speed, super->direction);
             if (EntityInRectRadius(super, this->helper->tailObjects[super->timer], 2, 2) == 0) {
                 return;
@@ -207,7 +207,7 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
         case 2:
             if (super->parent->type2 == 3) {
                 Entity* object = ((OctorokBossObjectEntity*)super->parent)->helper->mouthObject;
-                super->direction = sub_080045DA(object->x.WORD - super->x.WORD, object->y.WORD - super->y.WORD);
+                super->direction = CalcOffsetAngle(object->x.WORD - super->x.WORD, object->y.WORD - super->y.WORD);
                 LinearMoveAngle(super, 0x280, super->direction);
                 if (sub_0806FC80(super, super->parent, 0x48) == 0) {
                     return;

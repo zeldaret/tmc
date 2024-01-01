@@ -91,7 +91,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 PausePlayer();
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
-                gPlayerEntity.unk_74 = super;
+                gPlayerEntity.carriedEntity = super;
                 gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
                 MessageClose();
             }
@@ -104,7 +104,7 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
 
     gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
     super->spriteSettings.draw = gPlayerEntity.base.spriteSettings.draw;
-    if ((gPlayerState.heldObject == 0) || (super != gPlayerEntity.unk_74)) {
+    if ((gPlayerState.heldObject == 0) || (super != gPlayerEntity.carriedEntity)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
@@ -129,7 +129,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
         DeleteThisEntity();
     }
     gPlayerState.heldObject = 0;
-    gPlayerEntity.unk_74 = 0;
+    gPlayerEntity.carriedEntity = 0;
     ptr = &gUnk_0200AF00;
     gRoomVars.shopItemType = 0;
     ptr->rActionInteractObject = R_ACTION_NONE;

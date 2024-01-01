@@ -83,7 +83,7 @@ _080085E6:
 	ldr r3, _080088A8 @ =gPlayerState
 	ldrb r2, [r3, #0x1c]
 	orrs r2, r2
-	bne _0800861A // field_0x1c != 0
+	bne _0800861A // gustJarState != 0
 	ldrb r2, [r3, #5]
 	orrs r2, r2
 	bne _0800861A // heldObject != 0

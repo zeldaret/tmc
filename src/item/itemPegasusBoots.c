@@ -62,7 +62,7 @@ void sub_080768F8(ItemBehavior* this, u32 index) {
     u32 bVar1;
     u32 bVar2;
 
-    bVar1 = gPlayerState.field_0x1c | gPlayerState.attack_status | gPlayerState.heldObject | gPlayerState.jump_status;
+    bVar1 = gPlayerState.gustJarState | gPlayerState.attack_status | gPlayerState.heldObject | gPlayerState.jump_status;
     bVar2 = (gPlayerState.flags & PL_IN_MINECART);
     bVar1 |= bVar2;
     if (bVar1 == 0) {

@@ -250,7 +250,7 @@ void sub_080826FC(PotEntity* this) {
 }
 
 void sub_0808270C(PotEntity* this) {
-    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
         super->spriteOffsetX = 0;
         super->action = 1;
         SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
@@ -267,7 +267,7 @@ void sub_08082778(PotEntity* this) {
         SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
 
-    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
         BreakPot(this, NULL);
     } else {
         sub_0806F3E4(super);
@@ -275,7 +275,7 @@ void sub_08082778(PotEntity* this) {
 }
 
 void sub_080827F8(PotEntity* this) {
-    if (gPlayerState.field_0x1c == 0) {
+    if (gPlayerState.gustJarState == 0) {
         BreakPot(this, NULL);
     }
 }

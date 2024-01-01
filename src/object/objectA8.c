@@ -116,7 +116,7 @@ void ObjectA8_Action2Subaction0(ObjectA8Entity* this) {
 }
 
 void ObjectA8_Action2Subaction1(ObjectA8Entity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         super->action = 3;
     } else {
         sub_0806F4E8(super);
@@ -124,7 +124,7 @@ void ObjectA8_Action2Subaction1(ObjectA8Entity* this) {
 }
 
 void ObjectA8_Action2Subaction2(ObjectA8Entity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         super->action = 3;
     } else {
         if (sub_0806F3E4(super)) {

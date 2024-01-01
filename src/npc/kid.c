@@ -524,7 +524,7 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
     }
     if (--context->unk_19 == 0) {
         context->unk_19 = 10;
-        uVar4 = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
+        uVar4 = CalcOffsetAngle(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
         this->direction = (u8)uVar4;
         uVar4 = Random();
         this->direction = (this->direction + uVar4 % 0xb) - 5;

@@ -348,8 +348,8 @@ sub_080041E8: @ 0x080041E8
 	subs r0, r0, r2
 	subs r1, r1, r3
 
-	thumb_func_start sub_080041EC
-sub_080041EC: @ 0x080041EC
+	thumb_func_start CalcDistance
+CalcDistance: @ 0x080041EC
 	adds r2, r0, #0
 	muls r0, r2, r0
 	adds r3, r1, #0
