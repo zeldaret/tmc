@@ -99,7 +99,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                         if (obj != NULL) {
                             CopyPosition(super, obj);
                         }
-                        SetTile(this->unk_6c, this->unk_70, super->collisionLayer);
+                        SetBottomTile(this->unk_6c, this->unk_70, super->collisionLayer);
                         DeleteEntity(super);
                         break;
 
@@ -158,7 +158,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
         DeleteThisEntity();
     } else {
         if (super->timer == 0x30) {
-            SetTile(this->unk_6c, this->unk_70, super->collisionLayer);
+            SetBottomTile(this->unk_6c, this->unk_70, super->collisionLayer);
         }
         SetAffineInfo(super, 0x100, (0x3c - super->timer) * 0x20 + 0x100, 0);
         if ((super->timer & 1) != 0) {
@@ -177,14 +177,14 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
 void sub_08099468(SmallIceBlockEntity* this) {
     this->unk_70 = COORD_TO_TILE(super);
     this->unk_6c = GetTileIndex(this->unk_70, super->collisionLayer);
-    SetTile(0x405a, this->unk_70, super->collisionLayer);
+    SetBottomTile(0x405a, this->unk_70, super->collisionLayer);
 }
 
 void sub_080994B8(SmallIceBlockEntity* this) {
     u16 tileType;
 
     EnqueueSFX(SFX_ICE_BLOCK_SLIDE);
-    SetTile(this->unk_6c, this->unk_70, super->collisionLayer);
+    SetBottomTile(this->unk_6c, this->unk_70, super->collisionLayer);
     if ((super->collisionLayer == 2) && (GetTileType(this->unk_70, 1) == 0x405a)) {
         CloneTile(0x310, this->unk_70, 1);
     }
@@ -281,7 +281,7 @@ bool32 sub_0809963C(SmallIceBlockEntity* this) {
             }
         }
     }
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
         return TRUE;
     }
     return FALSE;

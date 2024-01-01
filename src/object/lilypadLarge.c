@@ -329,10 +329,10 @@ void LilypadLarge_Action2(LilypadLargeEntity* this) {
 
 void sub_08085A44(LilypadLargeEntity* this) {
     super->speed = 0x200;
-    if (GetRelativeCollisionTile(super, 0x10, 0x18) != 0x11) {
+    if (GetActTileRelative(super, 0x10, 0x18) != 0x11) {
         super->direction = 0x18;
     } else {
-        if (GetRelativeCollisionTile(super, -0x10, 0x18) != 0x11) {
+        if (GetActTileRelative(super, -0x10, 0x18) != 0x11) {
             super->direction = 8;
         } else {
             super->direction = 0x10;
@@ -353,7 +353,7 @@ void sub_08085A98(LilypadLargeEntity* this) {
         this->unk_78.WORD -= 0x20000;
         SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
     }
-    if (GetRelativeCollisionTile(super, 0, 0x18) != 0x11) {
+    if (GetActTileRelative(super, 0, 0x18) != 0x11) {
         super->subAction = 2;
         if (gArea.locationIndex == 0x1b) {
             super->y.HALF.HI += 0xd0;
@@ -456,7 +456,7 @@ void LilypadLarge_Action5(LilypadLargeEntity* this) {
 
 void sub_08085D28(LilypadLargeEntity* this) {
     if (((gPlayerState.framestate != PL_STATE_TALKEZLO) && ((gPlayerState.flags & PL_FLAGS2) != 0)) &&
-        (GetRelativeCollisionTile(super, 0, 0x18) == 0x11)) {
+        (GetActTileRelative(super, 0, 0x18) == 0x11)) {
         super->action = 2;
         super->subAction = 0;
         PausePlayer();

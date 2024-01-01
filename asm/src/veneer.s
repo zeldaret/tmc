@@ -54,8 +54,8 @@ CloneTile: @ 0x08000152
 	ldrh r0, [r3, r0]
 	lsrs r2, r2, #2
 
-	non_word_aligned_thumb_func_start SetTile
-SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
+	non_word_aligned_thumb_func_start SetBottomTile
+SetBottomTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	push {r4-r7, lr}
 	lsls r3, r2, #3
 	ldr r4, _08000208 @ =gUnk_08000228
@@ -65,7 +65,7 @@ SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	strh r0, [r5, r6]
 	ldr r6, _0800020C @ =0x00004000
 	cmp r0, r6
-	blo _0800019A
+	blo tile_wrong_type
 	push {r1, r2}
 	subs r4, r0, r6
 	ldr r3, _08000210 @ =gUnk_080B7910
@@ -77,12 +77,12 @@ SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	bl sub_08000148
 	pop {r0, r1} @ tilepos, layer
 	push {r0, r1}
-	bl DeleteLoadedTileEntity
+	bl UnregisterInteractTile
 	adds r0, r7, #0
 	pop {r1, r2}
-	bl sub_0801AF48
+	bl RegisterInteractTile
 	pop {r4, r5, r6, r7, pc}
-_0800019A:
+tile_wrong_type:
 	adds r3, #4
 	ldr r4, [r4, r3]
 	lsls r0, r0, #1
@@ -96,7 +96,7 @@ _0800019A:
 	lsrs r2, r2, #2
 	bl sub_08000148
 	pop {r0, r1}
-	bl DeleteLoadedTileEntity
+	bl UnregisterInteractTile
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080001C0: .4byte gMapBottom+0x6004
@@ -265,9 +265,9 @@ GetTileType: @ 0x080002B0
 @ r0: Entity*
 @ r1: u32
 @ r2: u32
-	thumb_func_start GetRelativeCollisionTile
-GetRelativeCollisionTile: @ 0x080002B4
-	ldr r3, _08000320 @ =ram_GetRelativeCollisionTile
+	thumb_func_start GetActTileRelative
+GetActTileRelative: @ 0x080002B4
+	ldr r3, _08000320 @ =ram_GetActTileRelative
 	bx r3
 
 @ call 0x080B1AA8
@@ -410,7 +410,7 @@ _08000310: .4byte ram_GetTileTypeByPos
 _08000314: .4byte ram_sub_080B1A48
 _08000318: .4byte ram_sub_080B1A58
 _0800031C: .4byte ram_GetTileType
-_08000320: .4byte ram_GetRelativeCollisionTile
+_08000320: .4byte ram_GetActTileRelative
 _08000324: .4byte ram_GetActTile
 _08000328: .4byte ram_sub_080B1AB4
 _0800032C: .4byte ram_sub_080B1AC8

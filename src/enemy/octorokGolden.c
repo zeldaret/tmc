@@ -117,7 +117,7 @@ void sub_08037E14(Entity* this) {
     s32 x, y;
     this->timer = 8;
     dir = (GetFacingDirection(this, &gPlayerEntity.base) + 4) & 0x18;
-    layer = (u8*)GetLayerByIndex(this->collisionLayer)->collisionData;
+    layer = (u8*)GetTileBuffer(this->collisionLayer)->collisionData;
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
     y = this->y.HALF.HI + *(ptr + 1);

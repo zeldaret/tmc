@@ -101,7 +101,7 @@ void DirtParticle_Init(DirtParticleEntity* this) {
 
 void DirtParticle_Action1(DirtParticleEntity* this) {
     DirtParticleEntity* entity;
-    if ((super->contactFlags & 0x80) == 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) == 0) {
         return;
     }
     switch (super->contactFlags & 0x7f) {
@@ -128,7 +128,7 @@ void DirtParticle_Action3(DirtParticleEntity* this) {
         sub_08087B9C,
         sub_08087B9C,
     };
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         gUnk_08120A80[super->subAction](this);
     } else {
         super->action = 1;

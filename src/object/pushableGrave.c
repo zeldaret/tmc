@@ -68,12 +68,12 @@ void PushableGrave_Init(PushableGraveEntity* this) {
         tileIndex = PushableGrave_Tiles[super->type2];
         if (super->type == 0) {
             super->hitbox = (Hitbox*)&gUnk_080FD578;
-            SetTile(tileIndex, tilePosition - 1, super->collisionLayer);
-            SetTile(tileIndex, tilePosition, super->collisionLayer);
+            SetBottomTile(tileIndex, tilePosition - 1, super->collisionLayer);
+            SetBottomTile(tileIndex, tilePosition, super->collisionLayer);
             super->y.HALF.HI += 2;
         } else {
             super->hitbox = (Hitbox*)&gUnk_080FD570;
-            SetTile(tileIndex, tilePosition, super->collisionLayer);
+            SetBottomTile(tileIndex, tilePosition, super->collisionLayer);
             if (super->type2 == 2) {
                 SetMultipleTiles((TileData*)gUnk_081232C0, tilePosition, super->collisionLayer);
             }
@@ -133,9 +133,9 @@ void sub_080977F4(PushableGraveEntity* this) {
     super->action = 4;
     super->spriteOffsetY = 0;
     tilePosition = COORD_TO_TILE(super);
-    SetTile(0x4022, tilePosition, super->collisionLayer);
+    SetBottomTile(0x4022, tilePosition, super->collisionLayer);
     if (super->type == 0) {
-        SetTile(0x4022, tilePosition - 1, super->collisionLayer);
+        SetBottomTile(0x4022, tilePosition - 1, super->collisionLayer);
     }
     if (this->pushedFlag != 0) {
         SetFlag(this->pushedFlag);

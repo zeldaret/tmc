@@ -59,11 +59,11 @@ void Ghini_OnCollision(GhiniEntity* this) {
         sub_0803F630(this);
         sub_0803F6EC(this);
     }
-    if ((super->hitType == 0x25) && (super->contactFlags == 0x80)) {
+    if ((super->hitType == 0x25) && (super->contactFlags == CONTACT_TAKE_DAMAGE)) {
         super->action = 8;
         InitializeAnimation(super, 3);
     } else {
-        if (super->contactFlags == 0x9d) {
+        if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
             super->zVelocity = 0x18000;
         }
         if (super->confusedTime != 0) {

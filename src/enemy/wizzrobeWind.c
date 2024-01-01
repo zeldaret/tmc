@@ -33,7 +33,7 @@ void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
         EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeWind_Functions);
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
         Entity* obj = CreateObject(FLAME, 3, 0);
         if (obj != NULL) {
             obj->spritePriority.b0 = 3;
@@ -42,7 +42,7 @@ void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
         }
     }
     if (super->health == 0) {
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     }
 }
 
@@ -135,7 +135,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                 super->subtimer = 0;
                 super->flags &= ~0x80;
                 EnqueueSFX(SFX_156);
-                SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+                SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 InitializeAnimation(super, super->direction >> 3);
             }
             break;
@@ -208,7 +208,7 @@ void sub_0802F888(WizzrobeEntity* this) {
     super->direction = (sub_08049F84(super, 3) + 4) & 0x18;
     this->tilePosition = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    SetTile(0x4071, this->tilePosition, super->collisionLayer);
+    SetBottomTile(0x4071, this->tilePosition, super->collisionLayer);
 }
 
 void sub_0802F8E4(WizzrobeEntity* this) {

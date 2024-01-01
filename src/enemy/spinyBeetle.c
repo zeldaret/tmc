@@ -49,7 +49,7 @@ void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
     }
 
     EnemyFunctionHandlerAfterCollision(super, SpinyBeetle_Functions);
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         if (super->iframes > 0 && super->child) {
             sub_08033E1C(this);
         }
@@ -94,7 +94,7 @@ void SpinyBeetle_Init(SpinyBeetleEntity* this) {
     this->unk_7b = 0;
     this->tile = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
-    SetTile(0x4022, this->tile, super->collisionLayer);
+    SetBottomTile(0x4022, this->tile, super->collisionLayer);
     obj = CreateObject(OBJECT_ON_BEETLE, super->type, 0);
 
     if (obj == NULL) {
@@ -259,7 +259,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
         }
     }
 
-    SetTile(0x4022, this->tile, super->collisionLayer);
+    SetBottomTile(0x4022, this->tile, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
 

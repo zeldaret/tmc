@@ -42,7 +42,7 @@ typedef struct {
     u16 tileID;
 } Obj11;
 
-Obj11* sub_08008782(Entity*, u32, u32, u32);
+Obj11* DoTileInteractionOffset(Entity*, u32, u32, u32);
 
 extern const s8* const sOffsets[];
 extern const s8 gUnk_0812AABC[];
@@ -101,7 +101,7 @@ static void sub_080ACC78(PlayerItemGustEntity* this) {
         if (child_offsets[this->offset_iter] == 0) {
             this->offset_iter = 0;
         }
-        o = sub_08008782(super, 0xe, child_offsets[this->offset_iter], child_offsets[this->offset_iter + 1]);
+        o = DoTileInteractionOffset(super, 0xe, child_offsets[this->offset_iter], child_offsets[this->offset_iter + 1]);
         if (o != NULL) {
             child = CreateObject(BUSH, o->type, o->type2);
             if (child != NULL) {

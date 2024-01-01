@@ -23,7 +23,7 @@ void BoneProjectile_OnTick(Entity* this) {
 }
 
 void BoneProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == 0x80) {
+    if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
         DeleteEntity(this);
     } else {
         sub_080A82D8(this);
@@ -44,7 +44,7 @@ void BoneProjectile_Action1(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
-            sub_08016AD2(this);
+            UpdateCollisionLayer(this);
             if (--this->timer == 0) {
                 this->action = 2;
                 this->speed = 0x120;

@@ -43,7 +43,7 @@ void V2Projectile_OnTick(V2ProjectileEntity* this) {
 }
 
 void V2Projectile_OnCollision(V2ProjectileEntity* this) {
-    if ((super->contactFlags & 0x80) == 0)
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) == 0)
         return;
 
     switch (super->type) {

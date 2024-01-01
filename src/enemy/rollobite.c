@@ -51,7 +51,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         InitializeAnimation(super, super->animationState + 8);
     }
 
-    if (super->contactFlags != 0x80) {
+    if (super->contactFlags != CONTACT_TAKE_DAMAGE) {
         if (super->action == 4 || super->action == 5) {
             super->action = 4;
             super->timer = 180;
@@ -60,7 +60,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         }
     }
 
-    if (super->contactFlags == 0x93)
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x13))
         Rollobite_OnTick(this);
 }
 
@@ -276,7 +276,7 @@ bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
             super->y.HALF.HI += 13;
             super->zVelocity = Q_16_16(2.0);
             InitializeAnimation(super, super->animationState + 0x14);
-            SetTile(0x4034, tile, super->collisionLayer);
+            SetBottomTile(0x4034, tile, super->collisionLayer);
             return TRUE;
         }
     }

@@ -53,7 +53,7 @@ void Board_Init(BoardEntity* this) {
     UpdateSpriteForCollisionLayer(super);
     super->spritePriority.b0 = 6;
     if (super->type == 0) {
-        SetTile(0x4074, this->tile - 0x40, super->collisionLayer);
+        SetBottomTile(0x4074, this->tile - 0x40, super->collisionLayer);
     }
     sub_08098BE8(this);
 }

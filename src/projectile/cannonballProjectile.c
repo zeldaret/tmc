@@ -63,15 +63,15 @@ void CannonballProjectile_Action2(Entity* this) {
 }
 
 bool32 sub_080AB5F4(Entity* this) {
-    switch (sub_080043E8(this)) {
+    switch (GetTileHazardType(this)) {
         case 1:
-            CreateItemOnGround(this);
+            CreatePitFallFX(this);
             return TRUE;
         case 2:
-            sub_080043A8(this);
+            CreateDrownFX(this);
             return TRUE;
         case 3:
-            CreateChestSpawner(this);
+            CreateLavaDrownFX(this);
             return TRUE;
     }
     return FALSE;

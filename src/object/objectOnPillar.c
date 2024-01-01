@@ -192,7 +192,7 @@ void sub_08097098(ObjectOnPillarEntity* this) {
     u16 tileType;
     this->unk_76 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+    SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     tileType = GetTileType(gUnk_080B4488[super->direction >> 3] + this->tilePosition, super->collisionLayer);
     if ((tileType == 0x79) || tileType == 0x77) {
         super->spriteOffsetY = 2;
@@ -202,7 +202,7 @@ void sub_08097098(ObjectOnPillarEntity* this) {
 void sub_080970F4(ObjectOnPillarEntity* this) {
     this->tilePosition = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    SetTile(0x4036, this->tilePosition, super->collisionLayer);
+    SetBottomTile(0x4036, this->tilePosition, super->collisionLayer);
 }
 
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
@@ -255,7 +255,7 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
             super->action = 4;
             super->frameIndex = 1;
             super->spritePriority.b0 = 7;
-            SetTile(0, COORD_TO_TILE(super), super->collisionLayer);
+            SetBottomTile(0, COORD_TO_TILE(super), super->collisionLayer);
             DeleteThisEntity();
             break;
         case 1:

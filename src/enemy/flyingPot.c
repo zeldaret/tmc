@@ -93,13 +93,13 @@ void FlyingPot_OnTick(FlyingPotEntity* this) {
 void FlyingPot_OnCollision(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (super->contactFlags == 0x9D) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
         super->action = FLYING_POT_ACTION_6;
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);
         super->spritePriority.b1 = 1;
 
-        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     } else if (super->z.HALF.HI != 0) {
         sub_08037408(this);
     }
@@ -145,7 +145,7 @@ void FlyingPot_SubAction2(FlyingPotEntity* this) {
         COLLISION_OFF(super);
         super->spriteOffsetX = 0;
 
-        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
 
     if (sub_0806F520(super)) {
@@ -177,7 +177,7 @@ void FlyingPot_Init(FlyingPotEntity* this) {
 
     tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
     this->tileIndex = GetTileIndex(tile, super->collisionLayer);
-    SetTile(0x4000, tile, super->collisionLayer);
+    SetBottomTile(0x4000, tile, super->collisionLayer);
     InitializeAnimation(super, 5);
 }
 
@@ -185,7 +185,7 @@ void FlyingPot_Action1(FlyingPotEntity* this) {
     sub_08037418(this);
 
     if (GetTileTypeByEntity(super) != 0x4000) {
-        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
         sub_08037408(this);
     }
 
@@ -210,7 +210,7 @@ void FlyingPot_Action2(FlyingPotEntity* this) {
         super->flags2 = 0xF;
         super->hitbox = &gUnk_080FD34C;
 
-        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
 }
 
@@ -257,7 +257,7 @@ void sub_08037418(FlyingPotEntity* this) {
     u32 tile = COORD_TO_TILE(super);
 
     if (GetTileIndex(tile, super->collisionLayer) == 0x4067) {
-        SetTile(this->tileIndex, tile, super->collisionLayer);
+        SetBottomTile(this->tileIndex, tile, super->collisionLayer);
         DeleteThisEntity();
     }
 }

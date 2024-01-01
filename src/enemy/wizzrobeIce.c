@@ -26,7 +26,7 @@ void WizzrobeIce_OnCollision(WizzrobeEntity* this) {
         EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeIce_Functions);
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
         Entity* obj = CreateObject(FLAME, 3, 0);
         if (obj != NULL) {
             obj->spritePriority.b0 = 3;
@@ -35,7 +35,7 @@ void WizzrobeIce_OnCollision(WizzrobeEntity* this) {
         }
     }
     if (super->health == 0) {
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     }
 }
 
@@ -118,7 +118,7 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
                 super->timer = 40;
                 super->subtimer = 0;
                 super->flags &= ~0x80;
-                SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+                SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 EnqueueSFX(SFX_156);
                 InitializeAnimation(super, super->direction >> 3);
             }

@@ -51,7 +51,7 @@ void RemovableDust_OnTick(RemovableDustEntity* this) {
 }
 
 void RemovableDust_OnCollision(RemovableDustEntity* this) {
-    if (super->contactFlags == 0x96) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x16)) {
         RemovableDust_OnGrabbed(this);
     }
 }
@@ -91,7 +91,7 @@ void sub_080AA494(RemovableDustEntity* this) {
     }
     super->type2 = index;
     super->spritePriority.b0 = 7;
-    SetTile(0x4068, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    SetBottomTile(0x4068, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
 }
 
 void sub_080AA534(Entity* this) {

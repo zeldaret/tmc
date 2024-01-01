@@ -71,7 +71,7 @@ _08001230:
 	ldr r3, _0800135C @ =UpdateAnimationVariableFrames
 	bx r3
 _0800123E:
-	ldr r3, _08001360 @ =CreateItemOnGround
+	ldr r3, _08001360 @ =CreatePitFallFX
 	bx r3
 
 	non_word_aligned_thumb_func_start GenericConfused
@@ -155,19 +155,19 @@ _080012BA:
 gUnk_080012C8::
 	.4byte 0x00000000
 _080012CC: .4byte sub_08001214
-_080012D0: .4byte sub_080043A8
-_080012D4: .4byte CreateChestSpawner
-_080012D8: .4byte sub_080043B0
+_080012D0: .4byte CreateDrownFX
+_080012D4: .4byte CreateLavaDrownFX
+_080012D8: .4byte CreateSwampDrownFX
 
 	thumb_func_start sub_080012DC
 sub_080012DC: @ 0x080012DC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r5, #0x3a
-	ldrb r1, [r4, r5]
+	ldrb r1, [r4, r5] // gust jar state
 	lsrs r1, r1, #3
 	bhs _08001302
-	bl sub_080043E8
+	bl GetTileHazardType
 	cmp r0, #4
 	beq _08001302
 	cmp r0, #0
@@ -241,7 +241,7 @@ _08001352:
 	.align 2, 0
 _08001358: .4byte gEnemyFunctions
 _0800135C: .4byte UpdateAnimationVariableFrames
-_08001360: .4byte CreateItemOnGround
+_08001360: .4byte CreatePitFallFX
 _08001364: .4byte 0x00001800
 _08001368: .4byte gUnk_080012C8
 _0800136C: .4byte gUnk_080012C8

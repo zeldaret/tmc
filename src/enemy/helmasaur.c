@@ -373,8 +373,8 @@ void sub_0802C1C0(HelmasaurEntity* this) {
 
 void sub_0802C1CC(HelmasaurEntity* this) {
     const s8* ptr = &gUnk_080CD464[super->animationState << 2];
-    sub_08008796(super, 9, super->x.HALF.HI + ptr[0], super->y.HALF.HI + ptr[1]);
-    sub_08008796(super, 9, super->x.HALF.HI + ptr[2], super->y.HALF.HI + ptr[3]);
+    DoTileInteraction(super, 9, super->x.HALF.HI + ptr[0], super->y.HALF.HI + ptr[1]);
+    DoTileInteraction(super, 9, super->x.HALF.HI + ptr[2], super->y.HALF.HI + ptr[3]);
 }
 
 void sub_0802C218(HelmasaurEntity* this) {

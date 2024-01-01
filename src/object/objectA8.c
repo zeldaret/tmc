@@ -39,7 +39,7 @@ void ObjectA8(ObjectA8Entity* this) {
         ObjectA8_Init,    ObjectA8_Action1, ObjectA8_Action2, ObjectA8_Action3,
         ObjectA8_Action4, ObjectA8_Action5, ObjectA8_Action6,
     };
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         switch (super->contactFlags & 0x7f) {
             case 0:
             case 1:

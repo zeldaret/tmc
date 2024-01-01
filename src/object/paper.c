@@ -40,7 +40,7 @@ void Paper_Type0(Entity* this) {
         }
         this->spriteSettings.draw = 0;
     }
-    SetTile(0x4051, COORD_TO_TILE(this), 1);
+    SetBottomTile(0x4051, COORD_TO_TILE(this), 1);
 }
 
 void Paper_Type1(Entity* this) {
@@ -60,8 +60,8 @@ void Paper_Type2(Entity* this) {
     this->action = 1;
     this->y.HALF.HI++;
     this->spriteOffsetY = -1;
-    SetTile(0x4051, COORD_TO_TILE(this) - 1, 1);
-    SetTile(0x4051, COORD_TO_TILE(this), 1);
+    SetBottomTile(0x4051, COORD_TO_TILE(this) - 1, 1);
+    SetBottomTile(0x4051, COORD_TO_TILE(this), 1);
 }
 
 void Paper_Action1(Entity* this) {

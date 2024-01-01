@@ -50,7 +50,7 @@ void PushableLever_Idle(PushableLeverEntity* this) {
         super->action = PUSHING;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = 0;
-        SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
         EnqueueSFX(SFX_16A);
         RequestPriorityDuration(super, 30);
         if (PlayerCanBeMoved()) {
@@ -87,13 +87,13 @@ void PushableLever_SetTiles(PushableLeverEntity* this) {
         super->type2 = 0;
         this->tilePosition = COORD_TO_TILE_OFFSET(super, 0, 0x10);
         this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-        SetTile(TILE_INITIAL, this->tilePosition, super->collisionLayer);
+        SetBottomTile(TILE_INITIAL, this->tilePosition, super->collisionLayer);
         InitializeAnimation(super, 1);
     } else {
         super->type2 = 1;
         this->tilePosition = COORD_TO_TILE_OFFSET(super, 0x10, 0);
         this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-        SetTile(TILE_PUSHED, this->tilePosition, super->collisionLayer);
+        SetBottomTile(TILE_PUSHED, this->tilePosition, super->collisionLayer);
         InitializeAnimation(super, 0);
     }
 }
@@ -104,7 +104,7 @@ bool32 PushableLever_ShouldStartPushing(PushableLeverEntity* this) {
             return TRUE;
         }
         PushableLever_CalculateSpriteOffsets(this);
-        SetTile(PushableLever_Tiles[super->type2], this->tilePosition, super->collisionLayer);
+        SetBottomTile(PushableLever_Tiles[super->type2], this->tilePosition, super->collisionLayer);
     } else {
         this->timer = 60;
         super->spriteOffsetX = 0;

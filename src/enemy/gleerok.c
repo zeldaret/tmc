@@ -659,7 +659,7 @@ void sub_0802D86C(GleerokEntity* this) {
                 }
             }
 
-            if ((super->contactFlags & 0x80) && this->unk_74 == 0) {
+            if ((super->contactFlags & CONTACT_TAKE_DAMAGE) && this->unk_74 == 0) {
                 if ((super->contactFlags & 0x7f) == 0x1d) {
                     super->zVelocity = Q_16_16(3.0);
                     super->parent->subAction = 4;
@@ -1039,7 +1039,7 @@ void sub_0802E0B8(GleerokEntity* this) {
         super->type2 = 4;
         InitializeAnimation(super, 0x4e);
     } else {
-        if (super->contactFlags & 0x80) {
+        if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
             if (super->iframes > 0) {
                 SoundReq(SFX_BOSS_HIT);
             }

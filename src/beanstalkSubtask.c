@@ -217,7 +217,7 @@ u32 UpdatePlayerCollision(void) {
             }
         }
     }
-    layer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
+    layer = GetTileBuffer(gPlayerEntity.base.collisionLayer);
     ptr1 = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
     position = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr1[0], -ptr1[1]);
     tileType = GetTileType(position, gPlayerEntity.base.collisionLayer);
@@ -509,13 +509,13 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.field_0x35 != 0) {
                 return 0;
             }
-            SetTile(0x4054, position, gPlayerEntity.base.collisionLayer);
+            SetBottomTile(0x4054, position, gPlayerEntity.base.collisionLayer);
             return 4;
         case 0x4053:
             if (gPlayerState.field_0x35 != 6) {
                 return 0;
             }
-            SetTile(0x4054, position, gPlayerEntity.base.collisionLayer);
+            SetBottomTile(0x4054, position, gPlayerEntity.base.collisionLayer);
             return 4;
         case 0x4055:
             position--;
@@ -529,7 +529,7 @@ u32 UpdatePlayerCollision(void) {
             }
             for (index = 0; index < 3; index++) {
                 if (sub_0801A8D0(gPlayerClones[index], 0) == position) {
-                    SetTile(0x4059, position, gPlayerEntity.base.collisionLayer);
+                    SetBottomTile(0x4059, position, gPlayerEntity.base.collisionLayer);
                     return 4;
                 }
             }
@@ -546,7 +546,7 @@ u32 UpdatePlayerCollision(void) {
             }
             for (index = 0; index < 3; index++) {
                 if (sub_0801A8D0(gPlayerClones[index], 6) == position) {
-                    SetTile(0x4059, position, gPlayerEntity.base.collisionLayer);
+                    SetBottomTile(0x4059, position, gPlayerEntity.base.collisionLayer);
                     return 4;
                 }
             }
@@ -563,7 +563,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.base.frame & 1) == 0) {
                 return 0;
             }
-            SetTile(0x4074, position, gPlayerEntity.base.collisionLayer);
+            SetBottomTile(0x4074, position, gPlayerEntity.base.collisionLayer);
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = PLAYER_PUSH;
             gPlayerState.flags |= PL_BUSY;
@@ -582,7 +582,7 @@ u32 UpdatePlayerCollision(void) {
             if ((gPlayerEntity.base.frame & 1) == 0) {
                 return 0;
             }
-            SetTile(0x4074, position, gPlayerEntity.base.collisionLayer);
+            SetBottomTile(0x4074, position, gPlayerEntity.base.collisionLayer);
             sub_080001D0(0xd, position, gPlayerEntity.base.collisionLayer);
             return 1;
         default:
@@ -638,7 +638,7 @@ bool32 sub_0801A370(LayerStruct* layer, u32 position) {
     if (!sub_0801A4F8()) {
         return FALSE;
     }
-    topLayer = GetLayerByIndex(2);
+    topLayer = GetTileBuffer(2);
     offset = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     pos = position + offset;
     tileType = GetTileType(pos, gPlayerEntity.base.collisionLayer);
@@ -748,7 +748,7 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
     if (this == NULL) {
         return 0xffff;
     }
-    layer = GetLayerByIndex(this->collisionLayer);
+    layer = GetTileBuffer(this->collisionLayer);
     metatileTypes = layer->metatileTypes;
     index1 = 4;
     index2 = 2;
@@ -904,7 +904,7 @@ u32 sub_0801A8D0(Entity* this, u32 param_2) {
     if (this == NULL)
         return 0xffff;
 
-    mapData = GetLayerByIndex(this->collisionLayer)->mapData;
+    mapData = GetTileBuffer(this->collisionLayer)->mapData;
     if (param_2 == 0) {
         position = COORD_TO_TILE_OFFSET(this, 0, 8);
         tile = mapData[position];
@@ -930,7 +930,7 @@ u32 sub_0801A8D0(Entity* this, u32 param_2) {
 bool32 sub_0801A980(void) {
     u16 tileType;
     const s16* ptr;
-    GetLayerByIndex(gPlayerEntity.base.collisionLayer);
+    GetTileBuffer(gPlayerEntity.base.collisionLayer);
     ptr = &gUnk_080B44A8[gPlayerEntity.base.animationState & 6];
     tileType =
         GetTileType(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), gPlayerEntity.base.collisionLayer);
@@ -982,7 +982,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
     Entity* object;
     u32 temp;
 
-    layer = GetLayerByIndex(this->collisionLayer);
+    layer = GetTileBuffer(this->collisionLayer);
     if (((layer->collisionData[param_2 + gUnk_080B4488[param_3 >> 3]] == 0) ||
          ((u8)(layer->collisionData[param_2 + gUnk_080B4488[param_3 >> 3]] - 0x20) < 0x20))) {
 
@@ -1007,7 +1007,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
 void sub_0801AB08(u16* specialData, LayerStruct* layer) {
     u16* metatiles;
     u16* mapData;
-    u16* mapDataClone;
+    u16* mapDataOriginal;
     u16 index;
     u16 innerIndex;
     u32 tmp2;
@@ -1020,7 +1020,7 @@ void sub_0801AB08(u16* specialData, LayerStruct* layer) {
         tmp3 = 2;
     }
     tmp2 = tmp3 << 0xc;
-    mapDataClone = layer->mapDataClone;
+    mapDataOriginal = layer->mapDataOriginal;
     mapData = layer->mapData;
 
     for (index = 0; index < 0x40; index++) {
@@ -1028,7 +1028,7 @@ void sub_0801AB08(u16* specialData, LayerStruct* layer) {
             if (mapData[0] < 0x4000) {
                 tmp1 = mapData[0] << 2;
             } else {
-                tmp1 = sub_0801AC68(tmp2, mapDataClone[0]);
+                tmp1 = sub_0801AC68(tmp2, mapDataOriginal[0]);
             }
             metatiles = layer->metatiles + tmp1;
             specialData[0] = metatiles[0];
@@ -1039,7 +1039,7 @@ void sub_0801AB08(u16* specialData, LayerStruct* layer) {
             if (mapData[1] < 0x4000) {
                 tmp1 = mapData[1] << 2;
             } else {
-                tmp1 = sub_0801AC68(tmp2 + 1, mapDataClone[1]);
+                tmp1 = sub_0801AC68(tmp2 + 1, mapDataOriginal[1]);
             }
             metatiles = layer->metatiles + tmp1;
             specialData[0] = metatiles[0];
@@ -1050,7 +1050,7 @@ void sub_0801AB08(u16* specialData, LayerStruct* layer) {
             if (mapData[2] < 0x4000) {
                 tmp1 = mapData[2] << 2;
             } else {
-                tmp1 = sub_0801AC68(tmp2 + 2, mapDataClone[2]);
+                tmp1 = sub_0801AC68(tmp2 + 2, mapDataOriginal[2]);
             }
             metatiles = layer->metatiles + tmp1;
             specialData[0] = metatiles[0];
@@ -1061,7 +1061,7 @@ void sub_0801AB08(u16* specialData, LayerStruct* layer) {
             if (mapData[3] < 0x4000) {
                 tmp1 = mapData[3] << 2;
             } else {
-                tmp1 = sub_0801AC68(tmp2 + 3, mapDataClone[3]);
+                tmp1 = sub_0801AC68(tmp2 + 3, mapDataOriginal[3]);
             }
             metatiles = layer->metatiles + tmp1;
             specialData[0] = metatiles[0];
@@ -1071,7 +1071,7 @@ void sub_0801AB08(u16* specialData, LayerStruct* layer) {
             specialData += 2;
 
             mapData += 4;
-            mapDataClone += 4;
+            mapDataOriginal += 4;
             tmp2 = (u16)(tmp2 + 4);
         }
         specialData = specialData + 0x80;
@@ -1215,13 +1215,13 @@ void sub_0801AE44(bool32 loadGfx) {
 
 void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer) {
     while (tileData->tile != -1) {
-        SetTile((u16)tileData->tile, basePosition + tileData->position, layer);
+        SetBottomTile((u16)tileData->tile, basePosition + tileData->position, layer);
         tileData++;
     }
 }
 
 // Add a new entry at the end of gUnk_0200B240
-void sub_0801AF48(u32 data, u32 position, u32 layer) {
+void RegisterInteractTile(u32 data, u32 position, u32 layer) {
     u32 index;
     if ((data < 0x4000) && (gRoomTransition.field30 == 0)) {
         index = gRoomVars.tileEntityCount;
@@ -1233,7 +1233,7 @@ void sub_0801AF48(u32 data, u32 position, u32 layer) {
     }
 }
 
-void DeleteLoadedTileEntity(u32 position, s32 layer) {
+void UnregisterInteractTile(u32 position, s32 layer) {
     u32 count;
     struct_0200B240* ptr;
     u32 positionLayer;
@@ -1289,7 +1289,7 @@ void sub_0801AFE4(void) {
         for (x = 0; x < width; x++) {
             for (ptr = gUnk_080B44D0; ptr->collision != 0; ptr++) {
                 if (ptr->collision == *collisionData) {
-                    SetTile(ptr->tileIndex, y * 0x40 + x, 1);
+                    SetBottomTile(ptr->tileIndex, y * 0x40 + x, 1);
                     break;
                 }
             }

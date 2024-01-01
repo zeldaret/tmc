@@ -74,38 +74,38 @@ void sub_0809E5F0(MacroAcornEntity* this) {
     this->unk_80 = position;
     switch (super->type) {
         case 2:
-            SetTile(0x4022, position - 0x3d, 1);
-            SetTile(0x406d, position - 0x3c, 1);
+            SetBottomTile(0x4022, position - 0x3d, 1);
+            SetBottomTile(0x406d, position - 0x3c, 1);
         case 0:
-            SetTile(0x406c, position - 0x42, 1);
-            SetTile(0x4022, position - 0x41, 1);
-            SetTile(0x4022, position - 0x40, 1);
-            SetTile(0x4022, position - 0x3f, 1);
-            SetTile(0x4022, position - 2, 1);
-            SetTile(0x4022, position - 1, 1);
-            SetTile(0x4022, position, 1);
-            SetTile(0x4022, position + 1, 1);
-            SetTile(0x406e, position + 0x3e, 1);
-            SetTile(0x4022, position + 0x3f, 1);
-            SetTile(0x4022, position + 0x40, 1);
-            SetTile(0x406f, position + 0x41, 1);
+            SetBottomTile(0x406c, position - 0x42, 1);
+            SetBottomTile(0x4022, position - 0x41, 1);
+            SetBottomTile(0x4022, position - 0x40, 1);
+            SetBottomTile(0x4022, position - 0x3f, 1);
+            SetBottomTile(0x4022, position - 2, 1);
+            SetBottomTile(0x4022, position - 1, 1);
+            SetBottomTile(0x4022, position, 1);
+            SetBottomTile(0x4022, position + 1, 1);
+            SetBottomTile(0x406e, position + 0x3e, 1);
+            SetBottomTile(0x4022, position + 0x3f, 1);
+            SetBottomTile(0x4022, position + 0x40, 1);
+            SetBottomTile(0x406f, position + 0x41, 1);
             break;
         case 3:
-            SetTile(0x4022, position - 0x44, 1);
-            SetTile(0x406c, position - 0x45, 1);
+            SetBottomTile(0x4022, position - 0x44, 1);
+            SetBottomTile(0x406c, position - 0x45, 1);
         case 1:
-            SetTile(0x4022, position - 0x42, 1);
-            SetTile(0x4022, position - 0x41, 1);
-            SetTile(0x4022, position - 0x40, 1);
-            SetTile(0x406d, position - 0x3f, 1);
-            SetTile(0x4022, position - 2, 1);
-            SetTile(0x4022, position - 1, 1);
-            SetTile(0x4022, position, 1);
-            SetTile(0x4022, position + 1, 1);
-            SetTile(0x406e, position + 0x3e, 1);
-            SetTile(0x4022, position + 0x3f, 1);
-            SetTile(0x4022, position + 0x40, 1);
-            SetTile(0x406f, position + 0x41, 1);
+            SetBottomTile(0x4022, position - 0x42, 1);
+            SetBottomTile(0x4022, position - 0x41, 1);
+            SetBottomTile(0x4022, position - 0x40, 1);
+            SetBottomTile(0x406d, position - 0x3f, 1);
+            SetBottomTile(0x4022, position - 2, 1);
+            SetBottomTile(0x4022, position - 1, 1);
+            SetBottomTile(0x4022, position, 1);
+            SetBottomTile(0x4022, position + 1, 1);
+            SetBottomTile(0x406e, position + 0x3e, 1);
+            SetBottomTile(0x4022, position + 0x3f, 1);
+            SetBottomTile(0x4022, position + 0x40, 1);
+            SetBottomTile(0x406f, position + 0x41, 1);
             break;
     }
 }

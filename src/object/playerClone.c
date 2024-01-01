@@ -51,7 +51,7 @@ void PlayerClone_Init(PlayerCloneEntity* this) {
     super->y.HALF.HI = (super->y.HALF.HI & 0xfff0) | 8;
     this->tilePos = COORD_TO_TILE(super);
     InitializeAnimation(super, 8);
-    SetTile(0x4016, this->tilePos, super->collisionLayer);
+    SetBottomTile(0x4016, this->tilePos, super->collisionLayer);
     SoundReq(SFX_112);
 }
 
@@ -109,7 +109,7 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
         if (gPlayerEntity.base.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {
-            GetActTile(super);
+            GetActTile(super); // leftover from debugging?
             sub_08084B1C(this);
             super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->unk78;
             super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->unk7a;

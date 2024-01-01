@@ -101,7 +101,7 @@ void Moldworm_OnCollision(MoldwormEntity* this) {
         super->iframes = -8;
         this->unk_7f = 0;
         this->unk_7b = 0;
-        if (super->contactFlags == 0x80 || super->contactFlags == 0x9e) {
+        if (super->contactFlags == CONTACT_TAKE_DAMAGE || super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1e)) {
             super->type2 = 0;
             this->unk_80 = 0x14;
         } else {
@@ -441,7 +441,7 @@ void sub_08023894(MoldwormEntity* this) {
 }
 
 void sub_0802390C(MoldwormEntity* this) {
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         Entity* ent = super->child;
         do {
             ent->iframes = super->iframes;
@@ -449,7 +449,7 @@ void sub_0802390C(MoldwormEntity* this) {
     } else {
         Entity* ent = super->child;
         do {
-            if (ent->contactFlags & 0x80) {
+            if (ent->contactFlags & CONTACT_TAKE_DAMAGE) {
                 u8 bVar2 = 0xff - ent->health;
                 if (bVar2 != 0) {
                     u32 tmp;

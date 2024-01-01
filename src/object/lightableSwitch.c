@@ -67,7 +67,7 @@ void LightableSwitch_Type0_Init(LightableSwitchEntity* this) {
 
 void LightableSwitch_Type0_Action1(LightableSwitchEntity* this) {
 
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         if (CheckFlags(this->unk_86) != 0) {
             ClearFlag(this->unk_86);
         } else {
@@ -99,7 +99,7 @@ static void sub_0809EAD8(LightableSwitchEntity* this) {
         UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
     } else {
-        SetTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 
@@ -147,7 +147,7 @@ void LightableSwitch_Type1_Init(LightableSwitchEntity* this) {
 }
 
 void LightableSwitch_Type1_Action1(LightableSwitchEntity* this) {
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         super->action = 2;
         super->timer = 16;
         super->frameIndex = 2;

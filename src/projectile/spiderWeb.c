@@ -64,7 +64,7 @@ void SpiderWeb_OnCollision(SpiderWebEntity* this) {
     };
     Entity* object;
 
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
         super->action = 3;
         super->timer = 90;
         COLLISION_OFF(super);
@@ -246,7 +246,7 @@ void sub_080AA9E0(Entity* this) {
 
 void sub_080AAA68(Entity* this) {
     static const u16 typeTiles[] = { 16419, 16421, 16422, 16420 };
-    SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    SetBottomTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
 void sub_080AAAA8(SpiderWebEntity* this) {

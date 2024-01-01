@@ -72,7 +72,7 @@ void VaatiTransfiguredEye_OnCollision(VaatiTransfiguredEyeEntity* this) {
 
     if (super->type != 0) {
         pEVar4 = super->parent->parent;
-        if ((super->contactFlags & 0x80) != 0) {
+        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
             bVar1 = super->contactFlags & 0x3f;
             if ((bVar1 == 0xe) || (bVar1 == 0x15)) {
 

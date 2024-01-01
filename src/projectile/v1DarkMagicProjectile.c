@@ -43,7 +43,7 @@ void V1DarkMagicProjectile_OnTick(V1DarkMagicProjectileEntity* this) {
 }
 
 void V1DarkMagicProjectile_OnCollision(V1DarkMagicProjectileEntity* this) {
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         if (super->type2 == 0) {
             if ((super->contactFlags & 0x3f) == 0) {
                 super->action = 2;

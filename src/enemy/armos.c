@@ -337,7 +337,7 @@ bool32 sub_080305BC(ArmosEntity* this) {
 
 bool32 sub_08030650(ArmosEntity* this) {
     if (super->type == 0) {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
             return 1;
         }
     } else if (this->unk_80 != 2) {
@@ -403,11 +403,11 @@ void sub_080307D4(ArmosEntity* this) {
 void sub_080307EC(ArmosEntity* this) {
     u32 position = COORD_TO_TILE(super);
     this->unk_78 = GetTileIndex(position, super->collisionLayer);
-    SetTile(0x4022, position, (u32)super->collisionLayer);
+    SetBottomTile(0x4022, position, (u32)super->collisionLayer);
 }
 
 void sub_08030834(ArmosEntity* this) {
-    SetTile(this->unk_78, COORD_TO_TILE(super), super->collisionLayer);
+    SetBottomTile(this->unk_78, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 bool32 sub_0803086C(ArmosEntity* this) {
@@ -435,11 +435,11 @@ bool32 sub_0803086C(ArmosEntity* this) {
                         return TRUE;
                     }
                 } else {
-                    SetTile(0x4022, pos, super->collisionLayer);
+                    SetBottomTile(0x4022, pos, super->collisionLayer);
                 }
             } else {
                 if (CheckPlayerInRegion(centerX, centerY + 6, 2, 5) != 0) {
-                    SetTile(0x4049, COORD_TO_TILE(super), super->collisionLayer);
+                    SetBottomTile(0x4049, COORD_TO_TILE(super), super->collisionLayer);
                 }
             }
         }

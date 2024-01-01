@@ -46,8 +46,8 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
     } else {
         if (super->action == 7) {
             LikeLike_ReleasePlayer(this);
-        } else if (super->contactFlags & 0x80) {
-            u8 tmp = super->contactFlags & ~0x80;
+        } else if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+            u8 tmp = super->contactFlags & ~CONTACT_TAKE_DAMAGE;
             if (tmp == 0) {
                 super->action = 7;
                 super->timer = 95;

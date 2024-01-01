@@ -96,7 +96,7 @@ void sub_08034CC4(MazaalMacroEntity* this) {
         this->unk_78 = 0x4b0;
         sub_08034F70(this);
         InitializeAnimation(super, super->type);
-        SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+        SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
         entity = CreateEnemy(MAZAAL_MACRO, 2);
         if (entity != NULL) {
             super->child = entity;

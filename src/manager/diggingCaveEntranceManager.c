@@ -53,9 +53,9 @@ void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager* this) {
         tile = 0x81 << 7; // 0x4080
         for (entrance = GetDiggingCaveEntranceForRoom(entrance, room); entrance != 0;
              entrance = GetDiggingCaveEntranceForRoom(entrance, room)) {
-            SetTile(tile, entrance->sourceTilePosition + TILE_POS(-1, 1), 1);
-            SetTile(tile, entrance->sourceTilePosition + TILE_POS(0, 1), 1);
-            SetTile(tile, entrance->sourceTilePosition + TILE_POS(1, 1), 1);
+            SetBottomTile(tile, entrance->sourceTilePosition + TILE_POS(-1, 1), 1);
+            SetBottomTile(tile, entrance->sourceTilePosition + TILE_POS(0, 1), 1);
+            SetBottomTile(tile, entrance->sourceTilePosition + TILE_POS(1, 1), 1);
             entrance++;
         }
     }

@@ -561,7 +561,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
         gPlayerEntity.base.animationState = 0;
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 1;
-        SetTile(0x4022, 0x2c8, 1);
+        SetBottomTile(0x4022, 0x2c8, 1);
     }
 }
 
@@ -1346,7 +1346,7 @@ void sub_080272D4(ChuchuBossEntity* this) {
             super->hitbox->height = (u32)((0x10000 / this->unk_74.HALF_U.HI) * 5) >> 6;
             if (*(char*)&this->unk_84 == 0)
                 break;
-            if ((super->contactFlags & 0x80) != 0) {
+            if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
                 if (super->iframes != 0) {
                     ((ChuchuBossEntity*)super->child)->unk_68->base.iframes = super->iframes;
                     super->child->parent->iframes = super->iframes;
@@ -1697,7 +1697,7 @@ bool32 sub_08027AA4(ChuchuBossEntity* this) {
     s32 iVar4;
     Helper* pHelper;
 
-    if ((super->contactFlags & 0x80) == 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) == 0) {
         return FALSE;
     }
     switch (super->contactFlags & 0x7f) {

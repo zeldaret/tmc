@@ -31,7 +31,7 @@ void TileChangeObserveManager_Init(TileChangeObserveManager* this) {
         DeleteThisEntity();
     } else {
         super->action = 1;
-        tile = &GetLayerByIndex(this->field_0x3a)->mapData[this->tilePosition];
+        tile = &GetTileBuffer(this->field_0x3a)->mapData[this->tilePosition];
         this->observedTile = tile;
         this->initialTile = tile[0];
     }

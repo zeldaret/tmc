@@ -437,7 +437,7 @@ void sub_08039AD4(StalfosEntity* this) {
             super->action = 0xb;
             super->child = projectile;
             InitAnimationForceUpdate(super, super->animationState + 0x18);
-            SetTile(0x4067, position, super->collisionLayer);
+            SetBottomTile(0x4067, position, super->collisionLayer);
             return;
         }
     }

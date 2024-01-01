@@ -74,7 +74,7 @@ void Mask_Init(MaskEntity* this) {
 
     this->unk_7a = sub_080B1B44(this->unk_7e, 1);
 
-    SetTile(0x4022, this->unk_7e, 1);
+    SetBottomTile(0x4022, this->unk_7e, 1);
 }
 
 // Probably related to knocking it down
@@ -99,7 +99,7 @@ void Mask_Action1(MaskEntity* this) {
     }
 
     // Presumably, make the mask fall
-    SetTile(this->unk_7c, this->unk_7e, 1);
+    SetBottomTile(this->unk_7c, this->unk_7e, 1);
 
     sub_08000148(this->unk_7a, this->unk_7e, 1);
 

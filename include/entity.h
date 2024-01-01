@@ -79,6 +79,8 @@ typedef enum {
     DirectionNorthWest = 0x1c, /**< North West. */
 } Direction;
 
+#define CONTACT_TAKE_DAMAGE 0x80
+
 typedef struct {
     void* entity1;
     void* entity2;

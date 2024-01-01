@@ -63,7 +63,7 @@ void ItemOnGround(ItemOnGroundEntity* this) {
     static void (*const ItemOnGround_Actions[])(ItemOnGroundEntity*) = {
         ItemOnGround_Init, ItemOnGround_Action1, ItemOnGround_Action2, ItemOnGround_Action3, ItemOnGround_Action4,
     };
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         switch (super->contactFlags & 0x7F) {
             case 20:
                 super->action = 3;

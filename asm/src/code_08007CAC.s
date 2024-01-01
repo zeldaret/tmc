@@ -29,22 +29,22 @@ gUnk_08007CAC:: @ 08007CAC
 .endif
 .endif
 
-	non_word_aligned_thumb_func_start sub_08007DD6
-sub_08007DD6: @ 0x08007DD6
+	non_word_aligned_thumb_func_start ActTileToTile
+ActTileToTile: @ 0x08007DD6
 	push {lr}
-	bl sub_08007DE0
+	bl ActTileConv
 	adds r0, r3, #0
 	pop {pc}
 
-	thumb_func_start sub_08007DE0
-sub_08007DE0: @ 0x08007DE0
+	thumb_func_start ActTileConv
+ActTileConv: @ 0x08007DE0
 	subs r1, #4
 _08007DE2:
 	adds r1, #4
 	ldrh r3, [r1]
-	cmp r3, #0
+	cmp r3, #0 // reached end
 	beq _08007DF2
-	cmp r0, r3
+	cmp r0, r3 // equal
 	bne _08007DE2
 	ldrh r3, [r1, #2]
 	movs r2, #1

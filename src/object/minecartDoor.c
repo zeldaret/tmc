@@ -63,7 +63,7 @@ void MinecartDoor_Init(MinecartDoorEntity* this) {
         } else {
             super->action = 1;
             super->spriteSettings.draw = 1;
-            SetTile(0x4022, this->unk_76, super->collisionLayer);
+            SetBottomTile(0x4022, this->unk_76, super->collisionLayer);
         }
     }
 }
@@ -73,7 +73,7 @@ void MinecartDoor_Action1(MinecartDoorEntity* this) {
         super->action = 2;
         super->timer = 7;
         super->direction = super->type << 3;
-        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
+        SetBottomTile(this->unk_74, this->unk_76, super->collisionLayer);
         EnqueueSFX(SFX_10B);
     }
 }

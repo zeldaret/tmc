@@ -100,7 +100,7 @@ void sub_080223E4(Entity* this) {
 
     entity = this->child;
     if (entity != NULL) {
-        entity->contactFlags = 0x94;
+        entity->contactFlags = (CONTACT_TAKE_DAMAGE | 0x14);
         entity->iframes = 0x10;
 #ifndef EU
         entity->knockbackDuration = 0xc;

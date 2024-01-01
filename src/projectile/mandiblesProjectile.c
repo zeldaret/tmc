@@ -55,7 +55,7 @@ void MandiblesProjectile_OnTick(MandiblesProjectileEntity* this) {
 void MandiblesProjectile_OnCollision(MandiblesProjectileEntity* this) {
     Entity* parent;
 
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
         switch (super->action) {
             case 4:
                 super->subtimer = 0;
@@ -118,7 +118,7 @@ void MandiblesProjectile_Action2(MandiblesProjectileEntity* this) {
     }
     this->unk_78 = TILE(super->x.HALF.HI, super->y.HALF.HI);
     if (GetTileType(this->unk_78, super->collisionLayer) == 0x4000) {
-        SetTile(0x4005, this->unk_78, super->collisionLayer);
+        SetBottomTile(0x4005, this->unk_78, super->collisionLayer);
     }
 }
 

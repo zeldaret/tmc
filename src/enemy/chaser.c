@@ -43,7 +43,7 @@ void sub_0802B540(Entity* this) {
 
 void sub_0802B56C(Entity* this) {
     GetNextFrame(this);
-    if (this->contactFlags & 0x80) {
+    if (this->contactFlags & CONTACT_TAKE_DAMAGE) {
         this->speed = 0x40;
     }
 

@@ -195,7 +195,7 @@ void sub_0801B418(Entity* this) {
         x = 0x10;
         iVar3 = y - 0x10;
         while (x >= -0x10) {
-            sub_08008796(this, 3, this->x.HALF.HI + x, this->y.HALF.HI + y);
+            DoTileInteraction(this, 3, this->x.HALF.HI + x, this->y.HALF.HI + y);
             x -= 0x10;
         }
         y = iVar3;

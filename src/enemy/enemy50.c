@@ -79,15 +79,15 @@ void Enemy50_OnCollision(Enemy50Entity* this) {
         sub_08041134(this);
         sub_0803F6EC(this);
     }
-    if (super->hitType == 0x25 && super->contactFlags == 0x80) {
+    if (super->hitType == 0x25 && super->contactFlags == CONTACT_TAKE_DAMAGE) {
         super->action = 8;
         InitializeAnimation(super, 3);
     } else {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
             this->unk_7c = 0x78;
             sub_08041128(this);
         }
-        if (super->contactFlags == 0x9d) {
+        if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
             super->zVelocity = Q_16_16(1.5);
         }
         if (super->confusedTime != 0) {
@@ -422,7 +422,7 @@ void sub_0804122C(Enemy50Entity* this) {
 
 #ifndef EU
 bool32 sub_08041300(Enemy50Entity* this) {
-    if ((super->hitType == 0x25) && (super->contactFlags == 0x80)) {
+    if ((super->hitType == 0x25) && (super->contactFlags == CONTACT_TAKE_DAMAGE)) {
         return TRUE;
     } else {
         return super->action == 8 || super->action == 9;

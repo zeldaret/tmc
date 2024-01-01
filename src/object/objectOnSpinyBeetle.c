@@ -72,7 +72,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
             sub_080989C0(this);
             return;
         }
-        if ((super->contactFlags & 0x80) != 0) {
+        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
             switch (super->contactFlags & 0x3f) {
                 case 0x13:
                     super->action = 3;
@@ -152,7 +152,7 @@ void ObjectOnSpinyBeetle_Action2Subaction2(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action2Subaction3(ObjectOnSpinyBeetleEntity* this) {
-    switch (sub_080043E8(super)) {
+    switch (GetTileHazardType(super)) {
         case 2:
             CreateFx(super, FX_WATER_SPLASH, 0);
             break;

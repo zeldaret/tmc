@@ -45,7 +45,7 @@ u32 sub_0806F39C(Entity* ent) {
     }
 
     if (dist > 64) {
-        sub_080027EA(&gPlayerEntity.base, ent->speed, ent->direction);
+        LinearMoveDirectionOLD(&gPlayerEntity.base, ent->speed, ent->direction);
         return 1;
     }
     return 0;
@@ -114,7 +114,7 @@ void sub_0806F4E8(Entity* ent) {
 }
 
 bool32 sub_0806F520(Entity* ent) {
-    if (ent->contactFlags == 0x93)
+    if (ent->contactFlags == (CONTACT_TAKE_DAMAGE | 0x13))
         return 1;
     ent->gustJarState &= ~4;
     ent->spriteOffsetY = 0;
@@ -402,7 +402,7 @@ bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
 }
 
 bool32 sub_0806FC24(u32 param_1, u32 param_2) {
-    u32 val = sub_08007DD6(param_1, gUnk_080046A4);
+    u32 val = ActTileToTile(param_1, gUnk_080046A4);
     if (!val)
         return 0;
 
@@ -411,7 +411,7 @@ bool32 sub_0806FC24(u32 param_1, u32 param_2) {
 
 const u16* sub_0806FC50(u32 param_1, u32 param_2) {
     const u16* rv;
-    u32 val = sub_08007DD6(param_1, gUnk_080046A4);
+    u32 val = ActTileToTile(param_1, gUnk_080046A4);
     if (!val || ((gUnk_080047F6[val << 2] >> param_2) & 0x1) == 0) {
         rv = 0;
     } else {

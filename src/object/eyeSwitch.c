@@ -50,7 +50,7 @@ void EyeSwitch_Init(EyeSwitchEntity* this) {
 }
 
 void EyeSwitch_Action1(EyeSwitchEntity* this) {
-    if ((super->contactFlags == 0x95 || super->contactFlags == 0x8e) &&
+    if ((super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x15) || super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe)) &&
         (DirectionRoundUp(super->contactedEntity->direction) >> 3 == (super->animationState & 3))) {
         super->action = 2;
         COLLISION_OFF(super);

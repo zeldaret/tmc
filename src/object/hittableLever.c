@@ -47,7 +47,7 @@ void HittableLever_Init(HittableLeverEntity* this) {
 }
 
 void HittableLever_Idle(HittableLeverEntity* this) {
-    if (((super->contactFlags & 0x80) != 0) && (this->wasHit == 0)) {
+    if (((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) && (this->wasHit == 0)) {
         this->wasHit = 1;
         super->type ^= 1;
         super->iframes = -0x18;

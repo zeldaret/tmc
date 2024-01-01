@@ -807,10 +807,10 @@ extern EntityData gUnk_080D7D34;
 
 void sub_StateChange_GreatFairies_Exit(void) {
     if (GetInventoryValue(ITEM_FOURSWORD)) {
-        SetTile(0x4072, 0x14d, 1);
-        SetTile(0x4072, 0x10c, 1);
-        SetTile(0x4090, 0x14c, 1);
-        SetTile(0x4090, 0x18c, 1);
+        SetBottomTile(0x4072, 0x14d, 1);
+        SetBottomTile(0x4072, 0x10c, 1);
+        SetBottomTile(0x4090, 0x14c, 1);
+        SetBottomTile(0x4090, 0x18c, 1);
         LoadRoomEntityList(&gUnk_080D7D34);
     }
 }
@@ -1051,8 +1051,8 @@ void sub_StateChange_RoyalValley_Main(void) {
 
     EnableRandomDrops();
     sub_08059278();
-    SetTile(0x4072, 0xa47, 1);
-    SetTile(0x4072, 0xc47, 1);
+    SetBottomTile(0x4072, 0xa47, 1);
+    SetBottomTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
         if (gRoomTransition.player_status.start_pos_x == 0x78 && gRoomTransition.player_status.start_pos_y == 0x278)
@@ -4446,7 +4446,7 @@ void sub_0804E150(void) {
     uVar3 = 1 << gSave.global_progress;
     for (; pTileData[1] != 0; pTileData += 3) {
         if ((pTileData[0] & uVar3) != 0) {
-            SetTile(pTileData[2], pTileData[1], 1);
+            SetBottomTile(pTileData[2], pTileData[1], 1);
         }
     }
     if (CheckLocalFlag(SHOP05_OPEN) == 0) {
@@ -4454,7 +4454,7 @@ void sub_0804E150(void) {
         uVar3 = 1 << gSave.global_progress;
         for (; pTileData[0] != 0; pTileData += 3) {
             if ((pTileData[0] & uVar3) != 0) {
-                SetTile(pTileData[2], pTileData[1], 1);
+                SetBottomTile(pTileData[2], pTileData[1], 1);
             }
         }
     }
@@ -4463,7 +4463,7 @@ void sub_0804E150(void) {
         uVar3 = 1 << gSave.global_progress;
         for (; pTileData[0] != 0; pTileData += 3) {
             if ((pTileData[0] & uVar3) != 0) {
-                SetTile(pTileData[2], pTileData[1], 1);
+                SetBottomTile(pTileData[2], pTileData[1], 1);
             }
         }
     }
@@ -5043,22 +5043,22 @@ void sub_StateChange_LakeHylia_Main(void) {
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F3C44);
     }
-    SetTile(0x4091, 0x590, 1);
-    SetTile(0x4091, 0x591, 1);
-    SetTile(0x4091, 0x592, 1);
-    SetTile(0x4091, 0x593, 1);
-    SetTile(0x4091, 0x594, 1);
-    SetTile(0x4091, 0x5d0, 1);
-    SetTile(0x4091, 0x610, 1);
-    SetTile(0x4091, 0x650, 1);
-    SetTile(0x4091, 0x5d4, 1);
-    SetTile(0x4091, 0x614, 1);
-    SetTile(0x4091, 0x654, 1);
-    SetTile(0x4091, 0x690, 1);
-    SetTile(0x4091, 0x691, 1);
-    SetTile(0x4091, 0x692, 1);
-    SetTile(0x4091, 0x693, 1);
-    SetTile(0x4091, 0x694, 1);
+    SetBottomTile(0x4091, 0x590, 1);
+    SetBottomTile(0x4091, 0x591, 1);
+    SetBottomTile(0x4091, 0x592, 1);
+    SetBottomTile(0x4091, 0x593, 1);
+    SetBottomTile(0x4091, 0x594, 1);
+    SetBottomTile(0x4091, 0x5d0, 1);
+    SetBottomTile(0x4091, 0x610, 1);
+    SetBottomTile(0x4091, 0x650, 1);
+    SetBottomTile(0x4091, 0x5d4, 1);
+    SetBottomTile(0x4091, 0x614, 1);
+    SetBottomTile(0x4091, 0x654, 1);
+    SetBottomTile(0x4091, 0x690, 1);
+    SetBottomTile(0x4091, 0x691, 1);
+    SetBottomTile(0x4091, 0x692, 1);
+    SetBottomTile(0x4091, 0x693, 1);
+    SetBottomTile(0x4091, 0x694, 1);
 }
 
 u32 sub_unk3_LakeHylia_Beanstalk(void) {
@@ -5733,8 +5733,8 @@ void sub_StateChange_HyruleField_LonLonRanch(void) {
     }
     if (!CheckKinstoneFused(KINSTONE_29)) {
         LoadRoomEntityList(&gUnk_080F7860);
-        SetTile(0x4072, 0xd88, 1);
-        SetTile(0x4096, 0xdc8, 1);
+        SetBottomTile(0x4072, 0xd88, 1);
+        SetBottomTile(0x4096, 0xdc8, 1);
     }
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F78A0);

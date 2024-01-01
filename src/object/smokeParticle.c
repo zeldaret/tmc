@@ -74,14 +74,14 @@ void sub_080878CC(Entity* this) {
                 switch (GetTileType(pos, layer)) {
                     case 0x368:
                     case 0x367:
-                        sub_08008796(this, 3, x + itX, y + itY);
+                        DoTileInteraction(this, 3, x + itX, y + itY);
                         break;
                     default:
-                        SetTile(0x4022, pos, layer);
+                        SetBottomTile(0x4022, pos, layer);
                         break;
                 }
             } else {
-                sub_08008796(this, 3, x + itX, y + itY);
+                DoTileInteraction(this, 3, x + itX, y + itY);
             }
         }
     }

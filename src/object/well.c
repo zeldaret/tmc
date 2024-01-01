@@ -33,7 +33,7 @@ void Well_Init(WellEntity* this) {
     super->action = 1;
     tilePos = COORD_TO_TILE(super);
     this->unk_80 = tilePos;
-    SetTile(16509, this->unk_80, 1);
+    SetBottomTile(16509, this->unk_80, 1);
 }
 
 void Well_Action1(WellEntity* this) {

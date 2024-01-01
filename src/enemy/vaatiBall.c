@@ -58,7 +58,7 @@ void VaatiBall(VaatiBallEntity* this) {
         super->health = -1;
     }
 
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
         if ((super->contactFlags & 0x3f) == 0 && super->action == 6) {
             ModHealth(-2);
         }

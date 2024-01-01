@@ -65,7 +65,7 @@ void Railtrack_Init(RailtrackEntity* this) {
         }
     }
     InitializeAnimation(super, super->animationState);
-    this->unk_70 = &GetLayerByIndex(super->collisionLayer)->mapData[COORD_TO_TILE(super)];
+    this->unk_70 = &GetTileBuffer(super->collisionLayer)->mapData[COORD_TO_TILE(super)];
     sub_08085394(this);
 }
 
@@ -140,13 +140,13 @@ void sub_08085394(RailtrackEntity* this) {
     tile = COORD_TO_TILE(super);
 
     this->unk_74 = *(layerData - offset);
-    SetTile(uVar1, tile - offset, super->collisionLayer);
+    SetBottomTile(uVar1, tile - offset, super->collisionLayer);
 
     this->unk_76 = layerData[0x0];
-    SetTile(uVar1, tile - 0x0, super->collisionLayer);
+    SetBottomTile(uVar1, tile - 0x0, super->collisionLayer);
 
     this->unk_78 = layerData[offset];
-    SetTile(uVar1, tile + offset, super->collisionLayer);
+    SetBottomTile(uVar1, tile + offset, super->collisionLayer);
 }
 
 void sub_0808543C(RailtrackEntity* this) {
@@ -156,9 +156,9 @@ void sub_0808543C(RailtrackEntity* this) {
 
     temp = gUnk_080B4488[super->animationState / 2][0];
     uVar2 = COORD_TO_TILE(super);
-    SetTile(this->unk_74, uVar2 - temp, super->collisionLayer);
-    SetTile(this->unk_76, uVar2, super->collisionLayer);
-    SetTile(this->unk_78, uVar2 + temp, super->collisionLayer);
+    SetBottomTile(this->unk_74, uVar2 - temp, super->collisionLayer);
+    SetBottomTile(this->unk_76, uVar2, super->collisionLayer);
+    SetBottomTile(this->unk_78, uVar2 + temp, super->collisionLayer);
 }
 
 u32 sub_080854A8(RailtrackEntity* this) {

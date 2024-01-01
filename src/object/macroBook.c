@@ -150,7 +150,7 @@ void sub_0809A958(MacroBookEntity* this) {
     for (index = 0; index < 5; index++, tilePos += 0x40) {
         for (index2 = 0; index2 < 4; index2++, tileIndexPtr++) {
             if ((*tileIndexPtr & 0x4000) != 0) {
-                SetTile(*tileIndexPtr, tilePos + index2, 1);
+                SetBottomTile(*tileIndexPtr, tilePos + index2, 1);
             }
         }
     }

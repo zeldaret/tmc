@@ -102,7 +102,7 @@ void PlayerItemShield_Action1(PlayerItemShieldEntity* this) {
             gPlayerState.shield_status &= ~0x80;
             sub_080176E4(super);
         } else {
-            if ((super->contactFlags & 0x80) != 0) {
+            if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
                 if ((((super->contactFlags & 0x7f) == 0x42) && this->unk_68 == 0xe) &&
                     ((gPlayerState.shield_status & 0x40) == 0)) {
                     playerItem = CreatePlayerItem(PLAYER_ITEM_FIRE_ROD_PROJECTILE, 0, 0, this->unk_68);

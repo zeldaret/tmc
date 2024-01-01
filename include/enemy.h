@@ -62,7 +62,6 @@ void EnemySetFXOffset(Entity*, s32, s32, s32);
 Entity* EnemyCreateProjectile(Entity*, u32, u32);
 
 void GenericDeath(Entity*);
-void sub_08002724(void*, u8*);
 void sub_080026C4(u8*, u8*, u8*, u32);
 void sub_080026F2(u8*, void*, u8*, u32);
 bool32 sub_08049FA0(Entity*);

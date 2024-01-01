@@ -64,7 +64,7 @@ void sub_08080910(s32);
 
 extern u8 gMapDataTopSpecial[];
 
-extern const s8 gUnk_080169A4[];
+extern const s8 gShakeOffsets[];
 
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
@@ -350,8 +350,8 @@ void sub_08080040(RoomControls* controls) {
 
 void sub_08080108(RoomControls* controls) {
     controls->scrollSubAction = 4;
-    MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
-    MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapTop.mapData));
+    MemCopy(gMapBottom.mapData, gMapBottom.mapDataOriginal, sizeof(gMapBottom.mapData));
+    MemCopy(gMapTop.mapData, gMapTop.mapDataOriginal, sizeof(gMapTop.mapData));
     sub_08080368();
     gUnk_02034480.unk_00 = gUnk_0200B640;
     MemCopy(gUnk_02022830, gUnk_020246B0, 0x1800);
@@ -422,8 +422,8 @@ u32 sub_08080278(void) {
     u16* ptr1 = (u16*)gUnk_02022830;
     u16* mapBottomData = gMapBottom.mapData;
     u16* mapTopData = gMapTop.mapData;
-    u16* mapBottomDataClone = gMapBottom.mapDataClone;
-    u16* mapTopDataClone = gMapTop.mapDataClone;
+    u16* mapBottomDataClone = gMapBottom.mapDataOriginal;
+    u16* mapTopDataClone = gMapTop.mapDataOriginal;
     u32 width = gRoomControls.width >> 4;
     u32 height = (gRoomControls.height >> 4) << 6;
 
@@ -761,7 +761,7 @@ void sub_08080930(u32 unused) {
     SetInitializationPriority();
 }
 
-LayerStruct* GetLayerByIndex(u32 param_1) {
+LayerStruct* GetTileBuffer(u32 param_1) {
     if (param_1 == 2) {
         return &gMapTop;
     } else {
@@ -904,7 +904,7 @@ void sub_08080BC4(void) {
     tmpY = ((gRoomControls.scroll_y - gRoomControls.origin_y) & 0xf) + 8;
     if (gRoomControls.shake_duration != 0) {
         gRoomControls.shake_duration--;
-        ptr = &gUnk_080169A4[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
+        ptr = &gShakeOffsets[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
         if (gMapBottom.bgSettings != NULL) {
             gMapBottom.bgSettings->xOffset = ptr[0] + tmpX;
             gMapBottom.bgSettings->yOffset = ptr[1] + tmpY;

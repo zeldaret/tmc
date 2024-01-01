@@ -155,7 +155,7 @@ void sub_08093984(GiantTwigEntity* this) {
     }
 
     for (index = 0; index < 0x13; index++) {
-        SetTile(0x4074, array[index] + this->tilePosition, 1);
+        SetBottomTile(0x4074, array[index] + this->tilePosition, 1);
     }
 }
 
@@ -174,47 +174,47 @@ void GiantTwig_Type3Idle(GiantTwigEntity* this) {
 void sub_08093A1C(GiantTwigEntity* this) {
     switch (super->type) {
         case 0:
-            SetTile(0x4024, this->tilePosition + 0x3c, super->collisionLayer);
-            SetTile(0x4022, this->tilePosition + 0x3d, super->collisionLayer);
-            SetTile(0x4022, this->tilePosition + 0x3e, super->collisionLayer);
-            SetTile(0x4029, this->tilePosition + 0x7c, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x7d, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x7e, super->collisionLayer);
-            SetTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
-            SetTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
-            SetTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
-            SetTile(0x4023, this->tilePosition + 0x42, super->collisionLayer);
-            SetTile(0x406d, this->tilePosition + 0x43, super->collisionLayer);
-            SetTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x82, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x83, super->collisionLayer);
+            SetBottomTile(0x4024, this->tilePosition + 0x3c, super->collisionLayer);
+            SetBottomTile(0x4022, this->tilePosition + 0x3d, super->collisionLayer);
+            SetBottomTile(0x4022, this->tilePosition + 0x3e, super->collisionLayer);
+            SetBottomTile(0x4029, this->tilePosition + 0x7c, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x7d, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x7e, super->collisionLayer);
+            SetBottomTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
+            SetBottomTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
+            SetBottomTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
+            SetBottomTile(0x4023, this->tilePosition + 0x42, super->collisionLayer);
+            SetBottomTile(0x406d, this->tilePosition + 0x43, super->collisionLayer);
+            SetBottomTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x82, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x83, super->collisionLayer);
             break;
         case 1:
             if ((super->type2 & 1) != 0) {
-                SetTile(0x406d, this->tilePosition - 0x81, super->collisionLayer);
-                SetTile(0x4022, this->tilePosition - 0x41, super->collisionLayer);
-                SetTile(0x4029, this->tilePosition - 2, super->collisionLayer);
-                SetTile(0x4026, this->tilePosition - 1, super->collisionLayer);
-                SetTile(0x4022, this->tilePosition, super->collisionLayer);
-                SetTile(0x406d, this->tilePosition + 1, super->collisionLayer);
-                SetTile(0x406e, this->tilePosition + 0x40, super->collisionLayer);
-                SetTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
-                SetTile(0x406d, this->tilePosition + 0x42, super->collisionLayer);
+                SetBottomTile(0x406d, this->tilePosition - 0x81, super->collisionLayer);
+                SetBottomTile(0x4022, this->tilePosition - 0x41, super->collisionLayer);
+                SetBottomTile(0x4029, this->tilePosition - 2, super->collisionLayer);
+                SetBottomTile(0x4026, this->tilePosition - 1, super->collisionLayer);
+                SetBottomTile(0x4022, this->tilePosition, super->collisionLayer);
+                SetBottomTile(0x406d, this->tilePosition + 1, super->collisionLayer);
+                SetBottomTile(0x406e, this->tilePosition + 0x40, super->collisionLayer);
+                SetBottomTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
+                SetBottomTile(0x406d, this->tilePosition + 0x42, super->collisionLayer);
             } else {
-                SetTile(0x406c, this->tilePosition - 0x7f, super->collisionLayer);
-                SetTile(0x4022, this->tilePosition - 0x3f, super->collisionLayer);
-                SetTile(0x406c, this->tilePosition - 1, super->collisionLayer);
-                SetTile(0x4022, this->tilePosition, super->collisionLayer);
-                SetTile(0x4026, this->tilePosition + 1, super->collisionLayer);
-                SetTile(0x402a, this->tilePosition + 2, super->collisionLayer);
-                SetTile(0x406c, this->tilePosition + 0x3e, super->collisionLayer);
-                SetTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
-                SetTile(0x406f, this->tilePosition + 0x40, super->collisionLayer);
+                SetBottomTile(0x406c, this->tilePosition - 0x7f, super->collisionLayer);
+                SetBottomTile(0x4022, this->tilePosition - 0x3f, super->collisionLayer);
+                SetBottomTile(0x406c, this->tilePosition - 1, super->collisionLayer);
+                SetBottomTile(0x4022, this->tilePosition, super->collisionLayer);
+                SetBottomTile(0x4026, this->tilePosition + 1, super->collisionLayer);
+                SetBottomTile(0x402a, this->tilePosition + 2, super->collisionLayer);
+                SetBottomTile(0x406c, this->tilePosition + 0x3e, super->collisionLayer);
+                SetBottomTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
+                SetBottomTile(0x406f, this->tilePosition + 0x40, super->collisionLayer);
                 return;
             }
             break;
         case 3:
-            SetTile(0x4022, this->tilePosition, super->collisionLayer);
+            SetBottomTile(0x4022, this->tilePosition, super->collisionLayer);
             break;
     }
 }
@@ -223,12 +223,12 @@ void sub_08093C70(GiantTwigEntity* this) {
     if (this->unk_78 != 0) {
         if (gPlayerState.heldObject != 0) {
             this->unk_78 = 0;
-            SetTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
-            SetTile(0x4022, this->tilePosition + 0x40, super->collisionLayer);
-            SetTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x7f, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x80, super->collisionLayer);
-            SetTile(0x4026, this->tilePosition + 0x81, super->collisionLayer);
+            SetBottomTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
+            SetBottomTile(0x4022, this->tilePosition + 0x40, super->collisionLayer);
+            SetBottomTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x7f, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x80, super->collisionLayer);
+            SetBottomTile(0x4026, this->tilePosition + 0x81, super->collisionLayer);
         }
 
     } else {
@@ -236,12 +236,12 @@ void sub_08093C70(GiantTwigEntity* this) {
             if (--this->unk_7a == 0) {
                 this->unk_78++;
                 this->unk_7a = 0x3c;
-                SetTile(0x403d, this->tilePosition + 0x3f, super->collisionLayer);
-                SetTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
-                SetTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
-                SetTile(0x403d, this->tilePosition + 0x7f, super->collisionLayer);
-                SetTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
-                SetTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
+                SetBottomTile(0x403d, this->tilePosition + 0x3f, super->collisionLayer);
+                SetBottomTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
+                SetBottomTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
+                SetBottomTile(0x403d, this->tilePosition + 0x7f, super->collisionLayer);
+                SetBottomTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
+                SetBottomTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
             }
         }
     }

@@ -40,7 +40,7 @@ void RupeeLike(RupeeLikeEntity* this) {
     u32 uVar1;
 
     if (super->type2 == 0) {
-        uVar1 = (u8)sub_080043E8(super);
+        uVar1 = (u8)GetTileHazardType(super);
         if (uVar1 != 0) {
             if (super->action == 4) {
                 sub_080296D8(this);
