@@ -39,7 +39,7 @@ void ObjectA8(ObjectA8Entity* this) {
         ObjectA8_Init,    ObjectA8_Action1, ObjectA8_Action2, ObjectA8_Action3,
         ObjectA8_Action4, ObjectA8_Action5, ObjectA8_Action6,
     };
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         switch (super->contactFlags & 0x7f) {
             case 0:
             case 1:
@@ -77,7 +77,7 @@ void ObjectA8_Init(ObjectA8Entity* this) {
     super->collisionFlags = 0x17;
     super->hurtType = 0x48;
     super->hitType = 7;
-    super->flags2 = 0x17;
+    super->collisionMask = 0x17;
     super->hitbox = (Hitbox*)&gUnk_080FD1A8;
     super->gustJarFlags = 1;
     this->unk_74 = super->x.HALF.HI;

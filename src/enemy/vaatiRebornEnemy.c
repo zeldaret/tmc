@@ -539,7 +539,7 @@ void VaatiRebornEnemyType1Action1(VaatiRebornEnemyEntity* this) {
             super->hitType = 0x2f;
             InitAnimationForceUpdate(super, this->unk_74);
         } else {
-            if (((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) && (0 < super->iframes)) {
+            if (((super->contactFlags & CONTACT_NOW) != 0) && (0 < super->iframes)) {
                 parent->iframes = super->iframes;
                 parent->contactFlags = super->contactFlags;
             }
@@ -665,7 +665,7 @@ void VaatiRebornEnemyType1PreAction(VaatiRebornEnemyEntity* this) {
     }
     parent = super->parent;
     this->unk_77 = 0;
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         if (gUnk_080D04D0[((VaatiRebornEnemyEntity*)parent)->unk_86] > super->health) {
             if (2 < ++((VaatiRebornEnemyEntity*)parent)->unk_86) {
                 COLLISION_OFF(super);

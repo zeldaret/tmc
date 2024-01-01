@@ -10,6 +10,7 @@
 #include "sound.h"
 #include "structures.h"
 #include "ui.h"
+#include "collision.h"
 
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
@@ -236,7 +237,7 @@ static void HandlePlayerLife(Entity* this) {
     gUnk_0200AF00.rActionInteractTile = R_ACTION_NONE;
     gUnk_0200AF00.rActionGrabbing = R_ACTION_NONE;
 
-    if ((gPlayerEntity.base.contactFlags & CONTACT_TAKE_DAMAGE) && (gPlayerEntity.base.iframes > 0))
+    if ((gPlayerEntity.base.contactFlags & CONTACT_NOW) && (gPlayerEntity.base.iframes > 0))
         SoundReq(SFX_86);
 
     gPlayerState.flags &= ~(PL_FALLING | PL_CONVEYOR_PUSHED);
@@ -323,7 +324,7 @@ static void sub_080171F0(void) {
     if (gPlayerEntity.unk_7a != 0)
         gPlayerEntity.unk_7a--;
 
-    gPlayerEntity.base.contactFlags &= ~CONTACT_TAKE_DAMAGE;
+    gPlayerEntity.base.contactFlags &= ~CONTACT_NOW;
     if (gPlayerEntity.base.action != PLAYER_DROWN)
         COPY_FLAG_FROM_TO(gPlayerState.flags, 0x2, 0x10000);
 

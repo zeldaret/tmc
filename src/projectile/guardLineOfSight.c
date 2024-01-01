@@ -26,7 +26,7 @@ void GuardLineOfSight(Entity* this) {
             this->timer = Random();
             this->spriteSettings.draw = 0;
         }
-        if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
+        if (this->contactFlags == CONTACT_NOW) {
             if (this->parent != NULL) {
                 this->parent->type = 0xff;
             }
@@ -58,7 +58,7 @@ void GuardLineOfSight(Entity* this) {
             this->hitbox = (Hitbox*)&gUnk_080FD1E4;
             InitializeAnimation(this, 0);
         }
-        if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
+        if (this->contactFlags == CONTACT_NOW) {
             if (this->parent != NULL) {
                 this->parent->type = 0xff;
             }

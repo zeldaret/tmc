@@ -57,7 +57,7 @@ void Wisp_OnCollision(WispEntity* this) {
     Entity* entity;
 
     bits = super->contactFlags;
-    if ((bits & CONTACT_TAKE_DAMAGE) == 0) {
+    if ((bits & CONTACT_NOW) == 0) {
         return;
     }
 

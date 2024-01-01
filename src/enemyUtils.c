@@ -79,7 +79,7 @@ bool32 EnemyInit(Enemy* this) {
         if (super->speed == 0) {
             super->speed = definition->speed;
         }
-        super->flags2 = definition->flags2;
+        super->collisionMask = definition->collisionMask;
         super->hitType = definition->damageType;
         super->hitbox = (Hitbox*)definition->ptr.hitbox;
         super->health = definition->health;
@@ -314,9 +314,9 @@ void EnemyDetachFX(Entity* entity) {
 /** Unsets bitfield 0x80 before calling GetNextFunction, so that the enemyFunction 1 is not called. */
 void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*const fntable[])()) {
     u32 idx;
-    entity->contactFlags &= ~CONTACT_TAKE_DAMAGE;
+    entity->contactFlags &= ~CONTACT_NOW;
     idx = GetNextFunction(entity);
-    entity->contactFlags |= CONTACT_TAKE_DAMAGE;
+    entity->contactFlags |= CONTACT_NOW;
     fntable[idx](entity);
 }
 

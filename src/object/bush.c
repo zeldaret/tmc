@@ -64,7 +64,7 @@ void Bush_Init(BushEntity* this) {
     super->health = 1;
     super->collisionFlags = 7;
     super->hitType = 0x6e;
-    super->flags2 = 4;
+    super->collisionMask = 4;
     super->hitbox = (Hitbox*)&gUnk_081205B4;
     this->unk_72 = 0;
     this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);

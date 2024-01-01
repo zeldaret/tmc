@@ -261,7 +261,7 @@ void sub_0802BF3C(HelmasaurEntity* this) {
 
 void sub_0802BF78(HelmasaurEntity* this) {
     super->action = 1;
-    super->flags2 = 4;
+    super->collisionMask = 4;
     super->gustJarFlags = 1;
     super->direction = super->animationState << 3;
     InitializeAnimation(super, super->animationState + 8);

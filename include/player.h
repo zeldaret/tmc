@@ -511,7 +511,7 @@ typedef struct {
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 field_0x3b;
-    /*0x3c*/ u8 field_0x3c;
+    /*0x3c*/ u8 killed; /**< Non-zero if player is dead */
     /*0x3d*/ u8 moleMittsState;
     /*0x3e*/ u8 swordDamage : 2;
     /*    */ u8 filler14 : 6;

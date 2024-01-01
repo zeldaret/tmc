@@ -70,7 +70,7 @@ void PlayerItemGust(Entity* this) {
 
 static void PlayerItemGust_Init(PlayerItemGustEntity* this) {
     super->action = GUST_UPDATE;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->direction = super->animationState << 2;
     super->speed = 0x200;
     super->flags |= ENT_COLLIDE | ENT_PERSIST;

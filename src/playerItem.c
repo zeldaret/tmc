@@ -74,7 +74,7 @@ void ItemUpdate(Entity* this) {
 
     if (!EntityDisabled(this)) {
         gPlayerItemFunctions[this->id](this);
-        this->contactFlags &= ~CONTACT_TAKE_DAMAGE;
+        this->contactFlags &= ~CONTACT_NOW;
         if (this->iframes != 0) {
             if (this->iframes > 0)
                 this->iframes--;

@@ -518,7 +518,7 @@ void sub_0802A098(MadderpillarEntity* this) {
 
 void sub_0802A0F8(MadderpillarEntity* this) {
     if (super->health != 0) {
-        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) && super->iframes != 0) {
+        if ((super->contactFlags & CONTACT_NOW) && super->iframes != 0) {
             Entity* entity = super;
             u32 i;
             for (i = 0; i < 6; i++) {
@@ -549,7 +549,7 @@ void sub_0802A16C(MadderpillarEntity* this) {
 }
 
 void sub_0802A18C(MadderpillarEntity* this) {
-    if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags & CONTACT_NOW) {
         switch (super->contactFlags & 0x7f) {
             case 0:
             case 1:

@@ -76,7 +76,7 @@ void LilypadLarge_Init(LilypadLargeEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = 4;
+    super->collisionMask = 4;
     this->unk_78.WORD = 0x1000000;
     this->unk_7c.HALF_U.HI = 0x1000;
     this->unk_85 = 0;

@@ -22,7 +22,7 @@ typedef struct EnemyDefinition {
     u8 health;
     s16 speed;
     u8 damageType;
-    u8 flags2;
+    u8 collisionMask;
 } EnemyDefinition;
 
 typedef struct ProjectileDefinition {
@@ -43,7 +43,7 @@ typedef struct ProjectileDefinition {
     u8 field0x40;
     s16 speed;
     u8 damageType;
-    u8 flags2;
+    u8 collisionMask;
 } ProjectileDefinition;
 
 // Sprite data definition for objects and npcs

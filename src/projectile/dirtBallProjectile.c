@@ -41,7 +41,7 @@ void DirtBallProjectile_OnCollision(Entity* this) {
     this->knockbackSpeed = 0;
     if (this->type == 0) {
         this->parent->child = NULL;
-        if (this->contactFlags == CONTACT_TAKE_DAMAGE) {
+        if (this->contactFlags == CONTACT_NOW) {
             gPlayerState.hurtBlinkSpeed = 0xf0;
             ModHealth(-2);
         }

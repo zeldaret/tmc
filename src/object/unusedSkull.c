@@ -36,7 +36,7 @@ void UnusedSkull_Init(UnusedSkullEntity* this) {
     super->collisionFlags = 7;
     super->hitType = 1;
     super->hurtType = 0x47;
-    super->flags2 = 2;
+    super->collisionMask = 2;
     super->hitbox = (Hitbox*)&gHitbox_4;
     SetBottomTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
     if (super->type == 1 || CheckFlags(this->unk_86)) {
@@ -49,7 +49,7 @@ void UnusedSkull_Init(UnusedSkullEntity* this) {
 }
 
 void UnusedSkull_Action1(UnusedSkullEntity* this) {
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1c)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x1c)) {
         super->action = 2;
         super->flags &= ~0x80;
         CreateFx(super, FX_ICE, 0);

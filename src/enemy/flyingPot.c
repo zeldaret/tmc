@@ -93,7 +93,7 @@ void FlyingPot_OnTick(FlyingPotEntity* this) {
 void FlyingPot_OnCollision(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x1d)) {
         super->action = FLYING_POT_ACTION_6;
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);
@@ -207,7 +207,7 @@ void FlyingPot_Action2(FlyingPotEntity* this) {
         super->spritePriority.b1 = 1;
         super->spriteOffsetX = 0;
         super->hitType = 0xA0;
-        super->flags2 = 0xF;
+        super->collisionMask = 0xF;
         super->hitbox = &gUnk_080FD34C;
 
         SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);

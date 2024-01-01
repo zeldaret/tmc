@@ -35,7 +35,7 @@ bool32 ProjectileInit(Entity* this) {
             this->speed = definition->speed;
         }
         this->collisionFlags = (definition->field0x3c << 4) | 7;
-        this->flags2 = definition->flags2;
+        this->collisionMask = definition->collisionMask;
         this->hitType = definition->damageType;
         this->hurtType = definition->field0x40;
         this->health = 0xff;

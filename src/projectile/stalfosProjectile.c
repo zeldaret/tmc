@@ -35,7 +35,7 @@ void StalfosProjectile_OnTick(Entity* this) {
 }
 
 void StalfosProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
+    if (this->contactFlags == (CONTACT_NOW | 0x1d)) {
         this->action = 3;
         COLLISION_OFF(this);
         this->zVelocity = Q_16_16(2.625);

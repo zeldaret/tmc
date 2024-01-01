@@ -66,7 +66,7 @@ void VaatiProjectile_OnTick(VaatiProjectileEntity* this) {
 void VaatiProjectile_OnCollision(VaatiProjectileEntity* this) {
     Entity* entity;
 
-    if (super->contactFlags == CONTACT_TAKE_DAMAGE) {
+    if (super->contactFlags == CONTACT_NOW) {
 #ifndef EU
         if (super->health != 0) {
 #endif
@@ -118,7 +118,7 @@ void VaatiProjectileFunction0Action0(VaatiProjectileEntity* this) {
             } else {
                 super->action = 9;
                 super->z.HALF.HI = -0x80;
-                super->flags2 = 1;
+                super->collisionMask = 1;
             }
             InitializeAnimation(super, 0);
         }

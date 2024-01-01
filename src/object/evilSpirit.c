@@ -55,7 +55,7 @@ void EvilSpirit_Init(EvilSpiritEntity* this) {
         COLLISION_ON(super);
         super->collisionFlags = 7;
         super->hitType = 1;
-        super->flags2 = 4;
+        super->collisionMask = 4;
         for (index = 0; index < 4; index++) {
             evilSpiritEnt = CreateObjectWithParent(super, EVIL_SPIRIT, index + 1, 0);
             super->child = evilSpiritEnt;

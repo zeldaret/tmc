@@ -978,13 +978,13 @@ void sub_08026BE8(ChuchuBossEntity* this) {
     Entity* child;
 
     child = super->child;
-    child->flags2 &= ~1;
+    child->collisionMask &= ~1;
     if (this->unk_7c == 0) {
         super->subAction = 7;
         this->unk_84->unk_03 = 0;
         this->unk_7d = 0x2d;
         child->flags &= ~0x80;
-        child->flags2 |= 1;
+        child->collisionMask |= 1;
         SoundReq(SFX_155);
     } else {
         this->unk_7c--;
@@ -1346,7 +1346,7 @@ void sub_080272D4(ChuchuBossEntity* this) {
             super->hitbox->height = (u32)((0x10000 / this->unk_74.HALF_U.HI) * 5) >> 6;
             if (*(char*)&this->unk_84 == 0)
                 break;
-            if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+            if (super->contactFlags & CONTACT_NOW) {
                 if (super->iframes != 0) {
                     ((ChuchuBossEntity*)super->child)->unk_68->base.iframes = super->iframes;
                     super->child->parent->iframes = super->iframes;
@@ -1697,7 +1697,7 @@ bool32 sub_08027AA4(ChuchuBossEntity* this) {
     s32 iVar4;
     Helper* pHelper;
 
-    if ((super->contactFlags & CONTACT_TAKE_DAMAGE) == 0) {
+    if ((super->contactFlags & CONTACT_NOW) == 0) {
         return FALSE;
     }
     switch (super->contactFlags & 0x7f) {

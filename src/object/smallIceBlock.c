@@ -60,7 +60,7 @@ void SmallIceBlock_Init(SmallIceBlockEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
-    super->flags2 = 0x80;
+    super->collisionMask = 0x80;
     super->hitbox = (Hitbox*)&gUnk_080FD408;
     sub_08099468(this);
     InitializeAnimation(super, super->type);
@@ -281,7 +281,7 @@ bool32 sub_0809963C(SmallIceBlockEntity* this) {
             }
         }
     }
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x7)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x7)) {
         return TRUE;
     }
     return FALSE;

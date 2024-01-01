@@ -342,7 +342,7 @@ void sub_0803CBAC(LakituEntity* this) {
 
     super->spritePriority.b1 = 1;
 
-    super->flags2 &= 0x7b;
+    super->collisionMask &= 0x7b;
 
     super->hitType = 0x42;
 

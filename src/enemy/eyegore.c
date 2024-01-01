@@ -82,14 +82,14 @@ void Eyegore_OnTick(EyegoreEntity* this) {
 void Eyegore_OnCollision(EyegoreEntity* this) {
     u32 tmp;
 
-    if ((super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x15)) || (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe))) {
+    if ((super->contactFlags == (CONTACT_NOW | 0x15)) || (super->contactFlags == (CONTACT_NOW | 0xe))) {
         Entity* entity = super->contactedEntity;
         tmp = (((entity->direction + 4) & 0x18) ^ 0x10) >> 3;
         if (tmp == super->animationState) {
             if ((tmp & 1) != 0) {
                 if (0x10 < ((entity->y.HALF.HI + entity->z.HALF.HI) - (super->y.HALF.HI + super->z.HALF.HI)) + 0x14U) {
                 } else {
-                    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe)) {
+                    if (super->contactFlags == (CONTACT_NOW | 0xe)) {
                         super->health = 0;
                     } else {
                         super->health--;
@@ -105,7 +105,7 @@ void Eyegore_OnCollision(EyegoreEntity* this) {
                         EnqueueSFX(SFX_BUTTON_PRESS);
                         sub_08031344(this);
                     } else {
-                        if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe)) {
+                        if (super->contactFlags == (CONTACT_NOW | 0xe)) {
                             super->health = 0;
                         } else {
                             super->health--;

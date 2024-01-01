@@ -54,7 +54,7 @@ void ObjectOnSpinyBeetle_Init(ObjectOnSpinyBeetleEntity* this) {
     super->spriteRendering.b3 = 2;
     super->subtimer = 0;
     super->hitType = 0x6e;
-    super->flags2 = 0x86;
+    super->collisionMask = 0x86;
     super->carryFlags = 0;
     if (super->type != 0) {
         super->gustJarFlags = 2;
@@ -72,7 +72,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
             sub_080989C0(this);
             return;
         }
-        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+        if ((super->contactFlags & CONTACT_NOW) != 0) {
             switch (super->contactFlags & 0x3f) {
                 case 0x13:
                     super->action = 3;
@@ -138,7 +138,7 @@ void ObjectOnSpinyBeetle_Action2Subaction0(ObjectOnSpinyBeetleEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->spriteOffsetY = 0;
     (super->parent)->child = NULL;
     super->subAction++;

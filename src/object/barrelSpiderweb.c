@@ -40,7 +40,7 @@ void BarrelSpiderweb_Init(Entity* this) {
         this->hitType = 1;
         this->collisionFlags = 7;
         this->hurtType = 0x48;
-        this->flags2 = 4;
+        this->collisionMask = 4;
         this->hitbox = (Hitbox*)&gHitbox_0;
         this->frameIndex = 2;
         this->collisionLayer = gPlayerEntity.base.collisionLayer;
@@ -64,7 +64,7 @@ void sub_0808BBE0(Entity* this) {
         ptr = &gUnk_0812144C[diff * 2];
         SetAffineInfo(this, ptr[0], ptr[1], 0);
     } else {
-        this->contactFlags &= ~CONTACT_TAKE_DAMAGE;
+        this->contactFlags &= ~CONTACT_NOW;
     }
 }
 
@@ -74,7 +74,7 @@ void BarrelSpiderweb_Action1(Entity* this) {
     tmp = -0x170;
     this->y.HALF.HI = gRoomControls.origin_y - ((this->parent)->zVelocity + tmp);
     sub_0808BBE0(this);
-    if (this->contactFlags == (CONTACT_TAKE_DAMAGE | 0x13)) {
+    if (this->contactFlags == (CONTACT_NOW | 0x13)) {
         this->timer--;
         this->spriteSettings.draw = 1;
         if (this->timer == 0) {
@@ -114,7 +114,7 @@ void BarrelSpiderweb_Action2(Entity* this) {
         this->subtimer -= 8;
         SetAffineInfo(this, 0x200 - this->subtimer, 0x200 - this->subtimer, 0);
     }
-    if (this->contactFlags == (CONTACT_TAKE_DAMAGE | 0x13)) {
+    if (this->contactFlags == (CONTACT_NOW | 0x13)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity.base);
         LinearMoveUpdate(this);
         if (EntityWithinDistance(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 6, 0x1c)) {

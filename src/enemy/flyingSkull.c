@@ -45,7 +45,7 @@ void FlyingSkull_OnTick(FlyingSkullEntity* this) {
 void FlyingSkull_OnCollision(FlyingSkullEntity* this) {
     sub_0803A100(this);
 
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x1d)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x1d)) {
         super->action = 7;
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);
@@ -198,7 +198,7 @@ void sub_08039FAC(FlyingSkullEntity* this) {
         super->spritePriority.b1 = 1;
         super->spriteOffsetX = 0;
         super->hitType = 0xa0;
-        super->flags2 = 0xf;
+        super->collisionMask = 0xf;
         super->hitbox = (Hitbox*)&gUnk_080FD34C;
         SetBottomTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     }

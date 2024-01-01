@@ -51,7 +51,7 @@ void RemovableDust_OnTick(RemovableDustEntity* this) {
 }
 
 void RemovableDust_OnCollision(RemovableDustEntity* this) {
-    if (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x16)) {
+    if (super->contactFlags == (CONTACT_NOW | 0x16)) {
         RemovableDust_OnGrabbed(this);
     }
 }

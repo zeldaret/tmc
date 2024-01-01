@@ -383,7 +383,7 @@ void sub_0802D3B8(GleerokEntity* this) {
         case 1:
             if (super->type2 == 1) {
                 COLLISION_ON(super);
-                super->flags2 |= 0x80;
+                super->collisionMask |= 0x80;
             }
 
             super->spritePriority.b0 = gUnk_080CD7C4[super->type2].unk0.HALF.HI;
@@ -399,7 +399,7 @@ void sub_0802D3B8(GleerokEntity* this) {
             this->unk_74 = gUnk_080CD884[0];
             this->unk_75 = 0;
             super->spritePriority.b0 = 6;
-            super->flags2 |= 0x80;
+            super->collisionMask |= 0x80;
             CopyPosition(super->parent, super);
             InitializeAnimation(super, 0x4f);
             break;
@@ -659,7 +659,7 @@ void sub_0802D86C(GleerokEntity* this) {
                 }
             }
 
-            if ((super->contactFlags & CONTACT_TAKE_DAMAGE) && this->unk_74 == 0) {
+            if ((super->contactFlags & CONTACT_NOW) && this->unk_74 == 0) {
                 if ((super->contactFlags & 0x7f) == 0x1d) {
                     super->zVelocity = Q_16_16(3.0);
                     super->parent->subAction = 4;
@@ -1039,7 +1039,7 @@ void sub_0802E0B8(GleerokEntity* this) {
         super->type2 = 4;
         InitializeAnimation(super, 0x4e);
     } else {
-        if (super->contactFlags & CONTACT_TAKE_DAMAGE) {
+        if (super->contactFlags & CONTACT_NOW) {
             if (super->iframes > 0) {
                 SoundReq(SFX_BOSS_HIT);
             }

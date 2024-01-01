@@ -2,7 +2,7 @@
  * @file npc5.c
  * @ingroup NPCs
  *
- * @brief NPC 5
+ * @brief Unused Zelda follower NPC.
  */
 #include "collision.h"
 #include "functions.h"
@@ -166,7 +166,7 @@ void sub_08060AE0(NPC5Entity* this) {
         super->collisionFlags = 7;
         super->hurtType = 0x48;
         super->hitType = 0x49;
-        super->flags2 = 3;
+        super->collisionMask = 3;
         super->hitbox = (Hitbox*)&gHitbox_0;
         super->followerFlag &= 0xfe;
         this->unk_6c = 0xff;
@@ -525,7 +525,7 @@ u32 sub_080611D4(Entity* this) {
 
 u32 sub_08061230(NPC5Entity* this) {
     if ((((UnkHeap*)super->myHeap)->unk_0 & 1) == 0) {
-        if ((super->contactFlags & CONTACT_TAKE_DAMAGE) != 0) {
+        if ((super->contactFlags & CONTACT_NOW) != 0) {
             switch (super->contactFlags & 0x7f) {
                 case 0:
                 case 1:

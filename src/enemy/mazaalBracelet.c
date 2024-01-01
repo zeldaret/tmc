@@ -167,8 +167,8 @@ void MazaalBracelet_OnCollision(MazaalBraceletEntity* this) {
 
     if (super->type < 2) {
         if (super->action != 0x2b) {
-            if ((0 < super->iframes) && ((super->contactFlags == (CONTACT_TAKE_DAMAGE | 0x15) ||
-                                          (super->contactFlags == (CONTACT_TAKE_DAMAGE | 0xe))))) {
+            if ((0 < super->iframes) &&
+                ((super->contactFlags == (CONTACT_NOW | 0x15) || (super->contactFlags == (CONTACT_NOW | 0xe))))) {
                 super->action = 0x28;
                 COLLISION_OFF(super);
                 entity = (MazaalBraceletEntity*)super->parent;
@@ -1300,7 +1300,7 @@ u32 sub_0803B870(MazaalBraceletEntity* this) {
     Entity* entity;
 
     entity = super->child;
-    if ((entity->contactFlags & CONTACT_TAKE_DAMAGE) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
+    if ((entity->contactFlags & CONTACT_NOW) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
         super->action = 0x18;
         super->timer = 68;
         super->spriteSettings.draw = 0;
