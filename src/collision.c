@@ -391,7 +391,7 @@ CollisionResult sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSetting
 CollisionResult sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((tgt->gustJarState & 4) != 0) {
         if (tgt->gustJarTolerance) {
-            tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarSpeed;
+            tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarCharge;
             if ((s8)tgt->gustJarTolerance <= 0) {
                 tgt->gustJarTolerance = 0;
                 tgt->subAction = 2;

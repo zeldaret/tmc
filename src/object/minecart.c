@@ -70,7 +70,7 @@ void Minecart_Action1(MinecartEntity* this) {
         SoundReq(SFX_13B);
     } else {
         if (sub_0800445C(super) != 0) {
-            if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.field_0x1c ||
+            if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.gustJarState ||
                   gPlayerState.heldObject || gPlayerState.jump_status)) {
                 super->timer++;
             } else {

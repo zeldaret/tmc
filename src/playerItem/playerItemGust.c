@@ -61,7 +61,7 @@ void PlayerItemGust(Entity* this) {
         PlayerItemGust_Update,
     };
 
-    if ((gPlayerState.field_0x1c & 0x7f) != 1) {
+    if ((gPlayerState.gustJarState & 0x7f) != 1) {
         DeleteThisEntity();
     }
     PlayerItemGust_Actions[this->action]((PlayerItemGustEntity*)this);

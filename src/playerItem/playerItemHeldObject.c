@@ -235,7 +235,7 @@ void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
     static const u32 gUnk_081320D4[] = { Q_16_16(0), Q_16_16(0.5), Q_16_16(1.25), Q_16_16(1.25) };
     u32 tmp;
     PlayerItemHeldObjectEntity* child = (PlayerItemHeldObjectEntity*)super->child;
-    gPlayerEntity.unk_74 = NULL;
+    gPlayerEntity.carriedEntity = NULL;
     if ((this->unk_6c == (u16)(child->base).kind) && (this->unk_6e == (u16)(child->base).id)) {
         if (child != this) {
             (child->base).subAction = 2;

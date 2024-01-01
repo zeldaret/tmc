@@ -204,7 +204,7 @@ void ObjectOnSpinyBeetle_Action3Subaction0(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action3Subaction1(ObjectOnSpinyBeetleEntity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         super->spriteOffsetX = 0;
         super->action = 1;
     } else {
@@ -219,7 +219,7 @@ void ObjectOnSpinyBeetle_Action3Subaction2(ObjectOnSpinyBeetleEntity* this) {
         super->spriteOffsetY = -2;
         (super->parent)->child = NULL;
     }
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         sub_080989C0(this);
     } else {
         if ((sub_0806F3E4(super) != 0) && (super->type == 0)) {
@@ -229,7 +229,7 @@ void ObjectOnSpinyBeetle_Action3Subaction2(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action3Subaction3(ObjectOnSpinyBeetleEntity* this) {
-    if (gPlayerState.field_0x1c == 0) {
+    if (gPlayerState.gustJarState == 0) {
         sub_080989C0(this);
     } else {
         (this->base).flags &= ~ENT_COLLIDE;

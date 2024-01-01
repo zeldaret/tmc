@@ -1067,7 +1067,7 @@ void sub_08047EA4(GyorgMaleEntity* this, u32 unk1) {
     if (this->unk_7c & 1) {
         tmp2 = sub_08047F68(this) << 8;
         dir = CalcOffsetAngle(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
-                           gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+                              gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
         tmp = dir - (tmp / 256);
         tmp &= 0xFF;
         gPlayerEntity.base.x.WORD += (gSineTable[tmp] - gSineTable[dir]) * tmp2;
@@ -1150,7 +1150,7 @@ void sub_08048004(GyorgMaleEntity* this) {
                 if (EntityWithinDistance(&gPlayerEntity.base, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
                     if (!(this->unk_7c & 2)) {
                         u32 tmp = CalcOffsetAngle(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
-                                               gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+                                                  gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
                         gPlayerEntity.base.x.WORD = super->x.WORD + (gSineTable[tmp] * 9216);
                         gPlayerEntity.base.y.WORD = super->y.WORD - (gSineTable[tmp + 0x40] * 9216);
                     }

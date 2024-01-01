@@ -424,7 +424,7 @@ static void PlayerNormal(PlayerEntity* this) {
         } else {
             if (gPlayerState.sword_state) {
                 super->speed = kWalkSpeedSwordCharge;
-            } else if (gPlayerState.field_0x1c) {
+            } else if (gPlayerState.gustJarState != PL_JAR_NONE) {
                 super->speed = kWalkSpeedGustJar;
             } else {
                 super->speed = kWalkSpeed;
@@ -890,8 +890,8 @@ static void sub_08071130(PlayerEntity* this) {
     gPlayerState.jump_status = 0;
     ResetCollisionLayer(super);
 
-    if (this->unk_74 != NULL)
-        ResetCollisionLayer(this->unk_74);
+    if (this->carriedEntity != NULL)
+        ResetCollisionLayer(this->carriedEntity);
 
     DoTileInteractionHere(super, 7);
 
@@ -1982,7 +1982,7 @@ static void sub_080724DC(PlayerEntity* this) {
         if (gRoomControls.reload_flags == 0) {
             super->updatePriority = super->updatePriorityPrev;
             PlayerWaitForScroll(this);
-        } else if (gPlayerState.field_0x1c == 0) {
+        } else if (gPlayerState.gustJarState == PL_JAR_NONE) {
             UpdateAnimationSingleFrame(super);
         }
     } else {

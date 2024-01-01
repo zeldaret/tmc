@@ -182,7 +182,7 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
             }
         case 1:
             super->direction = CalcOffsetAngle(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
-                                            this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
+                                               this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
             LinearMoveAngle(super, super->speed, super->direction);
             if (EntityInRectRadius(super, this->helper->tailObjects[super->timer], 2, 2) == 0) {
                 return;

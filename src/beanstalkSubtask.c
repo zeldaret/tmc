@@ -208,7 +208,7 @@ u32 UpdatePlayerCollision(void) {
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x,
                                    gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y, index, 5) == 0 &&
-                      (((gPlayerState.heldObject != 0 || ((gPlayerState.field_0x1c & 0xf) != 0)) ||
+                      (((gPlayerState.heldObject != 0 || ((gPlayerState.gustJarState & 0xf) != 0)) ||
                         (sub_0807BD14(&gPlayerEntity.base, index) == 0)))))) {
                     return 3;
                 }

@@ -55,16 +55,16 @@ bool32 sub_0806F3E4(Entity* ent) {
     GenericEntity tmp_ent;
     s8* p;
 
-    if ((gPlayerState.field_0x1c & 0x7F) != 1)
+    if ((gPlayerState.gustJarState & 0x7F) != PL_JAR_SUCK)
         return 0;
-    switch (gPlayerState.gustJarSpeed) {
-        case 1:
+    switch (gPlayerState.gustJarCharge) {
+        case JAR_CHARGE_SMALL:
             ent->knockbackSpeed += 64;
             break;
-        case 2:
+        case JAR_CHARGE_MID:
             ent->knockbackSpeed += 128;
             break;
-        case 3:
+        case JAR_CHARGE_BIG:
             ent->knockbackSpeed += 192;
             break;
     }
@@ -76,18 +76,18 @@ bool32 sub_0806F3E4(Entity* ent) {
     LinearMoveDirection(ent, ent->knockbackSpeed, GetFacingDirection(ent, &tmp_ent.base));
     if (sub_0800419C(&tmp_ent.base, ent, 4, 4)) {
         u32 state = ent->gustJarFlags & 0xF;
-        if (state == 2) {
+        if (state == PL_JAR_2) {
             Entity* item;
             ent->subAction = 3;
-            gPlayerEntity.unk_70 = ent;
-            gPlayerState.field_0x1c = 7;
+            gPlayerEntity.pulledJarEntity = ent;
+            gPlayerState.gustJarState = PL_JAR_ENT_ATTACHED;
             item = CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
             if (item != NULL) {
                 item->child = ent;
                 ent->parent = item;
             }
             SoundReq(SFX_ED);
-        } else if (state == 1) {
+        } else if (state == PL_JAR_SUCK) {
             gPlayerState.item->type = 1;
             SoundReq(SFX_EF);
         }

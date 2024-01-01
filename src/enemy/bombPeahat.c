@@ -96,8 +96,8 @@ void sub_0802A8F4(BombPeahatEntity* this) {
 }
 
 void sub_0802A8FC(BombPeahatEntity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        super->health = gPlayerState.field_0x1c & 0xf;
+    if ((gPlayerState.gustJarState & 0xf) == 0) {
+        super->health = gPlayerState.gustJarState & 0xf;
     }
 }
 

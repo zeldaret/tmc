@@ -100,7 +100,7 @@ void sub_08039CE0(FlyingSkullEntity* this) {
 }
 
 void sub_08039D4C(FlyingSkullEntity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) == 0) {
+    if ((gPlayerState.gustJarState & 0xf) == 0) {
         sub_0803A0E0(this);
     }
 }

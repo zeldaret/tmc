@@ -44,7 +44,7 @@ void GustJarParticle_Action1(Entity* this) {
 
     if (sub_0806F3E4(this)) {
         DeleteThisEntity();
-    } else if ((gPlayerState.field_0x1c & 0xf) != 1) {
+    } else if ((gPlayerState.gustJarState & 0xf) != 1) {
         DeleteThisEntity();
     }
 }

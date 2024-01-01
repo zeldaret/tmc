@@ -291,7 +291,7 @@ void Enemy64_Action3(Enemy64Entity* this) {
 
 void Enemy64_Action3_SubAction0(Enemy64Entity* this) {
     u32 tmp = CalcOffsetAngle(gRoomControls.origin_x + 0xa8 - super->x.HALF.HI,
-                           gRoomControls.origin_y + 0x80 - super->y.HALF.HI);
+                              gRoomControls.origin_y + 0x80 - super->y.HALF.HI);
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0x80) != 0) {
             super->direction--;
@@ -491,7 +491,7 @@ void sub_080499F0(Enemy64Entity* this) {
         if (EntityWithinDistance(&gPlayerEntity.base, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
             ((this->unk_7c & 2) == 0)) {
             tmp = CalcOffsetAngle((s32)gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
-                               (s32)gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+                                  (s32)gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
             gPlayerEntity.base.x.WORD = super->x.WORD + gSineTable[tmp] * 0x2400;
             gPlayerEntity.base.y.WORD = super->y.WORD + gSineTable[tmp + 0x40] * -0x2400;
         }

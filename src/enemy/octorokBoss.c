@@ -168,11 +168,11 @@ void OctorokBoss_Hit_SubAction1(OctorokBossEntity* this) {
             this->heap->field_0x2 = 1;
 #if defined(JP) || defined(DEMO_JP) || defined(EU)
             super->direction = ((s32)CalcOffsetAngle((((gRoomControls.origin_x + 0x108) << 0x10) - super->x.WORD),
-                                                  (((gRoomControls.origin_y + 0x88) << 0x10) - super->y.WORD))) >>
+                                                     (((gRoomControls.origin_y + 0x88) << 0x10) - super->y.WORD))) >>
                                3;
 #else
             super->direction = ((s32)CalcOffsetAngle(gRoomControls.origin_x + 0x108 - super->x.HALF.HI,
-                                                  gRoomControls.origin_y + 0x88 - super->y.HALF.HI)) >>
+                                                     gRoomControls.origin_y + 0x88 - super->y.HALF.HI)) >>
                                3;
 #endif
             super->speed = 0x100;
@@ -913,7 +913,7 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
                             this->timer = 2;
                             this->heap->targetAngle =
                                 CalcOffsetAngle((gRoomControls.origin_x + 0x108) * 0x10000 - super->x.WORD,
-                                             (gRoomControls.origin_y + 0x88) * 0x10000 - super->y.WORD);
+                                                (gRoomControls.origin_y + 0x88) * 0x10000 - super->y.WORD);
                             this->heap->targetAngle = (u8) - (this->heap->targetAngle + 0x80);
                             SoundReq(SFX_ED);
                         }
@@ -1179,7 +1179,7 @@ void sub_08036AF0(OctorokBossEntity* this, s32 radius, s32 angleSpeed) {
             } else {
                 heap->tailObjects[index - 1]->angle.HALF.HI =
                     CalcOffsetAngle(heap->tailObjects[index - 1]->base.x.WORD - heap->tailObjects[index]->base.x.WORD,
-                                 heap->tailObjects[index - 1]->base.y.WORD - heap->tailObjects[index]->base.y.WORD);
+                                    heap->tailObjects[index - 1]->base.y.WORD - heap->tailObjects[index]->base.y.WORD);
                 tmp = FixedMul(gSineTable[heap->tailObjects[index - 1]->angle.HALF.HI], radius << 4);
                 tmp = FixedDiv(tmp, 0x100);
                 heap->tailObjects[index - 1]->base.x.WORD = heap->tailObjects[index]->base.x.WORD + ((s32)tmp << 8);
