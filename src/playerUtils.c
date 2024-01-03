@@ -1158,9 +1158,29 @@ void ResetPossibleInteraction(void) {
     gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
 }
 
+static inline bool32 InlinePlayerStateCheck() {
+    u8 frameState;
+    if ((gPlayerState.field_0x27[0] | gPlayerState.swim_state) != 0) {
+        return TRUE;
+    }
+    if (gPlayerState.framestate == 0) {
+        frameState = gPlayerState.framestate_last;
+    } else {
+        frameState = gPlayerState.framestate;
+    }
+    switch (frameState) {
+        case PL_STATE_SWORD:
+        case PL_STATE_GUSTJAR:
+        case PL_STATE_DIE:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+            return TRUE;
+    }
+    return FALSE;
+}
+
 // determines which (if any) object the player is currently able to interact with
 InteractableObject* sub_080784E4(void) {
-    u8 frameState;
     PlayerFlags r7;
     s32 r3;
     PlayerFlags PVar4;
@@ -1177,26 +1197,12 @@ InteractableObject* sub_080784E4(void) {
     if (gPossibleInteraction.isUpdated != 0) {
         return gPossibleInteraction.currentObject;
     }
-    if ((gPlayerState.field_0x27[0] | gPlayerState.swim_state) != 0) {
-        goto l;
-    }
 
-    if (gPlayerState.framestate == 0) {
-        frameState = gPlayerState.framestate_last;
-    } else {
-        frameState = gPlayerState.framestate;
-    }
-    switch (frameState) {
-        case PL_STATE_SWORD:
-        case PL_STATE_GUSTJAR:
-        case PL_STATE_DIE:
-        case PL_STATE_ITEMGET:
-        case PL_STATE_DROWN:
-        l:
-            gPossibleInteraction.currentIndex = 0xFF;
-            gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
-            gPossibleInteraction.isUpdated = 1;
-            return gPossibleInteraction.currentObject;
+    if (InlinePlayerStateCheck()) {
+        gPossibleInteraction.currentIndex = 0xFF;
+        gPossibleInteraction.currentObject = (InteractableObject*)&gNoInteraction;
+        gPossibleInteraction.isUpdated = 1;
+        return gPossibleInteraction.currentObject;
     }
 
     if (!(gPlayerState.flags & PL_MINISH)) {
