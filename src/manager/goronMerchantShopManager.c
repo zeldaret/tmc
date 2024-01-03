@@ -49,7 +49,9 @@ inline static void CheckGoronKakera() {
 }
 
 void GoronMerchantShopManager_Main(GoronMerchantShopManager* this) {
-
+    static const GoronShopSpawnData shopSpawnData[3] = { { 0x6e, 0x3, 0x210, 0x210 },
+                                                         { 0x71, 0x2, 0x220, 0x210 },
+                                                         { 0x73, 0x3, 0x230, 0x210 } };
     const GoronShopSpawnData* spawnData;
     s32 count;
 
