@@ -119,6 +119,21 @@ typedef struct {
     s8 y;
 } PACKED Coords8;
 
+typedef union {
+    s64 DWORD;
+    u64 DWORD_U;
+    struct {
+        s32 LO, HI;
+    } HALF;
+    struct {
+        u32 LO, HI;
+    } HALF_U;
+} SplitDWord;
+
+typedef u64 (*MultiReturnFunctionType)();
+
+#define MULTI_RETURN_FUNCTION_CALL(func, ...) ((SplitDWord)((*(MultiReturnFunctionType)(&func))(__VA_ARGS__)))
+
 union SplitWord {
     s32 WORD;
     u32 WORD_U;
