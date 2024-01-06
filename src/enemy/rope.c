@@ -209,7 +209,7 @@ void sub_08031600(RopeEntity* this) {
 
 u32 sub_0803163C(RopeEntity* this) {
     u32 h;
-    if (GetVvvAtEntity(super) == VVV_19) {
+    if (GetActTileAtEntity(super) == ACT_TILE_19) {
         h = this->unk_7a / 2;
     } else {
         h = this->unk_7a;

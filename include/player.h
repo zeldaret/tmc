@@ -696,7 +696,7 @@ u32 sub_08079B24(void);
 void sub_08079708(Entity*);
 void sub_08079744(Entity*);
 void PlayerUpdateSwimming(Entity*);
-u32 GetVvvInFront(Entity* player);
+u32 GetActTileInFront(Entity* player);
 u32 sub_080797C4(void);
 void CheckPlayerVelocity(void);
 void sub_0807B068(Entity*);

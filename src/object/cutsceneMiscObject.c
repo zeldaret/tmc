@@ -332,7 +332,7 @@ void CutsceneMiscObject_Type5(CutsceneMiscObjectEntity* this) {
                 super->zVelocity = 0;
                 SetEntityPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
-                if (GetVvvAtEntity(super) == VVV_13) {
+                if (GetActTileAtEntity(super) == ACT_TILE_13) {
                     super->action = 3;
                 }
                 break;

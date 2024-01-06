@@ -49,7 +49,7 @@ const u8 gEntityListLUT[] = {
 void sub_0805E248(void) {
     s32 tilePos;
 
-    tilePos = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
+    tilePos = gDiggingCaveEntranceTransition.entrance->targetTilePos;
     if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
         SetTileType(TILE_TYPE_636, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
         SetTileType(TILE_TYPE_643, tilePos + TILE_POS(-1, -1), LAYER_TOP);

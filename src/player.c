@@ -1976,7 +1976,7 @@ static void PlayerRoomTransition(PlayerEntity* this) {
 static void sub_080724DC(PlayerEntity* this) {
     super->knockbackDuration = 0;
     DeleteClones();
-    if (GetVvvAtEntity(super) != VVV_41) {
+    if (GetActTileAtEntity(super) != ACT_TILE_41) {
         if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
             PlayerUpdateSwimming(super);
         }
@@ -2002,7 +2002,7 @@ static void sub_080724DC(PlayerEntity* this) {
 
 static void sub_0807258C(PlayerEntity* this) {
     if (gRoomControls.reload_flags == 0) {
-        if (GetVvvInFront(super) == VVV_41) {
+        if (GetActTileInFront(super) == ACT_TILE_41) {
             UpdatePlayerMovement();
             if (sub_080797C4() != 0) {
                 gPlayerState.startPosX = gPlayerEntity.base.x.HALF.HI;
@@ -2367,7 +2367,7 @@ static void sub_08072D54(PlayerEntity* this) {
         LinearMoveUpdate(super);
         super->timer--;
     } else {
-        uVar2 = GetTileType(sub_0806F730(super), super->collisionLayer);
+        uVar2 = GetTileTypeAtTilePos(sub_0806F730(super), super->collisionLayer);
         switch (super->subtimer) {
             case 0:
                 if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
@@ -2627,7 +2627,7 @@ static void PlayerUseStairs(PlayerEntity* this) {
 
 static void sub_080732D0(PlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if (GetVvvAtEntity(super) != VVV_40) {
+    if (GetActTileAtEntity(super) != ACT_TILE_40) {
         super->direction = DirectionNorth;
         LinearMoveUpdate(super);
     } else {
@@ -4114,7 +4114,7 @@ void sub_0807529C(PlayerEntity* this) {
 void sub_080752AC(PlayerEntity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(super);
     if (!ctx->unk_18) {
-        if (GetVvvAtEntity(super) != VVV_41) {
+        if (GetActTileAtEntity(super) != ACT_TILE_41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

@@ -30,7 +30,7 @@ extern u16 gUnk_0200B640;
 extern MapDataDefinition** gCaveBorderMapData[];
 extern u16 gUnk_02022830[0xc00];
 extern u16 gUnk_020246B0[0xc00];
-extern u8 gMapSpecialTileToVvv[];
+extern u8 gMapSpecialTileToActTile[];
 
 void Scroll0(RoomControls*);
 void Scroll1(RoomControls*);
@@ -54,7 +54,7 @@ u32 sub_080803D0();
 u32 sub_08080278();
 void sub_08080C80(MapDataDefinition*);
 void sub_08080368();
-void FillVvvForLayer(MapLayer* mapLayer);
+void FillActTileForLayer(MapLayer* mapLayer);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 void sub_080808D8(s32);
@@ -355,8 +355,8 @@ void Scroll5Sub3(RoomControls* controls) {
     sub_08080368();
     gUnk_02034480.unk_00 = gUnk_0200B640;
     MemCopy(gUnk_02022830, gUnk_020246B0, 0x1800);
-    FillVvvForLayer(&gMapBottom);
-    FillVvvForLayer(&gMapTop);
+    FillActTileForLayer(&gMapBottom);
+    FillActTileForLayer(&gMapTop);
     sub_0807BBE4();
     CreateCollisionDataBorderAroundRoom();
     sub_0805E248();
@@ -843,7 +843,7 @@ void sub_080809D4(void) {
 }
 
 void UpdateDoorTransition() {
-    u32 vvv;
+    u32 actTile;
     u32 x;
     u32 y;
     RoomControls* controls = &gRoomControls;
@@ -864,35 +864,35 @@ void UpdateDoorTransition() {
         case 0x1d:
             y = controls->camera_target->y.HALF.HI - controls->origin_y;
             x = controls->camera_target->x.HALF.HI - controls->origin_x;
-            vvv = GetVvvAtTilePos(
+            actTile = GetActTileAtTilePos(
                 (((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
                     ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
                 controls->camera_target->collisionLayer);
-            gRoomTransition.stairs_idx = sub_080B1A48(x, y, controls->camera_target->collisionLayer);
-            switch (vvv) {
-                case VVV_63:
-                case VVV_241:
-                case VVV_40:
-                case VVV_41:
+            gRoomTransition.stairs_idx = GetTileTypeAtRoomCoords(x, y, controls->camera_target->collisionLayer);
+            switch (actTile) {
+                case ACT_TILE_63:
+                case ACT_TILE_241:
+                case ACT_TILE_40:
+                case ACT_TILE_41:
                     sub_080806BC(x, y, 0xff, 10);
                     break;
             }
     }
 }
 
-// fill the vvv for the whole layer
-void FillVvvForLayer(MapLayer* mapLayer) {
+// fill the actTile for the whole layer
+void FillActTileForLayer(MapLayer* mapLayer) {
     u32 tilePos;
     u16* tileTypes = mapLayer->tileTypes;
-    const u8* ptr = gMapTileTypeToVvv;
-    u8* ptr3 = mapLayer->vvv;
+    const u8* ptr = gMapTileTypeToActTile;
+    u8* actTiles = mapLayer->actTiles;
     u16* mapData = mapLayer->mapData;
     for (tilePos = 0; tilePos < 0x40 * 0x40; tilePos++) {
         u16 tileIndex = mapData[tilePos];
         if (tileIndex < 0x4000) {
-            mapLayer->vvv[tilePos] = ptr[tileTypes[tileIndex]];
+            mapLayer->actTiles[tilePos] = ptr[tileTypes[tileIndex]];
         } else {
-            mapLayer->vvv[tilePos] = gMapSpecialTileToVvv[tileIndex - 0x4000];
+            mapLayer->actTiles[tilePos] = gMapSpecialTileToActTile[tileIndex - 0x4000];
         }
     }
 }

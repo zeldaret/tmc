@@ -107,7 +107,7 @@ void Pot_Action1(PotEntity* this) {
             Pot_Action5(this);
             break;
         default:
-            tileType = GetTileTypeByEntity(super);
+            tileType = GetTileTypeAtEntity(super);
             if (tileType != 0x4000) {
                 switch (tileType) {
                     case SPECIAL_TILE_4:
@@ -129,7 +129,7 @@ void Pot_Action1(PotEntity* this) {
                         DeleteThisEntity();
                         break;
                     default:
-                        if (GetVvvAtEntity(super) == VVV_13) {
+                        if (GetActTileAtEntity(super) == ACT_TILE_13) {
                             CreateFx(super, FX_FALL_DOWN, 0);
                         } else if (tileType == SPECIAL_TILE_5) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
@@ -224,7 +224,7 @@ void Pot_Action4(PotEntity* this) {
     }
 
     this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    tileType = GetTileTypeByEntity(super);
+    tileType = GetTileTypeAtEntity(super);
     switch (tileType) {
         case 0x71:
         case 0x72:

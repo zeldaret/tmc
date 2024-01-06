@@ -685,7 +685,7 @@ void sub_0802B204(BombPeahatEntity* this) {
 
 bool32 sub_0802B234(BombPeahatEntity* this) {
     bool32 ret = FALSE;
-    if (GetTileTypeByEntity(super) - 0x1c4 > 1)
+    if (GetTileTypeAtEntity(super) - 0x1c4 > 1)
         ret = TRUE;
     return ret;
 }

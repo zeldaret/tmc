@@ -60,7 +60,7 @@ void TreeHidingPortal_Action1(TreeHidingPortalEntity* this) {
             }
         }
     }
-    if (sub_0809E9A0() == VVV_84) {
+    if (sub_0809E9A0() == ACT_TILE_84) {
         super->action = 2;
         super->timer = 15;
         SetPlayerControl(1);
@@ -110,15 +110,15 @@ static void sub_0809E96C(TreeHidingPortalEntity* this) {
 }
 
 static u32 sub_0809E9A0(void) {
-    u32 vvv;
+    u32 actTile;
     const s16* ptr;
 
     if (gPlayerEntity.base.action != PLAYER_BOUNCE) {
-        vvv = VVV_0;
+        actTile = ACT_TILE_0;
     } else {
         ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
-        vvv = GetVvvAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
+        actTile = GetActTileAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
     }
 
-    return vvv;
+    return actTile;
 }

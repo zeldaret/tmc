@@ -15,7 +15,7 @@ typedef struct {
     /*0x68*/ u8 unk_68;
 } LinkEmptyingBottleEntity;
 
-extern u32 sub_080B1A0C(Entity*, s32, s32);
+extern u32 GetTileTypeRelativeToEntity(Entity*, s32, s32);
 
 void LinkEmptyingBottle_Init(LinkEmptyingBottleEntity*);
 void LinkEmptyingBottle_Action1(LinkEmptyingBottleEntity*);
@@ -118,7 +118,7 @@ void sub_08094980(LinkEmptyingBottleEntity* this, u32 searchTileIndex, u32 repla
     while (index < 10) {
         xOffset = gUnk_08122A28[index];
         yOffset = gUnk_08122A28[index + 1];
-        if (searchTileIndex == sub_080B1A0C(super, xOffset, yOffset)) {
+        if (searchTileIndex == GetTileTypeRelativeToEntity(super, xOffset, yOffset)) {
             SetTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
                         super->collisionLayer);
         }

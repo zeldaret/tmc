@@ -45,7 +45,7 @@ void BlockPushed_Init(BlockPushedEntity* this) {
     super->x.HALF.HI += tmp;
     super->y.HALF.HI += tmp;
     super->hitbox = (Hitbox*)gUnk_0811F64C[super->type];
-    this->unk_68 = GetTileType(tilePos, super->collisionLayer);
+    this->unk_68 = GetTileTypeAtTilePos(tilePos, super->collisionLayer);
     switch (super->type) {
         case 0:
             sub_080832D8(tilePos, this);

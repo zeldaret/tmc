@@ -148,7 +148,7 @@ void ObjectOnPillar_Action4(ObjectOnPillarEntity* this) {
 
 bool32 sub_08097008(ObjectOnPillarEntity* this) {
     Entity* effect;
-    u32 tileType = GetTileType(this->tilePos, super->collisionLayer);
+    u32 tileType = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
     if (tileType != SPECIAL_TILE_54) {
         switch (sub_08097074(tileType)) {
             case 1:
@@ -191,7 +191,7 @@ void sub_08097098(ObjectOnPillarEntity* this) {
     this->unk_76 = 0x20;
     EnqueueSFX(SFX_10F);
     SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
-    tileType = GetTileType(gUnk_080B4488[super->direction >> 3] + this->tilePos, super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(gUnk_080B4488[super->direction >> 3] + this->tilePos, super->collisionLayer);
     if ((tileType == 0x79) || tileType == 0x77) {
         super->spriteOffsetY = 2;
     }
@@ -206,7 +206,7 @@ void sub_080970F4(ObjectOnPillarEntity* this) {
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (GetVvvAtEntity(super) == VVV_25) {
+    if (GetActTileAtEntity(super) == ACT_TILE_25) {
         super->spriteOffsetY = 2;
     }
     if ((--this->unk_76 == 0) && sub_08097194(this) == FALSE) {
@@ -222,7 +222,7 @@ bool32 sub_08097194(ObjectOnPillarEntity* this) {
     if (sub_0800442E(super)) {
         return TRUE;
     } else {
-        u32 tileType = GetTileTypeByEntity(super);
+        u32 tileType = GetTileTypeAtEntity(super);
         if (tileType == TILE_TYPE_113 || tileType == TILE_TYPE_114 || tileType == SPECIAL_TILE_32) {
             SetFlag(this->flag);
             EnqueueSFX(SFX_10B);

@@ -137,7 +137,7 @@ void sub_08038048(TektiteGoldenEntity* this) {
         return;
     } else if (super->collisions != COL_NONE) {
         sub_0800417E(super, super->collisions);
-    } else if ((GetVvvAtEntity(super) & 0xf0) == 0x50) { // VVV_240 and VVV_241?
+    } else if ((GetActTileAtEntity(super) & 0xf0) == 0x50) { // ACT_TILE_240 and ACT_TILE_241?
         super->direction = (super->direction + 0x10) & (0x3 | DirectionNorthWest);
     }
 

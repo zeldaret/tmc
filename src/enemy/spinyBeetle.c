@@ -322,7 +322,7 @@ void sub_08033D78(SpinyBeetleEntity* this) {
     s32 tilePos;
     u32 type;
     tilePos = COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]);
-    type = GetTileType(tilePos, super->collisionLayer);
+    type = GetTileTypeAtTilePos(tilePos, super->collisionLayer);
 
     switch (type) {
         case 0x1c4:

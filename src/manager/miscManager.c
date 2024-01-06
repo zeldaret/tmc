@@ -121,7 +121,7 @@ void MiscManager_Type0(MiscManager* this) {
 void sub_08058F44(u32 x, u32 y, u32 flag) {
     if (CheckRoomFlag(flag))
         return;
-    if (sub_080B1A48(x, y, LAYER_BOTTOM) != TILE_TYPE_97)
+    if (GetTileTypeAtRoomCoords(x, y, LAYER_BOTTOM) != TILE_TYPE_97)
         return;
     SetTileType(TILE_TYPE_38, ((x >> 4) & 0x3F) | (((y >> 4) & 0x3F) << 6), LAYER_BOTTOM);
     sub_08058F84(x, y);

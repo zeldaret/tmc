@@ -79,7 +79,7 @@ void LightLevelSetManager_Type2(LightLevelSetManager* this) {
             ((s16)this->field_0x38 >> 4 & 0x3fU) | ((s32)((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
         super->action = 1;
     } else {
-        if (GetTileType(this->field_0x20, super->type2) == TILE_TYPE_118) {
+        if (GetTileTypeAtTilePos(this->field_0x20, super->type2) == TILE_TYPE_118) {
             SetFlag(this->field_0x3e);
             ChangeLightLevel(super->timer);
             DeleteThisEntity();
@@ -103,7 +103,7 @@ void LightLevelSetManager_Type3(LightLevelSetManager* this) {
             break;
 
         case 1:
-            if (GetTileType(this->field_0x20, super->type2) != TILE_TYPE_118) {
+            if (GetTileTypeAtTilePos(this->field_0x20, super->type2) != TILE_TYPE_118) {
                 return;
             }
             SetFlag(this->field_0x3e);

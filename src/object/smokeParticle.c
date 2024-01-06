@@ -71,8 +71,8 @@ void sub_080878CC(Entity* this) {
     for (itX = -0x10; itX < 0x11; itX += 0x10) {
         for (itY = -0x10; itY < 0x11; itY += 0x10) {
             tilePos = TILE((u32)x + itX, (u32)y + itY);
-            if (GetVvvAtTilePos(tilePos, (u8)layer) == VVV_46) {
-                switch (GetTileType(tilePos, layer)) {
+            if (GetActTileAtTilePos(tilePos, (u8)layer) == ACT_TILE_46) {
+                switch (GetTileTypeAtTilePos(tilePos, layer)) {
                     case 0x368:
                     case 0x367:
                         DoTileInteraction(this, 3, x + itX, y + itY);

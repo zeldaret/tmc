@@ -186,7 +186,7 @@ void sub_08023288(MoldwormEntity* this) {
         for (i = 0; i < 0x10; i++) {
             u32 x = gPlayerEntity.base.x.HALF.HI + gUnk_080CBC70[idx + 0];
             u32 y = gPlayerEntity.base.y.HALF.HI + gUnk_080CBC70[idx + 1];
-            if (sub_08023A38(GetTileTypeByPos(x, y, gPlayerEntity.base.collisionLayer))) {
+            if (sub_08023A38(GetTileTypeAtWorldCoords(x, y, gPlayerEntity.base.collisionLayer))) {
                 sub_08023990(this, x, y);
                 return;
             }
@@ -221,7 +221,7 @@ void sub_08023398(MoldwormEntity* this) {
     }
 
     if (--this->unk_78.HWORD == 0) {
-        if (sub_08023A38(GetTileTypeByEntity(super))) {
+        if (sub_08023A38(GetTileTypeAtEntity(super))) {
             super->action = 5;
             this->unk_7f = 0;
             COLLISION_OFF(super);
@@ -517,8 +517,8 @@ bool32 sub_08023A38(u32 tileType) {
     if (tileType == TILE_TYPE_26 || tileType == TILE_TYPE_41) {
         return TRUE;
     } else {
-        tileType = gMapTileTypeToVvv[tileType];
-        if (tileType == VVV_9 || tileType == VVV_11 || tileType == VVV_10 || tileType == VVV_12) {
+        tileType = gMapTileTypeToActTile[tileType];
+        if (tileType == ACT_TILE_9 || tileType == ACT_TILE_11 || tileType == ACT_TILE_10 || tileType == ACT_TILE_12) {
             return TRUE;
         } else {
             return FALSE;

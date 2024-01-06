@@ -17,8 +17,8 @@ typedef struct {
     /*0x6c*/ u16 tileType;
 } PlayerItemCellOverwriteSetEntity;
 
-// vvv for specialTile
-const u8 gMapSpecialTileToVvv[] = {
+// actTile for specialTile
+const u8 gMapSpecialTileToActTile[] = {
     0,       // SPECIAL_TILE_0
     0,       // SPECIAL_TILE_1
     0,       // SPECIAL_TILE_2
@@ -39,19 +39,19 @@ const u8 gMapSpecialTileToVvv[] = {
     0,       // SPECIAL_TILE_17
     0,       // SPECIAL_TILE_18
     0,       // SPECIAL_TILE_19
-    VVV_241, // SPECIAL_TILE_20
+    ACT_TILE_241, // SPECIAL_TILE_20
     0,       // SPECIAL_TILE_21
     0,       // SPECIAL_TILE_22
-    VVV_83,  // SPECIAL_TILE_23
-    VVV_242, // SPECIAL_TILE_24
-    VVV_243, // SPECIAL_TILE_25
+    ACT_TILE_83,  // SPECIAL_TILE_23
+    ACT_TILE_242, // SPECIAL_TILE_24
+    ACT_TILE_243, // SPECIAL_TILE_25
     0,       // SPECIAL_TILE_26
     0,       // SPECIAL_TILE_27
     0,       // SPECIAL_TILE_28
     0,       // SPECIAL_TILE_29
     0,       // SPECIAL_TILE_30
     0,       // SPECIAL_TILE_31
-    VVV_240, // SPECIAL_TILE_32
+    ACT_TILE_240, // SPECIAL_TILE_32
     0,       // SPECIAL_TILE_33
     0,       // SPECIAL_TILE_34
     0,       // SPECIAL_TILE_35
@@ -83,15 +83,15 @@ const u8 gMapSpecialTileToVvv[] = {
     0,       // SPECIAL_TILE_61
     0,       // SPECIAL_TILE_62
     0,       // SPECIAL_TILE_63
-    VVV_61,  // SPECIAL_TILE_64
-    VVV_61,  // SPECIAL_TILE_65
-    VVV_61,  // SPECIAL_TILE_66
-    VVV_61,  // SPECIAL_TILE_67
-    VVV_61,  // SPECIAL_TILE_68
-    VVV_61,  // SPECIAL_TILE_69
-    VVV_61,  // SPECIAL_TILE_70
-    VVV_61,  // SPECIAL_TILE_71
-    VVV_61,  // SPECIAL_TILE_72
+    ACT_TILE_61,  // SPECIAL_TILE_64
+    ACT_TILE_61,  // SPECIAL_TILE_65
+    ACT_TILE_61,  // SPECIAL_TILE_66
+    ACT_TILE_61,  // SPECIAL_TILE_67
+    ACT_TILE_61,  // SPECIAL_TILE_68
+    ACT_TILE_61,  // SPECIAL_TILE_69
+    ACT_TILE_61,  // SPECIAL_TILE_70
+    ACT_TILE_61,  // SPECIAL_TILE_71
+    ACT_TILE_61,  // SPECIAL_TILE_72
     0,       // SPECIAL_TILE_73
     0,       // SPECIAL_TILE_74
     0,       // SPECIAL_TILE_75
@@ -100,7 +100,7 @@ const u8 gMapSpecialTileToVvv[] = {
     0,       // SPECIAL_TILE_78
     0,       // SPECIAL_TILE_79
     0,       // SPECIAL_TILE_80
-    VVV_58,  // SPECIAL_TILE_81
+    ACT_TILE_58,  // SPECIAL_TILE_81
     0,       // SPECIAL_TILE_82
     0,       // SPECIAL_TILE_83
     0,       // SPECIAL_TILE_84
@@ -124,7 +124,7 @@ const u8 gMapSpecialTileToVvv[] = {
     0,       // SPECIAL_TILE_102
     0,       // SPECIAL_TILE_103
     0,       // SPECIAL_TILE_104
-    VVV_40,  // SPECIAL_TILE_105
+    ACT_TILE_40,  // SPECIAL_TILE_105
     0,       // SPECIAL_TILE_106
     0,       // SPECIAL_TILE_107
     0,       // SPECIAL_TILE_108
@@ -136,35 +136,35 @@ const u8 gMapSpecialTileToVvv[] = {
     0,       // SPECIAL_TILE_114
     0,       // SPECIAL_TILE_115
     0,       // SPECIAL_TILE_116
-    VVV_18,  // SPECIAL_TILE_117
-    VVV_18,  // SPECIAL_TILE_118
-    VVV_18,  // SPECIAL_TILE_119
-    VVV_18,  // SPECIAL_TILE_120
-    VVV_18,  // SPECIAL_TILE_121
-    VVV_18,  // SPECIAL_TILE_122
-    VVV_18,  // SPECIAL_TILE_123
-    VVV_18,  // SPECIAL_TILE_124
+    ACT_TILE_18,  // SPECIAL_TILE_117
+    ACT_TILE_18,  // SPECIAL_TILE_118
+    ACT_TILE_18,  // SPECIAL_TILE_119
+    ACT_TILE_18,  // SPECIAL_TILE_120
+    ACT_TILE_18,  // SPECIAL_TILE_121
+    ACT_TILE_18,  // SPECIAL_TILE_122
+    ACT_TILE_18,  // SPECIAL_TILE_123
+    ACT_TILE_18,  // SPECIAL_TILE_124
     0,       // SPECIAL_TILE_125
-    VVV_116, // SPECIAL_TILE_126
-    VVV_116, // SPECIAL_TILE_127
-    VVV_41,  // SPECIAL_TILE_128
+    ACT_TILE_116, // SPECIAL_TILE_126
+    ACT_TILE_116, // SPECIAL_TILE_127
+    ACT_TILE_41,  // SPECIAL_TILE_128
     0,       // SPECIAL_TILE_129
-    VVV_35,  // SPECIAL_TILE_130
-    VVV_41,  // SPECIAL_TILE_131
-    VVV_41,  // SPECIAL_TILE_132
-    VVV_41,  // SPECIAL_TILE_133
-    VVV_41,  // SPECIAL_TILE_134
-    VVV_41,  // SPECIAL_TILE_135
-    VVV_41,  // SPECIAL_TILE_136
-    VVV_16,  // SPECIAL_TILE_137
-    VVV_16,  // SPECIAL_TILE_138
-    VVV_16,  // SPECIAL_TILE_139
-    VVV_16,  // SPECIAL_TILE_140
-    VVV_41,  // SPECIAL_TILE_141
-    VVV_80,  // SPECIAL_TILE_142
-    VVV_81,  // SPECIAL_TILE_143
+    ACT_TILE_35,  // SPECIAL_TILE_130
+    ACT_TILE_41,  // SPECIAL_TILE_131
+    ACT_TILE_41,  // SPECIAL_TILE_132
+    ACT_TILE_41,  // SPECIAL_TILE_133
+    ACT_TILE_41,  // SPECIAL_TILE_134
+    ACT_TILE_41,  // SPECIAL_TILE_135
+    ACT_TILE_41,  // SPECIAL_TILE_136
+    ACT_TILE_16,  // SPECIAL_TILE_137
+    ACT_TILE_16,  // SPECIAL_TILE_138
+    ACT_TILE_16,  // SPECIAL_TILE_139
+    ACT_TILE_16,  // SPECIAL_TILE_140
+    ACT_TILE_41,  // SPECIAL_TILE_141
+    ACT_TILE_80,  // SPECIAL_TILE_142
+    ACT_TILE_81,  // SPECIAL_TILE_143
     0,       // SPECIAL_TILE_144
-    VVV_15,  // SPECIAL_TILE_145
+    ACT_TILE_15,  // SPECIAL_TILE_145
     0,       // SPECIAL_TILE_146
     0,       // SPECIAL_TILE_147
     0,       // SPECIAL_TILE_148
@@ -342,7 +342,7 @@ void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
     Entity* player = &gPlayerEntity.base;
 
     if (super->action == 0) {
-        this->tileType = GetTileType(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+        this->tileType = GetTileTypeAtTilePos(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
                                               player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
                                          super->collisionLayer);
         super->action++;
@@ -351,7 +351,7 @@ void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
     tmp = gInput.heldKeys & R_BUTTON;
     if ((gInput.heldKeys & A_BUTTON) != 0) {
         if ((gInput.newKeys & R_BUTTON) != 0) {
-            this->tileType = GetTileType(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+            this->tileType = GetTileTypeAtTilePos(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
                                                   player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
                                              super->collisionLayer);
         }

@@ -122,8 +122,8 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             super->direction = super->knockbackDirection;
             super->knockbackDuration = 0;
         }
-        if (GetVvvRelativeToEntity(super, gUnk_081320C4[super->direction >> 2],
-                                   gUnk_081320C4[(super->direction >> 2) + 1]) == VVV_116) {
+        if (GetActTileRelativeToEntity(super, gUnk_081320C4[super->direction >> 2],
+                                   gUnk_081320C4[(super->direction >> 2) + 1]) == ACT_TILE_116) {
             LinearMoveUpdate(super);
         } else {
             data = GetCollisionDataAtEntity(super);
@@ -136,27 +136,27 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             (child->base).x = super->x;
             (child->base).y = super->y;
             (child->base).z = super->z;
-            data = GetVvvAtEntity(super);
+            data = GetActTileAtEntity(super);
             switch (data) {
-                case VVV_13:
-                case VVV_16:
-                case VVV_17:
-                case VVV_19:
-                case VVV_90:
+                case ACT_TILE_13:
+                case ACT_TILE_16:
+                case ACT_TILE_17:
+                case ACT_TILE_19:
+                case ACT_TILE_90:
                     if (child == this) {
 
                         switch (data) {
-                            case VVV_13:
+                            case ACT_TILE_13:
                                 CreateFx(super, FX_FALL_DOWN, 0);
                                 break;
-                            case VVV_90:
+                            case ACT_TILE_90:
                                 CreateFx(super, FX_LAVA_SPLASH, 0);
                                 break;
-                            case VVV_16:
-                            case VVV_17:
+                            case ACT_TILE_16:
+                            case ACT_TILE_17:
                                 CreateFx(super, FX_WATER_SPLASH, 0);
                                 break;
-                            case VVV_19:
+                            case ACT_TILE_19:
                                 CreateFx(super, FX_GREEN_SPLASH, 0);
                                 break;
                         }

@@ -530,11 +530,11 @@ u32 CalcJumpDirection(Entity* this) {
     };
 
     static const u8 sTable[] = {
-        // vvv, animationState
-        VVV_43, DirectionSouth, VVV_42, DirectionNorth, VVV_45, DirectionEast, VVV_44, DirectionWest, 0x0,
+        // actTile, animationState
+        ACT_TILE_43, DirectionSouth, ACT_TILE_42, DirectionNorth, ACT_TILE_45, DirectionEast, ACT_TILE_44, DirectionWest, 0x0,
     };
 
-    u32 vvv;
+    u32 actTile;
     u32 x;
     s32 x_offset;
     s32 y_offset;
@@ -544,11 +544,11 @@ u32 CalcJumpDirection(Entity* this) {
     ptr = (s8*)sOffsets;
     x_offset = ptr[x];
     y_offset = ptr[x + 1];
-    vvv = GetVvvRelativeToEntity(this, x_offset, y_offset);
+    actTile = GetActTileRelativeToEntity(this, x_offset, y_offset);
     ptr2 = sTable;
 
     do {
-        if (*ptr2 != vvv || this->animationState != (ptr2[1] >> 2)) {
+        if (*ptr2 != actTile || this->animationState != (ptr2[1] >> 2)) {
             continue;
         }
 

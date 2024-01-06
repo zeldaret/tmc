@@ -119,7 +119,7 @@ void sub_080AB4A4(V1FireProjectileEntity* this) {
     tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
     if (oldTilePos != tilePos) {
         this->tilePos = tilePos;
-        switch (GetTileTypeByEntity(super)) {
+        switch (GetTileTypeAtEntity(super)) {
             case 0x13:
             case 0x34:
                 sub_0807B7D8(0x34c, this->tilePos, super->collisionLayer);

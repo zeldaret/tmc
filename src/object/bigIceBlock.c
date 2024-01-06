@@ -127,7 +127,7 @@ void sub_08099880(BigIceBlockEntity* this) {
 
 void sub_08099910(BigIceBlockEntity* this) {
     u32 uVar2;
-    s32 vvv;
+    s32 actTile;
     u32 tileIndex;
     u32 tilePos;
 
@@ -144,109 +144,109 @@ void sub_08099910(BigIceBlockEntity* this) {
             SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
             break;
         case 1:
-            vvv = GetVvvAtTilePos(tilePos - 0x41, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x41, super->collisionLayer);
             tileIndex = SPECIAL_TILE_36;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_121;
             }
             SetTile(tileIndex, tilePos - 0x41, super->collisionLayer);
             SetTile(SPECIAL_TILE_34, tilePos - 0x40, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos - 0x3f, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x3f, super->collisionLayer);
             tileIndex = SPECIAL_TILE_37;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_123;
             }
             SetTile(tileIndex, tilePos - 0x3f, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos - 1, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 1, super->collisionLayer);
             tileIndex = SPECIAL_TILE_36;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_121;
             }
             SetTile(tileIndex, tilePos - 1, super->collisionLayer);
             SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 1, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 1, super->collisionLayer);
             tileIndex = SPECIAL_TILE_37;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_123;
             }
             SetTile(tileIndex, tilePos + 1, super->collisionLayer);
             return;
             break;
         case 2:
-            vvv = GetVvvAtTilePos(tilePos - 0x41, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x41, super->collisionLayer);
             tileIndex = SPECIAL_TILE_35;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_119;
             }
             SetTile(tileIndex, tilePos - 0x41, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos - 0x40, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x40, super->collisionLayer);
             tileIndex = SPECIAL_TILE_35;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_119;
             }
             SetTile(tileIndex, tilePos - 0x40, super->collisionLayer);
             SetTile(SPECIAL_TILE_34, tilePos - 1, super->collisionLayer);
             SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 0x3f, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 0x3f, super->collisionLayer);
             tileIndex = SPECIAL_TILE_38;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_124;
             }
             SetTile(tileIndex, tilePos + 0x3f, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 0x40, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 0x40, super->collisionLayer);
             tileIndex = SPECIAL_TILE_38;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_124;
             }
             SetTile(tileIndex, tilePos + 0x40, super->collisionLayer);
             break;
         case 3:
-            vvv = GetVvvAtTilePos(tilePos - 0x41, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x41, super->collisionLayer);
             tileIndex = SPECIAL_TILE_39;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_117;
             }
             SetTile(tileIndex, tilePos - 0x41, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos - 0x40, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x40, super->collisionLayer);
             tileIndex = SPECIAL_TILE_35;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_119;
             }
             SetTile(tileIndex, tilePos - 0x40, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos - 0x3f, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 0x3f, super->collisionLayer);
             tileIndex = SPECIAL_TILE_40;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_118;
             }
             SetTile(tileIndex, tilePos - 0x3f, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos - 1, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos - 1, super->collisionLayer);
             tileIndex = SPECIAL_TILE_36;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_121;
             }
             SetTile(tileIndex, tilePos - 1, super->collisionLayer);
             SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 1, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 1, super->collisionLayer);
             tileIndex = SPECIAL_TILE_37;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_123;
             }
             SetTile(tileIndex, tilePos + 1, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 0x3f, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 0x3f, super->collisionLayer);
             tileIndex = SPECIAL_TILE_41;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_120;
             }
             SetTile(tileIndex, tilePos + 0x3f, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 0x40, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 0x40, super->collisionLayer);
             tileIndex = SPECIAL_TILE_38;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_124;
             }
             SetTile(tileIndex, tilePos + 0x40, super->collisionLayer);
-            vvv = GetVvvAtTilePos(tilePos + 0x41, super->collisionLayer);
+            actTile = GetActTileAtTilePos(tilePos + 0x41, super->collisionLayer);
             tileIndex = SPECIAL_TILE_42;
-            if (vvv == VVV_18) {
+            if (actTile == ACT_TILE_18) {
                 tileIndex = SPECIAL_TILE_122;
             }
             SetTile(tileIndex, tilePos + 0x41, super->collisionLayer);

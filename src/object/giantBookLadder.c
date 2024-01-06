@@ -83,5 +83,5 @@ void sub_0808E55C(GiantBookLadderEntity* this) {
 }
 
 u32 sub_0808E670(GiantBookLadderEntity* this) {
-    return GetTileType(this->unk74 - 0x101, LAYER_BOTTOM);
+    return GetTileTypeAtTilePos(this->unk74 - 0x101, LAYER_BOTTOM);
 }

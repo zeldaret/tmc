@@ -55,7 +55,7 @@ void HiddenLadderDown_Init(HiddenLadderDownEntity* this) {
 }
 
 void HiddenLadderDown_Action1(HiddenLadderDownEntity* this) {
-    if (GetTileType(this->unk_70, super->collisionLayer) == 0x1a6) {
+    if (GetTileTypeAtTilePos(this->unk_70, super->collisionLayer) == 0x1a6) {
         super->action = 2;
         super->spriteSettings.draw = TRUE;
         SetFlag(this->unk_86);

@@ -261,7 +261,7 @@ static void FurnitureInit(FurnitureEntity* this) {
             for (i = 0; i < cnt; ++i, ++tilePos) {
                 SetTile(SPECIAL_TILE_38, tilePos, LAYER_TOP);
                 SetTile(SPECIAL_TILE_38, tilePos, LAYER_BOTTOM);
-                SetVvvAtTilePos(VVV_0, tilePos + TILE_POS(0, 1), 1);
+                SetActTileAtTilePos(ACT_TILE_0, tilePos + TILE_POS(0, 1), 1);
             }
             break;
     }
@@ -287,7 +287,7 @@ static void FurnitureInit(FurnitureEntity* this) {
             super->collisionLayer = 1;
             super->spriteOrientation.flipY = 2;
             SetTile(SPECIAL_TILE_116, this->tilePos - 64, super->collisionLayer);
-            SetVvvAtTilePos(VVV_63, this->tilePos - 64, super->collisionLayer);
+            SetActTileAtTilePos(ACT_TILE_63, this->tilePos - 64, super->collisionLayer);
             SetTile(SPECIAL_TILE_23, this->tilePos, super->collisionLayer);
             SetTile(SPECIAL_TILE_23, this->tilePos + 64, super->collisionLayer);
             break;
@@ -339,7 +339,7 @@ static void FurnitureUpdate(FurnitureEntity* this) {
         case 0x80:
             if (gPlayerEntity.base.y.HALF.HI < super->y.HALF.HI + 8) {
                 if (gPlayerState.floor_type != SURFACE_LADDER &&
-                    GetTileTypeByEntity(super) == SPECIAL_TILE_23) {
+                    GetTileTypeAtEntity(super) == SPECIAL_TILE_23) {
                     SetTile(SPECIAL_TILE_38, this->tilePos, super->collisionLayer);
                     SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, -1), super->collisionLayer);
                     SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, -2), super->collisionLayer);
@@ -349,7 +349,7 @@ static void FurnitureUpdate(FurnitureEntity* this) {
                     gPlayerEntity.base.collisionLayer = 1;
                     UpdateSpriteForCollisionLayer(&gPlayerEntity.base);
                 }
-                if (GetTileTypeByEntity(super) != SPECIAL_TILE_23) {
+                if (GetTileTypeAtEntity(super) != SPECIAL_TILE_23) {
                     SetTile(SPECIAL_TILE_23, this->tilePos, super->collisionLayer);
                     SetTile(SPECIAL_TILE_23, this->tilePos + TILE_POS(0, -1), super->collisionLayer);
                     SetTile(SPECIAL_TILE_20, this->tilePos + TILE_POS(0, -2), super->collisionLayer);

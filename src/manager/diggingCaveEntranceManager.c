@@ -54,9 +54,9 @@ void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager* this) {
         tileIndex = SPECIAL_TILE_128;
         for (entrance = GetDiggingCaveEntranceForRoom(entrance, room); entrance != 0;
              entrance = GetDiggingCaveEntranceForRoom(entrance, room)) {
-            SetTile(tileIndex, entrance->sourceTilePosition + TILE_POS(-1, 1), LAYER_BOTTOM);
-            SetTile(tileIndex, entrance->sourceTilePosition + TILE_POS(0, 1), LAYER_BOTTOM);
-            SetTile(tileIndex, entrance->sourceTilePosition + TILE_POS(1, 1), LAYER_BOTTOM);
+            SetTile(tileIndex, entrance->sourceTilePos + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetTile(tileIndex, entrance->sourceTilePos + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(tileIndex, entrance->sourceTilePos + TILE_POS(1, 1), LAYER_BOTTOM);
             entrance++;
         }
     }
@@ -80,8 +80,8 @@ bool32 DiggingCaveEntranceManager_CheckEnterEntrance(DiggingCaveEntranceManager*
     if (gDiggingCaveEntranceTransition.isDiggingCave) {
         offsetX = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x;
         offsetY = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y;
-        offsetX2 = (entr->sourceTilePosition & TILE_POS_X_COMPONENT) * 16 + 8;
-        offsetY2 = ((entr->sourceTilePosition & TILE_POS_Y_COMPONENT) >> 6) * 16 + 0x18;
+        offsetX2 = (entr->sourceTilePos & TILE_POS_X_COMPONENT) * 16 + 8;
+        offsetY2 = ((entr->sourceTilePos & TILE_POS_Y_COMPONENT) >> 6) * 16 + 0x18;
         tmp = offsetX - offsetX2;
         if (tmp + 0x18 > 0x30 || offsetY - offsetY2 + 8 > 0x10U)
             return FALSE;
@@ -90,9 +90,9 @@ bool32 DiggingCaveEntranceManager_CheckEnterEntrance(DiggingCaveEntranceManager*
         DiggingCaveEntranceManager_EnterEntrance(this, entr);
         return TRUE;
     } else {
-        if (COORD_TO_TILE(&gPlayerEntity.base) != entr->sourceTilePosition)
+        if (COORD_TO_TILE(&gPlayerEntity.base) != entr->sourceTilePos)
             return FALSE;
-        offsetY2 = gRoomControls.origin_y + ((entr->sourceTilePosition >> 6) << 4) + 6;
+        offsetY2 = gRoomControls.origin_y + ((entr->sourceTilePos >> 6) << 4) + 6;
         if (gPlayerEntity.base.y.HALF.HI >= offsetY2)
             return FALSE;
         DiggingCaveEntranceManager_EnterEntrance(this, entr);
@@ -111,9 +111,9 @@ void DiggingCaveEntranceManager_EnterEntrance(DiggingCaveEntranceManager* this, 
     gRoomControls.room = entr->targetRoom;
     gDiggingCaveEntranceTransition.entrance = entr;
     gDiggingCaveEntranceTransition.offsetX = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x -
-                                             ((entr->sourceTilePosition & TILE_POS_X_COMPONENT) * 16);
+                                             ((entr->sourceTilePos & TILE_POS_X_COMPONENT) * 16);
     gDiggingCaveEntranceTransition.offsetY = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y -
-                                             ((entr->sourceTilePosition & TILE_POS_Y_COMPONENT) >> 2);
+                                             ((entr->sourceTilePos & TILE_POS_Y_COMPONENT) >> 2);
 
 #ifndef EU
     isDiggingCave = gDiggingCaveEntranceTransition.isDiggingCave;
@@ -130,7 +130,7 @@ void DiggingCaveEntranceManager_EnterEntrance(DiggingCaveEntranceManager* this, 
 }
 
 const DiggingCaveEntrance* GetDiggingCaveEntranceForRoom(const DiggingCaveEntrance* entr, int room) {
-    for (; entr->sourceTilePosition != 0xffff; entr++) {
+    for (; entr->sourceTilePos != 0xffff; entr++) {
         if (entr->sourceRoom == room)
             return entr;
     }

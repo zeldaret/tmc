@@ -130,7 +130,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
     sub_0803A100(this);
 
     if (super->type == 0) {
-        if (GetTileTypeByEntity(super) == SPECIAL_TILE_115) {
+        if (GetTileTypeAtEntity(super) == SPECIAL_TILE_115) {
             SetTile(this->tileIndex, COORD_TO_TILE(super), super->collisionLayer);
             sub_0803A0E0(this);
         }

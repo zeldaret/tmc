@@ -126,15 +126,15 @@ void Leever_DigDown(LeeverEntity* this) {
 }
 
 bool32 sub_0801FDE4(Entity* entity, s32 x, s32 y) {
-    u32 vvv;
+    u32 actTile;
     const u16* puVar4;
 
     if (GetCollisionDataAtWorldCoords(x, y, gUnk_020000B0->collisionLayer) != 0) {
         return FALSE;
     } else {
-        vvv = GetVvvAtWorldCoords(x, y, gUnk_020000B0->collisionLayer);
+        actTile = GetActTileAtWorldCoords(x, y, gUnk_020000B0->collisionLayer);
         for (puVar4 = gUnk_080CA4CA; *puVar4 != (u16)-1;) {
-            if (*puVar4++ == vvv) {
+            if (*puVar4++ == actTile) {
                 entity->x.HALF.HI = (x & 0xfff0) + 8;
                 entity->y.HALF.HI = (y & 0xfff0) + 8;
                 entity->collisionLayer = gUnk_020000B0->collisionLayer;
@@ -211,10 +211,10 @@ const s8 gLeeverDrift[] = {
 };
 
 const u16 gUnk_080CA4CA[] = {
-    VVV_10,
-    VVV_9,
-    VVV_12,
-    VVV_11,
+    ACT_TILE_10,
+    ACT_TILE_9,
+    ACT_TILE_12,
+    ACT_TILE_11,
     0xFFFF,
 };
 // clang-format on

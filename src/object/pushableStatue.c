@@ -62,7 +62,7 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
     Entity* obj;
 
     if (sub_0800442E(super) == 0) {
-        tileType = GetTileType(this->unk_84, super->collisionLayer);
+        tileType = GetTileTypeAtTilePos(this->unk_84, super->collisionLayer);
         if (tileType != SPECIAL_TILE_11) {
             switch (sub_0808968C(tileType)) {
                 case 1:
@@ -110,7 +110,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         ptr = &gUnk_08120CB4[index];
         PositionRelative(super, &gPlayerEntity.base, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
     }
-    tileType = GetTileType(this->unk_84, super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(this->unk_84, super->collisionLayer);
     if (tileType != SPECIAL_TILE_11) {
         switch (sub_0808968C(tileType)) {
             case 1:
@@ -166,7 +166,7 @@ void sub_08089454(PushableStatueEntity* this) {
     this->unk_84 = COORD_TO_TILE(super);
     this->unk_80 = GetTileIndex(this->unk_84, super->collisionLayer);
     SetTile(SPECIAL_TILE_11, this->unk_84, super->collisionLayer);
-    if (super->collisionLayer == 2 && GetTileType(this->unk_84, 1) == 0x310) {
+    if (super->collisionLayer == 2 && GetTileTypeAtTilePos(this->unk_84, 1) == 0x310) {
         SetTile(SPECIAL_TILE_11, this->unk_84, LAYER_BOTTOM);
     }
 }
@@ -197,10 +197,10 @@ void sub_08089538(PushableStatueEntity* this) {
     this->unk_86 = 0x20;
     EnqueueSFX(SFX_10F);
     SetTile(this->unk_80, this->unk_84, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetTileType(this->unk_84, LAYER_BOTTOM) == SPECIAL_TILE_11)) {
+    if ((super->collisionLayer == 2) && (GetTileTypeAtTilePos(this->unk_84, LAYER_BOTTOM) == SPECIAL_TILE_11)) {
         CloneTile(TILE_TYPE_784, this->unk_84, 1);
     }
-    tileType = GetTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if ((tileType == TILE_TYPE_121) || (tileType == TILE_TYPE_119)) {
         super->spriteOffsetY = -2;
     }
@@ -258,14 +258,14 @@ bool32 sub_080896B0(void) {
     const s16* ptr;
     u32 tmp1;
     u32 tmp2;
-    u32 vvv;
+    u32 actTile;
 
     if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.base.frame & 1) != 0)) {
         ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
         uVar1 = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]) - uVar1;
-        vvv = GetVvvAtTilePos(uVar4, gPlayerEntity.base.collisionLayer);
-        if ((vvv - 0x26 > 1) && (vvv != VVV_41)) {
+        actTile = GetActTileAtTilePos(uVar4, gPlayerEntity.base.collisionLayer);
+        if ((actTile - 0x26 > 1) && (actTile != ACT_TILE_41)) {
             mapLayer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
             tmp1 = mapLayer->collisionData[iVar2];

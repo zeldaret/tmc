@@ -248,25 +248,25 @@ void sub_080464C0(GyorgFemaleEntity* this) {
 #define sub_08046518_offset 0x658
 
 void sub_08046518(void) {
-    u16* ptr = gMapTop.tileTypes;
-    u16* sl = &gMapTop.mapData[sub_08046518_offset];
-    u16* stack1 = &gMapTop.mapDataOriginal[sub_08046518_offset];
-    u8* stack2 = &gMapTop.vvv[sub_08046518_offset];
-    u8* r6 = &gMapTop.collisionData[sub_08046518_offset];
+    u16* tileTypes = gMapTop.tileTypes;
+    u16* mapData = &gMapTop.mapData[sub_08046518_offset];
+    u16* mapDataOriginal = &gMapTop.mapDataOriginal[sub_08046518_offset];
+    u8* actTiles = &gMapTop.actTiles[sub_08046518_offset];
+    u8* collisionData = &gMapTop.collisionData[sub_08046518_offset];
     u32 i;
     for (i = 0x10; i != 0; i--) {
         u32 j;
         for (j = 0x10; j != 0; j--) {
-            u16 new_var;
-            stack1[j] = sl[j];
-            new_var = ptr[sl[j]];
-            stack2[j] = gMapTileTypeToVvv[new_var];
-            r6[j] = gMapTileTypeToCollisionData[new_var];
+            u16 tileType;
+            mapDataOriginal[j] = mapData[j];
+            tileType = tileTypes[mapData[j]];
+            actTiles[j] = gMapTileTypeToActTile[tileType];
+            collisionData[j] = gMapTileTypeToCollisionData[tileType];
         }
-        sl += 0x40;
-        stack1 += 0x40;
-        stack2 += 0x40;
-        r6 += 0x40;
+        mapData += 0x40;
+        mapDataOriginal += 0x40;
+        actTiles += 0x40;
+        collisionData += 0x40;
     }
 }
 

@@ -427,7 +427,7 @@ bool32 sub_0803086C(ArmosEntity* this) {
             tilePos = ((((((super)->x.HALF.HI) - gRoomControls.origin_x) >> 4) & (r2 = 0x3f)) |
                            (((((super)->y.HALF.HI) - gRoomControls.origin_y) >> 4) & r2) << 6);
 
-            if (GetTileType(tilePos, super->collisionLayer) == SPECIAL_TILE_73) {
+            if (GetTileTypeAtTilePos(tilePos, super->collisionLayer) == SPECIAL_TILE_73) {
                 if (CheckPlayerInRegion(centerX, centerY, 2, 0xc) != 0) {
                     if (CheckPlayerInRegion(centerX, centerY - 4, 2, 4) != 0) {
                         gPlayerEntity.base.spritePriority.b0 = 3;

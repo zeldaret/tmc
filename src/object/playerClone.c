@@ -110,7 +110,7 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
         if (gPlayerEntity.base.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {
-            GetVvvAtEntity(super); // TODO why is the return value not used? // leftover from debugging?
+            GetActTileAtEntity(super); // TODO why is the return value not used? // leftover from debugging?
             sub_08084B1C(this);
             super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->unk78;
             super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->unk7a;
@@ -191,8 +191,8 @@ void sub_08084CAC(PlayerCloneEntity* this) {
 
     if (((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 == 0) {
         ptr = &gUnk_080B4468[super->animationState & 6];
-        if (GetVvvForTileType(
-                GetTileType(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]), super->collisionLayer)) == VVV_114) {
+        if (GetActTileForTileType(
+                GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]), super->collisionLayer)) == ACT_TILE_114) {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c |= (1 << super->type);
         } else {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c &= ~(1 << super->type);

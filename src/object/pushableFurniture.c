@@ -492,7 +492,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
         if ((this->unk_83 & 0x20) != 0) {
             sub_08090480(0, uVar2 + 1);
         } else {
-            switch (GetTileType(uVar2, 2)) {
+            switch (GetTileTypeAtTilePos(uVar2, 2)) {
                 case 0x301:
                     this->unk_83 |= 8;
                     break;
@@ -506,7 +506,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
             sub_08090480(0, uVar2);
         }
         if ((this->unk_83 & 0x10) != 0) {
-            switch (GetTileType(pos - 1, 1)) {
+            switch (GetTileTypeAtTilePos(pos - 1, 1)) {
                 case 0x300:
                     break;
                 default:
@@ -516,7 +516,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
             }
             return;
         }
-        switch (GetTileType(pos - 1, 2)) {
+        switch (GetTileTypeAtTilePos(pos - 1, 2)) {
             case 0x300:
                 this->unk_83 |= 4;
                 break;
@@ -533,7 +533,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
         if ((this->unk_83 & 0x10) != 0) {
             sub_08090480(0, pos - 1);
         } else {
-            switch (GetTileType(pos, 2)) {
+            switch (GetTileTypeAtTilePos(pos, 2)) {
                 case 0x302:
                     this->unk_83 |= 4;
                     break;
@@ -547,7 +547,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
             sub_08090480(0, uVar2);
         }
         if ((this->unk_83 & 0x20) != 0) {
-            switch (GetTileType(uVar2 + 1, 1)) {
+            switch (GetTileTypeAtTilePos(uVar2 + 1, 1)) {
                 case 0x300:
                     break;
                 default:
@@ -557,7 +557,7 @@ void sub_0809028C(PushableFurnitureEntity* this, u32 param_2) {
             }
             return;
         }
-        switch (GetTileType(uVar2 + 1, 2)) {
+        switch (GetTileTypeAtTilePos(uVar2 + 1, 2)) {
             case 0x300:
                 this->unk_83 |= 8;
                 break;
@@ -579,12 +579,12 @@ void sub_08090480(u32 param_1, u32 tilePos) {
 void sub_08090498(PushableFurnitureEntity* this) {
     u32 tmp = this->unk_70 - 0x80;
     RestorePrevTileEntity(tmp, 1);
-    if (((this->unk_83 & 1) != 0) && (GetTileType(tmp, 2) == 0x306)) {
+    if (((this->unk_83 & 1) != 0) && (GetTileTypeAtTilePos(tmp, 2) == 0x306)) {
         SetCollisionData(0x62, tmp, 1);
     }
     tmp = this->unk_72 - 0x80;
     RestorePrevTileEntity(tmp, 1);
-    if (((this->unk_83 & 2) != 0) && (GetTileType(tmp, 2) == 0x308)) {
+    if (((this->unk_83 & 2) != 0) && (GetTileTypeAtTilePos(tmp, 2) == 0x308)) {
         SetCollisionData(99, tmp, 1);
     }
 }

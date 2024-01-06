@@ -85,7 +85,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
         }
     } else {
         if (!sub_0800442E(super)) {
-            tileType = GetTileType(this->tilePos, super->collisionLayer);
+            tileType = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
             if (tileType != SPECIAL_TILE_90) {
                 switch (sub_08099618(tileType)) {
                     case 1:
@@ -186,10 +186,10 @@ void sub_080994B8(SmallIceBlockEntity* this) {
 
     EnqueueSFX(SFX_ICE_BLOCK_SLIDE);
     SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetTileType(this->tilePos, 1) == SPECIAL_TILE_90)) {
+    if ((super->collisionLayer == 2) && (GetTileTypeAtTilePos(this->tilePos, 1) == SPECIAL_TILE_90)) {
         CloneTile(TILE_TYPE_784, this->tilePos, 1);
     }
-    tileType = GetTileType(this->tilePos + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(this->tilePos + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if (tileType == 0x79 || tileType == 0x77) {
         super->spriteOffsetY = -2;
     }

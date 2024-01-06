@@ -73,7 +73,7 @@ void DoubleBookshelf_Init(DoubleBookshelfEntity* this) {
 }
 
 void DoubleBookshelf_Action1(DoubleBookshelfEntity* this) {
-    GetTileType(this->unk_82, super->collisionLayer);
+    GetTileTypeAtTilePos(this->unk_82, super->collisionLayer);
     sub_0809B234(this);
 }
 

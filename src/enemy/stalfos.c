@@ -456,7 +456,7 @@ u32 sub_08039B28(StalfosEntity* this) {
     }
     ptr2 = &gUnk_080CF930[super->animationState * 2];
     pos = COORD_TO_TILE_OFFSET(super, -ptr2[0], -ptr2[1]);
-    tileType = GetTileType(pos, (u32)super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(pos, (u32)super->collisionLayer);
     ptr = gUnk_080CF938;
 
     do {

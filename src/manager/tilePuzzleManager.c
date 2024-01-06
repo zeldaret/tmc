@@ -31,7 +31,7 @@ void TilePuzzleManager_Main(TilePuzzleManager* this) {
             this->player_current_tile = COORD_TO_TILE((&gPlayerEntity.base));
             if (this->player_current_tile != this->player_previous_tile) {
                 this->player_previous_tile = this->player_current_tile;
-                switch (GetTileType(this->player_current_tile, super->type2)) {
+                switch (GetTileTypeAtTilePos(this->player_current_tile, super->type2)) {
                     case TILE_TYPE_791:
                         // stepped on a red tile again
                         super->action = FAILED;

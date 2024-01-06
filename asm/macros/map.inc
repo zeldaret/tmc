@@ -5,16 +5,16 @@
 	.set TOP_COLLISIONDATA, gMapTop+0x2004
 	.set TOP_TILEDATAORIGINAL, gMapTop+0x3004
 	.set TOP_TILETYPES, gMapTop+0x5004
-	.set TOP_UNKDATA2, gMapTop+0x6004
+	.set TOP_TILEINDICES, gMapTop+0x6004
 	.set TOP_TILES, gMapTop+0x7004
-	.set TOP_UNKDATA3, gMapTop+0xb004
+	.set TOP_ACTTILES, gMapTop+0xb004
 	.set BOTTOM_TILEDATA, gMapBottom+0x4
 	.set BOTTOM_COLLISIONDATA, gMapBottom+0x2004
 	.set BOTTOM_TILEDATAORIGINAL, gMapBottom+0x3004
 	.set BOTTOM_TILETYPES, gMapBottom+0x5004
-	.set BOTTOM_UNKDATA2, gMapBottom+0x6004
+	.set BOTTOM_TILEINDICES, gMapBottom+0x6004
 	.set BOTTOM_TILES, gMapBottom+0x7004
-	.set BOTTOM_UNKDATA3, gMapBottom+0xb004
+	.set BOTTOM_ACTTILES, gMapBottom+0xb004
 
 	.macro room_header map_x, map_y, pixel_width, pixel_height, tileset_id
 	.2byte (\map_x) << 4

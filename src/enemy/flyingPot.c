@@ -185,7 +185,7 @@ void FlyingPot_Init(FlyingPotEntity* this) {
 void FlyingPot_Action1(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (GetTileTypeByEntity(super) != SPECIAL_TILE_0) {
+    if (GetTileTypeAtEntity(super) != SPECIAL_TILE_0) {
         SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
         sub_08037408(this);
     }

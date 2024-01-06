@@ -267,7 +267,7 @@ void sub_08020A7C(RollobiteEntity* this) {
 bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
     if (Rollobite_IsRolledUp(this) && super->z.HALF.HI == 0) {
         u32 tilePos = COORD_TO_TILE(super);
-        u32 tileType = GetTileType(tilePos, super->collisionLayer);
+        u32 tileType = GetTileTypeAtTilePos(tilePos, super->collisionLayer);
         if ((tileType * 0x10000 - 0x710000U) >> 0x10 < 2) {
             super->action = 6;
             COLLISION_OFF(super);

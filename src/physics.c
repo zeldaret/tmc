@@ -233,8 +233,8 @@ bool32 sub_0806F854(Entity* ent, s32 x, s32 y) {
 bool32 sub_0806F8DC(Entity* ent) {
     if (ent->collisionLayer & 2)
         return FALSE;
-    if (!GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, 2)) {
-        GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, ent->collisionLayer);
+    if (!GetTileTypeAtWorldCoords(ent->x.HALF.HI, ent->y.HALF.HI - 4, 2)) {
+        GetTileTypeAtWorldCoords(ent->x.HALF.HI, ent->y.HALF.HI - 4, ent->collisionLayer);
         ent->spriteRendering.b3 = 1;
         ent->spriteOrientation.flipY = 1;
         return FALSE;

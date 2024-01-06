@@ -38,7 +38,7 @@ void Well_Init(WellEntity* this) {
 }
 
 void Well_Action1(WellEntity* this) {
-    u32 tileIndex = GetTileType(this->unk_80, LAYER_BOTTOM);
+    u32 tileIndex = GetTileTypeAtTilePos(this->unk_80, LAYER_BOTTOM);
     if (tileIndex != SPECIAL_TILE_125) {
         PausePlayer();
         gPlayerEntity.base.x.WORD = super->x.WORD;

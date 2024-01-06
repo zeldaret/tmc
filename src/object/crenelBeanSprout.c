@@ -168,13 +168,13 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         tmp = gPlayerEntity.base.animationState & 6;
         this->unk_70 = ((super->x.HALF.HI + (s8)gUnk_08123184[tmp]) & -0x10) | 8;
         this->unk_72 = ((super->y.HALF.HI + (s8)gUnk_08123184[(tmp) + 1]) & -0x10) | 8;
-        if (GetVvvAtWorldCoords(this->unk_70, this->unk_72, super->collisionLayer) == VVV_25) {
+        if (GetActTileAtWorldCoords(this->unk_70, this->unk_72, super->collisionLayer) == ACT_TILE_25) {
             gHUD.rActionPlayerState = R_ACTION_THROW;
         } else {
             gHUD.rActionPlayerState = R_ACTION_NONE;
         }
         PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
-        if (GetVvvAtEntity(super) == VVV_25) {
+        if (GetActTileAtEntity(super) == ACT_TILE_25) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
@@ -233,7 +233,7 @@ void CrenelBeanSprout_Action3(CrenelBeanSproutEntity* this) {
 
 void CrenelBeanSprout_Action4(CrenelBeanSproutEntity* this) {
     static const u16 gUnk_0812319C[] = { SPECIAL_TILE_60, SPECIAL_TILE_51 };
-    if (gUnk_0812319C[super->type >> 1] == GetTileTypeByEntity(super)) {
+    if (gUnk_0812319C[super->type >> 1] == GetTileTypeAtEntity(super)) {
         GetNextFrame(super);
         gPlayerState.keepFacing |= 0x80;
         gPlayerState.field_0xa |= 0x80;

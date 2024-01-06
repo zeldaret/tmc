@@ -41,7 +41,7 @@ void PushableRock_Action1(PushableRockEntity* this) {
     u32 tileType;
     u32 tmp;
 
-    tileType = GetTileType(this->tilePos, super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
     switch (tileType) {
         case SPECIAL_TILE_28:
         case SPECIAL_TILE_29:
@@ -87,12 +87,12 @@ void PushableRock_Action3(PushableRockEntity* this) {
 }
 
 void sub_0808A644(PushableRockEntity* this) {
-    u32 vvv;
+    u32 actTile;
     this->tilePos = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
     this->collisionData = GetCollisionDataAtTilePos(this->tilePos, super->collisionLayer);
-    vvv = GetVvvAtTilePos(this->tilePos, super->collisionLayer);
-    if ((vvv == VVV_25) || (vvv == VVV_240)) {
+    actTile = GetActTileAtTilePos(this->tilePos, super->collisionLayer);
+    if ((actTile == ACT_TILE_25) || (actTile == ACT_TILE_240)) {
         SetTile(SPECIAL_TILE_21, this->tilePos, super->collisionLayer);
         super->action = 3;
         if (!CheckFlags(this->pushedFlag)) {

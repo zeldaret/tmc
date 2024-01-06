@@ -5,7 +5,7 @@
 
 	.text
 
-// TODO cannot add this at the end of mapVvvToSurfaceType.c due to alignment?
+// TODO cannot add this at the end of mapActTileToSurfaceType.c due to alignment?
 .2byte 0
 
 // TODO unused? might also be code?

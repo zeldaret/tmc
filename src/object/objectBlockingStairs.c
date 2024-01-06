@@ -108,9 +108,9 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     }
 
     if (this->unk7b & 0x40) {
-        tileType = (u32)GetTileType(this->tilePos - 1, super->collisionLayer);
+        tileType = (u32)GetTileTypeAtTilePos(this->tilePos - 1, super->collisionLayer);
     } else {
-        tileType = (u32)GetTileType(this->tilePos + 1, super->collisionLayer);
+        tileType = (u32)GetTileTypeAtTilePos(this->tilePos + 1, super->collisionLayer);
     }
 
     switch (tileType) {

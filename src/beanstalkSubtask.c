@@ -20,7 +20,7 @@
 extern void sub_0807C898(void);
 extern void sub_0805BB74(s32);
 extern void LoadRoomGfx(void);
-extern void sub_0807BFD0(void);
+extern void SetupTileSet(void);
 extern void sub_0807C4F8(void);
 
 extern void gMapData;
@@ -220,9 +220,9 @@ u32 UpdatePlayerCollision(void) {
     mapLayer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
     ptr1 = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
     position = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr1[0], -ptr1[1]);
-    tileType = GetTileType(position, gPlayerEntity.base.collisionLayer);
+    tileType = GetTileTypeAtTilePos(position, gPlayerEntity.base.collisionLayer);
     if (tileType < 0x4000) {
-        direction = GetVvvForTileType(tileType);
+        direction = GetActTileForTileType(tileType);
     } else {
         direction = tileType;
     }
@@ -246,7 +246,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.base.y.HALF.LO = 0;
             gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
-        case VVV_40:
+        case ACT_TILE_40:
             if ((gPlayerState.flags & PL_MINISH) != 0) {
                 return 0;
             }
@@ -295,7 +295,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             gPlayerEntity.base.type = 1;
             return 1;
-        case VVV_112:
+        case ACT_TILE_112:
             if ((gPlayerState.field_0x35 & 0x80) == 0) {
                 if ((gPlayerEntity.base.frame & 1) != 0) {
                     if (sub_0801A9F0(gPlayerState.field_0x35 << 2, tileType, position) != 0) {
@@ -304,8 +304,8 @@ u32 UpdatePlayerCollision(void) {
                 }
             }
             return 0;
-        case VVV_58:
-        case VVV_91:
+        case ACT_TILE_58:
+        case ACT_TILE_91:
         case SPECIAL_TILE_81:
             if (gPlayerState.flags & PL_MINISH) {
                 return 0;
@@ -320,7 +320,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerState.mobility = 1;
             sub_080A7CFC(position, gPlayerEntity.base.collisionLayer);
             return 1;
-        case VVV_26:
+        case ACT_TILE_26:
             if ((animationState1 & 0xff) != 0) {
                 return 0;
             }
@@ -334,7 +334,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerState.mobility = 1;
             OpenSmallChest(position, gPlayerEntity.base.collisionLayer);
             return 2;
-        case VVV_113:
+        case ACT_TILE_113:
             if (HasDungeonSmallKey() == 0) {
                 return 0;
             }
@@ -345,7 +345,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerState.mobility = 1;
             sub_0804B388(position, gPlayerEntity.base.collisionLayer);
             return 2;
-        case VVV_61:
+        case ACT_TILE_61:
         case SPECIAL_TILE_64 ... SPECIAL_TILE_72:
             if ((gPlayerState.flags & PL_DRUGGED) != 0) {
                 return 0;
@@ -433,7 +433,7 @@ u32 UpdatePlayerCollision(void) {
             gPlayerEntity.base.y.HALF.LO = 0;
             gPlayerEntity.base.direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             return 1;
-        case VVV_114:
+        case ACT_TILE_114:
             if ((gPlayerState.field_0x35 & 0x80) != 0) {
                 return 0;
             }
@@ -585,7 +585,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
             SetTile(SPECIAL_TILE_116, position, gPlayerEntity.base.collisionLayer);
-            SetVvvAtTilePos(VVV_13, position, gPlayerEntity.base.collisionLayer);
+            SetActTileAtTilePos(ACT_TILE_13, position, gPlayerEntity.base.collisionLayer);
             return 1;
         default:
             return 0;
@@ -602,7 +602,7 @@ bool32 sub_0801A2B0(MapLayer* mapLayer, u32 position, u32 collisionType) {
     if ((((gPlayerState.field_0x35 | gPlayerState.direction) & DIR_NOT_MOVING_CHECK) == 0) &&
         ((gPlayerEntity.base.frame & 1) != 0)) {
         position = (u16)(position - (-uVar1)); // necessary for match
-        temp4 = GetVvvForTileType(GetTileType(position, gPlayerEntity.base.collisionLayer));
+        temp4 = GetActTileForTileType(GetTileTypeAtTilePos(position, gPlayerEntity.base.collisionLayer));
         switch (temp4) {
             case 0x52:
                 break;
@@ -643,7 +643,7 @@ bool32 sub_0801A370(MapLayer* mapLayer, u32 position) {
     topLayer = GetLayerByIndex(LAYER_TOP);
     offset = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     pos = position + offset;
-    tileType = GetTileType(pos, gPlayerEntity.base.collisionLayer);
+    tileType = GetTileTypeAtTilePos(pos, gPlayerEntity.base.collisionLayer);
     switch (tileType) {
         case SPECIAL_TILE_43:
             pos += offset;
@@ -654,7 +654,7 @@ bool32 sub_0801A370(MapLayer* mapLayer, u32 position) {
     if (topLayer->collisionData[pos - 0x80] == 0x46) {
         return FALSE;
     }
-    switch ((u16)GetVvvForTileType(GetTileType(pos, gPlayerEntity.base.collisionLayer))) {
+    switch ((u16)GetActTileForTileType(GetTileTypeAtTilePos(pos, gPlayerEntity.base.collisionLayer))) {
         case 0x52:
             return FALSE;
         case 0x26:
@@ -690,8 +690,8 @@ bool32 sub_0801A458(MapLayer* mapLayer, u32 position, u32 collisionType) {
     s32 offset = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     if (sub_0801A4F8()) {
         pos = position + offset;
-        tileType = GetTileType(pos, gPlayerEntity.base.collisionLayer);
-        switch (GetVvvForTileType(tileType)) {
+        tileType = GetTileTypeAtTilePos(pos, gPlayerEntity.base.collisionLayer);
+        switch (GetActTileForTileType(tileType)) {
             case 0x52:
             case 0x26:
             case 0x27:
@@ -777,7 +777,7 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
                 return position;
             }
 
-            index1 = GetTileType(position, this->collisionLayer);
+            index1 = GetTileTypeAtTilePos(position, this->collisionLayer);
             if ((index1 - 0x369) > 1) {
                 position = 0xffff;
             } else {
@@ -811,7 +811,7 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
                 return position;
             }
 
-            index1 = GetTileType(position, this->collisionLayer);
+            index1 = GetTileTypeAtTilePos(position, this->collisionLayer);
             if (!(index1 == 0x369) && !(index1 == 0x36d))
                 position = 0xffff;
             else {
@@ -845,7 +845,7 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
                 return position;
             }
 
-            index1 = GetTileType(position, this->collisionLayer);
+            index1 = GetTileTypeAtTilePos(position, this->collisionLayer);
             if (!(index1 == 0x369) && !(index1 == 0x36b))
                 position = 0xffff;
             else {
@@ -879,7 +879,7 @@ u32 sub_0801A570(Entity* this, u32 param_2) {
                 return position;
             }
 
-            index1 = GetTileType(position, this->collisionLayer);
+            index1 = GetTileTypeAtTilePos(position, this->collisionLayer);
             if (!(index1 == 0x369) && !(index1 == 0x36c))
                 position = 0xffff;
             else {
@@ -935,9 +935,9 @@ bool32 sub_0801A980(void) {
     GetLayerByIndex(gPlayerEntity.base.collisionLayer); // TODO result unused?
     ptr = &gUnk_080B44A8[gPlayerEntity.base.animationState & 6];
     tileType =
-        GetTileType(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), gPlayerEntity.base.collisionLayer);
+        GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), gPlayerEntity.base.collisionLayer);
     if (tileType < 0x4000) {
-        GetVvvForTileType(tileType);
+        GetActTileForTileType(tileType);
     }
     return FALSE;
 }
@@ -1007,7 +1007,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
 }
 
 void RenderMapLayerToSubTileMap(u16* subTileMap, MapLayer* mapLayer) {
-    u16* tiles;
+    u16* subTiles;
     u16* mapData;
     u16* mapDataOriginal;
     u16 tileY;
@@ -1035,11 +1035,11 @@ void RenderMapLayerToSubTileMap(u16* subTileMap, MapLayer* mapLayer) {
             } else {
                 tileSetIndex = GetTileSetIndexForSpecialTile(tilePosAndLayer, mapDataOriginal[0]);
             }
-            tiles = mapLayer->tiles + tileSetIndex;
-            subTileMap[0] = tiles[0];
-            subTileMap[1] = tiles[1];
-            subTileMap[0x80 + 0] = tiles[2];
-            subTileMap[0x80 + 1] = tiles[3];
+            subTiles = mapLayer->subTiles + tileSetIndex;
+            subTileMap[0] = subTiles[0];
+            subTileMap[1] = subTiles[1];
+            subTileMap[0x80 + 0] = subTiles[2];
+            subTileMap[0x80 + 1] = subTiles[3];
             subTileMap += 2;
 
             if (mapData[1] < 0x4000) {
@@ -1047,11 +1047,11 @@ void RenderMapLayerToSubTileMap(u16* subTileMap, MapLayer* mapLayer) {
             } else {
                 tileSetIndex = GetTileSetIndexForSpecialTile(tilePosAndLayer + 1, mapDataOriginal[1]);
             }
-            tiles = mapLayer->tiles + tileSetIndex;
-            subTileMap[0] = tiles[0];
-            subTileMap[1] = tiles[1];
-            subTileMap[0x80 + 0] = tiles[2];
-            subTileMap[0x80 + 1] = tiles[3];
+            subTiles = mapLayer->subTiles + tileSetIndex;
+            subTileMap[0] = subTiles[0];
+            subTileMap[1] = subTiles[1];
+            subTileMap[0x80 + 0] = subTiles[2];
+            subTileMap[0x80 + 1] = subTiles[3];
             subTileMap += 2;
 
             if (mapData[2] < 0x4000) {
@@ -1059,11 +1059,11 @@ void RenderMapLayerToSubTileMap(u16* subTileMap, MapLayer* mapLayer) {
             } else {
                 tileSetIndex = GetTileSetIndexForSpecialTile(tilePosAndLayer + 2, mapDataOriginal[2]);
             }
-            tiles = mapLayer->tiles + tileSetIndex;
-            subTileMap[0] = tiles[0];
-            subTileMap[1] = tiles[1];
-            subTileMap[0x80 + 0] = tiles[2];
-            subTileMap[0x80 + 1] = tiles[3];
+            subTiles = mapLayer->subTiles + tileSetIndex;
+            subTileMap[0] = subTiles[0];
+            subTileMap[1] = subTiles[1];
+            subTileMap[0x80 + 0] = subTiles[2];
+            subTileMap[0x80 + 1] = subTiles[3];
             subTileMap += 2;
 
             if (mapData[3] < 0x4000) {
@@ -1071,11 +1071,11 @@ void RenderMapLayerToSubTileMap(u16* subTileMap, MapLayer* mapLayer) {
             } else {
                 tileSetIndex = GetTileSetIndexForSpecialTile(tilePosAndLayer + 3, mapDataOriginal[3]);
             }
-            tiles = mapLayer->tiles + tileSetIndex;
-            subTileMap[0] = tiles[0];
-            subTileMap[1] = tiles[1];
-            subTileMap[0x80 + 0] = tiles[2];
-            subTileMap[0x80 + 1] = tiles[3];
+            subTiles = mapLayer->subTiles + tileSetIndex;
+            subTileMap[0] = subTiles[0];
+            subTileMap[1] = subTiles[1];
+            subTileMap[0x80 + 0] = subTiles[2];
+            subTileMap[0x80 + 1] = subTiles[3];
             subTileMap += 2;
 
             mapData += 4;
@@ -1116,7 +1116,7 @@ void sub_0801AC98(void) {
     for (indexY = 0; indexY < height; indexY++) {
         for (indexX = 0; indexX < width; indexX++, position++) {
             for (ptr = gUnk_080B44C0; ptr->tileType != 0xffff; ptr++) {
-                if (ptr->tileType == GetTileType(position, 1)) {
+                if (ptr->tileType == GetTileTypeAtTilePos(position, 1)) {
                     if (gUnk_080B44B8[ptr->unk_a] != 0) {
                         sub_0801AD6C(ptr, position);
                         break;
@@ -1125,7 +1125,7 @@ void sub_0801AC98(void) {
             }
 
             for (ptr = gUnk_080B44C2; ptr->tileType != 0xffff; ptr++) {
-                if (ptr->tileType == GetTileType(position, 2)) {
+                if (ptr->tileType == GetTileTypeAtTilePos(position, 2)) {
                     if (gUnk_080B44B8[ptr->unk_a] != 0) {
                         sub_0801AD6C(ptr, position);
                         break;
@@ -1187,8 +1187,8 @@ u32 sub_0801AE34(void) {
 
 void sub_0801AE44(bool32 loadGfx) {
     void (*func)(void);
-    gRoomControls.unk_34 = 0;
-    sub_0807BFD0();
+    gRoomControls.tileset = (u32)NULL;
+    SetupTileSet();
     if (loadGfx != 0) {
         LoadRoomGfx();
     }

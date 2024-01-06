@@ -50,7 +50,7 @@ void Fireplace_Action1(FireplaceEntity* this) {
 }
 
 void sub_0809B7C0(FireplaceEntity* this) {
-    u32 tileType = GetTileTypeByEntity(super);
+    u32 tileType = GetTileTypeAtEntity(super);
     if (tileType != SPECIAL_TILE_97 && tileType != SPECIAL_TILE_98) {
         sub_0809B7DC(this);
     }

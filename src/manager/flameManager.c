@@ -15,18 +15,18 @@
 void FlameManager_Main(FlameManager* this) {
     if (super->action == 0) {
         this->tilePos = TILE(this->tilePos, this->field_0x3a);
-        if (GetTileType(this->tilePos, LAYER_TOP) == TILE_TYPE_117) {
+        if (GetTileTypeAtTilePos(this->tilePos, LAYER_TOP) == TILE_TYPE_117) {
             super->action = 1;
             SetTile(SPECIAL_TILE_106, this->tilePos, LAYER_BOTTOM);
         } else {
             DeleteThisEntity();
         }
     }
-    if (GetTileType(this->tilePos, LAYER_BOTTOM) == SPECIAL_TILE_107) {
+    if (GetTileTypeAtTilePos(this->tilePos, LAYER_BOTTOM) == SPECIAL_TILE_107) {
         sub_0807B7D8(TILE_TYPE_118, this->tilePos, LAYER_TOP);
         DeleteThisEntity();
     }
-    if (GetTileType(this->tilePos, LAYER_TOP) == TILE_TYPE_118) {
+    if (GetTileTypeAtTilePos(this->tilePos, LAYER_TOP) == TILE_TYPE_118) {
         SetTile(SPECIAL_TILE_107, this->tilePos, LAYER_BOTTOM);
         DeleteThisEntity();
     }

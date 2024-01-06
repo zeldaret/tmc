@@ -716,7 +716,7 @@ void sub_0801FB68(ChuchuEntity* this) {
 }
 
 bool32 CheckWaterTile(ChuchuEntity* this) {
-    if (GetVvvAtEntity(super) == VVV_16) {
+    if (GetActTileAtEntity(super) == ACT_TILE_16) {
         return TRUE;
     } else {
         return FALSE;

@@ -69,9 +69,9 @@ SetTile: @ r0 = tile index, r1, = tile position, r2 = layer
 	blo tile_wrong_type @ jump if tileIndex < 0x4000
 	push {r1, r2}
 	subs r4, r0, r6 @ r4 = tileIndex - 0x4000
-	ldr r3, _08000210 @ =gMapSpecialTileToVvv
-	ldrb r0, [r3, r4] @ r0 = gMapSpecialTileToVvv[tileIndex - 0x4000]
-	bl SetVvvAtTilePos
+	ldr r3, _08000210 @ =gMapSpecialTileToActTile
+	ldrb r0, [r3, r4] @ r0 = gMapSpecialTileToActTile[tileIndex - 0x4000]
+	bl SetActTileAtTilePos
 	ldr r3, _08000214 @ =gMapSpecialTileToCollisionData
 	ldrb r0, [r3, r4] @ r0 = gMapSpecialTileToCollisionData[tileIndex - 0x4000]
 	lsrs r2, r2, #2 @ r2 = layer
@@ -89,9 +89,9 @@ tile_wrong_type:
 	lsls r0, r0, #1 @ r0 = tileIndex * 2
 	ldrh r4, [r4, r0] @ r4 (tileType) = gMapBottom.tileTypes[tileIndex]
 	push {r1, r2}
-	ldr r3, _08000218 @ =gMapTileTypeToVvv
-	ldrb r0, [r3, r4] @ r0 = gMapTileTypeToVvv[tileType]
-	bl SetVvvAtTilePos
+	ldr r3, _08000218 @ =gMapTileTypeToActTile
+	ldrb r0, [r3, r4] @ r0 = gMapTileTypeToActTile[tileType]
+	bl SetActTileAtTilePos
 	ldr r3, _0800021C @ =gMapTileTypeToCollisionData
 	ldrb r0, [r3, r4] @ r0 = gMapTileTypeToCollisionData[tileType]
 	lsrs r2, r2, #2 @ r2 = layer
@@ -105,13 +105,13 @@ _080001C4: .4byte gMapBottom+0x6004
 _080001C8: .4byte gMapTop+0x6004
 _080001CC: .4byte gMapBottom+0x6004
 
-@ r0: @see gMapSpecialTileToVvv  r1: tilePos, r2: layer
-	thumb_func_start SetVvvAtTilePos
-SetVvvAtTilePos: @ 0x080001D0
+@ r0: @see gMapSpecialTileToActTile  r1: tilePos, r2: layer
+	thumb_func_start SetActTileAtTilePos
+SetActTileAtTilePos: @ 0x080001D0
 	lsls r2, r2, #2
-	ldr r3, _08000220 @ =gVvvPtrs
-	ldr r3, [r3, r2] @ r3 = gMapBottom.vvv
-	strb r0, [r3, r1] @ gMapBottom.vvv[tilePos] = r0
+	ldr r3, _08000220 @ =gActTilePtrs
+	ldr r3, [r3, r2] @ r3 = gMapBottom.actTiles
+	strb r0, [r3, r1] @ gMapBottom.actTiles[tilePos] = r0
 	bx lr
 
 	non_word_aligned_thumb_func_start GetTileIndex
@@ -133,11 +133,11 @@ _08000200: .4byte gBG2Buffer+0x40
 _08000204: .4byte gCollisionDataPtrs
 _08000208: .4byte gMapDataPtrs
 _0800020C: .4byte 0x00004000
-_08000210: .4byte gMapSpecialTileToVvv
+_08000210: .4byte gMapSpecialTileToActTile
 _08000214: .4byte gMapSpecialTileToCollisionData
-_08000218: .4byte gMapTileTypeToVvv
+_08000218: .4byte gMapTileTypeToActTile
 _0800021C: .4byte gMapTileTypeToCollisionData
-_08000220: .4byte gVvvPtrs
+_08000220: .4byte gActTilePtrs
 _08000224: .4byte gMapDataPtrs
 
 gMapDataPtrs::
@@ -164,11 +164,11 @@ gUnk_08000258:: @ mapDataOriginal and tileTypes
 	.4byte TOP_TILETYPES
 	.4byte BOTTOM_TILEDATAORIGINAL @ layer 3
 	.4byte BOTTOM_TILETYPES
-gVvvPtrs:: @ vvv for layers
-	.4byte BOTTOM_UNKDATA3 @ layer 0
-	.4byte BOTTOM_UNKDATA3 @ layer 1
-	.4byte TOP_UNKDATA3 @ layer 2
-	.4byte BOTTOM_UNKDATA3 @ layer 3
+gActTilePtrs:: @ actTile for layers
+	.4byte BOTTOM_ACTTILES @ layer 0
+	.4byte BOTTOM_ACTTILES @ layer 1
+	.4byte TOP_ACTTILES @ layer 2
+	.4byte BOTTOM_ACTTILES @ layer 3
 
 @ call 0x80B19CC
 @ ========
@@ -214,17 +214,17 @@ sub_080B1A04: @ 0x08000298
 @ r0: entity*
 @ r1: s32
 @ r2: s32
-	thumb_func_start sub_080B1A0C
-sub_080B1A0C: @ 0x0800029C
-	ldr r3, _08000308 @ =ram_sub_080B1A0C
+	thumb_func_start GetTileTypeRelativeToEntity
+GetTileTypeRelativeToEntity: @ 0x0800029C
+	ldr r3, _08000308 @ =ram_GetTileTypeRelativeToEntity
 	bx r3
 
 @ call 0x080B1A28
 @ r0: entity
 @ return: u32 (tileType)
-	thumb_func_start GetTileTypeByEntity
-GetTileTypeByEntity: @ 0x080002A0
-	ldr r3, _0800030C @ =ram_GetTileTypeByEntity
+	thumb_func_start GetTileTypeAtEntity
+GetTileTypeAtEntity: @ 0x080002A0
+	ldr r3, _0800030C @ =ram_GetTileTypeAtEntity
 	bx r3
 
 @ call 0x080B1A34
@@ -232,35 +232,35 @@ GetTileTypeByEntity: @ 0x080002A0
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
 @ return: u32 (tileType)
-	thumb_func_start GetTileTypeByPos
-GetTileTypeByPos: @ 0x080002A4
-	ldr r3, _08000310 @ =ram_GetTileTypeByPos
+	thumb_func_start GetTileTypeAtWorldCoords
+GetTileTypeAtWorldCoords: @ 0x080002A4
+	ldr r3, _08000310 @ =ram_GetTileTypeAtWorldCoords
 	bx r3
 
 @ call 0x080B1A48
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080B1A48
-sub_080B1A48: @ 0x080002A8
-	ldr r3, _08000314 @ =ram_sub_080B1A48
+	thumb_func_start GetTileTypeAtRoomCoords
+GetTileTypeAtRoomCoords: @ 0x080002A8
+	ldr r3, _08000314 @ =ram_GetTileTypeAtRoomCoords
 	bx r3
 
 @ call 0x080B1A58
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080B1A58
-sub_080B1A58: @ 0x080002AC
-	ldr r3, _08000318 @ =ram_sub_080B1A58
+	thumb_func_start GetTileTypeAtRoomTile
+GetTileTypeAtRoomTile: @ 0x080002AC
+	ldr r3, _08000318 @ =ram_GetTileTypeAtRoomTile
 	bx r3
 
 @ call 0x080B1A60
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
 @ return: u32 (tileType)
-	thumb_func_start GetTileType
-GetTileType: @ 0x080002B0
+	thumb_func_start GetTileTypeAtTilePos
+GetTileTypeAtTilePos: @ 0x080002B0
 	ldr r3, _0800031C @ =ram_GetTileType
 	bx r3
 
@@ -268,9 +268,9 @@ GetTileType: @ 0x080002B0
 @ r0: Entity*
 @ r1: u32
 @ r2: u32
-	thumb_func_start GetVvvRelativeToEntity
-GetVvvRelativeToEntity: @ 0x080002B4
-	ldr r3, _08000320 @ =ram_GetVvvRelativeToEntity
+	thumb_func_start GetActTileRelativeToEntity
+GetActTileRelativeToEntity: @ 0x080002B4
+	ldr r3, _08000320 @ =ram_GetActTileRelativeToEntity
 	bx r3
 
 @ call 0x080B1AA8
@@ -280,18 +280,18 @@ GetVvvRelativeToEntity: @ 0x080002B4
 @ return: 
 @ ========
 @ Called every frame a pot is thrown, every frame the screen is sliding in a transition, and once when entering stairs.
-	thumb_func_start GetVvvAtEntity
-GetVvvAtEntity: @ 0x080002B8
-	ldr r3, _08000324 @ =ram_GetVvvAtEntity
+	thumb_func_start GetActTileAtEntity
+GetActTileAtEntity: @ 0x080002B8
+	ldr r3, _08000324 @ =ram_GetActTileAtEntity
 	bx r3
 
 @ call 0x080B1AB4
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start GetVvvAtWorldCoords
-GetVvvAtWorldCoords: @ 0x080002BC
-	ldr r3, _08000328 @ =ram_GetVvvAtWorldCoords
+	thumb_func_start GetActTileAtWorldCoords
+GetActTileAtWorldCoords: @ 0x080002BC
+	ldr r3, _08000328 @ =ram_GetActTileAtWorldCoords
 	bx r3
 
 @ call 0x080B1AC8
@@ -299,9 +299,9 @@ GetVvvAtWorldCoords: @ 0x080002BC
 @ r1: u32
 @ r2: u32
 @ return: ???
-	thumb_func_start GetVvvAtRoomCoords
-GetVvvAtRoomCoords: @ 0x080002C0
-	ldr r3, _0800032C @ =ram_GetVvvAtRoomCoords
+	thumb_func_start GetActTileAtRoomCoords
+GetActTileAtRoomCoords: @ 0x080002C0
+	ldr r3, _0800032C @ =ram_GetActTileAtRoomCoords
 	bx r3
 
 @ call 0x080B1AD8
@@ -310,17 +310,17 @@ GetVvvAtRoomCoords: @ 0x080002C0
 @ r2: s32 (yOffset)
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start GetVvvAtRoomTile
-GetVvvAtRoomTile: @ 0x080002C4
-	ldr r3, _08000330 @ =ram_GetVvvAtRoomTile
+	thumb_func_start GetActTileAtRoomTile
+GetActTileAtRoomTile: @ 0x080002C4
+	ldr r3, _08000330 @ =ram_GetActTileAtRoomTile
 	bx r3
 
 @ call 0x080B1AE0
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
-	thumb_func_start GetVvvAtTilePos
-GetVvvAtTilePos: @ 0x080002C8
-	ldr r3, _08000334 @ =ram_GetVvvAtTilePos
+	thumb_func_start GetActTileAtTilePos
+GetActTileAtTilePos: @ 0x080002C8
+	ldr r3, _08000334 @ =ram_GetActTileAtTilePos
 	bx r3
 
 @ call 0x080B1AF0
@@ -372,9 +372,9 @@ GetCollisionDataAtTilePos: @ 0x080002E0
 
 @ call 0x080B1B54
 @ r0: u32 (tileIndex)
-	thumb_func_start GetVvvForTileType
-GetVvvForTileType: @ 0x080002E4
-	ldr r3, _08000350 @ =ram_GetVvvForTileType
+	thumb_func_start GetActTileForTileType
+GetActTileForTileType: @ 0x080002E4
+	ldr r3, _08000350 @ =ram_GetActTileForTileType
 	bx r3
 
 @ call 0x080B1B68
@@ -407,25 +407,25 @@ _080002F8: .4byte ram_sub_080B19D8
 _080002FC: .4byte ram_sub_080B19EC
 _08000300: .4byte ram_sub_080B19FC
 _08000304: .4byte ram_sub_080B1A04
-_08000308: .4byte ram_sub_080B1A0C
-_0800030C: .4byte ram_GetTileTypeByEntity
-_08000310: .4byte ram_GetTileTypeByPos
-_08000314: .4byte ram_sub_080B1A48
-_08000318: .4byte ram_sub_080B1A58
+_08000308: .4byte ram_GetTileTypeRelativeToEntity
+_0800030C: .4byte ram_GetTileTypeAtEntity
+_08000310: .4byte ram_GetTileTypeAtWorldCoords
+_08000314: .4byte ram_GetTileTypeAtRoomCoords
+_08000318: .4byte ram_GetTileTypeAtRoomTile
 _0800031C: .4byte ram_GetTileType
-_08000320: .4byte ram_GetVvvRelativeToEntity
-_08000324: .4byte ram_GetVvvAtEntity
-_08000328: .4byte ram_GetVvvAtWorldCoords
-_0800032C: .4byte ram_GetVvvAtRoomCoords
-_08000330: .4byte ram_GetVvvAtRoomTile
-_08000334: .4byte ram_GetVvvAtTilePos
+_08000320: .4byte ram_GetActTileRelativeToEntity
+_08000324: .4byte ram_GetActTileAtEntity
+_08000328: .4byte ram_GetActTileAtWorldCoords
+_0800032C: .4byte ram_GetActTileAtRoomCoords
+_08000330: .4byte ram_GetActTileAtRoomTile
+_08000334: .4byte ram_GetActTileAtTilePos
 _08000338: .4byte ram_GetCollisionDataRelativeTo
 _0800033C: .4byte ram_GetCollisionDataAtEntity
 _08000340: .4byte ram_GetCollisionDataAtWorldCoords
 _08000344: .4byte ram_GetCollisionDataAtRoomCoords
 _08000348: .4byte ram_GetCollisionDataAtRoomTile
 _0800034C: .4byte ram_GetCollisionDataAtTilePos
-_08000350: .4byte ram_GetVvvForTileType
+_08000350: .4byte ram_GetActTileForTileType
 _08000354: .4byte ram_sub_080B1B68
 _08000358: .4byte ram_sub_080B1B84
 _0800035C: .4byte ram_sub_080B1BA4

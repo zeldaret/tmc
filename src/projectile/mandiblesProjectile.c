@@ -118,7 +118,7 @@ void MandiblesProjectile_Action2(MandiblesProjectileEntity* this) {
         EnqueueSFX(SFX_15D);
     }
     this->unk_78 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    if (GetTileType(this->unk_78, super->collisionLayer) == SPECIAL_TILE_0) {
+    if (GetTileTypeAtTilePos(this->unk_78, super->collisionLayer) == SPECIAL_TILE_0) {
         SetTile(SPECIAL_TILE_5, this->unk_78, super->collisionLayer);
     }
 }

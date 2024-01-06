@@ -811,8 +811,8 @@ void sub_0806B0E0(Entity* this, ScriptExecutionContext* context) {
     int idx = 0;
 
     // Checks if the dust is gone at these four tiles.
-    if (GetVvvAtRoomCoords(56, 184, 1) == VVV_87 && GetVvvAtRoomCoords(72, 184, 1) == VVV_87 &&
-        GetVvvAtRoomCoords(56, 200, 1) == VVV_87 && GetVvvAtRoomCoords(72, 200, 1) == VVV_87) {
+    if (GetActTileAtRoomCoords(56, 184, 1) == ACT_TILE_87 && GetActTileAtRoomCoords(72, 184, 1) == ACT_TILE_87 &&
+        GetActTileAtRoomCoords(56, 200, 1) == ACT_TILE_87 && GetActTileAtRoomCoords(72, 200, 1) == ACT_TILE_87) {
         idx = 1;
     }
 

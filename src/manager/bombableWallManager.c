@@ -46,7 +46,7 @@ void BombableWallManager_Init(BombableWallManager* this) {
 }
 
 void BombableWallManager_Action1(BombableWallManager* this) {
-    if (GetVvvAtTilePos(this->tilePos, this->layer) != VVV_46) {
+    if (GetActTileAtTilePos(this->tilePos, this->layer) != ACT_TILE_46) {
         super->action = 2;
         super->timer = 90;
         BombableWallManager_DestroyWall(this);
@@ -62,7 +62,7 @@ void BombableWallManager_Action2(BombableWallManager* this) {
 }
 
 u32 BombableWallManager_GetBombableType(u32 tilePos, u32 layer) {
-    u32 tileType = GetTileType(tilePos, layer);
+    u32 tileType = GetTileTypeAtTilePos(tilePos, layer);
 
     switch (tileType) {
         case TILE_TYPE_236:

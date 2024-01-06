@@ -172,10 +172,10 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if (FindValueForKey(sub_080B1A0C(super, x, y), gUnk_080B3DF4)) {
+        if (FindValueForKey(GetTileTypeRelativeToEntity(super, x, y), gUnk_080B3DF4)) {
             return;
         }
-        if (GetVvvRelativeToEntity(super, x, y) == VVV_116) {
+        if (GetActTileRelativeToEntity(super, x, y) == ACT_TILE_116) {
             return;
         }
         if (sub_080040D8(super, (u8*)gUnk_08003E44, super->x.HALF.HI + x, super->y.HALF.HI + y) == 0) {

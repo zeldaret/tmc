@@ -333,18 +333,18 @@ void Beanstalk_Action1Type9(BeanstalkEntity* this) {
     if (super->subAction == 0) {
         super->subAction = 1;
         super->y.HALF.HI += 0x28;
-        this->unk_72 = sub_080B1A0C(super, 0, -24);
+        this->unk_72 = GetTileTypeRelativeToEntity(super, 0, -24);
     }
     super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
     if (gPlayerState.floor_type == SURFACE_LADDER) {
         super->spritePriority.b0 = 0;
-        if (sub_080B1A0C(super, 0, -24) != SPECIAL_TILE_20) {
+        if (GetTileTypeRelativeToEntity(super, 0, -24) != SPECIAL_TILE_20) {
             SetTile(SPECIAL_TILE_20, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
         }
     } else {
         super->spritePriority.b0 = 5;
-        if (this->unk_72 != sub_080B1A0C(super, 0, -24)) {
+        if (this->unk_72 != GetTileTypeRelativeToEntity(super, 0, -24)) {
             SetTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
         }
     }

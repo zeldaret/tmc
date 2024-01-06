@@ -188,7 +188,7 @@ s32 sub_080774A0(void) {
         return 0;
     if (collisionData < 0xf)
         return 0;
-    if (GetVvvAtTilePos(tilePos, gPlayerEntity.base.collisionLayer) != VVV_86) {
+    if (GetActTileAtTilePos(tilePos, gPlayerEntity.base.collisionLayer) != ACT_TILE_86) {
         return 1;
     } else {
         return 0x56;

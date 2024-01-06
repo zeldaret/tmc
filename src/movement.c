@@ -2162,7 +2162,7 @@ bool32 ProcessMovement3(Entity* this) {
 }
 
 bool32 sub_080AF0C8(Entity* this) {
-    u32 tileType = GetTileTypeByEntity(this);
+    u32 tileType = GetTileTypeAtEntity(this);
     switch (tileType) {
         case 0x87:
             if (((this->direction + 7) & (0x3 | DIR_DIAGONAL | DirectionNorth | DirectionEast | DirectionSouth |

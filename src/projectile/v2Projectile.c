@@ -105,7 +105,7 @@ void sub_080ABCC4(V2ProjectileEntity* this) {
     super->subtimer = 0;
     super->direction = Random() & 0x1f;
     this->tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    this->tileType = GetTileType(this->tilePos, LAYER_TOP);
+    this->tileType = GetTileTypeAtTilePos(this->tilePos, LAYER_TOP);
     super->spritePriority.b0 = 2;
     InitializeAnimation(super, 0);
     SoundReq(SFX_14B);
@@ -127,7 +127,7 @@ void sub_080ABD70(V2ProjectileEntity* this) {
         super->frame &= 0xef;
         super->speed = 0;
         this->tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
-        this->tileType = GetTileType(this->tilePos, LAYER_TOP);
+        this->tileType = GetTileTypeAtTilePos(this->tilePos, LAYER_TOP);
         tmp = this->tileType;
         if (tmp != 0x13) {
             if (tmp == 0x315) {

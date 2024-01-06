@@ -6,9 +6,8 @@
 extern u32 Random(void);
 extern u32 GetRandomByWeight(const u8*);
 extern void CloneTile(u32, u32, u32);
-extern u32 GetTileTypeByEntity(struct Entity_*);
-extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
-extern u32 GetTileType(u32 tilePos, u32 layer);
+
+
 
 extern void SetTile(u32 tileIndex, u32 tilePos, u32 layer);
 
@@ -48,22 +47,28 @@ extern u32 sub_0800442E(struct Entity_*);
 extern void SoundReqClipped(struct Entity_*, u32);
 extern u32 sub_0800132C(struct Entity_*, struct Entity_*);
 
-extern u32 sub_080B1A48(u32, u32, u32);
 extern u32 sub_0800445C(struct Entity_*);
-extern bool32 GetVvvForTileType(u32);
 extern u32 CheckRectOnScreen(s32, s32, u32, u32);
 
-extern u32 GetVvvRelativeToEntity(struct Entity_* entity, s32 xOffset, s32 yOffset);
-extern u32 GetVvvAtEntity(struct Entity_* entity);
-extern u32 GetVvvAtWorldCoords(u32 worldX, u32 worldY, u32 layer);
-extern u32 GetVvvAtRoomCoords(u32 roomX, u32 roomY, u32 layer);
-extern u32 GetVvvAtRoomTile(u32 roomTileX, u32 roomTileY, u32 layer);
-extern u32 GetVvvAtTilePos(u16 tilePos, u8 layer);
+
+extern u32 GetTileTypeRelativeToEntity(struct Entity_* entity, s32 xOffset, s32 yOffset);
+extern u32 GetTileTypeAtEntity(struct Entity_* entity);
+extern u32 GetTileTypeAtWorldCoords(s32 worldX, s32 worldY, u32 layer);
+extern u32 GetTileTypeAtRoomCoords(u32 roomX, u32 roomY, u32 layer);
+extern u32 GetTileTypeAtTilePos(u32 tilePos, u32 layer);
+
+extern u32 GetActTileRelativeToEntity(struct Entity_* entity, s32 xOffset, s32 yOffset);
+extern u32 GetActTileAtEntity(struct Entity_* entity);
+extern u32 GetActTileAtWorldCoords(u32 worldX, u32 worldY, u32 layer);
+extern u32 GetActTileAtRoomCoords(u32 roomX, u32 roomY, u32 layer);
+extern u32 GetActTileAtRoomTile(u32 roomTileX, u32 roomTileY, u32 layer);
+extern u32 GetActTileAtTilePos(u16 tilePos, u8 layer);
+
 
 /**
- * Sets vvv for a tilePos.
+ * Sets actTile for a tilePos.
  */
-extern void SetVvvAtTilePos(u32 vvv, u32 tilePos, u32 layer);
+extern void SetActTileAtTilePos(u32 actTile, u32 tilePos, u32 layer);
 
 // Get CollisionData for entity (relative to entity?)
 extern u32 GetCollisionDataRelativeTo(struct Entity_* entity, s32 xOffset, s32 yOffset);
@@ -90,6 +95,9 @@ extern u32 GetCollisionDataAtTilePos(u32 tilePos, u32 layer);
  * Sets the collision data for one tile.
  */
 extern void SetCollisionData(u32 collisionData, u32 tilePos, u32 layer);
+
+
+extern u32 GetActTileForTileType(u32 tileType);
 
 typedef struct {
     u16 key;

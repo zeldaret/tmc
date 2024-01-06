@@ -76,7 +76,7 @@ void sub_0803CF38(TorchTrapEntity* this) {
 }
 
 void sub_0803CF94(TorchTrapEntity* this) {
-    if (GetTileType(this->tilePos, super->collisionLayer) == TILE_TYPE_118) {
+    if (GetTileTypeAtTilePos(this->tilePos, super->collisionLayer) == TILE_TYPE_118) {
         this->unk_80 = 0;
         TorchTrap_Reset(this);
     } else if (this->unk_7c && sub_0803CFD8(this)) {

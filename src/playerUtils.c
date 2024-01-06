@@ -69,7 +69,7 @@ extern u8 gUpdateVisibleTiles;
 
 bool32 sub_0807BF88(u32, u32, RoomResInfo*);
 
-void sub_0807BFD0(void);
+void SetupTileSet(void);
 
 void ForceSetPlayerState(u32 framestate);
 InteractableObject* sub_080784E4(void);
@@ -77,7 +77,7 @@ InteractableObject* sub_080784E4(void);
 u32 sub_08079778(void);
 u32 GetPlayerTilePos(void);
 
-extern const KeyValuePair gMapVvvToSurfaceType[];
+extern const KeyValuePair gMapActTileToSurfaceType[];
 
 u32 sub_0807BEEC(u32 param_1, u32 param_2, u32 param_3);
 
@@ -105,7 +105,7 @@ extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
 
 bool32 sub_08079F48(u32 param_1, u32 param_2);
 
-extern void FillVvvForLayer(MapLayer* mapLayer);
+extern void FillActTileForLayer(MapLayer* mapLayer);
 
 extern u16 gUnk_080B77C0[];
 
@@ -836,7 +836,7 @@ const KeyValuePair gUnk_0811C254[] = { { 43, 1 }, { 38, 1 } };
 const u16 gUnk_0811C254End = 0;
 const KeyValuePair gUnk_0811C25E[] = { { 44, 1 }, { 39, 1 } };
 const u16 gUnk_0811C25EEnd = 0;
-const KeyValuePair gUnk_0811C268[] = { { VVV_16, 1 }, { VVV_90, 1 }, { VVV_17, 1 }, { VVV_19, 1 } };
+const KeyValuePair gUnk_0811C268[] = { { ACT_TILE_16, 1 }, { ACT_TILE_90, 1 }, { ACT_TILE_17, 1 }, { ACT_TILE_19, 1 } };
 const u16 gUnk_0811C268EEnd = 0;
 
 void sub_0807B114(PlayerEntity*);
@@ -897,7 +897,7 @@ void sub_08077F84(void) {
     Entity* obj;
 
     if ((gPlayerEntity.base.collisionLayer & 2) == 0) {
-        u32 tileType = GetTileTypeByPos(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
+        u32 tileType = GetTileTypeAtWorldCoords(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
         if (tileType == TILE_TYPE_835 || tileType == TILE_TYPE_836 || tileType == TILE_TYPE_837 || tileType == TILE_TYPE_838) {
             sub_0807AA80(&gPlayerEntity.base);
             gPlayerState.jump_status |= 8;
@@ -1476,7 +1476,7 @@ u32 sub_080789A8(void) {
         }
 
         ptr = &gUnk_08007DF4[gPlayerEntity.base.animationState & 6];
-        gCarriedEntity.unk_4 = uVar2 = sub_080B1A0C(&gPlayerEntity.base, (s8)ptr[0], (s8)ptr[1]);
+        gCarriedEntity.unk_4 = uVar2 = GetTileTypeRelativeToEntity(&gPlayerEntity.base, (s8)ptr[0], (s8)ptr[1]);
 
         if (!sub_0806FC24(uVar2, 6))
             return 0;
@@ -2022,10 +2022,10 @@ bool32 sub_08079550(void) {
                 tilePos2 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, (gPlayerEntity.base.hitbox)->unk2[2], -ptr[1]);
             }
 
-            uVar3 = GetVvvAtTilePos(tilePos1, gPlayerEntity.base.collisionLayer);
+            uVar3 = GetActTileAtTilePos(tilePos1, gPlayerEntity.base.collisionLayer);
             uVar3 = FindValueForKey(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
             if (uVar3 != 0) {
-                uVar3 = GetVvvAtTilePos(tilePos2, gPlayerEntity.base.collisionLayer);
+                uVar3 = GetActTileAtTilePos(tilePos2, gPlayerEntity.base.collisionLayer);
                 uVar3 = FindValueForKey(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
                 if (uVar3 != 0) {
                     gPlayerState.pushedObject |= 0x80;
@@ -2354,13 +2354,13 @@ bool32 sub_08079C30(Entity* player) {
                 return TRUE;
         }
 
-        if (gPlayerState.floor_type != FindValueForKey(GetVvvRelativeToEntity(player, 0, -1), gMapVvvToSurfaceType))
+        if (gPlayerState.floor_type != FindValueForKey(GetActTileRelativeToEntity(player, 0, -1), gMapActTileToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type != FindValueForKey(GetVvvRelativeToEntity(player, 2, 0), gMapVvvToSurfaceType))
+        if (gPlayerState.floor_type != FindValueForKey(GetActTileRelativeToEntity(player, 2, 0), gMapActTileToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type == FindValueForKey(GetVvvRelativeToEntity(player, -2, 0), gMapVvvToSurfaceType)) {
+        if (gPlayerState.floor_type == FindValueForKey(GetActTileRelativeToEntity(player, -2, 0), gMapActTileToSurfaceType)) {
             return TRUE;
         }
     }
@@ -2372,7 +2372,7 @@ bool32 sub_08079D48(void) {
         return TRUE;
     } else {
         if (!PlayerCheckNEastTile()) {
-            if (!FindValueForKey((u16)GetVvvAtEntity(&gPlayerEntity.base), gUnk_0811C268)) {
+            if (!FindValueForKey((u16)GetActTileAtEntity(&gPlayerEntity.base), gUnk_0811C268)) {
                 return TRUE;
             }
         }
@@ -2593,7 +2593,7 @@ void UpdateFloorType(void) {
 
 SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
     u32 position = TILE(param_1->x.HALF.HI + (u32)x, param_1->y.HALF.HI + y);
-    u32 tileType = GetTileTypeByPos(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
+    u32 tileType = GetTileTypeAtWorldCoords(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
     if (tileType != gPlayerState.tileType) {
         gPlayerState.surfaceTimer = 0;
     }
@@ -2610,8 +2610,8 @@ SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
         gPlayerState.surfaceTimer++;
     }
     gPlayerState.floor_type_last = gPlayerState.floor_type;
-    tileType = GetVvvRelativeToEntity(param_1, x, y); // tileType is a vvv here
-    return FindValueForKey(tileType, gMapVvvToSurfaceType);
+    tileType = GetActTileRelativeToEntity(param_1, x, y); // tileType is a actTile here
+    return FindValueForKey(tileType, gMapActTileToSurfaceType);
 }
 
 void EnablePlayerDraw(Entity* this) {
@@ -2655,7 +2655,7 @@ u32 sub_0807A2F8(u32 param_1) {
         iVar4 = 0;
         uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
         if (GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_BOTTOM)) {
-            if (!FindValueForKey((u16)GetVvvAtTilePos((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
+            if (!FindValueForKey((u16)GetActTileAtTilePos((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
@@ -2665,7 +2665,7 @@ u32 sub_0807A2F8(u32 param_1) {
 
         uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
         if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
-            if (!FindValueForKey((u16)GetVvvAtTilePos((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
+            if (!FindValueForKey((u16)GetActTileAtTilePos((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
@@ -2855,7 +2855,7 @@ void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
     }
 }
 
-u32 GetVvvInFront(Entity* this) {
+u32 GetActTileInFront(Entity* this) {
     s32 x;
     s32 y;
     switch (this->direction) {
@@ -2880,7 +2880,7 @@ u32 GetVvvInFront(Entity* this) {
             x = 0;
             break;
     }
-    return GetVvvRelativeToEntity(this, x, y);
+    return GetActTileRelativeToEntity(this, x, y);
 }
 
 void nullsub_505(void) {
@@ -2951,7 +2951,7 @@ void sub_0807AAF8(Entity* this, u32 tilePos) {
 void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
     Entity* object;
     const u16* ptr =
-        sub_0806FC50(GetTileType(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
+        sub_0806FC50(GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
     if (ptr != NULL) {
         if (ptr[3] == 0x76) {
             object = CreateObject(FLAME, 1, 0);
@@ -3287,20 +3287,20 @@ void SetTileType(u32 tileType, u32 tilePos, u32 layer) {
     u8 collisionData;
     u16 tileIndex;
     MapLayer* mapLayer;
-    u16* src;
+    u16* subTiles;
     u16* dest;
 
     if (tileType < 0x800) {
         UnregisterInteractTile(tilePos, layer);
         mapLayer = GetLayerByIndex(layer);
-        tileIndex = mapLayer->unkData2[tileType];
+        tileIndex = mapLayer->tileIndices[tileType];
         mapLayer->mapData[tilePos] = tileIndex;
         collisionData = gMapTileTypeToCollisionData[tileType];
         mapLayer->collisionData[tilePos] = collisionData;
         if ((gRoomControls.scroll_flags & 2) != 0) {
             gMapBottom.collisionData[tilePos] = collisionData;
         }
-        mapLayer->vvv[tilePos] = gMapTileTypeToVvv[tileType];
+        mapLayer->actTiles[tilePos] = gMapTileTypeToActTile[tileType];
         if ((gRoomControls.scroll_flags & 1) == 0) {
             u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
             if (layer != 2) {
@@ -3308,12 +3308,12 @@ void SetTileType(u32 tileType, u32 tilePos, u32 layer) {
             } else {
                 dest = gMapDataTopSpecial + offset;
             }
-            src = mapLayer->tiles + tileIndex * 4;
+            subTiles = mapLayer->subTiles + tileIndex * 4;
             // Copy over the tilemap entries (tile_attrs) to the special map data but in a different order.
-            dest[0] = src[0];
-            dest[1] = src[1];
-            dest[0x80] = src[2];
-            dest[0x81] = src[3];
+            dest[0] = subTiles[0];
+            dest[1] = subTiles[1];
+            dest[0x80] = subTiles[2];
+            dest[0x81] = subTiles[3];
             if (gRoomControls.reload_flags != 1) {
                 gUpdateVisibleTiles = 1;
             }
@@ -3326,17 +3326,17 @@ void SetTileType(u32 tileType, u32 tilePos, u32 layer) {
 }
 
 bool32 sub_0807B434(u32 tilePos, u32 layer) {
-    switch (GetTileType(tilePos, layer)) {
+    switch (GetTileTypeAtTilePos(tilePos, layer)) {
         case TILE_TYPE_54:
         case TILE_TYPE_55:
             return FALSE;
         default:
-            return GetVvvAtTilePos(tilePos, layer) != VVV_13;
+            return GetActTileAtTilePos(tilePos, layer) != ACT_TILE_13;
     }
 }
 
 bool32 sub_0807B464(u32 tilePos, u32 layer) {
-    return GetVvvAtTilePos(tilePos, layer) == VVV_86;
+    return GetActTileAtTilePos(tilePos, layer) == ACT_TILE_86;
 }
 
 void sub_0807B480(u32 tilePos, u32 param_2) {
@@ -3353,11 +3353,11 @@ void sub_0807B480(u32 tilePos, u32 param_2) {
         tmp1 |= sub_0807B464(tilePos - 1, LAYER_TOP) << 3;
         tmp1 |= sub_0807B464(tilePos + 0x41, LAYER_BOTTOM) << 1;
         tmp1 |= sub_0807B464(tilePos + 0x3f, LAYER_BOTTOM) << 3;
-        if (GetTileType(tilePos + 0x40, LAYER_TOP) != 0) {
+        if (GetTileTypeAtTilePos(tilePos + 0x40, LAYER_TOP) != 0) {
             tmp1 |= sub_0807B464(tilePos + 0x80, LAYER_BOTTOM) << 2;
         }
         tmp2 = gUnk_0811C2CC[tmp1];
-        tileType = GetTileType(tilePos, LAYER_TOP);
+        tileType = GetTileTypeAtTilePos(tilePos, LAYER_TOP);
         ptr = gUnk_0811C2EC;
         tmp3 = 0;
         for (; *ptr != 0; ptr = ptr + 3) {
@@ -3398,10 +3398,10 @@ u32 sub_0807B600(u32 tilePos) {
     u32 tilePos2;
 
     tilePos2 = tilePos - 0x40;
-    if (GetVvvAtTilePos(tilePos, LAYER_BOTTOM) != VVV_86) {
+    if (GetActTileAtTilePos(tilePos, LAYER_BOTTOM) != ACT_TILE_86) {
         return FALSE;
     } else {
-        tileType = GetTileType(tilePos, LAYER_BOTTOM);
+        tileType = GetTileTypeAtTilePos(tilePos, LAYER_BOTTOM);
         if (tileType == TILE_TYPE_618) {
             sub_0807B820(tilePos);
         } else if (tileType == TILE_TYPE_615) {
@@ -3415,7 +3415,7 @@ u32 sub_0807B600(u32 tilePos) {
         } else if (tileType == TILE_TYPE_647) {
             sub_0807B930(tilePos + 0x40);
         } else {
-            if (GetTileType(tilePos, LAYER_TOP) != 0) {
+            if (GetTileTypeAtTilePos(tilePos, LAYER_TOP) != 0) {
                 SetTileType(TILE_TYPE_754, tilePos, LAYER_BOTTOM);
                 if (GetCollisionDataAtTilePos(tilePos2, LAYER_BOTTOM) == COLLISION_DATA_3) {
                     SetTileType(TILE_TYPE_756, tilePos2, LAYER_BOTTOM);
@@ -3428,7 +3428,7 @@ u32 sub_0807B600(u32 tilePos) {
             }
             if (sub_0807B464(tilePos2, LAYER_TOP)) {
                 SetTileType(0, tilePos2, LAYER_TOP);
-                if (GetTileType(tilePos2, LAYER_BOTTOM) == TILE_TYPE_754) {
+                if (GetTileTypeAtTilePos(tilePos2, LAYER_BOTTOM) == TILE_TYPE_754) {
                     SetTileType(TILE_TYPE_756, tilePos2, LAYER_BOTTOM);
                 }
                 sub_0807B55C(tilePos + 1, 1, (u16*)&gUnk_0811C2AC);
@@ -3446,7 +3446,7 @@ u32 sub_0807B600(u32 tilePos) {
 
 void sub_0807B778(u32 tilePos, u32 layer) {
     u32 tmp;
-    if (GetVvvAtTilePos(tilePos, layer) == VVV_13) {
+    if (GetActTileAtTilePos(tilePos, layer) == ACT_TILE_13) {
         tmp = sub_0807B434(tilePos + TILE_POS(0, -1), layer);
         tmp |= sub_0807B434(tilePos + TILE_POS(1, 0), layer) << 1;
         tmp |= sub_0807B434(tilePos + TILE_POS(0, 1), layer) << 2;
@@ -3504,30 +3504,30 @@ void sub_0807B930(u32 tilePos) {
     SetTileType(TILE_TYPE_658, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void SetTileByIndex(u32 tileIndex, u32 position, u32 layer) {
+void SetTileByIndex(u32 tileIndex, u32 tilePos, u32 layer) {
     MapLayer* mapLayer;
-    u16* src;
+    u16* subTiles;
     u16* dest;
     u16 tileType;
 
-    UnregisterInteractTile(position, layer);
+    UnregisterInteractTile(tilePos, layer);
     mapLayer = GetLayerByIndex(layer);
-    mapLayer->mapData[position] = tileIndex;
+    mapLayer->mapData[tilePos] = tileIndex;
     tileType = mapLayer->tileTypes[tileIndex];
-    mapLayer->collisionData[position] = gMapTileTypeToCollisionData[tileType];
-    mapLayer->vvv[position] = gMapTileTypeToVvv[tileType];
+    mapLayer->collisionData[tilePos] = gMapTileTypeToCollisionData[tileType];
+    mapLayer->actTiles[tilePos] = gMapTileTypeToActTile[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
-        u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+        u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
         if (layer != 2) {
             dest = gMapDataBottomSpecial + offset;
         } else {
             dest = gMapDataTopSpecial + offset;
         }
-        src = mapLayer->tiles + tileIndex * 4;
-        *dest = *src;
-        dest[1] = src[1];
-        dest[0x80] = src[2];
-        dest[0x81] = src[3];
+        subTiles = mapLayer->subTiles + tileIndex * 4;
+        *dest = *subTiles;
+        dest[1] = subTiles[1];
+        dest[0x80] = subTiles[2];
+        dest[0x81] = subTiles[3];
         if (gRoomControls.reload_flags != 1) {
             gUpdateVisibleTiles = 1;
         }
@@ -3539,14 +3539,14 @@ void RestorePrevTileEntity(u32 tilePos, u32 layer) {
     u32 tileType;
     MapLayer* mapLayer;
     u16* dest;
-    u16* src;
+    u16* subTiles;
 
     UnregisterInteractTile(tilePos, layer);
     mapLayer = GetLayerByIndex(layer);
     mapLayer->mapData[tilePos] = tileIndex = mapLayer->mapDataOriginal[tilePos];
     tileType = mapLayer->tileTypes[tileIndex];
     mapLayer->collisionData[tilePos] = gMapTileTypeToCollisionData[tileType];
-    mapLayer->vvv[tilePos] = gMapTileTypeToVvv[tileType];
+    mapLayer->actTiles[tilePos] = gMapTileTypeToActTile[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
         u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
         if (layer != 2) {
@@ -3554,11 +3554,11 @@ void RestorePrevTileEntity(u32 tilePos, u32 layer) {
         } else {
             dest = gMapDataTopSpecial + offset;
         }
-        src = &mapLayer->tiles[tileIndex * 4];
-        dest[0] = src[0];
-        dest[1] = src[1];
-        dest[0x80] = src[2];
-        dest[0x81] = src[3];
+        subTiles = &mapLayer->subTiles[tileIndex * 4];
+        dest[0] = subTiles[0];
+        dest[1] = subTiles[1];
+        dest[0x80] = subTiles[2];
+        dest[0x81] = subTiles[3];
         if (gRoomControls.reload_flags != 1) {
             gUpdateVisibleTiles = 1;
         }
@@ -3813,12 +3813,11 @@ void sub_0807BFA8(void) {
     gRoomControls.height = (gArea.pCurrentRoomInfo)->pixel_height;
 }
 
-void sub_0807BFD0(void) {
+void SetupTileSet(void) {
     s32 index;
-    u16* puVar2;
-    u16* puVar3;
-    u16* ptr;
-    typeof(gMapTop)* newptr;
+    u16* tileTypes;
+    u16* tileIndices;
+    u16* paletteBuffer;
 
     ClearBgAnimations();
     sub_0807BFA8();
@@ -3827,37 +3826,37 @@ void sub_0807BFD0(void) {
     MemFill16(0xffff, gMapTop.tileTypes, 0x1000);
     gMapTop.tileTypes[0] = 0;
 
-    if ((void*)gRoomControls.unk_34 != (gArea.pCurrentRoomInfo)->tileset) {
-        gRoomControls.unk_34 = (u32)(gArea.pCurrentRoomInfo)->tileset;
+    if ((void*)gRoomControls.tileset != (gArea.pCurrentRoomInfo)->tileset) {
+        gRoomControls.tileset = (u32)(gArea.pCurrentRoomInfo)->tileset;
         LoadMapData((gArea.pCurrentRoomInfo)->tileset);
     }
 
     LoadMapData((gArea.pCurrentRoomInfo)->tiles);
-    ptr = gPaletteBuffer;
-    MemCopy(&ptr[0x30], &ptr[0x150], 0x20);
+    paletteBuffer = gPaletteBuffer;
+    MemCopy(&paletteBuffer[0x30], &paletteBuffer[0x150], 0x20);
     gUsedPalettes |= 0x200000;
 
     if ((gArea.pCurrentRoomInfo)->bg_anim != NULL) {
         LoadBgAnimations((gArea.pCurrentRoomInfo)->bg_anim);
     }
 
-    puVar2 = gMapBottom.tileTypes;
-    puVar3 = gMapBottom.unkData2;
-    MemFill16(0xffff, puVar3, 0x1000);
+    tileTypes = gMapBottom.tileTypes;
+    tileIndices = gMapBottom.tileIndices;
+    MemFill16(0xffff, tileIndices, 0x1000);
 
-    for (index = 0; index < 0x800; index++, puVar2++) {
-        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
-            puVar3[*puVar2] = index;
+    for (index = 0; index < 0x800; index++, tileTypes++) {
+        if ((*tileTypes < 0x800) && (tileIndices[*tileTypes] == 0xffff)) {
+            tileIndices[*tileTypes] = index;
         }
     }
 
-    puVar2 = gMapTop.tileTypes;
-    puVar3 = gMapTop.unkData2;
-    MemFill16(0xffff, puVar3, 0x1000);
+    tileTypes = gMapTop.tileTypes;
+    tileIndices = gMapTop.tileIndices;
+    MemFill16(0xffff, tileIndices, 0x1000);
 
-    for (index = 0; index < 0x800; index++, puVar2++) {
-        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
-            puVar3[*puVar2] = index;
+    for (index = 0; index < 0x800; index++, tileTypes++) {
+        if ((*tileTypes < 0x800) && (tileIndices[*tileTypes] == 0xffff)) {
+            tileIndices[*tileTypes] = index;
         }
     }
 }
@@ -3889,18 +3888,18 @@ void LoadRoomGfx(void) {
         MemCopy(gMapBottom.mapData, gMapBottom.mapDataOriginal, sizeof(gMapBottom.mapData));
         MemCopy(gMapTop.mapData, gMapTop.mapDataOriginal, sizeof(gMapBottom.mapData));
     } else if (gRoomTransition.field2d == 2) {
-        MemCopy(gMapBottom.mapData, gMapBottom.vvv, 0x1000);
+        MemCopy(gMapBottom.mapData, gMapBottom.actTiles, 0x1000);
         MemCopy(gMapBottom.mapDataOriginal, gMapBottom.mapData, 0x1000);
-        MemCopy(gMapBottom.vvv, gMapBottom.mapDataOriginal, 0x1000);
-        MemCopy(gMapBottom.mapData + 0x800, gMapBottom.vvv, 0x1000);
+        MemCopy(gMapBottom.actTiles, gMapBottom.mapDataOriginal, 0x1000);
+        MemCopy(gMapBottom.mapData + 0x800, gMapBottom.actTiles, 0x1000);
         MemCopy(gMapBottom.mapDataOriginal + 0x800, gMapBottom.mapData + 0x800, 0x1000);
-        MemCopy(gMapBottom.vvv, gMapBottom.mapDataOriginal + 0x800, 0x1000);
-        MemCopy(gMapTop.mapData, gMapTop.vvv, 0x1000);
+        MemCopy(gMapBottom.actTiles, gMapBottom.mapDataOriginal + 0x800, 0x1000);
+        MemCopy(gMapTop.mapData, gMapTop.actTiles, 0x1000);
         MemCopy(gMapTop.mapDataOriginal, gMapTop.mapData, 0x1000);
-        MemCopy(gMapTop.vvv, gMapTop.mapDataOriginal, 0x1000);
-        MemCopy(gMapTop.mapData + 0x800, gMapTop.vvv, 0x1000);
+        MemCopy(gMapTop.actTiles, gMapTop.mapDataOriginal, 0x1000);
+        MemCopy(gMapTop.mapData + 0x800, gMapTop.actTiles, 0x1000);
         MemCopy(gMapTop.mapDataOriginal + 0x800, gMapTop.mapData + 0x800, 0x1000);
-        MemCopy(gMapTop.vvv, gMapTop.mapDataOriginal + 0x800, 0x1000);
+        MemCopy(gMapTop.actTiles, gMapTop.mapDataOriginal + 0x800, 0x1000);
     }
     if (!clearBottomMap) {
         sub_0807BBE4();
@@ -3910,8 +3909,8 @@ void LoadRoomGfx(void) {
         sub_0807C460();
     }
     CreateCollisionDataBorderAroundRoom();
-    FillVvvForLayer(&gMapBottom);
-    FillVvvForLayer(&gMapTop);
+    FillActTileForLayer(&gMapBottom);
+    FillActTileForLayer(&gMapTop);
     if (!clearBottomMap) {
         // Render the complete bottom and top tilemaps into the tilemaps.
         RenderMapLayerToSubTileMap(gMapDataBottomSpecial, &gMapBottom);
@@ -4153,7 +4152,7 @@ void InitializeCamera() {
     u32 tmp1;
     u32 tmp2;
 
-    sub_0807BFD0();
+    SetupTileSet();
     LoadRoomGfx();
     roomControls = &gRoomControls;
     target = gRoomControls.camera_target;
@@ -4213,12 +4212,12 @@ void sub_0807C810(void) {
     DiggingCaveEntranceTransition* ptr;
     Entity* player;
     RoomControls* ctrls;
-    sub_0807BFD0();
+    SetupTileSet();
     ptr = &gDiggingCaveEntranceTransition;
     player = &gPlayerEntity.base;
     ctrls = &gRoomControls;
-    player->x.HALF.HI = ((ptr->entrance)->targetTilePosition & 0x3f) * 0x10 + ctrls->origin_x + ptr->offsetX;
-    player->y.HALF.HI = (((ptr->entrance)->targetTilePosition & 0xfc0) >> 2) + ctrls->origin_y + ptr->offsetY;
+    player->x.HALF.HI = ((ptr->entrance)->targetTilePos & 0x3f) * 0x10 + ctrls->origin_x + ptr->offsetX;
+    player->y.HALF.HI = (((ptr->entrance)->targetTilePos & 0xfc0) >> 2) + ctrls->origin_y + ptr->offsetY;
     sub_080809D4();
     gUpdateVisibleTiles = 0;
 }
@@ -4291,11 +4290,11 @@ void LoadCompressedMapData(void* dest, u32 offset) {
     }
 }
 
-void sub_0807C998(u32* a1) {
-    LoadCompressedMapData(&gMapBottom.tiles, a1[0]);
-    LoadCompressedMapData(&gMapBottom.tileTypes, a1[1]);
-    LoadCompressedMapData(&gMapTop.tiles, a1[2]);
-    LoadCompressedMapData(&gMapTop.tileTypes, a1[3]);
+void sub_0807C998(u32* dest) {
+    LoadCompressedMapData(&gMapBottom.subTiles, dest[0]);
+    LoadCompressedMapData(&gMapBottom.tileTypes, dest[1]);
+    LoadCompressedMapData(&gMapTop.subTiles, dest[2]);
+    LoadCompressedMapData(&gMapTop.tileTypes, dest[3]);
 }
 
 void sub_0807C9D8(u32* a1) {

@@ -44,7 +44,7 @@ void Button_Init(ButtonEntity* this) {
     }
     this->tilePos = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
                    ((((super->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
-    this->unk_72 = GetTileType(this->tilePos, super->collisionLayer);
+    this->unk_72 = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
     if (super->type == 0 && CheckFlags(this->unk_86)) {
         super->action = 5;
         SetTileType(TILE_TYPE_122, this->tilePos, super->collisionLayer);
@@ -60,7 +60,7 @@ void Button_Init(ButtonEntity* this) {
 void Button_Action1(ButtonEntity* this) {
     if (sub_08081E3C(this)) {
         super->action = 2;
-        this->unk_72 = GetTileType(this->tilePos, super->collisionLayer);
+        this->unk_72 = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
     }
 }
 
@@ -132,12 +132,12 @@ bool32 sub_08081CB0(ButtonEntity* this) {
     u16 tileType;
     if (sub_08081D74(this)) {
         this->unk_70 = -1;
-        if (GetTileType(this->tilePos, super->collisionLayer) == SPECIAL_TILE_53) {
+        if (GetTileTypeAtTilePos(this->tilePos, super->collisionLayer) == SPECIAL_TILE_53) {
             sub_0807B7D8(0x78, this->tilePos, super->collisionLayer);
         }
         return TRUE;
     } else {
-        tileType = GetTileType(this->tilePos, super->collisionLayer);
+        tileType = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
         if (tileType != 0x77 && tileType != 0x79 && tileType != SPECIAL_TILE_53) {
             this->unk_70 = GetTileIndex(this->tilePos, super->collisionLayer);
             return TRUE;
@@ -204,7 +204,7 @@ u32 sub_08081E3C(ButtonEntity* this) {
     };
     const u16* tmp1;
     s32 tmp2;
-    tmp2 = GetTileType(this->tilePos, super->collisionLayer);
+    tmp2 = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
     tmp1 = gUnk_0811EE50;
     do {
         if (*tmp1 == tmp2)
@@ -223,21 +223,21 @@ void sub_08081E6C(ButtonEntity* this) {
     u32 tileType;
     MapLayer* mapLayer;
     u16* tmp2;
-    u16* tmp;
+    u16* subTiles;
     u16* tmp3;
     u32 tilePos = this->tilePos;
     u32 layer = super->collisionLayer;
-    u32 specialTile = GetTileType(tilePos, layer);
+    u32 specialTile = GetTileTypeAtTilePos(tilePos, layer);
 
     if (specialTile < 0x4000)
         return;
     mapLayer = GetLayerByIndex(layer);
     tileType = (super->type == 0 ? TILE_TYPE_122 : TILE_TYPE_120);
-    tmp = mapLayer->tiles;
-    tmp = tmp + (mapLayer->unkData2[tileType] << 2);
+    subTiles = mapLayer->subTiles;
+    subTiles = subTiles + (mapLayer->tileIndices[tileType] << 2);
     tmp2 = (layer == 2 ? gMapDataTopSpecial : gMapDataBottomSpecial);
     tmp2 += (((0x3f & tilePos) << 1) + ((0xfc0 & tilePos) << 2));
-    if (sub_08081F00((u32*)tmp2, (u32*)tmp))
+    if (sub_08081F00((u32*)tmp2, (u32*)subTiles))
         return;
     SetTileType(tileType, tilePos, layer);
     SetTile(specialTile, tilePos, layer);

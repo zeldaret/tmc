@@ -74,7 +74,7 @@ void sub_080AA494(RemovableDustEntity* this) {
     u32 index;
 
     index = 0;
-    tileType = GetTileTypeByEntity(super);
+    tileType = GetTileTypeAtEntity(super);
     iterator = gUnk_08129FD0;
     while (*iterator != 0) {
         if (*(iterator++) == tileType) {
@@ -100,7 +100,7 @@ void sub_080AA534(Entity* this) {
 
 void sub_080AA544(RemovableDustEntity* this) {
     u8* pbVar1;
-    s32 vvv;
+    s32 actTile;
     u32 uVar3;
     s32 iVar4;
     const u16* puVar5;
@@ -113,8 +113,8 @@ void sub_080AA544(RemovableDustEntity* this) {
         uVar3 = 0;
         iVar4 = 0;
         do {
-            vvv = GetVvvAtTilePos((tilePos - tmp[uVar3]) & 0xffff, super->collisionLayer);
-            if (vvv == VVV_62) {
+            actTile = GetActTileAtTilePos((tilePos - tmp[uVar3]) & 0xffff, super->collisionLayer);
+            if (actTile == ACT_TILE_62) {
                 iVar4++;
             }
             uVar3++;

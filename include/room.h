@@ -1,9 +1,9 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include "global.h"
 #include "entity.h"
 #include "droptables.h"
+#include "map.h"
 
 enum RoomTransition {
     TRANSITION_DEFAULT,
@@ -56,7 +56,7 @@ typedef struct {
     /*0x28*/ union SplitWord bg3OffsetX;
     /*0x2C*/ union SplitWord bg3OffsetY;
     /*0x30*/ Entity* camera_target;
-    /*0x34*/ u32 unk_34;
+    /*0x34*/ u32 tileset; // TODO Should be MapDataDefinition*, but then SetupTileSet does not match.
 } RoomControls;
 extern RoomControls gRoomControls;
 
