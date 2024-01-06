@@ -62,4 +62,6 @@ int MultiBoot(struct MultiBootParam* mp);
 
 s32 Div(s32 num, s32 denom);
 
+#define DivAndMod(num, denom) ((union SplitDWord)(*(MultiReturnTypeTwoS32Arg)(&Div))(num, denom))
+
 #endif // SYSCALL_H
