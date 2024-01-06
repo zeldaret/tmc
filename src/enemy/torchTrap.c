@@ -122,7 +122,7 @@ void TorchTrap_Reset(TorchTrapEntity* this) {
 }
 
 void TorchTrap_CreateProjectile(TorchTrapEntity* this) {
-    Entity* proj = CreateProjectileWithParent(super, TORCH_TRAP_PROJECTILE, 0);
+    Entity* proj = EnemyCreateProjectile(super, TORCH_TRAP_PROJECTILE, 0);
     if (proj) {
         u16 speed = super->speed;
         if (super->speed) {

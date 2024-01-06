@@ -59,7 +59,7 @@ void LightableSwitch_Type0_Init(LightableSwitchEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 0x28;
-    super->flags2 = 10;
+    super->collisionMask = 10;
     super->hitbox = (Hitbox*)&gHitbox_0;
     sub_0809EAD8(this);
     UpdateSpriteForCollisionLayer(super);
@@ -68,7 +68,7 @@ void LightableSwitch_Type0_Init(LightableSwitchEntity* this) {
 
 void LightableSwitch_Type0_Action1(LightableSwitchEntity* this) {
 
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         if (CheckFlags(this->unk_86) != 0) {
             ClearFlag(this->unk_86);
         } else {
@@ -137,7 +137,7 @@ void LightableSwitch_Type1_Init(LightableSwitchEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 0x28;
-    super->flags2 = 10;
+    super->collisionMask = 10;
     super->hitbox = (Hitbox*)&gHitbox_0;
     sub_0809EAD8(this);
     UpdateSpriteForCollisionLayer(super);
@@ -148,7 +148,7 @@ void LightableSwitch_Type1_Init(LightableSwitchEntity* this) {
 }
 
 void LightableSwitch_Type1_Action1(LightableSwitchEntity* this) {
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         super->action = 2;
         super->timer = 16;
         super->frameIndex = 2;

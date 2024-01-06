@@ -19,9 +19,9 @@ void sub_08076DF4(ItemBehavior* this, u32 index) {
         this->playerAnimationState = gPlayerEntity.base.animationState;
         this->priority |= 0x80;
         this->priority++;
-        gPlayerState.gustJarSpeed = 1;
-        gPlayerEntity.unk_74 = NULL;
-        gPlayerState.field_0x1c = 1;
+        gPlayerState.gustJarCharge = JAR_CHARGE_SMALL;
+        gPlayerEntity.carriedEntity = NULL;
+        gPlayerState.gustJarState = PL_JAR_SUCK;
         sub_08077BB8(this);
     } else {
         DeleteItemBehavior(this, index);
@@ -31,7 +31,7 @@ void sub_08076DF4(ItemBehavior* this, u32 index) {
 void sub_08076E60(ItemBehavior* this, u32 index) {
     Entity* playerItem;
 
-    if ((gPlayerState.field_0x1c & 0xf) == 0) {
+    if ((gPlayerState.gustJarState & 0xf) == 0) {
         DeleteItemBehavior(this, index);
     }
     if ((this->playerFrame & 0x80) != 0) {
@@ -48,7 +48,7 @@ void sub_08076E60(ItemBehavior* this, u32 index) {
 }
 
 void sub_08076EC8(ItemBehavior* this, u32 index) {
-    if ((gPlayerState.field_0x1c & 0xf) == 0) {
+    if ((gPlayerState.gustJarState & 0xf) == PL_JAR_NONE) {
         DeleteItemBehavior(this, index);
         return;
     }
@@ -56,11 +56,11 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
     if (IsItemActive(this)) {
         u32 animIndex;
         if (this->timer > 0xef) {
-            gPlayerState.gustJarSpeed = 3;
+            gPlayerState.gustJarCharge = JAR_CHARGE_BIG;
         } else if (++this->timer > 0x77) {
-            gPlayerState.gustJarSpeed = 2;
+            gPlayerState.gustJarCharge = JAR_CHARGE_MID;
         } else {
-            gPlayerState.gustJarSpeed = 1;
+            gPlayerState.gustJarCharge = JAR_CHARGE_SMALL;
         }
 
         if (gPlayerEntity.base.subAction == 0x1b) {
@@ -88,16 +88,16 @@ void sub_08076EC8(ItemBehavior* this, u32 index) {
 void sub_08076F64(ItemBehavior* this, u32 index) {
     Entity* item;
     PlayerEntity* player;
-    switch (gPlayerState.field_0x1c & 0xf) {
-        case 5:
+    switch (gPlayerState.gustJarState & 0xf) {
+        case PL_JAR_BLAST_UPDATE:
             if (this->playerFrame & 0x80) {
                 if (this->subtimer) {
                     this->subtimer = 0;
                     this->timer = 0;
-                    gPlayerState.gustJarSpeed = 1;
+                    gPlayerState.gustJarCharge = JAR_CHARGE_SMALL;
                     player = &gPlayerEntity;
-                    player->unk_74 = NULL;
-                    gPlayerState.field_0x1c = 1;
+                    player->carriedEntity = NULL;
+                    gPlayerState.gustJarState = PL_JAR_SUCK;
                     gPlayerState.field_0xa &= ~(8 >> index);
                     this->stateID = 2;
                     SetItemAnim(this, ANIM_GUSTJAR_SUCK);
@@ -107,7 +107,7 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                     }
                     return;
                 } else {
-                    gPlayerState.field_0x1c = 6;
+                    gPlayerState.gustJarState = PL_JAR_BLAST_DONE;
                     SetItemAnim(this, ANIM_GUSTJAR_END);
                     return;
                 }
@@ -127,18 +127,18 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
                 return;
             }
             return;
-        case 3:
-            gPlayerState.field_0x1c = 4;
-        case 4:
+        case PL_JAR_3:
+            gPlayerState.gustJarState = PL_JAR_BLAST_INIT;
+        case PL_JAR_BLAST_INIT:
             if (IsItemActive(this)) {
                 this->subtimer = 1;
             }
 
             UpdateItemAnim(this);
             if (this->playerFrame & 1) {
-                gPlayerState.field_0x1c = 5;
-                gPlayerEntity.unk_70 = NULL;
-                if (gPlayerState.gustJarSpeed) {
+                gPlayerState.gustJarState = PL_JAR_BLAST_UPDATE;
+                gPlayerEntity.pulledJarEntity = NULL;
+                if (gPlayerState.gustJarCharge) {
                     CreatePlayerItem(PLAYER_ITEM_GUST_BIG, 0, 0, 0);
                 }
             }
@@ -150,27 +150,27 @@ void sub_08076F64(ItemBehavior* this, u32 index) {
             gPlayerEntity.base.speed = 0x80;
             UpdatePlayerMovement();
             return;
-        case 6:
+        case PL_JAR_BLAST_DONE:
             UpdateItemAnim(this);
             if ((this->playerFrame & 0x80) == 0)
                 return;
             break;
-        case 7:
+        case PL_JAR_ENT_ATTACHED:
             SetItemAnim(this, ANIM_GUSTJAR_BLOW);
-            gPlayerState.field_0x1c = 3;
-            gPlayerState.gustJarSpeed = 0;
+            gPlayerState.gustJarState = PL_JAR_3;
+            gPlayerState.gustJarCharge = JAR_CHARGE_NONE;
             return;
-        case 1:
-        case 2:
+        case PL_JAR_SUCK:
+        case PL_JAR_2:
         default:
-            gPlayerState.field_0x1c = 3;
+            gPlayerState.gustJarState = PL_JAR_3;
             SetItemAnim(this, ANIM_GUSTJAR_BLOW);
             return;
-        case 0:
+        case PL_JAR_NONE:
             break;
     }
-    gPlayerState.field_0x1c = 0;
-    gPlayerEntity.unk_70 = NULL;
+    gPlayerState.gustJarState = PL_JAR_NONE;
+    gPlayerEntity.pulledJarEntity = NULL;
     DeleteItemBehavior(this, index);
 }
 

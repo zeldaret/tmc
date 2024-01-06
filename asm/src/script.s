@@ -4,32 +4,33 @@
 	.syntax unified
 
 	.text
+	.thumb
+
+	.macro transition_tile tile:req, src_layer:req dest_layer:req
+	.short \tile
+	.byte \src_layer, \dest_layer
+	.endm
+
 
 gUnk_08016984:: @ 08016984
 	.incbin "code_08016984/gUnk_08016984.bin"
 
-	.text
-
-	non_word_aligned_thumb_func_start GetNextScriptCommandHalfword
-GetNextScriptCommandHalfword: @ 0x08016986
+GetNextScriptCommandHalfword::
 	ldrh r0, [r0]
 	bx lr
 
-	non_word_aligned_thumb_func_start GetNextScriptCommandHalfwordAfterCommandMetadata
-GetNextScriptCommandHalfwordAfterCommandMetadata: @ 0x0801698A
+GetNextScriptCommandHalfwordAfterCommandMetadata::
 	ldrh r0, [r0, #2]
 	bx lr
 
-	non_word_aligned_thumb_func_start GetNextScriptCommandWord
-GetNextScriptCommandWord: @ 0x0801698E
+GetNextScriptCommandWord::
 	ldrh r1, [r0]
 	ldrh r0, [r0, #2]
 	lsls r0, r0, #0x10
 	orrs r0, r1
 	bx lr
 
-	thumb_func_start GetNextScriptCommandWordAfterCommandMetadata
-GetNextScriptCommandWordAfterCommandMetadata: @ 0x08016998
+GetNextScriptCommandWordAfterCommandMetadata::
 	ldrh r1, [r0, #2]
 	ldrh r0, [r0, #4]
 	lsls r0, r0, #0x10
@@ -37,17 +38,15 @@ GetNextScriptCommandWordAfterCommandMetadata: @ 0x08016998
 	bx lr
 	.align 2, 0
 
-gScreenShakeOffsets::
-	.byte 0x01, 0xFF, 0x00, 0x01, 0x01, 0x00, 0x00, 0x01, 0xFF, 0xFF, 0x01, 0x00
-	.byte 0xFF, 0x01, 0x00, 0x00, 0x02, 0xFF, 0x01, 0xFE, 0x00, 0xFF, 0xFF, 0x00, 0xFF, 0x01, 0xFF, 0x02
-	.byte 0x00, 0x00, 0x01, 0x01, 0x02, 0xFF, 0x02, 0xFE, 0xFE, 0x02, 0xFF, 0x03, 0xFD, 0xFF, 0xFE, 0x01
-	.byte 0x01, 0xFD, 0xFF, 0xFF, 0x03, 0xFE, 0x02, 0x00, 0x00, 0xFF, 0xFE, 0x03, 0xFD, 0x02, 0xFF, 0x00
-	.byte 0x00, 0xFD, 0x02, 0x00, 0x00, 0xFF, 0x00, 0xFE, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0x02
-	.byte 0x00, 0x00, 0x00, 0x01, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0x00
-	.byte 0x00, 0x00, 0x01, 0x00
+gShakeOffsets::
+	.byte 1, -1, 0, 1, 1, 0, 0, 1, -1, -1, 1, 0, -1, 1, 0, 0
+	.byte 2, -1, 1, -2, 0, -1, -1, 0, -1, 1, -1, 2, 0, 0, 1, 1
+	.byte 2, -1, 2, -2, -2, 2, -1, 3, -3, -1, -2, 1, 1, -3, -1, -1
+	.byte 3, -2, 2, 0, 0, -1, -2, 3, -3, 2, -1, 0, 0, -3, 2, 0
+	.byte 0, -1, 0, -2, 0, -1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1
+	.byte 2, 0, 1, 0, 0, 0, -1, 0, -1, 0, -1, 0, 0, 0, 1, 0
 
-	thumb_func_start UpdateSpriteForCollisionLayer
-UpdateSpriteForCollisionLayer: @ 0x08016A04
+UpdateSpriteForCollisionLayer:: @ 0x08016A04
 	movs r1, #0x38
 	ldrb r1, [r0, r1]
 	lsls r1, r1, #1
@@ -69,8 +68,7 @@ UpdateSpriteForCollisionLayer: @ 0x08016A04
 _08016A28:
 	.byte 0x80, 0x80, 0x80, 0x80, 0x40, 0x40, 0x40, 0x40
 
-	thumb_func_start ResolveCollisionLayer
-ResolveCollisionLayer: @ 0x08016A30
+ResolveCollisionLayer::
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r5, #0x38
@@ -102,41 +100,51 @@ _08016A64:
 	bl UpdateSpriteForCollisionLayer
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08016A6C
-sub_08016A6C: @ 0x08016A6C
+CheckOnLayerTransition::
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl GetVvvAtEntity
-	add r1, pc, #0x38
-_08016A76:
-	adds r1, #4
-	ldrh r2, [r1]
+	bl GetVvvAtEntity // tile under me
+	adr r1, gTransitionTiles-4
+loop:
+	adds r1, #4 // p += 4
+	ldrh r2, [r1] // *(u16*)(p)
 	cmp r2, #0
-	beq _08016A90
+	beq not_found
 	cmp r2, r0
-	bne _08016A76
+	bne loop // found the tile under me?
 	movs r2, #0x38
-	ldrb r3, [r4, r2]
-	ldrb r5, [r1, #2]
-	cmp r3, r5
-	beq _08016A90
-	ldrb r5, [r1, #3]
-	strb r5, [r4, r2]
-_08016A90:
+	ldrb r3, [r4, r2] // collision layer
+	ldrb r5, [r1, #2] // *(u8*)(p + 2)
+	cmp r3, r5 // am i on the right later?
+	beq not_found
+	ldrb r5, [r1, #3] // *(u8*)(p + 3)
+	strb r5, [r4, r2] // move to a new layer
+not_found:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08016A94:
-	.byte 0x2A, 0x00, 0x03, 0x03, 0x2D, 0x00, 0x03, 0x03, 0x2B, 0x00, 0x03, 0x03
-	.byte 0x2C, 0x00, 0x03, 0x03, 0x4C, 0x00, 0x03, 0x03, 0x4E, 0x00, 0x03, 0x03, 0x4D, 0x00, 0x03, 0x03
-	.byte 0x4F, 0x00, 0x03, 0x03, 0x0A, 0x00, 0x02, 0x01, 0x09, 0x00, 0x02, 0x01, 0x0C, 0x00, 0x01, 0x02
-	.byte 0x0B, 0x00, 0x01, 0x02, 0x52, 0x00, 0x03, 0x03, 0x27, 0x00, 0x03, 0x03, 0x26, 0x00, 0x03, 0x03
-	.byte 0x00, 0x00
 
-	non_word_aligned_thumb_func_start sub_08016AD2
-sub_08016AD2: @ 0x08016AD2
+	transition_tile 0x2A, 3, 3
+	transition_tile 0x2D, 3, 3
+	transition_tile 0x2B, 3, 3
+	transition_tile 0x2C, 3, 3
+	transition_tile 0x4C, 3, 3
+	transition_tile 0x4E, 3, 3
+	transition_tile 0x4D, 3, 3
+	transition_tile 0x4F, 3, 3
+gTransitionTiles:
+	transition_tile 0x0A, 2, 1
+	transition_tile 0x09, 2, 1
+	transition_tile 0x0C, 1, 2
+	transition_tile 0x0B, 1, 2
+	transition_tile 0x52, 3, 3
+	transition_tile 0x27, 3, 3
+	transition_tile 0x26, 3, 3
+	.short 0x0000
+
+UpdateCollisionLayer::
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08016A6C
+	bl CheckOnLayerTransition
 	push {r0}
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer

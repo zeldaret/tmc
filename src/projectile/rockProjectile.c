@@ -22,7 +22,7 @@ void RockProjectile_OnTick(Entity* this) {
 }
 
 void RockProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == 0x80) {
+    if (this->contactFlags == CONTACT_NOW) {
         DeleteEntity(this);
     } else {
         this->direction = this->knockbackDirection;
@@ -43,7 +43,7 @@ void RockProjectile_Action1(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
-            sub_08016AD2(this);
+            UpdateCollisionLayer(this);
             if (--this->timer == 0) {
                 this->action = 3;
             }
@@ -51,7 +51,7 @@ void RockProjectile_Action1(Entity* this) {
     } else {
         sub_0800417E(this, this->collisions);
         sub_080A8178(this);
-        sub_08016AD2(this);
+        UpdateCollisionLayer(this);
     }
 }
 
@@ -66,11 +66,11 @@ void RockProjectile_Action2(Entity* this) {
 void RockProjectile_Action3(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    switch (sub_080044EC(this, 0x2800)) {
-        case 0:
+    switch (BounceUpdate(this, Q_8_8(40.0))) {
+        case BOUNCE_DONE_ALL:
             DeleteEntity(this);
             return;
-        case 1:
+        case BOUNCE_INIT_NEXT:
             COLLISION_OFF(this);
             this->speed = 0x120;
             if (sub_0800442E(this) != 0) {

@@ -54,7 +54,7 @@ extern const OffsetCoords gUnk_080D0154[];
 void Lakitu(LakituEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Lakitu_Functions);
 
-    SetChildOffset(super, 0, 1, -16);
+    EnemySetFXOffset(super, 0, 1, -16);
 }
 
 void Lakitu_OnTick(LakituEntity* this) {
@@ -96,7 +96,7 @@ void Lakitu_OnCollision(LakituEntity* this) {
     }
 
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, Lakitu_Functions);
@@ -128,7 +128,7 @@ void sub_0803C86C(LakituEntity* this) {
 }
 
 void Lakitu_Initialize(LakituEntity* this) {
-    Entity* cloud = CreateProjectileWithParent(super, 17, 0);
+    Entity* cloud = EnemyCreateProjectile(super, 17, 0);
     if (cloud == NULL) {
         return;
     }
@@ -313,7 +313,7 @@ void Lakitu_SpawnLightning(LakituEntity* this) {
     Entity* lightning;
     const OffsetCoords* offset;
 
-    lightning = CreateProjectileWithParent(super, LAKITU_LIGHTNING, 0);
+    lightning = EnemyCreateProjectile(super, LAKITU_LIGHTNING, 0);
 
     if (lightning == NULL) {
         return;
@@ -342,7 +342,7 @@ void sub_0803CBAC(LakituEntity* this) {
 
     super->spritePriority.b1 = 1;
 
-    super->flags2 &= 0x7b;
+    super->collisionMask &= 0x7b;
 
     super->hitType = 0x42;
 

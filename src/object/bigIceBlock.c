@@ -49,7 +49,7 @@ void BigIceBlock_Init(BigIceBlockEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
-    super->flags2 = 0x80;
+    super->collisionMask = 0x80;
     super->hitbox = (Hitbox*)&gUnk_080FD190;
     sub_08099910(this);
     InitializeAnimation(super, super->type);

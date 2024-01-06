@@ -1,5 +1,5 @@
 #include "enemyUtils.h"
-
+#include "enemy.h"
 #include "definitions.h"
 #include "entity.h"
 #include "functions.h"
@@ -8,7 +8,8 @@
 #include "projectile.h"
 #include "save.h"
 
-extern void SetRoomTrackerFlag(Entity*);
+extern void EnemyDisableRespawn(Entity*);
+extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
 extern EnemyDefinition gEnemyDefinitions[];
 
@@ -33,6 +34,24 @@ const struct_080D3D94 gUnk_080D3D94[] = {
 
 const u16 gUnk_080D3E74[] = { 2373, 1105, 2324, 21568, 4177, 16656, 1365, 21760, 8209, 0, 20480, 5, 0, 0 };
 
+void EnemyCopyParams(Entity* src, Entity* dest) {
+    Enemy* em_src = (Enemy*)src;
+    Enemy* em_dest = (Enemy*)dest;
+
+    em_dest->enemyFlags = (em_src->enemyFlags & EM_FLAG_MONITORED) | EM_FLAG_HAS_HOME;
+    em_dest->idx = em_src->idx;
+    em_dest->homeX = em_src->homeX;
+    em_dest->homeY = em_src->homeY;
+    em_dest->rangeX = em_src->rangeX;
+    em_dest->rangeY = em_src->rangeY;
+
+    CopyPositionAndSpriteOffset(&em_src->base, &em_dest->base);
+
+    if (em_src->enemyFlags & EM_FLAG_MONITORED) {
+        ReplaceMonitoredEntity(&em_src->base, &em_dest->base);
+    }
+}
+
 const EnemyDefinition* GetEnemyDefinition(Entity* entity) {
     const EnemyDefinition* definition = &gEnemyDefinitions[entity->id];
     if (definition->gfx == 0xffff) {
@@ -41,7 +60,7 @@ const EnemyDefinition* GetEnemyDefinition(Entity* entity) {
     return definition;
 }
 
-bool32 EnemyInit(GenericEntity* this) {
+bool32 EnemyInit(Enemy* this) {
     if ((super->flags & ENT_DID_INIT) == 0) {
         const EnemyDefinition* definition = GetEnemyDefinition(super);
         if (LoadEnemySprite(super, definition) == FALSE) {
@@ -60,7 +79,7 @@ bool32 EnemyInit(GenericEntity* this) {
         if (super->speed == 0) {
             super->speed = definition->speed;
         }
-        super->flags2 = definition->flags2;
+        super->collisionMask = definition->collisionMask;
         super->hitType = definition->damageType;
         super->hitbox = (Hitbox*)definition->ptr.hitbox;
         super->health = definition->health;
@@ -68,19 +87,19 @@ bool32 EnemyInit(GenericEntity* this) {
             super->hurtType = 0x41;
         }
         UpdateSpriteForCollisionLayer(super);
-        if ((this->field_0x6c.HALF.HI & 0x20) != 0) {
+        if (this->enemyFlags & EM_FLAG_CAPTAIN) {
             u32 uVar4 = gUnk_080D3E74[super->id >> 3] >> ((super->id & 7) << 1) & 3;
             if (uVar4 != 0) {
-                Entity* object = CreateObject(MULLDOZER_SPAWN_POINT, uVar4 - 1, 0);
-                if (object != NULL) {
-                    object->timer = super->flags;
-                    object->subtimer = super->spriteSettings.draw;
-                    object->spritePriority.b0 = 3;
-                    object->parent = super;
-                    CopyPosition(super, object);
-                    super->flags &= ~ENT_COLLIDE;
+                Entity* spawn_pt = CreateObject(MULLDOZER_SPAWN_POINT, uVar4 - 1, 0);
+                if (spawn_pt != NULL) {
+                    spawn_pt->timer = super->flags;
+                    spawn_pt->subtimer = super->spriteSettings.draw;
+                    spawn_pt->spritePriority.b0 = 3;
+                    spawn_pt->parent = super;
+                    CopyPosition(super, spawn_pt);
+                    COLLISION_OFF(super);
                     super->spriteSettings.draw = 0;
-                    this->field_0x6c.HALF.HI |= 0x10;
+                    this->enemyFlags |= EM_FLAG_SUPPORT;
                 }
             }
         }
@@ -111,65 +130,66 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
     return TRUE;
 }
 
-void sub_0804A720(GenericEntity* this) {
+void sub_0804A720(Entity* parent) {
     int iVar2;
     const struct_080D3D94* pbVar3;
     GenericEntityData* ptr;
+    Enemy* this = (Enemy*)parent;
 
-    if ((this->field_0x6c.HALF.HI & 4) != 0) {
+    if (this->enemyFlags & EM_FLAG_HAS_HOME) {
         return;
     }
 
     pbVar3 = &gUnk_080D3D94[super->id];
-    ptr = (GenericEntityData*)&this->field_0x68;
+    ptr = (GenericEntityData*)&this->child;
     if (ptr->field_0x7c.BYTES.byte2 == 0) {
-        this->field_0x6e.HALF.LO = pbVar3->unk_0;
+        this->rangeX = pbVar3->unk_0;
     } else {
-        this->field_0x6e.HALF.LO = ptr->field_0x7c.BYTES.byte2;
+        this->rangeX = ptr->field_0x7c.BYTES.byte2;
     }
 
     if (ptr->field_0x7c.BYTES.byte3 == 0) {
-        this->field_0x6e.HALF.HI = pbVar3->unk_1;
+        this->rangeY = pbVar3->unk_1;
     } else {
-        this->field_0x6e.HALF.HI = ptr->field_0x7c.BYTES.byte3;
+        this->rangeY = ptr->field_0x7c.BYTES.byte3;
     }
 
     if (ptr->cutsceneBeh.HWORD != 0) {
-        this->field_0x70.HALF.LO = ptr->cutsceneBeh.HWORD + gRoomControls.origin_x;
+        this->homeX = ptr->cutsceneBeh.HWORD + gRoomControls.origin_x;
     } else {
-        iVar2 = this->field_0x6e.HALF.LO * 4;
+        iVar2 = this->rangeX * 4;
         if (super->x.HALF.HI >= iVar2) {
-            this->field_0x70.HALF.LO = super->x.HALF_U.HI - 4 * this->field_0x6e.HALF.LO;
+            this->homeX = super->x.HALF_U.HI - 4 * this->rangeX;
         } else {
-            this->field_0x70.HALF.LO = 0;
+            this->homeX = 0;
         }
     }
 
     if (ptr->field_0x86.HWORD != 0) {
-        this->field_0x70.HALF.HI = ptr->field_0x86.HWORD + gRoomControls.origin_y;
+        this->homeY = ptr->field_0x86.HWORD + gRoomControls.origin_y;
     } else {
-        iVar2 = this->field_0x6e.HALF.HI * 4;
+        iVar2 = this->rangeY * 4;
         if (super->y.HALF.HI >= iVar2) {
-            this->field_0x70.HALF.HI = super->y.HALF.HI - iVar2;
+            this->homeY = super->y.HALF.HI - iVar2;
         } else {
-            this->field_0x70.HALF.HI = 0;
+            this->homeY = 0;
         }
     }
-    this->field_0x6c.HALF.HI |= 4;
+    this->enemyFlags |= EM_FLAG_HAS_HOME;
 }
 
-void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem);
+void EnemyCreateDeathFX(Enemy* parent, u32 parentId, u32 fixedItem);
 void GenericDeath(Entity* this) {
-    CreateDeathFx((GenericEntity*)this, this->id, 0);
+    EnemyCreateDeathFX((Enemy*)this, this->id, 0);
 }
 
-void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
+void EnemyCreateDeathFX(Enemy* parent, u32 parentId, u32 fixedItem) {
     DeathFxObject* deathFx;
     DeathFxObject* deathFx2;
     u8 bVar3;
 
-    if ((parent->field_0x6c.HALF.HI & 1) != 0) {
-        if ((parent->field_0x6c.HALF.HI & 2) != 0) {
+    if (parent->enemyFlags & EM_FLAG_BOSS) {
+        if (parent->enemyFlags & EM_FLAG_BOSS_KILLED) {
             return;
         }
         deathFx = (DeathFxObject*)CreateObject(DEATH_FX, parent->base.id, 0);
@@ -179,7 +199,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
         deathFx->unk6c = 1;
         PositionRelative(&(parent->base), &(deathFx->base), 0, 1);
         deathFx->base.parent = &(parent->base);
-        parent->field_0x6c.HALF.HI |= 2;
+        parent->enemyFlags |= EM_FLAG_BOSS_KILLED;
         if ((parent->base.id == 0x37) && (gRoomTransition.field_0x39 != 0)) {
             DeleteThisEntity();
         }
@@ -190,7 +210,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
     } else {
         int tmp = parent->base.gustJarState & 2;
         if (tmp == 0) {
-            SetRoomTrackerFlag(&(parent->base));
+            EnemyDisableRespawn(&(parent->base));
             gSave.enemies_killed++;
             parent->base.gustJarState |= 2;
             parent->base.timer = 255;
@@ -204,7 +224,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
                 deathFx2->base.child = &(parent->base);
                 CopyPosition(&(parent->base), &(deathFx2->base));
             }
-            if ((parent->field_0x6c.HALF.HI & 8) != 0) {
+            if (parent->enemyFlags & EM_FLAG_NO_DEATH_FX) {
                 deathFx2->unk6c |= 8;
                 DeleteEntity(&(parent->base));
                 return;
@@ -245,7 +265,7 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
     }
 }
 
-Entity* CreateProjectileWithParent(Entity* parent, u32 projectileId, u32 projectileType) {
+Entity* EnemyCreateProjectile(Entity* parent, u32 projectileId, u32 projectileType) {
     Entity* projectile;
 
     projectile = CreateProjectile(projectileId);
@@ -256,11 +276,11 @@ Entity* CreateProjectileWithParent(Entity* parent, u32 projectileId, u32 project
     return projectile;
 }
 
-void SetChildOffset(Entity* entity, s32 xOffset, s32 yOffset, s32 zOffset) {
+void EnemySetFXOffset(Entity* entity, s32 xOffset, s32 yOffset, s32 zOffset) {
     Entity* other;
-    GenericEntity* this = (GenericEntity*)entity;
+    Enemy* this = (Enemy*)entity;
 
-    other = *(Entity**)&this->field_0x68;
+    other = this->child;
     if (other != NULL) {
         other->spriteRendering.b3 = super->spriteRendering.b3;
         other->spriteOrientation.flipY = super->spriteOrientation.flipY;
@@ -271,22 +291,44 @@ void SetChildOffset(Entity* entity, s32 xOffset, s32 yOffset, s32 zOffset) {
     }
 }
 
-Entity* Create0x68FX(Entity* parent, u32 fxType) {
+Entity* EnemyCreateFX(Entity* parent, u32 fxType) {
     Entity* fx;
-    GenericEntity* this = (GenericEntity*)parent;
+    Enemy* this = (Enemy*)parent;
 
-    if ((*(Entity**)&this->field_0x68 == NULL) && (fx = CreateFx(super, fxType, 0), fx != NULL)) {
-        *(Entity**)&this->field_0x68 = fx;
+    if (this->child == NULL && (fx = CreateFx(super, fxType, 0), fx != NULL)) {
+        this->child = fx;
     } else {
         fx = NULL;
     }
     return fx;
 }
 
-void sub_0804AA1C(Entity* entity) {
-    GenericEntity* this = (GenericEntity*)entity;
-    if (*(Entity**)&this->field_0x68 != NULL) {
-        (*(Entity**)&this->field_0x68)->parent = NULL;
-        *(Entity**)&this->field_0x68 = NULL;
+void EnemyDetachFX(Entity* entity) {
+    Enemy* this = (Enemy*)entity;
+    if (this->child != NULL) {
+        this->child->parent = NULL;
+        this->child = NULL;
     }
+}
+
+/** Unsets bitfield 0x80 before calling GetNextFunction, so that the enemyFunction 1 is not called. */
+void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*const fntable[])()) {
+    u32 idx;
+    entity->contactFlags &= ~CONTACT_NOW;
+    idx = GetNextFunction(entity);
+    entity->contactFlags |= CONTACT_NOW;
+    fntable[idx](entity);
+}
+
+Entity* CreateEnemy(u32 subtype, u32 form) {
+    Entity* enemy;
+
+    enemy = GetEmptyEntity();
+    if (enemy != NULL) {
+        enemy->kind = ENEMY;
+        enemy->id = subtype;
+        enemy->type = form;
+        AppendEntityToList(enemy, 4);
+    }
+    return enemy;
 }

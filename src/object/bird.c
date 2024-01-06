@@ -131,7 +131,7 @@ void Bird_Type1_Action1_Subaction0(BirdEntity* this) {
 void Bird_Type1_Action1_Subaction1(BirdEntity* this) {
     Entity* fx;
 
-    if (sub_080044EC(super, 0x1800) < 2) {
+    if (BounceUpdate(super, Q_8_8(24.0)) < BOUNCE_AIRBORNE) {
         super->type = 2;
         super->action = 1;
         super->z.WORD = 0;

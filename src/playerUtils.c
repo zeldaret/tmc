@@ -61,7 +61,7 @@ extern ItemDefinition gItemDefinitions[];
 
 extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
-extern void DeleteLoadedTileEntity(u32, u32);
+extern void UnregisterInteractTile(u32, u32);
 
 extern const u8 gMapMetaTileTypeToCollisionData[]; // collisionData for tileType?
 
@@ -223,7 +223,7 @@ bool32 IsPreventedFromUsingItem(void) {
                     }
                     return FALSE;
                 default:
-                    if ((((gHUD.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.field_0x1c == 0)) &&
+                    if ((((gHUD.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.gustJarState == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
@@ -333,7 +333,7 @@ ItemBehavior* CreateItem3(Item itemId) {
             gItemDefinitions[itemId].priority >= gActiveItems[ACTIVE_ITEM_0].priority) {
             DeleteItemBehavior(&gActiveItems[ACTIVE_ITEM_0], 0);
             gPlayerState.grab_status = 0;
-            gPlayerState.field_0x1c = 0;
+            gPlayerState.gustJarState = 0;
             gPlayerState.sword_state = 0;
             return &gActiveItems[ACTIVE_ITEM_0];
         }
@@ -389,7 +389,7 @@ void ResetActiveItems() {
     }
 
     gPlayerState.moleMittsState = 0;
-    gPlayerState.field_0x1c = 0;
+    gPlayerState.gustJarState = PL_JAR_NONE;
     gPlayerState.bow_state = 0;
     gPlayerState.grab_status = 0;
     gPlayerState.itemAnimPriority = 0;
@@ -399,7 +399,7 @@ void ResetActiveItems() {
     gPlayerState.heldObject = 0;
     gPlayerState.flags &= ~(PL_ROLLING | PL_SWORD_THRUST);
 
-    gPlayerEntity.unk_70 = NULL;
+    gPlayerEntity.pulledJarEntity = NULL;
 
     if ((gPlayerState.jump_status & 0xc0) == 0) {
         gPlayerState.jump_status = 0;
@@ -1124,7 +1124,8 @@ bool32 sub_080782C0(void) {
         if (gPlayerState.heldObject != 4) {
             return FALSE;
         }
-        if ((gPlayerEntity.unk_74)->child->kind != OBJECT || (gPlayerEntity.unk_74)->child->id != SHOP_ITEM) {
+        if ((gPlayerEntity.carriedEntity)->child->kind != OBJECT ||
+            (gPlayerEntity.carriedEntity)->child->id != SHOP_ITEM) {
             return FALSE;
         }
     }
@@ -1584,7 +1585,7 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x3a = 0;
     gPlayerState.spriteOffsetY = 0;
-    gPlayerState.field_0x3c = 0;
+    gPlayerState.killed = 0;
     MemFill32(0xffffffff, gPlayerState.path_memory, 0x40);
     MemClear(&gPossibleInteraction, sizeof(gPossibleInteraction));
 }
@@ -1600,7 +1601,7 @@ void sub_08078CD0(PlayerEntity* this) {
     u32 tmp;
     const s8* ptr;
 
-    entity = this->unk_70;
+    entity = this->pulledJarEntity;
     entity->z.HALF.HI = super->z.HALF.HI - 1;
     entity->spriteOrientation.flipY = super->spriteOrientation.flipY;
     entity->collisionLayer = super->collisionLayer;
@@ -1625,7 +1626,7 @@ void sub_08078D60(void) {
     Entity* player;
 
     player = &gPlayerEntity.base;
-    iVar4 = (*(Entity**)&((GenericEntity*)player)->field_0x74)->child;
+    iVar4 = ((PlayerEntity*)player)->carriedEntity->child;
     if (iVar4->action != 2)
         return;
 
@@ -1835,7 +1836,7 @@ void sub_080790E4(Entity* this) {
 void PlayerDropHeldObject(void) {
     gPlayerState.heldObject = 0;
     gPlayerState.grab_status = 0;
-    gPlayerEntity.unk_74 = NULL;
+    gPlayerEntity.carriedEntity = NULL;
 }
 
 void PlayerResetStateFromFusion(void) {
@@ -1930,7 +1931,7 @@ void sub_080792D8(void) {
                 gPlayerState.animation = ANIM_BOUNCE_NOCAP;
             }
         }
-        sub_080027EA(playerEntity, 0x280, playerEntity->knockbackDirection);
+        LinearMoveDirectionOLD(playerEntity, 0x280, playerEntity->knockbackDirection);
         sub_0807A5B8(playerEntity->knockbackDirection);
     }
 }
@@ -2049,7 +2050,7 @@ bool32 sub_08079550(void) {
 
 void sub_08079708(Entity* this) {
     gPlayerState.framestate = PL_STATE_DIE;
-    gPlayerState.field_0x3c = 0xff;
+    gPlayerState.killed = 0xff;
     this->flags &= ~ENT_COLLIDE;
     this->action = PLAYER_MINISHDIE;
     this->subAction = 0;
@@ -2130,7 +2131,7 @@ void sub_080797EC(void) {
             animation = ANIM_BOW_WALK;
         }
     } else {
-        if (gPlayerState.field_0x1c) {
+        if (gPlayerState.gustJarState) {
             return;
         } else if (gPlayerState.heldObject) {
             animation = ANIM_CARRY;
@@ -2188,7 +2189,7 @@ void ResolvePlayerAnimation(void) {
         if (gPlayerState.heldObject) {
             anim = ANIM_CARRY_STAND_NOCAP;
         } else {
-            if (gPlayerState.field_0x1c | gPlayerState.moleMittsState) {
+            if (gPlayerState.gustJarState | gPlayerState.moleMittsState) {
                 return;
             }
             if (gPlayerState.flags & PL_CONVEYOR_PUSHED) {
@@ -2231,7 +2232,7 @@ void ResolvePlayerAnimation(void) {
         if (gPlayerState.heldObject) {
             anim = ANIM_CARRY_STAND;
         } else {
-            if (gPlayerState.field_0x1c | gPlayerState.moleMittsState) {
+            if (gPlayerState.gustJarState | gPlayerState.moleMittsState) {
                 return;
             }
             if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
@@ -2419,7 +2420,7 @@ void sub_08079E58(s32 speed, u32 direction) {
         sub_08079E90(direction);
     }
     sub_080085B0(&gPlayerEntity.base);
-    sub_080027EA(&gPlayerEntity.base, (s16)speed, (u8)direction);
+    LinearMoveDirectionOLD(&gPlayerEntity.base, (s16)speed, (u8)direction);
     sub_0807A5B8(direction);
 }
 
@@ -2472,7 +2473,7 @@ bool32 PlayerCanBeMoved(void) {
     if ((gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN |
                                PL_FALLING | PL_DISABLE_ITEMS | PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED |
                                PL_IN_HOLE | PL_CONVEYOR_PUSHED | PL_CLIMBING)) != 0 ||
-        gPlayerState.field_0x3c != 0 || gPlayerEntity.base.action == PLAYER_FALL ||
+        gPlayerState.killed != 0 || gPlayerEntity.base.action == PLAYER_FALL ||
         gPlayerEntity.base.action == PLAYER_08071DB8) {
         return FALSE;
     } else {
@@ -2581,7 +2582,7 @@ bool32 HasSwordEquipped(void) {
 
 u32 sub_0807A180(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4) {
     GenericEntity stackEntity;
-    PositionRelative(param_1, &stackEntity.base, 0, -0x40000);
+    PositionRelative(param_1, &stackEntity.base, 0, Q_16_16(-4.0));
     stackEntity.base.animationState = param_1->animationState;
     return sub_08003FDE(&stackEntity.base, param_2, param_3, param_4);
 }
@@ -2610,7 +2611,7 @@ SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
         gPlayerState.surfaceTimer++;
     }
     gPlayerState.floor_type_last = gPlayerState.floor_type;
-    tileType = GetVvvRelativeToEntity(param_1, x, y);
+    tileType = GetVvvRelativeToEntity(param_1, x, y); // tileType is a vvv here
     return FindValueForKey(tileType, gMapVvvToSurfaceType);
 }
 
@@ -2744,7 +2745,7 @@ void sub_0807A5B8(u32 direction) {
             pbVar4 = gUnk_0800833C;
         } else if (((gPlayerState.flags & PL_PARACHUTE) != 0) || gPlayerState.jump_status != 0) {
             pbVar4 = gUnk_0800845C;
-        } else if (gPlayerState.heldObject != 0 || gPlayerState.field_0x1c != 0) {
+        } else if (gPlayerState.heldObject != 0 || gPlayerState.gustJarState != 0) {
             pbVar4 = gUnk_080084BC;
         } else if (gPlayerState.attachedBeetleCount != 0) {
             pbVar4 = gUnk_0800851C;
@@ -2957,7 +2958,7 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
             object = CreateObject(FLAME, 1, 0);
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
-                sub_08004168(object);
+                SnapToTile(object);
                 sub_0807B7D8(ptr[3], COORD_TO_TILE(object), object->collisionLayer);
             }
         } else {
@@ -3291,7 +3292,7 @@ void SetMetaTileType(u32 tileType, u32 position, u32 layer) {
     u16* dest;
 
     if (tileType < 0x800) {
-        DeleteLoadedTileEntity(position, layer);
+        UnregisterInteractTile(position, layer);
         mapLayer = GetLayerByIndex(layer);
         metatile = mapLayer->unkData2[tileType];
         mapLayer->mapData[position] = metatile;
@@ -3510,7 +3511,7 @@ void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     u16* dest;
     u16 tileType;
 
-    DeleteLoadedTileEntity(position, layer);
+    UnregisterInteractTile(position, layer);
     mapLayer = GetLayerByIndex(layer);
     mapLayer->mapData[position] = tileIndex;
     tileType = mapLayer->metatileTypes[tileIndex];
@@ -3541,9 +3542,9 @@ void RestorePrevTileEntity(u32 metaTilePos, u32 layer) {
     u16* dest;
     u16* src;
 
-    DeleteLoadedTileEntity(metaTilePos, layer);
+    UnregisterInteractTile(metaTilePos, layer);
     mapLayer = GetLayerByIndex(layer);
-    mapLayer->mapData[metaTilePos] = tileIndex = mapLayer->mapDataClone[metaTilePos];
+    mapLayer->mapData[metaTilePos] = tileIndex = mapLayer->mapDataOriginal[metaTilePos];
     tileType = mapLayer->metatileTypes[tileIndex];
     mapLayer->collisionData[metaTilePos] = gMapMetaTileTypeToCollisionData[tileType];
     mapLayer->vvv[metaTilePos] = gMapMetaTileTypeToVvv[tileType];
@@ -3886,21 +3887,21 @@ void LoadRoomGfx(void) {
         clearBottomMap = TRUE;
     }
     if (gRoomTransition.field2d == 0) {
-        MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
-        MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapBottom.mapData));
+        MemCopy(gMapBottom.mapData, gMapBottom.mapDataOriginal, sizeof(gMapBottom.mapData));
+        MemCopy(gMapTop.mapData, gMapTop.mapDataOriginal, sizeof(gMapBottom.mapData));
     } else if (gRoomTransition.field2d == 2) {
         MemCopy(gMapBottom.mapData, gMapBottom.vvv, 0x1000);
-        MemCopy(gMapBottom.mapDataClone, gMapBottom.mapData, 0x1000);
-        MemCopy(gMapBottom.vvv, gMapBottom.mapDataClone, 0x1000);
+        MemCopy(gMapBottom.mapDataOriginal, gMapBottom.mapData, 0x1000);
+        MemCopy(gMapBottom.vvv, gMapBottom.mapDataOriginal, 0x1000);
         MemCopy(gMapBottom.mapData + 0x800, gMapBottom.vvv, 0x1000);
-        MemCopy(gMapBottom.mapDataClone + 0x800, gMapBottom.mapData + 0x800, 0x1000);
-        MemCopy(gMapBottom.vvv, gMapBottom.mapDataClone + 0x800, 0x1000);
+        MemCopy(gMapBottom.mapDataOriginal + 0x800, gMapBottom.mapData + 0x800, 0x1000);
+        MemCopy(gMapBottom.vvv, gMapBottom.mapDataOriginal + 0x800, 0x1000);
         MemCopy(gMapTop.mapData, gMapTop.vvv, 0x1000);
-        MemCopy(gMapTop.mapDataClone, gMapTop.mapData, 0x1000);
-        MemCopy(gMapTop.vvv, gMapTop.mapDataClone, 0x1000);
+        MemCopy(gMapTop.mapDataOriginal, gMapTop.mapData, 0x1000);
+        MemCopy(gMapTop.vvv, gMapTop.mapDataOriginal, 0x1000);
         MemCopy(gMapTop.mapData + 0x800, gMapTop.vvv, 0x1000);
-        MemCopy(gMapTop.mapDataClone + 0x800, gMapTop.mapData + 0x800, 0x1000);
-        MemCopy(gMapTop.vvv, gMapTop.mapDataClone + 0x800, 0x1000);
+        MemCopy(gMapTop.mapDataOriginal + 0x800, gMapTop.mapData + 0x800, 0x1000);
+        MemCopy(gMapTop.vvv, gMapTop.mapDataOriginal + 0x800, 0x1000);
     }
     if (!clearBottomMap) {
         sub_0807BBE4();
@@ -4228,8 +4229,8 @@ void sub_0807C810(void) {
  */
 void CloneMapData(void) {
     gRoomTransition.field2d = 1;
-    MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);
-    MemCopy(&gMapTop.mapData, &gMapTop.mapDataClone, 0x2000);
+    MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataOriginal, 0x2000);
+    MemCopy(&gMapTop.mapData, &gMapTop.mapDataOriginal, 0x2000);
 }
 
 void sub_0807C898(void) {

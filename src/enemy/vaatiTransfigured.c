@@ -288,7 +288,7 @@ void VaatiTransfiguredType0Action3(VaatiTransfiguredEntity* this) {
 
     switch (this->unk_80) {
         case 0:
-            uVar4 = sub_080044EC(super, 0x2800);
+            uVar4 = BounceUpdate(super, Q_8_8(40.0));
             if (uVar4 != 1)
                 break;
             this->unk_80 = 1;
@@ -436,7 +436,7 @@ void VaatiTransfiguredType0Action4(VaatiTransfiguredEntity* this) {
                 super->timer = gUnk_080D0ABF[((u32)super->animationState << 1 | 1)];
             } else {
                 if ((super->timer & 7) == 0) {
-                    CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
+                    EnemyCreateProjectile(super, V2_PROJECTILE, super->subtimer);
                 }
                 if (((super->subtimer != 0) && (1 < super->animationState)) && (super->timer < 6)) {
                     super->timer = 128;
@@ -482,7 +482,7 @@ void VaatiTransfiguredType0Action5(VaatiTransfiguredEntity* this) {
             } else {
                 if (super->subtimer) {
                     if ((super->timer & 7) == 0) {
-                        CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
+                        EnemyCreateProjectile(super, V2_PROJECTILE, super->subtimer);
                     }
                     if (super->timer < 6) {
                         super->timer = 64;
@@ -490,7 +490,7 @@ void VaatiTransfiguredType0Action5(VaatiTransfiguredEntity* this) {
                     }
                 } else {
                     if ((super->timer & 0xf) == 0) {
-                        entity = CreateProjectileWithParent(super, V2_PROJECTILE, 2);
+                        entity = EnemyCreateProjectile(super, V2_PROJECTILE, 2);
                         if (entity != NULL) {
                             entity->type2 = 0;
                             if (this->unk_81 != 0) {
@@ -534,7 +534,7 @@ void VaatiTransfiguredType0Action6(VaatiTransfiguredEntity* this) {
             } else {
                 if (super->subtimer) {
                     if ((super->timer & 7) == 0) {
-                        CreateProjectileWithParent(super, V2_PROJECTILE, super->subtimer);
+                        EnemyCreateProjectile(super, V2_PROJECTILE, super->subtimer);
                     }
                     if (super->timer < 6) {
                         super->timer = 128;
@@ -542,7 +542,7 @@ void VaatiTransfiguredType0Action6(VaatiTransfiguredEntity* this) {
                     }
                 } else {
                     if ((super->timer & 0x1f) == 0) {
-                        pEVar2 = CreateProjectileWithParent(super, V2_PROJECTILE, 2);
+                        pEVar2 = EnemyCreateProjectile(super, V2_PROJECTILE, 2);
                         if (pEVar2 != NULL) {
                             pEVar2->type2 = 1;
                             pEVar2->y.HALF.HI += -0x20;
@@ -1097,11 +1097,11 @@ void sub_080409B0(VaatiTransfiguredEntity* this) {
             Knockback1(super);
         }
     } else {
-        if (((super->contactFlags & 0x80) != 0) && (0 < super->iframes)) {
+        if (((super->contactFlags & CONTACT_NOW) != 0) && (0 < super->iframes)) {
             InitScreenShake(12, 1);
             SoundReq(SFX_BOSS_HIT);
         }
-        if ((super->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {
+        if ((super->contactFlags == (CONTACT_NOW | 0xa)) && (gPlayerState.chargeState.action == 5)) {
             super->health = 0xc0;
         }
     }

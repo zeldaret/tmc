@@ -42,7 +42,7 @@ extern const Hitbox* const gUnk_080CC944[];
 
 void SpearMoblin(SpearMoblinEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)SpearMoblin_Functions);
-    SetChildOffset(super, 0, 1, -0x20);
+    EnemySetFXOffset(super, 0, 1, -0x20);
     if (super->child && super->child->next) {
         CopyPosition(super, super->child);
     }
@@ -54,10 +54,10 @@ void SpearMoblin_OnTick(SpearMoblinEntity* this) {
 
 void SpearMoblin_OnCollision(SpearMoblinEntity* this) {
     if (super->confusedTime != 0)
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, SpearMoblin_Functions);
-    if (super->contactFlags & 0x80) {
+    if (super->contactFlags & CONTACT_NOW) {
         if (super->action != 4) {
             sub_08028754(this);
         } else {
@@ -398,7 +398,7 @@ bool32 sub_080288A4(SpearMoblinEntity* this) {
 
 void sub_080288C0(SpearMoblinEntity* this) {
     Entity* entity = super->child;
-    if ((entity != NULL) && (entity->contactFlags & 0x80)) {
+    if ((entity != NULL) && (entity->contactFlags & CONTACT_NOW)) {
         super->knockbackDirection = entity->knockbackDirection;
         super->iframes = -entity->iframes;
         super->knockbackSpeed = entity->knockbackSpeed;

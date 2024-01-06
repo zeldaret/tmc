@@ -101,7 +101,7 @@ const s8 gUnk_080D0EB0[] = { 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x0
                              0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd };
 
 void VaatiWrath(VaatiWrathEntity* this) {
-    if (((super->type == 0) && ((super->contactFlags & 0x80) != 0)) && (super->health == 0)) {
+    if (((super->type == 0) && ((super->contactFlags & CONTACT_NOW) != 0)) && (super->health == 0)) {
         COLLISION_ON(super);
         super->health = 0xff;
         if (--this->unk_84 == 0) {

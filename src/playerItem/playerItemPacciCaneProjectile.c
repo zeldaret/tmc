@@ -31,7 +31,7 @@ void PlayerItemPacciCaneProjectile_Action4(PlayerItemPacciCaneProjectileEntity* 
 void sub_08070458(PlayerItemPacciCaneProjectileEntity* this);
 
 extern void sub_08017744(Entity*);
-extern u8* sub_08008782(Entity*, u32, u32, u32);
+extern u8* DoTileInteractionOffset(Entity*, u32, u32, u32);
 
 void PlayerItemPacciCaneProjectile(PlayerItemPacciCaneProjectileEntity* this) {
     static void (*const PlayerItemPacciCaneProjectile_Actions[])(PlayerItemPacciCaneProjectileEntity*) = {
@@ -75,7 +75,7 @@ void PlayerItemPacciCaneProjectile_Init(PlayerItemPacciCaneProjectileEntity* thi
     super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + gUnk_0811B9A0[super->animationState];
     super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + gUnk_0811B9A0[super->animationState + 1];
     super->collisionFlags = 7;
-    super->flags2 = 0x8a;
+    super->collisionMask = 0x8a;
     super->hitbox = (Hitbox*)&gUnk_0811B9D0;
     if (super->collisionLayer == 2) {
         super->type = 1;
@@ -105,7 +105,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
 
     cVar1 = gUnk_0811B9C8[super->animationState];
     cVar2 = gUnk_0811B9C8[super->animationState + 1];
-    iVar3 = sub_08008782(super, 10, cVar1, cVar2);
+    iVar3 = DoTileInteractionOffset(super, 10, cVar1, cVar2);
     if (iVar3) {
         pEVar4 = CreateObject(OBJECT_53, iVar3[5], iVar3[2]);
         if (pEVar4) {

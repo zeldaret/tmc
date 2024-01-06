@@ -39,7 +39,7 @@ extern const s8 gUnk_080CD464[];
 void Helmasaur(HelmasaurEntity* this) {
     if (super->type == 0) {
         EnemyFunctionHandler(super, (EntityActionArray)Helmasaur_Functions);
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     } else {
         gUnk_080CD3FC[super->action](this);
     }
@@ -63,7 +63,7 @@ void Helmasaur_OnCollision(HelmasaurEntity* this) {
         }
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, Helmasaur_Functions);
@@ -224,7 +224,7 @@ void sub_0802BEBC(HelmasaurEntity* this) {
     super->direction ^= DirectionSouth;
     ProcessMovement2(super);
     super->direction ^= DirectionSouth;
-    if (!sub_080044EC(super, Q_16_16(0.125))) {
+    if (BounceUpdate(super, Q_16_16(0.125)) == BOUNCE_DONE_ALL) {
         sub_0802C1C0(this);
     }
 }
@@ -261,7 +261,7 @@ void sub_0802BF3C(HelmasaurEntity* this) {
 
 void sub_0802BF78(HelmasaurEntity* this) {
     super->action = 1;
-    super->flags2 = 4;
+    super->collisionMask = 4;
     super->gustJarFlags = 1;
     super->direction = super->animationState << 3;
     InitializeAnimation(super, super->animationState + 8);
@@ -373,8 +373,8 @@ void sub_0802C1C0(HelmasaurEntity* this) {
 
 void sub_0802C1CC(HelmasaurEntity* this) {
     const s8* ptr = &gUnk_080CD464[super->animationState << 2];
-    sub_08008796(super, 9, super->x.HALF.HI + ptr[0], super->y.HALF.HI + ptr[1]);
-    sub_08008796(super, 9, super->x.HALF.HI + ptr[2], super->y.HALF.HI + ptr[3]);
+    DoTileInteraction(super, 9, super->x.HALF.HI + ptr[0], super->y.HALF.HI + ptr[1]);
+    DoTileInteraction(super, 9, super->x.HALF.HI + ptr[2], super->y.HALF.HI + ptr[3]);
 }
 
 void sub_0802C218(HelmasaurEntity* this) {

@@ -40,7 +40,7 @@ void RupeeLike(RupeeLikeEntity* this) {
     u32 uVar1;
 
     if (super->type2 == 0) {
-        uVar1 = (u8)sub_080043E8(super);
+        uVar1 = (u8)GetTileHazardType(super);
         if (uVar1 != 0) {
             if (super->action == 4) {
                 sub_080296D8(this);
@@ -48,7 +48,7 @@ void RupeeLike(RupeeLikeEntity* this) {
             sub_08001290(super, uVar1);
         } else {
             RupeeLike_Functions[GetNextFunction(super)](this);
-            SetChildOffset(super, 0, 1, -0x10);
+            EnemySetFXOffset(super, 0, 1, -0x10);
         }
     } else {
         sub_080293DC(this);
@@ -75,12 +75,12 @@ void RupeeLike_OnCollision(RupeeLikeEntity* this) {
             super->timer = 60;
             super->subtimer = 0;
             this->unk_83 = 0x41;
-            super->flags2 &= 0xfc;
+            super->collisionMask &= 0xfc;
             this->unk_80 = gPlayerEntity.base.spritePriority.b1;
             EnqueueSFX(SFX_PLACE_OBJ);
         } else {
             if (super->confusedTime != 0) {
-                Create0x68FX(super, FX_STARS);
+                EnemyCreateFX(super, FX_STARS);
             }
         }
     }
@@ -88,7 +88,7 @@ void RupeeLike_OnCollision(RupeeLikeEntity* this) {
 }
 
 void RupeeLike_OnDeath(RupeeLikeEntity* this) {
-    CreateDeathFx(super, 0xff, gUnk_080CCC34[this->unk_84 * 3 + super->type]);
+    EnemyCreateDeathFX((Enemy*)super, 0xff, gUnk_080CCC34[this->unk_84 * 3 + super->type]);
 }
 
 void RupeeLike_OnGrabbed(RupeeLikeEntity* this) {
@@ -255,7 +255,7 @@ void sub_080296D8(RupeeLikeEntity* this) {
     gPlayerEntity.base.speed = 0x140;
     super->action = 5;
     super->subtimer = 60;
-    super->flags2 |= 3;
+    super->collisionMask |= 3;
     if ((s8)super->iframes == 0) {
         super->iframes = 0xf4;
     }

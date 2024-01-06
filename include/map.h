@@ -19,7 +19,7 @@ typedef struct {
     /*0x0004*/ u16 mapData[0x40 * 0x40];
     /**< MetaTileIndex for each tile on the current layer. */ // tilemap data? <-- gMapDataTop / gMapDataBottom
     /*0x2004*/ u8 collisionData[0x40 * 0x40];                 // more tilemap data? <-- gUnk_0200D654 / gUnk_02027EB4
-    /*0x3004*/ u16 mapDataClone[0x40 * 0x40];                 // more tilemap data? <-- gUnk_0200E654 / gUnk_02028EB4
+    /*0x3004*/ u16 mapDataOriginal[0x40 * 0x40];                 // more tilemap data? <-- gUnk_0200E654 / gUnk_02028EB4
                                                               // Tileset
     /*0x5004*/ u16 metatileTypes[0x800];
     /**< Maps from the MetaTileIndex to the MetaTileType. */ // gMetatileTypesTop, gMetatileTypesBottom

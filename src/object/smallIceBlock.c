@@ -61,7 +61,7 @@ void SmallIceBlock_Init(SmallIceBlockEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
-    super->flags2 = 0x80;
+    super->collisionMask = 0x80;
     super->hitbox = (Hitbox*)&gUnk_080FD408;
     sub_08099468(this);
     InitializeAnimation(super, super->type);
@@ -169,7 +169,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
                 x = ((rand >> 0x10) % 9) - 4;
                 y = rand & 0xf;
                 obj->spritePriority.b0 = 3;
-                PositionRelative(super, obj, x * 0x10000, -y * 0x10000);
+                PositionRelative(super, obj, Q_16_16(x), Q_16_16(-y));
             }
         }
     }
@@ -282,7 +282,7 @@ bool32 sub_0809963C(SmallIceBlockEntity* this) {
             }
         }
     }
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_NOW | 0x7)) {
         return TRUE;
     }
     return FALSE;

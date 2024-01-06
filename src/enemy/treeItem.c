@@ -5,6 +5,7 @@
  * @brief Tree Item enemy
  */
 #include "enemy.h"
+#include "functions.h"
 #include "item.h"
 #include "object.h"
 
@@ -14,8 +15,6 @@ typedef struct {
 } TreeItemEntity;
 
 static bool32 ShouldSpawnTreeItem(TreeItemEntity*);
-
-extern void SetRoomTrackerFlag(Entity*);
 
 const u8 gTreeItemDropTables[][16] = {
     { 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF },
@@ -74,7 +73,7 @@ void TreeItem(TreeItemEntity* this) {
             break;
     }
 
-    SetRoomTrackerFlag(super);
+    EnemyDisableRespawn(super);
     DeleteThisEntity();
 }
 

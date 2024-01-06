@@ -83,14 +83,14 @@ void Eyegore_OnTick(EyegoreEntity* this) {
 void Eyegore_OnCollision(EyegoreEntity* this) {
     u32 tmp;
 
-    if ((super->contactFlags == 0x95) || (super->contactFlags == 0x8e)) {
+    if ((super->contactFlags == (CONTACT_NOW | 0x15)) || (super->contactFlags == (CONTACT_NOW | 0xe))) {
         Entity* entity = super->contactedEntity;
         tmp = (((entity->direction + 4) & 0x18) ^ 0x10) >> 3;
         if (tmp == super->animationState) {
             if ((tmp & 1) != 0) {
                 if (0x10 < ((entity->y.HALF.HI + entity->z.HALF.HI) - (super->y.HALF.HI + super->z.HALF.HI)) + 0x14U) {
                 } else {
-                    if (super->contactFlags == 0x8e) {
+                    if (super->contactFlags == (CONTACT_NOW | 0xe)) {
                         super->health = 0;
                     } else {
                         super->health--;
@@ -106,7 +106,7 @@ void Eyegore_OnCollision(EyegoreEntity* this) {
                         EnqueueSFX(SFX_BUTTON_PRESS);
                         sub_08031344(this);
                     } else {
-                        if (super->contactFlags == 0x8e) {
+                        if (super->contactFlags == (CONTACT_NOW | 0xe)) {
                             super->health = 0;
                         } else {
                             super->health--;
@@ -441,8 +441,8 @@ void sub_08031024(EyegoreEntity* this) {
 void sub_08031250(EyegoreEntity* this) {
     u32 tmp2;
     u32 tmp = (u32)super->animationState * 4;
-    sub_08008796(super, 9, super->x.HALF.HI + gUnk_080CE2C0[tmp], super->y.HALF.HI + gUnk_080CE2C0[tmp + 1]);
-    sub_08008796(super, 9, super->x.HALF.HI + gUnk_080CE2C0[tmp + 2], super->y.HALF.HI + gUnk_080CE2C0[tmp + 3]);
+    DoTileInteraction(super, 9, super->x.HALF.HI + gUnk_080CE2C0[tmp], super->y.HALF.HI + gUnk_080CE2C0[tmp + 1]);
+    DoTileInteraction(super, 9, super->x.HALF.HI + gUnk_080CE2C0[tmp + 2], super->y.HALF.HI + gUnk_080CE2C0[tmp + 3]);
     if (this->unk_79 != 0) {
         tmp2 = 0;
         if ((super->x.HALF.HI - (u32)this->unk_74) + 2 < 5) {

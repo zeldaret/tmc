@@ -55,7 +55,7 @@ void Minecart_Init(MinecartEntity* this) {
     super->hitType = 1;
     super->collisionFlags = 0x47;
     super->hurtType = 0x44;
-    super->flags2 = 0x80;
+    super->collisionMask = 0x80;
     super->direction = DirectionFromAnimationState(super->animationState);
     super->speed = 0x700;
     super->spritePriority.b1 = 3;
@@ -71,7 +71,7 @@ void Minecart_Action1(MinecartEntity* this) {
         SoundReq(SFX_13B);
     } else {
         if (sub_0800445C(super) != 0) {
-            if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.field_0x1c ||
+            if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.gustJarState ||
                   gPlayerState.heldObject || gPlayerState.jump_status)) {
                 super->timer++;
             } else {
@@ -113,7 +113,7 @@ void Minecart_Action2(MinecartEntity* this) {
             super->flags |= ENT_PERSIST;
             super->hitType = 0x97;
             super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
-            super->flags2 = gPlayerEntity.base.flags2;
+            super->collisionMask = gPlayerEntity.base.collisionMask;
             super->hurtType = 0x18;
             super->damage = 8;
             sub_0801766C(super);
@@ -175,7 +175,7 @@ void Minecart_Action3(MinecartEntity* this) {
                         super->hitType = 1;
                         super->collisionFlags = 0x47;
                         super->hurtType = 0x44;
-                        super->flags2 = 0x80;
+                        super->collisionMask = 0x80;
                         super->action = 6;
                         sub_08017744(super);
                         gPlayerState.jump_status = 0x41;
@@ -185,7 +185,7 @@ void Minecart_Action3(MinecartEntity* this) {
                         gPlayerEntity.base.animationState = super->animationState * 2;
                         gPlayerEntity.base.direction = super->direction;
                         gPlayerEntity.base.flags |= PL_MINISH;
-                        sub_08004168(super);
+                        SnapToTile(super);
                         InitAnimationForceUpdate(super, super->animationState + 0xc);
                         SoundReq(SFX_PLY_VO4);
                         SoundReq(SFX_139);
@@ -218,7 +218,7 @@ void Minecart_Action3(MinecartEntity* this) {
 }
 
 void Minecart_Action4(MinecartEntity* this) {
-    sub_08004168(super);
+    SnapToTile(super);
     CopyPosition(super, &gPlayerEntity.base);
     switch (GetVvvAtEntity(super)) {
         case VVV_103:

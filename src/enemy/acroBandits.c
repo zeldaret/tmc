@@ -81,7 +81,7 @@ void AcroBandit(AcroBanditEntity* this) {
         gUnk_080012C8[index](super);
     } else {
         AcroBandit_Functions[GetNextFunction(super)](this);
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     }
 }
 
@@ -96,7 +96,7 @@ void AcroBandit_OnTick(AcroBanditEntity* this) {
 void AcroBandit_OnCollision(AcroBanditEntity* this) {
     Entity* brother;
 
-    if (super->contactFlags != 0x80 && super->contactFlags != 0x81) {
+    if (super->contactFlags != CONTACT_NOW && super->contactFlags != (CONTACT_NOW | 0x1)) {
         if (super->type == 1) {
             if (super->action < 7 && super->knockbackDuration != 0) {
                 brother = super->child;
@@ -150,7 +150,7 @@ void AcroBandit_OnCollision(AcroBanditEntity* this) {
     }
 
     if (super->confusedTime)
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, AcroBandit_Functions);
 }
@@ -528,7 +528,7 @@ void AcroBandit_Type1Action6(AcroBanditEntity* this) {
 void AcroBandit_Type1Action7(AcroBanditEntity* this) {
     ProcessMovement2(super);
 
-    if (sub_080044EC(super, 0x2000) == 0)
+    if (BounceUpdate(super, Q_8_8(32.0)) == BOUNCE_DONE_ALL)
         super->action = 8;
 }
 

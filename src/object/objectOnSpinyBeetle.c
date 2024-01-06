@@ -54,7 +54,7 @@ void ObjectOnSpinyBeetle_Init(ObjectOnSpinyBeetleEntity* this) {
     super->spriteRendering.b3 = 2;
     super->subtimer = 0;
     super->hitType = 0x6e;
-    super->flags2 = 0x86;
+    super->collisionMask = 0x86;
     super->carryFlags = 0;
     if (super->type != 0) {
         super->gustJarFlags = 2;
@@ -72,7 +72,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
             sub_080989C0(this);
             return;
         }
-        if ((super->contactFlags & 0x80) != 0) {
+        if ((super->contactFlags & CONTACT_NOW) != 0) {
             switch (super->contactFlags & 0x3f) {
                 case 0x13:
                     super->action = 3;
@@ -138,7 +138,7 @@ void ObjectOnSpinyBeetle_Action2Subaction0(ObjectOnSpinyBeetleEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->spriteOffsetY = 0;
     (super->parent)->child = NULL;
     super->subAction++;
@@ -152,7 +152,7 @@ void ObjectOnSpinyBeetle_Action2Subaction2(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action2Subaction3(ObjectOnSpinyBeetleEntity* this) {
-    switch (sub_080043E8(super)) {
+    switch (GetTileHazardType(super)) {
         case 2:
             CreateFx(super, FX_WATER_SPLASH, 0);
             break;
@@ -204,7 +204,7 @@ void ObjectOnSpinyBeetle_Action3Subaction0(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action3Subaction1(ObjectOnSpinyBeetleEntity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         super->spriteOffsetX = 0;
         super->action = 1;
     } else {
@@ -219,7 +219,7 @@ void ObjectOnSpinyBeetle_Action3Subaction2(ObjectOnSpinyBeetleEntity* this) {
         super->spriteOffsetY = -2;
         (super->parent)->child = NULL;
     }
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
+    if ((gPlayerState.gustJarState & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         sub_080989C0(this);
     } else {
         if ((sub_0806F3E4(super) != 0) && (super->type == 0)) {
@@ -229,7 +229,7 @@ void ObjectOnSpinyBeetle_Action3Subaction2(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action3Subaction3(ObjectOnSpinyBeetleEntity* this) {
-    if (gPlayerState.field_0x1c == 0) {
+    if (gPlayerState.gustJarState == 0) {
         sub_080989C0(this);
     } else {
         (this->base).flags &= ~ENT_COLLIDE;

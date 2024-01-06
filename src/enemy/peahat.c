@@ -47,7 +47,7 @@ enum {
 void Peahat(PeahatEntity* this) {
     if (super->type == PeahatForm_Torso) {
         EnemyFunctionHandler(super, (EntityActionArray)Peahat_Functions);
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     } else {
         gPeahatPropellerFunctions[super->action](this);
     }
@@ -61,7 +61,7 @@ void Peahat_OnTick(PeahatEntity* this) {
 
 void Peahat_OnCollision(PeahatEntity* this) {
     if (this->unk_82) {
-        if (super->contactFlags == 0x94) {
+        if (super->contactFlags == (CONTACT_NOW | 0x14)) {
             Entity* entity = CreateEnemy(PEAHAT, PeahatForm_Propeller);
             if (entity != NULL) {
                 CopyPosition(super, entity);
@@ -74,14 +74,14 @@ void Peahat_OnCollision(PeahatEntity* this) {
             super->iframes = -30;
             this->unk_81 = 0;
             InitializeAnimation(super, super->animationState);
-        } else if (super->contactFlags == 0x9b) {
+        } else if (super->contactFlags == (CONTACT_NOW | 0x1b)) {
             super->animationState = PeahatAnimation_BrokenPropeller;
             super->action = 5;
             super->speed = 0x80;
             super->iframes = -30;
             this->unk_81 = 0;
             InitializeAnimation(super, super->animationState);
-        } else if (super->contactFlags == 0x80) {
+        } else if (super->contactFlags == CONTACT_NOW) {
             if (super->animationState == PeahatAnimation_Flying) {
                 super->action = 1;
                 super->timer = 30;
@@ -94,7 +94,7 @@ void Peahat_OnCollision(PeahatEntity* this) {
     }
 
     if (super->confusedTime)
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(super, Peahat_Functions);
 }
@@ -240,7 +240,7 @@ void Peahat_ChargeEnd(PeahatEntity* this) {
 void Peahat_Stunned(PeahatEntity* this) {
     switch (super->animationState) {
         default:
-            if (sub_080044EC(super, 0x1800) == 0) {
+            if (BounceUpdate(super, Q_8_8(24.0)) == BOUNCE_DONE_ALL) {
                 super->action = 6;
                 super->timer = 240;
                 super->subtimer = 10;
@@ -267,14 +267,14 @@ void Peahat_Stunned(PeahatEntity* this) {
 
 void Peahat_RepairPropeller(PeahatEntity* this) {
     if ((super->subtimer != 0) && (--super->subtimer == 0)) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     if (sub_0800442E(super) || (--super->timer == 0)) {
         super->action = 9;
         super->zVelocity = Q_16_16(1.5);
         super->direction = Random() & 0x1f;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
         super->animationState = PeahatAnimation_RepairPropeller;
         InitializeAnimation(super, super->animationState);
     }
@@ -282,14 +282,14 @@ void Peahat_RepairPropeller(PeahatEntity* this) {
 
 void Peahat_Recover(PeahatEntity* this) {
     if ((super->subtimer != 0) && (--super->subtimer == 0)) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     if (sub_0800442E(super) || (--super->timer == 0)) {
         super->action = 8;
         super->timer = 240;
         super->direction = Random() & 0x1f;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 

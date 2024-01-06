@@ -59,7 +59,7 @@ void IceProjectile_Action2(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
-            sub_08016AD2(this);
+            UpdateCollisionLayer(this);
         }
     } else {
         this->action = 3;

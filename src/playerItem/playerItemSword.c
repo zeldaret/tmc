@@ -60,7 +60,7 @@ void PlayerItemSword_Init(PlayerItemSwordEntity* this) {
     }
     LoadSwapGFX(super, 1, 3);
     super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->updatePriority = 6;
     super->contactFlags = 0;
     super->iframes = 0;
@@ -286,7 +286,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
         }
         super->spriteSettings.flipX = flipX;
     }
-    if ((super->contactFlags & 0x80) != 0) {
+    if ((super->contactFlags & CONTACT_NOW) != 0) {
         if ((param_2->iframes == 0) || ((u8)param_2->iframes == 0x81)) {
             param_2->iframes = super->iframes;
             param_2->knockbackDirection = super->knockbackDirection;
@@ -362,7 +362,7 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
             uVar3 = -uVar3;
         }
         if (super->type != 0) {
-            sub_08008796(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + yOffset);
+            DoTileInteraction(super, 0, super->x.HALF.HI + uVar3, super->y.HALF.HI + yOffset);
         } else if (super->z.WORD == 0) {
             if (gPlayerState.skills & SKILL_ROCK_BREAKER) {
                 tmp2 = 1;
@@ -370,7 +370,7 @@ void sub_080A7A84(PlayerItemSwordEntity* this) {
                 tmp2 = 0;
             }
             xOffset = uVar3;
-            if (((sub_08008796(super, tmp2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset) == NULL) &&
+            if (((DoTileInteraction(super, tmp2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset) == NULL) &&
                  (gPlayerState.sword_state != 0)) &&
                 ((gPlayerState.sword_state & 0xc0) == 0)) {
                 entity = super;
@@ -407,7 +407,7 @@ void sub_080A7B98(PlayerItemSwordEntity* this) {
     for (i = 0; i < 3; i++) {
         xOffset = -0x10;
         for (j = 0; j < 3; j++) {
-            sub_08008796(super, uVar2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset);
+            DoTileInteraction(super, uVar2, super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset);
             xOffset += 0x10;
         }
         yOffset += 0x10;

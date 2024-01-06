@@ -50,7 +50,7 @@ void CuccoAggr(Entity* this) {
         gUnk_080012C8[index](this);
     } else {
         CuccoAggr_Functions[GetNextFunction(this)](this);
-        SetChildOffset(this, 0, 1, -0x10);
+        EnemySetFXOffset(this, 0, 1, -0x10);
         sub_080391B4((CuccoAggrEntity*)this);
     }
 }
@@ -74,7 +74,7 @@ void CuccoAggr_OnCollision(CuccoAggrEntity* this) {
     }
 
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, CuccoAggr_Functions);
@@ -176,7 +176,7 @@ void sub_08038F44(CuccoAggrEntity* this) {
     super->direction = GetFacingDirection(&gPlayerEntity.base, super);
     sub_080390F8(this);
     ProcessMovement0(super);
-    sub_080044EC(super, 0x1800);
+    BounceUpdate(super, Q_8_8(24.0));
     GetNextFrame(super);
     sub_08039298(this);
     if (--this->unk_78 == 0) {

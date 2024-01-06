@@ -38,7 +38,7 @@ void MoblinSpear_OnTick(Entity* this) {
 void MoblinSpear_OnCollision(Entity* this) {
     u8 tmp;
 
-    if (this->contactFlags == 0x80) {
+    if (this->contactFlags == CONTACT_NOW) {
         this->iframes = 0x10;
         this->knockbackDuration = 0xc;
         this->knockbackSpeed = 0x180;

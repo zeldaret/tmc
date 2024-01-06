@@ -87,7 +87,7 @@ arm_sub_080B1A0C: @ 0x080B1A0C
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
 	b arm_GetMetaTileTypeByPos
-arm_GetMetaTileTypeByEntity:
+arm_GetMetaTileTypeByEntity: // GetCell
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
@@ -121,8 +121,9 @@ _080B1A64:
 	ldrh r0, [r1, r0]
 	bx lr
 
+// entity plus offset to world pixel coordinates and layer
 	arm_func_start arm_GetVvvRelativeToEntity
-arm_GetVvvRelativeToEntity: @ 0x080B1A8C @ entity plus offset to world pixel coordinates and layer
+arm_GetVvvRelativeToEntity: @ 0x080B1A8C
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
@@ -130,7 +131,8 @@ arm_GetVvvRelativeToEntity: @ 0x080B1A8C @ entity plus offset to world pixel coo
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
 	b arm_GetVvvAtWorldCoords
-arm_GetVvvAtEntity: @ entity to world pixel coordinates and layer
+// entity to world pixel coordinates and layer
+arm_GetVvvAtEntity: // GetCellAct
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
@@ -156,35 +158,39 @@ arm_GetVvvAtMetaTilePos:
 
 	arm_func_start arm_GetCollisionDataRelativeTo
 arm_GetCollisionDataRelativeTo: @ 0x080B1AF0
-	ldrh r3, [r0, #0x2e]
+	@ r0 = entity*
+	@ r1 = x
+	@ r2 = y
+
+	ldrh r3, [r0, #0x2e] @ ent.x + x
 	add r3, r3, r1
-	ldrh r1, [r0, #0x32]
+	ldrh r1, [r0, #0x32] @ ent.y + y
 	add r1, r1, r2
-	ldrb r2, [r0, #0x38]
+	ldrb r2, [r0, #0x38] @ ent.layer
 	mov r0, r3
 	b arm_GetCollisionDataAtWorldCoords
-arm_GetCollisionDataAtEntity:
-	ldrb r2, [r0, #0x38]
-	ldrh r1, [r0, #0x32]
-	ldrh r0, [r0, #0x2e]
+arm_GetCollisionDataAtEntity: // GetCellAtt
+	ldrb r2, [r0, #0x38] @ ent.layer
+	ldrh r1, [r0, #0x32] @ ent.y
+	ldrh r0, [r0, #0x2e] @ ent.x
 arm_GetCollisionDataAtWorldCoords:
 	ldr ip, _080B1C28 @ =gRoomControls
 	ldrh r3, [ip, #6]
-	sub r0, r0, r3
+	sub r0, r0, r3 @ ent.x - gRoomControls.origin_x
 	ldrh r3, [ip, #8]
-	sub r1, r1, r3
+	sub r1, r1, r3 @ ent.y - gRoomControls.origin_y
 arm_GetCollisionDataAtRoomCoords:
 	lsl r0, r0, #0x16
-	lsr r0, r0, #0x1a
+	lsr r0, r0, #0x1a @ /= 16
 	lsl r1, r1, #0x16
-	lsr r1, r1, #0x1a
+	lsr r1, r1, #0x1a @ /= 16
 arm_GetCollisionDataAtRoomTile:
-	add r0, r0, r1, lsl #6
+	add r0, r0, r1, lsl #6 @ convert coords to tile index
 	mov r1, r2
 arm_GetCollisionDataAtMetaTilePos:
 	ldr r2, _080B1C2C @ =gCollisionDataPtrs
 	ldr r1, [r2, r1, lsl #2]
-	ldrb r0, [r1, r0]
+	ldrb r0, [r1, r0] @ load collision tile at my location
 	bx lr
 
 	arm_func_start arm_GetVvvForMetaTileType
@@ -283,77 +289,80 @@ UpdateCollision: @ 0x080B1C54
 
 	arm_func_start arm_CollideAll
 arm_CollideAll: @ 0x080B1C7C
+	THIS .req r4
+	OTHER .req r5
+
 	push {r4, r5, r6, r7, r8, sb, sl, lr}
 	add r0, pc, #0x104 @ =_080B1D8C
 	ldm r0, {r8, sb, sl}
 	ldrb sl, [sl]
 	cmp sl, #0
 	beq _080B1D84
-	ldr r8, [r8]
+	ldr r8, [r8] // load entity
 	mov r7, r8
-_080B1C9C:
-	ldr r4, [r8, #8]
-	ldrb r0, [r4, #0x10]
-	ands r0, r0, #0x80
-	beq _080B1D78
-	ldrb r0, [r4, #0x3c]
-	and r0, r0, #7
+next_this:
+	ldr THIS, [r8, #8]
+	ldrb r0, [THIS, #0x10]
+	ands r0, r0, #0x80 // disable collision flag
+	beq end_check_this
+	ldrb r0, [THIS, #0x3c] // collisionFlags
+	and r0, r0, #7 // first 3 bits
 	mov r1, #1
-	lsl r6, r1, r0
-	ldrb r3, [r4, #0x3c]
-	ldrb r2, [r4, #0x3d]
+	lsl r6, r1, r0 // 1 << (collisionFlags & 7)
+	ldrb r3, [THIS, #0x3c]
+	ldrb r2, [THIS, #0x3d] // iframes
 	mov ip, sl
-_080B1CC8:
+next_other: // r4 = this, r5 = other
 	subs ip, ip, #1
-	bmi _080B1D78
-	ldr r5, [sb, ip, lsl #2]
-	cmp r4, r5
-	beq _080B1CC8
-	ldr r0, [r5, #0x3b]
-	ands r0, r0, r6
-	beq _080B1CC8
-	ldrb r0, [r5, #0x10]
+	bmi end_check_this
+	ldr OTHER, [sb, ip, lsl #2]
+	cmp THIS, OTHER
+	beq next_other
+	ldr r0, [OTHER, #0x3b] // collisionMask
+	ands r0, r0, r6 // other.collisionMask & (1 << m)
+	beq next_other
+	ldrb r0, [OTHER, #0x10] // disable collision flag
 	ands r0, r0, #0x80
-	beq _080B1CC8
-	ldrb r0, [r4, #0x38]
-	ldrb r1, [r5, #0x38]
+	beq next_other
+	ldrb r0, [THIS, #0x38] // collisionLayer
+	ldrb r1, [OTHER, #0x38]
 	ands r0, r0, r1
-	beq _080B1CC8
-	ldrb r0, [r5, #0x3c]
+	beq next_other
+	ldrb r0, [OTHER, #0x3c] // collisionFlags
 	orr r0, r0, r3
-	lsrs r0, r0, #7
+	lsrs r0, r0, #7 // top
 	bhs _080B1D20
-	ldrb r0, [r5, #0x3d]
+	ldrb r0, [OTHER, #0x3d] // iframes
 	orrs r0, r0, r2
-	bne _080B1CC8
+	bne next_other
 _080B1D20:
 	bl arm_CalcCollision
 	cmp r0, #0
-	beq _080B1CC8
-	ldrb r3, [r4, #0x3c]
-	ldrb r0, [r4, #0x3d]
-	ldrb r1, [r4, #0x43]
+	beq next_other
+	ldrb r3, [THIS, #0x3c]
+	ldrb r0, [THIS, #0x3d] // iframes
+	ldrb r1, [THIS, #0x43] // hitType
 	orr r2, r0, r1
-	ldrb r0, [r5, #0x41]
+	ldrb r0, [OTHER, #0x41] // OTHER processing a collision already?
 	ands r0, r0, #0x80
-	bne _080B1D58
-	str r4, [r5, #0x4c]
-	ldrb r0, [r4, #0x40]
+	bne _080B1D58 // branch if set
+	str THIS, [OTHER, #0x4c] // contactedEntity
+	ldrb r0, [THIS, #0x40]
 	orr r0, r0, #0x80
-	strb r0, [r5, #0x41]
+	strb r0, [OTHER, #0x41] // contactFlags |= 0x80
 _080B1D58:
-	ldrb r0, [r4, #0x41]
+	ldrb r0, [THIS, #0x41] // THIS processing a collision already?
 	ands r0, r0, #0x80
-	bne _080B1CC8
-	str r5, [r4, #0x4c]
-	ldrb r0, [r5, #0x40]
+	bne next_other
+	str OTHER, [THIS, #0x4c]
+	ldrb r0, [OTHER, #0x40]
 	orr r0, r0, #0x80
-	strb r0, [r4, #0x41]
-	b _080B1CC8
-_080B1D78:
+	strb r0, [THIS, #0x41]
+	b next_other
+end_check_this:
 	ldr r8, [r8, #4]
 	cmp r8, r7
-	bne _080B1C9C
+	bne next_this
 _080B1D84:
 	pop {r4, r5, r6, r7, r8, sb, sl, lr}
 	bx lr
@@ -363,56 +372,59 @@ _080B1D94: .4byte gCollidableCount
 
 	arm_func_start arm_CalcCollision
 arm_CalcCollision: @ 0x080B1D98
-	@ r6 = this, r7 = other
+	THIS .req r4
+	OTHER .req r5
+	BB_THIS .req r6
+	BB_OTHER .req r7
 
 	push {r2, r3, r6, r7, r8, sb, ip, lr}
-	ldr r6, [r4, #0x48]
-	ldr r7, [r5, #0x48]
-	ldrh r0, [r4, #0x2e]
-	ldrh r1, [r5, #0x2e]
+	ldr BB_THIS, [THIS, #0x48]
+	ldr BB_OTHER, [OTHER, #0x48]
+	ldrh r0, [THIS, #0x2e]
+	ldrh r1, [OTHER, #0x2e]
 	sub r0, r0, r1
-	ldrsb r1, [r6]
+	ldrsb r1, [BB_THIS]
 	add r0, r0, r1
-	ldrsb r1, [r7]
+	ldrsb r1, [BB_OTHER]
 	sub r0, r0, r1
-	ldrb r1, [r6, #6]
-	ldrb r2, [r7, #6]
+	ldrb r1, [BB_THIS, #6]
+	ldrb r2, [BB_OTHER, #6]
 	add r1, r1, r2
 	add r2, r0, r1
 	cmp r2, r1, lsl #1
-	bhi _080B1F28
-	ldrh r1, [r4, #0x32]
-	ldrh r2, [r5, #0x32]
+	bhi not_overlapping
+	ldrh r1, [THIS, #0x32]
+	ldrh r2, [OTHER, #0x32]
 	sub r1, r1, r2
-	ldrsb r2, [r6, #1]
+	ldrsb r2, [BB_THIS, #1]
 	add r1, r1, r2
-	ldrsb r2, [r7, #1]
+	ldrsb r2, [BB_OTHER, #1]
 	sub r1, r1, r2
-	ldrb r2, [r6, #7]
-	ldrb r3, [r7, #7]
+	ldrb r2, [BB_THIS, #7]
+	ldrb r3, [BB_OTHER, #7]
 	add r2, r2, r3
 	add r3, r1, r2
 	cmp r3, r2, lsl #1
-	bhi _080B1F28
+	bhi not_overlapping
 	mov r2, #5
 	mov r3, #5
-	ldr r8, [r4, #0x3c]
+	ldr r8, [THIS, #0x3c] // collisionFlags & 0x10
 	ands r8, r8, #0x10
-	ldrbne r2, [r6, #8]
-	ldr r8, [r5, #0x3c]
+	ldrbne r2, [BB_THIS, #8] // 3d hitbox
+	ldr r8, [OTHER, #0x3c]
 	ands r8, r8, #0x10
-	ldrbne r3, [r7, #8]
+	ldrbne r3, [BB_OTHER, #8]
 	add r2, r2, r3
-	ldrsh r8, [r4, #0x36]
-	ldrsh sb, [r5, #0x36]
+	ldrsh r8, [THIS, #0x36] // Z
+	ldrsh sb, [OTHER, #0x36]
 	sub r8, r8, sb
 	add r8, r2, r8
 	cmp r8, r2, lsl #1
-	bhi _080B1F28
-	ldrb r2, [r4, #0x3c]
+	bhi not_overlapping
+	ldrb r2, [THIS, #0x3c] // collisionFlags & BBOX_SOLID
 	and r2, r2, #0x20
 	lsr r2, r2, #3
-	ldrb r3, [r5, #0x3c]
+	ldrb r3, [OTHER, #0x3c]
 	and r3, r3, #0x20
 	adds r2, r2, r3, lsr #2
 	beq _080B1E74
@@ -425,15 +437,15 @@ _080B1E74:
 	mov ip, #0
 	bl arm_CalcCollisionDirection
 	mov r6, r0
-	ldrb r1, [r5, #0x3f]
+	ldrb r1, [OTHER, #0x3f] // hitType
 	mov r0, #0x22
 	mul r1, r0, r1
-	ldrb r0, [r4, #0x40]
+	ldrb r0, [THIS, #0x40] // hurtType
 	add r0, r0, r1
 	mov r1, #0xc
 	mul r2, r0, r1
 	ldr r1, _080B2014 @ =gCollisionMtx
-	add r3, r2, r1
+	add r3, r2, r1 // gCollisionMtx + 12 * (34 * hurtType + hurtType)
 	mov r1, #0
 	ldrb r0, [r3]
 	cmp r0, #0xff
@@ -446,106 +458,120 @@ _080B1E74:
 	mov lr, pc
 	bx r7
 _080B1ED4:
-	cmp r0, #0
-	beq _080B1F20
-	cmp r0, #2
-	beq _080B1F1C
-	ldrb r0, [r4, #0x3c]
+	cmp r0, #0 // RESULT_NO_COLLISION
+	beq no_col
+	cmp r0, #2 // RESULT_COLLISION_WITHOUT_SET
+	beq col_no_set
+	// RESULT_COLLISION
+	ldrb r0, [THIS, #0x3c] // collisionFlags
 	and r0, r0, #0x80
 	lsr r0, r0, #5
-	ldrb r1, [r5, #0x3c]
+	ldrb r1, [OTHER, #0x3c] // collisionFlags
 	and r1, r1, #0x80
 	lsr r1, r1, #4
 	add r0, r0, r1
 	add r1, pc, #0xF4 @ =_080B1FFC
 	ldr r0, [r1, r0]
 	mov lr, pc
-	bx r0
+	bx r0 // jumptable 0 1 2
 _080B1F10:
-	strb r6, [r5, #0x3e]
+	strb r6, [OTHER, #0x3e]
 	eor r6, r6, #0x10
-	strb r6, [r4, #0x3e]
-_080B1F1C:
+	strb r6, [THIS, #0x3e]
+col_no_set:
 	mov r0, #1
-_080B1F20:
+no_col:
 	pop {r2, r3, r6, r7, r8, sb, ip, lr}
 	bx lr
-_080B1F28:
+not_overlapping:
 	mov r0, #0
-	b _080B1F20
+	b no_col
 
+	// BBOX_SOLID THIS
 	arm_func_start arm_sub_080B1F30
 arm_sub_080B1F30: @ 0x080B1F30
-	ldrh r0, [r4, #0x2e]
-	ldrh r1, [r5, #0x2e]
+	ldrh r0, [THIS, #0x2e]
+	ldrh r1, [OTHER, #0x2e]
 	sub r0, r0, r1
-	ldrsb r1, [r7]
+	ldrsb r1, [BB_OTHER]
 	sub r0, r0, r1
-	ldrh r1, [r4, #0x32]
-	ldrh r2, [r5, #0x32]
+	ldrh r1, [THIS, #0x32]
+	ldrh r2, [OTHER, #0x32]
 	sub r1, r1, r2
-	ldrsb r2, [r7, #1]
+	ldrsb r2, [BB_OTHER, #1]
 	sub r1, r1, r2
 	bx lr
 
+	// BBOX_SOLID OTHER
 	arm_func_start arm_sub_080B1F5C
 arm_sub_080B1F5C: @ 0x080B1F5C
-	ldrh r0, [r4, #0x2e]
-	ldrh r1, [r5, #0x2e]
+	ldrh r0, [THIS, #0x2e]
+	ldrh r1, [OTHER, #0x2e]
 	sub r0, r0, r1
-	ldrsb r1, [r6]
+	ldrsb r1, [BB_THIS]
 	add r0, r0, r1
-	ldrh r1, [r4, #0x32]
-	ldrh r2, [r5, #0x32]
+	ldrh r1, [THIS, #0x32]
+	ldrh r2, [OTHER, #0x32]
 	sub r1, r1, r2
-	ldrsb r2, [r6, #1]
+	ldrsb r2, [BB_THIS, #1]
 	add r1, r1, r2
 	bx lr
 
+	// BBOX_SOLID BOTH
 	arm_func_start arm_sub_080B1F88
 arm_sub_080B1F88: @ 0x080B1F88
-	ldrh r0, [r4, #0x2e]
-	ldrh r1, [r5, #0x2e]
+	ldrh r0, [THIS, #0x2e]
+	ldrh r1, [OTHER, #0x2e]
 	sub r0, r0, r1
-	ldrh r1, [r4, #0x32]
-	ldrh r2, [r5, #0x32]
+	ldrh r1, [THIS, #0x32]
+	ldrh r2, [OTHER, #0x32]
 	sub r1, r1, r2
 	bx lr
 
+	// BBOX_REFLECT OTHER
 	arm_func_start arm_sub_080B1FA4
 arm_sub_080B1FA4: @ 0x080B1FA4
-	ldrb r0, [r5, #0x15]
+	ldrb r0, [r5, #0x15] // invert direction
 	eor r0, r0, #0x10
 	b _080B1FB4
+
+	// BBOX_REFLECT THIS
 _080B1FB0:
-	ldrb r0, [r4, #0x15]
+	ldrb r0, [THIS, #0x15] // direction
 _080B1FB4:
-	sub r1, r0, #8
-	and r1, r1, #0x1f
-	sub r1, r6, r1
-	and r1, r1, #0x1f
+	sub r1, r0, #8 // turn counterclockwise
+	and r1, r1, #0x1f // normalize
+	sub r1, r6, r1 // sub calcDir
+	and r1, r1, #0x1f // normalize
 	cmp r1, #0x11
-	bxlo lr
-	sub r0, r6, r0
-	sub r0, r0, #8
-	and r0, r0, #0x1f
-	sub r6, r6, r0, lsl #1
+	bxlo lr // branch if facing to the right
+	sub r0, r6, r0 // sub calcDir
+	sub r0, r0, #8 // turn counterclockwise
+	and r0, r0, #0x1f // normalize
+	sub r6, r6, r0, lsl #1 // calcDir -= 2 * temp
 	and r6, r6, #0x1f
 	bx lr
 
+	// BBOX_REFLECT BOTH
 	arm_func_start arm_sub_080B1FE4
 arm_sub_080B1FE4: @ 0x080B1FE4
-	ldrb r6, [r4, #0x15]
+	ldrb r6, [THIS, #0x15] // direction
+
+	// BBOX_REFLECT NONE, BBOX_SOLID NONE
 _080B1FE8:
 	bx lr
+
+
 _080B1FEC: .4byte ram_sub_080B1FE8
 _080B1FF0: .4byte ram_sub_080B1F30
 _080B1FF4: .4byte ram_sub_080B1F5C
 _080B1FF8: .4byte ram_sub_080B1F88
+
 _080B1FFC: .4byte ram_sub_080B1FE8
 _080B2000: .4byte ram_sub_080B1FB0
 _080B2004: .4byte ram_sub_080B1FA4
 _080B2008: .4byte ram_sub_080B1FE4
+
 _080B200C: .4byte gCollidableList
 _080B2010: .4byte gCollidableCount
 _080B2014: .4byte gCollisionMtx
@@ -743,29 +769,30 @@ _080B2270: .4byte gUpdateContext
 _080B2274: .4byte gUnk_080026A4
 _080B2278: .4byte gUpdateContext
 
+	// calculating knockback?
 	arm_func_start arm_sub_080B227C
 arm_sub_080B227C: @ 0x080B227C
-	push {r4, r5, r6, r7, r8, lr}
-	ldr r2, [r0, #0x48]
+	push {r4-r8, lr}
+	ldr r2, [r0, #0x48] // tgt.hitbox
 	cmp r2, #0
-	beq _080B236C
-	ldr r3, [r1, #0x48]
+	beq ret_false
+	ldr r3, [r1, #0x48] // org.hitbox
 	cmp r3, #0
-	beq _080B236C
+	beq ret_false
 	ldrh r4, [r1, #0x2e]
 	ldrsb r5, [r3]
 	add r4, r4, r5
 	ldrh r5, [r0, #0x2e]
 	sub r4, r4, r5
 	ldrsb r5, [r2]
-	sub r4, r4, r5
+	sub r4, r4, r5 // temp = (tgt.x + tgt.hitbox.x) - (org.x + org.hitbox.x)
 	ldrb r5, [r2, #6]
 	ldrb r6, [r3, #6]
 	add r5, r5, r6
-	add r6, r4, r5
+	add r6, r4, r5 // temp = temp + (tgt.hitbox.width + org.hitbox.width)
 	lsl r7, r5, #1
 	cmp r7, r6
-	blo _080B236C
+	blo ret_false // not colliding
 	cmp r4, #0
 	movpl ip, #8
 	movmi ip, #0x18
@@ -784,7 +811,7 @@ arm_sub_080B227C: @ 0x080B227C
 	add r5, r4, r3
 	lsl r6, r3, #1
 	cmp r6, r5
-	blo _080B236C
+	blo ret_false
 	cmp r4, #0
 	movpl r2, #0x10
 	movmi r2, #0
@@ -794,7 +821,7 @@ arm_sub_080B227C: @ 0x080B227C
 	movhs r7, r8
 	movhs r2, ip
 	cmp r7, #0
-	beq _080B236C
+	beq ret_false
 	cmp r7, #5
 	movhs r7, #4
 	mov r0, r1
@@ -803,11 +830,11 @@ arm_sub_080B227C: @ 0x080B227C
 	mov lr, pc
 	bx r3
 _080B2360:
-	pop {r4, r5, r6, r7, r8, lr}
+	pop {r4-r8, lr}
 	mov r0, #1
 	bx lr
-_080B236C:
-	pop {r4, r5, r6, r7, r8, lr}
+ret_false:
+	pop {r4-r8, lr}
 	mov r0, #0
 	bx lr
 	.align 2, 0

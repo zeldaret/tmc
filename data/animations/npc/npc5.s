@@ -339,7 +339,7 @@ gUnk_0810B65C:: @ 0810B65C
 gUnk_0810B65E:: @ 0810B65E
 	.incbin "npc5/gUnk_0810B65E.bin"
 
-gUnk_0810B660:: @ 0810B660
+gZeldaFollowerText:: @ 0810B660
 	.4byte gUnk_0810B650
 	.4byte gUnk_0810B652
 	.4byte gUnk_0810B654

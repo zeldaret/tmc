@@ -35,7 +35,7 @@ void Beetle_OnTick(BeetleEntity* this) {
 
 void Beetle_OnCollision(BeetleEntity* this) {
     switch (super->contactFlags) {
-        case 0x80:
+        case CONTACT_NOW:
             if (gPlayerState.framestate == PL_STATE_CLIMB) {
                 Beetle_OnTick(this);
             } else {
@@ -50,7 +50,7 @@ void Beetle_OnCollision(BeetleEntity* this) {
                 InitializeAnimation(super, 6);
             }
             break;
-        case 0x93:
+        case CONTACT_NOW | 0x13:
             Beetle_OnTick(this);
             break;
     }
@@ -70,7 +70,7 @@ void Beetle_OnDeath(BeetleEntity* this) {
             entity->subtimer--;
             super->parent = NULL;
         }
-        CreateDeathFx(super, 0xf0, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf0, 0);
     }
 }
 
@@ -120,7 +120,7 @@ void sub_080218CC(BeetleEntity* this) {
     GetNextFrame(super);
     if (super->frame & 1) {
         ProcessMovement2(super);
-        if (sub_080044EC(super, 0x1c00) == 0)
+        if (BounceUpdate(super, Q_8_8(28.0)) == BOUNCE_DONE_ALL)
             super->frameDuration = 1;
     }
 

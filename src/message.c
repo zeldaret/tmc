@@ -408,7 +408,7 @@ u16 RunTextCommand(TextRender* this) {
                 gMessage.unk = this->curToken.param;
                 break;
             case 6:
-                ptr = &gMessage.field_0xc;
+                ptr = &gMessage.flags;
                 tmp3 = this->curToken.param;
                 tmp3 &= 0x1f;
                 WriteBit(ptr, tmp3);

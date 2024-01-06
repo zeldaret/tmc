@@ -26,7 +26,7 @@ sub_0800857C: @ 0x0800857C
 _0800859C:
 	ldrh r1, [r0, #0x24]
 	ldrb r2, [r0, #0x15]
-	bl sub_080027EA
+	bl LinearMoveDirectionOLD
 
 	pop {r4 - r7}
 	mov r8, r4
@@ -57,11 +57,11 @@ sub_080085CC: @ 0x080085CC
 	ldr r2, _0800888C @ =gPlayerState
 	ldr r1, _08008890 @ =gUnk_080083FC
 	movs r3, #0x26
-	ldrb r3, [r2, r3]
+	ldrb r3, [r2, r3] // swim_state
 	orrs r3, r3
 	beq _080085E6
 	ldr r2, [r2, #0x30]
-	movs r3, #0x80
+	movs r3, #0x80 // flags & PL_MINISH
 	ands r2, r3
 	beq _0800861A
 	ldr r1, _08008894 @ =gUnk_0800839C
@@ -70,12 +70,12 @@ _080085E6:
 	ldr r1, _08008898 @ =gUnk_0800845C
 	ldrb r3, [r2, #2]
 	orrs r3, r3
-	bne _0800861A
-	ldr r2, [r2, #0x30]
+	bne _0800861A // jump_status != 0
+	ldr r2, [r2, #0x30] // flags & PL_PARACHUTE
 	ldr r3, _0800889C @ =0x01000000
 	tst r2, r3
 	bne _0800861A
-	movs r3, #0x80
+	movs r3, #0x80 // // flags & PL_MINISH
 	ldr r1, _080088A0 @ =gUnk_0800833C
 	ands r2, r3
 	bne _0800861A
@@ -83,15 +83,15 @@ _080085E6:
 	ldr r3, _080088A8 @ =gPlayerState
 	ldrb r2, [r3, #0x1c]
 	orrs r2, r2
-	bne _0800861A
+	bne _0800861A // gustJarState != 0
 	ldrb r2, [r3, #5]
 	orrs r2, r2
-	bne _0800861A
+	bne _0800861A // heldObject != 0
 	ldr r1, _080088AC @ =gUnk_0800851C
 	movs r2, #0xaa
 	ldrb r2, [r3, r2]
 	orrs r2, r2
-	bne _0800861A
+	bne _0800861A // attachedBeetleCount != 0
 	ldr r1, _080088B0 @ =gUnk_080082DC
 _0800861A:
 	mov r11, r1
@@ -169,7 +169,7 @@ _08008684:
 _080086AC:
 	mov r0, r8
 	movs r2, #0x2a
-	strh r7, [r0, r2]
+	strh r7, [r0, r2] // collisions
 	pop {pc}
 
 	thumb_func_start sub_080086B4
@@ -265,17 +265,17 @@ _08008754:
 	ands r2, r3
 	pop {pc}
 
-	non_word_aligned_thumb_func_start sub_0800875A
-sub_0800875A: @ 0x0800875A
+	non_word_aligned_thumb_func_start DoItemTileInteraction
+DoItemTileInteraction: @ 0x0800875A
 	push {r2, r4, lr}
-	ldrb r3, [r0, #0x14]
+	ldrb r3, [r0, #0x14] // item.animationState
 	movs r2, #6
 	ands r3, r2
 	ldr r4, _080088D0 @ =gUnk_08007DF4
 	ldrsb r2, [r4, r3]
 	adds r3, #1
 	ldrsb r3, [r4, r3]
-	bl sub_08008782
+	bl DoTileInteractionOffset
 	pop {r2, r4}
 	cmp r0, #0
 	beq _08008780
@@ -288,21 +288,21 @@ sub_0800875A: @ 0x0800875A
 _08008780:
 	pop {pc}
 
-	non_word_aligned_thumb_func_start sub_08008782
-sub_08008782: @ 0x08008782
+	non_word_aligned_thumb_func_start DoTileInteractionOffset
+DoTileInteractionOffset: @ 0x08008782
 	push {r4}
 	ldrh r4, [r0, #0x2e]
 	adds r2, r2, r4
 	ldrh r4, [r0, #0x32]
 	adds r3, r3, r4
 	pop {r4}
-	b sub_08008796
+	b DoTileInteraction
 
-	thumb_func_start sub_08008790
-sub_08008790: @ 0x08008790
+	thumb_func_start DoTileInteractionHere
+DoTileInteractionHere: @ 0x08008790
 	ldrh r2, [r0, #0x2e]
 	ldrh r3, [r0, #0x32]
-	b sub_08008796
+	b DoTileInteraction
 
 // r0: Entity*
 // r1: tile filter?
@@ -310,8 +310,8 @@ sub_08008790: @ 0x08008790
 // r3: y
 
 // Somehow involved in trampling tiles, digging with claws, picking up tiles..
-	non_word_aligned_thumb_func_start sub_08008796
-sub_08008796: @ 0x08008796
+	non_word_aligned_thumb_func_start DoTileInteraction
+DoTileInteraction: @ 0x08008796
 	push {r4, r5, r6, r7, lr}
 	push {r2, r3}
 	ldr r2, _080088D4 @ =gRoomControls
@@ -319,17 +319,17 @@ sub_08008796: @ 0x08008796
 	movs r2, #1
 	cmp r2, r3
 	pop {r2, r3}
-	beq _080087CE
+	beq _080087CE_return0
 	push {r0, r1, r2, r3}
 	pop {r4, r5, r6, r7}
 	adds r0, r6, #0
 	adds r1, r7, #0
 	movs r2, #0x38
-	ldrb r2, [r4, r2]
+	ldrb r2, [r4, r2] // collision layer
 	bl GetMetaTileTypeByPos
 	ldr r1, _080088D8 @ =gUnk_080046A4
-	bl sub_08007DE0
-	beq _080087CE
+	bl ActTileConv
+	beq _080087CE_return0
 	lsls r1, r3, #3
 	adds r3, r5, #0
 	ldr r0, _080088DC @ =gUnk_080047F6
@@ -338,51 +338,51 @@ sub_08008796: @ 0x08008796
 	lsrs r0, r3
 	lsrs r0, r0, #1
 	bhs _080087D2
-_080087CE:
+_080087CE_return0:
 	movs r0, #0
 	pop {r4, r5, r6, r7, pc}
 _080087D2:
-	ldrb r0, [r5, #2]
-	ldrb r1, [r5, #3]
+	ldrb r0, [r5, #2] // object id
+	ldrb r1, [r5, #3] // object type
 	cmp r0, #0xff
-	beq _0800883A
+	beq after_create_obj
 	cmp r3, #6
-	beq _0800883A
+	beq after_create_obj
 	cmp r3, #0xe
-	beq _0800883A
+	beq after_create_obj
 	cmp r3, #0xa
-	beq _0800883A
+	beq after_create_obj
 	cmp r3, #0xb
-	beq _0800883A
+	beq after_create_obj
 	cmp r3, #0xd
 	bne _080087F6
-	cmp r0, #0xf
-	bne _0800883A
-	cmp r1, #0x17
-	bne _0800883A
+	cmp r0, #0xf // SPECIAL_FX
+	bne after_create_obj
+	cmp r1, #0x17 // FX_GRASS_CUT
+	bne after_create_obj
 _080087F6:
 	movs r2, #0
-	cmp r0, #0xf
+	cmp r0, #0xf // SPECIAL_FX
 	bne _080087FE
 	movs r2, #0x80
 _080087FE:
-	bl CreateObject
+	bl CreateObject // r0 = id, r1 = type, r2 = type2
 	cmp r0, #0
-	beq _0800883A
-	ldrb r1, [r5, #2]
+	beq after_create_obj
+	ldrb r1, [r5, #2] // object id
 	cmp r1, #0
-	beq _08008820
+	beq no_offset
 	movs r2, #0xf
 	adds r1, r6, #0
 	bics r1, r2
 	adds r1, #8
-	strh r1, [r0, #0x2e]
+	strh r1, [r0, #0x2e] // x
 	adds r1, r7, #0
 	bics r1, r2
 	adds r1, #8
-	strh r1, [r0, #0x32]
+	strh r1, [r0, #0x32] // y
 	b _0800882C
-_08008820:
+no_offset:
 	ldrh r1, [r4, #0x2e]
 	strh r1, [r0, #0x2e]
 	ldrh r1, [r4, #0x32]
@@ -391,12 +391,12 @@ _08008820:
 	strh r1, [r1, #0x36]
 _0800882C:
 	movs r3, #0x50
-	str r4, [r1, r3]
+	str r4, [r1, r3] // set parent to r4
 	movs r3, #0x38
-	ldrb r1, [r4, r3]
+	ldrb r1, [r4, r3] // copy collision layer from parent
 	strb r1, [r0, r3]
 	bl UpdateSpriteForCollisionLayer
-_0800883A:
+after_create_obj:
 	ldr r1, _080088E0 @ =gRoomControls
 	ldrh r0, [r1, #6]
 	subs r2, r6, r0
@@ -461,22 +461,22 @@ _080088DC: .4byte gUnk_080047F6
 _080088E0: .4byte gRoomControls
 _080088E4: .4byte 0x00004000
 _080088E8: .4byte 0x0000FFFF
-_080088EC:
+velocities1:
 	.byte 0, -3, 3, -3
 	.byte 3, 0, 3, 3
 	.byte 0, 3, -3, 3
 	.byte -3, 0, -3, -3
-_080088FC:
+ice_velocities:
 	.byte 0, -10, 10, -10
 	.byte 10, 0, 10, 10
 	.byte 0, 10, -10, 10
 	.byte -10, 0, -10, -10
-_0800890C:
+velocities3:
 	.byte 0, 6, -6, 0
 	.byte 0, -6, 6, 0
 	.byte 19, 18, 18, 16
 	.byte 16, 17, 17, 19
-_0800891C:
+reset_vel:
 	push {r0}
 	bl ResetPlayerVelocity
 	pop {r0}
@@ -497,7 +497,7 @@ UpdateIcePlayerVelocity: @ 0x0800892E
 
 _UpdateIcePlayerVelocity:
 	push {lr}
-	ldrb r2, [r0, #0x14]
+	ldrb r2, [r0, #0x14] // animationState
 	lsrs r2, r2, #1
 	lsls r2, r2, #3
 	ldr r1, _08008A68 @ =gPlayerState
@@ -522,20 +522,20 @@ _08008956:
 	movs r3, #0x80
 	tst r2, r3
 	bne _080089C0
-_08008960:
-	ldrb r3, [r1, #5]
+_08008960: // r1 = gPlayerState
+	ldrb r3, [r1, #5] // heldObject
 	cmp r3, #2
-	beq _0800891C
+	beq reset_vel
 	cmp r3, #1
-	beq _0800891C
-	ldr r4, _08008A74 @ =_080088FC
+	beq reset_vel
+	ldr r4, _08008A74 @ =ice_velocities
 	ldrb r3, [r1, #2]
 	adds r1, r2, #0
-	orrs r3, r3
+	orrs r3, r3 // jump_status != 0
 	beq _08008992
 	push {r2}
 	movs r3, #0x14
-	ldrb r1, [r0, r3]
+	ldrb r1, [r0, r3] // field_0x14
 	lsrs r1, r1, #1
 	lsls r1, r1, #1
 	lsrs r2, r2, #2
@@ -544,7 +544,7 @@ _08008960:
 	adds r2, #2
 	movs r4, #7
 	ands r2, r4
-	ldr r4, _08008A78 @ =_080088EC
+	ldr r4, _08008A78 @ =velocities1
 	cmp r2, #4
 	beq _08008992
 	bhs _080089A8
@@ -557,25 +557,25 @@ _08008992:
 	ldrsb r2, [r4, r3]
 	adds r3, #1
 	ldrsb r3, [r4, r3]
-	bl sub_08008A46
+	bl AddPlayerVelocity
 	b _080089C0
 _080089A8:
 	movs r3, #0x14
 	ldrb r3, [r0, r3]
 	lsrs r3, r3, #1
 	lsls r3, r3, #1
-	ldr r4, _08008A7C @ =_0800890C
+	ldr r4, _08008A7C @ =velocities3
 	adds r4, r4, r3
 	movs r3, #0
 	ldrsb r2, [r4, r3]
 	adds r3, #1
 	ldrsb r3, [r4, r3]
-	bl sub_08008A46
+	bl AddPlayerVelocity
 _080089C0:
 	ldr r1, _08008A80 @ =gPlayerState
 	movs r4, #0x8c
 	movs r2, #8
-	ldrsh r3, [r1, r4]
+	ldrsh r3, [r1, r4] // vel_x
 	orrs r3, r3
 	beq _080089E4
 	bpl _080089D2
@@ -585,7 +585,7 @@ _080089D2:
 	push {r0, r1}
 	adds r1, r3, #0
 	push {r2}
-	bl sub_080027EA
+	bl LinearMoveDirectionOLD
 	pop {r0}
 	bl sub_0807A5B8
 	pop {r0, r1}
@@ -602,7 +602,7 @@ _080089F4:
 	push {r0, r1}
 	adds r1, r3, #0
 	push {r2}
-	bl sub_080027EA
+	bl LinearMoveDirectionOLD
 	pop {r0}
 	bl sub_0807A5B8
 	pop {r0, r1}
@@ -646,18 +646,18 @@ _08008A3E:
 	beq _08008A3A
 	b _08008A38
 
-	non_word_aligned_thumb_func_start sub_08008A46
-sub_08008A46: @ 0x08008A46
+	non_word_aligned_thumb_func_start AddPlayerVelocity
+AddPlayerVelocity: @ 0x08008A46
 	push {lr}
 	ldr r1, _08008A84 @ =gPlayerState
 	movs r4, #0x8c
-	ldrsh r5, [r1, r4]
+	ldrsh r5, [r1, r4] // vel_x
 	adds r5, r5, r2
-	bl sub_08008A88
-	movs r4, #0x8e
+	bl ClampPlayerVelocity
+	movs r4, #0x8e // vel_y
 	ldrsh r5, [r1, r4]
 	adds r5, r5, r3
-	bl sub_08008A88
+	bl ClampPlayerVelocity
 	pop {pc}
 _08008A60:
 	eors r3, r3
@@ -667,14 +667,14 @@ _08008A60:
 _08008A68: .4byte gPlayerState
 _08008A6C: .4byte gPlayerState
 _08008A70: .4byte gPlayerState
-_08008A74: .4byte _080088FC
-_08008A78: .4byte _080088EC
-_08008A7C: .4byte _0800890C
+_08008A74: .4byte ice_velocities
+_08008A78: .4byte velocities1
+_08008A7C: .4byte velocities3
 _08008A80: .4byte gPlayerState
 _08008A84: .4byte gPlayerState
 
-	thumb_func_start sub_08008A88
-sub_08008A88: @ 0x08008A88
+	thumb_func_start ClampPlayerVelocity
+ClampPlayerVelocity: @ 0x08008A88
 	orrs r5, r5
 	bmi _08008A94
 	ldr r6, _08008B38 @ =0x00000180
@@ -764,7 +764,7 @@ CheckNEastTile: @ 0x08008B02
 	tst r0, r1
 	bne _08008B1E
 	ldr r1, =gMapVvvToSurfaceType
-	bl sub_08007DE0
+	bl ActTileConv
 	movs r2, #1
 	cmp r3, #1
 	beq _08008B20

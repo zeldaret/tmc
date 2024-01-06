@@ -15,7 +15,7 @@ typedef union {
     struct {
         u16 x;
         u16 y;
-        u16 z;
+        s16 z;
         u8 framestate;
         u8 animationState : 6;
         u8 collisionLayer : 2;
@@ -41,7 +41,7 @@ typedef union {
 
 void sub_08068318(ZeldaFollowerEntity*);
 void sub_0806854C(ZeldaFollowerEntity*, u32*);
-void sub_08068578(Entity* this);
+void sub_08068578(ZeldaFollowerEntity* this);
 
 void ZeldaFollower(ZeldaFollowerEntity* this) {
     if (super->action == 0) {
@@ -63,7 +63,6 @@ void ZeldaFollower(ZeldaFollowerEntity* this) {
 
 void sub_08068318(ZeldaFollowerEntity* this) {
     s32 dist;
-    s16 z;
 
     u32 animIndex;
     u32 animIndexTmp;
@@ -85,7 +84,7 @@ void sub_08068318(ZeldaFollowerEntity* this) {
         super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI;
         super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI;
         super->spriteSettings.draw = 1;
-        sub_08068578(super);
+        sub_08068578(this);
     }
 
     animIndex = 0;
@@ -100,9 +99,8 @@ void sub_08068318(ZeldaFollowerEntity* this) {
         }
     } else {
         heapPtr += ZELDA_FOLLOWER_HEAP_LEN - 1;
-        z = heapPtr->FIELDS.z;
 
-        if (z < 0) {
+        if (heapPtr->FIELDS.z < 0) {
             ZELDA_FOLLOWER_HEAP_SHIFT_RIGHT(super, heapPtr);
             animIndex = 0x4;
         } else {
@@ -154,128 +152,41 @@ void sub_0806854C(ZeldaFollowerEntity* this, u32* none) {
         this->unk_68 = 1;
         RemoveInteractableObject(super);
         super->hitbox = NULL;
-        sub_08068578(super);
+        sub_08068578(this);
     }
 }
 
-void sub_08068578(Entity* this) {
-    ZeldaFollowerItem* item;
-    s32 index;
-#ifdef REWRITE_CODE
-    u32 r0;
-    u32 r1;
-    u32 r2;
-    u32 r3;
-    u32 r5;
-    u32 r6;
-    u32 r8;
-    s32 y;
-    u32 r10;
-    s32 x;
-#else
-    register u32 r5 asm("r5");
-    register u32 r6 asm("r6");
-    register u32 r0 asm("r0");
-    register u32 r1 asm("r1");
-    register u32 r2 asm("r2");
-    register u32 r3 asm("r3");
-    register s32 r8 asm("r8");
-    register s32 y asm("r9");
-    register s32 r10 asm("r10");
-    register s32 x asm("r12");
-#endif
+void sub_08068578(ZeldaFollowerEntity* this) {
+    s32 dx, dy;
+    s32 i;
 
-    // first u32 (r5)
-#ifdef REWRITE_CODE
-    r0 = gPlayerEntity.base.x.HALF_U.HI | (r5 & 0xffff0000);
-    r5 = (gPlayerEntity.base.y.HALF_U.HI << 0x10) | (r0 & 0x0000ffff);
-#else
-    r1 = gPlayerEntity.base.x.HALF_U.HI;
+    ZeldaFollowerItem *heapPtr, item;
 
-    r3 = 0xffff0000;
-    r0 = r3;
-    r0 &= r5;
-    r0 |= r1;
+    // Copy from the player's position/state.
+    item.FIELDS.x = gPlayerEntity.base.x.HALF_U.HI;
+    item.FIELDS.y = gPlayerEntity.base.y.HALF_U.HI;
+    item.FIELDS.z = gPlayerEntity.base.z.HALF_U.HI;
+    item.FIELDS.framestate = gPlayerState.framestate;
+    item.FIELDS.animationState = gPlayerEntity.base.animationState;
+    item.FIELDS.collisionLayer = gPlayerEntity.base.collisionLayer;
 
-    r1 = gPlayerEntity.base.y.HALF_U.HI;
-    r1 <<= 0x10;
-    r2 = 0xffff;
-    r0 &= r2;
-    r0 |= r1;
-    r5 = r0;
-#endif
+    // Compute the distance between zelda and the player.
+    dx = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
+    dy = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
 
-    // second u32 (r6)
-#ifdef REWRITE_CODE
-    r3 = gPlayerEntity.base.z.HALF_U.HI | (r6 & 0xffff0000);
-    r2 = (gPlayerState.framestate << 0x10) | (r3 & 0xff00ffff);
-    r0 = ((gPlayerEntity.base.animationState & 0x3f) << 0x18) | (r2 & 0xc0ffffff);
-    r6 = (gPlayerEntity.base.collisionLayer << 0x1e) | (r0 & 0x3fffffff);
-#else
-    r0 = gPlayerEntity.base.z.HALF_U.HI;
-    r3 &= r6;
-    r3 |= r0;
+    // Divide it into ZELDA_FOLLOWER_HEAP_LEN increments.
+    dx = FixedDiv(dx, ZELDA_FOLLOWER_HEAP_LEN);
+    dy = FixedDiv(dy, ZELDA_FOLLOWER_HEAP_LEN);
 
-    r0 = gPlayerState.framestate;
-    r0 <<= 0x10;
-    r2 = 0xff00ffff;
-    r2 &= r3;
-    r2 |= r0;
-
-    r1 = gPlayerEntity.base.animationState;
-    r0 = 0x3f;
-    r1 &= r0;
-    r1 <<= 0x18;
-    r0 = 0xc0ffffff;
-    r0 &= r2;
-    r0 |= r1;
-
-    // gPlayerEntity.base.is now at r1
-    r1 = gPlayerEntity.base.collisionLayer;
-    r1 <<= 0x1e;
-    r2 = 0x3fffffff;
-    r0 &= r2;
-    r0 |= r1;
-    r6 = r0;
-#endif
-
-#ifdef REWRITE_CODE
-    r10 = gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI;
-#else
-    r1 = gPlayerEntity.base.x.HALF.HI;
-    r0 = this->x.HALF.HI;
-    r0 = r1 - r0;
-    r10 = r0;
-#endif
-
-#ifdef REWRITE_CODE
-    r8 = gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI;
-#else
-    r1 = gPlayerEntity.base.y.HALF.HI;
-    r0 = this->y.HALF.HI;
-    r0 = r1 - r0;
-    r8 = r0;
-#endif
-
-    r10 = FixedDiv(r10, 0x14);
-    r8 = FixedDiv(r8, 0x14);
-
-    item = this->myHeap;
-    y = 0;
-    x = 0;
-
-    // Down here the u32 are suddendly accessed correctly as u16 and bitfields?
-    // How are the results of above u32 calculations used?
-    for (index = 0x13; index >= 0; index--) {
-        item->FIELDS.x = r5 - (x >> 8);
-        item->FIELDS.y = (r5 >> 0x10) - (y >> 8);
-        item->FIELDS.z = r6;
-        item->FIELDS.framestate = r6 >> 0x10;
-        item->FIELDS.animationState = this->animationState & 0x3f;
-        item->FIELDS.collisionLayer = this->collisionLayer;
-        item++;
-        y = y + r8;
-        x = x + r10;
+    heapPtr = ZELDA_FOLLOWER_HEAP;
+    for (i = 0; i < ZELDA_FOLLOWER_HEAP_LEN; i++) {
+        heapPtr->FIELDS.x = item.FIELDS.x - ((i * dx) >> 8);
+        heapPtr->FIELDS.y = item.FIELDS.y - ((i * dy) >> 8);
+        heapPtr->FIELDS.z = item.FIELDS.z;
+        heapPtr->FIELDS.framestate = item.FIELDS.framestate;
+        heapPtr->FIELDS.animationState = super->animationState;
+        heapPtr->FIELDS.collisionLayer = super->collisionLayer;
+        heapPtr++;
     }
 }
 
@@ -288,11 +199,11 @@ void ZeldaFollower_Show(Entity* zelda, ZeldaFollowerEntity* follower) {
     follower->unk_68 = 1;
     follower->base.spriteSettings.draw = 1;
     follower->base.animationState = zelda->animationState;
-    sub_08068578(&follower->base);
+    sub_08068578(follower);
     InitAnimationForceUpdate(&follower->base, follower->base.animationState / 2);
 }
 
-void sub_080686C4(Entity* zelda, Entity* follower) {
-    follower->y.HALF.HI -= 0x10;
+void sub_080686C4(Entity* zelda, ZeldaFollowerEntity* follower) {
+    follower->base.y.HALF.HI -= 0x10;
     sub_08068578(follower);
 }

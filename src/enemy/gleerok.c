@@ -300,7 +300,7 @@ void sub_0802D33C(GleerokEntity* this) {
     }
 
     unk_84->entities[i]->health = 0;
-    ((GenericEntity*)unk_84->entities[i])->field_0x6c.HALF.HI |= 1;
+    ((Enemy*)(unk_84->entities[i]))->enemyFlags |= EM_FLAG_BOSS;
     unk_84->ent2->health = 0;
     unk_84->ent2->type2 = 0;
     unk_84->ent2->spriteSettings.draw &= ~1;
@@ -383,7 +383,7 @@ void sub_0802D3B8(GleerokEntity* this) {
         case 1:
             if (super->type2 == 1) {
                 COLLISION_ON(super);
-                super->flags2 |= 0x80;
+                super->collisionMask |= 0x80;
             }
 
             super->spritePriority.b0 = gUnk_080CD7C4[super->type2].unk0.HALF.HI;
@@ -399,7 +399,7 @@ void sub_0802D3B8(GleerokEntity* this) {
             this->unk_74 = gUnk_080CD884[0];
             this->unk_75 = 0;
             super->spritePriority.b0 = 6;
-            super->flags2 |= 0x80;
+            super->collisionMask |= 0x80;
             CopyPosition(super->parent, super);
             InitializeAnimation(super, 0x4f);
             break;
@@ -659,7 +659,7 @@ void sub_0802D86C(GleerokEntity* this) {
                 }
             }
 
-            if ((super->contactFlags & 0x80) && this->unk_74 == 0) {
+            if ((super->contactFlags & CONTACT_NOW) && this->unk_74 == 0) {
                 if ((super->contactFlags & 0x7f) == 0x1d) {
                     super->zVelocity = Q_16_16(3.0);
                     super->parent->subAction = 4;
@@ -815,7 +815,7 @@ void sub_0802DCE0(GleerokEntity* this) {
             }
         } else {
             if (this->unk_84->ent2->subtimer == 0) {
-                super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0);
+                super->child = EnemyCreateProjectile(super, GLEEROK_PROJECTILE, 0);
 
                 if (super->child != NULL) {
                     super->child->direction = this->unk_84->filler[5].unk0.HALF.HI;
@@ -883,7 +883,7 @@ void sub_0802DDD8(GleerokEntity* this) {
                 }
 
                 if (this->unk_84->ent2->subtimer == 1) {
-                    super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, r2);
+                    super->child = EnemyCreateProjectile(super, GLEEROK_PROJECTILE, r2);
                     if (super->child != NULL) {
                         super->child->direction = this->unk_84->filler[5].unk0.HALF.HI;
                         super->child->type2 = this->unk_84->ent2->frame & 0xf;
@@ -1039,7 +1039,7 @@ void sub_0802E0B8(GleerokEntity* this) {
         super->type2 = 4;
         InitializeAnimation(super, 0x4e);
     } else {
-        if (super->contactFlags & 0x80) {
+        if (super->contactFlags & CONTACT_NOW) {
             if (super->iframes > 0) {
                 SoundReq(SFX_BOSS_HIT);
             }
@@ -1160,7 +1160,7 @@ void sub_0802E300(GleerokEntity* this) {
         heap->ent2->timer = 24;
     } else {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
-            CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0x3);
+            EnemyCreateProjectile(super, GLEEROK_PROJECTILE, 0x3);
         }
     }
 

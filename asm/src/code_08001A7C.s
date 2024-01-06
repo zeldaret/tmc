@@ -931,8 +931,8 @@ _0800271A:
 	bne _0800270A
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start sub_08002724
-sub_08002724: @ 0x08002724
+	thumb_func_start UnpackTextNibbles
+UnpackTextNibbles: @ 0x08002724
 	push {r4, r5, lr}
 	movs r2, #0x10
 	movs r3, #0xf
@@ -1019,24 +1019,25 @@ _080027E6:
 	movs r0, #4
 	bx lr
 
+	// almost identical to LinearMoveDirection
 	// r0 = Entity*
 	// r1 = speed
 	// r2 = direction
-	non_word_aligned_thumb_func_start sub_080027EA
-sub_080027EA: @ 0x080027EA
+	non_word_aligned_thumb_func_start LinearMoveDirectionOLD
+LinearMoveDirectionOLD: @ 0x080027EA
 	push {r4, r5, r6, r7, lr}
 	movs r3, #0x80
 	tst r2, r3
 	bne _08002860
 	movs r4, #0x2a
-	ldrh r3, [r0, r4]
+	ldrh r3, [r0, r4] // collisions
 	movs r4, #7
 	tst r2, r4
 	bne _08002812
 	push {r0, r1, r2, r3}
 	adds r0, r2, #0
 	adds r1, r3, #0
-	bl sub_08002864
+	bl CalcCollisionDirectionOLD
 	adds r4, r0, #0
 	pop {r0, r1, r2, r3}
 	cmp r2, r4
@@ -1063,7 +1064,7 @@ _08002812:
 _08002834:
 	adds r4, r0, #0
 	pop {r0, r1, r2, r3}
-	ldr r5, [r0, #0x2c]
+	ldr r5, [r0, #0x2c] // x
 	adds r5, r5, r4
 	str r5, [r0, #0x2c]
 _0800283E:
@@ -1081,15 +1082,16 @@ _0800283E:
 _08002856:
 	adds r4, r0, #0
 	pop {r0, r1, r2, r3}
-	ldr r5, [r0, #0x30]
+	ldr r5, [r0, #0x30] // y
 	subs r5, r5, r4
 	str r5, [r0, #0x30]
 _08002860:
 	adds r1, r6, #0
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_08002864
-sub_08002864: @ 0x08002864
+	// collision related, probably leftover from FS
+	thumb_func_start CalcCollisionDirectionOLD
+CalcCollisionDirectionOLD: @ 0x08002864
 	adds r2, r0, #0
 	lsrs r2, r2, #3
 	cmp r2, #0

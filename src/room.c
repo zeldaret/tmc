@@ -1,5 +1,8 @@
+// TODO: original name is probably floor.c
+
 #include "area.h"
 #include "common.h"
+#include "enemy.h"
 #include "flags.h"
 #include "functions.h"
 #include "game.h"
@@ -11,7 +14,7 @@
 
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
-extern bool32 IsRoomTrackerFlagSet(u32);
+extern u32 EnemyEnableRespawn(u32);
 
 extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
@@ -123,9 +126,7 @@ void sub_0804AF0C(Entity* ent, const EntityData* dat) {
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
-            // TODO: for enemies, I think this is for delayed spawn
-            //  see mulldozerSpawnPoint.c
-            ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x20;
+            ((Enemy*)ent)->enemyFlags |= EM_FLAG_CAPTAIN;
             ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
             ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
@@ -197,10 +198,10 @@ static void sub_0804B058(EntityData* dat) {
         uVar2 = 0;
         do {
             if ((uVar2 < 0x20) && ((dat->kind & 0xF) == 3)) {
-                if (IsRoomTrackerFlagSet(uVar2)) {
+                if (EnemyEnableRespawn(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ((GenericEntity*)ent)->field_0x6c.HALF.LO =
+                        ((Enemy*)ent)->idx =
                             uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the enemy so it does not
                                           // appear next time the room is visited?
                     }

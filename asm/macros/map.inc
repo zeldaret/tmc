@@ -1,6 +1,21 @@
 	.ifndef GUARD_ASM_MACROS_MAP_INC
 	.set GUARD_ASM_MACROS_MAP_INC, 1
 
+	.set TOP_TILEDATA, gMapTop+0x4
+	.set TOP_COLLISIONDATA, gMapTop+0x2004
+	.set TOP_TILEDATACLONE, gMapTop+0x3004
+	.set TOP_METATILETYPES, gMapTop+0x5004
+	.set TOP_UNKDATA2, gMapTop+0x6004
+	.set TOP_METATILES, gMapTop+0x7004
+	.set TOP_UNKDATA3, gMapTop+0xb004
+	.set BOTTOM_TILEDATA, gMapBottom+0x4
+	.set BOTTOM_COLLISIONDATA, gMapBottom+0x2004
+	.set BOTTOM_TILEDATACLONE, gMapBottom+0x3004
+	.set BOTTOM_METATILETYPES, gMapBottom+0x5004
+	.set BOTTOM_UNKDATA2, gMapBottom+0x6004
+	.set BOTTOM_METATILES, gMapBottom+0x7004
+	.set BOTTOM_UNKDATA3, gMapBottom+0xb004
+
 	.macro room_header map_x, map_y, pixel_width, pixel_height, tileset_id
 	.2byte (\map_x) << 4
 	.2byte (\map_y) << 4

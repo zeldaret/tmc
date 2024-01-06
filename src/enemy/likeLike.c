@@ -31,7 +31,7 @@ extern void (*const gUnk_080CC714[])(LikeLikeEntity*);
 
 void LikeLike(Entity* this) {
     EnemyFunctionHandler(this, LikeLike_Functions);
-    SetChildOffset(this, 0, 1, -0x10);
+    EnemySetFXOffset(this, 0, 1, -0x10);
 }
 
 void LikeLike_OnTick(LikeLikeEntity* this) {
@@ -46,13 +46,13 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
     } else {
         if (super->action == 7) {
             LikeLike_ReleasePlayer(this);
-        } else if (super->contactFlags & 0x80) {
-            u8 tmp = super->contactFlags & ~0x80;
+        } else if (super->contactFlags & CONTACT_NOW) {
+            u8 tmp = super->contactFlags & ~CONTACT_NOW;
             if (tmp == 0) {
                 super->action = 7;
                 super->timer = 95;
                 super->subtimer = tmp;
-                super->flags2 &= 0xfc;
+                super->collisionMask &= 0xfc;
                 this->prevSpritePriority = gPlayerEntity.base.spritePriority.b1;
             }
         }
@@ -63,7 +63,7 @@ void LikeLike_OnCollision(LikeLikeEntity* this) {
     }
 
     if (super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(super, LikeLike_Functions);
@@ -153,7 +153,7 @@ void sub_08027FB4(LikeLikeEntity* this) {
     if (--super->timer == 0) {
         super->action = 1;
         super->timer = 1;
-        super->flags2 |= 1;
+        super->collisionMask |= 1;
     }
     GetNextFrame(super);
 }
@@ -236,7 +236,7 @@ void LikeLike_ReleasePlayer(LikeLikeEntity* this) {
     super->action = 4;
     super->timer = 80;
     super->subtimer = tmp;
-    super->flags2 |= 2;
+    super->collisionMask |= 2;
     if (super->iframes == 0) {
         super->iframes = -18;
     }

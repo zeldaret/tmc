@@ -321,7 +321,7 @@ void CollideFollowers(void) {
                 continue;
             if ((nextEnt->followerFlag & 1) == 0)
                 continue;
-            sub_08004484(currentEntity, nextEnt);
+            CalcCollisionStaticEntity(currentEntity, nextEnt);
         }
     }
 }

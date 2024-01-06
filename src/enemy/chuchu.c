@@ -35,7 +35,7 @@ void sub_0801FAF8(ChuchuEntity* this);
 void sub_0801FB14(ChuchuEntity* this);
 void sub_0801FB34(ChuchuEntity* this);
 void sub_0801FB68(ChuchuEntity* this);
-u32 sub_0801FBD0(ChuchuEntity* this);
+u32 CheckWaterTile(ChuchuEntity* this);
 void Chuchu_JumpAtPlayer(ChuchuEntity* this);
 
 extern void (*const Chuchu_Functions[])(ChuchuEntity*);
@@ -73,7 +73,7 @@ void Chuchu(ChuchuEntity* this) {
                         /* ... */
                         break;
                     case 2:
-                        sub_080043A8(super);
+                        CreateDrownFX(super);
                         return;
                 }
             }
@@ -82,7 +82,7 @@ void Chuchu(ChuchuEntity* this) {
     this->unk_81 = index;
     Chuchu_Functions[GetNextFunction(super)](this);
     if (this->unk_68->type == 0x1c) {
-        SetChildOffset(super, 0, 1, -0x10);
+        EnemySetFXOffset(super, 0, 1, -0x10);
     } else if (super->type == 2) {
         sub_0801FB34(this);
     }
@@ -118,14 +118,14 @@ void Chuchu_OnCollision(ChuchuEntity* this) {
     if (health) {
         if (super->contactFlags == 0x94) {
             sub_0801FB68(this);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
             InitializeAnimation(super, 6);
         } else if (this->unk_80 != health) {
             sub_0801FB68(this);
             InitializeAnimation(super, 6);
         }
     } else {
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
         super->zVelocity = 0;
         InitializeAnimation(super, 9);
     }
@@ -135,7 +135,7 @@ void Chuchu_OnCollision(ChuchuEntity* this) {
 
 void Chuchu_OnGrabbed(ChuchuEntity* this) {
     if (!sub_0806F520(super) && super->confusedTime) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
         InitializeAnimation(super, 6);
     } else {
         if (super->animIndex != 8) {
@@ -159,9 +159,9 @@ void Chuchu_OnDeath(ChuchuEntity* this) {
     if (super->type == 0) {
         GenericDeath(super);
     } else if (super->type == 1) {
-        CreateDeathFx(super, 0xf2, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf2, 0);
     } else {
-        CreateDeathFx(super, 0xf1, 0);
+        EnemyCreateDeathFX((Enemy*)super, 0xf1, 0);
     }
 }
 
@@ -197,7 +197,7 @@ void sub_0801F0C8(ChuchuEntity* this) {
 }
 
 void sub_0801F12C(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         sub_0801F328(this);
     } else {
         if ((super->subtimer++ & 7) == 0) {
@@ -233,7 +233,7 @@ void sub_0801F1B0(ChuchuEntity* this) {
     }
 
     if (super->frame & ANIM_DONE) {
-        if (sub_0801FBD0(this)) {
+        if (CheckWaterTile(this)) {
             sub_0801F328(this);
         } else {
             sub_0801F340(this);
@@ -262,7 +262,7 @@ void sub_0801F270(ChuchuEntity* this) {
 
     ProcessMovement5(super);
     GetNextFrame(super);
-    if (sub_0801FBD0(this))
+    if (CheckWaterTile(this))
         return;
 
     if (--super->timer != 0)
@@ -290,7 +290,7 @@ void sub_0801F2F8(ChuchuEntity* this) {
     GetNextFrame(super);
     if (super->frame & ANIM_DONE) {
         sub_0801F340(this);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -391,7 +391,7 @@ void sub_0801F4EC(ChuchuEntity* this) {
 }
 
 void sub_0801F508(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         this->unk_83 = 0;
         sub_0801F730(this);
     } else {
@@ -430,7 +430,7 @@ void sub_0801F584(ChuchuEntity* this) {
     }
 
     if (super->frame & ANIM_DONE) {
-        if (sub_0801FBD0(this)) {
+        if (CheckWaterTile(this)) {
             this->unk_83 = 0;
             sub_0801F730(this);
         } else {
@@ -465,7 +465,7 @@ void sub_0801F688(ChuchuEntity* this) {
     if (this->unk_83)
         this->unk_83--;
 
-    if (sub_0801FBD0(this) || this->unk_83) {
+    if (CheckWaterTile(this) || this->unk_83) {
         super->direction = sub_08049F84(super, 1);
         ProcessMovement5(super);
         GetNextFrame(super);
@@ -489,7 +489,7 @@ void sub_0801F6F8(ChuchuEntity* this) {
     if (super->frame & ANIM_DONE) {
         super->action = 4;
         super->speed = 0x20;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
         InitializeAnimation(super, 2);
     }
 }
@@ -562,7 +562,7 @@ void sub_0801F884(ChuchuEntity* this) {
     if (super->subtimer) {
         super->subtimer--;
     } else {
-        Entity* entity = Create0x68FX(super, FX_LIGHTNING_STRIKE);
+        Entity* entity = EnemyCreateFX(super, FX_LIGHTNING_STRIKE);
         if (entity != NULL) {
             entity->type2 = 64;
             super->action = 4;
@@ -573,7 +573,7 @@ void sub_0801F884(ChuchuEntity* this) {
 }
 
 void sub_0801F8C0(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         sub_0801FAE0(this);
     } else if (sub_08049FDC(super, 1) == 0) {
         sub_0801F730(this);
@@ -606,7 +606,7 @@ void sub_0801F940(ChuchuEntity* this) {
     }
 
     if (super->frame & ANIM_DONE) {
-        if (sub_0801FBD0(this)) {
+        if (CheckWaterTile(this)) {
             sub_0801FAE0(this);
         } else {
             super->action = 6;
@@ -636,7 +636,7 @@ void sub_0801F9E0(ChuchuEntity* this) {
 }
 
 void sub_0801FA30(ChuchuEntity* this) {
-    if (sub_0801FBD0(this)) {
+    if (CheckWaterTile(this)) {
         super->direction = sub_08049F84(super, 1);
         ProcessMovement5(super);
         GetNextFrame(super);
@@ -654,7 +654,7 @@ void sub_0801FA78(ChuchuEntity* this) {
         super->action = 1;
         super->spriteSettings.draw = 0;
         InitializeAnimation(super, 4);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -664,7 +664,7 @@ void sub_0801FAAC(ChuchuEntity* this) {
     if (super->frame & ANIM_DONE) {
         sub_0801FB14(this);
         super->speed = 0x20;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     }
 }
 
@@ -708,14 +708,14 @@ void sub_0801FB68(ChuchuEntity* this) {
         case 2:
             super->action = 10;
             super->hitType = 92;
-            sub_0804AA1C(super);
+            EnemyDetachFX(super);
             break;
     }
 
     super->zVelocity = 0;
 }
 
-bool32 sub_0801FBD0(ChuchuEntity* this) {
+bool32 CheckWaterTile(ChuchuEntity* this) {
     if (GetVvvAtEntity(super) == VVV_16) {
         return TRUE;
     } else {

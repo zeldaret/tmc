@@ -64,9 +64,9 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
             super->health = 1;
             super->collisionFlags = 7;
             super->hitType = 0x6e;
-            super->flags2 = 0x0e;
+            super->collisionMask = 0x0e;
             super->gustJarFlags = 1;
-            super->flags |= 0x80;
+            COLLISION_ON(super);
             super->spriteOffsetY = 4;
             break;
         case 1:
@@ -77,7 +77,7 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
                 super->health = 1;
                 super->collisionFlags = 7;
                 super->hitType = 0x6e;
-                super->flags2 = 4;
+                super->collisionMask = 4;
                 super->gustJarFlags = 1;
                 super->action = 3;
             }
@@ -117,13 +117,14 @@ void PullableMushroom_Action1_Type0(PullableMushroomEntity* this) {
 }
 
 void PullableMushroom_Action1_Type1(PullableMushroomEntity* this) {
-    if (*(u16*)&super->parent->action == 0x201) {
+    if (super->parent->action == 1 && super->parent->subAction == 2) {
         super->parent->child = NULL;
         DeleteThisEntity();
     } else if (super->parent->action == 2) {
         sub_0808B168(this, 0);
     }
 }
+
 void sub_0808ABC4(PullableMushroomEntity* this) {
     static const s8 gUnk_081211CC[] = { 0, -128, 0, -6, 0, 0, 5, -4, 0, 0, 0, 0, 0, -128, -5, -4 };
     u32 tmp;
@@ -293,7 +294,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
         this->unk_7c = 1;
         super->animationState = AnimationStateFlip90(gPlayerEntity.base.animationState >> 1);
         super->direction = (super->animationState << 3);
-        super->flags &= ~0x80;
+        COLLISION_OFF(super);
         super->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
         InitializeAnimation(super, super->animationState + 5);
         if (sub_0808B21C(this, 0)) {
@@ -321,7 +322,7 @@ void PullableMushroom_Action3(PullableMushroomEntity* this) {
     };
 
     funcs[super->subAction](this);
-    if ((((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) && (super->type == 1)) {
+    if ((((gPlayerState.gustJarState & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) && (super->type == 1)) {
         (super->parent)->action = 1;
         (super->parent)->subAction = 1;
         super->direction = DirectionTurnAround(super->parent->direction);
@@ -337,7 +338,7 @@ void sub_0808B05C(PullableMushroomEntity* this) {
         super->animationState = AnimationStateFlip90(gPlayerEntity.base.animationState >> 1);
         super->direction = super->animationState << 3;
         super->spriteSettings.flipX = gPlayerEntity.base.spriteSettings.flipX;
-        super->flags &= ~0x80;
+        COLLISION_OFF(super);
         InitializeAnimation(super, super->animationState + 5);
         if (sub_0808B21C(this, 1)) {
             sub_0808B168((PullableMushroomEntity*)super->child, 1);

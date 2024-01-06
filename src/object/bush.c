@@ -51,7 +51,7 @@ void Bush_Init(BushEntity* this) {
     if (super->type == 3) {
         Bush_Action2SubAction5(this);
     }
-    sub_08004168(super);
+    SnapToTile(super);
     if (super->type == 4) {
         Bush_Action2SubAction5(this);
     }
@@ -65,7 +65,7 @@ void Bush_Init(BushEntity* this) {
     super->health = 1;
     super->collisionFlags = 7;
     super->hitType = 0x6e;
-    super->flags2 = 4;
+    super->collisionMask = 4;
     super->hitbox = (Hitbox*)&gUnk_081205B4;
     this->unk_72 = 0;
     this->unk_70 = GetMetaTileIndex(COORD_TO_TILE(super), super->collisionLayer);
@@ -74,7 +74,7 @@ void Bush_Init(BushEntity* this) {
 }
 
 void Bush_Action1(BushEntity* this) {
-    if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
+    if (((gPlayerState.gustJarState & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         RestorePrevTileEntity(COORD_TO_TILE(super), super->collisionLayer);
         DeleteThisEntity();
     }
@@ -109,7 +109,7 @@ void Bush_Action2SubAction2(BushEntity* this) {
         super->spriteOffsetX = 0;
         SetMetaTileByIndex(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
-    if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
+    if (((gPlayerState.gustJarState & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         Bush_Action2SubAction5(this);
     }
     if (sub_0806F3E4(super) && ((super->gustJarFlags & 0xf) == 1)) {

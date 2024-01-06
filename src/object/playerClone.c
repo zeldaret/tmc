@@ -110,7 +110,7 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
         if (gPlayerEntity.base.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {
-            GetVvvAtEntity(super); // TODO why is the return value not used?
+            GetVvvAtEntity(super); // TODO why is the return value not used? // leftover from debugging?
             sub_08084B1C(this);
             super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->unk78;
             super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->unk7a;
@@ -164,7 +164,7 @@ void sub_08084B1C(PlayerCloneEntity* this) {
     super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
     super->spriteOrientation.flipY = gPlayerEntity.base.spriteOrientation.flipY;
     super->collisionLayer = gPlayerEntity.base.collisionLayer;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     super->hitType = gPlayerEntity.base.hitType;
     super->collisionFlags = gPlayerEntity.base.collisionFlags;
     super->hurtType = gPlayerEntity.base.hurtType;

@@ -180,7 +180,7 @@ void FigurineMenu0_ViewFigurineAfterDrawing(void) {
     s32 t;
 
     infoY = gFigurineMenu.unk1f;
-    switch (gInput.unk4) {
+    switch (gInput.menuScrollKeys) {
         case B_BUTTON:
         case START_BUTTON:
             FigurineMenu_ExitMenu();
@@ -219,7 +219,7 @@ void FigurineMenu1_ViewAllFigurines(void) {
 
     infoY = gFigurineMenu.unk1f;
     figurineIndex = gFigurineMenu.figure_idx;
-    switch (gInput.unk4) {
+    switch (gInput.menuScrollKeys) {
         case B_BUTTON:
         case START_BUTTON:
             SetMenuType(3);

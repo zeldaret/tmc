@@ -124,7 +124,7 @@ void GraveyardKey_Action2(Entity* this, const struct_gUnk_08123FB0* param_2) {
     u8 type;
 
     LinearMoveUpdate(this);
-    if (sub_080044EC(this, param_2->unk14) < 2) {
+    if (BounceUpdate(this, param_2->unk14) < BOUNCE_AIRBORNE) {
         if (this->timer) {
             this->timer--;
             this->zVelocity = param_2->unk14 << 3;

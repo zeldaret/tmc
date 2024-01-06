@@ -52,7 +52,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         InitializeAnimation(super, super->animationState + 8);
     }
 
-    if (super->contactFlags != 0x80) {
+    if (super->contactFlags != CONTACT_NOW) {
         if (super->action == 4 || super->action == 5) {
             super->action = 4;
             super->timer = 180;
@@ -61,7 +61,7 @@ void Rollobite_OnCollision(RollobiteEntity* this) {
         }
     }
 
-    if (super->contactFlags == 0x93)
+    if (super->contactFlags == (CONTACT_NOW | 0x13))
         Rollobite_OnTick(this);
 }
 
@@ -188,16 +188,16 @@ void Rollobite_RolledUp(RollobiteEntity* this) {
     if ((super->frame & ANIM_DONE) == 0)
         GetNextFrame(super);
 
-    unk = sub_080044EC(super, 0x2800);
+    unk = BounceUpdate(super, Q_8_8(40.0));
 
-    if (unk == 0) {
+    if (unk == BOUNCE_DONE_ALL) {
         if (--super->timer == 0) {
             super->action = 5;
             InitializeAnimation(super, super->animationState + 12);
         }
         RegisterCarryEntity(super);
     } else {
-        if (unk == 1)
+        if (unk == BOUNCE_INIT_NEXT)
             EnqueueSFX(SFX_PLACE_OBJ);
 
         if (!(super->direction & DIR_NOT_MOVING_CHECK))

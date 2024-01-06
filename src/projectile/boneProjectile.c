@@ -23,7 +23,7 @@ void BoneProjectile_OnTick(Entity* this) {
 }
 
 void BoneProjectile_OnCollision(Entity* this) {
-    if (this->contactFlags == 0x80) {
+    if (this->contactFlags == CONTACT_NOW) {
         DeleteEntity(this);
     } else {
         sub_080A82D8(this);
@@ -44,7 +44,7 @@ void BoneProjectile_Action1(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
-            sub_08016AD2(this);
+            UpdateCollisionLayer(this);
             if (--this->timer == 0) {
                 this->action = 2;
                 this->speed = 0x120;
@@ -70,7 +70,7 @@ void BoneProjectile_Action3(Entity* this) {
     this->spriteSettings.draw ^= 1;
     LinearMoveUpdate(this);
     GetNextFrame(this);
-    if (sub_080044EC(this, 0x1800) == 0) {
+    if (BounceUpdate(this, Q_8_8(24.0)) == BOUNCE_DONE_ALL) {
         DeleteEntity(this);
     }
 }

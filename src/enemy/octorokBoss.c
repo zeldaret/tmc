@@ -343,7 +343,7 @@ void OctorokBoss_Init(OctorokBossEntity* this) {
             (this->heap)->field_0x2 = 0;
             (this->heap)->tailCount = 5;
             super->spriteRendering.b0 = 3;
-            this->field_0x6c.HALF.HI |= 1;
+            ((Enemy*)this)->enemyFlags |= EM_FLAG_BOSS;
             this->unk_76 = 0xa0;
             this->unk_74 = 0xa0;
             this->angle.HWORD = 0;
@@ -557,7 +557,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
         case LEG_FR:
         case LEG_FL:
         case LEG_BL:
-            if ((((OctorokBossEntity*)super->parent)->field_0x6c.HALF.HI & 2) != 0) {
+            if (((Enemy*)super->parent)->enemyFlags & EM_FLAG_BOSS_KILLED) {
                 DeleteThisEntity();
             }
             if (this->heap->mouthObject->base.health == 1) {
@@ -677,7 +677,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 this->heap->fallingStonesTimer--;
                 if ((gRoomTransition.frameCount & 3) == 0) {
                     // Falling stones
-                    CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 3);
+                    EnemyCreateProjectile(super, OCTOROK_BOSS_PROJECTILE, 3);
                 }
             }
             OctorokBoss_Action1_SubActions[super->subAction](this);
@@ -885,7 +885,7 @@ void OctorokBoss_Action1_Attack_Type2_3(OctorokBossEntity* this) {
 }
 
 void OctorokBoss_ExecuteAttackSpitRock(OctorokBossEntity* this) {
-    super->child = CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 0);
+    super->child = EnemyCreateProjectile(super, OCTOROK_BOSS_PROJECTILE, 0);
     if (super->child != NULL) {
         super->child->parent = super;
         super->child->direction = ((u8) - this->angle.HALF.HI ^ 0x80);
@@ -1006,7 +1006,7 @@ void OctorokBoss_ExecuteAttackFreeze(OctorokBossEntity* this) {
     } else {
         this->timer--;
         if ((gRoomTransition.frameCount & 3) == 0) {
-            super->child = CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 2);
+            super->child = EnemyCreateProjectile(super, OCTOROK_BOSS_PROJECTILE, 2);
             if (super->child != NULL) {
                 super->child->parent = super;
                 super->child->direction = (u8) - this->angle.HALF.HI ^ 0x80;
@@ -1026,7 +1026,7 @@ void OctorokBoss_Burning(OctorokBossEntity* this) {
         this->heap->fallingStonesTimer--;
         if ((gRoomTransition.frameCount & 7) == 0) {
             // Falling stones
-            CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 3);
+            EnemyCreateProjectile(super, OCTOROK_BOSS_PROJECTILE, 3);
         }
     }
     SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);

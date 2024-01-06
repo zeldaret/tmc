@@ -34,7 +34,7 @@ void ArrowProjectile_OnTick(Entity* this) {
 }
 
 void ArrowProjectile_OnCollision(Entity* this) {
-    if ((this->contactFlags & 0x80) != 0) {
+    if ((this->contactFlags & CONTACT_NOW) != 0) {
         if ((this->contactFlags & 0x3f) != 0) {
             ModHealth(-2);
             sub_080A9488(this);

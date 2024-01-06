@@ -194,7 +194,7 @@ void KinstoneMenu_Type1(void) {
         return;
     }
     tmp3 = menu->unk28;
-    switch (gInput.unk4) {
+    switch (gInput.menuScrollKeys) {
         case DPAD_LEFT:
         case DPAD_UP:
             tmp3--;
@@ -681,7 +681,7 @@ void KinstoneMenu_080A4528(void) {
             entity->subtimer = entity->id;
             entity->id = 0x56;
         } else {
-            EnemyInit(entity);
+            EnemyInit((Enemy*)entity);
             entity->subtimer = entity->id;
             entity->id = 0x66;
         }

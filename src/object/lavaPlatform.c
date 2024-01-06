@@ -112,7 +112,7 @@ void LavaPlatform_Type1Init(LavaPlatformEntity* this) {
     super->spritePriority.b0 = 7;
     super->hurtType = 0x48;
     super->collisionFlags = 7;
-    super->flags2 = 0x81;
+    super->collisionMask = 0x81;
     super->hitbox = (Hitbox*)&gUnk_080FD280;
     sub_0809264C(this);
 }
@@ -131,7 +131,7 @@ void LavaPlatform_Type1Action1(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type1Action2(LavaPlatformEntity* this) {
-    if (super->contactFlags == 0x9d) {
+    if (super->contactFlags == (CONTACT_NOW | 0x1d)) {
         sub_08092620(this);
     } else {
         if (LavaPlatform_IsPlayerOnPlatform(this)) {
@@ -223,7 +223,7 @@ void LavaPlatform_Type1Action6(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type1Action7(LavaPlatformEntity* this) {
-    if (super->contactFlags == 0x9d) {
+    if (super->contactFlags == (CONTACT_NOW | 0x1d)) {
         sub_08092620(this);
     }
 }

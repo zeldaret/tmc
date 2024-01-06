@@ -38,7 +38,7 @@ typedef struct {
 
 extern u8 gUnk_08003E44;
 
-extern Entity* sub_08008782(Entity*, u32, s32, s32);
+extern Entity* DoTileInteractionOffset(Entity*, u32, s32, s32);
 extern void sub_08017744(Entity*);
 extern void ModArrows(s32);
 
@@ -88,7 +88,7 @@ void PlayerItemBow_Init(PlayerItemBowEntity* this) {
         }
         super->direction = super->animationState << 2;
         super->collisionFlags = gPlayerEntity.base.collisionFlags + 1;
-        super->flags2 = gPlayerEntity.base.flags2;
+        super->collisionMask = gPlayerEntity.base.collisionMask;
         if (super->collisionLayer == 2) {
             super->type2 = 1;
         } else {
@@ -147,7 +147,7 @@ void PlayerItemBow_Action1(PlayerItemBowEntity* this) {
             super->spriteSettings.draw ^= 1;
         }
         LinearMoveUpdate(super);
-        if (sub_08008782(super, (super->hurtType == 0x0e) ? 1 : 4, this->unk_6c, this->unk_70) != NULL) {
+        if (DoTileInteractionOffset(super, (super->hurtType == 0x0e) ? 1 : 4, this->unk_6c, this->unk_70) != NULL) {
             if (super->hurtType != 0x0e) {
                 DeleteThisEntity();
             }

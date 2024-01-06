@@ -33,7 +33,7 @@ void Whirlwind_Init(Entity* this) {
     this->hitType = 1;
     this->collisionFlags = 0x47;
     this->hurtType = 0x44;
-    this->flags2 = 0x80;
+    this->collisionMask = 0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
     this->animationState = this->type;
@@ -58,7 +58,7 @@ void Whirlwind_Action1(Entity* this) {
     }
     if (this->spriteSettings.draw != 0) {
         GetNextFrame(this);
-        if ((((((gPlayerState.flags & PL_MINISH) == 0)) && (gPlayerState.field_0x3c == 0)) &&
+        if ((((((gPlayerState.flags & PL_MINISH) == 0)) && (gPlayerState.killed == 0)) &&
              ((gPlayerEntity.base.action == PLAYER_JUMP || ((gPlayerEntity.base.flags & ENT_COLLIDE) != 0)))) &&
             ((gPlayerEntity.base.action != PLAYER_BOUNCE &&
               (sub_0800419C(this, &gPlayerEntity.base, 0xc, 0xc) != 0)))) {

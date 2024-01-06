@@ -57,7 +57,7 @@ extern const s8 gUnk_080CC0C2[];
 
 void Puffstool(PuffstoolEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)Puffstool_Functions);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Puffstool_OnTick(PuffstoolEntity* this) {
@@ -72,7 +72,7 @@ void Puffstool_OnCollide(PuffstoolEntity* this) {
             /* ... */
             break;
         case 0x1b:
-            sub_0804AA1C(super);
+            EnemyDetachFX(super);
 
             tmp = gUnk_080CBFE8[(*(Entity**)&super->contactedEntity)->type];
             if (tmp < this->unk_82) {
@@ -133,7 +133,7 @@ void sub_08025180(PuffstoolEntity* this) {
     super->timer = Random();
     super->animationState = (((*(Entity**)&super->contactedEntity)->direction ^ 0x10) >> 3);
     InitializeAnimation(super, super->animationState + 4);
-    sub_0804AA1C(super);
+    EnemyDetachFX(super);
 }
 
 void sub_080251AC(PuffstoolEntity* this) {
@@ -292,7 +292,7 @@ void sub_080254B4(PuffstoolEntity* this) {
                 sub_080256B4(this);
             } else {
                 super->action = 0xc;
-                Create0x68FX(super, FX_STARS);
+                EnemyCreateFX(super, FX_STARS);
             }
             InitializeAnimation(super, 0);
         }
@@ -376,7 +376,7 @@ void sub_0802563C(PuffstoolEntity* this) {
         super->hitType = 0x82;
         this->unk_82 = 240;
         sub_080256B4(this);
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
     } else if (this->unk_84 < 120) {
         u32 tmp3 = gUnk_080CBFF8[this->unk_84 >> 4];
         if ((this->unk_84 & tmp3) == 0) {

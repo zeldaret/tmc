@@ -37,7 +37,7 @@ void SmokeParticle_Init(Entity* this) {
     this->hitType = 0xa9;
     this->hurtType = 0x16;
     this->hitbox = (Hitbox*)gUnk_08120A54[0];
-    this->flags2 = 0x8b;
+    this->collisionMask = 0x8b;
     sub_080878CC(this);
     InitializeAnimation(this, 1);
     sub_0801766C(this);
@@ -75,14 +75,14 @@ void sub_080878CC(Entity* this) {
                 switch (GetMetaTileType(metaTilePos, layer)) {
                     case 0x368:
                     case 0x367:
-                        sub_08008796(this, 3, x + itX, y + itY);
+                        DoTileInteraction(this, 3, x + itX, y + itY);
                         break;
                     default:
                         SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, layer);
                         break;
                 }
             } else {
-                sub_08008796(this, 3, x + itX, y + itY);
+                DoTileInteraction(this, 3, x + itX, y + itY);
             }
         }
     }

@@ -27,7 +27,7 @@ void TreeThorns(Entity* this) {
             this->collisionFlags = 7;
             this->hurtType = 0x48;
             this->hitType = 0x7a;
-            this->flags2 = 1;
+            this->collisionMask = 1;
             this->hitbox = (Hitbox*)&gHitbox_1;
             tilePos = COORD_TO_TILE(this);
             SetMetaTile(SPECIAL_META_TILE_102, tilePos - 1, *layer);

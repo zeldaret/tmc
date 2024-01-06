@@ -66,7 +66,7 @@ SetMetaTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	strh r0, [r5, r6] @ gMapBottom.mapData[metaTilePos] = metaTile
 	ldr r6, _0800020C @ =0x00004000
 	cmp r0, r6
-	blo _0800019A @ jump if metaTile < 0x4000
+	blo tile_wrong_type @ jump if metaTile < 0x4000
 	push {r1, r2}
 	subs r4, r0, r6 @ r4 = metaTile - 0x4000
 	ldr r3, _08000210 @ =gMapSpecialMetaTileToVvv
@@ -78,12 +78,12 @@ SetMetaTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	bl SetCollisionData
 	pop {r0, r1} @ tilepos, layer
 	push {r0, r1}
-	bl DeleteLoadedTileEntity @ DeleteLoadedTileEntity(metaTilePos, layer)
+	bl UnregisterInteractTile @ DeleteLoadedTileEntity(metaTilePos, layer)
 	adds r0, r7, #0 @ r0 = oldMetaTile
 	pop {r1, r2}
-	bl StoreMetaTileForSpecialTile @ StoreMetaTileForSpecialTile(oldMetaTile, metaTilePos, layer)
+	bl RegisterInteractTile @ StoreMetaTileForSpecialTile(oldMetaTile, metaTilePos, layer)
 	pop {r4, r5, r6, r7, pc} @ pop pc results in returning to the calling function
-_0800019A:
+tile_wrong_type:
 	adds r3, #4 @ r3 = layer * 8 + 4
 	ldr r4, [r4, r3]
 	lsls r0, r0, #1 @ r0 = metaTile * 2
@@ -97,7 +97,7 @@ _0800019A:
 	lsrs r2, r2, #2 @ r2 = layer
 	bl SetCollisionData
 	pop {r0, r1}
-	bl DeleteLoadedTileEntity
+	bl UnregisterInteractTile
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080001C0: .4byte gMapBottom+0x6004
@@ -141,34 +141,34 @@ _08000220: .4byte gVvvPtrs
 _08000224: .4byte gMapDataPtrs
 
 gMapDataPtrs::
-	.4byte gMapBottom+0x0004 @ layer 0
+	.4byte BOTTOM_TILEDATA @ layer 0
 gMetatileTypesPtrs::
-	.4byte gMapBottom+0x5004
-	.4byte gMapBottom+0x0004 @ layer 1
-	.4byte gMapBottom+0x5004
-	.4byte gMapTop+0x0004 @ layer 2
-	.4byte gMapTop+0x5004
-	.4byte gMapBottom+0x0004 @ layer 3
-	.4byte gMapBottom+0x5004
+	.4byte BOTTOM_METATILETYPES
+	.4byte BOTTOM_TILEDATA @ layer 1
+	.4byte BOTTOM_METATILETYPES
+	.4byte TOP_TILEDATA @ layer 2
+	.4byte TOP_METATILETYPES
+	.4byte BOTTOM_TILEDATA @ layer 3
+	.4byte BOTTOM_METATILETYPES
 gCollisionDataPtrs::
-	.4byte gMapBottom+0x2004 @ layer 0
-	.4byte gMapBottom+0x2004 @ layer 1
-	.4byte gMapTop+0x2004 @ layer 2
-	.4byte gMapBottom+0x2004 @ layer 3
+	.4byte BOTTOM_COLLISIONDATA @ layer 0
+	.4byte BOTTOM_COLLISIONDATA @ layer 1
+	.4byte TOP_COLLISIONDATA @ layer 2
+	.4byte BOTTOM_COLLISIONDATA @ layer 3
 gUnk_08000258:: @ mapDataClone and metatileTypes
-	.4byte gMapBottom+0x3004 @ layer 0
-	.4byte gMapBottom+0x5004
-	.4byte gMapBottom+0x3004 @ layer 1
-	.4byte gMapBottom+0x5004
-	.4byte gMapTop+0x3004 @ layer 2
-	.4byte gMapTop+0x5004
-	.4byte gMapBottom+0x3004 @ layer 3
-	.4byte gMapBottom+0x5004
+	.4byte BOTTOM_TILEDATACLONE @ layer 0
+	.4byte BOTTOM_METATILETYPES
+	.4byte BOTTOM_TILEDATACLONE @ layer 1
+	.4byte BOTTOM_METATILETYPES
+	.4byte TOP_TILEDATACLONE @ layer 2
+	.4byte TOP_METATILETYPES
+	.4byte BOTTOM_TILEDATACLONE @ layer 3
+	.4byte BOTTOM_METATILETYPES
 gVvvPtrs:: @ vvv for layers
-	.4byte gMapBottom+0xb004 @ layer 0
-	.4byte gMapBottom+0xb004 @ layer 1
-	.4byte gMapTop+0xb004 @ layer 2
-	.4byte gMapBottom+0xb004 @ layer 3
+	.4byte BOTTOM_UNKDATA3 @ layer 0
+	.4byte BOTTOM_UNKDATA3 @ layer 1
+	.4byte TOP_UNKDATA3 @ layer 2
+	.4byte BOTTOM_UNKDATA3 @ layer 3
 
 @ call 0x80B19CC
 @ ========
@@ -365,8 +365,6 @@ GetCollisionDataAtRoomTile: @ 0x080002DC
 	bx r3
 
 @ call 0x080B1B44
-@ ========
-@ Unused? Doesn't seem to be called by anything in Ghidra.
 	thumb_func_start GetCollisionDataAtMetaTilePos
 GetCollisionDataAtMetaTilePos: @ 0x080002E0
 	ldr r3, _0800034C @ =ram_GetCollisionDataAtMetaTilePos

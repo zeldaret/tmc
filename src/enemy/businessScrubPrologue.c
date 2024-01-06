@@ -127,7 +127,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             r6 = 1;
             sub_0804604C(this);
             if (super->frame & 1) {
-                entity = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
+                entity = EnemyCreateProjectile(super, DEKU_SEED_PROJECTILE, 0);
                 if (entity != NULL) {
                     entity->parent = super;
                     entity->direction = super->direction;
@@ -190,7 +190,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
                 super->action = 5;
                 super->subAction = 0;
                 sub_08046030(this, 0);
-                entity = Create0x68FX(super, FX_STARS);
+                entity = EnemyCreateFX(super, FX_STARS);
                 if (entity != NULL) {
                     entity->spritePriority.b0 = 3;
                     entity->z.HALF.HI -= 0xc;
@@ -329,7 +329,7 @@ void sub_08046078(BusinessScrubPrologueEntity* this) {
         super->child->action = 0xff;
     }
 
-    sub_0804AA1C(super);
+    EnemyDetachFX(super);
 }
 
 void (*const BusinessScrubPrologue_Functions[])(Entity*) = {

@@ -90,7 +90,7 @@ void Enemy4D_OnKnockback(Enemy4DEntity* this) {
 }
 
 void Enemy4D_OnDeath(Enemy4DEntity* this) {
-    CreateDeathFx(super, 0xff, 0x57);
+    EnemyCreateDeathFX((Enemy*)super, 0xff, 0x57);
 }
 
 void Enemy4D_OnGrabbed(Enemy4DEntity* this) {
@@ -100,7 +100,7 @@ void Enemy4D_Init(Enemy4DEntity* this) {
     Entity* projectile;
 
     sub_0804A720(super);
-    projectile = CreateProjectileWithParent(super, BALL_AND_CHAIN, 0);
+    projectile = EnemyCreateProjectile(super, BALL_AND_CHAIN, 0);
     if (projectile != NULL) {
         projectile->parent = super;
         super->child = projectile;

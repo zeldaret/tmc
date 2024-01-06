@@ -40,7 +40,7 @@ void Fairy(FairyEntity* this) {
         Fairy_Init, Fairy_Action1, Fairy_Action2, Fairy_Action3, Fairy_Action4,
     };
 
-    if (((super->contactFlags & 0x80) != 0)) {
+    if (((super->contactFlags & CONTACT_NOW) != 0)) {
         switch (super->contactFlags & 0x7f) {
             case 0x14:
                 super->action = 3;
@@ -103,7 +103,7 @@ void Fairy_Init(FairyEntity* this) {
     super->collisionFlags = 0x17;
     super->hurtType = 0x49;
     super->hitType = 7;
-    super->flags2 = 0x17;
+    super->collisionMask = 0x17;
     super->health = 0xff;
     super->hitbox = (Hitbox*)&gUnk_080FD1A8;
     super->gustJarFlags = 1;
@@ -253,6 +253,6 @@ void sub_0808DB2C(FairyEntity* this) {
     super->action = 2;
     super->subAction = 0;
     super->flags |= ENT_COLLIDE;
-    super->flags2 = 1;
+    super->collisionMask = 1;
     CopyPosition(&gPlayerEntity.base, super);
 }

@@ -1,6 +1,7 @@
 #ifndef TILES_H
 #define TILES_H
 
+
 typedef enum {
     META_TILE_TYPE_0,    // 0x0
     META_TILE_TYPE_1,    // 0x1
@@ -1558,22 +1559,22 @@ typedef enum {
 } SpecialMetaTile;
 
 typedef enum {
-    VVV_0 = 0,
-    VVV_1 = 1,
-    VVV_2 = 2,
-    VVV_3 = 3,
-    VVV_4 = 4,
-    VVV_5 = 5,
-    VVV_6 = 6,
-    VVV_7 = 7,
-    VVV_8 = 8,   // -> SURFACE_7
-    VVV_9 = 9,   // sub_0801FDE4(leever)
-    VVV_10 = 10, // sub_0801FDE4(leever), sub_08025AB8(puffstool)
+    VVV_0 = 0, // TILE_ACT_CUT
+    VVV_1 = 1, // TILE_ACT_ROCKBREAKER
+    VVV_2 = 2, // TILE_ACT_BOOMERANG
+    VVV_3 = 3, // TILE_ACT_BOMB
+    VVV_4 = 4, // TILE_ACT_ARROW
+    VVV_5 = 5, // TILE_ACT_GUST
+    VVV_6 = 6, // TILE_ACT_LIFT
+    VVV_7 = 7, // TILE_ACT_FIRE
+    VVV_8 = 8,   // TILE_ACT_PLAYER_WALK -> SURFACE_7
+    VVV_9 = 9,   // TILE_ACT_ENEMY_WALK sub_0801FDE4(leever)
+    VVV_10 = 10, // TILE_ACT_PACCI sub_0801FDE4(leever), sub_08025AB8(puffstool)
     VVV_11 = 11, // sub_0801FDE4(leever)
-    VVV_12 = 12, // sub_0801FDE4(leever)
-    VVV_13 = 13, // -> SURFACE_PIT, sub_08094E30(cutsceneMiscObject), sub_08085B40(lilypadLarge), Pot_Action1,
+    VVV_12 = 12, // TILE_ACT_SWORDBEAM sub_0801FDE4(leever)
+    VVV_13 = 13, // TILE_ACT_DIG -> SURFACE_PIT, sub_08094E30(cutsceneMiscObject), sub_08085B40(lilypadLarge), Pot_Action1,
                  // sub_080AD040(playerItemHeldObject), UpdatePlayerCollision, sub_0807B434(playerUtils), FX_FALL_DOWN
-    VVV_14 = 14, // -> SURFACE_SLOPE_GNDWATER
+    VVV_14 = 14, // TILE_ACT_MINIGUST -> SURFACE_SLOPE_GNDWATER
     VVV_15 = 15, // -> SURFACE_SHALLOW_WATER, SPECIAL_META_TILE_145
     VVV_16 = 16, // -> SURFACE_WATER, sub_0801FBD0(chuchu), PlayerItemBottle_UseEmptyBottle, SPECIAL_META_TILE_137 -
                  // 140, sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH

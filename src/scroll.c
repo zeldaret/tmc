@@ -62,7 +62,7 @@ void sub_080808E4(s32);
 void sub_08080904(s32);
 void sub_08080910(s32);
 
-extern const s8 gScreenShakeOffsets[];
+extern const s8 gShakeOffsets[];
 
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
@@ -350,8 +350,8 @@ void Scroll5Sub2(RoomControls* controls) {
 
 void Scroll5Sub3(RoomControls* controls) {
     controls->scrollSubAction = 4;
-    MemCopy(gMapBottom.mapData, gMapBottom.mapDataClone, sizeof(gMapBottom.mapData));
-    MemCopy(gMapTop.mapData, gMapTop.mapDataClone, sizeof(gMapTop.mapData));
+    MemCopy(gMapBottom.mapData, gMapBottom.mapDataOriginal, sizeof(gMapBottom.mapData));
+    MemCopy(gMapTop.mapData, gMapTop.mapDataOriginal, sizeof(gMapTop.mapData));
     sub_08080368();
     gUnk_02034480.unk_00 = gUnk_0200B640;
     MemCopy(gUnk_02022830, gUnk_020246B0, 0x1800);
@@ -422,8 +422,8 @@ u32 sub_08080278(void) {
     u16* ptr1 = (u16*)gUnk_02022830;
     u16* mapBottomData = gMapBottom.mapData;
     u16* mapTopData = gMapTop.mapData;
-    u16* mapBottomDataClone = gMapBottom.mapDataClone;
-    u16* mapTopDataClone = gMapTop.mapDataClone;
+    u16* mapBottomDataClone = gMapBottom.mapDataOriginal;
+    u16* mapTopDataClone = gMapTop.mapDataOriginal;
     u32 width = gRoomControls.width >> 4;
     u32 height = (gRoomControls.height >> 4) << 6;
 
@@ -903,8 +903,7 @@ void UpdateScreenShake(void) {
     s32 roomOffsetY = ((gRoomControls.scroll_y - gRoomControls.origin_y) & 0xf) + 8;
     if (gRoomControls.shake_duration != 0) {
         gRoomControls.shake_duration--;
-        screenShakeOffset =
-            &gScreenShakeOffsets[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
+        screenShakeOffset = &gShakeOffsets[gRoomControls.shake_magnitude * 0x10 + (gRoomControls.shake_duration & 0xe)];
         if (gMapBottom.bgSettings != NULL) {
             gMapBottom.bgSettings->xOffset = screenShakeOffset[0] + roomOffsetX;
             gMapBottom.bgSettings->yOffset = screenShakeOffset[1] + roomOffsetY;

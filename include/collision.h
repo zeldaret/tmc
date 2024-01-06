@@ -6,6 +6,16 @@
 
 /** Collisions. */
 
+enum {
+    COL_LANTERN = 0x7,
+    COL_SMALL_GUST = 0x13,
+    COL_BOOMERANG = 0x14,
+    COL_ARROW = 0x15,
+    COL_BIG_GUST = 0x1b,
+    COL_PACCI = 0x1d,
+    COL_SWORD_BEAM = 0x21,
+};
+
 typedef enum {
     COL_NONE = 0x0,
     COL_NORTH_WEST = 0x2,

@@ -26,7 +26,7 @@ void OctorokGolden(Entity* this) {
         gUnk_080012C8[index](this);
     } else {
         OctorokGolden_Functions[GetNextFunction(this)](this);
-        SetChildOffset(this, 0, 1, -0x10);
+        EnemySetFXOffset(this, 0, 1, -0x10);
     }
 }
 
@@ -36,7 +36,7 @@ void OctorokGolden_OnTick(Entity* this) {
 
 void OctorokGolden_OnCollision(Entity* this) {
     if (this->confusedTime != 0) {
-        Create0x68FX(this, FX_STARS);
+        EnemyCreateFX(this, FX_STARS);
     }
 
     EnemyFunctionHandlerAfterCollision(this, OctorokGolden_Functions);
@@ -47,7 +47,7 @@ void OctorokGolden_OnDeath(Entity* this) {
         SetGlobalFlag(this->type2);
     }
 
-    CreateDeathFx(this, 0xff, ITEM_RUPEE100);
+    EnemyCreateDeathFX((Enemy*)this, 0xff, ITEM_RUPEE100);
 }
 
 void sub_08037CE4(Entity* this) {
@@ -83,7 +83,7 @@ static void sub_08037D54(Entity* this) {
         this->frame ^= 2;
 
         if (this->frame & 0x2) {
-            Entity* proj = CreateProjectileWithParent(this, ROCK_PROJECTILE, 0);
+            Entity* proj = EnemyCreateProjectile(this, ROCK_PROJECTILE, 0);
             if (proj) {
                 const s8* ptr;
                 s32 dir;
@@ -112,16 +112,16 @@ static void sub_08037D54(Entity* this) {
 
 void sub_08037E14(Entity* this) {
     u32 dir;
-    u8* layer;
+    u8* collisionData;
     const s8* ptr;
     s32 x, y;
     this->timer = 8;
     dir = (GetFacingDirection(this, &gPlayerEntity.base) + 4) & 0x18;
-    layer = (u8*)GetLayerByIndex(this->collisionLayer)->collisionData;
+    collisionData = GetLayerByIndex(this->collisionLayer)->collisionData;
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
     y = this->y.HALF.HI + *(ptr + 1);
-    if (IsTileCollision(layer, x, y, 0)) {
+    if (IsTileCollision(collisionData, x, y, 0)) {
         this->direction = Random() & 0x18;
     } else {
         this->direction = dir;

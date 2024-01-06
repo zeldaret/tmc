@@ -49,7 +49,7 @@ void PlayerItemBottle_Init(PlayerItemBottleEntity* this) {
             }
             COLLISION_ON(super);
             super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x20;
-            super->flags2 = gPlayerEntity.base.flags2;
+            super->collisionMask = gPlayerEntity.base.collisionMask;
             super->hurtType = 0x1f;
             super->type = 1;
             super->type2 = ITEM_BOTTLE_EMPTY;

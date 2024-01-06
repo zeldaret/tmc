@@ -258,17 +258,17 @@ _08004162:
 	ands r2, r4
 	pop {r4, pc}
 
-	thumb_func_start sub_08004168
-sub_08004168: @ 0x08004168
+	thumb_func_start SnapToTile
+SnapToTile: @ 0x08004168
 	ldr r3, _08004384 @ =0x000FFFFF
 	ldr r1, _08004388 @ =0x00080000
-	ldr r2, [r0, #0x2c]
-	bics r2, r3
-	adds r2, r2, r1
+	ldr r2, [r0, #0x2c] // x
+	bics r2, r3 // align to grid
+	adds r2, r1 // add half of a tile
 	str r2, [r0, #0x2c]
-	ldr r2, [r0, #0x30]
+	ldr r2, [r0, #0x30] // y
 	bics r2, r3
-	adds r2, r2, r1
+	adds r2, r1
 	str r2, [r0, #0x30]
 	bx lr
 
@@ -348,8 +348,8 @@ sub_080041E8: @ 0x080041E8
 	subs r0, r0, r2
 	subs r1, r1, r3
 
-	thumb_func_start sub_080041EC
-sub_080041EC: @ 0x080041EC
+	thumb_func_start CalcDistance
+CalcDistance: @ 0x080041EC
 	adds r2, r0, #0
 	muls r0, r2, r0
 	adds r3, r1, #0
@@ -621,26 +621,26 @@ _0800439C: .4byte gSpritePtrs
 _080043A0: .4byte gSpritePtrs
 _080043A4: .4byte gGFXSlots+4
 
-	thumb_func_start sub_080043A8
-sub_080043A8: @ 0x080043A8
-	movs r1, #0xb
-	b _080043B6
+	thumb_func_start CreateDrownFX
+CreateDrownFX: @ 0x080043A8
+	movs r1, #0xb // FX_WATER_SPLASH
+	b create_fx
 
-	thumb_func_start CreateChestSpawner
-CreateChestSpawner: @ 0x080043AC
-	movs r1, #0xc
-	b _080043B6
+	thumb_func_start CreateLavaDrownFX
+CreateLavaDrownFX: @ 0x080043AC
+	movs r1, #0xc // FX_LAVA_SPLASH
+	b create_fx
 
-	thumb_func_start sub_080043B0
-sub_080043B0: @ 0x080043AC
-	movs r1, #0x52
-	b _080043B6
+	thumb_func_start CreateSwampDrownFX
+CreateSwampDrownFX: @ 0x080043AC
+	movs r1, #0x52 // FX_GREEN_SPLASH
+	b create_fx
 
-	thumb_func_start CreateItemOnGround
-CreateItemOnGround: @ 0x080043B4
-	movs r1, #0
+	thumb_func_start CreatePitFallFX
+CreatePitFallFX: @ 0x080043B4
+	movs r1, #0 // FX_FALL_DOWN
 
-_080043B6:
+create_fx:
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0xf
@@ -648,10 +648,10 @@ _080043B6:
 	bl CreateObject
 
 	cmp r0, #0
-	beq _080043E0		@ Branch if entity could not be created
+	beq _080043E0
 
 	movs r1, #0x48
-	ldr r1, [r4, r1]	@ Unused?
+	ldr r1, [r4, r1] // load hitbox (unused)
 
 	ldrh r3, [r4, #0x2e]
 	strh r3, [r0, #0x2e]
@@ -664,11 +664,11 @@ _080043B6:
 
 	ldrb r3, [r4, #8]
 	
-	cmp r3, #3			@ Is the spawner an enemy?
+	cmp r3, #3 // is parent entity an enemy?
 	bne _080043E0
 	
 	movs r1, #1
-	strb r1, [r0, #0xb]	@ Set base parameter
+	strb r1, [r0, #0xb] // copy entity.type2
 
 _080043E0:
 	adds r0, r4, #0

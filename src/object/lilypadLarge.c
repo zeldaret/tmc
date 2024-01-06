@@ -78,7 +78,7 @@ void LilypadLarge_Init(LilypadLargeEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->collisionFlags = 7;
     super->hitType = 1;
-    super->flags2 = 4;
+    super->collisionMask = 4;
     this->unk_78.WORD = 0x1000000;
     this->unk_7c.HALF_U.HI = 0x1000;
     this->unk_85 = 0;
@@ -127,8 +127,8 @@ void LilypadLarge_Action1(LilypadLargeEntity* this) {
                 this->unk_70 = 0;
                 this->unk_6c = 0;
             }
-            if (gPlayerState.field_0x1c == 3) {
-                tmp = gUnk_08120620[gPlayerState.gustJarSpeed - 1];
+            if (gPlayerState.gustJarState == PL_JAR_3) {
+                tmp = gUnk_08120620[gPlayerState.gustJarCharge - 1];
                 switch (gPlayerEntity.base.animationState & 6) {
                     case 4:
                         this->unk_70 -= tmp;
@@ -156,7 +156,7 @@ void LilypadLarge_Action1(LilypadLargeEntity* this) {
             uVar4 = gPlayerEntity.base.y.HALF.HI + gUnk_08126EE4[gPlayerEntity.base.animationState | 1];
             super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, sVar10, uVar4);
 
-            switch (gPlayerState.gustJarSpeed) {
+            switch (gPlayerState.gustJarCharge) {
                 case 3:
                     tmp = 0x400;
                     break;

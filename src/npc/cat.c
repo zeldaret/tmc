@@ -140,7 +140,7 @@ void sub_080677EC(CatEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = -0x58;
-    super->flags2 = 1;
+    super->collisionMask = 1;
     this->unk_69 = 0xff;
     if (super->x.HALF.HI < gPlayerEntity.base.x.HALF.HI) {
         super->spriteSettings.flipX = 1;

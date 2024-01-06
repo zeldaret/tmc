@@ -74,7 +74,7 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
     super->speed = 0x400;
     super->hitType = 0x96;
     super->collisionFlags = (gPlayerEntity.base.collisionFlags + 1) | 0x80;
-    super->flags2 = gPlayerEntity.base.flags2;
+    super->collisionMask = gPlayerEntity.base.collisionMask;
     pEVar3 = super->child;
     if (pEVar3 != NULL) {
         super->action = 1;
@@ -86,7 +86,7 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
         super->child->spriteOffsetX = 0;
         super->child->spriteSettings.draw = 0;
     } else {
-        if (gPlayerState.field_0x1c == 0) {
+        if (gPlayerState.gustJarState == PL_JAR_NONE) {
             DeleteThisEntity();
         }
         super->action = 2;
@@ -94,14 +94,14 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
         super->spriteIndex = 0xa6;
         super->palette.raw = 0x33;
         super->spriteVramOffset = 0;
-        super->type = gPlayerState.gustJarSpeed - 1;
+        super->type = gPlayerState.gustJarCharge - 1;
         super->timer = gUnk_080B3DE0[super->type * 2];
         super->damage = gUnk_080B3DE0[super->type * 2 + 1];
         super->hurtType = 0x1b;
         super->hitbox = (Hitbox*)gUnk_080B3DE8[super->type];
-        gPlayerEntity.unk_70 = super;
+        gPlayerEntity.pulledJarEntity = super;
         sub_08078CD0(&gPlayerEntity.base);
-        gPlayerEntity.unk_70 = pEVar3;
+        gPlayerEntity.pulledJarEntity = pEVar3;
         InitializeAnimation(super, super->type + 10);
         sub_08018FA0(super);
     }
@@ -109,18 +109,15 @@ void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this) {
 }
 
 void PlayerItemGustBig_Action1(PlayerItemGustBigEntity* this) {
-    u8 bVar1;
-
-    bVar1 = super->child->gustJarState & 4;
-    if (bVar1 == 0) {
-        gPlayerState.field_0x1c = bVar1;
+    if ((super->child->gustJarState & 4) == 0) {
+        gPlayerState.gustJarState = PL_JAR_NONE;
         DeleteThisEntity();
     }
-    switch (gPlayerState.field_0x1c) {
-        case 0:
+    switch (gPlayerState.gustJarState) {
+        case PL_JAR_NONE:
             PlayerItemGustBig_Action3(this);
             break;
-        case 5:
+        case PL_JAR_BLAST_UPDATE:
             super->child->subAction = 4;
             COLLISION_ON(super);
             super->action = 2;
@@ -137,12 +134,12 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
     s32 x;
     if (super->child == NULL) {
         GetNextFrame(super);
-        sub_08008790(super, 5);
+        DoTileInteractionHere(super, 5);
     } else {
         if ((super->child->gustJarState & 4) == 0) {
             DeleteThisEntity();
         }
-        if ((super->contactFlags & 0x80) != 0) {
+        if ((super->contactFlags & CONTACT_NOW) != 0) {
             PlayerItemGustBig_Action3(this);
             return;
         }
@@ -175,7 +172,7 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if (FindValueForKey(sub_080B1A0C(super, x, y), gUnk_080B3DF4) != 0) {
+        if (FindValueForKey(sub_080B1A0C(super, x, y), gUnk_080B3DF4)) {
             return;
         }
         if (GetVvvRelativeToEntity(super, x, y) == VVV_116) {

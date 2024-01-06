@@ -99,7 +99,7 @@ void OctorokBossProjectile_Action1(OctorokBossProjectileEntity* this) {
             if (super->parent->action == 2) {
                 DeleteThisEntity();
             }
-            if ((super->type2 == 0) && ((super->contactFlags & 0x80) != 0)) {
+            if ((super->type2 == 0) && ((super->contactFlags & CONTACT_NOW) != 0)) {
                 if ((super->contactFlags & 0x7f) == 0) {
                     OctorokBossProjectile_Action2(this);
                 }
@@ -150,7 +150,7 @@ void OctorokBossProjectile_Action1(OctorokBossProjectileEntity* this) {
                 return;
             }
             for (index = 0; index < 3; ++index) {
-                super->child = CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 1);
+                super->child = EnemyCreateProjectile(super, OCTOROK_BOSS_PROJECTILE, 1);
                 if (super->child != NULL) {
                     super->child->parent = super->parent;
                     super->child->direction = super->direction + gUnk_08129ADC[index];
@@ -182,7 +182,7 @@ void OctorokBossProjectile_Action1(OctorokBossProjectileEntity* this) {
             if (--*(u32*)&this->unk_78 == -1) {
                 OctorokBossProjectile_Action2(this);
             }
-            if ((super->contactFlags & 0x80) == 0) {
+            if ((super->contactFlags & CONTACT_NOW) == 0) {
                 return;
             }
             OctorokBossProjectile_Action2(this);

@@ -65,7 +65,7 @@ void Enemy50(Enemy50Entity* this) {
         DeleteThisEntity();
     }
     Enemy50_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Enemy50_OnTick(Enemy50Entity* this) {
@@ -79,21 +79,21 @@ void Enemy50_OnCollision(Enemy50Entity* this) {
         sub_08041134(this);
         sub_0803F6EC(this);
     }
-    if (super->hitType == 0x25 && super->contactFlags == 0x80) {
+    if (super->hitType == 0x25 && super->contactFlags == CONTACT_NOW) {
         super->action = 8;
         InitializeAnimation(super, 3);
     } else {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_NOW) {
             this->unk_7c = 0x78;
             sub_08041128(this);
         }
-        if (super->contactFlags == 0x9d) {
+        if (super->contactFlags == (CONTACT_NOW | 0x1d)) {
             super->zVelocity = Q_16_16(1.5);
         }
         if (super->confusedTime != 0) {
             super->animationState = super->knockbackDirection >> 4;
             InitializeAnimation(super, super->animationState + 7);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
         }
         if (super->health != this->unk_7a) {
             if (super->type == 0) {
@@ -422,7 +422,7 @@ void sub_0804122C(Enemy50Entity* this) {
 
 #ifndef EU
 bool32 sub_08041300(Enemy50Entity* this) {
-    if ((super->hitType == 0x25) && (super->contactFlags == 0x80)) {
+    if ((super->hitType == 0x25) && (super->contactFlags == CONTACT_NOW)) {
         return TRUE;
     } else {
         return super->action == 8 || super->action == 9;

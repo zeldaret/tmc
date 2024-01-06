@@ -40,7 +40,7 @@ void JarPortal_Init(JarPortalEntity* this) {
     super->hitType = 1;
     super->collisionFlags = 0x47;
     super->hurtType = 0x44;
-    super->flags2 = 0x80;
+    super->collisionMask = 0x80;
     this->unk_68 = 0;
     if (CheckLocalFlag(super->type)) {
         if (this->unk_7c != 0) {
@@ -171,7 +171,7 @@ void JarPortal_Action4(JarPortalEntity* this) {
 }
 
 u32 sub_0808C128(JarPortalEntity* this) {
-    return super->contactFlags == 157;
+    return super->contactFlags == (CONTACT_NOW | 0x1d);
 }
 
 void sub_0808C13C(JarPortalEntity* this) {

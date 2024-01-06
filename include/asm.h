@@ -21,11 +21,21 @@ extern void GenericKnockback(struct Entity_*);
 extern u32 GetFuserId(struct Entity_*);
 extern u32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
 extern u32 GravityUpdate(struct Entity_* entity, u32 gravity);
+enum {
+    BOUNCE_DONE_ALL,
+    BOUNCE_INIT_NEXT,
+    BOUNCE_AIRBORNE,
+};
+u32 BounceUpdate(struct Entity_*, u32 acceleration);
 extern u32 CheckOnScreen(struct Entity_*);
 extern bool32 EntityInRectRadius(struct Entity_*, struct Entity_*, u32, u32);
 extern void UpdateAnimationVariableFrames(struct Entity_*, u32);
-extern u32 sub_080043E8(struct Entity_*);
-extern void sub_08004484(struct Entity_*, struct Entity_*);
+extern u32 GetTileHazardType(struct Entity_*);
+/**
+ * Basic collision, only used between player and dazed enemies.
+ * (Probablity leftover from Four Swords)
+ */
+extern void CalcCollisionStaticEntity(struct Entity_*, struct Entity_*);
 extern void ResetCollisionLayer(struct Entity_*);
 extern void sub_08004596(struct Entity_*, u32);
 extern u32 sub_080045B4(struct Entity_*, u32, u32);

@@ -2,7 +2,7 @@
  * @file npc5.c
  * @ingroup NPCs
  *
- * @brief NPC 5
+ * @brief Unused Zelda follower NPC.
  */
 #include "collision.h"
 #include "functions.h"
@@ -11,86 +11,112 @@
 #include "npc.h"
 #include "tiles.h"
 
+#define kFollowDistance 32 // distance to follow player
+#define kPoiDistance 4     // point of interest distance
+#define kGravity Q_8_8(32.0)
+
+#define kCloseDistance 48    // distance to player to walk slowly
+#define kFarDistance 80      // distance to player to walk fast
+#define kCloseSpeed 0x120    // speed when close to player
+#define kMidSpeed 0x160      // speed when mid distance from player
+#define kFarSpeed 0x220      // speed when far from player
+#define kNavigateSpeed 0x1e0 // speed when navigating
+
+#define FLAG_FLINCHING 0x1
+#define FLAG_GOTO_PLAYER 0x2
+#define FLAG_GOTO_JUMPED 0x4
+#define FLAG_NAVIGATE 0x8
+
+typedef enum {
+    ZELDA_STATE_INIT,
+    ZELDA_STATE_IDLE,
+    ZELDA_STATE_FOLLOW,
+    ZELDA_STATE_LOST,
+    ZELDA_STATE_ANIM_SCRIPTED,
+    ZELDA_STATE_WALK_PRE_JUMP,
+    ZELDA_STATE_JUMP,
+    ZELDA_STATE_LAND,
+} ZeldaState;
+
+#define HEAP ((ZeldaData*)super->myHeap)
+
 typedef struct {
     /*0x00*/ Entity base;
-    /*0x68*/ u16* unk_68;
-    /*0x6c*/ u8 unk_6c;
+    /*0x68*/ u16* messageData;
+    /*0x6c*/ u8 baseAnimation;
     /*0x6d*/ u8 unused1;
-    /*0x6e*/ u16 unk_6e;
+    /*0x6e*/ u16 linear_move_dist;
     /*0x70*/ u8 unused2[4];
-    /*0x74*/ u16 unk_74;
+    /*0x74*/ u16 currentRoom;
     /*0x76*/ u8 unused3[2];
-    /*0x78*/ Entity* unk_78;
+    /*0x78*/ Entity* interactEntity;
 } NPC5Entity;
 
 typedef struct {
-    u8 unk_0;  // u8
-    u8 unk_0b; // u8
-    u16 unk_1; // u16
-    u16 unk_2; // u16
-    u16 unk_3;
-    u16 unk_4;
-    u16 unk_5; // u16
-    u16 unk_6; // u16
-    u16 unk_7; // u16
-    u16 unk_8; // u16
-} UnkHeap;
+    u8 flags;          // u8
+    u8 followDistance; // u8
+    u16 playerX;       // u16
+    u16 playerY;       // u16
+    u16 destX;
+    u16 destY;
+    u16 playerJumpedX; // u16
+    u16 playerJumpedY; // u16
+    u16 navX;          // u16
+    u16 navY;          // u16
+} ZeldaData;
 
-void sub_08060E70(NPC5Entity*, u32);
+void ZeldaSetAnim(NPC5Entity*, u32);
 
-u32 sub_08061230(NPC5Entity*);
-u32 sub_08060F80(Entity*);
-void sub_08060EDC(NPC5Entity*);
-void sub_08061090(NPC5Entity*, u32, u32);
+u32 CheckIsFlinching(NPC5Entity*);
+u32 ZeldaAtDestination(Entity*);
+void ZeldaUpdateIdleAnim(NPC5Entity*);
+void ZeldaCalcWalkSpeed(NPC5Entity*, u32, u32);
 
-bool32 sub_08060FD0(Entity*, u32, u32);
-void sub_08061464(NPC5Entity*, u32, u32);
-void sub_08061120(NPC5Entity*, u32, u32, u32);
-bool32 sub_08061170(NPC5Entity*);
+bool32 CheckDirectPathUnblocked(Entity*, u32, u32);
+void ZeldaInitNavigate(NPC5Entity*, u32, u32);
+void ZeldaCalcWalkAnim(NPC5Entity*, u32, u32, u32);
+bool32 ZeldaProcessMovement(NPC5Entity*);
 
-void sub_08061358(NPC5Entity*);
-void sub_08060E94(Entity*);
-void sub_08060A00(NPC5Entity*);
-void sub_08061AA0(NPC5Entity*);
-void sub_08061AA8(NPC5Entity*);
-void sub_08061B58(NPC5Entity*);
-void sub_08060AE0(NPC5Entity*);
-void sub_08060B5C(NPC5Entity*);
-void sub_08060BA0(NPC5Entity*);
-void sub_08060D78(NPC5Entity*);
-void sub_08060DD0(NPC5Entity*);
-void sub_08060DF4(NPC5Entity*);
-void sub_08060DFC(NPC5Entity*);
-void sub_08060E34(NPC5Entity*);
+void ZeldaDoLostAnim(NPC5Entity*);
+void ZeldaUpdateAnim(Entity*);
+void ZeldaType0Init(NPC5Entity*);
+void ZeldaType1Init(NPC5Entity*);
+void ZeldaType2Init(NPC5Entity*);
+void ZeldaType3Init(NPC5Entity*);
+void ZeldaInitAction(NPC5Entity*);
+void ZeldaIdleAction(NPC5Entity*);
+void ZeldaFollowAction(NPC5Entity*);
+void ZeldaLostAction(NPC5Entity*);
+void ZeldaAnimScripted(NPC5Entity*);
+void ZeldaWalkPreJump(NPC5Entity*);
+void ZeldaJumpAction(NPC5Entity*);
+void ZeldaLandAction(NPC5Entity*);
 void sub_08061ACC(NPC5Entity*);
 void sub_08061B18(NPC5Entity*);
 
 u32 PointInsideRadius(s32, s32, s32);
 
-u32 sub_080611D4(Entity*);
+u32 CalcJumpDirection(Entity*);
 extern u32 sub_08079FD4(Entity*, u32);
-extern void sub_08016AD2(Entity*);
+extern void UpdateCollisionLayer(Entity*);
 
-bool32 sub_08061630(NPC5Entity*, s32, s32, s32);
-bool32 sub_08061720(NPC5Entity*, s32, s32, s32);
-bool32 sub_080616A8(NPC5Entity*, s32, s32, s32);
-bool32 sub_08061798(NPC5Entity*, s32, s32, s32);
-bool32 sub_08061888(NPC5Entity*, s32, s32, s32);
-bool32 sub_08061978(NPC5Entity*, s32, s32, s32);
-bool32 sub_08061810(NPC5Entity*, s32, s32, s32);
-bool32 sub_08061900(NPC5Entity*, s32, s32, s32);
+bool32 TryNavRightFromAbove(NPC5Entity*, s32, s32, s32);
+bool32 TryNavUpFromRight(NPC5Entity*, s32, s32, s32);
+bool32 TryNavLeftFromAbove(NPC5Entity*, s32, s32, s32);
+bool32 TryNavBelowFromRight(NPC5Entity*, s32, s32, s32);
+bool32 TryNavLeftFromBelow(NPC5Entity*, s32, s32, s32);
+bool32 TryNavBelowFromLeft(NPC5Entity*, s32, s32, s32);
+bool32 TryNavRightFromBelow(NPC5Entity*, s32, s32, s32);
+bool32 TryNavUpFromLeft(NPC5Entity*, s32, s32, s32);
 
-bool32 sub_08061A74(u8*, s32, s32, s32);
-
-bool32 sub_08061A1C(u8*, s32, s32, s32);
-
-bool32 sub_080619F0(u8*, s32, s32, s32);
-
-bool32 sub_08061A48(u8*, s32, s32, s32);
+bool32 CheckPathRight(u8*, s32, s32, s32);
+bool32 CheckPathLeft(u8*, s32, s32, s32);
+bool32 CheckPathUp(u8*, s32, s32, s32);
+bool32 CheckPathBelow(u8*, s32, s32, s32);
 
 void sub_08061AFC(NPC5Entity*);
 
-extern u16* gUnk_0810B660[8];
+extern u16* gZeldaFollowerText[8];
 
 void CreateZeldaFollower(void) {
     Entity* npc;
@@ -107,229 +133,235 @@ void CreateZeldaFollower(void) {
 // UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(NPC5Entity* this) {
     static void (*const gUnk_0810AC1C[])(NPC5Entity*) = {
-        sub_08060A00,
-        sub_08061AA0,
-        sub_08061AA8,
-        sub_08061B58,
+        ZeldaType0Init,
+        ZeldaType1Init,
+        ZeldaType2Init,
+        ZeldaType3Init,
     };
     gUnk_0810AC1C[super->type](this);
 }
 
-void sub_08060A00(NPC5Entity* this) {
+void ZeldaType0Init(NPC5Entity* this) {
     static void (*const Npc5_Actions[])(NPC5Entity*) = {
-        sub_08060AE0, sub_08060B5C, sub_08060BA0, sub_08060D78, sub_08060DD0, sub_08060DF4, sub_08060DFC, sub_08060E34,
+        ZeldaInitAction,   ZeldaIdleAction,  ZeldaFollowAction, ZeldaLostAction,
+        ZeldaAnimScripted, ZeldaWalkPreJump, ZeldaJumpAction,   ZeldaLandAction,
     };
     u32 tmp;
 
-    if ((gPlayerState.jump_status & 0x80) != 0) {
-        if (super->action != 0) {
-            if (((((UnkHeap*)super->myHeap)->unk_0) & 4) == 0) {
-                ((UnkHeap*)super->myHeap)->unk_0 |= 4;
-                ((UnkHeap*)super->myHeap)->unk_5 = (gPlayerEntity.base.x.HALF.HI & 0xfff0) + 8;
-                ((UnkHeap*)super->myHeap)->unk_6 = (gPlayerEntity.base.y.HALF.HI & 0xfff0) + 8;
+    if (gPlayerState.jump_status & 0x80) {
+        if (super->action != ZELDA_STATE_INIT) {
+            if ((HEAP->flags & FLAG_GOTO_JUMPED) == 0) {
+                HEAP->flags |= FLAG_GOTO_JUMPED;
+                HEAP->playerJumpedX = (gPlayerEntity.base.x.HALF.HI & 0xfff0) + 8;
+                HEAP->playerJumpedY = (gPlayerEntity.base.y.HALF.HI & 0xfff0) + 8;
             }
         }
     }
 
-    if ((super->action == 0) || (super->spriteSettings.draw != 0)) {
+    if ((super->action == ZELDA_STATE_INIT) || (super->spriteSettings.draw != 0)) {
         Npc5_Actions[super->action](this);
     }
 
-    if (super->action != 0) {
-        ((UnkHeap*)super->myHeap)->unk_1 = gPlayerEntity.base.x.HALF.HI;
-        ((UnkHeap*)super->myHeap)->unk_2 = gPlayerEntity.base.y.HALF.HI;
+    if (super->action != ZELDA_STATE_INIT) {
+        HEAP->playerX = gPlayerEntity.base.x.HALF.HI;
+        HEAP->playerY = gPlayerEntity.base.y.HALF.HI;
     }
-    if (this->unk_74 != gRoomControls.room) {
-        this->unk_74 = gRoomControls.room;
+    if (this->currentRoom != gRoomControls.room) {
+        this->currentRoom = gRoomControls.room;
         CopyPosition(&gPlayerEntity.base, super);
-        super->action = 1;
+        super->action = ZELDA_STATE_IDLE;
         super->spriteSettings.draw = 1;
-        super->speed = 0x120;
+        super->speed = kCloseSpeed;
         tmp = gRoomControls.scroll_direction;
         super->animationState = tmp * 2;
         InitAnimationForceUpdate(super, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
         super->frameDuration = (Random() & 0x7f) + 0x80;
-        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfb;
+        HEAP->flags &= ~FLAG_GOTO_JUMPED;
     }
 }
 
-void sub_08060AE0(NPC5Entity* this) {
-    UnkHeap* heapObj;
+void ZeldaInitAction(NPC5Entity* this) {
+    ZeldaData* heapObj;
     Entity* otherNpc;
 
-    heapObj = (UnkHeap*)zMalloc(0x14); // TODO UnkHeap struct should have size 0x14?
+    heapObj = (ZeldaData*)zMalloc(sizeof(ZeldaData));
     if (heapObj != NULL) {
         super->myHeap = (u32*)heapObj;
-        heapObj->unk_0b = 0x20;
-        super->action = 1;
+        heapObj->followDistance = kFollowDistance;
+        super->action = ZELDA_STATE_IDLE;
         COLLISION_ON(super);
         super->animationState &= 3;
         super->collisionFlags = 7;
         super->hurtType = 0x48;
         super->hitType = 0x49;
-        super->flags2 = 3;
+        super->collisionMask = 3;
         super->hitbox = (Hitbox*)&gHitbox_0;
-        super->followerFlag &= 0xfe;
-        this->unk_6c = 0xff;
-        sub_08060E70(this, super->animationState);
+        super->followerFlag &= ~1;
+        this->baseAnimation = 0xff;
+        ZeldaSetAnim(this, super->animationState);
         otherNpc = CreateNPC(NPC_UNK_5, 2, 0);
         if (otherNpc != NULL) {
             otherNpc->parent = super;
-            this->unk_78 = otherNpc;
+            this->interactEntity = otherNpc;
         }
     }
 }
 
-void sub_08060B5C(NPC5Entity* this) {
-    if (sub_08061230(this) == 0) {
-        if ((sub_08060F80(super) == 0) &&
-            (((GetFacingDirection(super, &gPlayerEntity.base) + (super->animationState * -4) + 4) & 0x1f)) < 9) {
-            super->action = 2;
-            super->subtimer = 0;
-            return;
-        }
-        sub_08060EDC(this);
+void ZeldaIdleAction(NPC5Entity* this) {
+    if (CheckIsFlinching(this)) {
+        return;
     }
+
+    if (!ZeldaAtDestination(super) &&
+        DirectionNormalize(GetFacingDirection(super, &gPlayerEntity.base) + (super->animationState * -4) + 4) < 9) {
+        super->action = ZELDA_STATE_FOLLOW;
+        super->subtimer = 0;
+        return;
+    }
+    ZeldaUpdateIdleAnim(this);
 }
 
-void sub_08060BA0(NPC5Entity* this) {
+void ZeldaFollowAction(NPC5Entity* this) {
     Entity* r5;
     //! @bug: r5 is uninitialized
 
-    if (sub_08061230(this) != 0) {
+    if (CheckIsFlinching(this)) {
         return;
     }
-    if ((((UnkHeap*)super->myHeap)->unk_0 & 4) != 0) {
-        if ((((UnkHeap*)super->myHeap)->unk_0 & 8) != 0) {
-            super->speed = 0x1e0;
-            sub_08061120(this, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8, 0xc);
-            sub_08061170(this);
-            if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8, 4) !=
-                0) {
-                ((UnkHeap*)super->myHeap)->unk_0 &= 0xf7;
-            }
-        } else {
-            if (sub_08060FD0(super, ((UnkHeap*)super->myHeap)->unk_5, ((UnkHeap*)super->myHeap)->unk_6) != 0) {
-                if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_5, ((UnkHeap*)super->myHeap)->unk_6,
-                                         4) != 0) {
-                    ((UnkHeap*)super->myHeap)->unk_0 &= 0xfb;
-                    super->action = 5;
-                    super->direction = r5->direction;
-                    super->speed = 0x160;
-                    sub_08060E70(this, 8);
-                } else {
-                    super->speed = 0x1e0;
-                    sub_08061120(this, r5->x.HALF.HI, r5->y.HALF.HI, 0xc);
-                    sub_08061170(this);
-                }
-            } else {
-                sub_08061464(this, r5->x.HALF.HI, r5->y.HALF.HI);
-            }
-        }
 
-    } else {
-        if (sub_08060FD0(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI) != 0) {
-            sub_08061090(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
-            sub_08061170(this);
-            ((UnkHeap*)super->myHeap)->unk_0 &= 0xf5;
-        } else {
-            ((UnkHeap*)super->myHeap) = (UnkHeap*)super->myHeap;
-            if ((((UnkHeap*)super->myHeap)->unk_0 & 8) != 0) {
-                super->speed = 0x1e0;
-                sub_08061120(this, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8, 0xc);
-                sub_08061170(this);
-                if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_7, ((UnkHeap*)super->myHeap)->unk_8,
-                                         4) != 0) {
-                    ((UnkHeap*)super->myHeap)->unk_0 &= 0xf7;
-                }
-            } else {
-                if ((((UnkHeap*)super->myHeap)->unk_0 & 2) == 0) {
-                    ((UnkHeap*)super->myHeap)->unk_0 |= 2;
-                    ((UnkHeap*)super->myHeap)->unk_3 = ((UnkHeap*)super->myHeap)->unk_1;
-                    ((UnkHeap*)super->myHeap)->unk_4 = ((UnkHeap*)super->myHeap)->unk_2;
-                }
-                if (sub_08060FD0(super, ((UnkHeap*)super->myHeap)->unk_3, ((UnkHeap*)super->myHeap)->unk_4) != 0) {
-                    super->speed = 0x1e0;
-                    sub_08061120(this, ((UnkHeap*)super->myHeap)->unk_3, ((UnkHeap*)super->myHeap)->unk_4, 0xc);
-                    sub_08061170(this);
-                    if (EntityWithinDistance(super, ((UnkHeap*)super->myHeap)->unk_3, ((UnkHeap*)super->myHeap)->unk_4,
-                                             4) != 0) {
-                        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfd;
-                    }
-                } else {
-                    ((UnkHeap*)super->myHeap)->unk_0 &= 0xfd;
-                    sub_08061464(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
-                }
+    if (HEAP->flags & FLAG_GOTO_JUMPED) {
+        // goto position where player jumped
+        if (HEAP->flags & FLAG_NAVIGATE) {
+            // navigate to jump position
+            super->speed = kNavigateSpeed;
+            ZeldaCalcWalkAnim(this, HEAP->navX, HEAP->navY, 0xc);
+            ZeldaProcessMovement(this);
+            if (EntityWithinDistance(super, HEAP->navX, HEAP->navY, kPoiDistance)) {
+                // reached navigation position
+                HEAP->flags &= ~FLAG_NAVIGATE;
             }
+        } else if (CheckDirectPathUnblocked(super, HEAP->playerJumpedX, HEAP->playerJumpedY)) {
+            // At jump location, begin jumping
+            if (EntityWithinDistance(super, HEAP->playerJumpedX, HEAP->playerJumpedY, kPoiDistance)) {
+                HEAP->flags &= ~FLAG_GOTO_JUMPED;
+                super->action = ZELDA_STATE_WALK_PRE_JUMP;
+                super->direction = r5->direction;
+                super->speed = kMidSpeed;
+                ZeldaSetAnim(this, 8);
+            } else {
+                // walk to jump location
+                super->speed = kNavigateSpeed;
+                ZeldaCalcWalkAnim(this, r5->x.HALF.HI, r5->y.HALF.HI, 0xc);
+                ZeldaProcessMovement(this);
+            }
+        } else {
+            // navigate to jump location (bugged)
+            ZeldaInitNavigate(this, r5->x.HALF.HI, r5->y.HALF.HI);
+        }
+    } else if (CheckDirectPathUnblocked(super, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI)) {
+        // walk directly to player
+        ZeldaCalcWalkSpeed(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
+        ZeldaProcessMovement(this);
+        HEAP->flags &= ~(FLAG_NAVIGATE | FLAG_GOTO_PLAYER);
+    } else if (HEAP->flags & FLAG_NAVIGATE) {
+        // navigating to a position
+        super->speed = kNavigateSpeed;
+        ZeldaCalcWalkAnim(this, HEAP->navX, HEAP->navY, 0xc);
+        ZeldaProcessMovement(this);
+        if (EntityWithinDistance(super, HEAP->navX, HEAP->navY, kPoiDistance)) {
+            // reached navigation position
+            HEAP->flags &= ~FLAG_NAVIGATE;
+        }
+    } else { // player not found and no position set to navigate to
+        if ((HEAP->flags & FLAG_GOTO_PLAYER) == 0) {
+            // get player position
+            HEAP->flags |= FLAG_GOTO_PLAYER;
+            HEAP->destX = HEAP->playerX;
+            HEAP->destY = HEAP->playerY;
+        }
+        if (CheckDirectPathUnblocked(super, HEAP->destX, HEAP->destY)) {
+            // can walk directly to player
+            super->speed = kNavigateSpeed;
+            ZeldaCalcWalkAnim(this, HEAP->destX, HEAP->destY, 0xc);
+            ZeldaProcessMovement(this);
+            if (EntityWithinDistance(super, HEAP->destX, HEAP->destY, kPoiDistance)) {
+                // reached player position
+                HEAP->flags &= ~FLAG_GOTO_PLAYER;
+            }
+        } else { // try to navigate to player
+            HEAP->flags &= ~FLAG_GOTO_PLAYER;
+            ZeldaInitNavigate(this, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
         }
     }
-    if (sub_08060F80(super) != 0) {
-        super->action = 1;
-        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfb;
-        sub_08060E70(this, 0);
+
+    if (ZeldaAtDestination(super)) {
+        super->action = ZELDA_STATE_IDLE;
+        HEAP->flags &= ~FLAG_GOTO_JUMPED;
+        ZeldaSetAnim(this, 0);
     }
 }
 
-void sub_08060D78(NPC5Entity* this) {
-    sub_08061358(this);
-    if (sub_08060F80(super) != 0) {
-        if ((u32)super->animIndex - 0x20 < 0x10) {
-            if ((super->frame & 7) != 0) {
-                super->frameDuration = 1;
-                UpdateAnimationSingleFrame(super);
-            }
-            super->animationState = super->frame & 0x18;
-            this->unk_6c = 0xff;
-        }
-        super->action = 1;
-        sub_08060E70(this, 0);
+void ZeldaLostAction(NPC5Entity* this) {
+    ZeldaDoLostAnim(this);
+
+    // wait to be found
+    if (!ZeldaAtDestination(super)) {
+        return;
     }
+
+    if ((u32)super->animIndex - 0x20 < 0x10) {
+        if ((super->frame & 7) != 0) {
+            super->frameDuration = 1;
+            UpdateAnimationSingleFrame(super);
+        }
+        super->animationState = super->frame & 0x18;
+        this->baseAnimation = 0xff;
+    }
+    super->action = ZELDA_STATE_IDLE;
+    ZeldaSetAnim(this, 0);
 }
 
-void sub_08060DD0(NPC5Entity* this) {
+void ZeldaAnimScripted(NPC5Entity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & ANIM_DONE) != 0) {
-        super->action = 1;
-        sub_08060E70(this, 0);
+    if (super->frame & ANIM_DONE) {
+        super->action = ZELDA_STATE_IDLE;
+        ZeldaSetAnim(this, 0);
     }
 }
 
-void sub_08060DF4(NPC5Entity* this) {
-    sub_08061170(this);
+void ZeldaWalkPreJump(NPC5Entity* this) {
+    ZeldaProcessMovement(this);
 }
 
-void sub_08060DFC(NPC5Entity* this) {
-    u32 uVar1;
-
+void ZeldaJumpAction(NPC5Entity* this) {
     LinearMoveUpdate(super);
-    sub_08060E94(super);
-    uVar1 = GravityUpdate(super, Q_8_8(32.0));
-    if (uVar1 == 0) {
-        super->action = 7;
+    ZeldaUpdateAnim(super);
+    if (GravityUpdate(super, kGravity) == 0) {
+        super->action = ZELDA_STATE_LAND;
         super->collisionLayer = 1;
         UpdateSpriteForCollisionLayer(super);
-        sub_08060E70(this, 0x1c);
+        ZeldaSetAnim(this, 0x1c);
     }
 }
 
-void sub_08060E34(NPC5Entity* this) {
+void ZeldaLandAction(NPC5Entity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & ANIM_DONE) != 0) {
-        super->action = 2;
+    if (super->frame & ANIM_DONE) {
+        super->action = ZELDA_STATE_FOLLOW;
         super->animationState = DirectionToAnimationState(GetFacingDirection(super, &gPlayerEntity.base)) * 2;
-        sub_08060E70(this, 8);
+        ZeldaSetAnim(this, 8);
     }
 }
 
-void sub_08060E70(NPC5Entity* this, u32 param) {
+void ZeldaSetAnim(NPC5Entity* this, u32 param) {
     u32 tmp = param + super->animationState / 2;
     if (tmp != super->animIndex) {
-        this->unk_6c = param;
+        this->baseAnimation = param;
         InitAnimationForceUpdate(super, tmp);
     }
 }
 
-void sub_08060E94(Entity* this) {
+void ZeldaUpdateAnim(Entity* this) {
     if (((*(u32*)&this->animIndex & 0x80ff00) == 0x800100) && (this->animIndex < 4)) {
         InitAnimationForceUpdate(this, (this->animationState >> 1));
         this->frameDuration = (Random() & 0x7f) + 0x80;
@@ -338,80 +370,88 @@ void sub_08060E94(Entity* this) {
     }
 }
 
-void sub_08060EDC(NPC5Entity* this) {
+void ZeldaUpdateIdleAnim(NPC5Entity* this) {
     s32 tmp;
 
     if (((u32)super->animIndex - 0x20 < 0x10) && ((super->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(super);
-    } else {
-        tmp = GetFacingDirection(super, &gPlayerEntity.base) + super->animationState * -4;
-        if (((tmp + 3) & 0x1f) >= 7) {
-            if ((tmp & 0x1f) < 0x10) {
-                InitAnimationForceUpdate(super, super->animationState + 0x20);
-                super->animationState = (super->animationState + 1) & 7;
-            } else {
-                InitAnimationForceUpdate(super, super->animationState + 0x28);
-                super->animationState = (super->animationState - 1) & 7;
-            }
+        return;
+    }
+
+    tmp = GetFacingDirection(super, &gPlayerEntity.base) + super->animationState * -4;
+    if (((tmp + 3) & 0x1f) > 6) {
+        if ((tmp & 0x1f) < 0x10) {
+            InitAnimationForceUpdate(super, super->animationState + 0x20);
+            super->animationState = (super->animationState + 1) & 7;
         } else {
-            if ((super->animationState & 1) == 0) {
-                if (((super->frame & ANIM_DONE) != 0) && (0xf >= (u32)super->animIndex - 0x20)) {
-                    sub_08060E70(this, 0);
-                } else {
-                    sub_08060E94(super);
-                }
-            }
+            InitAnimationForceUpdate(super, super->animationState + 0x28);
+            super->animationState = (super->animationState - 1) & 7;
+        }
+        return;
+    }
+
+    if ((super->animationState & 1) == 0) {
+        if ((super->frame & ANIM_DONE) && (0xf >= (u32)super->animIndex - 0x20)) {
+            ZeldaSetAnim(this, 0);
+        } else {
+            ZeldaUpdateAnim(super);
         }
     }
 }
-u32 sub_08060F80(Entity* this) {
-    if (sub_08060FD0(this, (s32)gPlayerEntity.base.x.HALF.HI, (s32)gPlayerEntity.base.y.HALF.HI) == 0) {
+
+u32 ZeldaAtDestination(Entity* this) {
+    if (CheckDirectPathUnblocked(this, (s32)gPlayerEntity.base.x.HALF.HI, (s32)gPlayerEntity.base.y.HALF.HI) == 0) {
         return 0;
     }
-    ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
+    ((ZeldaData*)this->myHeap)->flags &= ~FLAG_GOTO_JUMPED;
     if (PointInsideRadius(gPlayerEntity.base.x.HALF.HI - this->x.HALF.HI,
-                          gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI, ((UnkHeap*)this->myHeap)->unk_0b) != 0) {
+                          gPlayerEntity.base.y.HALF.HI - this->y.HALF.HI, ((ZeldaData*)this->myHeap)->followDistance)) {
         return 1;
     }
     return 0;
 }
 
-bool32 sub_08060FD0(Entity* this, u32 a, u32 b) {
-    s32 sVar1;
-    s32 sVar2;
-    int iVar3;
+bool32 CheckDirectPathUnblocked(Entity* this, u32 target_x, u32 target_y) {
+    s32 dx;
+    s32 dy;
+    int angle;
     int x;
     int y;
-    u8* puVar8;
+    u8* layer;
+
+    const int col_check_length = 6;
 
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
-    iVar3 = CalculateDirectionFromOffsets(a - x, b - y);
+    angle = CalculateDirectionFromOffsets(target_x - x, target_y - y);
     x <<= 8;
     y <<= 8;
-    sVar1 = gSineTable[iVar3] * 6;
-    sVar2 = gSineTable[(iVar3 + 0x40)] * 6;
+
+    // get vector to target
+    dx = gSineTable[angle] * col_check_length;
+    dy = gSineTable[(angle + 0x40)] * col_check_length;
 
     if (this->collisionLayer != 2) {
-        puVar8 = gMapBottom.collisionData;
+        layer = gMapBottom.collisionData;
     } else {
-        puVar8 = gMapTop.collisionData;
+        layer = gMapTop.collisionData;
     }
 
     while (1) {
-        if (IsTileCollision(puVar8, x / 0x100, y / 0x100, 6)) {
+        if (IsTileCollision(layer, x / 0x100, y / 0x100, col_check_length)) {
             return 0;
         }
-        if (((a - (x / 0x100)) + 6 >= 0xd) || ((b - (y / 0x100)) + 6 >= 0xd)) {
-            x += sVar1;
-            y -= sVar2;
+        if (((target_x - (x / 0x100)) + col_check_length > col_check_length * 2) ||
+            ((target_y - (y / 0x100)) + col_check_length > col_check_length * 2)) {
+            x += dx;
+            y -= dy;
             continue;
         }
         return 1;
     }
 }
 
-void sub_08061090(NPC5Entity* this, u32 a, u32 b) {
+void ZeldaCalcWalkSpeed(NPC5Entity* this, u32 a, u32 b) {
     s32 xDist;
     s32 yDist;
     s32 sqrDist;
@@ -420,42 +460,42 @@ void sub_08061090(NPC5Entity* this, u32 a, u32 b) {
     xDist = gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI;
     yDist = gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI;
     sqrDist = (xDist * xDist) + (yDist * yDist);
-    if (sqrDist < 0x900) {
-        super->speed = 0x120;
+    if (sqrDist < kCloseDistance * kCloseDistance) {
+        super->speed = kCloseSpeed;
     } else {
-        if (sqrDist < 0x1900) {
-            super->speed = ((sqrDist - 0x900) >> 4) + 0x120;
+        if (sqrDist < kFarDistance * kFarDistance) {
+            super->speed = ((sqrDist - (kCloseDistance * kCloseDistance)) >> 4) + kCloseSpeed;
         } else {
-            super->speed = 0x220;
+            super->speed = kFarSpeed;
         }
     }
-    if (super->speed == 0x120) {
+    if (super->speed == kCloseSpeed) {
         tmp = 4;
-    } else if (super->speed < 0x160) {
+    } else if (super->speed < kMidSpeed) {
         tmp = 8;
     } else {
         tmp = 0xc;
     }
-    sub_08061120(this, a, b, tmp);
+    ZeldaCalcWalkAnim(this, a, b, tmp);
 }
 
-void sub_08061120(NPC5Entity* this, u32 param_a, u32 param_b, u32 param_c) {
-    super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, param_a, param_b);
-    if ((param_c != this->unk_6c) || (10 < ((super->direction + super->animationState * -4 + 5) & 0x1f))) {
-        super->animationState = DirectionRoundUp(super->direction) >> 2;
-        sub_08060E70(this, param_c);
+void ZeldaCalcWalkAnim(NPC5Entity* this, u32 target_x, u32 target_y, u32 anim) {
+    super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, target_x, target_y);
+    if ((anim != this->baseAnimation) || (10 < ((super->direction + super->animationState * -4 + 5) & 0x1f))) {
+        super->animationState = Direction8ToAnimationState(DirectionRoundUp(super->direction));
+        ZeldaSetAnim(this, anim);
     }
 }
 
-bool32 sub_08061170(NPC5Entity* this) {
+bool32 ZeldaProcessMovement(NPC5Entity* this) {
     u32 direction;
     u32 tmp;
 
     UpdateAnimationSingleFrame(super);
     if (ProcessMovement6(super) == 0) {
-        direction = sub_080611D4(super);
+        direction = CalcJumpDirection(super);
         if (direction != 0xff) {
-            super->action = 6;
+            super->action = ZELDA_STATE_JUMP;
             tmp = (sub_08079FD4(super, 1));
             tmp <<= 4;
             tmp -= 4;
@@ -465,46 +505,47 @@ bool32 sub_08061170(NPC5Entity* this) {
             super->direction = direction;
             super->animationState = direction >> 2;
             if (tmp >> 0x10 != 0) {
-                sub_08060E70(this, 0x14);
+                ZeldaSetAnim(this, 0x14);
             } else {
-                sub_08060E70(this, 0x18);
+                ZeldaSetAnim(this, 0x18);
             }
         }
         return FALSE;
     } else {
-        sub_08016AD2(super);
+        UpdateCollisionLayer(super);
         return TRUE;
     }
 }
 
-u32 sub_080611D4(Entity* this) {
+// TODO: this relies on tiles 0x2a - 0x2d, do these exist in the game?
+u32 CalcJumpDirection(Entity* this) {
     static const struct {
         s8 unk_0;
         s8 unk_1;
-    } PACKED gUnk_0810AC4C[] = {
+    } PACKED sOffsets[] = {
         { 0, -8 },
         { 8, 0 },
         { 0, 3 },
         { -8, 0 },
     };
 
-    static const u8 gUnk_0810AC54[] = {
+    static const u8 sTable[] = {
         // vvv, animationState
-        VVV_43, 0x10, VVV_42, 0x0, VVV_45, 0x8, VVV_44, 0x18, 0x0,
+        VVV_43, DirectionSouth, VVV_42, DirectionNorth, VVV_45, DirectionEast, VVV_44, DirectionWest, 0x0,
     };
 
     u32 vvv;
     u32 x;
-    s32 a;
-    s32 b;
+    s32 x_offset;
+    s32 y_offset;
     s8* ptr;
     const u8* ptr2;
-    x = this->animationState & 6;
-    ptr = (s8*)gUnk_0810AC4C;
-    a = ptr[x];
-    b = ptr[x + 1];
-    vvv = GetVvvRelativeToEntity(this, a, b);
-    ptr2 = gUnk_0810AC54;
+    x = AnimationStateIdle(this->animationState);
+    ptr = (s8*)sOffsets;
+    x_offset = ptr[x];
+    y_offset = ptr[x + 1];
+    vvv = GetVvvRelativeToEntity(this, x_offset, y_offset);
+    ptr2 = sTable;
 
     do {
         if (*ptr2 != vvv || this->animationState != (ptr2[1] >> 2)) {
@@ -525,9 +566,9 @@ u32 sub_080611D4(Entity* this) {
     return 0xff;
 }
 
-u32 sub_08061230(NPC5Entity* this) {
-    if ((((UnkHeap*)super->myHeap)->unk_0 & 1) == 0) {
-        if ((super->contactFlags & 0x80) != 0) {
+u32 CheckIsFlinching(NPC5Entity* this) {
+    if ((HEAP->flags & FLAG_FLINCHING) == 0) {
+        if (super->contactFlags & CONTACT_NOW) {
             switch (super->contactFlags & 0x7f) {
                 case 0:
                 case 1:
@@ -540,7 +581,7 @@ u32 sub_08061230(NPC5Entity* this) {
                 case 0x1f:
                     break;
                 default:
-                    ((UnkHeap*)super->myHeap)->unk_0 = ((UnkHeap*)super->myHeap)->unk_0 | 1;
+                    HEAP->flags |= FLAG_FLINCHING;
                     InitAnimationForceUpdate(super, (super->animationState >> 1) + 0x40);
                     return 1;
             }
@@ -550,17 +591,17 @@ u32 sub_08061230(NPC5Entity* this) {
         if ((super->frame & ANIM_DONE) == 0) {
             return 1;
         }
-        ((UnkHeap*)super->myHeap)->unk_0 &= 0xfe;
-        InitAnimationForceUpdate(super, this->unk_6c + (super->animationState >> 1));
+        HEAP->flags &= ~FLAG_FLINCHING;
+        InitAnimationForceUpdate(super, this->baseAnimation + (super->animationState >> 1));
     }
-    super->contactFlags = super->contactFlags & 0x7f;
+    super->contactFlags &= 0x7f;
     if (super->iframes != 0) {
         super->iframes++;
     }
     return 0;
 }
 
-void sub_08061358(NPC5Entity* this) {
+void ZeldaDoLostAnim(NPC5Entity* this) {
     static const u8 gUnk_0810AC5D[] = {
         0x30, 0x31, 0x38, 0x39, 0x32, 0x33, 0x3a, 0x3b, 0x34, 0x35, 0x3c, 0x3d, 0x36, 0x37, 0x3e, 0x3f, 0x0, 0x0, 0x0,
     };
@@ -575,7 +616,7 @@ void sub_08061358(NPC5Entity* this) {
             }
             super->subAction = 1;
             super->timer = 15;
-            sub_08060E70(this, 0);
+            ZeldaSetAnim(this, 0);
             break;
         case 1:
             super->timer--;
@@ -587,7 +628,7 @@ void sub_08061358(NPC5Entity* this) {
             if ((uVar2 & 1) == 0) {
                 super->subAction = 3;
                 super->timer = (bVar4 & 0x18) + 30;
-                sub_08060E70(this, 4);
+                ZeldaSetAnim(this, 4);
                 return;
             }
             super->subAction = 2;
@@ -602,14 +643,14 @@ void sub_08061358(NPC5Entity* this) {
             if ((Random() & 1)) {
                 super->subAction = 3;
                 super->timer = (bVar4 & 0x18) + 30;
-                sub_08060E70(this, 4);
+                ZeldaSetAnim(this, 4);
                 return;
             }
             super->subAction = 0;
-            sub_08060E70(this, 0x10);
+            ZeldaSetAnim(this, 0x10);
             break;
         case 3:
-            if (sub_08061170(this) == 0) {
+            if (ZeldaProcessMovement(this) == 0) {
                 super->subAction = 2;
 
                 //! @bug bVar4 (r6) is uninitialized.
@@ -620,96 +661,95 @@ void sub_08061358(NPC5Entity* this) {
                 return;
             }
             super->subAction = 0;
-            sub_08060E70(this, 0x10);
+            ZeldaSetAnim(this, 0x10);
             break;
     }
 }
 
-void sub_08061464(NPC5Entity* this, u32 param_a, u32 param_b) {
-    s32 iVar10;
-    s32 iVar9;
-    u32 bVar1;
+void ZeldaInitNavigate(NPC5Entity* this, u32 tgt_x, u32 tgt_y) {
+    s32 x;
+    s32 y;
 
-    iVar10 = super->x.HALF.HI;
-    iVar9 = super->y.HALF.HI;
+    x = super->x.HALF.HI;
+    y = super->y.HALF.HI;
 
-    switch (((CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
+    switch (((CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, tgt_x, tgt_y) + 2) & 0x1c) >> 2) {
         case 0:
-            this->unk_6e = param_b;
-            if (super->x.HALF.HI > (s32)param_a) {
-                sub_08061630(this, iVar10, iVar9 + -8, param_a);
+            this->linear_move_dist = tgt_y;
+            if (super->x.HALF.HI > (s32)tgt_x) {
+                TryNavRightFromAbove(this, x, y + -8, tgt_x);
                 break;
             }
-            sub_080616A8(this, iVar10, iVar9 + -8, param_a);
+            TryNavLeftFromAbove(this, x, y + -8, tgt_x);
             break;
         case 1:
-            this->unk_6e = param_a;
-            if (sub_08061720(this, iVar10 + 8, iVar9, param_b) != 0)
+            this->linear_move_dist = tgt_x;
+            if (TryNavUpFromRight(this, x + 8, y, tgt_y) != 0)
                 break;
-            this->unk_6e = param_b;
-            sub_080616A8(this, iVar10, iVar9 + -8, param_a);
+            this->linear_move_dist = tgt_y;
+            TryNavLeftFromAbove(this, x, y + -8, tgt_x);
             break;
         case 2:
-            this->unk_6e = param_a;
-            if (super->y.HALF.HI > (s32)param_b) {
-                sub_08061720(this, iVar10 + 8, iVar9, param_b);
+            this->linear_move_dist = tgt_x;
+            if (super->y.HALF.HI > (s32)tgt_y) {
+                TryNavUpFromRight(this, x + 8, y, tgt_y);
             } else {
-                sub_08061798(this, iVar10 + 8, iVar9, param_b);
+                TryNavBelowFromRight(this, x + 8, y, tgt_y);
             }
             break;
         case 3:
-            this->unk_6e = param_a;
-            if (sub_08061798(this, iVar10 + 8, iVar9, param_b) != 0)
+            this->linear_move_dist = tgt_x;
+            if (TryNavBelowFromRight(this, x + 8, y, tgt_y) != 0)
                 break;
-            this->unk_6e = param_b;
-            sub_08061888(this, iVar10, iVar9 + 8, param_a);
+            this->linear_move_dist = tgt_y;
+            TryNavLeftFromBelow(this, x, y + 8, tgt_x);
             break;
         case 4:
-            this->unk_6e = param_b;
-            if (super->x.HALF.HI > (s32)param_a) {
-                sub_08061810(this, iVar10, iVar9 + 8, param_a);
+            this->linear_move_dist = tgt_y;
+            if (super->x.HALF.HI > (s32)tgt_x) {
+                TryNavRightFromBelow(this, x, y + 8, tgt_x);
                 break;
             }
-            sub_08061888(this, iVar10, iVar9 + 8, param_a);
+            TryNavLeftFromBelow(this, x, y + 8, tgt_x);
             break;
         case 5:
-            this->unk_6e = param_a;
-            if (sub_08061978(this, iVar10 + -8, iVar9, param_b) != 0)
+            this->linear_move_dist = tgt_x;
+            if (TryNavBelowFromLeft(this, x + -8, y, tgt_y) != 0)
                 break;
-            this->unk_6e = param_b;
-            sub_08061810(this, iVar10, iVar9 + 8, param_a);
+            this->linear_move_dist = tgt_y;
+            TryNavRightFromBelow(this, x, y + 8, tgt_x);
             break;
         case 6:
-            this->unk_6e = param_a;
-            if (super->y.HALF.HI > (s32)param_b) {
-                sub_08061900(this, iVar10 + -8, iVar9, param_b);
+            this->linear_move_dist = tgt_x;
+            if (super->y.HALF.HI > (s32)tgt_y) {
+                TryNavUpFromLeft(this, x + -8, y, tgt_y);
             } else {
-                sub_08061978(this, iVar10 + -8, iVar9, param_b);
+                TryNavBelowFromLeft(this, x + -8, y, tgt_y);
             }
             break;
         case 7:
-            this->unk_6e = param_a;
-            if (sub_08061900(this, iVar10 + -8, iVar9, param_b) == 0) {
-                this->unk_6e = param_b;
-                sub_08061630(this, iVar10, iVar9 + -8, param_a);
+            this->linear_move_dist = tgt_x;
+            if (TryNavUpFromLeft(this, x + -8, y, tgt_y) == 0) {
+                this->linear_move_dist = tgt_y;
+                TryNavRightFromAbove(this, x, y + -8, tgt_x);
             }
     }
-    bVar1 = ((UnkHeap*)super->myHeap)->unk_0 & 8;
-    if (bVar1 == 0) {
-        super->action = 3;
-        super->subAction = bVar1;
+
+    if ((HEAP->flags & FLAG_NAVIGATE) == 0) {
+        super->action = ZELDA_STATE_LOST;
+        super->subAction = 0;
     }
 }
 
-bool32 sub_08061630(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavRightFromAbove(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_08061A74(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = x;
-            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e >= y) {
+        if (CheckPathRight(layer, x, y, param)) {
+            HEAP->navX = x;
+            HEAP->navY = param_y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist >= y) {
                 return TRUE;
             }
         }
@@ -718,15 +758,15 @@ bool32 sub_08061630(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_080616A8(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavLeftFromAbove(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_08061A1C(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = x;
-            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e >= y) {
+        if (CheckPathLeft(layer, x, y, param)) {
+            HEAP->navX = x;
+            HEAP->navY = param_y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist >= y) {
                 return TRUE;
             }
         }
@@ -735,15 +775,15 @@ bool32 sub_080616A8(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061720(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavUpFromRight(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_080619F0(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)super->myHeap)->unk_8 = y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e <= x) {
+        if (CheckPathUp(layer, x, y, param)) {
+            HEAP->navX = param_x;
+            HEAP->navY = y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist <= x) {
                 return TRUE;
             }
         }
@@ -752,15 +792,15 @@ bool32 sub_08061720(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061798(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavBelowFromRight(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_08061A48(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)super->myHeap)->unk_8 = y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e <= x) {
+        if (CheckPathBelow(layer, x, y, param)) {
+            HEAP->navX = param_x;
+            HEAP->navY = y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist <= x) {
                 return TRUE;
             }
         }
@@ -769,15 +809,15 @@ bool32 sub_08061798(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061810(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavRightFromBelow(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_08061A74(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = x;
-            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e <= y) {
+        if (CheckPathRight(layer, x, y, param)) {
+            HEAP->navX = x;
+            HEAP->navY = param_y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist <= y) {
                 return TRUE;
             }
         }
@@ -786,15 +826,15 @@ bool32 sub_08061810(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061888(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavLeftFromBelow(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_08061A1C(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = x;
-            ((UnkHeap*)super->myHeap)->unk_8 = param_y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e <= y) {
+        if (CheckPathLeft(layer, x, y, param)) {
+            HEAP->navX = x;
+            HEAP->navY = param_y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist <= y) {
                 return TRUE;
             }
         }
@@ -803,15 +843,15 @@ bool32 sub_08061888(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061900(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavUpFromLeft(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_080619F0(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)super->myHeap)->unk_8 = y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e >= x) {
+        if (CheckPathUp(layer, x, y, param)) {
+            HEAP->navX = param_x;
+            HEAP->navY = y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist >= x) {
                 return TRUE;
             }
         }
@@ -820,15 +860,15 @@ bool32 sub_08061900(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_08061978(NPC5Entity* this, s32 x, s32 y, s32 param) {
+bool32 TryNavBelowFromLeft(NPC5Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
     u8* layer = (super->collisionLayer == 2) ? gMapTop.collisionData : gMapBottom.collisionData;
     while (!IsTileCollision(layer, x, y, 6)) {
-        if (sub_08061A48(layer, x, y, param)) {
-            ((UnkHeap*)super->myHeap)->unk_7 = param_x;
-            ((UnkHeap*)super->myHeap)->unk_8 = y;
-            ((UnkHeap*)super->myHeap)->unk_0 |= 8;
-            if (this->unk_6e >= x) {
+        if (CheckPathBelow(layer, x, y, param)) {
+            HEAP->navX = param_x;
+            HEAP->navY = y;
+            HEAP->flags |= FLAG_NAVIGATE;
+            if (this->linear_move_dist >= x) {
                 return TRUE;
             }
         }
@@ -837,7 +877,7 @@ bool32 sub_08061978(NPC5Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_080619F0(u8* layer, s32 x, s32 y, s32 param) {
+bool32 CheckPathUp(u8* layer, s32 x, s32 y, s32 param) {
     while (param <= y) {
         if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
@@ -847,7 +887,7 @@ bool32 sub_080619F0(u8* layer, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-bool32 sub_08061A1C(u8* layer, s32 x, s32 y, s32 param) {
+bool32 CheckPathLeft(u8* layer, s32 x, s32 y, s32 param) {
     while (param >= x) {
         if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
@@ -857,7 +897,7 @@ bool32 sub_08061A1C(u8* layer, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-bool32 sub_08061A48(u8* layer, s32 x, s32 y, s32 param) {
+bool32 CheckPathBelow(u8* layer, s32 x, s32 y, s32 param) {
     while (param >= y) {
         if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
@@ -867,7 +907,7 @@ bool32 sub_08061A48(u8* layer, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-bool32 sub_08061A74(u8* layer, s32 x, s32 y, s32 param) {
+bool32 CheckPathRight(u8* layer, s32 x, s32 y, s32 param) {
     while (param <= x) {
         if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
@@ -877,11 +917,11 @@ bool32 sub_08061A74(u8* layer, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0(NPC5Entity* this) {
+void ZeldaType1Init(NPC5Entity* this) {
     DeleteThisEntity();
 }
 
-void sub_08061AA8(NPC5Entity* this) {
+void ZeldaType2Init(NPC5Entity* this) {
     static void (*const gUnk_0810AC70[])(NPC5Entity*) = {
         sub_08061ACC,
         sub_08061B18,
@@ -891,11 +931,11 @@ void sub_08061AA8(NPC5Entity* this) {
 }
 
 void sub_08061ACC(NPC5Entity* this) {
-    super->flags = super->flags | ENT_PERSIST;
+    super->flags |= ENT_PERSIST;
     super->action = 1;
     super->subAction = 0xff;
     super->timer = 0;
-    super->followerFlag = super->followerFlag & 0xfe;
+    super->followerFlag = super->followerFlag & ~1;
     AddInteractableWhenBigObject(super);
     sub_08061AFC(this);
 }
@@ -904,7 +944,7 @@ void sub_08061AFC(NPC5Entity* this) {
     u32 tmp = 0;
     if (super->subAction != 0) {
         super->subAction = tmp;
-        this->unk_68 = gUnk_0810B660[0];
+        this->messageData = gZeldaFollowerText[0];
         super->timer = 0;
     }
 }
@@ -918,7 +958,7 @@ void sub_08061B18(NPC5Entity* this) {
         case INTERACTION_TALK:
             super->interactType = INTERACTION_NONE;
             sub_08061AFC(this);
-            puVar2 = this->unk_68;
+            puVar2 = this->messageData;
             puVar2 += (super->timer++);
             if (puVar2[1] == 0) {
                 super->timer = 0;
@@ -928,7 +968,7 @@ void sub_08061B18(NPC5Entity* this) {
     }
 }
 
-void sub_08061B58(NPC5Entity* this) {
+void ZeldaType3Init(NPC5Entity* this) {
     if (super->action == 0) {
         super->action = 1;
         InitAnimationForceUpdate(super, 2);

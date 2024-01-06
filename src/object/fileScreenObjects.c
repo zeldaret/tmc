@@ -20,7 +20,7 @@ typedef struct {
     /*0x70*/ u8 unk_70;
 } FileScreenObjectsEntity;
 
-extern u32 sub_080041EC(s32, s32);
+extern u32 CalcDistance(s32, s32);
 
 static bool32 sub_0808E950(void);
 static void sub_0808EABC(FileScreenObjectsEntity*);
@@ -550,7 +550,7 @@ static u32 sub_0808EF6C(FileScreenObjectsEntity* this) {
         return 0;
     }
 
-    var4 = var7 = sub_080041EC(var0, var2);
+    var4 = var7 = CalcDistance(var0, var2);
     var4 += 128;
     var7 = var4 + var7 * 16;
     if (this->unk_6c < var7) {

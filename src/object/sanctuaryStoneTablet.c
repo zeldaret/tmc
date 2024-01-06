@@ -37,14 +37,14 @@ void SanctuaryStoneTablet_Init(SanctuaryStoneTabletEntity* this) {
     super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
-    super->flags2 = 2;
+    super->collisionMask = 2;
     super->hitbox = (Hitbox*)&gHitbox_0;
 }
 
 void SanctuaryStoneTablet_Action1(SanctuaryStoneTabletEntity* this) {
     Entity* fxEnt;
 
-    if (super->contactFlags == 0xa1) {
+    if (super->contactFlags == (CONTACT_NOW | 0x21)) {
         fxEnt = CreateFx(super, FX_MAGIC_STORM, 0);
         if (fxEnt != NULL) {
             fxEnt->spritePriority.b0 = 3;

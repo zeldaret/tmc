@@ -284,9 +284,9 @@ void ChuchuBoss_OnDeath(ChuchuBossEntity* this) {
                     break;
                 case 1:
                     if (this->unk_7d-- == 0) {
-                        ((GenericEntity*)super->child)->field_0x6c.HALF.HI |= 2;
+                        ((Enemy*)super->child)->enemyFlags |= EM_FLAG_BOSS_KILLED;
                         this->unk_68->unk_6d.unk1 = 1;
-                        ((GenericEntity*)super->parent)->field_0x6c.HALF.HI |= 2;
+                        ((Enemy*)super->parent)->enemyFlags |= EM_FLAG_BOSS_KILLED;
                         parent = super->child;
                         child = super->parent;
                         this->unk_68->base.health = 0;
@@ -979,13 +979,13 @@ void sub_08026BE8(ChuchuBossEntity* this) {
     Entity* child;
 
     child = super->child;
-    child->flags2 &= ~1;
+    child->collisionMask &= ~1;
     if (this->unk_7c == 0) {
         super->subAction = 7;
         this->unk_84->unk_03 = 0;
         this->unk_7d = 0x2d;
         child->flags &= ~0x80;
-        child->flags2 |= 1;
+        child->collisionMask |= 1;
         SoundReq(SFX_155);
     } else {
         this->unk_7c--;
@@ -1347,7 +1347,7 @@ void sub_080272D4(ChuchuBossEntity* this) {
             super->hitbox->height = (u32)((0x10000 / this->unk_74.HALF_U.HI) * 5) >> 6;
             if (*(char*)&this->unk_84 == 0)
                 break;
-            if ((super->contactFlags & 0x80) != 0) {
+            if (super->contactFlags & CONTACT_NOW) {
                 if (super->iframes != 0) {
                     ((ChuchuBossEntity*)super->child)->unk_68->base.iframes = super->iframes;
                     super->child->parent->iframes = super->iframes;
@@ -1698,7 +1698,7 @@ bool32 sub_08027AA4(ChuchuBossEntity* this) {
     s32 iVar4;
     Helper* pHelper;
 
-    if ((super->contactFlags & 0x80) == 0) {
+    if ((super->contactFlags & CONTACT_NOW) == 0) {
         return FALSE;
     }
     switch (super->contactFlags & 0x7f) {

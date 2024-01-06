@@ -16,6 +16,7 @@
 #include "message.h"
 #include "room.h"
 #include "sound.h"
+#include "enemy.h"
 
 enum FightManager_State { Init, WaitForFlag, WaitForDone };
 
@@ -112,7 +113,7 @@ void FightManager_LoadFight(FightManager* this) {
         while (prop->kind != 0xFF) {
             ent = LoadRoomEntity(prop++);
             if ((ent != NULL) && (ent->kind == ENEMY)) {
-                ((GenericEntity*)ent)->field_0x6c.HALF.HI |= 0x40;
+                ((Enemy*)ent)->enemyFlags |= EM_FLAG_MONITORED;
                 FightManagerHelper_Monitor(monitor, ent, counter++);
             }
             if (counter >= 7) {

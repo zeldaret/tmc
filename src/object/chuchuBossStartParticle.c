@@ -264,7 +264,7 @@ void ChuchuBossStartParticle_Type9(ChuchuBossStartParticleEntity* this) {
             DeleteThisEntity();
         }
 
-        if (gPlayerState.field_0x1c != 1) {
+        if (gPlayerState.gustJarState != 1) {
             DeleteThisEntity();
         }
     } else {

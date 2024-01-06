@@ -11,8 +11,8 @@ typedef struct {
     /*0x6d*/ u8 unk_6d;
     /*0x6e*/ u8 unk_6e;
     /*0x6f*/ u8 unk_6f;
-    /*0x70*/ Entity* unk_70;
-    /*0x74*/ Entity* unk_74;
+    /*0x70*/ Entity* pulledJarEntity;
+    /*0x74*/ Entity* carriedEntity;
     /*0x78*/ u8 unk_78;
     /*0x79*/ u8 unk_79;
     /*0x7a*/ u16 unk_7a;
@@ -300,6 +300,24 @@ typedef enum {
 } SwordMove;
 
 typedef enum {
+    PL_JAR_NONE = 0x0,
+    PL_JAR_SUCK = 0x1,
+    PL_JAR_2 = 0x2,
+    PL_JAR_3 = 0x3,
+    PL_JAR_BLAST_INIT = 0x4,
+    PL_JAR_BLAST_UPDATE = 0x5,
+    PL_JAR_BLAST_DONE = 0x6,
+    PL_JAR_ENT_ATTACHED = 0x7,
+} GustJarState;
+
+typedef enum {
+    JAR_CHARGE_NONE = 0,
+    JAR_CHARGE_SMALL = 1,
+    JAR_CHARGE_MID = 2,
+    JAR_CHARGE_BIG = 3,
+} GustJarCharge;
+
+typedef enum {
     ANIM_DEFAULT = 0x100,
     ANIM_WALK = 0x104,
     ANIM_SWORD = 0x108,
@@ -493,8 +511,8 @@ typedef struct {
     /*0x18*/ u16 startPosY;
     /*0x1a*/ u8 mobility;
     /*0x1b*/ u8 sword_state;
-    /*0x1c*/ u8 field_0x1c;
-    /*0x1d*/ u8 gustJarSpeed;
+    /*0x1c*/ u8 gustJarState;
+    /*0x1d*/ u8 gustJarCharge;
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[2];
     /*0x21*/ u8 bow_state;
@@ -512,7 +530,7 @@ typedef struct {
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 field_0x3b;
-    /*0x3c*/ u8 field_0x3c;
+    /*0x3c*/ u8 killed; /**< Non-zero if player is dead */
     /*0x3d*/ u8 moleMittsState;
     /*0x3e*/ u8 swordDamage : 2;
     /*    */ u8 filler14 : 6;
@@ -762,7 +780,7 @@ void PlayerShrinkByRay(void);
 
 // player.s
 extern u32 PlayerCheckNEastTile();
-extern u32* sub_08008790(Entity*, u32);
+extern u32* DoTileInteractionHere(Entity*, u32);
 extern void UpdateIcePlayerVelocity(Entity*);
 extern void sub_08008AC6(Entity*);
 extern void sub_08008926(Entity*);

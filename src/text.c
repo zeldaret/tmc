@@ -7,6 +7,8 @@
 #include "message.h"
 #include "fileselect.h"
 
+extern void UnpackTextNibbles(void*, u8*);
+
 extern u8 gUnk_02036AD8;
 extern u8 gUnk_02036A58;
 
@@ -609,19 +611,19 @@ u32 sub_0805F76C(u32 textIdOrPtr, WStruct* param_2) {
 }
 
 static u32 sub_0805F7A0(u32 param_1) {
-    u32 uVar1;
-    u32 uVar2;
-    u32 uVar3;
+    u32 mask;
+    u32 i;
+    u32 j;
 
-    uVar1 = 0xf;
-    for (uVar2 = 0; uVar2 < 8; uVar2++) {
-        if (uVar1 != (param_1 & uVar1))
+    mask = 0xf;
+    for (i = 0; i < 8; i++) {
+        if (mask != (param_1 & mask))
             break;
-        uVar1 <<= 4;
+        mask <<= 4;
     }
-    for (uVar3 = uVar2; (uVar2 < 8 && (uVar1 != (param_1 & uVar1))); uVar1 <<= 4, uVar2++) {}
-    uVar2 -= uVar3;
-    return (uVar2 << 8) | uVar3;
+    for (j = i; (i < 8 && (mask != (param_1 & mask))); mask <<= 4, i++) {}
+    i -= j;
+    return (i << 8) | j;
 }
 
 u32 sub_0805F7DC(u32 r0, WStruct* r1) {
@@ -656,12 +658,12 @@ void sub_0805F820(WStruct* r0, u32* r1) {
     u32 uVar7;
     u8* puVar8;
     u8* temp;
-    void* temp2;
+    void* buffer_loc;
     VStruct* temp3;
     u32 temp4;
 
     if (r0->unk4 - r0->unk6 > 0) {
-        sub_08002724(r1, &gUnk_02036A58);
+        UnpackTextNibbles(r1, &gUnk_02036A58);
         if (r0->unk1 == 0) {
             u32 tmp = sub_0805F7A0(*r1);
             uVar6 = tmp & 0xf;
@@ -680,7 +682,7 @@ void sub_0805F820(WStruct* r0, u32* r1) {
         }
 
         puVar8 = &gUnk_02036A58 + uVar6;
-        temp2 = r0->unk8;
+        buffer_loc = r0->unk8;
         temp = gUnk_0810942E[r0->bgColor].filler0[r0->charColor * 2];
         uVar7 = r0->unk6;
         r0->unk6 += uVar3;
@@ -688,13 +690,13 @@ void sub_0805F820(WStruct* r0, u32* r1) {
         temp4 = r0->unk04;
         if (temp4 != 1) {
             while (uVar3-- > 0) {
-                sub_080026C4(puVar8, temp2, temp, uVar7);
+                sub_080026C4(puVar8, buffer_loc, temp, uVar7);
                 puVar8++;
                 uVar7++;
             }
         } else {
             while (uVar3-- > 0) {
-                sub_080026F2(puVar8, temp2, temp, uVar7);
+                sub_080026F2(puVar8, buffer_loc, temp, uVar7);
                 puVar8++;
                 uVar7++;
             }
@@ -730,7 +732,7 @@ void sub_0805F918(u32 idx, u32 idx2, void* dest) {
     idx3 = 0;
     for (i = 0; i < 3; i++) {
         puVar2 = &gUnk_02036A58;
-        sub_08002724(puVar1, &gUnk_02036A58);
+        UnpackTextNibbles(puVar1, &gUnk_02036A58);
         puVar1 += 0x40;
 
         for (j = 0; j < 8; j++) {

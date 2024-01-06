@@ -62,7 +62,7 @@ const u16 gUnk_080CDE98[] = { 0xc0, 0x100, 0x140, 0x180 };
 
 void VaatiEyesMacro(VaatiEyesMacroEntity* this) {
     VaatiEyesMacro_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void VaatiEyesMacro_OnTick(VaatiEyesMacroEntity* this) {
@@ -98,7 +98,7 @@ void VaatiEyesMacro_OnCollision(VaatiEyesMacroEntity* this) {
         }
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)VaatiEyesMacro_Functions);
 }

@@ -85,7 +85,7 @@ void sub_08030150(ArmosEntity* this) {
 
 void Armos(ArmosEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)&gUnk_080CE124);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
     sub_08030150(this);
 }
 
@@ -103,7 +103,7 @@ void sub_080301D4(ArmosEntity* this) {
         sub_080309E8(this);
     }
     if (super->confusedTime != 0) {
-        Create0x68FX(super, 0x1c);
+        EnemyCreateFX(super, 0x1c);
     }
     this->unk_81 = super->health;
     EnemyFunctionHandlerAfterCollision(super, gUnk_080CE124);
@@ -178,7 +178,7 @@ void sub_08030338(ArmosEntity* this) {
         if (super->frame == 2) {
             super->frame = 0;
             if (this->unk_80 != 2) {
-                super->flags2 = 0xb;
+                super->collisionMask = 0xb;
                 super->hitType = 8;
                 super->hitbox = (Hitbox*)&gUnk_080FD2F0;
             }
@@ -283,7 +283,7 @@ void sub_08030580(ArmosEntity* this) {
 
 void sub_08030590(ArmosEntity* this) {
     super->action = 5;
-    super->flags2 = 1;
+    super->collisionMask = 1;
     super->hitType = 1;
     super->hitbox = (Hitbox*)&gHitbox_15;
     sub_080309C8(this, 5);
@@ -339,7 +339,7 @@ bool32 sub_080305BC(ArmosEntity* this) {
 
 bool32 sub_08030650(ArmosEntity* this) {
     if (super->type == 0) {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_NOW) {
             return 1;
         }
     } else if (this->unk_80 != 2) {

@@ -26,28 +26,27 @@
 #include "sound.h"
 #include "tiles.h"
 
-#define GRAVITY_RATE Q_8_8(32)
-#define SLOPE_SPEED_MODIFIER 0x50
+#define kGravityRate Q_8_8(32)
+#define kWalkSpeedSlopeSubtractor Q_8_8(0.3125)
+#define kWalkSpeed Q_8_8(1.25)
+#define kWalkSpeedRolling Q_8_8(2.0)
+#define kWalkSpeedGustJar Q_8_8(0.5)
+#define kWalkSpeedShield Q_8_8(0.75)
+#define kWalkSpeedSwordCharge Q_8_8(0.875)
+#define kWalkSpeedBurning Q_8_8(3)
 
-#define WALK_SPEED Q_8_8(1.25)
-#define ROLL_SPEED Q_8_8(2.0)
-#define GUST_JAR_SPEED Q_8_8(0.5)
-#define SHIELDING_SPEED Q_8_8(0.75)
-#define SWORD_CHARGE_SPEED Q_8_8(0.875)
-#define BURNING_SPEED Q_8_8(3)
-
-#define JUMP_SPEED_FWD Q_8_8(1)
+#define kJumpSpeedForward Q_8_8(1)
 /* Jumping out of a hole */
-#define JUMP_SPEED_HOLE_FWD Q_8_8(0.46875)
-#define JUMP_SPEED_HOLE_Z Q_16_16(1.625)
+#define kJumpSpeedHoleForward Q_8_8(0.46875)
+#define kJumpSpeedHoleZ Q_16_16(1.625)
 /* Bouncing off a wall */
-#define BOUNCE_SPEED_FWD Q_8_8(1.0)
-#define BOUNCE_SPEED_Z Q_16_16(2.0)
+#define kBounceSpeedForward Q_8_8(1.0)
+#define kBounceSpeedZ Q_16_16(2.0)
 
-#define PULL_SPEED Q_8_8(0.5)
-#define PUSH_SPEED Q_8_8(0.5)
+#define kPullSpeed Q_8_8(0.5)
+#define kPushSpeed Q_8_8(0.5)
 
-#define FALL_DAMAGE 2
+#define kFallDamage 2
 
 typedef void(PlayerEntityAction)(PlayerEntity*);
 
@@ -350,7 +349,7 @@ static void PlayerInit(PlayerEntity* this) {
     super->spritePriority.b1 = 1;
     super->spriteSettings.shadow = 1;
     super->carryFlags = 0x20;
-    super->flags2 = 8;
+    super->collisionMask = 8;
     super->hitType = 0x79;
     super->hitbox = (Hitbox*)&gPlayerHitbox;
     super->spriteIndex = 1;
@@ -393,7 +392,7 @@ static void PlayerNormal(PlayerEntity* this) {
     if (gPlayerState.flags & PL_CAPTURED) {
         super->spritePriority.b1 = 0;
         super->knockbackDuration = 0;
-        super->speed = WALK_SPEED;
+        super->speed = kWalkSpeed;
         gPlayerState.pushedObject = 0x80;
         gPlayerState.framestate = PL_STATE_TRAPPED;
         if ((super->animationState >> 1) + 92 == super->animIndex && (u16)super->spriteIndex == 2)
@@ -422,14 +421,14 @@ static void PlayerNormal(PlayerEntity* this) {
     }
     if (!gPlayerState.swim_state && (gPlayerState.jump_status & 0xC0) == 0) {
         if (gPlayerState.shield_status || gPlayerState.bow_state) {
-            super->speed = SHIELDING_SPEED;
+            super->speed = kWalkSpeedShield;
         } else {
             if (gPlayerState.sword_state) {
-                super->speed = SWORD_CHARGE_SPEED;
-            } else if (gPlayerState.field_0x1c) {
-                super->speed = GUST_JAR_SPEED;
+                super->speed = kWalkSpeedSwordCharge;
+            } else if (gPlayerState.gustJarState != PL_JAR_NONE) {
+                super->speed = kWalkSpeedGustJar;
             } else {
-                super->speed = WALK_SPEED;
+                super->speed = kWalkSpeed;
             }
         }
     }
@@ -537,7 +536,7 @@ static void PlayerNormal(PlayerEntity* this) {
             if ((gPlayerState.sword_state & 0x10) == 0) {
                 super->direction = gPlayerState.direction;
                 if (gPlayerState.flags & PL_BURNING) {
-                    super->speed = BURNING_SPEED;
+                    super->speed = kWalkSpeedBurning;
                     if ((gPlayerState.direction & DIR_NOT_MOVING_CHECK) != 0)
                         super->direction = 4 * (super->animationState & 0xE);
                     DeleteClones();
@@ -589,7 +588,7 @@ static void PlayerFall(PlayerEntity* this) {
 }
 
 static void PlayerFallInit(PlayerEntity* this) {
-    sub_08004168(super);
+    SnapToTile(super);
 
     gPlayerState.flags |= PL_BUSY | PL_DROWNING;
     gPlayerState.flags &= ~PL_BURNING;
@@ -625,7 +624,7 @@ static void PlayerFallUpdate(PlayerEntity* this) {
             RespawnPlayer();
             gPlayerState.field_0xa = 0;
             super->iframes = 32;
-            ModHealth(-FALL_DAMAGE);
+            ModHealth(-kFallDamage);
         }
     }
 }
@@ -642,19 +641,19 @@ static void PlayerBounce(PlayerEntity* this) {
 static void PlayerBounceInit(PlayerEntity* this) {
     COLLISION_OFF(super);
     super->direction = DirectionTurnAround(Direction8FromAnimationState(AnimationStateWalk(super->animationState)));
-    super->speed = BOUNCE_SPEED_FWD;
+    super->speed = kBounceSpeedForward;
     super->knockbackDuration = 0;
     super->subAction++;
     super->timer = gPlayerState.field_0x38;
     super->spriteIndex = 1;
 
     if (!(gPlayerState.flags & PL_MINISH)) {
-        super->zVelocity = BOUNCE_SPEED_Z;
+        super->zVelocity = kBounceSpeedZ;
         gPlayerState.animation = ANIM_BOUNCE;
         InitScreenShake(16, 0);
     } else {
         gPlayerState.animation = ANIM_BOUNCE_MINISH;
-        super->zVelocity = (BOUNCE_SPEED_Z * 3) / 4;
+        super->zVelocity = (kBounceSpeedZ * 3) / 4;
     }
 
     gPlayerState.jump_status = 0x80;
@@ -669,7 +668,7 @@ static void PlayerBounceUpdate(PlayerEntity* this) {
     UpdatePlayerMovement();
     UpdateFloorType();
 
-    if (CheckQueuedAction() || GravityUpdate(super, GRAVITY_RATE))
+    if (CheckQueuedAction() || GravityUpdate(super, kGravityRate))
         return;
 
     gPlayerState.jump_status = 0;
@@ -867,7 +866,7 @@ static void PlayerJumpInit(PlayerEntity* this) {
     temp <<= 12;
     super->zVelocity = temp;
 
-    super->speed = JUMP_SPEED_FWD;
+    super->speed = kJumpSpeedForward;
     DeleteClones();
     SoundReq(SFX_PLY_JUMP);
     SoundReq(SFX_PLY_VO4);
@@ -886,16 +885,16 @@ static void sub_08071130(PlayerEntity* this) {
 
     LinearMoveUpdate(super);
 
-    if (GravityUpdate(super, GRAVITY_RATE))
+    if (GravityUpdate(super, kGravityRate))
         return;
 
     gPlayerState.jump_status = 0;
     ResetCollisionLayer(super);
 
-    if (this->unk_74 != NULL)
-        ResetCollisionLayer(this->unk_74);
+    if (this->carriedEntity != NULL)
+        ResetCollisionLayer(this->carriedEntity);
 
-    sub_08008790(super, 7);
+    DoTileInteractionHere(super, 7);
 
     if (gPlayerState.field_0x14)
         return;
@@ -963,7 +962,7 @@ static void PlayerDrownInit(PlayerEntity* this) {
         SoundReq(SFX_WATER_SPLASH);
     } else {
         if (!(gPlayerState.flags & PL_FLAGS10000))
-            sub_08004168(super);
+            SnapToTile(super);
 
         CreateFx(super, FX_WATER_SPLASH, 0);
 
@@ -1042,7 +1041,7 @@ static void PortalJumpOnUpdate(PlayerEntity* this) {
 
     if ((super->x.HALF.HI != x) || (super->y.HALF.HI != y)) {
         super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, gArea.portal_x, gArea.portal_y);
-        super->speed = JUMP_SPEED_FWD;
+        super->speed = kJumpSpeedForward;
         UpdatePlayerMovement();
     }
 
@@ -1082,7 +1081,7 @@ static void PortalStandUpdate(PlayerEntity* this) {
             super->direction = gPlayerState.direction;
             super->animationState = Direction8ToAnimationState(super->direction);
             super->zVelocity = Q_16_16(2.0);
-            super->speed = JUMP_SPEED_FWD;
+            super->speed = kJumpSpeedForward;
             super->action = PLAYER_MINISH;
             super->subAction = 7;
             super->subtimer = 0;
@@ -1217,7 +1216,7 @@ static void PortalShrinkUpdate(PlayerEntity* this) {
 
 static void PortalEnterUpdate(PlayerEntity* this) {
     if (super->timer == 0) {
-        if (GravityUpdate(super, GRAVITY_RATE))
+        if (GravityUpdate(super, kGravityRate))
             return;
 
         super->spriteSettings.draw = FALSE;
@@ -1312,7 +1311,7 @@ static void PlayerTalkEzlo_Init(PlayerEntity* this) {
         return;
     }
 
-    if (!GravityUpdate(super, GRAVITY_RATE)) {
+    if (!GravityUpdate(super, kGravityRate)) {
         gPlayerState.jump_status = 0;
     }
 }
@@ -1407,7 +1406,7 @@ static void PlayerPushInit(PlayerEntity* this) {
         super->timer = 0;
         super->subtimer = 1;
     } else {
-        super->speed = (gPlayerState.flags & PL_MINISH) ? PUSH_SPEED / 2 : PUSH_SPEED;
+        super->speed = (gPlayerState.flags & PL_MINISH) ? kPushSpeed / 2 : kPushSpeed;
     }
     PlayerPushUpdate(this);
 }
@@ -1420,19 +1419,19 @@ static void PlayerPushUpdate(PlayerEntity* this) {
 
     static const PushFrame sPushFrames[] = {
         { 5, 0 },
-        { 1, PUSH_SPEED * 2 },
+        { 1, kPushSpeed * 2 },
         { 5, 0 },
-        { 1, PUSH_SPEED * 2 },
+        { 1, kPushSpeed * 2 },
         { 2, 0 },
-        { 1, PUSH_SPEED * 2 },
+        { 1, kPushSpeed * 2 },
         { 2, 0 },
-        { 1, PUSH_SPEED * 2 },
+        { 1, kPushSpeed * 2 },
         { 3, 0 },
-        { 1, PUSH_SPEED * 2 },
-        { 8, PUSH_SPEED * 3 / 4 },
-        { 8, PUSH_SPEED * 3 / 4 },
-        { 8, PUSH_SPEED * 3 / 4 },
-        { 8, PUSH_SPEED / 2 },
+        { 1, kPushSpeed * 2 },
+        { 8, kPushSpeed * 3 / 4 },
+        { 8, kPushSpeed * 3 / 4 },
+        { 8, kPushSpeed * 3 / 4 },
+        { 8, kPushSpeed / 2 },
         { 0xFF, 0 },
     };
 
@@ -1492,7 +1491,7 @@ static void PlayerMinishDieInit(PlayerEntity* this) {
     if (gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS))
         return;
 
-    if (GravityUpdate(super, GRAVITY_RATE)) {
+    if (GravityUpdate(super, kGravityRate)) {
         if (gPlayerState.flags & PL_NO_CAP)
             gPlayerState.animation = ANIM_JUMP_NOCAP;
         else
@@ -1562,7 +1561,7 @@ static void sub_08071D04(PlayerEntity* this) {
     if (deltaHealth != 0) {
         ModHealth(deltaHealth);
         super->subAction = 3;
-        gPlayerState.field_0x3c = 0;
+        gPlayerState.killed = 0;
         super->direction = DIR_NONE;
         super->speed = 0;
         super->zVelocity = Q_16_16(1.5);
@@ -1638,7 +1637,7 @@ static void sub_08071E04(PlayerEntity* this) {
 static void sub_08071E74(PlayerEntity* this) {
     u32 temp;
 
-    GravityUpdate(super, GRAVITY_RATE);
+    GravityUpdate(super, kGravityRate);
     UpdatePlayerMovement();
     temp = super->timer--;
     if (temp == 0)
@@ -1704,7 +1703,7 @@ static void PlayerFrozenInit(PlayerEntity* this) {
 }
 
 static void PlayerFrozenUpdate(PlayerEntity* this) {
-    if (GravityUpdate(super, GRAVITY_RATE) == 0) {
+    if (GravityUpdate(super, kGravityRate) == 0) {
         UpdateSpriteForCollisionLayer(super);
         gPlayerState.jump_status = 0;
         if (gPlayerState.field_0x14 == 0) {
@@ -1808,7 +1807,7 @@ static void sub_08072168(PlayerEntity* this) {
     u32 i;
 
     UpdateAnimationSingleFrame(super);
-    i = (u16)sub_0806F854(super, 0, -12) ? GRAVITY_RATE * 2 : GRAVITY_RATE;
+    i = (u16)sub_0806F854(super, 0, -12) ? kGravityRate * 2 : kGravityRate;
     GravityUpdate(super, i);
     if (gPlayerState.field_0x3a) {
         LinearMoveUpdate(super);
@@ -1838,7 +1837,7 @@ static void PlayerPull(PlayerEntity* this) {
 
 static void sub_08072214(PlayerEntity* this) {
     super->subAction = 1;
-    super->speed = PULL_SPEED;
+    super->speed = kPullSpeed;
     super->timer = gPlayerState.field_0x38;
     super->direction = Direction8FromAnimationState(AnimationStateFlip180(super->animationState));
     if ((gPlayerState.flags & PL_NO_CAP) == 0) {
@@ -1905,7 +1904,7 @@ static void sub_08072354(PlayerEntity* this) {
     sub_0806F854(super, 0, -12);
     UpdateAnimationSingleFrame(super);
     sub_08079744(super);
-    if (GravityUpdate(super, GRAVITY_RATE))
+    if (GravityUpdate(super, kGravityRate))
         return;
 
     super->spritePriority.b1 = 0;
@@ -1984,7 +1983,7 @@ static void sub_080724DC(PlayerEntity* this) {
         if (gRoomControls.reload_flags == 0) {
             super->updatePriority = super->updatePriorityPrev;
             PlayerWaitForScroll(this);
-        } else if (gPlayerState.field_0x1c == 0) {
+        } else if (gPlayerState.gustJarState == PL_JAR_NONE) {
             UpdateAnimationSingleFrame(super);
         }
     } else {
@@ -2068,7 +2067,8 @@ static void PlayerRollInit(PlayerEntity* this) {
 
 static void PlayerRollUpdate(PlayerEntity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | PL_MOLDWORM_CAPTURED)) != PL_ROLLING) ||
-        (!(gPlayerState.flags & PL_MOLDWORM_RELEASED) && (super->iframes != 0) && (super->contactFlags & 0x80))) {
+        (!(gPlayerState.flags & PL_MOLDWORM_RELEASED) && (super->iframes != 0) &&
+         (super->contactFlags & CONTACT_NOW))) {
         gPlayerState.flags &= ~PL_ROLLING;
         if (CheckQueuedAction())
             return;
@@ -2112,14 +2112,14 @@ static void PlayerRollUpdate(PlayerEntity* this) {
         switch (super->frame & 0xf) {
             case 0:
                 if ((super->frame & 0xf) == 0) {
-                    super->speed = ROLL_SPEED;
+                    super->speed = kWalkSpeedRolling;
                 }
                 break;
             case 1:
-                super->speed += ROLL_SPEED / 16;
+                super->speed += kWalkSpeedRolling / 16;
                 break;
             case 2:
-                super->speed = (ROLL_SPEED * 3 / 2);
+                super->speed = (kWalkSpeedRolling * 3 / 2);
                 break;
             case 3:
                 super->speed = 0;
@@ -2229,8 +2229,8 @@ static void sub_08072ACC(PlayerEntity* this) {
     } else if (super->subtimer > 7) {
         COLLISION_ON(super);
         super->direction = gPlayerState.direction;
-        super->zVelocity = JUMP_SPEED_HOLE_Z;
-        super->speed = JUMP_SPEED_HOLE_FWD;
+        super->zVelocity = kJumpSpeedHoleZ;
+        super->speed = kJumpSpeedHoleForward;
         super->spritePriority.b0 = 4;
         super->spritePriority.b1 = 1;
         gPlayerState.jump_status = 0x41;
@@ -2277,7 +2277,7 @@ static void sub_08072B5C(PlayerEntity* this) {
     temp <<= 12;
     super->zVelocity = temp;
 
-    super->speed = JUMP_SPEED_FWD;
+    super->speed = kJumpSpeedForward;
     gPlayerState.animation = ANIM_JUMP;
     SoundReq(SFX_PLY_JUMP);
 }
@@ -2285,10 +2285,10 @@ static void sub_08072B5C(PlayerEntity* this) {
 static void sub_08072C48(PlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
     LinearMoveUpdate(super);
-    if (GravityUpdate(super, GRAVITY_RATE))
+    if (GravityUpdate(super, kGravityRate))
         return;
 
-    sub_08008790(super, 7);
+    DoTileInteractionHere(super, 7);
     if (gPlayerState.field_0x14) {
         if (PlayerCheckNEastTile()) {
             gPlayerState.surfacePositionSameTimer = 7;
@@ -2409,14 +2409,14 @@ static void sub_08072D54(PlayerEntity* this) {
         super->timer = 0;
     }
 
-    if (!GravityUpdate(super, GRAVITY_RATE)) {
+    if (!GravityUpdate(super, kGravityRate)) {
         COLLISION_ON(super);
         if (super->collisionLayer == 1) {
             ResetCollisionLayer(super);
         } else {
             sub_08004542(super);
         }
-        sub_08008790(super, 7);
+        DoTileInteractionHere(super, 7);
         if (gPlayerState.field_0x14 != 0) {
             if (PlayerCheckNEastTile()) {
                 gPlayerState.surfacePositionSameTimer = 7;
@@ -2730,7 +2730,7 @@ static void sub_08073468(PlayerEntity* this) {
 }
 
 static void sub_080734D4(PlayerEntity* this) {
-    GravityUpdate(super, -(GRAVITY_RATE / 2));
+    GravityUpdate(super, -(kGravityRate / 2));
     if (super->zVelocity > 0 || gPlayerState.field_0x38 == 1) {
         super->zVelocity = Q_16_16(4.5625);
         super->subAction++;
@@ -2738,7 +2738,7 @@ static void sub_080734D4(PlayerEntity* this) {
 }
 
 static void sub_08073504(PlayerEntity* this) {
-    GravityUpdate(super, super->zVelocity < 0 ? GRAVITY_RATE / 4 : GRAVITY_RATE * 2);
+    GravityUpdate(super, super->zVelocity < 0 ? kGravityRate / 4 : kGravityRate * 2);
     if (super->zVelocity < 0 && super->z.HALF.HI > -32) {
         super->subAction++;
         this->unk_80.WORD = super->direction << 8;
@@ -2759,7 +2759,7 @@ static void sub_08073504(PlayerEntity* this) {
 static void sub_08073584(PlayerEntity* this) {
     u32 state, dir, idx;
 
-    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) || super->iframes > 0 || gPlayerState.field_0x3c ||
+    if ((gPlayerState.playerInput.newInput & INPUT_ACTION) || super->iframes > 0 || gPlayerState.killed ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
@@ -2914,7 +2914,7 @@ static void sub_0807380C(PlayerEntity* this) {
     }
     gPlayerState.animation = sAnims[super->animationState >> 1];
     if (super->z.HALF.HI < -16) {
-        GravityUpdate(super, GRAVITY_RATE / 16);
+        GravityUpdate(super, kGravityRate / 16);
     } else {
         if (--super->timer == 0) {
             super->subAction = 7;
@@ -2945,7 +2945,7 @@ void sub_08073884(PlayerEntity* this) {
         else
             InitParachuteRoom();
     }
-    GravityUpdate(super, -((GRAVITY_RATE * 3) / 4));
+    GravityUpdate(super, -((kGravityRate * 3) / 4));
     UpdateAnimationSingleFrame(super);
 }
 
@@ -2999,13 +2999,13 @@ static void sub_080739EC(PlayerEntity* this) {
         gPlayerState.direction = super->direction;
         if (gPlayerState.jump_status & 0x80)
             super->collisions = COL_NONE;
-        v = GRAVITY_RATE;
+        v = kGravityRate;
     } else {
         if ((u16)sub_0806F854(super, 0, -12)) {
             gPlayerState.jump_status |= 8;
-            v = GRAVITY_RATE * 2;
+            v = kGravityRate * 2;
         } else {
-            v = GRAVITY_RATE;
+            v = kGravityRate;
             if (gPlayerState.jump_status & 0x10)
                 v /= 2;
         }
@@ -3085,7 +3085,7 @@ void sub_08073B8C(PlayerEntity* this) {
         --super->timer;
         return;
     }
-    GravityUpdate(super, GRAVITY_RATE * 2);
+    GravityUpdate(super, kGravityRate * 2);
     if (super->z.HALF.HI >= -8) {
         if (!gPlayerState.field_0x14 && (sub_0807A2B8() || !sub_08079D48())) {
             COLLISION_ON(super);
@@ -3179,7 +3179,7 @@ static void sub_08073D20(PlayerEntity* this) {
             }
             if (!UpdatePlayerCollision()) {
                 UpdateActiveItems(super);
-                if (!GravityUpdate(super, GRAVITY_RATE))
+                if (!GravityUpdate(super, kGravityRate))
                     gPlayerState.jump_status = 0;
                 if ((gPlayerState.field_0x7 & 0x80) == 0 && !gPlayerState.field_0xa) {
                     if (super->iframes <= 8) {
@@ -3257,7 +3257,7 @@ static void sub_08073FD0(PlayerEntity* this) {
             SoundReq(SFX_PLY_JUMP);
         }
     }
-    GravityUpdate(super, GRAVITY_RATE);
+    GravityUpdate(super, kGravityRate);
     if (super->zVelocity == 0) {
         super->subAction++;
         SoundReq(SFX_PLY_GROW);
@@ -3276,7 +3276,7 @@ static void sub_08074018(PlayerEntity* this) {
 }
 
 static void sub_08074060(PlayerEntity* this) {
-    if (!GravityUpdate(super, GRAVITY_RATE)) {
+    if (!GravityUpdate(super, kGravityRate)) {
         super->hitbox = (Hitbox*)&gPlayerHitbox;
         super->direction = DirectionSouth;
         super->animationState = IdleSouth;
@@ -3326,7 +3326,7 @@ void sub_080740D8(PlayerEntity* this) {
         LinearMoveUpdate(super);
     else
         super->subtimer = 1;
-    if (!GravityUpdate(super, GRAVITY_RATE))
+    if (!GravityUpdate(super, kGravityRate))
         PlayerSetNormalAndCollide();
 }
 
@@ -3373,7 +3373,7 @@ static void sub_08074244(PlayerEntity* this, u32 a1, u32 a2) {
             tmp = 4 * super->animationState;
         }
         if (a1 != tmp || a2 != tmp) {
-            gPlayerState.speed_modifier -= SLOPE_SPEED_MODIFIER;
+            gPlayerState.speed_modifier -= kWalkSpeedSlopeSubtractor;
         }
     }
 }
@@ -3510,7 +3510,7 @@ void SurfaceAction_16(PlayerEntity* this) {
                 (super->x.HALF.HI & 0xFFF0) | 8, (super->y.HALF.HI & 0xFFF0) | 8, super->x.HALF.HI, super->y.HALF.HI);
         }
         if ((gPlayerState.flags & PL_MINISH) == 0)
-            sub_08008790(super, 7);
+            DoTileInteractionHere(super, 7);
     }
 }
 
@@ -3794,7 +3794,7 @@ void SurfaceAction_ConveyerEast(PlayerEntity* this) {
 static void conveyer_push(PlayerEntity* this) {
     ResetActiveItems();
     super->spritePriority.b1 = 0;
-    super->speed = WALK_SPEED;
+    super->speed = kWalkSpeed;
     gPlayerState.flags |= PL_CONVEYOR_PUSHED;
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
@@ -3845,7 +3845,7 @@ static void sub_08074CF8(PlayerEntity* this) {
     sub_08074D34(this, *(ScriptExecutionContext**)&this->unk_84.WORD);
     if ((this->unk_80.HALF.HI & 1) != 0)
         super->animationState = v3;
-    GravityUpdate(super, GRAVITY_RATE);
+    GravityUpdate(super, kGravityRate);
     UpdateAnimationSingleFrame(super);
 }
 
@@ -4001,7 +4001,7 @@ void sub_0807501C(PlayerEntity* this) {
 
 void sub_0807508C(PlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if (GravityUpdate(super, GRAVITY_RATE)) {
+    if (GravityUpdate(super, kGravityRate)) {
         LinearMoveUpdate(super);
     } else {
         if (!gPlayerState.field_0x39) {

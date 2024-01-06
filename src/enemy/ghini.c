@@ -44,7 +44,7 @@ void sub_0803F528(GhiniEntity*);
 
 void Ghini(GhiniEntity* this) {
     Ghini_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void Ghini_OnTick(GhiniEntity* this) {
@@ -59,17 +59,17 @@ void Ghini_OnCollision(GhiniEntity* this) {
         sub_0803F630(this);
         sub_0803F6EC(this);
     }
-    if ((super->hitType == 0x25) && (super->contactFlags == 0x80)) {
+    if ((super->hitType == 0x25) && (super->contactFlags == CONTACT_NOW)) {
         super->action = 8;
         InitializeAnimation(super, 3);
     } else {
-        if (super->contactFlags == 0x9d) {
+        if (super->contactFlags == (CONTACT_NOW | 0x1d)) {
             super->zVelocity = 0x18000;
         }
         if (super->confusedTime != 0) {
             super->animationState = super->knockbackDirection >> 4;
             InitializeAnimation(super, super->animationState + 7);
-            Create0x68FX(super, FX_STARS);
+            EnemyCreateFX(super, FX_STARS);
         }
         if (super->health != this->unk_7a) {
             this->unk_7a = super->health;

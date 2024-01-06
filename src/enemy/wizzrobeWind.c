@@ -23,7 +23,7 @@ void sub_0802F8E4(WizzrobeEntity*);
 
 void WizzrobeWind(WizzrobeEntity* this) {
     WizzrobeWind_Functions[GetNextFunction(super)](this);
-    SetChildOffset(super, 0, 1, -0x10);
+    EnemySetFXOffset(super, 0, 1, -0x10);
 }
 
 void WizzrobeWind_OnTick(WizzrobeEntity* this) {
@@ -32,10 +32,10 @@ void WizzrobeWind_OnTick(WizzrobeEntity* this) {
 
 void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
     if (super->confusedTime != 0) {
-        Create0x68FX(super, FX_STARS);
+        EnemyCreateFX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeWind_Functions);
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_NOW | 0x7)) {
         Entity* obj = CreateObject(FLAME, 3, 0);
         if (obj != NULL) {
             obj->spritePriority.b0 = 3;
@@ -68,7 +68,7 @@ void WizzrobeWind_Init(WizzrobeEntity* this) {
         super->subtimer = 96;
         sub_0802F888(this);
     }
-    projectile = CreateProjectileWithParent(super, WIND_PROJECTILE, 0);
+    projectile = EnemyCreateProjectile(super, WIND_PROJECTILE, 0);
     if (projectile != NULL) {
         super->parent = projectile;
         projectile->parent = super;
@@ -121,7 +121,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                     break;
                 case 8:
                     if (EntityInRectRadius(super, &gPlayerEntity.base, 0xa0, 0xa0) && CheckOnScreen(super)) {
-                        Entity* projectile = CreateProjectileWithParent(super, WIND_PROJECTILE, 1);
+                        Entity* projectile = EnemyCreateProjectile(super, WIND_PROJECTILE, 1);
                         if (projectile != NULL) {
                             projectile->direction = super->direction & 0x18;
                         }
@@ -192,7 +192,7 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
                     parent->spriteSettings.draw = 0;
                     InitializeAnimation(super, super->animationState >> 1);
                 } else if (super->timer == 8) {
-                    parent = CreateProjectileWithParent(super, WIND_PROJECTILE, 1);
+                    parent = EnemyCreateProjectile(super, WIND_PROJECTILE, 1);
                     if (parent != NULL) {
                         parent->direction = super->direction & 0x18;
                     }

@@ -28,7 +28,7 @@ void PlayerItemBoomerang_Init(PlayerItemBoomerangEntity* this);
 void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this);
 void PlayerItemBoomerang_Action3(PlayerItemBoomerangEntity* this);
 
-extern Entity* sub_08008782(Entity*, u32, s32, s32);
+extern Entity* DoTileInteractionOffset(Entity*, u32, s32, s32);
 extern bool32 sub_080040E2(Entity*, u8*);
 extern Hitbox gUnk_081271CC;
 extern u8 gUnk_08003E44;
@@ -128,7 +128,7 @@ void PlayerItemBoomerang_Action1(PlayerItemBoomerangEntity* this) {
         super->spriteVramOffset = 0xd5;
         COLLISION_ON(super);
         super->collisionFlags |= 1;
-        super->flags2 = gPlayerEntity.base.flags2;
+        super->collisionMask = gPlayerEntity.base.collisionMask;
         super->spriteIndex = 0xa6;
         super->spriteSettings.flipX = 0;
         super->spriteSettings.draw = 1;
@@ -184,7 +184,7 @@ void PlayerItemBoomerang_Action2(PlayerItemBoomerangEntity* this) {
         if (super->timer == 0) {
             uVar6 = TRUE;
         }
-        if (super->contactFlags & 0x80) {
+        if (super->contactFlags & CONTACT_NOW) {
             uVar6 = TRUE;
         }
         if (!uVar6) {
@@ -257,5 +257,5 @@ Entity* sub_0801B864(Entity* this) {
         sub_0800451C(this);
     }
     iVar1 = (this->direction >> 2) * 2;
-    return sub_08008782(this, 2, gUnk_080B782E[iVar1], gUnk_080B782E[iVar1 + 1]);
+    return DoTileInteractionOffset(this, 2, gUnk_080B782E[iVar1], gUnk_080B782E[iVar1 + 1]);
 }

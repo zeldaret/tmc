@@ -155,7 +155,7 @@ void BusinessScrub_Action2(BusinessScrubEntity* this) {
             unk = 1;
             sub_080290FC(this);
             if (super->frame & 1) {
-                Entity* entity = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
+                Entity* entity = EnemyCreateProjectile(super, DEKU_SEED_PROJECTILE, 0);
                 if (entity != NULL) {
                     entity->parent = super;
                     entity->direction = super->direction;
@@ -222,7 +222,7 @@ void BusinessScrub_Action3(BusinessScrubEntity* this) {
                 super->timer = 30;
                 super->subtimer = 5;
                 sub_080290E0(this, 0);
-                iVar1 = Create0x68FX(super, FX_STARS);
+                iVar1 = EnemyCreateFX(super, FX_STARS);
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
@@ -238,7 +238,7 @@ void BusinessScrub_Action3(BusinessScrubEntity* this) {
     sub_0800445C(super);
 }
 
-extern void sub_0804AA1C(Entity*);
+extern void EnemyDetachFX(Entity*);
 void sub_08028F0C(BusinessScrubEntity*);
 
 void BusinessScrub_Action4(BusinessScrubEntity* this) {
@@ -246,7 +246,7 @@ void BusinessScrub_Action4(BusinessScrubEntity* this) {
         super->timer = 48;
         if (super->subtimer) {
             if (--super->subtimer == 0) {
-                sub_0804AA1C(super);
+                EnemyDetachFX(super);
             }
         } else if (sub_08028FDC(this) || this->unk_80) {
             this->unk_80 = 0;
@@ -382,7 +382,7 @@ void sub_08028F0C(BusinessScrubEntity* this) {
         const struct SalesOffering* offer = (const struct SalesOffering*)this->unk_7c;
 
         super->interactType = INTERACTION_NONE;
-        sub_0804AA1C(super);
+        EnemyDetachFX(super);
         super->direction = (GetAnimationState(super) << 3);
         sub_080290E0(this, 3);
         this->unk_80 = 1;

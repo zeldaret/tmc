@@ -89,11 +89,11 @@ typedef struct {
     u8 area;
     u8 room;
     u16 unk_02;
-    u32 flags; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start in
+    u32 enemyBits; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start in
                   the discovered state?)*/
 } RoomMemory;
 
-extern RoomMemory* gRoomMemoryPtr;
+extern RoomMemory* gCurrentRoomMemory;
 extern RoomMemory gRoomMemory[];
 
 // Packets used to store which entities to load in a room

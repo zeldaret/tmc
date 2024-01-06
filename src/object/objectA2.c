@@ -51,7 +51,7 @@ void ObjectA2_Action1(Entity* this) {
     LinearMoveUpdate(this);
 #ifndef EU
     if (gSaveHeader->language < 2) {
-        if (sub_080044EC(this, 0x2000) < 2) {
+        if (BounceUpdate(this, Q_8_8(32.0)) < BOUNCE_AIRBORNE) {
             this->z.WORD = 0;
             this->action = 2;
             InitializeAnimation(this, 1);
@@ -61,15 +61,15 @@ void ObjectA2_Action1(Entity* this) {
         }
     } else {
 #endif
-        switch (sub_080044EC(this, 0x2000)) {
+        switch (BounceUpdate(this, Q_8_8(32.0))) {
             default:
                 this->timer++;
                 break;
-            case 0:
+            case BOUNCE_DONE_ALL:
                 this->action = 2;
                 InitializeAnimation(this, 1);
                 // fall through
-            case 1:
+            case BOUNCE_INIT_NEXT:
                 this->timer = 0;
                 sub_0809F448(this);
                 SoundReq(SFX_186);

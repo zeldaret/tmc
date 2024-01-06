@@ -65,7 +65,7 @@ void Pesto_OnTick(PestoEntity* this) {
 
 void Pesto_OnCollision(PestoEntity* this) {
     if (super->hitType != 0x6e) {
-        if (super->contactFlags == 0x80) {
+        if (super->contactFlags == CONTACT_NOW) {
             this->unk_86 = 0x30;
 
             if ((this->unk_83 & 0xf) == 3 && super->action == 6) {
@@ -185,7 +185,7 @@ void sub_080240B8(PestoEntity* this) {
         Entity* entity;
 
         this->unk_83 = 0;
-        entity = CreateProjectileWithParent(super, DIRT_BALL_PROJECTILE, this->unk_83);
+        entity = EnemyCreateProjectile(super, DIRT_BALL_PROJECTILE, this->unk_83);
         if (entity != NULL) {
             super->child = entity;
             entity->parent = super;
@@ -406,7 +406,7 @@ void sub_080244E8(PestoEntity* this) {
                             super->direction = DirectionSouth;
                             super->speed = tmp;
                             this->unk_84 = 0;
-                            super->flags2 &= 0xfc;
+                            super->collisionMask &= 0xfc;
                             sub_080249DC(this);
                             this->unk_85 = gPlayerEntity.base.spritePriority.b1;
                             gPlayerEntity.base.flags &= ~ENT_COLLIDE;
@@ -428,7 +428,7 @@ void sub_080244E8(PestoEntity* this) {
                             super->z.HALF.HI -= 0xe;
                             this->unk_78 -= 0xe;
 
-                            entity = CreateProjectileWithParent(super, DIRT_BALL_PROJECTILE, this->unk_83);
+                            entity = EnemyCreateProjectile(super, DIRT_BALL_PROJECTILE, this->unk_83);
                             if (entity != NULL) {
                                 entity->parent = super;
                                 entity->z.HALF.HI += 0xe;
@@ -451,7 +451,7 @@ void sub_080244E8(PestoEntity* this) {
                             super->z.HALF.HI -= 0xe;
                             this->unk_78 -= 0xe;
 
-                            entity = CreateProjectileWithParent(super, DIRT_BALL_PROJECTILE, this->unk_83);
+                            entity = EnemyCreateProjectile(super, DIRT_BALL_PROJECTILE, this->unk_83);
                             if (entity != NULL) {
                                 entity->parent = super;
                                 entity->z.HALF.HI += 0xe;
@@ -877,7 +877,7 @@ void sub_08024F50(PestoEntity* this) {
     gPlayerEntity.base.spritePriority.b1 = this->unk_85;
     gPlayerEntity.base.z.HALF.HI = gPlayerEntity.base.spriteOffsetY;
     gPlayerEntity.base.spriteOffsetY = 0;
-    super->flags2 |= 3;
+    super->collisionMask |= 3;
     this->unk_83 = 0xc0;
     this->unk_80 += 2;
     this->unk_84 = 0;

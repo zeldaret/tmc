@@ -22,7 +22,7 @@ void DeleteAllEntities(void);
 void sub_0805E98C(void);
 extern void UnloadOBJPalette2(Entity*);
 extern void sub_08017744(Entity*);
-extern void sub_0804AA1C(Entity*);
+extern void EnemyDetachFX(Entity*);
 
 void ClearDeletedEntity(Entity*);
 extern void ram_ClearAndUpdateEntities(void);
@@ -370,7 +370,7 @@ void DeleteEntity(Entity* ent) {
         zFree(ent->myHeap);
         ent->myHeap = NULL;
         if (ent->kind == ENEMY) {
-            sub_0804AA1C(ent);
+            EnemyDetachFX(ent);
         }
         COLLISION_OFF(ent);
         ent->spriteSettings.draw = 0;

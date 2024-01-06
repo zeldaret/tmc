@@ -152,7 +152,7 @@ void GleerokParticle_Init(GleerokParticleEntity* this) {
                         super->collisionFlags = 7;
                         super->hurtType = 0x48;
                         super->hitType = 0x7a;
-                        super->flags2 = 1;
+                        super->collisionMask = 1;
                     }
                     break;
                 case 0x80:

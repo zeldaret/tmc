@@ -91,7 +91,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 PausePlayer();
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
-                gPlayerEntity.unk_74 = super;
+                gPlayerEntity.carriedEntity = super;
                 gHUD.rActionPlayerState = R_ACTION_DROP;
                 MessageClose();
             }
@@ -104,7 +104,7 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
 
     gHUD.rActionPlayerState = R_ACTION_DROP;
     super->spriteSettings.draw = gPlayerEntity.base.spriteSettings.draw;
-    if ((gPlayerState.heldObject == 0) || (super != gPlayerEntity.unk_74)) {
+    if ((gPlayerState.heldObject == 0) || (super != gPlayerEntity.carriedEntity)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
@@ -120,7 +120,7 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
 void sub_080819B4(ItemForSaleEntity* this) {
     Entity* parent;
     u8* puVar2;
-    HUD* ptr;
+    HUD* hud;
 
     if (gRoomVars.shopItemType == 0) {
         if (super->parent != NULL) {
@@ -129,11 +129,11 @@ void sub_080819B4(ItemForSaleEntity* this) {
         DeleteThisEntity();
     }
     gPlayerState.heldObject = 0;
-    gPlayerEntity.unk_74 = 0;
-    ptr = &gHUD;
+    gPlayerEntity.carriedEntity = 0;
+    hud = &gHUD;
     gRoomVars.shopItemType = 0;
-    ptr->rActionInteractObject = R_ACTION_NONE;
-    ptr->rActionPlayerState = R_ACTION_NONE;
+    hud->rActionInteractObject = R_ACTION_NONE;
+    hud->rActionPlayerState = R_ACTION_NONE;
     gRoomVars.shopItemType2 = 0;
     super->x.HALF.HI = this->unk_80 + gRoomControls.origin_x;
     super->y.HALF.HI = this->unk_82 + gRoomControls.origin_y;

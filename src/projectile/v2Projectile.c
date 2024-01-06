@@ -44,7 +44,7 @@ void V2Projectile_OnTick(V2ProjectileEntity* this) {
 }
 
 void V2Projectile_OnCollision(V2ProjectileEntity* this) {
-    if ((super->contactFlags & 0x80) == 0)
+    if ((super->contactFlags & CONTACT_NOW) == 0)
         return;
 
     switch (super->type) {
@@ -158,7 +158,7 @@ void sub_080ABE04(Entity* this) {
     }
     this->x.HALF.HI = newX + ((0xe0 & rand) >> 1);
     this->y.HALF.HI += ((0xf & rand) << 4);
-    sub_08004168(this);
+    SnapToTile(this);
     InitializeAnimation(this, 0);
     SoundReq(SFX_12D);
 }

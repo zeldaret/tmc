@@ -8,7 +8,7 @@
 #include "functions.h"
 #include "player.h"
 
-extern Entity* sub_08008782(Entity*, u32, s32, s32);
+extern Entity* DoTileInteractionOffset(Entity*, u32, s32, s32);
 
 void PlayerItemDashSword_Action1(Entity* this);
 void PlayerItemDashSword_Init(Entity* this);
@@ -29,7 +29,7 @@ void PlayerItemDashSword_Init(Entity* this) {
         gPlayerState.item = this;
         this->flags |= ENT_PERSIST;
         this->action = 1;
-        this->flags2 = 8;
+        this->collisionMask = 8;
         LoadSwapGFX(this, 1, 3);
         sub_08079BD8(this);
         sub_0801766C(this);
@@ -81,7 +81,7 @@ void sub_0801B938(Entity* this) {
 
     this->hitbox = (Hitbox*)&gUnk_080B7850[this->animationState >> 1];
     ptr = &gUnk_080B7848[(this->animationState >> 1) * 2];
-    sub_08008782(this, -(gPlayerState.skills & SKILL_ROCK_BREAKER) != 0, ptr[0], ptr[1]);
+    DoTileInteractionOffset(this, -(gPlayerState.skills & SKILL_ROCK_BREAKER) != 0, ptr[0], ptr[1]);
     sub_08078E84(this, &gPlayerEntity.base);
 }
 

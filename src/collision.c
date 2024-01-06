@@ -248,7 +248,7 @@ s32 CalculateDamage(Entity* org, Entity* tgt) {
         }
         health = org->health - damage;
         if (org->kind == ENEMY) {
-            if ((((GenericEntity*)org)->field_0x6c.HALF.HI & 1) != 0)
+            if (((Enemy*)org)->enemyFlags & EM_FLAG_BOSS)
                 SoundReqClipped(org, SFX_BOSS_HIT);
             else
                 SoundReqClipped(org, SFX_HIT);
@@ -372,7 +372,7 @@ CollisionResult CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettin
 // target: item
 CollisionResult CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     COLLISION_OFF(tgt);
-    tgt->contactFlags = org->hurtType | 0x80;
+    tgt->contactFlags = org->hurtType | CONTACT_NOW;
     if ((tgt->type == 0x5F || tgt->type == 0x60) && sub_08081420(tgt))
         tgt->health = 0;
     return RESULT_COLLISION_WITHOUT_SET;
@@ -392,7 +392,7 @@ CollisionResult sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSetting
 CollisionResult sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((tgt->gustJarState & 4) != 0) {
         if (tgt->gustJarTolerance) {
-            tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarSpeed;
+            tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarCharge;
             if ((s8)tgt->gustJarTolerance <= 0) {
                 tgt->gustJarTolerance = 0;
                 tgt->subAction = 2;
@@ -504,7 +504,7 @@ CollisionResult sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSetting
         sub_08079D84();
         org->iframes = 90;
     } else {
-        gPlayerEntity.base.contactFlags = tgt->hurtType | 0x80;
+        gPlayerEntity.base.contactFlags = tgt->hurtType | CONTACT_NOW;
         gPlayerEntity.base.iframes = 12;
         gPlayerEntity.base.knockbackDuration = 16;
         gPlayerEntity.base.knockbackDirection = DirectionTurnAround(direction);
@@ -581,7 +581,7 @@ CollisionResult sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSetting
             org->health = 0;
         }
     } else if (tgt->kind == ENEMY && org == &gPlayerEntity.base) {
-        sub_08004484(tgt, org);
+        CalcCollisionStaticEntity(tgt, org);
     }
     return RESULT_NO_COLLISION;
 }
@@ -671,14 +671,14 @@ CollisionResult sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSetting
             org->health = 0;
         }
     } else if ((tgt->kind == ENEMY) && (org == &gPlayerEntity.base)) {
-        sub_08004484(tgt, &gPlayerEntity.base);
+        CalcCollisionStaticEntity(tgt, &gPlayerEntity.base);
     }
     return RESULT_NO_COLLISION;
 }
 
 CollisionResult sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (org == &gPlayerEntity.base && PlayerCanBeMoved())
-        sub_08004484(tgt, org);
+        CalcCollisionStaticEntity(tgt, org);
     return RESULT_NO_COLLISION;
 }
 
@@ -717,7 +717,7 @@ CollisionResult sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSetting
 CollisionResult CollisionDefault(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 confused = 0;
     if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity.base) {
-        sub_08004484(tgt, org);
+        CalcCollisionStaticEntity(tgt, org);
         confused = 1;
     }
     if ((org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) &&

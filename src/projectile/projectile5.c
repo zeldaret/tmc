@@ -41,7 +41,7 @@ void Projectile5_OnCollision(Entity* this) {
             if (gPlayerState.hurtBlinkSpeed != 0) {
                 if (GetCollisionDataAtMetaTilePos(TILE(this->x.HALF.HI, this->y.HALF.HI),
                                                   gPlayerEntity.base.collisionLayer) == 0) {
-                    if (this->contactFlags == 0x80) {
+                    if (this->contactFlags == CONTACT_NOW) {
                         *pbVar2 = *pbVar2 & 0x7f;
                         DeleteThisEntity();
                     }

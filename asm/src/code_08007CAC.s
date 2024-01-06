@@ -5,14 +5,14 @@
 
 	.text
 
-@ TODO cannot add this at the end of mapVvvToSurfaceType.c due to alignment?
+// TODO cannot add this at the end of mapVvvToSurfaceType.c due to alignment?
 .2byte 0
 
-@ TODO unused?
+// TODO unused?
 gUnk_08007DBE:: @ 08007DBE
 	.byte 0x42, 0x7b, 0x01, 0x32, 0x42, 0x73, 0x70, 0x47, 0x02, 0x73, 0x00, 0x23, 0x43, 0x73, 0x0b, 0x73
 
-	@ seems unused?
+	// seems unused?
 	non_word_aligned_thumb_func_start sub_08007DCE
 sub_08007DCE:
 	push {lr}
@@ -20,26 +20,27 @@ sub_08007DCE:
 	pop {pc}
 
 
-@ Find the key in the map of u16 to u16
-@ r0: value, r1: array of u16*
+// Find the key in the map of u16 to u16
+// r0: value
+// r1: array of u16*
 	non_word_aligned_thumb_func_start FindValueForKey
 FindValueForKey: @ 0x08007DD6
 	push {lr}
-	bl sub_08007DE0
-	adds r0, r3, #0 @ move the found value into r0
+	bl ActTileConv
+	adds r0, r3, #0 // move the found value into r0
 	pop {pc}
 
-	thumb_func_start sub_08007DE0
-sub_08007DE0: @ 0x08007DE0
+	thumb_func_start ActTileConv // TODO rename
+ActTileConv: @ 0x08007DE0
 	subs r1, #4
 _08007DE2:
-	adds r1, #4	@ add +4 to r1 at the end of loop
-	ldrh r3, [r1] @ r3: key
+	adds r1, #4	// add +4 to r1 at the end of loop
+	ldrh r3, [r1] // r3: key
 	cmp r3, #0
-	beq _08007DF2 @ key == 0 -> end of map
+	beq _08007DF2 // key == 0 -> end of map
 	cmp r0, r3
-	bne _08007DE2 @ r3 == r0 -> found
-	ldrh r3, [r1, #2] @ r3: value
-	movs r2, #1 @ r2 = 1
+	bne _08007DE2 // r3 == r0 -> found
+	ldrh r3, [r1, #2] // r3: value
+	movs r2, #1 // r2 = 1
 _08007DF2:
 	bx lr

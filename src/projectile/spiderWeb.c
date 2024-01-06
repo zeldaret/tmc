@@ -65,7 +65,7 @@ void SpiderWeb_OnCollision(SpiderWebEntity* this) {
     };
     Entity* object;
 
-    if (super->contactFlags == 0x87) {
+    if (super->contactFlags == (CONTACT_NOW | 0x7)) {
         super->action = 3;
         super->timer = 90;
         COLLISION_OFF(super);

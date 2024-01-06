@@ -208,7 +208,7 @@ u32 UpdatePlayerCollision(void) {
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x,
                                    gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y, index, 5) == 0 &&
-                      (((gPlayerState.heldObject != 0 || ((gPlayerState.field_0x1c & 0xf) != 0)) ||
+                      (((gPlayerState.heldObject != 0 || ((gPlayerState.gustJarState & 0xf) != 0)) ||
                         (sub_0807BD14(&gPlayerEntity.base, index) == 0)))))) {
                     return 3;
                 }
@@ -640,7 +640,7 @@ bool32 sub_0801A370(MapLayer* mapLayer, u32 position) {
     if (!sub_0801A4F8()) {
         return FALSE;
     }
-    topLayer = GetLayerByIndex(2);
+    topLayer = GetLayerByIndex(LAYER_TOP);
     offset = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
     pos = position + offset;
     tileType = GetMetaTileType(pos, gPlayerEntity.base.collisionLayer);
@@ -932,7 +932,7 @@ u32 sub_0801A8D0(Entity* this, u32 param_2) {
 bool32 sub_0801A980(void) {
     u16 tileType;
     const s16* ptr;
-    GetLayerByIndex(gPlayerEntity.base.collisionLayer);
+    GetLayerByIndex(gPlayerEntity.base.collisionLayer); // TODO result unused?
     ptr = &gUnk_080B44A8[gPlayerEntity.base.animationState & 6];
     tileType =
         GetMetaTileType(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), gPlayerEntity.base.collisionLayer);
@@ -1009,7 +1009,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
 void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
     u16* tiles;
     u16* mapData;
-    u16* mapDataClone;
+    u16* mapDataOriginal;
     u16 metaTileY;
     u16 metaTileX;
     u32 metaTilePositionAndLayer;
@@ -1023,7 +1023,7 @@ void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
         layerIndex = 2;
     }
     metaTilePositionAndLayer = layerIndex << 0xc;
-    mapDataClone = mapLayer->mapDataClone;
+    mapDataOriginal = mapLayer->mapDataOriginal;
     mapData = mapLayer->mapData;
 
     for (metaTileY = 0; metaTileY < 0x40; metaTileY++) {
@@ -1033,7 +1033,7 @@ void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
             if (mapData[0] < 0x4000) {
                 metaTileSetIndex = mapData[0] * 4;
             } else {
-                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer, mapDataClone[0]);
+                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer, mapDataOriginal[0]);
             }
             tiles = mapLayer->metatiles + metaTileSetIndex;
             tileMap[0] = tiles[0];
@@ -1045,7 +1045,7 @@ void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
             if (mapData[1] < 0x4000) {
                 metaTileSetIndex = mapData[1] * 4;
             } else {
-                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer + 1, mapDataClone[1]);
+                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer + 1, mapDataOriginal[1]);
             }
             tiles = mapLayer->metatiles + metaTileSetIndex;
             tileMap[0] = tiles[0];
@@ -1057,7 +1057,7 @@ void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
             if (mapData[2] < 0x4000) {
                 metaTileSetIndex = mapData[2] * 4;
             } else {
-                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer + 2, mapDataClone[2]);
+                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer + 2, mapDataOriginal[2]);
             }
             tiles = mapLayer->metatiles + metaTileSetIndex;
             tileMap[0] = tiles[0];
@@ -1069,7 +1069,7 @@ void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
             if (mapData[3] < 0x4000) {
                 metaTileSetIndex = mapData[3] * 4;
             } else {
-                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer + 3, mapDataClone[3]);
+                metaTileSetIndex = GetMetaTileSetIndexForSpecialTile(metaTilePositionAndLayer + 3, mapDataOriginal[3]);
             }
             tiles = mapLayer->metatiles + metaTileSetIndex;
             tileMap[0] = tiles[0];
@@ -1079,7 +1079,7 @@ void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer) {
             tileMap += 2;
 
             mapData += 4;
-            mapDataClone += 4;
+            mapDataOriginal += 4;
             metaTilePositionAndLayer = (u16)(metaTilePositionAndLayer + 4);
         }
         tileMap = tileMap + 0x80;
@@ -1229,7 +1229,7 @@ void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer) {
 }
 
 // Add a new entry at the end of gMetaTilesForSpecialTiles
-void StoreMetaTileForSpecialTile(u32 metaTileIndex, u32 metaTilePos, u32 layer) {
+void RegisterInteractTile(u32 metaTileIndex, u32 metaTilePos, u32 layer) {
     u32 index;
     if ((metaTileIndex < 0x4000) && (gRoomTransition.field30 == 0)) {
         index = gRoomVars.tileEntityCount;
@@ -1241,7 +1241,7 @@ void StoreMetaTileForSpecialTile(u32 metaTileIndex, u32 metaTilePos, u32 layer) 
     }
 }
 
-void DeleteLoadedTileEntity(u32 metaTilePos, s32 layer) {
+void UnregisterInteractTile(u32 metaTilePos, s32 layer) {
     u32 count;
     SpecialTileEntry* ptr;
     u32 metaTilePosAndLayer;
