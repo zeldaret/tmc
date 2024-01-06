@@ -119,7 +119,7 @@ typedef struct {
     s8 y;
 } PACKED Coords8;
 
-typedef union {
+union SplitDWord {
     s64 DWORD;
     u64 DWORD_U;
     struct {
@@ -128,7 +128,7 @@ typedef union {
     struct {
         u32 LO, HI;
     } HALF_U;
-} SplitDWord;
+};
 
 union SplitWord {
     s32 WORD;
