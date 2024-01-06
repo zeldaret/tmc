@@ -86,12 +86,12 @@ arm_sub_080B1A0C: @ 0x080B1A0C
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b arm_GetMetaTileTypeByPos
-arm_GetMetaTileTypeByEntity: // GetCell
+	b arm_GetTileTypeByPos
+arm_GetTileTypeByEntity: // GetCell
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-arm_GetMetaTileTypeByPos:
+arm_GetTileTypeByPos:
 	ldr ip, _080B1C18 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
@@ -106,8 +106,8 @@ arm_sub_080B1A58:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
 
-	arm_func_start arm_GetMetaTileType
-arm_GetMetaTileType: @ 0x080B1A60
+	arm_func_start arm_GetTileType
+arm_GetTileType: @ 0x080B1A60
 	ldr r2, _080B1C1C @ =gMapDataPtrs
 _080B1A64:
 	add r2, r2, r1, lsl #3
@@ -150,7 +150,7 @@ arm_GetVvvAtRoomCoords: @ room pixel coordinates to room tile coordinates
 arm_GetVvvAtRoomTile:
 	add r0, r0, r1, lsl #6
 	mov r1, r2 @ move layer to r1
-arm_GetVvvAtMetaTilePos:
+arm_GetVvvAtTilePos:
 	ldr r2, _080B1C24 @ =gVvvPtrs
 	ldr r2, [r2, r1, lsl #2]
 	ldrb r0, [r2, r0]
@@ -187,17 +187,17 @@ arm_GetCollisionDataAtRoomCoords:
 arm_GetCollisionDataAtRoomTile:
 	add r0, r0, r1, lsl #6 @ convert coords to tile index
 	mov r1, r2
-arm_GetCollisionDataAtMetaTilePos:
+arm_GetCollisionDataAtTilePos:
 	ldr r2, _080B1C2C @ =gCollisionDataPtrs
 	ldr r1, [r2, r1, lsl #2]
 	ldrb r0, [r1, r0] @ load collision tile at my location
 	bx lr
 
-	arm_func_start arm_GetVvvForMetaTileType
-arm_GetVvvForMetaTileType: @ 0x080B1B54
+	arm_func_start arm_GetVvvForTileType
+arm_GetVvvForTileType: @ 0x080B1B54
 	lsls r0, r0, #0x12
-	ldrlo r1, _080B1C30 @ =gMapMetaTileTypeToVvv
-	ldrhs r1, _080B1C34 @ =gMapSpecialMetaTileToVvv
+	ldrlo r1, _080B1C30 @ =gMapTileTypeToVvv
+	ldrhs r1, _080B1C34 @ =gMapSpecialTileToVvv
 	ldrb r0, [r1, r0, lsr #18]
 	bx lr
 
@@ -205,7 +205,7 @@ arm_GetVvvForMetaTileType: @ 0x080B1B54
 arm_sub_080B1B68: @ 0x080B1B68
 	lsrs r2, r0, #0xe
 	bxne lr
-	ldr r2, _080B1C38 @ =gMetatileTypesPtrs
+	ldr r2, _080B1C38 @ =gTileTypesPtrs
 	ldr r1, [r2, r1, lsl #3]
 	lsl r0, r0, #1
 	ldrh r0, [r1, r0]
@@ -214,7 +214,7 @@ arm_sub_080B1B68: @ 0x080B1B68
 	arm_func_start arm_sub_080B1B84
 arm_sub_080B1B84: @ 0x080B1B84
 	mov ip, lr
-	bl arm_GetMetaTileType
+	bl arm_GetTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C3C @ =gUnk_08000360
 	ldrhs r1, _080B1C40 @ =gUnk_080B7A3E
@@ -226,7 +226,7 @@ arm_sub_080B1B84: @ 0x080B1B84
 arm_sub_080B1BA4: @ 0x080B1BA4
 	mov ip, lr
 	mov r3, r2
-	bl arm_GetMetaTileType
+	bl arm_GetTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C44 @ =gUnk_08000360
 	ldrhs r1, _080B1C48 @ =gUnk_080B7A3E
@@ -263,9 +263,9 @@ _080B1C20: .4byte gRoomControls
 _080B1C24: .4byte gVvvPtrs
 _080B1C28: .4byte gRoomControls
 _080B1C2C: .4byte gCollisionDataPtrs
-_080B1C30: .4byte gMapMetaTileTypeToVvv
-_080B1C34: .4byte gMapSpecialMetaTileToVvv
-_080B1C38: .4byte gMetatileTypesPtrs
+_080B1C30: .4byte gMapTileTypeToVvv
+_080B1C34: .4byte gMapSpecialTileToVvv
+_080B1C38: .4byte gTileTypesPtrs
 _080B1C3C: .4byte gUnk_08000360
 _080B1C40: .4byte gUnk_080B7A3E
 _080B1C44: .4byte gUnk_08000360

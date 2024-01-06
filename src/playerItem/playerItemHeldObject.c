@@ -106,7 +106,7 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
         0, -6, 6, 0, 0, 6, -6, 0,
     };
     PlayerItemHeldObjectEntity* child;
-    u32 tile;
+    u32 data;
     u32 tmp;
 
     child = (PlayerItemHeldObjectEntity*)super->child;
@@ -126,8 +126,8 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
                                    gUnk_081320C4[(super->direction >> 2) + 1]) == VVV_116) {
             LinearMoveUpdate(super);
         } else {
-            tile = GetCollisionDataAtEntity(super);
-            if ((tile != COLLISION_DATA_36) && (tile != COLLISION_DATA_38)) {
+            data = GetCollisionDataAtEntity(super);
+            if ((data != COLLISION_DATA_36) && (data != COLLISION_DATA_38)) {
                 ProcessMovement10(super);
             }
         }
@@ -136,8 +136,8 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             (child->base).x = super->x;
             (child->base).y = super->y;
             (child->base).z = super->z;
-            tile = GetVvvAtEntity(super);
-            switch (tile) {
+            data = GetVvvAtEntity(super);
+            switch (data) {
                 case VVV_13:
                 case VVV_16:
                 case VVV_17:
@@ -145,7 +145,7 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
                 case VVV_90:
                     if (child == this) {
 
-                        switch (tile) {
+                        switch (data) {
                             case VVV_13:
                                 CreateFx(super, FX_FALL_DOWN, 0);
                                 break;

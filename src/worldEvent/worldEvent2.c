@@ -60,7 +60,7 @@ void sub_08055994(void) {
     } else {
         layer = LAYER_BOTTOM;
     }
-    SetMetaTileType(META_TILE_TYPE_115,
+    SetTileType(TILE_TYPE_115,
                     (*(u16*)(gMenu.field_0xc + 8) >> 4 & 0x3f) | (*(u16*)(gMenu.field_0xc + 10) >> 4 & 0x3f) << 6,
                     layer);
     sub_080553E0((u32)gMenu.field_0x4);

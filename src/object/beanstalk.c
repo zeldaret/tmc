@@ -258,8 +258,8 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
             this->tilePos = TILE(super->x.HALF.HI, this->unk_6c);
             while (TRUE) {
                 this->tilePos = TILE(super->x.HALF.HI, this->unk_6c);
-                SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, LAYER_TOP);
-                SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, LAYER_BOTTOM);
+                SetTile(SPECIAL_TILE_23, this->tilePos, LAYER_TOP);
+                SetTile(SPECIAL_TILE_23, this->tilePos, LAYER_BOTTOM);
                 this->unk_6c += 0x10;
                 if (this->unk_6c >= gRoomControls.origin_y + gRoomControls.height)
                     break;
@@ -308,7 +308,7 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
 
     super->spriteOrientation.flipY = 2;
     this->tilePos = COORD_TO_TILE(super);
-    SetMetaTile(SPECIAL_META_TILE_23, this->tilePos, LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_23, this->tilePos, LAYER_BOTTOM);
     super->subAction = 1;
     obj = CreateObjectWithParent(super, CHUCHU_BOSS_PARTICLE, 0, 0);
     if (obj != NULL) {
@@ -339,13 +339,13 @@ void Beanstalk_Action1Type9(BeanstalkEntity* this) {
     super->spriteRendering.b3 = gPlayerEntity.base.spriteRendering.b3;
     if (gPlayerState.floor_type == SURFACE_LADDER) {
         super->spritePriority.b0 = 0;
-        if (sub_080B1A0C(super, 0, -24) != SPECIAL_META_TILE_20) {
-            SetMetaTile(SPECIAL_META_TILE_20, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
+        if (sub_080B1A0C(super, 0, -24) != SPECIAL_TILE_20) {
+            SetTile(SPECIAL_TILE_20, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
         }
     } else {
         super->spritePriority.b0 = 5;
         if (this->unk_72 != sub_080B1A0C(super, 0, -24)) {
-            SetMetaTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
+            SetTile(this->unk_72, COORD_TO_TILE_OFFSET(super, 0, 24), LAYER_BOTTOM);
         }
     }
 }

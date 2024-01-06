@@ -94,11 +94,11 @@ void CarlovObject_Type1Init(CarlovObjectEntity* this) {
     this->unk_72 = super->y.HALF.HI;
     super->spritePriority.b0 = 5;
     this->unk_76 = COORD_TO_TILE(super);
-    this->unk_74 = GetMetaTileIndex(this->unk_76, super->collisionLayer);
+    this->unk_74 = GetTileIndex(this->unk_76, super->collisionLayer);
     if (super->timer == 0) {
         super->action = 1;
         super->subtimer = 120;
-        SetMetaTile(SPECIAL_META_TILE_34, this->unk_76, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, this->unk_76, super->collisionLayer);
     } else {
         super->action = 3;
         super->spriteSettings.draw = 0;
@@ -112,7 +112,7 @@ void CarlovObject_Type1Action1(CarlovObjectEntity* this) {
         super->action = 2;
         super->timer = 7;
         super->direction = 0;
-        SetMetaTile(this->unk_74, this->unk_76, super->collisionLayer);
+        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
         EnqueueSFX(SFX_10B);
     }
 }
@@ -141,7 +141,7 @@ void CarlovObject_Type1Action4(CarlovObjectEntity* this) {
         super->action = 5;
         sub_08083814(super, 2);
         EnqueueSFX(SFX_10B);
-        SetMetaTile(SPECIAL_META_TILE_34, this->unk_76, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, this->unk_76, super->collisionLayer);
     }
 }
 

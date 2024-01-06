@@ -42,20 +42,20 @@ void HiddenLadderDown_Init(HiddenLadderDownEntity* this) {
     if (CheckFlags(this->unk_86) != 0) {
         super->action = 2;
         super->spriteSettings.draw = TRUE;
-        SetMetaTileType(META_TILE_TYPE_418, *puVar3 + TILE_POS(-1, -1), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_419, *puVar3 + TILE_POS(0, -1), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_420, *puVar3 + TILE_POS(1, -1), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_421, *puVar3 + TILE_POS(-1, 0), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_422, *puVar3 + TILE_POS(0, 0), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_423, *puVar3 + TILE_POS(1, 0), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_424, *puVar3 + TILE_POS(-1, 1), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_425, *puVar3 + TILE_POS(0, 1), super->collisionLayer);
-        SetMetaTileType(META_TILE_TYPE_426, *puVar3 + TILE_POS(1, 1), super->collisionLayer);
+        SetTileType(TILE_TYPE_418, *puVar3 + TILE_POS(-1, -1), super->collisionLayer);
+        SetTileType(TILE_TYPE_419, *puVar3 + TILE_POS(0, -1), super->collisionLayer);
+        SetTileType(TILE_TYPE_420, *puVar3 + TILE_POS(1, -1), super->collisionLayer);
+        SetTileType(TILE_TYPE_421, *puVar3 + TILE_POS(-1, 0), super->collisionLayer);
+        SetTileType(TILE_TYPE_422, *puVar3 + TILE_POS(0, 0), super->collisionLayer);
+        SetTileType(TILE_TYPE_423, *puVar3 + TILE_POS(1, 0), super->collisionLayer);
+        SetTileType(TILE_TYPE_424, *puVar3 + TILE_POS(-1, 1), super->collisionLayer);
+        SetTileType(TILE_TYPE_425, *puVar3 + TILE_POS(0, 1), super->collisionLayer);
+        SetTileType(TILE_TYPE_426, *puVar3 + TILE_POS(1, 1), super->collisionLayer);
     }
 }
 
 void HiddenLadderDown_Action1(HiddenLadderDownEntity* this) {
-    if (GetMetaTileType(this->unk_70, super->collisionLayer) == 0x1a6) {
+    if (GetTileType(this->unk_70, super->collisionLayer) == 0x1a6) {
         super->action = 2;
         super->spriteSettings.draw = TRUE;
         SetFlag(this->unk_86);

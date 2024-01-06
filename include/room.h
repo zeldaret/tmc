@@ -34,7 +34,7 @@ typedef struct {
     /*0x0A*/ s16 scroll_x;
     /*0x0C*/ s16 scroll_y;
     /*0x0E*/ u8 scrollSpeed;  /**< Pixels per frame that the camera can scroll. */
-    /*0x0F*/ u8 scroll_flags; // 0x2 = ?? (apply collision value on bottom map no matter the layer SetMetaTileType is
+    /*0x0F*/ u8 scroll_flags; // 0x2 = ?? (apply collision value on bottom map no matter the layer SetTileType is
                               // called for), 0x4 = camera scrolling
     /*0x10*/ u8 scroll_direction;
     /*0x11*/ s8 oam_offset_x;
@@ -73,7 +73,7 @@ typedef struct {
     /* 0x09 */ u8 fight_bgm;
     /* 0x0a */ u8 needHealthDrop;
     /* 0x0c */ s16 lightLevel;
-    /* 0x0e */ u16 tileEntityCount; // Number of previous values for special tiles stored in gMetaTilesForSpecialTiles
+    /* 0x0e */ u16 tileEntityCount; // Number of previous values for special tiles stored in gTilesForSpecialTiles
     /* 0x10 */ u8 graphicsGroups[4];
     /* 0x14 */ u8 flags[52];
     /* 0x48 */ Droptable currentAreaDroptable;
@@ -151,7 +151,7 @@ typedef struct {
     /* 0x06 */ u16 field_0x6;
     /* 0x08 */ bool8 transitioningOut;
     /* 0x09 */ u8 type;        // transition when changing areas
-    /* 0x0a */ u16 stairs_idx; // seems to be a tile type @see MetaTileType, set in UpdateDoorTransition()
+    /* 0x0a */ u16 stairs_idx; // seems to be a tile type @see TileType, set in UpdateDoorTransition()
     /* 0x0c */ PlayerRoomStatus player_status;
     /* 0x2c */ u8 entity_update_type; // differentiates entity priority on kinstone menu?
     /* 0x2d */ u8 field2d;
@@ -234,7 +234,7 @@ typedef enum {
 
 extern void** gCurrentRoomProperties;
 
-void SetMetaTileType(u32 metaTileType, u32 metaTilePos, u32 layer);
+void SetTileType(u32 tileType, u32 tilePos, u32 layer);
 void InitScreenShake(u32 time, u32 magnitude);
 
 void CallRoomProp5And7(void);

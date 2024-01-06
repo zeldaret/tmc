@@ -100,7 +100,7 @@ static void sub_0809EAD8(LightableSwitchEntity* this) {
         UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
     } else {
-        SetMetaTile(SPECIAL_META_TILE_80, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_80, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 

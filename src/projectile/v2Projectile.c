@@ -13,8 +13,8 @@
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unused1[12];
-    /*0x74*/ u16 unk_74;
-    /*0x76*/ u16 unk_76;
+    /*0x74*/ u16 tilePos;
+    /*0x76*/ u16 tileType;
 } V2ProjectileEntity;
 
 extern void (*const V2Projectile_Functions[])(V2ProjectileEntity*);
@@ -104,8 +104,8 @@ void sub_080ABCC4(V2ProjectileEntity* this) {
     super->timer = (Random() & 0x3f) + 48;
     super->subtimer = 0;
     super->direction = Random() & 0x1f;
-    this->unk_74 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    this->unk_76 = GetMetaTileType(this->unk_74, LAYER_TOP);
+    this->tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    this->tileType = GetTileType(this->tilePos, LAYER_TOP);
     super->spritePriority.b0 = 2;
     InitializeAnimation(super, 0);
     SoundReq(SFX_14B);
@@ -126,15 +126,15 @@ void sub_080ABD70(V2ProjectileEntity* this) {
     if ((super->frame & 0x10) != 0) {
         super->frame &= 0xef;
         super->speed = 0;
-        this->unk_74 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-        this->unk_76 = GetMetaTileType(this->unk_74, LAYER_TOP);
-        tmp = this->unk_76;
+        this->tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
+        this->tileType = GetTileType(this->tilePos, LAYER_TOP);
+        tmp = this->tileType;
         if (tmp != 0x13) {
             if (tmp == 0x315) {
-                SetMetaTileType(META_TILE_TYPE_110, this->unk_74, LAYER_TOP);
+                SetTileType(TILE_TYPE_110, this->tilePos, LAYER_TOP);
             }
         } else {
-            SetMetaTileType(META_TILE_TYPE_109, this->unk_74, LAYER_TOP);
+            SetTileType(TILE_TYPE_109, this->tilePos, LAYER_TOP);
         }
     }
     if ((super->frame & ANIM_DONE) != 0) {

@@ -87,11 +87,11 @@ void UpdateDisplayControls(void) {
 }
 
 void sub_08016CA8(BgSettings* bg) {
-    if (bg->updated && bg->tilemap != NULL) {
+    if (bg->updated && bg->subTileMap != NULL) {
         u32 dest;
         bg->updated = 0;
         dest = bg->control;
-        DmaCopy32(3, bg->tilemap, ((dest << 3) & 0xF800) + VRAM, gUnk_080B2CD8[dest >> 14]);
+        DmaCopy32(3, bg->subTileMap, ((dest << 3) & 0xF800) + VRAM, gUnk_080B2CD8[dest >> 14]);
     }
 }
 

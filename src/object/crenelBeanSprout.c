@@ -54,13 +54,13 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
                     PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
-                    SetMetaTile(SPECIAL_META_TILE_34, 0xdc, super->collisionLayer);
+                    SetTile(SPECIAL_TILE_34, 0xdc, super->collisionLayer);
                 } else {
                     if (CheckLocalFlag(super->type2) == 0) {
                         InitializeAnimation(super, 10);
                         super->y.HALF.HI += 4;
                         super->action = 4;
-                        SetMetaTile(SPECIAL_META_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
+                        SetTile(SPECIAL_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
                         return;
                     }
                     super->type2 = 0;
@@ -107,7 +107,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
                 InitializeAnimation(super, 0xb);
                 super->y.HALF.HI += 4;
                 super->action = 4;
-                SetMetaTile(SPECIAL_META_TILE_50, COORD_TO_TILE(super), super->collisionLayer);
+                SetTile(SPECIAL_TILE_50, COORD_TO_TILE(super), super->collisionLayer);
                 return;
             } else {
                 super->type2 = 0;
@@ -232,8 +232,8 @@ void CrenelBeanSprout_Action3(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action4(CrenelBeanSproutEntity* this) {
-    static const u16 gUnk_0812319C[] = { SPECIAL_META_TILE_60, SPECIAL_META_TILE_51 };
-    if (gUnk_0812319C[super->type >> 1] == GetMetaTileTypeByEntity(super)) {
+    static const u16 gUnk_0812319C[] = { SPECIAL_TILE_60, SPECIAL_TILE_51 };
+    if (gUnk_0812319C[super->type >> 1] == GetTileTypeByEntity(super)) {
         GetNextFrame(super);
         gPlayerState.keepFacing |= 0x80;
         gPlayerState.field_0xa |= 0x80;
@@ -329,5 +329,5 @@ void sub_08096A78(CrenelBeanSproutEntity* this) {
     SnapToTile(super);
     super->y.HALF.HI += 4;
     super->action = 3;
-    SetMetaTile(SPECIAL_META_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
 }

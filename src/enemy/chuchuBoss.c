@@ -562,7 +562,7 @@ void sub_080262A8(ChuchuBossEntity* this) {
         gPlayerEntity.base.animationState = 0;
         gRoomControls.camera_target = super;
         gRoomControls.scrollSpeed = 1;
-        SetMetaTile(SPECIAL_META_TILE_34, TILE_POS(8, 11), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_34, TILE_POS(8, 11), LAYER_BOTTOM);
     }
 }
 

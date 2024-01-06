@@ -12,7 +12,7 @@
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unused1[14];
-    /*0x76*/ u16 unk_76;
+    /*0x76*/ u16 tilePos;
 } V1FireProjectileEntity;
 
 extern void (*const V1FireProjectile_Functions[])(V1FireProjectileEntity*);
@@ -50,7 +50,7 @@ void V1FireProjectile_Init(V1FireProjectileEntity* this) {
 
     super->action = 1;
     super->zVelocity = Q_16_16(-1.0);
-    this->unk_76 = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    this->tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
     CopyPosition(super->parent, super);
     LinearMoveDirection(super, 0x1000, super->direction);
     super->spritePriority.b0 = 1;
@@ -112,17 +112,17 @@ void V1FireProjectile_Action3(V1FireProjectileEntity* this) {
 }
 
 void sub_080AB4A4(V1FireProjectileEntity* this) {
-    u32 tmp;
-    u16 tile;
+    u32 oldTilePos;
+    u32 tilePos;
 
-    tmp = this->unk_76;
-    tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    if (tmp != tile) {
-        this->unk_76 = tile;
-        switch (GetMetaTileTypeByEntity(super)) {
+    oldTilePos = this->tilePos;
+    tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    if (oldTilePos != tilePos) {
+        this->tilePos = tilePos;
+        switch (GetTileTypeByEntity(super)) {
             case 0x13:
             case 0x34:
-                sub_0807B7D8(0x34c, this->unk_76, super->collisionLayer);
+                sub_0807B7D8(0x34c, this->tilePos, super->collisionLayer);
                 break;
         }
     }

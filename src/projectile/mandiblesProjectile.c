@@ -118,8 +118,8 @@ void MandiblesProjectile_Action2(MandiblesProjectileEntity* this) {
         EnqueueSFX(SFX_15D);
     }
     this->unk_78 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    if (GetMetaTileType(this->unk_78, super->collisionLayer) == SPECIAL_META_TILE_0) {
-        SetMetaTile(SPECIAL_META_TILE_5, this->unk_78, super->collisionLayer);
+    if (GetTileType(this->unk_78, super->collisionLayer) == SPECIAL_TILE_0) {
+        SetTile(SPECIAL_TILE_5, this->unk_78, super->collisionLayer);
     }
 }
 

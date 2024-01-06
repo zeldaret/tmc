@@ -241,7 +241,7 @@ void sub_0802EFB8(VaatiEyesMacroEntity* this) {
         uVar1 = (uVar3 + 4) & 0x18;
     }
     collisionData =
-        GetCollisionDataAtMetaTilePos(TILE(super->x.HALF.HI, super->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
+        GetCollisionDataAtTilePos(TILE(super->x.HALF.HI, super->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
     if (collisionData != 0) {
         super->direction = DIR_NONE;
     } else {

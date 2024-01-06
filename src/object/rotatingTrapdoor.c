@@ -31,7 +31,7 @@ void RotatingTrapdoor_Init(Entity* this) {
     this->action = 1;
     x = 0;
     y = 0;
-    switch (GetMetaTileTypeByEntity(this)) {
+    switch (GetTileTypeByEntity(this)) {
         case 0x343:
             x = 0x10;
         case 0x344:

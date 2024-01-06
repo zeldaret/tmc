@@ -596,10 +596,10 @@ void sub_08053D34(void) {
     if (gMenu.field_0xa != 0) {
         gMenu.field_0xa = 0;
         if (CheckLocalFlagByBank(FLAG_BANK_7, 0x3d)) {
-            SetMetaTileType(META_TILE_TYPE_116, TILE_POS(4, 3), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_116, TILE_POS(4, 3), LAYER_BOTTOM);
         }
         if (CheckLocalFlagByBank(FLAG_BANK_7, 0x3e)) {
-            SetMetaTileType(META_TILE_TYPE_116, TILE_POS(12, 3), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_116, TILE_POS(12, 3), LAYER_BOTTOM);
         }
     }
     if (gFadeControl.active == 0) {

@@ -529,11 +529,11 @@
 
 // BGCNT
 #define BGCNT_PRIORITY(n) (n)        // Values 0 - 3. Lower priority BGs will be drawn on top of higher priority BGs.
-#define BGCNT_CHARBASE(n) ((n) << 2) // Values 0 - 3. Base block for tile pixel data.
+#define BGCNT_CHARBASE(n) ((n) << 2) // Values 0 - 3. Base block for sub tile pixel data.
 #define BGCNT_MOSAIC 0x0040
 #define BGCNT_16COLOR 0x0000           // 4 bits per pixel
 #define BGCNT_256COLOR 0x0080          // 8 bits per pixel
-#define BGCNT_SCREENBASE(n) ((n) << 8) // Values 0 - 31. Base block for tile map.
+#define BGCNT_SCREENBASE(n) ((n) << 8) // Values 0 - 31. Base block for sub tile map.
 #define BGCNT_WRAP 0x2000              // Only affects affine BGs. Text BGs wrap by default.
 #define BGCNT_TXT256x256 0x0000        // Internal screen size size of text mode BG in pixels.
 #define BGCNT_TXT512x256 0x4000

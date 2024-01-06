@@ -102,18 +102,18 @@ void BakerOven_Action2(BakerOvenEntity* this) {
 }
 
 void sub_0809CDF0(BakerOvenEntity* this) {
-    u32 metaTilePos;
+    u32 tilePos;
 
     this->unk_80 = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
                    (((super->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
-    metaTilePos = this->unk_80;
-    SetMetaTile(SPECIAL_META_TILE_46, metaTilePos + TILE_POS(-1, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + TILE_POS(0, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + TILE_POS(1, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(-1, -1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(0, -1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_36, metaTilePos + TILE_POS(1, -1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(-1, -2), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_38, metaTilePos + TILE_POS(0, -2), super->collisionLayer);
+    tilePos = this->unk_80;
+    SetTile(SPECIAL_TILE_46, tilePos + TILE_POS(-1, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(0, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(1, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(-1, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(0, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_36, tilePos + TILE_POS(1, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(-1, -2), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(0, -2), super->collisionLayer);
 }

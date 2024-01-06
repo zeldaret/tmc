@@ -60,7 +60,7 @@ void Minecart_Init(MinecartEntity* this) {
     super->speed = 0x700;
     super->spritePriority.b1 = 3;
     InitAnimationForceUpdate(super, super->type2 + 4 + super->animationState);
-    SetMetaTile(SPECIAL_META_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 void Minecart_Action1(MinecartEntity* this) {
@@ -289,7 +289,7 @@ void Minecart_Action6(MinecartEntity* this) {
         minecartData->room = gRoomControls.room;
         minecartData->animationState = super->animationState;
         InitAnimationForceUpdate(super, super->animationState + 0x10);
-        SetMetaTile(SPECIAL_META_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
     } else {
         UpdateAnimationSingleFrame(super);
         gPlayerEntity.base.spritePriority.b0 = super->spritePriority.b0 - 1;

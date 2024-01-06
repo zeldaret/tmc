@@ -30,7 +30,7 @@ extern u16 gUnk_0200B640;
 extern MapDataDefinition** gCaveBorderMapData[];
 extern u16 gUnk_02022830[0xc00];
 extern u16 gUnk_020246B0[0xc00];
-extern u8 gMapSpecialMetaTileToVvv[];
+extern u8 gMapSpecialTileToVvv[];
 
 void Scroll0(RoomControls*);
 void Scroll1(RoomControls*);
@@ -303,7 +303,7 @@ void Scroll5Sub1(RoomControls* controls) {
     gUnk_0200B640 = sub_08080278();
     LoadMapData(gCaveBorderMapData[gDiggingCaveEntranceTransition.entrance->type][0]);
     sub_0807C8B0(gMapTop.mapData, controls->width >> 4, controls->height >> 4);
-    RenderMapLayerToTileMap(gMapDataTopSpecial, &gMapTop);
+    RenderMapLayerToSubTileMap(gMapDataTopSpecial, &gMapTop);
 }
 
 void Scroll5Sub2(RoomControls* controls) {
@@ -360,8 +360,8 @@ void Scroll5Sub3(RoomControls* controls) {
     sub_0807BBE4();
     CreateCollisionDataBorderAroundRoom();
     sub_0805E248();
-    RenderMapLayerToTileMap(gMapDataBottomSpecial, &gMapBottom);
-    RenderMapLayerToTileMap(gMapDataTopSpecial, &gMapTop);
+    RenderMapLayerToSubTileMap(gMapDataBottomSpecial, &gMapBottom);
+    RenderMapLayerToSubTileMap(gMapDataTopSpecial, &gMapTop);
 }
 
 void Scroll5Sub4(RoomControls* controls) {
@@ -473,7 +473,7 @@ void sub_08080368(void) {
         tmp = gUnk_02034480.unk_00 << 1;
         index = 0;
         while (index < tmp) {
-            SetMetaTileByIndex(ptr[1], ptr[0] & 0xfff, (ptr[0] >> 0xe));
+            SetTileByIndex(ptr[1], ptr[0] & 0xfff, (ptr[0] >> 0xe));
             ptr += 2;
             index += 2;
         }
@@ -864,7 +864,7 @@ void UpdateDoorTransition() {
         case 0x1d:
             y = controls->camera_target->y.HALF.HI - controls->origin_y;
             x = controls->camera_target->x.HALF.HI - controls->origin_x;
-            vvv = GetVvvAtMetaTilePos(
+            vvv = GetVvvAtTilePos(
                 (((controls->camera_target->x.HALF.HI - controls->origin_x) >> 4) & 0x3F) |
                     ((((controls->camera_target->y.HALF.HI - controls->origin_y) >> 4) & 0x3F) << 6),
                 controls->camera_target->collisionLayer);
@@ -882,17 +882,17 @@ void UpdateDoorTransition() {
 
 // fill the vvv for the whole layer
 void FillVvvForLayer(MapLayer* mapLayer) {
-    u32 metaTilePos;
-    u16* metatileTypes = mapLayer->metatileTypes;
-    const u8* ptr = gMapMetaTileTypeToVvv;
+    u32 tilePos;
+    u16* tileTypes = mapLayer->tileTypes;
+    const u8* ptr = gMapTileTypeToVvv;
     u8* ptr3 = mapLayer->vvv;
     u16* mapData = mapLayer->mapData;
-    for (metaTilePos = 0; metaTilePos < 0x40 * 0x40; metaTilePos++) {
-        u16 metaTileIndex = mapData[metaTilePos];
-        if (metaTileIndex < 0x4000) {
-            mapLayer->vvv[metaTilePos] = ptr[metatileTypes[metaTileIndex]];
+    for (tilePos = 0; tilePos < 0x40 * 0x40; tilePos++) {
+        u16 tileIndex = mapData[tilePos];
+        if (tileIndex < 0x4000) {
+            mapLayer->vvv[tilePos] = ptr[tileTypes[tileIndex]];
         } else {
-            mapLayer->vvv[metaTilePos] = gMapSpecialMetaTileToVvv[metaTileIndex - 0x4000];
+            mapLayer->vvv[tilePos] = gMapSpecialTileToVvv[tileIndex - 0x4000];
         }
     }
 }

@@ -13,7 +13,7 @@ typedef struct {
     /*0x68*/ u8 unused1[8];
     /*0x70*/ u16 unk_70;
     /*0x72*/ u16 unk_72;
-    /*0x74*/ u16 metaTilePos;
+    /*0x74*/ u16 tilePos;
     /*0x76*/ u8 unused2[14];
     /*0x84*/ u16 unk_84;
     /*0x86*/ u16 unk_86;
@@ -42,12 +42,12 @@ void Button_Init(ButtonEntity* this) {
     if (this->unk_84 != 0) {
         super->collisionLayer = this->unk_84;
     }
-    this->metaTilePos = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
+    this->tilePos = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
                    ((((super->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
-    this->unk_72 = GetMetaTileType(this->metaTilePos, super->collisionLayer);
+    this->unk_72 = GetTileType(this->tilePos, super->collisionLayer);
     if (super->type == 0 && CheckFlags(this->unk_86)) {
         super->action = 5;
-        SetMetaTileType(META_TILE_TYPE_122, this->metaTilePos, super->collisionLayer);
+        SetTileType(TILE_TYPE_122, this->tilePos, super->collisionLayer);
     } else {
         if (sub_08081E3C(this)) {
             super->action = 2;
@@ -60,7 +60,7 @@ void Button_Init(ButtonEntity* this) {
 void Button_Action1(ButtonEntity* this) {
     if (sub_08081E3C(this)) {
         super->action = 2;
-        this->unk_72 = GetMetaTileType(this->metaTilePos, super->collisionLayer);
+        this->unk_72 = GetTileType(this->tilePos, super->collisionLayer);
     }
 }
 
@@ -81,12 +81,12 @@ void Button_Action2(ButtonEntity* this) {
     }
 }
 
-u32 sub_08081F7C(ButtonEntity*, u32 metaTileType);
+u32 sub_08081F7C(ButtonEntity*, u32 tileType);
 u32 sub_08081D28(ButtonEntity*);
 void sub_08081E6C(ButtonEntity*);
 
 void Button_Action3(ButtonEntity* this) {
-    if (!sub_08081F7C(this, META_TILE_TYPE_120))
+    if (!sub_08081F7C(this, TILE_TYPE_120))
         return;
     if (!sub_08081D28(this)) {
         super->action = 4;
@@ -106,7 +106,7 @@ void Button_Action4(ButtonEntity* this) {
         super->timer--;
         if (super->subtimer != 0) {
             super->subtimer = 0;
-            SetMetaTile(SPECIAL_META_TILE_53, this->metaTilePos, super->collisionLayer);
+            SetTile(SPECIAL_TILE_53, this->tilePos, super->collisionLayer);
         }
         if (sub_08081CB0(this)) {
             super->action = 3;
@@ -115,13 +115,13 @@ void Button_Action4(ButtonEntity* this) {
     } else {
         super->action = 2;
         ClearFlag(this->unk_86);
-        SetMetaTileType(META_TILE_TYPE_119, this->metaTilePos, super->collisionLayer);
+        SetTileType(TILE_TYPE_119, this->tilePos, super->collisionLayer);
         SoundReq(SFX_BUTTON_PRESS);
     }
 }
 
 void Button_Action5(ButtonEntity* this) {
-    if (sub_08081F7C(this, META_TILE_TYPE_122)) {
+    if (sub_08081F7C(this, TILE_TYPE_122)) {
         sub_08081E6C(this);
     }
 }
@@ -132,14 +132,14 @@ bool32 sub_08081CB0(ButtonEntity* this) {
     u16 tileType;
     if (sub_08081D74(this)) {
         this->unk_70 = -1;
-        if (GetMetaTileType(this->metaTilePos, super->collisionLayer) == SPECIAL_META_TILE_53) {
-            sub_0807B7D8(0x78, this->metaTilePos, super->collisionLayer);
+        if (GetTileType(this->tilePos, super->collisionLayer) == SPECIAL_TILE_53) {
+            sub_0807B7D8(0x78, this->tilePos, super->collisionLayer);
         }
         return TRUE;
     } else {
-        tileType = GetMetaTileType(this->metaTilePos, super->collisionLayer);
-        if (tileType != 0x77 && tileType != 0x79 && tileType != SPECIAL_META_TILE_53) {
-            this->unk_70 = GetMetaTileIndex(this->metaTilePos, super->collisionLayer);
+        tileType = GetTileType(this->tilePos, super->collisionLayer);
+        if (tileType != 0x77 && tileType != 0x79 && tileType != SPECIAL_TILE_53) {
+            this->unk_70 = GetTileIndex(this->tilePos, super->collisionLayer);
             return TRUE;
         }
     }
@@ -154,7 +154,7 @@ bool32 sub_08081D28(ButtonEntity* this) {
         if (this->unk_70 == 0xFFFF) {
             return FALSE;
         }
-        if (GetMetaTileIndex(this->metaTilePos, super->collisionLayer) != this->unk_70) {
+        if (GetTileIndex(this->tilePos, super->collisionLayer) != this->unk_70) {
             return FALSE;
         }
     }
@@ -166,7 +166,7 @@ u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(ButtonEntity* this) {
     Entity* ent;
-    if (GetCollisionDataAtMetaTilePos(this->metaTilePos, super->collisionLayer) == COLLISION_DATA_15) {
+    if (GetCollisionDataAtTilePos(this->tilePos, super->collisionLayer) == COLLISION_DATA_15) {
         return NULL;
     }
     ent = 0;
@@ -204,7 +204,7 @@ u32 sub_08081E3C(ButtonEntity* this) {
     };
     const u16* tmp1;
     s32 tmp2;
-    tmp2 = GetMetaTileType(this->metaTilePos, super->collisionLayer);
+    tmp2 = GetTileType(this->tilePos, super->collisionLayer);
     tmp1 = gUnk_0811EE50;
     do {
         if (*tmp1 == tmp2)
@@ -220,34 +220,34 @@ extern u16 gMapDataTopSpecial[0x2000];
 extern u16 gMapDataBottomSpecial[];
 
 void sub_08081E6C(ButtonEntity* this) {
-    u32 metaTileType;
+    u32 tileType;
     MapLayer* mapLayer;
     u16* tmp2;
     u16* tmp;
     u16* tmp3;
-    u32 metaTilePos = this->metaTilePos;
+    u32 tilePos = this->tilePos;
     u32 layer = super->collisionLayer;
-    u32 specialMetaTile = GetMetaTileType(metaTilePos, layer);
+    u32 specialTile = GetTileType(tilePos, layer);
 
-    if (specialMetaTile < 0x4000)
+    if (specialTile < 0x4000)
         return;
     mapLayer = GetLayerByIndex(layer);
-    metaTileType = (super->type == 0 ? META_TILE_TYPE_122 : META_TILE_TYPE_120);
-    tmp = mapLayer->metatiles;
-    tmp = tmp + (mapLayer->unkData2[metaTileType] << 2);
+    tileType = (super->type == 0 ? TILE_TYPE_122 : TILE_TYPE_120);
+    tmp = mapLayer->tiles;
+    tmp = tmp + (mapLayer->unkData2[tileType] << 2);
     tmp2 = (layer == 2 ? gMapDataTopSpecial : gMapDataBottomSpecial);
-    tmp2 += (((0x3f & metaTilePos) << 1) + ((0xfc0 & metaTilePos) << 2));
+    tmp2 += (((0x3f & tilePos) << 1) + ((0xfc0 & tilePos) << 2));
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;
-    SetMetaTileType(metaTileType, metaTilePos, layer);
-    SetMetaTile(specialMetaTile, metaTilePos, layer);
+    SetTileType(tileType, tilePos, layer);
+    SetTile(specialTile, tilePos, layer);
 }
 
 // Are the two tiles already set to the correct one
-bool32 sub_08081F00(u32* screenblock, u32* metatileList) {
-    if (screenblock[0] != metatileList[0])
+bool32 sub_08081F00(u32* screenblock, u32* tileList) {
+    if (screenblock[0] != tileList[0])
         return FALSE;
-    if (screenblock[0x40] != metatileList[1])
+    if (screenblock[0x40] != tileList[1])
         return FALSE;
     return TRUE;
 }
@@ -267,7 +267,7 @@ void sub_08081F24(Entity* this) {
     }
 }
 
-bool32 sub_08081F7C(ButtonEntity* this, u32 metaTileType) {
+bool32 sub_08081F7C(ButtonEntity* this, u32 tileType) {
     u16 tmp;
     if (super->timer == 0)
         return TRUE;
@@ -277,11 +277,11 @@ bool32 sub_08081F7C(ButtonEntity* this, u32 metaTileType) {
     } else {
         if (super->timer == 6) {
             SetFlag(this->unk_86);
-            SetMetaTileType(metaTileType, this->metaTilePos, super->collisionLayer);
+            SetTileType(tileType, this->tilePos, super->collisionLayer);
             sub_08081F24(super);
             SoundReq(SFX_BUTTON_PRESS);
             if (this->unk_70 != 0xFFFF)
-                SetMetaTile(this->unk_70, this->metaTilePos, super->collisionLayer);
+                SetTile(this->unk_70, this->tilePos, super->collisionLayer);
             return FALSE;
         }
     }

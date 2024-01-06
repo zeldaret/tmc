@@ -9,10 +9,10 @@ tiles 0x4000 and above create an entry here
 */
 #define MAX_SPECIAL_TILES 0x100
 typedef struct {
-    u16 metaTilePosAndLayer; // (layer << 12) | position
-    u16 metaTileIndex;
+    u16 tilePosAndLayer; // (layer << 12) | position
+    u16 tileIndex;
 } SpecialTileEntry;
-extern SpecialTileEntry gMetaTilesForSpecialTiles[MAX_SPECIAL_TILES];
+extern SpecialTileEntry gTilesForSpecialTiles[MAX_SPECIAL_TILES];
 
 typedef struct {
     u16 collision;
@@ -22,10 +22,10 @@ typedef struct {
 void LoadMapData(MapDataDefinition* dataDefinition);
 
 /**
- * Renders a metaTleMap with 16x16 meta tiles into a tilemap with 8x8 tiles.
+ * Renders a tileMap with 16x16 tiles into a subTileMap with 8x8 tiles.
  *
- * Takes into account the special meta tiles >= 0x4000 using GetMetaTileSetIndexForSpecialTile.
+ * Takes into account the special tile indicess >= 0x4000 using GetTileSetIndexForSpecialTile.
  */
-void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer);
+void RenderMapLayerToSubTileMap(u16* tileMap, MapLayer* mapLayer);
 
 #endif // BEANSTALKSUBTASK_H

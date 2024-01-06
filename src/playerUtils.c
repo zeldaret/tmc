@@ -63,7 +63,7 @@ extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
 extern void UnregisterInteractTile(u32, u32);
 
-extern const u8 gMapMetaTileTypeToCollisionData[]; // collisionData for tileType?
+extern const u8 gMapTileTypeToCollisionData[]; // collisionData for tileType?
 
 extern u8 gUpdateVisibleTiles;
 
@@ -106,7 +106,6 @@ extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
 bool32 sub_08079F48(u32 param_1, u32 param_2);
 
 extern void FillVvvForLayer(MapLayer* mapLayer);
-extern void RenderMapLayerToTileMap(u16* tileMap, MapLayer* mapLayer);
 
 extern u16 gUnk_080B77C0[];
 
@@ -119,10 +118,10 @@ void CreateCollisionDataBorderAroundRoom(void);
 void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
 
-// collisions for metatiles < 0x4000
-extern const u8 gMapMetaTileTypeToCollisionData[];
+// collisions for tiles < 0x4000
+extern const u8 gMapTileTypeToCollisionData[];
 // collisions for tiles > 0x4000
-extern const u8 gMapSpecialMetaTileToCollisionData[];
+extern const u8 gMapSpecialTileToCollisionData[];
 
 extern u16 gUnk_080B77C0[];
 
@@ -876,30 +875,30 @@ const u16 gUnk_0811C2EC[] = {
     748, 10, 1,  749, 6,  1,  750, 12, 1,  751, 2, 1,  752, 8,  1, 753, 4,  1,  0,
 };
 const s16 gUnk_0811C456[] = { 0, -13, 13, 0, 0, 16, -13, 0 };
-const u16 gUnk_0811C466[] = { META_TILE_TYPE_803,
-                              META_TILE_TYPE_819,
-                              META_TILE_TYPE_822,
-                              META_TILE_TYPE_825,
-                              META_TILE_TYPE_820,
-                              META_TILE_TYPE_828,
-                              META_TILE_TYPE_826,
-                              META_TILE_TYPE_829,
-                              META_TILE_TYPE_821,
-                              META_TILE_TYPE_823,
-                              META_TILE_TYPE_831,
-                              META_TILE_TYPE_830,
-                              META_TILE_TYPE_824,
-                              META_TILE_TYPE_827,
-                              META_TILE_TYPE_832,
-                              META_TILE_TYPE_53,
+const u16 gUnk_0811C466[] = { TILE_TYPE_803,
+                              TILE_TYPE_819,
+                              TILE_TYPE_822,
+                              TILE_TYPE_825,
+                              TILE_TYPE_820,
+                              TILE_TYPE_828,
+                              TILE_TYPE_826,
+                              TILE_TYPE_829,
+                              TILE_TYPE_821,
+                              TILE_TYPE_823,
+                              TILE_TYPE_831,
+                              TILE_TYPE_830,
+                              TILE_TYPE_824,
+                              TILE_TYPE_827,
+                              TILE_TYPE_832,
+                              TILE_TYPE_53,
                               0 };
 
 void sub_08077F84(void) {
     Entity* obj;
 
     if ((gPlayerEntity.base.collisionLayer & 2) == 0) {
-        u32 tile = GetMetaTileTypeByPos(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
-        if (tile == 0x343 || tile == 0x344 || tile == 0x345 || tile == 0x346) {
+        u32 tileType = GetTileTypeByPos(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
+        if (tileType == TILE_TYPE_835 || tileType == TILE_TYPE_836 || tileType == TILE_TYPE_837 || tileType == TILE_TYPE_838) {
             sub_0807AA80(&gPlayerEntity.base);
             gPlayerState.jump_status |= 8;
             obj = CreateObject(ROTATING_TRAPDOOR, 0, 0);
@@ -1574,7 +1573,7 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x1f[0] = 0;
     gPlayerState.field_0x1f[1] = 0;
     gPlayerState.bow_state = 0;
-    gPlayerState.tilePosition = 0;
+    gPlayerState.tilePos = 0;
     gPlayerState.tileType = 0;
     gPlayerState.swim_state = 0;
     gPlayerState.item = NULL;
@@ -1969,7 +1968,7 @@ void RespawnPlayer(void) {
         } else {
             u32 i;
             for (i = 0; i <= 0xf && gPlayerState.path_memory[i] != -1; i++) {
-                if (GetCollisionDataAtMetaTilePos((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) != COLLISION_DATA_15) {
+                if (GetCollisionDataAtTilePos((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) != COLLISION_DATA_15) {
                     gPlayerEntity.base.collisionLayer = gPlayerState.path_memory[i] >> 0x1e;
                     gPlayerEntity.base.x.HALF.HI =
                         gRoomControls.origin_x + (gPlayerState.path_memory[i] & 0x3f) * 16 + 8;
@@ -2023,10 +2022,10 @@ bool32 sub_08079550(void) {
                 tilePos2 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, (gPlayerEntity.base.hitbox)->unk2[2], -ptr[1]);
             }
 
-            uVar3 = GetVvvAtMetaTilePos(tilePos1, gPlayerEntity.base.collisionLayer);
+            uVar3 = GetVvvAtTilePos(tilePos1, gPlayerEntity.base.collisionLayer);
             uVar3 = FindValueForKey(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
             if (uVar3 != 0) {
-                uVar3 = GetVvvAtMetaTilePos(tilePos2, gPlayerEntity.base.collisionLayer);
+                uVar3 = GetVvvAtTilePos(tilePos2, gPlayerEntity.base.collisionLayer);
                 uVar3 = FindValueForKey(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
                 if (uVar3 != 0) {
                     gPlayerState.pushedObject |= 0x80;
@@ -2119,7 +2118,7 @@ void sub_080797EC(void) {
                 } else {
                     animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
-                        if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), gPlayerEntity.base.collisionLayer) !=
+                        if (GetCollisionDataAtTilePos(GetPlayerTilePos(), gPlayerEntity.base.collisionLayer) !=
                             COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
                             animation = ANIM_SWORD_CHARGE_BUMP;
@@ -2154,7 +2153,7 @@ void sub_080797EC(void) {
                 } else if (gPlayerState.sword_state) {
                     animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
-                        if (GetCollisionDataAtMetaTilePos(GetPlayerTilePos(), (u32)gPlayerEntity.base.collisionLayer) !=
+                        if (GetCollisionDataAtTilePos(GetPlayerTilePos(), (u32)gPlayerEntity.base.collisionLayer) !=
                             COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
                             animation = ANIM_SWORD_CHARGE_BUMP;
@@ -2486,13 +2485,13 @@ u32 sub_08079FC4(u32 param_1) {
 }
 
 u32 sub_08079FD4(Entity* this, u32 param_2) {
-    u32 tilePosition;
+    u32 tilePos;
     u8* collisionData;
     u32 collision;
     u32 index;
     u8 auStack20[4];
 
-    tilePosition = COORD_TO_TILE(this) * 2;
+    tilePos = COORD_TO_TILE(this) * 2;
     collisionData = gMapBottom.collisionData;
     if (param_2 == 2) {
         collisionData = gMapTop.collisionData;
@@ -2501,8 +2500,8 @@ u32 sub_08079FD4(Entity* this, u32 param_2) {
     while (TRUE) {
         do {
             index++;
-            tilePosition = sub_08004202(this, auStack20, tilePosition);
-            collision = collisionData[tilePosition / 2];
+            tilePos = sub_08004202(this, auStack20, tilePos);
+            collision = collisionData[tilePos / 2];
             if (collision < 0xf) {
                 return index;
             }
@@ -2594,12 +2593,12 @@ void UpdateFloorType(void) {
 
 SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
     u32 position = TILE(param_1->x.HALF.HI + (u32)x, param_1->y.HALF.HI + y);
-    u32 tileType = GetMetaTileTypeByPos(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
+    u32 tileType = GetTileTypeByPos(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
     if (tileType != gPlayerState.tileType) {
         gPlayerState.surfaceTimer = 0;
     }
-    if ((tileType != gPlayerState.tileType) || (position != gPlayerState.tilePosition)) {
-        gPlayerState.tilePosition = position;
+    if ((tileType != gPlayerState.tileType) || (position != gPlayerState.tilePos)) {
+        gPlayerState.tilePos = position;
         gPlayerState.tileType = tileType;
         gPlayerState.surfacePositionSameTimer = 0;
     }
@@ -2655,8 +2654,8 @@ u32 sub_0807A2F8(u32 param_1) {
     for (uVar5 = 0; uVar5 < 2; uVar5++) {
         iVar4 = 0;
         uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
-        if (GetCollisionDataAtMetaTilePos(uVar2 >> 1, LAYER_BOTTOM)) {
-            if (!FindValueForKey((u16)GetVvvAtMetaTilePos((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
+        if (GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_BOTTOM)) {
+            if (!FindValueForKey((u16)GetVvvAtTilePos((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
@@ -2665,8 +2664,8 @@ u32 sub_0807A2F8(u32 param_1) {
         }
 
         uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
-        if (GetCollisionDataAtMetaTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
-            if (!FindValueForKey((u16)GetVvvAtMetaTilePos((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
+        if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
+            if (!FindValueForKey((u16)GetVvvAtTilePos((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
@@ -2684,9 +2683,9 @@ u32 sub_0807A2F8(u32 param_1) {
     if (uVar5 != 0) {
         if (AreaIsDungeon()) {
             uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
-            if (!GetCollisionDataAtMetaTilePos(uVar2 >> 1, LAYER_TOP)) {
+            if (!GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_TOP)) {
                 uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
-                if (GetCollisionDataAtMetaTilePos(uVar1 >> 1, LAYER_TOP)) {
+                if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_TOP)) {
                     return 0;
                 }
             } else {
@@ -2696,11 +2695,11 @@ u32 sub_0807A2F8(u32 param_1) {
             if (uVar5 == 2) {
                 uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
             }
-            if (GetCollisionDataAtMetaTilePos(uVar2 >> 1, LAYER_BOTTOM) == 0) {
+            if (GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_BOTTOM) == 0) {
                 if (uVar5 == 2) {
                     uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
                 }
-                if (GetCollisionDataAtMetaTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
+                if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
                     return 0;
                 }
             } else {
@@ -2798,7 +2797,7 @@ void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
         index = param_1 % 16;
     }
     if ((index != 0) && (index != 0xf)) {
-        uVar2 = GetCollisionDataAtMetaTilePos((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
+        uVar2 = GetCollisionDataAtTilePos((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
                                               gPlayerEntity.base.collisionLayer);
         if (uVar2 > 0xf) {
             if (uVar2 != 0xff) {
@@ -2952,7 +2951,7 @@ void sub_0807AAF8(Entity* this, u32 tilePos) {
 void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
     Entity* object;
     const u16* ptr =
-        sub_0806FC50(GetMetaTileType(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
+        sub_0806FC50(GetTileType(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
     if (ptr != NULL) {
         if (ptr[3] == 0x76) {
             object = CreateObject(FLAME, 1, 0);
@@ -2966,7 +2965,7 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
                 object->child = (Entity*)ptr;
-                SetMetaTile(SPECIAL_META_TILE_79, COORD_TO_TILE(object), object->collisionLayer);
+                SetTile(SPECIAL_TILE_79, COORD_TO_TILE(object), object->collisionLayer);
             }
         }
     }
@@ -3281,35 +3280,35 @@ void sub_0807B2F8(PlayerEntity* this) {
     }
 }
 
-// tileType < 0x800   : set the MetaTileType
-// tileType >= 0x4000 : call SetMetaTile directly
+// tileType < 0x800   : set the TileType
+// tileType >= 0x4000 : call SetTile directly
 // else               : restore the previous tile entity
-void SetMetaTileType(u32 tileType, u32 position, u32 layer) {
+void SetTileType(u32 tileType, u32 tilePos, u32 layer) {
     u8 collisionData;
-    u16 metatile;
+    u16 tileIndex;
     MapLayer* mapLayer;
     u16* src;
     u16* dest;
 
     if (tileType < 0x800) {
-        UnregisterInteractTile(position, layer);
+        UnregisterInteractTile(tilePos, layer);
         mapLayer = GetLayerByIndex(layer);
-        metatile = mapLayer->unkData2[tileType];
-        mapLayer->mapData[position] = metatile;
-        collisionData = gMapMetaTileTypeToCollisionData[tileType];
-        mapLayer->collisionData[position] = collisionData;
+        tileIndex = mapLayer->unkData2[tileType];
+        mapLayer->mapData[tilePos] = tileIndex;
+        collisionData = gMapTileTypeToCollisionData[tileType];
+        mapLayer->collisionData[tilePos] = collisionData;
         if ((gRoomControls.scroll_flags & 2) != 0) {
-            gMapBottom.collisionData[position] = collisionData;
+            gMapBottom.collisionData[tilePos] = collisionData;
         }
-        mapLayer->vvv[position] = gMapMetaTileTypeToVvv[tileType];
+        mapLayer->vvv[tilePos] = gMapTileTypeToVvv[tileType];
         if ((gRoomControls.scroll_flags & 1) == 0) {
-            u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+            u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
             if (layer != 2) {
                 dest = gMapDataBottomSpecial + offset;
             } else {
                 dest = gMapDataTopSpecial + offset;
             }
-            src = mapLayer->metatiles + metatile * 4;
+            src = mapLayer->tiles + tileIndex * 4;
             // Copy over the tilemap entries (tile_attrs) to the special map data but in a different order.
             dest[0] = src[0];
             dest[1] = src[1];
@@ -3320,45 +3319,45 @@ void SetMetaTileType(u32 tileType, u32 position, u32 layer) {
             }
         }
     } else if (tileType >= 0x4000) { // The tile type actually directly is a tileIndex
-        SetMetaTile(tileType, position, layer);
+        SetTile(tileType, tilePos, layer);
     } else {
-        RestorePrevTileEntity(position, layer);
+        RestorePrevTileEntity(tilePos, layer);
     }
 }
 
-bool32 sub_0807B434(u32 metaTilePos, u32 layer) {
-    switch (GetMetaTileType(metaTilePos, layer)) {
-        case META_TILE_TYPE_54:
-        case META_TILE_TYPE_55:
+bool32 sub_0807B434(u32 tilePos, u32 layer) {
+    switch (GetTileType(tilePos, layer)) {
+        case TILE_TYPE_54:
+        case TILE_TYPE_55:
             return FALSE;
         default:
-            return GetVvvAtMetaTilePos(metaTilePos, layer) != VVV_13;
+            return GetVvvAtTilePos(tilePos, layer) != VVV_13;
     }
 }
 
-bool32 sub_0807B464(u32 metaTilePos, u32 layer) {
-    return GetVvvAtMetaTilePos(metaTilePos, layer) == VVV_86;
+bool32 sub_0807B464(u32 tilePos, u32 layer) {
+    return GetVvvAtTilePos(tilePos, layer) == VVV_86;
 }
 
-void sub_0807B480(u32 metaTilePos, u32 param_2) {
+void sub_0807B480(u32 tilePos, u32 param_2) {
     u32 tmp1;
     u16 tmp2;
     u16 tmp3;
     u16 tileType;
     const u16* ptr;
 
-    if (sub_0807B464(metaTilePos, LAYER_TOP)) {
-        tmp1 = sub_0807B464(metaTilePos - 0x40, LAYER_TOP);
-        tmp1 |= sub_0807B464(metaTilePos + 1, LAYER_TOP) << 1;
-        tmp1 |= sub_0807B464(metaTilePos + 0x40, LAYER_TOP) << 2;
-        tmp1 |= sub_0807B464(metaTilePos - 1, LAYER_TOP) << 3;
-        tmp1 |= sub_0807B464(metaTilePos + 0x41, LAYER_BOTTOM) << 1;
-        tmp1 |= sub_0807B464(metaTilePos + 0x3f, LAYER_BOTTOM) << 3;
-        if (GetMetaTileType(metaTilePos + 0x40, LAYER_TOP) != 0) {
-            tmp1 |= sub_0807B464(metaTilePos + 0x80, LAYER_BOTTOM) << 2;
+    if (sub_0807B464(tilePos, LAYER_TOP)) {
+        tmp1 = sub_0807B464(tilePos - 0x40, LAYER_TOP);
+        tmp1 |= sub_0807B464(tilePos + 1, LAYER_TOP) << 1;
+        tmp1 |= sub_0807B464(tilePos + 0x40, LAYER_TOP) << 2;
+        tmp1 |= sub_0807B464(tilePos - 1, LAYER_TOP) << 3;
+        tmp1 |= sub_0807B464(tilePos + 0x41, LAYER_BOTTOM) << 1;
+        tmp1 |= sub_0807B464(tilePos + 0x3f, LAYER_BOTTOM) << 3;
+        if (GetTileType(tilePos + 0x40, LAYER_TOP) != 0) {
+            tmp1 |= sub_0807B464(tilePos + 0x80, LAYER_BOTTOM) << 2;
         }
         tmp2 = gUnk_0811C2CC[tmp1];
-        tileType = GetMetaTileType(metaTilePos, LAYER_TOP);
+        tileType = GetTileType(tilePos, LAYER_TOP);
         ptr = gUnk_0811C2EC;
         tmp3 = 0;
         for (; *ptr != 0; ptr = ptr + 3) {
@@ -3374,7 +3373,7 @@ void sub_0807B480(u32 metaTilePos, u32 param_2) {
                 break;
             }
         }
-        SetMetaTileType(tmp2, metaTilePos, LAYER_TOP);
+        SetTileType(tmp2, tilePos, LAYER_TOP);
     }
 }
 
@@ -3385,7 +3384,7 @@ void sub_0807B55C(u32 param_1, u32 param_2, u16* param_3) {
         tmp |= sub_0807B464(param_1 + 1, param_2) << 1;
         tmp |= sub_0807B464(param_1 + 0x40, param_2) << 2;
         tmp |= sub_0807B464(param_1 - 1, param_2) << 3;
-        SetMetaTileType(param_3[tmp], param_1, param_2);
+        SetTileType(param_3[tmp], param_1, param_2);
     }
 }
 
@@ -3394,118 +3393,118 @@ bool32 sub_0807B5B0(Entity* this) {
                                              -gUnk_0811C456[(this->animationState & 6) + 1]));
 }
 
-u32 sub_0807B600(u32 metaTilePos) {
+u32 sub_0807B600(u32 tilePos) {
     u32 tileType;
-    u32 metaTilePos2;
+    u32 tilePos2;
 
-    metaTilePos2 = metaTilePos - 0x40;
-    if (GetVvvAtMetaTilePos(metaTilePos, LAYER_BOTTOM) != VVV_86) {
+    tilePos2 = tilePos - 0x40;
+    if (GetVvvAtTilePos(tilePos, LAYER_BOTTOM) != VVV_86) {
         return FALSE;
     } else {
-        tileType = GetMetaTileType(metaTilePos, LAYER_BOTTOM);
-        if (tileType == META_TILE_TYPE_618) {
-            sub_0807B820(metaTilePos);
-        } else if (tileType == META_TILE_TYPE_615) {
-            sub_0807B820(metaTilePos + 0x40);
-        } else if (tileType == META_TILE_TYPE_634) {
-            sub_0807B8A8(metaTilePos);
-        } else if (tileType == META_TILE_TYPE_631) {
-            sub_0807B8A8(metaTilePos + 0x40);
-        } else if (tileType == META_TILE_TYPE_650) {
-            sub_0807B930(metaTilePos);
-        } else if (tileType == META_TILE_TYPE_647) {
-            sub_0807B930(metaTilePos + 0x40);
+        tileType = GetTileType(tilePos, LAYER_BOTTOM);
+        if (tileType == TILE_TYPE_618) {
+            sub_0807B820(tilePos);
+        } else if (tileType == TILE_TYPE_615) {
+            sub_0807B820(tilePos + 0x40);
+        } else if (tileType == TILE_TYPE_634) {
+            sub_0807B8A8(tilePos);
+        } else if (tileType == TILE_TYPE_631) {
+            sub_0807B8A8(tilePos + 0x40);
+        } else if (tileType == TILE_TYPE_650) {
+            sub_0807B930(tilePos);
+        } else if (tileType == TILE_TYPE_647) {
+            sub_0807B930(tilePos + 0x40);
         } else {
-            if (GetMetaTileType(metaTilePos, LAYER_TOP) != 0) {
-                SetMetaTileType(META_TILE_TYPE_754, metaTilePos, LAYER_BOTTOM);
-                if (GetCollisionDataAtMetaTilePos(metaTilePos2, LAYER_BOTTOM) == COLLISION_DATA_3) {
-                    SetMetaTileType(META_TILE_TYPE_756, metaTilePos2, LAYER_BOTTOM);
+            if (GetTileType(tilePos, LAYER_TOP) != 0) {
+                SetTileType(TILE_TYPE_754, tilePos, LAYER_BOTTOM);
+                if (GetCollisionDataAtTilePos(tilePos2, LAYER_BOTTOM) == COLLISION_DATA_3) {
+                    SetTileType(TILE_TYPE_756, tilePos2, LAYER_BOTTOM);
                 }
-                if (GetCollisionDataAtMetaTilePos(metaTilePos + 0x40, LAYER_BOTTOM) == COLLISION_DATA_3) {
-                    SetMetaTileType(META_TILE_TYPE_756, metaTilePos, LAYER_BOTTOM);
+                if (GetCollisionDataAtTilePos(tilePos + 0x40, LAYER_BOTTOM) == COLLISION_DATA_3) {
+                    SetTileType(TILE_TYPE_756, tilePos, LAYER_BOTTOM);
                 }
             } else {
-                SetMetaTileType(META_TILE_TYPE_756, metaTilePos, LAYER_BOTTOM);
+                SetTileType(TILE_TYPE_756, tilePos, LAYER_BOTTOM);
             }
-            if (sub_0807B464(metaTilePos2, LAYER_TOP)) {
-                SetMetaTileType(0, metaTilePos2, LAYER_TOP);
-                if (GetMetaTileType(metaTilePos2, LAYER_BOTTOM) == META_TILE_TYPE_754) {
-                    SetMetaTileType(META_TILE_TYPE_756, metaTilePos2, LAYER_BOTTOM);
+            if (sub_0807B464(tilePos2, LAYER_TOP)) {
+                SetTileType(0, tilePos2, LAYER_TOP);
+                if (GetTileType(tilePos2, LAYER_BOTTOM) == TILE_TYPE_754) {
+                    SetTileType(TILE_TYPE_756, tilePos2, LAYER_BOTTOM);
                 }
-                sub_0807B55C(metaTilePos + 1, 1, (u16*)&gUnk_0811C2AC);
-                sub_0807B55C(metaTilePos - 1, 1, (u16*)&gUnk_0811C2AC);
-                sub_0807B55C(metaTilePos2, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tilePos + 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tilePos - 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tilePos2, 1, (u16*)&gUnk_0811C2AC);
             }
-            sub_0807B480(metaTilePos2 + 1, 3);
-            sub_0807B480(metaTilePos2 - 1, 1);
-            sub_0807B480(metaTilePos2 + 0x40, 0);
-            sub_0807B480(metaTilePos2 - 0x40, 2);
+            sub_0807B480(tilePos2 + 1, 3);
+            sub_0807B480(tilePos2 - 1, 1);
+            sub_0807B480(tilePos2 + 0x40, 0);
+            sub_0807B480(tilePos2 - 0x40, 2);
         }
         return TRUE;
     }
 }
 
-void sub_0807B778(u32 metaTilePos, u32 layer) {
+void sub_0807B778(u32 tilePos, u32 layer) {
     u32 tmp;
-    if (GetVvvAtMetaTilePos(metaTilePos, layer) == VVV_13) {
-        tmp = sub_0807B434(metaTilePos + TILE_POS(0, -1), layer);
-        tmp |= sub_0807B434(metaTilePos + TILE_POS(1, 0), layer) << 1;
-        tmp |= sub_0807B434(metaTilePos + TILE_POS(0, 1), layer) << 2;
-        tmp |= sub_0807B434(metaTilePos + TILE_POS(-1, 0), layer) << 3;
-        SetMetaTileType(gUnk_0811C466[tmp], metaTilePos, layer);
+    if (GetVvvAtTilePos(tilePos, layer) == VVV_13) {
+        tmp = sub_0807B434(tilePos + TILE_POS(0, -1), layer);
+        tmp |= sub_0807B434(tilePos + TILE_POS(1, 0), layer) << 1;
+        tmp |= sub_0807B434(tilePos + TILE_POS(0, 1), layer) << 2;
+        tmp |= sub_0807B434(tilePos + TILE_POS(-1, 0), layer) << 3;
+        SetTileType(gUnk_0811C466[tmp], tilePos, layer);
     }
 }
 
-void sub_0807B7D8(u32 metaTileType, u32 metaTilePos, u32 layer) {
-    if (metaTileType == META_TILE_TYPE_53) {
-        CloneTile(META_TILE_TYPE_53, metaTilePos, layer);
-        sub_0807B778(metaTilePos, layer);
-        sub_0807B778(metaTilePos + TILE_POS(1, 0), layer);
-        sub_0807B778(metaTilePos + TILE_POS(-1, 0), layer);
-        sub_0807B778(metaTilePos + TILE_POS(0, 1), layer);
-        sub_0807B778(metaTilePos + TILE_POS(0, -1), layer);
+void sub_0807B7D8(u32 tileType, u32 tilePos, u32 layer) {
+    if (tileType == TILE_TYPE_53) {
+        CloneTile(TILE_TYPE_53, tilePos, layer);
+        sub_0807B778(tilePos, layer);
+        sub_0807B778(tilePos + TILE_POS(1, 0), layer);
+        sub_0807B778(tilePos + TILE_POS(-1, 0), layer);
+        sub_0807B778(tilePos + TILE_POS(0, 1), layer);
+        sub_0807B778(tilePos + TILE_POS(0, -1), layer);
     } else {
-        SetMetaTileType(metaTileType, metaTilePos, layer);
+        SetTileType(tileType, tilePos, layer);
     }
 }
 
-void sub_0807B820(u32 metaTilePos) {
-    SetMetaTileType(META_TILE_TYPE_620, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_627, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_621, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_628, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_622, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_629, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_623, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_624, metaTilePos, LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_626, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
+void sub_0807B820(u32 tilePos) {
+    SetTileType(TILE_TYPE_620, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_627, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_621, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_628, tilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_622, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_629, tilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_623, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_624, tilePos, LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_626, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B8A8(u32 metaTilePos) {
-    SetMetaTileType(META_TILE_TYPE_636, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_643, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_637, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_644, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_638, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_645, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_639, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_640, metaTilePos, LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_642, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
+void sub_0807B8A8(u32 tilePos) {
+    SetTileType(TILE_TYPE_636, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_643, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_637, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_644, tilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_638, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_645, tilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_639, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_640, tilePos, LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_642, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B930(u32 metaTilePos) {
-    SetMetaTileType(META_TILE_TYPE_652, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_659, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_653, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_660, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_654, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_661, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
-    SetMetaTileType(META_TILE_TYPE_655, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_656, metaTilePos, LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_658, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
+void sub_0807B930(u32 tilePos) {
+    SetTileType(TILE_TYPE_652, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_659, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_653, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_660, tilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_654, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_661, tilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_655, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_656, tilePos, LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_658, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
+void SetTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     MapLayer* mapLayer;
     u16* src;
     u16* dest;
@@ -3514,9 +3513,9 @@ void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     UnregisterInteractTile(position, layer);
     mapLayer = GetLayerByIndex(layer);
     mapLayer->mapData[position] = tileIndex;
-    tileType = mapLayer->metatileTypes[tileIndex];
-    mapLayer->collisionData[position] = gMapMetaTileTypeToCollisionData[tileType];
-    mapLayer->vvv[position] = gMapMetaTileTypeToVvv[tileType];
+    tileType = mapLayer->tileTypes[tileIndex];
+    mapLayer->collisionData[position] = gMapTileTypeToCollisionData[tileType];
+    mapLayer->vvv[position] = gMapTileTypeToVvv[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
         u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
         if (layer != 2) {
@@ -3524,7 +3523,7 @@ void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
         } else {
             dest = gMapDataTopSpecial + offset;
         }
-        src = mapLayer->metatiles + tileIndex * 4;
+        src = mapLayer->tiles + tileIndex * 4;
         *dest = *src;
         dest[1] = src[1];
         dest[0x80] = src[2];
@@ -3535,27 +3534,27 @@ void SetMetaTileByIndex(u32 tileIndex, u32 position, u32 layer) {
     }
 }
 
-void RestorePrevTileEntity(u32 metaTilePos, u32 layer) {
+void RestorePrevTileEntity(u32 tilePos, u32 layer) {
     u32 tileIndex;
     u32 tileType;
     MapLayer* mapLayer;
     u16* dest;
     u16* src;
 
-    UnregisterInteractTile(metaTilePos, layer);
+    UnregisterInteractTile(tilePos, layer);
     mapLayer = GetLayerByIndex(layer);
-    mapLayer->mapData[metaTilePos] = tileIndex = mapLayer->mapDataOriginal[metaTilePos];
-    tileType = mapLayer->metatileTypes[tileIndex];
-    mapLayer->collisionData[metaTilePos] = gMapMetaTileTypeToCollisionData[tileType];
-    mapLayer->vvv[metaTilePos] = gMapMetaTileTypeToVvv[tileType];
+    mapLayer->mapData[tilePos] = tileIndex = mapLayer->mapDataOriginal[tilePos];
+    tileType = mapLayer->tileTypes[tileIndex];
+    mapLayer->collisionData[tilePos] = gMapTileTypeToCollisionData[tileType];
+    mapLayer->vvv[tilePos] = gMapTileTypeToVvv[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
-        u32 offset = (metaTilePos & 0x3f) * 2 + (metaTilePos & 0xfc0) * 4;
+        u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
         if (layer != 2) {
             dest = gMapDataBottomSpecial + offset;
         } else {
             dest = gMapDataTopSpecial + offset;
         }
-        src = &mapLayer->metatiles[tileIndex * 4];
+        src = &mapLayer->tiles[tileIndex * 4];
         dest[0] = src[0];
         dest[1] = src[1];
         dest[0x80] = src[2];
@@ -3568,7 +3567,7 @@ void RestorePrevTileEntity(u32 metaTilePos, u32 layer) {
 
 void sub_0807BB68(const s16* param_1, u32 basePosition, u32 layer) {
     while (param_1[0] != -1) {
-        SetMetaTileType((u16)param_1[0], basePosition + param_1[1], layer);
+        SetTileType((u16)param_1[0], basePosition + param_1[1], layer);
         param_1 += 2;
     }
 }
@@ -3578,24 +3577,24 @@ void sub_0807BB98(s32 basePosition, u32 layer, u32 width, u32 height) {
     u32 x;
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
-            SetMetaTile(SPECIAL_META_TILE_114, basePosition + x, layer);
+            SetTile(SPECIAL_TILE_114, basePosition + x, layer);
         }
         basePosition += 0x40;
     }
 }
 
 void sub_0807BBE4(void) {
-    u32 tile;
+    u32 tileIndex;
     u8* topCollision;
     u8* bottomCollision;
     u32 index;
     u16* topMap;
     u16* bottomMap;
-    u16* bottomMetatiles;
-    u16* topMetatiles;
+    u16* bottomTiles;
+    u16* topTiles;
 
-    bottomMetatiles = gMapBottom.metatileTypes;
-    topMetatiles = gMapTop.metatileTypes;
+    bottomTiles = gMapBottom.tileTypes;
+    topTiles = gMapTop.tileTypes;
 
     bottomMap = gMapBottom.mapData;
     topMap = gMapTop.mapData;
@@ -3603,20 +3602,20 @@ void sub_0807BBE4(void) {
     topCollision = gMapTop.collisionData;
     index = 0;
     for (index = 0; index < 0x40 * 0x40; index++) {
-        tile = *bottomMap;
+        tileIndex = *bottomMap;
         bottomMap++;
-        if (tile < 0x4000) {
-            *bottomCollision = gMapMetaTileTypeToCollisionData[bottomMetatiles[tile]];
+        if (tileIndex < 0x4000) {
+            *bottomCollision = gMapTileTypeToCollisionData[bottomTiles[tileIndex]];
         } else {
-            *bottomCollision = gMapSpecialMetaTileToCollisionData[tile - 0x4000];
+            *bottomCollision = gMapSpecialTileToCollisionData[tileIndex - 0x4000];
         }
         bottomCollision++;
-        tile = (u32)*topMap;
+        tileIndex = (u32)*topMap;
         topMap++;
-        if (tile < 0x4000) {
-            *topCollision = gMapMetaTileTypeToCollisionData[topMetatiles[tile]];
+        if (tileIndex < 0x4000) {
+            *topCollision = gMapTileTypeToCollisionData[topTiles[tileIndex]];
         } else {
-            *topCollision = gMapSpecialMetaTileToCollisionData[tile - 0x4000];
+            *topCollision = gMapSpecialTileToCollisionData[tileIndex - 0x4000];
         }
         topCollision++;
     }
@@ -3823,17 +3822,17 @@ void sub_0807BFD0(void) {
 
     ClearBgAnimations();
     sub_0807BFA8();
-    MemFill16(0xffff, gMapBottom.metatileTypes, 0x1000);
-    gMapBottom.metatileTypes[0] = 0;
-    MemFill16(0xffff, gMapTop.metatileTypes, 0x1000);
-    gMapTop.metatileTypes[0] = 0;
+    MemFill16(0xffff, gMapBottom.tileTypes, 0x1000);
+    gMapBottom.tileTypes[0] = 0;
+    MemFill16(0xffff, gMapTop.tileTypes, 0x1000);
+    gMapTop.tileTypes[0] = 0;
 
     if ((void*)gRoomControls.unk_34 != (gArea.pCurrentRoomInfo)->tileset) {
         gRoomControls.unk_34 = (u32)(gArea.pCurrentRoomInfo)->tileset;
         LoadMapData((gArea.pCurrentRoomInfo)->tileset);
     }
 
-    LoadMapData((gArea.pCurrentRoomInfo)->metatiles);
+    LoadMapData((gArea.pCurrentRoomInfo)->tiles);
     ptr = gPaletteBuffer;
     MemCopy(&ptr[0x30], &ptr[0x150], 0x20);
     gUsedPalettes |= 0x200000;
@@ -3842,7 +3841,7 @@ void sub_0807BFD0(void) {
         LoadBgAnimations((gArea.pCurrentRoomInfo)->bg_anim);
     }
 
-    puVar2 = gMapBottom.metatileTypes;
+    puVar2 = gMapBottom.tileTypes;
     puVar3 = gMapBottom.unkData2;
     MemFill16(0xffff, puVar3, 0x1000);
 
@@ -3852,7 +3851,7 @@ void sub_0807BFD0(void) {
         }
     }
 
-    puVar2 = gMapTop.metatileTypes;
+    puVar2 = gMapTop.tileTypes;
     puVar3 = gMapTop.unkData2;
     MemFill16(0xffff, puVar3, 0x1000);
 
@@ -3914,9 +3913,9 @@ void LoadRoomGfx(void) {
     FillVvvForLayer(&gMapBottom);
     FillVvvForLayer(&gMapTop);
     if (!clearBottomMap) {
-        // Render the complete bottom and top metatilemaps into the tilemaps.
-        RenderMapLayerToTileMap(gMapDataBottomSpecial, &gMapBottom);
-        RenderMapLayerToTileMap(gMapDataTopSpecial, &gMapTop);
+        // Render the complete bottom and top tilemaps into the tilemaps.
+        RenderMapLayerToSubTileMap(gMapDataBottomSpecial, &gMapBottom);
+        RenderMapLayerToSubTileMap(gMapDataTopSpecial, &gMapTop);
     } else {
         // Copy first half to second half.
         // Then copy the room back to the first half?
@@ -3984,10 +3983,10 @@ void sub_0807C460(void) {
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
             if (*mapBottom > 0x3fff) {
-                SetMetaTile(*mapBottom, position, LAYER_BOTTOM);
+                SetTile(*mapBottom, position, LAYER_BOTTOM);
             }
             if (*mapTop > 0x3fff) {
-                SetMetaTile(*mapTop, position, LAYER_TOP);
+                SetTile(*mapTop, position, LAYER_TOP);
             }
             mapBottom++;
             mapTop++;
@@ -4293,10 +4292,10 @@ void LoadCompressedMapData(void* dest, u32 offset) {
 }
 
 void sub_0807C998(u32* a1) {
-    LoadCompressedMapData(&gMapBottom.metatiles, a1[0]);
-    LoadCompressedMapData(&gMapBottom.metatileTypes, a1[1]);
-    LoadCompressedMapData(&gMapTop.metatiles, a1[2]);
-    LoadCompressedMapData(&gMapTop.metatileTypes, a1[3]);
+    LoadCompressedMapData(&gMapBottom.tiles, a1[0]);
+    LoadCompressedMapData(&gMapBottom.tileTypes, a1[1]);
+    LoadCompressedMapData(&gMapTop.tiles, a1[2]);
+    LoadCompressedMapData(&gMapTop.tileTypes, a1[3]);
 }
 
 void sub_0807C9D8(u32* a1) {

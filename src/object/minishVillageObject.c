@@ -88,7 +88,7 @@ void MinishVillageObject_Type1(MinishVillageObjectEntity* this) {
             super->subtimer = 0;
             super->frameIndex = 0;
             super->spritePriority.b0 = 7;
-            SetMetaTile(SPECIAL_META_TILE_105, COORD_TO_TILE(super) - TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_105, COORD_TO_TILE(super) - TILE_POS(0, 1), LAYER_BOTTOM);
             break;
         case 2:
             if ((gRoomTransition.frameCount & 3U) == 0) {
@@ -205,7 +205,7 @@ void MinishVillageObject_Type8(MinishVillageObjectEntity* this) {
 }
 
 void MinishVillageObject_Type8_Init(MinishVillageObjectEntity* this) {
-    u32 tilePosition;
+    u32 tilePos;
     super->spritePriority.b0 = 7;
     super->frameIndex = super->type2;
     super->action = 2;
@@ -218,11 +218,11 @@ void MinishVillageObject_Type8_Init(MinishVillageObjectEntity* this) {
         SoundReq(SFX_179);
     } else {
         super->timer = 8;
-        tilePosition = COORD_TO_TILE(super);
+        tilePos = COORD_TO_TILE(super);
         if (super->type2 != 0) {
-            tilePosition -= 0x40;
+            tilePos -= 0x40;
         }
-        SetMetaTile(SPECIAL_META_TILE_105, tilePosition, super->collisionLayer);
+        SetTile(SPECIAL_TILE_105, tilePos, super->collisionLayer);
     }
 }
 
@@ -235,7 +235,7 @@ void MinishVillageObject_Type8_Action1(MinishVillageObjectEntity* this) {
             super->timer = 8;
             super->spriteRendering.alphaBlend = 0;
             gScreen.controls.layerFXControl = 0;
-            SetMetaTile(SPECIAL_META_TILE_105, COORD_TO_TILE(super), super->collisionLayer);
+            SetTile(SPECIAL_TILE_105, COORD_TO_TILE(super), super->collisionLayer);
         }
     }
 }

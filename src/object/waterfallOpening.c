@@ -77,7 +77,7 @@ void WaterfallOpening(Entity* this) {
             case 2:
                 if ((this->subAction == 0)) {
                     this->subAction = 1;
-                    SetMetaTileType(META_TILE_TYPE_57, COORD_TO_TILE(this), LAYER_BOTTOM);
+                    SetTileType(TILE_TYPE_57, COORD_TO_TILE(this), LAYER_BOTTOM);
                 }
         }
 

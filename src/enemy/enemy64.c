@@ -86,10 +86,10 @@ void Enemy64_Init(Enemy64Entity* this) {
     Entity* tail;
 
     if (CheckFlags(0x7c)) {
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 0), LAYER_TOP);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 1), LAYER_TOP);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 2), LAYER_TOP);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 3), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 0), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 1), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 2), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 3), LAYER_TOP);
         DeleteThisEntity();
     } else {
         sub_0807B7D8(0x323, TILE_POS(10, 0), LAYER_BOTTOM);
@@ -441,19 +441,19 @@ void Enemy64_Action4_SubAction7(Enemy64Entity* this) {
         DeleteThisEntity();
     } else if (super->timer == 16) {
         sub_0807B7D8(0x36, TILE_POS(10, 3), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 3), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 3), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 24) {
         sub_0807B7D8(0x36, TILE_POS(10, 2), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 2), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 2), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 32) {
         sub_0807B7D8(0x36, TILE_POS(10, 1), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 1), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 1), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 40) {
         sub_0807B7D8(0x36, TILE_POS(10, 0), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_129, TILE_POS(10, 0), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 0), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     }
 }

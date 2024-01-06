@@ -15,8 +15,8 @@
 typedef struct {
     Entity base;
     u8 filler[0x8];
-    u16 tile;
-    u16 tile2;
+    u16 tilePos;
+    u16 tilePos2;
     u16 tileIndex;
     u16 tileIndex2;
     u8 filler2[0xe];
@@ -56,12 +56,12 @@ void GentariCurtain_Init(GentariCurtainEntity* this) {
             super->spritePriority.b0 = 6;
             super->x.HALF.HI += 2;
             UpdateSpriteForCollisionLayer(super);
-            this->tile = COORD_TO_TILE_OFFSET(super, 0, 8);
-            this->tile2 = COORD_TO_TILE_OFFSET(super, 0, -8);
-            this->tileIndex = GetMetaTileIndex(this->tile, LAYER_BOTTOM);
-            this->tileIndex2 = GetMetaTileIndex(this->tile2, LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, this->tile, LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, this->tile2, LAYER_BOTTOM);
+            this->tilePos = COORD_TO_TILE_OFFSET(super, 0, 8);
+            this->tilePos2 = COORD_TO_TILE_OFFSET(super, 0, -8);
+            this->tileIndex = GetTileIndex(this->tilePos, LAYER_BOTTOM);
+            this->tileIndex2 = GetTileIndex(this->tilePos2, LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, this->tilePos, LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, this->tilePos2, LAYER_BOTTOM);
             InitAnimationForceUpdate(super, 0);
         } else {
             super->action = 1;
@@ -81,8 +81,8 @@ void GentariCurtain_Action2(GentariCurtainEntity* this) {
     UpdateAnimationSingleFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
-        SetMetaTile(this->tileIndex, this->tile, LAYER_BOTTOM);
-        SetMetaTile(this->tileIndex2, this->tile2, LAYER_BOTTOM);
+        SetTile(this->tileIndex, this->tilePos, LAYER_BOTTOM);
+        SetTile(this->tileIndex2, this->tilePos2, LAYER_BOTTOM);
         sub_08092214(this);
         sub_0809223C(this);
         InitAnimationForceUpdate(super, 1);

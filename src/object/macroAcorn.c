@@ -76,38 +76,38 @@ void sub_0809E5F0(MacroAcornEntity* this) {
     this->unk_80 = position;
     switch (super->type) {
         case 2:
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(3, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_109, position + TILE_POS(4, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(3, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_109, position + TILE_POS(4, -1), LAYER_BOTTOM);
         case 0:
-            SetMetaTile(SPECIAL_META_TILE_108, position + TILE_POS(-2, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_110, position + TILE_POS(-2, 1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_111, position + TILE_POS(1, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_108, position + TILE_POS(-2, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_110, position + TILE_POS(-2, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_111, position + TILE_POS(1, 1), LAYER_BOTTOM);
             break;
         case 3:
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-4, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_108, position + TILE_POS(-5, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-4, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_108, position + TILE_POS(-5, -1), LAYER_BOTTOM);
         case 1:
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_109, position + TILE_POS(1, -1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 0), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_110, position + TILE_POS(-2, 1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 1), LAYER_BOTTOM);
-            SetMetaTile(SPECIAL_META_TILE_111, position + TILE_POS(1, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_109, position + TILE_POS(1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_110, position + TILE_POS(-2, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_111, position + TILE_POS(1, 1), LAYER_BOTTOM);
             break;
     }
 }

@@ -10,15 +10,15 @@ struct GbaToPngOptions {
     int bitDepth;
     bool hasTransparency;
     int width;
-    int metatileWidth;
-    int metatileHeight;
+    int tileWidth;
+    int tileHeight;
 };
 
 struct PngToGbaOptions {
     int numTiles;
     int bitDepth;
-    int metatileWidth;
-    int metatileHeight;
+    int tileWidth;
+    int tileHeight;
 };
 
 #endif // OPTIONS_H

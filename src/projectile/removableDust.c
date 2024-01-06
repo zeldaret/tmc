@@ -74,7 +74,7 @@ void sub_080AA494(RemovableDustEntity* this) {
     u32 index;
 
     index = 0;
-    tileType = GetMetaTileTypeByEntity(super);
+    tileType = GetTileTypeByEntity(super);
     iterator = gUnk_08129FD0;
     while (*iterator != 0) {
         if (*(iterator++) == tileType) {
@@ -90,7 +90,7 @@ void sub_080AA494(RemovableDustEntity* this) {
     }
     super->type2 = index;
     super->spritePriority.b0 = 7;
-    SetMetaTile(SPECIAL_META_TILE_104, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    SetTile(SPECIAL_TILE_104, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
 }
 
 void sub_080AA534(Entity* this) {
@@ -104,16 +104,16 @@ void sub_080AA544(RemovableDustEntity* this) {
     u32 uVar3;
     s32 iVar4;
     const u16* puVar5;
-    u32 param;
+    u32 tilePos;
     const s8* tmp;
 
     if (super->type2 < 9) {
         tmp = gUnk_08129FF8;
-        param = TILE(super->x.HALF.HI, super->y.HALF.HI) + tmp[super->type2];
+        tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI) + tmp[super->type2];
         uVar3 = 0;
         iVar4 = 0;
         do {
-            vvv = GetVvvAtMetaTilePos((param - tmp[uVar3]) & 0xffff, super->collisionLayer);
+            vvv = GetVvvAtTilePos((tilePos - tmp[uVar3]) & 0xffff, super->collisionLayer);
             if (vvv == VVV_62) {
                 iVar4++;
             }
@@ -124,14 +124,14 @@ void sub_080AA544(RemovableDustEntity* this) {
             uVar3 = 0;
             puVar5 = gUnk_08129FD0;
             do {
-                sub_0807B7D8((u32)*puVar5, param - tmp[uVar3], super->collisionLayer);
+                sub_0807B7D8((u32)*puVar5, tilePos - tmp[uVar3], super->collisionLayer);
                 puVar5++;
                 uVar3++;
             } while (uVar3 < 9);
-            sub_080AA654(this, param);
+            sub_080AA654(this, tilePos);
             SetFlag((u16)super->speed);
         } else {
-            sub_0807B7D8(gUnk_08129FE4[super->type2], param - tmp[super->type2], super->collisionLayer);
+            sub_0807B7D8(gUnk_08129FE4[super->type2], tilePos - tmp[super->type2], super->collisionLayer);
         }
     } else {
         RestorePrevTileEntity(TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);

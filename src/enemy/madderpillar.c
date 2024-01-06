@@ -345,7 +345,7 @@ void sub_08029DE4(MadderpillarEntity* this) {
 }
 
 void sub_08029E0C(MadderpillarEntity* this) {
-    u32 tile;
+    u32 tilePos;
     s32 uVar4;
     s32 iVar3;
     u32 i;
@@ -358,10 +358,10 @@ void sub_08029E0C(MadderpillarEntity* this) {
     ptr = &gUnk_080CCDC8[uVar2];
     uVar4 = (Random() & 1) * 2 - 1;
     iVar3 = ((s32)Random() & 0xf) % 3;
-    tile = COORD_TO_TILE(super);
+    tilePos = COORD_TO_TILE(super);
     for (i = 0; i < 3; i++) {
         dir = ptr[iVar3];
-        if (GetCollisionDataAtMetaTilePos(gUnk_080B4488[dir >> 3] + tile, super->collisionLayer) == 0) {
+        if (GetCollisionDataAtTilePos(gUnk_080B4488[dir >> 3] + tilePos, super->collisionLayer) == 0) {
             local_24 = dir;
             if (super->direction - this->unk_74 != dir - super->direction)
                 break;

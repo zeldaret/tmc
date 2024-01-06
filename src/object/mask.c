@@ -71,11 +71,11 @@ void Mask_Init(MaskEntity* this) {
     super->frameIndex = super->type2 & 0x3f;
 
     this->unk_7e = COORD_TO_TILE(super);
-    this->unk_7c = GetMetaTileIndex(this->unk_7e, LAYER_BOTTOM);
+    this->unk_7c = GetTileIndex(this->unk_7e, LAYER_BOTTOM);
 
-    this->unk_7a = GetCollisionDataAtMetaTilePos(this->unk_7e, LAYER_BOTTOM);
+    this->unk_7a = GetCollisionDataAtTilePos(this->unk_7e, LAYER_BOTTOM);
 
-    SetMetaTile(SPECIAL_META_TILE_34, this->unk_7e, LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_34, this->unk_7e, LAYER_BOTTOM);
 }
 
 // Probably related to knocking it down
@@ -100,7 +100,7 @@ void Mask_Action1(MaskEntity* this) {
     }
 
     // Presumably, make the mask fall
-    SetMetaTile(this->unk_7c, this->unk_7e, LAYER_BOTTOM);
+    SetTile(this->unk_7c, this->unk_7e, LAYER_BOTTOM);
 
     SetCollisionData(this->unk_7a, this->unk_7e, 1);
 

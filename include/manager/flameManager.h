@@ -6,7 +6,7 @@
 typedef struct {
     struct Manager base;
     u8 field_0x20[0x18];
-    s16 metaTilePos; // x
+    s16 tilePos; // x
     s16 field_0x3a;  // y
 } FlameManager;
 

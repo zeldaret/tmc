@@ -118,7 +118,7 @@ void LockedDoor_Init(LockedDoorEntity* this) {
     super->spritePriority.b0 = 5;
     super->frame = super->type & 0xF;
     this->unk_76 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    this->unk_74 = GetMetaTileIndex(this->unk_76, super->collisionLayer);
+    this->unk_74 = GetTileIndex(this->unk_76, super->collisionLayer);
     switch (super->type2) {
         case 0:
             if (!CheckFlags(this->unk_86)) {
@@ -164,7 +164,7 @@ void LockedDoor_Action1(LockedDoorEntity* this) {
     if (--super->timer == 0) {
         super->action = 2;
         super->timer = 7;
-        SetMetaTile(this->unk_74, this->unk_76, super->collisionLayer);
+        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
         EnqueueSFX(SFX_10B);
     }
 }
@@ -264,12 +264,12 @@ void sub_080836A0(LockedDoorEntity* this) {
     super->spriteSettings.draw = 1;
     super->x.HALF.HI = this->unk_70;
     super->y.HALF.HI = this->unk_72;
-    SetMetaTile(SPECIAL_META_TILE_34, this->unk_76, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_76, super->collisionLayer);
 }
 
 void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     const struct_0811F680* tmp;
-    SetMetaTile(SPECIAL_META_TILE_34, unk_1, this->collisionLayer);
+    SetTile(SPECIAL_TILE_34, unk_1, this->collisionLayer);
     this->timer = 7;
     this->spriteSettings.draw = 1;
     this->direction = (unk_0 << 3) ^ DirectionSouth;

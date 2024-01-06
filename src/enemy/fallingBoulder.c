@@ -151,7 +151,7 @@ void sub_0802C4B0(FallingBoulderEntity* this) {
     u32 index;
     u32 rand;
 
-    switch (GetMetaTileIndex(this->unk_7e, super->collisionLayer)) {
+    switch (GetTileIndex(this->unk_7e, super->collisionLayer)) {
         case 0x1ab ... 0x1af:
             offset = 8;
             break;

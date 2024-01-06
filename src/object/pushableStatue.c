@@ -30,7 +30,7 @@ extern const u16 gUnk_08120CBC[];
 extern const u16 gUnk_08120CCC[];
 extern const u16 gUnk_08120D6C[];
 
-u32 sub_0808968C(u32 metaTileType);
+u32 sub_0808968C(u32 tileType);
 bool32 sub_0808965C(PushableStatueEntity*);
 void sub_08089454(PushableStatueEntity*);
 void sub_080894C8(PushableStatueEntity*);
@@ -58,16 +58,16 @@ void PushableStatue_Init(PushableStatueEntity* this) {
 }
 
 void PushableStatue_Action1(PushableStatueEntity* this) {
-    u16 metaTileType;
+    u16 tileType;
     Entity* obj;
 
     if (sub_0800442E(super) == 0) {
-        metaTileType = GetMetaTileType(this->unk_84, super->collisionLayer);
-        if (metaTileType != SPECIAL_META_TILE_11) {
-            switch (sub_0808968C(metaTileType)) {
+        tileType = GetTileType(this->unk_84, super->collisionLayer);
+        if (tileType != SPECIAL_TILE_11) {
+            switch (sub_0808968C(tileType)) {
                 case 1:
                     super->action = 3;
-                    super->direction = ((metaTileType - 0xc) & 3) << 3;
+                    super->direction = ((tileType - 0xc) & 3) << 3;
                     sub_08089538(this);
                     break;
                 case 0:
@@ -78,7 +78,7 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
                     sub_080894FC(this);
                     break;
                 case 2:
-                    this->unk_80 = metaTileType;
+                    this->unk_80 = tileType;
                     break;
             }
         } else {
@@ -99,7 +99,7 @@ void PushableStatue_Action2(PushableStatueEntity* this) {
 }
 
 void PushableStatue_SubAction0(PushableStatueEntity* this) {
-    u16 metaTileType;
+    u16 tileType;
     Entity* obj;
     u32 index;
     const s8* ptr;
@@ -110,11 +110,11 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         ptr = &gUnk_08120CB4[index];
         PositionRelative(super, &gPlayerEntity.base, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
     }
-    metaTileType = GetMetaTileType(this->unk_84, super->collisionLayer);
-    if (metaTileType != SPECIAL_META_TILE_11) {
-        switch (sub_0808968C(metaTileType)) {
+    tileType = GetTileType(this->unk_84, super->collisionLayer);
+    if (tileType != SPECIAL_TILE_11) {
+        switch (sub_0808968C(tileType)) {
             case 1:
-                super->direction = DirectionFromAnimationState((metaTileType - 0xc) & 3);
+                super->direction = DirectionFromAnimationState((tileType - 0xc) & 3);
                 sub_08089538(this);
                 break;
             case 0:
@@ -125,7 +125,7 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
                 sub_080894FC(this);
                 return;
             case 2:
-                this->unk_80 = metaTileType;
+                this->unk_80 = tileType;
                 break;
         }
     }
@@ -157,17 +157,17 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
     } else {
         super->spriteSettings.draw = 1;
         super->action = 1;
-        SetMetaTile(SPECIAL_META_TILE_11, this->unk_84, super->collisionLayer);
+        SetTile(SPECIAL_TILE_11, this->unk_84, super->collisionLayer);
         sub_080894C8(this);
     }
 }
 
 void sub_08089454(PushableStatueEntity* this) {
     this->unk_84 = COORD_TO_TILE(super);
-    this->unk_80 = GetMetaTileIndex(this->unk_84, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_11, this->unk_84, super->collisionLayer);
-    if (super->collisionLayer == 2 && GetMetaTileType(this->unk_84, 1) == 0x310) {
-        SetMetaTile(SPECIAL_META_TILE_11, this->unk_84, LAYER_BOTTOM);
+    this->unk_80 = GetTileIndex(this->unk_84, super->collisionLayer);
+    SetTile(SPECIAL_TILE_11, this->unk_84, super->collisionLayer);
+    if (super->collisionLayer == 2 && GetTileType(this->unk_84, 1) == 0x310) {
+        SetTile(SPECIAL_TILE_11, this->unk_84, LAYER_BOTTOM);
     }
 }
 
@@ -193,15 +193,15 @@ void sub_080894FC(PushableStatueEntity* this) {
 }
 
 void sub_08089538(PushableStatueEntity* this) {
-    u16 metaTileType;
+    u16 tileType;
     this->unk_86 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetMetaTile(this->unk_80, this->unk_84, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetMetaTileType(this->unk_84, LAYER_BOTTOM) == SPECIAL_META_TILE_11)) {
-        CloneTile(META_TILE_TYPE_784, this->unk_84, 1);
+    SetTile(this->unk_80, this->unk_84, super->collisionLayer);
+    if ((super->collisionLayer == 2) && (GetTileType(this->unk_84, LAYER_BOTTOM) == SPECIAL_TILE_11)) {
+        CloneTile(TILE_TYPE_784, this->unk_84, 1);
     }
-    metaTileType = GetMetaTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
-    if ((metaTileType == META_TILE_TYPE_121) || (metaTileType == META_TILE_TYPE_119)) {
+    tileType = GetTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    if ((tileType == TILE_TYPE_121) || (tileType == TILE_TYPE_119)) {
         super->spriteOffsetY = -2;
     }
 }
@@ -239,11 +239,11 @@ bool32 sub_0808965C(PushableStatueEntity* this) {
     }
 }
 
-u32 sub_0808968C(u32 metaTileType) {
+u32 sub_0808968C(u32 tileType) {
     const u16* it;
 
     for (it = gUnk_08120D6C; *it != 0; it += 2) {
-        if (*it == metaTileType) {
+        if (*it == tileType) {
             return it[1];
         }
     }
@@ -264,7 +264,7 @@ bool32 sub_080896B0(void) {
         ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
         uVar1 = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]) - uVar1;
-        vvv = GetVvvAtMetaTilePos(uVar4, gPlayerEntity.base.collisionLayer);
+        vvv = GetVvvAtTilePos(uVar4, gPlayerEntity.base.collisionLayer);
         if ((vvv - 0x26 > 1) && (vvv != VVV_41)) {
             mapLayer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
@@ -297,17 +297,17 @@ const u16 gUnk_08120CCC[] = {
     78, 78, 79, 79, 79, 79, 79, 79, 79, 79, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 81, 81,
 };
 const u16 gUnk_08120D6C[] = {
-    SPECIAL_META_TILE_12,
+    SPECIAL_TILE_12,
     1,
-    SPECIAL_META_TILE_13,
+    SPECIAL_TILE_13,
     1,
-    SPECIAL_META_TILE_14,
+    SPECIAL_TILE_14,
     1,
-    SPECIAL_META_TILE_15,
+    SPECIAL_TILE_15,
     1,
-    META_TILE_TYPE_122,
+    TILE_TYPE_122,
     2,
-    META_TILE_TYPE_120,
+    TILE_TYPE_120,
     2,
     0,
 };

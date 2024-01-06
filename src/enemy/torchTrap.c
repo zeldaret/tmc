@@ -14,7 +14,7 @@
 typedef struct {
     Entity base;
     u8 filler[0xc];
-    u16 metaTilePos;
+    u16 tilePos;
     u16 filler2;
     u16 unk_78;
     u16 projectileTimer;
@@ -46,7 +46,7 @@ void TorchTrap_Init(TorchTrapEntity* this) {
     this->unk_84 &= 0xfff;
     sub_0804A720(super);
     super->action = 1;
-    this->metaTilePos = this->unk_82 & 0xfff;
+    this->tilePos = this->unk_82 & 0xfff;
     super->x.HALF.HI = ((this->unk_82 & 0x3f) << 4) + 8 + gRoomControls.origin_x;
     super->y.HALF.HI = ((this->unk_82 & 0xfc0) >> 2) + (gRoomControls.origin_y + 8);
     super->direction = ((s16)this->unk_82 & 0xf000) >> 10;
@@ -76,7 +76,7 @@ void sub_0803CF38(TorchTrapEntity* this) {
 }
 
 void sub_0803CF94(TorchTrapEntity* this) {
-    if (GetMetaTileType(this->metaTilePos, super->collisionLayer) == META_TILE_TYPE_118) {
+    if (GetTileType(this->tilePos, super->collisionLayer) == TILE_TYPE_118) {
         this->unk_80 = 0;
         TorchTrap_Reset(this);
     } else if (this->unk_7c && sub_0803CFD8(this)) {
@@ -141,7 +141,7 @@ void TorchTrap_CreateProjectile(TorchTrapEntity* this) {
 
 void sub_0803D0B0(TorchTrapEntity* this) {
     super->action = 3;
-    sub_0807B7D8(META_TILE_TYPE_117, this->metaTilePos, super->collisionLayer);
+    sub_0807B7D8(TILE_TYPE_117, this->tilePos, super->collisionLayer);
 }
 
 void (*const gTorchTrapActions[])(TorchTrapEntity*) = {

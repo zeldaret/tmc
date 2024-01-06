@@ -503,13 +503,13 @@ void ClearOAM(void) {
 
 void ResetScreenRegs(void) {
     MemClear(&gScreen, sizeof(gScreen));
-    gScreen.bg0.tilemap = &gBG0Buffer;
+    gScreen.bg0.subTileMap = &gBG0Buffer;
     gScreen.bg0.control = 0x1F0C;
-    gScreen.bg1.tilemap = &gBG1Buffer;
+    gScreen.bg1.subTileMap = &gBG1Buffer;
     gScreen.bg1.control = 0x1C01;
-    gScreen.bg2.tilemap = &gBG2Buffer;
+    gScreen.bg2.subTileMap = &gBG2Buffer;
     gScreen.bg2.control = 0x1D02;
-    gScreen.bg3.tilemap = &gBG3Buffer;
+    gScreen.bg3.subTileMap = &gBG3Buffer;
     gScreen.bg3.control = 0x1E03;
     gScreen.lcd.displayControl = 0x140;
     gScreen.lcd.displayControlMask = 0xffff;

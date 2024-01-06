@@ -114,33 +114,33 @@ void FrozenWaterElement_Action2(FrozenWaterElementEntity* this) {
 
 void sub_0809C0A8(FrozenWaterElementEntity* this) {
     u32 position = COORD_TO_TILE(super);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, -1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, -1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, -1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(2, 0), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(2, 1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 2), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 2), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 2), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 5), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(0, 5), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 5), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 6), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 6), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-3, 7), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-2, 7), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(-1, 7), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(1, 7), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(2, 7), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, position + TILE_POS(3, 7), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(0, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(2, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(2, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 2), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 2), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 2), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 5), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 5), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 5), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 6), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 6), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-3, 7), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 7), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 7), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 7), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(2, 7), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, position + TILE_POS(3, 7), super->collisionLayer);
 }
 
 void sub_0809C23C(FrozenWaterElementEntity* this) {

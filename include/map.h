@@ -8,26 +8,30 @@
  * @page TileMap TileMap
  * @brief
  *
+ * 16x16 tiles
+ * 8x8 subTiles
+ * 
+ *
  */
 
 /**
- * @brief Layer of the MetaTileMap.
+ * @brief Layer of the TileMap.
  * @ingroup TileMap
  */
 typedef struct {
     /*0x0000*/ BgSettings* bgSettings;
     /*0x0004*/ u16 mapData[0x40 * 0x40];
-    /**< MetaTileIndex for each tile on the current layer. */ // tilemap data? <-- gMapDataTop / gMapDataBottom
+    /**< TileIndex for each tile on the current layer. */ // tilemap data? <-- gMapDataTop / gMapDataBottom
     /*0x2004*/ u8 collisionData[0x40 * 0x40];                 // more tilemap data? <-- gUnk_0200D654 / gUnk_02027EB4
     /*0x3004*/ u16 mapDataOriginal[0x40 * 0x40];                 // more tilemap data? <-- gUnk_0200E654 / gUnk_02028EB4
                                                               // Tileset
-    /*0x5004*/ u16 metatileTypes[0x800];
-    /**< Maps from the MetaTileIndex to the MetaTileType. */ // gMetatileTypesTop, gMetatileTypesBottom
+    /*0x5004*/ u16 tileTypes[0x800];
+    /**< Maps from the TileIndex to the TileType. */ // gTileTypesTop, gTileTypesBottom
     /*0x6004*/ u16 unkData2[0x800];
-    /**< Maps from a MetaTileType to a MetaTileIndex. */ // gUnk_02011654,gUnk_0202BEB4 // TODO metatile index for
-                                                         // the metatile type??
-    /*0x7004*/ u16 metatiles[0x800 * 4];
-    /**< Mapping from a metatile to the four tile_attrs it consists of.*/ // gMetatilesTop, gMetatilesBottom
+    /**< Maps from a TileType to a TileIndex. */ // gUnk_02011654,gUnk_0202BEB4 // TODO tile index for
+                                                         // the tile type??
+    /*0x7004*/ u16 tiles[0x800 * 4];
+    /**< Mapping from a tile to the four tile_attrs it consists of.*/ // gTilesTop, gTilesBottom
 
     /*
     Temporarily call this vvv
@@ -41,7 +45,7 @@ typedef struct {
     // 0x637
     // 0x2030eb4 + 0x637
     // 0x20314eb
-    // e.g. GetVvvAtMetaTilePos accesses this
+    // e.g. GetVvvAtTilePos accesses this
     // TODO check whether this also affects sound played when walking?
     /*
     0x10: water

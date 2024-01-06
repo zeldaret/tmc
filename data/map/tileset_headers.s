@@ -7,7 +7,7 @@
 	.include "map_offsets.inc"
 
 gAreaTileset_Unused_0:: @ 08100CE4
-gAreaMetatiles_Unused::
+gAreaTiles_Unused::
 gAreaRoomMap_Unused::
 	tileset_palette_set 0, 1
 

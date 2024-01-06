@@ -34,7 +34,7 @@ typedef struct {
 extern Entity* sub_08017A90(Entity*, Entity*);
 
 extern Entity* gUnk_020000B0;
-extern const u8 gMapMetaTileTypeToCollisionData[];
+extern const u8 gMapTileTypeToCollisionData[];
 
 void sub_08031344(EyegoreEntity*);
 void sub_08031344(EyegoreEntity*);
@@ -327,27 +327,27 @@ void sub_08030E80(EyegoreEntity* this) {
 }
 
 void sub_08030F00(EyegoreEntity* this) {
-    u32 metaTilePos = COORD_TO_TILE_OFFSET(super, 8, 20);
-    u16 tileIndex = GetMetaTileIndex(metaTilePos + TILE_POS(0, 0), super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE_OFFSET(super, 8, 20);
+    u16 tileIndex = GetTileIndex(tilePos + TILE_POS(0, 0), super->collisionLayer);
     this->tileIndex1 = tileIndex;
-    tileIndex = GetMetaTileIndex(metaTilePos + TILE_POS(1, 0), super->collisionLayer);
+    tileIndex = GetTileIndex(tilePos + TILE_POS(1, 0), super->collisionLayer);
     this->tileIndex2 = tileIndex;
-    tileIndex = GetMetaTileIndex(metaTilePos + TILE_POS(0, 1), super->collisionLayer);
+    tileIndex = GetTileIndex(tilePos + TILE_POS(0, 1), super->collisionLayer);
     this->tileIndex3 = tileIndex;
-    tileIndex = GetMetaTileIndex(metaTilePos + TILE_POS(1, 1), super->collisionLayer);
+    tileIndex = GetTileIndex(tilePos + TILE_POS(1, 1), super->collisionLayer);
     this->tileIndex4 = tileIndex;
-    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + 1, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + TILE_POS(0, 1), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, metaTilePos + TILE_POS(1, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + 1, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(0, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(1, 1), super->collisionLayer);
 }
 
 void sub_08030FB4(EyegoreEntity* this) {
-    u32 metaTilePos = COORD_TO_TILE_OFFSET(super, 8, 20);
-    SetMetaTile(this->tileIndex1, metaTilePos + TILE_POS(0, 0), super->collisionLayer);
-    SetMetaTile(this->tileIndex2, metaTilePos + TILE_POS(1, 0), super->collisionLayer);
-    SetMetaTile(this->tileIndex3, metaTilePos + TILE_POS(0, 1), super->collisionLayer);
-    SetMetaTile(this->tileIndex4, metaTilePos + TILE_POS(1, 1), super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE_OFFSET(super, 8, 20);
+    SetTile(this->tileIndex1, tilePos + TILE_POS(0, 0), super->collisionLayer);
+    SetTile(this->tileIndex2, tilePos + TILE_POS(1, 0), super->collisionLayer);
+    SetTile(this->tileIndex3, tilePos + TILE_POS(0, 1), super->collisionLayer);
+    SetTile(this->tileIndex4, tilePos + TILE_POS(1, 1), super->collisionLayer);
 }
 
 void sub_08031024(EyegoreEntity* this) {
@@ -400,12 +400,12 @@ void sub_08031024(EyegoreEntity* this) {
                     }
                 } else {
                     tmp2 = this->unk_7b >> 1;
-                    uVar5 = GetMetaTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
+                    uVar5 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
                                                  super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
-                    uVar8 = GetMetaTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
+                    uVar8 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
                                                  super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
-                    if (!(((gMapMetaTileTypeToCollisionData[uVar5] == 0) &&
-                           (gMapMetaTileTypeToCollisionData[uVar8] == 0)) ||
+                    if (!(((gMapTileTypeToCollisionData[uVar5] == 0) &&
+                           (gMapTileTypeToCollisionData[uVar8] == 0)) ||
                           ((this->unk_7b | 1) & 1) == 0)) {
                         if (super->direction >> 3 == super->animationState) {
                             this->unk_78 |= 0x20;

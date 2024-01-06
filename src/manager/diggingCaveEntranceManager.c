@@ -32,7 +32,7 @@ void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager* this) {
     const DiggingCaveEntrance* entrance;
     u8 room;
     u8 area;
-    u16 tile = SPECIAL_META_TILE_128;
+    u16 tileIndex = SPECIAL_TILE_128;
     UpdateIsDiggingCave();
     if (gDiggingCaveEntranceTransition.isDiggingCave) {
         if (gDiggingCaveEntranceTransition.entrance == NULL) {
@@ -51,12 +51,12 @@ void DiggingCaveEntranceManager_Init(DiggingCaveEntranceManager* this) {
         }
         room = gRoomControls.room;
         entrance = diggingCaveEntrances[gRoomControls.area];
-        tile = SPECIAL_META_TILE_128;
+        tileIndex = SPECIAL_TILE_128;
         for (entrance = GetDiggingCaveEntranceForRoom(entrance, room); entrance != 0;
              entrance = GetDiggingCaveEntranceForRoom(entrance, room)) {
-            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(-1, 1), LAYER_BOTTOM);
-            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(0, 1), LAYER_BOTTOM);
-            SetMetaTile(tile, entrance->sourceTilePosition + TILE_POS(1, 1), LAYER_BOTTOM);
+            SetTile(tileIndex, entrance->sourceTilePosition + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetTile(tileIndex, entrance->sourceTilePosition + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(tileIndex, entrance->sourceTilePosition + TILE_POS(1, 1), LAYER_BOTTOM);
             entrance++;
         }
     }

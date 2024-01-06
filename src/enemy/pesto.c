@@ -352,7 +352,7 @@ void sub_080244E8(PestoEntity* this) {
     switch (this->unk_80) {
         case 0:
             if (--super->timer == 0) {
-                if (GetCollisionDataAtMetaTilePos(COORD_TO_TILE(super), 1) == 0) {
+                if (GetCollisionDataAtTilePos(COORD_TO_TILE(super), 1) == 0) {
                     this->unk_80++;
                     this->unk_82++;
                     super->subtimer = 0;
@@ -446,7 +446,7 @@ void sub_080244E8(PestoEntity* this) {
                             super->timer = 12;
                             this->unk_83 &= ~0x80;
                             entity = super->child;
-                            SetMetaTile(((PestoEntity*)entity)->unk_70, COORD_TO_TILE(entity), entity->collisionLayer);
+                            SetTile(((PestoEntity*)entity)->unk_70, COORD_TO_TILE(entity), entity->collisionLayer);
                             DeleteEntity(entity);
                             super->z.HALF.HI -= 0xe;
                             this->unk_78 -= 0xe;

@@ -37,12 +37,12 @@ void sub_0806DD90(Entity* this) {
     InitializeAnimation(this, animIndex);
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
-    SetMetaTile(SPECIAL_META_TILE_114, TILE(x - 24, y - 16), this->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_114, TILE(x - 24, y), this->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_114, TILE(x - 24, y + 16), this->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_114, TILE(x + 24, y - 16), this->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_114, TILE(x + 24, y), this->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_114, TILE(x + 24, y + 16), this->collisionLayer);
+    SetTile(SPECIAL_TILE_114, TILE(x - 24, y - 16), this->collisionLayer);
+    SetTile(SPECIAL_TILE_114, TILE(x - 24, y), this->collisionLayer);
+    SetTile(SPECIAL_TILE_114, TILE(x - 24, y + 16), this->collisionLayer);
+    SetTile(SPECIAL_TILE_114, TILE(x + 24, y - 16), this->collisionLayer);
+    SetTile(SPECIAL_TILE_114, TILE(x + 24, y), this->collisionLayer);
+    SetTile(SPECIAL_TILE_114, TILE(x + 24, y + 16), this->collisionLayer);
 }
 
 void sub_0806DEC8(Entity* this) {

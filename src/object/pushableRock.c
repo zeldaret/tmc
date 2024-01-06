@@ -41,12 +41,12 @@ void PushableRock_Action1(PushableRockEntity* this) {
     u32 tileType;
     u32 tmp;
 
-    tileType = GetMetaTileType(this->tilePos, super->collisionLayer);
+    tileType = GetTileType(this->tilePos, super->collisionLayer);
     switch (tileType) {
-        case SPECIAL_META_TILE_28:
-        case SPECIAL_META_TILE_29:
-        case SPECIAL_META_TILE_30:
-        case SPECIAL_META_TILE_31:
+        case SPECIAL_TILE_28:
+        case SPECIAL_TILE_29:
+        case SPECIAL_TILE_30:
+        case SPECIAL_TILE_31:
             tmp = (tileType - 0x1c);
             super->animationState = tmp * 2;
             super->direction = tmp * 8;
@@ -55,7 +55,7 @@ void PushableRock_Action1(PushableRockEntity* this) {
             } else {
                 super->spriteSettings.flipX = 0;
             }
-            SetMetaTile(this->tileIndex, this->tilePos, super->collisionLayer);
+            SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
             super->action = 2;
             InitializeAnimation(super, (super->animationState >> 1) + 1);
             EnqueueSFX(SFX_10F);
@@ -89,11 +89,11 @@ void PushableRock_Action3(PushableRockEntity* this) {
 void sub_0808A644(PushableRockEntity* this) {
     u32 vvv;
     this->tilePos = COORD_TO_TILE(super);
-    this->tileIndex = GetMetaTileIndex(this->tilePos, super->collisionLayer);
-    this->collisionData = GetCollisionDataAtMetaTilePos(this->tilePos, super->collisionLayer);
-    vvv = GetVvvAtMetaTilePos(this->tilePos, super->collisionLayer);
+    this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
+    this->collisionData = GetCollisionDataAtTilePos(this->tilePos, super->collisionLayer);
+    vvv = GetVvvAtTilePos(this->tilePos, super->collisionLayer);
     if ((vvv == VVV_25) || (vvv == VVV_240)) {
-        SetMetaTile(SPECIAL_META_TILE_21, this->tilePos, super->collisionLayer);
+        SetTile(SPECIAL_TILE_21, this->tilePos, super->collisionLayer);
         super->action = 3;
         if (!CheckFlags(this->pushedFlag)) {
             SetFlag(this->pushedFlag);
@@ -103,7 +103,7 @@ void sub_0808A644(PushableRockEntity* this) {
             InitializeAnimation(super, 6);
         }
     } else {
-        SetMetaTile(SPECIAL_META_TILE_27, this->tilePos, super->collisionLayer);
+        SetTile(SPECIAL_TILE_27, this->tilePos, super->collisionLayer);
     }
 }
 

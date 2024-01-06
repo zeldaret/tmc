@@ -78,11 +78,11 @@ ResolveCollisionLayer::
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r4, #0x32]
 	movs r2, #2
-	bl GetMetaTileTypeByPos
+	bl GetTileTypeByPos
 	movs r3, #1
 	cmp r0, #0
 	beq _08016A62
-	bl GetVvvForMetaTileType
+	bl GetVvvForTileType
 	movs r3, #2
 	add r1, pc, #0x40
 _08016A54:

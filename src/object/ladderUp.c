@@ -38,7 +38,7 @@ void LadderUp(Entity* this) {
                 return;
             }
             this->y.HALF.HI = (this->y.HALF.HI & 0xfff0) + 0xc;
-            SetMetaTile(SPECIAL_META_TILE_35, COORD_TO_TILE(this), this->collisionLayer);
+            SetTile(SPECIAL_TILE_35, COORD_TO_TILE(this), this->collisionLayer);
             break;
         case 1:
             if (GravityUpdate(this, Q_8_8(16.0)) == 0) {
@@ -67,17 +67,17 @@ void LadderUp(Entity* this) {
             if (this->type2 == 0) {
                 if (gPlayerEntity.base.y.HALF.HI < this->y.HALF.HI) {
                     if (gPlayerState.floor_type != SURFACE_LADDER &&
-                        (GetMetaTileTypeByEntity(this) == SPECIAL_META_TILE_23)) {
-                        SetMetaTile(SPECIAL_META_TILE_35, COORD_TO_TILE(this), this->collisionLayer);
+                        (GetTileTypeByEntity(this) == SPECIAL_TILE_23)) {
+                        SetTile(SPECIAL_TILE_35, COORD_TO_TILE(this), this->collisionLayer);
                         RestorePrevTileEntity(COORD_TO_TILE_OFFSET(this, 0, 16), this->collisionLayer);
                     }
                 } else {
-                    if (GetMetaTileTypeByEntity(this) != SPECIAL_META_TILE_23) {
-                        SetMetaTile(SPECIAL_META_TILE_23, COORD_TO_TILE(this), this->collisionLayer);
+                    if (GetTileTypeByEntity(this) != SPECIAL_TILE_23) {
+                        SetTile(SPECIAL_TILE_23, COORD_TO_TILE(this), this->collisionLayer);
                         if (this->type == 0) {
-                            SetMetaTile(SPECIAL_META_TILE_23, COORD_TO_TILE_OFFSET(this, 0, 16), this->collisionLayer);
+                            SetTile(SPECIAL_TILE_23, COORD_TO_TILE_OFFSET(this, 0, 16), this->collisionLayer);
                         } else {
-                            SetMetaTile(SPECIAL_META_TILE_20, COORD_TO_TILE_OFFSET(this, 0, 16), this->collisionLayer);
+                            SetTile(SPECIAL_TILE_20, COORD_TO_TILE_OFFSET(this, 0, 16), this->collisionLayer);
                         }
                     }
                 }

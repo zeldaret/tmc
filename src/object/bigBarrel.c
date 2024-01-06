@@ -294,7 +294,7 @@ void BigBarrel_Type4(BigBarrelEntity* this) {
                 flame->collisionLayer = 2;
                 flame->spritePriority.b0 = 2;
             }
-            SetMetaTileType(META_TILE_TYPE_118, COORD_TO_TILE(super), LAYER_TOP);
+            SetTileType(TILE_TYPE_118, COORD_TO_TILE(super), LAYER_TOP);
             break;
         case 2:
             if (--super->timer) {

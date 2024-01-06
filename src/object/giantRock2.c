@@ -12,7 +12,7 @@
 typedef struct {
     Entity base;
     u8 filler[0xC];
-    u16 metaTilePos;
+    u16 tilePos;
 } GiantRock2Entity;
 
 void GiantRock2_Init(GiantRock2Entity* this);
@@ -28,22 +28,22 @@ void GiantRock2(Entity* this) {
 
 void GiantRock2_Init(GiantRock2Entity* this) {
     u32 collisionLayer;
-    u16 metaTilePos;
+    u16 tilePos;
     int index;
     u32 tileIndex;
 
     super->action = 1;
-    this->metaTilePos = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     collisionLayer = super->collisionLayer;
     super->spritePriority.b0 = 7;
-    metaTilePos = (this->metaTilePos - TILE_POS(0, 2));
-    tileIndex = SPECIAL_META_TILE_34;
+    tilePos = (this->tilePos - TILE_POS(0, 2));
+    tileIndex = SPECIAL_TILE_34;
     for (index = 4; index > -1; index--) {
-        SetMetaTile(tileIndex, metaTilePos - 2, collisionLayer);
-        SetMetaTile(tileIndex, metaTilePos - 1, collisionLayer);
-        SetMetaTile(tileIndex, metaTilePos, collisionLayer);
-        SetMetaTile(tileIndex, metaTilePos + 1, collisionLayer);
-        metaTilePos += TILE_POS(0, 1);
+        SetTile(tileIndex, tilePos - 2, collisionLayer);
+        SetTile(tileIndex, tilePos - 1, collisionLayer);
+        SetTile(tileIndex, tilePos, collisionLayer);
+        SetTile(tileIndex, tilePos + 1, collisionLayer);
+        tilePos += TILE_POS(0, 1);
     }
 }
 

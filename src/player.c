@@ -2191,11 +2191,11 @@ static void PlayerInHoleInit(PlayerEntity* this) {
             gPlayerState.animation = ANIM_FALL_IN_HOLE_NOCAP;
         } else {
             gPlayerState.animation = ANIM_FALL_IN_HOLE;
-            if (GetMetaTileIndex(COORD_TO_TILE(super), super->collisionLayer) == SPECIAL_META_TILE_32) {
+            if (GetTileIndex(COORD_TO_TILE(super), super->collisionLayer) == SPECIAL_TILE_32) {
                 super->timer = 1;
             }
         }
-        SetMetaTile(SPECIAL_META_TILE_112, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_112, COORD_TO_TILE(super), super->collisionLayer);
         ResetActiveItems();
         PlayerInHoleUpdate(this);
         SoundReq(SFX_81);
@@ -2252,7 +2252,7 @@ static void sub_08072B5C(PlayerEntity* this) {
         return;
     }
 
-    SetMetaTile(SPECIAL_META_TILE_33, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_33, COORD_TO_TILE(super), super->collisionLayer);
     super->direction = Direction8FromAnimationState(super->animationState);
     temp = sub_0807A2F8(1);
     if (!temp) {
@@ -2367,7 +2367,7 @@ static void sub_08072D54(PlayerEntity* this) {
         LinearMoveUpdate(super);
         super->timer--;
     } else {
-        uVar2 = GetMetaTileType(sub_0806F730(super), super->collisionLayer);
+        uVar2 = GetTileType(sub_0806F730(super), super->collisionLayer);
         switch (super->subtimer) {
             case 0:
                 if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
@@ -3718,7 +3718,7 @@ void SurfaceAction_20(PlayerEntity* this) {
         if (e != NULL) {
             e->timer = 1;
             UpdateSpriteForCollisionLayer(e);
-            CloneTile(META_TILE_TYPE_57, gPlayerState.tilePosition, super->collisionLayer);
+            CloneTile(TILE_TYPE_57, gPlayerState.tilePos, super->collisionLayer);
         }
     }
     SurfaceAction_Water(this);

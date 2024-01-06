@@ -198,18 +198,18 @@ void NPC4E_RestoreEquippedItems(NPC4EEntity* this) {
 void sub_0806DC7C(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
-        u32 metaTilePos = *tiles;
+        u32 tilePos = *tiles;
         tiles = tiles + 1;
-        SetMetaTileType(SPECIAL_META_TILE_114, metaTilePos, LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, tilePos, LAYER_BOTTOM);
     }
 }
 
 void sub_0806DCA0(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
-        u32 metaTilePos = *tiles;
+        u32 tilePos = *tiles;
         tiles = tiles + 1;
-        RestorePrevTileEntity(metaTilePos, LAYER_BOTTOM);
+        RestorePrevTileEntity(tilePos, LAYER_BOTTOM);
     }
 }
 

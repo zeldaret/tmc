@@ -52,36 +52,36 @@ void sub_0808E55C(GiantBookLadderEntity* this) {
         case 2:
             tilePos = this->unk74;
             unaff_r9 = tilePos + TILE_POS(-1, -4);
-            SetMetaTile(SPECIAL_META_TILE_143, unaff_r9, super->collisionLayer);
-            SetMetaTile(SPECIAL_META_TILE_143, tilePos + TILE_POS(0, -4), super->collisionLayer);
-            SetMetaTile(SPECIAL_META_TILE_108, tilePos + TILE_POS(-2, -4), super->collisionLayer);
-            SetMetaTile(SPECIAL_META_TILE_109, tilePos + TILE_POS(1, -4), super->collisionLayer);
+            SetTile(SPECIAL_TILE_143, unaff_r9, super->collisionLayer);
+            SetTile(SPECIAL_TILE_143, tilePos + TILE_POS(0, -4), super->collisionLayer);
+            SetTile(SPECIAL_TILE_108, tilePos + TILE_POS(-2, -4), super->collisionLayer);
+            SetTile(SPECIAL_TILE_109, tilePos + TILE_POS(1, -4), super->collisionLayer);
             type = super->type;
             uVar5 = 6;
             if (type != 0) {
                 uVar5 = 4;
-                SetMetaTile(SPECIAL_META_TILE_114, tilePos + TILE_POS(-1, 1), super->collisionLayer);
-                SetMetaTile(SPECIAL_META_TILE_114, tilePos + TILE_POS(0, 1), super->collisionLayer);
-                SetMetaTile(SPECIAL_META_TILE_114, tilePos + TILE_POS(-1, 2), super->collisionLayer);
-                SetMetaTile(SPECIAL_META_TILE_114, tilePos + TILE_POS(0, 2), super->collisionLayer);
+                SetTile(SPECIAL_TILE_114, tilePos + TILE_POS(-1, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_114, tilePos + TILE_POS(0, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_114, tilePos + TILE_POS(-1, 2), super->collisionLayer);
+                SetTile(SPECIAL_TILE_114, tilePos + TILE_POS(0, 2), super->collisionLayer);
             }
             break;
         case 1:
             tilePos = this->unk74;
             unaff_r9 = tilePos - 1;
-            SetMetaTile(SPECIAL_META_TILE_142, unaff_r9, super->collisionLayer);
-            SetMetaTile(SPECIAL_META_TILE_142, tilePos, super->collisionLayer);
+            SetTile(SPECIAL_TILE_142, unaff_r9, super->collisionLayer);
+            SetTile(SPECIAL_TILE_142, tilePos, super->collisionLayer);
             uVar5 = 2;
             break;
     }
 
     for (uVar4 = 0; uVar4 < uVar5; uVar4++) {
         unaff_r9 += 0x40;
-        SetMetaTile(SPECIAL_META_TILE_142, unaff_r9, super->collisionLayer);
-        SetMetaTile(SPECIAL_META_TILE_142, unaff_r9 + 1, super->collisionLayer);
+        SetTile(SPECIAL_TILE_142, unaff_r9, super->collisionLayer);
+        SetTile(SPECIAL_TILE_142, unaff_r9 + 1, super->collisionLayer);
     }
 }
 
 u32 sub_0808E670(GiantBookLadderEntity* this) {
-    return GetMetaTileType(this->unk74 - 0x101, LAYER_BOTTOM);
+    return GetTileType(this->unk74 - 0x101, LAYER_BOTTOM);
 }

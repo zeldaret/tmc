@@ -282,8 +282,8 @@ bool32 sub_0803E4A0(VaatiProjectileEntity* this) {
 }
 
 void sub_0803E4D8(VaatiProjectileEntity* this) {
-    u32 metaTilePos = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
-    if (GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.base.collisionLayer) != COLLISION_DATA_255) {
-        SetMetaTile(SPECIAL_META_TILE_116, metaTilePos, gPlayerEntity.base.collisionLayer);
+    u32 tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
+    if (GetCollisionDataAtTilePos(tilePos, gPlayerEntity.base.collisionLayer) != COLLISION_DATA_255) {
+        SetTile(SPECIAL_TILE_116, tilePos, gPlayerEntity.base.collisionLayer);
     }
 }

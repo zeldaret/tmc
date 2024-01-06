@@ -23,7 +23,7 @@ void PalaceArchway_Init(Entity* this) {
     this->frameIndex = this->type2;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
-    SetMetaTile(SPECIAL_META_TILE_105, COORD_TO_TILE(this), this->collisionLayer);
+    SetTile(SPECIAL_TILE_105, COORD_TO_TILE(this), this->collisionLayer);
 }
 
 void PalaceArchway_Action1(Entity* this) {

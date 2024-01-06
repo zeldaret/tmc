@@ -22,10 +22,10 @@ typedef struct {
     /*0x82*/ u8 unk_82;
     /*0x83*/ u8 unused2[1];
     /*0x84*/ u16 unk_84;
-    /*0x86*/ u16 unk_86;
+    /*0x86*/ u16 tilePos;
 } PuffstoolEntity;
 
-extern u8 gMapMetaTileTypeToCollisionData[];
+extern u8 gMapTileTypeToCollisionData[];
 
 bool32 sub_080258C4(PuffstoolEntity*);
 void sub_08025B18(PuffstoolEntity*);
@@ -183,7 +183,7 @@ void sub_08025230(PuffstoolEntity* this) {
         if (sub_0802571C(this)) {
             super->action = 2;
             super->timer = 240;
-            this->unk_86 = COORD_TO_TILE(super);
+            this->tilePos = COORD_TO_TILE(super);
         }
     } else {
         this->unk_78--;
@@ -191,20 +191,20 @@ void sub_08025230(PuffstoolEntity* this) {
 }
 
 void sub_080252E0(PuffstoolEntity* this) {
-    u32 tile;
+    u32 tilePos;
 
     super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_7c, this->unk_7e);
 
     sub_08025C44(this);
     GetNextFrame(super);
 
-    tile = COORD_TO_TILE(super);
-    if (tile == this->unk_86) {
+    tilePos = COORD_TO_TILE(super);
+    if (tilePos == this->tilePos) {
         if (--super->timer == 0) {
             sub_080256B4(this);
         }
     } else {
-        this->unk_86 = tile;
+        this->tilePos = tilePos;
         super->timer = 240;
     }
 
@@ -428,27 +428,27 @@ bool32 sub_0802571C(PuffstoolEntity* this) {
 }
 
 bool32 sub_080257EC(PuffstoolEntity* this, u32 x, u32 y) {
-    u16 metaTileType = sub_080B1A48(x - 0x00, y - 0x00, super->collisionLayer);
-    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
-        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
+    u16 tileType = sub_080B1A48(x - 0x00, y - 0x00, super->collisionLayer);
+    if (tileType != 0x312 && gMapTileTypeToVvv[tileType] != VVV_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
-    metaTileType = sub_080B1A48(x - 0x10, y - 0x00, super->collisionLayer);
-    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
-        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
+    tileType = sub_080B1A48(x - 0x10, y - 0x00, super->collisionLayer);
+    if (tileType != 0x312 && gMapTileTypeToVvv[tileType] != VVV_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
-    metaTileType = sub_080B1A48(x - 0x00, y - 0x10, super->collisionLayer);
-    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
-        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
+    tileType = sub_080B1A48(x - 0x00, y - 0x10, super->collisionLayer);
+    if (tileType != 0x312 && gMapTileTypeToVvv[tileType] != VVV_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
-    metaTileType = sub_080B1A48(x - 0x10, y - 0x10, super->collisionLayer);
-    if (metaTileType != 0x312 && gMapMetaTileTypeToVvv[metaTileType] != VVV_22 &&
-        gMapMetaTileTypeToCollisionData[metaTileType] == 0) {
+    tileType = sub_080B1A48(x - 0x10, y - 0x10, super->collisionLayer);
+    if (tileType != 0x312 && gMapTileTypeToVvv[tileType] != VVV_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
@@ -528,12 +528,12 @@ void sub_08025A54(PuffstoolEntity* this) {
     }
 }
 
-bool32 sub_08025AB8(u32 metaTilePos, u32 layer) {
-    if (GetCollisionDataAtMetaTilePos(metaTilePos, layer))
+bool32 sub_08025AB8(u32 tilePos, u32 layer) {
+    if (GetCollisionDataAtTilePos(tilePos, layer))
         return FALSE;
 
-    if (GetVvvAtMetaTilePos(metaTilePos, layer) == VVV_10) {
-        sub_0807B7D8(0x61, metaTilePos, layer);
+    if (GetVvvAtTilePos(tilePos, layer) == VVV_10) {
+        sub_0807B7D8(0x61, tilePos, layer);
         return TRUE;
     }
 

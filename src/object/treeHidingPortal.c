@@ -117,7 +117,7 @@ static u32 sub_0809E9A0(void) {
         vvv = VVV_0;
     } else {
         ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
-        vvv = GetVvvAtMetaTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
+        vvv = GetVvvAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
     }
 
     return vvv;

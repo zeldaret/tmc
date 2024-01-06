@@ -30,7 +30,7 @@ void AngryStatue(Entity* this) {
 void AngryStatue_Init(Entity* this) {
     this->action = 1;
     this->hitbox = (Hitbox*)&gUnk_080FD178;
-    SetMetaTile(SPECIAL_META_TILE_34, COORD_TO_TILE(this), this->collisionLayer);
+    SetTile(SPECIAL_TILE_34, COORD_TO_TILE(this), this->collisionLayer);
     InitializeAnimation(this, this->type);
 }
 

@@ -45,8 +45,8 @@ void LinkEmptyingBottle_Init(LinkEmptyingBottleEntity* this) {
                                  gUnk_08122A18[gPlayerEntity.base.animationState | 1] << 0x10);
             }
             CopyPosition(super->child, super);
-            sub_08094980(this, SPECIAL_META_TILE_50, SPECIAL_META_TILE_51);
-            sub_08094980(this, SPECIAL_META_TILE_97, SPECIAL_META_TILE_34);
+            sub_08094980(this, SPECIAL_TILE_50, SPECIAL_TILE_51);
+            sub_08094980(this, SPECIAL_TILE_97, SPECIAL_TILE_34);
             break;
         case 1:
             effect = CreateFx(super, FX_GREEN_SPLASH2, 0);
@@ -61,8 +61,8 @@ void LinkEmptyingBottle_Init(LinkEmptyingBottleEntity* this) {
                 super->timer = 0;
                 super->spritePriority.b0 = 0;
                 super->spriteRendering.b3 = 0;
-                sub_08094980(this, SPECIAL_META_TILE_59, SPECIAL_META_TILE_60);
-                sub_08094980(this, SPECIAL_META_TILE_97, SPECIAL_META_TILE_34);
+                sub_08094980(this, SPECIAL_TILE_59, SPECIAL_TILE_60);
+                sub_08094980(this, SPECIAL_TILE_97, SPECIAL_TILE_34);
                 return;
             }
             break;
@@ -119,7 +119,7 @@ void sub_08094980(LinkEmptyingBottleEntity* this, u32 searchTileIndex, u32 repla
         xOffset = gUnk_08122A28[index];
         yOffset = gUnk_08122A28[index + 1];
         if (searchTileIndex == sub_080B1A0C(super, xOffset, yOffset)) {
-            SetMetaTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
+            SetTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
                         super->collisionLayer);
         }
         index += 2;

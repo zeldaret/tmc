@@ -33,7 +33,7 @@ void sub_08046518(void);
 void sub_080467DC(GyorgFemaleEntity*);
 
 extern u8 gUpdateVisibleTiles;
-extern u8 gMapMetaTileTypeToCollisionData[];
+extern u8 gMapTileTypeToCollisionData[];
 
 extern const MapDataDefinition gGyorgMapping0[];
 extern const MapDataDefinition gGyorgMapping1[];
@@ -248,7 +248,7 @@ void sub_080464C0(GyorgFemaleEntity* this) {
 #define sub_08046518_offset 0x658
 
 void sub_08046518(void) {
-    u16* ptr = gMapTop.metatileTypes;
+    u16* ptr = gMapTop.tileTypes;
     u16* sl = &gMapTop.mapData[sub_08046518_offset];
     u16* stack1 = &gMapTop.mapDataOriginal[sub_08046518_offset];
     u8* stack2 = &gMapTop.vvv[sub_08046518_offset];
@@ -260,8 +260,8 @@ void sub_08046518(void) {
             u16 new_var;
             stack1[j] = sl[j];
             new_var = ptr[sl[j]];
-            stack2[j] = gMapMetaTileTypeToVvv[new_var];
-            r6[j] = gMapMetaTileTypeToCollisionData[new_var];
+            stack2[j] = gMapTileTypeToVvv[new_var];
+            r6[j] = gMapTileTypeToCollisionData[new_var];
         }
         sl += 0x40;
         stack1 += 0x40;

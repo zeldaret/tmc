@@ -153,7 +153,7 @@ void sub_0806D0B0(Entity* this) {
         sub_0806D164(this);
     }
     gScreen.bg1.control = 0x1d47;
-    gScreen.bg1.tilemap = &gMapDataTopSpecial;
+    gScreen.bg1.subTileMap = &gMapDataTopSpecial;
     gScreen.bg1.updated = 1;
 }
 

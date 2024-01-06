@@ -117,16 +117,16 @@ void MetalDoor_Action4(MetalDoorEntity* this) {
 }
 
 void sub_080A080C(MetalDoorEntity* this) {
-    this->unk_76 = GetMetaTileIndex(this->unk_74 - 1, super->collisionLayer);
-    this->unk_78 = GetMetaTileIndex(this->unk_74, super->collisionLayer);
-    this->unk_7a = GetMetaTileIndex(this->unk_74 + 1, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, this->unk_74 - 1, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, this->unk_74, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, this->unk_74 + 1, super->collisionLayer);
+    this->unk_76 = GetTileIndex(this->unk_74 - 1, super->collisionLayer);
+    this->unk_78 = GetTileIndex(this->unk_74, super->collisionLayer);
+    this->unk_7a = GetTileIndex(this->unk_74 + 1, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_74 - 1, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_74, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_74 + 1, super->collisionLayer);
 }
 
 void sub_080A0870(MetalDoorEntity* this) {
-    SetMetaTile(this->unk_76, this->unk_74 - 1, super->collisionLayer);
-    SetMetaTile(this->unk_78, this->unk_74, super->collisionLayer);
-    SetMetaTile(this->unk_7a, this->unk_74 + 1, super->collisionLayer);
+    SetTile(this->unk_76, this->unk_74 - 1, super->collisionLayer);
+    SetTile(this->unk_78, this->unk_74, super->collisionLayer);
+    SetTile(this->unk_7a, this->unk_74 + 1, super->collisionLayer);
 }

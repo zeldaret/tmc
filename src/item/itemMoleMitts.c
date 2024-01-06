@@ -177,18 +177,18 @@ void sub_08077448(ItemBehavior* this, u32 index) {
 s32 sub_080774A0(void) {
     static const s8 gUnk_0811BE1E[] = { 0, -13, 13, 0, 0, 16, -13, 0, 0, 0 };
     u32 collisionData;
-    u32 metaTilePos;
+    u32 tilePos;
 
-    metaTilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity.base), -gUnk_0811BE1E[gPlayerEntity.base.animationState & 6],
+    tilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity.base), -gUnk_0811BE1E[gPlayerEntity.base.animationState & 6],
                                        -gUnk_0811BE1E[(gPlayerEntity.base.animationState & 6) + 1]);
 
-    collisionData = GetCollisionDataAtMetaTilePos(metaTilePos, gPlayerEntity.base.collisionLayer);
+    collisionData = GetCollisionDataAtTilePos(tilePos, gPlayerEntity.base.collisionLayer);
 
     if (collisionData > 0x16)
         return 0;
     if (collisionData < 0xf)
         return 0;
-    if (GetVvvAtMetaTilePos(metaTilePos, gPlayerEntity.base.collisionLayer) != VVV_86) {
+    if (GetVvvAtTilePos(tilePos, gPlayerEntity.base.collisionLayer) != VVV_86) {
         return 1;
     } else {
         return 0x56;

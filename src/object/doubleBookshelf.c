@@ -11,7 +11,7 @@
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[0x18];
-    /*0x80*/ u16 metaTilePos;
+    /*0x80*/ u16 tilePos;
     /*0x82*/ u16 unk_82;
     /*0x84*/ u8 unk_84;
     /*0x85*/ u8 unk_85;
@@ -42,7 +42,7 @@ void DoubleBookshelf(DoubleBookshelfEntity* this) {
 void DoubleBookshelf_Init(DoubleBookshelfEntity* this) {
     DoubleBookshelfEntity* child;
     super->frameIndex = super->type;
-    this->metaTilePos = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     if (super->type != 0) {
         super->action = 1;
         if (this->unk_84 == 0) {
@@ -73,7 +73,7 @@ void DoubleBookshelf_Init(DoubleBookshelfEntity* this) {
 }
 
 void DoubleBookshelf_Action1(DoubleBookshelfEntity* this) {
-    GetMetaTileType(this->unk_82, super->collisionLayer);
+    GetTileType(this->unk_82, super->collisionLayer);
     sub_0809B234(this);
 }
 
@@ -81,7 +81,7 @@ void DoubleBookshelf_Action2(DoubleBookshelfEntity* this) {
     LinearMoveUpdate(super);
     if (--super->timer == 0) {
         super->action = 1;
-        this->metaTilePos = COORD_TO_TILE(super);
+        this->tilePos = COORD_TO_TILE(super);
         SetPlayerControl(CONTROL_ENABLED);
         sub_0809B0B0(this);
         EnqueueSFX(SFX_BUTTON_PRESS);
@@ -93,45 +93,45 @@ void DoubleBookshelf_Action3(DoubleBookshelfEntity* this) {
 }
 
 void sub_0809B0B0(DoubleBookshelfEntity* this) {
-    u32 tilePos = this->metaTilePos - 1;
+    u32 tilePos = this->tilePos - 1;
     u32 layer = super->collisionLayer;
     switch (super->subAction) {
         case 0:
             this->unk_84 = 0;
             this->unk_82 = tilePos + 2;
-            SetMetaTile(SPECIAL_META_TILE_130, tilePos - 1, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 1, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 2, layer);
+            SetTile(SPECIAL_TILE_130, tilePos - 1, layer);
+            SetTile(SPECIAL_TILE_34, tilePos, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 1, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 2, layer);
             break;
         case 1:
             this->unk_84 = 1;
             this->unk_82 = tilePos;
-            SetMetaTile(SPECIAL_META_TILE_95, tilePos, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 1, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 2, layer);
-            SetMetaTile(SPECIAL_META_TILE_130, tilePos + 3, layer);
+            SetTile(SPECIAL_TILE_95, tilePos, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 1, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 2, layer);
+            SetTile(SPECIAL_TILE_130, tilePos + 3, layer);
             break;
         case 2:
             this->unk_84 = 1;
             this->unk_82 = tilePos;
-            SetMetaTile(SPECIAL_META_TILE_130, tilePos + 3, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 2, layer);
-            SetMetaTile(SPECIAL_META_TILE_95, tilePos, layer);
+            SetTile(SPECIAL_TILE_130, tilePos + 3, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 2, layer);
+            SetTile(SPECIAL_TILE_95, tilePos, layer);
             SetFlag(((DoubleBookshelfEntity*)super->parent)->unk_86);
             break;
         case 3:
             this->unk_84 = 0;
             this->unk_82 = tilePos + 2;
-            SetMetaTile(SPECIAL_META_TILE_130, tilePos - 1, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos, layer);
-            SetMetaTile(SPECIAL_META_TILE_95, tilePos + 2, layer);
+            SetTile(SPECIAL_TILE_130, tilePos - 1, layer);
+            SetTile(SPECIAL_TILE_34, tilePos, layer);
+            SetTile(SPECIAL_TILE_95, tilePos + 2, layer);
             ClearFlag(((DoubleBookshelfEntity*)super->parent)->unk_86);
             break;
         case 4:
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 1, layer);
-            SetMetaTile(SPECIAL_META_TILE_34, tilePos + 2, layer);
+            SetTile(SPECIAL_TILE_34, tilePos, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 1, layer);
+            SetTile(SPECIAL_TILE_34, tilePos + 2, layer);
             break;
     }
 }
@@ -158,7 +158,7 @@ void sub_0809B274(DoubleBookshelfEntity* this) {
         case 1:
             if (player->x.HALF.HI + 0x1c > super->x.HALF.HI) {
                 this->unk_84 = 2;
-                SetMetaTile(SPECIAL_META_TILE_34, this->metaTilePos + 2, LAYER_BOTTOM);
+                SetTile(SPECIAL_TILE_34, this->tilePos + 2, LAYER_BOTTOM);
                 sub_0809B358((DoubleBookshelfEntity*)super->child);
                 return;
             }
@@ -173,7 +173,7 @@ void sub_0809B274(DoubleBookshelfEntity* this) {
                 return;
             }
             this->unk_84 = 1;
-            RestorePrevTileEntity(this->metaTilePos + 2, 1);
+            RestorePrevTileEntity(this->tilePos + 2, 1);
             sub_0809B38C((DoubleBookshelfEntity*)super->child);
             return;
     }
@@ -181,34 +181,34 @@ void sub_0809B274(DoubleBookshelfEntity* this) {
 
 void sub_0809B334(DoubleBookshelfEntity* this) {
     s32 index;
-    u32 tilePos = this->metaTilePos - 0x81;
+    u32 tilePos = this->tilePos - 0x81;
     for (index = 2; index >= 0; index--, tilePos++) {
-        SetMetaTile(SPECIAL_META_TILE_38, tilePos, LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_38, tilePos, LAYER_BOTTOM);
     }
 }
 
 void sub_0809B358(DoubleBookshelfEntity* this) {
-    static const u16 gUnk_08123D68[] = { SPECIAL_META_TILE_34, SPECIAL_META_TILE_34,  SPECIAL_META_TILE_116,
-                                         SPECIAL_META_TILE_38, SPECIAL_META_TILE_116, SPECIAL_META_TILE_116,
-                                         SPECIAL_META_TILE_38, SPECIAL_META_TILE_116, SPECIAL_META_TILE_34,
-                                         SPECIAL_META_TILE_34 };
+    static const u16 gUnk_08123D68[] = { SPECIAL_TILE_34, SPECIAL_TILE_34,  SPECIAL_TILE_116,
+                                         SPECIAL_TILE_38, SPECIAL_TILE_116, SPECIAL_TILE_116,
+                                         SPECIAL_TILE_38, SPECIAL_TILE_116, SPECIAL_TILE_34,
+                                         SPECIAL_TILE_34 };
     s32 index;
     const u16* array = &gUnk_08123D68[this->unk_84];
-    u32 metaTilePos = this->metaTilePos + TILE_POS(-2, -2);
+    u32 tilePos = this->tilePos + TILE_POS(-2, -2);
     for (index = 4; index >= 0;) {
-        SetMetaTile(*array, metaTilePos, LAYER_BOTTOM);
+        SetTile(*array, tilePos, LAYER_BOTTOM);
         index--;
-        metaTilePos++;
+        tilePos++;
         array += 2;
     }
 }
 
 void sub_0809B38C(DoubleBookshelfEntity* this) {
     s32 index;
-    u32 metaTilePos = this->metaTilePos + TILE_POS(-2, -2);
+    u32 tilePos = this->tilePos + TILE_POS(-2, -2);
     for (index = 4; index >= 0;) {
-        RestorePrevTileEntity(metaTilePos, 1);
+        RestorePrevTileEntity(tilePos, 1);
         index--;
-        metaTilePos++;
+        tilePos++;
     }
 }

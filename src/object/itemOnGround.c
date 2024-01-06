@@ -218,7 +218,7 @@ void sub_08081188(ItemOnGroundEntity* this) {
 void sub_080811AC(ItemOnGroundEntity* this) {
     super->action = 2;
     super->spriteSettings.draw = 0;
-    this->unk_6e = GetMetaTileTypeByEntity(super);
+    this->unk_6e = GetTileTypeByEntity(super);
 }
 
 void sub_080811C8(ItemOnGroundEntity* this) {
@@ -285,7 +285,7 @@ void sub_080812A0(ItemOnGroundEntity* this) {
 
 void sub_080812A8(ItemOnGroundEntity* this) {
     if (GetCollisionDataAtEntity(super) != COLLISION_DATA_15 &&
-        this->unk_6e != GetMetaTileTypeByEntity(super)) {
+        this->unk_6e != GetTileTypeByEntity(super)) {
         super->direction = 0;
         super->speed = 0;
         super->spriteSettings.draw = 1;

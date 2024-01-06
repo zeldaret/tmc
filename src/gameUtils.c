@@ -35,7 +35,7 @@ void ResetTimerFlags(void);
 
 extern void** gAreaTilesets[];
 extern void** gAreaRoomMaps[];
-extern void* gAreaMetatiles[];
+extern void* gAreaTiles[];
 extern void** gAreaTable[];
 
 typedef struct {
@@ -558,7 +558,7 @@ void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 room) {
     info->pixel_height = r_hdr->pixel_height;
     info->tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
     info->map = *(gAreaRoomMaps[area] + room);
-    info->metatiles = gAreaMetatiles[area];
+    info->tiles = gAreaTiles[area];
     info->bg_anim = (void*)gUnk_080B755C[area];
     info->exits = gExitLists[area][room];
     if (gAreaTable[area] != NULL) {
@@ -662,7 +662,7 @@ void sub_08052FF4(u32 area, u32 room) {
     gArea.currentRoomInfo.pixel_height = r_hdr->pixel_height;
     gArea.currentRoomInfo.tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
     gArea.currentRoomInfo.map = *(gAreaRoomMaps[area] + room);
-    gArea.currentRoomInfo.metatiles = gAreaMetatiles[area];
+    gArea.currentRoomInfo.tiles = gAreaTiles[area];
     gArea.currentRoomInfo.bg_anim = (void*)gUnk_080B755C[area];
 }
 

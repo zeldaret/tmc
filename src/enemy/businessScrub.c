@@ -105,7 +105,7 @@ void BusinessScrub_Action0(BusinessScrubEntity* this) {
     } else {
         super->timer = 0;
         this->unk_76 = COORD_TO_TILE(super);
-        this->unk_74 = GetMetaTileIndex(this->unk_76, super->collisionLayer);
+        this->unk_74 = GetTileIndex(this->unk_76, super->collisionLayer);
         super->hurtType = 0x41;
         sub_08028FFC(this);
     }
@@ -444,7 +444,7 @@ void sub_08028FFC(BusinessScrubEntity* this) {
     super->x.HALF.HI = this->unk_78;
     super->y.HALF.HI = this->unk_7a;
     InitializeAnimation(super, 0);
-    SetMetaTile(SPECIAL_META_TILE_34, this->unk_76, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_76, super->collisionLayer);
 }
 
 void sub_08029078(BusinessScrubEntity* this) {
@@ -458,7 +458,7 @@ void sub_08029078(BusinessScrubEntity* this) {
         super->spriteIndex = 0xd0;
         sub_08028FDC(this);
         sub_080290E0(this, 1);
-        SetMetaTile(this->unk_74, this->unk_76, super->collisionLayer);
+        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
     }
 }
 

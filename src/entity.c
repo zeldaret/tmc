@@ -47,29 +47,29 @@ const u8 gEntityListLUT[] = {
 
 // TODO: wrong file, maybe an "enter.c" according to lexicographical order
 void sub_0805E248(void) {
-    s32 metaTilePos;
+    s32 tilePos;
 
-    metaTilePos = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
+    tilePos = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
     if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
-        SetMetaTileType(META_TILE_TYPE_636, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_643, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_637, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_644, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_638, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_645, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_639, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_640, metaTilePos + TILE_POS(0, 0), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_642, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_636, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_643, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_637, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_644, tilePos + TILE_POS(0, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_638, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_645, tilePos + TILE_POS(1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_639, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_640, tilePos + TILE_POS(0, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_642, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
     } else {
-        SetMetaTileType(META_TILE_TYPE_620, metaTilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_627, metaTilePos + TILE_POS(-1, -1), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_621, metaTilePos + TILE_POS(0, -1), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_628, metaTilePos + TILE_POS(0, -1), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_622, metaTilePos + TILE_POS(1, -1), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_629, metaTilePos + TILE_POS(1, -1), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_623, metaTilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_624, metaTilePos + TILE_POS(0, 0), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_626, metaTilePos + TILE_POS(1, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_620, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_627, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_621, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_628, tilePos + TILE_POS(0, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_622, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_629, tilePos + TILE_POS(1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_623, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_624, tilePos + TILE_POS(0, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_626, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
     }
     gUpdateVisibleTiles = 0;
 }

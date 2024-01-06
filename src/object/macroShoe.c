@@ -41,9 +41,9 @@ void MacroShoe_Init(Entity* this) {
     this->action = 1;
     this->hitbox = (Hitbox*)MacroShoe_TypeHitboxes[this->type];
     if (this->type2 == 1) {
-        SetMetaTile(SPECIAL_META_TILE_36, TILE_POS(16, 16), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_38, TILE_POS(17, 16), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_37, TILE_POS(18, 16), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_36, TILE_POS(16, 16), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_38, TILE_POS(17, 16), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_37, TILE_POS(18, 16), LAYER_BOTTOM);
     }
 }
 

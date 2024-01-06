@@ -15,8 +15,8 @@
 typedef struct {
     Entity base;
     u8 filler[0x8];
-    u16 metaTilePos;
-    u16 metaTileIndex;
+    u16 tilePos;
+    u16 tileIndex;
     u8 collisionData;
     u8 unk75;
     u8 filler2[0x10];
@@ -59,7 +59,7 @@ void Bollard_Action1(BollardEntity* this) {
     }
     super->action = 2;
     InitializeAnimation(super, 3);
-    SetMetaTile(this->metaTileIndex, this->metaTilePos, super->collisionLayer);
+    SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
     EnqueueSFX(SFX_1A5);
 }
 
@@ -93,10 +93,10 @@ void Bollard_Action4(BollardEntity* this) {
 
 void sub_0808B3AC(BollardEntity* this) {
     super->spritePriority.b0 = 4;
-    this->metaTilePos = COORD_TO_TILE(super);
-    this->metaTileIndex = GetMetaTileIndex(this->metaTilePos, super->collisionLayer);
-    this->collisionData = GetCollisionDataAtMetaTilePos(this->metaTilePos, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_11, this->metaTilePos, super->collisionLayer);
+    this->tilePos = COORD_TO_TILE(super);
+    this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
+    this->collisionData = GetCollisionDataAtTilePos(this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_11, this->tilePos, super->collisionLayer);
 }
 
 void sub_0808B41C(BollardEntity* this) {

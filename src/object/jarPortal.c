@@ -182,10 +182,10 @@ void sub_0808C13C(JarPortalEntity* this) {
 void sub_0808C148(JarPortalEntity* this, bool32 setTiles) {
     u32 tilePos = COORD_TO_TILE(super);
     if (!setTiles) {
-        SetMetaTile(SPECIAL_META_TILE_146, tilePos + TILE_POS(-1, 0), super->collisionLayer);
-        SetMetaTile(SPECIAL_META_TILE_147, tilePos + TILE_POS(0, 0), super->collisionLayer);
-        SetMetaTile(SPECIAL_META_TILE_148, tilePos + TILE_POS(-1, 1), super->collisionLayer);
-        SetMetaTile(SPECIAL_META_TILE_149, tilePos + TILE_POS(0, 1), super->collisionLayer);
+        SetTile(SPECIAL_TILE_146, tilePos + TILE_POS(-1, 0), super->collisionLayer);
+        SetTile(SPECIAL_TILE_147, tilePos + TILE_POS(0, 0), super->collisionLayer);
+        SetTile(SPECIAL_TILE_148, tilePos + TILE_POS(-1, 1), super->collisionLayer);
+        SetTile(SPECIAL_TILE_149, tilePos + TILE_POS(0, 1), super->collisionLayer);
     } else {
         RestorePrevTileEntity(tilePos + TILE_POS(-1, 0), super->collisionLayer);
         RestorePrevTileEntity(tilePos + 0, super->collisionLayer);

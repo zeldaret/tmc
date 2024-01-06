@@ -326,9 +326,9 @@ DoTileInteraction: @ 0x08008796
 	adds r1, r7, #0
 	movs r2, #0x38
 	ldrb r2, [r4, r2] // collision layer
-	bl GetMetaTileTypeByPos
+	bl GetTileTypeByPos
 	ldr r1, _080088D8 @ =gUnk_080046A4
-	bl ActTileConv
+	bl FindEntryForKey
 	beq _080087CE_return0
 	lsls r1, r3, #3
 	adds r3, r5, #0
@@ -764,7 +764,7 @@ CheckNEastTile: @ 0x08008B02
 	tst r0, r1
 	bne _08008B1E
 	ldr r1, =gMapVvvToSurfaceType
-	bl ActTileConv
+	bl FindEntryForKey
 	movs r2, #1
 	cmp r3, #1
 	beq _08008B20

@@ -34,8 +34,8 @@ void sub_08054EB8(Entity* this, ScriptExecutionContext* context) {
 
 void sub_08054EFC(Entity* this, ScriptExecutionContext* context) {
     Entity* effect;
-    u32 metaTilePos = COORD_TO_TILE(this) - 0x40;
-    SetMetaTile(SPECIAL_META_TILE_116, metaTilePos, LAYER_BOTTOM);
+    u32 tilePos = COORD_TO_TILE(this) - 0x40;
+    SetTile(SPECIAL_TILE_116, tilePos, LAYER_BOTTOM);
     this->collisionLayer = LAYER_TOP;
     UpdateSpriteForCollisionLayer(this);
     effect = CreateFx(this, FX_BIG_EXPLOSION, 0);
@@ -157,6 +157,6 @@ void WorldEvent_17_0(void) {
 void WorldEvent_17_1(void) {
     if (gMenu.field_0xa != 0) {
         gMenu.field_0xa = 0;
-        SetMetaTileType(META_TILE_TYPE_116, TILE_POS(7, 16), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_116, TILE_POS(7, 16), LAYER_BOTTOM);
     }
 }

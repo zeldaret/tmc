@@ -148,8 +148,8 @@ void ObjectOnPillar_Action4(ObjectOnPillarEntity* this) {
 
 bool32 sub_08097008(ObjectOnPillarEntity* this) {
     Entity* effect;
-    u32 tileType = GetMetaTileType(this->tilePos, super->collisionLayer);
-    if (tileType != SPECIAL_META_TILE_54) {
+    u32 tileType = GetTileType(this->tilePos, super->collisionLayer);
+    if (tileType != SPECIAL_TILE_54) {
         switch (sub_08097074(tileType)) {
             case 1:
                 super->direction = (((tileType - 0x37) & 3) << 3);
@@ -173,8 +173,8 @@ bool32 sub_08097008(ObjectOnPillarEntity* this) {
 u32 sub_08097074(u32 tileType) {
 
     static const KeyValuePair gUnk_0812327C[] = {
-        { SPECIAL_META_TILE_55, 1 }, { SPECIAL_META_TILE_56, 1 }, { SPECIAL_META_TILE_57, 1 },
-        { SPECIAL_META_TILE_58, 1 }, { META_TILE_TYPE_122, 2 },   { META_TILE_TYPE_120, 2 },
+        { SPECIAL_TILE_55, 1 }, { SPECIAL_TILE_56, 1 }, { SPECIAL_TILE_57, 1 },
+        { SPECIAL_TILE_58, 1 }, { TILE_TYPE_122, 2 },   { TILE_TYPE_120, 2 },
     };
     static const u16 gUnk_0812327CEnd = 0;
     const KeyValuePair* entry = gUnk_0812327C;
@@ -190,8 +190,8 @@ void sub_08097098(ObjectOnPillarEntity* this) {
     u16 tileType;
     this->unk_76 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetMetaTile(this->tileIndex, this->tilePos, super->collisionLayer);
-    tileType = GetMetaTileType(gUnk_080B4488[super->direction >> 3] + this->tilePos, super->collisionLayer);
+    SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
+    tileType = GetTileType(gUnk_080B4488[super->direction >> 3] + this->tilePos, super->collisionLayer);
     if ((tileType == 0x79) || tileType == 0x77) {
         super->spriteOffsetY = 2;
     }
@@ -199,8 +199,8 @@ void sub_08097098(ObjectOnPillarEntity* this) {
 
 void sub_080970F4(ObjectOnPillarEntity* this) {
     this->tilePos = COORD_TO_TILE(super);
-    this->tileIndex = GetMetaTileIndex(this->tilePos, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_54, this->tilePos, super->collisionLayer);
+    this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_54, this->tilePos, super->collisionLayer);
 }
 
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
@@ -222,8 +222,8 @@ bool32 sub_08097194(ObjectOnPillarEntity* this) {
     if (sub_0800442E(super)) {
         return TRUE;
     } else {
-        u32 tileType = GetMetaTileTypeByEntity(super);
-        if (tileType == META_TILE_TYPE_113 || tileType == META_TILE_TYPE_114 || tileType == SPECIAL_META_TILE_32) {
+        u32 tileType = GetTileTypeByEntity(super);
+        if (tileType == TILE_TYPE_113 || tileType == TILE_TYPE_114 || tileType == SPECIAL_TILE_32) {
             SetFlag(this->flag);
             EnqueueSFX(SFX_10B);
             sub_080971E0(this);
@@ -253,13 +253,13 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
             super->action = 4;
             super->frameIndex = 1;
             super->spritePriority.b0 = 7;
-            SetMetaTile(0, COORD_TO_TILE(super), super->collisionLayer);
+            SetTile(0, COORD_TO_TILE(super), super->collisionLayer);
             DeleteThisEntity();
             break;
         case 1:
             tilePos = COORD_TO_TILE(super);
             if (sub_08097348(tilePos) == 0) {
-                SetMetaTileType(META_TILE_TYPE_115, tilePos, super->collisionLayer);
+                SetTileType(TILE_TYPE_115, tilePos, super->collisionLayer);
             }
             DeleteThisEntity();
             break;

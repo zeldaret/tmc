@@ -8,7 +8,7 @@
 #include "assets/midi.h"
 #include "assets/palette.h"
 #include "assets/spriteframe.h"
-#include "assets/tileset.h"
+#include "assets/subtileset.h"
 #include "offsets.h"
 #include <filesystem>
 #include <fstream>
@@ -264,8 +264,8 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
     }
 
     std::unique_ptr<BaseAsset> assetHandler;
-    if (type == "tileset") {
-        assetHandler = std::make_unique<TilesetAsset>(path, start, size, asset);
+    if (type == "subtileset") {
+        assetHandler = std::make_unique<SubTileSetAsset>(path, start, size, asset);
     } else if (type == "animation") {
         assetHandler = std::make_unique<AnimationAsset>(path, start, size, asset);
     } else if (type == "sprite_frame") {
@@ -280,8 +280,8 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         assetHandler = std::make_unique<GfxAsset>(path, start, size, asset);
     } else if (type == "palette") {
         assetHandler = std::make_unique<PaletteAsset>(path, start, size, asset);
-    } else if (type == "metatilemap" ||
-               type == "metatileset_types" || type == "metatileset" ||
+    } else if (type == "tilemap" ||
+               type == "tileset_types" || type == "tileset" ||
                type == "map_mapping1" || type == "map_mapping2" ||
                type == "map_collision") {
         assetHandler = std::make_unique<MapAsset>(path, start, size, asset);

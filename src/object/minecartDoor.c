@@ -13,8 +13,8 @@ typedef struct {
     /*0x68*/ u8 unk_68[8];
     /*0x70*/ u16 unk_70;
     /*0x72*/ u16 unk_72;
-    /*0x74*/ u16 metaTileIndex;
-    /*0x76*/ u16 metaTilePos;
+    /*0x74*/ u16 tileIndex;
+    /*0x76*/ u16 tilePos;
     /*0x78*/ u8 unk_78[0x6];
     /*0x7e*/ u8 unk_7e;
     /*0x7f*/ u8 unk_7f[0x7];
@@ -52,8 +52,8 @@ void MinecartDoor_Init(MinecartDoorEntity* this) {
         this->unk_70 = super->x.HALF.HI;
         this->unk_72 = super->y.HALF.HI;
         super->spritePriority.b0 = 5;
-        this->metaTilePos = COORD_TO_TILE(super);
-        this->metaTileIndex = GetMetaTileIndex(this->metaTilePos, super->collisionLayer);
+        this->tilePos = COORD_TO_TILE(super);
+        this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
         super->frameIndex = super->type;
         if (sub_08096CEC(this)) {
             if (this->unk_7e != 0) {
@@ -64,7 +64,7 @@ void MinecartDoor_Init(MinecartDoorEntity* this) {
         } else {
             super->action = 1;
             super->spriteSettings.draw = 1;
-            SetMetaTile(SPECIAL_META_TILE_34, this->metaTilePos, super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos, super->collisionLayer);
         }
     }
 }
@@ -74,7 +74,7 @@ void MinecartDoor_Action1(MinecartDoorEntity* this) {
         super->action = 2;
         super->timer = 7;
         super->direction = super->type << 3;
-        SetMetaTile(this->metaTileIndex, this->metaTilePos, super->collisionLayer);
+        SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
         EnqueueSFX(SFX_10B);
     }
 }
@@ -112,7 +112,7 @@ void MinecartDoor_Action3(MinecartDoorEntity* this) {
     }
     if (bVar3 == FALSE) {
         super->action = 4;
-        sub_080836DC(super, super->type, this->metaTilePos);
+        sub_080836DC(super, super->type, this->tilePos);
     }
 }
 

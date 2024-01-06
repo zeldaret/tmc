@@ -243,7 +243,7 @@ void sub_080387F0(CloudPiranhaEntity* this) {
     const s8* ptr;
 
     if ((super->action != 4) && (this->unk_82 == 0)) {
-        collisionData = GetCollisionDataAtMetaTilePos(COORD_TO_TILE(super), super->collisionLayer);
+        collisionData = GetCollisionDataAtTilePos(COORD_TO_TILE(super), super->collisionLayer);
         if ((collisionData == COLLISION_DATA_15) || (collisionData == COLLISION_DATA_42)) {
             this->unk_82 = 0x20;
         }

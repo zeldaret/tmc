@@ -155,7 +155,7 @@ void InitUI(bool32 keepHealthAndRupees) {
     LoadPaletteGroup(0xc);
     LoadGfxGroup(0x10);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
-    gScreen.bg0.tilemap = &gBG0Buffer;
+    gScreen.bg0.subTileMap = &gBG0Buffer;
     gScreen.bg0.control = 0x1f0c;
     gScreen.lcd.displayControl |= 0x100;
     gOAMControls.unk[0].unk7 = 1;

@@ -88,13 +88,13 @@ void LightDoor_Action4(LightDoorEntity* this) {
 void sub_080850FC(LightDoorEntity* this) {
     u32 tilePos = COORD_TO_TILE(super);
     u32 layer = super->collisionLayer;
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(-1, -1), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(0, -1), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(1, -1), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(-1, 0), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(0, 0), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(1, 0), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(-1, 1), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(0, 1), layer);
-    SetMetaTile(SPECIAL_META_TILE_61, tilePos + TILE_POS(1, 1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(-1, -1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(0, -1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(1, -1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(-1, 0), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(0, 0), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(1, 0), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(-1, 1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(0, 1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(1, 1), layer);
 }

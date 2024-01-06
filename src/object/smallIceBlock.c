@@ -85,8 +85,8 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
         }
     } else {
         if (!sub_0800442E(super)) {
-            tileType = GetMetaTileType(this->tilePos, super->collisionLayer);
-            if (tileType != SPECIAL_META_TILE_90) {
+            tileType = GetTileType(this->tilePos, super->collisionLayer);
+            if (tileType != SPECIAL_TILE_90) {
                 switch (sub_08099618(tileType)) {
                     case 1:
                         super->action = 2;
@@ -100,7 +100,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                         if (obj != NULL) {
                             CopyPosition(super, obj);
                         }
-                        SetMetaTile(this->unk_6c, this->tilePos, super->collisionLayer);
+                        SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
                         DeleteEntity(super);
                         break;
 
@@ -159,7 +159,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
         DeleteThisEntity();
     } else {
         if (super->timer == 0x30) {
-            SetMetaTile(this->unk_6c, this->tilePos, super->collisionLayer);
+            SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
         }
         SetAffineInfo(super, 0x100, (0x3c - super->timer) * 0x20 + 0x100, 0);
         if ((super->timer & 1) != 0) {
@@ -177,19 +177,19 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
 
 void sub_08099468(SmallIceBlockEntity* this) {
     this->tilePos = COORD_TO_TILE(super);
-    this->unk_6c = GetMetaTileIndex(this->tilePos, super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_90, this->tilePos, super->collisionLayer);
+    this->unk_6c = GetTileIndex(this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_90, this->tilePos, super->collisionLayer);
 }
 
 void sub_080994B8(SmallIceBlockEntity* this) {
     u16 tileType;
 
     EnqueueSFX(SFX_ICE_BLOCK_SLIDE);
-    SetMetaTile(this->unk_6c, this->tilePos, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetMetaTileType(this->tilePos, 1) == SPECIAL_META_TILE_90)) {
-        CloneTile(META_TILE_TYPE_784, this->tilePos, 1);
+    SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
+    if ((super->collisionLayer == 2) && (GetTileType(this->tilePos, 1) == SPECIAL_TILE_90)) {
+        CloneTile(TILE_TYPE_784, this->tilePos, 1);
     }
-    tileType = GetMetaTileType(this->tilePos + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    tileType = GetTileType(this->tilePos + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if (tileType == 0x79 || tileType == 0x77) {
         super->spriteOffsetY = -2;
     }
@@ -326,17 +326,17 @@ const u16 gUnk_08123748[] = {
     277,
 };
 const u16 gUnk_08123750[] = {
-    SPECIAL_META_TILE_91,
+    SPECIAL_TILE_91,
     1,
-    SPECIAL_META_TILE_92,
+    SPECIAL_TILE_92,
     1,
-    SPECIAL_META_TILE_93,
+    SPECIAL_TILE_93,
     1,
-    SPECIAL_META_TILE_94,
+    SPECIAL_TILE_94,
     1,
-    META_TILE_TYPE_122,
+    TILE_TYPE_122,
     2,
-    META_TILE_TYPE_120,
+    TILE_TYPE_120,
     2,
     0,
 };

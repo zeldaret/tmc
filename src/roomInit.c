@@ -808,10 +808,10 @@ extern EntityData gUnk_080D7D34;
 
 void sub_StateChange_GreatFairies_Exit(void) {
     if (GetInventoryValue(ITEM_FOURSWORD)) {
-        SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(13, 5), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(12, 4), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_144, TILE_POS(12, 5), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_144, TILE_POS(12, 6), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_114, TILE_POS(13, 5), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_114, TILE_POS(12, 4), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_144, TILE_POS(12, 5), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_144, TILE_POS(12, 6), LAYER_BOTTOM);
         LoadRoomEntityList(&gUnk_080D7D34);
     }
 }
@@ -862,8 +862,8 @@ void sub_StateChange_Dojos_Grimblade(void) {
         LoadRoomEntityList(&gUnk_080D827C);
     } else {
         sub_0805BC4C();
-        SetMetaTileType(META_TILE_TYPE_118, TILE_POS(2, 2), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_118, TILE_POS(12, 2), LAYER_TOP);
+        SetTileType(TILE_TYPE_118, TILE_POS(2, 2), LAYER_TOP);
+        SetTileType(TILE_TYPE_118, TILE_POS(12, 2), LAYER_TOP);
     }
 }
 
@@ -1044,16 +1044,16 @@ void sub_StateChange_RoyalValley_Main(void) {
 
     if (GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) != 2) {
         LoadRoomEntityList(&gUnk_080D9098);
-        SetMetaTileType(META_TILE_TYPE_378, TILE_POS(14, 22), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_379, TILE_POS(15, 22), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_380, TILE_POS(14, 23), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_381, TILE_POS(15, 23), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_378, TILE_POS(14, 22), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_379, TILE_POS(15, 22), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_380, TILE_POS(14, 23), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_381, TILE_POS(15, 23), LAYER_BOTTOM);
     }
 
     EnableRandomDrops();
     sub_08059278();
-    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(7, 41), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(7, 49), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(7, 41), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(7, 49), LAYER_BOTTOM);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
         if (gRoomTransition.player_status.start_pos_x == 0x78 && gRoomTransition.player_status.start_pos_y == 0x278)
@@ -1111,7 +1111,7 @@ static void sub_0804C128(void) {
         if (gArea.unk_0c_4 == 6) {
             sub_080AF250(1);
             if (CheckLocalFlag(HAKA_01_T0) == 0) {
-                SetMetaTileType(META_TILE_TYPE_115, TILE_POS(7, 4), LAYER_BOTTOM);
+                SetTileType(TILE_TYPE_115, TILE_POS(7, 4), LAYER_BOTTOM);
             }
             LoadRoomTileEntities(gUnk_080D9328);
             SetGlobalFlag(MAZE_CLEAR);
@@ -1146,7 +1146,7 @@ void sub_0804C290(void) {
 
     if (gArea.unk_0c_1) {
         iVar1 = gArea.unk_0c_1;
-        SetMetaTileType((gUnk_080D9348 + iVar1)->unk0, (gUnk_080D9348 + iVar1)->unk2, LAYER_BOTTOM);
+        SetTileType((gUnk_080D9348 + iVar1)->unk0, (gUnk_080D9348 + iVar1)->unk2, LAYER_BOTTOM);
     }
 }
 
@@ -1690,7 +1690,7 @@ void sub_StateChange_TownMinishHoles_RemShoeShop(void) {
     if (!CheckLocalFlag(KOBITO_DOUKUTU_05_T0)) {
         tilePos = TILE_POS(0, 5);
         for (i = 0; i < 19; i++, tilePos++) {
-            SetMetaTileType(SPECIAL_META_TILE_114, tilePos, LAYER_BOTTOM);
+            SetTileType(SPECIAL_TILE_114, tilePos, LAYER_BOTTOM);
         }
     }
     LoadRoomEntityList(&gUnk_080DBB90);
@@ -2153,11 +2153,11 @@ void sub_StateChange_DeepwoodShrine_StairsToB1(void) {
     } else {
         if (!CheckLocalFlag(0x4c)) {
             LoadRoomEntityList(&gUnk_additional_8_DeepwoodShrine_StairsToB1);
-            SetMetaTileType(META_TILE_TYPE_121, TILE_POS(5, 10), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_121, TILE_POS(5, 10), LAYER_BOTTOM);
         } else {
-            SetMetaTileType(META_TILE_TYPE_122, TILE_POS(5, 10), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_122, TILE_POS(5, 10), LAYER_BOTTOM);
             if (!CheckLocalFlag(0x24)) {
-                SetMetaTileType(META_TILE_TYPE_115, TILE_POS(5, 8), LAYER_BOTTOM);
+                SetTileType(TILE_TYPE_115, TILE_POS(5, 8), LAYER_BOTTOM);
             }
         }
     }
@@ -2192,21 +2192,21 @@ void sub_StateChange_DeepwoodShrine_Barrel(void) {
     switch (gSave.dws_barrel_state) {
         case 0:
         default:
-            SetMetaTileType(META_TILE_TYPE_144, TILE_POS(11, 8), LAYER_BOTTOM);
-            SetMetaTileType(META_TILE_TYPE_144, TILE_POS(17, 16), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_144, TILE_POS(11, 8), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_144, TILE_POS(17, 16), LAYER_BOTTOM);
             break;
         case 2:
-            SetMetaTileType(META_TILE_TYPE_144, TILE_POS(17, 8), LAYER_BOTTOM);
-            SetMetaTileType(META_TILE_TYPE_144, TILE_POS(11, 16), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_144, TILE_POS(17, 8), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_144, TILE_POS(11, 16), LAYER_BOTTOM);
             break;
     }
 
     if (CheckLocalFlag(0x15)) {
-        SetMetaTileType(META_TILE_TYPE_118, TILE_POS(4, 12), LAYER_TOP);
+        SetTileType(TILE_TYPE_118, TILE_POS(4, 12), LAYER_TOP);
     }
 
     if (CheckLocalFlag(0x16)) {
-        SetMetaTileType(META_TILE_TYPE_118, TILE_POS(24, 12), LAYER_TOP);
+        SetTileType(TILE_TYPE_118, TILE_POS(24, 12), LAYER_TOP);
     }
 }
 
@@ -2250,9 +2250,9 @@ void sub_StateChange_DeepwoodShrine_Entrance(void) {
     if (GetInventoryValue(ITEM_EARTH_ELEMENT) == 0) {
 #endif
 #endif
-        SetMetaTileType(META_TILE_TYPE_869, TILE_POS(9, 13), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_869, TILE_POS(10, 13), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_869, TILE_POS(11, 13), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_869, TILE_POS(9, 13), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_869, TILE_POS(10, 13), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_869, TILE_POS(11, 13), LAYER_BOTTOM);
     }
 }
 #else
@@ -2387,9 +2387,9 @@ u32 sub_unk3_CaveOfFlames_Entrance(void) {
 #ifdef DEMO_USA
 void sub_StateChange_CaveOfFlames_Entrance(void) {
     if (GetInventoryValue(ITEM_FIRE_ELEMENT) == 0) {
-        SetMetaTileType(META_TILE_TYPE_869, TILE_POS(7, 10), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_869, TILE_POS(8, 10), LAYER_TOP);
-        SetMetaTileType(META_TILE_TYPE_869, TILE_POS(9, 10), LAYER_TOP);
+        SetTileType(TILE_TYPE_869, TILE_POS(7, 10), LAYER_TOP);
+        SetTileType(TILE_TYPE_869, TILE_POS(8, 10), LAYER_TOP);
+        SetTileType(TILE_TYPE_869, TILE_POS(9, 10), LAYER_TOP);
     }
 }
 #else
@@ -3142,7 +3142,7 @@ extern EntityData gUnk_080E718C;
 extern EntityData gUnk_080E71AC;
 
 void sub_StateChange_RoyalCrypt_Entrance(void) {
-    SetMetaTileType(META_TILE_TYPE_786, TILE_POS(8, 4), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_786, TILE_POS(8, 4), LAYER_BOTTOM);
     EnableRandomDrops();
     if (!CheckLocalFlag(0xc4)) {
         LoadRoomEntityList(&gUnk_080E718C);
@@ -3642,8 +3642,8 @@ void sub_StateChange_DarkHyruleCastleOutside_ZeldaStatuePlatform(void) {
         LoadRoomEntityList(&gUnk_080EAD68);
     } else if (!CheckLocalFlag(0x79)) {
         LoadRoomEntityList(&gUnk_080EADB8);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(5, 5), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(9, 5), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(5, 5), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(9, 5), LAYER_BOTTOM);
         gArea.queued_bgm = SFX_NONE;
     }
 }
@@ -3658,7 +3658,7 @@ void sub_0804D7EC(void) {
     while (*tilePos != 0) {
         temp = *tilePos;
         tilePos++;
-        SetMetaTileType(SPECIAL_META_TILE_114, temp, LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, temp, LAYER_BOTTOM);
     }
 }
 
@@ -4354,7 +4354,7 @@ void sub_StateChange_HyruleTown_0(void) {
     EnableRandomDrops();
     TryLoadPrologueHyruleTown();
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-    SetMetaTileType(META_TILE_TYPE_374, TILE_POS(43, 25), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_374, TILE_POS(43, 25), LAYER_BOTTOM);
 #endif
     if (gSave.global_progress == 1) {
         sub_0801D000(0);
@@ -4447,7 +4447,7 @@ void sub_0804E150(void) {
     uVar3 = 1 << gSave.global_progress;
     for (; pTileData[1] != 0; pTileData += 3) {
         if ((pTileData[0] & uVar3) != 0) {
-            SetMetaTile(pTileData[2], pTileData[1], LAYER_BOTTOM);
+            SetTile(pTileData[2], pTileData[1], LAYER_BOTTOM);
         }
     }
     if (CheckLocalFlag(SHOP05_OPEN) == 0) {
@@ -4455,7 +4455,7 @@ void sub_0804E150(void) {
         uVar3 = 1 << gSave.global_progress;
         for (; pTileData[0] != 0; pTileData += 3) {
             if ((pTileData[0] & uVar3) != 0) {
-                SetMetaTile(pTileData[2], pTileData[1], LAYER_BOTTOM);
+                SetTile(pTileData[2], pTileData[1], LAYER_BOTTOM);
             }
         }
     }
@@ -4464,7 +4464,7 @@ void sub_0804E150(void) {
         uVar3 = 1 << gSave.global_progress;
         for (; pTileData[0] != 0; pTileData += 3) {
             if ((pTileData[0] & uVar3) != 0) {
-                SetMetaTile(pTileData[2], pTileData[1], LAYER_BOTTOM);
+                SetTile(pTileData[2], pTileData[1], LAYER_BOTTOM);
             }
         }
     }
@@ -4598,16 +4598,16 @@ void sub_StateChange_CastleGarden_Main(void) {
     }
     if (!CheckLocalFlag(SOUGEN_08_TORITSUKI)) {
         LoadRoomEntityList(&gUnk_080F0800);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(24, 9), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(24, 10), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(38, 9), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(38, 10), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(24, 9), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(24, 10), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(38, 9), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(38, 10), LAYER_BOTTOM);
     } else {
         if (!GetInventoryValue(ITEM_FOURSWORD)) {
             LoadRoomEntityList(&gUnk_080F08F0);
-            SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(30, 2), LAYER_BOTTOM);
-            SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(31, 2), LAYER_BOTTOM);
-            SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(32, 2), LAYER_BOTTOM);
+            SetTileType(SPECIAL_TILE_114, TILE_POS(30, 2), LAYER_BOTTOM);
+            SetTileType(SPECIAL_TILE_114, TILE_POS(31, 2), LAYER_BOTTOM);
+            SetTileType(SPECIAL_TILE_114, TILE_POS(32, 2), LAYER_BOTTOM);
         }
         LoadRoomEntityList(&gUnk_080F0850);
         if (!GetInventoryValue(ITEM_WATER_ELEMENT)) {
@@ -4615,8 +4615,8 @@ void sub_StateChange_CastleGarden_Main(void) {
         } else {
             LoadRoomEntityList(&gUnk_080F0890);
         }
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(24, 9), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(24, 10), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(24, 9), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(24, 10), LAYER_BOTTOM);
         if (CheckLocalFlag(MAENIWA_00_WARP)) {
             LoadRoomEntityList(&gUnk_080F0920);
             ClearLocalFlag(MAENIWA_00_WARP);
@@ -4955,10 +4955,10 @@ extern EntityData gUnk_080F3260;
 void sub_StateChange_HouseInteriors4_Carpenter(void) {
     if (GetInventoryValue(ITEM_PACCI_CANE)) {
         LoadRoomEntityList(&gUnk_080F3260);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(2, 8), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(2, 9), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(4, 8), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(4, 9), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(2, 8), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(2, 9), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(4, 8), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(4, 9), LAYER_BOTTOM);
     }
 }
 
@@ -5044,22 +5044,22 @@ void sub_StateChange_LakeHylia_Main(void) {
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F3C44);
     }
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(16, 22), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(17, 22), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(18, 22), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(19, 22), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(20, 22), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(16, 23), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(16, 24), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(16, 25), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(20, 23), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(20, 24), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(20, 25), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(16, 26), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(17, 26), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(18, 26), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(19, 26), LAYER_BOTTOM);
-    SetMetaTile(SPECIAL_META_TILE_145, TILE_POS(20, 26), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(16, 22), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(17, 22), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(18, 22), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(19, 22), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(20, 22), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(16, 23), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(16, 24), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(16, 25), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(20, 23), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(20, 24), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(20, 25), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(16, 26), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(17, 26), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(18, 26), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(19, 26), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_145, TILE_POS(20, 26), LAYER_BOTTOM);
 }
 
 u32 sub_unk3_LakeHylia_Beanstalk(void) {
@@ -5213,8 +5213,8 @@ void sub_StateChange_MinishWoods_Main(void) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
 #ifdef DEMO_USA
-    SetMetaTileType(META_TILE_TYPE_375, TILE_POS(52, 22), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_375, TILE_POS(52, 23), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_375, TILE_POS(52, 22), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_375, TILE_POS(52, 23), LAYER_BOTTOM);
 #endif
 }
 
@@ -5493,8 +5493,8 @@ void sub_StateChange_WindTribeTower_Entrance(void) {
         LoadRoomEntityList(&gUnk_080F61BC);
     }
     if (!CheckGlobalFlag(WARP_EVENT_END)) {
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(7, 19), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(7, 20), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(7, 19), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(7, 20), LAYER_BOTTOM);
     }
     SetWorldMapPos(8, 0, 0x1e8, 0x158);
 }
@@ -5703,10 +5703,10 @@ void sub_StateChange_HyruleField_EasternHillsNorth(void) {
     }
     if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
         LoadRoomEntityList(&gUnk_080F7550);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(17, 12), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(17, 13), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(25, 15), LAYER_BOTTOM);
-        SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(25, 16), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(17, 12), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(17, 13), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(25, 15), LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, TILE_POS(25, 16), LAYER_BOTTOM);
     }
 }
 
@@ -5734,8 +5734,8 @@ void sub_StateChange_HyruleField_LonLonRanch(void) {
     }
     if (!CheckKinstoneFused(KINSTONE_29)) {
         LoadRoomEntityList(&gUnk_080F7860);
-        SetMetaTile(SPECIAL_META_TILE_114, TILE_POS(8, 54), LAYER_BOTTOM);
-        SetMetaTile(SPECIAL_META_TILE_150, TILE_POS(8, 55), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_114, TILE_POS(8, 54), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_150, TILE_POS(8, 55), LAYER_BOTTOM);
     }
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F78A0);
@@ -5776,11 +5776,11 @@ void sub_StateChange_HyruleField_OutsideCastle(void) {
     sub_0804F4E4();
     if (!CheckLocalFlag(SOUGEN_06_AKINDO)) {
         LoadRoomEntityList(&gUnk_080F7D70);
-        SetMetaTileType(META_TILE_TYPE_372, TILE_POS(34, 30), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_372, TILE_POS(35, 30), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_372, TILE_POS(37, 30), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_372, TILE_POS(38, 30), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_372, TILE_POS(39, 30), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_372, TILE_POS(34, 30), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_372, TILE_POS(35, 30), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_372, TILE_POS(37, 30), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_372, TILE_POS(38, 30), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_372, TILE_POS(39, 30), LAYER_BOTTOM);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
 #ifdef EU
@@ -5797,26 +5797,26 @@ static void sub_0804F578(void) {
     if (!CheckLocalFlag(SOUGEN_06_SLIDE)) {
         LoadRoomEntityList(&gUnk_080F7DC0);
     } else {
-        SetMetaTileType(META_TILE_TYPE_55, TILE_POS(10, 37), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_55, TILE_POS(11, 37), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_55, TILE_POS(12, 37), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_55, TILE_POS(10, 38), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_55, TILE_POS(11, 38), LAYER_BOTTOM);
-        SetMetaTileType(META_TILE_TYPE_55, TILE_POS(12, 38), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_55, TILE_POS(10, 37), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_55, TILE_POS(11, 37), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_55, TILE_POS(12, 37), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_55, TILE_POS(10, 38), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_55, TILE_POS(11, 38), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_55, TILE_POS(12, 38), LAYER_BOTTOM);
     }
 }
 
 void sub_0804F5E8(void) {
     sub_0804F4E4();
-    SetMetaTileType(META_TILE_TYPE_467, TILE_POS(30, 47), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_470, TILE_POS(34, 47), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_468, TILE_POS(31, 48), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_469, TILE_POS(32, 48), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_470, TILE_POS(30, 49), LAYER_BOTTOM);
-    SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(27, 46), LAYER_BOTTOM);
-    SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(27, 47), LAYER_BOTTOM);
-    SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(36, 42), LAYER_BOTTOM);
-    SetMetaTileType(SPECIAL_META_TILE_114, TILE_POS(36, 43), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_467, TILE_POS(30, 47), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_470, TILE_POS(34, 47), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_468, TILE_POS(31, 48), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_469, TILE_POS(32, 48), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_470, TILE_POS(30, 49), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_114, TILE_POS(27, 46), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_114, TILE_POS(27, 47), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_114, TILE_POS(36, 42), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_114, TILE_POS(36, 43), LAYER_BOTTOM);
 }
 
 void sub_0804F680(Entity* parent, s32 x, s32 y) {
@@ -5879,34 +5879,34 @@ void sub_0804F79C(Entity* parent) {
 
 // Stones being spawned by vaati outside the castle.
 void sub_0804F808(void) {
-    SetMetaTileType(META_TILE_TYPE_467, TILE_POS(29, 16), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_467, TILE_POS(33, 24), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_467, TILE_POS(29, 16), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_467, TILE_POS(33, 24), LAYER_BOTTOM);
 }
 
 void sub_0804F830(void) {
-    SetMetaTileType(META_TILE_TYPE_468, TILE_POS(30, 16), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_468, TILE_POS(32, 24), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_468, TILE_POS(30, 16), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_468, TILE_POS(32, 24), LAYER_BOTTOM);
 }
 
 void sub_0804F854(void) {
-    SetMetaTileType(META_TILE_TYPE_469, TILE_POS(31, 16), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_468, TILE_POS(37, 19), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_469, TILE_POS(31, 24), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_468, TILE_POS(25, 21), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_469, TILE_POS(31, 16), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_468, TILE_POS(37, 19), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_469, TILE_POS(31, 24), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_468, TILE_POS(25, 21), LAYER_BOTTOM);
 }
 
 void sub_0804F89C(void) {
-    SetMetaTileType(META_TILE_TYPE_470, TILE_POS(32, 16), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_469, TILE_POS(37, 20), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_470, TILE_POS(30, 24), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_469, TILE_POS(25, 20), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_470, TILE_POS(32, 16), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_469, TILE_POS(37, 20), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_470, TILE_POS(30, 24), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_469, TILE_POS(25, 20), LAYER_BOTTOM);
 }
 
 void sub_0804F8E0(void) {
-    SetMetaTileType(META_TILE_TYPE_467, TILE_POS(33, 16), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_470, TILE_POS(37, 21), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_467, TILE_POS(29, 24), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_470, TILE_POS(25, 19), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_467, TILE_POS(33, 16), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_470, TILE_POS(37, 21), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_467, TILE_POS(29, 24), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_470, TILE_POS(25, 19), LAYER_BOTTOM);
 }
 
 void sub_0804F928(void) {
@@ -6091,7 +6091,7 @@ void sub_StateChange_Caves_LonLonRanchSecret(void) {
         SetRoomFlag(1);
         ChangeLightLevel(0x100);
         if (!CheckLocalFlag(0x12)) {
-            SetMetaTileType(META_TILE_TYPE_115, TILE_POS(11, 3), LAYER_BOTTOM);
+            SetTileType(TILE_TYPE_115, TILE_POS(11, 3), LAYER_BOTTOM);
         }
     }
 }
@@ -6611,7 +6611,7 @@ u32 sub_unk3_MtCrenel_Entrance(void) {
 
 void sub_StateChange_MtCrenel_Entrance(void) {
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-    SetMetaTileType(META_TILE_TYPE_374, TILE_POS(47, 25), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_374, TILE_POS(47, 25), LAYER_BOTTOM);
 #endif
 }
 

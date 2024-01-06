@@ -30,13 +30,13 @@ void ObjectA(ObjectAEntity* this) {
         super->action = 1;
         super->hitbox = (Hitbox*)&gHitbox_2;
         if (super->collisionLayer == LAYER_BOTTOM) {
-            uVar2 = META_TILE_TYPE_38;
+            uVar2 = TILE_TYPE_38;
         } else {
-            uVar2 = META_TILE_TYPE_52;
+            uVar2 = TILE_TYPE_52;
         }
         this->unk_70 = uVar2;
         if (CheckFlags(this->unk_86) != 0) {
-            SetMetaTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+            SetTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
             if ((gRoomControls.reload_flags & 1) != 0) {
                 gUpdateVisibleTiles = 0;
             }
@@ -45,7 +45,7 @@ void ObjectA(ObjectAEntity* this) {
             AddInteractableSmallKeyLock(super);
         }
     } else if (super->interactType != INTERACTION_NONE) {
-        SetMetaTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetTileType(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
         SetFlag(this->unk_86);
         CreateDust(super);
         ModDungeonKeys(-1);

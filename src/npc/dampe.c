@@ -106,10 +106,10 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BEFC(void) {
-    SetMetaTileType(META_TILE_TYPE_382, TILE_POS(14, 22), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_383, TILE_POS(15, 22), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_384, TILE_POS(14, 23), LAYER_BOTTOM);
-    SetMetaTileType(META_TILE_TYPE_385, TILE_POS(15, 23), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_382, TILE_POS(14, 22), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_383, TILE_POS(15, 22), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_384, TILE_POS(14, 23), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_385, TILE_POS(15, 23), LAYER_BOTTOM);
 }
 
 void sub_0806BF44(Entity* this, ScriptExecutionContext* context) {

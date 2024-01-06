@@ -3,9 +3,9 @@
 
 /*
 Tiles for the borders of the cave that are loaded during the transition.
-When the player goes inside a cave during the start of the enter transition the border metatilemap is loaded and at the
-end the metatilemap for the cave is loaded. When the player goes out of a cave during the start of the leave transition
-the border metatilemap is loaded and at the end the metatilemap for the outside is loaded.
+When the player goes inside a cave during the start of the enter transition the border tilemap is loaded and at the
+end the tilemap for the cave is loaded. When the player goes out of a cave during the start of the leave transition
+the border tilemap is loaded and at the end the tilemap for the outside is loaded.
 */
 
 const MapDataDefinition gCaveBorder_LakeWoods_enter_start[] = {

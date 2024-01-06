@@ -172,14 +172,14 @@ static const u16 gUnk_08110BE0[] = {
 };
 
 void sub_08066F94(void) {
-    u16 metaTilePos;
+    u16 tilePos;
     const u16* puVar2;
 
     puVar2 = gUnk_08110BE0;
     while (*puVar2 != 0) {
-        metaTilePos = *puVar2;
+        tilePos = *puVar2;
         puVar2++;
-        SetMetaTileType(SPECIAL_META_TILE_114, metaTilePos, LAYER_BOTTOM);
+        SetTileType(SPECIAL_TILE_114, tilePos, LAYER_BOTTOM);
     }
 }
 

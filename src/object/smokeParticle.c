@@ -63,22 +63,22 @@ void sub_080878CC(Entity* this) {
     s32 itX;
     s32 itY;
     u32 layer;
-    u32 metaTilePos;
+    u32 tilePos;
 
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
     layer = this->collisionLayer;
     for (itX = -0x10; itX < 0x11; itX += 0x10) {
         for (itY = -0x10; itY < 0x11; itY += 0x10) {
-            metaTilePos = TILE((u32)x + itX, (u32)y + itY);
-            if (GetVvvAtMetaTilePos(metaTilePos, (u8)layer) == VVV_46) {
-                switch (GetMetaTileType(metaTilePos, layer)) {
+            tilePos = TILE((u32)x + itX, (u32)y + itY);
+            if (GetVvvAtTilePos(tilePos, (u8)layer) == VVV_46) {
+                switch (GetTileType(tilePos, layer)) {
                     case 0x368:
                     case 0x367:
                         DoTileInteraction(this, 3, x + itX, y + itY);
                         break;
                     default:
-                        SetMetaTile(SPECIAL_META_TILE_34, metaTilePos, layer);
+                        SetTile(SPECIAL_TILE_34, tilePos, layer);
                         break;
                 }
             } else {

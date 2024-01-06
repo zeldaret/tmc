@@ -14,7 +14,7 @@
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[8];
-    /*0x70*/ u16 tilePosition;
+    /*0x70*/ u16 tilePos;
     /*0x72*/ u16 unk_72;
     /*0x74*/ u8 unk_74[0x12];
     /*0x86*/ u16 unk_86;
@@ -230,14 +230,14 @@ void ChestSpawner_Type2Action7(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type0Init(ChestSpawnerEntity* this) {
     super->action++;
-    this->tilePosition = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     super->hitbox = (Hitbox*)&gUnk_0811F8A8;
-    if (GetMetaTileTypeByEntity(super) == META_TILE_TYPE_116) {
+    if (GetTileTypeByEntity(super) == TILE_TYPE_116) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->unk_86)) {
         super->action = 3;
-        sub_0807B7D8(0x73, this->tilePosition, super->collisionLayer);
+        sub_0807B7D8(0x73, this->tilePos, super->collisionLayer);
         if ((super->type & 1) == 0) {
             DeleteThisEntity();
         }
@@ -251,7 +251,7 @@ void ChestSpawner_Type0Action1(ChestSpawnerEntity* this) {
 }
 
 void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
-    sub_0807B7D8(0x73, this->tilePosition, super->collisionLayer);
+    sub_0807B7D8(0x73, this->tilePos, super->collisionLayer);
     switch (super->type) {
         case 6:
         case 7:
@@ -271,7 +271,7 @@ void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
     if ((super->type == 1) || (super->type == 7)) {
-        if (GetMetaTileTypeByEntity(super) == META_TILE_TYPE_116) {
+        if (GetTileTypeByEntity(super) == TILE_TYPE_116) {
             DeleteEntity(super);
         } else {
             if (!CheckFlags(this->unk_86)) {
@@ -279,7 +279,7 @@ void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
                     this->unk_72--;
                 } else {
                     super->action = 1;
-                    RestorePrevTileEntity(this->tilePosition, super->collisionLayer);
+                    RestorePrevTileEntity(this->tilePos, super->collisionLayer);
                     CreateDust(super);
                 }
             }

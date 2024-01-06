@@ -127,7 +127,7 @@ void Railtrack_Action3(RailtrackEntity* this) {
     }
 }
 
-static const u16 gUnk_081205E0[] = { SPECIAL_META_TILE_24, SPECIAL_META_TILE_25 };
+static const u16 gUnk_081205E0[] = { SPECIAL_TILE_24, SPECIAL_TILE_25 };
 
 void sub_08085394(RailtrackEntity* this) {
     u32 specialTile;
@@ -141,25 +141,25 @@ void sub_08085394(RailtrackEntity* this) {
     tilePos = COORD_TO_TILE(super);
 
     this->unk_74 = *(layerData - offsetset);
-    SetMetaTile(specialTile, tilePos - offsetset, super->collisionLayer);
+    SetTile(specialTile, tilePos - offsetset, super->collisionLayer);
 
     this->unk_76 = layerData[0x0];
-    SetMetaTile(specialTile, tilePos, super->collisionLayer);
+    SetTile(specialTile, tilePos, super->collisionLayer);
 
     this->unk_78 = layerData[offsetset];
-    SetMetaTile(specialTile, tilePos + offsetset, super->collisionLayer);
+    SetTile(specialTile, tilePos + offsetset, super->collisionLayer);
 }
 
 void sub_0808543C(RailtrackEntity* this) {
     s8* cVar1;
-    u32 metaTilePos;
+    u32 tilePos;
     s8 offset;
 
     offset = gUnk_080B4488[super->animationState / 2][0];
-    metaTilePos = COORD_TO_TILE(super);
-    SetMetaTile(this->unk_74, metaTilePos - offset, super->collisionLayer);
-    SetMetaTile(this->unk_76, metaTilePos, super->collisionLayer);
-    SetMetaTile(this->unk_78, metaTilePos + offset, super->collisionLayer);
+    tilePos = COORD_TO_TILE(super);
+    SetTile(this->unk_74, tilePos - offset, super->collisionLayer);
+    SetTile(this->unk_76, tilePos, super->collisionLayer);
+    SetTile(this->unk_78, tilePos + offset, super->collisionLayer);
 }
 
 u32 sub_080854A8(RailtrackEntity* this) {

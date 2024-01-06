@@ -11,7 +11,7 @@ typedef struct {
     u8 field_0x37;
     s16 x;
     u16 y;
-    u16 metaTilePos;
+    u16 tilePos;
     u16 flag;
 } BombableWallManager;
 

@@ -352,8 +352,8 @@ typedef struct {
 extern struct_02018EB0 gUnk_02018EB0;
 
 typedef struct {
-    s16 tile;
-    s16 position;
+    s16 tileIndex;
+    s16 tilePosOffset;
 } TileData;
 
 typedef struct {

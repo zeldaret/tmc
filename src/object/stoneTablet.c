@@ -24,20 +24,20 @@ void StoneTablet(Entity* this) {
 void StoneTablet_Init(Entity* this) {
     // TODO recreate as TileData[]
     static const u16 gUnk_081232EC[] = {
-        SPECIAL_META_TILE_34, -2, SPECIAL_META_TILE_34, -1, SPECIAL_META_TILE_34, 0, SPECIAL_META_TILE_34, 1, 0xffff,
+        SPECIAL_TILE_34, -2, SPECIAL_TILE_34, -1, SPECIAL_TILE_34, 0, SPECIAL_TILE_34, 1, 0xffff,
     };
     static const u16 gUnk_081232FE[] = {
-        SPECIAL_META_TILE_101,
+        SPECIAL_TILE_101,
         -65,
-        SPECIAL_META_TILE_34,
+        SPECIAL_TILE_34,
         -64,
-        SPECIAL_META_TILE_102,
+        SPECIAL_TILE_102,
         -63,
-        SPECIAL_META_TILE_41,
+        SPECIAL_TILE_41,
         -1,
-        SPECIAL_META_TILE_38,
+        SPECIAL_TILE_38,
         0,
-        SPECIAL_META_TILE_42,
+        SPECIAL_TILE_42,
         1,
         0xffff,
     };

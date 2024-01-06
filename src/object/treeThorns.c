@@ -30,8 +30,8 @@ void TreeThorns(Entity* this) {
             this->collisionMask = 1;
             this->hitbox = (Hitbox*)&gHitbox_1;
             tilePos = COORD_TO_TILE(this);
-            SetMetaTile(SPECIAL_META_TILE_102, tilePos - 1, *layer);
-            SetMetaTile(SPECIAL_META_TILE_101, tilePos, *layer);
+            SetTile(SPECIAL_TILE_102, tilePos - 1, *layer);
+            SetTile(SPECIAL_TILE_101, tilePos, *layer);
             UpdateSpriteForCollisionLayer(this);
             ent = CreateObject(TREE_THORNS, 1, 0);
             if (ent != NULL) {

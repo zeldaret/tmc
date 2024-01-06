@@ -82,21 +82,21 @@ void MacroDecoration_Action1(MacroDecorationEntity* this) {
 
 void sub_08097EB8(MacroDecorationEntity* this) {
     static const s16 tilePosArray[] = {
-        0xff7e, SPECIAL_META_TILE_137, 0xff7f, SPECIAL_META_TILE_34,
-        0xff80, SPECIAL_META_TILE_34,  0xff81, SPECIAL_META_TILE_138,
-        0xffbe, SPECIAL_META_TILE_34,  0xffbf, SPECIAL_META_TILE_34,
-        0xffc0, SPECIAL_META_TILE_34,  0xffc1, SPECIAL_META_TILE_34,
-        0xfffe, SPECIAL_META_TILE_34,  0xffff, SPECIAL_META_TILE_34,
-        0,      SPECIAL_META_TILE_34,  1,      SPECIAL_META_TILE_34,
-        2,      SPECIAL_META_TILE_139, 0x3e,   SPECIAL_META_TILE_34,
-        0x3f,   SPECIAL_META_TILE_34,  0x40,   SPECIAL_META_TILE_38,
-        0x41,   SPECIAL_META_TILE_34,  0x7e,   SPECIAL_META_TILE_140,
-        0x7f,   SPECIAL_META_TILE_140, 0x7fff, 0xffff,
+        0xff7e, SPECIAL_TILE_137, 0xff7f, SPECIAL_TILE_34,
+        0xff80, SPECIAL_TILE_34,  0xff81, SPECIAL_TILE_138,
+        0xffbe, SPECIAL_TILE_34,  0xffbf, SPECIAL_TILE_34,
+        0xffc0, SPECIAL_TILE_34,  0xffc1, SPECIAL_TILE_34,
+        0xfffe, SPECIAL_TILE_34,  0xffff, SPECIAL_TILE_34,
+        0,      SPECIAL_TILE_34,  1,      SPECIAL_TILE_34,
+        2,      SPECIAL_TILE_139, 0x3e,   SPECIAL_TILE_34,
+        0x3f,   SPECIAL_TILE_34,  0x40,   SPECIAL_TILE_38,
+        0x41,   SPECIAL_TILE_34,  0x7e,   SPECIAL_TILE_140,
+        0x7f,   SPECIAL_TILE_140, 0x7fff, 0xffff,
     };
     const s16* tilePosPtr;
-    u16 tile = COORD_TO_TILE(super);
+    u16 tilePos = COORD_TO_TILE(super);
     for (tilePosPtr = tilePosArray; *tilePosPtr != 0x7fff; tilePosPtr += 2) {
-        SetMetaTile((u16)tilePosPtr[1], tile + tilePosPtr[0], LAYER_BOTTOM);
+        SetTile((u16)tilePosPtr[1], tilePos + tilePosPtr[0], LAYER_BOTTOM);
     }
 }
 

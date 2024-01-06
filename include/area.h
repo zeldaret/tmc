@@ -24,7 +24,7 @@ typedef struct {
     u16 map_y;
     MapDataDefinition* tileset;
     MapDataDefinition* map;
-    MapDataDefinition* metatiles;
+    MapDataDefinition* tiles;
     void* bg_anim;
     const Transition* exits;
     void** properties;

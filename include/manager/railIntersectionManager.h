@@ -8,7 +8,7 @@ typedef struct {
     u8 field_0x20[0x16];
     u8 layer;
     u8 field_0x37;
-    s16 metaTilePos;
+    s16 tilePos;
     u16 field_0x3a;
     u8 field_0x3c;
     u8 field_0x3d;

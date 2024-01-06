@@ -516,7 +516,7 @@ typedef struct {
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[2];
     /*0x21*/ u8 bow_state;
-    /*0x22*/ u16 tilePosition;
+    /*0x22*/ u16 tilePos;
     /*0x24*/ u16 tileType;
     /*0x26*/ u8 swim_state; /**< Is the player swimming? 0x80 for diving */
     /*0x27*/ u8 field_0x27[5];
@@ -718,13 +718,13 @@ void sub_08078D60(void);
 void PlayerSetNormalAndCollide(void);
 bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk);
 void InitItemGetSequence(u32, u32, u32);
-void sub_0807B7D8(u32 metaTileType, u32 metaTilePos, u32 layer);
+void sub_0807B7D8(u32 tileType, u32 tilePos, u32 layer);
 void SetInteractableObjectCollision(Entity*, u32, u32, const void*);
 void sub_08079D84(void);
 u32 sub_0807953C(void);
 void sub_0807BB68(const s16*, u32, u32);
-void SetMetaTileByIndex(u32 tileIndex, u32 metaTilePos, u32 layer);
-void RestorePrevTileEntity(u32 metaTilePos, u32 layer);
+void SetTileByIndex(u32 tileIndex, u32 tilePos, u32 layer);
+void RestorePrevTileEntity(u32 tilePos, u32 layer);
 void UpdateItemAnim(ItemBehavior*);
 void PlayerCancelHoldItem(ItemBehavior*, u32);
 void RegisterCarryEntity(Entity*);

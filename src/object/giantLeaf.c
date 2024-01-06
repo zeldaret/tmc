@@ -36,6 +36,6 @@ void sub_0808D618(Entity* this) {
               ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) * 64);
 
     for (i = 0; i < 13; i++) {
-        SetMetaTile(16500, tilePos + arr[i], LAYER_BOTTOM);
+        SetTile(16500, tilePos + arr[i], LAYER_BOTTOM);
     }
 }

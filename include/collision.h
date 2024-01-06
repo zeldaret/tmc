@@ -65,6 +65,6 @@ void CalculateEntityTileCollisions(Entity* this, u32 direction, u32 collisionTyp
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 u32 sub_080176E4(Entity*);
 
-extern const u8 gMapMetaTileTypeToVvv[]; // vvv for tileType?
+extern const u8 gMapTileTypeToVvv[]; // vvv for tileType?
 
 #endif // COLLISION_H

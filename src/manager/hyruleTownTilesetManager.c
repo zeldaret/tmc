@@ -114,32 +114,32 @@ void sub_08059B18(void) {
     if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                SetMetaTileByIndex(loopVar * 0x10 + META_TILE_TYPE_1195 + innerLoopVar,
+                SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1195 + innerLoopVar,
                                    COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
             }
         }
 
         for (loopVar = 0; loopVar < 3; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                SetMetaTileByIndex(loopVar * 0x10 + META_TILE_TYPE_1088 + innerLoopVar,
+                SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1088 + innerLoopVar,
                                    COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
             }
         }
-        SetMetaTileByIndex(META_TILE_TYPE_214, TILE_POS(2, 23), LAYER_TOP);
-        SetMetaTileByIndex(META_TILE_TYPE_215, TILE_POS(3, 23), LAYER_TOP);
+        SetTileByIndex(TILE_TYPE_214, TILE_POS(2, 23), LAYER_TOP);
+        SetTileByIndex(TILE_TYPE_215, TILE_POS(3, 23), LAYER_TOP);
         LoadResourceAsync(&gUnk_086E8460, 0x6001800, 0x800);
     } else {
         if (CheckGlobalFlag(TATEKAKE_TOCHU) != 0) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                    SetMetaTileByIndex(loopVar * 0x10 + META_TILE_TYPE_1190 + innerLoopVar,
+                    SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1190 + innerLoopVar,
                                        COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
-            SetMetaTileByIndex(META_TILE_TYPE_1092, TILE_POS(2, 24), LAYER_TOP);
-            SetMetaTileByIndex(META_TILE_TYPE_1093, TILE_POS(5, 24), LAYER_TOP);
-            SetMetaTileByIndex(META_TILE_TYPE_1108, TILE_POS(2, 25), LAYER_TOP);
-            SetMetaTileByIndex(META_TILE_TYPE_1109, TILE_POS(5, 25), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1092, TILE_POS(2, 24), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1093, TILE_POS(5, 24), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1108, TILE_POS(2, 25), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1109, TILE_POS(5, 25), LAYER_TOP);
         }
     }
 }

@@ -68,8 +68,8 @@ void Bush_Init(BushEntity* this) {
     super->collisionMask = 4;
     super->hitbox = (Hitbox*)&gUnk_081205B4;
     this->unk_72 = 0;
-    this->unk_70 = GetMetaTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    SetMetaTile(SPECIAL_META_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
+    this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
     InitializeAnimation(super, gUnk_08120588[super->type].unk_0);
 }
 
@@ -107,7 +107,7 @@ void Bush_Action2SubAction2(BushEntity* this) {
     if (this->unk_72 == 0) {
         this->unk_72 = 1;
         super->spriteOffsetX = 0;
-        SetMetaTileByIndex(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetTileByIndex(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
     if (((gPlayerState.gustJarState & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         Bush_Action2SubAction5(this);

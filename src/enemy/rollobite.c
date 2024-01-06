@@ -267,7 +267,7 @@ void sub_08020A7C(RollobiteEntity* this) {
 bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
     if (Rollobite_IsRolledUp(this) && super->z.HALF.HI == 0) {
         u32 tilePos = COORD_TO_TILE(super);
-        u32 tileType = GetMetaTileType(tilePos, super->collisionLayer);
+        u32 tileType = GetTileType(tilePos, super->collisionLayer);
         if ((tileType * 0x10000 - 0x710000U) >> 0x10 < 2) {
             super->action = 6;
             COLLISION_OFF(super);
@@ -277,7 +277,7 @@ bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
             super->y.HALF.HI += 13;
             super->zVelocity = Q_16_16(2.0);
             InitializeAnimation(super, super->animationState + 0x14);
-            SetMetaTile(SPECIAL_META_TILE_52, tilePos, super->collisionLayer);
+            SetTile(SPECIAL_TILE_52, tilePos, super->collisionLayer);
             return TRUE;
         }
     }

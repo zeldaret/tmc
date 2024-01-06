@@ -49,7 +49,7 @@ void DoorMimic_OnCollision(DoorMimicEntity* this) {
 }
 
 void DoorMimic_OnDeath(DoorMimicEntity* this) {
-    SetMetaTile(this->unk_7c, this->unk_7e, super->collisionLayer);
+    SetTile(this->unk_7c, this->unk_7e, super->collisionLayer);
     CreateFx(super, FX_POT_SHATTER, 0);
     EnemyDisableRespawn(super);
     DeleteThisEntity();
@@ -125,8 +125,8 @@ void sub_08022198(DoorMimicEntity* this) {
 void sub_080221C0(DoorMimicEntity* this) {
     u32 tilePos = COORD_TO_TILE(super) + gUnk_080B4488[super->type2];
     this->unk_7e = tilePos;
-    this->unk_7c = GetMetaTileIndex(tilePos, super->collisionLayer);
-    SetMetaTile(gUnk_080CB79C[super->type2], tilePos, super->collisionLayer);
+    this->unk_7c = GetTileIndex(tilePos, super->collisionLayer);
+    SetTile(gUnk_080CB79C[super->type2], tilePos, super->collisionLayer);
 }
 
 // clang-format off
@@ -191,10 +191,10 @@ const PosOffset gUnk_080CB76C[][6] = {
 };
 
 const u16 gUnk_080CB79C[] = {
-    SPECIAL_META_TILE_35,
-    SPECIAL_META_TILE_37,
-    SPECIAL_META_TILE_38,
-    SPECIAL_META_TILE_36,
+    SPECIAL_TILE_35,
+    SPECIAL_TILE_37,
+    SPECIAL_TILE_38,
+    SPECIAL_TILE_36,
 };
 
 

@@ -34,12 +34,12 @@ void Well_Init(WellEntity* this) {
     super->action = 1;
     tilePos = COORD_TO_TILE(super);
     this->unk_80 = tilePos;
-    SetMetaTile(SPECIAL_META_TILE_125, this->unk_80, LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_125, this->unk_80, LAYER_BOTTOM);
 }
 
 void Well_Action1(WellEntity* this) {
-    u32 tileIndex = GetMetaTileType(this->unk_80, LAYER_BOTTOM);
-    if (tileIndex != SPECIAL_META_TILE_125) {
+    u32 tileIndex = GetTileType(this->unk_80, LAYER_BOTTOM);
+    if (tileIndex != SPECIAL_TILE_125) {
         PausePlayer();
         gPlayerEntity.base.x.WORD = super->x.WORD;
         gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI + 4;

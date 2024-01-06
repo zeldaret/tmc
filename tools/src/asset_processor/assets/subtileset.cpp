@@ -1,7 +1,7 @@
-#include "tileset.h"
+#include "subtileset.h"
 #include "util.h"
 
-std::filesystem::path TilesetAsset::generateAssetPath() {
+std::filesystem::path SubTileSetAsset::generateAssetPath() {
     std::filesystem::path pngPath = path;
     if (pngPath.extension() == ".lz") {
         pngPath.replace_extension("");
@@ -10,7 +10,7 @@ std::filesystem::path TilesetAsset::generateAssetPath() {
     return pngPath;
 }
 
-void TilesetAsset::convertToHumanReadable(const std::vector<char>& baserom) {
+void SubTileSetAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     (void)baserom;
 
     std::filesystem::path toolsPath = "tools";
@@ -37,7 +37,7 @@ void TilesetAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     check_call(cmd);
 }
 
-void TilesetAsset::buildToBinary() {
+void SubTileSetAsset::buildToBinary() {
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
 
@@ -61,6 +61,6 @@ void TilesetAsset::buildToBinary() {
     }
 }
 
-bool TilesetAsset::isCompressed() {
+bool SubTileSetAsset::isCompressed() {
     return path.extension() == ".lz";
 }

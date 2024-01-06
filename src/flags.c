@@ -40,20 +40,20 @@ u32 CheckRoomFlag(u32 flag) {
     return ReadBit(&gRoomVars.flags, flag);
 }
 
-u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 length) {
-    return CheckBits(gSave.flags, offset + flag, length);
+u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 count) {
+    return CheckBits(gSave.flags, offset + flag, count);
 }
 
-u32 CheckLocalFlags(u32 flag, u32 length) {
-    return CheckLocalFlagsByBank(gArea.localFlagOffset, flag, length);
+u32 CheckLocalFlags(u32 flag, u32 count) {
+    return CheckLocalFlagsByBank(gArea.localFlagOffset, flag, count);
 }
 
-u32 CheckGlobalFlags(u32 flag, u32 length) {
-    return CheckLocalFlagsByBank(FLAG_BANK_0, flag, length);
+u32 CheckGlobalFlags(u32 flag, u32 count) {
+    return CheckLocalFlagsByBank(FLAG_BANK_0, flag, count);
 }
 
-u32 CheckRoomFlags(u32 flag, u32 length) {
-    return CheckBits(&gRoomVars.flags, flag, length);
+u32 CheckRoomFlags(u32 flag, u32 count) {
+    return CheckBits(&gRoomVars.flags, flag, count);
 }
 
 void SetLocalFlagByBank(u32 offset, u32 flag) {

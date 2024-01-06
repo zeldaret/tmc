@@ -151,7 +151,7 @@ void sub_080A90D8(GleerokProjectileEntity* this) {
 
     if (this->unk_74 != TILE(super->x.HALF.HI, super->y.HALF.HI)) {
         this->unk_74 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-        tmp = GetMetaTileTypeByEntity(super);
+        tmp = GetTileTypeByEntity(super);
         if ((tmp == 0x13) || (tmp == 0x34)) {
             sub_0807B7D8(0x34c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
         }
