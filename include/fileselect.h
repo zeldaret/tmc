@@ -49,11 +49,11 @@ typedef struct {
     /*0x0b*/ SaveFile saves[3];
 } struct_02019EE0;
 extern struct_02019EE0 gMapDataBottomSpecial;
-// TODO size: 0x8000 from ClearTilemaps?
+// TODO size: 0x8000 from ClearTileMaps?
 
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern u32 ShowTextBox(u32 textIndexOrPtr, const Font* font);
-extern void ClearTilemaps(void);
+extern void ClearTileMaps(void);
 extern void ResetSaveFile(u32);
 extern WStruct* sub_0805F2C8(void);
 extern u32 sub_0805F7DC(u32, WStruct*);

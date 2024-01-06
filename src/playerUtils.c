@@ -18,7 +18,7 @@
 #include "save.h"
 #include "screen.h"
 #include "screenTransitions.h"
-#include "tilemap.h"
+#include "tileMap.h"
 #include "tiles.h"
 
 static void sub_08077E54(ItemBehavior* beh);
@@ -69,7 +69,7 @@ extern u8 gUpdateVisibleTiles;
 
 bool32 sub_0807BF88(u32, u32, RoomResInfo*);
 
-void SetupTileSet(void);
+void LoadRoomTileSet(void);
 
 void ForceSetPlayerState(u32 framestate);
 InteractableObject* sub_080784E4(void);
@@ -3309,7 +3309,7 @@ void SetTileType(u32 tileType, u32 tilePos, u32 layer) {
                 dest = gMapDataTopSpecial + offset;
             }
             subTiles = mapLayer->subTiles + tileIndex * 4;
-            // Copy over the tilemap entries (tile_attrs) to the special map data but in a different order.
+            // Copy over the tileMap entries (tile_attrs) to the special map data but in a different order.
             dest[0] = subTiles[0];
             dest[1] = subTiles[1];
             dest[0x80] = subTiles[2];
@@ -3813,7 +3813,7 @@ void sub_0807BFA8(void) {
     gRoomControls.height = (gArea.pCurrentRoomInfo)->pixel_height;
 }
 
-void SetupTileSet(void) {
+void LoadRoomTileSet(void) {
     s32 index;
     u16* tileTypes;
     u16* tileIndices;
@@ -3826,9 +3826,9 @@ void SetupTileSet(void) {
     MemFill16(0xffff, gMapTop.tileTypes, 0x1000);
     gMapTop.tileTypes[0] = 0;
 
-    if ((void*)gRoomControls.tileset != (gArea.pCurrentRoomInfo)->tileset) {
-        gRoomControls.tileset = (u32)(gArea.pCurrentRoomInfo)->tileset;
-        LoadMapData((gArea.pCurrentRoomInfo)->tileset);
+    if ((void*)gRoomControls.tileSet != (gArea.pCurrentRoomInfo)->tileSet) {
+        gRoomControls.tileSet = (u32)(gArea.pCurrentRoomInfo)->tileSet;
+        LoadMapData((gArea.pCurrentRoomInfo)->tileSet);
     }
 
     LoadMapData((gArea.pCurrentRoomInfo)->tiles);
@@ -3912,7 +3912,7 @@ void LoadRoomGfx(void) {
     FillActTileForLayer(&gMapBottom);
     FillActTileForLayer(&gMapTop);
     if (!clearBottomMap) {
-        // Render the complete bottom and top tilemaps into the tilemaps.
+        // Render the complete bottom and top tileMaps into the tileMaps.
         RenderMapLayerToSubTileMap(gMapDataBottomSpecial, &gMapBottom);
         RenderMapLayerToSubTileMap(gMapDataTopSpecial, &gMapTop);
     } else {
@@ -4152,7 +4152,7 @@ void InitializeCamera() {
     u32 tmp1;
     u32 tmp2;
 
-    SetupTileSet();
+    LoadRoomTileSet();
     LoadRoomGfx();
     roomControls = &gRoomControls;
     target = gRoomControls.camera_target;
@@ -4212,7 +4212,7 @@ void sub_0807C810(void) {
     DiggingCaveEntranceTransition* ptr;
     Entity* player;
     RoomControls* ctrls;
-    SetupTileSet();
+    LoadRoomTileSet();
     ptr = &gDiggingCaveEntranceTransition;
     player = &gPlayerEntity.base;
     ctrls = &gRoomControls;

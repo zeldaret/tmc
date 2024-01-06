@@ -312,7 +312,7 @@ void HandleLZCompressCommand(char* inputPath, char* outputPath, int argc, char**
         }
     }
 
-    // The overflow option allows a quirk in some of Ruby/Sapphire's tilesets
+    // The overflow option allows a quirk in some of Ruby/Sapphire's tileSets
     // to be reproduced. It works by appending a number of zeros to the data
     // before compressing it and then amending the LZ header's size field to
     // reflect the expected size. This will cause an overflow when decompressing

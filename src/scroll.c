@@ -14,7 +14,7 @@
 #include "object.h"
 #include "screen.h"
 #include "structures.h"
-#include "tilemap.h"
+#include "tileMap.h"
 #include "tiles.h"
 
 extern void UpdateScreenShake(void);
@@ -582,7 +582,7 @@ void UpdateIsDiggingCave(void) {
     gDiggingCaveEntranceTransition.isDiggingCave = 0;
 }
 
-void ClearTilemaps(void) {
+void ClearTileMaps(void) {
     MemClear(&gRoomControls, sizeof(gRoomControls));
     MemClear(&gDiggingCaveEntranceTransition, sizeof(gDiggingCaveEntranceTransition));
     gRoomControls.unk_22 = 0xffff;

@@ -1115,7 +1115,6 @@ void sub_08036998(OctorokBossEntity* this) {
     s32 tmp3;
     s32 a, b;
 
-    // TODO regalloc in this awful structure here
     tmp2 = &this->timer;
     tmp = super->subtimer + (tmp3 = (u8)*tmp2);
     *tmp2 = tmp;

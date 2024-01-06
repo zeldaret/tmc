@@ -8,7 +8,7 @@ SCRIPT_START script_IntroCameraTarget
 	SetFadeTime 0x0002
 	@ Fade in
 	SetFade4
-	WaitForFadeFinish @ TODO wait for fade to be finished
+	WaitForFadeFinish
 	Wait 0x0078
 	SetSyncFlag 0x00000004
 	Call sub_08053648

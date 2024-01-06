@@ -138,7 +138,7 @@ static void GameTask_Init(void) {
     MemClear(&gUI, sizeof(gUI));
     EraseAllEntities();
     SetBGDefaults();
-    ClearTilemaps();
+    ClearTileMaps();
     ResetPalettes();
     ResetPaletteTable(1);
     sub_0806FD8C();

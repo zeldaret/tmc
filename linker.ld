@@ -430,7 +430,7 @@ SECTIONS {
         src/manager/diggingCaveEntranceManager.o(.text);
         src/manager/bridgeManager.o(.text);
         src/manager/specialWarpManager.o(.text);
-        src/manager/minishVillageTilesetManager.o(.text);
+        src/manager/minishVillageTileSetManager.o(.text);
         src/manager/horizontalMinishPathBackgroundManager.o(.text);
         src/manager/minishRaftersBackgroundManager.o(.text);
         src/manager/ezloHintManager.o(.text);
@@ -441,7 +441,7 @@ SECTIONS {
         src/manager/miscManager.o(.text);
         src/manager/weatherChangeManager.o(.text);
         src/manager/flagAndOperatorManager.o(.text);
-        src/manager/hyruleTownTilesetManager.o(.text);
+        src/manager/hyruleTownTileSetManager.o(.text);
         src/manager/houseSignManager.o(.text);
         src/manager/steamOverlayManager.o(.text);
         src/manager/templeOfDropletsManager.o(.text);
@@ -599,7 +599,7 @@ SECTIONS {
         src/playerUtils.o(.text);
         src/flags.o(.text);
         src/save.o(.text);
-        src/screenTilemap.o(.text);
+        src/screenTileMap.o(.text);
         src/script.o(.text);
         src/scroll.o(.text);
         /* objects */
@@ -1130,7 +1130,7 @@ SECTIONS {
         src/manager/minishPortalManager.o(.rodata);
         src/manager/diggingCaveEntranceManager.o(.rodata);
         src/manager/bridgeManager.o(.rodata);
-        src/manager/minishVillageTilesetManager.o(.rodata);
+        src/manager/minishVillageTileSetManager.o(.rodata);
         . = ALIGN(4);
         src/manager/minishRaftersBackgroundManager.o(.rodata);
         src/manager/ezloHintManager.o(.rodata);
@@ -1139,7 +1139,7 @@ SECTIONS {
         src/manager/tileChangeObserveManager.o(.rodata);
         src/manager/miscManager.o(.rodata);
         src/manager/weatherChangeManager.o(.rodata);
-        src/manager/hyruleTownTilesetManager.o(.rodata);
+        src/manager/hyruleTownTileSetManager.o(.rodata);
         src/manager/houseSignManager.o(.rodata);
         src/manager/steamOverlayManager.o(.rodata);
         src/manager/templeOfDropletsManager.o(.rodata);

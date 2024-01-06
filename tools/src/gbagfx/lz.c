@@ -37,7 +37,7 @@ unsigned char* LZDecompress(unsigned char* src, int srcSize, int* uncompressedSi
 
                 int blockPos = destPos - blockDistance;
 
-                // Some Ruby/Sapphire tilesets overflow.
+                // Some Ruby/Sapphire tileSets overflow.
                 if (destPos + blockSize > destSize) {
                     blockSize = destSize - destPos;
                     fprintf(stderr, "Destination buffer overflow.\n");

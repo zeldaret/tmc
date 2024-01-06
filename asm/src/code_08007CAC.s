@@ -30,7 +30,7 @@ FindValueForKey: @ 0x08007DD6
 	adds r0, r3, #0 // move the found value into r0
 	pop {pc}
 
-	thumb_func_start FindEntryForKey // TODO rename
+	thumb_func_start FindEntryForKey
 FindEntryForKey: @ 0x08007DE0
 	subs r1, #4
 _08007DE2:

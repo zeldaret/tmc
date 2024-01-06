@@ -20,7 +20,7 @@
 extern void sub_0807C898(void);
 extern void sub_0805BB74(s32);
 extern void LoadRoomGfx(void);
-extern void SetupTileSet(void);
+extern void LoadRoomTileSet(void);
 extern void sub_0807C4F8(void);
 
 extern void gMapData;
@@ -1014,7 +1014,7 @@ void RenderMapLayerToSubTileMap(u16* subTileMap, MapLayer* mapLayer) {
     u16 tileX;
     u32 tilePosAndLayer;
     u32 layerIndex;
-    // Index into the tileset at MapLayer.tiles
+    // Index into the tileSet at MapLayer.tiles
     u32 tileSetIndex;
 
     if (mapLayer == &gMapBottom) {
@@ -1187,8 +1187,8 @@ u32 sub_0801AE34(void) {
 
 void sub_0801AE44(bool32 loadGfx) {
     void (*func)(void);
-    gRoomControls.tileset = (u32)NULL;
-    SetupTileSet();
+    gRoomControls.tileSet = (u32)NULL;
+    LoadRoomTileSet();
     if (loadGfx != 0) {
         LoadRoomGfx();
     }

@@ -56,7 +56,7 @@ typedef struct {
     /*0x28*/ union SplitWord bg3OffsetX;
     /*0x2C*/ union SplitWord bg3OffsetY;
     /*0x30*/ Entity* camera_target;
-    /*0x34*/ u32 tileset; // TODO Should be MapDataDefinition*, but then SetupTileSet does not match.
+    /*0x34*/ u32 tileSet; // TODO Should be MapDataDefinition*, but then LoadRoomTileSet does not match.
 } RoomControls;
 extern RoomControls gRoomControls;
 

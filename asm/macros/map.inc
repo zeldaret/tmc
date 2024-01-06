@@ -16,12 +16,12 @@
 	.set BOTTOM_TILES, gMapBottom+0x7004
 	.set BOTTOM_ACTTILES, gMapBottom+0xb004
 
-	.macro room_header map_x, map_y, pixel_width, pixel_height, tileset_id
+	.macro room_header map_x, map_y, pixel_width, pixel_height, tileSet_id
 	.2byte (\map_x) << 4
 	.2byte (\map_y) << 4
 	.2byte \pixel_width
 	.2byte \pixel_height
-	.2byte \tileset_id
+	.2byte \tileSet_id
 	.endm
 
 
@@ -31,11 +31,11 @@
 	.4byte (\compressed << 0x1F) | (\size)
 	.endm
 
-	.macro tileset_tiles src_offset, dest, size, compressed, terminator=0
+	.macro tileSet_tiles src_offset, dest, size, compressed, terminator=0
 	map_data \src_offset, \dest, \size, \compressed, \terminator
 	.endm
 
-	.macro tileset_palette_set id, terminator=0
+	.macro tileSet_palette_set id, terminator=0
 	.4byte (!(\terminator) << 0x1F) | (\id)
 	.4byte 0x0
 	.4byte 0x0

@@ -300,7 +300,6 @@ void sub_080AA320(MandiblesProjectileEntity* this) {
     parent->unk_80 = 0x50;
     parent->base.speed = 0;
     parent->base.direction = sub_08049F84(&parent->base, 0);
-    // TODO regalloc
     uVar2 = Direction8Round(parent->base.direction + 4);
     super->animationState = uVar2 >> 2;
     parent->base.animationState = DirectionRound(uVar2) >> 2;

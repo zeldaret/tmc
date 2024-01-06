@@ -31,7 +31,7 @@ void SubTileSetAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     cmd.push_back(toolsPath / "bin" / "gbagfx");
     cmd.push_back(decompressedPath);
     cmd.push_back(assetPath);
-    // This creates a better looking tilemap but in some cases not all tiles are used, so it adds additional data when converting back to binary.
+    // This creates a better looking tileMap but in some cases not all tiles are used, so it adds additional data when converting back to binary.
     //cmd.push_back("-mwidth");
     //cmd.push_back("32");
     check_call(cmd);

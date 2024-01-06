@@ -22,7 +22,7 @@ typedef struct {
     u16 pixel_height;
     u16 map_x;
     u16 map_y;
-    MapDataDefinition* tileset;
+    MapDataDefinition* tileSet;
     MapDataDefinition* map;
     MapDataDefinition* tiles;
     void* bg_anim;
@@ -82,7 +82,7 @@ typedef struct {
     u16 map_y;
     u16 pixel_width;
     u16 pixel_height;
-    u16 tileset_id;
+    u16 tileSet_id;
 } FORCE_WORD_ALIGNED RoomHeader;
 static_assert(sizeof(RoomHeader) == 0xa);
 extern RoomHeader* gAreaRoomHeaders[];

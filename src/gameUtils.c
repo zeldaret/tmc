@@ -33,7 +33,7 @@ void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 void sub_080532E4(void);
 void ResetTimerFlags(void);
 
-extern void** gAreaTilesets[];
+extern void** gAreaTileSets[];
 extern void** gAreaRoomMaps[];
 extern void* gAreaTiles[];
 extern void** gAreaTable[];
@@ -544,7 +544,7 @@ void InitAllRoomResInfo(void) {
     RoomResInfo* info = gArea.roomResInfos;
     u32 i;
     for (i = 0; i < MAX_ROOMS && *(u16*)r_hdr != 0xFFFF; i++, r_hdr++) {
-        if (r_hdr->tileset_id != 0xFFFF)
+        if (r_hdr->tileSet_id != 0xFFFF)
             InitRoomResInfo(info, r_hdr, gRoomControls.area, i);
         info++;
     }
@@ -556,7 +556,7 @@ void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 room) {
     info->map_y = r_hdr->map_y;
     info->pixel_width = r_hdr->pixel_width;
     info->pixel_height = r_hdr->pixel_height;
-    info->tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
+    info->tileSet = *(gAreaTileSets[area] + r_hdr->tileSet_id);
     info->map = *(gAreaRoomMaps[area] + room);
     info->tiles = gAreaTiles[area];
     info->bg_anim = (void*)gUnk_080B755C[area];
@@ -648,7 +648,7 @@ void LoadAuxiliaryRoom(u32 area, u32 room) {
 void sub_08052FF4(u32 area, u32 room) {
     RoomHeader* r_hdr = NULL;
 
-    ClearTilemaps();
+    ClearTileMaps();
     SetBGDefaults();
     gRoomControls.area = area;
     gRoomControls.room = room;
@@ -660,7 +660,7 @@ void sub_08052FF4(u32 area, u32 room) {
     gArea.currentRoomInfo.map_y = r_hdr->map_y;
     gArea.currentRoomInfo.pixel_width = r_hdr->pixel_width;
     gArea.currentRoomInfo.pixel_height = r_hdr->pixel_height;
-    gArea.currentRoomInfo.tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
+    gArea.currentRoomInfo.tileSet = *(gAreaTileSets[area] + r_hdr->tileSet_id);
     gArea.currentRoomInfo.map = *(gAreaRoomMaps[area] + room);
     gArea.currentRoomInfo.tiles = gAreaTiles[area];
     gArea.currentRoomInfo.bg_anim = (void*)gUnk_080B755C[area];

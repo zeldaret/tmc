@@ -400,7 +400,7 @@ static void HandleFileScreenEnter(void) {
     MemClear((void*)VRAM, 0x80); // clear palettes
     MessageInitialize();
     EraseAllEntities();
-    ClearTilemaps();
+    ClearTileMaps();
     ResetPalettes();
     ResetPaletteTable(0);
     MemClear(&gHUD, sizeof(gHUD));
