@@ -15,7 +15,6 @@
 #include "save.h"
 #include "tiles.h"
 
-
 struct SalesOffering {
     u8 field_0x0;
     u8 field_0x1;

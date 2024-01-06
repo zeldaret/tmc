@@ -338,8 +338,7 @@ static void FurnitureUpdate(FurnitureEntity* this) {
             break;
         case 0x80:
             if (gPlayerEntity.base.y.HALF.HI < super->y.HALF.HI + 8) {
-                if (gPlayerState.floor_type != SURFACE_LADDER &&
-                    GetTileTypeAtEntity(super) == SPECIAL_TILE_23) {
+                if (gPlayerState.floor_type != SURFACE_LADDER && GetTileTypeAtEntity(super) == SPECIAL_TILE_23) {
                     SetTile(SPECIAL_TILE_38, this->tilePos, super->collisionLayer);
                     SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, -1), super->collisionLayer);
                     SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, -2), super->collisionLayer);

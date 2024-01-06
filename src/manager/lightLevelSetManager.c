@@ -133,14 +133,14 @@ void LightLevelSetManager_Type3(LightLevelSetManager* this) {
 
 void sub_0805BE70(LightLevelSetManager* this, u32 tileType) {
     SetTileType(tileType,
-                    ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
-                    super->type2);
+                ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+                super->type2);
 }
 
 void sub_0805BE94(LightLevelSetManager* this) {
     SetTileType(TILE_TYPE_118,
-                    ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
-                    super->type2);
+                ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+                super->type2);
     ChangeLightLevel(super->timer);
     DeleteThisEntity();
 }

@@ -284,8 +284,7 @@ void sub_080812A0(ItemOnGroundEntity* this) {
 }
 
 void sub_080812A8(ItemOnGroundEntity* this) {
-    if (GetCollisionDataAtEntity(super) != COLLISION_DATA_15 &&
-        this->unk_6e != GetTileTypeAtEntity(super)) {
+    if (GetCollisionDataAtEntity(super) != COLLISION_DATA_15 && this->unk_6e != GetTileTypeAtEntity(super)) {
         super->direction = 0;
         super->speed = 0;
         super->spriteSettings.draw = 1;

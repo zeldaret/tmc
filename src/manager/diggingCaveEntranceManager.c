@@ -110,10 +110,10 @@ void DiggingCaveEntranceManager_EnterEntrance(DiggingCaveEntranceManager* this, 
     gRoomControls.area = entr->targetArea;
     gRoomControls.room = entr->targetRoom;
     gDiggingCaveEntranceTransition.entrance = entr;
-    gDiggingCaveEntranceTransition.offsetX = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x -
-                                             ((entr->sourceTilePos & TILE_POS_X_COMPONENT) * 16);
-    gDiggingCaveEntranceTransition.offsetY = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y -
-                                             ((entr->sourceTilePos & TILE_POS_Y_COMPONENT) >> 2);
+    gDiggingCaveEntranceTransition.offsetX =
+        gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x - ((entr->sourceTilePos & TILE_POS_X_COMPONENT) * 16);
+    gDiggingCaveEntranceTransition.offsetY =
+        gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y - ((entr->sourceTilePos & TILE_POS_Y_COMPONENT) >> 2);
 
 #ifndef EU
     isDiggingCave = gDiggingCaveEntranceTransition.isDiggingCave;

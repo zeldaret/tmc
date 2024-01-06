@@ -123,7 +123,7 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             super->knockbackDuration = 0;
         }
         if (GetActTileRelativeToEntity(super, gUnk_081320C4[super->direction >> 2],
-                                   gUnk_081320C4[(super->direction >> 2) + 1]) == ACT_TILE_116) {
+                                       gUnk_081320C4[(super->direction >> 2) + 1]) == ACT_TILE_116) {
             LinearMoveUpdate(super);
         } else {
             data = GetCollisionDataAtEntity(super);

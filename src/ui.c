@@ -629,8 +629,7 @@ void ButtonUIElement_Action1(UIElement* element) {
 
     MAX_MOVEMENT = (!element->type2) ? 4 : 8;
 
-    if (element->type2 == 0 &&
-        (((gHUD.hideFlags >> element->type) & 1) || (gMessage.state & MESSAGE_ACTIVE) != 0)) {
+    if (element->type2 == 0 && (((gHUD.hideFlags >> element->type) & 1) || (gMessage.state & MESSAGE_ACTIVE) != 0)) {
         y = (s16)gHUD.buttonY[element->type] - 0x28;
     } else {
         y = (s16)gHUD.buttonY[element->type];

@@ -120,7 +120,7 @@ void sub_08094980(LinkEmptyingBottleEntity* this, u32 searchTileIndex, u32 repla
         yOffset = gUnk_08122A28[index + 1];
         if (searchTileIndex == GetTileTypeRelativeToEntity(super, xOffset, yOffset)) {
             SetTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
-                        super->collisionLayer);
+                    super->collisionLayer);
         }
         index += 2;
     }

@@ -115,14 +115,14 @@ void sub_08059B18(void) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
                 SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1195 + innerLoopVar,
-                                   COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
+                               COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
             }
         }
 
         for (loopVar = 0; loopVar < 3; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
                 SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1088 + innerLoopVar,
-                                   COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
+                               COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
             }
         }
         SetTileByIndex(TILE_TYPE_214, TILE_POS(2, 23), LAYER_TOP);
@@ -133,7 +133,7 @@ void sub_08059B18(void) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
                     SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1190 + innerLoopVar,
-                                       COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
+                                   COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
             SetTileByIndex(TILE_TYPE_1092, TILE_POS(2, 24), LAYER_TOP);

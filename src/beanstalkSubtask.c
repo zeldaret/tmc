@@ -203,7 +203,7 @@ u32 UpdatePlayerCollision(void) {
         if (index != 0xff && (gRoomControls.scroll_flags & 4) == 0) {
             ptr1 = &gUnk_080B4490[index * 2];
             if (GetCollisionDataAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr1[0], -ptr1[1]),
-                             gPlayerEntity.base.collisionLayer) == COLLISION_DATA_255) {
+                                          gPlayerEntity.base.collisionLayer) == COLLISION_DATA_255) {
                 if ((((gPlayerState.flags & (PL_FLAGS10000 | PL_FLAGS2)) != 0) ||
                      ((gPlayerState.sword_state & 0x10) != 0)) ||
                     ((sub_080806BC(gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x,
@@ -934,8 +934,8 @@ bool32 sub_0801A980(void) {
     const s16* ptr;
     GetLayerByIndex(gPlayerEntity.base.collisionLayer); // TODO result unused?
     ptr = &gUnk_080B44A8[gPlayerEntity.base.animationState & 6];
-    tileType =
-        GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), gPlayerEntity.base.collisionLayer);
+    tileType = GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]),
+                                    gPlayerEntity.base.collisionLayer);
     if (tileType < 0x4000) {
         GetActTileForTileType(tileType);
     }
@@ -1277,10 +1277,8 @@ void UnregisterInteractTile(u32 tilePos, s32 layer) {
 }
 
 const struct_080B44D0 gUnk_080B44D0[] = {
-    { 0x67, SPECIAL_TILE_132 }, { 0x68, SPECIAL_TILE_133 },
-    { 0x69, SPECIAL_TILE_134 }, { 0x6a, SPECIAL_TILE_135 },
-    { 0x6b, SPECIAL_TILE_136 }, { 0x27, SPECIAL_TILE_131 },
-    { 0x23, SPECIAL_TILE_141 }, { 0x0, 0x0 },
+    { 0x67, SPECIAL_TILE_132 }, { 0x68, SPECIAL_TILE_133 }, { 0x69, SPECIAL_TILE_134 }, { 0x6a, SPECIAL_TILE_135 },
+    { 0x6b, SPECIAL_TILE_136 }, { 0x27, SPECIAL_TILE_131 }, { 0x23, SPECIAL_TILE_141 }, { 0x0, 0x0 },
 };
 
 // used for minish houses, seems to overwrite all tiles with certain collision values on layer 1 for them?

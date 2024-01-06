@@ -1,7 +1,6 @@
 #ifndef TILES_H
 #define TILES_H
 
-
 typedef enum {
     TILE_TYPE_0 = 0x0,
     TILE_TYPE_1 = 0x1,
@@ -1437,8 +1436,8 @@ typedef enum {
     SPECIAL_TILE_32 = 0x4020, // Spring hole (Cane shot hole)
     SPECIAL_TILE_33 = 0x4021,
     SPECIAL_TILE_34 = 0x4022, // Furniture Center Locked Door/Frozen Element/Octo/O Shaped Ice (ToD) Big Chest
-                           // Closed (ToD) Gust Jar Mushrooms (ToD)     Perhaps this is just tiles that change on
-                           // interaction?
+                              // Closed (ToD) Gust Jar Mushrooms (ToD)     Perhaps this is just tiles that change on
+                              // interaction?
     SPECIAL_TILE_35 = 0x4023, // Object Top
     SPECIAL_TILE_36 = 0x4024, // Object Left
     SPECIAL_TILE_37 = 0x4025, // Object Right
@@ -1466,7 +1465,7 @@ typedef enum {
     SPECIAL_TILE_59 = 0x403b, // Green Bean in Hole
     SPECIAL_TILE_60 = 0x403c,
     SPECIAL_TILE_61 = 0x403d, // Minish Path Under Stick, Stone over hole in light rooms (ToD), Object Blocking
-                           // Town doors
+                              // Town doors
     SPECIAL_TILE_62 = 0x403e, // Grave
     SPECIAL_TILE_63 = 0x403f,
     SPECIAL_TILE_64 = 0x4040, // Portal Top Left
@@ -1559,26 +1558,28 @@ typedef enum {
 } SpecialTile;
 
 typedef enum {
-    ACT_TILE_0 = 0x0, // TILE_ACT_CUT
-    ACT_TILE_1 = 0x1, // TILE_ACT_ROCKBREAKER
-    ACT_TILE_2 = 0x2, // TILE_ACT_BOOMERANG
-    ACT_TILE_3 = 0x3, // TILE_ACT_BOMB
-    ACT_TILE_4 = 0x4, // TILE_ACT_ARROW
-    ACT_TILE_5 = 0x5, // TILE_ACT_GUST
-    ACT_TILE_6 = 0x6, // TILE_ACT_LIFT
-    ACT_TILE_7 = 0x7, // TILE_ACT_FIRE
-    ACT_TILE_8 = 0x8,   // TILE_ACT_PLAYER_WALK -> SURFACE_7
-    ACT_TILE_9 = 0x9,   // TILE_ACT_ENEMY_WALK sub_0801FDE4(leever)
+    ACT_TILE_0 = 0x0,  // TILE_ACT_CUT
+    ACT_TILE_1 = 0x1,  // TILE_ACT_ROCKBREAKER
+    ACT_TILE_2 = 0x2,  // TILE_ACT_BOOMERANG
+    ACT_TILE_3 = 0x3,  // TILE_ACT_BOMB
+    ACT_TILE_4 = 0x4,  // TILE_ACT_ARROW
+    ACT_TILE_5 = 0x5,  // TILE_ACT_GUST
+    ACT_TILE_6 = 0x6,  // TILE_ACT_LIFT
+    ACT_TILE_7 = 0x7,  // TILE_ACT_FIRE
+    ACT_TILE_8 = 0x8,  // TILE_ACT_PLAYER_WALK -> SURFACE_7
+    ACT_TILE_9 = 0x9,  // TILE_ACT_ENEMY_WALK sub_0801FDE4(leever)
     ACT_TILE_10 = 0xa, // TILE_ACT_PACCI sub_0801FDE4(leever), sub_08025AB8(puffstool)
     ACT_TILE_11 = 0xb, // sub_0801FDE4(leever)
     ACT_TILE_12 = 0xc, // TILE_ACT_SWORDBEAM sub_0801FDE4(leever)
-    ACT_TILE_13 = 0xd, // TILE_ACT_DIG -> SURFACE_PIT, sub_08094E30(cutsceneMiscObject), sub_08085B40(lilypadLarge), Pot_Action1,
-                 // sub_080AD040(playerItemHeldObject), UpdatePlayerCollision, sub_0807B434(playerUtils), FX_FALL_DOWN
-    ACT_TILE_14 = 0xe, // TILE_ACT_MINIGUST -> SURFACE_SLOPE_GNDWATER
-    ACT_TILE_15 = 0xf, // -> SURFACE_SHALLOW_WATER, SPECIAL_TILE_145
+    ACT_TILE_13 =
+        0xd, // TILE_ACT_DIG -> SURFACE_PIT, sub_08094E30(cutsceneMiscObject), sub_08085B40(lilypadLarge), Pot_Action1,
+             // sub_080AD040(playerItemHeldObject), UpdatePlayerCollision, sub_0807B434(playerUtils), FX_FALL_DOWN
+    ACT_TILE_14 = 0xe,  // TILE_ACT_MINIGUST -> SURFACE_SLOPE_GNDWATER
+    ACT_TILE_15 = 0xf,  // -> SURFACE_SHALLOW_WATER, SPECIAL_TILE_145
     ACT_TILE_16 = 0x10, // -> SURFACE_WATER, CheckWaterTile(chuchu), PlayerItemBottle_UseEmptyBottle, SPECIAL_TILE_137 -
-                 // 140, sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH
-    ACT_TILE_17 = 0x11, // -> SURFACE_14, sub_08085A44(lilypadLarge), sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH
+                        // 140, sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH
+    ACT_TILE_17 =
+        0x11, // -> SURFACE_14, sub_08085A44(lilypadLarge), sub_080AD040(playerItemHeldObject), FX_WATER_SPLASH
     ACT_TILE_18 = 0x12, // -> SURFACE_ICE, SPECIAL_TILE_117 - 124
     ACT_TILE_19 = 0x13, // -> SURFACE_SWAMP, sub_0803163C(rope), sub_080AD040(playerItemHeldObject), FX_GREEN_SPLASH
     ACT_TILE_20 = 0x14,
@@ -1586,8 +1587,8 @@ typedef enum {
     ACT_TILE_22 = 0x16, // -> SURFACE_DUST
     ACT_TILE_23 = 0x17, // -> SURFACE_2D
     ACT_TILE_24 = 0x18, // -> SURFACE_16
-    ACT_TILE_25 = 0x19, // -> SURFACE_HOLE, CrenelBeanSprout_Action1, sub_08097144(objectOnPillar), sub_0808A644(pushableRock),
-                 // sub_080701F8(playerItemPacciCaneProjectile)
+    ACT_TILE_25 = 0x19, // -> SURFACE_HOLE, CrenelBeanSprout_Action1, sub_08097144(objectOnPillar),
+                        // sub_0808A644(pushableRock), sub_080701F8(playerItemPacciCaneProjectile)
     ACT_TILE_26 = 0x1a,
     ACT_TILE_27 = 0x1b, // -> SURFACE_BUTTON
     ACT_TILE_28 = 0x1c,
@@ -1604,8 +1605,8 @@ typedef enum {
     ACT_TILE_39 = 0x27, // -> SURFACE_SLOPE_GNDGND_H
     ACT_TILE_40 = 0x28, // -> SURFACE_DOOR_13, SPECIAL_TILE_105, sub_080732D0(player), UpdateDoorTransition
     ACT_TILE_41 = 0x29, // -> SURFACE_DOOR, sub_08076DF4(itemGustJar), Minecart_Action3, sub_080896B0(pushableStatue),
-                 // SPECIAL_TILE_128, SPECIAL_TILE_131 - 136, SPECIAL_TILE_141, sub_080724DC(player),
-                 // UpdateDoorTransition
+                        // SPECIAL_TILE_128, SPECIAL_TILE_131 - 136, SPECIAL_TILE_141, sub_080724DC(player),
+                        // UpdateDoorTransition
     ACT_TILE_42 = 0x2a, // -> SURFACE_E, sub_080611D4(npc5)
     ACT_TILE_43 = 0x2b, // -> SURFACE_D, sub_080611D4(npc5)
     ACT_TILE_44 = 0x2c, // -> SURFACE_10, sub_080611D4(npc5)
@@ -1661,9 +1662,9 @@ typedef enum {
     ACT_TILE_94 = 0x5e,
     ACT_TILE_95 = 0x5f,
     ACT_TILE_96 = 0x60,
-    ACT_TILE_97 = 0x61,   // -> SURFACE_1B
-    ACT_TILE_98 = 0x62,   // -> SURFACE_21
-    ACT_TILE_99 = 0x63,   // -> SURFACE_24
+    ACT_TILE_97 = 0x61,  // -> SURFACE_1B
+    ACT_TILE_98 = 0x62,  // -> SURFACE_21
+    ACT_TILE_99 = 0x63,  // -> SURFACE_24
     ACT_TILE_100 = 0x64, // Minecart_Action3
     ACT_TILE_101 = 0x65, // -> SURFACE_6, Minecart_Action3
     ACT_TILE_102 = 0x66, // -> SURFACE_6, Minecart_Action3
@@ -1681,7 +1682,7 @@ typedef enum {
     ACT_TILE_114 = 0x72,
     ACT_TILE_115 = 0x73,
     ACT_TILE_116 = 0x74, // -> SURFACE_EDGE, SPECIAL_TILE_126, SPECIAL_TILE_127, sub_08018E68(playerItemGustBig),
-                   // sub_080AD040(playerItemHeldObject)
+                         // sub_080AD040(playerItemHeldObject)
     ACT_TILE_117 = 0x75,
     ACT_TILE_240 = 0xf0, // -> SURFACE_HOLE, sub_0802F300(tektite), sub_0808A644(pushableRock), SPECIAL_TILE_32
     ACT_TILE_241 = 0xf1, // -> SURFACE_LADDER, sub_0802F300(tektite), SPECIAL_TILE_20, UpdateDoorTransition

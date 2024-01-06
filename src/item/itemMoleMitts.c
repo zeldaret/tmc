@@ -180,7 +180,7 @@ s32 sub_080774A0(void) {
     u32 tilePos;
 
     tilePos = COORD_TO_TILE_OFFSET((&gPlayerEntity.base), -gUnk_0811BE1E[gPlayerEntity.base.animationState & 6],
-                                       -gUnk_0811BE1E[(gPlayerEntity.base.animationState & 6) + 1]);
+                                   -gUnk_0811BE1E[(gPlayerEntity.base.animationState & 6) + 1]);
 
     collisionData = GetCollisionDataAtTilePos(tilePos, gPlayerEntity.base.collisionLayer);
 

@@ -78,8 +78,10 @@
 #if NON_MATCHING
 #define ASM_FUNC(path, decl)
 #else
-#define ASM_FUNC(path, decl) \
-    NAKED decl { asm(".include " #path); }
+#define ASM_FUNC(path, decl)    \
+    NAKED decl {                \
+        asm(".include " #path); \
+    }
 #endif
 
 #if NON_MATCHING

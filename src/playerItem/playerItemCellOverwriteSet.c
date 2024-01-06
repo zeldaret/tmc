@@ -19,70 +19,70 @@ typedef struct {
 
 // actTile for specialTile
 const u8 gMapSpecialTileToActTile[] = {
-    0,       // SPECIAL_TILE_0
-    0,       // SPECIAL_TILE_1
-    0,       // SPECIAL_TILE_2
-    0,       // SPECIAL_TILE_3
-    0,       // SPECIAL_TILE_4
-    0,       // SPECIAL_TILE_5
-    0,       // SPECIAL_TILE_6
-    0,       // SPECIAL_TILE_7
-    0,       // SPECIAL_TILE_8
-    0,       // SPECIAL_TILE_9
-    0,       // SPECIAL_TILE_10
-    0,       // SPECIAL_TILE_11
-    0,       // SPECIAL_TILE_12
-    0,       // SPECIAL_TILE_13
-    0,       // SPECIAL_TILE_14
-    0,       // SPECIAL_TILE_15
-    0,       // SPECIAL_TILE_16
-    0,       // SPECIAL_TILE_17
-    0,       // SPECIAL_TILE_18
-    0,       // SPECIAL_TILE_19
+    0,            // SPECIAL_TILE_0
+    0,            // SPECIAL_TILE_1
+    0,            // SPECIAL_TILE_2
+    0,            // SPECIAL_TILE_3
+    0,            // SPECIAL_TILE_4
+    0,            // SPECIAL_TILE_5
+    0,            // SPECIAL_TILE_6
+    0,            // SPECIAL_TILE_7
+    0,            // SPECIAL_TILE_8
+    0,            // SPECIAL_TILE_9
+    0,            // SPECIAL_TILE_10
+    0,            // SPECIAL_TILE_11
+    0,            // SPECIAL_TILE_12
+    0,            // SPECIAL_TILE_13
+    0,            // SPECIAL_TILE_14
+    0,            // SPECIAL_TILE_15
+    0,            // SPECIAL_TILE_16
+    0,            // SPECIAL_TILE_17
+    0,            // SPECIAL_TILE_18
+    0,            // SPECIAL_TILE_19
     ACT_TILE_241, // SPECIAL_TILE_20
-    0,       // SPECIAL_TILE_21
-    0,       // SPECIAL_TILE_22
+    0,            // SPECIAL_TILE_21
+    0,            // SPECIAL_TILE_22
     ACT_TILE_83,  // SPECIAL_TILE_23
     ACT_TILE_242, // SPECIAL_TILE_24
     ACT_TILE_243, // SPECIAL_TILE_25
-    0,       // SPECIAL_TILE_26
-    0,       // SPECIAL_TILE_27
-    0,       // SPECIAL_TILE_28
-    0,       // SPECIAL_TILE_29
-    0,       // SPECIAL_TILE_30
-    0,       // SPECIAL_TILE_31
+    0,            // SPECIAL_TILE_26
+    0,            // SPECIAL_TILE_27
+    0,            // SPECIAL_TILE_28
+    0,            // SPECIAL_TILE_29
+    0,            // SPECIAL_TILE_30
+    0,            // SPECIAL_TILE_31
     ACT_TILE_240, // SPECIAL_TILE_32
-    0,       // SPECIAL_TILE_33
-    0,       // SPECIAL_TILE_34
-    0,       // SPECIAL_TILE_35
-    0,       // SPECIAL_TILE_36
-    0,       // SPECIAL_TILE_37
-    0,       // SPECIAL_TILE_38
-    0,       // SPECIAL_TILE_39
-    0,       // SPECIAL_TILE_40
-    0,       // SPECIAL_TILE_41
-    0,       // SPECIAL_TILE_42
-    0,       // SPECIAL_TILE_43
-    0,       // SPECIAL_TILE_44
-    0,       // SPECIAL_TILE_45
-    0,       // SPECIAL_TILE_46
-    0,       // SPECIAL_TILE_47
-    0,       // SPECIAL_TILE_48
-    0,       // SPECIAL_TILE_49
-    0,       // SPECIAL_TILE_50
-    0,       // SPECIAL_TILE_51
-    0,       // SPECIAL_TILE_52
-    0,       // SPECIAL_TILE_53
-    0,       // SPECIAL_TILE_54
-    0,       // SPECIAL_TILE_55
-    0,       // SPECIAL_TILE_56
-    0,       // SPECIAL_TILE_57
-    0,       // SPECIAL_TILE_58
-    0,       // SPECIAL_TILE_59
-    0,       // SPECIAL_TILE_60
-    0,       // SPECIAL_TILE_61
-    0,       // SPECIAL_TILE_62
-    0,       // SPECIAL_TILE_63
+    0,            // SPECIAL_TILE_33
+    0,            // SPECIAL_TILE_34
+    0,            // SPECIAL_TILE_35
+    0,            // SPECIAL_TILE_36
+    0,            // SPECIAL_TILE_37
+    0,            // SPECIAL_TILE_38
+    0,            // SPECIAL_TILE_39
+    0,            // SPECIAL_TILE_40
+    0,            // SPECIAL_TILE_41
+    0,            // SPECIAL_TILE_42
+    0,            // SPECIAL_TILE_43
+    0,            // SPECIAL_TILE_44
+    0,            // SPECIAL_TILE_45
+    0,            // SPECIAL_TILE_46
+    0,            // SPECIAL_TILE_47
+    0,            // SPECIAL_TILE_48
+    0,            // SPECIAL_TILE_49
+    0,            // SPECIAL_TILE_50
+    0,            // SPECIAL_TILE_51
+    0,            // SPECIAL_TILE_52
+    0,            // SPECIAL_TILE_53
+    0,            // SPECIAL_TILE_54
+    0,            // SPECIAL_TILE_55
+    0,            // SPECIAL_TILE_56
+    0,            // SPECIAL_TILE_57
+    0,            // SPECIAL_TILE_58
+    0,            // SPECIAL_TILE_59
+    0,            // SPECIAL_TILE_60
+    0,            // SPECIAL_TILE_61
+    0,            // SPECIAL_TILE_62
+    0,            // SPECIAL_TILE_63
     ACT_TILE_61,  // SPECIAL_TILE_64
     ACT_TILE_61,  // SPECIAL_TILE_65
     ACT_TILE_61,  // SPECIAL_TILE_66
@@ -92,50 +92,50 @@ const u8 gMapSpecialTileToActTile[] = {
     ACT_TILE_61,  // SPECIAL_TILE_70
     ACT_TILE_61,  // SPECIAL_TILE_71
     ACT_TILE_61,  // SPECIAL_TILE_72
-    0,       // SPECIAL_TILE_73
-    0,       // SPECIAL_TILE_74
-    0,       // SPECIAL_TILE_75
-    0,       // SPECIAL_TILE_76
-    0,       // SPECIAL_TILE_77
-    0,       // SPECIAL_TILE_78
-    0,       // SPECIAL_TILE_79
-    0,       // SPECIAL_TILE_80
+    0,            // SPECIAL_TILE_73
+    0,            // SPECIAL_TILE_74
+    0,            // SPECIAL_TILE_75
+    0,            // SPECIAL_TILE_76
+    0,            // SPECIAL_TILE_77
+    0,            // SPECIAL_TILE_78
+    0,            // SPECIAL_TILE_79
+    0,            // SPECIAL_TILE_80
     ACT_TILE_58,  // SPECIAL_TILE_81
-    0,       // SPECIAL_TILE_82
-    0,       // SPECIAL_TILE_83
-    0,       // SPECIAL_TILE_84
-    0,       // SPECIAL_TILE_85
-    0,       // SPECIAL_TILE_86
-    0,       // SPECIAL_TILE_87
-    0,       // SPECIAL_TILE_88
-    0,       // SPECIAL_TILE_89
-    0,       // SPECIAL_TILE_90
-    0,       // SPECIAL_TILE_91
-    0,       // SPECIAL_TILE_92
-    0,       // SPECIAL_TILE_93
-    0,       // SPECIAL_TILE_94
-    0,       // SPECIAL_TILE_95
-    0,       // SPECIAL_TILE_96
-    0,       // SPECIAL_TILE_97
-    0,       // SPECIAL_TILE_98
-    0,       // SPECIAL_TILE_99
-    0,       // SPECIAL_TILE_100
-    0,       // SPECIAL_TILE_101
-    0,       // SPECIAL_TILE_102
-    0,       // SPECIAL_TILE_103
-    0,       // SPECIAL_TILE_104
+    0,            // SPECIAL_TILE_82
+    0,            // SPECIAL_TILE_83
+    0,            // SPECIAL_TILE_84
+    0,            // SPECIAL_TILE_85
+    0,            // SPECIAL_TILE_86
+    0,            // SPECIAL_TILE_87
+    0,            // SPECIAL_TILE_88
+    0,            // SPECIAL_TILE_89
+    0,            // SPECIAL_TILE_90
+    0,            // SPECIAL_TILE_91
+    0,            // SPECIAL_TILE_92
+    0,            // SPECIAL_TILE_93
+    0,            // SPECIAL_TILE_94
+    0,            // SPECIAL_TILE_95
+    0,            // SPECIAL_TILE_96
+    0,            // SPECIAL_TILE_97
+    0,            // SPECIAL_TILE_98
+    0,            // SPECIAL_TILE_99
+    0,            // SPECIAL_TILE_100
+    0,            // SPECIAL_TILE_101
+    0,            // SPECIAL_TILE_102
+    0,            // SPECIAL_TILE_103
+    0,            // SPECIAL_TILE_104
     ACT_TILE_40,  // SPECIAL_TILE_105
-    0,       // SPECIAL_TILE_106
-    0,       // SPECIAL_TILE_107
-    0,       // SPECIAL_TILE_108
-    0,       // SPECIAL_TILE_109
-    0,       // SPECIAL_TILE_110
-    0,       // SPECIAL_TILE_111
-    0,       // SPECIAL_TILE_112
-    0,       // SPECIAL_TILE_113
-    0,       // SPECIAL_TILE_114
-    0,       // SPECIAL_TILE_115
-    0,       // SPECIAL_TILE_116
+    0,            // SPECIAL_TILE_106
+    0,            // SPECIAL_TILE_107
+    0,            // SPECIAL_TILE_108
+    0,            // SPECIAL_TILE_109
+    0,            // SPECIAL_TILE_110
+    0,            // SPECIAL_TILE_111
+    0,            // SPECIAL_TILE_112
+    0,            // SPECIAL_TILE_113
+    0,            // SPECIAL_TILE_114
+    0,            // SPECIAL_TILE_115
+    0,            // SPECIAL_TILE_116
     ACT_TILE_18,  // SPECIAL_TILE_117
     ACT_TILE_18,  // SPECIAL_TILE_118
     ACT_TILE_18,  // SPECIAL_TILE_119
@@ -144,11 +144,11 @@ const u8 gMapSpecialTileToActTile[] = {
     ACT_TILE_18,  // SPECIAL_TILE_122
     ACT_TILE_18,  // SPECIAL_TILE_123
     ACT_TILE_18,  // SPECIAL_TILE_124
-    0,       // SPECIAL_TILE_125
+    0,            // SPECIAL_TILE_125
     ACT_TILE_116, // SPECIAL_TILE_126
     ACT_TILE_116, // SPECIAL_TILE_127
     ACT_TILE_41,  // SPECIAL_TILE_128
-    0,       // SPECIAL_TILE_129
+    0,            // SPECIAL_TILE_129
     ACT_TILE_35,  // SPECIAL_TILE_130
     ACT_TILE_41,  // SPECIAL_TILE_131
     ACT_TILE_41,  // SPECIAL_TILE_132
@@ -163,13 +163,13 @@ const u8 gMapSpecialTileToActTile[] = {
     ACT_TILE_41,  // SPECIAL_TILE_141
     ACT_TILE_80,  // SPECIAL_TILE_142
     ACT_TILE_81,  // SPECIAL_TILE_143
-    0,       // SPECIAL_TILE_144
+    0,            // SPECIAL_TILE_144
     ACT_TILE_15,  // SPECIAL_TILE_145
-    0,       // SPECIAL_TILE_146
-    0,       // SPECIAL_TILE_147
-    0,       // SPECIAL_TILE_148
-    0,       // SPECIAL_TILE_149
-    0,       // SPECIAL_TILE_150
+    0,            // SPECIAL_TILE_146
+    0,            // SPECIAL_TILE_147
+    0,            // SPECIAL_TILE_148
+    0,            // SPECIAL_TILE_149
+    0,            // SPECIAL_TILE_150
 };
 
 // collisionData for specialTile
@@ -342,18 +342,20 @@ void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
     Entity* player = &gPlayerEntity.base;
 
     if (super->action == 0) {
-        this->tileType = GetTileTypeAtTilePos(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
-                                              player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
-                                         super->collisionLayer);
+        this->tileType =
+            GetTileTypeAtTilePos(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+                                      player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
+                                 super->collisionLayer);
         super->action++;
     }
     gPlayerState.mobility |= 0x80;
     tmp = gInput.heldKeys & R_BUTTON;
     if ((gInput.heldKeys & A_BUTTON) != 0) {
         if ((gInput.newKeys & R_BUTTON) != 0) {
-            this->tileType = GetTileTypeAtTilePos(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
-                                                  player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
-                                             super->collisionLayer);
+            this->tileType =
+                GetTileTypeAtTilePos(TILE(player->x.HALF.HI + offsetByDirection[player->animationState & 0xe],
+                                          player->y.HALF.HI + offsetByDirection[(player->animationState & 0xe) + 1]),
+                                     super->collisionLayer);
         }
         if ((gInput.heldKeys & R_BUTTON) != 0) {
             player->iframes = 2;
@@ -387,13 +389,17 @@ void PlayerItemCellOverwriteSet(PlayerItemCellOverwriteSetEntity* this) {
         DeleteThisEntity();
     }
     if ((gInput.heldKeys & B_BUTTON) != 0) {
-        sub_0807B7D8(this->tileType, TILE(player->x.HALF.HI + offsetByDirection[0], player->y.HALF.HI + offsetByDirection[1]),
+        sub_0807B7D8(this->tileType,
+                     TILE(player->x.HALF.HI + offsetByDirection[0], player->y.HALF.HI + offsetByDirection[1]),
                      super->collisionLayer);
-        sub_0807B7D8(this->tileType, TILE(player->x.HALF.HI + offsetByDirection[2], player->y.HALF.HI + offsetByDirection[3]),
+        sub_0807B7D8(this->tileType,
+                     TILE(player->x.HALF.HI + offsetByDirection[2], player->y.HALF.HI + offsetByDirection[3]),
                      super->collisionLayer);
-        sub_0807B7D8(this->tileType, TILE(player->x.HALF.HI + offsetByDirection[4], player->y.HALF.HI + offsetByDirection[5]),
+        sub_0807B7D8(this->tileType,
+                     TILE(player->x.HALF.HI + offsetByDirection[4], player->y.HALF.HI + offsetByDirection[5]),
                      super->collisionLayer);
-        sub_0807B7D8(this->tileType, TILE(player->x.HALF.HI + offsetByDirection[6], player->y.HALF.HI + offsetByDirection[7]),
+        sub_0807B7D8(this->tileType,
+                     TILE(player->x.HALF.HI + offsetByDirection[6], player->y.HALF.HI + offsetByDirection[7]),
                      super->collisionLayer);
     }
 }

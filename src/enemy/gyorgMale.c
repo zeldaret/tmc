@@ -1070,8 +1070,8 @@ void sub_08047EA4(GyorgMaleEntity* this, u32 unk1) {
     if (this->unk_7c & 1) {
         tmp2 = sub_08047F68(this) << 8;
         dir = CalculateDirectionFromOffsets(gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
-                                           
-                           gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+
+                                            gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
         tmp = dir - (tmp / 256);
         tmp &= 0xFF;
         gPlayerEntity.base.x.WORD += (gSineTable[tmp] - gSineTable[dir]) * tmp2;

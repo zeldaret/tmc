@@ -40,7 +40,7 @@ void Projectile5_OnCollision(Entity* this) {
         if ((((Projectile5Entity*)this->parent)->unk_83 & 0x3f) == 3) {
             if (gPlayerState.hurtBlinkSpeed != 0) {
                 if (GetCollisionDataAtTilePos(TILE(this->x.HALF.HI, this->y.HALF.HI),
-                                                  gPlayerEntity.base.collisionLayer) == 0) {
+                                              gPlayerEntity.base.collisionLayer) == 0) {
                     if (this->contactFlags == CONTACT_NOW) {
                         *pbVar2 = *pbVar2 & 0x7f;
                         DeleteThisEntity();

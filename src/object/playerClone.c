@@ -191,8 +191,8 @@ void sub_08084CAC(PlayerCloneEntity* this) {
 
     if (((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 == 0) {
         ptr = &gUnk_080B4468[super->animationState & 6];
-        if (GetActTileForTileType(
-                GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]), super->collisionLayer)) == ACT_TILE_114) {
+        if (GetActTileForTileType(GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]),
+                                                       super->collisionLayer)) == ACT_TILE_114) {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c |= (1 << super->type);
         } else {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c &= ~(1 << super->type);

@@ -897,8 +897,10 @@ void sub_08077F84(void) {
     Entity* obj;
 
     if ((gPlayerEntity.base.collisionLayer & 2) == 0) {
-        u32 tileType = GetTileTypeAtWorldCoords(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
-        if (tileType == TILE_TYPE_835 || tileType == TILE_TYPE_836 || tileType == TILE_TYPE_837 || tileType == TILE_TYPE_838) {
+        u32 tileType =
+            GetTileTypeAtWorldCoords(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
+        if (tileType == TILE_TYPE_835 || tileType == TILE_TYPE_836 || tileType == TILE_TYPE_837 ||
+            tileType == TILE_TYPE_838) {
             sub_0807AA80(&gPlayerEntity.base);
             gPlayerState.jump_status |= 8;
             obj = CreateObject(ROTATING_TRAPDOOR, 0, 0);
@@ -1968,7 +1970,8 @@ void RespawnPlayer(void) {
         } else {
             u32 i;
             for (i = 0; i <= 0xf && gPlayerState.path_memory[i] != -1; i++) {
-                if (GetCollisionDataAtTilePos((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) != COLLISION_DATA_15) {
+                if (GetCollisionDataAtTilePos((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) !=
+                    COLLISION_DATA_15) {
                     gPlayerEntity.base.collisionLayer = gPlayerState.path_memory[i] >> 0x1e;
                     gPlayerEntity.base.x.HALF.HI =
                         gRoomControls.origin_x + (gPlayerState.path_memory[i] & 0x3f) * 16 + 8;
@@ -2354,13 +2357,16 @@ bool32 sub_08079C30(Entity* player) {
                 return TRUE;
         }
 
-        if (gPlayerState.floor_type != FindValueForKey(GetActTileRelativeToEntity(player, 0, -1), gMapActTileToSurfaceType))
+        if (gPlayerState.floor_type !=
+            FindValueForKey(GetActTileRelativeToEntity(player, 0, -1), gMapActTileToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type != FindValueForKey(GetActTileRelativeToEntity(player, 2, 0), gMapActTileToSurfaceType))
+        if (gPlayerState.floor_type !=
+            FindValueForKey(GetActTileRelativeToEntity(player, 2, 0), gMapActTileToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type == FindValueForKey(GetActTileRelativeToEntity(player, -2, 0), gMapActTileToSurfaceType)) {
+        if (gPlayerState.floor_type ==
+            FindValueForKey(GetActTileRelativeToEntity(player, -2, 0), gMapActTileToSurfaceType)) {
             return TRUE;
         }
     }
@@ -2593,7 +2599,8 @@ void UpdateFloorType(void) {
 
 SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
     u32 position = TILE(param_1->x.HALF.HI + (u32)x, param_1->y.HALF.HI + y);
-    u32 tileType = GetTileTypeAtWorldCoords(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
+    u32 tileType =
+        GetTileTypeAtWorldCoords(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
     if (tileType != gPlayerState.tileType) {
         gPlayerState.surfaceTimer = 0;
     }
@@ -2656,7 +2663,7 @@ u32 sub_0807A2F8(u32 param_1) {
         uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
         if (GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_BOTTOM)) {
             if (!FindValueForKey((u16)GetActTileAtTilePos((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
-                              gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
+                                 gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
         } else {
@@ -2666,7 +2673,7 @@ u32 sub_0807A2F8(u32 param_1) {
         uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
         if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
             if (!FindValueForKey((u16)GetActTileAtTilePos((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
-                              gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
+                                 gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
         } else {
@@ -2798,7 +2805,7 @@ void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
     }
     if ((index != 0) && (index != 0xf)) {
         uVar2 = GetCollisionDataAtTilePos((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
-                                              gPlayerEntity.base.collisionLayer);
+                                          gPlayerEntity.base.collisionLayer);
         if (uVar2 > 0xf) {
             if (uVar2 != 0xff) {
                 uVar2 = param_3[uVar2 - 0x10];

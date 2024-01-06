@@ -61,8 +61,7 @@ void sub_08055994(void) {
         layer = LAYER_BOTTOM;
     }
     SetTileType(TILE_TYPE_115,
-                    (*(u16*)(gMenu.field_0xc + 8) >> 4 & 0x3f) | (*(u16*)(gMenu.field_0xc + 10) >> 4 & 0x3f) << 6,
-                    layer);
+                (*(u16*)(gMenu.field_0xc + 8) >> 4 & 0x3f) | (*(u16*)(gMenu.field_0xc + 10) >> 4 & 0x3f) << 6, layer);
     sub_080553E0((u32)gMenu.field_0x4);
     SoundReq(SFX_SECRET_BIG);
 }

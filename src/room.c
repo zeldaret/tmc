@@ -201,9 +201,8 @@ static void sub_0804B058(EntityData* dat) {
                 if (EnemyEnableRespawn(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ((Enemy*)ent)->idx =
-                            uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the enemy so it does not
-                                          // appear next time the room is visited?
+                        ((Enemy*)ent)->idx = uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the
+                                                           // enemy so it does not appear next time the room is visited?
                     }
                 }
             } else {

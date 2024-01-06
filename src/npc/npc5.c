@@ -531,7 +531,8 @@ u32 CalcJumpDirection(Entity* this) {
 
     static const u8 sTable[] = {
         // actTile, animationState
-        ACT_TILE_43, DirectionSouth, ACT_TILE_42, DirectionNorth, ACT_TILE_45, DirectionEast, ACT_TILE_44, DirectionWest, 0x0,
+        ACT_TILE_43, DirectionSouth, ACT_TILE_42, DirectionNorth, ACT_TILE_45, DirectionEast,
+        ACT_TILE_44, DirectionWest,  0x0,
     };
 
     u32 actTile;

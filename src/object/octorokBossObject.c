@@ -183,7 +183,7 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
         case 1:
             super->direction =
                 CalculateDirectionFromOffsets(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
-                                               this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
+                                              this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
             LinearMoveAngle(super, super->speed, super->direction);
             if (EntityInRectRadius(super, this->helper->tailObjects[super->timer], 2, 2) == 0) {
                 return;
@@ -352,7 +352,7 @@ bool32 sub_0809A6F8(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
         if (gUnk_081238A0[param_3] != 0) {
             if ((param_4 & 1) != 0) {
                 SetTileByIndex(gUnk_081238A0[param_3], (param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
-                                   LAYER_BOTTOM);
+                               LAYER_BOTTOM);
             } else {
                 RestorePrevTileEntity((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
             }

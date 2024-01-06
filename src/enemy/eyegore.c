@@ -401,11 +401,10 @@ void sub_08031024(EyegoreEntity* this) {
                 } else {
                     tmp2 = this->unk_7b >> 1;
                     uVar5 = GetTileTypeAtWorldCoords(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
-                                                 super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
+                                                     super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
                     uVar8 = GetTileTypeAtWorldCoords(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
-                                                 super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
-                    if (!(((gMapTileTypeToCollisionData[uVar5] == 0) &&
-                           (gMapTileTypeToCollisionData[uVar8] == 0)) ||
+                                                     super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
+                    if (!(((gMapTileTypeToCollisionData[uVar5] == 0) && (gMapTileTypeToCollisionData[uVar8] == 0)) ||
                           ((this->unk_7b | 1) & 1) == 0)) {
                         if (super->direction >> 3 == super->animationState) {
                             this->unk_78 |= 0x20;

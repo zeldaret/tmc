@@ -164,7 +164,7 @@ void Minecart_Action3(MinecartEntity* this) {
             }
 
             actTile = GetActTileRelativeToEntity(super, offsetCoords[super->animationState * 2],
-                                         offsetCoords[super->animationState * 2 + 1]);
+                                                 offsetCoords[super->animationState * 2 + 1]);
             if (FindValueForKey(actTile, gUnk_081223D8[super->animationState]) == 0) {
                 super->direction = DirectionTurnAround(super->direction);
                 super->animationState = AnimationStateFlip90(super->animationState);
@@ -343,18 +343,22 @@ const KeyValuePair* const gUnk_081223D8[] = {
     gUnk_08122436,
 };
 const KeyValuePair gUnk_081223E8[] = {
-    { ACT_TILE_242, 1 }, { ACT_TILE_101, 1 }, { ACT_TILE_104, 1 }, { ACT_TILE_106, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+    { ACT_TILE_242, 1 }, { ACT_TILE_101, 1 }, { ACT_TILE_104, 1 },
+    { ACT_TILE_106, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
 };
 const u16 gUnk_081223E8End = 0;
 const KeyValuePair gUnk_08122402[] = {
-    { ACT_TILE_243, 1 }, { ACT_TILE_102, 1 }, { ACT_TILE_104, 1 }, { ACT_TILE_105, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+    { ACT_TILE_243, 1 }, { ACT_TILE_102, 1 }, { ACT_TILE_104, 1 },
+    { ACT_TILE_105, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
 };
 const u16 gUnk_08122402End = 0;
 const KeyValuePair gUnk_0812241C[] = {
-    { ACT_TILE_242, 1 }, { ACT_TILE_101, 1 }, { ACT_TILE_103, 1 }, { ACT_TILE_105, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+    { ACT_TILE_242, 1 }, { ACT_TILE_101, 1 }, { ACT_TILE_103, 1 },
+    { ACT_TILE_105, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
 };
 const u16 gUnk_0812241CEnd = 0;
 const KeyValuePair gUnk_08122436[] = {
-    { ACT_TILE_243, 1 }, { ACT_TILE_102, 1 }, { ACT_TILE_106, 1 }, { ACT_TILE_103, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+    { ACT_TILE_243, 1 }, { ACT_TILE_102, 1 }, { ACT_TILE_106, 1 },
+    { ACT_TILE_103, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
 };
 const u16 gUnk_08122436End = 0;

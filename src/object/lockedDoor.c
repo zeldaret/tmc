@@ -15,7 +15,6 @@
 #include "sound.h"
 #include "tiles.h"
 
-
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unused1[8];

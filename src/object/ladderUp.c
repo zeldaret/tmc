@@ -66,8 +66,7 @@ void LadderUp(Entity* this) {
         default:
             if (this->type2 == 0) {
                 if (gPlayerEntity.base.y.HALF.HI < this->y.HALF.HI) {
-                    if (gPlayerState.floor_type != SURFACE_LADDER &&
-                        (GetTileTypeAtEntity(this) == SPECIAL_TILE_23)) {
+                    if (gPlayerState.floor_type != SURFACE_LADDER && (GetTileTypeAtEntity(this) == SPECIAL_TILE_23)) {
                         SetTile(SPECIAL_TILE_35, COORD_TO_TILE(this), this->collisionLayer);
                         RestorePrevTileEntity(COORD_TO_TILE_OFFSET(this, 0, 16), this->collisionLayer);
                     }

@@ -618,8 +618,7 @@ void (*const PushableFurniture_Actions[])(PushableFurnitureEntity*) = {
     PushableFurniture_Action2,
 };
 const u16 gUnk_08121EE4[] = {
-    SPECIAL_TILE_43, SPECIAL_TILE_34, SPECIAL_TILE_44,
-    SPECIAL_TILE_36, SPECIAL_TILE_45, SPECIAL_TILE_37,
+    SPECIAL_TILE_43, SPECIAL_TILE_34, SPECIAL_TILE_44, SPECIAL_TILE_36, SPECIAL_TILE_45, SPECIAL_TILE_37,
 };
 const u16 gUnk_08121EF0[] = {
     SPECIAL_TILE_38,

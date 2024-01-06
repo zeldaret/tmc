@@ -32,10 +32,10 @@ enum DiggingCaveEntranceType {
 
 typedef struct {
     u16 sourceTilePos; /**< Tile position for the entrance in the source room. */
-    u8 sourceRoom;          /**< @see RoomID */
-    u8 type;                /**< @see DiggingCaveEntranceType */
-    u8 targetArea;          /**< @see AreaID */
-    u8 targetRoom;          /**< @see RoomID */
+    u8 sourceRoom;     /**< @see RoomID */
+    u8 type;           /**< @see DiggingCaveEntranceType */
+    u8 targetArea;     /**< @see AreaID */
+    u8 targetRoom;     /**< @see RoomID */
     u16 targetTilePos; /**< Tile position for the entrance in the target room. */
 } DiggingCaveEntrance;
 

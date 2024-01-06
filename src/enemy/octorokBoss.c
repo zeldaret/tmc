@@ -690,9 +690,9 @@ void OctorokBoss_Action1_AimTowardsPlayer(OctorokBossEntity* this) {
     s32 tmp1;
     s32 tmp2;
 
-    tmp1 =
-        (u8)(CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD) -
-             (((u8)(-this->angle.HALF.HI) ^ 0x80)));
+    tmp1 = (u8)(CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD,
+                                              gPlayerEntity.base.y.WORD - super->y.WORD) -
+                (((u8)(-this->angle.HALF.HI) ^ 0x80)));
     if (IS_FROZEN(this) == FALSE) {
         tmp2 = 8;
     } else {
@@ -900,8 +900,9 @@ void OctorokBoss_ExecuteAttackVacuum(OctorokBossEntity* this) {
 
     if (this->unk_80 == 0) {
         super->direction =
-           
-            CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD);
+
+            CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD,
+                                          gPlayerEntity.base.y.WORD - super->y.WORD);
         tmp = ((u8) - (this->angle.HALF.HI + 0x80)) - super->direction;
         if (tmp < 0) {
             tmp = -tmp;

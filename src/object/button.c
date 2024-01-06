@@ -43,7 +43,7 @@ void Button_Init(ButtonEntity* this) {
         super->collisionLayer = this->unk_84;
     }
     this->tilePos = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
-                   ((((super->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
+                    ((((super->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
     this->unk_72 = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
     if (super->type == 0 && CheckFlags(this->unk_86)) {
         super->action = 5;

@@ -8,22 +8,26 @@
  * @brief The map consists of tiles to create the world.
  *
  * GBA graphics are made out of tiles with a size of 8px by 8px. We call those tiles *subTiles*.
- * Four of those subTiles are combined together to form a bigger 16px by 16px tile (usually called metaTile). We call these *tiles*.
+ * Four of those subTiles are combined together to form a bigger 16px by 16px tile (usually called metaTile). We call
+ * these *tiles*.
  *
  * Each map can be up to 64 * 64 tiles big. The map consists of two layers of tiles gMapTop and gMapBottom.
  * To access the map array the tilePos index can be used which goes from 0 to 64 * 64 = 4096.
  * Each value in the MapLayer.mapData is a tileIndex which defined which tile of the tileSet should be used.
- * The tileSet contains tiles from 0 to 2048. Special tileIndex from 0x4000 to 0x4096 can be used to denote special tiles.
+ * The tileSet contains tiles from 0 to 2048. Special tileIndex from 0x4000 to 0x4096 can be used to denote special
+ * tiles.
  *
- * A tile is created from four subTiles. The subTiles for each tile in the tileSet are stored in MapLayer.subTiles. This is loaded for the current area from gAreaTileSets_*.
- * The subTiles can also be flipped or the palette changed. This is stored in bits 0xa to 0xf, see https://www.coranac.com/tonc/text/regbg.htm#sec-map.
+ * A tile is created from four subTiles. The subTiles for each tile in the tileSet are stored in MapLayer.subTiles. This
+ * is loaded for the current area from gAreaTileSets_*. The subTiles can also be flipped or the palette changed. This is
+ * stored in bits 0xa to 0xf, see https://www.coranac.com/tonc/text/regbg.htm#sec-map.
  *
- * Each tile in the tileSet also has a tileType defined. This is stored in MapLayer.tileTypes and loaded from gAreaTileSetTypes_*.
- * The inverse dictionary from tileType to tileIndex is stored in MapLayer.tileIndices.
+ * Each tile in the tileSet also has a tileType defined. This is stored in MapLayer.tileTypes and loaded from
+ * gAreaTileSetTypes_*. The inverse dictionary from tileType to tileIndex is stored in MapLayer.tileIndices.
  *
- * The map also stores the collision for each tile in the tileMap layer in MapLayer.collisionData. By default this is filled from gMapTileTypeToCollisionData based on the tileType of the tiles.
- * But it can also be loaded from gRoomCollisionMap_*.
- * In MapLayer.actTiles some additional type for each tile is stored which is filled from gMapTileTypeToActTile based on the tileType of the tiles.
+ * The map also stores the collision for each tile in the tileMap layer in MapLayer.collisionData. By default this is
+ * filled from gMapTileTypeToCollisionData based on the tileType of the tiles. But it can also be loaded from
+ * gRoomCollisionMap_*. In MapLayer.actTiles some additional type for each tile is stored which is filled from
+ * gMapTileTypeToActTile based on the tileType of the tiles.
  */
 
 // Maximum width or height of a map in tiles.
@@ -67,7 +71,8 @@ typedef struct {
      */
     /*0x7004*/ u16 subTiles[TILESET_SIZE * 4];
     /**
-     * Some sort of special behavior for tiles? Falling into holes or jumping off walls does not work when this is all zero.
+     * Some sort of special behavior for tiles? Falling into holes or jumping off walls does not work when this is all
+     * zero.
      * @see ActTile
      */
     /*0xb004*/ u8 actTiles[MAX_MAP_SIZE * MAX_MAP_SIZE];

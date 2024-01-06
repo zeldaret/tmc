@@ -7,8 +7,6 @@ extern u32 Random(void);
 extern u32 GetRandomByWeight(const u8*);
 extern void CloneTile(u32, u32, u32);
 
-
-
 extern void SetTile(u32 tileIndex, u32 tilePos, u32 layer);
 
 extern void UpdateScrollVram(void);
@@ -50,7 +48,6 @@ extern u32 sub_0800132C(struct Entity_*, struct Entity_*);
 extern u32 sub_0800445C(struct Entity_*);
 extern u32 CheckRectOnScreen(s32, s32, u32, u32);
 
-
 extern u32 GetTileTypeRelativeToEntity(struct Entity_* entity, s32 xOffset, s32 yOffset);
 extern u32 GetTileTypeAtEntity(struct Entity_* entity);
 extern u32 GetTileTypeAtWorldCoords(s32 worldX, s32 worldY, u32 layer);
@@ -63,7 +60,6 @@ extern u32 GetActTileAtWorldCoords(u32 worldX, u32 worldY, u32 layer);
 extern u32 GetActTileAtRoomCoords(u32 roomX, u32 roomY, u32 layer);
 extern u32 GetActTileAtRoomTile(u32 roomTileX, u32 roomTileY, u32 layer);
 extern u32 GetActTileAtTilePos(u16 tilePos, u8 layer);
-
 
 /**
  * Sets actTile for a tilePos.
@@ -95,7 +91,6 @@ extern u32 GetCollisionDataAtTilePos(u32 tilePos, u32 layer);
  * Sets the collision data for one tile.
  */
 extern void SetCollisionData(u32 collisionData, u32 tilePos, u32 layer);
-
 
 extern u32 GetActTileForTileType(u32 tileType);
 

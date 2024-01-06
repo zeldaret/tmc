@@ -89,8 +89,8 @@ typedef struct {
     u8 area;
     u8 room;
     u16 unk_02;
-    u32 enemyBits; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start in
-                  the discovered state?)*/
+    u32 enemyBits; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start
+                  in the discovered state?)*/
 } RoomMemory;
 
 extern RoomMemory* gCurrentRoomMemory;

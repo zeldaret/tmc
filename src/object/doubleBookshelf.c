@@ -188,10 +188,9 @@ void sub_0809B334(DoubleBookshelfEntity* this) {
 }
 
 void sub_0809B358(DoubleBookshelfEntity* this) {
-    static const u16 gUnk_08123D68[] = { SPECIAL_TILE_34, SPECIAL_TILE_34,  SPECIAL_TILE_116,
-                                         SPECIAL_TILE_38, SPECIAL_TILE_116, SPECIAL_TILE_116,
-                                         SPECIAL_TILE_38, SPECIAL_TILE_116, SPECIAL_TILE_34,
-                                         SPECIAL_TILE_34 };
+    static const u16 gUnk_08123D68[] = { SPECIAL_TILE_34,  SPECIAL_TILE_34,  SPECIAL_TILE_116, SPECIAL_TILE_38,
+                                         SPECIAL_TILE_116, SPECIAL_TILE_116, SPECIAL_TILE_38,  SPECIAL_TILE_116,
+                                         SPECIAL_TILE_34,  SPECIAL_TILE_34 };
     s32 index;
     const u16* array = &gUnk_08123D68[this->unk_84];
     u32 tilePos = this->tilePos + TILE_POS(-2, -2);

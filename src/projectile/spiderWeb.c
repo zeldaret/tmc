@@ -246,8 +246,7 @@ void sub_080AA9E0(Entity* this) {
 }
 
 void sub_080AAA68(Entity* this) {
-    static const u16 typeTiles[] = { SPECIAL_TILE_35, SPECIAL_TILE_37, SPECIAL_TILE_38,
-                                     SPECIAL_TILE_36 };
+    static const u16 typeTiles[] = { SPECIAL_TILE_35, SPECIAL_TILE_37, SPECIAL_TILE_38, SPECIAL_TILE_36 };
     SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 

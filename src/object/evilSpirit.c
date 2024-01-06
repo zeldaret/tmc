@@ -82,11 +82,13 @@ void EvilSpirit_Action1(EvilSpiritEntity* this) {
             this->unk76 = this->unk7c;
             this->unk7a = this->unk7c;
             super->speed = 0x300;
-            super->direction =
-                CalculateDirectionFromOffsets(super->parent->x.WORD - super->x.WORD, super->parent->y.WORD - super->y.WORD) ^ 0x80;
+            super->direction = CalculateDirectionFromOffsets(super->parent->x.WORD - super->x.WORD,
+                                                             super->parent->y.WORD - super->y.WORD) ^
+                               0x80;
         } else {
             super->speed = 0x600;
-            dir = CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD, gPlayerEntity.base.y.WORD - super->y.WORD) ^
+            dir = CalculateDirectionFromOffsets(gPlayerEntity.base.x.WORD - super->x.WORD,
+                                                gPlayerEntity.base.y.WORD - super->y.WORD) ^
                   0x80;
             if (dir != super->direction) {
                 if ((u8)(dir - super->direction) > 0x80) {

@@ -425,7 +425,7 @@ bool32 sub_0803086C(ArmosEntity* this) {
             centerY = super->y.HALF_U.HI - gRoomControls.origin_y;
             // TODO for some reason the 0x3f of COORD_TO_TILE(super) needs to be forced to r2 here.
             tilePos = ((((((super)->x.HALF.HI) - gRoomControls.origin_x) >> 4) & (r2 = 0x3f)) |
-                           (((((super)->y.HALF.HI) - gRoomControls.origin_y) >> 4) & r2) << 6);
+                       (((((super)->y.HALF.HI) - gRoomControls.origin_y) >> 4) & r2) << 6);
 
             if (GetTileTypeAtTilePos(tilePos, super->collisionLayer) == SPECIAL_TILE_73) {
                 if (CheckPlayerInRegion(centerX, centerY, 2, 0xc) != 0) {
