@@ -163,4 +163,10 @@ struct Entity_;
 #define BIT(bit) (1 << (bit))
 #define IS_BIT_SET(value, bit) ((value)&BIT(bit))
 
+/**
+ * Multi return function data type casts
+ */
+typedef u64 (*MultiReturnTypeSingleEntityArg)(struct Entity_*);
+typedef s64 (*MultiReturnTypeTwoS32Arg)(s32, s32);
+
 #endif // GLOBAL_H
