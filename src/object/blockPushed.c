@@ -4,8 +4,10 @@
  *
  * @brief Block Pushed object
  */
+#include "area.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -24,11 +26,11 @@ void BlockPushed(BlockPushedEntity* this) {
 
 void BlockPushed_Init(BlockPushedEntity* this) {
     u16 tmp;
-    u32 pos;
+    u32 tilePos;
 
-    if (gRoomControls.area == 0x11) {
+    if (gRoomControls.area == AREA_MINISH_PATHS) {
         UnloadGFXSlots(super);
-        if (LoadFixedGFX(super, 0x1c1) == 0) {
+        if (LoadFixedGFX(super, 449) == 0) {
             super->spriteSettings.draw = 0;
             return;
         }
@@ -38,50 +40,50 @@ void BlockPushed_Init(BlockPushedEntity* this) {
     super->timer = 32;
     super->speed = 0x80;
     super->spritePriority.b0 = 6;
-    pos = COORD_TO_TILE(super);
+    tilePos = COORD_TO_TILE(super);
     tmp = super->type * 8;
     super->x.HALF.HI += tmp;
     super->y.HALF.HI += tmp;
     super->hitbox = (Hitbox*)gUnk_0811F64C[super->type];
-    this->unk_68 = GetTileType(pos, (u32)super->collisionLayer);
+    this->unk_68 = GetTileTypeAtTilePos(tilePos, super->collisionLayer);
     switch (super->type) {
         case 0:
-            sub_080832D8(pos, this);
+            sub_080832D8(tilePos, this);
             break;
         case 1:
-            sub_080832D8(pos, this);
-            sub_080832D8(pos + 1, this);
-            sub_080832D8(pos + 0x40, this);
-            sub_080832D8(pos + 0x41, this);
+            sub_080832D8(tilePos, this);
+            sub_080832D8(tilePos + 1, this);
+            sub_080832D8(tilePos + 0x40, this);
+            sub_080832D8(tilePos + 0x41, this);
             break;
         case 2:
-            sub_080832D8(pos, this);
-            sub_080832D8(pos + 1, this);
-            sub_080832D8(pos + 2, this);
-            sub_080832D8(pos + 0x40, this);
-            sub_080832D8(pos + 0x41, this);
-            sub_080832D8(pos + 0x42, this);
-            sub_080832D8(pos + 0x80, this);
-            sub_080832D8(pos + 0x81, this);
-            sub_080832D8(pos + 0x82, this);
+            sub_080832D8(tilePos, this);
+            sub_080832D8(tilePos + 1, this);
+            sub_080832D8(tilePos + 2, this);
+            sub_080832D8(tilePos + 0x40, this);
+            sub_080832D8(tilePos + 0x41, this);
+            sub_080832D8(tilePos + 0x42, this);
+            sub_080832D8(tilePos + 0x80, this);
+            sub_080832D8(tilePos + 0x81, this);
+            sub_080832D8(tilePos + 0x82, this);
             break;
         default:
-            sub_080832D8(pos, this);
-            sub_080832D8(pos + 1, this);
-            sub_080832D8(pos + 2, this);
-            sub_080832D8(pos + 3, this);
-            sub_080832D8(pos + 0x40, this);
-            sub_080832D8(pos + 0x41, this);
-            sub_080832D8(pos + 0x42, this);
-            sub_080832D8(pos + 0x43, this);
-            sub_080832D8(pos + 0x80, this);
-            sub_080832D8(pos + 0x81, this);
-            sub_080832D8(pos + 0x82, this);
-            sub_080832D8(pos + 0x83, this);
-            sub_080832D8(pos + 0xc0, this);
-            sub_080832D8(pos + 0xc1, this);
-            sub_080832D8(pos + 0xc2, this);
-            sub_080832D8(pos + 0xc3, this);
+            sub_080832D8(tilePos, this);
+            sub_080832D8(tilePos + 1, this);
+            sub_080832D8(tilePos + 2, this);
+            sub_080832D8(tilePos + 3, this);
+            sub_080832D8(tilePos + 0x40, this);
+            sub_080832D8(tilePos + 0x41, this);
+            sub_080832D8(tilePos + 0x42, this);
+            sub_080832D8(tilePos + 0x43, this);
+            sub_080832D8(tilePos + 0x80, this);
+            sub_080832D8(tilePos + 0x81, this);
+            sub_080832D8(tilePos + 0x82, this);
+            sub_080832D8(tilePos + 0x83, this);
+            sub_080832D8(tilePos + 0xc0, this);
+            sub_080832D8(tilePos + 0xc1, this);
+            sub_080832D8(tilePos + 0xc2, this);
+            sub_080832D8(tilePos + 0xc3, this);
             break;
     }
     EnqueueSFX(SFX_10F);
@@ -145,18 +147,18 @@ void sub_080830B8(BlockPushedEntity* this) {
     DeleteEntity(super);
 }
 
-void sub_080832D8(u32 param_1, BlockPushedEntity* this) {
+void sub_080832D8(u32 tilePos, BlockPushedEntity* this) {
     if (super->collisionLayer != 2) {
         if ((super->direction & 8) != 0) {
-            sub_0807B7D8(0x21, param_1, super->collisionLayer);
+            sub_0807B7D8(TILE_TYPE_33, tilePos, super->collisionLayer);
         } else {
-            sub_0807B7D8(0x20, param_1, super->collisionLayer);
+            sub_0807B7D8(TILE_TYPE_32, tilePos, super->collisionLayer);
         }
     } else {
         if ((super->direction & 8) != 0) {
-            sub_0807B7D8(0x2f, param_1, super->collisionLayer);
+            sub_0807B7D8(TILE_TYPE_47, tilePos, super->collisionLayer);
         } else {
-            sub_0807B7D8(0x2e, param_1, super->collisionLayer);
+            sub_0807B7D8(TILE_TYPE_46, tilePos, super->collisionLayer);
         }
     }
 }

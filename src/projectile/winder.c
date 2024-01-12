@@ -117,14 +117,14 @@ void Winder_SetPositions(WinderEntity* this) {
 }
 
 bool32 Winder_CheckForRailings(WinderEntity* this, u32 dir) {
-    u32 tile;
+    u32 tilePos;
     u32 val;
-    LayerStruct* layer = GetTileBuffer(super->collisionLayer);
+    MapLayer* mapLayer = GetLayerByIndex(super->collisionLayer);
     u32 collisionData;
 
-    tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    tile += gUnk_080B4488[dir >> 3];
-    collisionData = layer->collisionData[tile];
+    tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    tilePos += gUnk_080B4488[dir >> 3];
+    collisionData = mapLayer->collisionData[tilePos];
 
     if (collisionData <= 0x1F) {
         return FALSE;

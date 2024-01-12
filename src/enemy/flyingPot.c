@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "player.h"
 #include "room.h"
+#include "tiles.h"
 
 extern Hitbox gUnk_080FD34C;
 
@@ -38,26 +39,26 @@ enum FlyingPotSubActions {
 };
 
 // Functions
-void FlyingPot_OnTick(FlyingPotEntity*);      // 0803708C
-void FlyingPot_OnCollision(FlyingPotEntity*); // 080370A4
-void FlyingPot_OnGrabbed(FlyingPotEntity*);   // 0803712C
+void FlyingPot_OnTick(FlyingPotEntity*);
+void FlyingPot_OnCollision(FlyingPotEntity*);
+void FlyingPot_OnGrabbed(FlyingPotEntity*);
 
 // Subactions
-void FlyingPot_SubAction0(FlyingPotEntity*); // 08037144
-void FlyingPot_SubAction1(FlyingPotEntity*); // 0803715C
-void FlyingPot_SubAction2(FlyingPotEntity*); // 0803718C
-void FlyingPot_SubAction3(FlyingPotEntity*); // 080371F8
+void FlyingPot_SubAction0(FlyingPotEntity*);
+void FlyingPot_SubAction1(FlyingPotEntity*);
+void FlyingPot_SubAction2(FlyingPotEntity*);
+void FlyingPot_SubAction3(FlyingPotEntity*);
 void FlyingPot_SubActionDoNothing(FlyingPotEntity*);
-void FlyingPot_SubAction5(FlyingPotEntity*); // 08037218
+void FlyingPot_SubAction5(FlyingPotEntity*);
 
 // Actions
-void FlyingPot_Init(FlyingPotEntity*);    // ? // 08037220
-void FlyingPot_Action1(FlyingPotEntity*); // 08037280
-void FlyingPot_Action2(FlyingPotEntity*); // 080372E8
-void FlyingPot_Action3(FlyingPotEntity*); // 0803737C
-void FlyingPot_Action4(FlyingPotEntity*); // 080373B0
-void FlyingPot_Action5(FlyingPotEntity*); // 080373C8
-void FlyingPot_Action6(FlyingPotEntity*); // 080373E0
+void FlyingPot_Init(FlyingPotEntity*);
+void FlyingPot_Action1(FlyingPotEntity*);
+void FlyingPot_Action2(FlyingPotEntity*);
+void FlyingPot_Action3(FlyingPotEntity*);
+void FlyingPot_Action4(FlyingPotEntity*);
+void FlyingPot_Action5(FlyingPotEntity*);
+void FlyingPot_Action6(FlyingPotEntity*);
 
 void sub_08037408(FlyingPotEntity*);
 void sub_08037418(FlyingPotEntity*);
@@ -99,7 +100,7 @@ void FlyingPot_OnCollision(FlyingPotEntity* this) {
         super->zVelocity = Q_16_16(2.625);
         super->spritePriority.b1 = 1;
 
-        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     } else if (super->z.HALF.HI != 0) {
         sub_08037408(this);
     }
@@ -145,7 +146,7 @@ void FlyingPot_SubAction2(FlyingPotEntity* this) {
         COLLISION_OFF(super);
         super->spriteOffsetX = 0;
 
-        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
 
     if (sub_0806F520(super)) {
@@ -169,23 +170,23 @@ void FlyingPot_SubAction5(FlyingPotEntity* this) {
 }
 
 void FlyingPot_Init(FlyingPotEntity* this) {
-    u32 tile;
+    u32 tilePos;
 
     super->action = FLYING_POT_ACTION_1;
     super->gustJarFlags = 2;
     super->y.HALF.HI += 3;
 
-    tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    this->tileIndex = GetTileIndex(tile, super->collisionLayer);
-    SetBottomTile(0x4000, tile, super->collisionLayer);
+    tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    this->tileIndex = GetTileIndex(tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_0, tilePos, super->collisionLayer);
     InitializeAnimation(super, 5);
 }
 
 void FlyingPot_Action1(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (GetTileTypeByEntity(super) != 0x4000) {
-        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    if (GetTileTypeAtEntity(super) != SPECIAL_TILE_0) {
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
         sub_08037408(this);
     }
 
@@ -210,7 +211,7 @@ void FlyingPot_Action2(FlyingPotEntity* this) {
         super->collisionMask = 0xF;
         super->hitbox = &gUnk_080FD34C;
 
-        SetBottomTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
 }
 
@@ -254,10 +255,10 @@ void sub_08037408(FlyingPotEntity* this) {
 }
 
 void sub_08037418(FlyingPotEntity* this) {
-    u32 tile = COORD_TO_TILE(super);
+    u32 tilePos = COORD_TO_TILE(super);
 
-    if (GetTileIndex(tile, super->collisionLayer) == 0x4067) {
-        SetBottomTile(this->tileIndex, tile, super->collisionLayer);
+    if (GetTileIndex(tilePos, super->collisionLayer) == SPECIAL_TILE_103) {
+        SetTile(this->tileIndex, tilePos, super->collisionLayer);
         DeleteThisEntity();
     }
 }

@@ -20,8 +20,6 @@
 extern void ClearArmosData(void);
 extern void sub_080300C4(void);
 
-extern u8 gUnk_02017700[];
-
 bool32 sub_0804AD18(void);
 void sub_0804AD6C(RoomControls*);
 bool32 sub_0804ACA8(void);
@@ -185,8 +183,8 @@ void Subtask_PortalCutscene_0(void) {
     ptr = &gUnk_080D4138[portalId];
     LoadPaletteGroup(ptr->paletteGroup);
     LoadGfxGroup(ptr->gfxGroup);
-    MemCopy(&gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
-    gUsedPalettes |= 0x200000;
+    MemCopy(gPaletteBuffer + 3 * 16, gPaletteBuffer + 21 * 16, 16 * 2);
+    gUsedPalettes |= 1 << 21;
     EraseAllEntities();
     LoadRoomEntityList(gUnk_080D4110[portalId]);
     ClearEventPriority();

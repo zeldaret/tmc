@@ -1,17 +1,17 @@
 /**
- * @file minishVillageTilesetManager.c
+ * @file minishVillageTileSetManager.c
  * @ingroup Managers
  *
- * @brief Swap tileset data in minish village depending on the position
+ * @brief Swap tileSet data in minish village depending on the position
  */
-#include "manager/minishVillageTilesetManager.h"
+#include "manager/minishVillageTileSetManager.h"
 #include "asm.h"
 #include "common.h"
 #include "functions.h"
 #include "main.h"
 
 void sub_08057E30(void*);
-bool32 sub_08057E40(MinishVillageTilesetManager*);
+bool32 sub_08057E40(MinishVillageTileSetManager*);
 void sub_08057E7C(u32);
 
 extern const u8 gGlobalGfxAndPalettes[];
@@ -54,7 +54,7 @@ const u32 gUnk_081080A4[0x50] = {
 const u8 gUnk_081081E4[] = { 0x16, 0x17, 0x17, 0x18, 0x18 };
 
 #ifdef EU
-void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
+void MinishVillageTileSetManager_Main(MinishVillageTileSetManager* this) {
     u32 tmp;
     const u32* tmp2;
     s32 tmp3;
@@ -103,7 +103,7 @@ void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
     }
 }
 #else
-void MinishVillageTilesetManager_Main(MinishVillageTilesetManager* this) {
+void MinishVillageTileSetManager_Main(MinishVillageTileSetManager* this) {
     u32 tmp;
     const u32* tmp2;
     if (super->action == 0) {
@@ -156,7 +156,7 @@ void sub_08057E30(void* this) {
     sub_08057E7C(gRoomVars.graphicsGroups[0]);
 }
 
-bool32 sub_08057E40(MinishVillageTilesetManager* this) {
+bool32 sub_08057E40(MinishVillageTileSetManager* this) {
     u32 tmp = CheckRegionsOnScreen(gUnk_08108050);
     if (tmp != 0xFF) {
         gRoomVars.graphicsGroups[0] = tmp;

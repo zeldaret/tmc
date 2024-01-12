@@ -1,12 +1,14 @@
 #include "main.h"
 #include "assets/aif.h"
 #include "assets/animation.h"
+#include "assets/dungeonmap.h"
 #include "assets/frameobjlists.h"
 #include "assets/gfx.h"
+#include "assets/map.h"
 #include "assets/midi.h"
 #include "assets/palette.h"
 #include "assets/spriteframe.h"
-#include "assets/tileset.h"
+#include "assets/subtileset.h"
 #include "offsets.h"
 #include <filesystem>
 #include <fstream>
@@ -262,8 +264,8 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
     }
 
     std::unique_ptr<BaseAsset> assetHandler;
-    if (type == "tileset") {
-        assetHandler = std::make_unique<TilesetAsset>(path, start, size, asset);
+    if (type == "subTileSet") {
+        assetHandler = std::make_unique<SubTileSetAsset>(path, start, size, asset);
     } else if (type == "animation") {
         assetHandler = std::make_unique<AnimationAsset>(path, start, size, asset);
     } else if (type == "sprite_frame") {
@@ -278,17 +280,21 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         assetHandler = std::make_unique<GfxAsset>(path, start, size, asset);
     } else if (type == "palette") {
         assetHandler = std::make_unique<PaletteAsset>(path, start, size, asset);
-    } else if (type == "map_gfx" || type == "map_layer1" || type == "map_layer2" || type == "metatiles_tile_types1" ||
-               type == "metatiles_tile_types2" || type == "metatiles_tileset1" || type == "metatiles_tileset2" ||
-               type == "map_mapping1" || type == "map_mapping2" || type == "tileset_mapping3" ||
-               type == "map_collision" || type == "unknown") {
+    } else if (type == "tileMap" ||
+               type == "tileSet_types" || type == "tileSet" ||
+               type == "map_mapping1" || type == "map_mapping2" ||
+               type == "map_collision") {
+        assetHandler = std::make_unique<MapAsset>(path, start, size, asset);
+    } else if (type == "dungeon_map") {
+        assetHandler = std::make_unique<DungeonMapAsset>(path, start, size, asset);
+    } else if (type == "unknown") {
         // TODO implement conversions
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
     } else if (type.empty()) {
         // Unknown binary asset
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
     } else {
-        fmt::print(stderr, "Error: Unimplemented asset type \"{}\"", type);
+        fmt::print(stderr, "Error: Unimplemented asset type \"{}\"\n", type);
         std::exit(1);
     }
     assetHandler->setup();

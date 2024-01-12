@@ -16,7 +16,7 @@ const u8 gMapDirectionToAnimationState4[];
 
 extern u16 gExtraFrameOffsets[];
 extern s8 gUnk_08126EE4[];
-extern const u16 gUnk_080046A4[];
+extern const KeyValuePair gUnk_080046A4[];
 extern const u16 gUnk_080047F6[];
 
 static void sub_0806FEE8(struct_gUnk_020000C0_1*, u32, u32, u32);
@@ -113,6 +113,7 @@ void sub_0806F4E8(Entity* ent) {
     }
 }
 
+// TODO isSuckedInByGustJar?
 bool32 sub_0806F520(Entity* ent) {
     if (ent->contactFlags == (CONTACT_NOW | 0x13))
         return 1;
@@ -232,8 +233,8 @@ bool32 sub_0806F854(Entity* ent, s32 x, s32 y) {
 bool32 sub_0806F8DC(Entity* ent) {
     if (ent->collisionLayer & 2)
         return FALSE;
-    if (!GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, 2)) {
-        GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, ent->collisionLayer);
+    if (!GetTileTypeAtWorldCoords(ent->x.HALF.HI, ent->y.HALF.HI - 4, 2)) {
+        GetTileTypeAtWorldCoords(ent->x.HALF.HI, ent->y.HALF.HI - 4, ent->collisionLayer);
         ent->spriteRendering.b3 = 1;
         ent->spriteOrientation.flipY = 1;
         return FALSE;
@@ -402,7 +403,7 @@ bool32 CheckPlayerProximity(u32 x, u32 y, u32 distX, u32 DistY) {
 }
 
 bool32 sub_0806FC24(u32 param_1, u32 param_2) {
-    u32 val = ActTileToTile(param_1, gUnk_080046A4);
+    u32 val = FindValueForKey(param_1, gUnk_080046A4);
     if (!val)
         return 0;
 
@@ -411,7 +412,7 @@ bool32 sub_0806FC24(u32 param_1, u32 param_2) {
 
 const u16* sub_0806FC50(u32 param_1, u32 param_2) {
     const u16* rv;
-    u32 val = ActTileToTile(param_1, gUnk_080046A4);
+    u32 val = FindValueForKey(param_1, gUnk_080046A4);
     if (!val || ((gUnk_080047F6[val << 2] >> param_2) & 0x1) == 0) {
         rv = 0;
     } else {
@@ -440,8 +441,8 @@ u32 sub_0806FCAC(Entity* this, Entity* other) {
     return GetAnimationStateForDirection8(GetFacingDirection(this, other));
 }
 
-bool32 EntityWithinDistance(Entity* ent, s32 x, s32 y, s32 distance) {
-    return PointInsideRadius(ent->x.HALF.HI - x, ent->y.HALF.HI - y, distance);
+bool32 EntityWithinDistance(Entity* entity, s32 x, s32 y, s32 distance) {
+    return PointInsideRadius(entity->x.HALF.HI - x, entity->y.HALF.HI - y, distance);
 }
 
 bool32 PointInsideRadius(s32 x, s32 y, s32 distance) {

@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "item.h"
 #include "playeritem.h"
+#include "tiles.h"
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* this, u32);
 
@@ -11,7 +12,7 @@ void ItemGustJar(ItemBehavior* this, u32 index) {
 }
 
 void sub_08076DF4(ItemBehavior* this, u32 index) {
-    if (GetCollisionTileInFront(&gPlayerEntity.base) != 0x29 && gPlayerState.floor_type != SURFACE_DOOR &&
+    if (GetActTileInFront(&gPlayerEntity.base) != ACT_TILE_41 && gPlayerState.floor_type != SURFACE_DOOR &&
         gPlayerState.floor_type != SURFACE_DOOR_13 && gPlayerState.jump_status == 0) {
         sub_08077D38(this, index);
         this->timer = 0;

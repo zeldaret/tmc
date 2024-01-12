@@ -9,7 +9,7 @@ SCRIPT_START script_ForestMinish5
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000200
 	DoPostScriptAction 0x0007
-	_0807EDD4 0x0208, 0x0308
+	MoveTo 0x0208, 0x0308
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000400
@@ -22,13 +22,13 @@ SCRIPT_START script_ForestMinish5
 	WaitForSyncFlagAndClear 0x00000200
 	SetEntitySpeed 0x0200
 	DoPostScriptAction 0x000f
-	_0807EDD4 0x0208, 0x0328
+	MoveTo 0x0208, 0x0328
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000400
 	WaitForSyncFlagAndClear 0x00000200
 	SetEntitySpeed 0x0300
 	DoPostScriptAction 0x000f
-	_0807EDD4 0x0208, 0x02b0
+	MoveTo 0x0208, 0x02b0
 	SetSyncFlag 0x00000400
 	DoPostScriptAction 0x0006
 SCRIPT_END

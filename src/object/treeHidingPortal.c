@@ -12,6 +12,7 @@
 #include "player.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -59,7 +60,7 @@ void TreeHidingPortal_Action1(TreeHidingPortalEntity* this) {
             }
         }
     }
-    if (sub_0809E9A0() == 0x54) {
+    if (sub_0809E9A0() == ACT_TILE_84) {
         super->action = 2;
         super->timer = 15;
         SetPlayerControl(1);
@@ -109,15 +110,15 @@ static void sub_0809E96C(TreeHidingPortalEntity* this) {
 }
 
 static u32 sub_0809E9A0(void) {
-    u32 rv;
+    u32 actTile;
     const s16* ptr;
 
     if (gPlayerEntity.base.action != PLAYER_BOUNCE) {
-        rv = 0;
+        actTile = ACT_TILE_0;
     } else {
         ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
-        rv = sub_080B1AE0(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
+        actTile = GetActTileAtTilePos(COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]), 1);
     }
 
-    return rv;
+    return actTile;
 }

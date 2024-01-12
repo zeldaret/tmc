@@ -26,14 +26,14 @@ void TileChangeObserveManager_Main(TileChangeObserveManager* this) {
 }
 
 void TileChangeObserveManager_Init(TileChangeObserveManager* this) {
-    u16* tile;
+    u16* tileIndex;
     if (CheckFlags(this->flag) != 0) {
         DeleteThisEntity();
     } else {
         super->action = 1;
-        tile = &GetTileBuffer(this->field_0x3a)->mapData[this->tilePosition];
-        this->observedTile = tile;
-        this->initialTile = tile[0];
+        tileIndex = &GetLayerByIndex(this->field_0x3a)->mapData[this->tilePos];
+        this->observedTile = tileIndex;
+        this->initialTile = tileIndex[0];
     }
 }
 

@@ -36,17 +36,3 @@ gUnk_08127D10:: @ 08127D10
 	.4byte StaffrollTask_State1MenuType7
 
 @ End of staffroll
-
-
-@ game.c
-gAreaMetadata:: @ 08127D30
-.ifdef EU
-    @ TODO only small differences
-	.incbin "data_08127280/gAreaMetadata_EU.bin"
-.else
-	.incbin "data_08127280/gAreaMetadata_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-@ game.c, subtask2.c
-gUnk_08127F94:: @ 08127F94
-	.incbin "data_08127280/gUnk_08127F94.bin"

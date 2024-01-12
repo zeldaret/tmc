@@ -16,9 +16,9 @@ SCRIPT_START script_Goron4Kinstone4
 	SetSyncFlag 0x0000001c
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0088, 0x0188
-	_0807EDD4 0x00a8, 0x0188
-	_0807EDD4 0x00a8, 0x0178
+	MoveTo 0x0088, 0x0188
+	MoveTo 0x00a8, 0x0188
+	MoveTo 0x00a8, 0x0178
 	Wait 0x000f
 	SetSyncFlag 0x0000001c
 	DoPostScriptAction 0x000f
@@ -32,6 +32,6 @@ SCRIPT_START script_Goron4Kinstone4
 	Wait 0x003c
 	SetSyncFlag 0x0000001c
 	SetEntitySpeed 0x0080
-	_0807EEF4 0x0000, -32
+	MoveToOffset 0x0000, -32
 	Call sub_08054968
 SCRIPT_END

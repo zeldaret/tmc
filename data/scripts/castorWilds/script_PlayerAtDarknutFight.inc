@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerAtDarknutFight
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x00e0
-	_0807EDD4 0x0088, 0x0090
+	MoveTo 0x0088, 0x0090
 	ClearLocalFlag 0x0039
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0004

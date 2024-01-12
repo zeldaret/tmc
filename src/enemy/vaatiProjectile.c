@@ -7,6 +7,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "screenTransitions.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -281,10 +282,8 @@ bool32 sub_0803E4A0(VaatiProjectileEntity* this) {
 }
 
 void sub_0803E4D8(VaatiProjectileEntity* this) {
-    u32 tile;
-
-    tile = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
-    if (sub_080B1B44(tile, gPlayerEntity.base.collisionLayer) != 0xff) {
-        SetBottomTile(0x4074, tile, gPlayerEntity.base.collisionLayer);
+    u32 tilePos = TILE(super->x.HALF.HI, super->y.HALF.HI + 8);
+    if (GetCollisionDataAtTilePos(tilePos, gPlayerEntity.base.collisionLayer) != COLLISION_DATA_255) {
+        SetTile(SPECIAL_TILE_116, tilePos, gPlayerEntity.base.collisionLayer);
     }
 }

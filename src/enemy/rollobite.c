@@ -9,6 +9,7 @@
 #include "physics.h"
 #include "player.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -249,11 +250,11 @@ void sub_08020A30(RollobiteEntity* this) {
 }
 
 void sub_08020A7C(RollobiteEntity* this) {
-    int tmp = Random();
+    s32 tmp = Random();
     u32 state = DirectionRound(super->direction + gUnk_080CA6D4[tmp % 3]);
 
     if (sub_08049FA0(super) == 0) {
-        int tmp = DirectionRoundUp(sub_08049EE4(super));
+        u32 tmp = DirectionRoundUp(sub_08049EE4(super));
         if ((state ^ DirectionSouth) == tmp)
             state ^= DirectionSouth;
     }
@@ -265,9 +266,9 @@ void sub_08020A7C(RollobiteEntity* this) {
 
 bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
     if (Rollobite_IsRolledUp(this) && super->z.HALF.HI == 0) {
-        int tile = COORD_TO_TILE(super);
-        int iVar1 = GetTileType(tile, super->collisionLayer);
-        if ((iVar1 * 0x10000 - 0x710000U) >> 0x10 < 2) {
+        u32 tilePos = COORD_TO_TILE(super);
+        u32 tileType = GetTileTypeAtTilePos(tilePos, super->collisionLayer);
+        if ((tileType * 0x10000 - 0x710000U) >> 0x10 < 2) {
             super->action = 6;
             COLLISION_OFF(super);
             super->x.HALF.HI &= 0xfff0;
@@ -276,7 +277,7 @@ bool32 Rollobite_TryToHoleUp(RollobiteEntity* this) {
             super->y.HALF.HI += 13;
             super->zVelocity = Q_16_16(2.0);
             InitializeAnimation(super, super->animationState + 0x14);
-            SetBottomTile(0x4034, tile, super->collisionLayer);
+            SetTile(SPECIAL_TILE_52, tilePos, super->collisionLayer);
             return TRUE;
         }
     }

@@ -10,23 +10,24 @@
 #include "asm.h"
 #include "functions.h"
 #include "room.h"
+#include "tiles.h"
 
 void FlameManager_Main(FlameManager* this) {
     if (super->action == 0) {
-        this->field_0x38 = TILE(this->field_0x38, this->field_0x3a);
-        if (GetTileType(this->field_0x38, 2) == 0x75) {
+        this->x = TILE(this->x, this->y);
+        if (GetTileTypeAtTilePos(this->x, LAYER_TOP) == TILE_TYPE_117) {
             super->action = 1;
-            SetBottomTile(0x406a, this->field_0x38, 1);
+            SetTile(SPECIAL_TILE_106, this->x, LAYER_BOTTOM);
         } else {
             DeleteThisEntity();
         }
     }
-    if (GetTileType(this->field_0x38, 1) == 0x406b) {
-        sub_0807B7D8(0x76, this->field_0x38, 2);
+    if (GetTileTypeAtTilePos(this->x, LAYER_BOTTOM) == SPECIAL_TILE_107) {
+        sub_0807B7D8(TILE_TYPE_118, this->x, LAYER_TOP);
         DeleteThisEntity();
     }
-    if (GetTileType(this->field_0x38, 2) == 0x76) {
-        SetBottomTile(0x406b, this->field_0x38, 1);
+    if (GetTileTypeAtTilePos(this->x, LAYER_TOP) == TILE_TYPE_118) {
+        SetTile(SPECIAL_TILE_107, this->x, LAYER_BOTTOM);
         DeleteThisEntity();
     }
 }

@@ -25,7 +25,7 @@ typedef struct {
     u8 field_0x35;
     u8 field_0x36;
     u8 field_0x37;
-    u16 tilePosition;
+    u16 tilePos;
     u16 field_0x3a;
     u8 field_0x3c;
     u8 field_0x3d;

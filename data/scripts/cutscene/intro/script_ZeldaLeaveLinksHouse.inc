@@ -4,12 +4,12 @@ SCRIPT_START script_ZeldaLeaveLinksHouse
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0006
 	EndBlock
-	_0807EDD4 0x0078, 0x0060
-	_0807EDD4 0x0078, 0x007c
+	MoveTo 0x0078, 0x0060
+	MoveTo 0x0078, 0x007c
 	Wait 0x001e
 	Call sub_0805368C
 	Wait 0x0008
-	_0807EDD4 0x0078, 0x0098
+	MoveTo 0x0078, 0x0098
 	DoPostScriptAction 0x0008
 	SetFadeTime 0x0010
 	SetFade5

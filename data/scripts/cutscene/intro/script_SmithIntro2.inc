@@ -14,7 +14,7 @@ SCRIPT_START script_SmithIntro2
 	StartPlayerScript script_PlayerMoveToSmith
 	Call DisablePauseMenuAndPutAwayItems
 	WaitForSyncFlagAndClear 0x00000008
-	_0807EDD4 0x0080, 0x005c
+	MoveTo 0x0080, 0x005c
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	Wait 0x000f
@@ -32,10 +32,10 @@ SCRIPT_START script_SmithIntro2
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000008
-	_0807EDD4 0x007c, 0x005c
+	MoveTo 0x007c, 0x005c
 	Wait 0x000f
 	DoPostScriptAction 0x000d
-	_0807EDD4 0x0084, 0x005c
+	MoveTo 0x0084, 0x005c
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x000c
 	DoPostScriptAction 0x0000

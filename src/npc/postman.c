@@ -328,7 +328,7 @@ void sub_08060700(PostmanEntity* this, ScriptExecutionContext* context) {
     const Coords* coords = &gUnk_0810A66C[var0[(s8)this->unk_69]];
     u32 x = coords->HALF.x + gRoomControls.origin_x;
     u32 y = coords->HALF.y + gRoomControls.origin_y;
-    sub_0807DEDC(super, context, x, y);
+    LookAt(super, context, x, y);
     gActiveScriptInfo.flags |= 1;
 }
 

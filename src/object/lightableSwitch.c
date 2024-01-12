@@ -12,6 +12,7 @@
 #include "object.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -99,7 +100,7 @@ static void sub_0809EAD8(LightableSwitchEntity* this) {
         UpdateRailMovement(super, (u16**)&super->child, &this->unk_74);
 
     } else {
-        SetBottomTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_80, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
 

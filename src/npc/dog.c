@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "item.h"
 #include "npc.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -235,7 +236,7 @@ void sub_08069B44(DogEntity* this) {
             super->action = 4;
         }
         if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
-            SetBottomTile(0x4072, TILE(super->x.HALF.HI, super->y.HALF.HI - 8), super->collisionLayer);
+            SetTile(SPECIAL_TILE_114, TILE(super->x.HALF.HI, super->y.HALF.HI - 8), super->collisionLayer);
         }
     }
 }

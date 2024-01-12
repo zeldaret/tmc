@@ -3,6 +3,7 @@
  *
  * @brief Game Utils
  */
+#include "area.h"
 #include "backgroundAnimations.h"
 #include "enemy.h"
 #include "entity.h"
@@ -32,9 +33,9 @@ void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 void sub_080532E4(void);
 void ResetTimerFlags(void);
 
-extern void** gAreaTilesets[];
+extern void** gAreaTileSets[];
 extern void** gAreaRoomMaps[];
-extern void* gAreaMetatiles[];
+extern void* gAreaTiles[];
 extern void** gAreaTable[];
 
 typedef struct {
@@ -162,17 +163,17 @@ void InitializePlayer(void) {
 
 bool32 AreaIsOverworld(void) {
 #ifdef EU
-    return gArea.areaMetadata == 0x01;
+    return gArea.areaMetadata == AR_IS_OVERWORLD;
 #else
-    return gArea.areaMetadata == 0x81;
+    return gArea.areaMetadata == (AR_ALLOWS_WARP | AR_IS_OVERWORLD);
 #endif
 }
 
 bool32 CheckAreaOverworld(u32 area) {
 #if EU
-    return gAreaMetadata[area].flags == 0x01;
+    return gAreaMetadata[area].flags == AR_IS_OVERWORLD;
 #else
-    return gAreaMetadata[area].flags == 0x81;
+    return gAreaMetadata[area].flags == (AR_ALLOWS_WARP | AR_IS_OVERWORLD);
 #endif
 }
 
@@ -272,20 +273,20 @@ bool32 HasDungeonMap(void) {
 }
 
 extern u8 gPaletteBufferBackup[];
-void RestoreGameTask(u32 a1) {
+void RestoreGameTask(bool32 loadGfx) {
     LoadGfxGroups();
 #ifndef EU
     CleanUpGFXSlots();
 #endif
     sub_080ADE24();
     InitUI(TRUE);
-    sub_0801AE44(a1);
+    sub_0801AE44(loadGfx);
     MemCopy(gPaletteBufferBackup, gPaletteBuffer, 1024);
     gUsedPalettes = 0xffffffff;
 }
 
 void LoadRoomBgm(void) {
-    gArea.queued_bgm = gAreaMetadata[gRoomControls.area]._3;
+    gArea.queued_bgm = gAreaMetadata[gRoomControls.area].queueBgm;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
         gArea.queued_bgm = BGM_FIGHT_THEME2;
     }
@@ -429,7 +430,7 @@ bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
     if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED ||
-        gPauseMenuOptions.disabled || gUnk_0200AF00.unk_1)
+        gPauseMenuOptions.disabled || gHUD.hideFlags != HUD_HIDE_NONE)
         return FALSE;
 
     if ((gPlayerState.flags & (PL_NO_CAP | PL_CAPTURED | PL_DISABLE_ITEMS)) || (gPlayerState.framestate_last > tmp) ||
@@ -510,7 +511,7 @@ void SetDungeonMapPos(u32 area, u32 room, u32 x, u32 y) {
 }
 
 void InitRoom(void) {
-    AreaHeader* a_hdr = NULL;
+    const AreaHeader* a_hdr = NULL;
 
     MemClear(&gArea, sizeof gArea);
     a_hdr = &gAreaMetadata[gRoomControls.area];
@@ -526,7 +527,7 @@ void InitRoom(void) {
 }
 
 u32 GetFlagBankOffset(u32 idx) {
-    AreaHeader* a_hdr = &gAreaMetadata[idx];
+    const AreaHeader* a_hdr = &gAreaMetadata[idx];
     return gLocalFlagBanks[a_hdr->flag_bank];
 }
 
@@ -543,7 +544,7 @@ void InitAllRoomResInfo(void) {
     RoomResInfo* info = gArea.roomResInfos;
     u32 i;
     for (i = 0; i < MAX_ROOMS && *(u16*)r_hdr != 0xFFFF; i++, r_hdr++) {
-        if (r_hdr->tileset_id != 0xFFFF)
+        if (r_hdr->tileSet_id != 0xFFFF)
             InitRoomResInfo(info, r_hdr, gRoomControls.area, i);
         info++;
     }
@@ -555,9 +556,9 @@ void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 room) {
     info->map_y = r_hdr->map_y;
     info->pixel_width = r_hdr->pixel_width;
     info->pixel_height = r_hdr->pixel_height;
-    info->tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
+    info->tileSet = *(gAreaTileSets[area] + r_hdr->tileSet_id);
     info->map = *(gAreaRoomMaps[area] + room);
-    info->metatiles = gAreaMetatiles[area];
+    info->tiles = gAreaTiles[area];
     info->bg_anim = (void*)gUnk_080B755C[area];
     info->exits = gExitLists[area][room];
     if (gAreaTable[area] != NULL) {
@@ -586,7 +587,7 @@ void sub_08052EA0(void) {
 }
 
 u32 sub_08052EF4(s32 idx) {
-    AreaHeader* a_hdr = NULL;
+    const AreaHeader* a_hdr = NULL;
     u32 i = idx < 0 ? gRoomControls.area : idx;
     a_hdr = &gAreaMetadata[i];
     return gLocalFlagBanks[a_hdr->flag_bank];
@@ -647,7 +648,7 @@ void LoadAuxiliaryRoom(u32 area, u32 room) {
 void sub_08052FF4(u32 area, u32 room) {
     RoomHeader* r_hdr = NULL;
 
-    ClearTilemaps();
+    ClearTileMaps();
     SetBGDefaults();
     gRoomControls.area = area;
     gRoomControls.room = room;
@@ -659,9 +660,9 @@ void sub_08052FF4(u32 area, u32 room) {
     gArea.currentRoomInfo.map_y = r_hdr->map_y;
     gArea.currentRoomInfo.pixel_width = r_hdr->pixel_width;
     gArea.currentRoomInfo.pixel_height = r_hdr->pixel_height;
-    gArea.currentRoomInfo.tileset = *(gAreaTilesets[area] + r_hdr->tileset_id);
+    gArea.currentRoomInfo.tileSet = *(gAreaTileSets[area] + r_hdr->tileSet_id);
     gArea.currentRoomInfo.map = *(gAreaRoomMaps[area] + room);
-    gArea.currentRoomInfo.metatiles = gAreaMetatiles[area];
+    gArea.currentRoomInfo.tiles = gAreaTiles[area];
     gArea.currentRoomInfo.bg_anim = (void*)gUnk_080B755C[area];
 }
 
@@ -817,16 +818,15 @@ void LoadItemGfx(void) {
     LoadGfxGroup(GetInventoryValue(ITEM_MAGIC_BOOMERANG) ? 28 : 27);
 }
 
-extern u16 gUnk_020178E0[];
 void sub_080533CC(void) {
-    u16* p1 = gUnk_020178E0;
-    u16* p2 = gUnk_020178E0 - 0x100;
+    u16* p1 = gPaletteBuffer + 288;
+    u16* p2 = gPaletteBuffer + 32;
     *p2++ = *p1++;
     *p2++ = *p1++;
     *p2++ = *p1++;
     *p2++ = *p1++;
     *p2++ = *p1++;
-    gUsedPalettes |= 8;
+    gUsedPalettes |= 1 << 3;
 }
 
 void UpdateTimerCallbacks(void) {
@@ -848,7 +848,7 @@ void DummyHandler(u32* timer) {
 }
 
 void DarknutTimerHandler(u32* timer) {
-    if (gArea.locationIndex == 29 && *timer) {
+    if (gArea.locationIndex == 29 && *timer) { // AREA_DARK_HYRULE_CASTLE
         if (!--*timer) {
             ResetTimerFlags();
             MenuFadeIn(5, 6);

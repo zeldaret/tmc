@@ -19,7 +19,6 @@
 
 extern struct BgAffineDstData gUnk_02017AA0[];
 extern struct BgAffineDstData gUnk_02017BA0[];
-extern u8 gUnk_02017700[];
 extern u8 gUpdateVisibleTiles;
 extern u32 gUsedPalettes;
 
@@ -261,8 +260,8 @@ void sub_08058D34(void) {
     u16 tmp;
     u32 tmp2;
     LoadPaletteGroup(0x28);
-    MemCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
-    gUsedPalettes |= 0x200000;
+    MemCopy(gPaletteBuffer + 3 * 16, gPaletteBuffer + 21 * 16, 16 * 2);
+    gUsedPalettes |= 1 << 21;
     LoadGfxGroup(0x16);
     tmp = gScreen.lcd.displayControl;
     tmp2 = 0;

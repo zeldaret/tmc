@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerCastleCollapsing
 	EndBlock
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
-	_0807EEF4 0x0000, 0x0080
+	MoveToOffset 0x0000, 0x0080
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
 SCRIPT_END

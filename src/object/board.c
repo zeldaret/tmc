@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "player.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -17,7 +18,7 @@ typedef struct {
     u16 y;
     u16 unk7c;
     u16 unk7e;
-    u16 tile;
+    u16 tilePos;
     u8 width;
     u8 height;
 } BoardEntity;
@@ -48,12 +49,12 @@ void Board_Init(BoardEntity* this) {
     this->height = size[1];
     this->x = super->x.HALF.HI - (this->width >> 1);
     this->y = super->y.HALF.HI - (this->height >> 1);
-    this->tile = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     super->collisionLayer = 1;
     UpdateSpriteForCollisionLayer(super);
     super->spritePriority.b0 = 6;
     if (super->type == 0) {
-        SetBottomTile(0x4074, this->tile - 0x40, super->collisionLayer);
+        SetTile(SPECIAL_TILE_116, this->tilePos + TILE_POS(0, -1), super->collisionLayer);
     }
     sub_08098BE8(this);
 }
@@ -66,7 +67,7 @@ void sub_08098BE8(BoardEntity* this) {
     if ((gPlayerState.flags & PL_MINISH) && sub_08098C30(this, &gPlayerEntity.base) && PlayerCanBeMoved() &&
         gPlayerEntity.base.z.HALF.HI == 0) {
         gPlayerState.field_0x14 = 1;
-        sub_0807AAF8(&gPlayerEntity.base, this->tile);
+        sub_0807AAF8(&gPlayerEntity.base, this->tilePos);
     }
 }
 

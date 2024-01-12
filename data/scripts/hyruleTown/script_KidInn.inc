@@ -11,22 +11,22 @@ script_0800D5AC:
 	CallWithArg GetRandomInt, 0x00000004
 	JumpTable script_0800D5CE, script_0800D5D8, script_0800D5E2, script_0800D5EC
 script_0800D5CE:
-	_0807EE04 0x0038, 0x0098
+	LookAt 0x0038, 0x0098
 	Jump script_0800D5F2
 script_0800D5D8:
-	_0807EE04 0x0058, 0x0098
+	LookAt 0x0058, 0x0098
 	Jump script_0800D5F2
 script_0800D5E2:
-	_0807EE04 0x0038, 0x00c8
+	LookAt 0x0038, 0x00c8
 	Jump script_0800D5F2
 script_0800D5EC:
-	_0807EE04 0x0058, 0x00c8
+	LookAt 0x0058, 0x00c8
 script_0800D5F2:
 	EndBlock
 	BeginBlock
 	Call sub_080626C0
 	JumpIf script_0800D5AC
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_0800D5F2
 	Jump script_0800D5AC
 	.2byte 0x0000

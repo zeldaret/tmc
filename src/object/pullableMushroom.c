@@ -8,6 +8,7 @@
 #include "game.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -59,7 +60,7 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
             super->spritePriority.b0 = 4;
             super->hitbox = (Hitbox*)&gUnk_080FD224;
             super->carryFlags = 1;
-            SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
             super->health = 1;
             super->collisionFlags = 7;
             super->hitType = 0x6e;

@@ -85,9 +85,9 @@ script_080138D0:
 .endif
 	Call NPC4E_SaveEquippedItems
 	CallWithArg EquipItem, 0x00010001
-	CallWithArg SetPlayerMacro, gUnk_080049FE
+	CallWithArg SetPlayerMacro, gPlayerMacroSanctuary
 	Wait 0x00c8
-	CallWithArg SetPlayerMacro, 0x00000000
+	CallWithArg SetPlayerMacro, 0
 	Call NPC4E_RestoreEquippedItems
 script_08013A8E:
 .ifndef EU

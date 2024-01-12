@@ -37,7 +37,7 @@ void MoleMittsParticle_Init(Entity* this) {
         }
         sub_08087640(this);
     } else {
-        if (gArea.locationIndex == 0x10) {
+        if (gArea.locationIndex == 16) { // AREA_CLOUD_TOPS
             palette = 0x16a;
         } else {
             palette = 4;

@@ -41,11 +41,11 @@ void sub_080A6B04(void) {
     bVar1 = ptr->mapMarkerIcon;
     uVar3 = ptr2->_c;
     uVar4 = ptr2->_e;
-    uVar2 = sub_080A6A80(uVar3, uVar4)->_4;
+    uVar2 = GetOverworldLocation(uVar3, uVar4)->windcrestId;
     gMenu.field_0x3 = uVar2;
     gGenericMenu.unk2b = 1;
     sub_080A67C4(uVar2);
-    sub_080A6FB4(uVar2, 2);
+    ShowAreaName(uVar2, 2);
     SetColor(0, 0x475f);
     SetColor(0x5f, 0x475f);
     MemFill16(0x5001, &gBG3Buffer, sizeof(gBG3Buffer));

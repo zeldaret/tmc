@@ -7,6 +7,7 @@
 #include "asm.h"
 #include "enemy.h"
 #include "functions.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -714,11 +715,11 @@ void sub_0801FB68(ChuchuEntity* this) {
     super->zVelocity = 0;
 }
 
-u32 CheckWaterTile(ChuchuEntity* this) {
-    if (GetActTile(super) == 0x10) {
-        return 1;
+bool32 CheckWaterTile(ChuchuEntity* this) {
+    if (GetActTileAtEntity(super) == ACT_TILE_16) {
+        return TRUE;
     } else {
-        return 0;
+        return FALSE;
     }
 }
 

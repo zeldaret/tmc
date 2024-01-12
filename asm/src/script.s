@@ -46,7 +46,7 @@ gShakeOffsets::
 	.byte 0, -1, 0, -2, 0, -1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1
 	.byte 2, 0, 1, 0, 0, 0, -1, 0, -1, 0, -1, 0, 0, 0, 1, 0
 
-UpdateSpriteForCollisionLayer::
+UpdateSpriteForCollisionLayer:: @ 0x08016A04
 	movs r1, #0x38
 	ldrb r1, [r0, r1]
 	lsls r1, r1, #1
@@ -78,11 +78,11 @@ ResolveCollisionLayer::
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r4, #0x32]
 	movs r2, #2
-	bl GetTileTypeByPos
+	bl GetTileTypeAtWorldCoords
 	movs r3, #1
 	cmp r0, #0
 	beq _08016A62
-	bl sub_080B1B54
+	bl GetActTileForTileType
 	movs r3, #2
 	add r1, pc, #0x40
 _08016A54:
@@ -103,7 +103,7 @@ _08016A64:
 CheckOnLayerTransition::
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl GetActTile // tile under me
+	bl GetActTileAtEntity // tile under me
 	adr r1, gTransitionTiles-4
 loop:
 	adds r1, #4 // p += 4

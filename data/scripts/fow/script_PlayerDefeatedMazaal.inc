@@ -15,6 +15,6 @@ SCRIPT_START script_PlayerDefeatedMazaal
 	SetAnimationState 0x0004
 	Wait 0x0008
 	SetSyncFlag 0x00000002
-	_0807EDD4 0x0088, 0x0158
+	MoveTo 0x0088, 0x0158
 SCRIPT_END
 	.2byte 0x0000

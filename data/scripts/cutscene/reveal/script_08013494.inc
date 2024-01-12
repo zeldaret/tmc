@@ -8,7 +8,7 @@ SCRIPT_START script_08013494
 	EndBlock
 	Wait 0x005a
 	Call sub_08094B6C
-	_0807EDD4 0x0098, 0x0080
+	MoveTo 0x0098, 0x0080
 	BeginBlock
 	Call sub_08094B80
 	PlaySound SFX_1CC

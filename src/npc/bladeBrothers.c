@@ -44,18 +44,26 @@ void (*const gUnk_081115D0[])(BladeBrothersEntity*) = {
 
 const u16 gUnk_081115DC[] = { 183, 184, 185, 186, 187, 188, 189, 190 };
 
-// TODO extract macros
-extern const PlayerMacroEntry gUnk_08004A0C;
-extern const PlayerMacroEntry gUnk_08004A16;
-extern const PlayerMacroEntry gUnk_08004A24;
-extern const PlayerMacroEntry gUnk_08004A32;
-extern const PlayerMacroEntry gUnk_08004A48;
-extern const PlayerMacroEntry gUnk_08004A72;
-extern const PlayerMacroEntry gUnk_08004A8C;
-extern const PlayerMacroEntry gUnk_08004AA6;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers0;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers1;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers2;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers3;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers4;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers5;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers6;
+extern const PlayerMacroEntry gPlayerMacroBladeBrothers7;
 const PlayerMacroEntry* const BladeBrothers_PlayerMacros[] = {
-    &gUnk_08004A0C, &gUnk_08004A16, &gUnk_08004A24, &gUnk_08004A32, &gUnk_08004A48, &gUnk_08004A72,
-    &gUnk_08004A8C, &gUnk_08004AA6, NULL,           NULL,           NULL,
+    &gPlayerMacroBladeBrothers0,
+    &gPlayerMacroBladeBrothers1,
+    &gPlayerMacroBladeBrothers2,
+    &gPlayerMacroBladeBrothers3,
+    &gPlayerMacroBladeBrothers4,
+    &gPlayerMacroBladeBrothers5,
+    &gPlayerMacroBladeBrothers6,
+    &gPlayerMacroBladeBrothers7,
+    NULL,
+    NULL,
+    NULL,
 };
 
 const u8 BladeBrothers_EquippedItem[] = {

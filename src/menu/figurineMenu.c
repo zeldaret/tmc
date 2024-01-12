@@ -98,8 +98,8 @@ void FigurineMenu_080A4608(void) {
 
     SetBgmVolume(0x80);
     sub_080A4DA8(3);
-    SetColor(0, gPaletteBuffer[0xfb]);
-    SetColor(0x15c, gPaletteBuffer[0xd3]);
+    SetColor(0, gPaletteBuffer[251]);
+    SetColor(0x15c, gPaletteBuffer[211]);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG3Buffer, sizeof(gBG3Buffer));
     gScreen.controls.window0HorizontalDimensions = DISPLAY_WIDTH;
@@ -592,7 +592,7 @@ void sub_080A4DB8(u32 param_1) {
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
     MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
-    MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
+    MemClear(gHUD.elements, sizeof(gHUD.elements));
     MemClear(&gFigurineMenu, sizeof(gFigurineMenu));
     gFigurineMenu.unk2e = -1;
     gMenu.field_0x3 = gPauseMenuOptions.unk2[param_1];

@@ -7,6 +7,7 @@
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -21,10 +22,10 @@ typedef struct {
     /*0x82*/ u8 unk_82;
     /*0x83*/ u8 unused2[1];
     /*0x84*/ u16 unk_84;
-    /*0x86*/ u16 unk_86;
+    /*0x86*/ u16 tilePos;
 } PuffstoolEntity;
 
-extern u8 gUnk_080B3E80[];
+extern u8 gMapTileTypeToCollisionData[];
 
 bool32 sub_080258C4(PuffstoolEntity*);
 void sub_08025B18(PuffstoolEntity*);
@@ -182,7 +183,7 @@ void sub_08025230(PuffstoolEntity* this) {
         if (sub_0802571C(this)) {
             super->action = 2;
             super->timer = 240;
-            this->unk_86 = COORD_TO_TILE(super);
+            this->tilePos = COORD_TO_TILE(super);
         }
     } else {
         this->unk_78--;
@@ -190,20 +191,20 @@ void sub_08025230(PuffstoolEntity* this) {
 }
 
 void sub_080252E0(PuffstoolEntity* this) {
-    u32 tile;
+    u32 tilePos;
 
     super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_7c, this->unk_7e);
 
     sub_08025C44(this);
     GetNextFrame(super);
 
-    tile = COORD_TO_TILE(super);
-    if (tile == this->unk_86) {
+    tilePos = COORD_TO_TILE(super);
+    if (tilePos == this->tilePos) {
         if (--super->timer == 0) {
             sub_080256B4(this);
         }
     } else {
-        this->unk_86 = tile;
+        this->tilePos = tilePos;
         super->timer = 240;
     }
 
@@ -400,14 +401,14 @@ void sub_080256B4(PuffstoolEntity* this) {
 
 bool32 sub_0802571C(PuffstoolEntity* this) {
     RoomControls* ctrl = &gRoomControls;
-    u16 xDiff = (super->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
-    u16 yDiff = (super->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
+    u16 roomX = (super->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
+    u16 roomY = (super->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
     u16 unk = this->unk_7a;
     u16 i;
 
     for (i = 0; i < 4; i++) {
-        u16 sVar3 = xDiff + gUnk_080CC020[unk + 0];
-        u16 sVar4 = yDiff + gUnk_080CC020[unk + 1];
+        u16 sVar3 = roomX + gUnk_080CC020[unk + 0];
+        u16 sVar4 = roomY + gUnk_080CC020[unk + 1];
 
         if (sub_080257EC(this, sVar3, sVar4)) {
             this->unk_7c = sVar3 + ctrl->origin_x;
@@ -427,23 +428,27 @@ bool32 sub_0802571C(PuffstoolEntity* this) {
 }
 
 bool32 sub_080257EC(PuffstoolEntity* this, u32 x, u32 y) {
-    u16 tileType = sub_080B1A48(x - 0x00, y - 0x00, super->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    u16 tileType = GetTileTypeAtRoomCoords(x - 0x00, y - 0x00, super->collisionLayer);
+    if (tileType != TILE_TYPE_786 && gMapTileTypeToActTile[tileType] != ACT_TILE_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x10, y - 0x00, super->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    tileType = GetTileTypeAtRoomCoords(x - 0x10, y - 0x00, super->collisionLayer);
+    if (tileType != TILE_TYPE_786 && gMapTileTypeToActTile[tileType] != ACT_TILE_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x00, y - 0x10, super->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    tileType = GetTileTypeAtRoomCoords(x - 0x00, y - 0x10, super->collisionLayer);
+    if (tileType != TILE_TYPE_786 && gMapTileTypeToActTile[tileType] != ACT_TILE_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
-    tileType = sub_080B1A48(x - 0x10, y - 0x10, super->collisionLayer);
-    if (tileType != 0x312 && gUnk_080B37A0[tileType] != 0x16 && gUnk_080B3E80[tileType] == 0) {
+    tileType = GetTileTypeAtRoomCoords(x - 0x10, y - 0x10, super->collisionLayer);
+    if (tileType != TILE_TYPE_786 && gMapTileTypeToActTile[tileType] != ACT_TILE_22 &&
+        gMapTileTypeToCollisionData[tileType] == 0) {
         return TRUE;
     }
 
@@ -477,37 +482,36 @@ bool32 sub_080258C4(PuffstoolEntity* this) {
     }
 }
 
-// regalloc
 bool32 sub_0802594C(PuffstoolEntity* this, u32 param_2) {
     s16 xDiff;
     s16 yDiff;
-    s16 iVar9;
-    u32 uVar1;
+    s16 x;
+    u32 layer;
     const s8* unk = gUnk_080CC090[param_2];
-    uVar1 = super->collisionLayer;
+    layer = super->collisionLayer;
     xDiff = (super->x.HALF.HI - gRoomControls.origin_x + 8) & -0x10;
     yDiff = (super->y.HALF.HI - gRoomControls.origin_y + 8) & -0x10;
     do {
         u8 bVar7;
         u8 bVar4;
-        s16 iVar11;
+        s16 y;
         u8 bVar5;
         u8 bVar6;
-        iVar9 = xDiff + unk[0];
-        iVar11 = yDiff + unk[1];
-        bVar4 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        bVar5 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        bVar6 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        bVar7 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        x = xDiff + unk[0];
+        y = yDiff + unk[1];
+        bVar4 = GetCollisionDataAtWorldCoords(x - 0x00, y - 0x00, layer);
+        bVar5 = GetCollisionDataAtWorldCoords(x - 0x10, y - 0x00, layer);
+        bVar6 = GetCollisionDataAtWorldCoords(x - 0x00, y - 0x10, layer);
+        bVar7 = GetCollisionDataAtWorldCoords(x - 0x10, y - 0x10, layer);
         if ((bVar4 | bVar5 | bVar6 | bVar7) == 0) {
-            this->unk_7c = gRoomControls.origin_x + iVar9;
-            this->unk_7e = gRoomControls.origin_y + iVar11;
+            this->unk_7c = gRoomControls.origin_x + x;
+            this->unk_7e = gRoomControls.origin_y + y;
             return TRUE;
         }
         unk += 2;
     } while (unk[0] != 0x7f);
 
-    return 0;
+    return FALSE;
 }
 
 void sub_08025A54(PuffstoolEntity* this) {
@@ -523,12 +527,12 @@ void sub_08025A54(PuffstoolEntity* this) {
     }
 }
 
-bool32 sub_08025AB8(u32 tile, u32 layer) {
-    if (sub_080B1B44(tile, layer))
+bool32 sub_08025AB8(u32 tilePos, u32 layer) {
+    if (GetCollisionDataAtTilePos(tilePos, layer))
         return FALSE;
 
-    if (sub_080B1AE0(tile, layer) == 10) {
-        sub_0807B7D8(0x61, tile, layer);
+    if (GetActTileAtTilePos(tilePos, layer) == ACT_TILE_10) {
+        sub_0807B7D8(0x61, tilePos, layer);
         return TRUE;
     }
 

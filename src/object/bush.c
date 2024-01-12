@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -68,7 +69,7 @@ void Bush_Init(BushEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_081205B4;
     this->unk_72 = 0;
     this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
     InitializeAnimation(super, gUnk_08120588[super->type].unk_0);
 }
 
@@ -106,7 +107,7 @@ void Bush_Action2SubAction2(BushEntity* this) {
     if (this->unk_72 == 0) {
         this->unk_72 = 1;
         super->spriteOffsetX = 0;
-        sub_0807B9B8(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetTileByIndex(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
     if (((gPlayerState.gustJarState & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         Bush_Action2SubAction5(this);

@@ -8,4 +8,5 @@ class GfxAsset : public BaseAsset {
 
   private:
     virtual std::filesystem::path generateAssetPath();
+    bool isCompressed();
 };

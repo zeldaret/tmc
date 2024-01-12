@@ -9,6 +9,7 @@
 #include "screenTransitions.h"
 #include "script.h"
 #include "structures.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -96,7 +97,7 @@ void sub_08034CC4(MazaalMacroEntity* this) {
         this->unk_78 = 0x4b0;
         sub_08034F70(this);
         InitializeAnimation(super, super->type);
-        SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
         entity = CreateEnemy(MAZAAL_MACRO, 2);
         if (entity != NULL) {
             super->child = entity;
@@ -284,11 +285,11 @@ u32 sub_08035084(MazaalMacroEntity* this) {
 }
 
 void sub_08035120(MazaalMacroEntity* this) {
-    s32 tile;
+    s32 tilePos;
     u32 i;
 
-    tile = COORD_TO_TILE(super);
+    tilePos = COORD_TO_TILE(super);
     for (i = 0; i < 0x18; i++) {
-        sub_0807B600(tile + gUnk_080CEED8[i]);
+        sub_0807B600(tilePos + gUnk_080CEED8[i]);
     }
 }

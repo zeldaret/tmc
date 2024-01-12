@@ -9,11 +9,12 @@
 #include "object.h"
 #include "screen.h"
 #include "structures.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[8];
-    /*0x70*/ u16 tilePosition;
+    /*0x70*/ u16 tilePos;
     /*0x72*/ u16 unk_72;
     /*0x74*/ u8 unk_74[0x12];
     /*0x86*/ u16 unk_86;
@@ -26,7 +27,7 @@ void sub_080842D8(ChestSpawnerEntity*);
 void AddInteractableChest(ChestSpawnerEntity*);
 void sub_08083E20(ChestSpawnerEntity*);
 void sub_08084074(u32);
-void sub_080840A8(s32, s32);
+void sub_080840A8(s32 x, s32 y);
 void ChestSpawner_Type0(ChestSpawnerEntity*);
 void ChestSpawner_Type2(ChestSpawnerEntity*);
 void ChestSpawner_Type0Init(ChestSpawnerEntity*);
@@ -161,7 +162,7 @@ void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         if (--super->subtimer == 0) {
-            if (super->timer == 0x18) {
+            if (super->timer == 24) {
                 super->action = 6;
                 super->timer = 8;
                 super->subtimer = 16;
@@ -186,20 +187,20 @@ void sub_08084074(u32 flag) {
     }
 }
 
-void sub_080840A8(s32 param_1, s32 param_2) {
+void sub_080840A8(s32 x, s32 y) {
     static const u8 gUnk_0811F838[] = {
         ITEM_RUPEE1, ITEM_RUPEE1, ITEM_RUPEE1, ITEM_RUPEE1, ITEM_RUPEE5, ITEM_RUPEE5, ITEM_RUPEE5, ITEM_RUPEE20,
     };
-    static const s32 gUnk_0811F840[] = { 393216, 458752, 524288, 589824 };
-    static const s8 gUnk_0811F850[] = { -6, 0, 0, 6 };
+    static const s32 zVelocities[] = { 0x60000, 0x70000, 0x80000, 0x90000 };
+    static const s8 xOffsets[] = { -6, 0, 0, 6 };
     Entity* obj = CreateObject(GROUND_ITEM, gUnk_0811F838[Random() & 7], 0);
     if (obj != NULL) {
         obj->timer = 6;
         obj->direction = ((Random() & 7) + 0xc) | 0x80;
         obj->speed = (Random() & 0xf) * 2 + 0x20;
-        obj->zVelocity = gUnk_0811F840[Random() & 3];
-        obj->x.HALF.HI = gUnk_0811F850[Random() & 3] + param_1;
-        obj->y.HALF.HI = param_2 + 1;
+        obj->zVelocity = zVelocities[Random() & 3];
+        obj->x.HALF.HI = xOffsets[Random() & 3] + x;
+        obj->y.HALF.HI = y + 1;
         obj->z.HALF.HI = -8;
         ResolveCollisionLayer(obj);
         obj = CreateFx(obj, FX_DASH, 0);
@@ -229,14 +230,14 @@ void ChestSpawner_Type2Action7(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type0Init(ChestSpawnerEntity* this) {
     super->action++;
-    this->tilePosition = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     super->hitbox = (Hitbox*)&gUnk_0811F8A8;
-    if (GetTileTypeByEntity(super) == 0x74) {
+    if (GetTileTypeAtEntity(super) == TILE_TYPE_116) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->unk_86)) {
         super->action = 3;
-        sub_0807B7D8(0x73, this->tilePosition, super->collisionLayer);
+        sub_0807B7D8(0x73, this->tilePos, super->collisionLayer);
         if ((super->type & 1) == 0) {
             DeleteThisEntity();
         }
@@ -250,7 +251,7 @@ void ChestSpawner_Type0Action1(ChestSpawnerEntity* this) {
 }
 
 void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
-    sub_0807B7D8(0x73, this->tilePosition, super->collisionLayer);
+    sub_0807B7D8(0x73, this->tilePos, super->collisionLayer);
     switch (super->type) {
         case 6:
         case 7:
@@ -270,7 +271,7 @@ void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
 
 void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
     if ((super->type == 1) || (super->type == 7)) {
-        if (GetTileTypeByEntity(super) == 0x74) {
+        if (GetTileTypeAtEntity(super) == TILE_TYPE_116) {
             DeleteEntity(super);
         } else {
             if (!CheckFlags(this->unk_86)) {
@@ -278,7 +279,7 @@ void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
                     this->unk_72--;
                 } else {
                     super->action = 1;
-                    RestorePrevTileEntity(this->tilePosition, super->collisionLayer);
+                    RestorePrevTileEntity(this->tilePos, super->collisionLayer);
                     CreateDust(super);
                 }
             }

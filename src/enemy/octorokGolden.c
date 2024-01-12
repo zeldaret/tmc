@@ -112,16 +112,16 @@ static void sub_08037D54(Entity* this) {
 
 void sub_08037E14(Entity* this) {
     u32 dir;
-    u8* layer;
+    u8* collisionData;
     const s8* ptr;
     s32 x, y;
     this->timer = 8;
     dir = (GetFacingDirection(this, &gPlayerEntity.base) + 4) & 0x18;
-    layer = (u8*)GetTileBuffer(this->collisionLayer)->collisionData;
+    collisionData = GetLayerByIndex(this->collisionLayer)->collisionData;
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
     y = this->y.HALF.HI + *(ptr + 1);
-    if (IsTileCollision(layer, x, y, 0)) {
+    if (IsTileCollision(collisionData, x, y, 0)) {
         this->direction = Random() & 0x18;
     } else {
         this->direction = dir;

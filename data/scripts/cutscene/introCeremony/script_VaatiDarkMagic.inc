@@ -8,9 +8,9 @@ SCRIPT_START script_VaatiDarkMagic
 	EndBlock
 	WaitForSyncFlagAndClear 0x08000000
 	Call sub_08094B6C
-	_0807EDD4 0x01d8, 0x0078
+	MoveTo 0x01d8, 0x0078
 	StartPlayerScript script_PlayerFainting
-	_0807EDD4 0x01d8, 0x0058
+	MoveTo 0x01d8, 0x0058
 	Call sub_08094B80
 	PlaySound SFX_VO_ZELDA7
 	PlaySound SFX_1C6

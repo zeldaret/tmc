@@ -480,7 +480,7 @@ void sub_0805A9CC(TempleOfDropletsManager* this) {
     tmp1 = gRoomControls.scroll_y - this->unk_26 + this->unk_36;
     gScreen.bg3.yOffset = tmp1 & 0x3F;
     tmp3 = (&gBG3Buffer[((tmp1 / 0x40) << 8)]);
-    gScreen.bg3.tilemap = (u32*)tmp3;
+    gScreen.bg3.subTileMap = (u32*)tmp3;
     gScreen.controls.window1VerticalDimensions = DISPLAY_HEIGHT;
     if (this->unk_28 == tmp3)
         return;
@@ -522,7 +522,7 @@ void sub_0805AAF0(u32 unk0) {
     gScreen.controls.layerFXControl = 0x3E48;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(8, 16);
     gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(1);
-    gScreen.bg3.tilemap = &gBG3Buffer;
+    gScreen.bg3.subTileMap = &gBG3Buffer;
     gScreen.bg3.xOffset = 0;
     gScreen.bg3.yOffset = 0;
     gScreen.bg3.updated = 1;

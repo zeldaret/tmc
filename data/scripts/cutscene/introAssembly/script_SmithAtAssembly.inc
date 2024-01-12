@@ -40,7 +40,7 @@ SCRIPT_START script_SmithAtAssembly
 	WaitForSyncFlagAndClear 0x00000001
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x0098, 0x0078
+	MoveTo 0x0098, 0x0078
 	FacePlayer
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0001

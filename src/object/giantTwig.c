@@ -6,11 +6,12 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[0xe];
-    /*0x76*/ u16 tilePosition;
+    /*0x76*/ u16 tilePos;
     /*0x78*/ u16 unk_78;
     /*0x7a*/ u16 unk_7a;
 } GiantTwigEntity;
@@ -69,7 +70,7 @@ void GiantTwig(GiantTwigEntity* this) {
 void GiantTwig_Type0Init(GiantTwigEntity* this) {
     Entity* obj;
     super->action = 1;
-    this->tilePosition = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     switch (super->type) {
         case 0:
             super->frameIndex = 1;
@@ -115,7 +116,7 @@ void GiantTwig_Type1Init(GiantTwigEntity* this) {
     super->action = 1;
     super->frameIndex = (super->type2 & 1) + 3;
     super->spritePriority.b0 = 7;
-    this->tilePosition = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     sub_08093A1C(this);
 }
 
@@ -127,7 +128,7 @@ void GiantTwig_Type2Init(GiantTwigEntity* this) {
     super->frameIndex = (super->type2 & 1) + 5;
     super->spriteRendering.b3 = 3;
     super->spritePriority.b0 = 7;
-    this->tilePosition = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     if ((super->type2 & 1) != 0) {
         super->spriteOffsetX = 8;
     }
@@ -140,22 +141,28 @@ void GiantTwig_Type2Idle(GiantTwigEntity* this) {
 
 void sub_08093984(GiantTwigEntity* this) {
     u32 index;
-    const s16* array;
+    const s16* tileOffsets;
 
     if (super->type2 != 0) {
         static const s16 gUnk_081228F8[] = {
-            -130, -129, -128, -127, -66, -65, -64, -63, -62, -2, -1, 0, 1, 2, 63, 64, 65, 66, 67,
+            TILE_POS(-2, -2), TILE_POS(-1, -2), TILE_POS(0, -2), TILE_POS(1, -2), TILE_POS(-2, -1),
+            TILE_POS(-1, -1), TILE_POS(0, -1),  TILE_POS(1, -1), TILE_POS(2, -1), TILE_POS(-2, 0),
+            TILE_POS(-1, 0),  TILE_POS(0, 0),   TILE_POS(1, 0),  TILE_POS(2, 0),  TILE_POS(-1, 1),
+            TILE_POS(0, 1),   TILE_POS(1, 1),   TILE_POS(2, 1),  TILE_POS(3, 1),
         };
-        array = gUnk_081228F8;
+        tileOffsets = gUnk_081228F8;
     } else {
         static const s16 gUnk_0812291E[] = {
-            -129, -128, -127, -126, -66, -65, -64, -63, -62, -2, -1, 0, 1, 2, 61, 62, 63, 64, 65,
+            TILE_POS(-1, -2), TILE_POS(0, -2), TILE_POS(1, -2), TILE_POS(2, -2), TILE_POS(-2, -1),
+            TILE_POS(-1, -1), TILE_POS(0, -1), TILE_POS(1, -1), TILE_POS(2, -1), TILE_POS(-2, 0),
+            TILE_POS(-1, 0),  TILE_POS(0, 0),  TILE_POS(1, 0),  TILE_POS(2, 0),  TILE_POS(-3, 1),
+            TILE_POS(-2, 1),  TILE_POS(-1, 1), TILE_POS(0, 1),  TILE_POS(1, 1),
         };
-        array = gUnk_0812291E;
+        tileOffsets = gUnk_0812291E;
     }
 
     for (index = 0; index < 0x13; index++) {
-        SetBottomTile(0x4074, array[index] + this->tilePosition, 1);
+        SetTile(SPECIAL_TILE_116, tileOffsets[index] + this->tilePos, LAYER_BOTTOM);
     }
 }
 
@@ -163,7 +170,7 @@ void GiantTwig_Type3Init(GiantTwigEntity* this) {
     super->action = 1;
     super->frameIndex = (super->type2 & 3) + 7;
     super->spritePriority.b0 = 7;
-    this->tilePosition = COORD_TO_TILE(super);
+    this->tilePos = COORD_TO_TILE(super);
     sub_08093A1C(this);
     ChangeObjPalette(super, 0x7a);
 }
@@ -174,47 +181,47 @@ void GiantTwig_Type3Idle(GiantTwigEntity* this) {
 void sub_08093A1C(GiantTwigEntity* this) {
     switch (super->type) {
         case 0:
-            SetBottomTile(0x4024, this->tilePosition + 0x3c, super->collisionLayer);
-            SetBottomTile(0x4022, this->tilePosition + 0x3d, super->collisionLayer);
-            SetBottomTile(0x4022, this->tilePosition + 0x3e, super->collisionLayer);
-            SetBottomTile(0x4029, this->tilePosition + 0x7c, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x7d, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x7e, super->collisionLayer);
-            SetBottomTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
-            SetBottomTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
-            SetBottomTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
-            SetBottomTile(0x4023, this->tilePosition + 0x42, super->collisionLayer);
-            SetBottomTile(0x406d, this->tilePosition + 0x43, super->collisionLayer);
-            SetBottomTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x82, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x83, super->collisionLayer);
+            SetTile(SPECIAL_TILE_36, this->tilePos + TILE_POS(-4, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(-3, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(-2, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_41, this->tilePos + TILE_POS(-4, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(-3, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(-2, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_39, this->tilePos + TILE_POS(1, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_35, this->tilePos + TILE_POS(2, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_109, this->tilePos + TILE_POS(3, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_41, this->tilePos + TILE_POS(1, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(2, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(3, 2), super->collisionLayer);
             break;
         case 1:
             if ((super->type2 & 1) != 0) {
-                SetBottomTile(0x406d, this->tilePosition - 0x81, super->collisionLayer);
-                SetBottomTile(0x4022, this->tilePosition - 0x41, super->collisionLayer);
-                SetBottomTile(0x4029, this->tilePosition - 2, super->collisionLayer);
-                SetBottomTile(0x4026, this->tilePosition - 1, super->collisionLayer);
-                SetBottomTile(0x4022, this->tilePosition, super->collisionLayer);
-                SetBottomTile(0x406d, this->tilePosition + 1, super->collisionLayer);
-                SetBottomTile(0x406e, this->tilePosition + 0x40, super->collisionLayer);
-                SetBottomTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
-                SetBottomTile(0x406d, this->tilePosition + 0x42, super->collisionLayer);
+                SetTile(SPECIAL_TILE_109, this->tilePos + TILE_POS(-1, -2), super->collisionLayer);
+                SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(-1, -1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_41, this->tilePos + TILE_POS(-2, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(-1, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(0, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_109, this->tilePos + TILE_POS(1, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_110, this->tilePos + TILE_POS(0, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(1, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_109, this->tilePos + TILE_POS(2, 1), super->collisionLayer);
             } else {
-                SetBottomTile(0x406c, this->tilePosition - 0x7f, super->collisionLayer);
-                SetBottomTile(0x4022, this->tilePosition - 0x3f, super->collisionLayer);
-                SetBottomTile(0x406c, this->tilePosition - 1, super->collisionLayer);
-                SetBottomTile(0x4022, this->tilePosition, super->collisionLayer);
-                SetBottomTile(0x4026, this->tilePosition + 1, super->collisionLayer);
-                SetBottomTile(0x402a, this->tilePosition + 2, super->collisionLayer);
-                SetBottomTile(0x406c, this->tilePosition + 0x3e, super->collisionLayer);
-                SetBottomTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
-                SetBottomTile(0x406f, this->tilePosition + 0x40, super->collisionLayer);
+                SetTile(SPECIAL_TILE_108, this->tilePos + TILE_POS(1, -2), super->collisionLayer);
+                SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(1, -1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_108, this->tilePos + TILE_POS(-1, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(0, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(1, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_42, this->tilePos + TILE_POS(2, 0), super->collisionLayer);
+                SetTile(SPECIAL_TILE_108, this->tilePos + TILE_POS(-2, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(-1, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_111, this->tilePos + TILE_POS(0, 1), super->collisionLayer);
                 return;
             }
             break;
         case 3:
-            SetBottomTile(0x4022, this->tilePosition, super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos, super->collisionLayer);
             break;
     }
 }
@@ -223,12 +230,12 @@ void sub_08093C70(GiantTwigEntity* this) {
     if (this->unk_78 != 0) {
         if (gPlayerState.heldObject != 0) {
             this->unk_78 = 0;
-            SetBottomTile(0x4022, this->tilePosition + 0x3f, super->collisionLayer);
-            SetBottomTile(0x4022, this->tilePosition + 0x40, super->collisionLayer);
-            SetBottomTile(0x4022, this->tilePosition + 0x41, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x7f, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x80, super->collisionLayer);
-            SetBottomTile(0x4026, this->tilePosition + 0x81, super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(-1, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(0, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_34, this->tilePos + TILE_POS(1, 1), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(-1, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(0, 2), super->collisionLayer);
+            SetTile(SPECIAL_TILE_38, this->tilePos + TILE_POS(1, 2), super->collisionLayer);
         }
 
     } else {
@@ -236,12 +243,12 @@ void sub_08093C70(GiantTwigEntity* this) {
             if (--this->unk_7a == 0) {
                 this->unk_78++;
                 this->unk_7a = 0x3c;
-                SetBottomTile(0x403d, this->tilePosition + 0x3f, super->collisionLayer);
-                SetBottomTile(0x403d, this->tilePosition + 0x40, super->collisionLayer);
-                SetBottomTile(0x4027, this->tilePosition + 0x41, super->collisionLayer);
-                SetBottomTile(0x403d, this->tilePosition + 0x7f, super->collisionLayer);
-                SetBottomTile(0x403d, this->tilePosition + 0x80, super->collisionLayer);
-                SetBottomTile(0x4029, this->tilePosition + 0x81, super->collisionLayer);
+                SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(-1, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_39, this->tilePos + TILE_POS(1, 1), super->collisionLayer);
+                SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(-1, 2), super->collisionLayer);
+                SetTile(SPECIAL_TILE_61, this->tilePos + TILE_POS(0, 2), super->collisionLayer);
+                SetTile(SPECIAL_TILE_41, this->tilePos + TILE_POS(1, 2), super->collisionLayer);
             }
         }
     }

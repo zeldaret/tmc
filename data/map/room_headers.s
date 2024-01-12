@@ -5,7 +5,7 @@
 	.align 2
 
 
-@ x, y, width, height, tileset_id
+@ x, y, width, height, tileSet_id
 
 gAreaRoomHeaders_MinishWoods:: @ 0811C488
 	room_header 0xBA, 0x87, 0x3F0, 0x3F0, 0

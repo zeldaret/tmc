@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -38,7 +39,7 @@ void UnusedSkull_Init(UnusedSkullEntity* this) {
     super->hurtType = 0x47;
     super->collisionMask = 2;
     super->hitbox = (Hitbox*)&gHitbox_4;
-    SetBottomTile(0x4050, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_80, COORD_TO_TILE(super), super->collisionLayer);
     if (super->type == 1 || CheckFlags(this->unk_86)) {
         super->action = 3;
         SetFlag(this->unk_86);

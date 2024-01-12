@@ -16,9 +16,9 @@ SCRIPT_START script_Goron5Kinstone5
 	SetSyncFlag 0x0000003c
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0098, 0x00e8
-	_0807EDD4 0x00a8, 0x00e8
-	_0807EDD4 0x00a8, 0x00d8
+	MoveTo 0x0098, 0x00e8
+	MoveTo 0x00a8, 0x00e8
+	MoveTo 0x00a8, 0x00d8
 	Wait 0x000f
 	SetSyncFlag 0x0000003c
 	DoPostScriptAction 0x000f

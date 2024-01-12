@@ -34,7 +34,7 @@ void Object37(Entity* this) {
 void Object37_Init(Object37Entity* this) {
     u16* puVar1;
 
-    puVar1 = GetTileBuffer(super->collisionLayer)->mapData + sub_0806F798(super);
+    puVar1 = GetLayerByIndex(super->collisionLayer)->mapData + sub_0806F798(super);
     this->unk78 = puVar1;
     this->unk70 = *puVar1;
     super->action = 1;

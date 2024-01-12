@@ -7,6 +7,7 @@
 #include "enemy.h"
 #include "fade.h"
 #include "functions.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -85,16 +86,16 @@ void Enemy64_Init(Enemy64Entity* this) {
     Entity* tail;
 
     if (CheckFlags(0x7c)) {
-        SetBottomTile(0x4081, 10, 2);
-        SetBottomTile(0x4081, 0x4a, 2);
-        SetBottomTile(0x4081, 0x8a, 2);
-        SetBottomTile(0x4081, 0xca, 2);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 0), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 1), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 2), LAYER_TOP);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 3), LAYER_TOP);
         DeleteThisEntity();
     } else {
-        sub_0807B7D8(0x323, 10, 1);
-        sub_0807B7D8(0x323, 0x4a, 1);
-        sub_0807B7D8(0x323, 0x8a, 1);
-        sub_0807B7D8(0x323, 0xca, 1);
+        sub_0807B7D8(0x323, TILE_POS(10, 0), LAYER_BOTTOM);
+        sub_0807B7D8(0x323, TILE_POS(10, 1), LAYER_BOTTOM);
+        sub_0807B7D8(0x323, TILE_POS(10, 2), LAYER_BOTTOM);
+        sub_0807B7D8(0x323, TILE_POS(10, 3), LAYER_BOTTOM);
     }
     tail = CreateProjectile(GYORG_TAIL);
     if (tail != NULL) {
@@ -189,7 +190,7 @@ void Enemy64_Action2_SubAction0(Enemy64Entity* this) {
 }
 
 void Enemy64_Action2_SubAction1(Enemy64Entity* this) {
-    u32 tmp = CalcOffsetAngle(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    u32 tmp = CalculateDirectionFromOffsets(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     if (4 < (((super->direction - tmp) + 2) & 0xff)) {
         if (((tmp - super->direction) & 0x80) != 0) {
             super->direction--;
@@ -290,8 +291,8 @@ void Enemy64_Action3(Enemy64Entity* this) {
 }
 
 void Enemy64_Action3_SubAction0(Enemy64Entity* this) {
-    u32 tmp = CalcOffsetAngle(gRoomControls.origin_x + 0xa8 - super->x.HALF.HI,
-                              gRoomControls.origin_y + 0x80 - super->y.HALF.HI);
+    u32 tmp = CalculateDirectionFromOffsets(gRoomControls.origin_x + 0xa8 - super->x.HALF.HI,
+                                            gRoomControls.origin_y + 0x80 - super->y.HALF.HI);
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0x80) != 0) {
             super->direction--;
@@ -439,20 +440,20 @@ void Enemy64_Action4_SubAction7(Enemy64Entity* this) {
     if (--super->timer == 0) {
         DeleteThisEntity();
     } else if (super->timer == 16) {
-        sub_0807B7D8(0x36, 0xca, 1);
-        SetBottomTile(0x4081, 0xca, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 3), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 3), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 24) {
-        sub_0807B7D8(0x36, 0x8a, 1);
-        SetBottomTile(0x4081, 0x8a, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 2), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 2), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 32) {
-        sub_0807B7D8(0x36, 0x4a, 1);
-        SetBottomTile(0x4081, 0x4a, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 1), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 1), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     } else if (super->timer == 40) {
-        sub_0807B7D8(0x36, 10, 1);
-        SetBottomTile(0x4081, 10, 2);
+        sub_0807B7D8(0x36, TILE_POS(10, 0), LAYER_BOTTOM);
+        SetTile(SPECIAL_TILE_129, TILE_POS(10, 0), LAYER_TOP);
         SoundReq(SFX_HEART_GET);
     }
 }
@@ -490,8 +491,8 @@ void sub_080499F0(Enemy64Entity* this) {
         ((this->unk_7c & 1) == 0)) {
         if (EntityWithinDistance(&gPlayerEntity.base, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
             ((this->unk_7c & 2) == 0)) {
-            tmp = CalcOffsetAngle((s32)gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
-                                  (s32)gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
+            tmp = CalculateDirectionFromOffsets((s32)gPlayerEntity.base.x.HALF.HI - super->x.HALF.HI,
+                                                (s32)gPlayerEntity.base.y.HALF.HI - super->y.HALF.HI);
             gPlayerEntity.base.x.WORD = super->x.WORD + gSineTable[tmp] * 0x2400;
             gPlayerEntity.base.y.WORD = super->y.WORD + gSineTable[tmp + 0x40] * -0x2400;
         }

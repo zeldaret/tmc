@@ -87,7 +87,7 @@ void sub_08058324(u32 unk) {
     sub_080582D0();
     sub_080582A0(sub_08058244(unk), gUnk_02006F00, gBG3Buffer);
     gScreen.bg1.control = 0x1D47;
-    gScreen.bg1.tilemap = gBG3Buffer;
+    gScreen.bg1.subTileMap = gBG3Buffer;
     gScreen.bg1.updated = 1;
     gScreen.lcd.displayControl |= 0x200;
 }

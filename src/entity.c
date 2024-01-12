@@ -10,6 +10,7 @@ typedef struct Temp {
     void* next;
     u8 _0[0x38];
 } Temp;
+#include "tiles.h"
 
 extern u8 gUpdateVisibleTiles;
 extern Manager gUnk_02033290;
@@ -46,29 +47,29 @@ const u8 gEntityListLUT[] = {
 
 // TODO: wrong file, maybe an "enter.c" according to lexicographical order
 void sub_0805E248(void) {
-    s32 idx;
+    s32 tilePos;
 
-    idx = gDiggingCaveEntranceTransition.entrance->targetTilePosition;
+    tilePos = gDiggingCaveEntranceTransition.entrance->targetTilePos;
     if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
-        SetTileType(0x27c, idx + TILE_POS(-1, -1), 1);
-        SetTileType(0x283, idx + TILE_POS(-1, -1), 2);
-        SetTileType(0x27d, idx + TILE_POS(0, -1), 1);
-        SetTileType(0x284, idx + TILE_POS(0, -1), 2);
-        SetTileType(0x27e, idx + TILE_POS(1, -1), 1);
-        SetTileType(0x285, idx + TILE_POS(1, -1), 2);
-        SetTileType(0x27f, idx + TILE_POS(-1, 0), 1);
-        SetTileType(0x280, idx + TILE_POS(0, 0), 1);
-        SetTileType(0x282, idx + TILE_POS(1, 0), 1);
+        SetTileType(TILE_TYPE_636, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_643, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_637, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_644, tilePos + TILE_POS(0, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_638, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_645, tilePos + TILE_POS(1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_639, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_640, tilePos + TILE_POS(0, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_642, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
     } else {
-        SetTileType(0x26c, idx + TILE_POS(-1, -1), 1);
-        SetTileType(0x273, idx + TILE_POS(-1, -1), 2);
-        SetTileType(0x26d, idx + TILE_POS(0, -1), 1);
-        SetTileType(0x274, idx + TILE_POS(0, -1), 2);
-        SetTileType(0x26e, idx + TILE_POS(1, -1), 1);
-        SetTileType(0x275, idx + TILE_POS(1, -1), 2);
-        SetTileType(0x26f, idx + TILE_POS(-1, 0), 1);
-        SetTileType(0x270, idx + TILE_POS(0, 0), 1);
-        SetTileType(0x272, idx + TILE_POS(1, 0), 1);
+        SetTileType(TILE_TYPE_620, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_627, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_621, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_628, tilePos + TILE_POS(0, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_622, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_629, tilePos + TILE_POS(1, -1), LAYER_TOP);
+        SetTileType(TILE_TYPE_623, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_624, tilePos + TILE_POS(0, 0), LAYER_BOTTOM);
+        SetTileType(TILE_TYPE_626, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
     }
     gUpdateVisibleTiles = 0;
 }

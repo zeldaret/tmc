@@ -1,19 +1,20 @@
 /**
- * @file hyruleTownTilesetManager.c
+ * @file hyruleTownTileSetManager.c
  * @ingroup Managers
  *
- * @brief Swap tileset data in hyrule town depending on the position.
+ * @brief Swap tileSet data in hyrule town depending on the position.
  */
-#include "manager/hyruleTownTilesetManager.h"
+#include "manager/hyruleTownTileSetManager.h"
 #include "area.h"
 #include "asm.h"
 #include "flags.h"
 #include "functions.h"
 #include "main.h"
 #include "room.h"
+#include "tiles.h"
 
-void sub_08059A58(HyruleTownTilesetManager*);
-void sub_08059A2C(HyruleTownTilesetManager*);
+void sub_08059A58(HyruleTownTileSetManager*);
+void sub_08059A2C(HyruleTownTileSetManager*);
 
 static const u16 gUnk_08108398[] = { 0x0, 0x0, 0x0, 0x3f0, 0x200, 0x1, 0x0, 0x280, 0x3f0, 0x140, 0xff };
 static const u16 gUnk_081083AE[] = { 0x2, 0x0, 0x0, 0x180, 0x3c0, 0x3, 0x280, 0x0, 0x170, 0x3c0, 0xff };
@@ -24,7 +25,7 @@ static const u16 gUnk_081083F2[] = { 0x5, 0x0, 0x1b0, 0x190, 0x140, 0x4, 0x0, 0x
 void sub_08059CC0(u32, u32);
 void sub_08059B18(void);
 
-bool32 sub_08059C8C(HyruleTownTilesetManager*, u32, u8*, const u16*);
+bool32 sub_08059C8C(HyruleTownTileSetManager*, u32, u8*, const u16*);
 
 extern u32 gUnk_086E8460;
 
@@ -59,7 +60,7 @@ static const Unknown gUnk_08108468[] = {
 };
 extern const u8 gGlobalGfxAndPalettes[];
 
-void HyruleTownTilesetManager_Main(HyruleTownTilesetManager* this) {
+void HyruleTownTileSetManager_Main(HyruleTownTileSetManager* this) {
     if (super->action == 0) {
         super->action = 1;
         this->field_0x22 = 0xff;
@@ -71,7 +72,7 @@ void HyruleTownTilesetManager_Main(HyruleTownTilesetManager* this) {
     sub_08059A58(this);
 }
 
-void sub_08059A2C(HyruleTownTilesetManager* this) {
+void sub_08059A2C(HyruleTownTileSetManager* this) {
     gRoomVars.graphicsGroups[2] = 0xff;
     gRoomVars.graphicsGroups[1] = 0xff;
     gRoomVars.graphicsGroups[0] = 0xff;
@@ -81,7 +82,7 @@ void sub_08059A2C(HyruleTownTilesetManager* this) {
     sub_08059A58(this);
 }
 
-void sub_08059A58(HyruleTownTilesetManager* this) {
+void sub_08059A58(HyruleTownTileSetManager* this) {
     if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
         if (sub_08059C8C(this, 0, &this->field_0x20, gUnk_08108398) != 0) {
             sub_08059CC0(0, (u32)this->field_0x20);
@@ -113,37 +114,37 @@ void sub_08059B18(void) {
     if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                sub_0807B9B8(loopVar * 0x10 + 0x4ab + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
-                             1);
+                SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1195 + innerLoopVar,
+                               COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
             }
         }
 
         for (loopVar = 0; loopVar < 3; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                sub_0807B9B8(loopVar * 0x10 + 0x440 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
-                             2);
+                SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1088 + innerLoopVar,
+                               COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
             }
         }
-        sub_0807B9B8(0xd6, 0x5c2, 2);
-        sub_0807B9B8(0xd7, 0x5c3, 2);
+        SetTileByIndex(TILE_TYPE_214, TILE_POS(2, 23), LAYER_TOP);
+        SetTileByIndex(TILE_TYPE_215, TILE_POS(3, 23), LAYER_TOP);
         LoadResourceAsync(&gUnk_086E8460, 0x6001800, 0x800);
     } else {
         if (CheckGlobalFlag(TATEKAKE_TOCHU) != 0) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                    sub_0807B9B8(loopVar * 0x10 + 0x4a6 + innerLoopVar,
-                                 COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
+                    SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1190 + innerLoopVar,
+                                   COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
-            sub_0807B9B8(0x444, 0x602, 2);
-            sub_0807B9B8(0x445, 0x605, 2);
-            sub_0807B9B8(0x454, 0x642, 2);
-            sub_0807B9B8(0x455, 0x645, 2);
+            SetTileByIndex(TILE_TYPE_1092, TILE_POS(2, 24), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1093, TILE_POS(5, 24), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1108, TILE_POS(2, 25), LAYER_TOP);
+            SetTileByIndex(TILE_TYPE_1109, TILE_POS(5, 25), LAYER_TOP);
         }
     }
 }
 
-bool32 sub_08059C8C(HyruleTownTilesetManager* this, u32 param_2, u8* param_3, const u16* param_4) {
+bool32 sub_08059C8C(HyruleTownTileSetManager* this, u32 param_2, u8* param_3, const u16* param_4) {
     bool32 bVar2;
 
     *param_3 = CheckRegionsOnScreen(param_4);

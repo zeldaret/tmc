@@ -7,6 +7,7 @@
 #include "area.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -24,7 +25,7 @@ void JarPortal_Action1(JarPortalEntity* this);
 void JarPortal_Action2(JarPortalEntity* this);
 void JarPortal_Action3(JarPortalEntity* this);
 void JarPortal_Action4(JarPortalEntity* this);
-void sub_0808C148(JarPortalEntity* this, u32);
+void sub_0808C148(JarPortalEntity* this, bool32);
 void sub_0808C01C(JarPortalEntity* this, u32);
 
 void JarPortal(JarPortalEntity* this) {
@@ -69,7 +70,7 @@ void JarPortal_Action1(JarPortalEntity* this) {
         } else {
             ClearLocalFlag(super->type);
         }
-        sub_0808C148(this, 0);
+        sub_0808C148(this, FALSE);
     }
     sub_0808C01C(this, 0);
 }
@@ -96,7 +97,7 @@ void JarPortal_Action2(JarPortalEntity* this) {
                 ++super->action;
                 super->subtimer = 0;
                 InitAnimationForceUpdate(super, 1);
-                sub_0808C148(this, 1);
+                sub_0808C148(this, TRUE);
             }
             break;
     }
@@ -110,7 +111,7 @@ void JarPortal_Action3(JarPortalEntity* this) {
             ClearLocalFlag(super->type);
         else
             SetLocalFlag(super->type);
-        sub_0808C148(this, 0);
+        sub_0808C148(this, FALSE);
     }
     sub_0808C01C(this, 1);
 }
@@ -163,7 +164,7 @@ void JarPortal_Action4(JarPortalEntity* this) {
             if (!super->z.HALF.HI) {
                 super->action = 1;
                 InitAnimationForceUpdate(super, 0);
-                sub_0808C148(this, 1);
+                sub_0808C148(this, TRUE);
             }
             break;
     }
@@ -178,19 +179,17 @@ void sub_0808C13C(JarPortalEntity* this) {
     super->zVelocity = Q_16_16(2.5);
 }
 
-void sub_0808C148(JarPortalEntity* this, u32 a2) {
-    u32 pos;
-
-    pos = COORD_TO_TILE(super);
-    if (!a2) {
-        SetBottomTile(16530, pos - 1, super->collisionLayer);
-        SetBottomTile(16531, pos, super->collisionLayer);
-        SetBottomTile(16532, pos + 63, super->collisionLayer);
-        SetBottomTile(16533, pos + 64, super->collisionLayer);
+void sub_0808C148(JarPortalEntity* this, bool32 setTiles) {
+    u32 tilePos = COORD_TO_TILE(super);
+    if (!setTiles) {
+        SetTile(SPECIAL_TILE_146, tilePos + TILE_POS(-1, 0), super->collisionLayer);
+        SetTile(SPECIAL_TILE_147, tilePos + TILE_POS(0, 0), super->collisionLayer);
+        SetTile(SPECIAL_TILE_148, tilePos + TILE_POS(-1, 1), super->collisionLayer);
+        SetTile(SPECIAL_TILE_149, tilePos + TILE_POS(0, 1), super->collisionLayer);
     } else {
-        RestorePrevTileEntity(pos - 1, super->collisionLayer);
-        RestorePrevTileEntity(pos, super->collisionLayer);
-        RestorePrevTileEntity(pos + 63, super->collisionLayer);
-        RestorePrevTileEntity(pos + 64, super->collisionLayer);
+        RestorePrevTileEntity(tilePos + TILE_POS(-1, 0), super->collisionLayer);
+        RestorePrevTileEntity(tilePos + 0, super->collisionLayer);
+        RestorePrevTileEntity(tilePos + TILE_POS(-1, 1), super->collisionLayer);
+        RestorePrevTileEntity(tilePos + TILE_POS(0, 1), super->collisionLayer);
     }
 }

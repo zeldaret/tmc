@@ -4,9 +4,11 @@
  *
  * @brief Crenel Bean Sprout object
  */
+#include "asm.h"
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -14,8 +16,6 @@ typedef struct {
     /*0x70*/ u16 unk_70;
     /*0x72*/ u16 unk_72;
 } CrenelBeanSproutEntity;
-
-extern u32 sub_080B1AB4(s32, s32, u32);
 
 void sub_080969A4(CrenelBeanSproutEntity*);
 void sub_08096A78(CrenelBeanSproutEntity*);
@@ -54,13 +54,13 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             if (CheckGlobalFlag(WATERBEAN_OUT)) {
                 if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
                     PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
-                    SetBottomTile(0x4022, 0xdc, super->collisionLayer);
+                    SetTile(SPECIAL_TILE_34, 0xdc, super->collisionLayer);
                 } else {
                     if (CheckLocalFlag(super->type2) == 0) {
                         InitializeAnimation(super, 10);
                         super->y.HALF.HI += 4;
                         super->action = 4;
-                        SetBottomTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
+                        SetTile(SPECIAL_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
                         return;
                     }
                     super->type2 = 0;
@@ -107,7 +107,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
                 InitializeAnimation(super, 0xb);
                 super->y.HALF.HI += 4;
                 super->action = 4;
-                SetBottomTile(0x4032, COORD_TO_TILE(super), super->collisionLayer);
+                SetTile(SPECIAL_TILE_50, COORD_TO_TILE(super), super->collisionLayer);
                 return;
             } else {
                 super->type2 = 0;
@@ -168,20 +168,20 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         tmp = gPlayerEntity.base.animationState & 6;
         this->unk_70 = ((super->x.HALF.HI + (s8)gUnk_08123184[tmp]) & -0x10) | 8;
         this->unk_72 = ((super->y.HALF.HI + (s8)gUnk_08123184[(tmp) + 1]) & -0x10) | 8;
-        if (sub_080B1AB4(this->unk_70, this->unk_72, super->collisionLayer) == 0x19) {
-            gUnk_0200AF00.rActionPlayerState = R_ACTION_THROW;
+        if (GetActTileAtWorldCoords(this->unk_70, this->unk_72, super->collisionLayer) == ACT_TILE_25) {
+            gHUD.rActionPlayerState = R_ACTION_THROW;
         } else {
-            gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
+            gHUD.rActionPlayerState = R_ACTION_NONE;
         }
         PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
-        if (GetActTile(super) == 0x19) {
+        if (GetActTileAtEntity(super) == ACT_TILE_25) {
             RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
         if ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_40)) == 0) {
             return;
         }
-        if (gUnk_0200AF00.rActionPlayerState != R_ACTION_THROW) {
+        if (gHUD.rActionPlayerState != R_ACTION_THROW) {
             return;
         }
         gPlayerState.heldObject = 0;
@@ -232,8 +232,8 @@ void CrenelBeanSprout_Action3(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action4(CrenelBeanSproutEntity* this) {
-    static const u16 gUnk_0812319C[] = { 0x403c, 0x4033 };
-    if (gUnk_0812319C[super->type >> 1] == GetTileTypeByEntity(super)) {
+    static const u16 gUnk_0812319C[] = { SPECIAL_TILE_60, SPECIAL_TILE_51 };
+    if (gUnk_0812319C[super->type >> 1] == GetTileTypeAtEntity(super)) {
         GetNextFrame(super);
         gPlayerState.keepFacing |= 0x80;
         gPlayerState.field_0xa |= 0x80;
@@ -329,5 +329,5 @@ void sub_08096A78(CrenelBeanSproutEntity* this) {
     SnapToTile(super);
     super->y.HALF.HI += 4;
     super->action = 3;
-    SetBottomTile(0x403b, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_59, COORD_TO_TILE(super), super->collisionLayer);
 }

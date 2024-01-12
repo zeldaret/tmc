@@ -1,9 +1,9 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include "global.h"
 #include "entity.h"
 #include "droptables.h"
+#include "map.h"
 
 enum RoomTransition {
     TRANSITION_DEFAULT,
@@ -24,7 +24,7 @@ enum RoomReloadType {
 };
 
 typedef struct {
-    /*0x00*/ u16 reload_flags;
+    /*0x00*/ u16 reload_flags; // anything except for 0x1 prevents the screen from reloading when tiles are changed.
     /*0x02*/ u8 scrollAction;
     /*0x03*/ u8 scrollSubAction;
     /*0x04*/ u8 area;
@@ -34,7 +34,8 @@ typedef struct {
     /*0x0A*/ s16 scroll_x;
     /*0x0C*/ s16 scroll_y;
     /*0x0E*/ u8 scrollSpeed;  /**< Pixels per frame that the camera can scroll. */
-    /*0x0F*/ u8 scroll_flags; // 0x2 = ??, 0x4 = camera scrolling
+    /*0x0F*/ u8 scroll_flags; // 0x2 = ?? (apply collision value on bottom map no matter the layer SetTileType is
+                              // called for), 0x4 = camera scrolling
     /*0x10*/ u8 scroll_direction;
     /*0x11*/ s8 oam_offset_x;
     /*0x12*/ s8 oam_offset_y;
@@ -45,8 +46,8 @@ typedef struct {
     /*0x18*/ u16 unk_18; // progress during transition in same area?
     /*0x1A*/ u16 unk_1a; // calculated from unk_18
     /*0x1C*/ u16 unk_1c; // 0, 0xff
-    /*0x1E*/ u16 width;
-    /*0x20*/ u16 height;
+    /*0x1E*/ u16 width;  /**< Width in pixels. */
+    /*0x20*/ u16 height; /**< Height in pixels. */
     /*0x22*/ u16 unk_22; // so far always 0xffff
     /*0x24*/ s8 aff_x;
     /*0x25*/ s8 aff_y;
@@ -55,7 +56,7 @@ typedef struct {
     /*0x28*/ union SplitWord bg3OffsetX;
     /*0x2C*/ union SplitWord bg3OffsetY;
     /*0x30*/ Entity* camera_target;
-    /*0x34*/ u32 unk_34;
+    /*0x34*/ u32 tileSet; // TODO Should be MapDataDefinition*, but then LoadRoomTileSet does not match.
 } RoomControls;
 extern RoomControls gRoomControls;
 
@@ -72,7 +73,7 @@ typedef struct {
     /* 0x09 */ u8 fight_bgm;
     /* 0x0a */ u8 needHealthDrop;
     /* 0x0c */ s16 lightLevel;
-    /* 0x0e */ u16 tileEntityCount;
+    /* 0x0e */ u16 tileEntityCount; // Number of previous values for special tiles stored in gTilesForSpecialTiles
     /* 0x10 */ u8 graphicsGroups[4];
     /* 0x14 */ u8 flags[52];
     /* 0x48 */ Droptable currentAreaDroptable;
@@ -88,7 +89,8 @@ typedef struct {
     u8 area;
     u8 room;
     u16 unk_02;
-    u32 enemyBits;
+    u32 enemyBits; /**< Flags that can be set on the tracked rooms. Used e.g. by the door mimic. (TODO probably to start
+                  in the discovered state?)*/
 } RoomMemory;
 
 extern RoomMemory* gCurrentRoomMemory;
@@ -149,7 +151,7 @@ typedef struct {
     /* 0x06 */ u16 field_0x6;
     /* 0x08 */ bool8 transitioningOut;
     /* 0x09 */ u8 type;        // transition when changing areas
-    /* 0x0a */ u16 stairs_idx; // seems to be a tile type
+    /* 0x0a */ u16 stairs_idx; // seems to be a tile type @see TileType, set in UpdateDoorTransition()
     /* 0x0c */ PlayerRoomStatus player_status;
     /* 0x2c */ u8 entity_update_type; // differentiates entity priority on kinstone menu?
     /* 0x2d */ u8 field2d;
@@ -232,7 +234,7 @@ typedef enum {
 
 extern void** gCurrentRoomProperties;
 
-void SetTileType(u32 tileType, u32 position, u32 layer);
+void SetTileType(u32 tileType, u32 tilePos, u32 layer);
 void InitScreenShake(u32 time, u32 magnitude);
 
 void CallRoomProp5And7(void);

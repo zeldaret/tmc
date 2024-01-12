@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "object.h"
 #include "screen.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -85,15 +86,15 @@ void LightDoor_Action4(LightDoorEntity* this) {
 }
 
 void sub_080850FC(LightDoorEntity* this) {
-    u32 position = COORD_TO_TILE(super);
+    u32 tilePos = COORD_TO_TILE(super);
     u32 layer = super->collisionLayer;
-    SetBottomTile(0x403d, position - 0x41, layer);
-    SetBottomTile(0x403d, position - 0x40, layer);
-    SetBottomTile(0x403d, position - 0x3f, layer);
-    SetBottomTile(0x403d, position - 1, layer);
-    SetBottomTile(0x403d, position, layer);
-    SetBottomTile(0x403d, position + 1, layer);
-    SetBottomTile(0x403d, position + 0x3f, layer);
-    SetBottomTile(0x403d, position + 0x40, layer);
-    SetBottomTile(0x403d, position + 0x41, layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(-1, -1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(0, -1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(1, -1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(-1, 0), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(0, 0), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(1, 0), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(-1, 1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(0, 1), layer);
+    SetTile(SPECIAL_TILE_61, tilePos + TILE_POS(1, 1), layer);
 }

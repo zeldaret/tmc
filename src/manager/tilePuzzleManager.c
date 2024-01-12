@@ -12,6 +12,7 @@
 #include "flags.h"
 #include "functions.h"
 #include "sound.h"
+#include "tiles.h"
 
 enum { INIT, IN_PROGRESS, FAILED, SUCCEEDED };
 
@@ -30,16 +31,16 @@ void TilePuzzleManager_Main(TilePuzzleManager* this) {
             this->player_current_tile = COORD_TO_TILE((&gPlayerEntity.base));
             if (this->player_current_tile != this->player_previous_tile) {
                 this->player_previous_tile = this->player_current_tile;
-                switch (GetTileType(this->player_current_tile, super->type2)) {
-                    case 0x317:
+                switch (GetTileTypeAtTilePos(this->player_current_tile, super->type2)) {
+                    case TILE_TYPE_791:
                         // stepped on a red tile again
                         super->action = FAILED;
                         SoundReq(SFX_MENU_ERROR);
                         break;
-                    case 0x318:
+                    case TILE_TYPE_792:
                         // stepped on a blue tile
                         // turn the tile into a red tile
-                        sub_0807B7D8(0x317, this->player_current_tile, super->type2);
+                        sub_0807B7D8(TILE_TYPE_791, this->player_current_tile, super->type2);
                         SoundReq(SFX_6B);
                         // decrease the number of remaining tiles and check if we're done
                         if (--super->timer == 0) {

@@ -13,6 +13,7 @@
 #include "npc.h"
 #include "object.h"
 #include "script.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -366,17 +367,17 @@ void CuccoMinigame_TellObjective(void) {
 }
 
 void sub_080A1648(void) {
-    SetTileType(0x407f, 0xd36, 1);
-    SetTileType(0x407f, 0xd37, 1);
-    SetTileType(0x407f, 0xd38, 1);
-    SetTileType(0x407e, 0xd75, 1);
-    SetTileType(0x407e, 0xe75, 1);
+    SetTileType(SPECIAL_TILE_127, TILE_POS(54, 52), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_127, TILE_POS(55, 52), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_127, TILE_POS(56, 52), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_126, TILE_POS(53, 53), LAYER_BOTTOM);
+    SetTileType(SPECIAL_TILE_126, TILE_POS(53, 57), LAYER_BOTTOM);
 }
 
 void sub_080A169C(void) {
-    RestorePrevTileEntity(0xd36, 1);
-    RestorePrevTileEntity(0xd37, 1);
-    RestorePrevTileEntity(0xd38, 1);
-    RestorePrevTileEntity(0xd75, 1);
-    RestorePrevTileEntity(0xe75, 1);
+    RestorePrevTileEntity(TILE_POS(54, 52), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(55, 52), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(56, 52), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(53, 53), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(53, 57), LAYER_BOTTOM);
 }

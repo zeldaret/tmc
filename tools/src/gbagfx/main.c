@@ -30,7 +30,7 @@ void ConvertGbaToPng(char* inputPath, char* outputPath, struct GbaToPngOptions* 
         image.hasPalette = false;
     }
 
-    ReadImage(inputPath, options->width, options->bitDepth, options->metatileWidth, options->metatileHeight, &image,
+    ReadImage(inputPath, options->width, options->bitDepth, options->tileWidth, options->tileHeight, &image,
               !image.hasPalette);
 
     image.hasTransparency = options->hasTransparency;
@@ -47,7 +47,7 @@ void ConvertPngToGba(char* inputPath, char* outputPath, struct PngToGbaOptions* 
 
     ReadPng(inputPath, &image);
 
-    WriteImage(outputPath, options->numTiles, options->bitDepth, options->metatileWidth, options->metatileHeight,
+    WriteImage(outputPath, options->numTiles, options->bitDepth, options->tileWidth, options->tileHeight,
                &image, !image.hasPalette);
 
     FreeImage(&image);
@@ -60,8 +60,8 @@ void HandleGbaToPngCommand(char* inputPath, char* outputPath, int argc, char** a
     options.bitDepth = inputFileExtension[0] - '0';
     options.hasTransparency = false;
     options.width = 1;
-    options.metatileWidth = 1;
-    options.metatileHeight = 1;
+    options.tileWidth = 1;
+    options.tileHeight = 1;
 
     for (int i = 3; i < argc; i++) {
         char* option = argv[i];
@@ -88,33 +88,33 @@ void HandleGbaToPngCommand(char* inputPath, char* outputPath, int argc, char** a
                 FATAL_ERROR("Width must be positive.\n");
         } else if (strcmp(option, "-mwidth") == 0) {
             if (i + 1 >= argc)
-                FATAL_ERROR("No metatile width value following \"-mwidth\".\n");
+                FATAL_ERROR("No tile width value following \"-mwidth\".\n");
 
             i++;
 
-            if (!ParseNumber(argv[i], NULL, 10, &options.metatileWidth))
-                FATAL_ERROR("Failed to parse metatile width.\n");
+            if (!ParseNumber(argv[i], NULL, 10, &options.tileWidth))
+                FATAL_ERROR("Failed to parse tile width.\n");
 
-            if (options.metatileWidth < 1)
-                FATAL_ERROR("metatile width must be positive.\n");
+            if (options.tileWidth < 1)
+                FATAL_ERROR("tile width must be positive.\n");
         } else if (strcmp(option, "-mheight") == 0) {
             if (i + 1 >= argc)
-                FATAL_ERROR("No metatile height value following \"-mheight\".\n");
+                FATAL_ERROR("No tile height value following \"-mheight\".\n");
 
             i++;
 
-            if (!ParseNumber(argv[i], NULL, 10, &options.metatileHeight))
-                FATAL_ERROR("Failed to parse metatile height.\n");
+            if (!ParseNumber(argv[i], NULL, 10, &options.tileHeight))
+                FATAL_ERROR("Failed to parse tile height.\n");
 
-            if (options.metatileHeight < 1)
-                FATAL_ERROR("metatile height must be positive.\n");
+            if (options.tileHeight < 1)
+                FATAL_ERROR("tile height must be positive.\n");
         } else {
             FATAL_ERROR("Unrecognized option \"%s\".\n", option);
         }
     }
 
-    if (options.metatileWidth > options.width)
-        options.width = options.metatileWidth;
+    if (options.tileWidth > options.width)
+        options.width = options.tileWidth;
 
     ConvertGbaToPng(inputPath, outputPath, &options);
 }
@@ -125,8 +125,8 @@ void HandlePngToGbaCommand(char* inputPath, char* outputPath, int argc, char** a
     struct PngToGbaOptions options;
     options.numTiles = 0;
     options.bitDepth = bitDepth;
-    options.metatileWidth = 1;
-    options.metatileHeight = 1;
+    options.tileWidth = 1;
+    options.tileHeight = 1;
 
     for (int i = 3; i < argc; i++) {
         char* option = argv[i];
@@ -144,26 +144,26 @@ void HandlePngToGbaCommand(char* inputPath, char* outputPath, int argc, char** a
                 FATAL_ERROR("Number of tiles must be positive.\n");
         } else if (strcmp(option, "-mwidth") == 0) {
             if (i + 1 >= argc)
-                FATAL_ERROR("No metatile width value following \"-mwidth\".\n");
+                FATAL_ERROR("No tile width value following \"-mwidth\".\n");
 
             i++;
 
-            if (!ParseNumber(argv[i], NULL, 10, &options.metatileWidth))
-                FATAL_ERROR("Failed to parse metatile width.\n");
+            if (!ParseNumber(argv[i], NULL, 10, &options.tileWidth))
+                FATAL_ERROR("Failed to parse tile width.\n");
 
-            if (options.metatileWidth < 1)
-                FATAL_ERROR("metatile width must be positive.\n");
+            if (options.tileWidth < 1)
+                FATAL_ERROR("tile width must be positive.\n");
         } else if (strcmp(option, "-mheight") == 0) {
             if (i + 1 >= argc)
-                FATAL_ERROR("No metatile height value following \"-mheight\".\n");
+                FATAL_ERROR("No tile height value following \"-mheight\".\n");
 
             i++;
 
-            if (!ParseNumber(argv[i], NULL, 10, &options.metatileHeight))
-                FATAL_ERROR("Failed to parse metatile height.\n");
+            if (!ParseNumber(argv[i], NULL, 10, &options.tileHeight))
+                FATAL_ERROR("Failed to parse tile height.\n");
 
-            if (options.metatileHeight < 1)
-                FATAL_ERROR("metatile height must be positive.\n");
+            if (options.tileHeight < 1)
+                FATAL_ERROR("tile height must be positive.\n");
         } else {
             FATAL_ERROR("Unrecognized option \"%s\".\n", option);
         }
@@ -312,7 +312,7 @@ void HandleLZCompressCommand(char* inputPath, char* outputPath, int argc, char**
         }
     }
 
-    // The overflow option allows a quirk in some of Ruby/Sapphire's tilesets
+    // The overflow option allows a quirk in some of Ruby/Sapphire's tileSets
     // to be reproduced. It works by appending a number of zeros to the data
     // before compressing it and then amending the LZ header's size field to
     // reflect the expected size. This will cause an overflow when decompressing

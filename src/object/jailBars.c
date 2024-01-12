@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -66,10 +67,36 @@ void JailBars_Action3(JailBarsEntity* this) {
 }
 
 static void SetJailBarTiles(JailBarsEntity* this, u32 arg1) {
-    static const s16 gUnk_08124960[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4023, -0x1, 0x4023,
-                                         0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
-    static const s16 gUnk_0812497A[] = { 0x4023, -0x3,   0x4023, -0x2,   0x4088, -0x1, 0x4087,
-                                         0x0,    0x4023, 0x1,    0x4023, 0x2,    -0x1 };
+    static const s16 gUnk_08124960[] = {
+        SPECIAL_TILE_35,
+        -0x3,
+        SPECIAL_TILE_35,
+        -0x2,
+        SPECIAL_TILE_35,
+        -0x1,
+        SPECIAL_TILE_35,
+        0x0,
+        SPECIAL_TILE_35,
+        0x1,
+        SPECIAL_TILE_35,
+        0x2,
+        -0x1,
+    };
+    static const s16 gUnk_0812497A[] = {
+        SPECIAL_TILE_35,
+        -0x3,
+        SPECIAL_TILE_35,
+        -0x2,
+        SPECIAL_TILE_136,
+        -0x1,
+        SPECIAL_TILE_135,
+        0x0,
+        SPECIAL_TILE_35,
+        0x1,
+        SPECIAL_TILE_35,
+        0x2,
+        -0x1,
+    };
     const s16* puVar1;
 
     puVar1 = gUnk_08124960;

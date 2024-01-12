@@ -1,5 +1,5 @@
-#ifndef GUARD_GBA_GBA_H
-#define GUARD_GBA_GBA_H
+#ifndef GBA_H
+#define GBA_H
 
 #include <string.h>
 #include "defines.h"
@@ -10,4 +10,4 @@
 #include "macro.h"
 #include "isagbprint.h"
 
-#endif // GUARD_GBA_GBA_H
+#endif // GBA_H

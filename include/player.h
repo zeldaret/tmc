@@ -183,8 +183,8 @@ enum PlayerItemId {
 typedef enum {
     SURFACE_NORMAL,
     SURFACE_PIT,
-    SURFACE_2,
-    SURFACE_3,
+    SURFACE_2, // nulled
+    SURFACE_3, // nulled
     SURFACE_SLOPE_GNDGND_V,
     SURFACE_SLOPE_GNDGND_H,
     SURFACE_6,
@@ -194,10 +194,10 @@ typedef enum {
     SURFACE_A,
     SURFACE_B,
     SURFACE_SLOPE_GNDWATER,
-    SURFACE_D,
-    SURFACE_E,
-    SURFACE_F,
-    SURFACE_10,
+    SURFACE_D,  // SurfaceAction_ConveyerNorth
+    SURFACE_E,  // SurfaceAction_ConveyerSouth
+    SURFACE_F,  // SurfaceAction_ConveyerWest
+    SURFACE_10, // SurfaceAction_ConveyerEast
     SURFACE_SWAMP,
     SURFACE_DOOR,
     SURFACE_DOOR_13,
@@ -214,18 +214,19 @@ typedef enum {
     SURFACE_LADDER,
     SURFACE_1F, // nulled
     SURFACE_20,
-    SURFACE_21,
+    SURFACE_21, // reuses SurfaceAction_16
     SURFACE_22,
-    SURFACE_EDGE,
-    SURFACE_24,
+    SURFACE_EDGE, // reuses SurfaceAction_6
+    SURFACE_24,   // reuses SurfaceAction_6
     SURFACE_DUST,
     SURFACE_26,
     SURFACE_HOLE,
-    SURFACE_LIGHT_GRADE,
-    SURFACE_29,
+    SURFACE_LIGHT_GRADE, // reuses SurfaceAction_SlopeGndGndVertical
+    SURFACE_29,          // reuses SurfaceAction_SlopeGndGndHorizontal
     SURFACE_AUTO_LADDER,
     SURFACE_CLIMB_WALL,
     SURFACE_2C,
+    SURFACE_2D, // reuses SurfaceAction_Dust
     SURFACE_FF = 0xff,
 } SurfaceType;
 
@@ -256,8 +257,8 @@ typedef struct {
 
 typedef struct {
     u16 flags;
-    u16 keys;
-} PlayerMacroEntry;
+    u16 keys; /**< GBA keys bitmask, see io_reg.h */
+} PlayerMacroEntry ALIGNED(2);
 
 typedef enum {
     INPUT_USE_ITEM1 = 0x1, // A
@@ -502,8 +503,8 @@ typedef struct {
     /*0x0f*/ u8 hurtBlinkSpeed;
     /*0x10*/ u8 field_0x10;
     /*0x11*/ u8 surfacePositionSameTimer;
-    /*0x12*/ u8 floor_type;
-    /*0x13*/ u8 floor_type_last;
+    /*0x12*/ u8 floor_type;      /**< @see SurfaceType */
+    /*0x13*/ u8 floor_type_last; /**< @see SurfaceType */
     /*0x14*/ u8 field_0x14;
     /*0x15*/ u8 field_0x15;
     /*0x16*/ u16 startPosX;
@@ -515,7 +516,7 @@ typedef struct {
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[2];
     /*0x21*/ u8 bow_state;
-    /*0x22*/ u16 tilePosition;
+    /*0x22*/ u16 tilePos;
     /*0x24*/ u16 tileType;
     /*0x26*/ u8 swim_state; /**< Is the player swimming? 0x80 for diving */
     /*0x27*/ u8 field_0x27[5];
@@ -695,7 +696,7 @@ u32 sub_08079B24(void);
 void sub_08079708(Entity*);
 void sub_08079744(Entity*);
 void PlayerUpdateSwimming(Entity*);
-u32 GetCollisionTileInFront(Entity*);
+u32 GetActTileInFront(Entity* player);
 u32 sub_080797C4(void);
 void CheckPlayerVelocity(void);
 void sub_0807B068(Entity*);
@@ -717,14 +718,13 @@ void sub_08078D60(void);
 void PlayerSetNormalAndCollide(void);
 bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk);
 void InitItemGetSequence(u32, u32, u32);
-void sub_0807B7D8(u32, u32, u32);
+void sub_0807B7D8(u32 tileType, u32 tilePos, u32 layer);
 void SetInteractableObjectCollision(Entity*, u32, u32, const void*);
 void sub_08079D84(void);
 u32 sub_0807953C(void);
 void sub_0807BB68(const s16*, u32, u32);
-void sub_0807B9B8(u32, u32, u32);
-void sub_0807B7D8(u32, u32, u32);
-void RestorePrevTileEntity(u32, u32);
+void SetTileByIndex(u32 tileIndex, u32 tilePos, u32 layer);
+void RestorePrevTileEntity(u32 tilePos, u32 layer);
 void UpdateItemAnim(ItemBehavior*);
 void PlayerCancelHoldItem(ItemBehavior*, u32);
 void RegisterCarryEntity(Entity*);

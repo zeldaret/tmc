@@ -8,7 +8,7 @@ SCRIPT_START script_ZeldaIntro
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0007
-	_0807EDD4 0x0068, 0x0060
+	MoveTo 0x0068, 0x0060
 	Wait 0x000f
 	MessageFromTarget TEXT_PROLOGUE, 0x01
 	WaitUntilTextboxCloses

@@ -9,7 +9,7 @@ SCRIPT_START script_MinishEzlo
 	CallWithArg sub_0806AF60, 0x00000000
 	WaitForSyncFlagAndClear 0x00008000
 	CallWithArg sub_0806AF60, 0x00000004
-	_0807EDD4 0x0078, 0x00b8
+	MoveTo 0x0078, 0x00b8
 	SetAnimationState 0x0000
 	CallWithArg sub_0806AF60, 0x00000000
 	SetSyncFlag 0x00010000
@@ -17,7 +17,7 @@ SCRIPT_START script_MinishEzlo
 	DoPostScriptAction 0x000d
 	SetAnimationState 0x0000
 	CallWithArg sub_0806AF60, 0x00000004
-	_0807EDD4 0x0078, 0x00c8
+	MoveTo 0x0078, 0x00c8
 	SetSyncFlag 0x00010000
 	WaitForSyncFlagAndClear 0x00008000
 	SetAnimationState 0x0000

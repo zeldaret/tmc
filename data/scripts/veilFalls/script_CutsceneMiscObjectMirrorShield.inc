@@ -8,7 +8,7 @@ SCRIPT_START script_CutsceneMiscObjectMirrorShield
 	SetEntityVelocity 0x00018000
 	Call sub_0806D858
 script_080094EA:
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_080094EA
 	Wait 0x001e
 	DoPostScriptAction 0x0006

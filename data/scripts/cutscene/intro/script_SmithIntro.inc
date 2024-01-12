@@ -24,7 +24,7 @@ SCRIPT_START script_SmithIntro
 	WaitForSyncFlagAndClear 0x00000008
 	SetAction 0x0001
 	SetAnimationState 0x0004
-	_0807EDD4 0x00b8, 0x005c
+	MoveTo 0x00b8, 0x005c
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0001
 	MessageFromTarget TEXT_PROLOGUE, 0x04

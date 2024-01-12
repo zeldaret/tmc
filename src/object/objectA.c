@@ -11,6 +11,7 @@
 #include "hitbox.h"
 #include "object.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -28,10 +29,10 @@ void ObjectA(ObjectAEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         super->hitbox = (Hitbox*)&gHitbox_2;
-        if (super->collisionLayer == 1) {
-            uVar2 = 0x26;
+        if (super->collisionLayer == LAYER_BOTTOM) {
+            uVar2 = TILE_TYPE_38;
         } else {
-            uVar2 = 0x34;
+            uVar2 = TILE_TYPE_52;
         }
         this->unk_70 = uVar2;
         if (CheckFlags(this->unk_86) != 0) {

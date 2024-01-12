@@ -3,7 +3,7 @@ SCRIPT_START script_PlayerGiveKey
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
-	_0807EDD4 0x0128, 0x0298
+	MoveTo 0x0128, 0x0298
 	Wait 0x000a
 	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000

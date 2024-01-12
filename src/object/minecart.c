@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -26,7 +27,7 @@ void Minecart_Action5(MinecartEntity* this);
 void Minecart_Action6(MinecartEntity* this);
 void Minecart_Action7(MinecartEntity* this);
 
-extern const u16* const gUnk_081223D8[];
+extern const KeyValuePair* const gUnk_081223D8[];
 
 void Minecart(Entity* this) {
     static void (*const Minecart_Actions[])(MinecartEntity*) = {
@@ -59,7 +60,7 @@ void Minecart_Init(MinecartEntity* this) {
     super->speed = 0x700;
     super->spritePriority.b1 = 3;
     InitAnimationForceUpdate(super, super->type2 + 4 + super->animationState);
-    SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 void Minecart_Action1(MinecartEntity* this) {
@@ -105,7 +106,7 @@ void Minecart_Action2(MinecartEntity* this) {
             if (gPlayerEntity.base.zVelocity >= 0) {
                 return;
             }
-            gPlayerEntity.base.animationState = super->animationState << 1;
+            gPlayerEntity.base.animationState = super->animationState * 2;
             gPlayerState.flags = (gPlayerState.flags ^ PL_ENTER_MINECART) | PL_IN_MINECART;
             super->action++;
             super->subtimer = 1;
@@ -128,10 +129,9 @@ void Minecart_Action2(MinecartEntity* this) {
 }
 
 void Minecart_Action3(MinecartEntity* this) {
-    static const s8 gUnk_081223C8[] = { 0, -7, 7, 0, 0, 7, -7, 0 };
+    static const s8 offsetCoords[] = { 0, -7, 7, 0, 0, 7, -7, 0 };
 
-    u32 iVar2;
-    u32 uVar3;
+    u32 actTile;
 
     gRoomControls.scrollSpeed = 7;
     if ((gPlayerState.flags & PL_IN_MINECART) == 0) {
@@ -163,15 +163,14 @@ void Minecart_Action3(MinecartEntity* this) {
                 super->subtimer = 60;
             }
 
-            uVar3 = GetActTileRelative(super, gUnk_081223C8[super->animationState * 2],
-                                       gUnk_081223C8[super->animationState * 2 + 1]);
-            iVar2 = ActTileToTile(uVar3, gUnk_081223D8[super->animationState]);
-            if (iVar2 == 0) {
+            actTile = GetActTileRelativeToEntity(super, offsetCoords[super->animationState * 2],
+                                                 offsetCoords[super->animationState * 2 + 1]);
+            if (FindValueForKey(actTile, gUnk_081223D8[super->animationState]) == 0) {
                 super->direction = DirectionTurnAround(super->direction);
                 super->animationState = AnimationStateFlip90(super->animationState);
             } else {
-                switch (uVar3) {
-                    case 0x64:
+                switch (actTile) {
+                    case ACT_TILE_100:
                         super->flags &= ~ENT_PERSIST;
                         super->hitType = 1;
                         super->collisionFlags = 0x47;
@@ -183,7 +182,7 @@ void Minecart_Action3(MinecartEntity* this) {
                         gPlayerState.flags = (gPlayerState.flags ^ PL_IN_MINECART) | PL_ENTER_MINECART;
                         gPlayerEntity.base.zVelocity = Q_16_16(2.0);
                         gPlayerEntity.base.speed = 0x200;
-                        gPlayerEntity.base.animationState = super->animationState << 1;
+                        gPlayerEntity.base.animationState = super->animationState * 2;
                         gPlayerEntity.base.direction = super->direction;
                         gPlayerEntity.base.flags |= PL_MINISH;
                         SnapToTile(super);
@@ -191,15 +190,15 @@ void Minecart_Action3(MinecartEntity* this) {
                         SoundReq(SFX_PLY_VO4);
                         SoundReq(SFX_139);
                         return;
-                    case 0x67:
-                    case 0x68:
-                    case 0x69:
-                    case 0x6a:
-                    case 0x6c:
-                    case 0x6d:
-                    case 0x6e:
-                    case 0x6f:
-                        if (uVar3 == GetActTile(super)) {
+                    case ACT_TILE_103:
+                    case ACT_TILE_104:
+                    case ACT_TILE_105:
+                    case ACT_TILE_106:
+                    case ACT_TILE_108:
+                    case ACT_TILE_109:
+                    case ACT_TILE_110:
+                    case ACT_TILE_111:
+                        if (actTile == GetActTileAtEntity(super)) {
                             Minecart_Action4(this);
                             gPlayerEntity.base.animationState = super->animationState << 1;
                             return;
@@ -221,8 +220,8 @@ void Minecart_Action3(MinecartEntity* this) {
 void Minecart_Action4(MinecartEntity* this) {
     SnapToTile(super);
     CopyPosition(super, &gPlayerEntity.base);
-    switch (GetActTile(super)) {
-        case 0x67:
+    switch (GetActTileAtEntity(super)) {
+        case ACT_TILE_103:
             if (super->direction == DirectionWest) {
                 super->direction = DirectionNorth;
                 super->animationState = 0;
@@ -231,7 +230,7 @@ void Minecart_Action4(MinecartEntity* this) {
                 super->animationState = 1;
             }
             break;
-        case 0x68:
+        case ACT_TILE_104:
             if (super->direction == DirectionEast) {
                 super->direction = DirectionSouth;
                 super->animationState = 2;
@@ -240,7 +239,7 @@ void Minecart_Action4(MinecartEntity* this) {
                 super->animationState = 3;
             }
             break;
-        case 0x69:
+        case ACT_TILE_105:
             if (super->direction == DirectionEast) {
                 super->direction = DirectionNorth;
                 super->animationState = 0;
@@ -249,7 +248,7 @@ void Minecart_Action4(MinecartEntity* this) {
                 super->animationState = 3;
             }
             break;
-        case 0x6a:
+        case ACT_TILE_106:
             if (super->direction == DirectionWest) {
                 super->direction = DirectionSouth;
                 super->animationState = 2;
@@ -264,7 +263,7 @@ void Minecart_Action4(MinecartEntity* this) {
     }
 
     super->action = 3;
-    gPlayerEntity.base.animationState = super->animationState << 1;
+    gPlayerEntity.base.animationState = super->animationState * 2;
 }
 
 void Minecart_Action5(MinecartEntity* this) {
@@ -290,7 +289,7 @@ void Minecart_Action6(MinecartEntity* this) {
         minecartData->room = gRoomControls.room;
         minecartData->animationState = super->animationState;
         InitAnimationForceUpdate(super, super->animationState + 0x10);
-        SetBottomTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, COORD_TO_TILE(super), super->collisionLayer);
     } else {
         UpdateAnimationSingleFrame(super);
         gPlayerEntity.base.spritePriority.b0 = super->spritePriority.b0 - 1;
@@ -311,8 +310,8 @@ void Minecart_Action7(MinecartEntity* this) {
 
 bool32 sub_08091DDC(MinecartEntity* this) {
     static const s8 gUnk_081223D0[] = { 0, -8, 8, 0, 0, 8, -8, 0 };
-    if ((sub_080B1AF0(super, gUnk_081223D0[super->animationState * 2], gUnk_081223D0[super->animationState * 2 + 1]) ==
-         0xff) &&
+    if ((GetCollisionDataRelativeTo(super, gUnk_081223D0[super->animationState * 2],
+                                    gUnk_081223D0[super->animationState * 2 + 1]) == COLLISION_DATA_255) &&
         (sub_0807BD14(&gPlayerEntity.base, super->animationState))) {
         super->updatePriority = 6;
         super->action = 5;
@@ -331,3 +330,35 @@ bool32 sub_08091DDC(MinecartEntity* this) {
         return 0;
     }
 }
+
+extern const KeyValuePair gUnk_081223E8[];
+extern const KeyValuePair gUnk_08122402[];
+extern const KeyValuePair gUnk_0812241C[];
+extern const KeyValuePair gUnk_08122436[];
+
+const KeyValuePair* const gUnk_081223D8[] = {
+    gUnk_081223E8,
+    gUnk_08122402,
+    gUnk_0812241C,
+    gUnk_08122436,
+};
+const KeyValuePair gUnk_081223E8[] = {
+    { ACT_TILE_242, 1 }, { ACT_TILE_101, 1 }, { ACT_TILE_104, 1 },
+    { ACT_TILE_106, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+};
+const u16 gUnk_081223E8End = 0;
+const KeyValuePair gUnk_08122402[] = {
+    { ACT_TILE_243, 1 }, { ACT_TILE_102, 1 }, { ACT_TILE_104, 1 },
+    { ACT_TILE_105, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+};
+const u16 gUnk_08122402End = 0;
+const KeyValuePair gUnk_0812241C[] = {
+    { ACT_TILE_242, 1 }, { ACT_TILE_101, 1 }, { ACT_TILE_103, 1 },
+    { ACT_TILE_105, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+};
+const u16 gUnk_0812241CEnd = 0;
+const KeyValuePair gUnk_08122436[] = {
+    { ACT_TILE_243, 1 }, { ACT_TILE_102, 1 }, { ACT_TILE_106, 1 },
+    { ACT_TILE_103, 1 }, { ACT_TILE_100, 1 }, { ACT_TILE_41, 1 },
+};
+const u16 gUnk_08122436End = 0;

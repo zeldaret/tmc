@@ -25,7 +25,7 @@ script_08010B22:
 	CallWithArg sub_080608E4, 0x00000000
 	JumpIf script_08010B44
 script_08010B3A:
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_08010B22
 	Jump script_08010B10
 script_08010B44:

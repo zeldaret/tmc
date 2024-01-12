@@ -6,6 +6,7 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -35,7 +36,7 @@ void Fireplace_Init(FireplaceEntity* this) {
         DeleteThisEntity();
     } else {
         sub_0807B7D8(0x30b, TILE(super->x.HALF.HI, super->y.HALF.HI), 2);
-        SetBottomTile(0x4061, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetTile(SPECIAL_TILE_97, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
     Fireplace_Action1(this);
 }
@@ -49,14 +50,14 @@ void Fireplace_Action1(FireplaceEntity* this) {
 }
 
 void sub_0809B7C0(FireplaceEntity* this) {
-    u32 tileType = GetTileTypeByEntity(super);
-    if (tileType != 0x4061 && tileType != 0x4062) {
+    u32 tileType = GetTileTypeAtEntity(super);
+    if (tileType != SPECIAL_TILE_97 && tileType != SPECIAL_TILE_98) {
         sub_0809B7DC(this);
     }
 }
 
 void sub_0809B7DC(FireplaceEntity* this) {
     sub_0807B7D8(0xc3 << 2, TILE(super->x.HALF.HI, super->y.HALF.HI), 2);
-    SetBottomTile(0x4062, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    SetTile(SPECIAL_TILE_98, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     super->timer = 1;
 }

@@ -11,6 +11,7 @@
 #include "functions.h"
 #include "object.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -107,14 +108,14 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     }
 
     if (this->unk7b & 0x40) {
-        tileType = (u32)GetTileType(this->tilePos - 1, super->collisionLayer);
+        tileType = (u32)GetTileTypeAtTilePos(this->tilePos - 1, super->collisionLayer);
     } else {
-        tileType = (u32)GetTileType(this->tilePos + 1, super->collisionLayer);
+        tileType = (u32)GetTileTypeAtTilePos(this->tilePos + 1, super->collisionLayer);
     }
 
     switch (tileType) {
-        case 0x4030:
-        case 0x4031:
+        case SPECIAL_TILE_48:
+        case SPECIAL_TILE_49:
             super->action = 3;
             super->direction = Direction8FromAnimationState(gPlayerEntity.base.animationState);
             super->speed = 0x80;
@@ -133,23 +134,23 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
     if (this->unk7b & 0x80) {
         this->unk7b &= ~0x80;
         if ((this->unk7b & 0x40) != 0) {
-            SetBottomTile(0x402c, this->tilePos - 1, super->collisionLayer);
-            SetBottomTile(0x403d, this->tilePos + 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_44, this->tilePos - 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_61, this->tilePos + 1, super->collisionLayer);
         } else {
-            SetBottomTile(0x403d, this->tilePos - 1, super->collisionLayer);
-            SetBottomTile(0x402d, this->tilePos + 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_61, this->tilePos - 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_45, this->tilePos + 1, super->collisionLayer);
         }
     } else if (this->unk7b & 0x40) {
         if (xDist >= 5) {
             this->unk7b &= ~(0x40 | 0x80);
-            SetBottomTile(0x403d, this->tilePos - 1, super->collisionLayer);
-            SetBottomTile(0x402d, this->tilePos + 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_61, this->tilePos - 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_45, this->tilePos + 1, super->collisionLayer);
         }
     } else {
         if (-xDist > 4) {
             this->unk7b |= 0x40;
-            SetBottomTile(0x402c, this->tilePos - 1, super->collisionLayer);
-            SetBottomTile(0x403d, this->tilePos + 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_44, this->tilePos - 1, super->collisionLayer);
+            SetTile(SPECIAL_TILE_61, this->tilePos + 1, super->collisionLayer);
         }
     }
 }
@@ -190,10 +191,18 @@ void ObjectBlockingStairs_Action4(ObjectBlockingStairsEntity* this) {
 }
 
 void sub_080931A4(ObjectBlockingStairsEntity* this, u32 param_2) {
-    static const u16 gUnk_08122850[] = { 0x4027, 0x4023, 0x4028, 0x402c, 0x402b, 0x402d, 0x4029, 0x4026, 0x402a };
-    static const u16 gUnk_08122862[] = { 0x4027, 0x4023, 0x4028, 0x4024, 0x4022, 0x4025, 0x4029, 0x4026, 0x402a };
-    static const u16 gUnk_08122874[] = { 0x4027, 0x4023, 0x4023, 0x4024, 0x4022, 0x4022, 0x4029, 0x4026, 0x4026 };
-    static const u16 gUnk_08122886[] = { 0x4023, 0x4023, 0x4028, 0x4022, 0x4022, 0x4025, 0x4026, 0x4026, 0x402a };
+    static const u16 gUnk_08122850[] = { SPECIAL_TILE_39, SPECIAL_TILE_35, SPECIAL_TILE_40,
+                                         SPECIAL_TILE_44, SPECIAL_TILE_43, SPECIAL_TILE_45,
+                                         SPECIAL_TILE_41, SPECIAL_TILE_38, SPECIAL_TILE_42 };
+    static const u16 gUnk_08122862[] = { SPECIAL_TILE_39, SPECIAL_TILE_35, SPECIAL_TILE_40,
+                                         SPECIAL_TILE_36, SPECIAL_TILE_34, SPECIAL_TILE_37,
+                                         SPECIAL_TILE_41, SPECIAL_TILE_38, SPECIAL_TILE_42 };
+    static const u16 gUnk_08122874[] = { SPECIAL_TILE_39, SPECIAL_TILE_35, SPECIAL_TILE_35,
+                                         SPECIAL_TILE_36, SPECIAL_TILE_34, SPECIAL_TILE_34,
+                                         SPECIAL_TILE_41, SPECIAL_TILE_38, SPECIAL_TILE_38 };
+    static const u16 gUnk_08122886[] = { SPECIAL_TILE_35, SPECIAL_TILE_35, SPECIAL_TILE_40,
+                                         SPECIAL_TILE_34, SPECIAL_TILE_34, SPECIAL_TILE_37,
+                                         SPECIAL_TILE_38, SPECIAL_TILE_38, SPECIAL_TILE_42 };
 
     u32 collisionLayer;
     const u16* pTileTypes;
@@ -223,7 +232,7 @@ void sub_080931A4(ObjectBlockingStairsEntity* this, u32 param_2) {
 
     for (index = 0, iVar5 = 0; index < 9; index++) {
         u32 pos = tilePos + iVar5 + index - 1;
-        SetBottomTile(pTileTypes[index], pos, collisionLayer);
+        SetTile(pTileTypes[index], pos, collisionLayer);
         switch (index) {
             case 2:
                 iVar5 = 0x3d;

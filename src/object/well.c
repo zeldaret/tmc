@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "player.h"
 #include "room.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -33,12 +34,12 @@ void Well_Init(WellEntity* this) {
     super->action = 1;
     tilePos = COORD_TO_TILE(super);
     this->unk_80 = tilePos;
-    SetBottomTile(16509, this->unk_80, 1);
+    SetTile(SPECIAL_TILE_125, this->unk_80, LAYER_BOTTOM);
 }
 
 void Well_Action1(WellEntity* this) {
-    u32 tileIndex = GetTileType(this->unk_80, 1);
-    if (tileIndex != 0x407D) {
+    u32 tileIndex = GetTileTypeAtTilePos(this->unk_80, LAYER_BOTTOM);
+    if (tileIndex != SPECIAL_TILE_125) {
         PausePlayer();
         gPlayerEntity.base.x.WORD = super->x.WORD;
         gPlayerEntity.base.y.HALF.HI = super->y.HALF.HI + 4;

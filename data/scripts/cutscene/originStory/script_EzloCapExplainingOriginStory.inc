@@ -13,7 +13,7 @@ SCRIPT_START script_EzloCapExplainingOriginStory
 	SetAnimation 0x0018
 	Call sub_0806D8A0
 script_080153C2:
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_080153C2
 	SetAnimation 0x001f
 	StartPlayerScript script_PlayerReceivedExposition

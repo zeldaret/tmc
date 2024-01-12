@@ -5,19 +5,19 @@
  * @brief Gyorg Female enemy
  */
 #include "asm.h"
+#include "beanstalkSubtask.h"
 #include "collision.h"
 #include "enemy.h"
 #include "enemy/gyorg.h"
 #include "entity.h"
 #include "functions.h"
 #include "sound.h"
+#include "assets/map_offsets.h"
 
 extern u8 gEntCount;
 extern u8 gMapDataTopSpecial[];
 
 extern u16 gMapDataBottomSpecial[];
-
-extern void sub_080197D4(const void*);
 
 extern u32 sub_08000E62(u32);
 extern void RegisterTransitionManager(void*, void (*)(), void (*)());
@@ -33,12 +33,12 @@ void sub_08046518(void);
 void sub_080467DC(GyorgFemaleEntity*);
 
 extern u8 gUpdateVisibleTiles;
-extern u8 gUnk_080B3E80[];
+extern u8 gMapTileTypeToCollisionData[];
 
-extern const u8 gUnk_080D1A94[];
-extern const u8 gUnk_080D1AAC[];
-extern const u8 gUnk_080D1AC4[];
-extern const u8 gUnk_080D1ADC[];
+extern const MapDataDefinition gGyorgMapping0[];
+extern const MapDataDefinition gGyorgMapping1[];
+extern const MapDataDefinition gGyorgMapping2[];
+extern const MapDataDefinition gGyorgMapping3[];
 
 void GyorgFemale_Setup(GyorgFemaleEntity* this);
 void GyorgFemale_Action1(GyorgFemaleEntity* this);
@@ -225,16 +225,16 @@ void sub_08046498(GyorgFemaleEntity* this) {
 #endif
 
 void sub_080464C0(GyorgFemaleEntity* this) {
-    static const void* const gUnk_080D1A74[] = {
-        gUnk_080D1A94,
-        gUnk_080D1AAC,
-        gUnk_080D1AC4,
-        gUnk_080D1ADC,
+    static const MapDataDefinition* const gyorgMappings[] = {
+        gGyorgMapping0,
+        gGyorgMapping1,
+        gGyorgMapping2,
+        gGyorgMapping3,
     };
     s32 i;
     u8* src;
     u8* dst;
-    sub_080197D4(gUnk_080D1A74[super->animationState >> 6]);
+    LoadMapData((MapDataDefinition*)gyorgMappings[super->animationState >> 6]);
     sub_08046518();
     for (i = 0x20, src = ((u8*)&gMapDataBottomSpecial), dst = ((u8*)&gMapDataBottomSpecial) + 0x3260; i != 0; i--) {
         MemCopy(src, dst, 0x40);
@@ -248,25 +248,25 @@ void sub_080464C0(GyorgFemaleEntity* this) {
 #define sub_08046518_offset 0x658
 
 void sub_08046518(void) {
-    u16* ptr = gMapTop.metatileTypes;
-    u16* sl = &gMapTop.mapData[sub_08046518_offset];
-    u16* stack1 = &gMapTop.mapDataOriginal[sub_08046518_offset];
-    u8* stack2 = &gMapTop.unkData3[sub_08046518_offset];
-    u8* r6 = &gMapTop.collisionData[sub_08046518_offset];
+    u16* tileTypes = gMapTop.tileTypes;
+    u16* mapData = &gMapTop.mapData[sub_08046518_offset];
+    u16* mapDataOriginal = &gMapTop.mapDataOriginal[sub_08046518_offset];
+    u8* actTiles = &gMapTop.actTiles[sub_08046518_offset];
+    u8* collisionData = &gMapTop.collisionData[sub_08046518_offset];
     u32 i;
     for (i = 0x10; i != 0; i--) {
         u32 j;
         for (j = 0x10; j != 0; j--) {
-            u16 new_var;
-            stack1[j] = sl[j];
-            new_var = ptr[sl[j]];
-            stack2[j] = gUnk_080B37A0[new_var];
-            r6[j] = gUnk_080B3E80[new_var];
+            u16 tileType;
+            mapDataOriginal[j] = mapData[j];
+            tileType = tileTypes[mapData[j]];
+            actTiles[j] = gMapTileTypeToActTile[tileType];
+            collisionData[j] = gMapTileTypeToCollisionData[tileType];
         }
-        sl += 0x40;
-        stack1 += 0x40;
-        stack2 += 0x40;
-        r6 += 0x40;
+        mapData += 0x40;
+        mapDataOriginal += 0x40;
+        actTiles += 0x40;
+        collisionData += 0x40;
     }
 }
 
@@ -290,81 +290,24 @@ void sub_0804660C(GyorgFemaleEntity* this, u32 unk1) {
     super->y.HALF.HI = p[1] + gRoomControls.origin_y;
 }
 
-// todo: correct type
-const u8 gUnk_080D1A94[] = {
-#if defined(JP) || defined(DEMO_JP)
-    0x7C,
-#elif defined(EU)
-    0x50,
-#else
-    0x08,
-#endif
-    0x41, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
-#if defined(JP) || defined(DEMO_JP)
-    0x2C, 0xD3,
-#elif defined(EU)
-    0x00, 0xD3,
-#else
-    0xB8, 0xD2,
-#endif
-    0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+const MapDataDefinition gGyorgMapping0[] = {
+    { MAP_MULTIPLE | offset_gyorgMapping_0_bottom, gMapDataBottomSpecial, MAP_COMPRESSED | 2048 },
+    { offset_gAreaRoomMap_PalaceOfWindsBoss_0_top, gMapTop.mapData, MAP_COMPRESSED | 8064 },
 };
 
-const u8 gUnk_080D1AAC[] = {
-#if defined(JP) || defined(DEMO_JP)
-    0xFC,
-#elif defined(EU)
-    0xD0,
-#else
-    0x88,
-#endif
-    0x3D, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
-#if defined(JP) || defined(DEMO_JP)
-    0xF8,
-#elif defined(EU)
-    0xCC,
-#else
-    0x84,
-#endif
-    0xD6, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+const MapDataDefinition gGyorgMapping1[] = {
+    { MAP_MULTIPLE | offset_gyorgMapping_1_bottom, gMapDataBottomSpecial, MAP_COMPRESSED | 2048 },
+    { offset_gyorgRoomMap_1_top, gMapTop.mapData, MAP_COMPRESSED | 8064 },
 };
 
-const u8 gUnk_080D1AC4[] = {
-#if defined(JP) || defined(DEMO_JP)
-    0xE4,
-#elif defined(EU)
-    0xB8,
-#else
-    0x70,
-#endif
-    0x36, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
-#if defined(JP) || defined(DEMO_JP)
-    0xC0,
-#elif defined(EU)
-    0x94,
-#else
-    0x4C,
-#endif
-    0xDA, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+const MapDataDefinition gGyorgMapping2[] = {
+    { MAP_MULTIPLE | offset_gyorgMapping_2_bottom, gMapDataBottomSpecial, MAP_COMPRESSED | 2048 },
+    { offset_gyorgRoomMap_2_top, gMapTop.mapData, MAP_COMPRESSED | 8064 },
 };
 
-const u8 gUnk_080D1ADC[] = {
-#if defined(JP) || defined(DEMO_JP)
-    0x78,
-#elif defined(EU)
-    0x4C,
-#else
-    0x04,
-#endif
-    0x3A, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
-#if defined(JP) || defined(DEMO_JP)
-    0x88,
-#elif defined(EU)
-    0x5C,
-#else
-    0x14,
-#endif
-    0xDE, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+const MapDataDefinition gGyorgMapping3[] = {
+    { MAP_MULTIPLE | offset_gyorgMapping_3_bottom, gMapDataBottomSpecial, MAP_COMPRESSED | 2048 },
+    { offset_gyorgRoomMap_3_top, gMapTop.mapData, MAP_COMPRESSED | 8064 },
 };
 
 void GyorgFemale_SpawnChildren(GyorgFemaleEntity* this, bool32 unlimit_tmp) {

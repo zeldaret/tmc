@@ -215,9 +215,9 @@ void sub_08057450(LightRayManager* this) {
     y >>= 2;
 
     gScreen.bg3.yOffset = y & 0x3f;
-    gScreen.bg3.tilemap = &gBG3Buffer[(y / 0x40) << 8];
-    if (this->unk_34 != gScreen.bg3.tilemap) {
-        this->unk_34 = gScreen.bg3.tilemap;
+    gScreen.bg3.subTileMap = &gBG3Buffer[(y / 0x40) << 8];
+    if (this->unk_34 != gScreen.bg3.subTileMap) {
+        this->unk_34 = gScreen.bg3.subTileMap;
         gScreen.bg3.updated = 1;
     }
 

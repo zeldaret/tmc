@@ -26,7 +26,7 @@ _08000F18:
 	bpl _08000F18
 	pop {r4, r5, r6}
 	bx lr
-	
+
 	// sum 3 drop probabilities, clamp to 0, return scalar sum
 	thumb_func_start SumDropProbabilities2
 SumDropProbabilities2: @ 0x08000F2C

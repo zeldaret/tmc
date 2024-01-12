@@ -181,8 +181,9 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
                 return;
             }
         case 1:
-            super->direction = CalcOffsetAngle(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
-                                               this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
+            super->direction =
+                CalculateDirectionFromOffsets(this->helper->tailObjects[super->timer]->x.WORD - super->x.WORD,
+                                              this->helper->tailObjects[super->timer]->y.WORD - super->y.WORD);
             LinearMoveAngle(super, super->speed, super->direction);
             if (EntityInRectRadius(super, this->helper->tailObjects[super->timer], 2, 2) == 0) {
                 return;
@@ -207,7 +208,8 @@ void OctorokBossObject_Action1(OctorokBossObjectEntity* this) {
         case 2:
             if (super->parent->type2 == 3) {
                 Entity* object = ((OctorokBossObjectEntity*)super->parent)->helper->mouthObject;
-                super->direction = CalcOffsetAngle(object->x.WORD - super->x.WORD, object->y.WORD - super->y.WORD);
+                super->direction =
+                    CalculateDirectionFromOffsets(object->x.WORD - super->x.WORD, object->y.WORD - super->y.WORD);
                 LinearMoveAngle(super, 0x280, super->direction);
                 if (sub_0806FC80(super, super->parent, 0x48) == 0) {
                     return;
@@ -349,7 +351,8 @@ bool32 sub_0809A6F8(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     if (sub_0809A758(param_1, param_2) != 0) {
         if (gUnk_081238A0[param_3] != 0) {
             if ((param_4 & 1) != 0) {
-                sub_0807B9B8(gUnk_081238A0[param_3], (param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
+                SetTileByIndex(gUnk_081238A0[param_3], (param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
+                               LAYER_BOTTOM);
             } else {
                 RestorePrevTileEntity((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
             }

@@ -1,6 +1,6 @@
 @ Cloud Tops NPC4E after Kinstone has been fused
 SCRIPT_START script_Npc4EKinstoneFused
-	_0807EEB4
+	MoveToPlayer
 	SetScrollSpeed 4
 	CameraTargetPlayer
 	Call sub_0807FBCC

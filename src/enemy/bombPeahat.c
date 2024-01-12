@@ -212,7 +212,7 @@ void sub_0802AAC0(BombPeahatEntity* this) {
             super->child = NULL;
 #ifdef EU
         } else if (entity->timer == 0) {
-            if (sub_080B1B44(COORD_TO_TILE(super), 1) == 0) {
+            if (GetCollisionDataAtTilePos(COORD_TO_TILE(super), 1) == 0) {
                 if (EntityInRectRadius(super, &gPlayerEntity.base, 0x10, 0x10) && entity->subtimer <= 0x50) {
                     this->unk_81 = 0;
                 }
@@ -685,7 +685,7 @@ void sub_0802B204(BombPeahatEntity* this) {
 
 bool32 sub_0802B234(BombPeahatEntity* this) {
     bool32 ret = FALSE;
-    if (GetTileTypeByEntity(super) - 0x1c4 > 1)
+    if (GetTileTypeAtEntity(super) - 0x1c4 > 1)
         ret = TRUE;
     return ret;
 }

@@ -309,8 +309,8 @@ void ForceEquipItem(u32 itemId, u32 equipSlot) {
         }
         gSave.stats.equipped[equipSlot] = itemId;
         gSave.stats.equipped[otherItemSlot] = otherItem;
-        gUnk_0200AF00.unk_13 = 0x7f;
-        gUnk_0200AF00.unk_14 = 0x7f;
+        gHUD.unk_13 = 0x7f;
+        gHUD.unk_14 = 0x7f;
     }
 }
 

@@ -17,7 +17,7 @@ typedef struct {
     /*0x81*/ u8 timer1;
     /*0x82*/ u8 timer2;
     /*0x83*/ u8 unk_83;
-    /*0x84*/ u16 tilePosition;
+    /*0x84*/ u16 tilePos;
     /*0x86*/ u16 tileIndex;
 } WizzrobeEntity;
 

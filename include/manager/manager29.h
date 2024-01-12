@@ -9,7 +9,7 @@ typedef struct {
     u16* unk_28;
     u16* unk_2c;
     u8 filler[0x4];
-    u8 unk_34;
+    u8 layer;
     u8 unk_35;
     u8 unk_36;
     u8 unk_37;

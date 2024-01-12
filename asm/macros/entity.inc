@@ -126,12 +126,12 @@
 	.2byte \paramB, \paramC, \paramD
 	.endm
 
-	.macro chest type, id, item, subnum, tileset_id
+	.macro chest type, id, item, subnum, tileSet_id
 	.2byte (\map_x) << 4
 	.2byte (\map_y) << 4
 	.2byte \pixel_width
 	.2byte \pixel_height
-	.2byte \tileset_id
+	.2byte \tileSet_id
 	.endm
 
 	.macro delayed_entity_raw subtype:req, paramA=0, paramB=0, layer=0, x=0, y=0, paramC=0, paramD=0, conditions=0

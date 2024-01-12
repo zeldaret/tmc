@@ -152,14 +152,14 @@ SCRIPT_START script_Npc4EIntroTown
 	CallWithArg EquipItem, ITEM_SHIELD
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
-	CallWithArg SetPlayerMacro, gUnk_080049D6
+	CallWithArg SetPlayerMacro, gPlayerMacroTryOutShield
 	Wait 0x00b7
 	SetIntVariable 0x00000000
 	Call sub_0807F5B0
 	MessageFromTargetPos TEXT_PROLOGUE, 0x2c, 0x0000
 	WaitUntilTextboxCloses
 	@ Give control back to the player
-	CallWithArg SetPlayerMacro, 0x00000000
+	CallWithArg SetPlayerMacro, 0
 	Call NPC4E_RestoreEquippedItems
 	SetScrollSpeed 4
 	CameraTargetPlayer

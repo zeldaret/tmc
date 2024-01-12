@@ -5,10 +5,12 @@
  * @brief Wizzrobe Wind enemy
  */
 #include "enemy/wizzrobe.h"
+
 #include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 extern void (*const WizzrobeWind_Functions[])(WizzrobeEntity*);
 extern void (*const WizzrobeWind_Actions[])(WizzrobeEntity*);
@@ -42,7 +44,7 @@ void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
         }
     }
     if (super->health == 0) {
-        SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+        SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
     }
 }
 
@@ -135,7 +137,7 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
                 super->subtimer = 0;
                 super->flags &= ~0x80;
                 EnqueueSFX(SFX_156);
-                SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
+                SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
                 InitializeAnimation(super, super->direction >> 3);
             }
             break;
@@ -206,15 +208,15 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
 
 void sub_0802F888(WizzrobeEntity* this) {
     super->direction = (sub_08049F84(super, 3) + 4) & 0x18;
-    this->tilePosition = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    SetBottomTile(0x4071, this->tilePosition, super->collisionLayer);
+    this->tilePos = COORD_TO_TILE(super);
+    this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_113, this->tilePos, super->collisionLayer);
 }
 
 void sub_0802F8E4(WizzrobeEntity* this) {
     u16 uVar1;
     s32 iVar4;
-    u32 uVar6;
+    u32 tilePos;
     u32 uVar7;
     u32 uVar8;
 
@@ -232,9 +234,9 @@ void sub_0802F8E4(WizzrobeEntity* this) {
             uVar1 = this->unk_72;
             iVar4 = ((s32)(rand)&0x7ff0) % (this->unk_6f << 3);
             uVar7 = (uVar1 + iVar4) | 8;
-            uVar6 = TILE(uVar8, uVar7);
-            if ((sub_080B1B44(uVar6, super->collisionLayer) == 0) &&
-                (GetTileIndex(uVar6, super->collisionLayer) != 0x4071)) {
+            tilePos = TILE(uVar8, uVar7);
+            if ((GetCollisionDataAtTilePos(tilePos, super->collisionLayer) == 0) &&
+                (GetTileIndex(tilePos, super->collisionLayer) != SPECIAL_TILE_113)) {
                 super->x.HALF.HI = (s16)uVar8;
                 super->y.HALF.HI = (s16)uVar7;
                 if (sub_08049FA0(super) != 0) {

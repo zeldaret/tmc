@@ -80,7 +80,7 @@ void sub_080A0AF0(Entity* this) {
 }
 
 void sub_080A0B28(Entity* this, ScriptExecutionContext* context) {
-    sub_0807DEDC(this, context, this->x.HALF.HI, this->y.HALF.HI);
+    LookAt(this, context, this->x.HALF.HI, this->y.HALF.HI);
     this->y.HALF.HI -= 0xb0;
     this->spriteSettings.draw = 0;
 }

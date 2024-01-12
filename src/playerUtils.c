@@ -1,5 +1,6 @@
 #include "area.h"
 #include "asm.h"
+#include "beanstalkSubtask.h"
 #include "collision.h"
 #include "common.h"
 #include "entity.h"
@@ -17,6 +18,8 @@
 #include "save.h"
 #include "screen.h"
 #include "screenTransitions.h"
+#include "tileMap.h"
+#include "tiles.h"
 
 static void sub_08077E54(ItemBehavior* beh);
 
@@ -26,12 +29,11 @@ extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern u32 sub_08003FDE(Entity*, Entity*, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
-extern void sub_08080BC4(void);
+extern void UpdateScreenShake(void);
 void sub_080790E4(Entity* this);
 void sub_08079064(Entity*);
 
 extern u8 gMapData;
-extern const u8 gUnk_020176E0[];
 extern const u8 gUnk_0800851C[];
 extern const u8 gUnk_080084BC[];
 extern const u8 gUnk_0800845C[];
@@ -61,15 +63,13 @@ extern ItemBehavior* (*const gCreateItemsFuncs[])(Item);
 
 extern void UnregisterInteractTile(u32, u32);
 
-extern const u8 gUnk_080B3E80[]; // collisionData for tileType?
+extern const u8 gMapTileTypeToCollisionData[]; // collisionData for tileType?
 
 extern u8 gUpdateVisibleTiles;
-extern u16 gMapDataTopSpecial[];
-extern u16 gMapDataBottomSpecial[];
 
 bool32 sub_0807BF88(u32, u32, RoomResInfo*);
 
-void sub_0807BFD0(void);
+void LoadRoomTileSet(void);
 
 void ForceSetPlayerState(u32 framestate);
 InteractableObject* sub_080784E4(void);
@@ -77,7 +77,7 @@ InteractableObject* sub_080784E4(void);
 u32 sub_08079778(void);
 u32 GetPlayerTilePos(void);
 
-extern const u16 gUnk_08007CAC[];
+extern const KeyValuePair gMapActTileToSurfaceType[];
 
 u32 sub_0807BEEC(u32 param_1, u32 param_2, u32 param_3);
 
@@ -105,46 +105,40 @@ extern const u16* sub_0806FC50(u32 param_1, u32 param_2);
 
 bool32 sub_08079F48(u32 param_1, u32 param_2);
 
-extern void sub_08080B60(LayerStruct*);
-extern void sub_0801AB08(u16*, LayerStruct*);
+extern void FillActTileForLayer(MapLayer* mapLayer);
 
-extern u8 gUnk_02006F00[];
 extern u16 gUnk_080B77C0[];
 
 void sub_0807BFA8(void);
-void sub_080197D4(const void*);
 void sub_0807C8B0(u16*, u32, u32);
 void sub_0807C69C(u8*, u32, u32);
 void sub_0807C460(void);
 void sub_0807BBE4(void);
-void sub_0807BC84(void);
+void CreateCollisionDataBorderAroundRoom(void);
 void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
 
-// collisions for metatiles < 0x4000
-extern const u8 gUnk_080B3E80[];
+// collisions for tiles < 0x4000
+extern const u8 gMapTileTypeToCollisionData[];
 // collisions for tiles > 0x4000
-extern const u8 gUnk_080B79A7[];
+extern const u8 gMapSpecialTileToCollisionData[];
 
-extern void sub_0801AB08(u16*, LayerStruct*);
-
-extern u8 gUnk_02006F00[];
 extern u16 gUnk_080B77C0[];
 
 void sub_0807BFA8(void);
-void sub_080197D4(const void*);
 void sub_0807C8B0(u16*, u32, u32);
 void sub_0807C69C(u8*, u32, u32);
 void sub_0807C460(void);
 void sub_0807BBE4(void);
-void sub_0807BC84(void);
+void CreateCollisionDataBorderAroundRoom(void);
 void sub_0807C5F4(u16*, u16*);
 void sub_0807C5B0(void);
 
 extern u8 gUnk_080082DC[];
 extern u32 sub_08004202(Entity*, u8*, u32);
 
-extern u32 gUnk_02022830[];
+// This just reuses the first 12 bytes of gUnk_02022830 to store a MapDataDefinition there temporarily.
+extern MapDataDefinition gUnk_02022830;
 extern u16* gUnk_0800823C[];
 
 extern bool32 sub_0806FC24(u32, u32);
@@ -161,7 +155,6 @@ u32 sub_0807A180(Entity*, Entity*, u32, u32);
 extern u32 gUsedPalettes;
 
 extern void ClearBgAnimations(void);
-extern void sub_080197D4(const void*);
 extern void LoadBgAnimations(u16*);
 
 void sub_0807BFA8(void);
@@ -229,7 +222,7 @@ bool32 IsPreventedFromUsingItem(void) {
                     }
                     return FALSE;
                 default:
-                    if ((((gUnk_0200AF00.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.gustJarState == 0)) &&
+                    if ((((gHUD.rActionInteractObject == R_ACTION_ROLL) && (gPlayerState.gustJarState == 0)) &&
                          (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                         ((((gPlayerState.playerInput.heldInput & INPUT_ANY_DIRECTION) != 0 &&
                            ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
@@ -756,7 +749,7 @@ void SurfaceAction_AutoLadder(Entity*);
 void SurfaceAction_ClimbWall(Entity*);
 void SurfaceAction_2C(Entity*);
 
-void (*const gUnk_0811C120[])(Entity*) = {
+void (*const gSurfaceActions[])(Entity*) = {
     SurfaceAction_DoNothing,
     SurfaceAction_Pit,
     NULL,
@@ -805,37 +798,47 @@ void (*const gUnk_0811C120[])(Entity*) = {
     SurfaceAction_Dust,
 };
 
-const u16 gUnk_0811C240[];
-const u16 gUnk_0811C24A[];
-const u16 gUnk_0811C254[];
-const u16 gUnk_0811C25E[];
-const u16 gUnk_0811C1F8[];
-const u16 gUnk_0811C20A[];
-const u16 gUnk_0811C21C[];
-const u16 gUnk_0811C22E[];
+const KeyValuePair gUnk_0811C240[];
+const KeyValuePair gUnk_0811C24A[];
+const KeyValuePair gUnk_0811C254[];
+const KeyValuePair gUnk_0811C25E[];
+const KeyValuePair gUnk_0811C1F8[];
+const KeyValuePair gUnk_0811C20A[];
+const KeyValuePair gUnk_0811C21C[];
+const KeyValuePair gUnk_0811C22E[];
 
-const u16* const gUnk_0811C1D8[] = {
+const KeyValuePair* const gUnk_0811C1D8[] = {
     gUnk_0811C240,
     gUnk_0811C24A,
     gUnk_0811C254,
     gUnk_0811C25E,
 };
-const u16* const gUnk_0811C1E8[] = {
+const KeyValuePair* const gUnk_0811C1E8[] = {
     gUnk_0811C1F8,
     gUnk_0811C20A,
     gUnk_0811C21C,
     gUnk_0811C22E,
 };
 
-const u16 gUnk_0811C1F8[] = { 43, 1, 65, 1, 78, 8, 76, 2, 0 };
-const u16 gUnk_0811C20A[] = { 44, 3, 66, 3, 76, 2, 77, 4, 0 };
-const u16 gUnk_0811C21C[] = { 42, 5, 64, 5, 79, 6, 77, 4, 0 };
-const u16 gUnk_0811C22E[] = { 45, 7, 67, 7, 78, 8, 79, 6, 0 };
-const u16 gUnk_0811C240[] = { 42, 1, 38, 1, 0 };
-const u16 gUnk_0811C24A[] = { 45, 1, 39, 1, 0 };
-const u16 gUnk_0811C254[] = { 43, 1, 38, 1, 0 };
-const u16 gUnk_0811C25E[] = { 44, 1, 39, 1, 0 };
-const u16 gUnk_0811C268[] = { 16, 1, 90, 1, 17, 1, 19, 1, 0, 0 };
+const KeyValuePair gUnk_0811C1F8[] = { { 43, 1 }, { 65, 1 }, { 78, 8 }, { 76, 2 } };
+const u16 gUnk_0811C1F8End = 0;
+const KeyValuePair gUnk_0811C20A[] = { { 44, 3 }, { 66, 3 }, { 76, 2 }, { 77, 4 } };
+const u16 gUnk_0811C20AEnd = 0;
+const KeyValuePair gUnk_0811C21C[] = { { 42, 5 }, { 64, 5 }, { 79, 6 }, { 77, 4 } };
+const u16 gUnk_0811C21CEnd = 0;
+const KeyValuePair gUnk_0811C22E[] = { { 45, 7 }, { 67, 7 }, { 78, 8 }, { 79, 6 } };
+const u16 gUnk_0811C22EEnd = 0;
+const KeyValuePair gUnk_0811C240[] = { { 42, 1 }, { 38, 1 } };
+const u16 gUnk_0811C240End = 0;
+const KeyValuePair gUnk_0811C24A[] = { { 45, 1 }, { 39, 1 } };
+const u16 gUnk_0811C24AEnd = 0;
+const KeyValuePair gUnk_0811C254[] = { { 43, 1 }, { 38, 1 } };
+const u16 gUnk_0811C254End = 0;
+const KeyValuePair gUnk_0811C25E[] = { { 44, 1 }, { 39, 1 } };
+const u16 gUnk_0811C25EEnd = 0;
+const KeyValuePair gUnk_0811C268[] = { { ACT_TILE_16, 1 }, { ACT_TILE_90, 1 }, { ACT_TILE_17, 1 }, { ACT_TILE_19, 1 } };
+const u16 gUnk_0811C268EEnd = 0;
+
 void sub_0807B114(PlayerEntity*);
 void sub_0807B128(PlayerEntity*);
 void (*const gUnk_0811C27C[])(PlayerEntity*) = {
@@ -872,14 +875,32 @@ const u16 gUnk_0811C2EC[] = {
     748, 10, 1,  749, 6,  1,  750, 12, 1,  751, 2, 1,  752, 8,  1, 753, 4,  1,  0,
 };
 const s16 gUnk_0811C456[] = { 0, -13, 13, 0, 0, 16, -13, 0 };
-const u16 gUnk_0811C466[] = { 803, 819, 822, 825, 820, 828, 826, 829, 821, 823, 831, 830, 824, 827, 832, 53, 0 };
+const u16 gUnk_0811C466[] = { TILE_TYPE_803,
+                              TILE_TYPE_819,
+                              TILE_TYPE_822,
+                              TILE_TYPE_825,
+                              TILE_TYPE_820,
+                              TILE_TYPE_828,
+                              TILE_TYPE_826,
+                              TILE_TYPE_829,
+                              TILE_TYPE_821,
+                              TILE_TYPE_823,
+                              TILE_TYPE_831,
+                              TILE_TYPE_830,
+                              TILE_TYPE_824,
+                              TILE_TYPE_827,
+                              TILE_TYPE_832,
+                              TILE_TYPE_53,
+                              0 };
 
 void sub_08077F84(void) {
     Entity* obj;
 
     if ((gPlayerEntity.base.collisionLayer & 2) == 0) {
-        u32 tile = GetTileTypeByPos(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, 2);
-        if (tile == 0x343 || tile == 0x344 || tile == 0x345 || tile == 0x346) {
+        u32 tileType =
+            GetTileTypeAtWorldCoords(gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI - 12, LAYER_TOP);
+        if (tileType == TILE_TYPE_835 || tileType == TILE_TYPE_836 || tileType == TILE_TYPE_837 ||
+            tileType == TILE_TYPE_838) {
             sub_0807AA80(&gPlayerEntity.base);
             gPlayerState.jump_status |= 8;
             obj = CreateObject(ROTATING_TRAPDOOR, 0, 0);
@@ -993,21 +1014,21 @@ void DetermineRButtonInteraction(void) {
     u8 rAction;
     InteractableObject* interaction;
 
-    if (gUnk_0200AF00.rActionPlayerState != R_ACTION_NONE)
+    if (gHUD.rActionPlayerState != R_ACTION_NONE)
         return;
 
     rAction = R_ACTION_NONE;
     if ((gPlayerState.jump_status == 0) &&
         ((gPlayerState.flags & (PL_IN_HOLE | PL_FROZEN | PL_BURNING | PL_DISABLE_ITEMS | PL_DRUGGED)) == 0)) {
         if ((u8)(gPlayerState.heldObject - 1) < 4) {
-            if (gUnk_0200AF00.rActionGrabbing != R_ACTION_NONE) {
-                rAction = gUnk_0200AF00.rActionGrabbing;
+            if (gHUD.rActionGrabbing != R_ACTION_NONE) {
+                rAction = gHUD.rActionGrabbing;
             } else {
                 rAction = R_ACTION_THROW;
             }
         } else {
-            if (gUnk_0200AF00.rActionInteractTile != R_ACTION_NONE) {
-                rAction = gUnk_0200AF00.rActionInteractTile;
+            if (gHUD.rActionInteractTile != R_ACTION_NONE) {
+                rAction = gHUD.rActionInteractTile;
             } else {
                 interaction = sub_080784E4();
                 if (interaction->entity->interactType == INTERACTION_NONE) {
@@ -1057,7 +1078,7 @@ void DetermineRButtonInteraction(void) {
             }
         }
     }
-    gUnk_0200AF00.rActionInteractObject = rAction;
+    gHUD.rActionInteractObject = rAction;
 }
 
 bool32 sub_080782C0(void) {
@@ -1433,7 +1454,7 @@ u32 sub_080789A8(void) {
         return (u32)gCarriedEntity.unk_1;
 
     if (!(gPlayerState.flags & PL_MINISH)) {
-        uVar4 = sub_080B1B0C(&gPlayerEntity.base);
+        uVar4 = GetCollisionDataAtEntity(&gPlayerEntity.base);
         if (uVar4 >= 0x10 && (gUnk_080084BC[uVar4 - 0x10] == 0xf))
             return 0;
         if (gPlayerState.floor_type == 0x12)
@@ -1457,7 +1478,7 @@ u32 sub_080789A8(void) {
         }
 
         ptr = &gUnk_08007DF4[gPlayerEntity.base.animationState & 6];
-        gCarriedEntity.unk_4 = uVar2 = sub_080B1A0C(&gPlayerEntity.base, (s8)ptr[0], (s8)ptr[1]);
+        gCarriedEntity.unk_4 = uVar2 = GetTileTypeRelativeToEntity(&gPlayerEntity.base, (s8)ptr[0], (s8)ptr[1]);
 
         if (!sub_0806FC24(uVar2, 6))
             return 0;
@@ -1554,7 +1575,7 @@ void ClearPlayerState(void) {
     gPlayerState.field_0x1f[0] = 0;
     gPlayerState.field_0x1f[1] = 0;
     gPlayerState.bow_state = 0;
-    gPlayerState.tilePosition = 0;
+    gPlayerState.tilePos = 0;
     gPlayerState.tileType = 0;
     gPlayerState.swim_state = 0;
     gPlayerState.item = NULL;
@@ -1696,7 +1717,7 @@ void ResetPlayerVelocity(void) {
 bool32 sub_08078F74(Entity* this) {
     if ((gArea.portal_mode == 3) && (gPlayerState.field_0x35 != 0xff)) {
         gPlayerState.jump_status = 0x81;
-        this->action = 0x15;
+        this->action = PLAYER_USEPORTAL;
         this->subAction = 0;
         this->zVelocity = Q_16_16(2.0);
         return TRUE;
@@ -1949,7 +1970,8 @@ void RespawnPlayer(void) {
         } else {
             u32 i;
             for (i = 0; i <= 0xf && gPlayerState.path_memory[i] != -1; i++) {
-                if (sub_080B1B44((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) != 0xf) {
+                if (GetCollisionDataAtTilePos((u16)gPlayerState.path_memory[i], gPlayerState.path_memory[i] >> 0x1e) !=
+                    COLLISION_DATA_15) {
                     gPlayerEntity.base.collisionLayer = gPlayerState.path_memory[i] >> 0x1e;
                     gPlayerEntity.base.x.HALF.HI =
                         gRoomControls.origin_x + (gPlayerState.path_memory[i] & 0x3f) * 16 + 8;
@@ -2003,11 +2025,11 @@ bool32 sub_08079550(void) {
                 tilePos2 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, (gPlayerEntity.base.hitbox)->unk2[2], -ptr[1]);
             }
 
-            uVar3 = sub_080B1AE0(tilePos1, gPlayerEntity.base.collisionLayer);
-            uVar3 = ActTileToTile(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
+            uVar3 = GetActTileAtTilePos(tilePos1, gPlayerEntity.base.collisionLayer);
+            uVar3 = FindValueForKey(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
             if (uVar3 != 0) {
-                uVar3 = sub_080B1AE0(tilePos2, gPlayerEntity.base.collisionLayer);
-                uVar3 = ActTileToTile(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
+                uVar3 = GetActTileAtTilePos(tilePos2, gPlayerEntity.base.collisionLayer);
+                uVar3 = FindValueForKey(uVar3, gUnk_0811C1E8[gPlayerEntity.base.animationState >> 1]);
                 if (uVar3 != 0) {
                     gPlayerState.pushedObject |= 0x80;
                     if (gPlayerState.dash_state == 0 && (++gPlayerEntity.base.subtimer <= 5)) {
@@ -2015,7 +2037,7 @@ bool32 sub_08079550(void) {
                     }
 
                     gPlayerEntity.base.animationState = uVar3 - 1;
-                    gPlayerEntity.base.action = 4;
+                    gPlayerEntity.base.action = PLAYER_JUMP;
                     gPlayerEntity.base.subAction = 0;
                     COLLISION_OFF(&gPlayerEntity.base);
                     gPlayerState.jump_status = 0x81;
@@ -2099,7 +2121,8 @@ void sub_080797EC(void) {
                 } else {
                     animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
-                        if (sub_080B1B44(GetPlayerTilePos(), gPlayerEntity.base.collisionLayer) != 0xff) {
+                        if (GetCollisionDataAtTilePos(GetPlayerTilePos(), gPlayerEntity.base.collisionLayer) !=
+                            COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
                             animation = ANIM_SWORD_CHARGE_BUMP;
                         }
@@ -2133,7 +2156,8 @@ void sub_080797EC(void) {
                 } else if (gPlayerState.sword_state) {
                     animation = ANIM_SWORD_CHARGE_WALK;
                     if (sub_080793E4(0)) {
-                        if (sub_080B1B44(GetPlayerTilePos(), (u32)gPlayerEntity.base.collisionLayer) != 0xff) {
+                        if (GetCollisionDataAtTilePos(GetPlayerTilePos(), (u32)gPlayerEntity.base.collisionLayer) !=
+                            COLLISION_DATA_255) {
                             gPlayerState.sword_state &= ~8;
                             animation = ANIM_SWORD_CHARGE_BUMP;
                         }
@@ -2317,7 +2341,7 @@ void sub_08079BD8(Entity* this) {
     this->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0;
 }
 
-bool32 sub_08079C30(Entity* param_1) {
+bool32 sub_08079C30(Entity* player) {
     if (gPlayerState.field_0x14 == 0 && (gPlayerState.flags & PL_FLAGS2) == 0) {
         if ((gPlayerState.flags & PL_MINISH) != 0) {
             return TRUE;
@@ -2333,13 +2357,16 @@ bool32 sub_08079C30(Entity* param_1) {
                 return TRUE;
         }
 
-        if (gPlayerState.floor_type != ActTileToTile(GetActTileRelative(param_1, 0, -1), (u16*)gUnk_08007CAC))
+        if (gPlayerState.floor_type !=
+            FindValueForKey(GetActTileRelativeToEntity(player, 0, -1), gMapActTileToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type != ActTileToTile(GetActTileRelative(param_1, 2, 0), (u16*)gUnk_08007CAC))
+        if (gPlayerState.floor_type !=
+            FindValueForKey(GetActTileRelativeToEntity(player, 2, 0), gMapActTileToSurfaceType))
             return FALSE;
 
-        if (gPlayerState.floor_type == ActTileToTile(GetActTileRelative(param_1, -2, 0), (u16*)gUnk_08007CAC)) {
+        if (gPlayerState.floor_type ==
+            FindValueForKey(GetActTileRelativeToEntity(player, -2, 0), gMapActTileToSurfaceType)) {
             return TRUE;
         }
     }
@@ -2351,7 +2378,7 @@ bool32 sub_08079D48(void) {
         return TRUE;
     } else {
         if (!PlayerCheckNEastTile()) {
-            if (!ActTileToTile((u16)GetActTile(&gPlayerEntity.base), gUnk_0811C268)) {
+            if (!FindValueForKey((u16)GetActTileAtEntity(&gPlayerEntity.base), gUnk_0811C268)) {
                 return TRUE;
             }
         }
@@ -2402,7 +2429,7 @@ void sub_08079E58(s32 speed, u32 direction) {
     sub_0807A5B8(direction);
 }
 
-bool32 sub_08079E90(u32 param_1) {
+bool32 sub_08079E90(u32 direction) {
     s16 tmp1;
     s16 tmp2;
 
@@ -2421,24 +2448,24 @@ bool32 sub_08079E90(u32 param_1) {
             tmp1 = -gPlayerEntity.base.hitbox->unk2[3];
         }
     }
-    if (!sub_08079F48(param_1, sub_080B1AF0(&gPlayerEntity.base, tmp2, tmp1))) {
+    if (!sub_08079F48(direction, GetCollisionDataRelativeTo(&gPlayerEntity.base, tmp2, tmp1))) {
         if ((gPlayerEntity.base.direction & DirectionSouth) != 0) {
             tmp1 = -tmp1;
         } else {
             tmp2 = -tmp2;
         }
-        if (!sub_08079F48(param_1, sub_080B1AF0(&gPlayerEntity.base, tmp2, tmp1))) {
+        if (!sub_08079F48(direction, GetCollisionDataRelativeTo(&gPlayerEntity.base, tmp2, tmp1))) {
             return FALSE;
         }
     }
     return TRUE;
 }
 
-bool32 sub_08079F48(u32 param_1, u32 param_2) {
-    if (gUnk_0811C118[param_1 >> 2] == param_2) {
+bool32 sub_08079F48(u32 direction, u32 collisionData) {
+    if (gUnk_0811C118[direction >> 2] == collisionData) {
         gPlayerEntity.base.direction = (gPlayerEntity.base.direction + 4) & 0x1f;
     } else {
-        if (gUnk_0811C118[(param_1 >> 2) + 1] != param_2) {
+        if (gUnk_0811C118[(direction >> 2) + 1] != collisionData) {
             return FALSE;
         }
         gPlayerEntity.base.direction = (gPlayerEntity.base.direction - 4) & 0x1f;
@@ -2464,13 +2491,13 @@ u32 sub_08079FC4(u32 param_1) {
 }
 
 u32 sub_08079FD4(Entity* this, u32 param_2) {
-    u32 tilePosition;
+    u32 tilePos;
     u8* collisionData;
     u32 collision;
     u32 index;
     u8 auStack20[4];
 
-    tilePosition = COORD_TO_TILE(this) * 2;
+    tilePos = COORD_TO_TILE(this) * 2;
     collisionData = gMapBottom.collisionData;
     if (param_2 == 2) {
         collisionData = gMapTop.collisionData;
@@ -2479,8 +2506,8 @@ u32 sub_08079FD4(Entity* this, u32 param_2) {
     while (TRUE) {
         do {
             index++;
-            tilePosition = sub_08004202(this, auStack20, tilePosition);
-            collision = collisionData[tilePosition / 2];
+            tilePos = sub_08004202(this, auStack20, tilePos);
+            collision = collisionData[tilePos / 2];
             if (collision < 0xf) {
                 return index;
             }
@@ -2567,17 +2594,18 @@ u32 sub_0807A180(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4) {
 
 void UpdateFloorType(void) {
     gPlayerState.floor_type = GetSurfaceCalcType(&gPlayerEntity.base, 0, 0);
-    gUnk_0811C120[gPlayerState.floor_type](&gPlayerEntity.base);
+    gSurfaceActions[gPlayerState.floor_type](&gPlayerEntity.base);
 }
 
 SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
     u32 position = TILE(param_1->x.HALF.HI + (u32)x, param_1->y.HALF.HI + y);
-    u32 tileType = GetTileTypeByPos(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
+    u32 tileType =
+        GetTileTypeAtWorldCoords(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.base.collisionLayer);
     if (tileType != gPlayerState.tileType) {
         gPlayerState.surfaceTimer = 0;
     }
-    if ((tileType != gPlayerState.tileType) || (position != gPlayerState.tilePosition)) {
-        gPlayerState.tilePosition = position;
+    if ((tileType != gPlayerState.tileType) || (position != gPlayerState.tilePos)) {
+        gPlayerState.tilePos = position;
         gPlayerState.tileType = tileType;
         gPlayerState.surfacePositionSameTimer = 0;
     }
@@ -2589,8 +2617,8 @@ SurfaceType GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
         gPlayerState.surfaceTimer++;
     }
     gPlayerState.floor_type_last = gPlayerState.floor_type;
-    tileType = GetActTileRelative(param_1, x, y);
-    return ActTileToTile(tileType, (u16*)gUnk_08007CAC);
+    tileType = GetActTileRelativeToEntity(param_1, x, y); // tileType is a actTile here
+    return FindValueForKey(tileType, gMapActTileToSurfaceType);
 }
 
 void EnablePlayerDraw(Entity* this) {
@@ -2633,9 +2661,9 @@ u32 sub_0807A2F8(u32 param_1) {
     for (uVar5 = 0; uVar5 < 2; uVar5++) {
         iVar4 = 0;
         uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
-        if (sub_080B1B44(uVar2 >> 1, 1)) {
-            if (!ActTileToTile((u16)sub_080B1AE0((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
-                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
+        if (GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_BOTTOM)) {
+            if (!FindValueForKey((u16)GetActTileAtTilePos((u16)(uVar2 >> 1), gPlayerEntity.base.collisionLayer),
+                                 gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
         } else {
@@ -2643,9 +2671,9 @@ u32 sub_0807A2F8(u32 param_1) {
         }
 
         uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
-        if (sub_080B1B44(uVar1 >> 1, 1)) {
-            if (!ActTileToTile((u16)sub_080B1AE0((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
-                               gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
+        if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
+            if (!FindValueForKey((u16)GetActTileAtTilePos((uVar1 >> 1), gPlayerEntity.base.collisionLayer),
+                                 gUnk_0811C1D8[gPlayerEntity.base.animationState >> 1])) {
                 break;
             }
         } else {
@@ -2662,9 +2690,9 @@ u32 sub_0807A2F8(u32 param_1) {
     if (uVar5 != 0) {
         if (AreaIsDungeon()) {
             uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
-            if (!sub_080B1B44(uVar2 >> 1, 2)) {
+            if (!GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_TOP)) {
                 uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
-                if (sub_080B1B44(uVar1 >> 1, 2)) {
+                if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_TOP)) {
                     return 0;
                 }
             } else {
@@ -2674,11 +2702,11 @@ u32 sub_0807A2F8(u32 param_1) {
             if (uVar5 == 2) {
                 uVar2 = sub_08004202(&gPlayerEntity.base, auStack36, uVar2);
             }
-            if (sub_080B1B44(uVar2 >> 1, 1) == 0) {
+            if (GetCollisionDataAtTilePos(uVar2 >> 1, LAYER_BOTTOM) == 0) {
                 if (uVar5 == 2) {
                     uVar1 = sub_08004202(&gPlayerEntity.base, auStack36, uVar1);
                 }
-                if (sub_080B1B44(uVar1 >> 1, 1)) {
+                if (GetCollisionDataAtTilePos(uVar1 >> 1, LAYER_BOTTOM)) {
                     return 0;
                 }
             } else {
@@ -2776,7 +2804,8 @@ void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
         index = param_1 % 16;
     }
     if ((index != 0) && (index != 0xf)) {
-        uVar2 = sub_080B1B44((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, gPlayerEntity.base.collisionLayer);
+        uVar2 = GetCollisionDataAtTilePos((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6,
+                                          gPlayerEntity.base.collisionLayer);
         if (uVar2 > 0xf) {
             if (uVar2 != 0xff) {
                 uVar2 = param_3[uVar2 - 0x10];
@@ -2833,7 +2862,7 @@ void sub_0807A750(u32 param_1, u32 param_2, const u8* param_3, u32 param_4) {
     }
 }
 
-u32 GetCollisionTileInFront(Entity* this) {
+u32 GetActTileInFront(Entity* this) {
     s32 x;
     s32 y;
     switch (this->direction) {
@@ -2858,7 +2887,7 @@ u32 GetCollisionTileInFront(Entity* this) {
             x = 0;
             break;
     }
-    return GetActTileRelative(this, x, y);
+    return GetActTileRelativeToEntity(this, x, y);
 }
 
 void nullsub_505(void) {
@@ -2925,10 +2954,11 @@ void sub_0807AAF8(Entity* this, u32 tilePos) {
     }
 }
 
+// TODO some sort of flame spreading?
 void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
     Entity* object;
     const u16* ptr =
-        sub_0806FC50(GetTileType(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
+        sub_0806FC50(GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(this, -xOffset, -yOffset), this->collisionLayer), 0xb);
     if (ptr != NULL) {
         if (ptr[3] == 0x76) {
             object = CreateObject(FLAME, 1, 0);
@@ -2942,7 +2972,7 @@ void sub_0807AB44(Entity* this, s32 xOffset, s32 yOffset) {
             if (object != NULL) {
                 PositionRelative(this, object, xOffset << 0x10, yOffset << 0x10);
                 object->child = (Entity*)ptr;
-                SetBottomTile(0x404f, COORD_TO_TILE(object), object->collisionLayer);
+                SetTile(SPECIAL_TILE_79, COORD_TO_TILE(object), object->collisionLayer);
             }
         }
     }
@@ -2958,7 +2988,7 @@ bool32 sub_0807AC54(Entity* this) {
             this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
             // fallthrough
         case SURFACE_CLIMB_WALL:
-            this->action = 0x1d;
+            this->action = PLAYER_CLIMB;
             this->subAction = 0;
             this->y.HALF.LO = 0;
             gPlayerState.animation = ANIM_CLIMB1_UP;
@@ -2967,7 +2997,7 @@ bool32 sub_0807AC54(Entity* this) {
             this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
             // fallthrough
         case SURFACE_2C:
-            this->action = 0x1d;
+            this->action = PLAYER_CLIMB;
             this->subAction = 1;
             this->y.HALF.LO = 0;
             return TRUE;
@@ -3034,7 +3064,8 @@ bool32 ToggleDiving(Entity* this) {
 }
 
 void PlayerUpdateSwimming(Entity* this) {
-    if ((((this->action != 0x17) || (gPlayerState.field_0xa == 0)) && (gRoomControls.reload_flags == 0)) &&
+    if ((((this->action != PLAYER_ROOMTRANSITION) || (gPlayerState.field_0xa == 0)) &&
+         (gRoomControls.reload_flags == 0)) &&
         ((gPlayerState.playerInput.newInput & INPUT_INTERACT) != 0)) {
         if (GetInventoryValue(ITEM_SWIM_BUTTERFLY) == 1) {
             this->speed = 0x1c0;
@@ -3256,59 +3287,63 @@ void sub_0807B2F8(PlayerEntity* this) {
     }
 }
 
-void SetTileType(u32 tileType, u32 position, u32 layer) {
+// tileType < 0x800   : set the TileType
+// tileType >= 0x4000 : call SetTile directly
+// else               : restore the previous tile entity
+void SetTileType(u32 tileType, u32 tilePos, u32 layer) {
     u8 collisionData;
-    u16 metatile;
-    LayerStruct* data;
-    u16* src;
+    u16 tileIndex;
+    MapLayer* mapLayer;
+    u16* subTiles;
     u16* dest;
 
     if (tileType < 0x800) {
-        UnregisterInteractTile(position, layer);
-        data = GetTileBuffer(layer);
-        metatile = data->unkData2[tileType];
-        data->mapData[position] = metatile;
-        collisionData = gUnk_080B3E80[tileType];
-        data->collisionData[position] = collisionData;
+        UnregisterInteractTile(tilePos, layer);
+        mapLayer = GetLayerByIndex(layer);
+        tileIndex = mapLayer->tileIndices[tileType];
+        mapLayer->mapData[tilePos] = tileIndex;
+        collisionData = gMapTileTypeToCollisionData[tileType];
+        mapLayer->collisionData[tilePos] = collisionData;
         if ((gRoomControls.scroll_flags & 2) != 0) {
-            gMapBottom.collisionData[position] = collisionData;
+            gMapBottom.collisionData[tilePos] = collisionData;
         }
-        data->unkData3[position] = gUnk_080B37A0[tileType];
+        mapLayer->actTiles[tilePos] = gMapTileTypeToActTile[tileType];
         if ((gRoomControls.scroll_flags & 1) == 0) {
-            u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+            u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
             if (layer != 2) {
                 dest = gMapDataBottomSpecial + offset;
             } else {
                 dest = gMapDataTopSpecial + offset;
             }
-            src = data->metatiles + metatile * 4;
-            *dest = *src;
-            dest[1] = src[1];
-            dest[0x80] = src[2];
-            dest[0x81] = src[3];
+            subTiles = mapLayer->subTiles + tileIndex * 4;
+            // Copy over the tileMap entries (tile_attrs) to the special map data but in a different order.
+            dest[0] = subTiles[0];
+            dest[1] = subTiles[1];
+            dest[0x80] = subTiles[2];
+            dest[0x81] = subTiles[3];
             if (gRoomControls.reload_flags != 1) {
                 gUpdateVisibleTiles = 1;
             }
         }
     } else if (tileType >= 0x4000) { // The tile type actually directly is a tileIndex
-        SetBottomTile(tileType, position, layer);
+        SetTile(tileType, tilePos, layer);
     } else {
-        RestorePrevTileEntity(position, layer);
+        RestorePrevTileEntity(tilePos, layer);
     }
 }
 
-bool32 sub_0807B434(u32 position, u32 layer) {
-    switch (GetTileType(position, layer)) {
-        case 0x36:
-        case 0x37:
+bool32 sub_0807B434(u32 tilePos, u32 layer) {
+    switch (GetTileTypeAtTilePos(tilePos, layer)) {
+        case TILE_TYPE_54:
+        case TILE_TYPE_55:
             return FALSE;
         default:
-            return sub_080B1AE0(position, layer) != 0xd;
+            return GetActTileAtTilePos(tilePos, layer) != ACT_TILE_13;
     }
 }
 
-bool32 sub_0807B464(u32 param_1, u32 param_2) {
-    return sub_080B1AE0(param_1, param_2) == 0x56;
+bool32 sub_0807B464(u32 tilePos, u32 layer) {
+    return GetActTileAtTilePos(tilePos, layer) == ACT_TILE_86;
 }
 
 void sub_0807B480(u32 tilePos, u32 param_2) {
@@ -3318,18 +3353,18 @@ void sub_0807B480(u32 tilePos, u32 param_2) {
     u16 tileType;
     const u16* ptr;
 
-    if (sub_0807B464(tilePos, 2)) {
-        tmp1 = sub_0807B464(tilePos - 0x40, 2);
-        tmp1 |= sub_0807B464(tilePos + 1, 2) << 1;
-        tmp1 |= sub_0807B464(tilePos + 0x40, 2) << 2;
-        tmp1 |= sub_0807B464(tilePos - 1, 2) << 3;
-        tmp1 |= sub_0807B464(tilePos + 0x41, 1) << 1;
-        tmp1 |= sub_0807B464(tilePos + 0x3f, 1) << 3;
-        if (GetTileType(tilePos + 0x40, 2) != 0) {
-            tmp1 |= sub_0807B464(tilePos + 0x80, 1) << 2;
+    if (sub_0807B464(tilePos, LAYER_TOP)) {
+        tmp1 = sub_0807B464(tilePos - 0x40, LAYER_TOP);
+        tmp1 |= sub_0807B464(tilePos + 1, LAYER_TOP) << 1;
+        tmp1 |= sub_0807B464(tilePos + 0x40, LAYER_TOP) << 2;
+        tmp1 |= sub_0807B464(tilePos - 1, LAYER_TOP) << 3;
+        tmp1 |= sub_0807B464(tilePos + 0x41, LAYER_BOTTOM) << 1;
+        tmp1 |= sub_0807B464(tilePos + 0x3f, LAYER_BOTTOM) << 3;
+        if (GetTileTypeAtTilePos(tilePos + 0x40, LAYER_TOP) != 0) {
+            tmp1 |= sub_0807B464(tilePos + 0x80, LAYER_BOTTOM) << 2;
         }
         tmp2 = gUnk_0811C2CC[tmp1];
-        tileType = GetTileType(tilePos, 2);
+        tileType = GetTileTypeAtTilePos(tilePos, LAYER_TOP);
         ptr = gUnk_0811C2EC;
         tmp3 = 0;
         for (; *ptr != 0; ptr = ptr + 3) {
@@ -3345,7 +3380,7 @@ void sub_0807B480(u32 tilePos, u32 param_2) {
                 break;
             }
         }
-        SetTileType(tmp2, tilePos, 2);
+        SetTileType(tmp2, tilePos, LAYER_TOP);
     }
 }
 
@@ -3365,172 +3400,172 @@ bool32 sub_0807B5B0(Entity* this) {
                                              -gUnk_0811C456[(this->animationState & 6) + 1]));
 }
 
-u32 sub_0807B600(u32 param_1) {
+u32 sub_0807B600(u32 tilePos) {
     u32 tileType;
-    u32 tile;
+    u32 tilePos2;
 
-    tile = param_1 - 0x40;
-    if (sub_080B1AE0(param_1, 1) != 0x56) {
+    tilePos2 = tilePos - 0x40;
+    if (GetActTileAtTilePos(tilePos, LAYER_BOTTOM) != ACT_TILE_86) {
         return FALSE;
     } else {
-        tileType = GetTileType(param_1, 1);
-        if (tileType == 0x26a) {
-            sub_0807B820(param_1);
-        } else if (tileType == 0x267) {
-            sub_0807B820(param_1 + 0x40);
-        } else if (tileType == 0x27a) {
-            sub_0807B8A8(param_1);
-        } else if (tileType == 0x277) {
-            sub_0807B8A8(param_1 + 0x40);
-        } else if (tileType == 0x28a) {
-            sub_0807B930(param_1);
-        } else if (tileType == 0x287) {
-            sub_0807B930(param_1 + 0x40);
+        tileType = GetTileTypeAtTilePos(tilePos, LAYER_BOTTOM);
+        if (tileType == TILE_TYPE_618) {
+            sub_0807B820(tilePos);
+        } else if (tileType == TILE_TYPE_615) {
+            sub_0807B820(tilePos + 0x40);
+        } else if (tileType == TILE_TYPE_634) {
+            sub_0807B8A8(tilePos);
+        } else if (tileType == TILE_TYPE_631) {
+            sub_0807B8A8(tilePos + 0x40);
+        } else if (tileType == TILE_TYPE_650) {
+            sub_0807B930(tilePos);
+        } else if (tileType == TILE_TYPE_647) {
+            sub_0807B930(tilePos + 0x40);
         } else {
-            if (GetTileType(param_1, 2) != 0) {
-                SetTileType(0x2f2, param_1, 1);
-                if (sub_080B1B44(tile, 1) == 3) {
-                    SetTileType(0x2f4, tile, 1);
+            if (GetTileTypeAtTilePos(tilePos, LAYER_TOP) != 0) {
+                SetTileType(TILE_TYPE_754, tilePos, LAYER_BOTTOM);
+                if (GetCollisionDataAtTilePos(tilePos2, LAYER_BOTTOM) == COLLISION_DATA_3) {
+                    SetTileType(TILE_TYPE_756, tilePos2, LAYER_BOTTOM);
                 }
-                if (sub_080B1B44(param_1 + 0x40, 1) == 3) {
-                    SetTileType(0x2f4, param_1, 1);
+                if (GetCollisionDataAtTilePos(tilePos + 0x40, LAYER_BOTTOM) == COLLISION_DATA_3) {
+                    SetTileType(TILE_TYPE_756, tilePos, LAYER_BOTTOM);
                 }
             } else {
-                SetTileType(0x2f4, param_1, 1);
+                SetTileType(TILE_TYPE_756, tilePos, LAYER_BOTTOM);
             }
-            if (sub_0807B464(tile, 2)) {
-                SetTileType(0, tile, 2);
-                if (GetTileType(tile, 1) == 0x2f2) {
-                    SetTileType(0x2f4, tile, 1);
+            if (sub_0807B464(tilePos2, LAYER_TOP)) {
+                SetTileType(0, tilePos2, LAYER_TOP);
+                if (GetTileTypeAtTilePos(tilePos2, LAYER_BOTTOM) == TILE_TYPE_754) {
+                    SetTileType(TILE_TYPE_756, tilePos2, LAYER_BOTTOM);
                 }
-                sub_0807B55C(param_1 + 1, 1, (u16*)&gUnk_0811C2AC);
-                sub_0807B55C(param_1 - 1, 1, (u16*)&gUnk_0811C2AC);
-                sub_0807B55C(tile, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tilePos + 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tilePos - 1, 1, (u16*)&gUnk_0811C2AC);
+                sub_0807B55C(tilePos2, 1, (u16*)&gUnk_0811C2AC);
             }
-            sub_0807B480(tile + 1, 3);
-            sub_0807B480(tile - 1, 1);
-            sub_0807B480(tile + 0x40, 0);
-            sub_0807B480(tile - 0x40, 2);
+            sub_0807B480(tilePos2 + 1, 3);
+            sub_0807B480(tilePos2 - 1, 1);
+            sub_0807B480(tilePos2 + 0x40, 0);
+            sub_0807B480(tilePos2 - 0x40, 2);
         }
         return TRUE;
     }
 }
 
-void sub_0807B778(u32 position, u32 layer) {
+void sub_0807B778(u32 tilePos, u32 layer) {
     u32 tmp;
-    if (sub_080B1AE0(position, layer) == 0xd) {
-        tmp = sub_0807B434(position - 0x40, layer);
-        tmp |= sub_0807B434(position + 1, layer) << 1;
-        tmp |= sub_0807B434(position + 0x40, layer) << 2;
-        tmp |= sub_0807B434(position - 1, layer) << 3;
-        SetTileType(gUnk_0811C466[tmp], position, layer);
+    if (GetActTileAtTilePos(tilePos, layer) == ACT_TILE_13) {
+        tmp = sub_0807B434(tilePos + TILE_POS(0, -1), layer);
+        tmp |= sub_0807B434(tilePos + TILE_POS(1, 0), layer) << 1;
+        tmp |= sub_0807B434(tilePos + TILE_POS(0, 1), layer) << 2;
+        tmp |= sub_0807B434(tilePos + TILE_POS(-1, 0), layer) << 3;
+        SetTileType(gUnk_0811C466[tmp], tilePos, layer);
     }
 }
 
-void sub_0807B7D8(u32 type, u32 pos, u32 layer) {
-    if (type == 53) {
-        CloneTile(53, pos, layer);
-        sub_0807B778(pos, layer);
-        sub_0807B778(pos + 1, layer);
-        sub_0807B778(pos - 1, layer);
-        sub_0807B778(pos + 64, layer);
-        sub_0807B778(pos - 64, layer);
+void sub_0807B7D8(u32 tileType, u32 tilePos, u32 layer) {
+    if (tileType == TILE_TYPE_53) {
+        CloneTile(TILE_TYPE_53, tilePos, layer);
+        sub_0807B778(tilePos, layer);
+        sub_0807B778(tilePos + TILE_POS(1, 0), layer);
+        sub_0807B778(tilePos + TILE_POS(-1, 0), layer);
+        sub_0807B778(tilePos + TILE_POS(0, 1), layer);
+        sub_0807B778(tilePos + TILE_POS(0, -1), layer);
     } else {
-        SetTileType(type, pos, layer);
+        SetTileType(tileType, tilePos, layer);
     }
 }
 
-void sub_0807B820(u32 position) {
-    SetTileType(0x26c, position + TILE_POS(-1, -1), 1);
-    SetTileType(0x273, position + TILE_POS(-1, -1), 2);
-    SetTileType(0x26d, position + TILE_POS(0, -1), 1);
-    SetTileType(0x274, position + TILE_POS(0, -1), 2);
-    SetTileType(0x26e, position + TILE_POS(1, -1), 1);
-    SetTileType(0x275, position + TILE_POS(1, -1), 2);
-    SetTileType(0x26f, position + TILE_POS(-1, 0), 1);
-    SetTileType(0x270, position, 1);
-    SetTileType(0x272, position + TILE_POS(1, 0), 1);
+void sub_0807B820(u32 tilePos) {
+    SetTileType(TILE_TYPE_620, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_627, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_621, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_628, tilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_622, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_629, tilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_623, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_624, tilePos, LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_626, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B8A8(u32 position) {
-    SetTileType(0x27c, position + TILE_POS(-1, -1), 1);
-    SetTileType(0x283, position + TILE_POS(-1, -1), 2);
-    SetTileType(0x27d, position + TILE_POS(0, -1), 1);
-    SetTileType(0x284, position + TILE_POS(0, -1), 2);
-    SetTileType(0x27e, position + TILE_POS(1, -1), 1);
-    SetTileType(0x285, position + TILE_POS(1, -1), 2);
-    SetTileType(0x27f, position + TILE_POS(-1, 0), 1);
-    SetTileType(0x280, position, 1);
-    SetTileType(0x282, position + TILE_POS(1, 0), 1);
+void sub_0807B8A8(u32 tilePos) {
+    SetTileType(TILE_TYPE_636, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_643, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_637, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_644, tilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_638, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_645, tilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_639, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_640, tilePos, LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_642, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B930(u32 position) {
-    SetTileType(0x28c, position + TILE_POS(-1, -1), 1);
-    SetTileType(0x293, position + TILE_POS(-1, -1), 2);
-    SetTileType(0x28d, position + TILE_POS(0, -1), 1);
-    SetTileType(0x294, position + TILE_POS(0, -1), 2);
-    SetTileType(0x28e, position + TILE_POS(1, -1), 1);
-    SetTileType(0x295, position + TILE_POS(1, -1), 2);
-    SetTileType(0x28f, position + TILE_POS(-1, 0), 1);
-    SetTileType(0x290, position, 1);
-    SetTileType(0x292, position + TILE_POS(1, 0), 1);
+void sub_0807B930(u32 tilePos) {
+    SetTileType(TILE_TYPE_652, tilePos + TILE_POS(-1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_659, tilePos + TILE_POS(-1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_653, tilePos + TILE_POS(0, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_660, tilePos + TILE_POS(0, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_654, tilePos + TILE_POS(1, -1), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_661, tilePos + TILE_POS(1, -1), LAYER_TOP);
+    SetTileType(TILE_TYPE_655, tilePos + TILE_POS(-1, 0), LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_656, tilePos, LAYER_BOTTOM);
+    SetTileType(TILE_TYPE_658, tilePos + TILE_POS(1, 0), LAYER_BOTTOM);
 }
 
-void sub_0807B9B8(u32 tileIndex, u32 position, u32 layer) {
-    LayerStruct* data;
-    u16* src;
+void SetTileByIndex(u32 tileIndex, u32 tilePos, u32 layer) {
+    MapLayer* mapLayer;
+    u16* subTiles;
     u16* dest;
     u16 tileType;
 
-    UnregisterInteractTile(position, layer);
-    data = GetTileBuffer(layer);
-    data->mapData[position] = tileIndex;
-    tileType = data->metatileTypes[tileIndex];
-    data->collisionData[position] = gUnk_080B3E80[tileType];
-    data->unkData3[position] = gUnk_080B37A0[tileType];
+    UnregisterInteractTile(tilePos, layer);
+    mapLayer = GetLayerByIndex(layer);
+    mapLayer->mapData[tilePos] = tileIndex;
+    tileType = mapLayer->tileTypes[tileIndex];
+    mapLayer->collisionData[tilePos] = gMapTileTypeToCollisionData[tileType];
+    mapLayer->actTiles[tilePos] = gMapTileTypeToActTile[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
-        u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+        u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
         if (layer != 2) {
             dest = gMapDataBottomSpecial + offset;
         } else {
             dest = gMapDataTopSpecial + offset;
         }
-        src = data->metatiles + tileIndex * 4;
-        *dest = *src;
-        dest[1] = src[1];
-        dest[0x80] = src[2];
-        dest[0x81] = src[3];
+        subTiles = mapLayer->subTiles + tileIndex * 4;
+        *dest = *subTiles;
+        dest[1] = subTiles[1];
+        dest[0x80] = subTiles[2];
+        dest[0x81] = subTiles[3];
         if (gRoomControls.reload_flags != 1) {
             gUpdateVisibleTiles = 1;
         }
     }
 }
 
-void RestorePrevTileEntity(u32 position, u32 layer) {
+void RestorePrevTileEntity(u32 tilePos, u32 layer) {
     u32 tileIndex;
     u32 tileType;
-    LayerStruct* data;
+    MapLayer* mapLayer;
     u16* dest;
-    u16* src;
+    u16* subTiles;
 
-    UnregisterInteractTile(position, layer);
-    data = GetTileBuffer(layer);
-    data->mapData[position] = tileIndex = data->mapDataOriginal[position];
-    tileType = data->metatileTypes[tileIndex];
-    data->collisionData[position] = gUnk_080B3E80[tileType];
-    data->unkData3[position] = gUnk_080B37A0[tileType];
+    UnregisterInteractTile(tilePos, layer);
+    mapLayer = GetLayerByIndex(layer);
+    mapLayer->mapData[tilePos] = tileIndex = mapLayer->mapDataOriginal[tilePos];
+    tileType = mapLayer->tileTypes[tileIndex];
+    mapLayer->collisionData[tilePos] = gMapTileTypeToCollisionData[tileType];
+    mapLayer->actTiles[tilePos] = gMapTileTypeToActTile[tileType];
     if ((gRoomControls.scroll_flags & 1) == 0) {
-        u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+        u32 offset = (tilePos & 0x3f) * 2 + (tilePos & 0xfc0) * 4;
         if (layer != 2) {
             dest = gMapDataBottomSpecial + offset;
         } else {
             dest = gMapDataTopSpecial + offset;
         }
-        src = &data->metatiles[tileIndex * 4];
-        dest[0] = src[0];
-        dest[1] = src[1];
-        dest[0x80] = src[2];
-        dest[0x81] = src[3];
+        subTiles = &mapLayer->subTiles[tileIndex * 4];
+        dest[0] = subTiles[0];
+        dest[1] = subTiles[1];
+        dest[0x80] = subTiles[2];
+        dest[0x81] = subTiles[3];
         if (gRoomControls.reload_flags != 1) {
             gUpdateVisibleTiles = 1;
         }
@@ -3549,24 +3584,24 @@ void sub_0807BB98(s32 basePosition, u32 layer, u32 width, u32 height) {
     u32 x;
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
-            SetBottomTile(0x4072, basePosition + x, layer);
+            SetTile(SPECIAL_TILE_114, basePosition + x, layer);
         }
         basePosition += 0x40;
     }
 }
 
 void sub_0807BBE4(void) {
-    u32 tile;
+    u32 tileIndex;
     u8* topCollision;
     u8* bottomCollision;
     u32 index;
     u16* topMap;
     u16* bottomMap;
-    u16* bottomMetatiles;
-    u16* topMetatiles;
+    u16* bottomTiles;
+    u16* topTiles;
 
-    bottomMetatiles = gMapBottom.metatileTypes;
-    topMetatiles = gMapTop.metatileTypes;
+    bottomTiles = gMapBottom.tileTypes;
+    topTiles = gMapTop.tileTypes;
 
     bottomMap = gMapBottom.mapData;
     topMap = gMapTop.mapData;
@@ -3574,26 +3609,27 @@ void sub_0807BBE4(void) {
     topCollision = gMapTop.collisionData;
     index = 0;
     for (index = 0; index < 0x40 * 0x40; index++) {
-        tile = *bottomMap;
+        tileIndex = *bottomMap;
         bottomMap++;
-        if (tile < 0x4000) {
-            *bottomCollision = gUnk_080B3E80[bottomMetatiles[tile]];
+        if (tileIndex < 0x4000) {
+            *bottomCollision = gMapTileTypeToCollisionData[bottomTiles[tileIndex]];
         } else {
-            *bottomCollision = gUnk_080B79A7[tile - 0x4000];
+            *bottomCollision = gMapSpecialTileToCollisionData[tileIndex - 0x4000];
         }
         bottomCollision++;
-        tile = (u32)*topMap;
+        tileIndex = (u32)*topMap;
         topMap++;
-        if (tile < 0x4000) {
-            *topCollision = gUnk_080B3E80[topMetatiles[tile]];
+        if (tileIndex < 0x4000) {
+            *topCollision = gMapTileTypeToCollisionData[topTiles[tileIndex]];
         } else {
-            *topCollision = gUnk_080B79A7[tile - 0x4000];
+            *topCollision = gMapSpecialTileToCollisionData[tileIndex - 0x4000];
         }
         topCollision++;
     }
 }
 
-void sub_0807BC84(void) {
+// Set collisionData at the room bounds (?) to 0xff?
+void CreateCollisionDataBorderAroundRoom(void) {
     s32 height;
     u32 width;
     u8* puVar3;
@@ -3784,58 +3820,60 @@ void sub_0807BFA8(void) {
     gRoomControls.height = (gArea.pCurrentRoomInfo)->pixel_height;
 }
 
-void sub_0807BFD0(void) {
+void LoadRoomTileSet(void) {
     s32 index;
-    u16* puVar2;
-    u16* puVar3;
-    u16* ptr;
-    typeof(gMapTop)* newptr;
+    u16* tileTypes;
+    u16* tileIndices;
+    u16* paletteBuffer;
 
     ClearBgAnimations();
     sub_0807BFA8();
-    MemFill16(0xffff, gMapBottom.metatileTypes, 0x1000);
-    gMapBottom.metatileTypes[0] = 0;
-    MemFill16(0xffff, gMapTop.metatileTypes, 0x1000);
-    gMapTop.metatileTypes[0] = 0;
+    MemFill16(0xffff, gMapBottom.tileTypes, 0x1000);
+    gMapBottom.tileTypes[0] = 0;
+    MemFill16(0xffff, gMapTop.tileTypes, 0x1000);
+    gMapTop.tileTypes[0] = 0;
 
-    if ((void*)gRoomControls.unk_34 != (gArea.pCurrentRoomInfo)->tileset) {
-        gRoomControls.unk_34 = (u32)(gArea.pCurrentRoomInfo)->tileset;
-        sub_080197D4((gArea.pCurrentRoomInfo)->tileset);
+    if ((void*)gRoomControls.tileSet != (gArea.pCurrentRoomInfo)->tileSet) {
+        gRoomControls.tileSet = (u32)(gArea.pCurrentRoomInfo)->tileSet;
+        LoadMapData((gArea.pCurrentRoomInfo)->tileSet);
     }
 
-    sub_080197D4((gArea.pCurrentRoomInfo)->metatiles);
-    ptr = gPaletteBuffer;
-    MemCopy(&ptr[0x30], &ptr[0x150], 0x20);
+    LoadMapData((gArea.pCurrentRoomInfo)->tiles);
+    paletteBuffer = gPaletteBuffer;
+    MemCopy(&paletteBuffer[0x30], &paletteBuffer[0x150], 0x20);
     gUsedPalettes |= 0x200000;
 
     if ((gArea.pCurrentRoomInfo)->bg_anim != NULL) {
         LoadBgAnimations((gArea.pCurrentRoomInfo)->bg_anim);
     }
 
-    puVar2 = gMapBottom.metatileTypes;
-    puVar3 = gMapBottom.unkData2;
-    MemFill16(0xffff, puVar3, 0x1000);
+    tileTypes = gMapBottom.tileTypes;
+    tileIndices = gMapBottom.tileIndices;
+    MemFill16(0xffff, tileIndices, 0x1000);
 
-    for (index = 0; index < 0x800; index++, puVar2++) {
-        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
-            puVar3[*puVar2] = index;
+    for (index = 0; index < 0x800; index++, tileTypes++) {
+        if ((*tileTypes < 0x800) && (tileIndices[*tileTypes] == 0xffff)) {
+            tileIndices[*tileTypes] = index;
         }
     }
 
-    puVar2 = gMapTop.metatileTypes;
-    puVar3 = gMapTop.unkData2;
-    MemFill16(0xffff, puVar3, 0x1000);
+    tileTypes = gMapTop.tileTypes;
+    tileIndices = gMapTop.tileIndices;
+    MemFill16(0xffff, tileIndices, 0x1000);
 
-    for (index = 0; index < 0x800; index++, puVar2++) {
-        if ((*puVar2 < 0x800) && (puVar3[*puVar2] == 0xffff)) {
-            puVar3[*puVar2] = index;
+    for (index = 0; index < 0x800; index++, tileTypes++) {
+        if ((*tileTypes < 0x800) && (tileIndices[*tileTypes] == 0xffff)) {
+            tileIndices[*tileTypes] = index;
         }
     }
 }
 
 void LoadRoomGfx(void) {
     RoomControls* roomControls;
-    bool32 tmp;
+    bool32 clearBottomMap; // TODO maybe if it is a 256 bit background?
+    // So the first u16 being 0xffff indicates this and the rest of the background does not matter?
+    // Or is it used anywhere else?
+    // Probaby rather is some sort of different scroll mode where only a small part of the map is used?
 
     sub_0807BFA8();
     roomControls = &gRoomControls;
@@ -3844,74 +3882,78 @@ void LoadRoomGfx(void) {
     MemClear(gMapTop.collisionData, sizeof(gMapTop.collisionData));
     MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
-    sub_080197D4((gArea.pCurrentRoomInfo)->map);
+    LoadMapData((gArea.pCurrentRoomInfo)->map);
     if (gMapBottom.mapData[0] != 0xffff) {
-        sub_0807C8B0(gMapBottom.mapData, roomControls->width >> 4, roomControls->height >> 4);
-        sub_0807C8B0(gMapTop.mapData, roomControls->width >> 4, roomControls->height >> 4);
-        tmp = FALSE;
+        sub_0807C8B0(gMapBottom.mapData, roomControls->width / 16, roomControls->height / 16);
+        sub_0807C8B0(gMapTop.mapData, roomControls->width / 16, roomControls->height / 16);
+        clearBottomMap = FALSE;
     } else {
         MemClear(gMapBottom.mapData, sizeof(gMapBottom.mapData));
-        tmp = TRUE;
+        clearBottomMap = TRUE;
     }
     if (gRoomTransition.field2d == 0) {
         MemCopy(gMapBottom.mapData, gMapBottom.mapDataOriginal, sizeof(gMapBottom.mapData));
         MemCopy(gMapTop.mapData, gMapTop.mapDataOriginal, sizeof(gMapBottom.mapData));
     } else if (gRoomTransition.field2d == 2) {
-        MemCopy(gMapBottom.mapData, gMapBottom.unkData3, 0x1000);
+        MemCopy(gMapBottom.mapData, gMapBottom.actTiles, 0x1000);
         MemCopy(gMapBottom.mapDataOriginal, gMapBottom.mapData, 0x1000);
-        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataOriginal, 0x1000);
-        MemCopy(gMapBottom.mapData + 0x800, gMapBottom.unkData3, 0x1000);
+        MemCopy(gMapBottom.actTiles, gMapBottom.mapDataOriginal, 0x1000);
+        MemCopy(gMapBottom.mapData + 0x800, gMapBottom.actTiles, 0x1000);
         MemCopy(gMapBottom.mapDataOriginal + 0x800, gMapBottom.mapData + 0x800, 0x1000);
-        MemCopy(gMapBottom.unkData3, gMapBottom.mapDataOriginal + 0x800, 0x1000);
-        MemCopy(gMapTop.mapData, gMapTop.unkData3, 0x1000);
+        MemCopy(gMapBottom.actTiles, gMapBottom.mapDataOriginal + 0x800, 0x1000);
+        MemCopy(gMapTop.mapData, gMapTop.actTiles, 0x1000);
         MemCopy(gMapTop.mapDataOriginal, gMapTop.mapData, 0x1000);
-        MemCopy(gMapTop.unkData3, gMapTop.mapDataOriginal, 0x1000);
-        MemCopy(gMapTop.mapData + 0x800, gMapTop.unkData3, 0x1000);
+        MemCopy(gMapTop.actTiles, gMapTop.mapDataOriginal, 0x1000);
+        MemCopy(gMapTop.mapData + 0x800, gMapTop.actTiles, 0x1000);
         MemCopy(gMapTop.mapDataOriginal + 0x800, gMapTop.mapData + 0x800, 0x1000);
-        MemCopy(gMapTop.unkData3, gMapTop.mapDataOriginal + 0x800, 0x1000);
+        MemCopy(gMapTop.actTiles, gMapTop.mapDataOriginal + 0x800, 0x1000);
     }
-    if (!tmp) {
+    if (!clearBottomMap) {
         sub_0807BBE4();
     } else {
         sub_0807C69C(gMapBottom.collisionData, roomControls->width >> 4, roomControls->height >> 4);
         sub_0807C69C(gMapTop.collisionData, roomControls->width >> 4, roomControls->height >> 4);
         sub_0807C460();
     }
-    sub_0807BC84();
-    sub_08080B60(&gMapBottom);
-    sub_08080B60(&gMapTop);
-    if (!tmp) {
-        sub_0801AB08((u16*)&gMapDataBottomSpecial, &gMapBottom);
-        sub_0801AB08((u16*)&gMapDataTopSpecial, &gMapTop);
+    CreateCollisionDataBorderAroundRoom();
+    FillActTileForLayer(&gMapBottom);
+    FillActTileForLayer(&gMapTop);
+    if (!clearBottomMap) {
+        // Render the complete bottom and top tileMaps into the tileMaps.
+        RenderMapLayerToSubTileMap(gMapDataBottomSpecial, &gMapBottom);
+        RenderMapLayerToSubTileMap(gMapDataTopSpecial, &gMapTop);
     } else {
+        // Copy first half to second half.
+        // Then copy the room back to the first half?
+        // Then clear the second half.
         MemCopy(&gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000], 0x4000); // TODO
-        sub_0807C5F4((u16*)&gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000]);
+        sub_0807C5F4(gMapDataBottomSpecial, &gMapDataBottomSpecial[0x2000]);
         MemClear(&gMapDataBottomSpecial[0x2000], 0x4000);
         MemCopy(&gMapDataTopSpecial, &gMapDataTopSpecial[0x2000], 0x4000);
-        sub_0807C5F4((u16*)&gMapDataTopSpecial, (u16*)&gMapDataTopSpecial[0x2000]);
+        sub_0807C5F4(gMapDataTopSpecial, &gMapDataTopSpecial[0x2000]);
         MemClear(&gMapDataTopSpecial[0x2000], 0x4000);
     }
-    if (tmp || roomControls->area == 0x71) {
+    if (clearBottomMap || roomControls->area == AREA_PALACE_OF_WINDS_BOSS) {
         roomControls->scroll_flags |= 1;
     }
 
     switch (roomControls->area) {
-        case 0x20:
-        case 0x2d:
+        case AREA_MINISH_HOUSE_INTERIORS:
+        case AREA_TOWN_MINISH_HOLES:
             if (gMapBottom.bgSettings != NULL) {
                 gMapBottom.bgSettings->control |= 0x80;
             }
             gScreen.lcd.displayControl &= 0xfdff;
             break;
-        case 0x21:
-        case 0x22:
-        case 0x23:
-        case 0x24:
-        case 0x25:
-        case 0x27:
-        case 0x28:
-        case 0x30:
-        case 0x38:
+        case AREA_HOUSE_INTERIORS_1:
+        case AREA_HOUSE_INTERIORS_2:
+        case AREA_HOUSE_INTERIORS_3:
+        case AREA_TREE_INTERIORS:
+        case AREA_DOJOS:
+        case AREA_MINISH_CRACKS:
+        case AREA_HOUSE_INTERIORS_4:
+        case AREA_WIND_TRIBE_TOWER:
+        case AREA_EZLO_CUTSCENE:
             if (gMapTop.bgSettings != NULL) {
                 gMapTop.bgSettings->control = gUnk_080B77C0[2];
             }
@@ -3947,10 +3989,10 @@ void sub_0807C460(void) {
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
             if (*mapBottom > 0x3fff) {
-                SetBottomTile(*mapBottom, position, 1);
+                SetTile(*mapBottom, position, LAYER_BOTTOM);
             }
             if (*mapTop > 0x3fff) {
-                SetBottomTile(*mapTop, position, 2);
+                SetTile(*mapTop, position, LAYER_TOP);
             }
             mapBottom++;
             mapTop++;
@@ -3963,24 +4005,27 @@ void sub_0807C460(void) {
 }
 
 void sub_0807C4F8(void) {
-    u32* puVar1;
-    u32* ptr;
+    MapDataDefinition* ptr1;
+    MapDataDefinition* ptr2;
 
-    if (gRoomControls.area != 0x71) {
+    if (gRoomControls.area != AREA_PALACE_OF_WINDS_BOSS) {
         MemClear(gMapDataBottomSpecial, 0x8000);
-        MemClear(&gMapDataTopSpecial, 0x8000);
-        ptr = gUnk_02022830;
-        puVar1 = (u32*)(gArea.pCurrentRoomInfo)->map;
-        puVar1 -= 3;
+        MemClear(gMapDataTopSpecial, 0x8000);
+        ptr1 = &gUnk_02022830;
+        ptr2 = (MapDataDefinition*)(gArea.pCurrentRoomInfo)->map;
+        ptr2 -= 1;
         do {
-            puVar1 += 3;
-            if (((u16*)puVar1[1] == gMapDataBottomSpecial) || ((u16*)puVar1[1] == (u16*)&gMapDataTopSpecial)) {
-                ptr[0] = puVar1[0] & 0x7fffffff;
-                ptr[1] = puVar1[1];
-                ptr[2] = puVar1[2];
-                sub_080197D4(ptr);
+            ptr2 += 1;
+            // TODO why does this not match with ptr2->dest?
+            if (((u16*)((u32*)ptr2)[1] == gMapDataBottomSpecial) ||
+                ((u16*)((u32*)ptr2)[1] == (u16*)&gMapDataTopSpecial)) {
+                // only load the map data definitions for bitmap backgrounds?
+                ptr1->src = ptr2->src & 0x7fffffff;
+                ptr1->dest = ptr2->dest;
+                ptr1->size = ptr2->size;
+                LoadMapData(ptr1);
             }
-        } while ((s32)*puVar1 < 0);
+        } while ((s32)ptr2->src < 0);
         MemCopy(gMapDataBottomSpecial, gMapDataBottomSpecial + 0x2000, 0x4000);
         sub_0807C5F4(gMapDataBottomSpecial, gMapDataBottomSpecial + 0x2000);
 
@@ -4017,55 +4062,55 @@ void sub_0807C5B0(void) {
     roomControls->scroll_flags |= 2;
 }
 
-void sub_0807C5F4(u16* param_1, u16* param_2) {
-    s32 iVar1;
-    u16* puVar2;
-    u16* puVar3;
-    u32 uVar4;
-    u32 index;
-    u32 innerIndex;
+// Copies parts over
+// 0x20 * 0x20 chunk if gRoomControls.width <= 0xff
+// more up to 0x40 * 0x40 if the room is bigger
+void sub_0807C5F4(u16* dest, u16* src) {
+    s32 index1;
+    u32 index2;
+    u16* ptr;
 
-    puVar2 = param_1;
-    for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-        for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-            *puVar2 = *param_2;
-            param_2++;
-            puVar2++;
+    ptr = dest;
+    for (index1 = 0x20; index1 != 0; index1--) {
+        for (index2 = 0; index2 < 0x20; index2++) {
+            *ptr = *src;
+            src++;
+            ptr++;
         }
-        puVar2 += 0x60;
+        ptr += 0x60;
     }
 
     if (gRoomControls.width > 0xff) {
-        puVar2 = param_1 + 0x20;
-        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-                *puVar2 = *param_2;
-                param_2++;
-                puVar2++;
+        ptr = dest + 0x20;
+        for (index1 = 0x20; index1 != 0; index1--) {
+            for (index2 = 0; index2 < 0x20; index2++) {
+                *ptr = *src;
+                src++;
+                ptr++;
             }
-            puVar2 += 0x60;
+            ptr += 0x60;
         }
     }
     if (gRoomControls.height > 0xff) {
-        puVar2 = param_1 + 0x1000;
-        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-                *puVar2 = *param_2;
-                param_2++;
-                puVar2++;
+        ptr = dest + 0x1000;
+        for (index1 = 0x20; index1 != 0; index1--) {
+            for (index2 = 0; index2 < 0x20; index2++) {
+                *ptr = *src;
+                src++;
+                ptr++;
             }
-            puVar2 += 0x60;
+            ptr += 0x60;
         }
     }
     if (gRoomControls.width > 0xff && gRoomControls.height > 0xff) {
-        param_1 += 0x1020;
-        puVar2 = param_1;
+        dest += 0x1020;
+        ptr = dest;
 
-        for (iVar1 = 0x20; iVar1 != 0; iVar1--) {
-            for (uVar4 = 0; uVar4 < 0x20; uVar4++) {
-                *puVar2++ = *param_2++;
+        for (index1 = 0x20; index1 != 0; index1--) {
+            for (index2 = 0; index2 < 0x20; index2++) {
+                *ptr++ = *src++;
             }
-            puVar2 += 0x60;
+            ptr += 0x60;
         }
     }
 }
@@ -4114,7 +4159,7 @@ void InitializeCamera() {
     u32 tmp1;
     u32 tmp2;
 
-    sub_0807BFD0();
+    LoadRoomTileSet();
     LoadRoomGfx();
     roomControls = &gRoomControls;
     target = gRoomControls.camera_target;
@@ -4167,19 +4212,19 @@ void InitializeCamera() {
         }
     }
     roomControls->scroll_flags &= 0xfb;
-    sub_08080BC4();
+    UpdateScreenShake();
 }
 
 void sub_0807C810(void) {
     DiggingCaveEntranceTransition* ptr;
     Entity* player;
     RoomControls* ctrls;
-    sub_0807BFD0();
+    LoadRoomTileSet();
     ptr = &gDiggingCaveEntranceTransition;
     player = &gPlayerEntity.base;
     ctrls = &gRoomControls;
-    player->x.HALF.HI = ((ptr->entrance)->targetTilePosition & 0x3f) * 0x10 + ctrls->origin_x + ptr->offsetX;
-    player->y.HALF.HI = (((ptr->entrance)->targetTilePosition & 0xfc0) >> 2) + ctrls->origin_y + ptr->offsetY;
+    player->x.HALF.HI = ((ptr->entrance)->targetTilePos & 0x3f) * 0x10 + ctrls->origin_x + ptr->offsetX;
+    player->y.HALF.HI = (((ptr->entrance)->targetTilePos & 0xfc0) >> 2) + ctrls->origin_y + ptr->offsetY;
     sub_080809D4();
     gUpdateVisibleTiles = 0;
 }
@@ -4252,11 +4297,11 @@ void LoadCompressedMapData(void* dest, u32 offset) {
     }
 }
 
-void sub_0807C998(u32* a1) {
-    LoadCompressedMapData(&gMapBottom.metatiles, a1[0]);
-    LoadCompressedMapData(&gMapBottom.metatileTypes, a1[1]);
-    LoadCompressedMapData(&gMapTop.metatiles, a1[2]);
-    LoadCompressedMapData(&gMapTop.metatileTypes, a1[3]);
+void sub_0807C998(u32* dest) {
+    LoadCompressedMapData(&gMapBottom.subTiles, dest[0]);
+    LoadCompressedMapData(&gMapBottom.tileTypes, dest[1]);
+    LoadCompressedMapData(&gMapTop.subTiles, dest[2]);
+    LoadCompressedMapData(&gMapTop.tileTypes, dest[3]);
 }
 
 void sub_0807C9D8(u32* a1) {
@@ -4266,8 +4311,8 @@ void sub_0807C9D8(u32* a1) {
     LoadCompressedMapData((u8*)0x6004000, *a1);
     LoadCompressedMapData((u8*)0x6000000, v1[1]);
     LoadCompressedMapData((u8*)0x6008000, v1[2]);
-    LoadCompressedMapData((u8*)gUnk_020176E0, v1[3]);
-    LoadPalettes(gUnk_020176E0, 2, 13);
+    LoadCompressedMapData((u8*)(gPaletteBuffer + 32), v1[3]);
+    LoadPalettes((u8*)(gPaletteBuffer + 32), 2, 13);
 }
 
 u32 FinalizeSave(void) {

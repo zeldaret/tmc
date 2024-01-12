@@ -9,13 +9,14 @@
 #include "hitbox.h"
 #include "item.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[0x4];
     /*0x6c*/ u16 unk_6c;
     /*0x6e*/ u8 unk_6e[0x2];
-    /*0x70*/ u16 unk_70;
+    /*0x70*/ u16 tilePos;
     /*0x72*/ u8 unk_72[0x14];
     /*0x86*/ u16 unk_86;
 } SmallIceBlockEntity;
@@ -84,8 +85,8 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
         }
     } else {
         if (!sub_0800442E(super)) {
-            tileType = GetTileType(this->unk_70, super->collisionLayer);
-            if (tileType != 0x405a) {
+            tileType = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
+            if (tileType != SPECIAL_TILE_90) {
                 switch (sub_08099618(tileType)) {
                     case 1:
                         super->action = 2;
@@ -99,7 +100,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                         if (obj != NULL) {
                             CopyPosition(super, obj);
                         }
-                        SetBottomTile(this->unk_6c, this->unk_70, super->collisionLayer);
+                        SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
                         DeleteEntity(super);
                         break;
 
@@ -158,7 +159,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
         DeleteThisEntity();
     } else {
         if (super->timer == 0x30) {
-            SetBottomTile(this->unk_6c, this->unk_70, super->collisionLayer);
+            SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
         }
         SetAffineInfo(super, 0x100, (0x3c - super->timer) * 0x20 + 0x100, 0);
         if ((super->timer & 1) != 0) {
@@ -175,20 +176,20 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
 }
 
 void sub_08099468(SmallIceBlockEntity* this) {
-    this->unk_70 = COORD_TO_TILE(super);
-    this->unk_6c = GetTileIndex(this->unk_70, super->collisionLayer);
-    SetBottomTile(0x405a, this->unk_70, super->collisionLayer);
+    this->tilePos = COORD_TO_TILE(super);
+    this->unk_6c = GetTileIndex(this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_90, this->tilePos, super->collisionLayer);
 }
 
 void sub_080994B8(SmallIceBlockEntity* this) {
     u16 tileType;
 
     EnqueueSFX(SFX_ICE_BLOCK_SLIDE);
-    SetBottomTile(this->unk_6c, this->unk_70, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetTileType(this->unk_70, 1) == 0x405a)) {
-        CloneTile(0x310, this->unk_70, 1);
+    SetTile(this->unk_6c, this->tilePos, super->collisionLayer);
+    if ((super->collisionLayer == 2) && (GetTileTypeAtTilePos(this->tilePos, 1) == SPECIAL_TILE_90)) {
+        CloneTile(TILE_TYPE_784, this->tilePos, 1);
     }
-    tileType = GetTileType(this->unk_70 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(this->tilePos + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if (tileType == 0x79 || tileType == 0x77) {
         super->spriteOffsetY = -2;
     }
@@ -325,5 +326,17 @@ const u16 gUnk_08123748[] = {
     277,
 };
 const u16 gUnk_08123750[] = {
-    0x405b, 1, 0x405c, 1, 0x405d, 1, 0x405e, 1, 0x7a, 2, 0x78, 2, 0,
+    SPECIAL_TILE_91,
+    1,
+    SPECIAL_TILE_92,
+    1,
+    SPECIAL_TILE_93,
+    1,
+    SPECIAL_TILE_94,
+    1,
+    TILE_TYPE_122,
+    2,
+    TILE_TYPE_120,
+    2,
+    0,
 };

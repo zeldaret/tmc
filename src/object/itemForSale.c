@@ -75,7 +75,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
 void ItemForSale_Action1(ItemForSaleEntity* this) {
     if (super->subAction != 0) {
         super->action = 2;
-        gUnk_0200AF00.rActionPlayerState = 2;
+        gHUD.rActionPlayerState = 2;
     } else {
         if (super->type == 0x36) {
             if (super->interactType != INTERACTION_NONE) {
@@ -92,7 +92,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 ResetActiveItems();
                 gPlayerState.heldObject = 4;
                 gPlayerEntity.carriedEntity = super;
-                gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
+                gHUD.rActionPlayerState = R_ACTION_DROP;
                 MessageClose();
             }
         }
@@ -102,13 +102,13 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
 void ItemForSale_Action2(ItemForSaleEntity* this) {
     void* ptr;
 
-    gUnk_0200AF00.rActionPlayerState = R_ACTION_DROP;
+    gHUD.rActionPlayerState = R_ACTION_DROP;
     super->spriteSettings.draw = gPlayerEntity.base.spriteSettings.draw;
     if ((gPlayerState.heldObject == 0) || (super != gPlayerEntity.carriedEntity)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
-        if (((*(int*)(ptr + 8) == 0) || ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.rActionPlayerState = R_ACTION_SPEAK,
+        if (((*(int*)(ptr + 8) == 0) || ((*(u8*)(ptr + 1) != 1 || (gHUD.rActionPlayerState = R_ACTION_SPEAK,
                                                                    (gPlayerState.playerInput.newInput &
                                                                     (INPUT_ACTION | INPUT_INTERACT)) == 0)))) &&
             ((gPlayerState.playerInput.newInput & (INPUT_ACTION | INPUT_CANCEL | INPUT_INTERACT)) != 0)) {
@@ -120,7 +120,7 @@ void ItemForSale_Action2(ItemForSaleEntity* this) {
 void sub_080819B4(ItemForSaleEntity* this) {
     Entity* parent;
     u8* puVar2;
-    struct_0200AF00* ptr;
+    HUD* hud;
 
     if (gRoomVars.shopItemType == 0) {
         if (super->parent != NULL) {
@@ -130,10 +130,10 @@ void sub_080819B4(ItemForSaleEntity* this) {
     }
     gPlayerState.heldObject = 0;
     gPlayerEntity.carriedEntity = 0;
-    ptr = &gUnk_0200AF00;
+    hud = &gHUD;
     gRoomVars.shopItemType = 0;
-    ptr->rActionInteractObject = R_ACTION_NONE;
-    ptr->rActionPlayerState = R_ACTION_NONE;
+    hud->rActionInteractObject = R_ACTION_NONE;
+    hud->rActionPlayerState = R_ACTION_NONE;
     gRoomVars.shopItemType2 = 0;
     super->x.HALF.HI = this->unk_80 + gRoomControls.origin_x;
     super->y.HALF.HI = this->unk_82 + gRoomControls.origin_y;

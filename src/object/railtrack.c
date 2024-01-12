@@ -10,6 +10,7 @@
 #include "functions.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -65,7 +66,7 @@ void Railtrack_Init(RailtrackEntity* this) {
         }
     }
     InitializeAnimation(super, super->animationState);
-    this->unk_70 = &GetTileBuffer(super->collisionLayer)->mapData[COORD_TO_TILE(super)];
+    this->unk_70 = &GetLayerByIndex(super->collisionLayer)->mapData[COORD_TO_TILE(super)];
     sub_08085394(this);
 }
 
@@ -126,39 +127,39 @@ void Railtrack_Action3(RailtrackEntity* this) {
     }
 }
 
-static const u16 gUnk_081205E0[] = { 0x4018, 0x4019 };
+static const u16 gUnk_081205E0[] = { SPECIAL_TILE_24, SPECIAL_TILE_25 };
 
 void sub_08085394(RailtrackEntity* this) {
-    u32 uVar1;
+    u32 specialTile;
     u16* layerData;
-    u32 tile;
-    s8 offset;
+    u32 tilePos;
+    s8 offsetset;
 
-    uVar1 = gUnk_081205E0[super->animationState / 2];
-    offset = gUnk_080B4488[super->animationState / 2][0];
+    specialTile = gUnk_081205E0[super->animationState / 2];
+    offsetset = gUnk_080B4488[super->animationState / 2][0];
     layerData = this->unk_70;
-    tile = COORD_TO_TILE(super);
+    tilePos = COORD_TO_TILE(super);
 
-    this->unk_74 = *(layerData - offset);
-    SetBottomTile(uVar1, tile - offset, super->collisionLayer);
+    this->unk_74 = *(layerData - offsetset);
+    SetTile(specialTile, tilePos - offsetset, super->collisionLayer);
 
     this->unk_76 = layerData[0x0];
-    SetBottomTile(uVar1, tile - 0x0, super->collisionLayer);
+    SetTile(specialTile, tilePos, super->collisionLayer);
 
-    this->unk_78 = layerData[offset];
-    SetBottomTile(uVar1, tile + offset, super->collisionLayer);
+    this->unk_78 = layerData[offsetset];
+    SetTile(specialTile, tilePos + offsetset, super->collisionLayer);
 }
 
 void sub_0808543C(RailtrackEntity* this) {
     s8* cVar1;
-    u32 uVar2;
-    s8 temp;
+    u32 tilePos;
+    s8 offset;
 
-    temp = gUnk_080B4488[super->animationState / 2][0];
-    uVar2 = COORD_TO_TILE(super);
-    SetBottomTile(this->unk_74, uVar2 - temp, super->collisionLayer);
-    SetBottomTile(this->unk_76, uVar2, super->collisionLayer);
-    SetBottomTile(this->unk_78, uVar2 + temp, super->collisionLayer);
+    offset = gUnk_080B4488[super->animationState / 2][0];
+    tilePos = COORD_TO_TILE(super);
+    SetTile(this->unk_74, tilePos - offset, super->collisionLayer);
+    SetTile(this->unk_76, tilePos, super->collisionLayer);
+    SetTile(this->unk_78, tilePos + offset, super->collisionLayer);
 }
 
 u32 sub_080854A8(RailtrackEntity* this) {

@@ -9,7 +9,7 @@ SCRIPT_START script_KinstoneSparkKinstoneSpark
 	DoPostScriptAction 0x0007
 	PlaySound SFX_136
 script_0800C47A:
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_0800C47A
 	Wait 0x003c
 	SetRoomFlag 0x00ff

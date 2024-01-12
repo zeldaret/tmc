@@ -5,8 +5,10 @@
  * @brief Macro Acorn object
  */
 #include "entity.h"
+#include "map.h"
 #include "object.h"
 #include "physics.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -74,38 +76,38 @@ void sub_0809E5F0(MacroAcornEntity* this) {
     this->unk_80 = position;
     switch (super->type) {
         case 2:
-            SetBottomTile(0x4022, position - 0x3d, 1);
-            SetBottomTile(0x406d, position - 0x3c, 1);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(3, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_109, position + TILE_POS(4, -1), LAYER_BOTTOM);
         case 0:
-            SetBottomTile(0x406c, position - 0x42, 1);
-            SetBottomTile(0x4022, position - 0x41, 1);
-            SetBottomTile(0x4022, position - 0x40, 1);
-            SetBottomTile(0x4022, position - 0x3f, 1);
-            SetBottomTile(0x4022, position - 2, 1);
-            SetBottomTile(0x4022, position - 1, 1);
-            SetBottomTile(0x4022, position, 1);
-            SetBottomTile(0x4022, position + 1, 1);
-            SetBottomTile(0x406e, position + 0x3e, 1);
-            SetBottomTile(0x4022, position + 0x3f, 1);
-            SetBottomTile(0x4022, position + 0x40, 1);
-            SetBottomTile(0x406f, position + 0x41, 1);
+            SetTile(SPECIAL_TILE_108, position + TILE_POS(-2, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_110, position + TILE_POS(-2, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_111, position + TILE_POS(1, 1), LAYER_BOTTOM);
             break;
         case 3:
-            SetBottomTile(0x4022, position - 0x44, 1);
-            SetBottomTile(0x406c, position - 0x45, 1);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-4, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_108, position + TILE_POS(-5, -1), LAYER_BOTTOM);
         case 1:
-            SetBottomTile(0x4022, position - 0x42, 1);
-            SetBottomTile(0x4022, position - 0x41, 1);
-            SetBottomTile(0x4022, position - 0x40, 1);
-            SetBottomTile(0x406d, position - 0x3f, 1);
-            SetBottomTile(0x4022, position - 2, 1);
-            SetBottomTile(0x4022, position - 1, 1);
-            SetBottomTile(0x4022, position, 1);
-            SetBottomTile(0x4022, position + 1, 1);
-            SetBottomTile(0x406e, position + 0x3e, 1);
-            SetBottomTile(0x4022, position + 0x3f, 1);
-            SetBottomTile(0x4022, position + 0x40, 1);
-            SetBottomTile(0x406f, position + 0x41, 1);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_109, position + TILE_POS(1, -1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-2, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(1, 0), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_110, position + TILE_POS(-2, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(-1, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, position + TILE_POS(0, 1), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_111, position + TILE_POS(1, 1), LAYER_BOTTOM);
             break;
     }
 }

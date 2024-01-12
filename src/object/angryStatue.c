@@ -11,6 +11,7 @@
 #include "projectile.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 void AngryStatue_Init(Entity*);
 void AngryStatue_Action1(Entity*);
@@ -29,7 +30,7 @@ void AngryStatue(Entity* this) {
 void AngryStatue_Init(Entity* this) {
     this->action = 1;
     this->hitbox = (Hitbox*)&gUnk_080FD178;
-    SetBottomTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
+    SetTile(SPECIAL_TILE_34, COORD_TO_TILE(this), this->collisionLayer);
     InitializeAnimation(this, this->type);
 }
 

@@ -12,6 +12,7 @@
 #include "player.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -51,7 +52,7 @@ void PlayerClone_Init(PlayerCloneEntity* this) {
     super->y.HALF.HI = (super->y.HALF.HI & 0xfff0) | 8;
     this->tilePos = COORD_TO_TILE(super);
     InitializeAnimation(super, 8);
-    SetBottomTile(0x4016, this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_22, this->tilePos, super->collisionLayer);
     SoundReq(SFX_112);
 }
 
@@ -77,7 +78,7 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
         if ((this->unk78 != 0) && (this->unk7a != 0)) {
             ((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 = 1;
         }
-        CloneTile(0x315, this->tilePos, super->collisionLayer);
+        CloneTile(TILE_TYPE_789, this->tilePos, super->collisionLayer);
         super->child = sub_08077CF8(1, super->type + 1, 0, ((GenericEntity*)gPlayerState.item)->field_0x68.HALF.LO);
         if (super->child != NULL) {
             super->child->parent = super;
@@ -86,7 +87,7 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
         sub_0806FDA0(super);
         PlayerClone_Action2(this);
     } else if (gPlayerState.chargeState.action != 4) {
-        CloneTile(0x315, this->tilePos, super->collisionLayer);
+        CloneTile(TILE_TYPE_789, this->tilePos, super->collisionLayer);
         gPlayerClones[super->type] = NULL;
         DeleteThisEntity();
     } else {
@@ -109,7 +110,7 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
         if (gPlayerEntity.base.iframes >= 1) {
             gPlayerState.chargeState.action = 1;
         } else {
-            GetActTile(super); // leftover from debugging?
+            GetActTileAtEntity(super); // TODO why is the return value not used? // leftover from debugging?
             sub_08084B1C(this);
             super->x.HALF.HI = gPlayerEntity.base.x.HALF.HI + this->unk78;
             super->y.HALF.HI = gPlayerEntity.base.y.HALF.HI + this->unk7a;
@@ -190,7 +191,8 @@ void sub_08084CAC(PlayerCloneEntity* this) {
 
     if (((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 == 0) {
         ptr = &gUnk_080B4468[super->animationState & 6];
-        if (sub_080B1B54(GetTileType(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]), super->collisionLayer)) == 0x72) {
+        if (GetActTileForTileType(GetTileTypeAtTilePos(COORD_TO_TILE_OFFSET(super, -ptr[0], -ptr[1]),
+                                                       super->collisionLayer)) == ACT_TILE_114) {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c |= (1 << super->type);
         } else {
             ((PlayerCloneEntity*)gPlayerClones[0])->unk6c &= ~(1 << super->type);

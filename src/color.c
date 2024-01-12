@@ -240,18 +240,18 @@ void ChangeObjPalette(Entity* entity, u32 objPaletteId) {
 void LoadObjPaletteAtIndex(u32 objPaletteId, u32 a2) {
     u16* buffer;
 
-    gUsedPalettes |= 1 << (a2 + 0x10);
+    gUsedPalettes |= 1 << (a2 + 16);
     if (objPaletteId > 5) {
         if (objPaletteId == 0x15) {
             buffer = gPaletteBuffer;
-            MemFill16(buffer[0x3C], buffer + (a2 + 0x10) * 0x10, 0x20);
+            MemFill16(buffer[0x3C], buffer + (a2 + 16) * 16, 0x20);
         } else if (objPaletteId < 0x15) {
-            LoadPalettes((u8*)(gPaletteBuffer + (objPaletteId - 6) * 0x10), a2 + 0x10, 1);
+            LoadPalettes((u8*)(gPaletteBuffer + (objPaletteId - 6) * 16), a2 + 16, 1);
         } else {
             u32 offset = gUnk_08133368[(objPaletteId - 0x16)].WORD_U;
             u32 numPalettes = (offset >> 0x18) & 0xf;
             offset &= 0xffffff;
-            LoadPalettes(gGlobalGfxAndPalettes + offset, a2 + 0x10, numPalettes);
+            LoadPalettes(gGlobalGfxAndPalettes + offset, a2 + 16, numPalettes);
         }
     }
 }
@@ -361,5 +361,6 @@ void sub_0801D48C(u32 a1, u32 a2) {
         } while (iVar2 != -1);
     }
 
-    gUsedPalettes |= 0xffff0000;
+    gUsedPalettes |= 1 << 16 | 1 << 17 | 1 << 18 | 1 << 19 | 1 << 20 | 1 << 21 | 1 << 22 | 1 << 23 | 1 << 24 | 1 << 25 |
+                     1 << 26 | 1 << 27 | 1 << 28 | 1 << 29 | 1 << 30 | 1 << 31;
 }

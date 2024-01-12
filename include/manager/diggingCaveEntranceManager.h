@@ -7,13 +7,36 @@ typedef struct {
     Manager base;
 } DiggingCaveEntranceManager;
 
+enum DiggingCaveEntranceType {
+    CAVE_LAKE_WOODS_ENTER,
+    CAVE_LAKE_WOODS_LEAVE,
+    CAVE_HYRULE_TOWN_ENTER,
+    CAVE_HYRULE_TOWN_LEAVE,
+    CAVE_EASTERN_HILL_ENTER,
+    CAVE_EASTERN_HILL_LEAVE,
+    CAVE_CRENEL_ENTER,
+    CAVE_CRENEL_LEAVE,
+    CAVE_VEIL_FALLS_ENTER,
+    CAVE_VEIL_FALLS_LEAVE,
+    CAVE_TRILBY_HIGHLANDS_ENTER,
+    CAVE_TRILBY_HIGHLANDS_LEAVE,
+    CAVE_CASTOR_WILDS_ENTER,
+    CAVE_CASTOR_WILDS_LEAVE,
+    CAVE_LAKE_HYLIA_NORTH_ENTER,
+    CAVE_LAKE_HYLIA_NORTH_LEAVE,
+    CAVE_LON_LON_RANCH_ENTER,
+    CAVE_LON_LON_RANCH_LEAVE,
+    CAVE_LAKE_HYLIA_CENTER_ENTER,
+    CAVE_LAKE_HYLIA_CENTER_LEAVE,
+};
+
 typedef struct {
-    u16 sourceTilePosition; /**< Tile position for the entrance in the source room. */
-    u8 sourceRoom;
-    u8 type; // TODO some sort of type that is used to index gUnk_08109194
-    u8 targetArea;
-    u8 targetRoom;
-    u16 targetTilePosition; /**< Tile position for the entrance in the target room. */
+    u16 sourceTilePos; /**< Tile position for the entrance in the source room. */
+    u8 sourceRoom;     /**< @see RoomID */
+    u8 type;           /**< @see DiggingCaveEntranceType */
+    u8 targetArea;     /**< @see AreaID */
+    u8 targetRoom;     /**< @see RoomID */
+    u16 targetTilePos; /**< Tile position for the entrance in the target room. */
 } DiggingCaveEntrance;
 
 typedef struct {

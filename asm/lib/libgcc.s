@@ -8,7 +8,7 @@
 @ custom libgcc implementation
 
 	.code 16
-_08000ED8:
+_divide_by_zero:
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0
@@ -17,14 +17,14 @@ _08000ED8:
 	thumb_func_start __divsi3
 __divsi3: @ 0x08000EE0
 	cmp r1, #0
-	beq _08000ED8
+	beq _divide_by_zero
 	svc #6
 	bx lr
 
 	thumb_func_start __modsi3
 __modsi3: @ 0x08000EE8
 	cmp r1, #0
-	beq _08000ED8
+	beq _divide_by_zero
 	svc #6
 	adds r0, r1, #0
 	bx lr

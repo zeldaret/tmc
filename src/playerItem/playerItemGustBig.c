@@ -10,6 +10,7 @@
 #include "global.h"
 #include "player.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -24,8 +25,6 @@ extern void PlayerItemGustBig_Init(PlayerItemGustBigEntity* this);
 extern void PlayerItemGustBig_Action1(PlayerItemGustBigEntity* this);
 extern void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this);
 extern void PlayerItemGustBig_Action3(PlayerItemGustBigEntity* this);
-
-extern u32 ActTileToTile(u32, const u16*);
 
 extern const u8 gUnk_08003E44[];
 
@@ -53,9 +52,11 @@ static const Hitbox* const gUnk_080B3DE8[] = {
     &gUnk_080B3E20,
     &gUnk_080B3E28,
 };
-static const u16 gUnk_080B3DF4[] = {
-    0x75, 0x1, 0x76, 0x1, 0x3ac, 0x1, 0x4050, 0x1, 0x377, 0x1, 0x378, 0x1, 0x71, 0x1, 0x72, 0x1, 0, 0,
+static const KeyValuePair gUnk_080B3DF4[] = {
+    { TILE_TYPE_117, 1 }, { TILE_TYPE_118, 1 }, { TILE_TYPE_940, 1 }, { SPECIAL_TILE_80, 1 },
+    { TILE_TYPE_887, 1 }, { TILE_TYPE_888, 1 }, { TILE_TYPE_113, 1 }, { TILE_TYPE_114, 1 },
 };
+static const u16 gUnk_080B3DF4End = 0;
 
 static const Hitbox gUnk_080B3E18 = { 0, 0, { 6, 3, 3, 6 }, 6, 6 };
 static const Hitbox gUnk_080B3E20 = { 0, 0, { 6, 3, 3, 6 }, 8, 8 };
@@ -171,10 +172,10 @@ void PlayerItemGustBig_Action2(PlayerItemGustBigEntity* this) {
         if (super->type2 == 0) {
             sub_0800451C(super);
         }
-        if (ActTileToTile(sub_080B1A0C(super, x, y), gUnk_080B3DF4) != 0) {
+        if (FindValueForKey(GetTileTypeRelativeToEntity(super, x, y), gUnk_080B3DF4)) {
             return;
         }
-        if (GetActTileRelative(super, x, y) == 0x74) {
+        if (GetActTileRelativeToEntity(super, x, y) == ACT_TILE_116) {
             return;
         }
         if (sub_080040D8(super, (u8*)gUnk_08003E44, super->x.HALF.HI + x, super->y.HALF.HI + y) == 0) {

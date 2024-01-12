@@ -225,7 +225,7 @@ script_08012A3E:
 	SetEntitySpeed 0x0080
 	Call sub_0806D8A0
 script_08012A74:
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_08012A74
 	SetAnimation 0x001f
 	WaitUntilTextboxCloses

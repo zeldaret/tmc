@@ -5,48 +5,42 @@
 
 	.text
 
-gUnk_08007CAC:: @ 08007CAC
-	.incbin "code_080043E8/gUnk_08007CAC.bin"
-.ifdef DEMO_JP
-@ TODO only one byte differs
-	.incbin "code_080043E8/gUnk_08007CAC_1_DEMO_JP.bin"
-.else
-.ifdef DEMO_USA
-@ TODO only one byte differs
-	.incbin "code_080043E8/gUnk_08007CAC_2_DEMO_USA.bin"
-.else
-.ifdef JP
-@ TODO only one byte differs
-	.incbin "code_080043E8/gUnk_08007CAC_3_JP.bin"
-.else
-.ifdef EU
-@ TODO only two bytes differ
-	.incbin "code_080043E8/gUnk_08007CAC_4_EU.bin"
-.else
-	.incbin "code_080043E8/gUnk_08007CAC_5_USA.bin"
-.endif
-.endif
-.endif
-.endif
+// TODO cannot add this at the end of mapActTileToSurfaceType.c due to alignment?
+.2byte 0
 
-	non_word_aligned_thumb_func_start ActTileToTile
-ActTileToTile: @ 0x08007DD6
+// TODO unused? might also be code?
+gUnk_08007DBE:: @ 08007DBE
+	.byte 0x42, 0x7b, 0x01, 0x32, 0x42, 0x73, 0x70, 0x47, 0x02, 0x73, 0x00, 0x23, 0x43, 0x73, 0x0b, 0x73
+
+	// seems unused?
+	non_word_aligned_thumb_func_start sub_08007DCE
+sub_08007DCE:
 	push {lr}
-	bl ActTileConv
-	adds r0, r3, #0
+	bl DoPlayerAction
 	pop {pc}
 
-	thumb_func_start ActTileConv
-ActTileConv: @ 0x08007DE0
+
+// Searches for a KeyValuePair with the key in the keyValuePairList and returns its value. Returns 0 if the key is not found.
+// r0: key
+// r1: keyValuePairList
+	non_word_aligned_thumb_func_start FindValueForKey
+FindValueForKey: @ 0x08007DD6
+	push {lr}
+	bl FindEntryForKey
+	adds r0, r3, #0 // move the found value into r0
+	pop {pc}
+
+	thumb_func_start FindEntryForKey
+FindEntryForKey: @ 0x08007DE0
 	subs r1, #4
 _08007DE2:
-	adds r1, #4
-	ldrh r3, [r1]
-	cmp r3, #0 // reached end
-	beq _08007DF2
-	cmp r0, r3 // equal
-	bne _08007DE2
-	ldrh r3, [r1, #2]
-	movs r2, #1
+	adds r1, #4	// add +4 to r1 at the end of loop
+	ldrh r3, [r1] // r3: key
+	cmp r3, #0
+	beq _08007DF2 // key == 0 -> end of map
+	cmp r0, r3
+	bne _08007DE2 // r3 == r0 -> found
+	ldrh r3, [r1, #2] // r3: value
+	movs r2, #1 // r2 = 1
 _08007DF2:
 	bx lr

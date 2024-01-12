@@ -8,6 +8,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -41,20 +42,20 @@ void HiddenLadderDown_Init(HiddenLadderDownEntity* this) {
     if (CheckFlags(this->unk_86) != 0) {
         super->action = 2;
         super->spriteSettings.draw = TRUE;
-        SetTileType(0x1a2, *puVar3 - 0x41, super->collisionLayer);
-        SetTileType(0x1a3, *puVar3 - 0x40, super->collisionLayer);
-        SetTileType(0x1a4, *puVar3 - 0x3f, super->collisionLayer);
-        SetTileType(0x1a5, *puVar3 - 1, super->collisionLayer);
-        SetTileType(0x1a6, *puVar3, super->collisionLayer);
-        SetTileType(0x1a7, *puVar3 + 1, super->collisionLayer);
-        SetTileType(0x1a8, *puVar3 + 0x3f, super->collisionLayer);
-        SetTileType(0x1a9, *puVar3 + 0x40, super->collisionLayer);
-        SetTileType(0x1aa, *puVar3 + 0x41, super->collisionLayer);
+        SetTileType(TILE_TYPE_418, *puVar3 + TILE_POS(-1, -1), super->collisionLayer);
+        SetTileType(TILE_TYPE_419, *puVar3 + TILE_POS(0, -1), super->collisionLayer);
+        SetTileType(TILE_TYPE_420, *puVar3 + TILE_POS(1, -1), super->collisionLayer);
+        SetTileType(TILE_TYPE_421, *puVar3 + TILE_POS(-1, 0), super->collisionLayer);
+        SetTileType(TILE_TYPE_422, *puVar3 + TILE_POS(0, 0), super->collisionLayer);
+        SetTileType(TILE_TYPE_423, *puVar3 + TILE_POS(1, 0), super->collisionLayer);
+        SetTileType(TILE_TYPE_424, *puVar3 + TILE_POS(-1, 1), super->collisionLayer);
+        SetTileType(TILE_TYPE_425, *puVar3 + TILE_POS(0, 1), super->collisionLayer);
+        SetTileType(TILE_TYPE_426, *puVar3 + TILE_POS(1, 1), super->collisionLayer);
     }
 }
 
 void HiddenLadderDown_Action1(HiddenLadderDownEntity* this) {
-    if (GetTileType(this->unk_70, super->collisionLayer) == 0x1a6) {
+    if (GetTileTypeAtTilePos(this->unk_70, super->collisionLayer) == 0x1a6) {
         super->action = 2;
         super->spriteSettings.draw = TRUE;
         SetFlag(this->unk_86);

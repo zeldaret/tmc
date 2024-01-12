@@ -4,23 +4,6 @@
 	.section .rodata
     .align 2
 
-gUnk_081223D8:: @ 081223D8
-	.4byte gUnk_081223E8
-	.4byte gUnk_08122402
-	.4byte gUnk_0812241C
-	.4byte gUnk_08122436
-
-gUnk_081223E8:: @ 081223E8
-	.incbin "minecart/gUnk_081223E8.bin"
-
-gUnk_08122402:: @ 08122402
-	.incbin "minecart/gUnk_08122402.bin"
-
-gUnk_0812241C:: @ 0812241C
-	.incbin "minecart/gUnk_0812241C.bin"
-
-gUnk_08122436:: @ 08122436
-	.incbin "minecart/gUnk_08122436.bin"
 
 gSpriteAnimations_Minecart_0:: @ 08122450
 	.include "animations/gSpriteAnimations_Minecart_0.s"

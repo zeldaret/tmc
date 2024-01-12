@@ -7,88 +7,93 @@
 #include "functions.h"
 #include "object.h"
 #include "screen.h"
+#include "tiles.h"
 
-void MinishVillageObject_Type0(Entity*);
-void MinishVillageObject_Type1(Entity*);
-void MinishVillageObject_Type3(Entity*);
-void MinishVillageObject_Type4(Entity*);
-void MinishVillageObject_Type5(Entity*);
-void MinishVillageObject_Type6(Entity*);
-void MinishVillageObject_Type7(Entity*);
-void MinishVillageObject_Type8(Entity*);
-void MinishVillageObject_Type8_Init(Entity*);
-void MinishVillageObject_Type8_Action1(Entity*);
-void MinishVillageObject_Type8_Action2(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+} MinishVillageObjectEntity;
 
-void MinishVillageObject(Entity* this) {
-    static void (*const MinishVillageObject_Types[])(Entity*) = {
+void MinishVillageObject_Type0(MinishVillageObjectEntity*);
+void MinishVillageObject_Type1(MinishVillageObjectEntity*);
+void MinishVillageObject_Type3(MinishVillageObjectEntity*);
+void MinishVillageObject_Type4(MinishVillageObjectEntity*);
+void MinishVillageObject_Type5(MinishVillageObjectEntity*);
+void MinishVillageObject_Type6(MinishVillageObjectEntity*);
+void MinishVillageObject_Type7(MinishVillageObjectEntity*);
+void MinishVillageObject_Type8(MinishVillageObjectEntity*);
+void MinishVillageObject_Type8_Init(MinishVillageObjectEntity*);
+void MinishVillageObject_Type8_Action1(MinishVillageObjectEntity*);
+void MinishVillageObject_Type8_Action2(MinishVillageObjectEntity*);
+
+void MinishVillageObject(MinishVillageObjectEntity* this) {
+    static void (*const MinishVillageObject_Types[])(MinishVillageObjectEntity*) = {
         MinishVillageObject_Type0, MinishVillageObject_Type1, MinishVillageObject_Type1, MinishVillageObject_Type3,
         MinishVillageObject_Type4, MinishVillageObject_Type5, MinishVillageObject_Type6, MinishVillageObject_Type7,
         MinishVillageObject_Type8, MinishVillageObject_Type1,
     };
-    MinishVillageObject_Types[this->type](this);
+    MinishVillageObject_Types[super->type](this);
 }
 
-void MinishVillageObject_Type0(Entity* this) {
+void MinishVillageObject_Type0(MinishVillageObjectEntity* this) {
     u32 tmp;
     u32 tmp2;
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->timer = 64 - (Random() & 0x1F);
-            this->frameIndex = 0;
-            this->animationState = 0;
-            this->spriteRendering.b3 = 3;
-            this->spritePriority.b0 = 7;
-            this->collisionLayer = 1;
+            super->action = 1;
+            super->timer = 64 - (Random() & 0x1F);
+            super->frameIndex = 0;
+            super->animationState = 0;
+            super->spriteRendering.b3 = 3;
+            super->spritePriority.b0 = 7;
+            super->collisionLayer = 1;
             break;
         case 1:
-            if (--this->timer == 0) {
-                this->timer = 8;
-                this->subtimer = 4;
-                this->action = 2;
-                this->animationState = Random() & 3;
+            if (--super->timer == 0) {
+                super->timer = 8;
+                super->subtimer = 4;
+                super->action = 2;
+                super->animationState = Random() & 3;
             }
             break;
         case 2:
-            if (--this->timer == 0) {
-                if (--this->subtimer == 0) {
-                    this->frameIndex = 0;
-                    this->action = 1;
-                    this->timer = 64 - (Random() & 0x1F);
+            if (--super->timer == 0) {
+                if (--super->subtimer == 0) {
+                    super->frameIndex = 0;
+                    super->action = 1;
+                    super->timer = 64 - (Random() & 0x1F);
                 } else {
-                    this->timer = 8;
-                    tmp2 = this->animationState;
-                    if (this->frameIndex != tmp2) {
+                    super->timer = 8;
+                    tmp2 = super->animationState;
+                    if (super->frameIndex != tmp2) {
                         tmp = tmp2;
                     } else {
                         tmp = 0;
                     }
-                    this->frameIndex = tmp;
+                    super->frameIndex = tmp;
                 }
             }
             break;
     }
 }
 
-void MinishVillageObject_Type1(Entity* this) {
+void MinishVillageObject_Type1(MinishVillageObjectEntity* this) {
     static const u16 gUnk_08121704[] = {
         0x12d, 0x12e, 0x12f, 0x130, 0x131, 0x132, 0x133, 0x132, 0x131, 0x130, 0x12f, 0x12e, 0x12d, 0,
     };
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            this->action = 1;
-            this->timer = 8;
-            this->subtimer = 0;
-            this->frameIndex = 0;
-            this->spritePriority.b0 = 7;
-            SetBottomTile(0x4069, COORD_TO_TILE(this) - 0x40, 1);
+            super->action = 1;
+            super->timer = 8;
+            super->subtimer = 0;
+            super->frameIndex = 0;
+            super->spritePriority.b0 = 7;
+            SetTile(SPECIAL_TILE_105, COORD_TO_TILE(super) - TILE_POS(0, 1), LAYER_BOTTOM);
             break;
         case 2:
             if ((gRoomTransition.frameCount & 3U) == 0) {
-                gScreen.controls.alphaBlend = (this->subAction << 8) | (0x10 - this->subAction);
-                this->subAction++;
+                gScreen.controls.alphaBlend = (super->subAction << 8) | (0x10 - super->subAction);
+                super->subAction++;
                 if (gScreen.controls.alphaBlend == 0x1000) {
                     gScreen.controls.layerFXControl = 0;
                     DeleteThisEntity();
@@ -98,14 +103,14 @@ void MinishVillageObject_Type1(Entity* this) {
         case 1:
             break;
     }
-    if (--this->timer == 0) {
-        this->timer = 8;
-        if (this->type == 9) {
-            this->timer = 2;
+    if (--super->timer == 0) {
+        super->timer = 8;
+        if (super->type == 9) {
+            super->timer = 2;
         }
-        ChangeObjPalette(this, gUnk_08121704[this->subtimer++]);
-        if (gUnk_08121704[this->subtimer] == 0) {
-            this->subtimer = 0;
+        ChangeObjPalette(super, gUnk_08121704[super->subtimer++]);
+        if (gUnk_08121704[super->subtimer] == 0) {
+            super->subtimer = 0;
         }
     }
 }
@@ -130,120 +135,120 @@ void sub_0808D2CC(void) {
     }
 }
 
-void MinishVillageObject_Type3(Entity* this) {
+void MinishVillageObject_Type3(MinishVillageObjectEntity* this) {
 }
 
-void MinishVillageObject_Type4(Entity* this) {
+void MinishVillageObject_Type4(MinishVillageObjectEntity* this) {
     s32 tmp;
-    if (this->action == 0) {
-        this->action = 0;
-        this->frameIndex = 0;
-        this->spritePriority.b0 = 7;
-        sub_0807DD64(this);
+    if (super->action == 0) {
+        super->action = 0;
+        super->frameIndex = 0;
+        super->spritePriority.b0 = 7;
+        sub_0807DD64(super);
     }
-    tmp = this->x.HALF.HI;
-    ExecuteScriptForEntity(this, NULL);
-    HandleEntity0x82Actions(this);
-    if (((gRoomControls.shake_duration != 0) && (tmp != this->x.HALF.HI)) && ((gRoomTransition.frameCount & 8) == 0)) {
+    tmp = super->x.HALF.HI;
+    ExecuteScriptForEntity(super, NULL);
+    HandleEntity0x82Actions(super);
+    if (((gRoomControls.shake_duration != 0) && (tmp != super->x.HALF.HI)) && ((gRoomTransition.frameCount & 8) == 0)) {
         SoundReq(SFX_10F);
     }
 }
 
-void MinishVillageObject_Type5(Entity* this) {
-    if (this->action == 0) {
-        this->action = 0;
-        this->frameIndex = 1;
-        this->spritePriority.b0 = 7;
-        sub_0807DD64(this);
+void MinishVillageObject_Type5(MinishVillageObjectEntity* this) {
+    if (super->action == 0) {
+        super->action = 0;
+        super->frameIndex = 1;
+        super->spritePriority.b0 = 7;
+        sub_0807DD64(super);
     }
-    ExecuteScriptForEntity(this, NULL);
-    HandleEntity0x82Actions(this);
+    ExecuteScriptForEntity(super, NULL);
+    HandleEntity0x82Actions(super);
 }
 
-void MinishVillageObject_Type6(Entity* this) {
+void MinishVillageObject_Type6(MinishVillageObjectEntity* this) {
     static const u16 gUnk_08121720[] = { 0x149, 0x14a, 0x14b, 0x14a, 0, 0 };
-    if (this->action == 0) {
-        this->action = 1;
-        this->timer = 8;
-        this->spritePriority.b0 = 7;
+    if (super->action == 0) {
+        super->action = 1;
+        super->timer = 8;
+        super->spritePriority.b0 = 7;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0x1003;
     }
-    if (--this->timer == 0) {
-        this->timer = 2;
-        sub_0801D28C(this, gUnk_08121720[this->subtimer++]);
-        if (gUnk_08121720[this->subtimer] == 0) {
-            this->subtimer = 0;
+    if (--super->timer == 0) {
+        super->timer = 2;
+        sub_0801D28C(super, gUnk_08121720[super->subtimer++]);
+        if (gUnk_08121720[super->subtimer] == 0) {
+            super->subtimer = 0;
         }
     }
 }
 
-void MinishVillageObject_Type7(Entity* this) {
-    if (this->action == 0) {
-        this->action = 1;
-        this->spriteRendering.b3 = 3;
-        this->spritePriority.b0 = 7;
-        this->spriteRendering.alphaBlend = 1;
-        this->frameIndex = this->type2;
-        SetAffineInfo(this, (1 - this->type2) * 0x200 + 0x100, 0xffffff40, 0);
+void MinishVillageObject_Type7(MinishVillageObjectEntity* this) {
+    if (super->action == 0) {
+        super->action = 1;
+        super->spriteRendering.b3 = 3;
+        super->spritePriority.b0 = 7;
+        super->spriteRendering.alphaBlend = 1;
+        super->frameIndex = super->type2;
+        SetAffineInfo(super, (1 - super->type2) * 0x200 + 0x100, 0xffffff40, 0);
     }
 }
 
-void MinishVillageObject_Type8(Entity* this) {
-    static void (*const MinishVillageObject_Type8_Actions[])(Entity*) = {
+void MinishVillageObject_Type8(MinishVillageObjectEntity* this) {
+    static void (*const MinishVillageObject_Type8_Actions[])(MinishVillageObjectEntity*) = {
         MinishVillageObject_Type8_Init,
         MinishVillageObject_Type8_Action1,
         MinishVillageObject_Type8_Action2,
     };
 
-    MinishVillageObject_Type8_Actions[this->action](this);
+    MinishVillageObject_Type8_Actions[super->action](this);
 }
 
-void MinishVillageObject_Type8_Init(Entity* this) {
-    u32 tilePosition;
-    this->spritePriority.b0 = 7;
-    this->frameIndex = this->type2;
-    this->action = 2;
-    if ((this->type2 == 0) && (CheckLocalFlag(0x7c) == 0)) {
-        this->action = 1;
-        this->timer = 0;
-        this->spriteRendering.alphaBlend = 1;
+void MinishVillageObject_Type8_Init(MinishVillageObjectEntity* this) {
+    u32 tilePos;
+    super->spritePriority.b0 = 7;
+    super->frameIndex = super->type2;
+    super->action = 2;
+    if ((super->type2 == 0) && (CheckLocalFlag(0x7c) == 0)) {
+        super->action = 1;
+        super->timer = 0;
+        super->spriteRendering.alphaBlend = 1;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0x1000;
         SoundReq(SFX_179);
     } else {
-        this->timer = 8;
-        tilePosition = COORD_TO_TILE(this);
-        if (this->type2 != 0) {
-            tilePosition -= 0x40;
+        super->timer = 8;
+        tilePos = COORD_TO_TILE(super);
+        if (super->type2 != 0) {
+            tilePos -= 0x40;
         }
-        SetBottomTile(0x4069, tilePosition, this->collisionLayer);
+        SetTile(SPECIAL_TILE_105, tilePos, super->collisionLayer);
     }
 }
 
-void MinishVillageObject_Type8_Action1(Entity* this) {
+void MinishVillageObject_Type8_Action1(MinishVillageObjectEntity* this) {
     if ((gRoomTransition.frameCount & 3U) == 0) {
-        gScreen.controls.alphaBlend = ((0x10 - this->timer) * 0x100) | this->timer;
-        this->timer++;
+        gScreen.controls.alphaBlend = ((0x10 - super->timer) * 0x100) | super->timer;
+        super->timer++;
         if (gScreen.controls.alphaBlend == 0x10) {
-            this->action = 2;
-            this->timer = 8;
-            this->spriteRendering.alphaBlend = 0;
+            super->action = 2;
+            super->timer = 8;
+            super->spriteRendering.alphaBlend = 0;
             gScreen.controls.layerFXControl = 0;
-            SetBottomTile(0x4069, COORD_TO_TILE(this), this->collisionLayer);
+            SetTile(SPECIAL_TILE_105, COORD_TO_TILE(super), super->collisionLayer);
         }
     }
 }
 
-void MinishVillageObject_Type8_Action2(Entity* this) {
+void MinishVillageObject_Type8_Action2(MinishVillageObjectEntity* this) {
     static const u16 gUnk_08121738[] = {
         0x14c, 0x14d, 0x14e, 0x14f, 0x150, 0x151, 0x150, 0x14f, 0x14e, 0x14d, 0x14c, 0,
     };
-    if (--this->timer == 0) {
-        this->timer = 8;
-        ChangeObjPalette(this, gUnk_08121738[this->subtimer++]);
-        if (gUnk_08121738[this->subtimer] == 0) {
-            this->subtimer = 0;
+    if (--super->timer == 0) {
+        super->timer = 8;
+        ChangeObjPalette(super, gUnk_08121738[super->subtimer++]);
+        if (gUnk_08121738[super->subtimer] == 0) {
+            super->subtimer = 0;
         }
     }
 }

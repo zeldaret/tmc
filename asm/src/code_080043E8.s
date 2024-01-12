@@ -185,7 +185,7 @@ _08004516:
 	thumb_func_start sub_0800451C
 sub_0800451C: @ 0x0800451C
 	push {r0, lr}
-	bl GetActTile
+	bl GetActTileAtEntity
 	adds r1, r0, #0
 	pop {r0, r3}
 	mov lr, r3
@@ -301,8 +301,8 @@ CalculateDirectionTo: @ 0x080045D4
 	ldr r3, _08004694 @ =ram_CalcCollisionDirection
 	bx r3
 
-	non_word_aligned_thumb_func_start CalcOffsetAngle
-CalcOffsetAngle: @ 0x080045DA
+	non_word_aligned_thumb_func_start CalculateDirectionFromOffsets
+CalculateDirectionFromOffsets: @ 0x080045DA
 	push {r0, r1, r4, r5, r6, lr}
 	movs r6, #0x40
 	cmp r0, #0
@@ -382,44 +382,3 @@ _08004694: .4byte ram_CalcCollisionDirection
 _08004698: .4byte gUnk_080C93E0
 _0800469C: .4byte 0x00000106
 _080046A0: .4byte 0x00000280
-
-gUnk_080046A4:: @ 080046A4
-	.incbin "code_080043E8/gUnk_080046A4.bin"
-
-gUnk_080047F6:: @ 080047F6
-	.incbin "code_080043E8/gUnk_080047F6.bin"
-
-@ TODO PlayerMacros
-
-gUnk_080049D6:: @ 080049D6
-	.incbin "code_080043E8/gUnk_080049D6.bin"
-
-gUnk_080049F6:: @ 080049F6
-	.incbin "code_080043E8/gUnk_080049F6.bin"
-
-gUnk_080049FE:: @ gUnk_080049FE
-	.incbin "code_080043E8/gUnk_080049FE.bin"
-
-gUnk_08004A0C:: @ 08004A0C
-	.incbin "code_080043E8/gUnk_08004A0C.bin"
-
-gUnk_08004A16:: @ 08004A16
-	.incbin "code_080043E8/gUnk_08004A16.bin"
-
-gUnk_08004A24:: @ 08004A24
-	.incbin "code_080043E8/gUnk_08004A24.bin"
-
-gUnk_08004A32:: @ 08004A32
-	.incbin "code_080043E8/gUnk_08004A32.bin"
-
-gUnk_08004A48:: @ 08004A48
-	.incbin "code_080043E8/gUnk_08004A48.bin"
-
-gUnk_08004A72:: @ 08004A72
-	.incbin "code_080043E8/gUnk_08004A72.bin"
-
-gUnk_08004A8C:: @ 08004A8C
-	.incbin "code_080043E8/gUnk_08004A8C.bin"
-
-gUnk_08004AA6:: @ 08004AA6
-	.incbin "code_080043E8/gUnk_08004AA6.bin"

@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -37,22 +38,22 @@ void PushableGrave(PushableGraveEntity* this) {
 }
 
 void PushableGrave_Init(PushableGraveEntity* this) {
-    u32 tilePosition;
+    u32 tilePos;
     u32 tileIndex;
 
     super->spriteSettings.draw = 1;
     super->frameIndex = super->type;
     super->updatePriority = 3;
-    tilePosition = COORD_TO_TILE(super);
-    this->unk_6a = GetTileIndex(tilePosition - 0x41, super->collisionLayer);
-    this->unk_6c = GetTileIndex(tilePosition - 0x40, super->collisionLayer);
-    this->unk_6e = GetTileIndex(tilePosition - 0x3f, super->collisionLayer);
-    this->unk_70 = GetTileIndex(tilePosition - 1, super->collisionLayer);
-    this->unk_72 = GetTileIndex(tilePosition, super->collisionLayer);
-    this->unk_74 = GetTileIndex(tilePosition + 1, super->collisionLayer);
-    this->unk_76 = GetTileIndex(tilePosition + 0x3f, super->collisionLayer);
-    this->unk_78 = GetTileIndex(tilePosition + 0x40, super->collisionLayer);
-    this->unk_7a = GetTileIndex(tilePosition + 0x41, super->collisionLayer);
+    tilePos = COORD_TO_TILE(super);
+    this->unk_6a = GetTileIndex(tilePos - 0x41, super->collisionLayer);
+    this->unk_6c = GetTileIndex(tilePos - 0x40, super->collisionLayer);
+    this->unk_6e = GetTileIndex(tilePos - 0x3f, super->collisionLayer);
+    this->unk_70 = GetTileIndex(tilePos - 1, super->collisionLayer);
+    this->unk_72 = GetTileIndex(tilePos, super->collisionLayer);
+    this->unk_74 = GetTileIndex(tilePos + 1, super->collisionLayer);
+    this->unk_76 = GetTileIndex(tilePos + 0x3f, super->collisionLayer);
+    this->unk_78 = GetTileIndex(tilePos + 0x40, super->collisionLayer);
+    this->unk_7a = GetTileIndex(tilePos + 0x41, super->collisionLayer);
     if (sub_0809798C(this)) {
         if (super->type == 0) {
             super->y.HALF.HI -= 0x16;
@@ -63,19 +64,19 @@ void PushableGrave_Init(PushableGraveEntity* this) {
 
     } else {
         super->action = 1;
-        tilePosition = COORD_TO_TILE(super);
-        this->unk_68 = tilePosition;
+        tilePos = COORD_TO_TILE(super);
+        this->unk_68 = tilePos;
         tileIndex = PushableGrave_Tiles[super->type2];
         if (super->type == 0) {
             super->hitbox = (Hitbox*)&gUnk_080FD578;
-            SetBottomTile(tileIndex, tilePosition - 1, super->collisionLayer);
-            SetBottomTile(tileIndex, tilePosition, super->collisionLayer);
+            SetTile(tileIndex, tilePos - 1, super->collisionLayer);
+            SetTile(tileIndex, tilePos, super->collisionLayer);
             super->y.HALF.HI += 2;
         } else {
             super->hitbox = (Hitbox*)&gUnk_080FD570;
-            SetBottomTile(tileIndex, tilePosition, super->collisionLayer);
+            SetTile(tileIndex, tilePos, super->collisionLayer);
             if (super->type2 == 2) {
-                SetMultipleTiles((TileData*)gUnk_081232C0, tilePosition, super->collisionLayer);
+                SetMultipleTiles((TileData*)gUnk_081232C0, tilePos, super->collisionLayer);
             }
         }
     }
@@ -129,13 +130,13 @@ void PushableGrave_Action4(PushableGraveEntity* this) {
 }
 
 void sub_080977F4(PushableGraveEntity* this) {
-    u32 tilePosition;
+    u32 tilePos;
     super->action = 4;
     super->spriteOffsetY = 0;
-    tilePosition = COORD_TO_TILE(super);
-    SetBottomTile(0x4022, tilePosition, super->collisionLayer);
+    tilePos = COORD_TO_TILE(super);
+    SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
     if (super->type == 0) {
-        SetBottomTile(0x4022, tilePosition - 1, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, tilePos - 1, super->collisionLayer);
     }
     if (this->pushedFlag != 0) {
         SetFlag(this->pushedFlag);
@@ -143,27 +144,28 @@ void sub_080977F4(PushableGraveEntity* this) {
 }
 
 bool32 sub_0809785C(PushableGraveEntity* this) {
-    u32 tilePosition;
+    u32 tilePos;
 
     if (super->type != 0) {
         if (super->type2 != 0) {
-            if ((CheckFlags(this->pushedFlag) != 0) || GetTileType(this->unk_68, super->collisionLayer) == 0x403f) {
+            if ((CheckFlags(this->pushedFlag) != 0) ||
+                GetTileTypeAtTilePos(this->unk_68, super->collisionLayer) == SPECIAL_TILE_63) {
                 super->action = 3;
                 super->timer = 64;
                 super->subtimer = 0;
                 super->direction = 0;
                 super->speed = 0x40;
-                tilePosition = this->unk_68;
-                sub_0807B9B8(this->unk_72, tilePosition, super->collisionLayer);
+                tilePos = this->unk_68;
+                SetTileByIndex(this->unk_72, tilePos, super->collisionLayer);
                 if (super->type2 == 2) {
-                    sub_0807B9B8(this->unk_6a, tilePosition - 0x41, super->collisionLayer);
-                    sub_0807B9B8(this->unk_6c, tilePosition - 0x40, super->collisionLayer);
-                    sub_0807B9B8(this->unk_6e, tilePosition - 0x3f, super->collisionLayer);
-                    sub_0807B9B8(this->unk_70, tilePosition - 1, super->collisionLayer);
-                    sub_0807B9B8(this->unk_74, tilePosition + 1, super->collisionLayer);
-                    sub_0807B9B8(this->unk_76, tilePosition + 0x3f, super->collisionLayer);
-                    sub_0807B9B8(this->unk_78, tilePosition + 0x40, super->collisionLayer);
-                    sub_0807B9B8(this->unk_7a, tilePosition + 0x41, super->collisionLayer);
+                    SetTileByIndex(this->unk_6a, tilePos + TILE_POS(-1, -1), super->collisionLayer);
+                    SetTileByIndex(this->unk_6c, tilePos + TILE_POS(0, -1), super->collisionLayer);
+                    SetTileByIndex(this->unk_6e, tilePos + TILE_POS(1, -1), super->collisionLayer);
+                    SetTileByIndex(this->unk_70, tilePos + TILE_POS(-1, 0), super->collisionLayer);
+                    SetTileByIndex(this->unk_74, tilePos + TILE_POS(1, 0), super->collisionLayer);
+                    SetTileByIndex(this->unk_76, tilePos + TILE_POS(-1, 1), super->collisionLayer);
+                    SetTileByIndex(this->unk_78, tilePos + TILE_POS(0, 1), super->collisionLayer);
+                    SetTileByIndex(this->unk_7a, tilePos + TILE_POS(1, 1), super->collisionLayer);
                 }
                 SoundReq(SFX_10F);
                 return TRUE;
@@ -204,7 +206,7 @@ const u8 gUnk_081232C0[] = {
     255, 61, 64,  1,   0,  61, 64,  63,  0,  61, 64,  65,  0,  255, 255,
 };
 const u16 PushableGrave_Tiles[] = {
-    0x4022,
-    0x403e,
-    0x403e,
+    SPECIAL_TILE_34,
+    SPECIAL_TILE_62,
+    SPECIAL_TILE_62,
 };

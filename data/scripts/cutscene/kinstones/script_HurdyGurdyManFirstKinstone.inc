@@ -9,9 +9,9 @@ SCRIPT_START script_HurdyGurdyManFirstKinstone
 	SetAnimationState 0x0002
 	WaitForSyncFlagAndClear 0x00000002
 	DoPostScriptAction 0x0007
-	_0807EDD4 0x01b8, 0x0328
+	MoveTo 0x01b8, 0x0328
 	SetSyncFlag 0x00000040
-	_0807EDD4 0x01f8, 0x0328
+	MoveTo 0x01f8, 0x0328
 	SetAnimationState 0x0004
 	SetAnimation 0x0008
 	_0807E8E4_0
@@ -108,7 +108,7 @@ script_0800F314:
 	WaitForSyncFlagAndClear 0x00000002
 	SetEntitySpeed 0x0100
 	SetAnimationState 0x0002
-	_0807EEF4 0x00c0, 0x0000
+	MoveToOffset 0x00c0, 0x0000
 	SetSyncFlag 0x00000040
 	DoPostScriptAction 0x0006
 SCRIPT_END

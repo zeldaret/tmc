@@ -205,7 +205,7 @@ sub_080086D8: @ 0x080086D8
 	movs r3, #0x38
 	ldrb r3, [r2, r3]
 	lsls r3, r3, #2
-	ldr r1, _080088C4 @ =gUnk_08000248
+	ldr r1, _080088C4 @ =gCollisionDataPtrs
 	ldr r1, [r1, r3]
 	ldrb r2, [r0, r1]
 	push {r2}
@@ -326,9 +326,9 @@ DoTileInteraction: @ 0x08008796
 	adds r1, r7, #0
 	movs r2, #0x38
 	ldrb r2, [r4, r2] // collision layer
-	bl GetTileTypeByPos
+	bl GetTileTypeAtWorldCoords
 	ldr r1, _080088D8 @ =gUnk_080046A4
-	bl ActTileConv
+	bl FindEntryForKey
 	beq _080087CE_return0
 	lsls r1, r3, #3
 	adds r3, r5, #0
@@ -417,7 +417,7 @@ after_create_obj:
 	beq _08008876
 	push {r0, r1}
 	adds r0, r2, #0
-	bl GetTileBuffer
+	bl GetLayerByIndex
 	adds r3, r0, #4
 	pop {r0, r1}
 	lsls r1, r1, #1
@@ -451,7 +451,7 @@ _080088B4: .4byte gRoomControls + 6
 _080088B8: .4byte gRoomControls + 8
 _080088BC: .4byte gPlayerEntity
 _080088C0: .4byte 0x000003F0
-_080088C4: .4byte gUnk_08000248
+_080088C4: .4byte gCollisionDataPtrs
 _080088C8: .4byte gPlayerState
 _080088CC: .4byte gUnk_0800823C
 _080088D0: .4byte gUnk_08007DF4
@@ -758,13 +758,13 @@ CheckNEastTile: @ 0x08008B02
 	push {r0, r1, lr}
 	movs r1, #0
 	movs r2, #0
-	bl GetActTileRelative
+	bl GetActTileRelativeToEntity
 	// check if north east collision?
 	ldr r1, =0x4000
 	tst r0, r1
 	bne _08008B1E
-	ldr r1, =gUnk_08007CAC
-	bl ActTileConv
+	ldr r1, =gMapActTileToSurfaceType
+	bl FindEntryForKey
 	movs r2, #1
 	cmp r3, #1
 	beq _08008B20

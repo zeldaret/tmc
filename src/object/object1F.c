@@ -9,6 +9,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "player.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -80,18 +81,16 @@ void Object1F_Action1(Object1FEntity* this) {
 }
 
 void Object1F_Action2(Object1FEntity* this) {
-    u8 bVar1;
-
-    bVar1 = sub_080B1B0C(super);
-    switch (bVar1) {
-        case 0x21:
+    u8 collisionData = GetCollisionDataAtEntity(super);
+    switch (collisionData) {
+        case COLLISION_DATA_33:
             CreateFx(super, FX_FALL_DOWN, 0);
             break;
-        case 0x25:
+        case COLLISION_DATA_37:
             CreateFx(super, FX_LAVA_SPLASH, 0);
             break;
-        case 0x24:
-        case 0x30:
+        case COLLISION_DATA_36:
+        case COLLISION_DATA_48:
             CreateFx(super, FX_WATER_SPLASH, 0);
             break;
         default:

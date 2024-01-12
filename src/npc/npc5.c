@@ -9,6 +9,7 @@
 #include "hitbox.h"
 #include "message.h"
 #include "npc.h"
+#include "tiles.h"
 
 #define kFollowDistance 32 // distance to follow player
 #define kPoiDistance 4     // point of interest distance
@@ -422,7 +423,7 @@ bool32 CheckDirectPathUnblocked(Entity* this, u32 target_x, u32 target_y) {
 
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
-    angle = CalcOffsetAngle(target_x - x, target_y - y);
+    angle = CalculateDirectionFromOffsets(target_x - x, target_y - y);
     x <<= 8;
     y <<= 8;
 
@@ -529,10 +530,12 @@ u32 CalcJumpDirection(Entity* this) {
     };
 
     static const u8 sTable[] = {
-        0x2b, DirectionSouth, 0x2a, DirectionNorth, 0x2d, DirectionEast, 0x2c, DirectionWest, 0x0,
+        // actTile, animationState
+        ACT_TILE_43, DirectionSouth, ACT_TILE_42, DirectionNorth, ACT_TILE_45, DirectionEast,
+        ACT_TILE_44, DirectionWest,  0x0,
     };
 
-    u32 tile;
+    u32 actTile;
     u32 x;
     s32 x_offset;
     s32 y_offset;
@@ -542,11 +545,11 @@ u32 CalcJumpDirection(Entity* this) {
     ptr = (s8*)sOffsets;
     x_offset = ptr[x];
     y_offset = ptr[x + 1];
-    tile = GetActTileRelative(this, x_offset, y_offset);
+    actTile = GetActTileRelativeToEntity(this, x_offset, y_offset);
     ptr2 = sTable;
 
     do {
-        if (*ptr2 != tile || this->animationState != (ptr2[1] >> 2)) {
+        if (*ptr2 != actTile || this->animationState != (ptr2[1] >> 2)) {
             continue;
         }
 

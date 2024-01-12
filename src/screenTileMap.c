@@ -1,6 +1,7 @@
 #include "global.h"
 #include "room.h"
 
+// Called when gUpdateVisibleTiles == 2
 void sub_0807D280(u16* mapspecial, u16* bgbuffer) {
     u32 unk_18;
     s32 tmp1, tmp2, tmp3, tmp4, tmp5, tmp6;
@@ -80,6 +81,7 @@ void sub_0807D280(u16* mapspecial, u16* bgbuffer) {
     }
 }
 
+// Called when gUpdateVisibleTiles == 3
 void sub_0807D46C(u16* mapSpecial, u16* bgBuffer) {
     s32 index, r0, r1, r2, r5, r8, r12;
     u16 *r4, *r6;
@@ -211,6 +213,7 @@ void sub_0807D46C(u16* mapSpecial, u16* bgBuffer) {
     }
 }
 
+// Called when gUpdateVisibleTiles == 4
 void sub_0807D6D8(u16* mapSpecial, u16* bgBuffer) {
     s32 Unk1a;
     s32 SquaredUnk18;

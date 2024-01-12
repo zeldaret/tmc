@@ -2,14 +2,15 @@
 
 #include "area.h"
 #include "common.h"
+#include "enemy.h"
 #include "flags.h"
 #include "functions.h"
 #include "game.h"
-#include "global.h"
 #include "manager/bombableWallManager.h"
+#include "map.h"
 #include "object.h"
 #include "room.h"
-#include "enemy.h"
+#include "tiles.h"
 
 static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
@@ -200,7 +201,8 @@ static void sub_0804B058(EntityData* dat) {
                 if (EnemyEnableRespawn(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == ENEMY)) {
-                        ((Enemy*)ent)->idx = uVar2 | 0x80;
+                        ((Enemy*)ent)->idx = uVar2 | 0x80; // TODO Set the room tracker flag that can be set by the
+                                                           // enemy so it does not appear next time the room is visited?
                     }
                 }
             } else {
@@ -212,8 +214,8 @@ static void sub_0804B058(EntityData* dat) {
     }
 }
 
-void sub_0804B0B0(u32 arg0, u32 arg1) {
-    LoadRoomEntityList(GetRoomProperty(arg0, arg1, 1));
+void sub_0804B0B0(u32 area, u32 room) {
+    LoadRoomEntityList(GetRoomProperty(area, room, 1));
 }
 
 void SetCurrentRoomPropertyList(u32 area, u32 room) {
@@ -223,11 +225,11 @@ void SetCurrentRoomPropertyList(u32 area, u32 room) {
     }
 }
 
-void sub_0804B0E8(u32 arg0, u32 arg1) {
+void sub_0804B0E8(u32 area, u32 room) {
     void (*func)(void);
 
     // init function at index 4 of room data
-    func = (void (*)())GetRoomProperty(arg0, arg1, 4);
+    func = (void (*)())GetRoomProperty(area, room, 4);
     if (func != NULL) {
         func();
     }
@@ -249,7 +251,7 @@ void* GetCurrentRoomProperty(u32 idx) {
     if (gCurrentRoomProperties == NULL)
         return NULL;
 
-    if (idx >= 0x80) {
+    if (idx >= 0x80) { // TODO different kind of room properties?
         return gRoomVars.entityRails[idx & 7];
     } else if (idx <= 7) {
         return gRoomVars.properties[idx];
@@ -259,12 +261,12 @@ void* GetCurrentRoomProperty(u32 idx) {
 }
 
 void sub_0804B16C(void) {
-    TileEntity* tile = gSmallChests;
+    TileEntity* tileEntity = gSmallChests;
     do {
-        if (tile->tilePos != 0 && CheckLocalFlag(tile->localFlag)) {
-            SetTileType(0x74, tile->tilePos, tile->_6 & 1 ? 2 : 1);
+        if (tileEntity->tilePos != 0 && CheckLocalFlag(tileEntity->localFlag)) {
+            SetTileType(TILE_TYPE_116, tileEntity->tilePos, tileEntity->_6 & 1 ? LAYER_TOP : LAYER_BOTTOM);
         }
-    } while (++tile < gSmallChests + 8);
+    } while (++tileEntity < gSmallChests + 8);
 }
 
 void LoadRoomTileEntities(TileEntity* list) {
@@ -306,25 +308,25 @@ void LoadRoomTileEntities(TileEntity* list) {
     }
 }
 
-static void LoadGrassDropTile(TileEntity* tile) {
-    MemCopy(&gAreaDroptables[tile->localFlag], &gRoomVars.currentAreaDroptable, 0x20);
+static void LoadGrassDropTile(TileEntity* tileEntity) {
+    MemCopy(&gAreaDroptables[tileEntity->localFlag], &gRoomVars.currentAreaDroptable, 0x20);
 }
 
-static void LoadLocationTile(TileEntity* tile) {
-    gArea.locationIndex = tile->localFlag;
+static void LoadLocationTile(TileEntity* tileEntity) {
+    gArea.locationIndex = tileEntity->localFlag;
     sub_08054524();
 }
 
-static void LoadRoomVisitTile(TileEntity* tile) {
-    SetLocalFlag(tile->localFlag);
+static void LoadRoomVisitTile(TileEntity* tileEntity) {
+    SetLocalFlag(tileEntity->localFlag);
 }
 
-static void LoadSmallChestTile(TileEntity* tile) {
+static void LoadSmallChestTile(TileEntity* tileEntity) {
     TileEntity* t = gSmallChests;
     u32 i = 0;
     for (i = 0; i < 8; ++i, ++t) {
         if (!t->tilePos) {
-            MemCopy(tile, t, sizeof(TileEntity));
+            MemCopy(tileEntity, t, sizeof(TileEntity));
             if ((t->_6 & 1) && (gRoomControls.scroll_flags & 2) && !CheckLocalFlag(t->localFlag)) {
                 Entity* e = CreateObject(SPECIAL_CHEST, t->localFlag, 0);
                 if (e != NULL) {
@@ -336,26 +338,26 @@ static void LoadSmallChestTile(TileEntity* tile) {
     }
 }
 
-static void LoadBombableWallTile(TileEntity* tile) {
+static void LoadBombableWallTile(TileEntity* tileEntity) {
     BombableWallManager* mgr = (BombableWallManager*)GetEmptyManager();
     if (mgr != NULL) {
         mgr->base.kind = MANAGER;
         mgr->base.id = BOMBABLE_WALL_MANAGER;
-        mgr->x = tile->tilePos;
-        mgr->y = *(u16*)&tile->_6;
-        mgr->field_0x35 = tile->_2;
-        mgr->field_0x3e = tile->localFlag;
+        mgr->x = tileEntity->tilePos;
+        mgr->y = *(u16*)&tileEntity->_6;
+        mgr->layer = tileEntity->_2;
+        mgr->flag = tileEntity->localFlag;
         AppendEntityToList((Entity*)mgr, 6);
     }
 }
 
-static void LoadDarknessTile(TileEntity* tile) {
-    sub_0805BB00(tile->_3, 1);
+static void LoadDarknessTile(TileEntity* tileEntity) {
+    sub_0805BB00(tileEntity->_3, 1);
 }
 
-static void LoadDestructibleTile(TileEntity* tile) {
-    if (CheckLocalFlag(*(u16*)&tile->_2)) {
-        SetTileType(*(u16*)&tile->_6, tile->tilePos, tile->localFlag);
+static void LoadDestructibleTile(TileEntity* tileEntity) {
+    if (CheckLocalFlag(*(u16*)&tileEntity->_2)) {
+        SetTileType(*(u16*)&tileEntity->_6, tileEntity->tilePos, tileEntity->localFlag);
     } else if (!gRoomVars.destructableManagerLoaded) {
         Manager* mgr;
         gRoomVars.destructableManagerLoaded = TRUE;
@@ -379,6 +381,6 @@ void sub_0804B388(u32 a1, u32 a2) {
     ModDungeonKeys(-1);
 }
 
-void LoadSmallChestTile2(TileEntity* tile) {
-    LoadSmallChestTile(tile);
+void LoadSmallChestTile2(TileEntity* tileEntity) {
+    LoadSmallChestTile(tileEntity);
 }

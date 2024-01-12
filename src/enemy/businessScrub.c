@@ -13,6 +13,7 @@
 #include "message.h"
 #include "npc.h"
 #include "save.h"
+#include "tiles.h"
 
 struct SalesOffering {
     u8 field_0x0;
@@ -442,7 +443,7 @@ void sub_08028FFC(BusinessScrubEntity* this) {
     super->x.HALF.HI = this->unk_78;
     super->y.HALF.HI = this->unk_7a;
     InitializeAnimation(super, 0);
-    SetBottomTile(0x4022, this->unk_76, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_76, super->collisionLayer);
 }
 
 void sub_08029078(BusinessScrubEntity* this) {
@@ -456,7 +457,7 @@ void sub_08029078(BusinessScrubEntity* this) {
         super->spriteIndex = 0xd0;
         sub_08028FDC(this);
         sub_080290E0(this, 1);
-        SetBottomTile(this->unk_74, this->unk_76, super->collisionLayer);
+        SetTile(this->unk_74, this->unk_76, super->collisionLayer);
     }
 }
 
