@@ -74,13 +74,13 @@
   {
     "path": "maps/areas/000_MinishWoods/rooms/00_Main/gCaveBorder_LakeWoods_outside.bin.lz",
     "start": 3344536,
-    "size": 1010,
+    "size": 1012,
     "type": "tileMap"
   },
   {
     "path": "maps/areas/000_MinishWoods/rooms/00_Main/gCaveBorder_LakeWoods_unused.bin.lz",
-    "start": 3345546,
-    "size": 1166,
+    "start": 3345548,
+    "size": 1164,
     "type": "tileMap"
   },
   {
