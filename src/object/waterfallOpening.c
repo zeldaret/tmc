@@ -10,6 +10,7 @@
 #include "menu.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     Entity base;
@@ -76,7 +77,7 @@ void WaterfallOpening(Entity* this) {
             case 2:
                 if ((this->subAction == 0)) {
                     this->subAction = 1;
-                    SetTileType(0x39, COORD_TO_TILE(this), 1);
+                    SetTileType(TILE_TYPE_57, COORD_TO_TILE(this), LAYER_BOTTOM);
                 }
         }
 

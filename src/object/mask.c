@@ -6,6 +6,7 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -70,11 +71,11 @@ void Mask_Init(MaskEntity* this) {
     super->frameIndex = super->type2 & 0x3f;
 
     this->unk_7e = COORD_TO_TILE(super);
-    this->unk_7c = GetTileIndex(this->unk_7e, 1);
+    this->unk_7c = GetTileIndex(this->unk_7e, LAYER_BOTTOM);
 
-    this->unk_7a = sub_080B1B44(this->unk_7e, 1);
+    this->unk_7a = GetCollisionDataAtTilePos(this->unk_7e, LAYER_BOTTOM);
 
-    SetBottomTile(0x4022, this->unk_7e, 1);
+    SetTile(SPECIAL_TILE_34, this->unk_7e, LAYER_BOTTOM);
 }
 
 // Probably related to knocking it down
@@ -99,9 +100,9 @@ void Mask_Action1(MaskEntity* this) {
     }
 
     // Presumably, make the mask fall
-    SetBottomTile(this->unk_7c, this->unk_7e, 1);
+    SetTile(this->unk_7c, this->unk_7e, LAYER_BOTTOM);
 
-    sub_08000148(this->unk_7a, this->unk_7e, 1);
+    SetCollisionData(this->unk_7a, this->unk_7e, 1);
 
     super->action = 2;
 

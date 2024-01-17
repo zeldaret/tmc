@@ -27,8 +27,8 @@ SCRIPT_START script_ZeldaTalkToSmith
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	@ Leave room
-	_0807EDD4 0x0028, 0x0060
-	_0807EDD4 0x0000, 0x0060
+	MoveTo 0x0028, 0x0060
+	MoveTo 0x0000, 0x0060
 	Call sub_080536A8
 	Wait 0x001e
 	BeginBlock

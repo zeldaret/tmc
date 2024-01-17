@@ -15,6 +15,7 @@
 #include "object.h"
 #include "player.h"
 #include "sound.h"
+#include "tiles.h"
 
 void sub_08081150(ItemOnGroundEntity* this);
 u8 sub_0808147C(u32);
@@ -217,7 +218,7 @@ void sub_08081188(ItemOnGroundEntity* this) {
 void sub_080811AC(ItemOnGroundEntity* this) {
     super->action = 2;
     super->spriteSettings.draw = 0;
-    this->unk_6e = GetTileTypeByEntity(super);
+    this->unk_6e = GetTileTypeAtEntity(super);
 }
 
 void sub_080811C8(ItemOnGroundEntity* this) {
@@ -283,7 +284,7 @@ void sub_080812A0(ItemOnGroundEntity* this) {
 }
 
 void sub_080812A8(ItemOnGroundEntity* this) {
-    if (sub_080B1B0C(super) != 0xF && this->unk_6e != GetTileTypeByEntity(super)) {
+    if (GetCollisionDataAtEntity(super) != COLLISION_DATA_15 && this->unk_6e != GetTileTypeAtEntity(super)) {
         super->direction = 0;
         super->speed = 0;
         super->spriteSettings.draw = 1;

@@ -61,10 +61,10 @@ script_0800E2AE:
 	EndBlock
 	SetAnimationState 0x0000
 	CallWithArg sub_0807F3D8, 0x00000004
-	_0807EDD4 0x0088, 0x0168
+	MoveTo 0x0088, 0x0168
 	SetAnimationState 0x0006
 	CallWithArg sub_0807F3D8, 0x00000004
-	_0807EDD4 0x0070, 0x0168
+	MoveTo 0x0070, 0x0168
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
 	_0807E9D4

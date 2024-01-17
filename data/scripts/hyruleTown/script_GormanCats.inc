@@ -16,7 +16,7 @@ script_0800FE66:
 	BeginBlock
 	Call sub_08069ACC
 	JumpIf script_0800FE7E
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_0800FE66
 	Jump script_0800FE5A
 script_0800FE7E:

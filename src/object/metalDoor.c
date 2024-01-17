@@ -12,6 +12,7 @@
 #include "hitbox.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -27,6 +28,7 @@ typedef struct {
     /*0x86*/ u16 unk_86;
 } MetalDoorEntity;
 
+extern u32 sub_08083734(Entity*, u32);
 void sub_080A080C(MetalDoorEntity* this);
 void sub_080A0870(MetalDoorEntity* this);
 void MetalDoor_Init(MetalDoorEntity* this);
@@ -118,13 +120,13 @@ void sub_080A080C(MetalDoorEntity* this) {
     this->unk_76 = GetTileIndex(this->unk_74 - 1, super->collisionLayer);
     this->unk_78 = GetTileIndex(this->unk_74, super->collisionLayer);
     this->unk_7a = GetTileIndex(this->unk_74 + 1, super->collisionLayer);
-    SetBottomTile(0x4022, this->unk_74 - 1, super->collisionLayer);
-    SetBottomTile(0x4022, this->unk_74, super->collisionLayer);
-    SetBottomTile(0x4022, this->unk_74 + 1, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_74 - 1, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_74, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, this->unk_74 + 1, super->collisionLayer);
 }
 
 void sub_080A0870(MetalDoorEntity* this) {
-    SetBottomTile(this->unk_76, this->unk_74 - 1, super->collisionLayer);
-    SetBottomTile(this->unk_78, this->unk_74, super->collisionLayer);
-    SetBottomTile(this->unk_7a, this->unk_74 + 1, super->collisionLayer);
+    SetTile(this->unk_76, this->unk_74 - 1, super->collisionLayer);
+    SetTile(this->unk_78, this->unk_74, super->collisionLayer);
+    SetTile(this->unk_7a, this->unk_74 + 1, super->collisionLayer);
 }

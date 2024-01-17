@@ -10,6 +10,7 @@
 #include "functions.h"
 #include "npc.h"
 #include "sound.h"
+#include "tiles.h"
 
 void ZeldaFollower_Hide(Entity*, Entity*);
 void ZeldaFollower_Show(Entity*, Entity*);
@@ -171,14 +172,14 @@ static const u16 gUnk_08110BE0[] = {
 };
 
 void sub_08066F94(void) {
-    u16 uVar1;
+    u16 tilePos;
     const u16* puVar2;
 
     puVar2 = gUnk_08110BE0;
     while (*puVar2 != 0) {
-        uVar1 = *puVar2;
+        tilePos = *puVar2;
         puVar2++;
-        SetTileType(16498, uVar1, 1);
+        SetTileType(SPECIAL_TILE_114, tilePos, LAYER_BOTTOM);
     }
 }
 

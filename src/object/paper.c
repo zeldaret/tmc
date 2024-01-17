@@ -5,7 +5,9 @@
  * @brief Paper object
  */
 #include "functions.h"
+#include "map.h"
 #include "object.h"
+#include "tiles.h"
 
 void Paper_Init(Entity*);
 void Paper_Action1(Entity*);
@@ -40,7 +42,7 @@ void Paper_Type0(Entity* this) {
         }
         this->spriteSettings.draw = 0;
     }
-    SetBottomTile(0x4051, COORD_TO_TILE(this), 1);
+    SetTile(SPECIAL_TILE_81, COORD_TO_TILE(this), LAYER_BOTTOM);
 }
 
 void Paper_Type1(Entity* this) {
@@ -60,8 +62,8 @@ void Paper_Type2(Entity* this) {
     this->action = 1;
     this->y.HALF.HI++;
     this->spriteOffsetY = -1;
-    SetBottomTile(0x4051, COORD_TO_TILE(this) - 1, 1);
-    SetBottomTile(0x4051, COORD_TO_TILE(this), 1);
+    SetTile(SPECIAL_TILE_81, COORD_TO_TILE(this) - 1, LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_81, COORD_TO_TILE(this), LAYER_BOTTOM);
 }
 
 void Paper_Action1(Entity* this) {

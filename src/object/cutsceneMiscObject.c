@@ -11,6 +11,7 @@
 #include "object.h"
 #include "screen.h"
 #include "script.h"
+#include "tiles.h"
 
 extern u8 gUnk_08122AE0[];
 extern u16 gUnk_08122AE8[];
@@ -331,7 +332,7 @@ void CutsceneMiscObject_Type5(CutsceneMiscObjectEntity* this) {
                 super->zVelocity = 0;
                 SetEntityPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
-                if (GetActTile(super) == 13) {
+                if (GetActTileAtEntity(super) == ACT_TILE_13) {
                     super->action = 3;
                 }
                 break;
@@ -710,7 +711,8 @@ void sub_0809567C(CutsceneMiscObjectEntity* this) {
     super->action = 3;
     super->subAction = 1;
     super->speed = 0x400;
-    super->direction = CalcOffsetAngle(super->x.WORD - ((s16)this->px << 16), super->y.WORD - ((s16)this->py << 16));
+    super->direction =
+        CalculateDirectionFromOffsets(super->x.WORD - ((s16)this->px << 16), super->y.WORD - ((s16)this->py << 16));
 }
 
 void CutsceneMiscObject_Type15(CutsceneMiscObjectEntity* this) {

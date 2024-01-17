@@ -344,15 +344,15 @@ bool32 sub_0802C0E8(HelmasaurEntity* this) {
         s32 y = super->y.HALF.HI + super->hitbox->offset_y + ptr[1] * 6;
 
         u8* layer = super->collisionLayer == 2 ? gMapTop.collisionData : gMapBottom.collisionData;
-        u32 ret = FALSE;
+        u32 result = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
             if (IsTileCollision(layer, x, y, 0)) {
-                ret = 1;
+                result = TRUE;
             } else {
-                ret = 0;
+                result = FALSE;
             }
         }
-        return ret;
+        return result;
     }
 }
 

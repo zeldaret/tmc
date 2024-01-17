@@ -15,6 +15,7 @@
 #include "npc.h"
 #include "object.h"
 #include "screen.h"
+#include "tiles.h"
 
 void sub_08051F78(void);
 void sub_08051FF0(void);
@@ -43,7 +44,7 @@ void CutsceneMain_Init(void) {
 void sub_080535AC(void) {
     gMenu.overlayType = 1;
     gMenu.transitionTimer = 120;
-    gUI.field_0x6 = 1;
+    gUI.loadGfxOnRestore = TRUE;
     gUpdateVisibleTiles = 1;
     gScreen.lcd.displayControl &= 0xfeff;
     LoadRoomEntityList(gUnk_080FCB94);
@@ -216,7 +217,7 @@ void sub_08053758(void) {
     gMenu.transitionTimer = 120;
     gMenu.field_0xa = 0x1e;
     *((u8*)&gMenu + 0x10) = 0; // TODO
-    gUI.field_0x6 = 1;
+    gUI.loadGfxOnRestore = TRUE;
     gMapBottom.bgSettings = NULL;
     gMapTop.bgSettings = NULL;
     gRoomControls.camera_target = NULL;
@@ -595,10 +596,10 @@ void sub_08053D34(void) {
     if (gMenu.field_0xa != 0) {
         gMenu.field_0xa = 0;
         if (CheckLocalFlagByBank(FLAG_BANK_7, 0x3d)) {
-            SetTileType(0x74, 0xc4, 1);
+            SetTileType(TILE_TYPE_116, TILE_POS(4, 3), LAYER_BOTTOM);
         }
         if (CheckLocalFlagByBank(FLAG_BANK_7, 0x3e)) {
-            SetTileType(0x74, 0xcc, 1);
+            SetTileType(TILE_TYPE_116, TILE_POS(12, 3), LAYER_BOTTOM);
         }
     }
     if (gFadeControl.active == 0) {

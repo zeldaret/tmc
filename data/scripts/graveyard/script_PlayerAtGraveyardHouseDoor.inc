@@ -2,7 +2,7 @@
 SCRIPT_START script_PlayerAtGraveyardHouseDoor
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01a0, 0x01b0
+	MoveTo 0x01a0, 0x01b0
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	Wait 0x000a

@@ -12,7 +12,7 @@ SCRIPT_START script_ZeldaCastleEscape
 	SetEntityPositionRelative 0x0198, 0x0148
 	DoPostScriptAction 0x0007
 	EndBlock
-	_0807EDD4 0x0198, 0x01a8
+	MoveTo 0x0198, 0x01a8
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002

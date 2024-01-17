@@ -127,12 +127,20 @@ u32 sub_0801DB94(void);
 u32 GetRandomSharedFusion(u8*);
 
 typedef struct {
-    u8 unk_0;
-    u8 unk_1;
+    u8 numFloors;
+    u8 highestFloor;
     u8 unk_2;
     // u8 pad;
-} struct_080C9C6C;
+} DungeonFloorMetadata;
 
-extern const struct_080C9C6C gUnk_080C9C6C[];
+extern const DungeonFloorMetadata gDungeonFloorMetadatas[];
+
+typedef struct {
+    u8 area;
+    u8 room;
+    u8 unk_2; // TODO u16 pad?
+    u8 unk_3;
+    u32 mapDataOffset;
+} DungeonLayout;
 
 #endif // COMMON_H

@@ -35,12 +35,12 @@ script_0800E7BA:
 	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000004
 	Call sub_0806AF70
-	_0807EE04 0x0188, 0x0058
+	LookAt 0x0188, 0x0058
 script_0800E7D8:
 	EndBlock
 	BeginBlock
 	Call sub_0806AF78
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_0800E7D8
 	EntityHasHeight
 	JumpIf script_0800E7D8

@@ -13,12 +13,12 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	EndBlock
 	DoPostScriptAction 0x0007
 	FacePlayer
-	_0807EDD4 0x01f8, 0x02f8
+	MoveTo 0x01f8, 0x02f8
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	MessageFromTargetPos TEXT_PROLOGUE, 0x11, 0x0002
 	WaitUntilTextboxCloses
-	_0807EDD4 0x01f8, 0x0268
+	MoveTo 0x01f8, 0x0268
 	SetEntityPositionRelative 0x0248, 0x0218
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
@@ -43,7 +43,7 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0238, 0x0238
+	MoveTo 0x0238, 0x0238
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a

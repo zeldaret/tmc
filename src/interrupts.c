@@ -87,11 +87,11 @@ void UpdateDisplayControls(void) {
 }
 
 void sub_08016CA8(BgSettings* bg) {
-    if (bg->updated && bg->tilemap != NULL) {
+    if (bg->updated && bg->subTileMap != NULL) {
         u32 dest;
         bg->updated = 0;
         dest = bg->control;
-        DmaCopy32(3, bg->tilemap, ((dest << 3) & 0xF800) + VRAM, gUnk_080B2CD8[dest >> 14]);
+        DmaCopy32(3, bg->subTileMap, ((dest << 3) & 0xF800) + VRAM, gUnk_080B2CD8[dest >> 14]);
     }
 }
 
@@ -233,9 +233,9 @@ void PlayerUpdate(PlayerEntity* this) {
 static void HandlePlayerLife(Entity* this) {
     u32 threshold;
 
-    gUnk_0200AF00.rActionPlayerState = R_ACTION_NONE;
-    gUnk_0200AF00.rActionInteractTile = R_ACTION_NONE;
-    gUnk_0200AF00.rActionGrabbing = R_ACTION_NONE;
+    gHUD.rActionPlayerState = R_ACTION_NONE;
+    gHUD.rActionInteractTile = R_ACTION_NONE;
+    gHUD.rActionGrabbing = R_ACTION_NONE;
 
     if ((gPlayerEntity.base.contactFlags & CONTACT_NOW) && (gPlayerEntity.base.iframes > 0))
         SoundReq(SFX_86);
@@ -263,7 +263,7 @@ static void HandlePlayerLife(Entity* this) {
         return;
 
 #ifdef EU
-    if ((gUnk_0200AF00.unk_1 == 0) && gRoomTransition.frameCount % 90 == 0) {
+    if ((gHUD.hideFlags == HUD_HIDE_NONE) && gRoomTransition.frameCount % 90 == 0) {
         threshold = gSave.stats.maxHealth / 4;
         if (threshold > 24)
             threshold = 24;
@@ -285,7 +285,7 @@ static void HandlePlayerLife(Entity* this) {
 
     if (gSave.stats.health <= threshold) {
         gRoomVars.needHealthDrop = TRUE;
-        if ((gUnk_0200AF00.unk_1 == 0) && gRoomTransition.frameCount % 90 == 0) {
+        if ((gHUD.hideFlags == HUD_HIDE_NONE) && gRoomTransition.frameCount % 90 == 0) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }
@@ -332,7 +332,7 @@ static void sub_080171F0(void) {
     sub_080028E0(&gPlayerEntity.base);
 
     if (gPlayerState.flags & PL_CLONING)
-        gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
+        gHUD.rActionPlayerState = R_ACTION_CANCEL;
 
     DetermineRButtonInteraction();
     gPlayerState.field_0x7 &= ~0x80;

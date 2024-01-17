@@ -90,9 +90,23 @@ typedef struct {
     u32* firstTile;
 } UIElement;
 
+typedef enum {
+    HUD_HIDE_NONE,
+    HUD_HIDE_1 = 0x1, // A
+    HUD_HIDE_2 = 0x2, // B
+    HUD_HIDE_4 = 0x4, // R
+    HUD_HIDE_8 = 0x8,
+    HUD_HIDE_HEARTS = 0x10,
+    HUD_HIDE_CHARGE_BAR = 0x20,
+    HUD_HIDE_RUPEES = 0x40,
+    HUD_HIDE_KEYS = 0x80,
+
+    HUD_HIDE_ALL = 0xff
+} HUDHideFlags;
+
 typedef struct {
     u8 unk_0;
-    u8 unk_1;
+    u8 hideFlags;
     u8 unk_2;
     u8 health;
     u8 maxHealth;
@@ -124,8 +138,8 @@ typedef struct {
     u8 buttonText[3];
     u8 unk_33;
     UIElement elements[MAX_UI_ELEMENTS];
-} struct_0200AF00;
-extern struct_0200AF00 gUnk_0200AF00;
+} HUD;
+extern HUD gHUD;
 
 #define MAX_GFX_SLOTS 44
 
@@ -338,8 +352,8 @@ typedef struct {
 extern struct_02018EB0 gUnk_02018EB0;
 
 typedef struct {
-    s16 tile;
-    s16 position;
+    s16 tileIndex;
+    s16 tilePosOffset;
 } TileData;
 
 typedef struct {
@@ -360,4 +374,25 @@ typedef struct {
     u8 frame;
     u8 frameIndex;
 } PACKED FrameStruct;
+
+typedef struct {
+    /*0x0*/ u8 menuType;
+    /*0x1*/ u16 font;
+    /*0x3*/ u8 unk_3; // TODO padding?
+    /*0x4*/ u16 transitionTimer;
+    /*0x6*/ u16 gfxEntry;
+    /*0x8*/ u16 bg2XOffset;
+    /*0xa*/ u16 sm_unk_14;
+} PACKED StaffrollEntry;
+
+static_assert(sizeof(StaffrollEntry) == 0xc);
+
+typedef struct {
+    u8 paletteGroup;
+    u8 gfxGroup;
+} PACKED StaffrollGfxEntry;
+
+extern const u8 gGlobalGfxAndPalettes[];
+extern u32 gUsedPalettes;
+
 #endif // STRUCTURES_H

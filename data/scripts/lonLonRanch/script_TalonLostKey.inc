@@ -9,14 +9,14 @@ SCRIPT_START script_TalonLostKey
 	SetIntVariable 0x0000200a
 	EndBlock
 script_0800B3C4:
-	_0807EDD4 0x0158, 0x0290
+	MoveTo 0x0158, 0x0290
 	Call sub_08065780
 	Call sub_08065780
 	Call sub_08065780
 	Call sub_08065780
 	Call sub_08065780
 	Call sub_08065780
-	_0807EDD4 0x0128, 0x0290
+	MoveTo 0x0128, 0x0290
 	Call sub_08065780
 	Call sub_08065780
 	Call sub_08065780

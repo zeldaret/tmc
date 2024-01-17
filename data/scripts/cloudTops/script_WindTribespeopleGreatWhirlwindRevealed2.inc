@@ -7,12 +7,12 @@ SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed2
 	SetEntitySpeed 0x0100
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
-	_0807EDD4 0x01f0, 0x01d8
+	MoveTo 0x01f0, 0x01d8
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 script_0800D80C:
 	SetEntitySpeed 0x0100
-	_0807EEF4 0x0000, -32
+	MoveToOffset 0x0000, -32
 	DoPostScriptAction 0x000e
 	Call sub_0806CA5C
 	SetEntityVelocity 0x00040000

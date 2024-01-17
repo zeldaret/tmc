@@ -6,6 +6,7 @@
  */
 #include "enemy.h"
 #include "physics.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -208,7 +209,7 @@ void sub_08031600(RopeEntity* this) {
 
 u32 sub_0803163C(RopeEntity* this) {
     u32 h;
-    if (GetActTile(super) == 0x13) {
+    if (GetActTileAtEntity(super) == ACT_TILE_19) {
         h = this->unk_7a / 2;
     } else {
         h = this->unk_7a;

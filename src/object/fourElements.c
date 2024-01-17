@@ -163,6 +163,6 @@ void sub_080A0444(FourElementsEntity* this) {
 void sub_080A0464(FourElementsEntity* this, ScriptExecutionContext* context) {
     Entity* element = FindEntityByID(6, FOUR_ELEMENTS, 6);
     if (element != NULL) {
-        sub_0807DEDC(super, context, element->x.HALF.HI, element->y.HALF.HI + 0x18);
+        LookAt(super, context, element->x.HALF.HI, element->y.HALF.HI + 0x18);
     }
 }

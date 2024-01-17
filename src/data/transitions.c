@@ -46,9 +46,9 @@ const Transition gExitList_MinishWoods_Main[] = {
     { WARP_TYPE_AREA, 0x00, 0x0088, 0x0218, 0x0218, 0x0118, 0x00, AREA_MINISH_CAVES,
       ROOM_MINISH_CAVES_MINISH_WOODS_SOUTHWEST, 1, TRANSITION_TYPE_NORMAL, 0x00, 0x00, 0x00, 0x00, 0x00 },
     { WARP_TYPE_BORDER, 0x00, 0x0000, 0x0000, 0x01d8, 0x0fff, 0x40, AREA_HYRULE_FIELD,
-      ROOM_HYRULE_FIELD_EASTERN_HILLLS_NORTH, 1, TRANSITION_TYPE_NORMAL, 0x06, 0x00, 0x00, 0x00, 0x00 },
+      ROOM_HYRULE_FIELD_EASTERN_HILLS_NORTH, 1, TRANSITION_TYPE_NORMAL, 0x06, 0x00, 0x00, 0x00, 0x00 },
     { WARP_TYPE_BORDER, 0x00, 0x0000, 0x0000, 0x01d8, 0x00a0, 0x80, AREA_HYRULE_FIELD,
-      ROOM_HYRULE_FIELD_EASTERN_HILLLS_SOUTH, 1, TRANSITION_TYPE_NORMAL, 0x06, 0x00, 0x00, 0x00, 0x00 },
+      ROOM_HYRULE_FIELD_EASTERN_HILLS_SOUTH, 1, TRANSITION_TYPE_NORMAL, 0x06, 0x00, 0x00, 0x00, 0x00 },
     { WARP_TYPE_BORDER, 0x00, 0x0000, 0x0000, 0x0fff, 0x03b8, 0x01, AREA_LAKE_HYLIA, ROOM_LAKE_HYLIA_MAIN, 1,
       TRANSITION_TYPE_NORMAL, 0x00, 0x00, 0x00, 0x00, 0x00 },
     { WARP_TYPE_BORDER, 0x00, 0x0000, 0x0000, 0x0fff, 0x03ac, 0x02, AREA_LAKE_HYLIA, ROOM_LAKE_HYLIA_MAIN, 1,
@@ -446,9 +446,9 @@ const Transition gExitList_HyruleField_WesternWoodsCenter[] = {
 const Transition* const gExitLists_HyruleField[] = {
     [ROOM_HYRULE_FIELD_WESTERN_WOODS_SOUTH] = gExitList_HyruleField_WesternWoodSouth,
     [ROOM_HYRULE_FIELD_SOUTH_HYRULE_FIELD] = gExitList_HyruleField_SouthHyruleField,
-    [ROOM_HYRULE_FIELD_EASTERN_HILLLS_SOUTH] = gExitList_HyruleField_EasternHillsSouth,
-    [ROOM_HYRULE_FIELD_EASTERN_HILLLS_CENTER] = gExitList_HyruleField_EasternHillsCenter,
-    [ROOM_HYRULE_FIELD_EASTERN_HILLLS_NORTH] = gExitList_HyruleField_EasternHillsNorth,
+    [ROOM_HYRULE_FIELD_EASTERN_HILLS_SOUTH] = gExitList_HyruleField_EasternHillsSouth,
+    [ROOM_HYRULE_FIELD_EASTERN_HILLS_CENTER] = gExitList_HyruleField_EasternHillsCenter,
+    [ROOM_HYRULE_FIELD_EASTERN_HILLS_NORTH] = gExitList_HyruleField_EasternHillsNorth,
     [ROOM_HYRULE_FIELD_LON_LON_RANCH] = gExitList_HyruleField_LonLonRanch,
     [ROOM_HYRULE_FIELD_NORTH_HYRULE_FIELD] = gExitList_HyruleField_NorthHyruleField,
     [ROOM_HYRULE_FIELD_TRILBY_HIGHLANDS] = gExitList_HyruleField_TrilbyHighlands,
@@ -628,7 +628,7 @@ const Transition gExitList_Beanstalks_RuinsClimb[] = {
 const Transition gExitList_Beanstalks_EasternHillsClimb[] = {
     { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x58, 0x68, 0x3, AREA_BEANSTALKS, ROOM_BEANSTALKS_EASTERN_HILLS, 1,
       TRANSITION_TYPE_NORMAL, 0x0, 0x0, 0x0, 0x0, 0x0 },
-    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x48, 0x18, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLLS_CENTER,
+    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x48, 0x18, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLS_CENTER,
       1, TRANSITION_TYPE_NORMAL, 0x0, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
@@ -923,7 +923,7 @@ const Transition gExitList_MinishHouseInteriors_Librari[] = {
     TransitionListEnd,
 };
 const Transition gExitList_MinishHouseInteriors_HyruleFieldExit[] = {
-    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x38, 0x35, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLLS_SOUTH,
+    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x38, 0x35, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLS_SOUTH,
       1, TRANSITION_TYPE_INSTANT_MINISH, 0x4, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
@@ -1108,7 +1108,7 @@ const Transition gExitList_HouseInteriors2_DrLeft[] = {
     TransitionListEnd,
 };
 const Transition gExitList_HouseInteriors2_NULL1[] = {
-    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x40, 0x5c, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLLS_NORTH,
+    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x40, 0x5c, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLS_NORTH,
       1, TRANSITION_TYPE_NORMAL, 0x4, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
@@ -1244,7 +1244,7 @@ const Transition gExitList_HouseInteriors4_RanchHouseEast[] = {
     TransitionListEnd,
 };
 const Transition gExitList_HouseInteriors4_FarmHouse[] = {
-    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x40, 0x5c, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLLS_NORTH,
+    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0x40, 0x5c, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLS_NORTH,
       1, TRANSITION_TYPE_NORMAL, 0x4, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
@@ -2273,7 +2273,7 @@ const Transition gExitList_Caves_TrilbyMittsFairyFountain[] = {
     TransitionListEnd,
 };
 const Transition gExitList_Caves_HillsKeeseChest[] = {
-    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0xa8, 0xa8, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLLS_CENTER,
+    { WARP_TYPE_BORDER, 0x0, 0x0, 0x0, 0xa8, 0xa8, 0x30, AREA_HYRULE_FIELD, ROOM_HYRULE_FIELD_EASTERN_HILLS_CENTER,
       1, TRANSITION_TYPE_NORMAL, 0x4, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };

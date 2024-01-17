@@ -17,8 +17,8 @@ SCRIPT_START script_GuardBottomRight
 	Wait 0x003c
 	SetAnimation 0x0014
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0200, 0x0098
-	_0807EDD4 0x0200, 0x00c8
+	MoveTo 0x0200, 0x0098
+	MoveTo 0x0200, 0x00c8
 	SetAnimation 0x0013
 	SetSyncFlag 0x00004000
 	WaitForSyncFlagAndClear 0x00002000

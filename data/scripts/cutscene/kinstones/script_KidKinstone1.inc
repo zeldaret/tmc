@@ -11,9 +11,9 @@ SCRIPT_START script_KidKinstone1
 	Call SetPriorityMessage
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0007
-	_0807EDD4 0x01f8, 0x0318
-	_0807EDD4 0x0208, 0x0318
-	_0807EDD4 0x0208, 0x0338
+	MoveTo 0x01f8, 0x0318
+	MoveTo 0x0208, 0x0318
+	MoveTo 0x0208, 0x0338
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
@@ -37,7 +37,7 @@ script_0800F402:
 	Wait 0x0010
 	SetEntitySpeed 0x0100
 	WalkNorth 0x0010
-	_0807EDD4 0x0288, 0x0328
+	MoveTo 0x0288, 0x0328
 	SetSyncFlag 0x00000080
 	DoPostScriptAction 0x0006
 SCRIPT_END

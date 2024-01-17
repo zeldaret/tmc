@@ -11,7 +11,7 @@ script_0800B216:
 	Call DisablePauseMenuAndPutAwayItems
 	MoveEntityToPlayer
 	CameraTargetEntity
-	_0807EDD4 0x0068, 0x0380
+	MoveTo 0x0068, 0x0380
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
 	Call EnablePauseMenu

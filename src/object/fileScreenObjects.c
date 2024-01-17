@@ -557,7 +557,7 @@ static u32 sub_0808EF6C(FileScreenObjectsEntity* this) {
         var7 = this->unk_6c;
     }
     super->speed = var7;
-    super->direction = CalcOffsetAngle(var0, var2) >> 3;
+    super->direction = CalculateDirectionFromOffsets(var0, var2) >> 3;
     LinearMoveUpdate(super);
     return 1;
 }

@@ -10,6 +10,7 @@
 #include "game.h"
 #include "hitbox.h"
 #include "physics.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -117,8 +118,8 @@ void MandiblesProjectile_Action2(MandiblesProjectileEntity* this) {
         EnqueueSFX(SFX_15D);
     }
     this->unk_78 = TILE(super->x.HALF.HI, super->y.HALF.HI);
-    if (GetTileType(this->unk_78, super->collisionLayer) == 0x4000) {
-        SetBottomTile(0x4005, this->unk_78, super->collisionLayer);
+    if (GetTileTypeAtTilePos(this->unk_78, super->collisionLayer) == SPECIAL_TILE_0) {
+        SetTile(SPECIAL_TILE_5, this->unk_78, super->collisionLayer);
     }
 }
 
@@ -299,7 +300,6 @@ void sub_080AA320(MandiblesProjectileEntity* this) {
     parent->unk_80 = 0x50;
     parent->base.speed = 0;
     parent->base.direction = sub_08049F84(&parent->base, 0);
-    // TODO regalloc
     uVar2 = Direction8Round(parent->base.direction + 4);
     super->animationState = uVar2 >> 2;
     parent->base.animationState = DirectionRound(uVar2) >> 2;

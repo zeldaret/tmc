@@ -6,6 +6,7 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -101,18 +102,18 @@ void BakerOven_Action2(BakerOvenEntity* this) {
 }
 
 void sub_0809CDF0(BakerOvenEntity* this) {
-    u32 y;
+    u32 tilePos;
 
     this->unk_80 = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
                    (((super->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
-    y = this->unk_80;
-    SetBottomTile(0x402e, y - 0x01, super->collisionLayer);
-    SetBottomTile(0x4022, y - 0x00, super->collisionLayer);
-    SetBottomTile(0x4022, y + 0x01, super->collisionLayer);
-    SetBottomTile(0x4026, y - 0x41, super->collisionLayer);
-    SetBottomTile(0x4026, y - 0x40, super->collisionLayer);
-    SetBottomTile(0x4024, y - 0x3f, super->collisionLayer);
-    SetBottomTile(0x4026, y - 0x81, super->collisionLayer);
-    SetBottomTile(0x4026, y - 0x80, super->collisionLayer);
+    tilePos = this->unk_80;
+    SetTile(SPECIAL_TILE_46, tilePos + TILE_POS(-1, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(0, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(1, 0), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(-1, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(0, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_36, tilePos + TILE_POS(1, -1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(-1, -2), super->collisionLayer);
+    SetTile(SPECIAL_TILE_38, tilePos + TILE_POS(0, -2), super->collisionLayer);
 }

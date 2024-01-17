@@ -21,7 +21,7 @@ script_0800D426:
 	SetAnimationState 0x0006
 	SetIntVariable 0x00000004
 	Call sub_0806AF60
-	_0807EDD4 0x00a8, 0x01e8
+	MoveTo 0x00a8, 0x01e8
 	SetAnimationState 0x0006
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
@@ -37,7 +37,7 @@ script_0800D426:
 	SetAnimationState 0x0002
 	SetIntVariable 0x00000004
 	Call sub_0806AF60
-	_0807EDD4 0x0228, 0x01e8
+	MoveTo 0x0228, 0x01e8
 	Jump script_0800D426
 	.2byte 0x0000
 	BeginBlock
@@ -52,31 +52,31 @@ script_0800D4E4:
 	CallWithArg GetRandomInt, 0x00000009
 	JumpTable script_0800D510, script_0800D51A, script_0800D524, script_0800D52E, script_0800D538, script_0800D542, script_0800D54C, script_0800D556, script_0800D560
 script_0800D510:
-	_0807EE04 0x0038, 0x0068
+	LookAt 0x0038, 0x0068
 	Jump script_0800D566
 script_0800D51A:
-	_0807EE04 0x0078, 0x0068
+	LookAt 0x0078, 0x0068
 	Jump script_0800D566
 script_0800D524:
-	_0807EE04 0x00b8, 0x0068
+	LookAt 0x00b8, 0x0068
 	Jump script_0800D566
 script_0800D52E:
-	_0807EE04 0x0038, 0x0090
+	LookAt 0x0038, 0x0090
 	Jump script_0800D566
 script_0800D538:
-	_0807EE04 0x0078, 0x0090
+	LookAt 0x0078, 0x0090
 	Jump script_0800D566
 script_0800D542:
-	_0807EE04 0x00b8, 0x0090
+	LookAt 0x00b8, 0x0090
 	Jump script_0800D566
 script_0800D54C:
-	_0807EE04 0x0038, 0x00b8
+	LookAt 0x0038, 0x00b8
 	Jump script_0800D566
 script_0800D556:
-	_0807EE04 0x0078, 0x00b8
+	LookAt 0x0078, 0x00b8
 	Jump script_0800D566
 script_0800D560:
-	_0807EE04 0x00b8, 0x00b8
+	LookAt 0x00b8, 0x00b8
 script_0800D566:
 	EndBlock
 	BeginBlock
@@ -84,7 +84,7 @@ script_0800D566:
 	JumpIf script_0800D4E4
 	CheckEntityInteractType
 	JumpIf script_0800D584
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_0800D566
 	Jump script_0800D4E4
 script_0800D584:

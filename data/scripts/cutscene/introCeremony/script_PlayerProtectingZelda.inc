@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerProtectingZelda
 	EndBlock
 	SetEntitySpeed 0x0200
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01d8, 0x0068
+	MoveTo 0x01d8, 0x0068
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000400

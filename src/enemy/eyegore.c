@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -24,16 +25,16 @@ typedef struct {
     /*0x7c*/ u16 unk_7c;
     /*0x7e*/ u8 unk_7e;
     /*0x7f*/ u8 unk_7f;
-    /*0x80*/ u16 unk_80;
-    /*0x82*/ u16 unk_82;
-    /*0x84*/ u16 unk_84;
-    /*0x86*/ u16 unk_86;
+    /*0x80*/ u16 tileIndex1;
+    /*0x82*/ u16 tileIndex2;
+    /*0x84*/ u16 tileIndex3;
+    /*0x86*/ u16 tileIndex4;
 } EyegoreEntity;
 
 extern Entity* sub_08017A90(Entity*, Entity*);
 
 extern Entity* gUnk_020000B0;
-extern const u8 gUnk_080B3E80[];
+extern const u8 gMapTileTypeToCollisionData[];
 
 void sub_08031344(EyegoreEntity*);
 void sub_08031344(EyegoreEntity*);
@@ -326,27 +327,27 @@ void sub_08030E80(EyegoreEntity* this) {
 }
 
 void sub_08030F00(EyegoreEntity* this) {
-    u32 position = COORD_TO_TILE_OFFSET(super, 8, 0x14);
-    u16 tileIndex = GetTileIndex(position, super->collisionLayer);
-    this->unk_80 = tileIndex;
-    tileIndex = GetTileIndex(position + 1, super->collisionLayer);
-    this->unk_82 = tileIndex;
-    tileIndex = GetTileIndex(position + 0x40, super->collisionLayer);
-    this->unk_84 = tileIndex;
-    tileIndex = GetTileIndex(position + 0x41, super->collisionLayer);
-    this->unk_86 = tileIndex;
-    SetBottomTile(0x4022, position, super->collisionLayer);
-    SetBottomTile(0x4022, position + 1, super->collisionLayer);
-    SetBottomTile(0x4022, position + 0x40, super->collisionLayer);
-    SetBottomTile(0x4022, position + 0x41, super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE_OFFSET(super, 8, 20);
+    u16 tileIndex = GetTileIndex(tilePos + TILE_POS(0, 0), super->collisionLayer);
+    this->tileIndex1 = tileIndex;
+    tileIndex = GetTileIndex(tilePos + TILE_POS(1, 0), super->collisionLayer);
+    this->tileIndex2 = tileIndex;
+    tileIndex = GetTileIndex(tilePos + TILE_POS(0, 1), super->collisionLayer);
+    this->tileIndex3 = tileIndex;
+    tileIndex = GetTileIndex(tilePos + TILE_POS(1, 1), super->collisionLayer);
+    this->tileIndex4 = tileIndex;
+    SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + 1, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(0, 1), super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos + TILE_POS(1, 1), super->collisionLayer);
 }
 
 void sub_08030FB4(EyegoreEntity* this) {
-    u32 position = COORD_TO_TILE_OFFSET(super, 8, 0x14);
-    SetBottomTile(this->unk_80, position, super->collisionLayer);
-    SetBottomTile(this->unk_82, position + 1, super->collisionLayer);
-    SetBottomTile(this->unk_84, position + 0x40, super->collisionLayer);
-    SetBottomTile(this->unk_86, position + 0x41, super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE_OFFSET(super, 8, 20);
+    SetTile(this->tileIndex1, tilePos + TILE_POS(0, 0), super->collisionLayer);
+    SetTile(this->tileIndex2, tilePos + TILE_POS(1, 0), super->collisionLayer);
+    SetTile(this->tileIndex3, tilePos + TILE_POS(0, 1), super->collisionLayer);
+    SetTile(this->tileIndex4, tilePos + TILE_POS(1, 1), super->collisionLayer);
 }
 
 void sub_08031024(EyegoreEntity* this) {
@@ -399,11 +400,11 @@ void sub_08031024(EyegoreEntity* this) {
                     }
                 } else {
                     tmp2 = this->unk_7b >> 1;
-                    uVar5 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
-                                             super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
-                    uVar8 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
-                                             super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
-                    if (!(((gUnk_080B3E80[uVar5] == 0) && (gUnk_080B3E80[uVar8] == 0)) ||
+                    uVar5 = GetTileTypeAtWorldCoords(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
+                                                     super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
+                    uVar8 = GetTileTypeAtWorldCoords(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
+                                                     super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
+                    if (!(((gMapTileTypeToCollisionData[uVar5] == 0) && (gMapTileTypeToCollisionData[uVar8] == 0)) ||
                           ((this->unk_7b | 1) & 1) == 0)) {
                         if (super->direction >> 3 == super->animationState) {
                             this->unk_78 |= 0x20;

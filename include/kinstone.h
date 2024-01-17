@@ -227,8 +227,8 @@ typedef struct {
     u16 offsetY;  /**< Scroll offset Y from the room origin. */
     u16 x;        /**< X position of the actual event. */
     u16 y;        /**< Y position of the actual event. */
-    u16 _c;       // see sub_080A6A80, related to _0 and _2 of gUnk_08127F94
-    u16 _e;       // see sub_080A6A80, related to _1 and _3 of gUnk_08127F94
+    u16 _c;       // see GetOverworldLocation, related to _0 and _2 of gOverworldLocations
+    u16 _e;       // see GetOverworldLocation, related to _1 and _3 of gOverworldLocations
     u8 condition; // TODO some sort of flag determining what type the bank&flag are? see UpdateVisibleFusionMapMarkers
     u8 bank;      /**< @see LocalBanks */
     u16 flag;

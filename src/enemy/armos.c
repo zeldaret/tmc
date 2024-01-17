@@ -9,7 +9,9 @@
 #include "enemy.h"
 #include "flags.h"
 #include "functions.h"
+#include "global.h"
 #include "hitbox.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -401,19 +403,18 @@ void sub_080307D4(ArmosEntity* this) {
 }
 
 void sub_080307EC(ArmosEntity* this) {
-    u32 position = COORD_TO_TILE(super);
-    this->unk_78 = GetTileIndex(position, super->collisionLayer);
-    SetBottomTile(0x4022, position, (u32)super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE(super);
+    this->unk_78 = GetTileIndex(tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_34, tilePos, (u32)super->collisionLayer);
 }
 
 void sub_08030834(ArmosEntity* this) {
-    SetBottomTile(this->unk_78, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(this->unk_78, COORD_TO_TILE(super), super->collisionLayer);
 }
 
 bool32 sub_0803086C(ArmosEntity* this) {
     u32 uVar2;
-    u32 pos;
-    u32 pos2;
+    u32 tilePos;
     u16 centerY;
     u16 centerX;
     FORCE_REGISTER(u32 r2, r2);
@@ -423,10 +424,10 @@ bool32 sub_0803086C(ArmosEntity* this) {
             centerX = super->x.HALF_U.HI - gRoomControls.origin_x;
             centerY = super->y.HALF_U.HI - gRoomControls.origin_y;
             // TODO for some reason the 0x3f of COORD_TO_TILE(super) needs to be forced to r2 here.
-            pos = ((((((super)->x.HALF.HI) - gRoomControls.origin_x) >> 4) & (r2 = 0x3f)) |
-                   (((((super)->y.HALF.HI) - gRoomControls.origin_y) >> 4) & r2) << 6);
+            tilePos = ((((((super)->x.HALF.HI) - gRoomControls.origin_x) >> 4) & (r2 = 0x3f)) |
+                       (((((super)->y.HALF.HI) - gRoomControls.origin_y) >> 4) & r2) << 6);
 
-            if (GetTileType(pos, super->collisionLayer) == 0x4049) {
+            if (GetTileTypeAtTilePos(tilePos, super->collisionLayer) == SPECIAL_TILE_73) {
                 if (CheckPlayerInRegion(centerX, centerY, 2, 0xc) != 0) {
                     if (CheckPlayerInRegion(centerX, centerY - 4, 2, 4) != 0) {
                         gPlayerEntity.base.spritePriority.b0 = 3;
@@ -435,11 +436,11 @@ bool32 sub_0803086C(ArmosEntity* this) {
                         return TRUE;
                     }
                 } else {
-                    SetBottomTile(0x4022, pos, super->collisionLayer);
+                    SetTile(SPECIAL_TILE_34, tilePos, super->collisionLayer);
                 }
             } else {
                 if (CheckPlayerInRegion(centerX, centerY + 6, 2, 5) != 0) {
-                    SetBottomTile(0x4049, COORD_TO_TILE(super), super->collisionLayer);
+                    SetTile(SPECIAL_TILE_73, COORD_TO_TILE(super), super->collisionLayer);
                 }
             }
         }

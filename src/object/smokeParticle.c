@@ -6,6 +6,7 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 void SmokeParticle_Init(Entity*);
 void SmokeParticle_Action1(Entity*);
@@ -62,22 +63,22 @@ void sub_080878CC(Entity* this) {
     s32 itX;
     s32 itY;
     u32 layer;
-    u32 pos;
+    u32 tilePos;
 
     x = this->x.HALF.HI;
     y = this->y.HALF.HI;
     layer = this->collisionLayer;
     for (itX = -0x10; itX < 0x11; itX += 0x10) {
         for (itY = -0x10; itY < 0x11; itY += 0x10) {
-            pos = TILE((u32)x + itX, (u32)y + itY);
-            if (sub_080B1AE0(pos, (u8)layer) == 0x2e) {
-                switch (GetTileType(pos, layer)) {
+            tilePos = TILE((u32)x + itX, (u32)y + itY);
+            if (GetActTileAtTilePos(tilePos, (u8)layer) == ACT_TILE_46) {
+                switch (GetTileTypeAtTilePos(tilePos, layer)) {
                     case 0x368:
                     case 0x367:
                         DoTileInteraction(this, 3, x + itX, y + itY);
                         break;
                     default:
-                        SetBottomTile(0x4022, pos, layer);
+                        SetTile(SPECIAL_TILE_34, tilePos, layer);
                         break;
                 }
             } else {

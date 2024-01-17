@@ -10,6 +10,7 @@
 #include "functions.h"
 #include "player.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -105,7 +106,7 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
         0, -6, 6, 0, 0, 6, -6, 0,
     };
     PlayerItemHeldObjectEntity* child;
-    u32 tile;
+    u32 data;
     u32 tmp;
 
     child = (PlayerItemHeldObjectEntity*)super->child;
@@ -121,12 +122,12 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             super->direction = super->knockbackDirection;
             super->knockbackDuration = 0;
         }
-        if (GetActTileRelative(super, gUnk_081320C4[super->direction >> 2],
-                               gUnk_081320C4[(super->direction >> 2) + 1]) == 0x74) {
+        if (GetActTileRelativeToEntity(super, gUnk_081320C4[super->direction >> 2],
+                                       gUnk_081320C4[(super->direction >> 2) + 1]) == ACT_TILE_116) {
             LinearMoveUpdate(super);
         } else {
-            tile = sub_080B1B0C(super);
-            if ((tile != 0x24) && (tile != 0x26)) {
+            data = GetCollisionDataAtEntity(super);
+            if ((data != COLLISION_DATA_36) && (data != COLLISION_DATA_38)) {
                 ProcessMovement10(super);
             }
         }
@@ -135,27 +136,27 @@ void PlayerItemHeldObject_SubAction2(PlayerItemHeldObjectEntity* this) {
             (child->base).x = super->x;
             (child->base).y = super->y;
             (child->base).z = super->z;
-            tile = GetActTile(super);
-            switch (tile) {
-                case 0xd:
-                case 0x10:
-                case 0x11:
-                case 0x13:
-                case 0x5a:
+            data = GetActTileAtEntity(super);
+            switch (data) {
+                case ACT_TILE_13:
+                case ACT_TILE_16:
+                case ACT_TILE_17:
+                case ACT_TILE_19:
+                case ACT_TILE_90:
                     if (child == this) {
 
-                        switch (tile) {
-                            case 0xd:
+                        switch (data) {
+                            case ACT_TILE_13:
                                 CreateFx(super, FX_FALL_DOWN, 0);
                                 break;
-                            case 0x5a:
+                            case ACT_TILE_90:
                                 CreateFx(super, FX_LAVA_SPLASH, 0);
                                 break;
-                            case 0x10:
-                            case 0x11:
+                            case ACT_TILE_16:
+                            case ACT_TILE_17:
                                 CreateFx(super, FX_WATER_SPLASH, 0);
                                 break;
-                            case 0x13:
+                            case ACT_TILE_19:
                                 CreateFx(super, FX_GREEN_SPLASH, 0);
                                 break;
                         }

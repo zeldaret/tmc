@@ -11,6 +11,7 @@
 #include "object.h"
 #include "save.h"
 #include "sound.h"
+#include "tiles.h"
 
 void PlayerItemBottle_UseEmptyBottle(Entity*);
 void PlayerItemBottle_Action1(PlayerItemBottleEntity*);
@@ -279,7 +280,7 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
             if (this->spriteSettings.flipX != 0) {
                 iVar2 = -iVar2;
             }
-            if (GetActTileRelative(this, iVar2, (s8)ptr2[1]) == 0x10) {
+            if (GetActTileRelativeToEntity(this, iVar2, (s8)ptr2[1]) == ACT_TILE_16) {
                 this->type2 = ITEM_BOTTLE_WATER;
             }
         }

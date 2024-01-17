@@ -20,16 +20,16 @@ SCRIPT_START script_GuardTopRight
 	WaitForSyncFlagAndClear 0x00020000
 	SetAnimation 0x0014
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0208, 0x0098
+	MoveTo 0x0208, 0x0098
 	SetEntitySpeed 0x0040
-	_0807EEF4 0x0000, 0x0010
+	MoveToOffset 0x0000, 0x0010
 	SetAnimation 0x0013
 	SetSyncFlag 0x00040000
 	WaitForSyncFlagAndClear 0x00020000
 	DoPostScriptAction 0x000d
 	SetAnimation 0x0014
 	SetEntitySpeed 0x0020
-	_0807EEF4 0x0000, 0xfff0
+	MoveToOffset 0x0000, 0xfff0
 	SetAnimation 0x0013
 	DoPostScriptAction 0x0010
 	SetSyncFlag 0x00040000

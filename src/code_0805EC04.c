@@ -85,17 +85,17 @@ void UpdatePlayerInput(void) {
         if (playerInput->playerMacroWaiting == 0) { // Execute next macro entry.
             do {
                 flags = playerMacro->flags >> 0xe;
-                if (flags == 1)
+                if (flags == 1) // PLAYER_MACRO_JUMPTO
                     (u8*)playerMacro += ((s16)playerMacro->keys);
                 else {
-                    if (flags == 3) {
+                    if (flags == 3) { // PLAYER_MACRO_END
                         playerInput->playerMacroWaiting = 0;
                         playerInput->playerMacroHeldKeys = 0;
                         playerMacro = NULL;
                         playerInput->playerMacro = playerMacro;
                         break;
                     } else {
-                        if (flags != 2) {
+                        if (flags != 2) { // !PLAYER_MACRO_IGNORE
                             playerInput->playerMacroWaiting = playerMacro->flags;
                             playerInput->playerMacroHeldKeys = playerMacro->keys;
                         }
@@ -104,7 +104,6 @@ void UpdatePlayerInput(void) {
                         break;
                     }
                 }
-
             } while (TRUE);
         }
         playerInput->playerMacroWaiting--;

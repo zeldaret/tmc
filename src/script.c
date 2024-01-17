@@ -127,11 +127,11 @@ void ScriptCommand_WalkEast(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkSouth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EDD4(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EE04(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EEB4(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EEF4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MoveTo(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_LookAt(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MoveTowardsTarget(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MoveToPlayer(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* context);
@@ -424,7 +424,7 @@ void sub_0807DE80(Entity* entity) {
     sub_080042BA(entity, local1);
 }
 
-void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y) {
+void LookAt(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y) {
     static const u8 sDirectionTable[] = { 0, 0, 2, 2, 2, 2, 4, 4, 4, 4, 6, 6, 6, 6, 0, 0 };
     int direction;
     s32 xOffset, yOffset;
@@ -436,7 +436,7 @@ void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y)
     context->y.HALF.HI = y;
     xOffset = context->x.HALF.HI - entity->x.HALF.HI;
     yOffset = context->y.HALF.HI - entity->y.HALF.HI;
-    direction = CalcOffsetAngle(xOffset, yOffset);
+    direction = CalculateDirectionFromOffsets(xOffset, yOffset);
     entity->direction = direction;
     entity->animationState = (entity->animationState & 0x80) | sDirectionTable[(u8)direction >> 4];
 }
@@ -448,13 +448,13 @@ void DisablePauseMenuAndPutAwayItems(void) {
 }
 
 void DisablePauseMenu(void) {
-    gUnk_0200AF00.unk_1 = 0xff;
+    gHUD.hideFlags = HUD_HIDE_ALL;
     gPauseMenuOptions.disabled = 0xff;
 }
 
 void EnablePauseMenu(void) {
     gPauseMenuOptions.disabled = 0;
-    gUnk_0200AF00.unk_1 = 0;
+    gHUD.hideFlags = HUD_HIDE_NONE;
     RecoverUI(0, 0);
     ResetPlayerAnimationAndAction();
     PlayerDropHeldObject();
@@ -577,11 +577,11 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_WalkSouth,
         ScriptCommand_WalkWest,
         ScriptCommand_0807ED24,
-        ScriptCommand_0807EDD4,
-        ScriptCommand_0807EE04,
-        ScriptCommand_0807EE30,
-        ScriptCommand_0807EEB4,
-        ScriptCommand_0807EEF4,
+        ScriptCommand_MoveTo,
+        ScriptCommand_LookAt,
+        ScriptCommand_MoveTowardsTarget,
+        ScriptCommand_MoveToPlayer,
+        ScriptCommand_MoveToOffset,
         ScriptCommand_0807EF3C,
         ScriptCommand_DoPostScriptAction,
         ScriptCommand_DoPostScriptAction2,
@@ -1372,29 +1372,30 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
 }
 
 // player movement?
-void ScriptCommand_0807EDD4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MoveTo(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
-        ScriptCommand_0807EE04(entity, context);
+        ScriptCommand_LookAt(entity, context);
     }
-    ScriptCommand_0807EE30(entity, context);
+    ScriptCommand_MoveTowardsTarget(entity, context);
+    // Repeat this command until we are at the target.
     if (!context->condition) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
 
-void ScriptCommand_0807EE04(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807DEDC(entity, context, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
-                 context->scriptInstructionPointer[2] + gRoomControls.origin_y);
+void ScriptCommand_LookAt(Entity* entity, ScriptExecutionContext* context) {
+    LookAt(entity, context, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
+           context->scriptInstructionPointer[2] + gRoomControls.origin_y);
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MoveTowardsTarget(Entity* entity, ScriptExecutionContext* context) {
     s32 tmp, tmp2;
     if (!--context->unk_19) {
         context->unk_19 = 8;
-        entity->direction =
-            CalcOffsetAngle(context->x.HALF.HI - entity->x.HALF.HI, context->y.HALF.HI - entity->y.HALF.HI);
+        entity->direction = CalculateDirectionFromOffsets(context->x.HALF.HI - entity->x.HALF.HI,
+                                                          context->y.HALF.HI - entity->y.HALF.HI);
     }
     tmp = entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 = entity->y.HALF.HI - context->y.HALF.HI;
@@ -1410,24 +1411,26 @@ void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void ScriptCommand_0807EEB4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MoveToPlayer(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
-        sub_0807DEDC(entity, context, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
+        LookAt(entity, context, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
     }
-    ScriptCommand_0807EE30(entity, context);
+    ScriptCommand_MoveTowardsTarget(entity, context);
+    // Repeat this command until we are at the target.
     if (!context->condition) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
 
-void ScriptCommand_0807EEF4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MoveToOffset(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
-        sub_0807DEDC(entity, context, entity->x.HALF.HI + ((s16)context->scriptInstructionPointer[1]),
-                     entity->y.HALF.HI + ((s16)context->scriptInstructionPointer[2]));
+        LookAt(entity, context, entity->x.HALF.HI + ((s16)context->scriptInstructionPointer[1]),
+               entity->y.HALF.HI + ((s16)context->scriptInstructionPointer[2]));
     }
-    ScriptCommand_0807EE30(entity, context);
+    ScriptCommand_MoveTowardsTarget(entity, context);
+    // Repeat this command until we are at the target.
     if (!context->condition) {
         gActiveScriptInfo.commandSize = 0;
     }
@@ -1578,7 +1581,7 @@ void sub_0807F190(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807DEDC(entity, context, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
+    LookAt(entity, context, gPlayerEntity.base.x.HALF.HI, gPlayerEntity.base.y.HALF.HI);
     gActiveScriptInfo.flags |= 1;
 }
 

@@ -4,17 +4,16 @@
  *
  * @brief Leever enemy
  */
+#include "asm.h"
 #include "enemy.h"
 #include "physics.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unused1[12];
     /*0x74*/ u16 unk_74;
 } LeeverEntity;
-
-extern u32 sub_080B1B18(s32, s32, u32);
-extern u32 sub_080B1AB4(s32, s32, u32);
 
 extern Entity* gUnk_020000B0;
 
@@ -126,23 +125,23 @@ void Leever_DigDown(LeeverEntity* this) {
     }
 }
 
-u32 sub_0801FDE4(Entity* entity, s32 x, s32 y) {
-    u32 uVar3;
+bool32 sub_0801FDE4(Entity* entity, s32 x, s32 y) {
+    u32 actTile;
     const u16* puVar4;
 
-    if (sub_080B1B18(x, y, gUnk_020000B0->collisionLayer) != 0) {
-        return 0;
+    if (GetCollisionDataAtWorldCoords(x, y, gUnk_020000B0->collisionLayer) != 0) {
+        return FALSE;
     } else {
-        uVar3 = sub_080B1AB4(x, y, gUnk_020000B0->collisionLayer);
+        actTile = GetActTileAtWorldCoords(x, y, gUnk_020000B0->collisionLayer);
         for (puVar4 = gUnk_080CA4CA; *puVar4 != (u16)-1;) {
-            if (*puVar4++ == uVar3) {
+            if (*puVar4++ == actTile) {
                 entity->x.HALF.HI = (x & 0xfff0) + 8;
                 entity->y.HALF.HI = (y & 0xfff0) + 8;
                 entity->collisionLayer = gUnk_020000B0->collisionLayer;
-                return 1;
+                return TRUE;
             }
         }
-        return 0;
+        return FALSE;
     }
 }
 
@@ -212,10 +211,10 @@ const s8 gLeeverDrift[] = {
 };
 
 const u16 gUnk_080CA4CA[] = {
-    0x000A,
-    0x0009,
-    0x000C,
-    0x000B,
+    ACT_TILE_10,
+    ACT_TILE_9,
+    ACT_TILE_12,
+    ACT_TILE_11,
     0xFFFF,
 };
 // clang-format on

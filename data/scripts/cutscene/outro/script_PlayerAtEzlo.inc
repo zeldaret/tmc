@@ -3,7 +3,7 @@ SCRIPT_START script_PlayerAtEzlo
 	BeginBlock
 	SetEntitySpeed 0x0100
 	EndBlock
-	_0807EDD4 0x0088, 0x0080
+	MoveTo 0x0088, 0x0080
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001

@@ -64,13 +64,14 @@ typedef struct {
     u8 pauseFrames;   /**< Number of frames to pause. */
     u8 pauseCount;    /**< Number of pauses to make. */
     u8 pauseInterval; /**< Number of frames to play between each pause. */
-    u8 pad;
-    u16 ticks; /**< Current time. */
+    u8 pad;           // TODO actually used in CopyOAM()
+    u16 ticks;        /**< Current time. */
 } Main;
 
 /**
  * HUD structure.
  */
+// TODO Rather a structure more generally about gfx?
 typedef struct {
     /*0x000*/ u8 nextToLoad;
     /*0x001*/ u8 _1;
@@ -78,7 +79,7 @@ typedef struct {
     /*0x003*/ u8 field_0x3;
     /*0x004*/ u8 state;
     /*0x005*/ u8 field_0x5;
-    /*0x006*/ u8 field_0x6;
+    /*0x006*/ bool8 loadGfxOnRestore; // used in Subtask_FadeOut to determine the loadGfx parameter of RestoreGameTask.
     /*0x007*/ u8 pauseFadeIn;
     /*0x008*/ u16 fadeType;
     /*0x00A*/ u16 fadeInTime;

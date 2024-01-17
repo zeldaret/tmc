@@ -57,14 +57,12 @@ void Subtask_PauseMenu(void) {
     }
 }
 
-struct_08127F94* sub_080A6A80(u32, u32);
-
 extern u8 gUnk_02034492[];
 void UpdateVisibleFusionMapMarkers(void);
 s32 sub_080A50A0(s32);
 
 void PauseMenu_Variant0(void) {
-    struct_08127F94* ptr;
+    const OverworldLocation* location;
     int r0, r1;
 
     UpdateVisibleFusionMapMarkers();
@@ -74,9 +72,9 @@ void PauseMenu_Variant0(void) {
         gUnk_02034492[r1] = 0;
         r1++;
     } while (r1 <= 0xd);
-    ptr = sub_080A6A80((u16)gRoomTransition.player_status.overworld_map_x,
-                       (u16)gRoomTransition.player_status.overworld_map_y);
-    gPauseMenuOptions.unk2[4] = ptr->_4;
+    location = GetOverworldLocation((u16)gRoomTransition.player_status.overworld_map_x,
+                                    (u16)gRoomTransition.player_status.overworld_map_y);
+    gPauseMenuOptions.unk2[4] = location->windcrestId;
     gPauseMenuOptions.unk2[5] = sub_0801DB94();
     if (IsItemEquipped(ITEM_LANTERN_ON) != EQUIP_SLOT_NONE) {
         r1 = 0x10;
@@ -582,9 +580,8 @@ extern u32 gUnk_085C4620[];
 extern void (*const gUnk_08128D58[])(void);
 extern KeyButtonLayout gUnk_08128D60;
 
-void sub_080A5D1C();
+void DrawDungeonMapActually();
 void sub_080A5CFC(u32, void*, u32);
-void sub_080A6FB4(u32, u32);
 void DrawDungeonFeatures(u32, void*, u32);
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -766,13 +763,13 @@ void sub_080A56A0(void) {
         case 0:
         case 2:
             if (gGenericMenu.unk10.a[gMenu.field_0x3] != 0) {
-                gUnk_0200AF00.buttonY[0] = 0x10;
+                gHUD.buttonY[0] = 0x10;
             } else {
-                gUnk_0200AF00.buttonY[0] = 0xfff0;
+                gHUD.buttonY[0] = 0xfff0;
             }
             break;
         default:
-            gUnk_0200AF00.buttonY[0] = 0xfff0;
+            gHUD.buttonY[0] = 0xfff0;
             break;
     }
 
@@ -1064,17 +1061,19 @@ void sub_080A5BB8(void) {
 
 void PauseMenu_Screen_5(void) {
     extern void (*const gUnk_08128D30[])(void);
-    u32 uVar1;
-    u32 temp;
+    u32 paletteColor;
+    u32 ticks;
 
     gUnk_08128D30[gMenu.menuType]();
-    sub_080A5D1C();
-    temp = gMain.ticks;
-    if ((temp & 7) == 0) {
-        uVar1 = *gUnk_02017830;
-        MemCopy(gUnk_02017830 + 1, gUnk_02017830, 0xe);
-        gUnk_02017830[7] = uVar1;
-        gUsedPalettes |= 0x1000;
+    DrawDungeonMapActually();
+    ticks = gMain.ticks;
+    // TODO gUnk_02017830 is gPaletteBuffer[200]
+    if ((ticks & 7) == 0) {
+        // Rotate these 8 palette colors.
+        paletteColor = *gUnk_02017830;
+        MemCopy(gUnk_02017830 + 1, gUnk_02017830, 7 * 2);
+        gUnk_02017830[7] = paletteColor;
+        gUsedPalettes |= 1 << 12;
     }
 }
 
@@ -1083,7 +1082,7 @@ void sub_080A5C44(u32 param_1, u32 param_2, u32 param_3) {
     gMenu.field_0xc = gUnk_08128D38;
     sub_080A5CFC(gMenu.field_0x3, &gMenu, param_3);
     LoadGfxGroup(0x81);
-    sub_080A6FB4(gArea.dungeon_idx, 1);
+    ShowAreaName(gArea.dungeon_idx, 1);
     SetMenuType(1);
     ptr = &gUnk_08128D43[(u32)gArea.dungeon_idx * 2];
     gScreen.bg1.xOffset += ptr[0];
@@ -1092,10 +1091,10 @@ void sub_080A5C44(u32 param_1, u32 param_2, u32 param_3) {
 
 void sub_080A5C9C(void) {
     s32 newChoice;
-    const struct_080C9C6C* ptr;
+    const DungeonFloorMetadata* floorMetadata;
 
     if (sub_080A51F4()) {
-        ptr = &gUnk_080C9C6C[gArea.dungeon_idx];
+        floorMetadata = &gDungeonFloorMetadatas[gArea.dungeon_idx];
         newChoice = gMenu.field_0x3;
         switch (gInput.newKeys) {
             case DPAD_UP:
@@ -1104,7 +1103,7 @@ void sub_080A5C9C(void) {
                 }
                 break;
             case DPAD_DOWN:
-                if (ptr->unk_0 - 1 > newChoice) {
+                if (floorMetadata->numFloors - 1 > newChoice) {
                     newChoice++;
                 }
                 break;
@@ -1130,7 +1129,7 @@ void sub_080A5CFC(u32 menuType, void* param_2, u32 param_3) {
 #endif
 
 // Actually draw the sprites for the dungeon map.
-void sub_080A5D1C(void) {
+void DrawDungeonMapActually(void) {
     extern u8 gUnk_08128D3C[];
     u32 bVar1;
     int frameIndex;
@@ -1138,10 +1137,10 @@ void sub_080A5D1C(void) {
     u32 uVar6;
     u32 index;
     u8* puVar8;
-    const struct_080C9C6C* pbVar9;
+    const DungeonFloorMetadata* pbVar9;
 
-    pbVar9 = &gUnk_080C9C6C[gArea.dungeon_idx];
-    bVar1 = gUnk_08128D3C[pbVar9->unk_0];
+    pbVar9 = &gDungeonFloorMetadatas[gArea.dungeon_idx];
+    bVar1 = gUnk_08128D3C[pbVar9->numFloors];
     uVar4 = sub_0801DB94();
     gOamCmd._4 = 0x400;
     gOamCmd._6 = 0;
@@ -1172,7 +1171,7 @@ void sub_080A5D1C(void) {
         if (sub_080A5F24()) {
             gOamCmd._8 = 0;
             gOamCmd.x = 0x46;
-            gOamCmd.y = bVar1 + (pbVar9->unk_1 - pbVar9->unk_2) * 0xc;
+            gOamCmd.y = bVar1 + (pbVar9->highestFloor - pbVar9->unk_2) * 0xc;
             if ((gMain.ticks & 0x20) != 0) {
                 uVar6 = 0x7a;
             } else {
@@ -1184,9 +1183,10 @@ void sub_080A5D1C(void) {
     gOamCmd._8 = 0;
     gOamCmd.x = 0x34;
     gOamCmd.y = bVar1;
-    frameIndex = pbVar9->unk_1 + 0x82;
+    frameIndex = pbVar9->highestFloor + 0x82;
 
-    for (index = 0; index < pbVar9->unk_0; index++) {
+    // Floor number sprites?
+    for (index = 0; index < pbVar9->numFloors; index++) {
         DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
         frameIndex--;
         gOamCmd.y = gOamCmd.y + 0xc;
@@ -1460,7 +1460,7 @@ void sub_080A62E0(void) {
         gMenu.field_0x3 = windcrest;
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
-    sub_080A6FB4(gMenu.field_0x3, 0);
+    ShowAreaName(gMenu.field_0x3, 0);
 }
 
 void sub_080A6378(void) {

@@ -9,7 +9,7 @@ SCRIPT_START script_PlayerGetElement
 	PlayBgm BGM_ELEMENT_THEME
 	Call sub_080A0464
 script_0800A0D2:
-	_0807EE30
+	MoveTowardsTarget
 	JumpIfNot script_0800A0D2
 	_0807E8E4_0
 	Wait 0x0008

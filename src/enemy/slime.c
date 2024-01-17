@@ -143,21 +143,21 @@ void sub_080450A8(SlimeEntity* this) {
     DeleteEntity(super);
 }
 
-void sub_08045178(SlimeEntity* this, Entity* child, int h, int v) {
+void sub_08045178(SlimeEntity* this, Entity* child, int offsetX, int offsetY) {
     int x, y;
 
     if (child == NULL)
         return;
 
     EnemyCopyParams(super, child);
-    if (sub_080B1AF0(child, h, v))
+    if (GetCollisionDataRelativeTo(child, offsetX, offsetY))
         return;
 
-    x = child->x.HALF.HI + h;
+    x = child->x.HALF.HI + offsetX;
     if (0 <= x && x < (gRoomControls.origin_x + gRoomControls.width))
         child->x.HALF.HI = x;
 
-    y = child->y.HALF.HI + v;
+    y = child->y.HALF.HI + offsetY;
     if (0 <= y && y < (gRoomControls.origin_y + gRoomControls.height))
         child->y.HALF.HI = y;
 }

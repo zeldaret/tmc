@@ -62,26 +62,30 @@ void sub_080A6F6C(u32 textIndexOrPtr) {
     gScreen.bg0.yOffset = 2;
 }
 
-void sub_080A6FB4(WindcrestID windcrest, u32 param_2) {
-    extern u16 gUnk_08128FF0[];
+/*
+Show area name in a textbox.
+param_2:    0: visited overworld area name
+            2: overworld area name
+            1: dungeon name
+*/
+void ShowAreaName(WindcrestID windcrest, u32 type) {
+    extern u16 gDungeonNames[];
     extern Font gUnk_08128FD8;
     extern Font gUnk_08128FC0;
     u32 textIndexOrPtr;
     Font* font;
 
     textIndexOrPtr = 0;
-    switch (param_2) {
+    switch (type) {
         case 0:
             if (!IS_BIT_SET(gSave.windcrests, windcrest))
                 break;
         case 2:
-            // TODO this probably references later data with index param_1-24
-            textIndexOrPtr = gUnk_08127F94[windcrest]._6;
+            textIndexOrPtr = gOverworldLocations[windcrest].textIndex;
             font = &gUnk_08128FC0;
             break;
         case 1:
-            // TODO this probably references later data with index param_1-24
-            textIndexOrPtr = gUnk_08128FF0[windcrest];
+            textIndexOrPtr = gDungeonNames[windcrest];
             font = &gUnk_08128FD8;
             break;
         default:
@@ -114,18 +118,18 @@ void sub_080A7040(u32 param_1) {
 }
 
 void sub_080A70AC(const KeyButtonLayout* layout) {
-    MemClear(&gUnk_0200AF00.elements, 0x300);
-    gUnk_0200AF00.unk_13 = 0x7f;
-    gUnk_0200AF00.unk_14 = 0x7f;
-    gUnk_0200AF00.buttonX[0] = layout->aButtonX;
-    gUnk_0200AF00.buttonY[0] = (s8)layout->aButtonY;
-    gUnk_0200AF00.buttonText[0] = layout->aButtonText;
-    gUnk_0200AF00.buttonX[1] = layout->bButtonX;
-    gUnk_0200AF00.buttonY[1] = (s8)layout->bButtonY;
-    gUnk_0200AF00.buttonText[1] = layout->bButtonText;
-    gUnk_0200AF00.buttonX[2] = layout->rButtonX;
-    gUnk_0200AF00.buttonY[2] = (s8)layout->rButtonY;
-    gUnk_0200AF00.buttonText[2] = layout->rButtonText;
+    MemClear(&gHUD.elements, 0x300);
+    gHUD.unk_13 = 0x7f;
+    gHUD.unk_14 = 0x7f;
+    gHUD.buttonX[0] = layout->aButtonX;
+    gHUD.buttonY[0] = (s8)layout->aButtonY;
+    gHUD.buttonText[0] = layout->aButtonText;
+    gHUD.buttonX[1] = layout->bButtonX;
+    gHUD.buttonY[1] = (s8)layout->bButtonY;
+    gHUD.buttonText[1] = layout->bButtonText;
+    gHUD.buttonX[2] = layout->rButtonX;
+    gHUD.buttonY[2] = (s8)layout->rButtonY;
+    gHUD.buttonText[2] = layout->rButtonText;
     layout++;
     do {
         CreateUIElement(layout->aButtonX, layout->aButtonY);
@@ -154,7 +158,7 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
         gUI.field_0x5 = param_2;
         gUI.nextToLoad = 1; // Subtask_Init
     }
-    gUI.field_0x6 = 0;
+    gUI.loadGfxOnRestore = FALSE;
     gUI.fadeType = -1;
     gUI.fadeInTime = 0x20;
     gMain.substate = GAMEMAIN_SUBTASK;
@@ -259,7 +263,7 @@ void Subtask_FadeOut(void) {
         MemCopy(&gUnk_03001020, &gScreen, sizeof(Screen));
         gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
         gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        RestoreGameTask(gUI.field_0x6);
+        RestoreGameTask(gUI.loadGfxOnRestore);
         sub_0801D000(gUI.unk_d != 0);
         sub_080A74F4();
         if (gUI.fadeType != 0xffff) {

@@ -8,6 +8,6 @@ typedef struct {
     u8 field_0x20;
     u8 field_0x21;
     u8 field_0x22;
-} HyruleTownTilesetManager;
+} HyruleTownTileSetManager;
 
 #endif // HYRULETOWNTILESETMANAGER_H

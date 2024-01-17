@@ -117,5 +117,5 @@ void sub_0809F448(Entity* this) {
             break;
     }
     this->speed = (tmp > 0 ? tmp : -tmp) / (tmp2->unk_1 << 8);
-    this->direction = CalcOffsetAngle(tmp, 0) >> 3;
+    this->direction = CalculateDirectionFromOffsets(tmp, 0) >> 3;
 }

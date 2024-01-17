@@ -12,6 +12,7 @@
 #include "message.h"
 #include "object.h"
 #include "screen.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -305,9 +306,9 @@ void sub_08087F58(FigurineDeviceEntity* this) {
     switch (super->type) {
         case 0:
         case 1:
-            SetBottomTile(0x4022, this->unk_78 - 1, 1);
-            SetBottomTile(0x4022, this->unk_78, 1);
-            SetBottomTile(0x4022, this->unk_78 + 1, 1);
+            SetTile(SPECIAL_TILE_34, this->unk_78 - 1, LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, this->unk_78, LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, this->unk_78 + 1, LAYER_BOTTOM);
             break;
     }
 }

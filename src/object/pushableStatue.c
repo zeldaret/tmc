@@ -4,9 +4,11 @@
  *
  * @brief Pushable Statue object
  */
+#include "area.h"
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -28,7 +30,7 @@ extern const u16 gUnk_08120CBC[];
 extern const u16 gUnk_08120CCC[];
 extern const u16 gUnk_08120D6C[];
 
-u32 sub_0808968C(u32);
+u32 sub_0808968C(u32 tileType);
 bool32 sub_0808965C(PushableStatueEntity*);
 void sub_08089454(PushableStatueEntity*);
 void sub_080894C8(PushableStatueEntity*);
@@ -60,8 +62,8 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
     Entity* obj;
 
     if (sub_0800442E(super) == 0) {
-        tileType = GetTileType(this->unk_84, super->collisionLayer);
-        if (tileType != 0x400b) {
+        tileType = GetTileTypeAtTilePos(this->unk_84, super->collisionLayer);
+        if (tileType != SPECIAL_TILE_11) {
             switch (sub_0808968C(tileType)) {
                 case 1:
                     super->action = 3;
@@ -108,8 +110,8 @@ void PushableStatue_SubAction0(PushableStatueEntity* this) {
         ptr = &gUnk_08120CB4[index];
         PositionRelative(super, &gPlayerEntity.base, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
     }
-    tileType = GetTileType(this->unk_84, super->collisionLayer);
-    if (tileType != 0x400b) {
+    tileType = GetTileTypeAtTilePos(this->unk_84, super->collisionLayer);
+    if (tileType != SPECIAL_TILE_11) {
         switch (sub_0808968C(tileType)) {
             case 1:
                 super->direction = DirectionFromAnimationState((tileType - 0xc) & 3);
@@ -155,7 +157,7 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
     } else {
         super->spriteSettings.draw = 1;
         super->action = 1;
-        SetBottomTile(0x400b, this->unk_84, super->collisionLayer);
+        SetTile(SPECIAL_TILE_11, this->unk_84, super->collisionLayer);
         sub_080894C8(this);
     }
 }
@@ -163,9 +165,9 @@ void PushableStatue_Action4(PushableStatueEntity* this) {
 void sub_08089454(PushableStatueEntity* this) {
     this->unk_84 = COORD_TO_TILE(super);
     this->unk_80 = GetTileIndex(this->unk_84, super->collisionLayer);
-    SetBottomTile(0x400b, this->unk_84, super->collisionLayer);
-    if (super->collisionLayer == 2 && GetTileType(this->unk_84, 1) == 0x310) {
-        SetBottomTile(0x400b, this->unk_84, 1);
+    SetTile(SPECIAL_TILE_11, this->unk_84, super->collisionLayer);
+    if (super->collisionLayer == 2 && GetTileTypeAtTilePos(this->unk_84, 1) == 0x310) {
+        SetTile(SPECIAL_TILE_11, this->unk_84, LAYER_BOTTOM);
     }
 }
 
@@ -194,29 +196,29 @@ void sub_08089538(PushableStatueEntity* this) {
     u16 tileType;
     this->unk_86 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetBottomTile(this->unk_80, this->unk_84, super->collisionLayer);
-    if ((super->collisionLayer == 2) && (GetTileType(this->unk_84, 1) == 0x400b)) {
-        CloneTile(0x310, this->unk_84, 1);
+    SetTile(this->unk_80, this->unk_84, super->collisionLayer);
+    if ((super->collisionLayer == 2) && (GetTileTypeAtTilePos(this->unk_84, LAYER_BOTTOM) == SPECIAL_TILE_11)) {
+        CloneTile(TILE_TYPE_784, this->unk_84, 1);
     }
-    tileType = GetTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
-    if ((tileType == 0x79) || (tileType == 0x77)) {
+    tileType = GetTileTypeAtTilePos(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
+    if ((tileType == TILE_TYPE_121) || (tileType == TILE_TYPE_119)) {
         super->spriteOffsetY = -2;
     }
 }
 
 bool32 sub_080895C0(PushableStatueEntity* this) {
-    Entity* obj;
+    Entity* rockFx;
 
     LinearMoveUpdate(super);
     if ((--this->unk_86 == 0) && (sub_0800442E(super) == 0)) {
         super->spriteOffsetY = 0;
-        if (!sub_080B1B0C(super)) {
+        if (GetCollisionDataAtEntity(super) == 0) {
             sub_08089454(this);
             return TRUE;
         }
-        obj = CreateObject(SPECIAL_FX, FX_ROCK, 0);
-        if (obj != NULL) {
-            CopyPosition(super, obj);
+        rockFx = CreateObject(SPECIAL_FX, FX_ROCK, 0);
+        if (rockFx != NULL) {
+            CopyPosition(super, rockFx);
         }
         super->spriteSettings.draw = 0;
         super->x.HALF.HI += gUnk_08120CBC[super->direction >> 2];
@@ -230,18 +232,18 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
 }
 
 bool32 sub_0808965C(PushableStatueEntity* this) {
-    if (gRoomControls.area < 0x40) {
-        return LoadFixedGFX(super, 0xe9);
+    if (gRoomControls.area < AREA_40) {
+        return LoadFixedGFX(super, 233);
     } else {
-        return LoadFixedGFX(super, gUnk_08120CCC[gRoomControls.area - 0x40]);
+        return LoadFixedGFX(super, gUnk_08120CCC[gRoomControls.area - AREA_40]);
     }
 }
 
-u32 sub_0808968C(u32 param_1) {
+u32 sub_0808968C(u32 tileType) {
     const u16* it;
 
     for (it = gUnk_08120D6C; *it != 0; it += 2) {
-        if (*it == param_1) {
+        if (*it == tileType) {
             return it[1];
         }
     }
@@ -251,23 +253,23 @@ u32 sub_0808968C(u32 param_1) {
 bool32 sub_080896B0(void) {
     s16 uVar1;
     s16 iVar2;
-    LayerStruct* layer;
+    MapLayer* mapLayer;
     s32 uVar4;
     const s16* ptr;
     u32 tmp1;
     u32 tmp2;
-    u32 val;
+    u32 actTile;
 
     if (((gPlayerState.heldObject & 0x1f) == 0x12) && ((gPlayerEntity.base.frame & 1) != 0)) {
         ptr = &gUnk_080B4468[gPlayerEntity.base.animationState & 6];
         uVar1 = gUnk_080B4488[gPlayerEntity.base.animationState >> 1];
         uVar4 = COORD_TO_TILE_OFFSET(&gPlayerEntity.base, -ptr[0], -ptr[1]) - uVar1;
-        val = sub_080B1AE0(uVar4, gPlayerEntity.base.collisionLayer);
-        if ((val - 0x26 > 1) && (val != 0x29)) {
-            layer = GetTileBuffer(gPlayerEntity.base.collisionLayer);
+        actTile = GetActTileAtTilePos(uVar4, gPlayerEntity.base.collisionLayer);
+        if ((actTile - 0x26 > 1) && (actTile != ACT_TILE_41)) {
+            mapLayer = GetLayerByIndex(gPlayerEntity.base.collisionLayer);
             iVar2 = (uVar4 * 0x10000) >> 0x10;
-            tmp1 = layer->collisionData[iVar2];
-            tmp2 = layer->collisionData[(iVar2 - uVar1)];
+            tmp1 = mapLayer->collisionData[iVar2];
+            tmp2 = mapLayer->collisionData[(iVar2 - uVar1)];
             if ((tmp1 == 0) && (tmp2 == 0)) {
                 return TRUE;
             }
@@ -295,5 +297,17 @@ const u16 gUnk_08120CCC[] = {
     78, 78, 79, 79, 79, 79, 79, 79, 79, 79, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 81, 81,
 };
 const u16 gUnk_08120D6C[] = {
-    0x400c, 1, 0x400d, 1, 0x400e, 1, 0x400f, 1, 0x7a, 2, 0x78, 2, 0,
+    SPECIAL_TILE_12,
+    1,
+    SPECIAL_TILE_13,
+    1,
+    SPECIAL_TILE_14,
+    1,
+    SPECIAL_TILE_15,
+    1,
+    TILE_TYPE_122,
+    2,
+    TILE_TYPE_120,
+    2,
+    0,
 };

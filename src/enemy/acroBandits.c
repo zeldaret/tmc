@@ -190,11 +190,11 @@ void AcroBandit_Type0Action1(AcroBanditEntity* this) {
     if (super->timer != 0) {
         super->timer--;
     } else {
-        if (sub_08049FDC(super, 1)) {
+        if (sub_08049FDC(super, 1) != 0) {
             rand = Random();
             x = this->unk_74.HWORD + ((s32)rand % 5) * 0x10 - 0x20;
             y = this->unk_76.HWORD + ((s32)(rand >> 4) % 5) * 0x10 - 0x20;
-            if (sub_080B1B18(x, y, super->collisionLayer) == 0) {
+            if (GetCollisionDataAtWorldCoords(x, y, super->collisionLayer) == 0) {
                 super->action = 2;
                 super->spriteSettings.draw = 1;
                 super->x.HALF.HI = x;

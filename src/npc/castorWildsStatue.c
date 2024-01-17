@@ -11,6 +11,8 @@
 #include "npc.h"
 #include "script.h"
 #include "sound.h"
+#include "tiles.h"
+
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unused[12];
@@ -78,20 +80,20 @@ void sub_08067418(CastorWildsStatueEntity* this) {
     this->tilePos = COORD_TO_TILE(super);
     if (super->type == 0) {
         super->hitbox = (Hitbox*)&gUnk_08110E94;
-        SetBottomTile(0x4022, this->tilePos - 1, super->collisionLayer);
-        SetBottomTile(0x4022, this->tilePos, super->collisionLayer);
-        SetBottomTile(0x4022, this->tilePos + 0x3f, super->collisionLayer);
-        SetBottomTile(0x4022, this->tilePos + 0x40, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, this->tilePos - 1, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, this->tilePos, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, this->tilePos + 0x3f, super->collisionLayer);
+        SetTile(SPECIAL_TILE_34, this->tilePos + 0x40, super->collisionLayer);
     } else {
         super->collisionLayer = 3;
         super->spriteOrientation.flipY = 1;
         super->spriteRendering.b3 = 1;
         super->spritePriority.b0 = 2;
         if (CheckLocalFlag(HIKYOU_00_SEKIZOU) == 0) {
-            SetBottomTile(0x4022, 0xe81, 1);
-            SetBottomTile(0x4022, 0xe82, 1);
-            SetBottomTile(0x4022, 0xe83, 1);
-            SetBottomTile(0x4022, 0xec3, 1);
+            SetTile(SPECIAL_TILE_34, TILE_POS(1, 58), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, TILE_POS(2, 58), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, TILE_POS(3, 58), LAYER_BOTTOM);
+            SetTile(SPECIAL_TILE_34, TILE_POS(3, 59), LAYER_BOTTOM);
         }
     }
     InitScriptForNPC(super);

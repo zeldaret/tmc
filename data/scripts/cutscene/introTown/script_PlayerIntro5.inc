@@ -10,7 +10,7 @@ script_0800FAFC:
 script_0800FB06:
 	CallWithArg sub_0807F464, 0x000000e8
 script_0800FB10:
-	_0807EDD4 0x00e8, 0x0270
+	MoveTo 0x00e8, 0x0270
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001

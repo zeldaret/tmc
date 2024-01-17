@@ -222,7 +222,7 @@ typedef struct Entity_ {
     /*0x24*/ s16 speed;     /**< Magnitude of speed. */
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ SpritePriority spritePriority;
-    /*0x2a*/ u16 collisions;    /**< Collision flags for each direction. */
+    /*0x2a*/ u16 collisions;    /**< Collision flags for each direction. @see Collisions*/
     /*0x2c*/ union SplitWord x; /**< X position, fixed point Q16.16. */
     /*0x30*/ union SplitWord y; /**< Y position, fixed point Q16.16. */
     /*0x34*/ union SplitWord z; /**< Z position, fixed point Q16.16. */
@@ -558,6 +558,8 @@ extern u8 gManagerCount;
 
 /** @name Tile Macros */ /// @{
 #define TILE(x, y) (((((x)-gRoomControls.origin_x) >> 4) & 0x3F) | ((((y)-gRoomControls.origin_y) >> 4) & 0x3F) << 6)
+// Calculate tilePos from x and y coordinates where x and y are already relative to the current room.
+#define TILE_LOCAL(x, y) ((((x) >> 4) & 0x3F) | (((y) >> 4) & 0x3F) << 6)
 #define TILE_POS(x, y) (x + (y << 6))
 #define TILE_POS_X_COMPONENT 0x3f
 #define TILE_POS_Y_COMPONENT 0xfc0

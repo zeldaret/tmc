@@ -24,6 +24,7 @@
 #include "screen.h"
 #include "screenTransitions.h"
 #include "sound.h"
+#include "tiles.h"
 
 #define kGravityRate Q_8_8(32)
 #define kWalkSpeedSlopeSubtractor Q_8_8(0.3125)
@@ -1831,7 +1832,7 @@ static void PlayerPull(PlayerEntity* this) {
 
     gPlayerState.framestate = PL_STATE_PULL;
     sPlayerPullStates[super->subAction](this);
-    gUnk_0200AF00.rActionGrabbing = R_ACTION_GRAB;
+    gHUD.rActionGrabbing = R_ACTION_GRAB;
 }
 
 static void sub_08072214(PlayerEntity* this) {
@@ -1975,7 +1976,7 @@ static void PlayerRoomTransition(PlayerEntity* this) {
 static void sub_080724DC(PlayerEntity* this) {
     super->knockbackDuration = 0;
     DeleteClones();
-    if (GetActTile(super) != 0x29) {
+    if (GetActTileAtEntity(super) != ACT_TILE_41) {
         if ((gPlayerState.remainingDiveTime == 0) && (gPlayerState.swim_state != 0)) {
             PlayerUpdateSwimming(super);
         }
@@ -2001,7 +2002,7 @@ static void sub_080724DC(PlayerEntity* this) {
 
 static void sub_0807258C(PlayerEntity* this) {
     if (gRoomControls.reload_flags == 0) {
-        if (GetCollisionTileInFront(super) == 0x29) {
+        if (GetActTileInFront(super) == ACT_TILE_41) {
             UpdatePlayerMovement();
             if (sub_080797C4() != 0) {
                 gPlayerState.startPosX = gPlayerEntity.base.x.HALF.HI;
@@ -2190,11 +2191,11 @@ static void PlayerInHoleInit(PlayerEntity* this) {
             gPlayerState.animation = ANIM_FALL_IN_HOLE_NOCAP;
         } else {
             gPlayerState.animation = ANIM_FALL_IN_HOLE;
-            if (GetTileIndex(COORD_TO_TILE(super), super->collisionLayer) == 0x4020) {
+            if (GetTileIndex(COORD_TO_TILE(super), super->collisionLayer) == SPECIAL_TILE_32) {
                 super->timer = 1;
             }
         }
-        SetBottomTile(0x4070, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_112, COORD_TO_TILE(super), super->collisionLayer);
         ResetActiveItems();
         PlayerInHoleUpdate(this);
         SoundReq(SFX_81);
@@ -2251,7 +2252,7 @@ static void sub_08072B5C(PlayerEntity* this) {
         return;
     }
 
-    SetBottomTile(0x4021, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_33, COORD_TO_TILE(super), super->collisionLayer);
     super->direction = Direction8FromAnimationState(super->animationState);
     temp = sub_0807A2F8(1);
     if (!temp) {
@@ -2340,15 +2341,21 @@ static void sub_08072CFC(PlayerEntity* this) {
     ResetActiveItems();
 }
 
-static const u16 sTiles[] = {
-    0x1AD, 1, 0, 0x1AE, 1, 0, 0x1AC, 1, 0, 0x1AF, 1, 0,
-};
+// TODO Why would this use FindValueForKey just to do a normal comparison?
+static const KeyValuePair sTiles0 = { 0x1AD, 1 };
+static const u16 sTiles0End = 0;
+static const KeyValuePair sTiles1 = { 0x1AE, 1 };
+static const u16 sTiles1End = 0;
+static const KeyValuePair sTiles2 = { 0x1AC, 1 };
+static const u16 sTiles2End = 0;
+static const KeyValuePair sTiles3 = { 0x1AF, 1 };
+static const u16 sTiles3End = 0;
 
-static const u16* const sTileTable[] = {
-    sTiles,
-    sTiles + 3,
-    sTiles + 6,
-    sTiles + 9,
+static const KeyValuePair* const sTileTable[] = {
+    &sTiles0,
+    &sTiles1,
+    &sTiles2,
+    &sTiles3,
 };
 
 static void sub_08072D54(PlayerEntity* this) {
@@ -2360,16 +2367,16 @@ static void sub_08072D54(PlayerEntity* this) {
         LinearMoveUpdate(super);
         super->timer--;
     } else {
-        uVar2 = GetTileType(sub_0806F730(super), super->collisionLayer);
+        uVar2 = GetTileTypeAtTilePos(sub_0806F730(super), super->collisionLayer);
         switch (super->subtimer) {
             case 0:
-                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
                     super->timer = 1;
                     super->subtimer = 1;
                 }
                 break;
             case 1:
-                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
                     super->timer = 1;
                 } else {
                     super->subtimer = 2;
@@ -2377,7 +2384,7 @@ static void sub_08072D54(PlayerEntity* this) {
                 break;
             case 2:
                 super->animationState ^= 4;
-                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1]) != 0) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1]) != 0) {
                     super->timer = 1;
                     super->subtimer = 3;
                 }
@@ -2385,7 +2392,7 @@ static void sub_08072D54(PlayerEntity* this) {
                 break;
             case 3:
                 super->animationState ^= 4;
-                if (ActTileToTile(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
+                if (FindValueForKey(uVar2, sTileTable[gPlayerEntity.base.animationState >> 1])) {
                     super->timer = 1;
                 } else {
                     super->subtimer = 4;
@@ -2620,7 +2627,7 @@ static void PlayerUseStairs(PlayerEntity* this) {
 
 static void sub_080732D0(PlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if (GetActTile(super) != 40) {
+    if (GetActTileAtEntity(super) != ACT_TILE_40) {
         super->direction = DirectionNorth;
         LinearMoveUpdate(super);
     } else {
@@ -2761,7 +2768,7 @@ static void sub_08073584(PlayerEntity* this) {
         return;
     }
 
-    gUnk_0200AF00.rActionPlayerState = R_ACTION_CANCEL;
+    gHUD.rActionPlayerState = R_ACTION_CANCEL;
     if (sub_0807A2F8(0)) {
         super->subAction++;
         super->direction = 4 * (super->animationState & IdleWest);
@@ -2769,7 +2776,7 @@ static void sub_08073584(PlayerEntity* this) {
         return;
     }
 
-    if (gArea.locationIndex == 16)
+    if (gArea.locationIndex == 16) // AREA_CLOUD_TOPS
         super->speed = 0x100;
     else
         super->speed = 0x80;
@@ -2833,7 +2840,7 @@ static void sub_08073584(PlayerEntity* this) {
         }
 
         if (sAnims1[idx] == gPlayerState.animation) {
-            if (gArea.locationIndex == 16)
+            if (gArea.locationIndex == 16) // AREA_CLOUD_TOPS
                 sub_080042BA(super, 2);
             else
                 UpdateAnimationSingleFrame(super);
@@ -2886,7 +2893,7 @@ static void sub_080737BC(PlayerEntity* this) {
         pos = super->y.HALF.HI;
     tmp = 0xf;
     tmp &= pos;
-    if (tmp == 8 && !sub_080B1B0C(super)) {
+    if (tmp == 8 && GetCollisionDataAtEntity(super) == 0) {
         gPlayerState.jump_status |= 0x40;
         PlayerSetNormalAndCollide();
     }
@@ -3711,7 +3718,7 @@ void SurfaceAction_20(PlayerEntity* this) {
         if (e != NULL) {
             e->timer = 1;
             UpdateSpriteForCollisionLayer(e);
-            CloneTile(57, gPlayerState.tilePosition, super->collisionLayer);
+            CloneTile(TILE_TYPE_57, gPlayerState.tilePos, super->collisionLayer);
         }
     }
     SurfaceAction_Water(this);
@@ -4107,7 +4114,7 @@ void sub_0807529C(PlayerEntity* this) {
 void sub_080752AC(PlayerEntity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(super);
     if (!ctx->unk_18) {
-        if (GetActTile(super) != 41) {
+        if (GetActTileAtEntity(super) != ACT_TILE_41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

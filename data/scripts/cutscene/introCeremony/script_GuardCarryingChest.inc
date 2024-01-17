@@ -37,8 +37,8 @@ script_08011312:
 	Wait 0x003c
 	SetAnimation 0x0014
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x01f0, 0x0098
-	_0807EDD4 0x01f0, 0x00c8
+	MoveTo 0x01f0, 0x0098
+	MoveTo 0x01f0, 0x00c8
 	SetAnimation 0x0013
 	SetSyncFlag 0x00001000
 	WaitForSyncFlagAndClear 0x00000800

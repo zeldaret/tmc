@@ -21,7 +21,7 @@ void SortEntityBelow(Entity* above_ent, Entity* below_ent);
 void LinearMoveDirection(Entity* ent, u32 a, u32 b);
 void LinearMoveAngle(Entity* ent, u32 a, u32 b);
 
-bool32 EntityWithinDistance(Entity*, s32, s32, s32);
+bool32 EntityWithinDistance(Entity* entity, s32 x, s32 y, s32 distance);
 u32 sub_0806FCA0(Entity*, Entity*);
 u32 sub_0806F58C(Entity*, Entity*);
 u32 PointInsideRadius(s32 x, s32 y, s32 radius);

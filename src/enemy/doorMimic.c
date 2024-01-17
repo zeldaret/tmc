@@ -7,6 +7,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -48,7 +49,7 @@ void DoorMimic_OnCollision(DoorMimicEntity* this) {
 }
 
 void DoorMimic_OnDeath(DoorMimicEntity* this) {
-    SetBottomTile(this->unk_7c, this->unk_7e, super->collisionLayer);
+    SetTile(this->unk_7c, this->unk_7e, super->collisionLayer);
     CreateFx(super, FX_POT_SHATTER, 0);
     EnemyDisableRespawn(super);
     DeleteThisEntity();
@@ -122,10 +123,10 @@ void sub_08022198(DoorMimicEntity* this) {
 }
 
 void sub_080221C0(DoorMimicEntity* this) {
-    u32 tile = COORD_TO_TILE(super) + gUnk_080B4488[super->type2];
-    this->unk_7e = tile;
-    this->unk_7c = GetTileIndex(tile, super->collisionLayer);
-    SetBottomTile(gUnk_080CB79C[super->type2], tile, super->collisionLayer);
+    u32 tilePos = COORD_TO_TILE(super) + gUnk_080B4488[super->type2];
+    this->unk_7e = tilePos;
+    this->unk_7c = GetTileIndex(tilePos, super->collisionLayer);
+    SetTile(gUnk_080CB79C[super->type2], tilePos, super->collisionLayer);
 }
 
 // clang-format off
@@ -190,10 +191,10 @@ const PosOffset gUnk_080CB76C[][6] = {
 };
 
 const u16 gUnk_080CB79C[] = {
-    0x4023,
-    0x4025,
-    0x4026,
-    0x4024,
+    SPECIAL_TILE_35,
+    SPECIAL_TILE_37,
+    SPECIAL_TILE_38,
+    SPECIAL_TILE_36,
 };
 
 

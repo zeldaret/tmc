@@ -16,7 +16,7 @@ typedef struct {
     u16 xOffset;
     u16 yOffset;
     u16 updated;
-    void* tilemap;
+    void* subTileMap;
 } BgSettings;
 
 typedef struct {
@@ -24,7 +24,7 @@ typedef struct {
     s16 xOffset;
     s16 yOffset;
     u16 updated;
-    void* tilemap;
+    void* subTileMap;
 } BgAffSettings;
 
 typedef struct {

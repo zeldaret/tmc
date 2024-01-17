@@ -7,6 +7,6 @@ typedef struct {
     Manager base;
     u8 unk_20;
     u8 unk_21[0x1F];
-} MinishVillageTilesetManager;
+} MinishVillageTileSetManager;
 
 #endif // MINISHVILLAGETILESETMANAGER_H

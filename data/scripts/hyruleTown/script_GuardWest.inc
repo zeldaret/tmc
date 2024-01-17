@@ -60,7 +60,7 @@ script_08010014:
 	SetAnimationState 0x0004
 	CallWithArg sub_0807F3D8, 0x0000000c
 	SetEntitySpeed 0x0100
-	_0807EDD4 0x0018, 0x0108
+	MoveTo 0x0018, 0x0108
 	SetAnimationState 0x0002
 	CallWithArg sub_0807F3D8, 0x00000008
 	SetLocalFlag MACHI_02_HEISHI

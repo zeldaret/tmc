@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -177,7 +178,7 @@ void SpiderWeb_SubAction0(SpiderWebEntity* this) {
         if (tmp * 2 - entity->animationState == 0) {
             x = gUnk_0812A064[tmp * 2] + super->x.HALF.HI;
             y = gUnk_0812A064[tmp * 2 + 1] + super->y.HALF.HI;
-            if (sub_080B1B18(x, y, entity->collisionLayer) == 0) {
+            if (GetCollisionDataAtWorldCoords(x, y, entity->collisionLayer) == 0) {
                 entity->x.HALF.HI = x;
                 entity->y.HALF.HI = y;
             }
@@ -245,8 +246,8 @@ void sub_080AA9E0(Entity* this) {
 }
 
 void sub_080AAA68(Entity* this) {
-    static const u16 typeTiles[] = { 16419, 16421, 16422, 16420 };
-    SetBottomTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    static const u16 typeTiles[] = { SPECIAL_TILE_35, SPECIAL_TILE_37, SPECIAL_TILE_38, SPECIAL_TILE_36 };
+    SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
 void sub_080AAAA8(SpiderWebEntity* this) {

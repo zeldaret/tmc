@@ -231,7 +231,7 @@ void sub_0802EFB8(VaatiEyesMacroEntity* this) {
     u32 uVar1;
     u32 rand;
     u32 uVar3;
-    int iVar4;
+    u32 collisionData;
 
     rand = Random();
     if ((rand >> 0x10 & 3) != 0) {
@@ -240,8 +240,9 @@ void sub_0802EFB8(VaatiEyesMacroEntity* this) {
         uVar3 = GetFacingDirection(&gPlayerEntity.base, super);
         uVar1 = (uVar3 + 4) & 0x18;
     }
-    iVar4 = sub_080B1B44(TILE(super->x.HALF.HI, super->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
-    if (iVar4 != 0) {
+    collisionData =
+        GetCollisionDataAtTilePos(TILE(super->x.HALF.HI, super->y.HALF.HI) + gUnk_080B4488[((uVar1) >> 3)], 1);
+    if (collisionData != 0) {
         super->direction = DIR_NONE;
     } else {
         super->timer = (rand & 3) + 1;

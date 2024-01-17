@@ -417,7 +417,7 @@ void sub_0809E0D4(KeyStealingTakkuriEntity* this, ScriptExecutionContext* contex
             entity = &gPlayerEntity.base;
         }
         context->unk_18++;
-        sub_0807DEDC(super, context, entity->x.HALF.HI, entity->y.HALF.HI);
+        LookAt(super, context, entity->x.HALF.HI, entity->y.HALF.HI);
         SoundReq(SFX_123);
         gActiveScriptInfo.commandSize = 0;
     } else {
@@ -433,7 +433,7 @@ void sub_0809E0D4(KeyStealingTakkuriEntity* this, ScriptExecutionContext* contex
         varY2 = varY;
         if (--context->unk_19 == 0) {
             context->unk_19 = 8;
-            super->direction = CalcOffsetAngle(varX2 - super->x.HALF.HI, varY2 - super->y.HALF.HI);
+            super->direction = CalculateDirectionFromOffsets(varX2 - super->x.HALF.HI, varY2 - super->y.HALF.HI);
         }
         varX3 = super->x.HALF.HI - varX2;
         varY3 = super->y.HALF.HI - varY2;

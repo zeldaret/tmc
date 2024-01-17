@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "message.h"
 #include "npc.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -524,7 +525,8 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
     }
     if (--context->unk_19 == 0) {
         context->unk_19 = 10;
-        uVar4 = CalcOffsetAngle(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
+        uVar4 =
+            CalculateDirectionFromOffsets(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
         this->direction = (u8)uVar4;
         uVar4 = Random();
         this->direction = (this->direction + uVar4 % 0xb) - 5;
@@ -539,21 +541,21 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08062788(Entity* this, ScriptExecutionContext* context) {
-    SetBottomTile(0x4072, 0x60b, 1);
-    SetBottomTile(0x4072, 0x60c, 1);
-    SetBottomTile(0x4072, 0x60d, 1);
-    SetBottomTile(0x4072, 0x64b, 1);
-    SetBottomTile(0x4072, 0x64c, 1);
-    SetBottomTile(0x4072, 0x64d, 1);
+    SetTile(SPECIAL_TILE_114, TILE_POS(11, 24), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(12, 24), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(13, 24), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(11, 25), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(12, 25), LAYER_BOTTOM);
+    SetTile(SPECIAL_TILE_114, TILE_POS(13, 25), LAYER_BOTTOM);
 }
 
 void sub_080627E8(Entity* this, ScriptExecutionContext* context) {
-    RestorePrevTileEntity(0x60b, 1);
-    RestorePrevTileEntity(0x60c, 1);
-    RestorePrevTileEntity(0x60d, 1);
-    RestorePrevTileEntity(0x64b, 1);
-    RestorePrevTileEntity(0x64c, 1);
-    RestorePrevTileEntity(0x64d, 1);
+    RestorePrevTileEntity(TILE_POS(11, 24), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(12, 24), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(13, 24), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(11, 25), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(12, 25), LAYER_BOTTOM);
+    RestorePrevTileEntity(TILE_POS(13, 25), LAYER_BOTTOM);
 }
 
 void Kid_Head(Entity* this) {

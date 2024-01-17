@@ -212,7 +212,7 @@ void RoomExitCallback(void);
  *
  * @param a1
  */
-void RestoreGameTask(u32 a1);
+void RestoreGameTask(bool32 loadGfx);
 
 /**
  * Check if an Ezlo message can be displayed.
@@ -290,14 +290,15 @@ typedef enum {
 } EGameMainState;
 
 typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3;
-    u8 _4;
-    u16 _6;
-} struct_08127F94;
-extern struct_08127F94 gUnk_08127F94[];
+    u8 minX;
+    u8 minY;
+    u8 maxX;
+    u8 maxY;
+    u8 windcrestId; /**< Id to set in gSave.windcrests when the user entered a room in the boundaries specified above.*/
+    // u8 pad;
+    u16 textIndex; /**< The text to show for this area.*/
+} OverworldLocation;
+extern const OverworldLocation gOverworldLocations[];
 
 typedef struct {
     const Font* font;

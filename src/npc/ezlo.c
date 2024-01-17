@@ -38,7 +38,7 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
     context->y.HALF.HI = yOffset;
 
     xOffset -= this->x.HALF.HI;
-    this->direction = CalcOffsetAngle(xOffset, yOffset - this->y.HALF.HI);
+    this->direction = CalculateDirectionFromOffsets(xOffset, yOffset - this->y.HALF.HI);
     this->animationState = (this->animationState & 0x80) | gUnk_08114134[this->direction >> 4];
 }
 

@@ -19565,8 +19565,7 @@
       "JP",
       "DEMO_USA",
       "DEMO_JP"
-    ],
-    "TODO": "which variants?"
+    ]
   },
   {
     "path": "gfx/fixedTypeGfx_502.4bpp",
@@ -23255,7 +23254,6 @@
     "path": "gfx/gGfx_72_1.4bpp",
     "start": 8647424,
     "size": 2048,
-    "TODO": "WHAT WAS ASSET EXTRACTION THINKING HERE?",
     "type": "gfx",
     "variants": [
       "EU"

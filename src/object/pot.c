@@ -13,6 +13,7 @@
 #include "player.h"
 #include "room.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -79,11 +80,11 @@ void Pot_Init(PotEntity* this) {
     }
 
     this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    if (this->unk_70 == 0x4000) {
+    if (this->unk_70 == SPECIAL_TILE_0) {
         DeleteThisEntity();
     }
 
-    SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile(SPECIAL_TILE_0, COORD_TO_TILE(super), super->collisionLayer);
     InitializeAnimation(super, 5);
 }
 
@@ -96,7 +97,7 @@ void Pot_Action1(PotEntity* this) {
             super->subAction = 0;
             break;
         case 0x1D:
-            SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+            SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
             super->action = 5;
             super->zVelocity = Q_16_16(2.625);
             super->spriteOffsetY = 0;
@@ -106,33 +107,33 @@ void Pot_Action1(PotEntity* this) {
             Pot_Action5(this);
             break;
         default:
-            tileType = GetTileTypeByEntity(super);
+            tileType = GetTileTypeAtEntity(super);
             if (tileType != 0x4000) {
                 switch (tileType) {
-                    case 0x4004:
-                    case 0x4003:
-                    case 0x4002:
-                    case 0x4001:
-                        super->direction = (tileType - 0x4001) * 8;
+                    case SPECIAL_TILE_4:
+                    case SPECIAL_TILE_3:
+                    case SPECIAL_TILE_2:
+                    case SPECIAL_TILE_1:
+                        super->direction = (tileType - SPECIAL_TILE_1) * 8;
                         super->timer = 32;
                         super->action = 4;
                         if (gPlayerState.flags & PL_MINISH) {
                             super->speed >>= 1;
                             super->timer = 64;
                         }
-                        SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+                        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         EnqueueSFX(SFX_10F);
                         break;
-                    case 0x4067:
-                        SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+                    case SPECIAL_TILE_103:
+                        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         DeleteThisEntity();
                         break;
                     default:
-                        if (GetActTile(super) == 13) {
+                        if (GetActTileAtEntity(super) == ACT_TILE_13) {
                             CreateFx(super, FX_FALL_DOWN, 0);
-                        } else if (tileType == 0x4005) {
+                        } else if (tileType == SPECIAL_TILE_5) {
                             gPlayerState.lastSwordMove = SWORD_MOVE_BREAK_POT;
-                            SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+                            SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
                         }
                         BreakPot(this, NULL);
                         break;
@@ -158,7 +159,7 @@ void sub_08082510(PotEntity* this) {
     super->hitType = 1;
     super->collisionMask = gPlayerEntity.base.collisionMask;
     super->spriteOffsetY = 0;
-    SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+    SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     super->subAction++;
 }
 
@@ -223,14 +224,14 @@ void Pot_Action4(PotEntity* this) {
     }
 
     this->unk_70 = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
-    tileType = GetTileTypeByEntity(super);
+    tileType = GetTileTypeAtEntity(super);
     switch (tileType) {
         case 0x71:
         case 0x72:
             BreakPot(this, NULL);
             break;
         default:
-            SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+            SetTile(SPECIAL_TILE_0, COORD_TO_TILE(super), super->collisionLayer);
             RegisterCarryEntity(super);
             break;
     }
@@ -253,7 +254,7 @@ void sub_0808270C(PotEntity* this) {
     if ((gPlayerState.gustJarState & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {
         super->spriteOffsetX = 0;
         super->action = 1;
-        SetBottomTile(0x4000, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile(SPECIAL_TILE_0, COORD_TO_TILE(super), super->collisionLayer);
     } else {
         sub_0806F4E8(super);
     }
@@ -264,7 +265,7 @@ void sub_08082778(PotEntity* this) {
         super->timer = 1;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = -2;
-        SetBottomTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
+        SetTile((u16)this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
 
     if ((gPlayerState.gustJarState & 0xF) != 0x1 || (super->contactFlags & 0x7F) != 0x13) {

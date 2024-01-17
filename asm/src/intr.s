@@ -10,6 +10,7 @@
 .global RAMFUNCS_BASE
 RAMFUNCS_BASE::
 
+@ Called when gUpdateVisibleTiles == 1
 sub_080B197C:: @ 0x080B197C
 	push {r4, r5, r6}
 	ldr r2, _080B19C0 @ =gRoomControls
@@ -77,37 +78,36 @@ arm_sub_080B1A04:
 	ldr r2, _080B1C14 @ =gUnk_08000258
 	b _080B1A64
 
-	arm_func_start arm_sub_080B1A0C
-arm_sub_080B1A0C: @ 0x080B1A0C
+	arm_func_start arm_GetTileTypeRelativeToEntity
+arm_GetTileTypeRelativeToEntity: @ 0x080B1A0C
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b arm_GetTileTypeByPos
-arm_GetTileTypeByEntity: // GetCell
+	b arm_GetTileTypeAtWorldCoords
+arm_GetTileTypeAtEntity: // GetCell
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-arm_GetTileTypeByPos:
+arm_GetTileTypeAtWorldCoords:
 	ldr ip, _080B1C18 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
-arm_sub_080B1A48:
+arm_GetTileTypeAtRoomCoords:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
-arm_sub_080B1A58:
+arm_GetTileTypeAtRoomTile:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
-
-	arm_func_start arm_GetTileType
-arm_GetTileType: @ 0x080B1A60
-	ldr r2, _080B1C1C @ =gUnk_08000228
+	arm_func_start arm_GetTileTypeAtTilePos
+arm_GetTileTypeAtTilePos: @ 0x080B1A60
+	ldr r2, _080B1C1C @ =gMapDataPtrs
 _080B1A64:
 	add r2, r2, r1, lsl #3
 	ldr r1, [r2]
@@ -120,81 +120,82 @@ _080B1A64:
 	ldrh r0, [r1, r0]
 	bx lr
 
-	arm_func_start arm_GetActTileRelative
-arm_GetActTileRelative: @ 0x080B1A8C
+// entity plus offset to world pixel coordinates and layer
+	arm_func_start arm_GetActTileRelativeToEntity
+arm_GetActTileRelativeToEntity: @ 0x080B1A8C
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b arm_sub_080B1AB4
-arm_GetActTile: // GetCellAct
+	b arm_GetActTileAtWorldCoords
+// entity to world pixel coordinates and layer
+arm_GetActTileAtEntity: // GetCellAct
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-arm_sub_080B1AB4:
+arm_GetActTileAtWorldCoords: @ world pixel coordinates to room pixel coordinates
 	ldr ip, _080B1C20 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
-arm_sub_080B1AC8:
+arm_GetActTileAtRoomCoords: @ room pixel coordinates to room tile coordinates
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
-arm_sub_080B1AD8:
+arm_GetActTileAtRoomTile:
 	add r0, r0, r1, lsl #6
-	mov r1, r2
-arm_sub_080B1AE0:
-	ldr r2, _080B1C24 @ =gUnkDataPtrs
+	mov r1, r2 @ move layer to r1
+arm_GetActTileAtTilePos:
+	ldr r2, _080B1C24 @ =gActTilePtrs
 	ldr r2, [r2, r1, lsl #2]
 	ldrb r0, [r2, r0]
 	bx lr
 
-	arm_func_start arm_sub_080B1AF0
-arm_sub_080B1AF0: @ 0x080B1AF0
+	arm_func_start arm_GetCollisionDataRelativeTo
+arm_GetCollisionDataRelativeTo: @ 0x080B1AF0
 	@ r0 = entity*
 	@ r1 = x
 	@ r2 = y
-
 	ldrh r3, [r0, #0x2e] @ ent.x + x
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32] @ ent.y + y
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38] @ ent.layer
 	mov r0, r3
-	b arm_sub_080B1B18
-arm_sub_080B1B0C: // GetCellAtt
+	b arm_GetCollisionDataAtWorldCoords
+arm_GetCollisionDataAtEntity: // GetCellAtt
 	ldrb r2, [r0, #0x38] @ ent.layer
 	ldrh r1, [r0, #0x32] @ ent.y
 	ldrh r0, [r0, #0x2e] @ ent.x
-arm_sub_080B1B18:
+arm_GetCollisionDataAtWorldCoords:
 	ldr ip, _080B1C28 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3 @ ent.x - gRoomControls.origin_x
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3 @ ent.y - gRoomControls.origin_y
-arm_sub_080B1B2C:
+arm_GetCollisionDataAtRoomCoords:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a @ /= 16
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a @ /= 16
-arm_sub_080B1B3C:
-	add r0, r0, r1, lsl #6 @ convert coords to tile index
+arm_GetCollisionDataAtRoomTile:
+	add r0, r0, r1, lsl #6 @ convert coords to tile pos
 	mov r1, r2
-arm_sub_080B1B44:
-	ldr r2, _080B1C2C @ =gUnk_08000248
+arm_GetCollisionDataAtTilePos:
+	ldr r2, _080B1C2C @ =gCollisionDataPtrs
 	ldr r1, [r2, r1, lsl #2]
 	ldrb r0, [r1, r0] @ load collision tile at my location
 	bx lr
 
-	arm_func_start arm_sub_080B1B54
-arm_sub_080B1B54: @ 0x080B1B54
+	arm_func_start arm_GetActTileForTileType
+arm_GetActTileForTileType: @ 0x080B1B54
 	lsls r0, r0, #0x12
-	ldrlo r1, _080B1C30 @ =gUnk_080B37A0
-	ldrhs r1, _080B1C34 @ =gUnk_080B7910
+	ldrlo r1, _080B1C30 @ =gMapTileTypeToActTile
+	ldrhs r1, _080B1C34 @ =gMapSpecialTileToActTile
 	ldrb r0, [r1, r0, lsr #18]
 	bx lr
 
@@ -202,7 +203,7 @@ arm_sub_080B1B54: @ 0x080B1B54
 arm_sub_080B1B68: @ 0x080B1B68
 	lsrs r2, r0, #0xe
 	bxne lr
-	ldr r2, _080B1C38 @ =gUnk_0800022C
+	ldr r2, _080B1C38 @ =gTileTypesPtrs
 	ldr r1, [r2, r1, lsl #3]
 	lsl r0, r0, #1
 	ldrh r0, [r1, r0]
@@ -211,7 +212,7 @@ arm_sub_080B1B68: @ 0x080B1B68
 	arm_func_start arm_sub_080B1B84
 arm_sub_080B1B84: @ 0x080B1B84
 	mov ip, lr
-	bl arm_GetTileType
+	bl arm_GetTileTypeAtTilePos
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C3C @ =gUnk_08000360
 	ldrhs r1, _080B1C40 @ =gUnk_080B7A3E
@@ -223,7 +224,7 @@ arm_sub_080B1B84: @ 0x080B1B84
 arm_sub_080B1BA4: @ 0x080B1BA4
 	mov ip, lr
 	mov r3, r2
-	bl arm_GetTileType
+	bl arm_GetTileTypeAtTilePos
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C44 @ =gUnk_08000360
 	ldrhs r1, _080B1C48 @ =gUnk_080B7A3E
@@ -246,7 +247,7 @@ sub_080B1BCC: @ 0x080B1BCC
 	and r1, r1, #0x3f0
 	and r2, r2, #0x3f0
 	add r1, r1, r2, lsl #6
-	ldr r2, _080B1C50 @ =gUnkDataPtrs
+	ldr r2, _080B1C50 @ =gActTilePtrs
 	ldrb r3, [r0, #0x38]
 	ldr r2, [r2, r3, lsl #2]
 	ldrb r0, [r2, r1, lsr #4]
@@ -255,20 +256,20 @@ sub_080B1BCC: @ 0x080B1BCC
 _080B1C10: .4byte gRoomControls
 _080B1C14: .4byte gUnk_08000258
 _080B1C18: .4byte gRoomControls
-_080B1C1C: .4byte gUnk_08000228
+_080B1C1C: .4byte gMapDataPtrs
 _080B1C20: .4byte gRoomControls
-_080B1C24: .4byte gUnkDataPtrs
+_080B1C24: .4byte gActTilePtrs
 _080B1C28: .4byte gRoomControls
-_080B1C2C: .4byte gUnk_08000248
-_080B1C30: .4byte gUnk_080B37A0
-_080B1C34: .4byte gUnk_080B7910
-_080B1C38: .4byte gUnk_0800022C
+_080B1C2C: .4byte gCollisionDataPtrs
+_080B1C30: .4byte gMapTileTypeToActTile
+_080B1C34: .4byte gMapSpecialTileToActTile
+_080B1C38: .4byte gTileTypesPtrs
 _080B1C3C: .4byte gUnk_08000360
 _080B1C40: .4byte gUnk_080B7A3E
 _080B1C44: .4byte gUnk_08000360
 _080B1C48: .4byte gUnk_080B7A3E
 _080B1C4C: .4byte gRoomControls
-_080B1C50: .4byte gUnkDataPtrs
+_080B1C50: .4byte gActTilePtrs
 
 	arm_func_start UpdateCollision
 UpdateCollision: @ 0x080B1C54
@@ -1722,7 +1723,7 @@ _080B1FBC:
 	mov r3, #0
 	bl arm_CheckBitsEU
 	mov r5, #0
-	ldr r4, _080B2194 @ =0x03003DF8
+	ldr r4, _080B2194 @ =gInteractableObjects
 _080B1FECEU:
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -1838,7 +1839,7 @@ _080B1FBC:
 	mov r3, #0
 	bl arm_CheckBitsEU
 	mov r5, #0
-	ldr r4, _080B2194 @ =0x03003DF8
+	ldr r4, _080B2194 @ =gInteractableObjects
 _080B1FECEU:
 	ldr r0, [r4, #8]
 	cmp r0, #0
@@ -1965,8 +1966,8 @@ _080B2A64: .4byte gOAMControls
 _080B2A68: .4byte ram_0x80b2be8
 _080B2A6C: .4byte 0x3E003F00
 .ifdef EU
-_080B2194: .4byte 0x03003DF8 @TODO pointer?
+_080B2194: .4byte gInteractableObjects
 .endif
 .ifdef DEMO_JP @ TODO deduplicate same as EU
-_080B2194: .4byte 0x03003DF8 @TODO pointer?
+_080B2194: .4byte gInteractableObjects
 .endif

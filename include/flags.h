@@ -5,27 +5,27 @@
 
 // clang-format off
 
-bool32 CheckFlags(u32);
-bool32 CheckGlobalFlag(u32);
-bool32 CheckGlobalFlags(u32, u32);
+bool32 CheckFlags(u32 flags);
+bool32 CheckGlobalFlag(u32 flag);
+bool32 CheckGlobalFlags(u32 flag, u32 count);
 extern bool32 CheckLocalFlag(u32 flag);
 extern bool32 CheckLocalFlagByBank(u32 bank, u32 flag);
-bool32 CheckLocalFlags(u32, u32);
-bool32 CheckLocalFlagsByBank(u32, u32, u32);
-bool32 CheckRoomFlag(u32);
-bool32 CheckRoomFlags(u32, u32);
+bool32 CheckLocalFlags(u32 flag, u32 count);
+bool32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 count);
+bool32 CheckRoomFlag(u32 flag);
+bool32 CheckRoomFlags(u32 flag, u32 count);
 
-void ClearFlag(u32);
-void ClearGlobalFlag(u32);
-void ClearLocalFlag(u32);
-void ClearLocalFlagByBank(u32, u32);
-void ClearRoomFlag(u32);
+void ClearFlag(u32 flag);
+void ClearGlobalFlag(u32 flag);
+void ClearLocalFlag(u32 flag);
+void ClearLocalFlagByBank(u32 offset, u32 flag);
+void ClearRoomFlag(u32 flag);
 
-void SetFlag(u32);
-void SetGlobalFlag(u32);
-void SetLocalFlag(u32);
-void SetLocalFlagByBank(u32, u32);
-void SetRoomFlag(u32);
+void SetFlag(u32 flag);
+void SetGlobalFlag(u32 flag);
+void SetLocalFlag(u32 flag);
+void SetLocalFlagByBank(u32 offset, u32 flag);
+void SetRoomFlag(u32 flag);
 
 extern u32 ReadBit(void*, u32);
 extern u32 CheckBits(void*, u32, u32);

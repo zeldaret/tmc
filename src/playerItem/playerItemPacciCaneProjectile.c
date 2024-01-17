@@ -9,6 +9,7 @@
 #include "functions.h"
 #include "object.h"
 #include "sound.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -127,7 +128,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
         }
         if (sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.base.collisionLayer, 0x80) == 0) {
             if (sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) == 0) {
-                if (GetActTile(super) == 0x19) {
+                if (GetActTileAtEntity(super) == ACT_TILE_25) {
                     super->action = 4;
                     COLLISION_OFF(super);
                     super->x.HALF.HI = (super->x.HALF.HI & 0xfff0) | 8;
@@ -135,7 +136,7 @@ void PlayerItemPacciCaneProjectile_Action1(PlayerItemPacciCaneProjectileEntity* 
                     super->spritePriority.b0 = 7;
                     this->unk_7c = GetTileIndex(COORD_TO_TILE(super), super->collisionLayer);
                     InitializeAnimation(super, 0x14);
-                    SetBottomTile(0x4020, COORD_TO_TILE(super), super->collisionLayer);
+                    SetTile(SPECIAL_TILE_32, COORD_TO_TILE(super), super->collisionLayer);
                     return;
                 }
             } else {
@@ -170,12 +171,12 @@ void PlayerItemPacciCaneProjectile_Action4(PlayerItemPacciCaneProjectileEntity* 
             this->unk_7c = 0;
             sub_08070458(this);
             break;
-        case 0x4021:
+        case SPECIAL_TILE_33:
             sub_08070458(this);
             break;
-        case 0x4070:
+        case SPECIAL_TILE_112:
             this->unk_78 = 0xff;
-        case 0x4020:
+        case SPECIAL_TILE_32:
             if (--(this->unk_78) == -1) {
                 sub_08070458(this);
             } else {
@@ -197,7 +198,7 @@ void sub_08070458(PlayerItemPacciCaneProjectileEntity* this) {
     COLLISION_OFF(super);
     super->speed = 0;
     if (this->unk_7c != 0) {
-        SetBottomTile(this->unk_7c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+        SetTile(this->unk_7c, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
     InitializeAnimation(super, 0x13);
     sub_08017744(super);

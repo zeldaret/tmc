@@ -8,7 +8,7 @@ SCRIPT_START script_PlayerAtFirstKinstone
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	DoPostScriptAction 0x0001
-	_0807EDD4 0x01f8, 0x0338
+	MoveTo 0x01f8, 0x0338
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001

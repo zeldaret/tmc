@@ -29,7 +29,7 @@ void DestructibleTileObserveManager_Main(DestructibleTileObserveManager* this) {
 
 void sub_0805CFF0(DestructibleTileObserveManager_unk* param_1) {
     if (!CheckLocalFlag(param_1->flag)) {
-        u32 tileType = GetTileType(param_1->tilePos, param_1->tileLayer);
+        u32 tileType = GetTileTypeAtTilePos(param_1->tilePos, param_1->tileLayer);
         if (param_1->tileType == tileType) {
             SetLocalFlag(param_1->flag);
         }

@@ -6,12 +6,13 @@
  */
 #include "functions.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[8];
-    /*0x70*/ u16 tilePositionUpper;
-    /*0x72*/ u16 tilePositionLower;
+    /*0x70*/ u16 tilePosUpper;
+    /*0x72*/ u16 tilePosLower;
     /*0x74*/ u16 tileIndexUpper;
     /*0x76*/ u16 tileIndexLower;
     /*0x78*/ u8 unk_78[12];
@@ -35,9 +36,6 @@ bool32 BigPushableLever_ShouldStartPushing(BigPushableLeverEntity*);
 void BigPushableLever_SetTiles(BigPushableLeverEntity*);
 void BigPushableLever_CalculateSpriteOffsets(BigPushableLeverEntity*);
 
-#define TILE_INITIAL 0x4058
-#define TILE_PUSHED 0x4056
-
 void BigPushableLever(BigPushableLeverEntity* this) {
     BigPushableLever_Actions[super->action](this);
 }
@@ -50,8 +48,8 @@ void BigPushableLever_Init(BigPushableLeverEntity* this) {
 void BigPushableLever_Idle(BigPushableLeverEntity* this) {
     if (BigPushableLever_ShouldStartPushing(this)) {
         super->action = PUSHING;
-        SetBottomTile(this->tileIndexUpper, this->tilePositionUpper, super->collisionLayer);
-        SetBottomTile(this->tileIndexLower, this->tilePositionLower, super->collisionLayer);
+        SetTile(this->tileIndexUpper, this->tilePosUpper, super->collisionLayer);
+        SetTile(this->tileIndexLower, this->tilePosLower, super->collisionLayer);
         EnqueueSFX(SFX_132);
         RequestPriorityDuration(super, 30);
         if (PlayerCanBeMoved()) {
@@ -86,32 +84,32 @@ void BigPushableLever_SetIdle(BigPushableLeverEntity* this) {
 void BigPushableLever_SetTiles(BigPushableLeverEntity* this) {
     if (!CheckFlags(this->pushedFlag)) {
         super->type2 = 0;
-        this->tilePositionUpper = COORD_TO_TILE_OFFSET(super, 0, 0x10);
-        this->tilePositionLower = this->tilePositionUpper - 0x40;
-        this->tileIndexUpper = GetTileIndex(this->tilePositionUpper, super->collisionLayer);
-        this->tileIndexLower = GetTileIndex(this->tilePositionLower, super->collisionLayer);
-        SetBottomTile(0x4057, this->tilePositionUpper, super->collisionLayer);
-        SetBottomTile(0x4058, this->tilePositionLower, super->collisionLayer);
+        this->tilePosUpper = COORD_TO_TILE_OFFSET(super, 0, 0x10);
+        this->tilePosLower = this->tilePosUpper - 0x40;
+        this->tileIndexUpper = GetTileIndex(this->tilePosUpper, super->collisionLayer);
+        this->tileIndexLower = GetTileIndex(this->tilePosLower, super->collisionLayer);
+        SetTile(SPECIAL_TILE_87, this->tilePosUpper, super->collisionLayer);
+        SetTile(SPECIAL_TILE_88, this->tilePosLower, super->collisionLayer);
         InitializeAnimation(super, 1);
     } else {
         super->type2 = 1;
-        this->tilePositionUpper = COORD_TO_TILE_OFFSET(super, 0x10, 0);
-        this->tilePositionLower = this->tilePositionUpper - 1;
-        this->tileIndexUpper = GetTileIndex(this->tilePositionUpper, super->collisionLayer);
-        this->tileIndexLower = GetTileIndex(this->tilePositionLower, super->collisionLayer);
-        SetBottomTile(0x4055, this->tilePositionUpper, super->collisionLayer);
-        SetBottomTile(0x4056, this->tilePositionLower, super->collisionLayer);
+        this->tilePosUpper = COORD_TO_TILE_OFFSET(super, 0x10, 0);
+        this->tilePosLower = this->tilePosUpper - 1;
+        this->tileIndexUpper = GetTileIndex(this->tilePosUpper, super->collisionLayer);
+        this->tileIndexLower = GetTileIndex(this->tilePosLower, super->collisionLayer);
+        SetTile(SPECIAL_TILE_85, this->tilePosUpper, super->collisionLayer);
+        SetTile(SPECIAL_TILE_86, this->tilePosLower, super->collisionLayer);
         InitializeAnimation(super, 0);
     }
 }
 
 bool32 BigPushableLever_ShouldStartPushing(BigPushableLeverEntity* this) {
-    if (GetTileIndex(this->tilePositionLower, super->collisionLayer) == 0x4059) {
+    if (GetTileIndex(this->tilePosLower, super->collisionLayer) == SPECIAL_TILE_89) {
         if (--this->timer == 0) {
             return TRUE;
         }
         BigPushableLever_CalculateSpriteOffsets(this);
-        SetBottomTile(gUnk_081236E8[super->type2], this->tilePositionLower, super->collisionLayer);
+        SetTile(gUnk_081236E8[super->type2], this->tilePosLower, super->collisionLayer);
     } else {
         this->timer = 60;
         super->spriteOffsetX = 0;
@@ -141,8 +139,8 @@ void (*const BigPushableLever_Actions[])(BigPushableLeverEntity*) = {
     BigPushableLever_Pushing,
 };
 const u16 gUnk_081236E8[] = {
-    TILE_INITIAL,
-    TILE_PUSHED,
+    SPECIAL_TILE_88,
+    SPECIAL_TILE_86,
 };
 const u8 BigPushableLever_InitialOffsets[] = {
     0, 0, 0, 0, 255, 0, 0, 0,

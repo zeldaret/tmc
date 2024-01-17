@@ -8,10 +8,10 @@ SCRIPT_START script_IntroCameraTarget
 	SetFadeTime 0x0002
 	@ Fade in
 	SetFade4
-	WaitForFadeFinish @ TODO wait for fade to be finished
+	WaitForFadeFinish
 	Wait 0x0078
 	SetSyncFlag 0x00000004
 	Call sub_08053648
 	@ Move camera target down
-	_0807EDD4 0x0240, 0x0228
+	MoveTo 0x0240, 0x0228
 SCRIPT_END

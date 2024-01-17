@@ -4,7 +4,7 @@ SCRIPT_START script_08015B14
 	SetAnimation 0x0018
 	SetEntitySpeed 0x0300
 	EndBlock
-	_0807EDD4 0x0248, 0x0218
+	MoveTo 0x0248, 0x0218
 	SetSyncFlag 0x00000020
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -4,6 +4,7 @@
  *
  * @brief Bench object
  */
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
 #include "player.h"
@@ -37,7 +38,7 @@ void Bench_Init(BenchEntity* this) {
         super->collisionLayer = 1;
     }
     UpdateSpriteForCollisionLayer(super);
-    sub_08000148(0x47, this->tilePos - 0x40, 1);
+    SetCollisionData(0x47, this->tilePos - 0x40, 1);
 }
 
 void Bench_Action1(BenchEntity* this) {

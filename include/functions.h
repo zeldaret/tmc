@@ -23,9 +23,7 @@ extern void CreateMinishEntrance(u32 tile);
 extern u32 CreateRandomItemDrop(Entity*, u32);
 extern void DrawDirect(u32 spriteIndex, u32 frameIndex);
 extern void DrawEntities(void);
-extern bool32 EntityWithinDistance(Entity*, s32, s32, s32);
 extern void FlushSprites(void);
-extern LayerStruct* GetTileBuffer(u32);
 extern u32 GetTileIndex(u32 tilePos, u32 layer);
 extern u32 GiveItem(u32, u32);
 extern bool32 LoadFixedGFX(Entity*, u32);
@@ -49,12 +47,6 @@ extern void ClearBgAnimations(void);
 extern void SetBGDefaults(void);
 
 // Unidentified
-extern void sub_08000148(u32, u32, u32);
-extern u32 sub_080B1A0C(Entity*, s32, s32);
-extern u32 sub_080B1AE0(u16, u8);
-extern u32 sub_080B1AF0(Entity*, s32, s32);
-extern u32 sub_080B1B18(s32, s32, u32);
-extern u32 sub_080B1B44(u32, u32);
 extern s32 sub_080012DC(Entity*);
 extern void sub_08001318(Entity*);
 extern void LinearMoveDirectionOLD(Entity*, u32, u32);

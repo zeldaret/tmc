@@ -7,13 +7,14 @@
 #include "functions.h"
 #include "hitbox.h"
 #include "object.h"
+#include "tiles.h"
 
 typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[8];
     /*0x70*/ u16 tileIndex;
     /*0x72*/ u16 unk_72;
-    /*0x74*/ u16 tilePosition;
+    /*0x74*/ u16 tilePos;
     /*0x76*/ u16 unk_76;
     /*0x78*/ u8 unk_78[0x4];
     /*0x7c*/ u8 unk_7c;
@@ -22,7 +23,7 @@ typedef struct {
     /*0x7f*/ u8 unk_7f;
     /*0x80*/ u8 unk_80[0x4];
     /*0x84*/ u16 hitFlag;
-    /*0x86*/ u16 unk_86;
+    /*0x86*/ u16 flag;
 } ObjectOnPillarEntity;
 
 extern bool32 sub_080896B0(void); // pushableStatue
@@ -34,11 +35,6 @@ typedef struct {
     /*0x68*/ u8 unk_68[10 + 0x14];
     /*0x86*/ u16 hitFlag;
 } EntityWithHitFlag;
-
-typedef struct {
-    u16 key;
-    u16 value;
-} KeyValuePair;
 
 void sub_080970F4(ObjectOnPillarEntity*);
 void sub_080971E0(ObjectOnPillarEntity*);
@@ -68,7 +64,7 @@ void ObjectOnPillar_Init(ObjectOnPillarEntity* this) {
     static const u8 gUnk_08123264[] = {
         0, 2, 4, 3, 7, 5, 0, 0,
     };
-    if (CheckFlags(this->unk_86) == 0) {
+    if (CheckFlags(this->flag) == 0) {
         super->action = 1;
         super->speed = 0x80;
         super->updatePriority = 3;
@@ -152,8 +148,8 @@ void ObjectOnPillar_Action4(ObjectOnPillarEntity* this) {
 
 bool32 sub_08097008(ObjectOnPillarEntity* this) {
     Entity* effect;
-    u32 tileType = GetTileType(this->tilePosition, super->collisionLayer);
-    if (tileType != 0x4036) {
+    u32 tileType = GetTileTypeAtTilePos(this->tilePos, super->collisionLayer);
+    if (tileType != SPECIAL_TILE_54) {
         switch (sub_08097074(tileType)) {
             case 1:
                 super->direction = (((tileType - 0x37) & 3) << 3);
@@ -177,8 +173,10 @@ bool32 sub_08097008(ObjectOnPillarEntity* this) {
 u32 sub_08097074(u32 tileType) {
 
     static const KeyValuePair gUnk_0812327C[] = {
-        { 0x4037, 1 }, { 0x4038, 1 }, { 0x4039, 1 }, { 0x403a, 1 }, { 0x7a, 2 }, { 0x78, 2 }, { 0, 0 },
+        { SPECIAL_TILE_55, 1 }, { SPECIAL_TILE_56, 1 }, { SPECIAL_TILE_57, 1 },
+        { SPECIAL_TILE_58, 1 }, { TILE_TYPE_122, 2 },   { TILE_TYPE_120, 2 },
     };
+    static const u16 gUnk_0812327CEnd = 0;
     const KeyValuePair* entry = gUnk_0812327C;
     for (; entry->key != 0; entry++) {
         if (entry->key == tileType) {
@@ -192,23 +190,23 @@ void sub_08097098(ObjectOnPillarEntity* this) {
     u16 tileType;
     this->unk_76 = 0x20;
     EnqueueSFX(SFX_10F);
-    SetBottomTile(this->tileIndex, this->tilePosition, super->collisionLayer);
-    tileType = GetTileType(gUnk_080B4488[super->direction >> 3] + this->tilePosition, super->collisionLayer);
+    SetTile(this->tileIndex, this->tilePos, super->collisionLayer);
+    tileType = GetTileTypeAtTilePos(gUnk_080B4488[super->direction >> 3] + this->tilePos, super->collisionLayer);
     if ((tileType == 0x79) || tileType == 0x77) {
         super->spriteOffsetY = 2;
     }
 }
 
 void sub_080970F4(ObjectOnPillarEntity* this) {
-    this->tilePosition = COORD_TO_TILE(super);
-    this->tileIndex = GetTileIndex(this->tilePosition, super->collisionLayer);
-    SetBottomTile(0x4036, this->tilePosition, super->collisionLayer);
+    this->tilePos = COORD_TO_TILE(super);
+    this->tileIndex = GetTileIndex(this->tilePos, super->collisionLayer);
+    SetTile(SPECIAL_TILE_54, this->tilePos, super->collisionLayer);
 }
 
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (GetActTile(super) == 0x19) {
+    if (GetActTileAtEntity(super) == ACT_TILE_25) {
         super->spriteOffsetY = 2;
     }
     if ((--this->unk_76 == 0) && sub_08097194(this) == FALSE) {
@@ -224,9 +222,9 @@ bool32 sub_08097194(ObjectOnPillarEntity* this) {
     if (sub_0800442E(super)) {
         return TRUE;
     } else {
-        u32 tileType = GetTileTypeByEntity(super);
-        if (tileType == 0x71 || tileType == 0x72 || (tileType == 0x4020)) {
-            SetFlag(this->unk_86);
+        u32 tileType = GetTileTypeAtEntity(super);
+        if (tileType == TILE_TYPE_113 || tileType == TILE_TYPE_114 || tileType == SPECIAL_TILE_32) {
+            SetFlag(this->flag);
             EnqueueSFX(SFX_10B);
             sub_080971E0(this);
             return TRUE;
@@ -239,7 +237,7 @@ bool32 sub_08097194(ObjectOnPillarEntity* this) {
 
 void sub_080971E0(ObjectOnPillarEntity* this) {
     EntityWithHitFlag* entity;
-    u32 tilePosition;
+    u32 tilePos;
 
     entity = (EntityWithHitFlag*)CreateObject(SPECIAL_FX, FX_DASH, 0x40);
     if (entity != NULL) {
@@ -255,13 +253,13 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
             super->action = 4;
             super->frameIndex = 1;
             super->spritePriority.b0 = 7;
-            SetBottomTile(0, COORD_TO_TILE(super), super->collisionLayer);
+            SetTile(0, COORD_TO_TILE(super), super->collisionLayer);
             DeleteThisEntity();
             break;
         case 1:
-            tilePosition = COORD_TO_TILE(super);
-            if (sub_08097348(tilePosition) == 0) {
-                SetTileType(0x73, tilePosition, super->collisionLayer);
+            tilePos = COORD_TO_TILE(super);
+            if (sub_08097348(tilePos) == 0) {
+                SetTileType(TILE_TYPE_115, tilePos, super->collisionLayer);
             }
             DeleteThisEntity();
             break;
@@ -288,11 +286,11 @@ void sub_080971E0(ObjectOnPillarEntity* this) {
     }
 }
 
-bool32 sub_08097348(u32 tilePosition) {
+bool32 sub_08097348(u32 tilePos) {
     u32 index;
     TileEntity* tileEntity = gSmallChests;
     for (index = 0; index < ARRAY_COUNT(gSmallChests); index++, tileEntity++) {
-        if (tileEntity->tilePos == tilePosition) {
+        if (tileEntity->tilePos == tilePos) {
             return CheckLocalFlag(tileEntity->localFlag);
         }
     }
