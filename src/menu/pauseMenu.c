@@ -1232,15 +1232,26 @@ bool32 sub_080A5F24(void) {
     return result;
 }
 
-void sub_080A5F48(Item item, u32 param_2) {
-    extern u32 gSprite_082E68F4[];
-    u32 ammoCount;
-    u32 tensDigit;
-    u8* puVar2;
-    u32 temp1;
+typedef union {
+    struct {
+        s32 v1;
+        s32 v2;
+    } values;
+    u64 raw;
+} DoubleReturnValue;
+
+void sub_080A5F48(Item item, u32 offset) {
+    // this funcitons signature allows the div function to return a u64 (2x 32 bit registers)
+    // with the result in one register and the remainder in the other
+    typedef u64 DivRem(u32, u32);
+
+    s32 ammoCount;
+    s32 onesDigit;
+    s32 tensDigit;
+    void* dest;
     u16* temp2;
-    u32 temp3;
-    register u32 rem asm("r1");
+    u32 index;
+    DoubleReturnValue ret;
 
     switch (item) {
         case ITEM_BOTTLE1:
@@ -1248,17 +1259,14 @@ void sub_080A5F48(Item item, u32 param_2) {
         case ITEM_BOTTLE3:
         case ITEM_BOTTLE4:
             item = gSave.stats.bottles[item - ITEM_BOTTLE1];
-            break;
-        default:
-            break;
     }
 
-    temp1 = param_2 * 0x20 + 0x6010000;
-    temp3 = gSpriteAnimations_322[item]->index;
-    temp2 = &gMoreSpritePtrs[1][temp3 * 2];
-    DmaCopy32(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], temp1, 0x40 * 4);
-    ammoCount = -1;
+    dest = OBJ_VRAM0 + (offset * 0x20);
+    index = gSpriteAnimations_322[item]->index;
+    temp2 = &gMoreSpritePtrs[1][index * 2];
+    DmaCopy32(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], dest, 0x40 * 4);
 
+    ammoCount = -1;
     switch (item) {
         case 7:
         case 8:
@@ -1270,15 +1278,18 @@ void sub_080A5F48(Item item, u32 param_2) {
             break;
     }
 
-    if (-1 < (int)ammoCount) {
-        tensDigit = Div(ammoCount, 10);
-        item = rem;
-        if ((int)tensDigit >= 10) {
-            tensDigit = 9;
-        }
-        DmaCopy32(3, gUnk_085C4620 + tensDigit * 0x8, temp1, 0x8 * 4);
-        DmaCopy32(3, gUnk_085C4620 + (item + 10) * 0x8, temp1 + 0x20, 0x8 * 4);
-    }
+    if (ammoCount < 0)
+        return;
+
+    ret.raw = ((DivRem*)Div)(ammoCount, 10); // by casting to DivRem, we can recover the remainder from the Div call
+    onesDigit = ret.values.v2;
+    tensDigit = ret.values.v1;
+
+    if (tensDigit >= 10)
+        tensDigit = 9;
+
+    DmaCopy32(3, gUnk_085C4620 + tensDigit * 0x8, dest, 0x8 * 4);
+    DmaCopy32(3, gUnk_085C4620 + (onesDigit + 10) * 0x8, dest + 0x20, 0x8 * 4);
 }
 
 void PauseMenu_Screen_7(void) {
