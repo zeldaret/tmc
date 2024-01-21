@@ -440,21 +440,13 @@ void EraseChargeBar(void) {
     }
 }
 
-typedef union {
-    u32 values[2];
-    u64 raw;
-} returnValues;
-
-typedef u64 DivRem(u32, u32);
-
 void DrawChargeBar(void) {
     bool32 tmp1;
     u16* BufferPos;
-    returnValues ret;
-    // these names are almost certainly inaccurate
     u32 chargeTime;
     u32 chargeState;
     u32 chargeFrame;
+    union SplitDWord divRem;
 
     tmp1 = FALSE;
     if (!(gHUD.hideFlags & HUD_HIDE_CHARGE_BAR))
@@ -476,10 +468,9 @@ void DrawChargeBar(void) {
         gHUD.unk_6 = 1;
         gHUD.unk_7 = chargeTime;
 
-        // this calls Div and returns the result in ret.values[0] and the remainder in ret.values[1]
-        ret.raw = ((DivRem*)&Div)(chargeTime, 4);
-        chargeState = ret.values[0];
-        chargeFrame = ret.values[1];
+        divRem = DivAndMod(chargeTime, 4);
+        chargeState = divRem.HALF_U.LO;
+        chargeFrame = divRem.HALF_U.HI;
 
         BufferPos[0] = 0xf016;
         BufferPos[11] = 0xf416;
