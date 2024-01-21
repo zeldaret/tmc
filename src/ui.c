@@ -113,18 +113,26 @@ void sub_0801C25C(void) {
     }
 }
 
-void sub_0801C2F0(u32 param_1, u32 param_2) {
-    u32 uVar1;
-    register u32 rem asm("r1");
-    param_1 = param_1 * 0x20 + 0x6010000;
+void sub_0801C2F0(u32 dest, u32 param_2) {
+    u32 tensDigit;
+#ifdef NON_MATCHING
+    u32 onesDigit;
+    union SplitDWord divRem;
+#else
+    FORCE_REGISTER(u32 onesDigit, r1);
+    FORCE_REGISTER(union SplitDWord divRem, r0);
+#endif
 
-    uVar1 = Div(param_2, 10);
-    if (uVar1 > 9) {
-        uVar1 = 9;
-    }
+    dest = dest * 0x20 + 0x6010000;
+    divRem = DivAndMod(param_2, 10);
+    onesDigit = divRem.HALF_U.HI;
+    tensDigit = divRem.HALF_U.LO;
 
-    DmaCopy32(3, (gUnk_085C4620 + uVar1 * 8), param_1, 0x8 * 4);
-    DmaCopy32(3, (gUnk_085C4620 + (rem + 10) * 8), param_1 + 0x20, 0x8 * 4);
+    if (tensDigit >= 10)
+        tensDigit = 9;
+
+    DmaCopy32(3, gUnk_085C4620 + tensDigit * 0x8, dest, 0x8 * 4);
+    DmaCopy32(3, gUnk_085C4620 + (onesDigit + 10) * 0x8, dest + 0x20, 0x8 * 4);
 }
 
 void DrawUI(void) {
@@ -277,7 +285,11 @@ void RenderDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     u32 digit;
     vu32* ptr;
     vu32* ptr2;
-    register u32 r1 asm("r1");
+#ifdef REWRITE
+    union SplitDWord divRem;
+#else
+    FORCE_REGISTER(union SplitDWord divRem, r0);
+#endif
 
     puVar4 = RupeeKeyDigits;
     if (isTextYellow == 0) {
@@ -287,13 +299,15 @@ void RenderDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     iVar2 = iVar3 + 0x600c000;
     switch (digits) {
         case 3:
-            digit = Div(count, 100);
-            count = r1;
+            divRem = DivAndMod(count, 100);
+            digit = divRem.HALF_U.LO;
+            count = divRem.HALF_U.HI;
             DmaCopy32(3, puVar4 + digit * 0x40, iVar2, 0x10 * 4);
             iVar2 += 0x40;
         case 2:
-            digit = Div(count, 10);
-            count = r1;
+            divRem = DivAndMod(count, 10);
+            digit = divRem.HALF_U.LO;
+            count = divRem.HALF_U.HI;
             DmaCopy32(3, puVar4 + digit * 0x40, iVar2, 0x10 * 4);
             iVar2 += 0x40;
     }
