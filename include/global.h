@@ -119,6 +119,17 @@ typedef struct {
     s8 y;
 } PACKED Coords8;
 
+union SplitDWord {
+    s64 DWORD;
+    u64 DWORD_U;
+    struct {
+        s32 LO, HI;
+    } HALF;
+    struct {
+        u32 LO, HI;
+    } HALF_U;
+};
+
 union SplitWord {
     s32 WORD;
     u32 WORD_U;
@@ -151,5 +162,11 @@ struct Entity_;
 
 #define BIT(bit) (1 << (bit))
 #define IS_BIT_SET(value, bit) ((value)&BIT(bit))
+
+/**
+ * Multi return function data type casts
+ */
+typedef u64 (*MultiReturnTypeSingleEntityArg)(struct Entity_*);
+typedef s64 (*MultiReturnTypeTwoS32Arg)(s32, s32);
 
 #endif // GLOBAL_H
