@@ -440,12 +440,12 @@ void EraseChargeBar(void) {
     }
 }
 
-typedef union{
+typedef union {
     u32 values[2];
     u64 raw;
 } returnValues;
 
-typedef u64 DivRem (u32, u32);
+typedef u64 DivRem(u32, u32);
 
 void DrawChargeBar(void) {
     bool32 tmp1;
