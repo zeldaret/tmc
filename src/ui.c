@@ -285,7 +285,7 @@ void RenderDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     u32 digit;
     vu32* ptr;
     vu32* ptr2;
-#ifdef REWRITE
+#ifdef NON_MATCHING
     union SplitDWord divRem;
 #else
     FORCE_REGISTER(union SplitDWord divRem, r0);
