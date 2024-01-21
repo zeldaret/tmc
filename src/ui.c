@@ -451,7 +451,7 @@ void DrawChargeBar(void) {
     bool32 tmp1;
     u16* BufferPos;
     returnValues ret;
-    //these names are almost certainly inaccurate
+    // these names are almost certainly inaccurate
     u32 chargeTime;
     u32 chargeState;
     u32 chargeFrame;
@@ -476,7 +476,7 @@ void DrawChargeBar(void) {
         gHUD.unk_6 = 1;
         gHUD.unk_7 = chargeTime;
 
-        //this calls Div and returns the result in ret.values[0] and the remainder in ret.values[1]
+        // this calls Div and returns the result in ret.values[0] and the remainder in ret.values[1]
         ret.raw = ((DivRem*)&Div)(chargeTime, 4); 
         chargeState = ret.values[0];
         chargeFrame = ret.values[1];
