@@ -457,7 +457,7 @@ void DrawChargeBar(void) {
     u32 chargeFrame;
 
     tmp1 = FALSE;
-    if (!(gHUD.hideFlags & HUD_HIDE_CHARGE_BAR)) 
+    if (!(gHUD.hideFlags & HUD_HIDE_CHARGE_BAR))
         tmp1 = gPlayerState.chargeState.action != 0;
     if (!tmp1) {
         EraseChargeBar();
@@ -469,7 +469,7 @@ void DrawChargeBar(void) {
         BufferPos = &gBG0Buffer[0x40];
 
     chargeTime = Div(gPlayerState.chargeState.chargeTimer + 19, 20);
-    if (chargeTime > 40) 
+    if (chargeTime > 40)
         chargeTime = 40;
 
     if (gHUD.unk_6 == 0 || gHUD.unk_7 != chargeTime) {
@@ -477,14 +477,14 @@ void DrawChargeBar(void) {
         gHUD.unk_7 = chargeTime;
 
         // this calls Div and returns the result in ret.values[0] and the remainder in ret.values[1]
-        ret.raw = ((DivRem*)&Div)(chargeTime, 4); 
+        ret.raw = ((DivRem*)&Div)(chargeTime, 4);
         chargeState = ret.values[0];
         chargeFrame = ret.values[1];
 
         BufferPos[0] = 0xf016;
         BufferPos[11] = 0xf416;
         DmaSet(3, &gUnk_080C8F54[10 - chargeState], BufferPos + 1, 0x8000000a);
-        if (chargeFrame != 0) 
+        if (chargeFrame != 0)
             BufferPos[chargeState + 1] = ((chargeFrame + 0x17U) & 0x3ff) | 0xf000;
         gScreen.bg0.updated = 1;
     }
@@ -500,13 +500,13 @@ void DrawChargeBar(void) {
             break;
     }
 
-    if (chargeState == gHUD.unk_8) 
+    if (chargeState == gHUD.unk_8)
         return;
 
     gHUD.unk_8 = chargeState;
 
     BufferPos = (u16*)(VRAM + 0xc2c0);
-    DmaSet(3, gUnk_080C8F7C[chargeState], BufferPos, 0x84000030);   
+    DmaSet(3, gUnk_080C8F7C[chargeState], BufferPos, 0x84000030);
 }
 
 void DrawKeys(void) {
