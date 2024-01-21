@@ -19,41 +19,45 @@ typedef struct {
     u16 y;
 } GoronShopSpawnData;
 
+inline static void CheckGoronKakera() {
+    if (CheckGlobalFlag(GORON_KAKERA_L) == 0 || CheckGlobalFlag(GORON_KAKERA_M) == 0 ||
+        CheckGlobalFlag(GORON_KAKERA_R) == 0)
+        return;
+
+    if (CheckGlobalFlag(GORON_KAKERA_LV2) == 0) {
+        if (CheckGlobalFlag(LV1_CLEAR) == 0)
+            return;
+        SetGlobalFlag(GORON_KAKERA_LV2);
+    } else if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
+        if (CheckGlobalFlag(LV2_CLEAR) == 0)
+            return;
+        SetGlobalFlag(GORON_KAKERA_LV3);
+    } else if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
+        if (CheckGlobalFlag(LV3_CLEAR) == 0)
+            return;
+        SetGlobalFlag(GORON_KAKERA_LV4);
+    } else if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0) {
+        if (CheckGlobalFlag(LV4_CLEAR) == 0)
+            return;
+        SetGlobalFlag(GORON_KAKERA_LV5);
+    } else
+        return;
+    ClearGlobalFlag(GORON_KAKERA_L);
+    ClearGlobalFlag(GORON_KAKERA_M);
+    ClearGlobalFlag(GORON_KAKERA_R);
+    return;
+}
+
 void GoronMerchantShopManager_Main(GoronMerchantShopManager* this) {
     static const GoronShopSpawnData shopSpawnData[3] = { { 0x6e, 0x3, 0x210, 0x210 },
                                                          { 0x71, 0x2, 0x220, 0x210 },
                                                          { 0x73, 0x3, 0x230, 0x210 } };
-    s32 uVar2;
     const GoronShopSpawnData* spawnData;
     s32 count;
 
     if (super->action == 0) {
         super->action++;
-        if (CheckGlobalFlag(GORON_KAKERA_L) != 0 && CheckGlobalFlag(GORON_KAKERA_M) != 0 &&
-            CheckGlobalFlag(GORON_KAKERA_R) != 0) {
-            if (CheckGlobalFlag(GORON_KAKERA_LV2) == 0) {
-                if (CheckGlobalFlag(LV1_CLEAR) != 0) {
-                    SetGlobalFlag(GORON_KAKERA_LV2);
-                    goto clearGlobalFlags;
-                }
-            } else if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
-                if (CheckGlobalFlag(LV2_CLEAR) != 0) {
-                    SetGlobalFlag(GORON_KAKERA_LV3);
-                    goto clearGlobalFlags;
-                }
-            } else if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
-                if (CheckGlobalFlag(LV3_CLEAR) != 0) {
-                    SetGlobalFlag(GORON_KAKERA_LV4);
-                    goto clearGlobalFlags;
-                }
-            } else if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0 && CheckGlobalFlag(LV4_CLEAR) != 0) {
-                SetGlobalFlag(GORON_KAKERA_LV5);
-            clearGlobalFlags:
-                ClearGlobalFlag(GORON_KAKERA_L);
-                ClearGlobalFlag(GORON_KAKERA_M);
-                ClearGlobalFlag(GORON_KAKERA_R);
-            }
-        }
+        CheckGoronKakera();
         this->itemActive[2] = 0;
         this->itemActive[1] = 0;
         this->itemActive[0] = 0;
