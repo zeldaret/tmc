@@ -457,16 +457,20 @@ void DrawChargeBar(void) {
     u32 chargeFrame;
 
     tmp1 = FALSE;
-    if (!(gHUD.hideFlags & HUD_HIDE_CHARGE_BAR)) tmp1 = gPlayerState.chargeState.action != 0;
-    if (!tmp1) return EraseChargeBar();
-
+    if (!(gHUD.hideFlags & HUD_HIDE_CHARGE_BAR)) 
+        tmp1 = gPlayerState.chargeState.action != 0;
+    if (!tmp1) {
+        EraseChargeBar();
+        return
+    }
     if (gHUD.maxHealth > 10 * 4)
         BufferPos = &gBG0Buffer[0x60];
     else
         BufferPos = &gBG0Buffer[0x40];
 
     chargeTime = Div(gPlayerState.chargeState.chargeTimer + 19, 20);
-    if (chargeTime > 40) chargeTime = 40;
+    if (chargeTime > 40) 
+        chargeTime = 40;
 
     if (gHUD.unk_6 == 0 || gHUD.unk_7 != chargeTime) {
         gHUD.unk_6 = 1;
@@ -496,7 +500,8 @@ void DrawChargeBar(void) {
             break;
     }
 
-    if (chargeState == gHUD.unk_8) return;
+    if (chargeState == gHUD.unk_8) 
+        return;
 
     gHUD.unk_8 = chargeState;
 
