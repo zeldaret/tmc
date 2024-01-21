@@ -1241,8 +1241,8 @@ typedef union{
 } DoubleReturnValue;
 
 void sub_080A5F48(Item item, u32 offset) {
-    //this funcitons signature allows the div function to return a u64 (2x 32 bit registers)
-    //with the result in one register and the remainder in the other
+    // this funcitons signature allows the div function to return a u64 (2x 32 bit registers)
+    // with the result in one register and the remainder in the other
     typedef u64 DivRem (u32, u32); 
     
     s32 ammoCount;
@@ -1278,15 +1278,17 @@ void sub_080A5F48(Item item, u32 offset) {
             break;
     }
 
-    if (ammoCount < 0) return; 
+    if (ammoCount < 0) 
+        return; 
     
-    ret.raw = ((DivRem*)Div)(ammoCount,10); //by casting to DivRem, we can recover the remainder from the Div call
+    ret.raw = ((DivRem*)Div)(ammoCount,10); // by casting to DivRem, we can recover the remainder from the Div call
     onesDigit = ret.values.v2;
     tensDigit = ret.values.v1;
 
-    if (tensDigit >= 10) tensDigit = 9;
+    if (tensDigit >= 10) 
+        tensDigit = 9;
 
-    DmaCopy32(3, gUnk_085C4620 +  tensDigit       * 0x8, dest,        0x8 * 4);
+    DmaCopy32(3, gUnk_085C4620 + tensDigit * 0x8, dest, 0x8 * 4);
     DmaCopy32(3, gUnk_085C4620 + (onesDigit + 10) * 0x8, dest + 0x20, 0x8 * 4);
 }
 
