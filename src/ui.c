@@ -461,7 +461,7 @@ void DrawChargeBar(void) {
         tmp1 = gPlayerState.chargeState.action != 0;
     if (!tmp1) {
         EraseChargeBar();
-        return
+        return;
     }
     if (gHUD.maxHealth > 10 * 4)
         BufferPos = &gBG0Buffer[0x60];
