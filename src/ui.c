@@ -457,6 +457,7 @@ void EraseChargeBar(void) {
 void DrawChargeBar(void) {
     bool32 tmp1;
     u16* BufferPos;
+    // these names are almost certainly inaccurate
     u32 chargeTime;
     u32 chargeState;
     u32 chargeFrame;
