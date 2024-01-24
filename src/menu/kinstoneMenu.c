@@ -632,7 +632,7 @@ u32 KinstoneMenu_080A4494(void) {
     u32 ret;
     union SplitDWord multiVal;
     // TODO: Change this to union of u8* and u32
-    u8* fuserTextId; 
+    u8* fuserTextId;
 
     psVar1 = sub_0805F2C8();
     if (psVar1 != NULL) {
