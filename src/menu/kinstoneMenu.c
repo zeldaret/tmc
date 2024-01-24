@@ -629,8 +629,10 @@ void KinstoneMenu_080A4468(void) {
 
 u32 KinstoneMenu_080A4494(void) {
     WStruct* psVar1;
-    u8* r1;
     u32 ret;
+    union SplitDWord multiVal;
+    // TODO: Change this to union of u8* and u32
+    u8* fuserTextId; 
 
     psVar1 = sub_0805F2C8();
     if (psVar1 != NULL) {
@@ -639,13 +641,9 @@ u32 KinstoneMenu_080A4494(void) {
         psVar1->bgColor = 5;
         psVar1->unk1 = 0;
         sub_080A44E0(psVar1, gSave.name, 0x80);
-#if NON_MATCHING
-        ret = sub_080A44E0(psVar1, GetFuserId(gFuseInfo.entity) >> 0x20, 0xa0);
-#else
-        GetFuserId(gFuseInfo.entity);
-        asm("" : "=r"(r1));
-        ret = sub_080A44E0(psVar1, r1, 0xa0);
-#endif
+        multiVal = GetFuserIdAndFuserTextId(gFuseInfo.entity);
+        fuserTextId = (u8*)multiVal.HALF_U.HI;
+        ret = sub_080A44E0(psVar1, fuserTextId, 0xa0);
         sub_0805F300(psVar1);
     }
     return ret;
